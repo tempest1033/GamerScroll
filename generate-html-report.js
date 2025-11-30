@@ -230,7 +230,7 @@ async function fetchCommunityPosts() {
   try {
     if (FIRECRAWL_API_KEY) {
       const firecrawl = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
-      const scrapeResult = await firecrawl.scrape('https://arca.live/b/live', { formats: ['markdown'] });
+      const scrapeResult = await firecrawl.scrape('https://arca.live/b/live', { formats: ['markdown'], maxAge: 0 });
 
       if (scrapeResult && scrapeResult.markdown) {
         // 마크다운에서 게시물 파싱
@@ -295,7 +295,7 @@ async function fetchCommunityPosts() {
   try {
     if (FIRECRAWL_API_KEY) {
       const firecrawl = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
-      const scrapeResult = await firecrawl.scrape('https://gall.dcinside.com/board/lists?id=dcbest', { formats: ['markdown'] });
+      const scrapeResult = await firecrawl.scrape('https://gall.dcinside.com/board/lists?id=dcbest', { formats: ['markdown'], maxAge: 0 });
 
       if (scrapeResult && scrapeResult.markdown) {
         const md = scrapeResult.markdown;
