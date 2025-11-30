@@ -327,35 +327,30 @@ async function fetchCommunityPosts() {
     console.log('  디시인사이드 실베 실패:', e.message);
   }
 
-  // 팸코리아 포텐 터짐 (Playwright + Stealth - Cloudflare 우회)
+  // 팸코리아 포텐 터짐 (axios + cheerio)
   try {
-    const { chromium } = require('playwright-extra');
-    const stealth = require('puppeteer-extra-plugin-stealth')();
-    chromium.use(stealth);
-
-    const browser = await chromium.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    const fmRes = await axios.get('https://www.fmkorea.com/best2', {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Cache-Control': 'max-age=0',
+        'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131"',
+        'Sec-Ch-Ua-Mobile': '?0',
+        'Sec-Ch-Ua-Platform': '"Windows"',
+        'Sec-Fetch-Dest': 'document',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'none',
+        'Sec-Fetch-User': '?1',
+        'Upgrade-Insecure-Requests': '1'
+      },
+      timeout: 15000
     });
-    const context = await browser.newContext({
-      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-      viewport: { width: 1920, height: 1080 }
-    });
-    const page = await context.newPage();
-
-    await page.goto('https://www.fmkorea.com/best2', {
-      waitUntil: 'domcontentloaded',
-      timeout: 30000
-    });
-
-    // Cloudflare 체크 통과 대기
-    await page.waitForTimeout(3000);
-
-    const fmHtml = await page.content();
-    await browser.close();
+    const fmHtml = fmRes.data;
 
     // Cloudflare 차단 체크
-    if (!fmHtml.includes('보안 시스템') && fmHtml.includes('li_best2')) {
+    if (!fmHtml.includes('cf-turnstile') && fmHtml.includes('li_best2')) {
       const fm$ = cheerio.load(fmHtml);
 
       fm$('li.li_best2_pop0, li.li_best2_pop1').each((i, el) => {
