@@ -161,7 +161,7 @@ async function fetchCommunityPosts() {
     ruliweb: [],
     arca: [],
     dcinside: [],
-    fmkorea: []
+    inven: []
   };
 
   // 루리웹 게임 베스트 (axios + cheerio)
@@ -327,59 +327,38 @@ async function fetchCommunityPosts() {
     console.log('  디시인사이드 실베 실패:', e.message);
   }
 
-  // 팸코리아 포텐 터짐 (axios + cheerio)
+  // 인벤 핫이슈 (Firecrawl SDK 사용)
   try {
-    const fmRes = await axios.get('https://www.fmkorea.com/best2', {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Cache-Control': 'max-age=0',
-        'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131"',
-        'Sec-Ch-Ua-Mobile': '?0',
-        'Sec-Ch-Ua-Platform': '"Windows"',
-        'Sec-Fetch-Dest': 'document',
-        'Sec-Fetch-Mode': 'navigate',
-        'Sec-Fetch-Site': 'none',
-        'Sec-Fetch-User': '?1',
-        'Upgrade-Insecure-Requests': '1'
-      },
-      timeout: 15000
-    });
-    const fmHtml = fmRes.data;
+    if (FIRECRAWL_API_KEY) {
+      const firecrawl = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
+      const scrapeResult = await firecrawl.scrape('https://hot.inven.co.kr/', { formats: ['markdown'], maxAge: 0 });
 
-    // Cloudflare 차단 체크
-    if (!fmHtml.includes('cf-turnstile') && fmHtml.includes('li_best2')) {
-      const fm$ = cheerio.load(fmHtml);
+      if (scrapeResult && scrapeResult.markdown) {
+        const md = scrapeResult.markdown;
+        // 패턴: [순위\\\n\\\n게임명\\\n\\\n제목 \\\n\[댓글수\]](URL)
+        const postRegex = /\[(\d+)\\\\\n\\\\\n([^\n\\]+)\\\\\n\\\\\n([^\n]+)\s*\\\n\\\[(\d+)\\\]\]\((https:\/\/www\.inven\.co\.kr\/board\/[^)]+)\)/g;
+        let match;
+        const seenUrls = new Set();
 
-      fm$('li.li_best2_pop0, li.li_best2_pop1').each((i, el) => {
-        if (result.fmkorea.length >= 15) return false;
-        const $el = fm$(el);
-        const titleEl = $el.find('h3.title a');
-        const categoryEl = $el.find('.category');
+        while ((match = postRegex.exec(md)) !== null && result.inven.length < 15) {
+          const [, rank, game, titleRaw, comments, url] = match;
+          if (seenUrls.has(url)) continue;
+          seenUrls.add(url);
 
-        let title = titleEl.text().trim().replace(/\s*\[\d+\]\s*$/, '').trim();
-        let link = titleEl.attr('href') || '';
-        if (link && !link.startsWith('http')) {
-          link = 'https://www.fmkorea.com' + link;
-        }
-        const channel = categoryEl.text().trim();
+          // 제목 정리
+          let title = titleRaw.replace(/\s*\\$/, '').trim();
 
-        if (title && link && !title.includes('공지')) {
-          result.fmkorea.push({
+          result.inven.push({
             title: title.length > 50 ? title.substring(0, 50) + '...' : title,
-            link,
-            channel
+            link: url,
+            channel: game.trim()
           });
         }
-      });
-      console.log(`  팸코리아 포텐: ${result.fmkorea.length}개`);
-    } else {
-      console.log('  팸코리아 포텐: 0개 (Cloudflare 차단)');
+      }
+      console.log(`  인벤 핫이슈: ${result.inven.length}개`);
     }
   } catch (e) {
-    console.log('  팸코리아 포텐 실패:', e.message);
+    console.log('  인벤 핫이슈 실패:', e.message);
   }
 
   return result;
@@ -854,7 +833,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
   const ruliwebCommunityHTML = generateCommunitySection(community?.ruliweb || []);
   const arcaCommunityHTML = generateCommunitySection(community?.arca || []);
   const dcsideCommunityHTML = generateCommunitySection(community?.dcinside || []);
-  const fmkoreaCommunityHTML = generateCommunitySection(community?.fmkorea || []);
+  const invenCommunityHTML = generateCommunitySection(community?.inven || []);
 
   // 국가별 컬럼 생성 함수
   function generateCountryColumns(chartData) {
@@ -1249,7 +1228,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     #news-thisisgame .news-panel-header { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3); }
     
     #community-dcinside .news-panel-header { background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3); }
-    #community-fmkorea .news-panel-header { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3); }
+    #community-inven .news-panel-header { background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3); }
     #community-arca .news-panel-header { background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3); }
     #community-ruliweb .news-panel-header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); }
 
@@ -2337,8 +2316,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
         <div class="control-group">
           <div class="tab-group" id="communityTab">
             <button class="tab-btn active" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">디시인사이드</button>
-            <button class="tab-btn" data-community="fmkorea"><img src="https://www.google.com/s2/favicons?domain=fmkorea.com&sz=32" alt="" class="news-favicon">에펨코리아</button>
             <button class="tab-btn" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">아카라이브</button>
+            <button class="tab-btn" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
             <button class="tab-btn" data-community="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">루리웹</button>
           </div>
         </div>
@@ -2353,14 +2332,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
             </div>
             <div class="news-list">${dcsideCommunityHTML}</div>
           </div>
-          <div class="news-panel" id="community-fmkorea">
-            <div class="news-panel-header" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);">
-              <img src="https://www.google.com/s2/favicons?domain=fmkorea.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">에펨코리아 포텐</span>
-              <a href="https://www.fmkorea.com/best2" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${fmkoreaCommunityHTML}</div>
-          </div>
           <div class="news-panel" id="community-arca">
             <div class="news-panel-header" style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);">
               <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">
@@ -2368,6 +2339,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
               <a href="https://arca.live/b/live" target="_blank" class="news-more-link">더보기 →</a>
             </div>
             <div class="news-list">${arcaCommunityHTML}</div>
+          </div>
+          <div class="news-panel" id="community-inven">
+            <div class="news-panel-header" style="background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);">
+              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
+              <span class="news-panel-title">인벤 핫이슈</span>
+              <a href="https://hot.inven.co.kr/" target="_blank" class="news-more-link">더보기 →</a>
+            </div>
+            <div class="news-list">${invenCommunityHTML}</div>
           </div>
           <div class="news-panel" id="community-ruliweb">
             <div class="news-panel-header" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
