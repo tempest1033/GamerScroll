@@ -334,7 +334,7 @@ async function fetchCommunityPosts() {
     const page = await browser.newPage();
 
     await page.goto('https://www.fmkorea.com/best2', {
-      waitUntil: 'networkidle',
+      waitUntil: 'domcontentloaded',
       timeout: 30000
     });
 
