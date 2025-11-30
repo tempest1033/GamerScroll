@@ -1016,6 +1016,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       gap: 10px;
     }
 
+    .logo-svg {
+      height: 68px;
+      width: auto;
+      max-width: 100%;
+      filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.2));
+      transition: transform 0.3s ease;
+    }
+    
+    .logo-svg:hover {
+        transform: scale(1.02);
+    }
+
     .logo-badge {
       width: 36px;
       height: 36px;
@@ -2058,27 +2070,17 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     /* Top Banner */
     .top-banner {
-      width: 100%;
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 0;
+      max-width: 728px;
+      margin: 0 auto;
+      padding: 12px 24px 0 24px;
       text-align: center;
     }
 
-    .top-banner img {
-      max-width: 728px;
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
     .top-banner-placeholder {
-      max-width: 728px;
-      height: 90px;
-      margin: 0 auto;
-      background: var(--border);
+      background: #f1f5f9;
+      border: 2px dashed #cbd5e1;
       border-radius: 4px;
+      height: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2136,18 +2138,78 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       .header-top { flex-direction: column; align-items: flex-start; gap: 8px; }
       .report-date { text-align: left; }
       .news-grid { grid-template-columns: 1fr; }
-      .nav-item { padding: 10px 12px; font-size: 12px; }
+      .nav-item { padding: 10px 14px; font-size: 13px; }
+      .nav-item svg { width: 15px; height: 15px; }
+      .tab-btn { padding: 8px 14px; font-size: 13px; min-width: auto; }
+      .rankings-controls { padding: 16px 20px; gap: 16px; }
+      .control-group { flex-shrink: 1; }
+    }
+
+    @media (max-width: 768px) {
+      /* 모바일 순위 - 비율로 화면에 딱 맞게 */
+      .columns-grid { display: flex; width: 100%; }
+      .country-column { flex: 1; min-width: 0; transition: flex 0.3s ease; }
+      .country-column.expanded, .country-column:first-child:not(.collapsed) { flex: 3; }
+      .column-header { cursor: pointer; padding: 6px 4px; flex-direction: column; gap: 2px; }
+      .country-name { font-size: 9px; }
+      .flag { font-size: 1.1rem; }
+      .rank-row { padding: 5px 3px; gap: 3px; flex-direction: column; align-items: center; }
+      .rank-num { width: 20px; height: 20px; font-size: 10px; border-radius: 4px; }
+      .app-icon { width: 36px; height: 36px; border-radius: 8px; }
+      .app-info { display: none; }
+      .country-column.expanded .rank-row, .country-column:first-child:not(.collapsed) .rank-row { flex-direction: row; padding: 8px 10px; gap: 8px; }
+      .country-column.expanded .app-info, .country-column:first-child:not(.collapsed) .app-info { display: block; flex: 1; min-width: 0; }
+      .country-column.expanded .app-icon, .country-column:first-child:not(.collapsed) .app-icon { width: 32px; height: 32px; }
+      .country-column.expanded .rank-num, .country-column:first-child:not(.collapsed) .rank-num { width: 22px; height: 22px; font-size: 11px; }
+      .app-name { font-size: 11px; margin-bottom: 2px; }
+      .app-dev { font-size: 9px; }
+    }
+
+    @media (max-width: 576px) {
+      .nav-item { padding: 10px 12px; font-size: 12px; gap: 4px; }
       .nav-item svg { width: 14px; height: 14px; }
+      .logo-svg { height: 44px; }
+      .tab-btn { padding: 6px 10px; font-size: 12px; }
+      #newsTab .tab-btn, #communityTab .tab-btn { padding: 6px 4px; font-size: 11px; }
+      #storeTab .tab-btn, #chartTab .tab-btn { padding: 6px 10px; font-size: 12px; }
+      .rankings-controls { padding: 14px 16px; gap: 12px; }
+      .news-favicon { width: 14px; height: 14px; }
+      .rank-num { width: 18px; height: 18px; font-size: 9px; }
+      .app-icon { width: 32px; height: 32px; border-radius: 6px; }
+      .country-column.expanded .app-icon, .country-column:first-child:not(.collapsed) .app-icon { width: 28px; height: 28px; }
     }
 
     @media (max-width: 480px) {
-      .nav-item { padding: 8px 8px; font-size: 10px; gap: 3px; }
-      .nav-item svg { width: 12px; height: 12px; }
+      .nav-item { padding: 8px 10px; font-size: 11px; gap: 3px; }
+      .nav-item svg { width: 13px; height: 13px; }
+      .logo-svg { height: 36px; }
+      .tab-btn { padding: 6px 8px; font-size: 11px; }
+      #newsTab .tab-btn, #communityTab .tab-btn { padding: 6px 2px; font-size: 10px; }
+      #storeTab .tab-btn, #chartTab .tab-btn { padding: 6px 8px; font-size: 11px; }
+      .rankings-controls { padding: 12px 14px; gap: 10px; }
+      .control-group { gap: 8px; }
+      .news-favicon { width: 14px; height: 14px; }
+      .rank-num { width: 16px; height: 16px; font-size: 8px; }
+      .app-icon { width: 28px; height: 28px; }
+      .country-column.expanded { flex: 3.5; }
     }
 
     @media (max-width: 360px) {
-      .nav-item { padding: 6px 6px; font-size: 9px; gap: 2px; }
-      .nav-item svg { width: 10px; height: 10px; }
+      .nav-item { padding: 6px 8px; font-size: 10px; gap: 2px; }
+      .nav-item svg { width: 12px; height: 12px; }
+      .logo-svg { height: 32px; }
+      .tab-btn { padding: 4px 6px; font-size: 10px; }
+      #newsTab .tab-btn, #communityTab .tab-btn { padding: 4px 1px; font-size: 9px; }
+      #storeTab .tab-btn, #chartTab .tab-btn { padding: 4px 6px; font-size: 10px; }
+      .rankings-controls { padding: 10px 12px; gap: 8px; flex-wrap: wrap; justify-content: center; }
+      .control-group { gap: 6px; }
+      .news-favicon { width: 12px; height: 12px; }
+      .rank-num { width: 14px; height: 14px; font-size: 7px; }
+      .app-icon { width: 24px; height: 24px; border-radius: 4px; }
+      .country-column.expanded { flex: 4; }
+      .country-column.expanded .app-icon { width: 24px; height: 24px; }
+      .app-name { font-size: 9px; }
+      .app-dev { display: none; }
     }
 
 </style>
@@ -2157,7 +2219,31 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
   <header class="header">
     <div class="header-inner">
       <h1 class="header-title" id="logo-home" style="cursor: pointer;">
-        <span class="logo-game">GAMERS</span><span class="logo-crawler">CRAWL</span>
+        <svg class="logo-svg" viewBox="0 0 600 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4f46e5" />
+              <stop offset="100%" stop-color="#06b6d4" />
+            </linearGradient>
+          </defs>
+          
+          <!-- 중앙 정렬 텍스트 -->
+          <!-- dominant-baseline을 사용하여 수직 중앙 정렬 보정 -->
+          <text x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="48" font-weight="900" fill="#1e293b" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMERS CRAWL</text>
+          
+          <!-- 장식: Tech Signals (Bar Width: 10px, Corner: 5px) -->
+          <!-- 높이 72px 기준 수직 중앙 정렬 (Y = (72-H)/2) -->
+          
+          <!-- 왼쪽 안테나 -->
+          <rect x="40" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          <rect x="58" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+          <rect x="76" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+          
+          <!-- 오른쪽 안테나 (왼쪽과 완벽 대칭) -->
+          <rect x="514" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+          <rect x="532" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+          <rect x="550" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+        </svg>
       </h1>
     </div>
   </header>
@@ -2186,38 +2272,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       </div>
     </div>
   </nav>
-
-  <!-- 광고 배너 영역 -->
-  <div class="top-banner">
-    <svg width="728" height="90" viewBox="0 0 728 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-      <defs>
-        <linearGradient id="loadingBg" x1="0" y1="0" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#1a202c"/> <!-- Dark Slate -->
-          <stop offset="100%" stop-color="#2d3748"/> <!-- Lighter Dark Slate -->
-        </linearGradient>
-        <pattern id="pixelGrid" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-          <rect x="0" y="0" width="1" height="1" fill="#4a5568" opacity="0.2"/>
-        </pattern>
-      </defs>
-      
-      <!-- 배경 -->
-      <rect width="728" height="90" rx="12" fill="url(#loadingBg)"/>
-      <rect width="728" height="90" rx="12" fill="url(#pixelGrid)" opacity="0.5"/>
-      
-      <!-- 로딩 바 -->
-      <rect x="100" y="35" width="400" height="20" rx="5" fill="#4a5568" stroke="#4a5568" stroke-width="2"/>
-      <rect x="105" y="40" width="280" height="10" rx="3" fill="#69d2e7"/> <!-- Filled Bar -->
-
-      <!-- 텍스트 -->
-      <text x="300" y="28" font-family="'Pretendard', sans-serif" font-size="16" font-weight="bold" fill="#edf2f7" text-anchor="middle">LOADING NEXT LEVEL...</text>
-      <text x="550" y="50" font-family="'Pretendard', sans-serif" font-size="12" fill="#fff" text-anchor="middle">70%</text>
-      
-      <!-- 귀여운 픽셀 캐릭터 -->
-      <rect x="520" y="45" width="15" height="15" fill="#f8d353"/> <!-- Head -->
-      <rect x="515" y="50" width="25" height="5" fill="#f8d353"/> <!-- Arms -->
-      <rect x="520" y="60" width="5" height="5" fill="#e74c3c"/> <!-- Eye -->
-    </svg>
-  </div>
 
   <main class="container">
     <!-- 주요 뉴스 섹션 -->
@@ -2480,9 +2534,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-links">
-        <a href="/privacy" target="_blank">개인정보처리방침</a>
-      </div>
       <div class="footer-info">
         <p>데이터 출처: Apple App Store, Google Play Store, Steam, YouTube, 치지직, 게임 뉴스 매체</p>
       </div>
@@ -2556,6 +2607,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
         item.classList.add('active');
         document.getElementById(item.dataset.section)?.classList.add('active');
         resetSubTabs();
+        resetCountryColumns();
       });
     });
 
@@ -2588,6 +2640,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       document.getElementById(currentStore + '-' + currentChart)?.classList.add('active');
     }
 
+    // 국가 컬럼 초기화 함수
+    function resetCountryColumns() {
+      document.querySelectorAll('.country-column').forEach(c => {
+        c.classList.remove('expanded', 'collapsed');
+      });
+    }
+
     storeTab?.addEventListener('click', (e) => {
       const btn = e.target.closest('.tab-btn');
       if (!btn) return;
@@ -2595,6 +2654,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       btn.classList.add('active');
       currentStore = btn.dataset.store;
       updateRankings();
+      resetCountryColumns();
     });
 
     chartTab?.addEventListener('click', (e) => {
@@ -2604,6 +2664,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       btn.classList.add('active');
       currentChart = btn.dataset.chart;
       updateRankings();
+      resetCountryColumns();
     });
 
     // Steam 탭 이벤트
@@ -2625,6 +2686,32 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       btn.classList.add('active');
       document.querySelectorAll('.video-section').forEach(s => s.classList.remove('active'));
       document.getElementById('video-' + btn.dataset.video)?.classList.add('active');
+    });
+
+    // 모바일 디바이스 감지 (터치 + 포인터)
+    const isMobileDevice = () => {
+      return window.matchMedia('(pointer: coarse)').matches ||
+             'ontouchstart' in window ||
+             navigator.maxTouchPoints > 0;
+    };
+
+    // 모바일에서 국가 컬럼 클릭 시 펼치기 (768px 이하)
+    document.querySelectorAll('.columns-grid').forEach(grid => {
+      grid.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) return;
+        const column = e.target.closest('.country-column');
+        if (!column) return;
+        const columns = grid.querySelectorAll('.country-column');
+        const firstCol = columns[0];
+        const isFirst = column === firstCol;
+        columns.forEach(c => c.classList.remove('expanded'));
+        if (isFirst) {
+          firstCol.classList.remove('collapsed');
+        } else {
+          firstCol.classList.add('collapsed');
+          column.classList.add('expanded');
+        }
+      });
     });
 
     // Twemoji로 국기 이모지 렌더링
