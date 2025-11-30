@@ -327,11 +327,21 @@ async function fetchCommunityPosts() {
     console.log('  디시인사이드 실베 실패:', e.message);
   }
 
-  // 팸코리아 포텐 터짐 (Playwright - Cloudflare 우회)
+  // 팸코리아 포텐 터짐 (Playwright + Stealth - Cloudflare 우회)
   try {
-    const { chromium } = require('playwright');
-    const browser = await chromium.launch({ headless: true });
-    const page = await browser.newPage();
+    const { chromium } = require('playwright-extra');
+    const stealth = require('puppeteer-extra-plugin-stealth')();
+    chromium.use(stealth);
+
+    const browser = await chromium.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
+    const context = await browser.newContext({
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      viewport: { width: 1920, height: 1080 }
+    });
+    const page = await context.newPage();
 
     await page.goto('https://www.fmkorea.com/best2', {
       waitUntil: 'domcontentloaded',
@@ -339,7 +349,7 @@ async function fetchCommunityPosts() {
     });
 
     // Cloudflare 체크 통과 대기
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(3000);
 
     const fmHtml = await page.content();
     await browser.close();
