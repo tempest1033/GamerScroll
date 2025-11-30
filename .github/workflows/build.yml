@@ -39,6 +39,7 @@ jobs:
         run: |
           mkdir -p docs
           cp index.html docs/index.html
+          echo "gamerscrawl.com" > docs/CNAME
 
       - name: Commit and push
         run: |
