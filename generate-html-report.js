@@ -918,6 +918,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAMERS CRAWL | Daily Report</title>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
   <!-- 폰트 preload로 FOUT 방지 -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
