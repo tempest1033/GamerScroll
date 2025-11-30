@@ -6,6 +6,9 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const cloudscraper = require('cloudscraper');
 const { FirecrawlClient } = require('@mendable/firecrawl-js');
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
 
 const countries = [
   { code: 'kr', name: '대한민국', flag: '🇰🇷' },
@@ -324,35 +327,52 @@ async function fetchCommunityPosts() {
     console.log('  디시인사이드 실베 실패:', e.message);
   }
 
-  // 팸코리아 포텐 터짐 (cloudscraper - Cloudflare 우회)
+  // 팸코리아 포텐 터짐 (Playwright - Cloudflare 우회)
   try {
-    const fmHtml = await cloudscraper.get('https://www.fmkorea.com/best2');
-    const fm$ = cheerio.load(fmHtml);
+    const { chromium } = require('playwright');
+    const browser = await chromium.launch({ headless: true });
+    const page = await browser.newPage();
 
-    fm$('li.li_best2_pop0, li.li_best2_pop1').each((i, el) => {
-      if (result.fmkorea.length >= 15) return false;
-      const $el = fm$(el);
-      const titleEl = $el.find('h3.title a');
-      const categoryEl = $el.find('.category');
-
-      // 제목에서 댓글 수 제거 (예: "[340]" 부분)
-      let title = titleEl.text().trim().replace(/\s*\[\d+\]\s*$/, '').trim();
-      let link = titleEl.attr('href') || '';
-      if (link && !link.startsWith('http')) {
-        link = 'https://www.fmkorea.com' + link;
-      }
-      const channel = categoryEl.text().trim();
-
-      if (title && link && !title.includes('공지')) {
-        result.fmkorea.push({
-          title: title.length > 50 ? title.substring(0, 50) + '...' : title,
-          link,
-          channel
-        });
-      }
+    await page.goto('https://www.fmkorea.com/best2', {
+      waitUntil: 'networkidle',
+      timeout: 30000
     });
 
-    console.log(`  팸코리아 포텐: ${result.fmkorea.length}개`);
+    // Cloudflare 체크 통과 대기
+    await page.waitForTimeout(5000);
+
+    const fmHtml = await page.content();
+    await browser.close();
+
+    // Cloudflare 차단 체크
+    if (!fmHtml.includes('보안 시스템') && fmHtml.includes('li_best2')) {
+      const fm$ = cheerio.load(fmHtml);
+
+      fm$('li.li_best2_pop0, li.li_best2_pop1').each((i, el) => {
+        if (result.fmkorea.length >= 15) return false;
+        const $el = fm$(el);
+        const titleEl = $el.find('h3.title a');
+        const categoryEl = $el.find('.category');
+
+        let title = titleEl.text().trim().replace(/\s*\[\d+\]\s*$/, '').trim();
+        let link = titleEl.attr('href') || '';
+        if (link && !link.startsWith('http')) {
+          link = 'https://www.fmkorea.com' + link;
+        }
+        const channel = categoryEl.text().trim();
+
+        if (title && link && !title.includes('공지')) {
+          result.fmkorea.push({
+            title: title.length > 50 ? title.substring(0, 50) + '...' : title,
+            link,
+            channel
+          });
+        }
+      });
+      console.log(`  팸코리아 포텐: ${result.fmkorea.length}개`);
+    } else {
+      console.log('  팸코리아 포텐: 0개 (Cloudflare 차단)');
+    }
   } catch (e) {
     console.log('  팸코리아 포텐 실패:', e.message);
   }
@@ -905,6 +925,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <style>
+
     /* 폰트 로딩 전 화면 숨김 - FOUT 완전 방지 */
     html {
       visibility: hidden;
@@ -913,15 +934,20 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       visibility: visible;
     }
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
+      --primary: #4f46e5; /* Indigo 600 */
+      --primary-light: #6366f1; /* Indigo 500 */
+      --primary-dark: #4338ca; /* Indigo 700 */
       --accent: #f97316;
-      --bg: #f8fafc;
+      --bg: #f8fafc; /* Slate 50 */
       --card: #ffffff;
-      --border: #e2e8f0;
-      --text: #1e293b;
-      --text-secondary: #64748b;
-      --text-muted: #94a3b8;
+      --border: #e2e8f0; /* Slate 200 */
+      --text: #0f172a; /* Slate 900 */
+      --text-secondary: #64748b; /* Slate 500 */
+      --text-muted: #94a3b8; /* Slate 400 */
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 16px;
     }
 
     /* Twemoji 이모지 크기 제어 */
@@ -949,9 +975,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     /* Header */
     .header {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 20px 0;
+      padding: 24px 0;
+      position: relative;
+      z-index: 101;
     }
 
     .header-inner {
@@ -967,9 +997,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     .header-date {
       position: absolute;
       right: 24px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.5);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
     }
 
     .header-title {
@@ -980,6 +1014,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       align-items: center;
       justify-content: center;
       gap: 10px;
+    }
+
+    .logo-svg {
+      height: 56px;
+      width: auto;
+      max-width: 100%;
+      filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.2));
+      transition: transform 0.3s ease;
+    }
+    
+    .logo-svg:hover {
+        transform: scale(1.02);
     }
 
     .logo-badge {
@@ -1021,11 +1067,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     /* Navigation */
     .nav {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: var(--shadow-sm);
     }
 
     .nav-inner {
@@ -1034,7 +1083,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       padding: 0 24px;
       display: flex;
       justify-content: center;
-      gap: 4px;
+      gap: 8px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -1044,59 +1093,76 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .nav-item {
-      padding: 14px 20px;
-      font-size: 14px;
+      padding: 12px 20px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text-secondary);
       cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s;
+      position: relative;
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 8px;
       white-space: nowrap;
       flex-shrink: 0;
+      border-radius: 8px;
+      margin: 6px 0;
+      border-bottom: none;
     }
 
     .nav-item:hover {
       color: var(--text);
+      background: #f1f5f9;
     }
 
     .nav-item.active {
-      color: #3b82f6;
-      border-bottom-color: #3b82f6;
+      color: var(--primary);
+      background: #eef2ff;
+      border-bottom: none;
     }
 
     .nav-item svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
+      opacity: 0.8;
+    }
+    
+    .nav-item.active svg {
+        opacity: 1;
+        stroke-width: 2.5px;
     }
 
     /* Container */
     .container {
       max-width: 1600px;
       margin: 0 auto;
-      padding: 0 24px 40px;
+      padding: 0 24px 60px;
     }
 
     /* Sections */
     .section {
       display: none;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     .section.active {
       display: block;
     }
 
-    /* News Section - PC: 4컬럼, 모바일: 탭 */
+    /* News Section */
     .news-controls {
-      display: none; /* PC에서는 탭 숨김 */
+      display: none;
       background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       padding: 16px 24px;
-      margin-top: 24px;
-      margin-bottom: 16px;
+      margin-top: 16px;
+      margin-bottom: 20px;
     }
 
     .news-controls .control-group {
@@ -1112,32 +1178,34 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 4px;
-      font-size: 13px;
+      padding: 12px 4px;
+      font-size: 14px;
     }
 
     .news-card {
       background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.5);
     }
 
     @media (min-width: 769px) {
       .news-card {
-        margin-top: 24px;
+        margin-top: 16px;
       }
     }
 
     .news-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
 
     .news-panel {
-      display: block; /* PC에서는 모두 표시 */
-      border-right: 1px solid #e2e8f0;
-      padding: 0 12px;
+      display: block;
+      border-right: none; 
+      padding: 0;
       min-width: 0;
       overflow: hidden;
     }
@@ -1160,22 +1228,29 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     .news-panel-header {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 16px;
-      padding: 10px 12px;
-      border-radius: 8px;
-      background: #f1f5f9;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: #f8fafc;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
     }
 
-    #news-inven .news-panel-header { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); }
-    #news-ruliweb .news-panel-header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
-    #news-gamemeca .news-panel-header { background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); }
-    #news-thisisgame .news-panel-header { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); }
+    #news-inven .news-panel-header { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); }
+    #news-ruliweb .news-panel-header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); }
+    #news-gamemeca .news-panel-header { background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3); }
+    #news-thisisgame .news-panel-header { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3); }
+    
+    #community-dcinside .news-panel-header { background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3); }
+    #community-fmkorea .news-panel-header { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3); }
+    #community-arca .news-panel-header { background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3); }
+    #community-ruliweb .news-panel-header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); }
 
     .news-panel-title {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
 
     .news-more-link {
@@ -1183,17 +1258,24 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       font-size: 12px;
       color: rgba(255,255,255,0.9);
       text-decoration: none;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.2s;
     }
 
     .news-more-link:hover {
       color: #fff;
+      background: rgba(255,255,255,0.25);
     }
 
     .news-favicon {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       margin-right: 6px;
       vertical-align: middle;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
     }
 
     @media (max-width: 1400px) {
@@ -1205,19 +1287,19 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
         display: flex;
       }
       .news-card {
-        padding: 16px;
+        padding: 20px;
       }
       .news-container {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 24px;
       }
       .news-panel {
         display: block;
         background: #fff;
-        border-radius: 8px;
+        border-radius: 12px;
         border: 1px solid var(--border);
-        padding: 16px;
+        padding: 20px;
         border-right: none;
       }
     }
@@ -1241,35 +1323,39 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     .news-list {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 8px;
       flex: 1;
     }
 
     .news-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      background: #f8fafc;
-      border-radius: 8px;
-      transition: all 0.2s;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: all 0.2s ease;
       min-width: 0;
       overflow: hidden;
     }
 
     .news-item:hover {
-      background: #f1f5f9;
+      background: #f8fafc;
+      transform: translateX(4px);
+      border-color: #cbd5e1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     .news-num {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #e2e8f0;
+      background: #f1f5f9;
       color: #64748b;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       border-radius: 6px;
       flex-shrink: 0;
@@ -1280,6 +1366,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     .news-item:nth-child(3) .news-num {
       background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
       color: white;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
     }
 
     .news-content {
@@ -1292,29 +1379,30 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .news-content a {
-      flex: 1;
-      min-width: 0;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
-      color: #1e293b;
+      color: var(--text);
       text-decoration: none;
-      line-height: 1.4;
+      display: block;
+      line-height: 1.5;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 100%;
+      transition: color 0.2s;
     }
 
     .news-content a:hover {
-      color: #3b82f6;
+      color: var(--primary);
     }
 
     .community-tag {
-      font-size: 10px;
-      font-weight: 600;
-      color: #6366f1;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
       background: #eef2ff;
-      padding: 2px 6px;
-      border-radius: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -1322,11 +1410,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     /* Rankings Section */
     .rankings-controls {
       background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      padding: 16px 24px;
-      margin-top: 24px;
-      margin-bottom: 16px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 32px;
+      margin-top: 16px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1343,21 +1431,22 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     .control-group {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       flex-shrink: 0;
     }
 
     .control-label {
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 600;
       color: var(--text-secondary);
     }
 
     .tab-group {
       display: flex;
       background: #f1f5f9;
-      border-radius: 8px;
-      padding: 3px;
+      border-radius: 10px;
+      padding: 4px;
+      gap: 4px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -1367,37 +1456,40 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .tab-btn {
-      padding: 10px 16px;
+      padding: 10px 20px;
       min-width: 100px;
       font-size: 14px;
       font-weight: 600;
       color: var(--text-secondary);
       background: transparent;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
       text-align: center;
     }
 
     .tab-btn:hover {
       color: var(--text);
+      background: rgba(255,255,255,0.5);
     }
 
     .tab-btn.active {
       background: white;
-      color: var(--text);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      font-weight: 700;
     }
 
 
     /* Rankings Table */
     .rankings-card {
       background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow: hidden;
+      border: 1px solid var(--border);
     }
 
     .chart-section {
@@ -1419,7 +1511,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     .country-column {
       min-width: 0;
-      border-right: 1px solid #f1f5f9;
+      border-right: 1px solid var(--border);
     }
 
     .country-column:last-child {
@@ -1427,44 +1519,49 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .column-header {
-      padding: 8px 6px;
-      background: #e2e8f0;
-      border-bottom: 2px solid #cbd5e1;
+      padding: 16px 12px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 8px;
       position: sticky;
       top: 0;
       z-index: 10;
+      backdrop-filter: blur(4px);
     }
 
     .flag {
-      font-size: 1rem;
+      font-size: 1.4rem;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
     }
 
     .country-name {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
-      color: #1e293b;
+      color: var(--text);
     }
 
     .rank-list {
-      padding: 4px 0;
+      padding: 8px 0;
     }
 
     .rank-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
+      gap: 16px;
+      padding: 12px 16px;
       border-bottom: 1px solid #f1f5f9;
-      transition: all 0.15s;
+      transition: all 0.2s;
     }
 
     .rank-row:hover {
-      background: linear-gradient(90deg, #f8fafc 0%, #fff 100%);
-      transform: translateX(2px);
+      background: #f8fafc;
+      transform: scale(1.01);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      z-index: 1;
+      position: relative;
     }
 
     .rank-row:last-child {
@@ -1472,44 +1569,49 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .rank-num {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       color: #94a3b8;
       flex-shrink: 0;
       border-radius: 8px;
+      background: #f1f5f9;
     }
 
     .rank-num.top1 {
       background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
-      color: #78350f;
-      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
     }
 
     .rank-num.top2 {
-      background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
-      color: #334155;
-      box-shadow: 0 2px 8px rgba(148, 163, 184, 0.4);
+      background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 6px rgba(148, 163, 184, 0.3);
     }
 
     .rank-num.top3 {
-      background: linear-gradient(135deg, #fed7aa 0%, #f97316 100%);
-      color: #7c2d12;
-      box-shadow: 0 2px 8px rgba(249, 115, 22, 0.4);
+      background: linear-gradient(135deg, #fdba74 0%, #f97316 100%);
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3);
     }
 
     .app-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       object-fit: cover;
       flex-shrink: 0;
       background: #f1f5f9;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
     .app-info {
@@ -1519,18 +1621,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .app-name {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--text);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
     .app-dev {
-      font-size: 11px;
-      color: #94a3b8;
+      font-size: 12px;
+      color: var(--text-secondary);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1546,11 +1648,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     /* Steam Section */
     .steam-controls {
       background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      padding: 16px 24px;
-      margin-top: 24px;
-      margin-bottom: 16px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 32px;
+      margin-top: 16px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1564,40 +1666,39 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       display: block;
     }
 
-
     .steam-table {
       background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow: hidden;
+      border: 1px solid var(--border);
     }
 
     .steam-table-header {
       display: grid;
-      grid-template-columns: 60px 1fr 120px;
-      padding: 12px 20px;
-      background: #e2e8f0;
-      border-bottom: 2px solid #cbd5e1;
+      grid-template-columns: 70px 1fr 140px;
+      padding: 16px 24px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
       font-size: 13px;
-      font-weight: 600;
-      color: #475569;
-    }
-
-    .steam-table-header > div {
-      text-align: center;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
     .steam-table-row {
       display: grid;
-      grid-template-columns: 60px 1fr 120px;
-      padding: 12px 20px;
+      grid-template-columns: 70px 1fr 140px;
+      padding: 16px 24px;
       border-bottom: 1px solid #f1f5f9;
       align-items: center;
-      transition: background 0.15s;
+      transition: all 0.2s;
     }
 
     .steam-table-row:hover {
       background: #f8fafc;
+      transform: translateX(4px);
     }
 
     .steam-table-row:last-child {
@@ -1618,18 +1719,19 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .steam-img {
-      width: 120px;
-      height: 45px;
-      border-radius: 4px;
+      width: 140px;
+      height: 52px;
+      border-radius: 8px;
       object-fit: cover;
       background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
       flex-shrink: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .steam-img-placeholder {
-      width: 120px;
-      height: 45px;
-      border-radius: 4px;
+      width: 140px;
+      height: 52px;
+      border-radius: 8px;
       background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
       flex-shrink: 0;
       display: flex;
@@ -1649,8 +1751,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .steam-game-name {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: #1e293b;
       white-space: nowrap;
       overflow: hidden;
@@ -1686,7 +1788,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       padding: 2px 6px;
       border-radius: 4px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
+      box-shadow: 0 2px 4px rgba(34, 197, 94, 0.2);
     }
 
     .steam-price {
@@ -1747,11 +1850,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     /* Video Section (영상) */
     .video-controls {
       background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      padding: 16px 24px;
-      margin-top: 24px;
-      margin-bottom: 16px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 32px;
+      margin-top: 16px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1822,21 +1925,22 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     .youtube-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
 
     .youtube-card {
       background: white;
-      border-radius: 12px;
+      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow);
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.3s ease;
+      border: none;
     }
 
     .youtube-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
 
     .youtube-thumbnail {
@@ -1844,13 +1948,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       aspect-ratio: 16/9;
       background: #0f0f0f;
       overflow: hidden;
-      border-radius: 12px 12px 0 0;
+      border-radius: var(--radius) var(--radius) 0 0;
     }
 
     .youtube-thumbnail img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .youtube-card:hover .youtube-thumbnail img {
+        transform: scale(1.05);
     }
 
     .youtube-rank {
@@ -1867,6 +1976,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       color: white;
       background: rgba(0,0,0,0.7);
       border-radius: 6px;
+      backdrop-filter: blur(4px);
     }
 
     .youtube-rank.top1 {
@@ -1903,13 +2013,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     .youtube-info {
-      padding: 12px;
+      padding: 16px;
     }
 
     .youtube-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1e293b;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
       line-height: 1.4;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -1920,13 +2030,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     .youtube-channel {
       font-size: 12px;
-      color: #64748b;
+      color: var(--text-secondary);
       margin-bottom: 4px;
     }
 
     .youtube-views {
       font-size: 11px;
-      color: #94a3b8;
+      color: var(--text-muted);
     }
 
     .youtube-empty {
@@ -1948,7 +2058,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     @media (max-width: 768px) {
       .youtube-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 16px;
       }
     }
 
@@ -1960,69 +2070,59 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     /* Top Banner */
     .top-banner {
-      width: 100%;
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 0;
+      max-width: 728px;
+      margin: 0 auto;
+      padding: 12px 24px 0 24px;
       text-align: center;
     }
-    .top-banner img {
-      max-width: 728px;
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+
     .top-banner-placeholder {
-      max-width: 728px;
-      height: 90px;
-      margin: 0 auto;
-      background: var(--border);
+      background: #f1f5f9;
+      border: 2px dashed #cbd5e1;
       border-radius: 4px;
+      height: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--muted);
-      font-size: 14px;
+      color: #94a3b8;
+      font-size: 13px;
     }
 
     /* Footer */
     .footer {
       background: var(--card);
       border-top: 1px solid var(--border);
-      padding: 24px 20px;
+      padding: 32px 20px;
       text-align: center;
       margin-top: 40px;
     }
+
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
+      margin-bottom: 12px;
     }
+
     .footer-links a {
-      color: var(--muted);
+      color: #1f2937;
       text-decoration: none;
       font-size: 14px;
-      transition: color 0.2s;
     }
+
     .footer-links a:hover {
-      color: var(--text);
+      text-decoration: underline;
     }
+
     .footer-info {
-      color: var(--muted);
+      color: #64748b;
       font-size: 12px;
-      line-height: 1.6;
-      white-space: nowrap;
-      overflow-x: auto;
     }
+
     .footer-info p {
-      margin: 4px 0;
+      margin: 0;
     }
 
     /* Print */
@@ -2039,26 +2139,52 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       .report-date { text-align: left; }
       .news-grid { grid-template-columns: 1fr; }
       .nav-item { padding: 10px 12px; font-size: 12px; }
-      .nav-item svg { width: 16px; height: 16px; }
-      .top-banner { padding: 8px 10px; }
+      .nav-item svg { width: 14px; height: 14px; }
     }
+
     @media (max-width: 480px) {
-      .nav-item { padding: 8px 8px; font-size: 10px; gap: 4px; }
+      .nav-item { padding: 8px 8px; font-size: 10px; gap: 3px; }
       .nav-item svg { width: 12px; height: 12px; }
-      .top-banner-placeholder { height: 60px; font-size: 12px; }
-      .footer { padding: 20px 16px; }
-      .footer-links { gap: 16px; }
-      .footer-links a { font-size: 13px; }
-      .footer-info { font-size: 11px; }
+      .logo-svg { height: 28px; }
     }
-  </style>
+
+    @media (max-width: 360px) {
+      .nav-item { padding: 6px 6px; font-size: 9px; gap: 2px; }
+      .nav-item svg { width: 10px; height: 10px; }
+    }
+
+</style>
   <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header class="header">
     <div class="header-inner">
       <h1 class="header-title" id="logo-home" style="cursor: pointer;">
-        <span class="logo-game">GAMERS</span><span class="logo-crawler">CRAWL</span>
+        <svg class="logo-svg" viewBox="0 0 600 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4f46e5" />
+              <stop offset="100%" stop-color="#06b6d4" />
+            </linearGradient>
+          </defs>
+          
+          <!-- 중앙 정렬 텍스트 -->
+          <!-- dominant-baseline을 사용하여 수직 중앙 정렬 보정 -->
+          <text x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="48" font-weight="900" fill="#1e293b" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMERS CRAWL</text>
+          
+          <!-- 장식: Tech Signals (Bar Width: 10px, Corner: 5px) -->
+          <!-- 높이 72px 기준 수직 중앙 정렬 (Y = (72-H)/2) -->
+          
+          <!-- 왼쪽 안테나 -->
+          <rect x="40" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          <rect x="58" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+          <rect x="76" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+          
+          <!-- 오른쪽 안테나 (왼쪽과 완벽 대칭) -->
+          <rect x="514" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+          <rect x="532" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+          <rect x="550" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+        </svg>
       </h1>
     </div>
   </header>
@@ -2090,7 +2216,59 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
   <!-- 광고 배너 영역 -->
   <div class="top-banner">
-    <div class="top-banner-placeholder">광고 배너 영역 (728x90)</div>
+    <svg width="728" height="90" viewBox="0 0 728 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+      <defs>
+        <linearGradient id="spaceBg" x1="0" y1="0" x2="0" y2="100%">
+          <stop offset="0%" stop-color="#020024"/>
+          <stop offset="100%" stop-color="#090979"/>
+        </linearGradient>
+      </defs>
+      
+      <!-- 배경 -->
+      <rect width="728" height="90" rx="12" fill="url(#spaceBg)"/>
+      
+      <!-- 별 (Starfield) -->
+      <circle cx="50" cy="20" r="1" fill="white" opacity="0.8"/>
+      <circle cx="120" cy="70" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="300" cy="30" r="1" fill="white" opacity="0.9"/>
+      <circle cx="500" cy="80" r="1" fill="white" opacity="0.7"/>
+      <circle cx="650" cy="15" r="1.5" fill="white" opacity="0.5"/>
+      
+      <!-- 적기 편대 (Aliens) -->
+      <!-- Alien 1 -->
+      <rect x="200" y="20" width="20" height="14" fill="#ff0055"/>
+      <rect x="196" y="24" width="4" height="6" fill="#ff0055"/>
+      <rect x="220" y="24" width="4" height="6" fill="#ff0055"/>
+      <!-- Alien 2 -->
+      <rect x="240" y="30" width="20" height="14" fill="#ff0055"/>
+      <rect x="236" y="34" width="4" height="6" fill="#ff0055"/>
+      <rect x="260" y="34" width="4" height="6" fill="#ff0055"/>
+      <!-- Alien 3 -->
+      <rect x="280" y="20" width="20" height="14" fill="#ff0055"/>
+      <rect x="276" y="24" width="4" height="6" fill="#ff0055"/>
+      <rect x="300" y="24" width="4" height="6" fill="#ff0055"/>
+
+      <!-- 아군 기체 (Player Ship) -->
+      <polygon points="364,65 354,85 374,85" fill="#00d4ff"/>
+      <rect x="362" y="80" width="4" height="5" fill="#ff9900"/> <!-- Engine fire -->
+      
+      <!-- 레이저 발사! (Pew Pew) -->
+      <rect x="363" y="45" width="2" height="10" fill="#ffee00"/>
+      <rect x="363" y="30" width="2" height="10" fill="#ffee00"/>
+
+      <!-- 폭발 효과 (Boom) -->
+      <path d="M250 25 L255 35 L245 35 Z" fill="orange" />
+      <circle cx="250" cy="30" r="8" fill="yellow" opacity="0.8"/>
+
+      <!-- UI 텍스트 -->
+      <text x="40" y="30" font-family="'Pretendard', monospace" font-size="14" fill="#00ff00" font-weight="bold">SCORE: 99999</text>
+      <text x="40" y="50" font-family="'Pretendard', monospace" font-size="14" fill="#ff0000" font-weight="bold">HIGH: 100000</text>
+      
+      <text x="680" y="80" font-family="'Pretendard', sans-serif" font-size="12" fill="white" text-anchor="end" opacity="0.8">INSERT COIN</text>
+      
+      <text x="550" y="50" font-family="'Pretendard', sans-serif" font-size="24" font-weight="900" fill="white" style="text-shadow: 2px 2px 0px #ff0055;">GAME OVER?</text>
+      <text x="550" y="70" font-family="'Pretendard', sans-serif" font-size="14" fill="#00d4ff">CONTINUE [9]</text>
+    </svg>
   </div>
 
   <main class="container">
