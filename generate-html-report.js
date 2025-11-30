@@ -2610,16 +2610,52 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     });
 
     // 커뮤니티 탭 - 선택한 패널을 맨 위로 이동
-    communityTab?.addEventListener('click', (e) => {
-      const btn = e.target.closest('.tab-btn');
-      if (!btn) return;
-      communityTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const selectedPanel = document.getElementById('community-' + btn.dataset.community);
+    const communityTypes = ['dcinside', 'arca', 'inven', 'ruliweb'];
+    let currentCommunityIndex = 0;
+
+    function switchCommunity(index) {
+      if (index < 0) index = communityTypes.length - 1;
+      if (index >= communityTypes.length) index = 0;
+      currentCommunityIndex = index;
+
+      communityTab.querySelectorAll('.tab-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === index);
+      });
+      const selectedPanel = document.getElementById('community-' + communityTypes[index]);
       if (selectedPanel && communityContainer) {
         communityContainer.prepend(selectedPanel);
       }
+    }
+
+    communityTab?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      const index = communityTypes.indexOf(btn.dataset.community);
+      if (index !== -1) switchCommunity(index);
     });
+
+    // 모바일 스와이프 기능
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const communitySection = document.getElementById('community');
+
+    communitySection?.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    communitySection?.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          // 왼쪽으로 스와이프 → 다음
+          switchCommunity(currentCommunityIndex + 1);
+        } else {
+          // 오른쪽으로 스와이프 → 이전
+          switchCommunity(currentCommunityIndex - 1);
+        }
+      }
+    }, { passive: true });
 
     function updateRankings() {
       document.querySelectorAll('.chart-section').forEach(s => s.classList.remove('active'));
