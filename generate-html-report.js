@@ -43,7 +43,7 @@ async function fetchYouTubeVideos() {
           chart: 'mostPopular',
           regionCode: 'KR',
           videoCategoryId: category.id,
-          maxResults: 20,
+          maxResults: 50,
           key: YOUTUBE_API_KEY
         },
         timeout: 10000
@@ -65,6 +65,81 @@ async function fetchYouTubeVideos() {
   }
 
   return result;
+}
+
+// 치지직 라이브 순위 가져오기
+async function fetchChzzkLives() {
+  const lives = [];
+  try {
+    // 치지직 API로 라이브 목록 가져오기
+    const res = await axios.get('https://api.chzzk.naver.com/service/v1/lives', {
+      params: {
+        sortType: 'POPULAR',
+        concurrentUserCount: 0,
+        size: 50
+      },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+      },
+      timeout: 10000
+    });
+
+    const data = res.data?.content?.data || [];
+    data.forEach((item, i) => {
+      lives.push({
+        rank: i + 1,
+        title: item.liveTitle || '',
+        channel: item.channel?.channelName || '',
+        thumbnail: item.liveThumbnailImageUrl || item.channel?.channelImageUrl || '',
+        viewers: item.concurrentUserCount || 0,
+        category: item.liveCategoryValue || '',
+        channelId: item.channel?.channelId || ''
+      });
+    });
+    console.log(`  치지직 라이브: ${lives.length}개`);
+  } catch (e) {
+    console.log('  치지직 라이브 로드 실패:', e.message);
+  }
+  return lives;
+}
+
+// 숲(SOOP) 라이브 순위 가져오기
+async function fetchSoopLives() {
+  const lives = [];
+  try {
+    // 숲 검색 API로 라이브 목록 가져오기 (시청자순)
+    const res = await axios.get('https://sch.sooplive.co.kr/api.php', {
+      params: {
+        m: 'liveSearch',
+        szOrder: 'view_cnt',
+        nPageNo: 1,
+        nListCnt: 50
+      },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Origin': 'https://www.sooplive.co.kr',
+        'Referer': 'https://www.sooplive.co.kr/'
+      },
+      timeout: 10000
+    });
+
+    const data = res.data?.REAL_BROAD || [];
+    data.forEach((item, i) => {
+      lives.push({
+        rank: i + 1,
+        title: item.broad_title || '',
+        channel: item.user_nick || '',
+        thumbnail: item.broad_img || `https://liveimg.sooplive.co.kr/m/${item.broad_no}`,
+        viewers: parseInt(item.total_view_cnt) || 0,
+        category: item.broad_cate_name || '',
+        odeduckId: item.user_id || ''
+      });
+    });
+    console.log(`  숲 라이브: ${lives.length}개`);
+  } catch (e) {
+    console.log('  숲 라이브 로드 실패:', e.message);
+  }
+  return lives;
 }
 
 // 뉴스 크롤링 (인기뉴스 위주) - 소스별 분리
@@ -426,7 +501,7 @@ async function fetchRankings() {
   return results;
 }
 
-function generateHTML(rankings, news, steam, youtube) {
+function generateHTML(rankings, news, steam, youtube, chzzk) {
   const now = new Date();
   const reportDate = now.toLocaleDateString('ko-KR', {
     year: 'numeric',
@@ -1320,19 +1395,81 @@ function generateHTML(rankings, news, steam, youtube) {
       text-overflow: ellipsis;
     }
 
-    /* YouTube */
-    .youtube-controls {
-      margin-bottom: 20px;
+    /* Video Section (영상) */
+    .video-controls {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 16px 24px;
+      margin-top: 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .youtube-section {
+    .video-section {
       display: none;
     }
 
-    .youtube-section.active {
+    .video-section.active {
       display: block;
     }
 
+    .external-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .external-link-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: #f1f5f9;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .external-link-btn:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .link-favicon {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+
+    .external-link-btn svg {
+      margin-left: 4px;
+      opacity: 0.5;
+    }
+
+    .youtube-link:hover {
+      background: #ff0000;
+      color: white;
+    }
+
+    .chzzk-link:hover {
+      background: #00ffa3;
+      color: #000;
+    }
+
+    .soop-link:hover {
+      background: #5c7cfa;
+      color: white;
+    }
+
+    /* YouTube Grid */
     .youtube-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1501,8 +1638,8 @@ function generateHTML(rankings, news, steam, youtube) {
         스팀 순위
       </div>
       <div class="nav-item" data-section="youtube">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        유튜브
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        영상
       </div>
     </div>
   </nav>
@@ -1661,30 +1798,79 @@ function generateHTML(rankings, news, steam, youtube) {
       </div>
     </section>
 
-    <!-- 유튜브 섹션 -->
+    <!-- 영상 섹션 -->
     <section class="section" id="youtube">
-      ${youtube.gaming.length > 0 ? `
-      <div class="youtube-grid">
-        ${youtube.gaming.map((video, i) => `
-          <a class="youtube-card" href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
-            <div class="youtube-thumbnail">
-              <img src="${video.thumbnail}" alt="" loading="lazy">
-              <span class="youtube-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-            </div>
-            <div class="youtube-info">
-              <div class="youtube-title">${video.title}</div>
-              <div class="youtube-channel">${video.channel}</div>
-              <div class="youtube-views">조회수 ${video.views.toLocaleString()}회</div>
-            </div>
-          </a>
-        `).join('')}
+      <div class="video-controls">
+        <div class="tab-group" id="videoTab">
+          <button class="tab-btn active" data-video="trending">인기급상승</button>
+          <button class="tab-btn" data-video="gaming">영상순위</button>
+          <button class="tab-btn" data-video="chzzk">치지직</button>
+        </div>
       </div>
-      ` : `
-      <div class="youtube-empty">
-        <p>YouTube API 키가 설정되지 않았습니다.</p>
-        <p>YOUTUBE_API_KEY 환경변수를 설정해주세요.</p>
+
+      <!-- 인기급상승 -->
+      <div class="video-section active" id="video-trending">
+        ${youtube.trending.length > 0 ? `
+        <div class="youtube-grid">
+          ${youtube.trending.map((video, i) => `
+            <a class="youtube-card" href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
+              <div class="youtube-thumbnail">
+                <img src="${video.thumbnail}" alt="" loading="lazy">
+                <span class="youtube-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
+              </div>
+              <div class="youtube-info">
+                <div class="youtube-title">${video.title}</div>
+                <div class="youtube-channel">${video.channel}</div>
+                <div class="youtube-views">조회수 ${video.views.toLocaleString()}회</div>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+        ` : `<div class="youtube-empty"><p>데이터를 불러올 수 없습니다.</p></div>`}
       </div>
-      `}
+
+      <!-- 영상 순위 (게임) -->
+      <div class="video-section" id="video-gaming">
+        ${youtube.gaming.length > 0 ? `
+        <div class="youtube-grid">
+          ${youtube.gaming.map((video, i) => `
+            <a class="youtube-card" href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
+              <div class="youtube-thumbnail">
+                <img src="${video.thumbnail}" alt="" loading="lazy">
+                <span class="youtube-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
+              </div>
+              <div class="youtube-info">
+                <div class="youtube-title">${video.title}</div>
+                <div class="youtube-channel">${video.channel}</div>
+                <div class="youtube-views">조회수 ${video.views.toLocaleString()}회</div>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+        ` : `<div class="youtube-empty"><p>데이터를 불러올 수 없습니다.</p></div>`}
+      </div>
+
+      <!-- 치지직 -->
+      <div class="video-section" id="video-chzzk">
+        ${chzzk.length > 0 ? `
+        <div class="youtube-grid">
+          ${chzzk.map((live, i) => `
+            <a class="youtube-card" href="https://chzzk.naver.com/live/${live.channelId}" target="_blank">
+              <div class="youtube-thumbnail">
+                <img src="${live.thumbnail}" alt="" loading="lazy">
+                <span class="youtube-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
+              </div>
+              <div class="youtube-info">
+                <div class="youtube-title">${live.title}</div>
+                <div class="youtube-channel">${live.channel}</div>
+                <div class="youtube-views">시청자 ${live.viewers.toLocaleString()}명</div>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+        ` : `<div class="youtube-empty"><p>치지직 데이터를 불러올 수 없습니다.</p></div>`}
+      </div>
+
     </section>
   </main>
 
@@ -1742,6 +1928,10 @@ function generateHTML(rankings, news, steam, youtube) {
       steamTab?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
       document.querySelectorAll('.steam-section').forEach(s => s.classList.remove('active'));
       document.getElementById('steam-mostplayed')?.classList.add('active');
+      // 영상 탭 초기화
+      document.getElementById('videoTab')?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+      document.querySelectorAll('.video-section').forEach(s => s.classList.remove('active'));
+      document.getElementById('video-trending')?.classList.add('active');
     }
 
     // 메인 네비게이션
@@ -1800,6 +1990,17 @@ function generateHTML(rankings, news, steam, youtube) {
       document.getElementById('steam-' + btn.dataset.steam)?.classList.add('active');
     });
 
+    // 영상 탭 이벤트
+    const videoTab = document.getElementById('videoTab');
+    videoTab?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      videoTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.video-section').forEach(s => s.classList.remove('active'));
+      document.getElementById('video-' + btn.dataset.video)?.classList.add('active');
+    });
+
     // Twemoji로 국기 이모지 렌더링
     if (typeof twemoji !== 'undefined') {
       twemoji.parse(document.body, {
@@ -1828,8 +2029,11 @@ async function main() {
   console.log('\n📺 YouTube 인기 동영상 수집 중...');
   const youtube = await fetchYouTubeVideos();
 
+  console.log('\n📡 치지직 라이브 수집 중...');
+  const chzzk = await fetchChzzkLives();
+
   console.log('\n📄 GAMERSCRAWL 일일 보고서 생성 중...');
-  const html = generateHTML(rankings, news, steam, youtube);
+  const html = generateHTML(rankings, news, steam, youtube, chzzk);
 
   const filename = `TRIB_Daily_Report.html`;
   fs.writeFileSync(filename, html, 'utf8');
