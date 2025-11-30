@@ -698,6 +698,281 @@ async function fetchSteamRankings() {
   return { mostPlayed, topSellers };
 }
 
+// ========== 출시 예정 게임 섹션 ==========
+
+// Steam 출시 예정 게임 (explore/upcoming 페이지 스크래핑)
+async function fetchSteamUpcoming() {
+  const games = [];
+  const seenIds = new Set();
+
+  try {
+    if (!FIRECRAWL_API_KEY) {
+      console.log('  Steam: FIRECRAWL_API_KEY 없음');
+      return games;
+    }
+
+    const fc = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
+    const result = await fc.scrape('https://store.steampowered.com/explore/upcoming/', {
+      formats: ['markdown'],
+      maxAge: 3600000 // 1시간 캐시
+    });
+
+    if (result && result.markdown) {
+      // 마크다운 정규화: \\\n → \n
+      const md = result.markdown.replace(/\\+\n/g, '\n');
+
+      // Popular Upcoming Releases 섹션 찾기
+      const popularStart = md.indexOf('Popular Upcoming Releases');
+      const allStart = md.indexOf('All Upcoming Releases');
+
+      // Popular 섹션과 All 섹션 모두에서 게임 추출
+      const targetSection = popularStart > 0 ? md.substring(popularStart) : md;
+
+      // 게임 블록 패턴으로 분리 후 처리
+      // 각 게임은 [![게임명](이미지)]...](스토어URL) 형태
+      const gameBlocks = targetSection.split(/\[!\[/).slice(1);
+
+      for (const block of gameBlocks) {
+        if (games.length >= 20) break;
+
+        // 게임명 추출
+        const nameMatch = block.match(/^([^\]]+)\]/);
+        if (!nameMatch) continue;
+        const name = nameMatch[1].trim();
+
+        // appid 추출
+        const appidMatch = block.match(/\/apps\/(\d+)\//);
+        if (!appidMatch) continue;
+        const appid = appidMatch[1];
+
+        // 중복 체크
+        if (seenIds.has(appid)) continue;
+        if (name.includes('Supporter Pack') || name.includes('Soundtrack') || name.includes('Demo')) continue;
+
+        // 날짜 추출
+        const dateMatch = block.match(/((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d+, \d{4})/);
+        const releaseDate = dateMatch ? dateMatch[1] : '';
+
+        // 태그 추출 (]( 바로 앞의 콤마로 구분된 단어들)
+        // 예: "Singleplayer, Action, Roguelike, RPG]("
+        const tagMatch = block.match(/\n([A-Za-z][^,\n]+(?:,\s*[A-Za-z][^,\n]+)+)\]\(https:\/\/store\.steampowered/);
+        const tags = tagMatch ? tagMatch[1] : '';
+        const firstTag = tags.split(',')[0]?.trim() || '';
+
+        seenIds.add(appid);
+        games.push({
+          rank: games.length + 1,
+          name: name,
+          img: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appid}/header.jpg`,
+          appid: appid,
+          link: `https://store.steampowered.com/app/${appid}`,
+          releaseDate: releaseDate,
+          publisher: firstTag
+        });
+      }
+    }
+
+    console.log(`  Steam 출시예정: ${games.length}개`);
+  } catch (e) {
+    console.log('  Steam 출시예정 로드 실패:', e.message);
+  }
+  return games;
+}
+
+// 닌텐도 출시 예정 게임 (nintendo.com/kr/schedule)
+async function fetchNintendoUpcoming() {
+  const games = [];
+  try {
+    // Firecrawl로 스크래핑
+    if (!FIRECRAWL_API_KEY) {
+      console.log('  Nintendo: FIRECRAWL_API_KEY 없음');
+      return games;
+    }
+
+    const fc = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
+
+    // 마크다운 형식으로 가져오기
+    const result = await fc.scrape('https://www.nintendo.com/kr/schedule', {
+      formats: ['markdown'],
+      maxAge: 3600000 // 1시간 캐시
+    });
+
+    if (result && result.markdown) {
+      const seenNames = new Set();
+      let currentDate = '';
+
+      // **게임명**\[퍼블리셔\]](링크) 패턴 - 전체 마크다운에서 추출
+      // 백슬래시 이스케이프 처리
+      const md = result.markdown.replace(/\\\\/g, '');
+
+      // 날짜 섹션별로 처리
+      const sections = md.split(/\n(?=\d{4}\.\d{1,2})/);
+
+      for (const section of sections) {
+        // 날짜 추출
+        const dateMatch = section.match(/^(\d{4}\.\d{1,2}\.?\d*[월화수목금토일]*)/);
+        if (dateMatch) {
+          currentDate = dateMatch[1];
+        }
+
+        // 게임 패턴: **게임명**\[퍼블리셔\]](URL) 또는 **게임명**[퍼블리셔]](URL)
+        const gameRegex = /\*\*([^*]+)\*\*\s*\\?\[([^\]]+)\]\s*\]\((https?:\/\/[^)]+)\)/g;
+        let match;
+
+        while ((match = gameRegex.exec(section)) !== null && games.length < 20) {
+          const name = match[1].trim();
+          const publisher = match[2].trim().replace(/\\$/g, ''); // 끝의 백슬래시 제거
+          const link = match[3];
+
+          // 중복 제거 및 필터링
+          if (!seenNames.has(name) &&
+              name.length > 1 &&
+              !name.includes('업그레이드 패스') &&
+              !link.includes('youtube.com')) {
+            seenNames.add(name);
+            games.push({
+              rank: games.length + 1,
+              name,
+              publisher,
+              releaseDate: currentDate || '발매 예정',
+              img: '',
+              link
+            });
+          }
+        }
+      }
+    }
+    console.log(`  닌텐도 출시예정: ${games.length}개`);
+  } catch (e) {
+    console.log('  닌텐도 출시예정 로드 실패:', e.message);
+  }
+  return games;
+}
+
+// PS5 출시 예정 게임 (PlayStation Store 공식)
+async function fetchPS5Upcoming() {
+  const games = [];
+  try {
+    if (!FIRECRAWL_API_KEY) {
+      console.log('  PS5: FIRECRAWL_API_KEY 없음');
+      return games;
+    }
+
+    const fc = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
+    const result = await fc.scrape('https://store.playstation.com/ko-kr/category/a7c97306-69bd-45cb-a44f-c9ffd9eaa7d3/1', {
+      formats: ['markdown'],
+      maxAge: 3600000 // 1시간 캐시
+    });
+
+    if (result && result.markdown) {
+      const seenNames = new Set();
+
+      // 게임 블록 패턴: - [게임명](링크) 다음에 이미지와 가격
+      // 마크다운을 게임 단위로 분리
+      const gameBlocks = result.markdown.split(/\n-\s+\[/).slice(1); // 첫 번째 분할은 헤더
+
+      for (const block of gameBlocks) {
+        if (games.length >= 20) break;
+
+        // 게임명과 링크 추출
+        const nameMatch = block.match(/^([^\]]+)\]\((https:\/\/store\.playstation\.com\/ko-kr\/concept\/[^)]+)\)/);
+        if (!nameMatch) continue;
+
+        const name = nameMatch[1].trim();
+        const link = nameMatch[2];
+
+        // 네비게이션 링크 제외
+        if (name === 'PlayStation Store' || name.includes('최신') || name.includes('카테고리') ||
+            name.includes('프로모션') || name.includes('구독') || name.includes('둘러보기')) {
+          continue;
+        }
+
+        // 이미 추가된 게임 스킵
+        if (seenNames.has(name)) continue;
+
+        // 이미지 추출 (w=1920 버전)
+        const imgMatch = block.match(/!\[\]\((https:\/\/image\.api\.playstation\.com\/[^?]+)\?w=1920\)/);
+        const img = imgMatch ? imgMatch[1] + '?w=440' : '';
+
+        // 가격 추출
+        let price = '출시 예정';
+        const priceMatch = block.match(/([\d,]+원)/);
+        if (priceMatch) {
+          price = priceMatch[1];
+        } else if (block.includes('발표됨')) {
+          price = '발표됨';
+        }
+
+        seenNames.add(name);
+        games.push({
+          rank: games.length + 1,
+          name,
+          link,
+          img,
+          releaseDate: price,
+          publisher: 'PlayStation'
+        });
+      }
+    }
+
+    console.log(`  PS5 출시예정: ${games.length}개`);
+  } catch (e) {
+    console.log('  PS5 출시예정 로드 실패:', e.message);
+  }
+  return games;
+}
+
+// 모바일 신규 출시 게임 (iOS App Store - 게임 카테고리만)
+async function fetchMobileUpcoming() {
+  const games = [];
+  try {
+    // 신규 무료 앱을 많이 가져와서 게임만 필터링
+    const newApps = await store.list({
+      collection: store.collection.NEW_FREE_IOS,
+      country: 'kr',
+      num: 200  // 더 많이 가져와서 게임 20개 확보
+    });
+
+    // 게임 카테고리(6014)만 필터링
+    const gameApps = newApps.filter(app => {
+      // genreId가 게임(6014)이거나 genre가 '게임' 또는 'Games'인 경우
+      return app.genreId === '6014' ||
+             app.genre === '게임' ||
+             app.genre === 'Games';
+    });
+
+    gameApps.slice(0, 20).forEach((app, i) => {
+      games.push({
+        rank: i + 1,
+        name: app.title,
+        img: app.icon,
+        link: app.url,
+        releaseDate: '신규 출시',
+        publisher: app.developer || ''
+      });
+    });
+
+    console.log(`  모바일 신규출시 (iOS 게임): ${games.length}개`);
+  } catch (e) {
+    console.log('  모바일 신규출시 로드 실패:', e.message);
+  }
+  return games;
+}
+
+// 출시 예정 게임 통합 수집
+async function fetchUpcomingGames() {
+  console.log('\n📅 출시 예정 게임 수집 중...');
+
+  const [steam, nintendo, ps5, mobile] = await Promise.all([
+    fetchSteamUpcoming(),
+    fetchNintendoUpcoming(),
+    fetchPS5Upcoming(),
+    fetchMobileUpcoming()
+  ]);
+
+  return { steam, nintendo, ps5, mobile };
+}
+
 // 마켓 순위 데이터
 async function fetchRankings() {
   const results = {
@@ -782,7 +1057,7 @@ async function fetchRankings() {
   return results;
 }
 
-function generateHTML(rankings, news, steam, youtube, chzzk, community) {
+function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming) {
   const now = new Date();
   // 15분 단위로 내림 (21:37 → 21:30)
   const roundedMinutes = Math.floor(now.getMinutes() / 15) * 15;
@@ -807,33 +1082,67 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     `).join('');
   }
 
+  // 플랫폼별 기본 로고 SVG
+  const platformLogos = {
+    steam: '<svg viewBox="0 0 24 24" fill="#66c0f4"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.007l2.862-4.145v-.058c0-2.495 2.03-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.104.004.156 0 1.871-1.52 3.393-3.393 3.393-1.618 0-2.974-1.14-3.305-2.658l-4.6-1.903C1.463 19.63 6.27 24 11.979 24c6.627 0 12-5.373 12-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.26-.626.263-1.316.009-1.946-.254-.63-.729-1.121-1.354-1.38a2.51 2.51 0 0 0-1.921-.046l1.522.63a1.846 1.846 0 0 1-.943 3.538 1.846 1.846 0 0 1-.486-.061zm8.412-5.88a3.017 3.017 0 0 0 3.015-3.015 3.017 3.017 0 0 0-3.015-3.015 3.017 3.017 0 0 0-3.015 3.015 3.019 3.019 0 0 0 3.015 3.015zm0-5.426a2.411 2.411 0 1 1 0 4.822 2.411 2.411 0 0 1 0-4.822z"/></svg>',
+    nintendo: '<svg viewBox="0 0 24 24" fill="#e60012"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>',
+    ps5: '<svg viewBox="0 0 24 24" fill="#003791"><path d="M8.985 2.596v17.548l3.915 1.261V6.688c0-.69.304-1.151.794-.991.636.181.76.814.76 1.505v5.876c2.441 1.193 4.362-.002 4.362-3.153 0-3.237-.794-4.819-3.067-5.559-1.445-.454-3.764-1.771-3.764-1.771v18.37l-2.997-.97V2.596z"/><path d="M2.015 17.206c0 .688.343 1.152.984.913l6.258-2.204v-2.21l-4.636 1.615c-.49.171-.761-.056-.761-.746V8.45L2.015 9.3v7.906z"/><path d="M19.016 13.066c1.027-.478 1.969-.078 1.969 1.155v4.192c0 1.233-.942 1.634-1.969 1.155l-5.966-2.738v-2.21l5.966 2.733z"/></svg>',
+    mobile: '<svg viewBox="0 0 24 24" fill="#34a853"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#34a853" stroke-width="2" fill="none"/><circle cx="12" cy="18" r="1.5" fill="#34a853"/></svg>'
+  };
+
+  // 출시 예정 게임 HTML 생성 (게임명 > 발매일 > 회사 순서)
+  function generateUpcomingSection(items, platform) {
+    if (!items || items.length === 0) {
+      return '<div class="upcoming-empty">출시 예정 정보를 불러올 수 없습니다</div>';
+    }
+    const defaultLogo = platformLogos[platform] || platformLogos.mobile;
+    return items.map((game, i) => `
+      <a class="upcoming-item" href="${game.link || '#'}" target="_blank" rel="noopener">
+        <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
+        ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" onerror="this.parentElement.querySelector('.upcoming-icon-placeholder')?.classList.remove('hidden');this.style.display='none'">` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
+        <div class="upcoming-info">
+          <div class="upcoming-name">${game.name}</div>
+          ${game.releaseDate ? `<div class="upcoming-date">${game.releaseDate}</div>` : ''}
+          ${game.publisher ? `<div class="upcoming-publisher">${game.publisher}</div>` : ''}
+        </div>
+      </a>
+    `).join('');
+  }
+
   const invenNewsHTML = generateNewsSection(news.inven);
   const ruliwebNewsHTML = generateNewsSection(news.ruliweb);
   const gamemecaNewsHTML = generateNewsSection(news.gamemeca);
   const thisisgameNewsHTML = generateNewsSection(news.thisisgame);
 
   // 커뮤니티 인기글 HTML 생성
-  function generateCommunitySection(items) {
+  const communityUrls = {
+    ruliweb: 'https://bbs.ruliweb.com/best/humor',
+    arca: 'https://arca.live/b/live',
+    dcinside: 'https://gall.dcinside.com/board/lists?id=dcbest',
+    inven: 'https://www.inven.co.kr/board/webzine/2097'
+  };
+
+  function generateCommunitySection(items, source) {
     if (!items || items.length === 0) {
       return '<div class="no-data">인기글을 불러올 수 없습니다</div>';
     }
     return items.map((item, i) => {
       const channelTag = item.channel ? `<span class="community-tag">${item.channel}</span>` : '';
       return `
-      <div class="news-item">
+      <a class="news-item clickable" href="${item.link}" target="_blank" rel="noopener">
         <span class="news-num">${i + 1}</span>
         <div class="news-content">
-          ${channelTag}<a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>
+          ${channelTag}<span class="news-title">${item.title}</span>
         </div>
-      </div>
+      </a>
     `;
     }).join('');
   }
 
-  const ruliwebCommunityHTML = generateCommunitySection(community?.ruliweb || []);
-  const arcaCommunityHTML = generateCommunitySection(community?.arca || []);
-  const dcsideCommunityHTML = generateCommunitySection(community?.dcinside || []);
-  const invenCommunityHTML = generateCommunitySection(community?.inven || []);
+  const ruliwebCommunityHTML = generateCommunitySection(community?.ruliweb || [], 'ruliweb');
+  const arcaCommunityHTML = generateCommunitySection(community?.arca || [], 'arca');
+  const dcsideCommunityHTML = generateCommunitySection(community?.dcinside || [], 'dcinside');
+  const invenCommunityHTML = generateCommunitySection(community?.inven || [], 'inven');
 
   // 국가별 컬럼 생성 함수
   function generateCountryColumns(chartData) {
@@ -1073,6 +1382,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      transition: transform 0.3s ease;
     }
     .nav-inner::-webkit-scrollbar {
       display: none;
@@ -1082,7 +1392,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       padding: 12px 20px;
       font-size: 15px;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: #475569;  /* 더 진한 색상 */
       cursor: pointer;
       position: relative;
       transition: all 0.2s ease;
@@ -1096,9 +1406,40 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       border-bottom: none;
     }
 
-    .nav-item:hover {
-      color: var(--text);
-      background: #f1f5f9;
+    /* 모바일 캐러셀 네비게이션 - 5개 표시 */
+    @media (max-width: 768px) {
+      .nav {
+        overflow: hidden;
+      }
+      .nav-inner {
+        justify-content: flex-start;
+        padding: 0;
+        gap: 0;
+        overflow: visible;
+      }
+      .nav-item {
+        min-width: 20%;
+        flex: 0 0 20%;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 4px;
+        margin: 4px 0;
+        font-size: 12px;
+        gap: 4px;
+        flex-direction: column;
+      }
+      .nav-item svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* 데스크톱에서만 hover */
+    @media (hover: hover) {
+      .nav-item:hover {
+        color: var(--text);
+        background: #f1f5f9;
+      }
     }
 
     .nav-item.active {
@@ -1146,7 +1487,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 16px 24px;
+      padding: 12px 12px;
       margin-top: 16px;
       margin-bottom: 20px;
     }
@@ -1326,11 +1667,36 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       overflow: hidden;
     }
 
-    .news-item:hover {
-      background: #f8fafc;
-      transform: translateX(4px);
-      border-color: #cbd5e1;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    /* 데스크톱에서만 hover 효과 */
+    @media (hover: hover) {
+      .news-item:hover {
+        background: #f8fafc;
+        transform: translateX(4px);
+        border-color: #cbd5e1;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      }
+    }
+
+    a.news-item.clickable {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    /* 데스크톱에서만 hover 효과 */
+    @media (hover: hover) {
+      a.news-item.clickable:hover {
+        background: #eef2ff;
+        border-color: var(--primary);
+      }
+    }
+
+    /* 터치 디바이스에서 active 효과 */
+    @media (hover: none) {
+      a.news-item.clickable:active {
+        background: #eef2ff;
+        border-color: var(--primary);
+      }
     }
 
     .news-num {
@@ -1380,6 +1746,19 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     .news-content a:hover {
       color: var(--primary);
+    }
+
+    .news-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      min-width: 0;
+      line-height: 1.5;
     }
 
     .community-tag {
@@ -1671,6 +2050,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       color: var(--text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.02em;
+    }
+
+    .steam-table-header > div:nth-child(2) {
+      text-align: center;
+    }
+
+    .steam-table-header > div:nth-child(3) {
+      text-align: right;
     }
 
     .steam-table-row {
@@ -2155,9 +2542,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       .nav-item { padding: 10px 12px; font-size: 12px; gap: 4px; }
       .nav-item svg { width: 14px; height: 14px; }
       .logo-svg { height: 44px; }
-      .tab-btn { padding: 6px 10px; font-size: 12px; }
-      #newsTab .tab-btn, #communityTab .tab-btn { padding: 6px 4px; font-size: 11px; }
-      #storeTab .tab-btn, #chartTab .tab-btn { padding: 6px 10px; font-size: 12px; }
+      /* 모든 탭 버튼 완전 통일 - 576px */
+      .tab-btn { padding: 12px 12px; font-size: 11px; font-weight: 600; }
+      .tab-btn .news-favicon { width: 18px; height: 18px; margin-right: 6px; }
       .rankings-controls { padding: 14px 16px; gap: 12px; }
       .news-favicon { width: 14px; height: 14px; }
       .rank-num { width: 18px; height: 18px; font-size: 9px; }
@@ -2166,27 +2553,81 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     }
 
     @media (max-width: 480px) {
-      .nav-item { padding: 8px 10px; font-size: 11px; gap: 3px; }
-      .nav-item svg { width: 13px; height: 13px; }
+      /* 좌우 여백 최소화 */
+      .container { padding: 0 8px 40px; }
+      .nav-inner { padding: 0 4px; }
+
+      /* 메인 메뉴 크기 증가 */
+      .nav-item { padding: 12px 8px; font-size: 12px; gap: 4px; }
+      .nav-item svg { width: 20px; height: 20px; }
       .logo-svg { height: 36px; }
-      .tab-btn { padding: 6px 8px; font-size: 11px; }
-      #newsTab .tab-btn, #communityTab .tab-btn { padding: 6px 2px; font-size: 10px; }
-      #storeTab .tab-btn, #chartTab .tab-btn { padding: 6px 8px; font-size: 11px; }
-      .rankings-controls { padding: 12px 14px; gap: 10px; }
-      .control-group { gap: 8px; }
+      /* 모든 탭 버튼 완전 통일 */
+      .tab-btn { padding: 14px 14px; font-size: 12px; font-weight: 600; }
+      .tab-group { gap: 6px; }
+
+      /* 컨트롤 영역 */
+      .rankings-controls { padding: 12px 8px; gap: 8px; }
+      .control-group { gap: 6px; }
+
+      /* 뉴스/커뮤니티 컨트롤 */
+      .news-controls { padding: 8px 8px; margin-top: 8px; margin-bottom: 8px; }
+
+      /* 뉴스/커뮤니티 아이템 */
+      .news-item { padding: 8px 6px; gap: 6px; }
+      .news-panel { padding: 8px 6px; gap: 6px; }
+      .news-card { padding: 10px; }
       .news-favicon { width: 14px; height: 14px; }
+      /* 탭 버튼 내 아이콘은 더 크게 유지 */
+      .tab-btn .news-favicon { width: 20px; height: 20px; margin-right: 8px; }
+
+      /* 순위 */
       .rank-num { width: 16px; height: 16px; font-size: 8px; }
       .app-icon { width: 28px; height: 28px; }
       .country-column.expanded { flex: 3.5; }
+
+      /* Steam 테이블 모바일 */
+      .steam-table-row {
+        grid-template-columns: 40px 1fr 80px;
+        padding: 10px 12px;
+      }
+      .steam-col-game {
+        gap: 8px;
+      }
+      .steam-img {
+        width: 40px;
+        height: 40px;
+      }
+      .steam-game-name {
+        font-size: 12px;
+      }
+      .steam-game-dev {
+        font-size: 10px;
+      }
+      .steam-col-players {
+        font-size: 11px;
+        text-align: right;
+      }
+      .steam-price-info {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+      }
+      .steam-discount {
+        font-size: 10px;
+        padding: 2px 4px;
+      }
+      .steam-price {
+        font-size: 11px;
+      }
     }
 
     @media (max-width: 360px) {
       .nav-item { padding: 6px 8px; font-size: 10px; gap: 2px; }
       .nav-item svg { width: 12px; height: 12px; }
       .logo-svg { height: 32px; }
-      .tab-btn { padding: 4px 6px; font-size: 10px; }
-      #newsTab .tab-btn, #communityTab .tab-btn { padding: 4px 1px; font-size: 9px; }
-      #storeTab .tab-btn, #chartTab .tab-btn { padding: 4px 6px; font-size: 10px; }
+      /* 모든 탭 버튼 완전 통일 - 360px */
+      .tab-btn { padding: 10px 8px; font-size: 10px; font-weight: 600; }
+      .tab-btn .news-favicon { width: 16px; height: 16px; margin-right: 4px; }
       .rankings-controls { padding: 10px 12px; gap: 8px; flex-wrap: wrap; justify-content: center; }
       .control-group { gap: 6px; }
       .news-favicon { width: 12px; height: 12px; }
@@ -2196,6 +2637,163 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       .country-column.expanded .app-icon { width: 24px; height: 24px; }
       .app-name { font-size: 9px; }
       .app-dev { display: none; }
+    }
+
+    /* ========== Upcoming Games Section ========== */
+    .upcoming-controls {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 32px;
+      margin-top: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .upcoming-section {
+      display: none;
+    }
+
+    .upcoming-section.active {
+      display: block;
+    }
+
+    .upcoming-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .upcoming-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .upcoming-item:hover {
+      background: #f8fafc;
+    }
+
+    .upcoming-item:last-child {
+      border-bottom: none;
+    }
+
+    .upcoming-rank {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e2e8f0;
+      color: var(--text-secondary);
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .upcoming-rank.top1 { background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%); color: #92400e; }
+    .upcoming-rank.top2 { background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%); color: #374151; }
+    .upcoming-rank.top3 { background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%); color: #fff; }
+
+    .upcoming-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #f1f5f9;
+    }
+
+    .upcoming-icon-placeholder {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .upcoming-icon-placeholder svg {
+      width: 100%;
+      height: 100%;
+      opacity: 0.7;
+    }
+
+    .upcoming-icon-placeholder.hidden {
+      display: none;
+    }
+
+    .upcoming-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .upcoming-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+
+    .upcoming-date {
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .upcoming-publisher {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .upcoming-price {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .upcoming-empty {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    /* Upcoming responsive */
+    @media (max-width: 768px) {
+      .upcoming-controls { padding: 16px 20px; }
+      .upcoming-item { padding: 12px 16px; gap: 10px; }
+      .upcoming-icon { width: 48px; height: 48px; border-radius: 10px; }
+      .upcoming-icon-placeholder { width: 48px; height: 48px; border-radius: 10px; }
+      .upcoming-name { font-size: 13px; }
+      .upcoming-rank { width: 24px; height: 24px; font-size: 11px; }
+    }
+
+    @media (max-width: 480px) {
+      .upcoming-controls { padding: 12px 14px; }
+      .upcoming-item { padding: 10px 12px; gap: 8px; }
+      .upcoming-icon { width: 40px; height: 40px; border-radius: 8px; }
+      .upcoming-icon-placeholder { width: 40px; height: 40px; border-radius: 8px; }
+      .upcoming-name { font-size: 12px; }
+      .upcoming-date { font-size: 11px; }
+      .upcoming-rank { width: 22px; height: 22px; font-size: 10px; }
     }
 
 </style>
@@ -2236,17 +2834,17 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
   <nav class="nav">
     <div class="nav-inner">
-      <div class="nav-item active" data-section="news">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
-        주요 뉴스
-      </div>
-      <div class="nav-item" data-section="community">
+      <div class="nav-item active" data-section="community">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
         커뮤니티
       </div>
       <div class="nav-item" data-section="youtube">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         영상 순위
+      </div>
+      <div class="nav-item" data-section="news">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+        주요 뉴스
       </div>
       <div class="nav-item" data-section="rankings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
@@ -2256,12 +2854,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>
         스팀 순위
       </div>
+      <div class="nav-item" data-section="upcoming">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        출시 작품
+      </div>
     </div>
   </nav>
 
   <main class="container">
     <!-- 주요 뉴스 섹션 -->
-    <section class="section active" id="news">
+    <section class="section" id="news">
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="newsTab">
@@ -2311,7 +2913,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     </section>
 
     <!-- 커뮤니티 인기글 섹션 -->
-    <section class="section" id="community">
+    <section class="section active" id="community">
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="communityTab">
@@ -2424,7 +3026,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
                 <span class="steam-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
               </div>
               <div class="steam-col-game">
-                <img class="steam-img" src="${game.img}" alt="" loading="lazy" onerror="this.onerror=null;this.src='https://cdn.cloudflare.steamstatic.com/store/home/store_home_share.jpg';">
+                <img class="steam-img" src="${game.img}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="steam-img-placeholder" style="display:none"><svg viewBox="0 0 24 24" fill="#66c0f4"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.007l2.862-4.145v-.058c0-2.495 2.03-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.104.004.156 0 1.871-1.52 3.393-3.393 3.393-1.618 0-2.974-1.14-3.305-2.658l-4.6-1.903C1.463 19.63 6.27 24 11.979 24c6.627 0 12-5.373 12-12S18.606 0 11.979 0z"/></svg></div>
                 <div class="steam-game-info">
                   <div class="steam-game-name">${game.name}</div>
                   <div class="steam-game-dev">${game.developer}</div>
@@ -2450,7 +3053,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
                 <span class="steam-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
               </div>
               <div class="steam-col-game">
-                <img class="steam-img" src="${game.img}" alt="" loading="lazy" onerror="this.onerror=null;this.src='https://cdn.cloudflare.steamstatic.com/store/home/store_home_share.jpg';">
+                <img class="steam-img" src="${game.img}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="steam-img-placeholder" style="display:none"><svg viewBox="0 0 24 24" fill="#66c0f4"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.007l2.862-4.145v-.058c0-2.495 2.03-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.104.004.156 0 1.871-1.52 3.393-3.393 3.393-1.618 0-2.974-1.14-3.305-2.658l-4.6-1.903C1.463 19.63 6.27 24 11.979 24c6.627 0 12-5.373 12-12S18.606 0 11.979 0z"/></svg></div>
                 <div class="steam-game-info">
                   <div class="steam-game-name">${game.name}</div>
                   <div class="steam-game-dev">${game.developer}</div>
@@ -2516,6 +3120,41 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       </div>
 
     </section>
+
+    <!-- 출시 작품 섹션 -->
+    <section class="section" id="upcoming">
+      <div class="upcoming-controls">
+        <div class="tab-group" id="upcomingTab">
+          <button class="tab-btn active" data-upcoming="mobile">
+            <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
+          </button>
+          <button class="tab-btn" data-upcoming="steam">
+            <img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">스팀
+          </button>
+          <button class="tab-btn" data-upcoming="ps5">
+            <img src="https://www.google.com/s2/favicons?domain=playstation.com&sz=32" alt="" class="news-favicon">PS5
+          </button>
+          <button class="tab-btn" data-upcoming="nintendo">
+            <svg viewBox="0 0 24 24" fill="#e60012" class="news-favicon" style="width:20px;height:20px"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>닌텐도
+          </button>
+        </div>
+      </div>
+
+      <div class="upcoming-card">
+        <div class="upcoming-section active" id="upcoming-mobile">
+          ${generateUpcomingSection(upcoming?.mobile || [], 'mobile')}
+        </div>
+        <div class="upcoming-section" id="upcoming-steam">
+          ${generateUpcomingSection(upcoming?.steam || [], 'steam')}
+        </div>
+        <div class="upcoming-section" id="upcoming-ps5">
+          ${generateUpcomingSection(upcoming?.ps5 || [], 'ps5')}
+        </div>
+        <div class="upcoming-section" id="upcoming-nintendo">
+          ${generateUpcomingSection(upcoming?.nintendo || [], 'nintendo')}
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -2543,8 +3182,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     document.getElementById('logo-home')?.addEventListener('click', () => {
       document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.querySelector('.nav-item[data-section="news"]')?.classList.add('active');
-      document.getElementById('news')?.classList.add('active');
+      document.querySelector('.nav-item[data-section="community"]')?.classList.add('active');
+      document.getElementById('community')?.classList.add('active');
     });
 
     // 뉴스 탭 요소
@@ -2563,6 +3202,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     // Steam 탭 요소
     const steamTab = document.getElementById('steamTab');
+
+    // 출시 작품 탭 요소
+    const upcomingTab = document.getElementById('upcomingTab');
 
     // 서브탭 초기화 함수
     function resetSubTabs() {
@@ -2583,10 +3225,29 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       document.getElementById('videoTab')?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
       document.querySelectorAll('.video-section').forEach(s => s.classList.remove('active'));
       document.getElementById('video-gaming')?.classList.add('active');
+      // 출시 작품 탭 초기화
+      upcomingTab?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+      document.querySelectorAll('.upcoming-section').forEach(s => s.classList.remove('active'));
+      document.getElementById('upcoming-mobile')?.classList.add('active');
     }
 
-    // 메인 네비게이션
-    document.querySelectorAll('.nav-item').forEach(item => {
+    // 메인 네비게이션 - 캐러셀 슬라이드 기능
+    const navInner = document.querySelector('.nav-inner');
+    const allNavItems = document.querySelectorAll('.nav-item');
+    const totalNavCount = allNavItems.length; // 6개
+    const visibleCount = 5;
+
+    function updateNavCarousel(index) {
+      // 모바일에서만 슬라이드 (5개 보이고, 6개 메뉴)
+      if (window.innerWidth <= 768 && navInner) {
+        // index가 4 이상이면 마지막 메뉴들이 보이도록 이동
+        // 0~3: 0% (처음 5개 보임), 4~5: -20% (마지막 5개 보임)
+        const offset = index >= visibleCount - 1 ? -20 : 0;
+        navInner.style.transform = 'translateX(' + offset + '%)';
+      }
+    }
+
+    document.querySelectorAll('.nav-item').forEach((item, idx) => {
       item.addEventListener('click', () => {
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
         document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -2594,6 +3255,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
         document.getElementById(item.dataset.section)?.classList.add('active');
         resetSubTabs();
         resetCountryColumns();
+        updateNavCarousel(idx);
       });
     });
 
@@ -2634,25 +3296,57 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       if (index !== -1) switchCommunity(index);
     });
 
-    // 모바일 스와이프 기능
+    // 모바일 스와이프 기능 - 메인 메뉴 전환
     let touchStartX = 0;
     let touchEndX = 0;
-    const communitySection = document.getElementById('community');
+    const navItems = document.querySelectorAll('.nav-item');
+    const navSections = ['community', 'youtube', 'news', 'rankings', 'steam', 'upcoming'];
 
-    communitySection?.addEventListener('touchstart', (e) => {
+    function getCurrentNavIndex() {
+      const activeNav = document.querySelector('.nav-item.active');
+      if (!activeNav) return 0;
+      const section = activeNav.dataset.section;
+      return navSections.indexOf(section);
+    }
+
+    function switchNavSection(index) {
+      if (index < 0) index = navSections.length - 1;
+      if (index >= navSections.length) index = 0;
+
+      const targetSection = navSections[index];
+      navItems.forEach(i => i.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+
+      document.querySelector('.nav-item[data-section="' + targetSection + '"]')?.classList.add('active');
+      document.getElementById(targetSection)?.classList.add('active');
+
+      // 캐러셀 슬라이드 업데이트
+      const navInner = document.querySelector('.nav-inner');
+      if (window.innerWidth <= 768 && navInner) {
+        const offset = index >= 4 ? -20 : 0;
+        navInner.style.transform = 'translateX(' + offset + '%)';
+      }
+
+      // 상단으로 스크롤
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 전체 페이지에서 스와이프
+    document.body.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
 
-    communitySection?.addEventListener('touchend', (e) => {
+    document.body.addEventListener('touchend', (e) => {
       touchEndX = e.changedTouches[0].screenX;
       const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) {
+      if (Math.abs(diff) > 120) { // 120px 이상 스와이프해야 동작 (스크롤과 구분)
+        const currentIndex = getCurrentNavIndex();
         if (diff > 0) {
-          // 왼쪽으로 스와이프 → 다음
-          switchCommunity(currentCommunityIndex + 1);
+          // 왼쪽으로 스와이프 → 다음 섹션
+          switchNavSection(currentIndex + 1);
         } else {
-          // 오른쪽으로 스와이프 → 이전
-          switchCommunity(currentCommunityIndex - 1);
+          // 오른쪽으로 스와이프 → 이전 섹션
+          switchNavSection(currentIndex - 1);
         }
       }
     }, { passive: true });
@@ -2697,6 +3391,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       btn.classList.add('active');
       document.querySelectorAll('.steam-section').forEach(s => s.classList.remove('active'));
       document.getElementById('steam-' + btn.dataset.steam)?.classList.add('active');
+    });
+
+    // 출시 작품 탭 이벤트
+    upcomingTab?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      upcomingTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.upcoming-section').forEach(s => s.classList.remove('active'));
+      document.getElementById('upcoming-' + btn.dataset.upcoming)?.classList.add('active');
     });
 
     // 영상 탭 이벤트
@@ -2770,8 +3474,11 @@ async function main() {
   console.log('\n📡 치지직 라이브 수집 중...');
   const chzzk = await fetchChzzkLives();
 
+  // 출시 예정 게임 수집
+  const upcoming = await fetchUpcomingGames();
+
   console.log('\n📄 GAMERSCRAWL 일일 보고서 생성 중...');
-  const html = generateHTML(rankings, news, steam, youtube, chzzk, community);
+  const html = generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming);
 
   const filename = `index.html`;
   fs.writeFileSync(filename, html, 'utf8');
