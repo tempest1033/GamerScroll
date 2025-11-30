@@ -1639,7 +1639,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk) {
       </div>
       <div class="nav-item" data-section="youtube">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        영상
+        영상 순위
       </div>
     </div>
   </nav>
@@ -1802,17 +1802,17 @@ function generateHTML(rankings, news, steam, youtube, chzzk) {
     <section class="section" id="youtube">
       <div class="video-controls">
         <div class="tab-group" id="videoTab">
-          <button class="tab-btn active" data-video="trending">인기급상승</button>
-          <button class="tab-btn" data-video="gaming">영상순위</button>
-          <button class="tab-btn" data-video="chzzk">치지직</button>
+          <button class="tab-btn active" data-video="gaming">게임</button>
+          <button class="tab-btn" data-video="trending">유튜브실시간</button>
+          <button class="tab-btn" data-video="chzzk">실시간 게임</button>
         </div>
       </div>
 
-      <!-- 인기급상승 -->
-      <div class="video-section active" id="video-trending">
-        ${youtube.trending.length > 0 ? `
+      <!-- 게임 (유튜브 게임 카테고리) -->
+      <div class="video-section active" id="video-gaming">
+        ${youtube.gaming.length > 0 ? `
         <div class="youtube-grid">
-          ${youtube.trending.map((video, i) => `
+          ${youtube.gaming.map((video, i) => `
             <a class="youtube-card" href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
               <div class="youtube-thumbnail">
                 <img src="${video.thumbnail}" alt="" loading="lazy">
@@ -1829,11 +1829,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk) {
         ` : `<div class="youtube-empty"><p>데이터를 불러올 수 없습니다.</p></div>`}
       </div>
 
-      <!-- 영상 순위 (게임) -->
-      <div class="video-section" id="video-gaming">
-        ${youtube.gaming.length > 0 ? `
+      <!-- 유튜브실시간 (인기급상승) -->
+      <div class="video-section" id="video-trending">
+        ${youtube.trending.length > 0 ? `
         <div class="youtube-grid">
-          ${youtube.gaming.map((video, i) => `
+          ${youtube.trending.map((video, i) => `
             <a class="youtube-card" href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
               <div class="youtube-thumbnail">
                 <img src="${video.thumbnail}" alt="" loading="lazy">
@@ -1931,7 +1931,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk) {
       // 영상 탭 초기화
       document.getElementById('videoTab')?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
       document.querySelectorAll('.video-section').forEach(s => s.classList.remove('active'));
-      document.getElementById('video-trending')?.classList.add('active');
+      document.getElementById('video-gaming')?.classList.add('active');
     }
 
     // 메인 네비게이션
