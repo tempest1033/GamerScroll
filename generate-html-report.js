@@ -166,7 +166,7 @@ async function fetchCommunityPosts() {
 
   // 루리웹 게임 베스트 (axios + cheerio)
   try {
-    const res = await axios.get('https://bbs.ruliweb.com/best/game?orderby=recommend&range=7d', {
+    const res = await axios.get('https://bbs.ruliweb.com/best/game?orderby=recommend&range=24h', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
       },
@@ -230,7 +230,7 @@ async function fetchCommunityPosts() {
   try {
     if (FIRECRAWL_API_KEY) {
       const firecrawl = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
-      const scrapeResult = await firecrawl.scrape('https://arca.live/b/live?sort=rating', { formats: ['markdown'] });
+      const scrapeResult = await firecrawl.scrape('https://arca.live/b/live', { formats: ['markdown'] });
 
       if (scrapeResult && scrapeResult.markdown) {
         // 마크다운에서 게시물 파싱
@@ -2365,7 +2365,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
             <div class="news-panel-header" style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);">
               <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">아카라이브 베스트</span>
-              <a href="https://arca.live/b/live?sort=rating" target="_blank" class="news-more-link">더보기 →</a>
+              <a href="https://arca.live/b/live" target="_blank" class="news-more-link">더보기 →</a>
             </div>
             <div class="news-list">${arcaCommunityHTML}</div>
           </div>
@@ -2373,7 +2373,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
             <div class="news-panel-header" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
               <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">루리웹 게임 베스트</span>
-              <a href="https://bbs.ruliweb.com/best/game?orderby=recommend&range=7d" target="_blank" class="news-more-link">더보기 →</a>
+              <a href="https://bbs.ruliweb.com/best/game?orderby=recommend&range=24h" target="_blank" class="news-more-link">더보기 →</a>
             </div>
             <div class="news-list">${ruliwebCommunityHTML}</div>
           </div>
