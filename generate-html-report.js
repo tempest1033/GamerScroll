@@ -1016,18 +1016,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
       gap: 10px;
     }
 
-    .logo-svg {
-      height: 56px;
-      width: auto;
-      max-width: 100%;
-      filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.2));
-      transition: transform 0.3s ease;
-    }
-    
-    .logo-svg:hover {
-        transform: scale(1.02);
-    }
-
     .logo-badge {
       width: 36px;
       height: 36px;
@@ -2070,17 +2058,27 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
 
     /* Top Banner */
     .top-banner {
-      max-width: 728px;
-      margin: 0 auto;
-      padding: 12px 24px 0 24px;
+      width: 100%;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
       text-align: center;
     }
 
+    .top-banner img {
+      max-width: 728px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
     .top-banner-placeholder {
-      background: #f1f5f9;
-      border: 2px dashed #cbd5e1;
-      border-radius: 4px;
+      max-width: 728px;
       height: 90px;
+      margin: 0 auto;
+      background: var(--border);
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2145,7 +2143,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
     @media (max-width: 480px) {
       .nav-item { padding: 8px 8px; font-size: 10px; gap: 3px; }
       .nav-item svg { width: 12px; height: 12px; }
-      .logo-svg { height: 28px; }
     }
 
     @media (max-width: 360px) {
@@ -2160,31 +2157,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
   <header class="header">
     <div class="header-inner">
       <h1 class="header-title" id="logo-home" style="cursor: pointer;">
-        <svg class="logo-svg" viewBox="0 0 600 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#4f46e5" />
-              <stop offset="100%" stop-color="#06b6d4" />
-            </linearGradient>
-          </defs>
-          
-          <!-- 중앙 정렬 텍스트 -->
-          <!-- dominant-baseline을 사용하여 수직 중앙 정렬 보정 -->
-          <text x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="48" font-weight="900" fill="#1e293b" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMERS CRAWL</text>
-          
-          <!-- 장식: Tech Signals (Bar Width: 10px, Corner: 5px) -->
-          <!-- 높이 72px 기준 수직 중앙 정렬 (Y = (72-H)/2) -->
-          
-          <!-- 왼쪽 안테나 -->
-          <rect x="40" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
-          <rect x="58" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
-          <rect x="76" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
-          
-          <!-- 오른쪽 안테나 (왼쪽과 완벽 대칭) -->
-          <rect x="514" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
-          <rect x="532" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
-          <rect x="550" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
-        </svg>
+        <span class="logo-game">GAMERS</span><span class="logo-crawler">CRAWL</span>
       </h1>
     </div>
   </header>
@@ -2218,56 +2191,31 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community) {
   <div class="top-banner">
     <svg width="728" height="90" viewBox="0 0 728 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
       <defs>
-        <linearGradient id="spaceBg" x1="0" y1="0" x2="0" y2="100%">
-          <stop offset="0%" stop-color="#020024"/>
-          <stop offset="100%" stop-color="#090979"/>
+        <linearGradient id="loadingBg" x1="0" y1="0" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1a202c"/> <!-- Dark Slate -->
+          <stop offset="100%" stop-color="#2d3748"/> <!-- Lighter Dark Slate -->
         </linearGradient>
+        <pattern id="pixelGrid" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="1" height="1" fill="#4a5568" opacity="0.2"/>
+        </pattern>
       </defs>
       
       <!-- 배경 -->
-      <rect width="728" height="90" rx="12" fill="url(#spaceBg)"/>
+      <rect width="728" height="90" rx="12" fill="url(#loadingBg)"/>
+      <rect width="728" height="90" rx="12" fill="url(#pixelGrid)" opacity="0.5"/>
       
-      <!-- 별 (Starfield) -->
-      <circle cx="50" cy="20" r="1" fill="white" opacity="0.8"/>
-      <circle cx="120" cy="70" r="1.5" fill="white" opacity="0.6"/>
-      <circle cx="300" cy="30" r="1" fill="white" opacity="0.9"/>
-      <circle cx="500" cy="80" r="1" fill="white" opacity="0.7"/>
-      <circle cx="650" cy="15" r="1.5" fill="white" opacity="0.5"/>
-      
-      <!-- 적기 편대 (Aliens) -->
-      <!-- Alien 1 -->
-      <rect x="200" y="20" width="20" height="14" fill="#ff0055"/>
-      <rect x="196" y="24" width="4" height="6" fill="#ff0055"/>
-      <rect x="220" y="24" width="4" height="6" fill="#ff0055"/>
-      <!-- Alien 2 -->
-      <rect x="240" y="30" width="20" height="14" fill="#ff0055"/>
-      <rect x="236" y="34" width="4" height="6" fill="#ff0055"/>
-      <rect x="260" y="34" width="4" height="6" fill="#ff0055"/>
-      <!-- Alien 3 -->
-      <rect x="280" y="20" width="20" height="14" fill="#ff0055"/>
-      <rect x="276" y="24" width="4" height="6" fill="#ff0055"/>
-      <rect x="300" y="24" width="4" height="6" fill="#ff0055"/>
+      <!-- 로딩 바 -->
+      <rect x="100" y="35" width="400" height="20" rx="5" fill="#4a5568" stroke="#4a5568" stroke-width="2"/>
+      <rect x="105" y="40" width="280" height="10" rx="3" fill="#69d2e7"/> <!-- Filled Bar -->
 
-      <!-- 아군 기체 (Player Ship) -->
-      <polygon points="364,65 354,85 374,85" fill="#00d4ff"/>
-      <rect x="362" y="80" width="4" height="5" fill="#ff9900"/> <!-- Engine fire -->
+      <!-- 텍스트 -->
+      <text x="300" y="28" font-family="'Pretendard', sans-serif" font-size="16" font-weight="bold" fill="#edf2f7" text-anchor="middle">LOADING NEXT LEVEL...</text>
+      <text x="550" y="50" font-family="'Pretendard', sans-serif" font-size="12" fill="#fff" text-anchor="middle">70%</text>
       
-      <!-- 레이저 발사! (Pew Pew) -->
-      <rect x="363" y="45" width="2" height="10" fill="#ffee00"/>
-      <rect x="363" y="30" width="2" height="10" fill="#ffee00"/>
-
-      <!-- 폭발 효과 (Boom) -->
-      <path d="M250 25 L255 35 L245 35 Z" fill="orange" />
-      <circle cx="250" cy="30" r="8" fill="yellow" opacity="0.8"/>
-
-      <!-- UI 텍스트 -->
-      <text x="40" y="30" font-family="'Pretendard', monospace" font-size="14" fill="#00ff00" font-weight="bold">SCORE: 99999</text>
-      <text x="40" y="50" font-family="'Pretendard', monospace" font-size="14" fill="#ff0000" font-weight="bold">HIGH: 100000</text>
-      
-      <text x="680" y="80" font-family="'Pretendard', sans-serif" font-size="12" fill="white" text-anchor="end" opacity="0.8">INSERT COIN</text>
-      
-      <text x="550" y="50" font-family="'Pretendard', sans-serif" font-size="24" font-weight="900" fill="white" style="text-shadow: 2px 2px 0px #ff0055;">GAME OVER?</text>
-      <text x="550" y="70" font-family="'Pretendard', sans-serif" font-size="14" fill="#00d4ff">CONTINUE [9]</text>
+      <!-- 귀여운 픽셀 캐릭터 -->
+      <rect x="520" y="45" width="15" height="15" fill="#f8d353"/> <!-- Head -->
+      <rect x="515" y="50" width="25" height="5" fill="#f8d353"/> <!-- Arms -->
+      <rect x="520" y="60" width="5" height="5" fill="#e74c3c"/> <!-- Eye -->
     </svg>
   </div>
 
