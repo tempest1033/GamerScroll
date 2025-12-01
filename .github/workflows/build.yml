@@ -2,7 +2,7 @@ name: Build and Deploy Report
 
 on:
   schedule:
-    - cron: '*/20 * * * *'  # 20분마다 실행
+    - cron: '*/30 * * * *'  # 30분마다 실행
   workflow_dispatch:  # 수동 실행 가능
 
 permissions:
