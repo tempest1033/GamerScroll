@@ -1390,7 +1390,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     .nav-item {
       padding: 12px 20px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
       color: #475569;  /* 더 진한 색상 */
       cursor: pointer;
@@ -1404,6 +1404,61 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       border-radius: 8px;
       margin: 6px 0;
       border-bottom: none;
+    }
+
+    /* ===== PC 전용 스타일 (769px 이상) ===== */
+    @media (min-width: 769px) {
+      /* 메인 메뉴 가운데 정렬 */
+      .nav-inner {
+        justify-content: center !important;
+      }
+
+      /* 모든 컨트롤 영역 */
+      .news-controls,
+      .rankings-controls,
+      .steam-controls,
+      .video-controls,
+      .upcoming-controls {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 12px 24px !important;
+      }
+
+      /* 컨트롤 그룹 */
+      .control-group {
+        width: auto !important;
+        flex: 0 0 auto !important;
+      }
+
+      /* 탭 그룹 */
+      .tab-group {
+        width: auto !important;
+        justify-content: center !important;
+        gap: 8px !important;
+      }
+
+      /* PC 탭 버튼 */
+      .tab-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        padding: 12px 28px !important;
+        font-size: 15px !important;
+      }
+
+      .tab-btn .news-favicon {
+        width: 18px !important;
+        height: 18px !important;
+        flex-shrink: 0 !important;
+        margin-right: 0 !important;
+      }
+
+      /* 모바일순위 - 두 그룹 사이 간격 */
+      .rankings-controls {
+        gap: 48px !important;
+      }
     }
 
     /* 모바일 캐러셀 네비게이션 - 5개 표시 */
@@ -1481,32 +1536,70 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: block;
     }
 
-    /* News Section */
+    /* ===== 공통 컨트롤 영역 스타일 (모든 섹션 통일) ===== */
+    .news-controls,
+    .rankings-controls,
+    .steam-controls,
+    .video-controls,
+    .upcoming-controls {
+      background: var(--card) !important;
+      border-radius: var(--radius) !important;
+      box-shadow: var(--shadow) !important;
+      padding: 8px 8px !important;
+      margin-top: 12px !important;
+      margin-bottom: 14px !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    /* 랭킹, 스팀, 영상, 출시작품: 항상 표시 */
+    .rankings-controls,
+    .steam-controls,
+    .video-controls,
+    .upcoming-controls {
+      display: flex !important;
+    }
+
+    /* 뉴스/커뮤니티: 데스크톱 숨김, 모바일 표시 */
     .news-controls {
       display: none;
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 12px 12px;
-      margin-top: 16px;
-      margin-bottom: 20px;
     }
 
-    .news-controls .control-group {
+    @media (max-width: 768px) {
+      .news-controls {
+        display: flex !important;
+      }
+    }
+
+    .news-controls .control-group,
+    .rankings-controls .control-group,
+    .steam-controls .control-group,
+    .video-controls .control-group,
+    .upcoming-controls .control-group {
       width: 100%;
     }
 
-    #newsTab, #communityTab {
+    /* ===== 공통 탭 스타일 (모바일 기본) ===== */
+    #newsTab, #communityTab, #storeTab, #chartTab, #steamTab, #videoTab, #upcomingTab {
       width: 100%;
     }
 
-    #newsTab .tab-btn, #communityTab .tab-btn {
-      flex: 1;
+    .tab-group .tab-btn {
+      flex: 1 1 0;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 12px 4px;
-      font-size: 14px;
+      font-size: 13px;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .tab-group .tab-btn .news-favicon {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+      flex-shrink: 0;
     }
 
     .news-card {
@@ -1520,6 +1613,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     @media (min-width: 769px) {
       .news-card {
         margin-top: 16px;
+      }
+      .steam-controls, .video-controls, .rankings-controls, .upcoming-controls, .news-controls {
+        padding: 8px 20px;
+        margin-bottom: 12px;
       }
     }
 
@@ -1773,16 +1870,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     /* Rankings Section */
+    /* Rankings Section - 고유 속성만 */
     .rankings-controls {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px 32px;
-      margin-top: 16px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       gap: 24px;
       flex-wrap: nowrap;
       overflow-x: auto;
@@ -1797,7 +1886,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: flex;
       align-items: center;
       gap: 12px;
-      flex-shrink: 0;
+      flex: 1;
+    }
+
+    .rankings-controls .tab-group {
+      width: 100%;
     }
 
     .control-label {
@@ -1820,10 +1913,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: none;
     }
 
+    /* 탭 버튼 기본 스타일 */
     .tab-btn {
-      padding: 10px 20px;
-      min-width: 100px;
-      font-size: 14px;
       font-weight: 600;
       color: var(--text-secondary);
       background: transparent;
@@ -2011,16 +2102,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     /* Steam Section */
-    .steam-controls {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px 32px;
-      margin-top: 16px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    /* Steam Section */
+    .steam-controls .tab-group {
+      width: 100%;
     }
 
     .steam-section {
@@ -2050,6 +2134,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       color: var(--text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.02em;
+    }
+
+    .steam-table-header > div:nth-child(1) {
+      text-align: center;
     }
 
     .steam-table-header > div:nth-child(2) {
@@ -2221,18 +2309,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     /* Video Section (영상) */
+    /* Video Section - 고유 속성만 */
     .video-controls {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px 32px;
-      margin-top: 16px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+    }
+
+    .video-controls .tab-group {
+      width: 100%;
     }
 
     .video-section {
@@ -2513,8 +2597,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       .news-grid { grid-template-columns: 1fr; }
       .nav-item { padding: 10px 14px; font-size: 13px; }
       .nav-item svg { width: 15px; height: 15px; }
-      .tab-btn { padding: 8px 14px; font-size: 13px; min-width: auto; }
-      .rankings-controls { padding: 16px 20px; gap: 16px; }
+      .rankings-controls { gap: 16px; }
       .control-group { flex-shrink: 1; }
     }
 
@@ -2542,10 +2625,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       .nav-item { padding: 10px 12px; font-size: 12px; gap: 4px; }
       .nav-item svg { width: 14px; height: 14px; }
       .logo-svg { height: 44px; }
-      /* 모든 탭 버튼 완전 통일 - 576px */
-      .tab-btn { padding: 12px 12px; font-size: 11px; font-weight: 600; }
-      .tab-btn .news-favicon { width: 18px; height: 18px; margin-right: 6px; }
-      .rankings-controls { padding: 14px 16px; gap: 12px; }
+      .rankings-controls { gap: 12px; }
       .news-favicon { width: 14px; height: 14px; }
       .rank-num { width: 18px; height: 18px; font-size: 9px; }
       .app-icon { width: 32px; height: 32px; border-radius: 6px; }
@@ -2561,24 +2641,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       .nav-item { padding: 12px 8px; font-size: 12px; gap: 4px; }
       .nav-item svg { width: 20px; height: 20px; }
       .logo-svg { height: 36px; }
-      /* 모든 탭 버튼 완전 통일 */
-      .tab-btn { padding: 14px 14px; font-size: 12px; font-weight: 600; }
-      .tab-group { gap: 6px; }
 
       /* 컨트롤 영역 */
-      .rankings-controls { padding: 12px 8px; gap: 8px; }
+      .rankings-controls { gap: 8px; }
       .control-group { gap: 6px; }
 
-      /* 뉴스/커뮤니티 컨트롤 */
-      .news-controls { padding: 8px 8px; margin-top: 8px; margin-bottom: 8px; }
+      /* 뉴스/커뮤니티 컨트롤 - 공통 스타일 사용 */
 
       /* 뉴스/커뮤니티 아이템 */
       .news-item { padding: 8px 6px; gap: 6px; }
       .news-panel { padding: 8px 6px; gap: 6px; }
       .news-card { padding: 10px; }
       .news-favicon { width: 14px; height: 14px; }
-      /* 탭 버튼 내 아이콘은 더 크게 유지 */
-      .tab-btn .news-favicon { width: 20px; height: 20px; margin-right: 8px; }
 
       /* 순위 */
       .rank-num { width: 16px; height: 16px; font-size: 8px; }
@@ -2625,10 +2699,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       .nav-item { padding: 6px 8px; font-size: 10px; gap: 2px; }
       .nav-item svg { width: 12px; height: 12px; }
       .logo-svg { height: 32px; }
-      /* 모든 탭 버튼 완전 통일 - 360px */
-      .tab-btn { padding: 10px 8px; font-size: 10px; font-weight: 600; }
-      .tab-btn .news-favicon { width: 16px; height: 16px; margin-right: 4px; }
-      .rankings-controls { padding: 10px 12px; gap: 8px; flex-wrap: wrap; justify-content: center; }
+      .rankings-controls { gap: 8px; flex-wrap: wrap; justify-content: center; }
       .control-group { gap: 6px; }
       .news-favicon { width: 12px; height: 12px; }
       .rank-num { width: 14px; height: 14px; font-size: 7px; }
@@ -2640,16 +2711,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     /* ========== Upcoming Games Section ========== */
-    .upcoming-controls {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px 32px;
-      margin-top: 16px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .upcoming-controls .tab-group {
+      width: 100%;
     }
 
     .upcoming-section {
@@ -2778,7 +2841,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     /* Upcoming responsive */
     @media (max-width: 768px) {
-      .upcoming-controls { padding: 16px 20px; }
       .upcoming-item { padding: 12px 16px; gap: 10px; }
       .upcoming-icon { width: 48px; height: 48px; border-radius: 10px; }
       .upcoming-icon-placeholder { width: 48px; height: 48px; border-radius: 10px; }
@@ -2787,7 +2849,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     @media (max-width: 480px) {
-      .upcoming-controls { padding: 12px 14px; }
       .upcoming-item { padding: 10px 12px; gap: 8px; }
       .upcoming-icon { width: 40px; height: 40px; border-radius: 8px; }
       .upcoming-icon-placeholder { width: 40px; height: 40px; border-radius: 8px; }
@@ -3298,7 +3359,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     // 모바일 스와이프 기능 - 메인 메뉴 전환
     let touchStartX = 0;
-    let touchEndX = 0;
+    let touchStartY = 0;
     const navItems = document.querySelectorAll('.nav-item');
     const navSections = ['community', 'youtube', 'news', 'rankings', 'steam', 'upcoming'];
 
@@ -3334,14 +3395,21 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     // 전체 페이지에서 스와이프
     document.body.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
 
     document.body.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 120) { // 120px 이상 스와이프해야 동작 (스크롤과 구분)
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      // 상하 이동이 좌우보다 크면 스크롤로 간주 → 무시
+      if (Math.abs(diffY) > Math.abs(diffX)) return;
+
+      if (Math.abs(diffX) > 60) { // 60px 이상 수평 스와이프
         const currentIndex = getCurrentNavIndex();
-        if (diff > 0) {
+        if (diffX > 0) {
           // 왼쪽으로 스와이프 → 다음 섹션
           switchNavSection(currentIndex + 1);
         } else {
