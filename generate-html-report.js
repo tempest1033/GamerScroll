@@ -1226,8 +1226,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAMERS CRAWL | Daily Report</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%234f46e5'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='26' width='7' height='16' rx='3.5' fill='url(%23g)' opacity='.4'/%3E%3Crect x='14' y='20' width='7' height='28' rx='3.5' fill='url(%23g)' opacity='.7'/%3E%3Crect x='24' y='14' width='7' height='40' rx='3.5' fill='url(%23g)'/%3E%3Crect x='33' y='14' width='7' height='40' rx='3.5' fill='url(%23g)'/%3E%3Crect x='43' y='20' width='7' height='28' rx='3.5' fill='url(%23g)' opacity='.7'/%3E%3Crect x='53' y='26' width='7' height='16' rx='3.5' fill='url(%23g)' opacity='.4'/%3E%3C/svg%3E">
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
   <!-- 폰트 preload로 FOUT 방지 -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <!-- 이미지 도메인 preconnect -->
@@ -3200,6 +3198,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
   </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"
+     crossorigin="anonymous"></script>
 </head>
 <body>
   <header class="header">
