@@ -1,0 +1,2426 @@
+
+    /* 폰트 로딩 전 화면 숨김 - FOUT 완전 방지 */
+    html {
+      visibility: hidden;
+    }
+    html.fonts-loaded {
+      visibility: visible;
+    }
+    :root {
+      /* === Primary Colors === */
+      --primary: #4f46e5; /* Indigo 600 */
+      --primary-light: #6366f1; /* Indigo 500 */
+      --primary-dark: #4338ca; /* Indigo 700 */
+      --accent: #f97316;
+
+      /* === Background & Surface === */
+      --bg: #f8fafc; /* Slate 50 */
+      --bg-elevated: #ffffff;
+      --card: #ffffff;
+      --card-hover: #f8fafc;
+
+      /* === Border === */
+      --border: #e2e8f0; /* Slate 200 */
+      --border-subtle: #f1f5f9;
+
+      /* === Text === */
+      --text: #0f172a; /* Slate 900 */
+      --text-secondary: #64748b; /* Slate 500 */
+      --text-muted: #94a3b8; /* Slate 400 */
+
+      /* === Shadows (Multi-layer Soft) === */
+      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.04);
+      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 2px 4px rgb(0 0 0 / 0.04);
+      --shadow: 0 1px 3px rgb(0 0 0 / 0.04), 0 4px 8px rgb(0 0 0 / 0.06), 0 8px 16px rgb(0 0 0 / 0.04);
+      --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.04), 0 8px 16px rgb(0 0 0 / 0.08), 0 16px 32px rgb(0 0 0 / 0.06);
+      --shadow-xl: 0 4px 8px rgb(0 0 0 / 0.04), 0 16px 32px rgb(0 0 0 / 0.08), 0 32px 64px rgb(0 0 0 / 0.06);
+
+      /* === Glass Effect === */
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-bg-solid: rgba(255, 255, 255, 0.9);
+      --glass-border: rgba(255, 255, 255, 0.5);
+
+      /* === Interactive States === */
+      --hover-bg: #f1f5f9;
+      --active-bg: #eef2ff;
+      --item-bg: #ffffff;
+
+      /* === Semantic Colors === */
+      --success: #16a34a;
+
+      /* === Layout === */
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-lg: 20px;
+
+      /* === Animation === */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: 0.15s var(--ease-in-out);
+      --transition-normal: 0.25s var(--ease-out-expo);
+      --transition-slow: 0.4s var(--ease-out-expo);
+    }
+
+    /* === Dark Mode === */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* Primary Colors - 밝게 조정 */
+        --primary: #818cf8; /* Indigo 400 */
+        --primary-light: #a5b4fc; /* Indigo 300 */
+        --primary-dark: #6366f1; /* Indigo 500 */
+        --accent: #fb923c; /* Orange 400 */
+
+        /* Background & Surface */
+        --bg: #0f172a; /* Slate 900 */
+        --bg-elevated: #1e293b; /* Slate 800 */
+        --card: #1e293b; /* Slate 800 */
+        --card-hover: #334155; /* Slate 700 */
+
+        /* Border */
+        --border: #334155; /* Slate 700 */
+        --border-subtle: #1e293b; /* Slate 800 */
+
+        /* Text */
+        --text: #f1f5f9; /* Slate 100 */
+        --text-secondary: #94a3b8; /* Slate 400 */
+        --text-muted: #64748b; /* Slate 500 */
+
+        /* Shadows - 다크모드용 더 깊은 그림자 */
+        --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.2);
+        --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2), 0 2px 4px rgb(0 0 0 / 0.15);
+        --shadow: 0 1px 3px rgb(0 0 0 / 0.2), 0 4px 8px rgb(0 0 0 / 0.25), 0 8px 16px rgb(0 0 0 / 0.2);
+        --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.2), 0 8px 16px rgb(0 0 0 / 0.3), 0 16px 32px rgb(0 0 0 / 0.25);
+        --shadow-xl: 0 4px 8px rgb(0 0 0 / 0.2), 0 16px 32px rgb(0 0 0 / 0.3), 0 32px 64px rgb(0 0 0 / 0.25);
+
+        /* Glass Effect - 다크모드 */
+        --glass-bg: rgba(30, 41, 59, 0.7);
+        --glass-bg-solid: rgba(30, 41, 59, 0.95);
+        --glass-border: rgba(255, 255, 255, 0.1);
+
+        /* Interactive States - 다크모드 */
+        --hover-bg: #334155;
+
+        /* Semantic Colors - 다크모드 */
+        --success: #4ade80;
+        --active-bg: rgba(99, 102, 241, 0.15);
+        --item-bg: #1e293b;
+      }
+
+      /* 다크모드 메인탭 - 흰색 톤 */
+      .nav-item {
+        color: rgba(255, 255, 255, 0.85) !important;
+      }
+      .nav-item:hover {
+        color: #fff !important;
+      }
+      .nav-item.active {
+        color: #fff !important;
+      }
+      .nav-item svg {
+        stroke: rgba(255, 255, 255, 0.85) !important;
+        opacity: 1 !important;
+      }
+      .nav-item:hover svg,
+      .nav-item.active svg {
+        stroke: #fff !important;
+      }
+
+      /* 다크모드 서브탭 - 흰색 톤 */
+      .tab-btn {
+        color: rgba(255, 255, 255, 0.85) !important;
+      }
+      .tab-btn:hover {
+        color: #fff !important;
+      }
+      .tab-btn.active {
+        color: #fff !important;
+      }
+      .tab-btn .news-favicon {
+        filter: brightness(1.5) contrast(0.9) !important;
+      }
+    }
+
+    /* ========== 홈 서머리 섹션 ========== */
+    .home-section {
+      display: none;
+      padding: 0;
+    }
+
+    .home-section.active {
+      display: block;
+    }
+
+    /* 홈 메인 상단 광고 */
+    .home-main-ad {
+      margin-bottom: 0;
+    }
+
+    /* 홈 레이아웃 컨테이너 */
+    .home-container {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .home-main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .home-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* 홈 카드 공통 */
+    .home-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .home-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--card-hover);
+    }
+
+    .home-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .home-card-title svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--primary);
+    }
+
+    .home-card-more {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      transition: opacity var(--transition-fast);
+    }
+
+    .home-card-more:hover {
+      opacity: 0.7;
+    }
+
+    .home-card-body {
+      padding: 12px 0;
+    }
+
+    /* 홈 리스트 아이템 */
+    .home-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      text-decoration: none;
+      transition: background var(--transition-fast);
+    }
+
+    .home-item:hover {
+      background: var(--hover-bg);
+    }
+
+    .home-rank {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--hover-bg);
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .home-favicon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .home-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .home-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--active-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .home-empty {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* 홈 영상 그리드 */
+    .home-video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      padding: 16px 20px;
+    }
+
+    .home-video-card {
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--hover-bg);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .home-video-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .home-video-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .home-video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .home-video-live {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .home-video-info {
+      padding: 12px;
+    }
+
+    .home-video-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .home-video-channel {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* 홈 모바일 랭킹 탭 */
+    .home-rank-tabs {
+      display: flex;
+      padding: 12px 16px;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .home-rank-tab {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: var(--hover-bg);
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .home-rank-tab img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .home-rank-tab.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .home-rank-content {
+      padding: 8px 0;
+    }
+
+    .home-rank-list {
+      display: none;
+    }
+
+    .home-rank-list.active {
+      display: block;
+    }
+
+    .home-rank-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      transition: background var(--transition-fast);
+    }
+
+    .home-rank-row:hover {
+      background: var(--hover-bg);
+    }
+
+    .home-rank-num {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--hover-bg);
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .home-rank-num.top1 {
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+      color: #fff;
+    }
+
+    .home-rank-num.top2 {
+      background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%);
+      color: #fff;
+    }
+
+    .home-rank-num.top3 {
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+      color: #fff;
+    }
+
+    .home-rank-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .home-rank-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* 홈 스팀 순위 */
+    .home-steam-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      text-decoration: none;
+      transition: background var(--transition-fast);
+    }
+
+    .home-steam-row:hover {
+      background: var(--hover-bg);
+    }
+
+    .home-steam-icon {
+      width: 48px;
+      height: 24px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .home-steam-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .home-steam-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .home-steam-players {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* 홈 출시 예정 */
+    .home-upcoming-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      text-decoration: none;
+      transition: background var(--transition-fast);
+    }
+
+    .home-upcoming-row:hover {
+      background: var(--hover-bg);
+    }
+
+    .home-upcoming-platform {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .home-upcoming-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .home-upcoming-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .home-upcoming-date {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* 광고 배너 슬롯 */
+    .ad-slot {
+      background: var(--card);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .ad-slot-top {
+      margin-bottom: 16px;
+    }
+
+    .ad-slot-section {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .ad-slot.mobile-only {
+      display: none;
+    }
+
+    /* 모바일 반응형 - 홈 */
+    @media (max-width: 1024px) {
+      .home-container {
+        grid-template-columns: 1fr 320px;
+        gap: 20px;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .home-container {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+
+      /* 모바일에서 PC only 광고 숨기기 */
+      .ad-slot.pc-only {
+        display: none;
+      }
+
+      .home-video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ad-slot.mobile-only {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-container {
+        padding: 12px;
+        gap: 16px;
+      }
+
+      .home-card-header {
+        padding: 12px 16px;
+      }
+
+      .home-item {
+        padding: 8px 16px;
+      }
+
+      .home-video-grid {
+        padding: 12px 16px;
+      }
+    }
+
+    /* === Custom Scrollbar === */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--text-muted);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-secondary);
+    }
+
+    /* Firefox */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--text-muted) transparent;
+    }
+
+    /* Reduced Motion 지원 */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Twemoji 이모지 크기 제어 */
+    img.emoji {
+      height: 1em;
+      width: 1em;
+      margin: 0 .05em 0 .1em;
+      vertical-align: -0.1em;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-y: scroll;
+    }
+
+    /* Header */
+    .header {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+      transition: opacity 0.2s, max-height 0.2s;
+    }
+
+    /* 상세페이지에서 헤더 숨기기 (모바일만) */
+    @media (max-width: 768px) {
+      body.detail-page .header {
+        display: none;
+      }
+    }
+
+    .header-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-date {
+      position: absolute;
+      right: 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--glass-bg);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .header-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
+    }
+
+    .logo-svg {
+      height: 68px;
+      width: auto;
+      max-width: 100%;
+      color: var(--text);
+      filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.2));
+      transition: transform var(--transition-normal), color var(--transition-normal);
+    }
+
+    .logo-svg:hover {
+        transform: scale(1.02);
+    }
+
+    .logo-badge {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    .logo-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-title .logo-game {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-title .logo-crawler {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-subtitle {
+      display: none;
+    }
+
+    /* Navigation */
+    .nav {
+      background: var(--glass-bg-solid);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+      transition: background var(--transition-normal);
+    }
+
+    .nav-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      transition: transform 0.3s ease;
+    }
+    .nav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-item {
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      position: relative;
+      transition: all var(--transition-normal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      border-radius: var(--radius-sm);
+      margin: 6px 0;
+      border-bottom: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
+    }
+
+    /* ===== PC 전용 스타일 (769px 이상) ===== */
+    @media (min-width: 769px) {
+      /* 메인 메뉴 가운데 정렬 */
+      .nav-inner {
+        justify-content: center !important;
+      }
+
+      /* 모든 컨트롤 영역 (뉴스/커뮤니티 제외 - PC에서 숨김) */
+      .rankings-controls,
+      .steam-controls,
+      .video-controls,
+      .upcoming-controls {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 12px 24px !important;
+      }
+
+      /* 컨트롤 그룹 */
+      .control-group {
+        width: auto !important;
+        flex: 0 0 auto !important;
+      }
+
+      /* 탭 그룹 */
+      .tab-group {
+        width: auto !important;
+        justify-content: center !important;
+        gap: 8px !important;
+      }
+
+      /* PC 탭 버튼 */
+      .tab-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        padding: 12px 28px !important;
+        font-size: 15px !important;
+      }
+
+      .tab-btn .news-favicon {
+        width: 18px !important;
+        height: 18px !important;
+        flex-shrink: 0 !important;
+        margin-right: 0 !important;
+      }
+
+      /* PC 서브탭 버튼 */
+      .tab-group .tab-btn {
+        flex: 0 0 auto !important;
+        min-width: auto !important;
+        min-height: auto !important;
+        padding: 12px 28px !important;
+        font-size: 15px !important;
+        gap: 8px !important;
+        overflow: visible !important;
+      }
+
+      .tab-group .tab-btn .news-favicon {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      /* 모바일순위 - 두 그룹 사이 간격 */
+      .rankings-controls {
+        gap: 60px !important;
+      }
+
+      /* 스팀 순위 - 모바일과 동일하게 작게 유지 */
+      .steam-controls .tab-btn {
+        min-width: auto !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+      }
+    }
+
+    /* 모바일 캐러셀 네비게이션 - 5개 표시 */
+    @media (max-width: 768px) {
+      .nav {
+        overflow: hidden;
+      }
+      .nav-inner {
+        justify-content: flex-start;
+        padding: 0;
+        gap: 0;
+        overflow: visible;
+      }
+      .nav-item {
+        min-width: 20%;
+        flex: 0 0 20%;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 4px;
+        margin: 4px 0;
+        font-size: 12px;
+        gap: 4px;
+        flex-direction: column;
+      }
+      .nav-item svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* 데스크톱에서만 hover */
+    @media (hover: hover) {
+      .nav-item:hover {
+        color: var(--text);
+        background: var(--hover-bg);
+      }
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+      background: var(--active-bg);
+      border-bottom: none;
+    }
+
+    .nav-item svg {
+      width: 20px;
+      height: 20px;
+      opacity: 0.8;
+    }
+    
+    .nav-item.active svg {
+        opacity: 1;
+        stroke-width: 2.5px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    /* Sections */
+    .section {
+      display: none;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    /* ===== 공통 컨트롤 영역 스타일 (모든 섹션 통일) ===== */
+    .news-controls,
+    .rankings-controls,
+    .steam-controls,
+    .video-controls,
+    .upcoming-controls {
+      background: var(--card) !important;
+      border-radius: var(--radius) !important;
+      box-shadow: var(--shadow) !important;
+      padding: 8px 8px !important;
+      margin-top: 12px !important;
+      margin-bottom: 14px !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    /* 랭킹, 스팀, 영상, 출시작품: 항상 표시 */
+    .rankings-controls,
+    .steam-controls,
+    .video-controls,
+    .upcoming-controls {
+      display: flex !important;
+    }
+
+    /* 뉴스/커뮤니티: PC에서 탭 숨김, 모바일에서만 표시 */
+    #news .news-controls,
+    #community .news-controls {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #news .news-controls,
+      #community .news-controls {
+        display: flex !important;
+      }
+    }
+
+    .news-controls .control-group,
+    .rankings-controls .control-group,
+    .steam-controls .control-group,
+    .video-controls .control-group,
+    .upcoming-controls .control-group {
+      width: 100%;
+    }
+
+    /* ===== 공통 탭 스타일 (모바일 기본) ===== */
+    #newsTab, #communityTab, #storeTab, #chartTab, #steamTab, #videoTab, #upcomingTab {
+      width: 100%;
+    }
+
+    .tab-group .tab-btn {
+      flex: 1 1 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 8px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      min-width: 0;
+      min-height: 44px;
+      box-sizing: border-box;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .tab-group .tab-btn .news-favicon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .news-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      border: 1px solid var(--border);
+    }
+
+    @media (min-width: 769px) {
+      .news-card {
+        margin-top: 16px;
+      }
+      .steam-controls, .video-controls, .rankings-controls, .upcoming-controls {
+        padding: 8px 20px;
+        margin-bottom: 12px;
+      }
+    }
+
+    .news-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .news-panel {
+      display: block;
+      border-right: none; 
+      padding: 0;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .news-panel:last-child {
+      border-right: none;
+    }
+
+    .news-list {
+      min-width: 0;
+    }
+
+    .news-item a {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .news-panel-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--card-hover);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    #news-inven .news-panel-header { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); }
+    #news-ruliweb .news-panel-header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); }
+    #news-gamemeca .news-panel-header { background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3); }
+    #news-thisisgame .news-panel-header { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3); }
+    
+    #community-dcinside .news-panel-header { background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3); }
+    #community-inven .news-panel-header { background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3); }
+    #community-arca .news-panel-header { background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3); }
+    #community-ruliweb .news-panel-header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); }
+
+    .news-panel-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .news-more-link {
+      margin-left: auto;
+      font-size: 12px;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.2s;
+    }
+
+    .news-more-link:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .news-favicon {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+      vertical-align: middle;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    }
+
+    @media (max-width: 1400px) {
+      .news-container { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .news-controls {
+        display: flex;
+      }
+      .news-card {
+        padding: 20px;
+      }
+      .news-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .news-panel {
+        display: block;
+        background: var(--card);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        padding: 20px;
+        border-right: none;
+      }
+
+      /* 스팀 순위 - 모바일용 축소 */
+      .steam-table-header {
+        grid-template-columns: 50px 1fr 80px;
+        padding: 12px 12px;
+        font-size: 11px;
+      }
+      .steam-table-row {
+        grid-template-columns: 50px 1fr 80px;
+        padding: 10px 12px;
+      }
+      .steam-col-game {
+        gap: 10px;
+      }
+      .steam-img {
+        width: 80px;
+        height: 30px;
+      }
+      .steam-game-name {
+        font-size: 13px;
+      }
+      .steam-game-dev {
+        font-size: 10px;
+      }
+      .steam-col-players {
+        font-size: 12px;
+      }
+
+      /* 탭 버튼 - 태블릿 */
+      .tab-group .tab-btn {
+        padding: 10px 6px;
+        font-size: 13px;
+        gap: 5px;
+        min-height: 42px;
+        overflow: hidden;
+      }
+      .tab-group .tab-btn .news-favicon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title svg {
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
+    }
+
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .news-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--item-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-normal);
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    /* 데스크톱에서만 hover 효과 */
+    @media (hover: hover) {
+      .news-item:hover {
+        background: var(--card-hover);
+        transform: translateX(4px);
+        border-color: var(--border);
+        box-shadow: var(--shadow-sm);
+      }
+    }
+
+    a.news-item.clickable {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    /* 데스크톱에서만 hover 효과 */
+    @media (hover: hover) {
+      a.news-item.clickable:hover {
+        background: var(--active-bg);
+        border-color: var(--primary);
+      }
+    }
+
+    /* 터치 디바이스에서 active 효과 */
+    @media (hover: none) {
+      a.news-item.clickable:active {
+        background: var(--active-bg);
+        border-color: var(--primary);
+      }
+    }
+
+    .news-num {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--hover-bg);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .news-item:nth-child(1) .news-num,
+    .news-item:nth-child(2) .news-num,
+    .news-item:nth-child(3) .news-num {
+      background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+      color: white;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    }
+
+    .news-content {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .news-content a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      line-height: 1.5;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      transition: color 0.2s;
+    }
+
+    .news-content a:hover {
+      color: var(--primary);
+    }
+
+    .news-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      min-width: 0;
+      line-height: 1.5;
+    }
+
+    .community-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--active-bg);
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Rankings Section */
+    /* Rankings Section - 고유 속성만 */
+    .rankings-controls {
+      gap: 24px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .rankings-controls::-webkit-scrollbar {
+      display: none;
+    }
+
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .rankings-controls .tab-group {
+      width: 100%;
+    }
+
+    .control-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .tab-group {
+      display: flex;
+      background: var(--hover-bg);
+      border-radius: var(--radius-sm);
+      padding: 4px;
+      gap: 4px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .tab-group::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* 탭 버튼 기본 스타일 */
+    .tab-btn {
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      white-space: nowrap;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      background: var(--glass-bg);
+    }
+
+    .tab-btn.active {
+      background: var(--card);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      font-weight: 700;
+    }
+
+
+    /* Rankings Table */
+    .rankings-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .chart-section {
+      display: none;
+    }
+
+    .chart-section.active {
+      display: block;
+    }
+
+    .chart-scroll {
+      overflow-x: auto;
+    }
+
+    .columns-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .country-column {
+      min-width: 0;
+      border-right: 1px solid var(--border);
+    }
+
+    .country-column:last-child {
+      border-right: none;
+    }
+
+    .column-header {
+      padding: 16px 12px;
+      background: var(--card-hover);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+
+    .flag {
+      font-size: 1.4rem;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+    }
+
+    .country-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .rank-list {
+      padding: 8px 0;
+    }
+
+    .rank-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all var(--transition-normal);
+    }
+
+    .rank-row:hover {
+      background: var(--card-hover);
+      transform: scale(1.01);
+      box-shadow: var(--shadow-sm);
+      z-index: 1;
+      position: relative;
+    }
+
+    .rank-row:last-child {
+      border-bottom: none;
+    }
+
+    .rank-num {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: var(--hover-bg);
+    }
+
+    .rank-num.top1 {
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
+    }
+
+    .rank-num.top2 {
+      background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 6px rgba(148, 163, 184, 0.3);
+    }
+
+    .rank-num.top3 {
+      background: linear-gradient(135deg, #fdba74 0%, #f97316 100%);
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3);
+    }
+
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--hover-bg);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .app-info {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .app-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+
+    .app-dev {
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .no-data, .no-service {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Steam Section */
+    /* Steam Section */
+    .steam-controls .tab-group {
+      width: 100%;
+    }
+
+    .steam-section {
+      display: none;
+    }
+
+    .steam-section.active {
+      display: block;
+    }
+
+    .steam-table {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .steam-table-header {
+      display: grid;
+      grid-template-columns: 70px 1fr 140px;
+      padding: 16px 24px;
+      background: var(--card-hover);
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .steam-table-header > div:nth-child(1) {
+      text-align: center;
+    }
+
+    .steam-table-header > div:nth-child(2) {
+      text-align: center;
+    }
+
+    .steam-table-header > div:nth-child(3) {
+      text-align: right;
+    }
+
+    .steam-table-row {
+      display: grid;
+      grid-template-columns: 70px 1fr 140px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: center;
+      transition: all var(--transition-normal);
+    }
+
+    .steam-table-row:hover {
+      background: var(--card-hover);
+      transform: translateX(4px);
+    }
+
+    .steam-table-row:last-child {
+      border-bottom: none;
+    }
+
+    .steam-col-rank {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .steam-col-game {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .steam-img {
+      width: 140px;
+      height: 52px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+      flex-shrink: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .steam-img-placeholder {
+      width: 140px;
+      height: 52px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .steam-img-placeholder svg {
+      width: 24px;
+      height: 24px;
+      fill: #66c0f4;
+      opacity: 0.6;
+    }
+
+    .steam-game-info {
+      min-width: 0;
+    }
+
+    .steam-game-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .steam-game-dev {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
+    }
+
+    .steam-col-players {
+      text-align: right;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--success);
+    }
+
+    .steam-price-info {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .steam-discount {
+      background: #22c55e;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 2px 4px rgba(34, 197, 94, 0.2);
+    }
+
+    .steam-price {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .steam-rank {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: var(--hover-bg);
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .steam-rank.top1 {
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+      color: #78350f;
+    }
+
+    .steam-rank.top2 {
+      background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
+      color: #334155;
+    }
+
+    .steam-rank.top3 {
+      background: linear-gradient(135deg, #fed7aa 0%, #f97316 100%);
+      color: #7c2d12;
+    }
+
+    .steam-col-game {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .steam-game-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .steam-game-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Video Section (영상) */
+    /* Video Section - 고유 속성만 */
+    .video-controls {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .video-controls .tab-group {
+      width: 100%;
+    }
+
+    .video-section {
+      display: none;
+    }
+
+    .video-section.active {
+      display: block;
+    }
+
+    .external-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .external-link-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--hover-bg);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .external-link-btn:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+
+    .link-favicon {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+
+    .external-link-btn svg {
+      margin-left: 4px;
+      opacity: 0.5;
+    }
+
+    .youtube-link:hover {
+      background: #ff0000;
+      color: white;
+    }
+
+    .chzzk-link:hover {
+      background: #00ffa3;
+      color: #000;
+    }
+
+    .soop-link:hover {
+      background: #5c7cfa;
+      color: white;
+    }
+
+    /* YouTube Grid */
+    .youtube-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .youtube-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .youtube-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .youtube-thumbnail {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: #0f0f0f;
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .youtube-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .youtube-card:hover .youtube-thumbnail img {
+        transform: scale(1.05);
+    }
+
+    .youtube-rank {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      background: rgba(0,0,0,0.7);
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+
+    .youtube-rank.top1 {
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+      color: #78350f;
+    }
+
+    .youtube-rank.top2 {
+      background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
+      color: #334155;
+    }
+
+    .youtube-rank.top3 {
+      background: linear-gradient(135deg, #fed7aa 0%, #f97316 100%);
+      color: #7c2d12;
+    }
+
+    .live-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: 700;
+      color: white;
+      background: #ef4444;
+      border-radius: 4px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .youtube-info {
+      padding: 16px;
+    }
+
+    .youtube-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .youtube-channel {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .youtube-views {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .youtube-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-secondary);
+    }
+
+    .youtube-empty p {
+      margin: 8px 0;
+    }
+
+    @media (max-width: 1200px) {
+      .youtube-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .youtube-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .youtube-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .youtube-info {
+        padding: 8px;
+      }
+      .youtube-title {
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+      }
+      .youtube-channel {
+        font-size: 10px;
+      }
+      .youtube-views {
+        font-size: 10px;
+      }
+      .youtube-rank {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+      }
+    }
+
+    /* Top Banner */
+    .top-banner {
+      max-width: 728px;
+      margin: 0 auto;
+      padding: 12px 24px 0 24px;
+      text-align: center;
+    }
+
+    .top-banner-placeholder {
+      background: var(--hover-bg);
+      border: 2px dashed var(--border);
+      border-radius: 4px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 32px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-info {
+      color: var(--text-secondary);
+      font-size: 12px;
+    }
+
+    .footer-info p {
+      margin: 0;
+    }
+
+    /* Print */
+    @media print {
+      .nav { display: none; }
+      .rankings-controls { display: none; }
+      body { background: white; }
+      .header { background: #1e3a8a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .header-top { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .report-date { text-align: left; }
+      .news-grid { grid-template-columns: 1fr; }
+      .nav-item { padding: 10px 14px; font-size: 13px; }
+      .nav-item svg { width: 15px; height: 15px; }
+      .rankings-controls { gap: 16px; }
+      .control-group { flex-shrink: 1; }
+    }
+
+    @media (max-width: 768px) {
+      /* 모바일 순위 - 비율로 화면에 딱 맞게 */
+      .columns-grid { display: flex; width: 100%; }
+      .country-column { flex: 1; min-width: 0; transition: flex 0.3s ease; }
+      .country-column.expanded, .country-column:first-child:not(.collapsed) { flex: 3; }
+      .column-header { cursor: pointer; padding: 6px 4px; flex-direction: column; gap: 2px; }
+      .country-name { font-size: 9px; }
+      .flag { font-size: 1.1rem; }
+      .rank-row { padding: 5px 3px; gap: 3px; flex-direction: column; align-items: center; }
+      .rank-num { width: 20px; height: 20px; font-size: 10px; border-radius: 4px; }
+      /* 선택되지 않은 국가의 순위 번호 숨김 + 행 높이 고정 */
+      .country-column:not(.expanded):not(:first-child) .rank-num,
+      .country-column.collapsed .rank-num { display: none; }
+      .country-column:not(.expanded):not(:first-child) .rank-row,
+      .country-column.collapsed .rank-row { height: 48px; min-height: 48px; justify-content: center; box-sizing: border-box; }
+      .app-icon { width: 36px; height: 36px; border-radius: 8px; }
+      .app-info { display: none; }
+      .country-column.expanded .rank-row, .country-column:first-child:not(.collapsed) .rank-row { flex-direction: row; padding: 8px 10px; gap: 8px; height: 48px; min-height: 48px; box-sizing: border-box; }
+      .country-column.expanded .app-info, .country-column:first-child:not(.collapsed) .app-info { display: block; flex: 1; min-width: 0; }
+      .country-column.expanded .app-icon, .country-column:first-child:not(.collapsed) .app-icon { width: 32px; height: 32px; }
+      .country-column.expanded .rank-num, .country-column:first-child:not(.collapsed) .rank-num { width: 22px; height: 22px; font-size: 11px; }
+      .app-name { font-size: 11px; margin-bottom: 2px; }
+      .app-dev { font-size: 9px; }
+    }
+
+    @media (max-width: 576px) {
+      .nav-item { padding: 10px 12px; font-size: 12px; gap: 4px; }
+      .nav-item svg { width: 14px; height: 14px; }
+      .logo-svg { height: 44px; }
+      .rankings-controls { gap: 12px; }
+      .news-favicon { width: 14px; height: 14px; }
+      .rank-num { width: 18px; height: 18px; font-size: 9px; }
+      .app-icon { width: 32px; height: 32px; border-radius: 6px; }
+      .country-column.expanded .app-icon, .country-column:first-child:not(.collapsed) .app-icon { width: 28px; height: 28px; }
+    }
+
+    @media (max-width: 480px) {
+      /* 좌우 여백 최소화 */
+      .container { padding: 0 8px 40px; }
+      .nav-inner { padding: 0 4px; }
+
+      /* 메인 메뉴 크기 증가 */
+      .nav-item { padding: 12px 8px; font-size: 12px; gap: 4px; }
+      .nav-item svg { width: 20px; height: 20px; }
+      .logo-svg { height: 36px; }
+
+      /* 컨트롤 영역 */
+      .rankings-controls { gap: 8px; }
+      .control-group { gap: 6px; }
+
+      /* 뉴스/커뮤니티 컨트롤 - 공통 스타일 사용 */
+
+      /* 뉴스/커뮤니티 아이템 */
+      .news-item { padding: 8px 6px; gap: 6px; }
+      .news-panel { padding: 8px 6px; gap: 6px; }
+      .news-card { padding: 10px; }
+      .news-favicon { width: 14px; height: 14px; }
+
+      /* 순위 */
+      .rank-num { width: 16px; height: 16px; font-size: 8px; }
+      .app-icon { width: 28px; height: 28px; }
+      .country-column.expanded { flex: 3.5; }
+
+      /* Steam 테이블 모바일 */
+      .steam-table-row {
+        grid-template-columns: 32px 1fr 80px;
+        padding: 10px 12px;
+        gap: 8px;
+      }
+      .steam-col-game {
+        gap: 8px;
+      }
+      .steam-img {
+        width: 60px;
+        height: 28px;
+      }
+      .steam-game-name {
+        font-size: 12px;
+      }
+      .steam-game-dev {
+        font-size: 10px;
+      }
+      .steam-col-players {
+        font-size: 11px;
+        text-align: right;
+      }
+      .steam-price-info {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+      }
+      .steam-discount {
+        font-size: 10px;
+        padding: 2px 4px;
+      }
+      .steam-price {
+        font-size: 11px;
+      }
+
+      /* 탭 버튼 - 모바일 */
+      .tab-group .tab-btn {
+        padding: 10px 6px;
+        font-size: 12px;
+        gap: 4px;
+        min-height: 40px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tab-group .tab-btn .news-favicon {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .nav-item { padding: 6px 8px; font-size: 10px; gap: 2px; }
+      .nav-item svg { width: 12px; height: 12px; }
+      .logo-svg { height: 32px; }
+      .rankings-controls { gap: 8px; flex-wrap: wrap; justify-content: center; }
+      .control-group { gap: 6px; }
+      .news-favicon { width: 12px; height: 12px; }
+      .rank-num { width: 14px; height: 14px; font-size: 7px; }
+      .app-icon { width: 24px; height: 24px; border-radius: 4px; }
+      .country-column.expanded { flex: 4; }
+      .country-column.expanded .app-icon { width: 24px; height: 24px; }
+      .app-name { font-size: 9px; }
+      .app-dev { display: none; }
+
+      /* Steam 테이블 초소형 모바일 */
+      .steam-table-row {
+        grid-template-columns: 28px 1fr 70px;
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .steam-img {
+        width: 50px;
+        height: 24px;
+      }
+      .steam-game-name {
+        font-size: 11px;
+      }
+      .steam-col-players {
+        font-size: 10px;
+      }
+
+      /* 탭 버튼 - 초소형 모바일 */
+      .tab-group .tab-btn {
+        padding: 8px 2px;
+        font-size: 12px;
+        min-height: 38px;
+        justify-content: center;
+      }
+      .tab-group .tab-btn .news-favicon {
+        display: none;
+      }
+    }
+
+    /* ========== Upcoming Games Section ========== */
+    .upcoming-controls .tab-group {
+      width: 100%;
+    }
+
+    .upcoming-section {
+      display: none;
+    }
+
+    .upcoming-section.active {
+      display: block;
+    }
+
+    .upcoming-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .upcoming-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .upcoming-item:hover {
+      background: var(--card-hover);
+    }
+
+    .upcoming-item:last-child {
+      border-bottom: none;
+    }
+
+    .upcoming-rank {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--border);
+      color: var(--text-secondary);
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .upcoming-rank.top1 { background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%); color: #92400e; }
+    .upcoming-rank.top2 { background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%); color: #374151; }
+    .upcoming-rank.top3 { background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%); color: #fff; }
+
+    .upcoming-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: var(--hover-bg);
+    }
+
+    .upcoming-icon-placeholder {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .upcoming-icon-placeholder svg {
+      width: 100%;
+      height: 100%;
+      opacity: 0.7;
+    }
+
+    .upcoming-icon-placeholder.hidden {
+      display: none;
+    }
+
+    .upcoming-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .upcoming-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+
+    .upcoming-date {
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .upcoming-publisher {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .upcoming-price {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .upcoming-empty {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    /* Upcoming responsive */
+    @media (max-width: 768px) {
+      .upcoming-item { padding: 12px 16px; gap: 10px; }
+      .upcoming-icon { width: 48px; height: 48px; border-radius: 10px; }
+      .upcoming-icon-placeholder { width: 48px; height: 48px; border-radius: 10px; }
+      .upcoming-name { font-size: 13px; }
+      .upcoming-rank { width: 24px; height: 24px; font-size: 11px; }
+    }
+
+    @media (max-width: 480px) {
+      .upcoming-item { padding: 10px 12px; gap: 8px; }
+      .upcoming-icon { width: 40px; height: 40px; border-radius: 8px; }
+      .upcoming-icon-placeholder { width: 40px; height: 40px; border-radius: 8px; }
+      .upcoming-name { font-size: 12px; }
+      .upcoming-date { font-size: 11px; }
+      .upcoming-rank { width: 22px; height: 22px; font-size: 10px; }
+    }
+
