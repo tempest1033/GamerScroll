@@ -1449,6 +1449,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       align-items: center;
       justify-content: center;
       gap: 10px;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
     }
 
     .logo-svg {
@@ -1932,10 +1935,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         font-size: 13px;
         gap: 5px;
         min-height: 42px;
+        overflow: hidden;
       }
       .tab-group .tab-btn .news-favicon {
         width: 16px;
         height: 16px;
+        flex-shrink: 0;
       }
     }
 
@@ -2927,14 +2932,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
       /* 탭 버튼 - 모바일 */
       .tab-group .tab-btn {
-        padding: 10px 4px;
+        padding: 10px 6px;
         font-size: 12px;
         gap: 4px;
         min-height: 40px;
+        overflow: hidden;
       }
       .tab-group .tab-btn .news-favicon {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
       }
     }
 
@@ -2972,13 +2979,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       /* 탭 버튼 - 초소형 모바일 */
       .tab-group .tab-btn {
         padding: 8px 2px;
-        font-size: 11px;
-        gap: 3px;
+        font-size: 12px;
         min-height: 38px;
+        justify-content: center;
       }
       .tab-group .tab-btn .news-favicon {
-        width: 12px;
-        height: 12px;
+        display: none;
       }
     }
 
