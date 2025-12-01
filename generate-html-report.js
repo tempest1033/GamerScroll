@@ -703,78 +703,60 @@ async function fetchSteamRankings() {
 // Steam 출시 예정 게임 (explore/upcoming 페이지 스크래핑)
 async function fetchSteamUpcoming() {
   const games = [];
-  const seenIds = new Set();
 
   try {
-    if (!FIRECRAWL_API_KEY) {
-      console.log('  Steam: FIRECRAWL_API_KEY 없음');
-      return games;
-    }
+    // Steam 위시리스트 상위 게임 API (인기 기대작)
+    const response = await fetch(
+      'https://store.steampowered.com/search/results/?query&start=0&count=50&sort_by=_ASC&filter=popularwishlist&infinite=1',
+      { headers: { 'Accept-Language': 'ko-KR,ko;q=0.9' } }
+    );
+    const data = await response.json();
 
-    const fc = new FirecrawlClient({ apiKey: FIRECRAWL_API_KEY });
-    const result = await fc.scrape('https://store.steampowered.com/explore/upcoming/', {
-      formats: ['markdown'],
-      maxAge: 3600000 // 1시간 캐시
-    });
+    if (data.success && data.results_html) {
+      const html = data.results_html;
 
-    if (result && result.markdown) {
-      // 마크다운 정규화: \\\n → \n
-      const md = result.markdown.replace(/\\+\n/g, '\n');
+      // 정규식으로 게임 정보 추출
+      const appidMatches = [...html.matchAll(/data-ds-appid="(\d+)"/g)];
+      const nameMatches = [...html.matchAll(/class="title">([^<]+)</g)];
+      const releaseDateMatches = [...html.matchAll(/class="search_released">([^<]*)</g)];
 
-      // Popular Upcoming Releases 섹션 찾기
-      const popularStart = md.indexOf('Popular Upcoming Releases');
-      const allStart = md.indexOf('All Upcoming Releases');
+      for (let i = 0; i < Math.min(20, appidMatches.length); i++) {
+        const appid = appidMatches[i][1];
+        const name = nameMatches[i]?.[1]?.trim() || '';
+        let releaseDate = releaseDateMatches[i]?.[1]?.trim() || '';
 
-      // Popular 섹션과 All 섹션 모두에서 게임 추출
-      const targetSection = popularStart > 0 ? md.substring(popularStart) : md;
+        // 이미 출시된 게임 제외 (출시일이 과거인 경우)
+        if (releaseDate && !releaseDate.toLowerCase().includes('coming') &&
+            !releaseDate.toLowerCase().includes('tba') &&
+            !releaseDate.toLowerCase().includes('tbd')) {
+          // 날짜 파싱 시도
+          const parsedDate = new Date(releaseDate);
+          if (!isNaN(parsedDate) && parsedDate < new Date()) {
+            continue; // 이미 출시된 게임 스킵
+          }
+        }
 
-      // 게임 블록 패턴으로 분리 후 처리
-      // 각 게임은 [![게임명](이미지)]...](스토어URL) 형태
-      const gameBlocks = targetSection.split(/\[!\[/).slice(1);
+        // DLC, Soundtrack 등 제외
+        if (name.includes('Supporter Pack') || name.includes('Soundtrack') ||
+            name.includes('Demo') || name.includes('DLC')) continue;
 
-      for (const block of gameBlocks) {
-        if (games.length >= 20) break;
-
-        // 게임명 추출
-        const nameMatch = block.match(/^([^\]]+)\]/);
-        if (!nameMatch) continue;
-        const name = nameMatch[1].trim();
-
-        // appid 추출
-        const appidMatch = block.match(/\/apps\/(\d+)\//);
-        if (!appidMatch) continue;
-        const appid = appidMatch[1];
-
-        // 중복 체크
-        if (seenIds.has(appid)) continue;
-        if (name.includes('Supporter Pack') || name.includes('Soundtrack') || name.includes('Demo')) continue;
-
-        // 날짜 추출
-        const dateMatch = block.match(/((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d+, \d{4})/);
-        const releaseDate = dateMatch ? dateMatch[1] : '';
-
-        // 태그 추출 (]( 바로 앞의 콤마로 구분된 단어들)
-        // 예: "Singleplayer, Action, Roguelike, RPG]("
-        const tagMatch = block.match(/\n([A-Za-z][^,\n]+(?:,\s*[A-Za-z][^,\n]+)+)\]\(https:\/\/store\.steampowered/);
-        const tags = tagMatch ? tagMatch[1] : '';
-        const firstTag = tags.split(',')[0]?.trim() || '';
-
-        seenIds.add(appid);
         games.push({
           rank: games.length + 1,
           name: name,
           img: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appid}/header.jpg`,
           appid: appid,
           link: `https://store.steampowered.com/app/${appid}`,
-          releaseDate: releaseDate,
-          publisher: firstTag
+          releaseDate: releaseDate || 'Coming Soon',
+          publisher: '위시리스트 TOP ' + (i + 1)
         });
+
+        if (games.length >= 20) break;
       }
     }
 
-    console.log(`  Steam 출시예정: ${games.length}개`);
+    console.log(`  Steam 기대작 (위시리스트 TOP): ${games.length}개`);
   } catch (e) {
-    console.log('  Steam 출시예정 로드 실패:', e.message);
+    console.log('  Steam 기대작 로드 실패:', e.message);
   }
   return games;
 }
@@ -922,39 +904,46 @@ async function fetchPS5Upcoming() {
   return games;
 }
 
-// 모바일 신규 출시 게임 (iOS App Store - 게임 카테고리만)
+// 모바일 신규 인기 게임 (iOS App Store - 인기 무료 게임 중 30일 이내 출시)
 async function fetchMobileUpcoming() {
   const games = [];
   try {
-    // 신규 무료 앱을 많이 가져와서 게임만 필터링
-    const newApps = await store.list({
-      collection: store.collection.NEW_FREE_IOS,
+    // 인기 무료 게임에서 가져오기
+    const topApps = await store.list({
+      collection: store.collection.TOP_FREE_IOS,
+      category: store.category.GAMES,
       country: 'kr',
-      num: 200  // 더 많이 가져와서 게임 20개 확보
+      num: 200  // 많이 가져와서 신규 게임 필터링
     });
 
-    // 게임 카테고리(6014)만 필터링
-    const gameApps = newApps.filter(app => {
-      // genreId가 게임(6014)이거나 genre가 '게임' 또는 'Games'인 경우
-      return app.genreId === '6014' ||
-             app.genre === '게임' ||
-             app.genre === 'Games';
+    // 30일 이내 출시된 게임만 필터링
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    const newGameApps = topApps.filter(app => {
+      if (!app.released) return false;
+      const releaseDate = new Date(app.released);
+      return releaseDate >= thirtyDaysAgo;
     });
 
-    gameApps.slice(0, 20).forEach((app, i) => {
+    newGameApps.slice(0, 20).forEach((app, i) => {
+      // 출시일 포맷팅
+      const releaseDate = new Date(app.released);
+      const formattedDate = `${releaseDate.getMonth() + 1}/${releaseDate.getDate()} 출시`;
+
       games.push({
         rank: i + 1,
         name: app.title,
         img: app.icon,
         link: app.url,
-        releaseDate: '신규 출시',
+        releaseDate: formattedDate,
         publisher: app.developer || ''
       });
     });
 
-    console.log(`  모바일 신규출시 (iOS 게임): ${games.length}개`);
+    console.log(`  모바일 신규인기 (iOS 30일 이내): ${games.length}개`);
   } catch (e) {
-    console.log('  모바일 신규출시 로드 실패:', e.message);
+    console.log('  모바일 신규인기 로드 실패:', e.message);
   }
   return games;
 }
