@@ -428,20 +428,23 @@ async function fetchNews() {
     });
     const $ = cheerio.load(res.data);
 
-    // 인기뉴스 리스트에서 가져오기
-    $('article a[href*="/webzine/news/?news="]').each((i, el) => {
+    // 인기뉴스 리스트에서 가져오기 - span.cols.title 구조
+    $('a[href*="/webzine/news/?news="]').each((i, el) => {
       if (newsBySource.inven.length >= 15) return false;
       const href = $(el).attr('href');
       if (!href) return;
 
-      // 원본 제목 추출 (태그 포함)
-      let rawTitle = $(el).find('strong').text().trim() || $(el).text().trim();
+      // 제목 추출 - span.cols.title에서 가져오기
+      const titleEl = $(el).find('span.cols.title');
+      if (!titleEl.length) return;
+
+      let rawTitle = titleEl.clone().children('.cmtnum').remove().end().text().trim();
       rawTitle = rawTitle.split('\n')[0].trim();
 
       // 태그 추출
       const tag = extractGameTag(rawTitle);
 
-      // 제목 정리 - [취재], [기획], HOT 등 태그 제거
+      // 제목 정리 - [취재], [기획], [인터뷰] 등 태그 제거
       let title = rawTitle.replace(/\[.*?\]/g, '').replace(/^HOT\s*/i, '').trim();
 
       if (title && title.length > 10 && !newsBySource.inven.find(n => n.title === title)) {
