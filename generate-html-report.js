@@ -3019,6 +3019,22 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
 </style>
   <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <!-- Firebase Analytics -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyBlVfvAGVrhEEMPKpDKJBrOPF7BINleV7I",
+      authDomain: "gamerscrawl-b104b.firebaseapp.com",
+      projectId: "gamerscrawl-b104b",
+      storageBucket: "gamerscrawl-b104b.firebasestorage.app",
+      messagingSenderId: "831886529376",
+      appId: "1:831886529376:web:2d9f0f64782fa5e5e80405",
+      measurementId: "G-2269FV044J"
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </head>
 <body>
   <header class="header">
