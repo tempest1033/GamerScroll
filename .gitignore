@@ -4,3 +4,4 @@ node_modules/
 !docs/*.html
 .DS_Store
 .env
+data-cache.json

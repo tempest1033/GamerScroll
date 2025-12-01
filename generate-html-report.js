@@ -1,14 +1,25 @@
 require('dotenv').config();
-const gplay = require('google-play-scraper').default;
-const store = require('app-store-scraper');
-const axios = require('axios');
-const cheerio = require('cheerio');
 const fs = require('fs');
-const cloudscraper = require('cloudscraper');
-const { FirecrawlClient } = require('@mendable/firecrawl-js');
-const puppeteer = require('puppeteer-extra');
-const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-puppeteer.use(StealthPlugin());
+
+// 커맨드라인 인자 파싱
+const isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
+
+// 캐시 파일 경로
+const CACHE_FILE = './data-cache.json';
+
+// 퀵 모드가 아닐 때만 무거운 모듈 로드
+let gplay, store, axios, cheerio, cloudscraper, FirecrawlClient, puppeteer;
+if (!isQuickMode) {
+  gplay = require('google-play-scraper').default;
+  store = require('app-store-scraper');
+  axios = require('axios');
+  cheerio = require('cheerio');
+  cloudscraper = require('cloudscraper');
+  FirecrawlClient = require('@mendable/firecrawl-js').FirecrawlClient;
+  puppeteer = require('puppeteer-extra');
+  const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+  puppeteer.use(StealthPlugin());
+}
 
 const countries = [
   { code: 'kr', name: '대한민국', flag: '🇰🇷' },
@@ -1101,7 +1112,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       return `
       <a class="upcoming-item" href="${game.link || '#'}" target="_blank" rel="noopener">
         <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-        ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" onerror="${onerrorHandler}">` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
+        ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" decoding="async" onerror="${onerrorHandler}">` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
         <div class="upcoming-info">
           <div class="upcoming-name">${game.name}</div>
           ${game.releaseDate ? `<div class="upcoming-date">${game.releaseDate}</div>` : ''}
@@ -1154,7 +1165,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       const rows = items.length > 0 ? items.map((app, i) => `
         <div class="rank-row">
           <span class="rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-          <img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          <img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'">
           <div class="app-info">
             <div class="app-name">${app.title}</div>
             <div class="app-dev">${app.developer}</div>
@@ -1185,7 +1196,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         rows = items.map((app, i) => `
           <div class="rank-row">
             <span class="rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-            <img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+            <img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'">
             <div class="app-info">
               <div class="app-name">${app.title}</div>
               <div class="app-dev">${app.developer}</div>
@@ -1219,6 +1230,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
   <!-- 폰트 preload로 FOUT 방지 -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <!-- 이미지 도메인 preconnect -->
+  <link rel="preconnect" href="https://play-lh.googleusercontent.com">
+  <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com">
+  <link rel="preconnect" href="https://www.google.com">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2" as="font" type="font/woff2" crossorigin>
@@ -3358,7 +3375,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
                 <span class="steam-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
               </div>
               <div class="steam-col-game">
-                <img class="steam-img" src="${game.img}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <img class="steam-img" src="${game.img}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                 <div class="steam-img-placeholder" style="display:none"><svg viewBox="0 0 24 24" fill="#66c0f4"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.007l2.862-4.145v-.058c0-2.495 2.03-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.104.004.156 0 1.871-1.52 3.393-3.393 3.393-1.618 0-2.974-1.14-3.305-2.658l-4.6-1.903C1.463 19.63 6.27 24 11.979 24c6.627 0 12-5.373 12-12S18.606 0 11.979 0z"/></svg></div>
                 <div class="steam-game-info">
                   <div class="steam-game-name">${game.name}</div>
@@ -3385,7 +3402,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
                 <span class="steam-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
               </div>
               <div class="steam-col-game">
-                <img class="steam-img" src="${game.img}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <img class="steam-img" src="${game.img}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                 <div class="steam-img-placeholder" style="display:none"><svg viewBox="0 0 24 24" fill="#66c0f4"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.007l2.862-4.145v-.058c0-2.495 2.03-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.104.004.156 0 1.871-1.52 3.393-3.393 3.393-1.618 0-2.974-1.14-3.305-2.658l-4.6-1.903C1.463 19.63 6.27 24 11.979 24c6.627 0 12-5.373 12-12S18.606 0 11.979 0z"/></svg></div>
                 <div class="steam-game-info">
                   <div class="steam-game-name">${game.name}</div>
@@ -3415,7 +3432,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           ${youtube.gaming.map((video, i) => `
             <a class="youtube-card" href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
               <div class="youtube-thumbnail">
-                <img src="${video.thumbnail}" alt="" loading="lazy">
+                <img src="${video.thumbnail}" alt="" loading="lazy" decoding="async">
                 <span class="youtube-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
               </div>
               <div class="youtube-info">
@@ -3436,7 +3453,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           ${chzzk.map((live, i) => `
             <a class="youtube-card" href="https://chzzk.naver.com/live/${live.channelId}" target="_blank">
               <div class="youtube-thumbnail">
-                <img src="${live.thumbnail}" alt="" loading="lazy">
+                <img src="${live.thumbnail}" alt="" loading="lazy" decoding="async">
                 <span class="youtube-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
                 <span class="live-badge">LIVE</span>
               </div>
@@ -3797,28 +3814,54 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 }
 
 async function main() {
-  console.log('📰 뉴스 크롤링 중 (인벤, 루리웹, 게임메카, 디스이즈게임)...\n');
-  const news = await fetchNews();
-  const totalNews = news.inven.length + news.ruliweb.length + news.gamemeca.length + news.thisisgame.length;
-  console.log(`\n  총 ${totalNews}개 뉴스 수집 완료`);
+  let news, community, rankings, steam, youtube, chzzk, upcoming;
 
-  console.log('\n💬 커뮤니티 인기글 수집 중 (루리웹, 아카라이브)...');
-  const community = await fetchCommunityPosts();
+  if (isQuickMode) {
+    // 퀵 모드: 캐시에서 로드
+    if (!fs.existsSync(CACHE_FILE)) {
+      console.log('❌ 캐시 파일이 없습니다. 먼저 일반 모드로 실행해주세요.');
+      return;
+    }
+    console.log('⚡ 퀵 모드 - 캐시 데이터로 빠르게 HTML 생성\n');
+    const cache = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
+    console.log(`📂 캐시 로드 완료 (생성: ${cache.timestamp})\n`);
+    news = cache.news;
+    community = cache.community;
+    rankings = cache.rankings;
+    steam = cache.steam;
+    youtube = cache.youtube;
+    chzzk = cache.chzzk;
+    upcoming = cache.upcoming;
+  } else {
+    // 일반 모드: 크롤링 실행
+    console.log('📰 뉴스 크롤링 중 (인벤, 루리웹, 게임메카, 디스이즈게임)...\n');
+    news = await fetchNews();
+    const totalNews = news.inven.length + news.ruliweb.length + news.gamemeca.length + news.thisisgame.length;
+    console.log(`\n  총 ${totalNews}개 뉴스 수집 완료`);
 
-  console.log('\n🔄 5대 마켓 순위 데이터 수집 중 (200위까지)...\n');
-  const rankings = await fetchRankings();
+    console.log('\n💬 커뮤니티 인기글 수집 중 (루리웹, 아카라이브)...');
+    community = await fetchCommunityPosts();
 
-  console.log('\n🎮 Steam 순위 데이터 수집 중...');
-  const steam = await fetchSteamRankings();
+    console.log('\n🔄 5대 마켓 순위 데이터 수집 중 (200위까지)...\n');
+    rankings = await fetchRankings();
 
-  console.log('\n📺 YouTube 인기 동영상 수집 중...');
-  const youtube = await fetchYouTubeVideos();
+    console.log('\n🎮 Steam 순위 데이터 수집 중...');
+    steam = await fetchSteamRankings();
 
-  console.log('\n📡 치지직 라이브 수집 중...');
-  const chzzk = await fetchChzzkLives();
+    console.log('\n📺 YouTube 인기 동영상 수집 중...');
+    youtube = await fetchYouTubeVideos();
 
-  // 출시 예정 게임 수집
-  const upcoming = await fetchUpcomingGames();
+    console.log('\n📡 치지직 라이브 수집 중...');
+    chzzk = await fetchChzzkLives();
+
+    // 출시 예정 게임 수집
+    upcoming = await fetchUpcomingGames();
+
+    // 캐시 저장
+    const cache = { timestamp: new Date().toISOString(), news, community, rankings, steam, youtube, chzzk, upcoming };
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf8');
+    console.log('\n💾 캐시 저장 완료');
+  }
 
   console.log('\n📄 GAMERSCRAWL 일일 보고서 생성 중...');
   const html = generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming);
