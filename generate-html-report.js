@@ -1457,7 +1457,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
       /* 모바일순위 - 두 그룹 사이 간격 */
       .rankings-controls {
-        gap: 48px !important;
+        gap: 60px !important;
+      }
+
+      /* 스팀 순위 - 모바일과 동일하게 작게 유지 */
+      .steam-controls .tab-btn {
+        min-width: auto !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
       }
     }
 
@@ -1725,6 +1732,33 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         border: 1px solid var(--border);
         padding: 20px;
         border-right: none;
+      }
+
+      /* 스팀 순위 - 모바일용 축소 */
+      .steam-table-header {
+        grid-template-columns: 50px 1fr 80px;
+        padding: 12px 12px;
+        font-size: 11px;
+      }
+      .steam-table-row {
+        grid-template-columns: 50px 1fr 80px;
+        padding: 10px 12px;
+      }
+      .steam-col-game {
+        gap: 10px;
+      }
+      .steam-img {
+        width: 80px;
+        height: 30px;
+      }
+      .steam-game-name {
+        font-size: 13px;
+      }
+      .steam-game-dev {
+        font-size: 10px;
+      }
+      .steam-col-players {
+        font-size: 12px;
       }
     }
 
