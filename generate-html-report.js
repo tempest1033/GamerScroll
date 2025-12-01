@@ -1348,6 +1348,39 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         --active-bg: rgba(99, 102, 241, 0.15);
         --item-bg: #1e293b;
       }
+
+      /* 다크모드 메인탭 - 흰색 톤 */
+      .nav-item {
+        color: rgba(255, 255, 255, 0.85) !important;
+      }
+      .nav-item:hover {
+        color: #fff !important;
+      }
+      .nav-item.active {
+        color: #fff !important;
+      }
+      .nav-item svg {
+        stroke: rgba(255, 255, 255, 0.85) !important;
+        opacity: 1 !important;
+      }
+      .nav-item:hover svg,
+      .nav-item.active svg {
+        stroke: #fff !important;
+      }
+
+      /* 다크모드 서브탭 - 흰색 톤 */
+      .tab-btn {
+        color: rgba(255, 255, 255, 0.85) !important;
+      }
+      .tab-btn:hover {
+        color: #fff !important;
+      }
+      .tab-btn.active {
+        color: #fff !important;
+      }
+      .tab-btn .news-favicon {
+        filter: brightness(1.5) contrast(0.9) !important;
+      }
     }
 
     /* === Custom Scrollbar === */
@@ -1549,6 +1582,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       border-radius: var(--radius-sm);
       margin: 6px 0;
       border-bottom: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
     }
 
     /* ===== PC 전용 스타일 (769px 이상) ===== */
@@ -2140,6 +2176,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       transition: all var(--transition-normal);
       white-space: nowrap;
       text-align: center;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
     }
 
     .tab-btn:hover {
@@ -2846,9 +2885,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       .flag { font-size: 1.1rem; }
       .rank-row { padding: 5px 3px; gap: 3px; flex-direction: column; align-items: center; }
       .rank-num { width: 20px; height: 20px; font-size: 10px; border-radius: 4px; }
+      /* 선택되지 않은 국가의 순위 번호 숨김 + 행 높이 고정 */
+      .country-column:not(.expanded):not(:first-child) .rank-num,
+      .country-column.collapsed .rank-num { display: none; }
+      .country-column:not(.expanded):not(:first-child) .rank-row,
+      .country-column.collapsed .rank-row { height: 48px; min-height: 48px; justify-content: center; box-sizing: border-box; }
       .app-icon { width: 36px; height: 36px; border-radius: 8px; }
       .app-info { display: none; }
-      .country-column.expanded .rank-row, .country-column:first-child:not(.collapsed) .rank-row { flex-direction: row; padding: 8px 10px; gap: 8px; }
+      .country-column.expanded .rank-row, .country-column:first-child:not(.collapsed) .rank-row { flex-direction: row; padding: 8px 10px; gap: 8px; height: 48px; min-height: 48px; box-sizing: border-box; }
       .country-column.expanded .app-info, .country-column:first-child:not(.collapsed) .app-info { display: block; flex: 1; min-width: 0; }
       .country-column.expanded .app-icon, .country-column:first-child:not(.collapsed) .app-icon { width: 32px; height: 32px; }
       .country-column.expanded .rank-num, .country-column:first-child:not(.collapsed) .rank-num { width: 22px; height: 22px; font-size: 11px; }
@@ -2937,6 +2981,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         gap: 4px;
         min-height: 40px;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .tab-group .tab-btn .news-favicon {
         width: 12px;
@@ -3158,30 +3205,30 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   <header class="header">
     <div class="header-inner">
       <h1 class="header-title" id="logo-home" style="cursor: pointer;">
-        <svg class="logo-svg" viewBox="0 0 600 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stop-color="#4f46e5" />
               <stop offset="100%" stop-color="#06b6d4" />
             </linearGradient>
           </defs>
-          
+
           <!-- 중앙 정렬 텍스트 -->
           <!-- dominant-baseline을 사용하여 수직 중앙 정렬 보정 -->
-          <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="48" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMERS CRAWL</text>
-          
+          <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMERS CRAWL</text>
+
           <!-- 장식: Tech Signals (Bar Width: 10px, Corner: 5px) -->
           <!-- 높이 72px 기준 수직 중앙 정렬 (Y = (72-H)/2) -->
-          
+
           <!-- 왼쪽 안테나 -->
-          <rect x="40" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
-          <rect x="58" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
-          <rect x="76" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
-          
+          <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+          <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+
           <!-- 오른쪽 안테나 (왼쪽과 완벽 대칭) -->
-          <rect x="514" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
-          <rect x="532" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
-          <rect x="550" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+          <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+          <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
         </svg>
       </h1>
     </div>
