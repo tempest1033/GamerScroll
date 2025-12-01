@@ -1096,17 +1096,26 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       return '<div class="upcoming-empty">출시 예정 정보를 불러올 수 없습니다</div>';
     }
     const defaultLogo = platformLogos[platform] || platformLogos.mobile;
-    return items.map((game, i) => `
+    return items.map((game, i) => {
+      // Steam 게임인 경우 대체 이미지 URL 시도
+      const isSteam = platform === 'steam' && game.appid;
+      const fallbackImg = isSteam ? `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/capsule_231x87.jpg` : '';
+      const onerrorHandler = isSteam
+        ? `if(!this.dataset.retry){this.dataset.retry='1';this.src='${fallbackImg}';}else{this.parentElement.querySelector('.upcoming-icon-placeholder')?.classList.remove('hidden');this.style.display='none';}`
+        : `this.parentElement.querySelector('.upcoming-icon-placeholder')?.classList.remove('hidden');this.style.display='none'`;
+
+      return `
       <a class="upcoming-item" href="${game.link || '#'}" target="_blank" rel="noopener">
         <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-        ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" onerror="this.parentElement.querySelector('.upcoming-icon-placeholder')?.classList.remove('hidden');this.style.display='none'">` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
+        ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" onerror="${onerrorHandler}">` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
         <div class="upcoming-info">
           <div class="upcoming-name">${game.name}</div>
           ${game.releaseDate ? `<div class="upcoming-date">${game.releaseDate}</div>` : ''}
           ${game.publisher ? `<div class="upcoming-publisher">${game.publisher}</div>` : ''}
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
   }
 
   const invenNewsHTML = generateNewsSection(news.inven);
@@ -1229,20 +1238,138 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       visibility: visible;
     }
     :root {
+      /* === Primary Colors === */
       --primary: #4f46e5; /* Indigo 600 */
       --primary-light: #6366f1; /* Indigo 500 */
       --primary-dark: #4338ca; /* Indigo 700 */
       --accent: #f97316;
+
+      /* === Background & Surface === */
       --bg: #f8fafc; /* Slate 50 */
+      --bg-elevated: #ffffff;
       --card: #ffffff;
+      --card-hover: #f8fafc;
+
+      /* === Border === */
       --border: #e2e8f0; /* Slate 200 */
+      --border-subtle: #f1f5f9;
+
+      /* === Text === */
       --text: #0f172a; /* Slate 900 */
       --text-secondary: #64748b; /* Slate 500 */
       --text-muted: #94a3b8; /* Slate 400 */
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+      /* === Shadows (Multi-layer Soft) === */
+      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.04);
+      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 2px 4px rgb(0 0 0 / 0.04);
+      --shadow: 0 1px 3px rgb(0 0 0 / 0.04), 0 4px 8px rgb(0 0 0 / 0.06), 0 8px 16px rgb(0 0 0 / 0.04);
+      --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.04), 0 8px 16px rgb(0 0 0 / 0.08), 0 16px 32px rgb(0 0 0 / 0.06);
+      --shadow-xl: 0 4px 8px rgb(0 0 0 / 0.04), 0 16px 32px rgb(0 0 0 / 0.08), 0 32px 64px rgb(0 0 0 / 0.06);
+
+      /* === Glass Effect === */
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-bg-solid: rgba(255, 255, 255, 0.9);
+      --glass-border: rgba(255, 255, 255, 0.5);
+
+      /* === Interactive States === */
+      --hover-bg: #f1f5f9;
+      --active-bg: #eef2ff;
+      --item-bg: #ffffff;
+
+      /* === Semantic Colors === */
+      --success: #16a34a;
+
+      /* === Layout === */
       --radius: 16px;
+      --radius-sm: 10px;
+      --radius-lg: 20px;
+
+      /* === Animation === */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: 0.15s var(--ease-in-out);
+      --transition-normal: 0.25s var(--ease-out-expo);
+      --transition-slow: 0.4s var(--ease-out-expo);
+    }
+
+    /* === Dark Mode === */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* Primary Colors - 밝게 조정 */
+        --primary: #818cf8; /* Indigo 400 */
+        --primary-light: #a5b4fc; /* Indigo 300 */
+        --primary-dark: #6366f1; /* Indigo 500 */
+        --accent: #fb923c; /* Orange 400 */
+
+        /* Background & Surface */
+        --bg: #0f172a; /* Slate 900 */
+        --bg-elevated: #1e293b; /* Slate 800 */
+        --card: #1e293b; /* Slate 800 */
+        --card-hover: #334155; /* Slate 700 */
+
+        /* Border */
+        --border: #334155; /* Slate 700 */
+        --border-subtle: #1e293b; /* Slate 800 */
+
+        /* Text */
+        --text: #f1f5f9; /* Slate 100 */
+        --text-secondary: #94a3b8; /* Slate 400 */
+        --text-muted: #64748b; /* Slate 500 */
+
+        /* Shadows - 다크모드용 더 깊은 그림자 */
+        --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.2);
+        --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2), 0 2px 4px rgb(0 0 0 / 0.15);
+        --shadow: 0 1px 3px rgb(0 0 0 / 0.2), 0 4px 8px rgb(0 0 0 / 0.25), 0 8px 16px rgb(0 0 0 / 0.2);
+        --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.2), 0 8px 16px rgb(0 0 0 / 0.3), 0 16px 32px rgb(0 0 0 / 0.25);
+        --shadow-xl: 0 4px 8px rgb(0 0 0 / 0.2), 0 16px 32px rgb(0 0 0 / 0.3), 0 32px 64px rgb(0 0 0 / 0.25);
+
+        /* Glass Effect - 다크모드 */
+        --glass-bg: rgba(30, 41, 59, 0.7);
+        --glass-bg-solid: rgba(30, 41, 59, 0.95);
+        --glass-border: rgba(255, 255, 255, 0.1);
+
+        /* Interactive States - 다크모드 */
+        --hover-bg: #334155;
+
+        /* Semantic Colors - 다크모드 */
+        --success: #4ade80;
+        --active-bg: rgba(99, 102, 241, 0.15);
+        --item-bg: #1e293b;
+      }
+    }
+
+    /* === Custom Scrollbar === */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--text-muted);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-secondary);
+    }
+
+    /* Firefox */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--text-muted) transparent;
+    }
+
+    /* Reduced Motion 지원 */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
 
     /* Twemoji 이모지 크기 제어 */
@@ -1270,13 +1397,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     /* Header */
     .header {
-      background: rgba(255, 255, 255, 0.8);
+      background: var(--glass-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 24px 0;
       position: relative;
       z-index: 101;
+      transition: background var(--transition-normal);
     }
 
     .header-inner {
@@ -1295,7 +1423,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       font-size: 0.9rem;
       font-weight: 600;
       color: var(--text-secondary);
-      background: rgba(255,255,255,0.5);
+      background: var(--glass-bg);
       padding: 6px 12px;
       border-radius: 20px;
       border: 1px solid var(--border);
@@ -1315,10 +1443,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       height: 68px;
       width: auto;
       max-width: 100%;
+      color: var(--text);
       filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.2));
-      transition: transform 0.3s ease;
+      transition: transform var(--transition-normal), color var(--transition-normal);
     }
-    
+
     .logo-svg:hover {
         transform: scale(1.02);
     }
@@ -1362,7 +1491,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     /* Navigation */
     .nav {
-      background: rgba(255, 255, 255, 0.9);
+      background: var(--glass-bg-solid);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
@@ -1370,6 +1499,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       top: 0;
       z-index: 100;
       box-shadow: var(--shadow-sm);
+      transition: background var(--transition-normal);
     }
 
     .nav-inner {
@@ -1392,16 +1522,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       padding: 12px 20px;
       font-size: 14px;
       font-weight: 600;
-      color: #475569;  /* 더 진한 색상 */
+      color: var(--text-secondary);
       cursor: pointer;
       position: relative;
-      transition: all 0.2s ease;
+      transition: all var(--transition-normal);
       display: flex;
       align-items: center;
       gap: 8px;
       white-space: nowrap;
       flex-shrink: 0;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       margin: 6px 0;
       border-bottom: none;
     }
@@ -1500,13 +1630,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     @media (hover: hover) {
       .nav-item:hover {
         color: var(--text);
-        background: #f1f5f9;
+        background: var(--hover-bg);
       }
     }
 
     .nav-item.active {
       color: var(--primary);
-      background: #eef2ff;
+      background: var(--active-bg);
       border-bottom: none;
     }
 
@@ -1614,7 +1744,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 32px;
-      border: 1px solid rgba(255,255,255,0.5);
+      border: 1px solid var(--border);
     }
 
     @media (min-width: 769px) {
@@ -1663,7 +1793,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       margin-bottom: 20px;
       padding: 12px 16px;
       border-radius: 12px;
-      background: #f8fafc;
+      background: var(--card-hover);
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
     }
 
@@ -1727,7 +1857,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       }
       .news-panel {
         display: block;
-        background: #fff;
+        background: var(--card);
         border-radius: 12px;
         border: 1px solid var(--border);
         padding: 20px;
@@ -1766,7 +1896,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       font-size: 1rem;
       font-weight: 700;
       margin-bottom: 20px;
-      color: #1e293b;
+      color: var(--text);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -1775,7 +1905,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     .section-title svg {
       width: 20px;
       height: 20px;
-      color: #3b82f6;
+      color: var(--primary);
     }
 
     .news-list {
@@ -1790,10 +1920,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       align-items: center;
       gap: 12px;
       padding: 12px 14px;
-      background: #fff;
+      background: var(--item-bg);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      transition: all 0.2s ease;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-normal);
       min-width: 0;
       overflow: hidden;
     }
@@ -1801,10 +1931,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     /* 데스크톱에서만 hover 효과 */
     @media (hover: hover) {
       .news-item:hover {
-        background: #f8fafc;
+        background: var(--card-hover);
         transform: translateX(4px);
-        border-color: #cbd5e1;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        border-color: var(--border);
+        box-shadow: var(--shadow-sm);
       }
     }
 
@@ -1817,7 +1947,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     /* 데스크톱에서만 hover 효과 */
     @media (hover: hover) {
       a.news-item.clickable:hover {
-        background: #eef2ff;
+        background: var(--active-bg);
         border-color: var(--primary);
       }
     }
@@ -1825,7 +1955,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     /* 터치 디바이스에서 active 효과 */
     @media (hover: none) {
       a.news-item.clickable:active {
-        background: #eef2ff;
+        background: var(--active-bg);
         border-color: var(--primary);
       }
     }
@@ -1836,8 +1966,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f1f5f9;
-      color: #64748b;
+      background: var(--hover-bg);
+      color: var(--text-secondary);
       font-size: 12px;
       font-weight: 700;
       border-radius: 6px;
@@ -1896,7 +2026,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       font-size: 11px;
       font-weight: 700;
       color: var(--primary);
-      background: #eef2ff;
+      background: var(--active-bg);
       padding: 3px 8px;
       border-radius: 6px;
       white-space: nowrap;
@@ -1935,8 +2065,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     .tab-group {
       display: flex;
-      background: #f1f5f9;
-      border-radius: 10px;
+      background: var(--hover-bg);
+      border-radius: var(--radius-sm);
       padding: 4px;
       gap: 4px;
       overflow-x: auto;
@@ -1955,20 +2085,20 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all var(--transition-normal);
       white-space: nowrap;
       text-align: center;
     }
 
     .tab-btn:hover {
       color: var(--text);
-      background: rgba(255,255,255,0.5);
+      background: var(--glass-bg);
     }
 
     .tab-btn.active {
-      background: white;
+      background: var(--card);
       color: var(--primary);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow-sm);
       font-weight: 700;
     }
 
@@ -2010,7 +2140,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     .column-header {
       padding: 16px 12px;
-      background: #f8fafc;
+      background: var(--card-hover);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -2042,14 +2172,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       align-items: center;
       gap: 16px;
       padding: 12px 16px;
-      border-bottom: 1px solid #f1f5f9;
-      transition: all 0.2s;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all var(--transition-normal);
     }
 
     .rank-row:hover {
-      background: #f8fafc;
+      background: var(--card-hover);
       transform: scale(1.01);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow-sm);
       z-index: 1;
       position: relative;
     }
@@ -2066,10 +2196,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       justify-content: center;
       font-size: 13px;
       font-weight: 700;
-      color: #94a3b8;
+      color: var(--text-muted);
       flex-shrink: 0;
       border-radius: 8px;
-      background: #f1f5f9;
+      background: var(--hover-bg);
     }
 
     .rank-num.top1 {
@@ -2099,7 +2229,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       border-radius: 12px;
       object-fit: cover;
       flex-shrink: 0;
-      background: #f1f5f9;
+      background: var(--hover-bg);
       box-shadow: 0 2px 5px rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.05);
     }
@@ -2161,7 +2291,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: grid;
       grid-template-columns: 70px 1fr 140px;
       padding: 16px 24px;
-      background: #f8fafc;
+      background: var(--card-hover);
       border-bottom: 1px solid var(--border);
       font-size: 13px;
       font-weight: 700;
@@ -2186,13 +2316,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: grid;
       grid-template-columns: 70px 1fr 140px;
       padding: 16px 24px;
-      border-bottom: 1px solid #f1f5f9;
+      border-bottom: 1px solid var(--border-subtle);
       align-items: center;
-      transition: all 0.2s;
+      transition: all var(--transition-normal);
     }
 
     .steam-table-row:hover {
-      background: #f8fafc;
+      background: var(--card-hover);
       transform: translateX(4px);
     }
 
@@ -2248,7 +2378,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     .steam-game-name {
       font-size: 15px;
       font-weight: 700;
-      color: #1e293b;
+      color: var(--text);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -2256,7 +2386,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     .steam-game-dev {
       font-size: 11px;
-      color: #94a3b8;
+      color: var(--text-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -2267,7 +2397,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       text-align: right;
       font-size: 14px;
       font-weight: 600;
-      color: #16a34a;
+      color: var(--success);
     }
 
     .steam-price-info {
@@ -2288,7 +2418,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     .steam-price {
-      color: #1e293b;
+      color: var(--text);
       font-weight: 600;
     }
 
@@ -2300,8 +2430,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       justify-content: center;
       font-size: 13px;
       font-weight: 700;
-      color: #64748b;
-      background: #f1f5f9;
+      color: var(--text-secondary);
+      background: var(--hover-bg);
       border-radius: 8px;
       flex-shrink: 0;
     }
@@ -2336,7 +2466,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     .steam-game-name {
       font-size: 14px;
       font-weight: 600;
-      color: #1e293b;
+      color: var(--text);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -2373,7 +2503,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       font-size: 13px;
       font-weight: 600;
       color: var(--text-secondary);
-      background: #f1f5f9;
+      background: var(--hover-bg);
       border: none;
       border-radius: 8px;
       text-decoration: none;
@@ -2382,7 +2512,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     .external-link-btn:hover {
-      background: #e2e8f0;
+      background: var(--border);
       color: var(--text);
     }
 
@@ -2420,7 +2550,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     .youtube-card {
-      background: white;
+      background: var(--card);
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -2533,7 +2663,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     .youtube-empty {
       text-align: center;
       padding: 60px 20px;
-      color: #64748b;
+      color: var(--text-secondary);
     }
 
     .youtube-empty p {
@@ -2568,14 +2698,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     .top-banner-placeholder {
-      background: #f1f5f9;
-      border: 2px dashed #cbd5e1;
+      background: var(--hover-bg);
+      border: 2px dashed var(--border);
       border-radius: 4px;
       height: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #94a3b8;
+      color: var(--text-muted);
       font-size: 13px;
     }
 
@@ -2598,7 +2728,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     .footer-links a {
-      color: #1f2937;
+      color: var(--text);
       text-decoration: none;
       font-size: 14px;
     }
@@ -2608,7 +2738,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     .footer-info {
-      color: #64748b;
+      color: var(--text-secondary);
       font-size: 12px;
     }
 
@@ -2777,7 +2907,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     .upcoming-item:hover {
-      background: #f8fafc;
+      background: var(--card-hover);
     }
 
     .upcoming-item:last-child {
@@ -2790,7 +2920,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #e2e8f0;
+      background: var(--border);
       color: var(--text-secondary);
       border-radius: 6px;
       font-weight: 700;
@@ -2809,7 +2939,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       object-fit: cover;
       flex-shrink: 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      background: #f1f5f9;
+      background: var(--hover-bg);
     }
 
     .upcoming-icon-placeholder {
@@ -2908,7 +3038,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           
           <!-- 중앙 정렬 텍스트 -->
           <!-- dominant-baseline을 사용하여 수직 중앙 정렬 보정 -->
-          <text x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="48" font-weight="900" fill="#1e293b" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMERS CRAWL</text>
+          <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="48" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMERS CRAWL</text>
           
           <!-- 장식: Tech Signals (Bar Width: 10px, Corner: 5px) -->
           <!-- 높이 72px 기준 수직 중앙 정렬 (Y = (72-H)/2) -->
@@ -3279,6 +3409,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.querySelector('.nav-item[data-section="community"]')?.classList.add('active');
       document.getElementById('community')?.classList.add('active');
+      window.scrollTo(0, 0); // 즉시 맨 위로
     });
 
     // 뉴스 탭 요소
@@ -3351,6 +3482,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         resetSubTabs();
         resetCountryColumns();
         updateNavCarousel(idx);
+        window.scrollTo(0, 0); // 즉시 맨 위로
       });
     });
 
@@ -3422,8 +3554,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         navInner.style.transform = 'translateX(' + offset + '%)';
       }
 
-      // 상단으로 스크롤
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // 상단으로 즉시 스크롤
+      window.scrollTo(0, 0);
     }
 
     // 전체 페이지에서 스와이프
@@ -3438,10 +3570,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       const diffX = touchStartX - touchEndX;
       const diffY = touchStartY - touchEndY;
 
-      // 상하 이동이 좌우보다 크면 스크롤로 간주 → 무시
-      if (Math.abs(diffY) > Math.abs(diffX)) return;
+      // 상하 이동이 30px 이상이면 스크롤로 간주 → 무시
+      if (Math.abs(diffY) > 30) return;
+      // 좌우 이동이 상하 이동의 2배 이상이어야 스와이프로 인식
+      if (Math.abs(diffX) < Math.abs(diffY) * 2) return;
 
-      if (Math.abs(diffX) > 60) { // 60px 이상 수평 스와이프
+      if (Math.abs(diffX) > 50) { // 50px 이상 수평 스와이프
         const currentIndex = getCurrentNavIndex();
         if (diffX > 0) {
           // 왼쪽으로 스와이프 → 다음 섹션
