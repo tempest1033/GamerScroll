@@ -1533,8 +1533,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         justify-content: center !important;
       }
 
-      /* 모든 컨트롤 영역 */
-      .news-controls,
+      /* 모든 컨트롤 영역 (뉴스/커뮤니티 제외 - PC에서 숨김) */
       .rankings-controls,
       .steam-controls,
       .video-controls,
@@ -1743,7 +1742,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       .news-card {
         margin-top: 16px;
       }
-      .steam-controls, .video-controls, .rankings-controls, .upcoming-controls, .news-controls {
+      .steam-controls, .video-controls, .rankings-controls, .upcoming-controls {
         padding: 8px 20px;
         margin-bottom: 12px;
       }
