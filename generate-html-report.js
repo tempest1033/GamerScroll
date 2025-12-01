@@ -481,24 +481,26 @@ async function fetchNews() {
     console.log('  루리웹 뉴스 실패:', e.message);
   }
 
-  // 게임메카 인기뉴스 스크래핑
+  // 게임메카 인기뉴스 스크래핑 (뉴스 목록 페이지)
   try {
-    const res = await axios.get('https://www.gamemeca.com/', {
+    const res = await axios.get('https://www.gamemeca.com/news.php', {
       headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
       timeout: 10000
     });
     const $ = cheerio.load(res.data);
 
-    // 메인 뉴스 섹션에서 가져오기
-    $('a[href*="/view.php?gid="]').each((i, el) => {
+    // 뉴스 목록에서 가져오기 - tit_thumb, tit_thumb_h 클래스
+    $('strong.tit_thumb a, strong.tit_thumb_h a').each((i, el) => {
       if (newsBySource.gamemeca.length >= 15) return false;
-      const rawTitle = $(el).attr('title') || $(el).text().trim();
+      const rawTitle = $(el).text().trim();
       const link = $(el).attr('href');
+      if (!rawTitle || !link) return;
+
       const tag = extractGameTag(rawTitle);
       // 불필요한 텍스트 정리
       const cleanTitle = rawTitle.replace(/\[.*?\]/g, '').trim().split('\n')[0];
 
-      if (cleanTitle && cleanTitle.length > 10 && link && !newsBySource.gamemeca.find(n => n.title === cleanTitle)) {
+      if (cleanTitle && cleanTitle.length > 10 && !newsBySource.gamemeca.find(n => n.title === cleanTitle)) {
         newsBySource.gamemeca.push({
           title: cleanTitle.substring(0, 55),
           link: link.startsWith('http') ? link : 'https://www.gamemeca.com' + link,
