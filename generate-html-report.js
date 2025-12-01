@@ -1579,6 +1579,22 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         margin-right: 0 !important;
       }
 
+      /* PC 서브탭 버튼 */
+      .tab-group .tab-btn {
+        flex: 0 0 auto !important;
+        min-width: auto !important;
+        min-height: auto !important;
+        padding: 12px 28px !important;
+        font-size: 15px !important;
+        gap: 8px !important;
+        overflow: visible !important;
+      }
+
+      .tab-group .tab-btn .news-favicon {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
       /* 모바일순위 - 두 그룹 사이 간격 */
       .rankings-controls {
         gap: 60px !important;
@@ -1722,16 +1738,22 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 4px;
-      font-size: 13px;
+      gap: 6px;
+      padding: 12px 8px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
       min-width: 0;
+      min-height: 44px;
       box-sizing: border-box;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .tab-group .tab-btn .news-favicon {
-      width: 16px;
-      height: 16px;
-      margin-right: 6px;
+      width: 18px;
+      height: 18px;
       flex-shrink: 0;
     }
 
@@ -1885,6 +1907,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       }
       .steam-col-players {
         font-size: 12px;
+      }
+
+      /* 탭 버튼 - 태블릿 */
+      .tab-group .tab-btn {
+        padding: 10px 6px;
+        font-size: 13px;
+        gap: 5px;
+        min-height: 42px;
+      }
+      .tab-group .tab-btn .news-favicon {
+        width: 16px;
+        height: 16px;
       }
     }
 
@@ -2821,15 +2855,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
       /* Steam 테이블 모바일 */
       .steam-table-row {
-        grid-template-columns: 40px 1fr 80px;
+        grid-template-columns: 32px 1fr 80px;
         padding: 10px 12px;
+        gap: 8px;
       }
       .steam-col-game {
         gap: 8px;
       }
       .steam-img {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 28px;
       }
       .steam-game-name {
         font-size: 12px;
@@ -2853,6 +2888,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       .steam-price {
         font-size: 11px;
       }
+
+      /* 탭 버튼 - 모바일 */
+      .tab-group .tab-btn {
+        padding: 10px 4px;
+        font-size: 12px;
+        gap: 4px;
+        min-height: 40px;
+      }
+      .tab-group .tab-btn .news-favicon {
+        width: 14px;
+        height: 14px;
+      }
     }
 
     @media (max-width: 360px) {
@@ -2868,6 +2915,35 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       .country-column.expanded .app-icon { width: 24px; height: 24px; }
       .app-name { font-size: 9px; }
       .app-dev { display: none; }
+
+      /* Steam 테이블 초소형 모바일 */
+      .steam-table-row {
+        grid-template-columns: 28px 1fr 70px;
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .steam-img {
+        width: 50px;
+        height: 24px;
+      }
+      .steam-game-name {
+        font-size: 11px;
+      }
+      .steam-col-players {
+        font-size: 10px;
+      }
+
+      /* 탭 버튼 - 초소형 모바일 */
+      .tab-group .tab-btn {
+        padding: 8px 2px;
+        font-size: 11px;
+        gap: 3px;
+        min-height: 38px;
+      }
+      .tab-group .tab-btn .news-favicon {
+        width: 12px;
+        height: 12px;
+      }
     }
 
     /* ========== Upcoming Games Section ========== */
