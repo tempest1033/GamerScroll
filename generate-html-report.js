@@ -2715,7 +2715,26 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     @media (max-width: 480px) {
       .youtube-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .youtube-info {
+        padding: 8px;
+      }
+      .youtube-title {
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+      }
+      .youtube-channel {
+        font-size: 10px;
+      }
+      .youtube-views {
+        font-size: 10px;
+      }
+      .youtube-rank {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
       }
     }
 
