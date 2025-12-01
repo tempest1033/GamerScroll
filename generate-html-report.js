@@ -1687,12 +1687,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       display: flex !important;
     }
 
-    /* 커뮤니티: PC에서 탭 숨김, 모바일에서만 표시 */
+    /* 뉴스/커뮤니티: PC에서 탭 숨김, 모바일에서만 표시 */
+    #news .news-controls,
     #community .news-controls {
       display: none;
     }
 
     @media (max-width: 768px) {
+      #news .news-controls,
       #community .news-controls {
         display: flex !important;
       }
