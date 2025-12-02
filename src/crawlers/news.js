@@ -61,6 +61,12 @@ async function fetchNews(axios, cheerio) {
       const titleEl = $(el).find('span.cols.title');
       if (!titleEl.length) return;
 
+      // 썸네일 추출 (부모 요소에서)
+      let thumbnail = $(el).closest('li').find('img').attr('src') || $(el).find('img').attr('src') || '';
+      if (thumbnail && !thumbnail.startsWith('http')) {
+        thumbnail = 'https://www.inven.co.kr' + thumbnail;
+      }
+
       let rawTitle = titleEl.clone().children('.cmtnum').remove().end().text().trim();
       rawTitle = rawTitle.split('\n')[0].trim();
       const tag = extractGameTag(rawTitle);
@@ -70,7 +76,8 @@ async function fetchNews(axios, cheerio) {
         newsBySource.inven.push({
           title: title.substring(0, 55),
           link: href.startsWith('http') ? href : 'https://www.inven.co.kr' + href,
-          tag: tag
+          tag: tag,
+          thumbnail: thumbnail
         });
       }
     });
@@ -91,8 +98,14 @@ async function fetchNews(axios, cheerio) {
       const link = $(el).find('link').text().trim();
       const tag = extractGameTag(rawTitle);
       const title = rawTitle.replace(/\[.*?\]/g, '').trim();
+
+      // description에서 이미지 추출
+      const desc = $(el).find('description').text();
+      const imgMatch = desc.match(/<img[^>]+src=["']([^"']+)["']/i);
+      const thumbnail = imgMatch ? imgMatch[1] : '';
+
       if (title && link) {
-        newsBySource.ruliweb.push({ title: title.substring(0, 55), link, tag });
+        newsBySource.ruliweb.push({ title: title.substring(0, 55), link, tag, thumbnail });
       }
     });
     console.log(`  루리웹: ${newsBySource.ruliweb.length}개`);
@@ -114,6 +127,12 @@ async function fetchNews(axios, cheerio) {
       const link = $(el).attr('href');
       if (!rawTitle || !link) return;
 
+      // 썸네일 추출 (부모 li에서)
+      let thumbnail = $(el).closest('li').find('img').attr('src') || '';
+      if (thumbnail && !thumbnail.startsWith('http')) {
+        thumbnail = 'https://www.gamemeca.com' + thumbnail;
+      }
+
       const tag = extractGameTag(rawTitle);
       const cleanTitle = rawTitle.replace(/\[.*?\]/g, '').trim().split('\n')[0];
 
@@ -121,7 +140,8 @@ async function fetchNews(axios, cheerio) {
         newsBySource.gamemeca.push({
           title: cleanTitle.substring(0, 55),
           link: link.startsWith('http') ? link : 'https://www.gamemeca.com' + link,
-          tag: tag
+          tag: tag,
+          thumbnail: thumbnail
         });
       }
     });
@@ -130,33 +150,80 @@ async function fetchNews(axios, cheerio) {
     console.log('  게임메카 뉴스 실패:', e.message);
   }
 
-  // 디스이즈게임 인기뉴스
+  // 디스이즈게임 인기뉴스 (puppeteer 사용 - Next.js 앱)
   try {
-    const res = await axios.get('https://www.thisisgame.com/', {
-      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
-      timeout: 10000
+    const puppeteer = require('puppeteer-extra');
+    const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+    puppeteer.use(StealthPlugin());
+
+    const browser = await puppeteer.launch({
+      headless: 'new',
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
     });
-    const $ = cheerio.load(res.data);
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1280, height: 800 });
+    await page.goto('https://www.thisisgame.com/', { waitUntil: 'networkidle2', timeout: 30000 });
 
-    $('a[href*="/articles/"]').each((i, el) => {
-      if (newsBySource.thisisgame.length >= 15) return false;
-      const href = $(el).attr('href');
-      if (!href || href.includes('newsId=') || href.includes('categoryId=')) return;
+    // 페이지에서 기사 정보 추출 (PC 그리드 영역의 카드만 수집)
+    const articles = await page.evaluate(() => {
+      const results = [];
+      const seen = new Set();
 
-      let rawTitle = $(el).text().trim();
-      rawTitle = rawTitle.split('\n')[0].trim();
-      const tag = extractGameTag(rawTitle);
-      let title = rawTitle.replace(/\[.*?\]/g, '').trim();
+      // PC 그리드 영역의 기사 카드 수집 (div.relative > a 구조에서 img가 직접 있는 것)
+      // 각 기사 카드는 div.relative 안에 a 태그와 img가 함께 있음
+      const articleCards = document.querySelectorAll('div.relative > a[href*="/articles/"]');
 
-      if (title && title.length > 10 && !newsBySource.thisisgame.find(n => n.title === title)) {
-        newsBySource.thisisgame.push({
-          title: title.substring(0, 55),
-          link: href.startsWith('http') ? href : 'https://www.thisisgame.com' + href,
-          tag: tag
-        });
-      }
+      articleCards.forEach(link => {
+        if (results.length >= 15) return;
+        const href = link.getAttribute('href');
+        if (!href || href.includes('newsId=') || href.includes('categoryId=') || href.includes('community')) return;
+
+        const fullLink = href.startsWith('http') ? href : 'https://www.thisisgame.com' + href;
+        if (seen.has(fullLink)) return;
+
+        // 링크 내부의 img만 사용 (다른 기사의 이미지를 가져오지 않도록)
+        const img = link.querySelector('img');
+        if (!img || !img.src) return; // 이미지 없는 링크는 스킵
+
+        const thumbnail = img.src;
+
+        // 제목 추출 - p 태그에서
+        const pTag = link.querySelector('p');
+        let title = '';
+        if (pTag) {
+          title = pTag.textContent.trim();
+        } else {
+          // p 태그가 없으면 링크 텍스트에서 (이미지 alt 제외)
+          title = link.textContent.trim();
+        }
+        title = title.split('\n')[0].trim();
+
+        if (title && title.length > 10 && title.length < 100) {
+          seen.add(fullLink);
+          results.push({
+            title: title.substring(0, 55),
+            link: fullLink,
+            thumbnail: thumbnail
+          });
+        }
+      });
+
+      return results;
     });
-    console.log(`  디스이즈게임: ${newsBySource.thisisgame.length}개`);
+
+    await browser.close();
+
+    // 결과 저장
+    articles.forEach(article => {
+      const tag = extractGameTag(article.title);
+      newsBySource.thisisgame.push({
+        ...article,
+        title: article.title.replace(/\[.*?\]/g, '').trim(),
+        tag: tag
+      });
+    });
+
+    console.log(`  디스이즈게임: ${newsBySource.thisisgame.length}개 (썸네일: ${newsBySource.thisisgame.filter(n => n.thumbnail).length}개)`);
   } catch (e) {
     console.log('  디스이즈게임 뉴스 실패:', e.message);
   }

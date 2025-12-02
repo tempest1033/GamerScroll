@@ -97,117 +97,284 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
   // ========== 홈 서머리 섹션 생성 ==========
 
-  // 홈 뉴스 요약 (각 소스에서 1-2개씩, 총 5개)
+  // 홈 뉴스 요약 (좌: 카드, 우: 리스트)
   function generateHomeNews() {
     const sources = [
-      { items: news.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
-      { items: news.thisisgame || [], name: '디게', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' },
-      { items: news.gamemeca || [], name: '게메', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' },
-      { items: news.ruliweb || [], name: '루리', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
+      { key: 'inven', items: news.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
+      { key: 'thisisgame', items: news.thisisgame || [], name: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' },
+      { key: 'gamemeca', items: news.gamemeca || [], name: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' },
+      { key: 'ruliweb', items: news.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
     ];
 
-    let combined = [];
-    sources.forEach(src => {
-      src.items.slice(0, 2).forEach(item => {
-        combined.push({ ...item, source: src.name, icon: src.icon });
-      });
-    });
-    combined = combined.slice(0, 5);
+    const fixUrl = (url) => url && url.startsWith('//') ? 'https:' + url : url;
 
-    if (combined.length === 0) {
-      return '<div class="home-empty">뉴스를 불러올 수 없습니다</div>';
+    // 뉴스 컨텐츠 생성 함수
+    function renderNewsContent(items, sourceName = null) {
+      if (items.length === 0) {
+        return '<div class="home-empty">뉴스를 불러올 수 없습니다</div>';
+      }
+      const withThumb = items.filter(item => item.thumbnail);
+      const mainCard = withThumb[0];
+      const subCards = withThumb.slice(1, 3);
+      const listItems = withThumb.slice(3, 9);
+
+      return `
+        <div class="home-news-split">
+          <div class="home-news-cards">
+            ${mainCard ? `
+              <a class="home-news-card home-news-card-main" href="${mainCard.link}" target="_blank" rel="noopener">
+                <div class="home-news-card-thumb">
+                  <img src="${fixUrl(mainCard.thumbnail)}" alt="" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>'">
+                </div>
+                <div class="home-news-card-info">
+                  <span class="home-news-card-title">${mainCard.title}</span>
+                  <span class="home-news-card-source">${sourceName || mainCard.source}</span>
+                </div>
+              </a>
+            ` : ''}
+            <div class="home-news-sub-cards">
+              ${subCards.map(item => `
+                <a class="home-news-card home-news-card-sub" href="${item.link}" target="_blank" rel="noopener">
+                  <div class="home-news-card-thumb">
+                    <img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>'">
+                  </div>
+                  <div class="home-news-card-info">
+                    <span class="home-news-card-title">${item.title}</span>
+                    <span class="home-news-card-source">${sourceName || item.source}</span>
+                  </div>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+          <div class="home-news-list">
+            ${listItems.map(item => `
+              <a class="home-news-item" href="${item.link}" target="_blank" rel="noopener">
+                <div class="home-news-item-thumb">
+                  <img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="home-news-item-info">
+                  <span class="home-news-title">${item.title}</span>
+                  <span class="home-news-source-tag">${sourceName || item.source}</span>
+                </div>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      `;
     }
 
-    return combined.map((item, i) => `
-      <a class="home-item" href="${item.link}" target="_blank" rel="noopener">
-        <span class="home-rank">${i + 1}</span>
-        <img class="home-favicon" src="${item.icon}" alt="">
-        <span class="home-title">${item.title}</span>
-      </a>
-    `).join('');
+    // 전체 탭용 데이터 (각 소스에서 섞어서 + 랜덤 셔플)
+    let allCombined = [];
+    sources.forEach(src => {
+      src.items.slice(0, 4).forEach(item => {
+        allCombined.push({ ...item, source: src.name, icon: src.icon });
+      });
+    });
+    // 랜덤 셔플
+    for (let i = allCombined.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allCombined[i], allCombined[j]] = [allCombined[j], allCombined[i]];
+    }
+
+    // 탭 버튼 + 컨텐츠 (iOS/Android 스타일)
+    return `
+      <div class="home-news-tabs">
+        <button class="home-news-tab active" data-news="all">전체</button>
+        <button class="home-news-tab" data-news="inven">
+          <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="">인벤
+        </button>
+        <button class="home-news-tab" data-news="thisisgame">
+          <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="">디스이즈게임
+        </button>
+        <button class="home-news-tab" data-news="gamemeca">
+          <img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="">게임메카
+        </button>
+        <button class="home-news-tab" data-news="ruliweb">
+          <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹
+        </button>
+      </div>
+      <div class="home-news-body">
+        <div class="home-news-panel active" id="home-news-all">${renderNewsContent(allCombined)}</div>
+        <div class="home-news-panel" id="home-news-inven">${renderNewsContent(sources[0].items.map(item => ({ ...item, source: '인벤' })), '인벤')}</div>
+        <div class="home-news-panel" id="home-news-thisisgame">${renderNewsContent(sources[1].items.map(item => ({ ...item, source: '디스이즈게임' })), '디스이즈게임')}</div>
+        <div class="home-news-panel" id="home-news-gamemeca">${renderNewsContent(sources[2].items.map(item => ({ ...item, source: '게임메카' })), '게임메카')}</div>
+        <div class="home-news-panel" id="home-news-ruliweb">${renderNewsContent(sources[3].items.map(item => ({ ...item, source: '루리웹' })), '루리웹')}</div>
+      </div>
+    `;
   }
 
-  // 홈 커뮤니티 요약 (각 소스에서 섞어서 5개)
+  // 홈 커뮤니티 요약 (탭 + 좌우 5개씩 총 10개)
   function generateHomeCommunity() {
     const sources = [
-      { items: community?.dcinside || [], name: '디시', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' },
-      { items: community?.arca || [], name: '아카', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' },
-      { items: community?.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
-      { items: community?.ruliweb || [], name: '루리', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
+      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' },
+      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' },
+      { key: 'inven', items: community?.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
+      { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
     ];
 
-    let combined = [];
+    // 전체 탭용 데이터 (각 소스에서 섞어서 + 랜덤 셔플)
+    let allCombined = [];
     sources.forEach(src => {
-      src.items.slice(0, 2).forEach(item => {
-        combined.push({ ...item, source: src.name, icon: src.icon });
+      src.items.slice(0, 3).forEach(item => {
+        allCombined.push({ ...item, source: src.name, icon: src.icon });
       });
     });
-    combined = combined.slice(0, 5);
+    // 랜덤 셔플
+    for (let i = allCombined.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allCombined[i], allCombined[j]] = [allCombined[j], allCombined[i]];
+    }
+    allCombined = allCombined.slice(0, 10);
 
-    if (combined.length === 0) {
-      return '<div class="home-empty">인기글을 불러올 수 없습니다</div>';
+    // 좌우 분할 렌더링 함수
+    function renderCommunitySplit(items, sourceName = null) {
+      if (items.length === 0) {
+        return '<div class="home-empty">인기글을 불러올 수 없습니다</div>';
+      }
+      const leftItems = items.slice(0, 5);
+      const rightItems = items.slice(5, 10);
+
+      function renderColumn(columnItems) {
+        return columnItems.map(item => `
+          <a class="home-community-item" href="${item.link}" target="_blank" rel="noopener">
+            <span class="home-community-title">${item.title}</span>
+            <span class="home-community-meta">
+              <img src="${item.icon}" alt="">
+              <span class="home-community-source">${sourceName || item.source}</span>
+              ${item.channel ? `<span class="home-community-channel">· ${item.channel}</span>` : ''}
+            </span>
+          </a>
+        `).join('');
+      }
+
+      return `
+        <div class="home-community-split">
+          <div class="home-community-column">${renderColumn(leftItems)}</div>
+          <div class="home-community-column">${renderColumn(rightItems)}</div>
+        </div>
+      `;
     }
 
-    return combined.map((item, i) => `
-      <a class="home-item" href="${item.link}" target="_blank" rel="noopener">
-        <span class="home-rank">${i + 1}</span>
-        <img class="home-favicon" src="${item.icon}" alt="">
-        <span class="home-title">${item.title}</span>
-        ${item.channel ? `<span class="home-tag">${item.channel}</span>` : ''}
-      </a>
-    `).join('');
+    return `
+      <div class="home-community-tabs">
+        <button class="home-community-tab active" data-community="all">전체</button>
+        <button class="home-community-tab" data-community="dcinside">
+          <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="">디시인사이드
+        </button>
+        <button class="home-community-tab" data-community="arca">
+          <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="">아카라이브
+        </button>
+        <button class="home-community-tab" data-community="inven">
+          <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="">인벤
+        </button>
+        <button class="home-community-tab" data-community="ruliweb">
+          <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹
+        </button>
+      </div>
+      <div class="home-community-body">
+        <div class="home-community-panel active" id="home-community-all">${renderCommunitySplit(allCombined)}</div>
+        <div class="home-community-panel" id="home-community-dcinside">${renderCommunitySplit(sources[0].items.slice(0, 10).map(item => ({ ...item, icon: sources[0].icon })), '디시인사이드')}</div>
+        <div class="home-community-panel" id="home-community-arca">${renderCommunitySplit(sources[1].items.slice(0, 10).map(item => ({ ...item, icon: sources[1].icon })), '아카라이브')}</div>
+        <div class="home-community-panel" id="home-community-inven">${renderCommunitySplit(sources[2].items.slice(0, 10).map(item => ({ ...item, icon: sources[2].icon })), '인벤')}</div>
+        <div class="home-community-panel" id="home-community-ruliweb">${renderCommunitySplit(sources[3].items.slice(0, 10).map(item => ({ ...item, icon: sources[3].icon })), '루리웹')}</div>
+      </div>
+    `;
   }
 
-  // 홈 영상 요약 (유튜브 게임 + 치지직 섞어서 4개)
+  // 홈 영상 요약 (유튜브 인기 / 치지직 탭)
   function generateHomeVideo() {
-    let combined = [];
+    const youtubeItems = (youtube?.gaming || []).slice(0, 9).map(item => ({
+      title: item.title,
+      channel: item.channel,
+      thumbnail: item.thumbnail,
+      link: `https://www.youtube.com/watch?v=${item.videoId}`,
+      platform: 'youtube'
+    }));
 
-    (youtube?.gaming || []).slice(0, 2).forEach(item => {
-      combined.push({
-        title: item.title,
-        channel: item.channel,
-        thumbnail: item.thumbnail,
-        link: `https://www.youtube.com/watch?v=${item.videoId}`,
-        platform: 'youtube'
-      });
-    });
+    const chzzkItems = (chzzk || []).slice(0, 9).map(item => ({
+      title: item.title,
+      channel: item.channel,
+      thumbnail: item.thumbnail,
+      link: `https://chzzk.naver.com/live/${item.channelId}`,
+      platform: 'chzzk',
+      viewers: item.viewers
+    }));
 
-    (chzzk || []).slice(0, 2).forEach(item => {
-      combined.push({
-        title: item.title,
-        channel: item.channel,
-        thumbnail: item.thumbnail,
-        link: `https://chzzk.naver.com/live/${item.channelId}`,
-        platform: 'chzzk',
-        viewers: item.viewers
-      });
-    });
-
-    if (combined.length === 0) {
-      return '<div class="home-empty">영상을 불러올 수 없습니다</div>';
+    function renderVideoGrid(items) {
+      if (items.length === 0) {
+        return '<div class="home-empty">영상을 불러올 수 없습니다</div>';
+      }
+      const mainItem = items[0];
+      const subItems = items.slice(1, 3);
+      const listItems = items.slice(3, 9);
+      return `
+        <div class="home-video-split">
+          <div class="home-video-cards">
+            <a class="home-video-card home-video-card-main" href="${mainItem.link}" target="_blank" rel="noopener">
+              <div class="home-video-card-thumb">
+                <img src="${mainItem.thumbnail}" alt="" loading="lazy">
+                ${mainItem.viewers ? `<span class="home-video-live">🔴 LIVE ${mainItem.viewers.toLocaleString()}</span>` : ''}
+              </div>
+              <div class="home-video-card-info">
+                <div class="home-video-card-title">${mainItem.title}</div>
+                <div class="home-video-card-channel">${mainItem.channel}</div>
+              </div>
+            </a>
+            <div class="home-video-sub-cards">
+              ${subItems.map(item => `
+                <a class="home-video-card home-video-card-sub" href="${item.link}" target="_blank" rel="noopener">
+                  <div class="home-video-card-thumb">
+                    <img src="${item.thumbnail}" alt="" loading="lazy">
+                    ${item.viewers ? `<span class="home-video-live">🔴 ${item.viewers.toLocaleString()}</span>` : ''}
+                  </div>
+                  <div class="home-video-card-info">
+                    <div class="home-video-card-title">${item.title}</div>
+                    <div class="home-video-card-channel">${item.channel}</div>
+                  </div>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+          <div class="home-video-list">
+            ${listItems.map(item => `
+              <a class="home-video-item" href="${item.link}" target="_blank" rel="noopener">
+                <div class="home-video-item-thumb">
+                  <img src="${item.thumbnail}" alt="" loading="lazy">
+                  ${item.viewers ? `<span class="home-video-live-sm">🔴 ${item.viewers.toLocaleString()}</span>` : ''}
+                </div>
+                <div class="home-video-item-info">
+                  <div class="home-video-item-title">${item.title}</div>
+                  <div class="home-video-item-channel">${item.channel}</div>
+                </div>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      `;
     }
 
-    return `<div class="home-video-grid">${combined.slice(0, 4).map(item => `
-      <a class="home-video-card" href="${item.link}" target="_blank" rel="noopener">
-        <div class="home-video-thumb">
-          <img src="${item.thumbnail}" alt="" loading="lazy">
-          ${item.viewers ? `<span class="home-video-live">🔴 ${item.viewers.toLocaleString()}</span>` : ''}
-        </div>
-        <div class="home-video-info">
-          <div class="home-video-title">${item.title}</div>
-          <div class="home-video-channel">${item.channel}</div>
-        </div>
-      </a>
-    `).join('')}</div>`;
+    return `
+      <div class="home-video-tabs">
+        <button class="home-video-tab active" data-video="youtube">
+          <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="">인기 동영상
+        </button>
+        <button class="home-video-tab" data-video="chzzk">
+          <img src="https://www.google.com/s2/favicons?domain=chzzk.naver.com&sz=32" alt="">치지직
+        </button>
+      </div>
+      <div class="home-video-body">
+        <div class="home-video-panel active" id="home-video-youtube">${renderVideoGrid(youtubeItems)}</div>
+        <div class="home-video-panel" id="home-video-chzzk">${renderVideoGrid(chzzkItems)}</div>
+      </div>
+    `;
   }
 
-  // 홈 모바일 랭킹 (한국 iOS/Android 매출 Top 10)
+  // 홈 모바일 랭킹 (한국 iOS/Android 매출/인기 Top 10)
   function generateHomeMobileRank() {
-    const krData = rankings?.grossing?.kr || {};
-    const iosItems = (krData.ios || []).slice(0, 10);
-    const androidItems = (krData.android || []).slice(0, 10);
+    const grossingKr = rankings?.grossing?.kr || {};
+    const freeKr = rankings?.free?.kr || {};
 
-    function renderList(items, platform) {
+    function renderList(items) {
       if (items.length === 0) return '<div class="home-empty">데이터 없음</div>';
       return items.map((app, i) => `
         <div class="home-rank-row">
@@ -228,59 +395,84 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         </button>
       </div>
       <div class="home-rank-content">
-        <div class="home-rank-list active" id="home-rank-ios">${renderList(iosItems, 'ios')}</div>
-        <div class="home-rank-list" id="home-rank-android">${renderList(androidItems, 'android')}</div>
+        <!-- 매출 순위 -->
+        <div class="home-rank-chart active" id="home-chart-grossing">
+          <div class="home-rank-list active" id="home-rank-grossing-ios">${renderList((grossingKr.ios || []).slice(0, 10))}</div>
+          <div class="home-rank-list" id="home-rank-grossing-android">${renderList((grossingKr.android || []).slice(0, 10))}</div>
+        </div>
+        <!-- 인기 순위 -->
+        <div class="home-rank-chart" id="home-chart-free">
+          <div class="home-rank-list active" id="home-rank-free-ios">${renderList((freeKr.ios || []).slice(0, 10))}</div>
+          <div class="home-rank-list" id="home-rank-free-android">${renderList((freeKr.android || []).slice(0, 10))}</div>
+        </div>
       </div>
     `;
   }
 
-  // 홈 스팀 순위 (플레이어 Top 5)
+  // 홈 스팀 순위 (인기/매출 Top 10)
   function generateHomeSteam() {
-    const items = (steam?.mostPlayed || []).slice(0, 5);
-    if (items.length === 0) return '<div class="home-empty">데이터 없음</div>';
+    const mostPlayed = (steam?.mostPlayed || []).slice(0, 10);
+    const topSellers = (steam?.topSellers || []).slice(0, 10);
 
-    return items.map((game, i) => `
-      <a class="home-steam-row" href="${game.link || '#'}" target="_blank" rel="noopener">
-        <span class="home-rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-        <img class="home-steam-icon" src="${game.icon || ''}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
-        <div class="home-steam-info">
-          <span class="home-steam-name">${game.title}</span>
-          <span class="home-steam-players">${game.players?.toLocaleString() || '-'} 명</span>
-        </div>
-      </a>
-    `).join('');
+    function renderList(items, showPlayers = false) {
+      if (items.length === 0) return '<div class="home-empty">데이터 없음</div>';
+      return items.map((game, i) => {
+        const link = game.appid ? `https://store.steampowered.com/app/${game.appid}` : '#';
+        return `
+        <a class="home-steam-row" href="${link}" target="_blank" rel="noopener">
+          <span class="home-rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
+          <img class="home-steam-icon" src="${game.img || ''}" alt="" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect fill=%22%23374151%22 width=%2240%22 height=%2240%22 rx=%228%22/><text x=%2250%%22 y=%2255%%22 font-size=%2216%22 fill=%22%239ca3af%22 text-anchor=%22middle%22>🎮</text></svg>'">
+          <div class="home-steam-info">
+            <span class="home-steam-name">${game.name || ''}</span>
+            ${showPlayers ? `<span class="home-steam-players">${game.ccu?.toLocaleString() || '-'} 명</span>` : ''}
+          </div>
+        </a>
+      `}).join('');
+    }
+
+    return `
+      <div class="home-steam-chart active" id="home-steam-mostplayed">${renderList(mostPlayed, true)}</div>
+      <div class="home-steam-chart" id="home-steam-topsellers">${renderList(topSellers, false)}</div>
+    `;
   }
 
-  // 홈 출시 예정 (모바일/스팀/PS5/닌텐도 섞어서 5개)
+  // 홈 신규 게임 (모바일/스팀/PS5/닌텐도 탭)
   function generateHomeUpcoming() {
-    let combined = [];
-
-    ['mobile', 'steam', 'ps5', 'nintendo'].forEach(platform => {
-      (upcoming?.[platform] || []).slice(0, 2).forEach(game => {
-        combined.push({ ...game, platform });
-      });
-    });
-
-    combined = combined.slice(0, 5);
-    if (combined.length === 0) return '<div class="home-empty">출시 예정 정보 없음</div>';
-
-    const platformIcons = {
-      mobile: '📱',
-      steam: '🎮',
-      ps5: '🎯',
-      nintendo: '🕹️'
+    const platforms = {
+      mobile: { name: '모바일', items: (upcoming?.mobile || []).slice(0, 10) },
+      steam: { name: '스팀', items: (upcoming?.steam || []).slice(0, 10) },
+      ps5: { name: 'PS5', items: (upcoming?.ps5 || []).slice(0, 10) },
+      nintendo: { name: '닌텐도', items: (upcoming?.nintendo || []).slice(0, 10) }
     };
 
-    return combined.map((game, i) => `
-      <a class="home-upcoming-row" href="${game.link || '#'}" target="_blank" rel="noopener">
-        <span class="home-rank-num">${i + 1}</span>
-        <span class="home-upcoming-platform">${platformIcons[game.platform] || '🎮'}</span>
-        <div class="home-upcoming-info">
-          <span class="home-upcoming-name">${game.name}</span>
-          ${game.releaseDate ? `<span class="home-upcoming-date">${game.releaseDate}</span>` : ''}
-        </div>
-      </a>
-    `).join('');
+    function renderList(items) {
+      if (items.length === 0) return '<div class="home-empty">데이터 없음</div>';
+      return items.map((game, i) => `
+        <a class="home-upcoming-row" href="${game.link || '#'}" target="_blank" rel="noopener">
+          <span class="home-rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
+          <img class="home-upcoming-icon" src="${game.img || ''}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          <div class="home-upcoming-info">
+            <span class="home-upcoming-name">${game.name || game.title || ''}</span>
+            ${game.releaseDate ? `<span class="home-upcoming-date">${game.releaseDate}</span>` : ''}
+          </div>
+        </a>
+      `).join('');
+    }
+
+    return `
+      <div class="home-upcoming-tabs">
+        <button class="home-upcoming-tab active" data-upcoming="mobile">모바일</button>
+        <button class="home-upcoming-tab" data-upcoming="steam">스팀</button>
+        <button class="home-upcoming-tab" data-upcoming="ps5">PS5</button>
+        <button class="home-upcoming-tab" data-upcoming="nintendo">닌텐도</button>
+      </div>
+      <div class="home-upcoming-content">
+        <div class="home-upcoming-list active" id="home-upcoming-mobile">${renderList(platforms.mobile.items)}</div>
+        <div class="home-upcoming-list" id="home-upcoming-steam">${renderList(platforms.steam.items)}</div>
+        <div class="home-upcoming-list" id="home-upcoming-ps5">${renderList(platforms.ps5.items)}</div>
+        <div class="home-upcoming-list" id="home-upcoming-nintendo">${renderList(platforms.nintendo.items)}</div>
+      </div>
+    `;
   }
 
   // 국가별 컬럼 생성 함수
@@ -383,6 +575,34 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"
      crossorigin="anonymous"></script>
+  <script>
+    // 전체 크롤링 데이터 (랜덤 선택용)
+    const allNewsData = ${JSON.stringify([
+      ...(news.inven || []).map(item => ({ ...item, source: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' })),
+      ...(news.thisisgame || []).map(item => ({ ...item, source: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' })),
+      ...(news.gamemeca || []).map(item => ({ ...item, source: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' })),
+      ...(news.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }))
+    ].filter(item => item.thumbnail))};
+    const allCommunityData = ${JSON.stringify([
+      ...(community?.dcinside || []).map(item => ({ ...item, source: '디시인사이드', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' })),
+      ...(community?.arca || []).map(item => ({ ...item, source: '아카라이브', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' })),
+      ...(community?.inven || []).map(item => ({ ...item, source: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' })),
+      ...(community?.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }))
+    ])};
+    const allYoutubeData = ${JSON.stringify((youtube?.gaming || []).map(item => ({
+      title: item.title,
+      channel: item.channel,
+      thumbnail: item.thumbnail,
+      link: 'https://www.youtube.com/watch?v=' + item.videoId
+    })))};
+    const allChzzkData = ${JSON.stringify((chzzk || []).map(item => ({
+      title: item.title,
+      channel: item.channel,
+      thumbnail: item.thumbnail,
+      link: 'https://chzzk.naver.com/live/' + item.channelId,
+      viewers: item.viewers
+    })))};
+  </script>
 </head>
 <body>
   <header class="header">
@@ -463,12 +683,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
               <div class="home-card-title">주요 뉴스</div>
               <a href="#" class="home-card-more" data-goto="news">더보기 →</a>
             </div>
-            <div class="home-card-body">\${generateHomeNews()}</div>
-          </div>
-
-          <!-- 광고 슬롯 1 (PC only) -->
-          <div class="ad-slot pc-only">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+            <div class="home-card-body" style="padding: 0;">${generateHomeNews()}</div>
           </div>
 
           <!-- 커뮤니티 요약 -->
@@ -477,7 +692,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
               <div class="home-card-title">커뮤니티 베스트</div>
               <a href="#" class="home-card-more" data-goto="community">더보기 →</a>
             </div>
-            <div class="home-card-body">\${generateHomeCommunity()}</div>
+            <div class="home-card-body" style="padding: 0;">${generateHomeCommunity()}</div>
           </div>
 
           <!-- 광고 슬롯 2 -->
@@ -491,7 +706,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
               <div class="home-card-title">영상 순위</div>
               <a href="#" class="home-card-more" data-goto="youtube">더보기 →</a>
             </div>
-            <div class="home-card-body" style="padding: 0;">\${generateHomeVideo()}</div>
+            <div class="home-card-body" style="padding: 0;">${generateHomeVideo()}</div>
           </div>
         </div>
 
@@ -501,9 +716,15 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           <div class="home-card">
             <div class="home-card-header">
               <div class="home-card-title">모바일 랭킹</div>
-              <a href="#" class="home-card-more" data-goto="rankings">더보기 →</a>
+              <div class="home-card-controls">
+                <div class="home-chart-toggle" id="homeChartTab">
+                  <button class="tab-btn small active" data-home-chart="grossing">매출</button>
+                  <button class="tab-btn small" data-home-chart="free">인기</button>
+                </div>
+                <a href="#" class="home-card-more" data-goto="rankings">더보기 →</a>
+              </div>
             </div>
-            <div class="home-card-body" style="padding: 0;">\${generateHomeMobileRank()}</div>
+            <div class="home-card-body" style="padding: 0;">${generateHomeMobileRank()}</div>
           </div>
 
           <!-- 우측 광고 A -->
@@ -514,10 +735,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           <!-- 스팀 순위 -->
           <div class="home-card">
             <div class="home-card-header">
-              <div class="home-card-title">스팀 플레이어 순위</div>
-              <a href="#" class="home-card-more" data-goto="steam">더보기 →</a>
+              <div class="home-card-title">스팀 순위</div>
+              <div class="home-card-controls">
+                <div class="home-chart-toggle" id="homeSteamTab">
+                  <button class="tab-btn small active" data-home-steam="mostplayed">인기</button>
+                  <button class="tab-btn small" data-home-steam="topsellers">매출</button>
+                </div>
+                <a href="#" class="home-card-more" data-goto="steam">더보기 →</a>
+              </div>
             </div>
-            <div class="home-card-body" style="padding: 8px 0;">\${generateHomeSteam()}</div>
+            <div class="home-card-body" style="padding: 8px 0;">${generateHomeSteam()}</div>
           </div>
 
           <!-- 우측 광고 B (PC only) -->
@@ -525,13 +752,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
           </div>
 
-          <!-- 출시 예정 -->
+          <!-- 신규 게임 -->
           <div class="home-card">
             <div class="home-card-header">
-              <div class="home-card-title">출시 게임</div>
+              <div class="home-card-title">신규 게임</div>
               <a href="#" class="home-card-more" data-goto="upcoming">더보기 →</a>
             </div>
-            <div class="home-card-body" style="padding: 8px 0;">\${generateHomeUpcoming()}</div>
+            <div class="home-card-body" style="padding: 0;">${generateHomeUpcoming()}</div>
           </div>
         </div>
       </div>
@@ -856,14 +1083,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-info">
-        <p>데이터 출처: Apple App Store, Google Play Store, Steam, YouTube, 치지직, 게임 뉴스 매체</p>
-      </div>
-    </div>
-  </footer>
-
   <script>
     // 폰트 로딩 완료 감지 - FOUT 방지
     if (document.fonts && document.fonts.ready) {
@@ -886,6 +1105,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       // 홈 섹션 표시
       document.querySelector('.home-section')?.classList.add('active');
       document.body.classList.remove('detail-page'); // 헤더 보이기
+      // 모든 탭 초기화
+      resetSubTabs();
       window.scrollTo(0, 0);
     });
 
@@ -909,14 +1130,93 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       });
     });
 
-    // 홈 모바일 랭킹 탭 전환
+    // 홈 뉴스 서브탭 전환
+    document.querySelectorAll('.home-news-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.home-news-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const targetNews = tab.dataset.news;
+        document.querySelectorAll('.home-news-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('home-news-' + targetNews)?.classList.add('active');
+      });
+    });
+
+    // 홈 커뮤니티 서브탭 전환
+    document.querySelectorAll('.home-community-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.home-community-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const targetCommunity = tab.dataset.community;
+        document.querySelectorAll('.home-community-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('home-community-' + targetCommunity)?.classList.add('active');
+      });
+    });
+
+    // 홈 영상 서브탭 전환
+    document.querySelectorAll('.home-video-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.home-video-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const targetVideo = tab.dataset.video;
+        document.querySelectorAll('.home-video-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('home-video-' + targetVideo)?.classList.add('active');
+      });
+    });
+
+    // 홈 모바일 랭킹 - 매출/인기 탭 전환
+    let homeCurrentChart = 'grossing';
+    let homeCurrentPlatform = 'ios';
+    const homeChartTab = document.getElementById('homeChartTab');
+    homeChartTab?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      homeChartTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      homeCurrentChart = btn.dataset.homeChart;
+      // 차트 전환
+      document.querySelectorAll('.home-rank-chart').forEach(c => c.classList.remove('active'));
+      const targetChart = document.getElementById('home-chart-' + homeCurrentChart);
+      targetChart?.classList.add('active');
+      // 현재 플랫폼 리스트도 active 설정
+      targetChart?.querySelectorAll('.home-rank-list').forEach(l => l.classList.remove('active'));
+      targetChart?.querySelector('#home-rank-' + homeCurrentChart + '-' + homeCurrentPlatform)?.classList.add('active');
+    });
+
+    // 홈 모바일 랭킹 - iOS/Android 탭 전환
     document.querySelectorAll('.home-rank-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.home-rank-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.home-rank-list').forEach(l => l.classList.remove('active'));
         tab.classList.add('active');
-        const platform = tab.dataset.platform;
-        document.getElementById('home-rank-' + platform)?.classList.add('active');
+        homeCurrentPlatform = tab.dataset.platform;
+        // 현재 활성화된 차트 내에서 플랫폼 전환
+        document.querySelectorAll('.home-rank-chart').forEach(chart => {
+          chart.querySelectorAll('.home-rank-list').forEach(l => l.classList.remove('active'));
+          const targetList = chart.querySelector('#home-rank-' + homeCurrentChart + '-' + homeCurrentPlatform);
+          targetList?.classList.add('active');
+        });
+      });
+    });
+
+    // 홈 스팀 순위 - 인기/매출 탭 전환
+    const homeSteamTab = document.getElementById('homeSteamTab');
+    homeSteamTab?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      homeSteamTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const steamChart = btn.dataset.homeSteam;
+      document.querySelectorAll('.home-steam-chart').forEach(c => c.classList.remove('active'));
+      document.getElementById('home-steam-' + steamChart)?.classList.add('active');
+    });
+
+    // 홈 신규 게임 - 플랫폼 탭 전환
+    document.querySelectorAll('.home-upcoming-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.home-upcoming-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const platform = tab.dataset.upcoming;
+        document.querySelectorAll('.home-upcoming-list').forEach(l => l.classList.remove('active'));
+        document.getElementById('home-upcoming-' + platform)?.classList.add('active');
       });
     });
 
@@ -940,8 +1240,210 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     // 출시 게임 탭 요소
     const upcomingTab = document.getElementById('upcomingTab');
 
+    // 전체 탭 랜덤 셔플 함수 (5분 주기, 내용만 변경)
+    function shuffleAllTabs() {
+      const SHUFFLE_INTERVAL = 5 * 60 * 1000; // 5분
+      const now = Date.now();
+      let shuffleCache = null;
+
+      try {
+        shuffleCache = JSON.parse(localStorage.getItem('shuffleCache'));
+      } catch(e) {}
+
+      // 5분 이내면 캐시 사용, 아니면 새로 셔플
+      if (!shuffleCache || (now - shuffleCache.timestamp) > SHUFFLE_INTERVAL) {
+        // 뉴스 랜덤 선택 (9개)
+        const newsIndices = [];
+        const newsPool = [...Array(allNewsData.length).keys()];
+        for (let i = newsPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [newsPool[i], newsPool[j]] = [newsPool[j], newsPool[i]];
+        }
+        shuffleCache = {
+          timestamp: now,
+          newsIndices: newsPool.slice(0, 9),
+          communityIndices: []
+        };
+        // 커뮤니티 랜덤 선택 (10개)
+        const commPool = [...Array(allCommunityData.length).keys()];
+        for (let i = commPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [commPool[i], commPool[j]] = [commPool[j], commPool[i]];
+        }
+        shuffleCache.communityIndices = commPool.slice(0, 10);
+        // 유튜브 랜덤 선택 (6개)
+        const ytPool = [...Array(allYoutubeData.length).keys()];
+        for (let i = ytPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [ytPool[i], ytPool[j]] = [ytPool[j], ytPool[i]];
+        }
+        shuffleCache.youtubeIndices = ytPool.slice(0, 9);
+        // 치지직 랜덤 선택 (9개)
+        const chzzkPool = [...Array(allChzzkData.length).keys()];
+        for (let i = chzzkPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [chzzkPool[i], chzzkPool[j]] = [chzzkPool[j], chzzkPool[i]];
+        }
+        shuffleCache.chzzkIndices = chzzkPool.slice(0, 9);
+        localStorage.setItem('shuffleCache', JSON.stringify(shuffleCache));
+      }
+
+      // 뉴스 전체 탭 내용 업데이트
+      const newsItems = shuffleCache.newsIndices.map(i => allNewsData[i]).filter(Boolean);
+      const newsAllPanel = document.getElementById('home-news-all');
+      if (newsAllPanel && newsItems.length >= 9) {
+        const fixUrl = (url) => url && url.startsWith('//') ? 'https:' + url : url;
+        // 메인 카드 (1개)
+        const mainCard = newsAllPanel.querySelector('.home-news-card-main');
+        if (mainCard && newsItems[0]) {
+          mainCard.href = newsItems[0].link;
+          mainCard.querySelector('.home-news-card-thumb img').src = fixUrl(newsItems[0].thumbnail);
+          mainCard.querySelector('.home-news-card-title').textContent = newsItems[0].title;
+          mainCard.querySelector('.home-news-card-source').textContent = newsItems[0].source;
+        }
+        // 서브 카드 (2개)
+        const subCards = newsAllPanel.querySelectorAll('.home-news-card-sub');
+        subCards.forEach((card, i) => {
+          if (newsItems[i + 1]) {
+            card.href = newsItems[i + 1].link;
+            card.querySelector('.home-news-card-thumb img').src = fixUrl(newsItems[i + 1].thumbnail);
+            card.querySelector('.home-news-card-title').textContent = newsItems[i + 1].title;
+            card.querySelector('.home-news-card-source').textContent = newsItems[i + 1].source;
+          }
+        });
+        // 리스트 아이템 (6개)
+        const listItems = newsAllPanel.querySelectorAll('.home-news-item');
+        listItems.forEach((item, i) => {
+          if (newsItems[i + 3]) {
+            item.href = newsItems[i + 3].link;
+            item.querySelector('.home-news-item-thumb img').src = fixUrl(newsItems[i + 3].thumbnail);
+            item.querySelector('.home-news-title').textContent = newsItems[i + 3].title;
+            item.querySelector('.home-news-source-tag').textContent = newsItems[i + 3].source;
+          }
+        });
+      }
+
+      // 커뮤니티 전체 탭 내용 업데이트
+      const commItems = shuffleCache.communityIndices.map(i => allCommunityData[i]).filter(Boolean);
+      const communityAllPanel = document.getElementById('home-community-all');
+      if (communityAllPanel && commItems.length >= 10) {
+        const allCommItems = communityAllPanel.querySelectorAll('.home-community-item');
+        allCommItems.forEach((item, i) => {
+          if (commItems[i]) {
+            item.href = commItems[i].link;
+            item.querySelector('.home-community-title').textContent = commItems[i].title;
+            item.querySelector('.home-community-meta img').src = commItems[i].icon;
+            item.querySelector('.home-community-source').textContent = commItems[i].source;
+            const channelEl = item.querySelector('.home-community-channel');
+            if (channelEl) channelEl.textContent = commItems[i].channel ? '· ' + commItems[i].channel : '';
+          }
+        });
+      }
+
+      // 유튜브 영상 내용 업데이트
+      const ytItems = (shuffleCache.youtubeIndices || []).map(i => allYoutubeData[i]).filter(Boolean);
+      const ytPanel = document.getElementById('home-video-youtube');
+      if (ytPanel && ytItems.length >= 9) {
+        // 메인 카드 (1개)
+        const mainCard = ytPanel.querySelector('.home-video-card-main');
+        if (mainCard && ytItems[0]) {
+          mainCard.href = ytItems[0].link;
+          mainCard.querySelector('.home-video-card-thumb img').src = ytItems[0].thumbnail;
+          mainCard.querySelector('.home-video-card-title').textContent = ytItems[0].title;
+          mainCard.querySelector('.home-video-card-channel').textContent = ytItems[0].channel;
+        }
+        // 서브 카드 (2개)
+        const subCards = ytPanel.querySelectorAll('.home-video-card-sub');
+        subCards.forEach((card, i) => {
+          if (ytItems[i + 1]) {
+            card.href = ytItems[i + 1].link;
+            card.querySelector('.home-video-card-thumb img').src = ytItems[i + 1].thumbnail;
+            card.querySelector('.home-video-card-title').textContent = ytItems[i + 1].title;
+            card.querySelector('.home-video-card-channel').textContent = ytItems[i + 1].channel;
+          }
+        });
+        // 리스트 아이템 (6개)
+        const listItems = ytPanel.querySelectorAll('.home-video-item');
+        listItems.forEach((item, i) => {
+          if (ytItems[i + 3]) {
+            item.href = ytItems[i + 3].link;
+            item.querySelector('.home-video-item-thumb img').src = ytItems[i + 3].thumbnail;
+            item.querySelector('.home-video-item-title').textContent = ytItems[i + 3].title;
+            item.querySelector('.home-video-item-channel').textContent = ytItems[i + 3].channel;
+          }
+        });
+      }
+
+      // 치지직 영상 내용 업데이트
+      const chzzkItems = (shuffleCache.chzzkIndices || []).map(i => allChzzkData[i]).filter(Boolean);
+      const chzzkPanel = document.getElementById('home-video-chzzk');
+      if (chzzkPanel && chzzkItems.length >= 9) {
+        // 메인 카드 (1개)
+        const mainCard = chzzkPanel.querySelector('.home-video-card-main');
+        if (mainCard && chzzkItems[0]) {
+          mainCard.href = chzzkItems[0].link;
+          mainCard.querySelector('.home-video-card-thumb img').src = chzzkItems[0].thumbnail;
+          mainCard.querySelector('.home-video-card-title').textContent = chzzkItems[0].title;
+          mainCard.querySelector('.home-video-card-channel').textContent = chzzkItems[0].channel;
+          const liveEl = mainCard.querySelector('.home-video-live');
+          if (liveEl) liveEl.textContent = chzzkItems[0].viewers ? '🔴 LIVE ' + chzzkItems[0].viewers.toLocaleString() : '';
+        }
+        // 서브 카드 (2개)
+        const subCards = chzzkPanel.querySelectorAll('.home-video-card-sub');
+        subCards.forEach((card, i) => {
+          if (chzzkItems[i + 1]) {
+            card.href = chzzkItems[i + 1].link;
+            card.querySelector('.home-video-card-thumb img').src = chzzkItems[i + 1].thumbnail;
+            card.querySelector('.home-video-card-title').textContent = chzzkItems[i + 1].title;
+            card.querySelector('.home-video-card-channel').textContent = chzzkItems[i + 1].channel;
+            const liveEl = card.querySelector('.home-video-live');
+            if (liveEl) liveEl.textContent = chzzkItems[i + 1].viewers ? '🔴 ' + chzzkItems[i + 1].viewers.toLocaleString() : '';
+          }
+        });
+        // 리스트 아이템 (6개)
+        const listItems = chzzkPanel.querySelectorAll('.home-video-item');
+        listItems.forEach((item, i) => {
+          if (chzzkItems[i + 3]) {
+            item.href = chzzkItems[i + 3].link;
+            item.querySelector('.home-video-item-thumb img').src = chzzkItems[i + 3].thumbnail;
+            item.querySelector('.home-video-item-title').textContent = chzzkItems[i + 3].title;
+            item.querySelector('.home-video-item-channel').textContent = chzzkItems[i + 3].channel;
+            const liveSmEl = item.querySelector('.home-video-live-sm');
+            if (liveSmEl) liveSmEl.textContent = chzzkItems[i + 3].viewers ? '🔴 ' + chzzkItems[i + 3].viewers.toLocaleString() : '';
+          }
+        });
+      }
+    }
+
     // 서브탭 초기화 함수
     function resetSubTabs() {
+      // 전체 탭 랜덤 셔플
+      shuffleAllTabs();
+      // 홈 뉴스 서브탭 초기화
+      document.querySelectorAll('.home-news-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.home-news-tab[data-news="all"]')?.classList.add('active');
+      document.querySelectorAll('.home-news-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('home-news-all')?.classList.add('active');
+      // 홈 커뮤니티 서브탭 초기화
+      document.querySelectorAll('.home-community-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.home-community-tab[data-community="all"]')?.classList.add('active');
+      document.querySelectorAll('.home-community-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('home-community-all')?.classList.add('active');
+      // 홈 영상 서브탭 초기화
+      document.querySelectorAll('.home-video-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.home-video-tab[data-video="youtube"]')?.classList.add('active');
+      document.querySelectorAll('.home-video-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('home-video-youtube')?.classList.add('active');
+      // 홈 모바일 랭킹 플랫폼 탭 초기화
+      document.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.platform-tab[data-platform="ios"]')?.classList.add('active');
+      document.querySelectorAll('.platform-content').forEach(c => c.classList.remove('active'));
+      document.getElementById('ios-rankings')?.classList.add('active');
+      // 홈 국가 탭 초기화
+      document.querySelectorAll('.country-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.country-tab[data-country="kr"]')?.classList.add('active');
+      document.querySelectorAll('.country-content').forEach(c => c.classList.remove('active'));
+      document.getElementById('kr-rankings')?.classList.add('active');
       // 뉴스 탭 초기화
       newsTab?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
       // 마켓 순위 탭 초기화
@@ -1224,6 +1726,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         }
       });
     });
+
+    // 페이지 로드 시 전체 탭 랜덤 셔플
+    shuffleAllTabs();
 
     // Twemoji로 국기 이모지 렌더링
     if (typeof twemoji !== 'undefined') {
