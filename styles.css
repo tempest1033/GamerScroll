@@ -189,7 +189,9 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: nowrap;
-      padding: 16px 20px;
+      padding: 12px 20px;
+      height: 52px;
+      box-sizing: border-box;
       border-bottom: 1px solid var(--border);
       background: var(--card-hover);
     }
@@ -449,8 +451,8 @@
     .home-community-item {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      padding: 12px 14px;
+      gap: 8px;
+      padding: 16px 18px;
       text-decoration: none;
       background: var(--hover-bg);
       border-radius: var(--radius-sm);
@@ -463,7 +465,7 @@
     }
 
     .home-community-title {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text);
       line-height: 1.4;
@@ -481,7 +483,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 11px;
+      font-size: 12px;
     }
 
     .home-community-meta img {
@@ -509,11 +511,11 @@
     /* 홈 뉴스 좌우 분리 레이아웃 */
     .home-news-split {
       display: flex;
-      gap: 20px;
+      gap: 16px;
       padding: 16px;
     }
 
-    /* 좌측: 큰 카드 1개 + 작은 카드 2개 */
+    /* 좌측: 카드 2개 (동일 크기) */
     .home-news-cards {
       flex: 1;
       display: flex;
@@ -522,8 +524,6 @@
     }
 
     .home-news-card {
-      display: flex;
-      flex-direction: column;
       text-decoration: none;
       background: var(--hover-bg);
       border-radius: var(--radius-sm);
@@ -536,38 +536,22 @@
       box-shadow: var(--shadow);
     }
 
-    /* 메인 카드 (큰 카드) */
-    .home-news-card-main .home-news-card-thumb {
+    .home-news-card .home-news-card-thumb {
       width: 100%;
-      aspect-ratio: 2 / 1;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       background: rgba(255,255,255,0.1);
     }
 
-    .home-news-card-main .home-news-card-info {
-      padding: 12px;
+    .home-news-card .home-news-card-info {
+      padding: 10px 12px;
+      height: 76px;
+      box-sizing: border-box;
     }
 
-    .home-news-card-main .home-news-card-title {
-      font-size: 14px;
-    }
-
-    /* 서브 카드 컨테이너 */
-    .home-news-sub-cards {
-      display: flex;
-      gap: 10px;
-    }
-
-    /* 서브 카드 (작은 카드) */
-    .home-news-card-sub {
-      flex: 1;
-    }
-
-    .home-news-card-sub .home-news-card-thumb {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: rgba(255,255,255,0.1);
+    .home-news-card .home-news-card-title {
+      font-size: 15px;
+      height: 42px;
     }
 
     .home-news-card-thumb img {
@@ -600,7 +584,7 @@
       color: var(--accent);
     }
 
-    /* 우측: 1열 세로 배치 - 7개 맞춤 (좌측과 높이 동일) */
+    /* 우측: 1열 세로 배치 (좌측과 높이 맞춤) */
     .home-news-list {
       flex: 1;
       display: flex;
@@ -611,8 +595,9 @@
 
     .home-news-item {
       display: flex;
-      gap: 12px;
-      padding: 10px;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
       text-decoration: none;
       background: var(--hover-bg);
       border-radius: var(--radius-sm);
@@ -625,8 +610,8 @@
     }
 
     .home-news-item-thumb {
-      width: 72px;
-      height: 50px;
+      width: 100px;
+      height: 56px;
       flex-shrink: 0;
       border-radius: 4px;
       overflow: hidden;
@@ -645,18 +630,19 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 3px;
+      gap: 5px;
     }
 
     .home-news-title {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--text);
-      line-height: 1.35;
+      line-height: 1.3;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      height: 36px;
       transition: color var(--transition-fast);
     }
 
@@ -665,7 +651,7 @@
     }
 
     .home-news-source-tag {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       color: var(--primary);
     }
@@ -681,10 +667,6 @@
       .home-news-cards {
         flex: none;
         width: 100%;
-      }
-
-      .home-news-sub-cards {
-        flex-direction: column;
       }
 
       .home-news-card-title {
@@ -754,18 +736,18 @@
       font-size: 14px;
     }
 
-    /* 홈 영상 split 레이아웃 (뉴스와 동일) */
+    /* 홈 영상 split 레이아웃 */
     .home-video-split {
       display: flex;
-      gap: 12px;
+      gap: 16px;
       padding: 16px;
     }
 
     .home-video-cards {
-      flex: 1.2;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .home-video-card {
@@ -781,7 +763,8 @@
       box-shadow: var(--shadow-lg);
     }
 
-    .home-video-card-main .home-video-card-thumb {
+    .home-video-card .home-video-card-thumb {
+      width: 100%;
       aspect-ratio: 16 / 9;
     }
 
@@ -810,10 +793,12 @@
 
     .home-video-card-info {
       padding: 10px 12px;
+      height: 76px;
+      box-sizing: border-box;
     }
 
     .home-video-card-title {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text);
       display: -webkit-box;
@@ -821,30 +806,13 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       line-height: 1.4;
+      height: 42px;
       margin-bottom: 4px;
     }
 
     .home-video-card-channel {
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
-
-    .home-video-sub-cards {
-      display: flex;
-      gap: 8px;
-    }
-
-    .home-video-card-sub {
-      flex: 1;
-    }
-
-    .home-video-card-sub .home-video-card-thumb {
-      aspect-ratio: 16 / 9;
-    }
-
-    .home-video-card-sub .home-video-card-title {
       font-size: 12px;
-      -webkit-line-clamp: 2;
+      color: var(--text-secondary);
     }
 
     .home-video-list {
@@ -857,9 +825,10 @@
 
     .home-video-item {
       display: flex;
-      gap: 12px;
+      align-items: center;
+      gap: 10px;
       text-decoration: none;
-      padding: 10px;
+      padding: 6px 10px;
       background: var(--hover-bg);
       border-radius: var(--radius-sm);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast);
@@ -872,8 +841,8 @@
 
     .home-video-item-thumb {
       position: relative;
-      width: 72px;
-      height: 50px;
+      width: 100px;
+      height: 56px;
       flex-shrink: 0;
       border-radius: 4px;
       overflow: hidden;
@@ -904,11 +873,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 3px;
+      gap: 5px;
     }
 
     .home-video-item-title {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--text);
       display: -webkit-box;
@@ -916,10 +885,11 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       line-height: 1.3;
+      height: 36px;
     }
 
     .home-video-item-channel {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--accent);
       white-space: nowrap;
@@ -1218,10 +1188,6 @@
 
       .home-video-cards {
         flex: none;
-      }
-
-      .home-video-sub-cards {
-        display: none;
       }
 
       .home-video-list {

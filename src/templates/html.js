@@ -131,8 +131,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       }
       const withThumb = items.filter(item => item.thumbnail);
       const mainCard = withThumb[0];
-      const subCards = withThumb.slice(1, 3);
-      const listItems = withThumb.slice(3, 9);
+      const subCard = withThumb[1];
+      const listItems = withThumb.slice(2, 9);
 
       return `
         <div class="home-news-split">
@@ -148,19 +148,17 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
                 </div>
               </a>
             ` : ''}
-            <div class="home-news-sub-cards">
-              ${subCards.map(item => `
-                <a class="home-news-card home-news-card-sub" href="${item.link}" target="_blank" rel="noopener">
-                  <div class="home-news-card-thumb">
-                    <img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>'">
-                  </div>
-                  <div class="home-news-card-info">
-                    <span class="home-news-card-title">${item.title}</span>
-                    <span class="home-news-card-source">${sourceName || item.source}</span>
-                  </div>
-                </a>
-              `).join('')}
-            </div>
+            ${subCard ? `
+              <a class="home-news-card home-news-card-sub" href="${subCard.link}" target="_blank" rel="noopener">
+                <div class="home-news-card-thumb">
+                  <img src="${fixUrl(subCard.thumbnail)}" alt="" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>'">
+                </div>
+                <div class="home-news-card-info">
+                  <span class="home-news-card-title">${subCard.title}</span>
+                  <span class="home-news-card-source">${sourceName || subCard.source}</span>
+                </div>
+              </a>
+            ` : ''}
           </div>
           <div class="home-news-list">
             ${listItems.map(item => `
@@ -321,8 +319,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         return '<div class="home-empty">영상을 불러올 수 없습니다</div>';
       }
       const mainItem = items[0];
-      const subItems = items.slice(1, 3);
-      const listItems = items.slice(3, 9);
+      const subItem = items[1];
+      const listItems = items.slice(2, 9);
       return `
         <div class="home-video-split">
           <div class="home-video-cards">
@@ -336,20 +334,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
                 <div class="home-video-card-channel">${mainItem.channel}</div>
               </div>
             </a>
-            <div class="home-video-sub-cards">
-              ${subItems.map(item => `
-                <a class="home-video-card home-video-card-sub" href="${item.link}" target="_blank" rel="noopener">
-                  <div class="home-video-card-thumb">
-                    <img src="${item.thumbnail}" alt="" loading="lazy">
-                    ${item.viewers ? `<span class="home-video-live">🔴 ${item.viewers.toLocaleString()}</span>` : ''}
-                  </div>
-                  <div class="home-video-card-info">
-                    <div class="home-video-card-title">${item.title}</div>
-                    <div class="home-video-card-channel">${item.channel}</div>
-                  </div>
-                </a>
-              `).join('')}
-            </div>
+            ${subItem ? `
+              <a class="home-video-card home-video-card-sub" href="${subItem.link}" target="_blank" rel="noopener">
+                <div class="home-video-card-thumb">
+                  <img src="${subItem.thumbnail}" alt="" loading="lazy">
+                  ${subItem.viewers ? `<span class="home-video-live">🔴 ${subItem.viewers.toLocaleString()}</span>` : ''}
+                </div>
+                <div class="home-video-card-info">
+                  <div class="home-video-card-title">${subItem.title}</div>
+                  <div class="home-video-card-channel">${subItem.channel}</div>
+                </div>
+              </a>
+            ` : ''}
           </div>
           <div class="home-video-list">
             ${listItems.map(item => `
