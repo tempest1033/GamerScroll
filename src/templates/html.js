@@ -22,7 +22,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     return items.map((item, i) => `
       <a class="news-item-card" href="${item.link}" target="_blank" rel="noopener">
         <span class="news-num">${i + 1}</span>
-        ${item.thumbnail ? `<img class="news-thumb" src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden');">` : ''}
+        ${item.thumbnail ? `<img class="news-thumb" src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden');">` : ''}
         <div class="news-thumb-placeholder ${item.thumbnail ? 'hidden' : ''}">📰</div>
         <div class="news-item-title">${item.title}</div>
       </a>

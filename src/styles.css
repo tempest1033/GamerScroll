@@ -150,6 +150,25 @@
       --transition-slow: 0.4s var(--ease-out-expo);
     }
 
+    /* === Light Mode - 메인메뉴/서브탭 검정색 === */
+    .nav-item {
+      color: #0f172a !important;
+    }
+    .nav-item:hover,
+    .nav-item.active {
+      color: #000 !important;
+    }
+    .nav-item svg {
+      stroke: #0f172a !important;
+    }
+    .tab-btn {
+      color: #0f172a !important;
+    }
+    .tab-btn:hover,
+    .tab-btn.active {
+      color: #000 !important;
+    }
+
     /* === Dark Mode === */
     @media (prefers-color-scheme: dark) {
       :root {
