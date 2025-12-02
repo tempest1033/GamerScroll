@@ -19,7 +19,7 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
 
     const tempList = [];
     $('table.board_list_table tbody tr').each((i, el) => {
-      if (tempList.length >= 15) return false;
+      if (tempList.length >= 20) return false;
       const $el = $(el);
       const titleEl = $el.find('a.deco, a.subject_link');
       const link = titleEl.attr('href');
@@ -77,7 +77,7 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
         const seenUrls = new Set();
         let match;
 
-        while ((match = urlRegex.exec(md)) !== null && result.arca.length < 15) {
+        while ((match = urlRegex.exec(md)) !== null && result.arca.length < 20) {
           const [, textRaw, url] = match;
           if (seenUrls.has(url)) continue;
           seenUrls.add(url);
@@ -132,7 +132,7 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
         let match;
         const seenUrls = new Set();
 
-        while ((match = postRegex.exec(md)) !== null && result.dcinside.length < 15) {
+        while ((match = postRegex.exec(md)) !== null && result.dcinside.length < 20) {
           const [, channel, titleRaw, url] = match;
           if (seenUrls.has(url)) continue;
           seenUrls.add(url);
@@ -165,7 +165,7 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
         let match;
         const seenUrls = new Set();
 
-        while ((match = postRegex.exec(md)) !== null && result.inven.length < 15) {
+        while ((match = postRegex.exec(md)) !== null && result.inven.length < 20) {
           const [, rank, game, titleRaw, comments, url] = match;
           if (seenUrls.has(url)) continue;
           seenUrls.add(url);

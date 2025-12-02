@@ -64,9 +64,44 @@ async function fetchNintendoUpcoming(FirecrawlClient, firecrawlApiKey) {
 
     const fc = new FirecrawlClient({ apiKey: firecrawlApiKey });
     const result = await fc.scrape('https://www.nintendo.com/kr/schedule', {
-      formats: ['markdown'],
+      formats: ['markdown', 'html'],
       maxAge: 3600000
     });
+
+    // HTML에서 게임 이름과 이미지 URL 추출
+    const imageByName = new Map();
+    if (result && result.html) {
+      // 각 게임 카드 블록 추출 (local-schedule__listContent)
+      const cardRegex = /<div class="local-schedule__listContent"[^>]*>[\s\S]*?<\/div>\s*<\/div>\s*<\/a>\s*<\/div>/g;
+      const cards = result.html.match(cardRegex) || [];
+
+      for (const card of cards) {
+        // 이미지 추출 (background-image: url(&quot;...&quot;))
+        const imgMatch = card.match(/background-image:\s*url\(&quot;([^&]+)/);
+        // 게임 이름 추출 (<strong>...</strong>)
+        const nameMatch = card.match(/<strong>([^<]+)<\/strong>/);
+
+        if (imgMatch && nameMatch) {
+          const img = imgMatch[1];
+          const name = nameMatch[1].trim();
+          imageByName.set(name, img);
+        }
+      }
+
+      // 대체 방법: 전체 HTML에서 패턴 매칭
+      if (imageByName.size === 0) {
+        // 더 단순한 패턴으로 추출
+        const simpleCardRegex = /<a[^>]*class="local-schedule_linkBox[^"]*"[^>]*>[\s\S]*?background-image:\s*url\(&quot;([^&]+)[\s\S]*?<strong>([^<]+)<\/strong>/g;
+        let match;
+        while ((match = simpleCardRegex.exec(result.html)) !== null) {
+          const img = match[1];
+          const name = match[2].trim();
+          imageByName.set(name, img);
+        }
+      }
+
+      console.log(`  닌텐도 이미지 추출: ${imageByName.size}개`);
+    }
 
     if (result && result.markdown) {
       const seenNames = new Set();
@@ -93,19 +128,23 @@ async function fetchNintendoUpcoming(FirecrawlClient, firecrawlApiKey) {
               !name.includes('업그레이드 패스') &&
               !link.includes('youtube.com')) {
             seenNames.add(name);
+
+            // 게임 이름으로 이미지 찾기
+            let img = imageByName.get(name) || '';
+
             games.push({
               rank: games.length + 1,
               name,
               publisher,
               releaseDate: currentDate || '발매 예정',
-              img: '',
+              img,
               link
             });
           }
         }
       }
     }
-    console.log(`  닌텐도 출시예정: ${games.length}개`);
+    console.log(`  닌텐도 출시예정: ${games.length}개 (이미지: ${games.filter(g => g.img).length}개)`);
   } catch (e) {
     console.log('  닌텐도 출시예정 로드 실패:', e.message);
   }

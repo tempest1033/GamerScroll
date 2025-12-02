@@ -91,6 +91,9 @@ async function main() {
   const filename = `index.html`;
   fs.writeFileSync(filename, html, 'utf8');
 
+  // CSS 파일 복사 (src → root)
+  fs.copyFileSync('./src/styles.css', './styles.css');
+
   console.log(`\n✅ 완료! 파일: ${filename}`);
 }
 

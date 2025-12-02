@@ -1,4 +1,8 @@
 const { countries } = require('../crawlers/rankings');
+
+// 광고 표시 여부 (광고 승인 전까지 N)
+const SHOW_ADS = false;
+
 function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming) {
   const now = new Date();
   // 15분 단위로 내림 (21:37 → 21:30)
@@ -9,18 +13,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     minute: '2-digit'
   });
 
-  // 뉴스 HTML 생성 (소스별 분리)
+  // 뉴스 HTML 생성 (소스별 분리) - 섬네일 포함
   function generateNewsSection(items, sourceName, sourceUrl) {
     if (!items || items.length === 0) {
       return '<div class="no-data">뉴스를 불러올 수 없습니다</div>';
     }
     return items.map((item, i) => `
-      <div class="news-item">
+      <a class="news-item-card" href="${item.link}" target="_blank" rel="noopener">
         <span class="news-num">${i + 1}</span>
-        <div class="news-content">
-          <a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>
-        </div>
-      </div>
+        ${item.thumbnail ? `<img class="news-thumb" src="${item.thumbnail}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden');">` : ''}
+        <div class="news-thumb-placeholder ${item.thumbnail ? 'hidden' : ''}">📰</div>
+        <div class="news-item-title">${item.title}</div>
+      </a>
     `).join('');
   }
 
@@ -38,7 +42,14 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       return '<div class="upcoming-empty">출시 예정 정보를 불러올 수 없습니다</div>';
     }
     const defaultLogo = platformLogos[platform] || platformLogos.mobile;
-    return items.map((game, i) => {
+    const header = `
+      <div class="upcoming-table-header">
+        <div>순위</div>
+        <div>게임</div>
+        <div>출시일</div>
+      </div>
+    `;
+    const rows = items.map((game, i) => {
       // Steam 게임인 경우 대체 이미지 URL 시도
       const isSteam = platform === 'steam' && game.appid;
       const fallbackImg = isSteam ? `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/capsule_231x87.jpg` : '';
@@ -48,16 +59,21 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
       return `
       <a class="upcoming-item" href="${game.link || '#'}" target="_blank" rel="noopener">
-        <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-        ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" decoding="async" onerror="${onerrorHandler}">` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
-        <div class="upcoming-info">
-          <div class="upcoming-name">${game.name}</div>
-          ${game.releaseDate ? `<div class="upcoming-date">${game.releaseDate}</div>` : ''}
-          ${game.publisher ? `<div class="upcoming-publisher">${game.publisher}</div>` : ''}
+        <div class="upcoming-col-rank">
+          <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
         </div>
+        <div class="upcoming-col-game">
+          ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" decoding="async" onerror="${onerrorHandler}">` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
+          <div class="upcoming-info">
+            <div class="upcoming-name">${game.name}</div>
+            ${game.publisher ? `<div class="upcoming-publisher">${game.publisher}</div>` : ''}
+          </div>
+        </div>
+        <div class="upcoming-col-date">${game.releaseDate || '-'}</div>
       </a>
     `;
     }).join('');
+    return header + rows;
   }
 
   const invenNewsHTML = generateNewsSection(news.inven);
@@ -475,65 +491,44 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     `;
   }
 
-  // 국가별 컬럼 생성 함수
-  function generateCountryColumns(chartData) {
-    return countries.map(c => {
-      const items = chartData[c.code]?.ios || [];
-      const rows = items.length > 0 ? items.map((app, i) => `
-        <div class="rank-row">
-          <span class="rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-          <img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'">
-          <div class="app-info">
-            <div class="app-name">${app.title}</div>
-            <div class="app-dev">${app.developer}</div>
-          </div>
-        </div>
-      `).join('') : '<div class="no-data">데이터 없음</div>';
+  // 순위 컬럼 생성 (별도 컬럼)
+  function generateRankColumn(maxItems = 200) {
+    const rows = Array.from({length: maxItems}, (_, i) =>
+      `<div class="rank-row rank-only"><span class="rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span></div>`
+    ).join('');
+    return `<div class="country-column rank-column"><div class="column-header"><span class="country-name">순위</span></div><div class="rank-list">${rows}</div></div>`;
+  }
 
-      return `
-        <div class="country-column">
-          <div class="column-header">
-            <span class="flag">${c.flag}</span>
-            <span class="country-name">${c.name}</span>
-          </div>
-          <div class="rank-list">${rows}</div>
-        </div>
-      `;
+  // 국가별 컬럼 생성 함수 (순위 아이콘 없이) - iOS는 100위까지
+  function generateCountryColumns(chartData) {
+    const rankCol = generateRankColumn(100);
+    const countryCols = countries.map(c => {
+      const items = chartData[c.code]?.ios || [];
+      const rows = items.length > 0 ? items.map((app, i) =>
+        `<div class="rank-row"><img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info"><div class="app-name">${app.title}</div><div class="app-dev">${app.developer}</div></div></div>`
+      ).join('') : '<div class="no-data">데이터 없음</div>';
+      return `<div class="country-column"><div class="column-header"><span class="flag">${c.flag}</span><span class="country-name">${c.name}</span></div><div class="rank-list">${rows}</div></div>`;
     }).join('');
+    return rankCol + countryCols;
   }
 
   function generateAndroidColumns(chartData) {
-    return countries.map(c => {
+    const rankCol = generateRankColumn();
+    const countryCols = countries.map(c => {
       const items = chartData[c.code]?.android || [];
       let rows;
-
       if (c.code === 'cn') {
         rows = '';
       } else if (items.length > 0) {
-        rows = items.map((app, i) => `
-          <div class="rank-row">
-            <span class="rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-            <img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'">
-            <div class="app-info">
-              <div class="app-name">${app.title}</div>
-              <div class="app-dev">${app.developer}</div>
-            </div>
-          </div>
-        `).join('');
+        rows = items.map((app, i) =>
+          `<div class="rank-row"><img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info"><div class="app-name">${app.title}</div><div class="app-dev">${app.developer}</div></div></div>`
+        ).join('');
       } else {
         rows = '<div class="no-data">데이터 없음</div>';
       }
-
-      return `
-        <div class="country-column">
-          <div class="column-header">
-            <span class="flag">${c.flag}</span>
-            <span class="country-name">${c.name}</span>
-          </div>
-          <div class="rank-list">${rows}</div>
-        </div>
-      `;
+      return `<div class="country-column"><div class="column-header"><span class="flag">${c.flag}</span><span class="country-name">${c.name}</span></div><div class="rank-list">${rows}</div></div>`;
     }).join('');
+    return rankCol + countryCols;
   }
 
   return `<!DOCTYPE html>
@@ -573,8 +568,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"
-     crossorigin="anonymous"></script>
+  ${SHOW_ADS ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"
+     crossorigin="anonymous"></script>` : ''}
   <script>
     // 전체 크롤링 데이터 (랜덤 선택용)
     const allNewsData = ${JSON.stringify([
@@ -639,6 +634,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
   <nav class="nav">
     <div class="nav-inner">
+      <div class="nav-item" data-section="news">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+        주요 뉴스
+      </div>
       <div class="nav-item" data-section="community">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
         커뮤니티
@@ -646,10 +645,6 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="nav-item" data-section="youtube">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         영상 순위
-      </div>
-      <div class="nav-item" data-section="news">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
-        주요 뉴스
       </div>
       <div class="nav-item" data-section="rankings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
@@ -672,10 +667,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="home-container">
         <!-- 좌측 메인 영역 -->
         <div class="home-main">
-          <!-- 상단 광고 (좌측 컬럼 위) -->
+          ${SHOW_ADS ? `<!-- 상단 광고 (좌측 컬럼 위) -->
           <div class="ad-slot home-main-ad">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-          </div>
+          </div>` : ''}
 
           <!-- 뉴스 요약 -->
           <div class="home-card">
@@ -695,10 +690,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <div class="home-card-body" style="padding: 0;">${generateHomeCommunity()}</div>
           </div>
 
-          <!-- 광고 슬롯 2 -->
+          ${SHOW_ADS ? `<!-- 광고 슬롯 2 -->
           <div class="ad-slot">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-          </div>
+          </div>` : ''}
 
           <!-- 영상 요약 -->
           <div class="home-card">
@@ -727,10 +722,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <div class="home-card-body" style="padding: 0;">${generateHomeMobileRank()}</div>
           </div>
 
-          <!-- 우측 광고 A -->
+          ${SHOW_ADS ? `<!-- 우측 광고 A -->
           <div class="ad-slot">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
-          </div>
+          </div>` : ''}
 
           <!-- 스팀 순위 -->
           <div class="home-card">
@@ -747,10 +742,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <div class="home-card-body" style="padding: 8px 0;">${generateHomeSteam()}</div>
           </div>
 
-          <!-- 우측 광고 B (PC only) -->
+          ${SHOW_ADS ? `<!-- 우측 광고 B (PC only) -->
           <div class="ad-slot pc-only">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
-          </div>
+          </div>` : ''}
 
           <!-- 신규 게임 -->
           <div class="home-card">
@@ -766,10 +761,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     <!-- 주요 뉴스 섹션 -->
     <section class="section" id="news">
-      <!-- 상단 광고 -->
+      ${SHOW_ADS ? `<!-- 상단 광고 -->
       <div class="ad-slot ad-slot-section">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-      </div>
+      </div>` : ''}
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="newsTab">
@@ -782,37 +777,17 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       </div>
       <div class="news-card">
         <div class="news-container">
-          <div class="news-panel" id="news-inven">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">인벤</span>
-              <a href="https://www.inven.co.kr/webzine/news/" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${invenNewsHTML}</div>
+          <div class="news-panel active" id="news-inven">
+            <div class="news-grid">${invenNewsHTML}</div>
           </div>
           <div class="news-panel" id="news-thisisgame">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">디스이즈게임</span>
-              <a href="https://www.thisisgame.com" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${thisisgameNewsHTML}</div>
+            <div class="news-grid">${thisisgameNewsHTML}</div>
           </div>
           <div class="news-panel" id="news-gamemeca">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">게임메카</span>
-              <a href="https://www.gamemeca.com" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${gamemecaNewsHTML}</div>
+            <div class="news-grid">${gamemecaNewsHTML}</div>
           </div>
           <div class="news-panel" id="news-ruliweb">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">루리웹</span>
-              <a href="https://bbs.ruliweb.com/news" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${ruliwebNewsHTML}</div>
+            <div class="news-grid">${ruliwebNewsHTML}</div>
           </div>
         </div>
       </div>
@@ -820,10 +795,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     <!-- 커뮤니티 인기글 섹션 -->
     <section class="section" id="community">
-      <!-- 상단 광고 -->
+      ${SHOW_ADS ? `<!-- 상단 광고 -->
       <div class="ad-slot ad-slot-section">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-      </div>
+      </div>` : ''}
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="communityTab">
@@ -836,7 +811,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       </div>
       <div class="news-card">
         <div class="news-container">
-          <div class="news-panel" id="community-dcinside">
+          <div class="news-panel active" id="community-dcinside">
             <div class="news-panel-header" style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);">
               <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">디시 실시간 베스트</span>
@@ -874,10 +849,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     <!-- 마켓 순위 섹션 -->
     <section class="section" id="rankings">
-      <!-- 상단 광고 -->
+      ${SHOW_ADS ? `<!-- 상단 광고 -->
       <div class="ad-slot ad-slot-section">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-      </div>
+      </div>` : ''}
       <div class="rankings-controls">
         <div class="control-group">
           <div class="tab-group" id="storeTab">
@@ -919,10 +894,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     <!-- 스팀 순위 섹션 -->
     <section class="section" id="steam">
-      <!-- 상단 광고 -->
+      ${SHOW_ADS ? `<!-- 상단 광고 -->
       <div class="ad-slot ad-slot-section">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-      </div>
+      </div>` : ''}
       <div class="steam-controls">
         <div class="tab-group" id="steamTab">
           <button class="tab-btn steam-btn active" data-steam="mostplayed"><img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">최다 플레이</button>
@@ -987,10 +962,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     <!-- 영상 섹션 -->
     <section class="section" id="youtube">
-      <!-- 상단 광고 -->
+      ${SHOW_ADS ? `<!-- 상단 광고 -->
       <div class="ad-slot ad-slot-section">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-      </div>
+      </div>` : ''}
       <div class="video-controls">
         <div class="tab-group" id="videoTab">
           <button class="tab-btn active" data-video="gaming"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="" class="news-favicon">유튜브 인기</button>
@@ -1045,10 +1020,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     <!-- 출시 게임 섹션 -->
     <section class="section" id="upcoming">
-      <!-- 상단 광고 -->
+      ${SHOW_ADS ? `<!-- 상단 광고 -->
       <div class="ad-slot ad-slot-section">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-      </div>
+      </div>` : ''}
       <div class="upcoming-controls">
         <div class="tab-group" id="upcomingTab">
           <button class="tab-btn active" data-upcoming="mobile">
@@ -1446,6 +1421,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       document.getElementById('kr-rankings')?.classList.add('active');
       // 뉴스 탭 초기화
       newsTab?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+      document.querySelectorAll('#news .news-panel').forEach((p, i) => p.classList.toggle('active', i === 0));
+      // 커뮤니티 탭 초기화
+      communityTab?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+      document.querySelectorAll('#community .news-panel').forEach((p, i) => p.classList.toggle('active', i === 0));
       // 마켓 순위 탭 초기화
       storeTab?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
       chartTab?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
@@ -1500,19 +1479,29 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       });
     });
 
-    // 뉴스 탭 - 선택한 패널을 맨 위로 이동
+    // 뉴스 탭 - 선택한 패널만 표시 (active 클래스 토글)
+    const newsTypes = ['inven', 'thisisgame', 'gamemeca', 'ruliweb'];
     newsTab?.addEventListener('click', (e) => {
       const btn = e.target.closest('.tab-btn');
       if (!btn) return;
-      newsTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const selectedPanel = document.getElementById('news-' + btn.dataset.news);
-      if (selectedPanel && newsContainer) {
-        newsContainer.prepend(selectedPanel);
-      }
+      const selectedType = btn.dataset.news;
+      const selectedIndex = newsTypes.indexOf(selectedType);
+
+      // 탭 버튼 active 토글
+      newsTab.querySelectorAll('.tab-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === selectedIndex);
+      });
+
+      // 패널 active 토글
+      newsTypes.forEach((type) => {
+        const panel = document.getElementById('news-' + type);
+        if (panel) {
+          panel.classList.toggle('active', type === selectedType);
+        }
+      });
     });
 
-    // 커뮤니티 탭 - 선택한 패널을 맨 위로 이동
+    // 커뮤니티 탭 - 선택한 패널만 표시 (active 클래스 토글)
     const communityTypes = ['dcinside', 'arca', 'inven', 'ruliweb'];
     let currentCommunityIndex = 0;
 
@@ -1521,13 +1510,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       if (index >= communityTypes.length) index = 0;
       currentCommunityIndex = index;
 
+      // 탭 버튼 active 토글
       communityTab.querySelectorAll('.tab-btn').forEach((b, i) => {
         b.classList.toggle('active', i === index);
       });
-      const selectedPanel = document.getElementById('community-' + communityTypes[index]);
-      if (selectedPanel && communityContainer) {
-        communityContainer.prepend(selectedPanel);
-      }
+
+      // 패널 active 토글 (PC에서 단일 패널 표시)
+      communityTypes.forEach((type, i) => {
+        const panel = document.getElementById('community-' + type);
+        if (panel) {
+          panel.classList.toggle('active', i === index);
+        }
+      });
     }
 
     communityTab?.addEventListener('click', (e) => {
@@ -1713,15 +1707,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       grid.addEventListener('click', (e) => {
         if (window.innerWidth > 768) return;
         const column = e.target.closest('.country-column');
-        if (!column) return;
-        const columns = grid.querySelectorAll('.country-column');
-        const firstCol = columns[0];
-        const isFirst = column === firstCol;
-        columns.forEach(c => c.classList.remove('expanded'));
-        if (isFirst) {
-          firstCol.classList.remove('collapsed');
+        if (!column || column.classList.contains('rank-column')) return;
+        // rank-column 제외한 국가 컬럼만 선택
+        const countryColumns = grid.querySelectorAll('.country-column:not(.rank-column)');
+        const firstCountry = countryColumns[0];
+        const isFirstCountry = column === firstCountry;
+        countryColumns.forEach(c => c.classList.remove('expanded'));
+        if (isFirstCountry) {
+          firstCountry.classList.remove('collapsed');
         } else {
-          firstCol.classList.add('collapsed');
+          firstCountry.classList.add('collapsed');
           column.classList.add('expanded');
         }
       });

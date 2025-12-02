@@ -155,14 +155,12 @@
       margin-bottom: 0;
     }
 
-    /* 홈 레이아웃 컨테이너 - 네이버 스타일 (1190px) */
+    /* 홈 레이아웃 컨테이너 */
     .home-container {
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 24px;
-      max-width: 1190px;
-      margin: 0 auto;
-      padding: 24px 16px;
+      padding: 24px 0;
     }
 
     .home-main {
@@ -1350,9 +1348,9 @@
     }
 
     .header-inner {
-      max-width: 1600px;
+      max-width: 1190px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 16px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1448,9 +1446,9 @@
     }
 
     .nav-inner {
-      max-width: 1600px;
+      max-width: 1190px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 16px;
       display: flex;
       justify-content: center;
       gap: 8px;
@@ -1515,49 +1513,33 @@
         gap: 8px !important;
       }
 
-      /* PC 탭 버튼 */
-      .tab-btn {
+      /* PC 서브탭 버튼 - 통일된 스타일 */
+      .tab-btn,
+      .tab-group .tab-btn {
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 8px !important;
-        padding: 12px 28px !important;
-        font-size: 15px !important;
+        flex: 0 0 auto !important;
+        min-width: auto !important;
+        min-height: 38px !important;
+        gap: 6px !important;
+        padding: 9px 20px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        overflow: visible !important;
       }
 
-      .tab-btn .news-favicon {
-        width: 18px !important;
-        height: 18px !important;
+      .tab-btn .news-favicon,
+      .tab-group .tab-btn .news-favicon {
+        width: 16px !important;
+        height: 16px !important;
         flex-shrink: 0 !important;
         margin-right: 0 !important;
       }
 
-      /* PC 서브탭 버튼 */
-      .tab-group .tab-btn {
-        flex: 0 0 auto !important;
-        min-width: auto !important;
-        min-height: auto !important;
-        padding: 12px 28px !important;
-        font-size: 15px !important;
-        gap: 8px !important;
-        overflow: visible !important;
-      }
-
-      .tab-group .tab-btn .news-favicon {
-        width: 18px !important;
-        height: 18px !important;
-      }
-
       /* 모바일순위 - 두 그룹 사이 간격 */
       .rankings-controls {
-        gap: 60px !important;
-      }
-
-      /* 스팀 순위 - 모바일과 동일하게 작게 유지 */
-      .steam-controls .tab-btn {
-        min-width: auto !important;
-        padding: 12px 20px !important;
-        font-size: 14px !important;
+        gap: 40px !important;
       }
     }
 
@@ -1619,6 +1601,7 @@
       max-width: 1190px;
       margin: 0 auto;
       padding: 0 16px 60px;
+      box-sizing: border-box;
     }
 
     /* Sections */
@@ -1636,18 +1619,18 @@
       display: block;
     }
 
-    /* ===== 공통 컨트롤 영역 스타일 (모든 섹션 통일) ===== */
+    /* ===== 공통 컨트롤 영역 스타일 (모든 섹션 통일) - 프레임 없이 버튼만 ===== */
     .news-controls,
     .rankings-controls,
     .steam-controls,
     .video-controls,
     .upcoming-controls {
-      background: var(--card) !important;
-      border-radius: var(--radius) !important;
-      box-shadow: var(--shadow) !important;
-      padding: 8px 8px !important;
-      margin-top: 12px !important;
-      margin-bottom: 14px !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 6px 0 !important;
+      margin-top: 11px !important;
+      margin-bottom: 11px !important;
       justify-content: center !important;
       align-items: center !important;
     }
@@ -1660,17 +1643,10 @@
       display: flex !important;
     }
 
-    /* 뉴스/커뮤니티: PC에서 탭 숨김, 모바일에서만 표시 */
+    /* 뉴스/커뮤니티: PC/모바일 모두 탭 표시 */
     #news .news-controls,
     #community .news-controls {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      #news .news-controls,
-      #community .news-controls {
-        display: flex !important;
-      }
+      display: flex !important;
     }
 
     .news-controls .control-group,
@@ -1710,11 +1686,23 @@
       flex-shrink: 0;
     }
 
+    /* 모든 서브탭 공통 스타일 */
+    #newsTab,
+    #communityTab,
+    .rankings-controls .tab-group,
+    .steam-controls .tab-group,
+    .video-controls .tab-group,
+    .upcoming-controls .tab-group {
+      width: auto;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+
     .news-card {
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 32px;
+      padding: 24px 0;
       border: 1px solid var(--border);
     }
 
@@ -1722,21 +1710,127 @@
       .news-card {
         margin-top: 16px;
       }
-      .steam-controls, .video-controls, .rankings-controls, .upcoming-controls {
-        padding: 8px 20px;
-        margin-bottom: 12px;
-      }
     }
 
-    .news-container {
+    /* 뉴스/커뮤니티 공통: 단일 패널 뷰 */
+    #news .news-container,
+    #community .news-container {
+      display: block;
+      padding: 0 16px;
+    }
+
+    #news .news-panel,
+    #community .news-panel {
+      display: none;
+    }
+
+    #news .news-panel.active,
+    #community .news-panel.active {
+      display: block;
+    }
+
+    /* 뉴스 2컬럼 그리드 (섬네일 카드) */
+    #news .news-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: column;
+      grid-template-rows: repeat(10, auto);
+      gap: 12px 24px;
+    }
+
+    /* 뉴스 카드 아이템 스타일 */
+    .news-item-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      background: var(--card-hover);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .news-item-card:hover {
+      background: var(--border);
+      transform: translateX(4px);
+    }
+
+    .news-item-card .news-num {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: var(--hover-bg);
+      border-radius: 6px;
+    }
+
+    /* 뉴스 1-3위 하이라이트 (금/은/동) */
+    .news-item-card:nth-child(1) .news-num {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+      color: #92400e;
+    }
+    .news-item-card:nth-child(2) .news-num {
+      background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+      color: #374151;
+    }
+    .news-item-card:nth-child(3) .news-num {
+      background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%);
+      color: #fff;
+    }
+
+    .news-item-card .news-thumb {
+      flex-shrink: 0;
+      width: 60px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 4px;
+      background: var(--bg);
+    }
+
+    .news-thumb-placeholder {
+      flex-shrink: 0;
+      width: 60px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border-radius: 4px;
+      font-size: 18px;
+    }
+
+    .news-thumb-placeholder.hidden {
+      display: none;
+    }
+
+    .news-item-card .news-item-title {
+      flex: 1;
+      font-size: 13px;
+      line-height: 1.4;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    /* 커뮤니티 2컬럼 리스트 (1~10 좌측, 11~20 우측) */
+    #community .news-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: column;
+      grid-template-rows: repeat(10, auto);
+      gap: 0 24px;
     }
 
     .news-panel {
       display: block;
-      border-right: none; 
+      border-right: none;
       padding: 0;
       min-width: 0;
       overflow: hidden;
@@ -1959,12 +2053,17 @@
       flex-shrink: 0;
     }
 
-    .news-item:nth-child(1) .news-num,
-    .news-item:nth-child(2) .news-num,
+    .news-item:nth-child(1) .news-num {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+      color: #92400e;
+    }
+    .news-item:nth-child(2) .news-num {
+      background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+      color: #374151;
+    }
     .news-item:nth-child(3) .news-num {
-      background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-      color: white;
-      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+      background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%);
+      color: #fff;
     }
 
     .news-content {
@@ -2114,7 +2213,8 @@
 
     .columns-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: 50px repeat(5, 1fr);
+      width: 100%;
     }
 
     .country-column {
@@ -2127,13 +2227,15 @@
     }
 
     .column-header {
-      padding: 16px 12px;
+      padding: 6px 12px;
+      height: 36px;
+      box-sizing: border-box;
       background: var(--card-hover);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -2141,12 +2243,12 @@
     }
 
     .flag {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
     }
 
     .country-name {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text);
     }
@@ -2158,8 +2260,11 @@
     .rank-row {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 12px 16px;
+      gap: 12px;
+      padding: 8px 12px;
+      min-height: 64px;
+      height: 64px;
+      box-sizing: border-box;
       border-bottom: 1px solid var(--border-subtle);
       transition: all var(--transition-normal);
     }
@@ -2177,35 +2282,63 @@
     }
 
     .rank-num {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text-muted);
       flex-shrink: 0;
-      border-radius: 8px;
+      border-radius: 6px;
       background: var(--hover-bg);
     }
 
+    .rank-num-simple {
+      width: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    /* 순위 전용 컬럼 */
+    .rank-column {
+      background: var(--card);
+    }
+
+    .rank-column .column-header {
+      padding: 6px 8px;
+    }
+
+    .rank-column .rank-row {
+      justify-content: center;
+      padding: 8px 12px;
+      min-height: 64px;
+      height: 64px;
+      box-sizing: border-box;
+    }
+
+    .rank-row.rank-only {
+      min-height: 64px;
+      height: 64px;
+      box-sizing: border-box;
+    }
+
     .rank-num.top1 {
-      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
-      color: #fff;
-      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
-      box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3);
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+      color: #92400e;
     }
 
     .rank-num.top2 {
-      background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
-      color: #fff;
-      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
-      box-shadow: 0 4px 6px rgba(148, 163, 184, 0.3);
+      background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+      color: #374151;
     }
 
     .rank-num.top3 {
-      background: linear-gradient(135deg, #fdba74 0%, #f97316 100%);
+      background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%);
       color: #fff;
       text-shadow: 0 1px 1px rgba(0,0,0,0.2);
       box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3);
@@ -2277,15 +2410,17 @@
 
     .steam-table-header {
       display: grid;
-      grid-template-columns: 70px 1fr 140px;
-      padding: 16px 24px;
+      grid-template-columns: 50px 1fr 100px;
+      padding: 6px 16px;
+      height: 36px;
+      box-sizing: border-box;
       background: var(--card-hover);
       border-bottom: 1px solid var(--border);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--text-secondary);
-      text-transform: uppercase;
+      color: var(--text);
       letter-spacing: 0.02em;
+      align-items: center;
     }
 
     .steam-table-header > div:nth-child(1) {
@@ -2302,8 +2437,8 @@
 
     .steam-table-row {
       display: grid;
-      grid-template-columns: 70px 1fr 140px;
-      padding: 16px 24px;
+      grid-template-columns: 50px 1fr 100px;
+      padding: 10px 16px;
       border-bottom: 1px solid var(--border-subtle);
       align-items: center;
       transition: all var(--transition-normal);
@@ -2411,32 +2546,32 @@
     }
 
     .steam-rank {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text-secondary);
       background: var(--hover-bg);
-      border-radius: 8px;
+      border-radius: 6px;
       flex-shrink: 0;
     }
 
     .steam-rank.top1 {
-      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
-      color: #78350f;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+      color: #92400e;
     }
 
     .steam-rank.top2 {
-      background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
-      color: #334155;
+      background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+      color: #374151;
     }
 
     .steam-rank.top3 {
-      background: linear-gradient(135deg, #fed7aa 0%, #f97316 100%);
-      color: #7c2d12;
+      background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%);
+      color: #fff;
     }
 
     .steam-col-game {
@@ -2589,18 +2724,18 @@
     }
 
     .youtube-rank.top1 {
-      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
-      color: #78350f;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+      color: #92400e;
     }
 
     .youtube-rank.top2 {
-      background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
-      color: #334155;
+      background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+      color: #374151;
     }
 
     .youtube-rank.top3 {
-      background: linear-gradient(135deg, #fed7aa 0%, #f97316 100%);
-      color: #7c2d12;
+      background: linear-gradient(135deg, #cd7f32 0%, #daa06d 100%);
+      color: #fff;
     }
 
     .live-badge {
@@ -2775,24 +2910,27 @@
     @media (max-width: 768px) {
       /* 모바일 순위 - 비율로 화면에 딱 맞게 */
       .columns-grid { display: flex; width: 100%; }
-      .country-column { flex: 1; min-width: 0; transition: flex 0.3s ease; }
-      .country-column.expanded, .country-column:first-child:not(.collapsed) { flex: 3; }
-      .column-header { cursor: pointer; padding: 6px 4px; flex-direction: column; gap: 2px; }
+      .country-column:not(.rank-column) { flex: 1; min-width: 0; transition: flex 0.3s ease; }
+      .country-column.expanded { flex: 3; }
+      /* 첫번째 국가(한국)를 기본 펼침 상태로 */
+      .rank-column + .country-column:not(.collapsed) { flex: 3; }
+      /* 순위 컬럼 모바일 스타일 */
+      .rank-column { flex: 0 0 40px !important; min-width: 40px !important; max-width: 40px !important; }
+      .rank-column .column-header { min-height: 44px; display: flex; align-items: center; justify-content: center; }
+      .rank-column .rank-row { min-height: 48px; height: 48px; }
+      .column-header { cursor: pointer; padding: 6px 4px; flex-direction: column; gap: 2px; min-height: 44px; box-sizing: border-box; }
       .country-name { font-size: 9px; }
       .flag { font-size: 1.1rem; }
       .rank-row { padding: 5px 3px; gap: 3px; flex-direction: column; align-items: center; }
       .rank-num { width: 20px; height: 20px; font-size: 10px; border-radius: 4px; }
-      /* 선택되지 않은 국가의 순위 번호 숨김 + 행 높이 고정 */
-      .country-column:not(.expanded):not(:first-child) .rank-num,
-      .country-column.collapsed .rank-num { display: none; }
-      .country-column:not(.expanded):not(:first-child) .rank-row,
-      .country-column.collapsed .rank-row { height: 48px; min-height: 48px; justify-content: center; box-sizing: border-box; }
+      /* 선택되지 않은 국가의 행 높이 고정 */
+      .country-column:not(.expanded):not(.rank-column).collapsed .rank-row,
+      .country-column:not(.rank-column):not(:nth-child(2)):not(.expanded) .rank-row { height: 48px; min-height: 48px; justify-content: center; box-sizing: border-box; }
       .app-icon { width: 36px; height: 36px; border-radius: 8px; }
       .app-info { display: none; }
-      .country-column.expanded .rank-row, .country-column:first-child:not(.collapsed) .rank-row { flex-direction: row; padding: 8px 10px; gap: 8px; height: 48px; min-height: 48px; box-sizing: border-box; }
-      .country-column.expanded .app-info, .country-column:first-child:not(.collapsed) .app-info { display: block; flex: 1; min-width: 0; }
-      .country-column.expanded .app-icon, .country-column:first-child:not(.collapsed) .app-icon { width: 32px; height: 32px; }
-      .country-column.expanded .rank-num, .country-column:first-child:not(.collapsed) .rank-num { width: 22px; height: 22px; font-size: 11px; }
+      .country-column.expanded .rank-row, .rank-column + .country-column:not(.collapsed) .rank-row { flex-direction: row; padding: 8px 10px; gap: 8px; height: 48px; min-height: 48px; box-sizing: border-box; }
+      .country-column.expanded .app-info, .rank-column + .country-column:not(.collapsed) .app-info { display: block; flex: 1; min-width: 0; }
+      .country-column.expanded .app-icon, .rank-column + .country-column:not(.collapsed) .app-icon { width: 32px; height: 32px; }
       .app-name { font-size: 11px; margin-bottom: 2px; }
       .app-dev { font-size: 9px; }
     }
@@ -2805,7 +2943,7 @@
       .news-favicon { width: 14px; height: 14px; }
       .rank-num { width: 18px; height: 18px; font-size: 9px; }
       .app-icon { width: 32px; height: 32px; border-radius: 6px; }
-      .country-column.expanded .app-icon, .country-column:first-child:not(.collapsed) .app-icon { width: 28px; height: 28px; }
+      .country-column.expanded .app-icon, .rank-column + .country-column:not(.collapsed) .app-icon { width: 28px; height: 28px; }
     }
 
     @media (max-width: 480px) {
@@ -2953,12 +3091,37 @@
       border: 1px solid var(--border);
     }
 
+    .upcoming-table-header {
+      display: grid;
+      grid-template-columns: 60px 1fr 100px;
+      padding: 6px 16px;
+      height: 36px;
+      box-sizing: border-box;
+      background: var(--card-hover);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      align-items: center;
+    }
+
+    .upcoming-table-header > div:nth-child(1) {
+      text-align: center;
+    }
+
+    .upcoming-table-header > div:nth-child(3) {
+      text-align: right;
+    }
+
     .upcoming-item {
-      display: flex;
+      display: grid;
+      grid-template-columns: 60px 1fr 100px;
       align-items: center;
       gap: 12px;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border-subtle);
       transition: background 0.2s;
       text-decoration: none;
       color: inherit;
@@ -2966,6 +3129,25 @@
 
     .upcoming-item:hover {
       background: var(--card-hover);
+    }
+
+    .upcoming-col-rank {
+      display: flex;
+      justify-content: center;
+    }
+
+    .upcoming-col-game {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .upcoming-col-date {
+      text-align: right;
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
     }
 
     .upcoming-item:last-child {

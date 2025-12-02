@@ -43,6 +43,7 @@ jobs:
         run: |
           mkdir -p docs
           cp index.html docs/index.html
+          cp src/styles.css docs/styles.css
           echo "gamerscrawl.com" > docs/CNAME
 
       - name: Commit and push

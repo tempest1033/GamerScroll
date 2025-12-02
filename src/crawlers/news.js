@@ -54,7 +54,7 @@ async function fetchNews(axios, cheerio) {
     const $ = cheerio.load(res.data);
 
     $('a[href*="/webzine/news/?news="]').each((i, el) => {
-      if (newsBySource.inven.length >= 15) return false;
+      if (newsBySource.inven.length >= 20) return false;
       const href = $(el).attr('href');
       if (!href) return;
 
@@ -93,7 +93,7 @@ async function fetchNews(axios, cheerio) {
       timeout: 10000
     });
     const $ = cheerio.load(res.data, { xmlMode: true });
-    $('item').slice(0, 15).each((i, el) => {
+    $('item').slice(0, 20).each((i, el) => {
       const rawTitle = $(el).find('title').text().trim();
       const link = $(el).find('link').text().trim();
       const tag = extractGameTag(rawTitle);
@@ -122,7 +122,7 @@ async function fetchNews(axios, cheerio) {
     const $ = cheerio.load(res.data);
 
     $('strong.tit_thumb a, strong.tit_thumb_h a').each((i, el) => {
-      if (newsBySource.gamemeca.length >= 15) return false;
+      if (newsBySource.gamemeca.length >= 20) return false;
       const rawTitle = $(el).text().trim();
       const link = $(el).attr('href');
       if (!rawTitle || !link) return;
@@ -174,7 +174,7 @@ async function fetchNews(axios, cheerio) {
       const articleCards = document.querySelectorAll('div.relative > a[href*="/articles/"]');
 
       articleCards.forEach(link => {
-        if (results.length >= 15) return;
+        if (results.length >= 20) return;
         const href = link.getAttribute('href');
         if (!href || href.includes('newsId=') || href.includes('categoryId=') || href.includes('community')) return;
 
