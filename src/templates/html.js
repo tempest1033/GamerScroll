@@ -18,7 +18,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     if (!items || items.length === 0) {
       return '<div class="no-data">뉴스를 불러올 수 없습니다</div>';
     }
-    const fixUrl = (url) => url && url.startsWith('//') ? 'https:' + url : url;
+    const fixUrl = (url) => {
+      if (!url) return url;
+      if (url.startsWith('//')) url = 'https:' + url;
+      if (url.includes('inven.co.kr')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+      return url;
+    };
     return items.map((item, i) => `
       <a class="news-item-card" href="${item.link}" target="_blank" rel="noopener">
         <span class="news-num">${i + 1}</span>
@@ -116,14 +121,19 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
   // 홈 뉴스 요약 (좌: 카드, 우: 리스트)
   function generateHomeNews() {
+    // 홈에서는 인벤 제외 (이미지 로드 이슈)
     const sources = [
-      { key: 'inven', items: news.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
       { key: 'thisisgame', items: news.thisisgame || [], name: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' },
       { key: 'gamemeca', items: news.gamemeca || [], name: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' },
       { key: 'ruliweb', items: news.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
     ];
 
-    const fixUrl = (url) => url && url.startsWith('//') ? 'https:' + url : url;
+    const fixUrl = (url) => {
+      if (!url) return url;
+      if (url.startsWith('//')) url = 'https:' + url;
+      if (url.includes('inven.co.kr')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+      return url;
+    };
 
     // 뉴스 컨텐츠 생성 함수
     function renderNewsContent(items, sourceName = null) {
@@ -141,7 +151,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             ${mainCard ? `
               <a class="home-news-card home-news-card-main" href="${mainCard.link}" target="_blank" rel="noopener">
                 <div class="home-news-card-thumb">
-                  <img src="${fixUrl(mainCard.thumbnail)}" alt="" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>'">
+                  <img src="${fixUrl(mainCard.thumbnail)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>'">
                 </div>
                 <div class="home-news-card-info">
                   <span class="home-news-card-title">${mainCard.title}</span>
@@ -152,7 +162,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             ${subCard ? `
               <a class="home-news-card home-news-card-sub" href="${subCard.link}" target="_blank" rel="noopener">
                 <div class="home-news-card-thumb">
-                  <img src="${fixUrl(subCard.thumbnail)}" alt="" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>'">
+                  <img src="${fixUrl(subCard.thumbnail)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>'">
                 </div>
                 <div class="home-news-card-info">
                   <span class="home-news-card-title">${subCard.title}</span>
@@ -165,7 +175,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             ${listItems.map(item => `
               <a class="home-news-item" href="${item.link}" target="_blank" rel="noopener">
                 <div class="home-news-item-thumb">
-                  <img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" onerror="this.style.display='none'">
+                  <img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
                 </div>
                 <div class="home-news-item-info">
                   <span class="home-news-title">${item.title}</span>
@@ -191,13 +201,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       [allCombined[i], allCombined[j]] = [allCombined[j], allCombined[i]];
     }
 
-    // 탭 버튼 + 컨텐츠 (iOS/Android 스타일)
+    // 탭 버튼 + 컨텐츠 (iOS/Android 스타일) - 인벤 제외
     return `
       <div class="home-news-tabs">
         <button class="home-news-tab active" data-news="all">전체</button>
-        <button class="home-news-tab" data-news="inven">
-          <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="">인벤
-        </button>
         <button class="home-news-tab" data-news="thisisgame">
           <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="">디스이즈게임
         </button>
@@ -210,10 +217,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       </div>
       <div class="home-news-body">
         <div class="home-news-panel active" id="home-news-all">${renderNewsContent(allCombined)}</div>
-        <div class="home-news-panel" id="home-news-inven">${renderNewsContent(sources[0].items.map(item => ({ ...item, source: '인벤' })), '인벤')}</div>
-        <div class="home-news-panel" id="home-news-thisisgame">${renderNewsContent(sources[1].items.map(item => ({ ...item, source: '디스이즈게임' })), '디스이즈게임')}</div>
-        <div class="home-news-panel" id="home-news-gamemeca">${renderNewsContent(sources[2].items.map(item => ({ ...item, source: '게임메카' })), '게임메카')}</div>
-        <div class="home-news-panel" id="home-news-ruliweb">${renderNewsContent(sources[3].items.map(item => ({ ...item, source: '루리웹' })), '루리웹')}</div>
+        <div class="home-news-panel" id="home-news-thisisgame">${renderNewsContent(sources[0].items.map(item => ({ ...item, source: '디스이즈게임' })), '디스이즈게임')}</div>
+        <div class="home-news-panel" id="home-news-gamemeca">${renderNewsContent(sources[1].items.map(item => ({ ...item, source: '게임메카' })), '게임메카')}</div>
+        <div class="home-news-panel" id="home-news-ruliweb">${renderNewsContent(sources[2].items.map(item => ({ ...item, source: '루리웹' })), '루리웹')}</div>
       </div>
     `;
   }
@@ -1264,7 +1270,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       const newsItems = shuffleCache.newsIndices.map(i => allNewsData[i]).filter(Boolean);
       const newsAllPanel = document.getElementById('home-news-all');
       if (newsAllPanel && newsItems.length >= 9) {
-        const fixUrl = (url) => url && url.startsWith('//') ? 'https:' + url : url;
+        const fixUrl = (url) => {
+      if (!url) return url;
+      if (url.startsWith('//')) url = 'https:' + url;
+      if (url.includes('inven.co.kr')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+      return url;
+    };
         // 메인 카드 (1개)
         const mainCard = newsAllPanel.querySelector('.home-news-card-main');
         if (mainCard && newsItems[0]) {
