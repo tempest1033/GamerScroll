@@ -6,6 +6,95 @@
     html.fonts-loaded {
       visibility: visible;
     }
+
+    /* 모바일 가로 스크롤 방지 */
+    @media (max-width: 768px) {
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .header, .header-inner, .nav, .nav-inner, .container, .home-container, .home-main, .home-sidebar {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+      .home-card, .home-news-split, .home-video-split, .home-news-cards, .home-news-list, .home-video-cards, .home-video-list {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+      .home-card-body {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px 4px !important;
+      }
+      .home-news-card, .home-video-card {
+        max-width: 100%;
+      }
+      /* 서브탭 모바일 - 커뮤니티 페이지 탭과 동일하게 */
+      .home-news-tabs, .home-community-tabs, .home-video-tabs {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        padding: 4px !important;
+        gap: 4px !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        background: var(--hover-bg) !important;
+        border-radius: var(--radius-sm) !important;
+        border-bottom: none !important;
+      }
+      /* 홈 카드 바디 패딩 통일 */
+      .home-card-body {
+        padding: 16px 4px !important;
+      }
+      .home-news-tab, .home-community-tab, .home-video-tab {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        padding: 10px 6px !important;
+        font-size: 12px !important;
+        min-height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        box-sizing: border-box !important;
+        gap: 4px !important;
+      }
+      .home-news-tab img, .home-community-tab img, .home-video-tab img {
+        display: none !important;
+      }
+      /* 모바일 홈 피드 순서 변경 */
+      .home-container {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      .home-main, .home-sidebar {
+        display: contents !important;
+      }
+      #home-news { order: 1 !important; }
+      #home-mobile-rank { order: 2 !important; }
+      #home-community { order: 3 !important; }
+      #home-steam { order: 4 !important; }
+      #home-video { order: 5 !important; }
+      #home-upcoming { order: 6 !important; }
+      /* 광고 슬롯 순서 */
+      .home-main-ad { order: 0 !important; }
+      .ad-slot:not(.home-main-ad) { order: 99 !important; }
+    }
     :root {
       /* === Primary Colors === */
       --primary: #4f46e5; /* Indigo 600 */
@@ -273,7 +362,7 @@
     }
 
     .home-card-body {
-      padding: 12px 0;
+      padding: 0;
     }
 
     /* 홈 뉴스 서브탭 (iOS/Android 스타일) */
@@ -505,6 +594,16 @@
       .home-community-split {
         flex-direction: column;
         gap: 8px;
+        padding: 12px;
+      }
+      .home-community-column {
+        width: 100%;
+      }
+      .home-community-item {
+        padding: 12px 14px;
+      }
+      .home-community-title {
+        font-size: 13px;
       }
     }
 
@@ -660,7 +759,7 @@
     @media (max-width: 768px) {
       .home-news-split {
         flex-direction: column;
-        gap: 16px;
+        gap: 10px;
         padding: 12px;
       }
 
@@ -669,8 +768,34 @@
         width: 100%;
       }
 
-      .home-news-card-title {
-        font-size: 12px;
+      .home-news-card .home-news-card-info {
+        height: auto;
+        padding: 10px;
+      }
+
+      .home-news-card .home-news-card-title {
+        font-size: 13px;
+        height: auto;
+      }
+
+      .home-news-list {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .home-news-item {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .home-news-item-thumb {
+        width: 80px;
+        height: 45px;
+      }
+
+      .home-news-title {
+        font-size: 13px;
+        height: auto;
       }
     }
 
@@ -1174,7 +1299,28 @@
     @media (max-width: 768px) {
       .home-container {
         grid-template-columns: 1fr;
-        padding: 16px;
+        padding: 8px;
+      }
+
+      /* 홈 카드 패딩 - 뉴스 페이지와 동일하게 */
+      .home-card-header {
+        padding: 10px 8px !important;
+      }
+      .home-card-body {
+        padding: 16px 4px !important;
+      }
+      .home-item {
+        padding: 8px !important;
+      }
+      /* 스팀/출시예정 row 패딩 - 왼쪽 끝 정렬 */
+      .home-steam-row,
+      .home-upcoming-row {
+        padding: 8px 8px 8px 0 !important;
+      }
+      /* 스팀/출시예정 헤더 왼쪽 정렬 */
+      #home-steam .home-card-header,
+      #home-upcoming .home-card-header {
+        padding-left: 4px !important;
       }
 
       /* 모바일에서 PC only 광고 숨기기 */
@@ -1184,35 +1330,48 @@
 
       .home-video-split {
         flex-direction: column;
+        gap: 10px;
+        padding: 16px 4px !important;
       }
 
       .home-video-cards {
         flex: none;
+        width: 100%;
+      }
+
+      .home-video-card-info {
+        height: auto;
+        padding: 10px;
+      }
+
+      .home-video-card-title {
+        height: auto;
+        font-size: 13px;
       }
 
       .home-video-list {
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 12px;
-        padding-bottom: 8px;
+        flex-direction: column;
+        gap: 8px;
       }
 
       .home-video-item {
-        flex-shrink: 0;
-        width: 180px;
-        flex-direction: column;
-        padding: 0;
-        background: transparent;
+        width: 100%;
+        padding: 10px;
+        flex-direction: row;
       }
 
       .home-video-item-thumb {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
+        width: 80px;
+        height: 45px;
       }
 
       .home-video-item-info {
-        padding: 8px 0;
+        padding: 0;
+      }
+
+      .home-video-item-title {
+        font-size: 13px;
+        height: auto;
       }
 
       .ad-slot.mobile-only {
@@ -1222,20 +1381,33 @@
 
     @media (max-width: 480px) {
       .home-container {
-        padding: 12px;
-        gap: 16px;
+        padding: 8px;
+        gap: 12px;
       }
 
       .home-card-header {
-        padding: 12px 16px;
+        padding: 10px 8px !important;
       }
 
       .home-item {
-        padding: 8px 16px;
+        padding: 8px !important;
       }
 
       .home-video-split {
-        padding: 12px 16px;
+        padding: 16px 4px !important;
+      }
+
+      .home-card-body {
+        padding: 16px 4px !important;
+      }
+      /* 스팀/출시예정 row 패딩 - 왼쪽 끝 정렬 */
+      .home-steam-row,
+      .home-upcoming-row {
+        padding: 8px 8px 8px 0 !important;
+      }
+      #home-steam .home-card-header,
+      #home-upcoming .home-card-header {
+        padding-left: 4px !important;
       }
     }
 
@@ -1780,9 +1952,8 @@
       font-size: 13px;
       line-height: 1.4;
       overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     /* 커뮤니티 2컬럼 리스트 (1~10 좌측, 11~20 우측) */
@@ -1888,11 +2059,10 @@
       }
       .news-panel {
         display: block;
-        background: var(--card);
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        padding: 20px;
-        border-right: none;
+        background: transparent;
+        border-radius: 0;
+        border: none;
+        padding: 0;
       }
 
       /* 스팀 순위 - 모바일용 축소 */
@@ -1934,6 +2104,37 @@
         width: 16px;
         height: 16px;
         flex-shrink: 0;
+      }
+
+      /* 뉴스 아이템 카드 - 태블릿 */
+      .news-item-card {
+        padding: 8px 10px;
+        gap: 10px;
+      }
+      .news-item-card .news-num {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+      }
+      .news-item-card .news-thumb,
+      .news-thumb-placeholder {
+        width: 54px;
+        height: 36px;
+      }
+
+      /* 뉴스/커뮤니티 탭 - 태블릿 전체 너비 */
+      #newsTab,
+      #communityTab {
+        width: 100% !important;
+        justify-content: stretch !important;
+      }
+      #newsTab .tab-btn,
+      #communityTab .tab-btn {
+        flex: 1 1 0 !important;
+        white-space: nowrap !important;
+        font-size: 12px !important;
+        padding: 10px 8px !important;
+        line-height: 1 !important;
       }
     }
 
@@ -2866,7 +3067,13 @@
     @media (max-width: 768px) {
       .header-top { flex-direction: column; align-items: flex-start; gap: 8px; }
       .report-date { text-align: left; }
-      .news-grid { grid-template-columns: 1fr; }
+      /* 뉴스/커뮤니티 그리드 - 모바일 1컬럼 리스트 */
+      #news .news-grid,
+      #community .news-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+      }
       .nav-item { padding: 10px 14px; font-size: 13px; }
       .nav-item svg { width: 15px; height: 15px; }
       .rankings-controls { gap: 16px; }
@@ -2928,11 +3135,32 @@
 
       /* 뉴스/커뮤니티 컨트롤 - 공통 스타일 사용 */
 
-      /* 뉴스/커뮤니티 아이템 */
+      /* 뉴스/커뮤니티 아이템 - 좌우 꽉 차게 */
       .news-item { padding: 8px 6px; gap: 6px; }
-      .news-panel { padding: 8px 6px; gap: 6px; }
-      .news-card { padding: 10px; }
+      .news-panel { padding: 8px !important; }
+      .news-card { padding: 8px !important; }
+      #news .news-container,
+      #community .news-container { padding: 0 8px !important; }
       .news-favicon { width: 14px; height: 14px; }
+
+      /* 뉴스 아이템 카드 - 모바일 컴팩트 (15개 표시) */
+      .news-item-card {
+        padding: 6px 8px !important;
+        gap: 8px !important;
+      }
+      .news-item-card .news-num {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 10px !important;
+      }
+      .news-item-card .news-thumb,
+      .news-thumb-placeholder {
+        width: 48px !important;
+        height: 32px !important;
+      }
+      .news-item-card .news-item-title {
+        font-size: 12px !important;
+      }
 
       /* 순위 */
       .rank-num { width: 16px; height: 16px; font-size: 8px; }
@@ -2991,6 +3219,25 @@
         height: 12px;
         flex-shrink: 0;
       }
+
+      /* 뉴스/커뮤니티 탭 - 모바일 전체 너비 + 한줄 표시 */
+      #newsTab,
+      #communityTab {
+        width: 100% !important;
+        justify-content: stretch !important;
+      }
+      #newsTab .tab-btn,
+      #communityTab .tab-btn {
+        flex: 1 1 0 !important;
+        white-space: nowrap !important;
+        font-size: 13px !important;
+        padding: 10px 6px !important;
+        line-height: 1 !important;
+      }
+      #newsTab .tab-btn .news-favicon,
+      #communityTab .tab-btn .news-favicon {
+        display: none !important;
+      }
     }
 
     @media (max-width: 360px) {
@@ -3033,6 +3280,34 @@
       }
       .tab-group .tab-btn .news-favicon {
         display: none;
+      }
+
+      /* 뉴스 아이템 카드 - 초소형 모바일 */
+      .news-item-card {
+        padding: 5px 6px !important;
+        gap: 6px !important;
+      }
+      .news-item-card .news-num {
+        width: 18px !important;
+        height: 18px !important;
+        font-size: 9px !important;
+      }
+      .news-item-card .news-thumb,
+      .news-thumb-placeholder {
+        width: 40px !important;
+        height: 28px !important;
+      }
+      .news-item-card .news-item-title {
+        font-size: 11px !important;
+      }
+      /* 스팀/출시예정 row 패딩 - 왼쪽 끝 정렬 */
+      .home-steam-row,
+      .home-upcoming-row {
+        padding: 6px 6px 6px 0 !important;
+      }
+      #home-steam .home-card-header,
+      #home-upcoming .home-card-header {
+        padding-left: 4px !important;
       }
     }
 

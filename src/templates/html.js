@@ -18,10 +18,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     if (!items || items.length === 0) {
       return '<div class="no-data">뉴스를 불러올 수 없습니다</div>';
     }
+    const fixUrl = (url) => url && url.startsWith('//') ? 'https:' + url : url;
     return items.map((item, i) => `
       <a class="news-item-card" href="${item.link}" target="_blank" rel="noopener">
         <span class="news-num">${i + 1}</span>
-        ${item.thumbnail ? `<img class="news-thumb" src="${item.thumbnail}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden');">` : ''}
+        ${item.thumbnail ? `<img class="news-thumb" src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden');">` : ''}
         <div class="news-thumb-placeholder ${item.thumbnail ? 'hidden' : ''}">📰</div>
         <div class="news-item-title">${item.title}</div>
       </a>
@@ -669,21 +670,21 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>` : ''}
 
           <!-- 뉴스 요약 -->
-          <div class="home-card">
+          <div class="home-card" id="home-news">
             <div class="home-card-header">
               <div class="home-card-title">주요 뉴스</div>
               <a href="#" class="home-card-more" data-goto="news">더보기 →</a>
             </div>
-            <div class="home-card-body" style="padding: 0;">${generateHomeNews()}</div>
+            <div class="home-card-body">${generateHomeNews()}</div>
           </div>
 
           <!-- 커뮤니티 요약 -->
-          <div class="home-card">
+          <div class="home-card" id="home-community">
             <div class="home-card-header">
               <div class="home-card-title">커뮤니티 베스트</div>
               <a href="#" class="home-card-more" data-goto="community">더보기 →</a>
             </div>
-            <div class="home-card-body" style="padding: 0;">${generateHomeCommunity()}</div>
+            <div class="home-card-body">${generateHomeCommunity()}</div>
           </div>
 
           ${SHOW_ADS ? `<!-- 광고 슬롯 2 -->
@@ -692,19 +693,19 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>` : ''}
 
           <!-- 영상 요약 -->
-          <div class="home-card">
+          <div class="home-card" id="home-video">
             <div class="home-card-header">
               <div class="home-card-title">영상 순위</div>
               <a href="#" class="home-card-more" data-goto="youtube">더보기 →</a>
             </div>
-            <div class="home-card-body" style="padding: 0;">${generateHomeVideo()}</div>
+            <div class="home-card-body">${generateHomeVideo()}</div>
           </div>
         </div>
 
         <!-- 우측 사이드바 -->
         <div class="home-sidebar">
           <!-- 모바일 랭킹 (한국 Top 10) -->
-          <div class="home-card">
+          <div class="home-card" id="home-mobile-rank">
             <div class="home-card-header">
               <div class="home-card-title">모바일 랭킹</div>
               <div class="home-card-controls">
@@ -715,7 +716,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
                 <a href="#" class="home-card-more" data-goto="rankings">더보기 →</a>
               </div>
             </div>
-            <div class="home-card-body" style="padding: 0;">${generateHomeMobileRank()}</div>
+            <div class="home-card-body">${generateHomeMobileRank()}</div>
           </div>
 
           ${SHOW_ADS ? `<!-- 우측 광고 A -->
@@ -724,7 +725,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>` : ''}
 
           <!-- 스팀 순위 -->
-          <div class="home-card">
+          <div class="home-card" id="home-steam">
             <div class="home-card-header">
               <div class="home-card-title">스팀 순위</div>
               <div class="home-card-controls">
@@ -735,7 +736,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
                 <a href="#" class="home-card-more" data-goto="steam">더보기 →</a>
               </div>
             </div>
-            <div class="home-card-body" style="padding: 8px 0;">${generateHomeSteam()}</div>
+            <div class="home-card-body">${generateHomeSteam()}</div>
           </div>
 
           ${SHOW_ADS ? `<!-- 우측 광고 B (PC only) -->
@@ -744,12 +745,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>` : ''}
 
           <!-- 신규 게임 -->
-          <div class="home-card">
+          <div class="home-card" id="home-upcoming">
             <div class="home-card-header">
               <div class="home-card-title">신규 게임</div>
               <a href="#" class="home-card-more" data-goto="upcoming">더보기 →</a>
             </div>
-            <div class="home-card-body" style="padding: 0;">${generateHomeUpcoming()}</div>
+            <div class="home-card-body">${generateHomeUpcoming()}</div>
           </div>
         </div>
       </div>
@@ -1531,7 +1532,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     let touchStartX = 0;
     let touchStartY = 0;
     const navItems = document.querySelectorAll('.nav-item');
-    const navSections = ['community', 'youtube', 'news', 'rankings', 'steam', 'upcoming'];
+    const navSections = ['news', 'community', 'youtube', 'rankings', 'steam', 'upcoming'];
 
     // 홈이 활성화되어 있는지 확인
     function isHomeActive() {
