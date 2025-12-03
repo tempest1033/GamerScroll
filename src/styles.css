@@ -220,8 +220,7 @@
     }
 
     /* === Dark Mode === */
-    /* 임시 비활성화 - 라이트모드 확인용 */
-    @media (prefers-color-scheme: dark-disabled) {
+    @media (prefers-color-scheme: dark) {
       :root {
         /* Primary Colors - 게이밍 느낌 오렌지 계열 */
         --primary: #ff6b35; /* Orange-Red */
