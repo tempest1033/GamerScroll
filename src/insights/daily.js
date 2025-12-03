@@ -7,16 +7,21 @@ const HISTORY_DIR = './history';
  * 어제 날짜 문자열 반환
  */
 function getYesterdayDate() {
-  const d = new Date();
-  d.setDate(d.getDate() - 1);
-  return d.toISOString().split('T')[0];
+  const now = new Date();
+  // KST (UTC+9) 기준
+  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+  kst.setDate(kst.getDate() - 1);
+  return kst.toISOString().split('T')[0];
 }
 
 /**
  * 오늘 날짜 문자열 반환
  */
 function getTodayDate() {
-  return new Date().toISOString().split('T')[0];
+  const now = new Date();
+  // KST (UTC+9) 기준
+  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+  return kst.toISOString().split('T')[0];
 }
 
 /**

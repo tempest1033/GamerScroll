@@ -14,7 +14,9 @@ const REPORTS_DIR = './reports';
 
 function getTodayDate() {
   const now = new Date();
-  return now.toISOString().split('T')[0];
+  // KST (UTC+9) 기준
+  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+  return kst.toISOString().split('T')[0];
 }
 
 /**
