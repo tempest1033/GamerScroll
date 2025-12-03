@@ -274,15 +274,19 @@
       }
       .nav-item:hover {
         color: #fff !important;
+        background: rgba(255, 255, 255, 0.1) !important;
       }
       .nav-item.active {
         color: #fff !important;
+        background: rgba(255, 255, 255, 0.15) !important;
       }
       .nav-item svg {
         stroke: rgba(255, 255, 255, 0.85) !important;
         opacity: 1 !important;
       }
-      .nav-item:hover svg,
+      .nav-item:hover svg {
+        stroke: #fff !important;
+      }
       .nav-item.active svg {
         stroke: #fff !important;
       }
