@@ -42,9 +42,14 @@ jobs:
       - name: Move report to docs
         run: |
           mkdir -p docs
+          mkdir -p docs/reports
           cp index.html docs/index.html
           cp src/styles.css docs/styles.css
           echo "gamerscrawl.com" > docs/CNAME
+          # 데일리 인사이트 리포트 복사
+          if [ -d "reports" ]; then
+            cp -r reports/*.html docs/reports/ 2>/dev/null || true
+          fi
 
       - name: Commit and push
         run: |
@@ -53,6 +58,6 @@ jobs:
           git stash
           git pull origin main --rebase
           git stash pop || true
-          git add docs/
+          git add docs/ history/ reports/ data-cache.json
           git diff --staged --quiet || git commit -m "Update report $(date +'%Y-%m-%d %H:%M')"
           git push

@@ -3,7 +3,7 @@ const { countries } = require('../crawlers/rankings');
 // 광고 표시 여부 (광고 승인 전까지 N)
 const SHOW_ADS = false;
 
-function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming) {
+function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight = null, historyData = null) {
   const now = new Date();
   // 15분 단위로 내림 (21:37 → 21:30)
   const roundedMinutes = Math.floor(now.getMinutes() / 15) * 15;
@@ -12,6 +12,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     hour: '2-digit',
     minute: '2-digit'
   });
+
+  // AI 인사이트 추출 (홈 카드용)
+  const aiInsight = insight?.ai || null;
 
   // 뉴스 HTML 생성 (소스별 분리) - 섬네일 포함
   function generateNewsSection(items, sourceName, sourceUrl) {
@@ -32,6 +35,169 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         <div class="news-item-title">${item.title}</div>
       </a>
     `).join('');
+  }
+
+  // Daily Insight 섹션 생성 (홈 인사이트 카드와 동일한 레이아웃)
+  function generateInsightSection() {
+    if (!aiInsight) {
+      return `<div class="home-empty">AI 인사이트를 불러올 수 없습니다</div>`;
+    }
+
+    // 아이템 렌더링 (홈과 동일)
+    const renderItem = (item) => `
+      <div class="home-insight-item">
+        <div class="home-insight-header">
+          <span class="home-insight-tag">${item.tag || ''}</span>
+          <span class="home-insight-title">${item.title || ''}</span>
+        </div>
+        <span class="home-insight-desc">${(item.desc || '').replace(/\. /g, '.\n')}</span>
+      </div>
+    `;
+
+    // 카테고리별 카드 렌더링 (좌우 번갈아 배치)
+    const renderCategoryCard = (title, items) => {
+      if (!items || items.length === 0) return '';
+
+      // 좌우 번갈아 배치 (0,2 -> 좌측 / 1,3 -> 우측)
+      const leftItems = items.filter((_, i) => i % 2 === 0);
+      const rightItems = items.filter((_, i) => i % 2 === 1);
+
+      return `
+        <div class="home-card insight-card">
+          <div class="home-card-header">
+            <span class="home-card-title">${title}</span>
+          </div>
+          <div class="home-card-body">
+            <div class="home-insight-split">
+              <div class="home-insight-column">
+                ${leftItems.map(renderItem).join('')}
+              </div>
+              <div class="home-insight-column">
+                ${rightItems.map(renderItem).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    };
+
+    const issues = aiInsight.issues || [];
+    const metrics = aiInsight.metrics || [];
+    const rankingsData = aiInsight.rankings || [];
+    const communityData = aiInsight.community || [];
+    const streaming = aiInsight.streaming || [];
+
+    // 실제 순위 데이터 (insight 객체에서 추출)
+    const iosGrossing1 = insight?.mobile?.kr?.ios?.[0];
+    const iosFree1 = rankings?.free?.kr?.ios?.[0];
+    const androidGrossing1 = insight?.mobile?.kr?.android?.[0];
+    const androidFree1 = rankings?.free?.kr?.android?.[0];
+    const steamMostPlayed1 = steam?.mostPlayed?.[0];
+    const steamTopSeller1 = steam?.topSellers?.[0];
+
+    const renderInfoCard = (label, game, isSteam = false) => {
+      const icon = isSteam ? game?.img : game?.icon;
+      const title = isSteam ? game?.name : game?.title;
+      const subtext = isSteam
+        ? (game?.ccu ? game.ccu.toLocaleString() + '명' : game?.developer || '')
+        : (game?.developer || '');
+      return `
+        <div class="insight-info-card with-icon">
+          <span class="insight-info-label">${label}</span>
+          ${icon ? `<img class="insight-info-icon" src="${icon}" alt="" onerror="this.style.display='none'">` : '<div class="insight-info-icon-placeholder"></div>'}
+          <span class="insight-info-value">${title || '-'}</span>
+          ${subtext ? `<span class="insight-info-sub">${subtext}</span>` : ''}
+        </div>
+      `;
+    };
+
+    const infographic = `
+      <div class="insight-infographic">
+        ${renderInfoCard('iOS 매출 1위', iosGrossing1)}
+        ${renderInfoCard('iOS 인기 1위', iosFree1)}
+        ${renderInfoCard('Android 매출 1위', androidGrossing1)}
+        ${renderInfoCard('Android 인기 1위', androidFree1)}
+        ${renderInfoCard('Steam 동접 1위', steamMostPlayed1, true)}
+        ${renderInfoCard('Steam 판매 1위', steamTopSeller1, true)}
+      </div>
+    `;
+
+    // 순위 변동 상세 차트 (실제 모바일 데이터에서 추출)
+    const hasYesterdayData = insight?.hasYesterdayData === true;
+    const allMobileForChart = [
+      ...(insight?.mobile?.kr?.ios || []).map(g => ({ ...g, platform: 'iOS' })),
+      ...(insight?.mobile?.kr?.android || []).map(g => ({ ...g, platform: 'Android' }))
+    ];
+
+    // 급상승: change > 0 (상위 3개)
+    const upGamesReal = allMobileForChart
+      .filter(g => g.change > 0)
+      .sort((a, b) => b.change - a.change)
+      .slice(0, 3);
+
+    // 급하락: change < 0 (상위 3개)
+    const downGamesReal = allMobileForChart
+      .filter(g => g.change < 0)
+      .sort((a, b) => a.change - b.change)
+      .slice(0, 3);
+
+    // 신규진입: 어제 데이터가 있을 때만 표시 (status === 'new' && change !== 0인 게임)
+    const newGamesReal = hasYesterdayData
+      ? allMobileForChart
+          .filter(g => g.status === 'new')
+          .sort((a, b) => a.rank - b.rank)
+          .slice(0, 3)
+      : [];
+
+    const renderChartItem = (game, type) => {
+      const changeText = type === 'new' ? 'NEW' :
+        (game.change > 0 ? `+${game.change}` : `${game.change}`);
+      return `
+        <div class="insight-chart-item ${type}">
+          <img class="insight-chart-icon" src="${game.icon}" alt="" onerror="this.style.display='none'">
+          <div class="insight-chart-info">
+            <span class="insight-chart-name">${game.title}</span>
+            <span class="insight-chart-rank">${game.platform} ${game.rank}위 (${changeText})</span>
+          </div>
+        </div>
+      `;
+    };
+
+    // 전일 데이터 있을 때만 순위 변동 차트 표시
+    const rankingChart = hasYesterdayData ? `
+      <div class="insight-ranking-chart">
+        <div class="insight-chart-column">
+          <div class="insight-chart-header up">급상승</div>
+          <div class="insight-chart-list">
+            ${upGamesReal.length > 0 ? upGamesReal.map(g => renderChartItem(g, 'up')).join('') : '<div class="insight-chart-empty">없음</div>'}
+          </div>
+        </div>
+        <div class="insight-chart-column">
+          <div class="insight-chart-header down">급하락</div>
+          <div class="insight-chart-list">
+            ${downGamesReal.length > 0 ? downGamesReal.map(g => renderChartItem(g, 'down')).join('') : '<div class="insight-chart-empty">없음</div>'}
+          </div>
+        </div>
+        <div class="insight-chart-column">
+          <div class="insight-chart-header new">신규진입</div>
+          <div class="insight-chart-list">
+            ${newGamesReal.length > 0 ? newGamesReal.map(g => renderChartItem(g, 'new')).join('') : '<div class="insight-chart-empty">없음</div>'}
+          </div>
+        </div>
+      </div>
+    ` : '';
+
+    return `
+      <div class="insight-page-container">
+        ${renderCategoryCard('오늘의 이슈', issues)}
+        ${infographic}
+        ${renderCategoryCard('주목할만한 지표', metrics)}
+        ${rankingChart}
+        ${hasYesterdayData ? renderCategoryCard('순위 변동', rankingsData) : ''}
+        ${renderCategoryCard('유저 반응', communityData)}
+        ${renderCategoryCard('스트리머 인기', streaming)}
+      </div>
+    `;
   }
 
   // 플랫폼별 기본 로고 SVG
@@ -220,6 +386,66 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         <div class="home-news-panel" id="home-news-thisisgame">${renderNewsContent(sources[0].items.map(item => ({ ...item, source: '디스이즈게임' })), '디스이즈게임')}</div>
         <div class="home-news-panel" id="home-news-gamemeca">${renderNewsContent(sources[1].items.map(item => ({ ...item, source: '게임메카' })), '게임메카')}</div>
         <div class="home-news-panel" id="home-news-ruliweb">${renderNewsContent(sources[2].items.map(item => ({ ...item, source: '루리웹' })), '루리웹')}</div>
+      </div>
+    `;
+  }
+
+  // 홈 인사이트 (서브탭: 이슈/트렌드)
+  function generateHomeInsight() {
+    if (!aiInsight) {
+      return '<div class="home-empty">인사이트를 불러올 수 없습니다</div>';
+    }
+
+    // 모든 인사이트 아이템 수집 (전일 데이터 없으면 rankings 제외)
+    const hasYesterday = insight?.hasYesterdayData === true;
+    const allItems = [
+      ...(aiInsight.issues || []),
+      ...(aiInsight.metrics || []),
+      ...(hasYesterday ? (aiInsight.rankings || []) : []),
+      ...(aiInsight.community || []),
+      ...(aiInsight.streaming || [])
+    ];
+
+    if (allItems.length < 2) {
+      return '<div class="home-empty">인사이트를 불러올 수 없습니다</div>';
+    }
+
+    // 5분 고정 시드 (현재 시간을 5분 단위로 내림)
+    const now = new Date();
+    const seed = Math.floor(now.getTime() / (5 * 60 * 1000));
+
+    // 시드 기반 랜덤 선택 (2개)
+    const seededRandom = (s) => {
+      const x = Math.sin(s) * 10000;
+      return x - Math.floor(x);
+    };
+
+    const idx1 = Math.floor(seededRandom(seed) * allItems.length);
+    let idx2 = Math.floor(seededRandom(seed + 1) * allItems.length);
+    if (idx2 === idx1) idx2 = (idx2 + 1) % allItems.length;
+
+    const selected = [allItems[idx1], allItems[idx2]];
+
+    const renderItem = (item) => `
+      <div class="home-insight-item">
+        <div class="home-insight-header">
+          <span class="home-insight-tag">${item.tag || ''}</span>
+          <span class="home-insight-title">${item.title || ''}</span>
+        </div>
+        <span class="home-insight-desc">${(item.desc || '').replace(/\. /g, '.\n')}</span>
+      </div>
+    `;
+
+    return `
+      <div class="home-insight-body">
+        <div class="home-insight-split">
+          <div class="home-insight-column">
+            ${renderItem(selected[0])}
+          </div>
+          <div class="home-insight-column">
+            ${renderItem(selected[1])}
+          </div>
+        </div>
       </div>
     `;
   }
@@ -637,6 +863,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
   <nav class="nav">
     <div class="nav-inner">
+      <div class="nav-item" data-section="insight">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        인사이트
+      </div>
       <div class="nav-item" data-section="news">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
         주요 뉴스
@@ -665,6 +895,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   </nav>
 
   <main class="container">
+    <!-- Daily Insight 섹션 -->
+    <section class="home-section" id="insight">
+      ${generateInsightSection()}
+    </section>
+
     <!-- 홈 서머리 섹션 -->
     <section class="home-section active" id="home">
       <div class="home-container">
@@ -674,6 +909,17 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           <div class="ad-slot home-main-ad">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
           </div>` : ''}
+
+          <!-- 인사이트 (1순위) -->
+          ${aiInsight ? `
+          <div class="home-card" id="home-insight">
+            <div class="home-card-header">
+              <div class="home-card-title">인사이트</div>
+              <a href="#" class="home-card-more" data-goto="insight">더보기 →</a>
+            </div>
+            <div class="home-card-body">${generateHomeInsight()}</div>
+          </div>
+          ` : ''}
 
           <!-- 뉴스 요약 -->
           <div class="home-card" id="home-news">
@@ -1080,8 +1326,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
       // 모든 섹션 숨기기
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.home-section').forEach(s => s.classList.remove('active'));
       // 홈 섹션 표시
-      document.querySelector('.home-section')?.classList.add('active');
+      document.getElementById('home')?.classList.add('active');
       document.body.classList.remove('detail-page'); // 헤더 보이기
       // 모든 탭 초기화
       resetSubTabs();
@@ -1095,8 +1342,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         const targetSection = link.dataset.goto;
         if (!targetSection) return;
 
-        // 홈 숨기기
-        document.querySelector('.home-section')?.classList.remove('active');
+        // 홈 숨기기 (모든 home-section)
+        document.querySelectorAll('.home-section').forEach(s => s.classList.remove('active'));
         document.body.classList.add('detail-page'); // 헤더 숨기기
         // nav 활성화
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
@@ -1116,6 +1363,17 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         const targetNews = tab.dataset.news;
         document.querySelectorAll('.home-news-panel').forEach(p => p.classList.remove('active'));
         document.getElementById('home-news-' + targetNews)?.classList.add('active');
+      });
+    });
+
+    // 홈 인사이트 서브탭 전환
+    document.querySelectorAll('.home-insight-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.home-insight-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const targetInsight = tab.dataset.insightTab;
+        document.querySelectorAll('.home-insight-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('home-insight-' + targetInsight)?.classList.add('active');
       });
     });
 
@@ -1407,6 +1665,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       document.querySelector('.home-news-tab[data-news="all"]')?.classList.add('active');
       document.querySelectorAll('.home-news-panel').forEach(p => p.classList.remove('active'));
       document.getElementById('home-news-all')?.classList.add('active');
+      // 홈 인사이트 서브탭 초기화
+      document.querySelectorAll('.home-insight-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.home-insight-tab[data-insight-tab="issues"]')?.classList.add('active');
+      document.querySelectorAll('.home-insight-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('home-insight-issues')?.classList.add('active');
       // 홈 커뮤니티 서브탭 초기화
       document.querySelectorAll('.home-community-tab').forEach(t => t.classList.remove('active'));
       document.querySelector('.home-community-tab[data-community="all"]')?.classList.add('active');
@@ -1457,23 +1720,27 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     // 메인 네비게이션 - 캐러셀 슬라이드 기능
     const navInner = document.querySelector('.nav-inner');
     const allNavItems = document.querySelectorAll('.nav-item');
-    const totalNavCount = allNavItems.length; // 6개
+    const totalNavCount = allNavItems.length; // 7개
     const visibleCount = 5;
 
     function updateNavCarousel(index) {
-      // 모바일에서만 슬라이드 (5개 보이고, 6개 메뉴)
+      // 모바일에서만 슬라이드 (5개 보이고, 7개 메뉴)
+      // 각 nav-item이 20% 차지 (CSS: flex: 0 0 20%)
       if (window.innerWidth <= 768 && navInner) {
-        // index가 4 이상이면 마지막 메뉴들이 보이도록 이동
-        // 0~3: 0% (처음 5개 보임), 4~5: -20% (마지막 5개 보임)
-        const offset = index >= visibleCount - 1 ? -20 : 0;
+        // index 0-3: 0% (메뉴 0-4 보임)
+        // index 4: -20% (메뉴 1-5 보임)
+        // index 5-6: -40% (메뉴 2-6 보임)
+        let offset = 0;
+        if (index >= 5) offset = -40;
+        else if (index >= 4) offset = -20;
         navInner.style.transform = 'translateX(' + offset + '%)';
       }
     }
 
     document.querySelectorAll('.nav-item').forEach((item, idx) => {
       item.addEventListener('click', () => {
-        // 홈 섹션 숨기기
-        document.querySelector('.home-section')?.classList.remove('active');
+        // 홈 섹션 숨기기 (모든 home-section에서 active 제거)
+        document.querySelectorAll('.home-section').forEach(s => s.classList.remove('active'));
         document.body.classList.add('detail-page'); // 헤더 숨기기
         // nav 활성화
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
@@ -1543,11 +1810,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     let touchStartX = 0;
     let touchStartY = 0;
     const navItems = document.querySelectorAll('.nav-item');
-    const navSections = ['news', 'community', 'youtube', 'rankings', 'steam', 'upcoming'];
+    const navSections = ['insight', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming'];
 
     // 홈이 활성화되어 있는지 확인
     function isHomeActive() {
-      return document.querySelector('.home-section')?.classList.contains('active');
+      return document.getElementById('home')?.classList.contains('active');
     }
 
     function getCurrentNavIndex() {
@@ -1562,7 +1829,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     function goToHome() {
       navItems.forEach(i => i.classList.remove('active'));
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.querySelector('.home-section')?.classList.add('active');
+      document.querySelectorAll('.home-section').forEach(s => s.classList.remove('active'));
+      document.getElementById('home')?.classList.add('active');
       document.body.classList.remove('detail-page'); // 헤더 보이기
       window.scrollTo(0, 0);
     }
@@ -1579,8 +1847,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         return;
       }
 
-      // 홈 숨기기
-      document.querySelector('.home-section')?.classList.remove('active');
+      // 홈 숨기기 (모든 home-section)
+      document.querySelectorAll('.home-section').forEach(s => s.classList.remove('active'));
       document.body.classList.add('detail-page'); // 헤더 숨기기
 
       const targetSection = navSections[index];
@@ -1590,10 +1858,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       document.querySelector('.nav-item[data-section="' + targetSection + '"]')?.classList.add('active');
       document.getElementById(targetSection)?.classList.add('active');
 
-      // 캐러셀 슬라이드 업데이트
+      // 캐러셀 슬라이드 업데이트 (각 nav-item이 20% 차지)
       const navInner = document.querySelector('.nav-inner');
       if (window.innerWidth <= 768 && navInner) {
-        const offset = index >= 4 ? -20 : 0;
+        let offset = 0;
+        if (index >= 5) offset = -40;
+        else if (index >= 4) offset = -20;
         navInner.style.transform = 'translateX(' + offset + '%)';
       }
 

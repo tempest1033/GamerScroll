@@ -5,3 +5,7 @@ node_modules/
 .DS_Store
 .env
 data-cache.json
+
+# 데이터 폴더 (빌드컴에서 관리)
+history/
+data-cache.json
