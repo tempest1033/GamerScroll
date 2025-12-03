@@ -31,7 +31,8 @@ const {
   fetchNews,
   fetchSteamRankings,
   fetchUpcomingGames,
-  fetchRankings
+  fetchRankings,
+  fetchMetacriticGames
 } = require('./src/crawlers');
 
 // HTML 템플릿 import
@@ -50,7 +51,7 @@ const {
 const { generateAIInsight } = require('./src/insights/ai-insight');
 
 async function main() {
-  let news, community, rankings, steam, youtube, chzzk, upcoming;
+  let news, community, rankings, steam, youtube, chzzk, upcoming, metacritic;
 
   if (isQuickMode) {
     // 퀵 모드: 캐시에서 로드
@@ -68,6 +69,7 @@ async function main() {
     youtube = cache.youtube;
     chzzk = cache.chzzk;
     upcoming = cache.upcoming;
+    metacritic = cache.metacritic;
   } else {
     // 일반 모드: 크롤링 실행
     console.log('📰 뉴스 크롤링 중 (인벤, 루리웹, 게임메카, 디스이즈게임)...\n');
@@ -93,8 +95,12 @@ async function main() {
     // 출시 예정 게임 수집
     upcoming = await fetchUpcomingGames(store, FirecrawlClient, FIRECRAWL_API_KEY);
 
+    // 메타크리틱 연도별 평점
+    console.log('\n🏆 메타크리틱 평점 수집 중...');
+    metacritic = await fetchMetacriticGames(axios, cheerio);
+
     // 캐시 저장
-    const cache = { timestamp: new Date().toISOString(), news, community, rankings, steam, youtube, chzzk, upcoming };
+    const cache = { timestamp: new Date().toISOString(), news, community, rankings, steam, youtube, chzzk, upcoming, metacritic };
     fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf8');
     console.log('\n💾 캐시 저장 완료');
 
@@ -133,7 +139,7 @@ async function main() {
     }
   }
 
-  const html = generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight, yesterdayData);
+  const html = generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight, yesterdayData, metacritic);
 
   const filename = `index.html`;
   fs.writeFileSync(filename, html, 'utf8');

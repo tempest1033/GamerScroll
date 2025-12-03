@@ -5,6 +5,7 @@ const { fetchNews, extractGameTag } = require('./news');
 const { fetchSteamDetails, fetchSteamRankings } = require('./steam');
 const { fetchUpcomingGames, fetchSteamUpcoming, fetchNintendoUpcoming, fetchPS5Upcoming, fetchMobileUpcoming } = require('./upcoming');
 const { fetchRankings, countries } = require('./rankings');
+const { fetchMetacriticGames } = require('./metacritic');
 
 module.exports = {
   // YouTube
@@ -35,5 +36,8 @@ module.exports = {
 
   // Rankings
   fetchRankings,
-  countries
+  countries,
+
+  // Metacritic
+  fetchMetacriticGames
 };

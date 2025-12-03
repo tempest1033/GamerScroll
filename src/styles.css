@@ -727,7 +727,7 @@
 
     .home-insight-header {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       gap: 8px;
     }
 
@@ -2368,6 +2368,7 @@
         display: flex;
         align-items: center;
         padding: 12px 20px;
+        box-sizing: border-box;
         border-bottom: 1px solid var(--border);
         background: var(--card-hover);
         border-radius: var(--radius) var(--radius) 0 0;
@@ -4252,6 +4253,12 @@
     padding: 8px 12px !important;
   }
 
+  /* 인사이트 스크롤 - 헤더와 정렬 */
+  .home-insight-scroll {
+    padding: 8px 12px !important;
+    gap: 12px !important;
+  }
+
   /* 인사이트 split - 1열로 변경 */
   .home-insight-split {
     flex-direction: column !important;
@@ -4343,6 +4350,11 @@
     padding: 6px 8px !important;
   }
 
+  /* 인사이트 스크롤 - 헤더와 정렬 */
+  .home-insight-scroll {
+    padding: 6px 8px !important;
+  }
+
   .home-insight-item {
     padding: 12px;
   }
@@ -4416,6 +4428,11 @@
 
   /* 인사이트 그리드 */
   .home-insight-grid {
+    padding: 4px 6px !important;
+  }
+
+  /* 인사이트 스크롤 - 헤더와 정렬 */
+  .home-insight-scroll {
     padding: 4px 6px !important;
   }
 
@@ -4854,7 +4871,7 @@
   }
 
   .metacritic-title {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .metacritic-grid {
@@ -4894,9 +4911,19 @@
 
 /* Small Mobile: 2 columns */
 @media (max-width: 480px) {
+  .metacritic-header {
+    padding: 8px 8px;
+    height: 40px;
+  }
+
+  .metacritic-title {
+    font-size: 14px;
+  }
+
   .metacritic-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
     padding: 0 6px;
   }
 }
+
