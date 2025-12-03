@@ -300,6 +300,26 @@
       .tab-btn .news-favicon {
         filter: brightness(1.5) contrast(0.9) !important;
       }
+
+      /* 다크모드 홈 서브탭 - 밝은 색상 */
+      .home-news-tab,
+      .home-community-tab,
+      .home-video-tab {
+        color: rgba(255, 255, 255, 0.85) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+      }
+      .home-news-tab:hover,
+      .home-community-tab:hover,
+      .home-video-tab:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+      }
+      .home-news-tab.active,
+      .home-community-tab.active,
+      .home-video-tab.active {
+        color: #fff !important;
+      }
     }
 
     /* ========== 홈 서머리 섹션 ========== */
