@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: ai-insight
@@ -29,43 +30,44 @@ jobs:
           git config user.email "actions@github.com"
           git pull origin main --rebase || true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Download cache from build workflow
+        uses: dawidd6/action-download-artifact@v6
         with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
+          workflow: build.yml
+          name: data-cache
+          path: .
+          if_no_artifact_found: warn
 
       - name: Check cache file
         id: check-cache
         run: |
           if [ -f "data-cache.json" ]; then
             echo "cache_exists=true" >> $GITHUB_OUTPUT
-            echo "📂 캐시 파일 존재 확인"
+            echo "📂 캐시 파일 다운로드 완료"
           else
             echo "cache_exists=false" >> $GITHUB_OUTPUT
-            echo "⚠️ 캐시 파일 없음 - 크롤링 실행"
+            echo "⚠️ 캐시 파일 없음 - build 워크플로우가 먼저 실행되어야 합니다"
           fi
 
-      - name: Run crawling (if no cache)
-        if: steps.check-cache.outputs.cache_exists == 'false'
-        env:
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
-        run: |
-          echo "🕷️ 크롤링 시작..."
-          node generate-html-report.js
-          echo "✅ 크롤링 완료"
-        timeout-minutes: 30
+      - name: Setup Node.js
+        if: steps.check-cache.outputs.cache_exists == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        if: steps.check-cache.outputs.cache_exists == 'true'
+        run: npm install --production
 
       - name: Generate AI Insight
+        if: steps.check-cache.outputs.cache_exists == 'true'
         run: |
           echo "🤖 AI 인사이트 생성 시작..."
           node generate-ai-insight.js
         timeout-minutes: 15
 
       - name: Move reports to docs
+        if: steps.check-cache.outputs.cache_exists == 'true'
         run: |
           mkdir -p docs/reports
           if [ -d "reports" ]; then
@@ -74,8 +76,9 @@ jobs:
           fi
 
       - name: Commit and push
+        if: steps.check-cache.outputs.cache_exists == 'true'
         run: |
-          git add reports/ docs/reports/ docs/index.html docs/styles.css index.html styles.css 2>/dev/null || true
+          git add reports/ docs/reports/
           if git diff --staged --quiet; then
             echo "📝 변경사항 없음"
           else

@@ -51,6 +51,14 @@ jobs:
             cp -r reports/*.html docs/reports/ 2>/dev/null || true
           fi
 
+      - name: Upload cache artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-cache
+          path: data-cache.json
+          retention-days: 1
+          overwrite: true
+
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions"
