@@ -2012,6 +2012,74 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       });
     }
   </script>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span>© ${new Date().getFullYear()} 게이머스크롤</span>
+    <span class="footer-divider">|</span>
+    <a href="#" onclick="document.getElementById('privacy-modal').style.display='flex'; return false;">개인정보처리방침</a>
+  </footer>
+
+  <!-- Privacy Modal -->
+  <div id="privacy-modal" class="modal-overlay" onclick="if(event.target===this) this.style.display='none'">
+    <div class="modal-content">
+      <button class="modal-close" onclick="document.getElementById('privacy-modal').style.display='none'">&times;</button>
+      <h2>개인정보처리방침</h2>
+      <p>게이머스크롤(이하 "본 사이트")은 이용자의 개인정보를 중요시하며, 관련 법령을 준수합니다.</p>
+      <h3>1. 수집하는 개인정보</h3>
+      <p>본 사이트는 별도의 회원가입 없이 이용 가능하며, 이용자로부터 직접 개인정보를 수집하지 않습니다.</p>
+      <h3>2. 자동 수집 정보</h3>
+      <p>서비스 개선을 위해 Google Analytics를 통해 익명화된 방문 통계(방문 페이지, 체류 시간, 기기 정보 등)를 수집합니다. 이 정보는 개인을 식별할 수 없는 형태로 처리됩니다.</p>
+      <h3>3. 쿠키 사용</h3>
+      <p>본 사이트는 사용자 경험 향상을 위해 쿠키를 사용할 수 있습니다. 브라우저 설정에서 쿠키를 거부할 수 있습니다.</p>
+    </div>
+  </div>
+
+  <style>
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 12px;
+    }
+    .site-footer a { color: #888; text-decoration: none; }
+    .site-footer a:hover { color: #fff; }
+    .footer-divider { margin: 0 8px; }
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .modal-content {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      color: #ddd;
+    }
+    .modal-content h2 { margin-top: 0; color: #fff; }
+    .modal-content h3 { color: #aaa; margin-top: 20px; font-size: 14px; }
+    .modal-content p { font-size: 13px; line-height: 1.6; }
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 15px;
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .modal-close:hover { color: #fff; }
+  </style>
 </body>
 </html>`;
 }
