@@ -3,7 +3,7 @@ const { countries } = require('../crawlers/rankings');
 // 광고 표시 여부 (광고 승인 전까지 N)
 const SHOW_ADS = false;
 
-function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight = null, historyData = null) {
+function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight = null, historyData = null, metacritic = null) {
   const now = new Date();
   // 15분 단위로 내림 (21:37 → 21:30)
   const roundedMinutes = Math.floor(now.getMinutes() / 15) * 15;
@@ -262,17 +262,27 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     inven: 'https://www.inven.co.kr/board/webzine/2097'
   };
 
+  const sourceNames = {
+    dcinside: '디시인사이드',
+    arca: '아카라이브',
+    inven: '인벤',
+    ruliweb: '루리웹'
+  };
+
   function generateCommunitySection(items, source) {
     if (!items || items.length === 0) {
       return '<div class="no-data">인기글을 불러올 수 없습니다</div>';
     }
+    const sourceName = sourceNames[source] || source;
     return items.map((item, i) => {
-      const channelTag = item.channel ? `<span class="community-tag">${item.channel}</span>` : '';
+      const channelTag = item.channel ? `<span class="community-tag channel-tag">${item.channel}</span>` : '';
+      const sourceTag = `<span class="community-tag source-tag source-${source}">${sourceName}</span>`;
       return `
       <a class="news-item clickable" href="${item.link}" target="_blank" rel="noopener">
         <span class="news-num">${i + 1}</span>
         <div class="news-content">
-          ${channelTag}<span class="news-title">${item.title}</span>
+          <span class="news-title">${item.title}</span>
+          <div class="news-tags">${sourceTag}${channelTag}</div>
         </div>
       </a>
     `;
@@ -283,6 +293,52 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   const arcaCommunityHTML = generateCommunitySection(community?.arca || [], 'arca');
   const dcsideCommunityHTML = generateCommunitySection(community?.dcinside || [], 'dcinside');
   const invenCommunityHTML = generateCommunitySection(community?.inven || [], 'inven');
+
+  // 메타크리틱 섹션 생성 (포스터 그리드 + 컨테이너)
+  function generateMetacriticSection(data) {
+    if (!data || !data.games || data.games.length === 0) {
+      return '<div class="metacritic-empty">메타크리틱 데이터를 불러올 수 없습니다</div>';
+    }
+
+    const year = data.year || new Date().getFullYear();
+    const games = data.games;
+
+    // 점수별 색상 계산
+    const getScoreColor = (score) => {
+      if (score >= 90) return '#66cc33'; // green
+      if (score >= 75) return '#ffcc33'; // yellow
+      if (score >= 50) return '#ff6600'; // orange
+      return '#ff0000'; // red
+    };
+
+    const gameCards = games.slice(0, 30).map((game, i) => {
+      const scoreColor = getScoreColor(game.score);
+      const rankClass = i < 3 ? 'top' + (i + 1) : '';
+
+      return `
+      <div class="metacritic-card">
+        <div class="metacritic-card-rank ${rankClass}">${i + 1}</div>
+        <div class="metacritic-card-poster">
+          ${game.img ? `<img src="${game.img}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          <div class="metacritic-card-score" style="background:${scoreColor}">${game.score}</div>
+        </div>
+        <div class="metacritic-card-info">
+          <div class="metacritic-card-title">${game.title}</div>
+          ${game.platform ? `<div class="metacritic-card-platform">${game.platform}</div>` : ''}
+        </div>
+      </div>
+    `;
+    }).join('');
+
+    return `
+      <div class="metacritic-card-container">
+        <div class="metacritic-header">
+          <div class="metacritic-title">${year}년 메타크리틱 TOP 30</div>
+        </div>
+        <div class="metacritic-grid">${gameCards}</div>
+      </div>
+    `;
+  }
 
   // ========== 홈 서머리 섹션 생성 ==========
 
@@ -891,6 +947,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         출시 게임
       </div>
+      <div class="nav-item" data-section="metacritic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        메타크리틱
+      </div>
     </div>
   </nav>
 
@@ -1058,10 +1118,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>
         </div>
       </div>
-      <div class="news-card">
+      <div class="news-card community-card">
+        <div class="community-section-header">
+          <span class="community-section-title">커뮤니티</span>
+        </div>
         <div class="news-container">
           <div class="news-panel active" id="community-dcinside">
-            <div class="news-panel-header" style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);">
+            <div class="news-panel-header">
               <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">디시 실시간 베스트</span>
               <a href="https://gall.dcinside.com/board/lists?id=dcbest" target="_blank" class="news-more-link">더보기 →</a>
@@ -1069,7 +1132,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <div class="news-list">${dcsideCommunityHTML}</div>
           </div>
           <div class="news-panel" id="community-arca">
-            <div class="news-panel-header" style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);">
+            <div class="news-panel-header">
               <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">아카라이브 베스트</span>
               <a href="https://arca.live/b/live" target="_blank" class="news-more-link">더보기 →</a>
@@ -1077,7 +1140,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <div class="news-list">${arcaCommunityHTML}</div>
           </div>
           <div class="news-panel" id="community-inven">
-            <div class="news-panel-header" style="background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);">
+            <div class="news-panel-header">
               <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">인벤 핫이슈</span>
               <a href="https://hot.inven.co.kr/" target="_blank" class="news-more-link">더보기 →</a>
@@ -1085,7 +1148,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <div class="news-list">${invenCommunityHTML}</div>
           </div>
           <div class="news-panel" id="community-ruliweb">
-            <div class="news-panel-header" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+            <div class="news-panel-header">
               <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">루리웹 게임 베스트</span>
               <a href="https://bbs.ruliweb.com/best/game?orderby=recommend&range=24h" target="_blank" class="news-more-link">더보기 →</a>
@@ -1304,6 +1367,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           ${generateUpcomingSection(upcoming?.nintendo || [], 'nintendo')}
         </div>
       </div>
+    </section>
+
+    <!-- 메타크리틱 섹션 -->
+    <section class="section" id="metacritic">
+      ${generateMetacriticSection(metacritic)}
     </section>
   </main>
 
@@ -1720,18 +1788,20 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     // 메인 네비게이션 - 캐러셀 슬라이드 기능
     const navInner = document.querySelector('.nav-inner');
     const allNavItems = document.querySelectorAll('.nav-item');
-    const totalNavCount = allNavItems.length; // 7개
+    const totalNavCount = allNavItems.length; // 8개
     const visibleCount = 5;
 
     function updateNavCarousel(index) {
-      // 모바일에서만 슬라이드 (5개 보이고, 7개 메뉴)
+      // 모바일에서만 슬라이드 (5개 보이고, 8개 메뉴)
       // 각 nav-item이 20% 차지 (CSS: flex: 0 0 20%)
       if (window.innerWidth <= 768 && navInner) {
         // index 0-3: 0% (메뉴 0-4 보임)
         // index 4: -20% (메뉴 1-5 보임)
-        // index 5-6: -40% (메뉴 2-6 보임)
+        // index 5: -40% (메뉴 2-6 보임)
+        // index 6-7: -60% (메뉴 3-7 보임)
         let offset = 0;
-        if (index >= 5) offset = -40;
+        if (index >= 6) offset = -60;
+        else if (index >= 5) offset = -40;
         else if (index >= 4) offset = -20;
         navInner.style.transform = 'translateX(' + offset + '%)';
       }
@@ -1739,6 +1809,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     document.querySelectorAll('.nav-item').forEach((item, idx) => {
       item.addEventListener('click', () => {
+        // 스와이프 직후 클릭 무시
+        if (typeof isSwiping !== 'undefined' && isSwiping) return;
         // 홈 섹션 숨기기 (모든 home-section에서 active 제거)
         document.querySelectorAll('.home-section').forEach(s => s.classList.remove('active'));
         document.body.classList.add('detail-page'); // 헤더 숨기기
@@ -1809,8 +1881,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     // 모바일 스와이프 기능 - 메인 메뉴 전환 (홈 포함)
     let touchStartX = 0;
     let touchStartY = 0;
+    let isSwiping = false; // 스와이프 플래그
     const navItems = document.querySelectorAll('.nav-item');
-    const navSections = ['insight', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming'];
+    const navSections = ['insight', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
 
     // 홈이 활성화되어 있는지 확인
     function isHomeActive() {
@@ -1858,11 +1931,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       document.querySelector('.nav-item[data-section="' + targetSection + '"]')?.classList.add('active');
       document.getElementById(targetSection)?.classList.add('active');
 
-      // 캐러셀 슬라이드 업데이트 (각 nav-item이 20% 차지)
+      // 캐러셀 슬라이드 업데이트 (각 nav-item이 20% 차지, 8개 메뉴)
       const navInner = document.querySelector('.nav-inner');
       if (window.innerWidth <= 768 && navInner) {
+        // index 0-3: 0% (메뉴 0-4 보임)
+        // index 4: -20% (메뉴 1-5 보임)
+        // index 5: -40% (메뉴 2-6 보임)
+        // index 6-7: -60% (메뉴 3-7 보임)
         let offset = 0;
-        if (index >= 5) offset = -40;
+        if (index >= 6) offset = -60;
+        else if (index >= 5) offset = -40;
         else if (index >= 4) offset = -20;
         navInner.style.transform = 'translateX(' + offset + '%)';
       }
@@ -1887,6 +1965,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       if (Math.abs(diffX) <= Math.abs(diffY)) return;
 
       if (Math.abs(diffX) > 75) { // 75px 이상 수평 스와이프 (표준)
+        // 스와이프 플래그 설정 (클릭 이벤트 방지)
+        isSwiping = true;
+        setTimeout(() => { isSwiping = false; }, 300);
+
         const currentIndex = getCurrentNavIndex();
 
         if (currentIndex === -1) {
