@@ -124,17 +124,37 @@ JSON만 출력해. 다른 설명 없이.`;
     // 임시 파일 삭제
     fs.unlinkSync(tmpFile);
 
-    // JSON 파싱
-    const jsonMatch = result.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
-      const aiInsight = JSON.parse(jsonMatch[0]);
-      console.log('  - AI 인사이트 생성 완료 (Codex)');
-      return aiInsight;
+    // JSON 파싱 - 중괄호 균형 맞춰서 첫 번째 완전한 JSON 객체만 추출
+    const jsonStart = result.indexOf('{');
+    if (jsonStart === -1) {
+      console.log('  - JSON 시작 못 찾음');
+      console.log('  - 응답:', result.substring(0, 500));
+      return null;
     }
 
-    console.log('  - AI 인사이트 파싱 실패');
-    console.log('  - 응답:', result.substring(0, 500));
-    return null;
+    let depth = 0;
+    let jsonEnd = -1;
+    for (let i = jsonStart; i < result.length; i++) {
+      if (result[i] === '{') depth++;
+      else if (result[i] === '}') {
+        depth--;
+        if (depth === 0) {
+          jsonEnd = i + 1;
+          break;
+        }
+      }
+    }
+
+    if (jsonEnd === -1) {
+      console.log('  - JSON 끝 못 찾음');
+      console.log('  - 응답:', result.substring(0, 500));
+      return null;
+    }
+
+    const jsonStr = result.substring(jsonStart, jsonEnd);
+    const aiInsight = JSON.parse(jsonStr);
+    console.log('  - AI 인사이트 생성 완료 (Codex)');
+    return aiInsight;
   } catch (error) {
     console.error('  - AI 인사이트 생성 실패:', error.message);
     return null;
