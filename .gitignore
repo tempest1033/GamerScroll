@@ -1,11 +1,11 @@
 node_modules/
 .env
-*.html
-!docs/*.html
 .DS_Store
-.env
 data-cache.json
 
-# 데이터 폴더 (빌드컴에서 관리)
+# 히스토리 (빌드컴 로컬)
 history/
-data-cache.json
+
+# HTML - index.html 제외, reports만 포함
+*.html
+!reports/*.html
