@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  actions: read
 
 concurrency:
   group: ai-insight
@@ -30,20 +29,12 @@ jobs:
           git config user.email "actions@github.com"
           git pull origin main --rebase || true
 
-      - name: Download cache from build workflow
-        uses: dawidd6/action-download-artifact@v6
-        with:
-          workflow: build.yml
-          name: data-cache
-          path: .
-          if_no_artifact_found: warn
-
       - name: Check cache file
         id: check-cache
         run: |
           if [ -f "data-cache.json" ]; then
             echo "cache_exists=true" >> $GITHUB_OUTPUT
-            echo "📂 캐시 파일 다운로드 완료"
+            echo "📂 캐시 파일 존재 확인"
           else
             echo "cache_exists=false" >> $GITHUB_OUTPUT
             echo "⚠️ 캐시 파일 없음 - build 워크플로우가 먼저 실행되어야 합니다"

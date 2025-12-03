@@ -1,7 +1,6 @@
 node_modules/
 .env
 .DS_Store
-data-cache.json
 
 # 히스토리 (빌드컴 로컬)
 history/
