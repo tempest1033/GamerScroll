@@ -210,25 +210,25 @@ function generateSummary(mobileChanges, steamChanges) {
 function generateDailyInsight(todayData, yesterdayData) {
   const today = getTodayDate();
 
-  // 순위 변동 분석
+  // 순위 변동 분석 (TOP 100)
   const mobileChangesKR = analyzeRankingChanges(
     todayData.rankings,
     yesterdayData?.rankings,
     'kr',
-    20
+    100
   );
 
   const mobileChangesUS = analyzeRankingChanges(
     todayData.rankings,
     yesterdayData?.rankings,
     'us',
-    20
+    100
   );
 
   const steamChanges = analyzeSteamChanges(
     todayData.steam,
     yesterdayData?.steam,
-    20
+    100
   );
 
   // 하이라이트
