@@ -75,7 +75,14 @@ jobs:
           else
             git stash --include-untracked
             git pull origin main --rebase
-            git stash pop || true
+            # stash pop, conflict 발생 시 새로 생성된 데이터(stash) 우선
+            if ! git stash pop; then
+              echo "⚠️ Conflict detected - using newly generated data"
+              git checkout --ours reports/ 2>/dev/null || true
+              git checkout --ours docs/reports/ 2>/dev/null || true
+              git add reports/ docs/reports/
+              git stash drop 2>/dev/null || true
+            fi
             git add reports/ docs/reports/
             git diff --staged --quiet || git commit -m "AI Insight $(date +'%Y-%m-%d %H:%M')"
             git push

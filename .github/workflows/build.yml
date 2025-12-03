@@ -57,7 +57,19 @@ jobs:
           git config user.email "actions@github.com"
           git stash --include-untracked
           git pull origin main --rebase
-          git stash pop || true
+          # stash pop, conflict 발생 시 새로 생성된 데이터(stash) 우선
+          if ! git stash pop; then
+            echo "⚠️ Conflict detected - using newly generated data"
+            git checkout --ours data-cache.json 2>/dev/null || true
+            git checkout --ours docs/ 2>/dev/null || true
+            git add data-cache.json docs/
+            git stash drop 2>/dev/null || true
+          fi
+          # conflict 마커 남아있으면 제거
+          if grep -rq "<<<<<<" data-cache.json 2>/dev/null; then
+            echo "⚠️ Removing conflict markers from data-cache.json"
+            sed -i '/^<<<<<<</d; /^=======/d; /^>>>>>>>/d' data-cache.json
+          fi
           git add docs/ reports/ data-cache.json
           git diff --staged --quiet || git commit -m "Update report $(date +'%Y-%m-%d %H:%M')"
           git push
