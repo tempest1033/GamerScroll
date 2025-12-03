@@ -41,7 +41,8 @@ async function generateAIInsight(crawlData, rankingChanges = null) {
   ],` : '';
 
     const rankingsInstruction = hasRankingChanges ? `
-- rankings: 4개 (급상승/급하락/신규진입 중 변동폭이 크거나 주목할 만한 4개 선정)
+- rankings: 6개 (급상승/급하락/신규진입 중 변동폭이 크거나 주목할 만한 6개 선정)
+  ※ 신규진입(순위권 밖에서 TOP 30 이내 진입)은 매우 중요한 정보 - 반드시 우선 포함!
   ※ 각 게임의 순위 변동 원인을 웹 검색으로 파악하여 작성 (업데이트, 이벤트, 할인, 논란 등)` : '';
 
     const rankingsData = hasRankingChanges ? `
@@ -50,7 +51,8 @@ async function generateAIInsight(crawlData, rankingChanges = null) {
 ${rankingsSummary}
 
 ## 순위 변동 분석:
-- 급상승/급하락 게임 중 주목할 4개 선정하여 변동 원인 분석
+- 급상승/급하락/신규진입 중 주목할 6개 선정하여 변동 원인 분석
+- 신규진입(순위권 밖 → TOP 30)은 반드시 포함! 매우 중요한 정보입니다.
 - 원인: 업데이트, 이벤트, 할인, 논란 등 (최신 뉴스 참고)` : '';
 
     const prompt = `## 중요: 오늘 날짜는 ${today}입니다.
