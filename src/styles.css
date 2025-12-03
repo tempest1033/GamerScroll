@@ -190,6 +190,16 @@
       color: #111827;
       background: #f1f5f9;
     }
+    /* 스와이프 중 하이라이트 비활성화 */
+    .nav-item.swiping,
+    .nav-item.swiping:hover,
+    .nav-item.swiping:active,
+    .nav-item.swiping:focus {
+      background: transparent !important;
+      color: inherit !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
     .nav-item.active {
       color: #3730a3;
       background: #eef2ff;
@@ -212,6 +222,16 @@
     .tab-btn:hover {
       color: #334155;
       background: var(--hover-bg);
+    }
+    /* 스와이프 중 탭버튼 하이라이트 비활성화 */
+    .tab-btn.swiping,
+    .tab-btn.swiping:hover,
+    .tab-btn.swiping:active,
+    .tab-btn.swiping:focus {
+      background: var(--bg) !important;
+      color: #475569 !important;
+      outline: none !important;
+      box-shadow: none !important;
     }
     .tab-btn.active {
       color: #fff;
@@ -276,6 +296,16 @@
         color: #fff !important;
         background: rgba(255, 255, 255, 0.1) !important;
       }
+      /* 스와이프 중 하이라이트 비활성화 (다크모드) */
+      .nav-item.swiping,
+      .nav-item.swiping:hover,
+      .nav-item.swiping:active,
+      .nav-item.swiping:focus {
+        background: transparent !important;
+        color: rgba(255, 255, 255, 0.85) !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
       .nav-item.active {
         color: #fff !important;
         background: rgba(255, 255, 255, 0.15) !important;
@@ -300,6 +330,16 @@
       }
       .tab-btn.active {
         color: #fff !important;
+      }
+      /* 스와이프 중 탭버튼 하이라이트 비활성화 (다크모드) */
+      .tab-btn.swiping,
+      .tab-btn.swiping:hover,
+      .tab-btn.swiping:active,
+      .tab-btn.swiping:focus {
+        background: transparent !important;
+        color: rgba(255, 255, 255, 0.85) !important;
+        outline: none !important;
+        box-shadow: none !important;
       }
       .tab-btn .news-favicon {
         filter: brightness(1.5) contrast(0.9) !important;
@@ -2184,6 +2224,20 @@
       }
     }
 
+    /* 스와이프 중에만 모든 hover/active 효과 비활성화 (탭은 정상 동작) */
+    body.is-swiping .nav-item:hover,
+    body.is-swiping .nav-item:active,
+    body.is-swiping .tab-btn:hover,
+    body.is-swiping .tab-btn:active,
+    body.is-swiping .nav-item.swiping,
+    body.is-swiping .tab-btn.swiping {
+      background: transparent !important;
+      color: inherit !important;
+      opacity: inherit !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
     .nav-item.active {
       color: var(--primary);
       background: var(--active-bg);
@@ -2661,18 +2715,18 @@
 
       /* 뉴스 아이템 카드 - 태블릿 */
       .news-item-card {
-        padding: 8px 10px;
+        padding: 10px 12px;
         gap: 10px;
       }
       .news-item-card .news-num {
-        width: 22px;
-        height: 22px;
+        width: 24px;
+        height: 24px;
         font-size: 11px;
       }
       .news-item-card .news-thumb,
       .news-thumb-placeholder {
-        width: 54px;
-        height: 36px;
+        width: 58px;
+        height: 38px;
       }
 
       /* 뉴스/커뮤니티 탭 - 태블릿 전체 너비 */
@@ -2685,8 +2739,8 @@
       #communityTab .tab-btn {
         flex: 1 1 0 !important;
         white-space: nowrap !important;
-        font-size: 12px !important;
-        padding: 10px 8px !important;
+        font-size: clamp(10px, 2.8vw, 12px) !important;
+        padding: 10px 6px !important;
         line-height: 1 !important;
       }
     }
@@ -3730,6 +3784,9 @@
       .rank-column .rank-row { min-height: 48px; height: 48px; }
       .column-header { cursor: pointer; padding: 6px 4px; flex-direction: column; gap: 2px; min-height: 44px; box-sizing: border-box; }
       .country-name { font-size: 9px; }
+      /* 접힌 상태 - 국가명 숨김 */
+      .country-column:not(.rank-column) .country-name { display: none; }
+      .country-column.expanded .country-name, .rank-column + .country-column:not(.collapsed) .country-name { display: block; }
       .flag { font-size: 1.1rem; }
       .rank-row { padding: 5px 3px; gap: 3px; flex-direction: column; align-items: center; }
       .rank-num { width: 20px; height: 20px; font-size: 10px; border-radius: 4px; }
@@ -3751,7 +3808,10 @@
       .logo-svg { height: 36px; }
       .rankings-controls { gap: 12px; }
       .news-favicon { width: 14px; height: 14px; }
-      .rank-num { width: 18px; height: 18px; font-size: 9px; }
+      /* 순위 - 통일된 크기 */
+      .rank-num { width: 24px; height: 24px; font-size: 10px; }
+      .steam-rank { width: 24px; height: 24px; font-size: 10px; }
+      .upcoming-rank { width: 24px; height: 24px; font-size: 10px; }
       .app-icon { width: 32px; height: 32px; border-radius: 6px; }
       .country-column.expanded .app-icon, .rank-column + .country-column:not(.collapsed) .app-icon { width: 28px; height: 28px; }
     }
@@ -3767,40 +3827,44 @@
       .logo-svg { height: 32px; }
 
       /* 컨트롤 영역 */
-      .rankings-controls { gap: 8px; }
-      .control-group { gap: 6px; }
+      .rankings-controls { gap: 6px; overflow: visible; }
+      .rankings-controls .tab-group { gap: 2px; }
+      .rankings-controls .tab-btn { padding: 8px 6px !important; font-size: 11px !important; }
+      .control-group { gap: 4px; }
 
       /* 뉴스/커뮤니티 컨트롤 - 공통 스타일 사용 */
 
-      /* 뉴스/커뮤니티 아이템 - 8px 통일 */
-      .news-item { padding: 8px 8px; gap: 6px; }
-      .news-panel { padding: 8px !important; }
-      .news-card { padding: 8px !important; }
+      /* 뉴스/커뮤니티 아이템 - 좌우 여백 최소화, 상하 여유 확보 */
+      .news-item { padding: 10px 4px; gap: 6px; }
+      .news-panel { padding: 10px 4px !important; }
+      .news-card { padding: 10px 0 !important; }
       #news .news-container,
-      #community .news-container { padding: 0 8px !important; }
+      #community .news-container { padding: 0 4px !important; }
       .news-favicon { width: 14px; height: 14px; }
 
-      /* 뉴스 아이템 카드 - 모바일 컴팩트 (15개 표시) */
+      /* 뉴스 아이템 카드 - 모바일 */
       .news-item-card {
-        padding: 6px 8px !important;
-        gap: 8px !important;
+        padding: 12px 10px !important;
+        gap: 10px !important;
       }
       .news-item-card .news-num {
-        width: 20px !important;
-        height: 20px !important;
-        font-size: 10px !important;
+        width: 24px !important;
+        height: 24px !important;
+        font-size: 11px !important;
       }
       .news-item-card .news-thumb,
       .news-thumb-placeholder {
-        width: 48px !important;
-        height: 32px !important;
+        width: 56px !important;
+        height: 38px !important;
       }
       .news-item-card .news-item-title {
-        font-size: 12px !important;
+        font-size: 13px !important;
       }
 
-      /* 순위 */
-      .rank-num { width: 16px; height: 16px; font-size: 8px; }
+      /* 순위 - 통일된 크기 */
+      .rank-num { width: 22px; height: 22px; font-size: 10px; }
+      .steam-rank { width: 22px; height: 22px; font-size: 10px; }
+      .upcoming-rank { width: 22px; height: 22px; font-size: 10px; }
       .app-icon { width: 28px; height: 28px; }
       .country-column.expanded { flex: 3.5; }
 
@@ -3867,8 +3931,8 @@
       #communityTab .tab-btn {
         flex: 1 1 0 !important;
         white-space: nowrap !important;
-        font-size: 13px !important;
-        padding: 10px 8px !important;
+        font-size: clamp(10px, 3vw, 13px) !important;
+        padding: 10px 6px !important;
         line-height: 1 !important;
       }
       #newsTab .tab-btn .news-favicon,
@@ -3881,10 +3945,15 @@
       .nav-item { padding: 6px 8px; font-size: 10px; gap: 2px; }
       .nav-item svg { width: 12px; height: 12px; }
       .logo-svg { height: 28px; }
-      .rankings-controls { gap: 8px; flex-wrap: wrap; justify-content: center; }
-      .control-group { gap: 6px; }
+      .rankings-controls { gap: 4px; flex-wrap: nowrap; overflow: visible; }
+      .rankings-controls .tab-group { gap: 1px; }
+      .rankings-controls .tab-btn { padding: 6px 3px !important; font-size: 9px !important; min-height: 30px !important; }
+      .control-group { gap: 3px; }
       .news-favicon { width: 12px; height: 12px; }
-      .rank-num { width: 14px; height: 14px; font-size: 7px; }
+      /* 순위 - 통일된 크기 */
+      .rank-num { width: 20px; height: 20px; font-size: 9px; }
+      .steam-rank { width: 20px; height: 20px; font-size: 9px; }
+      .upcoming-rank { width: 20px; height: 20px; font-size: 9px; }
       .app-icon { width: 24px; height: 24px; border-radius: 4px; }
       .country-column.expanded { flex: 4; }
       .country-column.expanded .app-icon { width: 24px; height: 24px; }
@@ -3921,21 +3990,21 @@
 
       /* 뉴스 아이템 카드 - 초소형 모바일 */
       .news-item-card {
-        padding: 5px 6px !important;
-        gap: 6px !important;
+        padding: 10px 8px !important;
+        gap: 8px !important;
       }
       .news-item-card .news-num {
-        width: 18px !important;
-        height: 18px !important;
-        font-size: 9px !important;
+        width: 22px !important;
+        height: 22px !important;
+        font-size: 10px !important;
       }
       .news-item-card .news-thumb,
       .news-thumb-placeholder {
-        width: 40px !important;
-        height: 28px !important;
+        width: 48px !important;
+        height: 32px !important;
       }
       .news-item-card .news-item-title {
-        font-size: 11px !important;
+        font-size: 12px !important;
       }
       /* 360px - 모든 요소 좌우 6px 직접 설정 */
       .home-card-header {
@@ -4147,7 +4216,17 @@
 
     /* Upcoming responsive */
     @media (max-width: 768px) {
-      .upcoming-item { padding: 12px 16px; gap: 10px; }
+      .upcoming-table-header {
+        grid-template-columns: 32px 1fr 80px;
+        padding: 6px 12px;
+      }
+      .upcoming-table-header > div:nth-child(1) { text-align: left; }
+      .upcoming-item {
+        padding: 12px 12px;
+        gap: 10px;
+        grid-template-columns: 32px 1fr 80px;
+      }
+      .upcoming-col-rank { justify-content: flex-start; }
       .upcoming-icon { width: 48px; height: 48px; border-radius: 10px; }
       .upcoming-icon-placeholder { width: 48px; height: 48px; border-radius: 10px; }
       .upcoming-name { font-size: 13px; }
@@ -4155,7 +4234,17 @@
     }
 
     @media (max-width: 480px) {
-      .upcoming-item { padding: 10px 12px; gap: 8px; }
+      .upcoming-table-header {
+        grid-template-columns: 28px 1fr 70px;
+        padding: 6px 8px;
+      }
+      .upcoming-table-header > div:nth-child(1) { text-align: left; }
+      .upcoming-item {
+        padding: 10px 8px;
+        gap: 8px;
+        grid-template-columns: 28px 1fr 70px;
+      }
+      .upcoming-col-rank { justify-content: flex-start; }
       .upcoming-icon { width: 40px; height: 40px; border-radius: 8px; }
       .upcoming-icon-placeholder { width: 40px; height: 40px; border-radius: 8px; }
       .upcoming-name { font-size: 12px; }
@@ -4355,6 +4444,11 @@
     padding: 6px 8px !important;
   }
 
+  /* 인사이트 스플릿 - 헤더와 정렬 (480px) */
+  .home-insight-split {
+    padding: 6px 8px !important;
+  }
+
   .home-insight-item {
     padding: 12px;
   }
@@ -4433,6 +4527,11 @@
 
   /* 인사이트 스크롤 - 헤더와 정렬 */
   .home-insight-scroll {
+    padding: 4px 6px !important;
+  }
+
+  /* 인사이트 스플릿 - 헤더와 정렬 (360px) */
+  .home-insight-split {
     padding: 4px 6px !important;
   }
 

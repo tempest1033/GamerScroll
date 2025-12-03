@@ -1950,9 +1950,46 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
 
     // 전체 페이지에서 스와이프
+    let touchedElement = null;
+    let previousElement = null;
+    let isTouchMoving = false;
     document.body.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
       touchStartY = e.changedTouches[0].screenY;
+      isTouchMoving = false;
+      // 터치된 nav-item 또는 tab-btn 추적
+      touchedElement = e.target.closest('.nav-item, .tab-btn');
+    }, { passive: true });
+
+    // 터치 이동 시 nav-item 포커스/선택 해제 (스와이프 시 선택 상태 방지)
+    document.body.addEventListener('touchmove', (e) => {
+      const diffX = Math.abs(touchStartX - e.changedTouches[0].screenX);
+      const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+      // 일정 거리 이상 이동하면 포커스 해제
+      if (diffX > 10 || diffY > 10) {
+        isTouchMoving = true;
+        // body에 swiping 클래스 추가 (모든 hover 비활성화)
+        document.body.classList.add('is-swiping');
+
+        document.activeElement?.blur();
+
+        // 터치된 요소의 hover 상태 강제 해제
+        if (touchedElement) {
+          touchedElement.style.pointerEvents = 'none';
+          touchedElement.classList.add('swiping');
+        }
+      }
+    }, { passive: true });
+
+    // 터치 종료 시 swiping 클래스 제거
+    document.body.addEventListener('touchcancel', () => {
+      document.body.classList.remove('is-swiping');
+      if (touchedElement) {
+        touchedElement.style.pointerEvents = '';
+        touchedElement.classList.remove('swiping');
+        touchedElement = null;
+      }
+      isTouchMoving = false;
     }, { passive: true });
 
     document.body.addEventListener('touchend', (e) => {
@@ -1990,6 +2027,28 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           }
         }
       }
+      // swiping 클래스 제거 (스와이프한 경우만)
+      if (isTouchMoving && touchedElement) {
+        const swipedElement = touchedElement;
+        // DOM 변경 후 hover 상태 완전 해제
+        requestAnimationFrame(() => {
+          swipedElement.style.pointerEvents = 'none';
+          swipedElement.classList.add('swiping');
+          document.activeElement?.blur();
+
+          // 300ms 후 복원
+          setTimeout(() => {
+            document.body.classList.remove('is-swiping');
+            swipedElement.style.pointerEvents = '';
+            swipedElement.classList.remove('swiping');
+          }, 300);
+        });
+        touchedElement = null;
+      } else {
+        // 탭인 경우 즉시 정리
+        touchedElement = null;
+      }
+      isTouchMoving = false;
     }, { passive: true });
 
     function updateRankings() {
