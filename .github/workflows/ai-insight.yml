@@ -73,7 +73,11 @@ jobs:
           if git diff --staged --quiet; then
             echo "📝 변경사항 없음"
           else
-            git commit -m "AI Insight $(date +'%Y-%m-%d %H:%M')"
+            git stash --include-untracked
+            git pull origin main --rebase
+            git stash pop || true
+            git add reports/ docs/reports/
+            git diff --staged --quiet || git commit -m "AI Insight $(date +'%Y-%m-%d %H:%M')"
             git push
             echo "✅ AI 인사이트 푸시 완료"
           fi
