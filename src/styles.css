@@ -294,20 +294,20 @@
     .home-container {
       display: grid;
       grid-template-columns: 1fr 300px;
-      gap: 24px;
+      gap: 16px;
       padding: 24px 0;
     }
 
     .home-main {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 16px;
     }
 
     .home-sidebar {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 16px;
     }
 
     /* 홈 카드 공통 */
