@@ -12,6 +12,36 @@ const { loadHistory, getYesterdayDate } = require('./src/insights/daily');
 const CACHE_FILE = './data-cache.json';
 const REPORTS_DIR = './reports';
 
+/**
+ * reports/{date}.json에서 어제 순위 데이터 로드
+ * @param {string} date - YYYY-MM-DD 형식
+ * @returns {Object|null} rankings 데이터 또는 null
+ */
+function loadYesterdayRankingsFromReports(date) {
+  const reportFile = `${REPORTS_DIR}/${date}.json`;
+  if (!fs.existsSync(reportFile)) {
+    return null;
+  }
+  try {
+    const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
+    // reports의 mobile 구조를 rankings.grossing 구조로 변환
+    if (report.mobile?.kr) {
+      return {
+        grossing: {
+          kr: {
+            ios: report.mobile.kr.ios || [],
+            android: report.mobile.kr.android || []
+          }
+        }
+      };
+    }
+    return null;
+  } catch (e) {
+    console.log(`  - reports/${date}.json 로드 실패:`, e.message);
+    return null;
+  }
+}
+
 function getTodayDate() {
   const now = new Date();
   // KST (UTC+9) 기준
@@ -116,17 +146,26 @@ async function main() {
   };
 
   // 어제 데이터 로드 및 순위 변동 분석
-  const yesterdayData = loadHistory(getYesterdayDate());
+  // 1. history/ 폴더에서 시도 (로컬 빌드용)
+  // 2. reports/ 폴더에서 시도 (GitHub Actions용)
+  const yesterday = getYesterdayDate();
+  let yesterdayRankings = loadHistory(yesterday)?.rankings;
+
+  if (!yesterdayRankings) {
+    console.log('📂 history/ 없음 - reports/에서 어제 데이터 로드 시도...');
+    yesterdayRankings = loadYesterdayRankingsFromReports(yesterday);
+  }
+
   let rankingChanges = null;
 
-  if (yesterdayData) {
-    console.log('📊 어제 데이터 로드 완료 - 순위 변동 분석 중...');
-    rankingChanges = buildRankingChanges(cache.rankings, yesterdayData.rankings);
+  if (yesterdayRankings) {
+    console.log(`📊 어제 데이터 로드 완료 (${yesterday}) - 순위 변동 분석 중...`);
+    rankingChanges = buildRankingChanges(cache.rankings, yesterdayRankings);
     console.log(`  - 급상승: ${rankingChanges.up.length}개`);
     console.log(`  - 급하락: ${rankingChanges.down.length}개`);
     console.log(`  - 신규진입: ${rankingChanges.new.length}개\n`);
   } else {
-    console.log('⚠️ 어제 데이터 없음 - 순위 변동 분석 건너뜀\n');
+    console.log(`⚠️ 어제 데이터 없음 (${yesterday}) - 순위 변동 분석 건너뜀\n`);
   }
 
   // AI 인사이트 생성 (순위 변동 데이터 포함)
