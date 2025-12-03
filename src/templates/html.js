@@ -163,8 +163,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       `;
     };
 
-    // 전일 데이터 있을 때만 순위 변동 차트 표시
-    const rankingChart = hasYesterdayData ? `
+    // 순위 변동 데이터가 있을 때 차트 표시
+    const hasRankingChartData = upGamesReal.length > 0 || downGamesReal.length > 0 || newGamesReal.length > 0;
+    const rankingChart = hasRankingChartData ? `
       <div class="insight-ranking-chart">
         <div class="insight-chart-column">
           <div class="insight-chart-header up">급상승</div>
