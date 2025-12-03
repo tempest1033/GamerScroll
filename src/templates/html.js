@@ -193,7 +193,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         ${infographic}
         ${renderCategoryCard('주목할만한 지표', metrics)}
         ${rankingChart}
-        ${hasYesterdayData ? renderCategoryCard('순위 변동', rankingsData) : ''}
+        ${rankingsData.length > 0 ? renderCategoryCard('순위 변동', rankingsData) : ''}
         ${renderCategoryCard('유저 반응', communityData)}
         ${renderCategoryCard('스트리머 인기', streaming)}
       </div>
@@ -396,12 +396,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       return '<div class="home-empty">인사이트를 불러올 수 없습니다</div>';
     }
 
-    // 모든 인사이트 아이템 수집 (전일 데이터 없으면 rankings 제외)
-    const hasYesterday = insight?.hasYesterdayData === true;
+    // 모든 인사이트 아이템 수집 (rankings 데이터가 있으면 포함)
     const allItems = [
       ...(aiInsight.issues || []),
       ...(aiInsight.metrics || []),
-      ...(hasYesterday ? (aiInsight.rankings || []) : []),
+      ...(aiInsight.rankings || []),
       ...(aiInsight.community || []),
       ...(aiInsight.streaming || [])
     ];
