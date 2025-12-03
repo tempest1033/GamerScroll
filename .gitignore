@@ -2,9 +2,6 @@ node_modules/
 .env
 .DS_Store
 
-# 히스토리 (빌드컴 로컬)
-history/
-
 # HTML - index.html 제외, reports만 포함
 *.html
 !reports/*.html
