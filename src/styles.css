@@ -34,55 +34,28 @@
       .home-card-body {
         width: 100%;
         max-width: 100%;
+        padding: 16px 4px !important;
       }
       .home-news-card, .home-video-card {
         max-width: 100%;
       }
-      /* 768px - 카드 내부 모든 요소 좌우 12px 직접 설정 */
-      .home-card-body {
-        padding: 12px 0 !important;
-      }
-      /* 서브탭 컨테이너 - 마진으로 12px 정렬 */
+      /* 서브탭 모바일 - 커뮤니티 페이지 탭과 동일하게 */
       .home-news-tabs, .home-community-tabs, .home-video-tabs {
         display: flex !important;
         flex-wrap: nowrap !important;
         padding: 4px !important;
         gap: 4px !important;
         overflow: hidden !important;
-        width: auto !important;
-        margin: 0 12px !important;
+        width: 100% !important;
+        margin: 0 !important;
         box-sizing: border-box !important;
         background: var(--hover-bg) !important;
         border-radius: var(--radius-sm) !important;
         border-bottom: none !important;
       }
-      /* split 컨테이너 - 상하만 12px, 좌우 0 (아이템이 직접 패딩) */
-      .home-news-split, .home-video-split {
-        padding: 12px 0 !important;
-      }
-      /* 뉴스/비디오 아이템 - 좌우 12px */
-      .home-news-item, .home-video-item {
-        padding: 10px 12px !important;
-      }
-      /* 뉴스/비디오 카드 - 좌우 12px 마진 */
-      .home-news-card, .home-video-card {
-        margin: 0 12px !important;
-      }
-      /* 리스트 아이템 - 좌우 12px */
-      .home-item {
-        padding: 8px 12px !important;
-      }
-      /* 스팀/출시예정/랭킹 row - 좌우 12px */
-      .home-steam-row, .home-upcoming-row, .home-rank-row {
-        padding: 8px 12px !important;
-      }
-      /* 모바일 랭킹 탭 (iOS/Android 토글) - 좌우 12px */
-      .home-rank-tabs {
-        padding: 12px 12px !important;
-      }
-      /* 탭 그룹 (모바일랭킹/신규게임 등) - 마진 12px */
-      .home-card-body .tab-group {
-        margin: 8px 12px !important;
+      /* 홈 카드 바디 패딩 통일 */
+      .home-card-body {
+        padding: 16px 4px !important;
       }
       .home-news-tab, .home-community-tab, .home-video-tab {
         flex: 1 1 0 !important;
@@ -411,11 +384,11 @@
       padding: 0;
     }
 
-    /* 홈 뉴스 서브탭 (iOS/Android 스타일) - PC 20px 통일 */
+    /* 홈 뉴스 서브탭 (iOS/Android 스타일) */
     .home-news-tabs {
       display: flex;
       gap: 4px;
-      padding: 12px 20px;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border);
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -466,11 +439,11 @@
       display: block;
     }
 
-    /* 홈 커뮤니티 서브탭 - PC 20px 통일 */
+    /* 홈 커뮤니티 서브탭 */
     .home-community-tabs {
       display: flex;
       gap: 4px;
-      padding: 12px 20px;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border);
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -521,11 +494,11 @@
       display: block;
     }
 
-    /* 홈 영상 서브탭 - PC 20px 통일 */
+    /* 홈 영상 서브탭 */
     .home-video-tabs {
       display: flex;
       gap: 4px;
-      padding: 12px 20px;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -653,11 +626,11 @@
       }
     }
 
-    /* 홈 뉴스 좌우 분리 레이아웃 - PC 20px 통일 */
+    /* 홈 뉴스 좌우 분리 레이아웃 */
     .home-news-split {
       display: flex;
       gap: 16px;
-      padding: 20px;
+      padding: 16px;
     }
 
     /* 좌측: 카드 2개 (동일 크기) */
@@ -806,7 +779,7 @@
       .home-news-split {
         flex-direction: column;
         gap: 10px;
-        /* padding은 상단 768px 블록에서 통합 관리 */
+        padding: 12px;
       }
 
       .home-news-cards {
@@ -831,7 +804,7 @@
 
       .home-news-item {
         width: 100%;
-        /* padding은 상단 768px 블록에서 통합 관리 */
+        padding: 10px;
       }
 
       .home-news-item-thumb {
@@ -907,11 +880,11 @@
       font-size: 14px;
     }
 
-    /* 홈 영상 split 레이아웃 - PC 20px 통일 */
+    /* 홈 영상 split 레이아웃 */
     .home-video-split {
       display: flex;
       gap: 16px;
-      padding: 20px;
+      padding: 16px;
     }
 
     .home-video-cards {
@@ -1337,8 +1310,8 @@
     @media (max-width: 1024px) {
       .home-container {
         grid-template-columns: 1fr 320px;
-        gap: 16px;
-        padding: 16px;
+        gap: 20px;
+        padding: 20px;
       }
     }
 
@@ -1348,7 +1321,26 @@
         padding: 8px;
       }
 
-      /* 홈 카드 헤더 - 패딩은 파일 끝 통합 블록에서 관리 */
+      /* 홈 카드 패딩 - 뉴스 페이지와 동일하게 */
+      .home-card-header {
+        padding: 10px 8px !important;
+      }
+      .home-card-body {
+        padding: 16px 4px !important;
+      }
+      .home-item {
+        padding: 8px !important;
+      }
+      /* 스팀/출시예정 row 패딩 - 왼쪽 끝 정렬 */
+      .home-steam-row,
+      .home-upcoming-row {
+        padding: 8px 8px 8px 0 !important;
+      }
+      /* 스팀/출시예정 헤더 왼쪽 정렬 */
+      #home-steam .home-card-header,
+      #home-upcoming .home-card-header {
+        padding-left: 4px !important;
+      }
 
       /* 모바일에서 PC only 광고 숨기기 */
       .ad-slot.pc-only {
@@ -1358,6 +1350,7 @@
       .home-video-split {
         flex-direction: column;
         gap: 10px;
+        padding: 16px 4px !important;
       }
 
       .home-video-cards {
@@ -1382,7 +1375,7 @@
 
       .home-video-item {
         width: 100%;
-        /* padding은 상단 768px 블록에서 통합 관리 */
+        padding: 10px;
         flex-direction: row;
       }
 
@@ -1407,9 +1400,34 @@
 
     @media (max-width: 480px) {
       .home-container {
+        padding: 8px;
         gap: 12px;
       }
-      /* 480px 패딩은 파일 끝 통합 블록에서 관리 */
+
+      .home-card-header {
+        padding: 10px 8px !important;
+      }
+
+      .home-item {
+        padding: 8px !important;
+      }
+
+      .home-video-split {
+        padding: 16px 4px !important;
+      }
+
+      .home-card-body {
+        padding: 16px 4px !important;
+      }
+      /* 스팀/출시예정 row 패딩 - 왼쪽 끝 정렬 */
+      .home-steam-row,
+      .home-upcoming-row {
+        padding: 8px 8px 8px 0 !important;
+      }
+      #home-steam .home-card-header,
+      #home-upcoming .home-card-header {
+        padding-left: 4px !important;
+      }
     }
 
     /* === Custom Scrollbar === */
@@ -1851,11 +1869,11 @@
       }
     }
 
-    /* 뉴스/커뮤니티 공통: 단일 패널 뷰 - PC 20px 통일 */
+    /* 뉴스/커뮤니티 공통: 단일 패널 뷰 */
     #news .news-container,
     #community .news-container {
       display: block;
-      padding: 0 20px;
+      padding: 0 16px;
     }
 
     #news .news-panel,
@@ -1994,7 +2012,7 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 20px;
-      padding: 12px 20px;
+      padding: 12px 16px;
       border-radius: 12px;
       background: var(--card-hover);
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
@@ -3121,9 +3139,9 @@
     }
 
     @media (max-width: 480px) {
-      /* 좌우 여백 8px 통일 */
+      /* 좌우 여백 최소화 */
       .container { padding: 0 8px 40px; }
-      .nav-inner { padding: 0 8px; }
+      .nav-inner { padding: 0 4px; }
 
       /* 메인 메뉴 크기 증가 */
       .nav-item { padding: 12px 8px; font-size: 12px; gap: 4px; }
@@ -3136,8 +3154,8 @@
 
       /* 뉴스/커뮤니티 컨트롤 - 공통 스타일 사용 */
 
-      /* 뉴스/커뮤니티 아이템 - 8px 통일 */
-      .news-item { padding: 8px 8px; gap: 6px; }
+      /* 뉴스/커뮤니티 아이템 - 좌우 꽉 차게 */
+      .news-item { padding: 8px 6px; gap: 6px; }
       .news-panel { padding: 8px !important; }
       .news-card { padding: 8px !important; }
       #news .news-container,
@@ -3204,9 +3222,9 @@
         font-size: 11px;
       }
 
-      /* 탭 버튼 - 모바일 8px 통일 */
+      /* 탭 버튼 - 모바일 */
       .tab-group .tab-btn {
-        padding: 10px 8px;
+        padding: 10px 6px;
         font-size: 12px;
         gap: 4px;
         min-height: 40px;
@@ -3232,7 +3250,7 @@
         flex: 1 1 0 !important;
         white-space: nowrap !important;
         font-size: 13px !important;
-        padding: 10px 8px !important;
+        padding: 10px 6px !important;
         line-height: 1 !important;
       }
       #newsTab .tab-btn .news-favicon,
@@ -3255,10 +3273,10 @@
       .app-name { font-size: 9px; }
       .app-dev { display: none; }
 
-      /* Steam 테이블 초소형 모바일 - 6px 통일 */
+      /* Steam 테이블 초소형 모바일 */
       .steam-table-row {
         grid-template-columns: 28px 1fr 70px;
-        padding: 8px 6px;
+        padding: 8px 10px;
         gap: 6px;
       }
       .steam-img {
@@ -3272,9 +3290,9 @@
         font-size: 10px;
       }
 
-      /* 탭 버튼 - 초소형 모바일 6px 통일 */
+      /* 탭 버튼 - 초소형 모바일 */
       .tab-group .tab-btn {
-        padding: 8px 6px;
+        padding: 8px 2px;
         font-size: 12px;
         min-height: 38px;
         justify-content: center;
@@ -3301,38 +3319,14 @@
       .news-item-card .news-item-title {
         font-size: 11px !important;
       }
-      /* 360px - 모든 요소 좌우 6px 직접 설정 */
-      .home-card-header {
-        padding: 8px 6px !important;
-      }
-      .home-card-body {
-        padding: 6px 0 !important;
-      }
-      .home-news-tabs, .home-community-tabs, .home-video-tabs {
-        margin: 0 6px !important;
-      }
-      .home-news-split, .home-video-split {
-        padding: 6px 0 !important;
-      }
-      .home-news-item, .home-video-item {
-        padding: 6px !important;
-      }
-      .home-news-card, .home-video-card {
-        margin: 0 6px !important;
-      }
-      .home-item {
-        padding: 6px !important;
-      }
+      /* 스팀/출시예정 row 패딩 - 왼쪽 끝 정렬 */
       .home-steam-row,
-      .home-upcoming-row,
-      .home-rank-row {
-        padding: 6px !important;
+      .home-upcoming-row {
+        padding: 6px 6px 6px 0 !important;
       }
-      .home-rank-tabs {
-        padding: 6px !important;
-      }
-      .home-card-body .tab-group {
-        margin: 6px !important;
+      #home-steam .home-card-header,
+      #home-upcoming .home-card-header {
+        padding-left: 4px !important;
       }
     }
 
@@ -3527,209 +3521,3 @@
       .upcoming-rank { width: 22px; height: 22px; font-size: 10px; }
     }
 
-/* ============================================================
-   홈 피드 모바일 패딩 통합 (최종)
-   - 모든 요소가 동일한 좌우 여백으로 정렬
-   - 768px: 12px | 480px: 8px | 360px: 6px
-   ============================================================ */
-
-/* === 태블릿 (768px 이하) === */
-@media (max-width: 768px) {
-  /* 컨테이너 */
-  .home-container {
-    padding: 8px 0 !important;
-    margin-top: 8px !important;
-  }
-
-  /* 카드 헤더 */
-  .home-card-header {
-    padding: 10px 12px !important;
-  }
-
-  /* 카드 바디 - 좌우 패딩 없음 */
-  .home-card-body {
-    padding: 8px 0 !important;
-  }
-
-  /* 탭 그룹 */
-  .home-news-tabs,
-  .home-community-tabs,
-  .home-video-tabs,
-  .home-rank-tabs {
-    margin: 0 12px 8px 12px !important;
-    padding: 0 !important;
-  }
-
-  /* Split 컨테이너 - 좌우 패딩 없음 */
-  .home-news-split,
-  .home-video-split {
-    padding: 0 !important;
-  }
-
-  /* 카드 컨테이너 - 좌우 패딩 없음 */
-  .home-news-cards,
-  .home-video-cards {
-    padding: 0 !important;
-  }
-
-  /* 리스트 컨테이너 - 좌우 패딩 */
-  .home-news-list,
-  .home-video-list {
-    padding: 0 12px !important;
-  }
-
-  /* 뉴스/영상 카드 - 좌우 마진으로 여백 */
-  .home-news-card,
-  .home-video-card {
-    margin: 0 12px 10px 12px !important;
-    border-radius: 8px;
-  }
-
-  /* 뉴스/영상 아이템 - 패딩으로 여백 */
-  .home-news-item,
-  .home-video-item {
-    padding: 10px 12px !important;
-    margin: 0 !important;
-  }
-
-  /* 일반 아이템 */
-  .home-item {
-    padding: 10px 12px !important;
-  }
-
-  /* 순위/스팀/출시예정 행 */
-  .home-steam-row,
-  .home-upcoming-row,
-  .home-rank-row {
-    padding: 10px 12px !important;
-  }
-
-  /* 탭 그룹 (카드 바디 내) */
-  .home-card-body .tab-group {
-    margin: 0 12px 8px 12px !important;
-  }
-}
-
-/* === 모바일 (480px 이하) === */
-@media (max-width: 480px) {
-  /* 컨테이너 */
-  .home-container {
-    padding: 6px 0 !important;
-    margin-top: 6px !important;
-  }
-
-  /* 카드 헤더 */
-  .home-card-header {
-    padding: 8px !important;
-  }
-
-  /* 카드 바디 */
-  .home-card-body {
-    padding: 6px 0 !important;
-  }
-
-  /* 탭 그룹 */
-  .home-news-tabs,
-  .home-community-tabs,
-  .home-video-tabs,
-  .home-rank-tabs {
-    margin: 0 8px 6px 8px !important;
-  }
-
-  /* 뉴스/영상 카드 */
-  .home-news-card,
-  .home-video-card {
-    margin: 0 8px 8px 8px !important;
-  }
-
-  /* 리스트 컨테이너 */
-  .home-news-list,
-  .home-video-list {
-    padding: 0 8px !important;
-  }
-
-  /* 뉴스/영상 아이템 */
-  .home-news-item,
-  .home-video-item {
-    padding: 8px !important;
-  }
-
-  /* 일반 아이템 */
-  .home-item {
-    padding: 8px !important;
-  }
-
-  /* 순위/스팀/출시예정 행 */
-  .home-steam-row,
-  .home-upcoming-row,
-  .home-rank-row {
-    padding: 8px !important;
-  }
-
-  /* 탭 그룹 (카드 바디 내) */
-  .home-card-body .tab-group {
-    margin: 0 8px 6px 8px !important;
-  }
-}
-
-/* === 작은 화면 (360px 이하) === */
-@media (max-width: 360px) {
-  /* 컨테이너 */
-  .home-container {
-    padding: 4px 0 !important;
-    margin-top: 4px !important;
-  }
-
-  /* 카드 헤더 */
-  .home-card-header {
-    padding: 6px !important;
-  }
-
-  /* 카드 바디 */
-  .home-card-body {
-    padding: 4px 0 !important;
-  }
-
-  /* 탭 그룹 */
-  .home-news-tabs,
-  .home-community-tabs,
-  .home-video-tabs,
-  .home-rank-tabs {
-    margin: 0 6px 4px 6px !important;
-  }
-
-  /* 뉴스/영상 카드 */
-  .home-news-card,
-  .home-video-card {
-    margin: 0 6px 6px 6px !important;
-  }
-
-  /* 리스트 컨테이너 */
-  .home-news-list,
-  .home-video-list {
-    padding: 0 6px !important;
-  }
-
-  /* 뉴스/영상 아이템 */
-  .home-news-item,
-  .home-video-item {
-    padding: 6px !important;
-  }
-
-  /* 일반 아이템 */
-  .home-item {
-    padding: 6px !important;
-  }
-
-  /* 순위/스팀/출시예정 행 */
-  .home-steam-row,
-  .home-upcoming-row,
-  .home-rank-row {
-    padding: 6px !important;
-  }
-
-  /* 탭 그룹 (카드 바디 내) */
-  .home-card-body .tab-group {
-    margin: 0 6px 4px 6px !important;
-  }
-}
