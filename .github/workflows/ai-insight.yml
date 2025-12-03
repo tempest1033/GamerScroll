@@ -1,0 +1,79 @@
+name: Generate AI Insight
+
+on:
+  schedule:
+    - cron: '0 0,12 * * *'  # 12시간마다 (UTC 00:00, 12:00 → KST 09:00, 21:00)
+  workflow_dispatch:  # 수동 실행 가능
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-insight
+  cancel-in-progress: false
+
+jobs:
+  generate-insight:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Pull latest changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git pull origin main --rebase || true
+
+      - name: Check cache file
+        id: check-cache
+        run: |
+          if [ -f "data-cache.json" ]; then
+            echo "cache_exists=true" >> $GITHUB_OUTPUT
+            echo "📂 캐시 파일 존재 확인"
+          else
+            echo "cache_exists=false" >> $GITHUB_OUTPUT
+            echo "⚠️ 캐시 파일 없음 - 크롤링 먼저 실행 필요"
+          fi
+
+      - name: Setup Node.js
+        if: steps.check-cache.outputs.cache_exists == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        if: steps.check-cache.outputs.cache_exists == 'true'
+        run: npm install --production
+
+      - name: Generate AI Insight
+        if: steps.check-cache.outputs.cache_exists == 'true'
+        run: |
+          echo "🤖 AI 인사이트 생성 시작..."
+          node generate-ai-insight.js
+        timeout-minutes: 15
+
+      - name: Move reports to docs
+        if: steps.check-cache.outputs.cache_exists == 'true'
+        run: |
+          mkdir -p docs/reports
+          if [ -d "reports" ]; then
+            cp -r reports/*.json docs/reports/ 2>/dev/null || true
+            cp -r reports/*.html docs/reports/ 2>/dev/null || true
+          fi
+
+      - name: Commit and push
+        if: steps.check-cache.outputs.cache_exists == 'true'
+        run: |
+          git add reports/ docs/reports/
+          if git diff --staged --quiet; then
+            echo "📝 변경사항 없음"
+          else
+            git commit -m "AI Insight $(date +'%Y-%m-%d %H:%M')"
+            git push
+            echo "✅ AI 인사이트 푸시 완료"
+          fi
