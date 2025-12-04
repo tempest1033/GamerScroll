@@ -132,6 +132,8 @@ async function main() {
       const savedInsight = JSON.parse(fs.readFileSync(insightJsonFile, 'utf8'));
       if (savedInsight.ai) {
         insight.ai = savedInsight.ai;
+        insight.stockMap = savedInsight.stockMap || {};
+        insight.stockPrices = savedInsight.stockPrices || {};
         console.log('📂 AI 인사이트 로드 완료');
       }
     } catch (e) {

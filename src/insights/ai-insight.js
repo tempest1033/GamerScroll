@@ -85,6 +85,9 @@ ${dataSummary}${rankingsData}
   "issues": [
     { "tag": "모바일|PC|콘솔|e스포츠", "title": "제목 40자", "desc": "설명 100자 2문장" }
   ],
+  "industryIssues": [
+    { "tag": "회사명|정책|시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 100자" }
+  ],
   "metrics": [
     { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 100자" }
   ],${rankingsSection}
@@ -93,6 +96,9 @@ ${dataSummary}${rankingsData}
   ],
   "streaming": [
     { "tag": "치지직|유튜브|트위치", "title": "제목 40자", "desc": "스트리밍 트렌드 100자" }
+  ],
+  "stocks": [
+    { "name": "회사명", "comment": "오늘 주목받는 이유 50자" }
   ]
 }
 
@@ -102,9 +108,11 @@ ${dataSummary}${rankingsData}
 
 ## 각 섹션별 개수:
 - issues: 4개 (모바일, PC, 콘솔, e스포츠 각 1개)
+- industryIssues: 2개 (한국 게임 업계 동향 - 기업 뉴스, 인수합병, 규제, 시장 트렌드 등)
 - metrics: 2개 (주목할만한 지표 변화)${rankingsInstruction}
 - community: 4개 (특정 게임에 대한 유저 반응 - 업데이트/패치/논란 등)
 - streaming: 2개 (스트리밍 인기 게임/트렌드)
+- stocks: 2개 (오늘 주목할 게임주 2개 선정 - 종목코드, 회사명, 주목 이유)
 
 한국 게임 시장 기준으로 작성해줘.
 JSON만 출력해. 다른 설명 없이.`;

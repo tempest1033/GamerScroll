@@ -6,8 +6,11 @@
 
 require('dotenv').config();
 const fs = require('fs');
+const axios = require('axios');
+const cheerio = require('cheerio');
 const { generateAIInsight } = require('./src/insights/ai-insight');
 const { loadHistory, getYesterdayDate } = require('./src/insights/daily');
+const { fetchStockPrices } = require('./src/crawlers/stocks');
 
 const CACHE_FILE = './data-cache.json';
 const REPORTS_DIR = './reports';
@@ -176,6 +179,33 @@ async function main() {
     process.exit(1);
   }
 
+  // AI가 선정한 종목의 주가 데이터 가져오기
+  let stockMap = {};
+  let stockPrices = {};
+
+  if (aiInsight.stocks && aiInsight.stocks.length > 0) {
+    console.log('\n📈 게임주 주가 데이터 수집 중...');
+    // 종목명에서 코드 추출 (엔씨소프트(036570) 형태)
+    const stocksList = aiInsight.stocks.map(s => {
+      const codeMatch = s.name.match(/\((\d{6})\)/);
+      const displayName = s.name.replace(/\(\d{6}\)/, '').trim();
+      return { name: displayName, code: codeMatch ? codeMatch[1] : null, comment: s.comment };
+    });
+
+    const { stockMap: map, pricesMap } = await fetchStockPrices(axios, cheerio, stocksList);
+    stockMap = map;
+
+    // 코드로 주가 매핑
+    stocksList.forEach(stock => {
+      const code = stock.code || stockMap[stock.name];
+      if (code && pricesMap[code]) {
+        stockPrices[code] = pricesMap[code];
+      }
+    });
+
+    console.log(`  - ${Object.keys(stockPrices).length}개 종목 주가 수집 완료`);
+  }
+
   // 저장
   if (!fs.existsSync(REPORTS_DIR)) {
     fs.mkdirSync(REPORTS_DIR, { recursive: true });
@@ -195,6 +225,8 @@ async function main() {
   // AI 인사이트 추가/갱신
   insight.ai = aiInsight;
   insight.aiGeneratedAt = new Date().toISOString();
+  insight.stockMap = stockMap;
+  insight.stockPrices = stockPrices;
 
   fs.writeFileSync(insightJsonFile, JSON.stringify(insight, null, 2), 'utf8');
   console.log(`\n✅ AI 인사이트 저장 완료: ${insightJsonFile}`);

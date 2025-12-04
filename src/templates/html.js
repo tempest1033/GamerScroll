@@ -82,6 +82,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     };
 
     const issues = aiInsight.issues || [];
+    // 임시 업계 이슈 데이터 (AI 생성 전까지 사용)
+    const industryIssues = aiInsight.industryIssues?.length > 0 ? aiInsight.industryIssues : [
+      { tag: '넷마블', title: '넷마블, 2025년 신작 라인업 공개', desc: '넷마블이 2025년 상반기 출시 예정인 신작 5종을 공개했어요. 세븐나이츠 키우기 후속작과 신규 IP 기반 RPG가 포함되어 있어요.' },
+      { tag: '정책', title: '게임산업진흥법 개정안 국회 통과', desc: '게임 셧다운제 폐지를 골자로 한 개정안이 본회의를 통과했어요. 청소년 자율규제 시스템으로 전환될 예정이에요.' }
+    ];
+    // 임시 주식 데이터 (AI 생성 전까지 사용)
+    const stocksData = aiInsight.stocks?.length > 0 ? aiInsight.stocks : [
+      { name: '크래프톤', comment: '배그 시즌 업데이트로 동접 신기록, 실적 기대감 상승' },
+      { name: '넷마블', comment: '세븐나이츠 키우기 흥행 지속, 신작 라인업 관심' }
+    ];
     const metrics = aiInsight.metrics || [];
     const rankingsData = aiInsight.rankings || [];
     const communityData = aiInsight.community || [];
@@ -188,13 +198,74 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       </div>
     ` : '';
 
+    // 게임주 현황 카드 (네이버 증권 차트 + AI 코멘트)
+    const stockMap = insight?.stockMap || {};
+    const renderStockItem = (stock) => {
+      // AI가 "엔씨소프트(036570)" 형태로 이름을 줄 수 있으므로 파싱
+      const codeMatch = stock.name.match(/\((\d{6})\)/);
+      const displayName = stock.name.replace(/\(\d{6}\)/, '').trim();
+      // 1. 이름에서 추출한 코드 사용, 2. stockMap에서 찾기
+      const code = codeMatch ? codeMatch[1] : (stockMap[displayName] || stockMap[stock.name] || '');
+      if (!code) return ''; // 코드 없으면 렌더링 안함
+
+      const candleChartUrl = `https://ssl.pstatic.net/imgfinance/chart/item/candle/day/${code}.png`;
+      const stockUrl = `https://finance.naver.com/item/main.nhn?code=${code}`;
+      // 주가 데이터는 insight.stockPrices에서 가져옴
+      const priceData = insight?.stockPrices?.[code] || {};
+      const price = priceData.price ? priceData.price.toLocaleString() + '원' : '-';
+      const change = priceData.change || 0;
+      const changePercent = priceData.changePercent || 0;
+      const changeClass = change > 0 ? 'up' : change < 0 ? 'down' : '';
+      const changeSign = change > 0 ? '▲' : change < 0 ? '▼' : '';
+      const changeText = change > 0 ? `+${changePercent.toFixed(2)}%` : change < 0 ? `${changePercent.toFixed(2)}%` : '0%';
+      // 실제 스크래핑한 종가 날짜 사용 (예: "2025.12.03" → "12/3")
+      let dateStr = '종가';
+      if (priceData.date) {
+        const parts = priceData.date.split('.');
+        if (parts.length === 3) {
+          dateStr = `${parseInt(parts[1])}/${parseInt(parts[2])} 종가`;
+        }
+      }
+      return `
+        <a class="stock-item" href="${stockUrl}" target="_blank" rel="noopener">
+          <div class="stock-info">
+            <div class="stock-name-row">
+              <span class="stock-name">${displayName}</span>
+              <span class="stock-date">${dateStr}</span>
+            </div>
+            <div class="stock-price-row">
+              <span class="stock-price-value ${changeClass}">${price}</span>
+              <span class="stock-change-badge ${changeClass}">${changeSign} ${changeText}</span>
+            </div>
+          </div>
+          <img class="stock-chart" src="${candleChartUrl}" alt="${displayName} 일봉 차트" onerror="this.style.display='none'">
+          <p class="stock-comment">${stock.comment}</p>
+        </a>
+      `;
+    };
+
+    const stocksCard = stocksData.length > 0 ? `
+      <div class="home-card insight-card stocks-card">
+        <div class="home-card-header">
+          <span class="home-card-title">게임주 현황</span>
+        </div>
+        <div class="home-card-body">
+          <div class="stocks-split">
+            ${stocksData.map(renderStockItem).join('')}
+          </div>
+        </div>
+      </div>
+    ` : '';
+
     return `
       <div class="insight-page-container">
         ${renderCategoryCard('오늘의 이슈', issues)}
         ${infographic}
+        ${industryIssues.length > 0 ? renderCategoryCard('업계 이슈', industryIssues) : ''}
         ${renderCategoryCard('주목할만한 지표', metrics)}
         ${rankingChart}
         ${rankingsData.length > 0 ? renderCategoryCard('순위 변동', rankingsData) : ''}
+        ${stocksCard}
         ${renderCategoryCard('유저 반응', communityData)}
         ${renderCategoryCard('스트리머 인기', streaming)}
       </div>
@@ -453,9 +524,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       return '<div class="home-empty">인사이트를 불러올 수 없습니다</div>';
     }
 
+    // 임시 업계 이슈 데이터 (AI 생성 전까지 사용)
+    const industryIssues = aiInsight.industryIssues?.length > 0 ? aiInsight.industryIssues : [
+      { tag: '넷마블', title: '넷마블, 2025년 신작 라인업 공개', desc: '넷마블이 2025년 상반기 출시 예정인 신작 5종을 공개했어요. 세븐나이츠 키우기 후속작과 신규 IP 기반 RPG가 포함되어 있어요.' },
+      { tag: '정책', title: '게임산업진흥법 개정안 국회 통과', desc: '게임 셧다운제 폐지를 골자로 한 개정안이 본회의를 통과했어요. 청소년 자율규제 시스템으로 전환될 예정이에요.' }
+    ];
+
     // 모든 인사이트 아이템 수집 (rankings 데이터가 있으면 포함)
     const allItems = [
       ...(aiInsight.issues || []),
+      ...industryIssues,
       ...(aiInsight.metrics || []),
       ...(aiInsight.rankings || []),
       ...(aiInsight.community || []),

@@ -4829,6 +4829,135 @@
   }
 }
 
+/* ========== Stocks Card (게임주 현황) ========== */
+.stocks-card {
+  margin-bottom: 16px;
+}
+
+.stocks-split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.stock-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+}
+
+.stock-item:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.stock-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stock-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stock-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.stock-date {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.stock-price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stock-price-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stock-price-value.up {
+  color: #ef5350;
+}
+
+.stock-price-value.down {
+  color: #42a5f5;
+}
+
+.stock-change-badge {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: var(--bg-tertiary);
+}
+
+.stock-change-badge.up {
+  background: rgba(239, 83, 80, 0.15);
+  color: #ef5350;
+}
+
+.stock-change-badge.down {
+  background: rgba(66, 165, 245, 0.15);
+  color: #42a5f5;
+}
+
+.stock-chart {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+}
+
+.stock-comment {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 12px 0 0 0;
+}
+
+/* 모바일: 한 아이템씩 표시 */
+@media (max-width: 768px) {
+  .stocks-split {
+    grid-template-columns: 1fr;
+  }
+
+  .stock-name {
+    font-size: 20px;
+  }
+
+  .stock-price-value {
+    font-size: 26px;
+  }
+
+  .stock-change-badge {
+    font-size: 15px;
+  }
+
+  .stock-comment {
+    font-size: 14px;
+  }
+}
+
 /* ========== Metacritic Section (Poster Grid) ========== */
 .metacritic-card-container {
   background: var(--card);
