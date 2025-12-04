@@ -207,11 +207,23 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     // 게임주 현황 카드 (네이버 증권 차트 + AI 코멘트)
     const stockMap = insight?.stockMap || {};
     const renderStockItem = (stock) => {
-      // AI가 "엔씨소프트(036570)" 형태로 이름을 줄 수 있으므로 파싱
-      const codeMatch = stock.name.match(/\((\d{6})\)/);
-      const displayName = stock.name.replace(/\(\d{6}\)/, '').trim();
-      // 1. 이름에서 추출한 코드 사용, 2. stockMap에서 찾기
-      const code = codeMatch ? codeMatch[1] : (stockMap[displayName] || stockMap[stock.name] || '');
+      // AI가 여러 형태로 이름을 줄 수 있으므로 파싱: "엔씨소프트(036570)" 또는 "259960-크래프톤"
+      const codeMatchParen = stock.name.match(/\((\d{6})\)/);
+      const codeMatchHyphen = stock.name.match(/^(\d{6})-/);
+      let displayName, code;
+      if (codeMatchHyphen) {
+        // "259960-크래프톤" 형식
+        code = codeMatchHyphen[1];
+        displayName = stock.name.replace(/^\d{6}-/, '').trim();
+      } else if (codeMatchParen) {
+        // "엔씨소프트(036570)" 형식
+        code = codeMatchParen[1];
+        displayName = stock.name.replace(/\(\d{6}\)/, '').trim();
+      } else {
+        // 코드 없이 이름만 있는 경우 stockMap에서 찾기
+        displayName = stock.name.trim();
+        code = stockMap[displayName] || stockMap[stock.name] || '';
+      }
       if (!code) return ''; // 코드 없으면 렌더링 안함
 
       const candleChartUrl = `https://ssl.pstatic.net/imgfinance/chart/item/candle/day/${code}.png`;

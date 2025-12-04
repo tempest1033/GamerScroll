@@ -212,11 +212,22 @@ async function main() {
 
   if (aiInsight.stocks && aiInsight.stocks.length > 0) {
     console.log('\n📈 게임주 주가 데이터 수집 중...');
-    // 종목명에서 코드 추출 (엔씨소프트(036570) 형태)
+    // 종목명에서 코드 추출: "엔씨소프트(036570)" 또는 "259960-크래프톤" 형태
     const stocksList = aiInsight.stocks.map(s => {
-      const codeMatch = s.name.match(/\((\d{6})\)/);
-      const displayName = s.name.replace(/\(\d{6}\)/, '').trim();
-      return { name: displayName, code: codeMatch ? codeMatch[1] : null, comment: s.comment };
+      const codeMatchParen = s.name.match(/\((\d{6})\)/);
+      const codeMatchHyphen = s.name.match(/^(\d{6})-/);
+      let displayName, code;
+      if (codeMatchHyphen) {
+        code = codeMatchHyphen[1];
+        displayName = s.name.replace(/^\d{6}-/, '').trim();
+      } else if (codeMatchParen) {
+        code = codeMatchParen[1];
+        displayName = s.name.replace(/\(\d{6}\)/, '').trim();
+      } else {
+        displayName = s.name.trim();
+        code = null;
+      }
+      return { name: displayName, code, comment: s.comment };
     });
 
     const { stockMap: map, pricesMap } = await fetchStockPrices(axios, cheerio, stocksList);
