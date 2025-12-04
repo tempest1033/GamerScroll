@@ -50,6 +50,48 @@ const {
 // AI 인사이트 import
 const { generateAIInsight } = require('./src/insights/ai-insight');
 
+/**
+ * 현재 KST 시간 기준 AM/PM 반환
+ * @returns {string} 'AM' 또는 'PM'
+ */
+function getAmPm() {
+  const now = new Date();
+  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+  const hour = kst.getUTCHours();
+  return hour < 12 ? 'AM' : 'PM';
+}
+
+/**
+ * AM/PM 기반으로 인사이트 JSON 파일 경로 찾기
+ * 현재 시간대 파일 우선, 없으면 다른 시간대 파일 시도
+ * @param {string} today - YYYY-MM-DD 형식 날짜
+ * @returns {string|null} 존재하는 파일 경로 또는 null
+ */
+function findInsightJsonFile(today) {
+  const currentAmPm = getAmPm();
+  const otherAmPm = currentAmPm === 'AM' ? 'PM' : 'AM';
+
+  // 현재 시간대 파일 우선
+  const currentFile = `${REPORTS_DIR}/${today}-${currentAmPm}.json`;
+  if (fs.existsSync(currentFile)) {
+    return currentFile;
+  }
+
+  // 다른 시간대 파일 시도
+  const otherFile = `${REPORTS_DIR}/${today}-${otherAmPm}.json`;
+  if (fs.existsSync(otherFile)) {
+    return otherFile;
+  }
+
+  // 이전 포맷(날짜만) 호환성
+  const legacyFile = `${REPORTS_DIR}/${today}.json`;
+  if (fs.existsSync(legacyFile)) {
+    return legacyFile;
+  }
+
+  return null;
+}
+
 async function main() {
   let news, community, rankings, steam, youtube, chzzk, upcoming, metacritic;
 
@@ -125,16 +167,17 @@ async function main() {
 
   // AI 인사이트 로드 (별도 스크립트로 생성됨)
   const today = getTodayDate();
-  const insightJsonFile = `${REPORTS_DIR}/${today}.json`;
+  const insightJsonFile = findInsightJsonFile(today);
 
-  if (fs.existsSync(insightJsonFile)) {
+  if (insightJsonFile) {
     try {
       const savedInsight = JSON.parse(fs.readFileSync(insightJsonFile, 'utf8'));
       if (savedInsight.ai) {
         insight.ai = savedInsight.ai;
+        insight.aiGeneratedAt = savedInsight.aiGeneratedAt;
         insight.stockMap = savedInsight.stockMap || {};
         insight.stockPrices = savedInsight.stockPrices || {};
-        console.log('📂 AI 인사이트 로드 완료');
+        console.log(`📂 AI 인사이트 로드 완료 (${insightJsonFile.split('/').pop()})`);
       }
     } catch (e) {
       console.log('⚠️ AI 인사이트 로드 실패');
@@ -168,12 +211,13 @@ async function main() {
     const insight = generateDailyInsight(todayData, yesterdayData);
 
     // AI 인사이트 로드 (별도 스크립트로 생성됨)
-    const insightJsonFile = `${REPORTS_DIR}/${today}.json`;
-    if (fs.existsSync(insightJsonFile)) {
+    const savedJsonFile = findInsightJsonFile(today);
+    if (savedJsonFile) {
       try {
-        const savedInsight = JSON.parse(fs.readFileSync(insightJsonFile, 'utf8'));
+        const savedInsight = JSON.parse(fs.readFileSync(savedJsonFile, 'utf8'));
         if (savedInsight.ai) {
           insight.ai = savedInsight.ai;
+          insight.aiGeneratedAt = savedInsight.aiGeneratedAt;
         }
       } catch (e) {}
     }
@@ -182,7 +226,9 @@ async function main() {
     fs.writeFileSync(reportFile, insightHTML, 'utf8');
     console.log(`📈 데일리 인사이트 저장: ${reportFile}`);
 
-    // 인사이트 JSON도 저장 (AI 제외한 분석 데이터)
+    // 인사이트 JSON도 저장 (AI 제외한 분석 데이터) - AM/PM 구분
+    const amPm = getAmPm();
+    const insightJsonFile = `${REPORTS_DIR}/${today}-${amPm}.json`;
     fs.writeFileSync(insightJsonFile, JSON.stringify(insight, null, 2), 'utf8');
   }
 }

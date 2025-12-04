@@ -16,15 +16,31 @@ const CACHE_FILE = './data-cache.json';
 const REPORTS_DIR = './reports';
 
 /**
- * reports/{date}.json에서 어제 순위 데이터 로드
+ * reports/{date}-{AM|PM}.json에서 어제 순위 데이터 로드
+ * PM 파일 우선, 없으면 AM 파일 시도, 둘 다 없으면 레거시(날짜만) 시도
  * @param {string} date - YYYY-MM-DD 형식
  * @returns {Object|null} rankings 데이터 또는 null
  */
 function loadYesterdayRankingsFromReports(date) {
-  const reportFile = `${REPORTS_DIR}/${date}.json`;
-  if (!fs.existsSync(reportFile)) {
+  // PM 우선 (어제 저녁 데이터가 더 최신)
+  const candidates = [
+    `${REPORTS_DIR}/${date}-PM.json`,
+    `${REPORTS_DIR}/${date}-AM.json`,
+    `${REPORTS_DIR}/${date}.json`  // 레거시 호환
+  ];
+
+  let reportFile = null;
+  for (const file of candidates) {
+    if (fs.existsSync(file)) {
+      reportFile = file;
+      break;
+    }
+  }
+
+  if (!reportFile) {
     return null;
   }
+
   try {
     const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
     // reports의 mobile 구조를 rankings.grossing 구조로 변환
@@ -40,7 +56,7 @@ function loadYesterdayRankingsFromReports(date) {
     }
     return null;
   } catch (e) {
-    console.log(`  - reports/${date}.json 로드 실패:`, e.message);
+    console.log(`  - ${reportFile} 로드 실패:`, e.message);
     return null;
   }
 }
@@ -50,6 +66,17 @@ function getTodayDate() {
   // KST (UTC+9) 기준
   const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
   return kst.toISOString().split('T')[0];
+}
+
+/**
+ * 현재 KST 시간 기준 AM/PM 반환
+ * @returns {string} 'AM' 또는 'PM'
+ */
+function getAmPm() {
+  const now = new Date();
+  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+  const hour = kst.getUTCHours();
+  return hour < 12 ? 'AM' : 'PM';
 }
 
 /**
@@ -212,7 +239,8 @@ async function main() {
   }
 
   const today = getTodayDate();
-  const insightJsonFile = `${REPORTS_DIR}/${today}.json`;
+  const amPm = getAmPm();
+  const insightJsonFile = `${REPORTS_DIR}/${today}-${amPm}.json`;
 
   // 기존 인사이트 로드 (있으면)
   let insight = {};
