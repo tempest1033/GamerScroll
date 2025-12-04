@@ -900,6 +900,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAMERS CRAWL | Daily Report</title>
+  <!-- SEO -->
+  <meta name="description" content="게임 업계 일일 리포트 - 모바일/스팀 순위, 게임 뉴스, 커뮤니티 반응, AI 인사이트를 한눈에. 매일 업데이트되는 게임 업계 데이터 대시보드.">
+  <meta name="keywords" content="게임 순위, 모바일 게임, 스팀 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위, 게임 업계, 게임주">
   <!-- Open Graph / SNS 공유 -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="GAMERS CRAWL | 게임 업계 일일 리포트">
