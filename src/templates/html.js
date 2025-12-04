@@ -16,6 +16,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   // AI 인사이트 추출 (홈 카드용)
   const aiInsight = insight?.ai || null;
 
+  // AI 인사이트 생성 시간 (AM/PM 태그용) - UTC를 KST로 변환
+  const aiGeneratedAt = insight?.aiGeneratedAt ? new Date(insight.aiGeneratedAt) : null;
+  const kstTime = aiGeneratedAt ? new Date(aiGeneratedAt.getTime() + 9 * 60 * 60 * 1000) : null;
+  const insightDate = kstTime ? `${kstTime.getUTCMonth() + 1}월 ${kstTime.getUTCDate()}일` : '';
+  const insightAmPm = kstTime ? (kstTime.getUTCHours() < 12 ? 'AM' : 'PM') : '';
+
   // 뉴스 HTML 생성 (소스별 분리) - 섬네일 포함
   function generateNewsSection(items, sourceName, sourceUrl) {
     if (!items || items.length === 0) {
@@ -1071,7 +1077,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           ${aiInsight ? `
           <div class="home-card" id="home-insight">
             <div class="home-card-header">
-              <div class="home-card-title">데일리 인사이트</div>
+              <div class="home-card-title">데일리 인사이트${insightDate ? ` · ${insightDate}` : ''}${insightAmPm ? ` <span style="display:inline-block;padding:2px 6px;font-size:10px;font-weight:600;background:${insightAmPm === 'AM' ? '#fef3c7' : '#dbeafe'};color:${insightAmPm === 'AM' ? '#92400e' : '#1e40af'};border-radius:4px;margin-left:4px;">${insightAmPm}</span>` : ''}</div>
               <a href="#" class="home-card-more" data-goto="insight">더보기 →</a>
             </div>
             <div class="home-card-body">${generateHomeInsight()}</div>
