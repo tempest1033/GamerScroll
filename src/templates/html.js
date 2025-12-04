@@ -899,26 +899,27 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAMERS CRAWL | Daily Report</title>
+  <title>게이머스크롤 | 데일리 게임 인사이트</title>
   <!-- SEO -->
-  <meta name="description" content="게임 업계 일일 리포트 - 모바일/스팀 순위, 게임 뉴스, 커뮤니티 반응, AI 인사이트를 한눈에. 매일 업데이트되는 게임 업계 데이터 대시보드.">
-  <meta name="keywords" content="게임 순위, 모바일 게임, 스팀 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위, 게임 업계, 게임주">
+  <meta name="description" content="데일리 게임 인사이트 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에">
+  <meta name="keywords" content="게임 순위, 모바일 게임, 스팀 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위, 게임 업계, 게임주, 게이머스크롤">
   <!-- Open Graph / SNS 공유 -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="GAMERS CRAWL | 게임 업계 일일 리포트">
+  <meta property="og:title" content="게이머스크롤 | 데일리 게임 인사이트">
   <meta property="og:description" content="모바일/스팀 순위, 게임 뉴스, AI 인사이트를 한눈에">
   <meta property="og:image" content="https://gamerscrawl.com/og-image.png">
   <meta property="og:url" content="https://gamerscrawl.com">
-  <meta property="og:site_name" content="GAMERS CRAWL">
+  <meta property="og:site_name" content="게이머스크롤">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GAMERS CRAWL | 게임 업계 일일 리포트">
+  <meta name="twitter:title" content="게이머스크롤 | 데일리 게임 인사이트">
   <meta name="twitter:description" content="모바일/스팀 순위, 게임 뉴스, AI 인사이트를 한눈에">
   <meta name="twitter:image" content="https://gamerscrawl.com/og-image.png">
-  <!-- Theme -->
+  <!-- Theme & Favicon -->
   <meta name="theme-color" content="#111827">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%234f46e5'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='26' width='7' height='16' rx='3.5' fill='url(%23g)' opacity='.4'/%3E%3Crect x='14' y='20' width='7' height='28' rx='3.5' fill='url(%23g)' opacity='.7'/%3E%3Crect x='24' y='14' width='7' height='40' rx='3.5' fill='url(%23g)'/%3E%3Crect x='33' y='14' width='7' height='40' rx='3.5' fill='url(%23g)'/%3E%3Crect x='43' y='20' width='7' height='28' rx='3.5' fill='url(%23g)' opacity='.7'/%3E%3Crect x='53' y='26' width='7' height='16' rx='3.5' fill='url(%23g)' opacity='.4'/%3E%3C/svg%3E">
   <!-- 폰트 preload로 FOUT 방지 -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <!-- 이미지 도메인 preconnect -->
