@@ -54,11 +54,16 @@ async function fetchRankings(gplay, store) {
 
     // Android (중국 제외)
     if (c.code !== 'cn') {
+      // 국가별 언어 매핑
+      const langMap = { kr: 'ko', jp: 'ja', us: 'en', tw: 'zh-TW' };
+      const lang = langMap[c.code] || 'en';
+
       try {
         const androidGrossing = await gplay.list({
           collection: gplay.collection.GROSSING,
           category: gplay.category.GAME,
           country: c.code,
+          lang: lang,
           num: 200
         });
         results.grossing[c.code].android = androidGrossing.map(a => ({
@@ -75,6 +80,7 @@ async function fetchRankings(gplay, store) {
           collection: gplay.collection.TOP_FREE,
           category: gplay.category.GAME,
           country: c.code,
+          lang: lang,
           num: 200
         });
         results.free[c.code].android = androidFree.map(a => ({
