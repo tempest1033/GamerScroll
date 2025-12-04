@@ -63,7 +63,7 @@ function getAmPm() {
 
 /**
  * AM/PM 기반으로 인사이트 JSON 파일 경로 찾기
- * 현재 시간대 파일 우선, 없으면 다른 시간대 파일 시도
+ * 현재 시간대 파일 우선, 없으면 다른 시간대/어제 파일 시도
  * @param {string} today - YYYY-MM-DD 형식 날짜
  * @returns {string|null} 존재하는 파일 경로 또는 null
  */
@@ -71,22 +71,35 @@ function findInsightJsonFile(today) {
   const currentAmPm = getAmPm();
   const otherAmPm = currentAmPm === 'AM' ? 'PM' : 'AM';
 
-  // 현재 시간대 파일 우선
+  // 1. 오늘 현재 시간대 파일
   const currentFile = `${REPORTS_DIR}/${today}-${currentAmPm}.json`;
   if (fs.existsSync(currentFile)) {
     return currentFile;
   }
 
-  // 다른 시간대 파일 시도
+  // 2. 오늘 다른 시간대 파일
   const otherFile = `${REPORTS_DIR}/${today}-${otherAmPm}.json`;
   if (fs.existsSync(otherFile)) {
     return otherFile;
   }
 
-  // 이전 포맷(날짜만) 호환성
+  // 3. 오늘 레거시 포맷
   const legacyFile = `${REPORTS_DIR}/${today}.json`;
   if (fs.existsSync(legacyFile)) {
     return legacyFile;
+  }
+
+  // 4. 어제 파일 시도 (새벽에 아직 오늘 인사이트 없을 때)
+  const yesterday = getYesterdayDate();
+  const yesterdayFiles = [
+    `${REPORTS_DIR}/${yesterday}-PM.json`,
+    `${REPORTS_DIR}/${yesterday}-AM.json`,
+    `${REPORTS_DIR}/${yesterday}.json`
+  ];
+  for (const file of yesterdayFiles) {
+    if (fs.existsSync(file)) {
+      return file;
+    }
   }
 
   return null;
