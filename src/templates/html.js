@@ -1077,7 +1077,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           ${aiInsight ? `
           <div class="home-card" id="home-insight">
             <div class="home-card-header">
-              <div class="home-card-title">데일리 인사이트${insightDate ? ` · ${insightDate}` : ''}${insightAmPm ? ` <span style="display:inline-block;padding:2px 6px;font-size:10px;font-weight:600;background:${insightAmPm === 'AM' ? '#fef3c7' : '#dbeafe'};color:${insightAmPm === 'AM' ? '#92400e' : '#1e40af'};border-radius:4px;margin-left:4px;">${insightAmPm}</span>` : ''}</div>
+              <div class="home-card-title">데일리 인사이트${insightDate ? ` · ${insightDate}${insightAmPm ? `<span style="font-size:14px;font-weight:600;margin-left:2px;border-bottom:2px solid ${insightAmPm === 'AM' ? '#d4a84b' : '#7a9ec9'};padding-bottom:1px;color:${insightAmPm === 'AM' ? '#d4a84b' : '#7a9ec9'};line-height:1;">${insightAmPm}</span>` : ''}` : ''}</div>
               <a href="#" class="home-card-more" data-goto="insight">더보기 →</a>
             </div>
             <div class="home-card-body">${generateHomeInsight()}</div>

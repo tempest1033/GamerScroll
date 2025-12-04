@@ -448,6 +448,13 @@
       stroke: var(--primary);
     }
 
+    /* AM/PM 아이콘 - 인사이트 카드 전용 */
+    #home-insight .home-card-title svg {
+      width: 16px;
+      height: 16px;
+      stroke: none;
+    }
+
     .home-card-more {
       font-size: 13px;
       font-weight: 600;
