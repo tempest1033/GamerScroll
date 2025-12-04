@@ -1019,6 +1019,7 @@
 
     .home-community-column {
       flex: 1;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -1032,6 +1033,7 @@
       text-decoration: none;
       background: var(--hover-bg);
       border-radius: var(--radius-sm);
+      overflow: hidden;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 
