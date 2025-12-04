@@ -1052,7 +1052,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           ${aiInsight ? `
           <div class="home-card" id="home-insight">
             <div class="home-card-header">
-              <div class="home-card-title">인사이트</div>
+              <div class="home-card-title">데일리 인사이트</div>
               <a href="#" class="home-card-more" data-goto="insight">더보기 →</a>
             </div>
             <div class="home-card-body">${generateHomeInsight()}</div>
