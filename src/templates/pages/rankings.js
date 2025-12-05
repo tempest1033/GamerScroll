@@ -143,9 +143,9 @@ function generateRankingsPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'rankings',
-    title: '게이머스크롤 | 모바일 순위',
-    description: 'App Store, Google Play 국가별 게임 매출/인기 순위',
-    canonical: 'https://gamerscrawl.com/rankings.html',
+    title: '게이머스크롤 | 모바일 게임 순위',
+    description: '한국, 일본, 미국, 중국, 대만 앱스토어·플레이스토어 게임 매출 순위 TOP 200. 실시간 모바일 게임 인기 차트를 국가별로 비교하세요.',
+    canonical: 'https://gamerscrawl.com/rankings',
     pageScripts
   });
 }

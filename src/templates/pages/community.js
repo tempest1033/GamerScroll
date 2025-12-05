@@ -128,9 +128,9 @@ function generateCommunityPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'community',
-    title: '게이머스크롤 | 커뮤니티',
-    description: '디시인사이드, 아카라이브, 인벤, 루리웹 게임 커뮤니티 인기글',
-    canonical: 'https://gamerscrawl.com/community.html',
+    title: '게이머스크롤 | 게임 커뮤니티',
+    description: '디시인사이드 실시간 베스트, 아카라이브 베스트, 인벤 핫이슈, 루리웹 게임 게시판 인기글을 한곳에서. 게이머들의 생생한 반응을 확인하세요.',
+    canonical: 'https://gamerscrawl.com/community',
     pageScripts
   });
 }

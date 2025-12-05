@@ -128,9 +128,9 @@ function generateSteamPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'steam',
-    title: '게이머스크롤 | 스팀 순위',
-    description: '스팀 최다 플레이, 최고 판매 게임 순위',
-    canonical: 'https://gamerscrawl.com/steam.html',
+    title: '게이머스크롤 | 스팀 게임 순위',
+    description: '스팀 동시접속자 TOP 50, 베스트셀러 게임 순위. PC 게임 트렌드와 인기 게임을 실시간으로 확인하세요.',
+    canonical: 'https://gamerscrawl.com/steam',
     pageScripts
   });
 }

@@ -420,8 +420,8 @@ function generateInsightPage(data) {
     return wrapWithLayout(content, {
       currentPage: 'insight',
       title: '게이머스크롤 | 인사이트',
-      description: '오늘의 게임 인사이트, AI 분석 리포트',
-      canonical: 'https://gamerscrawl.com/insight.html'
+      description: '오늘의 게임 업계 인사이트를 AI가 분석합니다. 모바일/PC 게임 순위 변동, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
+      canonical: 'https://gamerscrawl.com/insight'
     });
   }
 
@@ -784,8 +784,8 @@ function generateInsightPage(data) {
   return wrapWithLayout(content, {
     currentPage: 'insight',
     title: '게이머스크롤 | 인사이트',
-    description: '오늘의 게임 인사이트 - AI 분석 일간/주간 리포트',
-    canonical: 'https://gamerscrawl.com/insight.html',
+    description: '오늘의 게임 업계 인사이트를 AI가 분석합니다. 모바일/PC 게임 순위 변동, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
+    canonical: 'https://gamerscrawl.com/insight',
     pageScripts
   });
 }
