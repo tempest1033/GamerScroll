@@ -1370,10 +1370,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="home-community-tabs">
         <button class="home-community-tab active" data-community="all">전체</button>
         <button class="home-community-tab" data-community="dcinside">
-          <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="">디시인사이드
+          <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt=""><span class="tab-text-dcinside">디시인사이드</span>
         </button>
         <button class="home-community-tab" data-community="arca">
-          <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="">아카라이브
+          <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt=""><span class="tab-text-arca">아카라이브</span>
         </button>
         <button class="home-community-tab" data-community="inven">
           <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="">인벤
