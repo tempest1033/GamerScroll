@@ -118,7 +118,7 @@ ${dataSummary}${rankingsData}
 - desc: 100자 이내 (2문장으로 요약)
 
 ## 각 섹션별 개수:
-- issues: 4개 (모바일, PC, 콘솔, e스포츠 각 1개)
+- issues: 5개 (모바일, PC, 콘솔, e스포츠 등 다양하게)
 - industryIssues: 2개 (한국 게임 업계 동향 - 기업 뉴스, 인수합병, 규제, 시장 트렌드 등)
 - metrics: 2개 (주목할만한 지표 변화)${rankingsInstruction}
 - community: 4개 (특정 게임에 대한 유저 반응 - 업데이트/패치/논란 등)

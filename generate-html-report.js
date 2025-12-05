@@ -187,14 +187,19 @@ async function main() {
     // CSV 헤더
     const csvHeader = 'time,rank,id,title\n';
 
-    // CSV 행 추가 함수
+    // CSV 행 추가 함수 (중복 방지)
     const appendCsv = (filePath, rows) => {
       const isNew = !fs.existsSync(filePath);
-      const content = rows.map(r => `${snapshotTime},${r.rank},${r.id},"${(r.title || '').replace(/"/g, '""')}"`).join('\n') + '\n';
+      const newContent = rows.map(r => `${snapshotTime},${r.rank},${r.id},"${(r.title || '').replace(/"/g, '""')}"`).join('\n') + '\n';
       if (isNew) {
-        fs.writeFileSync(filePath, csvHeader + content, 'utf8');
+        fs.writeFileSync(filePath, csvHeader + newContent, 'utf8');
       } else {
-        fs.appendFileSync(filePath, content, 'utf8');
+        // 이미 해당 시간대 데이터가 있으면 스킵
+        const existing = fs.readFileSync(filePath, 'utf8');
+        if (existing.includes(`${snapshotTime},`)) {
+          return;
+        }
+        fs.appendFileSync(filePath, newContent, 'utf8');
       }
     };
 
