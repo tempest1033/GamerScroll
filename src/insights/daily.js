@@ -436,7 +436,7 @@ function generateInsightHTML(insight) {
 </head>
 <body style="background: #111827; min-height: 100vh;">
   <div class="insight-container">
-    <a href="../index.html" class="back-link">← GAMERS CRAWL로 돌아가기</a>
+    <a href="/" class="back-link">← GAMERS CRAWL로 돌아가기</a>
 
     <header class="insight-header">
       <div class="insight-date">${formatDate(date)}</div>

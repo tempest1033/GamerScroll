@@ -36,9 +36,9 @@ function generateCommunityPage(data) {
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="communityTab">
-            <button class="tab-btn active" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">디시인사이드</button>
+            <button class="tab-btn active" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
             <button class="tab-btn" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">아카라이브</button>
-            <button class="tab-btn" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
+            <button class="tab-btn" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">디시인사이드</button>
             <button class="tab-btn" data-community="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">루리웹</button>
           </div>
         </div>
@@ -48,13 +48,13 @@ function generateCommunityPage(data) {
           <span class="community-section-title">커뮤니티</span>
         </div>
         <div class="news-container">
-          <div class="news-panel active" id="community-dcinside">
+          <div class="news-panel active" id="community-inven">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">디시 실시간 베스트</span>
-              <a href="https://gall.dcinside.com/board/lists?id=dcbest" target="_blank" class="news-more-link">더보기 →</a>
+              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
+              <span class="news-panel-title">인벤 핫이슈</span>
+              <a href="https://hot.inven.co.kr/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
-            <div class="news-list">${dcHTML}</div>
+            <div class="news-list">${invenHTML}</div>
           </div>
           <div class="news-panel" id="community-arca">
             <div class="news-panel-header">
@@ -64,13 +64,13 @@ function generateCommunityPage(data) {
             </div>
             <div class="news-list">${arcaHTML}</div>
           </div>
-          <div class="news-panel" id="community-inven">
+          <div class="news-panel" id="community-dcinside">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">인벤 핫이슈</span>
-              <a href="https://hot.inven.co.kr/" target="_blank" class="news-more-link">더보기 →</a>
+              <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">
+              <span class="news-panel-title">디시 실시간 베스트</span>
+              <a href="https://gall.dcinside.com/board/lists?id=dcbest" target="_blank" class="news-more-link">더보기 →</a>
             </div>
-            <div class="news-list">${invenHTML}</div>
+            <div class="news-list">${dcHTML}</div>
           </div>
           <div class="news-panel" id="community-ruliweb">
             <div class="news-panel-header">
@@ -103,7 +103,7 @@ function generateCommunityPage(data) {
     }
     // 커뮤니티 탭 - 선택한 패널부터 순서대로 배치
     const communityTab = document.getElementById('communityTab');
-    const communityTypes = ['dcinside', 'arca', 'inven', 'ruliweb'];
+    const communityTypes = ['inven', 'arca', 'dcinside', 'ruliweb'];
     communityTab?.addEventListener('click', (e) => {
       const btn = e.target.closest('.tab-btn');
       if (!btn) return;

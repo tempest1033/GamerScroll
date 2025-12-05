@@ -181,9 +181,9 @@ function generateIndexPage(data) {
   // 홈 커뮤니티
   function generateHomeCommunity() {
     var sources = [
-      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' },
-      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' },
       { key: 'inven', items: community?.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
+      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' },
+      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' },
       { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
     ];
 
@@ -228,16 +228,16 @@ function generateIndexPage(data) {
 
     return '<div class="home-community-tabs">' +
       '<button class="home-community-tab active" data-community="all">전체</button>' +
-      '<button class="home-community-tab" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt=""><span class="tab-text-dcinside">디시인사이드</span></button>' +
-      '<button class="home-community-tab" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt=""><span class="tab-text-arca">아카라이브</span></button>' +
       '<button class="home-community-tab" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="">인벤</button>' +
+      '<button class="home-community-tab" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt=""><span class="tab-text-arca">아카라이브</span></button>' +
+      '<button class="home-community-tab" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt=""><span class="tab-text-dcinside">디시인사이드</span></button>' +
       '<button class="home-community-tab" data-community="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹</button>' +
       '</div>' +
       '<div class="home-community-body">' +
       '<div class="home-community-panel active" id="home-community-all">' + renderCommunitySplit(allCombined) + '</div>' +
-      '<div class="home-community-panel" id="home-community-dcinside">' + renderCommunitySplit(sources[0].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[0].icon }); }), '디시인사이드') + '</div>' +
+      '<div class="home-community-panel" id="home-community-inven">' + renderCommunitySplit(sources[0].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[0].icon }); }), '인벤') + '</div>' +
       '<div class="home-community-panel" id="home-community-arca">' + renderCommunitySplit(sources[1].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[1].icon }); }), '아카라이브') + '</div>' +
-      '<div class="home-community-panel" id="home-community-inven">' + renderCommunitySplit(sources[2].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[2].icon }); }), '인벤') + '</div>' +
+      '<div class="home-community-panel" id="home-community-dcinside">' + renderCommunitySplit(sources[2].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[2].icon }); }), '디시인사이드') + '</div>' +
       '<div class="home-community-panel" id="home-community-ruliweb">' + renderCommunitySplit(sources[3].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[3].icon }); }), '루리웹') + '</div>' +
       '</div>';
   }
@@ -424,7 +424,7 @@ function generateIndexPage(data) {
     '<div class="home-card" id="home-insight">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">' + insightHeader + '데일리 게임 인사이트' + ampmHtml + '</div>' +
-    '<a href="/insight.html" class="home-card-more">더보기 →</a>' +
+    '<a href="/insight" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
@@ -436,21 +436,21 @@ function generateIndexPage(data) {
     '<div class="home-card" id="home-news">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">주요 뉴스</div>' +
-    '<a href="/news.html" class="home-card-more">더보기 →</a>' +
+    '<a href="/news" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">커뮤니티 베스트</div>' +
-    '<a href="/community.html" class="home-card-more">더보기 →</a>' +
+    '<a href="/community" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
     '<div class="home-card" id="home-video">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">영상 순위</div>' +
-    '<a href="/youtube.html" class="home-card-more">더보기 →</a>' +
+    '<a href="/youtube" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeVideo() + '</div>' +
     '</div>' +
@@ -464,7 +464,7 @@ function generateIndexPage(data) {
     '<button class="tab-btn small active" data-home-chart="free">인기</button>' +
     '<button class="tab-btn small" data-home-chart="grossing">매출</button>' +
     '</div>' +
-    '<a href="/rankings.html" class="home-card-more">더보기 →</a>' +
+    '<a href="/rankings" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
@@ -477,7 +477,7 @@ function generateIndexPage(data) {
     '<button class="tab-btn small active" data-home-steam="mostplayed">인기</button>' +
     '<button class="tab-btn small" data-home-steam="topsellers">매출</button>' +
     '</div>' +
-    '<a href="/steam.html" class="home-card-more">더보기 →</a>' +
+    '<a href="/steam" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
@@ -485,7 +485,7 @@ function generateIndexPage(data) {
     '<div class="home-card" id="home-upcoming">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">신규 게임</div>' +
-    '<a href="/upcoming.html" class="home-card-more">더보기 →</a>' +
+    '<a href="/upcoming" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeUpcoming() + '</div>' +
     '</div>' +
