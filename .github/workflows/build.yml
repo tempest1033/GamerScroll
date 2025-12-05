@@ -80,6 +80,6 @@ jobs:
             echo "⚠️ Removing conflict markers from data-cache.json"
             sed -i '/^<<<<<<</d; /^=======/d; /^>>>>>>>/d' data-cache.json
           fi
-          git add docs/ reports/ data-cache.json history/
+          git add docs/ reports/ data-cache.json history/ -f snapshots/
           git diff --staged --quiet || git commit -m "Update report $(date +'%Y-%m-%d %H:%M')"
           git push

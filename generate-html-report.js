@@ -9,6 +9,7 @@ const isMultiPageMode = process.argv.includes('--multi') || process.argv.include
 // 캐시 파일 경로
 const CACHE_FILE = './data-cache.json';
 const HISTORY_DIR = './history';
+const SNAPSHOTS_DIR = './snapshots';
 const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
 
@@ -174,6 +175,68 @@ async function main() {
       fs.writeFileSync(historyFile, JSON.stringify(cache, null, 2), 'utf8');
       console.log(`📁 일간 스냅샷 저장: ${historyFile}`);
     }
+
+    // 30분마다 CSV 스냅샷 저장
+    const now = new Date();
+    const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+    const snapshotDate = kst.toISOString().split('T')[0];
+    const hours = String(kst.getUTCHours()).padStart(2, '0');
+    const minutes = String(Math.floor(kst.getUTCMinutes() / 30) * 30).padStart(2, '0');
+    const snapshotTime = `${hours}:${minutes}`;
+
+    // CSV 헤더
+    const csvHeader = 'time,rank,id,title\n';
+
+    // CSV 행 추가 함수
+    const appendCsv = (filePath, rows) => {
+      const isNew = !fs.existsSync(filePath);
+      const content = rows.map(r => `${snapshotTime},${r.rank},${r.id},"${(r.title || '').replace(/"/g, '""')}"`).join('\n') + '\n';
+      if (isNew) {
+        fs.writeFileSync(filePath, csvHeader + content, 'utf8');
+      } else {
+        fs.appendFileSync(filePath, content, 'utf8');
+      }
+    };
+
+    // 디렉토리 생성
+    const rankingsDir = `${SNAPSHOTS_DIR}/rankings`;
+    const steamDir = `${SNAPSHOTS_DIR}/steam`;
+    if (!fs.existsSync(rankingsDir)) fs.mkdirSync(rankingsDir, { recursive: true });
+    if (!fs.existsSync(steamDir)) fs.mkdirSync(steamDir, { recursive: true });
+
+    // iOS 매출 순위 (5개국)
+    const iosCountries = ['kr', 'jp', 'us', 'cn', 'tw'];
+    iosCountries.forEach(country => {
+      const data = rankings?.grossing?.[country]?.ios || [];
+      if (data.length > 0) {
+        const rows = data.map((app, i) => ({ rank: i + 1, id: app.id || app.appId || '', title: app.title }));
+        appendCsv(`${rankingsDir}/${snapshotDate}_ios_${country}_grossing.csv`, rows);
+      }
+    });
+
+    // Android 매출 순위 (4개국, 중국 제외)
+    const aosCountries = ['kr', 'jp', 'us', 'tw'];
+    aosCountries.forEach(country => {
+      const data = rankings?.grossing?.[country]?.android || [];
+      if (data.length > 0) {
+        const rows = data.map((app, i) => ({ rank: i + 1, id: app.appId || '', title: app.title }));
+        appendCsv(`${rankingsDir}/${snapshotDate}_aos_${country}_grossing.csv`, rows);
+      }
+    });
+
+    // Steam 동접
+    if (steam?.mostPlayed?.length > 0) {
+      const rows = steam.mostPlayed.map((g, i) => ({ rank: i + 1, id: g.appid || '', title: g.name }));
+      appendCsv(`${steamDir}/${snapshotDate}_mostplayed.csv`, rows);
+    }
+
+    // Steam 판매
+    if (steam?.topSellers?.length > 0) {
+      const rows = steam.topSellers.map((g, i) => ({ rank: i + 1, id: g.appid || '', title: g.name }));
+      appendCsv(`${steamDir}/${snapshotDate}_topsellers.csv`, rows);
+    }
+
+    console.log(`📸 CSV 스냅샷 저장: ${snapshotDate} ${snapshotTime}`);
   }
 
   console.log('\n📄 GAMERSCRAWL 일일 보고서 생성 중...');
