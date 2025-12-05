@@ -41,10 +41,10 @@ const swipeScript = `
 
   function switchNavSection(index) {
     if (index < 0 || index >= navSections.length) {
-      window.location.href = 'index.html';
+      window.location.href = '/';
       return;
     }
-    window.location.href = navSections[index] + '.html';
+    window.location.href = '/' + navSections[index];
   }
 
   // 스크롤 가능한 요소 찾기

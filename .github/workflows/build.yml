@@ -43,16 +43,13 @@ jobs:
         run: |
           mkdir -p docs
           mkdir -p docs/reports
-          # MPA 모드: 9개 HTML 파일 모두 복사
+          # MPA 모드: 폴더 구조로 복사 (clean URLs)
           cp index.html docs/index.html
-          cp insight.html docs/insight.html
-          cp news.html docs/news.html
-          cp community.html docs/community.html
-          cp youtube.html docs/youtube.html
-          cp rankings.html docs/rankings.html
-          cp steam.html docs/steam.html
-          cp upcoming.html docs/upcoming.html
-          cp metacritic.html docs/metacritic.html
+          # 각 페이지를 폴더/index.html로
+          for page in insight news community youtube rankings steam upcoming metacritic; do
+            mkdir -p docs/$page
+            cp $page.html docs/$page/index.html
+          done
           cp src/styles.css docs/styles.css
           # 파비콘 및 아이콘 복사
           cp favicon-16x16.png docs/favicon-16x16.png
