@@ -22,23 +22,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   const insightDate = kstTime ? `${kstTime.getUTCMonth() + 1}월 ${kstTime.getUTCDate()}일` : '';
   const insightAmPm = kstTime ? (kstTime.getUTCHours() < 12 ? 'AM' : 'PM') : '';
 
-  // 뉴스 HTML 생성 (소스별 분리) - 섬네일 포함
+  // 뉴스 HTML 생성 (커뮤니티와 동일한 스타일)
   function generateNewsSection(items, sourceName, sourceUrl) {
     if (!items || items.length === 0) {
       return '<div class="no-data">뉴스를 불러올 수 없습니다</div>';
     }
-    const fixUrl = (url) => {
-      if (!url) return url;
-      if (url.startsWith('//')) url = 'https:' + url;
-      if (url.includes('inven.co.kr')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
-      return url;
-    };
     return items.map((item, i) => `
-      <a class="news-item-card" href="${item.link}" target="_blank" rel="noopener">
+      <a class="news-item clickable" href="${item.link}" target="_blank" rel="noopener">
         <span class="news-num">${i + 1}</span>
-        ${item.thumbnail ? `<img class="news-thumb" src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden');">` : ''}
-        <div class="news-thumb-placeholder ${item.thumbnail ? 'hidden' : ''}">📰</div>
-        <div class="news-item-title">${item.title}</div>
+        <div class="news-content">
+          <span class="news-title">${item.title}</span>
+          <div class="news-tags"><span class="community-tag source-tag">${sourceName}</span></div>
+        </div>
       </a>
     `).join('');
   }
@@ -1038,10 +1033,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     return header + rows;
   }
 
-  const invenNewsHTML = generateNewsSection(news.inven);
-  const ruliwebNewsHTML = generateNewsSection(news.ruliweb);
-  const gamemecaNewsHTML = generateNewsSection(news.gamemeca);
-  const thisisgameNewsHTML = generateNewsSection(news.thisisgame);
+  const invenNewsHTML = generateNewsSection(news.inven, '인벤');
+  const ruliwebNewsHTML = generateNewsSection(news.ruliweb, '루리웹');
+  const gamemecaNewsHTML = generateNewsSection(news.gamemeca, '게임메카');
+  const thisisgameNewsHTML = generateNewsSection(news.thisisgame, '디게');
 
   // 커뮤니티 인기글 HTML 생성
   const communityUrls = {
@@ -1915,16 +1910,36 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="news-card">
         <div class="news-container">
           <div class="news-panel active" id="news-inven">
-            <div class="news-grid">${invenNewsHTML}</div>
+            <div class="news-panel-header">
+              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
+              <span class="news-panel-title">인벤</span>
+              <a href="https://www.inven.co.kr/webzine/news/" target="_blank" class="news-more-link">더보기 →</a>
+            </div>
+            <div class="news-list">${invenNewsHTML}</div>
           </div>
           <div class="news-panel" id="news-thisisgame">
-            <div class="news-grid">${thisisgameNewsHTML}</div>
+            <div class="news-panel-header">
+              <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">
+              <span class="news-panel-title">디스이즈게임</span>
+              <a href="https://www.thisisgame.com/webzine/news/nboard/4/" target="_blank" class="news-more-link">더보기 →</a>
+            </div>
+            <div class="news-list">${thisisgameNewsHTML}</div>
           </div>
           <div class="news-panel" id="news-gamemeca">
-            <div class="news-grid">${gamemecaNewsHTML}</div>
+            <div class="news-panel-header">
+              <img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">
+              <span class="news-panel-title">게임메카</span>
+              <a href="https://www.gamemeca.com/news.php" target="_blank" class="news-more-link">더보기 →</a>
+            </div>
+            <div class="news-list">${gamemecaNewsHTML}</div>
           </div>
           <div class="news-panel" id="news-ruliweb">
-            <div class="news-grid">${ruliwebNewsHTML}</div>
+            <div class="news-panel-header">
+              <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
+              <span class="news-panel-title">루리웹</span>
+              <a href="https://bbs.ruliweb.com/news" target="_blank" class="news-more-link">더보기 →</a>
+            </div>
+            <div class="news-list">${ruliwebNewsHTML}</div>
           </div>
         </div>
       </div>
@@ -2659,7 +2674,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       });
     });
 
-    // 뉴스 탭 - 선택한 패널만 표시 (active 클래스 토글)
+    // 뉴스 탭 - 선택한 패널부터 순서대로 배치
     const newsTypes = ['inven', 'thisisgame', 'gamemeca', 'ruliweb'];
     newsTab?.addEventListener('click', (e) => {
       const btn = e.target.closest('.tab-btn');
@@ -2672,16 +2687,18 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         b.classList.toggle('active', i === selectedIndex);
       });
 
-      // 패널 active 토글
-      newsTypes.forEach((type) => {
+      // 패널 active 토글 + order 설정 (선택한 패널부터 순서대로)
+      newsTypes.forEach((type, i) => {
         const panel = document.getElementById('news-' + type);
         if (panel) {
           panel.classList.toggle('active', type === selectedType);
+          // order: 선택된 패널이 0, 그 다음이 1, 2, 3...
+          panel.style.order = (i - selectedIndex + newsTypes.length) % newsTypes.length;
         }
       });
     });
 
-    // 커뮤니티 탭 - 선택한 패널만 표시 (active 클래스 토글)
+    // 커뮤니티 탭 - 선택한 패널부터 순서대로 배치
     const communityTypes = ['dcinside', 'arca', 'inven', 'ruliweb'];
     let currentCommunityIndex = 0;
 
@@ -2695,11 +2712,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         b.classList.toggle('active', i === index);
       });
 
-      // 패널 active 토글 (PC에서 단일 패널 표시)
+      // 패널 active 토글 + order 설정 (선택한 패널부터 순서대로)
       communityTypes.forEach((type, i) => {
         const panel = document.getElementById('community-' + type);
         if (panel) {
           panel.classList.toggle('active', i === index);
+          // order: 선택된 패널이 0, 그 다음이 1, 2, 3...
+          panel.style.order = (i - index + communityTypes.length) % communityTypes.length;
         }
       });
     }
