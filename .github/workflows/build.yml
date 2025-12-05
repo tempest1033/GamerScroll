@@ -54,6 +54,10 @@ jobs:
           cp upcoming.html docs/upcoming.html
           cp metacritic.html docs/metacritic.html
           cp src/styles.css docs/styles.css
+          # 파비콘 및 아이콘 복사
+          cp favicon-16x16.png docs/favicon-16x16.png
+          cp favicon-32x32.png docs/favicon-32x32.png
+          cp icon-192.png docs/icon-192.png
           echo "gamerscrawl.com" > docs/CNAME
           # 데일리 인사이트 리포트 복사
           if [ -d "reports" ]; then
