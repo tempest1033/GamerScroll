@@ -50,12 +50,31 @@ const swipeScript = `
     window.location.href = navSections[index] + '.html';
   }
 
+  // 스크롤 가능한 영역 체크
+  function isScrollableElement(el) {
+    while (el && el !== document.body) {
+      const style = window.getComputedStyle(el);
+      const overflowX = style.overflowX;
+      if ((overflowX === 'auto' || overflowX === 'scroll') && el.scrollWidth > el.clientWidth) {
+        return true;
+      }
+      if (el.classList.contains('chart-scroll') || el.classList.contains('rank-list')) {
+        return true;
+      }
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  let isInScrollable = false;
+
   // 터치 이벤트
   document.body.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
     isTouchMoving = false;
     touchedElement = e.target.closest('.nav-item, .tab-btn');
+    isInScrollable = isScrollableElement(e.target);
   }, { passive: true });
 
   document.body.addEventListener('touchmove', (e) => {
@@ -87,6 +106,12 @@ const swipeScript = `
     const touchEndY = e.changedTouches[0].screenY;
     const diffX = touchStartX - touchEndX;
     const diffY = touchStartY - touchEndY;
+
+    // 스크롤 영역이면 페이지 전환하지 않음
+    if (isInScrollable) {
+      cleanup();
+      return;
+    }
 
     if (Math.abs(diffX) <= Math.abs(diffY)) {
       cleanup();
