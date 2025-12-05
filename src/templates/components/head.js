@@ -80,21 +80,24 @@ function generateHead(options = {}) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="/styles.css">
   <script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
-  <!-- Firebase Analytics -->
+  <!-- Firebase Analytics (프로덕션만) -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-    const firebaseConfig = {
-      apiKey: "AIzaSyBlVfvAGVrhEEMPKpDKJBrOPF7BINleV7I",
-      authDomain: "gamerscrawl-b104b.firebaseapp.com",
-      projectId: "gamerscrawl-b104b",
-      storageBucket: "gamerscrawl-b104b.firebasestorage.app",
-      messagingSenderId: "831886529376",
-      appId: "1:831886529376:web:2d9f0f64782fa5e5e80405",
-      measurementId: "G-2269FV044J"
-    };
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    // 프로덕션(gamerscrawl.com)에서만 Analytics 실행
+    if (window.location.hostname === 'gamerscrawl.com') {
+      const firebaseConfig = {
+        apiKey: "AIzaSyBlVfvAGVrhEEMPKpDKJBrOPF7BINleV7I",
+        authDomain: "gamerscrawl-b104b.firebaseapp.com",
+        projectId: "gamerscrawl-b104b",
+        storageBucket: "gamerscrawl-b104b.firebasestorage.app",
+        messagingSenderId: "831886529376",
+        appId: "1:831886529376:web:2d9f0f64782fa5e5e80405",
+        measurementId: "G-2269FV044J"
+      };
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    }
   </script>
   ${SHOW_ADS ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>` : ''}
   ${dataScript}`;
