@@ -8,6 +8,7 @@ const isQuickMode = process.argv.includes('--quick') || process.argv.includes('-
 const CACHE_FILE = './data-cache.json';
 const HISTORY_DIR = './history';
 const REPORTS_DIR = './reports';
+const WEEKLY_REPORTS_DIR = './reports/weekly';
 
 // 퀵 모드가 아닐 때만 무거운 모듈 로드
 let gplay, store, axios, cheerio, FirecrawlClient;
@@ -84,6 +85,27 @@ function findInsightJsonFile(today) {
   }
 
   return null;
+}
+
+/**
+ * 가장 최근 주간 리포트 파일 찾기
+ * @returns {string|null} 존재하는 파일 경로 또는 null
+ */
+function findLatestWeeklyReport() {
+  if (!fs.existsSync(WEEKLY_REPORTS_DIR)) {
+    return null;
+  }
+
+  const files = fs.readdirSync(WEEKLY_REPORTS_DIR)
+    .filter(f => f.endsWith('.json'))
+    .sort()
+    .reverse(); // 최신 파일 먼저
+
+  if (files.length === 0) {
+    return null;
+  }
+
+  return `${WEEKLY_REPORTS_DIR}/${files[0]}`;
 }
 
 async function main() {
@@ -178,7 +200,22 @@ async function main() {
     }
   }
 
-  const html = generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight, yesterdayData, metacritic);
+  // 주간 인사이트 로드 (별도 스크립트로 생성됨)
+  let weeklyInsight = null;
+  const weeklyReportFile = findLatestWeeklyReport();
+  if (weeklyReportFile) {
+    try {
+      const weeklyReport = JSON.parse(fs.readFileSync(weeklyReportFile, 'utf8'));
+      if (weeklyReport.ai) {
+        weeklyInsight = weeklyReport;
+        console.log(`📂 주간 인사이트 로드 완료 (${weeklyReportFile.split('/').pop()})`);
+      }
+    } catch (e) {
+      console.log('⚠️ 주간 인사이트 로드 실패');
+    }
+  }
+
+  const html = generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight, yesterdayData, metacritic, weeklyInsight);
 
   const filename = `index.html`;
   fs.writeFileSync(filename, html, 'utf8');

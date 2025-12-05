@@ -264,6 +264,14 @@ function generateInsightHTML(insight) {
     return d.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
   };
 
+  const getWeekInfo = (dateStr) => {
+    const d = new Date(dateStr);
+    const weekNum = Math.ceil(d.getDate() / 7);
+    const month = d.getMonth() + 1;
+    const year = d.getFullYear();
+    return `${year}년 ${month}월 ${weekNum}주차`;
+  };
+
   const renderChangeIcon = (status, change) => {
     if (status === 'new') return '<span class="change new">NEW</span>';
     if (status === 'up') return `<span class="change up">▲${change}</span>`;
@@ -321,6 +329,14 @@ function generateInsightHTML(insight) {
     .insight-date { font-size: 2rem; font-weight: 700; color: #fff; }
     .insight-subtitle { color: #9ca3af; margin-top: 8px; }
 
+    /* 탭 스타일 */
+    .insight-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 32px; }
+    .insight-tab { padding: 12px 32px; border-radius: 24px; font-size: 15px; font-weight: 600; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; background: #1f2937; color: #9ca3af; }
+    .insight-tab:hover { background: #374151; color: #fff; }
+    .insight-tab.active { background: linear-gradient(135deg, #6366f1, #818cf8); color: #fff; border-color: transparent; }
+    .insight-panel { display: none; }
+    .insight-panel.active { display: block; }
+
     .insight-section { background: #1f2937; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
     .section-title { font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 
@@ -367,6 +383,35 @@ function generateInsightHTML(insight) {
     .ai-trends { list-style: none; padding: 0; margin: 0; }
     .ai-trends li { padding: 12px 16px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; color: #c7d2fe; font-size: 0.9rem; border-left: 3px solid #818cf8; }
     .ai-badge { background: #818cf8; color: #1e1b4b; font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; margin-right: 8px; font-weight: 700; }
+
+    /* 주간 리포트 스타일 */
+    .weekly-header { text-align: center; margin-bottom: 32px; }
+    .weekly-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .weekly-period { color: #9ca3af; font-size: 14px; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    @media (max-width: 900px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .metrics-grid { grid-template-columns: 1fr; } }
+    .metric-card { background: #1f2937; border-radius: 12px; padding: 20px; border-top: 3px solid; }
+    .metric-card.primary { border-color: #6366f1; }
+    .metric-card.accent { border-color: #f97316; }
+    .metric-card.success { border-color: #22c55e; }
+    .metric-card.blue { border-color: #3b82f6; }
+    .metric-label { font-size: 12px; color: #9ca3af; margin-bottom: 8px; }
+    .metric-value { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .metric-sub { font-size: 12px; color: #6b7280; }
+    .highlights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 768px) { .highlights-grid { grid-template-columns: 1fr; } }
+    .highlight-card { background: #1f2937; border-radius: 12px; padding: 20px; }
+    .highlight-tag { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
+    .highlight-tag.mobile { background: rgba(99,102,241,0.2); color: #818cf8; }
+    .highlight-tag.pc { background: rgba(59,130,246,0.2); color: #60a5fa; }
+    .highlight-tag.console { background: rgba(168,85,247,0.2); color: #c084fc; }
+    .highlight-tag.esports { background: rgba(249,115,22,0.2); color: #fb923c; }
+    .highlight-tag.industry { background: rgba(34,197,94,0.2); color: #4ade80; }
+    .highlight-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.4; }
+    .highlight-desc { font-size: 13px; color: #9ca3af; line-height: 1.6; }
+    .weekly-coming-soon { text-align: center; padding: 60px 20px; color: #6b7280; }
+    .weekly-coming-soon h3 { font-size: 18px; margin-bottom: 8px; color: #9ca3af; }
   </style>
 </head>
 <body style="background: #111827; min-height: 100vh;">
@@ -375,8 +420,17 @@ function generateInsightHTML(insight) {
 
     <header class="insight-header">
       <div class="insight-date">${formatDate(date)}</div>
-      <div class="insight-subtitle">Daily Gaming Insight</div>
+      <div class="insight-subtitle">Gaming Insight Report</div>
     </header>
+
+    <!-- 탭 -->
+    <div class="insight-tabs">
+      <button class="insight-tab active" data-tab="daily">일간 리포트</button>
+      <button class="insight-tab" data-tab="weekly">주간 리포트</button>
+    </div>
+
+    <!-- 일간 리포트 패널 -->
+    <div class="insight-panel active" id="panel-daily">
 
     <section class="insight-section">
       <h2 class="section-title">오늘의 핵심</h2>
@@ -445,7 +499,113 @@ function generateInsightHTML(insight) {
         <div class="community-list">${communityHTML}</div>
       </section>
     </div>
+    </div><!-- /panel-daily -->
+
+    <!-- 주간 리포트 패널 -->
+    <div class="insight-panel" id="panel-weekly">
+      <div class="weekly-header">
+        <div class="weekly-title">📊 ${getWeekInfo(date)}</div>
+        <div class="weekly-period">주간 게이밍 인사이트 리포트</div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card primary">
+          <div class="metric-label">모바일 1위 유지</div>
+          <div class="metric-value">${mobile.kr.ios[0]?.title || '-'}</div>
+          <div class="metric-sub">iOS 매출 순위</div>
+        </div>
+        <div class="metric-card accent">
+          <div class="metric-label">Steam 최다 동접</div>
+          <div class="metric-value">${steam[0]?.name || '-'}</div>
+          <div class="metric-sub">${steam[0]?.ccu?.toLocaleString() || '-'} CCU</div>
+        </div>
+        <div class="metric-card success">
+          <div class="metric-label">주간 급상승</div>
+          <div class="metric-value">${mobile.kr.ios.filter(g => g.status === 'up' && g.change >= 5)[0]?.title || '-'}</div>
+          <div class="metric-sub">iOS TOP 100 기준</div>
+        </div>
+        <div class="metric-card blue">
+          <div class="metric-label">신규 진입</div>
+          <div class="metric-value">${mobile.kr.ios.filter(g => g.status === 'new')[0]?.title || '-'}</div>
+          <div class="metric-sub">TOP 100 신규</div>
+        </div>
+      </div>
+
+      <section class="insight-section">
+        <h2 class="section-title">🎯 금주 하이라이트</h2>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <span class="highlight-tag mobile">모바일</span>
+            <div class="highlight-title">iOS 매출 순위 동향</div>
+            <div class="highlight-desc">
+              ${mobile.kr.ios.slice(0, 3).map((g, i) => `${i + 1}위: ${g.title}`).join(' / ')}
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-tag pc">PC</span>
+            <div class="highlight-title">Steam 동시접속 TOP 3</div>
+            <div class="highlight-desc">
+              ${steam.slice(0, 3).map((g, i) => `${i + 1}위: ${g.name} (${g.ccu?.toLocaleString() || '-'})`).join(' / ')}
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-tag industry">순위 변동</span>
+            <div class="highlight-title">주요 순위 변동 게임</div>
+            <div class="highlight-desc">
+              ${mobile.kr.ios.filter(g => g.status !== 'same').slice(0, 3).map(g => `${g.title} (${g.status === 'up' ? '▲' : g.status === 'down' ? '▼' : ''}${Math.abs(g.change)})`).join(', ') || '변동 없음'}
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-tag esports">뉴스</span>
+            <div class="highlight-title">금주 주요 뉴스</div>
+            <div class="highlight-desc">
+              ${news.slice(0, 2).map(n => n.title).join(' / ') || '주요 뉴스 없음'}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid-2">
+        <section class="insight-section">
+          <h2 class="section-title">📱 모바일 TOP 10 (주간)</h2>
+          <table class="ranking-table">
+            <thead><tr><th>순위</th><th></th><th>게임</th><th>변동</th></tr></thead>
+            <tbody>${mobileKRHTML}</tbody>
+          </table>
+        </section>
+
+        <section class="insight-section">
+          <h2 class="section-title">🎮 Steam TOP 10 (주간)</h2>
+          <table class="ranking-table">
+            <thead><tr><th>순위</th><th></th><th>게임</th><th>CCU</th><th>변동</th></tr></thead>
+            <tbody>${steamHTML}</tbody>
+          </table>
+        </section>
+      </div>
+
+      <div class="weekly-coming-soon">
+        <h3>📈 더 많은 주간 분석 데이터가 곧 추가됩니다</h3>
+        <p>주간 트렌드, 장르별 분석, 커뮤니티 핫이슈 등</p>
+      </div>
+    </div><!-- /panel-weekly -->
+
   </div>
+
+  <script>
+    // 탭 전환 기능
+    document.querySelectorAll('.insight-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 모든 탭 비활성화
+        document.querySelectorAll('.insight-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.insight-panel').forEach(p => p.classList.remove('active'));
+
+        // 클릭한 탭 활성화
+        tab.classList.add('active');
+        const panelId = 'panel-' + tab.dataset.tab;
+        document.getElementById(panelId).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>`;
 }

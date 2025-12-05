@@ -32,30 +32,39 @@ async function generateAIInsight(crawlData, rankingChanges = null) {
     );
     const rankingsSummary = hasRankingChanges ? buildRankingChangeSummary(rankingChanges) : '';
 
-    const today = new Date().toISOString().split('T')[0];
+    const now = new Date();
+    const kstNow = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+    const today = kstNow.toISOString().split('T')[0];
+    const currentTime = kstNow.toISOString().split('T')[1].substring(0, 5); // HH:MM
 
     // rankings 섹션은 순위 변동 데이터가 있을 때만 포함
     const rankingsSection = hasRankingChanges ? `
   "rankings": [
-    { "tag": "급상승|급하락|신규진입", "title": "게임명", "desc": "순위 변동 이유 분석 100자" }
+    { "tag": "급상승|급하락|신규진입", "title": "게임명", "prevRank": 이전순위숫자, "rank": 현재순위숫자, "change": 변동숫자, "platform": "iOS|Android", "desc": "순위 변동 이유 분석 100자" }
   ],` : '';
 
     const rankingsInstruction = hasRankingChanges ? `
 - rankings: 4개 (급상승/급하락/신규진입 중 변동폭이 크거나 주목할 만한 4개 선정)
-  ※ 신규진입(순위권 밖에서 TOP 30 이내 진입)은 매우 중요 - 반드시 우선 포함!
-  ※ 각 게임의 순위 변동 원인을 웹 검색으로 파악하여 작성 (업데이트, 이벤트, 할인, 논란 등)` : '';
+  ※ 반드시 아래 '순위 변동 데이터'에 있는 게임 중에서만 선정!
+  ※ prevRank, rank, change, platform 값은 아래 데이터에서 그대로 복사!
+  ※ 순위 숫자를 임의로 바꾸지 말 것 - 제공된 데이터 그대로 사용
+  ※ desc에만 웹 검색으로 파악한 변동 원인 작성 (업데이트, 이벤트, 할인, 논란 등)` : '';
 
     const rankingsData = hasRankingChanges ? `
 
-## 순위 변동 데이터 (어제 → 오늘):
+## 순위 변동 데이터 (어제 → 오늘) - 반드시 이 데이터에서 선정:
 ${rankingsSummary}
 
-## 순위 변동 분석:
-- 급상승/급하락/신규진입 중 주목할 4개 선정하여 변동 원인 분석
-- 신규진입(순위권 밖 → TOP 30)은 반드시 우선 포함!
-- 원인: 업데이트, 이벤트, 할인, 논란 등 (최신 뉴스 참고)` : '';
+## 순위 변동 분석 규칙:
+- 위 데이터에 있는 게임만 선정 (임의 게임 추가 금지)
+- prevRank, rank, change, platform 값은 위 데이터에서 정확히 복사
+- 순위 숫자 절대 수정 금지
+- desc만 웹 검색으로 원인 분석하여 작성` : '';
 
-    const prompt = `## 중요: 오늘 날짜는 ${today}입니다.
+    const prompt = `## 중요: 현재 시간 기준 정보
+- 오늘 날짜: ${today}
+- 현재 시간: ${currentTime} (KST, 한국 표준시)
+- 데이터 정리 시 위 시간을 기준으로 판단해주세요.
 
 한국 게임 업계 종합 인사이트를 JSON 형식으로 작성해줘.
 
@@ -82,6 +91,7 @@ ${dataSummary}${rankingsData}
 ## JSON 형식:
 {
   "date": "${today}",
+  "summary": "오늘의 게임 업계 핵심 요약 2-3문장 (150자 이내)",
   "issues": [
     { "tag": "모바일|PC|콘솔|e스포츠", "title": "제목 40자", "desc": "설명 100자 2문장" }
   ],
@@ -103,6 +113,7 @@ ${dataSummary}${rankingsData}
 }
 
 ## 글자수 제한 (필수):
+- summary: 150자 이내 (2-3문장, 오늘의 핵심 요약)
 - title: 40자 이내
 - desc: 100자 이내 (2문장으로 요약)
 

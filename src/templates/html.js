@@ -3,7 +3,7 @@ const { countries } = require('../crawlers/rankings');
 // 광고 표시 여부 (광고 승인 전까지 N)
 const SHOW_ADS = false;
 
-function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight = null, historyData = null, metacritic = null) {
+function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight = null, historyData = null, metacritic = null, weeklyInsight = null) {
   const now = new Date();
   // 15분 단위로 내림 (21:37 → 21:30)
   const roundedMinutes = Math.floor(now.getMinutes() / 15) * 15;
@@ -49,39 +49,196 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       return `<div class="home-empty">AI 인사이트를 불러올 수 없습니다</div>`;
     }
 
-    // 아이템 렌더링 (홈과 동일)
-    const renderItem = (item) => `
-      <div class="home-insight-item">
-        <div class="home-insight-header">
-          <span class="home-insight-tag">${item.tag || ''}</span>
-          <span class="home-insight-title">${item.title || ''}</span>
+    // 태그별 아이콘 및 클래스 매핑
+    const tagIcons = {
+      '모바일': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>',
+      'PC': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+      '콘솔': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4M16 10h.01M18 14h.01"/></svg>',
+      'e스포츠': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6-3 6 3"/><path d="M6 9v8l6 3 6-3V9"/><path d="M12 6v15"/></svg>'
+    };
+    // 고정형 태그 클래스 매핑 (상승/하락/신규 등 의미가 고정된 태그)
+    const fixedTagClasses = {
+      '급상승': 'tag-up', '급하락': 'tag-down', '신규진입': 'tag-new',
+      '매출': 'tag-revenue', '동접': 'tag-players'
+    };
+    const getTagIcon = (tag) => tagIcons[tag] || '';
+    const getFixedTagClass = (tag) => fixedTagClasses[tag] || '';
+
+    // 아이템 렌더링 (주간 스타일)
+    const renderItem = (item) => {
+      const tagIcon = getTagIcon(item.tag);
+      const fixedClass = getFixedTagClass(item.tag);
+      return `
+        <div class="weekly-hot-card">
+          <div class="weekly-hot-tag ${fixedClass}">${tagIcon}${item.tag || ''}</div>
+          <h4 class="weekly-hot-title">${item.title || ''}</h4>
+          <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
         </div>
-        <span class="home-insight-desc">${(item.desc || '').replace(/\. /g, '.\n')}</span>
-      </div>
-    `;
+      `;
+    };
 
-    // 카테고리별 카드 렌더링 (좌우 번갈아 배치)
-    const renderCategoryCard = (title, items) => {
-      if (!items || items.length === 0) return '';
+    // 순위 변동 아이템 렌더링 (주간 스타일 + 순위 정보 포함)
+    const renderRankingItem = (item) => {
+      const hasRankInfo = item.prevRank !== undefined && item.rank !== undefined;
+      const changeText = item.change > 0 ? `+${item.change}` : item.change < 0 ? `${item.change}` : '0';
+      const changeClass = item.change > 0 ? 'up' : item.change < 0 ? 'down' : '';
+      const platformText = item.platform ? `${item.platform} ` : '';
+      const tagIcon = getTagIcon(item.tag);
+      const fixedClass = getFixedTagClass(item.tag);
 
-      // 좌우 번갈아 배치 (0,2 -> 좌측 / 1,3 -> 우측)
-      const leftItems = items.filter((_, i) => i % 2 === 0);
-      const rightItems = items.filter((_, i) => i % 2 === 1);
+      const rankBadge = hasRankInfo ? `
+        <span class="weekly-ranking-badge ${changeClass}">
+          ${platformText}${item.prevRank}위 → ${item.rank}위 (${changeText})
+        </span>
+      ` : '';
 
       return `
-        <div class="home-card insight-card">
-          <div class="home-card-header">
-            <span class="home-card-title">${title}</span>
-          </div>
-          <div class="home-card-body">
-            <div class="home-insight-split">
-              <div class="home-insight-column">
-                ${leftItems.map(renderItem).join('')}
-              </div>
-              <div class="home-insight-column">
-                ${rightItems.map(renderItem).join('')}
-              </div>
+        <div class="weekly-hot-card ranking-item">
+          <div class="weekly-hot-tag ${fixedClass}">${tagIcon}${item.tag || ''}</div>
+          <h4 class="weekly-hot-title">${item.title || ''}</h4>
+          ${rankBadge}
+          <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+        </div>
+      `;
+    };
+
+    // 카테고리별 카드 렌더링 (그리드 배치 - 주간 스타일)
+    const renderCategoryCard = (title, items, useRankingRenderer = false) => {
+      if (!items || items.length === 0) return '';
+
+      const renderer = useRankingRenderer ? renderRankingItem : renderItem;
+
+      // 카테고리별 섹션 클래스 매핑 (주간 스타일)
+      const sectionClass = {
+        '오늘의 핫이슈': 'weekly-section-hot',
+        '업계 동향': 'weekly-section-industry',
+        '주목할만한 지표': 'weekly-section-metrics',
+        '순위 변동': 'weekly-section-rankings',
+        '유저 반응': 'weekly-section-community',
+        '스트리밍 트렌드': 'weekly-section-streaming'
+      }[title] || '';
+
+      // 카테고리별 아이콘 SVG (주간 스타일)
+      const sectionIcon = {
+        '오늘의 핫이슈': '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>',
+        '업계 동향': '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01"/></svg>',
+        '주목할만한 지표': '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>',
+        '순위 변동': '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/></svg>',
+        '유저 반응': '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+        '스트리밍 트렌드': '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>'
+      }[title] || '';
+
+      return `
+        <div class="weekly-section ${sectionClass}">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${sectionIcon}
+              <h3 class="weekly-section-title">${title}</h3>
             </div>
+          </div>
+          <div class="weekly-hot-issues">
+            ${items.map(item => renderer(item)).join('')}
+          </div>
+        </div>
+      `;
+    };
+
+    // 유저 반응 카드 그리드 렌더링 (주간 리포트 스타일)
+    const renderCommunityCards = (title, items) => {
+      if (!items || items.length === 0) return '';
+
+      const sectionIcon = '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>';
+
+      const cards = items.map(item => `
+        <div class="weekly-community-card">
+          <div class="weekly-community-game">${item.tag || ''}</div>
+          <h4 class="weekly-community-title">${item.title || ''}</h4>
+          <p class="weekly-community-desc">${item.desc || ''}</p>
+        </div>
+      `).join('');
+
+      return `
+        <div class="weekly-section weekly-section-community">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${sectionIcon}
+              <h3 class="weekly-section-title">${title}</h3>
+            </div>
+          </div>
+          <div class="weekly-community-grid">
+            ${cards}
+          </div>
+        </div>
+      `;
+    };
+
+    // 스트리밍 트렌드 카드 그리드 렌더링 (주간 리포트 스타일)
+    const renderStreamingCards = (title, items) => {
+      if (!items || items.length === 0) return '';
+
+      const sectionIcon = '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>';
+
+      const cards = items.map(item => {
+        const platformIcon = item.tag === '치지직' ?
+          `<svg viewBox="0 0 24 24" fill="#00FFA3"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-5" stroke="#000" stroke-width="2" fill="none"/></svg>` :
+          item.tag === '유튜브' ?
+          `<svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.7 3.5 12 3.5 12 3.5s-7.7 0-9.5.6c-1 .3-1.7 1.1-2 2.1C0 8 0 12 0 12s0 4 .5 5.8c.3 1 1 1.8 2 2.1 1.8.6 9.5.6 9.5.6s7.7 0 9.5-.6c1-.3 1.7-1.1 2-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8z"/><path d="M9.5 15.5l6-3.5-6-3.5v7z" fill="#FFF"/></svg>` :
+          `<svg viewBox="0 0 24 24" fill="#9146FF"><path d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z"/></svg>`;
+
+        return `
+          <div class="weekly-streaming-card">
+            <div class="weekly-streaming-platform">
+              ${platformIcon}
+              <span>${item.tag || ''}</span>
+            </div>
+            <h4 class="weekly-streaming-title">${item.title || ''}</h4>
+            <p class="weekly-streaming-desc">${item.desc || ''}</p>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="weekly-section weekly-section-streaming">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${sectionIcon}
+              <h3 class="weekly-section-title">${title}</h3>
+            </div>
+          </div>
+          <div class="weekly-streaming-grid">
+            ${cards}
+          </div>
+        </div>
+      `;
+    };
+
+    // 업계 동향 타임라인 렌더링 (주간 리포트 스타일)
+    const renderIndustryTimeline = (title, items) => {
+      if (!items || items.length === 0) return '';
+
+      const sectionIcon = '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01"/></svg>';
+
+      const timelineItems = items.map(item => `
+        <div class="weekly-timeline-item">
+          <div class="weekly-timeline-marker"></div>
+          <div class="weekly-timeline-content">
+            <span class="weekly-timeline-tag">${item.tag || ''}</span>
+            <h4 class="weekly-timeline-title">${item.title || ''}</h4>
+            <p class="weekly-timeline-desc">${item.desc || ''}</p>
+          </div>
+        </div>
+      `).join('');
+
+      return `
+        <div class="weekly-section weekly-section-industry">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${sectionIcon}
+              <h3 class="weekly-section-title">${title}</h3>
+            </div>
+          </div>
+          <div class="weekly-timeline">
+            ${timelineItems}
           </div>
         </div>
       `;
@@ -263,29 +420,572 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     };
 
     const stocksCard = stocksData.length > 0 ? `
-      <div class="home-card insight-card stocks-card">
-        <div class="home-card-header">
-          <span class="home-card-title">게임주 현황</span>
-        </div>
-        <div class="home-card-body">
-          <div class="stocks-split">
-            ${stocksData.map(renderStockItem).join('')}
+      <div class="weekly-section weekly-section-stocks">
+        <div class="weekly-section-header">
+          <div class="weekly-section-title-wrap">
+            <svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <h3 class="weekly-section-title">게임주 현황</h3>
           </div>
+        </div>
+        <div class="stocks-split">
+          ${stocksData.map(renderStockItem).join('')}
         </div>
       </div>
     ` : '';
 
+    // 주간 리포트 컨텐츠 생성 (심층 보고서 형태)
+    const weeklyAi = weeklyInsight?.ai || null;
+    const weeklyInfo = weeklyInsight?.weekInfo || null;
+
+    // 주간 게임주 렌더링 (상승/하락 종목용 - 이슈 설명 포함)
+    const renderWeeklyStockRankItem = (stock, isUp) => {
+      const code = stock.code || '';
+      const displayName = stock.name || '';
+      const price = stock.price ? stock.price.toLocaleString() : '-';
+      const changePercent = stock.changePercent !== undefined ? stock.changePercent : 0;
+      const changeClass = changePercent > 0 ? 'up' : changePercent < 0 ? 'down' : '';
+      const changeSign = changePercent > 0 ? '+' : '';
+      const comment = stock.comment || '';
+
+      const stockUrl = code ? `https://finance.naver.com/item/main.nhn?code=${code}` : '#';
+
+      return `
+        <a class="weekly-stock-rank-item ${changeClass}" href="${stockUrl}" target="_blank" rel="noopener">
+          <div class="weekly-stock-rank-header">
+            <div class="weekly-stock-rank-name">${displayName}</div>
+            <div class="weekly-stock-rank-change ${changeClass}">${changeSign}${changePercent.toFixed(2)}%</div>
+          </div>
+          <div class="weekly-stock-rank-price">${price}원</div>
+          ${comment ? `<div class="weekly-stock-rank-comment">${comment}</div>` : ''}
+        </a>
+      `;
+    };
+
+    // 주간 리포트 생성 함수
+    const generateWeeklyReport = (weekNum, weekPeriod, data, isDemo = false) => {
+      const { issues, industryIssues, metrics, rankings, community, streaming, stocks, summary, mvp, releases, global } = data;
+
+      // SVG 아이콘 정의
+      const icons = {
+        fire: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/><path d="M12 12c0 2-1.5 3-1.5 5a1.5 1.5 0 0 0 3 0c0-2-1.5-3-1.5-5z"/></svg>`,
+        chart: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/></svg>`,
+        building: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg>`,
+        metric: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>`,
+        community: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+        stream: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>`,
+        stock: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+        edit: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
+        mobile: `<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>`,
+        pc: `<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+        console: `<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4M16 10h.01M18 14h.01"/></svg>`,
+        esports: `<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6-3 6 3"/><path d="M6 9v8l6 3 6-3V9"/><path d="M12 6v15"/></svg>`,
+        trophy: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>`,
+        calendar: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`,
+        globe: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
+      };
+
+      // 태그별 아이콘 매핑
+      const getTagIcon = (tag) => {
+        if (tag === '모바일') return icons.mobile;
+        if (tag === 'PC') return icons.pc;
+        if (tag === '콘솔') return icons.console;
+        if (tag === 'e스포츠') return icons.esports;
+        return '';
+      };
+
+      // 주간 요약 (에디터스 노트)
+      const weeklyIntro = summary ? `
+        <div class="weekly-intro">
+          <div class="weekly-intro-header">
+            ${icons.edit}
+            <span class="weekly-intro-label">에디터스 노트</span>
+          </div>
+          <p class="weekly-intro-text">${summary}</p>
+        </div>
+      ` : '';
+
+      // 금주의 핫이슈 (메인 카드)
+      const hotIssuesSection = issues.length > 0 ? `
+        <div class="weekly-section weekly-section-hot">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.fire}
+              <h3 class="weekly-section-title">금주의 핫이슈</h3>
+            </div>
+            <p class="weekly-section-desc">지난 주 게임 업계에서 가장 주목받은 소식들을 정리했습니다.</p>
+          </div>
+          <div class="weekly-hot-issues">
+            ${issues.map((issue, idx) => `
+              <div class="weekly-hot-card ${idx === 0 ? 'featured' : ''}">
+                <div class="weekly-hot-tag">${getTagIcon(issue.tag)}${issue.tag}</div>
+                <h4 class="weekly-hot-title">${issue.title}</h4>
+                <p class="weekly-hot-desc">${issue.desc}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      // 순위 변동 분석 (비주얼 차트)
+      const rankingsSection = rankings.length > 0 ? `
+        <div class="weekly-section weekly-section-rankings">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.chart}
+              <h3 class="weekly-section-title">순위 변동 분석</h3>
+            </div>
+            <p class="weekly-section-desc">앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.</p>
+          </div>
+          <div class="weekly-rankings-grid">
+            ${rankings.map(r => {
+              const isUp = r.tag === '급상승' || r.change > 0;
+              const isDown = r.tag === '급하락' || r.change < 0;
+              const isNew = r.tag === '신규진입';
+              const changeClass = isUp ? 'up' : isDown ? 'down' : 'new';
+              const changeIcon = isUp ? '▲' : isDown ? '▼' : '★';
+              const changeText = isNew ? 'NEW' : (r.change > 0 ? `+${r.change}` : r.change);
+
+              return `
+                <div class="weekly-rank-card ${changeClass}">
+                  <div class="weekly-rank-header">
+                    <span class="weekly-rank-badge ${changeClass}">${r.tag}</span>
+                    <span class="weekly-rank-platform">${r.platform || ''}</span>
+                  </div>
+                  <div class="weekly-rank-game">${r.title}</div>
+                  <div class="weekly-rank-change">
+                    <span class="weekly-rank-arrow ${changeClass}">${changeIcon}</span>
+                    <span class="weekly-rank-positions">
+                      ${isNew ? `${r.rank}위 진입` : `${r.prevRank}위 → ${r.rank}위`}
+                    </span>
+                    <span class="weekly-rank-delta ${changeClass}">${changeText}</span>
+                  </div>
+                  <p class="weekly-rank-reason">${r.desc}</p>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      // 업계 동향 (타임라인)
+      const industrySection = industryIssues.length > 0 ? `
+        <div class="weekly-section weekly-section-industry">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.building}
+              <h3 class="weekly-section-title">업계 동향</h3>
+            </div>
+            <p class="weekly-section-desc">국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.</p>
+          </div>
+          <div class="weekly-timeline">
+            ${industryIssues.map(item => `
+              <div class="weekly-timeline-item">
+                <div class="weekly-timeline-marker"></div>
+                <div class="weekly-timeline-content">
+                  <span class="weekly-timeline-tag">${item.tag}</span>
+                  <h4 class="weekly-timeline-title">${item.title}</h4>
+                  <p class="weekly-timeline-desc">${item.desc}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      // 주간 지표 (큰 숫자 강조형 카드)
+      const metricsSection = metrics.length > 0 ? `
+        <div class="weekly-section weekly-section-metrics">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.metric}
+              <h3 class="weekly-section-title">주간 지표</h3>
+            </div>
+            <p class="weekly-section-desc">지난 주 주목할 만한 수치 변화와 시장 지표입니다.</p>
+          </div>
+          <div class="weekly-metrics-row">
+            ${metrics.map((m, idx) => {
+              const colors = ['#6366f1', '#22c55e', '#f97316', '#ec4899'];
+              const color = colors[idx % colors.length];
+              return `
+                <div class="weekly-metric-card" style="--metric-color: ${color}">
+                  <div class="weekly-metric-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2">
+                      ${m.tag === '매출' ? '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' :
+                        m.tag === '동접' ? '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>' :
+                        '<path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/>'}
+                    </svg>
+                  </div>
+                  <div class="weekly-metric-content">
+                    <div class="weekly-metric-tag">${m.tag}</div>
+                    <h4 class="weekly-metric-title">${m.title}</h4>
+                    <p class="weekly-metric-desc">${m.desc}</p>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      // 커뮤니티 반응 (말풍선 스타일)
+      const communitySection = community.length > 0 ? `
+        <div class="weekly-section weekly-section-community">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.community}
+              <h3 class="weekly-section-title">커뮤니티 반응</h3>
+            </div>
+            <p class="weekly-section-desc">디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.</p>
+          </div>
+          <div class="weekly-community-grid">
+            ${community.map(c => `
+              <div class="weekly-community-card">
+                <div class="weekly-community-game">${c.tag}</div>
+                <h4 class="weekly-community-title">${c.title}</h4>
+                <p class="weekly-community-desc">${c.desc}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      // 스트리밍 트렌드 (카드형 그리드)
+      const streamingSection = streaming.length > 0 ? `
+        <div class="weekly-section weekly-section-streaming">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.stream}
+              <h3 class="weekly-section-title">스트리밍 트렌드</h3>
+            </div>
+            <p class="weekly-section-desc">치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.</p>
+          </div>
+          <div class="weekly-streaming-grid">
+            ${streaming.map(s => {
+              const platformIcon = s.tag === '치지직' ?
+                `<svg viewBox="0 0 24 24" fill="#00FFA3"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-5" stroke="#000" stroke-width="2" fill="none"/></svg>` :
+                s.tag === '유튜브' ?
+                `<svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.2c-.3-1-1-1.8-2-2.1C19.7 3.5 12 3.5 12 3.5s-7.7 0-9.5.6c-1 .3-1.7 1.1-2 2.1C0 8 0 12 0 12s0 4 .5 5.8c.3 1 1 1.8 2 2.1 1.8.6 9.5.6 9.5.6s7.7 0 9.5-.6c1-.3 1.7-1.1 2-2.1.5-1.8.5-5.8.5-5.8s0-4-.5-5.8z"/><path d="M9.5 15.5l6-3.5-6-3.5v7z" fill="#FFF"/></svg>` :
+                `<svg viewBox="0 0 24 24" fill="#9146FF"><path d="M11.64 5.93h1.43v4.28h-1.43m3.93-4.28H17v4.28h-1.43M7 2L3.43 5.57v12.86h4.28V22l3.58-3.57h2.85L20.57 12V2m-1.43 9.29l-2.85 2.85h-2.86l-2.5 2.5v-2.5H7.71V3.43h11.43z"/></svg>`;
+              return `
+                <div class="weekly-streaming-card">
+                  <div class="weekly-streaming-platform">
+                    ${platformIcon}
+                    <span>${s.tag}</span>
+                  </div>
+                  <h4 class="weekly-streaming-title">${s.title}</h4>
+                  <p class="weekly-streaming-desc">${s.desc}</p>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      // 게임주 동향 (주간 전용 - 랭킹 테이블 스타일)
+      const stocksUp = stocks.up || [];
+      const stocksDown = stocks.down || [];
+      const hasStocks = stocksUp.length > 0 || stocksDown.length > 0;
+
+      const renderStockRow = (stock, rank, isUp) => {
+        const changeClass = isUp ? 'up' : 'down';
+        const arrow = isUp ? '▲' : '▼';
+        const sign = isUp ? '+' : '';
+        return `
+          <div class="weekly-stock-item">
+            <div class="weekly-stock-row ${changeClass}">
+              <div class="weekly-stock-rank">${rank}</div>
+              <div class="weekly-stock-info">
+                <span class="weekly-stock-name">${stock.name}</span>
+                <span class="weekly-stock-price">${stock.price?.toLocaleString() || '-'}원</span>
+              </div>
+              <div class="weekly-stock-change ${changeClass}">
+                <span class="weekly-stock-arrow">${arrow}</span>
+                <span class="weekly-stock-percent">${sign}${stock.changePercent?.toFixed(2) || 0}%</span>
+              </div>
+            </div>
+            <div class="weekly-stock-comment">${stock.comment || ''}</div>
+          </div>
+        `;
+      };
+
+      const stocksSection = hasStocks ? `
+        <div class="weekly-section weekly-section-stocks">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.stock}
+              <h3 class="weekly-section-title">주간 게임주 분석</h3>
+            </div>
+            <p class="weekly-section-desc">지난주 종가 기준 게임 업종 등락률 TOP3와 주요 이슈입니다.</p>
+          </div>
+          <div class="weekly-stocks-tables">
+            <div class="weekly-stocks-table">
+              <div class="weekly-stocks-table-header up">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                상승 TOP3
+              </div>
+              <div class="weekly-stocks-table-body">
+                ${stocksUp.slice(0, 3).map((s, i) => renderStockRow(s, i + 1, true)).join('')}
+              </div>
+            </div>
+            <div class="weekly-stocks-table">
+              <div class="weekly-stocks-table-header down">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                하락 TOP3
+              </div>
+              <div class="weekly-stocks-table-body">
+                ${stocksDown.slice(0, 3).map((s, i) => renderStockRow(s, i + 1, false)).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      ` : '';
+
+      // 주간 MVP 섹션
+      const mvpSection = mvp ? `
+        <div class="weekly-section weekly-section-mvp">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.trophy}
+              <h3 class="weekly-section-title">주간 MVP</h3>
+            </div>
+            <p class="weekly-section-desc">지난 주 가장 주목받은 게임을 선정했습니다.</p>
+          </div>
+          <div class="weekly-mvp-card">
+            <div class="weekly-mvp-badge">MVP</div>
+            <div class="weekly-mvp-content">
+              <div class="weekly-mvp-tag">${mvp.tag}</div>
+              <h4 class="weekly-mvp-name">${mvp.name}</h4>
+              <p class="weekly-mvp-desc">${mvp.desc}</p>
+              ${mvp.highlights ? `
+              <div class="weekly-mvp-highlights">
+                ${mvp.highlights.map(h => `<span class="weekly-mvp-highlight">${h}</span>`).join('')}
+              </div>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      ` : '';
+
+      // 신작/업데이트 캘린더 섹션
+      const releasesSection = releases && releases.length > 0 ? `
+        <div class="weekly-section weekly-section-releases">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.calendar}
+              <h3 class="weekly-section-title">이번 주 신작/업데이트</h3>
+            </div>
+            <p class="weekly-section-desc">이번 주 출시 예정이거나 업데이트된 주요 게임들입니다.</p>
+          </div>
+          <div class="weekly-releases-list">
+            ${releases.map(r => `
+              <div class="weekly-release-item">
+                <div class="weekly-release-date">${r.date}</div>
+                <div class="weekly-release-info">
+                  <span class="weekly-release-title">${r.title}</span>
+                  <span class="weekly-release-platform">${r.platform}</span>
+                </div>
+                <div class="weekly-release-type ${r.type === '신작' ? 'new' : 'update'}">${r.type}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      // 글로벌 트렌드 섹션
+      const globalSection = global && global.length > 0 ? `
+        <div class="weekly-section weekly-section-global">
+          <div class="weekly-section-header">
+            <div class="weekly-section-title-wrap">
+              ${icons.globe}
+              <h3 class="weekly-section-title">글로벌 트렌드</h3>
+            </div>
+            <p class="weekly-section-desc">해외 게임 시장의 주요 동향을 살펴봅니다.</p>
+          </div>
+          <div class="weekly-global-grid">
+            ${global.map(g => `
+              <div class="weekly-global-card">
+                <div class="weekly-global-region">${g.tag}</div>
+                <h4 class="weekly-global-title">${g.title}</h4>
+                <p class="weekly-global-desc">${g.desc}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      // 날짜 포맷팅 (12월 1주차 형태)
+      const formatWeekTitle = (period, weekNum) => {
+        // period: "2025-12-02 ~ 2025-12-08" 형태
+        const match = period.match(/(\d{4})-(\d{2})-(\d{2})/);
+        if (match) {
+          const month = parseInt(match[2]);
+          const weekOfMonth = Math.ceil(parseInt(match[3]) / 7);
+          return `${month}월 ${weekOfMonth}주차 위클리 게임 인사이트`;
+        }
+        return `${weekNum}주차 위클리 게임 인사이트`;
+      };
+
+      const seoTitle = formatWeekTitle(weekPeriod, weekNum);
+
+      return `
+        <div class="weekly-report">
+          <div class="weekly-header-card">
+            <h1 class="weekly-header-title">${seoTitle}</h1>
+            <div class="weekly-header-meta">
+              <span class="weekly-header-period">${weekPeriod}</span>
+              <span class="weekly-header-divider">·</span>
+              <span class="weekly-header-week">${weekNum}주차</span>
+            </div>
+          </div>
+
+          ${weeklyIntro}
+          ${mvpSection}
+          ${hotIssuesSection}
+          ${rankingsSection}
+          ${releasesSection}
+          ${industrySection}
+          ${metricsSection}
+          ${communitySection}
+          ${streamingSection}
+          ${globalSection}
+          ${stocksSection}
+        </div>
+      `;
+    };
+
+    let weeklyContent = '';
+
+    if (weeklyAi) {
+      const weekPeriod = weeklyInfo ? `${weeklyInfo.startDate} ~ ${weeklyInfo.endDate}` : weeklyAi.date || '';
+      const weekNum = weeklyInfo?.weekNumber || weeklyAi.weekNumber || '';
+
+      weeklyContent = generateWeeklyReport(weekNum, weekPeriod, {
+        summary: weeklyAi.summary || null,
+        issues: weeklyAi.issues || [],
+        industryIssues: weeklyAi.industryIssues || [],
+        metrics: weeklyAi.metrics || [],
+        rankings: weeklyAi.rankings || [],
+        community: weeklyAi.community || [],
+        streaming: weeklyAi.streaming || [],
+        stocks: weeklyAi.stocks || []
+      });
+    } else {
+      // 임시 데이터로 레이아웃 확인
+      const demoData = {
+        summary: '지난 주는 니케 2주년 업데이트가 가장 큰 화제였습니다. 에반게리온 콜라보와 함께 진행된 대규모 업데이트로 양대 마켓 매출 1위를 기록하며 서브컬처 게임의 저력을 다시 한번 보여줬어요. PC 게임 시장에서는 스팀 가을 세일이 종료되면서 인디 게임들의 약진이 돋보였고, 특히 한국 인디 게임들이 글로벌 시장에서 좋은 반응을 얻었습니다. 업계에서는 넥슨의 2025년 신작 라인업 발표가 주목받았으며, 크래프톤과 넷마블도 각각 사업 확장과 조직 개편 소식을 전했습니다.',
+        issues: [
+          { tag: '모바일', title: '니케 2주년 업데이트로 매출 급상승', desc: '니케가 2주년 기념 대규모 업데이트를 진행했습니다. 에반게리온 콜라보레이션으로 아스카, 레이, 마리 등 인기 캐릭터가 추가되었고, 복각 이벤트와 무료 뽑기 지원으로 신규/복귀 유저 유입이 크게 늘었어요. 업데이트 직후 양대 마켓 매출 1위를 기록하며 서브컬처 게임의 저력을 다시 한번 입증했습니다.' },
+          { tag: 'PC', title: '스팀 가을 세일 종료, 인디 게임 약진', desc: '스팀 가을 세일이 12월 4일 종료되었습니다. 이번 세일에서는 특히 인디 게임들의 판매량이 크게 늘었는데요, 한국 개발사의 "데이브 더 다이버"가 역대 최고 할인율로 판매되며 글로벌 판매 순위 상위권에 진입했어요. 인디 게임 시장에서 한국 게임의 위상이 높아지고 있음을 보여주는 사례입니다.' },
+          { tag: '콘솔', title: 'PS5 프로 국내 정식 출시', desc: '소니가 11월 7일 PS5 프로를 국내에 정식 출시했습니다. 899,000원의 가격에도 불구하고 예약 판매가 완판되었으며, 현재는 품귀 현상 없이 원활하게 구매 가능한 상황이에요. 8K 업스케일링과 향상된 레이트레이싱 성능으로 하드코어 게이머들 사이에서 좋은 평가를 받고 있습니다.' },
+          { tag: 'e스포츠', title: 'LoL 월드컵 결승전 시청률 역대 최고', desc: '2024 LoL 월드 챔피언십 결승전이 역대 최고 시청률을 기록했습니다. T1과 BLG의 결승전은 글로벌 동시 시청자 수 680만 명을 돌파했으며, 중국을 포함한 전체 시청자 수는 수천만 명에 달했어요. 페이커의 5번째 우승으로 한국 e스포츠의 위상을 다시 한번 높였습니다.' },
+          { tag: '글로벌', title: 'GTA 6 트레일러 조회수 신기록', desc: '락스타 게임즈가 공개한 GTA 6 두 번째 트레일러가 24시간 만에 1억 뷰를 돌파했습니다. 2025년 가을 출시 예정인 GTA 6는 역대 가장 기대되는 게임으로 꼽히고 있어요. 한국 게이머들 사이에서도 뜨거운 반응이 이어지며 관련 커뮤니티 활동이 급증하고 있습니다.' }
+        ],
+        industryIssues: [
+          { tag: '넥슨', title: '넥슨 2025년 신작 라인업 발표', desc: '넥슨이 연말 간담회를 통해 2025년 상반기 출시 예정인 신작 5종을 공개했습니다. 던전앤파이터 모바일의 글로벌 버전과 신규 IP 기반의 오픈월드 RPG가 포함되어 있으며, 특히 ARC Raiders의 2025년 상반기 얼리 액세스 출시가 확정되어 PC/콘솔 시장 진출에 대한 기대감이 높아지고 있어요.' },
+          { tag: '크래프톤', title: '크래프톤 인디게임 퍼블리싱 확대', desc: '크래프톤이 인디 게임 퍼블리싱 레이블 "크래프톤 인디"를 통해 사업을 확대한다고 발표했습니다. 2025년까지 10개 이상의 인디 게임을 지원할 계획이며, 개발 자금부터 마케팅, 글로벌 퍼블리싱까지 전방위 지원을 제공한다고 해요. 배틀그라운드 의존도를 낮추고 포트폴리오 다각화를 꾀하는 전략으로 분석됩니다.' },
+          { tag: '넷마블', title: '넷마블 조직 개편 단행', desc: '넷마블이 효율화를 위한 대규모 조직 개편을 단행했습니다. 개발 스튜디오를 통폐합하고 신작 개발에 집중하는 방향으로 재편되었어요. 최근 실적 부진으로 어려움을 겪고 있는 넷마블이 구조조정을 통해 체질 개선에 나선 것으로 보입니다. 2025년 "일곱 개의 대죄: ORIGIN" 등 신작 출시에 주력할 예정입니다.' }
+        ],
+        metrics: [
+          { tag: '매출', title: 'iOS 매출 TOP10 중 8개가 국산 게임', desc: '지난 주 iOS 매출 순위 TOP10 중 8개가 국산 게임으로 채워졌습니다. 리니지M, 오딘: 발할라 라이징, 니케, 리니지W 등이 상위권을 차지했으며, 해외 게임으로는 원신과 클래시 오브 클랜만이 TOP10에 포함되었어요. 국산 게임의 강세가 지속되고 있음을 보여주는 지표입니다.' },
+          { tag: '동접', title: 'Steam 한국 동접자 수 역대 최고', desc: 'Steam의 한국 지역 동시 접속자 수가 역대 최고치를 경신했습니다. 가을 세일 기간 중 한국 동접자 수가 50만 명을 돌파했으며, 이는 전년 동기 대비 23% 증가한 수치예요. PC 게임 시장에서 스팀의 영향력이 더욱 커지고 있음을 보여줍니다.' }
+        ],
+        rankings: [
+          { tag: '급상승', title: '승리의 여신: 니케', prevRank: 15, rank: 1, change: 14, platform: 'iOS', desc: '2주년 기념 에반게리온 콜라보레이션이 대성공을 거뒀습니다. 아스카, 레이, 마리 등 인기 캐릭터 출시와 함께 파격적인 복귀/신규 유저 지원 이벤트가 매출 상승을 견인했어요. 콜라보 기간 동안 일매출이 평소 대비 5배 이상 증가한 것으로 추정됩니다.' },
+          { tag: '급상승', title: '원신', prevRank: 25, rank: 3, change: 22, platform: 'Android', desc: '버전 5.0 "꽃이 피어나는 샘의 황야" 대규모 업데이트가 진행되었습니다. 신규 국가 나타란과 함께 5성 캐릭터 마비카, 키뇨가 추가되었어요. 새로운 지역 탐험 콘텐츠와 스토리에 대한 호평이 이어지며 복귀 유저들이 늘어나고 있습니다.' },
+          { tag: '급하락', title: '리니지W', prevRank: 3, rank: 18, change: -15, platform: 'iOS', desc: '이전 주 진행되었던 대규모 업데이트 이벤트가 종료되면서 매출이 급격히 감소했습니다. 신규 클래스 출시 효과가 일시적이었다는 분석이 나오고 있어요. 다음 대규모 업데이트까지 매출 안정화가 필요한 상황입니다.' },
+          { tag: '신규진입', title: '블루 아카이브', prevRank: null, rank: 8, change: null, platform: 'Android', desc: '3주년 기념 대규모 이벤트와 함께 픽업 가챠가 진행되었습니다. 한정 캐릭터에 대한 수요가 높아 TOP10에 신규 진입했어요. 서브컬처 게임 시장에서 니케, 블루 아카이브의 약진이 두드러지고 있습니다.' }
+        ],
+        community: [
+          { tag: '니케', title: '에반게리온 콜라보 반응 폭발적', desc: '니케 x 에반게리온 콜라보레이션에 대한 유저 반응이 매우 뜨겁습니다. 원작의 캐릭터성을 잘 살린 스토리와 고퀄리티 일러스트가 호평받고 있어요.' },
+          { tag: '메이플스토리', title: '윈터 업데이트 유저 반응 엇갈려', desc: '메이플스토리 윈터 업데이트에 대한 반응이 엇갈리고 있습니다. 신규 6차 스킬 강화 시스템은 호평받고 있지만, 일부 직업의 밸런스 패치에 대해서는 논란이 있어요.' },
+          { tag: '로스트아크', title: '신규 레이드 난이도 논란', desc: '로스트아크 신규 에픽 레이드 "에키드나"의 난이도가 너무 높다는 의견이 많습니다. 하드 모드 클리어율이 역대 최저 수준이라는 분석이 나오고 있어요.' },
+          { tag: 'ARC Raiders', title: '얼리 액세스 버그 제보 쏟아져', desc: '스팀 얼리 액세스로 출시된 ARC Raiders에 대한 버그 제보가 커뮤니티에 쏟아지고 있어요. 그럼에도 협동 플레이의 재미와 분위기에 대한 호평이 이어지고 있습니다.' }
+        ],
+        streaming: [
+          { tag: '치지직', title: '게임 카테고리 동접 50만 돌파', desc: '치지직 게임 카테고리 동시 시청자가 50만 명을 돌파했습니다. 국내 게임 스트리밍 플랫폼으로서의 성장세가 뚜렷하며, 특히 리그 오브 레전드와 발로란트 카테고리의 성장이 두드러져요. 트위치에서 이적한 스트리머들의 영향력도 커지고 있습니다.' },
+          { tag: '유튜브', title: '한국 게임 리뷰 채널 구독자 급증', desc: '한국 게임 리뷰 유튜브 채널들의 구독자가 급증하고 있습니다. "겜톨로지", "떵개떵" 등 게임 리뷰/공략 채널들이 연말 신작 게임 시즌을 맞아 빠르게 성장 중이에요. 숏폼 콘텐츠와 함께 딥다이브 리뷰 영상이 좋은 반응을 얻고 있습니다.' }
+        ],
+        stocks: {
+          up: [
+            { code: '259960', name: '크래프톤', price: 285000, changePercent: 8.52, comment: '배틀그라운드 글로벌 실적 호조와 2025년 신작 라인업 기대감으로 상승. 인조이 성공적 출시로 투자심리 개선.' },
+            { code: '112040', name: '위메이드', price: 45200, changePercent: 6.34, comment: '위믹스 생태계 확장 소식에 상승. 신작 나이트 크로우 글로벌 출시 일정 확정 호재.' },
+            { code: '192080', name: '더블유게임즈', price: 42300, changePercent: 4.25, comment: '소셜 카지노 게임 북미 시장 점유율 확대. 분기 실적 예상치 상회 전망.' }
+          ],
+          down: [
+            { code: '036570', name: '엔씨소프트', price: 198500, changePercent: -5.71, comment: 'TL(쓰론 앤 리버티) 북미/유럽 초기 매출 부진 우려. 리니지 시리즈 매출 감소 지속.' },
+            { code: '251270', name: '넷마블', price: 52800, changePercent: -4.89, comment: '하반기 신작 부재로 실적 우려 지속. 조직 개편 발표 후 불확실성 확대.' },
+            { code: '078340', name: '컴투스', price: 35800, changePercent: -3.42, comment: '서머너즈 워 매출 역성장 우려. 신작 출시 지연으로 투자심리 악화.' }
+          ]
+        },
+        // 주간 MVP
+        mvp: {
+          name: '승리의 여신: 니케',
+          tag: '서브컬처 RPG',
+          desc: '2주년 기념 에반게리온 콜라보레이션이 대성공을 거두며 양대 마켓 매출 1위를 석권했습니다. 아스카, 레이, 마리 등 인기 캐릭터의 고퀄리티 구현과 파격적인 유저 혜택으로 신규/복귀 유저가 대거 유입되었어요.',
+          highlights: ['iOS/Android 매출 1위', '일매출 5배 증가', '에반게리온 콜라보']
+        },
+        // 신작/업데이트 캘린더
+        releases: [
+          { date: '12/03', title: '니케 2주년 업데이트', platform: '모바일', type: '업데이트' },
+          { date: '12/04', title: '원신 5.0 나타란 업데이트', platform: '모바일/PC', type: '업데이트' },
+          { date: '12/05', title: 'ARC Raiders 얼리 액세스', platform: 'PC', type: '신작' },
+          { date: '12/06', title: '메이플스토리 윈터 업데이트', platform: 'PC', type: '업데이트' },
+          { date: '12/07', title: 'Where Winds Meet 출시', platform: 'PC', type: '신작' }
+        ],
+        // 글로벌 트렌드
+        global: [
+          { tag: '북미', title: 'GTA 6 트레일러 24시간 1억뷰 돌파', desc: '락스타 게임즈의 GTA 6 두 번째 트레일러가 역대 최단 시간 1억 뷰를 기록했습니다. 2025년 가을 출시 예정으로 글로벌 게이머들의 기대감이 최고조에요.' },
+          { tag: '일본', title: '원신 5.0 일본 앱스토어 매출 1위', desc: '호요버스의 원신이 버전 5.0 업데이트 후 일본 앱스토어 매출 1위를 탈환했습니다. 신규 국가 나타란과 캐릭터들이 일본 유저들에게 큰 호응을 얻고 있어요.' },
+          { tag: '중국', title: '텐센트 게임즈 연간 실적 역대 최고 전망', desc: '텐센트가 2024년 게임 부문 연간 실적 역대 최고를 기록할 전망입니다. 왕자영요, 화평정영 등 자사 IP와 해외 투자 수익이 실적을 견인하고 있어요.' }
+        ]
+      };
+
+      weeklyContent = generateWeeklyReport(49, '2025-12-02 ~ 2025-12-08', demoData, true);
+    }
+
     return `
       <div class="insight-page-container">
-        ${renderCategoryCard('오늘의 이슈', issues)}
-        ${infographic}
-        ${industryIssues.length > 0 ? renderCategoryCard('업계 이슈', industryIssues) : ''}
-        ${renderCategoryCard('주목할만한 지표', metrics)}
-        ${rankingChart}
-        ${rankingsData.length > 0 ? renderCategoryCard('순위 변동', rankingsData) : ''}
-        ${stocksCard}
-        ${renderCategoryCard('유저 반응', communityData)}
-        ${renderCategoryCard('스트리머 인기', streaming)}
+        <!-- 탭 -->
+        <div class="insight-tabs">
+          <button class="insight-tab active" data-tab="daily">일간 리포트</button>
+          <button class="insight-tab" data-tab="weekly">주간 리포트</button>
+        </div>
+
+        <!-- 일간 리포트 패널 -->
+        <div class="insight-panel active" id="panel-daily">
+          <div class="weekly-header-card">
+            <h1 class="weekly-header-title">${insightDate || ''} 데일리 게임 인사이트</h1>
+            <div class="weekly-header-meta">
+              <span class="weekly-header-period">${insight?.ai?.date || new Date().toISOString().split('T')[0]}</span>
+              ${insightAmPm ? `<span class="weekly-header-ampm-tag ${insightAmPm.toLowerCase()}">${insightAmPm}</span>` : ''}
+            </div>
+          </div>
+          ${insight?.ai?.summary ? `
+          <div class="weekly-section weekly-section-editor">
+            <div class="weekly-section-header">
+              <div class="weekly-section-title-wrap">
+                <svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                <h3 class="weekly-section-title">에디터스 노트</h3>
+              </div>
+            </div>
+            <p class="weekly-section-desc">${insight.ai.summary}</p>
+          </div>
+          ` : ''}
+          ${renderCategoryCard('오늘의 핫이슈', issues)}
+          ${infographic}
+          ${industryIssues.length > 0 ? renderIndustryTimeline('업계 동향', industryIssues) : ''}
+          ${renderCategoryCard('주목할만한 지표', metrics)}
+          ${rankingChart}
+          ${rankingsData.length > 0 ? renderCategoryCard('순위 변동', rankingsData, true) : ''}
+          ${stocksCard}
+          ${renderCommunityCards('유저 반응', communityData)}
+          ${renderStreamingCards('스트리밍 트렌드', streaming)}
+        </div>
+
+        <!-- 주간 리포트 패널 -->
+        <div class="insight-panel" id="panel-weekly">
+          ${weeklyContent}
+        </div>
       </div>
     `;
   }
@@ -578,26 +1278,38 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
 
     const selected = [allItems[idx1], allItems[idx2]];
 
-    const renderItem = (item) => `
-      <div class="home-insight-item">
-        <div class="home-insight-header">
-          <span class="home-insight-tag">${item.tag || ''}</span>
-          <span class="home-insight-title">${item.title || ''}</span>
+    // 태그별 아이콘 및 클래스 매핑
+    const tagIcons = {
+      '모바일': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>',
+      'PC': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+      '콘솔': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M8 10v4M16 10h.01M18 14h.01"/></svg>',
+      'e스포츠': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6-3 6 3"/><path d="M6 9v8l6 3 6-3V9"/><path d="M12 6v15"/></svg>'
+    };
+    // 고정형 태그 클래스 매핑
+    const fixedTagClasses = {
+      '급상승': 'tag-up', '급하락': 'tag-down', '신규진입': 'tag-new',
+      '매출': 'tag-revenue', '동접': 'tag-players'
+    };
+    const getTagIcon = (tag) => tagIcons[tag] || '';
+    const getFixedTagClass = (tag) => fixedTagClasses[tag] || '';
+
+    const renderItem = (item) => {
+      const tagIcon = getTagIcon(item.tag);
+      const fixedClass = getFixedTagClass(item.tag);
+      return `
+        <div class="weekly-hot-card">
+          <div class="home-insight-title-row">
+            <div class="weekly-hot-tag ${fixedClass}">${tagIcon}${item.tag || ''}</div>
+            <h4 class="weekly-hot-title">${item.title || ''}</h4>
+          </div>
+          <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
         </div>
-        <span class="home-insight-desc">${(item.desc || '').replace(/\. /g, '.\n')}</span>
-      </div>
-    `;
+      `;
+    };
 
     return `
-      <div class="home-insight-body">
-        <div class="home-insight-split">
-          <div class="home-insight-column">
-            ${renderItem(selected[0])}
-          </div>
-          <div class="home-insight-column">
-            ${renderItem(selected[1])}
-          </div>
-        </div>
+      <div class="weekly-hot-issues home-insight-grid">
+        ${selected.map(item => renderItem(item)).join('')}
       </div>
     `;
   }
@@ -1089,7 +1801,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           ${aiInsight ? `
           <div class="home-card" id="home-insight">
             <div class="home-card-header">
-              <div class="home-card-title">데일리 인사이트${insightDate ? ` · ${insightDate}${insightAmPm ? `<span style="font-size:14px;font-weight:600;margin-left:2px;border-bottom:2px solid ${insightAmPm === 'AM' ? '#d4a84b' : '#7a9ec9'};padding-bottom:1px;color:${insightAmPm === 'AM' ? '#d4a84b' : '#7a9ec9'};line-height:1;">${insightAmPm}</span>` : ''}` : ''}</div>
+              <div class="home-card-title">${insightDate ? `${insightDate} ` : ''}데일리 게임 인사이트${insightAmPm ? ` <span class="home-card-ampm-underline ${insightAmPm.toLowerCase()}">${insightAmPm}</span>` : ''}</div>
               <a href="#" class="home-card-more" data-goto="insight">더보기 →</a>
             </div>
             <div class="home-card-body">${generateHomeInsight()}</div>
@@ -1873,6 +2585,11 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       document.querySelector('.country-tab[data-country="kr"]')?.classList.add('active');
       document.querySelectorAll('.country-content').forEach(c => c.classList.remove('active'));
       document.getElementById('kr-rankings')?.classList.add('active');
+      // 인사이트 페이지 일간/주간 탭 초기화
+      document.querySelectorAll('.insight-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.insight-tab[data-tab="daily"]')?.classList.add('active');
+      document.querySelectorAll('.insight-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-daily')?.classList.add('active');
       // 뉴스 탭 초기화
       newsTab?.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
       document.querySelectorAll('#news .news-panel').forEach((p, i) => p.classList.toggle('active', i === 0));
@@ -2356,6 +3073,23 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     }
     .modal-close:hover { color: #fff; }
   </style>
+
+  <script>
+    // 인사이트 탭 전환 기능
+    document.querySelectorAll('.insight-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 모든 탭 비활성화
+        document.querySelectorAll('.insight-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.insight-panel').forEach(p => p.classList.remove('active'));
+
+        // 클릭한 탭 활성화
+        tab.classList.add('active');
+        const panelId = 'panel-' + tab.dataset.tab;
+        const panel = document.getElementById(panelId);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>`;
 }

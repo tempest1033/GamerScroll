@@ -1,0 +1,100 @@
+name: Generate Weekly Insight
+
+on:
+  schedule:
+    - cron: '0 18 * * 0'  # 매주 일요일 UTC 18:00 → KST 월요일 03:00
+  workflow_dispatch:  # 수동 실행 가능
+    inputs:
+      force:
+        description: '강제 재생성 (기존 리포트 덮어쓰기)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-insight
+  cancel-in-progress: false
+
+jobs:
+  generate-weekly-insight:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Pull latest changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git pull origin main --rebase || true
+
+      - name: Check daily reports
+        id: check-reports
+        run: |
+          REPORTS_COUNT=$(ls -1 reports/2*.json 2>/dev/null | wc -l)
+          if [ "$REPORTS_COUNT" -gt 0 ]; then
+            echo "reports_exist=true" >> $GITHUB_OUTPUT
+            echo "📂 일일 리포트 ${REPORTS_COUNT}개 확인"
+          else
+            echo "reports_exist=false" >> $GITHUB_OUTPUT
+            echo "⚠️ 일일 리포트 없음 - ai-insight 워크플로우가 먼저 실행되어야 합니다"
+          fi
+
+      - name: Setup Node.js
+        if: steps.check-reports.outputs.reports_exist == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        if: steps.check-reports.outputs.reports_exist == 'true'
+        run: npm install --production
+
+      - name: Generate Weekly Insight
+        if: steps.check-reports.outputs.reports_exist == 'true'
+        run: |
+          echo "📅 주간 인사이트 생성 시작..."
+          if [ "${{ github.event.inputs.force }}" == "true" ]; then
+            node generate-weekly-insight.js --force
+          else
+            node generate-weekly-insight.js
+          fi
+        timeout-minutes: 20
+
+      - name: Move weekly reports to docs
+        if: steps.check-reports.outputs.reports_exist == 'true'
+        run: |
+          mkdir -p docs/reports/weekly
+          if [ -d "reports/weekly" ]; then
+            cp -r reports/weekly/*.json docs/reports/weekly/ 2>/dev/null || true
+          fi
+
+      - name: Commit and push
+        if: steps.check-reports.outputs.reports_exist == 'true'
+        run: |
+          git add reports/weekly/ docs/reports/weekly/
+          if git diff --staged --quiet; then
+            echo "📝 변경사항 없음"
+          else
+            git stash --include-untracked
+            git pull origin main --rebase
+            # stash pop, conflict 발생 시 새로 생성된 데이터(stash) 우선
+            if ! git stash pop; then
+              echo "⚠️ Conflict detected - using newly generated data"
+              git checkout --ours reports/weekly/ 2>/dev/null || true
+              git checkout --ours docs/reports/weekly/ 2>/dev/null || true
+              git add reports/weekly/ docs/reports/weekly/
+              git stash drop 2>/dev/null || true
+            fi
+            git add reports/weekly/ docs/reports/weekly/
+            git diff --staged --quiet || git commit -m "Weekly Insight $(date +'%Y-W%V')"
+            git push
+            echo "✅ 주간 인사이트 푸시 완료"
+          fi

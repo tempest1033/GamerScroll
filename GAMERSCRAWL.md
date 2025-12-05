@@ -1,7 +1,7 @@
 # GamersCrawl 프로젝트 가이드
 
 ## 프로젝트 개요
-게임 업계 데이터 크롤링 및 일일 리포트 생성 사이트
+게임 업계 데이터 크롤링 및 일일/주간 리포트 생성 사이트
 - URL: https://gamerscrawl.com
 - GitHub Pages로 배포 (docs/ 폴더)
 - Repository: https://github.com/tempest1033/GamersCrawl
@@ -29,15 +29,27 @@ node generate-html-report.js -q
 - 소요 시간: 약 5초
 - **용도**: HTML 템플릿 수정 테스트, AI 인사이트 반영 등
 
-### AI 인사이트 생성
+### AI 인사이트 생성 (일간)
 ```bash
 node generate-ai-insight.js
 ```
 - Claude API 호출하여 AI 분석 생성
 - 게임주 주가 데이터 수집
-- `reports/{date}.json`에 저장
+- `reports/{date}-{AM|PM}.json`에 저장
 - 소요 시간: 약 1-2분
 - **주의**: ANTHROPIC_API_KEY 필요
+
+### 주간 인사이트 생성
+```bash
+node generate-weekly-insight.js          # 지난주 리포트 생성
+node generate-weekly-insight.js --force  # 강제 재생성
+```
+- 지난 주 일일 리포트를 기반으로 주간 요약 생성
+- Codex CLI 호출하여 AI 분석 생성
+- `reports/weekly/{year}-W{week}.json`에 저장
+- 소요 시간: 약 5-10분
+- **실행 시점**: 매주 월요일 0시 (KST)
+- **주의**: 지난 주 일일 리포트가 있어야 함
 
 ---
 
@@ -46,7 +58,8 @@ node generate-ai-insight.js
 ```
 /
 ├── generate-html-report.js    # 메인 진입점
-├── generate-ai-insight.js     # AI 인사이트 진입점
+├── generate-ai-insight.js     # 일간 AI 인사이트 진입점
+├── generate-weekly-insight.js # 주간 AI 인사이트 진입점
 │
 ├── data-cache.json            # 크롤링 캐시 (git tracked)
 ├── index.html                 # 로컬 생성 HTML
@@ -56,10 +69,14 @@ node generate-ai-insight.js
 │   ├── styles.css             # 스타일시트
 │   ├── CNAME                  # 커스텀 도메인
 │   └── reports/
-│       └── {date}-{AM|PM}.json # 일별 인사이트 (배포용 복사본, 오전/오후)
+│       ├── {date}-{AM|PM}.json # 일별 인사이트 (배포용 복사본)
+│       └── weekly/
+│           └── {year}-W{week}.json # 주간 인사이트 (배포용 복사본)
 │
 ├── reports/                   # 인사이트 데이터
-│   └── {date}-{AM|PM}.json    # AI 인사이트 + 주가 + 순위분석 (오전/오후 구분)
+│   ├── {date}-{AM|PM}.json    # 일간 AI 인사이트 + 주가 + 순위분석
+│   └── weekly/
+│       └── {year}-W{week}.json # 주간 AI 인사이트
 │
 ├── history/                   # 크롤링 스냅샷
 │   └── {date}.json            # 일별 전체 크롤링 데이터
@@ -82,7 +99,8 @@ node generate-ai-insight.js
     │
     ├── insights/
     │   ├── daily.js           # 일일 인사이트 분석 (변동 계산)
-    │   └── ai-insight.js      # Claude API 호출
+    │   ├── ai-insight.js      # 일간 AI 인사이트 생성
+    │   └── weekly-ai-insight.js # 주간 AI 인사이트 생성
     │
     └── styles.css             # 스타일시트 원본
 ```
@@ -219,6 +237,62 @@ node generate-ai-insight.js
 
 ---
 
+## 주간 인사이트
+
+### 데이터 구조 (reports/weekly/{year}-W{week}.json)
+
+```json
+{
+  "weekInfo": {
+    "startDate": "2025-11-25",
+    "endDate": "2025-12-01",
+    "weekNumber": 48,
+    "dates": ["2025-11-25", "2025-11-26", ...]
+  },
+  "generatedAt": "2025-12-02T00:00:00.000Z",
+  "dailyReportCount": 7,
+  "ai": {
+    "date": "2025-11-25 ~ 2025-12-01",
+    "weekNumber": 48,
+    "issues": [
+      { "tag": "모바일", "title": "금주 핫이슈 제목", "desc": "설명 100자" }
+    ],
+    "industryIssues": [
+      { "tag": "넥슨", "title": "업계 이슈 제목", "desc": "업계 동향 설명" }
+    ],
+    "metrics": [
+      { "tag": "매출", "title": "주간 지표 제목", "desc": "지표 설명" }
+    ],
+    "rankings": [
+      { "tag": "급상승", "title": "게임명", "desc": "순위 변동 이유" }
+    ],
+    "community": [
+      { "tag": "게임명", "title": "커뮤니티 핫토픽", "desc": "반응 요약" }
+    ],
+    "streaming": [
+      { "tag": "유튜브", "title": "스트리밍 트렌드", "desc": "트렌드 설명" }
+    ],
+    "stocks": [
+      { "name": "259960-크래프톤", "comment": "주간 주목 이유" }
+    ]
+  }
+}
+```
+
+### 생성 흐름
+
+```
+1. 지난 주 월~일 날짜 계산
+2. 각 날짜별 일일 리포트 로드 (reports/{date}-PM.json 우선)
+3. 일일 리포트 데이터 요약
+4. Codex CLI 호출 (gpt-5.1)
+5. 주간 인사이트 JSON 생성 (일간과 동일한 구조)
+6. reports/weekly/{year}-W{week}.json 저장
+7. docs/reports/weekly/ 복사
+```
+
+---
+
 ## 워크플로우 (GitHub Actions)
 
 ### build.yml
@@ -231,14 +305,24 @@ node generate-ai-insight.js
   4. docs/ 폴더로 복사
   5. 커밋 & 푸시
 
-### ai-insight.yml
-- 트리거: 12시간마다 (KST 09:00, 21:00) + 수동
+### ai-insight.yml (일간)
+- 트리거: 12시간마다 (KST 06:00, 18:00) + 수동
 - 러너: self-hosted (로컬 맥)
 - 작업:
   1. npm install --production
   2. `node generate-ai-insight.js`
   3. reports/ → docs/reports/ 복사
   4. 커밋 & 푸시
+
+### weekly-insight.yml (주간)
+- 트리거: 매주 월요일 0시 (KST) + 수동
+- 러너: self-hosted (로컬 맥)
+- 작업:
+  1. npm install --production
+  2. `node generate-weekly-insight.js`
+  3. reports/weekly/ → docs/reports/weekly/ 복사
+  4. 커밋 & 푸시
+- **주의**: 지난 주 일일 리포트가 있어야 함
 
 ---
 
