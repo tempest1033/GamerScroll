@@ -493,7 +493,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         <div class="weekly-intro">
           <div class="weekly-intro-header">
             ${icons.edit}
-            <span class="weekly-intro-label">에디터스 노트</span>
+            <span class="weekly-intro-label">위클리 포커스</span>
           </div>
           <p class="weekly-intro-text">${summary}</p>
         </div>
@@ -960,7 +960,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <div class="weekly-section-header">
               <div class="weekly-section-title-wrap">
                 <svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                <h3 class="weekly-section-title">에디터스 노트</h3>
+                <h3 class="weekly-section-title">데일리 포커스</h3>
               </div>
             </div>
             <p class="weekly-section-desc">${insight.ai.summary}</p>
@@ -1302,7 +1302,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       `;
     };
 
+    // 데일리 포커스 문구
+    const focusSummary = aiInsight.summary || '';
+
     return `
+      ${focusSummary ? `<div class="home-daily-focus">
+        <p class="home-daily-focus-text">${focusSummary}</p>
+      </div>` : ''}
       <div class="weekly-hot-issues home-insight-grid">
         ${selected.map(item => renderItem(item)).join('')}
       </div>
@@ -1499,15 +1505,15 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         </button>
       </div>
       <div class="home-rank-content">
-        <!-- 매출 순위 -->
-        <div class="home-rank-chart active" id="home-chart-grossing">
-          <div class="home-rank-list active" id="home-rank-grossing-ios">${renderList((grossingKr.ios || []).slice(0, 10))}</div>
-          <div class="home-rank-list" id="home-rank-grossing-android">${renderList((grossingKr.android || []).slice(0, 10))}</div>
-        </div>
         <!-- 인기 순위 -->
-        <div class="home-rank-chart" id="home-chart-free">
+        <div class="home-rank-chart active" id="home-chart-free">
           <div class="home-rank-list active" id="home-rank-free-ios">${renderList((freeKr.ios || []).slice(0, 10))}</div>
           <div class="home-rank-list" id="home-rank-free-android">${renderList((freeKr.android || []).slice(0, 10))}</div>
+        </div>
+        <!-- 매출 순위 -->
+        <div class="home-rank-chart" id="home-chart-grossing">
+          <div class="home-rank-list active" id="home-rank-grossing-ios">${renderList((grossingKr.ios || []).slice(0, 10))}</div>
+          <div class="home-rank-list" id="home-rank-grossing-android">${renderList((grossingKr.android || []).slice(0, 10))}</div>
         </div>
       </div>
     `;
@@ -1845,8 +1851,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
               <div class="home-card-title">모바일 랭킹</div>
               <div class="home-card-controls">
                 <div class="home-chart-toggle" id="homeChartTab">
-                  <button class="tab-btn small active" data-home-chart="grossing">매출</button>
-                  <button class="tab-btn small" data-home-chart="free">인기</button>
+                  <button class="tab-btn small active" data-home-chart="free">인기</button>
+                  <button class="tab-btn small" data-home-chart="grossing">매출</button>
                 </div>
                 <a href="#" class="home-card-more" data-goto="rankings">더보기 →</a>
               </div>
@@ -2310,8 +2316,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       });
     });
 
-    // 홈 모바일 랭킹 - 매출/인기 탭 전환
-    let homeCurrentChart = 'grossing';
+    // 홈 모바일 랭킹 - 인기/매출 탭 전환
+    let homeCurrentChart = 'free';
     let homeCurrentPlatform = 'ios';
     const homeChartTab = document.getElementById('homeChartTab');
     homeChartTab?.addEventListener('click', (e) => {
@@ -2757,6 +2763,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       document.querySelectorAll('.home-section').forEach(s => s.classList.remove('active'));
       document.getElementById('home')?.classList.add('active');
       document.body.classList.remove('detail-page'); // 헤더 보이기
+      resetSubTabs();
+      resetCountryColumns();
       window.scrollTo(0, 0);
     }
 
