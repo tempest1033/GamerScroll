@@ -40,33 +40,25 @@ const swipeScript = `
   }
 
   function switchNavSection(index) {
-    if (index < 0) {
+    if (index < 0 || index >= navSections.length) {
       window.location.href = 'index.html';
       return;
-    }
-    if (index >= navSections.length) {
-      index = 0;
     }
     window.location.href = navSections[index] + '.html';
   }
 
-  // 스크롤 가능한 영역 체크
-  function isScrollableElement(el) {
+  // 스크롤 가능한 요소 찾기
+  function findScrollableElement(el) {
     while (el && el !== document.body) {
-      const style = window.getComputedStyle(el);
-      const overflowX = style.overflowX;
-      if ((overflowX === 'auto' || overflowX === 'scroll') && el.scrollWidth > el.clientWidth) {
-        return true;
-      }
-      if (el.classList.contains('chart-scroll') || el.classList.contains('rank-list')) {
-        return true;
+      if (el.classList.contains('chart-scroll') && el.scrollWidth > el.clientWidth) {
+        return el;
       }
       el = el.parentElement;
     }
-    return false;
+    return null;
   }
 
-  let isInScrollable = false;
+  let scrollableEl = null;
 
   // 터치 이벤트
   document.body.addEventListener('touchstart', (e) => {
@@ -74,7 +66,7 @@ const swipeScript = `
     touchStartY = e.changedTouches[0].screenY;
     isTouchMoving = false;
     touchedElement = e.target.closest('.nav-item, .tab-btn');
-    isInScrollable = isScrollableElement(e.target);
+    scrollableEl = findScrollableElement(e.target);
   }, { passive: true });
 
   document.body.addEventListener('touchmove', (e) => {
@@ -101,21 +93,41 @@ const swipeScript = `
     isTouchMoving = false;
   }, { passive: true });
 
+  // 네비게이션 캐러셀 위치 조정
+  function updateNavCarousel(index) {
+    const navInner = document.querySelector('.nav-inner');
+    if (window.innerWidth <= 768 && navInner) {
+      let offset = 0;
+      if (index >= 6) offset = -60;
+      else if (index >= 5) offset = -40;
+      else if (index >= 4) offset = -20;
+      navInner.style.transform = 'translateX(' + offset + '%)';
+    }
+  }
+
+  // 페이지 로드 시 nav 위치 조정
+  const currentIdx = getCurrentNavIndex();
+  if (currentIdx >= 0) updateNavCarousel(currentIdx);
+
   document.body.addEventListener('touchend', (e) => {
     const touchEndX = e.changedTouches[0].screenX;
     const touchEndY = e.changedTouches[0].screenY;
     const diffX = touchStartX - touchEndX;
     const diffY = touchStartY - touchEndY;
 
-    // 스크롤 영역이면 페이지 전환하지 않음
-    if (isInScrollable) {
+    if (Math.abs(diffX) <= Math.abs(diffY)) {
       cleanup();
       return;
     }
 
-    if (Math.abs(diffX) <= Math.abs(diffY)) {
-      cleanup();
-      return;
+    // 스크롤 영역 경계 체크
+    if (scrollableEl) {
+      const isAtStart = scrollableEl.scrollLeft <= 1;
+      const isAtEnd = scrollableEl.scrollLeft + scrollableEl.clientWidth >= scrollableEl.scrollWidth - 1;
+      // 왼쪽 스와이프(다음 페이지) - 오른쪽 끝에서만 허용
+      if (diffX > 0 && !isAtEnd) { cleanup(); return; }
+      // 오른쪽 스와이프(이전 페이지) - 왼쪽 끝에서만 허용
+      if (diffX < 0 && !isAtStart) { cleanup(); return; }
     }
 
     if (Math.abs(diffX) > 75) {
