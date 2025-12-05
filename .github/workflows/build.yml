@@ -33,17 +33,26 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Generate report
+      - name: Generate report (MPA mode)
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
-        run: node generate-html-report.js
+        run: node generate-html-report.js -m
 
       - name: Move report to docs
         run: |
           mkdir -p docs
           mkdir -p docs/reports
+          # MPA 모드: 9개 HTML 파일 모두 복사
           cp index.html docs/index.html
+          cp insight.html docs/insight.html
+          cp news.html docs/news.html
+          cp community.html docs/community.html
+          cp youtube.html docs/youtube.html
+          cp rankings.html docs/rankings.html
+          cp steam.html docs/steam.html
+          cp upcoming.html docs/upcoming.html
+          cp metacritic.html docs/metacritic.html
           cp src/styles.css docs/styles.css
           echo "gamerscrawl.com" > docs/CNAME
           # 데일리 인사이트 리포트 복사

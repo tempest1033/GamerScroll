@@ -272,7 +272,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       return `
         <div class="insight-info-card with-icon">
           <span class="insight-info-label">${label}</span>
-          ${icon ? `<img class="insight-info-icon" src="${icon}" alt="" onerror="this.style.display='none'">` : '<div class="insight-info-icon-placeholder"></div>'}
+          ${icon ? `<img class="insight-info-icon" src="${icon}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">` : '<div class="insight-info-icon-placeholder"></div>'}
           <span class="insight-info-value">${title || '-'}</span>
           ${subtext ? `<span class="insight-info-sub">${subtext}</span>` : ''}
         </div>
@@ -322,7 +322,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         (game.change > 0 ? `+${game.change}` : `${game.change}`);
       return `
         <div class="insight-chart-item ${type}">
-          <img class="insight-chart-icon" src="${game.icon}" alt="" onerror="this.style.display='none'">
+          <img class="insight-chart-icon" src="${game.icon}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
           <div class="insight-chart-info">
             <span class="insight-chart-name">${game.title}</span>
             <span class="insight-chart-rank">${game.platform} ${game.rank}위 (${changeText})</span>
@@ -408,7 +408,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
               <span class="stock-change-badge ${changeClass}">${changeSign} ${changeText}</span>
             </div>
           </div>
-          <img class="stock-chart" src="${candleChartUrl}" alt="${displayName} 일봉 차트" onerror="this.style.display='none'">
+          <img class="stock-chart" src="${candleChartUrl}" alt="${displayName} 일봉 차트" loading="lazy" decoding="async" onerror="this.style.display='none'">
           <p class="stock-comment">${stock.comment}</p>
         </a>
       `;
@@ -602,14 +602,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
               const colors = ['#6366f1', '#22c55e', '#f97316', '#ec4899'];
               const color = colors[idx % colors.length];
               return `
-                <div class="weekly-metric-card" style="--metric-color: ${color}">
-                  <div class="weekly-metric-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="2">
-                      ${m.tag === '매출' ? '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>' :
-                        m.tag === '동접' ? '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>' :
-                        '<path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/>'}
-                    </svg>
-                  </div>
+                <div class="weekly-metric-card">
                   <div class="weekly-metric-content">
                     <div class="weekly-metric-tag">${m.tag}</div>
                     <h4 class="weekly-metric-title">${m.title}</h4>
@@ -772,7 +765,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
             <p class="weekly-section-desc">이번 주 출시 예정이거나 업데이트된 주요 게임들입니다.</p>
           </div>
           <div class="weekly-releases-list">
-            ${releases.map(r => `
+            ${releases.slice(0, 6).map(r => `
               <div class="weekly-release-item">
                 <div class="weekly-release-date">${r.date}</div>
                 <div class="weekly-release-info">
@@ -1351,7 +1344,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           <a class="home-community-item" href="${item.link}" target="_blank" rel="noopener">
             <span class="home-community-title">${item.title}</span>
             <span class="home-community-meta">
-              <img src="${item.icon}" alt="">
+              <img src="${item.icon}" alt="" loading="lazy" decoding="async">
               <span class="home-community-source">${sourceName || item.source}</span>
               ${item.channel ? `<span class="home-community-channel">· ${item.channel}</span>` : ''}
             </span>
@@ -3061,12 +3054,12 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       text-align: center;
       padding: 20px;
       margin-top: 40px;
-      border-top: 1px solid #333;
-      color: #888;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
       font-size: 12px;
     }
-    .site-footer a { color: #888; text-decoration: none; }
-    .site-footer a:hover { color: #fff; }
+    .site-footer a { color: var(--text-secondary); text-decoration: none; }
+    .site-footer a:hover { color: var(--text); }
     .footer-divider { margin: 0 8px; }
     .modal-overlay {
       display: none;

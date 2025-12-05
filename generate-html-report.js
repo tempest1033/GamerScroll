@@ -3,6 +3,8 @@ const fs = require('fs');
 
 // 커맨드라인 인자 파싱
 const isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
+// 멀티페이지 모드
+const isMultiPageMode = process.argv.includes('--multi') || process.argv.includes('-m');
 
 // 캐시 파일 경로
 const CACHE_FILE = './data-cache.json';
@@ -215,15 +217,60 @@ async function main() {
     }
   }
 
-  const html = generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight, yesterdayData, metacritic, weeklyInsight);
+  // 멀티페이지 모드
+  if (isMultiPageMode) {
+    console.log('\n📄 멀티페이지 모드: 각 섹션별 HTML 생성');
 
-  const filename = `index.html`;
-  fs.writeFileSync(filename, html, 'utf8');
+    // 페이지별 템플릿 import
+    const { generateIndexPage } = require('./src/templates/pages/index');
+    const { generateInsightPage } = require('./src/templates/pages/insight');
+    const { generateNewsPage } = require('./src/templates/pages/news');
+    const { generateCommunityPage } = require('./src/templates/pages/community');
+    const { generateYoutubePage } = require('./src/templates/pages/youtube');
+    const { generateRankingsPage } = require('./src/templates/pages/rankings');
+    const { generateSteamPage } = require('./src/templates/pages/steam');
+    const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
+    const { generateMetacriticPage } = require('./src/templates/pages/metacritic');
 
-  // CSS 파일 복사 (src → root)
-  fs.copyFileSync('./src/styles.css', './styles.css');
+    const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight };
 
-  console.log(`\n✅ 완료! 파일: ${filename}`);
+    const pages = [
+      { filename: 'index.html', generator: generateIndexPage },
+      { filename: 'insight.html', generator: generateInsightPage },
+      { filename: 'news.html', generator: generateNewsPage },
+      { filename: 'community.html', generator: generateCommunityPage },
+      { filename: 'youtube.html', generator: generateYoutubePage },
+      { filename: 'rankings.html', generator: generateRankingsPage },
+      { filename: 'steam.html', generator: generateSteamPage },
+      { filename: 'upcoming.html', generator: generateUpcomingPage },
+      { filename: 'metacritic.html', generator: generateMetacriticPage }
+    ];
+
+    for (const page of pages) {
+      try {
+        const html = page.generator(data);
+        fs.writeFileSync(page.filename, html, 'utf8');
+        console.log(`  ✅ ${page.filename}`);
+      } catch (err) {
+        console.error(`  ❌ ${page.filename}: ${err.message}`);
+      }
+    }
+
+    // CSS 파일 복사
+    fs.copyFileSync('./src/styles.css', './styles.css');
+    console.log(`\n✅ 멀티페이지 생성 완료!`);
+  } else {
+    // 기존 단일 페이지 모드
+    const html = generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming, insight, yesterdayData, metacritic, weeklyInsight);
+
+    const filename = `index.html`;
+    fs.writeFileSync(filename, html, 'utf8');
+
+    // CSS 파일 복사 (src → root)
+    fs.copyFileSync('./src/styles.css', './styles.css');
+
+    console.log(`\n✅ 완료! 파일: ${filename}`);
+  }
 
   // 데일리 인사이트 생성 (하루에 한 번)
   if (!fs.existsSync(REPORTS_DIR)) {

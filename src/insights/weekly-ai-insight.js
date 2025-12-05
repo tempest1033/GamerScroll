@@ -121,9 +121,14 @@ ${dataSummary}${rankingsData}
   "streaming": [
     { "tag": "치지직|유튜브|트위치", "title": "제목 40자", "desc": "스트리밍 트렌드 100자" }
   ],
-  "stocks": [
-    { "name": "종목코드-회사명 (예: 259960-크래프톤)", "comment": "지난 주 주목받은 이유 50자" }
-  ],
+  "stocks": {
+    "up": [
+      { "code": "종목코드", "name": "회사명", "price": 가격숫자, "changePercent": 등락률숫자, "comment": "상승 이유 50자" }
+    ],
+    "down": [
+      { "code": "종목코드", "name": "회사명", "price": 가격숫자, "changePercent": 등락률숫자, "comment": "하락 이유 50자" }
+    ]
+  },
   "mvp": {
     "name": "게임명",
     "tag": "장르 또는 카테고리",
@@ -149,17 +154,19 @@ ${dataSummary}${rankingsData}
 - metrics: 2개 (지난 주 주목할만한 지표 변화)${rankingsInstruction}
 - community: 4개 (지난 주 커뮤니티에서 화제가 된 게임/이슈)
 - streaming: 2개 (지난 주 스트리밍 트렌드)
-- stocks: 2개 (지난 주 주목할 게임주 - 종목코드-회사명 형식 필수)
+- stocks: up 3개, down 3개 (지난 주 게임주 등락률 TOP3 - code와 name 필드 분리)
 - mvp: 1개 (지난 주 가장 주목받은 게임 - 매출/화제성/성과 종합)
   ※ highlights는 3개의 핵심 성과 키워드
-- releases: 5개 (이번 주 출시 예정 기대작 - 신작 또는 대규모 업데이트)
+- releases: 6개 (이번 주 출시 예정 기대작 - 신작 또는 대규모 업데이트)
   ※ 이번 주 = 리포트 생성일 기준 월~일
   ※ 웹 검색으로 이번 주 출시/업데이트 예정 게임 조사
 - global: 3개 (지난 주 글로벌 게임 시장 주요 동향 - 북미/일본/중국 등)
 
 ## stocks 형식 주의:
-- name 필드는 반드시 "종목코드-회사명" 형식으로 작성
-- 예: "259960-크래프톤", "036570-엔씨소프트", "251270-넷마블"
+- code: 종목코드 (6자리 숫자), name: 회사명 (별도 필드)
+- 예: { "code": "259960", "name": "크래프톤" }, { "code": "036570", "name": "엔씨소프트" }
+- price는 현재가(원), changePercent는 주간 등락률(%)
+- up: 상승률 TOP3, down: 하락률 TOP3
 
 한국 게임 시장 기준으로 작성해줘.
 JSON만 출력해. 다른 설명 없이.`;
