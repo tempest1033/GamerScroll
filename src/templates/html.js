@@ -1645,8 +1645,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   <meta name="twitter:title" content="게이머스크롤 | 데일리 게임 인사이트">
   <meta name="twitter:description" content="모바일/스팀 순위, 게임 뉴스, AI 인사이트를 한눈에">
   <meta name="twitter:image" content="https://gamerscrawl.com/og-image.png">
-  <!-- Theme & Favicon -->
-  <meta name="theme-color" content="#111827">
+  <!-- Theme & Favicon - 라이트/다크모드 분리 -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png">
   <link rel="icon" type="image/png" sizes="16x16" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">

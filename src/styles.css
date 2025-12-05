@@ -144,7 +144,7 @@
       --text-primary: #1a1a1a; /* text와 동일 - 호환성 */
       --text-secondary: #1a1a1a; /* 거의 검정 - 본문 설명 (가독성 최적화) */
       --text-muted: #737373; /* Neutral 500 */
-      --text-tertiary: #9ca3af; /* Neutral 400 - 보조 텍스트 */
+      --text-tertiary: #6b7280; /* Neutral 500 - WCAG AA 준수 (대비 4.5:1) */
 
       /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
       --font-title-size: 17px;
@@ -393,7 +393,7 @@
         --text-primary: #ffffff; /* 다크모드 - 순백색 */
         --text-secondary: rgba(255, 255, 255, 0.9); /* 본문 설명 - 더 밝게 */
         --text-muted: #888888; /* 대비 높임 */
-        --text-tertiary: #6b7280; /* 보조 텍스트 - 밝게 */
+        --text-tertiary: #9ca3af; /* 보조 텍스트 - WCAG AA 준수 (대비 7.4:1) */
 
         /* 호환성 변수 (별칭) - 다크모드 */
         --bg-secondary: #262626;

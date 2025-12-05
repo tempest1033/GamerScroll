@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 인사이트 리포트 - GamersCrawl</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0f0f0f;
+            --card: #1a1a1a;
+            --border: #2a2a2a;
+            --text: #e0e0e0;
+            --text-dim: #888;
+            --primary: #4f46e5;
+            --primary-dim: #3730a3;
+            --accent: #f59e0b;
+            --gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #f59e0b 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--gradient);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(79, 70, 229, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .platform-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .ios-icon {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+        }
+
+        .android-icon {
+            background: linear-gradient(135deg, #3DDC84, #00C853);
+            color: white;
+        }
+
+        .steam-icon {
+            background: linear-gradient(135deg, #1b2838, #66c0f4);
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .ranking-list {
+            list-style: none;
+        }
+
+        .ranking-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.875rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .ranking-item:hover {
+            background: rgba(79, 70, 229, 0.1);
+            border-color: var(--primary);
+        }
+
+        .rank {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            min-width: 2rem;
+        }
+
+        .rank-1 { color: #fbbf24; }
+        .rank-2 { color: #94a3b8; }
+        .rank-3 { color: #fb923c; }
+
+        .game-info {
+            flex: 1;
+        }
+
+        .game-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .game-meta {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .insights {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .insight-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .insight-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .insight-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .insight-content {
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI 인사이트 리포트</h1>
+            <p class="subtitle">실시간 게임 시장 트렌드 분석</p>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">📊 플랫폼별 TOP 5 랭킹</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="platform-icon ios-icon">iOS</div>
+                        <div class="card-title">iOS 매출 순위</div>
+                    </div>
+                    <ul class="ranking-list">
+                        <li class="ranking-item">
+                            <span class="rank rank-1">1</span>
+                            <div class="game-info">
+                                <div class="game-title">리니지M</div>
+                                <div class="game-meta">NCSOFT</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank rank-2">2</span>
+                            <div class="game-info">
+                                <div class="game-title">리니지2M</div>
+                                <div class="game-meta">NCSOFT</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank rank-3">3</span>
+                            <div class="game-info">
+                                <div class="game-title">서든어택 with NEOPLE</div>
+                                <div class="game-meta">NEOPLE Inc.</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">4</span>
+                            <div class="game-info">
+                                <div class="game-title">배틀그라운드 모바일</div>
+                                <div class="game-meta">KRAFTON Inc</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">5</span>
+                            <div class="game-info">
+                                <div class="game-title">트릭컬리바이브</div>
+                                <div class="game-meta">Netmarble Corporation</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="platform-icon android-icon">AND</div>
+                        <div class="card-title">Android 매출 순위</div>
+                    </div>
+                    <ul class="ranking-list">
+                        <li class="ranking-item">
+                            <span class="rank rank-1">1</span>
+                            <div class="game-info">
+                                <div class="game-title">리니지M</div>
+                                <div class="game-meta">NCSOFT</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank rank-2">2</span>
+                            <div class="game-info">
+                                <div class="game-title">서든어택 with NEOPLE</div>
+                                <div class="game-meta">NEOPLE Inc.</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank rank-3">3</span>
+                            <div class="game-info">
+                                <div class="game-title">리니지2M</div>
+                                <div class="game-meta">NCSOFT</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">4</span>
+                            <div class="game-info">
+                                <div class="game-title">배틀그라운드 모바일</div>
+                                <div class="game-meta">KRAFTON Inc</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">5</span>
+                            <div class="game-info">
+                                <div class="game-title">트릭컬리바이브</div>
+                                <div class="game-meta">Netmarble Corporation</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="platform-icon steam-icon">STM</div>
+                        <div class="card-title">Steam 동시접속</div>
+                    </div>
+                    <ul class="ranking-list">
+                        <li class="ranking-item">
+                            <span class="rank rank-1">1</span>
+                            <div class="game-info">
+                                <div class="game-title">Counter-Strike 2</div>
+                                <div class="game-meta">1,353,871 CCU</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank rank-2">2</span>
+                            <div class="game-info">
+                                <div class="game-title">Dota 2</div>
+                                <div class="game-meta">637,814 CCU</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank rank-3">3</span>
+                            <div class="game-info">
+                                <div class="game-title">PUBG: BATTLEGROUNDS</div>
+                                <div class="game-meta">539,086 CCU</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">4</span>
+                            <div class="game-info">
+                                <div class="game-title">Apex Legends</div>
+                                <div class="game-meta">460,090 CCU</div>
+                            </div>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">5</span>
+                            <div class="game-info">
+                                <div class="game-title">Grand Theft Auto V</div>
+                                <div class="game-meta">262,991 CCU</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🧠 AI 트렌드 분석</h2>
+            <div class="insights">
+                <div class="insight-card">
+                    <div class="insight-title">
+                        <span class="insight-icon">📱</span>
+                        <span>모바일 시장: NCSOFT의 압도적 지배력</span>
+                    </div>
+                    <div class="insight-content">
+                        iOS와 Android 양대 플랫폼에서 <span class="highlight">리니지M</span>과 <span class="highlight">리니지2M</span>이 TOP 3 내 2개 타이틀을 차지하며 NCSOFT의 독주가 지속되고 있습니다. 특히 리니지M은 양 플랫폼 모두 1위를 유지하며 장수 타이틀로서의 저력을 과시하고 있습니다. NEOPLE의 서든어택 모바일 진출과 KRAFTON의 배틀그라운드 모바일도 안정적인 매출을 기록 중입니다.
+                    </div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-title">
+                        <span class="insight-icon">🎮</span>
+                        <span>PC 시장: FPS와 배틀로얄의 양강 구도</span>
+                    </div>
+                    <div class="insight-content">
+                        Steam 동시접속 순위에서 <span class="highlight">Counter-Strike 2</span>가 135만 명으로 압도적 1위를 차지했으며, PUBG와 Apex Legends가 각각 50만 명 이상의 동시접속을 유지하며 FPS/배틀로얄 장르의 강세가 지속되고 있습니다. Dota 2는 MOBA 장르의 대표주자로서 60만 명 이상의 안정적인 유저층을 확보하고 있습니다.
+                    </div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-title">
+                        <span class="insight-icon">🔥</span>
+                        <span>크로스 플랫폼 전략의 성공</span>
+                    </div>
+                    <div class="insight-content">
+                        <span class="highlight">배틀그라운드</span>는 모바일(iOS/Android 4위)과 PC(Steam 3위) 양쪽에서 모두 TOP 5에 진입하며 성공적인 크로스 플랫폼 전략을 보여주고 있습니다. 이는 IP를 활용한 멀티 플랫폼 확장이 효과적인 수익 모델임을 입증하는 사례입니다. Netmarble의 트릭컬리바이브도 신규 타이틀로서 빠르게 TOP 5에 안착하며 주목받고 있습니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 GamersCrawl AI Insights | 데이터 수집 시각: 2025-12-03</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -130,10 +130,10 @@
       --accent: #f97316;
 
       /* === Background & Surface - 대비 개선 === */
-      --bg: #f5f7fa; /* 약간 더 진한 배경 */
+      --bg: #f5f7fa; /* 배경 */
       --bg-elevated: #ffffff;
       --card: #ffffff;
-      --card-hover: #f8fafc;
+      --card-hover: #eef2ff;
 
       /* === Border === */
       --border: #e2e8f0; /* Slate 200 */
@@ -144,7 +144,7 @@
       --text-primary: #1a1a1a; /* text와 동일 - 호환성 */
       --text-secondary: #1a1a1a; /* 거의 검정 - 본문 설명 (가독성 최적화) */
       --text-muted: #737373; /* Neutral 500 */
-      --text-tertiary: #9ca3af; /* Neutral 400 - 보조 텍스트 */
+      --text-tertiary: #6b7280; /* Neutral 500 - WCAG AA 준수 (대비 4.5:1) */
 
       /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
       --font-title-size: 17px;
@@ -159,14 +159,14 @@
       --font-tab-size: 15px;
       --font-tab-weight: 700;
       --font-badge-size: 12px;
-      --font-badge-weight: 600;
+      --font-badge-weight: 900;
       --font-small-size: 12px;
       --font-nav-size: 15px;
       --font-nav-weight: 700;
 
       /* === Typography - 순위 테이블 (스팀, 모바일 등) === */
-      --font-rank-name-size: 15px;
-      --font-rank-name-weight: 600;
+      --font-rank-name-size: 14px;
+      --font-rank-name-weight: 700;
       --font-rank-name-color: var(--text);
       --font-rank-dev-size: 12px;
       --font-rank-dev-weight: 500;
@@ -206,14 +206,14 @@
         --font-body-size: 14px;
         --font-desc-size: 13px;
         --font-tab-size: 14px;
-        --font-nav-size: 14px;
+        --font-nav-size: 15px;
         --font-section-size: 15px;
         --font-heading-size: 17px;
         --font-lg-size: 19px;
         --font-stat-size: 27px;
         --font-xl-size: 21px;
         --font-2xl-size: 25px;
-        --font-rank-name-size: 14px;
+        --font-rank-name-size: 13px;
         --font-rank-dev-size: 11px;
       }
     }
@@ -225,7 +225,7 @@
         --font-body-size: 13px;
         --font-desc-size: 12px;
         --font-tab-size: 13px;
-        --font-nav-size: 13px;
+        --font-nav-size: 14px;
         --font-section-size: 14px;
         --font-heading-size: 16px;
         --font-lg-size: 18px;
@@ -236,7 +236,7 @@
         --font-badge-size: 11px;
         --font-meta-size: 10px;
         --font-xs-size: 9px;
-        --font-rank-name-size: 13px;
+        --font-rank-name-size: 12px;
         --font-rank-dev-size: 10px;
       }
     }
@@ -284,14 +284,14 @@
       --transition-elevate: transform 0.2s ease, box-shadow 0.2s ease;
 
       /* === Report Gradients === */
-      --gradient-hot: linear-gradient(135deg, rgba(239, 68, 68, 0.04) 0%, rgba(249, 115, 22, 0.04) 100%);
-      --gradient-industry: linear-gradient(135deg, rgba(168, 85, 247, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%);
-      --gradient-metrics: linear-gradient(135deg, rgba(59, 130, 246, 0.04) 0%, rgba(6, 182, 212, 0.04) 100%);
-      --gradient-rankings: linear-gradient(135deg, rgba(34, 197, 94, 0.04) 0%, rgba(16, 185, 129, 0.04) 100%);
-      --gradient-community: linear-gradient(135deg, rgba(236, 72, 153, 0.04) 0%, rgba(244, 114, 182, 0.04) 100%);
-      --gradient-streaming: linear-gradient(135deg, rgba(249, 115, 22, 0.04) 0%, rgba(245, 158, 11, 0.04) 100%);
-      --gradient-stocks: linear-gradient(135deg, rgba(34, 197, 94, 0.04) 0%, rgba(239, 68, 68, 0.04) 100%);
-      --gradient-primary: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%);
+      --gradient-hot: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
+      --gradient-industry: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      --gradient-metrics: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+      --gradient-rankings: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+      --gradient-community: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(244, 114, 182, 0.08) 100%);
+      --gradient-streaming: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
+      --gradient-stocks: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(239, 68, 68, 0.08) 100%);
+      --gradient-primary: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
 
       /* === Report Icon Backgrounds === */
       --icon-bg-hot: rgba(239, 68, 68, 0.12);
@@ -393,7 +393,7 @@
         --text-primary: #ffffff; /* 다크모드 - 순백색 */
         --text-secondary: rgba(255, 255, 255, 0.9); /* 본문 설명 - 더 밝게 */
         --text-muted: #888888; /* 대비 높임 */
-        --text-tertiary: #6b7280; /* 보조 텍스트 - 밝게 */
+        --text-tertiary: #9ca3af; /* 보조 텍스트 - WCAG AA 준수 (대비 7.4:1) */
 
         /* 호환성 변수 (별칭) - 다크모드 */
         --bg-secondary: #262626;
@@ -424,6 +424,25 @@
         /* Glow Effects - 게이밍 특화 */
         --glow-primary: 0 0 20px rgba(255, 107, 53, 0.3);
         --glow-accent: 0 0 20px rgba(255, 193, 7, 0.25);
+
+        /* === 다크모드 전용 Report Gradients (밝고 투명한 스타일) === */
+        --gradient-hot: linear-gradient(135deg, rgba(239, 68, 68, 0.28) 0%, rgba(249, 115, 22, 0.22) 100%);
+        --gradient-industry: linear-gradient(135deg, rgba(168, 85, 247, 0.28) 0%, rgba(139, 92, 246, 0.22) 100%);
+        --gradient-metrics: linear-gradient(135deg, rgba(59, 130, 246, 0.28) 0%, rgba(6, 182, 212, 0.22) 100%);
+        --gradient-rankings: linear-gradient(135deg, rgba(34, 197, 94, 0.28) 0%, rgba(16, 185, 129, 0.22) 100%);
+        --gradient-community: linear-gradient(135deg, rgba(236, 72, 153, 0.28) 0%, rgba(244, 114, 182, 0.22) 100%);
+        --gradient-streaming: linear-gradient(135deg, rgba(249, 115, 22, 0.28) 0%, rgba(245, 158, 11, 0.22) 100%);
+        --gradient-stocks: linear-gradient(135deg, rgba(34, 197, 94, 0.28) 0%, rgba(239, 68, 68, 0.22) 100%);
+        --gradient-primary: linear-gradient(135deg, rgba(99, 102, 241, 0.28) 0%, rgba(139, 92, 246, 0.22) 100%);
+
+        /* === 다크모드 전용 Icon Backgrounds (밝고 투명한 스타일) === */
+        --icon-bg-hot: rgba(239, 68, 68, 0.35);
+        --icon-bg-industry: rgba(168, 85, 247, 0.35);
+        --icon-bg-metrics: rgba(59, 130, 246, 0.35);
+        --icon-bg-rankings: rgba(34, 197, 94, 0.35);
+        --icon-bg-community: rgba(236, 72, 153, 0.35);
+        --icon-bg-streaming: rgba(249, 115, 22, 0.35);
+        --icon-bg-stocks: rgba(34, 197, 94, 0.35);
       }
 
       /* 다크모드 메인탭 - 흰색 톤 */
@@ -719,7 +738,7 @@
 
     /* 홈 카드 AM/PM 밑줄 스타일 */
     .home-card-ampm-underline {
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       padding-bottom: 2px;
       border-bottom: 2px solid;
     }
@@ -735,8 +754,8 @@
     }
 
     .home-card-more {
-      font-size: var(--font-small-size);
-      font-weight: 600;
+      font-size: var(--font-meta-size);
+      font-weight: var(--font-badge-weight);
       color: var(--primary);
       text-decoration: none;
       transition: opacity var(--transition-fast);
@@ -824,7 +843,7 @@
       align-items: center;
       gap: 6px;
       padding: 8px 14px;
-      font-size: var(--font-tab-size);
+      font-size: 14px;
       font-weight: var(--font-tab-weight);
       color: #1e293b;
       background: var(--bg);
@@ -1033,7 +1052,7 @@
 
     .home-insight-tag {
       font-size: var(--font-meta-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--primary);
       background: rgba(99, 102, 241, 0.15);
       border: 1px solid rgba(99, 102, 241, 0.3);
@@ -1120,7 +1139,7 @@
       color: white;
       border-radius: 6px;
       font-size: var(--font-meta-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       flex-shrink: 0;
     }
 
@@ -1142,19 +1161,19 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-weight: 500;
+      font-weight: var(--font-desc-weight);
     }
 
     .metric-up {
       color: #ef4444;
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
     }
 
     .metric-down {
       color: #3b82f6;
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
     }
 
     .metric-same {
@@ -1165,7 +1184,7 @@
     .metric-ccu {
       color: var(--primary);
       font-size: var(--font-badge-size);
-      font-weight: 600;
+      font-weight: var(--font-meta-weight);
       white-space: nowrap;
     }
 
@@ -1180,7 +1199,7 @@
 
     .metric-platform-badge {
       font-size: var(--font-micro-size);
-      font-weight: 600;
+      font-weight: var(--font-meta-weight);
       padding: 2px 5px;
       border-radius: 3px;
       white-space: nowrap;
@@ -1201,7 +1220,7 @@
       background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
       color: white;
       font-size: var(--font-xs-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       padding: 2px 6px;
       border-radius: 4px;
       white-space: nowrap;
@@ -1224,16 +1243,18 @@
 
     /* 홈 커뮤니티 좌우 분할 레이아웃 */
     .home-community-split {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
       padding: 16px;
     }
 
     .home-community-column {
-      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 8px;
+      overflow: hidden;
+      min-width: 0;
     }
 
     .home-community-item {
@@ -1245,6 +1266,8 @@
       background: var(--hover-bg);
       border-radius: var(--radius-sm);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      min-width: 0;
+      max-width: 100%;
     }
 
     .home-community-item:hover {
@@ -1254,7 +1277,7 @@
 
     .home-community-title {
       font-size: var(--font-body-size);
-      font-weight: 600;
+      font-weight: var(--font-title-weight);
       color: var(--text);
       line-height: 1.4;
       white-space: nowrap;
@@ -1292,7 +1315,7 @@
 
     @media (max-width: 768px) {
       .home-community-split {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 8px;
         padding: 12px;
       }
@@ -1448,12 +1471,12 @@
       font-size: var(--font-body-size);
       font-weight: var(--font-body-weight);
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.3;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      height: 44px;
+      height: 36px;
       transition: color var(--transition-fast);
     }
 
@@ -1530,7 +1553,7 @@
       align-items: center;
       justify-content: center;
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--text-muted);
       background: var(--hover-bg);
       border-radius: 6px;
@@ -1556,7 +1579,7 @@
 
     .home-tag {
       font-size: var(--font-meta-size);
-      font-weight: 600;
+      font-weight: var(--font-badge-weight);
       color: var(--primary);
       background: var(--active-bg);
       padding: 2px 6px;
@@ -1621,7 +1644,7 @@
       background: #e53935;
       color: #fff;
       font-size: var(--font-meta-size);
-      font-weight: 600;
+      font-weight: var(--font-badge-weight);
       padding: 4px 8px;
       border-radius: 4px;
     }
@@ -1634,7 +1657,7 @@
 
     .home-video-card-title {
       font-size: var(--font-body-size);
-      font-weight: 600;
+      font-weight: var(--font-title-weight);
       color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -1713,7 +1736,7 @@
       background: #e53935;
       color: #fff;
       font-size: var(--font-tiny-size);
-      font-weight: 600;
+      font-weight: var(--font-badge-weight);
       padding: 2px 4px;
       border-radius: 2px;
     }
@@ -1729,7 +1752,7 @@
 
     .home-video-item-title {
       font-size: var(--font-body-size);
-      font-weight: 600;
+      font-weight: var(--font-title-weight);
       color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -1841,7 +1864,7 @@
       align-items: center;
       justify-content: center;
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--text-muted);
       background: var(--hover-bg);
       border-radius: 6px;
@@ -1947,7 +1970,7 @@
       background: var(--hover-bg);
       border: none;
       border-radius: 8px;
-      font-size: var(--font-tab-size);
+      font-size: 14px;
       font-weight: var(--font-tab-weight);
       color: var(--text-secondary);
       cursor: pointer;
@@ -2207,7 +2230,7 @@
       position: absolute;
       right: 24px;
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: var(--font-meta-weight);
       color: var(--text-secondary);
       background: var(--glass-bg);
       padding: 6px 12px;
@@ -2362,7 +2385,8 @@
 
       /* PC 서브탭 버튼 - 통일된 스타일 */
       .tab-btn,
-      .tab-group .tab-btn {
+      .tab-group .tab-btn,
+      .insight-tab {
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -2372,7 +2396,7 @@
         gap: 6px !important;
         padding: 9px 20px !important;
         font-size: var(--font-tab-size) !important;
-        font-weight: 500 !important;
+        font-weight: var(--font-tab-weight) !important;
         overflow: visible !important;
       }
 
@@ -2408,14 +2432,14 @@
         text-align: center;
         padding: 10px 4px;
         margin: 4px 0;
-        font-size: var(--font-meta-size);
-        font-weight: 600;
+        font-size: var(--font-nav-size) !important;
+        font-weight: var(--font-nav-weight) !important;
         gap: 5px;
         flex-direction: column;
         border-radius: var(--radius-sm);
       }
       .nav-item.active {
-        font-weight: 800;
+        font-weight: var(--font-nav-weight);
         position: relative;
       }
       .nav-item.active::after {
@@ -2646,7 +2670,7 @@
 
       .community-section-title {
         font-size: var(--font-section-size);
-        font-weight: 700;
+        font-weight: var(--font-section-weight);
         color: var(--text);
       }
 
@@ -2708,7 +2732,7 @@
       align-items: center;
       justify-content: center;
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--text-secondary);
       background: var(--hover-bg);
       border-radius: 6px;
@@ -2842,10 +2866,10 @@
 
     .news-more-link {
       margin-left: auto;
-      font-size: var(--font-small-size);
+      font-size: var(--font-meta-size);
+      font-weight: var(--font-badge-weight);
       color: rgba(255,255,255,0.9);
       text-decoration: none;
-      font-weight: 600;
       padding: 4px 8px;
       border-radius: 6px;
       background: rgba(255,255,255,0.1);
@@ -2958,7 +2982,7 @@
 
     .section-title {
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: var(--font-section-weight);
       margin-bottom: 20px;
       color: var(--text);
       display: flex;
@@ -3033,7 +3057,7 @@
       background: var(--hover-bg);
       color: var(--text-secondary);
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       border-radius: 6px;
       flex-shrink: 0;
     }
@@ -3108,7 +3132,7 @@
 
     .community-tag {
       font-size: var(--font-meta-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--primary);
       background: var(--active-bg);
       padding: 3px 8px;
@@ -3129,7 +3153,7 @@
     /* 채널/게시판 태그 */
     .channel-tag {
       font-size: var(--font-xs-size);
-      font-weight: 600;
+      font-weight: var(--font-badge-weight);
       padding: 2px 6px;
       border-radius: 3px;
       color: var(--text-muted);
@@ -3144,7 +3168,7 @@
     /* 소스 사이트 태그 */
     .source-tag {
       font-size: var(--font-xs-size);
-      font-weight: 600;
+      font-weight: var(--font-badge-weight);
       padding: 2px 6px;
       border-radius: 3px;
       line-height: 1.2;
@@ -3244,7 +3268,7 @@
       color: #fff;
       border-color: var(--primary);
       box-shadow: var(--shadow-sm);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
     }
 
 
@@ -3307,7 +3331,7 @@
 
     .country-name {
       font-size: var(--font-small-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--text);
     }
 
@@ -3346,7 +3370,7 @@
       align-items: center;
       justify-content: center;
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--text-muted);
       flex-shrink: 0;
       border-radius: 6px;
@@ -3356,7 +3380,7 @@
     .rank-num-simple {
       width: 24px;
       font-size: var(--font-badge-size);
-      font-weight: 600;
+      font-weight: var(--font-meta-weight);
       color: var(--text-muted);
       flex-shrink: 0;
       text-align: center;
@@ -3476,7 +3500,7 @@
       background: var(--card-hover);
       border-bottom: 1px solid var(--border);
       font-size: var(--font-small-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--text);
       letter-spacing: 0.02em;
       align-items: center;
@@ -3579,7 +3603,7 @@
     .steam-col-players {
       text-align: right;
       font-size: var(--font-body-size);
-      font-weight: 600;
+      font-weight: var(--font-meta-weight);
       color: var(--success);
     }
 
@@ -3602,7 +3626,7 @@
 
     .steam-price {
       color: var(--text);
-      font-weight: 600;
+      font-weight: var(--font-meta-weight);
     }
 
     .steam-rank {
@@ -3612,7 +3636,7 @@
       align-items: center;
       justify-content: center;
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--text-secondary);
       background: var(--hover-bg);
       border-radius: 6px;
@@ -3675,7 +3699,7 @@
       align-items: center;
       padding: 10px 16px;
       font-size: var(--font-body-size);
-      font-weight: 600;
+      font-weight: var(--font-meta-weight);
       color: var(--text-secondary);
       background: var(--hover-bg);
       border: none;
@@ -3767,7 +3791,7 @@
       align-items: center;
       justify-content: center;
       font-size: var(--font-badge-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: white;
       background: rgba(0,0,0,0.7);
       border-radius: 6px;
@@ -3795,7 +3819,7 @@
       right: 8px;
       padding: 4px 8px;
       font-size: var(--font-xs-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: white;
       background: #ef4444;
       border-radius: 4px;
@@ -4025,8 +4049,8 @@
       .container { padding: 0 8px 40px; }
       .nav-inner { padding: 0 8px; }
 
-      /* 메인 메뉴 크기 증가 */
-      .nav-item { padding: 12px 8px; gap: 4px; }
+      /* 메인 메뉴 */
+      .nav-item { padding: 12px 8px; gap: 4px; font-size: var(--font-nav-size) !important; font-weight: var(--font-nav-weight) !important; }
       .nav-item svg { width: 20px; height: 20px; }
       .logo-svg { height: 32px; }
 
@@ -4140,7 +4164,7 @@
     }
 
     @media (max-width: 360px) {
-      .nav-item { padding: 6px 8px; gap: 2px; }
+      .nav-item { padding: 6px 8px; gap: 2px; font-size: var(--font-nav-size) !important; font-weight: var(--font-nav-weight) !important; }
       .nav-item svg { width: 12px; height: 12px; }
       .logo-svg { height: 28px; }
       .rankings-controls { gap: 4px; flex-wrap: nowrap; overflow: visible; }
@@ -4267,7 +4291,7 @@
       text-align: center;
       border-bottom: 1px solid var(--border);
       font-size: var(--font-small-size);
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       color: var(--text);
       letter-spacing: 0.02em;
       align-items: center;
@@ -4329,7 +4353,7 @@
       background: var(--border);
       color: var(--text-secondary);
       border-radius: 6px;
-      font-weight: 700;
+      font-weight: var(--font-badge-weight);
       font-size: var(--font-badge-size);
       flex-shrink: 0;
     }
@@ -4388,7 +4412,7 @@
     .upcoming-date {
       font-size: var(--font-rank-dev-size);
       color: var(--primary);
-      font-weight: 500;
+      font-weight: var(--font-desc-weight);
     }
 
     .upcoming-publisher {
@@ -4594,6 +4618,22 @@
     margin: 0 8px 6px 8px !important;
   }
 
+  /* 커뮤니티 탭 텍스트 축약 */
+  .tab-text-dcinside {
+    font-size: 0;
+  }
+  .tab-text-dcinside::after {
+    content: '디시';
+    font-size: var(--font-tab-size);
+  }
+  .tab-text-arca {
+    font-size: 0;
+  }
+  .tab-text-arca::after {
+    content: '아카';
+    font-size: var(--font-tab-size);
+  }
+
   /* 인사이트 페이지 탭 - 480px */
   .insight-tabs {
     margin: 0 0 10px 0 !important;
@@ -4680,6 +4720,22 @@
   .home-insight-tabs,
   .home-rank-tabs {
     margin: 0 6px 4px 6px !important;
+  }
+
+  /* 커뮤니티 탭 텍스트 축약 */
+  .tab-text-dcinside {
+    font-size: 0;
+  }
+  .tab-text-dcinside::after {
+    content: '디시';
+    font-size: var(--font-tab-size);
+  }
+  .tab-text-arca {
+    font-size: 0;
+  }
+  .tab-text-arca::after {
+    content: '아카';
+    font-size: var(--font-tab-size);
   }
 
   /* 인사이트 페이지 탭 - 360px */
@@ -4787,8 +4843,8 @@
   gap: 6px;
   padding: 10px 16px;
   font-size: var(--font-tab-size);
-  font-weight: 600;
-  color: #1e293b;
+  font-weight: var(--font-tab-weight);
+  color: var(--text);
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -4800,7 +4856,7 @@
 }
 
 .insight-tab:hover {
-  color: #0f172a;
+  color: var(--text);
   background: var(--hover-bg);
 }
 
@@ -4810,7 +4866,7 @@
   border-color: var(--primary);
 }
 
-/* PC 인사이트 탭 스타일 - 모바일 순위 탭과 동일한 개별 버튼 스타일 */
+/* PC 인사이트 탭 스타일 - .tab-btn과 통합 (상단 PC 서브탭 버튼 스타일 참조) */
 @media (min-width: 769px) {
   .insight-tabs {
     width: auto;
@@ -4822,33 +4878,6 @@
     border: none;
     border-radius: 0;
     padding: 0;
-  }
-
-  .insight-tab {
-    flex: 0 0 auto;
-    min-width: 120px;
-    min-height: 38px;
-    padding: 9px 20px;
-    font-size: var(--font-tab-size);
-    font-weight: 500;
-    background: var(--hover-bg);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    color: var(--text-secondary);
-    transition: all 0.2s ease;
-  }
-
-  .insight-tab:hover {
-    background: var(--bg);
-    color: var(--text);
-    border-color: var(--text-secondary);
-  }
-
-  .insight-tab.active {
-    background: var(--primary);
-    color: #fff;
-    border-color: var(--primary);
-    font-weight: 600;
   }
 }
 
@@ -4947,7 +4976,7 @@
 
 .weekly-header-ampm-tag {
   font-size: var(--font-badge-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   padding: 4px 10px;
   border-radius: 12px;
   text-transform: uppercase;
@@ -4969,7 +4998,7 @@
   gap: 10px;
   color: var(--text-secondary);
   font-size: var(--font-body-size);
-  font-weight: 500;
+  font-weight: var(--font-desc-weight);
 }
 
 .weekly-header-period {
@@ -4997,7 +5026,7 @@
 
 .weekly-header-week {
   font-size: var(--font-badge-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   padding: 4px 10px;
   border-radius: 12px;
   background: rgba(34, 197, 94, 0.15);
@@ -5091,7 +5120,7 @@
 
 .weekly-stat-value {
   font-size: var(--font-stat-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: var(--text);
   line-height: 1;
 }
@@ -5166,6 +5195,7 @@
   padding: 24px;
   position: relative;
   transition: var(--transition-elevate);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .weekly-section:hover {
@@ -5207,21 +5237,22 @@
 }
 
 .weekly-section-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
   margin: 0;
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
 }
 
 /* 에디터스 노트 */
 .weekly-intro {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 24px;
   position: relative;
   transition: var(--transition-elevate);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .weekly-intro:hover {
@@ -5256,16 +5287,16 @@
 }
 
 .weekly-intro-text {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
 /* 에디터스 노트 */
 .weekly-section-editor {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
 }
 
 .weekly-section-editor .weekly-section-title-wrap .weekly-icon {
@@ -5275,7 +5306,7 @@
 
 /* 금주의 핫이슈 */
 .weekly-section-hot {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.04) 0%, rgba(249, 115, 22, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
 }
 
 .weekly-section-hot .weekly-section-title-wrap .weekly-icon {
@@ -5346,7 +5377,7 @@
   align-items: center;
   gap: 4px;
   font-size: var(--font-meta-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   padding: 4px 10px;
   border-radius: 20px;
   margin-bottom: 10px;
@@ -5438,7 +5469,7 @@
 
 /* 순위 변동 분석 */
 .weekly-section-rankings {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
 }
 
 .weekly-section-rankings .weekly-section-title-wrap .weekly-icon {
@@ -5497,7 +5528,7 @@
 
 .weekly-rank-badge {
   font-size: var(--font-meta-size);
-  font-weight: 600;
+  font-weight: var(--font-meta-weight);
   padding: 4px 10px;
   border-radius: 12px;
 }
@@ -5538,7 +5569,7 @@
 
 .weekly-rank-arrow {
   font-size: var(--font-body-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
 }
 
 .weekly-rank-arrow.up { color: #22c55e; }
@@ -5552,7 +5583,7 @@
 
 .weekly-rank-delta {
   font-size: var(--font-body-size);
-  font-weight: 600;
+  font-weight: var(--font-meta-weight);
   padding: 2px 8px;
   border-radius: 8px;
 }
@@ -5573,16 +5604,16 @@
 }
 
 .weekly-rank-reason {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
 /* 업계 동향 타임라인 */
 .weekly-section-industry {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.04) 0%, rgba(236, 72, 153, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%);
 }
 
 .weekly-section-industry .weekly-section-title-wrap .weekly-icon {
@@ -5638,7 +5669,7 @@
 .weekly-timeline-tag {
   display: inline-block;
   font-size: var(--font-meta-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: #a78bfa;
   background: rgba(139, 92, 246, 0.15);
   padding: 4px 10px;
@@ -5655,16 +5686,16 @@
 }
 
 .weekly-timeline-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
 /* 주간 지표 (아이콘 강조형) */
 .weekly-section-metrics {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.04) 0%, rgba(6, 182, 212, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
 }
 
 .weekly-section-metrics .weekly-section-title-wrap .weekly-icon {
@@ -5730,7 +5761,7 @@
 .weekly-metric-tag {
   display: inline-block;
   font-size: var(--font-meta-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: var(--metric-color, #3b82f6);
   background: color-mix(in srgb, var(--metric-color, #3b82f6) 12%, transparent);
   padding: 4px 10px;
@@ -5747,16 +5778,16 @@
 }
 
 .weekly-metric-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
 /* 커뮤니티 반응 (말풍선 스타일) */
 .weekly-section-community {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.04) 0%, rgba(244, 114, 182, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(244, 114, 182, 0.08) 100%);
 }
 
 .weekly-section-community .weekly-section-title-wrap .weekly-icon {
@@ -5804,7 +5835,7 @@
 .weekly-community-game {
   display: inline-block;
   font-size: var(--font-meta-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: #ec4899;
   background: rgba(236, 72, 153, 0.12);
   padding: 4px 10px;
@@ -5821,16 +5852,16 @@
 }
 
 .weekly-community-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
 /* 스트리밍 트렌드 (플랫폼 카드) */
 .weekly-section-streaming {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.03) 0%, rgba(249, 115, 22, 0.03) 100%);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
 }
 
 .weekly-section-streaming .weekly-section-title-wrap .weekly-icon {
@@ -5913,7 +5944,7 @@
 
 .weekly-streaming-platform span {
   font-size: var(--font-body-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: var(--text);
 }
 
@@ -5926,10 +5957,10 @@
 }
 
 .weekly-streaming-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
@@ -5947,7 +5978,7 @@
 
 .weekly-highlight-subtitle {
   font-size: var(--font-body-size);
-  font-weight: 600;
+  font-weight: var(--font-meta-weight);
   color: var(--text);
   margin: 0 0 8px 0;
   padding-bottom: 8px;
@@ -5964,7 +5995,7 @@
 .weekly-highlight-tag {
   display: inline-block;
   font-size: var(--font-meta-size);
-  font-weight: 600;
+  font-weight: var(--font-badge-weight);
   color: var(--primary);
   background: rgba(99, 102, 241, 0.15);
   padding: 2px 8px;
@@ -5974,20 +6005,21 @@
 
 .weekly-highlight-title {
   font-size: var(--font-body-size);
-  font-weight: 600;
+  font-weight: var(--font-meta-weight);
   color: var(--text);
 }
 
 .weekly-highlight-desc {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: var(--font-desc-line-height);
   margin: 8px 0 0 0;
 }
 
 /* 주간 게임주 분석 (테이블 스타일) */
 .weekly-section-stocks {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.04) 0%, rgba(239, 68, 68, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(239, 68, 68, 0.08) 100%);
 }
 
 .weekly-section-stocks .weekly-section-title-wrap .weekly-icon {
@@ -6018,7 +6050,7 @@
   gap: 10px;
   padding: 16px 20px;
   font-size: var(--font-title-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
 }
 
 .weekly-stocks-table-header svg {
@@ -6070,7 +6102,7 @@
   align-items: center;
   justify-content: center;
   font-size: var(--font-badge-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   flex-shrink: 0;
 }
 
@@ -6107,7 +6139,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   flex-shrink: 0;
   color: var(--text);
 }
@@ -6145,7 +6177,7 @@
 
 /* 주간 MVP 섹션 */
 .weekly-section-mvp {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(249, 115, 22, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
 }
 
 .weekly-section-mvp .weekly-section-title-wrap .weekly-icon {
@@ -6206,15 +6238,16 @@
 
 .weekly-mvp-name {
   font-size: var(--font-lg-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: var(--text);
   margin: 0 0 10px 0;
 }
 
 .weekly-mvp-desc {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: var(--font-desc-line-height);
   margin: 0 0 14px 0;
 }
 
@@ -6235,7 +6268,7 @@
 
 /* 신작/업데이트 캘린더 */
 .weekly-section-releases {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(34, 197, 94, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(34, 197, 94, 0.08) 100%);
 }
 
 .weekly-section-releases .weekly-section-title-wrap .weekly-icon {
@@ -6267,7 +6300,7 @@
 
 .weekly-release-date {
   font-size: var(--font-body-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: #10b981;
   background: rgba(16, 185, 129, 0.12);
   padding: 8px 14px;
@@ -6298,7 +6331,7 @@
 
 .weekly-release-type {
   font-size: var(--font-meta-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   padding: 6px 14px;
   border-radius: 20px;
   flex-shrink: 0;
@@ -6316,7 +6349,7 @@
 
 /* 글로벌 트렌드 */
 .weekly-section-global {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.04) 0%, rgba(6, 182, 212, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
 }
 
 .weekly-section-global .weekly-section-title-wrap .weekly-icon {
@@ -6364,7 +6397,7 @@
 .weekly-global-region {
   display: inline-block;
   font-size: var(--font-meta-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: #3b82f6;
   background: rgba(59, 130, 246, 0.12);
   padding: 5px 12px;
@@ -6374,16 +6407,17 @@
 
 .weekly-global-title {
   font-size: var(--font-section-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: var(--text);
   margin: 0 0 10px 0;
   line-height: 1.45;
 }
 
 .weekly-global-desc {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
@@ -6655,7 +6689,7 @@
 
 .metric-value {
   font-size: var(--font-heading-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: var(--text);
   margin-bottom: 4px;
   white-space: nowrap;
@@ -6691,7 +6725,7 @@
   padding: 4px 10px;
   border-radius: 6px;
   font-size: var(--font-meta-size);
-  font-weight: 600;
+  font-weight: var(--font-badge-weight);
   margin-bottom: 12px;
 }
 
@@ -6722,7 +6756,7 @@
 
 .highlight-title {
   font-size: var(--font-section-size);
-  font-weight: 600;
+  font-weight: var(--font-meta-weight);
   color: var(--text);
   margin-bottom: 8px;
   line-height: 1.4;
@@ -7030,12 +7064,12 @@
 .insight-info-label {
   font-size: var(--font-meta-size);
   color: var(--text-tertiary);
-  font-weight: 500;
+  font-weight: var(--font-desc-weight);
 }
 
 .insight-info-value {
   font-size: var(--font-body-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: var(--text-primary);
 }
 
@@ -7049,7 +7083,7 @@
   top: 8px;
   right: 8px;
   font-size: var(--font-xs-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
 }
 
 .insight-info-trend.up { color: #22c55e; }
@@ -7110,7 +7144,7 @@
 
 .insight-chart-header {
   font-size: var(--font-small-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   padding: 8px 12px;
   border-radius: var(--radius-sm);
   text-align: center;
@@ -7261,7 +7295,7 @@
 
 .stock-price-value {
   font-size: var(--font-xl-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: var(--text-primary);
   white-space: nowrap;
 }
@@ -7276,7 +7310,7 @@
 
 .stock-change-badge {
   font-size: var(--font-body-size);
-  font-weight: 600;
+  font-weight: var(--font-meta-weight);
   padding: 5px 10px;
   border-radius: 6px;
   background: var(--bg-tertiary);
@@ -7399,7 +7433,7 @@
   background: rgba(0,0,0,0.7);
   color: #fff;
   font-size: var(--font-badge-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   padding: 4px 8px;
   border-radius: 4px;
   z-index: 2;
@@ -7427,7 +7461,7 @@
   bottom: 8px;
   right: 8px;
   font-size: var(--font-heading-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: #fff;
   min-width: 40px;
   height: 40px;
@@ -7581,7 +7615,7 @@
 .daily-community-game {
   display: inline-block;
   font-size: var(--font-meta-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: #ec4899;
   background: rgba(236, 72, 153, 0.12);
   padding: 4px 10px;
@@ -7598,10 +7632,10 @@
 }
 
 .daily-community-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
@@ -7682,7 +7716,7 @@
 
 .daily-streaming-platform-name {
   font-size: var(--font-small-size);
-  font-weight: 600;
+  font-weight: var(--font-meta-weight);
   color: var(--text-secondary);
 }
 
@@ -7695,10 +7729,10 @@
 }
 
 .daily-streaming-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
@@ -7758,7 +7792,7 @@
 .daily-industry-tag {
   display: inline-block;
   font-size: var(--font-meta-size);
-  font-weight: 700;
+  font-weight: var(--font-badge-weight);
   color: #a855f7;
   background: rgba(168, 85, 247, 0.12);
   padding: 4px 10px;
@@ -7775,10 +7809,10 @@
 }
 
 .daily-industry-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
   margin: 0;
 }
 
