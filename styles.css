@@ -284,24 +284,24 @@
       --transition-slow: 0.4s var(--ease-out-expo);
       --transition-elevate: transform 0.2s ease, box-shadow 0.2s ease;
 
-      /* === Report Gradients === */
-      --gradient-hot: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
-      --gradient-industry: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
-      --gradient-metrics: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
-      --gradient-rankings: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
-      --gradient-community: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(244, 114, 182, 0.08) 100%);
-      --gradient-streaming: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
-      --gradient-stocks: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(239, 68, 68, 0.08) 100%);
-      --gradient-primary: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      /* === Report Gradients (primary 통일) === */
+      --gradient-hot: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      --gradient-industry: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      --gradient-metrics: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      --gradient-rankings: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      --gradient-community: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      --gradient-streaming: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      --gradient-stocks: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      --gradient-primary: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
 
-      /* === Report Icon Backgrounds === */
-      --icon-bg-hot: rgba(239, 68, 68, 0.12);
-      --icon-bg-industry: rgba(168, 85, 247, 0.12);
-      --icon-bg-metrics: rgba(59, 130, 246, 0.12);
-      --icon-bg-rankings: rgba(34, 197, 94, 0.12);
-      --icon-bg-community: rgba(236, 72, 153, 0.12);
-      --icon-bg-streaming: rgba(249, 115, 22, 0.12);
-      --icon-bg-stocks: rgba(34, 197, 94, 0.12);
+      /* === Report Icon Backgrounds (primary 통일) === */
+      --icon-bg-hot: rgba(99, 102, 241, 0.12);
+      --icon-bg-industry: rgba(99, 102, 241, 0.12);
+      --icon-bg-metrics: rgba(99, 102, 241, 0.12);
+      --icon-bg-rankings: rgba(99, 102, 241, 0.12);
+      --icon-bg-community: rgba(99, 102, 241, 0.12);
+      --icon-bg-streaming: rgba(99, 102, 241, 0.12);
+      --icon-bg-stocks: rgba(99, 102, 241, 0.12);
 
       /* === Report Badge (20% opacity for better readability) === */
       --badge-bg-up: rgba(34, 197, 94, 0.20);
@@ -426,24 +426,24 @@
         --glow-primary: 0 0 20px rgba(255, 107, 53, 0.3);
         --glow-accent: 0 0 20px rgba(255, 193, 7, 0.25);
 
-        /* === 다크모드 전용 Report Gradients (밝고 투명한 스타일) === */
-        --gradient-hot: linear-gradient(135deg, rgba(239, 68, 68, 0.28) 0%, rgba(249, 115, 22, 0.22) 100%);
-        --gradient-industry: linear-gradient(135deg, rgba(168, 85, 247, 0.28) 0%, rgba(139, 92, 246, 0.22) 100%);
-        --gradient-metrics: linear-gradient(135deg, rgba(59, 130, 246, 0.28) 0%, rgba(6, 182, 212, 0.22) 100%);
-        --gradient-rankings: linear-gradient(135deg, rgba(34, 197, 94, 0.28) 0%, rgba(16, 185, 129, 0.22) 100%);
-        --gradient-community: linear-gradient(135deg, rgba(236, 72, 153, 0.28) 0%, rgba(244, 114, 182, 0.22) 100%);
-        --gradient-streaming: linear-gradient(135deg, rgba(249, 115, 22, 0.28) 0%, rgba(245, 158, 11, 0.22) 100%);
-        --gradient-stocks: linear-gradient(135deg, rgba(34, 197, 94, 0.28) 0%, rgba(239, 68, 68, 0.22) 100%);
-        --gradient-primary: linear-gradient(135deg, rgba(99, 102, 241, 0.28) 0%, rgba(139, 92, 246, 0.22) 100%);
+        /* === 다크모드 전용 Report Gradients (primary 통일) === */
+        --gradient-hot: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+        --gradient-industry: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+        --gradient-metrics: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+        --gradient-rankings: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+        --gradient-community: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+        --gradient-streaming: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+        --gradient-stocks: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+        --gradient-primary: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
 
-        /* === 다크모드 전용 Icon Backgrounds (밝고 투명한 스타일) === */
-        --icon-bg-hot: rgba(239, 68, 68, 0.35);
-        --icon-bg-industry: rgba(168, 85, 247, 0.35);
-        --icon-bg-metrics: rgba(59, 130, 246, 0.35);
-        --icon-bg-rankings: rgba(34, 197, 94, 0.35);
-        --icon-bg-community: rgba(236, 72, 153, 0.35);
-        --icon-bg-streaming: rgba(249, 115, 22, 0.35);
-        --icon-bg-stocks: rgba(34, 197, 94, 0.35);
+        /* === 다크모드 전용 Icon Backgrounds (primary 통일) === */
+        --icon-bg-hot: rgba(99, 102, 241, 0.25);
+        --icon-bg-industry: rgba(99, 102, 241, 0.25);
+        --icon-bg-metrics: rgba(99, 102, 241, 0.25);
+        --icon-bg-rankings: rgba(99, 102, 241, 0.25);
+        --icon-bg-community: rgba(99, 102, 241, 0.25);
+        --icon-bg-streaming: rgba(99, 102, 241, 0.25);
+        --icon-bg-stocks: rgba(99, 102, 241, 0.25);
       }
 
       /* 다크모드 메인탭 - 흰색 톤 */
@@ -991,8 +991,8 @@
       color: var(--text);
       margin: 0;
       padding: 16px;
-      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.05) 100%);
-      border: 1px solid rgba(239, 68, 68, 0.3);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.2);
       border-radius: 14px;
     }
 
@@ -5216,12 +5216,12 @@
 
 /* 금주의 핫이슈 */
 .weekly-section-hot {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
 }
 
 .weekly-section-hot .weekly-section-title-wrap .weekly-icon {
-  background: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
 }
 
 .weekly-hot-issues {
@@ -5297,34 +5297,34 @@
 
 /* 섹션별 태그 색상 */
 .weekly-section-hot .weekly-hot-tag {
-  background: rgba(239, 68, 68, 0.15);
+  background: rgba(248, 113, 113, 0.18);
   color: #f87171;
 }
 
 .weekly-section-industry .weekly-hot-tag,
 .weekly-section-industry .weekly-timeline-tag {
-  background: rgba(139, 92, 246, 0.15);
+  background: rgba(167, 139, 250, 0.18);
   color: #a78bfa;
 }
 
 .weekly-section-metrics .weekly-hot-tag {
-  background: rgba(34, 197, 94, 0.15);
+  background: rgba(74, 222, 128, 0.18);
   color: #4ade80;
 }
 
 .weekly-section-rankings .weekly-hot-tag {
-  background: rgba(251, 191, 36, 0.15);
+  background: rgba(251, 191, 36, 0.18);
   color: #fbbf24;
 }
 
 .weekly-section-community .weekly-hot-tag,
 .weekly-section-community .weekly-community-game {
-  background: rgba(56, 189, 248, 0.15);
+  background: rgba(56, 189, 248, 0.18);
   color: #38bdf8;
 }
 
 .weekly-section-streaming .weekly-hot-tag {
-  background: rgba(249, 115, 22, 0.15);
+  background: rgba(251, 146, 60, 0.18);
   color: #fb923c;
 }
 
@@ -5377,12 +5377,12 @@
 
 /* 순위 변동 분석 */
 .weekly-section-rankings {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
 }
 
 .weekly-section-rankings .weekly-section-title-wrap .weekly-icon {
-  background: rgba(34, 197, 94, 0.12);
-  color: #22c55e;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
 }
 
 .weekly-rankings-grid {
@@ -5521,12 +5521,12 @@
 
 /* 업계 동향 타임라인 */
 .weekly-section-industry {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
 }
 
 .weekly-section-industry .weekly-section-title-wrap .weekly-icon {
-  background: rgba(168, 85, 247, 0.12);
-  color: #a855f7;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
 }
 
 .weekly-timeline {
@@ -5603,12 +5603,12 @@
 
 /* 주간 지표 (아이콘 강조형) */
 .weekly-section-metrics {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
 }
 
 .weekly-section-metrics .weekly-section-title-wrap .weekly-icon {
-  background: rgba(59, 130, 246, 0.12);
-  color: #3b82f6;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
 }
 
 .weekly-metrics-row {
@@ -5695,12 +5695,12 @@
 
 /* 커뮤니티 반응 (말풍선 스타일) */
 .weekly-section-community {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(244, 114, 182, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
 }
 
 .weekly-section-community .weekly-section-title-wrap .weekly-icon {
-  background: rgba(236, 72, 153, 0.12);
-  color: #ec4899;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
 }
 
 .weekly-section-alt {
@@ -5769,12 +5769,12 @@
 
 /* 스트리밍 트렌드 (플랫폼 카드) */
 .weekly-section-streaming {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
 }
 
 .weekly-section-streaming .weekly-section-title-wrap .weekly-icon {
-  background: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
 }
 
 .weekly-streaming-grid {
@@ -5925,12 +5925,12 @@
 
 /* 주간 게임주 분석 (테이블 스타일) */
 .weekly-section-stocks {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(239, 68, 68, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
 }
 
 .weekly-section-stocks .weekly-section-title-wrap .weekly-icon {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(239, 68, 68, 0.15));
-  color: #22c55e;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
 }
 
 .weekly-stocks-tables {
@@ -6731,11 +6731,11 @@
 /* 핫이슈 */
 .insight-card.daily-section-hot {
   background: var(--gradient-hot);
-  border-color: rgba(239, 68, 68, 0.2);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .insight-card.daily-section-hot .home-card-header {
-  border-bottom: 2px solid rgba(239, 68, 68, 0.15);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
 }
 
 .insight-card.daily-section-hot .daily-section-icon-wrap {
@@ -6743,17 +6743,17 @@
 }
 
 .insight-card.daily-section-hot .daily-section-icon {
-  color: #ef4444;
+  color: #6366f1;
 }
 
 /* 업계 동향 */
 .insight-card.daily-section-industry {
   background: var(--gradient-industry);
-  border-color: rgba(168, 85, 247, 0.2);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .insight-card.daily-section-industry .home-card-header {
-  border-bottom: 2px solid rgba(168, 85, 247, 0.15);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
 }
 
 .insight-card.daily-section-industry .daily-section-icon-wrap {
@@ -6761,17 +6761,17 @@
 }
 
 .insight-card.daily-section-industry .daily-section-icon {
-  color: #a855f7;
+  color: #6366f1;
 }
 
 /* 주목할만한 지표 */
 .insight-card.daily-section-metrics {
   background: var(--gradient-metrics);
-  border-color: rgba(59, 130, 246, 0.2);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .insight-card.daily-section-metrics .home-card-header {
-  border-bottom: 2px solid rgba(59, 130, 246, 0.15);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
 }
 
 .insight-card.daily-section-metrics .daily-section-icon-wrap {
@@ -6779,17 +6779,17 @@
 }
 
 .insight-card.daily-section-metrics .daily-section-icon {
-  color: #3b82f6;
+  color: #6366f1;
 }
 
 /* 순위 변동 */
 .insight-card.daily-section-rankings {
   background: var(--gradient-rankings);
-  border-color: rgba(34, 197, 94, 0.2);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .insight-card.daily-section-rankings .home-card-header {
-  border-bottom: 2px solid rgba(34, 197, 94, 0.15);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
 }
 
 .insight-card.daily-section-rankings .daily-section-icon-wrap {
@@ -6797,17 +6797,17 @@
 }
 
 .insight-card.daily-section-rankings .daily-section-icon {
-  color: #22c55e;
+  color: #6366f1;
 }
 
 /* 유저 반응 */
 .insight-card.daily-section-community {
   background: var(--gradient-community);
-  border-color: rgba(236, 72, 153, 0.2);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .insight-card.daily-section-community .home-card-header {
-  border-bottom: 2px solid rgba(236, 72, 153, 0.15);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
 }
 
 .insight-card.daily-section-community .daily-section-icon-wrap {
@@ -6815,17 +6815,17 @@
 }
 
 .insight-card.daily-section-community .daily-section-icon {
-  color: #ec4899;
+  color: #6366f1;
 }
 
 /* 스트리밍 트렌드 */
 .insight-card.daily-section-streaming {
   background: var(--gradient-streaming);
-  border-color: rgba(249, 115, 22, 0.2);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .insight-card.daily-section-streaming .home-card-header {
-  border-bottom: 2px solid rgba(249, 115, 22, 0.15);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
 }
 
 .insight-card.daily-section-streaming .daily-section-icon-wrap {
@@ -6833,17 +6833,17 @@
 }
 
 .insight-card.daily-section-streaming .daily-section-icon {
-  color: #f97316;
+  color: #6366f1;
 }
 
 /* 게임주 현황 */
 .insight-card.daily-section-stocks {
   background: var(--gradient-stocks);
-  border-color: rgba(34, 197, 94, 0.2);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .insight-card.daily-section-stocks .home-card-header {
-  border-bottom: 2px solid rgba(34, 197, 94, 0.15);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
 }
 
 .insight-card.daily-section-stocks .daily-section-icon-wrap {
@@ -6851,7 +6851,7 @@
 }
 
 .insight-card.daily-section-stocks .daily-section-icon {
-  color: #22c55e;
+  color: #6366f1;
 }
 
 /* 카드 헤더 공통 */

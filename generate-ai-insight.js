@@ -9,7 +9,7 @@ const fs = require('fs');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { generateAIInsight } = require('./src/insights/ai-insight');
-const { loadHistory, getYesterdayDate } = require('./src/insights/daily');
+const { loadHistory, getYesterdayDate, getCurrentPeriod } = require('./src/insights/daily');
 const { fetchStockPrices } = require('./src/crawlers/stocks');
 
 const CACHE_FILE = './data-cache.json';
@@ -17,15 +17,15 @@ const REPORTS_DIR = './reports';
 
 /**
  * reports/{date}-{AM|PM}.json에서 어제 순위 데이터 로드
- * PM 파일 우선, 없으면 AM 파일 시도, 둘 다 없으면 레거시(날짜만) 시도
+ * 같은 시간대(AM/PM)끼리 비교 - AM은 어제 AM, PM은 어제 PM
  * @param {string} date - YYYY-MM-DD 형식
+ * @param {string} period - AM 또는 PM
  * @returns {Object|null} rankings 데이터 또는 null
  */
-function loadYesterdayRankingsFromReports(date) {
-  // PM 우선 (어제 저녁 데이터가 더 최신)
+function loadYesterdayRankingsFromReports(date, period) {
+  // 같은 시간대 우선, 없으면 레거시 시도
   const candidates = [
-    `${REPORTS_DIR}/${date}-PM.json`,
-    `${REPORTS_DIR}/${date}-AM.json`,
+    `${REPORTS_DIR}/${date}-${period}.json`,  // 같은 시간대 우선
     `${REPORTS_DIR}/${date}.json`  // 레거시 호환
   ];
 
@@ -33,6 +33,7 @@ function loadYesterdayRankingsFromReports(date) {
   for (const file of candidates) {
     if (fs.existsSync(file)) {
       reportFile = file;
+      console.log(`📂 reports 로드: ${file}`);
       break;
     }
   }
@@ -176,26 +177,30 @@ async function main() {
   };
 
   // 어제 데이터 로드 및 순위 변동 분석
+  // AM은 어제 AM, PM은 어제 PM과 비교 (같은 시간대끼리)
   // 1. history/ 폴더에서 시도 (로컬 빌드용)
   // 2. reports/ 폴더에서 시도 (GitHub Actions용)
   const yesterday = getYesterdayDate();
-  let yesterdayRankings = loadHistory(yesterday)?.rankings;
+  const period = getCurrentPeriod();
+  console.log(`🕐 현재 시간대: ${period} - 어제 ${period} 데이터와 비교`);
+
+  let yesterdayRankings = loadHistory(yesterday, period)?.rankings;
 
   if (!yesterdayRankings) {
     console.log('📂 history/ 없음 - reports/에서 어제 데이터 로드 시도...');
-    yesterdayRankings = loadYesterdayRankingsFromReports(yesterday);
+    yesterdayRankings = loadYesterdayRankingsFromReports(yesterday, period);
   }
 
   let rankingChanges = null;
 
   if (yesterdayRankings) {
-    console.log(`📊 어제 데이터 로드 완료 (${yesterday}) - 순위 변동 분석 중...`);
+    console.log(`📊 어제 ${period} 데이터 로드 완료 (${yesterday}) - 순위 변동 분석 중...`);
     rankingChanges = buildRankingChanges(cache.rankings, yesterdayRankings);
     console.log(`  - 급상승: ${rankingChanges.up.length}개`);
     console.log(`  - 급하락: ${rankingChanges.down.length}개`);
     console.log(`  - 신규진입: ${rankingChanges.new.length}개\n`);
   } else {
-    console.log(`⚠️ 어제 데이터 없음 (${yesterday}) - 순위 변동 분석 건너뜀\n`);
+    console.log(`⚠️ 어제 ${period} 데이터 없음 (${yesterday}-${period}) - 순위 변동 분석 건너뜀\n`);
   }
 
   // AI 인사이트 생성 (순위 변동 데이터 포함)
