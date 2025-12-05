@@ -174,6 +174,10 @@ JSON만 출력해. 다른 설명 없이.`;
 
     const jsonStr = result.substring(jsonStart, jsonEnd);
     const aiInsight = JSON.parse(jsonStr);
+
+    // AI 응답의 date를 현재 KST 날짜로 강제 교정
+    aiInsight.date = today;
+
     console.log('  - AI 인사이트 생성 완료 (Codex)');
     return aiInsight;
   } catch (error) {
