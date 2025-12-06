@@ -94,7 +94,7 @@ ${insight.issues.slice(0, 3).map((issue, i) =>
 ).join('\n')}
 
 자세한 내용은 👇
-https://gamerscrawl.com/insight/?utm_source=x&utm_medium=social&utm_campaign=daily_insight
+https://gamerscrawl.com/?utm_source=x&utm_medium=social&utm_campaign=daily_insight
 
 #게임 #게임순위 #모바일게임 #게임추천 #게이머스크롤`;
 
