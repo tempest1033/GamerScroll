@@ -74,10 +74,10 @@ function findInsightJsonFile(today) {
   const currentAmPm = getAmPm();
   const otherAmPm = currentAmPm === 'AM' ? 'PM' : 'AM';
 
-  // 어제 날짜 계산
-  const todayDate = new Date(today + 'T00:00:00+09:00');
-  const yesterdayDate = new Date(todayDate.getTime() - 24 * 60 * 60 * 1000);
-  const yesterday = yesterdayDate.toISOString().split('T')[0];
+  // 어제 날짜 계산 (타임존 이슈 방지)
+  const [year, month, day] = today.split('-').map(Number);
+  const d = new Date(year, month - 1, day - 1);
+  const yesterday = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 
   // 우선순위: 오늘 현재 시간대 > 오늘 다른 시간대 > 오늘 레거시 > 어제 PM > 어제 AM > 어제 레거시
   const candidates = [
