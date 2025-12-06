@@ -3,7 +3,6 @@
  */
 
 const { wrapWithLayout, SHOW_ADS } = require('../layout');
-const { getFavicon } = require('../components/favicons');
 const { countries } = require('../../crawlers/rankings');
 
 function generateRankingsPage(data) {
@@ -58,8 +57,8 @@ function generateRankingsPage(data) {
       <div class="rankings-controls">
         <div class="control-group">
           <div class="tab-group" id="storeTab">
-            <button class="tab-btn ios-btn active" data-store="ios"><img src="${getFavicon('apple.com')}" alt="" class="news-favicon">App Store</button>
-            <button class="tab-btn android-btn" data-store="android"><img src="${getFavicon('play.google.com')}" alt="" class="news-favicon">Google Play</button>
+            <button class="tab-btn ios-btn active" data-store="ios"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">App Store</button>
+            <button class="tab-btn android-btn" data-store="android"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" alt="" class="news-favicon">Google Play</button>
           </div>
         </div>
         <div class="control-group">

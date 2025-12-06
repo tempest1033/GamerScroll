@@ -6,9 +6,6 @@
 // 광고 표시 여부
 const SHOW_ADS = false;
 
-// 네비게이션 페이지 순서
-const NAV_PAGES = ['insight', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
-
 function generateHead(options = {}) {
   const {
     title = '게이머스크롤 | 데일리 게임 인사이트',
@@ -16,21 +13,6 @@ function generateHead(options = {}) {
     canonical = 'https://gamerscrawl.com',
     pageData = {}
   } = options;
-
-  // 현재 페이지 감지 및 인접 페이지만 prefetch (최대 3개)
-  const currentPage = NAV_PAGES.find(p => canonical.includes(`/${p}`)) || '';
-  const currentIndex = NAV_PAGES.indexOf(currentPage);
-  const prefetchPages = [];
-  if (currentIndex === -1) {
-    // 홈페이지: 첫 3개 페이지
-    prefetchPages.push(...NAV_PAGES.slice(0, 3));
-  } else {
-    // 이전/다음 페이지
-    if (currentIndex > 0) prefetchPages.push(NAV_PAGES[currentIndex - 1]);
-    if (currentIndex < NAV_PAGES.length - 1) prefetchPages.push(NAV_PAGES[currentIndex + 1]);
-    if (currentIndex < NAV_PAGES.length - 2) prefetchPages.push(NAV_PAGES[currentIndex + 2]);
-  }
-  const prefetchLinks = prefetchPages.map(p => `<link rel="prefetch" href="/${p}/" as="document">`).join('\n  ');
 
   // 페이지별 데이터 스크립트 (필요한 경우에만)
   const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
@@ -95,8 +77,15 @@ function generateHead(options = {}) {
   <link rel="preconnect" href="https://i.ytimg.com">
   <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com">
   <link rel="preconnect" href="https://www.google.com">
-  <!-- Prefetch 인접 페이지 미리 로드 (동적) -->
-  ${prefetchLinks}
+  <!-- Prefetch 다른 페이지 미리 로드 -->
+  <link rel="prefetch" href="/insight/" as="document">
+  <link rel="prefetch" href="/news/" as="document">
+  <link rel="prefetch" href="/community/" as="document">
+  <link rel="prefetch" href="/youtube/" as="document">
+  <link rel="prefetch" href="/rankings/" as="document">
+  <link rel="prefetch" href="/steam/" as="document">
+  <link rel="prefetch" href="/upcoming/" as="document">
+  <link rel="prefetch" href="/metacritic/" as="document">
   <!-- Font Preload -->
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2" as="font" type="font/woff2" crossorigin>

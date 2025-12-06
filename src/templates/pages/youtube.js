@@ -3,7 +3,6 @@
  */
 
 const { wrapWithLayout, SHOW_ADS } = require('../layout');
-const { getFavicon } = require('../components/favicons');
 
 function generateYoutubePage(data) {
   const { youtube, chzzk } = data;
@@ -64,8 +63,8 @@ function generateYoutubePage(data) {
       </div>` : ''}
       <div class="video-controls">
         <div class="tab-group" id="videoTab">
-          <button class="tab-btn active" data-video="gaming"><img src="${getFavicon('youtube.com')}" alt="" class="news-favicon">유튜브 인기</button>
-          <button class="tab-btn" data-video="chzzk"><img src="${getFavicon('chzzk.naver.com')}" alt="" class="news-favicon">치지직 라이브</button>
+          <button class="tab-btn active" data-video="gaming"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="" class="news-favicon">유튜브 인기</button>
+          <button class="tab-btn" data-video="chzzk"><img src="https://www.google.com/s2/favicons?domain=chzzk.naver.com&sz=32" alt="" class="news-favicon">치지직 라이브</button>
         </div>
       </div>
 

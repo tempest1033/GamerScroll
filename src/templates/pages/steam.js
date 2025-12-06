@@ -3,7 +3,6 @@
  */
 
 const { wrapWithLayout, SHOW_ADS } = require('../layout');
-const { getFavicon } = require('../components/favicons');
 
 function generateSteamPage(data) {
   const { steam } = data;
@@ -84,8 +83,8 @@ function generateSteamPage(data) {
       </div>` : ''}
       <div class="steam-controls">
         <div class="tab-group" id="steamTab">
-          <button class="tab-btn steam-btn active" data-steam="mostplayed"><img src="${getFavicon('store.steampowered.com')}" alt="" class="news-favicon">최다 플레이</button>
-          <button class="tab-btn steam-btn" data-steam="topsellers"><img src="${getFavicon('store.steampowered.com')}" alt="" class="news-favicon">최고 판매</button>
+          <button class="tab-btn steam-btn active" data-steam="mostplayed"><img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">최다 플레이</button>
+          <button class="tab-btn steam-btn" data-steam="topsellers"><img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">최고 판매</button>
         </div>
       </div>
 

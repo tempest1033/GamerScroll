@@ -3,7 +3,6 @@
  */
 
 const { wrapWithLayout, SHOW_ADS } = require('../layout');
-const { getFavicon } = require('../components/favicons');
 
 function generateNewsPage(data) {
   const { news } = data;
@@ -37,10 +36,10 @@ function generateNewsPage(data) {
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="newsTab">
-            <button class="tab-btn active" data-news="inven"><img src="${getFavicon('inven.co.kr')}" alt="" class="news-favicon">인벤</button>
-            <button class="tab-btn" data-news="thisisgame"><img src="${getFavicon('thisisgame.com')}" alt="" class="news-favicon">디스이즈게임</button>
-            <button class="tab-btn" data-news="gamemeca"><img src="${getFavicon('gamemeca.com')}" alt="" class="news-favicon">게임메카</button>
-            <button class="tab-btn" data-news="ruliweb"><img src="${getFavicon('ruliweb.com')}" alt="" class="news-favicon">루리웹</button>
+            <button class="tab-btn active" data-news="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
+            <button class="tab-btn" data-news="thisisgame"><img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">디스이즈게임</button>
+            <button class="tab-btn" data-news="gamemeca"><img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">게임메카</button>
+            <button class="tab-btn" data-news="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">루리웹</button>
           </div>
         </div>
       </div>
@@ -48,7 +47,7 @@ function generateNewsPage(data) {
         <div class="news-container">
           <div class="news-panel active" id="news-inven">
             <div class="news-panel-header">
-              <img src="${getFavicon('inven.co.kr')}" alt="" class="news-favicon">
+              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">인벤</span>
               <a href="https://www.inven.co.kr/webzine/news/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -56,7 +55,7 @@ function generateNewsPage(data) {
           </div>
           <div class="news-panel" id="news-thisisgame">
             <div class="news-panel-header">
-              <img src="${getFavicon('thisisgame.com')}" alt="" class="news-favicon">
+              <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">디스이즈게임</span>
               <a href="https://www.thisisgame.com/webzine/news/nboard/4/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -64,7 +63,7 @@ function generateNewsPage(data) {
           </div>
           <div class="news-panel" id="news-gamemeca">
             <div class="news-panel-header">
-              <img src="${getFavicon('gamemeca.com')}" alt="" class="news-favicon">
+              <img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">게임메카</span>
               <a href="https://www.gamemeca.com/news.php" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -72,7 +71,7 @@ function generateNewsPage(data) {
           </div>
           <div class="news-panel" id="news-ruliweb">
             <div class="news-panel-header">
-              <img src="${getFavicon('ruliweb.com')}" alt="" class="news-favicon">
+              <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
               <span class="news-panel-title">루리웹</span>
               <a href="https://bbs.ruliweb.com/news" target="_blank" class="news-more-link">더보기 →</a>
             </div>

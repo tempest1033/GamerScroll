@@ -42,11 +42,11 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Generate report (MPA mode)
+      - name: Generate report
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
-        run: node generate-html-report.js -m
+        run: node generate-html-report.js
 
       - name: Move report to docs
         run: |

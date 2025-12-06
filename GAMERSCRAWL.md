@@ -29,6 +29,25 @@ node generate-html-report.js -q
 - 소요 시간: 약 5초
 - **용도**: HTML 템플릿 수정 테스트, AI 인사이트 반영 등
 
+### 로컬 테스트
+빌드 결과물은 **루트**에 생성되고, **docs/** 폴더는 GitHub Pages 배포용.
+
+```bash
+# 1. 빌드 (퀵 모드)
+node generate-html-report.js -q
+
+# 2. docs 폴더로 복사 (로컬 테스트용)
+cp index.html docs/index.html
+
+# 3. 로컬 서버 실행
+cd docs && npx serve -l 3001
+```
+
+| 환경 | docs 복사 |
+|------|----------|
+| **GitHub Actions** | ✅ 자동 (build.yml) |
+| **로컬 테스트** | ❌ 수동 복사 필요 |
+
 ### AI 인사이트 생성 (일간)
 ```bash
 node generate-ai-insight.js

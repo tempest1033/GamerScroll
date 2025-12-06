@@ -4,7 +4,6 @@
  */
 
 const { wrapWithLayout, SHOW_ADS } = require('../layout');
-const { getFavicon } = require('../components/favicons');
 
 function generateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight } = data;
@@ -27,9 +26,9 @@ function generateIndexPage(data) {
   // 홈 뉴스 카드
   function generateHomeNews() {
     const sources = [
-      { key: 'thisisgame', items: news?.thisisgame || [], name: '디스이즈게임', icon: getFavicon('thisisgame.com') },
-      { key: 'gamemeca', items: news?.gamemeca || [], name: '게임메카', icon: getFavicon('gamemeca.com') },
-      { key: 'ruliweb', items: news?.ruliweb || [], name: '루리웹', icon: getFavicon('ruliweb.com') }
+      { key: 'thisisgame', items: news?.thisisgame || [], name: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' },
+      { key: 'gamemeca', items: news?.gamemeca || [], name: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' },
+      { key: 'ruliweb', items: news?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
     ];
 
     function renderNewsContent(items, sourceName) {
@@ -45,7 +44,7 @@ function generateIndexPage(data) {
       if (mainCard) {
         mainCardHtml = '<a class="home-news-card home-news-card-main" href="' + mainCard.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-card-thumb">' +
-          '<img src="' + fixUrl(mainCard.thumbnail) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>\'">' +
+          '<img src="' + fixUrl(mainCard.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>\'">' +
           '</div>' +
           '<div class="home-news-card-info">' +
           '<span class="home-news-card-title">' + mainCard.title + '</span>' +
@@ -57,7 +56,7 @@ function generateIndexPage(data) {
       if (subCard) {
         subCardHtml = '<a class="home-news-card home-news-card-sub" href="' + subCard.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-card-thumb">' +
-          '<img src="' + fixUrl(subCard.thumbnail) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>\'">' +
+          '<img src="' + fixUrl(subCard.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>\'">' +
           '</div>' +
           '<div class="home-news-card-info">' +
           '<span class="home-news-card-title">' + subCard.title + '</span>' +
@@ -68,7 +67,7 @@ function generateIndexPage(data) {
       var listHtml = listItems.map(function(item) {
         return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-item-thumb">' +
-          '<img src="' + fixUrl(item.thumbnail) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' +
+          '<img src="' + fixUrl(item.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' +
           '</div>' +
           '<div class="home-news-item-info">' +
           '<span class="home-news-title">' + item.title + '</span>' +
@@ -99,9 +98,9 @@ function generateIndexPage(data) {
 
     return '<div class="home-news-tabs">' +
       '<button class="home-news-tab active" data-news="all">전체</button>' +
-      '<button class="home-news-tab" data-news="thisisgame"><img src="' + getFavicon('thisisgame.com') + '" alt="">디스이즈게임</button>' +
-      '<button class="home-news-tab" data-news="gamemeca"><img src="' + getFavicon('gamemeca.com') + '" alt="">게임메카</button>' +
-      '<button class="home-news-tab" data-news="ruliweb"><img src="' + getFavicon('ruliweb.com') + '" alt="">루리웹</button>' +
+      '<button class="home-news-tab" data-news="thisisgame"><img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="">디스이즈게임</button>' +
+      '<button class="home-news-tab" data-news="gamemeca"><img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="">게임메카</button>' +
+      '<button class="home-news-tab" data-news="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹</button>' +
       '</div>' +
       '<div class="home-news-body">' +
       '<div class="home-news-panel active" id="home-news-all">' + renderNewsContent(allCombined) + '</div>' +
@@ -182,10 +181,10 @@ function generateIndexPage(data) {
   // 홈 커뮤니티
   function generateHomeCommunity() {
     var sources = [
-      { key: 'inven', items: community?.inven || [], name: '인벤', icon: getFavicon('inven.co.kr') },
-      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: getFavicon('arca.live') },
-      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: getFavicon('dcinside.com') },
-      { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: getFavicon('ruliweb.com') }
+      { key: 'inven', items: community?.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
+      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' },
+      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' },
+      { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
     ];
 
     var allCombined = [];
@@ -229,10 +228,10 @@ function generateIndexPage(data) {
 
     return '<div class="home-community-tabs">' +
       '<button class="home-community-tab active" data-community="all">전체</button>' +
-      '<button class="home-community-tab" data-community="inven"><img src="' + getFavicon('inven.co.kr') + '" alt="">인벤</button>' +
-      '<button class="home-community-tab" data-community="arca"><img src="' + getFavicon('arca.live') + '" alt=""><span class="tab-text-arca">아카라이브</span></button>' +
-      '<button class="home-community-tab" data-community="dcinside"><img src="' + getFavicon('dcinside.com') + '" alt=""><span class="tab-text-dcinside">디시인사이드</span></button>' +
-      '<button class="home-community-tab" data-community="ruliweb"><img src="' + getFavicon('ruliweb.com') + '" alt="">루리웹</button>' +
+      '<button class="home-community-tab" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="">인벤</button>' +
+      '<button class="home-community-tab" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt=""><span class="tab-text-arca">아카라이브</span></button>' +
+      '<button class="home-community-tab" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt=""><span class="tab-text-dcinside">디시인사이드</span></button>' +
+      '<button class="home-community-tab" data-community="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹</button>' +
       '</div>' +
       '<div class="home-community-body">' +
       '<div class="home-community-panel active" id="home-community-all">' + renderCommunitySplit(allCombined) + '</div>' +
@@ -276,7 +275,7 @@ function generateIndexPage(data) {
 
       var mainHtml = '<a class="home-video-card home-video-card-main" href="' + mainItem.link + '" target="_blank" rel="noopener">' +
         '<div class="home-video-card-thumb">' +
-        '<img src="' + mainItem.thumbnail + '" alt="" loading="lazy" decoding="async">' +
+        '<img src="' + mainItem.thumbnail + '" alt="" loading="lazy">' +
         (mainItem.viewers ? '<span class="home-video-live">🔴 LIVE ' + mainItem.viewers.toLocaleString() + '</span>' : '') +
         '</div>' +
         '<div class="home-video-card-info">' +
@@ -288,7 +287,7 @@ function generateIndexPage(data) {
       if (subItem) {
         subHtml = '<a class="home-video-card home-video-card-sub" href="' + subItem.link + '" target="_blank" rel="noopener">' +
           '<div class="home-video-card-thumb">' +
-          '<img src="' + subItem.thumbnail + '" alt="" loading="lazy" decoding="async">' +
+          '<img src="' + subItem.thumbnail + '" alt="" loading="lazy">' +
           (subItem.viewers ? '<span class="home-video-live">🔴 ' + subItem.viewers.toLocaleString() + '</span>' : '') +
           '</div>' +
           '<div class="home-video-card-info">' +
@@ -300,7 +299,7 @@ function generateIndexPage(data) {
       var listHtml = listItems.map(function(item) {
         return '<a class="home-video-item" href="' + item.link + '" target="_blank" rel="noopener">' +
           '<div class="home-video-item-thumb">' +
-          '<img src="' + item.thumbnail + '" alt="" loading="lazy" decoding="async">' +
+          '<img src="' + item.thumbnail + '" alt="" loading="lazy">' +
           (item.viewers ? '<span class="home-video-live-sm">🔴 ' + item.viewers.toLocaleString() + '</span>' : '') +
           '</div>' +
           '<div class="home-video-item-info">' +
@@ -316,8 +315,8 @@ function generateIndexPage(data) {
     }
 
     return '<div class="home-video-tabs">' +
-      '<button class="home-video-tab active" data-video="youtube"><img src="' + getFavicon('youtube.com') + '" alt="">인기 동영상</button>' +
-      '<button class="home-video-tab" data-video="chzzk"><img src="' + getFavicon('chzzk.naver.com') + '" alt="">치지직</button>' +
+      '<button class="home-video-tab active" data-video="youtube"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="">인기 동영상</button>' +
+      '<button class="home-video-tab" data-video="chzzk"><img src="https://www.google.com/s2/favicons?domain=chzzk.naver.com&sz=32" alt="">치지직</button>' +
       '</div>' +
       '<div class="home-video-body">' +
       '<div class="home-video-panel active" id="home-video-youtube">' + renderVideoGrid(youtubeItems) + '</div>' +
@@ -335,15 +334,15 @@ function generateIndexPage(data) {
       return items.map(function(app, i) {
         return '<div class="home-rank-row">' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
-          '<img class="home-rank-icon" src="' + (app.icon || '') + '" alt="" loading="lazy" decoding="async" onerror="this.style.visibility=\'hidden\'">' +
+          '<img class="home-rank-icon" src="' + (app.icon || '') + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
           '<span class="home-rank-name">' + app.title + '</span>' +
           '</div>';
       }).join('');
     }
 
     return '<div class="home-rank-tabs">' +
-      '<button class="home-rank-tab active" data-platform="ios"><img src="' + getFavicon('apple.com') + '" alt="">iOS</button>' +
-      '<button class="home-rank-tab" data-platform="android"><img src="' + getFavicon('play.google.com') + '" alt="">Android</button>' +
+      '<button class="home-rank-tab active" data-platform="ios"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="">iOS</button>' +
+      '<button class="home-rank-tab" data-platform="android"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" alt="">Android</button>' +
       '</div>' +
       '<div class="home-rank-content">' +
       '<div class="home-rank-chart active" id="home-chart-free">' +
@@ -368,7 +367,7 @@ function generateIndexPage(data) {
         var link = game.appid ? 'https://store.steampowered.com/app/' + game.appid : '#';
         return '<a class="home-steam-row" href="' + link + '" target="_blank" rel="noopener">' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
-          '<img class="home-steam-icon" src="' + (game.img || '') + '" alt="" loading="lazy" decoding="async" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect fill=%22%23374151%22 width=%2240%22 height=%2240%22 rx=%228%22/></svg>\'">' +
+          '<img class="home-steam-icon" src="' + (game.img || '') + '" alt="" loading="lazy" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect fill=%22%23374151%22 width=%2240%22 height=%2240%22 rx=%228%22/></svg>\'">' +
           '<div class="home-steam-info">' +
           '<span class="home-steam-name">' + (game.name || '') + '</span>' +
           (showPlayers ? '<span class="home-steam-players">' + (game.ccu ? game.ccu.toLocaleString() : '-') + ' 명</span>' : '') +
@@ -394,7 +393,7 @@ function generateIndexPage(data) {
       return items.map(function(game, i) {
         return '<a class="home-upcoming-row" href="' + (game.link || '#') + '" target="_blank" rel="noopener">' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
-          '<img class="home-upcoming-icon" src="' + (game.img || '') + '" alt="" loading="lazy" decoding="async" onerror="this.style.visibility=\'hidden\'">' +
+          '<img class="home-upcoming-icon" src="' + (game.img || '') + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
           '<div class="home-upcoming-info">' +
           '<span class="home-upcoming-name">' + (game.name || game.title || '') + '</span>' +
           (game.releaseDate ? '<span class="home-upcoming-date">' + game.releaseDate + '</span>' : '') +
