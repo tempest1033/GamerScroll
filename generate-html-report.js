@@ -74,11 +74,19 @@ function findInsightJsonFile(today) {
   const currentAmPm = getAmPm();
   const otherAmPm = currentAmPm === 'AM' ? 'PM' : 'AM';
 
-  // 우선순위: 현재 시간대 > 다른 시간대 > 레거시
+  // 어제 날짜 계산
+  const todayDate = new Date(today + 'T00:00:00+09:00');
+  const yesterdayDate = new Date(todayDate.getTime() - 24 * 60 * 60 * 1000);
+  const yesterday = yesterdayDate.toISOString().split('T')[0];
+
+  // 우선순위: 오늘 현재 시간대 > 오늘 다른 시간대 > 오늘 레거시 > 어제 PM > 어제 AM > 어제 레거시
   const candidates = [
     `${REPORTS_DIR}/${today}-${currentAmPm}.json`,
     `${REPORTS_DIR}/${today}-${otherAmPm}.json`,
-    `${REPORTS_DIR}/${today}.json`
+    `${REPORTS_DIR}/${today}.json`,
+    `${REPORTS_DIR}/${yesterday}-PM.json`,
+    `${REPORTS_DIR}/${yesterday}-AM.json`,
+    `${REPORTS_DIR}/${yesterday}.json`
   ];
 
   for (const file of candidates) {
