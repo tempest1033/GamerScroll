@@ -66,7 +66,11 @@ async function postToX() {
   }
 
   console.log(`📄 리포트 파일: ${insightPath}`);
-  const insight = JSON.parse(fs.readFileSync(insightPath, 'utf8'));
+  const reportData = JSON.parse(fs.readFileSync(insightPath, 'utf8'));
+  const insight = {
+    date: reportData.date,
+    issues: reportData.aiInsight?.issues || []
+  };
 
   // 이미 같은 날짜에 포스팅했는지 확인
   if (fs.existsSync(POST_META_PATH)) {

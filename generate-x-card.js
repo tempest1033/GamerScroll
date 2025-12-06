@@ -56,10 +56,10 @@ async function generateXCard() {
     }
   }
 
-  // HTML 생성
+  // HTML 생성 (aiInsight 안에 issues가 있음)
   const html = generateXCardHtml({
     date: insightData.date,
-    issues: insightData.issues
+    issues: insightData.aiInsight?.issues || []
   });
 
   // 임시 HTML 파일 저장
