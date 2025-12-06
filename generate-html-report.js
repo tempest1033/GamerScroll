@@ -73,11 +73,7 @@ function getAmPm() {
 function findInsightJsonFile(today) {
   const currentAmPm = getAmPm();
   const otherAmPm = currentAmPm === 'AM' ? 'PM' : 'AM';
-
-  // 어제 날짜 계산 (타임존 이슈 방지)
-  const [year, month, day] = today.split('-').map(Number);
-  const d = new Date(year, month - 1, day - 1);
-  const yesterday = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const yesterday = getYesterdayDate();
 
   // 우선순위: 오늘 현재 시간대 > 오늘 다른 시간대 > 오늘 레거시 > 어제 PM > 어제 AM > 어제 레거시
   const candidates = [
@@ -89,13 +85,44 @@ function findInsightJsonFile(today) {
     `${REPORTS_DIR}/${yesterday}.json`
   ];
 
-  for (const file of candidates) {
-    if (fs.existsSync(file)) {
-      return file;
+  for (let i = 0; i < candidates.length; i++) {
+    if (fs.existsSync(candidates[i])) {
+      if (i >= 3) {
+        console.log(`📂 오늘 인사이트 없음 → 어제 폴백: ${candidates[i].split('/').pop()}`);
+      }
+      return candidates[i];
     }
   }
 
+  console.log('⚠️ 사용 가능한 인사이트 파일 없음');
   return null;
+}
+
+/**
+ * JSON 파일에서 AI 인사이트 데이터 로드하여 insight 객체에 병합
+ * @param {string} filePath - JSON 파일 경로
+ * @param {object} insight - 병합 대상 insight 객체
+ * @param {boolean} includeStock - 주가 데이터 포함 여부
+ * @returns {boolean} 성공 여부
+ */
+function loadAIInsightFromFile(filePath, insight, includeStock = true) {
+  if (!filePath || !fs.existsSync(filePath)) return false;
+
+  try {
+    const saved = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    if (saved.ai) {
+      insight.ai = saved.ai;
+      insight.aiGeneratedAt = saved.aiGeneratedAt;
+      if (includeStock) {
+        insight.stockMap = saved.stockMap || {};
+        insight.stockPrices = saved.stockPrices || {};
+      }
+      return true;
+    }
+  } catch (e) {
+    console.log(`⚠️ AI 인사이트 파싱 실패: ${e.message}`);
+  }
+  return false;
 }
 
 /**
@@ -262,20 +289,8 @@ async function main() {
   // AI 인사이트 로드 (별도 스크립트로 생성됨)
   const today = getTodayDate();
   const insightJsonFile = findInsightJsonFile(today);
-
-  if (insightJsonFile) {
-    try {
-      const savedInsight = JSON.parse(fs.readFileSync(insightJsonFile, 'utf8'));
-      if (savedInsight.ai) {
-        insight.ai = savedInsight.ai;
-        insight.aiGeneratedAt = savedInsight.aiGeneratedAt;
-        insight.stockMap = savedInsight.stockMap || {};
-        insight.stockPrices = savedInsight.stockPrices || {};
-        console.log(`📂 AI 인사이트 로드 완료 (${insightJsonFile.split('/').pop()})`);
-      }
-    } catch (e) {
-      console.log('⚠️ AI 인사이트 로드 실패');
-    }
+  if (loadAIInsightFromFile(insightJsonFile, insight)) {
+    console.log(`📂 AI 인사이트 로드 완료 (${insightJsonFile.split('/').pop()})`);
   }
 
   // 주간 인사이트 로드 (별도 스크립트로 생성됨)
@@ -366,17 +381,7 @@ async function main() {
 
     // AI 인사이트 로드 (별도 스크립트로 생성됨)
     const savedJsonFile = findInsightJsonFile(today);
-    if (savedJsonFile) {
-      try {
-        const savedInsight = JSON.parse(fs.readFileSync(savedJsonFile, 'utf8'));
-        if (savedInsight.ai) {
-          insight.ai = savedInsight.ai;
-          insight.aiGeneratedAt = savedInsight.aiGeneratedAt;
-        }
-      } catch (e) {
-        console.warn(`⚠️ 인사이트 JSON 파싱 실패 (${savedJsonFile}):`, e.message);
-      }
-    }
+    loadAIInsightFromFile(savedJsonFile, insight, false);
 
     const insightHTML = generateInsightHTML(insight);
     fs.writeFileSync(reportFile, insightHTML, 'utf8');
@@ -384,23 +389,9 @@ async function main() {
 
     // 인사이트 JSON도 저장 - 기존 AI 데이터 보존
     const amPm = getAmPm();
-    const insightJsonFile = `${REPORTS_DIR}/${today}-${amPm}.json`;
-
-    // 기존 파일에 AI 데이터가 있으면 보존
-    if (fs.existsSync(insightJsonFile)) {
-      try {
-        const existing = JSON.parse(fs.readFileSync(insightJsonFile, 'utf8'));
-        if (existing.ai) {
-          insight.ai = existing.ai;
-          insight.aiGeneratedAt = existing.aiGeneratedAt;
-          insight.stockMap = existing.stockMap;
-          insight.stockPrices = existing.stockPrices;
-        }
-      } catch (e) {
-        // 파싱 실패시 무시
-      }
-    }
-    fs.writeFileSync(insightJsonFile, JSON.stringify(insight, null, 2), 'utf8');
+    const outputJsonFile = `${REPORTS_DIR}/${today}-${amPm}.json`;
+    loadAIInsightFromFile(outputJsonFile, insight);
+    fs.writeFileSync(outputJsonFile, JSON.stringify(insight, null, 2), 'utf8');
   }
 }
 

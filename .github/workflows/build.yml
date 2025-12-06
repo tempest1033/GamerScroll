@@ -27,7 +27,9 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git pull origin main --rebase || true
+          if ! git pull origin main --rebase; then
+            echo "⚠️ git pull 실패 - 계속 진행"
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -65,13 +67,20 @@ jobs:
           echo "gamerscrawl.com" > docs/CNAME
           # 데일리 인사이트 리포트 복사 (JSON + HTML)
           if [ -d "reports" ]; then
-            cp -r reports/*.json docs/reports/ 2>/dev/null || true
-            cp -r reports/*.html docs/reports/ 2>/dev/null || true
+            JSON_COUNT=$(ls reports/*.json 2>/dev/null | wc -l)
+            HTML_COUNT=$(ls reports/*.html 2>/dev/null | wc -l)
+            cp -r reports/*.json docs/reports/ 2>/dev/null || echo "⚠️ reports/*.json 복사 실패 또는 파일 없음"
+            cp -r reports/*.html docs/reports/ 2>/dev/null || echo "⚠️ reports/*.html 복사 실패 또는 파일 없음"
+            echo "📂 reports/ 복사: JSON ${JSON_COUNT}개, HTML ${HTML_COUNT}개"
+          else
+            echo "⚠️ reports/ 폴더 없음"
           fi
           # 주간 인사이트 리포트 복사
           if [ -d "reports/weekly" ]; then
             mkdir -p docs/reports/weekly
-            cp -r reports/weekly/*.json docs/reports/weekly/ 2>/dev/null || true
+            WEEKLY_COUNT=$(ls reports/weekly/*.json 2>/dev/null | wc -l)
+            cp -r reports/weekly/*.json docs/reports/weekly/ 2>/dev/null || echo "⚠️ weekly/*.json 복사 실패"
+            echo "📂 reports/weekly/ 복사: JSON ${WEEKLY_COUNT}개"
           fi
 
       - name: Commit and push
