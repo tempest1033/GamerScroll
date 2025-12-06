@@ -1,4 +1,5 @@
 const { countries } = require('../crawlers/rankings');
+const { getFavicon } = require('./components/favicons');
 
 // 광고 표시 여부 (광고 승인 전까지 N)
 const SHOW_ADS = false;
@@ -1123,9 +1124,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   function generateHomeNews() {
     // 홈에서는 인벤 제외 (이미지 로드 이슈)
     const sources = [
-      { key: 'thisisgame', items: news.thisisgame || [], name: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' },
-      { key: 'gamemeca', items: news.gamemeca || [], name: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' },
-      { key: 'ruliweb', items: news.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
+      { key: 'thisisgame', items: news.thisisgame || [], name: '디스이즈게임', icon: '${getFavicon('thisisgame.com')}' },
+      { key: 'gamemeca', items: news.gamemeca || [], name: '게임메카', icon: '${getFavicon('gamemeca.com')}' },
+      { key: 'ruliweb', items: news.ruliweb || [], name: '루리웹', icon: '${getFavicon('ruliweb.com')}' }
     ];
 
     const fixUrl = (url) => {
@@ -1206,13 +1207,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="home-news-tabs">
         <button class="home-news-tab active" data-news="all">전체</button>
         <button class="home-news-tab" data-news="thisisgame">
-          <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="">디스이즈게임
+          <img src="${getFavicon('thisisgame.com')}" alt="">디스이즈게임
         </button>
         <button class="home-news-tab" data-news="gamemeca">
-          <img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="">게임메카
+          <img src="${getFavicon('gamemeca.com')}" alt="">게임메카
         </button>
         <button class="home-news-tab" data-news="ruliweb">
-          <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹
+          <img src="${getFavicon('ruliweb.com')}" alt="">루리웹
         </button>
       </div>
       <div class="home-news-body">
@@ -1311,10 +1312,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   // 홈 커뮤니티 요약 (탭 + 좌우 5개씩 총 10개)
   function generateHomeCommunity() {
     const sources = [
-      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' },
-      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' },
-      { key: 'inven', items: community?.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
-      { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
+      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: '${getFavicon('dcinside.com')}' },
+      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: '${getFavicon('arca.live')}' },
+      { key: 'inven', items: community?.inven || [], name: '인벤', icon: '${getFavicon('inven.co.kr')}' },
+      { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: '${getFavicon('ruliweb.com')}' }
     ];
 
     // 전체 탭용 데이터 (각 소스에서 섞어서 + 랜덤 셔플)
@@ -1364,16 +1365,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="home-community-tabs">
         <button class="home-community-tab active" data-community="all">전체</button>
         <button class="home-community-tab" data-community="dcinside">
-          <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt=""><span class="tab-text-dcinside">디시인사이드</span>
+          <img src="${getFavicon('dcinside.com')}" alt=""><span class="tab-text-dcinside">디시인사이드</span>
         </button>
         <button class="home-community-tab" data-community="arca">
-          <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt=""><span class="tab-text-arca">아카라이브</span>
+          <img src="${getFavicon('arca.live')}" alt=""><span class="tab-text-arca">아카라이브</span>
         </button>
         <button class="home-community-tab" data-community="inven">
-          <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="">인벤
+          <img src="${getFavicon('inven.co.kr')}" alt="">인벤
         </button>
         <button class="home-community-tab" data-community="ruliweb">
-          <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹
+          <img src="${getFavicon('ruliweb.com')}" alt="">루리웹
         </button>
       </div>
       <div class="home-community-body">
@@ -1459,10 +1460,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     return `
       <div class="home-video-tabs">
         <button class="home-video-tab active" data-video="youtube">
-          <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="">인기 동영상
+          <img src="${getFavicon('youtube.com')}" alt="">인기 동영상
         </button>
         <button class="home-video-tab" data-video="chzzk">
-          <img src="https://www.google.com/s2/favicons?domain=chzzk.naver.com&sz=32" alt="">치지직
+          <img src="${getFavicon('chzzk.naver.com')}" alt="">치지직
         </button>
       </div>
       <div class="home-video-body">
@@ -1491,10 +1492,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
     return `
       <div class="home-rank-tabs">
         <button class="home-rank-tab active" data-platform="ios">
-          <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="">iOS
+          <img src="${getFavicon('apple.com')}" alt="">iOS
         </button>
         <button class="home-rank-tab" data-platform="android">
-          <img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" alt="">Android
+          <img src="${getFavicon('play.google.com')}" alt="">Android
         </button>
       </div>
       <div class="home-rank-content">
@@ -1680,16 +1681,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   <script>
     // 전체 크롤링 데이터 (랜덤 선택용)
     const allNewsData = ${JSON.stringify([
-      ...(news.inven || []).map(item => ({ ...item, source: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' })),
-      ...(news.thisisgame || []).map(item => ({ ...item, source: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' })),
-      ...(news.gamemeca || []).map(item => ({ ...item, source: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' })),
-      ...(news.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }))
+      ...(news.inven || []).map(item => ({ ...item, source: '인벤', icon: '${getFavicon('inven.co.kr')}' })),
+      ...(news.thisisgame || []).map(item => ({ ...item, source: '디스이즈게임', icon: '${getFavicon('thisisgame.com')}' })),
+      ...(news.gamemeca || []).map(item => ({ ...item, source: '게임메카', icon: '${getFavicon('gamemeca.com')}' })),
+      ...(news.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: '${getFavicon('ruliweb.com')}' }))
     ].filter(item => item.thumbnail))};
     const allCommunityData = ${JSON.stringify([
-      ...(community?.dcinside || []).map(item => ({ ...item, source: '디시인사이드', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' })),
-      ...(community?.arca || []).map(item => ({ ...item, source: '아카라이브', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' })),
-      ...(community?.inven || []).map(item => ({ ...item, source: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' })),
-      ...(community?.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }))
+      ...(community?.dcinside || []).map(item => ({ ...item, source: '디시인사이드', icon: '${getFavicon('dcinside.com')}' })),
+      ...(community?.arca || []).map(item => ({ ...item, source: '아카라이브', icon: '${getFavicon('arca.live')}' })),
+      ...(community?.inven || []).map(item => ({ ...item, source: '인벤', icon: '${getFavicon('inven.co.kr')}' })),
+      ...(community?.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: '${getFavicon('ruliweb.com')}' }))
     ])};
     const allYoutubeData = ${JSON.stringify((youtube?.gaming || []).map(item => ({
       title: item.title,
@@ -1899,10 +1900,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="newsTab">
-            <button class="tab-btn active" data-news="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
-            <button class="tab-btn" data-news="thisisgame"><img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">디스이즈게임</button>
-            <button class="tab-btn" data-news="gamemeca"><img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">게임메카</button>
-            <button class="tab-btn" data-news="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">루리웹</button>
+            <button class="tab-btn active" data-news="inven"><img src="${getFavicon('inven.co.kr')}" alt="" class="news-favicon">인벤</button>
+            <button class="tab-btn" data-news="thisisgame"><img src="${getFavicon('thisisgame.com')}" alt="" class="news-favicon">디스이즈게임</button>
+            <button class="tab-btn" data-news="gamemeca"><img src="${getFavicon('gamemeca.com')}" alt="" class="news-favicon">게임메카</button>
+            <button class="tab-btn" data-news="ruliweb"><img src="${getFavicon('ruliweb.com')}" alt="" class="news-favicon">루리웹</button>
           </div>
         </div>
       </div>
@@ -1910,7 +1911,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         <div class="news-container">
           <div class="news-panel active" id="news-inven">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('inven.co.kr')}" alt="" class="news-favicon">
               <span class="news-panel-title">인벤</span>
               <a href="https://www.inven.co.kr/webzine/news/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -1918,7 +1919,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>
           <div class="news-panel" id="news-thisisgame">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('thisisgame.com')}" alt="" class="news-favicon">
               <span class="news-panel-title">디스이즈게임</span>
               <a href="https://www.thisisgame.com/webzine/news/nboard/4/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -1926,7 +1927,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>
           <div class="news-panel" id="news-gamemeca">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('gamemeca.com')}" alt="" class="news-favicon">
               <span class="news-panel-title">게임메카</span>
               <a href="https://www.gamemeca.com/news.php" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -1934,7 +1935,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>
           <div class="news-panel" id="news-ruliweb">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('ruliweb.com')}" alt="" class="news-favicon">
               <span class="news-panel-title">루리웹</span>
               <a href="https://bbs.ruliweb.com/news" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -1953,10 +1954,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="communityTab">
-            <button class="tab-btn active" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">디시인사이드</button>
-            <button class="tab-btn" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">아카라이브</button>
-            <button class="tab-btn" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
-            <button class="tab-btn" data-community="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">루리웹</button>
+            <button class="tab-btn active" data-community="dcinside"><img src="${getFavicon('dcinside.com')}" alt="" class="news-favicon">디시인사이드</button>
+            <button class="tab-btn" data-community="arca"><img src="${getFavicon('arca.live')}" alt="" class="news-favicon">아카라이브</button>
+            <button class="tab-btn" data-community="inven"><img src="${getFavicon('inven.co.kr')}" alt="" class="news-favicon">인벤</button>
+            <button class="tab-btn" data-community="ruliweb"><img src="${getFavicon('ruliweb.com')}" alt="" class="news-favicon">루리웹</button>
           </div>
         </div>
       </div>
@@ -1967,7 +1968,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
         <div class="news-container">
           <div class="news-panel active" id="community-dcinside">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('dcinside.com')}" alt="" class="news-favicon">
               <span class="news-panel-title">디시 실시간 베스트</span>
               <a href="https://gall.dcinside.com/board/lists?id=dcbest" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -1975,7 +1976,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>
           <div class="news-panel" id="community-arca">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('arca.live')}" alt="" class="news-favicon">
               <span class="news-panel-title">아카라이브 베스트</span>
               <a href="https://arca.live/b/live" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -1983,7 +1984,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>
           <div class="news-panel" id="community-inven">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('inven.co.kr')}" alt="" class="news-favicon">
               <span class="news-panel-title">인벤 핫이슈</span>
               <a href="https://hot.inven.co.kr/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -1991,7 +1992,7 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
           </div>
           <div class="news-panel" id="community-ruliweb">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('ruliweb.com')}" alt="" class="news-favicon">
               <span class="news-panel-title">루리웹 게임 베스트</span>
               <a href="https://bbs.ruliweb.com/best/game?orderby=recommend&range=24h" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -2010,8 +2011,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="rankings-controls">
         <div class="control-group">
           <div class="tab-group" id="storeTab">
-            <button class="tab-btn ios-btn active" data-store="ios"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">App Store</button>
-            <button class="tab-btn android-btn" data-store="android"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" alt="" class="news-favicon">Google Play</button>
+            <button class="tab-btn ios-btn active" data-store="ios"><img src="${getFavicon('apple.com')}" alt="" class="news-favicon">App Store</button>
+            <button class="tab-btn android-btn" data-store="android"><img src="${getFavicon('play.google.com')}" alt="" class="news-favicon">Google Play</button>
           </div>
         </div>
         <div class="control-group">
@@ -2054,8 +2055,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       </div>` : ''}
       <div class="steam-controls">
         <div class="tab-group" id="steamTab">
-          <button class="tab-btn steam-btn active" data-steam="mostplayed"><img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">최다 플레이</button>
-          <button class="tab-btn steam-btn" data-steam="topsellers"><img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">최고 판매</button>
+          <button class="tab-btn steam-btn active" data-steam="mostplayed"><img src="${getFavicon('store.steampowered.com')}" alt="" class="news-favicon">최다 플레이</button>
+          <button class="tab-btn steam-btn" data-steam="topsellers"><img src="${getFavicon('store.steampowered.com')}" alt="" class="news-favicon">최고 판매</button>
         </div>
       </div>
 
@@ -2122,8 +2123,8 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       </div>` : ''}
       <div class="video-controls">
         <div class="tab-group" id="videoTab">
-          <button class="tab-btn active" data-video="gaming"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="" class="news-favicon">유튜브 인기</button>
-          <button class="tab-btn" data-video="chzzk"><img src="https://www.google.com/s2/favicons?domain=chzzk.naver.com&sz=32" alt="" class="news-favicon">치지직 라이브</button>
+          <button class="tab-btn active" data-video="gaming"><img src="${getFavicon('youtube.com')}" alt="" class="news-favicon">유튜브 인기</button>
+          <button class="tab-btn" data-video="chzzk"><img src="${getFavicon('chzzk.naver.com')}" alt="" class="news-favicon">치지직 라이브</button>
         </div>
       </div>
 
@@ -2181,13 +2182,13 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
       <div class="upcoming-controls">
         <div class="tab-group" id="upcomingTab">
           <button class="tab-btn active" data-upcoming="mobile">
-            <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
+            <img src="${getFavicon('apple.com')}" alt="" class="news-favicon">모바일
           </button>
           <button class="tab-btn" data-upcoming="steam">
-            <img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">스팀
+            <img src="${getFavicon('store.steampowered.com')}" alt="" class="news-favicon">스팀
           </button>
           <button class="tab-btn" data-upcoming="ps5">
-            <img src="https://www.google.com/s2/favicons?domain=playstation.com&sz=32" alt="" class="news-favicon">PS5
+            <img src="${getFavicon('playstation.com')}" alt="" class="news-favicon">PS5
           </button>
           <button class="tab-btn" data-upcoming="nintendo">
             <svg viewBox="0 0 24 24" fill="#e60012" class="news-favicon" style="width:20px;height:20px"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>닌텐도
