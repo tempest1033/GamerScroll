@@ -1124,9 +1124,9 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   function generateHomeNews() {
     // 홈에서는 인벤 제외 (이미지 로드 이슈)
     const sources = [
-      { key: 'thisisgame', items: news.thisisgame || [], name: '디스이즈게임', icon: '${getFavicon('thisisgame.com')}' },
-      { key: 'gamemeca', items: news.gamemeca || [], name: '게임메카', icon: '${getFavicon('gamemeca.com')}' },
-      { key: 'ruliweb', items: news.ruliweb || [], name: '루리웹', icon: '${getFavicon('ruliweb.com')}' }
+      { key: 'thisisgame', items: news.thisisgame || [], name: '디스이즈게임', icon: getFavicon('thisisgame.com') },
+      { key: 'gamemeca', items: news.gamemeca || [], name: '게임메카', icon: getFavicon('gamemeca.com') },
+      { key: 'ruliweb', items: news.ruliweb || [], name: '루리웹', icon: getFavicon('ruliweb.com') }
     ];
 
     const fixUrl = (url) => {
