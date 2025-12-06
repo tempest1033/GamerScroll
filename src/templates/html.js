@@ -1312,10 +1312,10 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   // 홈 커뮤니티 요약 (탭 + 좌우 5개씩 총 10개)
   function generateHomeCommunity() {
     const sources = [
-      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: '${getFavicon('dcinside.com')}' },
-      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: '${getFavicon('arca.live')}' },
-      { key: 'inven', items: community?.inven || [], name: '인벤', icon: '${getFavicon('inven.co.kr')}' },
-      { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: '${getFavicon('ruliweb.com')}' }
+      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: getFavicon('dcinside.com') },
+      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: getFavicon('arca.live') },
+      { key: 'inven', items: community?.inven || [], name: '인벤', icon: getFavicon('inven.co.kr') },
+      { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: getFavicon('ruliweb.com') }
     ];
 
     // 전체 탭용 데이터 (각 소스에서 섞어서 + 랜덤 셔플)
@@ -1681,16 +1681,16 @@ function generateHTML(rankings, news, steam, youtube, chzzk, community, upcoming
   <script>
     // 전체 크롤링 데이터 (랜덤 선택용)
     const allNewsData = ${JSON.stringify([
-      ...(news.inven || []).map(item => ({ ...item, source: '인벤', icon: '${getFavicon('inven.co.kr')}' })),
-      ...(news.thisisgame || []).map(item => ({ ...item, source: '디스이즈게임', icon: '${getFavicon('thisisgame.com')}' })),
-      ...(news.gamemeca || []).map(item => ({ ...item, source: '게임메카', icon: '${getFavicon('gamemeca.com')}' })),
-      ...(news.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: '${getFavicon('ruliweb.com')}' }))
+      ...(news.inven || []).map(item => ({ ...item, source: '인벤', icon: getFavicon('inven.co.kr') })),
+      ...(news.thisisgame || []).map(item => ({ ...item, source: '디스이즈게임', icon: getFavicon('thisisgame.com') })),
+      ...(news.gamemeca || []).map(item => ({ ...item, source: '게임메카', icon: getFavicon('gamemeca.com') })),
+      ...(news.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: getFavicon('ruliweb.com') }))
     ].filter(item => item.thumbnail))};
     const allCommunityData = ${JSON.stringify([
-      ...(community?.dcinside || []).map(item => ({ ...item, source: '디시인사이드', icon: '${getFavicon('dcinside.com')}' })),
-      ...(community?.arca || []).map(item => ({ ...item, source: '아카라이브', icon: '${getFavicon('arca.live')}' })),
-      ...(community?.inven || []).map(item => ({ ...item, source: '인벤', icon: '${getFavicon('inven.co.kr')}' })),
-      ...(community?.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: '${getFavicon('ruliweb.com')}' }))
+      ...(community?.dcinside || []).map(item => ({ ...item, source: '디시인사이드', icon: getFavicon('dcinside.com') })),
+      ...(community?.arca || []).map(item => ({ ...item, source: '아카라이브', icon: getFavicon('arca.live') })),
+      ...(community?.inven || []).map(item => ({ ...item, source: '인벤', icon: getFavicon('inven.co.kr') })),
+      ...(community?.ruliweb || []).map(item => ({ ...item, source: '루리웹', icon: getFavicon('ruliweb.com') }))
     ])};
     const allYoutubeData = ${JSON.stringify((youtube?.gaming || []).map(item => ({
       title: item.title,
