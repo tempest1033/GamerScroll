@@ -5,7 +5,10 @@
   "main": "generate-html-report.js",
   "scripts": {
     "build": "node generate-html-report.js",
-    "start": "node generate-html-report.js"
+    "start": "node generate-html-report.js",
+    "x-card": "node generate-x-card.js",
+    "x-post": "node post-to-x.js",
+    "x-all": "node generate-x-card.js && node post-to-x.js"
   },
   "keywords": [
     "game",
@@ -29,6 +32,7 @@
     "playwright-extra": "^4.3.6",
     "puppeteer": "^24.31.0",
     "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "twitter-api-v2": "^1.18.2"
   }
 }

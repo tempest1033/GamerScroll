@@ -43,6 +43,7 @@ jobs:
         run: |
           mkdir -p docs
           mkdir -p docs/reports
+          mkdir -p docs/images
           # MPA 모드: 폴더 구조로 복사 (clean URLs)
           cp index.html docs/index.html
           # 각 페이지를 폴더/index.html로
@@ -59,6 +60,26 @@ jobs:
           # 데일리 인사이트 리포트 복사
           if [ -d "reports" ]; then
             cp -r reports/*.html docs/reports/ 2>/dev/null || true
+          fi
+
+      - name: Generate X card image
+        run: npm run x-card
+
+      - name: Post to X (scheduled runs only)
+        if: github.event_name == 'schedule'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        run: |
+          # 9시~10시(KST) 에만 X 포스팅 (하루 1회)
+          HOUR=$(TZ=Asia/Seoul date +%H)
+          if [ "$HOUR" = "09" ]; then
+            echo "🐦 9시 - X 포스팅 실행"
+            npm run x-post
+          else
+            echo "⏭️ X 포스팅 스킵 (현재 KST: ${HOUR}시)"
           fi
 
       - name: Commit and push
@@ -80,6 +101,6 @@ jobs:
             echo "⚠️ Removing conflict markers from data-cache.json"
             sed -i '/^<<<<<<</d; /^=======/d; /^>>>>>>>/d' data-cache.json
           fi
-          git add docs/ reports/ data-cache.json history/ -f snapshots/
+          git add docs/ reports/ data-cache.json history/ -f snapshots/ docs/images/
           git diff --staged --quiet || git commit -m "Update report $(date +'%Y-%m-%d %H:%M')"
           git push
