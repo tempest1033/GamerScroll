@@ -14,7 +14,7 @@ const path = require('path');
 const { TwitterApi } = require('twitter-api-v2');
 
 const IMAGE_PATH = './docs/images/x-card-daily.png';
-const INSIGHT_PATH = './docs/daily-insight.json';
+const REPORTS_DIR = './docs/reports';
 
 const POST_META_PATH = './docs/images/x-post-meta.json';
 
@@ -41,8 +41,32 @@ async function postToX() {
     process.exit(1);
   }
 
-  // 인사이트 데이터 로드
-  const insight = JSON.parse(fs.readFileSync(INSIGHT_PATH, 'utf8'));
+  // 최신 인사이트 파일 찾기
+  const today = new Date().toISOString().split('T')[0];
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  const candidates = [
+    `${REPORTS_DIR}/${today}-AM.json`,
+    `${REPORTS_DIR}/${yesterday}-PM.json`,
+    `${REPORTS_DIR}/${yesterday}-AM.json`,
+    `${REPORTS_DIR}/${today}.json`,
+    `${REPORTS_DIR}/${yesterday}.json`
+  ];
+
+  let insightPath = null;
+  for (const p of candidates) {
+    if (fs.existsSync(p)) {
+      insightPath = p;
+      break;
+    }
+  }
+
+  if (!insightPath) {
+    console.error('❌ 인사이트 리포트 파일이 없습니다.');
+    process.exit(1);
+  }
+
+  console.log(`📄 리포트 파일: ${insightPath}`);
+  const insight = JSON.parse(fs.readFileSync(insightPath, 'utf8'));
 
   // 이미 같은 날짜에 포스팅했는지 확인
   if (fs.existsSync(POST_META_PATH)) {

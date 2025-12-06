@@ -14,13 +14,34 @@ const TEMP_HTML = './temp-x-card.html';
 async function generateXCard() {
   console.log('🎨 X 카드 이미지 생성 시작...');
 
-  // AI 인사이트 데이터 로드
-  const insightPath = './docs/daily-insight.json';
-  if (!fs.existsSync(insightPath)) {
-    console.error('❌ daily-insight.json 파일이 없습니다.');
+  // 최신 AI 인사이트 파일 찾기 (AM/PM 형식)
+  const reportsDir = './docs/reports';
+  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+
+  // 오늘 AM → 어제 PM → 어제 AM 순으로 찾기
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  const candidates = [
+    `${reportsDir}/${today}-AM.json`,
+    `${reportsDir}/${yesterday}-PM.json`,
+    `${reportsDir}/${yesterday}-AM.json`,
+    `${reportsDir}/${today}.json`,
+    `${reportsDir}/${yesterday}.json`
+  ];
+
+  let insightPath = null;
+  for (const p of candidates) {
+    if (fs.existsSync(p)) {
+      insightPath = p;
+      break;
+    }
+  }
+
+  if (!insightPath) {
+    console.error('❌ 인사이트 리포트 파일이 없습니다.');
     process.exit(1);
   }
 
+  console.log(`📄 리포트 파일: ${insightPath}`);
   const insightData = JSON.parse(fs.readFileSync(insightPath, 'utf8'));
 
   // 이미 같은 날짜의 이미지가 있는지 확인
