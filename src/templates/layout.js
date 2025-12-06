@@ -23,12 +23,17 @@ const { generateFooter } = require('./components/footer');
 const hoverPrefetchScript = `
 <script>
 (function() {
+  // 이미 정적으로 prefetch된 링크 수집
   const prefetched = new Set();
+  document.querySelectorAll('link[rel="prefetch"]').forEach(link => {
+    prefetched.add(link.href);
+  });
   document.querySelectorAll('a.nav-item').forEach(link => {
     link.addEventListener('mouseenter', () => {
       const href = link.getAttribute('href');
-      if (href && !prefetched.has(href)) {
-        prefetched.add(href);
+      const fullHref = new URL(href, window.location.origin).href;
+      if (href && !prefetched.has(fullHref)) {
+        prefetched.add(fullHref);
         const prefetch = document.createElement('link');
         prefetch.rel = 'prefetch';
         prefetch.href = href;
