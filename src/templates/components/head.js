@@ -78,6 +78,15 @@ function generateHead(options = {}) {
   <link rel="preconnect" href="https://i.ytimg.com">
   <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com">
   <link rel="preconnect" href="https://www.google.com">
+  <!-- Prefetch 다른 페이지 미리 로드 -->
+  <link rel="prefetch" href="/insight/" as="document">
+  <link rel="prefetch" href="/news/" as="document">
+  <link rel="prefetch" href="/community/" as="document">
+  <link rel="prefetch" href="/youtube/" as="document">
+  <link rel="prefetch" href="/rankings/" as="document">
+  <link rel="prefetch" href="/steam/" as="document">
+  <link rel="prefetch" href="/upcoming/" as="document">
+  <link rel="prefetch" href="/metacritic/" as="document">
   <!-- Font Preload -->
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2" as="font" type="font/woff2" crossorigin>

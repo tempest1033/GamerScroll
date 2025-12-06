@@ -19,6 +19,27 @@ const { generateFooter } = require('./components/footer');
  * @param {string} options.pageScripts - 페이지별 추가 스크립트
  * @param {Object} options.pageData - 페이지별 데이터 (JSON)
  */
+// 호버 프리페치 스크립트
+const hoverPrefetchScript = `
+<script>
+(function() {
+  const prefetched = new Set();
+  document.querySelectorAll('a.nav-item').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      const href = link.getAttribute('href');
+      if (href && !prefetched.has(href)) {
+        prefetched.add(href);
+        const prefetch = document.createElement('link');
+        prefetch.rel = 'prefetch';
+        prefetch.href = href;
+        prefetch.as = 'document';
+        document.head.appendChild(prefetch);
+      }
+    }, { passive: true });
+  });
+})();
+</script>`;
+
 // 공통 스와이프 스크립트
 const swipeScript = `
 <script>
@@ -188,6 +209,7 @@ function wrapWithLayout(content, options = {}) {
   </main>
   ${generateFooter()}
   ${pageScripts}
+  ${hoverPrefetchScript}
   ${swipeScript}
 </body>
 </html>`;
