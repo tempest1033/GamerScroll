@@ -56,9 +56,15 @@ jobs:
           cp favicon-32x32.png docs/favicon-32x32.png
           cp icon-192.png docs/icon-192.png
           echo "gamerscrawl.com" > docs/CNAME
-          # 데일리 인사이트 리포트 복사
+          # 데일리 인사이트 리포트 복사 (JSON + HTML)
           if [ -d "reports" ]; then
+            cp -r reports/*.json docs/reports/ 2>/dev/null || true
             cp -r reports/*.html docs/reports/ 2>/dev/null || true
+          fi
+          # 주간 인사이트 리포트 복사
+          if [ -d "reports/weekly" ]; then
+            mkdir -p docs/reports/weekly
+            cp -r reports/weekly/*.json docs/reports/weekly/ 2>/dev/null || true
           fi
 
       - name: Commit and push
