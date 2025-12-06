@@ -79,22 +79,16 @@ jobs:
       - name: Commit and push
         if: steps.check-reports.outputs.reports_exist == 'true'
         run: |
+          # 먼저 stash하고 pull
+          git stash --include-untracked || true
+          git pull origin main --rebase || true
+          git stash pop || true
+          # 그 다음 add & commit
           git add reports/weekly/ docs/reports/weekly/
           if git diff --staged --quiet; then
             echo "📝 변경사항 없음"
           else
-            git stash --include-untracked
-            git pull origin main --rebase
-            # stash pop, conflict 발생 시 새로 생성된 데이터(stash) 우선
-            if ! git stash pop; then
-              echo "⚠️ Conflict detected - using newly generated data"
-              git checkout --ours reports/weekly/ 2>/dev/null || true
-              git checkout --ours docs/reports/weekly/ 2>/dev/null || true
-              git add reports/weekly/ docs/reports/weekly/
-              git stash drop 2>/dev/null || true
-            fi
-            git add reports/weekly/ docs/reports/weekly/
-            git diff --staged --quiet || git commit -m "Weekly Insight $(date +'%Y-W%V')"
+            git commit -m "Weekly Insight $(date +'%Y-W%V')"
             git push
             echo "✅ 주간 인사이트 푸시 완료"
           fi

@@ -69,22 +69,16 @@ jobs:
       - name: Commit and push
         if: steps.check-cache.outputs.cache_exists == 'true'
         run: |
+          # 먼저 stash하고 pull
+          git stash --include-untracked || true
+          git pull origin main --rebase || true
+          git stash pop || true
+          # 그 다음 add & commit
           git add reports/ docs/reports/
           if git diff --staged --quiet; then
             echo "📝 변경사항 없음"
           else
-            git stash --include-untracked
-            git pull origin main --rebase
-            # stash pop, conflict 발생 시 새로 생성된 데이터(stash) 우선
-            if ! git stash pop; then
-              echo "⚠️ Conflict detected - using newly generated data"
-              git checkout --ours reports/ 2>/dev/null || true
-              git checkout --ours docs/reports/ 2>/dev/null || true
-              git add reports/ docs/reports/
-              git stash drop 2>/dev/null || true
-            fi
-            git add reports/ docs/reports/
-            git diff --staged --quiet || git commit -m "AI Insight $(date +'%Y-%m-%d %H:%M')"
+            git commit -m "AI Insight $(date +'%Y-%m-%d %H:%M')"
             git push
             echo "✅ AI 인사이트 푸시 완료"
           fi
