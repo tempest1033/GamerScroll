@@ -16,6 +16,40 @@ const CACHE_FILE = './data-cache.json';
 const REPORTS_DIR = './reports';
 
 /**
+ * 최근 N개의 리포트에서 AI 인사이트 로드
+ * @param {number} count - 로드할 리포트 개수
+ * @returns {Array} AI 인사이트 배열
+ */
+function loadRecentInsights(count = 3) {
+  const insights = [];
+
+  if (!fs.existsSync(REPORTS_DIR)) {
+    return insights;
+  }
+
+  // 리포트 파일 목록 가져오기 (날짜순 정렬)
+  const files = fs.readdirSync(REPORTS_DIR)
+    .filter(f => f.endsWith('.json'))
+    .sort()
+    .reverse(); // 최신순
+
+  for (const file of files) {
+    if (insights.length >= count) break;
+
+    try {
+      const report = JSON.parse(fs.readFileSync(`${REPORTS_DIR}/${file}`, 'utf8'));
+      if (report.ai) {
+        insights.push(report.ai);
+      }
+    } catch (e) {
+      // 파싱 실패 시 스킵
+    }
+  }
+
+  return insights;
+}
+
+/**
  * reports/{date}-{AM|PM}.json에서 어제 순위 데이터 로드
  * 같은 시간대(AM/PM)끼리 비교 - AM은 어제 AM, PM은 어제 PM
  * @param {string} date - YYYY-MM-DD 형식
@@ -203,8 +237,14 @@ async function main() {
     console.log(`⚠️ 어제 ${period} 데이터 없음 (${yesterday}-${period}) - 순위 변동 분석 건너뜀\n`);
   }
 
-  // AI 인사이트 생성 (순위 변동 데이터 포함)
-  const aiInsight = await generateAIInsight(todayData, rankingChanges);
+  // 최근 3일 인사이트 로드 (반복 방지용)
+  const recentInsights = loadRecentInsights(3);
+  if (recentInsights.length > 0) {
+    console.log(`📋 최근 ${recentInsights.length}개 인사이트 로드 완료 (반복 방지용)\n`);
+  }
+
+  // AI 인사이트 생성 (순위 변동 데이터 + 최근 인사이트 포함)
+  const aiInsight = await generateAIInsight(todayData, rankingChanges, recentInsights);
 
   if (!aiInsight) {
     console.log('❌ AI 인사이트 생성 실패');

@@ -17,6 +17,34 @@ const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
 
 /**
+ * 전주 주간 리포트 로드 (반복 방지용)
+ * @param {Object} currentWeekInfo - 현재 주차 정보
+ * @returns {Object|null} 전주 리포트
+ */
+function loadPreviousWeeklyReport(currentWeekInfo) {
+  const year = currentWeekInfo.startDate.substring(0, 4);
+  const prevWeekNumber = currentWeekInfo.weekNumber - 1;
+
+  if (prevWeekNumber < 1) {
+    // 연도가 바뀌는 경우는 일단 스킵
+    return null;
+  }
+
+  const fileName = `${WEEKLY_REPORTS_DIR}/${year}-W${String(prevWeekNumber).padStart(2, '0')}.json`;
+
+  if (!fs.existsSync(fileName)) {
+    return null;
+  }
+
+  try {
+    const report = JSON.parse(fs.readFileSync(fileName, 'utf8'));
+    return report.ai || null;
+  } catch (e) {
+    return null;
+  }
+}
+
+/**
  * KST 기준 현재 날짜 반환
  * @returns {Date} KST 날짜
  */
@@ -153,9 +181,15 @@ async function main() {
     console.log(`\n📊 총 ${weeklyReports.length}일치 리포트 로드 완료\n`);
   }
 
+  // 전주 리포트 로드 (반복 방지용)
+  const prevWeekInsight = loadPreviousWeeklyReport(weekInfo);
+  if (prevWeekInsight) {
+    console.log(`📋 전주 리포트 로드 완료 (반복 방지용)\n`);
+  }
+
   // 주간 AI 인사이트 생성
   console.log('🤖 주간 AI 인사이트 생성 중...');
-  const weeklyInsight = await generateWeeklyAIInsight(weeklyReports, weekInfo);
+  const weeklyInsight = await generateWeeklyAIInsight(weeklyReports, weekInfo, prevWeekInsight);
 
   if (!weeklyInsight) {
     console.log('❌ 주간 AI 인사이트 생성 실패');

@@ -18,9 +18,10 @@ const MODEL = 'gpt-5.1';
  * Codex CLI를 호출하여 주간 AI 인사이트 생성
  * @param {Array} weeklyReports - 지난 주 일일 리포트 배열
  * @param {Object} weekInfo - 주차 정보 { startDate, endDate, weekNumber }
+ * @param {Object} prevWeekInsight - 전주 인사이트 (반복 방지용, optional)
  * @returns {Object|null} AI 인사이트 JSON (일간 리포트와 동일한 구조)
  */
-async function generateWeeklyAIInsight(weeklyReports, weekInfo) {
+async function generateWeeklyAIInsight(weeklyReports, weekInfo, prevWeekInsight = null) {
   try {
     console.log(`  - Codex CLI 호출 중 (${MODEL})...`);
 
@@ -70,6 +71,9 @@ ${rankingsSummary}
   ※ 순위 숫자를 임의로 바꾸지 말 것 - 제공된 데이터 그대로 사용
   ※ desc에만 웹 검색으로 파악한 변동 원인 작성 (업데이트, 이벤트, 할인, 논란 등)` : '';
 
+    // 전주 인사이트 요약 (반복 방지용)
+    const prevWeekSummary = buildPrevWeekInsightSummary(prevWeekInsight);
+
     const prompt = `## 중요: 현재 시간 기준 정보
 - 현재 날짜: ${currentDate}
 - 현재 시간: ${currentTime} (KST, 한국 표준시)
@@ -80,7 +84,7 @@ ${rankingsSummary}
 일간 리포트와 동일한 피드 형태로 표현됩니다.
 
 ## 지난 주 일일 리포트 요약:
-${dataSummary}${rankingsData}
+${dataSummary}${rankingsData}${prevWeekSummary}
 
 ## 요청사항:
 1. 웹 검색으로 ${weekInfo.startDate} ~ ${weekInfo.endDate} 기간의 한국 게임 뉴스 조사
@@ -463,6 +467,49 @@ function buildWeeklyRankingChangeSummary(changes) {
       lines.push(`- ${g.title} (${g.platform}) : ${g.rank}위 진입`);
     });
   }
+
+  return lines.join('\n');
+}
+
+/**
+ * 전주 인사이트 요약 문자열 생성 (반복 방지용)
+ * @param {Object} prevWeekInsight - 전주 인사이트
+ * @returns {string} 요약 문자열
+ */
+function buildPrevWeekInsightSummary(prevWeekInsight) {
+  if (!prevWeekInsight) {
+    return '';
+  }
+
+  const lines = ['\n\n## 반복 방지 - 전주 인사이트 (동일/유사 주제 피할 것):'];
+
+  // issues
+  if (prevWeekInsight.issues && prevWeekInsight.issues.length > 0) {
+    prevWeekInsight.issues.forEach(issue => {
+      lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+    });
+  }
+
+  // industryIssues
+  if (prevWeekInsight.industryIssues && prevWeekInsight.industryIssues.length > 0) {
+    prevWeekInsight.industryIssues.forEach(issue => {
+      lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+    });
+  }
+
+  // mvp
+  if (prevWeekInsight.mvp) {
+    lines.push(`- [MVP] ${prevWeekInsight.mvp.name}: ${prevWeekInsight.mvp.desc}`);
+  }
+
+  // community
+  if (prevWeekInsight.community && prevWeekInsight.community.length > 0) {
+    prevWeekInsight.community.forEach(comm => {
+      lines.push(`- [커뮤니티] ${comm.title}: ${comm.desc}`);
+    });
+  }
+
+  lines.push('\n→ 위 전주 리포트에서 이미 다룬 주제와 동일하거나 유사한 내용은 피하고, 새로운 관점이나 다른 이슈를 찾아주세요.');
 
   return lines.join('\n');
 }

@@ -15,9 +15,10 @@ const MODEL = 'gpt-5.1';
  * Codex CLI를 호출하여 AI 인사이트 생성
  * @param {Object} crawlData - 크롤링 데이터
  * @param {Object} rankingChanges - 순위 변동 데이터 (optional)
+ * @param {Array} recentInsights - 최근 인사이트 배열 (반복 방지용, optional)
  * @returns {Object|null} AI 인사이트 JSON
  */
-async function generateAIInsight(crawlData, rankingChanges = null) {
+async function generateAIInsight(crawlData, rankingChanges = null, recentInsights = []) {
   try {
     console.log(`  - Codex CLI 호출 중 (${MODEL})...`);
 
@@ -61,6 +62,9 @@ ${rankingsSummary}
 - 순위 숫자 절대 수정 금지
 - desc만 웹 검색으로 원인 분석하여 작성` : '';
 
+    // 최근 인사이트 요약 (반복 방지용)
+    const recentInsightsSummary = buildRecentInsightsSummary(recentInsights);
+
     const prompt = `## 중요: 현재 시간 기준 정보
 - 오늘 날짜: ${today}
 - 현재 시간: ${currentTime} (KST, 한국 표준시)
@@ -69,7 +73,7 @@ ${rankingsSummary}
 한국 게임 업계 종합 인사이트를 JSON 형식으로 작성해줘.
 
 ## 크롤링 데이터:
-${dataSummary}${rankingsData}
+${dataSummary}${rankingsData}${recentInsightsSummary}
 
 ## 요청사항:
 1. 웹 검색으로 최신 한국 게임 뉴스 조사
@@ -256,6 +260,48 @@ function buildDataSummary(data) {
     lines.push('\n### 치지직 인기 방송:');
     chzzkItems.forEach(s => lines.push(`- ${s.title} (${s.streamer})`));
   }
+
+  return lines.join('\n');
+}
+
+/**
+ * 최근 인사이트 요약 문자열 생성 (반복 방지용)
+ * @param {Array} recentInsights - 최근 인사이트 배열
+ * @returns {string} 요약 문자열
+ */
+function buildRecentInsightsSummary(recentInsights) {
+  if (!recentInsights || recentInsights.length === 0) {
+    return '';
+  }
+
+  const lines = ['\n\n## 반복 방지 - 최근 인사이트 (동일/유사 주제 피할 것):'];
+
+  recentInsights.forEach((insight, idx) => {
+    lines.push(`\n### 최근 리포트 ${idx + 1}:`);
+
+    // issues
+    if (insight.issues && insight.issues.length > 0) {
+      insight.issues.forEach(issue => {
+        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+      });
+    }
+
+    // industryIssues
+    if (insight.industryIssues && insight.industryIssues.length > 0) {
+      insight.industryIssues.forEach(issue => {
+        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+      });
+    }
+
+    // community
+    if (insight.community && insight.community.length > 0) {
+      insight.community.forEach(comm => {
+        lines.push(`- [커뮤니티] ${comm.title}: ${comm.desc}`);
+      });
+    }
+  });
+
+  lines.push('\n→ 위 리포트에서 이미 다룬 주제와 동일하거나 유사한 내용은 피하고, 새로운 관점이나 다른 이슈를 찾아주세요.');
 
   return lines.join('\n');
 }
