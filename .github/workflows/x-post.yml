@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: x-post
+  cancel-in-progress: false
+
 jobs:
   post:
     runs-on: ubuntu-latest
@@ -46,5 +50,9 @@ jobs:
           git config user.email "actions@github.com"
           git add docs/images/
           git diff --staged --quiet || git commit -m "Update X card $(date +'%Y-%m-%d')"
-          git pull origin main --rebase || true
-          git push
+          # 충돌 시 재시도 로직
+          for i in 1 2 3; do
+            git pull origin main --rebase && git push && break
+            echo "Push 실패, 재시도 $i/3..."
+            sleep 5
+          done

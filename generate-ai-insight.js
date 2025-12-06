@@ -303,7 +303,9 @@ async function main() {
   if (fs.existsSync(insightJsonFile)) {
     try {
       insight = JSON.parse(fs.readFileSync(insightJsonFile, 'utf8'));
-    } catch (e) {}
+    } catch (e) {
+      console.warn(`⚠️ 기존 인사이트 파싱 실패 (${insightJsonFile}):`, e.message);
+    }
   }
 
   // AI 인사이트 추가/갱신

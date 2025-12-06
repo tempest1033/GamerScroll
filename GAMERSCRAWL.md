@@ -315,7 +315,7 @@ node generate-weekly-insight.js --force  # 강제 재생성
   4. 커밋 & 푸시
 
 ### weekly-insight.yml (주간)
-- 트리거: 매주 월요일 0시 (KST) + 수동
+- 트리거: 매주 월요일 03시 (KST) + 수동
 - 러너: self-hosted (로컬 맥)
 - 작업:
   1. npm install --production

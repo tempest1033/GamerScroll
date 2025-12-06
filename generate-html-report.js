@@ -365,7 +365,9 @@ async function main() {
           insight.ai = savedInsight.ai;
           insight.aiGeneratedAt = savedInsight.aiGeneratedAt;
         }
-      } catch (e) {}
+      } catch (e) {
+        console.warn(`⚠️ 인사이트 JSON 파싱 실패 (${savedJsonFile}):`, e.message);
+      }
     }
 
     const insightHTML = generateInsightHTML(insight);

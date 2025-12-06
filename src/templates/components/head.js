@@ -54,18 +54,22 @@ function generateHead(options = {}) {
   <meta property="og:image" content="https://gamerscrawl.com/og-image.png">
   <meta property="og:url" content="${canonical}">
   <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="https://gamerscrawl.com/og-image.png">
+  <meta name="twitter:site" content="@gaborscrawl">
+  <meta name="twitter:creator" content="@gaborscrawl">
   <!-- Theme & Favicon -->
   <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" href="/icon-192.png">
-  <link rel="shortcut icon" href="/favicon-32x32.png">
+  <link rel="manifest" href="/manifest.json">
   <!-- Preconnect -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://play-lh.googleusercontent.com">
