@@ -382,9 +382,24 @@ async function main() {
     fs.writeFileSync(reportFile, insightHTML, 'utf8');
     console.log(`📈 데일리 인사이트 저장: ${reportFile}`);
 
-    // 인사이트 JSON도 저장 (AI 제외한 분석 데이터) - AM/PM 구분
+    // 인사이트 JSON도 저장 - 기존 AI 데이터 보존
     const amPm = getAmPm();
     const insightJsonFile = `${REPORTS_DIR}/${today}-${amPm}.json`;
+
+    // 기존 파일에 AI 데이터가 있으면 보존
+    if (fs.existsSync(insightJsonFile)) {
+      try {
+        const existing = JSON.parse(fs.readFileSync(insightJsonFile, 'utf8'));
+        if (existing.ai) {
+          insight.ai = existing.ai;
+          insight.aiGeneratedAt = existing.aiGeneratedAt;
+          insight.stockMap = existing.stockMap;
+          insight.stockPrices = existing.stockPrices;
+        }
+      } catch (e) {
+        // 파싱 실패시 무시
+      }
+    }
     fs.writeFileSync(insightJsonFile, JSON.stringify(insight, null, 2), 'utf8');
   }
 }
