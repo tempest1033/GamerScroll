@@ -69,7 +69,7 @@ async function postToX() {
   const reportData = JSON.parse(fs.readFileSync(insightPath, 'utf8'));
   const insight = {
     date: reportData.date,
-    issues: reportData.aiInsight?.issues || []
+    issues: reportData.ai?.issues || []
   };
 
   // 이미 같은 날짜에 포스팅했는지 확인
