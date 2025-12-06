@@ -29,9 +29,9 @@ const generateXCardHtml = (data) => {
     return `
       <div class="issue">
         <span class="issue-rank">${idx + 1}</span>
-        <span class="issue-tag" style="background: ${colors.bg}; color: ${colors.text};">${issue.category || '게임'}</span>
+        <span class="issue-tag" style="background: ${colors.bg}; color: ${colors.text};">${issue.tag || '게임'}</span>
         <h3 class="issue-title">${issue.title}</h3>
-        <p class="issue-desc">${issue.summary}</p>
+        <p class="issue-desc">${issue.desc}</p>
         <style>.issue:nth-child(${idx + 1})::before { background: ${colors.bar}; }</style>
       </div>
     `;

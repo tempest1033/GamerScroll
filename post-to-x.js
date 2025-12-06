@@ -94,7 +94,7 @@ ${insight.issues.slice(0, 3).map((issue, i) =>
 ).join('\n')}
 
 자세한 내용은 👇
-https://gamerscrawl.com
+https://gamerscrawl.com/insight/?utm_source=x&utm_medium=social&utm_campaign=daily_insight
 
 #게임 #게임순위 #모바일게임 #게임추천 #게이머스크롤`;
 
@@ -107,18 +107,34 @@ https://gamerscrawl.com
   });
 
   try {
-    // 이미지 업로드
-    console.log('📤 이미지 업로드 중...');
-    const mediaId = await client.v1.uploadMedia(IMAGE_PATH);
+    let tweet;
 
-    // 트윗 게시
-    console.log('📝 트윗 게시 중...');
-    const tweet = await client.v2.tweet({
-      text: tweetText,
-      media: {
-        media_ids: [mediaId]
+    // 이미지 업로드 시도 (Free 티어에서는 실패할 수 있음)
+    if (fs.existsSync(IMAGE_PATH)) {
+      try {
+        console.log('📤 이미지 업로드 시도 중...');
+        const mediaId = await client.v1.uploadMedia(IMAGE_PATH);
+
+        console.log('📝 이미지와 함께 트윗 게시 중...');
+        tweet = await client.v2.tweet({
+          text: tweetText,
+          media: {
+            media_ids: [mediaId]
+          }
+        });
+      } catch (mediaError) {
+        console.log('⚠️ 이미지 업로드 실패 (Free 티어 제한), 텍스트만 게시합니다.');
+        console.log('📝 텍스트만 트윗 게시 중...');
+        tweet = await client.v2.tweet({
+          text: tweetText
+        });
       }
-    });
+    } else {
+      console.log('📝 텍스트만 트윗 게시 중...');
+      tweet = await client.v2.tweet({
+        text: tweetText
+      });
+    }
 
     // 포스팅 메타 저장 (중복 방지)
     fs.writeFileSync(POST_META_PATH, JSON.stringify({
