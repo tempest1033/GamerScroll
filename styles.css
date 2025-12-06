@@ -2283,6 +2283,14 @@
       user-select: none;
     }
 
+    .header-title a {
+      display: flex;
+      align-items: center;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
+    }
+
     .logo-svg {
       height: 42px;
       width: auto;
