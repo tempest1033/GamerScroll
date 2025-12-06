@@ -60,7 +60,6 @@ async function generateXCard() {
   // 폰트 로딩 대기
   await page.waitForTimeout(1000);
 
-  const outputPath = path.join(OUTPUT_DIR, 'x-card-daily.png');
   await page.screenshot({
     path: outputPath,
     type: 'png'
