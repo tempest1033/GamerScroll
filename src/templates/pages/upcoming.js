@@ -3,6 +3,7 @@
  */
 
 const { wrapWithLayout, SHOW_ADS } = require('../layout');
+const { getFavicon } = require('../components/favicons');
 
 // 플랫폼별 기본 로고 SVG
 const platformLogos = {
@@ -62,13 +63,13 @@ function generateUpcomingPage(data) {
       <div class="upcoming-controls">
         <div class="tab-group" id="upcomingTab">
           <button class="tab-btn active" data-upcoming="mobile">
-            <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
+            <img src="${getFavicon('apple.com')}" alt="" class="news-favicon">모바일
           </button>
           <button class="tab-btn" data-upcoming="steam">
-            <img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">스팀
+            <img src="${getFavicon('store.steampowered.com')}" alt="" class="news-favicon">스팀
           </button>
           <button class="tab-btn" data-upcoming="ps5">
-            <img src="https://www.google.com/s2/favicons?domain=playstation.com&sz=32" alt="" class="news-favicon">PS5
+            <img src="${getFavicon('playstation.com')}" alt="" class="news-favicon">PS5
           </button>
           <button class="tab-btn" data-upcoming="nintendo">
             <svg viewBox="0 0 24 24" fill="#e60012" class="news-favicon" style="width:20px;height:20px"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>닌텐도

@@ -25,7 +25,7 @@ function generateMetacriticPage(data) {
       <div class="metacritic-card">
         <div class="metacritic-card-rank ${rankClass}">${i + 1}</div>
         <div class="metacritic-card-poster">
-          ${game.img ? `<img src="${game.img}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          ${game.img ? `<img src="${game.img}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">` : ''}
           <div class="metacritic-card-score" style="background:${scoreColor}">${game.score}</div>
         </div>
         <div class="metacritic-card-info">

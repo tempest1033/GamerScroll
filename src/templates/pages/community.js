@@ -3,6 +3,7 @@
  */
 
 const { wrapWithLayout, SHOW_ADS } = require('../layout');
+const { getFavicon } = require('../components/favicons');
 
 function generateCommunityPage(data) {
   const { community } = data;
@@ -36,10 +37,10 @@ function generateCommunityPage(data) {
       <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="communityTab">
-            <button class="tab-btn active" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
-            <button class="tab-btn" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">아카라이브</button>
-            <button class="tab-btn" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">디시인사이드</button>
-            <button class="tab-btn" data-community="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">루리웹</button>
+            <button class="tab-btn active" data-community="inven"><img src="${getFavicon('inven.co.kr')}" alt="" class="news-favicon">인벤</button>
+            <button class="tab-btn" data-community="arca"><img src="${getFavicon('arca.live')}" alt="" class="news-favicon">아카라이브</button>
+            <button class="tab-btn" data-community="dcinside"><img src="${getFavicon('dcinside.com')}" alt="" class="news-favicon">디시인사이드</button>
+            <button class="tab-btn" data-community="ruliweb"><img src="${getFavicon('ruliweb.com')}" alt="" class="news-favicon">루리웹</button>
           </div>
         </div>
       </div>
@@ -50,7 +51,7 @@ function generateCommunityPage(data) {
         <div class="news-container">
           <div class="news-panel active" id="community-inven">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('inven.co.kr')}" alt="" class="news-favicon">
               <span class="news-panel-title">인벤 핫이슈</span>
               <a href="https://hot.inven.co.kr/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -58,7 +59,7 @@ function generateCommunityPage(data) {
           </div>
           <div class="news-panel" id="community-arca">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('arca.live')}" alt="" class="news-favicon">
               <span class="news-panel-title">아카라이브 베스트</span>
               <a href="https://arca.live/b/live" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -66,7 +67,7 @@ function generateCommunityPage(data) {
           </div>
           <div class="news-panel" id="community-dcinside">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('dcinside.com')}" alt="" class="news-favicon">
               <span class="news-panel-title">디시 실시간 베스트</span>
               <a href="https://gall.dcinside.com/board/lists?id=dcbest" target="_blank" class="news-more-link">더보기 →</a>
             </div>
@@ -74,7 +75,7 @@ function generateCommunityPage(data) {
           </div>
           <div class="news-panel" id="community-ruliweb">
             <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
+              <img src="${getFavicon('ruliweb.com')}" alt="" class="news-favicon">
               <span class="news-panel-title">루리웹 게임 베스트</span>
               <a href="https://bbs.ruliweb.com/best/game?orderby=recommend&range=24h" target="_blank" class="news-more-link">더보기 →</a>
             </div>

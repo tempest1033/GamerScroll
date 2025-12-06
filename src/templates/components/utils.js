@@ -42,7 +42,7 @@ function generateRankItem(game, index) {
   return `
     <div class="rank-item ${rankClass}">
       <span class="rank-num">${index + 1}</span>
-      <img class="rank-icon" src="${game.icon}" alt="" loading="lazy" onerror="this.style.display='none'">
+      <img class="rank-icon" src="${game.icon}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
       <span class="rank-title">${game.title}</span>
     </div>
   `;
