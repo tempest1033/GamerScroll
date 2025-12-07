@@ -149,28 +149,28 @@
       .ad-slot:not(.home-main-ad) { order: 99 !important; }
     }
     :root {
-      /* === Primary Colors === */
-      --primary: #4f46e5; /* Indigo 600 */
-      --primary-light: #6366f1; /* Indigo 500 */
-      --primary-dark: #4338ca; /* Indigo 700 */
-      --accent: #f97316;
+      /* === Primary Colors - 블루 (신뢰감 있는 뉴스 사이트 느낌) === */
+      --primary: #2563eb; /* 블루 */
+      --primary-light: #3b82f6; /* 밝은 블루 */
+      --primary-dark: #1d4ed8; /* 어두운 블루 */
+      --accent: #0ea5e9; /* 스카이 블루 */
 
-      /* === Background & Surface - 대비 개선 === */
-      --bg: #f5f5f5; /* 배경 - 중립 회색 */
+      /* === Background & Surface - 웜 뉴트럴 === */
+      --bg: #faf9f7; /* 웜 아이보리 - 카드와 확실한 대비 */
       --bg-elevated: #ffffff;
       --card: #ffffff;
-      --card-hover: #f5f5f5;
+      --card-hover: #f0f7ff; /* 블루 틴트 호버 */
 
-      /* === Border === */
-      --border: #e2e8f0; /* Slate 200 */
-      --border-subtle: #f1f5f9;
+      /* === Border - 웜톤 === */
+      --border: #e5e2de; /* 웜 그레이 */
+      --border-subtle: #f0ede8;
 
-      /* === Text === */
-      --text: #1a1a1a; /* 더 진한 텍스트 */
-      --text-primary: #1a1a1a; /* text와 동일 - 호환성 */
-      --text-secondary: #1a1a1a; /* 거의 검정 - 본문 설명 (가독성 최적화) */
-      --text-muted: #737373; /* Neutral 500 */
-      --text-tertiary: #6b7280; /* Neutral 500 - WCAG AA 준수 (대비 4.5:1) */
+      /* === Text - 대비 강화 (WCAG AAA) === */
+      --text: #1a1a1a; /* 메인 텍스트 */
+      --text-primary: #1a1a1a;
+      --text-secondary: #2d2d2d; /* 본문 설명 - 더 진하게 */
+      --text-muted: #525252; /* 대비 7:1+ */
+      --text-tertiary: #6b6b6b; /* 보조 텍스트 */
 
       /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
       --font-title-size: 18px;
@@ -185,7 +185,7 @@
       --font-tab-size: 15px;
       --font-tab-weight: 700;
       --font-badge-size: 12px;
-      --font-badge-weight: 900;
+      --font-badge-weight: 800;
       --font-small-size: 12px;
       --font-nav-size: 15px;
       --font-nav-weight: 700;
@@ -199,9 +199,9 @@
       --font-rank-dev-color: var(--text-muted);
 
       /* === Typography - 확장 크기 (전체 통합 관리) === */
-      /* 초소형 (8-9px) - 매우 작은 메타데이터 */
-      --font-micro-size: 9px;
-      --font-tiny-size: 8px;
+      /* 초소형 - 최소 10px 유지 (가독성) */
+      --font-micro-size: 10px;
+      --font-tiny-size: 10px;
 
       /* 소형 (10-11px) - 배지 내부, 순위 숫자, 보조 정보 */
       --font-xs-size: 10px;
@@ -269,6 +269,12 @@
     }
 
     :root {
+      /* === Insight/Accent Colors (통합 관리) === */
+      --insight-icon: #6366f1; /* 인디고 - 인사이트 아이콘 기본색 */
+      --metric-color: #3b82f6; /* 블루 - 메트릭/통계 관련 */
+      --gradient-progress: linear-gradient(90deg, #3b82f6, #2563eb); /* 프로그레스바 그라데이션 */
+      --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* 강조 그라데이션 */
+
       /* === 호환성 변수 (별칭) === */
       --bg-secondary: #f8fafc; /* 보조 배경 */
       --border-color: #e2e8f0; /* 테두리 색상 */
@@ -337,6 +343,17 @@
       --badge-bg-down: rgba(239, 68, 68, 0.20);
       --badge-bg-new: rgba(99, 102, 241, 0.20);
 
+      /* === Tag Base Colors (기본 태그 색상) === */
+      --tag-bg: rgba(99, 102, 241, 0.12);
+      --tag-color: #6366f1;
+
+      /* === Section Colors (섹션 배경/아이콘 - 통합 관리) === */
+      --section-gradient: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+      --section-gradient-strong: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      --section-icon-bg: rgba(99, 102, 241, 0.12);
+      --section-accent-bg: rgba(99, 102, 241, 0.15);
+      --section-border: rgba(99, 102, 241, 0.2);
+
       /* === Glow Effects (라이트모드) === */
       --glow-primary: 0 0 20px rgba(79, 70, 229, 0.2);
       --glow-accent: 0 0 20px rgba(249, 115, 22, 0.2);
@@ -361,8 +378,8 @@
       box-shadow: none !important;
     }
     .nav-item.active {
-      color: #3730a3;
-      background: #eef2ff;
+      color: #2563eb;
+      background: #eff6ff;
     }
     .nav-item svg {
       stroke: #374151;
@@ -371,7 +388,7 @@
       stroke: #1f2937;
     }
     .nav-item.active svg {
-      stroke: #3730a3;
+      stroke: #2563eb;
     }
     /* 서브탭 버튼 */
     .tab-btn {
@@ -465,14 +482,33 @@
         --gradient-stocks: var(--card-bg);
         --gradient-primary: var(--card-bg);
 
-        /* === 다크모드 전용 Icon Backgrounds (primary 통일) === */
-        --icon-bg-hot: rgba(99, 102, 241, 0.25);
-        --icon-bg-industry: rgba(99, 102, 241, 0.25);
-        --icon-bg-metrics: rgba(99, 102, 241, 0.25);
-        --icon-bg-rankings: rgba(99, 102, 241, 0.25);
-        --icon-bg-community: rgba(99, 102, 241, 0.25);
-        --icon-bg-streaming: rgba(99, 102, 241, 0.25);
-        --icon-bg-stocks: rgba(99, 102, 241, 0.25);
+        /* === 다크모드 전용 Insight/Accent Colors (오렌지) === */
+        --insight-border: rgba(255, 107, 53, 0.25);
+        --insight-header-border: rgba(255, 107, 53, 0.2);
+        --insight-icon: #ff6b35;
+        --metric-color: #ff6b35;
+        --gradient-progress: linear-gradient(90deg, #ff6b35, #ffc107);
+        --gradient-accent: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+
+        /* === 다크모드 전용 Icon Backgrounds (오렌지 통일) === */
+        --icon-bg-hot: rgba(255, 107, 53, 0.25);
+        --icon-bg-industry: rgba(255, 107, 53, 0.25);
+        --icon-bg-metrics: rgba(255, 107, 53, 0.25);
+        --icon-bg-rankings: rgba(255, 107, 53, 0.25);
+        --icon-bg-community: rgba(255, 107, 53, 0.25);
+        --icon-bg-streaming: rgba(255, 107, 53, 0.25);
+        --icon-bg-stocks: rgba(255, 107, 53, 0.25);
+
+        /* === 다크모드 전용 Tag Base Colors (밝은 오렌지) === */
+        --tag-bg: rgba(255, 112, 67, 0.18);
+        --tag-color: #ff7043;
+
+        /* === 다크모드 전용 Section Colors (미니멀 - 투명/단색) === */
+        --section-gradient: transparent;
+        --section-gradient-strong: rgba(255, 255, 255, 0.02);
+        --section-icon-bg: rgba(255, 107, 53, 0.15);
+        --section-accent-bg: rgba(255, 255, 255, 0.05);
+        --section-border: rgba(255, 255, 255, 0.1);
       }
 
       /* 다크모드 메인탭 - 흰색 톤 */
@@ -2325,7 +2361,7 @@
     .logo-badge {
       width: 36px;
       height: 36px;
-      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      background: var(--gradient-accent);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -2342,14 +2378,14 @@
     }
 
     .header-title .logo-game {
-      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      background: var(--gradient-accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .header-title .logo-crawler {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: var(--gradient-accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -3182,7 +3218,7 @@
     }
 
     .source-inven {
-      color: #6366f1;
+      color: var(--insight-icon, #6366f1);
       background: rgba(99, 102, 241, 0.15);
     }
 
@@ -4890,11 +4926,72 @@
   color: #fff;
 }
 
+/* 다크모드 - 블루/인디고→오렌지 복원 */
+@media (prefers-color-scheme: dark) {
+  /* 네비 active */
+  .nav-item.active {
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.15);
+  }
+  .nav-item.active svg {
+    stroke: #ff6b35;
+  }
+  /* 데일리 포커스 문구 - 미니멀 (투명 배경 + 은은한 테두리) */
+  .home-daily-focus-text {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  /* 로고 배지/텍스트 */
+  .logo-badge {
+    background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+  }
+  .header-title .logo-game {
+    background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  /* === 트렌드 페이지 전체 오버라이드 === */
+  /* 모든 insight 카드 테두리 */
+  .insight-card[class*="daily-section-"] {
+    border-color: rgba(255, 107, 53, 0.25) !important;
+  }
+  /* 모든 카드 헤더 하단 테두리 */
+  .insight-card[class*="daily-section-"] .home-card-header {
+    border-bottom-color: rgba(255, 107, 53, 0.2) !important;
+  }
+  /* 모든 섹션 아이콘 */
+  .daily-section-icon {
+    color: #ff6b35 !important;
+  }
+  /* 아이콘 래퍼 배경 */
+  .daily-section-icon-wrap {
+    background: rgba(255, 107, 53, 0.15) !important;
+  }
+  /* 급상승/급하락 뱃지 */
+  .rank-badge {
+    background: rgba(255, 107, 53, 0.15) !important;
+    color: #ff6b35 !important;
+  }
+  /* 통계 아이콘 */
+  .weekly-stat-icon.industry {
+    background: rgba(249, 115, 22, 0.15);
+    color: #f97316;
+  }
+  /* 카드 호버 그라디언트 */
+  .weekly-hot-card::before {
+    background: linear-gradient(90deg, #ef4444, #f97316);
+  }
+  /* 메트릭 카드 */
+  .metric-card.accent {
+    border-color: #f97316;
+  }
+}
+
 /* 주간 리포트 헤더 카드 - 다크모드 */
 @media (prefers-color-scheme: dark) {
   .weekly-header-card {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    border: 1px solid var(--border);
+    background: linear-gradient(135deg, #1e1e1e 0%, #252525 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .weekly-header-card .weekly-header-period {
@@ -4910,6 +5007,27 @@
   .weekly-header-card .weekly-header-ampm-tag.pm {
     background: rgba(167, 139, 250, 0.2);
     color: #a78bfa;
+  }
+
+  /* === 카드 미니멀 + 포인트 하이라이트 === */
+  /* MVP 카드 */
+  .weekly-mvp-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #f59e0b;
+  }
+
+  /* 핫이슈 featured 카드 */
+  .weekly-hot-card.featured {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #ef4444;
+  }
+
+  /* 일반 핫이슈 카드 */
+  .weekly-hot-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -5061,7 +5179,7 @@
 
 .weekly-stat-icon.mobile {
   background: rgba(99, 102, 241, 0.15);
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 .weekly-stat-icon.pc {
@@ -5070,8 +5188,8 @@
 }
 
 .weekly-stat-icon.industry {
-  background: rgba(249, 115, 22, 0.15);
-  color: #f97316;
+  background: rgba(37, 99, 235, 0.15);
+  color: #2563eb;
 }
 
 .weekly-stat-icon.community {
@@ -5213,7 +5331,7 @@
 
 /* 에디터스 노트 */
 .weekly-intro {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+  background: var(--section-gradient-strong);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 24px;
@@ -5240,9 +5358,9 @@
   width: 32px;
   height: 32px;
   padding: 6px;
-  background: rgba(99, 102, 241, 0.12);
+  background: var(--section-icon-bg);
   border-radius: var(--radius-sm);
-  color: #6366f1;
+  color: var(--insight-icon);
 }
 
 .weekly-intro-label {
@@ -5263,22 +5381,22 @@
 
 /* 에디터스 노트 */
 .weekly-section-editor {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+  background: var(--section-gradient-strong);
 }
 
 .weekly-section-editor .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 /* 금주의 핫이슈 */
 .weekly-section-hot {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-hot .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-hot-issues {
@@ -5315,7 +5433,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #ef4444, #f97316);
+  background: var(--gradient-progress);
   opacity: 0;
   transition: opacity 0.2s;
 }
@@ -5355,8 +5473,8 @@
   padding: 4px 10px;
   border-radius: 20px;
   margin-bottom: 10px;
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--tag-bg);
+  color: var(--tag-color);
   width: fit-content;
   align-self: flex-start;
 }
@@ -5443,12 +5561,12 @@
 
 /* 순위 변동 분석 */
 .weekly-section-rankings {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-rankings .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-rankings-grid {
@@ -5566,12 +5684,12 @@
 
 /* 업계 동향 타임라인 */
 .weekly-section-industry {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-industry .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-timeline {
@@ -5648,12 +5766,12 @@
 
 /* 주간 지표 (아이콘 강조형) */
 .weekly-section-metrics {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-metrics .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-metrics-row {
@@ -5681,7 +5799,7 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: #6366f1;
+  background: var(--insight-icon);
 }
 
 .weekly-metric-card:hover {
@@ -5740,16 +5858,16 @@
 
 /* 커뮤니티 반응 (말풍선 스타일) */
 .weekly-section-community {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-community .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-section-alt {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.05), rgba(99, 102, 241, 0.05));
+  background: var(--section-gradient);
 }
 
 .weekly-community-grid {
@@ -5801,12 +5919,12 @@
 
 /* 스트리밍 트렌드 (플랫폼 카드) */
 .weekly-section-streaming {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-streaming .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-streaming-grid {
@@ -5943,12 +6061,12 @@
 
 /* 주간 게임주 분석 (테이블 스타일) */
 .weekly-section-stocks {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-stocks .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-stocks-tables {
@@ -6097,12 +6215,12 @@
 
 /* 주간 MVP 섹션 */
 .weekly-section-mvp {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-mvp .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-mvp-card {
@@ -6171,12 +6289,12 @@
 
 /* 신작/업데이트 캘린더 */
 .weekly-section-releases {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-releases .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-releases-list {
@@ -6246,17 +6364,17 @@
 
 .weekly-release-type.update {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 /* 글로벌 트렌드 */
 .weekly-section-global {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
+  background: var(--section-gradient);
 }
 
 .weekly-section-global .weekly-section-title-wrap .weekly-icon {
-  background: rgba(99, 102, 241, 0.12);
-  color: #6366f1;
+  background: var(--section-icon-bg);
+  color: var(--insight-icon);
 }
 
 .weekly-global-grid {
@@ -6552,11 +6670,11 @@
 }
 
 .metric-card.primary {
-  border-color: #6366f1;
+  border-color: var(--insight-icon, #6366f1);
 }
 
 .metric-card.accent {
-  border-color: #f97316;
+  border-color: var(--primary);
 }
 
 .metric-card.success {
@@ -6564,7 +6682,7 @@
 }
 
 .metric-card.blue {
-  border-color: #3b82f6;
+  border-color: var(--primary-light);
 }
 
 .metric-label {
@@ -6714,11 +6832,11 @@
 /* 핫이슈 */
 .insight-card.daily-section-hot {
   background: var(--gradient-hot);
-  border-color: rgba(99, 102, 241, 0.2);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
 }
 
 .insight-card.daily-section-hot .home-card-header {
-  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
 }
 
 .insight-card.daily-section-hot .daily-section-icon-wrap {
@@ -6726,17 +6844,17 @@
 }
 
 .insight-card.daily-section-hot .daily-section-icon {
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 /* 업계 동향 */
 .insight-card.daily-section-industry {
   background: var(--gradient-industry);
-  border-color: rgba(99, 102, 241, 0.2);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
 }
 
 .insight-card.daily-section-industry .home-card-header {
-  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
 }
 
 .insight-card.daily-section-industry .daily-section-icon-wrap {
@@ -6744,17 +6862,17 @@
 }
 
 .insight-card.daily-section-industry .daily-section-icon {
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 /* 주목할만한 지표 */
 .insight-card.daily-section-metrics {
   background: var(--gradient-metrics);
-  border-color: rgba(99, 102, 241, 0.2);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
 }
 
 .insight-card.daily-section-metrics .home-card-header {
-  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
 }
 
 .insight-card.daily-section-metrics .daily-section-icon-wrap {
@@ -6762,17 +6880,17 @@
 }
 
 .insight-card.daily-section-metrics .daily-section-icon {
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 /* 순위 변동 */
 .insight-card.daily-section-rankings {
   background: var(--gradient-rankings);
-  border-color: rgba(99, 102, 241, 0.2);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
 }
 
 .insight-card.daily-section-rankings .home-card-header {
-  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
 }
 
 .insight-card.daily-section-rankings .daily-section-icon-wrap {
@@ -6780,17 +6898,17 @@
 }
 
 .insight-card.daily-section-rankings .daily-section-icon {
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 /* 유저 반응 */
 .insight-card.daily-section-community {
   background: var(--gradient-community);
-  border-color: rgba(99, 102, 241, 0.2);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
 }
 
 .insight-card.daily-section-community .home-card-header {
-  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
 }
 
 .insight-card.daily-section-community .daily-section-icon-wrap {
@@ -6798,17 +6916,17 @@
 }
 
 .insight-card.daily-section-community .daily-section-icon {
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 /* 스트리밍 트렌드 */
 .insight-card.daily-section-streaming {
   background: var(--gradient-streaming);
-  border-color: rgba(99, 102, 241, 0.2);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
 }
 
 .insight-card.daily-section-streaming .home-card-header {
-  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
 }
 
 .insight-card.daily-section-streaming .daily-section-icon-wrap {
@@ -6816,17 +6934,17 @@
 }
 
 .insight-card.daily-section-streaming .daily-section-icon {
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 /* 게임주 현황 */
 .insight-card.daily-section-stocks {
   background: var(--gradient-stocks);
-  border-color: rgba(99, 102, 241, 0.2);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
 }
 
 .insight-card.daily-section-stocks .home-card-header {
-  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
 }
 
 .insight-card.daily-section-stocks .daily-section-icon-wrap {
@@ -6834,7 +6952,7 @@
 }
 
 .insight-card.daily-section-stocks .daily-section-icon {
-  color: #6366f1;
+  color: var(--insight-icon, #6366f1);
 }
 
 /* 카드 헤더 공통 */
@@ -7549,7 +7667,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #ef4444, #f97316);
+  background: var(--gradient-progress);
   opacity: 0;
   transition: opacity 0.2s;
 }
