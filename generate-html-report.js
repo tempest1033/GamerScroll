@@ -343,7 +343,23 @@ async function main() {
 
   // CSS 파일 복사
   fs.copyFileSync('./src/styles.css', './styles.css');
-  console.log(`\n✅ 완료!`);
+
+  // docs 폴더 동기화 (로컬 개발 환경용)
+  const DOCS_DIR = './docs';
+  if (!fs.existsSync(DOCS_DIR)) {
+    fs.mkdirSync(DOCS_DIR, { recursive: true });
+  }
+  fs.copyFileSync('./index.html', `${DOCS_DIR}/index.html`);
+  const subPages = ['insight', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
+  for (const page of subPages) {
+    const pageDir = `${DOCS_DIR}/${page}`;
+    if (!fs.existsSync(pageDir)) {
+      fs.mkdirSync(pageDir, { recursive: true });
+    }
+    fs.copyFileSync(`./${page}.html`, `${pageDir}/index.html`);
+  }
+  fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
+  console.log(`\n✅ 완료! (docs/ 동기화 완료)`);
 
   // 데일리 인사이트 생성 (하루에 한 번)
   if (!fs.existsSync(REPORTS_DIR)) {

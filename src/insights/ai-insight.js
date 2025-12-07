@@ -122,6 +122,7 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 - desc: 100자 이내 (2문장으로 요약)
 
 ## 중복 방지 (필수):
+- summary(데일리 포커스)는 최근 리포트와 중복된 주제/표현 피할 것
 - issues의 tag는 각각 다르게 (5개 모두 다른 태그 사용, 중복 금지)
 - 최근 리포트에서 다룬 게임/주제 재언급 금지
 - 1위 게임이 연속이면 다른 순위나 다른 이슈 찾기
@@ -283,6 +284,11 @@ function buildRecentInsightsSummary(recentInsights) {
 
   recentInsights.forEach((insight, idx) => {
     lines.push(`\n### 최근 리포트 ${idx + 1}:`);
+
+    // summary (데일리 포커스)
+    if (insight.summary) {
+      lines.push(`- [요약] ${insight.summary}`);
+    }
 
     // issues
     if (insight.issues && insight.issues.length > 0) {

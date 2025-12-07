@@ -153,6 +153,7 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
 - desc: 100자 이내 (2문장으로 요약)
 
 ## 중복 방지 (필수):
+- summary(위클리 포커스)는 전주 리포트와 중복된 주제/표현 피할 것
 - issues의 tag는 각각 다르게 (5개 모두 다른 태그 사용, 중복 금지)
 - 일일 리포트에서 매일 반복된 주제보다 주간 전체를 관통하는 큰 흐름 위주로
 
@@ -486,6 +487,11 @@ function buildPrevWeekInsightSummary(prevWeekInsight) {
   }
 
   const lines = ['\n\n## 반복 방지 - 전주 인사이트 (동일/유사 주제 피할 것):'];
+
+  // summary (위클리 포커스)
+  if (prevWeekInsight.summary) {
+    lines.push(`- [요약] ${prevWeekInsight.summary}`);
+  }
 
   // issues
   if (prevWeekInsight.issues && prevWeekInsight.issues.length > 0) {
