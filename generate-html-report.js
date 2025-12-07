@@ -359,7 +359,69 @@ async function main() {
     fs.copyFileSync(`./${page}.html`, `${pageDir}/index.html`);
   }
   fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
-  console.log(`\n✅ 완료! (docs/ 동기화 완료)`);
+
+  // sitemap.xml 동적 생성 (lastmod 자동 업데이트)
+  const sitemapDate = new Date().toISOString().split('T')[0];
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://gamerscrawl.com/</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://gamerscrawl.com/insight</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gamerscrawl.com/news</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gamerscrawl.com/community</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gamerscrawl.com/youtube</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gamerscrawl.com/rankings</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gamerscrawl.com/steam</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gamerscrawl.com/upcoming</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gamerscrawl.com/metacritic</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>`;
+  fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
+
+  console.log(`\n✅ 완료! (docs/ 동기화 + sitemap 갱신)`);
 
   // 데일리 인사이트 생성 (하루에 한 번)
   if (!fs.existsSync(REPORTS_DIR)) {

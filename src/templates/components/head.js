@@ -60,8 +60,8 @@ function generateHead(options = {}) {
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="https://gamerscrawl.com/og-image.png">
-  <meta name="twitter:site" content="@gaborscrawl">
-  <meta name="twitter:creator" content="@gaborscrawl">
+  <meta name="twitter:site" content="@gamerscrawl">
+  <meta name="twitter:creator" content="@gamerscrawl">
   <!-- Theme & Favicon -->
   <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
