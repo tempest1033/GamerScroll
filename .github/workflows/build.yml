@@ -55,7 +55,7 @@ jobs:
           # MPA 모드: 폴더 구조로 복사 (clean URLs)
           cp index.html docs/index.html
           # 각 페이지를 폴더/index.html로
-          for page in insight news community youtube rankings steam upcoming metacritic; do
+          for page in trend news community youtube rankings steam upcoming metacritic; do
             mkdir -p docs/$page
             cp $page.html docs/$page/index.html
           done
