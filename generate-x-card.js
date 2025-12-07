@@ -14,12 +14,15 @@ const TEMP_HTML = './temp-x-card.html';
 async function generateXCard() {
   console.log('🎨 X 카드 이미지 생성 시작...');
 
-  // 최신 AI 인사이트 파일 찾기 (AM/PM 형식)
+  // 최신 AI 인사이트 파일 찾기 (KST 기준)
   const reportsDir = './docs/reports';
-  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-
-  // 오늘 AM → 어제 PM → 어제 AM 순으로 찾기
-  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  const getKSTDate = (offset = 0) => {
+    const now = new Date();
+    const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000) + (offset * 86400000));
+    return kst.toISOString().split('T')[0];
+  };
+  const today = getKSTDate();
+  const yesterday = getKSTDate(-1);
   const candidates = [
     `${reportsDir}/${today}-AM.json`,
     `${reportsDir}/${yesterday}-PM.json`,

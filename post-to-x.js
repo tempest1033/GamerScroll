@@ -41,9 +41,14 @@ async function postToX() {
     process.exit(1);
   }
 
-  // 최신 인사이트 파일 찾기
-  const today = new Date().toISOString().split('T')[0];
-  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  // 최신 인사이트 파일 찾기 (KST 기준)
+  const getKSTDate = (offset = 0) => {
+    const now = new Date();
+    const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000) + (offset * 86400000));
+    return kst.toISOString().split('T')[0];
+  };
+  const today = getKSTDate();
+  const yesterday = getKSTDate(-1);
   const candidates = [
     `${REPORTS_DIR}/${today}-AM.json`,
     `${REPORTS_DIR}/${yesterday}-PM.json`,
