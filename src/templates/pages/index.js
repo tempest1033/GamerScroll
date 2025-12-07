@@ -423,7 +423,7 @@ function generateIndexPage(data) {
   var insightCardHtml = aiInsight ?
     '<div class="home-card" id="home-insight">' +
     '<div class="home-card-header">' +
-    '<div class="home-card-title">' + insightHeader + '데일리 게임 트렌드' + ampmHtml + '</div>' +
+    '<div class="home-card-title">' + insightHeader + '게임 트렌드 리포트' + ampmHtml + '</div>' +
     '<a href="/trend" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
@@ -593,8 +593,8 @@ function generateIndexPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: '',  // 홈에서는 nav active 없음
-    title: '게이머스크롤 | 게임 트렌드 · 순위 · 뉴스 한눈에',
-    description: '모바일/스팀 게임 순위, 실시간 뉴스, 게임 트렌드를 무료로. 한국·일본·미국 앱스토어 순위, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.',
+    title: '게이머스크롤 | 게임 트렌드 리포트 · 순위 · 뉴스 한눈에',
+    description: '게임 트렌드 리포트, 모바일/스팀 게임 순위, 실시간 뉴스를 무료로. 한국·일본·미국 앱스토어 순위, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.',
     canonical: 'https://gamerscrawl.com',
     pageScripts: pageScripts
   });

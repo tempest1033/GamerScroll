@@ -374,9 +374,9 @@ function generateWeeklyPanel(weeklyInsight) {
     if (match) {
       const month = parseInt(match[2]);
       const weekOfMonth = Math.ceil(parseInt(match[3]) / 7);
-      return `${month}월 ${weekOfMonth}주차 위클리 게임 트렌드`;
+      return `${month}월 ${weekOfMonth}주차 게임 트렌드 리포트`;
     }
-    return `${wNum}주차 위클리 게임 트렌드`;
+    return `${wNum}주차 게임 트렌드 리포트`;
   };
 
   const seoTitle = formatWeekTitle(weekPeriod, weekNum);
@@ -419,8 +419,8 @@ function generateTrendPage(data) {
     `;
     return wrapWithLayout(content, {
       currentPage: 'trend',
-      title: '게이머스크롤 | 트렌드',
-      description: '오늘의 게임 트렌드를 분석합니다. 모바일/PC 게임 순위 변동, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
+      title: '게이머스크롤 | 게임 트렌드 리포트',
+      description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
       canonical: 'https://gamerscrawl.com/trend'
     });
   }
@@ -730,7 +730,7 @@ function generateTrendPage(data) {
 
         <div class="insight-panel active" id="panel-daily">
           <div class="weekly-header-card">
-            <h1 class="weekly-header-title">${insightDate || ''} 데일리 게임 트렌드</h1>
+            <h1 class="weekly-header-title">${insightDate || ''} 게임 트렌드 리포트</h1>
             <div class="weekly-header-meta">
               <span class="weekly-header-period">${aiInsight.date || new Date().toISOString().split('T')[0]}</span>
               ${insightAmPm ? `<span class="weekly-header-ampm-tag ${insightAmPm.toLowerCase()}">${insightAmPm}</span>` : ''}
@@ -783,8 +783,8 @@ function generateTrendPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'trend',
-    title: '게이머스크롤 | 트렌드',
-    description: '오늘의 게임 트렌드를 분석합니다. 모바일/PC 게임 순위 변동, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
+    title: '게이머스크롤 | 게임 트렌드 리포트',
+    description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
     canonical: 'https://gamerscrawl.com/trend',
     pageScripts
   });
