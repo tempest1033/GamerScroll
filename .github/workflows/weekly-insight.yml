@@ -66,7 +66,7 @@ jobs:
           else
             node generate-weekly-insight.js
           fi
-        timeout-minutes: 20
+        timeout-minutes: 30
 
       - name: Move weekly reports to docs
         if: steps.check-reports.outputs.reports_exist == 'true'
