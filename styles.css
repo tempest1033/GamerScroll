@@ -873,6 +873,7 @@
     .home-community-tab img,
     .home-video-tab img,
     .home-insight-tab img {
+      display: inline-block;
       width: 16px;
       height: 16px;
       flex-shrink: 0;
@@ -2443,10 +2444,23 @@
 
       .tab-btn .news-favicon,
       .tab-group .tab-btn .news-favicon {
+        display: inline-block !important;
         width: 16px !important;
         height: 16px !important;
         flex-shrink: 0 !important;
         margin-right: 0 !important;
+      }
+
+      /* 홈 서브탭 이미지 - PC에서 명시적 표시 */
+      .home-news-tab img,
+      .home-community-tab img,
+      .home-video-tab img,
+      .home-rank-tab img,
+      .home-insight-tab img {
+        display: inline-block !important;
+        width: 16px !important;
+        height: 16px !important;
+        flex-shrink: 0 !important;
       }
 
       /* 모바일순위 - 두 그룹 사이 간격 */
@@ -2543,7 +2557,7 @@
       width: 22px;
       height: 22px;
       opacity: 1;
-      transition: all var(--transition-fast);
+      transition: stroke var(--transition-fast), opacity var(--transition-fast);
     }
 
     .nav-item.active svg {
