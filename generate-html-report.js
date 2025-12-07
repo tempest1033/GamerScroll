@@ -39,7 +39,7 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateInsightPage } = require('./src/templates/pages/insight');
+const { generateTrendPage } = require('./src/templates/pages/trend');
 const { generateNewsPage } = require('./src/templates/pages/news');
 const { generateCommunityPage } = require('./src/templates/pages/community');
 const { generateYoutubePage } = require('./src/templates/pages/youtube');
@@ -321,7 +321,7 @@ async function main() {
 
   const pages = [
     { filename: 'index.html', generator: generateIndexPage },
-    { filename: 'insight.html', generator: generateInsightPage },
+    { filename: 'trend.html', generator: generateTrendPage },
     { filename: 'news.html', generator: generateNewsPage },
     { filename: 'community.html', generator: generateCommunityPage },
     { filename: 'youtube.html', generator: generateYoutubePage },
@@ -350,7 +350,7 @@ async function main() {
     fs.mkdirSync(DOCS_DIR, { recursive: true });
   }
   fs.copyFileSync('./index.html', `${DOCS_DIR}/index.html`);
-  const subPages = ['insight', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
+  const subPages = ['trend', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
   for (const page of subPages) {
     const pageDir = `${DOCS_DIR}/${page}`;
     if (!fs.existsSync(pageDir)) {
@@ -371,7 +371,7 @@ async function main() {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/insight</loc>
+    <loc>https://gamerscrawl.com/trend</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>

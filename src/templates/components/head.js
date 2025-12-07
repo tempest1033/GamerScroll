@@ -78,7 +78,7 @@ function generateHead(options = {}) {
   <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com">
   <link rel="preconnect" href="https://www.google.com">
   <!-- Prefetch 다른 페이지 미리 로드 -->
-  <link rel="prefetch" href="/insight/" as="document">
+  <link rel="prefetch" href="/trend/" as="document">
   <link rel="prefetch" href="/news/" as="document">
   <link rel="prefetch" href="/community/" as="document">
   <link rel="prefetch" href="/youtube/" as="document">

@@ -8,7 +8,7 @@ const { wrapWithLayout, SHOW_ADS } = require('../layout');
 function generateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight } = data;
 
-  // AI 인사이트 데이터
+  // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
   const aiGeneratedAt = insight?.aiGeneratedAt ? new Date(insight.aiGeneratedAt) : null;
   const kstTime = aiGeneratedAt ? new Date(aiGeneratedAt.getTime() + 9 * 60 * 60 * 1000) : null;
@@ -110,10 +110,10 @@ function generateIndexPage(data) {
       '</div>';
   }
 
-  // 홈 인사이트
+  // 홈 트렌드
   function generateHomeInsight() {
     if (!aiInsight) {
-      return '<div class="home-empty">인사이트를 불러올 수 없습니다</div>';
+      return '<div class="home-empty">트렌드를 불러올 수 없습니다</div>';
     }
 
     var industryIssues = (aiInsight.industryIssues && aiInsight.industryIssues.length > 0) ? aiInsight.industryIssues : [
@@ -131,7 +131,7 @@ function generateIndexPage(data) {
     );
 
     if (allItems.length < 2) {
-      return '<div class="home-empty">인사이트를 불러올 수 없습니다</div>';
+      return '<div class="home-empty">트렌드를 불러올 수 없습니다</div>';
     }
 
     var now = new Date();
@@ -419,12 +419,12 @@ function generateIndexPage(data) {
   var insightHeader = insightDate ? insightDate + ' ' : '';
   var ampmHtml = insightAmPm ? ' <span class="home-card-ampm-underline ' + insightAmPm.toLowerCase() + '">' + insightAmPm + '</span>' : '';
 
-  // 인사이트 카드 HTML
+  // 트렌드 카드 HTML
   var insightCardHtml = aiInsight ?
     '<div class="home-card" id="home-insight">' +
     '<div class="home-card-header">' +
-    '<div class="home-card-title">' + insightHeader + '데일리 게임 인사이트' + ampmHtml + '</div>' +
-    '<a href="/insight" class="home-card-more">더보기 →</a>' +
+    '<div class="home-card-title">' + insightHeader + '데일리 게임 트렌드' + ampmHtml + '</div>' +
+    '<a href="/trend" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
@@ -593,8 +593,8 @@ function generateIndexPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: '',  // 홈에서는 nav active 없음
-    title: '게이머스크롤 | 게임 인사이트 · 순위 · 뉴스 한눈에',
-    description: '모바일/스팀 게임 순위, 실시간 뉴스, AI 인사이트를 무료로. 한국·일본·미국 앱스토어 순위, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.',
+    title: '게이머스크롤 | 게임 트렌드 · 순위 · 뉴스 한눈에',
+    description: '모바일/스팀 게임 순위, 실시간 뉴스, 게임 트렌드를 무료로. 한국·일본·미국 앱스토어 순위, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.',
     canonical: 'https://gamerscrawl.com',
     pageScripts: pageScripts
   });

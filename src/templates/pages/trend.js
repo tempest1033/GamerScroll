@@ -1,5 +1,5 @@
 /**
- * 인사이트 페이지 템플릿
+ * 트렌드 페이지 템플릿
  * NOTE: 복잡한 기능은 추후 추가 예정
  */
 
@@ -374,9 +374,9 @@ function generateWeeklyPanel(weeklyInsight) {
     if (match) {
       const month = parseInt(match[2]);
       const weekOfMonth = Math.ceil(parseInt(match[3]) / 7);
-      return `${month}월 ${weekOfMonth}주차 위클리 게임 인사이트`;
+      return `${month}월 ${weekOfMonth}주차 위클리 게임 트렌드`;
     }
-    return `${wNum}주차 위클리 게임 인사이트`;
+    return `${wNum}주차 위클리 게임 트렌드`;
   };
 
   const seoTitle = formatWeekTitle(weekPeriod, weekNum);
@@ -407,21 +407,21 @@ function generateWeeklyPanel(weeklyInsight) {
   `;
 }
 
-function generateInsightPage(data) {
+function generateTrendPage(data) {
   const { insight, rankings, steam, weeklyInsight } = data;
   const aiInsight = insight?.ai || null;
 
   if (!aiInsight) {
     const content = `
       <section class="section active" id="insight">
-        <div class="home-empty">AI 인사이트를 불러올 수 없습니다</div>
+        <div class="home-empty">트렌드를 불러올 수 없습니다</div>
       </section>
     `;
     return wrapWithLayout(content, {
-      currentPage: 'insight',
-      title: '게이머스크롤 | 인사이트',
-      description: '오늘의 게임 업계 인사이트를 AI가 분석합니다. 모바일/PC 게임 순위 변동, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
-      canonical: 'https://gamerscrawl.com/insight'
+      currentPage: 'trend',
+      title: '게이머스크롤 | 트렌드',
+      description: '오늘의 게임 트렌드를 분석합니다. 모바일/PC 게임 순위 변동, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
+      canonical: 'https://gamerscrawl.com/trend'
     });
   }
 
@@ -697,7 +697,7 @@ function generateInsightPage(data) {
   const stocksData = aiInsight.stocks || [];
   const stockPrices = insight?.stockPrices || {};
 
-  // AI 인사이트 생성 시간 (AM/PM 태그용) - UTC를 KST로 변환
+  // AI 트렌드 생성 시간 (AM/PM 태그용) - UTC를 KST로 변환
   const aiGeneratedAt = insight?.aiGeneratedAt ? new Date(insight.aiGeneratedAt) : null;
   const kstTime = aiGeneratedAt ? new Date(aiGeneratedAt.getTime() + 9 * 60 * 60 * 1000) : null;
   const insightDate = kstTime ? `${kstTime.getUTCMonth() + 1}월 ${kstTime.getUTCDate()}일` : '';
@@ -730,7 +730,7 @@ function generateInsightPage(data) {
 
         <div class="insight-panel active" id="panel-daily">
           <div class="weekly-header-card">
-            <h1 class="weekly-header-title">${insightDate || ''} 데일리 게임 인사이트</h1>
+            <h1 class="weekly-header-title">${insightDate || ''} 데일리 게임 트렌드</h1>
             <div class="weekly-header-meta">
               <span class="weekly-header-period">${aiInsight.date || new Date().toISOString().split('T')[0]}</span>
               ${insightAmPm ? `<span class="weekly-header-ampm-tag ${insightAmPm.toLowerCase()}">${insightAmPm}</span>` : ''}
@@ -782,12 +782,12 @@ function generateInsightPage(data) {
   </script>`;
 
   return wrapWithLayout(content, {
-    currentPage: 'insight',
-    title: '게이머스크롤 | 인사이트',
-    description: '오늘의 게임 업계 인사이트를 AI가 분석합니다. 모바일/PC 게임 순위 변동, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
-    canonical: 'https://gamerscrawl.com/insight',
+    currentPage: 'trend',
+    title: '게이머스크롤 | 트렌드',
+    description: '오늘의 게임 트렌드를 분석합니다. 모바일/PC 게임 순위 변동, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
+    canonical: 'https://gamerscrawl.com/trend',
     pageScripts
   });
 }
 
-module.exports = { generateInsightPage };
+module.exports = { generateTrendPage };

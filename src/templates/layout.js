@@ -45,7 +45,7 @@ const swipeScript = `
 <script>
 (function() {
   // 네비게이션 섹션 정의
-  const navSections = ['insight', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
+  const navSections = ['trend', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
   let touchStartX = 0;
   let touchStartY = 0;
   let isSwiping = false;
