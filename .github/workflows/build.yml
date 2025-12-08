@@ -48,6 +48,9 @@ jobs:
           FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
         run: node generate-html-report.js
 
+      - name: Generate game pages
+        run: node scripts/generate-game-pages.js
+
       - name: Move report to docs
         run: |
           mkdir -p docs

@@ -2,10 +2,10 @@ node_modules/
 .env
 .DS_Store
 
-# HTML - index.html 제외, reports만 포함
+# HTML - index.html 제외, reports와 docs 포함
 *.html
 !reports/*.html
-!docs/*.html
+!docs/**/*.html
 
 # 스냅샷 (로컬에서는 무시, GitHub Actions에서만 커밋)
 snapshots/
