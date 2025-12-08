@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const gamesPath = path.join(__dirname, '..', 'data', 'games-final.json');
+const gamesPath = path.join(__dirname, '..', 'data', 'games.json');
 const historyDir = path.join(__dirname, '..', 'history');
 const reportsDir = path.join(__dirname, '..', 'reports');
 const snapshotsDir = path.join(__dirname, '..', 'snapshots', 'rankings');
