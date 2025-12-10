@@ -5797,6 +5797,12 @@
   color: var(--insight-icon);
 }
 
+.weekly-section-metrics .weekly-hot-issues,
+.weekly-section-rankings .weekly-hot-issues {
+  height: auto;
+  grid-template-rows: auto;
+}
+
 .weekly-metrics-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -6458,6 +6464,12 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
     height: 420px;
+  }
+
+  .weekly-section-metrics .weekly-hot-issues,
+  .weekly-section-rankings .weekly-hot-issues {
+    height: auto;
+    grid-template-rows: auto;
   }
 
   .weekly-rankings-grid,
