@@ -29,6 +29,17 @@ function getAppIdForRegion(gameAppIds, platform, region) {
   return gameAppIds[regionKey] || gameAppIds[platform];
 }
 
+// 이름 기반 매칭 (appId 폴백용)
+function findByTitleMatch(items, normalizedNames) {
+  for (let i = 0; i < items.length; i++) {
+    const itemTitle = normalize(items[i].title || '');
+    if (normalizedNames.includes(itemTitle)) {
+      return { index: i, item: items[i] };
+    }
+  }
+  return null;
+}
+
 // URL-safe 슬러그 생성 (앱 ID 우선, 없으면 이름 기반)
 function createSlug(name, appIds = null) {
   // 앱 ID가 있으면 우선 사용 (Android > iOS)
@@ -627,21 +638,35 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
 
       for (const cat of categories) {
         for (const region of regions) {
-          // iOS와 Android 각각 appId로 매칭
+          // iOS와 Android 각각 매칭
           for (const platform of ['ios', 'android']) {
-            // 지역별 appId 우선, 없으면 기본 appId
             const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
-
-            if (!expectedAppId) continue;
-
             const items = data.rankings?.[cat]?.[region]?.[platform] || [];
-            for (let i = 0; i < items.length; i++) {
-              if (String(items[i].appId) === String(expectedAppId)) {
-                const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
-                dayRanks[`${cat}-${keyPrefix}-${region}`] = i + 1;
-                hasAnyRank = true;
-                break;
+            let matchedIndex = -1;
+
+            // 1. appId 매칭 우선
+            if (expectedAppId) {
+              for (let i = 0; i < items.length; i++) {
+                if (String(items[i].appId) === String(expectedAppId)) {
+                  matchedIndex = i;
+                  break;
+                }
               }
+            }
+
+            // 2. appId 매칭 실패 시 이름으로 폴백
+            if (matchedIndex < 0) {
+              const titleMatch = findByTitleMatch(items, normalizedNames);
+              if (titleMatch) {
+                matchedIndex = titleMatch.index;
+              }
+            }
+
+            // 매칭되면 순위 저장
+            if (matchedIndex >= 0) {
+              const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
+              dayRanks[`${cat}-${keyPrefix}-${region}`] = matchedIndex + 1;
+              hasAnyRank = true;
             }
           }
         }
@@ -651,38 +676,48 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
         result.rankHistory.push(dayRanks);
       }
 
-      // 스팀 히스토리 수집 (동접 순위) - appid 기반 매칭
+      // 스팀 히스토리 수집 (동접 순위) - appid 우선, 이름 폴백
       const steamAppId = gameAppIds['steam:global'] || gameAppIds['steam'];
-      if (steamAppId) {
-        let steamDay = null;
+      const steamMostPlayed = data.steam?.mostPlayed || [];
+      const steamTopSellers = data.steam?.topSellers || [];
 
-        // mostPlayed에서 찾기
-        const mpItem = data.steam?.mostPlayed?.find(g => String(g.appid) === steamAppId);
-        if (mpItem) {
-          if (!steamDay) {
-            steamDay = { date };
-            result.steamHistory.push(steamDay);
-          }
-          steamDay.ccuRank = mpItem.rank;
-          steamDay.ccu = mpItem.ccu;
-        }
+      // 스팀용 이름 매칭 헬퍼
+      const findSteamItemByName = (items) => items.find(g =>
+        normalizedNames.includes(normalize(g.name || ''))
+      );
 
-        // topSellers에서 찾기
-        const tsItem = data.steam?.topSellers?.find(g => String(g.appid) === steamAppId);
-        if (tsItem) {
-          if (!steamDay) {
-            steamDay = { date };
-            result.steamHistory.push(steamDay);
-          }
-          steamDay.salesRank = tsItem.rank;
+      let steamDay = null;
+
+      // mostPlayed에서 찾기 (appId 우선, 이름 폴백)
+      let mpItem = steamAppId ? steamMostPlayed.find(g => String(g.appid) === String(steamAppId)) : null;
+      if (!mpItem) mpItem = findSteamItemByName(steamMostPlayed);
+
+      if (mpItem) {
+        if (!steamDay) {
+          steamDay = { date };
+          result.steamHistory.push(steamDay);
         }
+        steamDay.ccuRank = mpItem.rank;
+        steamDay.ccu = mpItem.ccu;
+      }
+
+      // topSellers에서 찾기 (appId 우선, 이름 폴백)
+      let tsItem = steamAppId ? steamTopSellers.find(g => String(g.appid) === String(steamAppId)) : null;
+      if (!tsItem) tsItem = findSteamItemByName(steamTopSellers);
+
+      if (tsItem) {
+        if (!steamDay) {
+          steamDay = { date };
+          result.steamHistory.push(steamDay);
+        }
+        steamDay.salesRank = tsItem.rank;
       }
     }
   }
 
   if (!historyData) return result;
 
-  // 순위 데이터 수집 + 아이콘 수집 (appId 기반 매칭)
+  // 순위 데이터 수집 + 아이콘 수집 (appId 우선, 이름 폴백)
   const categories = ['grossing', 'free'];
   const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
   const platforms = ['ios', 'android'];
@@ -690,61 +725,84 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
   for (const cat of categories) {
     for (const region of regions) {
       for (const platform of platforms) {
-        // 지역별 appId 우선, 없으면 기본 appId
         const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
-
-        if (!expectedAppId) continue;
-
         const items = historyData.rankings?.[cat]?.[region]?.[platform] || [];
-        for (let index = 0; index < items.length; index++) {
-          const item = items[index];
-          if (String(item.appId) === String(expectedAppId)) {
-            result.rankings[`${region}-${platform}-${cat}`] = {
-              rank: index + 1,  // 배열 인덱스 + 1 = 순위
-              change: item.change || 0
-            };
-            // 아이콘이 없으면 수집
-            if (!result.icon && item.icon) {
-              result.icon = item.icon;
+        let matchedIndex = -1;
+        let matchedItem = null;
+
+        // 1. appId 매칭 우선
+        if (expectedAppId) {
+          for (let i = 0; i < items.length; i++) {
+            if (String(items[i].appId) === String(expectedAppId)) {
+              matchedIndex = i;
+              matchedItem = items[i];
+              break;
             }
-            break;
+          }
+        }
+
+        // 2. appId 매칭 실패 시 이름으로 폴백
+        if (matchedIndex < 0) {
+          const titleMatch = findByTitleMatch(items, normalizedNames);
+          if (titleMatch) {
+            matchedIndex = titleMatch.index;
+            matchedItem = titleMatch.item;
+          }
+        }
+
+        // 매칭되면 순위 저장
+        if (matchedIndex >= 0 && matchedItem) {
+          result.rankings[`${region}-${platform}-${cat}`] = {
+            rank: matchedIndex + 1,
+            change: matchedItem.change || 0
+          };
+          // 아이콘이 없으면 수집
+          if (!result.icon && matchedItem.icon) {
+            result.icon = matchedItem.icon;
           }
         }
       }
     }
   }
 
-  // 스팀 데이터 수집 (동접 순위 + 판매 순위 각각) - appid 기반 매칭
+  // 스팀 데이터 수집 (동접 순위 + 판매 순위 각각) - appid 우선, 이름 폴백
   const mostPlayed = historyData.steam?.mostPlayed || [];
   const topSellers = historyData.steam?.topSellers || [];
   const steamAppId = gameAppIds['steam:global'] || gameAppIds['steam'];
 
-  // mostPlayed에서 동접 순위 찾기
-  if (steamAppId) {
-    const mpItem = mostPlayed.find(item => String(item.appid) === steamAppId);
-    if (mpItem) {
-      result.steam = {
-        currentPlayers: mpItem.ccu || mpItem.currentPlayers,
-        rank: mpItem.rank,
-        img: mpItem.img
-      };
-      if (!result.icon && mpItem.img) {
-        result.icon = mpItem.img;
-      }
-    }
+  // 스팀용 이름 매칭 헬퍼 (name 필드 사용)
+  const findSteamByName = (items) => items.find(item =>
+    normalizedNames.includes(normalize(item.name || ''))
+  );
 
-    // topSellers에서 판매 순위 + 가격/할인 찾기
-    const tsItem = topSellers.find(item => String(item.appid) === steamAppId);
-    if (tsItem) {
-      if (!result.steam) {
-        result.steam = { img: tsItem.img };
-      }
-      result.steam.salesRank = tsItem.rank;
-      result.steam.price = tsItem.price || '';
-      result.steam.discount = tsItem.discount || '';
-      if (!result.icon && tsItem.img) {
-        result.icon = tsItem.img;
-      }
+  // mostPlayed에서 동접 순위 찾기
+  let mpItem = steamAppId ? mostPlayed.find(item => String(item.appid) === String(steamAppId)) : null;
+  if (!mpItem) mpItem = findSteamByName(mostPlayed);  // 이름 폴백
+
+  if (mpItem) {
+    result.steam = {
+      currentPlayers: mpItem.ccu || mpItem.currentPlayers,
+      rank: mpItem.rank,
+      img: mpItem.img
+    };
+    if (!result.icon && mpItem.img) {
+      result.icon = mpItem.img;
+    }
+  }
+
+  // topSellers에서 판매 순위 + 가격/할인 찾기
+  let tsItem = steamAppId ? topSellers.find(item => String(item.appid) === String(steamAppId)) : null;
+  if (!tsItem) tsItem = findSteamByName(topSellers);  // 이름 폴백
+
+  if (tsItem) {
+    if (!result.steam) {
+      result.steam = { img: tsItem.img };
+    }
+    result.steam.salesRank = tsItem.rank;
+    result.steam.price = tsItem.price || '';
+    result.steam.discount = tsItem.discount || '';
+    if (!result.icon && tsItem.img) {
+      result.icon = tsItem.img;
     }
   }
 

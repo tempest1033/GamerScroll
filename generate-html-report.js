@@ -47,6 +47,7 @@ const { generateRankingsPage } = require('./src/templates/pages/rankings');
 const { generateSteamPage } = require('./src/templates/pages/steam');
 const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
 const { generateMetacriticPage } = require('./src/templates/pages/metacritic');
+const { generateSearchPage } = require('./src/templates/pages/search');
 
 // 데일리 인사이트 import
 const {
@@ -328,12 +329,18 @@ async function main() {
     { filename: 'rankings.html', generator: generateRankingsPage },
     { filename: 'steam.html', generator: generateSteamPage },
     { filename: 'upcoming.html', generator: generateUpcomingPage },
-    { filename: 'metacritic.html', generator: generateMetacriticPage }
+    { filename: 'metacritic.html', generator: generateMetacriticPage },
+    { filename: 'search/index.html', generator: generateSearchPage }
   ];
 
   for (const page of pages) {
     try {
       const html = page.generator(data);
+      // 디렉토리가 있으면 생성
+      const dir = require('path').dirname(page.filename);
+      if (dir !== '.' && !fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
       fs.writeFileSync(page.filename, html, 'utf8');
       console.log(`  ✅ ${page.filename}`);
     } catch (err) {
@@ -358,6 +365,12 @@ async function main() {
     }
     fs.copyFileSync(`./${page}.html`, `${pageDir}/index.html`);
   }
+  // search 페이지는 search/index.html로 직접 생성됨
+  const searchDir = `${DOCS_DIR}/search`;
+  if (!fs.existsSync(searchDir)) {
+    fs.mkdirSync(searchDir, { recursive: true });
+  }
+  fs.copyFileSync('./search/index.html', `${searchDir}/index.html`);
   fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트)
