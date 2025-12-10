@@ -256,7 +256,7 @@ function generateSearchPage() {
 
   return wrapWithLayout(content, {
     currentPage: 'search',
-    title: '게임 검색 | 게이머스크롤',
+    title: '게이머스크롤 | 게임 검색',
     description: '게임 이름으로 순위, 뉴스, 커뮤니티 반응을 한눈에 확인하세요.',
     canonical: 'https://gamerscrawl.com/search/',
     pageScripts: searchScript,

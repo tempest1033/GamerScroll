@@ -1442,7 +1442,7 @@ function generateGamePage(gameData) {
 
   return wrapWithLayout(content, {
     currentPage: 'game',
-    title: `${name} | 게이머스크롤`,
+    title: `게이머스크롤 | ${name}`,
     description: `${name}의 순위, 뉴스, 커뮤니티 반응, 유튜브 영상을 한눈에.`,
     canonical: `https://gamerscrawl.com/games/${slug || encodeURIComponent(name.replace(/\s+/g, '-').toLowerCase())}/`,
     pageScripts
