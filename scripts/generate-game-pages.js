@@ -326,7 +326,7 @@ function extractGameHourlyRanks(gameName, gameInfo, hourlySnapshots) {
         return rKey >= cutoffKey;
       });
 
-      result[key] = filtered.length > 0 ? filtered : gameRanks.slice(-24);
+      result[key] = filtered.length > 0 ? filtered : gameRanks.slice(-48); // 30분 간격 * 48 = 24시간
     }
   }
 

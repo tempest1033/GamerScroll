@@ -210,7 +210,7 @@ function generateGamePage(gameData) {
           });
         });
         dateTimeLabels.sort();
-        dateTimeLabels = dateTimeLabels.slice(-24);
+        dateTimeLabels = dateTimeLabels.slice(-48); // 30분 간격 * 48 = 24시간
 
         // 마지막 시간 기준 (데이터가 이미 KST)
         const lastDt = dateTimeLabels[dateTimeLabels.length - 1];
