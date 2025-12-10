@@ -189,10 +189,13 @@ function loadWeeklyReports() {
 function loadHourlySnapshots() {
   if (!fs.existsSync(snapshotsDir)) return {};
 
-  const today = new Date();
-  const todayStr = today.toISOString().split('T')[0];
-  const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
-  const yesterdayStr = yesterday.toISOString().split('T')[0];
+  // KST (UTC+9) 기준으로 날짜 계산 (스냅샷 파일명이 KST 기준)
+  const now = new Date();
+  const kstOffset = 9 * 60 * 60 * 1000;
+  const kstNow = new Date(now.getTime() + kstOffset);
+  const todayStr = kstNow.toISOString().split('T')[0];
+  const kstYesterday = new Date(kstNow.getTime() - 24 * 60 * 60 * 1000);
+  const yesterdayStr = kstYesterday.toISOString().split('T')[0];
 
   const platforms = ['ios', 'aos'];
   const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
