@@ -34,6 +34,7 @@ async function fetchSteamDetails(axios, appids) {
 async function fetchSteamRankings(axios, cheerio) {
   const mostPlayed = [];
   const topSellers = [];
+  const rankLimit = 100;
   const steamHeaders = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -44,25 +45,36 @@ async function fetchSteamRankings(axios, cheerio) {
   };
 
   try {
-    const chartsRes1 = await axios.get('https://steamcharts.com/top', { headers: steamHeaders, timeout: 15000 });
-    await new Promise(r => setTimeout(r, 500));
-    const chartsRes2 = await axios.get('https://steamcharts.com/top/p.2', { headers: steamHeaders, timeout: 15000 });
-    await new Promise(r => setTimeout(r, 500));
-    const storeRes = await axios.get('https://store.steampowered.com/search/?filter=mostplayed&cc=kr', { headers: steamHeaders, timeout: 15000 });
+    // 스토어 검색을 100개까지 받아 이미지 매핑 확보
+    let mostPlayedHtml = '';
+    try {
+      const storeRes = await axios.get(
+        'https://store.steampowered.com/search/results/?query&start=0&count=100&filter=mostplayed&cc=kr&infinite=1',
+        { headers: steamHeaders, timeout: 15000 }
+      );
+      mostPlayedHtml = storeRes.data?.results_html || storeRes.data || '';
+    } catch (e) {
+      console.log('  Steam 최다 플레이 이미지 로드 실패:', e.message);
+    }
 
-    const $store = cheerio.load(storeRes.data);
     const imgMap = {};
-    $store('#search_resultsRows a.search_result_row').each((i, el) => {
-      const appid = $store(el).attr('data-ds-appid');
-      const img = $store(el).find('.search_capsule img').attr('src');
-      if (appid && img) imgMap[appid] = img;
-    });
+    if (mostPlayedHtml) {
+      const $store = cheerio.load(mostPlayedHtml);
+      $store('#search_resultsRows a.search_result_row').each((i, el) => {
+        const appid = $store(el).attr('data-ds-appid');
+        const img = $store(el).find('.search_capsule img').attr('src');
+        if (appid && img) imgMap[appid] = img;
+      });
+    }
 
-    [chartsRes1, chartsRes2].forEach((res, pageIdx) => {
+    const chartPages = [1, 2, 3, 4]; // 25개씩 4페이지 = 100위
+    for (const page of chartPages) {
+      const url = page === 1 ? 'https://steamcharts.com/top' : `https://steamcharts.com/top/p.${page}`;
+      const res = await axios.get(url, { headers: steamHeaders, timeout: 15000 });
       const $ = cheerio.load(res.data);
       $('#top-games tbody tr').each((i, el) => {
-        const rank = pageIdx * 25 + i + 1;
-        if (rank > 50) return false;
+        const rank = (page - 1) * 25 + i + 1;
+        if (rank > rankLimit) return false;
         const $el = $(el);
         const name = $el.find('.game-name a').text().trim();
         const ccu = parseInt($el.find('td.num').first().text().replace(/,/g, '')) || 0;
@@ -79,21 +91,30 @@ async function fetchSteamRankings(axios, cheerio) {
           });
         }
       });
-    });
-    console.log(`  Steam 최다 플레이: ${mostPlayed.length}개`);
+      if (page !== chartPages[chartPages.length - 1]) {
+        await new Promise(r => setTimeout(r, 500));
+      }
+    }
+    console.log(`  Steam 최다 플레이: ${mostPlayed.length}개 (목표 ${rankLimit})`);
   } catch (e) {
     console.log('  Steam 최다 플레이 로드 실패:', e.message);
   }
 
   try {
-    const sellersRes = await axios.get('https://store.steampowered.com/search/?filter=topsellers&cc=kr', {
-      headers: steamHeaders,
-      timeout: 15000
-    });
-    const $s = cheerio.load(sellersRes.data);
+    let sellersHtml = '';
+    const sellersRes = await axios.get(
+      'https://store.steampowered.com/search/results/?query&start=0&count=100&filter=topsellers&cc=kr&infinite=1',
+      {
+        headers: steamHeaders,
+        timeout: 15000
+      }
+    );
+    sellersHtml = sellersRes.data?.results_html || sellersRes.data || '';
+
+    const $s = cheerio.load(sellersHtml);
 
     $s('#search_resultsRows a.search_result_row').each((i, el) => {
-      if (i >= 50) return false;
+      if (i >= rankLimit) return false;
       const $el = $s(el);
       const name = $el.find('.title').text().trim();
       const appid = $el.attr('data-ds-appid');
@@ -113,7 +134,7 @@ async function fetchSteamRankings(axios, cheerio) {
         });
       }
     });
-    console.log(`  Steam 최고 판매: ${topSellers.length}개`);
+    console.log(`  Steam 최고 판매: ${topSellers.length}개 (목표 ${rankLimit})`);
   } catch (e) {
     console.log('  Steam 최고 판매 로드 실패:', e.message);
   }

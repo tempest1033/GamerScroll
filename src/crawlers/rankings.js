@@ -29,7 +29,8 @@ async function fetchRankings(gplay, store) {
       results.grossing[c.code].ios = iosGrossing.map(a => ({
         title: a.title,
         developer: a.developer,
-        icon: a.icon
+        icon: a.icon,
+        appId: a.id || a.appId || ''
       }));
     } catch (e) {
       console.log(`  iOS Grossing error: ${e.message}`);
@@ -46,7 +47,8 @@ async function fetchRankings(gplay, store) {
       results.free[c.code].ios = iosFree.map(a => ({
         title: a.title,
         developer: a.developer,
-        icon: a.icon
+        icon: a.icon,
+        appId: a.id || a.appId || ''
       }));
     } catch (e) {
       console.log(`  iOS Free error: ${e.message}`);
@@ -69,7 +71,8 @@ async function fetchRankings(gplay, store) {
         results.grossing[c.code].android = androidGrossing.map(a => ({
           title: a.title,
           developer: a.developer,
-          icon: a.icon
+          icon: a.icon,
+          appId: a.appId || ''
         }));
       } catch (e) {
         console.log(`  Android Grossing error: ${e.message}`);
@@ -86,7 +89,8 @@ async function fetchRankings(gplay, store) {
         results.free[c.code].android = androidFree.map(a => ({
           title: a.title,
           developer: a.developer,
-          icon: a.icon
+          icon: a.icon,
+          appId: a.appId || ''
         }));
       } catch (e) {
         console.log(`  Android Free error: ${e.message}`);

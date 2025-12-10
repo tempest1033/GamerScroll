@@ -116,66 +116,12 @@ function generateIndexPage(data) {
       return '<div class="home-empty">트렌드를 불러올 수 없습니다</div>';
     }
 
-    var industryIssues = (aiInsight.industryIssues && aiInsight.industryIssues.length > 0) ? aiInsight.industryIssues : [
-      { tag: '넷마블', title: '넷마블, 2025년 신작 라인업 공개', desc: '넷마블이 2025년 상반기 출시 예정인 신작 5종을 공개했어요.' },
-      { tag: '정책', title: '게임산업진흥법 개정안 국회 통과', desc: '게임 셧다운제 폐지를 골자로 한 개정안이 본회의를 통과했어요.' }
-    ];
-
-    var allItems = [].concat(
-      aiInsight.issues || [],
-      industryIssues,
-      aiInsight.metrics || [],
-      aiInsight.rankings || [],
-      aiInsight.community || [],
-      aiInsight.streaming || []
-    );
-
-    if (allItems.length < 2) {
+    var focusSummary = aiInsight.summary || '';
+    if (!focusSummary) {
       return '<div class="home-empty">트렌드를 불러올 수 없습니다</div>';
     }
 
-    var now = new Date();
-    var seed = Math.floor(now.getTime() / (5 * 60 * 1000));
-
-    var seededRandom = function(s) {
-      var x = Math.sin(s) * 10000;
-      return x - Math.floor(x);
-    };
-
-    var idx1 = Math.floor(seededRandom(seed) * allItems.length);
-    var idx2 = Math.floor(seededRandom(seed + 1) * allItems.length);
-    if (idx2 === idx1) idx2 = (idx2 + 1) % allItems.length;
-
-    var selected = [allItems[idx1], allItems[idx2]];
-
-    var tagIcons = {
-      '모바일': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>',
-      'PC': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'
-    };
-    var fixedTagClasses = {
-      '급상승': 'tag-up', '급하락': 'tag-down', '신규진입': 'tag-new',
-      '매출': 'tag-revenue', '동접': 'tag-players'
-    };
-
-    var renderItem = function(item) {
-      var tagIcon = tagIcons[item.tag] || '';
-      var fixedClass = fixedTagClasses[item.tag] || '';
-      return '<div class="weekly-hot-card">' +
-        '<div class="home-insight-title-row">' +
-        '<div class="weekly-hot-tag ' + fixedClass + '">' + tagIcon + (item.tag || '') + '</div>' +
-        '<h4 class="weekly-hot-title">' + (item.title || '') + '</h4>' +
-        '</div>' +
-        '<p class="weekly-hot-desc">' + ((item.desc || '').replace(/\. /g, '.\n')) + '</p>' +
-        '</div>';
-    };
-
-    var focusSummary = aiInsight.summary || '';
-    var focusHtml = focusSummary ? '<div class="home-daily-focus"><p class="home-daily-focus-text">' + focusSummary + '</p></div>' : '';
-
-    return focusHtml +
-      '<div class="weekly-hot-issues home-insight-grid">' +
-      selected.map(renderItem).join('') +
-      '</div>';
+    return '<div class="home-daily-focus"><p class="home-daily-focus-text">' + focusSummary + '</p></div>';
   }
 
   // 홈 커뮤니티

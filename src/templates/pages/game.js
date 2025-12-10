@@ -5,6 +5,71 @@
 
 const { wrapWithLayout, SHOW_ADS } = require('../layout');
 
+// 공통 차트 설정 (모든 차트가 이 설정을 공유)
+const CHART_CONFIG = {
+  width: 400,
+  height: 200,
+  padding: { top: 6, right: 4, bottom: 18, left: 18 },
+  xLabelPadding: 16,
+  regions: [
+    { id: 'kr', label: '한국', color: '#FF4757' },
+    { id: 'jp', label: '일본', color: '#2ED573' },
+    { id: 'us', label: '미국', color: '#3742FA' },
+    { id: 'cn', label: '중국', color: '#FFA502' },
+    { id: 'tw', label: '대만', color: '#A55EEA' }
+  ]
+};
+
+// 공통 차트 헬퍼 함수
+const chartHelpers = {
+  getChartWidth: () => CHART_CONFIG.width - CHART_CONFIG.padding.left - CHART_CONFIG.padding.right,
+  getChartHeight: () => CHART_CONFIG.height - CHART_CONFIG.padding.top - CHART_CONFIG.padding.bottom,
+  getXLabelWidth: () => chartHelpers.getChartWidth() - CHART_CONFIG.xLabelPadding * 2,
+
+  // Y축 좌표 계산
+  getY: (rank, yMin, yMax) => {
+    const chartHeight = chartHelpers.getChartHeight();
+    const clampedRank = Math.min(Math.max(rank, yMin), yMax);
+    return CHART_CONFIG.padding.top + ((clampedRank - yMin) / (yMax - yMin)) * chartHeight;
+  },
+
+  // X축 좌표 계산 (인덱스 기반)
+  getXByIndex: (i, total) => {
+    const xLabelWidth = chartHelpers.getXLabelWidth();
+    return CHART_CONFIG.padding.left + CHART_CONFIG.xLabelPadding + (i / (total - 1 || 1)) * xLabelWidth;
+  },
+
+  // Y축 틱 계산
+  getYTicks: (yMin, yMax) => {
+    const yRange = yMax - yMin;
+    const step = Math.ceil(yRange / 3);
+    const ticks = [];
+    for (let t = yMin; t <= yMax; t += step) {
+      ticks.push(Math.round(t));
+    }
+    if (ticks[ticks.length - 1] < yMax) ticks.push(yMax);
+    return ticks;
+  },
+
+  // 그리드 라인 생성
+  createGridLines: (yTicks, yMin, yMax) => {
+    const { width, padding } = CHART_CONFIG;
+    return yTicks.map(tick => {
+      const y = chartHelpers.getY(tick, yMin, yMax);
+      return `<line class="chart-grid" x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" />`;
+    }).join('');
+  },
+
+  // Y축 라벨 생성
+  createYLabels: (yTicks, yMin, yMax) => {
+    const { padding } = CHART_CONFIG;
+    return yTicks.map(tick => {
+      const y = chartHelpers.getY(tick, yMin, yMax);
+      return `<text class="chart-ylabel" x="${padding.left - 4}" y="${y + 3}" text-anchor="end">${tick}</text>`;
+    }).join('');
+  }
+};
+
 /**
  * 게임 대시보드 페이지 생성
  */
@@ -14,7 +79,7 @@ function generateGamePage(gameData) {
   // 플랫폼 체크
   const hasMobilePlatform = platforms.some(p => p === 'ios' || p === 'android');
   const hasMobileRankings = Object.keys(rankings).length > 0;
-  const hasSteamData = steam && (steam.currentPlayers || steam.rank);
+  const hasSteamData = steam && (steam.currentPlayers || steam.rank || steam.salesRank);
   const isSteamOnly = !hasMobileRankings && hasSteamData;
   // 모바일 순위 섹션 표시 여부 (모바일 플랫폼이 있거나 모바일 순위 데이터가 있을 때)
   const showMobileRanking = hasMobilePlatform || hasMobileRankings;
@@ -34,7 +99,7 @@ function generateGamePage(gameData) {
   function generateRankingsSection() {
     const entries = Object.entries(rankings);
     const hasMobileData = entries.length > 0;
-    const hasSteamData = steam && (steam.currentPlayers || steam.rank);
+    const hasSteamData = steam && (steam.currentPlayers || steam.rank || steam.salesRank);
 
     if (!hasMobileData && !hasSteamData) {
       return '<div class="game-empty">현재 순위 데이터가 없습니다</div>';
@@ -110,19 +175,11 @@ function generateGamePage(gameData) {
 
     // 실시간 차트 생성 함수
     function createRealtimeChart(category) {
-      const regionConfigs = [
-        { id: 'kr', label: '한국', color: '#FF4757' },
-        { id: 'jp', label: '일본', color: '#2ED573' },
-        { id: 'us', label: '미국', color: '#3742FA' },
-        { id: 'cn', label: '중국', color: '#FFA502' },
-        { id: 'tw', label: '대만', color: '#A55EEA' }
-      ];
-
-      const width = 340;
-      const height = 210;
-      const padding = { top: 20, right: 28, bottom: 28, left: 34 };
-      const chartWidth = width - padding.left - padding.right;
-      const chartHeight = height - padding.top - padding.bottom;
+      // 공통 차트 설정 사용
+      const { width, height, padding, xLabelPadding, regions: regionConfigs } = CHART_CONFIG;
+      const chartWidth = chartHelpers.getChartWidth();
+      const chartHeight = chartHelpers.getChartHeight();
+      const xLabelWidth = chartHelpers.getXLabelWidth();
 
       function createMarketSvg(marketId) {
         // 해당 마켓의 모든 데이터 수집
@@ -174,34 +231,21 @@ function generateGamePage(gameData) {
           const kstDate = new Date(date + 'T' + time + ':00');
           const hoursDiff = (lastKstDate - kstDate) / (60 * 60 * 1000);
           const pos = Math.max(0, Math.min(1, 1 - (hoursDiff / 24)));
-          return padding.left + 6 + pos * (chartWidth - 6);
+          return padding.left + xLabelPadding + pos * xLabelWidth;
         };
-        const getY = (rank) => {
-          const clampedRank = Math.min(Math.max(rank, yMin), yMax);
-          return padding.top + ((clampedRank - yMin) / (yMax - yMin)) * chartHeight;
-        };
+        const getY = (rank) => chartHelpers.getY(rank, yMin, yMax);
 
-        // Y축 그리드
-        const yRange = yMax - yMin;
-        const step = Math.ceil(yRange / 3);
-        const yTicks = [];
-        for (let t = yMin; t <= yMax; t += step) yTicks.push(Math.round(t));
-        if (yTicks[yTicks.length - 1] < yMax) yTicks.push(yMax);
+        // Y축 그리드 및 라벨 (공통 헬퍼 사용)
+        const yTicks = chartHelpers.getYTicks(yMin, yMax);
+        const gridLines = chartHelpers.createGridLines(yTicks, yMin, yMax);
+        const yLabels = chartHelpers.createYLabels(yTicks, yMin, yMax);
 
-        let gridLines = '';
-        let yLabels = '';
-        yTicks.forEach(tick => {
-          const y = getY(tick);
-          gridLines += '<line class="chart-grid" x1="' + (padding.left + 6) + '" y1="' + y + '" x2="' + (width - padding.right) + '" y2="' + y + '" />';
-          yLabels += '<text class="chart-ylabel" x="' + (padding.left - 12) + '" y="' + (y + 3) + '" text-anchor="end">' + tick + '</text>';
-        });
-
-        // 4시간 간격 시간 포인트 계산 (X축 라벨 위치)
+        // 4시간 간격 시간 포인트 계산 (X축 라벨 위치와 동일)
         const fourHourPoints = [];
         for (let i = 0; i < 7; i++) {
           const hoursBack = 24 - i * 4;
           const labelKstDate = new Date(lastKstDate.getTime() - hoursBack * 60 * 60 * 1000);
-          const x = padding.left + 6 + (i / 6) * (chartWidth - 6);
+          const x = padding.left + xLabelPadding + (i / 6) * xLabelWidth;
           fourHourPoints.push({ kstTime: labelKstDate.getTime(), x });
         }
 
@@ -209,6 +253,7 @@ function generateGamePage(gameData) {
         const renderOrder = [...regionConfigs].reverse();
         let lines = '';
         let dots = '';
+        let labels = '';
 
         renderOrder.forEach(region => {
           const key = marketId + '-' + region.id + '-' + category;
@@ -252,15 +297,20 @@ function generateGamePage(gameData) {
             lines += '<polyline class="chart-line" data-region="' + region.id + '" style="stroke:' + region.color + '" points="' + linePoints + '" />';
           }
 
-          // 4시간 간격 점과 순위 표시
+          // 4시간 간격 점 표시
           fourHourDataPoints.forEach(p => {
             dots += '<circle class="chart-dot" data-region="' + region.id + '" style="fill:' + region.color + '" cx="' + p.x + '" cy="' + p.y + '" r="2.5" />';
-            dots += '<text class="chart-rank-label" data-region="' + region.id + '" x="' + p.x + '" y="' + (p.y - 6) + '" style="fill:' + region.color + '" text-anchor="middle">' + p.rank + '</text>';
+          });
+          // 라벨은 나중에 그려서 항상 앞에 표시
+          fourHourDataPoints.forEach(p => {
+            const labelY = p.y < 20 ? p.y + 14 : p.y - 6;
+            labels += '<text class="chart-rank-label" data-region="' + region.id + '" x="' + p.x + '" y="' + labelY + '" style="fill:' + region.color + '" text-anchor="middle">' + p.rank + '</text>';
           });
         });
 
         // X축 라벨 (KST 기준 4시간 간격 7개 - 전날 같은 시간부터 오늘까지)
         let xLabels = '';
+        // xLabelPadding, xLabelWidth는 위에서 이미 선언됨
         for (let i = 0; i < 7; i++) {
           // 24시간 전부터 4시간 간격으로 시간 계산
           const hoursBack = 24 - i * 4;
@@ -268,17 +318,17 @@ function generateGamePage(gameData) {
           const h = labelKstDate.getHours();
           const d = labelKstDate.getDate();
 
-          // X 좌표: getX와 동일한 공식 (pos = i/6)
-          const x = padding.left + 6 + (i / 6) * (chartWidth - 6);
+          // X 좌표: 안쪽 여백 적용
+          const x = padding.left + xLabelPadding + (i / 6) * xLabelWidth;
 
           // "08일18시" 형식 (띄어쓰기 제거)
           const label = String(d).padStart(2, '0') + '일' + String(h).padStart(2, '0') + '시';
 
-          xLabels += '<text class="chart-xlabel" x="' + x + '" y="' + (height - 6) + '" text-anchor="middle">' + label + '</text>';
+          xLabels += '<text class="chart-xlabel" x="' + x + '" y="' + (height - 2) + '" text-anchor="middle">' + label + '</text>';
         }
 
         return '<svg class="trend-chart-svg realtime-chart-svg" data-market="' + marketId + '" viewBox="0 0 ' + width + ' ' + height + '" preserveAspectRatio="xMidYMid meet">' +
-          gridLines + yLabels + xLabels + lines + dots +
+          gridLines + yLabels + xLabels + lines + dots + labels +
           '</svg>';
       }
 
@@ -292,7 +342,7 @@ function generateGamePage(gameData) {
 
     // 모바일 순위 섹션
     if (hasMobileData) {
-      html += '<div class="game-rank-mobile realtime-rank-section">';
+      html += '<div class="rank-trend-section realtime-rank-section">';
 
       // 탭 행: 왼쪽 [매출][인기], 오른쪽 [요약][실시간]
       html += '<div class="trend-tab-row">';
@@ -315,7 +365,7 @@ function generateGamePage(gameData) {
         { id: 'tw', label: '대만', color: '#A55EEA' }
       ].map(r => '<span class="trend-legend-item active" data-legend="' + r.id + '"><span class="legend-dot" style="background:' + r.color + '"></span>' + r.label + '</span>').join('');
 
-      html += '<div class="realtime-legend-row" style="display:none;">';
+      html += '<div class="trend-legend-row realtime-legend-row" style="display:none;">';
       html += '<div class="trend-legend">' + regionLabelsHtml + '</div>';
       html += '<div class="trend-market-toggle">';
       html += '<button class="market-toggle-btn active" data-market-toggle="ios">iOS</button>';
@@ -349,7 +399,7 @@ function generateGamePage(gameData) {
         }
       }
 
-      html += '</div>'; // game-rank-mobile
+      html += '</div>'; // realtime-rank-section
     }
 
     // 스팀 섹션
@@ -415,9 +465,9 @@ function generateGamePage(gameData) {
       return '<div class="game-empty">데이터가 없습니다</div>';
     }
 
-    const width = 340;
-    const height = 210;
-    const padding = { top: 20, right: 28, bottom: 28, left: 34 };
+    const width = 400;
+    const height = 200;
+    const padding = { top: 6, right: 4, bottom: 18, left: 18 };
     const chartWidth = width - padding.left - padding.right;
     const chartHeight = height - padding.top - padding.bottom;
     const rankKey = type === 'ccu' ? 'ccuRank' : 'salesRank';
@@ -500,8 +550,10 @@ function generateGamePage(gameData) {
       const yMax = maxRank + rangePadding;
       const yRange = yMax - yMin || 1;
 
+      const xLabelPadding = 16; // X축 라벨 영역 안쪽 여백
+      const xLabelWidth = chartWidth - xLabelPadding * 2;
       const points = data.map((d, i) => ({
-        x: padding.left + (i / Math.max(1, data.length - 1)) * chartWidth,
+        x: padding.left + xLabelPadding + (i / Math.max(1, data.length - 1)) * xLabelWidth,
         y: padding.top + ((d.rank - yMin) / yRange) * chartHeight,
         rank: d.rank,
         date: d.date
@@ -515,22 +567,26 @@ function generateGamePage(gameData) {
         const val = Math.round(yMin + i * gridStep);
         const y = padding.top + ((val - yMin) / yRange) * chartHeight;
         svg += '<line x1="' + padding.left + '" y1="' + y + '" x2="' + (width - padding.right) + '" y2="' + y + '" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/>';
-        svg += '<text x="' + (padding.left - 6) + '" y="' + (y + 4) + '" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">' + val + '</text>';
+        svg += '<text x="' + (padding.left - 4) + '" y="' + (y + 4) + '" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">' + val + '</text>';
       }
       // X축 라벨
       data.forEach((d, i) => {
-        const x = padding.left + (i / Math.max(1, data.length - 1)) * chartWidth;
-        svg += '<text class="chart-xlabel" x="' + x + '" y="' + (height - 6) + '" text-anchor="middle">' + d.date.slice(8) + '</text>';
+        const x = padding.left + xLabelPadding + (i / Math.max(1, data.length - 1)) * xLabelWidth;
+        svg += '<text class="chart-xlabel" x="' + x + '" y="' + (height - 2) + '" text-anchor="middle">' + d.date.slice(8) + '</text>';
       });
       // 라인
       if (points.length > 1) {
         const pathD = points.map((p, i) => (i === 0 ? 'M' : 'L') + p.x + ',' + p.y).join(' ');
         svg += '<path d="' + pathD + '" fill="none" stroke="' + color + '" stroke-width="2"/>';
       }
-      // 점 + 라벨
+      // 점 먼저 그리기
       points.forEach(p => {
         svg += '<circle cx="' + p.x + '" cy="' + p.y + '" r="4" fill="' + color + '"/>';
-        svg += '<text x="' + p.x + '" y="' + (p.y - 8) + '" fill="' + color + '" font-size="10" text-anchor="middle" font-weight="600">' + p.rank + '</text>';
+      });
+      // 라벨은 나중에 그려서 항상 앞에 표시
+      points.forEach(p => {
+        const labelY = p.y < 20 ? p.y + 16 : p.y - 8;
+        svg += '<text x="' + p.x + '" y="' + labelY + '" fill="' + color + '" font-size="12" text-anchor="middle" font-weight="600">' + p.rank + '</text>';
       });
       svg += '</svg>';
       return svg;
@@ -543,7 +599,7 @@ function generateGamePage(gameData) {
     });
 
     return '<div class="rank-trend-section ' + sectionId + '">' +
-      '<div class="trend-tab-row" style="justify-content:flex-end"><div class="tab-group">' +
+      '<div class="trend-tab-row"><div class="tab-group trend-tabs-right">' +
       periods.map((p, i) => '<button class="tab-btn' + (i === 0 ? ' active' : '') + '" data-trend-period="' + p.id + '">' + p.label + '</button>').join('') +
       '</div></div><div class="trend-charts">' + chartContents + '</div></div>' +
       '<script>(function(){var s=document.querySelector(".' + sectionId + '");if(!s)return;var ap="daily";' +
@@ -572,12 +628,12 @@ function generateGamePage(gameData) {
     function createLineChart(data, category, periodId) {
       if (data.length === 0) return '<div class="game-empty">데이터가 없습니다</div>';
 
-      const width = 340;
-      const height = 210;
-      const padding = { top: 20, right: 28, bottom: 28, left: 34 };
-      const chartWidth = width - padding.left - padding.right;
-      const chartHeight = height - padding.top - padding.bottom;
-      const regionIds = ['kr', 'jp', 'us', 'cn', 'tw'];
+      // 공통 차트 설정 사용
+      const { width, height, padding, xLabelPadding, regions } = CHART_CONFIG;
+      const chartWidth = chartHelpers.getChartWidth();
+      const chartHeight = chartHelpers.getChartHeight();
+      const xLabelWidth = chartHelpers.getXLabelWidth();
+      const regionIds = regions.map(r => r.id);
 
       // 마켓별 SVG 생성
       function createMarketSvg(marketId) {
@@ -601,33 +657,19 @@ function generateGamePage(gameData) {
         const yMin = Math.max(1, minRank - yPad);
         const yMax = maxRank + yPad;
 
-        const getX = (i) => padding.left + 6 + (i / (data.length - 1 || 1)) * (chartWidth - 6);
-        const getY = (rank) => {
-          const clampedRank = Math.min(Math.max(rank, yMin), yMax);
-          return padding.top + ((clampedRank - yMin) / (yMax - yMin)) * chartHeight;
-        };
+        const getX = (i) => chartHelpers.getXByIndex(i, data.length);
+        const getY = (rank) => chartHelpers.getY(rank, yMin, yMax);
 
-        // Y축 그리드
-        const yRange = yMax - yMin;
-        const step = Math.ceil(yRange / 3);
-        const yTicks = [];
-        for (let t = yMin; t <= yMax; t += step) {
-          yTicks.push(Math.round(t));
-        }
-        if (yTicks[yTicks.length - 1] < yMax) yTicks.push(yMax);
-
-        let gridLines = '';
-        let yLabels = '';
-        yTicks.forEach(tick => {
-          const y = getY(tick);
-          gridLines += `<line class="chart-grid" x1="${padding.left + 6}" y1="${y}" x2="${width - padding.right}" y2="${y}" />`;
-          yLabels += `<text class="chart-ylabel" x="${padding.left - 12}" y="${y + 3}" text-anchor="end">${tick}</text>`;
-        });
+        // Y축 그리드 및 라벨 (공통 헬퍼 사용)
+        const yTicks = chartHelpers.getYTicks(yMin, yMax);
+        const gridLines = chartHelpers.createGridLines(yTicks, yMin, yMax);
+        const yLabels = chartHelpers.createYLabels(yTicks, yMin, yMax);
 
         // 국가별 라인 (렌더링 순서: 대만→중국→미국→일본→한국)
         const renderOrder = [...regions].reverse();
         let lines = '';
         let dots = '';
+        let labels = '';
 
         renderOrder.forEach(region => {
           const key = `${category}-${marketId}-${region.id}`;
@@ -644,9 +686,14 @@ function generateGamePage(gameData) {
               const linePoints = validPoints.map(p => `${p.x},${p.y}`).join(' ');
               lines += `<polyline class="chart-line" data-region="${region.id}" style="stroke:${region.color}" points="${linePoints}" />`;
             }
+            // 점 먼저 그리기
             validPoints.forEach(p => {
               dots += `<circle class="chart-dot" data-region="${region.id}" style="fill:${region.color}" cx="${p.x}" cy="${p.y}" r="2.5" />`;
-              dots += `<text class="chart-rank-label" data-region="${region.id}" style="fill:${region.color}" x="${p.x}" y="${p.y - 6}" text-anchor="middle">${p.rank}</text>`;
+            });
+            // 라벨은 나중에 그려서 항상 앞에 표시
+            validPoints.forEach(p => {
+              const labelY = p.y < 20 ? p.y + 14 : p.y - 6;
+              labels += `<text class="chart-rank-label" data-region="${region.id}" style="fill:${region.color}" x="${p.x}" y="${labelY}" text-anchor="middle">${p.rank}</text>`;
             });
           }
         });
@@ -660,12 +707,12 @@ function generateGamePage(gameData) {
             const day = parseInt(d.date.slice(8, 10), 10);
             // monthly: "12월", daily/weekly: "12월8일"
             const label = periodId === 'monthly' ? `${month}월` : `${month}월${day}일`;
-            xLabels += `<text class="chart-xlabel" x="${x}" y="${height - 6}" text-anchor="middle">${label}</text>`;
+            xLabels += `<text class="chart-xlabel" x="${x}" y="${height - 2}" text-anchor="middle">${label}</text>`;
           }
         });
 
         return `<svg class="trend-chart-svg" data-market="${marketId}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
-          ${gridLines}${lines}${dots}${yLabels}${xLabels}
+          ${gridLines}${lines}${dots}${labels}${yLabels}${xLabels}
         </svg>`;
       }
 
@@ -832,7 +879,7 @@ function generateGamePage(gameData) {
     });
 
     return `
-      <div class="rank-trend-section">
+      <div class="rank-trend-section mobile-trend-section">
         <div class="trend-tab-row">
           <div class="tab-group trend-tabs-left">
             ${categories.map((cat, i) =>
@@ -853,7 +900,7 @@ function generateGamePage(gameData) {
       </div>
       <script>
         (function() {
-          const section = document.querySelector('.rank-trend-section');
+          const section = document.querySelector('.mobile-trend-section');
           if (!section) return;
 
           let activeCat = 'grossing', activePeriod = 'daily';
@@ -1131,17 +1178,17 @@ function generateGamePage(gameData) {
           </div>
           ${isSteamOnly && steam ? `
           <div class="game-hero-stats">
-            <div class="game-hero-stat">
+            <div class="game-hero-stat stat-ccu">
               <span class="game-hero-stat-label">동접 순위</span>
               <span class="game-hero-stat-value">${steam.rank || '-'}</span>
             </div>
-            <div class="game-hero-stat">
-              <span class="game-hero-stat-label">현재 접속자</span>
-              <span class="game-hero-stat-value">${steam.currentPlayers ? steam.currentPlayers.toLocaleString() : '-'}</span>
-            </div>
-            <div class="game-hero-stat">
+            <div class="game-hero-stat stat-sales">
               <span class="game-hero-stat-label">판매 순위</span>
               <span class="game-hero-stat-value">${steam.salesRank || '-'}</span>
+            </div>
+            <div class="game-hero-stat stat-players">
+              <span class="game-hero-stat-label">현재 접속자</span>
+              <span class="game-hero-stat-value">${steam.currentPlayers ? steam.currentPlayers.toLocaleString() : '-'}</span>
             </div>
           </div>
           ` : ''}

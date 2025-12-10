@@ -1,6 +1,6 @@
 /**
  * 게임 대시보드 페이지 자동 생성
- * games-final.json의 모든 게임에 대해 개별 페이지 생성
+ * games.json의 모든 게임에 대해 개별 페이지 생성
  */
 
 const fs = require('fs');
@@ -11,11 +11,6 @@ const historyDir = path.join(__dirname, '..', 'history');
 const reportsDir = path.join(__dirname, '..', 'reports');
 const snapshotsDir = path.join(__dirname, '..', 'snapshots', 'rankings');
 const outputDir = path.join(__dirname, '..', 'docs', 'games');
-const cacheDir = path.join(__dirname, '..', 'data', 'cache');
-const cachePath = path.join(cacheDir, 'game-pages-cache.json');
-
-// 캐시 버전 (데이터 구조 변경 시 증가)
-const CACHE_VERSION = 1;
 
 // 템플릿 import
 const { generateGamePage } = require('../src/templates/pages/game');
@@ -26,6 +21,12 @@ const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8'));
 // 이름 정규화 (비교용)
 function normalize(name) {
   return name.toLowerCase().trim().replace(/\s+/g, ' ');
+}
+
+// 지역별 appId 조회 (지역별 우선, 기본 폴백)
+function getAppIdForRegion(gameAppIds, platform, region) {
+  const regionKey = `${platform}:${region}`;
+  return gameAppIds[regionKey] || gameAppIds[platform];
 }
 
 // URL-safe 슬러그 생성 (앱 ID 우선, 없으면 이름 기반)
@@ -73,57 +74,6 @@ for (const [gameName, info] of Object.entries(gamesData.games)) {
   for (const alias of info.aliases || []) {
     aliasToCanonical.set(normalize(alias), gameName);
   }
-}
-
-// ============ 캐시 시스템 ============
-
-// 캐시 로드 (실패 시 빈 캐시 반환)
-function loadCache() {
-  try {
-    if (fs.existsSync(cachePath)) {
-      const cache = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
-      // 버전 체크
-      if (cache.version !== CACHE_VERSION) {
-        console.log('⚠️ 캐시 버전 불일치, 전체 재빌드...');
-        return createEmptyCache();
-      }
-      return cache;
-    }
-  } catch (e) {
-    console.log('⚠️ 캐시 로드 실패, 전체 재빌드...');
-  }
-  return createEmptyCache();
-}
-
-// 빈 캐시 생성
-function createEmptyCache() {
-  return {
-    version: CACHE_VERSION,
-    lastBuildDate: null,
-    processedHistoryFiles: [],
-    processedReportFiles: [],
-    games: {}  // gameSlug -> { rankHistory, steamHistory, mentions }
-  };
-}
-
-// 캐시 저장
-function saveCache(cache) {
-  try {
-    if (!fs.existsSync(cacheDir)) {
-      fs.mkdirSync(cacheDir, { recursive: true });
-    }
-    cache.lastBuildDate = new Date().toISOString().split('T')[0];
-    fs.writeFileSync(cachePath, JSON.stringify(cache), 'utf8');
-    console.log(`💾 캐시 저장: ${cachePath}`);
-  } catch (e) {
-    console.log('⚠️ 캐시 저장 실패:', e.message);
-  }
-}
-
-// 새로운 파일만 필터링
-function getNewFiles(allFiles, processedFiles) {
-  const processedSet = new Set(processedFiles);
-  return allFiles.filter(f => !processedSet.has(f));
 }
 
 // 히스토리에서 최신 데이터 로드
@@ -258,13 +208,14 @@ function loadHourlySnapshots() {
               for (const line of lines) {
                 if (!line.trim()) continue;
                 // CSV 파싱: time,rank,id,title
-                const match = line.match(/^(\d{2}:\d{2}),(\d+),.*?,"?([^"]*)"?$/);
+                const match = line.match(/^(\d{2}:\d{2}),(\d+),([^,]+),"?([^"]*)"?$/);
                 if (match) {
-                  const [, time, rank, title] = match;
+                  const [, time, rank, appId, title] = match;
                   allData.push({
                     date: dateStr,
                     time,
                     rank: parseInt(rank, 10),
+                    appId: appId.trim(),
                     title: title.trim()
                   });
                 }
@@ -293,16 +244,23 @@ function loadHourlySnapshots() {
 }
 
 // 게임별 실시간 순위 추출 (빠진 시간대는 이전 순위로 채움)
-function extractGameHourlyRanks(gameName, aliases, hourlySnapshots) {
-  const allNames = [gameName, ...(aliases || [])].map(n => normalize(n));
+function extractGameHourlyRanks(gameName, gameInfo, hourlySnapshots) {
+  const gameAppIds = gameInfo.appIds || {};
   const result = {};
 
   for (const [key, data] of Object.entries(hourlySnapshots)) {
+    // key: ios-kr-grossing -> platform: ios, region: kr
+    const [platform, region] = key.split('-');
+    const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
+
+    // appId가 없으면 이 플랫폼/지역 순위 데이터 없음
+    if (!expectedAppId) continue;
+
     const gameRanks = [];
     const seenTimes = new Set();
 
     for (const item of data) {
-      if (allNames.includes(normalize(item.title))) {
+      if (item.appId === expectedAppId) {
         const timeKey = `${item.date} ${item.time}`;
         if (!seenTimes.has(timeKey)) {
           seenTimes.add(timeKey);
@@ -628,7 +586,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
     name: gameName,
     platforms: gameInfo.platforms || [],
     developer: gameInfo.developer || '',
-    icon: null,  // 게임 아이콘 URL
+    icon: gameInfo.icon || null,  // 게임 아이콘 URL
     rankings: {},
     rankHistory: [],  // 모바일 순위 추이 데이터
     realtimeRanks: {},  // 24시간 실시간 순위 데이터
@@ -641,7 +599,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
   };
 
   // 실시간 순위 추출
-  result.realtimeRanks = extractGameHourlyRanks(gameName, gameInfo.aliases, hourlySnapshots);
+  result.realtimeRanks = extractGameHourlyRanks(gameName, gameInfo, hourlySnapshots);
 
   // 리포트에서 mentions 수집 (일간 + 주간)
   const dailyMentions = reports && reports.length > 0
@@ -656,6 +614,9 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
   // 순위 히스토리 수집 (매출 추이용) - 모든 국가, 카테고리
+  // appId 기반 매칭
+  const gameAppIds = gameInfo.appIds || {};
+
   if (allHistory && allHistory.length > 0) {
     const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
     const categories = ['grossing', 'free'];
@@ -666,28 +627,22 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
 
       for (const cat of categories) {
         for (const region of regions) {
-          // iOS와 Android 평균 순위 계산
-          let iosRank = null, androidRank = null;
-
+          // iOS와 Android 각각 appId로 매칭
           for (const platform of ['ios', 'android']) {
+            // 지역별 appId 우선, 없으면 기본 appId
+            const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
+
+            if (!expectedAppId) continue;
+
             const items = data.rankings?.[cat]?.[region]?.[platform] || [];
             for (let i = 0; i < items.length; i++) {
-              if (normalizedNames.includes(normalize(items[i].title || ''))) {
-                if (platform === 'ios') iosRank = i + 1;
-                else androidRank = i + 1;
+              if (String(items[i].appId) === String(expectedAppId)) {
+                const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
+                dayRanks[`${cat}-${keyPrefix}-${region}`] = i + 1;
+                hasAnyRank = true;
                 break;
               }
             }
-          }
-
-          // iOS/Android 각각 저장
-          if (iosRank) {
-            dayRanks[`${cat}-ios-${region}`] = iosRank;
-            hasAnyRank = true;
-          }
-          if (androidRank) {
-            dayRanks[`${cat}-aos-${region}`] = androidRank;
-            hasAnyRank = true;
           }
         }
       }
@@ -696,35 +651,30 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
         result.rankHistory.push(dayRanks);
       }
 
-      // 스팀 히스토리 수집 (동접 순위)
-      const steamGames = [
-        ...(data.steam?.mostPlayed || []),
-        ...(data.steam?.topSellers || [])
-      ];
-      for (const item of steamGames) {
-        if (normalizedNames.includes(normalize(item.name || ''))) {
-          // 기존 날짜 데이터가 있으면 업데이트, 없으면 추가
-          let steamDay = result.steamHistory.find(s => s.date === date);
+      // 스팀 히스토리 수집 (동접 순위) - appid 기반 매칭
+      const steamAppId = gameAppIds['steam:global'] || gameAppIds['steam'];
+      if (steamAppId) {
+        let steamDay = null;
+
+        // mostPlayed에서 찾기
+        const mpItem = data.steam?.mostPlayed?.find(g => String(g.appid) === steamAppId);
+        if (mpItem) {
           if (!steamDay) {
             steamDay = { date };
             result.steamHistory.push(steamDay);
           }
-          // mostPlayed에서 찾으면 동접 순위
-          if (data.steam?.mostPlayed?.some(g => normalize(g.name || '') === normalize(item.name || ''))) {
-            const mpItem = data.steam.mostPlayed.find(g => normalize(g.name || '') === normalize(item.name || ''));
-            if (mpItem) {
-              steamDay.ccuRank = mpItem.rank;
-              steamDay.ccu = mpItem.ccu;
-            }
+          steamDay.ccuRank = mpItem.rank;
+          steamDay.ccu = mpItem.ccu;
+        }
+
+        // topSellers에서 찾기
+        const tsItem = data.steam?.topSellers?.find(g => String(g.appid) === steamAppId);
+        if (tsItem) {
+          if (!steamDay) {
+            steamDay = { date };
+            result.steamHistory.push(steamDay);
           }
-          // topSellers에서 찾으면 판매 순위
-          if (data.steam?.topSellers?.some(g => normalize(g.name || '') === normalize(item.name || ''))) {
-            const tsItem = data.steam.topSellers.find(g => normalize(g.name || '') === normalize(item.name || ''));
-            if (tsItem) {
-              steamDay.salesRank = tsItem.rank;
-            }
-          }
-          break;
+          steamDay.salesRank = tsItem.rank;
         }
       }
     }
@@ -732,7 +682,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
 
   if (!historyData) return result;
 
-  // 순위 데이터 수집 + 아이콘 수집
+  // 순위 데이터 수집 + 아이콘 수집 (appId 기반 매칭)
   const categories = ['grossing', 'free'];
   const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
   const platforms = ['ios', 'android'];
@@ -740,10 +690,15 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
   for (const cat of categories) {
     for (const region of regions) {
       for (const platform of platforms) {
+        // 지역별 appId 우선, 없으면 기본 appId
+        const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
+
+        if (!expectedAppId) continue;
+
         const items = historyData.rankings?.[cat]?.[region]?.[platform] || [];
         for (let index = 0; index < items.length; index++) {
           const item = items[index];
-          if (normalizedNames.includes(normalize(item.title || ''))) {
+          if (String(item.appId) === String(expectedAppId)) {
             result.rankings[`${region}-${platform}-${cat}`] = {
               rank: index + 1,  // 배열 인덱스 + 1 = 순위
               change: item.change || 0
@@ -759,38 +714,37 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
     }
   }
 
-  // 스팀 데이터 수집 (동접 순위 + 판매 순위 각각)
+  // 스팀 데이터 수집 (동접 순위 + 판매 순위 각각) - appid 기반 매칭
   const mostPlayed = historyData.steam?.mostPlayed || [];
   const topSellers = historyData.steam?.topSellers || [];
+  const steamAppId = gameAppIds['steam:global'] || gameAppIds['steam'];
 
   // mostPlayed에서 동접 순위 찾기
-  for (const item of mostPlayed) {
-    if (normalizedNames.includes(normalize(item.name || ''))) {
+  if (steamAppId) {
+    const mpItem = mostPlayed.find(item => String(item.appid) === steamAppId);
+    if (mpItem) {
       result.steam = {
-        currentPlayers: item.ccu || item.currentPlayers,
-        rank: item.rank,
-        img: item.img
+        currentPlayers: mpItem.ccu || mpItem.currentPlayers,
+        rank: mpItem.rank,
+        img: mpItem.img
       };
-      if (!result.icon && item.img) {
-        result.icon = item.img;
+      if (!result.icon && mpItem.img) {
+        result.icon = mpItem.img;
       }
-      break;
     }
-  }
 
-  // topSellers에서 판매 순위 + 가격/할인 찾기
-  for (const item of topSellers) {
-    if (normalizedNames.includes(normalize(item.name || ''))) {
+    // topSellers에서 판매 순위 + 가격/할인 찾기
+    const tsItem = topSellers.find(item => String(item.appid) === steamAppId);
+    if (tsItem) {
       if (!result.steam) {
-        result.steam = { img: item.img };
+        result.steam = { img: tsItem.img };
       }
-      result.steam.salesRank = item.rank;
-      result.steam.price = item.price || '';
-      result.steam.discount = item.discount || '';
-      if (!result.icon && item.img) {
-        result.icon = item.img;
+      result.steam.salesRank = tsItem.rank;
+      result.steam.price = tsItem.price || '';
+      result.steam.discount = tsItem.discount || '';
+      if (!result.icon && tsItem.img) {
+        result.icon = tsItem.img;
       }
-      break;
     }
   }
 
@@ -855,31 +809,22 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// 캐시 로드
-const cache = loadCache();
-const isFirstBuild = cache.processedHistoryFiles.length === 0;
-console.log(`📦 캐시: ${isFirstBuild ? '없음 (전체 빌드)' : `${Object.keys(cache.games).length}개 게임 캐시됨`}`);
-
 // 전체 파일 목록 가져오기
 const allHistoryFiles = getAllHistoryFiles();
 const allReportFiles = getAllReportFiles();
 
-// 새로운 파일만 찾기
-const newHistoryFiles = getNewFiles(allHistoryFiles, cache.processedHistoryFiles);
-const newReportFiles = getNewFiles(allReportFiles, cache.processedReportFiles);
+console.log(`📈 히스토리: ${allHistoryFiles.length}개`);
+console.log(`📊 리포트: ${allReportFiles.length}개`);
 
-console.log(`📈 히스토리: 전체 ${allHistoryFiles.length}개, 신규 ${newHistoryFiles.length}개`);
-console.log(`📊 리포트: 전체 ${allReportFiles.length}개, 신규 ${newReportFiles.length}개`);
-
-// 히스토리 로드 (최신 1개는 항상 로드)
+// 히스토리 로드
 const historyData = loadLatestHistory();
 console.log(`📂 최신 히스토리 로드: ${historyData ? '성공' : '없음'}`);
 
-// 신규 히스토리만 로드 (증분)
-const newHistory = loadHistoryFiles(newHistoryFiles);
+// 전체 히스토리 로드
+const allHistory = loadHistoryFiles(allHistoryFiles);
 
-// 신규 리포트만 로드 (증분)
-const newReports = loadReportFiles(newReportFiles);
+// 전체 리포트 로드
+const allReports = loadReportFiles(allReportFiles);
 
 // 주간 리포트 로드 (수량 적어서 전체 로드)
 const weeklyReports = loadWeeklyReports();
@@ -896,91 +841,28 @@ const searchIndex = [];
 // 순위에 있거나 데이터가 있는 게임만 페이지 생성
 let generatedCount = 0;
 let skippedCount = 0;
-let cachedSkipCount = 0;
 
 for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
   const slug = createSlug(gameName, gameInfo.appIds);
 
-  // 캐시된 히스토리 데이터 가져오기
-  const cachedGame = cache.games[slug] || { rankHistory: [], steamHistory: [], mentions: [] };
+  // 게임 데이터 수집
+  const gameData = collectGameData(gameName, gameInfo, historyData, allReports, allHistory, weeklyReports, hourlySnapshots);
 
-  // 신규 데이터로 게임 데이터 수집 (증분)
-  const gameData = collectGameData(gameName, gameInfo, historyData, newReports, newHistory, weeklyReports, hourlySnapshots);
-
-  // 캐시된 데이터와 신규 데이터 병합
-  // rankHistory 병합 (날짜 기준 중복 제거)
-  const existingDates = new Set(cachedGame.rankHistory.map(r => r.date));
-  const newRankHistory = gameData.rankHistory.filter(r => !existingDates.has(r.date));
-  const mergedRankHistory = [
-    ...cachedGame.rankHistory,
-    ...newRankHistory
-  ].sort((a, b) => a.date.localeCompare(b.date));
-
-  // steamHistory 병합 (날짜 기준 중복 제거)
-  const existingSteamDates = new Set(cachedGame.steamHistory.map(s => s.date));
-  const newSteamHistory = gameData.steamHistory.filter(s => !existingSteamDates.has(s.date));
-  const mergedSteamHistory = [
-    ...cachedGame.steamHistory,
-    ...newSteamHistory
-  ].sort((a, b) => a.date.localeCompare(b.date));
-
-  // mentions 병합 (제목+날짜 기준 중복 제거)
-  const existingMentionKeys = new Set(cachedGame.mentions.map(m => `${m.date}-${m.title}`));
-  const newMentions = gameData.mentions.filter(m => !existingMentionKeys.has(`${m.date}-${m.title}`));
-  const mergedMentions = [
-    ...cachedGame.mentions,
-    ...newMentions
-  ].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-
-  // 신규 데이터 여부 확인
-  const hasNewData = newRankHistory.length > 0 || newSteamHistory.length > 0 || newMentions.length > 0;
-
-  // 병합된 데이터로 교체
-  gameData.rankHistory = mergedRankHistory;
-  gameData.steamHistory = mergedSteamHistory;
-  gameData.mentions = mergedMentions;
-
-  // 캐시 업데이트
-  cache.games[slug] = {
-    rankHistory: mergedRankHistory,
-    steamHistory: mergedSteamHistory,
-    mentions: mergedMentions
-  };
-
-  // 데이터가 있는 게임만 페이지 생성 (mentions도 포함)
+  // 데이터가 없어도 페이지/검색 인덱스를 생성하도록 변경
   const hasData = Object.keys(gameData.rankings).length > 0 ||
     gameData.news.length > 0 ||
     gameData.community.length > 0 ||
     gameData.steam !== null ||
     gameData.youtube.length > 0 ||
     gameData.mentions.length > 0 ||
-    mergedRankHistory.length > 0;
+    gameData.rankHistory.length > 0 ||
+    gameData.steamHistory.length > 0;
 
   if (!hasData) {
     skippedCount++;
-    continue;
   }
 
   const gameDir = path.join(outputDir, slug);
-  const pageExists = fs.existsSync(path.join(gameDir, 'index.html'));
-
-  // 캐시에 있고 신규 데이터 없고 페이지 존재하면 스킵 (단, 실시간 데이터가 있으면 항상 재생성)
-  const hasRealtimeData = Object.keys(gameData.realtimeRanks).length > 0;
-  const hasCachedData = cachedGame.rankHistory.length > 0 || cachedGame.steamHistory.length > 0 || cachedGame.mentions.length > 0;
-  if (hasCachedData && !hasNewData && !hasRealtimeData && pageExists) {
-    // 검색 인덱스에만 추가
-    searchIndex.push({
-      name: gameName,
-      slug: slug,
-      aliases: gameInfo.aliases || [],
-      platforms: gameInfo.platforms || [],
-      developer: gameInfo.developer || '',
-      hasRankings: Object.keys(gameData.rankings).length > 0,
-      hasSteam: gameData.steam !== null
-    });
-    cachedSkipCount++;
-    continue;
-  }
 
   if (!fs.existsSync(gameDir)) {
     fs.mkdirSync(gameDir, { recursive: true });
@@ -988,6 +870,7 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
 
   // slug를 gameData에 추가하여 템플릿에서 canonical URL 생성에 사용
   gameData.slug = slug;
+  gameData.hasData = hasData;
 
   const html = generateGamePage(gameData);
   fs.writeFileSync(path.join(gameDir, 'index.html'), html, 'utf8');
@@ -996,11 +879,13 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
   searchIndex.push({
     name: gameName,
     slug: slug,
+    icon: gameInfo.icon || null,
     aliases: gameInfo.aliases || [],
     platforms: gameInfo.platforms || [],
     developer: gameInfo.developer || '',
     hasRankings: Object.keys(gameData.rankings).length > 0,
-    hasSteam: gameData.steam !== null
+    hasSteam: (gameInfo.platforms || []).includes('steam'),
+    hasData
   });
 
   generatedCount++;
@@ -1009,20 +894,11 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
   }
 }
 
-// 처리된 파일 목록 캐시에 기록
-cache.processedHistoryFiles = allHistoryFiles;
-cache.processedReportFiles = allReportFiles;
-
-// 캐시 저장
-saveCache(cache);
-
 // 검색 인덱스 저장
 const searchIndexPath = path.join(outputDir, 'search-index.json');
 fs.writeFileSync(searchIndexPath, JSON.stringify(searchIndex, null, 2), 'utf8');
 
 console.log(`\n✅ 게임 페이지 생성 완료!`);
 console.log(`생성: ${generatedCount}개`);
-console.log(`스킵 (캐시 히트): ${cachedSkipCount}개`);
 console.log(`스킵 (데이터 없음): ${skippedCount}개`);
-console.log(`캐시된 게임: ${Object.keys(cache.games).length}개`);
 console.log(`검색 인덱스: ${searchIndexPath}`);
