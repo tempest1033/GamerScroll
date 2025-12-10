@@ -218,8 +218,8 @@ function loadHourlySnapshots() {
 
               for (const line of lines) {
                 if (!line.trim()) continue;
-                // CSV 파싱: time,rank,id,title
-                const match = line.match(/^(\d{2}:\d{2}),(\d+),([^,]+),"?([^"]*)"?$/);
+                // CSV 파싱: time,rank,id,title (id는 빈 값일 수 있음)
+                const match = line.match(/^(\d{2}:\d{2}),(\d+),([^,]*),"?([^"]*)"?$/);
                 if (match) {
                   const [, time, rank, appId, title] = match;
                   allData.push({
@@ -259,19 +259,37 @@ function extractGameHourlyRanks(gameName, gameInfo, hourlySnapshots) {
   const gameAppIds = gameInfo.appIds || {};
   const result = {};
 
+  // 게임 이름들 정규화 (폴백 매칭용)
+  const normalizedNames = [normalize(gameName)];
+  if (gameInfo.aliases) {
+    for (const alias of gameInfo.aliases) {
+      normalizedNames.push(normalize(alias));
+    }
+  }
+
   for (const [key, data] of Object.entries(hourlySnapshots)) {
     // key: ios-kr-grossing -> platform: ios, region: kr
     const [platform, region] = key.split('-');
     const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
 
-    // appId가 없으면 이 플랫폼/지역 순위 데이터 없음
-    if (!expectedAppId) continue;
-
     const gameRanks = [];
     const seenTimes = new Set();
 
     for (const item of data) {
-      if (item.appId === expectedAppId) {
+      // 1. appId 매칭 우선
+      let matched = false;
+      if (expectedAppId && String(item.appId) === String(expectedAppId)) {
+        matched = true;
+      }
+      // 2. appId 매칭 실패 시 이름으로 폴백
+      if (!matched && item.title) {
+        const normalizedTitle = normalize(item.title);
+        if (normalizedNames.includes(normalizedTitle)) {
+          matched = true;
+        }
+      }
+
+      if (matched) {
         const timeKey = `${item.date} ${item.time}`;
         if (!seenTimes.has(timeKey)) {
           seenTimes.add(timeKey);
