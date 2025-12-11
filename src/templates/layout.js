@@ -462,6 +462,7 @@ function wrapWithLayout(content, options = {}) {
     currentPage = 'home',
     title = '게이머스크롤 | 데일리 게임 인사이트',
     description = '데일리 게임 인사이트 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
+    keywords,
     canonical = 'https://gamerscrawl.com',
     pageScripts = '',
     showSearchBar = true,
@@ -471,7 +472,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, canonical, pageData })}
+  ${generateHead({ title, description, keywords, canonical, pageData })}
 </head>
 <body>
   ${generateHeader()}

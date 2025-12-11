@@ -10,6 +10,7 @@ function generateHead(options = {}) {
   const {
     title = '게이머스크롤 | 데일리 게임 인사이트',
     description = '데일리 게임 인사이트 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
+    keywords = '게임 순위, 모바일 게임, 스팀 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위, 게임 업계, 게임주, 게이머스크롤',
     canonical = 'https://gamerscrawl.com',
     pageData = {}
   } = options;
@@ -29,7 +30,7 @@ function generateHead(options = {}) {
   <title>${title}</title>
   <!-- SEO -->
   <meta name="description" content="${description}">
-  <meta name="keywords" content="게임 순위, 모바일 게임, 스팀 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위, 게임 업계, 게임주, 게이머스크롤">
+  <meta name="keywords" content="${keywords}">
   <link rel="canonical" href="${canonical}">
   <!-- JSON-LD 구조화 데이터 -->
   <script type="application/ld+json">
