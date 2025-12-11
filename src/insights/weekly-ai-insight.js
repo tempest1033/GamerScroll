@@ -12,7 +12,7 @@ const path = require('path');
 const os = require('os');
 
 // 모델 설정
-const MODEL = 'gpt-5.1';
+const MODEL = 'gpt-5.2';
 
 /**
  * Codex CLI를 호출하여 주간 AI 인사이트 생성
@@ -192,7 +192,7 @@ JSON만 출력해. 다른 설명 없이.`;
 
     // Codex CLI 호출
     const result = execSync(
-      `cat "${tmpFile}" | codex exec -m ${MODEL} -c model_reasoning_effort=high -o /dev/stdout -`,
+      `cat "${tmpFile}" | codex exec -m ${MODEL} -c model_reasoning_effort=xhigh -c hide_agent_reasoning=true -o /dev/stdout -`,
       {
         encoding: 'utf8',
         maxBuffer: 1024 * 1024,
