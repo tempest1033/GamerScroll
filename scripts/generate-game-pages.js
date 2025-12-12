@@ -45,10 +45,10 @@ function createSlug(name, appIds = null) {
   // 앱 ID가 있으면 우선 사용 (Android > iOS)
   if (appIds) {
     if (appIds.android) {
-      return appIds.android;  // com.nexon.maplem
+      return String(appIds.android).toLowerCase().replace(/\./g, '-');  // com-nexon-maplem
     }
     if (appIds.ios && appIds.ios.startsWith('com.')) {
-      return appIds.ios;  // com.xxx.xxx 형식만
+      return String(appIds.ios).toLowerCase().replace(/\./g, '-');  // com-xxx-xxx 형식만
     }
   }
 
