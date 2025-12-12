@@ -539,7 +539,7 @@ function generateIndexPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: '',  // 홈에서는 nav active 없음
-    title: '게이머스크롤 | 게임 트렌드 리포트 · 순위 · 뉴스 한눈에',
+    title: '게이머스크롤 | 게임 트렌드 리포트 · 순위 · 뉴스를 한눈에',
     description: '게임 트렌드 리포트, 모바일/스팀 게임 순위, 실시간 뉴스를 무료로. 한국·일본·미국 앱스토어 순위, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.',
     canonical: 'https://gamerscrawl.com',
     pageScripts: pageScripts
