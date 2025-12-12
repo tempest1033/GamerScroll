@@ -127,9 +127,9 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 }
 
 ## 글자수 제한 (필수):
-- summary: 200자 이내 (3-4문장, 오늘의 핵심 요약)
+- summary: 6문장 이하 (오늘의 핵심 요약, 데일리 포커스)
 - title: 40자 이내
-- desc: 150자 이내 (2-3문장으로 풍부하게 설명)
+- desc: 4문장 이하
 
 ## 중복 방지 (필수):
 - summary(데일리 포커스)는 최근 리포트와 중복된 주제/표현 피할 것

@@ -158,9 +158,9 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
 }
 
 ## 글자수 제한 (필수):
-- summary: 150자 이내 (2-3문장, 지난 주 핵심 요약)
+- summary: 6문장 이하 (지난 주 핵심 요약)
 - title: 40자 이내
-- desc: 100자 이내 (2문장으로 요약)
+- desc: 4문장 이하
 
 ## 중복 방지 (필수):
 - summary(위클리 포커스)는 전주 리포트와 중복된 주제/표현 피할 것
