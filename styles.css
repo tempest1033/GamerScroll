@@ -265,6 +265,7 @@
         --font-xs-size: 9px;
         --font-rank-name-size: 12px;
         --font-rank-dev-size: 10px;
+        --space-page-x: 6px;
       }
     }
 
@@ -309,6 +310,22 @@
       --radius-sm: 10px;
       --radius-lg: 20px;
       --radius-xl: 24px;
+
+      /* === Spacing (Blocks/Layout) === */
+      --space-xxs: 6px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 20px;
+      --space-xl: 24px;
+
+      --space-page-x: var(--space-md);
+      --space-block-y: var(--space-md);
+      --space-block-y-lg: var(--space-lg);
+      --space-block-y-xl: var(--space-xl);
+      --space-block-gap: var(--space-md);
+      --space-block-gap-lg: var(--space-lg);
+      --space-header-gap: var(--space-lg);
 
       /* === Animation - 스프링 효과 추가 === */
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -722,20 +739,20 @@
     .home-container {
       display: grid;
       grid-template-columns: 1fr 300px;
-      gap: 16px;
-      padding: 24px 0;
+      gap: var(--space-block-gap);
+      padding: var(--space-block-y-xl) 0;
     }
 
     .home-main {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: var(--space-block-y);
     }
 
     .home-sidebar {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: var(--space-block-y);
     }
 
     /* 홈 카드 공통 */
@@ -2135,12 +2152,12 @@
     }
 
     .ad-slot-top {
-      margin-bottom: 16px;
+      margin-bottom: var(--space-block-y);
     }
 
     .ad-slot-section {
-      margin-top: 16px;
-      margin-bottom: 16px;
+      margin-top: var(--space-block-y);
+      margin-bottom: var(--space-block-y);
     }
 
     .ad-slot.mobile-only {
@@ -2411,7 +2428,7 @@
     .nav-inner {
       max-width: 1190px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 var(--space-page-x);
       display: flex;
       justify-content: center;
       gap: 8px;
@@ -2621,7 +2638,7 @@
     .container {
       max-width: 1190px;
       margin: 0 auto;
-      padding: 0 16px 60px;
+      padding: 0 var(--space-page-x) 60px;
       box-sizing: border-box;
     }
 
@@ -2650,8 +2667,8 @@
       border-radius: 0 !important;
       box-shadow: none !important;
       padding: 6px 0 !important;
-      margin-top: 11px !important;
-      margin-bottom: 11px !important;
+      margin-top: var(--space-sm) !important;
+      margin-bottom: var(--space-sm) !important;
       justify-content: center !important;
       align-items: center !important;
     }
@@ -2729,7 +2746,7 @@
 
     @media (min-width: 769px) {
       .news-card {
-        margin-top: 16px;
+        margin-top: var(--space-block-y);
       }
     }
 
@@ -2817,7 +2834,7 @@
       }
 
       #community .news-card.community-card {
-        margin-top: 20px;
+        margin-top: var(--space-block-y-lg);
         padding: 0;
         background: var(--card);
         border-radius: var(--radius);
@@ -3017,7 +3034,7 @@
     .section-title {
       font-size: 1rem;
       font-weight: var(--font-section-weight);
-      margin-bottom: 20px;
+      margin-bottom: var(--space-header-gap);
       color: var(--text);
       display: flex;
       align-items: center;
@@ -4075,9 +4092,10 @@
     }
 
     @media (max-width: 480px) {
+      :root { --space-page-x: 8px; }
       /* 좌우 여백 8px 통일 */
-      .container { padding: 0 8px 40px; }
-      .nav-inner { padding: 0 8px; }
+      .container { padding: 0 var(--space-page-x) 40px; }
+      .nav-inner { padding: 0 var(--space-page-x); }
 
       /* 메인 메뉴 */
       .nav-item { padding: 12px 8px; gap: 4px; font-size: var(--font-nav-size) !important; font-weight: var(--font-nav-weight) !important; }
@@ -4475,8 +4493,8 @@
 @media (max-width: 768px) {
   /* 컨테이너 */
   .home-container {
-    padding: 8px 0 !important;
-    margin-top: 8px !important;
+    padding: var(--space-sm) 0 !important;
+    margin-top: var(--space-sm) !important;
   }
 
   /* 카드 헤더 */
@@ -4891,7 +4909,7 @@
 .insight-panel.active {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-block-y);
 }
 
 /* 주간 리포트 헤더 카드 (피드 스타일) - 라이트모드 */
@@ -6787,7 +6805,7 @@
 .insight-page-container {
   display: flex;
   flex-direction: column;
-  padding: 16px 0;
+  padding: var(--space-block-y) 0;
 }
 
 /* ========== 일간 리포트 섹션별 스타일 (주간과 통일) ========== */
