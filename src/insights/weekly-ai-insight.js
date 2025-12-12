@@ -74,7 +74,11 @@ ${rankingsSummary}
     // 전주 인사이트 요약 (반복 방지용)
     const prevWeekSummary = buildPrevWeekInsightSummary(prevWeekInsight);
 
-    const prompt = `## 중요: 현재 시간 기준 정보
+    const prompt = `## 도구 사용 제한
+- firecrawl 도구(firecrawl_search, firecrawl_scrape 등) 사용 금지
+- 웹 검색은 web_search 도구만 사용
+
+## 중요: 현재 시간 기준 정보
 - 현재 날짜: ${currentDate}
 - 현재 시간: ${currentTime} (KST, 한국 표준시)
 - 지난 주 리포트 기간: ${weekInfo.startDate} ~ ${weekInfo.endDate}
@@ -129,7 +133,7 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
     { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 100자" }
   ],
   "streaming": [
-    { "tag": "치지직|유튜브|트위치", "title": "제목 40자", "desc": "스트리밍 트렌드 100자" }
+    { "tag": "치지직|유튜브", "title": "제목 40자", "desc": "스트리밍 트렌드 100자" }
   ],
   "stocks": {
     "up": [
@@ -165,10 +169,14 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
 
 ## 각 섹션별 개수:
 - issues: 5개 (태그: 모바일/PC/콘솔/글로벌/e스포츠/인디/업계동향/정책/기술/신작/업데이트/콜라보/스트리밍/출시·종료(게임 출시 혹은 서비스 종료 소식)/행사(게임쇼, 전시회, 오프라인 이벤트) 중 5개 선택, 중복 금지)
-- industryIssues: 3개 (지난 주 한국 게임 업계 주요 동향)
+- industryIssues: 0~3개 (지난 주 한국 게임 업계 주요 동향)
+  ※ 웹 검색으로 해당 주 구체적 뉴스를 먼저 찾고, 없으면 일일 리포트 데이터에서 선정
+  ※ 구체적 뉴스가 있으면 3개, 부족하면 1~2개, 없으면 0개 (빈 배열 [])
+  ※ 일반론적 필러 콘텐츠 금지 - 구체적 사건/발표/뉴스 기반으로만 작성
 - metrics: 2개 (지난 주 주목할만한 지표 변화)${rankingsInstruction}
 - community: 4개 (지난 주 커뮤니티에서 화제가 된 게임/이슈)
 - streaming: 2개 (지난 주 스트리밍 트렌드)
+  ※ 한국에서는 트위치가 서비스 종료됨 - 치지직/유튜브만 사용
 - stocks: up 3개, down 3개 (지난 주 게임주 등락률 TOP3 - code와 name 필드 분리)
 - mvp: 1개 (지난 주 가장 주목받은 게임 - 매출/화제성/성과 종합)
   ※ highlights는 3개의 핵심 성과 키워드
@@ -196,7 +204,7 @@ JSON만 출력해. 다른 설명 없이.`;
       {
         encoding: 'utf8',
         maxBuffer: 1024 * 1024,
-        timeout: 1200000 // 20분 타임아웃 (주간은 더 오래 걸릴 수 있음)
+        timeout: 1800000 // 30분 타임아웃
       }
     );
 

@@ -65,7 +65,11 @@ ${rankingsSummary}
     // 최근 인사이트 요약 (반복 방지용)
     const recentInsightsSummary = buildRecentInsightsSummary(recentInsights);
 
-    const prompt = `## 중요: 현재 시간 기준 정보
+    const prompt = `## 도구 사용 제한
+- firecrawl 도구(firecrawl_search, firecrawl_scrape 등) 사용 금지
+- 웹 검색은 web_search 도구만 사용
+
+## 중요: 현재 시간 기준 정보
 - 오늘 날짜: ${today}
 - 현재 시간: ${currentTime} (KST, 한국 표준시)
 - 데이터 정리 시 위 시간을 기준으로 판단해주세요.
@@ -115,7 +119,7 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
     { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 150자 2-3문장" }
   ],
   "streaming": [
-    { "tag": "치지직|유튜브|트위치", "title": "제목 40자", "desc": "스트리밍 트렌드 150자 2-3문장" }
+    { "tag": "치지직|유튜브", "title": "제목 40자", "desc": "스트리밍 트렌드 150자 2-3문장" }
   ],
   "stocks": [
     { "name": "회사명", "comment": "오늘 주목받는 이유 50자" }
@@ -135,10 +139,15 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 
 ## 각 섹션별 개수:
 - issues: 5개 (태그: 모바일/PC/콘솔/글로벌/e스포츠/인디/업계동향/정책/기술/신작/업데이트/콜라보/스트리밍/출시·종료(게임 출시 혹은 서비스 종료 소식)/행사(게임쇼, 전시회, 오프라인 이벤트) 중 5개 선택, 중복 금지)
-- industryIssues: 2개 (한국 게임 업계 동향 - 기업 뉴스, 인수합병, 규제, 시장 트렌드 등)
+- industryIssues: 0~2개 (한국 게임 업계 동향 - 기업 뉴스, 인수합병, 규제, 시장 트렌드 등)
+  ※ 웹 검색으로 오늘자 구체적 뉴스를 먼저 찾고, 없으면 크롤링 뉴스 데이터에서 선정
+  ※ 구체적 뉴스가 있으면 2개, 부족하면 1개, 없으면 0개 (빈 배열 [])
+  ※ 일반론적 필러 콘텐츠 금지 - 구체적 사건/발표/뉴스 기반으로만 작성
 - metrics: 2개 (주목할만한 지표 변화)${rankingsInstruction}
 - community: 4개 (특정 게임에 대한 유저 반응 - 업데이트/패치/논란 등)
 - streaming: 2개 (스트리밍 인기 게임/트렌드)
+  ※ 한국에서는 트위치가 서비스 종료됨 - 치지직/유튜브만 사용
+  ※ 중복 방지 규칙에서 제외 - 내용만 다르게 작성하면 됨
 - stocks: 2개 (오늘 주목할 게임주 2개 선정 - 종목코드, 회사명, 주목 이유)
 
 한국 게임 시장 기준으로 작성해줘.
@@ -154,7 +163,7 @@ JSON만 출력해. 다른 설명 없이.`;
       {
         encoding: 'utf8',
         maxBuffer: 1024 * 1024,
-        timeout: 600000 // 10분 타임아웃
+        timeout: 1800000 // 30분 타임아웃
       }
     );
 
@@ -286,7 +295,10 @@ function buildRecentInsightsSummary(recentInsights) {
     return '';
   }
 
-  const lines = ['\n\n## 반복 방지 - 최근 인사이트 (동일/유사 주제 피할 것):'];
+  const lines = ['\n\n## ⛔ 중복 금지 - 최근 인사이트 (아래 내용 절대 재사용 금지):'];
+
+  // 블랙리스트 키워드 수집
+  const blacklistKeywords = new Set();
 
   recentInsights.forEach((insight, idx) => {
     lines.push(`\n### 최근 리포트 ${idx + 1}:`);
@@ -300,6 +312,8 @@ function buildRecentInsightsSummary(recentInsights) {
     if (insight.issues && insight.issues.length > 0) {
       insight.issues.forEach(issue => {
         lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        // 제목에서 키워드 추출
+        blacklistKeywords.add(issue.title);
       });
     }
 
@@ -307,6 +321,7 @@ function buildRecentInsightsSummary(recentInsights) {
     if (insight.industryIssues && insight.industryIssues.length > 0) {
       insight.industryIssues.forEach(issue => {
         lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        blacklistKeywords.add(issue.title);
       });
     }
 
@@ -314,11 +329,46 @@ function buildRecentInsightsSummary(recentInsights) {
     if (insight.community && insight.community.length > 0) {
       insight.community.forEach(comm => {
         lines.push(`- [커뮤니티] ${comm.title}: ${comm.desc}`);
+        blacklistKeywords.add(comm.tag); // 게임명
       });
     }
+
+    // metrics
+    if (insight.metrics && insight.metrics.length > 0) {
+      insight.metrics.forEach(metric => {
+        blacklistKeywords.add(metric.title);
+      });
+    }
+
+    // rankings
+    if (insight.rankings && insight.rankings.length > 0) {
+      insight.rankings.forEach(rank => {
+        blacklistKeywords.add(rank.title); // 게임명
+      });
+    }
+
+    // streaming - 중복 방지에서 제외 (선택지가 치지직/유튜브 두 개뿐이라 제외)
+    // if (insight.streaming && insight.streaming.length > 0) {
+    //   insight.streaming.forEach(stream => {
+    //     blacklistKeywords.add(stream.title);
+    //   });
+    // }
   });
 
-  lines.push('\n→ 위 리포트에서 이미 다룬 주제와 동일하거나 유사한 내용은 피하고, 새로운 관점이나 다른 이슈를 찾아주세요.');
+  // 블랙리스트 키워드 출력
+  if (blacklistKeywords.size > 0) {
+    lines.push(`\n### 🚫 사용 금지 키워드 (이 단어가 들어간 주제 선정 금지):`);
+    lines.push([...blacklistKeywords].join(', '));
+  }
+
+  // 강화된 지시사항
+  lines.push(`
+### ⚠️ 중복 방지 규칙 (필수 준수):
+1. 위 리포트에서 다룬 게임/이슈를 모든 섹션(issues, industryIssues, metrics, rankings, community)에 다시 쓰지 말 것 (streaming은 제외)
+2. 같은 게임이라도 완전히 다른 각도의 새 이슈만 허용 (예: 이전에 "출시" 다뤘으면 → "출시" 관련 금지)
+3. 비슷한 표현/문장 구조도 금지 (예: "~9관왕", "~성기사 출시" 등 이미 쓴 표현)
+4. 확실히 새로운 뉴스/이슈만 선정할 것
+5. 위 규칙 위반 시 결과물 무효 - 반드시 준수!`);
 
   return lines.join('\n');
 }
