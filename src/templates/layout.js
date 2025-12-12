@@ -148,12 +148,26 @@ const searchBarScript = `
         });
       });
 
-      // 아이템 클릭 시 저장
+      // 아이템 클릭 시 페이지 존재 확인 후 이동
       searchDropdown.querySelectorAll('.search-result-info').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', async (e) => {
+          e.preventDefault();
           const item = link.closest('.search-result-item');
           const game = recent.find(g => g.slug === item.dataset.slug);
-          if (game) saveRecentSearch(game);
+          if (!game) return;
+          try {
+            const res = await fetch('/games/' + game.slug + '/', { method: 'HEAD' });
+            if (res.ok) {
+              saveRecentSearch(game);
+              location.href = '/games/' + game.slug + '/';
+            } else {
+              removeRecentSearch(game.slug);
+              location.href = '/search/';
+            }
+          } catch {
+            removeRecentSearch(game.slug);
+            location.href = '/search/';
+          }
         });
       });
     }
