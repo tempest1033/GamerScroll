@@ -3,8 +3,13 @@
  * SEO 메타, 스타일, 폰트, Firebase Analytics 등
  */
 
-// 광고 표시 여부
+// 광고 배너 슬롯 표시 여부
 const SHOW_ADS = false;
+
+// AdSense 스크립트 로드 여부 (심사용/연결용)
+// - 자동광고(Auto ads)는 AdSense 콘솔에서 별도로 OFF 권장
+// - 슬롯(SHOW_ADS)은 계속 OFF 유지 가능
+const LOAD_ADSENSE_SCRIPT = true;
 
 function generateHead(options = {}) {
   const {
@@ -114,8 +119,8 @@ function generateHead(options = {}) {
       const analytics = getAnalytics(app);
     }
   </script>
-  ${SHOW_ADS ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>` : ''}
+  ${LOAD_ADSENSE_SCRIPT ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>` : ''}
   ${dataScript}`;
 }
 
-module.exports = { generateHead, SHOW_ADS };
+module.exports = { generateHead, SHOW_ADS, LOAD_ADSENSE_SCRIPT };

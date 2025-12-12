@@ -1,10 +1,11 @@
 
     /* 폰트 로딩 전 화면 숨김 - FOUT 완전 방지 */
     html {
-      visibility: hidden;
+      opacity: 0;
+      background: #0a0a0a;
     }
     html.fonts-loaded {
-      visibility: visible;
+      opacity: 1;
     }
 
     /* 접근성: 시각적으로 숨기지만 스크린리더/SEO에는 노출 */
@@ -746,13 +747,13 @@
     .home-main {
       display: flex;
       flex-direction: column;
-      gap: var(--space-block-y);
+      gap: var(--space-block-y-lg);
     }
 
     .home-sidebar {
       display: flex;
       flex-direction: column;
-      gap: var(--space-block-y);
+      gap: var(--space-block-y-lg);
     }
 
     /* 홈 카드 공통 */
@@ -812,8 +813,8 @@
     }
 
     .home-card-title svg {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       stroke: var(--primary);
     }
 
@@ -1063,7 +1064,7 @@
 
     /* 데일리 포커스 문구 - 강조 카드 스타일 */
     .home-daily-focus {
-      padding: 16px 20px 0;
+      padding: 12px 16px 16px;
     }
 
     .home-daily-focus-text {
@@ -2168,8 +2169,8 @@
     @media (max-width: 1024px) {
       .home-container {
         grid-template-columns: 1fr 320px;
-        gap: 16px;
-        padding: 16px;
+        gap: var(--space-block-gap);
+        padding: var(--space-block-y);
       }
     }
 
@@ -2300,15 +2301,15 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-y: scroll;
-    }
 
+    }
     /* Header */
     .header {
       background: var(--glass-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
+      border-bottom: none;
+      padding: 24px 0 12px;
       transition: opacity 0.2s, max-height 0.2s;
     }
 
@@ -2357,13 +2358,24 @@
     .header-title a {
       display: flex;
       align-items: center;
+      color: inherit;
+      text-decoration: none;
       -webkit-tap-highlight-color: transparent;
       -webkit-touch-callout: none;
       user-select: none;
     }
 
+    .header-title a:hover,
+    .header-title a:visited,
+    .header-title a:active,
+    .header-title a:focus {
+      color: inherit;
+      text-decoration: none;
+      outline: none;
+    }
+
     .logo-svg {
-      height: 42px;
+      height: 48px;
       width: auto;
       max-width: 100%;
       color: var(--text);
@@ -2373,6 +2385,10 @@
 
     .logo-svg:hover {
         transform: scale(1.02);
+    }
+
+    .header-title a:active .logo-svg {
+        color: var(--text);
     }
 
     .logo-badge {
@@ -2604,23 +2620,24 @@
     }
 
     .nav-item.active {
-      color: var(--primary);
-      background: var(--active-bg);
+      color: #4f46e5;
+      background: transparent;
       border-bottom: none;
-      font-weight: 800;
+      border-radius: 0;
+      font-weight: 700;
       position: relative;
     }
 
-    /* 활성 탭 하단 인디케이터 바 */
+    /* 활성 탭 하단 인디케이터 바 - 바닥에 붙임 */
     .nav-item.active::after {
       content: '';
+      display: block;
       position: absolute;
-      bottom: 2px;
-      left: 12px;
-      right: 12px;
-      height: 2px;
-      background: linear-gradient(90deg, #4f46e5, #818cf8);
-      border-radius: 1px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #4f46e5;
     }
 
     .nav-item svg {
@@ -2637,6 +2654,7 @@
     /* Container - 네이버 스타일 (PC: 1190px) */
     .container {
       max-width: 1190px;
+      min-height: calc(100vh - 250px);
       margin: 0 auto;
       padding: 0 var(--space-page-x) 60px;
       box-sizing: border-box;
@@ -4493,8 +4511,8 @@
 @media (max-width: 768px) {
   /* 컨테이너 */
   .home-container {
-    padding: var(--space-sm) 0 !important;
-    margin-top: var(--space-sm) !important;
+    padding: var(--space-block-y) 0 !important;
+    gap: var(--space-block-y-lg) !important;
   }
 
   /* 카드 헤더 */
@@ -4606,8 +4624,8 @@
 @media (max-width: 480px) {
   /* 컨테이너 */
   .home-container {
-    padding: 6px 0 !important;
-    margin-top: 6px !important;
+    padding: var(--space-block-y) 0 !important;
+    gap: var(--space-block-y-lg) !important;
   }
 
   /* 데일리 포커스 문구 */
@@ -4720,8 +4738,8 @@
 @media (max-width: 360px) {
   /* 컨테이너 */
   .home-container {
-    padding: 4px 0 !important;
-    margin-top: 4px !important;
+    padding: var(--space-block-y) 0 !important;
+    gap: var(--space-block-y-lg) !important;
   }
 
   /* 카드 헤더 */
@@ -4946,13 +4964,16 @@
 
 /* 다크모드 - 블루/인디고→오렌지 복원 */
 @media (prefers-color-scheme: dark) {
-  /* 네비 active */
+  /* 네비 active - 하단 밑줄 오렌지 */
   .nav-item.active {
-    color: #ff6b35;
-    background: rgba(255, 107, 53, 0.15);
+    color: #f97316;
+    background: transparent;
+  }
+  .nav-item.active::after {
+    background: #f97316;
   }
   .nav-item.active svg {
-    stroke: #ff6b35;
+    stroke: #f97316;
   }
   /* 데일리 포커스 문구 - 미니멀 (투명 배경 + 은은한 테두리) */
   .home-daily-focus-text {
@@ -5140,7 +5161,7 @@
 .weekly-report {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--space-block-y-lg);
 }
 
 /* SVG 아이콘 공통 */
@@ -5425,13 +5446,8 @@
 }
 
 .weekly-hot-issues > .weekly-hot-card {
-  height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.weekly-hot-issues > .weekly-hot-card .weekly-hot-desc {
-  flex: 1;
 }
 
 .weekly-hot-card {
@@ -5790,6 +5806,12 @@
 .weekly-section-metrics .weekly-section-title-wrap .weekly-icon {
   background: var(--section-icon-bg);
   color: var(--insight-icon);
+}
+
+.weekly-section-metrics .weekly-hot-issues,
+.weekly-section-rankings .weekly-hot-issues {
+  height: auto;
+  grid-template-rows: auto;
 }
 
 .weekly-metrics-row {
@@ -6449,7 +6471,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .weekly-hot-issues,
+  .weekly-hot-issues {
+    grid-template-columns: 1fr;
+  }
+
   .weekly-rankings-grid,
   .weekly-metrics-row,
   .weekly-highlight-grid,
@@ -7880,5 +7905,1519 @@
 
   .daily-industry-desc {
     font-size: var(--font-small-size);
+  }
+}
+
+/* ===========================================
+   상단 검색바 스타일 (테마 통합)
+   =========================================== */
+.search-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 8px 20px 16px;
+  position: relative;
+  z-index: 200;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.search-container-inner {
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0 5px 0 24px;
+  height: 40px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box:focus-within {
+  border-color: var(--border-color);
+  box-shadow: none;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 13px;
+  padding: 0 8px;
+  min-width: 0;
+  height: 100%;
+  text-align: center;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.search-input:focus::placeholder {
+  opacity: 0;
+}
+
+.search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  padding: 0;
+  margin-right: 2px;
+  border-radius: 50%;
+  transition: background 0.2s, color 0.2s;
+  visibility: hidden;
+}
+
+.search-box:focus-within .search-clear,
+.search-clear.visible {
+  visibility: visible;
+}
+
+.search-clear:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+.search-clear svg {
+  width: 14px;
+  height: 14px;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: var(--hover-bg);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.search-btn:hover {
+  color: var(--text-primary);
+  background: var(--hover-bg);
+}
+
+.search-btn:active {
+  transform: scale(0.95);
+}
+
+.search-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 검색 드롭다운 */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 300px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  margin-top: 6px;
+}
+
+.search-dropdown.active {
+  display: block;
+}
+
+/* 최근 검색 헤더 */
+.search-recent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search-recent-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.search-clear-all {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.search-clear-all:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background 0.15s;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: var(--hover-bg);
+}
+
+.search-result-icon {
+  display: none;
+}
+
+.search-result-info {
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+}
+
+/* 헤더 검색 드롭다운 전용 - 클릭 영역 확대 */
+.search-dropdown .search-result-item {
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-dropdown .search-result-info {
+  display: block;
+  padding: 14px 16px;
+}
+
+.search-result-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-result-meta {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 개별 삭제 버튼 */
+.search-result-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-tertiary);
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.search-result-delete:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.search-result-delete svg {
+  width: 12px;
+  height: 12px;
+}
+
+.search-no-results {
+  padding: 24px 14px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+/* 검색바 모바일 반응형 */
+@media (max-width: 768px) {
+  .search-container {
+    max-width: 100%;
+    padding: 0 var(--space-page-x);
+    margin-bottom: var(--space-block-y);
+  }
+
+  .search-box {
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 4px 0 32px;
+  }
+
+  .search-input {
+    font-size: 12px;
+  }
+
+  .search-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .search-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .search-dropdown {
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 500px;
+    border-radius: 12px;
+  }
+
+  .search-result-item {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .search-result-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .search-result-title {
+    font-size: 14px;
+  }
+
+  .search-result-meta {
+    font-size: 12px;
+  }
+}
+
+/* ===========================================
+   검색 페이지 스타일
+   =========================================== */
+.search-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-block-y-xl) 0;
+  min-height: calc(100vh - 250px);
+}
+
+.search-page-header {
+  margin-bottom: var(--space-block-y-xl);
+}
+
+.search-page-input-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg, #1e1e1e);
+  border: 2px solid var(--border-color, #555);
+  border-radius: 24px;
+  padding: 0 8px 0 20px;
+  height: 52px;
+  min-height: 52px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-page-input-wrap:focus-within {
+  border-color: var(--border-color);
+}
+
+.search-page-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 15px;
+  padding: 0 12px 0 0;
+  min-width: 0;
+  height: 100%;
+}
+
+.search-page-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.search-page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--hover-bg);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.search-page-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.search-page-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* 로딩 */
+.search-page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 48px 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.search-loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 검색 결과 없음 안내 */
+.search-no-result-notice {
+  text-align: center;
+  padding: 24px 16px 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* 섹션 */
+.search-page-section {
+  margin-bottom: var(--space-block-y-xl);
+}
+
+.search-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.search-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 12px 0;
+}
+
+.search-section-header .search-section-title {
+  margin: 0;
+}
+
+.search-clear-all-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.search-clear-all-btn:hover {
+  color: var(--text);
+  background: var(--hover-bg);
+}
+
+/* 최근 본 게임 */
+.search-recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-recent-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.search-recent-item:hover {
+  background: var(--hover-bg);
+}
+
+.search-recent-link {
+  flex: 1;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.search-recent-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: background 0.2s, color 0.2s;
+}
+
+.search-recent-delete:hover {
+  background: var(--hover-bg);
+  color: var(--text);
+}
+
+.search-recent-delete svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* 검색 결과 */
+.search-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search-result-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.search-result-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.search-result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.search-result-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-result-dev {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.search-result-platforms {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.search-result-platform {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--hover-bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* 빈 결과 */
+.search-empty {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .search-page {
+    padding: var(--space-block-y) 0;
+  }
+
+  .search-page-input-wrap {
+    height: 44px;
+    padding: 0 6px 0 16px;
+  }
+
+  .search-page-input {
+    font-size: 14px;
+  }
+
+  .search-page-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .search-page-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .search-recent-item,
+  .search-result-card {
+    padding: 12px 14px;
+  }
+
+  .search-result-name {
+    font-size: 14px;
+  }
+}
+
+/* ========== Game Page ========== */
+.game-page {
+  min-height: calc(100vh - 250px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-block-y-xl) 0;
+}
+
+.game-page .home-card-body {
+  padding: 0;
+}
+
+.game-page .home-card-header {
+  padding: 12px 16px;
+}
+
+.game-page .home-card-title svg {
+  width: 24px;
+  height: 24px;
+}
+
+.game-page .rank-trend-section {
+  padding: 0;
+  min-height: 280px;
+}
+
+.game-page .trend-charts {
+  padding: 4px 4px;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+}
+
+.game-page .trend-charts .trend-content {
+  flex: 1;
+  display: none;
+}
+
+.game-page .trend-charts .trend-content.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-page .trend-charts .game-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-page .trend-charts svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.game-page .trend-chart-svg,
+.game-page .game-chart-svg {
+  width: 100%;
+  max-height: 260px;
+}
+
+/* 게임 히어로 섹션 */
+.game-hero {
+  margin-bottom: var(--space-block-y-lg);
+}
+
+.game-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.game-hero-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.game-hero-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.game-hero-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px 0;
+}
+
+.game-hero-developer {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.game-hero-platforms {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.game-platform-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.game-hero-stats {
+  display: flex;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.game-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.game-hero-stat-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+
+.game-hero-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Steam 스탯 색상 */
+.stat-ccu .game-hero-stat-value {
+  color: #4fc3f7;
+}
+
+.stat-sales .game-hero-stat-value {
+  color: #ffb74d;
+}
+
+.stat-players .game-hero-stat-value {
+  color: #81c784;
+}
+
+/* 게임 그리드 (2컬럼) */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-block-gap-lg);
+}
+
+/* 풀 너비 카드 */
+.home-card-full {
+  grid-column: 1 / -1;
+}
+
+/* 게임 순위 섹션 */
+.game-rank-mobile {
+  padding: 8px;
+}
+
+.game-rank-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.game-rank-col {
+  padding: 0;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.game-rank-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border-bottom: 1px solid var(--border);
+}
+
+.game-rank-col-header img {
+  width: 20px;
+  height: 20px;
+}
+
+.game-rank-rows {
+  padding: 0;
+}
+
+.game-rank-country-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.game-rank-country-row:last-child {
+  border-bottom: none;
+}
+
+.game-rank-country-flag {
+  font-size: 20px;
+  width: 28px;
+}
+
+.game-rank-country-flag .emoji {
+  width: 22px;
+  height: 22px;
+}
+
+.game-rank-country-name {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.game-rank-country-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 36px;
+  text-align: right;
+}
+
+.game-rank-change {
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.game-rank-change.up {
+  color: #22c55e;
+}
+
+.game-rank-change.down {
+  color: #ef4444;
+}
+
+/* 실시간 순위 - 비활성 버튼 스타일 */
+.realtime-rank-section .tab-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.realtime-content {
+  display: none;
+}
+
+.realtime-content.active {
+  display: block;
+  padding: 0;
+}
+
+.realtime-rank-section .game-rank-grid {
+  padding: 12px 16px;
+}
+
+/* 요약 뷰: trend-charts와 동일한 패딩 */
+.realtime-content[data-realtime-view="summary"].active .game-rank-grid {
+  padding: 4px 8px;
+}
+
+.realtime-content[data-realtime-view="realtime"].active {
+  padding: 4px 8px;
+}
+
+.realtime-content svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.realtime-legend-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 트렌드 차트 공통 */
+.rank-trend-section {
+  padding: 0;
+}
+
+.trend-tab-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.trend-tabs-left,
+.trend-tabs-right {
+  display: flex;
+  gap: 4px;
+}
+
+/* 오른쪽 탭만 있을 때 우측 정렬 */
+.trend-tab-row > .trend-tabs-right:only-child,
+.trend-tab-row > .tab-group.trend-tabs-right:only-child {
+  margin-left: auto;
+}
+
+/* 게임 페이지 탭 - 홈페이지 서브탭과 동일한 스타일 */
+.game-page .tab-group {
+  display: inline-flex;
+  gap: 4px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.game-page .tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.game-page .tab-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.game-page .tab-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.trend-legend-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.trend-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.trend-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trend-legend-item:not(.active) {
+  opacity: 0.3;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.trend-market-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.market-toggle-btn {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.market-toggle-btn:hover {
+  border-color: var(--primary);
+}
+
+.market-toggle-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.trend-charts {
+  padding: 0;
+}
+
+.trend-content {
+  display: none;
+}
+
+.trend-content.active {
+  display: block;
+}
+
+/* 차트 SVG */
+.chart-market-container {
+  position: relative;
+}
+
+.chart-market-svg {
+  display: none;
+}
+
+.chart-market-svg.active {
+  display: block;
+}
+
+.trend-chart-svg,
+.game-chart-svg {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+}
+
+.chart-grid {
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-dasharray: 2 2;
+}
+
+.chart-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-dot {
+  stroke: var(--card);
+  stroke-width: 1;
+}
+
+.chart-rank-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.chart-ylabel {
+  font-size: 12px;
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+.chart-xlabel {
+  font-size: 10px;
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+/* 게임 empty 상태 */
+.game-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+
+/* 트렌드 리포트 (mentions) */
+.gm-container {
+  padding: 0;
+}
+
+.gm-container-wide {
+  padding: 0;
+}
+
+.gm-container .game-empty,
+.gm-container-wide .game-empty {
+  min-height: 450px;
+}
+
+.gm-tab-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gm-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gm-page-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.gm-page-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.gm-page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.gm-page-index {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 48px;
+  text-align: center;
+}
+
+.gm-period-content {
+  display: none;
+}
+
+.gm-period-content.active {
+  display: block;
+}
+
+.gm-items {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gm-items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  min-height: 450px;
+}
+
+.gm-item {
+  padding: 16px;
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.gm-item-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.gm-item-type {
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.gm-type-ranking { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+.gm-type-community { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+.gm-type-issue { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+.gm-type-metric { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+.gm-type-streaming { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+.gm-type-mvp { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.gm-type-stock { background: rgba(236, 72, 153, 0.15); color: #ec4899; }
+.gm-type-industry { background: rgba(20, 184, 166, 0.15); color: #14b8a6; }
+.gm-type-global { background: rgba(99, 102, 241, 0.15); color: #6366f1; }
+.gm-type-release { background: rgba(249, 115, 22, 0.15); color: #f97316; }
+
+.gm-rank-badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.gm-rank-badge.up { color: #22c55e; }
+.gm-rank-badge.down { color: #ef4444; }
+
+.gm-item-date {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.gm-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.gm-item-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 스팀 섹션 */
+.game-rank-section.steam {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.game-rank-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.game-rank-section-icon {
+  font-size: 16px;
+}
+
+.game-rank-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.game-steam-inline {
+  display: flex;
+  gap: 24px;
+}
+
+.game-steam-stat-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.game-steam-stat-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.game-steam-stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* 게임 페이지 모바일 반응형 */
+@media (max-width: 768px) {
+  .game-page {
+  min-height: calc(100vh - 250px);
+    padding: var(--space-block-y) 0;
+  }
+
+  .game-hero-content {
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  .game-hero-icon {
+    width: 88px;
+    height: 88px;
+  }
+
+  .game-hero-title {
+    font-size: 20px;
+  }
+
+  .game-hero-stats {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 16px;
+    justify-content: space-around;
+  }
+
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-rank-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .game-rank-col + .game-rank-col {
+    border-top: none;
+  }
+
+  /* 요약 뷰 - 아이템 패딩만 조정 */
+  .realtime-content[data-realtime-view="summary"].active .game-rank-col-header {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .realtime-content[data-realtime-view="summary"].active .game-rank-country-row {
+    padding: 6px 10px;
+  }
+
+  .realtime-content[data-realtime-view="summary"].active .game-rank-country-flag {
+    font-size: 16px;
+    width: 24px;
+  }
+
+  .realtime-content[data-realtime-view="summary"].active .game-rank-country-flag .emoji {
+    width: 18px;
+    height: 18px;
+  }
+
+  .realtime-content[data-realtime-view="summary"].active .game-rank-country-name {
+    font-size: 13px;
+  }
+
+  .realtime-content[data-realtime-view="summary"].active .game-rank-country-value {
+    font-size: 14px;
+  }
+
+  .gm-items-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    min-height: 380px;
+  }
+
+  .trend-tab-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .trend-legend-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+/* 검색창 내부 홈 아이콘 */
+.search-home-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* 헤더 로고 숨기기 */
+  .header {
+    display: none !important;
+  }
+
+  /* 검색 컨테이너 - 네비와 이격 완전 제거 */
+  .search-container {
+    padding: 12px 16px 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+
+  /* 네비게이션 상단 패딩 완전 제거 */
+  .nav {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* 네비 아이콘 숨기기 */
+  .nav-item svg {
+    display: none !important;
+  }
+
+  /* 모바일 네비 순서: 모바일 순위를 3번째로 (기본 순서 유지) */
+
+  /* 네비 선택 스타일 - 하단 밑줄 (라이트: 인디고) */
+  .nav-item.active {
+    color: #4f46e5 !important;
+    background: transparent !important;
+    font-weight: 700 !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    position: relative !important;
+  }
+
+  .nav-item.active::after {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: #4f46e5 !important;
+  }
+
+  /* 검색창 내부 홈 아이콘 표시 */
+  .search-home-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 100%;
+  }
+
+  .search-home-icon img {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* 검색 박스 확장 + 높이 키움 */
+  .search-box {
+    flex: 1;
+    max-width: none;
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    height: 48px;
+  }
+
+  /* placeholder 폰트 크기 키움 */
+  .search-input {
+    font-size: 15px;
+  }
+
+  /* 검색 버튼 아이콘 크기 키움 */
+  .search-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .search-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* 모바일 다크모드 - 네비 선택 스타일 오렌지 */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  .nav-item.active {
+    color: #f97316 !important;
+  }
+  .nav-item.active::after {
+    background: #f97316 !important;
   }
 }
