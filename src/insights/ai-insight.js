@@ -150,7 +150,7 @@ JSON만 출력해. 다른 설명 없이.`;
 
     // Codex CLI 호출 (웹 검색 없이 - exec 모드에서 미지원)
     const result = execSync(
-      `cat "${tmpFile}" | codex exec -m ${MODEL} -c model_reasoning_effort=high -c hide_agent_reasoning=true -o /dev/stdout -`,
+      `cat "${tmpFile}" | codex exec -m ${MODEL} -c model_reasoning_effort=xhigh -c hide_agent_reasoning=true -o /dev/stdout -`,
       {
         encoding: 'utf8',
         maxBuffer: 1024 * 1024,
