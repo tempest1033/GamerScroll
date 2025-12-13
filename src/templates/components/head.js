@@ -43,7 +43,7 @@ function generateHead(options = {}) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "게이머스크롤",
-    "alternateName": ["GAMERS CRAWL", "gamerscrawl.com"],
+    "alternateName": ["GAMERSCRAWL", "GAMERS CRAWL", "gamerscrawl.com", "게이머스크롤", "게이머 스크롤"],
     "url": "https://gamerscrawl.com/",
     "description": "${description}",
     "publisher": {
