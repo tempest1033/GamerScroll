@@ -139,15 +139,17 @@
       .home-main, .home-sidebar {
         display: contents !important;
       }
-      #home-news { order: 1 !important; }
-      #home-mobile-rank { order: 2 !important; }
-      #home-community { order: 3 !important; }
-      #home-steam { order: 4 !important; }
-      #home-video { order: 5 !important; }
-      #home-upcoming { order: 6 !important; }
-      /* 광고 슬롯 순서 */
-      .home-main-ad { order: 0 !important; }
-      .ad-slot:not(.home-main-ad) { order: 99 !important; }
+      #ad-above-trend { order: 1 !important; }
+      #home-insight { order: 2 !important; }
+      #home-news { order: 3 !important; }
+      #ad-above-mobile { order: 4 !important; }
+      #home-mobile-rank { order: 5 !important; }
+      #home-community { order: 6 !important; }
+      #ad-above-steam { order: 7 !important; }
+      #home-steam { order: 8 !important; }
+      #home-video { order: 9 !important; }
+      #ad-above-upcoming { order: 10 !important; }
+      #home-upcoming { order: 11 !important; }
     }
     :root {
       /* === Primary Colors - 블루 (신뢰감 있는 뉴스 사이트 느낌) === */
@@ -322,11 +324,11 @@
 
       --space-page-x: var(--space-md);
       --space-block-y: var(--space-md);
-      --space-block-y-lg: var(--space-lg);
-      --space-block-y-xl: var(--space-xl);
+      --space-block-y-lg: var(--space-md);
+      --space-block-y-xl: var(--space-md);
       --space-block-gap: var(--space-md);
-      --space-block-gap-lg: var(--space-lg);
-      --space-header-gap: var(--space-lg);
+      --space-block-gap-lg: var(--space-md);
+      --space-header-gap: var(--space-md);
 
       /* === Animation - 스프링 효과 추가 === */
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -375,6 +377,18 @@
       /* === Glow Effects (라이트모드) === */
       --glow-primary: 0 0 20px rgba(79, 70, 229, 0.2);
       --glow-accent: 0 0 20px rgba(249, 115, 22, 0.2);
+    }
+
+    /* PC: 섹션/피드 간격 20px 통일 */
+    @media (min-width: 769px) {
+      :root {
+        --space-block-y: var(--space-lg);
+        --space-block-y-lg: var(--space-lg);
+        --space-block-y-xl: var(--space-lg);
+        --space-block-gap: var(--space-lg);
+        --space-block-gap-lg: var(--space-lg);
+        --space-header-gap: var(--space-lg);
+      }
     }
 
     /* === Light Mode - 메인메뉴 스타일 === */
@@ -741,19 +755,20 @@
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: var(--space-block-gap);
-      padding: var(--space-block-y-xl) 0;
+      padding: var(--space-block-y) 0;
+      padding-top: var(--space-sm);
     }
 
     .home-main {
       display: flex;
       flex-direction: column;
-      gap: var(--space-block-y-lg);
+      gap: var(--space-block-gap);
     }
 
     .home-sidebar {
       display: flex;
       flex-direction: column;
-      gap: var(--space-block-y-lg);
+      gap: var(--space-block-gap);
     }
 
     /* 홈 카드 공통 */
@@ -2156,10 +2171,57 @@
       margin-bottom: var(--space-block-y);
     }
 
-    .ad-slot-section {
-      margin-top: var(--space-block-y);
-      margin-bottom: var(--space-block-y);
-    }
+	    .ad-slot-section {
+	      margin-top: var(--space-sm);
+	      margin-bottom: var(--space-sm);
+	    }
+
+		    /* 광고 배너 간격 - 페이지별 기존 리듬 유지 */
+		    .home-container .ad-slot-section {
+		      margin-top: calc(var(--space-sm) - var(--space-block-gap));
+		      margin-bottom: calc(var(--space-sm) - var(--space-block-gap));
+		    }
+
+		    /* 홈 첫 배너는 컨테이너 패딩을 유지 */
+		    .home-container #ad-above-trend.ad-slot-section {
+		      margin-top: 0;
+		    }
+
+		    #insight .ad-slot-section {
+		      margin-top: var(--space-sm);
+		      margin-bottom: var(--space-sm);
+		    }
+
+		    #metacritic .ad-slot-section {
+		      margin-top: var(--space-sm);
+		      margin-bottom: var(--space-sm);
+		    }
+
+		    /* 광고 배너가 있을 때, 기존 상단 여백 중복 제거 */
+		    .ad-slot-section + .news-controls,
+		    .ad-slot-section + .rankings-controls,
+		    .ad-slot-section + .steam-controls,
+		    .ad-slot-section + .video-controls,
+		    .ad-slot-section + .upcoming-controls {
+		      margin-top: 0 !important;
+		      padding-top: 0 !important;
+		    }
+
+		    .ad-slot-section + .search-page {
+		      padding-top: 0;
+		    }
+
+		    .ad-slot-section + .game-page {
+		      padding-top: 0;
+		    }
+
+		    #insight .ad-slot-section + .insight-page-container {
+		      padding-top: 0;
+		    }
+
+		    #metacritic .ad-slot-section + .metacritic-card-container {
+		      margin-top: 0;
+		    }
 
     .ad-slot.mobile-only {
       display: none;
@@ -2170,15 +2232,38 @@
       .home-container {
         grid-template-columns: 1fr 320px;
         gap: var(--space-block-gap);
-        padding: var(--space-block-y);
+        padding: var(--space-block-y) 0;
+        padding-top: var(--space-sm);
       }
     }
 
     @media (max-width: 768px) {
       .home-container {
-        grid-template-columns: 1fr;
-        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-block-gap);
+        padding: var(--space-block-y) 0;
+        padding-top: var(--space-sm);
       }
+
+      /* 모바일에서 main/sidebar 구조 풀기 */
+      .home-main,
+      .home-sidebar {
+        display: contents;
+      }
+
+      /* 모바일 순서 재배치 */
+      #ad-above-trend { order: 1; }
+      #home-insight { order: 2; }
+      #ad-above-mobile { order: 3; }
+      #home-mobile-rank { order: 4; }
+      #home-news { order: 5; }
+      #home-community { order: 6; }
+      #ad-above-steam { order: 7; }
+      #home-steam { order: 8; }
+      #ad-above-upcoming { order: 9; }
+      #home-upcoming { order: 10; }
+      #home-video { order: 11; }
 
       /* 홈 카드 헤더 - 패딩은 파일 끝 통합 블록에서 관리 */
 
@@ -2241,7 +2326,7 @@
 
     @media (max-width: 480px) {
       .home-container {
-        gap: 12px;
+        gap: var(--space-block-gap);
       }
       /* 480px 패딩은 파일 끝 통합 블록에서 관리 */
     }
@@ -4504,7 +4589,7 @@
 /* ============================================================
    홈 피드 모바일 패딩 통합 (최종)
    - 모든 요소가 동일한 좌우 여백으로 정렬
-   - 768px: 12px | 480px: 8px | 360px: 6px
+   - 768/480/360: 12px 통일
    ============================================================ */
 
 /* === 태블릿 (768px 이하) === */
@@ -4512,7 +4597,8 @@
   /* 컨테이너 */
   .home-container {
     padding: var(--space-block-y) 0 !important;
-    gap: var(--space-block-y-lg) !important;
+    padding-top: var(--space-sm) !important;
+    gap: var(--space-block-gap) !important;
   }
 
   /* 카드 헤더 */
@@ -4625,7 +4711,8 @@
   /* 컨테이너 */
   .home-container {
     padding: var(--space-block-y) 0 !important;
-    gap: var(--space-block-y-lg) !important;
+    padding-top: var(--space-sm) !important;
+    gap: var(--space-block-gap) !important;
   }
 
   /* 데일리 포커스 문구 */
@@ -4739,7 +4826,8 @@
   /* 컨테이너 */
   .home-container {
     padding: var(--space-block-y) 0 !important;
-    gap: var(--space-block-y-lg) !important;
+    padding-top: var(--space-sm) !important;
+    gap: var(--space-block-gap) !important;
   }
 
   /* 카드 헤더 */

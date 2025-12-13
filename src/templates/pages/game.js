@@ -1166,6 +1166,9 @@ function generateGamePage(gameData) {
   };
 
   const content = `
+    ${SHOW_ADS ? `<div class="ad-slot ad-slot-section">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>` : ''}
     <div class="game-page">
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">

@@ -2,10 +2,13 @@
  * 게임 검색 페이지 템플릿
  */
 
-const { wrapWithLayout } = require('../layout');
+const { wrapWithLayout, SHOW_ADS } = require('../layout');
 
 function generateSearchPage() {
   const content = `
+    ${SHOW_ADS ? `<div class="ad-slot ad-slot-section">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>` : ''}
     <div class="search-page">
       <!-- 검색 영역 -->
       <div class="search-page-header">

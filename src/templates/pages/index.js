@@ -375,9 +375,16 @@ function generateIndexPage(data) {
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
 
+  // 광고 슬롯 HTML 생성 함수
+  function adSlot(id, extraClass) {
+    if (!SHOW_ADS) return '';
+    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+  }
+
   var content = '<section class="home-section active" id="home">' +
     '<div class="home-container">' +
     '<div class="home-main">' +
+    adSlot('ad-above-trend', '') +
     insightCardHtml +
     '<div class="home-card" id="home-news">' +
     '<div class="home-card-header">' +
@@ -386,6 +393,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
+    adSlot('ad-below-news', 'pc-only') +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">커뮤니티 베스트</div>' +
@@ -393,6 +401,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
+    adSlot('ad-below-community', 'pc-only') +
     '<div class="home-card" id="home-video">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">영상 순위</div>' +
@@ -402,6 +411,7 @@ function generateIndexPage(data) {
     '</div>' +
     '</div>' +
     '<div class="home-sidebar">' +
+    adSlot('ad-above-mobile', 'mobile-only') +
     '<div class="home-card" id="home-mobile-rank">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">모바일 랭킹</div>' +
@@ -415,6 +425,8 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
     '</div>' +
+    adSlot('ad-below-mobile', 'pc-only') +
+    adSlot('ad-above-steam', 'mobile-only') +
     '<div class="home-card" id="home-steam">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">스팀 순위</div>' +
@@ -428,6 +440,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
     '</div>' +
+    adSlot('ad-above-upcoming', '') +
     '<div class="home-card" id="home-upcoming">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">신규 게임</div>' +
