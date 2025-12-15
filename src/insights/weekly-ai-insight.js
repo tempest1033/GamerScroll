@@ -198,50 +198,71 @@ JSON만 출력해. 다른 설명 없이.`;
     const tmpFile = path.join(os.tmpdir(), `codex-weekly-prompt-${Date.now()}.txt`);
     fs.writeFileSync(tmpFile, prompt, 'utf8');
 
-    // Codex CLI 호출
-    const result = execSync(
-      `cat "${tmpFile}" | codex exec -m ${MODEL} -c model_reasoning_effort=high -c hide_agent_reasoning=true -o /dev/stdout -`,
-      {
-        encoding: 'utf8',
-        maxBuffer: 1024 * 1024,
-        timeout: 1800000 // 30분 타임아웃
-      }
-    );
+    // Codex CLI 호출 (최대 2회 재시도)
+    const MAX_RETRIES = 2;
+    let result = null;
+    let lastError = null;
 
-    // 임시 파일 삭제
-    fs.unlinkSync(tmpFile);
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        if (attempt > 0) {
+          console.log(`  - 재시도 ${attempt}/${MAX_RETRIES} (5초 대기)...`);
+          await new Promise(r => setTimeout(r, 5000));
+        }
 
-    // JSON 파싱 - 중괄호 균형 맞춰서 첫 번째 완전한 JSON 객체만 추출
-    const jsonStart = result.indexOf('{');
-    if (jsonStart === -1) {
-      console.log('  - JSON 시작 못 찾음');
-      console.log('  - 응답:', result.substring(0, 500));
-      return null;
-    }
+        result = execSync(
+          `cat "${tmpFile}" | codex exec -m ${MODEL} -c model_reasoning_effort=high -c hide_agent_reasoning=true -o /dev/stdout -`,
+          {
+            encoding: 'utf8',
+            maxBuffer: 1024 * 1024,
+            timeout: 1800000 // 30분 타임아웃
+          }
+        );
 
-    let depth = 0;
-    let jsonEnd = -1;
-    for (let i = jsonStart; i < result.length; i++) {
-      if (result[i] === '{') depth++;
-      else if (result[i] === '}') {
-        depth--;
-        if (depth === 0) {
-          jsonEnd = i + 1;
-          break;
+        // JSON 파싱 시도
+        const jsonStart = result.indexOf('{');
+        if (jsonStart === -1) {
+          throw new Error('JSON 시작 못 찾음');
+        }
+
+        let depth = 0;
+        let jsonEnd = -1;
+        for (let i = jsonStart; i < result.length; i++) {
+          if (result[i] === '{') depth++;
+          else if (result[i] === '}') {
+            depth--;
+            if (depth === 0) {
+              jsonEnd = i + 1;
+              break;
+            }
+          }
+        }
+
+        if (jsonEnd === -1) {
+          throw new Error('JSON 끝 못 찾음');
+        }
+
+        const jsonStr = result.substring(jsonStart, jsonEnd);
+        const weeklyInsight = JSON.parse(jsonStr);
+
+        // 성공 - 임시 파일 삭제 후 반환
+        fs.unlinkSync(tmpFile);
+        console.log('  - 주간 AI 인사이트 생성 완료 (Codex)');
+        return weeklyInsight;
+
+      } catch (retryError) {
+        lastError = retryError;
+        console.log(`  - 시도 ${attempt + 1} 실패: ${retryError.message}`);
+        if (result) {
+          console.log(`  - 응답 앞부분: ${result.substring(0, 300)}`);
         }
       }
     }
 
-    if (jsonEnd === -1) {
-      console.log('  - JSON 끝 못 찾음');
-      console.log('  - 응답:', result.substring(0, 500));
-      return null;
-    }
+    // 모든 재시도 실패
+    fs.unlinkSync(tmpFile);
+    throw lastError;
 
-    const jsonStr = result.substring(jsonStart, jsonEnd);
-    const weeklyInsight = JSON.parse(jsonStr);
-    console.log('  - 주간 AI 인사이트 생성 완료 (Codex)');
-    return weeklyInsight;
   } catch (error) {
     console.error('  - 주간 AI 인사이트 생성 실패:', error.message);
     return null;
