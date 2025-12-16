@@ -9,7 +9,7 @@ const path = require('path');
 const os = require('os');
 
 // 모델 설정
-const MODEL = 'gpt-5.2';
+const MODEL = 'gpt-5.1';
 
 /**
  * Codex CLI를 호출하여 AI 인사이트 생성
@@ -65,11 +65,7 @@ ${rankingsSummary}
     // 최근 인사이트 요약 (반복 방지용)
     const recentInsightsSummary = buildRecentInsightsSummary(recentInsights);
 
-    const prompt = `## 도구 사용 제한
-- firecrawl 도구(firecrawl_search, firecrawl_scrape 등) 사용 금지
-- 웹 검색은 web_search 도구만 사용
-
-## 중요: 현재 시간 기준 정보
+    const prompt = `## 중요: 현재 시간 기준 정보
 - 오늘 날짜: ${today}
 - 현재 시간: ${currentTime} (KST, 한국 표준시)
 - 데이터 정리 시 위 시간을 기준으로 판단해주세요.

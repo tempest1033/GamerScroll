@@ -384,49 +384,49 @@ async function main() {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/trend</loc>
+    <loc>https://gamerscrawl.com/trend/</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/news</loc>
+    <loc>https://gamerscrawl.com/news/</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/community</loc>
+    <loc>https://gamerscrawl.com/community/</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/youtube</loc>
+    <loc>https://gamerscrawl.com/youtube/</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/rankings</loc>
+    <loc>https://gamerscrawl.com/rankings/</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/steam</loc>
+    <loc>https://gamerscrawl.com/steam/</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/upcoming</loc>
+    <loc>https://gamerscrawl.com/upcoming/</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gamerscrawl.com/metacritic</loc>
+    <loc>https://gamerscrawl.com/metacritic/</loc>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>

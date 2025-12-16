@@ -74,11 +74,7 @@ ${rankingsSummary}
     // 전주 인사이트 요약 (반복 방지용)
     const prevWeekSummary = buildPrevWeekInsightSummary(prevWeekInsight);
 
-    const prompt = `## 도구 사용 제한
-- firecrawl 도구(firecrawl_search, firecrawl_scrape 등) 사용 금지
-- 웹 검색은 web_search 도구만 사용
-
-## 중요: 현재 시간 기준 정보
+    const prompt = `## 중요: 현재 시간 기준 정보
 - 현재 날짜: ${currentDate}
 - 현재 시간: ${currentTime} (KST, 한국 표준시)
 - 지난 주 리포트 기간: ${weekInfo.startDate} ~ ${weekInfo.endDate}
