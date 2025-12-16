@@ -61,7 +61,7 @@ ${rankingsSummary}
     // rankings 섹션은 데이터가 있을 때만 포함
     const rankingsSection = hasRankingChanges ? `
   "rankings": [
-    { "tag": "급상승|급하락|신규진입|주간1위", "title": "게임명", "prevRank": 이전순위숫자, "rank": 현재순위숫자, "change": 변동숫자, "platform": "iOS|Android", "desc": "지난 주 순위 변동 이유 분석 100자" }
+    { "tag": "급상승|급하락|신규진입|주간1위", "title": "게임명", "prevRank": 이전순위숫자, "rank": 현재순위숫자, "change": 변동숫자, "platform": "iOS|Android", "desc": "지난 주 순위 변동 이유 분석 200자 이내" }
   ],` : '';
 
     const rankingsInstruction = hasRankingChanges ? `
@@ -110,26 +110,27 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
 - 독자에게 알려주는 느낌으로 작성
 - 예: "화제가 됐어요", "주목받았어요", "있었어요", "발표됐어요"
 - 주간 리포트이므로 과거형 위주로 작성
+- 반드시 구체적인 게임명/회사명을 주어로 명시 (추상적 표현 금지)
 
 ## JSON 형식 (일간 리포트와 동일):
 {
   "date": "${weekInfo.startDate} ~ ${weekInfo.endDate}",
   "weekNumber": ${weekInfo.weekNumber},
-  "summary": "지난 주 게임 업계 핵심 요약 2-3문장 (150자 이내)",
+  "summary": "지난 주 게임 업계 핵심 요약 (300자 이내)",
   "issues": [
-    { "tag": "모바일|PC|콘솔|e스포츠", "title": "지난 주 핫이슈 제목 40자", "desc": "설명 100자 2문장" }
+    { "tag": "모바일|PC|콘솔|e스포츠", "title": "지난 주 핫이슈 제목 40자", "desc": "설명 200자 이내" }
   ],
   "industryIssues": [
-    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 100자" }
+    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내" }
   ],
   "metrics": [
-    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 100자" }
+    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내" }
   ],${rankingsSection}
   "community": [
-    { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 100자" }
+    { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 200자 이내" }
   ],
   "streaming": [
-    { "tag": "치지직|유튜브", "title": "제목 40자", "desc": "스트리밍 트렌드 100자" }
+    { "tag": "치지직|유튜브", "title": "제목 40자", "desc": "스트리밍 트렌드 200자 이내" }
   ],
   "stocks": {
     "up": [
@@ -142,21 +143,21 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
   "mvp": {
     "name": "게임명",
     "tag": "장르 또는 카테고리",
-    "desc": "지난 주 MVP로 선정된 이유 100자",
+    "desc": "지난 주 MVP로 선정된 이유 200자 이내",
     "highlights": ["핵심 성과1", "핵심 성과2", "핵심 성과3"]
   },
   "releases": [
     { "date": "M/D", "title": "게임명", "platform": "iOS|Android|PC|콘솔", "type": "신작|업데이트", "desc": "기대 포인트 50자" }
   ],
   "global": [
-    { "tag": "북미|일본|중국|유럽", "title": "글로벌 트렌드 제목 40자", "desc": "해외 게임 시장 동향 100자" }
+    { "tag": "북미|일본|중국|유럽", "title": "글로벌 트렌드 제목 40자", "desc": "해외 게임 시장 동향 200자 이내" }
   ]
 }
 
 ## 글자수 제한 (필수):
-- summary: 6문장 이하 (지난 주 핵심 요약)
+- summary: 300자 이내
 - title: 40자 이내
-- desc: 4문장 이하
+- desc: 200자 이내
 
 ## 중복 방지 (필수):
 - summary(위클리 포커스)는 전주 리포트와 중복된 주제/표현 피할 것

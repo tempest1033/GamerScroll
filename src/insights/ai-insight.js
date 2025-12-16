@@ -9,7 +9,7 @@ const path = require('path');
 const os = require('os');
 
 // 모델 설정
-const MODEL = 'gpt-5.1';
+const MODEL = 'gpt-5.2';
 
 /**
  * Codex CLI를 호출하여 AI 인사이트 생성
@@ -41,7 +41,7 @@ async function generateAIInsight(crawlData, rankingChanges = null, recentInsight
     // rankings 섹션은 순위 변동 데이터가 있을 때만 포함
     const rankingsSection = hasRankingChanges ? `
   "rankings": [
-    { "tag": "급상승|급하락|신규진입", "title": "게임명", "prevRank": 이전순위숫자, "rank": 현재순위숫자, "change": 변동숫자, "platform": "iOS|Android", "desc": "순위 변동 이유 분석 150자 2-3문장" }
+    { "tag": "급상승|급하락|신규진입", "title": "게임명", "prevRank": 이전순위숫자, "rank": 현재순위숫자, "change": 변동숫자, "platform": "iOS|Android", "desc": "순위 변동 이유 분석 200자 이내" }
   ],` : '';
 
     const rankingsInstruction = hasRankingChanges ? `
@@ -97,25 +97,26 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 - 친절하게 설명하는 뉴스 큐레이터 스타일
 - 독자에게 알려주는 느낌으로 작성
 - 예: "출시됐어요", "발표했는데요", "예정이에요", "주목받고 있어요"
+- 반드시 구체적인 게임명/회사명을 주어로 명시 (추상적 표현 금지)
 
 ## JSON 형식:
 {
   "date": "${today}",
-  "summary": "오늘의 게임 업계 핵심 요약 3-4문장 (200자 이내)",
+  "summary": "오늘의 게임 업계 핵심 요약 (300자 이내)",
   "issues": [
-    { "tag": "모바일|PC|콘솔|e스포츠", "title": "제목 40자", "desc": "설명 150자 2-3문장" }
+    { "tag": "모바일|PC|콘솔|e스포츠", "title": "제목 40자", "desc": "설명 200자 이내" }
   ],
   "industryIssues": [
-    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 150자 2-3문장" }
+    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내" }
   ],
   "metrics": [
-    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 150자 2-3문장" }
+    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내" }
   ],${rankingsSection}
   "community": [
-    { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 150자 2-3문장" }
+    { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 200자 이내" }
   ],
   "streaming": [
-    { "tag": "치지직|유튜브", "title": "제목 40자", "desc": "스트리밍 트렌드 150자 2-3문장" }
+    { "tag": "치지직|유튜브", "title": "제목 40자", "desc": "스트리밍 트렌드 200자 이내" }
   ],
   "stocks": [
     { "name": "회사명", "comment": "오늘 주목받는 이유 50자" }
@@ -123,9 +124,9 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 }
 
 ## 글자수 제한 (필수):
-- summary: 6문장 이하 (오늘의 핵심 요약, 데일리 포커스)
+- summary: 300자 이내
 - title: 40자 이내
-- desc: 4문장 이하
+- desc: 200자 이내
 
 ## 중복 방지 (필수):
 - summary(데일리 포커스)는 최근 리포트와 중복된 주제/표현 피할 것
