@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 통합 게임 동기화 스크립트
  * - 히스토리에서 신규 게임 감지
  * - iOS/Android: kr 이름 조회 + 반대 플랫폼 검색 + 통합 등록
@@ -272,7 +272,7 @@ function isNameMatch(name1, name2) {
 // 메인 처리
 // ============================================
 
-async function processGame(game, gamesData, appIdIndex, stats, pairs, pendingMap, resolvedTitles) {
+async function processGame(game, gamesData, appIdIndex, stats, pairs) {
   const { platform, region, appId, title, developer, icon } = game;
 
   // 1. appId로 기존 게임 체크
@@ -414,13 +414,19 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs, pendingMap
     gamesData.games[targetName] = merged;
     appIdIndex.set(appId, targetName);
     appIdIndex.set(matched.appId, targetName);
-    // 기존 pending 후보 제거
-    if (pendingMap) pendingMap.delete(targetName);
-    if (resolvedTitles) resolvedTitles.add(targetName);
     stats.matched++;
     console.log(`  [${platform.toUpperCase()}+${oppositePlatform.toUpperCase()}] 통합: "${targetName}"`);
 
-    return null; // 매칭 성공 시 pending에 넣지 않음
+    // 신규 게임은 매칭 성공 여부와 상관없이 pending에 남겨 사람이 최종 확인
+    return {
+      title: targetName,
+      status: 'matched',
+      appIds,
+      developer: gamesData.games[targetName].developer,
+      icon: gamesData.games[targetName].icon,
+      searchResults: searchResults.slice(0, 3).map(r => ({ title: r.title, appId: r.appId })),
+      addedAt: new Date().toISOString()
+    };
   }
 
   // 5. 매칭 실패 - 한쪽만 등록 + pending
@@ -489,7 +495,6 @@ async function main() {
   const stats = { existing: 0, steam: 0, matched: 0, single: 0, pending: 0 };
   // targetName 기준으로 마지막 상태만 저장
   const pendingMap = new Map();
-  const resolvedTitles = new Set();
   const globalPairs = buildGlobalPairs(uniqueGames);
 
   // 각 게임 처리
@@ -500,21 +505,32 @@ async function main() {
       console.log(`\n진행: ${i + 1}/${uniqueGames.length}`);
     }
 
-    const pendingItem = await processGame(game, gamesData, appIdIndex, stats, globalPairs, pendingMap, resolvedTitles);
+    const pendingItem = await processGame(game, gamesData, appIdIndex, stats, globalPairs);
 
     // 매칭 성공/실패 모두 리뷰 큐 후보에 적재, 동일 타이틀은 병합
     if (pendingItem) {
       const existing = pendingMap.get(pendingItem.title);
-      if (existing) {
+      if (!existing) {
+        pendingMap.set(pendingItem.title, pendingItem);
+      } else {
         const mergedAppIds = { ...existing.appIds, ...pendingItem.appIds };
+        const mergedSearchResults = [
+          ...(existing.searchResults || []),
+          ...(pendingItem.searchResults || [])
+        ];
+        const uniqueSearchResults = Array.from(
+          new Map(
+            mergedSearchResults.map(r => [String(r?.appId ?? ''), r])
+          ).values()
+        ).filter(r => r?.appId);
+
         pendingMap.set(pendingItem.title, {
           ...existing,
           ...pendingItem,
           appIds: mergedAppIds,
+          searchResults: uniqueSearchResults.slice(0, 3),
           status: existing.status === 'matched' || pendingItem.status === 'matched' ? 'matched' : existing.status
         });
-      } else {
-        pendingMap.set(pendingItem.title, pendingItem);
       }
       stats.pending++;
     }
@@ -525,20 +541,46 @@ async function main() {
     }
   }
 
-  // 해결된 타이틀만 pending에서 제거 (신규 게임은 병합돼도 pending 유지)
-  reviewQueue.pending = reviewQueue.pending.filter(
-    p => !resolvedTitles.has(p.title)
-  );
-
-  // pending 추가 (기존 것과 중복 제거) - targetName 단위 1건만 유지
-  // 병합됐어도 신규면 pending에 추가 (주간 검토용)
+  // pending 추가/업데이트 (targetName 단위 1건만 유지)
   const newPending = Array.from(pendingMap.values());
-  const existingTitles = new Set(reviewQueue.pending.map(p => p.title || ''));
+  const pendingIndexByTitle = new Map();
+  for (let i = 0; i < reviewQueue.pending.length; i++) {
+    const title = reviewQueue.pending[i]?.title;
+    if (title) pendingIndexByTitle.set(title, i);
+  }
+
   for (const item of newPending) {
-    if (!existingTitles.has(item.title)) {
+    if (!item?.title) continue;
+
+    const existingIndex = pendingIndexByTitle.get(item.title);
+    if (existingIndex === undefined) {
       reviewQueue.pending.push(item);
-      existingTitles.add(item.title);
+      pendingIndexByTitle.set(item.title, reviewQueue.pending.length - 1);
+      continue;
     }
+
+    const existing = reviewQueue.pending[existingIndex] || {};
+    const mergedAppIds = { ...(existing.appIds || {}), ...(item.appIds || {}) };
+    const mergedSearchResults = [
+      ...(existing.searchResults || []),
+      ...(item.searchResults || [])
+    ];
+    const uniqueSearchResults = Array.from(
+      new Map(
+        mergedSearchResults.map(r => [String(r?.appId ?? ''), r])
+      ).values()
+    ).filter(r => r?.appId);
+
+    reviewQueue.pending[existingIndex] = {
+      ...existing,
+      ...item,
+      appIds: mergedAppIds,
+      searchResults: uniqueSearchResults.slice(0, 3),
+      status: existing.status === 'matched' || item.status === 'matched' ? 'matched' : (existing.status || item.status),
+      addedAt: existing.addedAt || item.addedAt,
+      developer: existing.developer || item.developer,
+      icon: existing.icon || item.icon
+    };
   }
 
   // 저장

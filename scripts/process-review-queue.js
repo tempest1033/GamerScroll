@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 const gplay = require('google-play-scraper').default;
 const store = require('app-store-scraper');
@@ -225,10 +225,10 @@ async function getAndroidKrTitle(appId) {
 async function getKrTitleFromItem(item, status) {
   // 현재 플랫폼의 appId로 kr 마켓에서 한국어 이름 조회
   for (const [key, appId] of Object.entries(item.appIds)) {
-    if (status === 'ios-only' && key.startsWith('ios:')) {
+    if (status === 'ios-only' && (key === 'ios' || key.startsWith('ios:'))) {
       const krTitle = await getIosKrTitle(appId);
       if (krTitle) return krTitle;
-    } else if (status === 'android-only' && key.startsWith('android:')) {
+    } else if (status === 'android-only' && (key === 'android' || key.startsWith('android:'))) {
       const krTitle = await getAndroidKrTitle(appId);
       if (krTitle) return krTitle;
     }
@@ -264,10 +264,19 @@ async function processReviewQueue(limit = 0) {
     console.log(`  플랫폼 상태: ${status}`);
 
     // Steam이거나 이미 양쪽 있으면 스킵
-    if (status === 'steam' || status === 'both') {
-      console.log(`  → 스킵 (처리 불필요)`);
+    if (status === 'steam') {
+      console.log(`  → 스킵 (Steam)`);
       skipped++;
-      continue; // pending에서 제거
+      newPending.push(item);
+      continue;
+    }
+
+    if (status === 'both') {
+      console.log(`  → 스킵 (이미 양쪽 존재)`);
+      item.status = 'matched';
+      skipped++;
+      newPending.push(item);
+      continue;
     }
 
     // 현재 플랫폼에서 한국어 이름 조회
@@ -357,7 +366,7 @@ async function processReviewQueue(limit = 0) {
       }
       if (gameEntry) {
         const newPlatform = status === 'ios-only' ? 'android' : 'ios';
-        const newKey = `${newPlatform}:kr`;
+        const newKey = newPlatform;
 
         if (!gameEntry.appIds[newKey]) {
           gameEntry.appIds[newKey] = matched.appId;
@@ -366,6 +375,14 @@ async function processReviewQueue(limit = 0) {
         } else {
           alreadyComplete++;
         }
+
+        if (!item.appIds[newKey]) {
+          item.appIds[newKey] = matched.appId;
+        }
+
+        item.status = 'matched';
+        item.searchResults = searchResults.slice(0, 3).map(r => ({ title: r.title, appId: r.appId }));
+        item.lastSearched = new Date().toISOString();
 
         // 한국어 이름이면 게임명 업데이트 (영어→한국어)
         if (matched.title !== gameName && isKoreanName(matched.title) && !isKoreanName(gameName)) {
@@ -382,14 +399,15 @@ async function processReviewQueue(limit = 0) {
           gamesData.games[matched.title] = gameEntry;
         }
       }
-      // pending에서 제거 (처리 완료)
+      // pending 유지 (사람이 최종 확인 후 제거)
+      newPending.push(item);
     } else {
       // 부분 일치나 매칭 실패 → pending 유지 (수동 처리 필요)
       console.log(`  → 이름 불일치, pending 유지`);
       console.log(`    검색 결과: ${searchResults.slice(0, 3).map(r => r.title).join(', ')}`);
 
       // 검색 결과를 item에 첨부 (나중에 수동 처리 시 참고용)
-      item.candidates = searchResults.slice(0, 5);
+      item.searchResults = searchResults.slice(0, 5).map(r => ({ title: r.title, appId: r.appId }));
       item.lastSearched = new Date().toISOString();
       newPending.push(item);
       noMatch++;

@@ -1,4 +1,4 @@
-# GamersCrawl 프로젝트 가이드
+﻿# GamersCrawl 프로젝트 가이드
 
 ## 프로젝트 개요
 게임 업계 데이터 크롤링 및 일일/주간 리포트 생성 사이트
@@ -192,6 +192,95 @@ node generate-weekly-insight.js --force  # 강제 재생성
    ├── aiGeneratedAt: 생성 시각 (AM/PM 태그 표시용)
    ├── stockMap: {종목명: 코드} 맵
    └── stockPrices: {코드: 주가데이터} 맵
+```
+
+---
+
+## 게임 DB 관리 (리뷰 큐)
+
+### 개요
+- `games.json`: 게임 마스터 데이터
+- `review-queue.json`: 신규 게임 검증 대기열
+
+### 데이터 흐름
+
+```
+크롤링 → sync-and-enrich.js
+              ↓
+         신규 게임 → games.json 등록 + pending 추가
+              ↓
+         수동 검증 (process-review-queue.js 또는 직접)
+              ↓
+         검증 완료 → pending에서 제거
+```
+
+### 1단계: 자동 동기화 (sync-and-enrich.js)
+```bash
+node scripts/sync-and-enrich.js [날짜]
+```
+- 히스토리에서 신규 게임 감지
+- games.json에 자동 등록
+- 모든 신규 게임을 pending에 추가
+
+### 2단계: 자동 재처리 (process-review-queue.js)
+```bash
+node scripts/process-review-queue.js [limit]
+```
+- pending 게임들 반대 플랫폼 재검색
+- 이름 완전 일치 시 자동 매칭
+- 자동 매칭돼도 pending 유지 (수동 확인 후 제거)
+
+### 3단계: 수동 검증
+
+**반대 플랫폼 검증:**
+| 상태 | 작업 |
+|------|------|
+| 양쪽 매칭됨 | 자동 매칭 확인 (오매칭 체크) |
+| 단일 플랫폼 | 인터넷 검색으로 반대 플랫폼 찾기 |
+
+**aliases 검증:**
+| 체크 항목 | 예시 |
+|----------|------|
+| 반대 플랫폼 이름 | 매직 레벨 9 ↔ 피아노 레벨 9 |
+| 영문/한글 변형 | 헌티드 머지 ↔ Haunted Merge |
+| 공백/특수문자 변형 | 돼지 키우는 중입니다 ↔ 돼지키우는중입니다 |
+
+**최종 정리:**
+- games.json 업데이트 (appId + aliases)
+- pending에서 제거
+
+### games.json 구조
+```json
+{
+  "게임명": {
+    "appIds": {
+      "ios": "123456789",
+      "android": "com.company.game",
+      "steam": "12345"
+    },
+    "aliases": ["영문명", "다른이름"],
+    "developer": "개발사",
+    "icon": "아이콘URL",
+    "slug": "game-slug",
+    "platforms": ["ios", "android"]
+  }
+}
+```
+
+### review-queue.json 구조
+```json
+{
+  "pending": [
+    {
+      "title": "게임명",
+      "appIds": { "ios": "123456789" },
+      "status": "single",
+      "addedAt": "2025-01-01T00:00:00.000Z"
+    }
+  ],
+  "approved": [],
+  "rejected": []
+}
 ```
 
 ---
