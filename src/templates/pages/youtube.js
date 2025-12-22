@@ -110,7 +110,7 @@ function generateYoutubePage(data) {
     currentPage: 'youtube',
     title: '게이머스크롤 | 게임 영상',
     description: '유튜브 게임 카테고리 인기 영상 TOP 50, 치지직·숲 게임 라이브 스트리밍 실시간 순위. 지금 가장 핫한 게임 콘텐츠를 확인하세요.',
-    canonical: 'https://gamerscrawl.com/youtube',
+    canonical: 'https://gamerscrawl.com/youtube/',
     pageScripts
   });
 }

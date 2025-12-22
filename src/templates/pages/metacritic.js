@@ -77,7 +77,7 @@ function generateMetacriticPage(data) {
     currentPage: 'metacritic',
     title: '게이머스크롤 | 메타크리틱 평점',
     description: '메타크리틱 올해의 게임 TOP 30. 전문 평론가 점수 기준 최고의 게임을 확인하세요. 메타스코어로 보는 명작 게임 추천.',
-    canonical: 'https://gamerscrawl.com/metacritic',
+    canonical: 'https://gamerscrawl.com/metacritic/',
     pageScripts
   });
 }

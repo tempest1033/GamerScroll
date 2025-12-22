@@ -421,7 +421,7 @@ function generateTrendPage(data) {
       currentPage: 'trend',
       title: '게이머스크롤 | 게임 트렌드 리포트',
       description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
-      canonical: 'https://gamerscrawl.com/trend'
+      canonical: 'https://gamerscrawl.com/trend/'
     });
   }
 
@@ -785,7 +785,7 @@ function generateTrendPage(data) {
     currentPage: 'trend',
     title: '게이머스크롤 | 게임 트렌드 리포트',
     description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
-    canonical: 'https://gamerscrawl.com/trend',
+    canonical: 'https://gamerscrawl.com/trend/',
     pageScripts
   });
 }

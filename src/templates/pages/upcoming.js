@@ -125,7 +125,7 @@ function generateUpcomingPage(data) {
     currentPage: 'upcoming',
     title: '게이머스크롤 | 출시 예정 게임',
     description: '스팀 위시리스트 TOP 20, 닌텐도 스위치, PS5, 모바일 신작 게임 출시 일정. 기대작 정보를 미리 확인하고 놓치지 마세요.',
-    canonical: 'https://gamerscrawl.com/upcoming',
+    canonical: 'https://gamerscrawl.com/upcoming/',
     pageScripts
   });
 }

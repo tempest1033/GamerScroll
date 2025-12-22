@@ -373,66 +373,51 @@ async function main() {
   fs.copyFileSync('./search/index.html', `${searchDir}/index.html`);
   fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
 
-  // sitemap.xml 동적 생성 (lastmod 자동 업데이트)
+  // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];
+
+  // 메인 페이지 URL 목록
+  const mainPages = [
+    { loc: 'https://gamerscrawl.com/', changefreq: 'hourly', priority: '1.0' },
+    { loc: 'https://gamerscrawl.com/trend/', changefreq: 'hourly', priority: '0.9' },
+    { loc: 'https://gamerscrawl.com/news/', changefreq: 'hourly', priority: '0.9' },
+    { loc: 'https://gamerscrawl.com/community/', changefreq: 'hourly', priority: '0.8' },
+    { loc: 'https://gamerscrawl.com/youtube/', changefreq: 'hourly', priority: '0.8' },
+    { loc: 'https://gamerscrawl.com/rankings/', changefreq: 'hourly', priority: '0.9' },
+    { loc: 'https://gamerscrawl.com/steam/', changefreq: 'hourly', priority: '0.8' },
+    { loc: 'https://gamerscrawl.com/upcoming/', changefreq: 'daily', priority: '0.7' },
+    { loc: 'https://gamerscrawl.com/metacritic/', changefreq: 'daily', priority: '0.7' }
+  ];
+
+  // 게임 페이지 자동 스캔
+  const gamesDir = `${DOCS_DIR}/games`;
+  let gamePages = [];
+  if (fs.existsSync(gamesDir)) {
+    const gameFolders = fs.readdirSync(gamesDir, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
+    gamePages = gameFolders.map(slug => ({
+      loc: `https://gamerscrawl.com/games/${slug}/`,
+      changefreq: 'weekly',
+      priority: '0.6'
+    }));
+  }
+
+  // Sitemap XML 생성
+  const allPages = [...mainPages, ...gamePages];
+  const sitemapEntries = allPages.map(page => `  <url>
+    <loc>${page.loc}</loc>
+    <lastmod>${sitemapDate}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join('\n');
+
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://gamerscrawl.com/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://gamerscrawl.com/trend/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://gamerscrawl.com/news/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://gamerscrawl.com/community/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://gamerscrawl.com/youtube/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://gamerscrawl.com/rankings/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://gamerscrawl.com/steam/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://gamerscrawl.com/upcoming/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gamerscrawl.com/metacritic/</loc>
-    <lastmod>${sitemapDate}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
+${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
+  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 게임 ${gamePages.length}개 = 총 ${allPages.length}개 URL`);
 
   console.log(`\n✅ 완료! (docs/ 동기화 + sitemap 갱신)`);
 
