@@ -494,20 +494,44 @@ function wrapWithLayout(content, options = {}) {
   ${generateNav(currentPage)}
   <main class="container">
     ${content}
-  </main>
-  ${generateFooter()}
-  ${SHOW_ADS ? `<script>
-    window.addEventListener('load', function() {
-      document.querySelectorAll('.adsbygoogle').forEach(function() {
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch(e) {}
-      });
-    });
-  </script>` : ''}
-  ${pageScripts}
-  ${showSearchBar ? searchBarScript : ''}
-  ${hoverPrefetchScript}
+	  </main>
+	  ${generateFooter()}
+	  ${SHOW_ADS ? `<script>
+	    (function() {
+	      function canInit(el) {
+	        if (!el || !el.isConnected) return false;
+	        const rect = el.getBoundingClientRect();
+	        if (!rect || rect.width <= 0) return false;
+	        const style = window.getComputedStyle(el);
+	        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+	        return true;
+	      }
+
+	      function initAds() {
+	        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+	          if (el.dataset.gcAdsInit === '1') return;
+	          if (!canInit(el)) return;
+	          el.dataset.gcAdsInit = '1';
+	          try {
+	            (adsbygoogle = window.adsbygoogle || []).push({});
+	          } catch (e) {
+	            el.removeAttribute('data-gc-ads-init');
+	          }
+	        });
+	      }
+
+	      window.addEventListener('load', initAds);
+
+	      let resizeTimer = null;
+	      window.addEventListener('resize', function() {
+	        clearTimeout(resizeTimer);
+	        resizeTimer = setTimeout(initAds, 200);
+	      }, { passive: true });
+	    })();
+	  </script>` : ''}
+	  ${pageScripts}
+	  ${showSearchBar ? searchBarScript : ''}
+	  ${hoverPrefetchScript}
   ${swipeScript}
 </body>
 </html>`;
