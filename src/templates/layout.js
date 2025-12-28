@@ -537,17 +537,24 @@ function wrapWithLayout(content, options = {}) {
 	        });
 	      }
 
-	      window.addEventListener('load', function() {
+	      function runInit() {
 	        initAds();
 	        scheduleVisibilityCheck();
-	      });
+	      }
+
+	      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+	        requestAnimationFrame(runInit);
+	      } else {
+	        document.addEventListener('DOMContentLoaded', runInit);
+	      }
+
+	      window.addEventListener('load', runInit);
 
 	      let resizeTimer = null;
 	      window.addEventListener('resize', function() {
 	        clearTimeout(resizeTimer);
 	        resizeTimer = setTimeout(function() {
-	          initAds();
-	          scheduleVisibilityCheck();
+	          runInit();
 	        }, 200);
 	      }, { passive: true });
 	    })();

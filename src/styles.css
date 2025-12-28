@@ -2163,10 +2163,20 @@
 	    .ad-slot > ins.adsbygoogle {
 	      display: block;
 	      width: 100%;
+	      min-height: 90px;
+	    }
+
+	    .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"] {
+	      min-height: 250px;
+	    }
+
+	    .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
+	      min-height: 600px;
 	    }
 
 	    .ad-slot.ad-slot--unfilled {
-	      display: none !important;
+	      visibility: hidden;
+	      pointer-events: none;
 	    }
 
     .ad-slot-top {
