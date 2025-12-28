@@ -2184,9 +2184,9 @@
 		      margin-bottom: calc(var(--space-sm) - var(--space-block-gap));
 		    }
 
-		    /* 홈 첫 배너: 네비 아래 12 유지 */
+		    /* 홈 첫 배너: 사이드바 카드와 정렬 */
 		    .home-container #ad-above-trend.ad-slot-section {
-		      margin-top: calc(var(--space-sm) - var(--space-block-y));
+		      margin-top: 0;
 		    }
 
 		    #insight .ad-slot-section {
