@@ -496,6 +496,11 @@ function wrapWithLayout(content, options = {}) {
     ${content}
   </main>
   ${generateFooter()}
+  ${SHOW_ADS ? `<script>
+    document.querySelectorAll('.adsbygoogle').forEach(function() {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+  </script>` : ''}
   ${pageScripts}
   ${showSearchBar ? searchBarScript : ''}
   ${hoverPrefetchScript}
