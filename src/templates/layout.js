@@ -507,6 +507,23 @@ function wrapWithLayout(content, options = {}) {
 	        return true;
 	      }
 
+	      function syncAdSlotVisibility() {
+	        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+	          const status = el.getAttribute('data-ad-status');
+	          if (!status) return;
+	          const slot = el.closest('.ad-slot');
+	          if (!slot) return;
+	          if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
+	          else slot.classList.remove('ad-slot--unfilled');
+	        });
+	      }
+
+	      let visibilityTimer = null;
+	      function scheduleVisibilityCheck() {
+	        clearTimeout(visibilityTimer);
+	        visibilityTimer = setTimeout(syncAdSlotVisibility, 3000);
+	      }
+
 	      function initAds() {
 	        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
 	          if (el.dataset.gcAdsInit === '1') return;
@@ -520,12 +537,18 @@ function wrapWithLayout(content, options = {}) {
 	        });
 	      }
 
-	      window.addEventListener('load', initAds);
+	      window.addEventListener('load', function() {
+	        initAds();
+	        scheduleVisibilityCheck();
+	      });
 
 	      let resizeTimer = null;
 	      window.addEventListener('resize', function() {
 	        clearTimeout(resizeTimer);
-	        resizeTimer = setTimeout(initAds, 200);
+	        resizeTimer = setTimeout(function() {
+	          initAds();
+	          scheduleVisibilityCheck();
+	        }, 200);
 	      }, { passive: true });
 	    })();
 	  </script>` : ''}

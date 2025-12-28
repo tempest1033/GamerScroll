@@ -376,9 +376,10 @@ function generateIndexPage(data) {
     '</div>' : '';
 
   // 광고 슬롯 HTML 생성 함수
-  function adSlot(id, extraClass) {
+  function adSlot(id, extraClass, adFormat) {
     if (!SHOW_ADS) return '';
-    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+    var format = adFormat || 'horizontal';
+    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="' + format + '" data-full-width-responsive="true"></ins></div>';
   }
 
   var content = '<section class="home-section active" id="home">' +
@@ -425,7 +426,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
     '</div>' +
-    adSlot('ad-below-mobile', 'pc-only') +
+    adSlot('ad-below-mobile', 'pc-only', 'auto') +
     adSlot('ad-above-steam', 'mobile-only') +
     '<div class="home-card" id="home-steam">' +
     '<div class="home-card-header">' +
@@ -440,7 +441,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
     '</div>' +
-    adSlot('ad-above-upcoming', '') +
+    adSlot('ad-above-upcoming', '', 'auto') +
     '<div class="home-card" id="home-upcoming">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">신규 게임</div>' +
