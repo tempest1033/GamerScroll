@@ -378,7 +378,7 @@ function generateIndexPage(data) {
   // 광고 슬롯 HTML 생성 함수
   function adSlot(id, extraClass) {
     if (!SHOW_ADS) return '';
-    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
+    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
   }
 
   var content = '<section class="home-section active" id="home">' +
