@@ -386,7 +386,7 @@ function generateIndexPage(data) {
   var content = '<section class="home-section active" id="home">' +
     '<div class="home-container">' +
     '<div class="home-main">' +
-    adSlot('ad-above-trend', '') +
+    adSlot('ad-above-trend', '', 'horizontal', '5214702534') +
     insightCardHtml +
     '<div class="home-card" id="home-news">' +
     '<div class="home-card-header">' +
@@ -395,7 +395,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
-    adSlot('ad-below-news', 'pc-only') +
+    adSlot('ad-below-news', 'pc-only', 'horizontal', '4377097736') +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">커뮤니티 베스트</div>' +
@@ -403,7 +403,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
-    adSlot('ad-below-community', 'pc-only') +
+    adSlot('ad-below-community', 'pc-only', 'horizontal', '2509466388') +
     '<div class="home-card" id="home-video">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">영상 순위</div>' +
@@ -413,7 +413,7 @@ function generateIndexPage(data) {
     '</div>' +
     '</div>' +
     '<div class="home-sidebar">' +
-    adSlot('ad-above-mobile', 'mobile-only') +
+    adSlot('ad-above-mobile', 'mobile-only', 'horizontal', '4377097736') +
     '<div class="home-card" id="home-mobile-rank">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">모바일 랭킹</div>' +
@@ -427,8 +427,8 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
     '</div>' +
-    adSlot('ad-below-mobile', 'pc-only', 'rectangle', '1795150514') +
-    adSlot('ad-above-steam', 'mobile-only') +
+    adSlot('ad-below-mobile', 'pc-only', 'vertical', '2509466388') +
+    adSlot('ad-above-steam', 'mobile-only', 'horizontal', '2509466388') +
     '<div class="home-card" id="home-steam">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">스팀 순위</div>' +
@@ -442,7 +442,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
     '</div>' +
-    adSlot('ad-above-upcoming', '', 'vertical', '6855905500') +
+    adSlot('ad-above-upcoming', 'ad-slot--no-reserve', 'rectangle', '1795150514') +
     '<div class="home-card" id="home-upcoming">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">신규 게임</div>' +

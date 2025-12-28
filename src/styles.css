@@ -2179,6 +2179,19 @@
 	      pointer-events: none;
 	    }
 
+	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
+	      min-height: 0;
+	    }
+
+	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle[data-ad-format="rectangle"],
+	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle[data-ad-format="vertical"] {
+	      min-height: 0;
+	    }
+
+	    .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
+	      display: none;
+	    }
+
     .ad-slot-top {
       margin-bottom: var(--space-block-y);
     }
