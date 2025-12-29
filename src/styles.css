@@ -2199,25 +2199,22 @@
     }
 
 	    .ad-slot-section {
-	      margin-top: var(--space-sm);
-	      margin-bottom: var(--space-sm);
+	      margin-top: 8px;
+	      margin-bottom: 8px;
 	    }
 
 		    /* 광고 배너 간격 - 페이지별 기존 리듬 유지 */
 		    .home-container .ad-slot-section {
-		      margin-top: calc(var(--space-sm) - var(--space-block-gap));
-		      margin-bottom: calc(var(--space-sm) - var(--space-block-gap));
+		      margin-top: 4px;
+		      margin-bottom: 4px;
 		    }
 
-		    /* 홈 첫 배너: 사이드바 카드와 정렬 */
+		    /* 홈 첫 배너: 사이드바 카드와 정렬 + 높이 제한 (네이버 스타일) */
 		    .home-container #ad-above-trend-pc.ad-slot-section,
 		    .home-container #ad-above-trend-mobile.ad-slot-section {
 		      margin-top: 0;
-		    }
-
-		    /* 상단 배너 높이 제한 (네이버 스타일) */
-		    #ad-above-trend-pc ins.adsbygoogle {
-		      max-height: 120px;
+		      margin-bottom: 4px;
+		      max-height: 95px;
 		      overflow: hidden;
 		    }
 
@@ -2368,9 +2365,15 @@
       }
 
       /* 모바일 상단 배너 높이 제한 (네이버 스타일) */
-      #ad-above-trend-mobile ins.adsbygoogle {
-        max-height: 100px;
+      #ad-above-trend-mobile.ad-slot-section {
+        max-height: 90px;
         overflow: hidden;
+      }
+
+      /* 모바일 광고 여백 축소 */
+      .ad-slot-section {
+        margin-top: 4px;
+        margin-bottom: 4px;
       }
     }
 

@@ -1,4 +1,4 @@
-
+﻿
     /* 폰트 로딩 전 화면 숨김 - FOUT 완전 방지 */
     html {
       opacity: 0;
@@ -753,18 +753,18 @@
     }
 
     /* 홈 레이아웃 컨테이너 */
-    .home-container {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: var(--space-block-gap);
-      padding: var(--space-block-y) 0;
-    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: var(--space-block-y) 0;
+	    }
 
-    .home-main {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-block-gap);
-    }
+	    .home-main {
+	      display: flex;
+	      flex-direction: column;
+	      gap: var(--space-block-gap);
+	    }
 
     .home-sidebar {
       display: flex;
@@ -2155,12 +2155,13 @@
       color: var(--font-rank-dev-color);
     }
 
-    /* 광고 배너 슬롯 */
-	    .ad-slot {
-	      display: block;
-	      width: 100%;
-	      line-height: 0;
-	    }
+	    /* 광고 배너 슬롯 */
+		    .ad-slot {
+		      display: block;
+		      width: 100%;
+		      line-height: 0;
+		      text-align: center;
+		    }
 
 	    .ad-slot > ins.adsbygoogle {
 	      display: block;
@@ -2173,12 +2174,11 @@
 	    }
 
 	    .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
-	      min-height: 600px;
+	      min-height: 250px;
 	    }
 
 	    .ad-slot.ad-slot--unfilled {
-	      visibility: hidden;
-	      pointer-events: none;
+	      display: none;
 	    }
 
 	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
@@ -2213,6 +2213,12 @@
 		    .home-container #ad-above-trend-pc.ad-slot-section,
 		    .home-container #ad-above-trend-mobile.ad-slot-section {
 		      margin-top: 0;
+		    }
+
+		    /* 상단 배너 높이 제한 (네이버 스타일) */
+		    #ad-above-trend-pc ins.adsbygoogle {
+		      max-height: 120px;
+		      overflow: hidden;
 		    }
 
 		    #insight .ad-slot-section {
@@ -2349,6 +2355,22 @@
 
       .ad-slot.mobile-only {
         display: block;
+      }
+
+      /* 모바일에서 광고 미노출 시 여백 최소화 */
+      .ad-slot > ins.adsbygoogle {
+        min-height: 0;
+      }
+
+      .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"],
+      .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
+        min-height: 0;
+      }
+
+      /* 모바일 상단 배너 높이 제한 (네이버 스타일) */
+      #ad-above-trend-mobile ins.adsbygoogle {
+        max-height: 100px;
+        overflow: hidden;
       }
     }
 
