@@ -2174,9 +2174,10 @@
       max-width: 100%;
     }
 
-    /* PC 광고 크기 제한 */
+    /* PC 광고: 컨테이너 너비에 맞춤 */
     .ad-slot.pc-only > ins.adsbygoogle {
-      max-width: 728px;
+      width: 100% !important;
+      max-width: 100%;
       max-height: 600px;
     }
 

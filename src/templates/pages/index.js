@@ -454,6 +454,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-below-mobile', 'pc-only ad-slot--no-reserve', 'vertical', AD_SLOTS.vertical) +
+	    adSlot('ad-above-steam-pc', 'pc-only ad-slot--no-reserve', 'rectangle', AD_SLOTS.rectangle3) +
 	    adSlotMobile('ad-above-steam', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
