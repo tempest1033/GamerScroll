@@ -2157,13 +2157,10 @@
 
 	    /* 광고 배너 슬롯 */
     .ad-slot {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: block;
       width: 100%;
       line-height: 0;
       text-align: center;
-      overflow: hidden;
       box-sizing: border-box;
     }
 
@@ -2326,7 +2323,7 @@
       }
 
       .ad-slot.mobile-only {
-        display: flex;
+        display: block;
       }
 
       /* 모바일 광고 여백 및 크기 통일 */
