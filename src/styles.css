@@ -2156,40 +2156,57 @@
     }
 
 	    /* 광고 배너 슬롯 */
-	    .ad-slot {
-	      display: block;
-	      width: 100%;
-	      line-height: 0;
-	      text-align: center;
-	    }
+    .ad-slot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      line-height: 0;
+      text-align: center;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
 
-	    /* 고정 규격 광고는 인라인 사이즈를 우선 적용 */
-	    .ad-slot > ins.adsbygoogle {
-	      display: inline-block;
-	      margin: 0 auto;
-	    }
+    /* 고정 규격 광고는 인라인 사이즈를 우선 적용 */
+    .ad-slot > ins.adsbygoogle {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
 
-	    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 */
-	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
-	      min-height: 0 !important;
-	    }
+    /* PC 광고 크기 제한 */
+    .ad-slot.pc-only > ins.adsbygoogle {
+      max-width: 728px;
+      max-height: 600px;
+    }
 
-	    .ad-slot.ad-slot--unfilled {
-	      display: none;
-	    }
+    /* 모바일 광고 크기 제한 */
+    .ad-slot.mobile-only > ins.adsbygoogle {
+      max-width: 320px;
+      max-height: 250px;
+    }
 
-	    .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
-	      display: none;
-	    }
+    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 */
+    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
+      min-height: 0 !important;
+    }
+
+    .ad-slot.ad-slot--unfilled {
+      display: none;
+    }
+
+    .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
+      display: none;
+    }
 
     .ad-slot-top {
       margin-bottom: var(--space-block-y);
     }
 
-	    .ad-slot-section {
-	      padding-top: 6px;
-	      padding-bottom: 6px;
-	    }
+    /* PC 광고 여백 */
+    .ad-slot-section {
+      padding: 12px 0;
+    }
 
 		    /* 광고 배너가 있을 때, 기존 상단 여백 중복 제거 */
 		    .ad-slot-section + .news-controls,
@@ -2308,13 +2325,22 @@
       }
 
       .ad-slot.mobile-only {
-        display: block;
+        display: flex;
       }
 
-      /* 모바일 광고 여백 통일 */
+      /* 모바일 광고 여백 및 크기 통일 */
       .ad-slot-section {
-        padding-top: 6px;
-        padding-bottom: 6px;
+        padding: 8px 0;
+      }
+
+      /* 모바일 광고 컨테이너 최대 너비 제한 */
+      .ad-slot {
+        max-width: 100%;
+      }
+
+      .ad-slot > ins.adsbygoogle {
+        max-width: 320px !important;
+        max-height: 250px !important;
       }
     }
 

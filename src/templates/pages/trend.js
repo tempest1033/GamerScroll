@@ -3,7 +3,7 @@
  * NOTE: 복잡한 기능은 추후 추가 예정
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
 
 // 태그 아이콘 매핑
 const tagIcons = {
@@ -718,12 +718,7 @@ function generateTrendPage(data) {
 
   const content = `
     <section class="section active" id="insight">
-      ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
-        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}"></ins>
-      </div>
-      <div class="ad-slot ad-slot-section mobile-only">
-        <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal5}"></ins>
-      </div>` : ''}
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
 
       <div class="insight-page-container">
         <div class="insight-tabs">

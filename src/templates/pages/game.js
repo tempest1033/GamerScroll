@@ -3,7 +3,7 @@
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {
@@ -1166,12 +1166,7 @@ function generateGamePage(gameData) {
   };
 
   const content = `
-    ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
-      <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}"></ins>
-    </div>
-    <div class="ad-slot ad-slot-section mobile-only">
-      <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal5}"></ins>
-    </div>` : ''}
+    ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
     <div class="game-page">
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">

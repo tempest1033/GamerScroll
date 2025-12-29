@@ -377,11 +377,13 @@ function generateIndexPage(data) {
 
 	  function getAdSize(format, isMobile) {
 	    if (isMobile) {
+	      // 모바일: 320x100 (horizontal), 300x250 (rectangle/vertical)
 	      if (format === 'horizontal') return { width: 320, height: 100 };
 	      if (format === 'rectangle') return { width: 300, height: 250 };
-	      if (format === 'vertical') return { width: 300, height: 600 };
+	      if (format === 'vertical') return { width: 300, height: 250 }; // 모바일에서 vertical은 rectangle로 대체
 	      return { width: 320, height: 100 };
 	    }
+	    // PC: 728x90 (horizontal), 300x250 (rectangle), 300x600 (vertical)
 	    if (format === 'horizontal') return { width: 728, height: 90 };
 	    if (format === 'rectangle') return { width: 300, height: 250 };
 	    if (format === 'vertical') return { width: 300, height: 600 };

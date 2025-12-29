@@ -708,4 +708,22 @@ function wrapWithLayout(content, options = {}) {
 </html>`;
 }
 
-module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS };
+/**
+ * 공통 광고 슬롯 HTML 생성 함수
+ * PC/모바일 분리된 광고 세트 생성
+ * @param {string} slotIdPc - PC용 광고 슬롯 ID
+ * @param {string} slotIdMobile - 모바일용 광고 슬롯 ID (기본값: slotIdPc)
+ * @param {string} extraClass - 추가 CSS 클래스 (선택)
+ */
+function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
+  if (!SHOW_ADS) return '';
+  const mobileSlot = slotIdMobile || slotIdPc;
+  return `<div class="ad-slot ad-slot-section pc-only ${extraClass}">
+    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}"></ins>
+  </div>
+  <div class="ad-slot ad-slot-section mobile-only ${extraClass}">
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
+  </div>`;
+}
+
+module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot };
