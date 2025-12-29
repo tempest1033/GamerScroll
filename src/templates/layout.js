@@ -593,7 +593,9 @@ function wrapWithLayout(content, options = {}) {
 		          if (!seenAt) return;
 		          if (now - seenAt < delayMs) return;
 
-		          slot.classList.add('ad-slot--unfilled');
+		          // 늦게 로드되는 광고를 "미노출"로 오판해 숨기지 않도록,
+		          // data-ad-status="unfilled" 처럼 명확히 unfilled인 경우에만 접기.
+		          if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
 		        });
 		      }
 
@@ -646,7 +648,7 @@ function wrapWithLayout(content, options = {}) {
 	          try {
 	            (adsbygoogle = window.adsbygoogle || []).push({});
 	          } catch (e) {
-	            el.removeAttribute('data-gc-ads-init');
+	            delete el.dataset.gcAdsInit;
 		          }
 		        });
 		      }

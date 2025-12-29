@@ -391,6 +391,10 @@ function generateIndexPage(data) {
 	    } else {
 	      style = 'display:block;width:100%;height:90px';
 	    }
+	    // no-reserve 슬롯은 광고가 늦게/미노출될 때 높이만 남지 않도록 초기 높이 예약을 하지 않는다.
+	    if ((extraClass || '').indexOf('ad-slot--no-reserve') !== -1) {
+	      style = 'display:block;width:100%;';
+	    }
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="' + style + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
@@ -408,6 +412,10 @@ function generateIndexPage(data) {
 	    } else {
 	      // auto: 모바일 기본 - 반응형 유지
 	      style = 'display:block;width:100%;height:100px';
+	    }
+	    // no-reserve 슬롯은 초기 높이 예약을 하지 않는다. (로드 지연 시 여백 방지)
+	    if ((extraClass || '').indexOf('ad-slot--no-reserve') !== -1) {
+	      style = 'display:block;width:100%;';
 	    }
 	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="' + style + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
@@ -457,7 +465,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
-	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.vertical) +
+	    adSlot('ad-below-mobile', 'pc-only ad-slot--no-reserve', 'vertical', AD_SLOTS.vertical) +
 	    adSlotMobile('ad-above-steam', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
@@ -472,7 +480,7 @@ function generateIndexPage(data) {
     '</div>' +
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
-	    adSlot('ad-above-upcoming-pc', 'pc-only', 'rectangle', AD_SLOTS.rectangle) +
+	    adSlot('ad-above-upcoming-pc', 'pc-only ad-slot--no-reserve', 'rectangle', AD_SLOTS.rectangle) +
 	    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4, 'rectangle') +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +

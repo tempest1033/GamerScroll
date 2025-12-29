@@ -2762,6 +2762,15 @@
       box-sizing: border-box;
     }
 
+    /* 와이드 화면(대형 모니터)에서 좌측 컬럼 폭 확보: 970px 배너 선택 가능하게 */
+    @media (min-width: 1400px) {
+      .container,
+      .header-inner,
+      .nav-inner {
+        max-width: 1350px;
+      }
+    }
+
     /* Sections */
     .section {
       display: none;
