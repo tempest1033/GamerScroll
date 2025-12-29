@@ -375,28 +375,48 @@ function generateIndexPage(data) {
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
 
-	  // 광고 슬롯 HTML 생성 함수 (PC용 - 반응형)
+	  // 광고 슬롯 HTML 생성 함수 (PC용 - 정석: CSS로 크기 제어)
 	  function adSlot(id, extraClass, adFormat, adSlotId) {
 	    if (!SHOW_ADS) return '';
 	    var format = adFormat || 'horizontal';
 	    var slotId = adSlotId || '5214702534';
-	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="' + format + '" data-full-width-responsive="true"></ins></div>';
+	    // 정석 방법: width:100% + 고정 height, data-ad-format/data-full-width-responsive 제거
+	    var style;
+	    if (format === 'horizontal') {
+	      style = 'display:block;width:100%;height:90px';
+	    } else if (format === 'rectangle') {
+	      style = 'display:block;width:100%;height:250px';
+	    } else if (format === 'vertical') {
+	      style = 'display:block;width:100%;height:600px';
+	    } else {
+	      style = 'display:block;width:100%;height:90px';
+	    }
+	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="' + style + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
-	  // 모바일용 광고 슬롯 (기본: auto + full width)
-	  function adSlotMobile(id, extraClass, adSlotId, adFormat, fullWidthResponsive) {
+	  // 모바일용 광고 슬롯 (정석: CSS로 크기 제어)
+	  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
 	    if (!SHOW_ADS) return '';
 	    var slotId = adSlotId || '5214702534';
 	    var format = adFormat || 'auto';
-	    var fullWidth = fullWidthResponsive === false ? 'false' : 'true';
-	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="' + format + '" data-full-width-responsive="' + fullWidth + '"></ins></div>';
+	    // 정석 방법: width:100% + 고정 height
+	    var style;
+	    if (format === 'horizontal') {
+	      style = 'display:block;width:100%;height:90px';
+	    } else if (format === 'rectangle') {
+	      style = 'display:block;width:100%;height:250px';
+	    } else {
+	      // auto: 모바일 기본 - 반응형 유지
+	      style = 'display:block;width:100%;height:100px';
+	    }
+	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="' + style + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<div class="home-container">' +
 	    '<div class="home-main">' +
 	    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', AD_SLOTS.horizontal) +
-	    adSlotMobile('ad-above-trend-mobile', '', AD_SLOTS.horizontal, 'horizontal', true) +
+	    adSlotMobile('ad-above-trend-mobile', '', AD_SLOTS.horizontal, 'horizontal') +
 	    insightCardHtml +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
@@ -423,7 +443,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '</div>' +
 	    '<div class="home-sidebar">' +
-	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'rectangle', true) +
+	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'rectangle') +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
 	    '<div class="home-card-title">모바일 랭킹</div>' +
@@ -438,7 +458,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.vertical) +
-	    adSlotMobile('ad-above-steam', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle', true) +
+	    adSlotMobile('ad-above-steam', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<div class="home-card-title">스팀 순위</div>' +
@@ -453,7 +473,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-above-upcoming-pc', 'pc-only', 'rectangle', AD_SLOTS.rectangle) +
-	    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4, 'rectangle', true) +
+	    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4, 'rectangle') +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
 	    '<div class="home-card-title">신규 게임</div>' +

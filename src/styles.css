@@ -2155,7 +2155,7 @@
       color: var(--font-rank-dev-color);
     }
 
-	    /* 광고 배너 슬롯 */
+	    /* 광고 배너 슬롯 - 정석: 인라인 스타일로 크기 제어 */
 		    .ad-slot {
 		      display: block;
 		      width: 100%;
@@ -2165,34 +2165,11 @@
 
 	    .ad-slot > ins.adsbygoogle {
 	      display: block;
-	      width: 100%;
-	      min-height: 90px;
-	    }
-
-	    .ad-slot > ins.adsbygoogle[data-ad-format="horizontal"] {
-	      max-height: 120px;
-	      overflow: hidden;
-	    }
-
-	    .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"] {
-	      min-height: 250px;
-	    }
-
-	    .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
-	      min-height: 250px;
+	      /* 크기는 인라인 스타일로 지정됨 (width:100%;height:Xpx) */
 	    }
 
 	    .ad-slot.ad-slot--unfilled {
 	      display: none;
-	    }
-
-	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
-	      min-height: 0;
-	    }
-
-	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle[data-ad-format="rectangle"],
-	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle[data-ad-format="vertical"] {
-	      min-height: 0;
 	    }
 
 	    .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
@@ -2214,13 +2191,11 @@
 		      margin-bottom: 4px;
 		    }
 
-		    /* 홈 첫 배너: 사이드바 카드와 정렬 + 높이 제한 (네이버 스타일) */
+		    /* 홈 첫 배너: 사이드바 카드와 정렬 */
 		    .home-container #ad-above-trend-pc.ad-slot-section,
 		    .home-container #ad-above-trend-mobile.ad-slot-section {
 		      margin-top: 0;
 		      margin-bottom: 4px;
-		      max-height: 120px;
-		      overflow: hidden;
 		    }
 
 		    #insight .ad-slot-section {
@@ -2357,22 +2332,6 @@
 
       .ad-slot.mobile-only {
         display: block;
-      }
-
-      /* 모바일에서 광고 미노출 시 여백 최소화 */
-      .ad-slot > ins.adsbygoogle {
-        min-height: 0;
-      }
-
-      .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"],
-      .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
-        min-height: 0;
-      }
-
-      /* 모바일 상단 배너 높이 제한 (네이버 스타일) */
-      #ad-above-trend-mobile.ad-slot-section {
-        max-height: 120px;
-        overflow: hidden;
       }
 
       /* 모바일 광고 여백 축소 */
