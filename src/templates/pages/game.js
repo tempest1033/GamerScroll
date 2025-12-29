@@ -1167,10 +1167,10 @@ function generateGamePage(gameData) {
 
   const content = `
     ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
     <div class="ad-slot ad-slot-section mobile-only">
-      <ins class="adsbygoogle" style="display:block;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>` : ''}
     <div class="game-page">
       <!-- 게임 히어로 -->

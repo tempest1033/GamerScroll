@@ -507,18 +507,84 @@ function wrapWithLayout(content, options = {}) {
 		        return true;
 		      }
 
+		      function hasRenderedAd(el) {
+		        try {
+		          return !!(el && el.querySelector && el.querySelector('iframe'));
+		        } catch {
+		          return false;
+		        }
+		      }
+
+		      function isNearViewport(el, marginPx) {
+		        try {
+		          const rect = el.getBoundingClientRect();
+		          const vh = window.innerHeight || document.documentElement.clientHeight || 0;
+		          const margin = typeof marginPx === 'number' ? marginPx : 0;
+		          return rect.bottom >= -margin && rect.top <= (vh + margin);
+		        } catch {
+		          return false;
+		        }
+		      }
+
+		      let lastResizeKickAt = 0;
+		      function kickResizeSoon() {
+		        const now = Date.now();
+		        if (now - lastResizeKickAt < 1000) return;
+		        lastResizeKickAt = now;
+		        setTimeout(function() {
+		          window.dispatchEvent(new Event('resize'));
+		        }, 50);
+		      }
+
+		      function markSeen(el) {
+		        if (!el || el.dataset.gcAdsSeenAt) return;
+		        if (!isNearViewport(el, 200)) return;
+		        el.dataset.gcAdsSeenAt = String(Date.now());
+		        kickResizeSoon();
+		      }
+
 		      function syncOneAdSlot(el) {
 		        const slot = el.closest('.ad-slot');
 		        if (!slot) return;
 		        const status = el.getAttribute('data-ad-status');
 		        if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
-		        else slot.classList.remove('ad-slot--unfilled');
+		        else if (status === 'filled' || hasRenderedAd(el)) slot.classList.remove('ad-slot--unfilled');
 		      }
 
 		      function syncAdSlotVisibility() {
 		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+		          markSeen(el);
 		          syncOneAdSlot(el);
 		        });
+		      }
+
+		      function collapseEmptySeenSlots() {
+		        const now = Date.now();
+		        let delayMs = 6000;
+		        try {
+		          if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) delayMs = 3500;
+		        } catch {}
+
+		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+		          markSeen(el);
+		          const slot = el.closest('.ad-slot');
+		          if (!slot) return;
+		          if (slot.classList.contains('ad-slot--unfilled')) return;
+
+		          const status = el.getAttribute('data-ad-status');
+		          if (status === 'filled' || hasRenderedAd(el)) return;
+
+		          const seenAt = Number(el.dataset.gcAdsSeenAt || 0);
+		          if (!seenAt) return;
+		          if (now - seenAt < delayMs) return;
+
+		          slot.classList.add('ad-slot--unfilled');
+		        });
+		      }
+
+		      function runVisibilityPass() {
+		        syncAdSlotVisibility();
+		        collapseEmptySeenSlots();
 		      }
 
 		      function ensureAdStatusObserver() {
@@ -545,7 +611,7 @@ function wrapWithLayout(content, options = {}) {
 		        visibilityTimers.forEach(clearTimeout);
 		        visibilityTimers = [];
 		        [500, 1500, 3000, 6000].forEach(function(delay) {
-		          visibilityTimers.push(setTimeout(syncAdSlotVisibility, delay));
+		          visibilityTimers.push(setTimeout(runVisibilityPass, delay));
 		        });
 		      }
 
@@ -584,7 +650,7 @@ function wrapWithLayout(content, options = {}) {
 		      function runInit() {
 		        ensureAdStatusObserver();
 		        initAds();
-		        syncAdSlotVisibility();
+		        runVisibilityPass();
 		        scheduleVisibilityCheck();
 		        scheduleInitRetries();
 		        kickResizeOnce();
@@ -603,6 +669,15 @@ function wrapWithLayout(content, options = {}) {
 	        clearTimeout(resizeTimer);
 	        resizeTimer = setTimeout(function() {
 	          runInit();
+	        }, 200);
+	      }, { passive: true });
+
+	      let scrollTimer = null;
+	      window.addEventListener('scroll', function() {
+	        clearTimeout(scrollTimer);
+	        scrollTimer = setTimeout(function() {
+	          initAds();
+	          runVisibilityPass();
 	        }, 200);
 	      }, { passive: true });
 	    })();

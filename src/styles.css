@@ -2350,6 +2350,16 @@
       .ad-slot.mobile-only {
         display: block;
       }
+
+      /* 모바일에서 광고 미노출 시 여백 최소화 */
+      .ad-slot > ins.adsbygoogle {
+        min-height: 0;
+      }
+
+      .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"],
+      .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
+        min-height: 0;
+      }
     }
 
     @media (max-width: 480px) {

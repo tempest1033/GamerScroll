@@ -59,10 +59,10 @@ function generateYoutubePage(data) {
   const content = `
     <section class="section active" id="youtube">
       ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="auto" data-full-width-responsive="true"></ins>
       </div>
       <div class="ad-slot ad-slot-section mobile-only">
-        <ins class="adsbygoogle" style="display:block;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="auto" data-full-width-responsive="true"></ins>
       </div>` : ''}
       <div class="video-controls">
         <div class="tab-group" id="videoTab">
