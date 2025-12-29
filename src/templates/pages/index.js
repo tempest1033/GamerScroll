@@ -398,7 +398,7 @@ function generateIndexPage(data) {
 	    '<div class="home-container">' +
 	    '<div class="home-main">' +
 	    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', '5214702534') +
-	    adSlotMobile('ad-above-trend-mobile', '', '5214702534', 'auto', false) +
+	    adSlotMobile('ad-above-trend-mobile', '', '5214702534', 'auto', true) +
 	    insightCardHtml +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
@@ -425,7 +425,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '</div>' +
 	    '<div class="home-sidebar">' +
-	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', '7467129651', 'rectangle', false) +
+	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', '7467129651', 'rectangle', true) +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
 	    '<div class="home-card-title">모바일 랭킹</div>' +
@@ -440,7 +440,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-below-mobile', 'pc-only', 'vertical', '6855905500') +
-	    adSlotMobile('ad-above-steam', 'ad-slot--no-reserve', '4840966314', 'rectangle', false) +
+	    adSlotMobile('ad-above-steam', 'ad-slot--no-reserve', '4840966314', 'rectangle', true) +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<div class="home-card-title">스팀 순위</div>' +
@@ -455,7 +455,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-above-upcoming-pc', 'pc-only', 'rectangle', '1795150514') +
-	    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', '5039620326', 'rectangle', false) +
+	    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', '5039620326', 'rectangle', true) +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
 	    '<div class="home-card-title">신규 게임</div>' +

@@ -2215,6 +2215,12 @@
 		      margin-top: 0;
 		    }
 
+		    /* 상단 배너 높이 제한 (네이버 스타일) */
+		    #ad-above-trend-pc ins.adsbygoogle {
+		      max-height: 120px;
+		      overflow: hidden;
+		    }
+
 		    #insight .ad-slot-section {
 		      margin-top: var(--space-sm);
 		      margin-bottom: var(--space-sm);
@@ -2359,6 +2365,12 @@
       .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"],
       .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
         min-height: 0;
+      }
+
+      /* 모바일 상단 배너 높이 제한 (네이버 스타일) */
+      #ad-above-trend-mobile ins.adsbygoogle {
+        max-height: 100px;
+        overflow: hidden;
       }
     }
 
