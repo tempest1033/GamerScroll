@@ -2175,9 +2175,8 @@
       max-height: 600px;
     }
 
-    /* 메인 영역 가로형 광고 - 전체 너비 */
+    /* 메인 영역 가로형 광고 - 중앙 정렬 */
     .home-main .ad-slot.pc-only > ins.adsbygoogle {
-      width: 100% !important;
       max-width: 728px;
     }
 
