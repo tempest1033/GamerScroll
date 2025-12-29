@@ -2219,7 +2219,9 @@
     .ad-slot-section + [class*="-controls"],
     .ad-slot-section + [class*="-container"],
     .ad-slot-section + [class*="-card-container"],
-    .ad-slot-section + .home-card {
+    .ad-slot-section + .home-card,
+    .ad-slot-section + .search-page,
+    .ad-slot-section + .game-page {
       margin-top: 0 !important;
       padding-top: 0 !important;
     }
