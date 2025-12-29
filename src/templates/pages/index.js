@@ -395,6 +395,10 @@ function generateIndexPage(data) {
 	    if (!SHOW_ADS) return '';
 	    var format = adFormat || 'horizontal';
 	    var slotId = adSlotId || '5214702534';
+	    // 가로형은 반응형으로 (컨테이너 너비에 맞춤)
+	    if (format === 'horizontal') {
+	      return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+	    }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
