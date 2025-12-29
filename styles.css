@@ -2163,19 +2163,10 @@
 	      text-align: center;
 	    }
 
-	    /* AdSense가 인라인 style로 width/height를 덮어쓰는 경우가 있어, 센터 정렬만 보장 */
+	    /* 고정 규격 광고는 인라인 사이즈를 우선 적용 */
 	    .ad-slot > ins.adsbygoogle {
-	      display: block;
-	      width: 100%;
-	      max-width: 100%;
+	      display: inline-block;
 	      margin: 0 auto;
-	      min-height: 90px;
-	    }
-
-	    /* 사각/세로 배너는 기본적으로 250px 정도를 예약 (unfilled 처리 시 접힘) */
-	    .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"],
-	    .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
-	      min-height: 250px;
 	    }
 
 	    .ad-slot.ad-slot--unfilled {
@@ -2195,32 +2186,9 @@
     }
 
 	    .ad-slot-section {
-	      padding-top: 8px;
-	      padding-bottom: 8px;
+	      padding-top: 6px;
+	      padding-bottom: 6px;
 	    }
-
-		    /* 광고 배너 간격 - 페이지별 기존 리듬 유지 */
-		    .home-container .ad-slot-section {
-		      padding-top: 4px;
-		      padding-bottom: 4px;
-		    }
-
-		    /* 홈 첫 배너: 사이드바 카드와 정렬 */
-		    .home-container #ad-above-trend-pc.ad-slot-section,
-		    .home-container #ad-above-trend-mobile.ad-slot-section {
-		      margin-top: 0;
-		      margin-bottom: 4px;
-		    }
-
-		    #insight .ad-slot-section {
-		      margin-top: var(--space-sm);
-		      margin-bottom: var(--space-sm);
-		    }
-
-		    #metacritic .ad-slot-section {
-		      margin-top: var(--space-sm);
-		      margin-bottom: var(--space-sm);
-		    }
 
 		    /* 광고 배너가 있을 때, 기존 상단 여백 중복 제거 */
 		    .ad-slot-section + .news-controls,
@@ -2342,20 +2310,10 @@
         display: block;
       }
 
-      /* 모바일에서 광고 미노출 시 여백 최소화 */
-      .ad-slot > ins.adsbygoogle {
-        min-height: 0;
-      }
-
-      .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"],
-      .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
-        min-height: 0;
-      }
-
-      /* 모바일 상단 배너 높이 제한 (네이버 스타일) */
-      #ad-above-trend-mobile ins.adsbygoogle {
-        max-height: 120px;
-        overflow: hidden;
+      /* 모바일 광고 여백 통일 */
+      .ad-slot-section {
+        padding-top: 6px;
+        padding-bottom: 6px;
       }
     }
 

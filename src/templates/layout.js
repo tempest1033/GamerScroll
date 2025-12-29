@@ -13,6 +13,7 @@ const AD_SLOTS = {
   horizontal2: '4377097736',
   horizontal3: '2509466388',
   horizontal4: '3935062846',
+  horizontal5: '1062515168',
   vertical: '6855905500',
   vertical2: '7865094213',
   vertical3: '3028357040',
@@ -664,19 +665,7 @@ function wrapWithLayout(content, options = {}) {
 		        });
 		      }
 
-		      function normalizeHomeHorizontalAds() {
-		        try {
-		          ['ad-above-trend-pc', 'ad-above-trend-mobile', 'ad-below-news', 'ad-below-community'].forEach(function(id) {
-		            const el = document.querySelector('#' + id + ' ins.adsbygoogle');
-		            if (!el) return;
-		            el.setAttribute('data-ad-format', 'horizontal');
-		            el.setAttribute('data-full-width-responsive', 'true');
-		          });
-		        } catch {}
-		      }
-
 		      function runInit() {
-		        normalizeHomeHorizontalAds();
 		        ensureAdStatusObserver();
 		        initAds();
 		        runVisibilityPass();

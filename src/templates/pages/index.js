@@ -375,27 +375,42 @@ function generateIndexPage(data) {
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
 
+	  function getAdSize(format, isMobile) {
+	    if (isMobile) {
+	      if (format === 'horizontal') return { width: 320, height: 100 };
+	      if (format === 'rectangle') return { width: 300, height: 250 };
+	      if (format === 'vertical') return { width: 300, height: 600 };
+	      return { width: 320, height: 100 };
+	    }
+	    if (format === 'horizontal') return { width: 728, height: 90 };
+	    if (format === 'rectangle') return { width: 300, height: 250 };
+	    if (format === 'vertical') return { width: 300, height: 600 };
+	    return { width: 728, height: 90 };
+	  }
+
 	  // 광고 슬롯 HTML 생성 함수 (PC용)
 	  function adSlot(id, extraClass, adFormat, adSlotId) {
 	    if (!SHOW_ADS) return '';
 	    var format = adFormat || 'horizontal';
 	    var slotId = adSlotId || '5214702534';
-	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="' + format + '" data-full-width-responsive="true"></ins></div>';
+	    var size = getAdSize(format, false);
+	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
 	  // 모바일용 광고 슬롯
 	  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
 	    if (!SHOW_ADS) return '';
 	    var slotId = adSlotId || '5214702534';
-	    var format = adFormat || 'auto';
-	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="' + format + '" data-full-width-responsive="true"></ins></div>';
+	    var format = adFormat || 'horizontal';
+	    var size = getAdSize(format, true);
+	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<div class="home-container">' +
 	    '<div class="home-main">' +
 	    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', AD_SLOTS.horizontal) +
-	    adSlotMobile('ad-above-trend-mobile', '', AD_SLOTS.horizontal, 'horizontal') +
+    adSlotMobile('ad-above-trend-mobile', '', AD_SLOTS.horizontal5, 'horizontal') +
 	    insightCardHtml +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +

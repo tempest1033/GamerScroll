@@ -31,10 +31,10 @@ function generateCommunityPage(data) {
   const content = `
     <section class="section active" id="community">
       ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}"></ins>
       </div>
       <div class="ad-slot ad-slot-section mobile-only">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal5}"></ins>
       </div>` : ''}
       <div class="news-controls">
         <div class="control-group">
