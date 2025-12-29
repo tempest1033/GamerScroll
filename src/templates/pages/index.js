@@ -375,7 +375,7 @@ function generateIndexPage(data) {
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
 
-  // 광고 슬롯 HTML 생성 함수
+  // 광고 슬롯 HTML 생성 함수 (PC용 - 반응형)
   function adSlot(id, extraClass, adFormat, adSlotId) {
     if (!SHOW_ADS) return '';
     var format = adFormat || 'horizontal';
@@ -383,10 +383,18 @@ function generateIndexPage(data) {
     return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="' + format + '" data-full-width-responsive="true"></ins></div>';
   }
 
+  // 모바일용 광고 슬롯 (가로형 강제, 반응형 비활성화)
+  function adSlotMobile(id, extraClass, adSlotId) {
+    if (!SHOW_ADS) return '';
+    var slotId = adSlotId || '5214702534';
+    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="false"></ins></div>';
+  }
+
   var content = '<section class="home-section active" id="home">' +
     '<div class="home-container">' +
     '<div class="home-main">' +
-    adSlot('ad-above-trend', '', 'horizontal', '5214702534') +
+    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', '5214702534') +
+    adSlotMobile('ad-above-trend-mobile', '', '5214702534') +
     insightCardHtml +
     '<div class="home-card" id="home-news">' +
     '<div class="home-card-header">' +
@@ -413,7 +421,7 @@ function generateIndexPage(data) {
     '</div>' +
     '</div>' +
     '<div class="home-sidebar">' +
-    adSlot('ad-above-mobile', 'mobile-only', 'horizontal', '4377097736') +
+    adSlotMobile('ad-above-mobile', '', '4377097736') +
     '<div class="home-card" id="home-mobile-rank">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">모바일 랭킹</div>' +
@@ -428,7 +436,7 @@ function generateIndexPage(data) {
     '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
     '</div>' +
     adSlot('ad-below-mobile', 'pc-only', 'vertical', '2509466388') +
-    adSlot('ad-above-steam', 'mobile-only', 'horizontal', '2509466388') +
+    adSlotMobile('ad-above-steam', '', '2509466388') +
     '<div class="home-card" id="home-steam">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">스팀 순위</div>' +
@@ -442,7 +450,8 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
     '</div>' +
-    adSlot('ad-above-upcoming', 'ad-slot--no-reserve', 'rectangle', '1795150514') +
+    adSlot('ad-above-upcoming-pc', 'pc-only ad-slot--no-reserve', 'rectangle', '1795150514') +
+    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', '1795150514') +
     '<div class="home-card" id="home-upcoming">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">신규 게임</div>' +

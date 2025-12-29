@@ -139,7 +139,8 @@
       .home-main, .home-sidebar {
         display: contents !important;
       }
-      #ad-above-trend { order: 1 !important; }
+      #ad-above-trend-pc { order: 1 !important; }
+      #ad-above-trend-mobile { order: 1 !important; }
       #home-insight { order: 2 !important; }
       #home-news { order: 3 !important; }
       #ad-above-mobile { order: 4 !important; }
@@ -148,7 +149,8 @@
       #ad-above-steam { order: 7 !important; }
       #home-steam { order: 8 !important; }
       #home-video { order: 9 !important; }
-      #ad-above-upcoming { order: 10 !important; }
+      #ad-above-upcoming-pc { order: 10 !important; }
+      #ad-above-upcoming-mobile { order: 10 !important; }
       #home-upcoming { order: 11 !important; }
     }
     :root {
@@ -2154,17 +2156,43 @@
     }
 
     /* 광고 배너 슬롯 */
-    .ad-slot {
-      background: var(--card);
-      border: 1px dashed var(--border);
-      border-radius: var(--radius-sm);
-      min-height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: var(--font-small-size);
-    }
+	    .ad-slot {
+	      display: block;
+	      width: 100%;
+	      line-height: 0;
+	    }
+
+	    .ad-slot > ins.adsbygoogle {
+	      display: block;
+	      width: 100%;
+	      min-height: 90px;
+	    }
+
+	    .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"] {
+	      min-height: 250px;
+	    }
+
+	    .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
+	      min-height: 600px;
+	    }
+
+	    .ad-slot.ad-slot--unfilled {
+	      visibility: hidden;
+	      pointer-events: none;
+	    }
+
+	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
+	      min-height: 0;
+	    }
+
+	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle[data-ad-format="rectangle"],
+	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle[data-ad-format="vertical"] {
+	      min-height: 0;
+	    }
+
+	    .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
+	      display: none;
+	    }
 
     .ad-slot-top {
       margin-bottom: var(--space-block-y);
@@ -2181,9 +2209,10 @@
 		      margin-bottom: calc(var(--space-sm) - var(--space-block-gap));
 		    }
 
-		    /* 홈 첫 배너: 네비 아래 12 유지 */
-		    .home-container #ad-above-trend.ad-slot-section {
-		      margin-top: calc(var(--space-sm) - var(--space-block-y));
+		    /* 홈 첫 배너: 사이드바 카드와 정렬 */
+		    .home-container #ad-above-trend-pc.ad-slot-section,
+		    .home-container #ad-above-trend-mobile.ad-slot-section {
+		      margin-top: 0;
 		    }
 
 		    #insight .ad-slot-section {
@@ -2250,7 +2279,8 @@
       }
 
       /* 모바일 순서 재배치 */
-      #ad-above-trend { order: 1; }
+      #ad-above-trend-pc { order: 1; }
+      #ad-above-trend-mobile { order: 1; }
       #home-insight { order: 2; }
       #ad-above-mobile { order: 3; }
       #home-mobile-rank { order: 4; }
@@ -2258,7 +2288,8 @@
       #home-community { order: 6; }
       #ad-above-steam { order: 7; }
       #home-steam { order: 8; }
-      #ad-above-upcoming { order: 9; }
+      #ad-above-upcoming-pc { order: 9; }
+      #ad-above-upcoming-mobile { order: 9; }
       #home-upcoming { order: 10; }
       #home-video { order: 11; }
 
@@ -2317,7 +2348,7 @@
       }
 
       .ad-slot.mobile-only {
-        display: flex;
+        display: block;
       }
     }
 
