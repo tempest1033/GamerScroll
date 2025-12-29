@@ -390,22 +390,18 @@ function generateIndexPage(data) {
 	    return { width: 728, height: 90 };
 	  }
 
-	  // 광고 슬롯 HTML 생성 함수 (PC용)
+	  // 광고 슬롯 HTML 생성 함수 (PC용) - 전체 너비 반응형
 	  function adSlot(id, extraClass, adFormat, adSlotId) {
 	    if (!SHOW_ADS) return '';
-	    var format = adFormat || 'horizontal';
 	    var slotId = adSlotId || '5214702534';
-	    var size = getAdSize(format, false);
-	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
 	  }
 
-	  // 모바일용 광고 슬롯
+	  // 모바일용 광고 슬롯 - 전체 너비 반응형
 	  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
 	    if (!SHOW_ADS) return '';
 	    var slotId = adSlotId || '5214702534';
-	    var format = adFormat || 'horizontal';
-	    var size = getAdSize(format, true);
-	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
 	  }
 
 	  var content = '<section class="home-section active" id="home">' +
