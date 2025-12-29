@@ -397,7 +397,10 @@ function generateIndexPage(data) {
 	    var slotId = adSlotId || '5214702534';
 	    // 가로형은 전체 너비, 세로/사각형은 고정 크기
 	    if (format === 'horizontal') {
-	      return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-full-width-responsive="true"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+	    }
+	    if (format === 'rectangle') {
+	      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
 	    }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
@@ -406,8 +409,15 @@ function generateIndexPage(data) {
 	  // 모바일용 광고 슬롯 - 전체 너비
 	  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
 	    if (!SHOW_ADS) return '';
+	    var format = adFormat || 'horizontal';
 	    var slotId = adSlotId || '5214702534';
-	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-full-width-responsive="true"></ins></div>';
+	    var isHorizontal = format === 'horizontal';
+	    var isRectangle = format === 'rectangle';
+	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
+	    var formatAttrs = isHorizontal
+	      ? ' data-ad-format="horizontal" data-full-width-responsive="true"'
+	      : (isRectangle ? ' data-ad-format="rectangle" data-full-width-responsive="true"' : ' data-full-width-responsive="true"');
+	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"' + formatAttrs + '></ins></div>';
 	  }
 
 	  var content = '<section class="home-section active" id="home">' +

@@ -2176,19 +2176,43 @@
     }
 
     /* 메인 영역 가로형 광고 - 중앙 정렬 */
-    .home-main .ad-slot.pc-only > ins.adsbygoogle {
+    .home-main .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
       max-width: 728px;
     }
 
     /* 사이드바 광고 - 고정 크기 유지 */
-    .home-sidebar .ad-slot.pc-only > ins.adsbygoogle {
+    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
       width: auto;
       max-width: 300px;
     }
 
     /* 모바일 광고 크기 제한 */
-    .ad-slot.mobile-only > ins.adsbygoogle {
+    .ad-slot.mobile-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
       max-width: 320px;
+      max-height: 250px;
+    }
+
+    .ad-slot--horizontal.pc-only > ins.adsbygoogle {
+      width: 100%;
+      height: 140px;
+      max-height: 140px;
+    }
+
+    .ad-slot--horizontal.mobile-only > ins.adsbygoogle {
+      width: 100%;
+      height: 100px;
+      max-height: 100px;
+    }
+
+    .ad-slot--rectangle.pc-only > ins.adsbygoogle {
+      width: 100%;
+      height: 250px;
+      max-height: 250px;
+    }
+
+    .ad-slot--rectangle.mobile-only > ins.adsbygoogle {
+      width: 100%;
+      height: 250px;
       max-height: 250px;
     }
 
@@ -2342,6 +2366,10 @@
       }
 
       .ad-slot > ins.adsbygoogle {
+        max-width: 100%;
+      }
+
+      .ad-slot:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
         max-width: 320px !important;
         max-height: 250px !important;
       }
