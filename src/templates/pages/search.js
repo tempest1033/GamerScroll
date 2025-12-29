@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 게임 검색 페이지 템플릿
  */
 
@@ -6,8 +6,11 @@ const { wrapWithLayout, SHOW_ADS } = require('../layout');
 
 function generateSearchPage() {
   const content = `
-    ${SHOW_ADS ? `<div class="ad-slot ad-slot-section">
+    ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>
+    <div class="ad-slot ad-slot-section mobile-only">
+      <ins class="adsbygoogle" style="display:block;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
     </div>` : ''}
     <div class="search-page">
       <!-- 검색 영역 -->

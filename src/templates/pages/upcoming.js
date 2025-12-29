@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 출시 게임 페이지 템플릿
  */
 
@@ -56,8 +56,11 @@ function generateUpcomingPage(data) {
 
   const content = `
     <section class="section active" id="upcoming">
-      ${SHOW_ADS ? `<div class="ad-slot ad-slot-section">
+      ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+      </div>
+      <div class="ad-slot ad-slot-section mobile-only">
+        <ins class="adsbygoogle" style="display:block;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
       </div>` : ''}
       <div class="upcoming-controls">
         <div class="tab-group" id="upcomingTab">

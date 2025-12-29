@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 게임 대시보드 페이지 템플릿
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
@@ -1166,8 +1166,11 @@ function generateGamePage(gameData) {
   };
 
   const content = `
-    ${SHOW_ADS ? `<div class="ad-slot ad-slot-section">
+    ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>
+    <div class="ad-slot ad-slot-section mobile-only">
+      <ins class="adsbygoogle" style="display:block;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
     </div>` : ''}
     <div class="game-page">
       <!-- 게임 히어로 -->

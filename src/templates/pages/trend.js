@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 트렌드 페이지 템플릿
  * NOTE: 복잡한 기능은 추후 추가 예정
  */
@@ -718,8 +718,11 @@ function generateTrendPage(data) {
 
   const content = `
     <section class="section active" id="insight">
-      ${SHOW_ADS ? `<div class="ad-slot ad-slot-section">
+      ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+      </div>
+      <div class="ad-slot ad-slot-section mobile-only">
+        <ins class="adsbygoogle" style="display:block;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
       </div>` : ''}
 
       <div class="insight-page-container">

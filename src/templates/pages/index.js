@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 홈/대시보드 페이지 템플릿
  * 각 섹션의 요약 카드를 표시
  */
@@ -392,9 +392,9 @@ function generateIndexPage(data) {
 
   var content = '<section class="home-section active" id="home">' +
     '<div class="home-container">' +
-    '<div class="home-main">' +
     adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', '5214702534') +
     adSlotMobile('ad-above-trend-mobile', '', '5214702534') +
+    '<div class="home-main">' +
     insightCardHtml +
     '<div class="home-card" id="home-news">' +
     '<div class="home-card-header">' +
@@ -450,8 +450,8 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
     '</div>' +
-    adSlot('ad-above-upcoming-pc', 'pc-only ad-slot--no-reserve', 'rectangle', '1795150514') +
-    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', '1795150514') +
+    adSlot('ad-above-upcoming-pc', 'pc-only', 'rectangle', '1795150514') +
+    adSlotMobile('ad-above-upcoming-mobile', '', '1795150514') +
     '<div class="home-card" id="home-upcoming">' +
     '<div class="home-card-header">' +
     '<div class="home-card-title">신규 게임</div>' +
