@@ -375,49 +375,20 @@ function generateIndexPage(data) {
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
 
-	  // 광고 슬롯 HTML 생성 함수 (PC용 - 정석: CSS로 크기 제어)
+	  // 광고 슬롯 HTML 생성 함수 (PC용)
 	  function adSlot(id, extraClass, adFormat, adSlotId) {
 	    if (!SHOW_ADS) return '';
 	    var format = adFormat || 'horizontal';
 	    var slotId = adSlotId || '5214702534';
-	    // 정석 방법: width:100% + 고정 height, data-ad-format/data-full-width-responsive 제거
-	    var style;
-	    if (format === 'horizontal') {
-	      style = 'display:block;width:100%;height:90px';
-	    } else if (format === 'rectangle') {
-	      style = 'display:block;width:100%;height:250px';
-	    } else if (format === 'vertical') {
-	      style = 'display:block;width:100%;height:600px';
-	    } else {
-	      style = 'display:block;width:100%;height:90px';
-	    }
-	    // no-reserve 슬롯은 광고가 늦게/미노출될 때 높이만 남지 않도록 초기 높이 예약을 하지 않는다.
-	    if ((extraClass || '').indexOf('ad-slot--no-reserve') !== -1) {
-	      style = 'display:block;width:100%;';
-	    }
-	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="' + style + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="' + format + '" data-full-width-responsive="true"></ins></div>';
 	  }
 
-	  // 모바일용 광고 슬롯 (정석: CSS로 크기 제어)
+	  // 모바일용 광고 슬롯
 	  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
 	    if (!SHOW_ADS) return '';
 	    var slotId = adSlotId || '5214702534';
 	    var format = adFormat || 'auto';
-	    // 정석 방법: width:100% + 고정 height
-	    var style;
-	    if (format === 'horizontal') {
-	      style = 'display:block;width:100%;height:90px';
-	    } else if (format === 'rectangle') {
-	      style = 'display:block;width:100%;height:250px';
-	    } else {
-	      // auto: 모바일 기본 - 반응형 유지
-	      style = 'display:block;width:100%;height:100px';
-	    }
-	    // no-reserve 슬롯은 초기 높이 예약을 하지 않는다. (로드 지연 시 여백 방지)
-	    if ((extraClass || '').indexOf('ad-slot--no-reserve') !== -1) {
-	      style = 'display:block;width:100%;';
-	    }
-	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="' + style + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="' + format + '" data-full-width-responsive="true"></ins></div>';
 	  }
 
 	  var content = '<section class="home-section active" id="home">' +

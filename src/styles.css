@@ -2155,17 +2155,32 @@
       color: var(--font-rank-dev-color);
     }
 
-	    /* 광고 배너 슬롯 - 정석: 인라인 스타일로 크기 제어 */
-		    .ad-slot {
-		      display: block;
-		      width: 100%;
-		      line-height: 0;
-		      text-align: center;
-		    }
+	    /* 광고 배너 슬롯 */
+	    .ad-slot {
+	      display: block;
+	      width: 100%;
+	      line-height: 0;
+	      text-align: center;
+	    }
 
+	    /* AdSense가 인라인 style로 width/height를 덮어쓰는 경우가 있어, 센터 정렬만 보장 */
 	    .ad-slot > ins.adsbygoogle {
 	      display: block;
-	      /* 크기는 인라인 스타일로 지정됨 (width:100%;height:Xpx) */
+	      width: 100%;
+	      max-width: 100%;
+	      margin: 0 auto;
+	      min-height: 90px;
+	    }
+
+	    /* 사각/세로 배너는 기본적으로 250px 정도를 예약 (unfilled 처리 시 접힘) */
+	    .ad-slot > ins.adsbygoogle[data-ad-format="rectangle"],
+	    .ad-slot > ins.adsbygoogle[data-ad-format="vertical"] {
+	      min-height: 250px;
+	    }
+
+	    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 */
+	    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
+	      min-height: 0 !important;
 	    }
 
 	    .ad-slot.ad-slot--unfilled {
@@ -2181,14 +2196,14 @@
     }
 
 	    .ad-slot-section {
-	      margin-top: 8px;
-	      margin-bottom: 8px;
+	      padding-top: 8px;
+	      padding-bottom: 8px;
 	    }
 
 		    /* 광고 배너 간격 - 페이지별 기존 리듬 유지 */
 		    .home-container .ad-slot-section {
-		      margin-top: 4px;
-		      margin-bottom: 4px;
+		      padding-top: 4px;
+		      padding-bottom: 4px;
 		    }
 
 		    /* 홈 첫 배너: 사이드바 카드와 정렬 */
@@ -2218,13 +2233,7 @@
 		      padding-top: 0 !important;
 		    }
 
-		    .ad-slot-section + .search-page {
-		      padding-top: 0;
-		    }
-
-		    .ad-slot-section + .game-page {
-		      padding-top: 0;
-		    }
+		    /* 검색/게임 페이지는 상단 리듬을 위해 기본 패딩 유지 */
 
 		    #insight .ad-slot-section + .insight-page-container {
 		      padding-top: 0;
@@ -2336,8 +2345,8 @@
 
       /* 모바일 광고 여백 축소 */
       .ad-slot-section {
-        margin-top: 4px;
-        margin-bottom: 4px;
+        padding-top: 4px;
+        padding-bottom: 4px;
       }
     }
 
@@ -2760,15 +2769,6 @@
       margin: 0 auto;
       padding: 0 var(--space-page-x) 60px;
       box-sizing: border-box;
-    }
-
-    /* 와이드 화면(대형 모니터)에서 좌측 컬럼 폭 확보: 970px 배너 선택 가능하게 */
-    @media (min-width: 1400px) {
-      .container,
-      .header-inner,
-      .nav-inner {
-        max-width: 1350px;
-      }
     }
 
     /* Sections */
