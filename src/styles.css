@@ -2226,6 +2226,11 @@
       padding-top: 0 !important;
     }
 
+    /* 사이드바 광고 슬롯 - flex gap으로 이미 여백 있으므로 패딩 제거 */
+    .home-sidebar .ad-slot-section {
+      padding: 0;
+    }
+
     .ad-slot.mobile-only {
       display: none;
     }
