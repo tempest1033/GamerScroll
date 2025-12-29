@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 레이아웃 조합기
  * 공통 컴포넌트를 조합하여 완전한 HTML 페이지를 생성
  */
@@ -495,56 +495,104 @@ function wrapWithLayout(content, options = {}) {
   <main class="container">
     ${content}
 	  </main>
-	  ${generateFooter()}
-	  ${SHOW_ADS ? `<script>
-	    (function() {
-	      function canInit(el) {
-	        if (!el || !el.isConnected) return false;
-	        const rect = el.getBoundingClientRect();
-	        if (!rect || rect.width <= 0) return false;
-	        const style = window.getComputedStyle(el);
-	        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
-	        return true;
-	      }
+		  ${generateFooter()}
+		  ${SHOW_ADS ? `<script>
+		    (function() {
+		      function canInit(el) {
+		        if (!el || !el.isConnected) return false;
+		        const rect = el.getBoundingClientRect();
+		        if (!rect || rect.width <= 0) return false;
+		        const style = window.getComputedStyle(el);
+		        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+		        return true;
+		      }
 
-	      function syncAdSlotVisibility() {
-	        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
-	          const status = el.getAttribute('data-ad-status');
-	          if (!status) return;
-	          const slot = el.closest('.ad-slot');
-	          if (!slot) return;
-	          if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
-	          else slot.classList.remove('ad-slot--unfilled');
-	        });
-	      }
+		      function syncOneAdSlot(el) {
+		        const slot = el.closest('.ad-slot');
+		        if (!slot) return;
+		        const status = el.getAttribute('data-ad-status');
+		        if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
+		        else slot.classList.remove('ad-slot--unfilled');
+		      }
 
-	      let visibilityTimer = null;
-	      function scheduleVisibilityCheck() {
-	        clearTimeout(visibilityTimer);
-	        visibilityTimer = setTimeout(syncAdSlotVisibility, 3000);
-	      }
+		      function syncAdSlotVisibility() {
+		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+		          syncOneAdSlot(el);
+		        });
+		      }
 
-	      function initAds() {
-	        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
-	          if (el.dataset.gcAdsInit === '1') return;
+		      function ensureAdStatusObserver() {
+		        if (window.__gcAdsStatusObserverInstalled) return;
+		        window.__gcAdsStatusObserverInstalled = true;
+		        try {
+		          const obs = new MutationObserver(function(mutations) {
+		            mutations.forEach(function(m) {
+		              if (m.type !== 'attributes') return;
+		              if (m.attributeName !== 'data-ad-status') return;
+		              const el = m.target;
+		              if (!el || !el.closest) return;
+		              syncOneAdSlot(el);
+		            });
+		          });
+		          document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+		            obs.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
+		          });
+		        } catch (e) {}
+		      }
+
+		      let visibilityTimers = [];
+		      function scheduleVisibilityCheck() {
+		        visibilityTimers.forEach(clearTimeout);
+		        visibilityTimers = [];
+		        [500, 1500, 3000, 6000].forEach(function(delay) {
+		          visibilityTimers.push(setTimeout(syncAdSlotVisibility, delay));
+		        });
+		      }
+
+		      function kickResizeOnce() {
+		        if (window.__gcAdsKickResizeOnce) return;
+		        window.__gcAdsKickResizeOnce = true;
+		        setTimeout(function() {
+		          window.dispatchEvent(new Event('resize'));
+		        }, 800);
+		      }
+
+		      function initAds() {
+		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+		          if (el.dataset.gcAdsInit === '1') return;
 	          if (!canInit(el)) return;
 	          el.dataset.gcAdsInit = '1';
 	          try {
 	            (adsbygoogle = window.adsbygoogle || []).push({});
 	          } catch (e) {
 	            el.removeAttribute('data-gc-ads-init');
-	          }
-	        });
-	      }
+		          }
+		        });
+		      }
 
-	      function runInit() {
-	        initAds();
-	        scheduleVisibilityCheck();
-	      }
+		      let initRetryTimers = [];
+		      function scheduleInitRetries() {
+		        if (window.__gcAdsInitRetriesScheduled) return;
+		        window.__gcAdsInitRetriesScheduled = true;
+		        initRetryTimers.forEach(clearTimeout);
+		        initRetryTimers = [];
+		        [500, 1500, 3000].forEach(function(delay) {
+		          initRetryTimers.push(setTimeout(initAds, delay));
+		        });
+		      }
 
-	      if (document.readyState === 'complete' || document.readyState === 'interactive') {
-	        requestAnimationFrame(runInit);
-	      } else {
+		      function runInit() {
+		        ensureAdStatusObserver();
+		        initAds();
+		        syncAdSlotVisibility();
+		        scheduleVisibilityCheck();
+		        scheduleInitRetries();
+		        kickResizeOnce();
+		      }
+
+		      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+		        requestAnimationFrame(runInit);
+		      } else {
 	        document.addEventListener('DOMContentLoaded', runInit);
 	      }
 

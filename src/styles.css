@@ -753,22 +753,18 @@
     }
 
     /* 홈 레이아웃 컨테이너 */
-    .home-container {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: var(--space-block-gap);
-      padding: var(--space-block-y) 0;
-    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: var(--space-block-y) 0;
+	    }
 
-    .home-container > .ad-slot-section {
-      grid-column: 1 / -1;
-    }
-
-    .home-main {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-block-gap);
-    }
+	    .home-main {
+	      display: flex;
+	      flex-direction: column;
+	      gap: var(--space-block-gap);
+	    }
 
     .home-sidebar {
       display: flex;
@@ -2159,12 +2155,13 @@
       color: var(--font-rank-dev-color);
     }
 
-    /* 광고 배너 슬롯 */
-	    .ad-slot {
-	      display: block;
-	      width: 100%;
-	      line-height: 0;
-	    }
+	    /* 광고 배너 슬롯 */
+		    .ad-slot {
+		      display: block;
+		      width: 100%;
+		      line-height: 0;
+		      text-align: center;
+		    }
 
 	    .ad-slot > ins.adsbygoogle {
 	      display: block;

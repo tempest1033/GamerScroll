@@ -392,9 +392,9 @@ function generateIndexPage(data) {
 
   var content = '<section class="home-section active" id="home">' +
     '<div class="home-container">' +
+    '<div class="home-main">' +
     adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', '5214702534') +
     adSlotMobile('ad-above-trend-mobile', '', '5214702534') +
-    '<div class="home-main">' +
     insightCardHtml +
     '<div class="home-card" id="home-news">' +
     '<div class="home-card-header">' +
