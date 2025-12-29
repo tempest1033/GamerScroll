@@ -394,16 +394,16 @@ function generateIndexPage(data) {
 	    return '<div class="ad-slot ad-slot-section mobile-only ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="' + format + '" data-full-width-responsive="' + fullWidth + '"></ins></div>';
 	  }
 
-  var content = '<section class="home-section active" id="home">' +
-    '<div class="home-container">' +
-    '<div class="home-main">' +
-    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', '5214702534') +
-    adSlotMobile('ad-above-trend-mobile', '', '5214702534') +
-    insightCardHtml +
-    '<div class="home-card" id="home-news">' +
-    '<div class="home-card-header">' +
-    '<div class="home-card-title">주요 뉴스</div>' +
-    '<a href="/news" class="home-card-more">더보기 →</a>' +
+	  var content = '<section class="home-section active" id="home">' +
+	    '<div class="home-container">' +
+	    '<div class="home-main">' +
+	    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', '5214702534') +
+	    adSlotMobile('ad-above-trend-mobile', '', '5214702534', 'auto', false) +
+	    insightCardHtml +
+	    '<div class="home-card" id="home-news">' +
+	    '<div class="home-card-header">' +
+	    '<div class="home-card-title">주요 뉴스</div>' +
+	    '<a href="/news" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
@@ -417,34 +417,34 @@ function generateIndexPage(data) {
     '</div>' +
     adSlot('ad-below-community', 'pc-only', 'horizontal', '2509466388') +
     '<div class="home-card" id="home-video">' +
-    '<div class="home-card-header">' +
-    '<div class="home-card-title">영상 순위</div>' +
-    '<a href="/youtube" class="home-card-more">더보기 →</a>' +
-    '</div>' +
-    '<div class="home-card-body">' + generateHomeVideo() + '</div>' +
-    '</div>' +
-    '</div>' +
-    '<div class="home-sidebar">' +
-    adSlotMobile('ad-above-mobile', '', '4377097736') +
-    '<div class="home-card" id="home-mobile-rank">' +
-    '<div class="home-card-header">' +
-    '<div class="home-card-title">모바일 랭킹</div>' +
-    '<div class="home-card-controls">' +
+	    '<div class="home-card-header">' +
+	    '<div class="home-card-title">영상 순위</div>' +
+	    '<a href="/youtube" class="home-card-more">더보기 →</a>' +
+	    '</div>' +
+	    '<div class="home-card-body">' + generateHomeVideo() + '</div>' +
+	    '</div>' +
+	    '</div>' +
+	    '<div class="home-sidebar">' +
+	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', '7467129651', 'rectangle', false) +
+	    '<div class="home-card" id="home-mobile-rank">' +
+	    '<div class="home-card-header">' +
+	    '<div class="home-card-title">모바일 랭킹</div>' +
+	    '<div class="home-card-controls">' +
     '<div class="home-chart-toggle" id="homeChartTab">' +
     '<button class="tab-btn small active" data-home-chart="free">인기</button>' +
     '<button class="tab-btn small" data-home-chart="grossing">매출</button>' +
     '</div>' +
     '<a href="/rankings" class="home-card-more">더보기 →</a>' +
     '</div>' +
-    '</div>' +
-    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
-    '</div>' +
-    adSlot('ad-below-mobile', 'pc-only', 'vertical', '2509466388') +
-    adSlotMobile('ad-above-steam', '', '2509466388', 'auto', true) +
-    '<div class="home-card" id="home-steam">' +
-    '<div class="home-card-header">' +
-    '<div class="home-card-title">스팀 순위</div>' +
-    '<div class="home-card-controls">' +
+	    '</div>' +
+	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
+	    '</div>' +
+	    adSlot('ad-below-mobile', 'pc-only', 'vertical', '6855905500') +
+	    adSlotMobile('ad-above-steam', 'ad-slot--no-reserve', '4840966314', 'rectangle', false) +
+	    '<div class="home-card" id="home-steam">' +
+	    '<div class="home-card-header">' +
+	    '<div class="home-card-title">스팀 순위</div>' +
+	    '<div class="home-card-controls">' +
     '<div class="home-chart-toggle" id="homeSteamTab">' +
     '<button class="tab-btn small active" data-home-steam="mostplayed">인기</button>' +
     '<button class="tab-btn small" data-home-steam="topsellers">매출</button>' +
@@ -452,14 +452,14 @@ function generateIndexPage(data) {
     '<a href="/steam" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '</div>' +
-    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
-    '</div>' +
-    adSlot('ad-above-upcoming-pc', 'pc-only', 'rectangle', '1795150514') +
-    adSlotMobile('ad-above-upcoming-mobile', '', '1795150514', 'auto', true) +
-    '<div class="home-card" id="home-upcoming">' +
-    '<div class="home-card-header">' +
-    '<div class="home-card-title">신규 게임</div>' +
-    '<a href="/upcoming" class="home-card-more">더보기 →</a>' +
+	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
+	    '</div>' +
+	    adSlot('ad-above-upcoming-pc', 'pc-only', 'rectangle', '1795150514') +
+	    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', '5039620326', 'rectangle', false) +
+	    '<div class="home-card" id="home-upcoming">' +
+	    '<div class="home-card-header">' +
+	    '<div class="home-card-title">신규 게임</div>' +
+	    '<a href="/upcoming" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeUpcoming() + '</div>' +
     '</div>' +
