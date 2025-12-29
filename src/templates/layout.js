@@ -8,6 +8,21 @@ const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
+const AD_SLOTS = {
+  horizontal: '5214702534',
+  horizontal2: '4377097736',
+  horizontal3: '2509466388',
+  horizontal4: '3935062846',
+  vertical: '6855905500',
+  vertical2: '7865094213',
+  vertical3: '3028357040',
+  vertical4: '1104244740',
+  rectangle: '1795150514',
+  rectangle2: '7467129651',
+  rectangle3: '4840966314',
+  rectangle4: '5039620326'
+};
+
 // 상단 검색바 (홈/일반 페이지용)
 const searchBarHtml = `
   <div class="search-container">
@@ -647,7 +662,19 @@ function wrapWithLayout(content, options = {}) {
 		        });
 		      }
 
+		      function normalizeHomeHorizontalAds() {
+		        try {
+		          ['ad-above-trend-pc', 'ad-above-trend-mobile', 'ad-below-news', 'ad-below-community'].forEach(function(id) {
+		            const el = document.querySelector('#' + id + ' ins.adsbygoogle');
+		            if (!el) return;
+		            el.setAttribute('data-ad-format', 'horizontal');
+		            el.setAttribute('data-full-width-responsive', 'true');
+		          });
+		        } catch {}
+		      }
+
 		      function runInit() {
+		        normalizeHomeHorizontalAds();
 		        ensureAdStatusObserver();
 		        initAds();
 		        runVisibilityPass();
@@ -690,4 +717,4 @@ function wrapWithLayout(content, options = {}) {
 </html>`;
 }
 
-module.exports = { wrapWithLayout, SHOW_ADS };
+module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS };

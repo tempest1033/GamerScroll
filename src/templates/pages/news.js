@@ -2,7 +2,7 @@
  * 주요 뉴스 페이지 템플릿
  */
 
-const { wrapWithLayout, SHOW_ADS } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 
 function generateNewsPage(data) {
   const { news } = data;
@@ -31,10 +31,10 @@ function generateNewsPage(data) {
   const content = `
     <section class="section active" id="news">
       ${SHOW_ADS ? `<div class="ad-slot ad-slot-section pc-only">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
       </div>
       <div class="ad-slot ad-slot-section mobile-only">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="5214702534" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
       </div>` : ''}
       <div class="news-controls">
         <div class="control-group">
