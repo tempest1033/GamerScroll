@@ -2164,18 +2164,27 @@
       box-sizing: border-box;
     }
 
-    /* 고정 규격 광고는 인라인 사이즈를 우선 적용 */
+    /* 광고 ins 요소 공통 - 중앙 정렬 */
     .ad-slot > ins.adsbygoogle {
-      display: block;
+      display: inline-block;
       margin: 0 auto;
-      max-width: 100%;
     }
 
-    /* PC 광고: 컨테이너 너비에 맞춤 */
+    /* PC 광고 기본 */
     .ad-slot.pc-only > ins.adsbygoogle {
-      width: 100% !important;
-      max-width: 100%;
       max-height: 600px;
+    }
+
+    /* 메인 영역 가로형 광고 - 전체 너비 */
+    .home-main .ad-slot.pc-only > ins.adsbygoogle {
+      width: 100% !important;
+      max-width: 728px;
+    }
+
+    /* 사이드바 광고 - 고정 크기 유지 */
+    .home-sidebar .ad-slot.pc-only > ins.adsbygoogle {
+      width: auto;
+      max-width: 300px;
     }
 
     /* 모바일 광고 크기 제한 */
@@ -2206,25 +2215,14 @@
       padding: 12px 0;
     }
 
-		    /* 광고 배너가 있을 때, 기존 상단 여백 중복 제거 */
-		    .ad-slot-section + .news-controls,
-		    .ad-slot-section + .rankings-controls,
-		    .ad-slot-section + .steam-controls,
-		    .ad-slot-section + .video-controls,
-		    .ad-slot-section + .upcoming-controls {
-		      margin-top: 0 !important;
-		      padding-top: 0 !important;
-		    }
-
-		    /* 검색/게임 페이지는 상단 리듬을 위해 기본 패딩 유지 */
-
-		    #insight .ad-slot-section + .insight-page-container {
-		      padding-top: 0;
-		    }
-
-		    #metacritic .ad-slot-section + .metacritic-card-container {
-		      margin-top: 0;
-		    }
+    /* 광고 다음 요소 여백 통합 리셋 */
+    .ad-slot-section + [class*="-controls"],
+    .ad-slot-section + [class*="-container"],
+    .ad-slot-section + [class*="-card-container"],
+    .ad-slot-section + .home-card {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
 
     .ad-slot.mobile-only {
       display: none;
