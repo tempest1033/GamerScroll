@@ -2194,14 +2194,14 @@
 
     .ad-slot--horizontal.pc-only > ins.adsbygoogle {
       width: 100%;
-      height: 140px;
-      max-height: 140px;
+      height: 250px;
+      max-height: 250px;
     }
 
     .ad-slot--horizontal.mobile-only > ins.adsbygoogle {
       width: 100%;
-      height: 100px;
-      max-height: 100px;
+      height: 250px;
+      max-height: 250px;
     }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
