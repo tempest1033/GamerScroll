@@ -2319,18 +2319,12 @@
         display: none;
       }
 
-      /* 모바일 가로형 광고 - 높이 제한 + 중앙 정렬 */
+      /* 모바일 가로형 광고 - 자동 높이 + 가로 중앙 */
       .ad-slot.mobile-only.ad-slot--horizontal {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100px;
+        display: block;
+        text-align: center;
+        max-height: 120px;
         overflow: hidden;
-      }
-
-      .ad-slot.mobile-only.ad-slot--horizontal > ins.adsbygoogle {
-        display: block !important;
-        height: 100px;
       }
 
       .home-video-split {
