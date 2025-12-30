@@ -400,8 +400,7 @@ function generateIndexPage(data) {
 	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
 	    }
     if (format === 'rectangle') {
-      var rectSize = getAdSize(format, false);
-      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + rectSize.width + 'px;height:' + rectSize.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
     }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
@@ -415,13 +414,9 @@ function generateIndexPage(data) {
 	    var isHorizontal = format === 'horizontal';
 	    var isRectangle = format === 'rectangle';
 	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
-    if (isRectangle) {
-      var rectMobileSize = getAdSize(format, true);
-      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + rectMobileSize.width + 'px;height:' + rectMobileSize.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
-    }
     var formatAttrs = isHorizontal
       ? ' data-ad-format="horizontal" data-full-width-responsive="true"'
-      : ' data-full-width-responsive="true"';
+      : (isRectangle ? ' data-ad-format="rectangle" data-full-width-responsive="true"' : ' data-full-width-responsive="true"');
     return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"' + formatAttrs + '></ins></div>';
   }
 

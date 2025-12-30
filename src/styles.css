@@ -2203,12 +2203,12 @@
     }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
-      max-width: 100%;
+      max-width: 300px;
       max-height: 250px;
     }
 
     .ad-slot--rectangle.mobile-only > ins.adsbygoogle {
-      max-width: 100%;
+      max-width: 300px;
       max-height: 250px;
     }
 
