@@ -2249,6 +2249,11 @@
       display: none;
     }
 
+    /* no-reserve rectangle도 unfilled 시 숨김 */
+    .ad-slot.ad-slot--no-reserve.ad-slot--rectangle:has(ins[data-ad-status='unfilled']) {
+      display: none !important;
+    }
+
     /* AdSense unfilled 광고 자동 숨김 */
     ins.adsbygoogle[data-ad-status='unfilled'] {
       display: none !important;
