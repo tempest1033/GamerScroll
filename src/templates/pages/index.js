@@ -430,9 +430,13 @@ function generateIndexPage(data) {
 	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
+	  // 홈페이지 상단 광고 - div 없이 ins만 (다른 페이지와 동일)
+	  var topAdPc = SHOW_ADS ? '<ins class="adsbygoogle pc-only" style="display:block;width:100%;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '"></ins>' : '';
+	  var topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins>' : '';
+
 	  var content = '<section class="home-section active" id="home">' +
-	    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', AD_SLOTS.horizontal) +
-	    adSlotMobile('ad-above-trend-mobile', '', AD_SLOTS.horizontal5, 'horizontal') +
+	    topAdPc +
+	    topAdMobile +
 	    '<div class="home-container">' +
 	    '<div class="home-main">' +
 	    insightCardHtml +
