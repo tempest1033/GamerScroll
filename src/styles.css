@@ -2204,6 +2204,9 @@
 
     /* 홈 가로형 광고 컨테이너 카드 스타일 */
     .home-section .ad-slot--horizontal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
