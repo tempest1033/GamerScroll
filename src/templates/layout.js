@@ -728,6 +728,11 @@ function wrapWithLayout(content, options = {}) {
 	            slot.style.display = 'none';
 	          }
 	        });
+	        // wrapper 없는 ins도 unfilled 시 숨김 (홈페이지 상단 광고 등)
+	        document.querySelectorAll('ins.adsbygoogle[data-ad-status="unfilled"]').forEach(function(ins) {
+	          ins.style.display = 'none';
+	          ins.style.height = '0';
+	        });
 	      }
 
 	      // 광고 로드 후 체크 (0.5초, 1초, 2초, 3초)
