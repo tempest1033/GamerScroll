@@ -771,11 +771,15 @@ function wrapWithLayout(content, options = {}) {
 	        });
 	      }
 
-	      // 광고 로드 후 체크 (0.5초, 1초, 2초, 3초)
+	      // 광고 로드 후 체크 (빠른 주기)
+	      setTimeout(adjustAdSlots, 300);
 	      setTimeout(adjustAdSlots, 500);
+	      setTimeout(adjustAdSlots, 800);
 	      setTimeout(adjustAdSlots, 1000);
+	      setTimeout(adjustAdSlots, 1500);
 	      setTimeout(adjustAdSlots, 2000);
 	      setTimeout(adjustAdSlots, 3000);
+	      setTimeout(adjustAdSlots, 5000);
 
 	      let resizeTimer = null;
 	      window.addEventListener('resize', function() {
