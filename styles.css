@@ -2184,6 +2184,10 @@
     .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
       min-height: 600px;
     }
+    /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 */
+    .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
+      min-height: auto;
+    }
     .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
       width: auto;
       max-width: 300px;
@@ -2321,13 +2325,11 @@
         display: none;
       }
 
-      /* 모바일 가로형 광고 - 높이 제한 (min:100, max:140) */
+      /* 모바일 가로형 광고 - 높이 제한 완화 (overflow visible로 AdSense 크기 계산 허용) */
       .ad-slot.mobile-only.ad-slot--horizontal {
         display: block;
         text-align: center;
         min-height: 100px;
-        max-height: 140px;
-        overflow: hidden;
       }
 
       .home-video-split {
@@ -2379,6 +2381,19 @@
 
       .ad-slot.mobile-only {
         display: block;
+      }
+
+      /* 모바일 직사각형 광고 - 300x250 고정 크기 */
+      .ad-slot.mobile-only.ad-slot--rectangle {
+        display: block;
+        text-align: center;
+        min-height: 250px;
+        width: 100%;
+      }
+      .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
+        display: inline-block;
+        width: 300px;
+        height: 250px;
       }
 
       /* 모바일 광고 여백 및 크기 통일 */

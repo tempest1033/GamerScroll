@@ -402,6 +402,10 @@ function generateIndexPage(data) {
     if (format === 'rectangle') {
       return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
     }
+    // vertical 포맷: 반응형으로 컨테이너에 맞게 자동 조절
+    if (format === 'vertical') {
+      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
+    }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
@@ -414,13 +418,14 @@ function generateIndexPage(data) {
 	    var isHorizontal = format === 'horizontal';
 	    var isRectangle = format === 'rectangle';
 	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
-	    // 가로형도 반응형으로 변경 (320x100 고정 → 100% 너비 + horizontal 포맷 강제)
+	    // 가로형: data-ad-format만 사용 (full-width-responsive 제거하여 AdSense가 포맷 무시 방지)
 	    if (isHorizontal) {
-	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins></div>';
 	    }
+	    // 직사각형: data-ad-format만 사용
 	    var formatAttrs = isRectangle
-	      ? ' data-ad-format="rectangle" data-full-width-responsive="true"'
-	      : ' data-full-width-responsive="true"';
+	      ? ' data-ad-format="rectangle"'
+	      : '';
 	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"' + formatAttrs + '></ins></div>';
 	  }
 
