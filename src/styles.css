@@ -2209,15 +2209,11 @@
       max-height: 250px;
     }
 
-    /* 홈 가로형 광고 컨테이너 카드 스타일 */
+    /* 홈 가로형 광고 - 다른 페이지와 동일하게 광고만 표시 */
     .home-section .ad-slot--horizontal {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
       overflow: hidden;
     }
 

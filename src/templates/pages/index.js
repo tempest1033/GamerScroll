@@ -397,15 +397,15 @@ function generateIndexPage(data) {
 	    var slotId = adSlotId || '5214702534';
 	    // 가로형은 728x90 고정 크기
 	    if (format === 'horizontal') {
-	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
     // rectangle 포맷: 300x250 고정 크기
     if (format === 'rectangle') {
       return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
     }
-    // vertical 포맷: 300x600 고정 크기
+    // vertical 포맷: 전체 폭, 높이 600px
     if (format === 'vertical') {
-      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:600px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
     }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
@@ -431,10 +431,10 @@ function generateIndexPage(data) {
 	  }
 
 	  var content = '<section class="home-section active" id="home">' +
+	    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', AD_SLOTS.horizontal) +
+	    adSlotMobile('ad-above-trend-mobile', '', AD_SLOTS.horizontal5, 'horizontal') +
 	    '<div class="home-container">' +
 	    '<div class="home-main">' +
-	    adSlot('ad-above-trend-pc', 'pc-only', 'horizontal', AD_SLOTS.horizontal) +
-    adSlotMobile('ad-above-trend-mobile', '', AD_SLOTS.horizontal5, 'horizontal') +
 	    insightCardHtml +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
