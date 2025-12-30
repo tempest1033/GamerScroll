@@ -2330,12 +2330,19 @@
         display: none;
       }
 
-      /* 모바일 가로형 광고 - 320x100 고정 크기, 중앙 정렬 */
+      /* 모바일 가로형 광고 - 전체 폭 반응형, 100px 기본 높이 */
       .ad-slot.mobile-only.ad-slot--horizontal {
         display: block;
         width: 100%;
         text-align: center;
         overflow: hidden;
+        height: 100px;
+        transition: height 0.3s ease-out;
+      }
+
+      /* 50px 광고 감지 시 높이 축소 */
+      .ad-slot.mobile-only.ad-slot--horizontal.ad-height-50 {
+        height: 50px;
       }
 
       .home-video-split {

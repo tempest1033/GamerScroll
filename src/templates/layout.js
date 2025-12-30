@@ -707,6 +707,27 @@ function wrapWithLayout(content, options = {}) {
 
 	      window.addEventListener('load', runInit);
 
+	      // 모바일 광고 높이 감지 및 컨테이너 조정
+	      function adjustMobileAdHeight() {
+	        document.querySelectorAll('.ad-slot.mobile-only.ad-slot--horizontal').forEach(function(slot) {
+	          var ins = slot.querySelector('ins.adsbygoogle');
+	          if (ins) {
+	            var iframe = ins.querySelector('iframe');
+	            if (iframe && iframe.offsetHeight > 0 && iframe.offsetHeight <= 55) {
+	              slot.classList.add('ad-height-50');
+	            } else if (iframe && iframe.offsetHeight > 55) {
+	              slot.classList.remove('ad-height-50');
+	            }
+	          }
+	        });
+	      }
+
+	      // 광고 로드 후 높이 체크 (0.5초, 1초, 2초, 3초)
+	      setTimeout(adjustMobileAdHeight, 500);
+	      setTimeout(adjustMobileAdHeight, 1000);
+	      setTimeout(adjustMobileAdHeight, 2000);
+	      setTimeout(adjustMobileAdHeight, 3000);
+
 	      let resizeTimer = null;
 	      window.addEventListener('resize', function() {
 	        clearTimeout(resizeTimer);
@@ -747,7 +768,7 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>`;
 }
 
