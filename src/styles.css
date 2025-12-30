@@ -2250,12 +2250,18 @@
       height: auto !important;
     }
 
-    .ad-slot.ad-slot--unfilled {
-      display: none;
+    .ad-slot.ad-slot--unfilled,
+    .ad-slot.ad-slot--empty {
+      display: none !important;
+      height: 0 !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
-    .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
-      display: none;
+    ins.adsbygoogle.ad-ins--empty {
+      display: none !important;
+      height: 0 !important;
     }
 
     /* no-reserve rectangle도 unfilled 시 숨김 */

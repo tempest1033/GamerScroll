@@ -755,7 +755,9 @@ function wrapWithLayout(content, options = {}) {
 	          if (ins && ins.getAttribute('data-adsbygoogle-status') === 'done') {
 	            var iframe = ins.querySelector('iframe');
 	            if (!iframe || iframe.offsetHeight <= 1) {
-	              slot.style.display = 'none';
+	              slot.classList.add('ad-slot--empty');
+	            } else if (iframe.offsetHeight > 10) {
+	              slot.classList.remove('ad-slot--empty');
 	            }
 	          }
 	        });
@@ -764,8 +766,9 @@ function wrapWithLayout(content, options = {}) {
 	          if (!ins.closest('.ad-slot')) {
 	            var iframe = ins.querySelector('iframe');
 	            if (!iframe || iframe.offsetHeight <= 1) {
-	              ins.style.display = 'none';
-	              ins.style.height = '0';
+	              ins.classList.add('ad-ins--empty');
+	            } else if (iframe.offsetHeight > 10) {
+	              ins.classList.remove('ad-ins--empty');
 	            }
 	          }
 	        });
