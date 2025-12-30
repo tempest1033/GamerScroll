@@ -399,13 +399,13 @@ function generateIndexPage(data) {
 	    if (format === 'horizontal') {
 	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
-    // rectangle 포맷: 300x250 고정 크기
+    // rectangle 포맷: 300x250 고정 크기 (display:block으로 초기화 보장)
     if (format === 'rectangle') {
-      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
     }
-    // vertical 포맷: 300x600 고정 크기
+    // vertical 포맷: 300x600 고정 크기 (display:block으로 초기화 보장)
     if (format === 'vertical') {
-      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:300px;height:600px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
     }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
@@ -423,9 +423,9 @@ function generateIndexPage(data) {
 	    if (isHorizontal) {
 	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
-	    // 직사각형: 300x250 고정 크기
+	    // 직사각형: 300x250 고정 크기 (display:block으로 초기화 보장)
 	    if (isRectangle) {
-	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
 	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
