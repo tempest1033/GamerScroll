@@ -2330,10 +2330,11 @@
         display: none;
       }
 
-      /* 모바일 가로형 광고 - 높이는 ins 태그에서 100px 고정 */
+      /* 모바일 가로형 광고 - 320x100 고정 크기, 중앙 정렬 */
       .ad-slot.mobile-only.ad-slot--horizontal {
         display: block;
         width: 100%;
+        text-align: center;
         overflow: hidden;
       }
 
