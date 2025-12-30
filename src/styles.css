@@ -2215,6 +2215,8 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      padding: 0;
+      margin: 0;
     }
 
     /* 가로형 광고 내부 - 모든 페이지에서 display:block 적용 (AdSense 반응형 안정화) */
