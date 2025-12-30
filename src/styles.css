@@ -2215,10 +2215,12 @@
       overflow: hidden;
     }
 
+    /* 가로형 광고 내부 중앙 정렬 */
     .home-section .ad-slot--horizontal > ins.adsbygoogle {
-      display: flex !important;
+      display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 140px;
     }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
