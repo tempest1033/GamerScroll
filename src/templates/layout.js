@@ -749,6 +749,26 @@ function wrapWithLayout(content, options = {}) {
 	          ins.style.display = 'none';
 	          ins.style.height = '0';
 	        });
+	        // 초기화됐지만 빈 광고 숨김 (iframe 1px = AdSense가 광고 못 채움)
+	        document.querySelectorAll('.ad-slot').forEach(function(slot) {
+	          var ins = slot.querySelector('ins.adsbygoogle');
+	          if (ins && ins.getAttribute('data-adsbygoogle-status') === 'done') {
+	            var iframe = ins.querySelector('iframe');
+	            if (!iframe || iframe.offsetHeight <= 1) {
+	              slot.style.display = 'none';
+	            }
+	          }
+	        });
+	        // wrapper 없는 ins도 빈 광고 숨김
+	        document.querySelectorAll('ins.adsbygoogle[data-adsbygoogle-status="done"]').forEach(function(ins) {
+	          if (!ins.closest('.ad-slot')) {
+	            var iframe = ins.querySelector('iframe');
+	            if (!iframe || iframe.offsetHeight <= 1) {
+	              ins.style.display = 'none';
+	              ins.style.height = '0';
+	            }
+	          }
+	        });
 	      }
 
 	      // 광고 로드 후 체크 (0.5초, 1초, 2초, 3초)
