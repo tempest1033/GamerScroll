@@ -2318,11 +2318,12 @@
         display: none;
       }
 
-      /* 모바일 가로형 광고 - 자동 높이 + 가로 중앙 */
+      /* 모바일 가로형 광고 - 높이 제한 (min:100, max:140) */
       .ad-slot.mobile-only.ad-slot--horizontal {
         display: block;
         text-align: center;
-        max-height: 120px;
+        min-height: 100px;
+        max-height: 140px;
         overflow: hidden;
       }
 
@@ -4796,7 +4797,13 @@
 
   .home-daily-focus-text {
     padding: 12px !important;
-    font-size: 13px !important;
+    font-size: 15px !important;
+  }
+
+  @media (max-width: 360px) {
+    .home-daily-focus-text {
+      font-size: 14px !important;
+    }
   }
 
   /* 카드 헤더 */
