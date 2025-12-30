@@ -2325,13 +2325,10 @@
         display: none;
       }
 
-      /* 모바일 가로형 광고 - 100px 높이 고정, 작은 광고도 중앙 정렬 */
+      /* 모바일 가로형 광고 - 광고 높이에 따라 자동 조절 */
       .ad-slot.mobile-only.ad-slot--horizontal {
         display: flex;
         justify-content: center;
-        align-items: center;
-        min-height: 100px;
-        height: 100px;
       }
 
       .home-video-split {
