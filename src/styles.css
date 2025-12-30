@@ -2256,6 +2256,11 @@
       display: none !important;
     }
 
+    /* unfilled 광고 컨테이너도 숨김 */
+    .ad-slot:has(ins[data-ad-status='unfilled']) {
+      display: none !important;
+    }
+
     .ad-slot-top {
       margin-bottom: var(--space-block-y);
     }

@@ -707,8 +707,9 @@ function wrapWithLayout(content, options = {}) {
 
 	      window.addEventListener('load', runInit);
 
-	      // 모바일 광고 높이 감지 및 컨테이너 조정
-	      function adjustMobileAdHeight() {
+	      // 광고 높이 감지 및 unfilled 숨김
+	      function adjustAdSlots() {
+	        // 모바일 가로 광고 높이 조정
 	        document.querySelectorAll('.ad-slot.mobile-only.ad-slot--horizontal').forEach(function(slot) {
 	          var ins = slot.querySelector('ins.adsbygoogle');
 	          if (ins) {
@@ -720,13 +721,20 @@ function wrapWithLayout(content, options = {}) {
 	            }
 	          }
 	        });
+	        // unfilled 광고 컨테이너 숨김 (CSS :has 미지원 브라우저 대응)
+	        document.querySelectorAll('.ad-slot').forEach(function(slot) {
+	          var ins = slot.querySelector('ins.adsbygoogle');
+	          if (ins && ins.getAttribute('data-ad-status') === 'unfilled') {
+	            slot.style.display = 'none';
+	          }
+	        });
 	      }
 
-	      // 광고 로드 후 높이 체크 (0.5초, 1초, 2초, 3초)
-	      setTimeout(adjustMobileAdHeight, 500);
-	      setTimeout(adjustMobileAdHeight, 1000);
-	      setTimeout(adjustMobileAdHeight, 2000);
-	      setTimeout(adjustMobileAdHeight, 3000);
+	      // 광고 로드 후 체크 (0.5초, 1초, 2초, 3초)
+	      setTimeout(adjustAdSlots, 500);
+	      setTimeout(adjustAdSlots, 1000);
+	      setTimeout(adjustAdSlots, 2000);
+	      setTimeout(adjustAdSlots, 3000);
 
 	      let resizeTimer = null;
 	      window.addEventListener('resize', function() {
@@ -768,7 +776,7 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
   </div>`;
 }
 
