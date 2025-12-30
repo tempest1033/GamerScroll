@@ -2325,10 +2325,12 @@
         display: none;
       }
 
-      /* 모바일 가로형 광고 - 광고 높이에 따라 자동 조절 */
+      /* 모바일 가로형 광고 - 꽉 차게 + 최대 높이 100px 제한 */
       .ad-slot.mobile-only.ad-slot--horizontal {
-        display: flex;
-        justify-content: center;
+        display: block;
+        width: 100%;
+        max-height: 100px;
+        overflow: hidden;
       }
 
       .home-video-split {
