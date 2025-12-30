@@ -2208,7 +2208,8 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      min-height: 120px;
+      min-height: 140px;
+      overflow: hidden;
     }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
