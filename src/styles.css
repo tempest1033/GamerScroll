@@ -2215,6 +2215,12 @@
       overflow: hidden;
     }
 
+    .home-section .ad-slot--horizontal > ins.adsbygoogle {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
       max-width: 300px;
       max-height: 250px;
