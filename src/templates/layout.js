@@ -721,6 +721,17 @@ function wrapWithLayout(content, options = {}) {
 	            }
 	          }
 	        });
+	        // 버티컬 광고 높이 조정 (실제 iframe 높이에 맞춤)
+	        document.querySelectorAll('.ad-slot.ad-slot--vertical').forEach(function(slot) {
+	          var ins = slot.querySelector('ins.adsbygoogle');
+	          if (ins) {
+	            var iframe = ins.querySelector('iframe');
+	            if (iframe && iframe.offsetHeight > 0) {
+	              slot.style.height = iframe.offsetHeight + 'px';
+	              ins.style.height = iframe.offsetHeight + 'px';
+	            }
+	          }
+	        });
 	        // unfilled 광고 컨테이너 숨김 (CSS :has 미지원 브라우저 대응)
 	        document.querySelectorAll('.ad-slot').forEach(function(slot) {
 	          var ins = slot.querySelector('ins.adsbygoogle');
