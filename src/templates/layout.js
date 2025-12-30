@@ -673,12 +673,17 @@ function wrapWithLayout(content, options = {}) {
 		          entries.forEach(function(entry) {
 		            if (entry.isIntersecting) {
 		              var el = entry.target.querySelector('ins.adsbygoogle');
-		              if (el && el.dataset.gcAdsInit !== '1' && canInit(el)) {
-		                el.dataset.gcAdsInit = '1';
-		                try {
-		                  (adsbygoogle = window.adsbygoogle || []).push({});
-		                } catch (e) {
-		                  delete el.dataset.gcAdsInit;
+		              // 뷰포트 진입 시에는 canInit() 대신 간단한 체크만 수행
+		              // (뷰포트에 보인다는 것 자체가 렌더링 가능하다는 의미)
+		              if (el && el.dataset.gcAdsInit !== '1' && el.isConnected) {
+		                var style = window.getComputedStyle(el);
+		                if (style && style.display !== 'none' && style.visibility !== 'hidden') {
+		                  el.dataset.gcAdsInit = '1';
+		                  try {
+		                    (adsbygoogle = window.adsbygoogle || []).push({});
+		                  } catch (e) {
+		                    delete el.dataset.gcAdsInit;
+		                  }
 		                }
 		              }
 		            }
