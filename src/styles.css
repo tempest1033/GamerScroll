@@ -2215,12 +2215,10 @@
       overflow: hidden;
     }
 
-    /* 가로형 광고 내부 중앙 정렬 */
+    /* 가로형 광고 내부 중앙 정렬 - inline style 덮어쓰기 */
     .home-section .ad-slot--horizontal > ins.adsbygoogle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 140px;
+      display: block !important;
+      vertical-align: middle;
     }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
