@@ -414,9 +414,9 @@ function generateIndexPage(data) {
 	    var isHorizontal = format === 'horizontal';
 	    var isRectangle = format === 'rectangle';
 	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
-	    // 가로형도 반응형으로 변경 (320x100 고정 → 100% 너비 + responsive)
+	    // 가로형도 반응형으로 변경 (320x100 고정 → 100% 너비 + horizontal 포맷 강제)
 	    if (isHorizontal) {
-	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-full-width-responsive="true"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
 	    }
 	    var formatAttrs = isRectangle
 	      ? ' data-ad-format="rectangle" data-full-width-responsive="true"'
