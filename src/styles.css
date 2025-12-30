@@ -2277,9 +2277,9 @@
       margin-bottom: var(--space-block-y);
     }
 
-    /* PC 광고 여백 */
+    /* PC 광고 여백 (홈페이지와 동일) */
     .ad-slot-section {
-      padding: 12px 0;
+      padding: var(--space-block-y) 0;
     }
 
     /* 광고 다음 요소 여백 통합 리셋 */
@@ -2306,7 +2306,7 @@
     /* 홈페이지 상단 광고 여백 */
     .home-section > ins.adsbygoogle {
       margin-top: var(--space-block-y);
-      margin-bottom: var(--space-block-y);
+      margin-bottom: 12px;
     }
 
     /* 모바일 반응형 - 홈 */
