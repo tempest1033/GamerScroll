@@ -2439,6 +2439,12 @@
         padding: 8px 0;
       }
 
+      /* 모바일 홈페이지 상단 광고 여백 (개별 페이지와 동일) */
+      .home-section > ins.adsbygoogle {
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+
       /* 모바일 광고 컨테이너 최대 너비 제한 */
       .ad-slot {
         max-width: 100%;
