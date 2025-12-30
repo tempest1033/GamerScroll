@@ -2197,29 +2197,20 @@
       max-height: 250px;
     }
 
-	    .ad-slot--horizontal.mobile-only > ins.adsbygoogle {
-	      width: 320px;
-	      height: 100px;
-	      max-width: 320px;
-	      max-height: 100px;
-	    }
+    .ad-slot--horizontal.mobile-only > ins.adsbygoogle {
+      width: 100%;
+      max-height: 250px;
+    }
 
-	    /* 홈 가로형 광고 컨테이너 카드 스타일 */
-	    .home-section .ad-slot--horizontal {
-	      display: flex;
-	      align-items: center;
-	      justify-content: center;
-	      background: var(--card);
-	      border: 1px solid var(--border);
-	      border-radius: var(--radius);
-	      box-shadow: var(--shadow);
-	      min-height: 140px;
-	      overflow: hidden;
-	    }
-
-	    .home-section .ad-slot--horizontal.mobile-only {
-	      min-height: 100px;
-	    }
+    /* 홈 가로형 광고 컨테이너 카드 스타일 */
+    .home-section .ad-slot--horizontal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-height: 140px;
+      overflow: hidden;
+    }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
       max-width: 300px;
@@ -2450,9 +2441,6 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       -webkit-font-smoothing: antialiased;
       overflow-y: scroll;
 
@@ -2812,10 +2800,6 @@
       margin: 0 auto;
       padding: 0 var(--space-page-x) 60px;
       box-sizing: border-box;
-    }
-
-    main.container {
-      flex: 1 0 auto;
     }
 
     /* Sections */
