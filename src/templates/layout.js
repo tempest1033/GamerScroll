@@ -511,15 +511,52 @@ function wrapWithLayout(content, options = {}) {
   <main class="container">
     ${content}
 	  </main>
-		  ${generateFooter()}
-		  ${SHOW_ADS ? `<script>
-		    (function() {
-		      function canInit(el) {
-		        if (!el || !el.isConnected) return false;
-		        const rect = el.getBoundingClientRect();
-		        if (!rect || rect.width <= 0) return false;
-		        const style = window.getComputedStyle(el);
-		        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+			  ${generateFooter()}
+			  ${SHOW_ADS ? `<script>
+			    (function() {
+			      const GC_ADS_DISABLED_CLASS = 'gc-ads-disabled';
+
+			      function isMobileViewport() {
+			        try {
+			          return window.matchMedia && window.matchMedia('(max-width: 1024px)').matches;
+			        } catch {
+			          return false;
+			        }
+			      }
+
+			      function isActiveSlotForViewport(el) {
+			        const slot = el && el.closest ? el.closest('.ad-slot') : null;
+			        if (!slot) return true;
+			        const isMobile = isMobileViewport();
+			        if (isMobile) return !slot.classList.contains('pc-only');
+			        return !slot.classList.contains('mobile-only');
+			      }
+
+			      function syncAdsenseSlotClasses() {
+			        const isMobile = isMobileViewport();
+			        document.querySelectorAll('ins.adsbygoogle, ins.' + GC_ADS_DISABLED_CLASS).forEach(function(el) {
+			          const slot = el.closest && el.closest('.ad-slot');
+			          const inactive = slot
+			            ? (isMobile && slot.classList.contains('pc-only')) || (!isMobile && slot.classList.contains('mobile-only'))
+			            : false;
+
+			          if (inactive) {
+			            if (el.classList.contains('adsbygoogle')) el.classList.remove('adsbygoogle');
+			            el.classList.add(GC_ADS_DISABLED_CLASS);
+			          } else {
+			            if (!el.classList.contains('adsbygoogle')) el.classList.add('adsbygoogle');
+			            el.classList.remove(GC_ADS_DISABLED_CLASS);
+			          }
+			        });
+			      }
+
+			      function canInit(el) {
+			        if (!isActiveSlotForViewport(el)) return false;
+			        if (!el || !el.isConnected) return false;
+			        const rect = el.getBoundingClientRect();
+			        if (!rect || rect.width <= 0) return false;
+			        const style = window.getComputedStyle(el);
+			        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
 		        return true;
 		      }
 
@@ -665,12 +702,13 @@ function wrapWithLayout(content, options = {}) {
 		        });
 		      }
 
-		      function runInit() {
-		        ensureAdStatusObserver();
-		        initAds();
-		        runVisibilityPass();
-		        scheduleVisibilityCheck();
-		        scheduleInitRetries();
+			      function runInit() {
+			        syncAdsenseSlotClasses();
+			        ensureAdStatusObserver();
+			        initAds();
+			        runVisibilityPass();
+			        scheduleVisibilityCheck();
+			        scheduleInitRetries();
 		        kickResizeOnce();
 		      }
 
@@ -722,7 +760,7 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
     <ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
   </div>`;
 }
 
