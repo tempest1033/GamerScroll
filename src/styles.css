@@ -2211,7 +2211,6 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      min-height: 140px;
       overflow: hidden;
     }
 
