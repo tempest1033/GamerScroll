@@ -2251,6 +2251,11 @@
       display: none;
     }
 
+    /* AdSense unfilled 광고 자동 숨김 */
+    ins.adsbygoogle[data-ad-status='unfilled'] {
+      display: none !important;
+    }
+
     .ad-slot-top {
       margin-bottom: var(--space-block-y);
     }
@@ -2325,11 +2330,11 @@
         display: none;
       }
 
-      /* 모바일 가로형 광고 - 높이 제한 완화 (overflow visible로 AdSense 크기 계산 허용) */
+      /* 모바일 가로형 광고 - 높이는 ins 태그에서 100px 고정 */
       .ad-slot.mobile-only.ad-slot--horizontal {
         display: block;
-        text-align: center;
-        min-height: 100px;
+        width: 100%;
+        overflow: hidden;
       }
 
       .home-video-split {
@@ -2387,7 +2392,6 @@
       .ad-slot.mobile-only.ad-slot--rectangle {
         display: block;
         text-align: center;
-        min-height: 250px;
         width: 100%;
       }
       .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {

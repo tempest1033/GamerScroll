@@ -418,9 +418,9 @@ function generateIndexPage(data) {
 	    var isHorizontal = format === 'horizontal';
 	    var isRectangle = format === 'rectangle';
 	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
-	    // 가로형: 반응형 꽉 차게 (CSS에서 max-height 제한)
+	    // 가로형: 고정 높이 100px + 전체 너비
 	    if (isHorizontal) {
-	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-full-width-responsive="true"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
 	    // 직사각형: 고정 크기 300x250 직접 지정
 	    if (isRectangle) {
