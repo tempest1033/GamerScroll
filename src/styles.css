@@ -2217,8 +2217,8 @@
       overflow: hidden;
     }
 
-    /* 가로형 광고 내부 중앙 정렬 - inline style 덮어쓰기 */
-    .home-section .ad-slot--horizontal > ins.adsbygoogle {
+    /* 가로형 광고 내부 - 모든 페이지에서 display:block 적용 (AdSense 반응형 안정화) */
+    .ad-slot--horizontal > ins.adsbygoogle {
       display: block !important;
       vertical-align: middle;
     }
@@ -2233,8 +2233,8 @@
       max-height: 250px;
     }
 
-    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 */
-    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
+    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 (rectangle 제외 - 300x250 고정 높이 필요) */
+    .ad-slot.ad-slot--no-reserve:not(.ad-slot--rectangle) > ins.adsbygoogle {
       min-height: 0 !important;
       height: auto !important;
     }
