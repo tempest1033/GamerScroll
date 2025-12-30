@@ -660,7 +660,7 @@ function wrapWithLayout(content, options = {}) {
 		        window.__gcAdsInitRetriesScheduled = true;
 		        initRetryTimers.forEach(clearTimeout);
 		        initRetryTimers = [];
-		        [500, 1500, 3000].forEach(function(delay) {
+		        [100, 300, 500, 1000, 2000].forEach(function(delay) {
 		          initRetryTimers.push(setTimeout(initAds, delay));
 		        });
 		      }
