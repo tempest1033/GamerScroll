@@ -2202,6 +2202,15 @@
       max-height: 250px;
     }
 
+    /* 홈 가로형 광고 컨테이너 카드 스타일 */
+    .home-section .ad-slot--horizontal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-height: 120px;
+    }
+
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
       max-width: 300px;
       max-height: 250px;
