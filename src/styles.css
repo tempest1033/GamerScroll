@@ -2319,6 +2319,16 @@
         display: none;
       }
 
+      /* 모바일 가로형 광고 높이 제한 - 세로형 광고 방지 */
+      .ad-slot.mobile-only.ad-slot--horizontal {
+        max-height: 120px;
+        overflow: hidden;
+      }
+
+      .ad-slot.mobile-only.ad-slot--horizontal > ins.adsbygoogle {
+        max-height: 120px;
+      }
+
       .home-video-split {
         flex-direction: column;
         gap: 10px;
