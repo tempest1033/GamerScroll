@@ -402,25 +402,27 @@ function generateIndexPage(data) {
     if (format === 'rectangle') {
       return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
     }
-    // vertical 광고도 반응형으로 (사이드바 너비에 맞춤)
-    if (format === 'vertical') {
-      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="vertical" data-full-width-responsive="true"></ins></div>';
-    }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
-		  // 모바일용 광고 슬롯 - 고정 규격
-		  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
-		    if (!SHOW_ADS) return '';
-		    var format = adFormat || 'horizontal';
-		    var slotId = adSlotId || '5214702534';
-		    var isHorizontal = format === 'horizontal';
-		    var isRectangle = format === 'rectangle';
-		    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
-		    var size = getAdSize(format, true);
-		    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
-		  }
+	  // 모바일용 광고 슬롯 - 전체 너비
+	  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
+	    if (!SHOW_ADS) return '';
+	    var format = adFormat || 'horizontal';
+	    var slotId = adSlotId || '5214702534';
+	    var isHorizontal = format === 'horizontal';
+	    var isRectangle = format === 'rectangle';
+	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
+	    // 가로형은 320x100 고정
+	    if (isHorizontal) {
+	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	    }
+	    var formatAttrs = isRectangle
+	      ? ' data-ad-format="rectangle" data-full-width-responsive="true"'
+	      : ' data-full-width-responsive="true"';
+	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"' + formatAttrs + '></ins></div>';
+	  }
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<div class="home-container">' +
