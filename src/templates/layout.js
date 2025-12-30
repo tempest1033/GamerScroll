@@ -665,12 +665,37 @@ function wrapWithLayout(content, options = {}) {
 		        });
 		      }
 
+		      // IntersectionObserver: 뷰포트 진입 시 광고 초기화
+		      function setupAdIntersectionObserver() {
+		        if (window.__gcAdIntersectionObserver) return;
+		        if (!('IntersectionObserver' in window)) return;
+		        window.__gcAdIntersectionObserver = new IntersectionObserver(function(entries) {
+		          entries.forEach(function(entry) {
+		            if (entry.isIntersecting) {
+		              var el = entry.target.querySelector('ins.adsbygoogle');
+		              if (el && el.dataset.gcAdsInit !== '1' && canInit(el)) {
+		                el.dataset.gcAdsInit = '1';
+		                try {
+		                  (adsbygoogle = window.adsbygoogle || []).push({});
+		                } catch (e) {
+		                  delete el.dataset.gcAdsInit;
+		                }
+		              }
+		            }
+		          });
+		        }, { rootMargin: '200px 0px', threshold: 0 });
+		        document.querySelectorAll('.ad-slot').forEach(function(slot) {
+		          window.__gcAdIntersectionObserver.observe(slot);
+		        });
+		      }
+
 		      function runInit() {
 		        ensureAdStatusObserver();
 		        initAds();
 		        runVisibilityPass();
 		        scheduleVisibilityCheck();
 		        scheduleInitRetries();
+		        setupAdIntersectionObserver();
 		        kickResizeOnce();
 		      }
 
