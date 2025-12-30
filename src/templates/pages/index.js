@@ -369,7 +369,7 @@ function generateIndexPage(data) {
   var insightCardHtml = aiInsight ?
     '<div class="home-card" id="home-insight">' +
     '<div class="home-card-header">' +
-    '<div class="home-card-title">' + insightHeader + '게임 트렌드 리포트' + ampmHtml + '</div>' +
+    '<div class="home-card-title">' + insightHeader + '게이머스크롤 리포트' + ampmHtml + '</div>' +
     '<a href="/trend" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
@@ -406,19 +406,22 @@ function generateIndexPage(data) {
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
-	  // 모바일용 광고 슬롯 - 전체 너비
-	  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
-	    if (!SHOW_ADS) return '';
-	    var format = adFormat || 'horizontal';
-	    var slotId = adSlotId || '5214702534';
-	    var isHorizontal = format === 'horizontal';
-	    var isRectangle = format === 'rectangle';
-	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
-    var formatAttrs = isHorizontal
-      ? ' data-ad-format="horizontal" data-full-width-responsive="true"'
-      : (isRectangle ? ' data-ad-format="rectangle" data-full-width-responsive="true"' : ' data-full-width-responsive="true"');
-    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"' + formatAttrs + '></ins></div>';
-  }
+		  // 모바일용 광고 슬롯 - 전체 너비
+		  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
+		    if (!SHOW_ADS) return '';
+		    var format = adFormat || 'horizontal';
+		    var slotId = adSlotId || '5214702534';
+		    var isHorizontal = format === 'horizontal';
+		    var isRectangle = format === 'rectangle';
+		    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
+	    if (isHorizontal) {
+	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	    }
+	    var formatAttrs = isRectangle
+	      ? ' data-ad-format="rectangle" data-full-width-responsive="true"'
+	      : ' data-full-width-responsive="true"';
+	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"' + formatAttrs + '></ins></div>';
+	  }
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<div class="home-container">' +
