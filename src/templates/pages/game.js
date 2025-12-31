@@ -1168,8 +1168,8 @@ function generateGamePage(gameData) {
   };
 
   const content = `
-    ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
     <div class="game-page">
+      ${generateAdSlot(AD_SLOTS.horizontal, AD_SLOTS.horizontal5)}
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">
         <div class="game-hero-content">

@@ -211,8 +211,8 @@ function generateGamesHubPage(options = {}) {
   `;
 
   const content = `
-    ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
     <div class="games-hub-page" id="top">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <h1 class="visually-hidden">게임 DB</h1>
       ${searchResultsSection}
       ${recentGamesSection}

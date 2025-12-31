@@ -2511,13 +2511,6 @@
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    body > * {
-      width: 100%;
     }
     /* Header */
     .header {
@@ -2868,14 +2861,10 @@
     /* Container - 네이버 스타일 (PC: 1190px) */
     .container {
       max-width: 1190px;
-      min-height: calc(100vh - 250px);
+      min-height: calc(100vh - 120px); /* header+footer 높이 고려, footer 하단 고정 */
       margin: 0 auto;
       padding: 0 var(--space-page-x) 60px;
       box-sizing: border-box;
-    }
-
-    main.container {
-      flex: 1 0 auto;
     }
 
     /* Sections */
