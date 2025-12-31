@@ -2189,8 +2189,8 @@
     .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
       min-height: 600px;
     }
-    /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 */
-    .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
+    /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 (vertical 제외 - 300x600 고정 높이 필요) */
+    .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
       min-height: auto;
     }
     .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
@@ -2242,8 +2242,8 @@
       max-height: 250px;
     }
 
-    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 (rectangle 제외 - 300x250 고정 높이 필요) */
-    .ad-slot.ad-slot--no-reserve:not(.ad-slot--rectangle) > ins.adsbygoogle {
+    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 (rectangle/vertical 제외 - 고정 높이 필요) */
+    .ad-slot.ad-slot--no-reserve:not(.ad-slot--rectangle):not(.ad-slot--vertical) > ins.adsbygoogle {
       min-height: 0 !important;
       height: auto !important;
     }
