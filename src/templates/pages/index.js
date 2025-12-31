@@ -395,9 +395,9 @@ function generateIndexPage(data) {
 	    if (!SHOW_ADS) return '';
 	    var format = adFormat || 'horizontal';
 	    var slotId = adSlotId || '5214702534';
-	    // 가로형은 728x90 고정 크기
+	    // 가로형은 반응형 (화면 너비에 맞게 자동 조절)
 	    if (format === 'horizontal') {
-	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
 	    }
     // rectangle 포맷: 300x250 고정 크기 - display는 CSS에서 제어
     if (format === 'rectangle') {
