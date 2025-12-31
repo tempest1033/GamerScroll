@@ -18,8 +18,13 @@ const CREDENTIALS_PATH = path.join(__dirname, '../../credentials/ga4-service-acc
 function createClient() {
   // 환경변수 우선
   if (process.env.GA4_SERVICE_ACCOUNT) {
-    const credentials = JSON.parse(process.env.GA4_SERVICE_ACCOUNT);
-    return new BetaAnalyticsDataClient({ credentials });
+    try {
+      const credentials = JSON.parse(process.env.GA4_SERVICE_ACCOUNT);
+      return new BetaAnalyticsDataClient({ credentials });
+    } catch (err) {
+      console.error('[Analytics] Invalid GA4_SERVICE_ACCOUNT JSON:', err.message);
+      return null;
+    }
   }
 
   // 로컬 파일 폴백
@@ -99,6 +104,13 @@ async function savePopularGames(outputPath = 'data/popular-games.json') {
   };
 
   const fullPath = path.join(__dirname, '../..', outputPath);
+
+  // 디렉토리가 없으면 생성
+  const dir = path.dirname(fullPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
   fs.writeFileSync(fullPath, JSON.stringify(data, null, 2));
   console.log(`[Analytics] Saved popular games to ${outputPath}`);
 

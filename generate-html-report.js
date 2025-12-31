@@ -48,6 +48,8 @@ const { generateSteamPage } = require('./src/templates/pages/steam');
 const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
 const { generateMetacriticPage } = require('./src/templates/pages/metacritic');
 const { generateSearchPage } = require('./src/templates/pages/search');
+const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
+const { loadPopularGames } = require('./src/crawlers/analytics');
 
 // 데일리 인사이트 import
 const {
@@ -320,6 +322,22 @@ async function main() {
 
   const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight };
 
+  // games.json 로드 (게임 허브용)
+  let gamesData = {};
+  try {
+    const gamesJson = JSON.parse(fs.readFileSync('./data/games.json', 'utf8'));
+    gamesData = gamesJson.games || {};
+    console.log(`  📦 games.json 로드: ${Object.keys(gamesData).length}개 게임`);
+  } catch (err) {
+    console.warn('  ⚠️ games.json 로드 실패:', err.message);
+  }
+
+  // 인기 게임 데이터 로드
+  const popularGamesData = loadPopularGames();
+  if (popularGamesData.games && popularGamesData.games.length > 0) {
+    console.log(`  📊 인기 게임 데이터 로드: TOP ${popularGamesData.games.length}`);
+  }
+
   const pages = [
     { filename: 'index.html', generator: generateIndexPage },
     { filename: 'trend.html', generator: generateTrendPage },
@@ -330,7 +348,8 @@ async function main() {
     { filename: 'steam.html', generator: generateSteamPage },
     { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: 'metacritic.html', generator: generateMetacriticPage },
-    { filename: 'search/index.html', generator: generateSearchPage }
+    { filename: 'search/index.html', generator: generateSearchPage },
+    { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [] }) }
   ];
 
   for (const page of pages) {
@@ -371,6 +390,13 @@ async function main() {
     fs.mkdirSync(searchDir, { recursive: true });
   }
   fs.copyFileSync('./search/index.html', `${searchDir}/index.html`);
+
+  // games 허브 페이지 복사 (기존 게임 개별 페이지와 별도)
+  if (fs.existsSync('./games/index.html')) {
+    fs.copyFileSync('./games/index.html', `${DOCS_DIR}/games/index.html`);
+    console.log('  ✅ games/index.html → docs/games/index.html');
+  }
+
   fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
@@ -386,7 +412,8 @@ async function main() {
     { loc: 'https://gamerscrawl.com/rankings/', changefreq: 'hourly', priority: '0.9' },
     { loc: 'https://gamerscrawl.com/steam/', changefreq: 'hourly', priority: '0.8' },
     { loc: 'https://gamerscrawl.com/upcoming/', changefreq: 'daily', priority: '0.7' },
-    { loc: 'https://gamerscrawl.com/metacritic/', changefreq: 'daily', priority: '0.7' }
+    { loc: 'https://gamerscrawl.com/metacritic/', changefreq: 'daily', priority: '0.7' },
+    { loc: 'https://gamerscrawl.com/games/', changefreq: 'daily', priority: '0.9' }
   ];
 
   // 게임 페이지 자동 스캔

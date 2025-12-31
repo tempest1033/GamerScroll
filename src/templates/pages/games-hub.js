@@ -167,7 +167,7 @@ function generateGamesHubPage(options = {}) {
         <p class="games-hub-desc">${gamesList.length}개 게임의 순위, 트렌드, 정보를 확인하세요</p>
       </header>
       ${popularSection}
-      ${generateAdSlot(AD_SLOTS.rectangle1, AD_SLOTS.rectangle2)}
+      ${generateAdSlot(AD_SLOTS.rectangle, AD_SLOTS.rectangle2)}
       ${allGamesSection}
     </div>
   `;

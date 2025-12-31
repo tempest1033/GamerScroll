@@ -11,6 +11,7 @@ const cheerio = require('cheerio');
 const { generateAIInsight } = require('./src/insights/ai-insight');
 const { loadHistory, getYesterdayDate, getCurrentPeriod } = require('./src/insights/daily');
 const { fetchStockPrices } = require('./src/crawlers/stocks');
+const { savePopularGames } = require('./src/crawlers/analytics');
 
 const CACHE_FILE = './data-cache.json';
 const REPORTS_DIR = './reports';
@@ -316,6 +317,19 @@ async function main() {
 
   fs.writeFileSync(insightJsonFile, JSON.stringify(insight, null, 2), 'utf8');
   console.log(`\n✅ AI 인사이트 저장 완료: ${insightJsonFile}`);
+
+  // GA4 인기 게임 데이터 수집 (환경변수 있을 때만)
+  if (process.env.GA4_SERVICE_ACCOUNT) {
+    console.log('\n📊 GA4 인기 게임 데이터 수집 중...');
+    try {
+      await savePopularGames();
+      console.log('✅ 인기 게임 데이터 저장 완료');
+    } catch (err) {
+      console.warn('⚠️ GA4 인기 게임 수집 실패:', err.message);
+    }
+  } else {
+    console.log('\n⚠️ GA4_SERVICE_ACCOUNT 환경변수 없음 - 인기 게임 수집 건너뜀');
+  }
 }
 
 main().catch(console.error);
