@@ -2170,6 +2170,11 @@
       margin: 0 auto;
     }
 
+    /* wrapper 없는 ins 광고 기본값 */
+    ins.adsbygoogle {
+      display: block;
+    }
+
     /* PC 광고 기본 */
     .ad-slot.pc-only > ins.adsbygoogle {
       max-height: 600px;

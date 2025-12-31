@@ -399,13 +399,13 @@ function generateIndexPage(data) {
 	    if (format === 'horizontal') {
 	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
-    // rectangle 포맷: 300x250 고정 크기 - wrapper 없이 ins만 (상단 배너와 동일 방식)
+    // rectangle 포맷: 300x250 고정 크기 - display는 CSS에서 제어
     if (format === 'rectangle') {
-      return '<ins class="adsbygoogle ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
+      return '<ins class="adsbygoogle ' + (extraClass || '') + '" id="' + id + '" style="width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
     }
-    // vertical 포맷: 300x600 고정 크기 - wrapper 없이 ins만 (상단 배너와 동일 방식)
+    // vertical 포맷: 300x600 고정 크기 - display는 CSS에서 제어
     if (format === 'vertical') {
-      return '<ins class="adsbygoogle ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:300px;height:600px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
+      return '<ins class="adsbygoogle ' + (extraClass || '') + '" id="' + id + '" style="width:300px;height:600px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
     }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
@@ -423,16 +423,16 @@ function generateIndexPage(data) {
 	    if (isHorizontal) {
 	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
-	    // 직사각형: 300x250 고정 크기 - wrapper 없이 ins만 (상단 배너와 동일 방식)
+	    // 직사각형: 300x250 고정 크기 - display는 CSS에서 제어
 	    if (isRectangle) {
-	      return '<ins class="adsbygoogle mobile-only ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
+	      return '<ins class="adsbygoogle mobile-only ' + (extraClass || '') + '" id="' + id + '" style="width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
 	    }
 	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
-	  // 홈페이지 상단 광고 - div 없이 ins만 (다른 페이지와 동일)
-	  var topAdPc = SHOW_ADS ? '<ins class="adsbygoogle pc-only" style="display:block;width:100%;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '"></ins>' : '';
-	  var topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins>' : '';
+	  // 홈페이지 상단 광고 - display는 CSS에서 제어 (pc-only/mobile-only)
+	  var topAdPc = SHOW_ADS ? '<ins class="adsbygoogle pc-only" style="width:100%;height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '"></ins>' : '';
+	  var topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only" style="width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
 	    topAdPc +
