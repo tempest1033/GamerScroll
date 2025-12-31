@@ -403,9 +403,9 @@ function generateIndexPage(data) {
     if (format === 'rectangle') {
       return '<ins class="adsbygoogle ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
     }
-    // vertical 포맷: 300x600 고정 크기 (display:block으로 초기화 보장)
+    // vertical 포맷: 300x600 고정 크기 - wrapper 없이 ins만 (상단 배너와 동일 방식)
     if (format === 'vertical') {
-      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:300px;height:600px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+      return '<ins class="adsbygoogle ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:300px;height:600px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
     }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
