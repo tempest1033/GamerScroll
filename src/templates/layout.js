@@ -516,8 +516,6 @@ function wrapWithLayout(content, options = {}) {
 		    (function() {
 		      function canInit(el) {
 		        if (!el || !el.isConnected) return false;
-		        const rect = el.getBoundingClientRect();
-		        if (!rect || rect.width <= 0) return false;
 		        const style = window.getComputedStyle(el);
 		        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
 		        return true;
@@ -672,9 +670,10 @@ function wrapWithLayout(content, options = {}) {
 		        window.__gcAdIntersectionObserver = new IntersectionObserver(function(entries) {
 		          entries.forEach(function(entry) {
 		            if (entry.isIntersecting) {
-		              var el = entry.target.querySelector('ins.adsbygoogle');
-		              // 뷰포트 진입 시에는 canInit() 대신 간단한 체크만 수행
-		              // (뷰포트에 보인다는 것 자체가 렌더링 가능하다는 의미)
+		              // .ad-slot이면 내부 ins 찾기, 아니면 자기 자신(ins)
+		              var el = entry.target.classList.contains('adsbygoogle')
+		                ? entry.target
+		                : entry.target.querySelector('ins.adsbygoogle');
 		              if (el && el.dataset.gcAdsInit !== '1' && el.isConnected) {
 		                var style = window.getComputedStyle(el);
 		                if (style && style.display !== 'none' && style.visibility !== 'hidden') {
@@ -689,8 +688,14 @@ function wrapWithLayout(content, options = {}) {
 		            }
 		          });
 		        }, { rootMargin: '200px 0px', threshold: 0 });
+		        // .ad-slot wrapper와 wrapper 없는 ins.adsbygoogle 모두 관찰
 		        document.querySelectorAll('.ad-slot').forEach(function(slot) {
 		          window.__gcAdIntersectionObserver.observe(slot);
+		        });
+		        document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
+		          if (!ins.closest('.ad-slot')) {
+		            window.__gcAdIntersectionObserver.observe(ins);
+		          }
 		        });
 		      }
 
