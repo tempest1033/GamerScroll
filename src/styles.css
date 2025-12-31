@@ -2858,13 +2858,28 @@
       opacity: 1;
     }
 
+    /* Page Wrapper - footer 하단 고정 */
+    /* header(~70px) + search(~50px) + nav(~52px) = ~172px, 여유분 포함 180px 제외 */
+    .page-wrapper {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: calc(100vh - 180px) !important;
+    }
+
     /* Container - 네이버 스타일 (PC: 1190px) */
     .container {
       max-width: 1190px;
-      min-height: calc(100vh - 120px); /* header+footer 높이 고려, footer 하단 고정 */
+      flex: 1 0 auto !important;
       margin: 0 auto;
       padding: 0 var(--space-page-x) 60px;
       box-sizing: border-box;
+    }
+
+    /* 모바일: page-wrapper 높이 조정 */
+    @media (max-width: 768px) {
+      .page-wrapper {
+        min-height: calc(100vh - 120px) !important;
+      }
     }
 
     /* Sections */
@@ -8753,7 +8768,7 @@
   min-height: calc(100vh - 250px);
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-block-y-xl) 0;
+  padding-bottom: var(--space-block-y-xl);
 }
 
 .game-page .home-card-body {
@@ -9473,7 +9488,7 @@
 @media (max-width: 768px) {
   .game-page {
   min-height: calc(100vh - 250px);
-    padding: var(--space-block-y) 0;
+    padding-bottom: var(--space-block-y);
   }
 
   .game-hero-content {
