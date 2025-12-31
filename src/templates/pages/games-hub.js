@@ -217,7 +217,6 @@ function generateGamesHubPage(options = {}) {
       ${searchResultsSection}
       ${recentGamesSection}
       ${popularSection}
-      ${generateAdSlot(AD_SLOTS.rectangle, AD_SLOTS.rectangle2)}
       ${allGamesSection}
     </div>
   `;
