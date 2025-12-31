@@ -643,8 +643,6 @@ function wrapWithLayout(content, options = {}) {
 		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
 		          if (el.dataset.gcAdsInit === '1') return;
 	          if (!canInit(el)) return;
-	          // 뷰포트 근처(200px 이내)의 광고만 초기화, 나머지는 IntersectionObserver가 처리
-	          if (!isNearViewport(el, 200)) return;
 	          el.dataset.gcAdsInit = '1';
 	          try {
 	            (adsbygoogle = window.adsbygoogle || []).push({});
