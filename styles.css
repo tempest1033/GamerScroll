@@ -757,7 +757,7 @@
 	      display: grid;
 	      grid-template-columns: 1fr 300px;
 	      gap: var(--space-block-gap);
-	      padding: var(--space-block-y) 0;
+	      padding: 8px 0 var(--space-block-y);
 	    }
 
 	    .home-main {
@@ -2262,7 +2262,7 @@
 
     /* PC 광고 여백 */
     .ad-slot-section {
-      padding: 12px 0;
+      padding: 8px 0;
     }
 
     /* 광고 다음 요소 여백 통합 리셋 */
@@ -2290,7 +2290,7 @@
       .home-container {
         grid-template-columns: 1fr 320px;
         gap: var(--space-block-gap);
-        padding: var(--space-block-y) 0;
+        padding: 8px 0 var(--space-block-y);
       }
     }
 
@@ -2299,7 +2299,7 @@
         display: flex;
         flex-direction: column;
         gap: var(--space-block-gap);
-        padding: var(--space-block-y) 0;
+        padding: 8px 0 var(--space-block-y);
       }
 
       /* 모바일에서 main/sidebar 구조 풀기 */
