@@ -139,17 +139,15 @@
       .home-main, .home-sidebar {
         display: contents !important;
       }
-      #ad-above-trend-pc { order: 1 !important; }
-      #ad-above-trend-mobile { order: 1 !important; }
+      /* 모바일 순서: 1.상단배너 2.인사이트 3.뉴스 4.모바일랭킹위광고 5.모바일랭킹 6.커뮤니티 7.스팀위광고 8.스팀 9.영상 10.출시위광고 11.출시 */
       #home-insight { order: 2 !important; }
       #home-news { order: 3 !important; }
       #ad-above-mobile { order: 4 !important; }
       #home-mobile-rank { order: 5 !important; }
       #home-community { order: 6 !important; }
-      #ad-above-steam { order: 7 !important; }
+      #ad-above-steam-mobile { order: 7 !important; }
       #home-steam { order: 8 !important; }
       #home-video { order: 9 !important; }
-      #ad-above-upcoming-pc { order: 10 !important; }
       #ad-above-upcoming-mobile { order: 10 !important; }
       #home-upcoming { order: 11 !important; }
     }
@@ -2320,20 +2318,17 @@
         display: contents;
       }
 
-      /* 모바일 순서 재배치 */
-      #ad-above-trend-pc { order: 1; }
-      #ad-above-trend-mobile { order: 1; }
+      /* 모바일 순서 재배치: 상단배너→인사이트→뉴스→광고2→모바일랭킹→커뮤니티→광고3→스팀→영상→광고4→출시 */
       #home-insight { order: 2; }
-      #ad-above-mobile { order: 3; }
-      #home-mobile-rank { order: 4; }
-      #home-news { order: 5; }
+      #home-news { order: 3; }
+      #ad-above-mobile { order: 4; }
+      #home-mobile-rank { order: 5; }
       #home-community { order: 6; }
-      #ad-above-steam { order: 7; }
+      #ad-above-steam-mobile { order: 7; }
       #home-steam { order: 8; }
-      #ad-above-upcoming-pc { order: 9; }
-      #ad-above-upcoming-mobile { order: 9; }
-      #home-upcoming { order: 10; }
-      #home-video { order: 11; }
+      #home-video { order: 9; }
+      #ad-above-upcoming-mobile { order: 10; }
+      #home-upcoming { order: 11; }
 
       /* 홈 카드 헤더 - 패딩은 파일 끝 통합 블록에서 관리 */
 
