@@ -2281,8 +2281,9 @@
       padding: 0;
     }
 
-    .ad-slot.mobile-only {
-      display: none;
+    .ad-slot.mobile-only,
+    ins.adsbygoogle.mobile-only {
+      display: none !important;
     }
 
     /* 모바일 반응형 - 홈 */
@@ -2326,8 +2327,9 @@
       /* 홈 카드 헤더 - 패딩은 파일 끝 통합 블록에서 관리 */
 
       /* 모바일에서 PC only 광고 숨기기 */
-      .ad-slot.pc-only {
-        display: none;
+      .ad-slot.pc-only,
+      ins.adsbygoogle.pc-only {
+        display: none !important;
       }
 
       /* 모바일 가로형 광고 - 높이는 ins 태그에서 100px 고정 */
@@ -2384,8 +2386,9 @@
         height: auto;
       }
 
-      .ad-slot.mobile-only {
-        display: block;
+      .ad-slot.mobile-only,
+      ins.adsbygoogle.mobile-only {
+        display: block !important;
       }
 
       /* 모바일 직사각형 광고 - 300x250 고정 크기 */
