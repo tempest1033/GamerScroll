@@ -2277,8 +2277,8 @@
       padding: 12px 0;
     }
 
-    /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 */
-    .home-container > .ad-slot-section {
+    /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 (vertical 광고 제외) */
+    .home-container > .ad-slot-section:not(.ad-slot--vertical) {
       grid-column: 1 / -1;
     }
 
@@ -2411,17 +2411,15 @@
         display: block !important;
       }
 
-      /* 모바일 직사각형 광고 - 336x280 고정 크기 + 전체 너비 컨테이너 */
+      /* 모바일 직사각형 광고 - 반응형 (화면에 맞게 자동 조절) */
       .ad-slot.mobile-only.ad-slot--rectangle {
         display: block;
         text-align: center;
         width: 100%;
-        background: var(--bg-secondary);
       }
       .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
-        display: inline-block;
-        width: 336px;
-        height: 280px;
+        display: block;
+        width: 100%;
       }
 
       /* 모바일 광고 여백 및 크기 통일 */
@@ -9633,5 +9631,260 @@
   }
   .nav-item.active::after {
     background: #f97316 !important;
+  }
+}
+
+/* ===== 게임 허브 페이지 ===== */
+.games-hub-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+.games-hub-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.games-hub-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.games-hub-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.games-hub-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.games-hub-section-title .section-icon {
+  width: 20px;
+  height: 20px;
+  color: #f97316;
+}
+
+/* 인기 게임 섹션 */
+.games-hub-popular {
+  margin-bottom: 32px;
+}
+
+.games-hub-popular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.games-hub-popular-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.games-hub-popular-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.popular-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.popular-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.popular-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.popular-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popular-views {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* 초성 인덱스 네비게이션 */
+.games-hub-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 56px;
+  background: var(--bg-primary);
+  z-index: 10;
+}
+
+.index-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--card-bg);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.index-link:hover,
+.index-link.active {
+  color: white;
+  background: #f97316;
+}
+
+/* 전체 게임 섹션 */
+.games-hub-all {
+  margin-top: 24px;
+}
+
+.games-hub-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.games-hub-group {
+  scroll-margin-top: 120px;
+}
+
+.group-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f97316;
+}
+
+.group-count {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.group-games {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.game-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.game-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.game-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .games-hub-title {
+    font-size: 22px;
+  }
+
+  .games-hub-popular-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .games-hub-index {
+    top: 48px;
+    gap: 4px;
+  }
+
+  .index-link {
+    min-width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .group-games {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+  }
+
+  .game-item {
+    padding: 8px;
+  }
+
+  .game-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .game-name {
+    font-size: 12px;
   }
 }

@@ -52,8 +52,6 @@ jobs:
 
       - name: Generate AI Insight
         if: steps.check-cache.outputs.cache_exists == 'true'
-        env:
-          GA4_SERVICE_ACCOUNT: ${{ secrets.GA4_SERVICE_ACCOUNT }}
         run: |
           export PATH="/opt/homebrew/bin:$PATH"
           echo "🤖 AI 인사이트 생성 시작..."
@@ -77,7 +75,7 @@ jobs:
           git pull origin main --rebase || true
           git stash pop || true
           # 그 다음 add & commit
-          git add reports/ docs/reports/ data/popular-games.json
+          git add reports/ docs/reports/
           if git diff --staged --quiet; then
             echo "📝 변경사항 없음"
           else

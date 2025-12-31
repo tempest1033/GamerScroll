@@ -21,7 +21,7 @@
   "author": "JYP",
   "license": "MIT",
   "dependencies": {
-    "@google-analytics/data": "^4.9.0",
+    "@google-analytics/data": "^4.12.1",
     "@mendable/firecrawl-js": "^4.7.0",
     "app-store-scraper": "^0.18.0",
     "axios": "^1.6.0",

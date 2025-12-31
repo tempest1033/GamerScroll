@@ -49,7 +49,7 @@ const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
 const { generateMetacriticPage } = require('./src/templates/pages/metacritic');
 const { generateSearchPage } = require('./src/templates/pages/search');
 const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
-const { loadPopularGames } = require('./src/crawlers/analytics');
+const { loadPopularGames, savePopularGames, shouldFetchPopularGames } = require('./src/crawlers/analytics');
 
 // 데일리 인사이트 import
 const {
@@ -330,6 +330,17 @@ async function main() {
     console.log(`  📦 games.json 로드: ${Object.keys(gamesData).length}개 게임`);
   } catch (err) {
     console.warn('  ⚠️ games.json 로드 실패:', err.message);
+  }
+
+  // GA4 인기 게임 데이터 수집 (24시간 쿨타임)
+  if (process.env.GA4_SERVICE_ACCOUNT && shouldFetchPopularGames()) {
+    console.log('  📊 GA4 인기 게임 데이터 수집 중...');
+    try {
+      await savePopularGames();
+      console.log('  ✅ 인기 게임 데이터 갱신 완료');
+    } catch (err) {
+      console.warn('  ⚠️ GA4 인기 게임 수집 실패:', err.message);
+    }
   }
 
   // 인기 게임 데이터 로드
