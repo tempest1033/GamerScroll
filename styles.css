@@ -2286,6 +2286,12 @@
       display: none !important;
     }
 
+    /* PC에서 pc-only 광고 명시적 표시 */
+    .ad-slot.pc-only,
+    ins.adsbygoogle.pc-only {
+      display: block !important;
+    }
+
     /* 모바일 반응형 - 홈 */
     @media (max-width: 1024px) {
       .home-container {
