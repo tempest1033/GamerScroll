@@ -139,17 +139,15 @@
       .home-main, .home-sidebar {
         display: contents !important;
       }
-      #ad-above-trend-pc { order: 1 !important; }
-      #ad-above-trend-mobile { order: 1 !important; }
+      /* 모바일 순서: 1.상단배너 2.인사이트 3.뉴스 4.모바일랭킹위광고 5.모바일랭킹 6.커뮤니티 7.스팀위광고 8.스팀 9.영상 10.출시위광고 11.출시 */
       #home-insight { order: 2 !important; }
       #home-news { order: 3 !important; }
       #ad-above-mobile { order: 4 !important; }
       #home-mobile-rank { order: 5 !important; }
       #home-community { order: 6 !important; }
-      #ad-above-steam { order: 7 !important; }
+      #ad-above-steam-mobile { order: 7 !important; }
       #home-steam { order: 8 !important; }
       #home-video { order: 9 !important; }
-      #ad-above-upcoming-pc { order: 10 !important; }
       #ad-above-upcoming-mobile { order: 10 !important; }
       #home-upcoming { order: 11 !important; }
     }
@@ -2189,8 +2187,8 @@
     .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
       min-height: 600px;
     }
-    /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 */
-    .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
+    /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 (vertical 제외 - 300x600 고정 높이 필요) */
+    .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
       min-height: auto;
     }
     .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
@@ -2212,6 +2210,15 @@
     .ad-slot--horizontal.mobile-only > ins.adsbygoogle {
       width: 100%;
       max-height: 250px;
+    }
+
+    /* 홈페이지 상단 광고 - 테두리/프레임 제거 */
+    #home-top-ad-pc,
+    #home-top-ad-mobile {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
     }
 
     /* 홈 가로형 광고 컨테이너 카드 스타일 */
@@ -2242,8 +2249,8 @@
       max-height: 250px;
     }
 
-    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 (rectangle 제외 - 300x250 고정 높이 필요) */
-    .ad-slot.ad-slot--no-reserve:not(.ad-slot--rectangle) > ins.adsbygoogle {
+    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 (rectangle/vertical 제외 - 고정 높이 필요) */
+    .ad-slot.ad-slot--no-reserve:not(.ad-slot--rectangle):not(.ad-slot--vertical) > ins.adsbygoogle {
       min-height: 0 !important;
       height: auto !important;
     }
@@ -2268,6 +2275,11 @@
     /* PC 광고 여백 */
     .ad-slot-section {
       padding: 12px 0;
+    }
+
+    /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 */
+    .home-container > .ad-slot-section {
+      grid-column: 1 / -1;
     }
 
     /* 광고 다음 요소 여백 통합 리셋 */
@@ -2320,20 +2332,17 @@
         display: contents;
       }
 
-      /* 모바일 순서 재배치 */
-      #ad-above-trend-pc { order: 1; }
-      #ad-above-trend-mobile { order: 1; }
+      /* 모바일 순서 재배치: 상단배너→인사이트→뉴스→광고2→모바일랭킹→커뮤니티→광고3→스팀→영상→광고4→출시 */
       #home-insight { order: 2; }
-      #ad-above-mobile { order: 3; }
-      #home-mobile-rank { order: 4; }
-      #home-news { order: 5; }
+      #home-news { order: 3; }
+      #ad-above-mobile { order: 4; }
+      #home-mobile-rank { order: 5; }
       #home-community { order: 6; }
-      #ad-above-steam { order: 7; }
+      #ad-above-steam-mobile { order: 7; }
       #home-steam { order: 8; }
-      #ad-above-upcoming-pc { order: 9; }
-      #ad-above-upcoming-mobile { order: 9; }
-      #home-upcoming { order: 10; }
-      #home-video { order: 11; }
+      #home-video { order: 9; }
+      #ad-above-upcoming-mobile { order: 10; }
+      #home-upcoming { order: 11; }
 
       /* 홈 카드 헤더 - 패딩은 파일 끝 통합 블록에서 관리 */
 
