@@ -2277,8 +2277,8 @@
       padding: 12px 0;
     }
 
-    /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 */
-    .home-container > .ad-slot-section {
+    /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 (vertical 광고 제외) */
+    .home-container > .ad-slot-section:not(.ad-slot--vertical) {
       grid-column: 1 / -1;
     }
 
