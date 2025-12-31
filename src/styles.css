@@ -2212,6 +2212,16 @@
       max-height: 250px;
     }
 
+    /* 홈페이지 상단 광고 - 컨테이너 밖으로 전체 너비 */
+    #home-top-ad-pc,
+    #home-top-ad-mobile {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+
     /* 홈 가로형 광고 컨테이너 카드 스타일 */
     .home-section .ad-slot--horizontal {
       display: flex;
