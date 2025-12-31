@@ -1,0 +1,46 @@
+{
+  "updatedAt": "2025-12-31T09:11:03.403Z",
+  "period": "30days",
+  "games": [
+    {
+      "slug": "com-proximabeta-nikke",
+      "views": 75
+    },
+    {
+      "slug": "com-neowizgames-game-browndust2",
+      "views": 71
+    },
+    {
+      "slug": "com.smilegate.chaoszero.stove.google",
+      "views": 64
+    },
+    {
+      "slug": "com-studiobside-starmain",
+      "views": 38
+    },
+    {
+      "slug": "com.studiobside.starMain",
+      "views": 34
+    },
+    {
+      "slug": "com-hoyoverse-nap",
+      "views": 23
+    },
+    {
+      "slug": "com.proximabeta.nikke",
+      "views": 19
+    },
+    {
+      "slug": "com-yostarkr-stellasora",
+      "views": 10
+    },
+    {
+      "slug": "com-smilegate-chaoszero-stove-google",
+      "views": 9
+    },
+    {
+      "slug": "com-epidgames-trickcalrevive",
+      "views": 7
+    }
+  ]
+}
