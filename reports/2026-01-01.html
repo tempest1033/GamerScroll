@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Insight - 2026-01-01 | GAMERS CRAWL</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .insight-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    .insight-header { text-align: center; margin-bottom: 40px; }
+    .insight-date { font-size: 2rem; font-weight: 700; color: #fff; }
+    .insight-subtitle { color: #9ca3af; margin-top: 8px; }
+
+    /* 탭 스타일 */
+    .insight-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 32px; }
+    .insight-tab { padding: 12px 32px; border-radius: 24px; font-size: 15px; font-weight: 600; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; background: #1f2937; color: #9ca3af; }
+    .insight-tab:hover { background: #374151; color: #fff; }
+    .insight-tab.active { background: linear-gradient(135deg, #6366f1, #818cf8); color: #fff; border-color: transparent; }
+    .insight-panel { display: none; }
+    .insight-panel.active { display: block; }
+
+    .insight-section { background: #1f2937; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+    .section-title { font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+    .summary-list { list-style: none; padding: 0; }
+    .summary-list li { padding: 12px 16px; background: #374151; border-radius: 8px; margin-bottom: 8px; color: #e5e7eb; }
+
+    .ranking-table { width: 100%; border-collapse: collapse; }
+    .ranking-table th, .ranking-table td { padding: 12px 8px; text-align: left; border-bottom: 1px solid #374151; }
+    .ranking-table th { color: #9ca3af; font-weight: 500; }
+    .ranking-table .rank { width: 40px; font-weight: 700; color: #fff; }
+    .ranking-table .icon { width: 40px; }
+    .ranking-table .icon img { width: 32px; height: 32px; border-radius: 8px; }
+    .ranking-table .title { color: #e5e7eb; }
+    .ranking-table .ccu { color: #9ca3af; }
+    .ranking-table .change-cell { width: 60px; text-align: right; }
+
+    .change { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+    .change.up { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+    .change.down { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+    .change.new { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+    .change.same { color: #6b7280; }
+
+    .news-list, .community-list { display: flex; flex-direction: column; gap: 8px; }
+    .news-item, .community-item { display: flex; gap: 12px; padding: 12px; background: #374151; border-radius: 8px; text-decoration: none; color: #e5e7eb; transition: background 0.2s; }
+    .news-item:hover, .community-item:hover { background: #4b5563; }
+    .news-item .source, .community-item .source { background: #4f46e5; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; flex-shrink: 0; }
+    .news-item .title, .community-item .title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .back-link { display: inline-block; margin-bottom: 20px; color: #9ca3af; text-decoration: none; }
+    .back-link:hover { color: #fff; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    /* AI Insight */
+    .ai-section { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 768px) { .ai-grid { grid-template-columns: 1fr; } }
+    .ai-column { display: flex; flex-direction: column; gap: 16px; }
+    .ai-card { background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border-left: 3px solid #818cf8; }
+    .ai-card-tag { display: inline-block; background: #4f46e5; color: #fff; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; text-transform: uppercase; }
+    .ai-card-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.4; }
+    .ai-card-desc { font-size: 0.85rem; color: #c7d2fe; line-height: 1.7; white-space: pre-line; }
+    .ai-trends { list-style: none; padding: 0; margin: 0; }
+    .ai-trends li { padding: 12px 16px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; color: #c7d2fe; font-size: 0.9rem; border-left: 3px solid #818cf8; }
+    .ai-badge { background: #818cf8; color: #1e1b4b; font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; margin-right: 8px; font-weight: 700; }
+
+    /* 주간 리포트 스타일 */
+    .weekly-header { text-align: center; margin-bottom: 32px; }
+    .weekly-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .weekly-period { color: #9ca3af; font-size: 14px; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    @media (max-width: 900px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .metrics-grid { grid-template-columns: 1fr; } }
+    .metric-card { background: #1f2937; border-radius: 12px; padding: 20px; border-top: 3px solid; }
+    .metric-card.primary { border-color: #6366f1; }
+    .metric-card.accent { border-color: #f97316; }
+    .metric-card.success { border-color: #22c55e; }
+    .metric-card.blue { border-color: #3b82f6; }
+    .metric-label { font-size: 12px; color: #9ca3af; margin-bottom: 8px; }
+    .metric-value { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .metric-sub { font-size: 12px; color: #6b7280; }
+    .highlights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 768px) { .highlights-grid { grid-template-columns: 1fr; } }
+    .highlight-card { background: #1f2937; border-radius: 12px; padding: 20px; }
+    .highlight-tag { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
+    .highlight-tag.mobile { background: rgba(99,102,241,0.2); color: #818cf8; }
+    .highlight-tag.pc { background: rgba(59,130,246,0.2); color: #60a5fa; }
+    .highlight-tag.console { background: rgba(168,85,247,0.2); color: #c084fc; }
+    .highlight-tag.esports { background: rgba(249,115,22,0.2); color: #fb923c; }
+    .highlight-tag.industry { background: rgba(34,197,94,0.2); color: #4ade80; }
+    .highlight-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.4; }
+    .highlight-desc { font-size: 13px; color: #9ca3af; line-height: 1.6; }
+    .weekly-coming-soon { text-align: center; padding: 60px 20px; color: #6b7280; }
+    .weekly-coming-soon h3 { font-size: 18px; margin-bottom: 8px; color: #9ca3af; }
+  </style>
+</head>
+<body style="background: #111827; min-height: 100vh;">
+  <div class="insight-container">
+    <a href="/" class="back-link">← GAMERS CRAWL로 돌아가기</a>
+
+    <header class="insight-header">
+      <div class="insight-date">2026년 1월 1일 목요일</div>
+      <div class="insight-subtitle">Gaming Insight Report</div>
+    </header>
+
+    <!-- 탭 -->
+    <div class="insight-tabs">
+      <button class="insight-tab active" data-tab="daily">일간 리포트</button>
+      <button class="insight-tab" data-tab="weekly">주간 리포트</button>
+    </div>
+
+    <!-- 일간 리포트 패널 -->
+    <div class="insight-panel active" id="panel-daily">
+
+    <section class="insight-section">
+      <h2 class="section-title">오늘의 핵심</h2>
+      <ul class="summary-list"><li>iOS: "뱀피르" 20단계 상승 (현재 12위)</li><li>iOS: "AION2" 5단계 상승 (현재 15위)</li><li>iOS: "러브앤딥스페이스" 82단계 상승 (현재 18위)</li><li>iOS: "SD건담 지 제네레이션 이터널" TOP100 신규 진입 (6위)</li><li>iOS: "Limbus Company" TOP100 신규 진입 (14위)</li><li>Android: "젠레스 존 제로" 74단계 상승 (현재 15위)</li><li>Android: "승리의 여신: 니케" 3단계 상승 (현재 29위)</li><li>Android: "쿠키런: 오븐브레이크" 29단계 상승 (현재 51위)</li><li>Steam: "VTube Studio" TOP100 신규 진입 (86위)</li><li>Steam: "Party Animals" TOP100 신규 진입 (90위)</li></ul>
+    </section>
+
+    
+    <section class="insight-section ai-section">
+      <h2 class="section-title">🤖 오늘의 이슈</h2>
+      <div class="ai-grid">
+        <div class="ai-column">
+          
+          <div class="ai-card">
+            <div class="ai-card-tag">모바일</div>
+            <div class="ai-card-title">iOS 인기, 퍼즐·도트RPG 상위권</div>
+            <div class="ai-card-desc">iOS 인기 TOP5에 ‘블록 블라스트’, ‘잠룡 : 도트 무협 RPG’ 같은 캐주얼·도트 장르가 포진했어요.
+짧게 즐기는 퍼즐/방치형이 연말 다운로드 흐름을 주도합니다.</div>
+          </div>
+          
+          <div class="ai-card">
+            <div class="ai-card-tag">PC</div>
+            <div class="ai-card-title">검은사막, 인게임 이벤트 기부금 전달</div>
+            <div class="ai-card-desc">펄어비스는 ‘검은사막’ 인게임 이벤트로 모인 기부금 5,000만 원을 해외 재난 피해 지역 학교 복구 지원에 전달했다고 12/31 밝혔어요.
+이용자 참여형 CSR 사례입니다.</div>
+          </div>
+          
+        </div>
+        <div class="ai-column">
+          
+          <div class="ai-card">
+            <div class="ai-card-tag">글로벌</div>
+            <div class="ai-card-title">스팀 연말 결산, 동접 3,934만 언급</div>
+            <div class="ai-card-desc">스팀 결산 기사에선 스팀 동시접속자 수가 3,934만 명을 넘겼다는 지표와 함께, ‘스팀머신’ 공개 같은 플랫폼 행보가 정리됐어요.
+한국 PC 시장에도 체감이 큽니다.</div>
+          </div>
+          
+          <div class="ai-card">
+            <div class="ai-card-tag">e스포츠</div>
+            <div class="ai-card-title">LCK 사진전 ‘시퀀스 2025’ 성료</div>
+            <div class="ai-card-desc">라이엇 게임즈는 12/6~12/28 서울 롤파크에서 열린 LCK 연말 사진전 ‘시퀀스 2025’에 약 3만2천 명이 방문했다고 12/31 전했어요.
+팬덤 체험형 오프라인이 힘을 냈습니다.</div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="insight-section ai-section">
+      <h2 class="section-title">📈 트렌드</h2>
+      <ul class="ai-trends">
+        
+      </ul>
+    </section>
+    
+
+    <div class="grid-2">
+      <section class="insight-section">
+        <h2 class="section-title">📱 모바일 매출 순위 (한국 iOS)</h2>
+        <table class="ranking-table">
+          <thead><tr><th>순위</th><th></th><th>게임</th><th>변동</th></tr></thead>
+          <tbody>
+    <tr>
+      <td class="rank">1</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/20/b5/9420b50e-190c-12cc-2719-714dd9e5a541/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">메이플 키우기</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">2</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e0/fd/ce/e0fdcea0-fdf2-b585-d301-b2d0505ce855/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">라스트 워: 서바이벌</td>
+      <td class="change-cell"><span class="change up">▲1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">3</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/60/a2/73/60a27358-3b48-2083-388b-0ad380a58d27/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">젠레스 존 제로</td>
+      <td class="change-cell"><span class="change down">▼1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">4</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/02/06/6802063f-0ff6-2cfe-004d-856ea8f6e123/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">WOS: 화이트아웃 서바이벌</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">5</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/48/98/494898b6-c6a4-42ab-01e9-c50cc73322ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">킹샷:Kingshot</td>
+      <td class="change-cell"><span class="change up">▲1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">6</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/85/84/7c85844e-13d8-e8f3-9596-7ff90fb93157/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">SD건담 지 제네레이션 이터널</td>
+      <td class="change-cell"><span class="change new">NEW</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">7</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/e0/12/94e0122e-276d-f1cf-6323-949e08b0acb3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">마비노기 모바일</td>
+      <td class="change-cell"><span class="change down">▼2</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">8</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/53/6e/71536e25-4a51-7212-0b2b-0b38af0ae164/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">컴투스프로야구V25</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">9</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/79/09/36790964-d235-12b4-3e15-bb8d3e9a5c80/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">가십하버: 합성 & 스토리 게임</td>
+      <td class="change-cell"><span class="change down">▼2</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">10</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/55/a4/d555a4c5-93c9-2a25-9b2f-8322339871ac/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">리니지M</td>
+      <td class="change-cell"><span class="change up">▲2</span></td>
+    </tr>
+  </tbody>
+        </table>
+      </section>
+
+      <section class="insight-section">
+        <h2 class="section-title">🎮 Steam 동시접속</h2>
+        <table class="ranking-table">
+          <thead><tr><th>순위</th><th></th><th>게임</th><th>CCU</th><th>변동</th></tr></thead>
+          <tbody>
+    <tr>
+      <td class="rank">1</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1749053861" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Counter-Strike 2</td>
+      <td class="ccu">1,507,441</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">2</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg?t=1766010373" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Dota 2</td>
+      <td class="ccu">679,731</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">3</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/841ea38bc58cabb70aef65365cf50bc2d79329d9/header.jpg?t=1764817633" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">PUBG: BATTLEGROUNDS</td>
+      <td class="ccu">495,391</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">4</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1808500/b26e2a315d32ef462a07cf0e36eb06a2b810d0c9/header_alt_assets_0.jpg?t=1765441443" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">ARC Raiders</td>
+      <td class="ccu">205,735</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">5</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/2e6c93c020fe13d09d8120bb9164ed7cb58f00c5/header.jpg?t=1759317272" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Bongo Cat</td>
+      <td class="ccu">152,311</td>
+      <td class="change-cell"><span class="change up">▲1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">6</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/431960/header.jpg?t=1739211362" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Wallpaper Engine</td>
+      <td class="ccu">135,218</td>
+      <td class="change-cell"><span class="change up">▲4</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">7</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/6ae90b012e725a93622c3694d9d866b886cfd0f8/header.jpg?t=1762457261" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Apex Legends</td>
+      <td class="ccu">134,217</td>
+      <td class="change-cell"><span class="change down">▼2</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">8</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2507950/101a3e4306c04915793803ccd496c062af57020a/header_alt_assets_6.jpg?t=1766386644" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Delta Force</td>
+      <td class="ccu">118,279</td>
+      <td class="change-cell"><span class="change up">▲1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">9</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg?t=1765387725" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Grand Theft Auto V Legacy</td>
+      <td class="ccu">111,766</td>
+      <td class="change-cell"><span class="change up">▲3</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">10</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1761667247" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Rust</td>
+      <td class="ccu">109,667</td>
+      <td class="change-cell"><span class="change down">▼2</span></td>
+    </tr>
+  </tbody>
+        </table>
+      </section>
+    </div>
+
+    <div class="grid-2">
+      <section class="insight-section">
+        <h2 class="section-title">📰 주요 뉴스</h2>
+        <div class="news-list">
+    <a href="https://www.inven.co.kr/webzine/news/?news=312431&hotnews=1" target="_blank" class="news-item">
+      <span class="source">inven</span>
+      <span class="title">"방향도, 비전도 옳았다"…결과로 증명한 '넥슨'</span>
+    </a>
+  
+    <a href="https://www.inven.co.kr/webzine/news/?news=312443&hotnews=1" target="_blank" class="news-item">
+      <span class="source">inven</span>
+      <span class="title">넥슨이 짊어진 의무, 한국 게임 30년 '세이브 더 게임'</span>
+    </a>
+  
+    <a href="https://bbs.ruliweb.com/news/read/219796" target="_blank" class="news-item">
+      <span class="source">ruliweb</span>
+      <span class="title">㈜미디어웹, ‘도르코퍼레이션’과 오늘(31일) 기술 협력 MOU 체결</span>
+    </a>
+  
+    <a href="https://bbs.ruliweb.com/news/read/219795" target="_blank" class="news-item">
+      <span class="source">ruliweb</span>
+      <span class="title">넥써쓰(NEXUS), 게임 경제 인프라 ‘크로쓰 포지’ 공개</span>
+    </a>
+  
+    <a href="https://www.gamemeca.com/view.php?gid=1769737" target="_blank" class="news-item">
+      <span class="source">gamemeca</span>
+      <span class="title">넥써쓰 신규 게임 경제 인프라 '크로쓰 포지' 공개</span>
+    </a>
+  </div>
+      </section>
+
+      <section class="insight-section">
+        <h2 class="section-title">💬 커뮤니티 핫토픽</h2>
+        <div class="community-list">
+    <a href="https://bbs.ruliweb.com/best/board/185438/read/1393291?m=game" target="_blank" class="community-item">
+      <span class="source">ruliweb</span>
+      <span class="title">공홈) 연말연시 특별 선물! (3일간 총 600돌)</span>
+    </a>
+  
+    <a href="https://bbs.ruliweb.com/best/board/185438/read/1393287?m=game" target="_blank" class="community-item">
+      <span class="source">ruliweb</span>
+      <span class="title">[복각] Say-Bing! 챌린지 공략</span>
+    </a>
+  
+    <a href="https://arca.live/b/live/158364248?p=1" target="_blank" class="community-item">
+      <span class="source">arca</span>
+      <span class="title">첫 글 과연멀까</span>
+    </a>
+  
+    <a href="https://arca.live/b/live/158345858?p=1" target="_blank" class="community-item">
+      <span class="source">arca</span>
+      <span class="title">이번년도 고생많으셧습니다</span>
+    </a>
+  
+    <a href="https://gall.dcinside.com/board/view/?id=dcbest&no=393148&_dcbest=1&page=1" target="_blank" class="community-item">
+      <span class="source">dcinside</span>
+      <span class="title">어제 포브스가 발표한 2025년 가장 많은 돈을 번 음악가들</span>
+    </a>
+  </div>
+      </section>
+    </div>
+    </div><!-- /panel-daily -->
+
+    <!-- 주간 리포트 패널 -->
+    <div class="insight-panel" id="panel-weekly">
+      <div class="weekly-header">
+        <div class="weekly-title">📊 2026년 1월 1주차</div>
+        <div class="weekly-period">주간 게이밍 인사이트 리포트</div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card primary">
+          <div class="metric-label">모바일 1위 유지</div>
+          <div class="metric-value">메이플 키우기</div>
+          <div class="metric-sub">iOS 매출 순위</div>
+        </div>
+        <div class="metric-card accent">
+          <div class="metric-label">Steam 최다 동접</div>
+          <div class="metric-value">Counter-Strike 2</div>
+          <div class="metric-sub">1,507,441 CCU</div>
+        </div>
+        <div class="metric-card success">
+          <div class="metric-label">주간 급상승</div>
+          <div class="metric-value">뱀피르</div>
+          <div class="metric-sub">iOS TOP 100 기준</div>
+        </div>
+        <div class="metric-card blue">
+          <div class="metric-label">신규 진입</div>
+          <div class="metric-value">SD건담 지 제네레이션 이터널</div>
+          <div class="metric-sub">TOP 100 신규</div>
+        </div>
+      </div>
+
+      <section class="insight-section">
+        <h2 class="section-title">🎯 금주 하이라이트</h2>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <span class="highlight-tag mobile">모바일</span>
+            <div class="highlight-title">iOS 매출 순위 동향</div>
+            <div class="highlight-desc">
+              1위: 메이플 키우기 / 2위: 라스트 워: 서바이벌 / 3위: 젠레스 존 제로
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-tag pc">PC</span>
+            <div class="highlight-title">Steam 동시접속 TOP 3</div>
+            <div class="highlight-desc">
+              1위: Counter-Strike 2 (1,507,441) / 2위: Dota 2 (679,731) / 3위: PUBG: BATTLEGROUNDS (495,391)
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-tag industry">순위 변동</span>
+            <div class="highlight-title">주요 순위 변동 게임</div>
+            <div class="highlight-desc">
+              라스트 워: 서바이벌 (▲1), 젠레스 존 제로 (▼1), 킹샷:Kingshot (▲1)
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-tag esports">뉴스</span>
+            <div class="highlight-title">금주 주요 뉴스</div>
+            <div class="highlight-desc">
+              "방향도, 비전도 옳았다"…결과로 증명한 '넥슨' / 넥슨이 짊어진 의무, 한국 게임 30년 '세이브 더 게임'
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid-2">
+        <section class="insight-section">
+          <h2 class="section-title">📱 모바일 TOP 10 (주간)</h2>
+          <table class="ranking-table">
+            <thead><tr><th>순위</th><th></th><th>게임</th><th>변동</th></tr></thead>
+            <tbody>
+    <tr>
+      <td class="rank">1</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/20/b5/9420b50e-190c-12cc-2719-714dd9e5a541/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">메이플 키우기</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">2</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e0/fd/ce/e0fdcea0-fdf2-b585-d301-b2d0505ce855/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">라스트 워: 서바이벌</td>
+      <td class="change-cell"><span class="change up">▲1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">3</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/60/a2/73/60a27358-3b48-2083-388b-0ad380a58d27/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">젠레스 존 제로</td>
+      <td class="change-cell"><span class="change down">▼1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">4</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/02/06/6802063f-0ff6-2cfe-004d-856ea8f6e123/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">WOS: 화이트아웃 서바이벌</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">5</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/48/98/494898b6-c6a4-42ab-01e9-c50cc73322ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">킹샷:Kingshot</td>
+      <td class="change-cell"><span class="change up">▲1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">6</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/85/84/7c85844e-13d8-e8f3-9596-7ff90fb93157/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">SD건담 지 제네레이션 이터널</td>
+      <td class="change-cell"><span class="change new">NEW</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">7</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/e0/12/94e0122e-276d-f1cf-6323-949e08b0acb3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">마비노기 모바일</td>
+      <td class="change-cell"><span class="change down">▼2</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">8</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/53/6e/71536e25-4a51-7212-0b2b-0b38af0ae164/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">컴투스프로야구V25</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">9</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/79/09/36790964-d235-12b4-3e15-bb8d3e9a5c80/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">가십하버: 합성 & 스토리 게임</td>
+      <td class="change-cell"><span class="change down">▼2</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">10</td>
+      <td class="icon"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/55/a4/d555a4c5-93c9-2a25-9b2f-8322339871ac/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">리니지M</td>
+      <td class="change-cell"><span class="change up">▲2</span></td>
+    </tr>
+  </tbody>
+          </table>
+        </section>
+
+        <section class="insight-section">
+          <h2 class="section-title">🎮 Steam TOP 10 (주간)</h2>
+          <table class="ranking-table">
+            <thead><tr><th>순위</th><th></th><th>게임</th><th>CCU</th><th>변동</th></tr></thead>
+            <tbody>
+    <tr>
+      <td class="rank">1</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1749053861" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Counter-Strike 2</td>
+      <td class="ccu">1,507,441</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">2</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg?t=1766010373" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Dota 2</td>
+      <td class="ccu">679,731</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">3</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/841ea38bc58cabb70aef65365cf50bc2d79329d9/header.jpg?t=1764817633" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">PUBG: BATTLEGROUNDS</td>
+      <td class="ccu">495,391</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">4</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1808500/b26e2a315d32ef462a07cf0e36eb06a2b810d0c9/header_alt_assets_0.jpg?t=1765441443" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">ARC Raiders</td>
+      <td class="ccu">205,735</td>
+      <td class="change-cell"><span class="change same">-</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">5</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/2e6c93c020fe13d09d8120bb9164ed7cb58f00c5/header.jpg?t=1759317272" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Bongo Cat</td>
+      <td class="ccu">152,311</td>
+      <td class="change-cell"><span class="change up">▲1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">6</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/431960/header.jpg?t=1739211362" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Wallpaper Engine</td>
+      <td class="ccu">135,218</td>
+      <td class="change-cell"><span class="change up">▲4</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">7</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/6ae90b012e725a93622c3694d9d866b886cfd0f8/header.jpg?t=1762457261" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Apex Legends</td>
+      <td class="ccu">134,217</td>
+      <td class="change-cell"><span class="change down">▼2</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">8</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2507950/101a3e4306c04915793803ccd496c062af57020a/header_alt_assets_6.jpg?t=1766386644" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Delta Force</td>
+      <td class="ccu">118,279</td>
+      <td class="change-cell"><span class="change up">▲1</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">9</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg?t=1765387725" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Grand Theft Auto V Legacy</td>
+      <td class="ccu">111,766</td>
+      <td class="change-cell"><span class="change up">▲3</span></td>
+    </tr>
+  
+    <tr>
+      <td class="rank">10</td>
+      <td class="icon"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1761667247" alt="" onerror="this.style.display='none'"></td>
+      <td class="title">Rust</td>
+      <td class="ccu">109,667</td>
+      <td class="change-cell"><span class="change down">▼2</span></td>
+    </tr>
+  </tbody>
+          </table>
+        </section>
+      </div>
+
+      <div class="weekly-coming-soon">
+        <h3>📈 더 많은 주간 분석 데이터가 곧 추가됩니다</h3>
+        <p>주간 트렌드, 장르별 분석, 커뮤니티 핫이슈 등</p>
+      </div>
+    </div><!-- /panel-weekly -->
+
+  </div>
+
+  <script>
+    // 탭 전환 기능
+    document.querySelectorAll('.insight-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 모든 탭 비활성화
+        document.querySelectorAll('.insight-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.insight-panel').forEach(p => p.classList.remove('active'));
+
+        // 클릭한 탭 활성화
+        tab.classList.add('active');
+        const panelId = 'panel-' + tab.dataset.tab;
+        document.getElementById(panelId).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
