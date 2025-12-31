@@ -432,7 +432,7 @@ function generateIndexPage(data) {
 	  }
 
 	  // 홈페이지 상단 광고 - 반응형 (970x250, 970x90, 728x90 등 자동 선택)
-	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>' : '';
 	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +

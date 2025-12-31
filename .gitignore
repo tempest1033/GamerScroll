@@ -9,3 +9,6 @@ node_modules/
 
 # 스냅샷 (로컬에서는 무시, GitHub Actions에서만 커밋)
 snapshots/
+
+# 인증 정보 (절대 커밋 금지)
+credentials/
