@@ -2209,14 +2209,16 @@
       max-height: 250px;
     }
 
-    /* 홈 가로형 광고 - 다른 페이지와 동일하게 광고만 표시 */
+    /* 홈 가로형 광고 컨테이너 카드 스타일 */
     .home-section .ad-slot--horizontal {
       display: flex;
       align-items: center;
       justify-content: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      padding: 0;
-      margin: 0;
     }
 
     /* 가로형 광고 내부 - 모든 페이지에서 display:block 적용 (AdSense 반응형 안정화) */
@@ -2235,38 +2237,18 @@
       max-height: 250px;
     }
 
-    /* 버티컬 광고 - 실제 광고 크기에 맞춰 가변 높이 */
-    .ad-slot.ad-slot--vertical {
-      transition: height 0.3s ease-out;
-      overflow: hidden;
-    }
-    .ad-slot.ad-slot--vertical > ins.adsbygoogle {
-      transition: height 0.3s ease-out;
-    }
-
     /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 (rectangle 제외 - 300x250 고정 높이 필요) */
     .ad-slot.ad-slot--no-reserve:not(.ad-slot--rectangle) > ins.adsbygoogle {
       min-height: 0 !important;
       height: auto !important;
     }
 
-    .ad-slot.ad-slot--unfilled,
-    .ad-slot.ad-slot--empty {
-      display: none !important;
-      height: 0 !important;
-      min-height: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
+    .ad-slot.ad-slot--unfilled {
+      display: none;
     }
 
-    ins.adsbygoogle.ad-ins--empty {
-      display: none !important;
-      height: 0 !important;
-    }
-
-    /* no-reserve rectangle도 unfilled 시 숨김 */
-    .ad-slot.ad-slot--no-reserve.ad-slot--rectangle:has(ins[data-ad-status='unfilled']) {
-      display: none !important;
+    .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
+      display: none;
     }
 
     /* AdSense unfilled 광고 자동 숨김 */
@@ -2274,18 +2256,13 @@
       display: none !important;
     }
 
-    /* unfilled 광고 컨테이너도 숨김 */
-    .ad-slot:has(ins[data-ad-status='unfilled']) {
-      display: none !important;
-    }
-
     .ad-slot-top {
       margin-bottom: var(--space-block-y);
     }
 
-    /* PC 광고 여백 (홈페이지와 동일) */
+    /* PC 광고 여백 */
     .ad-slot-section {
-      padding: var(--space-block-y) 0;
+      padding: 12px 0;
     }
 
     /* 광고 다음 요소 여백 통합 리셋 */
@@ -2304,15 +2281,8 @@
       padding: 0;
     }
 
-    .ad-slot.mobile-only,
-    ins.adsbygoogle.mobile-only {
-      display: none !important;
-    }
-
-    /* 홈페이지 상단 광고 여백 */
-    .home-section > ins.adsbygoogle {
-      margin-top: var(--space-block-y);
-      margin-bottom: 12px;
+    .ad-slot.mobile-only {
+      display: none;
     }
 
     /* 모바일 반응형 - 홈 */
@@ -2356,24 +2326,15 @@
       /* 홈 카드 헤더 - 패딩은 파일 끝 통합 블록에서 관리 */
 
       /* 모바일에서 PC only 광고 숨기기 */
-      .ad-slot.pc-only,
-      ins.adsbygoogle.pc-only {
-        display: none !important;
+      .ad-slot.pc-only {
+        display: none;
       }
 
-      /* 모바일 가로형 광고 - 전체 폭 반응형, 100px 기본 높이 */
+      /* 모바일 가로형 광고 - 높이는 ins 태그에서 100px 고정 */
       .ad-slot.mobile-only.ad-slot--horizontal {
         display: block;
         width: 100%;
-        text-align: center;
         overflow: hidden;
-        height: 100px;
-        transition: height 0.3s ease-out;
-      }
-
-      /* 50px 광고 감지 시 높이 축소 */
-      .ad-slot.mobile-only.ad-slot--horizontal.ad-height-50 {
-        height: 50px;
       }
 
       .home-video-split {
@@ -2423,9 +2384,8 @@
         height: auto;
       }
 
-      .ad-slot.mobile-only,
-      ins.adsbygoogle.mobile-only {
-        display: block !important;
+      .ad-slot.mobile-only {
+        display: block;
       }
 
       /* 모바일 직사각형 광고 - 300x250 고정 크기 */
@@ -2443,12 +2403,6 @@
       /* 모바일 광고 여백 및 크기 통일 */
       .ad-slot-section {
         padding: 8px 0;
-      }
-
-      /* 모바일 홈페이지 상단 광고 여백 (개별 페이지와 동일) */
-      .home-section > ins.adsbygoogle {
-        margin-top: 8px;
-        margin-bottom: 8px;
       }
 
       /* 모바일 광고 컨테이너 최대 너비 제한 */
