@@ -424,9 +424,9 @@ function generateIndexPage(data) {
 	    if (isHorizontal) {
 	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
-	    // 직사각형: 300x250 고정 크기 - display는 CSS에서 제어
+	    // 직사각형: 336x280 고정 크기 + 전체 너비 컨테이너
 	    if (isRectangle) {
-	      return '<ins class="adsbygoogle mobile-only ' + (extraClass || '') + '" id="' + id + '" style="width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins>';
+	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
 	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
