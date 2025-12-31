@@ -31,7 +31,7 @@ const searchBarHtml = `
       <a href="/" class="search-home-icon" aria-label="홈으로 이동">
         <img src="/favicon.svg" alt="" width="20" height="20">
       </a>
-      <input type="text" class="search-input" placeholder="게임 이름을 입력해주세요" autocomplete="off">
+      <input type="text" class="search-input" placeholder="게임 검색" autocomplete="off">
       <button class="search-btn" type="button" aria-label="검색">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -178,11 +178,11 @@ const searchBarScript = `
               location.href = '/games/' + game.slug + '/';
             } else {
               removeRecentSearch(game.slug);
-              location.href = '/search/';
+              location.href = '/games/';
             }
           } catch {
             removeRecentSearch(game.slug);
-            location.href = '/search/';
+            location.href = '/games/';
           }
         });
       });
@@ -301,7 +301,7 @@ const searchBarScript = `
       saveRecentSearch({ slug, name: game.name || game.title, icon: game.icon, publisher: game.publisher });
       window.location.href = '/games/' + slug + '/';
     } else {
-      window.location.href = '/search/?q=' + encodeURIComponent(query);
+      window.location.href = '/games/?q=' + encodeURIComponent(query);
     }
   }
 
@@ -329,7 +329,7 @@ const swipeScript = `
 <script>
 (function() {
   // 네비게이션 섹션 정의 (모바일 순서 기준, PC는 CSS order로 시각 조정)
-  const navSections = ['trend', 'news', 'rankings', 'community', 'youtube', 'steam', 'upcoming', 'metacritic'];
+  const navSections = ['trend', 'games', 'rankings', 'news', 'youtube', 'steam', 'upcoming', 'metacritic'];
   const getNavSections = () => navSections;
   let touchStartX = 0;
   let touchStartY = 0;
@@ -487,6 +487,36 @@ const swipeScript = `
 })();
 </script>`;
 
+// 모바일 스크롤 시 검색창 숨김 스크립트
+const mobileScrollHideScript = `
+<script>
+(function() {
+  if (window.innerWidth > 768) return;
+
+  let ticking = false;
+  const threshold = 50;
+
+  function updateSearchVisibility() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY < threshold) {
+      document.body.classList.remove('search-hidden');
+    } else {
+      document.body.classList.add('search-hidden');
+    }
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(updateSearchVisibility);
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>`;
+
 function wrapWithLayout(content, options = {}) {
   const {
     currentPage = 'home',
@@ -504,7 +534,7 @@ function wrapWithLayout(content, options = {}) {
 <head>
   ${generateHead({ title, description, keywords, canonical, pageData })}
 </head>
-<body>
+<body class="${currentPage ? `page-${currentPage}` : ''}">
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
@@ -811,6 +841,7 @@ function wrapWithLayout(content, options = {}) {
 	  ${showSearchBar ? searchBarScript : ''}
 	  ${hoverPrefetchScript}
   ${swipeScript}
+  ${mobileScrollHideScript}
 </body>
 </html>`;
 }
@@ -829,7 +860,7 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
     <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
   </div>`;
 }
 

@@ -58,6 +58,7 @@ function generateYoutubePage(data) {
 
   const content = `
     <section class="section active" id="youtube">
+      <h1 class="visually-hidden">게임 영상 순위</h1>
       ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="video-controls">
         <div class="tab-group" id="videoTab">

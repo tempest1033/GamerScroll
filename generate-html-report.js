@@ -350,7 +350,7 @@ async function main() {
   }
 
   const pages = [
-    { filename: 'index.html', generator: generateIndexPage },
+    { filename: 'index.html', generator: (d) => generateIndexPage({ ...d, popularGames: popularGamesData.games || [], games: gamesData }) },
     { filename: 'trend.html', generator: generateTrendPage },
     { filename: 'news.html', generator: generateNewsPage },
     { filename: 'community.html', generator: generateCommunityPage },

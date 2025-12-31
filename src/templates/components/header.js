@@ -6,7 +6,7 @@ function generateHeader() {
   return `
   <header class="header">
     <div class="header-inner">
-      <h1 class="header-title">
+      <div class="header-title">
         <a href="/" style="text-decoration: none; color: inherit;">
           <span class="visually-hidden">게이머스크롤 - 게임 트렌드, 순위, 뉴스를 한눈에</span>
           <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -27,7 +27,7 @@ function generateHeader() {
             <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
           </svg>
         </a>
-      </h1>
+      </div>
     </div>
   </header>`;
 }

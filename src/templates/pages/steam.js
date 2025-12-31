@@ -78,6 +78,7 @@ function generateSteamPage(data) {
 
   const content = `
     <section class="section active" id="steam">
+      <h1 class="visually-hidden">스팀 순위</h1>
       ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="steam-controls">
         <div class="tab-group" id="steamTab">

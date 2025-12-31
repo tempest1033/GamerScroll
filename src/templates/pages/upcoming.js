@@ -56,6 +56,7 @@ function generateUpcomingPage(data) {
 
   const content = `
     <section class="section active" id="upcoming">
+      <h1 class="visually-hidden">출시 예정 게임</h1>
       ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="upcoming-controls">
         <div class="tab-group" id="upcomingTab">

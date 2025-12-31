@@ -922,7 +922,8 @@ let generatedCount = 0;
 let skippedCount = 0;
 
 for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
-  const slug = createSlug(gameName, gameInfo.appIds);
+  // games.json의 slug를 우선 사용, 없으면 createSlug로 생성
+  const slug = gameInfo.slug || createSlug(gameName, gameInfo.appIds);
 
   // 게임 데이터 수집
   const gameData = collectGameData(gameName, gameInfo, historyData, allReports, allHistory, weeklyReports, hourlySnapshots);

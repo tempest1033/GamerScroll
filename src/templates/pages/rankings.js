@@ -51,6 +51,7 @@ function generateRankingsPage(data) {
 
   const content = `
     <section class="section active" id="rankings">
+      <h1 class="visually-hidden">모바일 순위</h1>
       ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="rankings-controls">
         <div class="control-group">

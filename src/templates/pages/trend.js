@@ -384,7 +384,7 @@ function generateWeeklyPanel(weeklyInsight) {
   return `
     <div class="weekly-report">
       <div class="weekly-header-card">
-        <h1 class="weekly-header-title">${seoTitle}</h1>
+        <h2 class="weekly-header-title">${seoTitle}</h2>
         <div class="weekly-header-meta">
           <span class="weekly-header-period">${weekPeriod}</span>
           <span class="weekly-header-divider">·</span>
@@ -718,6 +718,7 @@ function generateTrendPage(data) {
 
   const content = `
     <section class="section active" id="insight">
+      <h1 class="visually-hidden">게임 트렌드 리포트</h1>
       ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
 
       <div class="insight-page-container">
@@ -728,7 +729,7 @@ function generateTrendPage(data) {
 
         <div class="insight-panel active" id="panel-daily">
           <div class="weekly-header-card">
-            <h1 class="weekly-header-title">${insightDate || ''} 게임 트렌드 리포트</h1>
+            <h2 class="weekly-header-title">게임 트렌드 리포트</h2>
             <div class="weekly-header-meta">
               <span class="weekly-header-period">${aiInsight.date || new Date().toISOString().split('T')[0]}</span>
               ${insightAmPm ? `<span class="weekly-header-ampm-tag ${insightAmPm.toLowerCase()}">${insightAmPm}</span>` : ''}

@@ -30,6 +30,7 @@ function generateNewsPage(data) {
 
   const content = `
     <section class="section active" id="news">
+      <h1 class="visually-hidden">게임 뉴스</h1>
       ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="news-controls">
         <div class="control-group">
@@ -46,7 +47,7 @@ function generateNewsPage(data) {
           <div class="news-panel active" id="news-inven">
             <div class="news-panel-header">
               <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">인벤</span>
+              <h2 class="news-panel-title">인벤</h2>
               <a href="https://www.inven.co.kr/webzine/news/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
             <div class="news-list">${invenNewsHTML}</div>
@@ -54,7 +55,7 @@ function generateNewsPage(data) {
           <div class="news-panel" id="news-thisisgame">
             <div class="news-panel-header">
               <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">디스이즈게임</span>
+              <h2 class="news-panel-title">디스이즈게임</h2>
               <a href="https://www.thisisgame.com/webzine/news/nboard/4/" target="_blank" class="news-more-link">더보기 →</a>
             </div>
             <div class="news-list">${thisisgameNewsHTML}</div>
@@ -62,7 +63,7 @@ function generateNewsPage(data) {
           <div class="news-panel" id="news-gamemeca">
             <div class="news-panel-header">
               <img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">게임메카</span>
+              <h2 class="news-panel-title">게임메카</h2>
               <a href="https://www.gamemeca.com/news.php" target="_blank" class="news-more-link">더보기 →</a>
             </div>
             <div class="news-list">${gamemecaNewsHTML}</div>
@@ -70,7 +71,7 @@ function generateNewsPage(data) {
           <div class="news-panel" id="news-ruliweb">
             <div class="news-panel-header">
               <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">루리웹</span>
+              <h2 class="news-panel-title">루리웹</h2>
               <a href="https://bbs.ruliweb.com/news" target="_blank" class="news-more-link">더보기 →</a>
             </div>
             <div class="news-list">${ruliwebNewsHTML}</div>

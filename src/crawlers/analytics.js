@@ -1,6 +1,6 @@
 /**
  * GA4 Analytics 크롤러
- * 최근 30일간 인기 게임 페이지 TOP 10 조회
+ * 최근 30일간 인기 게임 페이지 TOP 20 조회 (필터링 후 10개 표시용)
  */
 
 const { BetaAnalyticsDataClient } = require('@google-analytics/data');
@@ -37,9 +37,9 @@ function createClient() {
 }
 
 /**
- * 인기 게임 TOP 10 조회 (최근 30일)
+ * 인기 게임 TOP 20 조회 (최근 30일) - 필터링 후 10개 표시용
  */
-async function fetchPopularGames(days = 30, limit = 10) {
+async function fetchPopularGames(days = 30, limit = 20) {
   const client = createClient();
 
   if (!client) {

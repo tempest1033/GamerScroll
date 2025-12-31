@@ -78,8 +78,10 @@ function generateGamePage(gameData) {
 
   // 플랫폼 체크
   const hasMobilePlatform = platforms.some(p => p === 'ios' || p === 'android');
+  const hasPcPlatform = platforms.includes('pc') || platforms.includes('steam');
   const hasMobileRankings = Object.keys(rankings).length > 0;
-  const hasSteamData = steam && (steam.currentPlayers || steam.rank || steam.salesRank);
+  // 스팀 데이터 표시: PC 플랫폼이 있거나, 모바일 플랫폼이 없으면서 스팀 데이터가 있는 경우
+  const hasSteamData = (hasPcPlatform || !hasMobilePlatform) && steam && (steam.currentPlayers || steam.rank || steam.salesRank);
   const isSteamOnly = !hasMobileRankings && hasSteamData;
   // 모바일 순위 섹션 표시 여부 (모바일 플랫폼이 있거나 모바일 순위 데이터가 있을 때)
   const showMobileRanking = hasMobilePlatform || hasMobileRankings;
@@ -99,9 +101,9 @@ function generateGamePage(gameData) {
   function generateRankingsSection() {
     const entries = Object.entries(rankings);
     const hasMobileData = entries.length > 0;
-    const hasSteamData = steam && (steam.currentPlayers || steam.rank || steam.salesRank);
+    const hasSteamDataLocal = (hasPcPlatform || !hasMobilePlatform) && steam && (steam.currentPlayers || steam.rank || steam.salesRank);
 
-    if (!hasMobileData && !hasSteamData) {
+    if (!hasMobileData && !hasSteamDataLocal) {
       return '<div class="game-empty">현재 순위 데이터가 없습니다</div>';
     }
 
@@ -403,7 +405,7 @@ function generateGamePage(gameData) {
     }
 
     // 스팀 섹션
-    if (hasSteamData) {
+    if (hasSteamDataLocal) {
       html += `<div class="game-rank-section steam">
         <div class="game-rank-section-header">
           <span class="game-rank-section-icon">🎮</span>
@@ -1177,6 +1179,9 @@ function generateGamePage(gameData) {
             ${developer ? `<div class="game-hero-developer">${developer}</div>` : ''}
             ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
           </div>
+          <a href="/games/" class="game-back-btn" title="게임 DB로 돌아가기">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </a>
           ${isSteamOnly && steam ? `
           <div class="game-hero-stats">
             <div class="game-hero-stat stat-ccu">
@@ -1201,14 +1206,14 @@ function generateGamePage(gameData) {
         <!-- 스팀 동접 순위 추이 -->
         <div class="home-card">
           <div class="home-card-header">
-            <div class="home-card-title">${icons.steam} 동접 순위 추이</div>
+            <h2 class="home-card-title">${icons.steam} 동접 순위 추이</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('ccu')}</div>
         </div>
         <!-- 스팀 판매 순위 추이 -->
         <div class="home-card">
           <div class="home-card-header">
-            <div class="home-card-title">${icons.steam} 판매 순위 추이</div>
+            <h2 class="home-card-title">${icons.steam} 판매 순위 추이</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('sales')}</div>
         </div>
@@ -1216,7 +1221,7 @@ function generateGamePage(gameData) {
         <!-- 실시간 모바일 순위 카드 -->
         <div class="home-card">
           <div class="home-card-header">
-            <div class="home-card-title">${icons.rankings} 실시간 모바일 순위</div>
+            <h2 class="home-card-title">${icons.rankings} 실시간 모바일 순위</h2>
           </div>
           <div class="home-card-body">${generateRankingsSection()}</div>
         </div>
@@ -1224,7 +1229,7 @@ function generateGamePage(gameData) {
         <!-- 모바일 추이 카드 -->
         <div class="home-card">
           <div class="home-card-header">
-            <div class="home-card-title">${icons.rankings} 모바일 순위 추이</div>
+            <h2 class="home-card-title">${icons.rankings} 모바일 순위 추이</h2>
           </div>
           <div class="home-card-body">${generateRankTrendSection()}</div>
         </div>
@@ -1233,7 +1238,7 @@ function generateGamePage(gameData) {
         <!-- 트렌드 리포트 (풀 너비 2그리드) -->
         <div class="home-card home-card-full">
           <div class="home-card-header">
-            <div class="home-card-title">${icons.mentions} 트렌드 리포트</div>
+            <h2 class="home-card-title">${icons.mentions} 트렌드 리포트</h2>
           </div>
           <div class="home-card-body">${generateMentionsSection(true)}</div>
         </div>
@@ -1253,15 +1258,15 @@ function generateGamePage(gameData) {
 
     // 최근 본 게임 저장
     (function() {
-      const VISITED_KEY = 'recentVisitedGames';
-      const MAX_VISITED = 10;
-      const gameInfo = { name: '${name.replace(/'/g, "\\'")}', slug: '${slug}' };
+      const RECENT_KEY = 'gamerscrawl_recent_searches';
+      const MAX_RECENT = 8;
+      const gameInfo = { name: '${name.replace(/'/g, "\\'")}', slug: '${slug}', icon: '${icon || ''}' };
       try {
-        let visited = JSON.parse(localStorage.getItem(VISITED_KEY)) || [];
-        visited = visited.filter(g => g.slug !== gameInfo.slug);
-        visited.unshift(gameInfo);
-        visited = visited.slice(0, MAX_VISITED);
-        localStorage.setItem(VISITED_KEY, JSON.stringify(visited));
+        let recent = JSON.parse(localStorage.getItem(RECENT_KEY)) || [];
+        recent = recent.filter(g => g.slug !== gameInfo.slug);
+        recent.unshift(gameInfo);
+        recent = recent.slice(0, MAX_RECENT);
+        localStorage.setItem(RECENT_KEY, JSON.stringify(recent));
       } catch (e) {}
     })();
 
