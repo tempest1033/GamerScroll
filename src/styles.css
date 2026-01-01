@@ -566,7 +566,6 @@
         box-shadow: none !important;
       }
       .nav-item.active {
-        color: #fff !important;
         background: rgba(255, 255, 255, 0.15) !important;
       }
       .nav-item svg {
@@ -759,7 +758,7 @@
 	      display: grid;
 	      grid-template-columns: 1fr 300px;
 	      gap: var(--space-block-gap);
-	      padding: var(--space-block-y) 0;
+	      padding: 0;
 	      align-items: start; /* 두 컬럼 상단 정렬 보장 */
 	    }
 
@@ -2289,9 +2288,9 @@
       margin-bottom: var(--space-block-y);
     }
 
-    /* PC 광고 여백 */
+    /* PC 광고 여백 - 타이트하게 */
     .ad-slot-section {
-      padding: 12px 0;
+      padding: 4px 0;
     }
 
     /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 (vertical 광고 제외) */
@@ -2332,7 +2331,7 @@
       .home-container {
         grid-template-columns: 1fr 320px;
         gap: var(--space-block-gap);
-        padding: var(--space-block-y) 0;
+        padding: 0;
       }
     }
 
@@ -2341,7 +2340,7 @@
         display: flex;
         flex-direction: column;
         gap: var(--space-block-gap);
-        padding: var(--space-block-y) 0;
+        padding: 0;
       }
 
       /* 모바일에서 main/sidebar 구조 풀기 */
@@ -2469,15 +2468,29 @@
         display: block;
         text-align: center;
         width: 100%;
+        height: auto;
+        min-height: 0;
       }
       .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
         display: block;
         width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
       }
 
-      /* 모바일 광고 여백 및 크기 통일 */
+      /* 모바일 가로형 광고 - 높이 자동 조절 (상단 광고 제외) */
+      .ad-slot.mobile-only.ad-slot--horizontal:not(#home-top-ad-mobile) {
+        height: auto;
+        min-height: 0;
+      }
+      .ad-slot.mobile-only.ad-slot--horizontal:not(#home-top-ad-mobile) > ins.adsbygoogle {
+        height: auto !important;
+        min-height: 0 !important;
+      }
+
+      /* 모바일 광고 여백 - 타이트하게 */
       .ad-slot-section {
-        padding: 8px 0;
+        padding: 4px 0;
       }
 
       /* 모바일 광고 컨테이너 최대 너비 제한 */
@@ -2947,9 +2960,9 @@
       display: block;
     }
 
-    /* 페이지 래퍼 - 광고 포함 컨테이너 통일 */
+    /* 페이지 래퍼 - 광고가 패딩 담당하므로 상단 패딩 제거 */
     .page-wrapper {
-      padding-top: var(--space-block-y);
+      padding-top: 0;
     }
 
     /* ===== 공통 컨트롤 영역 스타일 (모든 섹션 통일) - 프레임 없이 버튼만 ===== */
@@ -4788,7 +4801,7 @@
 @media (max-width: 768px) {
   /* 컨테이너 */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 !important;
     gap: var(--space-block-gap) !important;
   }
 
@@ -4901,7 +4914,7 @@
 @media (max-width: 480px) {
   /* 컨테이너 */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 !important;
     gap: var(--space-block-gap) !important;
   }
 
@@ -5021,7 +5034,7 @@
 @media (max-width: 360px) {
   /* 컨테이너 */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 !important;
     gap: var(--space-block-gap) !important;
   }
 
@@ -5247,16 +5260,12 @@
 
 /* 다크모드 - 블루/인디고→오렌지 복원 */
 @media (prefers-color-scheme: dark) {
-  /* 네비 active - 하단 밑줄 오렌지 */
+  /* 네비 active - 하단 밑줄 오렌지 (폰트색은 흰색 유지) */
   .nav-item.active {
-    color: #f97316;
     background: transparent;
   }
   .nav-item.active::after {
     background: #f97316;
-  }
-  .nav-item.active svg {
-    stroke: #f97316;
   }
   /* 데일리 포커스 문구 - 미니멀 (투명 배경 + 은은한 테두리) */
   .home-daily-focus-text {
@@ -7113,7 +7122,7 @@
 .insight-page-container {
   display: flex;
   flex-direction: column;
-  padding: var(--space-block-y) 0;
+  padding: 0;
 }
 
 /* ========== 일간 리포트 섹션별 스타일 (주간과 통일) ========== */
@@ -9740,9 +9749,8 @@
 
   /* 모바일 네비 순서: 모바일 순위를 3번째로 (기본 순서 유지) */
 
-  /* 네비 선택 스타일 - 하단 밑줄 (라이트: 구글 블루) */
+  /* 네비 선택 스타일 - 하단 밑줄 (색상은 라이트/다크 테마에서 상속) */
   .nav-item.active {
-    color: #1e293b !important;
     background: transparent !important;
     font-weight: 700 !important;
     border-bottom: none !important;
@@ -9803,11 +9811,8 @@
   }
 }
 
-/* 모바일 다크모드 - 네비 선택 스타일 오렌지 */
+/* 모바일 다크모드 - 네비 선택 스타일 (밑줄만 오렌지, 폰트색 흰색 유지) */
 @media (max-width: 768px) and (prefers-color-scheme: dark) {
-  .nav-item.active {
-    color: #f97316 !important;
-  }
   .nav-item.active::after {
     background: #f97316 !important;
   }
@@ -9817,7 +9822,7 @@
 .games-hub-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-block-y) 16px 20px 16px;
+  padding: var(--space-block-y) 0 20px 0;
 }
 
 /* 돌아가기 버튼 */
