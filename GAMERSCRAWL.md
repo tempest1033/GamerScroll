@@ -470,6 +470,39 @@ ANTHROPIC_API_KEY=...      # Claude API (AI 인사이트)
 
 ---
 
+## 파일 수정 규칙
+
+### 소스 vs 배포 폴더
+| 폴더 | 용도 | 수정 |
+|------|------|------|
+| **src/** | 소스 코드 (원본) | ✅ 여기서 수정 |
+| **docs/** | GitHub Pages 배포용 | ❌ 빌드 시 덮어씌워짐 |
+
+**중요**: CSS, 템플릿 등 수정 시 반드시 `src/` 폴더의 파일을 수정해야 합니다. `docs/` 폴더는 빌드 시 자동으로 덮어씌워집니다.
+
+### 빌드 명령어
+```bash
+# 일반 빌드 (전체 크롤링 + HTML 생성)
+npm run build
+
+# 퀵 빌드 (캐시 사용, HTML만 재생성) - 로컬 테스트용
+npm run build -- --quick
+npm run build -- -q
+```
+
+### 수정 → 테스트 워크플로우
+```bash
+# 1. src/ 파일 수정 (예: src/styles.css)
+
+# 2. 퀵 빌드 (캐시 사용, 빠름)
+npm run build -- --quick
+
+# 3. 로컬 서버로 확인
+cd docs && npx serve -l 3000
+```
+
+---
+
 ## 주의사항
 
 1. **워크플로우 타이밍**: build(30분)이 ai-insight(12시간) 이후에 실행되어야 게임주 현황 표시됨

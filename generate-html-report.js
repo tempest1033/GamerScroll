@@ -49,6 +49,7 @@ const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
 const { generateMetacriticPage } = require('./src/templates/pages/metacritic');
 const { generateSearchPage } = require('./src/templates/pages/search');
 const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
+const { generate404Page } = require('./src/templates/pages/404');
 const { loadPopularGames, savePopularGames, shouldFetchPopularGames } = require('./src/crawlers/analytics');
 
 // 데일리 인사이트 import
@@ -360,7 +361,8 @@ async function main() {
     { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: 'metacritic.html', generator: generateMetacriticPage },
     { filename: 'search/index.html', generator: generateSearchPage },
-    { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [] }) }
+    { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [] }) },
+    { filename: '404.html', generator: generate404Page }
   ];
 
   for (const page of pages) {

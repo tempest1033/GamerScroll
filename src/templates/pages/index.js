@@ -498,10 +498,10 @@ function generateIndexPage(data) {
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">오늘의 게임 트렌드</h1>' +
-	    topAdPc +
 	    topAdMobile +
 	    '<div class="home-container">' +
 	    '<div class="home-main">' +
+	    topAdPc +
 	    popularBannerHtml +
 	    insightCardHtml +
 	    '<div class="home-card" id="home-news">' +
@@ -543,7 +543,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
-	    adSlot('ad-below-mobile', 'pc-only ad-slot--no-reserve', 'rectangle', AD_SLOTS.rectangle) +
+	    adSlot('ad-below-mobile', 'pc-only ad-slot--no-reserve', 'vertical', AD_SLOTS.vertical) +
 	    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4, 'rectangle') +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
@@ -558,6 +558,7 @@ function generateIndexPage(data) {
     '</div>' +
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
+	    adSlot('ad-below-steam', 'pc-only ad-slot--no-reserve', 'rectangle', AD_SLOTS.rectangle) +
 	    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
@@ -566,7 +567,6 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeUpcoming() + '</div>' +
     '</div>' +
-    adSlot('ad-below-upcoming-pc', 'pc-only ad-slot--no-reserve', 'vertical', AD_SLOTS.vertical) +
     '</div>' +
     '</div>' +
     '</section>';
