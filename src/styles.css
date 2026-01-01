@@ -162,11 +162,11 @@
       --primary-dark: #1d4ed8; /* 어두운 블루 */
       --accent: #0ea5e9; /* 스카이 블루 */
 
-      /* === Background & Surface - 웜 뉴트럴 === */
-      --bg: #faf9f7; /* 웜 아이보리 - 카드와 확실한 대비 */
+      /* === Background & Surface - 화이트 === */
+      --bg: #ffffff;
       --bg-elevated: #ffffff;
       --card: #ffffff;
-      --card-hover: #f0f7ff; /* 블루 틴트 호버 */
+      --card-hover: #f8fafc; /* 연한 그레이 호버 */
 
       /* === Border - 웜톤 === */
       --border: #e5e2de; /* 웜 그레이 */
@@ -278,7 +278,7 @@
 
     :root {
       /* === Insight/Accent Colors (통합 관리) === */
-      --insight-icon: #6366f1; /* 인디고 - 인사이트 아이콘 기본색 */
+      --insight-icon: #1a73e8; /* 구글 블루 - 인사이트 아이콘 기본색 */
       --metric-color: #3b82f6; /* 블루 - 메트릭/통계 관련 */
       --gradient-progress: linear-gradient(90deg, #3b82f6, #2563eb); /* 프로그레스바 그라데이션 */
       --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* 강조 그라데이션 */
@@ -353,30 +353,30 @@
       --gradient-stocks: var(--card-bg);
       --gradient-primary: var(--card-bg);
 
-      /* === Report Icon Backgrounds (primary 통일) === */
-      --icon-bg-hot: rgba(99, 102, 241, 0.12);
-      --icon-bg-industry: rgba(99, 102, 241, 0.12);
-      --icon-bg-metrics: rgba(99, 102, 241, 0.12);
-      --icon-bg-rankings: rgba(99, 102, 241, 0.12);
-      --icon-bg-community: rgba(99, 102, 241, 0.12);
-      --icon-bg-streaming: rgba(99, 102, 241, 0.12);
-      --icon-bg-stocks: rgba(99, 102, 241, 0.12);
+      /* === Report Icon Backgrounds (구글 블루 통일) === */
+      --icon-bg-hot: rgba(26, 115, 232, 0.12);
+      --icon-bg-industry: rgba(26, 115, 232, 0.12);
+      --icon-bg-metrics: rgba(26, 115, 232, 0.12);
+      --icon-bg-rankings: rgba(26, 115, 232, 0.12);
+      --icon-bg-community: rgba(26, 115, 232, 0.12);
+      --icon-bg-streaming: rgba(26, 115, 232, 0.12);
+      --icon-bg-stocks: rgba(26, 115, 232, 0.12);
 
       /* === Report Badge (20% opacity for better readability) === */
       --badge-bg-up: rgba(34, 197, 94, 0.20);
       --badge-bg-down: rgba(239, 68, 68, 0.20);
-      --badge-bg-new: rgba(99, 102, 241, 0.20);
+      --badge-bg-new: rgba(26, 115, 232, 0.20);
 
       /* === Tag Base Colors (기본 태그 색상) === */
-      --tag-bg: rgba(99, 102, 241, 0.12);
-      --tag-color: #6366f1;
+      --tag-bg: rgba(26, 115, 232, 0.12);
+      --tag-color: #1a73e8;
 
       /* === Section Colors (섹션 배경/아이콘 - 통합 관리) === */
-      --section-gradient: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
-      --section-gradient-strong: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
-      --section-icon-bg: rgba(99, 102, 241, 0.12);
-      --section-accent-bg: rgba(99, 102, 241, 0.15);
-      --section-border: rgba(99, 102, 241, 0.2);
+      --section-gradient: #ffffff;
+      --section-gradient-strong: #ffffff;
+      --section-icon-bg: rgba(26, 115, 232, 0.12);
+      --section-accent-bg: rgba(26, 115, 232, 0.15);
+      --section-border: rgba(26, 115, 232, 0.2);
 
       /* === Glow Effects (라이트모드) === */
       --glow-primary: 0 0 20px rgba(79, 70, 229, 0.2);
@@ -414,8 +414,8 @@
       box-shadow: none !important;
     }
     .nav-item.active {
-      color: #2563eb;
-      background: #eff6ff;
+      color: #1e293b;
+      background: transparent;
     }
     .nav-item svg {
       stroke: #374151;
@@ -424,7 +424,7 @@
       stroke: #1f2937;
     }
     .nav-item.active svg {
-      stroke: #2563eb;
+      stroke: #1e293b;
     }
     /* 서브탭 버튼 */
     .tab-btn {
@@ -800,7 +800,7 @@
       height: 52px;
       box-sizing: border-box;
       border-bottom: 1px solid var(--border);
-      background: var(--card-hover);
+      background: transparent;
     }
 
     .home-card-title {
@@ -977,9 +977,9 @@
     .home-community-tab.active,
     .home-video-tab.active,
     .home-insight-tab.active {
-      background: var(--primary);
+      background: #1a73e8;
       color: #fff;
-      border-color: var(--primary);
+      border-color: #1a73e8;
     }
 
     .home-news-tab.active img {
@@ -1093,8 +1093,8 @@
       color: var(--text);
       margin: 0;
       padding: 16px;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%);
-      border: 1px solid rgba(99, 102, 241, 0.2);
+      background: #ffffff;
+      border: 1px solid var(--border);
       border-radius: 14px;
     }
 
@@ -1584,12 +1584,12 @@
       font-size: var(--font-body-size);
       font-weight: var(--font-body-weight);
       color: var(--text);
-      line-height: 1.3;
+      line-height: 1.4;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      height: 36px;
+      min-height: 44px;
       transition: color var(--transition-fast);
     }
 
@@ -2876,7 +2876,7 @@
     }
 
     .nav-item.active {
-      color: #4f46e5;
+      color: #1e293b;
       background: transparent;
       border-bottom: none;
       border-radius: 0;
@@ -2893,7 +2893,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: #4f46e5;
+      background: #1a73e8;
     }
 
     .nav-item svg {
@@ -3073,7 +3073,7 @@
         height: 48px;
         box-sizing: border-box;
         border-radius: var(--radius) var(--radius) 0 0;
-        background: var(--card-hover);
+        background: transparent;
         border-bottom: 1px solid var(--border);
       }
 
@@ -3197,7 +3197,7 @@
       height: 48px;
       box-sizing: border-box;
       border-radius: var(--radius) var(--radius) 0 0;
-      background: var(--card-hover);
+      background: transparent;
       border-bottom: 1px solid var(--border);
       box-shadow: none;
     }
@@ -3655,7 +3655,7 @@
       padding: 6px 12px;
       height: 36px;
       box-sizing: border-box;
-      background: var(--card-hover);
+      background: transparent;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -3840,7 +3840,7 @@
       padding: 6px 16px;
       height: 36px;
       box-sizing: border-box;
-      background: var(--card-hover);
+      background: transparent;
       border-bottom: 1px solid var(--border);
       font-size: var(--font-small-size);
       font-weight: var(--font-badge-weight);
@@ -4593,7 +4593,7 @@
       padding: 6px 16px;
       height: 36px;
       box-sizing: border-box;
-      background: var(--card-hover);
+      background: transparent;
       text-align: center;
       border-bottom: 1px solid var(--border);
       font-size: var(--font-small-size);
@@ -5215,7 +5215,7 @@
 
 /* 주간 리포트 헤더 카드 (피드 스타일) - 라이트모드 */
 .weekly-header-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 24px;
@@ -5500,23 +5500,23 @@
 }
 
 .weekly-stat-icon.mobile {
-  background: rgba(99, 102, 241, 0.15);
-  color: var(--insight-icon, #6366f1);
+  background: rgba(26, 115, 232, 0.15);
+  color: var(--insight-icon, #1a73e8);
 }
 
 .weekly-stat-icon.pc {
-  background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  background: rgba(26, 115, 232, 0.15);
+  color: #1a73e8;
 }
 
 .weekly-stat-icon.industry {
-  background: rgba(37, 99, 235, 0.15);
-  color: #2563eb;
+  background: rgba(26, 115, 232, 0.15);
+  color: #1a73e8;
 }
 
 .weekly-stat-icon.community {
-  background: rgba(236, 72, 153, 0.15);
-  color: #ec4899;
+  background: rgba(26, 115, 232, 0.15);
+  color: #1a73e8;
 }
 
 .weekly-stat-content {
@@ -5764,8 +5764,8 @@
 
 .weekly-hot-card.featured {
   grid-column: 1 / -1;
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(249, 115, 22, 0.08) 100%);
-  border-color: rgba(239, 68, 68, 0.35);
+  background: var(--card);
+  border-color: var(--border);
   padding: 24px;
 }
 
@@ -6549,8 +6549,8 @@
 .weekly-mvp-card {
   display: flex;
   gap: 20px;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(249, 115, 22, 0.12) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 16px;
   position: relative;
@@ -7725,7 +7725,7 @@
   height: 52px;
   box-sizing: border-box;
   border-bottom: 1px solid var(--border);
-  background: var(--card-hover);
+  background: transparent;
 }
 
 .metacritic-title {
@@ -9078,7 +9078,14 @@
 .game-rank-country-name {
   flex: 1;
   font-size: 14px;
-  color: var(--text-secondary);
+  font-weight: 600;
+  color: #1e293b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .game-rank-country-name {
+    color: rgba(255, 255, 255, 0.9);
+  }
 }
 
 .game-rank-country-value {
@@ -9190,22 +9197,31 @@
   font-weight: 600;
   border-radius: 6px;
   border: 1px solid var(--border);
-  background: var(--bg-tertiary);
-  color: rgba(255, 255, 255, 0.85);
+  background: var(--bg);
+  color: #1e293b;
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.15s;
 }
 
 .game-page .tab-btn:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.12);
+  color: #0f172a;
+  background: var(--hover-bg);
 }
 
 .game-page .tab-btn.active {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .game-page .tab-btn {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .game-page .tab-btn:hover {
+    color: #fff;
+  }
 }
 
 .trend-legend-row {
@@ -9304,7 +9320,7 @@
 }
 
 .chart-grid {
-  stroke: rgba(255, 255, 255, 0.1);
+  stroke: rgba(0, 0, 0, 0.1);
   stroke-dasharray: 2 2;
 }
 
@@ -9327,12 +9343,22 @@
 
 .chart-ylabel {
   font-size: 12px;
-  fill: rgba(255, 255, 255, 0.7);
+  fill: #64748b;
 }
 
 .chart-xlabel {
   font-size: 10px;
-  fill: rgba(255, 255, 255, 0.6);
+  fill: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .chart-grid {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+  .chart-ylabel,
+  .chart-xlabel {
+    fill: rgba(255, 255, 255, 0.7);
+  }
 }
 
 /* 게임 empty 상태 */
@@ -9433,9 +9459,15 @@
 
 .gm-item {
   padding: 16px;
-  background: var(--bg-tertiary);
+  background: #ffffff;
   border-radius: 12px;
   border: 1px solid var(--border);
+}
+
+@media (prefers-color-scheme: dark) {
+  .gm-item {
+    background: var(--card);
+  }
 }
 
 .gm-item-header {
@@ -9482,17 +9514,27 @@
 }
 
 .gm-item-title {
-  font-size: 14px;
+  font-size: var(--font-body-size);
   font-weight: 600;
-  color: var(--text);
+  color: #1e293b;
   margin-bottom: 6px;
   line-height: 1.4;
 }
 
 .gm-item-desc {
-  font-size: 13px;
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: var(--font-desc-line-height);
+}
+
+@media (prefers-color-scheme: dark) {
+  .gm-item-title {
+    color: #f0f0f0;
+  }
+  .gm-item-desc {
+    color: rgba(255, 255, 255, 0.9);
+  }
 }
 
 /* 스팀 섹션 */
@@ -9698,9 +9740,9 @@
 
   /* 모바일 네비 순서: 모바일 순위를 3번째로 (기본 순서 유지) */
 
-  /* 네비 선택 스타일 - 하단 밑줄 (라이트: 인디고) */
+  /* 네비 선택 스타일 - 하단 밑줄 (라이트: 구글 블루) */
   .nav-item.active {
-    color: #4f46e5 !important;
+    color: #1e293b !important;
     background: transparent !important;
     font-weight: 700 !important;
     border-bottom: none !important;
@@ -9716,7 +9758,7 @@
     left: 0 !important;
     right: 0 !important;
     height: 3px !important;
-    background: #4f46e5 !important;
+    background: #1a73e8 !important;
   }
 
   /* 검색창 내부 홈 아이콘 표시 */
@@ -9856,6 +9898,7 @@
   padding: 12px;
   background: var(--card-bg);
   border-radius: 12px;
+  border: 1px solid var(--border);
   text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -10113,6 +10156,7 @@
   padding: 10px;
   background: var(--card-bg);
   border-radius: 10px;
+  border: 1px solid var(--border);
   text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -10209,7 +10253,7 @@
   align-items: center;
   gap: 12px;
   padding: 8px 20px;
-  background: var(--card-hover);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   width: 100%;
@@ -10243,8 +10287,9 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background: var(--card);
+  background: #e8f0fe;
   border-radius: 8px;
+  border: 1px solid #d2e3fc;
   text-decoration: none;
   color: var(--text);
   transition: background 0.2s;
@@ -10311,6 +10356,21 @@
 
 .popular-banner-more:hover {
   opacity: 0.7;
+}
+
+/* 다크모드 실시간 인기 배너 */
+@media (prefers-color-scheme: dark) {
+  .popular-banner {
+    background: var(--card);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .popular-banner-item {
+    background: var(--card-hover);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .popular-banner-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
 }
 
 /* 모바일 띠 배너 */
