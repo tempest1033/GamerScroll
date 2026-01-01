@@ -1529,7 +1529,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 10px;
+      padding: 6px 10px;
       text-decoration: none;
       background: var(--card-bg);
       border-radius: var(--radius-sm);
@@ -1879,7 +1879,7 @@
     }
 
     .home-video-item-channel {
-      font-size: var(--font-source-size);
+      font-size: var(--font-meta-size);
       font-weight: var(--font-source-weight);
       color: var(--font-source-color);
       white-space: nowrap;
@@ -2197,9 +2197,19 @@
     .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
       min-height: auto;
     }
-    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
+    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) > ins.adsbygoogle {
       width: auto;
       max-width: 300px;
+    }
+
+    /* 사이드바 vertical/rectangle 광고 - 고정 너비 */
+    .home-sidebar .ad-slot--vertical.pc-only > ins.adsbygoogle {
+      width: 300px;
+      height: 600px;
+    }
+    .home-sidebar .ad-slot--rectangle.pc-only > ins.adsbygoogle {
+      width: 300px;
+      height: 250px;
     }
 
     /* 모바일 광고 크기 제한 */
@@ -2300,7 +2310,7 @@
 
     /* PC 광고 여백 */
     .ad-slot-section {
-      padding: 8px 0;
+      padding: 12px 0;
     }
 
     /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 (vertical 광고 제외) */
@@ -2941,9 +2951,9 @@
       display: block;
     }
 
-    /* 페이지 래퍼 - 광고 포함 컨테이너 통일 */
+    /* 페이지 래퍼 - 광고 패딩만 사용 (홈페이지 제외) */
     .page-wrapper {
-      padding-top: var(--space-block-y);
+      padding-top: 0;
     }
 
     /* ===== 공통 컨트롤 영역 스타일 (모든 섹션 통일) - 프레임 없이 버튼만 ===== */
@@ -2958,6 +2968,15 @@
       padding: 0 !important;
       justify-content: center !important;
       align-items: center !important;
+    }
+
+    /* 개별 페이지 컨트롤 - 상하 마진 추가 */
+    .page-wrapper .news-controls,
+    .page-wrapper .rankings-controls,
+    .page-wrapper .steam-controls,
+    .page-wrapper .video-controls,
+    .page-wrapper .upcoming-controls {
+      margin: var(--space-sm) 0;
     }
 
     /* 랭킹, 스팀, 영상, 출시작품: 항상 표시 */
