@@ -10284,6 +10284,8 @@
 
   .popular-banner-items {
     gap: 6px;
+    padding: 0 4px;
+    margin: 0 -4px;
   }
 
   .popular-banner-item {
