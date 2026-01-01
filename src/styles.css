@@ -2188,17 +2188,10 @@
       max-width: 728px;
     }
 
-    /* 홈 컬럼 상단 여백 - PC에서만 (양쪽 컬럼 정렬) */
-    @media (min-width: 769px) {
-      .home-main,
-      .home-sidebar {
-        padding-top: 12px;
-      }
-    }
 
-    /* 사이드바 광고 - 고정 크기 유지 */
+    /* 사이드바 광고 - 광고 크기에 맞게 자동 조절 */
     .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
-      min-height: 600px;
+      min-height: auto;
     }
     /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 (vertical 제외 - 300x600 고정 높이 필요) */
     .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
@@ -2284,6 +2277,14 @@
       display: none !important;
     }
 
+    /* 빈 광고 컨테이너 자동 숨김 - :has 선택자 */
+    .ad-slot:has(ins.adsbygoogle[data-ad-status='unfilled']) {
+      display: none !important;
+      height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
     .ad-slot-top {
       margin-bottom: var(--space-block-y);
     }
@@ -2366,6 +2367,17 @@
       .ad-slot.pc-only,
       ins.adsbygoogle.pc-only {
         display: none !important;
+      }
+
+      /* 모바일 광고 다음 요소 여백 통합 리셋 */
+      .ad-slot-section + [class*="-controls"],
+      .ad-slot-section + [class*="-container"],
+      .ad-slot-section + [class*="-card-container"],
+      .ad-slot-section + .home-card,
+      .ad-slot-section + .search-page,
+      .ad-slot-section + .game-page {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
       }
 
       /* 모바일 가로형 광고 - 높이는 ins 태그에서 100px 고정, 세로 중앙 정렬 */
@@ -2921,6 +2933,7 @@
     .section {
       display: none;
       animation: fadeIn 0.3s ease-out;
+      padding-top: var(--space-block-y);
     }
     
     @keyframes fadeIn {
@@ -9754,7 +9767,7 @@
 .games-hub-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 16px;
+  padding: 0 16px 20px 16px;
 }
 
 /* 돌아가기 버튼 */

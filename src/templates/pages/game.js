@@ -1168,8 +1168,10 @@ function generateGamePage(gameData) {
   };
 
   const content = `
-    <div class="game-page">
+    <section class="section active" id="game">
+      <h1 class="visually-hidden">${name} - 게임 정보</h1>
       ${generateAdSlot(AD_SLOTS.horizontal, AD_SLOTS.horizontal5)}
+      <div class="game-page">
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">
         <div class="game-hero-content">
@@ -1206,14 +1208,14 @@ function generateGamePage(gameData) {
         <!-- 스팀 동접 순위 추이 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">${icons.steam} 동접 순위 추이</h2>
+            <h2 class="home-card-title">동접 순위 추이</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('ccu')}</div>
         </div>
         <!-- 스팀 판매 순위 추이 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">${icons.steam} 판매 순위 추이</h2>
+            <h2 class="home-card-title">판매 순위 추이</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('sales')}</div>
         </div>
@@ -1221,7 +1223,7 @@ function generateGamePage(gameData) {
         <!-- 실시간 모바일 순위 카드 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">${icons.rankings} 실시간 모바일 순위</h2>
+            <h2 class="home-card-title">실시간 모바일 순위</h2>
           </div>
           <div class="home-card-body">${generateRankingsSection()}</div>
         </div>
@@ -1229,7 +1231,7 @@ function generateGamePage(gameData) {
         <!-- 모바일 추이 카드 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">${icons.rankings} 모바일 순위 추이</h2>
+            <h2 class="home-card-title">모바일 순위 추이</h2>
           </div>
           <div class="home-card-body">${generateRankTrendSection()}</div>
         </div>
@@ -1238,12 +1240,13 @@ function generateGamePage(gameData) {
         <!-- 트렌드 리포트 (풀 너비 2그리드) -->
         <div class="home-card home-card-full">
           <div class="home-card-header">
-            <h2 class="home-card-title">${icons.mentions} 트렌드 리포트</h2>
+            <h2 class="home-card-title">트렌드 리포트</h2>
           </div>
           <div class="home-card-body">${generateMentionsSection(true)}</div>
         </div>
       </div>
     </div>
+    </section>
   `;
 
   const pageScripts = `<script>

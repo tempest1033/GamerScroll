@@ -757,65 +757,6 @@ function wrapWithLayout(content, options = {}) {
 
 	      window.addEventListener('load', runInit);
 
-	      // 광고 높이 감지 및 unfilled 숨김
-	      function adjustAdSlots() {
-	        // 버티컬 광고 높이 조정 (실제 iframe 높이에 맞춤)
-	        document.querySelectorAll('.ad-slot.ad-slot--vertical').forEach(function(slot) {
-	          var ins = slot.querySelector('ins.adsbygoogle');
-	          if (ins) {
-	            var iframe = ins.querySelector('iframe');
-	            if (iframe && iframe.offsetHeight > 0) {
-	              slot.style.height = iframe.offsetHeight + 'px';
-	              ins.style.height = iframe.offsetHeight + 'px';
-	            }
-	          }
-	        });
-	        // unfilled 광고 컨테이너 숨김 (CSS :has 미지원 브라우저 대응)
-	        document.querySelectorAll('.ad-slot').forEach(function(slot) {
-	          var ins = slot.querySelector('ins.adsbygoogle');
-	          if (ins && ins.getAttribute('data-ad-status') === 'unfilled') {
-	            slot.style.display = 'none';
-	          }
-	        });
-	        // wrapper 없는 ins도 unfilled 시 숨김 (홈페이지 상단 광고 등)
-	        document.querySelectorAll('ins.adsbygoogle[data-ad-status="unfilled"]').forEach(function(ins) {
-	          ins.style.display = 'none';
-	          ins.style.height = '0';
-	        });
-	        // 초기화됐지만 빈 광고 숨김 (iframe 1px = AdSense가 광고 못 채움)
-	        document.querySelectorAll('.ad-slot').forEach(function(slot) {
-	          var ins = slot.querySelector('ins.adsbygoogle');
-	          if (ins && ins.getAttribute('data-adsbygoogle-status') === 'done') {
-	            var iframe = ins.querySelector('iframe');
-	            if (iframe && iframe.offsetHeight <= 1) {
-	              slot.classList.add('ad-slot--empty');
-	            } else if (iframe && iframe.offsetHeight > 10) {
-	              slot.classList.remove('ad-slot--empty');
-	            }
-	          }
-	        });
-	        // wrapper 없는 ins도 빈 광고 숨김
-	        document.querySelectorAll('ins.adsbygoogle[data-adsbygoogle-status="done"]').forEach(function(ins) {
-	          if (!ins.closest('.ad-slot')) {
-	            var iframe = ins.querySelector('iframe');
-	            if (iframe && iframe.offsetHeight <= 1) {
-	              ins.classList.add('ad-ins--empty');
-	            } else if (iframe && iframe.offsetHeight > 10) {
-	              ins.classList.remove('ad-ins--empty');
-	            }
-	          }
-	        });
-	      }
-
-	      // 광고 로드 후 체크 (빠른 주기)
-	      setTimeout(adjustAdSlots, 300);
-	      setTimeout(adjustAdSlots, 500);
-	      setTimeout(adjustAdSlots, 800);
-	      setTimeout(adjustAdSlots, 1000);
-	      setTimeout(adjustAdSlots, 1500);
-	      setTimeout(adjustAdSlots, 2000);
-	      setTimeout(adjustAdSlots, 3000);
-	      setTimeout(adjustAdSlots, 5000);
 
 	      let resizeTimer = null;
 	      window.addEventListener('resize', function() {
@@ -858,7 +799,7 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
     <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
   </div>`;
 }
 

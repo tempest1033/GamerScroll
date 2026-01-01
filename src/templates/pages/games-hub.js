@@ -119,12 +119,7 @@ function generateGamesHubPage(options = {}) {
   // 인기 게임 섹션 HTML
   const popularSection = popularGamesWithInfo.length > 0 ? `
     <section class="games-hub-popular">
-      <h2 class="games-hub-section-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon">
-          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-        </svg>
-        실시간 인기 게임
-      </h2>
+      <h2 class="games-hub-section-title">실시간 인기 게임</h2>
       <div class="games-hub-popular-grid">
         ${popularGamesWithInfo.map(game => `
           <a href="/games/${game.slug}/" class="games-hub-popular-card">
@@ -158,13 +153,7 @@ function generateGamesHubPage(options = {}) {
   // 전체 게임 목록 섹션
   const allGamesSection = `
     <section class="games-hub-all">
-      <h2 class="games-hub-section-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon">
-          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-          <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
-        </svg>
-        전체 게임 (${gamesList.length}개)
-      </h2>
+      <h2 class="games-hub-section-title">전체 게임 (${gamesList.length}개)</h2>
       ${initialNav}
       <div class="games-hub-groups">
         ${existingInitials.map(initial => `
@@ -188,9 +177,6 @@ function generateGamesHubPage(options = {}) {
   const searchResultsSection = `
     <section class="games-hub-search-results" id="search-results" style="display:none;">
       <h2 class="games-hub-section-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon">
-          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-        </svg>
         <span id="search-results-title">검색 결과</span>
         <button class="search-results-close" id="search-close" title="닫기">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
@@ -205,12 +191,7 @@ function generateGamesHubPage(options = {}) {
   // 최근 본 게임 섹션 (JS에서 동적 표시)
   const recentGamesSection = `
     <section class="games-hub-recent" id="recent-games" style="display:none;">
-      <h2 class="games-hub-section-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon">
-          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-        </svg>
-        최근 본 게임
-      </h2>
+      <h2 class="games-hub-section-title">최근 본 게임</h2>
       <div class="games-hub-recent-grid" id="recent-games-grid"></div>
     </section>
   `;
