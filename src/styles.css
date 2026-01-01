@@ -2952,7 +2952,10 @@
     }
 
     /* 페이지 래퍼 - 광고 패딩만 사용 (홈페이지 제외) */
-    .page-wrapper {
+    .page-wrapper,
+    .insight-page-container,
+    .games-hub-page,
+    .game-page {
       padding-top: 0;
     }
 
