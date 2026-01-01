@@ -481,9 +481,9 @@ function generateIndexPage(data) {
 	    var isHorizontal = format === 'horizontal';
 	    var isRectangle = format === 'rectangle';
 	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
-	    // 가로형: 전체 폭, min-height:50px (광고 크기에 맞게 자동 조절)
+	    // 가로형: 전체 폭, 높이 자동 (AdSense가 결정)
 	    if (isHorizontal) {
-	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;min-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
 	    // 직사각형: 반응형 (화면에 맞게 자동 조절)
 	    if (isRectangle) {
@@ -494,7 +494,7 @@ function generateIndexPage(data) {
 
 	  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등)
 	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
-	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" style="display:block;width:100%;min-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
+	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">오늘의 게임 트렌드</h1>' +
