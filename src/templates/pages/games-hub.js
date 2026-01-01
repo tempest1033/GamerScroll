@@ -91,25 +91,30 @@ function generateGamesHubPage(options = {}) {
   const grouped = groupGamesByInitial(gamesList);
   const initialOrder = getInitialOrder();
 
-  // 인기 게임 TOP 10 (게임 정보 매칭 - slug 또는 appId로)
-  // `.` 포함된 이전 형식은 무시 (현재는 `-`로 통일)
-  const filteredPopular = popularGames.filter(pg => !pg.slug.includes('.'));
+  // 인기 게임 TOP 10 (게임 정보 매칭 - slug만)
+  // 실제 존재하는 게임 페이지만 표시 (appId 형태 URL은 배제)
+  const popularGamesWithInfo = [];
+  const seenSlugs = new Set();
 
-  const popularGamesWithInfo = filteredPopular.slice(0, 10).map((pg, index) => {
-    // 먼저 slug로 매칭 시도
-    let gameInfo = gamesList.find(g => g.slug === pg.slug);
+  for (const pg of popularGames) {
+    if (popularGamesWithInfo.length >= 10) break;
 
-    // 없으면 appId로 매칭 (대소문자 무시)
-    if (!gameInfo) {
-      const gaSlug = pg.slug.replace(/-/g, '.').toLowerCase();
-      gameInfo = gamesList.find(g =>
-        String(g.appIds.android || '').toLowerCase() === gaSlug ||
-        String(g.appIds.ios || '').toLowerCase() === gaSlug
-      );
-    }
+    // slug로만 매칭 (실제 존재하는 페이지)
+    const gameInfo = gamesList.find(g => g.slug === pg.slug);
 
-    return gameInfo ? { ...gameInfo, rank: index + 1, views: pg.views } : null;
-  }).filter(Boolean);
+    // 매칭 안되면 스킵 (appId 형태 등)
+    if (!gameInfo) continue;
+
+    // 중복 게임 스킵
+    if (seenSlugs.has(gameInfo.slug)) continue;
+    seenSlugs.add(gameInfo.slug);
+
+    popularGamesWithInfo.push({
+      ...gameInfo,
+      rank: popularGamesWithInfo.length + 1,
+      views: pg.views
+    });
+  }
 
   // 인기 게임 섹션 HTML
   const popularSection = popularGamesWithInfo.length > 0 ? `

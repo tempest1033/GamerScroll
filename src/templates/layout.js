@@ -546,6 +546,14 @@ function wrapWithLayout(content, options = {}) {
 		    (function() {
 		      function canInit(el) {
 		        if (!el || !el.isConnected) return false;
+		        // 모바일/PC 전용 광고는 미디어 쿼리로 판단
+		        const slot = el.closest('.ad-slot');
+		        if (slot && slot.classList.contains('mobile-only')) {
+		          return window.matchMedia('(max-width: 768px)').matches;
+		        }
+		        if (slot && slot.classList.contains('pc-only')) {
+		          return window.matchMedia('(min-width: 769px)').matches;
+		        }
 		        const style = window.getComputedStyle(el);
 		        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
 		        return true;
@@ -860,7 +868,7 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
     <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>`;
 }
 
