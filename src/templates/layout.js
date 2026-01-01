@@ -602,66 +602,7 @@ function wrapWithLayout(content, options = {}) {
 		        if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
 		        else if (status === 'filled' || hasRenderedAd(el)) {
 		          slot.classList.remove('ad-slot--unfilled');
-		          // 모바일 광고 높이 자동 조절
-		          adjustAdSlotHeight(slot, el);
 		        }
-		      }
-
-		      function adjustAdSlotHeight(slot, ins) {
-		        if (!slot.classList.contains('mobile-only')) return;
-		        if (slot.dataset.adObserved) return;
-		        slot.dataset.adObserved = '1';
-
-		        function setHeight(h) {
-		          if (h > 0 && h <= 100) {
-		            slot.style.height = h + 'px';
-		            slot.style.maxHeight = h + 'px';
-		          }
-		        }
-
-		        function observeIframe(iframe) {
-		          // 초기 높이 체크 (지연 적용)
-		          setTimeout(function() {
-		            var h = iframe.offsetHeight || iframe.clientHeight;
-		            if (h > 0) setHeight(h);
-		          }, 100);
-
-		          // ResizeObserver로 크기 변화 감지
-		          try {
-		            var ro = new ResizeObserver(function(entries) {
-		              var h = entries[0].contentRect.height;
-		              if (h > 0) setHeight(h);
-		            });
-		            ro.observe(iframe);
-		          } catch(e) {}
-
-		          // iframe load 이벤트
-		          iframe.addEventListener('load', function() {
-		            setTimeout(function() {
-		              var h = iframe.offsetHeight || iframe.clientHeight;
-		              if (h > 0) setHeight(h);
-		            }, 50);
-		          });
-		        }
-
-		        // 이미 iframe이 있으면 바로 처리
-		        var existingIframe = ins.querySelector('iframe');
-		        if (existingIframe) {
-		          observeIframe(existingIframe);
-		          return;
-		        }
-
-		        // MutationObserver로 iframe 추가 감지
-		        try {
-		          var mo = new MutationObserver(function() {
-		            var iframe = ins.querySelector('iframe');
-		            if (iframe) {
-		              observeIframe(iframe);
-		              mo.disconnect();
-		            }
-		          });
-		          mo.observe(ins, { childList: true, subtree: true });
-		        } catch(e) {}
 		      }
 
 		      function syncAdSlotVisibility() {
@@ -818,18 +759,6 @@ function wrapWithLayout(content, options = {}) {
 
 	      // 광고 높이 감지 및 unfilled 숨김
 	      function adjustAdSlots() {
-	        // 모바일 가로 광고 높이 조정
-	        document.querySelectorAll('.ad-slot.mobile-only.ad-slot--horizontal').forEach(function(slot) {
-	          var ins = slot.querySelector('ins.adsbygoogle');
-	          if (ins) {
-	            var iframe = ins.querySelector('iframe');
-	            if (iframe && iframe.offsetHeight > 0 && iframe.offsetHeight <= 55) {
-	              slot.classList.add('ad-height-50');
-	            } else if (iframe && iframe.offsetHeight > 55) {
-	              slot.classList.remove('ad-height-50');
-	            }
-	          }
-	        });
 	        // 버티컬 광고 높이 조정 (실제 iframe 높이에 맞춤)
 	        document.querySelectorAll('.ad-slot.ad-slot--vertical').forEach(function(slot) {
 	          var ins = slot.querySelector('ins.adsbygoogle');
