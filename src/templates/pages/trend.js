@@ -718,10 +718,9 @@ function generateTrendPage(data) {
 
   const content = `
     <section class="section active" id="insight">
-      <h1 class="visually-hidden">게임 트렌드 리포트</h1>
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
-
       <div class="insight-page-container">
+        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+        <h1 class="visually-hidden">게임 트렌드 리포트</h1>
         <div class="insight-tabs">
           <button class="insight-tab active" data-tab="daily">일간 리포트</button>
           <button class="insight-tab" data-tab="weekly">주간 리포트</button>

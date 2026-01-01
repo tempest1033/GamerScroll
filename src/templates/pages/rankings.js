@@ -51,9 +51,10 @@ function generateRankingsPage(data) {
 
   const content = `
     <section class="section active" id="rankings">
-      <h1 class="visually-hidden">모바일 순위</h1>
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
-      <div class="rankings-controls">
+      <div class="page-wrapper">
+        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+        <h1 class="visually-hidden">모바일 순위</h1>
+        <div class="rankings-controls">
         <div class="control-group">
           <div class="tab-group" id="storeTab">
             <button class="tab-btn ios-btn active" data-store="ios"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">App Store</button>
@@ -89,6 +90,7 @@ function generateRankingsPage(data) {
             <div class="columns-grid">${generateAndroidColumns(rankings.free)}</div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   `;

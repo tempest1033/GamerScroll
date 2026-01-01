@@ -58,9 +58,10 @@ function generateYoutubePage(data) {
 
   const content = `
     <section class="section active" id="youtube">
-      <h1 class="visually-hidden">게임 영상 순위</h1>
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
-      <div class="video-controls">
+      <div class="page-wrapper">
+        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+        <h1 class="visually-hidden">게임 영상 순위</h1>
+        <div class="video-controls">
         <div class="tab-group" id="videoTab">
           <button class="tab-btn active" data-video="gaming"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="" class="news-favicon">유튜브 인기</button>
           <button class="tab-btn" data-video="chzzk"><img src="https://www.google.com/s2/favicons?domain=chzzk.naver.com&sz=32" alt="" class="news-favicon">치지직 라이브</button>
@@ -73,6 +74,7 @@ function generateYoutubePage(data) {
 
       <div class="video-section" id="video-chzzk">
         ${generateChzzkGrid(chzzk)}
+      </div>
       </div>
     </section>
   `;

@@ -1169,9 +1169,9 @@ function generateGamePage(gameData) {
 
   const content = `
     <section class="section active" id="game">
-      <h1 class="visually-hidden">${name} - 게임 정보</h1>
-      ${generateAdSlot(AD_SLOTS.horizontal, AD_SLOTS.horizontal5)}
       <div class="game-page">
+        ${generateAdSlot(AD_SLOTS.horizontal, AD_SLOTS.horizontal5)}
+        <h1 class="visually-hidden">${name} - 게임 정보</h1>
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">
         <div class="game-hero-content">

@@ -30,9 +30,10 @@ function generateCommunityPage(data) {
 
   const content = `
     <section class="section active" id="community">
-      <h1 class="visually-hidden">커뮤니티 베스트</h1>
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
-      <div class="news-controls">
+      <div class="page-wrapper">
+        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+        <h1 class="visually-hidden">커뮤니티 베스트</h1>
+        <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="communityTab">
             <button class="tab-btn active" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
@@ -80,6 +81,7 @@ function generateCommunityPage(data) {
             <div class="news-list">${ruliwebHTML}</div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   `;

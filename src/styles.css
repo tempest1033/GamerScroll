@@ -2305,7 +2305,8 @@
     .ad-slot-section + [class*="-card-container"],
     .ad-slot-section + .home-card,
     .ad-slot-section + .search-page,
-    .ad-slot-section + .game-page {
+    .ad-slot-section + .game-page,
+    .ad-slot-section + .games-hub-page {
       margin-top: 0 !important;
       padding-top: 0 !important;
     }
@@ -2375,7 +2376,8 @@
       .ad-slot-section + [class*="-card-container"],
       .ad-slot-section + .home-card,
       .ad-slot-section + .search-page,
-      .ad-slot-section + .game-page {
+      .ad-slot-section + .game-page,
+      .ad-slot-section + .games-hub-page {
         margin-top: 0 !important;
         padding-top: 0 !important;
       }
@@ -2933,7 +2935,7 @@
     .section {
       display: none;
       animation: fadeIn 0.3s ease-out;
-      padding-top: var(--space-block-y);
+      padding-top: 0;
     }
     
     @keyframes fadeIn {
@@ -2945,6 +2947,11 @@
       display: block;
     }
 
+    /* 페이지 래퍼 - 광고 포함 컨테이너 통일 */
+    .page-wrapper {
+      padding-top: var(--space-block-y);
+    }
+
     /* ===== 공통 컨트롤 영역 스타일 (모든 섹션 통일) - 프레임 없이 버튼만 ===== */
     .news-controls,
     .rankings-controls,
@@ -2954,8 +2961,8 @@
       background: transparent !important;
       border-radius: 0 !important;
       box-shadow: none !important;
-      padding: 6px 0 !important;
-      margin-top: var(--space-sm) !important;
+      padding: 0 !important;
+      margin-top: 0 !important;
       margin-bottom: var(--space-sm) !important;
       justify-content: center !important;
       align-items: center !important;
@@ -8816,6 +8823,7 @@
   min-height: calc(100vh - 250px);
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: var(--space-block-y);
   padding-bottom: var(--space-block-y-xl);
 }
 
@@ -9767,7 +9775,7 @@
 .games-hub-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px 20px 16px;
+  padding: var(--space-block-y) 16px 20px 16px;
 }
 
 /* 돌아가기 버튼 */

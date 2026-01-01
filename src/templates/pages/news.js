@@ -30,9 +30,10 @@ function generateNewsPage(data) {
 
   const content = `
     <section class="section active" id="news">
-      <h1 class="visually-hidden">게임 뉴스</h1>
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
-      <div class="news-controls">
+      <div class="page-wrapper">
+        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+        <h1 class="visually-hidden">게임 뉴스</h1>
+        <div class="news-controls">
         <div class="control-group">
           <div class="tab-group" id="newsTab">
             <button class="tab-btn active" data-news="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
@@ -77,6 +78,7 @@ function generateNewsPage(data) {
             <div class="news-list">${ruliwebNewsHTML}</div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   `;

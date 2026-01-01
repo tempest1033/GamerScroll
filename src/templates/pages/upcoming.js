@@ -56,9 +56,10 @@ function generateUpcomingPage(data) {
 
   const content = `
     <section class="section active" id="upcoming">
-      <h1 class="visually-hidden">출시 예정 게임</h1>
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
-      <div class="upcoming-controls">
+      <div class="page-wrapper">
+        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+        <h1 class="visually-hidden">출시 예정 게임</h1>
+        <div class="upcoming-controls">
         <div class="tab-group" id="upcomingTab">
           <button class="tab-btn active" data-upcoming="mobile">
             <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
@@ -88,6 +89,7 @@ function generateUpcomingPage(data) {
         <div class="upcoming-section" id="upcoming-nintendo">
           ${generateUpcomingSection(upcoming?.nintendo || [], 'nintendo')}
         </div>
+      </div>
       </div>
     </section>
   `;
