@@ -2368,11 +2368,34 @@
         display: none !important;
       }
 
-      /* 모바일 가로형 광고 - 높이는 ins 태그에서 100px 고정 */
+      /* 모바일 가로형 광고 - 높이는 ins 태그에서 100px 고정, 세로 중앙 정렬 */
       .ad-slot.mobile-only.ad-slot--horizontal {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         overflow: hidden;
+      }
+
+      /* 모바일 광고 동적 높이 조정 (JS에서 ad-height-50 클래스 추가 시) */
+      .ad-slot.mobile-only.ad-height-50 {
+        height: 50px !important;
+        max-height: 50px !important;
+      }
+      .ad-slot.mobile-only.ad-height-50 > ins.adsbygoogle {
+        height: 50px !important;
+      }
+
+      /* 빈 광고 숨김 */
+      .ad-slot.ad-slot--empty {
+        display: none !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      ins.adsbygoogle.ad-ins--empty {
+        display: none !important;
+        height: 0 !important;
       }
 
       .home-video-split {
