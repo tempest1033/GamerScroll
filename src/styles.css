@@ -7121,7 +7121,7 @@
 .insight-page-container {
   display: flex;
   flex-direction: column;
-  padding: var(--space-block-y) 0;
+  padding: 0 0 var(--space-block-y) 0;
 }
 
 /* ========== 일간 리포트 섹션별 스타일 (주간과 통일) ========== */
@@ -8830,7 +8830,7 @@
   min-height: calc(100vh - 250px);
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: var(--space-block-y);
+  padding-top: 0;
   padding-bottom: var(--space-block-y-xl);
 }
 
@@ -9824,7 +9824,7 @@
 .games-hub-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-block-y) 16px 20px 16px;
+  padding: 0 16px 20px 16px;
 }
 
 /* 돌아가기 버튼 */
