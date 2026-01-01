@@ -10168,6 +10168,8 @@
   background: var(--card-hover);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .popular-banner-label {
