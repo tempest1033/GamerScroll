@@ -928,8 +928,8 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   return `<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
     <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>
-  <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}" style="min-height:50px;">
-    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+  <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}" style="height:50px;max-height:50px;overflow:hidden">
+    <ins class="adsbygoogle" style="display:inline-block;width:100%;height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
   </div>`;
 }
 
