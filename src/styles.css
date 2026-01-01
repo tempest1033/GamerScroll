@@ -4794,9 +4794,9 @@
 
 /* === 태블릿 (768px 이하) === */
 @media (max-width: 768px) {
-  /* 컨테이너 */
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 0 var(--space-block-y) 0 !important;
     gap: var(--space-block-gap) !important;
   }
 
@@ -4907,9 +4907,9 @@
 
 /* === 모바일 (480px 이하) === */
 @media (max-width: 480px) {
-  /* 컨테이너 */
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 0 var(--space-block-y) 0 !important;
     gap: var(--space-block-gap) !important;
   }
 
@@ -5027,9 +5027,9 @@
 
 /* === 작은 화면 (360px 이하) === */
 @media (max-width: 360px) {
-  /* 컨테이너 */
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 0 var(--space-block-y) 0 !important;
     gap: var(--space-block-gap) !important;
   }
 

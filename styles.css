@@ -1529,7 +1529,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 10px;
+      padding: 6px 10px;
       text-decoration: none;
       background: var(--card-bg);
       border-radius: var(--radius-sm);
@@ -1879,7 +1879,7 @@
     }
 
     .home-video-item-channel {
-      font-size: var(--font-source-size);
+      font-size: var(--font-meta-size);
       font-weight: var(--font-source-weight);
       color: var(--font-source-color);
       white-space: nowrap;
@@ -2189,17 +2189,27 @@
     }
 
 
-    /* 사이드바 광고 - 광고 크기에 맞게 자동 조절 */
-    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
+    /* 사이드바 광고 - 광고 크기에 맞게 자동 조절 (vertical/rectangle 제외) */
+    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
       min-height: auto;
     }
     /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 (vertical 제외 - 300x600 고정 높이 필요) */
     .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
       min-height: auto;
     }
-    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
+    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) > ins.adsbygoogle {
       width: auto;
       max-width: 300px;
+    }
+
+    /* 사이드바 vertical/rectangle 광고 - 고정 너비 */
+    .home-sidebar .ad-slot--vertical.pc-only > ins.adsbygoogle {
+      width: 300px;
+      height: 600px;
+    }
+    .home-sidebar .ad-slot--rectangle.pc-only > ins.adsbygoogle {
+      width: 300px;
+      height: 250px;
     }
 
     /* 모바일 광고 크기 제한 */
@@ -2300,7 +2310,7 @@
 
     /* PC 광고 여백 */
     .ad-slot-section {
-      padding: 4px 0;
+      padding: 12px 0;
     }
 
     /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 (vertical 광고 제외) */
@@ -2462,7 +2472,16 @@
 
       /* 모바일 광고 여백 및 크기 통일 */
       .ad-slot-section {
-        padding: 4px 0;
+        padding: 8px 0;
+      }
+
+      /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) */
+      .page-wrapper,
+      .games-hub-page,
+      .game-page,
+      .insight-page-container,
+      .home-container {
+        padding-top: 0 !important;
       }
 
       /* 모바일 광고 컨테이너 최대 너비 제한 */
@@ -2932,9 +2951,12 @@
       display: block;
     }
 
-    /* 페이지 래퍼 - 광고 포함 컨테이너 통일 */
-    .page-wrapper {
-      padding-top: var(--space-block-y);
+    /* 페이지 래퍼 - 광고 패딩만 사용 (홈페이지 제외) */
+    .page-wrapper,
+    .insight-page-container,
+    .games-hub-page,
+    .game-page {
+      padding-top: 0;
     }
 
     /* ===== 공통 컨트롤 영역 스타일 (모든 섹션 통일) - 프레임 없이 버튼만 ===== */
@@ -2947,10 +2969,17 @@
       border-radius: 0 !important;
       box-shadow: none !important;
       padding: 0 !important;
-      margin-top: 0 !important;
-      margin-bottom: var(--space-sm) !important;
       justify-content: center !important;
       align-items: center !important;
+    }
+
+    /* 개별 페이지 컨트롤 - 하단 마진만 (상단은 광고 패딩 사용) */
+    .page-wrapper .news-controls,
+    .page-wrapper .rankings-controls,
+    .page-wrapper .steam-controls,
+    .page-wrapper .video-controls,
+    .page-wrapper .upcoming-controls {
+      margin-bottom: var(--space-sm);
     }
 
     /* 랭킹, 스팀, 영상, 출시작품: 항상 표시 */
@@ -3022,12 +3051,6 @@
       box-shadow: var(--shadow);
       padding: 24px 0;
       border: 1px solid var(--border);
-    }
-
-    @media (min-width: 769px) {
-      .news-card {
-        margin-top: var(--space-block-y);
-      }
     }
 
     /* 뉴스: PC에서 2컬럼 그리드 + 선택 탭 맨 앞 */
@@ -4771,9 +4794,9 @@
 
 /* === 태블릿 (768px 이하) === */
 @media (max-width: 768px) {
-  /* 컨테이너 */
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 0 var(--space-block-y) 0 !important;
     gap: var(--space-block-gap) !important;
   }
 
@@ -4884,9 +4907,9 @@
 
 /* === 모바일 (480px 이하) === */
 @media (max-width: 480px) {
-  /* 컨테이너 */
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 0 var(--space-block-y) 0 !important;
     gap: var(--space-block-gap) !important;
   }
 
@@ -5004,9 +5027,9 @@
 
 /* === 작은 화면 (360px 이하) === */
 @media (max-width: 360px) {
-  /* 컨테이너 */
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
-    padding: var(--space-block-y) 0 !important;
+    padding: 0 0 var(--space-block-y) 0 !important;
     gap: var(--space-block-gap) !important;
   }
 
@@ -7699,7 +7722,6 @@
   box-shadow: var(--shadow);
   overflow: hidden;
   border: 1px solid var(--border);
-  margin-top: 20px;
 }
 
 .metacritic-header {
