@@ -10274,18 +10274,23 @@
   .popular-banner {
     padding: 4px 10px;
     gap: 6px;
+    overflow: visible;
   }
 
   .popular-banner-label {
     font-size: var(--font-title-size);
     font-weight: 700;
-    min-width: 70px;
+    min-width: 55px;
+    flex-shrink: 0;
   }
 
   .popular-banner-items {
     gap: 6px;
-    padding: 0 4px;
-    margin: 0 -4px;
+    justify-content: flex-start;
+  }
+
+  .popular-banner-item:last-child {
+    margin-right: 8px;
   }
 
   .popular-banner-item {
@@ -10312,8 +10317,9 @@
     font-size: var(--font-meta-size);
     font-weight: var(--font-badge-weight);
     color: var(--primary);
-    min-width: 70px;
+    min-width: 45px;
     text-align: right;
+    flex-shrink: 0;
   }
 }
 
