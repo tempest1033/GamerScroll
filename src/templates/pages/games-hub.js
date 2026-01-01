@@ -211,14 +211,16 @@ function generateGamesHubPage(options = {}) {
   `;
 
   const content = `
-    <div class="games-hub-page" id="top">
+    <section class="section active" id="games">
       ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
-      <h1 class="visually-hidden">게임 DB</h1>
-      ${searchResultsSection}
-      ${recentGamesSection}
-      ${popularSection}
-      ${allGamesSection}
-    </div>
+      <div class="games-hub-page" id="top">
+        <h1 class="visually-hidden">게임 DB</h1>
+        ${searchResultsSection}
+        ${recentGamesSection}
+        ${popularSection}
+        ${allGamesSection}
+      </div>
+    </section>
   `;
 
   // 페이지 스크립트 (검색 결과 + 최근 본 게임 + 스크롤 처리)
