@@ -2188,8 +2188,9 @@
       max-width: 728px;
     }
 
-    /* 사이드바 상단 여백 - PC에서만 (home-main 광고 슬롯과 정렬) */
+    /* 홈 컬럼 상단 여백 - PC에서만 (양쪽 컬럼 정렬) */
     @media (min-width: 769px) {
+      .home-main,
       .home-sidebar {
         padding-top: 12px;
       }
