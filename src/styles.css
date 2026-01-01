@@ -3050,12 +3050,6 @@
       border: 1px solid var(--border);
     }
 
-    @media (min-width: 769px) {
-      .news-card {
-        margin-top: var(--space-block-y);
-      }
-    }
-
     /* 뉴스: PC에서 2컬럼 그리드 + 선택 탭 맨 앞 */
     @media (min-width: 769px) {
       #news .news-card {
