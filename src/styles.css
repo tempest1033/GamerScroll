@@ -773,7 +773,6 @@
       display: flex;
       flex-direction: column;
       gap: var(--space-block-gap);
-      padding-top: 12px; /* home-main 광고 슬롯(.ad-slot-section)과 동일 패딩 */
     }
 
     /* 홈 카드 공통 */
@@ -2187,6 +2186,13 @@
     /* 메인 영역 가로형 광고 - 중앙 정렬 */
     .home-main .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
       max-width: 728px;
+    }
+
+    /* 사이드바 상단 여백 - PC에서만 (home-main 광고 슬롯과 정렬) */
+    @media (min-width: 769px) {
+      .home-sidebar {
+        padding-top: 12px;
+      }
     }
 
     /* 사이드바 광고 - 고정 크기 유지 */
