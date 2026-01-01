@@ -1,22 +1,26 @@
 {
-  "updatedAt": "2025-12-31T09:11:03.403Z",
+  "updatedAt": "2026-01-01T09:16:35.152Z",
   "period": "30days",
   "games": [
     {
       "slug": "com-proximabeta-nikke",
-      "views": 75
+      "views": 114
     },
     {
       "slug": "com-neowizgames-game-browndust2",
-      "views": 71
+      "views": 87
     },
     {
       "slug": "com.smilegate.chaoszero.stove.google",
       "views": 64
     },
     {
+      "slug": "승리의-여신-니케",
+      "views": 55
+    },
+    {
       "slug": "com-studiobside-starmain",
-      "views": 38
+      "views": 40
     },
     {
       "slug": "com.studiobside.starMain",
@@ -24,11 +28,15 @@
     },
     {
       "slug": "com-hoyoverse-nap",
-      "views": 23
+      "views": 29
     },
     {
       "slug": "com.proximabeta.nikke",
       "views": 19
+    },
+    {
+      "slug": "브라운더스트2-가슴-벅찬-rpg",
+      "views": 12
     },
     {
       "slug": "com-yostarkr-stellasora",
@@ -41,6 +49,34 @@
     {
       "slug": "com-epidgames-trickcalrevive",
       "views": 7
+    },
+    {
+      "slug": "com.ncsoft.aion2",
+      "views": 6
+    },
+    {
+      "slug": "랜드-오브-제일",
+      "views": 6
+    },
+    {
+      "slug": "com.YoStarKR.StellaSora",
+      "views": 5
+    },
+    {
+      "slug": "wuthering-waves",
+      "views": 5
+    },
+    {
+      "slug": "스타세이비어",
+      "views": 5
+    },
+    {
+      "slug": "com.epidgames.trickcalrevive",
+      "views": 4
+    },
+    {
+      "slug": "elden-ring-nightreign",
+      "views": 4
     }
   ]
 }
