@@ -2218,15 +2218,6 @@
       max-height: 250px;
     }
 
-    /* 홈페이지 상단 광고 - 테두리/프레임 제거 */
-    #home-top-ad-pc,
-    #home-top-ad-mobile {
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
-    }
-
     /* 홈 가로형 광고 컨테이너 카드 스타일 */
     .home-section .ad-slot--horizontal {
       display: flex;
