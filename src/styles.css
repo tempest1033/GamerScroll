@@ -10277,6 +10277,7 @@
   .popular-banner-label {
     font-size: var(--font-title-size);
     font-weight: 700;
+    min-width: 70px;
   }
 
   .popular-banner-items {
@@ -10307,6 +10308,8 @@
     font-size: var(--font-meta-size);
     font-weight: var(--font-badge-weight);
     color: var(--primary);
+    min-width: 70px;
+    text-align: right;
   }
 }
 
