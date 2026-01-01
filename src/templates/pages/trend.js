@@ -5,6 +5,19 @@
 
 const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
 
+// 중간 광고 슬롯 생성 (PC: horizontal, 모바일: rectangle)
+function generateMidAdSlot() {
+  if (!SHOW_ADS) return '';
+  return `
+    <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only">
+      <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>
+    <div class="ad-slot ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve">
+      <ins class="adsbygoogle" style="display:block;width:100%;max-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>
+  `;
+}
+
 // 태그 아이콘 매핑
 const tagIcons = {
   '모바일': '<svg class="weekly-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>',
@@ -396,9 +409,11 @@ function generateWeeklyPanel(weeklyInsight) {
       ${mvpSection}
       ${hotIssuesSection}
       ${rankingsSection}
+      ${generateMidAdSlot()}
       ${releasesSection}
       ${industrySection}
       ${metricsSection}
+      ${generateMidAdSlot()}
       ${communitySection}
       ${streamingSection}
       ${globalSection}
@@ -736,9 +751,11 @@ function generateTrendPage(data) {
           </div>
           ${dailySummaryHtml}
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
+          ${generateMidAdSlot()}
           ${renderIndustryTimeline('업계 동향', industryIssues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg>')}
           ${renderCategoryCard('주목할만한 지표', metrics, 'weekly-section-metrics', '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>')}
           ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/></svg>', true)}
+          ${generateMidAdSlot()}
           ${renderStocksCard(stocksData, stockPrices)}
           ${renderCommunityCards('유저 반응', communityData, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>')}
           ${renderStreamingCards('스트리밍 트렌드', streaming, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>')}
