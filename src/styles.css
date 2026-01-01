@@ -7722,7 +7722,6 @@
   box-shadow: var(--shadow);
   overflow: hidden;
   border: 1px solid var(--border);
-  margin-top: 20px;
 }
 
 .metacritic-header {
