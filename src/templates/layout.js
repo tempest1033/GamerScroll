@@ -609,29 +609,45 @@ function wrapWithLayout(content, options = {}) {
 
 		      function adjustAdSlotHeight(slot, ins) {
 		        if (!slot.classList.contains('mobile-only')) return;
-		        if (slot.dataset.adObserved) return; // 이미 관찰 중이면 스킵
+		        if (slot.dataset.adObserved) return;
 		        slot.dataset.adObserved = '1';
 
 		        function setHeight(h) {
 		          if (h > 0 && h <= 100) {
 		            slot.style.height = h + 'px';
 		            slot.style.maxHeight = h + 'px';
-		            slot.style.overflow = 'hidden';
 		          }
 		        }
 
-		        // 이미 iframe이 있으면 바로 처리
-		        const existingIframe = ins.querySelector('iframe');
-		        if (existingIframe && existingIframe.offsetHeight > 0) {
-		          setHeight(existingIframe.offsetHeight);
+		        function observeIframe(iframe) {
+		          // 초기 높이 체크 (지연 적용)
+		          setTimeout(function() {
+		            var h = iframe.offsetHeight || iframe.clientHeight;
+		            if (h > 0) setHeight(h);
+		          }, 100);
+
 		          // ResizeObserver로 크기 변화 감지
 		          try {
 		            var ro = new ResizeObserver(function(entries) {
 		              var h = entries[0].contentRect.height;
-		              setHeight(h);
+		              if (h > 0) setHeight(h);
 		            });
-		            ro.observe(existingIframe);
+		            ro.observe(iframe);
 		          } catch(e) {}
+
+		          // iframe load 이벤트
+		          iframe.addEventListener('load', function() {
+		            setTimeout(function() {
+		              var h = iframe.offsetHeight || iframe.clientHeight;
+		              if (h > 0) setHeight(h);
+		            }, 50);
+		          });
+		        }
+
+		        // 이미 iframe이 있으면 바로 처리
+		        var existingIframe = ins.querySelector('iframe');
+		        if (existingIframe) {
+		          observeIframe(existingIframe);
 		          return;
 		        }
 
@@ -639,16 +655,8 @@ function wrapWithLayout(content, options = {}) {
 		        try {
 		          var mo = new MutationObserver(function() {
 		            var iframe = ins.querySelector('iframe');
-		            if (iframe && iframe.offsetHeight > 0) {
-		              setHeight(iframe.offsetHeight);
-		              // ResizeObserver로 크기 변화 감지
-		              try {
-		                var ro = new ResizeObserver(function(entries) {
-		                  var h = entries[0].contentRect.height;
-		                  setHeight(h);
-		                });
-		                ro.observe(iframe);
-		              } catch(e) {}
+		            if (iframe) {
+		              observeIframe(iframe);
 		              mo.disconnect();
 		            }
 		          });
