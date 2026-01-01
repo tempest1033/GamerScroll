@@ -498,8 +498,8 @@ function generateIndexPage(data) {
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">오늘의 게임 트렌드</h1>' +
-	    '<div class="home-container">' +
 	    topAdMobile +
+	    '<div class="home-container">' +
 	    '<div class="home-main">' +
 	    topAdPc +
 	    popularBannerHtml +

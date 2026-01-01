@@ -2189,8 +2189,8 @@
     }
 
 
-    /* 사이드바 광고 - 광고 크기에 맞게 자동 조절 */
-    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) {
+    /* 사이드바 광고 - 광고 크기에 맞게 자동 조절 (vertical/rectangle 제외) */
+    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
       min-height: auto;
     }
     /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 (vertical 제외 - 300x600 고정 높이 필요) */
@@ -2300,7 +2300,7 @@
 
     /* PC 광고 여백 */
     .ad-slot-section {
-      padding: 4px 0;
+      padding: 8px 0;
     }
 
     /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 (vertical 광고 제외) */
@@ -2462,7 +2462,16 @@
 
       /* 모바일 광고 여백 및 크기 통일 */
       .ad-slot-section {
-        padding: 4px 0;
+        padding: 8px 0;
+      }
+
+      /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) */
+      .page-wrapper,
+      .games-hub-page,
+      .game-page,
+      .insight-page-container,
+      .home-container {
+        padding-top: 0 !important;
       }
 
       /* 모바일 광고 컨테이너 최대 너비 제한 */
@@ -2947,8 +2956,6 @@
       border-radius: 0 !important;
       box-shadow: none !important;
       padding: 0 !important;
-      margin-top: 0 !important;
-      margin-bottom: var(--space-sm) !important;
       justify-content: center !important;
       align-items: center !important;
     }
