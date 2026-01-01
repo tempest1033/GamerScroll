@@ -2973,13 +2973,13 @@
       align-items: center !important;
     }
 
-    /* 개별 페이지 컨트롤 - 상하 마진 추가 */
+    /* 개별 페이지 컨트롤 - 하단 마진만 (상단은 광고 패딩 사용) */
     .page-wrapper .news-controls,
     .page-wrapper .rankings-controls,
     .page-wrapper .steam-controls,
     .page-wrapper .video-controls,
     .page-wrapper .upcoming-controls {
-      margin: var(--space-sm) 0;
+      margin-bottom: var(--space-sm);
     }
 
     /* 랭킹, 스팀, 영상, 출시작품: 항상 표시 */
