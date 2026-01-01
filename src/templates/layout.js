@@ -609,14 +609,51 @@ function wrapWithLayout(content, options = {}) {
 
 		      function adjustAdSlotHeight(slot, ins) {
 		        if (!slot.classList.contains('mobile-only')) return;
-		        const iframe = ins.querySelector('iframe');
-		        if (iframe) {
-		          const h = iframe.offsetHeight || iframe.clientHeight;
-		          if (h > 0 && h < 250) {
+		        if (slot.dataset.adObserved) return; // 이미 관찰 중이면 스킵
+		        slot.dataset.adObserved = '1';
+
+		        function setHeight(h) {
+		          if (h > 0 && h <= 100) {
+		            slot.style.height = h + 'px';
 		            slot.style.maxHeight = h + 'px';
 		            slot.style.overflow = 'hidden';
 		          }
 		        }
+
+		        // 이미 iframe이 있으면 바로 처리
+		        const existingIframe = ins.querySelector('iframe');
+		        if (existingIframe && existingIframe.offsetHeight > 0) {
+		          setHeight(existingIframe.offsetHeight);
+		          // ResizeObserver로 크기 변화 감지
+		          try {
+		            var ro = new ResizeObserver(function(entries) {
+		              var h = entries[0].contentRect.height;
+		              setHeight(h);
+		            });
+		            ro.observe(existingIframe);
+		          } catch(e) {}
+		          return;
+		        }
+
+		        // MutationObserver로 iframe 추가 감지
+		        try {
+		          var mo = new MutationObserver(function() {
+		            var iframe = ins.querySelector('iframe');
+		            if (iframe && iframe.offsetHeight > 0) {
+		              setHeight(iframe.offsetHeight);
+		              // ResizeObserver로 크기 변화 감지
+		              try {
+		                var ro = new ResizeObserver(function(entries) {
+		                  var h = entries[0].contentRect.height;
+		                  setHeight(h);
+		                });
+		                ro.observe(iframe);
+		              } catch(e) {}
+		              mo.disconnect();
+		            }
+		          });
+		          mo.observe(ins, { childList: true, subtree: true });
+		        } catch(e) {}
 		      }
 
 		      function syncAdSlotVisibility() {
@@ -883,8 +920,8 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   return `<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
     <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>
-  <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
+  <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}" style="height:100px;max-height:100px;overflow:hidden">
+    <ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
   </div>`;
 }
 
