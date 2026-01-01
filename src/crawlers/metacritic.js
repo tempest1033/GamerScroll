@@ -1,8 +1,66 @@
 // 메타크리틱 연도별 게임 평점 크롤러
 async function fetchMetacriticGames(axios, cheerio, year = null) {
-  const currentYear = year || new Date().getFullYear();
+  let targetYear = year || new Date().getFullYear();
   const games = [];
   const seenTitles = new Set(); // 중복 체크용
+
+  // 내부 크롤링 함수
+  async function crawlYear(crawlYear, axios, cheerio, headers, cleanTitle, games, seenTitles) {
+    for (let page = 1; page <= 2; page++) {
+      if (games.length >= 30) break;
+
+      const url = `https://www.metacritic.com/browse/game/?releaseYearMin=${crawlYear}&releaseYearMax=${crawlYear}&page=${page}`;
+      const res = await axios.get(url, { headers, timeout: 15000 });
+      const $ = cheerio.load(res.data);
+
+      // 게임 카드 파싱
+      $('div[class*="c-finderProductCard"]').each((i, el) => {
+        if (games.length >= 30) return false;
+
+        const $card = $(el);
+        let title = $card.find('h3[class*="c-finderProductCard_titleHeading"]').text().trim() ||
+                    $card.find('span[class*="c-finderProductCard_title"]').text().trim();
+        title = cleanTitle(title);
+
+        if (seenTitles.has(title)) return;
+
+        const scoreText = $card.find('div[class*="c-siteReviewScore"]').first().text().trim();
+        const score = parseInt(scoreText) || null;
+        const platform = $card.find('span[class*="c-finderProductCard_meta"]').first().text().trim();
+        const releaseDate = $card.find('span[class*="c-finderProductCard_meta"]').last().text().trim();
+
+        if (title && score) {
+          seenTitles.add(title);
+          games.push({
+            rank: games.length + 1,
+            title,
+            score,
+            platform,
+            releaseDate,
+            img: '',
+            year: crawlYear
+          });
+        }
+      });
+
+      // 백업 셀렉터
+      if (games.length === 0) {
+        $('a[class*="c-finderProductCard"]').each((i, el) => {
+          if (games.length >= 30) return false;
+          const $card = $(el);
+          let title = $card.find('[class*="title"]').text().trim();
+          title = cleanTitle(title);
+          if (seenTitles.has(title)) return;
+          const scoreText = $card.find('[class*="score"]').text().trim();
+          const score = parseInt(scoreText) || null;
+          if (title && score) {
+            seenTitles.add(title);
+            games.push({ rank: games.length + 1, title, score, platform: '', releaseDate: '', img: '', year: crawlYear });
+          }
+        });
+      }
+    }
+  }
 
   const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -48,83 +106,20 @@ async function fetchMetacriticGames(axios, cheerio, year = null) {
   };
 
   try {
-    // 메타크리틱 연도별 게임 목록 (메타스코어 순) - 2페이지까지
-    for (let page = 1; page <= 2; page++) {
-      if (games.length >= 30) break;
+    // 현재 연도 크롤링 시도
+    await crawlYear(targetYear, axios, cheerio, headers, cleanTitle, games, seenTitles);
+    console.log(`  메타크리틱 ${targetYear}년: ${games.length}개`);
 
-      const url = `https://www.metacritic.com/browse/game/?releaseYearMin=${currentYear}&releaseYearMax=${currentYear}&page=${page}`;
-      const res = await axios.get(url, { headers, timeout: 15000 });
-      const $ = cheerio.load(res.data);
-
-      // 게임 카드 파싱
-      $('div[class*="c-finderProductCard"]').each((i, el) => {
-        if (games.length >= 30) return false; // 상위 30개만
-
-        const $card = $(el);
-
-        // 게임 제목 (순위 번호 제거)
-        let title = $card.find('h3[class*="c-finderProductCard_titleHeading"]').text().trim() ||
-                    $card.find('span[class*="c-finderProductCard_title"]').text().trim();
-        title = cleanTitle(title);
-
-        // 중복 체크
-        if (seenTitles.has(title)) return;
-
-        // 메타스코어
-        const scoreText = $card.find('div[class*="c-siteReviewScore"]').first().text().trim();
-        const score = parseInt(scoreText) || null;
-
-        // 플랫폼
-        const platform = $card.find('span[class*="c-finderProductCard_meta"]').first().text().trim();
-
-        // 출시일
-        const releaseDate = $card.find('span[class*="c-finderProductCard_meta"]').last().text().trim();
-
-        if (title && score) {
-          seenTitles.add(title);
-          games.push({
-            rank: games.length + 1,
-            title,
-            score,
-            platform,
-            releaseDate,
-            img: '', // 나중에 RAWG API로 채움
-            year: currentYear
-          });
-        }
-      });
-
-      // 백업: 다른 셀렉터 시도
-      if (games.length === 0) {
-        $('a[class*="c-finderProductCard"]').each((i, el) => {
-          if (games.length >= 30) return false;
-
-          const $card = $(el);
-          let title = $card.find('[class*="title"]').text().trim();
-          title = cleanTitle(title);
-
-          if (seenTitles.has(title)) return;
-
-          const scoreText = $card.find('[class*="score"]').text().trim();
-          const score = parseInt(scoreText) || null;
-
-          if (title && score) {
-            seenTitles.add(title);
-            games.push({
-              rank: games.length + 1,
-              title,
-              score,
-              platform: '',
-              releaseDate: '',
-              img: '',
-              year: currentYear
-            });
-          }
-        });
-      }
+    // 데이터가 10개 미만이면 이전 연도 시도
+    if (games.length < 10 && !year) {
+      const prevYear = targetYear - 1;
+      console.log(`  ⚠️ ${targetYear}년 데이터 부족, ${prevYear}년으로 재시도...`);
+      games.length = 0;
+      seenTitles.clear();
+      targetYear = prevYear;
+      await crawlYear(targetYear, axios, cheerio, headers, cleanTitle, games, seenTitles);
+      console.log(`  메타크리틱 ${targetYear}년: ${games.length}개`);
     }
-
-    console.log(`  메타크리틱 ${currentYear}년: ${games.length}개`);
 
     // RAWG API로 각 게임의 포스터 이미지 가져오기
     console.log('  📸 게임 이미지 수집 중...');
@@ -144,7 +139,7 @@ async function fetchMetacriticGames(axios, cheerio, year = null) {
     console.error('메타크리틱 크롤링 실패:', err.message);
   }
 
-  return { year: currentYear, games };
+  return { year: targetYear, games };
 }
 
 module.exports = { fetchMetacriticGames };
