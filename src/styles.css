@@ -2236,9 +2236,8 @@
       border-radius: 0;
     }
 
-    /* 홈/개별페이지 가로형 광고 컨테이너 카드 스타일 (PC만 적용) */
-    .home-section .ad-slot--horizontal.pc-only,
-    .section .ad-slot--horizontal.pc-only {
+    /* 홈페이지 가로형 광고 컨테이너 카드 스타일 (PC만 적용) */
+    .home-section .ad-slot--horizontal.pc-only {
       display: flex;
       align-items: center;
       justify-content: center;
