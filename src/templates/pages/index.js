@@ -485,16 +485,16 @@ function generateIndexPage(data) {
 	    if (isHorizontal) {
 	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins></div>';
 	    }
-	    // 직사각형: horizontal + full-width-responsive (화면에 맞게 자동 조절)
+	    // 직사각형: rectangle 클래스 적용, 높이 50px 제한
 	    if (isRectangle) {
-	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;max-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
 	    }
 	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins></div>';
 	  }
 
 	  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등)
 	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
-	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
+	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" style="display:block;width:100%;height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">오늘의 게임 트렌드</h1>' +
@@ -504,6 +504,7 @@ function generateIndexPage(data) {
 	    topAdPc +
 	    popularBannerHtml +
 	    insightCardHtml +
+	    adSlotMobile('ad-above-news-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'rectangle') +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">주요 뉴스</h2>' +
@@ -529,7 +530,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '</div>' +
 	    '<div class="home-sidebar">' +
-	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'rectangle') +
+	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">모바일 랭킹</h2>' +
@@ -559,7 +560,6 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-below-steam', 'pc-only ad-slot--no-reserve', 'rectangle', AD_SLOTS.rectangle) +
-	    adSlotMobile('ad-above-upcoming-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">신규 게임</h2>' +
