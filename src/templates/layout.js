@@ -600,7 +600,23 @@ function wrapWithLayout(content, options = {}) {
 		        if (!slot) return;
 		        const status = el.getAttribute('data-ad-status');
 		        if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
-		        else if (status === 'filled' || hasRenderedAd(el)) slot.classList.remove('ad-slot--unfilled');
+		        else if (status === 'filled' || hasRenderedAd(el)) {
+		          slot.classList.remove('ad-slot--unfilled');
+		          // 모바일 광고 높이 자동 조절
+		          adjustAdSlotHeight(slot, el);
+		        }
+		      }
+
+		      function adjustAdSlotHeight(slot, ins) {
+		        if (!slot.classList.contains('mobile-only')) return;
+		        const iframe = ins.querySelector('iframe');
+		        if (iframe) {
+		          const h = iframe.offsetHeight || iframe.clientHeight;
+		          if (h > 0 && h < 250) {
+		            slot.style.maxHeight = h + 'px';
+		            slot.style.overflow = 'hidden';
+		          }
+		        }
 		      }
 
 		      function syncAdSlotVisibility() {
@@ -868,7 +884,7 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
     <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
   </div>`;
 }
 
