@@ -635,9 +635,9 @@ function wrapWithLayout(content, options = {}) {
 		          if (!seenAt) return;
 		          if (now - seenAt < delayMs) return;
 
-		          // 늦게 로드되는 광고를 "미노출"로 오판해 숨기지 않도록,
-		          // data-ad-status="unfilled" 처럼 명확히 unfilled인 경우에만 접기.
-		          if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
+		          // 6초 후에도 광고가 로드되지 않았으면 숨김
+		          // (filled도 아니고 렌더링도 안 됐으면 빈 공간 제거)
+		          slot.classList.add('ad-slot--unfilled');
 		        });
 		      }
 

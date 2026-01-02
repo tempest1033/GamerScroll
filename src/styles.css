@@ -2353,11 +2353,18 @@
     }
 
     .ad-slot.ad-slot--unfilled {
-      display: none;
+      display: none !important;
+      height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: hidden !important;
     }
 
     .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
-      display: none;
+      display: none !important;
+      height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
     /* AdSense unfilled 광고 자동 숨김 */
