@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-01-01T09:16:35.152Z",
+  "updatedAt": "2026-01-02T09:45:20.023Z",
   "period": "30days",
   "games": [
     {
       "slug": "com-proximabeta-nikke",
-      "views": 114
+      "views": 116
     },
     {
       "slug": "com-neowizgames-game-browndust2",
       "views": 87
     },
     {
-      "slug": "com.smilegate.chaoszero.stove.google",
-      "views": 64
+      "slug": "승리의-여신-니케",
+      "views": 86
     },
     {
-      "slug": "승리의-여신-니케",
-      "views": 55
+      "slug": "com.smilegate.chaoszero.stove.google",
+      "views": 64
     },
     {
       "slug": "com-studiobside-starmain",
@@ -31,11 +31,15 @@
       "views": 29
     },
     {
+      "slug": "브라운더스트2-가슴-벅찬-rpg",
+      "views": 21
+    },
+    {
       "slug": "com.proximabeta.nikke",
       "views": 19
     },
     {
-      "slug": "브라운더스트2-가슴-벅찬-rpg",
+      "slug": "트릭컬-리바이브",
       "views": 12
     },
     {
@@ -45,6 +49,10 @@
     {
       "slug": "com-smilegate-chaoszero-stove-google",
       "views": 9
+    },
+    {
+      "slug": "스타세이비어",
+      "views": 8
     },
     {
       "slug": "com-epidgames-trickcalrevive",
@@ -67,15 +75,7 @@
       "views": 5
     },
     {
-      "slug": "스타세이비어",
-      "views": 5
-    },
-    {
       "slug": "com.epidgames.trickcalrevive",
-      "views": 4
-    },
-    {
-      "slug": "elden-ring-nightreign",
       "views": 4
     }
   ]
