@@ -2271,30 +2271,35 @@
       max-width: 300px;
     }
 
-    /* 사이드바 vertical/rectangle 광고 - 고정 너비 */
+    /* 사이드바 vertical/rectangle 광고 - 고정 너비, 높이는 auto */
     .home-sidebar .ad-slot--vertical.pc-only > ins.adsbygoogle {
       width: 300px;
-      height: 600px;
+      min-height: auto;
+      height: auto;
     }
     .home-sidebar .ad-slot--rectangle.pc-only > ins.adsbygoogle {
       width: 300px;
-      height: 250px;
+      min-height: auto;
+      height: auto;
     }
 
     /* 모바일 광고 크기 제한 */
     .ad-slot.mobile-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
       max-width: 320px;
-      max-height: 250px;
+      min-height: auto;
+      height: auto;
     }
 
     .ad-slot--horizontal.pc-only > ins.adsbygoogle {
       width: 100%;
-      max-height: 250px;
+      min-height: auto;
+      height: auto;
     }
 
     .ad-slot--horizontal.mobile-only > ins.adsbygoogle {
       width: 100%;
-      max-height: 50px;
+      min-height: auto;
+      height: auto;
     }
 
     .ad-slot--vertical {
@@ -2339,15 +2344,18 @@
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
       max-width: 300px;
-      max-height: 250px;
+      min-height: auto;
+      height: auto;
     }
 
     .ad-slot--rectangle.mobile-only > ins.adsbygoogle {
       width: 100%;
+      min-height: auto;
+      height: auto;
     }
 
-    /* 여백(빈 슬롯) 없이 사용해야 하는 위치는 높이 예약을 하지 않음 (rectangle/vertical 제외 - 고정 높이 필요) */
-    .ad-slot.ad-slot--no-reserve:not(.ad-slot--rectangle):not(.ad-slot--vertical) > ins.adsbygoogle {
+    /* 모든 광고 슬롯 - 실제 광고 크기에 맞게 조정 */
+    .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
       min-height: 0 !important;
       height: auto !important;
     }
