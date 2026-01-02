@@ -74,9 +74,9 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [] }) {
 
   const content = `
     <section class="section active" id="trends-hub">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="game-page">
         <h1 class="visually-hidden">게임 트렌드 리포트</h1>
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
 
         <!-- 주간 리포트 섹션 -->
         <div class="home-card home-card-full trend-section" data-section="weekly">

@@ -78,8 +78,8 @@ function generateSteamPage(data) {
 
   const content = `
     <section class="section active" id="steam">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="page-wrapper">
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">스팀 순위</h1>
         <div class="steam-card home-card">
           <div class="home-card-header">

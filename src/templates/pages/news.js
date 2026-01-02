@@ -93,8 +93,8 @@ function generateNewsPage(data) {
 
   const content = `
     <section class="section active" id="news">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="page-wrapper">
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">게임 뉴스</h1>
         <div class="news-sources-grid">
           ${newsSources.map(source => generateNewsSection(source)).join('')}

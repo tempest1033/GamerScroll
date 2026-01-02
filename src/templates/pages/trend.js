@@ -24,7 +24,7 @@ function generateMidAdSlot() {
       <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
     </div>
     <div class="ad-slot ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve">
-      <ins class="adsbygoogle" style="display:block;width:100%;max-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle" style="display:block;width:100%;max-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="horizontal"></ins>
     </div>
   `;
 }
@@ -654,9 +654,9 @@ function generateTrendPage(data) {
 
   const content = `
     <section class="section active" id="insight">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="insight-page-container">
         <h1 class="visually-hidden">${summaryTitle}</h1>
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <div class="insight-tabs">
           <button class="insight-tab active" data-tab="daily">일간 리포트</button>
           <button class="insight-tab" data-tab="weekly">주간 리포트</button>
@@ -1004,9 +1004,9 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
 
   const content = `
     <section class="section active" id="insight">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="insight-page-container">
         <h1 class="visually-hidden">${summaryTitle}</h1>
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <div class="weekly-header-card">
           <div class="weekly-header-title">${summaryTitle}</div>
           <div class="weekly-header-meta">
@@ -1101,8 +1101,8 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
 
   const content = `
     <section class="section active" id="insight">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="insight-page-container">
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">${h1Title}</h1>
         ${weeklyPanelHtml}
         ${navHtml}

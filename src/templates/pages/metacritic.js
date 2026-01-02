@@ -48,8 +48,8 @@ function generateMetacriticPage(data) {
 
   const content = `
     <section class="section active" id="metacritic">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="page-wrapper">
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">메타크리틱</h1>
         ${generateMetacriticContent()}
       </div>

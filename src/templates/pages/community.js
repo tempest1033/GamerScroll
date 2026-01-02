@@ -63,8 +63,8 @@ function generateCommunityPage(data) {
 
   const content = `
     <section class="section active" id="community">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="page-wrapper">
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">커뮤니티 베스트</h1>
         <div class="community-grid">
           ${panelsHtml}

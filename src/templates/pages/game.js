@@ -1167,8 +1167,8 @@ function generateGamePage(gameData) {
 
   const content = `
     <section class="section active" id="game">
+      ${generateAdSlot(AD_SLOTS.horizontal, AD_SLOTS.horizontal5)}
       <div class="game-page">
-        ${generateAdSlot(AD_SLOTS.horizontal, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">${name} - 게임 정보</h1>
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">
@@ -1241,7 +1241,7 @@ function generateGamePage(gameData) {
           <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
         </div>
         <div class="ad-slot ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve">
-          <ins class="adsbygoogle" style="display:block;width:100%;max-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" style="display:block;width:100%;max-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="horizontal"></ins>
         </div>
         ` : ''}
 

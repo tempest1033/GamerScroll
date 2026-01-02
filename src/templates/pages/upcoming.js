@@ -56,8 +56,8 @@ function generateUpcomingPage(data) {
 
   const content = `
     <section class="section active" id="upcoming">
+      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
       <div class="page-wrapper">
-        ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">출시 예정 게임</h1>
         <div class="upcoming-card home-card">
           <div class="home-card-header">
