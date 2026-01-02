@@ -111,21 +111,14 @@ function getLastWeekInfo() {
  * @returns {Object|null} 리포트 데이터
  */
 function loadDailyReport(date) {
-  // PM 우선, 없으면 AM
-  const candidates = [
-    `${REPORTS_DIR}/${date}-PM.json`,
-    `${REPORTS_DIR}/${date}-AM.json`,
-    `${REPORTS_DIR}/${date}.json`
-  ];
+  const file = `${REPORTS_DIR}/${date}.json`;
 
-  for (const file of candidates) {
-    if (fs.existsSync(file)) {
-      try {
-        const data = JSON.parse(fs.readFileSync(file, 'utf8'));
-        return { date, ...data };
-      } catch (e) {
-        console.log(`  - ${file} 파싱 실패:`, e.message);
-      }
+  if (fs.existsSync(file)) {
+    try {
+      const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+      return { date, ...data };
+    } catch (e) {
+      console.log(`  - ${file} 파싱 실패:`, e.message);
     }
   }
 

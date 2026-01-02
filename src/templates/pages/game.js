@@ -1110,11 +1110,9 @@ function generateGamePage(gameData) {
 
       return `<div class="gm-item" data-type="${m.type}" data-date="${m.date}">
         <div class="gm-item-header">
-          <span class="gm-item-type gm-type-${m.type}">${typeLabels[m.type] || m.type}</span>
-          ${rankingBadge}
+          <span class="gm-item-title">${m.title || ''}</span>
           <span class="gm-item-date">${dateStr}</span>
         </div>
-        <div class="gm-item-title">${m.title || ''}</div>
         <div class="gm-item-desc">${m.desc || ''}</div>
       </div>`;
     }
@@ -1177,7 +1175,7 @@ function generateGamePage(gameData) {
         <div class="game-hero-content">
           ${iconHtml}
           <div class="game-hero-info">
-            <h1 class="game-hero-title">${name}</h1>
+            <div class="game-hero-title">${name}</div>
             ${developer ? `<div class="game-hero-developer">${developer}</div>` : ''}
             ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
           </div>
@@ -1459,13 +1457,17 @@ function generateGamePage(gameData) {
     })();
   </script>`;
 
+  // 멘션 없는 페이지는 noindex (thin content 방지)
+  const hasMentions = mentions && mentions.length > 0;
+
   return wrapWithLayout(content, {
     currentPage: 'game',
     title: `게이머스크롤 | ${name} 순위 · 트렌드 리포트 · 게임 정보`,
     description: `${name} 순위, 트렌드 리포트, 커뮤니티 반응을 한눈에.`,
     keywords: `${name}, ${name} 순위, ${name} 매출순위, ${name} 트렌드 리포트`,
     canonical: `https://gamerscrawl.com/games/${slug || encodeURIComponent(name.replace(/\s+/g, '-').toLowerCase())}/`,
-    pageScripts
+    pageScripts,
+    noindex: !hasMentions
   });
 }
 

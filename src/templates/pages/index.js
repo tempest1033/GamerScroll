@@ -10,10 +10,8 @@ function generateIndexPage(data) {
 
   // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
-  const aiGeneratedAt = insight?.aiGeneratedAt ? new Date(insight.aiGeneratedAt) : null;
-  const kstTime = aiGeneratedAt ? new Date(aiGeneratedAt.getTime() + 9 * 60 * 60 * 1000) : null;
-  const insightDate = kstTime ? (kstTime.getUTCMonth() + 1) + '월 ' + kstTime.getUTCDate() + '일' : '';
-  const insightAmPm = kstTime ? (kstTime.getUTCHours() < 12 ? 'AM' : 'PM') : '';
+  // 파일명 기준 날짜 (최신 리포트 링크용)
+  const insightFileDate = insight?.insightDate || '';
 
   // URL 수정 헬퍼
   const fixUrl = function(url) {
@@ -38,17 +36,17 @@ function generateIndexPage(data) {
       const withThumb = items.filter(function(item) { return item.thumbnail; });
       const mainCard = withThumb[0];
       const subCard = withThumb[1];
-      const listItems = withThumb.slice(2, 9);
+      const listItems = withThumb.slice(2, 8);
 
       var mainCardHtml = '';
       if (mainCard) {
         mainCardHtml = '<a class="home-news-card home-news-card-main" href="' + mainCard.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-card-thumb">' +
           '<img src="' + fixUrl(mainCard.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>\'">' +
+          '<span class="home-news-card-tag">' + (sourceName || mainCard.source) + '</span>' +
           '</div>' +
           '<div class="home-news-card-info">' +
           '<span class="home-news-card-title">' + mainCard.title + '</span>' +
-          '<span class="home-news-card-source">' + (sourceName || mainCard.source) + '</span>' +
           '</div></a>';
       }
 
@@ -57,27 +55,40 @@ function generateIndexPage(data) {
         subCardHtml = '<a class="home-news-card home-news-card-sub" href="' + subCard.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-card-thumb">' +
           '<img src="' + fixUrl(subCard.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>\'">' +
+          '<span class="home-news-card-tag">' + (sourceName || subCard.source) + '</span>' +
           '</div>' +
           '<div class="home-news-card-info">' +
           '<span class="home-news-card-title">' + subCard.title + '</span>' +
-          '<span class="home-news-card-source">' + (sourceName || subCard.source) + '</span>' +
           '</div></a>';
       }
 
-      var listHtml = listItems.map(function(item) {
+      // 왼쪽 열 리스트 (0~2)
+      var leftListHtml = listItems.slice(0, 3).map(function(item) {
         return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-item-thumb">' +
           '<img src="' + fixUrl(item.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' +
+          '<span class="home-news-item-tag">' + (sourceName || item.source) + '</span>' +
           '</div>' +
           '<div class="home-news-item-info">' +
           '<span class="home-news-title">' + item.title + '</span>' +
-          '<span class="home-news-source-tag">' + (sourceName || item.source) + '</span>' +
+          '</div></a>';
+      }).join('');
+
+      // 오른쪽 열 리스트 (3~5)
+      var rightListHtml = listItems.slice(3, 6).map(function(item) {
+        return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener">' +
+          '<div class="home-news-item-thumb">' +
+          '<img src="' + fixUrl(item.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' +
+          '<span class="home-news-item-tag">' + (sourceName || item.source) + '</span>' +
+          '</div>' +
+          '<div class="home-news-item-info">' +
+          '<span class="home-news-title">' + item.title + '</span>' +
           '</div></a>';
       }).join('');
 
       return '<div class="home-news-split">' +
-        '<div class="home-news-cards">' + mainCardHtml + subCardHtml + '</div>' +
-        '<div class="home-news-list">' + listHtml + '</div>' +
+        '<div class="home-news-column">' + mainCardHtml + '<div class="home-news-list">' + leftListHtml + '</div></div>' +
+        '<div class="home-news-column">' + subCardHtml + '<div class="home-news-list">' + rightListHtml + '</div></div>' +
         '</div>';
     }
 
@@ -110,18 +121,68 @@ function generateIndexPage(data) {
       '</div>';
   }
 
-  // 홈 트렌드
+  // 홈 트렌드 (일간/주간 2컬럼 그리드)
   function generateHomeInsight() {
-    if (!aiInsight) {
+    // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일)
+    const formatDateKr = (dateStr) => {
+      if (!dateStr) return '';
+      const match = dateStr.match(/(\d{4})-(\d{2})-(\d{2})/);
+      if (!match) return dateStr;
+      return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
+    };
+
+    // 일간 리포트 데이터 (링크는 파일명 기준, 뱃지는 AI 응답 기준)
+    const dailyHeadline = aiInsight?.headline || '일간 리포트';
+    const dailySummary = aiInsight?.summary || '';
+    const dailySlug = insightFileDate || '';
+    const dailyLink = dailySlug ? `/trend/daily/${dailySlug}/` : '/trend/';
+    const dailyBadgeText = insightFileDate ? `${formatDateKr(insightFileDate)} 일간 리포트` : '일간 리포트';
+
+    // 주간 리포트 데이터
+    const wai = weeklyInsight?.ai || null;
+    const wInfo = weeklyInsight?.weekInfo || {};
+    const weeklyHeadline = wai?.headline || (typeof wai?.summary === 'object' ? wai.summary.title : null) || '주간 리포트';
+    const weeklySummary = typeof wai?.summary === 'object' ? wai.summary.desc : (wai?.summary || '');
+    const weekNum = wInfo.weekNumber || wai?.weekNumber || '';
+    const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
+    const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
+    const weeklyLink = weeklySlug ? `/trend/weekly/${weeklySlug}/` : '/trend/';
+    // 주간 뱃지: "2025년 12월 15일 ~ 12월 21일 주간 리포트"
+    const weeklyBadgeText = wInfo.startDate && wInfo.endDate
+      ? `${formatDateKr(wInfo.startDate)} ~ ${parseInt(wInfo.endDate.slice(5, 7))}월 ${parseInt(wInfo.endDate.slice(8, 10))}일 주간 리포트`
+      : '주간 리포트';
+
+    // 썸네일 (없으면 CSS gradient 배경만 보임) - fixUrl로 프록시 처리
+    const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
+    const weeklyThumbnail = fixUrl(wai?.thumbnail) || '';
+
+    // 일간 카드 (이미지 + 헤드라인)
+    const dailyCard = dailyHeadline ? `
+      <a href="${dailyLink}" class="home-trend-card">
+        <div class="home-trend-card-image">
+          ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          <span class="home-trend-card-tag">${dailyBadgeText}</span>
+        </div>
+        <h3 class="home-trend-card-title">${dailyHeadline}</h3>
+      </a>
+    ` : '';
+
+    // 주간 카드 (이미지 + 헤드라인)
+    const weeklyCard = wai ? `
+      <a href="${weeklyLink}" class="home-trend-card">
+        <div class="home-trend-card-image">
+          ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          <span class="home-trend-card-tag weekly">${weeklyBadgeText}</span>
+        </div>
+        <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
+      </a>
+    ` : '';
+
+    if (!dailyCard && !weeklyCard) {
       return '<div class="home-empty">트렌드를 불러올 수 없습니다</div>';
     }
 
-    var focusSummary = aiInsight.summary || '';
-    if (!focusSummary) {
-      return '<div class="home-empty">트렌드를 불러올 수 없습니다</div>';
-    }
-
-    return '<div class="home-daily-focus"><p class="home-daily-focus-text">' + focusSummary + '</p></div>';
+    return `<div class="home-trend-grid">${dailyCard}${weeklyCard}</div>`;
   }
 
   // 홈 커뮤니티
@@ -157,12 +218,9 @@ function generateIndexPage(data) {
       function renderColumn(columnItems) {
         return columnItems.map(function(item) {
           return '<a class="home-community-item" href="' + item.link + '" target="_blank" rel="noopener">' +
+            '<img class="home-community-icon" src="' + item.icon + '" alt="">' +
             '<span class="home-community-title">' + item.title + '</span>' +
-            '<span class="home-community-meta">' +
-            '<img src="' + item.icon + '" alt="">' +
-            '<span class="home-community-source">' + (sourceName || item.source) + '</span>' +
-            (item.channel ? '<span class="home-community-channel">· ' + item.channel + '</span>' : '') +
-            '</span></a>';
+            '</a>';
         }).join('');
       }
 
@@ -217,16 +275,16 @@ function generateIndexPage(data) {
       }
       var mainItem = items[0];
       var subItem = items[1];
-      var listItems = items.slice(2, 9);
+      var listItems = items.slice(2, 8);
 
       var mainHtml = '<a class="home-video-card home-video-card-main" href="' + mainItem.link + '" target="_blank" rel="noopener">' +
         '<div class="home-video-card-thumb">' +
         '<img src="' + mainItem.thumbnail + '" alt="" loading="lazy">' +
+        '<span class="home-video-card-tag">' + mainItem.channel + '</span>' +
         (mainItem.viewers ? '<span class="home-video-live">🔴 LIVE ' + mainItem.viewers.toLocaleString() + '</span>' : '') +
         '</div>' +
         '<div class="home-video-card-info">' +
         '<div class="home-video-card-title">' + mainItem.title + '</div>' +
-        '<div class="home-video-card-channel">' + mainItem.channel + '</div>' +
         '</div></a>';
 
       var subHtml = '';
@@ -234,29 +292,43 @@ function generateIndexPage(data) {
         subHtml = '<a class="home-video-card home-video-card-sub" href="' + subItem.link + '" target="_blank" rel="noopener">' +
           '<div class="home-video-card-thumb">' +
           '<img src="' + subItem.thumbnail + '" alt="" loading="lazy">' +
+          '<span class="home-video-card-tag">' + subItem.channel + '</span>' +
           (subItem.viewers ? '<span class="home-video-live">🔴 ' + subItem.viewers.toLocaleString() + '</span>' : '') +
           '</div>' +
           '<div class="home-video-card-info">' +
           '<div class="home-video-card-title">' + subItem.title + '</div>' +
-          '<div class="home-video-card-channel">' + subItem.channel + '</div>' +
           '</div></a>';
       }
 
-      var listHtml = listItems.map(function(item) {
+      // 왼쪽 열 리스트 (0~2)
+      var leftListHtml = listItems.slice(0, 3).map(function(item) {
         return '<a class="home-video-item" href="' + item.link + '" target="_blank" rel="noopener">' +
           '<div class="home-video-item-thumb">' +
           '<img src="' + item.thumbnail + '" alt="" loading="lazy">' +
+          '<span class="home-video-item-tag">' + item.channel + '</span>' +
           (item.viewers ? '<span class="home-video-live-sm">🔴 ' + item.viewers.toLocaleString() + '</span>' : '') +
           '</div>' +
           '<div class="home-video-item-info">' +
           '<div class="home-video-item-title">' + item.title + '</div>' +
-          '<div class="home-video-item-channel">' + item.channel + '</div>' +
+          '</div></a>';
+      }).join('');
+
+      // 오른쪽 열 리스트 (3~5)
+      var rightListHtml = listItems.slice(3, 6).map(function(item) {
+        return '<a class="home-video-item" href="' + item.link + '" target="_blank" rel="noopener">' +
+          '<div class="home-video-item-thumb">' +
+          '<img src="' + item.thumbnail + '" alt="" loading="lazy">' +
+          '<span class="home-video-item-tag">' + item.channel + '</span>' +
+          (item.viewers ? '<span class="home-video-live-sm">🔴 ' + item.viewers.toLocaleString() + '</span>' : '') +
+          '</div>' +
+          '<div class="home-video-item-info">' +
+          '<div class="home-video-item-title">' + item.title + '</div>' +
           '</div></a>';
       }).join('');
 
       return '<div class="home-video-split">' +
-        '<div class="home-video-cards">' + mainHtml + subHtml + '</div>' +
-        '<div class="home-video-list">' + listHtml + '</div>' +
+        '<div class="home-video-column">' + mainHtml + '<div class="home-video-list">' + leftListHtml + '</div></div>' +
+        '<div class="home-video-column">' + subHtml + '<div class="home-video-list">' + rightListHtml + '</div></div>' +
         '</div>';
     }
 
@@ -291,11 +363,11 @@ function generateIndexPage(data) {
       '<button class="home-rank-tab" data-platform="android"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" alt="">Android</button>' +
       '</div>' +
       '<div class="home-rank-content">' +
-      '<div class="home-rank-chart active" id="home-chart-free">' +
+      '<div class="home-rank-chart" id="home-chart-free">' +
       '<div class="home-rank-list active" id="home-rank-free-ios">' + renderList((freeKr.ios || []).slice(0, 10)) + '</div>' +
       '<div class="home-rank-list" id="home-rank-free-android">' + renderList((freeKr.android || []).slice(0, 10)) + '</div>' +
       '</div>' +
-      '<div class="home-rank-chart" id="home-chart-grossing">' +
+      '<div class="home-rank-chart active" id="home-chart-grossing">' +
       '<div class="home-rank-list active" id="home-rank-grossing-ios">' + renderList((grossingKr.ios || []).slice(0, 10)) + '</div>' +
       '<div class="home-rank-list" id="home-rank-grossing-android">' + renderList((grossingKr.android || []).slice(0, 10)) + '</div>' +
       '</div>' +
@@ -321,8 +393,8 @@ function generateIndexPage(data) {
       }).join('');
     }
 
-    return '<div class="home-steam-chart active" id="home-steam-mostplayed">' + renderList(mostPlayed, true) + '</div>' +
-      '<div class="home-steam-chart" id="home-steam-topsellers">' + renderList(topSellers, false) + '</div>';
+    return '<div class="home-steam-chart" id="home-steam-mostplayed">' + renderList(mostPlayed, true) + '</div>' +
+      '<div class="home-steam-chart active" id="home-steam-topsellers">' + renderList(topSellers, false) + '</div>';
   }
 
   // 홈 신규 게임
@@ -348,28 +420,24 @@ function generateIndexPage(data) {
     }
 
     return '<div class="home-upcoming-tabs">' +
-      '<button class="home-upcoming-tab active" data-upcoming="mobile">모바일</button>' +
-      '<button class="home-upcoming-tab" data-upcoming="steam">스팀</button>' +
+      '<button class="home-upcoming-tab active" data-upcoming="steam">스팀</button>' +
       '<button class="home-upcoming-tab" data-upcoming="ps5">PS5</button>' +
       '<button class="home-upcoming-tab" data-upcoming="nintendo">닌텐도</button>' +
+      '<button class="home-upcoming-tab" data-upcoming="mobile">모바일</button>' +
       '</div>' +
       '<div class="home-upcoming-content">' +
-      '<div class="home-upcoming-list active" id="home-upcoming-mobile">' + renderList(platforms.mobile.items) + '</div>' +
-      '<div class="home-upcoming-list" id="home-upcoming-steam">' + renderList(platforms.steam.items) + '</div>' +
+      '<div class="home-upcoming-list active" id="home-upcoming-steam">' + renderList(platforms.steam.items) + '</div>' +
       '<div class="home-upcoming-list" id="home-upcoming-ps5">' + renderList(platforms.ps5.items) + '</div>' +
       '<div class="home-upcoming-list" id="home-upcoming-nintendo">' + renderList(platforms.nintendo.items) + '</div>' +
+      '<div class="home-upcoming-list" id="home-upcoming-mobile">' + renderList(platforms.mobile.items) + '</div>' +
       '</div>';
   }
 
-  // AM/PM 표시
-  var insightHeader = insightDate ? insightDate + ' ' : '';
-  var ampmHtml = insightAmPm ? ' <span class="home-card-ampm-underline ' + insightAmPm.toLowerCase() + '">' + insightAmPm + '</span>' : '';
-
   // 트렌드 카드 HTML
-  var insightCardHtml = aiInsight ?
+  var insightCardHtml = (aiInsight || weeklyInsight) ?
     '<div class="home-card" id="home-insight">' +
     '<div class="home-card-header">' +
-    '<h2 class="home-card-title">' + insightHeader + '게이머스크롤 리포트' + ampmHtml + '</h2>' +
+    '<h2 class="home-card-title">트렌드 리포트</h2>' +
     '<a href="/trend" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
@@ -392,8 +460,13 @@ function generateIndexPage(data) {
     // `.` 포함된 이전 형식은 무시 (현재는 `-`로 통일)
     var filteredPopular = popularGames.filter(function(pg) { return !pg.slug.includes('.'); });
 
-    // TOP 3 게임 정보 매칭 (slug 또는 appId로)
-    var top3 = filteredPopular.slice(0, 3).map(function(pg, index) {
+    // TOP 3 게임 정보 매칭 (slug 또는 appId로) - 중복 제거
+    var top3 = [];
+    var seenSlugs = {};
+
+    for (var i = 0; i < filteredPopular.length && top3.length < 3; i++) {
+      var pg = filteredPopular[i];
+
       // 먼저 slug로 매칭 시도
       var gameInfo = gamesList.find(function(g) { return g.slug === pg.slug; });
 
@@ -406,15 +479,19 @@ function generateIndexPage(data) {
         });
       }
 
-      if (!gameInfo) return null;
+      if (!gameInfo) continue;
 
-      return {
-        rank: index + 1,
+      // 이미 추가된 게임이면 스킵 (중복 제거)
+      if (seenSlugs[gameInfo.slug]) continue;
+      seenSlugs[gameInfo.slug] = true;
+
+      top3.push({
+        rank: top3.length + 1,
         name: gameInfo.name,
         slug: gameInfo.slug,
         icon: gameInfo.icon
-      };
-    }).filter(Boolean);
+      });
+    }
 
     if (top3.length === 0) return '';
 
@@ -507,7 +584,7 @@ function generateIndexPage(data) {
 	    adSlotMobile('ad-above-news-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'rectangle') +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
-	    '<h2 class="home-card-title">주요 뉴스</h2>' +
+	    '<h2 class="home-card-title">뉴스</h2>' +
 	    '<a href="/news" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
@@ -533,11 +610,11 @@ function generateIndexPage(data) {
 	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
-	    '<h2 class="home-card-title">모바일 랭킹</h2>' +
+	    '<h2 class="home-card-title">모바일 순위</h2>' +
 	    '<div class="home-card-controls">' +
     '<div class="home-chart-toggle" id="homeChartTab">' +
-    '<button class="tab-btn small active" data-home-chart="free">인기</button>' +
-    '<button class="tab-btn small" data-home-chart="grossing">매출</button>' +
+    '<button class="tab-btn small active" data-home-chart="grossing">매출</button>' +
+    '<button class="tab-btn small" data-home-chart="free">인기</button>' +
     '</div>' +
     '<a href="/rankings" class="home-card-more">더보기 →</a>' +
     '</div>' +
@@ -551,8 +628,8 @@ function generateIndexPage(data) {
 	    '<h2 class="home-card-title">스팀 순위</h2>' +
 	    '<div class="home-card-controls">' +
     '<div class="home-chart-toggle" id="homeSteamTab">' +
-    '<button class="tab-btn small active" data-home-steam="mostplayed">인기</button>' +
-    '<button class="tab-btn small" data-home-steam="topsellers">매출</button>' +
+    '<button class="tab-btn small active" data-home-steam="topsellers">매출</button>' +
+    '<button class="tab-btn small" data-home-steam="mostplayed">인기</button>' +
     '</div>' +
     '<a href="/steam" class="home-card-more">더보기 →</a>' +
     '</div>' +

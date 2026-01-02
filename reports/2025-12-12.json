@@ -1,0 +1,4773 @@
+{
+  "date": "2025-12-12",
+  "generatedAt": "2025-12-11T15:13:30.908Z",
+  "hasYesterdayData": true,
+  "summary": [
+    "iOS: \"세븐나이츠 리버스\" 17단계 상승 (현재 6위)",
+    "iOS: \"명조:워더링 웨이브\" 18단계 상승 (현재 9위)",
+    "iOS: \"승리의 여신: 니케\" 15단계 상승 (현재 10위)",
+    "iOS: \"스타일라잇 × 카캡체 콜라보 출시\" TOP100 신규 진입 (25위)",
+    "iOS: \"좀비고등학교\" TOP100 신규 진입 (29위)",
+    "Android: \"아키텍트: 랜드 오브 엑자일\" 7단계 상승 (현재 13위)",
+    "Android: \"배틀그라운드\" 3단계 상승 (현재 24위)",
+    "Android: \"카트라이더 러쉬플러스\" 49단계 상승 (현재 45위)",
+    "Steam: \"Tom Clancy's Rainbow Six® Siege X\" TOP100 신규 진입 (39위)",
+    "Steam: \"Hunt: Showdown 1896\" TOP100 신규 진입 (41위)"
+  ],
+  "mobile": {
+    "kr": {
+      "ios": [
+        {
+          "rank": 1,
+          "title": "메이플 키우기",
+          "developer": "NEXON Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/03/d1/5e/03d15ec4-3e1d-cd2f-56b3-c3f9d7b1b7da/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 1
+        },
+        {
+          "rank": 2,
+          "title": "라스트 워: 서바이벌",
+          "developer": "FUNFLY PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/6f/69/fa6f69de-1b11-5074-79f1-0d84a2d7df1a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 4
+        },
+        {
+          "rank": 3,
+          "title": "WOS: 화이트아웃 서바이벌",
+          "developer": "Century Games Pte. Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/34/3d/46343dc8-df7f-9bb6-f3f7-19c99fff604b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 3
+        },
+        {
+          "rank": 4,
+          "title": "리니지M",
+          "developer": "NCSOFT",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/69/82/f8/6982f887-3fb8-1199-ae18-4ca9e4715bbf/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 5
+        },
+        {
+          "rank": 5,
+          "title": "배틀그라운드",
+          "developer": "KRAFTON Inc",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/83/3e/eb/833eeb2b-dd8f-0d0a-a169-b2f00b39a6d9/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 2
+        },
+        {
+          "rank": 6,
+          "title": "세븐나이츠 리버스",
+          "developer": "Netmarble Corporation",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/e7/3f/cfe73f91-b992-d814-04f3-a861fb60f750/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 17,
+          "status": "up",
+          "yesterdayRank": 23
+        },
+        {
+          "rank": 7,
+          "title": "카트라이더 러쉬플러스",
+          "developer": "NEXON Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/12/4b/00/124b00ee-f561-fa94-b731-33a22a6f98e8/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 6
+        },
+        {
+          "rank": 8,
+          "title": "컴투스프로야구V25",
+          "developer": "Com2uS Corp.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/13/91/c2139134-df43-fb9f-5895-d6e8ca17f295/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 9
+        },
+        {
+          "rank": 9,
+          "title": "명조:워더링 웨이브",
+          "developer": "KURO GAMES",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7b/eb/fc/7bebfc6e-01d0-579a-23c2-7738d09d4edd/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 18,
+          "status": "up",
+          "yesterdayRank": 27
+        },
+        {
+          "rank": 10,
+          "title": "승리의 여신: 니케",
+          "developer": "Level Infinite",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/82/fd/c682fdd1-1851-cf63-4306-b7c36e52fecc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 15,
+          "status": "up",
+          "yesterdayRank": 25
+        },
+        {
+          "rank": 11,
+          "title": "뱀피르",
+          "developer": "Netmarble Corporation",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/9b/d3/819bd320-82c4-84b3-d855-48f9239b754a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 7
+        },
+        {
+          "rank": 12,
+          "title": "AION2",
+          "developer": "NCSOFT",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/36/ae/a436aefa-1c9f-6872-aec0-cd22502f4374/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 8
+        },
+        {
+          "rank": 13,
+          "title": "킹샷:Kingshot",
+          "developer": "Century Games Pte. Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/38/e6/2038e602-4b4e-7b07-697d-bc5de2ef6818/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 11
+        },
+        {
+          "rank": 14,
+          "title": "전략적 팀 전투: 리그 오브 레전드 전략 게임",
+          "developer": "Riot Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f4/c6/e7/f4c6e72e-f5a5-14f1-fbb2-5adce9227857/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 10
+        },
+        {
+          "rank": 15,
+          "title": "FC 모바일",
+          "developer": "NEXON Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c3/4f/4d/c34f4d2e-7836-b02a-1c53-d23b8f7edeb5/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 15
+        },
+        {
+          "rank": 16,
+          "title": "가십하버: 합성 & 스토리 게임",
+          "developer": "Microfun Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/66/7d/bc667d67-3521-9d1b-af6c-1e843a1b564f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 13
+        },
+        {
+          "rank": 17,
+          "title": "라스트 Z: 서바이벌 슈터",
+          "developer": "Florere Game Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4d/6d/19/4d6d1906-9b8a-3b09-46b3-dc3f654f2f93/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 19
+        },
+        {
+          "rank": 18,
+          "title": "로얄 매치 (Royal Match)",
+          "developer": "Dream Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e9/28/0a/e9280aa1-5b28-92b4-bc3c-5d0bbea4e83a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 17
+        },
+        {
+          "rank": 19,
+          "title": "씨사이드 익스케이프: 합성 & 스토리 게임",
+          "developer": "Microfun Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/c1/ba/9fc1bac1-79f5-9917-b04c-edb3545c47ff/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -7,
+          "status": "down",
+          "yesterdayRank": 12
+        },
+        {
+          "rank": 20,
+          "title": "운빨존많겜",
+          "developer": "111%",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/6d/16/316d16bb-4356-c19b-41c6-527295b9ebac/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 16
+        },
+        {
+          "rank": 21,
+          "title": "EA SPORTS FC Online M",
+          "developer": "NEXON Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/6f/4a/8e6f4acc-f922-27f7-65c4-3ca372c5e2f3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 18
+        },
+        {
+          "rank": 22,
+          "title": "마비노기 모바일",
+          "developer": "NEXON Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ac/5e/d0/ac5ed063-a9e7-8e3e-784e-506bfa9e5ad9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -8,
+          "status": "down",
+          "yesterdayRank": 14
+        },
+        {
+          "rank": 23,
+          "title": "Gardenscapes",
+          "developer": "Playrix",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/58/a3/93/58a393db-0aed-a254-afaa-cf57553f40a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 21
+        },
+        {
+          "rank": 24,
+          "title": "Dark War:Survival",
+          "developer": "Florere Game Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/99/97/3c9997bf-2364-81ec-ba84-1c2f8d69336f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 22
+        },
+        {
+          "rank": 25,
+          "title": "스타일라잇 × 카캡체 콜라보 출시",
+          "developer": "Archosaur Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/59/bc/fa59bc18-8602-f6fe-805c-8fec98119ddd/AppIcon-1x_U007emarketing-0-8-0-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 26,
+          "title": "탑 히어로즈: 영웅의 시대",
+          "developer": "River Game HK Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a8/5f/f9/a85ff979-ab91-e767-e869-32f5cd727cb8/AppIcon-1x_U007emarketing-0-8-0-0-85-220-0.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 29
+        },
+        {
+          "rank": 27,
+          "title": "클래시 로얄",
+          "developer": "Supercell",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/00/13/eb001337-dac9-f1d4-a63a-00ee3f7a6ea3/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 26
+        },
+        {
+          "rank": 28,
+          "title": "한게임 섯다&맞고",
+          "developer": "NHN Corp.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/f6/7e/5af67e58-3b53-a53a-57aa-0a46583f1a1d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 24
+        },
+        {
+          "rank": 29,
+          "title": "좀비고등학교",
+          "developer": "AWESOMEPIECE",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6e/33/01/6e3301e2-60c7-7053-3456-6ee20ec59d0f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 30,
+          "title": "리니지M(12)",
+          "developer": "NCSOFT",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/9c/19/709c1973-9684-2dca-cbe8-5c08c27084be/AppIcon-12-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 28
+        },
+        {
+          "rank": 31,
+          "title": "Homescapes",
+          "developer": "Playrix",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ec/f6/dd/ecf6ddd6-cc87-426f-c640-1a40d1fdbb5d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 33
+        },
+        {
+          "rank": 32,
+          "title": "아키텍트: 랜드 오브 엑자일",
+          "developer": "DRIMAGE Co., Ltd",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4a/01/68/4a01682e-7156-1fac-c604-0633760ed803/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -12,
+          "status": "down",
+          "yesterdayRank": 20
+        },
+        {
+          "rank": 33,
+          "title": "푸드 앤 트레블: 합성 게임",
+          "developer": "Century Games Pte. Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7a/fb/f7/7afbf702-c236-0d14-d375-6778e7feb845/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 8,
+          "status": "up",
+          "yesterdayRank": 41
+        },
+        {
+          "rank": 34,
+          "title": "캣 히어로 : 방치형 RPG",
+          "developer": "Game Duo Co.,Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/f2/2c/3cf22c31-f1ef-d0f3-c32c-188255d0e0b5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 9,
+          "status": "up",
+          "yesterdayRank": 43
+        },
+        {
+          "rank": 35,
+          "title": "붕괴: 스타레일",
+          "developer": "COGNOSPHERE PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/f4/69/e4f46970-d18c-d674-2784-59a98a8252ca/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 32
+        },
+        {
+          "rank": 36,
+          "title": "리그 오브 레전드: 와일드 리프트",
+          "developer": "Riot Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1c/a0/47/1ca047ea-f956-613c-99f5-c4f1de0878d7/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 36
+        },
+        {
+          "rank": 37,
+          "title": "eFootball™",
+          "developer": "KONAMI",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b9/2c/1e/b92c1e53-b34f-8b6f-c99a-ea40ad10b03b/PesMobile-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 31
+        },
+        {
+          "rank": 38,
+          "title": "한게임 포커",
+          "developer": "NHN Corp.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/5e/2e/cf5e2e7d-f69c-d249-8fda-4630e79acf2c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 37
+        },
+        {
+          "rank": 39,
+          "title": "마피아42",
+          "developer": "TEAM42 CO., LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c9/65/2c/c9652c62-d092-5d2a-93b1-32eb8289d040/AppIcon-0-0-1x_U007ephone-0-1-0-0-sRGB-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 34
+        },
+        {
+          "rank": 40,
+          "title": "오딘: 발할라 라이징",
+          "developer": "Kakao Games Corp.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/26/18/af/2618afef-a75f-b257-b571-295ca1324d97/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -10,
+          "status": "down",
+          "yesterdayRank": 30
+        },
+        {
+          "rank": 41,
+          "title": "메이플스토리M",
+          "developer": "NEXON Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/be/82/c9be82cb-9744-f4b4-03e3-0e2936fb14f5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 42
+        },
+        {
+          "rank": 42,
+          "title": "리버스: 1999",
+          "developer": "HaoPlay Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e5/2b/9b/e52b9b21-f628-f7d3-233b-6225fb8b665d/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 43,
+          "title": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+          "developer": "Zempot Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/0d/94/6a0d949f-eb26-a8aa-3cef-5fa3a6a26e2b/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 46
+        },
+        {
+          "rank": 44,
+          "title": "협동 타워 디펜스 : 깐부와 함께",
+          "developer": "SuperMagic",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3f/b5/bf/3fb5bfcd-1bca-b525-8cd6-fe6c17bc61c0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 39
+        },
+        {
+          "rank": 45,
+          "title": "냥코 대전쟁",
+          "developer": "ponos corporation",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/a0/79/e1a07981-8523-e2ae-141f-e468e9b6e5ec/AppIcon-kr-1x_U007epad-0-1-85-220-0.png/100x100bb.png",
+          "change": -10,
+          "status": "down",
+          "yesterdayRank": 35
+        },
+        {
+          "rank": 46,
+          "title": "캔디크러쉬사가",
+          "developer": "King",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/c3/ab/23c3ab3e-446d-5172-17df-d2639742d7ae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 44
+        },
+        {
+          "rank": 47,
+          "title": "로얄 킹덤 (Royal Kingdom)",
+          "developer": "Dream Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/db/15/fbdb15b2-ac01-75ce-1461-cdeef09ec1e8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 48
+        },
+        {
+          "rank": 48,
+          "title": "리니지2M",
+          "developer": "NCSOFT",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/f4/9b/00f49b9d-4cbe-5b76-d358-f1d05343f86b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -10,
+          "status": "down",
+          "yesterdayRank": 38
+        },
+        {
+          "rank": 49,
+          "title": "Travel Town - 결합 어드벤처",
+          "developer": "Moon Active",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5e/2c/e0/5e2ce05f-8915-2790-b660-b525ff882795/NewAppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 51
+        },
+        {
+          "rank": 50,
+          "title": "블리치: 소울 레조넌스",
+          "developer": "Nuverse Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/a8/e8/74a8e8fe-16bd-14ab-cbc5-8b8f1baf8ba9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 47
+        },
+        {
+          "rank": 51,
+          "title": "쿠키런: 오븐브레이크",
+          "developer": "Devsisters",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/75/62/0d/75620d24-746b-dab0-b63f-797cca34d6a5/AppIcon-1x_U007epad-0-11-0-85-220-0.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 52
+        },
+        {
+          "rank": 52,
+          "title": "Pokémon GO",
+          "developer": "Niantic, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/41/fc/d2/41fcd201-6223-e67b-3798-0f660fac49f6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -7,
+          "status": "down",
+          "yesterdayRank": 45
+        },
+        {
+          "rank": 53,
+          "title": "꿈의 마을 (Township)",
+          "developer": "Playrix",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/ad/50/a8ad5036-075b-1080-8034-7bffc60430c5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 50
+        },
+        {
+          "rank": 54,
+          "title": "나이트 크로우",
+          "developer": "Wemade Co., Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6a/e4/e3/6ae4e374-8e56-70dd-658d-1e0096c476cf/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 55,
+          "title": "핫레스토랑: 머지&쿠킹",
+          "developer": "Microfun Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c3/ef/86/c3ef8620-5ec9-ca5a-3cb2-6bd6d2578d50/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 54
+        },
+        {
+          "rank": 56,
+          "title": "명일방주",
+          "developer": "YOSTAR LIMITED",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c7/51/b9/c751b921-3d23-f715-391b-55b0aff0c254/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 57,
+          "title": "브롤스타즈",
+          "developer": "Supercell",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/48/a9/83/48a983b8-ec8d-66fe-0086-55808edd6c9b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 53
+        },
+        {
+          "rank": 58,
+          "title": "스타세이비어",
+          "developer": "Studio B Side Co.ltd.,",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/45/35/404535cd-d5f5-8f0c-ab5a-789547b0a4af/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 19,
+          "status": "up",
+          "yesterdayRank": 77
+        },
+        {
+          "rank": 59,
+          "title": "쿠키런: 킹덤",
+          "developer": "Devsisters",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/67/4f/86/674f86f7-c59d-cebe-ade0-ccbe17ff5c20/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 57
+        },
+        {
+          "rank": 60,
+          "title": "Age of Origins:Tower Defense",
+          "developer": "Hong Kong Ke Mo software Co., Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/93/d2/6193d21e-dcdb-93e7-7f05-8f7ffede6b72/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 62
+        },
+        {
+          "rank": 61,
+          "title": "올스타 아레나",
+          "developer": "Tianjin Heyuan Network Technology Co., Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ce/2c/3b/ce2c3b69-0fe3-a5c7-efd7-ca7665bc86c7/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.png",
+          "change": 6,
+          "status": "up",
+          "yesterdayRank": 67
+        },
+        {
+          "rank": 62,
+          "title": "러브앤딥스페이스",
+          "developer": "INFOLD PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/2d/8f/1f2d8fff-61a0-83f5-f8f3-e482ce2b7253/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 63,
+          "title": "RF 온라인 넥스트",
+          "developer": "Netmarble Corporation",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/e4/16/abe41634-6bfb-4cc8-525a-0a9e9af489a5/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/100x100bb.png",
+          "change": -14,
+          "status": "down",
+          "yesterdayRank": 49
+        },
+        {
+          "rank": 64,
+          "title": "더 스파이크 크로스",
+          "developer": "SUNCYAN",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/19/56/47/195647d9-1bcc-e82b-f197-cf570f4d1db4/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/100x100bb.png",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 58
+        },
+        {
+          "rank": 65,
+          "title": "트리 오브 세이비어: 네버랜드",
+          "developer": "Qookka Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f0/2e/23/f02e2321-9544-005d-de2a-fa04601a51ca/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 66,
+          "title": "머지 쿠킹 테마 레스토랑",
+          "developer": "Happibits",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/26/ba/d0/26bad08a-0ee2-99c0-1408-9fe69945bafd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -7,
+          "status": "down",
+          "yesterdayRank": 59
+        },
+        {
+          "rank": 67,
+          "title": "클래시 오브 클랜",
+          "developer": "Supercell",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/14/d6/5414d699-1761-ec47-94f2-f9ebf932c660/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 63
+        },
+        {
+          "rank": 68,
+          "title": "추억의 잡화점",
+          "developer": "Pogo Hopper",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5e/9c/76/5e9c7692-8783-cbb3-1dec-f4d9090f2a87/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": -13,
+          "status": "down",
+          "yesterdayRank": 55
+        },
+        {
+          "rank": 69,
+          "title": "드래곤빌리지 럼블!",
+          "developer": "Highbrow",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/dc/1e/a5dc1ef7-359f-e929-7c05-95d50a538836/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 72
+        },
+        {
+          "rank": 70,
+          "title": "정령킹 키우기",
+          "developer": "EIGHT STUDIO (Korea)",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2f/de/3f/2fde3f5e-24a2-a23e-8c8a-e723f537bc11/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 73
+        },
+        {
+          "rank": 71,
+          "title": "펭귄 대모험 : 꽁꽁 방어전",
+          "developer": "POPJOY (H.K.) LIMITED",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c3/13/f8/c313f839-70d0-6c8f-bedd-b48c966c92d1/AppIcon-1x_U007epad-0-11-0-85-220-0.png/100x100bb.png",
+          "change": -7,
+          "status": "down",
+          "yesterdayRank": 64
+        },
+        {
+          "rank": 72,
+          "title": "타일 서바이벌",
+          "developer": "FunPlus International AG",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/55/2e/6d552ef0-91b8-af0a-e70d-85835466f3d5/FPX_AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 68
+        },
+        {
+          "rank": 73,
+          "title": "버섯커 키우기",
+          "developer": "Joy Net Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/9c/5e/189c5ea5-f73f-8398-38c8-661ae8056a3b/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": -12,
+          "status": "down",
+          "yesterdayRank": 61
+        },
+        {
+          "rank": 74,
+          "title": "한게임포커 클래식 - 7포커 홀덤 섯다 훌라 슬롯",
+          "developer": "NHN Corp.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ce/a3/a5/cea3a5ba-d460-1492-9c59-5f7f2236cad2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -8,
+          "status": "down",
+          "yesterdayRank": 66
+        },
+        {
+          "rank": 75,
+          "title": "아이러브커피 키우기",
+          "developer": "Natris",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c1/a9/ff/c1a9ffad-03ce-f5ac-db38-ed870ec829c2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -10,
+          "status": "down",
+          "yesterdayRank": 65
+        },
+        {
+          "rank": 76,
+          "title": "오피스 퀸 키우기",
+          "developer": "Wish Interactive Technology Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/26/9d/32/269d326e-cece-8ba0-2066-f393d3975c18/AppIcon-0-0-1x_U007emarketing-0-7-85-220.png/100x100bb.png",
+          "change": -20,
+          "status": "down",
+          "yesterdayRank": 56
+        },
+        {
+          "rank": 77,
+          "title": "쿠키런: 모험의 탑",
+          "developer": "Devsisters",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1d/37/86/1d3786b9-2dec-3f9a-0aa5-537f09154af5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -37,
+          "status": "down",
+          "yesterdayRank": 40
+        },
+        {
+          "rank": 78,
+          "title": "MLB 라이벌",
+          "developer": "Com2uS Corp.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/38/0a/94380aff-df7f-654f-4fc1-7cc575da4fb7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -9,
+          "status": "down",
+          "yesterdayRank": 69
+        },
+        {
+          "rank": 79,
+          "title": "피쉬돔 (Fishdom)",
+          "developer": "Playrix",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/b0/8e/bab08e10-40d3-4811-a007-01ed06deabfb/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 76
+        },
+        {
+          "rank": 80,
+          "title": "컴투스프로야구2025",
+          "developer": "Com2uS Corp.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/29/8f/9a298ff8-11c1-49a3-8e30-930e51a826c4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 78
+        },
+        {
+          "rank": 81,
+          "title": "변신 키우기",
+          "developer": "Billionairegames",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/17/36/61/1736616a-2f46-1525-b91a-69b5151dc499/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 80
+        },
+        {
+          "rank": 82,
+          "title": "I9: 인페르노 나인",
+          "developer": "Leniu Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/44/dc/35/44dc35af-a14c-645f-ee4f-d7f414f68f7c/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": 9,
+          "status": "up",
+          "yesterdayRank": 91
+        },
+        {
+          "rank": 83,
+          "title": "쿠키런",
+          "developer": "Devsisters",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/73/30/73733015-5182-d41c-151b-d9f998c7765d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 83
+        },
+        {
+          "rank": 84,
+          "title": "소울 스트라이크: QWER 키우기",
+          "developer": "Com2uS Holdings",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/2c/35/fd2c35a8-039b-f0f5-0d05-cdd6283702ae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 79
+        },
+        {
+          "rank": 85,
+          "title": "플레이투게더: 마이팜",
+          "developer": "HAEGIN Co., Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/38/5b/21385bd7-a790-5b7b-7f12-3ddc2e49c7c6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 86,
+          "title": "세븐나이츠 키우기",
+          "developer": "Netmarble Corporation",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/b6/0f/84b60f04-96cd-8cfa-88cf-15bb12512b8c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 87,
+          "title": "피망 뉴맞고 : 고스톱으로 대한민국 1등",
+          "developer": "NEOWIZ",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1e/da/fa/1edafab6-372b-8498-e653-fd05a6da63ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 88
+        },
+        {
+          "rank": 88,
+          "title": "Once Human",
+          "developer": "NETEASE INTERACTIVE ENTERTAINMENT PTE. LTD",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/3b/d8/af3bd8c5-c0bc-ff7a-916b-1c44dcb1075b/AppIcon-0-0-1x_U007emarketing-0-11-0-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 89,
+          "title": "리니지W",
+          "developer": "NCSOFT",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2b/4f/21/2b4f2128-8157-3676-d4c5-3e7862fbb931/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 8,
+          "status": "up",
+          "yesterdayRank": 97
+        },
+        {
+          "rank": 90,
+          "title": "에테리아: 리스타트",
+          "developer": "XD Entertainment Co., Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/c2/3a/94c23ad9-ebb7-e308-60c2-a8c2e12ac4bd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 91,
+          "title": "아이모: The World of Magic",
+          "developer": "Com2uS Corp.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/c9/a7/46c9a7ad-ce31-3075-41b8-b4f7c7a429c0/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+          "change": -17,
+          "status": "down",
+          "yesterdayRank": 74
+        },
+        {
+          "rank": 92,
+          "title": "어나더던전",
+          "developer": "Game Duo Co.,Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f2/02/92/f20292fb-8c60-b691-5ed1-425867680c93/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 93,
+          "title": "페이트/그랜드 오더",
+          "developer": "Netmarble Corporation",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/b1/e3/a0b1e3bf-a318-a72e-04d9-04accb088d18/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -22,
+          "status": "down",
+          "yesterdayRank": 71
+        },
+        {
+          "rank": 94,
+          "title": "히어로 클래시: 강아지를 지키자",
+          "developer": "9z Games(HK)",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e7/cd/16/e7cd16a0-c255-9c1d-ce8b-76b5c95eedb9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 90
+        },
+        {
+          "rank": 95,
+          "title": "로스트 소드",
+          "developer": "Wemade Connect Co., Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dc/49/77/dc49779b-d5a3-4fd8-6e26-9c2ed18fbde4/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 96,
+          "title": "이사만루25",
+          "developer": "(주)공게임즈",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ee/76/2a/ee762a9d-a087-f8b5-e39f-d8a2b2d4f54f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 97,
+          "title": "DRAGON BALL LEGENDS-드래곤 볼 레전즈-",
+          "developer": "Bandai Namco Entertainment Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/52/bd/a3/52bda3d4-d535-4f2d-465f-2849909a0f64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -11,
+          "status": "down",
+          "yesterdayRank": 86
+        },
+        {
+          "rank": 98,
+          "title": "스텔라 소라",
+          "developer": "YOSTAR LIMITED",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d8/3c/2f/d83c2fb9-00e5-bdca-73fc-eb5f1e2c8c35/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -38,
+          "status": "down",
+          "yesterdayRank": 60
+        },
+        {
+          "rank": 99,
+          "title": "Pikmin Bloom",
+          "developer": "Niantic, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5c/20/bf/5c20bfd1-19e1-7880-4f13-a6a63547ec20/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -7,
+          "status": "down",
+          "yesterdayRank": 92
+        },
+        {
+          "rank": 100,
+          "title": "엔하이픈 월드 : 이터널 모먼트",
+          "developer": "TakeOne Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/24/e4/83/24e483d6-2f4a-5b3d-4a44-03c06c53ce0f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        }
+      ],
+      "android": [
+        {
+          "rank": 1,
+          "title": "메이플 키우기",
+          "developer": "NEXON Company",
+          "icon": "https://play-lh.googleusercontent.com/jV9Qr5SJcdTxjSNM83_T0voYwyFWnErzyM9HsQLopigYZM4unH-_2HRTVLSmJv17OrSW",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 1
+        },
+        {
+          "rank": 2,
+          "title": "라스트 워: 서바이벌",
+          "developer": "FUNFLY PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/2sOxb_s3uan-AmiF_XRh_K2yqRrmVeuzHAqtYCrwrFP-s1u_FMKo1NtlPz0kdn0qQUH8",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 2
+        },
+        {
+          "rank": 3,
+          "title": "WOS: 화이트아웃 서바이벌",
+          "developer": "Century Games PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/q7KzFHxwj8SWdIeEgjw1o5FBj3lNRBtJswrtQ7EWLlSoVulSRfFqcXZrqlqCgc4H0g",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 3
+        },
+        {
+          "rank": 4,
+          "title": "리니지M",
+          "developer": "NCSOFT",
+          "icon": "https://play-lh.googleusercontent.com/TSJx_-ml28RDZAN1popUnr2G0AKJS8xeoCh975QKOeF21FQl5J5lNCuJmaOi_7ufCYI",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 4
+        },
+        {
+          "rank": 5,
+          "title": "뱀피르",
+          "developer": "Netmarble",
+          "icon": "https://play-lh.googleusercontent.com/bpiLHv_Nvsa4Iv_KIfboxKBtKM6B5n19ftEdLq8iPFvSLSvgS_xjTrf4GMMmVE28hQ",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 5
+        },
+        {
+          "rank": 6,
+          "title": "라스트 Z: 서바이벌 슈터",
+          "developer": "Florere Game",
+          "icon": "https://play-lh.googleusercontent.com/DVXTZpTR02_xoN1kOqnhOOuW9p1LiUHiu_Vw0xjzdu1SswhIbLp3OdV4x6skiarMGcE",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 6
+        },
+        {
+          "rank": 7,
+          "title": "승리의 여신: 니케",
+          "developer": "Level Infinite",
+          "icon": "https://play-lh.googleusercontent.com/JK5mejs0bVT_9613gCxNfCjRw_m3JiQ4wC8B8Kt471yu7ThFQazVkCLTfPZ81hnenft7ilaE-qSwVGpQT6sEFcY",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 7
+        },
+        {
+          "rank": 8,
+          "title": "킹샷:Kingshot",
+          "developer": "Century Games PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/DLovyLDLznCbkDw39T-d9BUXkDbUjO9ne3_eJyA27IcfgIXR2Hmu3HqEDlYxGXnwrp0",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 8
+        },
+        {
+          "rank": 9,
+          "title": "Roblox",
+          "developer": "Roblox Corporation",
+          "icon": "https://play-lh.googleusercontent.com/7cIIPlWm4m7AGqVpEsIfyL-HW4cQla4ucXnfalMft1TMIYQIlf2vqgmthlZgbNAQoaQ",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 9
+        },
+        {
+          "rank": 10,
+          "title": "로얄 매치 Royal Match",
+          "developer": "Dream Games, Ltd.",
+          "icon": "https://play-lh.googleusercontent.com/qBdVfwRCsI4KM7qewhJ0AKZKQjyD-DdxPDcdDbsRMhNO9zrwbefggn1vGqRIDZA3fg",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 10
+        },
+        {
+          "rank": 11,
+          "title": "가십하버: 합성 & 스토리 게임",
+          "developer": "Microfun Limited",
+          "icon": "https://play-lh.googleusercontent.com/Q1Ds2-jYPtIWx_3_EI4ERaTwpYb66QpC2LMGp75-5b9CW9m4sWEEsCy3yfhzzb-J2njWRbSTJHa5WXahWsioPA",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 11
+        },
+        {
+          "rank": 12,
+          "title": "AION2",
+          "developer": "NCSOFT",
+          "icon": "https://play-lh.googleusercontent.com/aqqsbPuYk-dU9f0qnyEkHje_IIchFrOhDQfDXozQbD5_n_Hxi18ja4GyEbNYuFD9inoFBUYfZFWK4zSOjsy8Aw",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 12
+        },
+        {
+          "rank": 13,
+          "title": "아키텍트: 랜드 오브 엑자일",
+          "developer": "DRIMAGE Co., Ltd",
+          "icon": "https://play-lh.googleusercontent.com/14-XxuLjk7eu2EfkeJ41qz3dcSUgWdfE517sYAbmbQtK8czfG_FP7uiWAW6DGabyavmIRv9uG45xC-VQe3LuUw",
+          "change": 7,
+          "status": "up",
+          "yesterdayRank": 20
+        },
+        {
+          "rank": 14,
+          "title": "오딘: 발할라 라이징",
+          "developer": "Kakao Games Corp.",
+          "icon": "https://play-lh.googleusercontent.com/Vp2SoryMyx4j8nscYRusCtksEuNWcIwbBkBwzZ8ObajeKnzknn25rj436TVAiQ373ZBE",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 15
+        },
+        {
+          "rank": 15,
+          "title": "마비노기 모바일",
+          "developer": "NEXON Company",
+          "icon": "https://play-lh.googleusercontent.com/JfGzWE_v-KjofJoJ9eo1oBixex2sHlrSbSte4UG2g6CWDkolbvxI1qV2M_E1JgbjNeDcOrvrTYS7ko1Bb7TPmA",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 14
+        },
+        {
+          "rank": 16,
+          "title": "운빨존많겜",
+          "developer": "111%",
+          "icon": "https://play-lh.googleusercontent.com/TdkxPLuqx8gMlcLpm99jzhJyLDIp9oqnUThtyePiZ69UeNH-ZQ4wRcTLiCQx-sXEPOI",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 13
+        },
+        {
+          "rank": 17,
+          "title": "Dark War Survival",
+          "developer": "Florere Game",
+          "icon": "https://play-lh.googleusercontent.com/tDRSxFkEK59P1UigJ2u7Yy-QKTG-CiTWbztHzMUmfOEnyhEdX_6ilsqgyauDaDjitw8",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 17
+        },
+        {
+          "rank": 18,
+          "title": "탑 히어로즈",
+          "developer": "RiverGame",
+          "icon": "https://play-lh.googleusercontent.com/jeoEzb6JQStOCUuSPNy4pwzMfpZse5JXaOojt8rO07gJs4NWeIjb-x4pOJpbjnhZNg",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 18
+        },
+        {
+          "rank": 19,
+          "title": "한게임 포커",
+          "developer": "NHN Corp.",
+          "icon": "https://play-lh.googleusercontent.com/4nBBG7wDBEpC6YaqIyDliX6bCXeME3gpx0_zUUMeD9pA73M3lwmq-zsjDSCZMa4-ow",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 16
+        },
+        {
+          "rank": 20,
+          "title": "씨사이드 익스케이프: 합성 & 스토리 게임",
+          "developer": "Microfun Limited",
+          "icon": "https://play-lh.googleusercontent.com/PK5f-GGU5pg4zXF1qqD9mmfTzNEMW-R-0c9St918b_JYa_t3879n3FVqXrzKikqf6sewogKia7MMdiUfbi13wA",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 21
+        },
+        {
+          "rank": 21,
+          "title": "전략적 팀 전투: 리그 오브 레전드 전략 게임",
+          "developer": "Riot Games, Inc",
+          "icon": "https://play-lh.googleusercontent.com/D5W2P9ePaNULFAJr6KIOtWc2F_16ZkT0bFLM_r-EzQwTNwIaN8yI2nQ7eHgjEEFgYxQ",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 23
+        },
+        {
+          "rank": 22,
+          "title": "한게임포커 클래식 : 7포커 홀덤 섯다 훌라 슬롯",
+          "developer": "NHN Corp.",
+          "icon": "https://play-lh.googleusercontent.com/usCGb7xekv03_xHZHKZ_F1BHJjCXLxIPHpNE46UqrO_JoDcX66K8J3UUjSmbqRGpCBcWP2c9YtXefNv0J2HU",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 19
+        },
+        {
+          "rank": 23,
+          "title": "FC 모바일",
+          "developer": "NEXON Company",
+          "icon": "https://play-lh.googleusercontent.com/Cm-kgnZn1-WZHGYdV1KEOuzHfB9hP0LkWocMPmAYA-pPuBbPqqwXnacZH3tnR4P_880",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 24
+        },
+        {
+          "rank": 24,
+          "title": "배틀그라운드",
+          "developer": "KRAFTON, Inc.",
+          "icon": "https://play-lh.googleusercontent.com/bqliWUqt7QfpSC4EybIXMT_QZclpYN9ANItoMTXltshu8v0HTnFdfU_pboHzz7Zs7pqX1AfLE7eFVU8S0aSI",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 27
+        },
+        {
+          "rank": 25,
+          "title": "세븐나이츠 리버스",
+          "developer": "Netmarble",
+          "icon": "https://play-lh.googleusercontent.com/YTAR8q0eR6Z4QeBpjpAUh1JYc1gyFeig3H0AnkbodrIx-0lAB5Z_tC5bFwv0LJQ6eHixZvDwW2nJ4lHkKWHNAw",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 25
+        },
+        {
+          "rank": 26,
+          "title": "리니지W",
+          "developer": "NCSOFT",
+          "icon": "https://play-lh.googleusercontent.com/75Mwr7P9rlm8qRsMJ1GnGkef3MtW--NNyVjnbLkqzi3UowdRWFbuCMwNgmKGPcruo7I",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 26
+        },
+        {
+          "rank": 27,
+          "title": "원신·공월의 노래",
+          "developer": "COGNOSPHERE PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/YQqyKaXX-63krqsfIzUEJWUWLINxcb5tbS6QVySdxbS7eZV7YB2dUjUvX27xA0TIGtfxQ5v-tQjwlT5tTB-O",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 22
+        },
+        {
+          "rank": 28,
+          "title": "I9: 인페르노 나인",
+          "developer": "Leniu Technology Co., Limited",
+          "icon": "https://play-lh.googleusercontent.com/jZ0P5ZxOE4VorYhs9QmbcxzXi7VYiNqh4I5YlO2JXUdh_5D80ymAagbYxjtP6pGnU_7f_W0gWUVWUm9mIkCI5A",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 29
+        },
+        {
+          "rank": 29,
+          "title": "꿈의 정원 (Gardenscapes)",
+          "developer": "Playrix",
+          "icon": "https://play-lh.googleusercontent.com/k0uSjF93KYi_Ik5M5hBMeDh6ulLKnRaNDGNoIji1KRTsu18NRcGVhFFnXNtgWFmAMw",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 30
+        },
+        {
+          "rank": 30,
+          "title": "한게임 섯다&맞고",
+          "developer": "NHN Corp.",
+          "icon": "https://play-lh.googleusercontent.com/wXOujB_kNtS-oJpSkz7BJjR1syEeeZ86LNIUnLiCzGCF1QbHq-gIdFKpKiT6hqsF9Fex",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 28
+        },
+        {
+          "rank": 31,
+          "title": "로얄 킹덤 (Royal Kingdom)",
+          "developer": "Dream Games, Ltd.",
+          "icon": "https://play-lh.googleusercontent.com/nAAF2bxrD2BeoM1IkUZ6qeRG_QGG_Rekrrh4VYQSMDeRa7FR8sWMWaHClID547XJ3D4",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 32
+        },
+        {
+          "rank": 32,
+          "title": "피망 포커 : 카지노 로얄 - 홀덤, 7포커, 바둑이",
+          "developer": "NEOWIZ corp",
+          "icon": "https://play-lh.googleusercontent.com/isQpniEjKL8RDxTcHsHvRtBawTyo3HDkLIP4_BUQKfYU0ZDB9HsZ7QYCRji8e0gtCA",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 31
+        },
+        {
+          "rank": 33,
+          "title": "스타세이비어",
+          "developer": "STUDIOBSIDE",
+          "icon": "https://play-lh.googleusercontent.com/UiSDupKVwV4Kpd1i1UZXCfH_SvMHuRqbzGuT9MLcgUDHgRzzFFXRx_ljuirQI7_vdS_-usRClFSqAIvITK6PKA",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 33
+        },
+        {
+          "rank": 34,
+          "title": "리니지2M",
+          "developer": "NCSOFT",
+          "icon": "https://play-lh.googleusercontent.com/HCtN3GTLYipk8Sn7zFhV501RkpxBnTpLacU8dC5EU-N8RoI7kGr7GB7kFELull9riO0",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 34
+        },
+        {
+          "rank": 35,
+          "title": "블리치: 소울 레조넌스",
+          "developer": "Nuverse Games",
+          "icon": "https://play-lh.googleusercontent.com/8Fz2Cme1fI2vgiSLTlhxTVCWG26oeMaskeNkC6Q77hodZydfmbsjA46_uzguiZV7DFwKWCTAd06M7L3WR7l3",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 35
+        },
+        {
+          "rank": 36,
+          "title": "컴투스프로야구V25",
+          "developer": "Com2uS",
+          "icon": "https://play-lh.googleusercontent.com/eExnI_CDx9ze3d1bi-KNws-l7LZOdhGCjOktddANOdY-9qd2sSCSK7Q8fK76F4FNY-w",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 36
+        },
+        {
+          "rank": 37,
+          "title": "명조:워더링 웨이브",
+          "developer": "HK KURO GAMES LIMITED",
+          "icon": "https://play-lh.googleusercontent.com/g-47eiWo7LYLBFOQrYNzjrsTf4HRzUT--lSGrqJ9BPJFV72FEdYo5rSMI6AXBDyzrA",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 39
+        },
+        {
+          "rank": 38,
+          "title": "RF 온라인 넥스트",
+          "developer": "Netmarble",
+          "icon": "https://play-lh.googleusercontent.com/UH1MGJMsm4LYPlFId1OM5RZQ0ZBAP5XtSpdqYlXbRSIaXMHXaap0D6PiEJVgSoVK_ME",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 37
+        },
+        {
+          "rank": 39,
+          "title": "갓깨비 키우기-999뽑기 증정",
+          "developer": "Joy Nice Games",
+          "icon": "https://play-lh.googleusercontent.com/vre365L9Y_XIpaTg56Mqa3Oraobas7RMsHl52ZJuyyShZNWdPg8fbkQjWCHu1hTJ0TE4DaY_vbuDUkUi9u8P",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 40
+        },
+        {
+          "rank": 40,
+          "title": "붕괴: 스타레일",
+          "developer": "COGNOSPHERE PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/IqXUfiwbK-NCu5KyyK9P3po1kd4ZPOC4QJVWRk2ooJXnUcSpkCUQRYYJ-9vZkCEnPOxDIEWjNpS30OwHNZTtCKw",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 41
+        },
+        {
+          "rank": 41,
+          "title": "브롤스타즈",
+          "developer": "Supercell",
+          "icon": "https://play-lh.googleusercontent.com/bSCRWEmQ6VnsKGDCagiLnazT_npl1HavITMWSZqXp-PMCyULPwg33hezaOhx_-FOvy1b_HWfQsFqndsfHVwzpxA",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 43
+        },
+        {
+          "rank": 42,
+          "title": "카오스 제로 나이트메어",
+          "developer": "Smilegate Holdings, Inc",
+          "icon": "https://play-lh.googleusercontent.com/GLQ8jseBIMQxngNB1EHceB5t1vsUD0KE4tNWx3pM_ogRj9l0xN_eqmOihZHLdemtN0Q",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 38
+        },
+        {
+          "rank": 43,
+          "title": "캔디크러쉬사가 (Candy Crush Saga)",
+          "developer": "King",
+          "icon": "https://play-lh.googleusercontent.com/foyZT9IAmYNt27tmy_V7XJKxtne7HVw7Px_HOfPQBIh4Ox1W8OJuFTCp55C5Rg6ozhM",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 42
+        },
+        {
+          "rank": 44,
+          "title": "Limbus Company",
+          "developer": "Project Moon",
+          "icon": "https://play-lh.googleusercontent.com/fO39aiPOm1Mf1UajvE8FU9c8UQLlAyltnGFuKUwiZ96s41kHppeuyT89phTrJOi9PdY",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 46
+        },
+        {
+          "rank": 45,
+          "title": "카트라이더 러쉬플러스",
+          "developer": "NEXON Company",
+          "icon": "https://play-lh.googleusercontent.com/OeKApmjk4WUCvrqgsGjnaW5tE08-mLNxJBaHPU-e_O1KVkDFC8Nk2pjq_lTOVQI2rg",
+          "change": 49,
+          "status": "up",
+          "yesterdayRank": 94
+        },
+        {
+          "rank": 46,
+          "title": "꿈의 집 (Homescapes)",
+          "developer": "Playrix",
+          "icon": "https://play-lh.googleusercontent.com/mSRXb7x8rW8T7tvtxbfP6tsi7tqXjXWIRGJURHAu4ipdJrbg_6Efz8U9aDrUTQI5_3k",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 45
+        },
+        {
+          "rank": 47,
+          "title": "냥코 대전쟁",
+          "developer": "PONOS Corporation",
+          "icon": "https://play-lh.googleusercontent.com/Byl8K-gS76GtpWGUS_blnUGwqmt64VVGwh7pzY_RmH4pnrpJ8p2pIpxKJrvNM68PhLysInvwjz7Ox_n9Ji3_mAE",
+          "change": 12,
+          "status": "up",
+          "yesterdayRank": 59
+        },
+        {
+          "rank": 48,
+          "title": "클래시 로얄",
+          "developer": "Supercell",
+          "icon": "https://play-lh.googleusercontent.com/gnSC6s8-6Tjc4uhvDW7nfrSJxpbhllzYhgX8y374N1LYvWBStn2YhozS9XXaz1T_Pi2q",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 49
+        },
+        {
+          "rank": 49,
+          "title": "EA SPORTS FC Online M",
+          "developer": "NEXON Company",
+          "icon": "https://play-lh.googleusercontent.com/Uwa4hYwLLo9bIH2mcpMhDgNV1iT27oG9ctDoBvRTdNdhGJmp6jYvaV5PuRI65JHZDhVUQSlqCZRt_bUCCW32",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 48
+        },
+        {
+          "rank": 50,
+          "title": "리니지M(12)",
+          "developer": "NCSOFT",
+          "icon": "https://play-lh.googleusercontent.com/Gx9LftgPkgz3R32cupzUtRr-OFHeKZJzveFJhM-A4euBGn9TtbvBnCz1ghkjrNPkfw",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 44
+        },
+        {
+          "rank": 51,
+          "title": "트릭컬 리바이브",
+          "developer": "EPIDGames",
+          "icon": "https://play-lh.googleusercontent.com/OCiuBv70Dnuw9wcGet3EtTUF2nEkS1vhYYkvOahe9-MmKg6EhxGkf-9ZVxnWIJXflQSmfOIjTcaSbwJSJyuzHA",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 47
+        },
+        {
+          "rank": 52,
+          "title": "페이트/그랜드 오더",
+          "developer": "Netmarble",
+          "icon": "https://play-lh.googleusercontent.com/Bg9J65PfGnJwZMpyALEY9pzh7VBUZ6fr7PAN8vYsJf2qXcUxRmtr0vnYjtMN-p3W0w",
+          "change": 12,
+          "status": "up",
+          "yesterdayRank": 64
+        },
+        {
+          "rank": 53,
+          "title": "협동 타워 디펜스 : 깐부와 함께",
+          "developer": "Supermagic",
+          "icon": "https://play-lh.googleusercontent.com/fIVOaU_f68miutYs4T2b7QO9xjDtwVkPXa4hwkkNNckYb-G5uSShSbKjLiNk_trLK2o",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 51
+        },
+        {
+          "rank": 54,
+          "title": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+          "developer": "Zempot INC.",
+          "icon": "https://play-lh.googleusercontent.com/NI3yGZ_uu-OvZHr4Q8s--8GFEk-3fmtoEyGEoxl0NRjco_OD9SKNGNmhRp4gQxilJA",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 50
+        },
+        {
+          "rank": 55,
+          "title": "Legends Reborn: 마지막 전투",
+          "developer": "ACE GAME INTERNATIONAL LIMITED",
+          "icon": "https://play-lh.googleusercontent.com/0hXMGimaFRN-9l38GaAa0qRARkxm-fxYB5hzVurZ0G4_oVMxrv0cnpYaAQAAhpdCNas",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 53
+        },
+        {
+          "rank": 56,
+          "title": "맛있는 여행: 합성 게임",
+          "developer": "Century Games PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/fHFrNfnjPXU0FmAjQPhAVPJoZoxT-eg9tqiYKDTFTlQ7LITYdXMW1p86R_xkl9rrj7gMO2so6_ZN696O-wZSzw",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 56
+        },
+        {
+          "rank": 57,
+          "title": "아키르: 로드 오브 디스트럭션",
+          "developer": "SPGFun",
+          "icon": "https://play-lh.googleusercontent.com/J3g5MKIw8Gsk2CHFtUfzgNnaxNuDdEzoPAbhr0AZLLu7cFwxiDtyG9X8Oz2qRuEvERw1k02h444FP4NiHqrUTBs",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 54
+        },
+        {
+          "rank": 58,
+          "title": "좀비 웨이브스",
+          "developer": "Fun Formula",
+          "icon": "https://play-lh.googleusercontent.com/RBS57n8UMbzGOezcYN1QTuE39rjV01haLomxwN5I3qIukvRaHTvq1OCRgjITvUHO7CiF",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 52
+        },
+        {
+          "rank": 59,
+          "title": "Travel Town - 결합 어드벤처",
+          "developer": "Magmatic Games LTD",
+          "icon": "https://play-lh.googleusercontent.com/JUd09-Jkgctks6QibZBPeqnpPA-6A6nMXZqAW9Fa0MKOsolbvGKSXEnuq9nxiKNCFVOT",
+          "change": 4,
+          "status": "up",
+          "yesterdayRank": 63
+        },
+        {
+          "rank": 60,
+          "title": "열혈강호: 귀환",
+          "developer": "9RING",
+          "icon": "https://play-lh.googleusercontent.com/cQnpkNVr2Nyy_mWlRLyhriDSY1T3z4kjk5kNmBpympQbUozUHHxBSeHr5xzehXW42jlonWyoqcZcKI1QlVqg",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 55
+        },
+        {
+          "rank": 61,
+          "title": "SD건담 지 제네레이션 이터널",
+          "developer": "Bandai Namco Entertainment Inc.",
+          "icon": "https://play-lh.googleusercontent.com/sjxX8euf6_duuxPvwKQhp2xqsf3_Ksq3T9vqBFBDNaa6zlYhb6d9zLqgdOpj7RZzSAHH1c1Qlmi85UL-gHEGt-A",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 58
+        },
+        {
+          "rank": 62,
+          "title": "메이플스토리M",
+          "developer": "NEXON Company",
+          "icon": "https://play-lh.googleusercontent.com/RYyJqborTDjCULCGs1JaFtK1Y2GTl87mGAUtFPwf7sV3PkA36B91wRZ7RIgjEwa8T1GcMlp6-5lyUFNw0vn6mw",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 62
+        },
+        {
+          "rank": 63,
+          "title": "서머너즈 워: 천공의 아레나",
+          "developer": "Com2uS",
+          "icon": "https://play-lh.googleusercontent.com/FVQXdzxDphpLdMRqIc5kG4C_Dc4AEO7-9uKHPt85v5_6Sp3J4mTV1S6P3ipLEoK6lDer",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 60
+        },
+        {
+          "rank": 64,
+          "title": "스텔라 소라",
+          "developer": "Yostar Limited.",
+          "icon": "https://play-lh.googleusercontent.com/fAtV_m1pk3Li1JWR31xdv3vV-CjXH5Uq1YHtj_f1MjeiOdfBhv8MvG-gO8vzpEXoit4",
+          "change": 38,
+          "status": "up",
+          "yesterdayRank": 102
+        },
+        {
+          "rank": 65,
+          "title": "카발RED",
+          "developer": "ESTgames Corp.",
+          "icon": "https://play-lh.googleusercontent.com/qvZZvVMbbBktNTkM1FcLcct2Pr6bjDs-SJ83vsTBv88DZyh29puKY893m6pmbk-QpE4",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 61
+        },
+        {
+          "rank": 66,
+          "title": "소녀전선2: 망명",
+          "developer": "HaoPlay Limited",
+          "icon": "https://play-lh.googleusercontent.com/nS_We_bC5wCHdpj2DSfJfDsRQQ4-IJRcTwTxfRmLccEVjxN6JTP4xbl_UtRJfV3adQ",
+          "change": -9,
+          "status": "down",
+          "yesterdayRank": 57
+        },
+        {
+          "rank": 67,
+          "title": "eFootball™",
+          "developer": "KONAMI",
+          "icon": "https://play-lh.googleusercontent.com/BXckekV8HMU2V1KlYPxkkeuPJSHjKaGaW0Ev_moSDfakW89Wn97iwmUYEiAc7GSSlHU01PXkOs5LfB22SoSc",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 69
+        },
+        {
+          "rank": 68,
+          "title": "퍼즐 오브 Z",
+          "developer": "BLANCOZONE NETWORK CO., LIMITED",
+          "icon": "https://play-lh.googleusercontent.com/mtxDU0hGKP74EmLVEtdJ5sdzxPLXO9qdvZslGBWaSRL4Ffb3i7K48iTQwHPEC0LbPOOBsBaOoTf0Oas1JYwDyQ",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 71
+        },
+        {
+          "rank": 69,
+          "title": "한게임 신맞고 : 대한민국 원조 고스톱",
+          "developer": "NHN Corp.",
+          "icon": "https://play-lh.googleusercontent.com/2Dm6dQmaz4_NDxunGpDDSUMX0Q4MVgVxD1seG0u35T1hjJ4YwaYqreU26JefFBdZtZgn",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 66
+        },
+        {
+          "rank": 70,
+          "title": "피망 뉴맞고: 고스톱 대표 맞고 게임",
+          "developer": "NEOWIZ corp",
+          "icon": "https://play-lh.googleusercontent.com/khsD_dv1Ku2EEcKtzX3jVkMRxLEZzMsSET4Hk0xVt3mCwWX47jWua3hA9GuofSLUPRUCd8N7CQw0rc-NCRpG",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 67
+        },
+        {
+          "rank": 71,
+          "title": "와다다 던전런",
+          "developer": "37GAMES",
+          "icon": "https://play-lh.googleusercontent.com/H7ybu2NnMaFNljzA9jNsSqiUfUNv6ZYCrWJJc0VxNIXWNM3XfiuvfY3Q_cupv06VzbTZZEGS_oz4nhoB-g5VLQ",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 70
+        },
+        {
+          "rank": 72,
+          "title": "Pokémon GO",
+          "developer": "Niantic, Inc.",
+          "icon": "https://play-lh.googleusercontent.com/39hjeqmhsub4abx84Q4CpCQgMN9ktgwDlUWm7_ZusCZYs8EIXwSuz8C9rVL7Fj4FKmRAKVwvI3Cl2IIDTzx80A",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 72
+        },
+        {
+          "rank": 73,
+          "title": "브라운더스트2 - 가슴 벅찬 RPG",
+          "developer": "NEOWIZ",
+          "icon": "https://play-lh.googleusercontent.com/frPGVrz_hwSOyNm3y9RoVkfxD5I5ibKv0C5RD9Ub1188PJtv3BXa7KkfSyzr_-9SeNk50AVt3P2XvS_jtzTa",
+          "change": 13,
+          "status": "up",
+          "yesterdayRank": 86
+        },
+        {
+          "rank": 74,
+          "title": "나이트 크로우",
+          "developer": "Wemade Co., Ltd",
+          "icon": "https://play-lh.googleusercontent.com/TjjQk-u1yoZ-9pWHa6vMqY46rN7NhyVGVrb9yZ54nJdzj8U1LwsWj91KzJFKwRliFg",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 68
+        },
+        {
+          "rank": 75,
+          "title": "블레이드&소울 레볼루션",
+          "developer": "Netmarble",
+          "icon": "https://play-lh.googleusercontent.com/fWMj3AGkE6OukmsqTKymtN082i3oH0gwkEz_BMn_yaa-xTAMiHVa2GCRj91HQDTk4l0BNfw32A7HufSIrFrW",
+          "change": -10,
+          "status": "down",
+          "yesterdayRank": 65
+        },
+        {
+          "rank": 76,
+          "title": "컴투스프로야구2025",
+          "developer": "Com2uS",
+          "icon": "https://play-lh.googleusercontent.com/XPBW_sQGwtF3bADbMBWHjw1lNJgmeqCK4-UaTVl71J9ePWTjekdgNxqeF6EIbrO27NFY",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 74
+        },
+        {
+          "rank": 77,
+          "title": "꿈의 마을 (Township)",
+          "developer": "Playrix",
+          "icon": "https://play-lh.googleusercontent.com/9KAPlokfzeEFb34Mwm7juoiC5-yjpf4JlRLguuAgn5fV7JcTECwJnu6guLxbaZBWDA",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 75
+        },
+        {
+          "rank": 78,
+          "title": "로드나인",
+          "developer": "Smilegate Holdings, Inc",
+          "icon": "https://play-lh.googleusercontent.com/gf1zo3glPzI9MXdz7tJcxFLkORjATJ979mtFia2OMkLkNPQRCK_mMgV6C1tVia9Eag",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 73
+        },
+        {
+          "rank": 79,
+          "title": "타일 서바이벌",
+          "developer": "FunPlus International AG",
+          "icon": "https://play-lh.googleusercontent.com/zckZa4Pytdr9QxK-Xv6XlbJo62tZV4pk3VPLBnuUXzR-pmM5nWWHUbo3MT1Lu9xxIRye",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 78
+        },
+        {
+          "rank": 80,
+          "title": "클래시 오브 클랜",
+          "developer": "Supercell",
+          "icon": "https://play-lh.googleusercontent.com/sFmWfYbYp_2ea7VRMTnwd3gjIBrPGXHj_d_ab1_k1q1p2OMk4riGMF1vqxdhONOtTYOt_BVpk7a4AYcKU68LNGQ",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 77
+        },
+        {
+          "rank": 81,
+          "title": "뮤 모나크2",
+          "developer": "Webzen Inc.",
+          "icon": "https://play-lh.googleusercontent.com/2gp6GXk0PmCpkJsebFK2vsbINe9bStBtDJx23uC9zCjhXK0hByjklYtGMG5q1uQFyQ",
+          "change": 9,
+          "status": "up",
+          "yesterdayRank": 90
+        },
+        {
+          "rank": 82,
+          "title": "S.O.S: 스테이트 오브 서바이벌",
+          "developer": "FunPlus International AG",
+          "icon": "https://play-lh.googleusercontent.com/g7IlaVOg6pqpCJVu5oHyOUNFq4mDpNcfkIRU1yiiGxjE4GF2nCrkJ5gf76mLRYsmcQ",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 83
+        },
+        {
+          "rank": 83,
+          "title": "추억의 잡화점",
+          "developer": "Pogo Hopper Games",
+          "icon": "https://play-lh.googleusercontent.com/SMha-_s2IdPZElQ7RDJC5Ed8RZgz0ZN0KMqvE5-fzF2rZnIHrKgGcY5ZZni4o9vDhG_A_mE8Fa-LlrGnoDbUj5E",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 79
+        },
+        {
+          "rank": 84,
+          "title": "레이븐2",
+          "developer": "Netmarble",
+          "icon": "https://play-lh.googleusercontent.com/hEsBJTaH7At6ftH03ozxXvBxaeIVN_lAdlBIFGZJj-Yhozr7lDJtw4CAPvckCrw1elZZ3dVxx3mVpc7L7uy5_XY",
+          "change": -8,
+          "status": "down",
+          "yesterdayRank": 76
+        },
+        {
+          "rank": 85,
+          "title": "뮤 모나크",
+          "developer": "Webzen Inc.",
+          "icon": "https://play-lh.googleusercontent.com/9zWF9v-LwXIBWYgR62PDDVe4wX8ywT4PxVeabQgdQCR1XysAniweUYzcurxjQ5I59XyJ",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 80
+        },
+        {
+          "rank": 86,
+          "title": "핫레스토랑: 머지&쿠킹",
+          "developer": "Microfun Limited",
+          "icon": "https://play-lh.googleusercontent.com/8uvhpjgJrUUMYYLCVWQnZMhHCR7V4PlDLF8QTktHaSmuyQgIhIrrnpLOyDBPSv0c2F7ZC6yLfwEUw4zX_1vJ",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 89
+        },
+        {
+          "rank": 87,
+          "title": "피쉬돔 (Fishdom)",
+          "developer": "Playrix",
+          "icon": "https://play-lh.googleusercontent.com/edzeibdlmqt6q5asPDkRgFJOgVaC4BWwHJ8EZqNaFppnGdDZZJFtt1Tpn-dOkWiQwn4",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 81
+        },
+        {
+          "rank": 88,
+          "title": "쿠키런: 킹덤",
+          "developer": "Devsisters Corporation",
+          "icon": "https://play-lh.googleusercontent.com/PBecN7klRlyURvj-5mC9QhNu1PAwAljlAkd9phBUvGRIcwyzK9riYOLrX7Df8WLSz4U",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 82
+        },
+        {
+          "rank": 89,
+          "title": "랜드 오브 제일",
+          "developer": "SINGAPORE JUST GAME TECHNOLOGY PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/Yq19UACccqVNqcJz6aUlzYNM6lJBX14OTbsG2aQIqXAxmn4VsgEaqChqiJ0WCSF5ezU",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 87
+        },
+        {
+          "rank": 90,
+          "title": "리그 오브 레전드: 와일드 리프트",
+          "developer": "Riot Games, Inc",
+          "icon": "https://play-lh.googleusercontent.com/nnwkWnKieV-zT_H_sg-xdFCrvBWpBTuwkvUA45KGoH1Gvz6CGsAxAKPdAfz_XG1wpl6uo9wSMDg7i96B3rlX3g",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 88
+        },
+        {
+          "rank": 91,
+          "title": "데블M",
+          "developer": "37 Mobile Games",
+          "icon": "https://play-lh.googleusercontent.com/ZccoW-8c0hjGXUgiEXcV8YZULgHvOm33MNS2SN3ex6uF2oy05Ecp4g2iJSKbESuHmg",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 85
+        },
+        {
+          "rank": 92,
+          "title": "젠레스 존 제로",
+          "developer": "COGNOSPHERE PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/8jEmEvTsNIRW1vLlrDXXCcDlKkQrNb8NzccOXrln4G_DOUZpcBPbN9ssjuwBWz7_yZQ",
+          "change": -8,
+          "status": "down",
+          "yesterdayRank": 84
+        },
+        {
+          "rank": 93,
+          "title": "변신 키우기",
+          "developer": "BillionaireGames",
+          "icon": "https://play-lh.googleusercontent.com/_BjyLC_y-w36hAxYWkngsi2WWsppSLSC7SrZYnfBZSs4r-ljRrmiRY25qOo3MB6gBTw",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 92
+        },
+        {
+          "rank": 94,
+          "title": "리니지2 레볼루션",
+          "developer": "Netmarble",
+          "icon": "https://play-lh.googleusercontent.com/Rg1Sio4H2nNxUhEVX3r02O8jc0vHF2kEJD8YPgNJhhHWqyWPVOiWb4bDEzoV2EyhfjlzHo0PktRf7S3VOJgDqxA",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 96
+        },
+        {
+          "rank": 95,
+          "title": "라이즈 오브 킹덤즈",
+          "developer": "LilithGames",
+          "icon": "https://play-lh.googleusercontent.com/J8t6yZqRhWdYZyNUD25bhAgdc_KIq5cQr1IbCw_D5o6cuKBZ4m0xyELkC5s_eIz7qreF",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 95
+        },
+        {
+          "rank": 96,
+          "title": "애니팡2",
+          "developer": "Wemade Play Co.,Ltd.",
+          "icon": "https://play-lh.googleusercontent.com/XSTq4d6SOEUJ4l8Or00U7n2qSTz-eGU65IaA73lJWpH0gT1QGOSFJb0ig339yXAijESUa__E_6I1rIJWllru_Q",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 98
+        },
+        {
+          "rank": 97,
+          "title": "Yu-Gi-Oh! Master Duel",
+          "developer": "KONAMI",
+          "icon": "https://play-lh.googleusercontent.com/43zIbDgSUgOuSuXijcvml5QxASb741tbBloC_k-qTL-tmb3iFB2VMYHKivCdRQGr-D5LVAzIeOMIgB0wGd9P7A",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 99
+        },
+        {
+          "rank": 98,
+          "title": "전지적 시점: 데몬 삼국",
+          "developer": "Au Elements Network Technology Co., Ltd",
+          "icon": "https://play-lh.googleusercontent.com/HPBKyPE6aq5YiPxAYSetVsJQudh9nIz2W0ghrkzNN0h0Sa7VMRaBIjb9NUw37VmZM0PB6eup-9MZ2zVnIdX0Dg",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 93
+        },
+        {
+          "rank": 99,
+          "title": "쿠키런: 오븐브레이크",
+          "developer": "Devsisters Corporation",
+          "icon": "https://play-lh.googleusercontent.com/vmap3UKS7Fk0nsrOpx_x7wWaHWbUqUq_E3wjfTz92ffW_PEpNTVKdlwBj59f-CSMAloI7QST80U_zXsdn9sdZ4I",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 97
+        },
+        {
+          "rank": 100,
+          "title": "머지 쿠킹 테마 레스토랑",
+          "developer": "Happibits Game",
+          "icon": "https://play-lh.googleusercontent.com/wfp7wbIeEP6WxcJuzm1IoV3wfzNHFyFo7KSQ-DdEYvRp3f55upvnLuiUzJLAAkiVeOlHjTAynQLgc6ZWyedI7w",
+          "change": 5,
+          "status": "up",
+          "yesterdayRank": 105
+        }
+      ]
+    },
+    "us": {
+      "ios": [
+        {
+          "rank": 1,
+          "title": "Last War:Survival",
+          "developer": "FUNFLY PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/6f/69/fa6f69de-1b11-5074-79f1-0d84a2d7df1a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 2
+        },
+        {
+          "rank": 2,
+          "title": "MONOPOLY GO!",
+          "developer": "Scopely, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/00/bf/5600bf81-8dcb-4bb6-9b35-094b77ca6a16/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 1
+        },
+        {
+          "rank": 3,
+          "title": "Royal Match",
+          "developer": "Dream Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e9/28/0a/e9280aa1-5b28-92b4-bc3c-5d0bbea4e83a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 3
+        },
+        {
+          "rank": 4,
+          "title": "Candy Crush Saga",
+          "developer": "King",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/c3/ab/23c3ab3e-446d-5172-17df-d2639742d7ae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 4
+        },
+        {
+          "rank": 5,
+          "title": "Last Z: Survival Shooter",
+          "developer": "Florere Game Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4d/6d/19/4d6d1906-9b8a-3b09-46b3-dc3f654f2f93/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 6,
+          "status": "up",
+          "yesterdayRank": 11
+        },
+        {
+          "rank": 6,
+          "title": "Clash Royale",
+          "developer": "Supercell",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/00/13/eb001337-dac9-f1d4-a63a-00ee3f7a6ea3/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 5
+        },
+        {
+          "rank": 7,
+          "title": "Gossip Harbor®: Merge & Story",
+          "developer": "Microfun Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/66/7d/bc667d67-3521-9d1b-af6c-1e843a1b564f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 6
+        },
+        {
+          "rank": 8,
+          "title": "Whiteout Survival",
+          "developer": "Century Games Pte. Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/34/3d/46343dc8-df7f-9bb6-f3f7-19c99fff604b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 8
+        },
+        {
+          "rank": 9,
+          "title": "Kingshot",
+          "developer": "Century Games Pte. Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/38/e6/2038e602-4b4e-7b07-697d-bc5de2ef6818/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 7
+        },
+        {
+          "rank": 10,
+          "title": "Royal Kingdom",
+          "developer": "Dream Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/db/15/fbdb15b2-ac01-75ce-1461-cdeef09ec1e8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 10
+        },
+        {
+          "rank": 11,
+          "title": "Township",
+          "developer": "Playrix",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/ad/50/a8ad5036-075b-1080-8034-7bffc60430c5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 9
+        },
+        {
+          "rank": 12,
+          "title": "Call of Duty®: Mobile",
+          "developer": "Activision Publishing, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/01/d6/3e/01d63e8d-c3c0-e6f9-2da1-51b86fb17eb9/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/100x100bb.png",
+          "change": 30,
+          "status": "up",
+          "yesterdayRank": 42
+        },
+        {
+          "rank": 13,
+          "title": "Toon Blast",
+          "developer": "Peak Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/db/b5/55/dbb5559b-f69e-15ee-9e2a-0036da099ebf/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 12
+        },
+        {
+          "rank": 14,
+          "title": "DRAGON BALL LEGENDS",
+          "developer": "Bandai Namco Entertainment Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/52/bd/a3/52bda3d4-d535-4f2d-465f-2849909a0f64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 15
+        },
+        {
+          "rank": 15,
+          "title": "Coin Master",
+          "developer": "Moon Active",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/35/ef/ab/35efab0d-cb4c-d01c-0edf-74b366f1cf2b/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 18
+        },
+        {
+          "rank": 16,
+          "title": "Match Factory!",
+          "developer": "Peak Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/7c/35/057c356c-a1c2-cefb-29e5-fbedfbf91bf0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 14
+        },
+        {
+          "rank": 17,
+          "title": "Pokémon GO",
+          "developer": "Niantic, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/41/fc/d2/41fcd201-6223-e67b-3798-0f660fac49f6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 20
+        },
+        {
+          "rank": 18,
+          "title": "Travel Town - Merge Adventure",
+          "developer": "Moon Active",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5e/2c/e0/5e2ce05f-8915-2790-b660-b525ff882795/NewAppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 17
+        },
+        {
+          "rank": 19,
+          "title": "Free Fire",
+          "developer": "GARENA INTERNATIONAL I PRIVATE LIMITED",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bb/92/7a/bb927a8f-065e-93dc-553a-223565f07344/AppIcon-1761077053-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 13
+        },
+        {
+          "rank": 20,
+          "title": "Gardenscapes",
+          "developer": "Playrix",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/58/a3/93/58a393db-0aed-a254-afaa-cf57553f40a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 19
+        },
+        {
+          "rank": 21,
+          "title": "Clash of Clans",
+          "developer": "Supercell",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/14/d6/5414d699-1761-ec47-94f2-f9ebf932c660/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 16
+        },
+        {
+          "rank": 22,
+          "title": "Homescapes",
+          "developer": "Playrix",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ec/f6/dd/ecf6ddd6-cc87-426f-c640-1a40d1fdbb5d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 22
+        },
+        {
+          "rank": 23,
+          "title": "Lightning Link Casino Slots",
+          "developer": "Product Madness",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2c/ca/b5/2ccab525-1249-06b6-a2ed-70554374882e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 23
+        },
+        {
+          "rank": 24,
+          "title": "Evony",
+          "developer": "TOP GAMES INC.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/12/27/51/12275167-2636-dfcf-47b7-8abcefa6e692/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 21
+        },
+        {
+          "rank": 25,
+          "title": "Cashman Casino Slots Games",
+          "developer": "Product Madness",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/10/63/2e/10632e8b-8229-294b-74bd-ca962540768e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 24
+        },
+        {
+          "rank": 26,
+          "title": "EA SPORTS FC™ Mobile Soccer",
+          "developer": "Electronic Arts",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/24/17/0e2417ad-e49e-84b1-c951-1f09cc19db0c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 30,
+          "status": "up",
+          "yesterdayRank": 56
+        },
+        {
+          "rank": 27,
+          "title": "Jackpot Party - Casino Slots",
+          "developer": "Phantom EFX, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c1/8b/ca/c18bca2d-3da5-1bc0-cffa-c0490de83d35/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 27
+        },
+        {
+          "rank": 28,
+          "title": "Fishdom",
+          "developer": "Playrix",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/b0/8e/bab08e10-40d3-4811-a007-01ed06deabfb/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 25
+        },
+        {
+          "rank": 29,
+          "title": "Tasty Travels: Merge Game",
+          "developer": "Century Games Pte. Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7a/fb/f7/7afbf702-c236-0d14-d375-6778e7feb845/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 10,
+          "status": "up",
+          "yesterdayRank": 39
+        },
+        {
+          "rank": 30,
+          "title": "Dark War:Survival",
+          "developer": "Florere Game Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/99/97/3c9997bf-2364-81ec-ba84-1c2f8d69336f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 26
+        },
+        {
+          "rank": 31,
+          "title": "Pokémon TCG Pocket",
+          "developer": "The Pokemon Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/bf/46/62bf46e1-ed47-0304-8c36-0fb497eb8a59/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 28
+        },
+        {
+          "rank": 32,
+          "title": "Top Heroes: Kingdom Saga",
+          "developer": "River Game HK Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a8/5f/f9/a85ff979-ab91-e767-e869-32f5cd727cb8/AppIcon-1x_U007emarketing-0-8-0-0-85-220-0.png/100x100bb.png",
+          "change": 6,
+          "status": "up",
+          "yesterdayRank": 38
+        },
+        {
+          "rank": 33,
+          "title": "Screwdom",
+          "developer": "Zego Global Pte Ltd",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/67/ca/e5/67cae5f6-71be-8926-d507-38006332eb8f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 32
+        },
+        {
+          "rank": 34,
+          "title": "Magic Sort!",
+          "developer": "Grand Games A.Ş.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/39/db/c439dbb0-ff20-1730-6b59-eb20d6285068/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 29
+        },
+        {
+          "rank": 35,
+          "title": "Pixel Flow!",
+          "developer": "Loom Games Oyun Yazilim ve Pazarlama Anonim Sirketi",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/bc/f7/07bcf754-efdb-7353-8bbe-092b32caeb22/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 30
+        },
+        {
+          "rank": 36,
+          "title": "Total Battle: Strategy Game",
+          "developer": "Scorewarrior",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8f/a3/14/8fa3148b-ff65-6e39-0e71-d1aab8918e82/crowd_multipliers_v6-0-0-1x_U007emarketing-0-5-0-85-220.png/100x100bb.png",
+          "change": 7,
+          "status": "up",
+          "yesterdayRank": 43
+        },
+        {
+          "rank": 37,
+          "title": "Color Block Jam",
+          "developer": "Rollic Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7d/4d/69/7d4d69f6-168a-2245-d54b-14adb4e2fd2d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 34
+        },
+        {
+          "rank": 38,
+          "title": "NYT Games: Wordle & Crossword",
+          "developer": "The New York Times Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b2/01/87/b201875c-4aaa-0193-b545-ce1eab875dc9/Release-0-0-1x_U007epad-0-1-0-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 37
+        },
+        {
+          "rank": 39,
+          "title": "Merge Cooking®",
+          "developer": "Happibits",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/26/ba/d0/26bad08a-0ee2-99c0-1408-9fe69945bafd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 41
+        },
+        {
+          "rank": 40,
+          "title": "PUBG MOBILE",
+          "developer": "Tencent Mobile International Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/63/07/78/63077869-bbda-b20c-f27c-9687f9e56b58/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 35
+        },
+        {
+          "rank": 41,
+          "title": "Candy Crush Soda Saga",
+          "developer": "King",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/e6/cf/a0e6cf27-d1e0-b33e-390d-10d4c8e1e822/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 40
+        },
+        {
+          "rank": 42,
+          "title": "Age of Origins:Tower Defense",
+          "developer": "Hong Kong Ke Mo software Co., Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/93/d2/6193d21e-dcdb-93e7-7f05-8f7ffede6b72/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -9,
+          "status": "down",
+          "yesterdayRank": 33
+        },
+        {
+          "rank": 43,
+          "title": "All in Hole: Black Hole Games",
+          "developer": "HOMA GAMES",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fe/2f/fb/fe2ffbee-88e2-7a28-f520-15791c4b0b11/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 44
+        },
+        {
+          "rank": 44,
+          "title": "Quick Hit Slots - Vegas Casino",
+          "developer": "Appchi Media Ltd",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/5b/af/975baf25-26ea-0c70-1661-a9c23799812e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 45
+        },
+        {
+          "rank": 45,
+          "title": "MapleStory : Idle RPG",
+          "developer": "NEXON Company",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/03/d1/5e/03d15ec4-3e1d-cd2f-56b3-c3f9d7b1b7da/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -9,
+          "status": "down",
+          "yesterdayRank": 36
+        },
+        {
+          "rank": 46,
+          "title": "Big Fish Casino: Slots Games",
+          "developer": "Big Fish Games, Inc",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/26/cd/bc26cdef-7c38-46e3-9762-3e565a1e45cb/AppIconSept2025-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 48
+        },
+        {
+          "rank": 47,
+          "title": "DoubleDown™ Casino Vegas Slots",
+          "developer": "Double Down Interactive LLC",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/49/07/45/4907450a-b0d8-bd58-4cfd-5cd022b176ae/AppIcon-1x_U007emarketing-0-8-0-0-85-220-0.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 47
+        },
+        {
+          "rank": 48,
+          "title": "Bingo Blitz™ - BINGO Games",
+          "developer": "Playtika Santa Monica, LLC",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/4a/9e/fc4a9ebf-5a90-3c62-45ef-73e7a9c13d21/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 49
+        },
+        {
+          "rank": 49,
+          "title": "Disney Solitaire",
+          "developer": "SuperPlay",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/f2/8a/70f28a45-9676-7a8c-7768-b8d9006d9f7b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 51
+        },
+        {
+          "rank": 50,
+          "title": "Toy Blast",
+          "developer": "Peak Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/ba/89/73ba8941-e6f9-6d60-3511-fb012699a8c2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 53
+        },
+        {
+          "rank": 51,
+          "title": "Seaside Escape®: Merge & Story",
+          "developer": "Microfun Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/c1/ba/9fc1bac1-79f5-9917-b04c-edb3545c47ff/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 46
+        },
+        {
+          "rank": 52,
+          "title": "Project Makeover",
+          "developer": "Magic Tavern, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/27/aa/3e/27aa3e03-ffcd-a5a9-7b60-ae575e184e27/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 54
+        },
+        {
+          "rank": 53,
+          "title": "Triple Match 3D",
+          "developer": "Boombox Games LTD",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/63/76/bd/6376bd5c-5dfa-1d87-6b16-6ecc5f1927c2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 4,
+          "status": "up",
+          "yesterdayRank": 57
+        },
+        {
+          "rank": 54,
+          "title": "Puzzles & Survival",
+          "developer": "BUILDING-BLOCKS NETWORK TECHNOLOGY CO.,LIMITED",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/3c/d8/813cd872-6ed8-d986-480a-b572a1af132a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 52
+        },
+        {
+          "rank": 55,
+          "title": "Cash Frenzy™ - Slots Casino",
+          "developer": "SpinX Games Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d4/78/c1/d478c1fa-c930-9a81-81e8-3153dba6323d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 5,
+          "status": "up",
+          "yesterdayRank": 60
+        },
+        {
+          "rank": 56,
+          "title": "Umamusume: Pretty Derby",
+          "developer": "Cygames, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b0/1b/0d/b01b0d0a-3cab-2f1d-267a-06546bcc93e5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -25,
+          "status": "down",
+          "yesterdayRank": 31
+        },
+        {
+          "rank": 57,
+          "title": "X-Clash: Survival Challenge",
+          "developer": "9z Games(HK)",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cc/fb/97/ccfb975a-b53c-296e-8f3c-afa1cdec49f4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 5,
+          "status": "up",
+          "yesterdayRank": 62
+        },
+        {
+          "rank": 58,
+          "title": "Love and Deepspace",
+          "developer": "INFOLD PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/80/8d/5f808d2c-b373-4ec3-84b2-bd2fe168e8c1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 61
+        },
+        {
+          "rank": 59,
+          "title": "Heart of Vegas - Casino Slots",
+          "developer": "Product Madness",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/53/38/5253387d-e82a-6957-efb9-61244fda4e65/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 5,
+          "status": "up",
+          "yesterdayRank": 64
+        },
+        {
+          "rank": 60,
+          "title": "Merge Mansion: Mystery Puzzles",
+          "developer": "Metacore Games Oy",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/9d/17/e89d17e6-2a23-e34e-7679-d894c77f25ef/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 58
+        },
+        {
+          "rank": 61,
+          "title": "Free Fire MAX",
+          "developer": "GARENA INTERNATIONAL I PRIVATE LIMITED",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/58/5d/9d585d57-5f64-b153-6603-9ac569287017/AppIcon-1761076778-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -11,
+          "status": "down",
+          "yesterdayRank": 50
+        },
+        {
+          "rank": 62,
+          "title": "Triple Match City",
+          "developer": "Ferah Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/8b/8b/138b8bf6-8a77-98e2-de82-c806314039c4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -7,
+          "status": "down",
+          "yesterdayRank": 55
+        },
+        {
+          "rank": 63,
+          "title": "Jackpot Magic Slots™ & Casino",
+          "developer": "Big Fish Games, Inc",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/2d/77/702d771d-756b-58af-dfcd-2aaf8b054539/AppIconSept2025-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 5,
+          "status": "up",
+          "yesterdayRank": 68
+        },
+        {
+          "rank": 64,
+          "title": "Bingo Voyage: Live Bingo Games",
+          "developer": "VERTEX GAMES PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f9/a3/df/f9a3df5a-2481-3e8d-5e35-fd03618a630c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 65
+        },
+        {
+          "rank": 65,
+          "title": "88 Fortunes Slots Casino Games",
+          "developer": "Phantom EFX, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/8b/a9/df8ba9ba-064d-330b-537c-65b2a210f5f2/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 66
+        },
+        {
+          "rank": 66,
+          "title": "WSOP Poker: Texas Holdem Game",
+          "developer": "Playtika LTD",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4f/34/fe/4f34fe17-5e16-0bfe-cdc9-825e46274bfb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 69
+        },
+        {
+          "rank": 67,
+          "title": "Matching Story",
+          "developer": "VERTEX GAMES PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/6e/aa/776eaa8e-8c6e-0f4e-4a1d-a0fba904fcc0/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/100x100bb.png",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 70
+        },
+        {
+          "rank": 68,
+          "title": "Match Villains",
+          "developer": "Good Job Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/6a/4f/916a4f2a-fb51-7f47-72fd-722dcafe7c42/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 67
+        },
+        {
+          "rank": 69,
+          "title": "Hay Day",
+          "developer": "Supercell",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/fb/e1/56fbe194-671e-fe6c-8db0-e65e2a5eb42d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -10,
+          "status": "down",
+          "yesterdayRank": 59
+        },
+        {
+          "rank": 70,
+          "title": "Lotsa Slots™ - Vegas Casino",
+          "developer": "SpinX Games Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/3b/f9/603bf9fb-3ffe-2055-1bdb-2cb8bba6f911/LotsaSlots_icon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 4,
+          "status": "up",
+          "yesterdayRank": 74
+        },
+        {
+          "rank": 71,
+          "title": "Dice Dreams™",
+          "developer": "SuperPlay",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cd/46/e3/cd46e320-4be5-43c8-d82d-dd35938c0640/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/100x100bb.png",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 73
+        },
+        {
+          "rank": 72,
+          "title": "Jackpot World™ - Casino Slots",
+          "developer": "SpinX Games Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/43/6b/7d436b91-846a-14da-afa6-e1922808ffbf/dafu-icon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 71
+        },
+        {
+          "rank": 73,
+          "title": "GODDESS OF VICTORY: NIKKE",
+          "developer": "Level Infinite",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/82/fd/c682fdd1-1851-cf63-4306-b7c36e52fecc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 74,
+          "title": "Carnival Tycoon: Coin Games",
+          "developer": "Wild Candle Spin LLC",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bb/1d/81/bb1d8123-eca8-b2bb-b722-a29dcb37cd2c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 7,
+          "status": "up",
+          "yesterdayRank": 81
+        },
+        {
+          "rank": 75,
+          "title": "Flambé: Merge and Cook",
+          "developer": "Microfun Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c3/ef/86/c3ef8620-5ec9-ca5a-3cb2-6bd6d2578d50/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 72
+        },
+        {
+          "rank": 76,
+          "title": "Gold Fish Casino Slots Games",
+          "developer": "Phantom EFX, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d6/48/5d/d6485d85-d78e-aa50-1223-32aeabd8d66b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 7,
+          "status": "up",
+          "yesterdayRank": 83
+        },
+        {
+          "rank": 77,
+          "title": "Solitaire Grand Harvest",
+          "developer": "Supertreat",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dd/81/5d/dd815da2-82f4-2781-e870-b0c69b6ab4e7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -14,
+          "status": "down",
+          "yesterdayRank": 63
+        },
+        {
+          "rank": 78,
+          "title": "Genshin Impact",
+          "developer": "COGNOSPHERE PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/47/b4/c847b425-8ff7-c482-5d95-2f37850184ba/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 75
+        },
+        {
+          "rank": 79,
+          "title": "Domino Dreams™",
+          "developer": "SuperPlay",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9e/ea/c4/9eeac40a-b655-bf26-f258-fae2a3aa8107/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 6,
+          "status": "up",
+          "yesterdayRank": 85
+        },
+        {
+          "rank": 80,
+          "title": "Star Wars™: Galaxy of Heroes",
+          "developer": "Electronic Arts",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8b/4d/52/8b4d52d8-1595-1311-ab93-d2780ef3c543/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 76
+        },
+        {
+          "rank": 81,
+          "title": "Brawl Stars",
+          "developer": "Supercell",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/48/a9/83/48a983b8-ec8d-66fe-0086-55808edd6c9b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 77
+        },
+        {
+          "rank": 82,
+          "title": "8 Ball Pool™",
+          "developer": "Miniclip.com",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/17/c7/c0/17c7c065-f17c-f178-07eb-a2ee3fbe6121/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 16,
+          "status": "up",
+          "yesterdayRank": 98
+        },
+        {
+          "rank": 83,
+          "title": "Design Home™: House Makeover",
+          "developer": "Crowdstar LLC",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/eb/fe/e7/ebfee796-860e-3b57-f3cf-b38d2680100f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": 12,
+          "status": "up",
+          "yesterdayRank": 95
+        },
+        {
+          "rank": 84,
+          "title": "Lands of Jail",
+          "developer": "SINGAPORE JUST GAME TECHNOLOGY PTE.LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/44/36/b3/4436b393-b4e5-14d2-72b3-4594bfc06143/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 6,
+          "status": "up",
+          "yesterdayRank": 90
+        },
+        {
+          "rank": 85,
+          "title": "Color Blaze Shooter",
+          "developer": "AMOBEAR PTE. LTD",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/11/82/9111824f-9a85-45bd-b61f-1eaf2709bb3c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 4,
+          "status": "up",
+          "yesterdayRank": 89
+        },
+        {
+          "rank": 86,
+          "title": "Slotomania™ Slots Machine Game",
+          "developer": "Playtika LTD",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/b5/59/91b55913-be13-ede4-05bf-8100cc96523d/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 86
+        },
+        {
+          "rank": 87,
+          "title": "Yahtzee® with Buddies Dice",
+          "developer": "Scopely, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1a/11/7f/1a117fc1-567a-2329-4bd1-86abb4ad79d7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -8,
+          "status": "down",
+          "yesterdayRank": 79
+        },
+        {
+          "rank": 88,
+          "title": "Minecraft: Dream it, Build it!",
+          "developer": "Mojang",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/1d/a5/811da553-2c84-d89c-9808-f940b065290f/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 84
+        },
+        {
+          "rank": 89,
+          "title": "Fortnite",
+          "developer": "Epic Games Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f9/a0/30/f9a030c2-776c-a658-e6e4-605c9e115647/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+          "change": -9,
+          "status": "down",
+          "yesterdayRank": 80
+        },
+        {
+          "rank": 90,
+          "title": "Truck Star",
+          "developer": "Century Games Pte. Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f0/a4/39/f0a4396e-02bd-0613-f959-56896f0a007f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 87
+        },
+        {
+          "rank": 91,
+          "title": "Solitaire Associations Journey",
+          "developer": "Hitapps Games LTD",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f6/bb/78/f6bb78cd-32b3-5914-a76d-87bb370662ed/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -9,
+          "status": "down",
+          "yesterdayRank": 82
+        },
+        {
+          "rank": 92,
+          "title": "Rise of Kingdoms",
+          "developer": "Lilith Games",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/78/d6/e8/78d6e8ae-8dcc-3fee-9e77-27f6a99a2e8b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 91
+        },
+        {
+          "rank": 93,
+          "title": "Foundation: Galactic Frontier",
+          "developer": "FunPlus International AG",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/24/e4/e0/24e4e092-5e2d-3471-db95-46965b1d1bee/FPX_AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 94,
+          "title": "Top Tycoon: Coin Theme Empire",
+          "developer": "BeheFun Games Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/21/02/97/210297ba-cef3-e54c-f312-42c9378acb72/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 95,
+          "title": "Marvel Contest of Champions",
+          "developer": "Kabam Games, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/af/f1/0e/aff10e17-e62f-7d79-b37a-a86ef04d5441/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 94
+        },
+        {
+          "rank": 96,
+          "title": "Top War: Battle Game",
+          "developer": "River Game HK Limited",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b9/1f/db/b91fdbc5-d919-65e5-81e9-cf2caeae2397/AppIcon-gl-1-0-0-1x_U007emarketing-0-11-0-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 97,
+          "title": "Hunting Sniper",
+          "developer": "SPARKS INFORMATION (SINGAPORE) PTE. LTD.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/fc/a9/aefca923-bdfd-f1e7-f429-7b88e6462a55/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -5,
+          "status": "down",
+          "yesterdayRank": 92
+        },
+        {
+          "rank": 98,
+          "title": "Wordscapes: Word puzzle game",
+          "developer": "PeopleFun, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/c8/d6/07c8d6da-ef23-7f32-c0eb-7f6311e58a33/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 97
+        },
+        {
+          "rank": 99,
+          "title": "DoubleU Casino™ - Vegas Slots",
+          "developer": "DoubleUGames Co., Ltd.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6c/e3/fa/6ce3fa83-e90a-2be0-d28a-9caba8c9e5da/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "new"
+        },
+        {
+          "rank": 100,
+          "title": "Disney Emoji Blitz Game",
+          "developer": "Jam City, Inc.",
+          "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3b/ae/42/3bae420c-d9f6-5d16-300b-97700d0563a8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 100
+        }
+      ],
+      "android": [
+        {
+          "rank": 1,
+          "title": "MONOPOLY GO!",
+          "developer": "Scopely",
+          "icon": "https://play-lh.googleusercontent.com/DfYkSl-nQoMNLX2bec7EwHemrvyDYmDgzIR1jcsyt0ZAcmO_SKjuu0a1o1iSwtnl8_g",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 1
+        },
+        {
+          "rank": 2,
+          "title": "Last War:Survival Game",
+          "developer": "FUNFLY PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/2sOxb_s3uan-AmiF_XRh_K2yqRrmVeuzHAqtYCrwrFP-s1u_FMKo1NtlPz0kdn0qQUH8",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 2
+        },
+        {
+          "rank": 3,
+          "title": "Royal Match",
+          "developer": "Dream Games, Ltd.",
+          "icon": "https://play-lh.googleusercontent.com/qBdVfwRCsI4KM7qewhJ0AKZKQjyD-DdxPDcdDbsRMhNO9zrwbefggn1vGqRIDZA3fg",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 3
+        },
+        {
+          "rank": 4,
+          "title": "Candy Crush Saga",
+          "developer": "King",
+          "icon": "https://play-lh.googleusercontent.com/JvMhIxuwArVmcMReJQB8PIEB1MIQNMGf9j5i914JtkBrHrA55K-nMUIVlYCa7SXAdHtzLtsycEo6NpXeHFxLwvI",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 4
+        },
+        {
+          "rank": 5,
+          "title": "Kingshot",
+          "developer": "Century Games PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/DLovyLDLznCbkDw39T-d9BUXkDbUjO9ne3_eJyA27IcfgIXR2Hmu3HqEDlYxGXnwrp0",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 5
+        },
+        {
+          "rank": 6,
+          "title": "Gossip Harbor: Merge & Story",
+          "developer": "Microfun Limited",
+          "icon": "https://play-lh.googleusercontent.com/Q1Ds2-jYPtIWx_3_EI4ERaTwpYb66QpC2LMGp75-5b9CW9m4sWEEsCy3yfhzzb-J2njWRbSTJHa5WXahWsioPA",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 6
+        },
+        {
+          "rank": 7,
+          "title": "Whiteout Survival",
+          "developer": "Century Games PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/gtcDOls1xCaV_qtRKx3dsk75bNBqel81gWkhK2xvgq5KKHj_71lnZjXYO6He97w0j-U",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 7
+        },
+        {
+          "rank": 8,
+          "title": "Coin Master",
+          "developer": "Moon Active",
+          "icon": "https://play-lh.googleusercontent.com/lja_bcS9SXsaK4x_q0rXuiqf3CIIwfy8QveRWfW5MEaAPOST_auDLuzWMyMUrBzi0sI",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 8
+        },
+        {
+          "rank": 9,
+          "title": "Last Z: Survival Shooter",
+          "developer": "Florere Game",
+          "icon": "https://play-lh.googleusercontent.com/DVXTZpTR02_xoN1kOqnhOOuW9p1LiUHiu_Vw0xjzdu1SswhIbLp3OdV4x6skiarMGcE",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 10
+        },
+        {
+          "rank": 10,
+          "title": "Roblox",
+          "developer": "Roblox Corporation",
+          "icon": "https://play-lh.googleusercontent.com/7cIIPlWm4m7AGqVpEsIfyL-HW4cQla4ucXnfalMft1TMIYQIlf2vqgmthlZgbNAQoaQ",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 9
+        },
+        {
+          "rank": 11,
+          "title": "Royal Kingdom",
+          "developer": "Dream Games, Ltd.",
+          "icon": "https://play-lh.googleusercontent.com/nAAF2bxrD2BeoM1IkUZ6qeRG_QGG_Rekrrh4VYQSMDeRa7FR8sWMWaHClID547XJ3D4",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 11
+        },
+        {
+          "rank": 12,
+          "title": "Evony: The King's Return",
+          "developer": "TG Inc.",
+          "icon": "https://play-lh.googleusercontent.com/-kxC4InQ01s06oRPVdInILaIitVUs5QD4IFGAFeXWTR62gAF-BPJuhXZi_cPvVB13oE",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 14
+        },
+        {
+          "rank": 13,
+          "title": "Township",
+          "developer": "Playrix",
+          "icon": "https://play-lh.googleusercontent.com/87ZWG0h0ohRprr_B-ikfu66EgiL__wNWROk9yW5xl918h0RSzfAjRC4OnIaXhTux_mRW",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 13
+        },
+        {
+          "rank": 14,
+          "title": "Pokémon GO",
+          "developer": "Niantic, Inc.",
+          "icon": "https://play-lh.googleusercontent.com/39hjeqmhsub4abx84Q4CpCQgMN9ktgwDlUWm7_ZusCZYs8EIXwSuz8C9rVL7Fj4FKmRAKVwvI3Cl2IIDTzx80A",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 12
+        },
+        {
+          "rank": 15,
+          "title": "Toon Blast",
+          "developer": "Peak",
+          "icon": "https://play-lh.googleusercontent.com/gtbXJIRh-y3vS3885bqy-4y8noqfzFym7Ep47eoZuZs_6wd5lc4L0_sWp66lMmD7Olw",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 16
+        },
+        {
+          "rank": 16,
+          "title": "Clash Royale",
+          "developer": "Supercell",
+          "icon": "https://play-lh.googleusercontent.com/gnSC6s8-6Tjc4uhvDW7nfrSJxpbhllzYhgX8y374N1LYvWBStn2YhozS9XXaz1T_Pi2q",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 15
+        },
+        {
+          "rank": 17,
+          "title": "Total Battle: War Strategy",
+          "developer": "Scorewarrior",
+          "icon": "https://play-lh.googleusercontent.com/HmkyoZKB0hochxTM9tvCRZVchrZpgF-emtCCbdqJT-7EyA_kAQZaMVQn4zpf3yl7610",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 17
+        },
+        {
+          "rank": 18,
+          "title": "Jackpot Party Casino Slots",
+          "developer": "SciPlay",
+          "icon": "https://play-lh.googleusercontent.com/La3kXNCGYKe586XR2KPfipAssvVEkR4aAJ6ykA2xmwZRmb2Q4fzEh7jzD08D8r5GDg",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 18
+        },
+        {
+          "rank": 19,
+          "title": "Match Factory!",
+          "developer": "Peak",
+          "icon": "https://play-lh.googleusercontent.com/JdkgreDBCOxt7_0eeiVgbwtQkkdWmlWMO9cwAyj6rfVcAM5Z9l99zbg4eoUac5C0Bw",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 19
+        },
+        {
+          "rank": 20,
+          "title": "Bingo Blitz™️ - Bingo Games",
+          "developer": "Playtika Santa Monica",
+          "icon": "https://play-lh.googleusercontent.com/XupA_BxQm8MMW4X1SMnvRfdGZmhZP4twmwyr1H1ISgrN-sROtOw7AG-IwqN_3qYWRkKsH53jq4FG2kQ5YwTMYQ",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 21
+        },
+        {
+          "rank": 21,
+          "title": "Fishdom",
+          "developer": "Playrix",
+          "icon": "https://play-lh.googleusercontent.com/edzeibdlmqt6q5asPDkRgFJOgVaC4BWwHJ8EZqNaFppnGdDZZJFtt1Tpn-dOkWiQwn4",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 22
+        },
+        {
+          "rank": 22,
+          "title": "Candy Crush Soda Saga",
+          "developer": "King",
+          "icon": "https://play-lh.googleusercontent.com/mPwTGuu1it9A7V6e9l6XMhq24sInR7W34Wo2rfvHZYCZUqRBiDpV0775bnubd2Lt4g",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 23
+        },
+        {
+          "rank": 23,
+          "title": "Cashman Casino Slots Games",
+          "developer": "Product Madness",
+          "icon": "https://play-lh.googleusercontent.com/qhQKbM--_y6zJxQYxvcl3N6ri5LiHCRa-bhUebljtM7zeL27cIK-3omrKuBu0GVq7A",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 25
+        },
+        {
+          "rank": 24,
+          "title": "Homescapes",
+          "developer": "Playrix",
+          "icon": "https://play-lh.googleusercontent.com/HWVNuIGO3NfdVBCmw_rQGTfINA7pdoedynIZbC8TcoNKvd-aAkzk7XboE0zDZE0_CF8",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 24
+        },
+        {
+          "rank": 25,
+          "title": "Gardenscapes",
+          "developer": "Playrix",
+          "icon": "https://play-lh.googleusercontent.com/SffnlIy-_lnakKGEko_-Y8qdOpPen3on0kAI_cs_HOLpB8jKz5lh0rUR7MAt1mv6ow",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 26
+        },
+        {
+          "rank": 26,
+          "title": "Lightning Link Casino Slots",
+          "developer": "Product Madness",
+          "icon": "https://play-lh.googleusercontent.com/SLFIzzluF4dl6lkNoxnApRKe-S_rs4QsvbNlO4RnBzuaj1GC4pBPysWILHDVFDIIgUqk5ev1Z8RMjxvZPY581Q",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 27
+        },
+        {
+          "rank": 27,
+          "title": "Clash of Clans",
+          "developer": "Supercell",
+          "icon": "https://play-lh.googleusercontent.com/sFmWfYbYp_2ea7VRMTnwd3gjIBrPGXHj_d_ab1_k1q1p2OMk4riGMF1vqxdhONOtTYOt_BVpk7a4AYcKU68LNGQ",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 28
+        },
+        {
+          "rank": 28,
+          "title": "Umamusume: Pretty Derby",
+          "developer": "Cygames, Inc.",
+          "icon": "https://play-lh.googleusercontent.com/yN6cCSP7UB_2bsvlCxrtv-FUpEt1IvEFwr0Ucb3wr39QsAd5PLsueSVXuCinDbE4rifhMlX4YNtpLpkGnpsLhCQ",
+          "change": 5,
+          "status": "up",
+          "yesterdayRank": 33
+        },
+        {
+          "rank": 29,
+          "title": "Free Fire",
+          "developer": "GARENA INTERNATIONAL I",
+          "icon": "https://play-lh.googleusercontent.com/1wE91ae_1YIJtIjQ1YJz5RhAajxEpF1TfrXGg7tcrKl90MOnF7XdFj71pw_MSQbyhM5PYz-eRdeBFQBzSGrV",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 32
+        },
+        {
+          "rank": 30,
+          "title": "MapleStory : Idle RPG",
+          "developer": "NEXON Company",
+          "icon": "https://play-lh.googleusercontent.com/jV9Qr5SJcdTxjSNM83_T0voYwyFWnErzyM9HsQLopigYZM4unH-_2HRTVLSmJv17OrSW",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 30
+        },
+        {
+          "rank": 31,
+          "title": "Lotsa Slots - Casino Games",
+          "developer": "SpinX Games Limited",
+          "icon": "https://play-lh.googleusercontent.com/KmyLV-wTADD-MB5u8q4C6i9rI3u1fiifQIgXtp2yEtMwPkThLFHArvgPIkF2lqq51OVyGRd2yL3dXMJAdLzA",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 29
+        },
+        {
+          "rank": 32,
+          "title": "Dark War Survival",
+          "developer": "Florere Game",
+          "icon": "https://play-lh.googleusercontent.com/tDRSxFkEK59P1UigJ2u7Yy-QKTG-CiTWbztHzMUmfOEnyhEdX_6ilsqgyauDaDjitw8",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 31
+        },
+        {
+          "rank": 33,
+          "title": "Dice Dreams™️",
+          "developer": "SuperPlay.",
+          "icon": "https://play-lh.googleusercontent.com/UQCV_53arMsb9eFWab-fQfv-IDkAhusUIn8-gflfHUmIIfrXZZoFNhndrc-r3nH_u9FgG1Ns-Vmislt6fiMCuw",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 34
+        },
+        {
+          "rank": 34,
+          "title": "Disney Solitaire",
+          "developer": "SuperPlay.",
+          "icon": "https://play-lh.googleusercontent.com/Y7JLYkjDeoQQiRBs0OzhQKYNzEVGvE8sYWEHRbXXfI_08t8ELF6pH6LHAqkVXow2jg",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 36
+        },
+        {
+          "rank": 35,
+          "title": "Cash Frenzy™ - Casino Slots",
+          "developer": "SpinX Games Limited",
+          "icon": "https://play-lh.googleusercontent.com/NfaHZyqm5tsDnsJtfZb0NuVttSwTpBCVNEWJVrrCw6W_M7b87qjwHF5AonneNEfEzQpyJu1uJzpnYgNOycwd2Q",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 37
+        },
+        {
+          "rank": 36,
+          "title": "Pokémon TCG Pocket - Card Game",
+          "developer": "The Pokémon Company",
+          "icon": "https://play-lh.googleusercontent.com/293sJt2BYM097zkg_merisY5eLb_LFUmpiOIyQBPnMaSsiIP5VsZcKxQ6qXICPYYXvMF_1xKrWPXd49_x0XHCg",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 35
+        },
+        {
+          "rank": 37,
+          "title": "Fate/Grand Order (English)",
+          "developer": "Aniplex Inc.",
+          "icon": "https://play-lh.googleusercontent.com/WRixOqWRZQHfCgFhqfWbjCh6myA4hO4bOPQ_KJJEKrB_G8KZvl0IvNEUmRuxnfx8Tbw",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 39
+        },
+        {
+          "rank": 38,
+          "title": "Travel Town - Merge Adventure",
+          "developer": "Magmatic Games LTD",
+          "icon": "https://play-lh.googleusercontent.com/JUd09-Jkgctks6QibZBPeqnpPA-6A6nMXZqAW9Fa0MKOsolbvGKSXEnuq9nxiKNCFVOT",
+          "change": 5,
+          "status": "up",
+          "yesterdayRank": 43
+        },
+        {
+          "rank": 39,
+          "title": "RAID: Shadow Legends",
+          "developer": "Plarium Global Ltd",
+          "icon": "https://play-lh.googleusercontent.com/jpZN9QMGMvMLCFSQpOczjKBJCX_kBkRPA1JBeV1dQZUbPdcjM823JUZvjAWyKIBmy0-f_rkbjCYINGiVKiblDQ",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 38
+        },
+        {
+          "rank": 40,
+          "title": "Solitaire Grand Harvest",
+          "developer": "Supertreat - A Playtika Studio",
+          "icon": "https://play-lh.googleusercontent.com/OCyA2exo_EWDL8tqp1z1gFpm1jB3hOVfKQWYa5wMXeugEuBaxVY1wvZRMf7inNx707eWlRYc8oNV8qxXPOpW",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 42
+        },
+        {
+          "rank": 41,
+          "title": "Quick Hit Casino Slots Games",
+          "developer": "SciPlay",
+          "icon": "https://play-lh.googleusercontent.com/L1nkm6ma5ubQ0zcWihOG86brcpVpT_N0ZYC17fMxEuVv4KLrRgckbA9ng19q013JeSGM",
+          "change": 4,
+          "status": "up",
+          "yesterdayRank": 45
+        },
+        {
+          "rank": 42,
+          "title": "Puzzles & Survival",
+          "developer": "37GAMES",
+          "icon": "https://play-lh.googleusercontent.com/R4elddbUokdXqE85iyYH972xADECL0iPyaZdhmsWdmVQjYOYzFztFi7kgK11ghtQBfxMDJI2khb4Uj3zYepGMr8",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 44
+        },
+        {
+          "rank": 43,
+          "title": "GODDESS OF VICTORY: NIKKE",
+          "developer": "Level Infinite",
+          "icon": "https://play-lh.googleusercontent.com/JK5mejs0bVT_9613gCxNfCjRw_m3JiQ4wC8B8Kt471yu7ThFQazVkCLTfPZ81hnenft7ilaE-qSwVGpQT6sEFcY",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 46
+        },
+        {
+          "rank": 44,
+          "title": "Love and Deepspace",
+          "developer": "InFold Pte. Ltd.",
+          "icon": "https://play-lh.googleusercontent.com/XX9ZhMxENdDRuuukBcFhuD2aopi5_-ncHLM5aYH20SYl5WINEvQsy1N9JAMWc4ubwQ",
+          "change": -24,
+          "status": "down",
+          "yesterdayRank": 20
+        },
+        {
+          "rank": 45,
+          "title": "Call of Duty®: Mobile",
+          "developer": "Activision Publishing, Inc.",
+          "icon": "https://play-lh.googleusercontent.com/uPRFWFbiASqohiTMTKrD5gErGrKxq_1DgH0npRQcvUEDDLMLTECh3xXl0STPBZZseA",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 41
+        },
+        {
+          "rank": 46,
+          "title": "Matching Story - Puzzle Games",
+          "developer": "VERTEX GAMES PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/sOrAkRyyDofhzgKHmYq2eYOmukn5xrEqdzMbL9UWWhO7XjSqmbNmiprdIUTyhTVA0tE",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 47
+        },
+        {
+          "rank": 47,
+          "title": "All in Hole: Black Hole Games",
+          "developer": "Homa",
+          "icon": "https://play-lh.googleusercontent.com/C9bF6DEb9Ppu-S8M_d6o1n0Wg7p6mwf3_pgGERHPtlt5IoRxH1V0O0bhGhdqliNivGeZ4I8vO51qxeCOu_RzS3o",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 49
+        },
+        {
+          "rank": 48,
+          "title": "Top Heroes: Kingdom Saga",
+          "developer": "RiverGame",
+          "icon": "https://play-lh.googleusercontent.com/kqznLXKk1d8-v3CmRxwhP2mB_L44yeP1m6DgikcN2G0LJOx6Rvvzlaz5KKlGWDA3dw",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 50
+        },
+        {
+          "rank": 49,
+          "title": "Slots: Heart of Vegas Casino",
+          "developer": "Product Madness",
+          "icon": "https://play-lh.googleusercontent.com/HBYMRq6_6vJZkFbrEw3YL9uv3vr8t2eLO2TbjBay2aR8ARY112H9WDbc0S03gsBMKQs",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 51
+        },
+        {
+          "rank": 50,
+          "title": "DoubleDown Casino Vegas Slots",
+          "developer": "DoubleDown Interactive LLC",
+          "icon": "https://play-lh.googleusercontent.com/SI2kHFcNQTEb4soP-nbG6vXMFm_vYDmI2sSF6zbNMYy8D7Gg8WupSUXPsARfG0TtoGg",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 52
+        },
+        {
+          "rank": 51,
+          "title": "PUBG MOBILE",
+          "developer": "Level Infinite",
+          "icon": "https://play-lh.googleusercontent.com/zCSGnBtZk0Lmp1BAbyaZfLktDzHmC6oke67qzz3G1lBegAF2asyt5KzXOJ2PVdHDYkU",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 53
+        },
+        {
+          "rank": 52,
+          "title": "Pixel Flow!",
+          "developer": "Loom Games A.Ş.",
+          "icon": "https://play-lh.googleusercontent.com/FvAiHRhj8Wo1vO_4ez1V8ChSJKAw46dos-FEIkbmNs_wtbDKg0Y9eyVJe1hJn2R-mwyr4_LmWkIGJCHHY74K",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 54
+        },
+        {
+          "rank": 53,
+          "title": "Genshin Impact",
+          "developer": "COGNOSPHERE PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/YQqyKaXX-63krqsfIzUEJWUWLINxcb5tbS6QVySdxbS7eZV7YB2dUjUvX27xA0TIGtfxQ5v-tQjwlT5tTB-O",
+          "change": -13,
+          "status": "down",
+          "yesterdayRank": 40
+        },
+        {
+          "rank": 54,
+          "title": "Chaos Zero Nightmare",
+          "developer": "Smilegate Holdings, Inc",
+          "icon": "https://play-lh.googleusercontent.com/yJ5g076eKZRCthJPCSOWZYu10Vm_zpJvPwLiGfz7yCCRuI8kiU4LeQWiqcjsga0TyA",
+          "change": -6,
+          "status": "down",
+          "yesterdayRank": 48
+        },
+        {
+          "rank": 55,
+          "title": "Puzzles & Chaos: Frozen Castle",
+          "developer": "37GAMES",
+          "icon": "https://play-lh.googleusercontent.com/FuuH9hfYKAc-lNwR2yEJDJdAd6jrDsTyJVUqYAmlvgM1s2aPqXTSqMVER__nk-ghL-aWWMkQnpNHDT0_P05lzg",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 55
+        },
+        {
+          "rank": 56,
+          "title": "Jackpot World™ - Slots Casino",
+          "developer": "SpinX Games Limited",
+          "icon": "https://play-lh.googleusercontent.com/lxn_I6j9KieMQcem5UlzEjTXwxq9683VGdvbG_-vyMXa4KRqrQNqN6wRJElezMSnKqvGhEJ4XG59Lz_3E2MwKA",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 57
+        },
+        {
+          "rank": 57,
+          "title": "Bingo Voyage - Live Bingo Game",
+          "developer": "VERTEX GAMES PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/e4zGTwbMDkRGgmce5ZP_MtIqbvSYa3QtjJFE1dJAypr-SF0NW5jQYwO_peOn5NYR4fnRmTmC0EUlLIgw6XK24g",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 56
+        },
+        {
+          "rank": 58,
+          "title": "POP! Slots™",
+          "developer": "PLAYSTUDIOS US, LLC",
+          "icon": "https://play-lh.googleusercontent.com/sOgKfsizQG7PEKCtk2_lxY8m9qNmPF5gPqeMPiMIGTAYl9Q1qfgs-tOqa6pP5lhwPmQ",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 59
+        },
+        {
+          "rank": 59,
+          "title": "Klondike Adventures: Farm Game",
+          "developer": "VIZOR APPS LTD.",
+          "icon": "https://play-lh.googleusercontent.com/6fseY6E7yAfMlJzi9WBUPL_Pu7Ya9KwhZQl7d__LCYTFUCztUEOBiUbNDJau3TVd9A",
+          "change": 4,
+          "status": "up",
+          "yesterdayRank": 63
+        },
+        {
+          "rank": 60,
+          "title": "June's Journey: Wicked Mystery",
+          "developer": "Wooga",
+          "icon": "https://play-lh.googleusercontent.com/jl8JQ-KyY0V3XiMSaJuPkJu7en9qPb61aRbooJp-cHAuEgWyhKwM073m21_gdc4OIkY",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 58
+        },
+        {
+          "rank": 61,
+          "title": "Merge Dragons!",
+          "developer": "Gram Games Limited",
+          "icon": "https://play-lh.googleusercontent.com/-snOR_8ejpEpq7RvGMcQkanjife1GB7HuRDyuX0qHnn35Z6wY98ZN1n8iELJdGH8c5fD",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 61
+        },
+        {
+          "rank": 62,
+          "title": "Match Villains",
+          "developer": "Good Job Games",
+          "icon": "https://play-lh.googleusercontent.com/SN9LTUH7x1jz5pzyJzvNcoVIGhKWzXmpbODvCU94eDYoaWZJiCIcZZMzw1B3OTmPMuz9",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 65
+        },
+        {
+          "rank": 63,
+          "title": "Hay Day",
+          "developer": "Supercell",
+          "icon": "https://play-lh.googleusercontent.com/JS_D56z98J--k7A4vnzdnLlyNyBPp3tEPDXn8bYZo_goQY5j7GS7bNAcgOIR_2aVBWNJvXoLLEMNxkugEIog2w",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 62
+        },
+        {
+          "rank": 64,
+          "title": "Hunting Sniper",
+          "developer": "Sparks Info",
+          "icon": "https://play-lh.googleusercontent.com/a5REmsdzhlb0RNEGW1ySIYsMM7qQM5BZdy5vGHIWmzQTnzlT9U5RPTj8yuQdC2dPVtLe",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 60
+        },
+        {
+          "rank": 65,
+          "title": "Toy Blast",
+          "developer": "Peak",
+          "icon": "https://play-lh.googleusercontent.com/uzIGk-ZqUpbSdTErg6fr4wagWHmj_ul9Bw7ZtNqZvOqnM6xgdXnqsl8GKg2u9U0Y",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 64
+        },
+        {
+          "rank": 66,
+          "title": "Design Home™: House Makeover",
+          "developer": "Crowdstar Inc",
+          "icon": "https://play-lh.googleusercontent.com/bgLDbrd8N6-TdrDiAmeAHURhbNuFu4_kRK-jFpLOzCgg94bgTVMT2_X_TSlYqg-MLQ",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 67
+        },
+        {
+          "rank": 67,
+          "title": "DRAGON BALL LEGENDS",
+          "developer": "Bandai Namco Entertainment Inc.",
+          "icon": "https://play-lh.googleusercontent.com/QXziP_lyoZTtOxpuk6t5q3sHwVHxaXNHBoi9W1tePiaCycUcJ_jIU4CQ5Ex6bqrz36vPd7Ix8_a6LsAuG1wFEg",
+          "change": 18,
+          "status": "up",
+          "yesterdayRank": 85
+        },
+        {
+          "rank": 68,
+          "title": "Jackpot Master™ Slots - Casino",
+          "developer": "Zeroo Gravity Games",
+          "icon": "https://play-lh.googleusercontent.com/pe8LaCejEjjkZBS_JkyPoOp7qe67FGiuYWD6f3TQP9vlgLg4xjIgSGoR43M0XUHkRQ",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 70
+        },
+        {
+          "rank": 69,
+          "title": "Rise of Castles: Ice and Fire",
+          "developer": "Long Tech Network Limited",
+          "icon": "https://play-lh.googleusercontent.com/32CRjwl_Awbx2OD8_I7-Ew-BVMj_AB-M9YigKvX78Q480mVW9YEhc3GZ5GFU_v9JYg",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 68
+        },
+        {
+          "rank": 70,
+          "title": "Empires & Puzzles: Match-3 RPG",
+          "developer": "Small Giant Games",
+          "icon": "https://play-lh.googleusercontent.com/_72mb6QPgwX_YW3rrWbnLW1snwj9sZPgMqY4UF904FeTSnuwQgIBpZpjD_YdCGkB7ny9OKt01hBnP-mVp5b8",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 71
+        },
+        {
+          "rank": 71,
+          "title": "88 Fortunes Casino Slot Games",
+          "developer": "SciPlay",
+          "icon": "https://play-lh.googleusercontent.com/AyOxy6W3gTrNiqabRHfmDIhyhdNhqxKlieZRRxcKjV5nCLcuFz7u2SoKaiJMYEGeLw",
+          "change": 6,
+          "status": "up",
+          "yesterdayRank": 77
+        },
+        {
+          "rank": 72,
+          "title": "Seaside Escape®: Merge & Story",
+          "developer": "Microfun Limited",
+          "icon": "https://play-lh.googleusercontent.com/PK5f-GGU5pg4zXF1qqD9mmfTzNEMW-R-0c9St918b_JYa_t3879n3FVqXrzKikqf6sewogKia7MMdiUfbi13wA",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 72
+        },
+        {
+          "rank": 73,
+          "title": "Isekai:Slow Life",
+          "developer": "Mars-Games",
+          "icon": "https://play-lh.googleusercontent.com/inblAWVWcD_C8WXgB9hzyd4Ofyi-qALsycwl-EN5NQ8C-uVJtcNQyOG8hVEdqRSX856ypnqgDH3PS0W6gCT8JIs",
+          "change": -4,
+          "status": "down",
+          "yesterdayRank": 69
+        },
+        {
+          "rank": 74,
+          "title": "Slotomania™ Slots Casino Games",
+          "developer": "Playtika",
+          "icon": "https://play-lh.googleusercontent.com/bAkYkSNAWbz8w8sPqUmBHuaeCMCdyTc9Gw-OyMGo1WnsAeTYsf0jeB7blDO4q4Ad85Kj2BxIerLNdw5YdKrSpw",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 73
+        },
+        {
+          "rank": 75,
+          "title": "Big Fish Casino - Slots Games",
+          "developer": "Big Fish Games",
+          "icon": "https://play-lh.googleusercontent.com/sbORgFwc06eiedmu9kTSJKVLatRXKAZ41JoVH80-nQA4vMgMd6pkt7XA3OaYjGYy5og",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 74
+        },
+        {
+          "rank": 76,
+          "title": "Tasty Travels: Merge Game",
+          "developer": "Century Games PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/fHFrNfnjPXU0FmAjQPhAVPJoZoxT-eg9tqiYKDTFTlQ7LITYdXMW1p86R_xkl9rrj7gMO2so6_ZN696O-wZSzw",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 76
+        },
+        {
+          "rank": 77,
+          "title": "Lands of Jail",
+          "developer": "SINGAPORE JUST GAME TECHNOLOGY PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/Yq19UACccqVNqcJz6aUlzYNM6lJBX14OTbsG2aQIqXAxmn4VsgEaqChqiJ0WCSF5ezU",
+          "change": 2,
+          "status": "up",
+          "yesterdayRank": 79
+        },
+        {
+          "rank": 78,
+          "title": "Gold Fish Casino Slot Games",
+          "developer": "SciPlay",
+          "icon": "https://play-lh.googleusercontent.com/RnHI4VAaDNDsRkkYHePqTUM6YMMhk29SLIrQbosT0D4eQzl2R9-lSMi3oTs4Lrv74MY",
+          "change": 3,
+          "status": "up",
+          "yesterdayRank": 81
+        },
+        {
+          "rank": 79,
+          "title": "Star Wars™: Galaxy of Heroes",
+          "developer": "ELECTRONIC ARTS",
+          "icon": "https://play-lh.googleusercontent.com/gHIfGkbGZ5EGdPuwITkv7TSikImcgiYI139GcNFuRsLxDrhiJO0XVwUs2zwCgkX1YgfWbJmf-AbbvSQiL-iqql8",
+          "change": -13,
+          "status": "down",
+          "yesterdayRank": 66
+        },
+        {
+          "rank": 80,
+          "title": "Merge Cooking®",
+          "developer": "Happibits Game",
+          "icon": "https://play-lh.googleusercontent.com/wfp7wbIeEP6WxcJuzm1IoV3wfzNHFyFo7KSQ-DdEYvRp3f55upvnLuiUzJLAAkiVeOlHjTAynQLgc6ZWyedI7w",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 80
+        },
+        {
+          "rank": 81,
+          "title": "DoubleU Casino™ - Vegas Slots",
+          "developer": "DoubleUGames",
+          "icon": "https://play-lh.googleusercontent.com/Ug1wI4BDEYl5M-SVJO-AtUY6HZyZBlVI47QmcXmVsng3jnKg4m7mHomUGI0JA514zZ8",
+          "change": -3,
+          "status": "down",
+          "yesterdayRank": 78
+        },
+        {
+          "rank": 82,
+          "title": "Project Makeover",
+          "developer": "Magic Tavern, Inc.",
+          "icon": "https://play-lh.googleusercontent.com/9MzAkXGiN1S6UyveKMIEoAEFWzqHWRsR_hixFO5Mo7nyF_Yd4lmiC_Q-P-cfs0cS_hoV83RIqd2icQk7DzycJA",
+          "change": -7,
+          "status": "down",
+          "yesterdayRank": 75
+        },
+        {
+          "rank": 83,
+          "title": "Golf Clash - Golfing Simulator",
+          "developer": "ELECTRONIC ARTS",
+          "icon": "https://play-lh.googleusercontent.com/UcvJtrMCHxrlDppjCOp4LqDl-A_eGytrEQrvVfwtje7FprFtzfefwOlV4lNcXCErTQ",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 83
+        },
+        {
+          "rank": 84,
+          "title": "Bingo Frenzy™-Live Bingo Games",
+          "developer": "VERTEX GAMES PTE. LTD.",
+          "icon": "https://play-lh.googleusercontent.com/yUv8v2N5heDd4FUARgVpktEbi7_OU7GmA12NC_AdsMc19qXrJVdS9-JoTglAZ2G6wgFm",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 82
+        },
+        {
+          "rank": 85,
+          "title": "WSOP Poker: Texas Holdem Game",
+          "developer": "Playtika",
+          "icon": "https://play-lh.googleusercontent.com/hdS6_jLJTL1s5J41q8VTab-n4-lidzmJ90cTI2MM7VAGYnpvnOvVzXuDxfen74lXDYc",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 84
+        },
+        {
+          "rank": 86,
+          "title": "Angry Birds 2",
+          "developer": "Rovio Entertainment Oy",
+          "icon": "https://play-lh.googleusercontent.com/AijtYd3ELvSg4ItDkO4NmG-F0PL5qE8AxgNqB-OflSakAiM9ulL5K9k0IOqB16TFJw",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 87
+        },
+        {
+          "rank": 87,
+          "title": "Domino Dreams™",
+          "developer": "SuperPlay.",
+          "icon": "https://play-lh.googleusercontent.com/TZk8KU2pzMlxTEqC4GTEgxv43T1wHwwFLCyHgZrpATgId85ipL8irAoJyOBjMiZEfWI",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 86
+        },
+        {
+          "rank": 88,
+          "title": "Yahtzee® With Buddies Dice Fun",
+          "developer": "Scopely",
+          "icon": "https://play-lh.googleusercontent.com/NekSJag3GNUdq5sDuP3ex91yTrTrF5mhhpQ29zSN8mpeWoTZX6zTKqRnpRRaNhOHL2Nc",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 88
+        },
+        {
+          "rank": 89,
+          "title": "Flambé: Merge & Cook",
+          "developer": "Microfun Limited",
+          "icon": "https://play-lh.googleusercontent.com/8uvhpjgJrUUMYYLCVWQnZMhHCR7V4PlDLF8QTktHaSmuyQgIhIrrnpLOyDBPSv0c2F7ZC6yLfwEUw4zX_1vJ",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 89
+        },
+        {
+          "rank": 90,
+          "title": "Wizard of Oz Slots Games",
+          "developer": "Zynga",
+          "icon": "https://play-lh.googleusercontent.com/gE3XoQ5ove0UWhDoZMG6WzFFeLZ2ptZsdzQVKGSySKG8RErfOubQrN9vERBvQVWsIhY",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 90
+        },
+        {
+          "rank": 91,
+          "title": "Cash Club Casino - Vegas Slots",
+          "developer": "SpinX Games Limited",
+          "icon": "https://play-lh.googleusercontent.com/jgGP-RT-MMJmYSH3tgcIzeux2aGC0gkj2kt6Hq2M7J_i0gOIRzpH6N9gnAWsa-dO8GHYEx4IOSv3j-y6IwXA",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 91
+        },
+        {
+          "rank": 92,
+          "title": "Triple Match 3D",
+          "developer": "Boombox Games LTD",
+          "icon": "https://play-lh.googleusercontent.com/Aoy0oz6uytHijNFegFMvy79flsZOEMTDGh08i2onZxom87smWdi_RN-GiuUiZSyiRvQ",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 93
+        },
+        {
+          "rank": 93,
+          "title": "MARVEL Strike Force: Squad RPG",
+          "developer": "Scopely",
+          "icon": "https://play-lh.googleusercontent.com/AI9bcRd6c_QXUriLEr-z03oqA72psQqGkUbYj7xVae8fh3V7u9dxd5u7oQFoSMwlZWQar3p0T3qmpoQIbHhhbQ8",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 92
+        },
+        {
+          "rank": 94,
+          "title": "Age of Origins",
+          "developer": "CamelStudio",
+          "icon": "https://play-lh.googleusercontent.com/9ukZRcWLrmzI1MHUb_PqkwoOuyjRvk4WxuZauGCLvx_Q1bptD6hYmQi2AG3apZSZQ8o",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 94
+        },
+        {
+          "rank": 95,
+          "title": "Hero Wars: Alliance",
+          "developer": "NEXTERS GLOBAL LTD",
+          "icon": "https://play-lh.googleusercontent.com/7r41Y4bivv_CCD0M1-oJFOS1Cg8-RGyLW9FgOJ_0nBYDZZtUeWciOM2zi8Ml4PKD0GQI",
+          "change": 11,
+          "status": "up",
+          "yesterdayRank": 106
+        },
+        {
+          "rank": 96,
+          "title": "Family Island™ — Farming game",
+          "developer": "Melsoft Games Ltd",
+          "icon": "https://play-lh.googleusercontent.com/ur8yumIOT3tkzY-LtP7J-Kwhrq2txcCQxvuNsPNLNDUqBJz1Q354HReLDzx6_RKXqII",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 95
+        },
+        {
+          "rank": 97,
+          "title": "Piggy Kingdom",
+          "developer": "olleyo",
+          "icon": "https://play-lh.googleusercontent.com/slgDq7BzHDcwRFSFYGBNLfFdXP5ON7xhNc1Cb_5CD_8ohe6XnMlryC9yI2JW0Bt2KOCY",
+          "change": 0,
+          "status": "same",
+          "yesterdayRank": 97
+        },
+        {
+          "rank": 98,
+          "title": "Tiki Solitaire TriPeaks",
+          "developer": "Scopely",
+          "icon": "https://play-lh.googleusercontent.com/DbVdcGtKRqDAA4tPKspN6kOU54YUeEz8vejq1Uk-ikC433_hGv3WMyeNYUYA8D2mjZw",
+          "change": -2,
+          "status": "down",
+          "yesterdayRank": 96
+        },
+        {
+          "rank": 99,
+          "title": "Color Block Jam",
+          "developer": "Rollic Games",
+          "icon": "https://play-lh.googleusercontent.com/Koz2jyyBbDPKU7Zylv49NM1d4NWsMcPlQDihGIiQzj1aROkEqs7HEDb6ScmnTidJSTiNCxHRvgHNcr0upRdxmP8",
+          "change": -1,
+          "status": "down",
+          "yesterdayRank": 98
+        },
+        {
+          "rank": 100,
+          "title": "House of Fun™ - Casino Slots",
+          "developer": "Playtika UK – House of Fun Limited",
+          "icon": "https://play-lh.googleusercontent.com/e7d-oVlASYo6kahH_ThUUk-0rCkWv2KlOXr71-XnJfI9w22-mLrGh4Kw6g3X4JwTUg",
+          "change": 1,
+          "status": "up",
+          "yesterdayRank": 101
+        }
+      ]
+    }
+  },
+  "steam": [
+    {
+      "rank": 1,
+      "name": "Counter-Strike 2",
+      "ccu": 1382636,
+      "ccuChange": -28741,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1749053861"
+    },
+    {
+      "rank": 2,
+      "name": "Dota 2",
+      "ccu": 823842,
+      "ccuChange": 29496,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg?t=1762820658"
+    },
+    {
+      "rank": 3,
+      "name": "PUBG: BATTLEGROUNDS",
+      "ccu": 652106,
+      "ccuChange": 155,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/841ea38bc58cabb70aef65365cf50bc2d79329d9/header.jpg?t=1764817633"
+    },
+    {
+      "rank": 4,
+      "name": "Apex Legends",
+      "ccu": 171282,
+      "ccuChange": 2858,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/6ae90b012e725a93622c3694d9d866b886cfd0f8/header.jpg?t=1762457261"
+    },
+    {
+      "rank": 5,
+      "name": "Warframe",
+      "ccu": 150132,
+      "ccuChange": 65791,
+      "change": 11,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/230410/64cb9deaae9055003fd76ba0f6df6b6fba38e808/header.jpg?t=1765384569"
+    },
+    {
+      "rank": 6,
+      "name": "Delta Force",
+      "ccu": 146070,
+      "ccuChange": -3247,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2507950/567c1f329500f1f5d62274db5359235b4b5df05f/header_koreana.jpg?t=1764036796"
+    },
+    {
+      "rank": 7,
+      "name": "ARC Raiders",
+      "ccu": 140952,
+      "ccuChange": -4099,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1808500/04baafaf64a5aa5f46ecda5d71889a4848dc0628/header.jpg?t=1765441443"
+    },
+    {
+      "rank": 8,
+      "name": "Grand Theft Auto V Enhanced",
+      "ccu": 130706,
+      "ccuChange": -21265,
+      "change": -3,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3240220/header_koreana.jpg?t=1753974947"
+    },
+    {
+      "rank": 9,
+      "name": "Wallpaper Engine",
+      "ccu": 125180,
+      "ccuChange": 514,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/431960/header.jpg?t=1739211362"
+    },
+    {
+      "rank": 10,
+      "name": "Where Winds Meet",
+      "ccu": 118579,
+      "ccuChange": -7965,
+      "change": -2,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3564740/57c4616f97e270b88a947ea18682c27af9ae3874/header_koreana.jpg?t=1765434865"
+    },
+    {
+      "rank": 11,
+      "name": "Bongo Cat",
+      "ccu": 112772,
+      "ccuChange": -1682,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/2e6c93c020fe13d09d8120bb9164ed7cb58f00c5/header.jpg?t=1759317272"
+    },
+    {
+      "rank": 12,
+      "name": "Rust",
+      "ccu": 110808,
+      "ccuChange": 2814,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1761667247"
+    },
+    {
+      "rank": 13,
+      "name": "Grand Theft Auto V Legacy",
+      "ccu": 105703,
+      "ccuChange": 3534,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg?t=1765387725"
+    },
+    {
+      "rank": 14,
+      "name": "NARAKA: BLADEPOINT",
+      "ccu": 100725,
+      "ccuChange": 2799,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1203220/88af3d60e508fe02f03e771ad5c8021f728a2126/header.jpg?t=1762333104"
+    },
+    {
+      "rank": 15,
+      "name": "Battlefield™ 6",
+      "ccu": 87873,
+      "ccuChange": -2608,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg?t=1764700003"
+    },
+    {
+      "rank": 16,
+      "name": "ELDEN RING NIGHTREIGN",
+      "ccu": 78207,
+      "ccuChange": -2831,
+      "change": 1,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2622380/header.jpg?t=1764808750"
+    },
+    {
+      "rank": 17,
+      "name": "Team Fortress 2",
+      "ccu": 77155,
+      "ccuChange": 30667,
+      "change": 7,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/440/header.jpg?t=1757348372"
+    },
+    {
+      "rank": 18,
+      "name": "Banana",
+      "ccu": 71551,
+      "ccuChange": -19835,
+      "change": -4,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2923300/6d550eab6dcbc01a824763edbafa9e439e625d5e/header.jpg?t=1748551280"
+    },
+    {
+      "rank": 19,
+      "name": "Stardew Valley",
+      "ccu": 71231,
+      "ccuChange": -999,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg?t=1754692865"
+    },
+    {
+      "rank": 20,
+      "name": "War Thunder",
+      "ccu": 68859,
+      "ccuChange": 474,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/236390/13cc34351236cea7e7021700ed7b11ea7dfd5c27/header.jpg?t=1765279032"
+    },
+    {
+      "rank": 21,
+      "name": "Spacewar",
+      "ccu": 59231,
+      "ccuChange": -1031,
+      "change": -1,
+      "status": "down",
+      "image": "https://cdn.cloudflare.steamstatic.com/store/home/store_home_share.jpg"
+    },
+    {
+      "rank": 22,
+      "name": "Mount & Blade II: Bannerlord",
+      "ccu": 49050,
+      "ccuChange": -750,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/261550/header.jpg?t=1764252300"
+    },
+    {
+      "rank": 23,
+      "name": "Marvel Rivals",
+      "ccu": 47607,
+      "ccuChange": -7,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2767030/cf47274846d9c06c7d5711206f1bcb3dfdd0e6b4/header.jpg?t=1763125674"
+    },
+    {
+      "rank": 24,
+      "name": "Cyberpunk 2077",
+      "ccu": 46657,
+      "ccuChange": 1220,
+      "change": 2,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/26b96fa9c8af43189cbecbbc329ade29d9c9cf3e/header_koreana.jpg?t=1765462213"
+    },
+    {
+      "rank": 25,
+      "name": "EA SPORTS FC™ 26",
+      "ccu": 45734,
+      "ccuChange": 2295,
+      "change": 3,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3405690/2d96aa1b06e453cd62dae9029d412f19e61932c3/header.jpg?t=1761904811"
+    },
+    {
+      "rank": 26,
+      "name": "Dead by Daylight",
+      "ccu": 45292,
+      "ccuChange": -3255,
+      "change": -4,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/381210/header.jpg?t=1760636583"
+    },
+    {
+      "rank": 27,
+      "name": "Red Dead Redemption 2",
+      "ccu": 44342,
+      "ccuChange": -953,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1759502961"
+    },
+    {
+      "rank": 28,
+      "name": "VRChat",
+      "ccu": 43875,
+      "ccuChange": -2101,
+      "change": -3,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/438100/header.jpg?t=1762366454"
+    },
+    {
+      "rank": 29,
+      "name": "Hearts of Iron IV",
+      "ccu": 43838,
+      "ccuChange": 521,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/394360/b6175c3b47c31216c05a647ccddc6d970c514547/header_alt_assets_7_koreana.jpg?t=1765368663"
+    },
+    {
+      "rank": 30,
+      "name": "Geometry Dash",
+      "ccu": 43404,
+      "ccuChange": 359,
+      "change": 1,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322170/header.jpg?t=1703006148"
+    },
+    {
+      "rank": 31,
+      "name": "Don't Starve Together",
+      "ccu": 42742,
+      "ccuChange": -404,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/f0620dadd4666d8fe9e588cfbaba5fbaea4722b5/header.jpg?t=1763659146"
+    },
+    {
+      "rank": 32,
+      "name": "Crosshair X",
+      "ccu": 42594,
+      "ccuChange": 700,
+      "change": 1,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366800/22e1a703a4d8f45c900741b53a4f933862798a10/header.jpg?t=1762922873"
+    },
+    {
+      "rank": 33,
+      "name": "Euro Truck Simulator 2",
+      "ccu": 41215,
+      "ccuChange": -390,
+      "change": 1,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/227300/9a81dc3126c56637297b654f9dcac057cfd79b77/header.jpg?t=1764266628"
+    },
+    {
+      "rank": 34,
+      "name": "Total War: WARHAMMER III",
+      "ccu": 41117,
+      "ccuChange": -426,
+      "change": 1,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1142710/header.jpg?t=1764870033"
+    },
+    {
+      "rank": 35,
+      "name": "Football Manager 26",
+      "ccu": 40295,
+      "ccuChange": -58,
+      "change": 1,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3551340/7d28b9aa8dcfcd96593d112736f58b4b1d3cc7a4/header.jpg?t=1765209613"
+    },
+    {
+      "rank": 36,
+      "name": "Call of Duty®",
+      "ccu": 40147,
+      "ccuChange": -2470,
+      "change": -4,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1938090/3c66561c9d6f46605a9134b2bb43c0f4424332ac/header_koreana.jpg?t=1764957566"
+    },
+    {
+      "rank": 37,
+      "name": "Limbus Company",
+      "ccu": 39658,
+      "ccuChange": 10856,
+      "change": 12,
+      "status": "up",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1973530/header.jpg?t=1747619569"
+    },
+    {
+      "rank": 38,
+      "name": "Palworld",
+      "ccu": 38817,
+      "ccuChange": -70,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1764860671"
+    },
+    {
+      "rank": 39,
+      "name": "Tom Clancy's Rainbow Six® Siege X",
+      "ccu": 38244,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/a44da932284b846468bccbaaac94c7b5a1881325/header_alt_assets_16.jpg?t=1764699162"
+    },
+    {
+      "rank": 40,
+      "name": "HELLDIVERS™ 2",
+      "ccu": 36732,
+      "ccuChange": -1792,
+      "change": -2,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553850/e44c8446a27906044109e8835c31980cfb9dc17c/header_koreana.jpg?t=1763568660"
+    },
+    {
+      "rank": 41,
+      "name": "Hunt: Showdown 1896",
+      "ccu": 36601,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/594650/ef9b50c6b1f0fce958146dcbb7659236ccd9d748/header_alt_assets_22.jpg?t=1765463489"
+    },
+    {
+      "rank": 42,
+      "name": "Baldur's Gate 3",
+      "ccu": 35844,
+      "ccuChange": -252,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg?t=1759825106"
+    },
+    {
+      "rank": 43,
+      "name": "Sid Meier's Civilization VI",
+      "ccu": 34566,
+      "ccuChange": 808,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/header.jpg?t=1740607040"
+    },
+    {
+      "rank": 44,
+      "name": "tModLoader",
+      "ccu": 34333,
+      "ccuChange": -645,
+      "change": -2,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281930/header.jpg?t=1718143594"
+    },
+    {
+      "rank": 45,
+      "name": "Overwatch® 2",
+      "ccu": 33901,
+      "ccuChange": -2830,
+      "change": -5,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2357570/d503d7c3b87bc386c8fdc8f0af3837a7554516e2/header_alt_assets_18_koreana.jpg?t=1765309875"
+    },
+    {
+      "rank": 46,
+      "name": "DayZ",
+      "ccu": 32584,
+      "ccuChange": -218,
+      "change": -1,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221100/header.jpg?t=1764581773"
+    },
+    {
+      "rank": 47,
+      "name": "Escape from Tarkov",
+      "ccu": 32380,
+      "ccuChange": -439,
+      "change": -3,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3932890/e1367f10d469137a2ced522b642a9b1ee10450da/header.jpg?t=1764759405"
+    },
+    {
+      "rank": 48,
+      "name": "Street Fighter™ 6",
+      "ccu": 31654,
+      "ccuChange": 438,
+      "change": -2,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/header.jpg?t=1761116384"
+    },
+    {
+      "rank": 49,
+      "name": "Escape from Duckov 逃离鸭科夫",
+      "ccu": 28885,
+      "ccuChange": -2093,
+      "change": -2,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3167020/header.jpg?t=1764328964"
+    },
+    {
+      "rank": 50,
+      "name": "R.E.P.O.",
+      "ccu": 28461,
+      "ccuChange": -425,
+      "change": -2,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3241660/1ea445e044a2d5b09cfa8291350b63ebed6e5741/header.jpg?t=1764662990"
+    },
+    {
+      "rank": 51,
+      "name": "The Witcher 3: Wild Hunt",
+      "ccu": 27243,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1765462356"
+    },
+    {
+      "rank": 52,
+      "name": "Terraria",
+      "ccu": 27226,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg?t=1731252354"
+    },
+    {
+      "rank": 53,
+      "name": "ELDEN RING",
+      "ccu": 26631,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1748630546"
+    },
+    {
+      "rank": 54,
+      "name": "Yu-Gi-Oh!  Master Duel",
+      "ccu": 25733,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1449850/9204e3438e97166506a9605c05052d02b24087a1/header.jpg?t=1762309929"
+    },
+    {
+      "rank": 55,
+      "name": "Destiny 2",
+      "ccu": 25500,
+      "ccuChange": -2761,
+      "change": -5,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1085660/header_koreana.jpg?t=1765390226"
+    },
+    {
+      "rank": 56,
+      "name": "RimWorld",
+      "ccu": 25483,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/header.jpg?t=1762524275"
+    },
+    {
+      "rank": 57,
+      "name": "OBS Studio",
+      "ccu": 24977,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1905180/header.jpg?t=1733595297"
+    },
+    {
+      "rank": 58,
+      "name": "PAYDAY 2",
+      "ccu": 24878,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/218620/header.jpg?t=1765284091"
+    },
+    {
+      "rank": 59,
+      "name": "NBA 2K26",
+      "ccu": 23646,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3472040/21edd260352a3a5a8aac0e340091d94c87a01287/header_alt_assets_1.jpg?t=1764346316"
+    },
+    {
+      "rank": 60,
+      "name": "Project Zomboid",
+      "ccu": 23213,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/header.jpg?t=1762369969"
+    },
+    {
+      "rank": 61,
+      "name": "7 Days to Die",
+      "ccu": 23164,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/251570/header.jpg?t=1756397337"
+    },
+    {
+      "rank": 62,
+      "name": "ARK: Survival Evolved",
+      "ccu": 22934,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/346110/header.jpg?t=1763080281"
+    },
+    {
+      "rank": 63,
+      "name": "BeamNG.drive",
+      "ccu": 22789,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284160/17f8af1312bc48e6cd90e5fb639d4981682af260/header.jpg?t=1765365731"
+    },
+    {
+      "rank": 64,
+      "name": "eFootball™",
+      "ccu": 22478,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1665460/e1a5c0d1e401706421594deb14fed5e16c7830cd/header.jpg?t=1764835984"
+    },
+    {
+      "rank": 65,
+      "name": "Farming Simulator 25",
+      "ccu": 22243,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2300320/c2a205133d23cd24faf3c152d972a1d0177661b8/header.jpg?t=1764249746"
+    },
+    {
+      "rank": 66,
+      "name": "The Sims™ 4",
+      "ccu": 22101,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222670/header.jpg?t=1764871419"
+    },
+    {
+      "rank": 67,
+      "name": "Left 4 Dead 2",
+      "ccu": 22059,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/header.jpg?t=1745368562"
+    },
+    {
+      "rank": 68,
+      "name": "Monster Hunter Wilds",
+      "ccu": 21510,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2246340/header.jpg?t=1765334071"
+    },
+    {
+      "rank": 69,
+      "name": "Monster Hunter: World",
+      "ccu": 20998,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582010/header.jpg?t=1758246558"
+    },
+    {
+      "rank": 70,
+      "name": "The Elder Scrolls V: Skyrim Special Edition",
+      "ccu": 20733,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778"
+    },
+    {
+      "rank": 71,
+      "name": "Arena Breakout: Infinite",
+      "ccu": 20662,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073620/1b60ef4c79943bfca0b57c39c2d1e3d5941c77ed/header.jpg?t=1765423453"
+    },
+    {
+      "rank": 72,
+      "name": "Slay the Spire",
+      "ccu": 20434,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg?t=1764833720"
+    },
+    {
+      "rank": 73,
+      "name": "PEAK",
+      "ccu": 20232,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3527290/31bac6b2eccf09b368f5e95ce510bae2baf3cfcd/header.jpg?t=1764003551"
+    },
+    {
+      "rank": 74,
+      "name": "Eternal Return",
+      "ccu": 20210,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049590/498a7f1fb5a340503ec32612ed232b2a3e392a45/header.jpg?t=1762996107"
+    },
+    {
+      "rank": 75,
+      "name": "Forza Horizon 5",
+      "ccu": 19786,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1746471508"
+    },
+    {
+      "rank": 76,
+      "name": "Football Manager 2024",
+      "ccu": 19757,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2252570/header.jpg?t=1763646323"
+    },
+    {
+      "rank": 77,
+      "name": "The Binding of Isaac: Rebirth",
+      "ccu": 19589,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250900/header.jpg?t=1731977365"
+    },
+    {
+      "rank": 78,
+      "name": "Europa Universalis V",
+      "ccu": 19065,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3450310/9944293cf93d5c11430d3b69941221b614c3ea70/header.jpg?t=1762296010"
+    },
+    {
+      "rank": 79,
+      "name": "Russian Fishing 4",
+      "ccu": 18934,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/766570/header.jpg?t=1752656375"
+    },
+    {
+      "rank": 80,
+      "name": "VTube Studio",
+      "ccu": 18780,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1325860/header.jpg?t=1750309780"
+    },
+    {
+      "rank": 81,
+      "name": "It Takes Two",
+      "ccu": 18771,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/header_koreana.jpg?t=1763484491"
+    },
+    {
+      "rank": 82,
+      "name": "INAZUMA ELEVEN: Victory Road",
+      "ccu": 18671,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2799860/d7e5240b6182e4a085a365503b22aefd2e6ae6cf/header.jpg?t=1764296831"
+    },
+    {
+      "rank": 83,
+      "name": "Counter-Strike: Source",
+      "ccu": 18294,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240/header.jpg?t=1745368575"
+    },
+    {
+      "rank": 84,
+      "name": "Warhammer 40,000: Darktide",
+      "ccu": 18167,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1361210/e84f66c5a077d7c2ba192638c6cbcb90a8260649/header_alt_assets_19.jpg?t=1765362596"
+    },
+    {
+      "rank": 85,
+      "name": "Crusader Kings III",
+      "ccu": 18115,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/header.jpg?t=1765194528"
+    },
+    {
+      "rank": 86,
+      "name": "Garry's Mod",
+      "ccu": 17991,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1764757984"
+    },
+    {
+      "rank": 87,
+      "name": "Once Human",
+      "ccu": 17899,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2139460/63d7a679bb70f90838ac48a5e9ddf99bb60e3c8c/header_alt_assets_0.jpg?t=1765447253"
+    },
+    {
+      "rank": 88,
+      "name": "Kingdom Come: Deliverance II",
+      "ccu": 17308,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1771300/header.jpg?t=1763987645"
+    },
+    {
+      "rank": 89,
+      "name": "IdleOn - The Idle RPG",
+      "ccu": 17291,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1476970/header_koreana.jpg?t=1764696801"
+    },
+    {
+      "rank": 90,
+      "name": "Age of Empires II: Definitive Edition",
+      "ccu": 17230,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813780/header.jpg?t=1760473253"
+    },
+    {
+      "rank": 91,
+      "name": "STALCRAFT: X",
+      "ccu": 17210,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1818450/ccf3256432afacaa1778d228251d3cc97ce3d659/header.jpg?t=1765456020"
+    },
+    {
+      "rank": 92,
+      "name": "ARK: Survival Ascended",
+      "ccu": 16693,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/d934813ca531af0fce69fe36bc972f1c90d1aa19/header.jpg?t=1764880598"
+    },
+    {
+      "rank": 93,
+      "name": "Black Myth: Wukong",
+      "ccu": 16517,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg?t=1760601605"
+    },
+    {
+      "rank": 94,
+      "name": "Satisfactory",
+      "ccu": 16362,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/header.jpg?t=1749717464"
+    },
+    {
+      "rank": 95,
+      "name": "Hollow Knight: Silksong",
+      "ccu": 16318,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/7983574d464e6559ac7e24275727f73a8bcca1f3/header.jpg?t=1764916587"
+    },
+    {
+      "rank": 96,
+      "name": "World of Warships",
+      "ccu": 16090,
+      "ccuChange": -21727,
+      "change": -57,
+      "status": "down",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552990/ac7b926dde8748e62e4f156bc9cdbb47c0ac83e8/header.jpg?t=1764353059"
+    },
+    {
+      "rank": 97,
+      "name": "Enshrouded",
+      "ccu": 16082,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1203620/7b462e81072e94d96cb4242a75f8adddd9ec1cbd/header.jpg?t=1765290696"
+    },
+    {
+      "rank": 98,
+      "name": "The Outlast Trials",
+      "ccu": 16081,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1304930/e3b40443eb87d075818ec45883d85c1c47d15c00/header.jpg?t=1765291876"
+    },
+    {
+      "rank": 99,
+      "name": "EA SPORTS FC 25",
+      "ccu": 15936,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2669320/ec3fb7747fd8080ef53d7686e0d98c5abe1f51f1/header.jpg?t=1752681627"
+    },
+    {
+      "rank": 100,
+      "name": "Goose Goose Duck",
+      "ccu": 15553,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "new",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1568590/header.jpg?t=1750955551"
+    }
+  ],
+  "news": [
+    {
+      "source": "inven",
+      "title": "한화생명, T1과 명승부 끝에 2:1 승리",
+      "link": "https://www.inven.co.kr/webzine/news/?news=312050&hotnews=1",
+      "thumbnail": "https://static.inven.co.kr/column/2025/12/11/news/thumb/s1107710430.jpg"
+    },
+    {
+      "source": "inven",
+      "title": "5주년 사펑2077의 현실판 '키로시 아이'? XR 안경 발표",
+      "link": "https://www.inven.co.kr/webzine/news/?news=312048&hotnews=1",
+      "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1202797436.jpg"
+    },
+    {
+      "source": "ruliweb",
+      "title": "주식회사 포켓몬 ‘포켓몬 카드 게임 Pocket’, 테마 확장팩 ‘홍련 블레이즈’ 17일(수) 출시",
+      "link": "https://bbs.ruliweb.com/news/read/219162",
+      "thumbnail": "//img.ruliweb.com/data/news/tn/25/12/11/19b0d91de50_ebgqhd.avif"
+    },
+    {
+      "source": "ruliweb",
+      "title": "스토리즈 3 최신 정보와 와일즈 업데이트 및 최적화 계획 - 몬스터헌터 쇼케이스",
+      "link": "https://bbs.ruliweb.com/news/read/219161",
+      "thumbnail": "//img.ruliweb.com/data/news/tn/25/12/11/19b0c9c4c32_jwzums.avif"
+    },
+    {
+      "source": "gamemeca",
+      "title": "‘어린아이들의 GTA’ 워블리 라이프, 영화 나온다",
+      "link": "https://www.gamemeca.com/view.php?gid=1769094",
+      "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/769/094/resize_gm298154_5454544.jpg"
+    }
+  ],
+  "community": [
+    {
+      "source": "ruliweb",
+      "title": "파워팩. 그리드 스타트의 퍼포먼스를 높여보자.",
+      "link": "https://bbs.ruliweb.com/best/board/100585/read/9408462?m=game",
+      "channel": "그란 투리스모 7"
+    },
+    {
+      "source": "ruliweb",
+      "title": "옥토0 플래티넘 달성~~",
+      "link": "https://bbs.ruliweb.com/best/board/184783/read/5101?m=game",
+      "channel": ""
+    },
+    {
+      "source": "arca",
+      "title": "아 순간 대가리에 10초간 무량공처 맞음",
+      "link": "https://arca.live/b/live/156478466?p=1",
+      "channel": "장르소설"
+    },
+    {
+      "source": "arca",
+      "title": "드론 1종 합격!!!!!!!!",
+      "link": "https://arca.live/b/live/156460198?p=1",
+      "channel": "휴식"
+    },
+    {
+      "source": "dcinside",
+      "title": "요즘 축의금 물가 웬만하면 기본 10만원부터 시작하는 듯 ㄷㄷ",
+      "link": "https://gall.dcinside.com/board/view/?id=dcbest&no=387764&_dcbest=1&page=1",
+      "channel": "유갤"
+    }
+  ],
+  "ai": {
+    "date": "2025-12-12",
+    "headline": "GTA 6 개발사 대량 해고, 영국 정치권까지 논쟁 확산",
+    "summary": "해외 대작 개발 현장의 구조조정 논란이 정치권까지 번지며 산업 리스크가 부각됐어요. 국내에서는 아이온2 운영 이슈와 KeSPA CUP 명승부가 커뮤니티 열기를 끌어올렸고, 크래프톤 신작 티저도 관심을 끌었어요.",
+    "issues": [
+      {
+        "tag": "글로벌",
+        "title": "GTA 6 개발사 해고, 정치권 논쟁으로 확대",
+        "desc": "락스타의 대규모 감원 여파가 영국 총리 발언까지 이어졌어요. 대작 개발의 노동 환경과 일정 관리 문제가 다시 도마에 올랐습니다."
+      },
+      {
+        "tag": "e스포츠",
+        "title": "KeSPA CUP에서 HLE, T1 꺾고 기세 올려",
+        "desc": "HLE가 T1과의 접전 끝에 2:1로 승리를 거뒀어요. 연말 LoL 대회 판도가 한층 뜨거워지고 있습니다."
+      },
+      {
+        "tag": "기술",
+        "title": "사이버펑크2077 XR 안경으로 게임 몰입 확장",
+        "desc": "사이버펑크2077 5주년을 맞아 XR 안경이 공개됐어요. 게임 IP가 하드웨어 경험으로 확장되는 흐름이 눈에 띕니다."
+      },
+      {
+        "tag": "신작",
+        "title": "PUBG: 블랙 버짓, 클로즈 알파 티저 공개",
+        "desc": "배그 세계관을 배경으로 한 익스트랙션 슈터가 클로즈 알파를 예고했어요. 기존 배그 팬과 슈터 유저 모두 주목하고 있습니다."
+      },
+      {
+        "tag": "콘솔",
+        "title": "블랙옵스 7, 무료 체험으로 반등 노려",
+        "desc": "흥행 부진을 인정하며 다음 주부터 무료 체험을 진행해요. 라이브 서비스 FPS의 유지 전략이 시험대에 올랐습니다."
+      }
+    ],
+    "industryIssues": [
+      {
+        "tag": "엔씨소프트",
+        "title": "아이온2 매크로 대응, 운영 신뢰가 관건",
+        "desc": "12/9 라이브에서 매크로와 불법 프로그램에 강경 제재 및 법적 대응을 밝혔어요. 초기 흥행 이후 운영 신뢰 회복이 핵심 과제입니다."
+      },
+      {
+        "tag": "크래프톤",
+        "title": "PUBG IP 확장, 신작 라인업 속도 올려",
+        "desc": "블랙 버짓 티저로 PUBG 브랜드의 장르 확장이 본격화됐어요. 글로벌 슈터 경쟁에서 한국 IP 존재감이 커지고 있습니다."
+      }
+    ],
+    "metrics": [
+      {
+        "tag": "매출",
+        "title": "모바일 매출 상위권, 양대 마켓 흐름 일치",
+        "desc": "iOS와 Android 매출 TOP3가 동일해 플랫폼별 과금 흐름이 맞물렸어요. 국내 IP와 해외 생존 전략 게임이 함께 상위권을 형성했습니다."
+      },
+      {
+        "tag": "동접",
+        "title": "스팀 동접, 장수 라이브 게임들 강세",
+        "desc": "Dota 2와 Warframe이 상위권을 지키며 장기 서비스의 힘을 보여줬어요. 신작 Where Winds Meet도 10만 동접대로 주목받고 있습니다."
+      }
+    ],
+    "rankings": [
+      {
+        "tag": "급상승",
+        "title": "스텔라 소라",
+        "prevRank": 102,
+        "rank": 64,
+        "change": 38,
+        "platform": "Android",
+        "desc": "요스타가 감성 판타지 RPG를 글로벌 동시 출시하며 유입이 늘었어요. 출시 이벤트와 랭킹 보상이 순위 상승을 이끌었습니다."
+      },
+      {
+        "tag": "급상승",
+        "title": "스타세이비어",
+        "prevRank": 77,
+        "rank": 55,
+        "change": 22,
+        "platform": "iOS",
+        "desc": "12/11 정식 출시 직후 서브컬처 팬덤이 몰렸어요. 데모와 개선 노트 공개로 기대감이 한층 높아졌습니다."
+      },
+      {
+        "tag": "급상승",
+        "title": "명조:워더링 웨이브",
+        "prevRank": 27,
+        "rank": 9,
+        "change": 18,
+        "platform": "iOS",
+        "desc": "반올림피자 콜라보와 팝업, 트럭 이벤트가 화제였어요. 한정 보상과 오프라인 홍보가 과금과 복귀를 자극했습니다."
+      },
+      {
+        "tag": "급하락",
+        "title": "페이트/그랜드 오더",
+        "prevRank": 71,
+        "rank": 99,
+        "change": -28,
+        "platform": "iOS",
+        "desc": "AGF 2025와 8주년 라이브 연계 열기가 지나며 지표가 식었어요. 대형 픽업 공백이 매출 순위 하락으로 이어졌습니다."
+      }
+    ],
+    "community": [
+      {
+        "tag": "아이온2",
+        "title": "매크로 제재와 경제 조정 두고 찬반 갈려",
+        "desc": "인벤에서는 매크로 강경 대응과 재화 회수 공지를 두고 의견이 갈렸어요. 운영 투명성을 요구하는 글도 늘어나고 있습니다."
+      },
+      {
+        "tag": "리그 오브 레전드",
+        "title": "HLE vs T1 패배 원인 분석이 뜨거워요",
+        "desc": "디시 인기글에서 1세트 밴픽과 교전 판단을 장문으로 해석했어요. 팀 리빌딩과 선수 폼을 두고 토론이 이어지고 있습니다."
+      },
+      {
+        "tag": "PUBG: 블랙 버짓",
+        "title": "익스트랙션 결합에 기대감 고조",
+        "desc": "티저 공개 후 '배그식 전투+탈출 구조'에 대한 추측과 비교가 활발해요. 알파 참여 방법을 묻는 글도 많습니다."
+      },
+      {
+        "tag": "전우치 키우기",
+        "title": "설화 테마 방치형으로 입소문 확산 중",
+        "desc": "iOS 인기 1위에 오르며 커뮤니티에서 초반 성장 팁이 공유되고 있어요. 전우치와 도술 연출이 신선하다는 반응이 많습니다."
+      }
+    ],
+    "streaming": [
+      {
+        "tag": "유튜브",
+        "title": "KeSPA CUP 하이라이트 조회수 급상승",
+        "desc": "HLE vs T1 하이라이트가 급상승하며 LoL 대회 관심이 다시 살아났어요. 경기 분석과 리액션 영상도 함께 늘고 있습니다."
+      },
+      {
+        "tag": "치지직",
+        "title": "TGA GOTY 토론과 디아4 시즌11 방송 인기",
+        "desc": "치지직에서는 게임 어워드 결과 토론과 디아4 시즌11 파밍 방송이 인기예요. 연말 '이야기형' 잡담 스트림이 강세입니다."
+      }
+    ],
+    "stocks": [
+      {
+        "name": "크래프톤(259960)",
+        "comment": "PUBG: 블랙 버짓 알파 티저로 기대감 상승"
+      },
+      {
+        "name": "엔씨소프트(036570)",
+        "comment": "아이온2 운영 이슈가 주가 변동성 자극"
+      }
+    ],
+    "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/769/094/resize_gm298154_5454544.jpg"
+  },
+  "aiGeneratedAt": "2025-12-12T01:56:25.155Z",
+  "stockMap": {
+    "시프트업": "462870",
+    "크래프톤": "259960",
+    "넷마블": "251270",
+    "모비릭스": "348030",
+    "엔씨소프트": "036570",
+    "티쓰리": "204610",
+    "미투온": "201490",
+    "컴투스홀딩스": "063080",
+    "한빛소프트": "047080",
+    "고스트스튜디오": "950190",
+    "더블유게임즈": "192080",
+    "밸로프": "331520",
+    "펄어비스": "263750",
+    "네오위즈": "095660",
+    "드래곤플라이": "030350",
+    "팡스카이": "266350",
+    "엠게임": "058630",
+    "아이톡시": "052770",
+    "액토즈소프트": "052790",
+    "위메이드맥스": "101730",
+    "네오위즈홀딩스": "042420",
+    "컴투스": "078340",
+    "웹젠": "069080",
+    "넥슨게임즈": "225570",
+    "플레이위드": "023770",
+    "썸에이지": "208640",
+    "위메이드": "112040",
+    "카카오게임즈": "293490",
+    "위메이드플레이": "123420",
+    "넵튠": "217270",
+    "데브시스터즈": "194480",
+    "넥써쓰": "205500",
+    "조이시티": "067000",
+    "네오리진": "094860"
+  },
+  "stockPrices": {
+    "259960": {
+      "date": "2025.12.12",
+      "price": 245500,
+      "change": 4000,
+      "changePercent": 1.66,
+      "high": 242500,
+      "low": 247500,
+      "volume": 242500
+    },
+    "036570": {
+      "date": "2025.12.12",
+      "price": 194900,
+      "change": 1800,
+      "changePercent": 0.93,
+      "high": 194400,
+      "low": 197700,
+      "volume": 194300
+    }
+  }
+}

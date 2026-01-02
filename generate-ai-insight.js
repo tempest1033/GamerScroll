@@ -9,7 +9,7 @@ const fs = require('fs');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { generateAIInsight } = require('./src/insights/ai-insight');
-const { loadHistory, getYesterdayDate, getCurrentPeriod } = require('./src/insights/daily');
+const { loadHistory, getYesterdayDate } = require('./src/insights/daily');
 const { fetchStockPrices } = require('./src/crawlers/stocks');
 
 const CACHE_FILE = './data-cache.json';
@@ -50,31 +50,18 @@ function loadRecentInsights(count = 3) {
 }
 
 /**
- * reports/{date}-{AM|PM}.json에서 어제 순위 데이터 로드
- * 같은 시간대(AM/PM)끼리 비교 - AM은 어제 AM, PM은 어제 PM
+ * reports/{date}.json에서 어제 순위 데이터 로드
  * @param {string} date - YYYY-MM-DD 형식
- * @param {string} period - AM 또는 PM
  * @returns {Object|null} rankings 데이터 또는 null
  */
-function loadYesterdayRankingsFromReports(date, period) {
-  // 같은 시간대 우선, 없으면 레거시 시도
-  const candidates = [
-    `${REPORTS_DIR}/${date}-${period}.json`,  // 같은 시간대 우선
-    `${REPORTS_DIR}/${date}.json`  // 레거시 호환
-  ];
+function loadYesterdayRankingsFromReports(date) {
+  const reportFile = `${REPORTS_DIR}/${date}.json`;
 
-  let reportFile = null;
-  for (const file of candidates) {
-    if (fs.existsSync(file)) {
-      reportFile = file;
-      console.log(`📂 reports 로드: ${file}`);
-      break;
-    }
-  }
-
-  if (!reportFile) {
+  if (!fs.existsSync(reportFile)) {
     return null;
   }
+
+  console.log(`📂 reports 로드: ${reportFile}`);
 
   try {
     const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
@@ -103,16 +90,6 @@ function getTodayDate() {
   return kst.toISOString().split('T')[0];
 }
 
-/**
- * 현재 KST 시간 기준 AM/PM 반환
- * @returns {string} 'AM' 또는 'PM'
- */
-function getAmPm() {
-  const now = new Date();
-  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-  const hour = kst.getUTCHours();
-  return hour < 12 ? 'AM' : 'PM';
-}
 
 /**
  * 순위 변동 데이터를 AI 인사이트용 형식으로 변환
@@ -211,30 +188,27 @@ async function main() {
   };
 
   // 어제 데이터 로드 및 순위 변동 분석
-  // AM은 어제 AM, PM은 어제 PM과 비교 (같은 시간대끼리)
   // 1. history/ 폴더에서 시도 (로컬 빌드용)
   // 2. reports/ 폴더에서 시도 (GitHub Actions용)
   const yesterday = getYesterdayDate();
-  const period = getCurrentPeriod();
-  console.log(`🕐 현재 시간대: ${period} - 어제 ${period} 데이터와 비교`);
 
-  let yesterdayRankings = loadHistory(yesterday, period)?.rankings;
+  let yesterdayRankings = loadHistory(yesterday)?.rankings;
 
   if (!yesterdayRankings) {
     console.log('📂 history/ 없음 - reports/에서 어제 데이터 로드 시도...');
-    yesterdayRankings = loadYesterdayRankingsFromReports(yesterday, period);
+    yesterdayRankings = loadYesterdayRankingsFromReports(yesterday);
   }
 
   let rankingChanges = null;
 
   if (yesterdayRankings) {
-    console.log(`📊 어제 ${period} 데이터 로드 완료 (${yesterday}) - 순위 변동 분석 중...`);
+    console.log(`📊 어제 데이터 로드 완료 (${yesterday}) - 순위 변동 분석 중...`);
     rankingChanges = buildRankingChanges(cache.rankings, yesterdayRankings);
     console.log(`  - 급상승: ${rankingChanges.up.length}개`);
     console.log(`  - 급하락: ${rankingChanges.down.length}개`);
     console.log(`  - 신규진입: ${rankingChanges.new.length}개\n`);
   } else {
-    console.log(`⚠️ 어제 ${period} 데이터 없음 (${yesterday}-${period}) - 순위 변동 분석 건너뜀\n`);
+    console.log(`⚠️ 어제 데이터 없음 (${yesterday}) - 순위 변동 분석 건너뜀\n`);
   }
 
   // 최근 3일 인사이트 로드 (반복 방지용)
@@ -295,8 +269,7 @@ async function main() {
   }
 
   const today = getTodayDate();
-  const amPm = getAmPm();
-  const insightJsonFile = `${REPORTS_DIR}/${today}-${amPm}.json`;
+  const insightJsonFile = `${REPORTS_DIR}/${today}.json`;
 
   // 기존 인사이트 로드 (있으면)
   let insight = {};

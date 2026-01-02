@@ -81,20 +81,25 @@ function generateSteamPage(data) {
       <div class="page-wrapper">
         ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">스팀 순위</h1>
-        <div class="steam-controls">
-        <div class="tab-group" id="steamTab">
-          <button class="tab-btn steam-btn active" data-steam="mostplayed"><img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">최다 플레이</button>
-          <button class="tab-btn steam-btn" data-steam="topsellers"><img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">최고 판매</button>
+        <div class="steam-card home-card">
+          <div class="home-card-header">
+            <h2 class="home-card-title">스팀 순위</h2>
+            <div class="home-card-controls">
+              <div class="tab-group" id="steamTab">
+                <button class="tab-btn steam-btn active" data-steam="topsellers">매출</button>
+                <button class="tab-btn steam-btn" data-steam="mostplayed">인기</button>
+              </div>
+            </div>
+          </div>
+          <div class="home-card-body">
+            <div class="steam-section active" id="steam-topsellers">
+              ${generateTopSellersTable()}
+            </div>
+            <div class="steam-section" id="steam-mostplayed">
+              ${generateMostPlayedTable()}
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="steam-section active" id="steam-mostplayed">
-        ${generateMostPlayedTable()}
-      </div>
-
-      <div class="steam-section" id="steam-topsellers">
-        ${generateTopSellersTable()}
-      </div>
       </div>
     </section>
   `;

@@ -39,7 +39,7 @@ function generateMetacriticPage(data) {
     return `
       <div class="metacritic-card-container">
         <div class="metacritic-header">
-          <div class="metacritic-title">${year}년 메타크리틱 TOP 30</div>
+          <h2 class="metacritic-title">${year}년 메타크리틱 TOP 30</h2>
         </div>
         <div class="metacritic-grid">${gameCards}</div>
       </div>

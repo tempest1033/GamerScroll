@@ -7,78 +7,98 @@ const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layou
 function generateNewsPage(data) {
   const { news } = data;
 
-  // 뉴스 아이템 생성
-  function generateNewsItems(items, sourceName) {
-    if (!items || items.length === 0) {
-      return '<div class="no-data">뉴스를 불러올 수 없습니다</div>';
-    }
-    return items.map((item, i) => `
-      <a class="news-item clickable" href="${item.link}" target="_blank" rel="noopener">
-        <span class="news-num">${i + 1}</span>
-        <div class="news-content">
-          <span class="news-title">${item.title}</span>
-          <div class="news-tags"><span class="community-tag source-tag">${sourceName}</span></div>
-        </div>
-      </a>
-    `).join('');
-  }
+  // 뉴스 소스 정보
+  const newsSources = [
+    { key: 'thisisgame', name: '디스이즈게임', domain: 'thisisgame.com', url: 'https://www.thisisgame.com/webzine/news/nboard/4/' },
+    { key: 'gamemeca', name: '게임메카', domain: 'gamemeca.com', url: 'https://www.gamemeca.com/news.php' },
+    { key: 'ruliweb', name: '루리웹', domain: 'ruliweb.com', url: 'https://bbs.ruliweb.com/news' },
+    { key: 'inven', name: '인벤', domain: 'inven.co.kr', url: 'https://www.inven.co.kr/webzine/news/' }
+  ];
 
-  const invenNewsHTML = generateNewsItems(news?.inven, '인벤');
-  const thisisgameNewsHTML = generateNewsItems(news?.thisisgame, '디스이즈게임');
-  const gamemecaNewsHTML = generateNewsItems(news?.gamemeca, '게임메카');
-  const ruliwebNewsHTML = generateNewsItems(news?.ruliweb, '루리웹');
+  // 뉴스 섹션 생성 (좌우 2열, 각 열에 카드 2개 좌우 + 리스트 3개)
+  function generateNewsSection(source) {
+    const items = news?.[source.key] || [];
+    if (items.length === 0) {
+      return `
+        <div class="home-card news-section-card" data-section="${source.key}">
+          <div class="home-card-header">
+            <h2 class="home-card-title">${source.name}</h2>
+          </div>
+          <div class="home-card-body">
+            <div class="news-empty">뉴스를 불러올 수 없습니다</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 컬럼 생성 함수 (카드 2개 좌우 + 리스트 3개)
+    function generateColumn(columnItems) {
+      const cards = columnItems.slice(0, 2);
+      const listItems = columnItems.slice(2, 5);
+
+      const cardsHTML = cards.map((item, i) => `
+        <a class="news-grid-card" href="${item.link}" target="_blank" rel="noopener" data-index="${item.originalIndex}">
+          <div class="news-grid-card-thumb">
+            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">` : ''}
+            <div class="news-thumb-fallback"><img src="/favicon.svg" alt="" width="48" height="48"></div>
+          </div>
+          <div class="news-grid-card-title">${item.title}</div>
+        </a>
+      `).join('');
+
+      const listHTML = listItems.map((item, i) => `
+        <a class="news-grid-item" href="${item.link}" target="_blank" rel="noopener" data-index="${item.originalIndex}">
+          <span class="news-grid-item-title">${item.title}</span>
+        </a>
+      `).join('');
+
+      return `
+        <div class="news-column">
+          <div class="news-cards-row">${cardsHTML}</div>
+          <div class="news-list-col">${listHTML}</div>
+        </div>
+      `;
+    }
+
+    // 전체 아이템에 원본 인덱스 추가
+    const indexedItems = items.map((item, i) => ({ ...item, originalIndex: i }));
+
+    // 모든 컬럼 HTML 생성 (10개씩 2열)
+    const allColumnsHTML = [];
+    for (let i = 0; i < indexedItems.length; i += 5) {
+      const columnItems = indexedItems.slice(i, i + 5);
+      if (columnItems.length > 0) {
+        allColumnsHTML.push(generateColumn(columnItems));
+      }
+    }
+
+    return `
+      <div class="home-card news-section-card" data-section="${source.key}">
+        <div class="home-card-header">
+          <h2 class="home-card-title">${source.name}</h2>
+          <div class="gm-pagination">
+            <button class="gm-page-btn news-prev" aria-label="이전">‹</button>
+            <span class="gm-page-index">1/1</span>
+            <button class="gm-page-btn news-next" aria-label="다음">›</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="news-grid-container">
+            ${allColumnsHTML.join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }
 
   const content = `
     <section class="section active" id="news">
       <div class="page-wrapper">
         ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">게임 뉴스</h1>
-        <div class="news-controls">
-        <div class="control-group">
-          <div class="tab-group" id="newsTab">
-            <button class="tab-btn active" data-news="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
-            <button class="tab-btn" data-news="thisisgame"><img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">디스이즈게임</button>
-            <button class="tab-btn" data-news="gamemeca"><img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">게임메카</button>
-            <button class="tab-btn" data-news="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">루리웹</button>
-          </div>
+        <div class="news-sources-grid">
+          ${newsSources.map(source => generateNewsSection(source)).join('')}
         </div>
-      </div>
-      <div class="news-card">
-        <div class="news-container">
-          <div class="news-panel active" id="news-inven">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
-              <h2 class="news-panel-title">인벤</h2>
-              <a href="https://www.inven.co.kr/webzine/news/" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${invenNewsHTML}</div>
-          </div>
-          <div class="news-panel" id="news-thisisgame">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="" class="news-favicon">
-              <h2 class="news-panel-title">디스이즈게임</h2>
-              <a href="https://www.thisisgame.com/webzine/news/nboard/4/" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${thisisgameNewsHTML}</div>
-          </div>
-          <div class="news-panel" id="news-gamemeca">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="" class="news-favicon">
-              <h2 class="news-panel-title">게임메카</h2>
-              <a href="https://www.gamemeca.com/news.php" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${gamemecaNewsHTML}</div>
-          </div>
-          <div class="news-panel" id="news-ruliweb">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
-              <h2 class="news-panel-title">루리웹</h2>
-              <a href="https://bbs.ruliweb.com/news" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${ruliwebNewsHTML}</div>
-          </div>
-        </div>
-      </div>
       </div>
     </section>
   `;
@@ -99,29 +119,47 @@ function generateNewsPage(data) {
     if (typeof twemoji !== 'undefined') {
       twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
     }
-    // 뉴스 탭 - 선택한 패널부터 순서대로 배치
-    const newsTab = document.getElementById('newsTab');
-    const newsTypes = ['inven', 'thisisgame', 'gamemeca', 'ruliweb'];
-    newsTab?.addEventListener('click', (e) => {
-      const btn = e.target.closest('.tab-btn');
-      if (!btn) return;
-      const selectedType = btn.dataset.news;
-      const selectedIndex = newsTypes.indexOf(selectedType);
 
-      // 탭 버튼 active 토글
-      newsTab.querySelectorAll('.tab-btn').forEach((b, i) => {
-        b.classList.toggle('active', i === selectedIndex);
-      });
+    // 각 뉴스 섹션별 페이지네이션 (컬럼 1개씩)
+    (function() {
+      document.querySelectorAll('.news-section-card').forEach(section => {
+        const prevBtn = section.querySelector('.news-prev');
+        const nextBtn = section.querySelector('.news-next');
+        const pageIndex = section.querySelector('.gm-page-index');
+        const columns = section.querySelectorAll('.news-column');
 
-      // 패널 active 토글 + order 설정 (선택한 패널부터 순서대로)
-      newsTypes.forEach((type, i) => {
-        const panel = document.getElementById('news-' + type);
-        if (panel) {
-          panel.classList.toggle('active', type === selectedType);
-          panel.style.order = (i - selectedIndex + newsTypes.length) % newsTypes.length;
+        if (!columns.length) return;
+
+        let currentPage = 0;
+        const totalPages = columns.length;
+
+        function updatePagination() {
+          columns.forEach((col, i) => {
+            col.style.display = (i === currentPage) ? '' : 'none';
+          });
+
+          pageIndex.textContent = (currentPage + 1) + '/' + totalPages;
+          prevBtn.disabled = currentPage <= 0;
+          nextBtn.disabled = currentPage >= totalPages - 1;
         }
+
+        prevBtn.addEventListener('click', () => {
+          if (currentPage > 0) {
+            currentPage--;
+            updatePagination();
+          }
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (currentPage < totalPages - 1) {
+            currentPage++;
+            updatePagination();
+          }
+        });
+
+        updatePagination();
       });
-    });
+    })();
   </script>`;
 
   return wrapWithLayout(content, {

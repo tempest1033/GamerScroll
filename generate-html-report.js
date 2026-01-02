@@ -39,7 +39,8 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage } = require('./src/templates/pages/trend');
+const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendsHubPage } = require('./src/templates/pages/trends-hub');
 const { generateNewsPage } = require('./src/templates/pages/news');
 const { generateCommunityPage } = require('./src/templates/pages/community');
 const { generateYoutubePage } = require('./src/templates/pages/youtube');
@@ -65,42 +66,44 @@ const {
 const { generateAIInsight } = require('./src/insights/ai-insight');
 
 /**
- * 현재 KST 시간 기준 AM/PM 반환
- * @returns {string} 'AM' 또는 'PM'
- */
-function getAmPm() {
-  const now = new Date();
-  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-  const hour = kst.getUTCHours();
-  return hour < 12 ? 'AM' : 'PM';
-}
-
-/**
- * AM/PM 기반으로 인사이트 JSON 파일 경로 찾기
+ * 인사이트 JSON 파일 경로 찾기 (날짜 검증 포함)
  * @param {string} today - YYYY-MM-DD 형식 날짜
  * @returns {string|null} 존재하는 파일 경로 또는 null
  */
 function findInsightJsonFile(today) {
-  const currentAmPm = getAmPm();
-  const otherAmPm = currentAmPm === 'AM' ? 'PM' : 'AM';
-  const yesterday = getYesterdayDate();
+  if (!fs.existsSync(REPORTS_DIR)) {
+    console.log('⚠️ reports 디렉토리 없음');
+    return null;
+  }
 
-  // 우선순위: 오늘 현재 시간대 > 오늘 다른 시간대 > 오늘 레거시 > 어제 PM > 어제 AM > 어제 레거시
-  const candidates = [
-    `${REPORTS_DIR}/${today}-${currentAmPm}.json`,
-    `${REPORTS_DIR}/${today}-${otherAmPm}.json`,
-    `${REPORTS_DIR}/${today}.json`,
-    `${REPORTS_DIR}/${yesterday}-PM.json`,
-    `${REPORTS_DIR}/${yesterday}-AM.json`,
-    `${REPORTS_DIR}/${yesterday}.json`
-  ];
+  // 모든 일간 리포트 파일을 최신순으로 정렬
+  const allFiles = fs.readdirSync(REPORTS_DIR)
+    .filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .sort()
+    .reverse();
 
-  for (let i = 0; i < candidates.length; i++) {
-    if (fs.existsSync(candidates[i])) {
-      if (i >= 3) {
-        console.log(`📂 오늘 인사이트 없음 → 어제 폴백: ${candidates[i].split('/').pop()}`);
+  for (const file of allFiles) {
+    const filePath = `${REPORTS_DIR}/${file}`;
+
+    // 파일 내용의 AI 날짜가 파일명 날짜와 일치하는지 검증
+    try {
+      const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const fileDate = file.replace('.json', '');
+      const aiDate = content.ai?.date || '';
+
+      if (aiDate && fileDate !== aiDate) {
+        console.log(`⚠️ 날짜 불일치로 스킵: ${file} (파일: ${fileDate}, AI: ${aiDate})`);
+        continue;
       }
-      return candidates[i];
+
+      // 유효한 파일 발견
+      if (fileDate !== today) {
+        console.log(`📂 오늘 인사이트 없음 → 폴백: ${file}`);
+      }
+      return filePath;
+    } catch (e) {
+      console.log(`⚠️ 파일 검증 실패: ${file} - ${e.message}`);
+      continue;
     }
   }
 
@@ -301,6 +304,11 @@ async function main() {
   const insightJsonFile = findInsightJsonFile(today);
   if (loadAIInsightFromFile(insightJsonFile, insight)) {
     console.log(`📂 AI 인사이트 로드 완료 (${insightJsonFile.split('/').pop()})`);
+    // 파일명에서 날짜 추출하여 저장 (링크 생성용)
+    const fileMatch = insightJsonFile.match(/(\d{4}-\d{2}-\d{2})\.json$/);
+    if (fileMatch) {
+      insight.insightDate = fileMatch[1];
+    }
   }
 
   // 주간 인사이트 로드 (별도 스크립트로 생성됨)
@@ -352,7 +360,6 @@ async function main() {
 
   const pages = [
     { filename: 'index.html', generator: (d) => generateIndexPage({ ...d, popularGames: popularGamesData.games || [], games: gamesData }) },
-    { filename: 'trend.html', generator: generateTrendPage },
     { filename: 'news.html', generator: generateNewsPage },
     { filename: 'community.html', generator: generateCommunityPage },
     { filename: 'youtube.html', generator: generateYoutubePage },
@@ -383,13 +390,187 @@ async function main() {
   // CSS 파일 복사
   fs.copyFileSync('./src/styles.css', './styles.css');
 
+  // ============================================
+  // 트렌드 리포트 페이지 생성 (목록 + 상세)
+  // ============================================
+  console.log('\n📊 트렌드 리포트 페이지 생성 중...');
+
+  // 1. 일간 리포트 JSON 스캔
+  const dailyReports = [];
+  if (fs.existsSync(REPORTS_DIR)) {
+    const files = fs.readdirSync(REPORTS_DIR);
+    const dailyJsonFiles = files.filter(f => /^\d{4}-\d{2}-\d{2}(-[AP]M)?\.json$/.test(f));
+
+    for (const file of dailyJsonFiles) {
+      try {
+        const filePath = `${REPORTS_DIR}/${file}`;
+        const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        if (content.ai) {
+          const slug = file.replace('.json', '');
+          const dateMatch = slug.match(/^(\d{4}-\d{2}-\d{2})/);
+          const fileDate = dateMatch ? dateMatch[1] : slug;
+          const aiDate = content.ai.date || '';
+
+          // 파일 날짜와 AI 인사이트 날짜가 불일치하면 스킵
+          if (aiDate && fileDate !== aiDate) {
+            console.warn(`  ⚠️ 날짜 불일치로 스킵: ${file} (파일: ${fileDate}, AI: ${aiDate})`);
+            continue;
+          }
+
+          dailyReports.push({
+            slug,
+            date: fileDate,
+            headline: content.ai.headline || '',
+            summary: content.ai.summary || '',
+            thumbnail: content.ai.thumbnail || '',
+            issues: content.ai.issues || [],
+            insight: content
+          });
+        }
+      } catch (e) {
+        console.warn(`  ⚠️ 일간 리포트 로드 실패: ${file}`);
+      }
+    }
+    // 날짜 내림차순 정렬
+    dailyReports.sort((a, b) => b.slug.localeCompare(a.slug));
+  }
+
+  // 2. 주간 리포트 JSON 스캔
+  const weeklyReports = [];
+  if (fs.existsSync(WEEKLY_REPORTS_DIR)) {
+    const files = fs.readdirSync(WEEKLY_REPORTS_DIR);
+    const weeklyJsonFiles = files.filter(f => /^\d{4}-W\d{2}\.json$/.test(f));
+
+    for (const file of weeklyJsonFiles) {
+      try {
+        const filePath = `${WEEKLY_REPORTS_DIR}/${file}`;
+        const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        if (content.ai) {
+          const slug = file.replace('.json', '');
+          const wInfo = content.weekInfo || {};
+          weeklyReports.push({
+            slug,
+            year: wInfo.startDate?.slice(0, 4) || slug.slice(0, 4),
+            weekNumber: wInfo.weekNumber || content.ai.weekNumber || parseInt(slug.match(/W(\d+)/)?.[1] || '0'),
+            startDate: wInfo.startDate || '',
+            endDate: wInfo.endDate || '',
+            headline: content.ai.headline || '',
+            summary: content.ai.summary || '',
+            thumbnail: content.ai.thumbnail || '',
+            issues: content.ai.issues || [],
+            weeklyInsight: content
+          });
+        }
+      } catch (e) {
+        console.warn(`  ⚠️ 주간 리포트 로드 실패: ${file}`);
+      }
+    }
+    // 주차 내림차순 정렬
+    weeklyReports.sort((a, b) => b.slug.localeCompare(a.slug));
+  }
+
+  console.log(`  📅 일간 리포트: ${dailyReports.length}개`);
+  console.log(`  📊 주간 리포트: ${weeklyReports.length}개`);
+
+  // 3. 목록 페이지 생성 (trends/index.html)
+  const trendsDir = './trend';
+  if (!fs.existsSync(trendsDir)) {
+    fs.mkdirSync(trendsDir, { recursive: true });
+  }
+
+  try {
+    const hubHtml = generateTrendsHubPage({
+      dailyReports: dailyReports.map(r => ({
+        date: r.date,
+        headline: r.headline,
+        summary: r.summary,
+        thumbnail: r.thumbnail,
+        issues: r.issues
+      })),
+      weeklyReports: weeklyReports.map(r => ({
+        weekNumber: r.weekNumber,
+        year: r.year,
+        startDate: r.startDate,
+        endDate: r.endDate,
+        headline: r.headline,
+        summary: r.summary,
+        thumbnail: r.thumbnail,
+        issues: r.issues
+      }))
+    });
+    fs.writeFileSync(`${trendsDir}/index.html`, hubHtml, 'utf8');
+    console.log(`  ✅ trend/index.html`);
+  } catch (err) {
+    console.error(`  ❌ trend/index.html: ${err.message}`);
+  }
+
+  // 4. 일간 상세 페이지 생성 (trend/daily/{slug}/index.html)
+  const dailyDir = `${trendsDir}/daily`;
+  if (!fs.existsSync(dailyDir)) {
+    fs.mkdirSync(dailyDir, { recursive: true });
+  }
+
+  for (let i = 0; i < dailyReports.length; i++) {
+    const report = dailyReports[i];
+    const pageDir = `${dailyDir}/${report.slug}`;
+    if (!fs.existsSync(pageDir)) {
+      fs.mkdirSync(pageDir, { recursive: true });
+    }
+
+    try {
+      const nav = {
+        prev: dailyReports[i + 1]?.slug || null,
+        next: dailyReports[i - 1]?.slug || null
+      };
+      const html = generateDailyDetailPage({
+        insight: report.insight,
+        slug: report.slug,
+        nav
+      });
+      fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+    } catch (err) {
+      console.error(`  ❌ trend/daily/${report.slug}: ${err.message}`);
+    }
+  }
+  console.log(`  ✅ 일간 상세 페이지 ${dailyReports.length}개 생성`);
+
+  // 5. 주간 상세 페이지 생성 (trend/weekly/{slug}/index.html)
+  const weeklyDir = `${trendsDir}/weekly`;
+  if (!fs.existsSync(weeklyDir)) {
+    fs.mkdirSync(weeklyDir, { recursive: true });
+  }
+
+  for (let i = 0; i < weeklyReports.length; i++) {
+    const report = weeklyReports[i];
+    const pageDir = `${weeklyDir}/${report.slug}`;
+    if (!fs.existsSync(pageDir)) {
+      fs.mkdirSync(pageDir, { recursive: true });
+    }
+
+    try {
+      const nav = {
+        prev: weeklyReports[i + 1]?.slug || null,
+        next: weeklyReports[i - 1]?.slug || null
+      };
+      const html = generateWeeklyDetailPage({
+        weeklyInsight: report.weeklyInsight,
+        slug: report.slug,
+        nav
+      });
+      fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+    } catch (err) {
+      console.error(`  ❌ trend/weekly/${report.slug}: ${err.message}`);
+    }
+  }
+  console.log(`  ✅ 주간 상세 페이지 ${weeklyReports.length}개 생성`);
+
   // docs 폴더 동기화 (로컬 개발 환경용)
   const DOCS_DIR = './docs';
   if (!fs.existsSync(DOCS_DIR)) {
     fs.mkdirSync(DOCS_DIR, { recursive: true });
   }
   fs.copyFileSync('./index.html', `${DOCS_DIR}/index.html`);
-  const subPages = ['trend', 'news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
+  const subPages = ['news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
   for (const page of subPages) {
     const pageDir = `${DOCS_DIR}/${page}`;
     if (!fs.existsSync(pageDir)) {
@@ -410,6 +591,30 @@ async function main() {
     console.log('  ✅ games/index.html → docs/games/index.html');
   }
 
+  // trend 폴더 복사 (일간/주간 리포트 페이지)
+  const srcTrendDir = './trend';
+  const destTrendDir = `${DOCS_DIR}/trend`;
+  if (fs.existsSync(srcTrendDir)) {
+    // trend 디렉토리 재귀 복사
+    const copyDirRecursive = (src, dest) => {
+      if (!fs.existsSync(dest)) {
+        fs.mkdirSync(dest, { recursive: true });
+      }
+      const entries = fs.readdirSync(src, { withFileTypes: true });
+      for (const entry of entries) {
+        const srcPath = `${src}/${entry.name}`;
+        const destPath = `${dest}/${entry.name}`;
+        if (entry.isDirectory()) {
+          copyDirRecursive(srcPath, destPath);
+        } else {
+          fs.copyFileSync(srcPath, destPath);
+        }
+      }
+    };
+    copyDirRecursive(srcTrendDir, destTrendDir);
+    console.log('  ✅ trend/ → docs/trend/');
+  }
+
   fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
@@ -418,6 +623,7 @@ async function main() {
   // 메인 페이지 URL 목록
   const mainPages = [
     { loc: 'https://gamerscrawl.com/', changefreq: 'hourly', priority: '1.0' },
+    { loc: 'https://gamerscrawl.com/trend/', changefreq: 'hourly', priority: '0.9' },
     { loc: 'https://gamerscrawl.com/trend/', changefreq: 'hourly', priority: '0.9' },
     { loc: 'https://gamerscrawl.com/news/', changefreq: 'hourly', priority: '0.9' },
     { loc: 'https://gamerscrawl.com/community/', changefreq: 'hourly', priority: '0.8' },
@@ -429,22 +635,59 @@ async function main() {
     { loc: 'https://gamerscrawl.com/games/', changefreq: 'daily', priority: '0.9' }
   ];
 
-  // 게임 페이지 자동 스캔
+  // 트렌드 리포트 페이지 자동 스캔
+  let trendPages = [];
+  if (fs.existsSync(destTrendDir)) {
+    // 일간 리포트
+    const dailyTrendDir = `${destTrendDir}/daily`;
+    if (fs.existsSync(dailyTrendDir)) {
+      const dailyFolders = fs.readdirSync(dailyTrendDir, { withFileTypes: true })
+        .filter(d => d.isDirectory())
+        .map(d => d.name);
+      trendPages.push(...dailyFolders.map(slug => ({
+        loc: `https://gamerscrawl.com/trend/daily/${slug}/`,
+        changefreq: 'weekly',
+        priority: '0.7'
+      })));
+    }
+    // 주간 리포트
+    const weeklyTrendDir = `${destTrendDir}/weekly`;
+    if (fs.existsSync(weeklyTrendDir)) {
+      const weeklyFolders = fs.readdirSync(weeklyTrendDir, { withFileTypes: true })
+        .filter(d => d.isDirectory())
+        .map(d => d.name);
+      trendPages.push(...weeklyFolders.map(slug => ({
+        loc: `https://gamerscrawl.com/trend/weekly/${slug}/`,
+        changefreq: 'weekly',
+        priority: '0.7'
+      })));
+    }
+  }
+
+  // 게임 페이지 자동 스캔 (noindex 페이지는 제외 또는 낮은 priority)
   const gamesDir = `${DOCS_DIR}/games`;
   let gamePages = [];
   if (fs.existsSync(gamesDir)) {
     const gameFolders = fs.readdirSync(gamesDir, { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
-    gamePages = gameFolders.map(slug => ({
-      loc: `https://gamerscrawl.com/games/${slug}/`,
-      changefreq: 'weekly',
-      priority: '0.6'
-    }));
+    gamePages = gameFolders.map(slug => {
+      const indexPath = `${gamesDir}/${slug}/index.html`;
+      let hasNoindex = false;
+      if (fs.existsSync(indexPath)) {
+        const html = fs.readFileSync(indexPath, 'utf8').slice(0, 1000);
+        hasNoindex = html.includes('noindex');
+      }
+      return {
+        loc: `https://gamerscrawl.com/games/${slug}/`,
+        changefreq: 'weekly',
+        priority: hasNoindex ? '0.1' : '0.6'  // noindex면 낮은 priority
+      };
+    }).filter(p => p.priority !== '0.1');  // noindex 페이지는 sitemap에서 제외
   }
 
   // Sitemap XML 생성
-  const allPages = [...mainPages, ...gamePages];
+  const allPages = [...mainPages, ...gamePages, ...trendPages];
   const sitemapEntries = allPages.map(page => `  <url>
     <loc>${page.loc}</loc>
     <lastmod>${sitemapDate}</lastmod>
@@ -457,7 +700,7 @@ async function main() {
 ${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
-  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 게임 ${gamePages.length}개 = 총 ${allPages.length}개 URL`);
+  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 게임 ${gamePages.length}개 + 트렌드 ${trendPages.length}개 = 총 ${allPages.length}개 URL`);
 
   console.log(`\n✅ 완료! (docs/ 동기화 + sitemap 갱신)`);
 
@@ -486,8 +729,7 @@ ${sitemapEntries}
     console.log(`📈 데일리 인사이트 저장: ${reportFile}`);
 
     // 인사이트 JSON도 저장 - 기존 AI 데이터 보존
-    const amPm = getAmPm();
-    const outputJsonFile = `${REPORTS_DIR}/${today}-${amPm}.json`;
+    const outputJsonFile = `${REPORTS_DIR}/${today}.json`;
     loadAIInsightFromFile(outputJsonFile, insight);
     fs.writeFileSync(outputJsonFile, JSON.stringify(insight, null, 2), 'utf8');
   }

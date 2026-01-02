@@ -1,5 +1,7 @@
-﻿/**
+/**
  * 커뮤니티 페이지 템플릿
+ * - 4컬럼 그리드 (인벤, 아카라이브, 디시, 루리웹)
+ * - 각 패널 2열 (좌5, 우5) + 페이지네이션
  */
 
 const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
@@ -7,81 +9,66 @@ const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layou
 function generateCommunityPage(data) {
   const { community } = data;
 
-  // 커뮤니티 아이템 생성
-  function generateCommunityItems(items, sourceName) {
-    if (!items || items.length === 0) {
-      return '<div class="no-data">커뮤니티 글을 불러올 수 없습니다</div>';
-    }
-    return items.map((item, i) => `
-      <a class="news-item clickable" href="${item.link}" target="_blank" rel="noopener">
-        <span class="news-num">${i + 1}</span>
-        <div class="news-content">
-          <span class="news-title">${item.title}</span>
-          <div class="news-tags"><span class="community-tag source-tag">${sourceName}</span></div>
+  const sources = [
+    { key: 'inven', name: '인벤', title: '인벤 핫이슈', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32', link: 'https://hot.inven.co.kr/', items: community?.inven || [] },
+    { key: 'arca', name: '아카라이브', title: '아카라이브 베스트', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32', link: 'https://arca.live/b/live', items: community?.arca || [] },
+    { key: 'dcinside', name: '디시인사이드', title: '디시 실베', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32', link: 'https://gall.dcinside.com/board/lists?id=dcbest', items: community?.dcinside || [] },
+    { key: 'ruliweb', name: '루리웹', title: '루리웹 베스트', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32', link: 'https://bbs.ruliweb.com/best/game?orderby=recommend&range=24h', items: community?.ruliweb || [] }
+  ];
+
+  // 각 패널 HTML 생성
+  function generatePanel(source) {
+    const items = source.items.slice(0, 20); // 최대 20개 (페이지당 10개 x 2페이지)
+    if (items.length === 0) {
+      return `
+        <div class="community-panel" data-source="${source.key}">
+          <div class="community-panel-header">
+            <h2 class="community-panel-title">${source.title}</h2>
+            <a href="${source.link}" target="_blank" class="community-panel-more">더보기 →</a>
+          </div>
+          <div class="community-panel-body">
+            <div class="no-data">글을 불러올 수 없습니다</div>
+          </div>
         </div>
+      `;
+    }
+
+    const itemsHtml = items.map((item, i) => `
+      <a class="community-item" href="${item.link}" target="_blank" rel="noopener" data-index="${i}">
+        <img src="${source.icon}" alt="" class="community-item-icon">
+        <span class="community-item-title">${item.title}</span>
       </a>
     `).join('');
+
+    return `
+      <div class="community-panel" data-source="${source.key}">
+        <div class="community-panel-header">
+          <h2 class="community-panel-title">${source.title}</h2>
+          <a href="${source.link}" target="_blank" class="community-panel-more">더보기 →</a>
+        </div>
+        <div class="community-panel-body">
+          <div class="community-items-grid">${itemsHtml}</div>
+        </div>
+        ${items.length > 10 ? `
+        <div class="community-panel-pagination">
+          <button class="community-page-btn active" data-page="0">1</button>
+          <button class="community-page-btn" data-page="1">2</button>
+        </div>
+        ` : ''}
+      </div>
+    `;
   }
 
-  const dcHTML = generateCommunityItems(community?.dcinside, '디시인사이드');
-  const arcaHTML = generateCommunityItems(community?.arca, '아카라이브');
-  const invenHTML = generateCommunityItems(community?.inven, '인벤');
-  const ruliwebHTML = generateCommunityItems(community?.ruliweb, '루리웹');
+  const panelsHtml = sources.map(s => generatePanel(s)).join('');
 
   const content = `
     <section class="section active" id="community">
       <div class="page-wrapper">
         ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">커뮤니티 베스트</h1>
-        <div class="news-controls">
-        <div class="control-group">
-          <div class="tab-group" id="communityTab">
-            <button class="tab-btn active" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">인벤</button>
-            <button class="tab-btn" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">아카라이브</button>
-            <button class="tab-btn" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">디시인사이드</button>
-            <button class="tab-btn" data-community="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">루리웹</button>
-          </div>
+        <div class="community-grid">
+          ${panelsHtml}
         </div>
-      </div>
-      <div class="news-card community-card">
-        <div class="community-section-header">
-          <span class="community-section-title">커뮤니티</span>
-        </div>
-        <div class="news-container">
-          <div class="news-panel active" id="community-inven">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">인벤 핫이슈</span>
-              <a href="https://hot.inven.co.kr/" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${invenHTML}</div>
-          </div>
-          <div class="news-panel" id="community-arca">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">아카라이브 베스트</span>
-              <a href="https://arca.live/b/live" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${arcaHTML}</div>
-          </div>
-          <div class="news-panel" id="community-dcinside">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">디시 실시간 베스트</span>
-              <a href="https://gall.dcinside.com/board/lists?id=dcbest" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${dcHTML}</div>
-          </div>
-          <div class="news-panel" id="community-ruliweb">
-            <div class="news-panel-header">
-              <img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="" class="news-favicon">
-              <span class="news-panel-title">루리웹 게임 베스트</span>
-              <a href="https://bbs.ruliweb.com/best/game?orderby=recommend&range=24h" target="_blank" class="news-more-link">더보기 →</a>
-            </div>
-            <div class="news-list">${ruliwebHTML}</div>
-          </div>
-        </div>
-      </div>
       </div>
     </section>
   `;
@@ -90,40 +77,50 @@ function generateCommunityPage(data) {
   <script>
     // 폰트 로딩
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => {
-        document.documentElement.classList.add('fonts-loaded');
-      });
+      document.fonts.ready.then(() => document.documentElement.classList.add('fonts-loaded'));
     } else {
-      setTimeout(() => {
-        document.documentElement.classList.add('fonts-loaded');
-      }, 100);
+      setTimeout(() => document.documentElement.classList.add('fonts-loaded'), 100);
     }
     // twemoji
     if (typeof twemoji !== 'undefined') {
       twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
     }
-    // 커뮤니티 탭 - 선택한 패널부터 순서대로 배치
-    const communityTab = document.getElementById('communityTab');
-    const communityTypes = ['inven', 'arca', 'dcinside', 'ruliweb'];
-    communityTab?.addEventListener('click', (e) => {
-      const btn = e.target.closest('.tab-btn');
-      if (!btn) return;
-      const selectedType = btn.dataset.community;
-      const selectedIndex = communityTypes.indexOf(selectedType);
 
-      // 탭 버튼 active 토글
-      communityTab.querySelectorAll('.tab-btn').forEach((b, i) => {
-        b.classList.toggle('active', i === selectedIndex);
-      });
+    // 페이지네이션 (모바일에서만 작동, PC는 전체 표시)
+    const isMobile = () => window.innerWidth <= 768;
 
-      // 패널 active 토글 + order 설정 (선택한 패널부터 순서대로)
-      communityTypes.forEach((type, i) => {
-        const panel = document.getElementById('community-' + type);
-        if (panel) {
-          panel.classList.toggle('active', type === selectedType);
-          panel.style.order = (i - selectedIndex + communityTypes.length) % communityTypes.length;
+    document.querySelectorAll('.community-panel').forEach(panel => {
+      const items = panel.querySelectorAll('.community-item');
+      const pageBtns = panel.querySelectorAll('.community-page-btn');
+      const PAGE_SIZE = 10;
+      let currentPage = 0;
+
+      function showPage(pageNum) {
+        currentPage = pageNum;
+        if (isMobile()) {
+          const start = pageNum * PAGE_SIZE;
+          const end = start + PAGE_SIZE;
+          items.forEach((item, i) => {
+            item.style.display = (i >= start && i < end) ? '' : 'none';
+          });
+        } else {
+          // PC: 모든 아이템 표시
+          items.forEach(item => item.style.display = '');
         }
+        pageBtns.forEach(btn => {
+          btn.classList.toggle('active', parseInt(btn.dataset.page) === pageNum);
+        });
+      }
+
+      pageBtns.forEach(btn => {
+        btn.addEventListener('click', () => showPage(parseInt(btn.dataset.page)));
       });
+
+      // 리사이즈 시 재적용
+      window.addEventListener('resize', () => showPage(currentPage));
+
+      // 초기화
+      showPage(0);
     });
   </script>`;
 

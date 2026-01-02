@@ -54,22 +54,23 @@ function generateRankingsPage(data) {
       <div class="page-wrapper">
         ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">모바일 순위</h1>
-        <div class="rankings-controls">
-        <div class="control-group">
-          <div class="tab-group" id="storeTab">
-            <button class="tab-btn ios-btn active" data-store="ios"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">App Store</button>
-            <button class="tab-btn android-btn" data-store="android"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" alt="" class="news-favicon">Google Play</button>
+        <div class="rankings-card home-card">
+          <div class="home-card-header">
+            <h2 class="home-card-title">모바일 순위</h2>
+            <div class="home-card-controls">
+              <div class="tab-group" id="chartTab">
+                <button class="tab-btn grossing-btn active" data-chart="grossing">매출</button>
+                <button class="tab-btn free-btn" data-chart="free">인기</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <div class="tab-group" id="chartTab">
-            <button class="tab-btn grossing-btn active" data-chart="grossing">매출 순위</button>
-            <button class="tab-btn free-btn" data-chart="free">인기 순위</button>
+          <div class="rankings-tabs-row">
+            <div class="tab-group" id="storeTab">
+              <button class="tab-btn ios-btn active" data-store="ios"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">iOS</button>
+              <button class="tab-btn android-btn" data-store="android"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=32" alt="" class="news-favicon">Android</button>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="rankings-card">
+          <div class="home-card-body">
         <div class="chart-section active" id="ios-grossing">
           <div class="chart-scroll">
             <div class="columns-grid">${generateCountryColumns(rankings.grossing)}</div>
@@ -90,7 +91,8 @@ function generateRankingsPage(data) {
             <div class="columns-grid">${generateAndroidColumns(rankings.free)}</div>
           </div>
         </div>
-      </div>
+          </div>
+        </div>
       </div>
     </section>
   `;

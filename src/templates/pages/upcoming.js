@@ -59,37 +59,41 @@ function generateUpcomingPage(data) {
       <div class="page-wrapper">
         ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
         <h1 class="visually-hidden">출시 예정 게임</h1>
-        <div class="upcoming-controls">
-        <div class="tab-group" id="upcomingTab">
-          <button class="tab-btn active" data-upcoming="mobile">
-            <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
-          </button>
-          <button class="tab-btn" data-upcoming="steam">
-            <img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">스팀
-          </button>
-          <button class="tab-btn" data-upcoming="ps5">
-            <img src="https://www.google.com/s2/favicons?domain=playstation.com&sz=32" alt="" class="news-favicon">PS5
-          </button>
-          <button class="tab-btn" data-upcoming="nintendo">
-            <svg viewBox="0 0 24 24" fill="#e60012" class="news-favicon" style="width:20px;height:20px"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>닌텐도
-          </button>
+        <div class="upcoming-card home-card">
+          <div class="home-card-header">
+            <h2 class="home-card-title">출시 게임</h2>
+          </div>
+          <div class="rankings-tabs-row">
+            <div class="tab-group" id="upcomingTab">
+              <button class="tab-btn active" data-upcoming="steam">
+                <img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">스팀
+              </button>
+              <button class="tab-btn" data-upcoming="ps5">
+                <img src="https://www.google.com/s2/favicons?domain=playstation.com&sz=32" alt="" class="news-favicon">PS5
+              </button>
+              <button class="tab-btn" data-upcoming="nintendo">
+                <svg viewBox="0 0 24 24" fill="#e60012" class="news-favicon" style="width:20px;height:20px"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>닌텐도
+              </button>
+              <button class="tab-btn" data-upcoming="mobile">
+                <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
+              </button>
+            </div>
+          </div>
+          <div class="home-card-body">
+            <div class="upcoming-section active" id="upcoming-steam">
+              ${generateUpcomingSection(upcoming?.steam || [], 'steam')}
+            </div>
+            <div class="upcoming-section" id="upcoming-ps5">
+              ${generateUpcomingSection(upcoming?.ps5 || [], 'ps5')}
+            </div>
+            <div class="upcoming-section" id="upcoming-nintendo">
+              ${generateUpcomingSection(upcoming?.nintendo || [], 'nintendo')}
+            </div>
+            <div class="upcoming-section" id="upcoming-mobile">
+              ${generateUpcomingSection(upcoming?.mobile || [], 'mobile')}
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="upcoming-card">
-        <div class="upcoming-section active" id="upcoming-mobile">
-          ${generateUpcomingSection(upcoming?.mobile || [], 'mobile')}
-        </div>
-        <div class="upcoming-section" id="upcoming-steam">
-          ${generateUpcomingSection(upcoming?.steam || [], 'steam')}
-        </div>
-        <div class="upcoming-section" id="upcoming-ps5">
-          ${generateUpcomingSection(upcoming?.ps5 || [], 'ps5')}
-        </div>
-        <div class="upcoming-section" id="upcoming-nintendo">
-          ${generateUpcomingSection(upcoming?.nintendo || [], 'nintendo')}
-        </div>
-      </div>
       </div>
     </section>
   `;

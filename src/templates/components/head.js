@@ -17,8 +17,42 @@ function generateHead(options = {}) {
     description = '데일리 게임 인사이트 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
     keywords = '게임 순위, 모바일 게임, 스팀 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위, 게임 업계, 게임주, 게이머스크롤',
     canonical = 'https://gamerscrawl.com',
-    pageData = {}
+    pageData = {},
+    articleSchema = null,  // Article JSON-LD (리포트 페이지용)
+    noindex = false  // 검색엔진 인덱싱 제외 (thin content용)
   } = options;
+
+  // Article JSON-LD 생성 (리포트 페이지용)
+  const articleJsonLd = articleSchema ? `
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "${articleSchema.headline || title}",
+    "description": "${articleSchema.description || description}",
+    "datePublished": "${articleSchema.datePublished}",
+    ${articleSchema.dateModified ? `"dateModified": "${articleSchema.dateModified}",` : ''}
+    "author": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscrawl.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscrawl.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscrawl.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "${canonical}"
+    }${articleSchema.image ? `,
+    "image": "${articleSchema.image}"` : ''}
+  }
+  </script>` : '';
 
   // 페이지별 데이터 스크립트 (필요한 경우에만)
   const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
@@ -31,7 +65,8 @@ function generateHead(options = {}) {
 
   return `
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
+  <meta name="robots" content="noindex, nofollow">` : ''}
   <title>${title}</title>
   <!-- SEO -->
   <meta name="description" content="${description}">
@@ -52,9 +87,9 @@ function generateHead(options = {}) {
       "url": "https://gamerscrawl.com/"
     }
   }
-  </script>
+  </script>${articleJsonLd}
   <!-- Open Graph / SNS 공유 -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="${articleSchema ? 'article' : 'website'}">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:image" content="https://gamerscrawl.com/og-image.png">

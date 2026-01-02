@@ -329,7 +329,7 @@ const swipeScript = `
 <script>
 (function() {
   // 네비게이션 섹션 정의 (모바일 순서 기준, PC는 CSS order로 시각 조정)
-  const navSections = ['trend', 'games', 'rankings', 'news', 'youtube', 'steam', 'upcoming', 'metacritic'];
+  const navSections = ['news', 'trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
   const getNavSections = () => navSections;
   let touchStartX = 0;
   let touchStartY = 0;
@@ -526,13 +526,15 @@ function wrapWithLayout(content, options = {}) {
     canonical = 'https://gamerscrawl.com',
     pageScripts = '',
     showSearchBar = true,
-    pageData = {}
+    pageData = {},
+    articleSchema = null,  // Article JSON-LD (리포트 페이지용)
+    noindex = false  // 검색엔진 인덱싱 제외 (thin content용)
   } = options;
 
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}">
   ${generateHeader()}

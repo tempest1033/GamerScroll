@@ -1,6 +1,6 @@
 /**
  * AI Insight Generator
- * OpenAI Codex CLI를 호출하여 게임 업계 인사이트를 생성합니다.
+ * Claude CLI를 호출하여 게임 업계 인사이트를 생성합니다.
  */
 
 const { execSync } = require('child_process');
@@ -9,10 +9,135 @@ const path = require('path');
 const os = require('os');
 
 // 모델 설정
-const MODEL = 'gpt-5.2';
+const MODEL = 'claude';
+
+// 히스토리 디렉토리
+const HISTORY_DIR = './history';
 
 /**
- * Codex CLI를 호출하여 AI 인사이트 생성
+ * 헤드라인에서 키워드를 추출하고 뉴스에서 매칭되는 썸네일 찾기
+ * @param {string} headline - AI가 생성한 헤드라인
+ * @param {Object} crawlData - 크롤링 데이터 (당일 뉴스)
+ * @returns {string|null} 매칭된 썸네일 URL
+ */
+function findMatchingThumbnail(headline, crawlData) {
+  // 1. 헤드라인에서 키워드 추출 (게임명, 회사명, 숫자 제외한 핵심 단어)
+  const keywords = extractKeywords(headline);
+
+  // 2. 당일 뉴스 데이터 수집
+  const allNews = [
+    ...(crawlData?.news?.inven || []),
+    ...(crawlData?.news?.ruliweb || []),
+    ...(crawlData?.news?.gamemeca || []),
+    ...(crawlData?.news?.thisisgame || [])
+  ].filter(n => n.thumbnail && n.title);
+
+  // 3. 히스토리 파일에서 추가 뉴스 수집 (최근 3일)
+  const historyNews = loadRecentHistoryNews(3);
+  const combinedNews = [...allNews, ...historyNews];
+
+  if (combinedNews.length === 0) return null;
+
+  // 4. 정확 매칭: 키워드가 뉴스 제목에 포함된 경우
+  for (const keyword of keywords) {
+    const match = combinedNews.find(n =>
+      n.title.includes(keyword) && n.thumbnail
+    );
+    if (match) {
+      console.log(`  - 썸네일 매칭: "${keyword}" → ${match.title.substring(0, 30)}...`);
+      return match.thumbnail;
+    }
+  }
+
+  // 5. 유사 매칭: 키워드 일부가 포함된 경우 (점수 기반)
+  let bestMatch = null;
+  let bestScore = 0;
+
+  for (const news of combinedNews) {
+    let score = 0;
+    for (const keyword of keywords) {
+      if (news.title.includes(keyword)) score += 2;
+      else if (keyword.length >= 2 && news.title.includes(keyword.substring(0, 2))) score += 1;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = news;
+    }
+  }
+
+  if (bestMatch && bestScore > 0) {
+    console.log(`  - 썸네일 유사 매칭 (점수:${bestScore}): ${bestMatch.title.substring(0, 30)}...`);
+    return bestMatch.thumbnail;
+  }
+
+  // 6. 폴백: 당일 뉴스 첫 번째 썸네일
+  if (allNews.length > 0) {
+    console.log(`  - 썸네일 폴백: ${allNews[0].title.substring(0, 30)}...`);
+    return allNews[0].thumbnail;
+  }
+
+  return null;
+}
+
+/**
+ * 헤드라인에서 검색용 키워드 추출
+ */
+function extractKeywords(headline) {
+  // 불용어 제거
+  const stopWords = ['의', '가', '이', '은', '는', '을', '를', '에', '와', '과', '로', '으로', '에서', '까지', '부터', '처럼', '만', '도', '등', '및', '그', '저', '이런', '저런', '급', '위', '계단', '단계', '일', '월', '년', '오늘', '어제', '내일', '최근', '현재', '기록', '돌파', '달성', '발표', '공개', '출시', '업데이트'];
+
+  // 특수문자 제거 및 단어 분리
+  const words = headline
+    .replace(/[,.'":;!?()[\]{}~`@#$%^&*+=|\\/<>]/g, ' ')
+    .split(/\s+/)
+    .filter(w => w.length >= 2)
+    .filter(w => !stopWords.includes(w))
+    .filter(w => !/^\d+$/.test(w)); // 순수 숫자 제외
+
+  // 중복 제거 및 길이순 정렬 (긴 키워드 우선)
+  const unique = [...new Set(words)].sort((a, b) => b.length - a.length);
+
+  return unique.slice(0, 10); // 상위 10개 키워드
+}
+
+/**
+ * 최근 N일간 히스토리에서 뉴스 로드
+ */
+function loadRecentHistoryNews(days) {
+  const news = [];
+
+  try {
+    if (!fs.existsSync(HISTORY_DIR)) return news;
+
+    const files = fs.readdirSync(HISTORY_DIR)
+      .filter(f => f.endsWith('.json'))
+      .sort()
+      .reverse()
+      .slice(0, days);
+
+    for (const file of files) {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(HISTORY_DIR, file), 'utf8'));
+        const fileNews = [
+          ...(data?.news?.inven || []),
+          ...(data?.news?.ruliweb || []),
+          ...(data?.news?.gamemeca || []),
+          ...(data?.news?.thisisgame || [])
+        ].filter(n => n.thumbnail && n.title);
+        news.push(...fileNews);
+      } catch (e) {
+        // 개별 파일 오류 무시
+      }
+    }
+  } catch (e) {
+    // 디렉토리 오류 무시
+  }
+
+  return news;
+}
+
+/**
+ * Claude CLI를 호출하여 AI 인사이트 생성
  * @param {Object} crawlData - 크롤링 데이터
  * @param {Object} rankingChanges - 순위 변동 데이터 (optional)
  * @param {Array} recentInsights - 최근 인사이트 배열 (반복 방지용, optional)
@@ -20,7 +145,7 @@ const MODEL = 'gpt-5.2';
  */
 async function generateAIInsight(crawlData, rankingChanges = null, recentInsights = []) {
   try {
-    console.log(`  - Codex CLI 호출 중 (${MODEL})...`);
+    console.log(`  - Claude CLI 호출 중 (${MODEL})...`);
 
     // 크롤링 데이터 요약
     const dataSummary = buildDataSummary(crawlData);
@@ -99,10 +224,21 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 - 예: "출시됐어요", "발표했는데요", "예정이에요", "주목받고 있어요"
 - 반드시 구체적인 게임명/회사명을 주어로 명시 (추상적 표현 금지)
 
+## headline 작성 규칙 (SEO 최적화):
+- 뉴스/블로그 제목처럼 임팩트 있게 작성
+- 핵심 이슈 1~2개만 선정 (두 주제가 억지로 붙은 느낌 금지)
+- 문장형 금지 (~요, ~어요 어미 사용 금지)
+- 추상적 표현 금지 (구체적인 게임명/회사명/숫자 사용)
+- 좋은 예: "GTA6 가격 100달러 논란 확산, 귀판오분전 444뽑기로 iOS 1위"
+- 좋은 예: "2026 LCK 운영 방식 변경 발표, 메이플 PC방 점유율 45% 돌파"
+- 나쁜 예: "방치형과 전략 장르가 상위권을 지키고, AI 투명성 논쟁이 계속됐어요"
+- 나쁜 예: "연말 시즌 이벤트가 iOS 퍼즐 차트를 흔들고, 미국 규제 보고서가 나왔어요"
+
 ## JSON 형식:
 {
   "date": "${today}",
   "summary": "오늘의 게임 업계 핵심 요약 (300자 이내)",
+  "headline": "뉴스/블로그 제목처럼 임팩트 있게. 핵심 이슈 1개만 선정. 예: '메이플 키우기, 양대 마켓 1위 등극' (50자 이내)",
   "issues": [
     { "tag": "모바일|PC|콘솔|e스포츠", "title": "제목 40자", "desc": "설명 200자 이내" }
   ],
@@ -151,10 +287,10 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 JSON만 출력해. 다른 설명 없이.`;
 
     // 프롬프트를 임시 파일로 저장 (특수문자 이스케이프 문제 방지)
-    const tmpFile = path.join(os.tmpdir(), `codex-prompt-${Date.now()}.txt`);
+    const tmpFile = path.join(os.tmpdir(), `claude-prompt-${Date.now()}.txt`);
     fs.writeFileSync(tmpFile, prompt, 'utf8');
 
-    // Codex CLI 호출 (최대 2회 재시도)
+    // Claude CLI 호출 (최대 2회 재시도)
     const MAX_RETRIES = 2;
     let result = null;
     let lastError = null;
@@ -167,7 +303,7 @@ JSON만 출력해. 다른 설명 없이.`;
         }
 
         result = execSync(
-          `cat "${tmpFile}" | codex exec -m ${MODEL} -c model_reasoning_effort=high -c hide_agent_reasoning=true -o /dev/stdout -`,
+          `cat "${tmpFile}" | claude -p - --tools default --model opus`,
           {
             encoding: 'utf8',
             maxBuffer: 1024 * 1024,
@@ -207,7 +343,15 @@ JSON만 출력해. 다른 설명 없이.`;
         // AI 응답의 date를 현재 KST 날짜로 강제 교정
         aiInsight.date = today;
 
-        console.log('  - AI 인사이트 생성 완료 (Codex)');
+        // 썸네일 자동 매칭 (헤드라인 키워드 기반)
+        if (aiInsight.headline) {
+          const thumbnail = findMatchingThumbnail(aiInsight.headline, crawlData);
+          if (thumbnail) {
+            aiInsight.thumbnail = thumbnail;
+          }
+        }
+
+        console.log('  - AI 인사이트 생성 완료 (Claude)');
         return aiInsight;
 
       } catch (retryError) {
@@ -262,16 +406,17 @@ function buildDataSummary(data) {
     steamTop5.forEach((g, i) => lines.push(`${i + 1}. ${g.name} - ${g.ccu?.toLocaleString() || 'N/A'}명`));
   }
 
-  // 뉴스
+  // 뉴스 (썸네일 URL 포함)
   const newsItems = [
     ...(data.news?.inven || []),
     ...(data.news?.ruliweb || []),
-    ...(data.news?.gamemeca || [])
-  ].slice(0, 10);
+    ...(data.news?.gamemeca || []),
+    ...(data.news?.thisisgame || [])
+  ].filter(n => n.thumbnail).slice(0, 15);
 
   if (newsItems.length > 0) {
     lines.push('\n### 최신 뉴스:');
-    newsItems.forEach(n => lines.push(`- ${n.title}`));
+    newsItems.forEach((n, i) => lines.push(`${i + 1}. ${n.title}`));
   }
 
   // 커뮤니티 인기글

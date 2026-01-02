@@ -4,16 +4,6 @@ const path = require('path');
 const HISTORY_DIR = './history';
 
 /**
- * 현재 시간대(AM/PM) 반환
- * KST 기준 00:00~11:59 = AM, 12:00~23:59 = PM
- */
-function getCurrentPeriod() {
-  const now = new Date();
-  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-  return kst.getUTCHours() < 12 ? 'AM' : 'PM';
-}
-
-/**
  * 어제 날짜 문자열 반환
  */
 function getYesterdayDate() {
@@ -37,21 +27,14 @@ function getTodayDate() {
 /**
  * 히스토리 파일 로드
  * @param {string} date - YYYY-MM-DD 형식
- * @param {string} period - AM/PM (optional, 지정 안하면 레거시 파일 시도)
  */
-function loadHistory(date, period = null) {
+function loadHistory(date) {
   try {
-    // AM/PM이 지정되면 해당 파일 우선, 없으면 레거시 시도
-    const candidates = period
-      ? [`${date}-${period}.json`, `${date}.json`]
-      : [`${date}.json`];
-
-    for (const filename of candidates) {
-      const filePath = path.join(HISTORY_DIR, filename);
-      if (fs.existsSync(filePath)) {
-        console.log(`📂 히스토리 로드: ${filename}`);
-        return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      }
+    const filename = `${date}.json`;
+    const filePath = path.join(HISTORY_DIR, filename);
+    if (fs.existsSync(filePath)) {
+      console.log(`📂 히스토리 로드: ${filename}`);
+      return JSON.parse(fs.readFileSync(filePath, 'utf8'));
     }
   } catch (err) {
     console.warn(`⚠️ 히스토리 로드 실패: ${date}`, err.message);
@@ -635,6 +618,5 @@ module.exports = {
   generateInsightHTML,
   loadHistory,
   getTodayDate,
-  getYesterdayDate,
-  getCurrentPeriod
+  getYesterdayDate
 };
