@@ -2934,16 +2934,18 @@
       position: relative;
     }
 
-    /* 활성 탭 하단 인디케이터 바 - 바닥에 붙임 */
+    /* 활성 탭 하단 인디케이터 바 - 글자 너비만큼 */
     .nav-item.active::after {
       content: '';
       display: block;
       position: absolute;
       bottom: 0;
-      left: 8px;
-      right: 8px;
-      height: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 2px;
       background: #1a73e8;
+      border-radius: 1px;
     }
 
     .nav-item svg {
@@ -10282,10 +10284,10 @@ a.gm-item:hover {
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-    width: max(calc(100% - 32px), 50px) !important;
-    height: 3px !important;
+    width: 70% !important;
+    height: 2px !important;
     background: var(--nav-active-bar, #1a73e8) !important;
-    border-radius: 2px !important;
+    border-radius: 1px !important;
   }
 
   /* 다크모드 - 네비 선택 오렌지 */
