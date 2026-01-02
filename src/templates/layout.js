@@ -682,9 +682,13 @@ function wrapWithLayout(content, options = {}) {
 		      }
 
 		      function initAds() {
+		        // SDK 로드 확인 - 미로드 시 나중에 재시도
+		        var sdkLoaded = window.adsbygoogle && (window.adsbygoogle.loaded || window.adsbygoogle.push !== Array.prototype.push);
 		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
 		          if (el.dataset.gcAdsInit === '1') return;
 	          if (!canInit(el)) return;
+	          // SDK 미로드 시 플래그 설정 안 함 (나중에 재시도)
+	          if (!sdkLoaded) return;
 	          el.dataset.gcAdsInit = '1';
 	          try {
 	            (adsbygoogle = window.adsbygoogle || []).push({});
@@ -700,7 +704,7 @@ function wrapWithLayout(content, options = {}) {
 		        window.__gcAdsInitRetriesScheduled = true;
 		        initRetryTimers.forEach(clearTimeout);
 		        initRetryTimers = [];
-		        [100, 300, 500, 1000, 2000].forEach(function(delay) {
+		        [100, 300, 500, 1000, 2000, 3000, 5000].forEach(function(delay) {
 		          initRetryTimers.push(setTimeout(initAds, delay));
 		        });
 		      }
@@ -751,13 +755,33 @@ function wrapWithLayout(content, options = {}) {
 		        kickResizeOnce();
 		      }
 
+		      // AdSense SDK 로드 대기 함수
+		      function waitForAdsbygoogle(callback, maxWait) {
+		        maxWait = maxWait || 5000;
+		        var start = Date.now();
+		        function check() {
+		          // SDK가 로드되면 adsbygoogle.loaded가 true이거나 push가 실제 함수
+		          if (window.adsbygoogle && (window.adsbygoogle.loaded || window.adsbygoogle.push !== Array.prototype.push)) {
+		            callback();
+		          } else if (Date.now() - start < maxWait) {
+		            setTimeout(check, 100);
+		          } else {
+		            // timeout - 그래도 초기화 시도
+		            callback();
+		          }
+		        }
+		        check();
+		      }
+
 		      if (document.readyState === 'complete' || document.readyState === 'interactive') {
-		        requestAnimationFrame(runInit);
+		        waitForAdsbygoogle(function() { requestAnimationFrame(runInit); });
 		      } else {
-	        document.addEventListener('DOMContentLoaded', runInit);
+	        document.addEventListener('DOMContentLoaded', function() {
+	          waitForAdsbygoogle(runInit);
+	        });
 	      }
 
-	      window.addEventListener('load', runInit);
+	      window.addEventListener('load', function() { waitForAdsbygoogle(runInit); });
 
 
 	      let resizeTimer = null;
@@ -798,10 +822,10 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   if (!SHOW_ADS) return '';
   const mobileSlot = slotIdMobile || slotIdPc;
   return `<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="auto" data-full-width-responsive="true"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%;height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="auto" data-full-width-responsive="true"></ins>
   </div>`;
 }
 
