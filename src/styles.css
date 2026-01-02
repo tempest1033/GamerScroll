@@ -4442,6 +4442,11 @@
       backdrop-filter: blur(8px);
     }
 
+    .youtube-live img.emoji {
+      width: 1em;
+      height: 1em;
+    }
+
     .youtube-info {
       padding: 12px;
       min-height: 60px;

@@ -60,7 +60,7 @@ async function fetchSteamRankings(axios, cheerio) {
     const imgMap = {};
     if (mostPlayedHtml) {
       const $store = cheerio.load(mostPlayedHtml);
-      $store('#search_resultsRows a.search_result_row').each((i, el) => {
+      $store('a.search_result_row').each((i, el) => {
         const appid = $store(el).attr('data-ds-appid');
         const img = $store(el).find('.search_capsule img').attr('src');
         if (appid && img) imgMap[appid] = img;
@@ -113,7 +113,7 @@ async function fetchSteamRankings(axios, cheerio) {
 
     const $s = cheerio.load(sellersHtml);
 
-    $s('#search_resultsRows a.search_result_row').each((i, el) => {
+    $s('a.search_result_row').each((i, el) => {
       if (i >= rankLimit) return false;
       const $el = $s(el);
       const name = $el.find('.title').text().trim();
