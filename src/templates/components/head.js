@@ -111,15 +111,21 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- Preconnect -->
+  <!-- AdSense 최우선 로드 -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://adservice.google.com">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="preconnect" href="https://adservice.google.com" crossorigin>
+  ${LOAD_ADSENSE_SCRIPT ? `<link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" as="script" crossorigin>` : ''}
+  <!-- Preconnect (이미지/기타) -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://play-lh.googleusercontent.com">
   <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
   <link rel="preconnect" href="https://i.ytimg.com">
   <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com">
   <link rel="preconnect" href="https://www.google.com">
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net">
   <!-- Prefetch 다른 페이지 미리 로드 -->
   <link rel="prefetch" href="/trend/" as="document">
   <link rel="prefetch" href="/news/" as="document">
@@ -156,7 +162,7 @@ function generateHead(options = {}) {
       const analytics = getAnalytics(app);
     }
   </script>
-  ${LOAD_ADSENSE_SCRIPT ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous" onload="window.gcAdsSDKLoaded=true; if(typeof window.gcOnAdsSDKLoad==='function') window.gcOnAdsSDKLoad();"></script>` : ''}
+  ${LOAD_ADSENSE_SCRIPT ? `<script async fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous" onload="window.gcAdsSDKLoaded=true; if(typeof window.gcOnAdsSDKLoad==='function') window.gcOnAdsSDKLoad();"></script>` : ''}
   ${dataScript}`;
 }
 
