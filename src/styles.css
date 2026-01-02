@@ -2299,12 +2299,12 @@
 
     .ad-slot--vertical {
       width: 100%;
-      min-height: 600px;
+      min-height: auto;
     }
 
     .ad-slot--rectangle {
       width: 100%;
-      min-height: 250px;
+      min-height: auto;
     }
 
     /* 홈페이지 모바일 광고 - 프레임 없이 유지 (원래 스타일) */
