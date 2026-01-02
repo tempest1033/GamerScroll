@@ -836,10 +836,10 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   if (!SHOW_ADS) return '';
   const mobileSlot = slotIdMobile || slotIdPc;
   return `<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>`;
 }
 
