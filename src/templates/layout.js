@@ -774,6 +774,19 @@ function wrapWithLayout(content, options = {}) {
 		        check();
 		      }
 
+		      // SDK 로드 완료 시 즉시 실행되는 콜백 (head.js에서 onload로 호출)
+		      var sdkLoadCallbackFired = false;
+		      window.gcOnAdsSDKLoad = function() {
+		        if (sdkLoadCallbackFired) return;
+		        sdkLoadCallbackFired = true;
+		        requestAnimationFrame(runInit);
+		      };
+		      // SDK가 이미 로드된 경우 (콜백 정의가 늦은 경우) 즉시 실행
+		      if (window.gcAdsSDKLoaded && !sdkLoadCallbackFired) {
+		        sdkLoadCallbackFired = true;
+		        requestAnimationFrame(runInit);
+		      }
+
 		      if (document.readyState === 'complete' || document.readyState === 'interactive') {
 		        waitForAdsbygoogle(function() { requestAnimationFrame(runInit); });
 		      } else {
