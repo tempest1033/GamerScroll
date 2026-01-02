@@ -617,9 +617,10 @@ function wrapWithLayout(content, options = {}) {
 		      function collapseEmptySeenSlots() {
 		        const now = Date.now();
 		        let delayMs = 6000;
-		        try {
-		          if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) delayMs = 3500;
-		        } catch {}
+		        // 모바일도 PC와 동일하게 6초 대기 (3.5초는 너무 짧음)
+		        // try {
+		        //   if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) delayMs = 3500;
+		        // } catch {}
 
 		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
 		          markSeen(el);
