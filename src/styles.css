@@ -2906,8 +2906,10 @@
       }
       .nav-item.active::after {
         bottom: 2px;
-        left: 8px;
-        right: 8px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 80%;
         height: 2px;
       }
       .nav-item svg {
@@ -2957,7 +2959,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 70%;
+      width: 80%;
       height: 2px;
       background: #1a73e8;
       border-radius: 1px;

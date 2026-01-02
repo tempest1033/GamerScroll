@@ -541,10 +541,10 @@ function generateIndexPage(data) {
     if (format === 'rectangle') {
       return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:300px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
     }
-    // vertical 포맷: 300x600 - 높이 자동 조절
+    // vertical 포맷 - 높이 자동 조절
     if (format === 'vertical') {
       var pcClass = (extraClass || '').indexOf('pc-only') >= 0 ? ' pc-only' : '';
-      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle' + pcClass + '" style="display:block;width:300px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle' + pcClass + '" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
     }
 	    var size = getAdSize(format, false);
 	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
@@ -562,16 +562,16 @@ function generateIndexPage(data) {
 	    if (isHorizontal) {
 	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins></div>';
 	    }
-	    // 직사각형: rectangle 클래스 적용, 높이 50px 제한
+	    // 직사각형: rectangle 클래스 적용
 	    if (isRectangle) {
-	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;max-height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
 	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins></div>';
 	  }
 
 	  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등)
 	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
-	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" style="display:block;width:100%;height:50px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
+	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">오늘의 게임 트렌드</h1>' +
