@@ -2940,8 +2940,8 @@
       display: block;
       position: absolute;
       bottom: 0;
-      left: 0;
-      right: 0;
+      left: 8px;
+      right: 8px;
       height: 3px;
       background: #1a73e8;
     }
@@ -10282,7 +10282,7 @@ a.gm-item:hover {
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-    width: max(calc(100% - 16px), 100px) !important;
+    width: max(calc(100% - 32px), 50px) !important;
     height: 3px !important;
     background: var(--nav-active-bar, #1a73e8) !important;
     border-radius: 2px !important;
