@@ -568,8 +568,8 @@ function wrapWithLayout(content, options = {}) {
 		          if (el.querySelector('iframe')) return true;
 		          // 텍스트/링크형 광고 (a 태그가 있는 경우)
 		          if (el.querySelector('a[href]')) return true;
-		          // 내부에 의미있는 콘텐츠가 있는지 (빈 ins가 아닌 경우)
-		          if (el.children.length > 0) return true;
+		          // 실제 높이가 있으면 광고가 렌더링된 것으로 판단
+		          if (el.offsetHeight > 10) return true;
 		          return false;
 		        } catch {
 		          return false;
@@ -637,6 +637,8 @@ function wrapWithLayout(content, options = {}) {
 
 		          const status = el.getAttribute('data-ad-status');
 		          if (status === 'filled' || hasRenderedAd(el)) return;
+		          // 높이가 있으면 광고가 로드된 것으로 판단 (접지 않음)
+		          if (el.offsetHeight > 10 || el.offsetWidth > 10) return;
 
 		          const seenAt = Number(el.dataset.gcAdsSeenAt || 0);
 		          if (!seenAt) return;
@@ -843,7 +845,7 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   if (!SHOW_ADS) return '';
   const mobileSlot = slotIdMobile || slotIdPc;
   // 모바일 광고를 먼저 배치 (홈페이지와 동일한 구조로 CLS 방지)
-  return `<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
+  return `<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}" style="min-height:50px">
     <ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
