@@ -604,82 +604,9 @@ function wrapWithLayout(content, options = {}) {
 		        kickResizeSoon();
 		      }
 
-		      function syncOneAdSlot(el) {
-		        const slot = el.closest('.ad-slot');
-		        if (!slot) return;
-		        const status = el.getAttribute('data-ad-status');
-		        if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
-		        else if (status === 'filled' || hasRenderedAd(el)) {
-		          slot.classList.remove('ad-slot--unfilled');
-		        }
-		      }
-
-		      function syncAdSlotVisibility() {
-		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+		      function markSeenAll() {
+		        document.querySelectorAll('.ad-slot ins.adsbygoogle').forEach(function(el) {
 		          markSeen(el);
-		          syncOneAdSlot(el);
-		        });
-		      }
-
-		      function collapseEmptySeenSlots() {
-		        const now = Date.now();
-		        let delayMs = 6000;
-		        // 모바일도 PC와 동일하게 6초 대기 (3.5초는 너무 짧음)
-		        // try {
-		        //   if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) delayMs = 3500;
-		        // } catch {}
-
-		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
-		          markSeen(el);
-		          const slot = el.closest('.ad-slot');
-		          if (!slot) return;
-		          if (slot.classList.contains('ad-slot--unfilled')) return;
-
-		          const status = el.getAttribute('data-ad-status');
-		          if (status === 'filled' || hasRenderedAd(el)) return;
-		          // 높이가 있으면 광고가 로드된 것으로 판단 (접지 않음)
-		          if (el.offsetHeight > 10 || el.offsetWidth > 10) return;
-
-		          const seenAt = Number(el.dataset.gcAdsSeenAt || 0);
-		          if (!seenAt) return;
-		          if (now - seenAt < delayMs) return;
-
-		          // 6초 후에도 광고가 로드되지 않았으면 숨김
-		          // (filled도 아니고 렌더링도 안 됐으면 빈 공간 제거)
-		          slot.classList.add('ad-slot--unfilled');
-		        });
-		      }
-
-		      function runVisibilityPass() {
-		        syncAdSlotVisibility();
-		        collapseEmptySeenSlots();
-		      }
-
-		      function ensureAdStatusObserver() {
-		        if (window.__gcAdsStatusObserverInstalled) return;
-		        window.__gcAdsStatusObserverInstalled = true;
-		        try {
-		          const obs = new MutationObserver(function(mutations) {
-		            mutations.forEach(function(m) {
-		              if (m.type !== 'attributes') return;
-		              if (m.attributeName !== 'data-ad-status') return;
-		              const el = m.target;
-		              if (!el || !el.closest) return;
-		              syncOneAdSlot(el);
-		            });
-		          });
-		          document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
-		            obs.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
-		          });
-		        } catch (e) {}
-		      }
-
-		      let visibilityTimers = [];
-		      function scheduleVisibilityCheck() {
-		        visibilityTimers.forEach(clearTimeout);
-		        visibilityTimers = [];
-		        [500, 1500, 3000, 6000].forEach(function(delay) {
-		          visibilityTimers.push(setTimeout(runVisibilityPass, delay));
 		        });
 		      }
 
@@ -714,7 +641,7 @@ function wrapWithLayout(content, options = {}) {
 		        window.__gcAdsInitRetriesScheduled = true;
 		        initRetryTimers.forEach(clearTimeout);
 		        initRetryTimers = [];
-		        [100, 300, 500, 1000, 2000, 3000, 5000].forEach(function(delay) {
+		        [100, 300, 500, 1000, 2000, 3000, 5000, 7000, 10000].forEach(function(delay) {
 		          initRetryTimers.push(setTimeout(initAds, delay));
 		        });
 		      }
@@ -756,10 +683,8 @@ function wrapWithLayout(content, options = {}) {
 		      }
 
 		      function runInit() {
-		        ensureAdStatusObserver();
 		        initAds();
-		        runVisibilityPass();
-		        scheduleVisibilityCheck();
+		        markSeenAll();
 		        scheduleInitRetries();
 		        setupAdIntersectionObserver();
 		        kickResizeOnce();
@@ -820,7 +745,7 @@ function wrapWithLayout(content, options = {}) {
 	        clearTimeout(scrollTimer);
 	        scrollTimer = setTimeout(function() {
 	          initAds();
-	          runVisibilityPass();
+	          markSeenAll();
 	        }, 200);
 	      }, { passive: true });
 	    })();

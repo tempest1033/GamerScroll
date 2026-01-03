@@ -2246,6 +2246,10 @@
       line-height: 0;
       text-align: center;
       box-sizing: border-box;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
     }
 
     /* 광고 ins 요소 공통 - 중앙 정렬 */
@@ -2324,13 +2328,6 @@
       min-height: auto;
     }
 
-    /* 모바일 가로형 광고 - 프레임 없이 유지 (홈과 동일) */
-    .ad-slot--horizontal.mobile-only {
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
-    }
 
     /* 홈페이지 가로형 광고 컨테이너 카드 스타일 (PC만 적용) */
     .home-section .ad-slot--horizontal.pc-only {
@@ -2373,9 +2370,9 @@
       margin-bottom: var(--space-block-y);
     }
 
-    /* PC 광고 여백 */
+    /* 광고 여백 - 카드 간격과 동일 */
     .ad-slot-section {
-      padding: 12px 0;
+      margin: var(--space-block-gap) 0;
     }
 
     /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 (vertical 광고 제외) */
@@ -2383,9 +2380,10 @@
       grid-column: 1 / -1;
     }
 
-    /* 사이드바 광고 슬롯 - flex gap으로 이미 여백 있으므로 패딩 제거 */
+    /* 홈 컨테이너 내부 광고 슬롯 - flex gap으로 이미 여백 있으므로 마진 제거 */
+    .home-main .ad-slot-section,
     .home-sidebar .ad-slot-section {
-      padding: 0;
+      margin: 0;
     }
 
     .ad-slot.mobile-only,
@@ -2512,10 +2510,7 @@
         width: 100%;
       }
 
-      /* 모바일 광고 여백 및 크기 통일 */
-      .ad-slot-section {
-        padding: 8px 0;
-      }
+      /* 모바일 광고 여백 - 카드 간격과 동일 (--space-block-gap 자동 적용) */
 
       /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) - search-hidden 제외 */
       body:not(.search-hidden) .page-wrapper,
@@ -10490,7 +10485,7 @@ a.gm-item:hover {
   }
 
   .game-grid .ad-slot-section {
-    padding: 0;
+    margin: 0;
   }
 
   .game-rank-grid {
