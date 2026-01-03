@@ -2312,11 +2312,8 @@
       min-height: auto;
     }
 
-    /* 홈페이지 모바일 광고 - 프레임 없이 유지 (원래 스타일) */
-    #home-top-ad-mobile,
-    #ad-above-mobile,
-    #ad-above-steam-mobile,
-    #ad-above-news-mobile {
+    /* 모바일 가로형 광고 - 프레임 없이 유지 (홈과 동일) */
+    .ad-slot--horizontal.mobile-only {
       background: transparent;
       border: none;
       box-shadow: none;
