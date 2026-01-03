@@ -522,10 +522,30 @@ async function main() {
         prev: dailyReports[i + 1]?.slug || null,
         next: dailyReports[i - 1]?.slug || null
       };
+
+      // history 뉴스 데이터 로드 (썸네일 매칭 fallback용)
+      const historyFile = `${HISTORY_DIR}/${report.slug}.json`;
+      let historyNews = [];
+      if (fs.existsSync(historyFile)) {
+        try {
+          const historyData = JSON.parse(fs.readFileSync(historyFile, 'utf8'));
+          // 모든 뉴스 소스에서 썸네일 있는 것만 수집
+          historyNews = [
+            ...(historyData.news?.inven || []),
+            ...(historyData.news?.ruliweb || []),
+            ...(historyData.news?.gamemeca || []),
+            ...(historyData.news?.thisisgame || [])
+          ].filter(n => n.thumbnail && n.title);
+        } catch (e) {
+          // 로드 실패 시 빈 배열
+        }
+      }
+
       const html = generateDailyDetailPage({
         insight: report.insight,
         slug: report.slug,
-        nav
+        nav,
+        historyNews
       });
       fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
     } catch (err) {

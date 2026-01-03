@@ -240,13 +240,13 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
   "summary": "오늘의 게임 업계 핵심 요약 (300자 이내)",
   "headline": "뉴스/블로그 제목처럼 임팩트 있게. 핵심 이슈 1개만 선정. 예: '메이플 키우기, 양대 마켓 1위 등극' (50자 이내)",
   "issues": [
-    { "tag": "모바일|PC|콘솔|e스포츠", "title": "제목 40자", "desc": "설명 200자 이내" }
+    { "tag": "모바일|PC|콘솔|e스포츠", "title": "제목 40자", "desc": "설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
   ],
   "industryIssues": [
-    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내" }
+    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
   ],
   "metrics": [
-    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내" }
+    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
   ],${rankingsSection}
   "community": [
     { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 200자 이내" }
@@ -263,6 +263,12 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 - summary: 300자 이내
 - title: 40자 이내
 - desc: 200자 이내
+
+## 썸네일 선택 규칙 (필수):
+- issues, industryIssues, metrics의 각 항목에 thumbnail 필드 필수
+- 위 '최신 뉴스 (썸네일 URL 포함)' 목록에서 해당 이슈와 가장 관련된 뉴스의 썸네일 URL 선택
+- 제목 키워드가 매칭되는 뉴스의 썸네일 우선 선택
+- 적절한 썸네일이 없으면 null 입력
 
 ## 중복 방지 (필수):
 - summary(데일리 포커스)는 최근 리포트와 중복된 주제/표현 피할 것
@@ -343,14 +349,6 @@ JSON만 출력해. 다른 설명 없이.`;
         // AI 응답의 date를 현재 KST 날짜로 강제 교정
         aiInsight.date = today;
 
-        // 썸네일 자동 매칭 (헤드라인 키워드 기반)
-        if (aiInsight.headline) {
-          const thumbnail = findMatchingThumbnail(aiInsight.headline, crawlData);
-          if (thumbnail) {
-            aiInsight.thumbnail = thumbnail;
-          }
-        }
-
         console.log('  - AI 인사이트 생성 완료 (Claude)');
         return aiInsight;
 
@@ -412,11 +410,11 @@ function buildDataSummary(data) {
     ...(data.news?.ruliweb || []),
     ...(data.news?.gamemeca || []),
     ...(data.news?.thisisgame || [])
-  ].filter(n => n.thumbnail).slice(0, 15);
+  ].filter(n => n.thumbnail).slice(0, 20);
 
   if (newsItems.length > 0) {
-    lines.push('\n### 최신 뉴스:');
-    newsItems.forEach((n, i) => lines.push(`${i + 1}. ${n.title}`));
+    lines.push('\n### 최신 뉴스 (썸네일 URL 포함):');
+    newsItems.forEach((n, i) => lines.push(`${i + 1}. [${n.title}] → ${n.thumbnail}`));
   }
 
   // 커뮤니티 인기글

@@ -34,6 +34,18 @@
       }
     }
 
+    /* 썸네일/아이콘 폴백 (파비콘 중앙 배치) */
+    .thumb-fallback {
+      background: var(--bg-secondary, #1a1a2e) url('/favicon.svg') center/32px no-repeat !important;
+    }
+    .thumb-fallback img {
+      opacity: 0;
+    }
+    .icon-fallback {
+      background: var(--bg-secondary, #1a1a2e) url('/favicon.svg') center/60% no-repeat !important;
+      border-radius: 6px;
+    }
+
     /* 모바일 가로 스크롤 방지 + sticky 호환 */
     @media (max-width: 768px) {
       *, *::before, *::after {
@@ -2355,34 +2367,6 @@
     .ad-slot.ad-slot--no-reserve > ins.adsbygoogle {
       min-height: 0 !important;
       height: auto !important;
-    }
-
-    .ad-slot.ad-slot--unfilled {
-      display: none !important;
-      height: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      overflow: hidden !important;
-    }
-
-    .ad-slot.ad-slot--no-reserve.ad-slot--unfilled {
-      display: none !important;
-      height: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-
-    /* AdSense unfilled 광고 자동 숨김 */
-    ins.adsbygoogle[data-ad-status='unfilled'] {
-      display: none !important;
-    }
-
-    /* 빈 광고 컨테이너 자동 숨김 - :has 선택자 */
-    .ad-slot:has(ins.adsbygoogle[data-ad-status='unfilled']) {
-      display: none !important;
-      height: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
     }
 
     .ad-slot-top {
@@ -5651,6 +5635,40 @@
   overflow: hidden;
 }
 
+/* 헤드라인 이미지 레이아웃 */
+.weekly-header-card.has-hero-image {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: stretch;
+  padding: 0;
+}
+
+.weekly-header-image {
+  flex-shrink: 0;
+  width: 200px;
+  border-radius: 20px 0 0 20px;
+  overflow: hidden;
+}
+
+.weekly-header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.weekly-header-text {
+  flex: 1;
+  padding: 20px 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.weekly-header-card:not(.has-hero-image) .weekly-header-text {
+  padding: 0;
+}
+
 .weekly-header-card .weekly-header-title,
 .weekly-header-card .weekly-header-headline,
 .weekly-header-card .weekly-header-period,
@@ -6238,6 +6256,59 @@
   box-shadow: var(--shadow-lg);
 }
 
+/* 이미지 포함 카드 - 세로 레이아웃 (이미지 상단) */
+.weekly-hot-card.has-thumb {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.weekly-hot-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.weekly-hot-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 게임 아이콘 (정사각형) */
+.weekly-hot-thumb.is-icon {
+  aspect-ratio: 1 / 1;
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  margin: 16px auto 0;
+}
+
+.weekly-hot-card.has-thumb:has(.is-icon) {
+  text-align: center;
+}
+
+.weekly-hot-card.has-thumb:has(.is-icon) .weekly-hot-content {
+  text-align: left;
+}
+
+.weekly-hot-card.has-thumb .weekly-hot-content {
+  padding: 14px 16px 16px;
+}
+
+/* 그리드 카드 높이 통일 */
+.weekly-hot-grid {
+  align-items: stretch;
+}
+
+.weekly-hot-grid .weekly-hot-card {
+  display: flex;
+  flex-direction: column;
+}
+
 /* 호버 시 상단 띠 효과 제거 */
 
 .weekly-hot-card.featured {
@@ -6582,6 +6653,140 @@
   gap: 16px;
 }
 
+/* 일간 리포트 지표 그리드 (가로로 길게 1열) */
+.weekly-metrics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.weekly-metrics-grid .weekly-metric-card {
+  min-height: 100px;
+}
+
+.weekly-metrics-grid .metric-thumb {
+  width: 140px;
+  height: 100px;
+}
+
+.weekly-metrics-grid .metric-thumb img {
+  height: 100%;
+}
+
+/* 게임 아이콘 (정사각형) */
+.metric-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--border);
+}
+
+.metric-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 제목 앞 인라인 아이콘 */
+.title-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  vertical-align: middle;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+/* 지표/순위변동 제목 강조 + 밑줄 */
+.weekly-metric-title,
+.ranking-item .weekly-hot-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 업계 동향 그리드 */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.industry-grid .industry-card {
+  height: 100%;
+  min-height: 120px;
+}
+
+.industry-grid .industry-thumb {
+  width: 100px;
+  height: 100%;
+  min-height: 80px;
+}
+
+.industry-card {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.industry-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.industry-thumb {
+  width: 100px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--border);
+}
+
+.industry-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.industry-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.industry-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.industry-desc {
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
+  color: var(--text-secondary);
+  line-height: var(--font-desc-line-height);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .industry-thumb {
+    width: 80px;
+    height: 56px;
+  }
+}
+
 .weekly-metric-card {
   display: flex;
   gap: 18px;
@@ -6624,6 +6829,29 @@
   width: 26px;
   height: 26px;
   color: var(--metric-color, #3b82f6);
+}
+
+/* 지표 썸네일 */
+.metric-thumb {
+  width: 100px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--border);
+}
+
+.metric-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .metric-thumb {
+    width: 80px;
+    height: 56px;
+  }
 }
 
 .weekly-metric-content {
@@ -7228,6 +7456,100 @@
   margin: 0;
 }
 
+/* 글로벌 트렌드 카드 (썸네일 포함, 2열) */
+.global-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.global-grid .global-card {
+  height: 100%;
+  min-height: 120px;
+}
+
+.global-grid .global-thumb {
+  width: 100px;
+  height: 100%;
+  min-height: 80px;
+}
+
+.global-card {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.global-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.global-thumb {
+  width: 100px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--border);
+}
+
+.global-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.global-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.global-tag {
+  display: inline-block;
+  font-size: var(--font-meta-size);
+  font-weight: var(--font-badge-weight);
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.18);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.global-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.global-desc {
+  font-size: var(--font-desc-size);
+  color: var(--text-secondary);
+  line-height: var(--font-desc-line-height);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .global-grid,
+  .industry-grid {
+    grid-template-columns: 1fr;
+  }
+  .global-thumb,
+  .industry-thumb {
+    width: 80px;
+    height: 56px;
+    min-height: auto;
+  }
+}
+
 /* 주간 리포트 반응형 */
 @media (max-width: 768px) {
   .weekly-summary-grid {
@@ -7240,6 +7562,7 @@
 
   .weekly-rankings-grid,
   .weekly-metrics-row,
+  .weekly-metrics-grid,
   .weekly-highlight-grid,
   .weekly-stocks-tables,
   .weekly-community-grid,
@@ -7250,6 +7573,25 @@
 
   .weekly-hot-card.featured {
     grid-column: 1;
+  }
+
+  /* 모바일 이미지 스타일 */
+  .weekly-hot-thumb {
+    aspect-ratio: 2 / 1;
+  }
+
+  .weekly-header-card.has-hero-image {
+    flex-direction: column;
+  }
+
+  .weekly-header-image {
+    width: 100%;
+    height: 140px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .weekly-header-text {
+    padding: 16px;
   }
 
   .weekly-section {

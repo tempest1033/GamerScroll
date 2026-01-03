@@ -256,13 +256,13 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
   "summary": "지난 주 게임 업계 핵심 요약 (300자 이내)",
   "headline": "뉴스/블로그 제목처럼 임팩트 있게. 핵심 이슈 1개만 선정. 예: '메이플 키우기, 양대 마켓 1위 등극' (50자 이내)",
   "issues": [
-    { "tag": "모바일|PC|콘솔|e스포츠", "title": "지난 주 핫이슈 제목 40자", "desc": "설명 200자 이내" }
+    { "tag": "모바일|PC|콘솔|e스포츠", "title": "지난 주 핫이슈 제목 40자", "desc": "설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
   ],
   "industryIssues": [
-    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내" }
+    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
   ],
   "metrics": [
-    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내" }
+    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
   ],${rankingsSection}
   "community": [
     { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 200자 이내" }
@@ -288,7 +288,7 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
     { "date": "M/D", "title": "게임명", "platform": "iOS|Android|PC|콘솔", "type": "신작|업데이트", "desc": "기대 포인트 50자" }
   ],
   "global": [
-    { "tag": "북미|일본|중국|유럽", "title": "글로벌 트렌드 제목 40자", "desc": "해외 게임 시장 동향 200자 이내" }
+    { "tag": "북미|일본|중국|유럽", "title": "글로벌 트렌드 제목 40자", "desc": "해외 게임 시장 동향 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
   ]
 }
 
@@ -297,6 +297,12 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
 - title: 40자 이내
 - desc: 200자 이내
 
+## 썸네일 선택 규칙 (필수):
+- issues, industryIssues, metrics, global의 각 항목에 thumbnail 필드 필수
+- 위 '뉴스 썸네일 URL 목록' 에서 해당 이슈와 가장 관련된 뉴스의 썸네일 URL 선택
+- 제목 키워드가 매칭되는 뉴스의 썸네일 우선 선택
+- 적절한 썸네일이 없으면 null 입력
+
 ## 중복 방지 (필수):
 - summary(위클리 포커스)는 전주 리포트와 중복된 주제/표현 피할 것
 - issues의 tag는 각각 다르게 (5개 모두 다른 태그 사용, 중복 금지)
@@ -304,9 +310,8 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
 
 ## 각 섹션별 개수:
 - issues: 5개 (태그: 모바일/PC/콘솔/글로벌/e스포츠/인디/업계동향/정책/기술/신작/업데이트/콜라보/스트리밍/출시·종료(게임 출시 혹은 서비스 종료 소식)/행사(게임쇼, 전시회, 오프라인 이벤트) 중 5개 선택, 중복 금지)
-- industryIssues: 0~3개 (지난 주 한국 게임 업계 주요 동향)
+- industryIssues: 4개 (지난 주 한국 게임 업계 주요 동향)
   ※ 웹 검색으로 해당 주 구체적 뉴스를 먼저 찾고, 없으면 일일 리포트 데이터에서 선정
-  ※ 구체적 뉴스가 있으면 3개, 부족하면 1~2개, 없으면 0개 (빈 배열 [])
   ※ 일반론적 필러 콘텐츠 금지 - 구체적 사건/발표/뉴스 기반으로만 작성
 - metrics: 2개 (지난 주 주목할만한 지표 변화)${rankingsInstruction}
 - community: 4개 (지난 주 커뮤니티에서 화제가 된 게임/이슈)
@@ -382,14 +387,6 @@ JSON만 출력해. 다른 설명 없이.`;
 
         // 성공 - 임시 파일 삭제 후 반환
         fs.unlinkSync(tmpFile);
-
-        // 썸네일 자동 매칭 (헤드라인 키워드 기반)
-        if (weeklyInsight.headline) {
-          const thumbnail = findMatchingThumbnail(weeklyInsight.headline, weeklyReports);
-          if (thumbnail) {
-            weeklyInsight.thumbnail = thumbnail;
-          }
-        }
 
         console.log('  - 주간 AI 인사이트 생성 완료 (Claude)');
         return weeklyInsight;
@@ -535,7 +532,28 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     });
   }
 
-  // 썸네일은 AI 응답 후 자동 매칭 (findMatchingThumbnail 함수 사용)
+  // 뉴스 썸네일 URL 목록 (AI가 선택할 수 있도록)
+  const allNews = [];
+  weeklyReports.forEach(report => {
+    if (report?.news) {
+      const reportNews = [
+        ...(report.news?.inven || []),
+        ...(report.news?.ruliweb || []),
+        ...(report.news?.gamemeca || []),
+        ...(report.news?.thisisgame || [])
+      ].filter(n => n.thumbnail && n.title);
+      allNews.push(...reportNews);
+    }
+  });
+
+  // 히스토리에서 추가 뉴스
+  const historyNews = loadRecentHistoryNews(7);
+  const combinedNews = [...allNews, ...historyNews].slice(0, 30);
+
+  if (combinedNews.length > 0) {
+    lines.push('\n### 뉴스 썸네일 URL 목록 (이슈별 thumbnail 선택용):');
+    combinedNews.forEach((n, i) => lines.push(`${i + 1}. [${n.title}] → ${n.thumbnail}`));
+  }
 
   return lines.join('\n');
 }

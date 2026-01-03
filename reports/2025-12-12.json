@@ -4582,39 +4582,46 @@
       {
         "tag": "글로벌",
         "title": "GTA 6 개발사 해고, 정치권 논쟁으로 확대",
-        "desc": "락스타의 대규모 감원 여파가 영국 총리 발언까지 이어졌어요. 대작 개발의 노동 환경과 일정 관리 문제가 다시 도마에 올랐습니다."
+        "desc": "락스타의 대규모 감원 여파가 영국 총리 발언까지 이어졌어요. 대작 개발의 노동 환경과 일정 관리 문제가 다시 도마에 올랐습니다.",
+        "thumbnail": "https://www.thisisgame.com/_next/image?url=https%3A%2F%2Ffile.thisisgame.com%2Fnext-upload%2Fcmgyg62t70006xm01wcaix1nl%2F2025%2F12%2F10%2F1639009402899612023_3f63d559-8379-4044-9caa-c6c0a11df7a6_signal-2025-11-14-15-54-12-867-1-1.jpg&w=640&q=75"
       },
       {
         "tag": "e스포츠",
         "title": "KeSPA CUP에서 HLE, T1 꺾고 기세 올려",
-        "desc": "HLE가 T1과의 접전 끝에 2:1로 승리를 거뒀어요. 연말 LoL 대회 판도가 한층 뜨거워지고 있습니다."
+        "desc": "HLE가 T1과의 접전 끝에 2:1로 승리를 거뒀어요. 연말 LoL 대회 판도가 한층 뜨거워지고 있습니다.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/11/news/thumb/s1107710430.jpg"
       },
       {
         "tag": "기술",
         "title": "사이버펑크2077 XR 안경으로 게임 몰입 확장",
-        "desc": "사이버펑크2077 5주년을 맞아 XR 안경이 공개됐어요. 게임 IP가 하드웨어 경험으로 확장되는 흐름이 눈에 띕니다."
+        "desc": "사이버펑크2077 5주년을 맞아 XR 안경이 공개됐어요. 게임 IP가 하드웨어 경험으로 확장되는 흐름이 눈에 띕니다.",
+        "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1202797436.jpg"
       },
       {
         "tag": "신작",
         "title": "PUBG: 블랙 버짓, 클로즈 알파 티저 공개",
-        "desc": "배그 세계관을 배경으로 한 익스트랙션 슈터가 클로즈 알파를 예고했어요. 기존 배그 팬과 슈터 유저 모두 주목하고 있습니다."
+        "desc": "배그 세계관을 배경으로 한 익스트랙션 슈터가 클로즈 알파를 예고했어요. 기존 배그 팬과 슈터 유저 모두 주목하고 있습니다.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/11/news/thumb/s1315513168.jpg"
       },
       {
         "tag": "콘솔",
         "title": "블랙옵스 7, 무료 체험으로 반등 노려",
-        "desc": "흥행 부진을 인정하며 다음 주부터 무료 체험을 진행해요. 라이브 서비스 FPS의 유지 전략이 시험대에 올랐습니다."
+        "desc": "흥행 부진을 인정하며 다음 주부터 무료 체험을 진행해요. 라이브 서비스 FPS의 유지 전략이 시험대에 올랐습니다.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/11/news/thumb/s1652841043.jpg"
       }
     ],
     "industryIssues": [
       {
         "tag": "엔씨소프트",
         "title": "아이온2 매크로 대응, 운영 신뢰가 관건",
-        "desc": "12/9 라이브에서 매크로와 불법 프로그램에 강경 제재 및 법적 대응을 밝혔어요. 초기 흥행 이후 운영 신뢰 회복이 핵심 과제입니다."
+        "desc": "12/9 라이브에서 매크로와 불법 프로그램에 강경 제재 및 법적 대응을 밝혔어요. 초기 흥행 이후 운영 신뢰 회복이 핵심 과제입니다.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/12/news/thumb/s1351746651.jpg"
       },
       {
         "tag": "크래프톤",
         "title": "PUBG IP 확장, 신작 라인업 속도 올려",
-        "desc": "블랙 버짓 티저로 PUBG 브랜드의 장르 확장이 본격화됐어요. 글로벌 슈터 경쟁에서 한국 IP 존재감이 커지고 있습니다."
+        "desc": "블랙 버짓 티저로 PUBG 브랜드의 장르 확장이 본격화됐어요. 글로벌 슈터 경쟁에서 한국 IP 존재감이 커지고 있습니다.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/11/news/thumb/s1315513168.jpg"
       }
     ],
     "metrics": [

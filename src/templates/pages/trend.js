@@ -3,11 +3,45 @@
  * NOTE: 복잡한 기능은 추후 추가 예정
  */
 
+const fs = require('fs');
+const path = require('path');
 const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+
+// games.json 로드 (게임 아이콘용)
+let gamesMap = {};
+try {
+  const gamesPath = path.join(__dirname, '../../../data/games.json');
+  if (fs.existsSync(gamesPath)) {
+    const data = JSON.parse(fs.readFileSync(gamesPath, 'utf8'));
+    gamesMap = data.games || {};
+  }
+} catch (e) {
+  // 로드 실패 시 빈 객체
+}
+
+// 게임명으로 아이콘 찾기
+const findGameIcon = (text) => {
+  if (!text || !Object.keys(gamesMap).length) return null;
+  // 게임명 또는 별칭으로 찾기
+  for (const [name, game] of Object.entries(gamesMap)) {
+    if (text.includes(name) || (game.aliases && game.aliases.some(a => text.includes(a)))) {
+      return game.icon || null;
+    }
+  }
+  return null;
+};
 
 // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
 const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
 const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+
+// URL 수정 헬퍼 (이미지 프록시)
+const fixUrl = (url) => {
+  if (!url) return url;
+  if (url.startsWith('//')) url = 'https:' + url;
+  if (url.includes('inven.co.kr')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+  return url;
+};
 
 // 날짜 형식화 함수 (2026-01-01 → 2026년 1월 1일)
 function formatDateKorean(dateStr) {
@@ -104,7 +138,7 @@ function generateWeeklyPanel(weeklyInsight) {
     return '';
   };
 
-  // 금주의 핫이슈 (2x2 그리드) - 최대 4개
+  // 금주의 핫이슈 (2x2 그리드) - 최대 4개, 이미지 포함
   const hotIssuesSection = issues.length > 0 ? `
     <div class="weekly-section weekly-section-hot">
       <div class="weekly-section-header">
@@ -114,12 +148,20 @@ function generateWeeklyPanel(weeklyInsight) {
         <p class="weekly-section-desc">지난 주 게임 업계에서 가장 주목받은 소식들을 정리했습니다.</p>
       </div>
       <div class="weekly-hot-issues weekly-hot-grid">
-        ${issues.slice(0, 4).map(issue => `
-          <div class="weekly-hot-card">
-            <h4 class="weekly-hot-title">${issue.title}</h4>
-            <p class="weekly-hot-desc">${issue.desc}</p>
+        ${issues.slice(0, 4).map(issue => {
+          const thumbnail = issue.thumbnail ? fixUrl(issue.thumbnail) : null;
+          const thumbnailHtml = thumbnail
+            ? `<div class="weekly-hot-thumb"><img src="${thumbnail}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+            : '';
+          return `
+          <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
+            ${thumbnailHtml}
+            <div class="weekly-hot-content">
+              <h4 class="weekly-hot-title">${issue.title}</h4>
+              <p class="weekly-hot-desc">${issue.desc}</p>
+            </div>
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
     </div>
   ` : '';
@@ -164,7 +206,7 @@ function generateWeeklyPanel(weeklyInsight) {
     </div>
   ` : '';
 
-  // 업계 동향 (타임라인)
+  // 업계 동향 (썸네일 포함 카드)
   const industrySection = industryIssues.length > 0 ? `
     <div class="weekly-section weekly-section-industry">
       <div class="weekly-section-header">
@@ -173,21 +215,26 @@ function generateWeeklyPanel(weeklyInsight) {
         </div>
         <p class="weekly-section-desc">국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.</p>
       </div>
-      <div class="weekly-timeline">
-        ${industryIssues.map(item => `
-          <div class="weekly-timeline-item">
-            <div class="weekly-timeline-marker"></div>
-            <div class="weekly-timeline-content">
-              <h4 class="weekly-timeline-title">${item.title}</h4>
-              <p class="weekly-timeline-desc">${item.desc}</p>
+      <div class="industry-grid">
+        ${industryIssues.map(item => {
+          const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
+          const thumbHtml = thumbUrl
+            ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+            : `<div class="industry-thumb thumb-fallback"></div>`;
+          return `
+          <div class="industry-card has-thumb">
+            ${thumbHtml}
+            <div class="industry-content">
+              <h4 class="industry-title">${item.title || ''}</h4>
+              <p class="industry-desc">${item.desc || ''}</p>
             </div>
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
     </div>
   ` : '';
 
-  // 주간 지표 (큰 숫자 강조형 카드)
+  // 주간 지표 (썸네일 포함 카드)
   const metricsSection = metrics.length > 0 ? `
     <div class="weekly-section weekly-section-metrics">
       <div class="weekly-section-header">
@@ -196,12 +243,15 @@ function generateWeeklyPanel(weeklyInsight) {
         </div>
         <p class="weekly-section-desc">지난 주 주목할 만한 수치 변화와 시장 지표입니다.</p>
       </div>
-      <div class="weekly-metrics-row">
+      <div class="weekly-metrics-grid">
         ${metrics.map((m, idx) => {
-          const colors = ['#6366f1', '#22c55e', '#f97316', '#ec4899'];
-          const color = colors[idx % colors.length];
+          const thumbUrl = m.thumbnail ? fixUrl(m.thumbnail) : null;
+          const gameIcon = findGameIcon(m.title);
+          const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
+          const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`;
           return `
-            <div class="weekly-metric-card" style="--metric-color: ${color}">
+            <div class="weekly-metric-card has-thumb">
+              ${thumbHtml}
               <div class="weekly-metric-content">
                 <h4 class="weekly-metric-title">${m.title}</h4>
                 <p class="weekly-metric-desc">${m.desc}</p>
@@ -338,7 +388,7 @@ function generateWeeklyPanel(weeklyInsight) {
     </div>
   ` : '';
 
-  // 글로벌 트렌드 섹션
+  // 글로벌 트렌드 섹션 (썸네일 포함, 태그 제거)
   const globalSection = global && global.length > 0 ? `
     <div class="weekly-section weekly-section-global">
       <div class="weekly-section-header">
@@ -347,46 +397,61 @@ function generateWeeklyPanel(weeklyInsight) {
         </div>
         <p class="weekly-section-desc">해외 게임 시장의 주요 동향을 살펴봅니다.</p>
       </div>
-      <div class="weekly-global-grid">
-        ${global.map(g => `
-          <div class="weekly-global-card">
-            <h4 class="weekly-global-title">${g.title}</h4>
-            <p class="weekly-global-desc">${g.desc}</p>
+      <div class="global-grid">
+        ${global.map(g => {
+          const thumbUrl = g.thumbnail ? fixUrl(g.thumbnail) : null;
+          const thumbHtml = thumbUrl
+            ? `<div class="global-thumb"><img src="${thumbUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+            : `<div class="global-thumb thumb-fallback"></div>`;
+          return `
+          <div class="global-card has-thumb">
+            ${thumbHtml}
+            <div class="global-content">
+              <h4 class="global-title">${g.title}</h4>
+              <p class="global-desc">${g.desc}</p>
+            </div>
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
     </div>
   ` : '';
 
+  // 헤드라인 이미지 (thumbnail 또는 첫 번째 issue 썸네일)
+  const heroThumb = wai.thumbnail || (issues[0]?.thumbnail ? issues[0].thumbnail : null);
+  const heroThumbUrl = heroThumb ? fixUrl(heroThumb) : null;
+
   return `
     <div class="weekly-report">
-      <div class="weekly-header-card">
-        <div class="weekly-header-title">${summaryTitle}</div>
-        <div class="weekly-header-meta">
-          <span class="weekly-header-period">${weekPeriod}</span>
-          <span class="weekly-header-divider">·</span>
-          <span class="weekly-header-week">${weekNum}주차</span>
+      <div class="weekly-header-card ${heroThumbUrl ? 'has-hero-image' : ''}">
+        ${heroThumbUrl ? `<div class="weekly-header-image"><img src="${heroThumbUrl}" alt="" loading="eager" onerror="this.parentElement.classList.add('thumb-fallback')"></div>` : ''}
+        <div class="weekly-header-text">
+          <div class="weekly-header-title">${summaryTitle}</div>
+          <div class="weekly-header-meta">
+            <span class="weekly-header-period">${weekPeriod}</span>
+            <span class="weekly-header-divider">·</span>
+            <span class="weekly-header-week">${weekNum}주차</span>
+          </div>
+          ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
         </div>
-        ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
       </div>
 
       ${hotIssuesSection}
       ${rankingsSection}
       ${generateMidAdSlot()}
-      ${releasesSection}
       ${industrySection}
       ${metricsSection}
+      ${globalSection}
       ${generateMidAdSlot()}
+      ${stocksSection}
+      ${releasesSection}
       ${communitySection}
       ${streamingSection}
-      ${globalSection}
-      ${stocksSection}
     </div>
   `;
 }
 
 function generateTrendPage(data) {
-  const { insight, rankings, steam, weeklyInsight } = data;
+  const { insight, rankings, steam, weeklyInsight, historyNews = [] } = data;
   const aiInsight = insight?.ai || null;
 
   if (!aiInsight) {
@@ -408,20 +473,48 @@ function generateTrendPage(data) {
 
   // 아이템 렌더링 (일반) - 태그 제거, 제목만
   const renderItem = (item) => {
+    // thumbnail 없으면 게임 아이콘 찾기
+    const thumbnail = item.thumbnail || null;
+    const gameIcon = !thumbnail ? findGameIcon(item.title) : null;
+    const imageUrl = thumbnail ? fixUrl(thumbnail) : gameIcon;
+    const imageHtml = imageUrl
+      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+      : '';
     return `
-      <div class="weekly-hot-card">
-        <h4 class="weekly-hot-title">${item.title || ''}</h4>
-        <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+      <div class="weekly-hot-card ${imageUrl ? 'has-thumb' : ''}">
+        ${imageHtml}
+        <div class="weekly-hot-content">
+          <h4 class="weekly-hot-title">${item.title || ''}</h4>
+          <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+        </div>
       </div>
     `;
   };
 
-  // 순위 변동 아이템 렌더링 - 태그 제거
+  // 지표 아이템 렌더링 (썸네일 우선, 없으면 게임 아이콘)
+  const renderMetricItem = (item) => {
+    const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
+    const gameIcon = findGameIcon(item.title);
+    const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
+    const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`;
+    return `
+      <div class="weekly-metric-card has-thumb">
+        ${thumbHtml}
+        <div class="weekly-metric-content">
+          <h4 class="weekly-metric-title">${item.title || ''}</h4>
+          <p class="weekly-metric-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+        </div>
+      </div>
+    `;
+  };
+
+  // 순위 변동 아이템 렌더링 - 제목 앞 인라인 아이콘
   const renderRankingItem = (item) => {
     const hasRankInfo = item.prevRank !== undefined && item.rank !== undefined;
     const changeText = item.change > 0 ? `+${item.change}` : item.change < 0 ? `${item.change}` : '0';
     const changeClass = item.change > 0 ? 'up' : item.change < 0 ? 'down' : '';
     const platformText = item.platform ? `${item.platform} ` : '';
+    const gameIcon = findGameIcon(item.title);
 
     const rankBadge = hasRankInfo ? `
       <span class="weekly-ranking-badge ${changeClass}">
@@ -429,9 +522,11 @@ function generateTrendPage(data) {
       </span>
     ` : '';
 
+    const iconHtml = `<img class="title-icon" src="${gameIcon || '/favicon.svg'}" alt="" loading="lazy" onerror="this.src='/favicon.svg';this.onerror=null">`;
+
     return `
       <div class="weekly-hot-card ranking-item">
-        <h4 class="weekly-hot-title">${item.title || ''}</h4>
+        <h4 class="weekly-hot-title">${iconHtml}${item.title || ''}</h4>
         ${rankBadge}
         <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
       </div>
@@ -457,7 +552,25 @@ function generateTrendPage(data) {
     `;
   };
 
-  // 오늘의 핫이슈 렌더링 (2x2 그리드)
+  // 지표 섹션 렌더링 (게임 아이콘만 사용)
+  const renderMetricsSection = (title, items, desc = '') => {
+    if (!items || items.length === 0) return '';
+    return `
+      <div class="weekly-section weekly-section-metrics">
+        <div class="weekly-section-header">
+          <div class="weekly-section-title-wrap">
+            <h2 class="weekly-section-title">${title}</h2>
+          </div>
+          ${desc ? `<p class="weekly-section-desc">${desc}</p>` : ''}
+        </div>
+        <div class="weekly-metrics-grid">
+          ${items.map(item => renderMetricItem(item)).join('')}
+        </div>
+      </div>
+    `;
+  };
+
+  // 오늘의 핫이슈 렌더링 (2x2 그리드, 이미지 포함)
   const renderHotIssuesSection = (items, iconSvg) => {
     if (!items || items.length === 0) return '';
     const limitedItems = items.slice(0, 4); // 최대 4개
@@ -470,12 +583,20 @@ function generateTrendPage(data) {
           <p class="weekly-section-desc">오늘 게임 업계에서 가장 주목받은 소식들을 정리했습니다.</p>
         </div>
         <div class="weekly-hot-issues weekly-hot-grid">
-          ${limitedItems.map(item => `
-            <div class="weekly-hot-card">
-              <h4 class="weekly-hot-title">${item.title || ''}</h4>
-              <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+          ${limitedItems.map(item => {
+            const thumbnail = typeof findThumbnail === 'function' ? findThumbnail(item) : item.thumbnail;
+            const thumbnailHtml = thumbnail
+              ? `<div class="weekly-hot-thumb"><img src="${fixUrl(thumbnail)}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+              : '';
+            return `
+            <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
+              ${thumbnailHtml}
+              <div class="weekly-hot-content">
+                <h4 class="weekly-hot-title">${item.title || ''}</h4>
+                <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+              </div>
             </div>
-          `).join('')}
+          `}).join('')}
         </div>
       </div>
     `;
@@ -532,18 +653,41 @@ function generateTrendPage(data) {
     `;
   };
 
-  // 업계 동향 타임라인 렌더링 (일간 리포트용)
-  const renderIndustryTimeline = (title, items, iconSvg, desc) => {
+  // 업계 동향 카드 렌더링 (썸네일 포함)
+  const renderIndustrySection = (title, items, iconSvg, desc, historyNews = []) => {
     if (!items || items.length === 0) return '';
-    const timeline = items.map(item => `
-      <div class="weekly-timeline-item">
-        <div class="weekly-timeline-marker"></div>
-        <div class="weekly-timeline-content">
-          <h4 class="weekly-timeline-title">${item.title || ''}</h4>
-          <p class="weekly-timeline-desc">${item.desc || ''}</p>
+
+    // historyNews에서 썸네일 찾기
+    const findThumb = (itemTitle) => {
+      if (!historyNews.length) return null;
+      const keywords = (itemTitle || '')
+        .replace(/[,.'":;!?()[\]{}~`@#$%^&*+=|\\/<>]/g, ' ')
+        .split(/\s+/)
+        .filter(w => w.length >= 2)
+        .sort((a, b) => b.length - a.length);
+      for (const keyword of keywords) {
+        const match = historyNews.find(n => n.title && n.title.includes(keyword));
+        if (match && match.thumbnail) return match.thumbnail;
+      }
+      return null;
+    };
+
+    const cards = items.map(item => {
+      const thumb = item.thumbnail || findThumb(item.title);
+      const thumbUrl = thumb ? fixUrl(thumb) : null;
+      const thumbHtml = thumbUrl
+        ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+        : `<div class="industry-thumb thumb-fallback"></div>`;
+      return `
+      <div class="industry-card has-thumb">
+        ${thumbHtml}
+        <div class="industry-content">
+          <h4 class="industry-title">${item.title || ''}</h4>
+          <p class="industry-desc">${item.desc || ''}</p>
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
     return `
       <div class="weekly-section weekly-section-industry">
         <div class="weekly-section-header">
@@ -552,8 +696,8 @@ function generateTrendPage(data) {
           </div>
           ${desc ? `<p class="weekly-section-desc">${desc}</p>` : ''}
         </div>
-        <div class="weekly-timeline">
-          ${timeline}
+        <div class="industry-grid">
+          ${cards}
         </div>
       </div>
     `;
@@ -618,7 +762,7 @@ function generateTrendPage(data) {
               <span class="stock-change-badge ${changeClass}">${changeSign} ${changeText}</span>
             </div>
           </div>
-          <img class="stock-chart" src="${candleChartUrl}" alt="${displayName} 일봉 차트" onerror="this.style.display='none'">
+          <img class="stock-chart" src="${candleChartUrl}" alt="${displayName} 일봉 차트" onerror="this.src='/favicon.svg';this.onerror=null">
           <p class="stock-comment">${stock.comment || ''}</p>
         </a>
       `;
@@ -678,8 +822,8 @@ function generateTrendPage(data) {
           </div>
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
           ${generateMidAdSlot()}
-          ${renderIndustryTimeline('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.')}
-          ${renderCategoryCard('주목할만한 지표', metrics, 'weekly-section-metrics', '', false, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
+          ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
+          ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
           ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
           ${generateMidAdSlot()}
           ${renderStocksCard(stocksData, stockPrices)}
@@ -738,8 +882,27 @@ function generateTrendPage(data) {
  * @param {string} params.slug - URL slug (예: 2025-12-09)
  * @param {Object} params.nav - 이전/다음 리포트 정보 (optional)
  */
-function generateDailyDetailPage({ insight, slug, nav = {} }) {
+function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) {
   const aiInsight = insight?.ai || null;
+
+  // 썸네일 매칭 헬퍼 (issue.thumbnail 우선, 없으면 historyNews에서 키워드 매칭)
+  const findThumbnail = (item) => {
+    if (item.thumbnail) return item.thumbnail;
+    if (!historyNews.length) return null;
+
+    // 제목에서 키워드 추출
+    const keywords = (item.title || '')
+      .replace(/[,.'":;!?()[\]{}~`@#$%^&*+=|\\/<>]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length >= 2);
+
+    // 키워드 매칭 (긴 키워드 우선)
+    for (const keyword of keywords.sort((a, b) => b.length - a.length)) {
+      const match = historyNews.find(n => n.title.includes(keyword));
+      if (match) return match.thumbnail;
+    }
+    return null;
+  };
 
   if (!aiInsight) {
     const content = `
@@ -758,22 +921,33 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
   const getTagIcon = (tag) => tagIcons[tag] || '';
   const getFixedTagClass = (tag) => fixedTagClasses[tag] || '';
 
-  // 아이템 렌더링 (일반)
+  // 아이템 렌더링 (일반, 이미지 포함)
   const renderItem = (item) => {
+    // thumbnail 우선, 없으면 historyNews에서 찾기, 그래도 없으면 게임 아이콘
+    const thumbnail = findThumbnail(item);
+    const gameIcon = !thumbnail ? findGameIcon(item.title) : null;
+    const imageUrl = thumbnail ? fixUrl(thumbnail) : gameIcon;
+    const imageHtml = imageUrl
+      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+      : '';
     return `
-      <div class="weekly-hot-card">
-        <h4 class="weekly-hot-title">${item.title || ''}</h4>
-        <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+      <div class="weekly-hot-card ${imageUrl ? 'has-thumb' : ''}">
+        ${imageHtml}
+        <div class="weekly-hot-content">
+          <h4 class="weekly-hot-title">${item.title || ''}</h4>
+          <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+        </div>
       </div>
     `;
   };
 
-  // 순위 변동 아이템 렌더링
+  // 순위 변동 아이템 렌더링 - 제목 앞 인라인 아이콘
   const renderRankingItem = (item) => {
     const hasRankInfo = item.prevRank !== undefined && item.rank !== undefined;
     const changeText = item.change > 0 ? `+${item.change}` : item.change < 0 ? `${item.change}` : '0';
     const changeClass = item.change > 0 ? 'up' : item.change < 0 ? 'down' : '';
     const platformText = item.platform ? `${item.platform} ` : '';
+    const gameIcon = findGameIcon(item.title);
 
     const rankBadge = hasRankInfo ? `
       <span class="weekly-ranking-badge ${changeClass}">
@@ -781,9 +955,11 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
       </span>
     ` : '';
 
+    const iconHtml = `<img class="title-icon" src="${gameIcon || '/favicon.svg'}" alt="" loading="lazy" onerror="this.src='/favicon.svg';this.onerror=null">`;
+
     return `
       <div class="weekly-hot-card ranking-item">
-        <h4 class="weekly-hot-title">${item.title || ''}</h4>
+        <h4 class="weekly-hot-title">${iconHtml}${item.title || ''}</h4>
         ${rankBadge}
         <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
       </div>
@@ -809,7 +985,42 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
     `;
   };
 
-  // 오늘의 핫이슈 렌더링 (2x2 그리드)
+  // 지표 아이템 렌더링 (썸네일 우선, 없으면 게임 아이콘)
+  const renderMetricItem = (item) => {
+    const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
+    const gameIcon = findGameIcon(item.title);
+    const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
+    const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`;
+    return `
+      <div class="weekly-metric-card has-thumb">
+        ${thumbHtml}
+        <div class="weekly-metric-content">
+          <h4 class="weekly-metric-title">${item.title || ''}</h4>
+          <p class="weekly-metric-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+        </div>
+      </div>
+    `;
+  };
+
+  // 지표 섹션 렌더링 (게임 아이콘만 사용)
+  const renderMetricsSection = (title, items, desc = '') => {
+    if (!items || items.length === 0) return '';
+    return `
+      <div class="weekly-section weekly-section-metrics">
+        <div class="weekly-section-header">
+          <div class="weekly-section-title-wrap">
+            <h2 class="weekly-section-title">${title}</h2>
+          </div>
+          ${desc ? `<p class="weekly-section-desc">${desc}</p>` : ''}
+        </div>
+        <div class="weekly-metrics-grid">
+          ${items.map(item => renderMetricItem(item)).join('')}
+        </div>
+      </div>
+    `;
+  };
+
+  // 오늘의 핫이슈 렌더링 (2x2 그리드, 이미지 포함)
   const renderHotIssuesSection = (items, iconSvg) => {
     if (!items || items.length === 0) return '';
     const limitedItems = items.slice(0, 4); // 최대 4개
@@ -822,12 +1033,20 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
           <p class="weekly-section-desc">오늘 게임 업계에서 가장 주목받은 소식들을 정리했습니다.</p>
         </div>
         <div class="weekly-hot-issues weekly-hot-grid">
-          ${limitedItems.map(item => `
-            <div class="weekly-hot-card">
-              <h4 class="weekly-hot-title">${item.title || ''}</h4>
-              <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+          ${limitedItems.map(item => {
+            const thumbnail = typeof findThumbnail === 'function' ? findThumbnail(item) : item.thumbnail;
+            const thumbnailHtml = thumbnail
+              ? `<div class="weekly-hot-thumb"><img src="${fixUrl(thumbnail)}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+              : '';
+            return `
+            <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
+              ${thumbnailHtml}
+              <div class="weekly-hot-content">
+                <h4 class="weekly-hot-title">${item.title || ''}</h4>
+                <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
+              </div>
             </div>
-          `).join('')}
+          `}).join('')}
         </div>
       </div>
     `;
@@ -884,18 +1103,41 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
     `;
   };
 
-  // 업계 동향 타임라인 렌더링
-  const renderIndustryTimeline = (title, items, iconSvg, desc) => {
+  // 업계 동향 카드 렌더링 (썸네일 포함)
+  const renderIndustrySection = (title, items, iconSvg, desc) => {
     if (!items || items.length === 0) return '';
-    const timeline = items.map(item => `
-      <div class="weekly-timeline-item">
-        <div class="weekly-timeline-marker"></div>
-        <div class="weekly-timeline-content">
-          <h4 class="weekly-timeline-title">${item.title || ''}</h4>
-          <p class="weekly-timeline-desc">${item.desc || ''}</p>
+
+    // historyNews에서 썸네일 찾기
+    const findThumb = (itemTitle) => {
+      if (!historyNews.length) return null;
+      const keywords = (itemTitle || '')
+        .replace(/[,.'":;!?()[\]{}~`@#$%^&*+=|\\/<>]/g, ' ')
+        .split(/\s+/)
+        .filter(w => w.length >= 2)
+        .sort((a, b) => b.length - a.length);
+      for (const keyword of keywords) {
+        const match = historyNews.find(n => n.title && n.title.includes(keyword));
+        if (match && match.thumbnail) return match.thumbnail;
+      }
+      return null;
+    };
+
+    const cards = items.map(item => {
+      const thumb = item.thumbnail || findThumb(item.title);
+      const thumbUrl = thumb ? fixUrl(thumb) : null;
+      const thumbHtml = thumbUrl
+        ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" onerror="this.parentElement.classList.add('thumb-fallback')"></div>`
+        : `<div class="industry-thumb thumb-fallback"></div>`;
+      return `
+      <div class="industry-card has-thumb">
+        ${thumbHtml}
+        <div class="industry-content">
+          <h4 class="industry-title">${item.title || ''}</h4>
+          <p class="industry-desc">${item.desc || ''}</p>
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
     return `
       <div class="weekly-section weekly-section-industry">
         <div class="weekly-section-header">
@@ -904,8 +1146,8 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
           </div>
           ${desc ? `<p class="weekly-section-desc">${desc}</p>` : ''}
         </div>
-        <div class="weekly-timeline">
-          ${timeline}
+        <div class="industry-grid">
+          ${cards}
         </div>
       </div>
     `;
@@ -964,7 +1206,7 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
               <span class="stock-change-badge ${changeClass}">${changeSign} ${changeText}</span>
             </div>
           </div>
-          <img class="stock-chart" src="${candleChartUrl}" alt="${displayName} 일봉 차트" onerror="this.style.display='none'">
+          <img class="stock-chart" src="${candleChartUrl}" alt="${displayName} 일봉 차트" onerror="this.src='/favicon.svg';this.onerror=null">
           <p class="stock-comment">${stock.comment || ''}</p>
         </a>
       `;
@@ -1014,17 +1256,26 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
       <div class="insight-page-container">
         ${topAdPc}
         <h1 class="visually-hidden">${summaryTitle}</h1>
-        <div class="weekly-header-card">
-          <div class="weekly-header-title">${summaryTitle}</div>
-          <div class="weekly-header-meta">
-            <span class="weekly-header-period">${formatDateKorean(aiInsight.date || slug)} 리포트</span>
+        ${(() => {
+          // 헤드라인 이미지: aiInsight.thumbnail 또는 첫 번째 issue 썸네일
+          const heroThumb = aiInsight.thumbnail || (issues[0]?.thumbnail ? issues[0].thumbnail : null);
+          const heroThumbUrl = heroThumb ? fixUrl(heroThumb) : null;
+          return `
+        <div class="weekly-header-card ${heroThumbUrl ? 'has-hero-image' : ''}">
+          ${heroThumbUrl ? `<div class="weekly-header-image"><img src="${heroThumbUrl}" alt="" loading="eager" onerror="this.parentElement.classList.add('thumb-fallback')"></div>` : ''}
+          <div class="weekly-header-text">
+            <div class="weekly-header-title">${summaryTitle}</div>
+            <div class="weekly-header-meta">
+              <span class="weekly-header-period">${formatDateKorean(aiInsight.date || slug)} 리포트</span>
+            </div>
+            ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
           </div>
-          ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
-        </div>
+        </div>`;
+        })()}
         ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
         ${generateMidAdSlot()}
-        ${renderIndustryTimeline('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.')}
-        ${renderCategoryCard('주목할만한 지표', metrics, 'weekly-section-metrics', '', false, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
+        ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
+        ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
         ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
         ${generateMidAdSlot()}
         ${renderStocksCard(stocksData, stockPrices)}
