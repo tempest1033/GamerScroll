@@ -1235,13 +1235,13 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-        <!-- 트렌드 리포트 상단 광고 -->
+        <!-- 트렌드 리포트 상단 광고 (모바일 먼저 배치 - CLS 방지) -->
         ${SHOW_ADS ? `
-        <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only home-card-full">
-          <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-        </div>
         <div class="ad-slot ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve">
           <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        </div>
+        <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only home-card-full">
+          <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
         </div>
         ` : ''}
 

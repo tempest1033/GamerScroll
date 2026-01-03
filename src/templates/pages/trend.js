@@ -19,12 +19,13 @@ function formatDateKorean(dateStr) {
 // 중간 광고 슬롯 생성 (PC: horizontal, 모바일: rectangle)
 function generateMidAdSlot() {
   if (!SHOW_ADS) return '';
+  // 모바일 광고를 먼저 배치 (CLS 방지)
   return `
-    <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only">
-      <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-    </div>
     <div class="ad-slot ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve">
       <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+    </div>
+    <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only">
+      <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
     </div>
   `;
 }
