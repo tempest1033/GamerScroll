@@ -142,6 +142,39 @@ function generateRankingsPage(data) {
         updateChartSection();
       });
     });
+
+    // 모바일에서만 국가 컬럼 클릭 시 펼치기
+    const isMobile = () => window.innerWidth <= 768;
+
+    document.querySelectorAll('.columns-grid').forEach(grid => {
+      const columns = grid.querySelectorAll('.country-column:not(.rank-column)');
+
+      function initColumns() {
+        if (isMobile()) {
+          columns.forEach((col, i) => {
+            col.classList.toggle('expanded', i === 0);
+            col.classList.toggle('collapsed', i !== 0);
+          });
+        } else {
+          columns.forEach(col => {
+            col.classList.remove('expanded', 'collapsed');
+          });
+        }
+      }
+
+      columns.forEach(col => {
+        col.addEventListener('click', () => {
+          if (!isMobile()) return;
+          columns.forEach(c => {
+            c.classList.toggle('expanded', c === col);
+            c.classList.toggle('collapsed', c !== col);
+          });
+        });
+      });
+
+      window.addEventListener('resize', initColumns);
+      initColumns();
+    });
   </script>`;
 
   return wrapWithLayout(content, {

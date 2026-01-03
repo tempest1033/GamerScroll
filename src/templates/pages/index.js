@@ -438,7 +438,7 @@ function generateIndexPage(data) {
     '<div class="home-card" id="home-insight">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">트렌드 리포트</h2>' +
-    '<a href="/trend" class="home-card-more">더보기 →</a>' +
+    '<a href="/trend/" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
@@ -585,7 +585,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
-	    '<a href="/news" class="home-card-more">더보기 →</a>' +
+	    '<a href="/news/" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
@@ -593,7 +593,7 @@ function generateIndexPage(data) {
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
-    '<a href="/community" class="home-card-more">더보기 →</a>' +
+    '<a href="/community/" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
@@ -601,7 +601,7 @@ function generateIndexPage(data) {
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +
-	    '<a href="/youtube" class="home-card-more">더보기 →</a>' +
+	    '<a href="/youtube/" class="home-card-more">더보기 →</a>' +
 	    '</div>' +
 	    '<div class="home-card-body">' + generateHomeVideo() + '</div>' +
 	    '</div>' +
@@ -616,7 +616,7 @@ function generateIndexPage(data) {
     '<button class="tab-btn small active" data-home-chart="grossing">매출</button>' +
     '<button class="tab-btn small" data-home-chart="free">인기</button>' +
     '</div>' +
-    '<a href="/rankings" class="home-card-more">더보기 →</a>' +
+    '<a href="/rankings/" class="home-card-more">더보기 →</a>' +
     '</div>' +
 	    '</div>' +
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
@@ -631,7 +631,7 @@ function generateIndexPage(data) {
     '<button class="tab-btn small active" data-home-steam="topsellers">매출</button>' +
     '<button class="tab-btn small" data-home-steam="mostplayed">인기</button>' +
     '</div>' +
-    '<a href="/steam" class="home-card-more">더보기 →</a>' +
+    '<a href="/steam/" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '</div>' +
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
@@ -640,7 +640,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">신규 게임</h2>' +
-	    '<a href="/upcoming" class="home-card-more">더보기 →</a>' +
+	    '<a href="/upcoming/" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeUpcoming() + '</div>' +
     '</div>' +

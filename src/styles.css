@@ -5682,16 +5682,9 @@
 
 /* 다크모드 - 블루/인디고→오렌지 복원 */
 @media (prefers-color-scheme: dark) {
-  /* 네비 active - 하단 밑줄 오렌지 */
-  .nav-item.active {
-    color: #f97316;
-    background: transparent;
-  }
+  /* 네비 active - 밑줄만 오렌지, 폰트 색 유지 */
   .nav-item.active::after {
     background: #f97316;
-  }
-  .nav-item.active svg {
-    stroke: #f97316;
   }
   /* 데일리 포커스 문구 - 미니멀 (투명 배경 + 은은한 테두리) */
   .home-daily-focus-text {
@@ -10157,6 +10150,10 @@ a.gm-item:hover {
     grid-template-columns: 1fr;
   }
 
+  .game-grid .ad-slot-section {
+    padding: 0;
+  }
+
   .game-rank-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
@@ -10298,19 +10295,19 @@ a.gm-item:hover {
     display: block !important;
     position: absolute !important;
     bottom: 0 !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-    width: 70% !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    width: 100% !important;
     height: 2px !important;
     background: var(--nav-active-bar, #1a73e8) !important;
     border-radius: 1px !important;
   }
 
-  /* 다크모드 - 네비 선택 오렌지 */
+  /* 다크모드 - 폰트 흰색, 밑줄 오렌지 */
   @media (prefers-color-scheme: dark) {
     .nav-item.active {
-      color: #f97316 !important;
+      color: #fff !important;
     }
     .nav-item.active::after {
       background: #f97316 !important;

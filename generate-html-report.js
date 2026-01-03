@@ -570,6 +570,7 @@ async function main() {
     fs.mkdirSync(DOCS_DIR, { recursive: true });
   }
   fs.copyFileSync('./index.html', `${DOCS_DIR}/index.html`);
+  fs.copyFileSync('./404.html', `${DOCS_DIR}/404.html`);
   const subPages = ['news', 'community', 'youtube', 'rankings', 'steam', 'upcoming', 'metacritic'];
   for (const page of subPages) {
     const pageDir = `${DOCS_DIR}/${page}`;
@@ -623,7 +624,6 @@ async function main() {
   // 메인 페이지 URL 목록
   const mainPages = [
     { loc: 'https://gamerscrawl.com/', changefreq: 'hourly', priority: '1.0' },
-    { loc: 'https://gamerscrawl.com/trend/', changefreq: 'hourly', priority: '0.9' },
     { loc: 'https://gamerscrawl.com/trend/', changefreq: 'hourly', priority: '0.9' },
     { loc: 'https://gamerscrawl.com/news/', changefreq: 'hourly', priority: '0.9' },
     { loc: 'https://gamerscrawl.com/community/', changefreq: 'hourly', priority: '0.8' },

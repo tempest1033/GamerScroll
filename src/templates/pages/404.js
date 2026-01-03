@@ -112,7 +112,8 @@ function generate404Page() {
     description: '요청하신 페이지가 존재하지 않습니다.',
     currentPage: '',
     showSearchBar: true,
-    pageScripts: redirectScript
+    pageScripts: redirectScript,
+    noindex: true
   });
 }
 

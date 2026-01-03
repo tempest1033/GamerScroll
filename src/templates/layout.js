@@ -352,7 +352,7 @@ const swipeScript = `
       window.location.href = '/';
       return;
     }
-    window.location.href = '/' + sections[index];
+    window.location.href = '/' + sections[index] + '/';
   }
 
   // 스크롤 가능한 요소 찾기
