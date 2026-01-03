@@ -2,10 +2,14 @@
  * 영상 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 
 function generateYoutubePage(data) {
   const { youtube, chzzk } = data;
+
+  // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
+  const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
+  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
   // 유튜브 그리드 생성 (세로형 카드)
   function generateYoutubeGrid(videos) {
@@ -56,8 +60,9 @@ function generateYoutubePage(data) {
 
   const content = `
     <section class="section active" id="youtube">
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+      ${topAdMobile}
       <div class="game-page">
+        ${topAdPc}
         <h1 class="visually-hidden">게임 영상 순위</h1>
 
         <!-- 유튜브 인기 섹션 -->

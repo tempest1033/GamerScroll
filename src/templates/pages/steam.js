@@ -2,10 +2,14 @@
  * 스팀 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 
 function generateSteamPage(data) {
   const { steam } = data;
+
+  // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
+  const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
+  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
   // 스팀 placeholder SVG
   const steamPlaceholder = '<svg viewBox="0 0 24 24" fill="#66c0f4"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.007l2.862-4.145v-.058c0-2.495 2.03-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.104.004.156 0 1.871-1.52 3.393-3.393 3.393-1.618 0-2.974-1.14-3.305-2.658l-4.6-1.903C1.463 19.63 6.27 24 11.979 24c6.627 0 12-5.373 12-12S18.606 0 11.979 0z"/></svg>';
@@ -78,8 +82,9 @@ function generateSteamPage(data) {
 
   const content = `
     <section class="section active" id="steam">
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+      ${topAdMobile}
       <div class="page-wrapper">
+        ${topAdPc}
         <h1 class="visually-hidden">스팀 순위</h1>
         <div class="steam-card home-card">
           <div class="home-card-header">

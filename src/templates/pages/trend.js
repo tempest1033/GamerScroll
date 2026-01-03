@@ -3,7 +3,11 @@
  * NOTE: 복잡한 기능은 추후 추가 예정
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+
+// 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
+const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
+const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
 // 날짜 형식화 함수 (2026-01-01 → 2026년 1월 1일)
 function formatDateKorean(dateStr) {
@@ -655,8 +659,9 @@ function generateTrendPage(data) {
 
   const content = `
     <section class="section active" id="insight">
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+      ${topAdMobile}
       <div class="insight-page-container">
+        ${topAdPc}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         <div class="insight-tabs">
           <button class="insight-tab active" data-tab="daily">일간 리포트</button>
@@ -1005,8 +1010,9 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
 
   const content = `
     <section class="section active" id="insight">
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+      ${topAdMobile}
       <div class="insight-page-container">
+        ${topAdPc}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         <div class="weekly-header-card">
           <div class="weekly-header-title">${summaryTitle}</div>
@@ -1102,8 +1108,9 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
 
   const content = `
     <section class="section active" id="insight">
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+      ${topAdMobile}
       <div class="insight-page-container">
+        ${topAdPc}
         <h1 class="visually-hidden">${h1Title}</h1>
         ${weeklyPanelHtml}
         ${navHtml}

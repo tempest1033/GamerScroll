@@ -3,7 +3,11 @@
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+
+// 광고 슬롯 (홈페이지와 동일한 분리 배치 방식) - game은 horizontal 슬롯 사용
+const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
+const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {
@@ -1167,8 +1171,9 @@ function generateGamePage(gameData) {
 
   const content = `
     <section class="section active" id="game">
-      ${generateAdSlot(AD_SLOTS.horizontal, AD_SLOTS.horizontal5)}
+      ${topAdMobile}
       <div class="game-page">
+        ${topAdPc}
         <h1 class="visually-hidden">${name} - 게임 정보</h1>
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">

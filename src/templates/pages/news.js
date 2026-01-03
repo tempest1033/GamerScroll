@@ -2,10 +2,14 @@
  * 주요 뉴스 페이지 템플릿
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 
 function generateNewsPage(data) {
   const { news } = data;
+
+  // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
+  const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
+  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
   // 뉴스 소스 정보
   const newsSources = [
@@ -93,8 +97,9 @@ function generateNewsPage(data) {
 
   const content = `
     <section class="section active" id="news">
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+      ${topAdMobile}
       <div class="page-wrapper">
+        ${topAdPc}
         <h1 class="visually-hidden">게임 뉴스</h1>
         <div class="news-sources-grid">
           ${newsSources.map(source => generateNewsSection(source)).join('')}

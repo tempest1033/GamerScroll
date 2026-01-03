@@ -5,7 +5,11 @@
  * - 각 섹션별 페이지네이션
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+
+// 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
+const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
+const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {
@@ -74,8 +78,9 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [] }) {
 
   const content = `
     <section class="section active" id="trends-hub">
-      ${generateAdSlot(AD_SLOTS.horizontal4, AD_SLOTS.horizontal5)}
+      ${topAdMobile}
       <div class="game-page">
+        ${topAdPc}
         <h1 class="visually-hidden">게임 트렌드 리포트</h1>
 
         <!-- 주간 리포트 섹션 -->
