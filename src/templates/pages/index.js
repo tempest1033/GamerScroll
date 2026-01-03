@@ -342,18 +342,37 @@ function generateIndexPage(data) {
       '</div>';
   }
 
+  // appId로 게임 slug 찾기 (iOS/Android)
+  function findGameSlug(appId, platform) {
+    if (!appId || !games) return null;
+    var gamesList = Object.values(games);
+    for (var i = 0; i < gamesList.length; i++) {
+      var g = gamesList[i];
+      if (!g.appIds) continue;
+      if (platform === 'ios' && String(g.appIds.ios) === String(appId)) return g.slug;
+      if (platform === 'android' && String(g.appIds.android) === String(appId)) return g.slug;
+      // platform 없으면 둘 다 체크
+      if (!platform && (String(g.appIds.ios) === String(appId) || String(g.appIds.android) === String(appId))) return g.slug;
+    }
+    return null;
+  }
+
   // 홈 모바일 랭킹
   function generateHomeMobileRank() {
     var grossingKr = rankings?.grossing?.kr || {};
     var freeKr = rankings?.free?.kr || {};
 
-    function renderList(items) {
+    function renderList(items, platform) {
       if (!items || items.length === 0) return '<div class="home-empty">데이터 없음</div>';
       return items.map(function(app, i) {
+        var slug = findGameSlug(app.appId, platform);
+        var nameHtml = slug
+          ? '<a class="home-rank-name home-rank-link" href="/games/' + slug + '/">' + app.title + '</a>'
+          : '<span class="home-rank-name">' + app.title + '</span>';
         return '<div class="home-rank-row">' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
           '<img class="home-rank-icon" src="' + (app.icon || '') + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
-          '<span class="home-rank-name">' + app.title + '</span>' +
+          nameHtml +
           '</div>';
       }).join('');
     }
@@ -364,12 +383,12 @@ function generateIndexPage(data) {
       '</div>' +
       '<div class="home-rank-content">' +
       '<div class="home-rank-chart" id="home-chart-free">' +
-      '<div class="home-rank-list active" id="home-rank-free-ios">' + renderList((freeKr.ios || []).slice(0, 10)) + '</div>' +
-      '<div class="home-rank-list" id="home-rank-free-android">' + renderList((freeKr.android || []).slice(0, 10)) + '</div>' +
+      '<div class="home-rank-list active" id="home-rank-free-ios">' + renderList((freeKr.ios || []).slice(0, 10), 'ios') + '</div>' +
+      '<div class="home-rank-list" id="home-rank-free-android">' + renderList((freeKr.android || []).slice(0, 10), 'android') + '</div>' +
       '</div>' +
       '<div class="home-rank-chart active" id="home-chart-grossing">' +
-      '<div class="home-rank-list active" id="home-rank-grossing-ios">' + renderList((grossingKr.ios || []).slice(0, 10)) + '</div>' +
-      '<div class="home-rank-list" id="home-rank-grossing-android">' + renderList((grossingKr.android || []).slice(0, 10)) + '</div>' +
+      '<div class="home-rank-list active" id="home-rank-grossing-ios">' + renderList((grossingKr.ios || []).slice(0, 10), 'ios') + '</div>' +
+      '<div class="home-rank-list" id="home-rank-grossing-android">' + renderList((grossingKr.android || []).slice(0, 10), 'android') + '</div>' +
       '</div>' +
       '</div>';
   }

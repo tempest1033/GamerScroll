@@ -2101,6 +2101,15 @@
       min-width: 0;
     }
 
+    .home-rank-link {
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .home-rank-link:hover {
+      color: var(--primary);
+    }
+
     /* 홈 스팀 순위 */
     .home-steam-row {
       display: flex;
@@ -2390,8 +2399,10 @@
       display: none !important;
     }
 
-    /* PC에서 pc-only 광고 명시적 표시 */
-    .ad-slot.pc-only,
+    /* PC에서 pc-only 광고 명시적 표시 (slot은 flex 유지, ins는 block) */
+    .ad-slot.pc-only {
+      display: flex !important;
+    }
     ins.adsbygoogle.pc-only {
       display: block !important;
     }
@@ -2441,7 +2452,7 @@
 
       /* 모바일 가로형 광고 - 높이는 ins 태그에서 50px 고정, 세로 중앙 정렬 */
       .ad-slot.mobile-only.ad-slot--horizontal {
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
         width: 100%;
@@ -2493,15 +2504,16 @@
         height: auto;
       }
 
-      .ad-slot.mobile-only,
+      /* 모바일 광고 기본 표시 (ins는 block, slot은 flex 유지) */
       ins.adsbygoogle.mobile-only {
         display: block !important;
       }
 
-      /* 모바일 직사각형 광고 - 반응형 (화면에 맞게 자동 조절) */
+      /* 모바일 직사각형 광고 - 반응형 + 중앙 정렬 */
       .ad-slot.mobile-only.ad-slot--rectangle {
-        display: block;
-        text-align: center;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
         width: 100%;
       }
       .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
@@ -4074,6 +4086,15 @@
       overflow: hidden;
       text-overflow: ellipsis;
       margin-bottom: 4px;
+    }
+
+    .app-name-link {
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .app-name-link:hover {
+      color: var(--primary);
     }
 
     .app-dev {

@@ -363,7 +363,7 @@ async function main() {
     { filename: 'news.html', generator: generateNewsPage },
     { filename: 'community.html', generator: generateCommunityPage },
     { filename: 'youtube.html', generator: generateYoutubePage },
-    { filename: 'rankings.html', generator: generateRankingsPage },
+    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData }) },
     { filename: 'steam.html', generator: generateSteamPage },
     { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: 'metacritic.html', generator: generateMetacriticPage },

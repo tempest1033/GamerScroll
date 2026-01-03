@@ -6,7 +6,20 @@ const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 const { countries } = require('../../crawlers/rankings');
 
 function generateRankingsPage(data) {
-  const { rankings } = data;
+  const { rankings, games = {} } = data;
+
+  // appId로 게임 slug 찾기 (iOS/Android)
+  function findGameSlug(appId, platform) {
+    if (!appId || !games) return null;
+    var gamesList = Object.values(games);
+    for (var i = 0; i < gamesList.length; i++) {
+      var g = gamesList[i];
+      if (!g.appIds) continue;
+      if (platform === 'ios' && String(g.appIds.ios) === String(appId)) return g.slug;
+      if (platform === 'android' && String(g.appIds.android) === String(appId)) return g.slug;
+    }
+    return null;
+  }
 
   // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
   const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
@@ -25,9 +38,13 @@ function generateRankingsPage(data) {
     const rankCol = generateRankColumn(100);
     const countryCols = countries.map(c => {
       const items = chartData[c.code]?.ios || [];
-      const rows = items.length > 0 ? items.map((app, i) =>
-        `<div class="rank-row"><img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info"><div class="app-name">${app.title}</div><div class="app-dev">${app.developer}</div></div></div>`
-      ).join('') : '<div class="no-data">데이터 없음</div>';
+      const rows = items.length > 0 ? items.map((app, i) => {
+        const slug = findGameSlug(app.appId, 'ios');
+        const nameHtml = slug
+          ? `<a class="app-name app-name-link" href="/games/${slug}/">${app.title}</a>`
+          : `<div class="app-name">${app.title}</div>`;
+        return `<div class="rank-row"><img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info">${nameHtml}<div class="app-dev">${app.developer}</div></div></div>`;
+      }).join('') : '<div class="no-data">데이터 없음</div>';
       return `<div class="country-column"><div class="column-header"><span class="flag">${c.flag}</span><span class="country-name">${c.name}</span></div><div class="rank-list">${rows}</div></div>`;
     }).join('');
     return rankCol + countryCols;
@@ -42,9 +59,13 @@ function generateRankingsPage(data) {
       if (c.code === 'cn') {
         rows = '';
       } else if (items.length > 0) {
-        rows = items.map((app, i) =>
-          `<div class="rank-row"><img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info"><div class="app-name">${app.title}</div><div class="app-dev">${app.developer}</div></div></div>`
-        ).join('');
+        rows = items.map((app, i) => {
+          const slug = findGameSlug(app.appId, 'android');
+          const nameHtml = slug
+            ? `<a class="app-name app-name-link" href="/games/${slug}/">${app.title}</a>`
+            : `<div class="app-name">${app.title}</div>`;
+          return `<div class="rank-row"><img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info">${nameHtml}<div class="app-dev">${app.developer}</div></div></div>`;
+        }).join('');
       } else {
         rows = '<div class="no-data">데이터 없음</div>';
       }
