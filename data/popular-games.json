@@ -1,22 +1,26 @@
 {
-  "updatedAt": "2026-01-02T09:45:20.023Z",
+  "updatedAt": "2026-01-03T09:55:26.918Z",
   "period": "30days",
   "games": [
     {
       "slug": "com-proximabeta-nikke",
-      "views": 116
+      "views": 117
+    },
+    {
+      "slug": "승리의-여신-니케",
+      "views": 93
     },
     {
       "slug": "com-neowizgames-game-browndust2",
       "views": 87
     },
     {
-      "slug": "승리의-여신-니케",
-      "views": 86
-    },
-    {
       "slug": "com.smilegate.chaoszero.stove.google",
       "views": 64
+    },
+    {
+      "slug": "limbus-company",
+      "views": 41
     },
     {
       "slug": "com-studiobside-starmain",
@@ -32,7 +36,7 @@
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
-      "views": 21
+      "views": 24
     },
     {
       "slug": "com.proximabeta.nikke",
@@ -40,7 +44,15 @@
     },
     {
       "slug": "트릭컬-리바이브",
+      "views": 13
+    },
+    {
+      "slug": "스타세이비어",
       "views": 12
+    },
+    {
+      "slug": "원신공월의-노래",
+      "views": 11
     },
     {
       "slug": "com-yostarkr-stellasora",
@@ -51,8 +63,8 @@
       "views": 9
     },
     {
-      "slug": "스타세이비어",
-      "views": 8
+      "slug": "붕괴-스타레일",
+      "views": 9
     },
     {
       "slug": "com-epidgames-trickcalrevive",
@@ -63,20 +75,8 @@
       "views": 6
     },
     {
-      "slug": "랜드-오브-제일",
-      "views": 6
-    },
-    {
-      "slug": "com.YoStarKR.StellaSora",
-      "views": 5
-    },
-    {
       "slug": "wuthering-waves",
-      "views": 5
-    },
-    {
-      "slug": "com.epidgames.trickcalrevive",
-      "views": 4
+      "views": 6
     }
   ]
 }
