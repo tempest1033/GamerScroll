@@ -2536,12 +2536,12 @@
         padding: 8px 0;
       }
 
-      /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) */
-      .page-wrapper,
-      .games-hub-page,
-      .game-page,
-      .insight-page-container,
-      .home-container {
+      /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) - search-hidden 제외 */
+      body:not(.search-hidden) .page-wrapper,
+      body:not(.search-hidden) .games-hub-page,
+      body:not(.search-hidden) .game-page,
+      body:not(.search-hidden) .insight-page-container,
+      body:not(.search-hidden) .home-container {
         padding-top: 0 !important;
       }
 
@@ -10261,7 +10261,12 @@ a.gm-item:hover {
   body.search-hidden .nav {
     top: 0 !important;
   }
-  /* padding-top 변경 제거 - 스크롤 점프 방지 */
+  body.search-hidden .container {
+    padding-top: 56px !important;
+  }
+  body.search-hidden .games-hub-page {
+    padding-top: 56px !important;
+  }
 
   /* ===== 게임 DB 자음 필터 sticky용 CSS 변수 ===== */
   /* 기본 상태: search(64px) + nav(52px) = 116px */
