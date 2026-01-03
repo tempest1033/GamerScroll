@@ -2241,10 +2241,10 @@
 
 	    /* 광고 배너 슬롯 */
     .ad-slot {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
-      line-height: 0;
-      text-align: center;
       box-sizing: border-box;
       background: var(--card);
       border-radius: var(--radius);
@@ -2252,10 +2252,9 @@
       border: 1px solid var(--border);
     }
 
-    /* 광고 ins 요소 공통 - 중앙 정렬 */
+    /* 광고 ins 요소 공통 */
     .ad-slot > ins.adsbygoogle {
-      display: inline-block;
-      margin: 0 auto;
+      display: block;
     }
 
     /* wrapper 없는 ins 광고 기본값 */
