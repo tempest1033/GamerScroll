@@ -32,8 +32,9 @@ const formatDateKr = (dateStr) => {
  * @param {Object} params
  * @param {Array} params.dailyReports - 일간 리포트 목록 [{date, headline, summary, thumbnail}]
  * @param {Array} params.weeklyReports - 주간 리포트 목록 [{weekNumber, startDate, endDate, headline, summary, thumbnail}]
+ * @param {Array} params.deepDivePosts - Deep Dive 목록 [{slug, title, date, thumbnail, summary}]
  */
-function generateTrendsHubPage({ dailyReports = [], weeklyReports = [] }) {
+function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDivePosts = [] }) {
   // 일간 리포트 카드 렌더링 (피드 카드 스타일)
   const renderDailyCard = (report) => {
     const slug = report.date;
@@ -72,9 +73,26 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [] }) {
     `;
   };
 
-  // 일간/주간 카드 HTML
+  // Deep Dive 카드 렌더링
+  const renderDeepDiveCard = (post) => {
+    const thumbnail = fixUrl(post.thumbnail) || '';
+    const badgeText = post.date ? formatDateKr(post.date) : 'Deep Dive';
+
+    return `
+      <a href="/trend/deep-dive/${post.slug}/" class="trend-feed-card trend-feed-card-deepdive" data-type="deepdive">
+        <div class="trend-feed-card-image">
+          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          <span class="trend-feed-card-tag deepdive">${badgeText}</span>
+        </div>
+        <h3 class="trend-feed-card-title">${post.title}</h3>
+      </a>
+    `;
+  };
+
+  // 카드 HTML
   const renderDailyCards = () => dailyReports.map(r => renderDailyCard(r)).join('');
   const renderWeeklyCards = () => weeklyReports.map(r => renderWeeklyCard(r)).join('');
+  const renderDeepDiveCards = () => deepDivePosts.map(p => renderDeepDiveCard(p)).join('');
 
   const content = `
     <section class="section active" id="trends-hub">
@@ -82,6 +100,25 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [] }) {
       <div class="game-page">
         ${topAdPc}
         <h1 class="visually-hidden">게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스</h1>
+
+        <!-- Deep Dive 섹션 -->
+        ${deepDivePosts.length > 0 ? `
+        <div class="home-card home-card-full trend-section" data-section="deepdive">
+          <div class="home-card-header">
+            <h2 class="home-card-title">Deep Dive</h2>
+            <div class="trend-pagination">
+              <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
+              <span class="trend-page-index">1/1</span>
+              <button class="trend-page-btn trend-next" aria-label="다음">›</button>
+            </div>
+          </div>
+          <div class="home-card-body">
+            <div class="trend-feed-grid">
+              ${renderDeepDiveCards()}
+            </div>
+          </div>
+        </div>
+        ` : ''}
 
         <!-- 주간 리포트 섹션 -->
         <div class="home-card home-card-full trend-section" data-section="weekly">

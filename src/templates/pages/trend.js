@@ -1419,4 +1419,173 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   });
 }
 
-module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage };
+/**
+ * Deep Dive 심층 리포트 상세 페이지 생성
+ * @param {Object} params
+ * @param {Object} params.post - Deep Dive 포스트 데이터
+ * @param {Object} params.nav - 이전/다음 포스트 정보
+ */
+function generateDeepDiveDetailPage({ post, nav = {} }) {
+  if (!post) {
+    return wrapWithLayout('<div class="home-empty">포스트를 찾을 수 없습니다</div>', {
+      currentPage: 'trend',
+      title: '게이머스크롤 | Deep Dive',
+      description: 'Deep Dive를 찾을 수 없습니다.',
+      canonical: 'https://gamerscrawl.com/trend/deep-dive/'
+    });
+  }
+
+  const { slug, title, date, thumbnail, summary, content = [] } = post;
+
+  // Deep Dive 중간 광고
+  const generateDeepDiveAdSlot = () => {
+    if (!SHOW_ADS) return '';
+    return `
+      <div class="blog-ad">
+        <div class="ad-slot ad-slot--rectangle mobile-only ad-slot--no-reserve">
+          <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        </div>
+        <div class="ad-slot ad-slot--horizontal pc-only">
+          <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        </div>
+      </div>
+    `;
+  };
+
+  // 관련 게임 찾기
+  const findRelatedGames = (text, limit = 4) => {
+    if (!text || !Object.keys(gamesMap).length) return [];
+    const found = [];
+    for (const [name, game] of Object.entries(gamesMap)) {
+      if (text.includes(name) || (game.aliases && game.aliases.some(a => text.includes(a)))) {
+        found.push({ name, ...game });
+        if (found.length >= limit) break;
+      }
+    }
+    return found;
+  };
+
+  // 본문 렌더링
+  const renderContent = () => {
+    return content.map((block) => {
+      switch (block.type) {
+        case 'text':
+          const paragraphs = block.value.split('\n\n').map(p =>
+            `<p class="blog-paragraph">${p.replace(/\n/g, '<br>')}</p>`
+          ).join('');
+          return paragraphs;
+
+        case 'image':
+          const imgSrc = fixUrl(block.src);
+          const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
+          return `
+            <figure class="blog-figure">
+              <img class="blog-image" src="${imgSrc}" alt="${block.caption || ''}" loading="lazy" onerror="this.parentElement.style.display='none'">
+              ${caption}
+            </figure>
+          `;
+
+        case 'ad':
+          return generateDeepDiveAdSlot();
+
+        case 'quote':
+          return `<blockquote class="blog-quote">${block.value}</blockquote>`;
+
+        case 'heading':
+          return `<h2 class="blog-heading">${block.value}</h2>`;
+
+        default:
+          return '';
+      }
+    }).join('');
+  };
+
+  // 관련 게임
+  const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
+  const relatedGames = findRelatedGames(fullText);
+  const relatedGamesHtml = relatedGames.length > 0 ? `
+    <div class="blog-related-games">
+      <h3 class="blog-related-title">관련 게임</h3>
+      <div class="blog-related-grid">
+        ${relatedGames.map(g => `
+          <a href="/games/${g.slug}/" class="blog-related-card">
+            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="" loading="lazy" onerror="this.src='/favicon.svg'">
+            <span class="blog-related-name">${g.name}</span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  // 네비게이션
+  const navHtml = `
+    <div class="trend-detail-nav">
+      ${nav.prev ? `<a href="/trend/deep-dive/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      <a href="/trend/" class="trend-nav-btn list">목록</a>
+      ${nav.next ? `<a href="/trend/deep-dive/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+    </div>
+  `;
+
+  const pageContent = `
+    <section class="section active" id="deep-dive">
+      ${topAdMobile}
+      <article class="blog-article">
+        ${topAdPc}
+
+        <div class="blog-card">
+          ${thumbnail ? `
+            <div class="blog-hero">
+              <img class="blog-hero-image" src="${fixUrl(thumbnail)}" alt="" loading="eager">
+            </div>
+          ` : ''}
+          <header class="blog-header">
+            <h1 class="blog-title">${title}</h1>
+            <div class="blog-meta">
+              <time class="blog-date">${formatDateKorean(date)}</time>
+            </div>
+            ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
+          </header>
+        </div>
+
+        <div class="blog-content">
+          ${renderContent()}
+        </div>
+
+        ${relatedGamesHtml}
+        ${navHtml}
+      </article>
+    </section>
+  `;
+
+  const pageScripts = `
+  <script>
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => document.documentElement.classList.add('fonts-loaded'));
+    } else {
+      setTimeout(() => document.documentElement.classList.add('fonts-loaded'), 100);
+    }
+    if (typeof twemoji !== 'undefined') {
+      twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+    }
+  </script>`;
+
+  const articleSchema = {
+    headline: title,
+    description: summary || title,
+    datePublished: date,
+    dateModified: date,
+    image: thumbnail || null
+  };
+
+  return wrapWithLayout(pageContent, {
+    currentPage: 'trend',
+    title: `${title} | 게이머스크롤`,
+    description: summary || title,
+    keywords: '게임 분석, Deep Dive, 심층 리포트, 모바일 게임',
+    canonical: `https://gamerscrawl.com/trend/deep-dive/${slug}/`,
+    pageScripts,
+    articleSchema
+  });
+}
+
+module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateDeepDiveDetailPage };

@@ -39,7 +39,7 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateDeepDiveDetailPage } = require('./src/templates/pages/trend');
 const { generateTrendsHubPage } = require('./src/templates/pages/trends-hub');
 const { generateNewsPage } = require('./src/templates/pages/news');
 const { generateCommunityPage } = require('./src/templates/pages/community');
@@ -478,6 +478,20 @@ async function main() {
     fs.mkdirSync(trendsDir, { recursive: true });
   }
 
+  // Deep Dive 데이터 로드 (hub에서 사용)
+  const DEEP_DIVE_DATA_DIR = './data/deep-dive';
+  let deepDivePosts = [];
+  if (fs.existsSync(DEEP_DIVE_DATA_DIR)) {
+    const files = fs.readdirSync(DEEP_DIVE_DATA_DIR).filter(f => f.endsWith('.json'));
+    deepDivePosts = files.map(f => {
+      try {
+        return JSON.parse(fs.readFileSync(`${DEEP_DIVE_DATA_DIR}/${f}`, 'utf8'));
+      } catch (e) {
+        return null;
+      }
+    }).filter(Boolean).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
   try {
     const hubHtml = generateTrendsHubPage({
       dailyReports: dailyReports.map(r => ({
@@ -496,6 +510,13 @@ async function main() {
         summary: r.summary,
         thumbnail: r.thumbnail,
         issues: r.issues
+      })),
+      deepDivePosts: deepDivePosts.map(p => ({
+        slug: p.slug,
+        title: p.title,
+        date: p.date,
+        thumbnail: p.thumbnail,
+        summary: p.summary
       }))
     });
     fs.writeFileSync(`${trendsDir}/index.html`, hubHtml, 'utf8');
@@ -583,6 +604,35 @@ async function main() {
     }
   }
   console.log(`  ✅ 주간 상세 페이지 ${weeklyReports.length}개 생성`);
+
+  // 6. Deep Dive 심층 리포트 페이지 생성 (trend/deep-dive/{slug}/index.html)
+  const deepDiveDir = `${trendsDir}/deep-dive`;
+
+  if (deepDivePosts.length > 0) {
+    if (!fs.existsSync(deepDiveDir)) {
+      fs.mkdirSync(deepDiveDir, { recursive: true });
+    }
+
+    for (let i = 0; i < deepDivePosts.length; i++) {
+      const post = deepDivePosts[i];
+      const pageDir = `${deepDiveDir}/${post.slug}`;
+      if (!fs.existsSync(pageDir)) {
+        fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      try {
+        const nav = {
+          prev: deepDivePosts[i + 1] ? { slug: deepDivePosts[i + 1].slug, title: deepDivePosts[i + 1].title } : null,
+          next: deepDivePosts[i - 1] ? { slug: deepDivePosts[i - 1].slug, title: deepDivePosts[i - 1].title } : null
+        };
+        const html = generateDeepDiveDetailPage({ post, nav });
+        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+      } catch (err) {
+        console.error(`  ❌ trend/deep-dive/${post.slug}: ${err.message}`);
+      }
+    }
+    console.log(`  ✅ Deep Dive 페이지 ${deepDivePosts.length}개 생성`);
+  }
 
   // docs 폴더 동기화 (로컬 개발 환경용)
   const DOCS_DIR = './docs';
@@ -680,6 +730,19 @@ async function main() {
         loc: `https://gamerscrawl.com/trend/weekly/${slug}/`,
         changefreq: 'weekly',
         priority: '0.7'
+      })));
+    }
+
+    // Deep Dive 페이지
+    const deepDiveSitemapDir = `${destTrendDir}/deep-dive`;
+    if (fs.existsSync(deepDiveSitemapDir)) {
+      const deepDiveFolders = fs.readdirSync(deepDiveSitemapDir).filter(f =>
+        fs.statSync(`${deepDiveSitemapDir}/${f}`).isDirectory()
+      );
+      trendPages.push(...deepDiveFolders.map(slug => ({
+        loc: `https://gamerscrawl.com/trend/deep-dive/${slug}/`,
+        changefreq: 'monthly',
+        priority: '0.8'
       })));
     }
   }
