@@ -1039,6 +1039,8 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
   const dateForTitle = aiInsight.date || slug;
   const summaryText = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : aiInsight.summary;
   const descriptionText = summaryText || '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
+  const dynamicKeywords = issues.slice(0, 4).map(i => i.title).join(', ');
+  const keywordsText = dynamicKeywords ? `게임 트렌드, ${dynamicKeywords}` : '게임 트렌드, 게임 업계 이슈, 게임 순위, 게임 뉴스';
 
   const pageScripts = `
   <script>
@@ -1063,8 +1065,9 @@ function generateDailyDetailPage({ insight, slug, nav = {} }) {
 
   return wrapWithLayout(content, {
     currentPage: 'trend',
-    title: `게이머스크롤 | ${dateForTitle} 게임 트렌드 리포트`,
+    title: summaryTitle,
     description: descriptionText,
+    keywords: keywordsText,
     canonical: `https://gamerscrawl.com/trend/daily/${slug}/`,
     pageScripts,
     articleSchema
@@ -1140,6 +1143,11 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     }
   </script>`;
 
+  // 동적 키워드 (issues에서 4개 추출)
+  const weeklyIssues = wai.issues || [];
+  const dynamicKeywords = weeklyIssues.slice(0, 4).map(i => i.title).join(', ');
+  const keywordsText = dynamicKeywords ? `게임 트렌드, ${dynamicKeywords}` : '게임 트렌드, 게임 업계 이슈, 게임 순위, 게임 뉴스';
+
   // Article JSON-LD 스키마
   const articleSchema = {
     headline: summaryTitle || `${weekNum}주차 주간 게임 트렌드 리포트`,
@@ -1151,8 +1159,9 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
 
   return wrapWithLayout(content, {
     currentPage: 'trend',
-    title: `게이머스크롤 | ${weekNum}주차 주간 게임 트렌드 리포트`,
+    title: summaryTitle,
     description: descriptionText,
+    keywords: keywordsText,
     canonical: `https://gamerscrawl.com/trend/weekly/${slug}/`,
     pageScripts,
     articleSchema

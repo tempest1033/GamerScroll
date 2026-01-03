@@ -123,7 +123,7 @@ function generateGamesHubPage(options = {}) {
   // 인기 게임 섹션 HTML
   const popularSection = popularGamesWithInfo.length > 0 ? `
     <section class="games-hub-popular">
-      <h2 class="games-hub-section-title">실시간 인기 게임</h2>
+      <h2 class="games-hub-section-title">인기 게임</h2>
       <div class="games-hub-popular-grid">
         ${popularGamesWithInfo.map(game => `
           <a href="/games/${game.slug}/" class="games-hub-popular-card">
@@ -205,7 +205,7 @@ function generateGamesHubPage(options = {}) {
       ${topAdMobile}
       <div class="games-hub-page" id="top">
         ${topAdPc}
-        <h1 class="visually-hidden">게임 DB</h1>
+        <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
         ${searchResultsSection}
         ${recentGamesSection}
         ${popularSection}
@@ -438,8 +438,9 @@ function generateGamesHubPage(options = {}) {
   `;
 
   return wrapWithLayout(content, {
-    title: '게이머스크롤 | 게임 DB',
-    description: '모바일, PC 게임의 순위, 트렌드, 정보를 한눈에 확인하세요',
+    title: '게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색',
+    description: '게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색을 한눈에.',
+    keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 스팀 매출 순위, 스팀 인기 순위, 게임 뉴스',
     canonical: 'https://gamerscrawl.com/games/',
     currentPage: 'games',
     showSearchBar: true,

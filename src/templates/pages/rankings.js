@@ -58,10 +58,11 @@ function generateRankingsPage(data) {
       ${topAdMobile}
       <div class="page-wrapper">
         ${topAdPc}
-        <h1 class="visually-hidden">모바일 순위</h1>
+        <h1 class="visually-hidden">모바일 게임 순위</h1>
         <div class="rankings-card home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">모바일 순위</h2>
+            <h2 class="visually-hidden">앱스토어 게임 순위, 플레이스토어 게임 순위</h2>
+            <span class="home-card-title">모바일 게임 순위</span>
             <div class="home-card-controls">
               <div class="tab-group" id="chartTab">
                 <button class="tab-btn grossing-btn active" data-chart="grossing">매출</button>
@@ -184,8 +185,9 @@ function generateRankingsPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'rankings',
-    title: '게이머스크롤 | 모바일 게임 순위',
+    title: '모바일 게임 순위 - 앱스토어, 플레이스토어 매출 순위',
     description: '한국, 일본, 미국, 중국, 대만 앱스토어·플레이스토어 게임 매출 순위 TOP 200. 실시간 모바일 게임 인기 차트를 국가별로 비교하세요.',
+    keywords: '모바일 게임 순위, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 순위, 모바일 게임 매출',
     canonical: 'https://gamerscrawl.com/rankings/',
     pageScripts
   });

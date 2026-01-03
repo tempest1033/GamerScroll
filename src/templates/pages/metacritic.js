@@ -55,7 +55,7 @@ function generateMetacriticPage(data) {
       ${topAdMobile}
       <div class="page-wrapper">
         ${topAdPc}
-        <h1 class="visually-hidden">메타크리틱</h1>
+        <h1 class="visually-hidden">메타크리틱 - 게임 평점, 게임 리뷰</h1>
         ${generateMetacriticContent()}
       </div>
     </section>
@@ -81,8 +81,9 @@ function generateMetacriticPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'metacritic',
-    title: '게이머스크롤 | 메타크리틱 평점',
-    description: '메타크리틱 올해의 게임 TOP 30. 전문 평론가 점수 기준 최고의 게임을 확인하세요. 메타스코어로 보는 명작 게임 추천.',
+    title: '메타크리틱 - 게임 평점, 게임 리뷰',
+    description: '메타크리틱 - 게임 평점, 게임 리뷰를 한눈에.',
+    keywords: '메타크리틱, 게임 평점, 게임 리뷰, 메타스코어, 명작 게임',
     canonical: 'https://gamerscrawl.com/metacritic/',
     pageScripts
   });

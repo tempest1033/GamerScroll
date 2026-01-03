@@ -169,8 +169,9 @@ function generateNewsPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'news',
-    title: '게이머스크롤 | 게임 뉴스',
-    description: '인벤, 디스이즈게임, 게임메카, 루리웹 게임 뉴스 모아보기. 모바일 게임, PC 게임, 콘솔 게임 업계 소식을 실시간으로 확인하세요.',
+    title: '게임 뉴스',
+    description: '게임 뉴스를 한눈에.',
+    keywords: '게임 뉴스, 게임 소식',
     canonical: 'https://gamerscrawl.com/news/',
     pageScripts
   });

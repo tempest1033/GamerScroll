@@ -81,7 +81,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [] }) {
       ${topAdMobile}
       <div class="game-page">
         ${topAdPc}
-        <h1 class="visually-hidden">게임 트렌드 리포트</h1>
+        <h1 class="visually-hidden">게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스</h1>
 
         <!-- 주간 리포트 섹션 -->
         <div class="home-card home-card-full trend-section" data-section="weekly">
@@ -194,8 +194,9 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [] }) {
 
   return wrapWithLayout(content, {
     currentPage: 'trend',
-    title: '게이머스크롤 | 게임 트렌드 리포트 - 일간·주간 게임 업계 동향',
-    description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
+    title: '게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스',
+    description: '게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스를 한눈에.',
+    keywords: '게임 트렌드, 게임 리포트, 게임 업계 이슈, 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위',
     canonical: 'https://gamerscrawl.com/trend/',
     pageScripts
   });

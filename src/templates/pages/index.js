@@ -505,7 +505,7 @@ function generateIndexPage(data) {
     }).join('');
 
     return '<div class="popular-banner">' +
-      '<span class="popular-banner-label">실시간 인기</span>' +
+      '<span class="popular-banner-label">인기 게임</span>' +
       '<div class="popular-banner-items">' + items + '</div>' +
       '<a class="popular-banner-more" href="/games/">더보기 →</a>' +
       '</div>';
@@ -574,7 +574,7 @@ function generateIndexPage(data) {
 	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
-	    '<h1 class="visually-hidden">오늘의 게임 트렌드</h1>' +
+	    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
 	    topAdMobile +
 	    '<div class="home-container">' +
 	    '<div class="home-main">' +
@@ -610,7 +610,8 @@ function generateIndexPage(data) {
 	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
-	    '<h2 class="home-card-title">모바일 순위</h2>' +
+	    '<h2 class="visually-hidden">모바일 게임 순위</h2>' +
+	    '<span class="home-card-title">모바일 순위</span>' +
 	    '<div class="home-card-controls">' +
     '<div class="home-chart-toggle" id="homeChartTab">' +
     '<button class="tab-btn small active" data-home-chart="grossing">매출</button>' +
@@ -639,7 +640,7 @@ function generateIndexPage(data) {
 	    adSlot('ad-below-steam', 'pc-only ad-slot--no-reserve', 'rectangle', AD_SLOTS.rectangle) +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
-	    '<h2 class="home-card-title">신규 게임</h2>' +
+	    '<h2 class="home-card-title">출시 게임</h2>' +
 	    '<a href="/upcoming/" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeUpcoming() + '</div>' +
@@ -748,8 +749,9 @@ function generateIndexPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: '',  // 홈에서는 nav active 없음
-    title: '게이머스크롤 | 게임 트렌드 리포트 · 순위 · 뉴스를 한눈에',
-    description: '게임 트렌드 리포트, 모바일/스팀 게임 순위, 실시간 뉴스를 무료로. 한국·일본·미국 앱스토어 순위, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.',
+    title: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스',
+    description: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스를 한눈에.',
+    keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 메타크리틱, 게임 뉴스',
     canonical: 'https://gamerscrawl.com/',
     pageScripts: pageScripts
   });

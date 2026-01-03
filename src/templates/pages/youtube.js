@@ -63,7 +63,7 @@ function generateYoutubePage(data) {
       ${topAdMobile}
       <div class="game-page">
         ${topAdPc}
-        <h1 class="visually-hidden">게임 영상 순위</h1>
+        <h1 class="visually-hidden">게임 영상 - 유튜브 인기, 치지직 라이브</h1>
 
         <!-- 유튜브 인기 섹션 -->
         <div class="home-card home-card-full video-section-card" data-section="youtube">
@@ -173,8 +173,9 @@ function generateYoutubePage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'youtube',
-    title: '게이머스크롤 | 게임 영상',
-    description: '유튜브 게임 카테고리 인기 영상 TOP 50, 치지직·숲 게임 라이브 스트리밍 실시간 순위. 지금 가장 핫한 게임 콘텐츠를 확인하세요.',
+    title: '게임 영상 - 유튜브 인기, 치지직 라이브',
+    description: '게임 영상 - 유튜브 인기, 치지직 라이브를 한눈에.',
+    keywords: '게임 영상, 유튜브 게임, 치지직 라이브, 게임 스트리밍',
     canonical: 'https://gamerscrawl.com/youtube/',
     pageScripts
   });

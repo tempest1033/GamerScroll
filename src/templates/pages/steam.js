@@ -85,10 +85,11 @@ function generateSteamPage(data) {
       ${topAdMobile}
       <div class="page-wrapper">
         ${topAdPc}
-        <h1 class="visually-hidden">스팀 순위</h1>
+        <h1 class="visually-hidden">스팀 게임 순위</h1>
         <div class="steam-card home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">스팀 순위</h2>
+            <h2 class="visually-hidden">스팀 순위, 스팀 매출, 스팀 동접자</h2>
+            <span class="home-card-title">스팀 게임 순위</span>
             <div class="home-card-controls">
               <div class="tab-group" id="steamTab">
                 <button class="tab-btn steam-btn active" data-steam="topsellers">매출</button>
@@ -139,8 +140,9 @@ function generateSteamPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'steam',
-    title: '게이머스크롤 | 스팀 게임 순위',
-    description: '스팀 동시접속자 TOP 50, 베스트셀러 게임 순위. PC 게임 트렌드와 인기 게임을 실시간으로 확인하세요.',
+    title: '스팀 게임 순위 - 스팀 매출, 스팀 동접자',
+    description: '스팀 게임 순위 TOP 100. 스팀 매출 순위와 동접자 인기 순위를 실시간으로 확인하세요.',
+    keywords: '스팀 게임 순위, 스팀 순위, 스팀 매출, 스팀 동접자, 게임 순위',
     canonical: 'https://gamerscrawl.com/steam/',
     pageScripts
   });

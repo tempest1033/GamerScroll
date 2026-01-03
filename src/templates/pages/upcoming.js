@@ -65,7 +65,7 @@ function generateUpcomingPage(data) {
       ${topAdMobile}
       <div class="page-wrapper">
         ${topAdPc}
-        <h1 class="visually-hidden">출시 예정 게임</h1>
+        <h1 class="visually-hidden">출시 게임 - 신작 게임, 출시 예정 게임</h1>
         <div class="upcoming-card home-card">
           <div class="home-card-header">
             <h2 class="home-card-title">출시 게임</h2>
@@ -135,8 +135,9 @@ function generateUpcomingPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'upcoming',
-    title: '게이머스크롤 | 출시 예정 게임',
-    description: '스팀 위시리스트 TOP 20, 닌텐도 스위치, PS5, 모바일 신작 게임 출시 일정. 기대작 정보를 미리 확인하고 놓치지 마세요.',
+    title: '출시 게임 - 신작 게임, 출시 예정 게임',
+    description: '출시 게임 - 신작 게임, 출시 예정 게임 정보를 한눈에.',
+    keywords: '출시 게임, 신작 게임, 출시 예정 게임, 스팀 출시, 닌텐도 출시, PS5 출시, 모바일 신작',
     canonical: 'https://gamerscrawl.com/upcoming/',
     pageScripts
   });

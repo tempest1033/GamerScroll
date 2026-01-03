@@ -1174,7 +1174,7 @@ function generateGamePage(gameData) {
       ${topAdMobile}
       <div class="game-page">
         ${topAdPc}
-        <h1 class="visually-hidden">${name} - 게임 정보</h1>
+        <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">
         <div class="game-hero-content">
@@ -1208,33 +1208,33 @@ function generateGamePage(gameData) {
 
       <div class="game-grid">
         ${isSteamOnly ? `
-        <!-- 스팀 동접 순위 추이 -->
+        <!-- 스팀 게임 순위 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">동접 순위 추이</h2>
+            <h2 class="home-card-title">${name} 스팀 게임 순위</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('ccu')}</div>
         </div>
-        <!-- 스팀 판매 순위 추이 -->
+        <!-- 스팀 게임 순위 히스토리 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">판매 순위 추이</h2>
+            <h2 class="home-card-title">${name} 스팀 게임 순위 히스토리</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('sales')}</div>
         </div>
         ` : showMobileRanking ? `
-        <!-- 실시간 모바일 순위 카드 -->
+        <!-- 모바일 게임 순위 카드 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">실시간 모바일 순위</h2>
+            <h2 class="home-card-title">${name} 모바일 게임 순위</h2>
           </div>
           <div class="home-card-body">${generateRankingsSection()}</div>
         </div>
 
-        <!-- 모바일 추이 카드 -->
+        <!-- 모바일 게임 순위 히스토리 카드 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">모바일 순위 추이</h2>
+            <h2 class="home-card-title">${name} 모바일 게임 순위 히스토리</h2>
           </div>
           <div class="home-card-body">${generateRankTrendSection()}</div>
         </div>
@@ -1250,10 +1250,10 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-        <!-- 트렌드 리포트 (풀 너비 2그리드) -->
+        <!-- 뉴스 (풀 너비 2그리드) -->
         <div class="home-card home-card-full">
           <div class="home-card-header">
-            <h2 class="home-card-title">트렌드 리포트</h2>
+            <h2 class="home-card-title">${name} 뉴스</h2>
           </div>
           <div class="home-card-body">${generateMentionsSection(true)}</div>
         </div>
@@ -1465,11 +1465,24 @@ function generateGamePage(gameData) {
   // 멘션 없는 페이지는 noindex (thin content 방지)
   const hasMentions = mentions && mentions.length > 0;
 
+  // 플랫폼별 SEO 메타 데이터
+  const seoTitle = hasMobilePlatform
+    ? `${name} 매출, 모바일 게임 순위, 뉴스`
+    : `${name} 매출, 게임 순위, 뉴스`;
+
+  const seoDescription = hasMobilePlatform
+    ? `${name} 매출, 모바일 게임 순위와 뉴스, 히스토리를 한눈에.`
+    : `${name} 매출, 스팀 게임 순위와 뉴스, 히스토리를 한눈에.`;
+
+  const seoKeywords = hasMobilePlatform
+    ? `${name}, ${name} 매출, ${name} 순위, 모바일 게임 순위, ${name} 앱스토어, ${name} 플레이스토어, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 뉴스`
+    : `${name}, ${name} 매출, ${name} 순위, ${name} 스팀, 게임 순위, 스팀 게임 순위, 스팀 매출 순위, 스팀 인기 순위, 게임 뉴스`;
+
   return wrapWithLayout(content, {
     currentPage: 'game',
-    title: `게이머스크롤 | ${name} 순위 · 트렌드 리포트 · 게임 정보`,
-    description: `${name} 순위, 트렌드 리포트, 커뮤니티 반응을 한눈에.`,
-    keywords: `${name}, ${name} 순위, ${name} 매출순위, ${name} 트렌드 리포트`,
+    title: seoTitle,
+    description: seoDescription,
+    keywords: seoKeywords,
     canonical: `https://gamerscrawl.com/games/${slug || encodeURIComponent(name.replace(/\s+/g, '-').toLowerCase())}/`,
     pageScripts,
     noindex: !hasMentions
