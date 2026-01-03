@@ -563,7 +563,14 @@ function wrapWithLayout(content, options = {}) {
 
 		      function hasRenderedAd(el) {
 		        try {
-		          return !!(el && el.querySelector && el.querySelector('iframe'));
+		          if (!el || !el.querySelector) return false;
+		          // iframe (일반 디스플레이 광고)
+		          if (el.querySelector('iframe')) return true;
+		          // 텍스트/링크형 광고 (a 태그가 있는 경우)
+		          if (el.querySelector('a[href]')) return true;
+		          // 내부에 의미있는 콘텐츠가 있는지 (빈 ins가 아닌 경우)
+		          if (el.children.length > 0) return true;
+		          return false;
 		        } catch {
 		          return false;
 		        }
