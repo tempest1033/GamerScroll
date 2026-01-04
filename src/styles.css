@@ -2465,7 +2465,7 @@
         display: none !important;
       }
 
-      /* 모바일 가로형 광고 - 프레임 제거, 세로 중앙 정렬 */
+      /* 모바일 가로형 광고 - 높이는 ins 태그에서 50px 고정, 세로 중앙 정렬 */
       .ad-slot.mobile-only.ad-slot--horizontal {
         display: flex !important;
         align-items: center;
@@ -2473,11 +2473,6 @@
         min-height: 100px;
         width: 100%;
         overflow: hidden;
-        /* 프레임 제거 */
-        background: transparent;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
       }
 
       /* 모바일 광고 동적 높이 조정 (JS에서 ad-height-50 클래스 추가 시) */
