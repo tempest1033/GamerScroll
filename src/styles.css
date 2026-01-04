@@ -2530,6 +2530,11 @@
         max-width: 100%;
       }
 
+      /* 모바일 네이티브 인피드 광고 */
+      .ad-slot.mobile-only.ad-slot--native {
+        display: block !important;
+      }
+
       /* 모바일 광고 여백 - 카드 간격과 동일 (--space-block-gap 자동 적용) */
 
       /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) - search-hidden 제외 */
