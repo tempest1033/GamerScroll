@@ -546,98 +546,28 @@ function wrapWithLayout(content, options = {}) {
 		  ${generateFooter()}
 		  ${SHOW_ADS ? `<script>
 		    (function() {
+		      // 모바일/PC 전용 광고 체크 + display:none 체크
 		      function canInit(el) {
 		        if (!el || !el.isConnected) return false;
-		        // 모바일/PC 전용 광고는 미디어 쿼리로 판단
-		        const slot = el.closest('.ad-slot');
-		        if (slot && slot.classList.contains('mobile-only') && !window.matchMedia('(max-width: 768px)').matches) return false;
-		        if (slot && slot.classList.contains('pc-only') && !window.matchMedia('(min-width: 769px)').matches) return false;
-		        const target = slot || el;
-		        const style = window.getComputedStyle(target);
-		        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
-		        // display:none 조상/탭 패널 등으로 실제 폭이 0이면 초기화하지 않음
-		        try {
-		          const rect = target.getBoundingClientRect();
-		          if (!rect || rect.width <= 0) return false;
-		        } catch {
-		          return false;
+		        var slot = el.closest('.ad-slot');
+		        if (slot) {
+		          if (slot.classList.contains('mobile-only') && !window.matchMedia('(max-width: 768px)').matches) return false;
+		          if (slot.classList.contains('pc-only') && !window.matchMedia('(min-width: 769px)').matches) return false;
 		        }
+		        var target = slot || el;
+		        var style = window.getComputedStyle(target);
+		        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+		        var rect = target.getBoundingClientRect();
+		        if (!rect || rect.width <= 0) return false;
 		        return true;
 		      }
 
-		      function isSdkLoaded() {
-		        // SDK 스크립트가 로드되면 바로 초기화 시도 (더 관대한 체크)
-		        return !!(window.adsbygoogle);
-		      }
-
+		      // 매뉴얼 방식: SDK 로드 여부 상관없이 push (큐에 쌓임)
 		      function tryInitAd(el) {
 		        if (!el || el.dataset.gcAdsInit === '1') return;
 		        if (!canInit(el)) return;
-		        // SDK 미로드 시 플래그 설정 안 함 (나중에 재시도)
-		        if (!isSdkLoaded()) return;
 		        el.dataset.gcAdsInit = '1';
-		        try {
-		          (adsbygoogle = window.adsbygoogle || []).push({});
-		        } catch (e) {
-		          delete el.dataset.gcAdsInit;
-		        }
-		      }
-
-		      function hasRenderedAd(el) {
-		        try {
-		          if (!el || !el.querySelector) return false;
-		          // iframe (일반 디스플레이 광고)
-		          if (el.querySelector('iframe')) return true;
-		          // 텍스트/링크형 광고 (a 태그가 있는 경우)
-		          if (el.querySelector('a[href]')) return true;
-		          // 실제 높이가 있으면 광고가 렌더링된 것으로 판단
-		          if (el.offsetHeight > 10) return true;
-		          return false;
-		        } catch {
-		          return false;
-		        }
-		      }
-
-		      function isNearViewport(el, marginPx) {
-		        try {
-		          const rect = el.getBoundingClientRect();
-		          const vh = window.innerHeight || document.documentElement.clientHeight || 0;
-		          const margin = typeof marginPx === 'number' ? marginPx : 0;
-		          return rect.bottom >= -margin && rect.top <= (vh + margin);
-		        } catch {
-		          return false;
-		        }
-		      }
-
-		      let lastResizeKickAt = 0;
-		      function kickResizeSoon() {
-		        const now = Date.now();
-		        if (now - lastResizeKickAt < 1000) return;
-		        lastResizeKickAt = now;
-		        setTimeout(function() {
-		          window.dispatchEvent(new Event('resize'));
-		        }, 50);
-		      }
-
-		      function markSeen(el) {
-		        if (!el || el.dataset.gcAdsSeenAt) return;
-		        if (!isNearViewport(el, 200)) return;
-		        el.dataset.gcAdsSeenAt = String(Date.now());
-		        kickResizeSoon();
-		      }
-
-		      function markSeenAll() {
-		        document.querySelectorAll('.ad-slot ins.adsbygoogle').forEach(function(el) {
-		          markSeen(el);
-		        });
-		      }
-
-		      function kickResizeOnce() {
-		        if (window.__gcAdsKickResizeOnce) return;
-		        window.__gcAdsKickResizeOnce = true;
-		        setTimeout(function() {
-		          window.dispatchEvent(new Event('resize'));
-		        }, 800);
+		        (window.adsbygoogle = window.adsbygoogle || []).push({});
 		      }
 
 		      function initAds() {
@@ -646,111 +576,45 @@ function wrapWithLayout(content, options = {}) {
 		        });
 		      }
 
-		      let initRetryTimers = [];
-		      function scheduleInitRetries() {
-		        if (window.__gcAdsInitRetriesScheduled) return;
-		        window.__gcAdsInitRetriesScheduled = true;
-		        initRetryTimers.forEach(clearTimeout);
-		        initRetryTimers = [];
-		        // 초기 retry를 더 빠르게 (50ms 간격으로 시작)
-		        [50, 100, 150, 200, 300, 500, 800, 1200, 2000, 3000].forEach(function(delay) {
-		          initRetryTimers.push(setTimeout(initAds, delay));
-		        });
-		      }
-
 		      // IntersectionObserver: 뷰포트 진입 시 광고 초기화
-		      function setupAdIntersectionObserver() {
-		        if (window.__gcAdIntersectionObserver) return;
-		        if (!('IntersectionObserver' in window)) return;
-		        window.__gcAdIntersectionObserver = new IntersectionObserver(function(entries) {
+		      function setupAdObserver() {
+		        if (window.__gcAdObserver || !('IntersectionObserver' in window)) return;
+		        window.__gcAdObserver = new IntersectionObserver(function(entries) {
 		          entries.forEach(function(entry) {
 		            if (entry.isIntersecting) {
-		              // .ad-slot이면 내부 ins 찾기, 아니면 자기 자신(ins)
 		              var el = entry.target.classList.contains('adsbygoogle')
 		                ? entry.target
 		                : entry.target.querySelector('ins.adsbygoogle');
-		              if (el && el.isConnected) tryInitAd(el);
+		              if (el) tryInitAd(el);
 		            }
 		          });
 		        }, { rootMargin: '200px 0px', threshold: 0 });
-		        // .ad-slot wrapper와 wrapper 없는 ins.adsbygoogle 모두 관찰
 		        document.querySelectorAll('.ad-slot').forEach(function(slot) {
-		          window.__gcAdIntersectionObserver.observe(slot);
+		          window.__gcAdObserver.observe(slot);
 		        });
 		        document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
-		          if (!ins.closest('.ad-slot')) {
-		            window.__gcAdIntersectionObserver.observe(ins);
-		          }
+		          if (!ins.closest('.ad-slot')) window.__gcAdObserver.observe(ins);
 		        });
 		      }
 
-		      function runInit() {
+		      function init() {
 		        initAds();
-		        markSeenAll();
-		        scheduleInitRetries();
-		        setupAdIntersectionObserver();
-		        kickResizeOnce();
+		        setupAdObserver();
 		      }
 
-		      // AdSense SDK 로드 대기 함수
-		      function waitForAdsbygoogle(callback, maxWait) {
-		        maxWait = maxWait || 3000;
-		        var start = Date.now();
-		        function check() {
-		          if (isSdkLoaded()) {
-		            callback();
-		          } else if (Date.now() - start < maxWait) {
-		            // 폴링 간격을 50ms로 단축
-		            setTimeout(check, 50);
-		          } else {
-		            // timeout - 그래도 초기화 시도
-		            callback();
-		          }
-		        }
-		        check();
-		      }
-
-		      // SDK 로드 완료 시 즉시 실행되는 콜백 (head.js에서 onload로 호출)
-		      var sdkLoadCallbackFired = false;
-		      window.gcOnAdsSDKLoad = function() {
-		        if (sdkLoadCallbackFired) return;
-		        sdkLoadCallbackFired = true;
-		        // 즉시 실행 (requestAnimationFrame 제거로 지연 최소화)
-		        runInit();
-		      };
-		      // SDK가 이미 로드된 경우 (콜백 정의가 늦은 경우) 즉시 실행
-		      if (window.gcAdsSDKLoaded && !sdkLoadCallbackFired) {
-		        sdkLoadCallbackFired = true;
-		        runInit();
-		      }
-
-		      if (document.readyState === 'complete' || document.readyState === 'interactive') {
-		        waitForAdsbygoogle(runInit);
+		      // DOM 준비되면 초기화
+		      if (document.readyState === 'loading') {
+		        document.addEventListener('DOMContentLoaded', init);
 		      } else {
-	        document.addEventListener('DOMContentLoaded', function() {
-	          waitForAdsbygoogle(runInit);
-	        });
-	      }
+		        init();
+		      }
 
-	      window.addEventListener('load', function() { waitForAdsbygoogle(runInit); });
-
-
-	      let resizeTimer = null;
-	      window.addEventListener('resize', function() {
-	        clearTimeout(resizeTimer);
-	        resizeTimer = setTimeout(function() {
-	          runInit();
-	        }, 200);
-	      }, { passive: true });
-
-	      let scrollTimer = null;
-	      window.addEventListener('scroll', function() {
-	        clearTimeout(scrollTimer);
-	        scrollTimer = setTimeout(function() {
-	          initAds();
-	          markSeenAll();
-	        }, 200);
-	      }, { passive: true });
+		      // 탭 전환/리사이즈 시 재초기화 (display:none → block 전환 대응)
+		      var resizeTimer = null;
+		      window.addEventListener('resize', function() {
+		        clearTimeout(resizeTimer);
+		        resizeTimer = setTimeout(initAds, 200);
+		      }, { passive: true });
 	    })();
 	  </script>` : ''}
 	  ${pageScripts}

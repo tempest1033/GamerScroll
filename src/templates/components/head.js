@@ -162,7 +162,7 @@ function generateHead(options = {}) {
       const analytics = getAnalytics(app);
     }
   </script>
-  ${LOAD_ADSENSE_SCRIPT ? `<script async fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous" onload="window.gcAdsSDKLoaded=true; if(typeof window.gcOnAdsSDKLoad==='function') window.gcOnAdsSDKLoad();"></script>` : ''}
+  ${LOAD_ADSENSE_SCRIPT ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>` : ''}
   ${dataScript}`;
 }
 
