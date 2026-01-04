@@ -2980,6 +2980,12 @@
       min-height: calc(100vh - 180px) !important;
     }
 
+    /* page-wrapper 내부 PC 광고 슬롯 - flex 컨텍스트에서 전체 너비 보장 */
+    .page-wrapper > .ad-slot--horizontal.pc-only {
+      width: 100% !important;
+      flex: 0 0 100%;
+    }
+
     /* Container - 네이버 스타일 (PC: 1190px) */
     .container {
       max-width: 1190px;
