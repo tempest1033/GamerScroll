@@ -580,53 +580,54 @@ function generateIndexPage(data) {
 	  function adSlot(id, extraClass, adFormat, adSlotId) {
 	    if (!SHOW_ADS) return '';
 	    var format = adFormat || 'horizontal';
-	    var slotId = adSlotId || '5214702534';
-	    // 가로형은 반응형 (화면 너비에 맞게 자동 조절)
-	    if (format === 'horizontal') {
-	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+		    var slotId = adSlotId || '5214702534';
+		    // 가로형은 반응형 (화면 너비에 맞게 자동 조절)
+		    if (format === 'horizontal') {
+		      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>';
+		    }
+	    // rectangle 포맷: PC 300x250 고정, 모바일 280px
+	    if (format === 'rectangle') {
+	      var isPcRect = (extraClass || '').indexOf('pc-only') >= 0;
+	      if (isPcRect) {
+	        return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	      }
+	      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%;max-height:280px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle"></ins></div>';
 	    }
-    // rectangle 포맷: PC 300x250 고정, 모바일 280px
-    if (format === 'rectangle') {
-      var isPcRect = (extraClass || '').indexOf('pc-only') >= 0;
-      if (isPcRect) {
-        return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
-      }
-      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;max-height:280px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle"></ins></div>';
-    }
-    // rectangle-auto 포맷: auto + 반응형 (출시 게임 위 등)
-    if (format === 'rectangle-auto') {
-      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
-    }
-    // vertical 포맷 - PC 300x600 고정
-    if (format === 'vertical') {
-      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
-    }
-	    var size = getAdSize(format, false);
-	    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
-	  }
+	    // rectangle-auto 포맷: auto + 반응형 (출시 게임 위 등)
+	    if (format === 'rectangle-auto') {
+	      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
+	    }
+	    // vertical 포맷 - auto로 최적 광고 자동 선택
+	    if (format === 'vertical') {
+	      var pcClass = (extraClass || '').indexOf('pc-only') >= 0 ? ' pc-only' : '';
+	      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle' + pcClass + '" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
+	    }
+		    var size = getAdSize(format, false);
+		    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+		  }
 
-	  // 모바일용 광고 슬롯 - 전체 너비 - 인라인 push 제거, 공통 스크립트에서 초기화
+	  // 모바일용 광고 슬롯 - 인라인 push 제거, 공통 스크립트에서 초기화
 	  function adSlotMobile(id, extraClass, adSlotId, adFormat) {
 	    if (!SHOW_ADS) return '';
 	    var format = adFormat || 'horizontal';
 	    var slotId = adSlotId || '5214702534';
 	    var isHorizontal = format === 'horizontal';
 	    var isRectangle = format === 'rectangle';
-	    // 가로형: 반응형 (wrapper 없이 ins 태그만)
+	    var shapeClass = isHorizontal ? ' ad-slot--horizontal' : (isRectangle ? ' ad-slot--rectangle' : '');
+	    // 가로형: 전체 폭, 높이 자동 (AdSense가 결정)
 	    if (isHorizontal) {
-	      return '<ins class="adsbygoogle mobile-only ad-slot-section ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins>';
+	      return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins></div>';
 	    }
-	    // 직사각형: wrapper 없이 ins 태그만
+	    // 직사각형: rectangle 클래스 적용
 	    if (isRectangle) {
-	      return '<ins class="adsbygoogle mobile-only ad-slot-section ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle"></ins>';
+	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
 	    }
-	    // 기본값: 가로형과 동일하게 wrapper 없이
-	    return '<ins class="adsbygoogle mobile-only ad-slot-section ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins>';
+	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins></div>';
 	  }
 
 	  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등) - 인라인 push 제거, 공통 스크립트에서 초기화
-	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" style="display:block;width:100%;max-height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
-	  var topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only ad-slot-section" id="home-top-ad-mobile" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins>' : '';
+	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins></div>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
@@ -636,7 +637,7 @@ function generateIndexPage(data) {
 	    topAdPc +
 	    popularBannerHtml +
 	    insightCardHtml +
-	    adSlotMobile('ad-above-news-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'horizontal') +
+	    adSlotMobile('ad-above-news-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'rectangle') +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
@@ -662,7 +663,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '</div>' +
 	    '<div class="home-sidebar">' +
-	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'horizontal') +
+	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="visually-hidden">모바일 게임 순위</h2>' +
@@ -678,7 +679,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.vertical) +
-	    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4, 'horizontal') +
+	    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4, 'rectangle') +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">스팀 순위</h2>' +

@@ -32,8 +32,8 @@ const findGameIcon = (text) => {
 };
 
 // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
-const topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only ad-slot-section" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins>' : '';
-const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+const topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only ad-slot-section" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins>' : '';
+const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%;max-height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {
@@ -70,7 +70,7 @@ function formatDateKorean(dateStr) {
   return `${year}년 ${month}월 ${day}일`;
 }
 
-// 중간 광고 슬롯 생성 (PC: horizontal, 모바일: horizontal)
+// 중간 광고 슬롯 생성 (PC: horizontal, 모바일: rectangle)
 // - 한 페이지 내 중복 슬롯ID 방지를 위해 호출부에서 slotId를 분리해서 넘겨주세요.
 function generateMidAdSlot(pcSlotId, mobileSlotId) {
   if (!SHOW_ADS) return '';
@@ -78,9 +78,11 @@ function generateMidAdSlot(pcSlotId, mobileSlotId) {
   const mobileSlot = mobileSlotId || AD_SLOTS.rectangle3;
   // 모바일 광고를 먼저 배치 (CLS 방지)
   return `
-    <ins class="adsbygoogle mobile-only ad-slot-section ad-slot--no-reserve" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
+    <div class="ad-slot ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve">
+      <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+    </div>
     <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only">
-      <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${pcSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${pcSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
     </div>
   `;
 }
@@ -1466,9 +1468,11 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
     const mobileSlot = DEEP_DIVE_MOBILE_SLOTS[adIndex % DEEP_DIVE_MOBILE_SLOTS.length];
     return `
       <div class="blog-ad">
-        <ins class="adsbygoogle mobile-only ad-slot-section ad-slot--no-reserve" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
+        <div class="ad-slot ad-slot--rectangle mobile-only ad-slot--no-reserve">
+          <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        </div>
         <div class="ad-slot ad-slot--horizontal pc-only">
-          <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${pcSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${pcSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
         </div>
       </div>
     `;

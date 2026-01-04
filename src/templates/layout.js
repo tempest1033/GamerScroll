@@ -581,7 +581,7 @@ const adInitScript = SHOW_ADS ? `
   }
 
   function syncAdSlotVisibility() {
-    document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+    document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(el) {
       markSeen(el);
       syncOneAdSlot(el);
     });
@@ -594,7 +594,7 @@ const adInitScript = SHOW_ADS ? `
       if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) delayMs = 3500;
     } catch (e) {}
 
-    document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+    document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(el) {
       markSeen(el);
       var slot = el.closest('.ad-slot');
       if (!slot) return;
@@ -629,7 +629,7 @@ const adInitScript = SHOW_ADS ? `
           syncOneAdSlot(el);
         });
       });
-      document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+      document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(el) {
         obs.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
       });
     } catch (e) {}
@@ -651,7 +651,7 @@ const adInitScript = SHOW_ADS ? `
   }
 
   function initAds() {
-    document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+    document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(el) {
       if (el.dataset.gcAdsInit === '1') return;
       if (!canInit(el)) return;
       el.dataset.gcAdsInit = '1';
@@ -682,7 +682,7 @@ const adInitScript = SHOW_ADS ? `
         if (entry.isIntersecting) {
           var el = entry.target.classList.contains('adsbygoogle')
             ? entry.target
-            : entry.target.querySelector('ins.adsbygoogle');
+            : entry.target.querySelector('ins.adsbygoogle[data-gc-ad="1"]');
           if (el && el.dataset.gcAdsInit !== '1' && el.isConnected && canInit(el)) {
             el.dataset.gcAdsInit = '1';
             try {
@@ -697,7 +697,7 @@ const adInitScript = SHOW_ADS ? `
     document.querySelectorAll('.ad-slot').forEach(function(slot) {
       window.__gcAdIntersectionObserver.observe(slot);
     });
-    document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
+    document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(ins) {
       if (!ins.closest('.ad-slot')) {
         window.__gcAdIntersectionObserver.observe(ins);
       }
@@ -787,11 +787,11 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   if (!SHOW_ADS) return '';
   const mobileSlot = slotIdMobile || slotIdPc;
   // 모바일 광고를 먼저 배치 (홈페이지와 동일한 구조로 CLS 방지)
-  // 인라인 push 제거 - 공통 adInitScript에서 보이는 슬롯만 초기화
-  // 모바일: wrapper 없이 ins 태그만 사용
-  return `<ins class="adsbygoogle mobile-only ad-slot-section ${extraClass}" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
+  return `<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}" style="min-height:50px">
+    <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
+  </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
-    <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
   </div>`;
 }
 
