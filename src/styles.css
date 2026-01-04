@@ -1,4 +1,4 @@
-
+﻿
     /* 접근성: 시각적으로 숨기지만 스크린리더/SEO에는 노출 */
     .visually-hidden {
       position: absolute;
@@ -2517,7 +2517,6 @@
       /* 모바일 광고 기본 표시 (ins는 block, slot은 flex 유지) */
       ins.adsbygoogle.mobile-only {
         display: block !important;
-        margin: 8px 0;
       }
 
       /* 모바일 직사각형 광고 - 반응형 + 중앙 정렬 */

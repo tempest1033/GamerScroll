@@ -616,9 +616,9 @@ function generateIndexPage(data) {
 	    if (isHorizontal) {
 	      return '<ins class="adsbygoogle mobile-only ad-slot-section ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins>';
 	    }
-	    // 직사각형: rectangle 클래스 적용 (336x280 고정)
+	    // 직사각형: wrapper 없이 ins 태그만
 	    if (isRectangle) {
-	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	      return '<ins class="adsbygoogle mobile-only ad-slot-section ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle"></ins>';
 	    }
 	    // 기본값: 가로형과 동일하게 wrapper 없이
 	    return '<ins class="adsbygoogle mobile-only ad-slot-section ' + (extraClass || '') + '" id="' + id + '" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins>';
@@ -626,7 +626,7 @@ function generateIndexPage(data) {
 
 	  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등) - 인라인 push 제거, 공통 스크립트에서 초기화
 	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" style="display:block;width:100%;max-height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
-	  var topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only ad-slot-section" id="home-top-ad-mobile" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins>' : '';
+	  var topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only ad-slot-section" id="home-top-ad-mobile" style="display:block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
@@ -636,7 +636,7 @@ function generateIndexPage(data) {
 	    topAdPc +
 	    popularBannerHtml +
 	    insightCardHtml +
-	    adSlotMobile('ad-above-news-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'rectangle') +
+	    adSlotMobile('ad-above-news-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2, 'horizontal') +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
@@ -662,7 +662,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '</div>' +
 	    '<div class="home-sidebar">' +
-	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'rectangle') +
+	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3, 'horizontal') +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="visually-hidden">모바일 게임 순위</h2>' +
@@ -678,7 +678,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.vertical) +
-	    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4, 'rectangle') +
+	    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4, 'horizontal') +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">스팀 순위</h2>' +
