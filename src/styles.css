@@ -2333,6 +2333,12 @@
       min-height: 90px;
     }
 
+    /* PC 사각형 광고 고정 크기 (300x250) */
+    .ad-slot--rectangle.pc-only {
+      width: 300px;
+      height: 250px;
+    }
+
     .ad-slot--horizontal.pc-only > ins.adsbygoogle {
       width: 100%;
       min-height: auto;
