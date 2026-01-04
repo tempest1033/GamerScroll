@@ -2328,8 +2328,7 @@
 
     .ad-slot--horizontal.mobile-only > ins.adsbygoogle {
       width: 100%;
-      min-height: auto;
-      height: auto;
+      height: 100%;
     }
 
     .ad-slot--vertical {
@@ -2463,7 +2462,7 @@
         display: flex !important;
         align-items: center;
         justify-content: center;
-        min-height: 100px;
+        height: 100px;
         width: 100%;
         overflow: hidden;
       }
@@ -6687,7 +6686,7 @@
 }
 
 .weekly-metrics-grid .weekly-metric-card {
-  min-height: 100px;
+  height: 100px;
 }
 
 .weekly-metrics-grid .metric-thumb {
@@ -11574,7 +11573,7 @@ a.gm-item:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
+  height: 100px;
   color: var(--text-tertiary);
   font-size: 14px;
 }
