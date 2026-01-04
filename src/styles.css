@@ -193,10 +193,10 @@
       --text-tertiary: #6b6b6b; /* 보조 텍스트 */
 
       /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
-      --font-title-size: 19px;
+      --font-title-size: 18px;
       --font-title-weight: 700;
-      --font-body-size: 17px;
-      --font-desc-size: 16px;
+      --font-body-size: 16px;
+      --font-desc-size: 15px;
       --font-body-weight: 700;
       --font-desc-weight: 500;
       --font-body-line-height: 1.7;
