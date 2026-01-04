@@ -2257,6 +2257,14 @@
       border-radius: 0;
     }
 
+    /* unfilled 광고 자동 접기 */
+    .ad-slot--unfilled {
+      display: none !important;
+      height: 0 !important;
+      min-height: 0 !important;
+      overflow: hidden !important;
+    }
+
     /* 광고 ins 요소 공통 */
     .ad-slot > ins.adsbygoogle {
       display: block;
@@ -2313,11 +2321,22 @@
       height: auto;
     }
 
-    /* 모바일 광고 크기 제한 */
-    .ad-slot.mobile-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
+    /* 모바일 광고 크기 제한 (네이티브 인피드는 제외 - fluid 높이 필요) */
+    .ad-slot.mobile-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--native) > ins.adsbygoogle {
       max-width: 320px;
       min-height: auto;
       height: auto;
+    }
+
+    /* 모든 페이지: PC 가로형 광고 최소 높이 (728x90 기본) */
+    .ad-slot--horizontal.pc-only {
+      min-height: 90px;
+    }
+
+    /* PC 사각형 광고 고정 크기 (300x250) */
+    .ad-slot--rectangle.pc-only {
+      width: 300px;
+      height: 250px;
     }
 
     .ad-slot--horizontal.pc-only > ins.adsbygoogle {
@@ -2358,9 +2377,7 @@
 
     /* 가로형 광고 내부 - 모든 페이지에서 display:block 적용 (AdSense 반응형 안정화) */
     .ad-slot--horizontal > ins.adsbygoogle {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
+      display: block !important;
     }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
@@ -2530,6 +2547,11 @@
         max-width: 100%;
       }
 
+      /* 모바일 네이티브 인피드 광고 */
+      .ad-slot.mobile-only.ad-slot--native {
+        display: block !important;
+      }
+
       /* 모바일 광고 여백 - 카드 간격과 동일 (--space-block-gap 자동 적용) */
 
       /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) - search-hidden 제외 */
@@ -2550,7 +2572,7 @@
         max-width: 100%;
       }
 
-      .ad-slot:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
+      .ad-slot:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--native) > ins.adsbygoogle {
         max-width: 320px !important;
         max-height: 250px !important;
       }
@@ -2975,6 +2997,12 @@
       display: flex !important;
       flex-direction: column !important;
       min-height: calc(100vh - 180px) !important;
+    }
+
+    /* page-wrapper 내부 PC 광고 슬롯 - flex 컨텍스트에서 전체 너비 보장 */
+    .page-wrapper > .ad-slot--horizontal.pc-only {
+      width: 100% !important;
+      flex: 0 0 100%;
     }
 
     /* Container - 네이버 스타일 (PC: 1190px) */
@@ -6686,7 +6714,7 @@
 }
 
 .weekly-metrics-grid .weekly-metric-card {
-  height: 100px;
+  min-height: 100px;
 }
 
 .weekly-metrics-grid .metric-thumb {
@@ -7684,8 +7712,9 @@
     flex-wrap: wrap;
   }
 
-  /* 릴리즈 캘린더 */
+  /* 릴리즈 캘린더 - 모바일에서 1열 */
   .weekly-releases-list {
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
@@ -9701,6 +9730,21 @@
   margin: 0 auto;
   padding-top: 0;
   padding-bottom: var(--space-block-y-xl);
+}
+
+/* game-page 내 PC 가로형 광고 */
+.game-page > .ad-slot--horizontal.pc-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  width: 100%;
+}
+
+/* game-grid 내 광고 전체 너비 */
+.game-grid > .ad-slot--horizontal.pc-only {
+  grid-column: 1 / -1;
+  width: 100%;
 }
 
 .game-page .home-card-body {

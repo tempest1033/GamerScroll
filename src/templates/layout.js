@@ -538,8 +538,6 @@ const adInitScript = SHOW_ADS ? `
     }
     var style = window.getComputedStyle(el);
     if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
-    // 실제 크기가 0이면 초기화하지 않음 (숨김/탭 전환 케이스)
-    if (slot.offsetWidth === 0 || slot.offsetHeight === 0) return false;
     return true;
   }
 
