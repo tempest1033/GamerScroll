@@ -544,79 +544,6 @@ function wrapWithLayout(content, options = {}) {
     ${content}
 	  </main>
 		  ${generateFooter()}
-		  ${SHOW_ADS ? `<script>
-		    (function() {
-		      // 모바일/PC 전용 광고 체크 + display:none 체크
-		      function canInit(el) {
-		        if (!el || !el.isConnected) return false;
-		        var slot = el.closest('.ad-slot');
-		        if (slot) {
-		          if (slot.classList.contains('mobile-only') && !window.matchMedia('(max-width: 768px)').matches) return false;
-		          if (slot.classList.contains('pc-only') && !window.matchMedia('(min-width: 769px)').matches) return false;
-		        }
-		        var target = slot || el;
-		        var style = window.getComputedStyle(target);
-		        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
-		        var rect = target.getBoundingClientRect();
-		        if (!rect || rect.width <= 0) return false;
-		        return true;
-		      }
-
-		      // 매뉴얼 방식: SDK 로드 여부 상관없이 push (큐에 쌓임)
-		      function tryInitAd(el) {
-		        if (!el || el.dataset.gcAdsInit === '1') return;
-		        if (!canInit(el)) return;
-		        el.dataset.gcAdsInit = '1';
-		        (window.adsbygoogle = window.adsbygoogle || []).push({});
-		      }
-
-		      function initAds() {
-		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
-		          tryInitAd(el);
-		        });
-		      }
-
-		      // IntersectionObserver: 뷰포트 진입 시 광고 초기화
-		      function setupAdObserver() {
-		        if (window.__gcAdObserver || !('IntersectionObserver' in window)) return;
-		        window.__gcAdObserver = new IntersectionObserver(function(entries) {
-		          entries.forEach(function(entry) {
-		            if (entry.isIntersecting) {
-		              var el = entry.target.classList.contains('adsbygoogle')
-		                ? entry.target
-		                : entry.target.querySelector('ins.adsbygoogle');
-		              if (el) tryInitAd(el);
-		            }
-		          });
-		        }, { rootMargin: '200px 0px', threshold: 0 });
-		        document.querySelectorAll('.ad-slot').forEach(function(slot) {
-		          window.__gcAdObserver.observe(slot);
-		        });
-		        document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
-		          if (!ins.closest('.ad-slot')) window.__gcAdObserver.observe(ins);
-		        });
-		      }
-
-		      function init() {
-		        initAds();
-		        setupAdObserver();
-		      }
-
-		      // DOM 준비되면 초기화
-		      if (document.readyState === 'loading') {
-		        document.addEventListener('DOMContentLoaded', init);
-		      } else {
-		        init();
-		      }
-
-		      // 탭 전환/리사이즈 시 재초기화 (display:none → block 전환 대응)
-		      var resizeTimer = null;
-		      window.addEventListener('resize', function() {
-		        clearTimeout(resizeTimer);
-		        resizeTimer = setTimeout(initAds, 200);
-		      }, { passive: true });
-	    })();
-	  </script>` : ''}
 	  ${pageScripts}
 	  ${showSearchBar ? searchBarScript : ''}
 	  ${hoverPrefetchScript}
@@ -637,11 +564,14 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   if (!SHOW_ADS) return '';
   const mobileSlot = slotIdMobile || slotIdPc;
   // 모바일 광고를 먼저 배치 (홈페이지와 동일한 구조로 CLS 방지)
+  // inline push로 즉시 초기화 (SDK 큐에 쌓임)
   return `<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}" style="min-height:50px">
     <ins class="adsbygoogle" style="display:block;width:100%;max-height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
   <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
     <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>`;
 }
 
