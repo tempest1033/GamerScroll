@@ -589,7 +589,7 @@ function generateIndexPage(data) {
 	    if (format === 'rectangle') {
 	      var isPcRect = (extraClass || '').indexOf('pc-only') >= 0;
 	      if (isPcRect) {
-	        return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	        return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle"></ins></div>';
 	      }
 	      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%;max-height:280px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle"></ins></div>';
 	    }
