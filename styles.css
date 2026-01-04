@@ -4104,13 +4104,14 @@
       margin-bottom: 4px;
     }
 
-    .app-name-link {
+    /* rank-row 링크 스타일 - 전체 행 클릭 가능 */
+    .rank-row-link {
       text-decoration: none;
-      transition: color var(--transition-fast);
+      color: inherit;
     }
 
-    .app-name-link:hover {
-      color: var(--primary);
+    .rank-row-link:hover {
+      color: inherit;
     }
 
     .app-dev {
