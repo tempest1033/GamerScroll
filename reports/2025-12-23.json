@@ -4596,12 +4596,14 @@
       {
         "tag": "PC",
         "title": "스팀 동접, CS2 120만 명으로 1위",
-        "desc": "스팀 동시접속 TOP5에서 Counter-Strike 2가 1,209,636명으로 1위를 기록했어요. ARC Raiders(334,996명)와 PUBG: BATTLEGROUNDS(208,495명)도 상위권에 올랐어요."
+        "desc": "스팀 동시접속 TOP5에서 Counter-Strike 2가 1,209,636명으로 1위를 기록했어요. ARC Raiders(334,996명)와 PUBG: BATTLEGROUNDS(208,495명)도 상위권에 올랐어요.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
       },
       {
         "tag": "콘솔",
         "title": "AFEELA, 차량 내 PS 리모트 플레이 지원",
-        "desc": "소니와 혼다 전기차 AFEELA가 PS 리모트 플레이를 탑재한다는 소식이 전해졌어요. 집의 PS4와 PS5에 원격 접속하는 형태로 소개되며, 차량 내 엔터테인먼트 확장 흐름이 주목돼요."
+        "desc": "소니와 혼다 전기차 AFEELA가 PS 리모트 플레이를 탑재한다는 소식이 전해졌어요. 집의 PS4와 PS5에 원격 접속하는 형태로 소개되며, 차량 내 엔터테인먼트 확장 흐름이 주목돼요.",
+        "thumbnail": "https://www.shm-afeela.com/share/v2.0/pages/top/img/ogp.png"
       },
       {
         "tag": "정책",
@@ -4611,31 +4613,36 @@
       {
         "tag": "글로벌",
         "title": "텐센트, 실사풍 FPS '언레코드'에 투자",
-        "desc": "실사풍 슈터 '언레코드' 개발사 측이 텐센트 투자 유치를 알리며 개발 가속화를 언급했어요. 리얼리즘 연출 계열 프로젝트에 대형 자본이 붙는 흐름이 다시 확인됐어요."
+        "desc": "실사풍 슈터 '언레코드' 개발사 측이 텐센트 투자 유치를 알리며 개발 가속화를 언급했어요. 리얼리즘 연출 계열 프로젝트에 대형 자본이 붙는 흐름이 다시 확인됐어요.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/2381520/header.jpg"
       }
     ],
     "industryIssues": [
       {
         "tag": "크래프톤",
         "title": "김창한 대표 발언, 주총 변수로 재부각",
-        "desc": "김창한 대표가 과거 주주총회에서 언급했던 책임 관련 발언이 재조명됐어요. 2026년 3월 주주총회가 주요 분기점이 될 수 있다는 관측이 기사로 다뤄지며 투자자 관심이 모였어요."
+        "desc": "김창한 대표가 과거 주주총회에서 언급했던 책임 관련 발언이 재조명됐어요. 2026년 3월 주주총회가 주요 분기점이 될 수 있다는 관측이 기사로 다뤄지며 투자자 관심이 모였어요.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/22/news/i1634081059.jpg"
       },
       {
         "tag": "정책/시장",
         "title": "생성형 AI 사용, 시상 기준이 엄격해져요",
-        "desc": "해외 인디 게임 어워드에서 생성형 AI 관련 서약 위반을 이유로 수상이 취소됐다는 보도가 나왔어요. 개발 과정의 도구 사용 공개와 심사 기준 정비가 업계 공통 과제로 떠올랐어요."
+        "desc": "해외 인디 게임 어워드에서 생성형 AI 관련 서약 위반을 이유로 수상이 취소됐다는 보도가 나왔어요. 개발 과정의 도구 사용 공개와 심사 기준 정비가 업계 공통 과제로 떠올랐어요.",
+        "thumbnail": "https://i3n.news1.kr/system/photos/2025/12/23/7664927/high.jpg"
       }
     ],
     "metrics": [
       {
         "tag": "동접",
         "title": "스팀 TOP5, CS2 1,209,636명 기록",
-        "desc": "스팀 동시접속 TOP5는 Counter-Strike 2(1,209,636명), ARC Raiders(334,996명), PUBG: BATTLEGROUNDS(208,495명) 등이 상위권을 형성했어요."
+        "desc": "스팀 동시접속 TOP5는 Counter-Strike 2(1,209,636명), ARC Raiders(334,996명), PUBG: BATTLEGROUNDS(208,495명) 등이 상위권을 형성했어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg"
       },
       {
         "tag": "인기",
         "title": "iOS 인기, 방치형과 퍼즐 장르 혼합",
-        "desc": "iOS 인기 TOP5는 '쿠노이치 키우기', '카드캡터 체리: 추억의 열쇠', '블록 블라스트', '귀판오분전', '킹방치: 빵지의 제왕'으로 구성돼 장르가 분산된 흐름이에요."
+        "desc": "iOS 인기 TOP5는 '쿠노이치 키우기', '카드캡터 체리: 추억의 열쇠', '블록 블라스트', '귀판오분전', '킹방치: 빵지의 제왕'으로 구성돼 장르가 분산된 흐름이에요.",
+        "thumbnail": "https://static.wixstatic.com/media/4c8897_c9000568457645ff8a741d13bd62a02a~mv2.png"
       }
     ],
     "rankings": [

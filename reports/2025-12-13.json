@@ -4587,24 +4587,26 @@
       {
         "tag": "행사",
         "title": "메이플스토리 겨울 쇼케이스 '크라운' 예고",
-        "desc": "넥슨이 12/13 겨울 쇼케이스 '크라운' 진행을 예고했어요. 고레벨 이용자 현장 초청과 기념 굿즈 제공 계획도 함께 공개됐습니다."
+        "desc": "넥슨이 12/13 겨울 쇼케이스 '크라운' 진행을 예고했어요. 고레벨 이용자 현장 초청과 기념 굿즈 제공 계획도 함께 공개됐습니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/216150/header.jpg"
       },
       {
         "tag": "콘솔",
         "title": "에이스 컴뱃 8, 2026년 출시 공식 발표",
         "desc": "반다이 남코가 The Game Awards 2025에서 신작을 공식 발표했어요. 2026년 PS5, Xbox Series X|S, PC로 출시한다고 밝혔습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/12/news/thumb/s1742216990.jpg"
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/502500/header.jpg"
       },
       {
         "tag": "PC",
         "title": "라리안 스튜디오, 신작 'Divinity' 공개",
         "desc": "라리안 스튜디오가 The Game Awards 2025에서 'Divinity'를 공개했어요. 자사 IP 기반 신규 RPG를 개발 중이라고 밝혔습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/12/news/thumb/s1771438936.jpg"
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg"
       },
       {
         "tag": "콜라보",
         "title": "쿠키런: 오븐브레이크, 파워퍼프걸 콜라보 진행",
-        "desc": "11/27 업데이트에서 파워퍼프걸 쿠키 3종과 이벤트가 추가됐어요. 콜라보 테마가 진행되며 iOS 순위가 반응했습니다."
+        "desc": "11/27 업데이트에서 파워퍼프걸 쿠키 3종과 이벤트가 추가됐어요. 콜라보 테마가 진행되며 iOS 순위가 반응했습니다.",
+        "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/75/62/0d/75620d24-746b-dab0-b63f-797cca34d6a5/AppIcon-1x_U007epad-0-11-0-85-220-0.png/100x100bb.png"
       }
     ],
     "industryIssues": [
@@ -4617,19 +4619,22 @@
       {
         "tag": "넥슨",
         "title": "쇼케이스에 현장 초청과 특전 결합",
-        "desc": "넥슨이 12/13 '크라운' 쇼케이스를 예고하며 고레벨 이용자 초청 조건과 현장 특전을 공개했어요. 발표를 '팬 경험'과 연결하는 운영 흐름이 확인됐습니다."
+        "desc": "넥슨이 12/13 '크라운' 쇼케이스를 예고하며 고레벨 이용자 초청 조건과 현장 특전을 공개했어요. 발표를 '팬 경험'과 연결하는 운영 흐름이 확인됐습니다.",
+        "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/be/82/c9be82cb-9744-f4b4-03e3-0e2936fb14f5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png"
       }
     ],
     "metrics": [
       {
         "tag": "매출",
         "title": "앱마켓 매출 TOP5, 국내 IP 견조한 흐름",
-        "desc": "iOS 매출 TOP5에서 '메이플 키우기'가 1위, '리니지M'이 4위를 차지했어요. Android도 같은 두 타이틀이 1위와 4위에 자리했고, 해외 생존 전략 게임 비중도 컸습니다."
+        "desc": "iOS 매출 TOP5에서 '메이플 키우기'가 1위, '리니지M'이 4위를 차지했어요. Android도 같은 두 타이틀이 1위와 4위에 자리했고, 해외 생존 전략 게임 비중도 컸습니다.",
+        "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/03/d1/5e/03d15ec4-3e1d-cd2f-56b3-c3f9d7b1b7da/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png"
       },
       {
         "tag": "동접",
         "title": "Steam 동시 접속 20만대 신작들 두각",
-        "desc": "Steam 동시 접속 TOP5에서 Counter-Strike 2가 124만 명으로 압도했어요. ARC Raiders와 Path of Exile 2도 18~22만 명대로 올라 파급력을 보여줬습니다."
+        "desc": "Steam 동시 접속 TOP5에서 Counter-Strike 2가 124만 명으로 압도했어요. ARC Raiders와 Path of Exile 2도 18~22만 명대로 올라 파급력을 보여줬습니다.",
+        "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_231x87.jpg?t=1749053861"
       }
     ],
     "rankings": [

@@ -4580,46 +4580,54 @@
       {
         "tag": "콜라보",
         "title": "'퍼즐 세븐틴', 어프어프 콜라보 시작",
-        "desc": "드림에이지가 '퍼즐 세븐틴'과 어프어프 콜라보를 시작했어요. 미니룸 꾸미기 인증형 SNS 이벤트와 함께, 12/25부터 주요 온오프라인 채널에서 콜라보 머치 판매가 진행돼요."
+        "desc": "드림에이지가 '퍼즐 세븐틴'과 어프어프 콜라보를 시작했어요. 미니룸 꾸미기 인증형 SNS 이벤트와 함께, 12/25부터 주요 온오프라인 채널에서 콜라보 머치 판매가 진행돼요.",
+        "thumbnail": "https://play-lh.googleusercontent.com/aYiAWQdXNsr3xZ6odA03uTFDAbu5fDLata-Lfu08mxRAQC3dTRsY4fu-sF_BKslo7OMKWtM4vAODZPWgwf2dDlc=w240-h480"
       },
       {
         "tag": "정책",
         "title": "콘진원, 글로벌 게임 법제 보고서 발간",
-        "desc": "한국콘텐츠진흥원이 '2025 글로벌 게임 정책과 법제 연구' 보고서를 발간했어요. 미국 등 주요 시장의 법과 규제 변화 포인트를 정리해, 국내 게임사의 해외 리스크 대응에 참고 자료가 될 전망이에요."
+        "desc": "한국콘텐츠진흥원이 '2025 글로벌 게임 정책과 법제 연구' 보고서를 발간했어요. 미국 등 주요 시장의 법과 규제 변화 포인트를 정리해, 국내 게임사의 해외 리스크 대응에 참고 자료가 될 전망이에요.",
+        "thumbnail": "https://image.edaily.co.kr/images/Photo/files/NP/S/2025/12/PS25121800483.jpg"
       },
       {
         "tag": "업계동향",
         "title": "2025 서브컬쳐 게임, 분기 흐름 재점검",
-        "desc": "2025년 서브컬쳐 게임 시장을 분기별로 정리한 결산형 콘텐츠가 나왔어요. 대형 업데이트와 콜라보 타이밍에 트래픽이 몰리고, 라이브 서비스 운영 역량이 성과를 좌우한다는 관찰이 이어졌어요."
+        "desc": "2025년 서브컬쳐 게임 시장을 분기별로 정리한 결산형 콘텐츠가 나왔어요. 대형 업데이트와 콜라보 타이밍에 트래픽이 몰리고, 라이브 서비스 운영 역량이 성과를 좌우한다는 관찰이 이어졌어요.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/24/news/i1795415000.jpg"
       },
       {
         "tag": "글로벌",
         "title": "Steam, ARC Raiders 동접 26만 돌파",
-        "desc": "Steam 동시접속 상위권에서 'ARC Raiders'가 26만 명대 동접으로 급부상했어요. 익스트랙션 슈터 장르 기대감이 높아지며, 플레이 경험 공유와 입소문이 빠르게 확산되고 있어요."
+        "desc": "Steam 동시접속 상위권에서 'ARC Raiders'가 26만 명대 동접으로 급부상했어요. 익스트랙션 슈터 장르 기대감이 높아지며, 플레이 경험 공유와 입소문이 빠르게 확산되고 있어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/1808500/header.jpg"
       },
       {
         "tag": "행사",
         "title": "2025 인벤 게임 어워드 수상작 공개",
-        "desc": "인벤이 '2025 인벤 게임 어워드' 수상작을 공개했어요. '클레르 옵스퀴르: 33원정대'가 다수 부문에서 존재감을 보였고, 연말 '올해의 게임' 담론이 다시 뜨거워지는 분위기예요."
+        "desc": "인벤이 '2025 인벤 게임 어워드' 수상작을 공개했어요. '클레르 옵스퀴르: 33원정대'가 다수 부문에서 존재감을 보였고, 연말 '올해의 게임' 담론이 다시 뜨거워지는 분위기예요.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/18/news/i1871075599.jpg"
       }
     ],
     "industryIssues": [
       {
         "tag": "넷마블",
         "title": "한국기업평가, 넷마블 전망 '안정적' 변경",
-        "desc": "한국기업평가가 넷마블의 등급전망을 '안정적(Stable)'으로 변경했어요. 신작 성과와 비용 효율화로 실적과 재무 부담 개선 흐름이 이어진다는 평가가 함께 제시됐어요."
+        "desc": "한국기업평가가 넷마블의 등급전망을 '안정적(Stable)'으로 변경했어요. 신작 성과와 비용 효율화로 실적과 재무 부담 개선 흐름이 이어진다는 평가가 함께 제시됐어요.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Netmarble_Logo.svg/330px-Netmarble_Logo.svg.png"
       }
     ],
     "metrics": [
       {
         "tag": "매출",
         "title": "iOS와 Android 매출 TOP3 완전 동일",
-        "desc": "양대 마켓 매출 TOP3가 '메이플 키우기', '라스트 워: 서바이벌', 'WOS: 화이트아웃 서바이벌'로 같았어요. 장르와 운영 모델이 비슷한 게임이 상단을 단단히 점유하는 흐름이에요."
+        "desc": "양대 마켓 매출 TOP3가 '메이플 키우기', '라스트 워: 서바이벌', 'WOS: 화이트아웃 서바이벌'로 같았어요. 장르와 운영 모델이 비슷한 게임이 상단을 단단히 점유하는 흐름이에요.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Nexon.svg/330px-Nexon.svg.png"
       },
       {
         "tag": "동접",
         "title": "Steam 동접, CS2 113만으로 1위 유지",
-        "desc": "Steam 동시접속 TOP 구간에서 'Counter-Strike 2'가 113만 명대로 1위를 유지했어요. 'ARC Raiders'와 'PUBG: BATTLEGROUNDS'도 상위권에 올라, 슈터와 서바이벌 계열 쏠림이 뚜렷해요."
+        "desc": "Steam 동시접속 TOP 구간에서 'Counter-Strike 2'가 113만 명대로 1위를 유지했어요. 'ARC Raiders'와 'PUBG: BATTLEGROUNDS'도 상위권에 올라, 슈터와 서바이벌 계열 쏠림이 뚜렷해요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg"
       }
     ],
     "rankings": [

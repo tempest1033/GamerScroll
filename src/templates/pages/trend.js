@@ -39,7 +39,20 @@ const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizon
 const fixUrl = (url) => {
   if (!url) return url;
   if (url.startsWith('//')) url = 'https:' + url;
-  if (url.includes('inven.co.kr')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+
+  // CORS 허용된 도메인은 직접 로드 (화이트리스트)
+  const corsAllowed = [
+    'steamstatic.com',
+    'steamcdn-a.akamaihd.net',
+    'googleusercontent.com',
+    'gamerscrawl.com'
+  ];
+  if (corsAllowed.some(d => url.includes(d))) return url;
+
+  // 나머지 외부 이미지는 프록시
+  if (url.startsWith('http')) {
+    return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+  }
   return url;
 };
 
@@ -416,8 +429,8 @@ function generateWeeklyPanel(weeklyInsight) {
     </div>
   ` : '';
 
-  // 헤드라인 이미지 (thumbnail 또는 첫 번째 issue 썸네일)
-  const heroThumb = wai.thumbnail || (issues[0]?.thumbnail ? issues[0].thumbnail : null);
+  // 헤드라인 이미지
+  const heroThumb = wai.thumbnail || null;
   const heroThumbUrl = heroThumb ? fixUrl(heroThumb) : null;
 
   return `
@@ -1257,8 +1270,8 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
         ${topAdPc}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         ${(() => {
-          // 헤드라인 이미지: aiInsight.thumbnail 또는 첫 번째 issue 썸네일
-          const heroThumb = aiInsight.thumbnail || (issues[0]?.thumbnail ? issues[0].thumbnail : null);
+          // 헤드라인 이미지
+          const heroThumb = aiInsight.thumbnail || null;
           const heroThumbUrl = heroThumb ? fixUrl(heroThumb) : null;
           return `
         <div class="weekly-header-card ${heroThumbUrl ? 'has-hero-image' : ''}">

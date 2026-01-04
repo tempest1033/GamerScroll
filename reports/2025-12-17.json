@@ -4586,19 +4586,19 @@
         "tag": "신작",
         "title": "라리안, 디비니티 신작 공개",
         "desc": "라리안 스튜디오가 신작 '디비니티'를 공개했어요. '발더스게이트3'처럼 턴제 RPG 방향을 확정했으며, 전작 경험을 확장하는 방식에 무게를 뒀습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/17/news/thumb/s1339164160.jpg"
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/435150/header.jpg"
       },
       {
         "tag": "업데이트",
         "title": "아이온2, 12/16 프리뷰에서 핵심 공개",
         "desc": "NCSOFT '아이온2'가 12/16 프리뷰 방송에서 운영, 편의, 전투 체감 관련 개선 방향을 정리했어요. 매크로 대응, 서버 공유 적용, 전투 사운드 조정 등이 공개됐습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/16/news/thumb/s1972353021.png"
+        "thumbnail": "https://www.logo.wine/a/logo/NCSoft/NCSoft-Logo.wine.svg"
       },
       {
         "tag": "업계동향",
         "title": "유비소프트, 아마존 개발팀 인수",
         "desc": "유비소프트가 아마존 게임즈 몬트리올의 MOBA 신작 '마치 오브 자이언츠' IP와 개발팀을 인수했어요. 개발 조직 이동으로 프로젝트 향방이 주목받고 있습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/16/news/thumb/s1357185825.jpg"
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ubisoft_logo.svg/400px-Ubisoft_logo.svg.png"
       },
       {
         "tag": "e스포츠",
@@ -4609,7 +4609,8 @@
       {
         "tag": "모바일",
         "title": "Android 매출 TOP5에 라스트 Z 진입",
-        "desc": "Android 매출 TOP5에 '라스트 Z: 서바이벌 슈터'가 4위로 들어왔어요. 서바이벌 슈터형 타이틀이 매출 상위권으로 올라온 점이 눈에 띕니다."
+        "desc": "Android 매출 TOP5에 '라스트 Z: 서바이벌 슈터'가 4위로 들어왔어요. 서바이벌 슈터형 타이틀이 매출 상위권으로 올라온 점이 눈에 띕니다.",
+        "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/3c/bb/1c3cbbd7-9785-1b47-41f2-23ba4c891a75/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png"
       }
     ],
     "industryIssues": [
@@ -4617,7 +4618,7 @@
         "tag": "크래프톤",
         "title": "블랙 버짓 알파 테스트 피드백 공개",
         "desc": "크래프톤 'PUBG: 블랙 버짓'이 12/12~12/15 클로즈 알파 테스트를 진행했어요. 기본기는 탄탄하지만 완성도 보강이 필요하다는 체험기 평가가 나왔습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/16/news/thumb/s1894839482.jpg"
+        "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4077740/c15e27d4221478bb2ef67fcb2a1b32d08043c995/capsule_616x353.jpg"
       },
       {
         "tag": "에픽게임즈 코리아",
@@ -4630,13 +4631,14 @@
       {
         "tag": "매출",
         "title": "화이트아웃과 라스트워, 매출 상위 유지",
-        "desc": "iOS와 Android 매출 TOP5에 'WOS: 화이트아웃 서바이벌'과 '라스트 워: 서바이벌'이 모두 포함됐어요. 장기 운영형 전략 및 생존 타이틀이 상위권을 지키고 있습니다."
+        "desc": "iOS와 Android 매출 TOP5에 'WOS: 화이트아웃 서바이벌'과 '라스트 워: 서바이벌'이 모두 포함됐어요. 장기 운영형 전략 및 생존 타이틀이 상위권을 지키고 있습니다.",
+        "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/34/3d/46343dc8-df7f-9bb6-f3f7-19c99fff604b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png"
       },
       {
         "tag": "동접",
         "title": "스팀 동접: ARC Raiders 30만 기록",
         "desc": "스팀 동시접속 TOP5에서 'ARC Raiders'가 304,884명으로 3위를 기록했어요. 'PUBG'도 210,665명으로 상위권을 유지했습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/17/news/thumb/s1314412306.jpg"
+        "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1808500/bf3cf2254deb9697fe23e42932a14c60656a3007/capsule_616x353_alt_assets_0.jpg"
       }
     ],
     "rankings": [

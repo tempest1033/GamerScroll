@@ -4582,7 +4582,8 @@
       {
         "tag": "업데이트",
         "title": "포켓몬 Pocket, 12/17 확장팩 공개",
-        "desc": "포켓몬코리아가 '포켓몬 카드 게임 Pocket'에 테마 확장팩 '홍련 블레이즈' 추가를 공지했어요. 신규 카드와 카드풀 확장 소식이 퍼지며 덱 연구가 빠르게 늘고 있습니다."
+        "desc": "포켓몬코리아가 '포켓몬 카드 게임 Pocket'에 테마 확장팩 '홍련 블레이즈' 추가를 공지했어요. 신규 카드와 카드풀 확장 소식이 퍼지며 덱 연구가 빠르게 늘고 있습니다.",
+        "thumbnail": "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/tcg-pocket/launch/tcg-pocket-169-en.png"
       },
       {
         "tag": "e스포츠",
@@ -4593,24 +4594,28 @@
       {
         "tag": "모바일",
         "title": "메이플 키우기, 신규 파티퀘스트 추가",
-        "desc": "넥슨이 '메이플 키우기' 첫 업데이트로 신규 파티 퀘스트를 공개했어요. 협동형 콘텐츠가 추가되며 길드와 파티 기반 성장 동선이 핵심 화제로 떠올랐습니다."
+        "desc": "넥슨이 '메이플 키우기' 첫 업데이트로 신규 파티 퀘스트를 공개했어요. 협동형 콘텐츠가 추가되며 길드와 파티 기반 성장 동선이 핵심 화제로 떠올랐습니다.",
+        "thumbnail": "https://lwi.nexon.com/maplestoryidle/images/meta/meta_1200x630.jpg"
       },
       {
         "tag": "글로벌",
         "title": "PC 동접 상위권, 대형작 강세",
-        "desc": "PC 동시접속 TOP5에서 Counter-Strike 2(1,288,329명)와 Dota 2(718,370명) 같은 장기 흥행작이 여전히 강세예요. Path of Exile 2도 172,703명으로 상위권을 지켰습니다."
+        "desc": "PC 동시접속 TOP5에서 Counter-Strike 2(1,288,329명)와 Dota 2(718,370명) 같은 장기 흥행작이 여전히 강세예요. Path of Exile 2도 172,703명으로 상위권을 지켰습니다.",
+        "thumbnail": "https://nimage.g-enews.com/phpwas/restmb_allidxmake.php?idx=5&simg=2025122915001207846c5fa75ef8621814414730.jpg"
       },
       {
         "tag": "업계동향",
         "title": "12월 게임 상장사 브랜드평판 발표",
-        "desc": "12월 게임 상장기업 브랜드평판 빅데이터 순위가 공개됐어요. 크래프톤, 넷마블, 엔씨소프트 등 주요 기업이 상위권에 이름을 올리며 연말 이슈 경쟁이 이어지고 있습니다."
+        "desc": "12월 게임 상장기업 브랜드평판 빅데이터 순위가 공개됐어요. 크래프톤, 넷마블, 엔씨소프트 등 주요 기업이 상위권에 이름을 올리며 연말 이슈 경쟁이 이어지고 있습니다.",
+        "thumbnail": "https://cdn.thefairnews.co.kr/news/photo/202512/63062_108892_4313.jpg"
       }
     ],
     "industryIssues": [
       {
         "tag": "시장",
         "title": "게임사 보안 역량 격차가 이슈로 부상",
-        "desc": "국내 게임 업계에서 보안 역량의 양극화가 커졌다는 보도가 나왔어요. 계정, 결제, 개인정보 이슈가 반복될수록 이용자 신뢰가 실적과 직결되는 흐름이 강화되고 있습니다."
+        "desc": "국내 게임 업계에서 보안 역량의 양극화가 커졌다는 보도가 나왔어요. 계정, 결제, 개인정보 이슈가 반복될수록 이용자 신뢰가 실적과 직결되는 흐름이 강화되고 있습니다.",
+        "thumbnail": "https://asec.ahnlab.com/wp-content/uploads/2024/09/mslytiL460WkYCNTRM2OfgRWE9knNBxUnyfADl1u-1024x585.png"
       }
     ],
     "metrics": [

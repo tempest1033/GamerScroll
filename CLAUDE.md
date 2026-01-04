@@ -4,6 +4,31 @@
 
 ---
 
+## ⚠️ 디렉토리 구조 (중요)
+
+```
+GamersCrawl/
+├── reports/           ← 소스 (여기를 수정!)
+│   ├── 2026-01-04.json
+│   └── weekly/
+├── docs/              ← 빌드 출력물 (수정 금지)
+│   ├── reports/       ← 빌드 시 자동 복사됨
+│   ├── trend/
+│   └── index.html
+└── data-cache.json    ← 크롤링 캐시
+```
+
+### 파일 수정 규칙
+| 작업 | 수정할 경로 | 잘못된 경로 |
+|------|-------------|-------------|
+| JSON 리포트 수정 | `./reports/*.json` | ~~`./docs/reports/`~~ |
+| 주간 리포트 수정 | `./reports/weekly/*.json` | ~~`./docs/reports/weekly/`~~ |
+| HTML 템플릿 수정 | `./src/templates/` | - |
+
+**절대 `docs/` 폴더 직접 수정 금지** - 빌드 시 덮어씌워짐
+
+---
+
 ## 빌드 명령어
 
 ```bash

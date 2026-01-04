@@ -4583,7 +4583,8 @@
       {
         "tag": "e스포츠",
         "title": "T1, '오너' 문현준 재계약 발표",
-        "desc": "T1이 정글러 '오너' 문현준과 계약을 2년 연장해 2028년까지 함께한다고 밝혔어요. 핵심 전력 유지가 확정되며 다음 시즌 운영 안정성이 커졌어요."
+        "desc": "T1이 정글러 '오너' 문현준과 계약을 2년 연장해 2028년까지 함께한다고 밝혔어요. 핵심 전력 유지가 확정되며 다음 시즌 운영 안정성이 커졌어요.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/T1_esports_logo.svg/330px-T1_esports_logo.svg.png"
       },
       {
         "tag": "행사",
@@ -4598,7 +4599,8 @@
       {
         "tag": "콘솔",
         "title": "댐버스터, '데드 아일랜드3' 개발 언급",
-        "desc": "댐버스터 스튜디오 관련 문서와 보도를 통해 '데드 아일랜드3'가 개발 중이며 2028년 상반기 목표 일정이 거론됐어요. 장기 개발 로드맵이 공식 문서로 확인됐다는 점이 포인트예요."
+        "desc": "댐버스터 스튜디오 관련 문서와 보도를 통해 '데드 아일랜드3'가 개발 중이며 2028년 상반기 목표 일정이 거론됐어요. 장기 개발 로드맵이 공식 문서로 확인됐다는 점이 포인트예요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/268050/header.jpg"
       },
       {
         "tag": "업계동향",
@@ -4610,19 +4612,22 @@
       {
         "tag": "넥슨",
         "title": "넥슨, '마비노기 영웅전' 겨울 업데이트",
-        "desc": "넥슨이 '마비노기 영웅전' 겨울 대규모 업데이트 '모멘텀'을 실시했다고 전해졌어요. 접속 보상과 레이드 미션 연계 보상 등 시즌형 동선 강화가 핵심이에요."
+        "desc": "넥슨이 '마비노기 영웅전' 겨울 대규모 업데이트 '모멘텀'을 실시했다고 전해졌어요. 접속 보상과 레이드 미션 연계 보상 등 시즌형 동선 강화가 핵심이에요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/212160/header.jpg"
       }
     ],
     "metrics": [
       {
         "tag": "매출",
         "title": "넥슨, iOS와 Android TOP5에 2종 포진",
-        "desc": "iOS와 Android 매출 TOP5에 '메이플 키우기'와 '마비노기 모바일'이 함께 올랐어요. 동일 퍼블리셔의 복수 타이틀이 양대 OS 상위권을 점유한 점이 눈에 띄어요."
+        "desc": "iOS와 Android 매출 TOP5에 '메이플 키우기'와 '마비노기 모바일'이 함께 올랐어요. 동일 퍼블리셔의 복수 타이틀이 양대 OS 상위권을 점유한 점이 눈에 띄어요.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Nexon.svg/330px-Nexon.svg.png"
       },
       {
         "tag": "인기",
         "title": "iOS 다운로드 상위권에 IP 게임 확인",
-        "desc": "iOS 다운로드 상위 5위권에 '카드캡터 체리: 추억의 열쇠'가 포함됐어요. 연말에는 익숙한 IP 기반 타이틀이 빠르게 상위권으로 진입하는 패턴이 반복돼요."
+        "desc": "iOS 다운로드 상위 5위권에 '카드캡터 체리: 추억의 열쇠'가 포함됐어요. 연말에는 익숙한 IP 기반 타이틀이 빠르게 상위권으로 진입하는 패턴이 반복돼요.",
+        "thumbnail": "https://static.wixstatic.com/media/4c8897_c9000568457645ff8a741d13bd62a02a~mv2.png"
       }
     ],
     "rankings": [

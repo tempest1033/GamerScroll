@@ -4593,51 +4593,60 @@
       {
         "tag": "모바일",
         "title": "마비노기 모바일, 전 서버 산타복 달성",
-        "desc": "데브캣 '마비노기 모바일'은 크리스마스 공동 목표 이벤트에서 유저들이 신규 캐릭터까지 만들어 저인구 서버 납품을 도우면서 전 서버가 3단계 보상을 달성했어요."
+        "desc": "데브캣 '마비노기 모바일'은 크리스마스 공동 목표 이벤트에서 유저들이 신규 캐릭터까지 만들어 저인구 서버 납품을 도우면서 전 서버가 3단계 보상을 달성했어요.",
+        "thumbnail": "https://lwi.nexon.com/m_mabinogim/global/en/main/meta.jpg"
       },
       {
         "tag": "PC",
         "title": "아이언메이스, 대법원 상고 공식화",
-        "desc": "아이언메이스는 넥슨과의 소송 항소심 판결과 관련해 대법원 상고 방침을 밝혔어요. 저작권 판단과 별개로 영업비밀 쟁점이 핵심으로 부각되고 있어요."
+        "desc": "아이언메이스는 넥슨과의 소송 항소심 판결과 관련해 대법원 상고 방침을 밝혔어요. 저작권 판단과 별개로 영업비밀 쟁점이 핵심으로 부각되고 있어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/2016590/header.jpg"
       },
       {
         "tag": "기술",
         "title": "아크 레이더스, 몰입 설계와 최적화 주목",
-        "desc": "넥슨 배급 'ARC Raiders'는 세계관 완결성, 사운드와 애니메이션, 최적화로 익스트랙션 장르의 진입 장벽을 낮추는 방향이 조명됐어요."
+        "desc": "넥슨 배급 'ARC Raiders'는 세계관 완결성, 사운드와 애니메이션, 최적화로 익스트랙션 장르의 진입 장벽을 낮추는 방향이 조명됐어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/1808500/header.jpg"
       },
       {
         "tag": "정책",
         "title": "확률형 규제 후속 법안 논의 확대",
-        "desc": "확률형 정보 공개 제도 이후 후속 개정안 논의가 이어지고 있어요. 위반 시 매출액 3% 이하 또는 10억 원 이하 과징금 부과 등 제재 실효성 강화가 거론됐어요."
+        "desc": "확률형 정보 공개 제도 이후 후속 개정안 논의가 이어지고 있어요. 위반 시 매출액 3% 이하 또는 10억 원 이하 과징금 부과 등 제재 실효성 강화가 거론됐어요.",
+        "thumbnail": "https://image.zdnet.co.kr/2024/11/14/6c2988bf43eb1a1d47c865f78f375cac.jpg"
       },
       {
         "tag": "글로벌",
         "title": "주술회전 팬텀 퍼레이드 1주년 3탄",
-        "desc": "BILIBILI HK LIMITED는 '주술회전 팬텀 퍼레이드' 글로벌 1주년 이벤트 제3탄을 열고 1주년 한정 SSR 및 무료 10연차 제공 등 기념 보상을 안내했어요."
+        "desc": "BILIBILI HK LIMITED는 '주술회전 팬텀 퍼레이드' 글로벌 1주년 이벤트 제3탄을 열고 1주년 한정 SSR 및 무료 10연차 제공 등 기념 보상을 안내했어요.",
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/24/news/i1369350463.jpg"
       }
     ],
     "industryIssues": [
       {
         "tag": "크래프톤",
         "title": "크래프톤, PUBG 2025 결산과 로드맵 예고",
-        "desc": "크래프톤 펍지 스튜디오는 'PUBG: BATTLEGROUNDS'의 2025년 업데이트 이행과 이용자 흐름을 공유했고, 2026년 e스포츠 및 개발 로드맵을 순차 공개하겠다고 밝혔어요."
+        "desc": "크래프톤 펍지 스튜디오는 'PUBG: BATTLEGROUNDS'의 2025년 업데이트 이행과 이용자 흐름을 공유했고, 2026년 e스포츠 및 개발 로드맵을 순차 공개하겠다고 밝혔어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/578080/header.jpg"
       },
       {
         "tag": "넷마블",
         "title": "넷마블, 일곱 개의 대죄 신년 페스티벌",
-        "desc": "넷마블은 '일곱 개의 대죄: GRAND CROSS'에 New Year 페스티벌 2026 업데이트를 적용하고 신규 뽑기, 코스튬, 패키지와 각종 이벤트 운영 계획을 공지했어요."
+        "desc": "넷마블은 '일곱 개의 대죄: GRAND CROSS'에 New Year 페스티벌 2026 업데이트를 적용하고 신규 뽑기, 코스튬, 패키지와 각종 이벤트 운영 계획을 공지했어요.",
+        "thumbnail": "https://sgimage.netmarble.com/images/netmarble/nanagb/20251223/haus1766475890999.jpg"
       }
     ],
     "metrics": [
       {
         "tag": "매출",
         "title": "Android 스토어 매출 TOP5 구성",
-        "desc": "Android 스토어 매출 TOP5에는 'Roblox'(3위)와 '마비노기 모바일'(5위)처럼 장르가 다른 타이틀이 함께 올라왔어요. 연말 시즌에 상위권 구성이 혼재된 흐름이에요."
+        "desc": "Android 스토어 매출 TOP5에는 'Roblox'(3위)와 '마비노기 모바일'(5위)처럼 장르가 다른 타이틀이 함께 올라왔어요. 연말 시즌에 상위권 구성이 혼재된 흐름이에요.",
+        "thumbnail": "https://images.ctfassets.net/vfkpgemp7ek3/1Yvy1c5s3lAQ4UGz6wviOq/c5fab7bd4eecb97921f44f4202201165/-KR-_Top_Grossing_Mobile_Games_Worldwide_for_October_2025.png"
       },
       {
         "tag": "동접",
         "title": "Steam 동접 TOP5, ARC Raiders 33만",
-        "desc": "Steam 동시접속 TOP5에서 'ARC Raiders'가 33만 7천 명으로 상위권에 올랐어요. 'Rust'도 17만 2천 명으로 꾸준한 체급을 보여줬어요."
+        "desc": "Steam 동시접속 TOP5에서 'ARC Raiders'가 33만 7천 명으로 상위권에 올랐어요. 'Rust'도 17만 2천 명으로 꾸준한 체급을 보여줬어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/1808500/header.jpg"
       }
     ],
     "rankings": [

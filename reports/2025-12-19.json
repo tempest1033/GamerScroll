@@ -4582,18 +4582,20 @@
       {
         "tag": "신작",
         "title": "조선협객전 클래식, 12/18 CBT 시작",
-        "desc": "스마트나우가 '조선협객전 클래식' CBT를 12/18~12/23 원스토어(모바일)와 공식 라운지(PC)에서 진행한다고 밝혔어요. 설문 참여자 대상 경품도 안내됐습니다."
+        "desc": "스마트나우가 '조선협객전 클래식' CBT를 12/18~12/23 원스토어(모바일)와 공식 라운지(PC)에서 진행한다고 밝혔어요. 설문 참여자 대상 경품도 안내됐습니다.",
+        "thumbnail": "https://play-lh.googleusercontent.com/ptQy7tJZf0CBAEo1-PfeZyF--9s8gY8BJCb-mvmGCUYPTpSRY_pNarHy99h67hYrGyPDyafUVumpHyKEirpXuw=w240-h480-rw"
       },
       {
         "tag": "콜라보",
         "title": "블루 아카이브, 애니플러스 카페 오픈",
         "desc": "'블루 아카이브'가 '메이드 티파티 & 시스터후드' 테마로 애니플러스 콜라보 카페를 12/18~2026/2/1 운영해요. 12/18~12/21은 예약제로 운영됩니다.",
-        "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/769/262/resize_gm324772_251216-risell-uu8.jpg"
+        "thumbnail": "https://nxm-clw-cdn.dn.nexoncdn.co.kr/ba/common/og_en.jpg"
       },
       {
         "tag": "콘솔",
         "title": "CLADUN X3 한글판, 12/18 판매 개시",
-        "desc": "Clouded Leopard Entertainment가 Switch/PS5/PS4용 'CLADUN X3' 한국어 다운로드판을 12/18부터 판매 시작했어요. 가격은 35,800원입니다."
+        "desc": "Clouded Leopard Entertainment가 Switch/PS5/PS4용 'CLADUN X3' 한국어 다운로드판을 12/18부터 판매 시작했어요. 가격은 35,800원입니다.",
+        "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3812660/d3bd7015bcd26bae627321e2fd586f4d978a0d41/capsule_616x353.jpg"
       },
       {
         "tag": "e스포츠",
@@ -4612,20 +4614,22 @@
       {
         "tag": "한국모바일게임협회",
         "title": "인디크래프트, 글로벌 IR 데모데이 종료",
-        "desc": "'2025 인디크래프트' 글로벌 IR 데모데이가 온라인으로 진행됐고, 선정사 4곳이 영문 피치 덱으로 발표했어요. 멘토링 및 매칭과 'Funding Club' 등록 지원이 안내됐습니다."
+        "desc": "'2025 인디크래프트' 글로벌 IR 데모데이가 온라인으로 진행됐고, 선정사 4곳이 영문 피치 덱으로 발표했어요. 멘토링 및 매칭과 'Funding Club' 등록 지원이 안내됐습니다.",
+        "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/755/531/gm520500_241121-risell-yy11.jpg"
       }
     ],
     "metrics": [
       {
         "tag": "매출",
         "title": "서바이벌 장르, 양대 마켓 매출 강세",
-        "desc": "'라스트 워: 서바이벌'이 앱스토어와 구글플레이 매출 TOP5에 함께 올랐고, 구글플레이에서는 'WOS: 화이트아웃 서바이벌'과 '라스트 Z: 서바이벌 슈터'가 상위권을 받치고 있어요."
+        "desc": "'라스트 워: 서바이벌'이 앱스토어와 구글플레이 매출 TOP5에 함께 올랐고, 구글플레이에서는 'WOS: 화이트아웃 서바이벌'과 '라스트 Z: 서바이벌 슈터'가 상위권을 받치고 있어요.",
+        "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/f0/ef/13f0efa0-317c-a37e-3d2d-13772276ef4c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png"
       },
       {
         "tag": "동접",
         "title": "ARC Raiders, 27만 동접 기록",
         "desc": "스팀 동시접속 상위권에서 'ARC Raiders'가 273,227명, 'PUBG'가 206,316명을 기록했어요. 연말 구간에서도 신작 화제성과 장기 흥행이 동시에 보입니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/17/news/thumb/s1314412306.jpg"
+        "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1808500/bf3cf2254deb9697fe23e42932a14c60656a3007/capsule_616x353_alt_assets_0.jpg"
       }
     ],
     "rankings": [

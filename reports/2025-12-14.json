@@ -4573,51 +4573,60 @@
       {
         "tag": "행사",
         "title": "칼페온 연회에서 검은사막M 로드맵 공개",
-        "desc": "12/13 칼페온 연회에서 신규 클래스 '세라핌'과 향후 업데이트 일정이 공개됐어요. 리마스터와 PC 클라이언트 계획도 함께 언급되며 관심을 모았습니다."
+        "desc": "12/13 칼페온 연회에서 신규 클래스 '세라핌'과 향후 업데이트 일정이 공개됐어요. 리마스터와 PC 클라이언트 계획도 함께 언급되며 관심을 모았습니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/582660/header.jpg"
       },
       {
         "tag": "업데이트",
         "title": "마영전, 신규 영웅과 성장 시스템 예고",
-        "desc": "12/13 라이브 방송에서 신규 영웅 '칼리아'와 성장 시스템 개편 방향이 소개됐어요. 겨울 로드맵이 공개되며 복귀 수요를 자극했습니다."
+        "desc": "12/13 라이브 방송에서 신규 영웅 '칼리아'와 성장 시스템 개편 방향이 소개됐어요. 겨울 로드맵이 공개되며 복귀 수요를 자극했습니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/212160/header.jpg"
       },
       {
         "tag": "신작",
         "title": "넷이즈 '연운' 모바일 버전 정식 출시",
-        "desc": "'연운'이 iOS와 Android로 정식 출시됐어요. 모바일 최적화와 크로스플레이 지원을 내세우며 접근성을 강조했습니다."
+        "desc": "'연운'이 iOS와 Android로 정식 출시됐어요. 모바일 최적화와 크로스플레이 지원을 내세우며 접근성을 강조했습니다.",
+        "thumbnail": "https://www.logo.wine/a/logo/NetEase/NetEase-Logo.wine.svg"
       },
       {
         "tag": "정책",
         "title": "게임위, 재택 모니터링단 활동 마무리",
-        "desc": "게임위가 자체등급분류 게임물 재택 모니터링단 해단식을 진행했어요. 2025년 점검 결과를 바탕으로 등급 부적정 여부 재검토와 후속 조치를 예고했습니다."
+        "desc": "게임위가 자체등급분류 게임물 재택 모니터링단 해단식을 진행했어요. 2025년 점검 결과를 바탕으로 등급 부적정 여부 재검토와 후속 조치를 예고했습니다.",
+        "thumbnail": "https://image.zdnet.co.kr/2024/12/04/be369a5f3f6ca252665f9787a6ce10a8.jpg"
       },
       {
         "tag": "모바일",
         "title": "iOS 인기 순위, 캐주얼 퍼즐이 상단 차지",
-        "desc": "iOS 인기 순위에서 'Block Blast'가 1위를 기록했어요. '벙커 디펜스' 등 짧은 플레이 중심 타이틀이 상위에 포진했습니다."
+        "desc": "iOS 인기 순위에서 'Block Blast'가 1위를 기록했어요. '벙커 디펜스' 등 짧은 플레이 중심 타이틀이 상위에 포진했습니다.",
+        "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/fa/af/6dfaaf89-9b64-4bfb-8d85-7199300524a2/AppIcon-0-0-1x_U007emarketing-0-11-0-sRGB-85-220.png/100x100bb.png"
       }
     ],
     "industryIssues": [
       {
         "tag": "펄어비스",
         "title": "검은사막M PC 클라이언트와 리마스터 발표",
-        "desc": "펄어비스가 검은사막 모바일의 PC 클라이언트와 리마스터 계획을 공개했어요. 신규 클래스 업데이트와 함께 2026년까지의 일정이 제시됐습니다."
+        "desc": "펄어비스가 검은사막 모바일의 PC 클라이언트와 리마스터 계획을 공개했어요. 신규 클래스 업데이트와 함께 2026년까지의 일정이 제시됐습니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/582660/header.jpg"
       },
       {
         "tag": "위메이드",
         "title": "위메이드, 미르 저작권 분쟁에서 최종 승소",
-        "desc": "위메이드가 액토즈소프트와의 '미르의 전설' 소송 상고심에서 최종 승소했어요. 대법원이 상고를 기각하며 로열티 분배 판단이 확정됐습니다."
+        "desc": "위메이드가 액토즈소프트와의 '미르의 전설' 소송 상고심에서 최종 승소했어요. 대법원이 상고를 기각하며 로열티 분배 판단이 확정됐습니다.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Wemade_CI.png"
       }
     ],
     "metrics": [
       {
         "tag": "매출",
         "title": "양 플랫폼 매출 상위 5개 중 4종 겹쳐",
-        "desc": "iOS와 Android 매출 상위 5개 중 4개 타이틀이 동일했어요. '화이트아웃 서바이벌'과 '라스트 워' 같은 서바이벌, 그리고 '리니지M'이 동시에 강세였습니다."
+        "desc": "iOS와 Android 매출 상위 5개 중 4개 타이틀이 동일했어요. '화이트아웃 서바이벌'과 '라스트 워' 같은 서바이벌, 그리고 '리니지M'이 동시에 강세였습니다.",
+        "thumbnail": null
       },
       {
         "tag": "동접",
         "title": "PC 동시 접속 1위 CS2, 126만 명 기록",
-        "desc": "Counter-Strike 2가 1,264,405명으로 최상단을 유지했어요. Dota 2(722,646명)도 강했고, ARC Raiders와 Path of Exile 2가 25만 명대를 기록했습니다."
+        "desc": "Counter-Strike 2가 1,264,405명으로 최상단을 유지했어요. Dota 2(722,646명)도 강했고, ARC Raiders와 Path of Exile 2가 25만 명대를 기록했습니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
       }
     ],
     "rankings": [

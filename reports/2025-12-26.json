@@ -4583,46 +4583,54 @@
       {
         "tag": "신작",
         "title": "'007 퍼스트 라이트' 출시 2개월 연기",
-        "desc": "IO 인터랙티브가 '007 퍼스트 라이트' 출시일을 2026년 5월 말로 연기했어요. 개발사는 '완벽한 제임스 본드'를 위해 완성도를 더 끌어올리겠다고 밝혔어요."
+        "desc": "IO 인터랙티브가 '007 퍼스트 라이트' 출시일을 2026년 5월 말로 연기했어요. 개발사는 '완벽한 제임스 본드'를 위해 완성도를 더 끌어올리겠다고 밝혔어요.",
+        "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3768760/86d898447e0e475e3f8a9cc1ef660a80032472d7/header_alt_assets_1.jpg"
       },
       {
         "tag": "글로벌",
         "title": "'옥토패스 트래블러' 600만 장 돌파",
-        "desc": "스퀘어 에닉스가 '옥토패스 트래블러' 시리즈의 출하와 다운로드 판매 합계가 600만 장을 넘었다고 발표했어요. HD-2D 장르의 대표 장기 흥행 사례로 다시 확인됐어요."
+        "desc": "스퀘어 에닉스가 '옥토패스 트래블러' 시리즈의 출하와 다운로드 판매 합계가 600만 장을 넘었다고 발표했어요. HD-2D 장르의 대표 장기 흥행 사례로 다시 확인됐어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/921570/header.jpg"
       },
       {
         "tag": "e스포츠",
         "title": "T1 '오너' 문현준, 2028년까지 동행",
-        "desc": "T1이 정글러 '오너' 문현준과 계약을 2년 연장해 2028년까지 함께한다고 공개했어요. 로스터 안정성이 강조되는 비시즌에 확실한 신호를 보낸 사례예요."
+        "desc": "T1이 정글러 '오너' 문현준과 계약을 2년 연장해 2028년까지 함께한다고 공개했어요. 로스터 안정성이 강조되는 비시즌에 확실한 신호를 보낸 사례예요.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/T1_esports_logo.svg/330px-T1_esports_logo.svg.png"
       },
       {
         "tag": "기술",
         "title": "RTS 플레이와 '뇌 나이' 연구 화제",
-        "desc": "인지 연구를 다룬 기사에서 실시간 전략 게임 숙련자의 '뇌 나이'가 더 젊게 측정됐다는 내용이 소개됐어요. 게임의 복잡한 판단과 손 조작이 인지 자극과 연결되는지 관심이 커졌어요."
+        "desc": "인지 연구를 다룬 기사에서 실시간 전략 게임 숙련자의 '뇌 나이'가 더 젊게 측정됐다는 내용이 소개됐어요. 게임의 복잡한 판단과 손 조작이 인지 자극과 연결되는지 관심이 커졌어요.",
+        "thumbnail": "https://t1.daumcdn.net/news/202512/25/seoul/20251225141104733kxcc.jpg"
       },
       {
         "tag": "업데이트",
         "title": "'카발 RED' 연말 테마 업데이트 3주간 진행",
-        "desc": "이스트게임즈가 '카발 RED'에 연말 테마 업데이트를 적용했어요. 2026년 1월 13일까지 시즌 이벤트와 보상 구성이 이어지면서 복귀 수요를 자극하는 흐름이에요."
+        "desc": "이스트게임즈가 '카발 RED'에 연말 테마 업데이트를 적용했어요. 2026년 1월 13일까지 시즌 이벤트와 보상 구성이 이어지면서 복귀 수요를 자극하는 흐름이에요.",
+        "thumbnail": "https://play-lh.googleusercontent.com/u7AtKbtkSonuGOyzDkY2ki4_H_mzf-mxgr-E9KVZxmqoMPsCtATZJzyp76N2SSCXyKrcniMa2i9-38AYVTur=w240-h480"
       }
     ],
     "industryIssues": [
       {
         "tag": "엔씨소프트",
         "title": "엔씨소프트, INDYGO GROUP 지분 67% 취득",
-        "desc": "엔씨소프트가 INDYGO GROUP PTE. LTD. 주식 67%를 현금으로 취득한다고 공시했어요. 동남아 캐주얼 게임 개발 역량을 흡수해 포트폴리오를 넓히려는 행보로 해석돼요."
+        "desc": "엔씨소프트가 INDYGO GROUP PTE. LTD. 주식 67%를 현금으로 취득한다고 공시했어요. 동남아 캐주얼 게임 개발 역량을 흡수해 포트폴리오를 넓히려는 행보로 해석돼요.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/NCSOFT_logo.svg/330px-NCSOFT_logo.svg.png"
       }
     ],
     "metrics": [
       {
         "tag": "매출",
         "title": "모바일 매출, 넥슨 타이틀 존재감 확대",
-        "desc": "iOS 매출 TOP5에 '메이플 키우기'와 'FC 모바일'이, Android 매출 TOP5에 '메이플 키우기'와 '마비노기 모바일'이 올랐어요. 장수 IP와 라이브 운영력이 결제 지표로 이어진 모습이에요."
+        "desc": "iOS 매출 TOP5에 '메이플 키우기'와 'FC 모바일'이, Android 매출 TOP5에 '메이플 키우기'와 '마비노기 모바일'이 올랐어요. 장수 IP와 라이브 운영력이 결제 지표로 이어진 모습이에요.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Nexon.svg/330px-Nexon.svg.png"
       },
       {
         "tag": "동접",
         "title": "PC 동시접속, FPS와 MOBA 상위 고정",
-        "desc": "스팀 동시접속 상위권에서 'Counter-Strike 2'(119만 명)와 'Dota 2'(64만 명)가 선두를 지켰어요. 'PUBG: BATTLEGROUNDS'(18만 6천 명)도 상위권을 유지했어요."
+        "desc": "스팀 동시접속 상위권에서 'Counter-Strike 2'(119만 명)와 'Dota 2'(64만 명)가 선두를 지켰어요. 'PUBG: BATTLEGROUNDS'(18만 6천 명)도 상위권을 유지했어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/578080/header.jpg"
       }
     ],
     "rankings": [

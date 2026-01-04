@@ -8,34 +8,40 @@
       {
         "tag": "콜라보",
         "title": "마비노기 모바일, 스타필드 팝업 운영 중",
-        "desc": "넥슨이 스타필드 수원에서 마비노기 모바일 크리스마스 팝업을 운영 중이에요. 굿즈샵과 체험존을 묶어 오프라인 유입을 이끌며 차트 주목도가 올라갔습니다."
+        "desc": "넥슨이 스타필드 수원에서 마비노기 모바일 크리스마스 팝업을 운영 중이에요. 굿즈샵과 체험존을 묶어 오프라인 유입을 이끌며 차트 주목도가 올라갔습니다.",
+        "thumbnail": "https://lwi.nexon.com/m_mabinogim/global/en/main/meta.jpg"
       },
       {
         "tag": "신작",
         "title": "더 렐릭, 2026년 5월 26일 출시 확정",
-        "desc": "액션 RPG 더 렐릭: 퍼스트 가디언이 최신 트레일러와 함께 정식 출시일을 2026년 5월 26일로 확정 발표했어요. 스팀, PS5, Xbox Series X|S로 출시됩니다."
+        "desc": "액션 RPG 더 렐릭: 퍼스트 가디언이 최신 트레일러와 함께 정식 출시일을 2026년 5월 26일로 확정 발표했어요. 스팀, PS5, Xbox Series X|S로 출시됩니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/2827820/header.jpg"
       },
       {
         "tag": "글로벌",
         "title": "중국 게임시장 73조원, 7.7% 성장",
-        "desc": "2025 중국 게임산업 보고서에서 중국 국내 게임 매출이 약 73조 6천억원, 전년 대비 7.68% 증가로 집계됐어요. 상하이는 게임과 e스포츠 산업 10대 육성책도 공개했습니다."
+        "desc": "2025 중국 게임산업 보고서에서 중국 국내 게임 매출이 약 73조 6천억원, 전년 대비 7.68% 증가로 집계됐어요. 상하이는 게임과 e스포츠 산업 10대 육성책도 공개했습니다.",
+        "thumbnail": "https://cdn.dongbangilbo.co.kr/news/photo/202512/75295_89469_4012.jpg"
       },
       {
         "tag": "정책",
         "title": "게임이용자 소통토론회 개최 안내",
-        "desc": "한국게임정책자율기구와 게임물관리위원회가 게임이용자 소통토론회 개최를 알렸어요. 등급과 이용자 보호 이슈를 현장에서 논의하는 방식이라 업계도 참고할 포인트가 많습니다."
+        "desc": "한국게임정책자율기구와 게임물관리위원회가 게임이용자 소통토론회 개최를 알렸어요. 등급과 이용자 보호 이슈를 현장에서 논의하는 방식이라 업계도 참고할 포인트가 많습니다.",
+        "thumbnail": "https://www.grac.or.kr/resource/images/grac_logo_400.png"
       },
       {
         "tag": "콘솔",
         "title": "네오위즈, GJA 2025 확장팩 부문 수상",
-        "desc": "네오위즈의 P의 거짓: 서곡이 골든 조이스틱 어워드 2025에서 최고의 게임 확장팩 수상작으로 선정됐어요. DLC 흥행이 IP 확장 기대를 키우고 있습니다."
+        "desc": "네오위즈의 P의 거짓: 서곡이 골든 조이스틱 어워드 2025에서 최고의 게임 확장팩 수상작으로 선정됐어요. DLC 흥행이 IP 확장 기대를 키우고 있습니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/1627720/header.jpg"
       }
     ],
     "industryIssues": [
       {
         "tag": "네오위즈",
         "title": "해외 시상식 수상으로 IP 가치 부각",
-        "desc": "네오위즈가 P의 거짓: 서곡의 GJA 2025 수상을 전하며 IP 경쟁력을 강조했어요. 확장 콘텐츠가 성과를 내면 후속 프로젝트 투자 명분도 커집니다."
+        "desc": "네오위즈가 P의 거짓: 서곡의 GJA 2025 수상을 전하며 IP 경쟁력을 강조했어요. 확장 콘텐츠가 성과를 내면 후속 프로젝트 투자 명분도 커집니다.",
+        "thumbnail": "https://cdn.neowiz.com/neowiz-site/assets/media-content/GJA-8nyrl6jp.png"
       },
       {
         "tag": "정책",
@@ -47,12 +53,14 @@
       {
         "tag": "매출",
         "title": "메이플 키우기, 양대 스토어 1위 석권",
-        "desc": "메이플 키우기가 iOS와 Android 매출 차트에서 모두 1위를 기록했어요. 동일 타이틀이 양대 스토어에서 동시에 선두를 지킨 점이 눈에 띕니다."
+        "desc": "메이플 키우기가 iOS와 Android 매출 차트에서 모두 1위를 기록했어요. 동일 타이틀이 양대 스토어에서 동시에 선두를 지킨 점이 눈에 띕니다.",
+        "thumbnail": "https://lwi.nexon.com/maplestoryidle/images/meta/meta_1200x630.jpg"
       },
       {
         "tag": "동접",
         "title": "Bongo Cat, 10만 동접대 진입",
-        "desc": "Steam 동시접속 TOP5에 Bongo Cat이 109,376명으로 포함됐어요. 소규모 타이틀도 밈과 커뮤니티 확산으로 지표를 끌어올리는 흐름이 보였습니다."
+        "desc": "Steam 동시접속 TOP5에 Bongo Cat이 109,376명으로 포함됐어요. 소규모 타이틀도 밈과 커뮤니티 확산으로 지표를 끌어올리는 흐름이 보였습니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/3419430/header.jpg"
       }
     ],
     "rankings": [

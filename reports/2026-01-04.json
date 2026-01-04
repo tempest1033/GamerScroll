@@ -4595,25 +4595,25 @@
         "tag": "신작",
         "title": "명일방주 엔드필드, 1월 22일 PS5·PC·모바일 동시 출시",
         "desc": "그리프라인이 3D 전략 RPG '명일방주: 엔드필드'를 1월 22일 글로벌 정식 출시한다고 발표했어요. 사전예약 3000만 건을 돌파하며 기대감을 입증했고, 원리퍼블릭이 참여한 OST도 화제가 되고 있습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/11/26/news/thumb/s1604428576.jpg"
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/2286620/header.jpg"
       },
       {
         "tag": "콘솔",
         "title": "일곱 개의 대죄 오리진, 1월 28일 글로벌 동시 출시",
         "desc": "넷마블이 오픈월드 액션 RPG '일곱 개의 대죄: 오리진'을 1월 28일 PS5·PC·모바일로 글로벌 출시해요. PS5 1년 독점이 확정됐고, 인기 만화 IP 기반의 심리스 오픈월드 실시간 액션이 특징입니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/30/news/thumb/s1914220892.jpg"
+        "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3679080/1c23d920733f5f9167b52c128dde624415e0568a/capsule_616x353.jpg"
       },
       {
         "tag": "업데이트",
         "title": "에픽세븐, 신규 월광 영웅 '어둠의 목자 디에네' 추가",
         "desc": "스마일게이트 에픽세븐이 신규 월광 영웅 '어둠의 목자 디에네'를 업데이트했어요. 불사 상태에서 협공을 발생시키는 독특한 스킬 구성과 함께 신년 접속 이벤트로 88레벨 장비 등 풍성한 보상을 제공하고 있습니다.",
-        "thumbnail": null
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/2161700/header.jpg"
       },
       {
         "tag": "모바일",
         "title": "잠룡 도트 무협 RPG, iOS 인기 순위 급상승 중",
         "desc": "Stand Egg의 방치형 RPG '잠룡: 도트 무협 RPG'가 iOS 인기 순위 2위까지 올라섰어요. 레트로 픽셀 감성과 무협 세계관, 거래소 시스템이 유저들의 호응을 얻으며 신규 다크호스로 떠오르고 있습니다.",
-        "thumbnail": null
+        "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/82/2f/ba822f13-3d5f-ab3b-ca2e-e0dd12ef9d30/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png"
       }
     ],
     "industryIssues": [
@@ -4627,7 +4627,7 @@
         "tag": "위메이드",
         "title": "위메이드, 1월 29일 미드나잇 워커스 스팀 출시 예정",
         "desc": "위메이드맥스의 익스트랙션 슈터 '미드나잇 워커스'가 1월 29일 스팀 얼리 액세스로 출시돼요. 좀비 테마를 입힌 신작으로, MMORPG 중심이던 위메이드 라인업 다각화의 신호탄이 될 전망입니다.",
-        "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202601/i1498691751.jpg"
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/2795540/header.jpg"
       }
     ],
     "metrics": [
@@ -4635,13 +4635,13 @@
         "tag": "동접",
         "title": "ARC Raiders, Steam 동시접속 38만 명 돌파",
         "desc": "넥슨 퍼블리싱의 ARC Raiders가 Steam 동시접속 TOP5에 진입하며 38만 명을 기록했어요. 출시 이후 매주 Steam 유료 게임 판매 1위를 차지하며 글로벌 흥행을 이어가고 있습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/30/news/thumb/s1251413238.jpg"
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/1808500/header.jpg"
       },
       {
         "tag": "인기",
         "title": "블록 블라스트, iOS 인기 순위 1위 유지 중",
         "desc": "캐주얼 퍼즐 게임 '블록 블라스트'가 iOS 인기 순위 1위 자리를 굳건히 지키고 있어요. 직관적인 조작과 짧은 플레이 타임으로 연초에도 꾸준한 인기를 얻고 있습니다.",
-        "thumbnail": null
+        "thumbnail": "https://lh3.googleusercontent.com/cTPcZbI8WPe0EmjAaadexSr40vK-25I3P9Hr-U9JZoAsUBABv0EYVp7-9Beztz3DeBQR1OhJqljiTVab1Z3GtexjiifyP-JlSMY"
       }
     ],
     "rankings": [
@@ -4725,7 +4725,8 @@
         "name": "위메이드",
         "comment": "흑자 전환 성공, 미드나잇 워커스 등 신작 라인업에 기대"
       }
-    ]
+    ],
+    "thumbnail": "https://static.inven.co.kr/column/2026/01/03/news/thumb/s1155398617.jpg"
   },
   "aiGeneratedAt": "2026-01-03T21:16:04.148Z",
   "stockMap": {

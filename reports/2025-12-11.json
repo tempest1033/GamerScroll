@@ -4126,29 +4126,32 @@
       {
         "tag": "모바일",
         "title": "메이플 키우기, 방치형으로 양대 마켓 매출 석권",
-        "desc": "11월 6일 출시된 메이플 키우기가 국내 애플 앱스토어와 구글 플레이 매출 1위를 동시에 기록하고 있어요. 방치형과 메이플스토리 IP 결합으로 연말 모바일 시장을 주도하고 있어요."
+        "desc": "11월 6일 출시된 메이플 키우기가 국내 애플 앱스토어와 구글 플레이 매출 1위를 동시에 기록하고 있어요. 방치형과 메이플스토리 IP 결합으로 연말 모바일 시장을 주도하고 있어요.",
+        "thumbnail": "https://play-lh.googleusercontent.com/jV9Qr5SJcdTxjSNM83_T0voYwyFWnErzyM9HsQLopigYZM4unH-_2HRTVLSmJv17OrSW"
       },
       {
         "tag": "PC",
         "title": "ARC Raiders, 스팀 동접 26만 명 돌파",
-        "desc": "오늘 스팀 지표에서 ARC Raiders가 약 26만 동접으로 3위를 기록하며 PC 플랫폼 신작 후보로 떠오르고 있어요. 배틀로얄 위주였던 상위권에 협동 슈팅이 합류했다는 점이 의미 있어요."
+        "desc": "오늘 스팀 지표에서 ARC Raiders가 약 26만 동접으로 3위를 기록하며 PC 플랫폼 신작 후보로 떠오르고 있어요. 배틀로얄 위주였던 상위권에 협동 슈팅이 합류했다는 점이 의미 있어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/1808500/header.jpg"
       },
       {
         "tag": "인디",
         "title": "데이 오브 더 데브스에서 인디 기대작 공개",
         "desc": "비영리 인디 쇼케이스 데이 오브 더 데브스에서 어웨이시스와 루시드 폴스 등 2026년 발매 예정 인디가 소개됐어요. 국내 게이머들도 인벤 기사와 방송을 통해 차세대 인디 후보들을 눈여겨보고 있어요.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/11/news/thumb/s1817262477.jpg"
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/1623730/header.jpg"
       },
       {
         "tag": "글로벌",
         "title": "팰월드 모바일, 한일 알파테스트 예고",
-        "desc": "보도에 따르면 크래프톤이 팰월드 모바일 클로즈드 알파테스트를 12월 한국과 일본에서 진행한다고 밝혔어요. 콘솔과 PC 흥행작의 모바일 이식이어서 국내 유저들도 테스트 참여와 완성도에 관심을 모으고 있어요."
+        "desc": "보도에 따르면 크래프톤이 팰월드 모바일 클로즈드 알파테스트를 12월 한국과 일본에서 진행한다고 밝혔어요. 콘솔과 PC 흥행작의 모바일 이식이어서 국내 유저들도 테스트 참여와 완성도에 관심을 모으고 있어요.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/1623730/header.jpg"
       },
       {
         "tag": "출시·종료",
         "title": "구로발게임즈 청산, 킹 아서 서비스 종료 예고",
         "desc": "넷마블 손자회사 구로발게임즈가 법인 청산 절차에 들어가며 킹 아서: 레전드 라이즈가 내년 1분기 서비스 종료를 예고했어요. 이용자 보상 공지와 개발 인력 전환 배치가 향후 핵심 쟁점으로 거론되고 있어요.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/10/news/thumb/s1558408164.jpg"
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/1157390/header.jpg"
       }
     ],
     "industryIssues": [
@@ -4169,12 +4172,14 @@
       {
         "tag": "매출",
         "title": "메이플 키우기, 한국과 대만 매출 1위 유지",
-        "desc": "보도에 따르면 메이플 키우기는 국내와 대만 애플 앱스토어에서 매출 1위를 기록하며 연일 상위권을 지키고 있어요. IP 인지도와 가벼운 방치형 구조가 글로벌 시장에서도 통하고 있다는 점이 수치로 확인되고 있어요."
+        "desc": "보도에 따르면 메이플 키우기는 국내와 대만 애플 앱스토어에서 매출 1위를 기록하며 연일 상위권을 지키고 있어요. IP 인지도와 가벼운 방치형 구조가 글로벌 시장에서도 통하고 있다는 점이 수치로 확인되고 있어요.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/216150/header.jpg"
       },
       {
         "tag": "동접",
         "title": "CS2와 Dota2, 스팀 동접 1위와 2위 고정",
-        "desc": "오늘 스팀 동시접속 순위에서 Counter-Strike 2가 약 113만 명, Dota 2가 약 72만 명으로 1위와 2위를 기록했어요. 장기 서비스 e스포츠 타이틀이 여전히 PC 플랫폼 전체 트래픽을 견인하는 중심 축임을 보여주고 있어요."
+        "desc": "오늘 스팀 동시접속 순위에서 Counter-Strike 2가 약 113만 명, Dota 2가 약 72만 명으로 1위와 2위를 기록했어요. 장기 서비스 e스포츠 타이틀이 여전히 PC 플랫폼 전체 트래픽을 견인하는 중심 축임을 보여주고 있어요.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
       }
     ],
     "rankings": [

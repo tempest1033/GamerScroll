@@ -8,24 +8,26 @@
       {
         "tag": "모바일",
         "title": "메이플 키우기 독주 속 생존-전략 선전",
-        "desc": "iOS-Android 매출 1위를 메이플 키우기가 지키고, 리니지M과 생존-전략 신작들이 뒤를 잇고 있어요. 니케와 러브앤딥스페이스도 겨울 업데이트로 다시 주목받으면서 수집형-연애 시뮬 장르도 활기를 띠고 있어요."
+        "desc": "iOS-Android 매출 1위를 메이플 키우기가 지키고, 리니지M과 생존-전략 신작들이 뒤를 잇고 있어요. 니케와 러브앤딥스페이스도 겨울 업데이트로 다시 주목받으면서 수집형-연애 시뮬 장르도 활기를 띠고 있어요.",
+        "thumbnail": "https://play-lh.googleusercontent.com/jV9Qr5SJcdTxjSNM83_T0voYwyFWnErzyM9HsQLopigYZM4unH-_2HRTVLSmJv17OrSW"
       },
       {
         "tag": "PC",
         "title": "CS2-도타2 견고, ARC Raiders 급부상",
-        "desc": "스팀 동시접속은 여전히 CS2와 도타2가 최상위를 유지하고 있어요. ARC Raiders와 배틀필드6가 10만 명대 동접을 기록하며 새로운 PC 대작으로 존재감을 드러내고 있어요."
+        "desc": "스팀 동시접속은 여전히 CS2와 도타2가 최상위를 유지하고 있어요. ARC Raiders와 배틀필드6가 10만 명대 동접을 기록하며 새로운 PC 대작으로 존재감을 드러내고 있어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg"
       },
       {
         "tag": "콘솔",
         "title": "PS5 이스 X 한국어판 날짜 확정",
         "desc": "PS5용 '이스 X -프라우드 노딕스-' 한국어판이 2026년 2월 26일 발매로 공식 확정됐어요. 정식 한글화와 출시일이 정해지면서 콘솔 RPG 팬들이 장기 기대작으로 주목하고 있어요.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/04/news/thumb/s1959019929.jpg"
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/2731870/header.jpg"
       },
       {
         "tag": "e스포츠",
         "title": "멸망전 인기에 발로란트 포맷도 화제",
         "desc": "멸망전 명경기 하이라이트가 유튜브 인기에 오르면서 스트리머-아마추어 e스포츠에 대한 관심이 이어지고 있어요. 발로란트 2026 시즌에 트리플 엘리미네이션 도입이 발표되면서 대회 포맷 변화도 주목받고 있어요.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/04/news/thumb/s1343445283.jpg"
+        "thumbnail": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.png"
       }
     ],
     "industryIssues": [
@@ -33,24 +35,27 @@
         "tag": "넥슨",
         "title": "넥슨-아이언메이스 2심과 복지 이슈",
         "desc": "넥슨-아이언메이스 2심에서 쟁점이 '영업비밀' 소스코드까지 확대되면서 판결 방향에 업계 이목이 쏠리고 있어요. 동시에 넥슨은 전 직원에게 100만 원 격려금을 지급하며 인력-조직 문화 투자 행보도 이어가고 있어요.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/04/news/thumb/s1434046668.jpg"
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Nexon_Logo.svg"
       },
       {
         "tag": "시장",
         "title": "대형사, 인턴-장기 투자로 인력 확대",
-        "desc": "라이온하트 스튜디오가 내년도 채용 연계형 인턴 모집을 시작했다고 밝히면서 대형 RPG 스튜디오의 인력 확충이 이어지고 있어요. 텐센트도 5년을 내다보는 게임 투자 비전을 강조하며 라이브 서비스-글로벌 RPG 중심의 장기 투자 기조가 다시 확인되고 있어요."
+        "desc": "라이온하트 스튜디오가 내년도 채용 연계형 인턴 모집을 시작했다고 밝히면서 대형 RPG 스튜디오의 인력 확충이 이어지고 있어요. 텐센트도 5년을 내다보는 게임 투자 비전을 강조하며 라이브 서비스-글로벌 RPG 중심의 장기 투자 기조가 다시 확인되고 있어요.",
+        "thumbnail": "https://nimage.g-enews.com/phpwas/restmb_allidxmake.php?idx=5&simg=2025101310443300001c5fa75ef8617521127178.jpg"
       }
     ],
     "metrics": [
       {
         "tag": "매출",
         "title": "양대 마켓, 메이플 키우기-리니지M 구도",
-        "desc": "iOS-Android 매출 1위는 모두 메이플 키우기가 차지했고, 2위는 리니지M이 유지하고 있어요. WOS: 화이트아웃 서바이벌과 라스트 워, 라스트 Z 같은 생존-전략 타이틀도 상위권에 새로 진입하며 장르 저변을 넓히고 있어요."
+        "desc": "iOS-Android 매출 1위는 모두 메이플 키우기가 차지했고, 2위는 리니지M이 유지하고 있어요. WOS: 화이트아웃 서바이벌과 라스트 워, 라스트 Z 같은 생존-전략 타이틀도 상위권에 새로 진입하며 장르 저변을 넓히고 있어요.",
+        "thumbnail": "https://play-lh.googleusercontent.com/jV9Qr5SJcdTxjSNM83_T0voYwyFWnErzyM9HsQLopigYZM4unH-_2HRTVLSmJv17OrSW"
       },
       {
         "tag": "동접",
         "title": "스팀 동접, CS2-도타2 쌍두체제 유지",
-        "desc": "Counter-Strike 2가 약 67만 명, 도타2가 약 46만 명 동시접속을 기록하며 스팀 1-2위를 지키고 있어요. ARC Raiders와 배틀필드6, Rust 등도 10만 명 안팎 동접으로 장기 서비스 경쟁에 합류하고 있어요."
+        "desc": "Counter-Strike 2가 약 67만 명, 도타2가 약 46만 명 동시접속을 기록하며 스팀 1-2위를 지키고 있어요. ARC Raiders와 배틀필드6, Rust 등도 10만 명 안팎 동접으로 장기 서비스 경쟁에 합류하고 있어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg"
       }
     ],
     "rankings": [

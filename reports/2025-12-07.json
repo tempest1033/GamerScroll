@@ -4136,7 +4136,8 @@
       {
         "tag": "모바일",
         "title": "메이플-리니지M, 양대 마켓 매출 독주",
-        "desc": "iOS와 Android 모두 메이플 키우기와 리니지M이 매출 1-2위를 유지하고, 화이트아웃 서바이벌-라스트 워-뱀피르까지 상위권을 지키고 있어요. 신규 진입작보다 장기간 서비스 중인 RPG-전략 중심 구조가 뚜렷해요."
+        "desc": "iOS와 Android 모두 메이플 키우기와 리니지M이 매출 1-2위를 유지하고, 화이트아웃 서바이벌-라스트 워-뱀피르까지 상위권을 지키고 있어요. 신규 진입작보다 장기간 서비스 중인 RPG-전략 중심 구조가 뚜렷해요.",
+        "thumbnail": "https://play-lh.googleusercontent.com/jV9Qr5SJcdTxjSNM83_T0voYwyFWnErzyM9HsQLopigYZM4unH-_2HRTVLSmJv17OrSW"
       },
       {
         "tag": "모바일",
@@ -4146,19 +4147,20 @@
       {
         "tag": "PC",
         "title": "아크 레이더스, 스팀 동접 40만 명대 돌파",
-        "desc": "인벤 보도에 따르면 아크 레이더스는 출시 직후 스팀 동시접속자 26만 명을 기록한 데 이어 46만 2천 명까지 경신하며 북미-유럽에서 돌풍을 일으켰어요. 오늘 기준 국내 집계에서도 약 30만 명대 동접으로 CS2-도타2 뒤를 잇고 있어요."
+        "desc": "인벤 보도에 따르면 아크 레이더스는 출시 직후 스팀 동시접속자 26만 명을 기록한 데 이어 46만 2천 명까지 경신하며 북미-유럽에서 돌풍을 일으켰어요. 오늘 기준 국내 집계에서도 약 30만 명대 동접으로 CS2-도타2 뒤를 잇고 있어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/1808500/header.jpg"
       },
       {
         "tag": "콘솔",
         "title": "옥토패스 트래블러 0 체험판, 기대감 확대",
         "desc": "네이버 블로그와 루리웹 후기에선 옥토패스 트래블러 0 체험판을 '올해 연말 최고 기대작'이라 부르며 HD-2D 그래픽과 음악을 특히 아름답다고 평가하고 있어요. PS5 체험판을 중심으로 첫인상이 좋다는 글이 올라오고 있어요.",
-        "thumbnail": "https://img.ruliweb.com/data/news/tn/25/12/04/19ae7c4433e_vyujik.avif"
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/921570/header.jpg"
       },
       {
         "tag": "e스포츠",
         "title": "배그 모바일 2025 PMGC, 라스트 찬스 진행",
         "desc": "엑스포츠뉴스-국민일보에 따르면 크래프톤은 배틀그라운드 모바일 최상위 국제 대회 '2025 PMGC'를 진행 중이에요. 라스트 찬스와 그룹 스테이지에서 AE-APG-DRX 등이 상위권을 기록하며 밤 시간대 모바일 e스포츠 시청을 이끌고 있어요.",
-        "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/768/911/resize_gm819725_ps_sn.jpg"
+        "thumbnail": "https://play-lh.googleusercontent.com/zCSGnBtZk0Lmp1BAbyaZfLktDzHmC6oke67qzz3G1lBegAF2asyt5KzXOJ2PVdHDYkU"
       }
     ],
     "industryIssues": [
@@ -4166,24 +4168,27 @@
         "tag": "넥슨",
         "title": "넥슨-아이언메이스 '다크앤다커 분쟁' 항소심 결론",
         "desc": "서울고법 항소심에서 넥슨이 다크앤다커 관련 영업비밀 침해 소송에서 승소해, 아이언메이스가 57억 원을 배상하라는 판결이 나왔어요. 소스코드-빌드파일까지 영업비밀로 인정되면서 개발 윤리와 지식재산 보호 기준을 다시 짚는 사례로 평가되고 있어요.",
-        "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/768/896/resize_gm704060_gm752525_13131.jpg"
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/2016590/header.jpg"
       },
       {
         "tag": "정책",
         "title": "웹보드 결제한도 100만 원 상향 입법예고",
-        "desc": "문화체육관광부가 웹보드 게임 월 결제 한도를 70만 원에서 100만 원으로 올리는 게임산업진흥법 시행령 개정안을 입법예고했어요. 고스톱-포커-온라인 바둑 사업자들은 3년 만의 추가 규제 완화로 매출 회복과 이용 제한 완화 효과를 기대하고 있어요."
+        "desc": "문화체육관광부가 웹보드 게임 월 결제 한도를 70만 원에서 100만 원으로 올리는 게임산업진흥법 시행령 개정안을 입법예고했어요. 고스톱-포커-온라인 바둑 사업자들은 3년 만의 추가 규제 완화로 매출 회복과 이용 제한 완화 효과를 기대하고 있어요.",
+        "thumbnail": "https://img.etnews.com/news/article/2025/06/19/news-p.v1.20250619.8925f1fa65b7427c92b41b7a3d16a8e1_P1.jpg"
       }
     ],
     "metrics": [
       {
         "tag": "동접",
         "title": "아크 레이더스, 스팀 동접 46만 명 경신",
-        "desc": "국내외 기사에 따르면 아크 레이더스는 출시 이후 스팀 최고 동시접속자 26만 명을 기록한 뒤 46만 2천 명까지 자체 기록을 다시 경신했어요. 오늘 동시접속 30만 명 안팎을 유지하면서 스팀 상위권 트래픽을 담당하고 있어요."
+        "desc": "국내외 기사에 따르면 아크 레이더스는 출시 이후 스팀 최고 동시접속자 26만 명을 기록한 뒤 46만 2천 명까지 자체 기록을 다시 경신했어요. 오늘 동시접속 30만 명 안팎을 유지하면서 스팀 상위권 트래픽을 담당하고 있어요.",
+        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/1808500/header.jpg"
       },
       {
         "tag": "인기",
         "title": "컴투스프로야구2025, 10년간 1700만 다운로드",
-        "desc": "컴투스와 인벤 자료에서 컴투스프로야구2025는 2015년 3D 버전 출시 이후 누적 다운로드 1700만 건, 생성 구단 3100만 개, 선수 카드 84억 장을 기록한 것으로 집계됐어요. 레전드 카드에선 선동렬-최동원-정민태 순으로 영입 비율이 높게 나타났어요."
+        "desc": "컴투스와 인벤 자료에서 컴투스프로야구2025는 2015년 3D 버전 출시 이후 누적 다운로드 1700만 건, 생성 구단 3100만 개, 선수 카드 84억 장을 기록한 것으로 집계됐어요. 레전드 카드에선 선동렬-최동원-정민태 순으로 영입 비율이 높게 나타났어요.",
+        "thumbnail": "https://play-lh.googleusercontent.com/XPBW_sQGwtF3bADbMBWHjw1lNJgmeqCK4-UaTVl71J9ePWTjekdgNxqeF6EIbrO27NFY"
       }
     ],
     "rankings": [

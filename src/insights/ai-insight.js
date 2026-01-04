@@ -15,128 +15,6 @@ const MODEL = 'claude';
 const HISTORY_DIR = './history';
 
 /**
- * 헤드라인에서 키워드를 추출하고 뉴스에서 매칭되는 썸네일 찾기
- * @param {string} headline - AI가 생성한 헤드라인
- * @param {Object} crawlData - 크롤링 데이터 (당일 뉴스)
- * @returns {string|null} 매칭된 썸네일 URL
- */
-function findMatchingThumbnail(headline, crawlData) {
-  // 1. 헤드라인에서 키워드 추출 (게임명, 회사명, 숫자 제외한 핵심 단어)
-  const keywords = extractKeywords(headline);
-
-  // 2. 당일 뉴스 데이터 수집
-  const allNews = [
-    ...(crawlData?.news?.inven || []),
-    ...(crawlData?.news?.ruliweb || []),
-    ...(crawlData?.news?.gamemeca || []),
-    ...(crawlData?.news?.thisisgame || [])
-  ].filter(n => n.thumbnail && n.title);
-
-  // 3. 히스토리 파일에서 추가 뉴스 수집 (최근 3일)
-  const historyNews = loadRecentHistoryNews(3);
-  const combinedNews = [...allNews, ...historyNews];
-
-  if (combinedNews.length === 0) return null;
-
-  // 4. 정확 매칭: 키워드가 뉴스 제목에 포함된 경우
-  for (const keyword of keywords) {
-    const match = combinedNews.find(n =>
-      n.title.includes(keyword) && n.thumbnail
-    );
-    if (match) {
-      console.log(`  - 썸네일 매칭: "${keyword}" → ${match.title.substring(0, 30)}...`);
-      return match.thumbnail;
-    }
-  }
-
-  // 5. 유사 매칭: 키워드 일부가 포함된 경우 (점수 기반)
-  let bestMatch = null;
-  let bestScore = 0;
-
-  for (const news of combinedNews) {
-    let score = 0;
-    for (const keyword of keywords) {
-      if (news.title.includes(keyword)) score += 2;
-      else if (keyword.length >= 2 && news.title.includes(keyword.substring(0, 2))) score += 1;
-    }
-    if (score > bestScore) {
-      bestScore = score;
-      bestMatch = news;
-    }
-  }
-
-  if (bestMatch && bestScore > 0) {
-    console.log(`  - 썸네일 유사 매칭 (점수:${bestScore}): ${bestMatch.title.substring(0, 30)}...`);
-    return bestMatch.thumbnail;
-  }
-
-  // 6. 폴백: 당일 뉴스 첫 번째 썸네일
-  if (allNews.length > 0) {
-    console.log(`  - 썸네일 폴백: ${allNews[0].title.substring(0, 30)}...`);
-    return allNews[0].thumbnail;
-  }
-
-  return null;
-}
-
-/**
- * 헤드라인에서 검색용 키워드 추출
- */
-function extractKeywords(headline) {
-  // 불용어 제거
-  const stopWords = ['의', '가', '이', '은', '는', '을', '를', '에', '와', '과', '로', '으로', '에서', '까지', '부터', '처럼', '만', '도', '등', '및', '그', '저', '이런', '저런', '급', '위', '계단', '단계', '일', '월', '년', '오늘', '어제', '내일', '최근', '현재', '기록', '돌파', '달성', '발표', '공개', '출시', '업데이트'];
-
-  // 특수문자 제거 및 단어 분리
-  const words = headline
-    .replace(/[,.'":;!?()[\]{}~`@#$%^&*+=|\\/<>]/g, ' ')
-    .split(/\s+/)
-    .filter(w => w.length >= 2)
-    .filter(w => !stopWords.includes(w))
-    .filter(w => !/^\d+$/.test(w)); // 순수 숫자 제외
-
-  // 중복 제거 및 길이순 정렬 (긴 키워드 우선)
-  const unique = [...new Set(words)].sort((a, b) => b.length - a.length);
-
-  return unique.slice(0, 10); // 상위 10개 키워드
-}
-
-/**
- * 최근 N일간 히스토리에서 뉴스 로드
- */
-function loadRecentHistoryNews(days) {
-  const news = [];
-
-  try {
-    if (!fs.existsSync(HISTORY_DIR)) return news;
-
-    const files = fs.readdirSync(HISTORY_DIR)
-      .filter(f => f.endsWith('.json'))
-      .sort()
-      .reverse()
-      .slice(0, days);
-
-    for (const file of files) {
-      try {
-        const data = JSON.parse(fs.readFileSync(path.join(HISTORY_DIR, file), 'utf8'));
-        const fileNews = [
-          ...(data?.news?.inven || []),
-          ...(data?.news?.ruliweb || []),
-          ...(data?.news?.gamemeca || []),
-          ...(data?.news?.thisisgame || [])
-        ].filter(n => n.thumbnail && n.title);
-        news.push(...fileNews);
-      } catch (e) {
-        // 개별 파일 오류 무시
-      }
-    }
-  } catch (e) {
-    // 디렉토리 오류 무시
-  }
-
-  return news;
-}
-
-/**
  * Claude CLI를 호출하여 AI 인사이트 생성
  * @param {Object} crawlData - 크롤링 데이터
  * @param {Object} rankingChanges - 순위 변동 데이터 (optional)
@@ -239,6 +117,7 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
   "date": "${today}",
   "summary": "오늘의 게임 업계 핵심 요약 (300자 이내)",
   "headline": "뉴스/블로그 제목처럼 임팩트 있게. 핵심 이슈 1개만 선정. 예: '메이플 키우기, 양대 마켓 1위 등극' (50자 이내)",
+  "thumbnail": "headline과 가장 관련된 뉴스 썸네일 URL (아래 뉴스 목록에서 선택)",
   "issues": [
     { "tag": "모바일|PC|콘솔|e스포츠", "title": "제목 40자", "desc": "설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
   ],
@@ -264,11 +143,18 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 - title: 40자 이내
 - desc: 200자 이내
 
-## 썸네일 선택 규칙 (필수):
-- issues, industryIssues, metrics의 각 항목에 thumbnail 필드 필수
-- 위 '최신 뉴스 (썸네일 URL 포함)' 목록에서 해당 이슈와 가장 관련된 뉴스의 썸네일 URL 선택
-- 제목 키워드가 매칭되는 뉴스의 썸네일 우선 선택
-- 적절한 썸네일이 없으면 null 입력
+## 썸네일 선택 규칙 (필수 - 우선순위대로 진행):
+1. 뉴스 DB에서 "확실히 일치"하는 기사 썸네일 사용
+   - 이슈 제목의 핵심 키워드가 뉴스 제목에 "모두" 포함된 경우만
+   - 예: "명일방주 엔드필드 출시" → "명일방주" AND "엔드필드" 둘 다 있어야 함
+   - 애매하면 스킵 → 다음 단계로
+2. 웹 검색으로 "확실히 일치"하는 뉴스/관련 이미지 찾기
+   - 이슈와 정확히 매칭되는 뉴스 기사 이미지
+   - 애매하면 스킵 → 다음 단계로
+3. 게임 관련 이슈면 → 해당 게임 공식 아이콘 (앱스토어/구글플레이 아이콘)
+4. 웹 검색으로 공식 이미지 찾기 (Steam 헤더, 공식 사이트 등)
+5. 위 모두 실패 → 기본 폴백 이미지 또는 null
+※ 절대 금지: 키워드 불일치 이미지 사용 (애매하면 차라리 공식 아이콘 사용)
 
 ## 중복 방지 (필수):
 - summary(데일리 포커스)는 최근 리포트와 중복된 주제/표현 피할 것
