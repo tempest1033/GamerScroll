@@ -7,9 +7,9 @@ const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 function generateNewsPage(data) {
   const { news } = data;
 
-  // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
-  const topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only ad-slot-section" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>' : '';
-  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>' : '';
+  // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식) - 인라인 push 제거, 공통 스크립트에서 초기화
+  const topAdMobile = SHOW_ADS ? '<ins class="adsbygoogle mobile-only ad-slot-section" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '" data-ad-format="horizontal"></ins>' : '';
+  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" style="display:block;width:100%;max-height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
   // 뉴스 소스 정보
   const newsSources = [

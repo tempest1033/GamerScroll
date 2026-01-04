@@ -517,6 +517,228 @@ const mobileScrollHideScript = `
 })();
 </script>`;
 
+// 광고 초기화 스크립트 (보이는 슬롯만 init - matchMedia + IntersectionObserver)
+const adInitScript = SHOW_ADS ? `
+<script>
+(function() {
+  function canInit(el) {
+    if (!el || !el.isConnected) return false;
+    var slot = el.closest('.ad-slot') || el;
+    if (slot.classList.contains('mobile-only')) {
+      return window.matchMedia('(max-width: 768px)').matches;
+    }
+    if (slot.classList.contains('pc-only')) {
+      return window.matchMedia('(min-width: 769px)').matches;
+    }
+    if (el.classList.contains('mobile-only')) {
+      return window.matchMedia('(max-width: 768px)').matches;
+    }
+    if (el.classList.contains('pc-only')) {
+      return window.matchMedia('(min-width: 769px)').matches;
+    }
+    var style = window.getComputedStyle(el);
+    if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+    return true;
+  }
+
+  function hasRenderedAd(el) {
+    try { return !!(el && el.querySelector && el.querySelector('iframe')); }
+    catch (e) { return false; }
+  }
+
+  function isNearViewport(el, marginPx) {
+    try {
+      var rect = el.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      var margin = typeof marginPx === 'number' ? marginPx : 0;
+      return rect.bottom >= -margin && rect.top <= (vh + margin);
+    } catch (e) { return false; }
+  }
+
+  var lastResizeKickAt = 0;
+  function kickResizeSoon() {
+    var now = Date.now();
+    if (now - lastResizeKickAt < 1000) return;
+    lastResizeKickAt = now;
+    setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 50);
+  }
+
+  function markSeen(el) {
+    if (!el || el.dataset.gcAdsSeenAt) return;
+    if (!isNearViewport(el, 200)) return;
+    el.dataset.gcAdsSeenAt = String(Date.now());
+    kickResizeSoon();
+  }
+
+  function syncOneAdSlot(el) {
+    var slot = el.closest('.ad-slot');
+    if (!slot) return;
+    var status = el.getAttribute('data-ad-status');
+    if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
+    else if (status === 'filled' || hasRenderedAd(el)) {
+      slot.classList.remove('ad-slot--unfilled');
+    }
+  }
+
+  function syncAdSlotVisibility() {
+    document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+      markSeen(el);
+      syncOneAdSlot(el);
+    });
+  }
+
+  function collapseEmptySeenSlots() {
+    var now = Date.now();
+    var delayMs = 6000;
+    try {
+      if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) delayMs = 3500;
+    } catch (e) {}
+
+    document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+      markSeen(el);
+      var slot = el.closest('.ad-slot');
+      if (!slot) return;
+      if (slot.classList.contains('ad-slot--unfilled')) return;
+
+      var status = el.getAttribute('data-ad-status');
+      if (status === 'filled' || hasRenderedAd(el)) return;
+
+      var seenAt = Number(el.dataset.gcAdsSeenAt || 0);
+      if (!seenAt) return;
+      if (now - seenAt < delayMs) return;
+
+      if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
+    });
+  }
+
+  function runVisibilityPass() {
+    syncAdSlotVisibility();
+    collapseEmptySeenSlots();
+  }
+
+  function ensureAdStatusObserver() {
+    if (window.__gcAdsStatusObserverInstalled) return;
+    window.__gcAdsStatusObserverInstalled = true;
+    try {
+      var obs = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+          if (m.type !== 'attributes') return;
+          if (m.attributeName !== 'data-ad-status') return;
+          var el = m.target;
+          if (!el || !el.closest) return;
+          syncOneAdSlot(el);
+        });
+      });
+      document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+        obs.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
+      });
+    } catch (e) {}
+  }
+
+  var visibilityTimers = [];
+  function scheduleVisibilityCheck() {
+    visibilityTimers.forEach(clearTimeout);
+    visibilityTimers = [];
+    [500, 1500, 3000, 6000].forEach(function(delay) {
+      visibilityTimers.push(setTimeout(runVisibilityPass, delay));
+    });
+  }
+
+  function kickResizeOnce() {
+    if (window.__gcAdsKickResizeOnce) return;
+    window.__gcAdsKickResizeOnce = true;
+    setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 800);
+  }
+
+  function initAds() {
+    document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
+      if (el.dataset.gcAdsInit === '1') return;
+      if (!canInit(el)) return;
+      el.dataset.gcAdsInit = '1';
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        delete el.dataset.gcAdsInit;
+      }
+    });
+  }
+
+  var initRetryTimers = [];
+  function scheduleInitRetries() {
+    if (window.__gcAdsInitRetriesScheduled) return;
+    window.__gcAdsInitRetriesScheduled = true;
+    initRetryTimers.forEach(clearTimeout);
+    initRetryTimers = [];
+    [100, 300, 500, 1000, 2000].forEach(function(delay) {
+      initRetryTimers.push(setTimeout(initAds, delay));
+    });
+  }
+
+  function setupAdIntersectionObserver() {
+    if (window.__gcAdIntersectionObserver) return;
+    if (!('IntersectionObserver' in window)) return;
+    window.__gcAdIntersectionObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target.classList.contains('adsbygoogle')
+            ? entry.target
+            : entry.target.querySelector('ins.adsbygoogle');
+          if (el && el.dataset.gcAdsInit !== '1' && el.isConnected && canInit(el)) {
+            el.dataset.gcAdsInit = '1';
+            try {
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+              delete el.dataset.gcAdsInit;
+            }
+          }
+        }
+      });
+    }, { rootMargin: '200px 0px', threshold: 0 });
+    document.querySelectorAll('.ad-slot').forEach(function(slot) {
+      window.__gcAdIntersectionObserver.observe(slot);
+    });
+    document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
+      if (!ins.closest('.ad-slot')) {
+        window.__gcAdIntersectionObserver.observe(ins);
+      }
+    });
+  }
+
+  function runInit() {
+    ensureAdStatusObserver();
+    initAds();
+    runVisibilityPass();
+    scheduleVisibilityCheck();
+    scheduleInitRetries();
+    setupAdIntersectionObserver();
+    kickResizeOnce();
+  }
+
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    requestAnimationFrame(runInit);
+  } else {
+    document.addEventListener('DOMContentLoaded', runInit);
+  }
+
+  window.addEventListener('load', runInit);
+
+  var resizeTimer = null;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() { runInit(); }, 200);
+  }, { passive: true });
+
+  var scrollTimer = null;
+  window.addEventListener('scroll', function() {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+      initAds();
+      runVisibilityPass();
+    }, 200);
+  }, { passive: true });
+})();
+</script>` : '';
+
 function wrapWithLayout(content, options = {}) {
   const {
     currentPage = 'home',
@@ -549,6 +771,7 @@ function wrapWithLayout(content, options = {}) {
 	  ${hoverPrefetchScript}
   ${swipeScript}
   ${mobileScrollHideScript}
+  ${adInitScript}
 </body>
 </html>`;
 }
@@ -564,13 +787,11 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   if (!SHOW_ADS) return '';
   const mobileSlot = slotIdMobile || slotIdPc;
   // 모바일 광고를 먼저 배치 (홈페이지와 동일한 구조로 CLS 방지)
-  // inline push로 즉시 초기화 (SDK 큐에 쌓임)
+  // 인라인 push 제거 - 공통 adInitScript에서 보이는 슬롯만 초기화
   // 모바일: wrapper 없이 ins 태그만 사용
   return `<ins class="adsbygoogle mobile-only ad-slot-section ${extraClass}" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}" data-ad-format="horizontal"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
     <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>`;
 }
 

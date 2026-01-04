@@ -2263,15 +2263,9 @@
       display: block;
     }
 
-    /* wrapper 없는 ins 광고 기본값 */
+    /* wrapper 없는 ins 광고 기본값 - AdSense 자체 스타일링 존중 */
     ins.adsbygoogle {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-    }
-    ins.adsbygoogle[style*="display:inline-block"] {
-      display: inline-flex !important;
     }
 
     /* AdSense 내부 렌더링 요소 중앙 정렬 보정 */
@@ -2523,6 +2517,7 @@
       /* 모바일 광고 기본 표시 (ins는 block, slot은 flex 유지) */
       ins.adsbygoogle.mobile-only {
         display: block !important;
+        margin: 8px 0;
       }
 
       /* 모바일 직사각형 광고 - 반응형 + 중앙 정렬 */
