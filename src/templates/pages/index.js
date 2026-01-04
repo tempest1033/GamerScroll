@@ -3,7 +3,7 @@
  * 각 섹션의 요약 카드를 표시
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS, NATIVE_LAYOUT_KEYS } = require('../layout');
+const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 
 function generateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], games = {} } = data;
@@ -606,17 +606,15 @@ function generateIndexPage(data) {
 		    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 		  }
 
-	  // 모바일용 네이티브 인피드 광고
-	  function adSlotMobileNative(id, extraClass, nativeKey) {
+	  // 모바일용 사각형 광고
+	  function adSlotMobile(id, extraClass, slotId) {
 	    if (!SHOW_ADS) return '';
-	    var slotId = AD_SLOTS[nativeKey] || AD_SLOTS.native1;
-	    var layoutKey = NATIVE_LAYOUT_KEYS[nativeKey] || NATIVE_LAYOUT_KEYS.native1;
-	    return '<div class="ad-slot ad-slot-section mobile-only ad-slot--native ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-format="fluid" data-ad-layout-key="' + layoutKey + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	    return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
 	  }
 
 	  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등) - 인라인 push 제거, 공통 스크립트에서 초기화
 	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
-	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--native mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-format="fluid" data-ad-layout-key="' + NATIVE_LAYOUT_KEYS.nativeSmall1 + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.nativeSmall1 + '"></ins></div>' : '';
+	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
@@ -626,7 +624,7 @@ function generateIndexPage(data) {
 	    topAdPc +
 	    popularBannerHtml +
 	    insightCardHtml +
-	    adSlotMobileNative('ad-above-news-mobile', 'ad-slot--no-reserve', 'native1') +
+	    adSlotMobile('ad-above-news-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle2) +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
@@ -652,7 +650,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '</div>' +
 	    '<div class="home-sidebar">' +
-	    adSlotMobileNative('ad-above-mobile', 'ad-slot--no-reserve', 'native2') +
+	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle3) +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="visually-hidden">모바일 게임 순위</h2>' +
@@ -668,7 +666,7 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.vertical) +
-	    adSlotMobileNative('ad-above-steam-mobile', 'ad-slot--no-reserve', 'native3') +
+	    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.rectangle4) +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">스팀 순위</h2>' +
