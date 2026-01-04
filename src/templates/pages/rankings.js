@@ -40,10 +40,10 @@ function generateRankingsPage(data) {
       const items = chartData[c.code]?.ios || [];
       const rows = items.length > 0 ? items.map((app, i) => {
         const slug = findGameSlug(app.appId, 'ios');
-        const nameHtml = slug
-          ? `<a class="app-name app-name-link" href="/games/${slug}/">${app.title}</a>`
-          : `<div class="app-name">${app.title}</div>`;
-        return `<div class="rank-row"><img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info">${nameHtml}<div class="app-dev">${app.developer}</div></div></div>`;
+        const rowContent = `<img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info"><div class="app-name">${app.title}</div><div class="app-dev">${app.developer}</div></div>`;
+        return slug
+          ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
+          : `<div class="rank-row">${rowContent}</div>`;
       }).join('') : '<div class="no-data">데이터 없음</div>';
       return `<div class="country-column"><div class="column-header"><span class="flag">${c.flag}</span><span class="country-name">${c.name}</span></div><div class="rank-list">${rows}</div></div>`;
     }).join('');
@@ -61,10 +61,10 @@ function generateRankingsPage(data) {
       } else if (items.length > 0) {
         rows = items.map((app, i) => {
           const slug = findGameSlug(app.appId, 'android');
-          const nameHtml = slug
-            ? `<a class="app-name app-name-link" href="/games/${slug}/">${app.title}</a>`
-            : `<div class="app-name">${app.title}</div>`;
-          return `<div class="rank-row"><img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info">${nameHtml}<div class="app-dev">${app.developer}</div></div></div>`;
+          const rowContent = `<img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'"><div class="app-info"><div class="app-name">${app.title}</div><div class="app-dev">${app.developer}</div></div>`;
+          return slug
+            ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
+            : `<div class="rank-row">${rowContent}</div>`;
         }).join('');
       } else {
         rows = '<div class="no-data">데이터 없음</div>';
