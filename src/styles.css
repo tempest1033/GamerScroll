@@ -2257,13 +2257,8 @@
       border-radius: 0;
     }
 
-    /* unfilled 광고 자동 접기 */
-    .ad-slot--unfilled {
-      display: none !important;
-      height: 0 !important;
-      min-height: 0 !important;
-      overflow: hidden !important;
-    }
+    /* unfilled 광고 - 빈 영역 유지 (자동 접기 비활성화) */
+    /* .ad-slot--unfilled { display: none; } */
 
     /* 광고 ins 요소 공통 */
     .ad-slot > ins.adsbygoogle {
