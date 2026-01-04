@@ -597,10 +597,10 @@ function generateIndexPage(data) {
 	    if (format === 'rectangle-auto') {
 	      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
 	    }
-	    // vertical 포맷 - auto로 최적 광고 자동 선택
+	    // vertical 포맷 - 300x600 고정 크기
 	    if (format === 'vertical') {
 	      var pcClass = (extraClass || '').indexOf('pc-only') >= 0 ? ' pc-only' : '';
-	      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle' + pcClass + '" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section ad-slot--vertical ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle' + pcClass + '" data-gc-ad="1" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="vertical"></ins></div>';
 	    }
 		    var size = getAdSize(format, false);
 		    return '<div class="ad-slot ad-slot-section ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
