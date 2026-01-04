@@ -611,12 +611,12 @@ function generateIndexPage(data) {
 	    if (!SHOW_ADS) return '';
 	    var slotId = AD_SLOTS[nativeKey] || AD_SLOTS.native1;
 	    var layoutKey = NATIVE_LAYOUT_KEYS[nativeKey] || NATIVE_LAYOUT_KEYS.native1;
-	    return '<div class="ad-slot ad-slot-section mobile-only ad-slot--native ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block" data-ad-format="fluid" data-ad-layout-key="' + layoutKey + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
+	    return '<div class="ad-slot ad-slot-section mobile-only ad-slot--native ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-format="fluid" data-ad-layout-key="' + layoutKey + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	  }
 
 	  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등) - 인라인 push 제거, 공통 스크립트에서 초기화
 	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
-	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--native mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" data-gc-ad="1" style="display:block" data-ad-format="fluid" data-ad-layout-key="' + NATIVE_LAYOUT_KEYS.nativeSmall1 + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.nativeSmall1 + '"></ins></div>' : '';
+	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--native mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-format="fluid" data-ad-layout-key="' + NATIVE_LAYOUT_KEYS.nativeSmall1 + '" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.nativeSmall1 + '"></ins></div>' : '';
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
