@@ -586,9 +586,9 @@ function generateIndexPage(data) {
 	    if (format === 'horizontal') {
 	      return '<div class="ad-slot ad-slot-section ad-slot--horizontal ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins>' + pushScript + '</div>';
 	    }
-    // rectangle 포맷: 300x250 - rectangle 포맷으로 최적 광고 선택
+    // rectangle 포맷: auto + 반응형으로 최적 광고 자동 선택
     if (format === 'rectangle') {
-      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle"></ins>' + pushScript + '</div>';
+      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins>' + pushScript + '</div>';
     }
     // vertical 포맷 - auto로 최적 광고 자동 선택
     if (format === 'vertical') {
@@ -647,7 +647,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
-    adSlot('ad-below-community', 'pc-only', 'horizontal', AD_SLOTS.horizontal3) +
+    adSlot('ad-below-community', 'pc-only', 'rectangle', AD_SLOTS.rectangle) +
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +
