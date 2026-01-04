@@ -12268,6 +12268,14 @@ a.gm-item:hover {
     border-radius: 0 !important;
   }
 
+  .ad-slot,
+  .ad-slot-section {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
   .news-card,
   .news-panel,
   .steam-table,
