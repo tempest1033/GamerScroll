@@ -2355,6 +2355,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 90px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -2468,6 +2469,7 @@
         display: flex !important;
         align-items: center;
         justify-content: center;
+        min-height: 100px;
         width: 100%;
         overflow: hidden;
       }
