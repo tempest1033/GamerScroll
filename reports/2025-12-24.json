@@ -4589,23 +4589,26 @@
       {
         "tag": "행사",
         "title": "'3N', AGF에서 라인업 경쟁 예고",
-        "desc": "넥슨, 넷마블, 엔씨소프트 등 국내 대형 게임사가 'AGF(애니메이션X게임 페스티벌)' 참가 계획을 알렸어요. 연말 행사장에서 서브컬처 신작 경쟁이 더 선명해질 전망이에요."
+        "desc": "넥슨, 넷마블, 엔씨소프트 등 국내 대형 게임사가 'AGF(애니메이션X게임 페스티벌)' 참가 계획을 알렸어요. 연말 행사장에서 서브컬처 신작 경쟁이 더 선명해질 전망이에요.",
+        "thumbnail": "https://www.thisisgame.com/_next/image?url=https%3A%2F%2Ffile.thisisgame.com%2Fnext-upload%2Fcmcn2gsyt0006t5012nlq9doe%2F2025%2F12%2F06%2F1639005891348644987_491fd5af-52f6-4630-a2ff-7e0a047a72cf_a-3.jpg&w=1200&q=75"
       },
       {
         "tag": "PC",
         "title": "'서든어택', 12/24 정기점검 업데이트",
-        "desc": "넥슨 '서든어택'이 12월 24일 정기점검 이후 적용되는 업데이트 내용을 공지했어요. 겨울 시즌성 콘텐츠와 아이템 사용 기간 안내가 함께 나왔어요."
+        "desc": "넥슨 '서든어택'이 12월 24일 정기점검 이후 적용되는 업데이트 내용을 공지했어요. 겨울 시즌성 콘텐츠와 아이템 사용 기간 안내가 함께 나왔어요.",
+        "thumbnail": "https://w7.pngwing.com/pngs/822/895/png-transparent-sudden-attack-south-korea-nexon-design-angle-triangle-south-korea.png"
       },
       {
         "tag": "콘솔",
         "title": "댐버스터, '데드 아일랜드3' 개발 언급",
         "desc": "댐버스터 스튜디오 관련 문서와 보도를 통해 '데드 아일랜드3'가 개발 중이며 2028년 상반기 목표 일정이 거론됐어요. 장기 개발 로드맵이 공식 문서로 확인됐다는 점이 포인트예요.",
-        "thumbnail": "https://cdn.akamai.steamstatic.com/steam/apps/268050/header.jpg"
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/23/news/thumb/s1717299576.jpg"
       },
       {
         "tag": "업계동향",
         "title": "게임 상장사 12월 브랜드평판 공개",
-        "desc": "12월 '게임 상장기업' 브랜드평판 빅데이터 순위가 공개됐어요. 크래프톤, 넷마블, 엔씨소프트 등이 상위권으로 언급되며 연말 기업 관심도 흐름이 드러났어요."
+        "desc": "12월 '게임 상장기업' 브랜드평판 빅데이터 순위가 공개됐어요. 크래프톤, 넷마블, 엔씨소프트 등이 상위권으로 언급되며 연말 기업 관심도 흐름이 드러났어요.",
+        "thumbnail": "https://companieslogo.com/img/orig/259960.KS-d2de7eab.png?t=1720244490"
       }
     ],
     "industryIssues": [
@@ -4712,7 +4715,7 @@
         "comment": "12월 브랜드평판 상위권 유지"
       }
     ],
-    "thumbnail": "https://static.inven.co.kr/column/2025/12/23/news/thumb/s1603956904.jpg"
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/T1_esports_logo.svg/330px-T1_esports_logo.svg.png"
   },
   "aiGeneratedAt": "2025-12-23T21:22:27.306Z",
   "stockMap": {

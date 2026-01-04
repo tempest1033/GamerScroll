@@ -4622,12 +4622,14 @@
       {
         "tag": "매출",
         "title": "iOS 매출 상위권, 방치와 전략 장르 혼합",
-        "desc": "iOS 매출 TOP5에서 '메이플 키우기'(1위)와 '전략적 팀 전투'(2위), '운빨존많겜'(3위)이 상위권을 형성했어요. 짧은 세션형 성장과 전략 소비가 두드러집니다."
+        "desc": "iOS 매출 TOP5에서 '메이플 키우기'(1위)와 '전략적 팀 전투'(2위), '운빨존많겜'(3위)이 상위권을 형성했어요. 짧은 세션형 성장과 전략 소비가 두드러집니다.",
+        "thumbnail": "https://play-lh.googleusercontent.com/jV9Qr5SJcdTxjSNM83_T0voYwyFWnErzyM9HsQLopigYZM4unH-_2HRTVLSmJv17OrSW"
       },
       {
         "tag": "동접",
         "title": "PC 동접, 장르 분산이 뚜렷",
-        "desc": "PC 동시접속 TOP5는 FPS(CS2), MOBA(Dota 2), ARPG(Path of Exile 2)처럼 장르가 분산됐어요. 대형 라이브서비스가 연말에도 이용 시간을 견인하는 구조입니다."
+        "desc": "PC 동시접속 TOP5는 FPS(CS2), MOBA(Dota 2), ARPG(Path of Exile 2)처럼 장르가 분산됐어요. 대형 라이브서비스가 연말에도 이용 시간을 견인하는 구조입니다.",
+        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
       }
     ],
     "rankings": [
@@ -4712,7 +4714,7 @@
         "comment": "서머너즈 워 신규 5성 업데이트"
       }
     ],
-    "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1699517818.jpg"
+    "thumbnail": "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/tcg-pocket/launch/tcg-pocket-169-en.png"
   },
   "aiGeneratedAt": "2025-12-17T21:26:54.109Z",
   "stockMap": {

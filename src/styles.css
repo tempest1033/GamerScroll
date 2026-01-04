@@ -193,10 +193,10 @@
       --text-tertiary: #6b6b6b; /* 보조 텍스트 */
 
       /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
-      --font-title-size: 18px;
+      --font-title-size: 19px;
       --font-title-weight: 700;
-      --font-body-size: 16px;
-      --font-desc-size: 15px;
+      --font-body-size: 17px;
+      --font-desc-size: 16px;
       --font-body-weight: 700;
       --font-desc-weight: 500;
       --font-body-line-height: 1.7;
@@ -207,7 +207,7 @@
       --font-badge-size: 12px;
       --font-badge-weight: 800;
       --font-small-size: 12px;
-      --font-nav-size: 15px;
+      --font-nav-size: 16px;
       --font-nav-weight: 700;
 
       /* === Typography - 순위 테이블 (스팀, 모바일 등) === */
@@ -249,11 +249,11 @@
     /* 소형 태블릿/대형 폰 (576px 이하) - 1단계 축소 (-1) */
     @media (max-width: 576px) {
       :root {
-        --font-title-size: 17px;
-        --font-body-size: 15px;
-        --font-desc-size: 14px;
+        --font-title-size: 18px;
+        --font-body-size: 16px;
+        --font-desc-size: 15px;
         --font-tab-size: 14px;
-        --font-nav-size: 15px;
+        --font-nav-size: 16px;
         --font-section-size: 15px;
         --font-heading-size: 17px;
         --font-lg-size: 19px;
@@ -268,11 +268,11 @@
     /* 초소형 모바일 (360px 이하) - 2단계 축소 (-1 추가) */
     @media (max-width: 360px) {
       :root {
-        --font-title-size: 16px;
-        --font-body-size: 14px;
-        --font-desc-size: 13px;
+        --font-title-size: 17px;
+        --font-body-size: 15px;
+        --font-desc-size: 14px;
         --font-tab-size: 13px;
-        --font-nav-size: 14px;
+        --font-nav-size: 15px;
         --font-section-size: 14px;
         --font-heading-size: 16px;
         --font-lg-size: 18px;
@@ -2023,6 +2023,8 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.03);
       transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
       position: relative;
+      text-decoration: none;
+      color: inherit;
     }
 
     .home-rank-row:last-child {
@@ -2031,6 +2033,7 @@
 
     .home-rank-row:hover {
       background: var(--hover-bg);
+      color: inherit;
     }
 
     /* 1-3위 특별 강조 - 주요 지표 탭과 통일된 그라디언트 */
@@ -2117,11 +2120,13 @@
       gap: 12px;
       padding: 8px 16px;
       text-decoration: none;
+      color: inherit;
       transition: background var(--transition-fast);
     }
 
     .home-steam-row:hover {
       background: var(--hover-bg);
+      color: inherit;
     }
 
     .home-steam-icon {
@@ -2269,11 +2274,17 @@
 
     /* wrapper 없는 ins 광고 기본값 */
     ins.adsbygoogle {
-      display: block;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+    }
+    ins.adsbygoogle[style*="display:inline-block"] {
+      display: inline-flex !important;
     }
 
     /* AdSense 내부 렌더링 요소 중앙 정렬 보정 */
+    ins.adsbygoogle > ins,
     ins.adsbygoogle > div,
     ins.adsbygoogle iframe {
       margin: 0 auto !important;
@@ -2363,8 +2374,9 @@
 
     /* 가로형 광고 내부 - 모든 페이지에서 display:block 적용 (AdSense 반응형 안정화) */
     .ad-slot--horizontal > ins.adsbygoogle {
-      display: block !important;
-      vertical-align: middle;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
     }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
@@ -5863,7 +5875,7 @@
 }
 
 .weekly-header-title {
-  font-size: 1.2rem;
+  font-size: var(--font-title-size);
   font-weight: 800;
   color: var(--text);
   margin: 0 0 8px 0;
@@ -6808,9 +6820,22 @@
 }
 
 @media (max-width: 768px) {
+  .industry-grid .industry-card,
+  .industry-card {
+    flex-direction: column;
+    padding: 0;
+  }
+  .industry-grid .industry-thumb,
   .industry-thumb {
-    width: 80px;
-    height: 56px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+    border-radius: 14px 14px 0 0;
+    min-height: auto;
+  }
+  .industry-content {
+    padding: 14px 16px 16px;
   }
 }
 
@@ -6826,15 +6851,7 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.weekly-metric-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--insight-icon);
-}
+/* 왼쪽 띠 제거됨 */
 
 .weekly-metric-card:hover {
   transform: translateY(-2px);
@@ -6875,9 +6892,21 @@
 }
 
 @media (max-width: 768px) {
+  .weekly-metrics-grid .weekly-metric-card,
+  .weekly-metric-card {
+    flex-direction: column;
+    padding: 0;
+  }
+  .weekly-metrics-grid .metric-thumb,
   .metric-thumb {
-    width: 80px;
-    height: 56px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+    border-radius: 14px 14px 0 0;
+  }
+  .weekly-metric-content {
+    padding: 14px 16px 16px;
   }
 }
 
@@ -7569,11 +7598,22 @@
   .industry-grid {
     grid-template-columns: 1fr;
   }
-  .global-thumb,
-  .industry-thumb {
-    width: 80px;
-    height: 56px;
+  .global-grid .global-card,
+  .global-card {
+    flex-direction: column;
+    padding: 0;
+  }
+  .global-grid .global-thumb,
+  .global-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+    border-radius: 14px 14px 0 0;
     min-height: auto;
+  }
+  .global-content {
+    padding: 14px 16px 16px;
   }
 }
 
@@ -7604,7 +7644,8 @@
 
   /* 모바일 이미지 스타일 */
   .weekly-hot-thumb {
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 16 / 9;
+    max-height: 200px;
   }
 
   .weekly-header-card.has-hero-image {
@@ -7613,7 +7654,7 @@
 
   .weekly-header-image {
     width: 100%;
-    height: 140px;
+    height: 220px;
     border-radius: 20px 20px 0 0;
   }
 
@@ -12039,7 +12080,7 @@ a.gm-item:hover {
 
 .trend-feed-card-title {
   font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-weight: var(--font-title-weight);
   color: var(--text);
   margin: 0;
   padding: 12px;

@@ -15,7 +15,11 @@ const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizon
 const fixUrl = (url) => {
   if (!url) return url;
   if (url.startsWith('//')) url = 'https:' + url;
-  if (url.includes('inven.co.kr')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+  if (url.includes('inven.co.kr')) {
+    const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+    if (/\.avif(?:$|[?#])/i.test(url)) return proxyUrl + '&output=webp';
+    return proxyUrl;
+  }
   return url;
 };
 

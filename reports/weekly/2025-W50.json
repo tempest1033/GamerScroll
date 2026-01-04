@@ -32,13 +32,13 @@
         "tag": "업데이트",
         "title": "마비노기 모바일, 웨카 경매장 재검토 발표",
         "desc": "마비노기 모바일이 논란이 된 '웨카 경매장' 구조를 베타 종료와 함께 전면 재검토하겠다고 밝혔어요. 과금과 성장 설계를 다시 짜겠다는 메시지로 읽혔습니다.",
-        "thumbnail": "https://www.thisisgame.com/_next/image?url=https%3A%2F%2Ffile.thisisgame.com%2Fnext-upload%2Fcmcn2grqk0003t501uit9rzw9%2F2025%2F12%2F30%2F1639026826056342216_c3024fbc-48a2-4caf-9fb5-6b5bc3e68021_02.%25ED%2592%258D%25EB%2593%25B1%25EC%259D%25B4%25EB%25B2%25A4%25ED%258A%25B8.jpg&w=1200&q=75"
+        "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1548248735.jpg"
       },
       {
         "tag": "행사",
         "title": "칼페온 연회, 검은사막M 로드맵 공개",
         "desc": "12월 13일 칼페온 연회에서 검은사막 모바일 신규 클래스와 업데이트 로드맵이 공개됐어요. PC 클라이언트와 리마스터 계획까지 나오며 기대가 커졌습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/13/news/thumb/s1278442404.png"
+        "thumbnail": "//img.ruliweb.com/data/news/tn/25/12/09/19b01835135_pbrwhz.avif"
       },
       {
         "tag": "정책",
@@ -84,7 +84,7 @@
         "tag": "매출",
         "title": "중국 e스포츠 매출 6조 원 돌파",
         "desc": "2025년 중국 e스포츠 산업 매출이 6조 원을 넘겼다는 자료가 나왔어요. 전년 대비 약 6.4% 성장 전망도 함께 언급됐습니다.",
-        "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202601/i1624946369.jpg"
+        "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1406128798.jpg"
       }
     ],
     "community": [
@@ -227,17 +227,20 @@
       {
         "tag": "유럽",
         "title": "GTA6 감원 소식, 영국 정치권 논쟁으로 확산",
-        "desc": "락스타 감원 소식이 영국 총리 발언까지 이어졌어요. 대작 개발의 노동과 일정 관리가 다시 쟁점이 됐습니다."
+        "desc": "락스타 감원 소식이 영국 총리 발언까지 이어졌어요. 대작 개발의 노동과 일정 관리가 다시 쟁점이 됐습니다.",
+        "thumbnail": "https://image.api.playstation.com/vulcan/ap/rnd/202505/0616/c9f078c260d79339cb581054ce5ca49f2b56ab943d1beb20.png?w=440"
       },
       {
         "tag": "일본",
         "title": "몬헌 와일즈, 스팀 최적화 로드맵 공개",
-        "desc": "캡콤이 스팀판 성능 이슈를 인정하고 단계적 최적화를 예고했어요. 업데이트 4탄부터 내년 2월까지 순차 적용한다고 밝혔습니다."
+        "desc": "캡콤이 스팀판 성능 이슈를 인정하고 단계적 최적화를 예고했어요. 업데이트 4탄부터 내년 2월까지 순차 적용한다고 밝혔습니다.",
+        "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2246340/header.jpg?t=1765334071"
       },
       {
         "tag": "중국",
         "title": "중국 e스포츠, 6조 원 시장으로 확대",
-        "desc": "2025년 중국 e스포츠 매출이 6조 원을 넘기며 성장세가 확인됐어요. 한국 게임사와 팀의 아시아 전략도 더 중요해졌습니다."
+        "desc": "2025년 중국 e스포츠 매출이 6조 원을 넘기며 성장세가 확인됐어요. 한국 게임사와 팀의 아시아 전략도 더 중요해졌습니다.",
+        "thumbnail": "https://flagcdn.com/w640/cn.png"
       }
     ]
   }

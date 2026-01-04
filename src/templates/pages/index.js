@@ -17,7 +17,11 @@ function generateIndexPage(data) {
   const fixUrl = function(url) {
     if (!url) return url;
     if (url.startsWith('//')) url = 'https:' + url;
-    if (url.includes('inven.co.kr')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+    if (url.includes('inven.co.kr')) {
+      const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+      if (/\.avif(?:$|[?#])/i.test(url)) return proxyUrl + '&output=webp';
+      return proxyUrl;
+    }
     return url;
   };
 
@@ -357,6 +361,27 @@ function generateIndexPage(data) {
     return null;
   }
 
+  // 스팀 게임 이름으로 slug 찾기
+  function findGameSlugByName(name) {
+    if (!name || !games) return null;
+    var normalizedName = name.toLowerCase().trim();
+    // Object.entries로 키(게임이름)와 값(게임객체)을 함께 가져옴
+    var gamesEntries = Object.entries(games);
+    for (var i = 0; i < gamesEntries.length; i++) {
+      var gameName = gamesEntries[i][0];  // 키 = 게임 이름
+      var g = gamesEntries[i][1];         // 값 = 게임 객체
+      // 키(게임 이름)로 매칭
+      if (gameName.toLowerCase().trim() === normalizedName) return g.slug;
+      // aliases에서 매칭
+      if (g.aliases) {
+        for (var j = 0; j < g.aliases.length; j++) {
+          if (g.aliases[j].toLowerCase().trim() === normalizedName) return g.slug;
+        }
+      }
+    }
+    return null;
+  }
+
   // 홈 모바일 랭킹
   function generateHomeMobileRank() {
     var grossingKr = rankings?.grossing?.kr || {};
@@ -366,14 +391,16 @@ function generateIndexPage(data) {
       if (!items || items.length === 0) return '<div class="home-empty">데이터 없음</div>';
       return items.map(function(app, i) {
         var slug = findGameSlug(app.appId, platform);
-        var nameHtml = slug
-          ? '<a class="home-rank-name home-rank-link" href="/games/' + slug + '/">' + app.title + '</a>'
-          : '<span class="home-rank-name">' + app.title + '</span>';
-        return '<div class="home-rank-row">' +
+        var storeLink = platform === 'ios'
+          ? 'https://apps.apple.com/app/id' + app.appId
+          : 'https://play.google.com/store/apps/details?id=' + app.appId;
+        var link = slug ? '/games/' + slug + '/' : storeLink;
+        var isExternal = !slug;
+        return '<a class="home-rank-row" href="' + link + '"' + (isExternal ? ' target="_blank" rel="noopener"' : '') + '>' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
           '<img class="home-rank-icon" src="' + (app.icon || '') + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
-          nameHtml +
-          '</div>';
+          '<span class="home-rank-name">' + app.title + '</span>' +
+          '</a>';
       }).join('');
     }
 
@@ -401,8 +428,10 @@ function generateIndexPage(data) {
     function renderList(items, showPlayers) {
       if (!items || items.length === 0) return '<div class="home-empty">데이터 없음</div>';
       return items.map(function(game, i) {
-        var link = game.appid ? 'https://store.steampowered.com/app/' + game.appid : '#';
-        return '<a class="home-steam-row" href="' + link + '" target="_blank" rel="noopener">' +
+        var slug = findGameSlugByName(game.name);
+        var link = slug ? '/games/' + slug + '/' : (game.appid ? 'https://store.steampowered.com/app/' + game.appid : '#');
+        var isExternal = !slug;
+        return '<a class="home-steam-row" href="' + link + '"' + (isExternal ? ' target="_blank" rel="noopener"' : '') + '>' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
           '<img class="home-steam-icon" src="' + (game.img || '') + '" alt="" loading="lazy" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect fill=%22%23374151%22 width=%2240%22 height=%2240%22 rx=%228%22/></svg>\'">' +
           '<div class="home-steam-info">' +
@@ -558,7 +587,7 @@ function generateIndexPage(data) {
 	    }
     // rectangle 포맷: 300x250 - auto로 최적 광고 자동 선택
     if (format === 'rectangle') {
-      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:300px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
+      return '<div class="ad-slot ad-slot-section ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:300px;height:250px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
     }
     // vertical 포맷 - auto로 최적 광고 자동 선택
     if (format === 'vertical') {
@@ -583,7 +612,7 @@ function generateIndexPage(data) {
 	    }
 	    // 직사각형: rectangle 클래스 적용
 	    if (isRectangle) {
-	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="rectangle" data-full-width-responsive="true"></ins></div>';
+	      return '<div class="ad-slot ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:336px;height:280px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '"></ins></div>';
 	    }
 	    return '<div class="ad-slot ad-slot-section mobile-only' + shapeClass + ' ' + (extraClass || '') + '" id="' + id + '"><ins class="adsbygoogle" style="display:block;width:100%;max-height:250px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="horizontal"></ins></div>';
 	  }

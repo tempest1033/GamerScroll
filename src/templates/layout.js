@@ -550,15 +550,36 @@ function wrapWithLayout(content, options = {}) {
 		        if (!el || !el.isConnected) return false;
 		        // 모바일/PC 전용 광고는 미디어 쿼리로 판단
 		        const slot = el.closest('.ad-slot');
-		        if (slot && slot.classList.contains('mobile-only')) {
-		          return window.matchMedia('(max-width: 768px)').matches;
-		        }
-		        if (slot && slot.classList.contains('pc-only')) {
-		          return window.matchMedia('(min-width: 769px)').matches;
-		        }
-		        const style = window.getComputedStyle(el);
+		        if (slot && slot.classList.contains('mobile-only') && !window.matchMedia('(max-width: 768px)').matches) return false;
+		        if (slot && slot.classList.contains('pc-only') && !window.matchMedia('(min-width: 769px)').matches) return false;
+		        const target = slot || el;
+		        const style = window.getComputedStyle(target);
 		        if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+		        // display:none 조상/탭 패널 등으로 실제 폭이 0이면 초기화하지 않음
+		        try {
+		          const rect = target.getBoundingClientRect();
+		          if (!rect || rect.width <= 0) return false;
+		        } catch {
+		          return false;
+		        }
 		        return true;
+		      }
+
+		      function isSdkLoaded() {
+		        return !!(window.adsbygoogle && (window.adsbygoogle.loaded || window.adsbygoogle.push !== Array.prototype.push));
+		      }
+
+		      function tryInitAd(el) {
+		        if (!el || el.dataset.gcAdsInit === '1') return;
+		        if (!canInit(el)) return;
+		        // SDK 미로드 시 플래그 설정 안 함 (나중에 재시도)
+		        if (!isSdkLoaded()) return;
+		        el.dataset.gcAdsInit = '1';
+		        try {
+		          (adsbygoogle = window.adsbygoogle || []).push({});
+		        } catch (e) {
+		          delete el.dataset.gcAdsInit;
+		        }
 		      }
 
 		      function hasRenderedAd(el) {
@@ -619,19 +640,8 @@ function wrapWithLayout(content, options = {}) {
 		      }
 
 		      function initAds() {
-		        // SDK 로드 확인 - 미로드 시 나중에 재시도
-		        var sdkLoaded = window.adsbygoogle && (window.adsbygoogle.loaded || window.adsbygoogle.push !== Array.prototype.push);
 		        document.querySelectorAll('ins.adsbygoogle').forEach(function(el) {
-		          if (el.dataset.gcAdsInit === '1') return;
-	          if (!canInit(el)) return;
-	          // SDK 미로드 시 플래그 설정 안 함 (나중에 재시도)
-	          if (!sdkLoaded) return;
-	          el.dataset.gcAdsInit = '1';
-	          try {
-	            (adsbygoogle = window.adsbygoogle || []).push({});
-	          } catch (e) {
-	            delete el.dataset.gcAdsInit;
-		          }
+		          tryInitAd(el);
 		        });
 		      }
 
@@ -657,17 +667,7 @@ function wrapWithLayout(content, options = {}) {
 		              var el = entry.target.classList.contains('adsbygoogle')
 		                ? entry.target
 		                : entry.target.querySelector('ins.adsbygoogle');
-		              if (el && el.dataset.gcAdsInit !== '1' && el.isConnected) {
-		                var style = window.getComputedStyle(el);
-		                if (style && style.display !== 'none' && style.visibility !== 'hidden') {
-		                  el.dataset.gcAdsInit = '1';
-		                  try {
-		                    (adsbygoogle = window.adsbygoogle || []).push({});
-		                  } catch (e) {
-		                    delete el.dataset.gcAdsInit;
-		                  }
-		                }
-		              }
+		              if (el && el.isConnected) tryInitAd(el);
 		            }
 		          });
 		        }, { rootMargin: '200px 0px', threshold: 0 });
@@ -696,7 +696,7 @@ function wrapWithLayout(content, options = {}) {
 		        var start = Date.now();
 		        function check() {
 		          // SDK가 로드되면 adsbygoogle.loaded가 true이거나 push가 실제 함수
-		          if (window.adsbygoogle && (window.adsbygoogle.loaded || window.adsbygoogle.push !== Array.prototype.push)) {
+		          if (isSdkLoaded()) {
 		            callback();
 		          } else if (Date.now() - start < maxWait) {
 		            setTimeout(check, 100);

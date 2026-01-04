@@ -4591,7 +4591,8 @@
       {
         "tag": "모바일",
         "title": "생존과 전략 장르, 매출 상위권 고정",
-        "desc": "iOS와 Android 매출 TOP5에 '라스트 워: 서바이벌'과 'WOS: 화이트아웃 서바이벌'이 함께 올라 안정적인 상위권 흐름을 보여요. iOS에는 '전략적 팀 전투'도 상위권을 지켰어요."
+        "desc": "iOS와 Android 매출 TOP5에 '라스트 워: 서바이벌'과 'WOS: 화이트아웃 서바이벌'이 함께 올라 안정적인 상위권 흐름을 보여요. iOS에는 '전략적 팀 전투'도 상위권을 지켰어요.",
+        "thumbnail": "https://play-lh.googleusercontent.com/2sOxb_s3uan-AmiF_XRh_K2yqRrmVeuzHAqtYCrwrFP-s1u_FMKo1NtlPz0kdn0qQUH8"
       },
       {
         "tag": "PC",
@@ -4603,18 +4604,19 @@
         "tag": "콘솔",
         "title": "AFEELA, 차량 내 PS 리모트 플레이 지원",
         "desc": "소니와 혼다 전기차 AFEELA가 PS 리모트 플레이를 탑재한다는 소식이 전해졌어요. 집의 PS4와 PS5에 원격 접속하는 형태로 소개되며, 차량 내 엔터테인먼트 확장 흐름이 주목돼요.",
-        "thumbnail": "https://www.shm-afeela.com/share/v2.0/pages/top/img/ogp.png"
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/22/news/thumb/s1803652558.jpg"
       },
       {
         "tag": "정책",
         "title": "국회, 올림픽 e스포츠 유치 논의 진행",
-        "desc": "국회에서 올림픽 e스포츠 국내 유치 관련 토론회가 열렸다는 보도가 나왔어요. 개최지 경쟁 구도와 산업 파급효과 논의가 함께 다뤄지며, 정책과 산업계 관심이 커졌어요."
+        "desc": "국회에서 올림픽 e스포츠 국내 유치 관련 토론회가 열렸다는 보도가 나왔어요. 개최지 경쟁 구도와 산업 파급효과 논의가 함께 다뤄지며, 정책과 산업계 관심이 커졌어요.",
+        "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1108147138.jpg"
       },
       {
         "tag": "글로벌",
         "title": "텐센트, 실사풍 FPS '언레코드'에 투자",
         "desc": "실사풍 슈터 '언레코드' 개발사 측이 텐센트 투자 유치를 알리며 개발 가속화를 언급했어요. 리얼리즘 연출 계열 프로젝트에 대형 자본이 붙는 흐름이 다시 확인됐어요.",
-        "thumbnail": "https://cdn.cloudflare.steamstatic.com/steam/apps/2381520/header.jpg"
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/22/news/thumb/s1111612628.png"
       }
     ],
     "industryIssues": [
@@ -4622,13 +4624,13 @@
         "tag": "크래프톤",
         "title": "김창한 대표 발언, 주총 변수로 재부각",
         "desc": "김창한 대표가 과거 주주총회에서 언급했던 책임 관련 발언이 재조명됐어요. 2026년 3월 주주총회가 주요 분기점이 될 수 있다는 관측이 기사로 다뤄지며 투자자 관심이 모였어요.",
-        "thumbnail": "https://static.inven.co.kr/column/2025/12/22/news/i1634081059.jpg"
+        "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1838534118.jpg"
       },
       {
         "tag": "정책/시장",
         "title": "생성형 AI 사용, 시상 기준이 엄격해져요",
         "desc": "해외 인디 게임 어워드에서 생성형 AI 관련 서약 위반을 이유로 수상이 취소됐다는 보도가 나왔어요. 개발 과정의 도구 사용 공개와 심사 기준 정비가 업계 공통 과제로 떠올랐어요.",
-        "thumbnail": "https://i3n.news1.kr/system/photos/2025/12/23/7664927/high.jpg"
+        "thumbnail": "https://static.inven.co.kr/column/2025/12/21/news/thumb/s1182868315.png"
       }
     ],
     "metrics": [
@@ -4727,7 +4729,7 @@
         "comment": "한게임 홀덤 타이틀 iOS 신규 진입"
       }
     ],
-    "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1838534118.jpg"
+    "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202512/i1108147138.jpg"
   },
   "aiGeneratedAt": "2025-12-22T21:21:56.860Z",
   "stockMap": {

@@ -51,7 +51,10 @@ const fixUrl = (url) => {
 
   // 나머지 외부 이미지는 프록시
   if (url.startsWith('http')) {
-    return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+    const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+    // wsrv.nl은 avif 출력이 비활성화되어 있어 webp로 강제 변환
+    if (/\.avif(?:$|[?#])/i.test(url)) return proxyUrl + '&output=webp';
+    return proxyUrl;
   }
   return url;
 };
@@ -68,15 +71,18 @@ function formatDateKorean(dateStr) {
 }
 
 // 중간 광고 슬롯 생성 (PC: horizontal, 모바일: rectangle)
-function generateMidAdSlot() {
+// - 한 페이지 내 중복 슬롯ID 방지를 위해 호출부에서 slotId를 분리해서 넘겨주세요.
+function generateMidAdSlot(pcSlotId, mobileSlotId) {
   if (!SHOW_ADS) return '';
+  const pcSlot = pcSlotId || AD_SLOTS.horizontal2;
+  const mobileSlot = mobileSlotId || AD_SLOTS.rectangle3;
   // 모바일 광고를 먼저 배치 (CLS 방지)
   return `
     <div class="ad-slot ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve">
-      <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle" style="display:block;width:336px;height:280px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
     </div>
     <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only">
-      <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${pcSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
     </div>
   `;
 }
@@ -450,11 +456,11 @@ function generateWeeklyPanel(weeklyInsight) {
 
       ${hotIssuesSection}
       ${rankingsSection}
-      ${generateMidAdSlot()}
+      ${generateMidAdSlot(AD_SLOTS.horizontal2, AD_SLOTS.rectangle3)}
       ${industrySection}
       ${metricsSection}
       ${globalSection}
-      ${generateMidAdSlot()}
+      ${generateMidAdSlot(AD_SLOTS.horizontal3, AD_SLOTS.rectangle4)}
       ${stocksSection}
       ${releasesSection}
       ${communitySection}
@@ -834,11 +840,11 @@ function generateTrendPage(data) {
             ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
           </div>
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
-          ${generateMidAdSlot()}
+          ${generateMidAdSlot(AD_SLOTS.horizontal2, AD_SLOTS.rectangle3)}
           ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
           ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
           ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
-          ${generateMidAdSlot()}
+          ${generateMidAdSlot(AD_SLOTS.horizontal3, AD_SLOTS.rectangle4)}
           ${renderStocksCard(stocksData, stockPrices)}
           ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
           ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
@@ -875,6 +881,8 @@ function generateTrendPage(data) {
         tab.classList.add('active');
         const panelId = 'panel-' + tab.dataset.tab;
         document.getElementById(panelId)?.classList.add('active');
+        // 숨겨진 패널 내부 광고가 폭 0 상태에서 초기화되는 것을 방지하고, 활성화 후 재초기화 트리거
+        requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
       });
     });
   </script>`;
@@ -1286,11 +1294,11 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
         </div>`;
         })()}
         ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
-        ${generateMidAdSlot()}
+        ${generateMidAdSlot(AD_SLOTS.horizontal2, AD_SLOTS.rectangle3)}
         ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
         ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
         ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
-        ${generateMidAdSlot()}
+        ${generateMidAdSlot(AD_SLOTS.horizontal3, AD_SLOTS.rectangle4)}
         ${renderStocksCard(stocksData, stockPrices)}
         ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
         ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
@@ -1451,15 +1459,20 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
   const { slug, title, date, thumbnail, summary, content = [] } = post;
 
   // Deep Dive 중간 광고
-  const generateDeepDiveAdSlot = () => {
+  const DEEP_DIVE_PC_SLOTS = [AD_SLOTS.horizontal2, AD_SLOTS.horizontal3, AD_SLOTS.horizontal];
+  const DEEP_DIVE_MOBILE_SLOTS = [AD_SLOTS.rectangle3, AD_SLOTS.rectangle4, AD_SLOTS.rectangle2, AD_SLOTS.rectangle];
+
+  const generateDeepDiveAdSlot = (adIndex = 0) => {
     if (!SHOW_ADS) return '';
+    const pcSlot = DEEP_DIVE_PC_SLOTS[adIndex % DEEP_DIVE_PC_SLOTS.length];
+    const mobileSlot = DEEP_DIVE_MOBILE_SLOTS[adIndex % DEEP_DIVE_MOBILE_SLOTS.length];
     return `
       <div class="blog-ad">
         <div class="ad-slot ad-slot--rectangle mobile-only ad-slot--no-reserve">
-          <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" style="display:block;width:336px;height:280px;margin:0 auto" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
         </div>
         <div class="ad-slot ad-slot--horizontal pc-only">
-          <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal4}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${pcSlot}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
         </div>
       </div>
     `;
@@ -1480,6 +1493,7 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
 
   // 본문 렌더링
   const renderContent = () => {
+    let adIndex = 0;
     return content.map((block) => {
       switch (block.type) {
         case 'text':
@@ -1499,7 +1513,7 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
           `;
 
         case 'ad':
-          return generateDeepDiveAdSlot();
+          return generateDeepDiveAdSlot(adIndex++);
 
         case 'quote':
           return `<blockquote class="blog-quote">${block.value}</blockquote>`;
