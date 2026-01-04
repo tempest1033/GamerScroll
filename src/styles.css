@@ -6689,7 +6689,7 @@
 }
 
 .weekly-metrics-grid .weekly-metric-card {
-  height: 100px;
+  min-height: 100px;
 }
 
 .weekly-metrics-grid .metric-thumb {
