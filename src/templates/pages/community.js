@@ -11,7 +11,7 @@ function generateCommunityPage(data) {
 
   // 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
   const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
-  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%;max-height:90px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
   const sources = [
     { key: 'inven', name: '인벤', title: '인벤 핫이슈', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32', link: 'https://hot.inven.co.kr/', items: community?.inven || [] },
