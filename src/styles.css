@@ -2270,6 +2270,16 @@
     /* wrapper 없는 ins 광고 기본값 */
     ins.adsbygoogle {
       display: block;
+      text-align: center;
+    }
+
+    /* AdSense 내부 렌더링 요소 중앙 정렬 보정 */
+    ins.adsbygoogle > div,
+    ins.adsbygoogle iframe {
+      margin: 0 auto !important;
+    }
+    ins.adsbygoogle iframe {
+      display: block;
     }
 
     /* PC 광고 기본 */
