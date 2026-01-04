@@ -430,9 +430,8 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     }
   });
 
-  // 히스토리에서 추가 뉴스
-  const historyNews = loadRecentHistoryNews(7);
-  const combinedNews = [...allNews, ...historyNews].slice(0, 30);
+  // 뉴스 목록 (allNews에서 최대 30개)
+  const combinedNews = allNews.slice(0, 30);
 
   if (combinedNews.length > 0) {
     lines.push('\n### 뉴스 썸네일 URL 목록 (이슈별 thumbnail 선택용):');
