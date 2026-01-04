@@ -21,7 +21,20 @@ const AD_SLOTS = {
   rectangle: '1795150514',
   rectangle2: '7467129651',
   rectangle3: '4840966314',
-  rectangle4: '5039620326'
+  rectangle4: '5039620326',
+  // 네이티브 인피드 광고
+  native1: '2572351036',
+  native2: '7766652174',
+  native3: '6453570501',
+  nativeSmall1: '1067697677'
+};
+
+// 네이티브 광고 레이아웃 키
+const NATIVE_LAYOUT_KEYS = {
+  native1: '-75+ew-19-24+8u',
+  native2: '-78+ew-19-24+8u',
+  native3: '-75+ew-19-24+8u',
+  nativeSmall1: '-hz+g-n-59+bx'
 };
 
 // 상단 검색바 (홈/일반 페이지용)
@@ -795,4 +808,4 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
   </div>`;
 }
 
-module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot };
+module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, NATIVE_LAYOUT_KEYS, generateAdSlot };
