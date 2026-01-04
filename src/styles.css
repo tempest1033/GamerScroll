@@ -2358,9 +2358,7 @@
 
     /* 가로형 광고 내부 - 모든 페이지에서 display:block 적용 (AdSense 반응형 안정화) */
     .ad-slot--horizontal > ins.adsbygoogle {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
+      display: block !important;
     }
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
