@@ -524,6 +524,9 @@ const adInitScript = SHOW_ADS ? `
   function canInit(el) {
     if (!el || !el.isConnected) return false;
     var slot = el.closest('.ad-slot') || el;
+    // 슬롯 크기가 0이면 초기화하지 않음 (레이아웃 미완료)
+    var rect = el.getBoundingClientRect();
+    if (rect.width < 1) return false;
     if (slot.classList.contains('mobile-only')) {
       return window.matchMedia('(max-width: 768px)').matches;
     }
