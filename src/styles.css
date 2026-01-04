@@ -2538,6 +2538,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
+        padding: 8px 0;
       }
       .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
         display: block;
