@@ -2317,15 +2317,15 @@
       max-width: 300px;
     }
 
-    /* 사이드바 vertical/rectangle 광고 - 고정 너비, 높이는 auto */
+    /* 사이드바 vertical/rectangle 광고 - 고정 너비, 고정 높이 (레이아웃 시프트 방지) */
     .home-sidebar .ad-slot--vertical.pc-only > ins.adsbygoogle {
       width: 300px;
-      min-height: auto;
+      min-height: 600px;
       height: auto;
     }
     .home-sidebar .ad-slot--rectangle.pc-only > ins.adsbygoogle {
       width: 300px;
-      min-height: auto;
+      min-height: 250px;
       height: auto;
     }
 
@@ -2381,7 +2381,7 @@
 
     .ad-slot--rectangle.pc-only > ins.adsbygoogle {
       max-width: 300px;
-      min-height: auto;
+      min-height: 250px;
       height: auto;
     }
 

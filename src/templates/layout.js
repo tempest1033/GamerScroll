@@ -566,7 +566,8 @@ function wrapWithLayout(content, options = {}) {
 		      }
 
 		      function isSdkLoaded() {
-		        return !!(window.adsbygoogle && (window.adsbygoogle.loaded || window.adsbygoogle.push !== Array.prototype.push));
+		        // SDK 스크립트가 로드되면 바로 초기화 시도 (더 관대한 체크)
+		        return !!(window.adsbygoogle);
 		      }
 
 		      function tryInitAd(el) {
@@ -651,7 +652,8 @@ function wrapWithLayout(content, options = {}) {
 		        window.__gcAdsInitRetriesScheduled = true;
 		        initRetryTimers.forEach(clearTimeout);
 		        initRetryTimers = [];
-		        [100, 300, 500, 1000, 2000, 3000, 5000, 7000, 10000].forEach(function(delay) {
+		        // 초기 retry를 더 빠르게 (50ms 간격으로 시작)
+		        [50, 100, 150, 200, 300, 500, 800, 1200, 2000, 3000].forEach(function(delay) {
 		          initRetryTimers.push(setTimeout(initAds, delay));
 		        });
 		      }
@@ -692,14 +694,14 @@ function wrapWithLayout(content, options = {}) {
 
 		      // AdSense SDK 로드 대기 함수
 		      function waitForAdsbygoogle(callback, maxWait) {
-		        maxWait = maxWait || 5000;
+		        maxWait = maxWait || 3000;
 		        var start = Date.now();
 		        function check() {
-		          // SDK가 로드되면 adsbygoogle.loaded가 true이거나 push가 실제 함수
 		          if (isSdkLoaded()) {
 		            callback();
 		          } else if (Date.now() - start < maxWait) {
-		            setTimeout(check, 100);
+		            // 폴링 간격을 50ms로 단축
+		            setTimeout(check, 50);
 		          } else {
 		            // timeout - 그래도 초기화 시도
 		            callback();
@@ -713,16 +715,17 @@ function wrapWithLayout(content, options = {}) {
 		      window.gcOnAdsSDKLoad = function() {
 		        if (sdkLoadCallbackFired) return;
 		        sdkLoadCallbackFired = true;
-		        requestAnimationFrame(runInit);
+		        // 즉시 실행 (requestAnimationFrame 제거로 지연 최소화)
+		        runInit();
 		      };
 		      // SDK가 이미 로드된 경우 (콜백 정의가 늦은 경우) 즉시 실행
 		      if (window.gcAdsSDKLoaded && !sdkLoadCallbackFired) {
 		        sdkLoadCallbackFired = true;
-		        requestAnimationFrame(runInit);
+		        runInit();
 		      }
 
 		      if (document.readyState === 'complete' || document.readyState === 'interactive') {
-		        waitForAdsbygoogle(function() { requestAnimationFrame(runInit); });
+		        waitForAdsbygoogle(runInit);
 		      } else {
 	        document.addEventListener('DOMContentLoaded', function() {
 	          waitForAdsbygoogle(runInit);
