@@ -12325,3 +12325,10 @@ a.gm-item:hover {
     margin-right: 0 !important;
   }
 }
+
+/* 게임 DB 왼쪽으로 5px 이동 */
+@media (max-width: 768px) {
+  .nav-item[href="/games/"] {
+    transform: translateX(-5px);
+  }
+}

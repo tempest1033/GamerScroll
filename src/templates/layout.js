@@ -329,7 +329,7 @@ const swipeScript = `
 <script>
 (function() {
   // 네비게이션 섹션 정의 (모바일 순서 기준, PC는 CSS order로 시각 조정)
-  const navSections = ['news', 'trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
+  const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
   const getNavSections = () => navSections;
   let touchStartX = 0;
   let touchStartY = 0;
@@ -406,9 +406,8 @@ const swipeScript = `
     const navInner = document.querySelector('.nav-inner');
     if (window.innerWidth <= 768 && navInner) {
       let offset = 0;
-      if (index >= 6) offset = -60;
-      else if (index >= 5) offset = -40;
-      else if (index >= 4) offset = -20;
+      if (index >= 4) offset = -40;
+      else if (index === 3) offset = -20;
       navInner.style.transform = 'translateX(' + offset + '%)';
     }
   }
@@ -420,9 +419,8 @@ const swipeScript = `
     if (window.innerWidth <= 768 && navInner) {
       navInner.style.transition = 'none';
       let offset = 0;
-      if (currentIdx >= 6) offset = -60;
-      else if (currentIdx >= 5) offset = -40;
-      else if (currentIdx >= 4) offset = -20;
+      if (currentIdx >= 4) offset = -40;
+      else if (currentIdx === 3) offset = -20;
       navInner.style.transform = 'translateX(' + offset + '%)';
       // 강제 리플로우로 즉시 적용
       void navInner.offsetHeight;
