@@ -3000,18 +3000,27 @@
       min-height: calc(100vh - 180px) !important;
     }
 
-    /* page-wrapper 내부 광고 슬롯 - flex gap으로 이미 여백 있으므로 마진 제거 */
-    .page-wrapper .ad-slot-section {
+    /* page-wrapper/game-page/insight 내부 광고 슬롯 - flex gap으로 이미 여백 있으므로 마진 제거 */
+    .page-wrapper .ad-slot-section,
+    .game-page .ad-slot-section,
+    .games-hub-page .ad-slot-section,
+    .insight-page-container .ad-slot-section {
       margin: 0;
     }
 
-    /* page-wrapper 첫 번째 광고 - 네비게이션과 간격 */
-    .page-wrapper > .ad-slot-section:first-child {
+    /* 첫 번째 광고 - 네비게이션과 간격 */
+    .page-wrapper > .ad-slot-section:first-child,
+    .game-page > .ad-slot-section:first-child,
+    .games-hub-page > .ad-slot-section:first-child,
+    .insight-page-container > .ad-slot-section:first-child {
       margin-top: var(--space-block-gap);
     }
 
     /* page-wrapper 내부 PC 광고 슬롯 - flex 컨텍스트에서 전체 너비 보장 */
-    .page-wrapper > .ad-slot--horizontal.pc-only {
+    .page-wrapper > .ad-slot--horizontal.pc-only,
+    .game-page > .ad-slot--horizontal.pc-only,
+    .games-hub-page > .ad-slot--horizontal.pc-only,
+    .insight-page-container > .ad-slot--horizontal.pc-only {
       width: 100% !important;
       flex: 0 0 100%;
     }
@@ -9736,6 +9745,9 @@
 
 /* ========== Game Page ========== */
 .game-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block-gap);
   min-height: calc(100vh - 250px);
   max-width: 1200px;
   width: 100%;
@@ -10813,6 +10825,9 @@ a.gm-item:hover {
 
 /* ===== 게임 허브 페이지 ===== */
 .games-hub-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block-gap);
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px 20px 16px;
