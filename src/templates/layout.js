@@ -515,223 +515,138 @@ const mobileScrollHideScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 (보이는 슬롯만 init - matchMedia + IntersectionObserver)
+// 광고 초기화 스크립트 (정석: 슬롯이 보이고 폭이 잡힐 때 1회 push)
 const adInitScript = SHOW_ADS ? `
 <script>
 (function() {
-  function canInit(el) {
-    if (!el || !el.isConnected) return false;
-    var slot = el.closest('.ad-slot') || el;
-    if (slot.classList.contains('mobile-only') && !window.matchMedia('(max-width: 768px)').matches) return false;
-    if (slot.classList.contains('pc-only') && !window.matchMedia('(min-width: 769px)').matches) return false;
-    if (el.classList.contains('mobile-only') && !window.matchMedia('(max-width: 768px)').matches) return false;
-    if (el.classList.contains('pc-only') && !window.matchMedia('(min-width: 769px)').matches) return false;
+  var ADS_SELECTOR = 'ins.adsbygoogle[data-gc-ad=\"1\"]';
+  var MQ_MOBILE = '(max-width: 768px)';
+  var MQ_PC = '(min-width: 769px)';
 
-    var slotStyle = window.getComputedStyle(slot);
-    if (!slotStyle || slotStyle.display === 'none' || slotStyle.visibility === 'hidden') return false;
-    var style = window.getComputedStyle(el);
-    if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
-
-    // 슬롯 크기가 0이면 초기화하지 않음 (레이아웃 미완료)
-    var rect = slot.getBoundingClientRect();
-    if (rect.width < 1) rect = el.getBoundingClientRect();
-    if (rect.width < 1) return false;
-    return true;
-  }
-
-  function hasRenderedAd(el) {
-    try { return !!(el && el.querySelector && el.querySelector('iframe')); }
-    catch (e) { return false; }
-  }
-
-  function isNearViewport(el, marginPx) {
+  function matchesBreakpoint(el) {
     try {
-      var rect = el.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight || 0;
-      var margin = typeof marginPx === 'number' ? marginPx : 0;
-      return rect.bottom >= -margin && rect.top <= (vh + margin);
+      if (!el || !el.classList) return true;
+      if (el.classList.contains('mobile-only')) return window.matchMedia(MQ_MOBILE).matches;
+      if (el.classList.contains('pc-only')) return window.matchMedia(MQ_PC).matches;
+      return true;
+    } catch (e) { return true; }
+  }
+
+  function isRenderable(el) {
+    try {
+      if (!el || !el.isConnected) return false;
+      var style = window.getComputedStyle(el);
+      return !!(style && style.display !== 'none' && style.visibility !== 'hidden');
     } catch (e) { return false; }
   }
 
-  var lastResizeKickAt = 0;
-  function kickResizeSoon() {
-    var now = Date.now();
-    if (now - lastResizeKickAt < 1000) return;
-    lastResizeKickAt = now;
-    setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 50);
+  function hasWidth(slot, ins) {
+    try {
+      var rect = (slot && slot.getBoundingClientRect) ? slot.getBoundingClientRect() : { width: 0 };
+      if (rect.width < 1 && ins && ins.getBoundingClientRect) rect = ins.getBoundingClientRect();
+      return rect.width >= 1;
+    } catch (e) { return false; }
   }
 
-  function markSeen(el) {
-    if (!el || el.dataset.gcAdsSeenAt) return;
-    if (!isNearViewport(el, 200)) return;
-    el.dataset.gcAdsSeenAt = String(Date.now());
-    kickResizeSoon();
-  }
+  function tryInit(ins) {
+    if (!ins || !ins.isConnected) return;
+    if (ins.dataset.gcAdsInit === '1') return;
 
-  function syncOneAdSlot(el) {
-    var slot = el.closest('.ad-slot');
-    if (!slot) return;
-    var status = el.getAttribute('data-ad-status');
-    if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
-    else if (status === 'filled' || hasRenderedAd(el)) {
-      slot.classList.remove('ad-slot--unfilled');
+    var slot = ins.closest ? (ins.closest('.ad-slot') || ins) : ins;
+    if (!matchesBreakpoint(slot) || !matchesBreakpoint(ins)) return;
+    if (!isRenderable(slot) || !isRenderable(ins)) return;
+    if (!hasWidth(slot, ins)) return;
+
+    ins.dataset.gcAdsInit = '1';
+    try {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      delete ins.dataset.gcAdsInit;
     }
   }
 
-  function syncAdSlotVisibility() {
-    document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(el) {
-      markSeen(el);
-      syncOneAdSlot(el);
-    });
+  function initAll() {
+    document.querySelectorAll(ADS_SELECTOR).forEach(function(ins) { tryInit(ins); });
   }
 
-  function collapseEmptySeenSlots() {
-    var now = Date.now();
-    var delayMs = 6000;
-    try {
-      if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) delayMs = 3500;
-    } catch (e) {}
+  function observeSizes() {
+    if (!('ResizeObserver' in window)) return;
+    if (window.__gcAdsResizeObserver) return;
 
-    document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(el) {
-      markSeen(el);
-      var slot = el.closest('.ad-slot');
-      if (!slot) return;
-      if (slot.classList.contains('ad-slot--unfilled')) return;
-
-      var status = el.getAttribute('data-ad-status');
-      if (status === 'filled' || hasRenderedAd(el)) return;
-
-      var seenAt = Number(el.dataset.gcAdsSeenAt || 0);
-      if (!seenAt) return;
-      if (now - seenAt < delayMs) return;
-
-      if (status === 'unfilled') slot.classList.add('ad-slot--unfilled');
-    });
-  }
-
-  function runVisibilityPass() {
-    syncAdSlotVisibility();
-    collapseEmptySeenSlots();
-  }
-
-  function ensureAdStatusObserver() {
-    if (window.__gcAdsStatusObserverInstalled) return;
-    window.__gcAdsStatusObserverInstalled = true;
-    try {
-      var obs = new MutationObserver(function(mutations) {
-        mutations.forEach(function(m) {
-          if (m.type !== 'attributes') return;
-          if (m.attributeName !== 'data-ad-status') return;
-          var el = m.target;
-          if (!el || !el.closest) return;
-          syncOneAdSlot(el);
-        });
-      });
-      document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(el) {
-        obs.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
-      });
-    } catch (e) {}
-  }
-
-  var visibilityTimers = [];
-  function scheduleVisibilityCheck() {
-    visibilityTimers.forEach(clearTimeout);
-    visibilityTimers = [];
-    [500, 1500, 3000, 6000].forEach(function(delay) {
-      visibilityTimers.push(setTimeout(runVisibilityPass, delay));
-    });
-  }
-
-  function kickResizeOnce() {
-    if (window.__gcAdsKickResizeOnce) return;
-    window.__gcAdsKickResizeOnce = true;
-    setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 800);
-  }
-
-  function initAds() {
-    document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(el) {
-      if (el.dataset.gcAdsInit === '1') return;
-      if (!canInit(el)) return;
-      el.dataset.gcAdsInit = '1';
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {
-        delete el.dataset.gcAdsInit;
-      }
-    });
-  }
-
-  var initRetryTimers = [];
-  function scheduleInitRetries() {
-    initRetryTimers.forEach(clearTimeout);
-    initRetryTimers = [];
-    [100, 300, 500, 1000, 2000].forEach(function(delay) {
-      initRetryTimers.push(setTimeout(initAds, delay));
-    });
-  }
-
-  function setupAdIntersectionObserver() {
-    if (window.__gcAdIntersectionObserver) return;
-    if (!('IntersectionObserver' in window)) return;
-    window.__gcAdIntersectionObserver = new IntersectionObserver(function(entries) {
+    window.__gcAdsResizeObserver = new ResizeObserver(function(entries) {
       entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var el = entry.target.classList.contains('adsbygoogle')
-            ? entry.target
-            : entry.target.querySelector('ins.adsbygoogle[data-gc-ad="1"]');
-          if (el && el.dataset.gcAdsInit !== '1' && el.isConnected && canInit(el)) {
-            el.dataset.gcAdsInit = '1';
-            try {
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-              delete el.dataset.gcAdsInit;
-            }
+        var el = entry && entry.target;
+        if (!el || !el.isConnected) return;
+        if (el.classList && el.classList.contains('adsbygoogle')) {
+          tryInit(el);
+          return;
+        }
+        if (el.classList && el.classList.contains('ad-slot')) {
+          var ins = el.querySelector(ADS_SELECTOR);
+          if (ins) tryInit(ins);
+        }
+      });
+    });
+
+    document.querySelectorAll('.ad-slot').forEach(function(slot) { window.__gcAdsResizeObserver.observe(slot); });
+    document.querySelectorAll(ADS_SELECTOR).forEach(function(ins) { window.__gcAdsResizeObserver.observe(ins); });
+  }
+
+  function bindMediaChange() {
+    try {
+      var mmMobile = window.matchMedia(MQ_MOBILE);
+      var mmPc = window.matchMedia(MQ_PC);
+      var handler = function() { initAll(); };
+      if (mmMobile && mmMobile.addEventListener) {
+        mmMobile.addEventListener('change', handler);
+        mmPc.addEventListener('change', handler);
+      } else if (mmMobile && mmMobile.addListener) {
+        mmMobile.addListener(handler);
+        mmPc.addListener(handler);
+      }
+    } catch (e) {}
+  }
+
+  function collapseUnfilled(ins) {
+    var slot = ins.closest ? ins.closest('.ad-slot') : null;
+    if (slot) slot.style.display = 'none';
+  }
+
+  function observeUnfilled() {
+    if (!('MutationObserver' in window)) return;
+    if (window.__gcAdsUnfilledObserver) return;
+
+    window.__gcAdsUnfilledObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(m) {
+        if (m.type === 'attributes' && m.attributeName === 'data-ad-status') {
+          var ins = m.target;
+          if (ins && ins.dataset && ins.dataset.adStatus === 'unfilled') {
+            collapseUnfilled(ins);
           }
         }
       });
-    }, { rootMargin: '200px 0px', threshold: 0 });
-    document.querySelectorAll('.ad-slot').forEach(function(slot) {
-      window.__gcAdIntersectionObserver.observe(slot);
     });
-    document.querySelectorAll('ins.adsbygoogle[data-gc-ad="1"]').forEach(function(ins) {
-      if (!ins.closest('.ad-slot')) {
-        window.__gcAdIntersectionObserver.observe(ins);
-      }
+
+    document.querySelectorAll(ADS_SELECTOR).forEach(function(ins) {
+      window.__gcAdsUnfilledObserver.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
     });
   }
 
-  function runInit() {
-    ensureAdStatusObserver();
-    initAds();
-    runVisibilityPass();
-    scheduleVisibilityCheck();
-    scheduleInitRetries();
-    setupAdIntersectionObserver();
-    kickResizeOnce();
+  function start() {
+    initAll();
+    observeSizes();
+    bindMediaChange();
+    observeUnfilled();
   }
 
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    requestAnimationFrame(runInit);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { requestAnimationFrame(start); });
   } else {
-    document.addEventListener('DOMContentLoaded', runInit);
+    requestAnimationFrame(start);
   }
 
-  window.addEventListener('load', runInit);
-
-  var resizeTimer = null;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() { runInit(); }, 200);
-  }, { passive: true });
-
-  var scrollTimer = null;
-  window.addEventListener('scroll', function() {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(function() {
-      initAds();
-      runVisibilityPass();
-    }, 200);
-  }, { passive: true });
+  window.addEventListener('load', function() { initAll(); });
+  window.addEventListener('resize', function() { initAll(); }, { passive: true });
 })();
 </script>` : '';
 
@@ -746,12 +661,8 @@ function wrapWithLayout(content, options = {}) {
     showSearchBar = true,
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
-    noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
-    hideTopMobileAd = false  // 모바일 최상단 광고 숨김
+    noindex = false  // 검색엔진 인덱싱 제외 (thin content용)
   } = options;
-
-  // 모바일 최상단 광고 (container 밖, nav 바로 아래)
-  const topMobileAdHtml = (SHOW_ADS && !hideTopMobileAd) ? `<div class="ad-slot ad-slot-top-mobile ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal5}"></ins></div>` : '';
 
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -762,7 +673,6 @@ function wrapWithLayout(content, options = {}) {
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
-  ${topMobileAdHtml}
   <main class="container">
     ${content}
 	  </main>

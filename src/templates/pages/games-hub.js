@@ -6,8 +6,8 @@
 
 const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 
-// 광고 슬롯 - 모바일 최상단 광고는 layout.js에서 container 밖에 배치됨
-
+// 광고 슬롯
+const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
 const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
 /**
@@ -204,6 +204,7 @@ function generateGamesHubPage(options = {}) {
     <section class="section active" id="games">
       
       <div class="games-hub-page" id="top">
+        ${topAdMobile}
         ${topAdPc}
         <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
         ${searchResultsSection}
