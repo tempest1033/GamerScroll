@@ -12345,5 +12345,6 @@ a.gm-item:hover {
 @media (max-width: 768px) {
   .ad-slot-top-mobile {
     display: flex !important;
+    margin-top: 120px; /* header(64px) + nav(56px) */
   }
 }
