@@ -746,8 +746,12 @@ function wrapWithLayout(content, options = {}) {
     showSearchBar = true,
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
-    noindex = false  // 검색엔진 인덱싱 제외 (thin content용)
+    noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
+    hideTopMobileAd = false  // 모바일 최상단 광고 숨김
   } = options;
+
+  // 모바일 최상단 광고 (container 밖, nav 바로 아래)
+  const topMobileAdHtml = (SHOW_ADS && !hideTopMobileAd) ? `<div class="ad-slot ad-slot-top-mobile ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal5}"></ins></div>` : '';
 
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -758,6 +762,7 @@ function wrapWithLayout(content, options = {}) {
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
+  ${topMobileAdHtml}
   <main class="container">
     ${content}
 	  </main>

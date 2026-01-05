@@ -7,8 +7,8 @@
 
 const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
 
-// 광고 슬롯 (홈페이지와 동일한 분리 배치 방식)
-const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
+// 광고 슬롯 - 모바일 최상단 광고는 layout.js에서 container 밖에 배치됨
+
 const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
 
 // URL 수정 헬퍼 (이미지 프록시)
@@ -100,7 +100,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
 
   const content = `
     <section class="section active" id="trends-hub">
-      ${topAdMobile}
+      
       <div class="game-page">
         ${topAdPc}
         <h1 class="visually-hidden">게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스</h1>

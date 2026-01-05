@@ -614,11 +614,10 @@ function generateIndexPage(data) {
 
 	  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등) - 인라인 push 제거, 공통 스크립트에서 초기화
 	  var topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only" id="home-top-ad-pc"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
-	  var topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only" id="home-top-ad-mobile"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
+	  
 
 	  var content = '<section class="home-section active" id="home">' +
 	    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
-	    topAdMobile +
 	    '<div class="home-container">' +
 	    '<div class="home-main">' +
 	    topAdPc +
