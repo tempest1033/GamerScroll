@@ -2413,6 +2413,11 @@
       margin: 0;
     }
 
+    /* 홈 첫 번째 광고 - 네비게이션과 간격 */
+    .home-main > .ad-slot-section:first-child {
+      margin-top: var(--space-block-gap);
+    }
+
     .ad-slot.mobile-only,
     ins.adsbygoogle.mobile-only {
       display: none !important;
