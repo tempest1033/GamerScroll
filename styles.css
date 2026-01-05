@@ -12335,7 +12335,7 @@ a.gm-item:hover {
 
 /* 모바일 최상단 광고 (container 밖) */
 .ad-slot-top-mobile {
-  display: none;
+  display: none !important;
   width: 100%;
   height: 100px;
   align-items: center;
@@ -12344,6 +12344,6 @@ a.gm-item:hover {
 }
 @media (max-width: 768px) {
   .ad-slot-top-mobile {
-    display: flex;
+    display: flex !important;
   }
 }
