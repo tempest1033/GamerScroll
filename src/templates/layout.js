@@ -632,11 +632,26 @@ const adInitScript = SHOW_ADS ? `
     });
   }
 
+  function checkEmptyAds() {
+    setTimeout(function() {
+      document.querySelectorAll(ADS_SELECTOR).forEach(function(ins) {
+        if (!ins.isConnected) return;
+        var slot = ins.closest ? ins.closest('.ad-slot') : null;
+        if (!slot || slot.style.display === 'none') return;
+        var rect = ins.getBoundingClientRect();
+        if (rect.height < 10) {
+          collapseUnfilled(ins);
+        }
+      });
+    }, 3000);
+  }
+
   function start() {
     initAll();
     observeSizes();
     bindMediaChange();
     observeUnfilled();
+    checkEmptyAds();
   }
 
   if (document.readyState === 'loading') {
