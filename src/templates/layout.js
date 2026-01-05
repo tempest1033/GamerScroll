@@ -522,23 +522,20 @@ const adInitScript = SHOW_ADS ? `
   function canInit(el) {
     if (!el || !el.isConnected) return false;
     var slot = el.closest('.ad-slot') || el;
-    // 슬롯 크기가 0이면 초기화하지 않음 (레이아웃 미완료)
-    var rect = el.getBoundingClientRect();
-    if (rect.width < 1) return false;
-    if (slot.classList.contains('mobile-only')) {
-      return window.matchMedia('(max-width: 768px)').matches;
-    }
-    if (slot.classList.contains('pc-only')) {
-      return window.matchMedia('(min-width: 769px)').matches;
-    }
-    if (el.classList.contains('mobile-only')) {
-      return window.matchMedia('(max-width: 768px)').matches;
-    }
-    if (el.classList.contains('pc-only')) {
-      return window.matchMedia('(min-width: 769px)').matches;
-    }
+    if (slot.classList.contains('mobile-only') && !window.matchMedia('(max-width: 768px)').matches) return false;
+    if (slot.classList.contains('pc-only') && !window.matchMedia('(min-width: 769px)').matches) return false;
+    if (el.classList.contains('mobile-only') && !window.matchMedia('(max-width: 768px)').matches) return false;
+    if (el.classList.contains('pc-only') && !window.matchMedia('(min-width: 769px)').matches) return false;
+
+    var slotStyle = window.getComputedStyle(slot);
+    if (!slotStyle || slotStyle.display === 'none' || slotStyle.visibility === 'hidden') return false;
     var style = window.getComputedStyle(el);
     if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+
+    // 슬롯 크기가 0이면 초기화하지 않음 (레이아웃 미완료)
+    var rect = slot.getBoundingClientRect();
+    if (rect.width < 1) rect = el.getBoundingClientRect();
+    if (rect.width < 1) return false;
     return true;
   }
 
@@ -666,8 +663,6 @@ const adInitScript = SHOW_ADS ? `
 
   var initRetryTimers = [];
   function scheduleInitRetries() {
-    if (window.__gcAdsInitRetriesScheduled) return;
-    window.__gcAdsInitRetriesScheduled = true;
     initRetryTimers.forEach(clearTimeout);
     initRetryTimers = [];
     [100, 300, 500, 1000, 2000].forEach(function(delay) {
