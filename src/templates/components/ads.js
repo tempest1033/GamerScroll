@@ -65,9 +65,8 @@ function renderAdIns({ slotId, style, format, fullWidthResponsive = false, insCl
   if (format) attrs.push(`data-ad-format="${format}"`);
   if (fullWidthResponsive) attrs.push('data-full-width-responsive="true"');
 
-  // 조건부 push: display:none인 경우 광고 요청 안 함 (구글 권장)
   return `<ins ${attrs.join(' ')}></ins>
-<script>(function(){var ins=document.currentScript.previousElementSibling;if(ins&&getComputedStyle(ins).display!=='none'){(adsbygoogle=window.adsbygoogle||[]).push({});}})();</script>`;
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`;
 }
 
 /**
