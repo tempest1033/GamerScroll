@@ -754,13 +754,14 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 (표준 마크업: 보이는 슬롯만 1회 push)
+// 광고 초기화 스크립트 (보이는 슬롯만 1회 push)
 // - 탭/섹션 전환(display none → block)에도 다시 초기화되도록 MutationObserver로 보강
 const adInitScript = SHOW_ADS ? `
 <script>
 (function() {
   var CLIENT = '${ADSENSE_CLIENT}';
-  var ADS_SELECTOR = 'ins.adsbygoogle[data-ad-client=\"' + CLIENT + '\"][data-ad-slot]';
+  var PLACEHOLDER_SELECTOR = 'ins[data-gc-ad-client=\"' + CLIENT + '\"][data-gc-ad-slot]';
+  var LEGACY_SELECTOR = 'ins.adsbygoogle[data-ad-client=\"' + CLIENT + '\"][data-ad-slot]';
 
   function isVisible(el) {
     if (!el || !el.isConnected) return false;
@@ -769,12 +770,53 @@ const adInitScript = SHOW_ADS ? `
     return (el.offsetWidth >= 1 || el.offsetHeight >= 1);
   }
 
+  function alreadyProcessed(ins) {
+    if (!ins) return false;
+    if (ins.dataset.gcAdsInit === '1') return true;
+    var status = ins.getAttribute('data-adsbygoogle-status');
+    if (status === 'done') return true;
+    var adStatus = ins.getAttribute('data-ad-status');
+    if (adStatus) return true;
+    return false;
+  }
+
+  function ensureActive(ins) {
+    if (!ins) return false;
+    if (ins.getAttribute('data-ad-client') && ins.getAttribute('data-ad-slot') && ins.classList && ins.classList.contains('adsbygoogle')) {
+      return true;
+    }
+
+    var slotId = ins.getAttribute('data-gc-ad-slot');
+    if (!slotId) return false;
+
+    var classValue = ins.getAttribute('data-gc-ins-class') || 'adsbygoogle';
+    var classes = String(classValue).split(/\\s+/).filter(Boolean);
+    if (classes.indexOf('adsbygoogle') < 0) classes.unshift('adsbygoogle');
+    ins.setAttribute('class', classes.join(' '));
+
+    ins.setAttribute('data-ad-client', CLIENT);
+    ins.setAttribute('data-ad-slot', slotId);
+
+    var format = ins.getAttribute('data-gc-ad-format');
+    if (format) ins.setAttribute('data-ad-format', format);
+
+    if (ins.getAttribute('data-gc-full-width-responsive') === 'true') {
+      ins.setAttribute('data-full-width-responsive', 'true');
+    }
+
+    return true;
+  }
+
   function tryInit(ins) {
     if (!ins || !ins.isConnected) return;
-    if (ins.dataset.gcAdsInit === '1') return;
+    if (alreadyProcessed(ins)) {
+      ins.dataset.gcAdsInit = '1';
+      return;
+    }
 
     var slot = ins.closest ? (ins.closest('.ad-slot') || ins) : ins;
     if (!isVisible(slot) || !isVisible(ins)) return;
+    if (!ensureActive(ins)) return;
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -785,7 +827,8 @@ const adInitScript = SHOW_ADS ? `
   }
 
   function initAll() {
-    document.querySelectorAll(ADS_SELECTOR).forEach(function(ins) { tryInit(ins); });
+    document.querySelectorAll(PLACEHOLDER_SELECTOR).forEach(function(ins) { tryInit(ins); });
+    document.querySelectorAll(LEGACY_SELECTOR).forEach(function(ins) { tryInit(ins); });
   }
 
   function scheduleInit() {
@@ -813,7 +856,7 @@ const adInitScript = SHOW_ADS ? `
     var mo = new MutationObserver(function(mutations) {
       for (var i = 0; i < mutations.length; i++) {
         var target = mutations[i].target;
-        if (target && target.closest && target.closest('ins.adsbygoogle[data-gc-ads-init=\"1\"]')) continue;
+        if (target && target.closest && target.closest('ins[data-gc-ads-init=\"1\"]')) continue;
         scheduleInit();
         break;
       }

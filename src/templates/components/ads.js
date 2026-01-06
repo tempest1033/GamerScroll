@@ -36,17 +36,30 @@ const AD_PRESETS = {
 };
 
 function buildInsAttributes({ slotId, style, format, fullWidthResponsive, className }) {
-  const classes = className || 'adsbygoogle';
+  const classes = String(className || 'adsbygoogle').trim() || 'adsbygoogle';
+  const placeholderClasses = buildPlaceholderClassName(classes);
   const safeStyle = style || 'display:block';
   const attrs = [
-    `class="${classes}"`,
+    `class="${placeholderClasses}"`,
     `style="${safeStyle}"`,
-    `data-ad-client="${ADSENSE_CLIENT}"`,
-    `data-ad-slot="${slotId}"`
+    `data-gc-ad-client="${ADSENSE_CLIENT}"`,
+    `data-gc-ad-slot="${slotId}"`,
+    `data-gc-ins-class="${classes}"`
   ];
-  if (format) attrs.push(`data-ad-format="${format}"`);
-  if (fullWidthResponsive) attrs.push(`data-full-width-responsive="true"`);
+  if (format) attrs.push(`data-gc-ad-format="${format}"`);
+  if (fullWidthResponsive) attrs.push(`data-gc-full-width-responsive="true"`);
   return attrs.join(' ');
+}
+
+function buildPlaceholderClassName(className) {
+  const tokens = String(className || '').split(/\s+/).filter(Boolean);
+  const out = ['gc-ads-placeholder'];
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+    if (token === 'adsbygoogle' || token === 'gc-ads-placeholder') continue;
+    out.push(token);
+  }
+  return out.join(' ');
 }
 
 function renderAdIns({ slotId, style, format, fullWidthResponsive = false, className = 'adsbygoogle' }) {

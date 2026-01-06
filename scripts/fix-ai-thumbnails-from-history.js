@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * AI 인사이트(일간/주간) JSON의 thumbnail을 history 뉴스 썸네일 기준으로 정리합니다.
  *
@@ -458,7 +458,7 @@ function main() {
   results.push(...runDaily(REPORTS_DIR, 'reports'));
   results.push(...runWeekly(WEEKLY_REPORTS_DIR, 'reports/weekly'));
 
-  // 2) 배포 docs/reports (GitHub Pages) - 기본은 제외 (GamersCrawl/CLAUDE.md 참고)
+  // 2) 배포 docs/reports (GitHub Pages) - 기본은 제외 (GamersCrawl/GAMERSCRAWL.md 참고)
   if (includeDocs) {
     results.push(...runDaily(DOCS_REPORTS_DIR, 'docs/reports'));
     results.push(...runWeekly(DOCS_WEEKLY_REPORTS_DIR, 'docs/reports/weekly'));

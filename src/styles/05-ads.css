@@ -9,12 +9,14 @@
 }
 
 /* 광고 ins 요소 공통 */
-.ad-slot > ins.adsbygoogle {
+.ad-slot > ins.adsbygoogle,
+.ad-slot > ins.gc-ads-placeholder {
   display: block;
 }
 
 /* wrapper 없는 ins 광고 기본값 - AdSense 자체 스타일링 존중 */
-ins.adsbygoogle {
+ins.adsbygoogle,
+ins.gc-ads-placeholder {
   text-align: center;
 }
 
@@ -204,6 +206,10 @@ html.is-localhost .ad-slot::before {
 }
 
 html.is-localhost .ad-slot > ins.adsbygoogle {
+  position: relative;
+  z-index: 1;
+}
+html.is-localhost .ad-slot > ins.gc-ads-placeholder {
   position: relative;
   z-index: 1;
 }
