@@ -46,7 +46,7 @@ function generateIndexPage(data) {
       if (mainCard) {
         mainCardHtml = '<a class="home-news-card home-news-card-main" href="' + mainCard.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-card-thumb">' +
-          '<img data-src="' + fixUrl(mainCard.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect">' +
+          '<img src="' + fixUrl(mainCard.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect">' +
           '<span class="home-news-card-tag">' + (sourceName || mainCard.source) + '</span>' +
           '</div>' +
           '<div class="home-news-card-info">' +
@@ -58,7 +58,7 @@ function generateIndexPage(data) {
       if (subCard) {
         subCardHtml = '<a class="home-news-card home-news-card-sub" href="' + subCard.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-card-thumb">' +
-          '<img data-src="' + fixUrl(subCard.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect">' +
+          '<img src="' + fixUrl(subCard.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect">' +
           '<span class="home-news-card-tag">' + (sourceName || subCard.source) + '</span>' +
           '</div>' +
           '<div class="home-news-card-info">' +
@@ -70,7 +70,7 @@ function generateIndexPage(data) {
       var leftListHtml = listItems.slice(0, 3).map(function(item) {
         return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-item-thumb">' +
-          '<img data-src="' + fixUrl(item.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide">' +
+          '<img src="' + fixUrl(item.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide">' +
           '<span class="home-news-item-tag">' + (sourceName || item.source) + '</span>' +
           '</div>' +
           '<div class="home-news-item-info">' +
@@ -82,7 +82,7 @@ function generateIndexPage(data) {
       var rightListHtml = listItems.slice(3, 6).map(function(item) {
         return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener">' +
           '<div class="home-news-item-thumb">' +
-          '<img data-src="' + fixUrl(item.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide">' +
+          '<img src="' + fixUrl(item.thumbnail) + '" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide">' +
           '<span class="home-news-item-tag">' + (sourceName || item.source) + '</span>' +
           '</div>' +
           '<div class="home-news-item-info">' +
@@ -164,7 +164,7 @@ function generateIndexPage(data) {
     const dailyCard = dailyHeadline ? `
       <a href="${dailyLink}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${dailyThumbnail ? `<img data-src="${dailyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+          ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag">${dailyBadgeText}</span>
         </div>
         <h3 class="home-trend-card-title">${dailyHeadline}</h3>
@@ -175,7 +175,7 @@ function generateIndexPage(data) {
     const weeklyCard = wai ? `
       <a href="${weeklyLink}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${weeklyThumbnail ? `<img data-src="${weeklyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+          ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag weekly">${weeklyBadgeText}</span>
         </div>
         <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
@@ -283,7 +283,7 @@ function generateIndexPage(data) {
 
       var mainHtml = '<a class="home-video-card home-video-card-main" href="' + mainItem.link + '" target="_blank" rel="noopener">' +
         '<div class="home-video-card-thumb">' +
-        '<img data-src="' + mainItem.thumbnail + '" alt="" loading="lazy">' +
+        '<img src="' + mainItem.thumbnail + '" alt="" loading="lazy">' +
         '<span class="home-video-card-tag">' + mainItem.channel + '</span>' +
         (mainItem.viewers ? '<span class="home-video-live">LIVE ' + mainItem.viewers.toLocaleString() + '</span>' : '') +
         '</div>' +
@@ -295,7 +295,7 @@ function generateIndexPage(data) {
       if (subItem) {
         subHtml = '<a class="home-video-card home-video-card-sub" href="' + subItem.link + '" target="_blank" rel="noopener">' +
           '<div class="home-video-card-thumb">' +
-          '<img data-src="' + subItem.thumbnail + '" alt="" loading="lazy">' +
+          '<img src="' + subItem.thumbnail + '" alt="" loading="lazy">' +
           '<span class="home-video-card-tag">' + subItem.channel + '</span>' +
           (subItem.viewers ? '<span class="home-video-live">' + subItem.viewers.toLocaleString() + '</span>' : '') +
           '</div>' +
@@ -308,7 +308,7 @@ function generateIndexPage(data) {
       var leftListHtml = listItems.slice(0, 3).map(function(item) {
         return '<a class="home-video-item" href="' + item.link + '" target="_blank" rel="noopener">' +
           '<div class="home-video-item-thumb">' +
-          '<img data-src="' + item.thumbnail + '" alt="" loading="lazy">' +
+          '<img src="' + item.thumbnail + '" alt="" loading="lazy">' +
           '<span class="home-video-item-tag">' + item.channel + '</span>' +
           (item.viewers ? '<span class="home-video-live-sm">' + item.viewers.toLocaleString() + '</span>' : '') +
           '</div>' +
@@ -321,7 +321,7 @@ function generateIndexPage(data) {
       var rightListHtml = listItems.slice(3, 6).map(function(item) {
         return '<a class="home-video-item" href="' + item.link + '" target="_blank" rel="noopener">' +
           '<div class="home-video-item-thumb">' +
-          '<img data-src="' + item.thumbnail + '" alt="" loading="lazy">' +
+          '<img src="' + item.thumbnail + '" alt="" loading="lazy">' +
           '<span class="home-video-item-tag">' + item.channel + '</span>' +
           (item.viewers ? '<span class="home-video-live-sm">' + item.viewers.toLocaleString() + '</span>' : '') +
           '</div>' +
@@ -398,7 +398,7 @@ function generateIndexPage(data) {
         var isExternal = !slug;
         return '<a class="home-rank-row" href="' + link + '"' + (isExternal ? ' target="_blank" rel="noopener"' : '') + '>' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
-          '<img class="home-rank-icon" data-src="' + (app.icon || '') + '" alt="" loading="lazy" data-img-fallback="hide-visibility">' +
+          '<img class="home-rank-icon" src="' + (app.icon || '') + '" alt="" loading="lazy" data-img-fallback="hide-visibility">' +
           '<span class="home-rank-name">' + app.title + '</span>' +
           '</a>';
       }).join('');
@@ -433,7 +433,7 @@ function generateIndexPage(data) {
         var isExternal = !slug;
         return '<a class="home-steam-row" href="' + link + '"' + (isExternal ? ' target="_blank" rel="noopener"' : '') + '>' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
-          '<img class="home-steam-icon" data-src="' + (game.img || '') + '" alt="" loading="lazy" data-img-fallback-id="icon-square">' +
+          '<img class="home-steam-icon" src="' + (game.img || '') + '" alt="" loading="lazy" data-img-fallback-id="icon-square">' +
           '<div class="home-steam-info">' +
           '<span class="home-steam-name">' + (game.name || '') + '</span>' +
           (showPlayers ? '<span class="home-steam-players">' + (game.ccu ? game.ccu.toLocaleString() : '-') + ' 명</span>' : '') +
@@ -459,7 +459,7 @@ function generateIndexPage(data) {
       return items.map(function(game, i) {
         return '<a class="home-upcoming-row" href="' + (game.link || '#') + '" target="_blank" rel="noopener">' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
-          '<img class="home-upcoming-icon" data-src="' + (game.img || '') + '" alt="" loading="lazy" data-img-fallback="hide-visibility">' +
+          '<img class="home-upcoming-icon" src="' + (game.img || '') + '" alt="" loading="lazy" data-img-fallback="hide-visibility">' +
           '<div class="home-upcoming-info">' +
           '<span class="home-upcoming-name">' + (game.name || game.title || '') + '</span>' +
           (game.releaseDate ? '<span class="home-upcoming-date">' + game.releaseDate + '</span>' : '') +
@@ -547,7 +547,7 @@ function generateIndexPage(data) {
       var rankClass = game.rank <= 3 ? ' top' + game.rank : '';
       return '<a class="popular-banner-item" href="/games/' + game.slug + '/">' +
         '<span class="popular-banner-rank' + rankClass + '">' + game.rank + '</span>' +
-        (game.icon ? '<img class="popular-banner-icon" data-src="' + game.icon + '" alt="" loading="lazy" data-img-fallback="hide">' : '') +
+        (game.icon ? '<img class="popular-banner-icon" src="' + game.icon + '" alt="" loading="lazy" data-img-fallback="hide">' : '') +
         '<span class="popular-banner-name">' + game.name + '</span>' +
         '</a>';
     }).join('');
@@ -653,7 +653,7 @@ function generateIndexPage(data) {
 
 		  var content = '<section class="home-section active" id="home">' +
 		    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
-		    '<div class="home-container content-deferred">' +
+		    '<div class="home-container">' +
 		    '<div class="home-main">' +
 		    topAds +
 		    popularBannerHtml +

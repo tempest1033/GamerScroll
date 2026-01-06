@@ -44,7 +44,7 @@ function generateUpcomingPage(data) {
 	          <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
 	        </div>
 	        <div class="upcoming-col-game">
-	          ${game.img ? `<img class="upcoming-icon" data-src="${game.img}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1"${retryAttr}>` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
+	          ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1"${retryAttr}>` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
 	          <div class="upcoming-info">
 	            <div class="upcoming-name">${game.name}</div>
 	            ${game.publisher ? `<div class="upcoming-publisher">${game.publisher}</div>` : ''}
@@ -60,7 +60,7 @@ function generateUpcomingPage(data) {
   const content = `
     <section class="section active" id="upcoming">
       
-      <div class="page-container content-deferred">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">출시 게임 - 신작 게임, 출시 예정 게임</h1>
         <div class="upcoming-card home-card">

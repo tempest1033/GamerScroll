@@ -29,60 +29,6 @@
       background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
     }
 
-    /* 지연 로딩 이미지 페이드인 */
-    img[data-src] {
-      opacity: 0;
-    }
-    img.img-loaded {
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    /* 광고 우선 로딩: 카드 내부 컨텐츠만 지연 표시 */
-    .content-deferred .home-card-body,
-    .content-deferred .home-card-header,
-    .content-deferred .community-panel,
-    .content-deferred .metacritic-grid,
-    .content-deferred .games-hub-section-title,
-    .content-deferred .games-hub-popular,
-    .content-deferred .games-hub-recent,
-    .content-deferred .games-hub-all,
-    .content-deferred .trend-feed-grid,
-    .content-deferred .weekly-report,
-    .content-deferred .weekly-header-card,
-    .content-deferred .weekly-section,
-    .content-deferred .game-hero,
-    .content-deferred .game-grid,
-    .content-deferred .youtube-grid,
-    .content-deferred .upcoming-section,
-    .content-deferred .steam-section,
-    .content-deferred .rankings-tabs-row,
-    .content-deferred .news-tabs {
-      opacity: 0;
-    }
-    .content-loaded .home-card-body,
-    .content-loaded .home-card-header,
-    .content-loaded .community-panel,
-    .content-loaded .metacritic-grid,
-    .content-loaded .games-hub-section-title,
-    .content-loaded .games-hub-popular,
-    .content-loaded .games-hub-recent,
-    .content-loaded .games-hub-all,
-    .content-loaded .trend-feed-grid,
-    .content-loaded .weekly-report,
-    .content-loaded .weekly-header-card,
-    .content-loaded .weekly-section,
-    .content-loaded .game-hero,
-    .content-loaded .game-grid,
-    .content-loaded .youtube-grid,
-    .content-loaded .upcoming-section,
-    .content-loaded .steam-section,
-    .content-loaded .rankings-tabs-row,
-    .content-loaded .news-tabs {
-      opacity: 1;
-      transition: opacity 0.4s ease;
-    }
-
     /* 썸네일/아이콘 폴백 (파비콘 중앙 배치) */
     .thumb-fallback {
       background: var(--bg-secondary, #1a1a2e) url('/favicon.svg') center/32px no-repeat !important;

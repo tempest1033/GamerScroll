@@ -30,7 +30,7 @@ function generateMetacriticPage(data) {
       <div class="metacritic-card">
         <div class="metacritic-card-rank ${rankClass}">${i + 1}</div>
         <div class="metacritic-card-poster">
-          ${game.img ? `<img data-src="${game.img}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+          ${game.img ? `<img src="${game.img}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <div class="metacritic-card-score ${scoreClass}">${game.score}</div>
         </div>
         <div class="metacritic-card-info">
@@ -56,7 +56,7 @@ function generateMetacriticPage(data) {
   const content = `
 	    <section class="section active" id="metacritic">
 	      
-	      <div class="page-container metacritic-container content-deferred">
+	      <div class="page-container metacritic-container">
 	        ${topAds}
 	        <h1 class="visually-hidden">메타크리틱 - 게임 평점, 게임 리뷰</h1>
 	        ${generateMetacriticContent()}

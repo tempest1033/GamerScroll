@@ -97,7 +97,7 @@ function generateGamePage(gameData) {
 
   // 게임 아이콘
   const iconHtml = icon
-    ? `<img class="game-hero-icon" data-src="${icon}" alt="${name}" loading="lazy" data-img-fallback="hide">`
+    ? `<img class="game-hero-icon" src="${icon}" alt="${name}" loading="lazy" data-img-fallback="hide">`
     : '';
 
   // 순위 섹션 - iOS/Android 그리드 + 서브탭
@@ -1031,7 +1031,7 @@ function generateGamePage(gameData) {
     }
     return `<div class="game-youtube-grid">${youtube.slice(0, 4).map(video => `
       <a class="game-youtube-item" href="${video.link}" target="_blank" rel="noopener">
-	        <div class="game-youtube-thumb"><img data-src="${video.thumbnail}" alt="" loading="lazy" data-img-fallback="parent-hide"></div>
+	        <div class="game-youtube-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" data-img-fallback="parent-hide"></div>
         <div class="game-youtube-info">
           <span class="game-youtube-title">${video.title}</span>
           <span class="game-youtube-channel">${video.channel}</span>
@@ -1171,7 +1171,7 @@ function generateGamePage(gameData) {
   const content = `
     <section class="section active" id="game">
       
-      <div class="game-container content-deferred">
+      <div class="game-container">
         ${topAds}
         <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
       <!-- 게임 히어로 -->

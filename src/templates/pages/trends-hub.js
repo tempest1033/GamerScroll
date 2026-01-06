@@ -48,7 +48,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
     return `
       <a href="/trend/daily/${slug}/" class="trend-feed-card" data-type="daily">
         <div class="trend-feed-card-image">
-          ${thumbnail ? `<img data-src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag">${badgeText}</span>
         </div>
         <h3 class="trend-feed-card-title">${title}</h3>
@@ -68,7 +68,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
     return `
       <a href="/trend/weekly/${slug}/" class="trend-feed-card trend-feed-card-weekly" data-type="weekly">
         <div class="trend-feed-card-image">
-          ${thumbnail ? `<img data-src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag weekly">${badgeText}</span>
         </div>
         <h3 class="trend-feed-card-title">${title}</h3>
@@ -84,7 +84,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
     return `
       <a href="/trend/deep-dive/${post.slug}/" class="trend-feed-card trend-feed-card-deepdive" data-type="deepdive">
         <div class="trend-feed-card-image">
-          ${thumbnail ? `<img data-src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag deepdive">${badgeText}</span>
         </div>
         <h3 class="trend-feed-card-title">${post.title}</h3>
@@ -100,7 +100,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
   const content = `
     <section class="section active" id="trends-hub">
       
-      <div class="game-container trends-hub-container content-deferred">
+      <div class="game-container trends-hub-container">
         ${topAds}
         <h1 class="visually-hidden">게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스</h1>
 

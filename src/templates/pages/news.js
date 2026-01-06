@@ -42,7 +42,7 @@ function generateNewsPage(data) {
       const cardsHTML = cards.map((item, i) => `
         <a class="news-grid-card" href="${item.link}" target="_blank" rel="noopener" data-index="${item.originalIndex}">
           <div class="news-grid-card-thumb">
-            ${item.thumbnail ? `<img data-src="${item.thumbnail}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
+            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
             <div class="news-thumb-fallback"><img src="/favicon.svg" alt="" width="48" height="48"></div>
           </div>
           <div class="news-grid-card-title">${item.title}</div>
@@ -97,7 +97,7 @@ function generateNewsPage(data) {
   const content = `
     <section class="section active" id="news">
       
-      <div class="page-container content-deferred">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">게임 뉴스</h1>
         <div class="news-sources-grid">

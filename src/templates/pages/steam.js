@@ -32,7 +32,7 @@ function generateSteamPage(data) {
               <span class="steam-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
             </div>
             <div class="steam-col-game">
-              <img class="steam-img" data-src="${game.img}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-show-display="flex">
+              <img class="steam-img" src="${game.img}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-show-display="flex">
               <div class="steam-img-placeholder">${steamPlaceholder}</div>
               <div class="steam-game-info">
                 <div class="steam-game-name">${game.name}</div>
@@ -49,7 +49,7 @@ function generateSteamPage(data) {
   const content = `
     <section class="section active" id="steam">
       
-      <div class="page-container content-deferred">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">스팀 게임 순위</h1>
         <div class="steam-card home-card">
@@ -147,7 +147,7 @@ function generateSteamPage(data) {
 	                  '<span class="steam-rank ' + (i < 3 ? ('top' + (i + 1)) : '') + '">' + (i + 1) + '</span>' +
 	                '</div>' +
 	                '<div class="steam-col-game">' +
-	                  '<img class="steam-img" data-src="' + escapeHtml(game?.img || '') + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-show-display="flex">' +
+	                  '<img class="steam-img" src="' + escapeHtml(game?.img || '') + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-show-display="flex">' +
 	                  '<div class="steam-img-placeholder">' + STEAM_PLACEHOLDER + '</div>' +
 	                  '<div class="steam-game-info">' +
 	                    '<div class="steam-game-name">' + escapeHtml(game?.name || '') + '</div>' +
