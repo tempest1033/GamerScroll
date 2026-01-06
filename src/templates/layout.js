@@ -848,6 +848,7 @@ const adInitScript = SHOW_ADS ? `
   window.addEventListener('load', scheduleInit);
   window.addEventListener('pageshow', scheduleInit);
   window.addEventListener('resize', scheduleInit, { passive: true });
+  window.addEventListener('scroll', scheduleInit, { passive: true });
   document.addEventListener('visibilitychange', function() {
     if (!document.hidden) scheduleInit();
   });

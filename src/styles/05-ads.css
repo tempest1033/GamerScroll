@@ -1,5 +1,11 @@
 ﻿/* ===== Ads (AdSense) ===== */
 
+/* unfilled 광고 숨기기 */
+ins.adsbygoogle[data-ad-status="unfilled"],
+.ad-slot:has(ins[data-ad-status="unfilled"]) {
+  display: none !important;
+}
+
 /* 광고 배너 슬롯 */
 .ad-slot {
   display: flex;
@@ -99,6 +105,11 @@ ins.adsbygoogle.pc-only {
 }
 
 @media (max-width: 768px) {
+  /* 모바일에서는 타입 클래스가 없어도 mobile-only 슬롯은 기본 표시 */
+  .ad-slot.mobile-only {
+    display: flex !important;
+  }
+
   /* 모바일에서 PC only 광고 숨기기 */
   .ad-slot.pc-only,
   ins.adsbygoogle.pc-only {

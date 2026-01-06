@@ -8,28 +8,34 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 // AdSense 표준 프리셋 (style/data-ad-format/fullWidthResponsive)
 // - wrapperClass(pc-only/mobile-only 등)는 호출부에서 결정
 const AD_PRESETS = {
+  // PC 가로형 - width 100%, height 90px 고정
   horizontalPc: {
-    style: 'display:inline-block;width:728px;height:90px'
+    style: 'display:block;width:100%;height:90px'
   },
   horizontalPcLong: {
-    style: 'display:inline-block;width:970px;height:90px'
+    style: 'display:block;width:100%;height:90px'
   },
+  // 모바일 가로형 - width 100%, height 100px 고정
   horizontalMobile: {
-    style: 'display:inline-block;width:320px;height:100px'
+    style: 'display:block;width:100%;height:100px'
   },
+  // PC 사각형 - width 100%, height 300px 고정
   rectanglePc: {
-    style: 'display:inline-block;width:300px;height:250px'
+    style: 'display:block;width:100%;height:300px'
   },
+  // 모바일 사각형 - 반응형 풀
   rectangleMobile: {
-    style: 'display:block',  // AdSense가 크기 결정
+    style: 'display:block',
     format: 'auto',
     fullWidthResponsive: true
   },
+  // PC 버티컬 - width 100%, height 600px 고정
   verticalPc: {
-    style: 'display:inline-block;width:300px;height:600px'
+    style: 'display:block;width:100%;height:600px'
   },
+  // 자동 반응형 - 풀
   autoResponsive: {
-    style: 'display:block',  // AdSense가 크기 결정
+    style: 'display:block',
     format: 'auto',
     fullWidthResponsive: true
   }
