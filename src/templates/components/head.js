@@ -214,6 +214,11 @@ function generateHead(options = {}) {
                 img.classList.remove('img-loading');
               };
               img.src = src;
+              // 캐시된 이미지는 onload가 안 불릴 수 있음
+              if (img.complete) {
+                img.classList.remove('img-loading');
+                img.classList.add('img-loaded');
+              }
             }
           })(imgs[i]);
         }
