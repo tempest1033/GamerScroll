@@ -4,7 +4,7 @@
  */
 
 // 광고 배너 슬롯 표시 여부
-const SHOW_ADS = true;
+const SHOW_ADS = false;  // 자동광고 테스트용 OFF
 
 // AdSense 스크립트 로드 여부 (심사용/연결용)
 // - 자동광고(Auto ads)는 AdSense 콘솔에서 별도로 OFF 권장
