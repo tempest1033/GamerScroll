@@ -754,124 +754,8 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 (보이는 슬롯만 1회 push)
-// - 탭/섹션 전환(display none → block)에도 다시 초기화되도록 MutationObserver로 보강
-const adInitScript = SHOW_ADS ? `
-<script>
-(function() {
-  var CLIENT = '${ADSENSE_CLIENT}';
-  var PLACEHOLDER_SELECTOR = 'ins[data-gc-ad-client=\"' + CLIENT + '\"][data-gc-ad-slot]';
-  var LEGACY_SELECTOR = 'ins.adsbygoogle[data-ad-client=\"' + CLIENT + '\"][data-ad-slot]';
-
-  function isVisible(el) {
-    if (!el || !el.isConnected) return false;
-    var style = window.getComputedStyle(el);
-    if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
-    return (el.offsetWidth >= 1 || el.offsetHeight >= 1);
-  }
-
-  function alreadyProcessed(ins) {
-    if (!ins) return false;
-    if (ins.dataset.gcAdsInit === '1') return true;
-    var status = ins.getAttribute('data-adsbygoogle-status');
-    if (status === 'done') return true;
-    var adStatus = ins.getAttribute('data-ad-status');
-    if (adStatus) return true;
-    return false;
-  }
-
-  function ensureActive(ins) {
-    if (!ins) return false;
-    if (ins.getAttribute('data-ad-client') && ins.getAttribute('data-ad-slot') && ins.classList && ins.classList.contains('adsbygoogle')) {
-      return true;
-    }
-
-    var slotId = ins.getAttribute('data-gc-ad-slot');
-    if (!slotId) return false;
-
-    var classValue = ins.getAttribute('data-gc-ins-class') || 'adsbygoogle';
-    var classes = String(classValue).split(/\\s+/).filter(Boolean);
-    if (classes.indexOf('adsbygoogle') < 0) classes.unshift('adsbygoogle');
-    ins.setAttribute('class', classes.join(' '));
-
-    ins.setAttribute('data-ad-client', CLIENT);
-    ins.setAttribute('data-ad-slot', slotId);
-
-    var format = ins.getAttribute('data-gc-ad-format');
-    if (format) ins.setAttribute('data-ad-format', format);
-
-    if (ins.getAttribute('data-gc-full-width-responsive') === 'true') {
-      ins.setAttribute('data-full-width-responsive', 'true');
-    }
-
-    return true;
-  }
-
-  function tryInit(ins) {
-    if (!ins || !ins.isConnected) return;
-    if (alreadyProcessed(ins)) {
-      ins.dataset.gcAdsInit = '1';
-      return;
-    }
-
-    var slot = ins.closest ? (ins.closest('.ad-slot') || ins) : ins;
-    if (!isVisible(slot) || !isVisible(ins)) return;
-    if (!ensureActive(ins)) return;
-
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-      ins.dataset.gcAdsInit = '1';
-    } catch (e) {
-      // 실패 시 다음 프레임에서 재시도 가능하도록 마킹하지 않음
-    }
-  }
-
-  function initAll() {
-    document.querySelectorAll(PLACEHOLDER_SELECTOR).forEach(function(ins) { tryInit(ins); });
-    document.querySelectorAll(LEGACY_SELECTOR).forEach(function(ins) { tryInit(ins); });
-  }
-
-  function scheduleInit() {
-    if (window.__gcAdsInitRaf) return;
-    window.__gcAdsInitRaf = requestAnimationFrame(function() {
-      window.__gcAdsInitRaf = 0;
-      initAll();
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', scheduleInit);
-  } else {
-    scheduleInit();
-  }
-
-  window.addEventListener('load', scheduleInit);
-  window.addEventListener('pageshow', scheduleInit);
-  window.addEventListener('resize', scheduleInit, { passive: true });
-  window.addEventListener('scroll', scheduleInit, { passive: true });
-  document.addEventListener('visibilitychange', function() {
-    if (!document.hidden) scheduleInit();
-  });
-
-  try {
-    var mo = new MutationObserver(function(mutations) {
-      for (var i = 0; i < mutations.length; i++) {
-        var target = mutations[i].target;
-        if (target && target.closest && target.closest('ins[data-gc-ads-init=\"1\"]')) continue;
-        scheduleInit();
-        break;
-      }
-    });
-
-    mo.observe(document.body, {
-      subtree: true,
-      childList: true,
-      attributes: true,
-      attributeFilter: ['class', 'style', 'hidden', 'aria-hidden']
-    });
-  } catch (e) {}
-})();
-</script>` : '';
+// 광고 초기화 스크립트 - 구글 권장 방식으로 각 광고 슬롯에서 직접 push하므로 별도 스크립트 불필요
+const adInitScript = '';
 
 function wrapWithLayout(content, options = {}) {
   const {
@@ -932,27 +816,38 @@ function generateAdPair(mobileConfig = {}, pcConfig = {}) {
   return `${mobileHtml}\n${pcHtml}`;
 }
 
-function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '', ids = {}) {
+/**
+ * PC/모바일 광고 세트 생성
+ * @param {string} slotIdPc - PC용 슬롯 ID
+ * @param {string} slotIdMobile - 모바일용 슬롯 ID
+ * @param {string} extraClass - 추가 CSS 클래스
+ * @param {Object} options - { idMobile, idPc, collapse }
+ * @param {boolean} options.collapse - true면 unfilled 시 접힘 (3,4,5번 광고용)
+ */
+function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '', options = {}) {
   const mobileSlot = slotIdMobile || slotIdPc;
-  const mobileId = ids.idMobile || '';
-  const pcId = ids.idPc || '';
+  const mobileId = options.idMobile || '';
+  const pcId = options.idPc || '';
+  const collapse = options.collapse || false;
   const baseClass = (extraClass || '').trim();
   const pcPreset = slotIdPc === AD_SLOTS.PC_LongHorizontal001
     ? AD_PRESETS.horizontalPcLong
     : AD_PRESETS.horizontalPc;
 
   return generateAdPair(
-    // 모바일 광고를 먼저 배치 (홈페이지와 동일한 구조로 CLS 방지)
+    // 모바일 광고를 먼저 배치
     {
       id: mobileId,
       wrapperClass: `ad-slot-section ad-slot--horizontal mobile-only ${baseClass}`.trim(),
       slotId: mobileSlot,
+      collapse,
       ...AD_PRESETS.horizontalMobile
     },
     {
       id: pcId,
       wrapperClass: `ad-slot-section ad-slot--horizontal pc-only ${baseClass}`.trim(),
       slotId: slotIdPc,
+      collapse,
       ...pcPreset
     }
   );

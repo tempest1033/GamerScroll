@@ -1,12 +1,15 @@
-﻿/* ===== Ads (AdSense) ===== */
+/* ===== Ads (AdSense) - 구글 권장 방식 ===== */
 
-/* unfilled 광고 숨기기 */
-ins.adsbygoogle[data-ad-status="unfilled"],
-.ad-slot:has(ins[data-ad-status="unfilled"]) {
-  display: none !important;
-}
+/*
+ * 구글 AdSense 미디어쿼리 가이드:
+ * - display: none 사용 시 광고 요청 자체가 안 감 (정책 준수)
+ * - PC/모바일 별도 클래스로 분기
+ * - min-height로 빈 공간 유지 (CLS 방지)
+ */
 
-/* 광고 배너 슬롯 */
+/* ===== 기본 스타일 ===== */
+
+/* 광고 슬롯 기본 */
 .ad-slot {
   display: flex;
   align-items: center;
@@ -14,19 +17,13 @@ ins.adsbygoogle[data-ad-status="unfilled"],
   box-sizing: border-box;
 }
 
-/* 광고 ins 요소 공통 */
-.ad-slot > ins.adsbygoogle,
-.ad-slot > ins.gc-ads-placeholder {
+/* 광고 ins 요소 */
+.ad-slot > ins.adsbygoogle {
   display: block;
-}
-
-/* wrapper 없는 ins 광고 기본값 - AdSense 자체 스타일링 존중 */
-ins.adsbygoogle,
-ins.gc-ads-placeholder {
   text-align: center;
 }
 
-/* AdSense 내부 렌더링 요소 중앙 정렬 보정 */
+/* AdSense 내부 요소 중앙 정렬 */
 ins.adsbygoogle > ins,
 ins.adsbygoogle > div,
 ins.adsbygoogle iframe {
@@ -36,156 +33,130 @@ ins.adsbygoogle iframe {
   display: block;
 }
 
-/* PC 광고 기본 */
-.ad-slot.pc-only > ins.adsbygoogle {
-  max-height: 600px;
-}
-
-/* 모바일 광고 크기 제한 (네이티브 인피드는 제외 - fluid 높이 필요) */
-.ad-slot.mobile-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--native) > ins.adsbygoogle {
-  max-width: 320px;
-  min-height: auto;
-  height: auto;
-}
-
-/* 모든 페이지: PC 가로형 광고 최소 높이 (728x90 기본) */
-.ad-slot--horizontal.pc-only {
-  min-height: 90px;
-  padding: 12px;
-}
-
-/* PC 사각형 광고 고정 크기 (300x250) */
-.ad-slot--rectangle.pc-only {
-  width: 300px;
-  height: 250px;
-}
-
-.ad-slot--horizontal.pc-only > ins.adsbygoogle {
-  width: 100%;
-  min-height: 90px;
-  height: auto;
-}
-
-/* 모바일 가로형 - inline style에 위임 (고정 320x100) */
-
-
-.ad-slot--rectangle.pc-only > ins.adsbygoogle {
-  max-width: 300px;
-  min-height: 250px;
-  height: auto;
-}
-
-/* 모바일 사각형 - AdSense 반응형에 위임 */
-
+/* 광고 여백 */
 .ad-slot-top {
   margin-bottom: var(--space-block-y);
 }
-
-/* 광고 여백 - 카드 간격과 동일 */
 .ad-slot-section {
   margin: var(--space-block-gap) 0;
 }
 
-.ad-slot.mobile-only,
-ins.adsbygoogle.mobile-only {
-  display: none !important;
+/* ===== unfilled 광고 - 공간 유지 (CLS 방지) ===== */
+.ad-slot:has(ins[data-ad-status="unfilled"]) {
+  visibility: hidden;
 }
 
-/* PC에서 pc-only 광고 명시적 표시 (slot은 flex 유지, ins는 block) */
+/* ===== PC 광고 (기본 표시) ===== */
+
 .ad-slot.pc-only {
+  display: flex !important;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
-  display: flex !important;
 }
-ins.adsbygoogle.pc-only {
-  display: block !important;
+
+/* PC 가로형 - 728x90 */
+.ad-slot--horizontal.pc-only {
+  min-height: 90px;
+  padding: 12px;
 }
+.ad-slot--horizontal.pc-only > ins.adsbygoogle {
+  width: 100%;
+  min-height: 90px;
+}
+
+/* PC 사각형 - 300x250 */
+.ad-slot--rectangle.pc-only {
+  width: 300px;
+  min-height: 250px;
+}
+.ad-slot--rectangle.pc-only > ins.adsbygoogle {
+  width: 300px;
+  min-height: 250px;
+}
+
+/* PC 버티컬 - 300x600 */
+.ad-slot--vertical.pc-only {
+  width: 300px;
+  min-height: 600px;
+}
+.ad-slot--vertical.pc-only > ins.adsbygoogle {
+  width: 300px;
+  min-height: 600px;
+}
+
+/* ===== 모바일 광고 (기본 숨김 - 구글 권장: display:none으로 광고 요청 자체 차단) ===== */
+
+.ad-slot.mobile-only {
+  display: none !important;
+}
+
+/* ===== 미디어쿼리: 모바일 (768px 이하) ===== */
 
 @media (max-width: 768px) {
-  /* 모바일에서는 타입 클래스가 없어도 mobile-only 슬롯은 기본 표시 */
-  .ad-slot.mobile-only {
-    display: flex !important;
-  }
-
-  /* 모바일에서 PC only 광고 숨기기 */
-  .ad-slot.pc-only,
-  ins.adsbygoogle.pc-only {
+  /* PC 광고 숨기기 - 광고 요청 차단 */
+  .ad-slot.pc-only {
     display: none !important;
   }
 
-  /* 모바일 가로형 광고 - 고정 320x100, CLS 방지 최소 높이 */
-  .ad-slot.mobile-only.ad-slot--horizontal {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    max-width: 320px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-
-  /* 모바일 광고 기본 표시 (ins는 block, slot은 flex 유지) */
-  ins.adsbygoogle.mobile-only {
-    display: block !important;
-  }
-
-  /* 모바일 직사각형 광고 - AdSense 반응형, CLS 방지 최소 높이 */
-  .ad-slot.mobile-only.ad-slot--rectangle {
+  /* 모바일 광고 표시 */
+  .ad-slot.mobile-only {
     display: flex !important;
     align-items: center;
     justify-content: center;
     width: 100%;
+  }
+
+  /* 모바일 가로형 - width 100%, height 100px */
+  .ad-slot.mobile-only.ad-slot--horizontal {
+    min-height: 100px;
+  }
+  .ad-slot.mobile-only.ad-slot--horizontal > ins.adsbygoogle {
+    width: 100%;
+    min-height: 100px;
+  }
+
+  /* 모바일 사각형/반응형 - width 100%, 최소 높이 보장 */
+  .ad-slot.mobile-only.ad-slot--rectangle {
     min-height: 100px;
   }
   .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
-    display: block;
-    /* 크기는 AdSense가 결정 */
+    width: 100%;
+    min-height: 100px;
   }
 
-  /* 모바일 네이티브 인피드 광고 */
+  /* 모바일 네이티브 인피드 */
   .ad-slot.mobile-only.ad-slot--native {
     display: block !important;
-  }
-
-  /* 모바일 광고 컨테이너 최대 너비 제한 */
-  .ad-slot {
-    max-width: 100%;
-  }
-  .ad-slot > ins.adsbygoogle {
-    max-width: 100%;
-  }
-  .ad-slot:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--native) > ins.adsbygoogle {
-    max-width: 320px !important;
-    max-height: 250px !important;
+    min-height: 100px;
   }
 }
 
-/* page-container/game-container/games-hub-container/insight-container 내부 광고 슬롯 - flex gap으로 이미 여백 있으므로 마진 제거 */
+/* ===== 컨테이너 내부 광고 여백 조정 ===== */
+
 :is(.page-container, .game-container, .games-hub-container, .insight-container) .ad-slot-section {
   margin: 0;
 }
 
-/* 첫 번째 광고 - 네비게이션과 간격 */
 :is(.page-container, .game-container, .games-hub-container, .insight-container) > .ad-slot-section:first-child {
   margin-top: var(--space-block-gap);
 }
-/* 첫 광고가 모바일 전용이면 PC 첫 광고에도 같은 간격 적용 */
+
 :is(.page-container, .game-container, .games-hub-container, .insight-container)
   > .ad-slot-section.mobile-only:first-child
   + .ad-slot-section.pc-only {
   margin-top: var(--space-block-gap);
 }
 
-/* page-container 내부 PC 광고 슬롯 - flex 컨텍스트에서 전체 너비 보장 */
 :is(.page-container, .game-container, .games-hub-container, .insight-container) > .ad-slot--horizontal.pc-only {
   width: 100% !important;
   flex: 0 0 100%;
 }
 
-/* Localhost에서 광고 레이아웃 확인용 플레이스홀더 */
+/* ===== Localhost 플레이스홀더 ===== */
+
 html.is-localhost .ad-slot {
   position: relative;
 }
@@ -208,10 +179,6 @@ html.is-localhost .ad-slot::before {
 }
 
 html.is-localhost .ad-slot > ins.adsbygoogle {
-  position: relative;
-  z-index: 1;
-}
-html.is-localhost .ad-slot > ins.gc-ads-placeholder {
   position: relative;
   z-index: 1;
 }
