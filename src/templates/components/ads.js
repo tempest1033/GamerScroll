@@ -17,7 +17,7 @@ const AD_PRESETS = {
   },
   // 모바일 가로형 - width 100%, height auto
   horizontalMobile: {
-    style: 'display:block;min-width:300px;max-width:728px;width:100%;height:250px'
+    style: 'display:block;min-width:300px;max-width:728px;width:100%;height:220px'
   },
   // PC 사각형 - 300x250
   rectanglePc: {
@@ -25,7 +25,7 @@ const AD_PRESETS = {
   },
   // 모바일 사각형 - width 100%, height auto
   rectangleMobile: {
-    style: 'display:block;min-width:300px;max-width:728px;width:100%;height:250px'
+    style: 'display:block;min-width:300px;max-width:728px;width:100%;height:220px'
   },
   // PC 버티컬 - 300x600
   verticalPc: {
