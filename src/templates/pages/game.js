@@ -1244,6 +1244,7 @@ function generateGamePage(gameData) {
 		          {
 		            wrapperClass: 'ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve',
 		            slotId: AD_SLOTS.Mobile_Responsive001,
+		            format: 'auto',
 		            ...AD_PRESETS.rectangleMobile
 		          },
 		          {

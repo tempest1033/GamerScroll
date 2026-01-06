@@ -23,9 +23,9 @@ const AD_PRESETS = {
   rectanglePc: {
     style: 'display:block;width:300px;height:250px'
   },
-  // 모바일 사각형 - width 100%, min/max height 250~500
+  // 모바일 사각형 - width 100%, min/max height 200~500
   rectangleMobile: {
-    style: 'display:block;min-width:300px;max-width:728px;width:100%;min-height:250px;max-height:500px;height:100%'
+    style: 'display:block;min-width:300px;max-width:728px;width:100%;min-height:200px;max-height:500px;height:100%'
   },
   // PC 버티컬 - 300x600
   verticalPc: {
