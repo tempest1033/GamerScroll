@@ -64,9 +64,14 @@ jobs:
           # 각 페이지를 폴더/index.html로
           for page in news community youtube rankings steam upcoming metacritic; do
             mkdir -p docs/$page
-            cp $page.html docs/$page/index.html
+          cp $page.html docs/$page/index.html
           done
           cp src/styles.css docs/styles.css
+          # 분리된 CSS 모듈(추가 요청) 복사
+          if [ -d "src/styles" ]; then
+            mkdir -p docs/styles
+            cp -r src/styles/*.css docs/styles/ 2>/dev/null || true
+          fi
           # 파비콘 및 아이콘 복사
           cp favicon-16x16.png docs/favicon-16x16.png
           cp favicon-32x32.png docs/favicon-32x32.png

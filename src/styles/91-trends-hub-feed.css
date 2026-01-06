@@ -1,0 +1,179 @@
+﻿/* ========== 트렌드 허브 페이지 (피드 카드 스타일) ========== */
+.trends-hub-container {
+  /* 레이아웃은 `.site-container` + `.game-container`에서 관리하고, 이 클래스는 페이지 스코프용 마커로 둡니다. */
+  width: 100%;
+}
+
+.trend-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+.trend-feed-card {
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.trend-feed-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.trend-feed-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.trend-feed-card-weekly .trend-feed-card-image {
+  background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+}
+
+.trend-feed-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trend-feed-card-image img[src=""],
+.trend-feed-card-image img:not([src]) {
+  display: none;
+}
+
+.trend-feed-card-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+}
+
+.trend-feed-card-tag.weekly {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.trend-feed-card-title {
+  font-size: var(--font-body-size);
+  font-weight: var(--font-title-weight);
+  color: var(--text);
+  margin: 0;
+  padding: 12px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 60px;
+  box-sizing: border-box;
+}
+
+/* 트렌드 섹션 간격 */
+.trend-section {
+  margin-bottom: 20px;
+}
+
+.trend-section:last-child {
+  margin-bottom: 0;
+}
+
+/* 트렌드/비디오 섹션 페이지네이션 (헤더 내) */
+.trend-pagination,
+.video-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trend-page-btn,
+.video-page-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trend-page-btn:hover:not(:disabled),
+.video-page-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.trend-page-btn:disabled,
+.video-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.trend-page-index,
+.video-page-index {
+  font-size: var(--font-body-size);
+  color: var(--text-secondary);
+  min-width: 45px;
+  text-align: center;
+}
+
+/* 비디오 섹션 카드 간격 */
+.video-section-card {
+  margin-bottom: 24px;
+}
+.video-section-card:last-child {
+  margin-bottom: 0;
+}
+
+.trend-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* 다크모드 - 트렌드 피드 */
+@media (prefers-color-scheme: dark) {
+  .trend-feed-card {
+    background: var(--card-bg);
+    border-color: var(--border);
+  }
+  .trend-feed-card-tag {
+    background: rgba(0, 0, 0, 0.65);
+  }
+}
+
+/* 모바일 - 트렌드 피드 */
+@media (max-width: 768px) {
+  .trend-feed-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .trend-feed-card-title {
+    padding: 12px 12px 14px;
+  }
+
+  .trend-feed-card-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}

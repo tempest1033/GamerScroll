@@ -1,0 +1,634 @@
+﻿/* ============================================================
+   홈 피드 모바일 패딩 통합 (최종)
+   - 모든 요소가 동일한 좌우 여백으로 정렬
+   - 768/480/360: 12px 통일
+   ============================================================ */
+
+/* === 태블릿 (768px 이하) === */
+@media (max-width: 768px) {
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
+  .home-container {
+    padding: 0 0 var(--space-block-y) 0 !important;
+    gap: var(--space-block-gap) !important;
+  }
+
+  /* 카드 헤더 */
+  .home-card-header {
+    padding: 10px 12px !important;
+  }
+
+  /* 카드 바디 - 좌우 패딩 없음 */
+  .home-card-body {
+    padding: 8px 0 !important;
+  }
+
+  /* 탭 그룹 */
+  .home-rank-tabs {
+    margin: 0 12px 8px 12px !important;
+    padding: 0 !important;
+  }
+
+  /* 인사이트 페이지 탭 - 모바일 */
+  .insight-tabs {
+    margin: 0 0 12px 0 !important;
+    padding: 4px !important;
+  }
+
+  /* Split 컨테이너 - 좌우 패딩 없음 */
+  .home-news-split,
+  .home-video-split {
+    padding: 0 !important;
+  }
+
+  /* 카드 컨테이너 - 좌우 패딩 없음 */
+  .home-news-cards,
+  .home-video-cards {
+    padding: 0 !important;
+  }
+
+  /* 리스트 컨테이너 - 좌우 패딩 */
+  .home-news-list,
+  .home-video-list {
+    padding: 0 12px !important;
+  }
+
+  /* 뉴스/영상 카드 - 좌우 마진으로 여백 */
+  .home-news-card,
+  .home-video-card {
+    margin: 0 12px 10px 12px !important;
+    border-radius: 8px;
+  }
+
+  /* 뉴스/영상 아이템 - 패딩으로 여백 */
+  .home-news-item,
+  .home-video-item {
+    padding: 10px 12px !important;
+    margin: 0 !important;
+  }
+
+  /* 일반 아이템 */
+  .home-item {
+    padding: 10px 12px !important;
+  }
+
+  /* 순위/스팀/출시예정 행 */
+  .home-steam-row,
+  .home-upcoming-row,
+  .home-rank-row {
+    padding: 10px 12px !important;
+  }
+
+  /* 탭 그룹 (카드 바디 내) */
+  .home-card-body .tab-group {
+    margin: 0 12px 8px 12px !important;
+  }
+
+  /* 인사이트 그리드 - 1열로 변경 */
+  .home-insight-grid {
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 12px !important;
+  }
+
+  /* 인사이트 스크롤 - 헤더와 정렬 */
+  .home-insight-scroll {
+    padding: 8px 12px !important;
+    gap: 12px !important;
+  }
+
+  /* 인사이트 split - 1열로 변경 */
+  .home-insight-split {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 8px 12px !important;
+  }
+
+  .home-insight-column {
+    width: 100% !important;
+  }
+
+  .home-insight-item {
+    padding: 14px;
+  }
+
+}
+
+/* === 모바일 (480px 이하) === */
+@media (max-width: 480px) {
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
+  .home-container {
+    padding: 0 0 var(--space-block-y) 0 !important;
+    gap: var(--space-block-gap) !important;
+  }
+
+  /* 데일리 포커스 문구 */
+  .home-daily-focus {
+    padding: 8px 8px 0 !important;
+  }
+
+  .home-daily-focus-text {
+    padding: 12px !important;
+    font-size: 15px !important;
+  }
+
+  @media (max-width: 360px) {
+    .home-daily-focus-text {
+      font-size: 14px !important;
+    }
+  }
+
+  /* 카드 헤더 */
+  .home-card-header {
+    padding: 8px !important;
+  }
+
+  /* 카드 바디 */
+  .home-card-body {
+    padding: 6px 0 !important;
+  }
+
+  /* 탭 그룹 */
+  .home-rank-tabs {
+    margin: 0 8px 6px 8px !important;
+  }
+
+  /* 커뮤니티 탭 텍스트 축약 */
+  .tab-text-dcinside {
+    font-size: 0;
+  }
+  .tab-text-dcinside::after {
+    content: '디시';
+    font-size: var(--font-tab-size);
+  }
+  .tab-text-arca {
+    font-size: 0;
+  }
+  .tab-text-arca::after {
+    content: '아카';
+    font-size: var(--font-tab-size);
+  }
+
+  /* 인사이트 페이지 탭 - 480px */
+  .insight-tabs {
+    margin: 0 0 10px 0 !important;
+    padding: 4px !important;
+  }
+
+  /* 뉴스/영상 카드 */
+  .home-news-card,
+  .home-video-card {
+    margin: 0 8px 8px 8px !important;
+  }
+
+  /* 리스트 컨테이너 */
+  .home-news-list,
+  .home-video-list {
+    padding: 0 8px !important;
+  }
+
+  /* 뉴스/영상 아이템 */
+  .home-news-item,
+  .home-video-item {
+    padding: 8px !important;
+  }
+
+  /* 일반 아이템 */
+  .home-item {
+    padding: 8px !important;
+  }
+
+  /* 순위/스팀/출시예정 행 */
+  .home-steam-row,
+  .home-upcoming-row,
+  .home-rank-row {
+    padding: 8px !important;
+  }
+
+  /* 탭 그룹 (카드 바디 내) */
+  .home-card-body .tab-group {
+    margin: 0 8px 6px 8px !important;
+  }
+
+  /* 인사이트 그리드 */
+  .home-insight-grid {
+    padding: 6px 8px !important;
+  }
+
+  /* 인사이트 스크롤 - 헤더와 정렬 */
+  .home-insight-scroll {
+    padding: 6px 8px !important;
+  }
+
+  /* 인사이트 스플릿 - 헤더와 정렬 (480px) */
+  .home-insight-split {
+    padding: 6px 8px !important;
+  }
+
+  .home-insight-item {
+    padding: 12px;
+  }
+}
+
+/* === 작은 화면 (360px 이하) === */
+@media (max-width: 360px) {
+  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
+  .home-container {
+    padding: 0 0 var(--space-block-y) 0 !important;
+    gap: var(--space-block-gap) !important;
+  }
+
+  /* 카드 헤더 */
+  .home-card-header {
+    padding: 6px !important;
+  }
+
+  /* 카드 바디 */
+  .home-card-body {
+    padding: 4px 0 !important;
+  }
+
+  /* 탭 그룹 */
+  .home-rank-tabs {
+    margin: 0 6px 4px 6px !important;
+  }
+
+  /* 커뮤니티 탭 텍스트 축약 */
+  .tab-text-dcinside {
+    font-size: 0;
+  }
+  .tab-text-dcinside::after {
+    content: '디시';
+    font-size: var(--font-tab-size);
+  }
+  .tab-text-arca {
+    font-size: 0;
+  }
+  .tab-text-arca::after {
+    content: '아카';
+    font-size: var(--font-tab-size);
+  }
+
+  /* 인사이트 페이지 탭 - 360px */
+  .insight-tabs {
+    margin: 0 0 8px 0 !important;
+    padding: 3px !important;
+  }
+
+  /* 뉴스/영상 카드 */
+  .home-news-card,
+  .home-video-card {
+    margin: 0 6px 6px 6px !important;
+  }
+
+  /* 리스트 컨테이너 */
+  .home-news-list,
+  .home-video-list {
+    padding: 0 6px !important;
+  }
+
+  /* 뉴스/영상 아이템 */
+  .home-news-item,
+  .home-video-item {
+    padding: 6px !important;
+  }
+
+  /* 일반 아이템 */
+  .home-item {
+    padding: 6px !important;
+  }
+
+  /* 순위/스팀/출시예정 행 */
+  .home-steam-row,
+  .home-upcoming-row,
+  .home-rank-row {
+    padding: 6px !important;
+  }
+
+  /* 탭 그룹 (카드 바디 내) */
+  .home-card-body .tab-group {
+    margin: 0 6px 4px 6px !important;
+  }
+
+  /* 인사이트 그리드 */
+  .home-insight-grid {
+    padding: 4px 6px !important;
+  }
+
+  /* 인사이트 스크롤 - 헤더와 정렬 */
+  .home-insight-scroll {
+    padding: 4px 6px !important;
+  }
+
+  /* 인사이트 스플릿 - 헤더와 정렬 (360px) */
+  .home-insight-split {
+    padding: 4px 6px !important;
+  }
+
+  .home-insight-item {
+    padding: 10px;
+  }
+}
+
+/* ===========================
+   인사이트 페이지 스타일
+   =========================== */
+
+.insight-panel {
+  display: none;
+}
+
+.insight-panel.active {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block-y);
+}
+
+/* 주간 리포트 헤더 카드 (피드 스타일) - 라이트모드 */
+.weekly-header-card {
+  background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 헤드라인 이미지 레이아웃 */
+.weekly-header-card.has-hero-image {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: stretch;
+  padding: 0;
+}
+
+.weekly-header-image {
+  flex-shrink: 0;
+  width: 200px;
+  border-radius: 20px 0 0 20px;
+  overflow: hidden;
+}
+
+.weekly-header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.weekly-header-text {
+  flex: 1;
+  padding: 20px 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.weekly-header-card:not(.has-hero-image) .weekly-header-text {
+  padding: 0;
+}
+
+.weekly-header-card .weekly-header-title,
+.weekly-header-card .weekly-header-headline,
+.weekly-header-card .weekly-header-period,
+.weekly-header-card .weekly-header-ampm-tag {
+  color: #fff;
+}
+
+.weekly-header-card .weekly-header-headline {
+  opacity: 0.85;
+}
+
+.weekly-header-card .weekly-header-period {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.weekly-header-card .weekly-header-ampm-tag.am {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.weekly-header-card .weekly-header-ampm-tag.pm {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* 다크모드 - 블루/인디고→오렌지 복원 */
+@media (prefers-color-scheme: dark) {
+  /* 네비 active - 밑줄만 오렌지, 폰트 색 유지 */
+  .nav-item.active::after {
+    background: #f97316;
+  }
+  /* 데일리 포커스 문구 - 미니멀 (투명 배경 + 은은한 테두리) */
+  .home-daily-focus-text {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  /* 홈 트렌드 카드 다크모드 */
+  .home-trend-card {
+    background: var(--card-bg);
+    border-color: var(--border);
+  }
+  .home-trend-card-tag {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .home-trend-card-tag.weekly {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  /* 로고 배지/텍스트 */
+  .logo-badge {
+    background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+  }
+  .header-title .logo-game {
+    background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  /* === 트렌드 페이지 전체 오버라이드 === */
+  /* 모든 insight 카드 테두리 */
+  .insight-card[class*="daily-section-"] {
+    border-color: rgba(255, 107, 53, 0.25) !important;
+  }
+  /* 모든 카드 헤더 하단 테두리 */
+  .insight-card[class*="daily-section-"] .home-card-header {
+    border-bottom-color: rgba(255, 107, 53, 0.2) !important;
+  }
+  /* 모든 섹션 아이콘 */
+  .daily-section-icon {
+    color: #ff6b35 !important;
+  }
+  /* 아이콘 래퍼 배경 */
+  .daily-section-icon-wrap {
+    background: rgba(255, 107, 53, 0.15) !important;
+  }
+  /* 급상승/급하락 뱃지 */
+  .rank-badge {
+    background: rgba(255, 107, 53, 0.15) !important;
+    color: #ff6b35 !important;
+  }
+  /* 통계 아이콘 */
+  .weekly-stat-icon.industry {
+    background: rgba(249, 115, 22, 0.15);
+    color: #f97316;
+  }
+  /* 카드 호버 그라디언트 */
+  .weekly-hot-card::before {
+    background: linear-gradient(90deg, #ef4444, #f97316);
+  }
+}
+
+/* 주간 리포트 헤더 카드 - 다크모드 */
+@media (prefers-color-scheme: dark) {
+  .weekly-header-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #252525 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .weekly-header-card .weekly-header-period {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .weekly-header-card .weekly-header-week {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .weekly-header-card .weekly-header-meta {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .weekly-header-card .weekly-header-ampm-tag.am {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+  }
+
+  .weekly-header-card .weekly-header-ampm-tag.pm {
+    background: rgba(167, 139, 250, 0.2);
+    color: #a78bfa;
+  }
+
+  /* === 카드 미니멀 + 포인트 하이라이트 === */
+  /* MVP 카드 */
+  .weekly-mvp-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #f59e0b;
+  }
+
+  /* 핫이슈 featured 카드 */
+  .weekly-hot-card.featured {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #ef4444;
+  }
+
+  /* 일반 핫이슈 카드 */
+  .weekly-hot-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* 헤더 상단 하이라이트 선 제거됨 */
+
+.weekly-header-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.weekly-header-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: var(--font-badge-size);
+  font-weight: var(--font-badge-weight);
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 20px;
+}
+
+.weekly-header-title {
+  font-size: var(--font-title-size);
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.weekly-header-headline {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.weekly-header-ampm-tag {
+  font-size: var(--font-badge-size);
+  font-weight: var(--font-badge-weight);
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.weekly-header-ampm-tag.am {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+}
+
+.weekly-header-ampm-tag.pm {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+
+.weekly-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+.weekly-header-period {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.weekly-header-divider {
+  opacity: 0.4;
+  font-size: 0.7rem;
+}
+
+.weekly-header-week {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.weekly-header-desc {
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
+  color: var(--text-secondary);
+  line-height: var(--font-desc-line-height);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.demo-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: var(--font-badge-size);
+  font-weight: var(--font-badge-weight);
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+  border-radius: 20px;
+}

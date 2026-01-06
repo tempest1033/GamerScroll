@@ -1,0 +1,444 @@
+﻿/* ========== 일간 리포트 섹션별 스타일 (주간과 통일) ========== */
+
+/* 일간 리포트 카드 기본 스타일 */
+.insight-container .insight-card {
+  border-radius: var(--radius-lg);
+  transition: var(--transition-elevate);
+}
+
+.insight-container .insight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 아이콘 배경 박스 (주간과 동일 - 32px) */
+.daily-section-icon-wrap {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.daily-section-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* 섹션 타이틀 스타일 (주간과 동일) */
+.insight-card .home-card-title {
+  font-size: var(--font-title-size);
+  font-weight: var(--font-title-weight);
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+
+/* 핫이슈 */
+.insight-card.daily-section-hot {
+  background: var(--gradient-hot);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
+}
+
+.insight-card.daily-section-hot .home-card-header {
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
+}
+
+.insight-card.daily-section-hot .daily-section-icon-wrap {
+  background: var(--icon-bg-hot);
+}
+
+.insight-card.daily-section-hot .daily-section-icon {
+  color: var(--insight-icon, #6366f1);
+}
+
+/* 업계 동향 */
+.insight-card.daily-section-industry {
+  background: var(--gradient-industry);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
+}
+
+.insight-card.daily-section-industry .home-card-header {
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
+}
+
+.insight-card.daily-section-industry .daily-section-icon-wrap {
+  background: var(--icon-bg-industry);
+}
+
+.insight-card.daily-section-industry .daily-section-icon {
+  color: var(--insight-icon, #6366f1);
+}
+
+/* 주목할만한 지표 */
+.insight-card.daily-section-metrics {
+  background: var(--gradient-metrics);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
+}
+
+.insight-card.daily-section-metrics .home-card-header {
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
+}
+
+.insight-card.daily-section-metrics .daily-section-icon-wrap {
+  background: var(--icon-bg-metrics);
+}
+
+.insight-card.daily-section-metrics .daily-section-icon {
+  color: var(--insight-icon, #6366f1);
+}
+
+/* 순위 변동 */
+.insight-card.daily-section-rankings {
+  background: var(--gradient-rankings);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
+}
+
+.insight-card.daily-section-rankings .home-card-header {
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
+}
+
+.insight-card.daily-section-rankings .daily-section-icon-wrap {
+  background: var(--icon-bg-rankings);
+}
+
+.insight-card.daily-section-rankings .daily-section-icon {
+  color: var(--insight-icon, #6366f1);
+}
+
+/* 유저 반응 */
+.insight-card.daily-section-community {
+  background: var(--gradient-community);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
+}
+
+.insight-card.daily-section-community .home-card-header {
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
+}
+
+.insight-card.daily-section-community .daily-section-icon-wrap {
+  background: var(--icon-bg-community);
+}
+
+.insight-card.daily-section-community .daily-section-icon {
+  color: var(--insight-icon, #6366f1);
+}
+
+/* 스트리밍 트렌드 */
+.insight-card.daily-section-streaming {
+  background: var(--gradient-streaming);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
+}
+
+.insight-card.daily-section-streaming .home-card-header {
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
+}
+
+.insight-card.daily-section-streaming .daily-section-icon-wrap {
+  background: var(--icon-bg-streaming);
+}
+
+.insight-card.daily-section-streaming .daily-section-icon {
+  color: var(--insight-icon, #6366f1);
+}
+
+/* 게임주 현황 */
+.insight-card.daily-section-stocks {
+  background: var(--gradient-stocks);
+  border-color: var(--insight-border, rgba(99, 102, 241, 0.2));
+}
+
+.insight-card.daily-section-stocks .home-card-header {
+  border-bottom: 2px solid var(--insight-header-border, rgba(99, 102, 241, 0.15));
+}
+
+.insight-card.daily-section-stocks .daily-section-icon-wrap {
+  background: var(--icon-bg-stocks);
+}
+
+.insight-card.daily-section-stocks .daily-section-icon {
+  color: var(--insight-icon, #6366f1);
+}
+
+/* 카드 헤더 공통 */
+.insight-card .home-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+.insight-container .insight-card .home-card-header {
+  padding: 16px 20px;
+  border-bottom: 2px solid var(--border);
+}
+
+.insight-container .insight-card .home-card-body {
+  padding: 0;
+}
+
+.insight-container .insight-card .home-insight-split {
+  padding: 16px 20px;
+}
+
+.insight-container .home-insight-split {
+  align-items: stretch;
+}
+
+.insight-container .home-insight-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insight-container .home-insight-column .home-insight-item {
+  flex: 1;
+  min-height: 120px;
+}
+
+/* 인포그래픽 */
+.insight-infographic {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.insight-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  position: relative;
+}
+
+.insight-info-card.with-icon {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 3px;
+  padding: 14px 10px;
+  min-height: 130px;
+}
+
+.insight-info-card.with-icon .insight-info-label {
+  margin-bottom: 2px;
+}
+
+.insight-info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin: 4px 0;
+}
+
+.insight-info-icon-placeholder {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  margin: 4px 0;
+}
+
+.insight-info-card.with-icon .insight-info-value {
+  font-size: var(--font-small-size);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.insight-info-card.with-icon .insight-info-sub {
+  font-size: var(--font-xs-size);
+  color: var(--text-tertiary);
+}
+
+.insight-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.insight-info-label {
+  font-size: var(--font-meta-size);
+  color: var(--text-tertiary);
+  font-weight: var(--font-desc-weight);
+}
+
+.insight-info-value {
+  font-size: var(--font-body-size);
+  font-weight: var(--font-badge-weight);
+  color: var(--text-primary);
+}
+
+.insight-info-sub {
+  font-size: var(--font-meta-size);
+  color: var(--text-secondary);
+}
+
+.insight-info-trend {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: var(--font-xs-size);
+  font-weight: var(--font-badge-weight);
+}
+
+.insight-info-trend.up { color: #22c55e; }
+.insight-info-trend.down { color: #ef4444; }
+.insight-info-trend.new { color: var(--primary); }
+
+@media (max-width: 768px) {
+  .insight-infographic {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .insight-container .home-insight-split {
+    flex-direction: column;
+  }
+
+  .insight-container .home-insight-column {
+    width: 100%;
+  }
+
+  .insight-ranking-chart {
+    padding: 12px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .insight-infographic {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .insight-container .insight-card .home-card-header {
+    padding: 10px 12px !important;
+  }
+
+  .insight-container .insight-card .home-insight-split {
+    padding: 10px 12px;
+  }
+}
+
+/* 순위 변동 차트 */
+.insight-ranking-chart {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.04) 0%, rgba(59, 130, 246, 0.04) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
+.insight-chart-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.insight-chart-header {
+  font-size: var(--font-small-size);
+  font-weight: var(--font-badge-weight);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.insight-chart-header.up {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.insight-chart-header.down {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.insight-chart-header.new {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+}
+
+.insight-chart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.insight-chart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid transparent;
+}
+
+.insight-chart-item.up { border-left-color: #22c55e; }
+.insight-chart-item.down { border-left-color: #ef4444; }
+.insight-chart-item.new { border-left-color: var(--primary); }
+
+.insight-chart-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.insight-chart-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.insight-chart-name {
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.insight-chart-rank {
+  font-size: var(--font-meta-size);
+  color: var(--text-secondary);
+}
+
+.insight-chart-item.up .insight-chart-rank { color: #22c55e; }
+.insight-chart-item.down .insight-chart-rank { color: #ef4444; }
+.insight-chart-item.new .insight-chart-rank { color: var(--primary); }
+
+.insight-chart-empty {
+  padding: 12px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: var(--font-small-size);
+}
+
+@media (max-width: 768px) {
+  .insight-ranking-chart {
+    grid-template-columns: 1fr;
+  }
+}

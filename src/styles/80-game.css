@@ -1,0 +1,7 @@
+﻿/* ===== Game Page Styles (split) ===== */
+
+@import url("./80-game-core.css");
+@import url("./80-game-charts.css");
+@import url("./80-game-mentions.css");
+@import url("./80-game-steam.css");
+@import url("./80-game-responsive.css");

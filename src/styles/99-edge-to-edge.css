@@ -1,0 +1,63 @@
+﻿/* ===== 모바일 Edge-to-Edge 스타일 ===== */
+@media (max-width: 768px) {
+  :is(.site-container, .container) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .page-games :is(.site-container, .container),
+  body.page-games :is(.site-container, .container) {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .games-hub-popular-card,
+  .games-hub-recent-card,
+  .games-hub-group,
+  .games-hub-popular-grid,
+  .games-hub-recent-grid {
+    border-radius: var(--radius) !important;
+  }
+
+  .home-card,
+  .popular-banner,
+  .metacritic-card-container,
+  .news-card,
+  .news-panel,
+  .steam-table,
+  .ad-slot,
+  .ad-slot ins,
+  .ranking-table,
+  .upcoming-table,
+  .section-header,
+  .controls-wrapper,
+  .tab-group {
+    border-radius: 0 !important;
+  }
+
+  .ad-slot,
+  .ad-slot-section {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .news-card,
+  .news-panel,
+  .metacritic-card-container,
+  .steam-table,
+  .ranking-table,
+  .upcoming-table,
+  .video-grid {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* 게임 DB 왼쪽으로 5px 이동 */
+@media (max-width: 768px) {
+  .nav-item[href="/games/"] {
+    transform: translateX(-5px);
+  }
+}

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 404 페이지 템플릿
  * - /games/xxx/ 패턴: 최근 본 게임에서 삭제 후 /games/로 리디렉션
  * - 그 외: 홈페이지로 리디렉션
@@ -24,57 +24,6 @@ function generate404Page() {
         </div>
       </div>
     </div>
-    <style>
-      .not-found-container {
-        min-height: 60vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-      }
-      .not-found-content {
-        text-align: center;
-        max-width: 400px;
-      }
-      .not-found-icon {
-        color: var(--text-muted, #64748b);
-        margin-bottom: 1.5rem;
-      }
-      .not-found-icon svg {
-        opacity: 0.6;
-      }
-      .not-found-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin: 0 0 0.75rem;
-        color: var(--text-primary, #f1f5f9);
-      }
-      .not-found-desc {
-        color: var(--text-secondary, #94a3b8);
-        margin: 0 0 1.5rem;
-        font-size: 0.95rem;
-      }
-      .not-found-links {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-      }
-      .not-found-link {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.625rem 1.25rem;
-        background: var(--surface, #1e293b);
-        color: var(--text-primary, #f1f5f9);
-        border-radius: 8px;
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: background 0.15s;
-      }
-      .not-found-link:hover {
-        background: var(--surface-hover, #334155);
-      }
-    </style>
   `;
 
   const redirectScript = `

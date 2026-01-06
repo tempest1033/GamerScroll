@@ -2,14 +2,13 @@
  * 주요 뉴스 페이지 템플릿
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
 function generateNewsPage(data) {
   const { news } = data;
 
-  // 광고 슬롯
-  const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
-  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+  // 광고 슬롯 (모바일/PC)
+  const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
 
   // 뉴스 소스 정보
   const newsSources = [
@@ -43,7 +42,7 @@ function generateNewsPage(data) {
       const cardsHTML = cards.map((item, i) => `
         <a class="news-grid-card" href="${item.link}" target="_blank" rel="noopener" data-index="${item.originalIndex}">
           <div class="news-grid-card-thumb">
-            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">` : ''}
+            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
             <div class="news-thumb-fallback"><img src="/favicon.svg" alt="" width="48" height="48"></div>
           </div>
           <div class="news-grid-card-title">${item.title}</div>
@@ -98,9 +97,8 @@ function generateNewsPage(data) {
   const content = `
     <section class="section active" id="news">
       
-      <div class="page-wrapper">
-        ${topAdMobile}
-        ${topAdPc}
+      <div class="page-container">
+        ${topAds}
         <h1 class="visually-hidden">게임 뉴스</h1>
         <div class="news-sources-grid">
           ${newsSources.map(source => generateNewsSection(source)).join('')}
@@ -111,21 +109,6 @@ function generateNewsPage(data) {
 
   const pageScripts = `
   <script>
-    // 폰트 로딩
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => {
-        document.documentElement.classList.add('fonts-loaded');
-      });
-    } else {
-      setTimeout(() => {
-        document.documentElement.classList.add('fonts-loaded');
-      }, 100);
-    }
-    // twemoji
-    if (typeof twemoji !== 'undefined') {
-      twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-    }
-
     // 각 뉴스 섹션별 페이지네이션 (컬럼 1개씩)
     (function() {
       document.querySelectorAll('.news-section-card').forEach(section => {

@@ -5,11 +5,10 @@
  * - 각 섹션별 페이지네이션
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
-// 광고 슬롯
-const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
-const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+// 광고 슬롯 (모바일/PC)
+const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {
@@ -49,7 +48,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
     return `
       <a href="/trend/daily/${slug}/" class="trend-feed-card" data-type="daily">
         <div class="trend-feed-card-image">
-          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag">${badgeText}</span>
         </div>
         <h3 class="trend-feed-card-title">${title}</h3>
@@ -69,7 +68,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
     return `
       <a href="/trend/weekly/${slug}/" class="trend-feed-card trend-feed-card-weekly" data-type="weekly">
         <div class="trend-feed-card-image">
-          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag weekly">${badgeText}</span>
         </div>
         <h3 class="trend-feed-card-title">${title}</h3>
@@ -85,7 +84,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
     return `
       <a href="/trend/deep-dive/${post.slug}/" class="trend-feed-card trend-feed-card-deepdive" data-type="deepdive">
         <div class="trend-feed-card-image">
-          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag deepdive">${badgeText}</span>
         </div>
         <h3 class="trend-feed-card-title">${post.title}</h3>
@@ -101,9 +100,8 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
   const content = `
     <section class="section active" id="trends-hub">
       
-      <div class="game-page">
-        ${topAdMobile}
-        ${topAdPc}
+      <div class="game-container trends-hub-container">
+        ${topAds}
         <h1 class="visually-hidden">게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스</h1>
 
         <!-- Deep Dive 섹션 -->
@@ -166,17 +164,6 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
 
   const pageScripts = `
   <script>
-    // 폰트 로딩
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => document.documentElement.classList.add('fonts-loaded'));
-    } else {
-      setTimeout(() => document.documentElement.classList.add('fonts-loaded'), 100);
-    }
-    // twemoji
-    if (typeof twemoji !== 'undefined') {
-      twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-    }
-
     // 각 섹션별 페이지네이션
     (function() {
       // PC: 8개(2줄), 모바일: 4개

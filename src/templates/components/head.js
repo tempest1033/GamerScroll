@@ -1,4 +1,4 @@
-/**
+﻿/**
  * HTML <head> 컴포넌트
  * SEO 메타, 스타일, 폰트, Firebase Analytics 등
  */
@@ -64,10 +64,18 @@ function generateHead(options = {}) {
   </script>` : '';
 
   return `
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
-  <meta name="robots" content="noindex, nofollow">` : ''}
-  <title>${title}</title>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
+	  <meta name="robots" content="noindex, nofollow">` : ''}
+	  <script>
+	    (function() {
+	      var host = location.hostname;
+	      if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0') {
+	        document.documentElement.classList.add('is-localhost');
+	      }
+	    })();
+	  </script>
+	  <title>${title}</title>
   <!-- SEO -->
   <meta name="description" content="${description}">
   <meta name="keywords" content="${keywords}">
@@ -124,47 +132,75 @@ function generateHead(options = {}) {
   <link rel="preconnect" href="https://play-lh.googleusercontent.com">
   <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
   <link rel="preconnect" href="https://i.ytimg.com">
-  <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com">
-  <link rel="preconnect" href="https://www.google.com">
-  <!-- Prefetch 다른 페이지 미리 로드 -->
-  <link rel="prefetch" href="/trend/" as="document">
-  <link rel="prefetch" href="/news/" as="document">
-  <link rel="prefetch" href="/community/" as="document">
-  <link rel="prefetch" href="/youtube/" as="document">
-  <link rel="prefetch" href="/rankings/" as="document">
-  <link rel="prefetch" href="/steam/" as="document">
-	  <link rel="prefetch" href="/upcoming/" as="document">
-	  <link rel="prefetch" href="/metacritic/" as="document">
+	  <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com">
+	  <link rel="preconnect" href="https://www.google.com">
+	  <!-- Prefetch (load 이후, 네트워크 여건이 좋을 때만) -->
+	  <script>
+	    (function() {
+	      var urls = ['/trend/', '/news/', '/community/', '/youtube/', '/rankings/', '/steam/', '/upcoming/', '/metacritic/'];
+	      function shouldPrefetch() {
+	        var c = navigator.connection;
+	        if (!c) return true;
+	        if (c.saveData) return false;
+	        var type = String(c.effectiveType || '').toLowerCase();
+	        if (type.includes('2g')) return false;
+	        return true;
+	      }
+	      function addPrefetch() {
+	        if (!shouldPrefetch()) return;
+	        for (var i = 0; i < urls.length; i++) {
+	          var link = document.createElement('link');
+	          link.rel = 'prefetch';
+	          link.as = 'document';
+	          link.href = urls[i];
+	          document.head.appendChild(link);
+	        }
+	      }
+	      window.addEventListener('load', addPrefetch);
+	    })();
+	  </script>
 	  <!-- Font Preload -->
 	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
 	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2" as="font" type="font/woff2" crossorigin>
 	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-	  <style>.header-title a{color:#f1f5f9}</style>
-	  <link rel="stylesheet" href="/styles.css">
+		  <link rel="stylesheet" href="/styles.css">
   <!-- AdSense 스크립트 (CSS 직후 최우선 로드) -->
   ${LOAD_ADSENSE_SCRIPT ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>` : ''}
-  <script async src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
-  <!-- Firebase Analytics (프로덕션만) -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-    // 프로덕션(gamerscrawl.com)에서만 Analytics 실행
-    if (window.location.hostname === 'gamerscrawl.com') {
-      const firebaseConfig = {
-        apiKey: "AIzaSyBlVfvAGVrhEEMPKpDKJBrOPF7BINleV7I",
-        authDomain: "gamerscrawl-b104b.firebaseapp.com",
-        projectId: "gamerscrawl-b104b",
-        storageBucket: "gamerscrawl-b104b.firebasestorage.app",
-        messagingSenderId: "831886529376",
-        appId: "1:831886529376:web:2d9f0f64782fa5e5e80405",
-        measurementId: "G-2269FV044J"
-      };
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    }
-  </script>
-  ${dataScript}`;
+	  <script async src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script type="module">
+	    (function() {
+	      if (window.location.hostname !== 'gamerscrawl.com') return;
+
+	      var init = async function() {
+	        try {
+	          const [{ initializeApp }, { getAnalytics }] = await Promise.all([
+	            import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	            import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	          ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBlVfvAGVrhEEMPKpDKJBrOPF7BINleV7I",
+	            authDomain: "gamerscrawl-b104b.firebaseapp.com",
+	            projectId: "gamerscrawl-b104b",
+	            storageBucket: "gamerscrawl-b104b.firebasestorage.app",
+	            messagingSenderId: "831886529376",
+	            appId: "1:831886529376:web:2d9f0f64782fa5e5e80405",
+	            measurementId: "G-2269FV044J"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          getAnalytics(app);
+	        } catch (e) {}
+	      };
+
+	      if ('requestIdleCallback' in window) {
+	        requestIdleCallback(function() { init(); }, { timeout: 2000 });
+	      } else {
+	        setTimeout(function() { init(); }, 0);
+	      }
+	    })();
+	  </script>
+	  ${dataScript}`;
 }
 
 module.exports = { generateHead, SHOW_ADS, LOAD_ADSENSE_SCRIPT };

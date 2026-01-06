@@ -2,14 +2,13 @@
  * 영상 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
 function generateYoutubePage(data) {
   const { youtube, chzzk } = data;
 
-  // 광고 슬롯
-  const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
-  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+  // 광고 슬롯 (모바일/PC)
+  const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
 
   // 유튜브 그리드 생성 (세로형 카드)
   function generateYoutubeGrid(videos) {
@@ -47,7 +46,7 @@ function generateYoutubePage(data) {
             <div class="youtube-thumb${!live.thumbnail ? ' youtube-thumb-empty' : ''}">
               ${live.thumbnail ? `<img src="${live.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}
               <span class="youtube-tag">${live.channel}</span>
-              <span class="youtube-live">🔴 ${live.viewers.toLocaleString()}</span>
+              <span class="youtube-live">LIVE ${live.viewers.toLocaleString()}</span>
             </div>
             <div class="youtube-info">
               <div class="youtube-title">${live.title}</div>
@@ -61,9 +60,8 @@ function generateYoutubePage(data) {
   const content = `
     <section class="section active" id="youtube">
       
-      <div class="game-page">
-        ${topAdMobile}
-        ${topAdPc}
+      <div class="game-container">
+        ${topAds}
         <h1 class="visually-hidden">게임 영상 - 유튜브 인기, 치지직 라이브</h1>
 
         <!-- 유튜브 인기 섹션 -->
@@ -101,21 +99,6 @@ function generateYoutubePage(data) {
 
   const pageScripts = `
   <script>
-    // 폰트 로딩
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => {
-        document.documentElement.classList.add('fonts-loaded');
-      });
-    } else {
-      setTimeout(() => {
-        document.documentElement.classList.add('fonts-loaded');
-      }, 100);
-    }
-    // twemoji
-    if (typeof twemoji !== 'undefined') {
-      twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-    }
-
     // 각 섹션별 페이지네이션
     (function() {
       const getPageSize = () => window.innerWidth <= 768 ? 4 : 8;

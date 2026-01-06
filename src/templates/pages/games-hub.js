@@ -4,11 +4,10 @@
  * - 전체 게임 목록 (초성/알파벳순)
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
-// 광고 슬롯
-const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
-const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+// 광고 슬롯 (모바일/PC)
+const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
 
 /**
  * 초성 추출 함수
@@ -128,7 +127,7 @@ function generateGamesHubPage(options = {}) {
         ${popularGamesWithInfo.map(game => `
           <a href="/games/${game.slug}/" class="games-hub-popular-card">
             <span class="popular-rank">${game.rank}</span>
-            <img src="${game.icon}" alt="${game.name}" class="popular-icon" loading="lazy" onerror="this.src='/icon-192.png'">
+            <img src="${game.icon}" alt="${game.name}" class="popular-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
             <div class="popular-info">
               <span class="popular-name">${game.name}</span>
               <span class="popular-views">${game.views.toLocaleString()}회 조회</span>
@@ -162,16 +161,15 @@ function generateGamesHubPage(options = {}) {
       <div class="games-hub-groups">
         ${existingInitials.map(initial => `
           <div class="games-hub-group" id="initial-${initial}">
-            <h3 class="group-title">${initial} <span class="group-count">(${grouped[initial].length})</span></h3>
-            <div class="group-games">
-              ${grouped[initial].map(game => `
-                <a href="/games/${game.slug}/" class="game-item">
-                  <img src="${game.icon}" alt="${game.name}" class="game-icon" loading="lazy" onerror="this.src='/icon-192.png'">
-                  <span class="game-name">${game.name}</span>
-                </a>
-              `).join('')}
-            </div>
-          </div>
+	            <h3 class="group-title">${initial} <span class="group-count">(${grouped[initial].length})</span></h3>
+	            <div class="group-games">
+	              ${grouped[initial].map(game => `
+	                <a href="/games/${game.slug}/" class="game-item" data-slug="${game.slug}">
+	                  <span class="game-name">${game.name}</span>
+	                </a>
+	              `).join('')}
+	            </div>
+	          </div>
         `).join('')}
       </div>
     </section>
@@ -179,7 +177,7 @@ function generateGamesHubPage(options = {}) {
 
   // 검색 결과 섹션 (다른 섹션과 동일한 스타일)
   const searchResultsSection = `
-    <section class="games-hub-search-results" id="search-results" style="display:none;">
+    <section class="games-hub-search-results is-hidden" id="search-results">
       <h2 class="games-hub-section-title">
         <span id="search-results-title">검색 결과</span>
         <button class="search-results-close" id="search-close" title="닫기">
@@ -194,7 +192,7 @@ function generateGamesHubPage(options = {}) {
 
   // 최근 본 게임 섹션 (JS에서 동적 표시)
   const recentGamesSection = `
-    <section class="games-hub-recent" id="recent-games" style="display:none;">
+    <section class="games-hub-recent is-hidden" id="recent-games">
       <h2 class="games-hub-section-title">최근 본 게임</h2>
       <div class="games-hub-recent-grid" id="recent-games-grid"></div>
     </section>
@@ -203,9 +201,8 @@ function generateGamesHubPage(options = {}) {
   const content = `
     <section class="section active" id="games">
       
-      <div class="games-hub-page" id="top">
-        ${topAdMobile}
-        ${topAdPc}
+      <div class="games-hub-container" id="top">
+        ${topAds}
         <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
         ${searchResultsSection}
         ${recentGamesSection}
@@ -220,13 +217,15 @@ function generateGamesHubPage(options = {}) {
 <script>
 (function() {
   const RECENT_KEY = 'gamerscrawl_recent_searches';
-
-  // 폰트 로딩 완료 시 화면 표시
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => document.documentElement.classList.add('fonts-loaded'));
-  } else {
-    setTimeout(() => document.documentElement.classList.add('fonts-loaded'), 100);
-  }
+  const SEARCH_INDEX_URL = '/games/search-index.json';
+  const SEARCH_INDEX_CACHE_KEY = 'gamerscrawl_search_index_v1';
+  const requestIdle = (fn) => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(fn, { timeout: 1500 });
+    } else {
+      setTimeout(fn, 300);
+    }
+  };
 
   // 최근 본 게임 로드
   function getRecentGames() {
@@ -238,6 +237,82 @@ function generateGamesHubPage(options = {}) {
   // 검색 인덱스 캐시
   let searchIndexCache = null;
 
+  async function loadSearchIndexOnce() {
+    if (searchIndexCache) return searchIndexCache;
+
+    try {
+      const cached = sessionStorage.getItem(SEARCH_INDEX_CACHE_KEY);
+      if (cached) {
+        searchIndexCache = JSON.parse(cached);
+        return searchIndexCache;
+      }
+    } catch (e) {}
+
+    try {
+      const res = await fetch(SEARCH_INDEX_URL);
+      if (!res.ok) throw new Error('search-index fetch failed');
+      searchIndexCache = await res.json();
+      try {
+        sessionStorage.setItem(SEARCH_INDEX_CACHE_KEY, JSON.stringify(searchIndexCache));
+      } catch (e) {}
+    } catch (e) {
+      searchIndexCache = [];
+    }
+
+    return searchIndexCache;
+  }
+
+  // 전체 게임 목록 아이콘: HTML을 가볍게 유지하고(SEO: 텍스트/링크 유지),
+  // 보이는 항목만 search-index 기반으로 lazy hydrate 처리
+  function cssUrl(url) {
+    if (!url) return '';
+    const safe = String(url).replace(/\\\\/g, '\\\\\\\\').replace(/"/g, '\\"');
+    return 'url("' + safe + '")';
+  }
+
+  function initGameListIcons() {
+    const items = Array.from(document.querySelectorAll('.game-item[data-slug]'));
+    if (items.length === 0) return;
+
+    requestIdle(async () => {
+      const index = await loadSearchIndexOnce();
+      if (!Array.isArray(index) || index.length === 0) return;
+
+      const iconMap = new Map();
+      for (let i = 0; i < index.length; i++) {
+        const g = index[i];
+        if (!g || !g.slug || !g.icon) continue;
+        iconMap.set(g.slug, g.icon);
+      }
+
+      // 구형 브라우저 폴백: 상단 일부만 적용(대량 이미지 로드를 피함)
+      if (!('IntersectionObserver' in window)) {
+        const limit = Math.min(80, items.length);
+        for (let i = 0; i < limit; i++) {
+          const el = items[i];
+          const icon = iconMap.get(el.dataset.slug);
+          if (icon) el.style.setProperty('--game-icon', cssUrl(icon));
+        }
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i];
+          if (!entry.isIntersecting) continue;
+          const el = entry.target;
+          const icon = iconMap.get(el.dataset.slug);
+          if (icon) el.style.setProperty('--game-icon', cssUrl(icon));
+          observer.unobserve(el);
+        }
+      }, { rootMargin: '200px 0px' });
+
+      for (let i = 0; i < items.length; i++) {
+        observer.observe(items[i]);
+      }
+    });
+  }
+
   // 최근 본 게임 섹션 렌더링
   async function renderRecentGames() {
     const recent = getRecentGames();
@@ -245,28 +320,14 @@ function generateGamesHubPage(options = {}) {
     const grid = document.getElementById('recent-games-grid');
 
     if (recent.length === 0) {
-      section.style.display = 'none';
+      section.classList.add('is-hidden');
       return;
     }
 
-    // search-index에서 icon 보완
-    if (!searchIndexCache) {
-      try {
-        const res = await fetch('/games/search-index.json');
-        searchIndexCache = await res.json();
-      } catch (e) {
-        searchIndexCache = [];
-      }
-    }
-
-    section.style.display = 'block';
+    section.classList.remove('is-hidden');
     grid.innerHTML = recent.map(game => {
-      let iconUrl = game.icon;
-      // icon이 없으면 search-index에서 찾기
-      if (!iconUrl || iconUrl.length < 5) {
-        const indexed = searchIndexCache.find(g => g.slug === game.slug);
-        iconUrl = indexed?.icon || '/icon-192.png';
-      }
+      const iconUrl = (game.icon && game.icon.length >= 5) ? game.icon : '/icon-192.png';
+      const needsIcon = (!game.icon || game.icon.length < 5) ? ' data-needs-icon="1"' : '';
       return \`
         <div class="games-hub-recent-card">
           <button class="recent-remove" data-slug="\${game.slug}" title="삭제">
@@ -275,7 +336,7 @@ function generateGamesHubPage(options = {}) {
             </svg>
           </button>
           <a href="/games/\${game.slug}/" class="recent-link">
-            <img src="\${iconUrl}" alt="\${game.name}" class="recent-icon" loading="lazy" onerror="this.src='/icon-192.png'">
+            <img src="\${iconUrl}" alt="\${game.name}" class="recent-icon" loading="lazy" data-slug="\${game.slug}"\${needsIcon} data-img-fallback-src="/icon-192.png">
             <span class="recent-name">\${game.name}</span>
           </a>
         </div>
@@ -293,6 +354,25 @@ function generateGamesHubPage(options = {}) {
         renderRecentGames();
       });
     });
+
+    // icon이 비어있는 항목은 idle 시점에 search-index로 보완
+    const missingIcons = grid.querySelectorAll('img.recent-icon[data-needs-icon="1"]');
+    if (missingIcons.length > 0) {
+      requestIdle(async () => {
+        const index = await loadSearchIndexOnce();
+        if (!Array.isArray(index) || index.length === 0) return;
+
+        missingIcons.forEach(img => {
+          const slug = img.dataset.slug;
+          if (!slug) return;
+          const found = index.find(g => g && g.slug === slug);
+          if (found && found.icon) {
+            img.src = found.icon;
+            img.removeAttribute('data-needs-icon');
+          }
+        });
+      });
+    }
   }
 
   // 검색 결과 렌더링
@@ -306,16 +386,11 @@ function generateGamesHubPage(options = {}) {
     const title = document.getElementById('search-results-title');
     const grid = document.getElementById('search-results-grid');
 
-    section.style.display = 'block';
+    section.classList.remove('is-hidden');
     title.textContent = '검색 중...';
 
     try {
-      // 캐시된 인덱스 사용
-      if (!searchIndexCache) {
-        const res = await fetch('/games/search-index.json');
-        searchIndexCache = await res.json();
-      }
-      const searchIndex = searchIndexCache;
+      const searchIndex = await loadSearchIndexOnce();
 
       const q = query.toLowerCase().trim();
       const results = searchIndex.filter(game => {
@@ -345,7 +420,7 @@ function generateGamesHubPage(options = {}) {
       } else {
         grid.innerHTML = results.slice(0, 50).map(game => \`
           <a href="/games/\${game.slug}/" class="games-hub-recent-card">
-            <img src="\${game.icon || '/icon-192.png'}" alt="\${game.name}" class="recent-icon" loading="lazy" onerror="this.src='/icon-192.png'">
+            <img src="\${game.icon || '/icon-192.png'}" alt="\${game.name}" class="recent-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
             <span class="recent-name">\${game.name}</span>
           </a>
         \`).join('');
@@ -359,7 +434,7 @@ function generateGamesHubPage(options = {}) {
   // 검색 결과 닫기
   document.getElementById('search-close').addEventListener('click', function() {
     window.history.pushState({}, '', '/games/');
-    document.getElementById('search-results').style.display = 'none';
+    document.getElementById('search-results').classList.add('is-hidden');
   });
 
   // 인덱스 링크 부드러운 스크롤
@@ -425,6 +500,7 @@ function generateGamesHubPage(options = {}) {
   // 모바일 자음 필터는 CSS sticky로 처리 (JS 로직 제거됨)
 
   // 초기화
+  initGameListIcons();
   renderRecentGames();
   handleSearchQuery();
 

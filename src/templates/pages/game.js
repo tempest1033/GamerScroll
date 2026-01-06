@@ -3,11 +3,10 @@
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, AD_PRESETS, generateAdSlot, generateAdPair } = require('../layout');
 
 // 광고 슬롯
-const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
-const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {
@@ -98,7 +97,7 @@ function generateGamePage(gameData) {
 
   // 게임 아이콘
   const iconHtml = icon
-    ? `<img class="game-hero-icon" src="${icon}" alt="${name}" loading="lazy" onerror="this.style.display='none'">`
+    ? `<img class="game-hero-icon" src="${icon}" alt="${name}" loading="lazy" data-img-fallback="hide">`
     : '';
 
   // 순위 섹션 - iOS/Android 그리드 + 서브탭
@@ -297,22 +296,22 @@ function generateGamePage(gameData) {
             }
           });
 
-          // 4시간 간격 점들끼리 라인 연결
-          if (fourHourDataPoints.length > 1) {
-            const linePoints = fourHourDataPoints.map(p => p.x + ',' + p.y).join(' ');
-            lines += '<polyline class="chart-line" data-region="' + region.id + '" style="stroke:' + region.color + '" points="' + linePoints + '" />';
-          }
+	          // 4시간 간격 점들끼리 라인 연결
+	          if (fourHourDataPoints.length > 1) {
+	            const linePoints = fourHourDataPoints.map(p => p.x + ',' + p.y).join(' ');
+	            lines += '<polyline class="chart-line" data-region="' + region.id + '" stroke="' + region.color + '" points="' + linePoints + '" />';
+	          }
 
-          // 4시간 간격 점 표시
-          fourHourDataPoints.forEach(p => {
-            dots += '<circle class="chart-dot" data-region="' + region.id + '" style="fill:' + region.color + '" cx="' + p.x + '" cy="' + p.y + '" r="2.5" />';
-          });
-          // 라벨은 나중에 그려서 항상 앞에 표시
-          fourHourDataPoints.forEach(p => {
-            const labelY = p.y < 20 ? p.y + 14 : p.y - 6;
-            labels += '<text class="chart-rank-label" data-region="' + region.id + '" x="' + p.x + '" y="' + labelY + '" style="fill:' + region.color + '" text-anchor="middle">' + p.rank + '</text>';
-          });
-        });
+	          // 4시간 간격 점 표시
+	          fourHourDataPoints.forEach(p => {
+	            dots += '<circle class="chart-dot" data-region="' + region.id + '" fill="' + region.color + '" cx="' + p.x + '" cy="' + p.y + '" r="2.5" />';
+	          });
+	          // 라벨은 나중에 그려서 항상 앞에 표시
+	          fourHourDataPoints.forEach(p => {
+	            const labelY = p.y < 20 ? p.y + 14 : p.y - 6;
+	            labels += '<text class="chart-rank-label" data-region="' + region.id + '" x="' + p.x + '" y="' + labelY + '" fill="' + region.color + '" text-anchor="middle">' + p.rank + '</text>';
+	          });
+	        });
 
         // X축 라벨 (KST 기준 4시간 간격 7개 - 전날 같은 시간부터 오늘까지)
         let xLabels = '';
@@ -362,19 +361,19 @@ function generateGamePage(gameData) {
       html += '</div>';
       html += '</div>';
 
-      // 실시간 뷰: 마켓 토글 + 범례
-      const regionLabelsHtml = [
-        { id: 'kr', label: '한국', color: '#FF4757' },
-        { id: 'jp', label: '일본', color: '#2ED573' },
-        { id: 'us', label: '미국', color: '#3742FA' },
-        { id: 'cn', label: '중국', color: '#FFA502' },
-        { id: 'tw', label: '대만', color: '#A55EEA' }
-      ].map(r => '<span class="trend-legend-item active" data-legend="' + r.id + '"><span class="legend-dot" style="background:' + r.color + '"></span>' + r.label + '</span>').join('');
+	      // 실시간 뷰: 마켓 토글 + 범례
+	      const regionLabelsHtml = [
+	        { id: 'kr', label: '한국' },
+	        { id: 'jp', label: '일본' },
+	        { id: 'us', label: '미국' },
+	        { id: 'cn', label: '중국' },
+	        { id: 'tw', label: '대만' }
+	      ].map(r => '<span class="trend-legend-item active" data-legend="' + r.id + '"><span class="legend-dot" data-region="' + r.id + '"></span>' + r.label + '</span>').join('');
 
-      html += '<div class="trend-legend-row realtime-legend-row" style="display:none;">';
-      html += '<div class="trend-legend">' + regionLabelsHtml + '</div>';
-      html += '<div class="trend-market-toggle">';
-      html += '<button class="market-toggle-btn active" data-market-toggle="ios">iOS</button>';
+	      html += '<div class="trend-legend-row realtime-legend-row is-hidden">';
+	      html += '<div class="trend-legend">' + regionLabelsHtml + '</div>';
+	      html += '<div class="trend-market-toggle">';
+	      html += '<button class="market-toggle-btn active" data-market-toggle="ios">iOS</button>';
       html += '<button class="market-toggle-btn" data-market-toggle="aos">Android</button>';
       html += '</div>';
       html += '</div>';
@@ -687,22 +686,22 @@ function generateGamePage(gameData) {
             }
           });
 
-          if (validPoints.length > 0) {
-            if (validPoints.length > 1) {
-              const linePoints = validPoints.map(p => `${p.x},${p.y}`).join(' ');
-              lines += `<polyline class="chart-line" data-region="${region.id}" style="stroke:${region.color}" points="${linePoints}" />`;
-            }
-            // 점 먼저 그리기
-            validPoints.forEach(p => {
-              dots += `<circle class="chart-dot" data-region="${region.id}" style="fill:${region.color}" cx="${p.x}" cy="${p.y}" r="2.5" />`;
-            });
-            // 라벨은 나중에 그려서 항상 앞에 표시
-            validPoints.forEach(p => {
-              const labelY = p.y < 20 ? p.y + 14 : p.y - 6;
-              labels += `<text class="chart-rank-label" data-region="${region.id}" style="fill:${region.color}" x="${p.x}" y="${labelY}" text-anchor="middle">${p.rank}</text>`;
-            });
-          }
-        });
+	          if (validPoints.length > 0) {
+	            if (validPoints.length > 1) {
+	              const linePoints = validPoints.map(p => `${p.x},${p.y}`).join(' ');
+	              lines += `<polyline class="chart-line" data-region="${region.id}" stroke="${region.color}" points="${linePoints}" />`;
+	            }
+	            // 점 먼저 그리기
+	            validPoints.forEach(p => {
+	              dots += `<circle class="chart-dot" data-region="${region.id}" fill="${region.color}" cx="${p.x}" cy="${p.y}" r="2.5" />`;
+	            });
+	            // 라벨은 나중에 그려서 항상 앞에 표시
+	            validPoints.forEach(p => {
+	              const labelY = p.y < 20 ? p.y + 14 : p.y - 6;
+	              labels += `<text class="chart-rank-label" data-region="${region.id}" fill="${region.color}" x="${p.x}" y="${labelY}" text-anchor="middle">${p.rank}</text>`;
+	            });
+	          }
+	        });
 
         // X축 라벨 (기간별 형식)
         let xLabels = '';
@@ -858,10 +857,10 @@ function generateGamePage(gameData) {
       { id: 'free', label: '인기' }
     ];
 
-    // 범례 (클릭 가능)
-    const legend = regions.map(r =>
-      `<span class="trend-legend-item active" data-legend="${r.id}"><span class="legend-dot" style="background:${r.color}"></span>${r.label}</span>`
-    ).join('');
+	    // 범례 (클릭 가능)
+	    const legend = regions.map(r =>
+	      `<span class="trend-legend-item active" data-legend="${r.id}"><span class="legend-dot" data-region="${r.id}"></span>${r.label}</span>`
+	    ).join('');
 
     // 마켓 토글 (iOS/AOS 스위치)
     const marketToggle = `
@@ -1032,7 +1031,7 @@ function generateGamePage(gameData) {
     }
     return `<div class="game-youtube-grid">${youtube.slice(0, 4).map(video => `
       <a class="game-youtube-item" href="${video.link}" target="_blank" rel="noopener">
-        <div class="game-youtube-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+	        <div class="game-youtube-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" data-img-fallback="parent-hide"></div>
         <div class="game-youtube-info">
           <span class="game-youtube-title">${video.title}</span>
           <span class="game-youtube-channel">${video.channel}</span>
@@ -1172,9 +1171,8 @@ function generateGamePage(gameData) {
   const content = `
     <section class="section active" id="game">
       
-      <div class="game-page">
-        ${topAdMobile}
-        ${topAdPc}
+      <div class="game-container">
+        ${topAds}
         <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
       <!-- 게임 히어로 -->
       <div class="home-card game-hero">
@@ -1241,15 +1239,19 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-        <!-- 트렌드 리포트 상단 광고 (모바일 먼저 배치 - CLS 방지) -->
-        ${SHOW_ADS ? `
-        <div class="ad-slot ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve">
-          <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.rectangle3}" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
-        </div>
-        <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only home-card-full">
-          <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${AD_SLOTS.horizontal2}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-        </div>
-        ` : ''}
+	        <!-- 트렌드 리포트 상단 광고 (모바일 먼저 배치 - CLS 방지) -->
+		        ${generateAdPair(
+		          {
+		            wrapperClass: 'ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve',
+		            slotId: AD_SLOTS.Mobile_Responsive001,
+		            ...AD_PRESETS.rectangleMobile
+		          },
+		          {
+		            wrapperClass: 'ad-slot-section ad-slot--horizontal pc-only home-card-full',
+		            slotId: AD_SLOTS.PC_LongHorizontal001,
+		            ...AD_PRESETS.horizontalPcLong
+		          }
+		        )}
 
         <!-- 뉴스 (풀 너비 2그리드) -->
         <div class="home-card home-card-full">
@@ -1264,15 +1266,6 @@ function generateGamePage(gameData) {
   `;
 
   const pageScripts = `<script>
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => document.documentElement.classList.add('fonts-loaded'));
-    } else {
-      setTimeout(() => document.documentElement.classList.add('fonts-loaded'), 100);
-    }
-    if (typeof twemoji !== 'undefined') {
-      twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-    }
-
     // 최근 본 게임 저장
     (function() {
       const RECENT_KEY = 'gamerscrawl_recent_searches';
@@ -1299,17 +1292,17 @@ function generateGamePage(gameData) {
 
       const legendRow = section.querySelector('.realtime-legend-row');
 
-      function updateContent() {
-        section.querySelectorAll('.realtime-content').forEach(c => {
-          const isCat = c.dataset.realtimeCat === activeCat;
-          const isView = c.dataset.realtimeView === activeView;
-          c.classList.toggle('active', isCat && isView);
-        });
-        // 실시간 뷰일 때만 범례 표시
-        if (legendRow) {
-          legendRow.style.display = activeView === 'realtime' ? 'flex' : 'none';
-        }
-      }
+	      function updateContent() {
+	        section.querySelectorAll('.realtime-content').forEach(c => {
+	          const isCat = c.dataset.realtimeCat === activeCat;
+	          const isView = c.dataset.realtimeView === activeView;
+	          c.classList.toggle('active', isCat && isView);
+	        });
+	        // 실시간 뷰일 때만 범례 표시
+	        if (legendRow) {
+	          legendRow.classList.toggle('is-hidden', activeView !== 'realtime');
+	        }
+	      }
 
       function updateMarket() {
         section.querySelectorAll('.chart-market-svg').forEach(el => {

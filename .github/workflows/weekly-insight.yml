@@ -69,6 +69,37 @@ jobs:
           fi
         timeout-minutes: 30
 
+      - name: Finalize Weekly thumbnails (Codex)
+        if: steps.check-reports.outputs.reports_exist == 'true'
+        run: |
+          export PATH="/opt/homebrew/bin:$PATH"
+          echo "🖼️ 주간 썸네일 후처리(Codex) 시작..."
+          command -v codex >/dev/null 2>&1 || { echo "❌ codex CLI가 설치되어 있지 않습니다"; exit 1; }
+          TARGET_FILE="$(ls -t reports/weekly/*.json 2>/dev/null | head -n 1)"
+          if [ -z "$TARGET_FILE" ]; then
+            echo "❌ 주간 리포트 파일을 찾지 못했습니다 (reports/weekly/*.json)"
+            exit 1
+          fi
+          echo "🎯 대상 리포트: $TARGET_FILE"
+          cat <<-PROMPT | codex exec -m gpt-5.2 -c model_reasoning_effort=high -c hide_agent_reasoning=true --dangerously-bypass-approvals-and-sandbox -
+          다음 JSON 파일의 썸네일 URL을 웹 검색으로 정확히 채워주세요.
+          파일: ${TARGET_FILE}
+
+          대상 필드(이외 수정 금지):
+          - ai.thumbnail
+          - ai.issues[].thumbnail
+          - ai.industryIssues[].thumbnail
+          - ai.metrics[].thumbnail
+          - ai.global[].thumbnail
+
+          규칙:
+          - thumbnail은 반드시 https:// 로 시작하는 절대 URL만 사용(// 금지)
+          - 제목/내용과 확실히 일치하는 기사/공식 이미지만 사용하고, 애매하면 null 유지
+          - 다른 필드/키 순서/서식은 건드리지 말 것
+          - git 명령은 절대 실행하지 말 것
+          	PROMPT
+        timeout-minutes: 30
+
       - name: Move weekly reports to docs
         if: steps.check-reports.outputs.reports_exist == 'true'
         run: |

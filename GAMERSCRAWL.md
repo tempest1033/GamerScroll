@@ -480,6 +480,37 @@ ANTHROPIC_API_KEY=...      # Claude API (AI 인사이트)
 
 **중요**: CSS, 템플릿 등 수정 시 반드시 `src/` 폴더의 파일을 수정해야 합니다. `docs/` 폴더는 빌드 시 자동으로 덮어씌워집니다.
 
+### CSS 구조/규칙 (현행)
+- 엔트리: `src/styles.css` (import 순서/캐스케이드 의존 — 순서 변경 금지)
+- 모듈: `src/styles/*.css` (역할별로 파일 분리)
+- 다크모드 전역 오버라이드: `src/styles/01-dark-mode.css`
+- 집합(aggregator) 파일
+  - 홈: `src/styles/10-home.css` → `10-home-core.css`, `10-home-shell.css`, `10-home-pages.css`
+  - 홈(페이지별): `src/styles/10-home-pages.css` → `10-home-pages-*.css`
+  - 리포트: `src/styles/50-report-base.css` → `50-report-*.css`
+  - 게임 상세: `src/styles/80-game.css` → `80-game-*.css`
+  - 게임 DB/트렌드: `src/styles/90-games-hub-and-trend.css` → `90-*.css`
+
+### 네이밍 규칙 (현행)
+#### 레이아웃 컨테이너
+- 사이트 전체 폭/패딩 래퍼: `.site-container` (레거시 `.container`는 호환용으로 유지)
+
+#### 페이지 컨테이너
+페이지 최상위 래퍼 클래스는 `*-container` 접미사로 통일합니다.
+- 홈: `home-container`
+- 일반 페이지(뉴스/커뮤니티/스팀/순위/출시/메타): `page-container`
+- 게임 상세: `game-container`
+- 트렌드 허브(피드): `game-container` + `trends-hub-container`
+- 게임 DB: `games-hub-container`
+- 인사이트/리포트: `insight-container`
+- Deep Dive 상세: `deep-dive-container` (템플릿의 `blog-article`에 함께 부여)
+
+### 탭 규칙 (현행)
+- 기본 구성요소는 `.tab-group` + `.tab-btn` 입니다.
+- 공통 탭 스타일/브레이크포인트는 `src/styles/06-tabs.css`에서 관리합니다.
+- 홈 뉴스/커뮤니티/영상 서브탭(홈 전용)은 `src/styles/07-home-subtabs.css`에서 관리합니다.
+- 페이지별 오버라이드는 해당 페이지 모듈 CSS에서만 추가합니다.
+
 ### 빌드 명령어
 ```bash
 # 일반 빌드 (전체 크롤링 + HTML 생성)

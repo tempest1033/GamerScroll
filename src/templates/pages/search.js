@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 검색 페이지 → /games/ 리다이렉트
  * 기존 /search/ URL 호환성 유지
  */
@@ -19,14 +19,14 @@ function generateSearchPage() {
   }
 })();
 </script>
-  `;
-
-  const content = `
-    <div class="search-page" style="text-align:center; padding:40px;">
-      <p>게임 데이터베이스로 이동 중...</p>
-      <p><a href="/games/">바로 이동하기</a></p>
-    </div>
-  `;
+	  `;
+	
+	  const content = `
+	    <div class="search-page search-redirect-container">
+	      <p>게임 데이터베이스로 이동 중...</p>
+	      <p><a href="/games/">바로 이동하기</a></p>
+	    </div>
+	  `;
 
   return wrapWithLayout(content, {
     title: '검색 | 게이머스크롤',

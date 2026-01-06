@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const HISTORY_DIR = './history';
@@ -326,98 +326,8 @@ function generateInsightHTML(insight) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Insight - ${date} | GAMERS CRAWL</title>
   <link rel="stylesheet" href="../styles.css">
-  <style>
-    .insight-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    .insight-header { text-align: center; margin-bottom: 40px; }
-    .insight-date { font-size: 2rem; font-weight: 700; color: #fff; }
-    .insight-subtitle { color: #9ca3af; margin-top: 8px; }
-
-    /* 탭 스타일 */
-    .insight-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 32px; }
-    .insight-tab { padding: 12px 32px; border-radius: 24px; font-size: 15px; font-weight: 600; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; background: #1f2937; color: #9ca3af; }
-    .insight-tab:hover { background: #374151; color: #fff; }
-    .insight-tab.active { background: linear-gradient(135deg, #6366f1, #818cf8); color: #fff; border-color: transparent; }
-    .insight-panel { display: none; }
-    .insight-panel.active { display: block; }
-
-    .insight-section { background: #1f2937; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-    .section-title { font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-
-    .summary-list { list-style: none; padding: 0; }
-    .summary-list li { padding: 12px 16px; background: #374151; border-radius: 8px; margin-bottom: 8px; color: #e5e7eb; }
-
-    .ranking-table { width: 100%; border-collapse: collapse; }
-    .ranking-table th, .ranking-table td { padding: 12px 8px; text-align: left; border-bottom: 1px solid #374151; }
-    .ranking-table th { color: #9ca3af; font-weight: 500; }
-    .ranking-table .rank { width: 40px; font-weight: 700; color: #fff; }
-    .ranking-table .icon { width: 40px; }
-    .ranking-table .icon img { width: 32px; height: 32px; border-radius: 8px; }
-    .ranking-table .title { color: #e5e7eb; }
-    .ranking-table .ccu { color: #9ca3af; }
-    .ranking-table .change-cell { width: 60px; text-align: right; }
-
-    .change { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
-    .change.up { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
-    .change.down { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-    .change.new { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
-    .change.same { color: #6b7280; }
-
-    .news-list, .community-list { display: flex; flex-direction: column; gap: 8px; }
-    .news-item, .community-item { display: flex; gap: 12px; padding: 12px; background: #374151; border-radius: 8px; text-decoration: none; color: #e5e7eb; transition: background 0.2s; }
-    .news-item:hover, .community-item:hover { background: #4b5563; }
-    .news-item .source, .community-item .source { background: #4f46e5; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; flex-shrink: 0; }
-    .news-item .title, .community-item .title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-    .back-link { display: inline-block; margin-bottom: 20px; color: #9ca3af; text-decoration: none; }
-    .back-link:hover { color: #fff; }
-
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
-
-    /* AI Insight */
-    .ai-section { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); }
-    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 768px) { .ai-grid { grid-template-columns: 1fr; } }
-    .ai-column { display: flex; flex-direction: column; gap: 16px; }
-    .ai-card { background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border-left: 3px solid #818cf8; }
-    .ai-card-tag { display: inline-block; background: #4f46e5; color: #fff; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; text-transform: uppercase; }
-    .ai-card-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.4; }
-    .ai-card-desc { font-size: 0.85rem; color: #c7d2fe; line-height: 1.7; white-space: pre-line; }
-    .ai-trends { list-style: none; padding: 0; margin: 0; }
-    .ai-trends li { padding: 12px 16px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; color: #c7d2fe; font-size: 0.9rem; border-left: 3px solid #818cf8; }
-    .ai-badge { background: #818cf8; color: #1e1b4b; font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; margin-right: 8px; font-weight: 700; }
-
-    /* 주간 리포트 스타일 */
-    .weekly-header { text-align: center; margin-bottom: 32px; }
-    .weekly-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .weekly-period { color: #9ca3af; font-size: 14px; }
-    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
-    @media (max-width: 900px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 500px) { .metrics-grid { grid-template-columns: 1fr; } }
-    .metric-card { background: #1f2937; border-radius: 12px; padding: 20px; border-top: 3px solid; }
-    .metric-card.primary { border-color: #6366f1; }
-    .metric-card.accent { border-color: #f97316; }
-    .metric-card.success { border-color: #22c55e; }
-    .metric-card.blue { border-color: #3b82f6; }
-    .metric-label { font-size: 12px; color: #9ca3af; margin-bottom: 8px; }
-    .metric-value { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .metric-sub { font-size: 12px; color: #6b7280; }
-    .highlights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    @media (max-width: 768px) { .highlights-grid { grid-template-columns: 1fr; } }
-    .highlight-card { background: #1f2937; border-radius: 12px; padding: 20px; }
-    .highlight-tag { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
-    .highlight-tag.mobile { background: rgba(99,102,241,0.2); color: #818cf8; }
-    .highlight-tag.pc { background: rgba(59,130,246,0.2); color: #60a5fa; }
-    .highlight-tag.console { background: rgba(168,85,247,0.2); color: #c084fc; }
-    .highlight-tag.esports { background: rgba(249,115,22,0.2); color: #fb923c; }
-    .highlight-tag.industry { background: rgba(34,197,94,0.2); color: #4ade80; }
-    .highlight-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.4; }
-    .highlight-desc { font-size: 13px; color: #9ca3af; line-height: 1.6; }
-    .weekly-coming-soon { text-align: center; padding: 60px 20px; color: #6b7280; }
-    .weekly-coming-soon h3 { font-size: 18px; margin-bottom: 8px; color: #9ca3af; }
-  </style>
 </head>
-<body style="background: #111827; min-height: 100vh;">
+<body class="page-daily-insight">
   <div class="insight-container">
     <a href="/" class="back-link">← GAMERS CRAWL로 돌아가기</a>
 

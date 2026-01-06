@@ -58,6 +58,64 @@ jobs:
           node generate-ai-insight.js
         timeout-minutes: 30
 
+      - name: Finalize AI thumbnails (Codex)
+        if: steps.check-cache.outputs.cache_exists == 'true'
+        run: |
+          export PATH="/opt/homebrew/bin:$PATH"
+          echo "🖼️ AI 썸네일 후처리(Codex) 시작..."
+          command -v codex >/dev/null 2>&1 || { echo "❌ codex CLI가 설치되어 있지 않습니다"; exit 1; }
+          TARGET_FILE="$(node - <<-'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const kst = new Date(Date.now() + 9 * 60 * 60 * 1000);
+          const date = kst.toISOString().slice(0, 10);
+          const candidates = [
+            `reports/${date}.json`,
+            `reports/${date}-AM.json`,
+            `reports/${date}-PM.json`,
+          ];
+
+          const existing = candidates.find(f => fs.existsSync(f));
+          if (existing) {
+            console.log(existing);
+            process.exit(0);
+          }
+
+          if (fs.existsSync('reports')) {
+            const files = fs.readdirSync('reports')
+              .filter(f => /^\d{4}-\d{2}-\d{2}(-[AP]M)?\.json$/.test(f))
+              .map(f => path.join('reports', f));
+            files.sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs);
+            if (files[0]) {
+              console.log(files[0]);
+              process.exit(0);
+            }
+          }
+
+          console.error('No report file found');
+          process.exit(1);
+          	NODE
+          )"
+          echo "🎯 대상 리포트: $TARGET_FILE"
+          cat <<-PROMPT | codex exec -m gpt-5.2 -c model_reasoning_effort=high -c hide_agent_reasoning=true --dangerously-bypass-approvals-and-sandbox -
+          다음 JSON 파일의 썸네일 URL을 웹 검색으로 정확히 채워주세요.
+          파일: ${TARGET_FILE}
+
+          대상 필드(이외 수정 금지):
+          - ai.thumbnail
+          - ai.issues[].thumbnail
+          - ai.industryIssues[].thumbnail
+          - ai.metrics[].thumbnail
+
+          규칙:
+          - thumbnail은 반드시 https:// 로 시작하는 절대 URL만 사용(// 금지)
+          - 제목/내용과 확실히 일치하는 기사/공식 이미지만 사용하고, 애매하면 null 유지
+          - 다른 필드/키 순서/서식은 건드리지 말 것
+          - git 명령은 절대 실행하지 말 것
+          	PROMPT
+        timeout-minutes: 30
+
       - name: Move reports to docs
         if: steps.check-cache.outputs.cache_exists == 'true'
         run: |

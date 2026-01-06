@@ -1,14 +1,6 @@
-/**
+﻿/**
  * 공통 유틸리티 함수
  */
-
-// 메타크리틱 점수별 색상
-function getScoreColor(score) {
-  if (score >= 90) return '#66cc33';
-  if (score >= 75) return '#ffcc33';
-  if (score >= 50) return '#ff6600';
-  return '#ff0000';
-}
 
 // 뉴스 아이템 HTML 생성
 function generateNewsItem(item, index, sourceName) {
@@ -37,16 +29,16 @@ function generateCommunityItem(item, index, sourceName) {
 }
 
 // 순위 아이템 HTML 생성
-function generateRankItem(game, index) {
-  const rankClass = index < 3 ? `rank-${index + 1}` : '';
-  return `
-    <div class="rank-item ${rankClass}">
-      <span class="rank-num">${index + 1}</span>
-      <img class="rank-icon" src="${game.icon}" alt="" loading="lazy" onerror="this.style.display='none'">
-      <span class="rank-title">${game.title}</span>
-    </div>
-  `;
-}
+	function generateRankItem(game, index) {
+	  const rankClass = index < 3 ? `rank-${index + 1}` : '';
+	  return `
+	    <div class="rank-item ${rankClass}">
+	      <span class="rank-num">${index + 1}</span>
+	      <img class="rank-icon" src="${game.icon}" alt="" loading="lazy" data-img-fallback="hide">
+	      <span class="rank-title">${game.title}</span>
+	    </div>
+	  `;
+	}
 
 // 공통 탭 전환 스크립트
 function generateTabScript(tabSelector, panelPrefix) {
@@ -64,7 +56,6 @@ function generateTabScript(tabSelector, panelPrefix) {
 }
 
 module.exports = {
-  getScoreColor,
   generateNewsItem,
   generateCommunityItem,
   generateRankItem,

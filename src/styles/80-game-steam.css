@@ -1,0 +1,44 @@
+﻿/* 스팀 섹션 */
+.game-rank-section.steam {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.game-rank-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.game-rank-section-icon {
+  font-size: 16px;
+}
+
+.game-rank-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.game-steam-inline {
+  display: flex;
+  gap: 24px;
+}
+
+.game-steam-stat-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.game-steam-stat-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.game-steam-stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}

@@ -1,5 +1,6 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 const fs = require('fs');
+const path = require('path');
 
 // 커맨드라인 인자 파싱
 const isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
@@ -65,6 +66,64 @@ const {
 // AI 인사이트 import
 const { generateAIInsight } = require('./src/insights/ai-insight');
 
+function stripBom(text) {
+  if (!text) return '';
+  return text.charCodeAt(0) === 0xFEFF ? text.slice(1) : text;
+}
+
+function normalizeLineEndingsToLf(text) {
+  return String(text).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+}
+
+function toCrlf(text) {
+  return String(text).replace(/\n/g, '\r\n');
+}
+
+function bundleCssFile(entryPath) {
+  const entryAbsPath = path.resolve(entryPath);
+
+  function bundleRecursive(filePath, stack) {
+    const absPath = path.resolve(filePath);
+    if (stack.has(absPath)) {
+      const cycle = [...stack, absPath].map(p => path.relative(process.cwd(), p)).join(' -> ');
+      throw new Error(`CSS @import cycle detected: ${cycle}`);
+    }
+
+    stack.add(absPath);
+
+    const dir = path.dirname(absPath);
+    const raw = fs.readFileSync(absPath, 'utf8');
+    const css = normalizeLineEndingsToLf(stripBom(raw));
+    const lines = css.split('\n');
+    const out = [];
+
+    for (const line of lines) {
+      const match = line.match(/^\s*@import\s+(?:url\(\s*)?['"]([^'"]+)['"]\s*\)?\s*;\s*$/);
+      if (!match) {
+        out.push(line);
+        continue;
+      }
+
+      const importTarget = match[1];
+      const isRemote = /^https?:\/\//.test(importTarget) || /^\/\//.test(importTarget);
+      const isSpecial = importTarget.startsWith('/') || importTarget.startsWith('data:');
+      if (isRemote || isSpecial) {
+        out.push(line);
+        continue;
+      }
+
+      const importedPath = path.resolve(dir, importTarget);
+      out.push(bundleRecursive(importedPath, stack));
+    }
+
+    stack.delete(absPath);
+    return out.join('\n').trimEnd() + '\n';
+  }
+
+  const bundled = bundleRecursive(entryAbsPath, new Set());
+  return toCrlf('\ufeff' + bundled);
+}
+
 /**
  * 인사이트 JSON 파일 경로 찾기 (날짜 검증 포함)
  * @param {string} today - YYYY-MM-DD 형식 날짜
@@ -89,7 +148,12 @@ function findInsightJsonFile(today) {
     try {
       const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       const fileDate = file.replace('.json', '');
-      const aiDate = content.ai?.date || '';
+      const aiDate = String(content.ai?.date || '').trim();
+
+      // AI 인사이트가 없는 파일은 폴백 대상으로 사용하지 않음
+      if (!content.ai || !aiDate) {
+        continue;
+      }
 
       if (aiDate && fileDate !== aiDate) {
         console.log(`⚠️ 날짜 불일치로 스킵: ${file} (파일: ${fileDate}, AI: ${aiDate})`);
@@ -388,7 +452,34 @@ async function main() {
   }
 
   // CSS 파일 복사
-  fs.copyFileSync('./src/styles.css', './styles.css');
+  try {
+    const bundledCss = bundleCssFile('./src/styles.css');
+    fs.writeFileSync('./styles.css', bundledCss, 'utf8');
+  } catch (e) {
+    console.error(`⚠️ CSS 번들링 실패 → 원본 복사: ${e.message}`);
+    fs.copyFileSync('./src/styles.css', './styles.css');
+  }
+  // 분리된 CSS 모듈 동기화 (src/styles/*.css -> styles/)
+  const SRC_STYLES_DIR = './src/styles';
+  if (fs.existsSync(SRC_STYLES_DIR)) {
+    const OUT_STYLES_DIR = './styles';
+    if (!fs.existsSync(OUT_STYLES_DIR)) {
+      fs.mkdirSync(OUT_STYLES_DIR, { recursive: true });
+    }
+    const cssFiles = fs.readdirSync(SRC_STYLES_DIR).filter(f => f.endsWith('.css'));
+    const cssFileSet = new Set(cssFiles);
+
+    // src/styles에서 삭제된 CSS가 styles/에 남아있는 것을 방지
+    const outCssFiles = fs.readdirSync(OUT_STYLES_DIR).filter(f => f.endsWith('.css'));
+    for (const file of outCssFiles) {
+      if (!cssFileSet.has(file)) {
+        fs.unlinkSync(`${OUT_STYLES_DIR}/${file}`);
+      }
+    }
+    for (const file of cssFiles) {
+      fs.copyFileSync(`${SRC_STYLES_DIR}/${file}`, `${OUT_STYLES_DIR}/${file}`);
+    }
+  }
 
   // ============================================
   // 트렌드 리포트 페이지 생성 (목록 + 상세)
@@ -409,7 +500,7 @@ async function main() {
           const slug = file.replace('.json', '');
           const dateMatch = slug.match(/^(\d{4}-\d{2}-\d{2})/);
           const fileDate = dateMatch ? dateMatch[1] : slug;
-          const aiDate = content.ai.date || '';
+          const aiDate = String(content.ai?.date || '').trim();
 
           // 파일 날짜와 AI 인사이트 날짜가 불일치하면 스킵
           if (aiDate && fileDate !== aiDate) {
@@ -531,6 +622,21 @@ async function main() {
     fs.mkdirSync(dailyDir, { recursive: true });
   }
 
+  // 기존에 남아있는 불필요한 일간 페이지 정리 (현재 dailyReports 목록에 없는 폴더 제거)
+  try {
+    const expectedDailySlugs = new Set(dailyReports.map(r => r.slug));
+    const existingDailyDirs = fs.readdirSync(dailyDir, { withFileTypes: true })
+      .filter(d => d.isDirectory())
+      .map(d => d.name);
+    for (const dirName of existingDailyDirs) {
+      if (!expectedDailySlugs.has(dirName)) {
+        fs.rmSync(`${dailyDir}/${dirName}`, { recursive: true, force: true });
+      }
+    }
+  } catch (e) {
+    // 정리 실패 시에도 생성은 계속 진행
+  }
+
   for (let i = 0; i < dailyReports.length; i++) {
     const report = dailyReports[i];
     const pageDir = `${dailyDir}/${report.slug}`;
@@ -579,6 +685,21 @@ async function main() {
   const weeklyDir = `${trendsDir}/weekly`;
   if (!fs.existsSync(weeklyDir)) {
     fs.mkdirSync(weeklyDir, { recursive: true });
+  }
+
+  // 기존에 남아있는 불필요한 주간 페이지 정리 (현재 weeklyReports 목록에 없는 폴더 제거)
+  try {
+    const expectedWeeklySlugs = new Set(weeklyReports.map(r => r.slug));
+    const existingWeeklyDirs = fs.readdirSync(weeklyDir, { withFileTypes: true })
+      .filter(d => d.isDirectory())
+      .map(d => d.name);
+    for (const dirName of existingWeeklyDirs) {
+      if (!expectedWeeklySlugs.has(dirName)) {
+        fs.rmSync(`${weeklyDir}/${dirName}`, { recursive: true, force: true });
+      }
+    }
+  } catch (e) {
+    // 정리 실패 시에도 생성은 계속 진행
   }
 
   for (let i = 0; i < weeklyReports.length; i++) {
@@ -649,6 +770,103 @@ async function main() {
     }
     fs.copyFileSync(`./${page}.html`, `${pageDir}/index.html`);
   }
+
+  // privacy 페이지 복사 (푸터 링크 폴백/SEO용)
+  try {
+    const srcPrivacy = './privacy/index.html';
+    if (fs.existsSync(srcPrivacy)) {
+      const privacyDir = `${DOCS_DIR}/privacy`;
+      if (!fs.existsSync(privacyDir)) {
+        fs.mkdirSync(privacyDir, { recursive: true });
+      }
+      fs.copyFileSync(srcPrivacy, `${privacyDir}/index.html`);
+    }
+  } catch (err) {
+    console.warn('  ⚠️ privacy 페이지 복사 실패:', err.message);
+  }
+
+  // steam 탭 전환용 데이터(JSON) 생성 (초기 HTML/DOM 부하 줄이기)
+  try {
+    const steamDir = `${DOCS_DIR}/steam`;
+    if (!fs.existsSync(steamDir)) {
+      fs.mkdirSync(steamDir, { recursive: true });
+    }
+
+    const topSellers = Array.isArray(steam?.topSellers) ? steam.topSellers.map(g => ({
+      name: g?.name || '',
+      developer: g?.developer || '',
+      img: g?.img || '',
+      price: g?.price || '',
+      discount: g?.discount || ''
+    })) : [];
+
+    const mostPlayed = Array.isArray(steam?.mostPlayed) ? steam.mostPlayed.map(g => ({
+      name: g?.name || '',
+      developer: g?.developer || '',
+      img: g?.img || '',
+      ccu: g?.ccu ?? 0
+    })) : [];
+
+    fs.writeFileSync(`${steamDir}/data.json`, JSON.stringify({ topSellers, mostPlayed }), 'utf8');
+  } catch (err) {
+    console.warn('  ⚠️ steam/data.json 생성 실패:', err.message);
+  }
+
+  // rankings 탭 전환용 데이터(JSON) 생성 (초기 HTML/DOM 부하 줄이기)
+  try {
+    const rankingsDir = `${DOCS_DIR}/rankings`;
+    if (!fs.existsSync(rankingsDir)) {
+      fs.mkdirSync(rankingsDir, { recursive: true });
+    }
+
+    const iosSlugMap = {};
+    const androidSlugMap = {};
+    Object.values(gamesData || {}).forEach(g => {
+      if (!g || !g.slug || !g.appIds) return;
+      if (g.appIds.ios) iosSlugMap[String(g.appIds.ios)] = g.slug;
+      if (g.appIds.android) androidSlugMap[String(g.appIds.android)] = g.slug;
+    });
+
+	    function buildChart(chartData) {
+	      const out = {};
+	      const entries = Object.entries(chartData || {});
+	      for (const [countryCode, perCountry] of entries) {
+	        const iosList = Array.isArray(perCountry?.ios) ? perCountry.ios : [];
+	        const androidList = Array.isArray(perCountry?.android) ? perCountry.android : [];
+	        out[countryCode] = {
+	          ios: iosList.map(app => ({ ...app, slug: iosSlugMap[String(app?.appId)] || null })),
+	          android: androidList.map(app => ({ ...app, slug: androidSlugMap[String(app?.appId)] || null }))
+	        };
+	      }
+	      return out;
+	    }
+
+	    function buildChartStore(chartData, store) {
+	      const out = {};
+	      const entries = Object.entries(chartData || {});
+	      const slugMap = store === 'ios' ? iosSlugMap : androidSlugMap;
+	      for (const [countryCode, perCountry] of entries) {
+	        const list = Array.isArray(perCountry?.[store]) ? perCountry[store] : [];
+	        out[countryCode] = list.map(app => ({ ...app, slug: slugMap[String(app?.appId)] || null }));
+	      }
+	      return out;
+	    }
+
+	    const rankingsClientData = {
+	      grossing: buildChart(rankings?.grossing),
+	      free: buildChart(rankings?.free)
+	    };
+
+	    fs.writeFileSync(`${rankingsDir}/data.json`, JSON.stringify(rankingsClientData), 'utf8');
+
+	    // 화면별/탭별 부분 로드용 (payload 절감)
+	    fs.writeFileSync(`${rankingsDir}/grossing-ios.json`, JSON.stringify(buildChartStore(rankings?.grossing, 'ios')), 'utf8');
+	    fs.writeFileSync(`${rankingsDir}/grossing-android.json`, JSON.stringify(buildChartStore(rankings?.grossing, 'android')), 'utf8');
+	    fs.writeFileSync(`${rankingsDir}/free-ios.json`, JSON.stringify(buildChartStore(rankings?.free, 'ios')), 'utf8');
+	    fs.writeFileSync(`${rankingsDir}/free-android.json`, JSON.stringify(buildChartStore(rankings?.free, 'android')), 'utf8');
+	  } catch (err) {
+	    console.warn('  ⚠️ rankings/data.json 생성 실패:', err.message);
+	  }
   // search 페이지는 search/index.html로 직접 생성됨
   const searchDir = `${DOCS_DIR}/search`;
   if (!fs.existsSync(searchDir)) {
@@ -666,6 +884,11 @@ async function main() {
   const srcTrendDir = './trend';
   const destTrendDir = `${DOCS_DIR}/trend`;
   if (fs.existsSync(srcTrendDir)) {
+    // 기존 docs/trend 정리 후 재복사 (삭제되지 않는 잔존 파일 방지)
+    if (fs.existsSync(destTrendDir)) {
+      fs.rmSync(destTrendDir, { recursive: true, force: true });
+    }
+
     // trend 디렉토리 재귀 복사
     const copyDirRecursive = (src, dest) => {
       if (!fs.existsSync(dest)) {
@@ -686,7 +909,24 @@ async function main() {
     console.log('  ✅ trend/ → docs/trend/');
   }
 
-  fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
+  try {
+    const bundledCss = bundleCssFile('./src/styles.css');
+    fs.writeFileSync(`${DOCS_DIR}/styles.css`, bundledCss, 'utf8');
+  } catch (e) {
+    console.error(`⚠️ CSS 번들링 실패(docs) → 원본 복사: ${e.message}`);
+    fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
+  }
+  // 분리된 CSS 모듈 동기화 (src/styles/*.css -> docs/styles/)
+  if (fs.existsSync(SRC_STYLES_DIR)) {
+    const docsStylesDir = `${DOCS_DIR}/styles`;
+    if (!fs.existsSync(docsStylesDir)) {
+      fs.mkdirSync(docsStylesDir, { recursive: true });
+    }
+    const cssFiles = fs.readdirSync(SRC_STYLES_DIR).filter(f => f.endsWith('.css'));
+    for (const file of cssFiles) {
+      fs.copyFileSync(`${SRC_STYLES_DIR}/${file}`, `${docsStylesDir}/${file}`);
+    }
+  }
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];
@@ -814,6 +1054,14 @@ ${sitemapEntries}
     // 인사이트 JSON도 저장 - 기존 AI 데이터 보존
     const outputJsonFile = `${REPORTS_DIR}/${today}.json`;
     loadAIInsightFromFile(outputJsonFile, insight);
+    // 폴백 AI(다른 날짜)가 섞여 있으면 JSON에는 저장하지 않음 (날짜 불일치 경고/스킵 방지)
+    const outputAiDate = String(insight.ai?.date || '').trim();
+    if (outputAiDate && outputAiDate !== today) {
+      delete insight.ai;
+      delete insight.aiGeneratedAt;
+      delete insight.stockMap;
+      delete insight.stockPrices;
+    }
     fs.writeFileSync(outputJsonFile, JSON.stringify(insight, null, 2), 'utf8');
   }
 }

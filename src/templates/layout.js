@@ -4,24 +4,27 @@
  */
 
 const { generateHead, SHOW_ADS } = require('./components/head');
+const { ADSENSE_CLIENT, AD_PRESETS, renderAdSlot } = require('./components/ads');
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
 const AD_SLOTS = {
-  horizontal: '5214702534',
-  horizontal2: '4377097736',
-  horizontal3: '2509466388',
-  horizontal4: '3935062846',
-  horizontal5: '1062515168',
-  vertical: '6855905500',
-  vertical2: '7865094213',
-  vertical3: '3028357040',
-  vertical4: '1104244740',
-  rectangle: '1795150514',
-  rectangle2: '7467129651',
-  rectangle3: '4840966314',
-  rectangle4: '5039620326'
+  PC_Horizontal001: '5214702534',
+  PC_Horizontal002: '4377097736',
+  PC_Horizontal003: '2509466388',
+  PC_Horizontal004: '3935062846',
+  PC_Horizontal005: '1062515168',
+  PC_LongHorizontal001: '8458886930',
+  Mobile_Horizontal001: '5825162341',
+  Mobile_Horizontal002: '3457841699',
+  Mobile_Responsive001: '5039620326',
+  Mobile_Responsive002: '4840966314',
+  Mobile_Responsive003: '7467129651',
+  Mobile_Responsive004: '7865094213',
+  Mobile_Responsive005: '3028357040',
+  PC_Vertical001: '6855905500',
+  PC_Rectangle001: '1795150514'
 };
 
 // 상단 검색바 (홈/일반 페이지용)
@@ -74,13 +77,17 @@ const hoverPrefetchScript = `
 })();
 </script>`;
 
-// 상단 검색 스크립트
-const searchBarScript = `
-<script>
-(function() {
-  const RECENT_STORAGE_KEY = 'gamerscrawl_recent_searches';
-  const MAX_RECENT = 8;
-  let gamesData = [];
+	// 상단 검색 스크립트
+	const searchBarScript = `
+	<script>
+	(function() {
+	  const RECENT_STORAGE_KEY = 'gamerscrawl_recent_searches';
+	  const MAX_RECENT = 8;
+	  const SEARCH_INDEX_URL = '/games/search-index.json';
+	  const SEARCH_INDEX_CACHE_KEY = 'gamerscrawl_search_index_v1';
+	  let gamesData = [];
+	  let gamesDataLoaded = false;
+	  let gamesDataPromise = null;
 
   // 최근 검색 저장/로드
   function getRecentSearches() {
@@ -104,30 +111,52 @@ const searchBarScript = `
     localStorage.removeItem(RECENT_STORAGE_KEY);
   }
 
-  async function loadGamesData() {
-    try {
-      const response = await fetch('/games/search-index.json');
-      if (!response.ok) return;
-      const data = await response.json();
-      gamesData = Array.isArray(data) ? data : (data.games || []);
-    } catch (e) {
-      console.warn('검색 인덱스 로드 실패:', e);
-      gamesData = [];
-    }
-  }
+	  async function loadGamesDataOnce() {
+	    if (gamesDataLoaded) return;
+	    if (gamesDataPromise) return gamesDataPromise;
 
-  loadGamesData();
+	    gamesDataPromise = (async () => {
+	      // 1) 세션 캐시 우선
+	      try {
+	        const cached = sessionStorage.getItem(SEARCH_INDEX_CACHE_KEY);
+	        if (cached) {
+	          const parsed = JSON.parse(cached);
+	          gamesData = Array.isArray(parsed) ? parsed : (parsed.games || []);
+	          gamesDataLoaded = true;
+	          return;
+	        }
+	      } catch {}
+
+	      // 2) 네트워크 로드
+	      try {
+	        const response = await fetch(SEARCH_INDEX_URL);
+	        if (!response.ok) return;
+	        const data = await response.json();
+	        gamesData = Array.isArray(data) ? data : (data.games || []);
+	        try {
+	          sessionStorage.setItem(SEARCH_INDEX_CACHE_KEY, JSON.stringify(gamesData));
+	        } catch {}
+	      } catch (e) {
+	        console.warn('검색 인덱스 로드 실패:', e);
+	        gamesData = [];
+	      } finally {
+	        gamesDataLoaded = true;
+	      }
+	    })();
+
+	    return gamesDataPromise;
+	  }
 
   const searchInput = document.querySelector('.search-input');
   const searchDropdown = document.querySelector('.search-dropdown');
 
   if (!searchInput || !searchDropdown) return;
 
-  // 최근 검색 렌더링
-  function renderRecentSearches() {
-    const recent = getRecentSearches();
-    if (recent.length === 0) {
-      searchDropdown.innerHTML = '<div class="search-no-results">최근 본 게임이 없습니다</div>';
+	  // 최근 검색 렌더링
+	  function renderRecentSearches() {
+	    const recent = getRecentSearches();
+	    if (recent.length === 0) {
+	      searchDropdown.innerHTML = '<div class="search-no-results">최근 본 게임이 없습니다</div>';
     } else {
       const header = '<div class="search-recent-header"><span class="search-recent-title">최근 본 게임</span><button class="search-clear-all" type="button">전체 삭제</button></div>';
       const items = recent.map(game => {
@@ -190,14 +219,21 @@ const searchBarScript = `
     searchDropdown.classList.add('active');
   }
 
-  let currentResults = [];
+	  let currentResults = [];
 
-  function performSearch(query) {
-    if (!query || query.length < 1) {
-      currentResults = [];
-      renderRecentSearches();
-      return;
-    }
+	  function performSearch(query) {
+	    if (!query || query.length < 1) {
+	      currentResults = [];
+	      renderRecentSearches();
+	      return;
+	    }
+
+	    if (!gamesDataLoaded) {
+	      searchDropdown.innerHTML = '<div class="search-no-results">검색 데이터를 불러오는 중...</div>';
+	      searchDropdown.classList.add('active');
+	      loadGamesDataOnce().then(() => performSearch(query));
+	      return;
+	    }
 
     const lowerQuery = query.toLowerCase();
     currentResults = gamesData.filter(game => {
@@ -248,19 +284,20 @@ const searchBarScript = `
 
   const debouncedSearch = debounce(performSearch, 200);
 
-  // 입력 이벤트
-  searchInput.addEventListener('input', (e) => {
-    debouncedSearch(e.target.value.trim());
-  });
+	  // 입력 이벤트
+	  searchInput.addEventListener('input', (e) => {
+	    debouncedSearch(e.target.value.trim());
+	  });
 
-  // 포커스 시 드롭다운 열기
-  searchInput.addEventListener('focus', () => {
-    if (!searchInput.value.trim()) {
-      renderRecentSearches();
-    } else {
-      performSearch(searchInput.value.trim());
-    }
-  });
+	  // 포커스 시 드롭다운 열기
+	  searchInput.addEventListener('focus', () => {
+	    loadGamesDataOnce();
+	    if (!searchInput.value.trim()) {
+	      renderRecentSearches();
+	    } else {
+	      performSearch(searchInput.value.trim());
+	    }
+	  });
 
   // 외부 클릭 시 닫기
   document.addEventListener('click', (e) => {
@@ -287,17 +324,18 @@ const searchBarScript = `
     }).slice(0, 10);
   }
 
-  // 검색 실행 (결과 1개면 바로 이동)
-  function executeSearch() {
-    const query = searchInput.value.trim();
-    if (!query) return;
+	  // 검색 실행 (결과 1개면 바로 이동)
+	  async function executeSearch() {
+	    const query = searchInput.value.trim();
+	    if (!query) return;
 
-    // 즉시 검색 실행
-    const results = searchImmediate(query);
+	    // 즉시 검색 실행
+	    await loadGamesDataOnce();
+	    const results = searchImmediate(query);
 
-    if (results.length === 1) {
-      const game = results[0];
-      const slug = game.slug || game.id || '';
+	    if (results.length === 1) {
+	      const game = results[0];
+	      const slug = game.slug || game.id || '';
       saveRecentSearch({ slug, name: game.name || game.title, icon: game.icon, publisher: game.publisher });
       window.location.href = '/games/' + slug + '/';
     } else {
@@ -305,16 +343,16 @@ const searchBarScript = `
     }
   }
 
-  // 키보드 이벤트
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      searchInput.value = '';
-      searchDropdown.classList.remove('active');
-      searchInput.blur();
-    } else if (e.key === 'Enter') {
-      executeSearch();
-    }
-  });
+	  // 키보드 이벤트
+	  searchInput.addEventListener('keydown', (e) => {
+	    if (e.key === 'Escape') {
+	      searchInput.value = '';
+	      searchDropdown.classList.remove('active');
+	      searchInput.blur();
+	    } else if (e.key === 'Enter') {
+	      executeSearch();
+	    }
+	  });
 
   // 검색 버튼 클릭
   const searchBtn = document.querySelector('.search-btn');
@@ -515,37 +553,220 @@ const mobileScrollHideScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 (정석: 슬롯이 보이고 폭이 잡힐 때 1회 push)
+// 폰트 로딩 + twemoji 파싱 (공통)
+const fontAndEmojiScript = `
+<script>
+(function() {
+  function markFontsLoaded() {
+    document.documentElement.classList.add('fonts-loaded');
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(markFontsLoaded);
+  } else {
+    setTimeout(markFontsLoaded, 100);
+  }
+
+  function parseTwemojiOnce() {
+    if (window.__gcTwemojiParsed) return;
+    if (typeof twemoji === 'undefined') return;
+    twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+    window.__gcTwemojiParsed = '1';
+  }
+
+  parseTwemojiOnce();
+  window.addEventListener('load', parseTwemojiOnce);
+})();
+</script>`;
+
+// Footer 모달(개인정보처리방침) 열기/닫기 공통 처리 (인라인 onclick 제거)
+const footerModalScript = `
+<script>
+(function() {
+  function getModal(id) {
+    return id ? document.getElementById(id) : null;
+  }
+
+  function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    var closeBtn = modal.querySelector('[data-modal-close]');
+    if (closeBtn && closeBtn.focus) closeBtn.focus();
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  document.querySelectorAll('[data-modal-open]').forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      var id = trigger.getAttribute('data-modal-open');
+      var modal = getModal(id);
+      if (!modal) return;
+      e.preventDefault();
+      openModal(modal);
+    });
+  });
+
+  document.querySelectorAll('[data-modal-close]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      var id = btn.getAttribute('data-modal-close');
+      var modal = getModal(id) || btn.closest('.modal-overlay');
+      if (!modal) return;
+      e.preventDefault();
+      closeModal(modal);
+    });
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(function(modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal(modal);
+    });
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    var open = document.querySelector('.modal-overlay.is-open');
+    if (open) closeModal(open);
+  });
+})();
+</script>`;
+
+// 이미지 로드 실패 공통 처리 (인라인 onerror 제거)
+// - data-img-fallback: hide | hide-visibility | parent-hide | thumb-fallback | hide-show-next
+// - data-img-fallback-src: 실패 시 대체 src
+// - data-img-fallback-id: thumb-rect | icon-square
+// - data-img-fallback-retry-src: 1회 재시도 src
+// - data-img-fallback-show-next: "1"이면 nextElementSibling 표시
+// - data-img-fallback-show-display: 표시할 display 값(예: flex)
+const imageFallbackScript = `
+<script>
+(function() {
+  var THUMB_PLACEHOLDER = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 80%22><rect fill=%22%23374151%22 width=%22120%22 height=%2280%22/></svg>';
+  var ICON_PLACEHOLDER = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect fill=%22%23374151%22 width=%2240%22 height=%2240%22 rx=%228%22/></svg>';
+
+  function placeholderById(id) {
+    if (id === 'thumb-rect') return THUMB_PLACEHOLDER;
+    if (id === 'icon-square') return ICON_PLACEHOLDER;
+    return '';
+  }
+
+  function showTarget(img) {
+    if (!img || img.dataset.imgFallbackShowNext !== '1') return;
+    var el = img.nextElementSibling;
+    if (!el) return;
+    el.classList.remove('hidden');
+    el.classList.remove('is-hidden');
+    var display = img.dataset.imgFallbackShowDisplay;
+    if (display) el.style.display = display;
+  }
+
+  function applyFallback(img) {
+    if (!img || img.tagName !== 'IMG') return;
+    if (img.dataset.gcImgFallbackApplied === '1') return;
+
+    // 1) 1회 재시도(src 교체)
+    var retrySrc = img.dataset.imgFallbackRetrySrc;
+    if (retrySrc && img.dataset.gcImgFallbackRetried !== '1') {
+      img.dataset.gcImgFallbackRetried = '1';
+      img.src = retrySrc;
+      return;
+    }
+
+    // 2) placeholder id
+    var placeholderId = img.dataset.imgFallbackId;
+    if (placeholderId && img.dataset.gcImgFallbackIdDone !== '1') {
+      var src0 = placeholderById(placeholderId);
+      if (src0) {
+        img.dataset.gcImgFallbackIdDone = '1';
+        img.src = src0;
+        return;
+      }
+    }
+
+    // 3) fallback src
+    var fallbackSrc = img.dataset.imgFallbackSrc;
+    if (fallbackSrc && img.dataset.gcImgFallbackSrcDone !== '1') {
+      img.dataset.gcImgFallbackSrcDone = '1';
+      img.src = fallbackSrc;
+      return;
+    }
+
+    // 4) action
+    var action = img.dataset.imgFallback || '';
+    if (action === 'thumb-fallback') {
+      if (img.parentElement) img.parentElement.classList.add('thumb-fallback');
+      img.dataset.gcImgFallbackApplied = '1';
+      return;
+    }
+
+    if (action === 'parent-hide') {
+      if (img.parentElement) img.parentElement.style.display = 'none';
+      else img.style.display = 'none';
+      img.dataset.gcImgFallbackApplied = '1';
+      return;
+    }
+
+    if (action === 'hide-show-next') {
+      img.style.display = 'none';
+      showTarget(img);
+      img.dataset.gcImgFallbackApplied = '1';
+      return;
+    }
+
+    if (action === 'hide-visibility') {
+      img.style.visibility = 'hidden';
+      img.dataset.gcImgFallbackApplied = '1';
+      return;
+    }
+
+    if (action === 'hide') {
+      img.style.display = 'none';
+      img.dataset.gcImgFallbackApplied = '1';
+      return;
+    }
+
+    // fallback이 없으면 무한 루프 방지용으로만 마킹
+    img.dataset.gcImgFallbackApplied = '1';
+  }
+
+  document.addEventListener('error', function(e) {
+    var t = e && e.target;
+    if (t && t.tagName === 'IMG') applyFallback(t);
+  }, true);
+
+  function sweepBrokenImages() {
+    document.querySelectorAll('img[data-img-fallback],img[data-img-fallback-src],img[data-img-fallback-id],img[data-img-fallback-retry-src]').forEach(function(img) {
+      try {
+        if (img.complete && img.naturalWidth === 0) applyFallback(img);
+      } catch (e) {}
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', sweepBrokenImages);
+  } else {
+    sweepBrokenImages();
+  }
+})();
+</script>`;
+
+// 광고 초기화 스크립트 (표준 마크업: 보이는 슬롯만 1회 push)
+// - 탭/섹션 전환(display none → block)에도 다시 초기화되도록 MutationObserver로 보강
 const adInitScript = SHOW_ADS ? `
 <script>
 (function() {
-  var ADS_SELECTOR = 'ins.adsbygoogle[data-gc-ad=\"1\"]';
-  var MQ_MOBILE = '(max-width: 768px)';
-  var MQ_PC = '(min-width: 769px)';
+  var CLIENT = '${ADSENSE_CLIENT}';
+  var ADS_SELECTOR = 'ins.adsbygoogle[data-ad-client=\"' + CLIENT + '\"][data-ad-slot]';
 
-  function matchesBreakpoint(el) {
-    try {
-      if (!el || !el.classList) return true;
-      if (el.classList.contains('mobile-only')) return window.matchMedia(MQ_MOBILE).matches;
-      if (el.classList.contains('pc-only')) return window.matchMedia(MQ_PC).matches;
-      return true;
-    } catch (e) { return true; }
-  }
-
-  function isRenderable(el) {
-    try {
-      if (!el || !el.isConnected) return false;
-      var style = window.getComputedStyle(el);
-      return !!(style && style.display !== 'none' && style.visibility !== 'hidden');
-    } catch (e) { return false; }
-  }
-
-  function hasWidth(slot, ins) {
-    try {
-      var rect = (slot && slot.getBoundingClientRect) ? slot.getBoundingClientRect() : { width: 0 };
-      if (rect.width < 1 && ins && ins.getBoundingClientRect) rect = ins.getBoundingClientRect();
-      return rect.width >= 1;
-    } catch (e) { return false; }
+  function isVisible(el) {
+    if (!el || !el.isConnected) return false;
+    var style = window.getComputedStyle(el);
+    if (!style || style.display === 'none' || style.visibility === 'hidden') return false;
+    return (el.offsetWidth >= 1 || el.offsetHeight >= 1);
   }
 
   function tryInit(ins) {
@@ -553,15 +774,13 @@ const adInitScript = SHOW_ADS ? `
     if (ins.dataset.gcAdsInit === '1') return;
 
     var slot = ins.closest ? (ins.closest('.ad-slot') || ins) : ins;
-    if (!matchesBreakpoint(slot) || !matchesBreakpoint(ins)) return;
-    if (!isRenderable(slot) || !isRenderable(ins)) return;
-    if (!hasWidth(slot, ins)) return;
+    if (!isVisible(slot) || !isVisible(ins)) return;
 
-    ins.dataset.gcAdsInit = '1';
     try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      ins.dataset.gcAdsInit = '1';
     } catch (e) {
-      delete ins.dataset.gcAdsInit;
+      // 실패 시 다음 프레임에서 재시도 가능하도록 마킹하지 않음
     }
   }
 
@@ -569,84 +788,44 @@ const adInitScript = SHOW_ADS ? `
     document.querySelectorAll(ADS_SELECTOR).forEach(function(ins) { tryInit(ins); });
   }
 
-  function observeSizes() {
-    if (!('ResizeObserver' in window)) return;
-    if (window.__gcAdsResizeObserver) return;
-
-    window.__gcAdsResizeObserver = new ResizeObserver(function(entries) {
-      entries.forEach(function(entry) {
-        var el = entry && entry.target;
-        if (!el || !el.isConnected) return;
-        if (el.classList && el.classList.contains('adsbygoogle')) {
-          tryInit(el);
-          return;
-        }
-        if (el.classList && el.classList.contains('ad-slot')) {
-          var ins = el.querySelector(ADS_SELECTOR);
-          if (ins) tryInit(ins);
-        }
-      });
+  function scheduleInit() {
+    if (window.__gcAdsInitRaf) return;
+    window.__gcAdsInitRaf = requestAnimationFrame(function() {
+      window.__gcAdsInitRaf = 0;
+      initAll();
     });
-
-    document.querySelectorAll('.ad-slot').forEach(function(slot) { window.__gcAdsResizeObserver.observe(slot); });
-    document.querySelectorAll(ADS_SELECTOR).forEach(function(ins) { window.__gcAdsResizeObserver.observe(ins); });
-  }
-
-  function bindMediaChange() {
-    try {
-      var mmMobile = window.matchMedia(MQ_MOBILE);
-      var mmPc = window.matchMedia(MQ_PC);
-      var handler = function() { initAll(); };
-      if (mmMobile && mmMobile.addEventListener) {
-        mmMobile.addEventListener('change', handler);
-        mmPc.addEventListener('change', handler);
-      } else if (mmMobile && mmMobile.addListener) {
-        mmMobile.addListener(handler);
-        mmPc.addListener(handler);
-      }
-    } catch (e) {}
-  }
-
-  function collapseUnfilled(ins) {
-    var slot = ins.closest ? ins.closest('.ad-slot') : null;
-    if (slot) slot.style.display = 'none';
-  }
-
-  function observeUnfilled() {
-    if (!('MutationObserver' in window)) return;
-    if (window.__gcAdsUnfilledObserver) return;
-
-    window.__gcAdsUnfilledObserver = new MutationObserver(function(mutations) {
-      mutations.forEach(function(m) {
-        if (m.type === 'attributes' && m.attributeName === 'data-ad-status') {
-          var ins = m.target;
-          if (ins && ins.dataset && ins.dataset.adStatus === 'unfilled') {
-            collapseUnfilled(ins);
-          }
-        }
-      });
-    });
-
-    document.querySelectorAll(ADS_SELECTOR).forEach(function(ins) {
-      window.__gcAdsUnfilledObserver.observe(ins, { attributes: true, attributeFilter: ['data-ad-status'] });
-    });
-  }
-
-  function start() {
-    initAll();
-    observeSizes();
-    bindMediaChange();
-    observeUnfilled();
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() { requestAnimationFrame(start); });
+    document.addEventListener('DOMContentLoaded', scheduleInit);
   } else {
-    requestAnimationFrame(start);
+    scheduleInit();
   }
 
-  window.addEventListener('load', function() { initAll(); });
-  window.addEventListener('resize', function() { initAll(); }, { passive: true });
+  window.addEventListener('load', scheduleInit);
+  window.addEventListener('pageshow', scheduleInit);
+  window.addEventListener('resize', scheduleInit, { passive: true });
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) scheduleInit();
+  });
+
+  try {
+    var mo = new MutationObserver(function(mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var target = mutations[i].target;
+        if (target && target.closest && target.closest('ins.adsbygoogle[data-gc-ads-init=\"1\"]')) continue;
+        scheduleInit();
+        break;
+      }
+    });
+
+    mo.observe(document.body, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: ['class', 'style', 'hidden', 'aria-hidden']
+    });
+  } catch (e) {}
 })();
 </script>` : '';
 
@@ -673,13 +852,16 @@ function wrapWithLayout(content, options = {}) {
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
-  <main class="container">
-    ${content}
-	  </main>
-		  ${generateFooter()}
-	  ${pageScripts}
-	  ${showSearchBar ? searchBarScript : ''}
-	  ${hoverPrefetchScript}
+	  <main class="site-container">
+	    ${content}
+				  </main>
+					  ${generateFooter()}
+				  ${footerModalScript}
+				  ${imageFallbackScript}
+			  ${fontAndEmojiScript}
+			  ${pageScripts}
+			  ${showSearchBar ? searchBarScript : ''}
+			  ${hoverPrefetchScript}
   ${swipeScript}
   ${mobileScrollHideScript}
   ${adInitScript}
@@ -694,16 +876,42 @@ function wrapWithLayout(content, options = {}) {
  * @param {string} slotIdMobile - 모바일용 광고 슬롯 ID (기본값: slotIdPc)
  * @param {string} extraClass - 추가 CSS 클래스 (선택)
  */
-function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '') {
+function generateAdSingle(config = {}) {
   if (!SHOW_ADS) return '';
-  const mobileSlot = slotIdMobile || slotIdPc;
-  // 모바일 광고를 먼저 배치 (홈페이지와 동일한 구조로 CLS 방지)
-  return `<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only ${extraClass}">
-    <ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${mobileSlot}"></ins>
-  </div>
-  <div class="ad-slot ad-slot-section ad-slot--horizontal pc-only ${extraClass}">
-    <ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="${slotIdPc}" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
-  </div>`;
+  return renderAdSlot(config);
 }
 
-module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot };
+function generateAdPair(mobileConfig = {}, pcConfig = {}) {
+  if (!SHOW_ADS) return '';
+  const mobileHtml = renderAdSlot(mobileConfig);
+  const pcHtml = renderAdSlot(pcConfig);
+  return `${mobileHtml}\n${pcHtml}`;
+}
+
+function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '', ids = {}) {
+  const mobileSlot = slotIdMobile || slotIdPc;
+  const mobileId = ids.idMobile || '';
+  const pcId = ids.idPc || '';
+  const baseClass = (extraClass || '').trim();
+  const pcPreset = slotIdPc === AD_SLOTS.PC_LongHorizontal001
+    ? AD_PRESETS.horizontalPcLong
+    : AD_PRESETS.horizontalPc;
+
+  return generateAdPair(
+    // 모바일 광고를 먼저 배치 (홈페이지와 동일한 구조로 CLS 방지)
+    {
+      id: mobileId,
+      wrapperClass: `ad-slot-section ad-slot--horizontal mobile-only ${baseClass}`.trim(),
+      slotId: mobileSlot,
+      ...AD_PRESETS.horizontalMobile
+    },
+    {
+      id: pcId,
+      wrapperClass: `ad-slot-section ad-slot--horizontal pc-only ${baseClass}`.trim(),
+      slotId: slotIdPc,
+      ...pcPreset
+    }
+  );
+}
+
+module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, AD_PRESETS, generateAdSingle, generateAdPair, generateAdSlot };

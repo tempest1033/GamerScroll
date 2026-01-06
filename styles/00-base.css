@@ -1,0 +1,348 @@
+﻿
+    /* 접근성: 시각적으로 숨기지만 스크린리더/SEO에는 노출 */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .is-hidden {
+      display: none !important;
+    }
+
+    /* 이미지 성능 최적화 */
+    img {
+      content-visibility: auto;
+    }
+    img[loading="lazy"] {
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    }
+
+    /* 썸네일/아이콘 폴백 (파비콘 중앙 배치) */
+    .thumb-fallback {
+      background: var(--bg-secondary, #1a1a2e) url('/favicon.svg') center/32px no-repeat !important;
+    }
+    .thumb-fallback img {
+      opacity: 0;
+    }
+    .icon-fallback {
+      background: var(--bg-secondary, #1a1a2e) url('/favicon.svg') center/60% no-repeat !important;
+      border-radius: 6px;
+    }
+
+    /* 모바일 가로 스크롤 방지 + sticky 호환 */
+    @media (max-width: 768px) {
+      body {
+        width: 100%;
+        max-width: 100vw;
+        overscroll-behavior-x: none;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .header, .header-inner, .nav-inner {
+        width: 100%;
+        max-width: 100%;
+      }
+      .nav, .container, .site-container {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    :root {
+      /* === Primary Colors - 블루 (신뢰감 있는 뉴스 사이트 느낌) === */
+      --primary: #2563eb; /* 블루 */
+      --primary-light: #3b82f6; /* 밝은 블루 */
+      --primary-dark: #1d4ed8; /* 어두운 블루 */
+      --accent: #0ea5e9; /* 스카이 블루 */
+
+      /* === Background & Surface - 화이트 === */
+      --bg: #ffffff;
+      --bg-elevated: #ffffff;
+      --card: #ffffff;
+      --card-hover: #f8fafc; /* 연한 그레이 호버 */
+
+      /* === Border - 웜톤 === */
+      --border: #e5e2de; /* 웜 그레이 */
+      --border-subtle: #f0ede8;
+
+      /* === Text - 대비 강화 (WCAG AAA) === */
+      --text: #1a1a1a; /* 메인 텍스트 */
+      --text-primary: #1a1a1a;
+      --text-secondary: #2d2d2d; /* 본문 설명 - 더 진하게 */
+      --text-muted: #525252; /* 대비 7:1+ */
+      --text-tertiary: #6b6b6b; /* 보조 텍스트 */
+
+      /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
+      --font-title-size: 18px;
+      --font-title-weight: 700;
+      --font-body-size: 16px;
+      --font-desc-size: 15px;
+      --font-body-weight: 600;
+      --font-desc-weight: 500;
+      --font-body-line-height: 1.7;
+
+      /* === Typography - UI 요소 (탭, 배지, 네비 등) === */
+      --font-tab-size: 15px;
+      --font-tab-weight: 700;
+      --font-badge-size: 12px;
+      --font-badge-weight: 800;
+      --font-small-size: 12px;
+      --font-nav-size: 16px;
+      --font-nav-weight: 700;
+
+      /* === Typography - 순위 테이블 (스팀, 모바일 등) === */
+      --font-rank-name-size: 14px;
+      --font-rank-name-weight: 700;
+      --font-rank-name-color: var(--text);
+      --font-rank-dev-size: 12px;
+      --font-rank-dev-weight: 500;
+      --font-rank-dev-color: var(--text-muted);
+
+      /* === Typography - 확장 크기 (전체 통합 관리) === */
+      /* 초소형 - 최소 10px 유지 (가독성) */
+      --font-micro-size: 10px;
+      --font-tiny-size: 10px;
+
+      /* 소형 (10-11px) - 배지 내부, 순위 숫자, 보조 정보 */
+      --font-xs-size: 10px;
+      --font-meta-size: 11px;
+
+      /* === Typography - 소스 태그 (언론사, 채널명 등) === */
+      --font-source-size: var(--font-small-size);
+      --font-source-weight: 700;
+      --font-source-color: var(--primary);
+
+      /* 중형 (16px) - 섹션 제목 */
+      --font-section-size: 16px;
+      --font-section-weight: 700;
+
+      /* 대형 (18-20px) - 큰 제목, 강조 텍스트 */
+      --font-heading-size: 18px;
+      --font-lg-size: 20px;
+
+      /* 초대형 (22-28px) - 통계 숫자, 큰 값 */
+      --font-xl-size: 22px;
+      --font-2xl-size: 26px;
+      --font-stat-size: 28px;
+
+      /* === Insight/Accent Colors (통합 관리) === */
+      --insight-icon: #1a73e8; /* 구글 블루 - 인사이트 아이콘 기본색 */
+      --metric-color: #3b82f6; /* 블루 - 메트릭/통계 관련 */
+      --gradient-progress: linear-gradient(90deg, #3b82f6, #2563eb); /* 프로그레스바 그라데이션 */
+      --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* 강조 그라데이션 */
+
+      /* === 호환성 변수 (별칭) === */
+      --bg-secondary: #f8fafc; /* 보조 배경 */
+      --border-color: #e2e8f0; /* 테두리 색상 */
+      --bg-hover: #f1f5f9; /* 호버 배경 */
+      --accent-color: #4f46e5; /* 강조 색상 */
+      --card-bg: var(--card); /* 카드 배경 */
+      --font-meta-weight: 500; /* 메타 텍스트 굵기 */
+      --font-desc-line-height: 1.6; /* 설명 텍스트 행간 */
+
+      /* === Shadows (Multi-layer Soft) - 개선 === */
+      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.03), 0 1px 3px rgb(0 0 0 / 0.02);
+      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 2px 6px rgb(0 0 0 / 0.03);
+      --shadow: 0 2px 4px rgb(0 0 0 / 0.03), 0 4px 12px rgb(0 0 0 / 0.05), 0 8px 24px rgb(0 0 0 / 0.04);
+      --shadow-lg: 0 4px 8px rgb(0 0 0 / 0.04), 0 12px 24px rgb(0 0 0 / 0.06), 0 24px 48px rgb(0 0 0 / 0.05);
+      --shadow-xl: 0 8px 16px rgb(0 0 0 / 0.04), 0 24px 48px rgb(0 0 0 / 0.08), 0 48px 96px rgb(0 0 0 / 0.06);
+
+      /* === Glass Effect === */
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-bg-solid: rgba(255, 255, 255, 0.9);
+      --glass-border: rgba(255, 255, 255, 0.5);
+
+      /* === Interactive States === */
+      --hover-bg: #ebebeb;
+      --active-bg: #eef2ff;
+      --item-bg: #ffffff;
+
+      /* === Semantic Colors === */
+      --success: #16a34a;
+
+      /* === Layout === */
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-lg: 20px;
+      --radius-xl: 24px;
+
+      /* === Spacing (Blocks/Layout) === */
+      --space-xxs: 6px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 20px;
+      --space-xl: 24px;
+
+      --space-page-x: var(--space-md);
+      --space-block-y: var(--space-md);
+      --space-block-y-lg: var(--space-md);
+      --space-block-y-xl: var(--space-md);
+      --space-block-gap: var(--space-md);
+      --space-block-gap-lg: var(--space-md);
+      --space-header-gap: var(--space-md);
+
+      /* === Animation - 스프링 효과 추가 === */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --transition-fast: 0.15s var(--ease-in-out);
+      --transition-normal: 0.25s var(--ease-out-expo);
+      --transition-slow: 0.4s var(--ease-out-expo);
+      --transition-elevate: transform 0.2s ease, box-shadow 0.2s ease;
+
+      /* === Report Gradients (중립 그레이) === */
+      --gradient-hot: var(--card-bg);
+      --gradient-industry: var(--card-bg);
+      --gradient-metrics: var(--card-bg);
+      --gradient-rankings: var(--card-bg);
+      --gradient-community: var(--card-bg);
+      --gradient-streaming: var(--card-bg);
+      --gradient-stocks: var(--card-bg);
+      --gradient-primary: var(--card-bg);
+
+      /* === Report Icon Backgrounds (구글 블루 통일) === */
+      --icon-bg-hot: rgba(26, 115, 232, 0.12);
+      --icon-bg-industry: rgba(26, 115, 232, 0.12);
+      --icon-bg-metrics: rgba(26, 115, 232, 0.12);
+      --icon-bg-rankings: rgba(26, 115, 232, 0.12);
+      --icon-bg-community: rgba(26, 115, 232, 0.12);
+      --icon-bg-streaming: rgba(26, 115, 232, 0.12);
+      --icon-bg-stocks: rgba(26, 115, 232, 0.12);
+
+      /* === Report Badge (20% opacity for better readability) === */
+      --badge-bg-up: rgba(34, 197, 94, 0.20);
+      --badge-bg-down: rgba(239, 68, 68, 0.20);
+      --badge-bg-new: rgba(26, 115, 232, 0.20);
+
+      /* === Tag Base Colors (기본 태그 색상) === */
+      --tag-bg: rgba(26, 115, 232, 0.12);
+      --tag-color: #1a73e8;
+
+      /* === Section Colors (섹션 배경/아이콘 - 통합 관리) === */
+      --section-gradient: #ffffff;
+      --section-gradient-strong: #ffffff;
+      --section-icon-bg: rgba(26, 115, 232, 0.12);
+      --section-accent-bg: rgba(26, 115, 232, 0.15);
+      --section-border: rgba(26, 115, 232, 0.2);
+
+      /* === Glow Effects (라이트모드) === */
+      --glow-primary: 0 0 20px rgba(79, 70, 229, 0.2);
+      --glow-accent: 0 0 20px rgba(249, 115, 22, 0.2);
+    }
+
+    /* 소형 태블릿/대형 폰 (576px 이하) - 1단계 축소 (-1) */
+    @media (max-width: 576px) {
+      :root {
+        --font-tab-size: 14px;
+        --font-section-size: 15px;
+        --font-heading-size: 17px;
+        --font-lg-size: 19px;
+        --font-stat-size: 27px;
+        --font-xl-size: 21px;
+        --font-2xl-size: 25px;
+        --font-rank-name-size: 13px;
+        --font-rank-dev-size: 11px;
+      }
+    }
+
+    /* 초소형 모바일 (360px 이하) - 2단계 축소 (-1 추가) */
+    @media (max-width: 360px) {
+      :root {
+        --font-title-size: 17px;
+        --font-body-size: 15px;
+        --font-desc-size: 14px;
+        --font-tab-size: 13px;
+        --font-nav-size: 15px;
+        --font-section-size: 14px;
+        --font-heading-size: 16px;
+        --font-lg-size: 18px;
+        --font-stat-size: 26px;
+        --font-xl-size: 20px;
+        --font-2xl-size: 24px;
+        --font-small-size: 11px;
+        --font-badge-size: 11px;
+        --font-meta-size: 10px;
+        --font-xs-size: 9px;
+        --font-rank-name-size: 12px;
+        --font-rank-dev-size: 10px;
+        --space-page-x: 6px;
+      }
+    }
+
+    /* PC: 섹션/피드 간격 20px 통일 */
+    @media (min-width: 769px) {
+      :root {
+        --space-block-y: var(--space-lg);
+        --space-block-y-lg: var(--space-lg);
+        --space-block-y-xl: var(--space-lg);
+        --space-block-gap: var(--space-lg);
+        --space-block-gap-lg: var(--space-lg);
+        --space-header-gap: var(--space-lg);
+      }
+    }
+
+    /* === Light Mode - 메인메뉴 스타일 === */
+    .nav-item {
+      color: #1f2937;
+    }
+    .nav-item:hover {
+      color: #111827;
+      background: #f1f5f9;
+    }
+    /* 스와이프 중 하이라이트 비활성화 */
+    .nav-item.swiping,
+    .nav-item.swiping:hover,
+    .nav-item.swiping:active,
+    .nav-item.swiping:focus {
+      background: transparent !important;
+      color: inherit !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    .nav-item.active {
+      color: #1e293b;
+      background: transparent;
+    }
+    .nav-item svg {
+      stroke: #374151;
+    }
+    .nav-item:hover svg {
+      stroke: #1f2937;
+    }
+    .nav-item.active svg {
+      stroke: #1e293b;
+    }
+    /* 서브탭 버튼 */
+    .tab-btn {
+      color: #1e293b;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+    .tab-btn:hover {
+      color: #0f172a;
+      background: var(--hover-bg);
+    }
+    /* 스와이프 중 탭버튼 하이라이트 비활성화 */
+    .tab-btn.swiping,
+    .tab-btn.swiping:hover,
+    .tab-btn.swiping:active,
+    .tab-btn.swiping:focus {
+      background: var(--bg) !important;
+      color: #1e293b !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    .tab-btn.active {
+      color: #fff;
+      background: var(--primary);
+      border-color: var(--primary);
+    }

@@ -1,0 +1,281 @@
+﻿/* ========== Dark Mode Overrides ========== */
+
+@media (prefers-color-scheme: dark) {
+  img[loading="lazy"] {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  }
+}
+
+    /* === Dark Mode === */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* Primary Colors - 게이밍 느낌 오렌지 계열 */
+        --primary: #ff6b35; /* Orange-Red */
+        --primary-light: #ff8f66;
+        --primary-dark: #e55a2b;
+        --accent: #ffc107; /* Gold */
+
+        /* Background & Surface - 검정 계열 (청색 배제) */
+        --bg: #121212; /* Material Design 표준 다크 */
+        --bg-elevated: #1e1e1e; /* Neutral 900 */
+        --card: #1e1e1e; /* Neutral 900 */
+        --card-hover: #2a2a2a; /* Neutral 800 */
+
+        /* Border - 검정 계열 */
+        --border: #333333; /* Neutral 700 */
+        --border-subtle: #262626; /* Neutral 800 */
+
+        /* Text - WCAG AA 준수 */
+        --text: #f0f0f0; /* 대비 높임 */
+        --text-primary: #ffffff; /* 다크모드 - 순백색 */
+        --text-secondary: rgba(255, 255, 255, 0.9); /* 본문 설명 - 더 밝게 */
+        --text-muted: #888888; /* 대비 높임 */
+        --text-tertiary: #9ca3af; /* 보조 텍스트 - WCAG AA 준수 (대비 7.4:1) */
+
+        /* 호환성 변수 (별칭) - 다크모드 */
+        --bg-secondary: #262626;
+        --border-color: #333333;
+        --bg-hover: #2a2a2a;
+        --accent-color: #ff6b35;
+
+        /* Shadows - 다크모드 최적화 + 미세 글로우 */
+        --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.4);
+        --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.4), 0 0 1px rgb(255 255 255 / 0.03);
+        --shadow: 0 2px 4px rgb(0 0 0 / 0.4), 0 4px 12px rgb(0 0 0 / 0.3), 0 0 1px rgb(255 255 255 / 0.05);
+        --shadow-lg: 0 4px 8px rgb(0 0 0 / 0.4), 0 12px 24px rgb(0 0 0 / 0.35), 0 0 1px rgb(255 255 255 / 0.05);
+        --shadow-xl: 0 8px 16px rgb(0 0 0 / 0.4), 0 24px 48px rgb(0 0 0 / 0.35), 0 0 1px rgb(255 255 255 / 0.06);
+
+        /* Glass Effect - 검정 계열 */
+        --glass-bg: rgba(30, 30, 30, 0.75);
+        --glass-bg-solid: rgba(30, 30, 30, 0.95);
+        --glass-border: rgba(255, 255, 255, 0.08);
+
+        /* Interactive States - 검정 계열 */
+        --hover-bg: #2a2a2a;
+
+        /* Semantic Colors - 다크모드 */
+        --success: #4ade80;
+        --active-bg: rgba(255, 107, 53, 0.15);
+        --item-bg: #1e1e1e;
+
+        /* Glow Effects - 게이밍 특화 */
+        --glow-primary: 0 0 20px rgba(255, 107, 53, 0.3);
+        --glow-accent: 0 0 20px rgba(255, 193, 7, 0.25);
+
+        /* === 다크모드 전용 Insight/Accent Colors (오렌지) === */
+        --insight-border: rgba(255, 107, 53, 0.25);
+        --insight-header-border: rgba(255, 107, 53, 0.2);
+        --insight-icon: #ff6b35;
+        --metric-color: #ff6b35;
+        --gradient-progress: linear-gradient(90deg, #ff6b35, #ffc107);
+        --gradient-accent: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+
+        /* === 다크모드 전용 Icon Backgrounds (오렌지 통일) === */
+        --icon-bg-hot: rgba(255, 107, 53, 0.25);
+        --icon-bg-industry: rgba(255, 107, 53, 0.25);
+        --icon-bg-metrics: rgba(255, 107, 53, 0.25);
+        --icon-bg-rankings: rgba(255, 107, 53, 0.25);
+        --icon-bg-community: rgba(255, 107, 53, 0.25);
+        --icon-bg-streaming: rgba(255, 107, 53, 0.25);
+        --icon-bg-stocks: rgba(255, 107, 53, 0.25);
+
+        /* === 다크모드 전용 Tag Base Colors (밝은 오렌지) === */
+        --tag-bg: rgba(255, 112, 67, 0.18);
+        --tag-color: #ff7043;
+
+        /* === 다크모드 전용 Section Colors (미니멀 - 투명/단색) === */
+        --section-gradient: transparent;
+        --section-gradient-strong: rgba(255, 255, 255, 0.02);
+        --section-icon-bg: rgba(255, 107, 53, 0.15);
+        --section-accent-bg: rgba(255, 255, 255, 0.05);
+        --section-border: rgba(255, 255, 255, 0.1);
+      }
+
+      /* 다크모드 메인탭 - 흰색 톤 */
+      .nav-item {
+        color: rgba(255, 255, 255, 0.85) !important;
+      }
+      .nav-item:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+      /* 스와이프 중 하이라이트 비활성화 (다크모드) */
+      .nav-item.swiping,
+      .nav-item.swiping:hover,
+      .nav-item.swiping:active,
+      .nav-item.swiping:focus {
+        background: transparent !important;
+        color: rgba(255, 255, 255, 0.85) !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      .nav-item.active {
+        color: #fff !important;
+        background: transparent !important;
+      }
+      .nav-item svg {
+        stroke: rgba(255, 255, 255, 0.85) !important;
+        opacity: 1 !important;
+      }
+      .nav-item:hover svg {
+        stroke: #fff !important;
+      }
+      .nav-item.active svg {
+        stroke: #fff !important;
+      }
+
+      /* 다크모드 서브탭 - 흰색 톤 */
+      .tab-btn {
+        color: rgba(255, 255, 255, 0.85) !important;
+      }
+      .tab-btn:hover {
+        color: #fff !important;
+      }
+      .tab-btn.active {
+        color: #fff !important;
+      }
+      /* 스와이프 중 탭버튼 하이라이트 비활성화 (다크모드) */
+      .tab-btn.swiping,
+      .tab-btn.swiping:hover,
+      .tab-btn.swiping:active,
+      .tab-btn.swiping:focus {
+        background: transparent !important;
+        color: rgba(255, 255, 255, 0.85) !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      .tab-btn .news-favicon {
+        filter: brightness(1.5) contrast(0.9) !important;
+      }
+
+      /* 다크모드 홈 서브탭 - 밝은 색상 */
+      .home-news-tab,
+      .home-community-tab,
+      .home-video-tab {
+        color: rgba(255, 255, 255, 0.85) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+      }
+      .home-news-tab:hover,
+      .home-community-tab:hover,
+      .home-video-tab:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+      }
+      .home-news-tab.active,
+      .home-community-tab.active,
+      .home-video-tab.active {
+        background: var(--primary) !important;
+        color: #fff !important;
+      }
+
+      /* 다크모드 - 인사이트 페이지 탭 */
+      .insight-tab {
+        color: rgba(255, 255, 255, 0.85) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(255, 255, 255, 0.12) !important;
+      }
+      .insight-tab:hover {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+      }
+      .insight-tab.active {
+        background: var(--primary) !important;
+        color: #fff !important;
+        border-color: var(--primary) !important;
+      }
+
+      /* 다크모드 - 모든 본문/설명 텍스트 흰색 계열 */
+      .home-insight-desc,
+      .weekly-section-desc,
+      .weekly-hot-desc,
+      .weekly-timeline-desc,
+      .weekly-metric-desc,
+      .weekly-community-desc,
+      .weekly-streaming-desc,
+      .weekly-highlight-desc,
+      .weekly-mvp-desc,
+      .weekly-global-desc,
+      .weekly-ranking-desc,
+      .weekly-rank-reason,
+      .weekly-stock-comment,
+      .weekly-stock-rank-comment,
+      .daily-community-desc,
+      .daily-streaming-desc,
+      .daily-industry-desc,
+      .insight-item-desc,
+      .report-section-desc,
+      .stock-comment,
+      .stock-desc {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      /* 다크모드 - 모든 제목 텍스트 순백색 */
+      .home-insight-title,
+      .weekly-section-title,
+      .weekly-hot-title,
+      .weekly-timeline-title,
+      .weekly-metric-title,
+      .weekly-community-title,
+      .weekly-streaming-title,
+      .weekly-highlight-title,
+      .weekly-mvp-name,
+      .weekly-global-title,
+      .weekly-ranking-title,
+      .weekly-rank-title,
+      .weekly-stock-name,
+      .daily-community-title,
+      .daily-streaming-title,
+      .daily-industry-title,
+      .insight-item-title,
+      .report-section-title,
+      .stock-name,
+      .stock-title {
+        color: #fff !important;
+      }
+
+      /* 다크모드 - 태그/배지 텍스트 (섹션별 고유 색상 유지) */
+      /* 태그는 각 섹션별 색상을 유지하므로 강제 흰색 제거 */
+      .weekly-ranking-badge {
+        color: rgba(255, 255, 255, 0.95) !important;
+      }
+
+      /* 다크모드 - 에디터스 노트 */
+      .weekly-editor-note,
+      .insight-summary {
+        color: rgba(255, 255, 255, 0.95) !important;
+      }
+
+      /* 다크모드 - 인포그래픽 텍스트 */
+      .insight-info-label,
+      .insight-info-value,
+      .insight-info-sub {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      /* 다크모드 - 주식 정보 텍스트 */
+      .stock-item-name,
+      .stock-item-comment,
+      .stock-item-desc {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      /* 다크모드 - 인사이트 페이지 전체 텍스트 */
+      .insight-container p,
+      .insight-container span:not(.home-insight-tag):not([class*="badge"]):not([class*="rank"]):not(.weekly-stock-percent):not(.weekly-stock-arrow) {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* 다크모드 - 주간 게임주 분석 상승/하락 색상 */
+      .weekly-stock-change.up,
+      .weekly-stock-change.up .weekly-stock-arrow,
+      .weekly-stock-change.up .weekly-stock-percent {
+        color: #4ade80 !important;
+      }
+
+      .weekly-stock-change.down,
+      .weekly-stock-change.down .weekly-stock-arrow,
+      .weekly-stock-change.down .weekly-stock-percent {
+        color: #f87171 !important;
+      }
+    }

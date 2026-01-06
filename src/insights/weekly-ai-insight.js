@@ -131,15 +131,15 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
   "weekNumber": ${weekInfo.weekNumber},
   "summary": "지난 주 게임 업계 핵심 요약 (300자 이내)",
   "headline": "뉴스/블로그 제목처럼 임팩트 있게. 핵심 이슈 1개만 선정. 예: '메이플 키우기, 양대 마켓 1위 등극' (50자 이내)",
-  "thumbnail": "headline과 가장 관련된 뉴스 썸네일 URL (주간 뉴스 목록에서 선택)",
+  "thumbnail": null,
   "issues": [
-    { "tag": "모바일|PC|콘솔|e스포츠", "title": "지난 주 핫이슈 제목 40자", "desc": "설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
+    { "tag": "모바일|PC|콘솔|e스포츠", "title": "지난 주 핫이슈 제목 40자", "desc": "설명 200자 이내", "thumbnail": null }
   ],
   "industryIssues": [
-    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
+    { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내", "thumbnail": null }
   ],
   "metrics": [
-    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
+    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내", "thumbnail": null }
   ],${rankingsSection}
   "community": [
     { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 200자 이내" }
@@ -165,7 +165,7 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
     { "date": "M/D", "title": "게임명", "platform": "iOS|Android|PC|콘솔", "type": "신작|업데이트", "desc": "기대 포인트 50자" }
   ],
   "global": [
-    { "tag": "북미|일본|중국|유럽", "title": "글로벌 트렌드 제목 40자", "desc": "해외 게임 시장 동향 200자 이내", "thumbnail": "관련 뉴스 썸네일 URL" }
+    { "tag": "북미|일본|중국|유럽", "title": "글로벌 트렌드 제목 40자", "desc": "해외 게임 시장 동향 200자 이내", "thumbnail": null }
   ]
 }
 
@@ -174,18 +174,9 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
 - title: 40자 이내
 - desc: 200자 이내
 
-## 썸네일 선택 규칙 (필수 - 우선순위대로 진행):
-1. 뉴스 DB에서 "확실히 일치"하는 기사 썸네일 사용
-   - 이슈 제목의 핵심 키워드가 뉴스 제목에 "모두" 포함된 경우만
-   - 예: "명일방주 엔드필드 출시" → "명일방주" AND "엔드필드" 둘 다 있어야 함
-   - 애매하면 스킵 → 다음 단계로
-2. 웹 검색으로 "확실히 일치"하는 뉴스/관련 이미지 찾기
-   - 이슈와 정확히 매칭되는 뉴스 기사 이미지
-   - 애매하면 스킵 → 다음 단계로
-3. 게임 관련 이슈면 → 해당 게임 공식 아이콘 (앱스토어/구글플레이 아이콘)
-4. 웹 검색으로 공식 이미지 찾기 (Steam 헤더, 공식 사이트 등)
-5. 위 모두 실패 → 기본 폴백 이미지 또는 null
-※ 절대 금지: 키워드 불일치 이미지 사용 (애매하면 차라리 공식 아이콘 사용)
+## 썸네일 처리 규칙 (필수):
+- 아래 모든 thumbnail 필드는 항상 null로 출력
+- 썸네일은 후처리 단계(Codex)에서 웹 검색으로 채움
 
 ## 중복 방지 (필수):
 - summary(위클리 포커스)는 전주 리포트와 중복된 주제/표현 피할 것

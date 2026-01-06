@@ -2,7 +2,7 @@
  * 출시 게임 페이지 템플릿
  */
 
-const { wrapWithLayout, SHOW_ADS, AD_SLOTS } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
 // 광고 슬롯 변수 (함수 내에서 정의)
 
@@ -17,9 +17,8 @@ const platformLogos = {
 function generateUpcomingPage(data) {
   const { upcoming } = data;
 
-  // 광고 슬롯
-  const topAdMobile = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal mobile-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:inline-block;width:100%;height:100px" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal5 + '"></ins></div>' : '';
-  const topAdPc = SHOW_ADS ? '<div class="ad-slot ad-slot-section ad-slot--horizontal pc-only"><ins class="adsbygoogle" data-gc-ad="1" style="display:block;width:100%" data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + AD_SLOTS.horizontal4 + '" data-ad-format="horizontal" data-full-width-responsive="true"></ins></div>' : '';
+  // 광고 슬롯 (모바일/PC)
+  const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
 
   // 출시 예정 게임 섹션 생성
   function generateUpcomingSection(items, platform) {
@@ -27,32 +26,30 @@ function generateUpcomingPage(data) {
       return '<div class="upcoming-empty">출시 예정 정보를 불러올 수 없습니다</div>';
     }
     const defaultLogo = platformLogos[platform] || platformLogos.mobile;
-    const header = `
-      <div class="upcoming-table-header">
-        <div>순위</div>
-        <div>게임</div>
-        <div>출시일</div>
-      </div>
-    `;
-    const rows = items.map((game, i) => {
-      const isSteam = platform === 'steam' && game.appid;
-      const fallbackImg = isSteam ? `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/capsule_231x87.jpg` : '';
-      const onerrorHandler = isSteam
-        ? `if(!this.dataset.retry){this.dataset.retry='1';this.src='${fallbackImg}';}else{this.parentElement.querySelector('.upcoming-icon-placeholder')?.classList.remove('hidden');this.style.display='none';}`
-        : `this.parentElement.querySelector('.upcoming-icon-placeholder')?.classList.remove('hidden');this.style.display='none'`;
+	    const header = `
+	      <div class="upcoming-table-header">
+	        <div>순위</div>
+	        <div>게임</div>
+	        <div>출시일</div>
+	      </div>
+	    `;
+	    const rows = items.map((game, i) => {
+	      const isSteam = platform === 'steam' && game.appid;
+	      const fallbackImg = isSteam ? `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/capsule_231x87.jpg` : '';
+	      const retryAttr = fallbackImg ? ` data-img-fallback-retry-src="${fallbackImg}"` : '';
 
-      return `
-      <a class="upcoming-item" href="${game.link || '#'}" target="_blank" rel="noopener">
-        <div class="upcoming-col-rank">
-          <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
-        </div>
-        <div class="upcoming-col-game">
-          ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" decoding="async" onerror="${onerrorHandler}">` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
-          <div class="upcoming-info">
-            <div class="upcoming-name">${game.name}</div>
-            ${game.publisher ? `<div class="upcoming-publisher">${game.publisher}</div>` : ''}
-          </div>
-        </div>
+	      return `
+	      <a class="upcoming-item" href="${game.link || '#'}" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1"${retryAttr}>` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">${game.name}</div>
+	            ${game.publisher ? `<div class="upcoming-publisher">${game.publisher}</div>` : ''}
+	          </div>
+	        </div>
         <div class="upcoming-col-date">${game.releaseDate || '-'}</div>
       </a>
     `;
@@ -63,9 +60,8 @@ function generateUpcomingPage(data) {
   const content = `
     <section class="section active" id="upcoming">
       
-      <div class="page-wrapper">
-        ${topAdMobile}
-        ${topAdPc}
+      <div class="page-container">
+        ${topAds}
         <h1 class="visually-hidden">출시 게임 - 신작 게임, 출시 예정 게임</h1>
         <div class="upcoming-card home-card">
           <div class="home-card-header">
@@ -78,13 +74,13 @@ function generateUpcomingPage(data) {
               </button>
               <button class="tab-btn" data-upcoming="ps5">
                 <img src="https://www.google.com/s2/favicons?domain=playstation.com&sz=32" alt="" class="news-favicon">PS5
-              </button>
-              <button class="tab-btn" data-upcoming="nintendo">
-                <svg viewBox="0 0 24 24" fill="#e60012" class="news-favicon" style="width:20px;height:20px"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>닌텐도
-              </button>
-              <button class="tab-btn" data-upcoming="mobile">
-                <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
-              </button>
+	              </button>
+	              <button class="tab-btn" data-upcoming="nintendo">
+	                <svg viewBox="0 0 24 24" fill="#e60012" class="news-favicon"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>닌텐도
+	              </button>
+	              <button class="tab-btn" data-upcoming="mobile">
+	                <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
+	              </button>
             </div>
           </div>
           <div class="home-card-body">
@@ -108,20 +104,6 @@ function generateUpcomingPage(data) {
 
   const pageScripts = `
   <script>
-    // 폰트 로딩
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => {
-        document.documentElement.classList.add('fonts-loaded');
-      });
-    } else {
-      setTimeout(() => {
-        document.documentElement.classList.add('fonts-loaded');
-      }, 100);
-    }
-    // twemoji
-    if (typeof twemoji !== 'undefined') {
-      twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-    }
     // 출시 게임 탭 전환
     document.querySelectorAll('#upcomingTab .tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {

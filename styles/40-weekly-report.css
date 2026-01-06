@@ -1,0 +1,96 @@
+﻿/* === 주간 리포트 보고서 스타일 === */
+.weekly-report {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block-y-lg);
+}
+
+/* SVG 아이콘 공통 */
+.weekly-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.weekly-icon-sm {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* 요약 통계 그리드 */
+.weekly-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.weekly-stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.weekly-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.weekly-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.weekly-stat-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.weekly-stat-icon.mobile {
+  background: rgba(26, 115, 232, 0.15);
+  color: var(--insight-icon, #1a73e8);
+}
+
+.weekly-stat-icon.pc {
+  background: rgba(26, 115, 232, 0.15);
+  color: #1a73e8;
+}
+
+.weekly-stat-icon.industry {
+  background: rgba(26, 115, 232, 0.15);
+  color: #1a73e8;
+}
+
+.weekly-stat-icon.community {
+  background: rgba(26, 115, 232, 0.15);
+  color: #1a73e8;
+}
+
+.weekly-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.weekly-stat-value {
+  font-size: var(--font-stat-size);
+  font-weight: var(--font-badge-weight);
+  color: var(--text);
+  line-height: 1;
+}
+
+.weekly-stat-label {
+  font-size: var(--font-body-size);
+  color: var(--text-secondary);
+}
