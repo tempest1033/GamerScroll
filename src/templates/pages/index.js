@@ -762,7 +762,7 @@ function generateIndexPage(data) {
     });
 
     // 홈 모바일 랭킹 - 인기/매출 탭 전환
-    let homeCurrentChart = 'free';
+    let homeCurrentChart = 'grossing';
     let homeCurrentPlatform = 'ios';
     const homeChartTab = document.getElementById('homeChartTab');
     homeChartTab?.addEventListener('click', (e) => {
