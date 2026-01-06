@@ -643,7 +643,7 @@ function generateIndexPage(data) {
 				      id: id,
 				      wrapperClass: 'ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || ''),
 				      slotId: slotId,
-				      format: 'auto',
+				      format: 'rectangle',
 				      ...AD_PRESETS.rectangleMobile
 				    });
 				  }

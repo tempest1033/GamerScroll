@@ -840,7 +840,6 @@ function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '', options = {}) {
       id: mobileId,
       wrapperClass: `ad-slot-section ad-slot--horizontal mobile-only ${baseClass}`.trim(),
       slotId: mobileSlot,
-      format: 'auto',
       collapse,
       ...AD_PRESETS.horizontalMobile
     },

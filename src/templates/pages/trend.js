@@ -78,7 +78,7 @@ function generateMidAdSlot(pcSlotId, mobileSlotId) {
     {
       wrapperClass: 'ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve',
       slotId: mobileSlot,
-      format: 'auto',
+      format: 'rectangle',
       ...AD_PRESETS.rectangleMobile
     },
     {
@@ -1437,7 +1437,7 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
 			      {
 			        wrapperClass: 'ad-slot--rectangle mobile-only ad-slot--no-reserve',
 			        slotId: mobileSlot,
-			        format: 'auto',
+			        format: 'rectangle',
 			        ...AD_PRESETS.rectangleMobile
 			      },
 			      {
