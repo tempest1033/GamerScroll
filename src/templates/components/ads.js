@@ -15,31 +15,25 @@ const AD_PRESETS = {
   horizontalPcLong: {
     style: 'display:block;width:100%;height:90px'
   },
-  // 모바일 가로형 - width 100%, height 100px
+  // 모바일 가로형 - width 100%, height auto
   horizontalMobile: {
-    style: 'display:block;width:100%;height:100px',
-    format: 'auto',
-    fullWidthResponsive: true
+    style: 'display:block;width:100%'
   },
   // PC 사각형 - 300x250
   rectanglePc: {
     style: 'display:block;width:300px;height:250px'
   },
-  // 모바일 사각형 - 반응형
+  // 모바일 사각형 - width 100%, height auto
   rectangleMobile: {
-    style: 'display:block',
-    format: 'auto',
-    fullWidthResponsive: true
+    style: 'display:block;width:100%'
   },
   // PC 버티컬 - 300x600
   verticalPc: {
     style: 'display:block;width:300px;height:600px'
   },
-  // 자동 반응형
+  // 자동 반응형 - width 100%, height auto
   autoResponsive: {
-    style: 'display:block',
-    format: 'auto',
-    fullWidthResponsive: true
+    style: 'display:block;width:100%'
   }
 };
 
