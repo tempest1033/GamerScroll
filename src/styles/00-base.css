@@ -30,13 +30,12 @@
     }
 
     /* 지연 로딩 이미지 페이드인 */
-    img[data-src],
-    img.img-loading {
+    img[data-src] {
       opacity: 0;
     }
     img.img-loaded {
       opacity: 1;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.3s ease;
     }
 
     /* 광고 우선 로딩: 카드 내부 컨텐츠만 지연 표시 */

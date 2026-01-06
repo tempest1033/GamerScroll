@@ -198,27 +198,14 @@ function generateHead(options = {}) {
       function showDeferredContent() {
         if (loaded) return;
         loaded = true;
-        // 이미지 로딩 (완전히 로드된 후 페이드인)
+        // 이미지 로딩
         var imgs = document.querySelectorAll('img[data-src]');
         for (var i = 0; i < imgs.length; i++) {
           (function(img) {
             if (img.dataset.src) {
-              img.classList.add('img-loading');
-              var src = img.dataset.src;
+              img.onload = function() { img.classList.add('img-loaded'); };
+              img.src = img.dataset.src;
               img.removeAttribute('data-src');
-              img.onload = function() {
-                img.classList.remove('img-loading');
-                img.classList.add('img-loaded');
-              };
-              img.onerror = function() {
-                img.classList.remove('img-loading');
-              };
-              img.src = src;
-              // 캐시된 이미지는 onload가 안 불릴 수 있음
-              if (img.complete) {
-                img.classList.remove('img-loading');
-                img.classList.add('img-loaded');
-              }
             }
           })(imgs[i]);
         }
