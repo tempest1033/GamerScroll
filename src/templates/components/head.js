@@ -67,38 +67,15 @@ function generateHead(options = {}) {
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
 	  <meta name="robots" content="noindex, nofollow">` : ''}
-	  <script>
-	    (function() {
-	      var host = location.hostname;
-	      if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0') {
-	        document.documentElement.classList.add('is-localhost');
-	      }
-	    })();
-	  </script>
-	  <script>
-	    (function() {
-	      function getCurrentAdIns() {
-	        var script = document.currentScript;
-	        if (!script) return null;
-	        var ins = script.previousElementSibling;
-	        if (!ins || !ins.classList || !ins.classList.contains('adsbygoogle')) return null;
-	        return ins;
-	      }
-
-	      window.gcAdsensePush = function() {
-	        try {
-	          var ins = getCurrentAdIns();
-	          if (!ins) return;
-
-	          // display:none(PC/모바일 전용) 상태면 availableWidth=0 에러가 날 수 있어 스킵
-	          if ((ins.offsetWidth || 0) <= 0) return;
-
-	          (adsbygoogle = window.adsbygoogle || []).push({});
-	        } catch (e) {}
-	      };
-	    })();
-	  </script>
-	  <title>${title}</title>
+		  <script>
+		    (function() {
+		      var host = location.hostname;
+		      if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0') {
+		        document.documentElement.classList.add('is-localhost');
+		      }
+		    })();
+		  </script>
+		  <title>${title}</title>
   <!-- SEO -->
   <meta name="description" content="${description}">
   <meta name="keywords" content="${keywords}">
