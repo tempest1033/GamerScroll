@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 광고(AdSense) 공통 헬퍼
  * - 구글 권장 표준 방식으로 마크업 생성
  * - 각 광고 슬롯 바로 뒤에 push 스크립트 포함
@@ -17,7 +17,7 @@ const AD_PRESETS = {
   },
   // 모바일 가로형 - width 100%, height auto
   horizontalMobile: {
-    style: 'display:block;width:100%'
+    style: 'display:block;min-width:300px;max-width:728px;width:100%;height:250px'
   },
   // PC 사각형 - 300x250
   rectanglePc: {
@@ -25,7 +25,7 @@ const AD_PRESETS = {
   },
   // 모바일 사각형 - width 100%, height auto
   rectangleMobile: {
-    style: 'display:block;width:100%'
+    style: 'display:block;min-width:300px;max-width:728px;width:100%;height:250px'
   },
   // PC 버티컬 - 300x600
   verticalPc: {
