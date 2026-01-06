@@ -11924,6 +11924,8 @@ a.gm-item:hover {
   .controls-wrapper,
   .tab-group {
     border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
   }
 
   .ad-slot,

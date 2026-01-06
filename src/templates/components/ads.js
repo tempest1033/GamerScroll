@@ -21,7 +21,7 @@ const AD_PRESETS = {
     style: 'display:inline-block;width:300px;height:250px'
   },
   rectangleMobile: {
-    style: 'display:block;width:100%',
+    style: 'display:block',  // AdSense가 크기 결정
     format: 'auto',
     fullWidthResponsive: true
   },
@@ -29,7 +29,7 @@ const AD_PRESETS = {
     style: 'display:inline-block;width:300px;height:600px'
   },
   autoResponsive: {
-    style: 'display:block;width:100%',
+    style: 'display:block',  // AdSense가 크기 결정
     format: 'auto',
     fullWidthResponsive: true
   }

@@ -452,9 +452,11 @@ async function main() {
   }
 
   // CSS 파일 복사
+  let didBundleCss = false;
   try {
     const bundledCss = bundleCssFile('./src/styles.css');
     fs.writeFileSync('./styles.css', bundledCss, 'utf8');
+    didBundleCss = true;
   } catch (e) {
     console.error(`⚠️ CSS 번들링 실패 → 원본 복사: ${e.message}`);
     fs.copyFileSync('./src/styles.css', './styles.css');
@@ -910,8 +912,12 @@ async function main() {
   }
 
   try {
-    const bundledCss = bundleCssFile('./src/styles.css');
-    fs.writeFileSync(`${DOCS_DIR}/styles.css`, bundledCss, 'utf8');
+    if (didBundleCss && fs.existsSync('./styles.css')) {
+      fs.copyFileSync('./styles.css', `${DOCS_DIR}/styles.css`);
+    } else {
+      const bundledCss = bundleCssFile('./src/styles.css');
+      fs.writeFileSync(`${DOCS_DIR}/styles.css`, bundledCss, 'utf8');
+    }
   } catch (e) {
     console.error(`⚠️ CSS 번들링 실패(docs) → 원본 복사: ${e.message}`);
     fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
