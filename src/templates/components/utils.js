@@ -34,7 +34,7 @@ function generateCommunityItem(item, index, sourceName) {
 	  return `
 	    <div class="rank-item ${rankClass}">
 	      <span class="rank-num">${index + 1}</span>
-	      <img class="rank-icon" src="${game.icon}" alt="" loading="lazy" data-img-fallback="hide">
+	      <img class="rank-icon" data-src="${game.icon}" alt="" loading="lazy" data-img-fallback="hide">
 	      <span class="rank-title">${game.title}</span>
 	    </div>
 	  `;

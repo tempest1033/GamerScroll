@@ -378,6 +378,17 @@
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
+  /* 좌우 12px 패딩 통일 (홈 피드와 동일) */
+  .games-hub-section-title {
+    padding: 0 12px;
+  }
+
+  .games-hub-recent-grid,
+  .games-hub-popular-grid,
+  .games-hub-groups {
+    padding: 0 12px;
+  }
+
   .games-hub-title {
     font-size: 22px;
   }
@@ -393,20 +404,15 @@
   }
 
   /* 게임 페이지 전용 - CSS sticky로 자동 고정 */
-  .games-hub-index {
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: var(--games-hub-sticky-top) !important;
-    z-index: 98 !important;
-    background: var(--bg) !important;
-    padding: 8px 12px !important;
-    gap: 4px;
-    /* 좌우 전체 너비 확장 */
-    margin-left: -16px;
-    margin-right: -16px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+    .games-hub-index {
+      position: -webkit-sticky !important;
+      position: sticky !important;
+      top: var(--games-hub-sticky-top) !important;
+      z-index: 98 !important;
+      background: var(--bg) !important;
+      padding: 8px 12px !important;
+      gap: 4px;
+    }
 
   .index-link {
     min-width: 28px;

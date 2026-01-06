@@ -127,7 +127,7 @@ function generateGamesHubPage(options = {}) {
         ${popularGamesWithInfo.map(game => `
           <a href="/games/${game.slug}/" class="games-hub-popular-card">
             <span class="popular-rank">${game.rank}</span>
-            <img src="${game.icon}" alt="${game.name}" class="popular-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
+            <img data-src="${game.icon}" alt="${game.name}" class="popular-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
             <div class="popular-info">
               <span class="popular-name">${game.name}</span>
               <span class="popular-views">${game.views.toLocaleString()}회 조회</span>
@@ -201,7 +201,7 @@ function generateGamesHubPage(options = {}) {
   const content = `
     <section class="section active" id="games">
       
-      <div class="games-hub-container" id="top">
+      <div class="games-hub-container content-deferred" id="top">
         ${topAds}
         <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
         ${searchResultsSection}
@@ -336,7 +336,7 @@ function generateGamesHubPage(options = {}) {
             </svg>
           </button>
           <a href="/games/\${game.slug}/" class="recent-link">
-            <img src="\${iconUrl}" alt="\${game.name}" class="recent-icon" loading="lazy" data-slug="\${game.slug}"\${needsIcon} data-img-fallback-src="/icon-192.png">
+            <img data-src="\${iconUrl}" alt="\${game.name}" class="recent-icon" loading="lazy" data-slug="\${game.slug}"\${needsIcon} data-img-fallback-src="/icon-192.png">
             <span class="recent-name">\${game.name}</span>
           </a>
         </div>
@@ -420,7 +420,7 @@ function generateGamesHubPage(options = {}) {
       } else {
         grid.innerHTML = results.slice(0, 50).map(game => \`
           <a href="/games/\${game.slug}/" class="games-hub-recent-card">
-            <img src="\${game.icon || '/icon-192.png'}" alt="\${game.name}" class="recent-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
+            <img data-src="\${game.icon || '/icon-192.png'}" alt="\${game.name}" class="recent-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
             <span class="recent-name">\${game.name}</span>
           </a>
         \`).join('');

@@ -24,6 +24,27 @@
       background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
     }
 
+    /* 지연 로딩 이미지 페이드인 */
+    img[data-src],
+    img.img-loading {
+      opacity: 0;
+    }
+    img.img-loaded {
+      opacity: 1;
+      transition: opacity 0.35s ease;
+    }
+
+    /* 광고 우선 로딩: 컨텐츠 지연 표시 */
+    .content-deferred {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    .content-loaded {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
     /* 썸네일/아이콘 폴백 (파비콘 중앙 배치) */
     .thumb-fallback {
       background: var(--bg-secondary, #1a1a2e) url('/favicon.svg') center/32px no-repeat !important;

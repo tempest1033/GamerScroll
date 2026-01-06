@@ -67,7 +67,7 @@ function generateCommunityPage(data) {
   const content = `
     <section class="section active" id="community">
       
-      <div class="page-container">
+      <div class="page-container content-deferred">
         ${topAds}
         <h1 class="visually-hidden">커뮤니티 베스트</h1>
         <div class="community-grid">

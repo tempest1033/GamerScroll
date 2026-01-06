@@ -20,7 +20,7 @@ function generateYoutubePage(data) {
         ${videos.map((video) => `
           <a class="youtube-card" href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
             <div class="youtube-thumb">
-              <img src="${video.thumbnail}" alt="" loading="lazy" decoding="async">
+              <img data-src="${video.thumbnail}" alt="" loading="lazy" decoding="async">
               <span class="youtube-tag">${video.channel}</span>
             </div>
             <div class="youtube-info">
@@ -44,7 +44,7 @@ function generateYoutubePage(data) {
         ${lives.map((live) => `
           <a class="youtube-card" href="https://chzzk.naver.com/live/${live.channelId}" target="_blank">
             <div class="youtube-thumb${!live.thumbnail ? ' youtube-thumb-empty' : ''}">
-              ${live.thumbnail ? `<img src="${live.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}
+              ${live.thumbnail ? `<img data-src="${live.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}
               <span class="youtube-tag">${live.channel}</span>
               <span class="youtube-live">LIVE ${live.viewers.toLocaleString()}</span>
             </div>
@@ -60,7 +60,7 @@ function generateYoutubePage(data) {
   const content = `
     <section class="section active" id="youtube">
       
-      <div class="game-container">
+      <div class="game-container content-deferred">
         ${topAds}
         <h1 class="visually-hidden">게임 영상 - 유튜브 인기, 치지직 라이브</h1>
 

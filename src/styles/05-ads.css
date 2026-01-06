@@ -15,6 +15,8 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  /* 모바일 스와이프: 수평 스와이프는 페이지가 처리, 수직은 스크롤 */
+  touch-action: pan-y;
 }
 
 /* 광고 ins 요소 */
@@ -31,6 +33,8 @@ ins.adsbygoogle iframe {
 }
 ins.adsbygoogle iframe {
   display: block;
+  /* 모바일 스와이프 허용 */
+  touch-action: pan-y;
 }
 
 /* 광고 여백 */

@@ -56,7 +56,7 @@ function renderAdIns({ slotId, style, format, fullWidthResponsive = false }) {
 
   // 구글 권장: 각 광고 바로 뒤에 push 스크립트
   return `<ins ${attrs.join(' ')}></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`;
+<script>window.gcAdsensePush ? window.gcAdsensePush() : (adsbygoogle = window.adsbygoogle || []).push({});</script>`;
 }
 
 /**

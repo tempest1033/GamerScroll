@@ -172,7 +172,7 @@ function generateWeeklyPanel(weeklyInsight) {
         ${issues.slice(0, 4).map(issue => {
           const thumbnail = issue.thumbnail ? fixUrl(issue.thumbnail) : null;
           const thumbnailHtml = thumbnail
-            ? `<div class="weekly-hot-thumb"><img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+            ? `<div class="weekly-hot-thumb"><img data-src="${thumbnail}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : '';
           return `
           <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
@@ -240,7 +240,7 @@ function generateWeeklyPanel(weeklyInsight) {
         ${industryIssues.map(item => {
           const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
           const thumbHtml = thumbUrl
-            ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+            ? `<div class="industry-thumb"><img data-src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : `<div class="industry-thumb thumb-fallback"></div>`;
           return `
           <div class="industry-card has-thumb">
@@ -269,7 +269,7 @@ function generateWeeklyPanel(weeklyInsight) {
           const thumbUrl = m.thumbnail ? fixUrl(m.thumbnail) : null;
           const gameIcon = findGameIcon(m.title);
           const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
-          const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
+          const thumbHtml = `<div class="metric-thumb"><img data-src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
           return `
             <div class="weekly-metric-card has-thumb">
               ${thumbHtml}
@@ -422,7 +422,7 @@ function generateWeeklyPanel(weeklyInsight) {
         ${global.map(g => {
           const thumbUrl = g.thumbnail ? fixUrl(g.thumbnail) : null;
           const thumbHtml = thumbUrl
-            ? `<div class="global-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+            ? `<div class="global-thumb"><img data-src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : `<div class="global-thumb thumb-fallback"></div>`;
           return `
           <div class="global-card has-thumb">
@@ -499,7 +499,7 @@ function generateTrendPage(data) {
     const gameIcon = !thumbnail ? findGameIcon(item.title) : null;
     const imageUrl = thumbnail ? fixUrl(thumbnail) : gameIcon;
     const imageHtml = imageUrl
-      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img data-src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
       : '';
     return `
       <div class="weekly-hot-card ${imageUrl ? 'has-thumb' : ''}">
@@ -517,7 +517,7 @@ function generateTrendPage(data) {
     const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
     const gameIcon = findGameIcon(item.title);
     const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
-    const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
+    const thumbHtml = `<div class="metric-thumb"><img data-src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
     return `
       <div class="weekly-metric-card has-thumb">
         ${thumbHtml}
@@ -543,7 +543,7 @@ function generateTrendPage(data) {
       </span>
     ` : '';
 
-    const iconHtml = `<img class="title-icon" src="${gameIcon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">`;
+    const iconHtml = `<img class="title-icon" data-src="${gameIcon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">`;
 
     return `
       <div class="weekly-hot-card ranking-item">
@@ -607,7 +607,7 @@ function generateTrendPage(data) {
           ${limitedItems.map(item => {
             const thumbnail = typeof findThumbnail === 'function' ? findThumbnail(item) : item.thumbnail;
             const thumbnailHtml = thumbnail
-              ? `<div class="weekly-hot-thumb"><img src="${fixUrl(thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+              ? `<div class="weekly-hot-thumb"><img data-src="${fixUrl(thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
               : '';
             return `
             <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
@@ -697,7 +697,7 @@ function generateTrendPage(data) {
       const thumb = item.thumbnail || findThumb(item.title);
       const thumbUrl = thumb ? fixUrl(thumb) : null;
       const thumbHtml = thumbUrl
-        ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+        ? `<div class="industry-thumb"><img data-src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
         : `<div class="industry-thumb thumb-fallback"></div>`;
       return `
       <div class="industry-card has-thumb">
@@ -825,7 +825,7 @@ function generateTrendPage(data) {
   const content = `
     <section class="section active" id="insight">
       
-      <div class="insight-container">
+      <div class="insight-container content-deferred">
         ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         <div class="insight-tabs">
@@ -937,7 +937,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     const gameIcon = !thumbnail ? findGameIcon(item.title) : null;
     const imageUrl = thumbnail ? fixUrl(thumbnail) : gameIcon;
     const imageHtml = imageUrl
-      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img data-src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
       : '';
     return `
       <div class="weekly-hot-card ${imageUrl ? 'has-thumb' : ''}">
@@ -964,7 +964,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       </span>
     ` : '';
 
-    const iconHtml = `<img class="title-icon" src="${gameIcon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">`;
+    const iconHtml = `<img class="title-icon" data-src="${gameIcon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">`;
 
     return `
       <div class="weekly-hot-card ranking-item">
@@ -999,7 +999,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
     const gameIcon = findGameIcon(item.title);
     const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
-    const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
+    const thumbHtml = `<div class="metric-thumb"><img data-src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
     return `
       <div class="weekly-metric-card has-thumb">
         ${thumbHtml}
@@ -1045,7 +1045,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
           ${limitedItems.map(item => {
             const thumbnail = typeof findThumbnail === 'function' ? findThumbnail(item) : item.thumbnail;
             const thumbnailHtml = thumbnail
-              ? `<div class="weekly-hot-thumb"><img src="${fixUrl(thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+              ? `<div class="weekly-hot-thumb"><img data-src="${fixUrl(thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
               : '';
             return `
             <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
@@ -1135,7 +1135,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       const thumb = item.thumbnail || findThumb(item.title);
       const thumbUrl = thumb ? fixUrl(thumb) : null;
       const thumbHtml = thumbUrl
-        ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+        ? `<div class="industry-thumb"><img data-src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
         : `<div class="industry-thumb thumb-fallback"></div>`;
       return `
       <div class="industry-card has-thumb">
@@ -1262,7 +1262,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   const content = `
     <section class="section active" id="insight">
       
-      <div class="insight-container">
+      <div class="insight-container content-deferred">
         ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         ${(() => {
@@ -1359,7 +1359,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   const content = `
     <section class="section active" id="insight">
       
-      <div class="insight-container">
+      <div class="insight-container content-deferred">
         ${topAds}
         <h1 class="visually-hidden">${h1Title}</h1>
         ${weeklyPanelHtml}
@@ -1479,7 +1479,7 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           return `
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${block.caption || ''}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" data-src="${imgSrc}" alt="${block.caption || ''}" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `;
@@ -1508,7 +1508,7 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" data-src="${g.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${g.name}</span>
           </a>
         `).join('')}
