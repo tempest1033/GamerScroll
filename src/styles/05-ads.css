@@ -41,11 +41,6 @@ ins.adsbygoogle iframe {
   margin: var(--space-block-gap) 0;
 }
 
-/* ===== unfilled 광고 - 공간 유지 (CLS 방지) ===== */
-.ad-slot:has(ins[data-ad-status="unfilled"]) {
-  visibility: hidden;
-}
-
 /* ===== PC 광고 (기본 표시) ===== */
 
 .ad-slot.pc-only {
