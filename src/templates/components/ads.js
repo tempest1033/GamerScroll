@@ -19,6 +19,14 @@ function renderAdCard(slotId, options = {}) {
     `data-ad-slot="${slotId}"`
   ];
 
+  // 타입별 AdSense 속성 추가
+  if (type === 'rectangle') {
+    attrs.push('data-ad-format="rectangle"');
+  } else {
+    attrs.push('data-ad-format="auto"');
+    attrs.push('data-full-width-responsive="true"');
+  }
+
   return `<div class="ad-card ad-card-${type}">
   <ins ${attrs.join(' ')}></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
