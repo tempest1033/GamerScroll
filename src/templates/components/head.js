@@ -201,7 +201,37 @@ function generateHead(options = {}) {
 	      }
 	    })();
 	  </script>
-	  ${dataScript}`;
+	  ${dataScript}
+	  <!-- 광고 컨테이너 자동 리사이즈 -->
+	  <script>
+	    (function() {
+	      function resizeAdCards() {
+	        document.querySelectorAll('.ad-card').forEach(function(card) {
+	          var ins = card.querySelector('ins.adsbygoogle');
+	          if (!ins) return;
+
+	          var observer = new MutationObserver(function() {
+	            if (ins.dataset.adStatus === 'filled') {
+	              var iframe = ins.querySelector('iframe');
+	              if (iframe && iframe.offsetHeight > 0) {
+	                card.style.minHeight = iframe.offsetHeight + 'px';
+	                card.style.maxHeight = iframe.offsetHeight + 'px';
+	              }
+	              observer.disconnect();
+	            }
+	          });
+
+	          observer.observe(ins, { attributes: true, childList: true, subtree: true });
+	        });
+	      }
+
+	      if (document.readyState === 'loading') {
+	        document.addEventListener('DOMContentLoaded', resizeAdCards);
+	      } else {
+	        resizeAdCards();
+	      }
+	    })();
+	  </script>`;
 }
 
 module.exports = { generateHead, SHOW_ADS, LOAD_ADSENSE_SCRIPT };
