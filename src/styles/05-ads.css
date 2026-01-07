@@ -35,10 +35,10 @@
 
 /* unfilled일 때만 로고 플레이스홀더 */
 .ad-card:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
-  background-image: url('/favicon.svg');
+  background-image: url('/favicon-placeholder.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 40px;
+  background-size: 60px;
 }
 
 
