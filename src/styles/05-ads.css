@@ -25,20 +25,6 @@
   background-image: none;
 }
 
-/* ===== ins 기본 스타일 ===== */
-
-.ad-card > ins.adsbygoogle {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
-
-/* 광고 내부 iframe */
-.ad-card > ins.adsbygoogle iframe {
-  touch-action: pan-y;
-}
-
 /* ===== 광고 크기 ===== */
 
 /* 상단 배너: 200px 높이 */
