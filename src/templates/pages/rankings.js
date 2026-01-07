@@ -43,7 +43,7 @@ function generateRankingsPage(data) {
       const items = chartData[c.code]?.[store] || [];
       const rows = items.length > 0 ? items.slice(0, maxItems).map((app, i) => {
         const slug = findGameSlug(app.appId, store);
-        const rowContent = `<img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div><div class="app-dev">${app.developer}</div></div>`;
+        const rowContent = `<img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
         return slug
           ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
           : `<div class="rank-row">${rowContent}</div>`;
@@ -64,7 +64,7 @@ function generateRankingsPage(data) {
       } else if (items.length > 0) {
         rows = items.map((app, i) => {
           const slug = findGameSlug(app.appId, 'android');
-          const rowContent = `<img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div><div class="app-dev">${app.developer}</div></div>`;
+          const rowContent = `<img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
           return slug
             ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
             : `<div class="rank-row">${rowContent}</div>`;
@@ -326,11 +326,10 @@ function generateRankingsPage(data) {
 
 	    function buildRow(app) {
 	      const title = escapeHtml(app && app.title ? app.title : '');
-	      const developer = escapeHtml(app && app.developer ? app.developer : '');
 	      const icon = escapeHtml(app && app.icon ? app.icon : '');
 	      const rowContent =
 	        '<img class="app-icon" src="' + icon + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility">' +
-	        '<div class="app-info"><div class="app-name">' + title + '</div><div class="app-dev">' + developer + '</div></div>';
+	        '<div class="app-info"><div class="app-name">' + title + '</div></div>';
 
 	      if (app && app.slug) {
 	        return '<a class="rank-row rank-row-link" href="/games/' + app.slug + '/">' + rowContent + '</a>';

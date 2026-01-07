@@ -4,7 +4,7 @@
  */
 
 const { generateHead, SHOW_ADS } = require('./components/head');
-const { ADSENSE_CLIENT, AD_PRESETS, renderAdSlot } = require('./components/ads');
+const { renderAdCard } = require('./components/ads');
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
@@ -14,9 +14,7 @@ const AD_SLOTS = {
   Responsive002: '4840966314',
   Responsive003: '7467129651',
   Responsive004: '7865094213',
-  Responsive005: '3028357040',
   Rectangle001: '1104244740',
-  Rectangle_Big001: '1795150514',
   Vertical001: '6855905500'
 };
 
@@ -654,7 +652,7 @@ const deferredItemsScript = `
   ].join(',');
 
   var REVEAL_DELAY_MS = 150;
-  var FALLBACK_TIMEOUT_MS = 2500;
+  var FALLBACK_TIMEOUT_MS = 100;
   var revealStarted = false;
   var fallbackTimer = null;
   var raf = window.requestAnimationFrame || function(cb) { return setTimeout(cb, 16); };
@@ -761,17 +759,36 @@ const deferredItemsScript = `
     return !!(ad && (ad.dataset.adStatus === 'filled' || ad.childElementCount > 0));
   }
 
-  function waitForAdFrame(ad) {
+  function isAdReady(ad) {
     if (!ad) return false;
+    // filled 또는 unfilled면 완료
+    if (ad.dataset.adStatus) return true;
+    // iframe 로드 완료면 완료
     var frame = ad.querySelector('iframe');
-    if (!frame) return false;
-    if (frame.__gcLoaded) return true;
-    if (!frame.__gcLoadBound) {
+    if (frame && frame.__gcLoaded) return true;
+    return false;
+  }
+
+  function waitForAd(ad) {
+    if (!ad) return false;
+    if (isAdReady(ad)) return true;
+
+    // iframe load 이벤트 바인딩
+    var frame = ad.querySelector('iframe');
+    if (frame && !frame.__gcLoadBound) {
       frame.__gcLoadBound = true;
       frame.addEventListener('load', function() {
         frame.__gcLoaded = true;
         startReveal();
       }, { once: true });
+    }
+
+    // MutationObserver로 data-ad-status 감지
+    if (!ad.__gcStatusObserver) {
+      ad.__gcStatusObserver = new MutationObserver(function() {
+        if (ad.dataset.adStatus) startReveal();
+      });
+      ad.__gcStatusObserver.observe(ad, { attributes: true, attributeFilter: ['data-ad-status'] });
     }
     return false;
   }
@@ -779,7 +796,8 @@ const deferredItemsScript = `
   function checkAds() {
     var priorityAd = getPriorityAd();
     if (priorityAd) {
-      if (!waitForAdFrame(priorityAd)) setTimeout(checkAds, 120);
+      if (!waitForAd(priorityAd)) setTimeout(checkAds, 120);
+      else startReveal();
       return;
     }
 
@@ -789,7 +807,10 @@ const deferredItemsScript = `
       return;
     }
     for (var i = 0; i < ads.length; i++) {
-      if (waitForAdFrame(ads[i])) return;
+      if (waitForAd(ads[i])) {
+        startReveal();
+        return;
+      }
     }
     setTimeout(checkAds, 120);
   }
@@ -982,45 +1003,8 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 높이 자동 조정 스크립트 - 작은 광고 로드 시 여백 제거
-const adInitScript = `
-<script>
-(function() {
-  function adjustAd(ad) {
-    var iframe = ad.querySelector('iframe');
-    if (iframe && iframe.offsetHeight > 0) {
-      ad.style.height = iframe.offsetHeight + 'px';
-    }
-  }
-
-  function adjustAllAds() {
-    document.querySelectorAll('ins.adsbygoogle').forEach(adjustAd);
-  }
-
-  // 주기적 체크 (3초간 100ms 간격)
-  var count = 0;
-  var interval = setInterval(function() {
-    adjustAllAds();
-    count++;
-    if (count > 30) clearInterval(interval);
-  }, 100);
-
-  // iframe 로드 이벤트 감지
-  document.addEventListener('load', function(e) {
-    if (e.target.tagName === 'IFRAME') {
-      var ad = e.target.closest('ins.adsbygoogle');
-      if (ad) adjustAd(ad);
-    }
-  }, true);
-
-  // 추가 타이밍
-  window.addEventListener('load', function() {
-    setTimeout(adjustAllAds, 500);
-    setTimeout(adjustAllAds, 1500);
-    setTimeout(adjustAllAds, 3000);
-  });
-})();
-</script>`;
+// 광고 초기화 - 별도 스크립트 불필요 (각 슬롯에서 push)
+const adInitScript = '';
 
 function wrapWithLayout(content, options = {}) {
   const {
@@ -1064,33 +1048,13 @@ function wrapWithLayout(content, options = {}) {
 }
 
 /**
- * 공통 광고 슬롯 HTML 생성 함수
- * PC/모바일 분리된 광고 세트 생성
- * @param {string} slotIdPc - PC용 광고 슬롯 ID
- * @param {string} slotIdMobile - 모바일용 광고 슬롯 ID (기본값: slotIdPc)
- * @param {string} extraClass - 추가 CSS 클래스 (선택)
+ * 광고 카드 생성
+ * @param {string} slotId - 광고 슬롯 ID
+ * @param {Object} options - { width, height, format, fullWidthResponsive }
  */
-function generateAdSingle(config = {}) {
+function generateAdSlot(slotId, options = {}) {
   if (!SHOW_ADS) return '';
-  return renderAdSlot(config);
+  return renderAdCard(slotId, options);
 }
 
-function generateAdPair(mobileConfig = {}, pcConfig = {}) {
-  if (!SHOW_ADS) return '';
-  const mobileHtml = renderAdSlot(mobileConfig);
-  const pcHtml = renderAdSlot(pcConfig);
-  return `${mobileHtml}\n${pcHtml}`;
-}
-
-/**
- * 반응형 광고 슬롯 생성 (래퍼 없음)
- */
-function generateAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
-  return renderAdSlot({
-    slotId,
-    ...AD_PRESETS.responsive
-  });
-}
-
-module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, AD_PRESETS, generateAdSingle, generateAdPair, generateAdSlot };
+module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot };

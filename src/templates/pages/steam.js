@@ -36,7 +36,6 @@ function generateSteamPage(data) {
               <div class="steam-img-placeholder">${steamPlaceholder}</div>
               <div class="steam-game-info">
                 <div class="steam-game-name">${game.name}</div>
-                <div class="steam-game-dev">${game.developer}</div>
               </div>
             </div>
             <div class="steam-col-players steam-price-info">${game.discount ? `<span class="steam-discount">${game.discount}</span>` : ''}<span class="steam-price">${game.price}</span></div>
@@ -151,7 +150,6 @@ function generateSteamPage(data) {
 	                  '<div class="steam-img-placeholder">' + STEAM_PLACEHOLDER + '</div>' +
 	                  '<div class="steam-game-info">' +
 	                    '<div class="steam-game-name">' + escapeHtml(game?.name || '') + '</div>' +
-	                    '<div class="steam-game-dev">' + escapeHtml(game?.developer || '') + '</div>' +
 	                  '</div>' +
 	                '</div>' +
 	                '<div class="steam-col-players">' + formatNumber(game?.ccu) + '</div>' +

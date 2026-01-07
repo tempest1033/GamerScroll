@@ -123,24 +123,6 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
         </div>
         ` : ''}
 
-        <!-- 주간 리포트 섹션 -->
-        <div class="home-card home-card-full trend-section" data-section="weekly">
-          <div class="home-card-header">
-            <h2 class="home-card-title">주간 리포트</h2>
-            <div class="trend-pagination">
-              <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
-              <span class="trend-page-index">1/1</span>
-              <button class="trend-page-btn trend-next" aria-label="다음">›</button>
-            </div>
-          </div>
-          <div class="home-card-body">
-            <div class="trend-feed-grid">
-              ${renderWeeklyCards()}
-            </div>
-            ${weeklyReports.length === 0 ? '<div class="trend-empty">주간 리포트가 없습니다</div>' : ''}
-          </div>
-        </div>
-
         <!-- 일간 리포트 섹션 -->
         <div class="home-card home-card-full trend-section" data-section="daily">
           <div class="home-card-header">
@@ -156,6 +138,24 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
               ${renderDailyCards()}
             </div>
             ${dailyReports.length === 0 ? '<div class="trend-empty">일간 리포트가 없습니다</div>' : ''}
+          </div>
+        </div>
+
+        <!-- 주간 리포트 섹션 -->
+        <div class="home-card home-card-full trend-section" data-section="weekly">
+          <div class="home-card-header">
+            <h2 class="home-card-title">주간 리포트</h2>
+            <div class="trend-pagination">
+              <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
+              <span class="trend-page-index">1/1</span>
+              <button class="trend-page-btn trend-next" aria-label="다음">›</button>
+            </div>
+          </div>
+          <div class="home-card-body">
+            <div class="trend-feed-grid">
+              ${renderWeeklyCards()}
+            </div>
+            ${weeklyReports.length === 0 ? '<div class="trend-empty">주간 리포트가 없습니다</div>' : ''}
           </div>
         </div>
       </div>

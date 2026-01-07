@@ -349,7 +349,7 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 0; /* gap으로 처리 */
   position: relative;
   overflow: hidden;
 }

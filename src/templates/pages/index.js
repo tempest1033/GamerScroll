@@ -3,7 +3,7 @@
  * 각 섹션의 요약 카드를 표시
  */
 
-const { wrapWithLayout, AD_SLOTS, AD_PRESETS, generateAdSlot, generateAdSingle } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
 function generateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], games = {} } = data;
@@ -434,10 +434,8 @@ function generateIndexPage(data) {
         return '<a class="home-steam-row" href="' + link + '"' + (isExternal ? ' target="_blank" rel="noopener"' : '') + '>' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
           '<img class="home-steam-icon" src="' + (game.img || '') + '" alt="" loading="lazy" data-img-fallback-id="icon-square">' +
-          '<div class="home-steam-info">' +
           '<span class="home-steam-name">' + (game.name || '') + '</span>' +
-          (showPlayers ? '<span class="home-steam-players">' + (game.ccu ? game.ccu.toLocaleString() : '-') + ' 명</span>' : '') +
-          '</div></a>';
+          '</a>';
       }).join('');
     }
 
@@ -460,10 +458,8 @@ function generateIndexPage(data) {
         return '<a class="home-upcoming-row" href="' + (game.link || '#') + '" target="_blank" rel="noopener">' +
           '<span class="home-rank-num ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span>' +
           '<img class="home-upcoming-icon" src="' + (game.img || '') + '" alt="" loading="lazy" data-img-fallback="hide-visibility">' +
-          '<div class="home-upcoming-info">' +
           '<span class="home-upcoming-name">' + (game.name || game.title || '') + '</span>' +
-          (game.releaseDate ? '<span class="home-upcoming-date">' + game.releaseDate + '</span>' : '') +
-          '</div></a>';
+          '</a>';
       }).join('');
     }
 
@@ -561,35 +557,8 @@ function generateIndexPage(data) {
 
   var popularBannerHtml = generatePopularBanner();
 
-	  function getAdSize(format, isMobile) {
-	    if (isMobile) {
-	      // 모바일: 320x100 (horizontal), 300x250 (rectangle/vertical)
-	      if (format === 'horizontal') return { width: 320, height: 100 };
-	      if (format === 'rectangle') return { width: 300, height: 250 };
-	      if (format === 'vertical') return { width: 300, height: 250 }; // 모바일에서 vertical은 rectangle로 대체
-	      return { width: 320, height: 100 };
-	    }
-	    // PC: 728x90 (horizontal), 300x250 (rectangle), 300x600 (vertical)
-	    if (format === 'horizontal') return { width: 728, height: 90 };
-	    if (format === 'rectangle') return { width: 300, height: 250 };
-	    if (format === 'vertical') return { width: 300, height: 600 };
-	    return { width: 728, height: 90 };
-	  }
-
-				  // 광고 슬롯 HTML 생성 함수 (PC용) - 인라인 push 제거, 공통 스크립트에서 초기화
-				  // 모든 광고를 반응형으로 통일
-				  function adSlot(id, extraClass, adFormat, adSlotId) {
-				    var slotId = adSlotId || AD_SLOTS.Responsive001;
-				    return generateAdSingle({
-				      id: id,
-				      wrapperClass: 'ad-slot-section ad-slot--horizontal ad-slot--responsive ' + (extraClass || ''),
-				      slotId: slotId,
-				      ...AD_PRESETS.responsive
-				    });
-				  }
-
-		  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등) - 인라인 push 제거, 공통 스크립트에서 초기화
-		  var topAds = generateAdSlot(AD_SLOTS.Responsive001, '', { id: 'home-top-ad' });
+  // 홈페이지 상단 광고
+		  var topAds = generateAdSlot(AD_SLOTS.Responsive001, { format: 'horizontal' });
 
 		  var content = '<section class="home-section active" id="home">' +
 		    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
@@ -638,7 +607,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
-	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.Vertical001) +
+	    generateAdSlot(AD_SLOTS.Vertical001) +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">스팀 순위</h2>' +
@@ -652,7 +621,7 @@ function generateIndexPage(data) {
     '</div>' +
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
-	    adSlot('ad-below-steam', 'pc-only', 'rectangle', AD_SLOTS.Rectangle001) +
+	    generateAdSlot(AD_SLOTS.Rectangle001, { width: 300, height: 250, format: 'rectangle' }) +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">출시 게임</h2>' +

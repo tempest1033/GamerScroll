@@ -30,7 +30,6 @@ function generateUpcomingPage(data) {
 	      <div class="upcoming-table-header">
 	        <div>순위</div>
 	        <div>게임</div>
-	        <div>출시일</div>
 	      </div>
 	    `;
 	    const rows = items.map((game, i) => {
@@ -47,10 +46,8 @@ function generateUpcomingPage(data) {
 	          ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1"${retryAttr}>` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
 	          <div class="upcoming-info">
 	            <div class="upcoming-name">${game.name}</div>
-	            ${game.publisher ? `<div class="upcoming-publisher">${game.publisher}</div>` : ''}
 	          </div>
 	        </div>
-        <div class="upcoming-col-date">${game.releaseDate || '-'}</div>
       </a>
     `;
     }).join('');

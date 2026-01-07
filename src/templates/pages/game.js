@@ -1239,9 +1239,6 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-	        <!-- 트렌드 리포트 상단 광고 (단일 슬롯) -->
-		        ${generateAdSlot(AD_SLOTS.Responsive002, 'home-card-full')}
-
         <!-- 뉴스 (풀 너비 2그리드) -->
         <div class="home-card home-card-full">
           <div class="home-card-header">
