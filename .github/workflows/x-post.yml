@@ -45,6 +45,7 @@ jobs:
         run: npm run x-post
 
       - name: Commit X card image
+        if: always()
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
