@@ -1251,14 +1251,12 @@
         padding: var(--space-block-y) 0;
       }
 
-      .home-container > .ad-slot-section {
+      .home-main .ad-slot-section {
         width: 100%;
       }
 
-      /* 모바일에서 main/sidebar 구조 풀기 */
-      .home-main,
       .home-sidebar {
-        display: contents !important;
+        display: none !important;
       }
 
       /* 가로 스크롤 방지: 개별 요소에만 적용 (sticky 조상 제외) */
@@ -1276,15 +1274,6 @@
 	      }
 
 	      /* 홈 모바일 패딩 통합은 30-responsive.css에서 관리 */
-
-	      /* 모바일 홈 피드 순서 변경 */
-	      #home-insight { order: 2 !important; }
-	      #ad-above-news-mobile { order: 3 !important; }
-      #home-news { order: 4 !important; }
-      #ad-above-mobile { order: 5 !important; }
-      #home-community { order: 6 !important; }
-      #ad-above-steam-mobile { order: 7 !important; }
-      #home-video { order: 8 !important; }
 
       /* 모바일에서 숨김: 모바일랭킹, 스팀순위, 신규게임 (광고는 유지) */
       #home-mobile-rank,

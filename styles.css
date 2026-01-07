@@ -921,17 +921,15 @@ ins.adsbygoogle iframe {
     width: 100%;
   }
 
-  /* 모바일 가로형/사각형: 채워진 광고는 실제 높이에 맞춤 */
-  .ad-slot.mobile-only.ad-slot--horizontal > ins.adsbygoogle[data-ad-status="filled"],
-  .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle[data-ad-status="filled"] {
+  /* 모바일 no-reserve: 채워진 광고는 실제 높이에 맞춤 */
+  .ad-slot.mobile-only.ad-slot--rectangle.ad-slot--no-reserve > ins.adsbygoogle[data-ad-status="filled"] {
     min-height: 0 !important;
     max-height: none !important;
     height: auto !important;
   }
 
-  /* 모바일 가로형/사각형: data-ad-status가 없더라도 iframe 주입 시 실제 높이에 맞춤 */
-  .ad-slot.mobile-only.ad-slot--horizontal:has(> ins.adsbygoogle iframe) > ins.adsbygoogle,
-  .ad-slot.mobile-only.ad-slot--rectangle:has(> ins.adsbygoogle iframe) > ins.adsbygoogle {
+  /* 모바일 no-reserve: data-ad-status가 없더라도 iframe 주입 시 실제 높이에 맞춤 */
+  .ad-slot.mobile-only.ad-slot--rectangle.ad-slot--no-reserve:has(> ins.adsbygoogle iframe) > ins.adsbygoogle {
     min-height: 0 !important;
     max-height: none !important;
     height: auto !important;
@@ -2497,14 +2495,17 @@ html.is-localhost .ad-slot > ins.adsbygoogle {
       .home-container {
         display: flex !important;
         flex-direction: column !important;
+        align-items: stretch !important;
         gap: var(--space-block-gap);
         padding: var(--space-block-y) 0;
       }
 
-      /* 모바일에서 main/sidebar 구조 풀기 */
-      .home-main,
+      .home-main .ad-slot-section {
+        width: 100%;
+      }
+
       .home-sidebar {
-        display: contents !important;
+        display: none !important;
       }
 
       /* 가로 스크롤 방지: 개별 요소에만 적용 (sticky 조상 제외) */
@@ -2522,15 +2523,6 @@ html.is-localhost .ad-slot > ins.adsbygoogle {
 	      }
 
 	      /* 홈 모바일 패딩 통합은 30-responsive.css에서 관리 */
-
-	      /* 모바일 홈 피드 순서 변경 */
-	      #home-insight { order: 2 !important; }
-	      #ad-above-news-mobile { order: 3 !important; }
-      #home-news { order: 4 !important; }
-      #ad-above-mobile { order: 5 !important; }
-      #home-community { order: 6 !important; }
-      #ad-above-steam-mobile { order: 7 !important; }
-      #home-video { order: 8 !important; }
 
       /* 모바일에서 숨김: 모바일랭킹, 스팀순위, 신규게임 (광고는 유지) */
       #home-mobile-rank,

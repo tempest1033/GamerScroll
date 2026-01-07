@@ -667,6 +667,7 @@ function generateIndexPage(data) {
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
     adSlot('ad-below-news', 'pc-only', 'horizontal', AD_SLOTS.PC_Horizontal002) +
+    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.Mobile_Responsive002) +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
@@ -675,6 +676,7 @@ function generateIndexPage(data) {
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
     adSlot('ad-below-community', 'pc-only', 'horizontal', AD_SLOTS.PC_Horizontal003) +
+    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.Mobile_Responsive003) +
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +
@@ -684,7 +686,6 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '</div>' +
 	    '<div class="home-sidebar">' +
-	    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.Mobile_Responsive002) +
 	    '<div class="home-card" id="home-mobile-rank">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="visually-hidden">모바일 게임 순위</h2>' +
@@ -700,7 +701,6 @@ function generateIndexPage(data) {
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
 	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.PC_Vertical001) +
-	    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.Mobile_Responsive003) +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">스팀 순위</h2>' +
