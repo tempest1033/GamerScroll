@@ -8,16 +8,13 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 // AdSense 표준 프리셋
 const AD_PRESETS = {
-  // PC 가로형 - 728x90
-  horizontalPc: {
-    style: 'display:block;width:100%;height:90px'
+  // 가로형 - 규격은 CSS에서 제어
+  horizontal: {
+    style: 'display:block;width:100%'
   },
-  horizontalPcLong: {
-    style: 'display:block;width:100%;height:90px'
-  },
-  // 모바일 가로형 - width 100%, min/max height 200~250
-  horizontalMobile: {
-    style: 'display:block;min-width:300px;max-width:728px;width:100%;min-height:200px;max-height:250px;height:100%'
+  // 반응형 - width 100%
+  responsive: {
+    style: 'display:block;width:100%'
   },
   // PC 사각형 - 300x250
   rectanglePc: {

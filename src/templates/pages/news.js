@@ -8,7 +8,7 @@ function generateNewsPage(data) {
   const { news } = data;
 
   // 광고 슬롯 (모바일/PC)
-  const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
+  const topAds = generateAdSlot(AD_SLOTS.Responsive001);
 
   // 뉴스 소스 정보
   const newsSources = [

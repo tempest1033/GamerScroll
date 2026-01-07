@@ -3,10 +3,10 @@
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
 
-const { wrapWithLayout, AD_SLOTS, AD_PRESETS, generateAdSlot, generateAdPair } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
 // 광고 슬롯
-const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
+const topAds = generateAdSlot(AD_SLOTS.Responsive001);
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {
@@ -1239,20 +1239,8 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-	        <!-- 트렌드 리포트 상단 광고 (모바일 먼저 배치 - CLS 방지) -->
-		        ${generateAdPair(
-		          {
-		            wrapperClass: 'ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve',
-		            slotId: AD_SLOTS.Mobile_Responsive001,
-		            format: 'rectangle',
-		            ...AD_PRESETS.rectangleMobile
-		          },
-		          {
-		            wrapperClass: 'ad-slot-section ad-slot--horizontal pc-only home-card-full',
-		            slotId: AD_SLOTS.PC_LongHorizontal001,
-		            ...AD_PRESETS.horizontalPcLong
-		          }
-		        )}
+	        <!-- 트렌드 리포트 상단 광고 (단일 슬롯) -->
+		        ${generateAdSlot(AD_SLOTS.Responsive002, 'home-card-full')}
 
         <!-- 뉴스 (풀 너비 2그리드) -->
         <div class="home-card home-card-full">

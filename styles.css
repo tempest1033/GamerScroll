@@ -849,12 +849,12 @@ ins.adsbygoogle iframe {
   overflow: hidden;
 }
 
-/* PC 가로형 - 728x90 */
-.ad-slot--horizontal.pc-only {
+/* 가로형 반응형 - PC 기본 */
+.ad-slot--horizontal.ad-slot--responsive {
   min-height: 90px;
   padding: 12px;
 }
-.ad-slot--horizontal.pc-only > ins.adsbygoogle {
+.ad-slot--horizontal.ad-slot--responsive > ins.adsbygoogle {
   width: 100%;
   min-height: 90px;
 }
@@ -916,6 +916,13 @@ ins.adsbygoogle iframe {
     width: 100%;
   }
 
+  /* 모바일 가로형 반응형 */
+  .ad-slot--horizontal.ad-slot--responsive > ins.adsbygoogle {
+    width: 100%;
+    min-width: 300px;
+    min-height: 200px;
+  }
+
   /* 모바일 사각형/반응형 */
   .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
     width: 100%;
@@ -957,7 +964,7 @@ ins.adsbygoogle iframe {
   margin-top: var(--space-block-gap);
 }
 
-:is(.page-container, .game-container, .games-hub-container, .insight-container) > .ad-slot--horizontal.pc-only {
+:is(.page-container, .game-container, .games-hub-container, .insight-container) > .ad-slot--horizontal.ad-slot--responsive {
   width: 100% !important;
   flex: 0 0 100%;
 }
@@ -2444,7 +2451,7 @@ html.is-localhost .ad-slot > ins.adsbygoogle {
       height: auto;
     }
     /* 홈페이지 가로형 광고 컨테이너 카드 스타일 (PC만 적용) */
-    .home-section .ad-slot--horizontal.pc-only {
+    .home-section .ad-slot--horizontal.ad-slot--responsive {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -9784,7 +9791,7 @@ html.is-localhost .ad-slot > ins.adsbygoogle {
 }
 
 /* game-container 내 PC 가로형 광고 */
-.game-container > .ad-slot--horizontal.pc-only {
+.game-container > .ad-slot--horizontal.ad-slot--responsive {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9793,7 +9800,7 @@ html.is-localhost .ad-slot > ins.adsbygoogle {
 }
 
 /* game-grid 내 광고 전체 너비 */
-.game-grid > .ad-slot--horizontal.pc-only {
+.game-grid > .ad-slot--horizontal.ad-slot--responsive {
   grid-column: 1 / -1;
   width: 100%;
 }

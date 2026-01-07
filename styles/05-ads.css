@@ -63,12 +63,12 @@ ins.adsbygoogle iframe {
   overflow: hidden;
 }
 
-/* PC 가로형 - 728x90 */
-.ad-slot--horizontal.pc-only {
+/* 가로형 반응형 - PC 기본 */
+.ad-slot--horizontal.ad-slot--responsive {
   min-height: 90px;
   padding: 12px;
 }
-.ad-slot--horizontal.pc-only > ins.adsbygoogle {
+.ad-slot--horizontal.ad-slot--responsive > ins.adsbygoogle {
   width: 100%;
   min-height: 90px;
 }
@@ -130,6 +130,13 @@ ins.adsbygoogle iframe {
     width: 100%;
   }
 
+  /* 모바일 가로형 반응형 */
+  .ad-slot--horizontal.ad-slot--responsive > ins.adsbygoogle {
+    width: 100%;
+    min-width: 300px;
+    min-height: 200px;
+  }
+
   /* 모바일 사각형/반응형 */
   .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
     width: 100%;
@@ -171,7 +178,7 @@ ins.adsbygoogle iframe {
   margin-top: var(--space-block-gap);
 }
 
-:is(.page-container, .game-container, .games-hub-container, .insight-container) > .ad-slot--horizontal.pc-only {
+:is(.page-container, .game-container, .games-hub-container, .insight-container) > .ad-slot--horizontal.ad-slot--responsive {
   width: 100% !important;
   flex: 0 0 100%;
 }

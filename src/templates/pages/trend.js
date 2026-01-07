@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, AD_SLOTS, AD_PRESETS, generateAdSlot, generateAdPair } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -32,7 +32,7 @@ const findGameIcon = (text) => {
 };
 
 // 광고 슬롯 (모바일/PC)
-const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
+const topAds = generateAdSlot(AD_SLOTS.Responsive001);
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {
@@ -71,22 +71,9 @@ function formatDateKorean(dateStr) {
 
 // 중간 광고 슬롯 생성 (PC: horizontal, 모바일: rectangle)
 // - 한 페이지 내 중복 슬롯ID 방지를 위해 호출부에서 slotId를 분리해서 넘겨주세요.
-function generateMidAdSlot(pcSlotId, mobileSlotId) {
-  const pcSlot = pcSlotId || AD_SLOTS.PC_LongHorizontal001;
-  const mobileSlot = mobileSlotId || AD_SLOTS.Mobile_Responsive001;
-  return generateAdPair(
-    {
-      wrapperClass: 'ad-slot-section ad-slot--rectangle mobile-only ad-slot--no-reserve',
-      slotId: mobileSlot,
-      format: 'rectangle',
-      ...AD_PRESETS.rectangleMobile
-    },
-    {
-      wrapperClass: 'ad-slot-section ad-slot--horizontal pc-only',
-      slotId: pcSlot,
-      ...AD_PRESETS.horizontalPcLong
-    }
-  );
+function generateMidAdSlot(slotId) {
+  const resolvedSlot = slotId || AD_SLOTS.Responsive002;
+  return generateAdSlot(resolvedSlot);
 }
 
 // 태그 아이콘 매핑
@@ -458,11 +445,11 @@ function generateWeeklyPanel(weeklyInsight) {
 
       ${hotIssuesSection}
       ${rankingsSection}
-      ${generateMidAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Responsive001)}
+      ${generateMidAdSlot(AD_SLOTS.Responsive002)}
       ${industrySection}
       ${metricsSection}
       ${globalSection}
-      ${generateMidAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Responsive002)}
+      ${generateMidAdSlot(AD_SLOTS.Responsive003)}
       ${stocksSection}
       ${releasesSection}
       ${communitySection}
@@ -842,11 +829,11 @@ function generateTrendPage(data) {
             ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
           </div>
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
-          ${generateMidAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Responsive001)}
+          ${generateMidAdSlot(AD_SLOTS.Responsive002)}
           ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
           ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
           ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
-          ${generateMidAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Responsive002)}
+          ${generateMidAdSlot(AD_SLOTS.Responsive003)}
           ${renderStocksCard(stocksData, stockPrices)}
           ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
           ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
@@ -1282,11 +1269,11 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
         </div>`;
         })()}
         ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
-        ${generateMidAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Responsive001)}
+        ${generateMidAdSlot(AD_SLOTS.Responsive002)}
         ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
         ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
         ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
-        ${generateMidAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Responsive002)}
+        ${generateMidAdSlot(AD_SLOTS.Responsive003)}
         ${renderStocksCard(stocksData, stockPrices)}
         ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
         ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
@@ -1421,31 +1408,15 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
   const { slug, title, date, thumbnail, summary, content = [] } = post;
 
 	  // Deep Dive 중간 광고
-	  const DEEP_DIVE_PC_SLOTS = [AD_SLOTS.PC_LongHorizontal001];
-	  const DEEP_DIVE_MOBILE_SLOTS = [
-	    AD_SLOTS.Mobile_Responsive001,
-	    AD_SLOTS.Mobile_Responsive002,
-	    AD_SLOTS.Mobile_Responsive003,
-	    AD_SLOTS.Mobile_Responsive004,
-	    AD_SLOTS.Mobile_Responsive005
+	  const DEEP_DIVE_SLOTS = [
+	    AD_SLOTS.Responsive002,
+	    AD_SLOTS.Responsive003,
+	    AD_SLOTS.Responsive004
 	  ];
 
 			  const generateDeepDiveAdSlot = (adIndex = 0) => {
-			    const pcSlot = DEEP_DIVE_PC_SLOTS[adIndex % DEEP_DIVE_PC_SLOTS.length];
-			    const mobileSlot = DEEP_DIVE_MOBILE_SLOTS[adIndex % DEEP_DIVE_MOBILE_SLOTS.length];
-			    const adsHtml = generateAdPair(
-			      {
-			        wrapperClass: 'ad-slot--rectangle mobile-only ad-slot--no-reserve',
-			        slotId: mobileSlot,
-			        format: 'rectangle',
-			        ...AD_PRESETS.rectangleMobile
-			      },
-			      {
-			        wrapperClass: 'ad-slot--horizontal pc-only',
-			        slotId: pcSlot,
-			        ...AD_PRESETS.horizontalPcLong
-			      }
-			    );
+			    const slotId = DEEP_DIVE_SLOTS[adIndex % DEEP_DIVE_SLOTS.length];
+			    const adsHtml = generateAdSlot(slotId);
 			    if (!adsHtml) return '';
 			    return `<div class="blog-ad">${adsHtml}</div>`;
 			  };

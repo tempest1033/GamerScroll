@@ -10,21 +10,14 @@ const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
 const AD_SLOTS = {
-  PC_Horizontal001: '5214702534',
-  PC_Horizontal002: '4377097736',
-  PC_Horizontal003: '2509466388',
-  PC_Horizontal004: '3935062846',
-  PC_Horizontal005: '1062515168',
-  PC_LongHorizontal001: '8458886930',
-  Mobile_Horizontal001: '5825162341',
-  Mobile_Horizontal002: '3457841699',
-  Mobile_Responsive001: '5039620326',
-  Mobile_Responsive002: '4840966314',
-  Mobile_Responsive003: '7467129651',
-  Mobile_Responsive004: '7865094213',
-  Mobile_Responsive005: '3028357040',
-  PC_Vertical001: '6855905500',
-  PC_Rectangle001: '1795150514'
+  Responsive001: '5039620326',
+  Responsive002: '4840966314',
+  Responsive003: '7467129651',
+  Responsive004: '7865094213',
+  Responsive005: '3028357040',
+  Rectangle001: '1104244740',
+  Rectangle_Big001: '1795150514',
+  Vertical001: '6855905500'
 };
 
 // 상단 검색바 (홈/일반 페이지용)
@@ -746,13 +739,6 @@ const deferredItemsScript = `
     setTimeout(finalize, REVEAL_DELAY_MS);
   }
 
-  function isMobileView() {
-    if (window.matchMedia) {
-      return window.matchMedia('(max-width: 768px)').matches;
-    }
-    return window.innerWidth <= 768;
-  }
-
   function getTopAdIn(containerSelector) {
     var container = document.querySelector(containerSelector);
     if (!container) return null;
@@ -762,24 +748,11 @@ const deferredItemsScript = `
   function getFirstAdInMain() {
     var main = document.querySelector('main');
     if (!main) return null;
-    var selector = isMobileView()
-      ? 'ins.adsbygoogle.mobile-only'
-      : 'ins.adsbygoogle.pc-only';
-    var ad = main.querySelector(selector);
-    if (ad) return ad;
     return main.querySelector('ins.adsbygoogle');
   }
 
   function getPriorityAd() {
-    var isMobile = isMobileView();
-    var topAd = null;
-
-    if (isMobile) {
-      topAd = getTopAdIn('#home-top-ad-mobile');
-    } else {
-      topAd = getTopAdIn('#home-top-ad-pc');
-    }
-
+    var topAd = getTopAdIn('#home-top-ad');
     if (topAd) return topAd;
     return getFirstAdInMain();
   }
@@ -1073,40 +1046,25 @@ function generateAdPair(mobileConfig = {}, pcConfig = {}) {
 }
 
 /**
- * PC/모바일 광고 세트 생성
- * @param {string} slotIdPc - PC용 슬롯 ID
- * @param {string} slotIdMobile - 모바일용 슬롯 ID
+ * 가로형 반응형 광고 슬롯 생성
+ * @param {string} slotId - 광고 슬롯 ID
  * @param {string} extraClass - 추가 CSS 클래스
- * @param {Object} options - { idMobile, idPc, collapse }
+ * @param {Object} options - { id, collapse }
  * @param {boolean} options.collapse - true면 unfilled 시 접힘 (3,4,5번 광고용)
  */
-function generateAdSlot(slotIdPc, slotIdMobile, extraClass = '', options = {}) {
-  const mobileSlot = slotIdMobile || slotIdPc;
-  const mobileId = options.idMobile || '';
-  const pcId = options.idPc || '';
+function generateAdSlot(slotId, extraClass = '', options = {}) {
+  if (!SHOW_ADS) return '';
+  const id = options.id || '';
   const collapse = options.collapse || false;
   const baseClass = (extraClass || '').trim();
-  const pcPreset = slotIdPc === AD_SLOTS.PC_LongHorizontal001
-    ? AD_PRESETS.horizontalPcLong
-    : AD_PRESETS.horizontalPc;
 
-  return generateAdPair(
-    // 모바일 광고를 먼저 배치
-    {
-      id: mobileId,
-      wrapperClass: `ad-slot-section ad-slot--horizontal mobile-only ${baseClass}`.trim(),
-      slotId: mobileSlot,
-      collapse,
-      ...AD_PRESETS.horizontalMobile
-    },
-    {
-      id: pcId,
-      wrapperClass: `ad-slot-section ad-slot--horizontal pc-only ${baseClass}`.trim(),
-      slotId: slotIdPc,
-      collapse,
-      ...pcPreset
-    }
-  );
+  return renderAdSlot({
+    id,
+    wrapperClass: `ad-slot-section ad-slot--horizontal ad-slot--responsive ${baseClass}`.trim(),
+    slotId,
+    collapse,
+    ...AD_PRESETS.responsive
+  });
 }
 
 module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, AD_PRESETS, generateAdSingle, generateAdPair, generateAdSlot };

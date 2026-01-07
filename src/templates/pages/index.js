@@ -579,14 +579,14 @@ function generateIndexPage(data) {
 				  // 광고 슬롯 HTML 생성 함수 (PC용) - 인라인 push 제거, 공통 스크립트에서 초기화
 				  function adSlot(id, extraClass, adFormat, adSlotId) {
 				    var format = adFormat || 'horizontal';
-					    var slotId = adSlotId || AD_SLOTS.PC_Horizontal001;
+					    var slotId = adSlotId || AD_SLOTS.Responsive001;
 					    // 가로형은 반응형 (화면 너비에 맞게 자동 조절)
 					    if (format === 'horizontal') {
 					      return generateAdSingle({
 					        id: id,
-					        wrapperClass: 'ad-slot-section ad-slot--horizontal ' + (extraClass || ''),
+					        wrapperClass: 'ad-slot-section ad-slot--horizontal ad-slot--responsive ' + (extraClass || ''),
 					        slotId: slotId,
-					        ...AD_PRESETS.horizontalPc
+					        ...AD_PRESETS.horizontal
 					      });
 					    }
 				    // rectangle 포맷: PC 300x250 고정, 모바일 280px
@@ -637,19 +637,8 @@ function generateIndexPage(data) {
 				    });
 				  }
 
-				  // 모바일용 사각형 광고
-				  function adSlotMobile(id, extraClass, slotId) {
-				    return generateAdSingle({
-				      id: id,
-				      wrapperClass: 'ad-slot-section mobile-only ad-slot--rectangle ' + (extraClass || ''),
-				      slotId: slotId,
-				      format: 'rectangle',
-				      ...AD_PRESETS.rectangleMobile
-				    });
-				  }
-
 		  // 홈페이지 상단 광고 - 가로형 (728x90, 970x90 등) - 인라인 push 제거, 공통 스크립트에서 초기화
-		  var topAds = generateAdSlot(AD_SLOTS.PC_Horizontal001, AD_SLOTS.Mobile_Horizontal001, '', { idMobile: 'home-top-ad-mobile', idPc: 'home-top-ad-pc' });
+		  var topAds = generateAdSlot(AD_SLOTS.Responsive001, '', { id: 'home-top-ad' });
 
 		  var content = '<section class="home-section active" id="home">' +
 		    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
@@ -658,7 +647,7 @@ function generateIndexPage(data) {
 		    topAds +
 		    popularBannerHtml +
 		    insightCardHtml +
-	    adSlotMobile('ad-above-news-mobile', 'ad-slot--no-reserve', AD_SLOTS.Mobile_Responsive001) +
+	    generateAdSlot(AD_SLOTS.Responsive002) +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
@@ -666,8 +655,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
-    adSlot('ad-below-news', 'pc-only', 'horizontal', AD_SLOTS.PC_Horizontal002) +
-    adSlotMobile('ad-above-mobile', 'ad-slot--no-reserve', AD_SLOTS.Mobile_Responsive002) +
+    generateAdSlot(AD_SLOTS.Responsive003) +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
@@ -675,8 +663,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
-    adSlot('ad-below-community', 'pc-only', 'horizontal', AD_SLOTS.PC_Horizontal003) +
-    adSlotMobile('ad-above-steam-mobile', 'ad-slot--no-reserve', AD_SLOTS.Mobile_Responsive003) +
+    generateAdSlot(AD_SLOTS.Responsive004) +
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +
@@ -700,7 +687,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
-	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.PC_Vertical001) +
+	    adSlot('ad-below-mobile', 'pc-only', 'vertical', AD_SLOTS.Vertical001) +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">스팀 순위</h2>' +
@@ -714,7 +701,7 @@ function generateIndexPage(data) {
     '</div>' +
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
-	    adSlot('ad-below-steam', 'pc-only', 'rectangle', AD_SLOTS.PC_Rectangle001) +
+	    adSlot('ad-below-steam', 'pc-only', 'rectangle', AD_SLOTS.Rectangle001) +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">출시 게임</h2>' +

@@ -7,7 +7,7 @@
 const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
 // 광고 슬롯 (모바일/PC)
-const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
+const topAds = generateAdSlot(AD_SLOTS.Responsive001);
 
 /**
  * 초성 추출 함수

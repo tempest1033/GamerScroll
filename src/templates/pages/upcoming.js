@@ -18,7 +18,7 @@ function generateUpcomingPage(data) {
   const { upcoming } = data;
 
   // 광고 슬롯 (모바일/PC)
-  const topAds = generateAdSlot(AD_SLOTS.PC_LongHorizontal001, AD_SLOTS.Mobile_Horizontal001);
+  const topAds = generateAdSlot(AD_SLOTS.Responsive001);
 
   // 출시 예정 게임 섹션 생성
   function generateUpcomingSection(items, platform) {

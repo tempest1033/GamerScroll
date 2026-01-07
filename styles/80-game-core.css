@@ -6,7 +6,7 @@
 }
 
 /* game-container 내 PC 가로형 광고 */
-.game-container > .ad-slot--horizontal.pc-only {
+.game-container > .ad-slot--horizontal.ad-slot--responsive {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@
 }
 
 /* game-grid 내 광고 전체 너비 */
-.game-grid > .ad-slot--horizontal.pc-only {
+.game-grid > .ad-slot--horizontal.ad-slot--responsive {
   grid-column: 1 / -1;
   width: 100%;
 }
