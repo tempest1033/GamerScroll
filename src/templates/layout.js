@@ -793,23 +793,20 @@ const deferredItemsScript = `
     var frame = ad.querySelector('iframe');
     if (!frame) return false;
     if (frame.__gcLoaded) return true;
-    frame.addEventListener('load', function() {
-      frame.__gcLoaded = true;
-      startReveal();
-    }, { once: true });
+    if (!frame.__gcLoadBound) {
+      frame.__gcLoadBound = true;
+      frame.addEventListener('load', function() {
+        frame.__gcLoaded = true;
+        startReveal();
+      }, { once: true });
+    }
     return false;
   }
 
   function checkAds() {
     var priorityAd = getPriorityAd();
     if (priorityAd) {
-      if (waitForAdFrame(priorityAd)) {
-        startReveal();
-      } else if (isAdFilled(priorityAd)) {
-        startReveal();
-      } else {
-        setTimeout(checkAds, 120);
-      }
+      if (!waitForAdFrame(priorityAd)) setTimeout(checkAds, 120);
       return;
     }
 
@@ -819,10 +816,7 @@ const deferredItemsScript = `
       return;
     }
     for (var i = 0; i < ads.length; i++) {
-      if (isAdFilled(ads[i])) {
-        startReveal();
-        return;
-      }
+      if (waitForAdFrame(ads[i])) return;
     }
     setTimeout(checkAds, 120);
   }
