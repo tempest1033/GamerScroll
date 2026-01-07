@@ -34,12 +34,11 @@
   touch-action: pan-y;
 }
 
-/* ins/iframe 스와이프 허용 + 중앙 정렬 */
+/* ins/iframe 스와이프 허용 */
 .ad-card ins,
 .ad-card iframe {
   touch-action: pan-y;
   border-collapse: collapse;
-  margin: auto;
 }
 
 /* unfilled일 때만 로고 플레이스홀더 */
