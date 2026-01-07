@@ -660,7 +660,7 @@ const deferredItemsScript = `
     '.popular-banner'
   ].join(',');
 
-  var REVEAL_DELAY_MS = 300;
+  var REVEAL_DELAY_MS = 150;
   var FALLBACK_TIMEOUT_MS = 2500;
   var revealStarted = false;
   var fallbackTimer = null;

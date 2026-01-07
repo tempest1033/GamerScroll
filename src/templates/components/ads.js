@@ -17,7 +17,7 @@ const AD_PRESETS = {
   },
   // 모바일 가로형 - width 100%, min/max height 200~250
   horizontalMobile: {
-    style: 'display:block;min-width:300px;max-width:728px;width:100%;min-height:200px;max-height:250px;height:auto'
+    style: 'display:block;min-width:300px;max-width:728px;width:100%;min-height:200px;max-height:250px;height:100%'
   },
   // PC 사각형 - 300x250
   rectanglePc: {
@@ -25,7 +25,7 @@ const AD_PRESETS = {
   },
   // 모바일 사각형 - width 100%, min/max height 200~500
   rectangleMobile: {
-    style: 'display:block;min-width:300px;max-width:728px;width:100%;min-height:200px;max-height:500px;height:auto'
+    style: 'display:block;min-width:300px;max-width:728px;width:100%;min-height:200px;max-height:500px;height:100%'
   },
   // PC 버티컬 - 300x600
   verticalPc: {

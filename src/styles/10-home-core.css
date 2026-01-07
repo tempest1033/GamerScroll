@@ -1246,8 +1246,13 @@
       .home-container {
         display: flex !important;
         flex-direction: column !important;
+        align-items: stretch !important;
         gap: var(--space-block-gap);
         padding: var(--space-block-y) 0;
+      }
+
+      .home-container > .ad-slot-section {
+        width: 100%;
       }
 
       /* 모바일에서 main/sidebar 구조 풀기 */
