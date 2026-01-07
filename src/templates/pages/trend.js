@@ -73,7 +73,7 @@ function formatDateKorean(dateStr) {
 // - 한 페이지 내 중복 슬롯ID 방지를 위해 호출부에서 slotId를 분리해서 넘겨주세요.
 function generateMidAdSlot(slotId) {
   const resolvedSlot = slotId || AD_SLOTS.Responsive002;
-  return generateAdSlot(resolvedSlot);
+  return generateAdSlot(resolvedSlot, { type: 'mobile-400' });
 }
 
 // 태그 아이콘 매핑
@@ -1437,7 +1437,7 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
 
 			  const generateDeepDiveAdSlot = (adIndex = 0) => {
 			    const slotId = DEEP_DIVE_SLOTS[adIndex % DEEP_DIVE_SLOTS.length];
-			    const adsHtml = generateAdSlot(slotId);
+			    const adsHtml = generateAdSlot(slotId, { type: 'mobile-400' });
 			    if (!adsHtml) return '';
 			    return `<div class="blog-ad">${adsHtml}</div>`;
 			  };

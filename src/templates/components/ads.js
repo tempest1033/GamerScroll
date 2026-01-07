@@ -2,15 +2,15 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 function renderAdCard(slotId, options = {}) {
   if (!slotId) return '';
 
-  const { type = 'mobile' } = options;
+  const { type = 'mobile-200' } = options;
   const classMap = {
-    'mobile': 'ad-top',
-    'mobile-500': 'ad-mid',
+    'mobile-200': 'ad-top',
+    'mobile-400': 'ad-mid',
     'pc': 'ad-pc',
     'vertical': 'ad-vertical',
     'rectangle': 'ad-rectangle'
   };
-  const adClass = classMap[type] || classMap['mobile'];
+  const adClass = classMap[type] || classMap['mobile-200'];
 
   const attrs = [
     `class="adsbygoogle ${adClass}"`,

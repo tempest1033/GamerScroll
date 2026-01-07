@@ -567,7 +567,7 @@ function generateIndexPage(data) {
 		    topAds +
 		    popularBannerHtml +
 		    insightCardHtml +
-	    generateAdSlot(AD_SLOTS.Responsive002, { type: 'mobile-500' }) +
+	    generateAdSlot(AD_SLOTS.Responsive002, { type: 'mobile-400' }) +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
@@ -575,7 +575,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
-    generateAdSlot(AD_SLOTS.Responsive003, { type: 'mobile-500' }) +
+    generateAdSlot(AD_SLOTS.Responsive003, { type: 'mobile-400' }) +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
@@ -583,7 +583,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
-    generateAdSlot(AD_SLOTS.Responsive004, { type: 'mobile-500' }) +
+    generateAdSlot(AD_SLOTS.Responsive004, { type: 'mobile-400' }) +
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +
