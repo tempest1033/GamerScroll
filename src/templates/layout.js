@@ -982,8 +982,32 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 - 구글 권장 방식으로 각 광고 슬롯에서 직접 push하므로 별도 스크립트 불필요
-const adInitScript = '';
+// 광고 높이 자동 조정 스크립트 - 작은 광고 로드 시 여백 제거
+const adInitScript = `
+<script>
+(function() {
+  function adjustAds() {
+    document.querySelectorAll('ins.adsbygoogle').forEach(function(ad) {
+      var iframe = ad.querySelector('iframe');
+      if (iframe && iframe.offsetHeight > 0) {
+        ad.style.height = iframe.offsetHeight + 'px';
+      }
+    });
+  }
+
+  var observer = new MutationObserver(function() {
+    setTimeout(adjustAds, 100);
+  });
+
+  document.querySelectorAll('ins.adsbygoogle').forEach(function(ad) {
+    observer.observe(ad, { childList: true, subtree: true });
+  });
+
+  window.addEventListener('load', function() {
+    setTimeout(adjustAds, 1000);
+  });
+})();
+</script>`;
 
 function wrapWithLayout(content, options = {}) {
   const {
