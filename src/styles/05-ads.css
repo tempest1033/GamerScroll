@@ -13,8 +13,8 @@
   .ad-card-mobile-200 { min-height: 90px; }
 }
 
-/* ins 크기 - height 제거로 실제 광고 크기 유지 */
-.ad-top { width: 100%; min-width: 300px; }
+/* ins 크기 */
+.ad-top { width: 100%; min-width: 300px; height: 100%; }
 .ad-mid { width: 100%; min-width: 300px; }
 .ad-pc { width: 100%; }
 .ad-vertical { width: 100%; }
