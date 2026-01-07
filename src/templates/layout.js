@@ -1046,23 +1046,12 @@ function generateAdPair(mobileConfig = {}, pcConfig = {}) {
 }
 
 /**
- * 가로형 반응형 광고 슬롯 생성
- * @param {string} slotId - 광고 슬롯 ID
- * @param {string} extraClass - 추가 CSS 클래스
- * @param {Object} options - { id, collapse }
- * @param {boolean} options.collapse - true면 unfilled 시 접힘 (3,4,5번 광고용)
+ * 반응형 광고 슬롯 생성 (래퍼 없음)
  */
-function generateAdSlot(slotId, extraClass = '', options = {}) {
+function generateAdSlot(slotId) {
   if (!SHOW_ADS) return '';
-  const id = options.id || '';
-  const collapse = options.collapse || false;
-  const baseClass = (extraClass || '').trim();
-
   return renderAdSlot({
-    id,
-    wrapperClass: `ad-slot-section ad-slot--horizontal ad-slot--responsive ${baseClass}`.trim(),
     slotId,
-    collapse,
     ...AD_PRESETS.responsive
   });
 }

@@ -48,20 +48,11 @@ function renderAdIns({ slotId, style, format, fullWidthResponsive = false, insCl
 }
 
 /**
- * 광고 슬롯 래퍼 + ins + push 스크립트 생성
- * @param {boolean} collapse - true면 unfilled 시 접힘 (3,4,5번 광고용)
+ * 광고 슬롯 생성 (래퍼 없이 ins만)
  */
-function renderAdSlot({ id = '', wrapperClass = '', slotId, style, format, fullWidthResponsive = false, collapse = false, insClassName: insClassNameInput = '' }) {
+function renderAdSlot({ slotId, style, format, fullWidthResponsive = false }) {
   if (!slotId) return '';
-
-  const collapseClass = collapse ? 'ad-slot--collapse' : '';
-  const classes = ['ad-slot', wrapperClass, collapseClass].filter(Boolean).join(' ');
-  const idAttr = id ? ` id="${id}"` : '';
-  const insClassName = buildInsClassName(insClassNameInput, wrapperClass);
-
-  return `<div class="${classes}"${idAttr}>
-${renderAdIns({ slotId, style, format, fullWidthResponsive, insClassName })}
-</div>`;
+  return renderAdIns({ slotId, style, format, fullWidthResponsive });
 }
 
 module.exports = { ADSENSE_CLIENT, AD_PRESETS, renderAdIns, renderAdSlot };
