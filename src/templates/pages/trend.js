@@ -136,6 +136,13 @@ function generateWeeklyPanel(weeklyInsight) {
   const extractFirst = (t) => t ? (t.split(/[.!?]/).filter(s => s.trim())[0]?.trim() || t.slice(0, 60)) : null;
   const summaryTitle = typeof summary === 'object' ? summary.title : (wai.headline || extractFirst(summary) || seoTitle);
   const summaryDesc = typeof summary === 'object' ? summary.desc : summary;
+  const midSlots = [AD_SLOTS.Responsive002, AD_SLOTS.Responsive003, AD_SLOTS.Responsive004];
+  let midCursor = 0;
+  const midAd = () => {
+    const slot = midSlots[midCursor % midSlots.length];
+    midCursor += 1;
+    return generateMidAdSlot(slot);
+  };
 
   // 태그별 아이콘 매핑
   const getTagIcon = (tag) => {
@@ -445,11 +452,11 @@ function generateWeeklyPanel(weeklyInsight) {
 
       ${hotIssuesSection}
       ${rankingsSection}
-      ${generateMidAdSlot(AD_SLOTS.Responsive002)}
+      ${midAd()}
       ${industrySection}
       ${metricsSection}
       ${globalSection}
-      ${generateMidAdSlot(AD_SLOTS.Responsive003)}
+      ${midAd()}
       ${stocksSection}
       ${releasesSection}
       ${communitySection}
@@ -808,6 +815,13 @@ function generateTrendPage(data) {
   // summary 객체에서 title과 desc 추출
   const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 트렌드 리포트');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
+  const midSlots = [AD_SLOTS.Responsive002, AD_SLOTS.Responsive003, AD_SLOTS.Responsive004];
+  let midCursor = 0;
+  const midAd = () => {
+    const slot = midSlots[midCursor % midSlots.length];
+    midCursor += 1;
+    return generateMidAdSlot(slot);
+  };
 
   const content = `
     <section class="section active" id="insight">
@@ -829,11 +843,11 @@ function generateTrendPage(data) {
             ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
           </div>
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
-          ${generateMidAdSlot(AD_SLOTS.Responsive002)}
+          ${midAd()}
           ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
           ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
           ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
-          ${generateMidAdSlot(AD_SLOTS.Responsive003)}
+          ${midAd()}
           ${renderStocksCard(stocksData, stockPrices)}
           ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
           ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
@@ -1236,6 +1250,13 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   // summary 객체에서 title과 desc 추출
   const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 트렌드 리포트');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
+  const midSlots = [AD_SLOTS.Responsive002, AD_SLOTS.Responsive003, AD_SLOTS.Responsive004];
+  let midCursor = 0;
+  const midAd = () => {
+    const slot = midSlots[midCursor % midSlots.length];
+    midCursor += 1;
+    return generateMidAdSlot(slot);
+  };
 
   // 네비게이션 (이전/목록/다음 리포트) - 하단에만 표시
   const navHtml = `
@@ -1269,11 +1290,11 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
         </div>`;
         })()}
         ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
-        ${generateMidAdSlot(AD_SLOTS.Responsive002)}
+        ${midAd()}
         ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
         ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
         ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
-        ${generateMidAdSlot(AD_SLOTS.Responsive003)}
+        ${midAd()}
         ${renderStocksCard(stocksData, stockPrices)}
         ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
         ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}

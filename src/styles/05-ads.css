@@ -66,7 +66,6 @@ ins.adsbygoogle iframe {
 /* 가로형 반응형 - PC 기본 */
 .ad-slot--horizontal.ad-slot--responsive {
   min-height: 90px;
-  padding: 12px;
 }
 .ad-slot--horizontal.ad-slot--responsive > ins.adsbygoogle {
   width: 100%;

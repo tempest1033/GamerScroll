@@ -852,7 +852,6 @@ ins.adsbygoogle iframe {
 /* 가로형 반응형 - PC 기본 */
 .ad-slot--horizontal.ad-slot--responsive {
   min-height: 90px;
-  padding: 12px;
 }
 .ad-slot--horizontal.ad-slot--responsive > ins.adsbygoogle {
   width: 100%;
@@ -2456,7 +2455,6 @@ html.is-localhost .ad-slot > ins.adsbygoogle {
       align-items: center;
       justify-content: center;
       min-height: 90px;
-      padding: 12px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
