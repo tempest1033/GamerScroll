@@ -1217,7 +1217,7 @@ function generateGamePage(gameData) {
         <!-- 스팀 게임 순위 히스토리 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">${name} 스팀 게임 순위 히스토리</h2>
+            <h2 class="home-card-title">스팀 순위 히스토리</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('sales')}</div>
         </div>
@@ -1225,7 +1225,7 @@ function generateGamePage(gameData) {
         <!-- 모바일 게임 순위 카드 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">${name} 모바일 게임 순위</h2>
+            <h2 class="home-card-title">모바일 게임 순위</h2>
           </div>
           <div class="home-card-body">${generateRankingsSection()}</div>
         </div>
@@ -1233,7 +1233,7 @@ function generateGamePage(gameData) {
         <!-- 모바일 게임 순위 히스토리 카드 -->
         <div class="home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">${name} 모바일 게임 순위 히스토리</h2>
+            <h2 class="home-card-title">순위 히스토리</h2>
           </div>
           <div class="home-card-body">${generateRankTrendSection()}</div>
         </div>
@@ -1242,7 +1242,7 @@ function generateGamePage(gameData) {
         <!-- 뉴스 (풀 너비 2그리드) -->
         <div class="home-card home-card-full">
           <div class="home-card-header">
-            <h2 class="home-card-title">${name} 뉴스</h2>
+            <h2 class="home-card-title">뉴스</h2>
           </div>
           <div class="home-card-body">${generateMentionsSection(true)}</div>
         </div>
