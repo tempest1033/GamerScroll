@@ -1,4 +1,12 @@
 
+    /* 가로 스크롤 방지 (PC 포함) - AdSense Side Rail 호환성 */
+    html {
+      overflow-x: clip;
+    }
+    body {
+      overflow-x: clip;
+    }
+
     /* 모바일 터치 하이라이트 제거 */
     * {
       -webkit-tap-highlight-color: transparent;

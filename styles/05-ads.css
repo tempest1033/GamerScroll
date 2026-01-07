@@ -1,211 +1,162 @@
-﻿/* ===== Ads (AdSense) - 구글 권장 방식 ===== */
+/* ===== Ads (AdSense) - 카드 래퍼 방식 ===== */
 
-/*
- * 구글 AdSense 미디어쿼리 가이드:
- * - display: none 사용 시 광고 요청 자체가 안 감 (정책 준수)
- * - PC/모바일 별도 클래스로 분기
- * - min-height로 빈 공간 유지 (CLS 방지)
- */
+/* ===== 광고 카드 (래퍼) ===== */
 
-/* ===== 기본 스타일 ===== */
-
-/* 광고 슬롯 기본 */
-.ad-slot {
+.ad-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  /* 모바일 스와이프: 수평 스와이프는 페이지가 처리, 수직은 스크롤 */
+  overflow: hidden;
   touch-action: pan-y;
+  /* 로고 플레이스홀더 */
+  background-image: url('/favicon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px;
+  /* 기본: 전체 너비 */
+  width: 100%;
 }
 
-/* 광고 ins 요소 */
-.ad-slot > ins.adsbygoogle {
+/* 광고 로드되면 로고 숨김 */
+.ad-card:has(ins.adsbygoogle[data-ad-status="filled"]) {
+  background-image: none;
+}
+
+/* ===== ins 기본 스타일 ===== */
+
+.ad-card > ins.adsbygoogle {
   display: block;
+  width: 100%;
   text-align: center;
 }
 
-/* ===== 플랫폼별 광고 숨김 (ins 자체에 적용 - 구글 예시 방식) ===== */
-
-/* 기본(PC): 모바일 전용 광고는 ins를 display:none 처리 */
-.ad-slot > ins.adsbygoogle.mobile-only {
-  display: none !important;
-}
-
-/* AdSense 내부 요소 중앙 정렬 */
-ins.adsbygoogle > ins,
-ins.adsbygoogle > div,
-ins.adsbygoogle iframe {
-  margin: 0 auto !important;
-}
-ins.adsbygoogle iframe {
-  display: block;
-  /* 모바일 스와이프 허용 */
+/* 광고 내부 iframe */
+.ad-card > ins.adsbygoogle iframe {
   touch-action: pan-y;
 }
 
-/* 광고 여백 */
-.ad-slot-top {
-  margin-bottom: var(--space-block-y);
-}
-.ad-slot-section {
-  margin: var(--space-block-gap) 0;
+/* ===== 광고 크기 ===== */
+
+/* 상단 배너: 200px 높이 */
+main > .ad-card:first-child,
+.page-container > .ad-card:first-child,
+.game-container > .ad-card:first-child,
+.games-hub-container > .ad-card:first-child,
+.insight-container > .ad-card:first-child,
+.deep-dive-container > .ad-card:first-child,
+.home-main > .ad-card:first-child {
+  height: 200px;
 }
 
-/* ===== PC 광고 (기본 표시) ===== */
-
-.ad-slot.pc-only {
-  display: flex !important;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+/* PC 중단 광고: 90px 높이 */
+@media (min-width: 769px) {
+  .home-main .ad-card:not(:first-child),
+  .page-container .ad-card:not(:first-child),
+  .game-container .ad-card:not(:first-child),
+  .games-hub-container .ad-card:not(:first-child),
+  .insight-container .ad-card:not(:first-child),
+  .deep-dive-container .ad-card:not(:first-child) {
+    height: 90px;
+  }
 }
 
-/* 가로형 반응형 - PC 기본 */
-.ad-slot--horizontal.ad-slot--responsive {
-  min-height: 90px;
-}
-.ad-slot--horizontal.ad-slot--responsive > ins.adsbygoogle {
-  width: 100%;
-  min-height: 90px;
-}
-
-/* PC 사각형 - 300x250 */
-.ad-slot--rectangle.pc-only {
-  width: 300px;
-  min-height: 250px;
-}
-.ad-slot--rectangle.pc-only > ins.adsbygoogle {
-  width: 300px;
-  min-height: 250px;
-}
-
-/* PC 버티컬 - 300x600 */
-.ad-slot--vertical.pc-only {
-  width: 300px;
-  min-height: 600px;
-}
-.ad-slot--vertical.pc-only > ins.adsbygoogle {
-  width: 300px;
-  min-height: 600px;
-}
-
-/* ===== 모바일 광고 (기본 숨김 - 구글 권장: display:none으로 광고 요청 자체 차단) ===== */
-
-.ad-slot.mobile-only {
-  display: none !important;
-}
-
-/* ===== 미디어쿼리: 모바일 (768px 이하) ===== */
-
+/* 모바일 중단 광고: 500px 고정 */
 @media (max-width: 768px) {
-  /* 모바일: PC 전용 광고는 ins를 display:none 처리 */
-  .ad-slot > ins.adsbygoogle.pc-only {
-    display: none !important;
+  .home-main .ad-card:not(:first-child),
+  .page-container .ad-card:not(:first-child),
+  .game-container .ad-card:not(:first-child),
+  .games-hub-container .ad-card:not(:first-child),
+  .insight-container .ad-card:not(:first-child),
+  .deep-dive-container .ad-card:not(:first-child) {
+    height: 500px;
   }
-
-  /* 모바일: 모바일 전용 광고는 ins를 다시 표시 */
-  .ad-slot > ins.adsbygoogle.mobile-only {
-    display: block !important;
-  }
-
-  /* PC 광고 숨기기 - 광고 요청 차단 */
-  .ad-slot.pc-only {
-    display: none !important;
-  }
-
-  /* 모바일 광고 표시 */
-  .ad-slot.mobile-only {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  /* 모바일 가로형 - 구글 공식: HTML에서 height 지정 */
-  .ad-slot.mobile-only.ad-slot--horizontal > ins.adsbygoogle {
-    width: 100%;
-  }
-
-  /* 모바일 가로형 반응형 */
-  .ad-slot--horizontal.ad-slot--responsive > ins.adsbygoogle {
-    width: 100%;
-    min-width: 300px;
-    min-height: 200px;
-  }
-
-  /* 모바일 사각형/반응형 */
-  .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle {
-    width: 100%;
-  }
-
-  /* 모바일 no-reserve: 채워진 광고는 실제 높이에 맞춤 */
-  .ad-slot.mobile-only.ad-slot--rectangle.ad-slot--no-reserve > ins.adsbygoogle[data-ad-status="filled"] {
-    min-height: 0 !important;
-    max-height: none !important;
-    height: auto !important;
-  }
-
-  /* 모바일 no-reserve: data-ad-status가 없더라도 iframe 주입 시 실제 높이에 맞춤 */
-  .ad-slot.mobile-only.ad-slot--rectangle.ad-slot--no-reserve:has(> ins.adsbygoogle iframe) > ins.adsbygoogle {
-    min-height: 0 !important;
-    max-height: none !important;
-    height: auto !important;
-  }
-	
-	  /* 모바일 네이티브 인피드 */
-	  .ad-slot.mobile-only.ad-slot--native {
-	    display: block !important;
-	  }
 }
 
-/* ===== 컨테이너 내부 광고 여백 조정 ===== */
+/* ===== 사이드바 광고 크기 (명시적 클래스) ===== */
 
-:is(.page-container, .game-container, .games-hub-container, .insight-container) .ad-slot-section {
+.ad-card-300x600 {
+  width: 300px;
+  height: 600px;
+}
+
+.ad-card-300x250 {
+  width: 300px;
+  height: 250px;
+}
+
+/* ===== 광고 여백 ===== */
+
+/* 기본: 상단 마진만 (컨테이너 gap과 중복 방지) */
+main .ad-card {
+  margin: var(--space-block-gap, 16px) 0 0 0;
+}
+
+/* 첫 번째 광고: 상단만 마진 */
+main > .ad-card:first-child,
+.page-container > .ad-card:first-child,
+.game-container > .ad-card:first-child,
+.games-hub-container > .ad-card:first-child,
+.deep-dive-container > .ad-card:first-child {
+  margin: var(--space-block-y, 24px) 0 0 0;
+}
+
+/* insight-container는 컨테이너 padding이 이미 있으므로 상단 마진 제거 */
+.insight-container > .ad-card:first-child {
   margin: 0;
 }
 
-:is(.page-container, .game-container, .games-hub-container, .insight-container) > .ad-slot-section:first-child {
-  margin-top: var(--space-block-gap);
+/* insight-container, insight-panel, weekly-report 내부 광고: gap으로 처리되므로 마진 제거 */
+.insight-container .ad-card,
+.insight-panel .ad-card,
+.weekly-report .ad-card {
+  margin: 0;
 }
 
-:is(.page-container, .game-container, .games-hub-container, .insight-container)
-  > .ad-slot-section.mobile-only:first-child
-  + .ad-slot-section.pc-only {
-  margin-top: var(--space-block-gap);
+@media (max-width: 768px) {
+  main > .ad-card:first-child,
+  .page-container > .ad-card:first-child,
+  .game-container > .ad-card:first-child,
+  .games-hub-container > .ad-card:first-child,
+  .deep-dive-container > .ad-card:first-child {
+    margin: var(--space-block-gap, 16px) 0 0 0;
+  }
 }
 
-:is(.page-container, .game-container, .games-hub-container, .insight-container) > .ad-slot--horizontal.ad-slot--responsive {
-  width: 100% !important;
-  flex: 0 0 100%;
+/* 홈/flex 컨테이너: 마진 없음 (gap으로 처리) */
+.home-main .ad-card,
+.home-sidebar .ad-card {
+  margin: 0;
 }
 
-/* ===== Localhost 플레이스홀더 ===== */
-
-html.is-localhost .ad-slot {
-  position: relative;
+/* 모바일 홈: 첫 광고 상단 마진 */
+@media (max-width: 768px) {
+  .home-main > .ad-card:first-child {
+    margin-top: var(--space-block-gap, 16px);
+  }
 }
 
-html.is-localhost .ad-slot::before {
-  content: 'AD';
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed rgba(148, 163, 184, 0.7);
-  background: rgba(148, 163, 184, 0.08);
-  color: rgba(148, 163, 184, 0.9);
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  pointer-events: none;
+/* ===== 모바일에서 사이드바 광고 숨김 ===== */
+
+@media (max-width: 768px) {
+  .home-sidebar .ad-card {
+    display: none !important;
+  }
 }
 
-html.is-localhost .ad-slot > ins.adsbygoogle {
-  position: relative;
-  z-index: 1;
+/* ===== PC에서 홈 메인 중간 광고 숨김 (첫 번째만 표시) ===== */
+
+@media (min-width: 769px) {
+  .home-main .ad-card:not(:first-child) {
+    display: none !important;
+  }
+}
+
+/* ===== Unfilled 광고 ===== */
+
+/* 광고 없으면 카드만 유지 (로고 보임) */
+.ad-card:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  min-height: 90px;
 }

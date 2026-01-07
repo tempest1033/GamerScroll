@@ -342,4 +342,7 @@
 
 .insight-container {
   padding: var(--space-block-y) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block-y);
 }

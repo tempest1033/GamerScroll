@@ -27,15 +27,14 @@
 
 /* ===== ins 기본 스타일 ===== */
 
-ins.adsbygoogle {
+.ad-card > ins.adsbygoogle {
   display: block;
   width: 100%;
+  text-align: center;
 }
 
-/* 광고 내부 iframe 가운데 정렬 */
-ins.adsbygoogle iframe {
-  display: block;
-  margin: 0 auto !important;
+/* 광고 내부 iframe */
+.ad-card > ins.adsbygoogle iframe {
   touch-action: pan-y;
 }
 
@@ -76,14 +75,14 @@ main > .ad-card:first-child,
   }
 }
 
-/* 사이드바 첫 번째: 300x600 고정 */
-.home-sidebar > .ad-card:first-child {
+/* ===== 사이드바 광고 크기 (명시적 클래스) ===== */
+
+.ad-card-300x600 {
   width: 300px;
   height: 600px;
 }
 
-/* 사이드바 2번째: 300x250 고정 (ad-card 뒤에 오는 ad-card) */
-.home-sidebar .ad-card ~ .ad-card {
+.ad-card-300x250 {
   width: 300px;
   height: 250px;
 }

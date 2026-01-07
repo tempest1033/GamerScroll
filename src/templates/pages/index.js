@@ -4,6 +4,7 @@
  */
 
 const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
+const { renderAdCard300x600, renderAdCard300x250 } = require('../components/ads');
 
 function generateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], games = {} } = data;
@@ -607,7 +608,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
-	    generateAdSlot(AD_SLOTS.Vertical001) +
+	    renderAdCard300x600(AD_SLOTS.Vertical001) +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">스팀 순위</h2>' +
@@ -621,7 +622,7 @@ function generateIndexPage(data) {
     '</div>' +
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
-	    generateAdSlot(AD_SLOTS.Rectangle001, { width: 300, height: 250, format: 'rectangle' }) +
+	    renderAdCard300x250(AD_SLOTS.Rectangle001) +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">출시 게임</h2>' +
