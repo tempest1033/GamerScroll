@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  touch-action: pan-y;
   /* 로고 플레이스홀더 */
   background-image: url('/favicon.svg');
   background-repeat: no-repeat;
@@ -35,6 +36,7 @@ ins.adsbygoogle {
 ins.adsbygoogle iframe {
   display: block;
   margin: 0 auto !important;
+  touch-action: pan-y;
 }
 
 /* ===== 광고 크기 ===== */

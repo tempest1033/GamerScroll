@@ -27,7 +27,7 @@
 	      flex-direction: column;
 	      gap: var(--space-block-gap);
 	      min-width: 0;
-	      overflow: hidden;
+	      overflow-x: clip;
 	    }
 
     .home-sidebar {
