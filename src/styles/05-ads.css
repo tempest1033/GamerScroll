@@ -2,15 +2,15 @@
 
 /* ===== 광고 크기 (래퍼 + ins) ===== */
 
-/* 래퍼 크기 (플레이스홀더) - min-height로 AdSense가 유연하게 채움 */
-.ad-card-mobile-200 { min-height: 200px; }
-.ad-card-mobile-400 { min-height: 200px; max-height: 400px; }
-.ad-card-pc { min-height: 90px; }
+/* 래퍼 크기 (플레이스홀더) */
+.ad-card-mobile-200 { height: 210px; }
+.ad-card-mobile-400 { height: 400px; }
+.ad-card-pc { height: 90px; }
 .ad-card-vertical { width: 300px; min-height: 600px; }
-.ad-card-rectangle { width: 300px; min-height: 250px; }
+.ad-card-rectangle { width: 300px; height: 250px; }
 
 @media (min-width: 769px) {
-  .ad-card-mobile-200 { min-height: 90px; }
+  .ad-card-mobile-200 { height: 90px; }
 }
 
 /* ins 크기 */
