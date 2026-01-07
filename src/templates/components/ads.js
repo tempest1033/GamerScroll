@@ -6,11 +6,11 @@
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
-// AdSense 표준 프리셋 - 모든 광고 반응형 통일
+// AdSense 표준 프리셋 - Google 공식 권장 방식
 const AD_PRESETS = {
-  // 반응형 (기본) - Google 권장 방식
   responsive: {
-    style: 'display:inline-block',
+    style: 'display:block',
+    format: 'auto',
     fullWidthResponsive: true
   }
 };
