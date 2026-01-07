@@ -3,8 +3,8 @@
 /* ===== 광고 크기 (래퍼 + ins) ===== */
 
 /* 래퍼 크기 (플레이스홀더) */
-.ad-card-mobile { height: 200px; }
-.ad-card-mobile-500 { height: 500px; }
+.ad-card-mobile { height: 220px; }
+.ad-card-mobile-500 { height: 400px; }
 .ad-card-pc { height: 90px; }
 .ad-card-vertical { width: 300px; height: 600px; }
 .ad-card-rectangle { width: 300px; height: 250px; }
@@ -31,16 +31,14 @@
   justify-content: center;
   overflow: hidden;
   touch-action: pan-y;
-  /* 로고 플레이스홀더 */
+}
+
+/* unfilled일 때만 로고 플레이스홀더 */
+.ad-card:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
   background-image: url('/favicon.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 40px;
-}
-
-/* 광고 로드되면 로고 숨김 */
-.ad-card:has(ins.adsbygoogle[data-ad-status="filled"]) {
-  background-image: none;
 }
 
 
