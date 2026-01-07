@@ -158,6 +158,14 @@
       pointer-events: auto;
     }
 
+    html.js-defer .rankings-card .country-column {
+      border-right-color: transparent;
+    }
+
+    html.js-defer .rankings-card .column-header {
+      border-bottom-color: transparent;
+    }
+
     /* 이미지 성능 최적화 */
     img {
       content-visibility: auto;

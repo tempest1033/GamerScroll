@@ -135,19 +135,21 @@ ins.adsbygoogle iframe {
     width: 100%;
   }
 
-	  /* 모바일 no-reserve: 채워진 광고는 실제 높이에 맞춤 */
-	  .ad-slot.mobile-only.ad-slot--rectangle.ad-slot--no-reserve > ins.adsbygoogle[data-ad-status="filled"] {
-	    min-height: 0 !important;
-	    max-height: none !important;
-	    height: auto !important;
-	  }
+  /* 모바일 가로형/사각형: 채워진 광고는 실제 높이에 맞춤 */
+  .ad-slot.mobile-only.ad-slot--horizontal > ins.adsbygoogle[data-ad-status="filled"],
+  .ad-slot.mobile-only.ad-slot--rectangle > ins.adsbygoogle[data-ad-status="filled"] {
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+  }
 
-	  /* 모바일 no-reserve: data-ad-status가 없더라도 iframe 주입 시 실제 높이에 맞춤 */
-	  .ad-slot.mobile-only.ad-slot--rectangle.ad-slot--no-reserve:has(> ins.adsbygoogle iframe) > ins.adsbygoogle {
-	    min-height: 0 !important;
-	    max-height: none !important;
-	    height: auto !important;
-	  }
+  /* 모바일 가로형/사각형: data-ad-status가 없더라도 iframe 주입 시 실제 높이에 맞춤 */
+  .ad-slot.mobile-only.ad-slot--horizontal:has(> ins.adsbygoogle iframe) > ins.adsbygoogle,
+  .ad-slot.mobile-only.ad-slot--rectangle:has(> ins.adsbygoogle iframe) > ins.adsbygoogle {
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+  }
 	
 	  /* 모바일 네이티브 인피드 */
 	  .ad-slot.mobile-only.ad-slot--native {

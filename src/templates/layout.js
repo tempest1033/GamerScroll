@@ -660,7 +660,7 @@ const deferredItemsScript = `
     '.popular-banner'
   ].join(',');
 
-  var REVEAL_DELAY_MS = 500;
+  var REVEAL_DELAY_MS = 300;
   var FALLBACK_TIMEOUT_MS = 2500;
   var revealStarted = false;
   var fallbackTimer = null;
@@ -746,23 +746,80 @@ const deferredItemsScript = `
     setTimeout(finalize, REVEAL_DELAY_MS);
   }
 
+  function isMobileView() {
+    if (window.matchMedia) {
+      return window.matchMedia('(max-width: 768px)').matches;
+    }
+    return window.innerWidth <= 768;
+  }
+
+  function getTopAdIn(containerSelector) {
+    var container = document.querySelector(containerSelector);
+    if (!container) return null;
+    return container.querySelector('ins.adsbygoogle');
+  }
+
+  function getFirstAdInMain() {
+    var main = document.querySelector('main');
+    if (!main) return null;
+    return main.querySelector('ins.adsbygoogle');
+  }
+
+  function getPriorityAd() {
+    var isMobile = isMobileView();
+    var topAd = null;
+
+    if (isMobile) {
+      topAd = getTopAdIn('#home-top-ad-mobile');
+    } else {
+      topAd = getTopAdIn('#home-top-ad-pc');
+    }
+
+    if (topAd) return topAd;
+    return getFirstAdInMain();
+  }
+
+  function isAdFilled(ad) {
+    return !!(ad && (ad.dataset.adStatus === 'filled' || ad.childElementCount > 0));
+  }
+
+  function waitForAdFrame(ad) {
+    if (!ad) return false;
+    var frame = ad.querySelector('iframe');
+    if (!frame) return false;
+    if (frame.__gcLoaded) return true;
+    frame.addEventListener('load', function() {
+      frame.__gcLoaded = true;
+      startReveal();
+    }, { once: true });
+    return false;
+  }
+
   function checkAds() {
+    var priorityAd = getPriorityAd();
+    if (priorityAd) {
+      if (waitForAdFrame(priorityAd)) {
+        startReveal();
+      } else if (isAdFilled(priorityAd)) {
+        startReveal();
+      } else {
+        setTimeout(checkAds, 120);
+      }
+      return;
+    }
+
     var ads = document.querySelectorAll('ins.adsbygoogle');
     if (!ads.length) {
       startReveal();
       return;
     }
-    var filledCount = 0;
     for (var i = 0; i < ads.length; i++) {
-      if (ads[i].dataset.adStatus === 'filled' || ads[i].childElementCount > 0) {
-        filledCount += 1;
+      if (isAdFilled(ads[i])) {
+        startReveal();
+        return;
       }
     }
-    if (filledCount > 0) {
-      startReveal();
-    } else {
-      setTimeout(checkAds, 120);
-    }
+    setTimeout(checkAds, 120);
   }
 
   function init() {
