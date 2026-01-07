@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-01-06T10:49:17.505Z",
+  "updatedAt": "2026-01-07T10:49:30.184Z",
   "period": "30days",
   "games": [
     {
-      "slug": "com-proximabeta-nikke",
-      "views": 117
+      "slug": "승리의-여신-니케",
+      "views": 136
     },
     {
-      "slug": "승리의-여신-니케",
-      "views": 113
+      "slug": "com-proximabeta-nikke",
+      "views": 117
     },
     {
       "slug": "com-neowizgames-game-browndust2",
@@ -16,7 +16,11 @@
     },
     {
       "slug": "limbus-company",
-      "views": 71
+      "views": 80
+    },
+    {
+      "slug": "스타세이비어",
+      "views": 65
     },
     {
       "slug": "com.smilegate.chaoszero.stove.google",
@@ -24,18 +28,14 @@
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
-      "views": 41
-    },
-    {
-      "slug": "com-studiobside-starmain",
-      "views": 40
-    },
-    {
-      "slug": "스타세이비어",
-      "views": 40
+      "views": 58
     },
     {
       "slug": "카트라이더-러쉬플러스",
+      "views": 48
+    },
+    {
+      "slug": "com-studiobside-starmain",
       "views": 40
     },
     {
@@ -43,19 +43,31 @@
       "views": 34
     },
     {
+      "slug": "메이플-키우기",
+      "views": 33
+    },
+    {
       "slug": "com-hoyoverse-nap",
       "views": 29
     },
     {
-      "slug": "메이플-키우기",
-      "views": 28
+      "slug": "리니지m",
+      "views": 27
+    },
+    {
+      "slug": "갓깨비-키우기-999뽑기-증정",
+      "views": 25
     },
     {
       "slug": "com.proximabeta.nikke",
       "views": 19
     },
     {
-      "slug": "리니지m",
+      "slug": "머지-쿠킹-테마-레스토랑",
+      "views": 19
+    },
+    {
+      "slug": "라스트-워-서바이벌",
       "views": 16
     },
     {
@@ -63,20 +75,8 @@
       "views": 16
     },
     {
-      "slug": "라스트-워-서바이벌",
-      "views": 14
-    },
-    {
-      "slug": "트릭컬-리바이브",
-      "views": 14
-    },
-    {
-      "slug": "원신공월의-노래",
-      "views": 13
-    },
-    {
-      "slug": "붕괴-스타레일",
-      "views": 12
+      "slug": "로얄-매치-royal-match",
+      "views": 15
     }
   ]
 }
