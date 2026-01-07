@@ -73,6 +73,7 @@ function generateHead(options = {}) {
 		      if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0') {
 		        document.documentElement.classList.add('is-localhost');
 		      }
+		      document.documentElement.classList.add('js-defer');
 		    })();
 		  </script>
 		  <title>${title}</title>

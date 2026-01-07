@@ -4,6 +4,11 @@
   - import 순서(캐스케이드)를 변경하지 마세요.
 */
 
+    /* 모바일 터치 하이라이트 제거 */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     /* 접근성: 시각적으로 숨기지만 스크린리더/SEO에는 노출 */
     .visually-hidden {
       position: absolute;
@@ -21,33 +26,149 @@
       display: none !important;
     }
 
+    html.js-defer :is(
+      .popular-banner-label,
+      .popular-banner-more,
+      .column-header,
+      .country-name,
+      .flag,
+      .steam-table-header,
+      .upcoming-table-header,
+      .games-hub-section-title,
+      .group-title,
+      .group-count,
+      .index-link,
+      #search-results-title,
+      .search-results-close,
+      .home-card-title,
+      .home-card-more,
+      .community-panel-title,
+      .community-panel-more,
+      .home-news-tab,
+      .home-community-tab,
+      .home-rank-tab,
+      .home-upcoming-tab,
+      .insight-tab,
+      .tab-btn,
+      .home-news-card,
+      .home-news-item,
+      .home-community-item,
+      .home-video-card,
+      .home-video-item,
+      .home-rank-row,
+      .home-steam-row,
+      .home-upcoming-row,
+      .home-trend-card,
+      .popular-banner-item,
+      .news-grid-card,
+      .news-grid-item,
+      .community-item,
+      .youtube-card,
+      .rank-row,
+      .steam-table-row,
+      .upcoming-item,
+      .metacritic-card,
+      .games-hub-popular-card,
+      .game-item,
+      .games-hub-recent-card,
+      .trend-feed-card,
+      .game-hero-stat,
+      .rank-trend-section,
+      .game-rank-country-row,
+      .game-steam-stat,
+      .game-news-item,
+      .game-community-item,
+      .game-youtube-item,
+      .gm-item,
+      .weekly-hot-card,
+      .weekly-rank-card,
+      .weekly-metric-card,
+      .weekly-community-card,
+      .weekly-streaming-card,
+      .weekly-stock-item,
+      .weekly-release-item,
+      .industry-card,
+      .global-card
+    ) {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    html.js-defer :is(
+      .popular-banner-label,
+      .popular-banner-more,
+      .column-header,
+      .country-name,
+      .flag,
+      .steam-table-header,
+      .upcoming-table-header,
+      .games-hub-section-title,
+      .group-title,
+      .group-count,
+      .index-link,
+      #search-results-title,
+      .search-results-close,
+      .home-card-title,
+      .home-card-more,
+      .community-panel-title,
+      .community-panel-more,
+      .home-news-tab,
+      .home-community-tab,
+      .home-rank-tab,
+      .home-upcoming-tab,
+      .insight-tab,
+      .tab-btn,
+      .home-news-card,
+      .home-news-item,
+      .home-community-item,
+      .home-video-card,
+      .home-video-item,
+      .home-rank-row,
+      .home-steam-row,
+      .home-upcoming-row,
+      .home-trend-card,
+      .popular-banner-item,
+      .news-grid-card,
+      .news-grid-item,
+      .community-item,
+      .youtube-card,
+      .rank-row,
+      .steam-table-row,
+      .upcoming-item,
+      .metacritic-card,
+      .games-hub-popular-card,
+      .game-item,
+      .games-hub-recent-card,
+      .trend-feed-card,
+      .game-hero-stat,
+      .rank-trend-section,
+      .game-rank-country-row,
+      .game-steam-stat,
+      .game-news-item,
+      .game-community-item,
+      .game-youtube-item,
+      .gm-item,
+      .weekly-hot-card,
+      .weekly-rank-card,
+      .weekly-metric-card,
+      .weekly-community-card,
+      .weekly-streaming-card,
+      .weekly-stock-item,
+      .weekly-release-item,
+      .industry-card,
+      .global-card
+    ).gc-defer-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
     /* 이미지 성능 최적화 */
     img {
       content-visibility: auto;
     }
     img[loading="lazy"] {
       background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-    }
-
-    /* 지연 로딩 이미지 페이드인 */
-    img[data-src],
-    img.img-loading {
-      opacity: 0;
-    }
-    img.img-loaded {
-      opacity: 1;
-      transition: opacity 0.35s ease;
-    }
-
-    /* 광고 우선 로딩: 컨텐츠 지연 표시 */
-    .content-deferred {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    .content-loaded {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
     /* 썸네일/아이콘 폴백 (파비콘 중앙 배치) */
@@ -682,6 +803,13 @@
   text-align: center;
 }
 
+/* ===== 플랫폼별 광고 숨김 (ins 자체에 적용 - 구글 예시 방식) ===== */
+
+/* 기본(PC): 모바일 전용 광고는 ins를 display:none 처리 */
+.ad-slot > ins.adsbygoogle.mobile-only {
+  display: none !important;
+}
+
 /* AdSense 내부 요소 중앙 정렬 */
 ins.adsbygoogle > ins,
 ins.adsbygoogle > div,
@@ -752,6 +880,16 @@ ins.adsbygoogle iframe {
 /* ===== 미디어쿼리: 모바일 (768px 이하) ===== */
 
 @media (max-width: 768px) {
+  /* 모바일: PC 전용 광고는 ins를 display:none 처리 */
+  .ad-slot > ins.adsbygoogle.pc-only {
+    display: none !important;
+  }
+
+  /* 모바일: 모바일 전용 광고는 ins를 다시 표시 */
+  .ad-slot > ins.adsbygoogle.mobile-only {
+    display: block !important;
+  }
+
   /* PC 광고 숨기기 - 광고 요청 차단 */
   .ad-slot.pc-only {
     display: none !important;
