@@ -762,6 +762,11 @@ const deferredItemsScript = `
   function getFirstAdInMain() {
     var main = document.querySelector('main');
     if (!main) return null;
+    var selector = isMobileView()
+      ? 'ins.adsbygoogle.mobile-only'
+      : 'ins.adsbygoogle.pc-only';
+    var ad = main.querySelector(selector);
+    if (ad) return ad;
     return main.querySelector('ins.adsbygoogle');
   }
 
