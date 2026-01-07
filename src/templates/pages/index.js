@@ -577,63 +577,14 @@ function generateIndexPage(data) {
 	  }
 
 				  // 광고 슬롯 HTML 생성 함수 (PC용) - 인라인 push 제거, 공통 스크립트에서 초기화
+				  // 모든 광고를 반응형으로 통일
 				  function adSlot(id, extraClass, adFormat, adSlotId) {
-				    var format = adFormat || 'horizontal';
-					    var slotId = adSlotId || AD_SLOTS.Responsive001;
-					    // 가로형은 반응형 (화면 너비에 맞게 자동 조절)
-					    if (format === 'horizontal') {
-					      return generateAdSingle({
-					        id: id,
-					        wrapperClass: 'ad-slot-section ad-slot--horizontal ad-slot--responsive ' + (extraClass || ''),
-					        slotId: slotId,
-					        ...AD_PRESETS.horizontal
-					      });
-					    }
-				    // rectangle 포맷: PC 300x250 고정, 모바일 280px
-				    if (format === 'rectangle') {
-				      var isPcRect = (extraClass || '').indexOf('pc-only') >= 0;
-				      if (isPcRect) {
-				        return generateAdSingle({
-				          id: id,
-				          wrapperClass: 'ad-slot-section ad-slot--rectangle ' + (extraClass || ''),
-				          slotId: slotId,
-				          ...AD_PRESETS.rectanglePc
-				        });
-				      }
-				      return generateAdSingle({
-				        id: id,
-				        wrapperClass: 'ad-slot-section ad-slot--rectangle ' + (extraClass || ''),
-				        slotId: slotId,
-				        ...AD_PRESETS.rectangleMobile,
-				        style: 'display:block;width:100%;max-height:280px'
-				      });
-				    }
-				    // rectangle-auto 포맷: auto + 반응형 (출시 게임 위 등)
-				    if (format === 'rectangle-auto') {
-				      return generateAdSingle({
-				        id: id,
-				        wrapperClass: 'ad-slot-section ad-slot--rectangle ' + (extraClass || ''),
-				        slotId: slotId,
-				        ...AD_PRESETS.autoResponsive
-				      });
-				    }
-				    // vertical 포맷 - 300x600 고정 크기
-				    if (format === 'vertical') {
-				      var pcClass = (extraClass || '').indexOf('pc-only') >= 0 ? ' pc-only' : '';
-				      return generateAdSingle({
-				        id: id,
-				        wrapperClass: 'ad-slot-section ad-slot--vertical ' + (extraClass || ''),
-				        slotId: slotId,
-				        ...AD_PRESETS.verticalPc,
-				        insClassName: 'adsbygoogle' + pcClass
-				      });
-				    }
-				    var size = getAdSize(format, false);
+				    var slotId = adSlotId || AD_SLOTS.Responsive001;
 				    return generateAdSingle({
 				      id: id,
-				      wrapperClass: 'ad-slot-section ' + (extraClass || ''),
+				      wrapperClass: 'ad-slot-section ad-slot--horizontal ad-slot--responsive ' + (extraClass || ''),
 				      slotId: slotId,
-				      style: 'display:inline-block;width:' + size.width + 'px;height:' + size.height + 'px'
+				      ...AD_PRESETS.responsive
 				    });
 				  }
 

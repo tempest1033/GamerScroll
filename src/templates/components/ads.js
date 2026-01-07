@@ -6,31 +6,12 @@
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
-// AdSense 표준 프리셋
+// AdSense 표준 프리셋 - 모든 광고 반응형 통일
 const AD_PRESETS = {
-  // 가로형 - 규격은 CSS에서 제어
-  horizontal: {
-    style: 'display:block;width:100%'
-  },
-  // 반응형 - width 100%
+  // 반응형 (기본) - Google 권장 방식
   responsive: {
-    style: 'display:block;width:100%'
-  },
-  // PC 사각형 - 300x250
-  rectanglePc: {
-    style: 'display:block;width:300px;height:250px'
-  },
-  // 모바일 사각형 - width 100%, min/max height 200~500
-  rectangleMobile: {
-    style: 'display:block;min-width:300px;max-width:728px;width:100%;min-height:200px;max-height:500px;height:100%'
-  },
-  // PC 버티컬 - 300x600
-  verticalPc: {
-    style: 'display:block;width:300px;height:600px'
-  },
-  // 자동 반응형 - width 100%, height auto
-  autoResponsive: {
-    style: 'display:block;width:100%'
+    style: 'display:inline-block',
+    fullWidthResponsive: true
   }
 };
 
