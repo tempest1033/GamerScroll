@@ -986,25 +986,38 @@ const imageFallbackScript = `
 const adInitScript = `
 <script>
 (function() {
-  function adjustAds() {
-    document.querySelectorAll('ins.adsbygoogle').forEach(function(ad) {
-      var iframe = ad.querySelector('iframe');
-      if (iframe && iframe.offsetHeight > 0) {
-        ad.style.height = iframe.offsetHeight + 'px';
-      }
-    });
+  function adjustAd(ad) {
+    var iframe = ad.querySelector('iframe');
+    if (iframe && iframe.offsetHeight > 0) {
+      ad.style.height = iframe.offsetHeight + 'px';
+    }
   }
 
-  var observer = new MutationObserver(function() {
-    setTimeout(adjustAds, 100);
-  });
+  function adjustAllAds() {
+    document.querySelectorAll('ins.adsbygoogle').forEach(adjustAd);
+  }
 
-  document.querySelectorAll('ins.adsbygoogle').forEach(function(ad) {
-    observer.observe(ad, { childList: true, subtree: true });
-  });
+  // 주기적 체크 (3초간 100ms 간격)
+  var count = 0;
+  var interval = setInterval(function() {
+    adjustAllAds();
+    count++;
+    if (count > 30) clearInterval(interval);
+  }, 100);
 
+  // iframe 로드 이벤트 감지
+  document.addEventListener('load', function(e) {
+    if (e.target.tagName === 'IFRAME') {
+      var ad = e.target.closest('ins.adsbygoogle');
+      if (ad) adjustAd(ad);
+    }
+  }, true);
+
+  // 추가 타이밍
   window.addEventListener('load', function() {
-    setTimeout(adjustAds, 1000);
+    setTimeout(adjustAllAds, 500);
+    setTimeout(adjustAllAds, 1500);
+    setTimeout(adjustAllAds, 3000);
   });
 })();
 </script>`;
