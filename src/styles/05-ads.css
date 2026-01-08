@@ -9,7 +9,12 @@
 .ad-card-vertical { min-height: 250px; }
 .ad-card-rectangle { min-height: 250px; }
 
-/* ins는 래퍼(.ad-card)의 flex가 중앙정렬 처리 */
+/* ins 공통 flex 정렬 */
+.ad-top, .ad-mid, .ad-pc, .ad-vertical, .ad-rectangle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* PC 오버라이드 */
 @media (min-width: 769px) {
