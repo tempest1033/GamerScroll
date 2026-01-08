@@ -14,7 +14,8 @@ function renderAdCard(slotId, options = {}) {
 
   // 타입별 스타일 결정
   const styleMap = {
-    'vertical': 'display:block;width:300px;height:600px',
+    'vertical': 'display:block;width:100%;min-width:300px;min-height:250px',
+    'mobile-400': 'display:block;width:100%;min-width:300px;min-height:250px',
     'rectangle': 'display:block;width:300px;height:250px'
   };
   const styleValue = styleMap[type] || 'display:block';
@@ -29,11 +30,8 @@ function renderAdCard(slotId, options = {}) {
   // 타입별 AdSense 속성 추가
   if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
-  } else if (type === 'vertical') {
-    attrs.push('data-ad-format="vertical"');
-  } else if (type === 'mobile-400') {
-    // 반응형 속성 제거 - 빈 공간 방지
   }
+  // vertical, mobile-400: format 없이 min-width/min-height로 처리
 
   return `<div class="ad-card ad-card-${type}">
   <ins ${attrs.join(' ')}></ins>
