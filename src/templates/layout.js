@@ -799,7 +799,7 @@ const deferredItemsScript = `
   function checkAds() {
     var priorityAd = getPriorityAd();
     if (priorityAd) {
-      if (!waitForAd(priorityAd)) setTimeout(checkAds, 100);
+      if (!waitForAd(priorityAd)) setTimeout(checkAds, 50);
       else startReveal();
       return;
     }
@@ -815,7 +815,7 @@ const deferredItemsScript = `
         return;
       }
     }
-    setTimeout(checkAds, 100);
+    setTimeout(checkAds, 50);
   }
 
   function init() {
