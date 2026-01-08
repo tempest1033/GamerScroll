@@ -3,24 +3,25 @@
 /* ===== 광고 크기 (래퍼 + ins) ===== */
 
 /* 래퍼 크기 (CLS 방지용 placeholder) */
-.ad-card-mobile-200 { height: 200px; }
+.ad-card-mobile-200 { min-height: 200px; }
 .ad-card-mobile-400 { min-height: 400px; }
-.ad-card-pc { height: 120px; }
+.ad-card-pc { min-height: 120px; }
 .ad-card-vertical { min-height: 600px; }
 .ad-card-rectangle { min-height: 250px; }
 
-/* ins 공통 flex 정렬 */
-.ad-top, .ad-mid, .ad-pc, .ad-vertical, .ad-rectangle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* ins 크기 (모바일 기본) */
+.ad-top { width: 100%; min-height: 200px; max-height: 250px; }
+.ad-mid { width: 100%; min-height: 200px; }
+.ad-pc { width: 100%; min-height: 90px; }
+.ad-vertical { width: 100%; min-height: 600px; }
+.ad-rectangle { width: 100%; min-height: 250px; }
 
 /* PC 오버라이드 */
 @media (min-width: 769px) {
-  .ad-card-mobile-200 { height: 150px; }
+  .ad-card-mobile-200 { min-height: 150px; }
   .ad-card-mobile-400 { min-height: 120px; }
-  .ad-top { min-height: 150px !important; }
+  .ad-top { min-height: 90px; max-height: 150px; }
+  .ad-mid { min-height: 120px; }
 }
 
 /* ===== 광고 카드 (래퍼) ===== */
