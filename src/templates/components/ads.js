@@ -23,8 +23,7 @@ function renderAdCard(slotId, options = {}) {
   if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
   } else if (type === 'vertical') {
-    attrs.push('data-ad-format="auto"');
-    attrs.push('data-full-width-responsive="true"');
+    // 300x600 고정 - full-width-responsive 제거
   } else if (type === 'mobile-400') {
     attrs.push('data-ad-format="auto"');
     attrs.push('data-full-width-responsive="true"');
