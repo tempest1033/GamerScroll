@@ -17,7 +17,7 @@ function renderAdCard(slotId, options = {}) {
     'mobile-200': 'width:100%;min-width:300px',
     'mobile-400': 'width:100%;min-width:300px;min-height:400px',
     'pc': 'width:100%;min-width:300px',
-    'vertical': 'width:100%;min-width:300px;min-height:250px',
+    'vertical': 'width:100%;min-width:300px;min-height:600px',
     'rectangle': 'width:100%;min-width:300px;min-height:250px'
   };
   const styleValue = styleMap[type] || '';

@@ -6,7 +6,7 @@
 .ad-card-mobile-200 { height: 200px; }
 .ad-card-mobile-400 { min-height: 400px; }
 .ad-card-pc { height: 120px; }
-.ad-card-vertical { min-height: 250px; }
+.ad-card-vertical { min-height: 600px; }
 .ad-card-rectangle { min-height: 250px; }
 
 /* ins 공통 flex 정렬 */
