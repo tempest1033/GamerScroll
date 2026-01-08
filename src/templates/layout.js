@@ -651,8 +651,8 @@ const deferredItemsScript = `
     '.popular-banner'
   ].join(',');
 
-  var REVEAL_DELAY_MS = 150;
-  var FALLBACK_TIMEOUT_MS = 100;
+  var REVEAL_DELAY_MS = 300;
+  var FALLBACK_TIMEOUT_MS = 300;
   var revealStarted = false;
   var fallbackTimer = null;
   var raf = window.requestAnimationFrame || function(cb) { return setTimeout(cb, 16); };
@@ -796,7 +796,7 @@ const deferredItemsScript = `
   function checkAds() {
     var priorityAd = getPriorityAd();
     if (priorityAd) {
-      if (!waitForAd(priorityAd)) setTimeout(checkAds, 120);
+      if (!waitForAd(priorityAd)) setTimeout(checkAds, 33);
       else startReveal();
       return;
     }
@@ -812,7 +812,7 @@ const deferredItemsScript = `
         return;
       }
     }
-    setTimeout(checkAds, 120);
+    setTimeout(checkAds, 33);
   }
 
   function init() {
