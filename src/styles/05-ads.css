@@ -18,8 +18,8 @@
 
 /* PC 오버라이드 (나중에 선언되어 우선 적용) */
 @media (min-width: 769px) {
-  .ad-card-mobile-200 { height: 200px; }
-  .ad-top { width: 100%; min-height: 90px; max-height: 200px; }
+  .ad-card-mobile-200 { height: 120px; }
+  .ad-top { width: 100%; min-height: 90px; max-height: 120px; }
 }
 
 /* ===== 광고 카드 (래퍼) ===== */
