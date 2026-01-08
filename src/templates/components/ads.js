@@ -22,8 +22,9 @@ function renderAdCard(slotId, options = {}) {
   // 타입별 AdSense 속성 추가
   if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
-  } else {
+  } else if (type === 'vertical') {
     attrs.push('data-ad-format="auto"');
+    attrs.push('data-full-width-responsive="true"');
   }
 
   return `<div class="ad-card ad-card-${type}">
