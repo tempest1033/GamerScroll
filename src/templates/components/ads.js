@@ -24,7 +24,6 @@ function renderAdCard(slotId, options = {}) {
     attrs.push('data-ad-format="rectangle"');
   } else {
     attrs.push('data-ad-format="auto"');
-    attrs.push('data-full-width-responsive="true"');
   }
 
   return `<div class="ad-card ad-card-${type}">

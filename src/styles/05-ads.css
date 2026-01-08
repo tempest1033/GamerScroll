@@ -3,7 +3,7 @@
 /* ===== 광고 크기 (래퍼 + ins) ===== */
 
 /* 래퍼 크기 (플레이스홀더) */
-.ad-card-mobile-200 { height: 210px; }
+.ad-card-mobile-200 { height: 200px; }
 .ad-card-mobile-400 { height: 400px; }
 .ad-card-pc { height: 90px; }
 .ad-card-vertical { width: 300px; min-height: 600px; }
