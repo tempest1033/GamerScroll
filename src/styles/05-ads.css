@@ -9,6 +9,13 @@
 .ad-card-vertical { min-height: 250px; }
 .ad-card-rectangle { min-height: 250px; }
 
+/* ins 공통 flex 정렬 */
+.ad-top, .ad-mid, .ad-pc, .ad-vertical, .ad-rectangle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* PC 오버라이드 */
 @media (min-width: 769px) {
   .ad-card-mobile-200 { height: 120px; }
