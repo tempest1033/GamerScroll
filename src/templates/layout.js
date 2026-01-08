@@ -993,8 +993,36 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 초기화 - 별도 스크립트 불필요 (각 슬롯에서 push)
-const adInitScript = '';
+// 광고 초기화 - Responsive001(5039620326) 먼저 push, 나머지 순차
+const adInitScript = `
+<script>
+(function() {
+  var ads = document.querySelectorAll('ins.adsbygoogle');
+  if (!ads.length) return;
+
+  var prioritySlot = '5039620326';
+  var priorityAd = null;
+  var otherAds = [];
+
+  for (var i = 0; i < ads.length; i++) {
+    if (ads[i].dataset.adSlot === prioritySlot) {
+      priorityAd = ads[i];
+    } else {
+      otherAds.push(ads[i]);
+    }
+  }
+
+  // Responsive001 먼저 push
+  if (priorityAd) {
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }
+
+  // 나머지 광고 순차 push
+  for (var j = 0; j < otherAds.length; j++) {
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }
+})();
+</script>`;
 
 function wrapWithLayout(content, options = {}) {
   const {
