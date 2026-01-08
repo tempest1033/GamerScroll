@@ -120,21 +120,19 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- AdSense 최우선 로드 -->
+  <!-- preconnect: 핵심만 (AdSense + 폰트 CDN) -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <!-- dns-prefetch: 나머지 도메인 + fallback -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
   <link rel="dns-prefetch" href="https://adservice.google.com">
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-  <link rel="preconnect" href="https://adservice.google.com" crossorigin>
-  ${LOAD_ADSENSE_SCRIPT ? `<link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" as="script" crossorigin>` : ''}
-  <!-- Preconnect (이미지/기타) -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://play-lh.googleusercontent.com">
-  <link rel="preconnect" href="https://is1-ssl.mzstatic.com">
-  <link rel="preconnect" href="https://i.ytimg.com">
-	  <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com">
-	  <link rel="preconnect" href="https://www.google.com">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://i.ytimg.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
 	  <!-- Prefetch (load 이후, 네트워크 여건이 좋을 때만) -->
 	  <script>
 	    (function() {
