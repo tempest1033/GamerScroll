@@ -15,7 +15,7 @@ function renderAdCard(slotId, options = {}) {
   // 타입별 스타일 결정
   const styleMap = {
     'vertical': 'display:block;width:100%;min-width:300px;min-height:250px',
-    'mobile-400': 'display:block;width:100%;min-width:300px;min-height:250px',
+    'mobile-400': 'display:block;width:100%;height:100%;min-width:300px;min-height:400px',
     'rectangle': 'display:block;width:300px;height:250px'
   };
   const styleValue = styleMap[type] || 'display:block';
