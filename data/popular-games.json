@@ -1,50 +1,58 @@
 {
-  "updatedAt": "2026-01-07T10:49:30.184Z",
+  "updatedAt": "2026-01-08T10:50:00.177Z",
   "period": "30days",
   "games": [
     {
       "slug": "승리의-여신-니케",
-      "views": 136
+      "views": 145
     },
     {
       "slug": "com-proximabeta-nikke",
       "views": 117
     },
     {
+      "slug": "limbus-company",
+      "views": 95
+    },
+    {
       "slug": "com-neowizgames-game-browndust2",
       "views": 87
     },
     {
-      "slug": "limbus-company",
-      "views": 80
+      "slug": "스타세이비어",
+      "views": 71
     },
     {
-      "slug": "스타세이비어",
-      "views": 65
+      "slug": "브라운더스트2-가슴-벅찬-rpg",
+      "views": 69
     },
     {
       "slug": "com.smilegate.chaoszero.stove.google",
       "views": 64
     },
     {
-      "slug": "브라운더스트2-가슴-벅찬-rpg",
-      "views": 58
-    },
-    {
       "slug": "카트라이더-러쉬플러스",
       "views": 48
+    },
+    {
+      "slug": "세븐나이츠-리버스",
+      "views": 44
     },
     {
       "slug": "com-studiobside-starmain",
       "views": 40
     },
     {
-      "slug": "com.studiobside.starMain",
-      "views": 34
+      "slug": "갓깨비-키우기-999뽑기-증정",
+      "views": 38
     },
     {
       "slug": "메이플-키우기",
-      "views": 33
+      "views": 35
+    },
+    {
+      "slug": "com.studiobside.starMain",
+      "views": 34
     },
     {
       "slug": "com-hoyoverse-nap",
@@ -52,31 +60,23 @@
     },
     {
       "slug": "리니지m",
-      "views": 27
+      "views": 29
     },
     {
-      "slug": "갓깨비-키우기-999뽑기-증정",
-      "views": 25
+      "slug": "라스트-워-서바이벌",
+      "views": 23
+    },
+    {
+      "slug": "카오스-제로-나이트메어",
+      "views": 22
+    },
+    {
+      "slug": "머지-쿠킹-테마-레스토랑",
+      "views": 21
     },
     {
       "slug": "com.proximabeta.nikke",
       "views": 19
-    },
-    {
-      "slug": "머지-쿠킹-테마-레스토랑",
-      "views": 19
-    },
-    {
-      "slug": "라스트-워-서바이벌",
-      "views": 16
-    },
-    {
-      "slug": "마비노기-모바일",
-      "views": 16
-    },
-    {
-      "slug": "로얄-매치-royal-match",
-      "views": 15
     }
   ]
 }
