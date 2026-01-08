@@ -20,8 +20,8 @@
 @media (min-width: 769px) {
   .ad-card-mobile-200 { min-height: 150px; }
   .ad-card-mobile-400 { min-height: 120px; }
-  .ad-top { min-height: 90px; max-height: 150px; }
-  .ad-mid { min-height: 120px; }
+  .ad-top { min-height: 90px; max-height: none; }
+  .ad-mid { min-height: 120px; max-height: none; }
 }
 
 /* ===== 광고 카드 (래퍼) ===== */
@@ -52,20 +52,23 @@
   height: 100%;
 }
 
-/* PC: 정렬 제거 (확장형) - 홈페이지 top 배너만 예외 */
+/* PC: Responsive 광고 확장형 (홈페이지 top 제외) */
 @media (min-width: 769px) {
-  .ad-card ins {
-    text-align: left;
-    height: auto;
+  .ad-top, .ad-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* 홈페이지 top 배너만 정렬 유지 + 높이 축소 */
+  /* 홈페이지 top 배너만 정렬 유지 + 높이 고정 */
   .home-main > .ad-card:first-child {
     min-height: 120px;
+    max-height: 120px;
   }
   .home-main > .ad-card:first-child ins {
     text-align: center;
     height: 100%;
+    max-height: 120px;
   }
 }
 

@@ -2,33 +2,26 @@
 
 /* ===== 광고 크기 (래퍼 + ins) ===== */
 
-/* 래퍼 크기 (플레이스홀더) */
-.ad-card-mobile-200 { height: 200px; }
-.ad-card-mobile-400 { height: 200px; }
-.ad-card-pc { height: 90px; }
-.ad-card-vertical { width: 300px; height: 600px; }
-.ad-card-rectangle { width: 300px; height: 250px; }
+/* 래퍼 크기 (CLS 방지용 placeholder) */
+.ad-card-mobile-200 { min-height: 200px; }
+.ad-card-mobile-400 { min-height: 200px; }
+.ad-card-pc { min-height: 120px; }
+.ad-card-vertical { min-height: 600px; }
+.ad-card-rectangle { min-height: 250px; }
 
-/* ins 크기 (전역 - 모바일 기본값) */
-/* ins 공통 flex 정렬 */
-.ad-top, .ad-mid, .ad-pc, .ad-vertical, .ad-rectangle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* ins 크기 (모바일 기본) */
+.ad-top { width: 100%; min-height: 200px; max-height: 250px; }
+.ad-mid { width: 100%; min-height: 200px; }
+.ad-pc { width: 100%; min-height: 90px; }
+.ad-vertical { width: 100%; min-height: 600px; }
+.ad-rectangle { width: 100%; min-height: 250px; }
 
-.ad-top { width: 100%; min-width: 300px; min-height: 200px; max-height: 250px; }
-.ad-mid { width: 100%; min-width: 300px; min-height: 200px; max-height: 600px; }
-.ad-pc { width: 100%; height: 90px; }
-.ad-vertical { width: 100%; height: 100%; min-height: 200px; max-height: 600px; }
-.ad-rectangle { width: 100%; height: 100%; }
-
-/* PC 오버라이드 (나중에 선언되어 우선 적용) */
+/* PC 오버라이드 */
 @media (min-width: 769px) {
-  .ad-card-mobile-200 { height: 120px; }
-  .ad-card-mobile-400 { height: 120px; }
-  .ad-top { width: 100%; min-height: 90px; max-height: 120px; }
-  .ad-mid { min-height: 90px; max-height: 120px; }
+  .ad-card-mobile-200 { min-height: 150px; }
+  .ad-card-mobile-400 { min-height: 120px; }
+  .ad-top { min-height: 90px; max-height: none; }
+  .ad-mid { min-height: 120px; max-height: none; }
 }
 
 /* ===== 광고 카드 (래퍼) ===== */
@@ -45,12 +38,38 @@
   touch-action: pan-y;
 }
 
-/* ins/iframe 스와이프 허용 + 마진 제거 */
+/* ins/iframe 스와이프 허용 + 마진 제거 + 정렬 */
 .ad-card ins,
 .ad-card iframe {
   touch-action: pan-y;
   border-collapse: collapse;
   margin: 0;
+}
+
+/* ins 상하좌우 가운데 정렬 (모바일) */
+.ad-card ins {
+  text-align: center;
+  height: 100%;
+}
+
+/* PC: Responsive 광고 확장형 (홈페이지 top 제외) */
+@media (min-width: 769px) {
+  .ad-top, .ad-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 홈페이지 top 배너만 정렬 유지 + 높이 고정 */
+  .home-main > .ad-card:first-child {
+    min-height: 120px;
+    max-height: 120px;
+  }
+  .home-main > .ad-card:first-child ins {
+    text-align: center;
+    height: 100%;
+    max-height: 120px;
+  }
 }
 
 /* unfilled일 때만 로고 플레이스홀더 */
