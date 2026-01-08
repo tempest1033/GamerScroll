@@ -22,7 +22,7 @@ function renderAdCard(slotId, options = {}) {
   // 타입별 AdSense 속성 추가
   if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
-  } else if (type === 'vertical') {
+  } else if (type === 'mobile-400' || type === 'pc' || type === 'vertical') {
     attrs.push('data-ad-format="auto"');
     attrs.push('data-full-width-responsive="true"');
   }

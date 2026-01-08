@@ -11,7 +11,7 @@
 
 @media (min-width: 769px) {
   .ad-card-mobile-200 { height: 90px; }
-  .ad-top { height: 90px; }
+  .ad-top { height: 90px; min-height: 90px; max-height: 90px; }
 }
 
 /* ins 크기 */
@@ -76,7 +76,7 @@ main > .ad-card:first-child,
 .insight-container .ad-card,
 .insight-panel .ad-card,
 .weekly-report .ad-card {
-  margin: 0;
+  margin: var(--space-block-gap, 16px) 0 0 0;
 }
 
 @media (max-width: 768px) {
