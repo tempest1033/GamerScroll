@@ -20,6 +20,7 @@
 @media (min-width: 769px) {
   .ad-card-mobile-200 { height: 150px; }
   .ad-card-mobile-400 { min-height: 120px; }
+  .ad-top { min-height: 150px !important; }
 }
 
 /* ===== 광고 카드 (래퍼) ===== */
