@@ -15,7 +15,8 @@ const AD_SLOTS = {
   Responsive003: '7467129651',
   Responsive004: '7865094213',
   Rectangle001: '1104244740',
-  Vertical001: '6855905500'
+  Vertical001: '6855905500',
+  ResponsivePCOnly001: '8458886930'
 };
 
 // 상단 검색바 (홈/일반 페이지용)

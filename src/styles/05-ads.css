@@ -46,10 +46,24 @@
   margin: 0;
 }
 
-/* ins 상하좌우 가운데 정렬 */
+/* ins 상하좌우 가운데 정렬 (모바일) */
 .ad-card ins {
   text-align: center;
   height: 100%;
+}
+
+/* PC: 정렬 제거 (확장형) - 홈페이지 top 배너만 예외 */
+@media (min-width: 769px) {
+  .ad-card ins {
+    text-align: left;
+    height: auto;
+  }
+
+  /* 홈페이지 top 배너만 정렬 유지 */
+  .home-main > .ad-card:first-child ins {
+    text-align: center;
+    height: 100%;
+  }
 }
 
 /* unfilled일 때만 로고 플레이스홀더 */
