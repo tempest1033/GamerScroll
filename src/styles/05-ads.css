@@ -20,7 +20,7 @@
 .ad-top { width: 100%; min-width: 300px; min-height: 200px; max-height: 250px; }
 .ad-mid { width: 100%; min-width: 300px; min-height: 200px; max-height: 500px; }
 .ad-pc { width: 100%; height: 90px; }
-.ad-vertical { width: 100%; height: 100%; min-height: 200px; max-height: 600px; }
+.ad-vertical { width: 300px; height: 600px; }
 .ad-rectangle { width: 100%; height: 100%; }
 
 /* PC 오버라이드 (나중에 선언되어 우선 적용) */
