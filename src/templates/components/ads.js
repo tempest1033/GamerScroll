@@ -24,7 +24,7 @@ function renderAdCard(slotId, options = {}) {
 
   const attrs = [
     `class="adsbygoogle ${adClass}"`,
-    `style="display:block;min-width:${minWidth}px"`,
+    `style="display:block;width:100%;min-width:${minWidth}px"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
     `data-ad-slot="${slotId}"`
   ];

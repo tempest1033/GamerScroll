@@ -38,12 +38,18 @@
   touch-action: pan-y;
 }
 
-/* ins/iframe 스와이프 허용 + 마진 제거 */
+/* ins/iframe 스와이프 허용 + 마진 제거 + 정렬 */
 .ad-card ins,
 .ad-card iframe {
   touch-action: pan-y;
   border-collapse: collapse;
   margin: 0;
+}
+
+/* ins 상하좌우 가운데 정렬 */
+.ad-card ins {
+  text-align: center;
+  height: 100%;
 }
 
 /* unfilled일 때만 로고 플레이스홀더 */
