@@ -25,8 +25,7 @@ function renderAdCard(slotId, options = {}) {
   } else if (type === 'vertical') {
     // 300x600 고정 - full-width-responsive 제거
   } else if (type === 'mobile-400') {
-    attrs.push('data-ad-format="auto"');
-    attrs.push('data-full-width-responsive="true"');
+    // 반응형 속성 제거 - 빈 공간 방지
   }
 
   return `<div class="ad-card ad-card-${type}">
