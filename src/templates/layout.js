@@ -740,22 +740,9 @@ const deferredItemsScript = `
     setTimeout(finalize, REVEAL_DELAY_MS);
   }
 
-  function getTopAdIn(containerSelector) {
-    var container = document.querySelector(containerSelector);
-    if (!container) return null;
-    return container.querySelector('ins.adsbygoogle');
-  }
-
-  function getFirstAdInMain() {
-    var main = document.querySelector('main');
-    if (!main) return null;
-    return main.querySelector('ins.adsbygoogle');
-  }
-
   function getPriorityAd() {
-    var topAd = getTopAdIn('#home-top-ad');
-    if (topAd) return topAd;
-    return getFirstAdInMain();
+    // Responsive001 슬롯(5039620326)을 최우선으로 찾음
+    return document.querySelector('ins.adsbygoogle[data-ad-slot="5039620326"]');
   }
 
   function isAdFilled(ad) {
