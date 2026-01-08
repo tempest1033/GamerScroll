@@ -14,9 +14,9 @@ function renderAdCard(slotId, options = {}) {
 
   // 타입별 스타일 결정 (display는 CSS에서 flex로 처리)
   const styleMap = {
-    'mobile-200': 'width:100%;min-width:300px',
+    'mobile-200': 'width:100%;min-width:300px;min-height:200px',
     'mobile-400': 'width:100%;min-width:300px;min-height:400px',
-    'pc': 'width:100%;min-width:300px',
+    'pc': 'width:100%;min-width:300px;min-height:90px',
     'vertical': 'width:100%;min-width:300px;min-height:600px',
     'rectangle': 'width:100%;min-width:300px;min-height:250px'
   };
