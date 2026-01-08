@@ -570,6 +570,42 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
+// Lazy Ad Loader - 뷰포트 진입 시 광고 로드
+const lazyAdScript = `
+<script>
+(function() {
+  var lazyAds = document.querySelectorAll('[data-ad-lazy="true"] ins.adsbygoogle');
+  if (!lazyAds.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    // fallback: 즉시 로드
+    lazyAds.forEach(function(ad) {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var ad = entry.target;
+        if (!ad.dataset.adLoaded) {
+          ad.dataset.adLoaded = 'true';
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+        observer.unobserve(ad);
+      }
+    });
+  }, {
+    rootMargin: '200px 0px' // 뷰포트 200px 전에 미리 로드
+  });
+
+  lazyAds.forEach(function(ad) {
+    observer.observe(ad);
+  });
+})();
+</script>`;
+
 const deferredItemsScript = `
 <script>
 (function() {
@@ -652,7 +688,7 @@ const deferredItemsScript = `
   ].join(',');
 
   var REVEAL_DELAY_MS = 300;
-  var FALLBACK_TIMEOUT_MS = 300;
+  var FALLBACK_TIMEOUT_MS = 500;
   var revealStarted = false;
   var fallbackTimer = null;
   var raf = window.requestAnimationFrame || function(cb) { return setTimeout(cb, 16); };
@@ -1037,6 +1073,7 @@ function wrapWithLayout(content, options = {}) {
 				  ${imageFallbackScript}
 			  ${fontAndEmojiScript}
 			  ${pageScripts}
+			  ${lazyAdScript}
 			  ${deferredItemsScript}
 			  ${showSearchBar ? searchBarScript : ''}
 			  ${hoverPrefetchScript}

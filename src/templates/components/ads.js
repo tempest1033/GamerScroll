@@ -30,9 +30,15 @@ function renderAdCard(slotId, options = {}) {
     attrs.push('data-full-width-responsive="true"');
   }
 
-  return `<div class="ad-card ad-card-${type}">
+  // 상단 광고(mobile-200)는 즉시 로드, 나머지는 lazy load
+  const isLazy = type !== 'mobile-200';
+  const pushScript = isLazy
+    ? '' // lazy load는 Intersection Observer에서 처리
+    : '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
+
+  return `<div class="ad-card ad-card-${type}"${isLazy ? ' data-ad-lazy="true"' : ''}>
   <ins ${attrs.join(' ')}></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  ${pushScript}
 </div>`;
 }
 
