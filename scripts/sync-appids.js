@@ -1,4 +1,4 @@
-/**
+﻿/**
  * games.json 자동 동기화
  * - 지역별 appId 자동 수집
  * - 지역별 이름 variants를 aliases에 자동 추가
@@ -22,7 +22,7 @@ function loadLatestHistory() {
 
 console.log('🔄 games.json 동기화 시작...\n');
 
-const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8'));
+const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8').replace(/^\uFEFF/, ''));
 const history = loadLatestHistory();
 
 if (!history) {
@@ -111,7 +111,8 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
 }
 
 // 3. 저장
-fs.writeFileSync(gamesPath, JSON.stringify(gamesData, null, 2));
+const json = '\ufeff' + JSON.stringify(gamesData, null, 2).replace(/\n/g, '\r\n') + '\r\n';
+fs.writeFileSync(gamesPath, json, 'utf8');
 
 console.log('\n' + '='.repeat(50));
 console.log(`✅ 완료!`);

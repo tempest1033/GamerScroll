@@ -6,7 +6,7 @@
 .ad-card-mobile-200 { height: 200px; }
 .ad-card-mobile-400 { height: 200px; }
 .ad-card-pc { height: 90px; }
-.ad-card-vertical { width: 300px; height: 300px; }
+.ad-card-vertical { width: 300px; height: 600px; }
 .ad-card-rectangle { width: 300px; height: 250px; }
 
 /* ins 크기 (전역 - 모바일 기본값) */

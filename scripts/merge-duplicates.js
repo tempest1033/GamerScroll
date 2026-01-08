@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 중복 게임 통합 스크립트
  * - 1단계: 같은 appId를 가진 게임들을 하나로 병합
  * - 2단계: 같은 kr 이름(히스토리 + API 조회)을 가진 게임들을 하나로 병합
@@ -13,7 +13,7 @@ const gamesPath = path.join(__dirname, '..', 'data', 'games.json');
 const historyDir = path.join(__dirname, '..', 'history');
 
 // 게임 데이터 로드
-const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8'));
+const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8').replace(/^\uFEFF/, ''));
 const games = gamesData.games;
 
 // 게임 병합 함수
@@ -264,7 +264,8 @@ async function main() {
   // ============================================
   gamesData.totalGames = Object.keys(games).length;
   gamesData.lastMerged = new Date().toISOString().split('T')[0];
-  fs.writeFileSync(gamesPath, JSON.stringify(gamesData, null, 2), 'utf8');
+  const json = '\ufeff' + JSON.stringify(gamesData, null, 2).replace(/\n/g, '\r\n') + '\r\n';
+  fs.writeFileSync(gamesPath, json, 'utf8');
 
   console.log('\n=== 결과 ===');
   console.log('총 통합:', mergedByAppId + mergedByKrName, '개');

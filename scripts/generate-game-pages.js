@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 게임 대시보드 페이지 자동 생성
  * games.json의 모든 게임에 대해 개별 페이지 생성
  */
@@ -16,7 +16,7 @@ const outputDir = path.join(__dirname, '..', 'docs', 'games');
 const { generateGamePage } = require('../src/templates/pages/game');
 
 // 게임 데이터 로드
-const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8'));
+const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8').replace(/^\uFEFF/, ''));
 
 // 이름 정규화 (비교용)
 function normalize(name) {

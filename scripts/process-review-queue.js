@@ -8,7 +8,7 @@ const dataDir = path.join(__dirname, '../data');
 // 데이터 로드
 function loadGames() {
   const filePath = path.join(dataDir, 'games.json');
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  return JSON.parse(fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, ''));
 }
 
 function loadReviewQueue() {
@@ -16,20 +16,24 @@ function loadReviewQueue() {
   if (!fs.existsSync(filePath)) {
     return { pending: [], approved: [], rejected: [] };
   }
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  return JSON.parse(fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, ''));
 }
 
 function saveGames(data) {
+  const json = '\ufeff' + JSON.stringify(data, null, 2).replace(/\n/g, '\r\n') + '\r\n';
   fs.writeFileSync(
     path.join(dataDir, 'games.json'),
-    JSON.stringify(data, null, 2)
+    json,
+    'utf8'
   );
 }
 
 function saveReviewQueue(data) {
+  const json = '\ufeff' + JSON.stringify(data, null, 2).replace(/\n/g, '\r\n') + '\r\n';
   fs.writeFileSync(
     path.join(dataDir, 'review-queue.json'),
-    JSON.stringify(data, null, 2)
+    json,
+    'utf8'
   );
 }
 

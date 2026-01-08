@@ -91,7 +91,7 @@ function loadGames() {
   if (!fs.existsSync(filePath)) {
     return { version: '5.0.0', games: {} };
   }
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  return JSON.parse(fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, ''));
 }
 
 function loadReviewQueue() {
@@ -99,20 +99,24 @@ function loadReviewQueue() {
   if (!fs.existsSync(filePath)) {
     return { pending: [], approved: [], rejected: [] };
   }
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  return JSON.parse(fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, ''));
 }
 
 function saveGames(gamesData) {
+  const json = '\ufeff' + JSON.stringify(gamesData, null, 2).replace(/\n/g, '\r\n') + '\r\n';
   fs.writeFileSync(
     path.join(dataDir, 'games.json'),
-    JSON.stringify(gamesData, null, 2)
+    json,
+    'utf8'
   );
 }
 
 function saveReviewQueue(queue) {
+  const json = '\ufeff' + JSON.stringify(queue, null, 2).replace(/\n/g, '\r\n') + '\r\n';
   fs.writeFileSync(
     path.join(dataDir, 'review-queue.json'),
-    JSON.stringify(queue, null, 2)
+    json,
+    'utf8'
   );
 }
 

@@ -12,7 +12,7 @@ let gamesMap = {};
 try {
   const gamesPath = path.join(__dirname, '../../../data/games.json');
   if (fs.existsSync(gamesPath)) {
-    const data = JSON.parse(fs.readFileSync(gamesPath, 'utf8'));
+    const data = JSON.parse(fs.readFileSync(gamesPath, 'utf8').replace(/^\uFEFF/, ''));
     gamesMap = data.games || {};
   }
 } catch (e) {

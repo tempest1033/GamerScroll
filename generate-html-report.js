@@ -398,7 +398,7 @@ async function main() {
   // games.json 로드 (게임 허브용)
   let gamesData = {};
   try {
-    const gamesJson = JSON.parse(fs.readFileSync('./data/games.json', 'utf8'));
+    const gamesJson = JSON.parse(fs.readFileSync('./data/games.json', 'utf8').replace(/^\uFEFF/, ''));
     gamesData = gamesJson.games || {};
     console.log(`  📦 games.json 로드: ${Object.keys(gamesData).length}개 게임`);
   } catch (err) {
