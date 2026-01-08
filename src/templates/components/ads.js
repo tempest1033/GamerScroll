@@ -22,17 +22,16 @@ function renderAdCard(slotId, options = {}) {
   };
   const minWidth = minWidthMap[type] || 300;
 
+  const adFormat = type === 'rectangle' ? 'rectangle' : 'auto';
+
   const attrs = [
     `class="adsbygoogle ${adClass}"`,
     `style="display:block;width:100%;min-width:${minWidth}px"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
-    `data-ad-slot="${slotId}"`
+    `data-ad-slot="${slotId}"`,
+    `data-ad-format="${adFormat}"`,
+    'data-full-width-responsive="true"'
   ];
-
-  // 타입별 AdSense 속성 추가 (CSS로 크기 제어하므로 format 최소화)
-  if (type === 'rectangle') {
-    attrs.push('data-ad-format="rectangle"');
-  }
 
   return `<div class="ad-card ad-card-${type}">
   <ins ${attrs.join(' ')}></ins>
