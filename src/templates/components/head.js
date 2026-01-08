@@ -120,10 +120,13 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- preconnect: 핵심만 (AdSense + 폰트 CDN) -->
+  <!-- preconnect: AdSense 전체 + 폰트 CDN -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="preconnect" href="https://adservice.google.com" crossorigin>
+  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <!-- dns-prefetch: 나머지 도메인 + fallback -->
+  <!-- dns-prefetch: fallback + 이미지 CDN -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
   <link rel="dns-prefetch" href="https://adservice.google.com">
