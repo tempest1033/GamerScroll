@@ -655,7 +655,7 @@ const deferredItemsScript = `
   ].join(',');
 
   var REVEAL_DELAY_MS = 100;
-  var FALLBACK_TIMEOUT_MS = 100;
+  var FALLBACK_TIMEOUT_MS = 1500;
   var revealStarted = false;
   var fallbackTimer = null;
   var raf = window.requestAnimationFrame || function(cb) { return setTimeout(cb, 16); };
