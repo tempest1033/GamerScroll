@@ -26,6 +26,7 @@ function renderAdCard(slotId, options = {}) {
     attrs.push('data-ad-format="auto"');
     attrs.push('data-full-width-responsive="true"');
   } else if (type === 'mobile-400') {
+    attrs.push('data-ad-format="auto"');
     attrs.push('data-full-width-responsive="true"');
   }
 
