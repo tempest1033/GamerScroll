@@ -29,8 +29,7 @@ function renderAdCard(slotId, options = {}) {
     `style="display:block;width:100%;min-width:${minWidth}px"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
     `data-ad-slot="${slotId}"`,
-    `data-ad-format="${adFormat}"`,
-    'data-full-width-responsive="true"'
+    `data-ad-format="${adFormat}"`
   ];
 
   return `<div class="ad-card ad-card-${type}">
