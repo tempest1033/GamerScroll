@@ -25,8 +25,8 @@ function renderAdCard(slotId, options = {}) {
   } else if (type === 'vertical') {
     attrs.push('data-ad-format="auto"');
     attrs.push('data-full-width-responsive="true"');
-  } else if (type === 'mobile-200') {
-    attrs.push('data-ad-format="auto"');
+  } else if (type === 'mobile-400') {
+    attrs.push('data-full-width-responsive="true"');
   }
 
   return `<div class="ad-card ad-card-${type}">
