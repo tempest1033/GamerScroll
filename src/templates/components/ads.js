@@ -22,15 +22,17 @@ function renderAdCard(slotId, options = {}) {
   };
   const minWidth = minWidthMap[type] || 300;
 
-  const adFormat = type === 'rectangle' ? 'rectangle' : 'auto';
-
   const attrs = [
     `class="adsbygoogle ${adClass}"`,
     `style="display:block;width:100%;min-width:${minWidth}px"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
-    `data-ad-slot="${slotId}"`,
-    `data-ad-format="${adFormat}"`
+    `data-ad-slot="${slotId}"`
   ];
+
+  // rectangle만 format 지정
+  if (type === 'rectangle') {
+    attrs.push('data-ad-format="rectangle"');
+  }
 
   return `<div class="ad-card ad-card-${type}">
   <ins ${attrs.join(' ')}></ins>
