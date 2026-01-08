@@ -11,7 +11,7 @@
 
 @media (min-width: 769px) {
   .ad-card-mobile-200 { height: 90px; }
-  .ad-top { width: 100%; height: 90px; }
+  .ad-top { height: 90px; }
 }
 
 /* ins 크기 */
