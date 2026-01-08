@@ -12,9 +12,16 @@ function renderAdCard(slotId, options = {}) {
   };
   const adClass = classMap[type] || classMap['mobile-200'];
 
+  // 타입별 스타일 결정
+  const styleMap = {
+    'vertical': 'display:block;width:300px;height:600px',
+    'rectangle': 'display:block;width:300px;height:250px'
+  };
+  const styleValue = styleMap[type] || 'display:block';
+
   const attrs = [
     `class="adsbygoogle ${adClass}"`,
-    'style="display:block"',
+    `style="${styleValue}"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
     `data-ad-slot="${slotId}"`
   ];
