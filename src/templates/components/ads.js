@@ -18,9 +18,12 @@ function renderAdCard(slotId, options = {}) {
     `data-ad-slot="${slotId}"`
   ];
 
-  // 타입별 AdSense 속성 추가 (CSS로 크기 제어하므로 format 최소화)
+  // 타입별 AdSense 속성 추가
   if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
+  }
+  if (type === 'vertical') {
+    attrs.push('data-ad-format="vertical"');
   }
 
   return `<div class="ad-card ad-card-${type}">
