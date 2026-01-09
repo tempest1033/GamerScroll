@@ -28,6 +28,7 @@
 
 /* PC 오버라이드 */
 @media (min-width: 769px) {
+  .ad-card ins { width: auto; }
   .ad-card-mobile-200 { height: 110px; }
   .ad-card-mobile-400 { height: 110px; }
   .ad-top { width: 728px; height: 90px; }
