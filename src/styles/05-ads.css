@@ -52,17 +52,15 @@
   height: 100%;
 }
 
-/* PC: 홈페이지만 flex 정렬 (일반 페이지는 확장형) */
+/* PC: Responsive 광고 확장형 (홈페이지 top 제외) */
 @media (min-width: 769px) {
-  /* 홈페이지만 flex 적용 */
-  .home-main .ad-top,
-  .home-main .ad-mid {
+  .ad-top, .ad-mid {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  /* 홈페이지 top 배너 높이 고정 */
+  /* 홈페이지 top 배너만 정렬 유지 + 높이 고정 */
   .home-main > .ad-card:first-child {
     min-height: 120px;
     max-height: 120px;
