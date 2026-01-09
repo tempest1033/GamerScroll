@@ -211,10 +211,10 @@ async function main() {
     console.log(`⚠️ 어제 데이터 없음 (${yesterday}) - 순위 변동 분석 건너뜀\n`);
   }
 
-  // 최근 3일 인사이트 로드 (반복 방지용)
-  const recentInsights = loadRecentInsights(3);
+  // 최근 7일 인사이트 로드 (반복 방지용 - 1주일간 블랙리스트)
+  const recentInsights = loadRecentInsights(7);
   if (recentInsights.length > 0) {
-    console.log(`📋 최근 ${recentInsights.length}개 인사이트 로드 완료 (반복 방지용)\n`);
+    console.log(`📋 최근 ${recentInsights.length}개 인사이트 로드 완료 (1주일간 블랙리스트)\n`);
   }
 
   // AI 인사이트 생성 (순위 변동 데이터 + 최근 인사이트 포함)

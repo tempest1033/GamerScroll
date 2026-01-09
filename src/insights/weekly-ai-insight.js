@@ -21,10 +21,10 @@ const HISTORY_DIR = './history';
  * Claude CLI를 호출하여 주간 AI 인사이트 생성
  * @param {Array} weeklyReports - 지난 주 일일 리포트 배열
  * @param {Object} weekInfo - 주차 정보 { startDate, endDate, weekNumber }
- * @param {Object} prevWeekInsight - 전주 인사이트 (반복 방지용, optional)
+ * @param {Array} prevWeekInsights - 최근 N주간 인사이트 배열 (반복 방지용, optional)
  * @returns {Object|null} AI 인사이트 JSON (일간 리포트와 동일한 구조)
  */
-async function generateWeeklyAIInsight(weeklyReports, weekInfo, prevWeekInsight = null) {
+async function generateWeeklyAIInsight(weeklyReports, weekInfo, prevWeekInsights = []) {
   try {
     console.log(`  - Claude CLI 호출 중 (${MODEL})...`);
 
@@ -74,8 +74,8 @@ ${rankingsSummary}
   ※ 순위 숫자를 임의로 바꾸지 말 것 - 제공된 데이터 그대로 사용
   ※ desc에만 웹 검색으로 파악한 변동 원인 작성 (업데이트, 이벤트, 할인, 논란 등)` : '';
 
-    // 전주 인사이트 요약 (반복 방지용)
-    const prevWeekSummary = buildPrevWeekInsightSummary(prevWeekInsight);
+    // 최근 3주간 인사이트 요약 (반복 방지용)
+    const prevWeekSummary = buildPrevWeekInsightsSummary(prevWeekInsights);
 
     const prompt = `## 중요: 현재 시간 기준 정보
 - 현재 날짜: ${currentDate}
@@ -185,20 +185,28 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
 
 ## 각 섹션별 개수:
 - issues: 5개 (태그: 모바일/PC/콘솔/글로벌/e스포츠/인디/업계동향/정책/기술/신작/업데이트/콜라보/스트리밍/출시·종료(게임 출시 혹은 서비스 종료 소식)/행사(게임쇼, 전시회, 오프라인 이벤트) 중 5개 선택, 중복 금지)
+  ※ 블랙리스트 게임/주제 절대 사용 금지
 - industryIssues: 4개 (지난 주 한국 게임 업계 주요 동향)
   ※ 웹 검색으로 해당 주 구체적 뉴스를 먼저 찾고, 없으면 일일 리포트 데이터에서 선정
   ※ 일반론적 필러 콘텐츠 금지 - 구체적 사건/발표/뉴스 기반으로만 작성
-- metrics: 2개 (지난 주 주목할만한 지표 변화)${rankingsInstruction}
+  ※ 블랙리스트 게임/주제 절대 사용 금지
+- metrics: 2개 (지난 주 주목할만한 지표 변화)
+  ※ ⚠️ 블랙리스트 게임 절대 사용 금지 - 최근 3주 내 metrics에서 언급한 게임 다시 쓰지 말 것
+  ※ 같은 게임 반복 언급 금지 - 다른 게임의 지표 변화 찾기${rankingsInstruction}
 - community: 4개 (지난 주 커뮤니티에서 화제가 된 게임/이슈)
+  ※ 블랙리스트 게임 절대 사용 금지
 - streaming: 2개 (지난 주 스트리밍 트렌드)
   ※ 한국에서는 트위치가 서비스 종료됨 - 치지직/유튜브만 사용
+  ※ 중복 방지 규칙에서 제외 - 내용만 다르게 작성하면 됨
 - stocks: up 3개, down 3개 (지난 주 게임주 등락률 TOP3 - code와 name 필드 분리)
 - mvp: 1개 (지난 주 가장 주목받은 게임 - 매출/화제성/성과 종합)
   ※ highlights는 3개의 핵심 성과 키워드
+  ※ 블랙리스트 게임 절대 사용 금지 - 최근 3주 내 MVP로 선정된 게임 제외
 - releases: 6개 (이번 주 출시 예정 기대작 - 신작 또는 대규모 업데이트)
   ※ 이번 주 = 리포트 생성일 기준 월~일
   ※ 웹 검색으로 이번 주 출시/업데이트 예정 게임 조사
 - global: 3개 (지난 주 글로벌 게임 시장 주요 동향 - 북미/일본/중국 등)
+  ※ 블랙리스트 주제 절대 사용 금지
 
 ## stocks 형식 주의:
 - code: 종목코드 (6자리 숫자), name: 회사명 (별도 필드)
@@ -550,49 +558,104 @@ function buildWeeklyRankingChangeSummary(changes) {
 }
 
 /**
- * 전주 인사이트 요약 문자열 생성 (반복 방지용)
- * @param {Object} prevWeekInsight - 전주 인사이트
+ * 최근 N주간 인사이트 요약 문자열 생성 (반복 방지용)
+ * @param {Array} prevWeekInsights - 최근 N주간 인사이트 배열
  * @returns {string} 요약 문자열
  */
-function buildPrevWeekInsightSummary(prevWeekInsight) {
-  if (!prevWeekInsight) {
+function buildPrevWeekInsightsSummary(prevWeekInsights) {
+  if (!prevWeekInsights || prevWeekInsights.length === 0) {
     return '';
   }
 
-  const lines = ['\n\n## 반복 방지 - 전주 인사이트 (동일/유사 주제 피할 것):'];
+  const lines = ['\n\n## ⛔ 중복 금지 - 최근 주간 인사이트 (아래 내용 절대 재사용 금지):'];
 
-  // summary (위클리 포커스)
-  if (prevWeekInsight.summary) {
-    lines.push(`- [요약] ${prevWeekInsight.summary}`);
+  // 블랙리스트 키워드 수집
+  const blacklistKeywords = new Set();
+
+  prevWeekInsights.forEach((insight, idx) => {
+    lines.push(`\n### 최근 ${idx + 1}주 전 리포트:`);
+
+    // summary (위클리 포커스)
+    if (insight.summary) {
+      lines.push(`- [요약] ${insight.summary}`);
+    }
+
+    // issues
+    if (insight.issues && insight.issues.length > 0) {
+      insight.issues.forEach(issue => {
+        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        blacklistKeywords.add(issue.title);
+      });
+    }
+
+    // industryIssues
+    if (insight.industryIssues && insight.industryIssues.length > 0) {
+      insight.industryIssues.forEach(issue => {
+        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        blacklistKeywords.add(issue.title);
+      });
+    }
+
+    // metrics
+    if (insight.metrics && insight.metrics.length > 0) {
+      insight.metrics.forEach(metric => {
+        lines.push(`- [지표] ${metric.title}: ${metric.desc}`);
+        blacklistKeywords.add(metric.title);
+      });
+    }
+
+    // rankings
+    if (insight.rankings && insight.rankings.length > 0) {
+      insight.rankings.forEach(rank => {
+        lines.push(`- [순위] ${rank.title}: ${rank.desc}`);
+        blacklistKeywords.add(rank.title);
+      });
+    }
+
+    // community
+    if (insight.community && insight.community.length > 0) {
+      insight.community.forEach(comm => {
+        lines.push(`- [커뮤니티] ${comm.title}: ${comm.desc}`);
+        blacklistKeywords.add(comm.tag); // 게임명
+      });
+    }
+
+    // streaming
+    if (insight.streaming && insight.streaming.length > 0) {
+      insight.streaming.forEach(stream => {
+        lines.push(`- [스트리밍] ${stream.title}: ${stream.desc}`);
+      });
+    }
+
+    // global
+    if (insight.global && insight.global.length > 0) {
+      insight.global.forEach(g => {
+        lines.push(`- [글로벌] ${g.title}: ${g.desc}`);
+        blacklistKeywords.add(g.title);
+      });
+    }
+
+    // mvp
+    if (insight.mvp) {
+      lines.push(`- [MVP] ${insight.mvp.name}: ${insight.mvp.desc}`);
+      blacklistKeywords.add(insight.mvp.name);
+    }
+  });
+
+  // 블랙리스트 키워드 출력
+  if (blacklistKeywords.size > 0) {
+    lines.push(`\n### 🚫 사용 금지 키워드 (이 단어가 들어간 주제 선정 금지):`);
+    lines.push([...blacklistKeywords].join(', '));
   }
 
-  // issues
-  if (prevWeekInsight.issues && prevWeekInsight.issues.length > 0) {
-    prevWeekInsight.issues.forEach(issue => {
-      lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
-    });
-  }
-
-  // industryIssues
-  if (prevWeekInsight.industryIssues && prevWeekInsight.industryIssues.length > 0) {
-    prevWeekInsight.industryIssues.forEach(issue => {
-      lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
-    });
-  }
-
-  // mvp
-  if (prevWeekInsight.mvp) {
-    lines.push(`- [MVP] ${prevWeekInsight.mvp.name}: ${prevWeekInsight.mvp.desc}`);
-  }
-
-  // community
-  if (prevWeekInsight.community && prevWeekInsight.community.length > 0) {
-    prevWeekInsight.community.forEach(comm => {
-      lines.push(`- [커뮤니티] ${comm.title}: ${comm.desc}`);
-    });
-  }
-
-  lines.push('\n→ 위 전주 리포트에서 이미 다룬 주제와 동일하거나 유사한 내용은 피하고, 새로운 관점이나 다른 이슈를 찾아주세요.');
+  // 강화된 지시사항
+  lines.push(`
+### ⚠️ 중복 방지 규칙 (필수 준수):
+1. 위 리포트에서 다룬 게임/이슈를 모든 섹션(issues, industryIssues, metrics, rankings, community, global, mvp)에 다시 쓰지 말 것 (streaming은 제외)
+2. 같은 게임이라도 완전히 다른 각도의 새 이슈만 허용
+3. 비슷한 표현/문장 구조도 금지
+4. 확실히 새로운 뉴스/이슈만 선정할 것
+5. 위 규칙 위반 시 결과물 무효 - 반드시 준수!`);
 
   return lines.join('\n');
 }

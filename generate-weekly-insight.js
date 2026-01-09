@@ -17,31 +17,42 @@ const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
 
 /**
- * 전주 주간 리포트 로드 (반복 방지용)
+ * 최근 N주간 주간 리포트 로드 (반복 방지용)
  * @param {Object} currentWeekInfo - 현재 주차 정보
- * @returns {Object|null} 전주 리포트
+ * @param {number} count - 로드할 주 수 (기본 3주)
+ * @returns {Array} 주간 인사이트 배열
  */
-function loadPreviousWeeklyReport(currentWeekInfo) {
-  const year = currentWeekInfo.startDate.substring(0, 4);
-  const prevWeekNumber = currentWeekInfo.weekNumber - 1;
+function loadPreviousWeeklyReports(currentWeekInfo, count = 3) {
+  const insights = [];
+  const year = parseInt(currentWeekInfo.startDate.substring(0, 4));
 
-  if (prevWeekNumber < 1) {
-    // 연도가 바뀌는 경우는 일단 스킵
-    return null;
+  for (let i = 1; i <= count; i++) {
+    let targetYear = year;
+    let targetWeek = currentWeekInfo.weekNumber - i;
+
+    // 연도가 바뀌는 경우 처리
+    if (targetWeek < 1) {
+      targetYear = year - 1;
+      targetWeek = 52 + targetWeek; // 52주 기준
+    }
+
+    const fileName = `${WEEKLY_REPORTS_DIR}/${targetYear}-W${String(targetWeek).padStart(2, '0')}.json`;
+
+    if (!fs.existsSync(fileName)) {
+      continue;
+    }
+
+    try {
+      const report = JSON.parse(fs.readFileSync(fileName, 'utf8'));
+      if (report.ai) {
+        insights.push(report.ai);
+      }
+    } catch (e) {
+      // 파싱 실패 시 스킵
+    }
   }
 
-  const fileName = `${WEEKLY_REPORTS_DIR}/${year}-W${String(prevWeekNumber).padStart(2, '0')}.json`;
-
-  if (!fs.existsSync(fileName)) {
-    return null;
-  }
-
-  try {
-    const report = JSON.parse(fs.readFileSync(fileName, 'utf8'));
-    return report.ai || null;
-  } catch (e) {
-    return null;
-  }
+  return insights;
 }
 
 /**
@@ -174,15 +185,15 @@ async function main() {
     console.log(`\n📊 총 ${weeklyReports.length}일치 리포트 로드 완료\n`);
   }
 
-  // 전주 리포트 로드 (반복 방지용)
-  const prevWeekInsight = loadPreviousWeeklyReport(weekInfo);
-  if (prevWeekInsight) {
-    console.log(`📋 전주 리포트 로드 완료 (반복 방지용)\n`);
+  // 최근 3주간 리포트 로드 (반복 방지용)
+  const prevWeekInsights = loadPreviousWeeklyReports(weekInfo, 3);
+  if (prevWeekInsights.length > 0) {
+    console.log(`📋 최근 ${prevWeekInsights.length}주간 리포트 로드 완료 (3주간 블랙리스트)\n`);
   }
 
   // 주간 AI 인사이트 생성
   console.log('🤖 주간 AI 인사이트 생성 중...');
-  const weeklyInsight = await generateWeeklyAIInsight(weeklyReports, weekInfo, prevWeekInsight);
+  const weeklyInsight = await generateWeeklyAIInsight(weeklyReports, weekInfo, prevWeekInsights);
 
   if (!weeklyInsight) {
     console.log('❌ 주간 AI 인사이트 생성 실패');

@@ -155,12 +155,17 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
 
 ## 각 섹션별 개수:
 - issues: 5개 (태그: 모바일/PC/콘솔/글로벌/e스포츠/인디/업계동향/정책/기술/신작/업데이트/콜라보/스트리밍/출시·종료(게임 출시 혹은 서비스 종료 소식)/행사(게임쇼, 전시회, 오프라인 이벤트) 중 5개 선택, 중복 금지)
+  ※ 블랙리스트 게임/주제 절대 사용 금지
 - industryIssues: 0~2개 (한국 게임 업계 동향 - 기업 뉴스, 인수합병, 규제, 시장 트렌드 등)
   ※ 웹 검색으로 오늘자 구체적 뉴스를 먼저 찾고, 없으면 크롤링 뉴스 데이터에서 선정
   ※ 구체적 뉴스가 있으면 2개, 부족하면 1개, 없으면 0개 (빈 배열 [])
   ※ 일반론적 필러 콘텐츠 금지 - 구체적 사건/발표/뉴스 기반으로만 작성
-- metrics: 2개 (주목할만한 지표 변화)${rankingsInstruction}
+  ※ 블랙리스트 게임/주제 절대 사용 금지
+- metrics: 2개 (주목할만한 지표 변화)
+  ※ ⚠️ 블랙리스트 게임 절대 사용 금지 - 최근 3일 내 metrics에서 언급한 게임 다시 쓰지 말 것
+  ※ 같은 게임 반복 언급 금지 - 다른 게임의 지표 변화 찾기${rankingsInstruction}
 - community: 4개 (특정 게임에 대한 유저 반응 - 업데이트/패치/논란 등)
+  ※ 블랙리스트 게임 절대 사용 금지
 - streaming: 2개 (스트리밍 인기 게임/트렌드)
   ※ 한국에서는 트위치가 서비스 종료됨 - 치지직/유튜브만 사용
   ※ 중복 방지 규칙에서 제외 - 내용만 다르게 작성하면 됨
@@ -374,6 +379,7 @@ function buildRecentInsightsSummary(recentInsights) {
     // metrics
     if (insight.metrics && insight.metrics.length > 0) {
       insight.metrics.forEach(metric => {
+        lines.push(`- [지표] ${metric.title}: ${metric.desc}`);
         blacklistKeywords.add(metric.title);
       });
     }
@@ -381,6 +387,7 @@ function buildRecentInsightsSummary(recentInsights) {
     // rankings
     if (insight.rankings && insight.rankings.length > 0) {
       insight.rankings.forEach(rank => {
+        lines.push(`- [순위] ${rank.title}: ${rank.desc}`);
         blacklistKeywords.add(rank.title); // 게임명
       });
     }
