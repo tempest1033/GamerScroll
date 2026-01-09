@@ -26,10 +26,14 @@
   width: 100%;
 }
 
-/* PC 오버라이드 */
+/* PC 오버라이드 - 모바일 vw 리셋 */
 @media (min-width: 769px) {
-  .ad-card-mobile-200 { height: 110px; }
-  .ad-card-mobile-400 { height: 110px; }
+  /* 래퍼: vw 리셋 + 고정 크기 */
+  .ad-card-mobile-200 { width: 728px; min-width: auto; min-height: auto; max-height: none; height: 110px; }
+  .ad-card-mobile-400 { width: 970px; min-width: auto; max-height: none; height: 110px; }
+  .ad-card-vertical { width: 300px; min-height: auto; height: 600px; }
+  .ad-card-rectangle { width: 300px; min-height: auto; height: 250px; }
+  /* ins 크기 */
   .ad-top { width: 728px; height: 90px; }
   .ad-mid { width: 970px; height: 90px; }
   .ad-vertical { width: 300px; height: 600px; }
