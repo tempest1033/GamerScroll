@@ -5,21 +5,6 @@
   padding-bottom: var(--space-block-y-xl);
 }
 
-/* game-container 내 PC 가로형 광고 */
-.game-container > .ad-slot--horizontal.ad-slot--responsive {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 90px;
-  width: 100%;
-}
-
-/* game-grid 내 광고 전체 너비 */
-.game-grid > .ad-slot--horizontal.ad-slot--responsive {
-  grid-column: 1 / -1;
-  width: 100%;
-}
-
 .game-container .home-card-body {
   padding: 0;
 }

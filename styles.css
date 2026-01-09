@@ -786,52 +786,85 @@
       }
     }
 
-/* ===== Ads (AdSense) - 카드 래퍼 방식 ===== */
+/* ===== Ads (AdSense) - 7가지 타입 ===== */
 
-/* ===== 광고 크기 (래퍼 + ins) ===== */
-
-/* 래퍼 크기 (CLS 방지용 placeholder) */
-.ad-card-mobile-200 { min-height: 200px; }
-.ad-card-mobile-400 { min-height: 400px; }
-.ad-card-pc { min-height: 120px; }
-.ad-card-vertical { min-height: 600px; }
+/* ===== 컨테이너 min-height ===== */
+.ad-card-mobile-top { min-height: 200px; }
+.ad-card-mobile-sub { min-height: 280px; }
+.ad-card-pc-home-top { min-height: 90px; }
+.ad-card-pc-top { min-height: 90px; }
+.ad-card-pc-sub { min-height: 90px; }
 .ad-card-rectangle { min-height: 250px; }
+.ad-card-vertical { min-height: 300px; }
 
-/* ins 크기 (모바일 기본) */
-.ad-top { width: 100%; min-height: 200px; }
-.ad-mid { width: 100%; min-height: 200px; }
-.ad-pc { width: 100%; min-height: 90px; }
-.ad-vertical { width: 100%; min-height: 600px; }
-.ad-rectangle { width: 100%; min-height: 250px; }
+/* ===== ins 스타일 ===== */
 
-/* PC 오버라이드 */
-@media (min-width: 769px) {
-  .ad-card-mobile-200 { min-height: 150px; }
-  .ad-card-mobile-400 { min-height: 120px; }
-  .ad-top { min-height: 90px; }
-  .ad-mid { min-height: 120px; }
+/* mobile-top: ins min-height 200px */
+.ad-card-mobile-top ins {
+  display: block;
+  width: 100%;
+  min-height: 200px;
 }
 
-/* ===== 광고 카드 (래퍼) ===== */
+/* mobile-sub: ins 280x336 고정 */
+.ad-card-mobile-sub ins {
+  display: block;
+  width: 336px;
+  height: 280px;
+}
+
+/* pc-home-top: ins 90px 고정 */
+.ad-card-pc-home-top ins {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+/* pc-top: ins 90px 고정 */
+.ad-card-pc-top ins {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+/* pc-sub: ins auto (full-width responsive) */
+.ad-card-pc-sub ins {
+  display: block;
+  width: 100%;
+}
+
+/* rectangle: ins 250x300 고정 */
+.ad-card-rectangle ins {
+  display: block;
+  width: 300px;
+  height: 250px;
+}
+
+/* vertical: ins 300x600 고정 */
+.ad-card-vertical ins {
+  display: block;
+  width: 300px;
+  height: 600px;
+}
+
+/* ===== 광고 카드 (래퍼) 공통 ===== */
 
 .ad-card {
   width: 100%;
   background: var(--card);
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  outline: 1px solid var(--border);
+  overflow: hidden;
+  touch-action: pan-x pan-y;
   display: flex;
   align-items: center;
-  align-content: center;
   justify-content: center;
-  overflow: hidden;
-  touch-action: pan-y;
 }
 
 /* ins/iframe 스와이프 허용 + 마진 제거 */
 .ad-card ins,
 .ad-card iframe {
-  touch-action: pan-y;
-  border-collapse: collapse;
+  touch-action: pan-x pan-y;
   margin: 0;
 }
 
@@ -842,7 +875,6 @@
   background-position: center;
   background-size: 60px;
 }
-
 
 /* ===== 광고 여백 ===== */
 
@@ -860,16 +892,16 @@ main > .ad-card:first-child,
   margin: var(--space-block-y, 24px) 0 0 0;
 }
 
-/* insight-container는 컨테이너 padding이 이미 있으므로 상단 마진 제거 */
+/* insight-container 첫 광고도 상단 마진 추가 */
 .insight-container > .ad-card:first-child {
-  margin: 0;
+  margin: var(--space-block-y, 24px) 0 0 0;
 }
 
-/* insight-container, insight-panel, weekly-report 내부 광고: gap으로 처리되므로 마진 제거 */
+/* insight-container, insight-panel, weekly-report 내부 광고: gap으로 처리되므로 마진 없음 */
 .insight-container .ad-card,
 .insight-panel .ad-card,
 .weekly-report .ad-card {
-  margin: var(--space-block-gap, 16px) 0 0 0;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -903,10 +935,18 @@ main > .ad-card:first-child,
   }
 }
 
-/* ===== PC에서 홈 메인 중간 광고 숨김 (첫 번째만 표시) ===== */
+/* ===== 모바일/PC 전용 광고 숨김 ===== */
 
+/* PC에서 모바일 전용 광고 숨김 */
 @media (min-width: 769px) {
-  .home-main .ad-card:not(:first-child) {
+  .ad-mobile-only {
+    display: none !important;
+  }
+}
+
+/* 모바일에서 PC 전용 광고 숨김 */
+@media (max-width: 768px) {
+  .ad-pc-only {
     display: none !important;
   }
 }
@@ -2343,76 +2383,6 @@ main > .ad-card:first-child,
       background: var(--hover-bg);
     }
 
-		    /* 광고 (홈 전용) */
-
-    /* 메인 영역 가로형 광고 - 중앙 정렬 */
-    .home-main .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle) > ins.adsbygoogle {
-      max-width: 728px;
-    }
-
-
-    /* 사이드바 광고 - 광고 크기에 맞게 자동 조절 (vertical/rectangle 제외) */
-    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
-      min-height: auto;
-    }
-    /* no-reserve 슬롯은 광고 크기에 맞게 자동 조절 (vertical 제외 - 300x600 고정 높이 필요) */
-    .home-sidebar .ad-slot.pc-only.ad-slot--no-reserve:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) {
-      min-height: auto;
-    }
-    .home-sidebar .ad-slot.pc-only:not(.ad-slot--horizontal):not(.ad-slot--rectangle):not(.ad-slot--vertical) > ins.adsbygoogle {
-      width: auto;
-      max-width: 300px;
-    }
-
-    /* 사이드바 vertical/rectangle 광고 - 고정 너비, 고정 높이 (레이아웃 시프트 방지) */
-    .home-sidebar .ad-slot--vertical.pc-only > ins.adsbygoogle {
-      width: 300px;
-      min-height: 600px;
-      height: auto;
-    }
-    .home-sidebar .ad-slot--rectangle.pc-only > ins.adsbygoogle {
-      width: 300px;
-      min-height: 250px;
-      height: auto;
-    }
-    /* 홈페이지 가로형 광고 컨테이너 카드 스타일 (PC만 적용) */
-    .home-section .ad-slot--horizontal.ad-slot--responsive {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 90px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    /* 홈페이지 사각/버티컬 광고 카드 스타일 (PC만 적용, 패딩 없음) */
-    .home-section .ad-slot--rectangle.pc-only,
-    .home-section .ad-slot--vertical.pc-only {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    /* 홈 컨테이너 내 상단 배너 - 전체 그리드 폭 차지 (vertical 광고 제외) */
-    .home-container > .ad-slot-section:not(.ad-slot--vertical) {
-      grid-column: 1 / -1;
-    }
-
-    /* 홈 컨테이너 내부 광고 슬롯 - flex gap으로 이미 여백 있으므로 마진 제거 */
-    .home-main .ad-slot-section,
-    .home-sidebar .ad-slot-section {
-      margin: 0;
-    }
-
-    /* 홈 첫 번째 광고 - 네비게이션과 간격 */
-    .home-main > .ad-slot-section:first-child {
-      margin-top: var(--space-block-gap);
-    }
-
     /* 모바일 반응형 - 홈 */
     @media (max-width: 1024px) {
       .home-container {
@@ -2429,10 +2399,6 @@ main > .ad-card:first-child,
         align-items: stretch !important;
         gap: var(--space-block-gap);
         padding: var(--space-block-y) 0;
-      }
-
-      .home-main .ad-slot-section {
-        width: 100%;
       }
 
       .home-sidebar {
@@ -9716,21 +9682,6 @@ main > .ad-card:first-child,
   padding-bottom: var(--space-block-y-xl);
 }
 
-/* game-container 내 PC 가로형 광고 */
-.game-container > .ad-slot--horizontal.ad-slot--responsive {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 90px;
-  width: 100%;
-}
-
-/* game-grid 내 광고 전체 너비 */
-.game-grid > .ad-slot--horizontal.ad-slot--responsive {
-  grid-column: 1 / -1;
-  width: 100%;
-}
-
 .game-container .home-card-body {
   padding: 0;
 }
@@ -10575,10 +10526,6 @@ a.gm-item:hover {
 
   .game-grid {
     grid-template-columns: 1fr;
-  }
-
-  .game-grid .ad-slot-section {
-    margin: 0;
   }
 
   .game-rank-grid {
@@ -11437,7 +11384,7 @@ a.gm-item:hover {
   box-sizing: border-box;
 }
 
-.blog-article .ad-slot-section {
+.blog-article .ad-card {
   margin-bottom: 12px;
 }
 
@@ -11982,8 +11929,6 @@ a.gm-item:hover {
   .news-card,
   .news-panel,
   .steam-table,
-  .ad-slot,
-  .ad-slot ins,
   .ad-card,
   .ranking-table,
   .upcoming-table,
@@ -11995,12 +11940,10 @@ a.gm-item:hover {
     border-right: none !important;
   }
 
-  .ad-slot,
-  .ad-slot-section {
+  .ad-card {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 0 !important;
   }
 
   .news-card,
