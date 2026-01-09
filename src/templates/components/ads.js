@@ -19,8 +19,19 @@ function renderAdCard(slotId, options = {}) {
   // visibility 클래스 (ad-mobile-only, ad-pc-only)
   const visibilityClass = visibility ? ` ad-${visibility}` : '';
 
+  // 타입별 인라인 스타일
+  let inlineStyle = 'display:block';
+  if (type === 'rectangle') {
+    inlineStyle = 'display:inline-block;width:300px;height:250px';
+  } else if (type === 'vertical') {
+    inlineStyle = 'display:inline-block;width:300px;height:600px';
+  } else if (type === 'mobile-sub') {
+    inlineStyle = 'display:inline-block;width:336px;height:280px';
+  }
+
   const attrs = [
     `class="adsbygoogle"`,
+    `style="${inlineStyle}"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
     `data-ad-slot="${slotId}"`
   ];

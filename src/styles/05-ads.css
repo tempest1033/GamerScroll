@@ -55,8 +55,8 @@
 /* vertical: ins 300x600 고정 */
 .ad-card-vertical ins {
   display: block;
-  width: 600px;
-  height: 300px;
+  width: 300px;
+  height: 600px;
 }
 
 /* ===== 광고 카드 (래퍼) 공통 ===== */
