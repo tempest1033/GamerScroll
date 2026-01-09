@@ -71,11 +71,16 @@ function formatDateKorean(dateStr) {
   return `${year}년 ${month}월 ${day}일`;
 }
 
-// 중간 광고 슬롯 생성 (모바일 전용)
-// - 한 페이지 내 중복 슬롯ID 방지를 위해 호출부에서 slotId를 분리해서 넘겨주세요.
+// 중간 광고 슬롯 생성 (모바일 + PC)
+// PC용 슬롯: ResponsivePC002~005 순환
+const pcMidSlots = [AD_SLOTS.ResponsivePC002, AD_SLOTS.ResponsivePC003, AD_SLOTS.ResponsivePC004, AD_SLOTS.ResponsivePC005];
+let pcMidCursor = 0;
 function generateMidAdSlot(slotId) {
-  const resolvedSlot = slotId || AD_SLOTS.Responsive002;
-  return generateAdSlot(resolvedSlot, { type: 'mobile-sub', visibility: 'mobile-only' });
+  const mobileSlot = slotId || AD_SLOTS.Responsive002;
+  const pcSlot = pcMidSlots[pcMidCursor % pcMidSlots.length];
+  pcMidCursor++;
+  return generateAdSlot(mobileSlot, { type: 'mobile-sub', visibility: 'mobile-only' }) +
+         generateAdSlot(pcSlot, { type: 'pc-sub', visibility: 'pc-only' });
 }
 
 // 태그 아이콘 매핑
