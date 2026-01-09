@@ -21,6 +21,9 @@ function renderAdCard(slotId, options = {}) {
   if (type === 'mobile-200') {
     attrs.push('data-ad-format="horizontal"');
   }
+  if (type === 'mobile-400') {
+    attrs.push('data-ad-format="rectangle"');
+  }
   if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
   }
