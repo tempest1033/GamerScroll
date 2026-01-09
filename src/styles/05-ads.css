@@ -9,12 +9,10 @@
 .ad-card-vertical { min-height: 600px; }
 .ad-card-rectangle { min-height: 250px; }
 
-/* ins 크기 (모바일 기본) */
-.ad-top { width: 100%; min-height: 100px; }
-.ad-mid { width: 100%; min-height: 200px; }
-.ad-pc { width: 100%; min-height: 90px; }
-.ad-vertical { width: 100%; min-height: 600px; }
-.ad-rectangle { width: 100%; min-height: 250px; }
+/* ins 공통 */
+.ad-card ins {
+  display: block;
+}
 
 /* PC 오버라이드 */
 @media (min-width: 769px) {
@@ -28,16 +26,11 @@
 
 .ad-card {
   width: 100%;
-  min-width: 200px;
   background: var(--card);
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
   overflow: hidden;
-  touch-action: pan-y;
+  touch-action: pan-x pan-y;
 }
 
 /* ins/iframe 스와이프 허용 + 마진 제거 */

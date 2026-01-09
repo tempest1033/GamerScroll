@@ -12,19 +12,8 @@ function renderAdCard(slotId, options = {}) {
   };
   const adClass = classMap[type] || classMap['mobile-200'];
 
-  // 타입별 min-width (AdSense availableWidth 계산용)
-  const minWidthMap = {
-    'mobile-200': 300,
-    'mobile-400': 300,
-    'pc': 728,
-    'vertical': 300,
-    'rectangle': 300
-  };
-  const minWidth = minWidthMap[type] || 300;
-
   const attrs = [
     `class="adsbygoogle ${adClass}"`,
-    `style="display:block;min-width:${minWidth}px"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
     `data-ad-slot="${slotId}"`
   ];
