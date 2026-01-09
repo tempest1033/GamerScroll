@@ -1,60 +1,36 @@
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
-
-/**
- * 광고 카드 렌더링
- * 타입별 설정:
- * - mobile-top: 컨테이너 min 200, ins min 200, format 없음
- * - mobile-sub: 컨테이너 min 280, ins 336x280, format 없음 (고정)
- * - pc-home-top: 컨테이너 min 90, ins 90px, format horizontal
- * - pc-top: 컨테이너 min 90, ins 90px, format horizontal
- * - pc-sub: 컨테이너 min 90, format auto, full-width true
- * - rectangle: 컨테이너 min 250, ins 300x250, format rectangle
- * - vertical: 컨테이너 min 300, ins 300x600, format vertical
- */
 function renderAdCard(slotId, options = {}) {
   if (!slotId) return '';
 
-  const { type = 'mobile-top', visibility = '' } = options;
-
-  // visibility 클래스 (ad-mobile-only, ad-pc-only)
-  const visibilityClass = visibility ? ` ad-${visibility}` : '';
-
-  // 타입별 인라인 스타일
-  let inlineStyle = 'display:block';
-  if (type === 'rectangle') {
-    inlineStyle = 'display:inline-block;width:300px;height:250px';
-  } else if (type === 'vertical') {
-    inlineStyle = 'display:inline-block;width:300px;height:600px';
-  } else if (type === 'mobile-sub') {
-    inlineStyle = 'display:inline-block;width:336px;height:280px';
-  }
+  const { type = 'mobile-200' } = options;
+  const classMap = {
+    'mobile-200': 'ad-top',
+    'mobile-400': 'ad-mid',
+    'vertical': 'ad-vertical',
+    'rectangle': 'ad-rectangle'
+  };
+  const adClass = classMap[type] || classMap['mobile-200'];
 
   const attrs = [
-    `class="adsbygoogle"`,
-    `style="${inlineStyle}"`,
+    `class="adsbygoogle ${adClass}"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
     `data-ad-slot="${slotId}"`
   ];
 
   // 타입별 AdSense 속성 추가
-  if (type === 'rectangle') {
-    attrs.push('data-ad-format="rectangle"');
-  }
-  // mobile-sub: format 없음 (고정 크기)
-  if (type === 'pc-home-top' || type === 'pc-top') {
+  if (type === 'mobile-200' || type === 'mobile-400') {
     attrs.push('data-ad-format="horizontal"');
   }
-  if (type === 'pc-sub') {
-    attrs.push('data-ad-format="auto"');
-    attrs.push('data-full-width-responsive="true"');
+  if (type === 'rectangle') {
+    attrs.push('data-ad-format="rectangle"');
   }
   if (type === 'vertical') {
     attrs.push('data-ad-format="vertical"');
   }
-  // mobile-top: format 없음
 
-  return `<div class="ad-card ad-card-${type}${visibilityClass}">
+  return `<div class="ad-card ad-card-${type}">
   <ins ${attrs.join(' ')}></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
