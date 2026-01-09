@@ -4,7 +4,7 @@
 
 /* 래퍼 크기 (CLS 방지용 placeholder) */
 .ad-card-mobile-200 { min-width: 80vw; min-height: 40vw; max-height: 53vw; }
-.ad-card-mobile-400 { min-width: 90vw; max-height: 90vw; }
+.ad-card-mobile-400 { min-width: 85vw; min-height: 85vw; max-height: 85vw; }
 .ad-card-vertical { width: 300px; min-height: 600px; }
 .ad-card-rectangle { width: 300px; min-height: 250px; }
 
