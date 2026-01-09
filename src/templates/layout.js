@@ -599,8 +599,10 @@ const adInitScript = `
   function retryAds() {
     var ads = document.querySelectorAll('ins.adsbygoogle');
     for (var i = 0; i < ads.length; i++) {
-      // 이미 처리된 슬롯은 건너뜀 (data-adsbygoogle-status 또는 자식 있음)
+      // 이미 처리된 슬롯은 건너뜀
       if (ads[i].dataset.adsbygoogleStatus || ads[i].childElementCount > 0) continue;
+      // 숨겨진 요소 스킵 (display:none 등)
+      if (ads[i].offsetWidth === 0 && ads[i].offsetHeight === 0) continue;
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {}
