@@ -829,13 +829,13 @@
   align-content: center;
   justify-content: center;
   overflow: hidden;
-  touch-action: manipulation;
+  touch-action: pan-y;
 }
 
-/* ins/iframe 스와이프 허용 + 마진 제거 + 정렬 */
+/* ins/iframe: 세로 스크롤만 처리, 가로 스와이프는 캐러셀로 통과 */
 .ad-card ins,
 .ad-card iframe {
-  touch-action: manipulation;
+  touch-action: pan-y;
   border-collapse: collapse;
   margin: 0;
 }
