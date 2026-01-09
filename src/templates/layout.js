@@ -1033,9 +1033,6 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 초기화 - 각 슬롯에서 inline push 처리
-const adInitScript = '';
-
 function wrapWithLayout(content, options = {}) {
   const {
     currentPage = 'home',

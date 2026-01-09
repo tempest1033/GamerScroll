@@ -615,3 +615,25 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 3. **캐시 의존성**: 퀵 모드는 data-cache.json 필수
 4. **API 비용**: AI 인사이트는 Claude API 호출 (self-hosted runner 사용)
 5. **EUC-KR**: 네이버 증권은 EUC-KR 인코딩 사용
+
+---
+
+## Git 명령 (WSL 환경)
+
+WSL에서 `/mnt/c/` 경로 접근 시 성능 저하 발생. Git 명령은 PowerShell로 실행:
+
+```powershell
+# 커밋 & 푸시
+powershell.exe -Command "cd C:\Project\GamersCrawl; git add -A; git commit -m '메시지'; git push origin main"
+
+# 빌드 워크플로우 트리거
+powershell.exe -Command "cd C:\Project\GamersCrawl; gh workflow run build.yml"
+
+# AI 인사이트 워크플로우 트리거
+powershell.exe -Command "cd C:\Project\GamersCrawl; gh workflow run ai-insight.yml"
+
+# 주간 인사이트 워크플로우 트리거
+powershell.exe -Command "cd C:\Project\GamersCrawl; gh workflow run weekly-insight.yml"
+```
+
+**GitHub Actions**: https://github.com/tempest1033/GamersCrawl/actions
