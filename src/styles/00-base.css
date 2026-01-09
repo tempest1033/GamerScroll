@@ -174,13 +174,7 @@
       border-bottom-color: transparent;
     }
 
-    /* 이미지 성능 최적화 */
-    img {
-      content-visibility: auto;
-    }
-    img[loading="lazy"] {
-      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-    }
+    /* 이미지 성능 최적화 - content-visibility 제거 (스크롤 시 회색 방지) */
 
     /* 썸네일/아이콘 폴백 (파비콘 중앙 배치) */
     .thumb-fallback {

@@ -49,13 +49,6 @@
 	      transition: all var(--transition-normal);
 	    }
 
-	    @supports (content-visibility: auto) {
-	      .steam-table-row {
-	        content-visibility: auto;
-	        contain-intrinsic-size: 1px 72px;
-	      }
-	    }
-
 	    .steam-table-row:hover {
 	      background: var(--hover-bg);
 	    }
