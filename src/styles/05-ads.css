@@ -21,10 +21,11 @@
   .ad-card-mobile-200 { height: 150px; }
   .ad-card-mobile-400 { min-height: 120px; }
 
-  /* PC 기본: 확장형 (block으로 컨테이너 꽉 채움) */
+  /* PC 기본: 확장형 + 상하 중앙 정렬 */
   .ad-top {
     display: block !important;
     min-height: 90px;
+    margin: auto 0;
   }
 
   /* 홈 PC top만: 가운데 정렬 + 높이 고정 */
