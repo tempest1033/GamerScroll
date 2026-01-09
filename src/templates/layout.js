@@ -592,27 +592,8 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 보완 스크립트 - 놓친 슬롯만 점진적 재시도 (500ms, 1500ms, 3000ms)
-const adInitScript = `
-<script>
-(function() {
-  function retryAds() {
-    var ads = document.querySelectorAll('ins.adsbygoogle');
-    for (var i = 0; i < ads.length; i++) {
-      // 이미 처리된 슬롯은 건너뜀
-      if (ads[i].dataset.adsbygoogleStatus || ads[i].childElementCount > 0) continue;
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {}
-    }
-  }
-  window.addEventListener('load', function() {
-    [100, 300, 500, 1000, 2000].forEach(function(delay) {
-      setTimeout(retryAds, delay);
-    });
-  });
-})();
-</script>`;
+// 광고 초기화 - AdSense 기본 동작에 맡김
+const adInitScript = '';
 
 const lazyAdScript = '';
 
