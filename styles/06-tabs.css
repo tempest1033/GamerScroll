@@ -108,9 +108,18 @@
   user-select: none;
 }
 
-:is(.tab-btn, .insight-tab):hover {
-  color: #0f172a;
+/* PC에서만 hover 적용 (모바일 터치 문제 방지) */
+@media (hover: hover) {
+  :is(.tab-btn, .insight-tab):hover {
+    color: #0f172a;
+    background: var(--hover-bg);
+  }
+}
+
+/* 터치/클릭 중 스타일 */
+:is(.tab-btn, .insight-tab):active:not(.active) {
   background: var(--hover-bg);
+  transform: scale(0.98);
 }
 
 :is(.tab-btn, .insight-tab).active {

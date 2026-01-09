@@ -52,6 +52,16 @@
       border-color: var(--primary);
       color: #fff;
     }
+    /* 터치 시 스타일 유지 (모바일 깜빡임 방지) */
+    .rankings-tabs-row .tab-btn:active:not(.active) {
+      background: var(--hover-bg);
+      border-color: var(--border);
+    }
+    .rankings-tabs-row .tab-btn.active:active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
     .rankings-tabs-row .news-favicon {
       width: 14px;
       height: 14px;

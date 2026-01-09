@@ -35,13 +35,13 @@
   align-content: center;
   justify-content: center;
   overflow: hidden;
-  touch-action: pan-y;
+  touch-action: manipulation;
 }
 
 /* ins/iframe 스와이프 허용 + 마진 제거 + 정렬 */
 .ad-card ins,
 .ad-card iframe {
-  touch-action: pan-y;
+  touch-action: manipulation;
   border-collapse: collapse;
   margin: 0;
 }

@@ -17,7 +17,7 @@ function generateIndexPage(data) {
   const fixUrl = function(url) {
     if (!url) return url;
     if (url.startsWith('//')) url = 'https:' + url;
-    if (url.includes('inven.co.kr')) {
+    if (url.includes('inven.co.kr') || url.includes('nateimg.co.kr')) {
       const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url);
       if (/\.avif(?:$|[?#])/i.test(url)) return proxyUrl + '&output=webp';
       return proxyUrl;

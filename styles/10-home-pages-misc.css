@@ -271,6 +271,9 @@
       /* 선택되지 않은 국가의 행 높이 고정 */
       .country-column:not(.expanded):not(.rank-column).collapsed .rank-row,
       .country-column:not(.rank-column):not(:nth-child(2)):not(.expanded) .rank-row { height: 48px; min-height: 48px; justify-content: center; box-sizing: border-box; }
+      /* 접힌 컬럼 클릭 시 링크 이동 방지 */
+      .country-column.collapsed .rank-row { pointer-events: none; }
+      .country-column.collapsed .column-header { pointer-events: auto; }
       .app-icon { width: 32px; height: 32px; border-radius: 8px; }
       .app-info { display: none; }
       .country-column.expanded .rank-row, .rank-column + .country-column:not(.collapsed) .rank-row { flex-direction: row; padding: 8px 10px; gap: 8px; height: 48px; min-height: 48px; box-sizing: border-box; }
