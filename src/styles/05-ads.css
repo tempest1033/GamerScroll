@@ -17,8 +17,8 @@
 
 /* mobile-200 (탑) ins */
 .ad-top {
-  height: 100%;
-  min-height: 200px;
+  height: 100% !important;
+  min-height: 200px !important;
 }
 
 /* PC 오버라이드 */
