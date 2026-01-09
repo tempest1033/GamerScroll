@@ -30,10 +30,6 @@
     grid-template-columns: 1fr;
   }
 
-  .game-grid .ad-slot-section {
-    margin: 0;
-  }
-
   .game-rank-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;

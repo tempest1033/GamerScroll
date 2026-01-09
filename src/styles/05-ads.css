@@ -6,12 +6,13 @@
 .ad-card-mobile-200 { min-height: 100px; }
 .ad-card-mobile-400 { min-height: 200px; }
 .ad-card-pc { min-height: 120px; }
-.ad-card-vertical { min-height: 600px; }
+.ad-card-vertical { min-height: 400px; }
 .ad-card-rectangle { min-height: 250px; }
 
 /* ins 공통 */
 .ad-card ins {
   display: block;
+  width: 100%;
 }
 
 /* PC 오버라이드 */
@@ -31,13 +32,14 @@
   border: 1px solid var(--border);
   overflow: hidden;
   touch-action: pan-x pan-y;
+  display: flex;
+  align-items: center;
 }
 
 /* ins/iframe 스와이프 허용 + 마진 제거 */
 .ad-card ins,
 .ad-card iframe {
-  touch-action: pan-y;
-  border-collapse: collapse;
+  touch-action: pan-x pan-y;
   margin: 0;
 }
 
