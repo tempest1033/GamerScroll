@@ -13,12 +13,13 @@ function renderAdCard(slotId, options = {}) {
   const adClass = classMap[type] || classMap['mobile-200'];
 
   // 타입별 스타일 결정 (display는 CSS에서 flex로 처리)
+  // min-height 제거 - CSS에서 래퍼로 제어
   const styleMap = {
-    'mobile-200': 'width:100%;min-width:300px;min-height:200px',
-    'mobile-400': 'width:100%;min-width:300px;min-height:400px',
-    'pc': 'width:100%;min-width:300px;min-height:90px',
-    'vertical': 'width:100%;min-width:300px;min-height:600px',
-    'rectangle': 'width:100%;min-width:300px;min-height:250px'
+    'mobile-200': 'width:100%;min-width:300px',
+    'mobile-400': 'width:100%;min-width:300px',
+    'pc': 'width:100%;min-width:300px',
+    'vertical': 'width:100%;min-width:300px',
+    'rectangle': 'width:100%;min-width:300px'
   };
   const styleValue = styleMap[type] || '';
 
