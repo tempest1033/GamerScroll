@@ -104,16 +104,16 @@ main > .ad-card:first-child,
   margin: var(--space-block-y, 24px) 0 0 0;
 }
 
-/* insight-container는 컨테이너 padding이 이미 있으므로 상단 마진 제거 */
+/* insight-container 첫 광고도 상단 마진 추가 */
 .insight-container > .ad-card:first-child {
-  margin: 0;
+  margin: var(--space-block-y, 24px) 0 0 0;
 }
 
-/* insight-container, insight-panel, weekly-report 내부 광고: gap으로 처리되므로 마진 제거 */
+/* insight-container, insight-panel, weekly-report 내부 광고: gap으로 처리되므로 마진 없음 */
 .insight-container .ad-card,
 .insight-panel .ad-card,
 .weekly-report .ad-card {
-  margin: var(--space-block-gap, 16px) 0 0 0;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
