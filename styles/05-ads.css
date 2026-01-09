@@ -3,7 +3,7 @@
 /* ===== 광고 크기 (래퍼 + ins) ===== */
 
 /* 래퍼 크기 (CLS 방지용 placeholder) */
-.ad-card-mobile-200 { min-height: 200px; }
+.ad-card-mobile-200 { height: 200px; }
 .ad-card-mobile-400 { min-height: 500px; }
 .ad-card-vertical { min-height: 400px; }
 .ad-card-rectangle { min-height: 250px; }
