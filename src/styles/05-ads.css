@@ -10,11 +10,11 @@
 .ad-card-rectangle { min-height: 250px; }
 
 /* ins 크기 (모바일 기본) */
-.ad-top { width: 100%; min-height: 100px; }
-.ad-mid { width: 100%; min-height: 200px; }
-.ad-pc { width: 100%; min-height: 90px; }
-.ad-vertical { width: 100%; min-height: 600px; }
-.ad-rectangle { width: 100%; min-height: 250px; }
+.ad-top { min-height: 100px; }
+.ad-mid { min-height: 200px; }
+.ad-pc { min-height: 90px; }
+.ad-vertical { min-height: 600px; }
+.ad-rectangle { min-height: 250px; }
 
 /* PC 오버라이드 */
 @media (min-width: 769px) {
