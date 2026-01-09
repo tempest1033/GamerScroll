@@ -793,8 +793,8 @@
 /* 래퍼 크기 (CLS 방지용 placeholder) */
 .ad-card-mobile-200 { min-width: 80vw; min-height: 40vw; max-height: 53vw; }
 .ad-card-mobile-400 { min-width: 90vw; max-height: 90vw; }
-.ad-card-vertical { min-height: 400px; }
-.ad-card-rectangle { min-height: 250px; }
+.ad-card-vertical { width: 300px; min-height: 600px; }
+.ad-card-rectangle { width: 300px; min-height: 250px; }
 
 /* ins 공통 */
 .ad-card ins {
@@ -816,11 +816,12 @@
 
 /* PC 오버라이드 */
 @media (min-width: 769px) {
-  .ad-card ins { width: auto; }
   .ad-card-mobile-200 { height: 110px; }
   .ad-card-mobile-400 { height: 110px; }
   .ad-top { width: 728px; height: 90px; }
   .ad-mid { width: 970px; height: 90px; }
+  .ad-vertical { width: 300px; height: 600px; }
+  .ad-rectangle { width: 300px; height: 250px; }
 }
 
 /* ===== 광고 카드 (래퍼) ===== */
