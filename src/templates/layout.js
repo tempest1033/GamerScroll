@@ -592,7 +592,25 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// Lazy Ad Loader - 비활성화 (전체 즉시 로드로 롤백)
+// 광고 보완 스크립트 - 놓친 슬롯만 window.onload 후 재시도
+const adInitScript = `
+<script>
+(function() {
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var ads = document.querySelectorAll('ins.adsbygoogle');
+      for (var i = 0; i < ads.length; i++) {
+        // 이미 처리된 슬롯은 건너뜀 (data-adsbygoogle-status 또는 자식 있음)
+        if (ads[i].dataset.adsbygoogleStatus || ads[i].childElementCount > 0) continue;
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      }
+    }, 1000);  // 1초 후 놓친 슬롯 보완
+  });
+})();
+</script>`;
+
 const lazyAdScript = '';
 
 const deferredItemsScript = `
