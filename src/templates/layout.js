@@ -601,15 +601,13 @@ const adInitScript = `
     for (var i = 0; i < ads.length; i++) {
       // 이미 처리된 슬롯은 건너뜀
       if (ads[i].dataset.adsbygoogleStatus || ads[i].childElementCount > 0) continue;
-      // 숨겨진 요소 스킵 (display:none 등)
-      if (ads[i].offsetWidth === 0 && ads[i].offsetHeight === 0) continue;
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {}
     }
   }
   window.addEventListener('load', function() {
-    [500, 1500, 3000].forEach(function(delay) {
+    [100, 300, 500, 1000, 2000].forEach(function(delay) {
       setTimeout(retryAds, delay);
     });
   });
