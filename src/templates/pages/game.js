@@ -6,7 +6,7 @@
 const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
 // 광고 슬롯
-const topAds = generateAdSlot(AD_SLOTS.Responsive001);
+const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {

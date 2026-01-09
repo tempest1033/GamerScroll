@@ -32,7 +32,7 @@ const findGameIcon = (text) => {
 };
 
 // 광고 슬롯 (모바일/PC)
-const topAds = generateAdSlot(AD_SLOTS.Responsive001);
+const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {

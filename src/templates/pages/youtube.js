@@ -8,7 +8,7 @@ function generateYoutubePage(data) {
   const { youtube, chzzk } = data;
 
   // 광고 슬롯 (모바일/PC)
-  const topAds = generateAdSlot(AD_SLOTS.Responsive001);
+  const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
 
   // 유튜브 그리드 생성 (세로형 카드)
   function generateYoutubeGrid(videos) {

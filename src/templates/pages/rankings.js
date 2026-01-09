@@ -26,7 +26,7 @@ function generateRankingsPage(data) {
   }
 
   // 광고 슬롯 (모바일/PC)
-  const topAds = generateAdSlot(AD_SLOTS.Responsive001);
+  const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
 
   // 순위 컬럼 생성
   function generateRankColumn(maxItems = 200) {

@@ -30,10 +30,7 @@ function renderAdCard(slotId, options = {}) {
   ];
 
   // 타입별 AdSense 속성 추가
-  if (type === 'mobile-200') {
-    attrs.push('data-ad-format="auto"');
-    attrs.push('data-full-width-responsive="true"');
-  } else if (type === 'rectangle') {
+  if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
   }
   // vertical, mobile-400: format 없이 min-width/min-height로 처리

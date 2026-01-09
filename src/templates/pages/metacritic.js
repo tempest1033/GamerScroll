@@ -8,7 +8,7 @@ function generateMetacriticPage(data) {
   const { metacritic } = data;
 
   // 광고 슬롯 (모바일/PC)
-  const topAds = generateAdSlot(AD_SLOTS.Responsive001);
+  const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
 
   // 메타크리틱 콘텐츠 생성
   function generateMetacriticContent() {

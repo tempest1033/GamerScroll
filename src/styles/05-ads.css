@@ -31,13 +31,21 @@
     max-height: 90px !important;
   }
 
-  /* 서브 PC: 컨테이너 150px (auto + full-width-responsive) */
+  /* 서브 PC: 컨테이너 150px + ins 970x150 */
   .page-container .ad-card-mobile-200,
   .game-container .ad-card-mobile-200,
   .games-hub-container .ad-card-mobile-200,
   .insight-container .ad-card-mobile-200,
   .deep-dive-container .ad-card-mobile-200 {
     height: 150px;
+  }
+  .page-container .ad-top,
+  .game-container .ad-top,
+  .games-hub-container .ad-top,
+  .insight-container .ad-top,
+  .deep-dive-container .ad-top {
+    min-width: 970px !important;
+    min-height: 150px !important;
   }
 }
 
