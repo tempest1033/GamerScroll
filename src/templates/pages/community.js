@@ -9,10 +9,8 @@ const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 function generateCommunityPage(data) {
   const { community } = data;
 
-  // 광고 슬롯 (모바일/PC 분리)
-  const topAdsMobile = generateAdSlot(AD_SLOTS.Responsive001, { type: 'mobile-top', visibility: 'mobile-only' });
-  const topAdsPC = generateAdSlot(AD_SLOTS.ResponsivePC001, { type: 'pc-top', visibility: 'pc-only' });
-  const topAds = topAdsMobile + topAdsPC;
+  // 광고 슬롯 (모바일/PC)
+  const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
 
   const sources = [
     { key: 'inven', name: '인벤', title: '인벤 핫이슈', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32', link: 'https://hot.inven.co.kr/', items: community?.inven || [] },

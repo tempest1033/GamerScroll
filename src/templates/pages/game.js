@@ -5,10 +5,8 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
-// 광고 슬롯 (모바일/PC 분리)
-const topAdsMobile = generateAdSlot(AD_SLOTS.Responsive001, { type: 'mobile-top', visibility: 'mobile-only' });
-const topAdsPC = generateAdSlot(AD_SLOTS.ResponsivePC001, { type: 'pc-top', visibility: 'pc-only' });
-const topAds = topAdsMobile + topAdsPC;
+// 광고 슬롯
+const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {

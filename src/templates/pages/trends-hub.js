@@ -7,10 +7,8 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 
-// 광고 슬롯 (모바일/PC 분리)
-const topAdsMobile = generateAdSlot(AD_SLOTS.Responsive001, { type: 'mobile-top', visibility: 'mobile-only' });
-const topAdsPC = generateAdSlot(AD_SLOTS.ResponsivePC001, { type: 'pc-top', visibility: 'pc-only' });
-const topAds = topAdsMobile + topAdsPC;
+// 광고 슬롯 (모바일/PC)
+const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {

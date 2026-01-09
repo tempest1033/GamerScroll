@@ -557,26 +557,25 @@ function generateIndexPage(data) {
 
   var popularBannerHtml = generatePopularBanner();
 
-  // 홈페이지 상단 광고 - 모바일/PC 분리
-  var topAdsMobile = generateAdSlot(AD_SLOTS.Responsive001, { type: 'mobile-top', visibility: 'mobile-only' });
-  var topAdsPC = generateAdSlot(AD_SLOTS.ResponsivePCHome001, { type: 'pc-home-top', visibility: 'pc-only' });
+  // 홈페이지 상단 광고
+		  var topAds = generateAdSlot(AD_SLOTS.Responsive001);
 
-  var content = '<section class="home-section active" id="home">' +
-    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
-    '<div class="home-container">' +
-    '<div class="home-main">' +
-    topAdsMobile + topAdsPC +
+		  var content = '<section class="home-section active" id="home">' +
+		    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
+		    '<div class="home-container">' +
+		    '<div class="home-main">' +
+		    topAds +
 		    popularBannerHtml +
 		    insightCardHtml +
-    generateAdSlot(AD_SLOTS.Responsive002, { type: 'mobile-sub', visibility: 'mobile-only' }) +
-    '<div class="home-card" id="home-news">' +
-    '<div class="home-card-header">' +
-    '<h2 class="home-card-title">뉴스</h2>' +
-    '<a href="/news/" class="home-card-more">더보기 →</a>' +
+	    generateAdSlot(AD_SLOTS.Responsive002, { type: 'mobile-400' }) +
+	    '<div class="home-card" id="home-news">' +
+	    '<div class="home-card-header">' +
+	    '<h2 class="home-card-title">뉴스</h2>' +
+	    '<a href="/news/" class="home-card-more">더보기 →</a>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
-    generateAdSlot(AD_SLOTS.Responsive003, { type: 'mobile-sub', visibility: 'mobile-only' }) +
+    generateAdSlot(AD_SLOTS.Responsive003, { type: 'mobile-400' }) +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
@@ -584,7 +583,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
-    generateAdSlot(AD_SLOTS.Responsive004, { type: 'mobile-sub', visibility: 'mobile-only' }) +
+    generateAdSlot(AD_SLOTS.Responsive004, { type: 'mobile-400' }) +
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +
