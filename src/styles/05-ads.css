@@ -12,6 +12,7 @@
 .ad-card ins {
   display: block;
   width: 100%;
+  min-width: 250px;
 }
 
 /* PC 오버라이드 */
