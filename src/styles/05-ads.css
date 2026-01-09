@@ -28,6 +28,7 @@
 
 .ad-card {
   width: 100%;
+  min-width: 200px;
   background: var(--card);
   border-radius: var(--radius);
   border: 1px solid var(--border);
