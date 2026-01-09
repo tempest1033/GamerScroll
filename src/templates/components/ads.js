@@ -12,27 +12,28 @@ function renderAdCard(slotId, options = {}) {
   };
   const adClass = classMap[type] || classMap['mobile-200'];
 
-  // 타입별 min-width (AdSense availableWidth 계산용)
-  const minWidthMap = {
-    'mobile-200': 300,
-    'mobile-400': 300,
-    'pc': 728,
-    'vertical': 300,
-    'rectangle': 300
+  // 타입별 스타일 결정 (display는 CSS에서 flex로 처리)
+  const styleMap = {
+    'mobile-200': 'width:100%;min-width:300px;min-height:200px',
+    'mobile-400': 'width:100%;min-width:300px;min-height:400px',
+    'pc': 'width:100%;min-width:300px;min-height:90px',
+    'vertical': 'width:100%;min-width:300px;min-height:600px',
+    'rectangle': 'width:100%;min-width:300px;min-height:250px'
   };
-  const minWidth = minWidthMap[type] || 300;
+  const styleValue = styleMap[type] || '';
 
   const attrs = [
     `class="adsbygoogle ${adClass}"`,
-    `style="display:block;width:100%;min-width:${minWidth}px"`,
+    `style="${styleValue}"`,
     `data-ad-client="${ADSENSE_CLIENT}"`,
     `data-ad-slot="${slotId}"`
   ];
 
-  // rectangle만 format 지정
+  // 타입별 AdSense 속성 추가
   if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
   }
+  // vertical, mobile-400: format 없이 min-width/min-height로 처리
 
   return `<div class="ad-card ad-card-${type}">
   <ins ${attrs.join(' ')}></ins>

@@ -521,18 +521,39 @@ const mobileScrollHideScript = `
 (function() {
   if (window.innerWidth > 768) return;
 
+  let lastScrollY = 0;
   let ticking = false;
-  const threshold = 50;
+  let isHidden = false;
+  const showThreshold = 10;   // 위로 10px 이상 스크롤하면 표시
+  const hideThreshold = 80;   // 80px 이상에서 아래로 스크롤하면 숨김
 
   function updateSearchVisibility() {
     const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - lastScrollY;
 
-    if (currentScrollY < threshold) {
-      document.body.classList.remove('search-hidden');
-    } else {
-      document.body.classList.add('search-hidden');
+    // overscroll bounce 처리: 맨 위(0 이하)에서는 항상 표시
+    if (currentScrollY <= 0) {
+      if (isHidden) {
+        document.body.classList.remove('search-hidden');
+        isHidden = false;
+      }
+    }
+    // 위로 스크롤 (일정량 이상)
+    else if (scrollDelta < -showThreshold) {
+      if (isHidden) {
+        document.body.classList.remove('search-hidden');
+        isHidden = false;
+      }
+    }
+    // 아래로 스크롤 (threshold 이상 위치에서)
+    else if (scrollDelta > 0 && currentScrollY > hideThreshold) {
+      if (!isHidden) {
+        document.body.classList.add('search-hidden');
+        isHidden = true;
+      }
     }
 
+    lastScrollY = currentScrollY;
     ticking = false;
   }
 
