@@ -29,7 +29,7 @@
   width: 100%;
   background: var(--card);
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  outline: 1px solid var(--border);
   overflow: hidden;
   touch-action: pan-x pan-y;
   display: flex;
