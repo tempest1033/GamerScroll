@@ -592,56 +592,8 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - Lazy Load (IntersectionObserver)
-const adInitScript = `<script>
-(function() {
-  function initAds() {
-    var ads = document.querySelectorAll('ins.adsbygoogle');
-    if (!ads.length) return;
-
-    if (typeof IntersectionObserver === 'undefined') {
-      // fallback: 보이는 광고만 즉시 로드
-      ads.forEach(function(ad) {
-        if (ad.offsetWidth > 0 && ad.offsetHeight > 0 && !ad.dataset.adStatus) {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        }
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        var ad = entry.target;
-        // 이미 초기화된 광고는 건너뜀
-        if (ad.dataset.adStatus) {
-          observer.unobserve(ad);
-          return;
-        }
-        if (entry.isIntersecting) {
-          // display:none이거나 width가 0이면 push 안 함 (에러 방지)
-          if (ad.offsetWidth > 0 && ad.offsetHeight > 0) {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          }
-          observer.unobserve(ad);
-        }
-      });
-    }, { rootMargin: '200px' }); // viewport 200px 전에 미리 로드
-
-    ads.forEach(function(ad) {
-      if (!ad.dataset.adStatus) {
-        observer.observe(ad);
-      }
-    });
-  }
-
-  // AdSense 스크립트 로드 후 실행
-  if (window.adsbygoogle && window.adsbygoogle.loaded) {
-    initAds();
-  } else {
-    window.addEventListener('load', initAds);
-  }
-})();
-</script>`;
+// 광고 초기화 - AdSense 기본 동작에 맡김
+const adInitScript = '';
 
 const lazyAdScript = '';
 
