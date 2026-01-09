@@ -39,7 +39,7 @@ function renderAdCard(slotId, options = {}) {
   return `<div class="ad-card ad-card-${type}">
   ${sizeScript}
   <ins ${attrs.join(' ')}></ins>
-  <script>window.addEventListener('load', function() { (adsbygoogle = window.adsbygoogle || []).push({}); });</script>
+  <script>document.addEventListener('DOMContentLoaded', function() { (adsbygoogle = window.adsbygoogle || []).push({}); });</script>
 </div>`;
 }
 
