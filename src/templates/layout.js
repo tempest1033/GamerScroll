@@ -10,13 +10,21 @@ const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
 const AD_SLOTS = {
+  // 모바일용 (기존)
   Responsive001: '5039620326',
   Responsive002: '4840966314',
   Responsive003: '7467129651',
   Responsive004: '7865094213',
+  Responsive005: '3028357040',
   Rectangle001: '1104244740',
   Vertical001: '6855905500',
-  ResponsivePCOnly001: '8458886930'
+  // PC 전용
+  ResponsivePC001: '1795150514',
+  ResponsivePC002: '8458886930',
+  ResponsivePC003: '3935062846',
+  ResponsivePC004: '1062515168',
+  ResponsivePC005: '5214702534',
+  ResponsivePCHome001: '4377097736'
 };
 
 // 상단 검색바 (홈/일반 페이지용)
@@ -592,8 +600,52 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - AdSense 기본 동작에 맡김
-const adInitScript = '';
+// 광고 초기화 - 보이는 광고만 push() 호출
+const adInitScript = `
+<script>
+(function() {
+  // 광고 초기화 함수
+  function initVisibleAds() {
+    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-gc-init])');
+    ads.forEach(function(ad) {
+      // 이미 초기화됐으면 스킵
+      if (ad.dataset.gcInit === '1') return;
+
+      // 보이는지 체크 (offsetParent가 null이면 숨겨진 상태)
+      var card = ad.closest('.ad-card');
+      if (!card) return;
+
+      // display:none이면 offsetParent가 null
+      if (card.offsetParent === null) return;
+
+      // 너비가 0이면 스킵 (availableWidth=0 에러 방지)
+      if (ad.offsetWidth === 0) return;
+
+      // 초기화 마킹
+      ad.dataset.gcInit = '1';
+
+      // AdSense push
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    });
+  }
+
+  // DOM 로드 후 실행
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVisibleAds);
+  } else {
+    initVisibleAds();
+  }
+
+  // resize 시 재체크 (PC↔모바일 전환 대응)
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initVisibleAds, 200);
+  });
+})();
+</script>`;
 
 const lazyAdScript = '';
 

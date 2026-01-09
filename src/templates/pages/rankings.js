@@ -25,8 +25,10 @@ function generateRankingsPage(data) {
       : (androidSlugMap[String(appId)] || null);
   }
 
-  // 광고 슬롯 (모바일/PC)
-  const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
+  // 광고 슬롯 (모바일/PC 분리)
+  const topAdsMobile = generateAdSlot(AD_SLOTS.Responsive001, { type: 'mobile-top', visibility: 'mobile-only' });
+  const topAdsPC = generateAdSlot(AD_SLOTS.ResponsivePC001, { type: 'pc-top', visibility: 'pc-only' });
+  const topAds = topAdsMobile + topAdsPC;
 
   // 순위 컬럼 생성
   function generateRankColumn(maxItems = 200) {

@@ -1,29 +1,65 @@
-/* ===== Ads (AdSense) - 카드 래퍼 방식 ===== */
+/* ===== Ads (AdSense) - 7가지 타입 ===== */
 
-/* ===== 광고 크기 (래퍼 + ins) ===== */
-
-/* 래퍼 크기 (CLS 방지용 placeholder) */
-.ad-card-mobile-200 { min-height: 200px; }
-.ad-card-mobile-400 { min-height: 500px; }
-.ad-card-vertical { min-height: 400px; }
+/* ===== 컨테이너 min-height ===== */
+.ad-card-mobile-top { min-height: 200px; }
+.ad-card-mobile-sub { min-height: 280px; }
+.ad-card-pc-home-top { min-height: 110px; }
+.ad-card-pc-top { min-height: 110px; }
+.ad-card-pc-sub { min-height: 110px; }
 .ad-card-rectangle { min-height: 250px; }
+.ad-card-vertical { min-height: 300px; }
 
-/* ins 공통 */
-.ad-card ins {
+/* ===== ins 스타일 ===== */
+
+/* mobile-top: ins min-height 200px */
+.ad-card-mobile-top ins {
   display: block;
   width: 100%;
-  min-width: 250px;
+  min-height: 200px;
 }
 
-/* PC 오버라이드 */
-@media (min-width: 769px) {
-  .ad-card-mobile-200 { height: 90px; }
-  .ad-card-mobile-400 { min-height: 120px; }
-  .ad-top { height: 90px; }
-  .ad-mid { min-height: 120px; }
+/* mobile-sub: ins 280x336 고정 */
+.ad-card-mobile-sub ins {
+  display: block;
+  width: 336px;
+  height: 280px;
 }
 
-/* ===== 광고 카드 (래퍼) ===== */
+/* pc-home-top: ins 90px 고정 */
+.ad-card-pc-home-top ins {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+/* pc-top: ins 90px 고정 */
+.ad-card-pc-top ins {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+/* pc-sub: ins auto (full-width responsive) */
+.ad-card-pc-sub ins {
+  display: block;
+  width: 100%;
+}
+
+/* rectangle: ins 250x300 고정 */
+.ad-card-rectangle ins {
+  display: block;
+  width: 300px;
+  height: 250px;
+}
+
+/* vertical: ins 300x600 고정 */
+.ad-card-vertical ins {
+  display: block;
+  width: 600px;
+  height: 300px;
+}
+
+/* ===== 광고 카드 (래퍼) 공통 ===== */
 
 .ad-card {
   width: 100%;
@@ -34,6 +70,7 @@
   touch-action: pan-x pan-y;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 /* ins/iframe 스와이프 허용 + 마진 제거 */
@@ -50,7 +87,6 @@
   background-position: center;
   background-size: 60px;
 }
-
 
 /* ===== 광고 여백 ===== */
 
@@ -111,10 +147,18 @@ main > .ad-card:first-child,
   }
 }
 
-/* ===== PC에서 홈 메인 중간 광고 숨김 (첫 번째만 표시) ===== */
+/* ===== 모바일/PC 전용 광고 숨김 ===== */
 
+/* PC에서 모바일 전용 광고 숨김 */
 @media (min-width: 769px) {
-  .home-main .ad-card:not(:first-child) {
+  .ad-mobile-only {
+    display: none !important;
+  }
+}
+
+/* 모바일에서 PC 전용 광고 숨김 */
+@media (max-width: 768px) {
+  .ad-pc-only {
     display: none !important;
   }
 }

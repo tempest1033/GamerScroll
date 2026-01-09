@@ -7,8 +7,10 @@ const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
 function generateYoutubePage(data) {
   const { youtube, chzzk } = data;
 
-  // 광고 슬롯 (모바일/PC)
-  const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
+  // 광고 슬롯 (모바일/PC 분리)
+  const topAdsMobile = generateAdSlot(AD_SLOTS.Responsive001, { type: 'mobile-top', visibility: 'mobile-only' });
+  const topAdsPC = generateAdSlot(AD_SLOTS.ResponsivePC001, { type: 'pc-top', visibility: 'pc-only' });
+  const topAds = topAdsMobile + topAdsPC;
 
   // 유튜브 그리드 생성 (세로형 카드)
   function generateYoutubeGrid(videos) {

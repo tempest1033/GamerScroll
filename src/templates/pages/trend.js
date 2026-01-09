@@ -31,8 +31,10 @@ const findGameIcon = (text) => {
   return null;
 };
 
-// 광고 슬롯 (모바일/PC)
-const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
+// 광고 슬롯 (모바일/PC 분리)
+const topAdsMobile = generateAdSlot(AD_SLOTS.Responsive001, { type: 'mobile-top', visibility: 'mobile-only' });
+const topAdsPC = generateAdSlot(AD_SLOTS.ResponsivePC001, { type: 'pc-top', visibility: 'pc-only' });
+const topAds = topAdsMobile + topAdsPC;
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {
@@ -69,11 +71,11 @@ function formatDateKorean(dateStr) {
   return `${year}년 ${month}월 ${day}일`;
 }
 
-// 중간 광고 슬롯 생성 (PC: horizontal, 모바일: rectangle)
+// 중간 광고 슬롯 생성 (모바일 전용)
 // - 한 페이지 내 중복 슬롯ID 방지를 위해 호출부에서 slotId를 분리해서 넘겨주세요.
 function generateMidAdSlot(slotId) {
   const resolvedSlot = slotId || AD_SLOTS.Responsive002;
-  return generateAdSlot(resolvedSlot, { type: 'mobile-400' });
+  return generateAdSlot(resolvedSlot, { type: 'mobile-sub', visibility: 'mobile-only' });
 }
 
 // 태그 아이콘 매핑
@@ -1435,12 +1437,12 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
 	    AD_SLOTS.Responsive004
 	  ];
 
-			  const generateDeepDiveAdSlot = (adIndex = 0) => {
-			    const slotId = DEEP_DIVE_SLOTS[adIndex % DEEP_DIVE_SLOTS.length];
-			    const adsHtml = generateAdSlot(slotId, { type: 'mobile-400' });
-			    if (!adsHtml) return '';
-			    return `<div class="blog-ad">${adsHtml}</div>`;
-			  };
+		  const generateDeepDiveAdSlot = (adIndex = 0) => {
+		    const slotId = DEEP_DIVE_SLOTS[adIndex % DEEP_DIVE_SLOTS.length];
+		    const adsHtml = generateAdSlot(slotId, { type: 'mobile-sub', visibility: 'mobile-only' });
+		    if (!adsHtml) return '';
+		    return `<div class="blog-ad">${adsHtml}</div>`;
+		  };
 
   // 관련 게임 찾기
   const findRelatedGames = (text, limit = 4) => {
