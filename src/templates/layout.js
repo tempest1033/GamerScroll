@@ -592,8 +592,39 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - AdSense 기본 동작에 맡김
-const adInitScript = '';
+// 광고 초기화 - Lazy Load (IntersectionObserver)
+const adInitScript = `<script>
+(function() {
+  if (typeof IntersectionObserver === 'undefined') {
+    // fallback: 보이는 광고만 즉시 로드
+    document.querySelectorAll('ins.adsbygoogle').forEach(function(ad) {
+      if (ad.offsetWidth > 0 && ad.offsetHeight > 0) {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var ad = entry.target;
+        // display:none이거나 width가 0이면 push 안 함 (에러 방지)
+        if (ad.offsetWidth > 0 && ad.offsetHeight > 0) {
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {}
+        }
+        observer.unobserve(ad);
+      }
+    });
+  }, { rootMargin: '200px' }); // viewport 200px 전에 미리 로드
+
+  document.querySelectorAll('ins.adsbygoogle').forEach(function(ad) {
+    observer.observe(ad);
+  });
+})();
+</script>`;
 
 const lazyAdScript = '';
 
