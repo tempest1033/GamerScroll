@@ -1,4 +1,11 @@
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
+
+// vw → px 변환 인라인 스크립트 (모바일 전용)
+const vwToPxScript = {
+  'mobile-200': `(function(){if(window.innerWidth>=769)return;var vw=window.innerWidth/100,el=document.currentScript.parentElement;el.style.minWidth=Math.round(80*vw)+'px';el.style.minHeight=Math.round(40*vw)+'px';el.style.maxHeight=Math.round(53*vw)+'px';})();`,
+  'mobile-400': `(function(){if(window.innerWidth>=769)return;var vw=window.innerWidth/100,el=document.currentScript.parentElement;el.style.minWidth=Math.round(90*vw)+'px';el.style.maxHeight=Math.round(90*vw)+'px';})();`
+};
+
 function renderAdCard(slotId, options = {}) {
   if (!slotId) return '';
 
@@ -26,7 +33,11 @@ function renderAdCard(slotId, options = {}) {
     attrs.push('data-ad-format="vertical"');
   }
 
+  // vw → px 변환 스크립트 (모바일 전용)
+  const sizeScript = vwToPxScript[type] ? `<script>${vwToPxScript[type]}</script>` : '';
+
   return `<div class="ad-card ad-card-${type}">
+  ${sizeScript}
   <ins ${attrs.join(' ')}></ins>
   <script>window.addEventListener('load', function() { (adsbygoogle = window.adsbygoogle || []).push({}); });</script>
 </div>`;
