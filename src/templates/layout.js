@@ -592,21 +592,24 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 보완 스크립트 - 놓친 슬롯만 window.onload 후 재시도
+// 광고 보완 스크립트 - 놓친 슬롯만 점진적 재시도 (500ms, 1500ms, 3000ms)
 const adInitScript = `
 <script>
 (function() {
+  function retryAds() {
+    var ads = document.querySelectorAll('ins.adsbygoogle');
+    for (var i = 0; i < ads.length; i++) {
+      // 이미 처리된 슬롯은 건너뜀 (data-adsbygoogle-status 또는 자식 있음)
+      if (ads[i].dataset.adsbygoogleStatus || ads[i].childElementCount > 0) continue;
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    }
+  }
   window.addEventListener('load', function() {
-    setTimeout(function() {
-      var ads = document.querySelectorAll('ins.adsbygoogle');
-      for (var i = 0; i < ads.length; i++) {
-        // 이미 처리된 슬롯은 건너뜀 (data-adsbygoogle-status 또는 자식 있음)
-        if (ads[i].dataset.adsbygoogleStatus || ads[i].childElementCount > 0) continue;
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      }
-    }, 1000);  // 1초 후 놓친 슬롯 보완
+    [500, 1500, 3000].forEach(function(delay) {
+      setTimeout(retryAds, delay);
+    });
   });
 })();
 </script>`;
