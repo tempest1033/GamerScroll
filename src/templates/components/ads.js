@@ -4,7 +4,7 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  * 광고 카드 렌더링
  * 타입별 설정:
  * - mobile-top: 컨테이너 min 200, ins min 200, format 없음
- * - mobile-sub: 컨테이너 min 280, ins 280x336, format rectangle
+ * - mobile-sub: 컨테이너 min 280, ins 336x280, format 없음 (고정)
  * - pc-home-top: 컨테이너 min 110, ins 90px, format horizontal
  * - pc-top: 컨테이너 min 110, ins 90px, format horizontal
  * - pc-sub: 컨테이너 min 110, format auto, full-width true
@@ -37,9 +37,10 @@ function renderAdCard(slotId, options = {}) {
   ];
 
   // 타입별 AdSense 속성 추가
-  if (type === 'mobile-sub' || type === 'rectangle') {
+  if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
   }
+  // mobile-sub: format 없음 (고정 크기)
   if (type === 'pc-home-top' || type === 'pc-top') {
     attrs.push('data-ad-format="horizontal"');
   }
