@@ -354,13 +354,6 @@
   flex-shrink: 0;
 }
 
-@supports (content-visibility: auto) {
-  .game-item {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 60px;
-  }
-}
-
 .game-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);

@@ -170,13 +170,6 @@
 	      transition: all var(--transition-normal);
 	    }
 
-	    @supports (content-visibility: auto) {
-	      .rank-row {
-	        content-visibility: auto;
-	        contain-intrinsic-size: 1px 48px;
-	      }
-	    }
-
 	    .rank-row:hover {
 	      background: var(--card-hover);
 	      transform: scale(1.01);

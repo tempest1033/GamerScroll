@@ -4,13 +4,13 @@
 
 /* 래퍼 크기 (CLS 방지용 placeholder) */
 .ad-card-mobile-200 { min-height: 200px; }
-.ad-card-mobile-400 { min-height: 200px; }
+.ad-card-mobile-400 { min-height: 400px; }
 .ad-card-pc { min-height: 120px; }
 .ad-card-vertical { min-height: 600px; }
 .ad-card-rectangle { min-height: 250px; }
 
 /* ins 크기 (모바일 기본) */
-.ad-top { width: 100%; min-height: 200px; max-height: 250px; }
+.ad-top { width: 100%; min-height: 200px; }
 .ad-mid { width: 100%; min-height: 200px; }
 .ad-pc { width: 100%; min-height: 90px; }
 .ad-vertical { width: 100%; min-height: 600px; }
@@ -20,13 +20,14 @@
 @media (min-width: 769px) {
   .ad-card-mobile-200 { min-height: 150px; }
   .ad-card-mobile-400 { min-height: 120px; }
-  .ad-top { min-height: 90px; max-height: none; }
-  .ad-mid { min-height: 120px; max-height: none; }
+  .ad-top { min-height: 90px; }
+  .ad-mid { min-height: 120px; }
 }
 
 /* ===== 광고 카드 (래퍼) ===== */
 
 .ad-card {
+  width: 100%;
   background: var(--card);
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -38,38 +39,12 @@
   touch-action: pan-y;
 }
 
-/* ins/iframe: 세로 스크롤만 처리, 가로 스와이프는 캐러셀로 통과 */
+/* ins/iframe 스와이프 허용 + 마진 제거 */
 .ad-card ins,
 .ad-card iframe {
   touch-action: pan-y;
   border-collapse: collapse;
   margin: 0;
-}
-
-/* ins 상하좌우 가운데 정렬 (모바일) */
-.ad-card ins {
-  text-align: center;
-  height: 100%;
-}
-
-/* PC: Responsive 광고 확장형 (홈페이지 top 제외) */
-@media (min-width: 769px) {
-  .ad-top, .ad-mid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* 홈페이지 top 배너만 정렬 유지 + 높이 고정 */
-  .home-main > .ad-card:first-child {
-    min-height: 120px;
-    max-height: 120px;
-  }
-  .home-main > .ad-card:first-child ins {
-    text-align: center;
-    height: 100%;
-    max-height: 120px;
-  }
 }
 
 /* unfilled일 때만 로고 플레이스홀더 */
@@ -147,4 +122,3 @@ main > .ad-card:first-child,
     display: none !important;
   }
 }
-
