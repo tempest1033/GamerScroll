@@ -6,7 +6,6 @@ function renderAdCard(slotId, options = {}) {
   const classMap = {
     'mobile-200': 'ad-top',
     'mobile-400': 'ad-mid',
-    'pc': 'ad-pc',
     'vertical': 'ad-vertical',
     'rectangle': 'ad-rectangle'
   };
