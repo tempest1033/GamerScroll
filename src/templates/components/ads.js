@@ -5,10 +5,10 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  * 타입별 설정:
  * - mobile-top: 컨테이너 min 200, ins min 200, format 없음
  * - mobile-sub: 컨테이너 min 280, ins 336x280, format 없음 (고정)
- * - pc-home-top: 컨테이너 min 110, ins 90px, format horizontal
- * - pc-top: 컨테이너 min 110, ins 90px, format horizontal
- * - pc-sub: 컨테이너 min 110, format auto, full-width true
- * - rectangle: 컨테이너 min 250, ins 250x300, format rectangle
+ * - pc-home-top: 컨테이너 min 90, ins 90px, format horizontal
+ * - pc-top: 컨테이너 min 90, ins 90px, format horizontal
+ * - pc-sub: 컨테이너 min 90, format auto, full-width true
+ * - rectangle: 컨테이너 min 250, ins 300x250, format rectangle
  * - vertical: 컨테이너 min 300, ins 300x600, format vertical
  */
 function renderAdCard(slotId, options = {}) {

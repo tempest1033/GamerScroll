@@ -18,7 +18,7 @@
   min-height: 200px;
 }
 
-/* mobile-sub: ins 280x336 고정 */
+/* mobile-sub: ins 336x280 고정 */
 .ad-card-mobile-sub ins {
   display: block;
   width: 336px;
@@ -45,7 +45,7 @@
   width: 100%;
 }
 
-/* rectangle: ins 250x300 고정 */
+/* rectangle: ins 300x250 고정 */
 .ad-card-rectangle ins {
   display: block;
   width: 300px;

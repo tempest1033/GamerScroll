@@ -615,11 +615,8 @@ const adInitScript = `
       var card = ad.closest('.ad-card');
       if (!card) return;
 
-      // display:none이면 offsetParent가 null
+      // display:none이면 offsetParent가 null (PC/모바일 전용 광고)
       if (card.offsetParent === null) return;
-
-      // 너비가 0이면 스킵 (availableWidth=0 에러 방지)
-      if (ad.offsetWidth === 0) return;
 
       // 초기화 마킹
       ad.dataset.gcInit = '1';
@@ -631,12 +628,8 @@ const adInitScript = `
     });
   }
 
-  // DOM 로드 후 실행
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initVisibleAds);
-  } else {
-    initVisibleAds();
-  }
+  // 페이지 완전 로드 후 실행 (CSS 레이아웃 완료 보장)
+  window.addEventListener('load', initVisibleAds);
 
   // resize 시 재체크 (PC↔모바일 전환 대응)
   var resizeTimer;
