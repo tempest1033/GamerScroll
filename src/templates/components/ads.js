@@ -1,8 +1,7 @@
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
-// 모바일 광고: ins에 컨테이너 크기 강제 설정 (AdSense가 CSS 무시하므로 px 필요)
-// min-width/min-height를 컨테이너의 80%로 설정하여 작은 광고 거부
-const mobileAdScript = `(function(){if(innerWidth>=769)return;var c=document.currentScript.parentElement,ins=c.querySelector('ins'),w=c.offsetWidth,h=c.offsetHeight;ins.style.width=w+'px';ins.style.height=h+'px';ins.style.minWidth=(w*0.8)+'px';ins.style.minHeight=(h*0.8)+'px';})();`;
+// 모바일 광고: ins에 최소 크기 설정 (컨테이너의 80% 이상만 허용)
+const mobileAdScript = `(function(){if(innerWidth>=769)return;var c=document.currentScript.parentElement,ins=c.querySelector('ins'),w=c.offsetWidth,h=c.offsetHeight;ins.style.minWidth=(w*0.8)+'px';ins.style.minHeight=(h*0.8)+'px';})();`;
 
 const vwToPxScript = {
   'mobile-200': mobileAdScript,
