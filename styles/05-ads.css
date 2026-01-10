@@ -36,9 +36,9 @@
   .ad-card-mobile-400 { width: 100%; aspect-ratio: auto; height: 110px; }
   .ad-card-vertical { width: 300px; min-height: 600px; height: 600px; }
   .ad-card-rectangle { width: 300px; min-height: 250px; height: 250px; }
-  /* ins 크기 (구글 표준 90px) */
-  .ad-top { width: 728px; height: 90px; }
-  .ad-mid { width: 970px; height: 90px; }
+  /* ins 크기 (구글 표준 90px) - 우선순위 맞춤 */
+  .ad-card-mobile-200 ins { width: 728px; height: 90px; min-width: auto; }
+  .ad-card-mobile-400 ins { width: 970px; height: 90px; min-width: auto; }
   /* .ad-vertical, .ad-rectangle은 인라인 스타일로 처리 (ads.js) */
 }
 
