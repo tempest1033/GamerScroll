@@ -822,9 +822,9 @@
   .ad-card-mobile-400 { width: 100%; aspect-ratio: auto; height: 110px; }
   .ad-card-vertical { width: 300px; min-height: 600px; height: 600px; }
   .ad-card-rectangle { width: 300px; min-height: 250px; height: 250px; }
-  /* ins 크기 */
-  .ad-top { width: 100%; height: 100%; }
-  .ad-mid { width: 100%; height: 100%; }
+  /* ins 크기 (구글 표준 90px) */
+  .ad-top { width: 728px; height: 90px; }
+  .ad-mid { width: 970px; height: 90px; }
   /* .ad-vertical, .ad-rectangle은 인라인 스타일로 처리 (ads.js) */
 }
 
