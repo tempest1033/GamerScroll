@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-01-09T11:13:00.831Z",
+  "updatedAt": "2026-01-10T11:36:59.180Z",
   "period": "30days",
   "games": [
     {
       "slug": "승리의-여신-니케",
-      "views": 150
+      "views": 152
     },
     {
       "slug": "com-proximabeta-nikke",
@@ -12,7 +12,7 @@
     },
     {
       "slug": "limbus-company",
-      "views": 98
+      "views": 101
     },
     {
       "slug": "com-neowizgames-game-browndust2",
@@ -20,7 +20,7 @@
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
-      "views": 81
+      "views": 84
     },
     {
       "slug": "스타세이비어",
@@ -32,15 +32,15 @@
     },
     {
       "slug": "세븐나이츠-리버스",
-      "views": 61
+      "views": 62
+    },
+    {
+      "slug": "갓깨비-키우기-999뽑기-증정",
+      "views": 55
     },
     {
       "slug": "카트라이더-러쉬플러스",
       "views": 49
-    },
-    {
-      "slug": "갓깨비-키우기-999뽑기-증정",
-      "views": 44
     },
     {
       "slug": "com-studiobside-starmain",
@@ -48,15 +48,19 @@
     },
     {
       "slug": "메이플-키우기",
-      "views": 35
+      "views": 37
+    },
+    {
+      "slug": "카오스-제로-나이트메어",
+      "views": 36
     },
     {
       "slug": "com.studiobside.starMain",
       "views": 34
     },
     {
-      "slug": "카오스-제로-나이트메어",
-      "views": 34
+      "slug": "라스트-워-서바이벌",
+      "views": 32
     },
     {
       "slug": "리니지m",
@@ -67,15 +71,11 @@
       "views": 29
     },
     {
-      "slug": "라스트-워-서바이벌",
-      "views": 28
-    },
-    {
       "slug": "머지-쿠킹-테마-레스토랑",
       "views": 21
     },
     {
-      "slug": "쿠키런-오븐브레이크",
+      "slug": "명조워더링-웨이브",
       "views": 21
     }
   ]
