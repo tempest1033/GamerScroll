@@ -832,7 +832,6 @@
 /* ===== 광고 카드 (래퍼) ===== */
 
 .ad-card {
-  width: 100%;
   background: var(--card);
   border-radius: var(--radius);
   outline: 1px solid var(--border);
