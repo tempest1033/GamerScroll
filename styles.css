@@ -825,7 +825,7 @@
   /* ins 크기 */
   .ad-top { width: 728px; height: 90px; }
   .ad-mid { width: 970px; height: 90px; }
-  .ad-vertical { max-width: 300px; max-height: 600px; }
+  .ad-vertical { min-width: 300px; min-height: 600px; }
   .ad-rectangle { width: 300px; height: 250px; }
 }
 
