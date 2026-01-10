@@ -37,7 +37,7 @@
   /* ins 크기 */
   .ad-top { width: 728px; height: 90px; }
   .ad-mid { width: 970px; height: 90px; }
-  .ad-vertical { min-width: 300px; min-height: 600px; }
+  .ad-vertical { width: 100%; height: 100%; }
   .ad-rectangle { width: 300px; height: 250px; }
 }
 
