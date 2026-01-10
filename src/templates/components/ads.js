@@ -41,8 +41,8 @@ function renderAdCard(slotId, options = {}) {
   const sizeScript = vwToPxScript[type] ? `<script>${vwToPxScript[type]}</script>` : '';
 
   return `<div class="ad-card ad-card-${type}">
-  ${sizeScript}
   <ins ${attrs.join(' ')}></ins>
+  ${sizeScript}
   <script>document.addEventListener('DOMContentLoaded', function() { (adsbygoogle = window.adsbygoogle || []).push({}); });</script>
 </div>`;
 }
