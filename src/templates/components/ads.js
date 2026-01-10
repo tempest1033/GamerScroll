@@ -27,7 +27,9 @@ function renderAdCard(slotId, options = {}) {
   ];
 
   // 타입별 AdSense 속성 추가
-  // mobile-200, mobile-400: format 미지정 (AdSense auto)
+  if (type === 'mobile-200' || type === 'mobile-400') {
+    attrs.push('data-ad-format="horizontal"');
+  }
   if (type === 'rectangle') {
     attrs.push('data-ad-format="rectangle"');
   }
