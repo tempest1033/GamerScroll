@@ -796,8 +796,9 @@
 .ad-card-vertical { width: 300px; min-height: 600px; }
 .ad-card-rectangle { width: 300px; min-height: 250px; }
 
-/* ins 공통 */
-.ad-card ins {
+/* ins 공통 (모바일 광고만 - vertical/rectangle은 인라인 스타일로 처리) */
+.ad-card-mobile-200 ins,
+.ad-card-mobile-400 ins {
   display: block;
   width: 100%;
   min-width: 250px;
@@ -825,8 +826,7 @@
   /* ins 크기 */
   .ad-top { width: 100%; height: 100%; }
   .ad-mid { width: 100%; height: 100%; }
-  .ad-vertical { width: 100%; height: 100%; }
-  .ad-rectangle { width: 100%; height: 100%; }
+  /* .ad-vertical, .ad-rectangle은 인라인 스타일로 처리 (ads.js) */
 }
 
 /* ===== 광고 카드 (래퍼) ===== */

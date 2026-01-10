@@ -12,11 +12,31 @@ function renderAdCard(slotId, options = {}) {
   if (!slotId) return '';
 
   const { type = 'mobile-200' } = options;
+
+  // vertical/rectangle: 구글 순정 방식 (CSS 개입 없음)
+  if (type === 'vertical') {
+    return `<div class="ad-card ad-card-vertical">
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:300px;height:600px"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>`;
+  }
+  if (type === 'rectangle') {
+    return `<div class="ad-card ad-card-rectangle">
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:300px;height:250px"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>`;
+  }
+
+  // mobile-200/400: 기존 방식
   const classMap = {
     'mobile-200': 'ad-top',
-    'mobile-400': 'ad-mid',
-    'vertical': 'ad-vertical',
-    'rectangle': 'ad-rectangle'
+    'mobile-400': 'ad-mid'
   };
   const adClass = classMap[type] || classMap['mobile-200'];
 
@@ -25,14 +45,6 @@ function renderAdCard(slotId, options = {}) {
     `data-ad-client="${ADSENSE_CLIENT}"`,
     `data-ad-slot="${slotId}"`
   ];
-
-  // vertical/rectangle: 인라인 스타일로 고정 크기 지정 (AdSense 공식 방식)
-  if (type === 'vertical') {
-    attrs.push('style="display:inline-block;width:300px;height:600px"');
-  }
-  if (type === 'rectangle') {
-    attrs.push('style="display:inline-block;width:300px;height:250px"');
-  }
 
   // vw → px 변환 스크립트 (모바일 전용)
   const sizeScript = vwToPxScript[type] ? `<script>${vwToPxScript[type]}</script>` : '';
