@@ -26,6 +26,14 @@ function renderAdCard(slotId, options = {}) {
     `data-ad-slot="${slotId}"`
   ];
 
+  // vertical/rectangle: 인라인 스타일로 고정 크기 지정 (AdSense 공식 방식)
+  if (type === 'vertical') {
+    attrs.push('style="display:inline-block;width:300px;height:600px"');
+  }
+  if (type === 'rectangle') {
+    attrs.push('style="display:inline-block;width:300px;height:250px"');
+  }
+
   // vw → px 변환 스크립트 (모바일 전용)
   const sizeScript = vwToPxScript[type] ? `<script>${vwToPxScript[type]}</script>` : '';
 
