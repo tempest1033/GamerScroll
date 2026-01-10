@@ -2,8 +2,8 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 // vw → px 변환 인라인 스크립트 (모바일 전용)
 const vwToPxScript = {
-  'mobile-200': `(function(){if(window.innerWidth>=769)return;var vw=window.innerWidth/100,el=document.currentScript.parentElement;el.style.height=Math.round(50*vw)+'px';})();`,
-  'mobile-400': `(function(){if(window.innerWidth>=769)return;var vw=window.innerWidth/100,el=document.currentScript.parentElement;el.style.height=Math.round(85*vw)+'px';})();`
+  'mobile-200': `(function(){if(window.innerWidth>=769)return;var vw=window.innerWidth/100,el=document.currentScript.parentElement,pw=el.parentElement.clientWidth;el.style.width=pw+'px';el.style.height=Math.round(50*vw)+'px';})();`,
+  'mobile-400': `(function(){if(window.innerWidth>=769)return;var vw=window.innerWidth/100,el=document.currentScript.parentElement,pw=el.parentElement.clientWidth;el.style.width=pw+'px';el.style.height=Math.round(85*vw)+'px';})();`
 };
 
 function renderAdCard(slotId, options = {}) {
