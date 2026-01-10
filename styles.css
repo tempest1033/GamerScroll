@@ -793,8 +793,8 @@
 /* 래퍼 크기 (width 기준 비율) */
 .ad-card-mobile-200 { width: 100%; aspect-ratio: 100/55; }
 .ad-card-mobile-400 { width: 100%; aspect-ratio: 100/100; }
-.ad-card-vertical { width: 300px; min-height: 600px; align-items: flex-start; }
-.ad-card-rectangle { width: 300px; min-height: 250px; align-items: flex-start; }
+.ad-card-vertical { width: 300px; min-height: 600px; display: block; }
+.ad-card-rectangle { width: 300px; min-height: 250px; display: block; }
 
 /* ins 공통 (모바일 광고만 - vertical/rectangle은 인라인 스타일로 처리) */
 .ad-card-mobile-200 ins,
