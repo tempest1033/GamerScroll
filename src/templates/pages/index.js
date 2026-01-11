@@ -573,7 +573,6 @@ function generateIndexPage(data) {
 		    '<div class="home-main">' +
 		    generateMobileTopAdSlot(AD_SLOTS.Responsive001) +
 		    generatePCHomeAdSlot(AD_SLOTS.ResponsivePCHome001) +
-		    popularBannerHtml +
 		    insightCardHtml +
 	    generateMobileMidAdSlot(AD_SLOTS.Responsive002) +
 	    '<div class="home-card" id="home-news">' +
