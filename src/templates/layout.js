@@ -611,18 +611,22 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// visible 광고만 push (PC/모바일 겹침 문제 해결)
+// 광고 초기화 - window.onload 후 플랫폼별 push
 const lazyAdScript = `
 <script>
-(function() {
+window.addEventListener('load', function() {
   var ads = document.querySelectorAll('ins.adsbygoogle');
   if (!ads.length) return;
+  var isMobile = matchMedia('(max-width:768px)').matches;
   ads.forEach(function(ad) {
-    if (getComputedStyle(ad).display !== 'none') {
+    var isPc = ad.classList.contains('ad-pc-only');
+    var isMob = ad.classList.contains('ad-mobile-only');
+    // 플랫폼에 맞는 광고만 push
+    if ((isMobile && isMob) || (!isMobile && isPc) || (!isPc && !isMob)) {
       try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
     }
   });
-})();
+});
 </script>`;
 
 const deferredItemsScript = `
