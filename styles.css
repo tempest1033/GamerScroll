@@ -856,22 +856,8 @@ ins.adsbygoogle {
 }
 
 /* ===== PC/모바일 표시 규칙 ===== */
-
-/* 모바일에서: PC 광고 숨김 (ins + 부모 컨테이너) */
-@media (max-width: 768px) {
-  .ad-pc-only,
-  .ad-card:has(.ad-pc-only) {
-    display: none !important;
-  }
-}
-
-/* PC에서: 모바일 광고 숨김 (ins + 부모 컨테이너) */
-@media (min-width: 769px) {
-  .ad-mobile-only,
-  .ad-card:has(.ad-mobile-only) {
-    display: none !important;
-  }
-}
+/* 인라인 <style> 태그에서 media query로 처리 (Google AdSense 권장 방식) */
+/* ads.js의 각 광고 함수에서 .adslot-* 클래스로 크기/숨김 제어 */
 
 /* ===== 광고 카드 공통 스타일 ===== */
 
@@ -951,17 +937,9 @@ main > .ad-card:first-child,
 
 /* ===== 홈 페이지 특별 규칙 ===== */
 
-/* PC 홈: 메인에서 모바일 광고만 숨김 (PC 광고는 표시) */
-@media (min-width: 769px) {
-  .home-main .ad-mobile-only,
-  .home-main .ad-card:has(.ad-mobile-only) {
-    display: none !important;
-  }
-}
-
-/* 모바일 홈: 사이드바 숨김 (메인에 모바일 광고만) */
+/* 모바일 홈: 사이드바 숨김 (PC 전용) */
 @media (max-width: 768px) {
-  .home-sidebar .ad-card {
+  .home-sidebar {
     display: none !important;
   }
 }
