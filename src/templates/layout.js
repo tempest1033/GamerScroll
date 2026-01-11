@@ -21,7 +21,7 @@ const { generateFooter } = require('./components/footer');
 
 const AD_SLOTS = {
   // 모바일용 (320x100)
-  Responsive001: '5039620326',
+  Responsive001: '5825162341',
   Responsive002: '4840966314',
   Responsive003: '7467129651',
   Responsive004: '7865094213',
@@ -795,7 +795,7 @@ const deferredItemsScript = `
   function getPriorityAd() {
     // 플랫폼에 맞는 슬롯 찾기 (모바일: Responsive001, PC: ResponsivePC001)
     var isMobile = matchMedia('(max-width:768px)').matches;
-    var slot = isMobile ? '5039620326' : '1795150514';
+    var slot = isMobile ? '5825162341' : '1795150514';
     return document.querySelector('ins.adsbygoogle[data-ad-slot="' + slot + '"]');
   }
 
