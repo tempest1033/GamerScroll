@@ -611,7 +611,31 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-const lazyAdScript = '';
+// 광고 Lazy Load (Intersection Observer) - Google 베스트 프랙티스
+const lazyAdScript = `
+<script>
+(function() {
+  var ads = document.querySelectorAll('ins.adsbygoogle');
+  if (!ads.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var ad = entry.target;
+        if (ad.dataset.adsbygoogleStatus) return; // 이미 로드됨
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch(e) {}
+        observer.unobserve(ad);
+      }
+    });
+  }, { rootMargin: '200px' }); // 200px 전에 미리 로드
+
+  ads.forEach(function(ad) {
+    observer.observe(ad);
+  });
+})();
+</script>`;
 
 const deferredItemsScript = `
 <script>
