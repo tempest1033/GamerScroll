@@ -4,10 +4,10 @@
  * - 전체 게임 목록 (초성/알파벳순)
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateResponsiveAdPairSlot } = require('../layout');
 
-// 광고 슬롯 (모바일/PC)
-const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
+// 광고 슬롯 (모바일/PC 분리)
+const topAds = generateResponsiveAdPairSlot(AD_SLOTS.Responsive001, AD_SLOTS.ResponsivePC001);
 
 /**
  * 초성 추출 함수

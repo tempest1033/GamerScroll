@@ -3,7 +3,16 @@
  * 각 섹션의 요약 카드를 표시
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
+const {
+  wrapWithLayout,
+  AD_SLOTS,
+  generateAdSlot,
+  generateMobileTopAdSlot,
+  generateMobileMidAdSlot,
+  generatePCHomeAdSlot,
+  generateVerticalAdSlot,
+  generateRectangleAdSlot
+} = require('../layout');
 
 function generateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], games = {} } = data;
@@ -557,17 +566,16 @@ function generateIndexPage(data) {
 
   var popularBannerHtml = generatePopularBanner();
 
-  // 홈페이지 상단 광고
-		  var topAds = generateAdSlot(AD_SLOTS.Responsive001);
-
+  // 홈페이지 광고 (모바일: 메인, PC: 메인 상단 + 사이드바)
 		  var content = '<section class="home-section active" id="home">' +
 		    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
 		    '<div class="home-container">' +
 		    '<div class="home-main">' +
-		    topAds +
+		    generateMobileTopAdSlot(AD_SLOTS.Responsive001) +
+		    generatePCHomeAdSlot(AD_SLOTS.ResponsivePCHome001) +
 		    popularBannerHtml +
 		    insightCardHtml +
-	    generateAdSlot(AD_SLOTS.Responsive002, { type: 'mobile-400' }) +
+	    generateMobileMidAdSlot(AD_SLOTS.Responsive002) +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
@@ -575,7 +583,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
-    generateAdSlot(AD_SLOTS.Responsive003, { type: 'mobile-400' }) +
+    generateMobileMidAdSlot(AD_SLOTS.Responsive003) +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
@@ -583,7 +591,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
-    generateAdSlot(AD_SLOTS.Responsive004, { type: 'mobile-400' }) +
+    generateMobileMidAdSlot(AD_SLOTS.Responsive004) +
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +
@@ -607,7 +615,7 @@ function generateIndexPage(data) {
 	    '</div>' +
 	    '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
 	    '</div>' +
-	    generateAdSlot(AD_SLOTS.Vertical001, { type: 'vertical' }) +
+	    generateVerticalAdSlot(AD_SLOTS.VerticalPC001) +
 	    '<div class="home-card" id="home-steam">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">스팀 순위</h2>' +
@@ -621,7 +629,7 @@ function generateIndexPage(data) {
     '</div>' +
 	    '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
 	    '</div>' +
-	    generateAdSlot(AD_SLOTS.Rectangle001, { type: 'rectangle' }) +
+	    generateRectangleAdSlot(AD_SLOTS.RectanglePC001) +
 	    '<div class="home-card" id="home-upcoming">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">출시 게임</h2>' +

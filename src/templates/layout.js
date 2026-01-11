@@ -4,19 +4,38 @@
  */
 
 const { generateHead, SHOW_ADS } = require('./components/head');
-const { renderAdCard } = require('./components/ads');
+const {
+  renderAdCard,
+  renderMobileAd,
+  renderMobileTopAd,
+  renderMobileMidAd,
+  renderPCAd,
+  renderPCHomeAd,
+  renderResponsiveAdPair,
+  renderVerticalAd,
+  renderRectangleAd
+} = require('./components/ads');
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
 const AD_SLOTS = {
+  // 모바일용 (320x100)
   Responsive001: '5039620326',
   Responsive002: '4840966314',
   Responsive003: '7467129651',
   Responsive004: '7865094213',
-  Rectangle001: '1104244740',
-  Vertical001: '6855905500',
-  ResponsivePCOnly001: '8458886930'
+  Responsive005: '3028357040',
+  // PC용 (728x90)
+  ResponsivePCHome001: '4377097736',
+  ResponsivePC001: '1795150514',
+  ResponsivePC002: '8458886930',
+  ResponsivePC003: '3935062846',
+  ResponsivePC004: '1062515168',
+  ResponsivePC005: '5214702534',
+  // PC 사이드바
+  VerticalPC001: '6855905500',
+  RectanglePC001: '1104244740'
 };
 
 // 상단 검색바 (홈/일반 페이지용)
@@ -1069,4 +1088,58 @@ function generateAdSlot(slotId, options = {}) {
   return renderAdCard(slotId, options);
 }
 
-module.exports = { wrapWithLayout, SHOW_ADS, AD_SLOTS, generateAdSlot };
+// 새 광고 함수들 (PC/모바일 분리)
+function generateMobileAdSlot(slotId) {
+  if (!SHOW_ADS) return '';
+  return renderMobileAd(slotId);
+}
+
+function generateMobileTopAdSlot(slotId) {
+  if (!SHOW_ADS) return '';
+  return renderMobileTopAd(slotId);
+}
+
+function generateMobileMidAdSlot(slotId) {
+  if (!SHOW_ADS) return '';
+  return renderMobileMidAd(slotId);
+}
+
+function generatePCAdSlot(slotId) {
+  if (!SHOW_ADS) return '';
+  return renderPCAd(slotId);
+}
+
+function generatePCHomeAdSlot(slotId) {
+  if (!SHOW_ADS) return '';
+  return renderPCHomeAd(slotId);
+}
+
+function generateResponsiveAdPairSlot(mobileSlotId, pcSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderResponsiveAdPair(mobileSlotId, pcSlotId);
+}
+
+function generateVerticalAdSlot(slotId) {
+  if (!SHOW_ADS) return '';
+  return renderVerticalAd(slotId);
+}
+
+function generateRectangleAdSlot(slotId) {
+  if (!SHOW_ADS) return '';
+  return renderRectangleAd(slotId);
+}
+
+module.exports = {
+  wrapWithLayout,
+  SHOW_ADS,
+  AD_SLOTS,
+  generateAdSlot,
+  generateMobileAdSlot,
+  generateMobileTopAdSlot,
+  generateMobileMidAdSlot,
+  generatePCAdSlot,
+  generatePCHomeAdSlot,
+  generateResponsiveAdPairSlot,
+  generateVerticalAdSlot,
+  generateRectangleAdSlot
+};

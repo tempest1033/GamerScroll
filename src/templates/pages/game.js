@@ -3,10 +3,10 @@
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateResponsiveAdPairSlot } = require('../layout');
 
-// 광고 슬롯
-const topAds = generateAdSlot(AD_SLOTS.Responsive001, { autoFormat: true });
+// 광고 슬롯 (모바일/PC 분리)
+const topAds = generateResponsiveAdPairSlot(AD_SLOTS.Responsive001, AD_SLOTS.ResponsivePC001);
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {
