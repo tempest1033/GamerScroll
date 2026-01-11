@@ -811,7 +811,7 @@
 /* PC 홈 상단 광고 (728x90) - ResponsivePCHome001 */
 .ad-card-pc-home {
   width: 100%;
-  height: 110px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
