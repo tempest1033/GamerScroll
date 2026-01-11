@@ -101,6 +101,12 @@ function generateHead(options = {}) {
 		      var host = location.hostname;
 		      if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0') {
 		        document.documentElement.classList.add('is-localhost');
+		      } else if (host === 'gamerscrawl.com' || host === 'www.gamerscrawl.com') {
+		        var ua = navigator.userAgent || '';
+		        if (/Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua)) {
+		          location.replace('https://m.gamerscrawl.com' + location.pathname + location.search);
+		          return;
+		        }
 		      }
 		      document.documentElement.classList.add('js-defer');
 		    })();
