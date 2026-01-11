@@ -12,7 +12,7 @@ function renderMobileTopAd(slotId) {
        data-ad-slot="${slotId}"
        data-ad-format="horizontal"
        data-full-width-responsive="false"></ins>
-  <script>if(innerWidth<=768)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -28,7 +28,7 @@ function renderMobileMidAd(slotId) {
        data-ad-slot="${slotId}"
        data-ad-format="rectangle"
        data-full-width-responsive="false"></ins>
-  <script>if(innerWidth<=768)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -51,7 +51,7 @@ function renderPCHomeAd(slotId) {
        data-ad-slot="${slotId}"
        data-ad-format="horizontal"
        data-full-width-responsive="false"></ins>
-  <script>if(innerWidth>768)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -67,7 +67,7 @@ function renderPCAd(slotId) {
        data-ad-slot="${slotId}"
        data-ad-format="horizontal"
        data-full-width-responsive="false"></ins>
-  <script>if(innerWidth>768)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -90,7 +90,7 @@ function renderVerticalAd(slotId) {
        data-ad-slot="${slotId}"
        data-ad-format="vertical"
        data-full-width-responsive="false"></ins>
-  <script>if(innerWidth>768)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -106,7 +106,7 @@ function renderRectangleAd(slotId) {
        data-ad-slot="${slotId}"
        data-ad-format="rectangle"
        data-full-width-responsive="false"></ins>
-  <script>if(innerWidth>768)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
