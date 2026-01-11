@@ -126,7 +126,56 @@ for (const file of weeklyFiles) {
       return item;
     });
   }
-  
+
+  // global
+  if (data.ai?.global) {
+    data.ai.global = data.ai.global.map(item => {
+      if (!item.thumbnail) {
+        const thumb = findThumbnail(item.title, allNews);
+        if (thumb) {
+          modified = true;
+          return { ...item, thumbnail: thumb };
+        }
+      }
+      return item;
+    });
+  }
+
+  // mvp (단일 객체)
+  if (data.ai?.mvp && !data.ai.mvp.thumbnail) {
+    const thumb = findThumbnail(data.ai.mvp.name, allNews);
+    if (thumb) {
+      modified = true;
+      data.ai.mvp = { ...data.ai.mvp, thumbnail: thumb };
+    }
+  }
+
+  // stocks (up/down)
+  if (data.ai?.stocks?.up) {
+    data.ai.stocks.up = data.ai.stocks.up.map(item => {
+      if (!item.thumbnail) {
+        const thumb = findThumbnail(item.name, allNews);
+        if (thumb) {
+          modified = true;
+          return { ...item, thumbnail: thumb };
+        }
+      }
+      return item;
+    });
+  }
+  if (data.ai?.stocks?.down) {
+    data.ai.stocks.down = data.ai.stocks.down.map(item => {
+      if (!item.thumbnail) {
+        const thumb = findThumbnail(item.name, allNews);
+        if (thumb) {
+          modified = true;
+          return { ...item, thumbnail: thumb };
+        }
+      }
+      return item;
+    });
+  }
+
   if (modified) {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
     console.log(`✅ ${file} 업데이트 완료`);

@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -81,7 +81,7 @@ let midCursor = 0;
 function generateMidAdSlot(pcSlotId, mobileSlotId) {
   const pcSlot = pcSlotId || AD_SLOTS.ResponsivePC002;
   const mobileSlot = mobileSlotId || AD_SLOTS.Mobile002;
-  return generateAdPairSlot(pcSlot, mobileSlot);
+  return generateMidAdPairSlot(pcSlot, mobileSlot);
 }
 
 // 자동 슬롯 순환 (midSlotPairs 사용)
@@ -398,7 +398,7 @@ function generateWeeklyPanel(weeklyInsight) {
     </div>
   ` : '';
 
-  // 신작/업데이트 캘린더 섹션 (썸네일 포함)
+  // 신작/업데이트 캘린더 섹션
   const releasesSection = releases && releases.length > 0 ? `
     <div class="weekly-section weekly-section-releases">
       <div class="weekly-section-header">
@@ -407,25 +407,17 @@ function generateWeeklyPanel(weeklyInsight) {
         </div>
         <p class="weekly-section-desc">이번 주 출시 예정이거나 업데이트된 주요 게임들입니다.</p>
       </div>
-      <div class="weekly-releases-grid">
-        ${releases.slice(0, 6).map(r => {
-          const thumbUrl = r.thumbnail ? fixUrl(r.thumbnail) : null;
-          const gameIcon = findGameIcon(r.title);
-          const imageUrl = thumbUrl || gameIcon;
-          const thumbHtml = imageUrl
-            ? `<div class="release-thumb${gameIcon && !thumbUrl ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
-            : '';
-          return `
-          <div class="weekly-release-card ${imageUrl ? 'has-thumb' : ''}">
-            ${thumbHtml}
-            <div class="weekly-release-content">
-              <div class="weekly-release-date">${r.date}</div>
+      <div class="weekly-releases-list">
+        ${releases.slice(0, 6).map(r => `
+          <div class="weekly-release-item">
+            <div class="weekly-release-date">${r.date}</div>
+            <div class="weekly-release-info">
               <span class="weekly-release-title">${r.title}</span>
               <span class="weekly-release-platform">${r.platform}</span>
-              <div class="weekly-release-type ${r.type === '신작' ? 'new' : 'update'}">${r.type}</div>
             </div>
+            <div class="weekly-release-type ${r.type === '신작' ? 'new' : 'update'}">${r.type}</div>
           </div>
-        `}).join('')}
+        `).join('')}
       </div>
     </div>
   ` : '';

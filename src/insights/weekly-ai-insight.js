@@ -149,17 +149,18 @@ ${dataSummary}${rankingsData}${prevWeekSummary}
   ],
   "stocks": {
     "up": [
-      { "code": "종목코드", "name": "회사명", "price": 가격숫자, "changePercent": 등락률숫자, "comment": "상승 이유 50자" }
+      { "code": "종목코드", "name": "회사명", "price": 가격숫자, "changePercent": 등락률숫자, "comment": "상승 이유 50자", "thumbnail": null }
     ],
     "down": [
-      { "code": "종목코드", "name": "회사명", "price": 가격숫자, "changePercent": 등락률숫자, "comment": "하락 이유 50자" }
+      { "code": "종목코드", "name": "회사명", "price": 가격숫자, "changePercent": 등락률숫자, "comment": "하락 이유 50자", "thumbnail": null }
     ]
   },
   "mvp": {
     "name": "게임명",
     "tag": "장르 또는 카테고리",
     "desc": "지난 주 MVP로 선정된 이유 200자 이내",
-    "highlights": ["핵심 성과1", "핵심 성과2", "핵심 성과3"]
+    "highlights": ["핵심 성과1", "핵심 성과2", "핵심 성과3"],
+    "thumbnail": null
   },
   "releases": [
     { "date": "M/D", "title": "게임명", "platform": "iOS|Android|PC|콘솔", "type": "신작|업데이트", "desc": "기대 포인트 50자" }

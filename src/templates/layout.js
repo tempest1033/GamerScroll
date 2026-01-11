@@ -1096,7 +1096,14 @@ function generateRectangleAdSlot(slotId) {
 }
 
 // PC + 모바일 광고 쌍 생성 (빌드 후처리로 각각 제거)
+// 상단 광고용 (모바일 320x100)
 function generateAdPairSlot(pcSlotId, mobileSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderPCAd(pcSlotId) + renderMobileTopAd(mobileSlotId);
+}
+
+// 중간 광고용 (모바일 300x250)
+function generateMidAdPairSlot(pcSlotId, mobileSlotId) {
   if (!SHOW_ADS) return '';
   return renderPCAd(pcSlotId) + renderMobileMidAd(mobileSlotId);
 }
@@ -1116,5 +1123,6 @@ module.exports = {
   generateVerticalAdSlot,
   generateRectangleAdSlot,
   generateAdPairSlot,
+  generateMidAdPairSlot,
   generateHomeAdPairSlot
 };
