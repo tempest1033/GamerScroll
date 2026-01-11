@@ -56,13 +56,13 @@ function renderPCHomeAd(slotId) {
 }
 
 /**
- * PC 상단 광고 (728x90) - ResponsivePC001~005용
+ * PC 상단 광고 (970x90) - ResponsivePC001~005용
  */
 function renderPCAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc ad-pc-only">
   <ins class="adsbygoogle"
-       style="display:inline-block;width:728px;height:90px"
+       style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="horizontal"
