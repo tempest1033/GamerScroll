@@ -2,13 +2,13 @@
  * 메타크리틱 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generatePCAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
 function generateMetacriticPage(data) {
   const { metacritic } = data;
 
-  // PC 전용 광고 슬롯
-  const topAds = generatePCAdSlot(AD_SLOTS.ResponsivePC001);
+  // PC + 모바일 광고 슬롯
+  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   // 메타크리틱 콘텐츠 생성
   function generateMetacriticContent() {

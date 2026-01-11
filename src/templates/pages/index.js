@@ -7,7 +7,7 @@ const {
   wrapWithLayout,
   AD_SLOTS,
   generateAdSlot,
-  generatePCHomeAdSlot,
+  generateHomeAdPairSlot,
   generateVerticalAdSlot,
   generateRectangleAdSlot
 } = require('../layout');
@@ -564,12 +564,12 @@ function generateIndexPage(data) {
 
   var popularBannerHtml = generatePopularBanner();
 
-  // 홈페이지 광고 (PC 전용 - 모바일은 layout-mobile.js에서 처리)
+  // 홈페이지 광고 (PC + 모바일)
 		  var content = '<section class="home-section active" id="home">' +
 		    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
 		    '<div class="home-container">' +
 		    '<div class="home-main">' +
-		    generatePCHomeAdSlot(AD_SLOTS.ResponsivePCHome001) +
+		    generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
 		    insightCardHtml +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +

@@ -2,13 +2,13 @@
  * 영상 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generatePCAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
 function generateYoutubePage(data) {
   const { youtube, chzzk } = data;
 
-  // PC 전용 광고 슬롯
-  const topAds = generatePCAdSlot(AD_SLOTS.ResponsivePC001);
+  // PC + 모바일 광고 슬롯
+  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   // 유튜브 그리드 생성 (세로형 카드)
   function generateYoutubeGrid(videos) {

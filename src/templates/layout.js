@@ -11,11 +11,15 @@ const {
   renderVerticalAd,
   renderRectangleAd
 } = require('./components/ads');
+const {
+  renderMobileTopAd,
+  renderMobileMidAd
+} = require('./components/ads-mobile');
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
-// PC 전용 광고 슬롯 (모바일 광고는 layout-mobile.js에서 관리)
+// 광고 슬롯 (PC + 모바일)
 const AD_SLOTS = {
   // PC 홈 상단 (728x90)
   ResponsivePCHome001: '4377097736',
@@ -27,7 +31,13 @@ const AD_SLOTS = {
   ResponsivePC005: '5214702534',
   // PC 사이드바
   VerticalPC001: '6855905500',
-  RectanglePC001: '1104244740'
+  RectanglePC001: '1104244740',
+  // 모바일 (320x100, 300x250)
+  Mobile001: '5825162341',
+  Mobile002: '4840966314',
+  Mobile003: '7467129651',
+  Mobile004: '7865094213',
+  Mobile005: '3028357040'
 };
 
 // 상단 검색바 (홈/일반 페이지용)
@@ -1085,6 +1095,17 @@ function generateRectangleAdSlot(slotId) {
   return renderRectangleAd(slotId);
 }
 
+// PC + 모바일 광고 쌍 생성 (빌드 후처리로 각각 제거)
+function generateAdPairSlot(pcSlotId, mobileSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderPCAd(pcSlotId) + renderMobileMidAd(mobileSlotId);
+}
+
+function generateHomeAdPairSlot(pcSlotId, mobileSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderPCHomeAd(pcSlotId) + renderMobileTopAd(mobileSlotId);
+}
+
 module.exports = {
   wrapWithLayout,
   SHOW_ADS,
@@ -1093,5 +1114,7 @@ module.exports = {
   generatePCAdSlot,
   generatePCHomeAdSlot,
   generateVerticalAdSlot,
-  generateRectangleAdSlot
+  generateRectangleAdSlot,
+  generateAdPairSlot,
+  generateHomeAdPairSlot
 };

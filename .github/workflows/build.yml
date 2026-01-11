@@ -105,6 +105,9 @@ jobs:
       - name: Build Mobile version
         run: node build-mobile.js
 
+      - name: Remove mobile ads from PC version
+        run: node scripts/remove-mobile-ads.js
+
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions"

@@ -4,13 +4,13 @@
  * - 각 패널 2열 (좌5, 우5) + 페이지네이션
  */
 
-const { wrapWithLayout, AD_SLOTS, generatePCAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
 function generateCommunityPage(data) {
   const { community } = data;
 
-  // PC 전용 광고 슬롯
-  const topAds = generatePCAdSlot(AD_SLOTS.ResponsivePC001);
+  // PC + 모바일 광고 슬롯
+  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   const sources = [
     { key: 'inven', name: '인벤', title: '인벤 핫이슈', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32', link: 'https://hot.inven.co.kr/', items: community?.inven || [] },
