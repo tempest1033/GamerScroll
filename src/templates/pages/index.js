@@ -8,7 +8,7 @@ const {
   AD_SLOTS,
   generateAdSlot,
   generateHomeAdPairSlot,
-  generateMidAdPairSlot,
+  generateMobileOnlyMidAdSlot,
   generateVerticalAdSlot,
   generateRectangleAdSlot
 } = require('../layout');
@@ -572,7 +572,7 @@ function generateIndexPage(data) {
 		    '<div class="home-main">' +
 		    generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
 		    insightCardHtml +
-	    generateMidAdPairSlot(AD_SLOTS.ResponsivePC002, AD_SLOTS.Mobile002) +
+	    generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
@@ -580,7 +580,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
-    generateMidAdPairSlot(AD_SLOTS.ResponsivePC003, AD_SLOTS.Mobile003) +
+    generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile003) +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
@@ -588,7 +588,7 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
-    generateMidAdPairSlot(AD_SLOTS.ResponsivePC004, AD_SLOTS.Mobile004) +
+    generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile004) +
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +

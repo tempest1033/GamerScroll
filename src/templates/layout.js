@@ -1113,6 +1113,12 @@ function generateHomeAdPairSlot(pcSlotId, mobileSlotId) {
   return renderPCHomeAd(pcSlotId) + renderMobileTopAd(mobileSlotId);
 }
 
+// 모바일 전용 mid 광고 (PC에서는 안 보임)
+function generateMobileOnlyMidAdSlot(mobileSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderMobileMidAd(mobileSlotId);
+}
+
 module.exports = {
   wrapWithLayout,
   SHOW_ADS,
@@ -1124,5 +1130,6 @@ module.exports = {
   generateRectangleAdSlot,
   generateAdPairSlot,
   generateMidAdPairSlot,
-  generateHomeAdPairSlot
+  generateHomeAdPairSlot,
+  generateMobileOnlyMidAdSlot
 };
