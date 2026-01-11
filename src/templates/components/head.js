@@ -149,8 +149,9 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- preconnect: AdSense 메인 + 폰트 CDN (과다 preconnect는 오히려 성능 저하) -->
+  <!-- preconnect: AdSense + 광고 요청 + 폰트 CDN -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <!-- dns-prefetch: fallback + 이미지 CDN -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
@@ -194,9 +195,9 @@ function generateHead(options = {}) {
 		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 			  <link rel="stylesheet" href="/styles.css">
 	  <!-- AdSense 스크립트 (순정) -->
-	  ${LOAD_ADSENSE_SCRIPT ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
+	  ${LOAD_ADSENSE_SCRIPT ? `<script async fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
 	  ` : ''}
-		  <script async src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+		  <script async fetchpriority="low" src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script type="module">
 	    (function() {
