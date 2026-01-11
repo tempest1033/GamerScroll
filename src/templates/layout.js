@@ -780,17 +780,6 @@ const deferredItemsScript = `
     setTimeout(finalize, REVEAL_DELAY_MS);
   }
 
-  function getPriorityAd() {
-    var isMobile = matchMedia('(max-width:768px)').matches;
-    if (isMobile) {
-      return document.querySelector('ins.adsbygoogle[data-ad-slot="5825162341"]');
-    }
-    // PC: 홈페이지는 ResponsivePCHome001, 다른 페이지는 ResponsivePC001
-    var isHome = location.pathname === '/' || location.pathname === '/index.html';
-    var slot = isHome ? '4377097736' : '1795150514';
-    return document.querySelector('ins.adsbygoogle[data-ad-slot="' + slot + '"]');
-  }
-
   function isAdFilled(ad) {
     return !!(ad && (ad.dataset.adStatus === 'filled' || ad.childElementCount > 0));
   }
@@ -830,13 +819,6 @@ const deferredItemsScript = `
   }
 
   function checkAds() {
-    var priorityAd = getPriorityAd();
-    if (priorityAd) {
-      if (!waitForAd(priorityAd)) setTimeout(checkAds, 50);
-      else startReveal();
-      return;
-    }
-
     var ads = document.querySelectorAll('ins.adsbygoogle');
     if (!ads.length) {
       startReveal();
