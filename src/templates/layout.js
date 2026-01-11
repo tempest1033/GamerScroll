@@ -781,10 +781,14 @@ const deferredItemsScript = `
   }
 
   function getPriorityAd() {
-    // 플랫폼에 맞는 광고 찾기 (CSS 클래스 기반 - 슬롯 ID 무관)
     var isMobile = matchMedia('(max-width:768px)').matches;
-    var adClass = isMobile ? 'ad-mobile-only' : 'ad-pc-only';
-    return document.querySelector('ins.adsbygoogle.' + adClass);
+    if (isMobile) {
+      return document.querySelector('ins.adsbygoogle[data-ad-slot="5825162341"]');
+    }
+    // PC: 홈페이지는 ResponsivePCHome001, 다른 페이지는 ResponsivePC001
+    var isHome = location.pathname === '/' || location.pathname === '/index.html';
+    var slot = isHome ? '4377097736' : '1795150514';
+    return document.querySelector('ins.adsbygoogle[data-ad-slot="' + slot + '"]');
   }
 
   function isAdFilled(ad) {
