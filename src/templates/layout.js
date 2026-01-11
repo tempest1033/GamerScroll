@@ -834,8 +834,7 @@ const deferredItemsScript = `
   }
 
   function init() {
-    fallbackTimer = setTimeout(startReveal, FALLBACK_TIMEOUT_MS);
-    checkAds();
+    startReveal();
   }
 
   if (document.readyState === 'loading') {
