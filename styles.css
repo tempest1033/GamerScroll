@@ -846,16 +846,18 @@
 
 /* ===== PC/모바일 표시 규칙 ===== */
 
-/* 모바일에서: PC 광고 숨김, 모바일 광고 표시 */
+/* 모바일에서: PC 광고 숨김 (ins + 부모 컨테이너) */
 @media (max-width: 768px) {
-  .ad-pc-only {
+  .ad-pc-only,
+  .ad-card:has(.ad-pc-only) {
     display: none !important;
   }
 }
 
-/* PC에서: 모바일 광고 숨김, PC 광고 표시 */
+/* PC에서: 모바일 광고 숨김 (ins + 부모 컨테이너) */
 @media (min-width: 769px) {
-  .ad-mobile-only {
+  .ad-mobile-only,
+  .ad-card:has(.ad-mobile-only) {
     display: none !important;
   }
 }

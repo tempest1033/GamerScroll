@@ -5,14 +5,14 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-mobile-top ad-mobile-only">
-  <ins class="adsbygoogle"
+  return `<div class="ad-card ad-card-mobile-top">
+  <ins class="adsbygoogle ad-mobile-only"
        style="display:inline-block;min-width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="horizontal"
        data-full-width-responsive="false"></ins>
-  <script>if(matchMedia('(max-width:768px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
 
@@ -21,14 +21,14 @@ function renderMobileTopAd(slotId) {
  */
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-mobile-mid ad-mobile-only">
-  <ins class="adsbygoogle"
+  return `<div class="ad-card ad-card-mobile-mid">
+  <ins class="adsbygoogle ad-mobile-only"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="rectangle"
        data-full-width-responsive="false"></ins>
-  <script>if(matchMedia('(max-width:768px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
 
@@ -44,14 +44,14 @@ function renderMobileAd(slotId) {
  */
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-pc-home ad-pc-only">
-  <ins class="adsbygoogle"
+  return `<div class="ad-card ad-card-pc-home">
+  <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="horizontal"
        data-full-width-responsive="false"></ins>
-  <script>if(matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
 
@@ -60,14 +60,14 @@ function renderPCHomeAd(slotId) {
  */
 function renderPCAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-pc ad-pc-only">
-  <ins class="adsbygoogle"
+  return `<div class="ad-card ad-card-pc">
+  <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="horizontal"
        data-full-width-responsive="false"></ins>
-  <script>if(matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
 
@@ -83,14 +83,14 @@ function renderResponsiveAdPair(mobileSlotId, pcSlotId) {
  */
 function renderVerticalAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-vertical ad-pc-only">
-  <ins class="adsbygoogle"
+  return `<div class="ad-card ad-card-vertical">
+  <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="vertical"
        data-full-width-responsive="false"></ins>
-  <script>if(matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
 
@@ -99,14 +99,14 @@ function renderVerticalAd(slotId) {
  */
 function renderRectangleAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-rectangle ad-pc-only">
-  <ins class="adsbygoogle"
+  return `<div class="ad-card ad-card-rectangle">
+  <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="rectangle"
        data-full-width-responsive="false"></ins>
-  <script>if(matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
 
