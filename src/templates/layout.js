@@ -611,23 +611,7 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - window.onload 후 플랫폼별 push
-const lazyAdScript = `
-<script>
-window.addEventListener('load', function() {
-  var ads = document.querySelectorAll('ins.adsbygoogle');
-  if (!ads.length) return;
-  var isMobile = matchMedia('(max-width:768px)').matches;
-  ads.forEach(function(ad) {
-    var isPc = ad.classList.contains('ad-pc-only');
-    var isMob = ad.classList.contains('ad-mobile-only');
-    // 플랫폼에 맞는 광고만 push
-    if ((isMobile && isMob) || (!isMobile && isPc) || (!isPc && !isMob)) {
-      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
-    }
-  });
-});
-</script>`;
+const lazyAdScript = '';
 
 const deferredItemsScript = `
 <script>
