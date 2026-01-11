@@ -618,22 +618,42 @@ const lazyAdScript = `
   var ads = document.querySelectorAll('ins.adsbygoogle');
   if (!ads.length) return;
 
+  function isVisible(el) {
+    var style = getComputedStyle(el);
+    return style.display !== 'none' && style.visibility !== 'hidden';
+  }
+
+  function pushAd(ad) {
+    if (ad.dataset.adPushed) return;
+    ad.dataset.adPushed = '1';
+    try {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch(e) {}
+  }
+
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        var ad = entry.target;
-        if (ad.dataset.adsbygoogleStatus) return; // 이미 로드됨
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch(e) {}
-        observer.unobserve(ad);
+        pushAd(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  }, { rootMargin: '200px' }); // 200px 전에 미리 로드
+  }, { rootMargin: '400px' }); // 400px 전에 미리 로드
 
   ads.forEach(function(ad) {
-    observer.observe(ad);
+    if (isVisible(ad)) {
+      observer.observe(ad);
+    }
   });
+
+  // Fallback: 1초 후 visible한 광고 중 로드 안 된 것 push
+  setTimeout(function() {
+    ads.forEach(function(ad) {
+      if (isVisible(ad) && !ad.dataset.adPushed) {
+        pushAd(ad);
+      }
+    });
+  }, 1000);
 })();
 </script>`;
 
