@@ -1,4 +1,4 @@
-﻿const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
+const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 /**
  * 모바일 상단 광고 (320x100) - Responsive001용
@@ -11,7 +11,7 @@ function renderMobileTopAd(slotId) {
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-loading="eager"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>try{if(window.matchMedia('(max-width:768px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
 }
 
@@ -26,7 +26,7 @@ function renderMobileMidAd(slotId) {
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-loading="eager"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>try{if(window.matchMedia('(max-width:768px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
 }
 
@@ -48,7 +48,7 @@ function renderPCHomeAd(slotId) {
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-loading="eager"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>try{if(window.matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
 }
 
@@ -63,7 +63,7 @@ function renderPCAd(slotId) {
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-loading="eager"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>try{if(window.matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
 }
 
@@ -85,7 +85,7 @@ function renderVerticalAd(slotId) {
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-loading="eager"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>try{if(window.matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
 }
 
@@ -100,7 +100,7 @@ function renderRectangleAd(slotId) {
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-loading="eager"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>try{if(window.matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
 }
 
