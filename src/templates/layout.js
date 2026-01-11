@@ -833,12 +833,6 @@ const deferredItemsScript = `
   }
 
   function initAds() {
-    // AdSense 스크립트 로드 대기
-    if (typeof adsbygoogle === 'undefined') {
-      setTimeout(initAds, 100);
-      return;
-    }
-
     var isMobile = window.innerWidth <= 768;
     var selector = isMobile ? 'ins.adsbygoogle.ad-mobile-only' : 'ins.adsbygoogle.ad-pc-only';
 
