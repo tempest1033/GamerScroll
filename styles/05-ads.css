@@ -13,7 +13,7 @@
 /* ins (모바일 전용) */
 @media (max-width: 768px) {
   .ad-card-mobile-200 ins,
-  .ad-card-mobile-400 ins { height: 100%; }
+  .ad-card-mobile-400 ins { width: 100%; height: 100%; }
 }
 
 /* PC 오버라이드 - 높이 고정 + flex 중앙 정렬 */
