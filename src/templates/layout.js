@@ -611,18 +611,24 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - 플랫폼에 맞는 광고만 push (CSS 미디어쿼리와 동기화)
+// 광고 초기화 - 플랫폼에 맞는 광고만 활성화 (숨겨진 광고는 DOM 제거)
 const adInitScript = `
 <script>
 (function() {
   var isMobile = matchMedia('(max-width:768px)').matches;
-  document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
+  document.querySelectorAll('ins.gc-ad').forEach(function(ins) {
     var isMobileAd = ins.classList.contains('ad-mobile-only');
     var isPcAd = ins.classList.contains('ad-pc-only');
-    // 플랫폼 매칭 체크
-    if (isMobileAd && !isMobile) return;
-    if (isPcAd && isMobile) return;
-    // push with try/catch
+    // 플랫폼 불일치 시 부모 컨테이너 제거
+    if ((isMobileAd && !isMobile) || (isPcAd && isMobile)) {
+      var parent = ins.closest('.ad-card');
+      if (parent) parent.remove();
+      else ins.remove();
+      return;
+    }
+    // 보이는 광고만 adsbygoogle 클래스 추가하고 push
+    ins.classList.remove('gc-ad');
+    ins.classList.add('adsbygoogle');
     try {
       (adsbygoogle = window.adsbygoogle || []).push({});
     } catch(e) {}
@@ -803,7 +809,8 @@ const deferredItemsScript = `
     // 플랫폼에 맞는 슬롯 찾기 (모바일: Responsive001, PC: ResponsivePC001)
     var isMobile = matchMedia('(max-width:768px)').matches;
     var slot = isMobile ? '5039620326' : '1795150514';
-    return document.querySelector('ins.adsbygoogle[data-ad-slot="' + slot + '"]');
+    return document.querySelector('ins.adsbygoogle[data-ad-slot="' + slot + '"]') ||
+           document.querySelector('ins.gc-ad[data-ad-slot="' + slot + '"]');
   }
 
   function isAdFilled(ad) {
