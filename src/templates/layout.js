@@ -611,8 +611,17 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - AdSense 기본 동작에 맡김
-const adInitScript = '';
+// 광고 초기화 - 보이는 광고만 push (CSS 적용 후 실행)
+const adInitScript = `
+<script>
+(function() {
+  document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
+    if (getComputedStyle(ins).display !== 'none') {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  });
+})();
+</script>`;
 
 const lazyAdScript = '';
 
