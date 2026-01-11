@@ -154,7 +154,8 @@ main > .ad-card:first-child,
 
 /* PC 홈: 메인에서 모바일 광고만 숨김 (PC 광고는 표시) */
 @media (min-width: 769px) {
-  .home-main .ad-mobile-only {
+  .home-main .ad-mobile-only,
+  .home-main .ad-card:has(.ad-mobile-only) {
     display: none !important;
   }
 }
