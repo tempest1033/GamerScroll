@@ -800,8 +800,10 @@ const deferredItemsScript = `
   }
 
   function getPriorityAd() {
-    // Responsive001 슬롯(5039620326)을 최우선으로 찾음
-    return document.querySelector('ins.adsbygoogle[data-ad-slot="5039620326"]');
+    // 플랫폼에 맞는 슬롯 찾기 (모바일: Responsive001, PC: ResponsivePC001)
+    var isMobile = matchMedia('(max-width:768px)').matches;
+    var slot = isMobile ? '5039620326' : '1795150514';
+    return document.querySelector('ins.adsbygoogle[data-ad-slot="' + slot + '"]');
   }
 
   function isAdFilled(ad) {
