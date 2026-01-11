@@ -10,6 +10,7 @@ function renderMobileTopAd(slotId) {
        style="display:inline-block;width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
+       data-ad-format="rectangle"
        data-ad-loading="eager"></ins>
   <script>try{if(window.matchMedia('(max-width:768px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
@@ -25,6 +26,7 @@ function renderMobileMidAd(slotId) {
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
+       data-ad-format="rectangle"
        data-ad-loading="eager"></ins>
   <script>try{if(window.matchMedia('(max-width:768px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
@@ -47,6 +49,7 @@ function renderPCHomeAd(slotId) {
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
        data-ad-loading="eager"></ins>
   <script>try{if(window.matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
@@ -62,6 +65,7 @@ function renderPCAd(slotId) {
        style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
        data-ad-loading="eager"></ins>
   <script>try{if(window.matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
@@ -84,6 +88,7 @@ function renderVerticalAd(slotId) {
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
+       data-ad-format="vertical"
        data-ad-loading="eager"></ins>
   <script>try{if(window.matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
@@ -99,6 +104,7 @@ function renderRectangleAd(slotId) {
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
+       data-ad-format="rectangle"
        data-ad-loading="eager"></ins>
   <script>try{if(window.matchMedia('(min-width:769px)').matches)(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>
 </div>`;
