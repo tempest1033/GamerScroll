@@ -10,8 +10,7 @@ function renderMobileTopAd(slotId) {
   <style>.adslot-mobile-top{display:block;width:320px;height:100px}@media(min-width:769px){.adslot-mobile-top{display:none}}</style>
   <ins class="adsbygoogle adslot-mobile-top"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-loading="eager"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
@@ -26,8 +25,7 @@ function renderMobileMidAd(slotId) {
   <style>.adslot-mobile-mid{display:block;width:300px;height:250px}@media(min-width:769px){.adslot-mobile-mid{display:none}}</style>
   <ins class="adsbygoogle adslot-mobile-mid"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-loading="eager"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
@@ -49,8 +47,7 @@ function renderPCHomeAd(slotId) {
   <style>.adslot-pc-home{display:none}@media(min-width:769px){.adslot-pc-home{display:block;width:728px;height:90px}}</style>
   <ins class="adsbygoogle adslot-pc-home"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-loading="eager"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
@@ -65,8 +62,7 @@ function renderPCAd(slotId) {
   <style>.adslot-pc{display:none}@media(min-width:769px){.adslot-pc{display:block;width:970px;height:90px}}</style>
   <ins class="adsbygoogle adslot-pc"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-loading="eager"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
@@ -88,8 +84,7 @@ function renderVerticalAd(slotId) {
   <style>.adslot-vertical{display:none}@media(min-width:769px){.adslot-vertical{display:block;width:300px;height:600px}}</style>
   <ins class="adsbygoogle adslot-vertical"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-loading="eager"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
@@ -104,8 +99,7 @@ function renderRectangleAd(slotId) {
   <style>.adslot-rectangle{display:none}@media(min-width:769px){.adslot-rectangle{display:block;width:300px;height:250px}}</style>
   <ins class="adsbygoogle adslot-rectangle"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-loading="eager"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
