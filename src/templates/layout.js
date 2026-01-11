@@ -854,8 +854,30 @@ const deferredItemsScript = `
     setTimeout(checkAds, 50);
   }
 
+  function initAds() {
+    // AdSense 스크립트 로드 대기
+    if (typeof adsbygoogle === 'undefined') {
+      setTimeout(initAds, 100);
+      return;
+    }
+
+    var isMobile = window.innerWidth <= 768;
+    var selector = isMobile ? 'ins.adsbygoogle.ad-mobile-only' : 'ins.adsbygoogle.ad-pc-only';
+
+    document.querySelectorAll(selector).forEach(function(ins) {
+      // 이미 push된 광고 스킵
+      if (ins.dataset.adPushed === '1') return;
+      // display: none인 광고 스킵
+      if (ins.offsetParent === null) return;
+
+      ins.dataset.adPushed = '1';
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+  }
+
   function init() {
     fallbackTimer = setTimeout(startReveal, FALLBACK_TIMEOUT_MS);
+    initAds();
     checkAds();
   }
 
