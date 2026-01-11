@@ -9,7 +9,8 @@ function renderMobileTopAd(slotId) {
   <ins class="adsbygoogle ad-mobile-only"
        style="display:inline-block;width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-loading="eager"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -23,7 +24,8 @@ function renderMobileMidAd(slotId) {
   <ins class="adsbygoogle ad-mobile-only"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-loading="eager"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -44,7 +46,8 @@ function renderPCHomeAd(slotId) {
   <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-loading="eager"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -58,7 +61,8 @@ function renderPCAd(slotId) {
   <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-loading="eager"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -79,7 +83,8 @@ function renderVerticalAd(slotId) {
   <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-loading="eager"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -93,7 +98,8 @@ function renderRectangleAd(slotId) {
   <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-loading="eager"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
