@@ -6,12 +6,8 @@
 const { generateHead, SHOW_ADS } = require('./components/head');
 const {
   renderAdCard,
-  renderMobileAd,
-  renderMobileTopAd,
-  renderMobileMidAd,
   renderPCAd,
   renderPCHomeAd,
-  renderResponsiveAdPair,
   renderVerticalAd,
   renderRectangleAd
 } = require('./components/ads');
@@ -19,15 +15,11 @@ const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
+// PC 전용 광고 슬롯 (모바일 광고는 layout-mobile.js에서 관리)
 const AD_SLOTS = {
-  // 모바일용 (320x100)
-  Responsive001: '5825162341',
-  Responsive002: '4840966314',
-  Responsive003: '7467129651',
-  Responsive004: '7865094213',
-  Responsive005: '3028357040',
-  // PC용 (728x90)
+  // PC 홈 상단 (728x90)
   ResponsivePCHome001: '4377097736',
+  // PC 상단 (970x90)
   ResponsivePC001: '1795150514',
   ResponsivePC002: '8458886930',
   ResponsivePC003: '3935062846',
@@ -1072,22 +1064,7 @@ function generateAdSlot(slotId, options = {}) {
   return renderAdCard(slotId, options);
 }
 
-// 새 광고 함수들 (PC/모바일 분리)
-function generateMobileAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
-  return renderMobileAd(slotId);
-}
-
-function generateMobileTopAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
-  return renderMobileTopAd(slotId);
-}
-
-function generateMobileMidAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
-  return renderMobileMidAd(slotId);
-}
-
+// PC 전용 광고 함수들 (모바일 광고는 layout-mobile.js에서 관리)
 function generatePCAdSlot(slotId) {
   if (!SHOW_ADS) return '';
   return renderPCAd(slotId);
@@ -1096,11 +1073,6 @@ function generatePCAdSlot(slotId) {
 function generatePCHomeAdSlot(slotId) {
   if (!SHOW_ADS) return '';
   return renderPCHomeAd(slotId);
-}
-
-function generateResponsiveAdPairSlot(mobileSlotId, pcSlotId) {
-  if (!SHOW_ADS) return '';
-  return renderResponsiveAdPair(mobileSlotId, pcSlotId);
 }
 
 function generateVerticalAdSlot(slotId) {
@@ -1118,12 +1090,8 @@ module.exports = {
   SHOW_ADS,
   AD_SLOTS,
   generateAdSlot,
-  generateMobileAdSlot,
-  generateMobileTopAdSlot,
-  generateMobileMidAdSlot,
   generatePCAdSlot,
   generatePCHomeAdSlot,
-  generateResponsiveAdPairSlot,
   generateVerticalAdSlot,
   generateRectangleAdSlot
 };

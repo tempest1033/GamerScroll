@@ -2,9 +2,7 @@
  * 출시 게임 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generateResponsiveAdPairSlot } = require('../layout');
-
-// 광고 슬롯 변수 (함수 내에서 정의)
+const { wrapWithLayout, AD_SLOTS, generatePCAdSlot } = require('../layout');
 
 // 플랫폼별 기본 로고 SVG
 const platformLogos = {
@@ -17,8 +15,8 @@ const platformLogos = {
 function generateUpcomingPage(data) {
   const { upcoming } = data;
 
-  // 광고 슬롯 (모바일/PC 분리)
-  const topAds = generateResponsiveAdPairSlot(AD_SLOTS.Responsive001, AD_SLOTS.ResponsivePC001);
+  // PC 전용 광고 슬롯
+  const topAds = generatePCAdSlot(AD_SLOTS.ResponsivePC001);
 
   // 출시 예정 게임 섹션 생성
   function generateUpcomingSection(items, platform) {

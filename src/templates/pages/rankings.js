@@ -2,7 +2,7 @@
  * 모바일 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generateResponsiveAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generatePCAdSlot } = require('../layout');
 const { countries } = require('../../crawlers/rankings');
 
 function generateRankingsPage(data) {
@@ -25,8 +25,8 @@ function generateRankingsPage(data) {
       : (androidSlugMap[String(appId)] || null);
   }
 
-  // 광고 슬롯 (모바일/PC 분리)
-  const topAds = generateResponsiveAdPairSlot(AD_SLOTS.Responsive001, AD_SLOTS.ResponsivePC001);
+  // PC 전용 광고 슬롯
+  const topAds = generatePCAdSlot(AD_SLOTS.ResponsivePC001);
 
   // 순위 컬럼 생성
   function generateRankColumn(maxItems = 200) {

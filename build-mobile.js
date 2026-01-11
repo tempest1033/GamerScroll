@@ -1,6 +1,9 @@
 /**
- * 모바일 버전 빌드 - 심플 버전
- * docs/ 복사 → URL 변환 → docs-mobile/
+ * 모바일 버전 빌드
+ * docs/ 복사 → PC 광고/사이드바 제거 → URL 변환 → docs-mobile/
+ *
+ * PC 버전은 PC 전용 광고만 포함 (layout.js, ads.js)
+ * 모바일 버전은 이 스크립트로 PC 요소 제거 후 배포
  */
 
 const fs = require('fs');
@@ -50,14 +53,7 @@ function processHtmlFiles(dir) {
 
       // 사이드바 제거 (PC 전용)
       html = html.replace(/<aside class="home-sidebar">[\s\S]*?<\/aside>/g, '');
-
-      // 모바일 광고 인라인 스타일 단순화 (media query 제거)
-      html = html.replace(/<style>\.adslot-mobile-top\{display:block;width:320px;height:100px\}@media\(min-width:769px\)\{\.adslot-mobile-top\{display:none\}\}<\/style>/g, '');
-      html = html.replace(/<style>\.adslot-mobile-mid\{display:block;width:300px;height:250px\}@media\(min-width:769px\)\{\.adslot-mobile-mid\{display:none\}\}<\/style>/g, '');
-
-      // 모바일 광고 ins 태그 단순화
-      html = html.replace(/class="adsbygoogle adslot-mobile-top"/g, 'class="adsbygoogle" style="display:block;width:320px;height:100px"');
-      html = html.replace(/class="adsbygoogle adslot-mobile-mid"/g, 'class="adsbygoogle" style="display:block;width:300px;height:250px"');
+      html = html.replace(/<div class="home-sidebar">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/g, '</div></section>');
 
       fs.writeFileSync(filePath, html);
       count++;

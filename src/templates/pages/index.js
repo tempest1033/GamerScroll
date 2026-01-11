@@ -7,8 +7,6 @@ const {
   wrapWithLayout,
   AD_SLOTS,
   generateAdSlot,
-  generateMobileTopAdSlot,
-  generateMobileMidAdSlot,
   generatePCHomeAdSlot,
   generateVerticalAdSlot,
   generateRectangleAdSlot
@@ -566,15 +564,13 @@ function generateIndexPage(data) {
 
   var popularBannerHtml = generatePopularBanner();
 
-  // 홈페이지 광고 (모바일: 메인, PC: 메인 상단 + 사이드바)
+  // 홈페이지 광고 (PC 전용 - 모바일은 layout-mobile.js에서 처리)
 		  var content = '<section class="home-section active" id="home">' +
 		    '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
 		    '<div class="home-container">' +
 		    '<div class="home-main">' +
-		    generateMobileTopAdSlot(AD_SLOTS.Responsive001) +
 		    generatePCHomeAdSlot(AD_SLOTS.ResponsivePCHome001) +
 		    insightCardHtml +
-	    generateMobileMidAdSlot(AD_SLOTS.Responsive002) +
 	    '<div class="home-card" id="home-news">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">뉴스</h2>' +
@@ -582,7 +578,6 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeNews() + '</div>' +
     '</div>' +
-    generateMobileMidAdSlot(AD_SLOTS.Responsive003) +
     '<div class="home-card" id="home-community">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
@@ -590,7 +585,6 @@ function generateIndexPage(data) {
     '</div>' +
     '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
     '</div>' +
-    generateMobileMidAdSlot(AD_SLOTS.Responsive004) +
     '<div class="home-card" id="home-video">' +
 	    '<div class="home-card-header">' +
 	    '<h2 class="home-card-title">영상 순위</h2>' +
