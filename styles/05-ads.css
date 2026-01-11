@@ -1,5 +1,10 @@
 /* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
 
+/* ins 태그 기본 display (인라인 스타일 대신 CSS로 제어) */
+ins.adsbygoogle {
+  display: inline-block;
+}
+
 /* ===== 광고 크기 ===== */
 
 /* 모바일 상단 광고 (320x100) - Responsive001 */
