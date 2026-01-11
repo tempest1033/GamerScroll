@@ -794,26 +794,14 @@ const deferredItemsScript = `
     return false;
   }
 
-  function getPlatformAdSelector() {
+  function getFirstAd() {
     var isMobile = window.innerWidth <= 768;
-    return isMobile ? 'ins.adsbygoogle.ad-mobile-only' : 'ins.adsbygoogle.ad-pc-only';
+    var selector = isMobile ? 'ins.adsbygoogle.ad-mobile-only' : 'ins.adsbygoogle.ad-pc-only';
+    return document.querySelector(selector);
   }
 
-  function checkAllAdsReady() {
-    var ads = document.querySelectorAll(getPlatformAdSelector());
-    if (!ads.length) {
-      startReveal();
-      return;
-    }
-    for (var i = 0; i < ads.length; i++) {
-      if (!isAdReady(ads[i])) return;
-    }
-    startReveal();
-  }
-
-  function waitForAd(ad) {
-    if (!ad) return false;
-    if (isAdReady(ad)) return true;
+  function waitForFirstAd(ad) {
+    if (!ad) return;
 
     // iframe load 이벤트 바인딩
     var frame = ad.querySelector('iframe');
@@ -821,36 +809,26 @@ const deferredItemsScript = `
       frame.__gcLoadBound = true;
       frame.addEventListener('load', function() {
         frame.__gcLoaded = true;
-        checkAllAdsReady();
+        startReveal();
       }, { once: true });
     }
 
     // MutationObserver로 data-ad-status 감지
     if (!ad.__gcStatusObserver) {
       ad.__gcStatusObserver = new MutationObserver(function() {
-        if (ad.dataset.adStatus) checkAllAdsReady();
+        if (ad.dataset.adStatus) startReveal();
       });
       ad.__gcStatusObserver.observe(ad, { attributes: true, attributeFilter: ['data-ad-status'] });
     }
-    return false;
   }
 
   function checkAds() {
-    var ads = document.querySelectorAll(getPlatformAdSelector());
-    if (!ads.length) {
+    var firstAd = getFirstAd();
+    if (!firstAd || isAdReady(firstAd)) {
       startReveal();
       return;
     }
-    var allReady = true;
-    for (var i = 0; i < ads.length; i++) {
-      if (!waitForAd(ads[i])) {
-        allReady = false;
-      }
-    }
-    if (allReady) {
-      startReveal();
-      return;
-    }
+    waitForFirstAd(firstAd);
     setTimeout(checkAds, 50);
   }
 
