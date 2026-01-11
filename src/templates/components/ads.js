@@ -6,7 +6,7 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-top">
-  <ins class="gc-ad ad-mobile-only"
+  <ins class="adsbygoogle ad-mobile-only"
        style="display:inline-block;width:320px;height:100px;min-width:320px;min-height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
@@ -19,7 +19,7 @@ function renderMobileTopAd(slotId) {
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-mid">
-  <ins class="gc-ad ad-mobile-only"
+  <ins class="adsbygoogle ad-mobile-only"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
@@ -39,7 +39,7 @@ function renderMobileAd(slotId) {
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc-home">
-  <ins class="gc-ad ad-pc-only"
+  <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
@@ -52,7 +52,7 @@ function renderPCHomeAd(slotId) {
 function renderPCAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc">
-  <ins class="gc-ad ad-pc-only"
+  <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
@@ -72,7 +72,7 @@ function renderResponsiveAdPair(mobileSlotId, pcSlotId) {
 function renderVerticalAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-vertical">
-  <ins class="gc-ad ad-pc-only"
+  <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
@@ -85,7 +85,7 @@ function renderVerticalAd(slotId) {
 function renderRectangleAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-rectangle">
-  <ins class="gc-ad ad-pc-only"
+  <ins class="adsbygoogle ad-pc-only"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
