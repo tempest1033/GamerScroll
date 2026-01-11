@@ -611,7 +611,19 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-const lazyAdScript = '';
+// visible 광고만 push (PC/모바일 겹침 문제 해결)
+const lazyAdScript = `
+<script>
+(function() {
+  var ads = document.querySelectorAll('ins.adsbygoogle');
+  if (!ads.length) return;
+  ads.forEach(function(ad) {
+    if (getComputedStyle(ad).display !== 'none') {
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+    }
+  });
+})();
+</script>`;
 
 const deferredItemsScript = `
 <script>

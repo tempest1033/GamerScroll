@@ -1,8 +1,5 @@
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
-// 개별 push 스크립트 (구글 공식 패턴)
-const adPushScript = `<script>try{(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}</script>`;
-
 /**
  * 모바일 상단 광고 (320x100) - Responsive001용
  */
@@ -13,7 +10,6 @@ function renderMobileTopAd(slotId) {
        style="display:inline-block;width:320px;height:100px;min-width:320px;min-height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  ${adPushScript}
 </div>`;
 }
 
@@ -27,7 +23,6 @@ function renderMobileMidAd(slotId) {
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  ${adPushScript}
 </div>`;
 }
 
@@ -48,7 +43,6 @@ function renderPCHomeAd(slotId) {
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  ${adPushScript}
 </div>`;
 }
 
@@ -62,7 +56,6 @@ function renderPCAd(slotId) {
        style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  ${adPushScript}
 </div>`;
 }
 
@@ -83,7 +76,6 @@ function renderVerticalAd(slotId) {
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  ${adPushScript}
 </div>`;
 }
 
@@ -97,7 +89,6 @@ function renderRectangleAd(slotId) {
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  ${adPushScript}
 </div>`;
 }
 
