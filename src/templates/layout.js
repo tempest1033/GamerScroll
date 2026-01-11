@@ -794,8 +794,13 @@ const deferredItemsScript = `
     return false;
   }
 
+  function getPlatformAdSelector() {
+    var isMobile = window.innerWidth <= 768;
+    return isMobile ? 'ins.adsbygoogle.ad-mobile-only' : 'ins.adsbygoogle.ad-pc-only';
+  }
+
   function checkAllAdsReady() {
-    var ads = document.querySelectorAll('ins.adsbygoogle');
+    var ads = document.querySelectorAll(getPlatformAdSelector());
     if (!ads.length) {
       startReveal();
       return;
@@ -831,7 +836,7 @@ const deferredItemsScript = `
   }
 
   function checkAds() {
-    var ads = document.querySelectorAll('ins.adsbygoogle');
+    var ads = document.querySelectorAll(getPlatformAdSelector());
     if (!ads.length) {
       startReveal();
       return;
