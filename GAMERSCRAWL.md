@@ -2,9 +2,15 @@
 
 ## 프로젝트 개요
 게임 업계 데이터 크롤링 및 일일/주간 리포트 생성 사이트
-- URL: https://gamerscrawl.com
-- GitHub Pages로 배포 (docs/ 폴더)
-- Repository: https://github.com/tempest1033/GamersCrawl
+
+| 환경 | URL | Repository |
+|------|-----|------------|
+| **PC** | https://gamerscrawl.com | [GamersCrawl](https://github.com/tempest1033/GamersCrawl) |
+| **Mobile** | https://m.gamerscrawl.com | [GamersCrawl-Mobile](https://github.com/tempest1033/GamersCrawl-Mobile) |
+
+- PC 버전: `docs/` 폴더 → GitHub Pages
+- Mobile 버전: `docs-mobile/` 폴더 → GamersCrawl-Mobile 저장소로 자동 배포
+- PC 접속 시 모바일 UA 감지 → `m.gamerscrawl.com`으로 자동 리다이렉트
 
 ---
 
@@ -29,6 +35,12 @@ node generate-html-report.js -q
 - 소요 시간: 약 5초
 - **용도**: HTML 템플릿 수정 테스트, AI 인사이트 반영 등
 
+### 자동 퀵 모드 (CI 환경)
+- GitHub Actions에서 캐시가 25분 이내면 자동으로 크롤링 스킵
+- 30분 주기 빌드에서 중복 크롤링 방지
+- 빌드 시간 대폭 단축 (3-5분 → 5초)
+- 로컬에서는 기존대로 동작 (개발자가 원할 때 크롤링)
+
 ### 로컬 테스트
 빌드 결과물은 **루트**에 생성되고, **docs/** 폴더는 GitHub Pages 배포용.
 
@@ -47,6 +59,17 @@ cd docs && npx serve -l 3001
 |------|----------|
 | **GitHub Actions** | ✅ 자동 (build.yml) |
 | **로컬 테스트** | ❌ 수동 복사 필요 |
+
+### 모바일 버전 빌드
+```bash
+node build-mobile.js
+```
+- `docs/` 폴더를 `docs-mobile/`로 복사
+- URL 변환: `gamerscrawl.com` → `m.gamerscrawl.com`
+- PC 전용 광고/사이드바 제거
+- CNAME 설정: `m.gamerscrawl.com`
+- sitemap.xml URL 변환
+- **GitHub Actions에서 자동 실행됨** (수동 실행 불필요)
 
 ### AI 인사이트 생성 (일간)
 ```bash
@@ -79,11 +102,12 @@ node generate-weekly-insight.js --force  # 강제 재생성
 ├── generate-html-report.js    # 메인 진입점
 ├── generate-ai-insight.js     # 일간 AI 인사이트 진입점
 ├── generate-weekly-insight.js # 주간 AI 인사이트 진입점
+├── build-mobile.js            # 모바일 버전 빌드 스크립트
 │
 ├── data-cache.json            # 크롤링 캐시 (git tracked)
 ├── index.html                 # 로컬 생성 HTML
 │
-├── docs/                      # GitHub Pages 배포 폴더
+├── docs/                      # PC 버전 배포 폴더 (gamerscrawl.com)
 │   ├── index.html             # 배포용 HTML
 │   ├── styles.css             # 스타일시트
 │   ├── CNAME                  # 커스텀 도메인
@@ -91,6 +115,9 @@ node generate-weekly-insight.js --force  # 강제 재생성
 │       ├── {date}-{AM|PM}.json # 일별 인사이트 (배포용 복사본)
 │       └── weekly/
 │           └── {year}-W{week}.json # 주간 인사이트 (배포용 복사본)
+│
+├── docs-mobile/               # 모바일 버전 배포 폴더 (m.gamerscrawl.com)
+│                              # → GamersCrawl-Mobile 저장소로 자동 배포
 │
 ├── reports/                   # 인사이트 데이터
 │   ├── {date}-{AM|PM}.json    # 일간 AI 인사이트 + 주가 + 순위분석
@@ -406,12 +433,17 @@ node scripts/process-review-queue.js [limit]
 ### build.yml
 - 트리거: 30분마다 + 수동
 - 러너: ubuntu-latest
+- 캐싱: npm + Playwright 브라우저
 - 작업:
-  1. npm install
-  2. Playwright 브라우저 설치
-  3. `node generate-html-report.js`
-  4. docs/ 폴더로 복사
-  5. 커밋 & 푸시
+  1. `npm ci` (캐시 활용)
+  2. Playwright 브라우저 설치 (캐시 활용)
+  3. `node generate-html-report.js` - PC 버전 생성
+  4. `node scripts/sync-and-enrich.js` - 게임 DB 동기화
+  5. `node scripts/generate-game-pages.js` - 게임 상세 페이지 생성
+  6. docs/ 폴더로 복사
+  7. `node build-mobile.js` - 모바일 버전 생성
+  8. 커밋 & 푸시 (GamersCrawl)
+  9. GamersCrawl-Mobile 저장소로 배포 (peaceiris/actions-gh-pages)
 
 ### ai-insight.yml (일간)
 - 트리거: 12시간마다 (KST 06:00, 18:00) + 수동
@@ -605,6 +637,40 @@ heading → image → text → text → ad → text
 ```bash
 npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 ```
+
+---
+
+## PC/모바일 분리 구조
+
+### 배포 구조
+| 환경 | 도메인 | 저장소 | 배포 폴더 |
+|------|--------|--------|----------|
+| PC | gamerscrawl.com | GamersCrawl | `docs/` |
+| Mobile | m.gamerscrawl.com | GamersCrawl-Mobile | `docs-mobile/` |
+
+### UA 감지 리다이렉트
+PC 버전(`gamerscrawl.com`)에서 모바일 UA 감지 시 자동 리다이렉트:
+```javascript
+// src/templates/components/head.js
+if (/Android|iPhone|iPad|iPod|Mobile/i.test(ua)) {
+  location.replace('https://m.gamerscrawl.com' + location.pathname);
+}
+```
+
+### 광고 분리
+- PC 버전: PC 전용 광고만 표시 (사이드바, 직사각형 등)
+- Mobile 버전: 모바일 전용 광고만 표시 (상단/중간 배너)
+- `build-mobile.js`가 PC 광고 컨테이너 자동 제거
+
+### DNS 설정 (Squarespace)
+| 타입 | 호스트 | 데이터 |
+|------|--------|--------|
+| CNAME | m | tempest1033.github.io |
+
+### GitHub Secrets
+| 키 | 용도 |
+|----|------|
+| `GH_PAT` | GamersCrawl-Mobile 저장소 배포용 Personal Access Token |
 
 ---
 

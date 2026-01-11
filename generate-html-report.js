@@ -3,7 +3,24 @@ const fs = require('fs');
 const path = require('path');
 
 // 커맨드라인 인자 파싱
-const isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
+let isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
+
+// CI 환경에서 캐시가 최근 것이면 자동으로 퀵 모드 (크롤링 스킵)
+const CACHE_FRESHNESS_MINUTES = 25; // 30분 주기 - 5분 여유
+if (!isQuickMode && process.env.CI && fs.existsSync('./data-cache.json')) {
+  try {
+    const cache = JSON.parse(fs.readFileSync('./data-cache.json', 'utf8'));
+    if (cache.timestamp) {
+      const cacheAge = (Date.now() - new Date(cache.timestamp).getTime()) / 1000 / 60;
+      if (cacheAge < CACHE_FRESHNESS_MINUTES) {
+        console.log(`⚡ 캐시가 최신입니다 (${Math.round(cacheAge)}분 전) - 크롤링 스킵`);
+        isQuickMode = true;
+      }
+    }
+  } catch (e) {
+    // 캐시 파싱 실패 시 일반 모드로 진행
+  }
+}
 
 // 캐시 파일 경로
 const CACHE_FILE = './data-cache.json';
