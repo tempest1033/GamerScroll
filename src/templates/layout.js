@@ -611,17 +611,7 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - 모든 광고 즉시 push
-const lazyAdScript = `
-<script>
-(function() {
-  var ads = document.querySelectorAll('ins.adsbygoogle');
-  if (!ads.length) return;
-  ads.forEach(function() {
-    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
-  });
-})();
-</script>`;
+const lazyAdScript = '';
 
 const deferredItemsScript = `
 <script>
