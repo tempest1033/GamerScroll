@@ -695,7 +695,7 @@ const deferredItemsScript = `
   ].join(',');
 
   var REVEAL_DELAY_MS = 0;
-  var FALLBACK_TIMEOUT_MS = 2500;
+  var FALLBACK_TIMEOUT_MS = 1500;
   var revealStarted = false;
   var fallbackTimer = null;
   var raf = window.requestAnimationFrame || function(cb) { return setTimeout(cb, 16); };
@@ -794,14 +794,9 @@ const deferredItemsScript = `
     return false;
   }
 
-  function getFirstAd() {
-    var isMobile = window.innerWidth <= 768;
-    var selector = isMobile ? 'ins.adsbygoogle.ad-mobile-only' : 'ins.adsbygoogle.ad-pc-only';
-    return document.querySelector(selector);
-  }
-
-  function waitForFirstAd(ad) {
-    if (!ad) return;
+  function waitForAd(ad) {
+    if (!ad) return false;
+    if (isAdReady(ad)) return true;
 
     // iframe load 이벤트 바인딩
     var frame = ad.querySelector('iframe');
@@ -820,36 +815,26 @@ const deferredItemsScript = `
       });
       ad.__gcStatusObserver.observe(ad, { attributes: true, attributeFilter: ['data-ad-status'] });
     }
+    return false;
   }
 
   function checkAds() {
-    var firstAd = getFirstAd();
-    if (!firstAd || isAdReady(firstAd)) {
+    var ads = document.querySelectorAll('ins.adsbygoogle');
+    if (!ads.length) {
       startReveal();
       return;
     }
-    waitForFirstAd(firstAd);
+    for (var i = 0; i < ads.length; i++) {
+      if (waitForAd(ads[i])) {
+        startReveal();
+        return;
+      }
+    }
     setTimeout(checkAds, 50);
-  }
-
-  function initAds() {
-    var isMobile = window.innerWidth <= 768;
-    var selector = isMobile ? 'ins.adsbygoogle.ad-mobile-only' : 'ins.adsbygoogle.ad-pc-only';
-
-    document.querySelectorAll(selector).forEach(function(ins) {
-      // 이미 push된 광고 스킵
-      if (ins.dataset.adPushed === '1') return;
-      // display: none인 광고 스킵
-      if (ins.offsetParent === null) return;
-
-      ins.dataset.adPushed = '1';
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    });
   }
 
   function init() {
     fallbackTimer = setTimeout(startReveal, FALLBACK_TIMEOUT_MS);
-    initAds();
     checkAds();
   }
 
