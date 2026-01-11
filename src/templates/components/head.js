@@ -67,6 +67,35 @@ function generateHead(options = {}) {
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
 	  <meta name="robots" content="noindex, nofollow">` : ''}
+	  <!-- Critical CSS: 레이아웃(폭) 선적용 (Auto ads/Side rail 첫 로드 안정화) -->
+	  <style>
+	    :root { --space-page-x: 16px; }
+	    body { margin: 0; }
+	    :is(.site-container, .container) {
+	      max-width: 1190px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1190px;
+	      margin: 0 auto;
+	      padding: 0 16px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1190px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	    }
+	  </style>
 		  <script>
 		    (function() {
 		      var host = location.hostname;
@@ -183,6 +212,51 @@ function generateHead(options = {}) {
 	        if (target && target.parentNode) target.parentNode.removeChild(target);
 	      }
 
+	      function raf(cb) {
+	        if (window.requestAnimationFrame) return window.requestAnimationFrame(cb);
+	        return setTimeout(cb, 0);
+	      }
+
+	      function raf2(cb) {
+	        raf(function() { raf(cb); });
+	      }
+
+	      function getAvailableWidth(el) {
+	        if (!el) return 0;
+	        var rect = el.getBoundingClientRect ? el.getBoundingClientRect() : null;
+	        if (rect && rect.width) return rect.width;
+	        return el.offsetWidth || 0;
+	      }
+
+	      function pushWhenReady(ins) {
+	        if (!ins) return;
+	        if (ins.__gcAdsenseQueued) return;
+	        ins.__gcAdsenseQueued = true;
+
+	        raf2(function() {
+	          var tries = 0;
+
+	          function attempt() {
+	            if (!ins) return;
+	            if (ins.isConnected === false) return;
+
+	            var w = getAvailableWidth(ins);
+	            if (w > 0) {
+	              try {
+	                (window.adsbygoogle = window.adsbygoogle || []).push({});
+	              } catch (e) {}
+	              return;
+	            }
+
+	            tries++;
+	            if (tries >= 10) return;
+	            setTimeout(attempt, 100);
+	          }
+
+	          attempt();
+	        });
+	      }
+
 	      window.__gcAdsensePush = function(ins) {
 	        if (!ins) return;
 	        if (ins.tagName && String(ins.tagName).toLowerCase() !== 'ins') {
@@ -203,9 +277,7 @@ function generateHead(options = {}) {
 	          return;
 	        }
 
-	        try {
-	          (window.adsbygoogle = window.adsbygoogle || []).push({});
-	        } catch (e) {}
+	        pushWhenReady(ins);
 	      };
 	    })();
 	  </script>
