@@ -695,7 +695,7 @@ const deferredItemsScript = `
   ].join(',');
 
   var REVEAL_DELAY_MS = 0;
-  var FALLBACK_TIMEOUT_MS = 1500;
+  var FALLBACK_TIMEOUT_MS = 2500;
   var revealStarted = false;
   var fallbackTimer = null;
   var raf = window.requestAnimationFrame || function(cb) { return setTimeout(cb, 16); };
@@ -794,6 +794,18 @@ const deferredItemsScript = `
     return false;
   }
 
+  function checkAllAdsReady() {
+    var ads = document.querySelectorAll('ins.adsbygoogle');
+    if (!ads.length) {
+      startReveal();
+      return;
+    }
+    for (var i = 0; i < ads.length; i++) {
+      if (!isAdReady(ads[i])) return;
+    }
+    startReveal();
+  }
+
   function waitForAd(ad) {
     if (!ad) return false;
     if (isAdReady(ad)) return true;
@@ -804,14 +816,14 @@ const deferredItemsScript = `
       frame.__gcLoadBound = true;
       frame.addEventListener('load', function() {
         frame.__gcLoaded = true;
-        startReveal();
+        checkAllAdsReady();
       }, { once: true });
     }
 
     // MutationObserver로 data-ad-status 감지
     if (!ad.__gcStatusObserver) {
       ad.__gcStatusObserver = new MutationObserver(function() {
-        if (ad.dataset.adStatus) startReveal();
+        if (ad.dataset.adStatus) checkAllAdsReady();
       });
       ad.__gcStatusObserver.observe(ad, { attributes: true, attributeFilter: ['data-ad-status'] });
     }
@@ -824,11 +836,15 @@ const deferredItemsScript = `
       startReveal();
       return;
     }
+    var allReady = true;
     for (var i = 0; i < ads.length; i++) {
-      if (waitForAd(ads[i])) {
-        startReveal();
-        return;
+      if (!waitForAd(ads[i])) {
+        allReady = false;
       }
+    }
+    if (allReady) {
+      startReveal();
+      return;
     }
     setTimeout(checkAds, 50);
   }
