@@ -38,30 +38,34 @@ function renderMobileAd(slotId) {
 }
 
 /**
- * PC 홈 상단 광고 (728x90) - ResponsivePCHome001용
+ * PC 홈 상단 광고 (responsive) - ResponsivePCHome001용
  */
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc-home">
   <ins class="adsbygoogle ad-pc-only"
-       style="display:inline-block;width:728px;height:90px"
+       style="display:block;min-height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"
        data-ad-loading="eager"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
- * PC 상단 광고 (970x90) - ResponsivePC001~005용
+ * PC 상단 광고 (responsive) - ResponsivePC001~005용
  */
 function renderPCAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc">
   <ins class="adsbygoogle ad-pc-only"
-       style="display:inline-block;width:970px;height:90px"
+       style="display:block;min-height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"
        data-ad-loading="eager"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
