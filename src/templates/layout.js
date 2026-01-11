@@ -781,10 +781,10 @@ const deferredItemsScript = `
   }
 
   function getPriorityAd() {
-    // 플랫폼에 맞는 슬롯 찾기 (모바일: Responsive001, PC: ResponsivePC001)
+    // 플랫폼에 맞는 광고 찾기 (CSS 클래스 기반 - 슬롯 ID 무관)
     var isMobile = matchMedia('(max-width:768px)').matches;
-    var slot = isMobile ? '5825162341' : '1795150514';
-    return document.querySelector('ins.adsbygoogle[data-ad-slot="' + slot + '"]');
+    var adClass = isMobile ? 'ad-mobile-only' : 'ad-pc-only';
+    return document.querySelector('ins.adsbygoogle.' + adClass);
   }
 
   function isAdFilled(ad) {
