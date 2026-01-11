@@ -7,7 +7,7 @@ function renderMobileTopAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-top ad-mobile-only">
   <ins class="adsbygoogle"
-       style="display:inline-block;width:320px;height:100px"
+       style="display:inline-block;min-width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="horizontal"
