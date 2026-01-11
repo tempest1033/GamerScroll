@@ -611,18 +611,6 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - 모든 광고에 push() (try/catch로 에러 처리)
-const adInitScript = `
-<script>
-(function() {
-  document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch(e) {}
-  });
-})();
-</script>`;
-
 const lazyAdScript = '';
 
 const deferredItemsScript = `
@@ -1084,7 +1072,6 @@ function wrapWithLayout(content, options = {}) {
 			  ${hoverPrefetchScript}
   ${swipeScript}
   ${mobileScrollHideScript}
-  ${adInitScript}
 </body>
 </html>`;
 }
