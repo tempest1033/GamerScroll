@@ -835,6 +835,8 @@ const deferredItemsScript = `
 
   function init() {
     fallbackTimer = setTimeout(startReveal, FALLBACK_TIMEOUT_MS);
+    // 광고 요청 재개
+    (adsbygoogle=window.adsbygoogle||[]).pauseAdRequests=0;
     checkAds();
   }
 
