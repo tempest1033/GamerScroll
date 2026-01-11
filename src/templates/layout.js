@@ -611,49 +611,15 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 Lazy Load (Intersection Observer) - Google 베스트 프랙티스
+// 광고 초기화 - 모든 광고 즉시 push
 const lazyAdScript = `
 <script>
 (function() {
   var ads = document.querySelectorAll('ins.adsbygoogle');
   if (!ads.length) return;
-
-  function isVisible(el) {
-    var style = getComputedStyle(el);
-    return style.display !== 'none' && style.visibility !== 'hidden';
-  }
-
-  function pushAd(ad) {
-    if (ad.dataset.adPushed) return;
-    ad.dataset.adPushed = '1';
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch(e) {}
-  }
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        pushAd(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '400px' }); // 400px 전에 미리 로드
-
-  ads.forEach(function(ad) {
-    if (isVisible(ad)) {
-      observer.observe(ad);
-    }
+  ads.forEach(function() {
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
   });
-
-  // Fallback: 1초 후 visible한 광고 중 로드 안 된 것 push
-  setTimeout(function() {
-    ads.forEach(function(ad) {
-      if (isVisible(ad) && !ad.dataset.adPushed) {
-        pushAd(ad);
-      }
-    });
-  }, 1000);
 })();
 </script>`;
 
