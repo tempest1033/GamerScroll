@@ -817,10 +817,10 @@
   align-items: center;
 }
 
-/* PC 상단 광고 (반응형) - ResponsivePC001~005 */
+/* PC 상단 광고 (728x90) - ResponsivePC001~005 */
 .ad-card-pc {
   width: 100%;
-  min-height: 200px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;

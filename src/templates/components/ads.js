@@ -9,7 +9,9 @@ function renderMobileTopAd(slotId) {
   <ins class="adsbygoogle"
        style="display:inline-block;width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
+       data-full-width-responsive="false"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -23,7 +25,9 @@ function renderMobileMidAd(slotId) {
   <ins class="adsbygoogle"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="rectangle"
+       data-full-width-responsive="false"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -44,21 +48,25 @@ function renderPCHomeAd(slotId) {
   <ins class="adsbygoogle"
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
+       data-full-width-responsive="false"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
- * PC 상단 광고 (반응형) - ResponsivePC001~005용
+ * PC 상단 광고 (728x90) - ResponsivePC001~005용
  */
 function renderPCAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc ad-pc-only">
   <ins class="adsbygoogle"
-       style="display:block;width:100%;min-height:200px"
+       style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
+       data-full-width-responsive="false"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -79,7 +87,9 @@ function renderVerticalAd(slotId) {
   <ins class="adsbygoogle"
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="vertical"
+       data-full-width-responsive="false"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
@@ -93,7 +103,9 @@ function renderRectangleAd(slotId) {
   <ins class="adsbygoogle"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="rectangle"
+       data-full-width-responsive="false"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
