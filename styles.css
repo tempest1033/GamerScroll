@@ -798,14 +798,9 @@
 .ad-card-vertical ins,
 .ad-card-rectangle ins { height: 100%; }
 
-/* ins (모바일) */
-.ad-card-mobile-200 ins,
-.ad-card-mobile-400 ins {
-  min-width: 80%;
-  max-width: 100%;
-  min-height: 80%;
-  max-height: 100%;
-}
+/* ins (모바일) - vw 단위로 높이 계산 */
+.ad-card-mobile-200 ins { min-width: 80%; max-width: 100%; min-height: 40vw; max-height: 50vw; }
+.ad-card-mobile-400 ins { min-width: 80%; max-width: 100%; min-height: 80vw; max-height: 100vw; }
 
 /* PC 오버라이드 - 높이 고정 + flex 중앙 정렬 */
 @media (min-width: 769px) {
