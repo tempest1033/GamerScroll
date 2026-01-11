@@ -611,14 +611,21 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - 보이는 광고만 push (CSS 적용 후 실행)
+// 광고 초기화 - 플랫폼에 맞는 광고만 push (CSS 미디어쿼리와 동기화)
 const adInitScript = `
 <script>
 (function() {
+  var isMobile = matchMedia('(max-width:768px)').matches;
   document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
-    if (getComputedStyle(ins).display !== 'none') {
+    var isMobileAd = ins.classList.contains('ad-mobile-only');
+    var isPcAd = ins.classList.contains('ad-pc-only');
+    // 플랫폼 매칭 체크
+    if (isMobileAd && !isMobile) return;
+    if (isPcAd && isMobile) return;
+    // push with try/catch
+    try {
       (adsbygoogle = window.adsbygoogle || []).push({});
-    }
+    } catch(e) {}
   });
 })();
 </script>`;
