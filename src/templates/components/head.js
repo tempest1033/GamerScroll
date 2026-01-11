@@ -166,7 +166,7 @@ function generateHead(options = {}) {
 		  <link rel="stylesheet" href="/styles.css">
   <!-- AdSense 스크립트 (CSS 직후 최우선 로드) -->
   ${LOAD_ADSENSE_SCRIPT ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
-  <script>(adsbygoogle=window.adsbygoogle||[]).pauseAdRequests=1;</script>` : ''}
+  ` : ''}
 	  <script async src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script type="module">
