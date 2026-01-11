@@ -159,15 +159,60 @@ function generateHead(options = {}) {
 	    })();
 	  </script>
 	  <!-- Font Preload -->
-	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
-	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2" as="font" type="font/woff2" crossorigin>
-	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-		  <link rel="stylesheet" href="/styles.css">
-  <!-- AdSense 스크립트 (CSS 직후 최우선 로드) -->
-  ${LOAD_ADSENSE_SCRIPT ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
-  ` : ''}
-	  <script async src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+		  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
+		  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+		  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2" as="font" type="font/woff2" crossorigin>
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+			  <link rel="stylesheet" href="/styles.css">
+	  <!-- AdSense: 모바일/PC 슬롯 중 보이는 것만 요청 (display:none 슬롯 push 방지) -->
+	  <script>
+	    (function() {
+	      if (window.__gcAdsensePush) return;
+
+	      var MOBILE_MAX_PX = 768;
+
+	      function isMobileView() {
+	        if (window.matchMedia) return window.matchMedia('(max-width: ' + MOBILE_MAX_PX + 'px)').matches;
+	        return window.innerWidth <= MOBILE_MAX_PX;
+	      }
+
+	      function removeAd(ins) {
+	        if (!ins) return;
+	        var card = ins.closest ? ins.closest('.ad-card') : null;
+	        var target = card || ins;
+	        if (target && target.parentNode) target.parentNode.removeChild(target);
+	      }
+
+	      window.__gcAdsensePush = function(ins) {
+	        if (!ins) return;
+	        if (ins.tagName && String(ins.tagName).toLowerCase() !== 'ins') {
+	          if (ins.closest) ins = ins.closest('ins.adsbygoogle');
+	        }
+	        if (!ins || !ins.classList || !ins.classList.contains('adsbygoogle')) return;
+
+	        var isMobile = isMobileView();
+	        var isMobileOnly = ins.classList.contains('ad-mobile-only');
+	        var isPcOnly = ins.classList.contains('ad-pc-only');
+
+	        if (isMobile && isPcOnly) {
+	          removeAd(ins);
+	          return;
+	        }
+	        if (!isMobile && isMobileOnly) {
+	          removeAd(ins);
+	          return;
+	        }
+
+	        try {
+	          (window.adsbygoogle = window.adsbygoogle || []).push({});
+	        } catch (e) {}
+	      };
+	    })();
+	  </script>
+	  <!-- AdSense 스크립트 (CSS 직후 최우선 로드) -->
+	  ${LOAD_ADSENSE_SCRIPT ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
+	  ` : ''}
+		  <script async src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script type="module">
 	    (function() {

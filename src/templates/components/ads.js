@@ -1,4 +1,4 @@
-const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
+﻿const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 /**
  * 모바일 상단 광고 (320x100) - Responsive001용
@@ -10,7 +10,7 @@ function renderMobileTopAd(slotId) {
        style="width:320px;height:100px;min-width:320px;min-height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>window.__gcAdsensePush && window.__gcAdsensePush(document.currentScript && document.currentScript.previousElementSibling);</script>
 </div>`;
 }
 
@@ -24,7 +24,7 @@ function renderMobileMidAd(slotId) {
        style="width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>window.__gcAdsensePush && window.__gcAdsensePush(document.currentScript && document.currentScript.previousElementSibling);</script>
 </div>`;
 }
 
@@ -45,7 +45,7 @@ function renderPCHomeAd(slotId) {
        style="width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>window.__gcAdsensePush && window.__gcAdsensePush(document.currentScript && document.currentScript.previousElementSibling);</script>
 </div>`;
 }
 
@@ -59,7 +59,7 @@ function renderPCAd(slotId) {
        style="width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>window.__gcAdsensePush && window.__gcAdsensePush(document.currentScript && document.currentScript.previousElementSibling);</script>
 </div>`;
 }
 
@@ -80,7 +80,7 @@ function renderVerticalAd(slotId) {
        style="width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>window.__gcAdsensePush && window.__gcAdsensePush(document.currentScript && document.currentScript.previousElementSibling);</script>
 </div>`;
 }
 
@@ -94,7 +94,7 @@ function renderRectangleAd(slotId) {
        style="width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>window.__gcAdsensePush && window.__gcAdsensePush(document.currentScript && document.currentScript.previousElementSibling);</script>
 </div>`;
 }
 
