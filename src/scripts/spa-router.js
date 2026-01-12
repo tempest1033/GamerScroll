@@ -259,8 +259,8 @@ const spaRouterScript = `
       // SPA 미지원 페이지는 일반 이동
       if (targetPage === null) return;
 
-      // 같은 페이지면 무시 (홈→홈 등)
-      if (targetPage === currentPage) {
+      // 정확히 같은 URL이면 무시 (홈→홈, 같은 페이지 클릭 등)
+      if (href === window.location.pathname || href === window.location.pathname + window.location.search) {
         e.preventDefault();
         return;
       }
@@ -275,7 +275,7 @@ const spaRouterScript = `
 
   // 브라우저 뒤로가기/앞으로가기
   window.addEventListener('popstate', function(e) {
-    const url = window.location.pathname;
+    const url = window.location.pathname + window.location.search;
     const targetPage = getCurrentPageFromUrl(url);
 
     // SPA 미지원 페이지면 새로고침
@@ -283,9 +283,6 @@ const spaRouterScript = `
       window.location.reload();
       return;
     }
-
-    // 같은 페이지면 무시
-    if (targetPage === currentPage) return;
 
     const currentIdx = getPageIndex(currentPage);
     const targetIdx = getPageIndex(targetPage);
