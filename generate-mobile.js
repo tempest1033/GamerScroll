@@ -712,7 +712,7 @@ async function generateMobilePages() {
 
         const html = generateDailyDetailPage({ insight: data, slug: report.slug, nav, cache });
         fs.writeFileSync(path.join(pageDir, 'index.html'), html, 'utf8');
-      } catch (e) {}
+      } catch (e) { console.warn(`  ⚠️ 일간 ${report.slug}: ${e.message}`); }
     }
     console.log(`  ✅ 일간 상세 페이지 ${dailyReports.length}개 생성`);
 
@@ -732,9 +732,9 @@ async function generateMobilePages() {
           next: weeklyReportsFiles[i - 1] ? { slug: weeklyReportsFiles[i - 1].slug, weekNumber: weeklyReportsFiles[i - 1].weekNumber } : null
         };
 
-        const html = generateWeeklyDetailPage({ insight: data, slug: report.slug, nav });
+        const html = generateWeeklyDetailPage({ weeklyInsight: data, slug: report.slug, nav });
         fs.writeFileSync(path.join(pageDir, 'index.html'), html, 'utf8');
-      } catch (e) {}
+      } catch (e) { console.warn(`  ⚠️ 주간 ${report.slug}: ${e.message}`); }
     }
     console.log(`  ✅ 주간 상세 페이지 ${weeklyReportsFiles.length}개 생성`);
 
@@ -756,7 +756,7 @@ async function generateMobilePages() {
 
           const html = generateDeepDiveDetailPage({ post, nav });
           fs.writeFileSync(path.join(pageDir, 'index.html'), html, 'utf8');
-        } catch (e) {}
+        } catch (e) { console.warn(`  ⚠️ Deep Dive ${post.slug}: ${e.message}`); }
       }
       console.log(`  ✅ Deep Dive 페이지 ${deepDivePosts.length}개 생성`);
     }

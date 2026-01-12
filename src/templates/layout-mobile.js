@@ -14,7 +14,7 @@ const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
 const AD_SLOTS = {
-  // 모바일용 (320x100, 300x250)
+  // 모바일용 (320x150, 300x250)
   Responsive001: '5825162341',
   Responsive002: '4840966314',
   Responsive003: '7467129651',
@@ -288,20 +288,20 @@ const footerModalScript = `
 const mobileAdInitScript = `
 <script>
 (function() {
-  function safePush(ad, retryCount) {
+  function safePush(retryCount) {
     retryCount = retryCount || 0;
-    if (retryCount > 50) return;
+    if (retryCount > 50) { console.warn('[Ad] adsbygoogle load timeout'); return; }
     if (typeof adsbygoogle !== 'undefined' && adsbygoogle.push) {
-      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) { console.warn('[Ad] push error:', e.message); }
     } else {
-      setTimeout(function() { safePush(ad, retryCount + 1); }, 100);
+      setTimeout(function() { safePush(retryCount + 1); }, 100);
     }
   }
   function initAds() {
     var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
     ads.forEach(function(ad) {
       ad.dataset.adLoaded = 'true';
-      safePush(ad, 0);
+      safePush(0);
     });
   }
   if (document.readyState === 'loading') {

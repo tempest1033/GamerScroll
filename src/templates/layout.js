@@ -32,7 +32,7 @@ const AD_SLOTS = {
   // PC 사이드바
   VerticalPC001: '6855905500',
   RectanglePC001: '1104244740',
-  // 모바일 (320x100, 300x250)
+  // 모바일 (320x150, 300x250)
   Mobile001: '5825162341',
   Mobile002: '4840966314',
   Mobile003: '7467129651',
@@ -639,18 +639,18 @@ const lazyAdScript = `
 <script>
 (function() {
   // adsbygoogle 로드 대기 후 push 호출하는 헬퍼
-  function safePush(ad, retryCount) {
+  function safePush(retryCount) {
     retryCount = retryCount || 0;
-    if (retryCount > 50) return; // 5초 후 포기
+    if (retryCount > 50) { console.warn('[Ad] adsbygoogle load timeout'); return; }
 
     // adsbygoogle가 로드되고 초기화됐는지 체크
     if (typeof adsbygoogle !== 'undefined' && adsbygoogle.push) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch(e) {}
+      } catch(e) { console.warn('[Ad] push error:', e.message); }
     } else {
       // 100ms 후 재시도
-      setTimeout(function() { safePush(ad, retryCount + 1); }, 100);
+      setTimeout(function() { safePush(retryCount + 1); }, 100);
     }
   }
 
@@ -660,7 +660,7 @@ const lazyAdScript = `
       var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
       ads.forEach(function(ad) {
         ad.dataset.adLoaded = 'true';
-        safePush(ad, 0);
+        safePush(0);
       });
     }
     if (document.readyState === 'loading') {
@@ -679,7 +679,7 @@ const lazyAdScript = `
     // Intersection Observer 지원 체크
     if (!('IntersectionObserver' in window)) {
       lazyAds.forEach(function(ad) {
-        safePush(ad, 0);
+        safePush(0);
       });
       return;
     }
@@ -690,7 +690,7 @@ const lazyAdScript = `
           var ad = entry.target;
           if (ad.dataset.adLoaded) return;
           ad.dataset.adLoaded = 'true';
-          safePush(ad, 0);
+          safePush(0);
           observer.unobserve(ad);
         }
       });
