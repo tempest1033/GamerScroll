@@ -348,6 +348,15 @@ function wrapWithLayout(content, options = {}) {
   // canonical URL을 m. 도메인으로 변경
   const mobileCanonical = canonical.replace('https://gamerscrawl.com', 'https://m.gamerscrawl.com');
 
+  // 페이지별 데이터 스크립트 (SPA 전환 시 재로드를 위해 main 안에 삽입)
+  const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
+<script>
+  window.allNewsData = ${pageData.news ? JSON.stringify(pageData.news) : 'null'};
+  window.allCommunityData = ${pageData.community ? JSON.stringify(pageData.community) : 'null'};
+  window.allYoutubeData = ${pageData.youtube ? JSON.stringify(pageData.youtube) : 'null'};
+  window.allChzzkData = ${pageData.chzzk ? JSON.stringify(pageData.chzzk) : 'null'};
+</script>` : '';
+
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -360,6 +369,7 @@ function wrapWithLayout(content, options = {}) {
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
   <main class="site-container">
+    ${dataScript}
     ${content}
     ${pageScripts}
   </main>

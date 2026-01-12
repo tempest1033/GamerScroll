@@ -1098,6 +1098,15 @@ function wrapWithLayout(content, options = {}) {
     noindex = false  // 검색엔진 인덱싱 제외 (thin content용)
   } = options;
 
+  // 페이지별 데이터 스크립트 (SPA 전환 시 재로드를 위해 main 안에 삽입)
+  const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
+  <script>
+    window.allNewsData = ${pageData.news ? JSON.stringify(pageData.news) : 'null'};
+    window.allCommunityData = ${pageData.community ? JSON.stringify(pageData.community) : 'null'};
+    window.allYoutubeData = ${pageData.youtube ? JSON.stringify(pageData.youtube) : 'null'};
+    window.allChzzkData = ${pageData.chzzk ? JSON.stringify(pageData.chzzk) : 'null'};
+  </script>` : '';
+
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -1109,6 +1118,7 @@ function wrapWithLayout(content, options = {}) {
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
   <main class="site-container">
+    ${dataScript}
     ${content}
     ${pageScripts}
   </main>

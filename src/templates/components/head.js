@@ -54,14 +54,7 @@ function generateHead(options = {}) {
   }
   </script>` : '';
 
-  // 페이지별 데이터 스크립트 (필요한 경우에만)
-  const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
-  <script>
-    ${pageData.news ? `const allNewsData = ${JSON.stringify(pageData.news)};` : ''}
-    ${pageData.community ? `const allCommunityData = ${JSON.stringify(pageData.community)};` : ''}
-    ${pageData.youtube ? `const allYoutubeData = ${JSON.stringify(pageData.youtube)};` : ''}
-    ${pageData.chzzk ? `const allChzzkData = ${JSON.stringify(pageData.chzzk)};` : ''}
-  </script>` : '';
+  // 페이지별 데이터 스크립트는 layout.js에서 main 안에 삽입 (SPA 호환)
 
   return `
 	  <meta charset="UTF-8">
@@ -235,8 +228,7 @@ function generateHead(options = {}) {
 	        setTimeout(function() { init(); }, 0);
 	      }
 	    })();
-	  </script>
-	  ${dataScript}`;
+	  </script>`;
 }
 
 module.exports = { generateHead, SHOW_ADS, LOAD_ADSENSE_SCRIPT };
