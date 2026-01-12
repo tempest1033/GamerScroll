@@ -195,12 +195,21 @@ const searchBarScript = `
 })();
 </script>`;
 
-// 스와이프 스크립트
+// 스와이프 스크립트 (실시간 페이지 드래그 + 미리보기)
 const swipeScript = `
 <script>
 (function() {
   const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
+  const SWIPE_THRESHOLD = 0.25; // 화면 25% 이상 스와이프하면 전환
+  const TRANSITION_MS = 250;
+
   let touchStartX = 0, touchStartY = 0;
+  let currentX = 0;
+  let isSwiping = false;
+  let swipeDirection = null; // 'horizontal' or 'vertical' or null
+  let swipeWrapper = null;
+  let prevContent = null, nextContent = null;
+  let screenWidth = window.innerWidth;
 
   function getCurrentNavIndex() {
     const path = window.location.pathname;
@@ -210,38 +219,238 @@ const swipeScript = `
     return -1;
   }
 
-  function switchNavSection(index, direction) {
-    const page = (index < 0 || index >= navSections.length) ? 'home' : navSections[index];
-    // SPA 라우터 사용
-    if (window.spaNavigateTo) {
-      window.spaNavigateTo(page, { direction: direction });
-      return;
-    }
-    // 폴백
-    if (page === 'home') { window.location.href = '/'; }
-    else { window.location.href = '/' + page + '/'; }
+  function getPageUrl(index) {
+    if (index < 0) return '/';
+    if (index >= navSections.length) return null;
+    return '/' + navSections[index] + '/';
   }
 
-  document.body.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
+  // 페이지 콘텐츠 가져오기 (SPA 캐시 활용)
+  async function fetchPageContent(url) {
+    if (!url) return null;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) return null;
+      const html = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const main = doc.querySelector('main.site-container');
+      return main ? main.innerHTML : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // 스와이프 래퍼 생성
+  function createSwipeWrapper(prevHtml, currentHtml, nextHtml) {
+    const main = document.querySelector('main.site-container');
+    if (!main) return null;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'swipe-wrapper';
+    wrapper.style.cssText = 'display:flex;width:300%;transform:translateX(-33.333%);will-change:transform;';
+
+    const prevPane = document.createElement('div');
+    prevPane.className = 'swipe-pane swipe-prev';
+    prevPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
+    prevPane.innerHTML = prevHtml || '<div class="swipe-empty"></div>';
+
+    const currentPane = document.createElement('div');
+    currentPane.className = 'swipe-pane swipe-current';
+    currentPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
+    currentPane.innerHTML = currentHtml;
+
+    const nextPane = document.createElement('div');
+    nextPane.className = 'swipe-pane swipe-next';
+    nextPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
+    nextPane.innerHTML = nextHtml || '<div class="swipe-empty"></div>';
+
+    wrapper.appendChild(prevPane);
+    wrapper.appendChild(currentPane);
+    wrapper.appendChild(nextPane);
+
+    main.innerHTML = '';
+    main.appendChild(wrapper);
+    return wrapper;
+  }
+
+  // 스와이프 정리
+  function cleanupSwipe(keepContent = null) {
+    const main = document.querySelector('main.site-container');
+    if (!main || !swipeWrapper) return;
+
+    if (keepContent) {
+      main.innerHTML = keepContent;
+      // 스크립트 재실행
+      const scripts = Array.from(main.querySelectorAll('script'));
+      scripts.forEach(function(oldScript) {
+        const newScript = document.createElement('script');
+        if (oldScript.src) newScript.src = oldScript.src;
+        else newScript.textContent = oldScript.textContent;
+        oldScript.remove();
+        document.body.appendChild(newScript);
+      });
+    }
+
+    swipeWrapper = null;
+    prevContent = null;
+    nextContent = null;
+    isSwiping = false;
+    swipeDirection = null;
+  }
+
+  // 터치 시작
+  document.body.addEventListener('touchstart', async (e) => {
+    // 스크롤 가능한 요소 내에서는 무시
+    if (e.target.closest('.search-dropdown, .modal-overlay, input, textarea')) return;
+
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    currentX = 0;
+    swipeDirection = null;
+    screenWidth = window.innerWidth;
+
+    const currentIndex = getCurrentNavIndex();
+    const prevUrl = getPageUrl(currentIndex - 1);
+    const nextUrl = getPageUrl(currentIndex + 1);
+
+    // 인접 페이지 미리 로드
+    const [prev, next] = await Promise.all([
+      prevUrl ? fetchPageContent(prevUrl) : Promise.resolve(null),
+      nextUrl ? fetchPageContent(nextUrl) : Promise.resolve(null)
+    ]);
+
+    prevContent = prev;
+    nextContent = next;
   }, { passive: true });
 
-  document.body.addEventListener('touchend', (e) => {
-    const diffX = touchStartX - e.changedTouches[0].screenX;
-    const diffY = touchStartY - e.changedTouches[0].screenY;
-    if (Math.abs(diffX) <= Math.abs(diffY)) return;
-    if (Math.abs(diffX) > 50) {
-      const currentIndex = getCurrentNavIndex();
-      const direction = diffX > 0 ? 'left' : 'right';
-      if (currentIndex === -1) {
-        if (diffX > 0) switchNavSection(0, direction);
-        else switchNavSection(navSections.length - 1, direction);
-      } else {
-        if (diffX > 0) switchNavSection(currentIndex + 1, direction);
-        else switchNavSection(currentIndex - 1, direction);
+  // 터치 이동
+  document.body.addEventListener('touchmove', (e) => {
+    if (!touchStartX) return;
+
+    const touchX = e.touches[0].clientX;
+    const touchY = e.touches[0].clientY;
+    const diffX = touchStartX - touchX;
+    const diffY = touchStartY - touchY;
+
+    // 방향 결정 (첫 움직임에서)
+    if (!swipeDirection) {
+      if (Math.abs(diffX) > 10 || Math.abs(diffY) > 10) {
+        swipeDirection = Math.abs(diffX) > Math.abs(diffY) ? 'horizontal' : 'vertical';
       }
     }
+
+    // 수직 스크롤이면 무시
+    if (swipeDirection !== 'horizontal') return;
+
+    // 경계 체크 (없는 페이지로는 스와이프 제한)
+    if (diffX > 0 && !nextContent) return; // 오른쪽→왼쪽인데 다음 페이지 없음
+    if (diffX < 0 && !prevContent) return; // 왼쪽→오른쪽인데 이전 페이지 없음
+
+    // 스와이프 시작
+    if (!isSwiping) {
+      isSwiping = true;
+      const main = document.querySelector('main.site-container');
+      if (main) {
+        const currentHtml = main.innerHTML;
+        swipeWrapper = createSwipeWrapper(prevContent, currentHtml, nextContent);
+      }
+    }
+
+    if (swipeWrapper) {
+      currentX = -diffX;
+      // 33.333%가 기준점, diffX만큼 이동
+      const baseOffset = -33.333;
+      const movePercent = (currentX / screenWidth) * 33.333;
+      swipeWrapper.style.transform = 'translateX(' + (baseOffset + movePercent) + '%)';
+    }
+  }, { passive: true });
+
+  // 터치 종료
+  document.body.addEventListener('touchend', (e) => {
+    if (!isSwiping || !swipeWrapper) {
+      touchStartX = 0;
+      swipeDirection = null;
+      return;
+    }
+
+    const threshold = screenWidth * SWIPE_THRESHOLD;
+    const currentIndex = getCurrentNavIndex();
+
+    // 전환 여부 결정
+    if (Math.abs(currentX) > threshold) {
+      // 페이지 전환
+      const direction = currentX < 0 ? 'right' : 'left';
+      const targetIndex = currentX < 0 ? currentIndex - 1 : currentIndex + 1;
+      const targetContent = currentX < 0 ? prevContent : nextContent;
+
+      if (targetContent) {
+        // 애니메이션으로 완전히 이동
+        swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
+        const targetOffset = currentX < 0 ? 0 : -66.666;
+        swipeWrapper.style.transform = 'translateX(' + targetOffset + '%)';
+
+        setTimeout(() => {
+          cleanupSwipe(targetContent);
+          // URL 업데이트 + nav 상태 업데이트
+          const targetUrl = getPageUrl(targetIndex);
+          if (targetUrl) {
+            history.pushState({ url: targetUrl }, '', targetUrl);
+            const targetPage = targetIndex < 0 ? 'home' : navSections[targetIndex];
+            // nav active 업데이트
+            document.querySelectorAll('.nav-item').forEach(item => {
+              item.classList.remove('active');
+              const href = item.getAttribute('href') || '';
+              if (targetPage === 'home' && href === '/') item.classList.add('active');
+              else if (href.startsWith('/' + targetPage)) item.classList.add('active');
+            });
+            // body 클래스 업데이트
+            document.body.className = document.body.className.replace(/page-\\w+/g, '');
+            document.body.classList.add('page-' + targetPage);
+            // nav 캐러셀 업데이트
+            var navInner = document.querySelector('.nav-inner');
+            if (navInner) {
+              var offset = 0;
+              if (targetIndex >= 4) offset = -40;
+              else if (targetIndex === 3) offset = -20;
+              navInner.style.transform = 'translateX(' + offset + '%)';
+            }
+            // 광고 갱신
+            document.querySelectorAll('.ad-card ins.adsbygoogle').forEach(function(ins) {
+              ins.innerHTML = '';
+              ins.removeAttribute('data-ad-status');
+              ins.removeAttribute('data-ad-loaded');
+              try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+            });
+          }
+        }, TRANSITION_MS);
+      } else {
+        // 콘텐츠 없으면 원복
+        swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
+        swipeWrapper.style.transform = 'translateX(-33.333%)';
+        setTimeout(() => {
+          const main = document.querySelector('main.site-container');
+          const currentPane = swipeWrapper?.querySelector('.swipe-current');
+          if (main && currentPane) {
+            cleanupSwipe(currentPane.innerHTML);
+          }
+        }, TRANSITION_MS);
+      }
+    } else {
+      // 원복 애니메이션
+      swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
+      swipeWrapper.style.transform = 'translateX(-33.333%)';
+      setTimeout(() => {
+        const main = document.querySelector('main.site-container');
+        const currentPane = swipeWrapper?.querySelector('.swipe-current');
+        if (main && currentPane) {
+          cleanupSwipe(currentPane.innerHTML);
+        }
+      }, TRANSITION_MS);
+    }
+
+    touchStartX = 0;
+    swipeDirection = null;
   }, { passive: true });
 })();
 </script>`;
