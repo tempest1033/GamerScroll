@@ -232,7 +232,7 @@ const swipeScript = `
   const SWIPE_THRESHOLD = 0.5; // 화면 50% 이상 스와이프하면 전환
   const TRANSITION_MS = 250;
 
-  let touchStartX = 0, touchStartY = 0;
+  let touchStartX = null, touchStartY = null;
   let currentX = 0;
   let isSwiping = false;
   let swipeDirection = null; // 'horizontal' or 'vertical' or null
@@ -379,7 +379,7 @@ const swipeScript = `
 
   // 터치 이동
   document.body.addEventListener('touchmove', (e) => {
-    if (!touchStartX) { console.log('[swipe] no touchStartX'); return; }
+    if (touchStartX === null) { console.log('[swipe] no touchStartX'); return; }
 
     const touchX = e.touches[0].clientX;
     const touchY = e.touches[0].clientY;
@@ -427,7 +427,7 @@ const swipeScript = `
   // 터치 종료
   document.body.addEventListener('touchend', (e) => {
     if (!isSwiping || !swipeWrapper) {
-      touchStartX = 0;
+      touchStartX = null;
       swipeDirection = null;
       return;
     }
@@ -525,7 +525,7 @@ const swipeScript = `
       }, TRANSITION_MS);
     }
 
-    touchStartX = 0;
+    touchStartX = null;
     swipeDirection = null;
   }, { passive: true });
 })();
