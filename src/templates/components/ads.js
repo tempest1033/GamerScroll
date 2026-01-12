@@ -1,4 +1,4 @@
-/**
+﻿/**
  * PC 전용 광고 모듈
  * gamerscrawl.com (PC 버전)에서 사용
  * 모바일 광고는 ads-mobile.js 참조

@@ -290,8 +290,8 @@ const swipeScript = `
   // 페이지 로드 시 프리페치
   setTimeout(prefetchAdjacent, 500);
 
-  // 스와이프 래퍼 생성
-  function createSwipeWrapper(prevHtml, currentHtml, nextHtml) {
+  // 스와이프 래퍼 생성 (현재 화면은 DOM 이동으로 유지: 첫 스와이프 덜컥 방지)
+  function createSwipeWrapper(prevHtml, nextHtml) {
     const main = document.querySelector('main.site-container');
     if (!main) return null;
 
@@ -307,7 +307,10 @@ const swipeScript = `
     const currentPane = document.createElement('div');
     currentPane.className = 'swipe-pane swipe-current';
     currentPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
-    currentPane.innerHTML = currentHtml;
+
+    const frag = document.createDocumentFragment();
+    while (main.firstChild) frag.appendChild(main.firstChild);
+    currentPane.appendChild(frag);
 
     const nextPane = document.createElement('div');
     nextPane.className = 'swipe-pane swipe-next';
@@ -318,7 +321,6 @@ const swipeScript = `
     wrapper.appendChild(currentPane);
     wrapper.appendChild(nextPane);
 
-    main.innerHTML = '';
     main.appendChild(wrapper);
     return wrapper;
   }
@@ -340,23 +342,44 @@ const swipeScript = `
     // overflow 원복
     main.style.overflow = '';
 
-    const restoreContent = keepContent != null ? keepContent : originalMainHtml;
-    if (restoreContent != null) {
-      main.innerHTML = restoreContent;
+    if (keepContent != null) {
+      main.innerHTML = keepContent;
+
+      // 스크립트 재실행 (innerHTML로 교체된 경우에만)
+      const scripts = Array.from(main.querySelectorAll('script'));
+      scripts.forEach(function(oldScript) {
+        const newScript = document.createElement('script');
+        if (oldScript.src) newScript.src = oldScript.src;
+        else newScript.textContent = '(function(){' + oldScript.textContent + '})();';
+        oldScript.remove();
+        document.body.appendChild(newScript);
+      });
     } else {
       const currentPane = swipeWrapper.querySelector('.swipe-current');
-      main.innerHTML = currentPane ? currentPane.innerHTML : '';
-    }
+      const frag = document.createDocumentFragment();
+      if (currentPane) {
+        while (currentPane.firstChild) frag.appendChild(currentPane.firstChild);
+      }
 
-    // 스크립트 재실행
-    const scripts = Array.from(main.querySelectorAll('script'));
-    scripts.forEach(function(oldScript) {
-      const newScript = document.createElement('script');
-      if (oldScript.src) newScript.src = oldScript.src;
-      else newScript.textContent = '(function(){' + oldScript.textContent + '})();';
-      oldScript.remove();
-      document.body.appendChild(newScript);
-    });
+      main.innerHTML = '';
+      if (frag.childNodes.length) {
+        main.appendChild(frag);
+      } else {
+        const fallbackHtml = currentPane ? currentPane.innerHTML : (originalMainHtml || '');
+        if (fallbackHtml) {
+          main.innerHTML = fallbackHtml;
+
+          const scripts = Array.from(main.querySelectorAll('script'));
+          scripts.forEach(function(oldScript) {
+            const newScript = document.createElement('script');
+            if (oldScript.src) newScript.src = oldScript.src;
+            else newScript.textContent = '(function(){' + oldScript.textContent + '})();';
+            oldScript.remove();
+            document.body.appendChild(newScript);
+          });
+        }
+      }
+    }
 
     swipeWrapper = null;
     prevContent = null;
@@ -405,9 +428,9 @@ const swipeScript = `
     const diffX = touchStartX - touchX;
     const diffY = touchStartY - touchY;
 
-    // 방향 결정 (첫 움직임에서) - 임계값 15px
+    // 방향 결정 (첫 움직임에서) - 임계값 6px
     if (!swipeDirection) {
-      if (Math.abs(diffX) > 15 || Math.abs(diffY) > 15) {
+      if (Math.abs(diffX) > 6 || Math.abs(diffY) > 6) {
         swipeDirection = Math.abs(diffX) > Math.abs(diffY) ? 'horizontal' : 'vertical';
       }
     }
@@ -428,9 +451,7 @@ const swipeScript = `
       const main = document.querySelector('main.site-container');
       if (main) {
         main.style.overflow = 'hidden';  // 래퍼가 부모를 벗어나지 않도록
-        const currentHtml = main.innerHTML;
-        originalMainHtml = currentHtml;
-        swipeWrapper = createSwipeWrapper(prevContent, currentHtml, nextContent);
+        swipeWrapper = createSwipeWrapper(prevContent, nextContent);
         if (!swipeWrapper) isSwiping = false;
       }
     }
@@ -533,7 +554,7 @@ const swipeScript = `
         const main = document.querySelector('main.site-container');
         const currentPane = swipeWrapper?.querySelector('.swipe-current');
         if (main && currentPane) {
-          cleanupSwipe(currentPane.innerHTML);
+          cleanupSwipe();
         }
       }, TRANSITION_MS);
     }
@@ -547,7 +568,7 @@ const swipeScript = `
     swipeDirection = null;
     if (!isSwiping || !swipeWrapper) return;
     const currentPane = swipeWrapper.querySelector('.swipe-current');
-    cleanupSwipe(currentPane ? currentPane.innerHTML : null);
+    cleanupSwipe();
   }, { passive: true });
 })();
 </script>`;

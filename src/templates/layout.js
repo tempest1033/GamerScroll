@@ -687,25 +687,138 @@ const fontAndEmojiScript = `
 const lazyAdScript = `
 <script>
 (function() {
+  var VIEWPORT_MARGIN_PX = 600;
+  var STUCK_RETRY_DELAY_MS = 3000;
+
   function isAdRenderable(ad) {
     if (!ad) return false;
     // display:none(숨김 패널 등) 상태에서는 availableWidth=0 에러가 날 수 있어 push()를 미루기
     return !!(ad.offsetWidth && ad.offsetHeight);
   }
 
+  function isNearViewport(ad, marginPx) {
+    if (!ad || !ad.getBoundingClientRect) return true;
+    var rect = ad.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+    if (!vh) return true;
+    var margin = typeof marginPx === 'number' ? marginPx : 0;
+    return rect.top < (vh + margin) && rect.bottom > (-margin);
+  }
+
+  function isInViewport(ad) {
+    return isNearViewport(ad, 0);
+  }
+
+  function hasAdResult(ad) {
+    if (!ad) return true;
+    if (ad.hasAttribute('data-ad-status')) return true;
+    if (ad.hasAttribute('data-adsbygoogle-status')) return true;
+    if (ad.querySelector && ad.querySelector('iframe')) return true;
+    return false;
+  }
+
+  function clearAdMarkers(ad) {
+    if (!ad) return;
+    try { ad.removeAttribute('data-ad-status'); } catch (e) {}
+    try { ad.removeAttribute('data-adsbygoogle-status'); } catch (e) {}
+    try { ad.removeAttribute('data-ad-loaded'); } catch (e) {}
+  }
+
+  function scheduleStuckRetry(ad) {
+    try {
+      if (!ad || ad.getAttribute('data-gc-retry') === '1') return;
+      setTimeout(function() {
+        try {
+          if (!ad) return;
+          if (ad.getAttribute('data-gc-retry') === '1') return;
+          if (!document.contains(ad)) return;
+          if (!isAdRenderable(ad)) return;
+          if (!isInViewport(ad)) return;
+          if (hasAdResult(ad)) return;
+
+          var newIns = null;
+          try {
+            newIns = ad.cloneNode(false);
+            newIns.innerHTML = '';
+            clearAdMarkers(newIns);
+            newIns.removeAttribute('data-ad-lazy');
+            newIns.setAttribute('data-gc-retry', '1');
+            ad.parentNode.replaceChild(newIns, ad);
+          } catch (e) {
+            return;
+          }
+
+          try {
+            if (window.__gcAdObserver && window.__gcAdObserver.observe) {
+              window.__gcAdObserver.observe(newIns);
+            }
+          } catch (e) {}
+
+          safePush(newIns);
+        } catch (e) {}
+      }, STUCK_RETRY_DELAY_MS);
+    } catch (e) {}
+  }
+
+  function safePush(ad) {
+    if (!ad) return false;
+    if (!isAdRenderable(ad)) return false;
+    if (ad.hasAttribute('data-ad-loaded')) return false;
+    if (ad.hasAttribute('data-adsbygoogle-status')) return false;
+    if (hasAdResult(ad)) return false;
+
+    try {
+      ad.dataset.adLoaded = String(Date.now());
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      scheduleStuckRetry(ad);
+      return true;
+    } catch(e) {
+      try {
+        ad.removeAttribute('data-ad-loaded');
+        delete ad.dataset.adLoaded;
+      } catch (_) {}
+      return false;
+    }
+  }
+
+  function ensureObserver() {
+    if (window.__gcAdObserver) return window.__gcAdObserver;
+    try {
+      if (!('IntersectionObserver' in window)) return null;
+      window.__gcAdObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          var ad = entry && entry.target;
+          if (!ad) return;
+          if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
+          if (safePush(ad)) {
+            try { window.__gcAdObserver.unobserve(ad); } catch (e) {}
+          }
+        });
+      }, { rootMargin: VIEWPORT_MARGIN_PX + 'px 0px', threshold: 0 });
+      return window.__gcAdObserver;
+    } catch (e) {
+      return null;
+    }
+  }
+
   function initAds() {
+    var observer = ensureObserver();
     var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded]):not([data-adsbygoogle-status])');
     ads.forEach(function(ad) {
       if (!isAdRenderable(ad)) return;
-      try {
-        ad.dataset.adLoaded = 'true';
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch(e) {
-        try {
-          ad.removeAttribute('data-ad-loaded');
-          delete ad.dataset.adLoaded;
-        } catch (_) {}
+
+      if (observer && observer.observe) {
+        try { observer.observe(ad); } catch (e) {}
+        if (isNearViewport(ad, VIEWPORT_MARGIN_PX)) {
+          if (safePush(ad)) {
+            try { observer.unobserve(ad); } catch (e) {}
+          }
+        }
+        return;
       }
+
+      if (!isNearViewport(ad, VIEWPORT_MARGIN_PX)) return;
+      safePush(ad);
     });
   }
 
@@ -732,6 +845,7 @@ const lazyAdScript = `
   window.addEventListener('load', scheduleInitAds);
 
   window.addEventListener('resize', scheduleInitAds);
+  window.addEventListener('scroll', scheduleInitAds, { passive: true });
   window.addEventListener('pageshow', function(e) {
     // bfcache 복귀 케이스
     if (e && e.persisted) scheduleInitAds();

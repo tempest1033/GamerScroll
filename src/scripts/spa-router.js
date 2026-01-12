@@ -20,19 +20,14 @@ const spaRouterScript = `
         var scope = root && root.querySelectorAll ? root : document;
         var list = scope.querySelectorAll('ins.adsbygoogle');
         list.forEach(function(ins) {
-          var hasStatus =
-            ins.hasAttribute('data-ad-status') ||
-            ins.hasAttribute('data-adsbygoogle-status') ||
-            ins.hasAttribute('data-ad-loaded');
-          var hasIframe = !!ins.querySelector('iframe');
-          if (!hasStatus && !hasIframe) return;
-
           try {
             var newIns = ins.cloneNode(false);
             newIns.innerHTML = '';
             newIns.removeAttribute('data-ad-status');
             newIns.removeAttribute('data-adsbygoogle-status');
             newIns.removeAttribute('data-ad-loaded');
+            newIns.removeAttribute('data-ad-lazy');
+            newIns.removeAttribute('data-gc-retry');
             ins.parentNode.replaceChild(newIns, ins);
           } catch (e) {}
         });
@@ -103,7 +98,8 @@ const spaRouterScript = `
   // 광고 갱신 (공용 함수)
   function refreshAds() {
     try {
-      if (window.__gcRefreshAds) window.__gcRefreshAds(document);
+      var main = document.querySelector('main.site-container');
+      if (window.__gcRefreshAds) window.__gcRefreshAds(main || document);
       else if (window.__gcInitAds) window.__gcInitAds();
     } catch (e) {}
   }
