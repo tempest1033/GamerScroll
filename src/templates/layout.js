@@ -670,6 +670,8 @@ const lazyAdScript = `
     // Intersection Observer 미지원 시 바로 로드
     if (!('IntersectionObserver' in window)) {
       lazyAds.forEach(function(ad) {
+        if (ad.dataset.adLoaded) return;
+        ad.dataset.adLoaded = 'true';
         pushAd();
       });
       return;
@@ -691,7 +693,16 @@ const lazyAdScript = `
     });
 
     lazyAds.forEach(function(ad) {
-      observer.observe(ad);
+      // 이미 뷰포트에 있는 광고는 바로 로드
+      var rect = ad.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 200) {
+        if (!ad.dataset.adLoaded) {
+          ad.dataset.adLoaded = 'true';
+          pushAd();
+        }
+      } else {
+        observer.observe(ad);
+      }
     });
   }
 
