@@ -284,6 +284,34 @@ const footerModalScript = `
 })();
 </script>`;
 
+// 모바일 광고 초기화 (adsbygoogle 로드 대기)
+const mobileAdInitScript = `
+<script>
+(function() {
+  function safePush(ad, retryCount) {
+    retryCount = retryCount || 0;
+    if (retryCount > 50) return;
+    if (typeof adsbygoogle !== 'undefined' && adsbygoogle.push) {
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+    } else {
+      setTimeout(function() { safePush(ad, retryCount + 1); }, 100);
+    }
+  }
+  function initAds() {
+    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
+    ads.forEach(function(ad) {
+      ad.dataset.adLoaded = 'true';
+      safePush(ad, 0);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAds);
+  } else {
+    initAds();
+  }
+})();
+</script>`;
+
 /**
  * 모바일 페이지 레이아웃
  */
@@ -325,6 +353,7 @@ function wrapWithLayout(content, options = {}) {
   ${showSearchBar ? searchBarScript : ''}
   ${swipeScript}
   ${mobileScrollHideScript}
+  ${mobileAdInitScript}
 </body>
 </html>`;
 }

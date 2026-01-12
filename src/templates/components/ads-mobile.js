@@ -11,12 +11,12 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
+  // 인라인 push() 제거 - layout.js에서 safePush()로 일괄 초기화
   return `<div class="ad-card ad-card-mobile-top">
   <ins class="adsbygoogle"
        style="display:block;width:320px;height:150px;min-width:320px;min-height:150px;max-width:320px;max-height:150px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
 
@@ -25,12 +25,12 @@ function renderMobileTopAd(slotId) {
  */
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
+  // 인라인 push() 제거 - layout.js에서 safePush()로 일괄 초기화
   return `<div class="ad-card ad-card-mobile-mid">
   <ins class="adsbygoogle"
        style="display:block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>`;
 }
 

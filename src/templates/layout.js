@@ -634,22 +634,52 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// PC 광고 레이지 로딩 (Intersection Observer)
+// 광고 초기화 스크립트 (PC: lazy loading, 모바일: 일괄 초기화)
 const lazyAdScript = `
 <script>
 (function() {
-  // PC에서만 실행
-  if (window.innerWidth <= 768) return;
+  // adsbygoogle 로드 대기 후 push 호출하는 헬퍼
+  function safePush(ad, retryCount) {
+    retryCount = retryCount || 0;
+    if (retryCount > 50) return; // 5초 후 포기
 
+    // adsbygoogle가 로드되고 초기화됐는지 체크
+    if (typeof adsbygoogle !== 'undefined' && adsbygoogle.push) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch(e) {}
+    } else {
+      // 100ms 후 재시도
+      setTimeout(function() { safePush(ad, retryCount + 1); }, 100);
+    }
+  }
+
+  // 모바일: 인라인 push() 대신 여기서 일괄 초기화
+  if (window.innerWidth <= 768) {
+    function initMobileAds() {
+      var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
+      ads.forEach(function(ad) {
+        ad.dataset.adLoaded = 'true';
+        safePush(ad, 0);
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMobileAds);
+    } else {
+      initMobileAds();
+    }
+    return;
+  }
+
+  // PC: Intersection Observer 기반 lazy loading
   function initLazyAds() {
     var lazyAds = document.querySelectorAll('ins.adsbygoogle[data-ad-lazy="true"]');
     if (!lazyAds.length) return;
 
     // Intersection Observer 지원 체크
     if (!('IntersectionObserver' in window)) {
-      // 미지원 브라우저는 즉시 로드
       lazyAds.forEach(function(ad) {
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        safePush(ad, 0);
       });
       return;
     }
@@ -660,7 +690,7 @@ const lazyAdScript = `
           var ad = entry.target;
           if (ad.dataset.adLoaded) return;
           ad.dataset.adLoaded = 'true';
-          (adsbygoogle = window.adsbygoogle || []).push({});
+          safePush(ad, 0);
           observer.unobserve(ad);
         }
       });
