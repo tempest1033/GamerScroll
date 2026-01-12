@@ -92,7 +92,8 @@ const spaRouterScript = `
       if (oldScript.src) {
         newScript.src = oldScript.src;
       } else {
-        newScript.textContent = oldScript.textContent;
+        // IIFE로 감싸서 const/let 재선언 오류 방지
+        newScript.textContent = '(function(){' + oldScript.textContent + '})();';
       }
       // 기존 스크립트 제거 후 body에 추가 (확실한 실행 보장)
       oldScript.remove();

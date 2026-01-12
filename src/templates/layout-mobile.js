@@ -334,7 +334,7 @@ const swipeScript = `
       scripts.forEach(function(oldScript) {
         const newScript = document.createElement('script');
         if (oldScript.src) newScript.src = oldScript.src;
-        else newScript.textContent = oldScript.textContent;
+        else newScript.textContent = '(function(){' + oldScript.textContent + '})();';
         oldScript.remove();
         document.body.appendChild(newScript);
       });
