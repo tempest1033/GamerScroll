@@ -379,7 +379,7 @@ const swipeScript = `
 
   // 터치 이동
   document.body.addEventListener('touchmove', (e) => {
-    if (!touchStartX) return;
+    if (!touchStartX) { console.log('[swipe] no touchStartX'); return; }
 
     const touchX = e.touches[0].clientX;
     const touchY = e.touches[0].clientY;
@@ -390,6 +390,7 @@ const swipeScript = `
     if (!swipeDirection) {
       if (Math.abs(diffX) > 10 || Math.abs(diffY) > 10) {
         swipeDirection = Math.abs(diffX) > Math.abs(diffY) ? 'horizontal' : 'vertical';
+        console.log('[swipe] direction:', swipeDirection);
       }
     }
 
@@ -397,16 +398,18 @@ const swipeScript = `
     if (swipeDirection !== 'horizontal') return;
 
     // 경계 체크 (없는 페이지 방향으로는 스와이프 제한)
-    if (diffX > 0 && !hasNextPage) return; // 오른쪽→왼쪽인데 다음 페이지 자체가 없음
-    if (diffX < 0 && !hasPrevPage) return; // 왼쪽→오른쪽인데 이전 페이지 자체가 없음
+    if (diffX > 0 && !hasNextPage) { console.log('[swipe] blocked: no next page'); return; }
+    if (diffX < 0 && !hasPrevPage) { console.log('[swipe] blocked: no prev page'); return; }
 
     // 스와이프 시작
     if (!isSwiping) {
       isSwiping = true;
+      console.log('[swipe] starting, hasNext:', hasNextPage, 'hasPrev:', hasPrevPage);
       const main = document.querySelector('main.site-container');
       if (main) {
         const currentHtml = main.innerHTML;
         swipeWrapper = createSwipeWrapper(prevContent, currentHtml, nextContent);
+        console.log('[swipe] wrapper created:', !!swipeWrapper);
       }
     }
 
@@ -415,7 +418,9 @@ const swipeScript = `
       // 33.333%가 기준점, diffX만큼 이동
       const baseOffset = -33.333;
       const movePercent = (currentX / screenWidth) * 33.333;
-      swipeWrapper.style.transform = 'translateX(' + (baseOffset + movePercent) + '%)';
+      const newTransform = baseOffset + movePercent;
+      swipeWrapper.style.transform = 'translateX(' + newTransform + '%)';
+      console.log('[swipe] transform:', newTransform.toFixed(2) + '%');
     }
   }, { passive: true });
 
