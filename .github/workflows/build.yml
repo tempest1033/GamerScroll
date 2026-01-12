@@ -108,6 +108,9 @@ jobs:
       - name: Remove mobile ads from PC version
         run: node scripts/remove-mobile-ads.js
 
+      - name: Generate SPA partials
+        run: node scripts/generate-partials.js
+
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions"

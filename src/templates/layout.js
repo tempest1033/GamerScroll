@@ -18,6 +18,7 @@ const {
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
+const { spaRouterScript, spaTransitionCss } = require('../scripts/spa-router');
 
 // 광고 슬롯 (PC + 모바일)
 const AD_SLOTS = {
@@ -399,13 +400,22 @@ const swipeScript = `
     return -1; // 홈
   }
 
-  function switchNavSection(index) {
+  function switchNavSection(index, direction) {
     const sections = getNavSections();
-    if (index < 0 || index >= sections.length) {
-      window.location.href = '/';
+    const page = (index < 0 || index >= sections.length) ? 'home' : sections[index];
+
+    // SPA 라우터 사용 (있으면)
+    if (window.spaNavigateTo) {
+      window.spaNavigateTo(page, { direction: direction });
       return;
     }
-    window.location.href = '/' + sections[index] + '/';
+
+    // 폴백: 전체 페이지 이동
+    if (page === 'home') {
+      window.location.href = '/';
+    } else {
+      window.location.href = '/' + page + '/';
+    }
   }
 
   // 스크롤 가능한 요소 찾기
@@ -527,12 +537,13 @@ const swipeScript = `
       setTimeout(() => { isSwiping = false; }, 300);
 
       const currentIndex = getCurrentNavIndex();
+      const direction = diffX > 0 ? 'left' : 'right';
       if (currentIndex === -1) {
-        if (diffX > 0) switchNavSection(0);
-        else switchNavSection(getNavSections().length - 1);
+        if (diffX > 0) switchNavSection(0, direction);
+        else switchNavSection(getNavSections().length - 1, direction);
       } else {
-        if (diffX > 0) switchNavSection(currentIndex + 1);
-        else switchNavSection(currentIndex - 1);
+        if (diffX > 0) switchNavSection(currentIndex + 1, direction);
+        else switchNavSection(currentIndex - 1, direction);
       }
     }
     cleanup();
@@ -1081,23 +1092,25 @@ function wrapWithLayout(content, options = {}) {
 <html lang="ko">
 <head>
   ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex })}
+  ${spaTransitionCss}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}">
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
-	  <main class="site-container">
-	    ${content}
-				  </main>
-					  ${generateFooter()}
-				  ${footerModalScript}
-				  ${imageFallbackScript}
-			  ${fontAndEmojiScript}
-			  ${pageScripts}
-			  ${lazyAdScript}
-			  ${deferredItemsScript}
-			  ${showSearchBar ? searchBarScript : ''}
-			  ${hoverPrefetchScript}
+  <main class="site-container">
+    ${content}
+  </main>
+  ${generateFooter()}
+  ${footerModalScript}
+  ${imageFallbackScript}
+  ${fontAndEmojiScript}
+  ${spaRouterScript}
+  ${pageScripts}
+  ${lazyAdScript}
+  ${deferredItemsScript}
+  ${showSearchBar ? searchBarScript : ''}
+  ${hoverPrefetchScript}
   ${swipeScript}
   ${mobileScrollHideScript}
 </body>
@@ -1159,8 +1172,22 @@ function generateMobileOnlyMidAdSlot(mobileSlotId) {
   return renderMobileMidAd(mobileSlotId);
 }
 
+/**
+ * SPA용 partial 콘텐츠 생성 (레이아웃 없이 메인 콘텐츠만)
+ * @param {string} content - 메인 콘텐츠 HTML
+ * @param {Object} options - 옵션
+ * @param {string} options.pageScripts - 페이지별 스크립트
+ */
+function generatePartialContent(content, options = {}) {
+  const { pageScripts = '' } = options;
+  // 콘텐츠 + 페이지별 스크립트만 반환 (layout shell 제외)
+  return `${content}
+${pageScripts}`;
+}
+
 module.exports = {
   wrapWithLayout,
+  generatePartialContent,
   SHOW_ADS,
   AD_SLOTS,
   generateAdSlot,
