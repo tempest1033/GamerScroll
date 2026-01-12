@@ -736,21 +736,15 @@ const lazyAdScript = `
   window.__gcInitAds = initAds;
   window.__gcRefreshAds = refreshAds;
 
-  // AdSense 스크립트 로드 대기 후 초기화
-  function boot() {
-    if (typeof adsbygoogle === 'undefined') {
-      setTimeout(boot, 100);
-      return;
-    }
+  // 페이지 로드 시 초기화 (공식 예제 방식: adsbygoogle 정의 대기 없이 바로 push)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initAds();
+      retryInit(0);
+    });
+  } else {
     initAds();
     retryInit(0);
-  }
-
-  // 페이지 로드 시 초기화
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
-  } else {
-    boot();
   }
 
   // load 이벤트 (안전장치)
