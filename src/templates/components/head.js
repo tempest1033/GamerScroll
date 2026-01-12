@@ -200,7 +200,8 @@ function generateHead(options = {}) {
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script type="module">
 	    (function() {
-	      if (window.location.hostname !== 'gamerscrawl.com') return;
+	      var host = window.location.hostname;
+      if (host !== 'gamerscrawl.com' && host !== 'm.gamerscrawl.com') return;
 
 	      var init = async function() {
 	        try {
