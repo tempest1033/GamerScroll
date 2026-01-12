@@ -229,10 +229,17 @@ const swipeScript = `
 <script>
 (function() {
   const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
-  const SWIPE_THRESHOLD = 0.5; // 화면 50% 이상 스와이프하면 전환
+
+  // 스와이프 임계값 (velocity 기반)
+  const THRESHOLD_FLICK = 0.15;    // 빠른 flick: 15%
+  const THRESHOLD_NORMAL = 0.20;   // 일반 스와이프: 20%
+  const THRESHOLD_SLOW = 0.50;     // 느린 드래그: 50%
+  const VELOCITY_FLICK = 0.5;      // flick 판정 속도 (px/ms)
+  const VELOCITY_SLOW = 0.1;       // 느린 드래그 판정 속도 (px/ms)
   const TRANSITION_MS = 250;
 
   let touchStartX = null, touchStartY = null;
+  let touchStartTime = null;
   let currentX = 0;
   let isSwiping = false;
   let swipeDirection = null; // 'horizontal' or 'vertical' or null
@@ -241,6 +248,7 @@ const swipeScript = `
   let hasPrevPage = false, hasNextPage = false;
   let screenWidth = window.innerWidth;
   let originalMainHtml = null;
+  let swipeEndTimer = 0;
 
   // 프리페치 캐시
   const pageCache = new Map();
@@ -290,14 +298,17 @@ const swipeScript = `
   // 페이지 로드 시 프리페치
   setTimeout(prefetchAdjacent, 500);
 
-  // 스와이프 래퍼 생성 (현재 화면은 DOM 이동으로 유지: 첫 스와이프 덜컥 방지)
+  // 스와이프 래퍼 생성 (innerHTML 복사로 끊김 방지)
   function createSwipeWrapper(prevHtml, nextHtml) {
     const main = document.querySelector('main.site-container');
     if (!main) return null;
 
+    // touchstart에서 이미 저장된 originalMainHtml 사용 (없으면 현재 상태 저장)
+    if (!originalMainHtml) originalMainHtml = main.innerHTML;
+
     const wrapper = document.createElement('div');
     wrapper.className = 'swipe-wrapper';
-    wrapper.style.cssText = 'display:flex;width:300%;transform:translateX(-33.333%);will-change:transform;';
+    wrapper.style.cssText = 'display:flex;width:300%;will-change:transform;';
 
     const prevPane = document.createElement('div');
     prevPane.className = 'swipe-pane swipe-prev';
@@ -307,10 +318,7 @@ const swipeScript = `
     const currentPane = document.createElement('div');
     currentPane.className = 'swipe-pane swipe-current';
     currentPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
-
-    const frag = document.createDocumentFragment();
-    while (main.firstChild) frag.appendChild(main.firstChild);
-    currentPane.appendChild(frag);
+    currentPane.innerHTML = originalMainHtml;  // DOM 이동 대신 innerHTML 복사
 
     const nextPane = document.createElement('div');
     nextPane.className = 'swipe-pane swipe-next';
@@ -321,7 +329,24 @@ const swipeScript = `
     wrapper.appendChild(currentPane);
     wrapper.appendChild(nextPane);
 
+    // main 비우고 래퍼 추가 (한 번에 처리)
+    main.innerHTML = '';
     main.appendChild(wrapper);
+
+    // 래퍼 추가 직후 transform 설정 (reflow 후 적용)
+    wrapper.offsetHeight;  // force reflow
+    wrapper.style.transform = 'translateX(-33.333%)';
+
+    // 스와이프 시작 시 양쪽 패널 광고 초기화
+    setTimeout(function() {
+      try {
+        if (window.__gcInitAds) {
+          window.__gcInitAds(prevPane);
+          window.__gcInitAds(nextPane);
+        }
+      } catch(e) {}
+    }, 100);
+
     return wrapper;
   }
 
@@ -332,20 +357,38 @@ const swipeScript = `
     if (!pane) return;
     if (!pane.querySelector('.swipe-empty')) return;
     pane.innerHTML = html;
+    // 콘텐츠 채운 후 광고 초기화
+    setTimeout(function() {
+      try {
+        if (window.__gcInitAds) window.__gcInitAds(pane);
+      } catch(e) {}
+    }, 50);
   }
 
-  // 스와이프 정리
+  // 스와이프 정리 (DOM 이동 없이 innerHTML 복사로 처리)
   function cleanupSwipe(keepContent = null) {
     const main = document.querySelector('main.site-container');
-    if (!main || !swipeWrapper) return;
+    if (!main) return;
+    if (!swipeWrapper) swipeWrapper = main.querySelector('.swipe-wrapper');
+    if (!swipeWrapper) return;
+
+    if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
 
     // overflow 원복
     main.style.overflow = '';
 
-    if (keepContent != null) {
-      main.innerHTML = keepContent;
+    // 복원할 콘텐츠 결정
+    let restoreHtml = keepContent;
+    if (restoreHtml == null) {
+      // 원본 HTML이 있으면 사용, 없으면 현재 페인에서 추출
+      restoreHtml = originalMainHtml || (swipeWrapper.querySelector('.swipe-current')?.innerHTML) || '';
+    }
 
-      // 스크립트 재실행 (innerHTML로 교체된 경우에만)
+    // 한 번에 교체 (DOM 이동 없음)
+    main.innerHTML = restoreHtml;
+
+    // 스크립트 재실행 (페이지 전환 시에만 필요)
+    if (keepContent != null) {
       const scripts = Array.from(main.querySelectorAll('script'));
       scripts.forEach(function(oldScript) {
         const newScript = document.createElement('script');
@@ -354,31 +397,6 @@ const swipeScript = `
         oldScript.remove();
         document.body.appendChild(newScript);
       });
-    } else {
-      const currentPane = swipeWrapper.querySelector('.swipe-current');
-      const frag = document.createDocumentFragment();
-      if (currentPane) {
-        while (currentPane.firstChild) frag.appendChild(currentPane.firstChild);
-      }
-
-      main.innerHTML = '';
-      if (frag.childNodes.length) {
-        main.appendChild(frag);
-      } else {
-        const fallbackHtml = currentPane ? currentPane.innerHTML : (originalMainHtml || '');
-        if (fallbackHtml) {
-          main.innerHTML = fallbackHtml;
-
-          const scripts = Array.from(main.querySelectorAll('script'));
-          scripts.forEach(function(oldScript) {
-            const newScript = document.createElement('script');
-            if (oldScript.src) newScript.src = oldScript.src;
-            else newScript.textContent = '(function(){' + oldScript.textContent + '})();';
-            oldScript.remove();
-            document.body.appendChild(newScript);
-          });
-        }
-      }
     }
 
     swipeWrapper = null;
@@ -396,8 +414,27 @@ const swipeScript = `
     // 스크롤 가능한 요소 내에서는 무시
     if (e.target.closest('.search-dropdown, .modal-overlay, input, textarea')) return;
 
+    if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
+
+    // 이전 스와이프 래퍼가 남아있으면 정리
+    if (!swipeWrapper) {
+      const dangling = document.querySelector('main.site-container .swipe-wrapper');
+      if (dangling) swipeWrapper = dangling;
+    }
+    if (swipeWrapper) {
+      try { swipeWrapper.style.transition = 'none'; } catch (e) {}
+      cleanupSwipe();
+    }
+
+    // 현재 main 콘텐츠를 미리 저장 (스와이프 시작 전 상태)
+    const main = document.querySelector('main.site-container');
+    if (main && !main.querySelector('.swipe-wrapper')) {
+      originalMainHtml = main.innerHTML;
+    }
+
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
     currentX = 0;
     swipeDirection = null;
     screenWidth = window.innerWidth;
@@ -457,6 +494,7 @@ const swipeScript = `
     }
 
     if (swipeWrapper) {
+      swipeWrapper.style.transition = 'none';
       currentX = diffX;  // 방향 수정: diffX 그대로 사용
       const baseOffset = -33.333;
       const movePercent = (-currentX / screenWidth) * 33.333;  // 부호 반전
@@ -466,13 +504,36 @@ const swipeScript = `
 
   // 터치 종료
   document.body.addEventListener('touchend', (e) => {
+    if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
+
+    if (!swipeWrapper) {
+      const dangling = document.querySelector('main.site-container .swipe-wrapper');
+      if (dangling) swipeWrapper = dangling;
+    }
+
     if (!isSwiping || !swipeWrapper) {
+      if (swipeWrapper) cleanupSwipe();
       touchStartX = null;
+      touchStartTime = null;
       swipeDirection = null;
       return;
     }
 
-    const threshold = screenWidth * SWIPE_THRESHOLD;
+    // velocity 계산 (px/ms)
+    const elapsed = Date.now() - (touchStartTime || Date.now());
+    const velocity = elapsed > 0 ? Math.abs(currentX) / elapsed : 0;
+
+    // velocity에 따른 임계값 결정
+    let thresholdRatio;
+    if (velocity >= VELOCITY_FLICK) {
+      thresholdRatio = THRESHOLD_FLICK;  // 빠른 flick: 15%
+    } else if (velocity <= VELOCITY_SLOW) {
+      thresholdRatio = THRESHOLD_SLOW;   // 느린 드래그: 50%
+    } else {
+      thresholdRatio = THRESHOLD_NORMAL; // 일반: 20%
+    }
+
+    const threshold = screenWidth * thresholdRatio;
     const currentIndex = getCurrentNavIndex();
 
     // 전환 여부 결정
@@ -488,7 +549,8 @@ const swipeScript = `
         const targetOffset = currentX < 0 ? 0 : -66.666;
         swipeWrapper.style.transform = 'translateX(' + targetOffset + '%)';
 
-        setTimeout(() => {
+        swipeEndTimer = setTimeout(() => {
+          swipeEndTimer = 0;
           cleanupSwipe(targetContent);
           // URL 업데이트 + nav 상태 업데이트
           const targetUrl = getPageUrl(targetIndex);
@@ -532,7 +594,8 @@ const swipeScript = `
         const targetOffset = currentX < 0 ? 0 : -66.666;
         swipeWrapper.style.transform = 'translateX(' + targetOffset + '%)';
 
-        setTimeout(() => {
+        swipeEndTimer = setTimeout(() => {
+          swipeEndTimer = 0;
           const targetUrl = getPageUrl(targetIndex);
           if (targetUrl) {
             // SPA 라우터가 있으면 사용, 없으면 일반 이동
@@ -550,24 +613,29 @@ const swipeScript = `
       // 원복 애니메이션
       swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
       swipeWrapper.style.transform = 'translateX(-33.333%)';
-      setTimeout(() => {
-        const main = document.querySelector('main.site-container');
-        const currentPane = swipeWrapper?.querySelector('.swipe-current');
-        if (main && currentPane) {
-          cleanupSwipe();
-        }
+      swipeEndTimer = setTimeout(() => {
+        swipeEndTimer = 0;
+        cleanupSwipe();
       }, TRANSITION_MS);
     }
 
     touchStartX = null;
+    touchStartTime = null;
     swipeDirection = null;
   }, { passive: true });
 
   document.body.addEventListener('touchcancel', () => {
     touchStartX = null;
+    touchStartTime = null;
     swipeDirection = null;
-    if (!isSwiping || !swipeWrapper) return;
-    const currentPane = swipeWrapper.querySelector('.swipe-current');
+    if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
+
+    if (!swipeWrapper) {
+      const dangling = document.querySelector('main.site-container .swipe-wrapper');
+      if (dangling) swipeWrapper = dangling;
+    }
+    if (!swipeWrapper) return;
+
     cleanupSwipe();
   }, { passive: true });
 })();
@@ -661,58 +729,84 @@ const footerModalScript = `
 })();
 </script>`;
 
-// 모바일 광고 초기화 (표준 AdSense 패턴 - 바로 push)
+// 모바일 광고 초기화 (단순화 버전)
 const mobileAdInitScript = `
 <script>
 (function() {
-  function isAdRenderable(ad) {
-    if (!ad) return false;
-    // display:none(숨김 패널 등) 상태에서는 availableWidth=0 에러가 날 수 있어 push()를 미루기
-    return !!(ad.offsetWidth && ad.offsetHeight);
+  var RETRY_INTERVAL = 2000;
+  var MAX_RETRIES = 3;
+
+  // 광고 초기화 함수 (scope 내 모든 미초기화 광고에 push)
+  function initAds(scope) {
+    var root = scope || document;
+    var ads = root.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
+    for (var i = 0; i < ads.length; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch(e) {}
+    }
   }
 
-  function initAds() {
-    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded]):not([data-adsbygoogle-status])');
+  // 광고 영역 새로 생성 (SPA/스와이프 전환용)
+  function refreshAds(scope) {
+    var root = scope || document;
+    var ads = root.querySelectorAll('ins.adsbygoogle');
     ads.forEach(function(ad) {
-      if (!isAdRenderable(ad)) return;
-      try {
-        ad.dataset.adLoaded = 'true';
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch(e) {
-        try {
-          ad.removeAttribute('data-ad-loaded');
-          delete ad.dataset.adLoaded;
-        } catch (_) {}
+      // 이미 로드된 광고는 새 요소로 교체
+      if (ad.hasAttribute('data-adsbygoogle-status') || ad.querySelector('iframe')) {
+        var newIns = document.createElement('ins');
+        newIns.className = ad.className;
+        newIns.style.cssText = ad.style.cssText;
+        if (ad.getAttribute('data-ad-client')) newIns.setAttribute('data-ad-client', ad.getAttribute('data-ad-client'));
+        if (ad.getAttribute('data-ad-slot')) newIns.setAttribute('data-ad-slot', ad.getAttribute('data-ad-slot'));
+        ad.parentNode.replaceChild(newIns, ad);
       }
     });
+    // 약간의 딜레이 후 초기화 (DOM 안정화)
+    setTimeout(function() { initAds(root); }, 50);
   }
 
-  // SPA/스와이프 전환에서 재사용
-  if (!window.__gcInitAds) window.__gcInitAds = initAds;
-
-  var resizeTimer = null;
-  function scheduleInitAds() {
-    if (resizeTimer) clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(initAds, 120);
+  // 재시도 로직 (초기 로드 실패 대비)
+  function retryInit(retryCount) {
+    if (retryCount >= MAX_RETRIES) return;
+    setTimeout(function() {
+      var pending = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
+      if (pending.length > 0) {
+        initAds();
+        retryInit(retryCount + 1);
+      }
+    }, RETRY_INTERVAL);
   }
 
-  function bootInitAds() {
+  // 전역 함수 등록
+  window.__gcInitAds = initAds;
+  window.__gcRefreshAds = refreshAds;
+
+  // AdSense 스크립트 로드 대기 후 초기화
+  function boot() {
+    if (typeof adsbygoogle === 'undefined') {
+      setTimeout(boot, 100);
+      return;
+    }
     initAds();
-    try { requestAnimationFrame(initAds); } catch (e) {}
+    retryInit(0);
   }
 
+  // 페이지 로드 시 초기화
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootInitAds);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    bootInitAds();
+    boot();
   }
 
-  window.addEventListener('load', scheduleInitAds);
+  // load 이벤트 (안전장치)
+  window.addEventListener('load', function() {
+    setTimeout(initAds, 200);
+  });
 
-  window.addEventListener('resize', scheduleInitAds);
+  // bfcache 복귀 시
   window.addEventListener('pageshow', function(e) {
-    // bfcache 복귀 케이스
-    if (e && e.persisted) scheduleInitAds();
+    if (e && e.persisted) setTimeout(initAds, 100);
   });
 })();
 </script>`;

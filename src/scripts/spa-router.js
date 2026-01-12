@@ -13,32 +13,6 @@ const spaRouterScript = `
   const NAV_PAGES = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic', 'news'];
   const TRANSITION_MS = 200;
 
-  // 공용 광고 갱신 (SPA/스와이프 공통)
-  if (!window.__gcRefreshAds) {
-    window.__gcRefreshAds = function(root) {
-      try {
-        var scope = root && root.querySelectorAll ? root : document;
-        var list = scope.querySelectorAll('ins.adsbygoogle');
-        list.forEach(function(ins) {
-          try {
-            var newIns = ins.cloneNode(false);
-            newIns.innerHTML = '';
-            newIns.removeAttribute('data-ad-status');
-            newIns.removeAttribute('data-adsbygoogle-status');
-            newIns.removeAttribute('data-ad-loaded');
-            newIns.removeAttribute('data-ad-lazy');
-            newIns.removeAttribute('data-gc-retry');
-            ins.parentNode.replaceChild(newIns, ins);
-          } catch (e) {}
-        });
-      } catch (e) {}
-
-      try {
-        if (window.__gcInitAds) window.__gcInitAds();
-      } catch (e) {}
-    };
-  }
-
   let currentPage = getCurrentPage();
   let isNavigating = false;
   const pageCache = new Map();

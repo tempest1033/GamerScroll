@@ -683,172 +683,84 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 (PC/모바일 동일 - 일괄 초기화)
+// 광고 초기화 스크립트 (PC/모바일 동일 - 단순화 버전)
 const lazyAdScript = `
 <script>
 (function() {
-  var VIEWPORT_MARGIN_PX = 600;
-  var STUCK_RETRY_DELAY_MS = 3000;
+  var RETRY_INTERVAL = 2000;
+  var MAX_RETRIES = 3;
 
-  function isAdRenderable(ad) {
-    if (!ad) return false;
-    // display:none(숨김 패널 등) 상태에서는 availableWidth=0 에러가 날 수 있어 push()를 미루기
-    return !!(ad.offsetWidth && ad.offsetHeight);
-  }
-
-  function isNearViewport(ad, marginPx) {
-    if (!ad || !ad.getBoundingClientRect) return true;
-    var rect = ad.getBoundingClientRect();
-    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
-    if (!vh) return true;
-    var margin = typeof marginPx === 'number' ? marginPx : 0;
-    return rect.top < (vh + margin) && rect.bottom > (-margin);
-  }
-
-  function isInViewport(ad) {
-    return isNearViewport(ad, 0);
-  }
-
-  function hasAdResult(ad) {
-    if (!ad) return true;
-    if (ad.hasAttribute('data-ad-status')) return true;
-    if (ad.hasAttribute('data-adsbygoogle-status')) return true;
-    if (ad.querySelector && ad.querySelector('iframe')) return true;
-    return false;
-  }
-
-  function clearAdMarkers(ad) {
-    if (!ad) return;
-    try { ad.removeAttribute('data-ad-status'); } catch (e) {}
-    try { ad.removeAttribute('data-adsbygoogle-status'); } catch (e) {}
-    try { ad.removeAttribute('data-ad-loaded'); } catch (e) {}
-  }
-
-  function scheduleStuckRetry(ad) {
-    try {
-      if (!ad || ad.getAttribute('data-gc-retry') === '1') return;
-      setTimeout(function() {
-        try {
-          if (!ad) return;
-          if (ad.getAttribute('data-gc-retry') === '1') return;
-          if (!document.contains(ad)) return;
-          if (!isAdRenderable(ad)) return;
-          if (!isInViewport(ad)) return;
-          if (hasAdResult(ad)) return;
-
-          var newIns = null;
-          try {
-            newIns = ad.cloneNode(false);
-            newIns.innerHTML = '';
-            clearAdMarkers(newIns);
-            newIns.removeAttribute('data-ad-lazy');
-            newIns.setAttribute('data-gc-retry', '1');
-            ad.parentNode.replaceChild(newIns, ad);
-          } catch (e) {
-            return;
-          }
-
-          try {
-            if (window.__gcAdObserver && window.__gcAdObserver.observe) {
-              window.__gcAdObserver.observe(newIns);
-            }
-          } catch (e) {}
-
-          safePush(newIns);
-        } catch (e) {}
-      }, STUCK_RETRY_DELAY_MS);
-    } catch (e) {}
-  }
-
-  function safePush(ad) {
-    if (!ad) return false;
-    if (!isAdRenderable(ad)) return false;
-    if (ad.hasAttribute('data-ad-loaded')) return false;
-    if (ad.hasAttribute('data-adsbygoogle-status')) return false;
-    if (hasAdResult(ad)) return false;
-
-    try {
-      ad.dataset.adLoaded = String(Date.now());
-      (adsbygoogle = window.adsbygoogle || []).push({});
-      scheduleStuckRetry(ad);
-      return true;
-    } catch(e) {
+  // 광고 초기화 함수 (scope 내 모든 미초기화 광고에 push)
+  function initAds(scope) {
+    var root = scope || document;
+    var ads = root.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
+    for (var i = 0; i < ads.length; i++) {
       try {
-        ad.removeAttribute('data-ad-loaded');
-        delete ad.dataset.adLoaded;
-      } catch (_) {}
-      return false;
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch(e) {}
     }
   }
 
-  function ensureObserver() {
-    if (window.__gcAdObserver) return window.__gcAdObserver;
-    try {
-      if (!('IntersectionObserver' in window)) return null;
-      window.__gcAdObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          var ad = entry && entry.target;
-          if (!ad) return;
-          if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
-          if (safePush(ad)) {
-            try { window.__gcAdObserver.unobserve(ad); } catch (e) {}
-          }
-        });
-      }, { rootMargin: VIEWPORT_MARGIN_PX + 'px 0px', threshold: 0 });
-      return window.__gcAdObserver;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function initAds() {
-    var observer = ensureObserver();
-    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded]):not([data-adsbygoogle-status])');
+  // 광고 영역 새로 생성 (SPA 전환용)
+  function refreshAds(scope) {
+    var root = scope || document;
+    var ads = root.querySelectorAll('ins.adsbygoogle');
     ads.forEach(function(ad) {
-      if (!isAdRenderable(ad)) return;
-
-      if (observer && observer.observe) {
-        try { observer.observe(ad); } catch (e) {}
-        if (isNearViewport(ad, VIEWPORT_MARGIN_PX)) {
-          if (safePush(ad)) {
-            try { observer.unobserve(ad); } catch (e) {}
-          }
-        }
-        return;
+      // 이미 로드된 광고는 새 요소로 교체
+      if (ad.hasAttribute('data-adsbygoogle-status') || ad.querySelector('iframe')) {
+        var newIns = document.createElement('ins');
+        newIns.className = ad.className;
+        newIns.style.cssText = ad.style.cssText;
+        if (ad.getAttribute('data-ad-client')) newIns.setAttribute('data-ad-client', ad.getAttribute('data-ad-client'));
+        if (ad.getAttribute('data-ad-slot')) newIns.setAttribute('data-ad-slot', ad.getAttribute('data-ad-slot'));
+        ad.parentNode.replaceChild(newIns, ad);
       }
-
-      if (!isNearViewport(ad, VIEWPORT_MARGIN_PX)) return;
-      safePush(ad);
     });
+    // 약간의 딜레이 후 초기화 (DOM 안정화)
+    setTimeout(function() { initAds(root); }, 50);
   }
 
-  // SPA/탭 전환에서 재사용
-  if (!window.__gcInitAds) window.__gcInitAds = initAds;
-
-  var resizeTimer = null;
-  function scheduleInitAds() {
-    if (resizeTimer) clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(initAds, 120);
+  // 재시도 로직 (초기 로드 실패 대비)
+  function retryInit(retryCount) {
+    if (retryCount >= MAX_RETRIES) return;
+    setTimeout(function() {
+      var pending = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
+      if (pending.length > 0) {
+        initAds();
+        retryInit(retryCount + 1);
+      }
+    }, RETRY_INTERVAL);
   }
 
-  function bootInitAds() {
+  // 전역 함수 등록
+  window.__gcInitAds = initAds;
+  window.__gcRefreshAds = refreshAds;
+
+  // AdSense 스크립트 로드 대기 후 초기화
+  function boot() {
+    if (typeof adsbygoogle === 'undefined') {
+      setTimeout(boot, 100);
+      return;
+    }
     initAds();
-    try { requestAnimationFrame(initAds); } catch (e) {}
+    retryInit(0);
   }
 
+  // 페이지 로드 시 초기화
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootInitAds);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    bootInitAds();
+    boot();
   }
 
-  window.addEventListener('load', scheduleInitAds);
+  // load 이벤트 (안전장치)
+  window.addEventListener('load', function() {
+    setTimeout(initAds, 200);
+  });
 
-  window.addEventListener('resize', scheduleInitAds);
-  window.addEventListener('scroll', scheduleInitAds, { passive: true });
+  // bfcache 복귀 시
   window.addEventListener('pageshow', function(e) {
-    // bfcache 복귀 케이스
-    if (e && e.persisted) scheduleInitAds();
+    if (e && e.persisted) setTimeout(initAds, 100);
   });
 })();
 </script>`;
