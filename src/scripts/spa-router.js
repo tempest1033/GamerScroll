@@ -1,93 +1,90 @@
 /**
  * SPA 라우터 스크립트
  * - 네비게이션 링크 클릭 가로채기
- * - partial 콘텐츠 fetch + 교체
+ * - HTML 추출 방식 (partial 파일 불필요)
  * - 광고 갱신
- * - 스와이프 애니메이션
+ * - 스와이프 애니메이션 (두 페이지 연결 슬라이드)
  */
 
 const spaRouterScript = `
 <script>
 (function() {
-  // SPA 지원 페이지 목록
-  const SPA_PAGES = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic', 'news'];
-  const TRANSITION_DURATION = 280;
+  // SPA 지원 페이지 (메인 네비게이션)
+  const NAV_PAGES = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic', 'news'];
+  const TRANSITION_MS = 200;
 
-  // 현재 페이지 정보
   let currentPage = getCurrentPage();
   let isNavigating = false;
+  const pageCache = new Map();
 
   function getCurrentPage() {
     const path = window.location.pathname;
     if (path === '/' || path === '/index.html') return 'home';
-    for (const page of SPA_PAGES) {
-      if (path.includes('/' + page)) return page;
+    for (const page of NAV_PAGES) {
+      if (path.startsWith('/' + page)) return page;
     }
     return null;
   }
 
   function getPageIndex(page) {
     if (page === 'home') return -1;
-    return SPA_PAGES.indexOf(page);
+    return NAV_PAGES.indexOf(page);
   }
 
-  // partial 콘텐츠 캐시
-  const pageCache = new Map();
-
-  // partial URL 생성
-  function getPartialUrl(page) {
-    if (page === 'home') return '/partials/home.html';
-    return '/partials/' + page + '.html';
+  // HTML에서 main 콘텐츠 추출
+  function extractMainContent(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const main = doc.querySelector('main.site-container');
+    return main ? main.innerHTML : null;
   }
 
-  // partial 콘텐츠 fetch
-  async function fetchPartial(page) {
-    if (pageCache.has(page)) {
-      return pageCache.get(page);
+  // 페이지 fetch + 추출
+  async function fetchPage(url) {
+    if (pageCache.has(url)) {
+      return pageCache.get(url);
     }
-
-    const url = getPartialUrl(page);
     try {
       const response = await fetch(url);
       if (!response.ok) throw new Error('Fetch failed');
       const html = await response.text();
-      pageCache.set(page, html);
-      return html;
+      const content = extractMainContent(html);
+      if (content) {
+        pageCache.set(url, content);
+      }
+      return content;
     } catch (e) {
-      console.warn('[SPA] Partial fetch failed:', page, e);
+      console.warn('[SPA] Fetch failed:', url, e);
       return null;
     }
   }
 
   // 프리페치
-  function prefetchPage(page) {
-    if (!pageCache.has(page)) {
-      fetchPartial(page);
+  function prefetch(url) {
+    if (!pageCache.has(url)) {
+      fetch(url).then(r => r.text()).then(html => {
+        const content = extractMainContent(html);
+        if (content) pageCache.set(url, content);
+      }).catch(() => {});
     }
   }
 
   // 광고 갱신
   function refreshAds() {
     document.querySelectorAll('.ad-card ins.adsbygoogle').forEach(function(ins) {
-      // 기존 광고 상태 초기화
       ins.innerHTML = '';
       ins.removeAttribute('data-ad-status');
       ins.removeAttribute('data-ad-loaded');
       ins.style.display = 'block';
       ins.style.height = '';
-
-      // 새 광고 요청
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch(e) {
-        console.warn('[SPA] Ad refresh error:', e.message);
-      }
+      } catch(e) {}
     });
   }
 
   // 페이지 스크립트 재실행
-  function executePageScripts(container) {
-    // 인라인 스크립트 실행
+  function executeScripts(container) {
     container.querySelectorAll('script').forEach(function(oldScript) {
       const newScript = document.createElement('script');
       if (oldScript.src) {
@@ -99,14 +96,14 @@ const spaRouterScript = `
     });
   }
 
-  // nav active 상태 업데이트
+  // nav active 업데이트
   function updateNavActive(page) {
     document.querySelectorAll('.nav-item').forEach(function(item) {
       item.classList.remove('active');
       const href = item.getAttribute('href') || '';
       if (page === 'home' && href === '/') {
         item.classList.add('active');
-      } else if (href.includes('/' + page + '/') || href.includes('/' + page)) {
+      } else if (href.startsWith('/' + page)) {
         item.classList.add('active');
       }
     });
@@ -115,220 +112,182 @@ const spaRouterScript = `
   // body 클래스 업데이트
   function updateBodyClass(page) {
     document.body.className = document.body.className.replace(/page-\\w+/g, '');
-    document.body.classList.add('page-' + page);
+    document.body.classList.add('page-' + (page || 'home'));
   }
 
-  // 페이지 전환 애니메이션
-  function animateTransition(direction, callback) {
+  // 슬라이드 애니메이션 (두 페이지 연결)
+  function slideTransition(direction, newContent, callback) {
     const main = document.querySelector('main.site-container');
-    if (!main) {
-      callback();
-      return;
+    if (!main) { callback(); return; }
+
+    // 새 콘텐츠 컨테이너 생성
+    const wrapper = document.createElement('div');
+    wrapper.className = 'spa-slide-wrapper';
+
+    const currentPane = document.createElement('div');
+    currentPane.className = 'spa-pane spa-pane-current';
+    currentPane.innerHTML = main.innerHTML;
+
+    const newPane = document.createElement('div');
+    newPane.className = 'spa-pane spa-pane-new';
+    newPane.innerHTML = newContent;
+
+    // 방향에 따라 배치
+    if (direction === 'left') {
+      wrapper.appendChild(currentPane);
+      wrapper.appendChild(newPane);
+      wrapper.style.transform = 'translateX(0)';
+    } else {
+      wrapper.appendChild(newPane);
+      wrapper.appendChild(currentPane);
+      wrapper.style.transform = 'translateX(-100%)';
     }
 
-    // 전환 방향에 따른 클래스
-    const outClass = direction === 'left' ? 'spa-slide-out-left' : 'spa-slide-out-right';
-    const inClass = direction === 'left' ? 'spa-slide-in-right' : 'spa-slide-in-left';
+    main.innerHTML = '';
+    main.appendChild(wrapper);
 
-    main.classList.add(outClass);
+    // 강제 리플로우
+    void wrapper.offsetHeight;
+
+    // 애니메이션 시작
+    wrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
+    wrapper.style.transform = direction === 'left' ? 'translateX(-100%)' : 'translateX(0)';
 
     setTimeout(function() {
-      callback();
-      main.classList.remove(outClass);
-      main.classList.add(inClass);
-
-      // 스크롤 맨 위로
+      main.innerHTML = newContent;
+      executeScripts(main);
       window.scrollTo(0, 0);
-
-      setTimeout(function() {
-        main.classList.remove(inClass);
-      }, TRANSITION_DURATION);
-    }, TRANSITION_DURATION);
+      callback();
+    }, TRANSITION_MS);
   }
 
-  // 페이지 전환 실행
-  async function navigateTo(page, options = {}) {
-    if (isNavigating || page === currentPage) return false;
+  // 페이지 전환
+  async function navigateTo(url, options = {}) {
+    if (isNavigating) return false;
 
-    const { animate = true, pushState = true, direction = null } = options;
+    const { direction = 'left', pushState = true } = options;
+
+    // 같은 URL이면 무시
+    if (url === window.location.pathname) return false;
+
     isNavigating = true;
 
-    // 방향 자동 결정
-    let slideDirection = direction;
-    if (!slideDirection) {
-      const currentIdx = getPageIndex(currentPage);
-      const targetIdx = getPageIndex(page);
-      slideDirection = targetIdx > currentIdx ? 'left' : 'right';
-    }
-
-    // partial 콘텐츠 fetch
-    const html = await fetchPartial(page);
-
-    if (!html) {
-      // fetch 실패 시 전통적 네비게이션
+    // 콘텐츠 fetch
+    const content = await fetchPage(url);
+    if (!content) {
       isNavigating = false;
-      const url = page === 'home' ? '/' : '/' + page + '/';
       window.location.href = url;
       return false;
     }
 
-    function updateContent() {
-      // 메인 콘텐츠 교체
+    // 새 페이지 정보
+    const newPage = getCurrentPageFromUrl(url);
+
+    // 모바일: 슬라이드 / PC: 즉시 교체
+    if (window.innerWidth <= 768) {
+      slideTransition(direction, content, finish);
+    } else {
       const main = document.querySelector('main.site-container');
       if (main) {
-        main.innerHTML = html;
-        executePageScripts(main);
+        main.innerHTML = content;
+        executeScripts(main);
       }
-
-      // URL 업데이트
-      if (pushState) {
-        const url = page === 'home' ? '/' : '/' + page + '/';
-        history.pushState({ page: page }, '', url);
-      }
-
-      // UI 업데이트
-      updateNavActive(page);
-      updateBodyClass(page);
-      currentPage = page;
-
-      // 광고 갱신
-      refreshAds();
-
-      // 인접 페이지 프리페치
-      const idx = getPageIndex(page);
-      if (idx > 0) prefetchPage(SPA_PAGES[idx - 1]);
-      if (idx < SPA_PAGES.length - 1) prefetchPage(SPA_PAGES[idx + 1]);
-      if (page !== 'home') prefetchPage('home');
-
-      isNavigating = false;
+      window.scrollTo(0, 0);
+      finish();
     }
 
-    if (animate && window.innerWidth <= 768) {
-      animateTransition(slideDirection, updateContent);
-    } else {
-      updateContent();
-      window.scrollTo(0, 0);
+    function finish() {
+      if (pushState) {
+        history.pushState({ url: url }, '', url);
+      }
+      updateNavActive(newPage);
+      updateBodyClass(newPage);
+      currentPage = newPage;
+      refreshAds();
+      isNavigating = false;
+
+      // 인접 페이지 프리페치
+      prefetchAdjacent(newPage);
     }
 
     return true;
   }
 
+  function getCurrentPageFromUrl(url) {
+    if (url === '/' || url === '/index.html') return 'home';
+    for (const page of NAV_PAGES) {
+      if (url.startsWith('/' + page)) return page;
+    }
+    return null;
+  }
+
+  function prefetchAdjacent(page) {
+    const idx = getPageIndex(page);
+    if (idx > 0) prefetch('/' + NAV_PAGES[idx - 1] + '/');
+    if (idx >= 0 && idx < NAV_PAGES.length - 1) prefetch('/' + NAV_PAGES[idx + 1] + '/');
+    if (idx === 0) prefetch('/');
+    if (page === 'home') prefetch('/' + NAV_PAGES[0] + '/');
+  }
+
   // 네비게이션 클릭 가로채기
   document.addEventListener('click', function(e) {
-    const link = e.target.closest('a.nav-item');
+    const link = e.target.closest('a');
     if (!link) return;
 
     const href = link.getAttribute('href');
-    if (!href) return;
-
-    // 외부 링크는 무시
+    if (!href || href.startsWith('#')) return;
     if (href.startsWith('http') && !href.includes(window.location.host)) return;
+    if (link.hasAttribute('target')) return;
 
-    // 페이지 판별
-    let targetPage = null;
-    if (href === '/' || href === '/index.html') {
-      targetPage = 'home';
-    } else {
-      for (const page of SPA_PAGES) {
-        if (href.includes('/' + page)) {
-          targetPage = page;
-          break;
-        }
-      }
-    }
-
-    if (targetPage && targetPage !== currentPage) {
+    // 내부 링크만 SPA 처리
+    if (href.startsWith('/')) {
       e.preventDefault();
-      navigateTo(targetPage);
+      const currentIdx = getPageIndex(currentPage);
+      const targetPage = getCurrentPageFromUrl(href);
+      const targetIdx = getPageIndex(targetPage);
+      const direction = targetIdx > currentIdx ? 'left' : 'right';
+      navigateTo(href, { direction: direction });
     }
   });
 
   // 브라우저 뒤로가기/앞으로가기
   window.addEventListener('popstate', function(e) {
-    const page = (e.state && e.state.page) || getCurrentPage() || 'home';
-    if (page !== currentPage) {
-      navigateTo(page, { pushState: false, animate: true });
-    }
+    const url = window.location.pathname;
+    const targetPage = getCurrentPageFromUrl(url);
+    const currentIdx = getPageIndex(currentPage);
+    const targetIdx = getPageIndex(targetPage);
+    const direction = targetIdx > currentIdx ? 'left' : 'right';
+    navigateTo(url, { pushState: false, direction: direction });
   });
 
-  // 초기 상태 저장
-  history.replaceState({ page: currentPage }, '', window.location.href);
+  // 초기 상태
+  history.replaceState({ url: window.location.pathname }, '', window.location.href);
 
-  // 전역으로 노출 (스와이프에서 사용)
-  window.spaNavigateTo = navigateTo;
+  // 전역 노출
+  window.spaNavigateTo = function(page, opts) {
+    const url = page === 'home' ? '/' : '/' + page + '/';
+    return navigateTo(url, opts);
+  };
   window.spaGetCurrentPage = function() { return currentPage; };
   window.spaGetPageIndex = getPageIndex;
-  window.SPA_PAGES = SPA_PAGES;
+  window.NAV_PAGES = NAV_PAGES;
 
-  // 인접 페이지 프리페치
-  setTimeout(function() {
-    const idx = getPageIndex(currentPage);
-    if (idx > 0) prefetchPage(SPA_PAGES[idx - 1]);
-    if (idx < SPA_PAGES.length - 1) prefetchPage(SPA_PAGES[idx + 1]);
-    if (currentPage !== 'home') prefetchPage('home');
-  }, 1000);
+  // 초기 프리페치
+  setTimeout(function() { prefetchAdjacent(currentPage); }, 500);
 })();
 </script>`;
 
-// SPA 전환 애니메이션 CSS
+// 슬라이드 애니메이션 CSS
 const spaTransitionCss = `
 <style>
-/* SPA 페이지 전환 애니메이션 */
-main.site-container {
-  will-change: transform, opacity;
+/* SPA 슬라이드 애니메이션 */
+.spa-slide-wrapper {
+  display: flex;
+  width: 200%;
 }
-
-@media (max-width: 768px) {
-  main.spa-slide-out-left {
-    animation: slideOutLeft 280ms ease-out forwards;
-  }
-  main.spa-slide-out-right {
-    animation: slideOutRight 280ms ease-out forwards;
-  }
-  main.spa-slide-in-left {
-    animation: slideInLeft 280ms ease-out forwards;
-  }
-  main.spa-slide-in-right {
-    animation: slideInRight 280ms ease-out forwards;
-  }
-
-  @keyframes slideOutLeft {
-    from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(-30%); opacity: 0; }
-  }
-  @keyframes slideOutRight {
-    from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(30%); opacity: 0; }
-  }
-  @keyframes slideInLeft {
-    from { transform: translateX(-30%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
-  @keyframes slideInRight {
-    from { transform: translateX(30%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
-}
-
-/* PC에서는 fade만 */
-@media (min-width: 769px) {
-  main.spa-slide-out-left,
-  main.spa-slide-out-right {
-    animation: fadeOut 200ms ease-out forwards;
-  }
-  main.spa-slide-in-left,
-  main.spa-slide-in-right {
-    animation: fadeIn 200ms ease-out forwards;
-  }
-
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+.spa-pane {
+  width: 50%;
+  flex-shrink: 0;
 }
 </style>`;
 
