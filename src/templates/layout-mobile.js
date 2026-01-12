@@ -200,7 +200,7 @@ const swipeScript = `
 <script>
 (function() {
   const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
-  const SWIPE_THRESHOLD = 0.25; // 화면 25% 이상 스와이프하면 전환
+  const SWIPE_THRESHOLD = 0.5; // 화면 50% 이상 스와이프하면 전환
   const TRANSITION_MS = 250;
 
   let touchStartX = 0, touchStartY = 0;
