@@ -79,6 +79,21 @@ ins.adsbygoogle {
   outline: 1px solid var(--border);
   overflow: hidden;
   touch-action: pan-x pan-y;
+  position: relative;
+}
+
+/* 광고 스와이프 오버레이 (탭 시 제거됨) */
+.ad-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: transparent;
+}
+
+/* 탭 감지 후 오버레이 비활성화 (JS에서 토글) */
+.ad-card.ad-tapped::after {
+  pointer-events: none;
 }
 
 /* ins/iframe 스와이프 허용 + 마진 제거 */

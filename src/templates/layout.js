@@ -387,6 +387,8 @@ const swipeScript = `
   let isSwiping = false;
   let touchedElement = null;
   let isTouchMoving = false;
+  let adCard = null;
+  let touchStartTime = 0;
 
   function getCurrentNavIndex() {
     const path = window.location.pathname;
@@ -423,9 +425,11 @@ const swipeScript = `
   document.body.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
+    touchStartTime = Date.now();
     isTouchMoving = false;
     touchedElement = e.target.closest('.nav-item, .tab-btn');
     scrollableEl = findScrollableElement(e.target);
+    adCard = e.target.closest('.ad-card');
   }, { passive: true });
 
   document.body.addEventListener('touchmove', (e) => {
@@ -485,6 +489,23 @@ const swipeScript = `
     const touchEndY = e.changedTouches[0].screenY;
     const diffX = touchStartX - touchEndX;
     const diffY = touchStartY - touchEndY;
+    const touchDuration = Date.now() - touchStartTime;
+
+    // 광고 영역 탭 감지 (짧은 터치 + 이동 거리 작음)
+    if (adCard && touchDuration < 300 && Math.abs(diffX) < 10 && Math.abs(diffY) < 10) {
+      // 탭으로 인식 → 오버레이 비활성화 후 클릭 전달
+      adCard.classList.add('ad-tapped');
+      const touch = e.changedTouches[0];
+      setTimeout(() => {
+        const el = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (el && el !== adCard) el.click();
+        setTimeout(() => adCard.classList.remove('ad-tapped'), 100);
+      }, 10);
+      adCard = null;
+      cleanup();
+      return;
+    }
+    adCard = null;
 
     if (Math.abs(diffX) <= Math.abs(diffY)) {
       cleanup();
