@@ -263,7 +263,16 @@ const spaRouterScript = `
       // SPA 미지원 페이지는 일반 이동
       if (targetPage === null) return;
 
-      // 정확히 같은 URL이면 무시 (홈→홈, 같은 페이지 클릭 등)
+      // 로고 클릭 (헤더 내 홈 링크): 홈이면 새로고침
+      if (link.closest('.header') && href === '/') {
+        if (window.location.pathname === '/') {
+          e.preventDefault();
+          window.location.reload();
+          return;
+        }
+      }
+
+      // 정확히 같은 URL이면 무시
       if (href === window.location.pathname || href === window.location.pathname + window.location.search) {
         e.preventDefault();
         return;
