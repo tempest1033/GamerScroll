@@ -13,7 +13,7 @@ function renderMobileTopAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-top">
   <ins class="adsbygoogle"
-       style="display:block;width:320px;height:100px;min-width:320px;min-height:100px"
+       style="display:block;width:320px;height:100px;min-width:320px;min-height:100px;max-width:320px;max-height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
