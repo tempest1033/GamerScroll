@@ -693,16 +693,7 @@ const lazyAdScript = `
     });
 
     lazyAds.forEach(function(ad) {
-      // 이미 뷰포트에 있는 광고는 바로 로드
-      var rect = ad.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 200) {
-        if (!ad.dataset.adLoaded) {
-          ad.dataset.adLoaded = 'true';
-          pushAd();
-        }
-      } else {
-        observer.observe(ad);
-      }
+      observer.observe(ad);
     });
   }
 
