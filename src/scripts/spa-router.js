@@ -85,14 +85,18 @@ const spaRouterScript = `
 
   // 페이지 스크립트 재실행
   function executeScripts(container) {
-    container.querySelectorAll('script').forEach(function(oldScript) {
+    // 스크립트 목록을 배열로 복사 (DOM 변경 중 안전하게 순회)
+    const scripts = Array.from(container.querySelectorAll('script'));
+    scripts.forEach(function(oldScript) {
       const newScript = document.createElement('script');
       if (oldScript.src) {
         newScript.src = oldScript.src;
       } else {
         newScript.textContent = oldScript.textContent;
       }
-      oldScript.parentNode.replaceChild(newScript, oldScript);
+      // 기존 스크립트 제거 후 body에 추가 (확실한 실행 보장)
+      oldScript.remove();
+      document.body.appendChild(newScript);
     });
   }
 
