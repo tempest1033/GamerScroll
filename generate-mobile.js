@@ -689,7 +689,8 @@ async function generateMobilePages() {
       }),
       deepDivePosts: deepDivePosts.slice(0, 6).map(p => ({
         slug: p.slug, title: p.title, date: p.date, summary: p.summary
-      }))
+      })),
+      news: cache?.news || {}
     });
     fs.writeFileSync(path.join(mobileTrendDir, 'index.html'), hubHtml, 'utf8');
     console.log(`  ✅ trend/index.html`);

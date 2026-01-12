@@ -3,12 +3,22 @@
  * - 피드 카드 스타일 (썸네일 + 제목)
  * - 주간/일간 섹션 분리 (탭 없음)
  * - 각 섹션별 페이지네이션
+ * - 뉴스 섹션 통합 (4개 소스)
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
 
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
+const midAds = generateMidAdPairSlot(AD_SLOTS.ResponsivePC002, AD_SLOTS.Mobile002);
+
+// 뉴스 소스 정보
+const newsSources = [
+  { key: 'thisisgame', name: '디스이즈게임', url: 'https://www.thisisgame.com/webzine/news/nboard/4/' },
+  { key: 'gamemeca', name: '게임메카', url: 'https://www.gamemeca.com/news.php' },
+  { key: 'ruliweb', name: '루리웹', url: 'https://bbs.ruliweb.com/news' },
+  { key: 'inven', name: '인벤', url: 'https://www.inven.co.kr/webzine/news/' }
+];
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {
@@ -36,8 +46,9 @@ const formatDateKr = (dateStr) => {
  * @param {Array} params.dailyReports - 일간 리포트 목록 [{date, headline, summary, thumbnail}]
  * @param {Array} params.weeklyReports - 주간 리포트 목록 [{weekNumber, startDate, endDate, headline, summary, thumbnail}]
  * @param {Array} params.deepDivePosts - Deep Dive 목록 [{slug, title, date, thumbnail, summary}]
+ * @param {Object} params.news - 뉴스 데이터 {thisisgame: [], gamemeca: [], ruliweb: [], inven: []}
  */
-function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDivePosts = [] }) {
+function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDivePosts = [], news = {} }) {
   // 일간 리포트 카드 렌더링 (피드 카드 스타일)
   const renderDailyCard = (report) => {
     const slug = report.date;
@@ -96,6 +107,82 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
   const renderDailyCards = () => dailyReports.map(r => renderDailyCard(r)).join('');
   const renderWeeklyCards = () => weeklyReports.map(r => renderWeeklyCard(r)).join('');
   const renderDeepDiveCards = () => deepDivePosts.map(p => renderDeepDiveCard(p)).join('');
+
+  // 뉴스 섹션 생성 (좌우 2열, 각 열에 카드 2개 + 리스트 3개)
+  const generateNewsSection = (source) => {
+    const items = news?.[source.key] || [];
+    if (items.length === 0) {
+      return `
+        <div class="home-card news-section-card" data-section="${source.key}">
+          <div class="home-card-header">
+            <h2 class="home-card-title">${source.name}</h2>
+          </div>
+          <div class="home-card-body">
+            <div class="news-empty">뉴스를 불러올 수 없습니다</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 컬럼 생성 함수 (카드 2개 + 리스트 3개)
+    const generateColumn = (columnItems) => {
+      const cards = columnItems.slice(0, 2);
+      const listItems = columnItems.slice(2, 5);
+
+      const cardsHTML = cards.map((item) => `
+        <a class="news-grid-card" href="${item.link}" target="_blank" rel="noopener">
+          <div class="news-grid-card-thumb">
+            ${item.thumbnail ? `<img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
+            <div class="news-thumb-fallback"><img src="/favicon.svg" alt="" width="48" height="48"></div>
+          </div>
+          <div class="news-grid-card-title">${item.title}</div>
+        </a>
+      `).join('');
+
+      const listHTML = listItems.map((item) => `
+        <a class="news-grid-item" href="${item.link}" target="_blank" rel="noopener">
+          <span class="news-grid-item-title">${item.title}</span>
+        </a>
+      `).join('');
+
+      return `
+        <div class="news-column">
+          <div class="news-cards-row">${cardsHTML}</div>
+          <div class="news-list-col">${listHTML}</div>
+        </div>
+      `;
+    };
+
+    // 전체 아이템 인덱싱
+    const indexedItems = items.map((item, i) => ({ ...item, originalIndex: i }));
+
+    // 모든 컬럼 HTML 생성 (5개씩 1열)
+    const allColumnsHTML = [];
+    for (let i = 0; i < indexedItems.length; i += 5) {
+      const columnItems = indexedItems.slice(i, i + 5);
+      if (columnItems.length > 0) {
+        allColumnsHTML.push(generateColumn(columnItems));
+      }
+    }
+
+    return `
+      <div class="home-card news-section-card" data-section="${source.key}">
+        <div class="home-card-header">
+          <h2 class="home-card-title">${source.name}</h2>
+          <div class="gm-pagination">
+            <button class="gm-page-btn news-prev" aria-label="이전">‹</button>
+            <span class="gm-page-index">1/1</span>
+            <button class="gm-page-btn news-next" aria-label="다음">›</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="news-grid-container">
+            ${allColumnsHTML.join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  };
 
   const content = `
     <section class="section active" id="trends-hub">
@@ -158,6 +245,13 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
             ${weeklyReports.length === 0 ? '<div class="trend-empty">주간 리포트가 없습니다</div>' : ''}
           </div>
         </div>
+
+        ${midAds}
+
+        <!-- 뉴스 섹션 -->
+        <div class="news-sources-grid">
+          ${newsSources.map(source => generateNewsSection(source)).join('')}
+        </div>
       </div>
     </section>
   `;
@@ -217,6 +311,45 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
 
         // 초기화
         updatePagination();
+      });
+
+      // 뉴스 섹션별 페이지네이션 (컬럼 1개씩)
+      document.querySelectorAll('.news-section-card').forEach(section => {
+        const prevBtn = section.querySelector('.news-prev');
+        const nextBtn = section.querySelector('.news-next');
+        const pageIndex = section.querySelector('.gm-page-index');
+        const columns = section.querySelectorAll('.news-column');
+
+        if (!columns.length) return;
+
+        let currentPage = 0;
+        const totalPages = columns.length;
+
+        function updateNewsPagination() {
+          columns.forEach((col, i) => {
+            col.style.display = (i === currentPage) ? '' : 'none';
+          });
+
+          pageIndex.textContent = (currentPage + 1) + '/' + totalPages;
+          prevBtn.disabled = currentPage <= 0;
+          nextBtn.disabled = currentPage >= totalPages - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+          if (currentPage > 0) {
+            currentPage--;
+            updateNewsPagination();
+          }
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (currentPage < totalPages - 1) {
+            currentPage++;
+            updateNewsPagination();
+          }
+        });
+
+        updateNewsPagination();
       });
     })();
   </script>`;

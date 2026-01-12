@@ -627,7 +627,8 @@ async function main() {
         date: p.date,
         thumbnail: p.thumbnail,
         summary: p.summary
-      }))
+      })),
+      news: news
     });
     fs.writeFileSync(`${trendsDir}/index.html`, hubHtml, 'utf8');
     console.log(`  ✅ trend/index.html`);
