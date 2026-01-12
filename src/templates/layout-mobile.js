@@ -171,19 +171,27 @@ const searchBarScript = `
   document.addEventListener('click', (e) => { if (!e.target.closest('.search-container')) searchDropdown.classList.remove('active'); });
   searchDropdown.addEventListener('mousedown', (e) => e.preventDefault());
 
+  function doSearch() {
+    const query = searchInput.value.trim();
+    if (!query) return;
+    var searchUrl = '/games/?q=' + encodeURIComponent(query);
+    if (window.spaNavigateTo) {
+      history.pushState({}, '', searchUrl);
+      window.spaNavigateTo('games', { pushState: false });
+    } else {
+      window.location.href = searchUrl;
+    }
+    searchDropdown.classList.remove('active');
+    searchInput.blur();
+  }
+
   searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') { searchInput.value = ''; searchDropdown.classList.remove('active'); searchInput.blur(); }
-    else if (e.key === 'Enter') {
-      const query = searchInput.value.trim();
-      if (query) window.location.href = '/games/?q=' + encodeURIComponent(query);
-    }
+    else if (e.key === 'Enter') { doSearch(); }
   });
 
   const searchBtn = document.querySelector('.search-btn');
-  if (searchBtn) searchBtn.addEventListener('click', () => {
-    const query = searchInput.value.trim();
-    if (query) window.location.href = '/games/?q=' + encodeURIComponent(query);
-  });
+  if (searchBtn) searchBtn.addEventListener('click', doSearch);
 })();
 </script>`;
 

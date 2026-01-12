@@ -176,10 +176,10 @@ const spaRouterScript = `
   async function navigateTo(url, options = {}) {
     if (isNavigating) return false;
 
-    const { direction = 'left', pushState = true } = options;
+    const { direction = 'left', pushState = true, skipUrlCheck = false } = options;
 
-    // 같은 URL이면 무시
-    if (url === window.location.pathname) return false;
+    // 같은 URL이면 무시 (popstate에서는 스킵)
+    if (!skipUrlCheck && url === window.location.pathname) return false;
 
     isNavigating = true;
 
@@ -277,10 +277,20 @@ const spaRouterScript = `
   window.addEventListener('popstate', function(e) {
     const url = window.location.pathname;
     const targetPage = getCurrentPageFromUrl(url);
+
+    // SPA 미지원 페이지면 새로고침
+    if (targetPage === null) {
+      window.location.reload();
+      return;
+    }
+
+    // 같은 페이지면 무시
+    if (targetPage === currentPage) return;
+
     const currentIdx = getPageIndex(currentPage);
     const targetIdx = getPageIndex(targetPage);
     const direction = targetIdx > currentIdx ? 'left' : 'right';
-    navigateTo(url, { pushState: false, direction: direction });
+    navigateTo(url, { pushState: false, direction: direction, skipUrlCheck: true });
   });
 
   // 초기 상태

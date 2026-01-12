@@ -353,8 +353,18 @@ const hoverPrefetchScript = `
       saveRecentSearch({ slug, name: game.name || game.title, icon: game.icon, publisher: game.publisher });
       window.location.href = '/games/' + slug + '/';
     } else {
-      window.location.href = '/games/?q=' + encodeURIComponent(query);
+      // SPA로 games 페이지 이동 + 검색 쿼리
+      var searchUrl = '/games/?q=' + encodeURIComponent(query);
+      if (window.spaNavigateTo) {
+        history.pushState({}, '', searchUrl);
+        window.spaNavigateTo('games', { pushState: false });
+      } else {
+        window.location.href = searchUrl;
+      }
     }
+    // 검색 드롭다운 닫기
+    searchDropdown.classList.remove('active');
+    searchInput.blur();
   }
 
 	  // 키보드 이벤트
