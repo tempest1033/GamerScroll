@@ -69,15 +69,15 @@ const spaRouterScript = `
     }
   }
 
-  // 광고 갱신
+  // 광고 갱신 (ins 요소 교체 방식)
   function refreshAds() {
     document.querySelectorAll('.ad-card ins.adsbygoogle').forEach(function(ins) {
-      ins.innerHTML = '';
-      ins.removeAttribute('data-ad-status');
-      ins.removeAttribute('data-ad-loaded');
-      ins.style.display = 'block';
-      ins.style.height = '';
       try {
+        const newIns = ins.cloneNode(false);
+        newIns.innerHTML = '';
+        newIns.removeAttribute('data-ad-status');
+        newIns.removeAttribute('data-adsbygoogle-status');
+        ins.parentNode.replaceChild(newIns, ins);
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch(e) {}
     });

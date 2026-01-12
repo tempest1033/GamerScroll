@@ -473,12 +473,16 @@ const swipeScript = `
               else if (targetIndex === 3) offset = -20;
               navInner.style.transform = 'translateX(' + offset + '%)';
             }
-            // 광고 갱신
+            // 광고 갱신 (ins 요소 교체 방식)
             document.querySelectorAll('.ad-card ins.adsbygoogle').forEach(function(ins) {
-              ins.innerHTML = '';
-              ins.removeAttribute('data-ad-status');
-              ins.removeAttribute('data-ad-loaded');
-              try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+              try {
+                const newIns = ins.cloneNode(false);
+                newIns.innerHTML = '';
+                newIns.removeAttribute('data-ad-status');
+                newIns.removeAttribute('data-adsbygoogle-status');
+                ins.parentNode.replaceChild(newIns, ins);
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              } catch(e) {}
             });
             // Firebase Analytics page_view 로깅
             if (window.__gcLogPageView) {
