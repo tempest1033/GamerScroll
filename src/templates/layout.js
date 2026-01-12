@@ -207,25 +207,42 @@ const hoverPrefetchScript = `
         });
       });
 
-      // 아이템 클릭 시 페이지 존재 확인 후 이동
+      // 아이템 클릭 시 페이지 존재 확인 후 SPA 이동
       searchDropdown.querySelectorAll('.search-result-info').forEach(link => {
         link.addEventListener('click', async (e) => {
           e.preventDefault();
           const item = link.closest('.search-result-item');
           const game = recent.find(g => g.slug === item.dataset.slug);
           if (!game) return;
+          searchDropdown.classList.remove('active');
           try {
             const res = await fetch('/games/' + game.slug + '/', { method: 'HEAD' });
             if (res.ok) {
               saveRecentSearch(game);
-              location.href = '/games/' + game.slug + '/';
+              const href = '/games/' + game.slug + '/';
+              if (window.spaNavigateTo) {
+                history.pushState({}, '', href);
+                window.spaNavigateTo('games', { pushState: false });
+              } else {
+                location.href = href;
+              }
             } else {
               removeRecentSearch(game.slug);
-              location.href = '/games/';
+              if (window.spaNavigateTo) {
+                history.pushState({}, '', '/games/');
+                window.spaNavigateTo('games', { pushState: false });
+              } else {
+                location.href = '/games/';
+              }
             }
           } catch {
             removeRecentSearch(game.slug);
-            location.href = '/games/';
+            if (window.spaNavigateTo) {
+              history.pushState({}, '', '/games/');
+              window.spaNavigateTo('games', { pushState: false });
+            } else {
+              location.href = '/games/';
+            }
           }
         });
       });
@@ -275,13 +292,22 @@ const hoverPrefetchScript = `
         );
       }).join('');
 
-      // 검색 결과 클릭 시 최근 검색에 저장
+      // 검색 결과 클릭 시 SPA 이동
       searchDropdown.querySelectorAll('.search-result-item[data-game]').forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
           try {
             const game = JSON.parse(item.dataset.game);
             saveRecentSearch(game);
           } catch {}
+          const href = item.getAttribute('href');
+          searchDropdown.classList.remove('active');
+          if (window.spaNavigateTo) {
+            history.pushState({}, '', href);
+            window.spaNavigateTo('games', { pushState: false });
+          } else {
+            location.href = href;
+          }
         });
       });
     }

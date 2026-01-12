@@ -117,13 +117,28 @@ const searchBarScript = `
     } else {
       const header = '<div class="search-recent-header"><span class="search-recent-title">최근 본 게임</span><button class="search-clear-all" type="button">전체 삭제</button></div>';
       const items = recent.map(game => {
-        return '<div class="search-result-item" data-slug="' + game.slug + '"><a href="/games/' + game.slug + '/" class="search-result-info"><div class="search-result-title">' + game.name + '</div></a><button class="search-result-delete" type="button" data-slug="' + game.slug + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>';
+        return '<div class="search-result-item" data-slug="' + game.slug + '" data-href="/games/' + game.slug + '/"><a href="/games/' + game.slug + '/" class="search-result-info"><div class="search-result-title">' + game.name + '</div></a><button class="search-result-delete" type="button" data-slug="' + game.slug + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>';
       }).join('');
       searchDropdown.innerHTML = header + items;
       const clearAllBtn = searchDropdown.querySelector('.search-clear-all');
       if (clearAllBtn) clearAllBtn.addEventListener('click', (e) => { e.stopPropagation(); clearAllRecent(); renderRecentSearches(); });
       searchDropdown.querySelectorAll('.search-result-delete').forEach(btn => {
         btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); removeRecentSearch(btn.dataset.slug); renderRecentSearches(); });
+      });
+      // 최근 본 게임 클릭 시 SPA 이동
+      searchDropdown.querySelectorAll('.search-result-item[data-href]').forEach(item => {
+        item.addEventListener('click', (e) => {
+          if (e.target.closest('.search-result-delete')) return;
+          e.preventDefault();
+          const href = item.dataset.href;
+          searchDropdown.classList.remove('active');
+          if (window.spaNavigateTo) {
+            history.pushState({}, '', href);
+            window.spaNavigateTo('games', { pushState: false });
+          } else {
+            window.location.href = href;
+          }
+        });
       });
     }
     searchDropdown.classList.add('active');
@@ -155,8 +170,21 @@ const searchBarScript = `
         const slug = game.slug || game.id || '';
         return '<a href="/games/' + slug + '/" class="search-result-item" data-game=\\'' + JSON.stringify({slug, name}).replace(/'/g, "\\\\'") + '\\'><div class="search-result-info"><div class="search-result-title">' + name + '</div></div></a>';
       }).join('');
+      // 검색 결과 클릭 시 SPA 이동
       searchDropdown.querySelectorAll('.search-result-item[data-game]').forEach(item => {
-        item.addEventListener('click', () => { try { saveRecentSearch(JSON.parse(item.dataset.game)); } catch {} });
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          try { saveRecentSearch(JSON.parse(item.dataset.game)); } catch {}
+          const href = item.getAttribute('href');
+          searchDropdown.classList.remove('active');
+          searchInput.blur();
+          if (window.spaNavigateTo) {
+            history.pushState({}, '', href);
+            window.spaNavigateTo('games', { pushState: false });
+          } else {
+            window.location.href = href;
+          }
+        });
       });
     }
     searchDropdown.classList.add('active');
