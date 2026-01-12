@@ -7,13 +7,13 @@
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 /**
- * 모바일 상단 광고 (320x100)
+ * 모바일 상단 광고 (320x150)
  */
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-top">
   <ins class="adsbygoogle"
-       style="display:block;width:320px;height:100px;min-width:320px;min-height:100px;max-width:320px;max-height:100px"
+       style="display:block;width:320px;height:150px;min-width:320px;min-height:150px;max-width:320px;max-height:150px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
@@ -35,7 +35,7 @@ function renderMobileMidAd(slotId) {
 }
 
 /**
- * 기본 모바일 광고 (320x100)
+ * 기본 모바일 광고 (320x150)
  */
 function renderMobileAd(slotId) {
   return renderMobileTopAd(slotId);
