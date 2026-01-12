@@ -597,7 +597,7 @@ const mobileAdInitScript = `
 <script>
 (function() {
   function initAds() {
-    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded]):not([data-adsbygoogle-status])');
+    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
     ads.forEach(function(ad) {
       ad.dataset.adLoaded = 'true';
       try {
