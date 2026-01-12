@@ -240,6 +240,7 @@ const swipeScript = `
   let prevContent = null, nextContent = null;
   let hasPrevPage = false, hasNextPage = false;
   let screenWidth = window.innerWidth;
+  let originalMainHtml = null;
 
   // 프리페치 캐시
   const pageCache = new Map();
@@ -339,18 +340,23 @@ const swipeScript = `
     // overflow 원복
     main.style.overflow = '';
 
-    if (keepContent) {
-      main.innerHTML = keepContent;
-      // 스크립트 재실행
-      const scripts = Array.from(main.querySelectorAll('script'));
-      scripts.forEach(function(oldScript) {
-        const newScript = document.createElement('script');
-        if (oldScript.src) newScript.src = oldScript.src;
-        else newScript.textContent = '(function(){' + oldScript.textContent + '})();';
-        oldScript.remove();
-        document.body.appendChild(newScript);
-      });
+    const restoreContent = keepContent != null ? keepContent : originalMainHtml;
+    if (restoreContent != null) {
+      main.innerHTML = restoreContent;
+    } else {
+      const currentPane = swipeWrapper.querySelector('.swipe-current');
+      main.innerHTML = currentPane ? currentPane.innerHTML : '';
     }
+
+    // 스크립트 재실행
+    const scripts = Array.from(main.querySelectorAll('script'));
+    scripts.forEach(function(oldScript) {
+      const newScript = document.createElement('script');
+      if (oldScript.src) newScript.src = oldScript.src;
+      else newScript.textContent = '(function(){' + oldScript.textContent + '})();';
+      oldScript.remove();
+      document.body.appendChild(newScript);
+    });
 
     swipeWrapper = null;
     prevContent = null;
@@ -359,6 +365,7 @@ const swipeScript = `
     hasNextPage = false;
     isSwiping = false;
     swipeDirection = null;
+    originalMainHtml = null;
   }
 
   // 터치 시작
@@ -422,7 +429,9 @@ const swipeScript = `
       if (main) {
         main.style.overflow = 'hidden';  // 래퍼가 부모를 벗어나지 않도록
         const currentHtml = main.innerHTML;
+        originalMainHtml = currentHtml;
         swipeWrapper = createSwipeWrapper(prevContent, currentHtml, nextContent);
+        if (!swipeWrapper) isSwiping = false;
       }
     }
 
@@ -576,6 +585,33 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
+// 모바일: js-defer로 인해 전체가 숨겨지는 케이스 방지 (레이아웃 모바일에는 defer 해제 스크립트가 없을 수 있음)
+const mobileDeferReleaseScript = `
+<script>
+(function() {
+  var html = document.documentElement;
+  if (!html || !html.classList.contains('js-defer')) return;
+
+  function release() {
+    try { html.classList.remove('js-defer'); } catch (e) {}
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', release, { once: true });
+  } else {
+    release();
+  }
+
+  // 폴백: 어떤 이유로든 DOMContentLoaded가 늦거나 누락되면 강제 해제
+  setTimeout(release, 1500);
+
+  // bfcache 복귀 케이스
+  window.addEventListener('pageshow', function(e) {
+    if (e && e.persisted) release();
+  });
+})();
+</script>`;
+
 // 이미지 폴백
 const imageFallbackScript = `
 <script>
@@ -709,6 +745,7 @@ function wrapWithLayout(content, options = {}) {
   ${footerModalScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
+  ${mobileDeferReleaseScript}
   ${spaRouterScript}
   ${showSearchBar ? searchBarScript : ''}
   ${swipeScript}
