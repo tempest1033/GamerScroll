@@ -483,18 +483,11 @@ const swipeScript = `
               else if (targetIndex === 3) offset = -20;
               navInner.style.transform = 'translateX(' + offset + '%)';
             }
-            // 광고 갱신 (ins 요소 교체 방식)
-            document.querySelectorAll('.ad-card ins.adsbygoogle').forEach(function(ins) {
-              try {
-                const newIns = ins.cloneNode(false);
-                newIns.innerHTML = '';
-                newIns.removeAttribute('data-ad-status');
-                newIns.removeAttribute('data-adsbygoogle-status');
-                newIns.removeAttribute('data-ad-loaded');
-                ins.parentNode.replaceChild(newIns, ins);
-              } catch(e) {}
-            });
-            try { if (window.__gcInitAds) window.__gcInitAds(); } catch(e) {}
+            // 광고 갱신 (공용 함수 우선)
+            try {
+              if (window.__gcRefreshAds) window.__gcRefreshAds(document);
+              else if (window.__gcInitAds) window.__gcInitAds();
+            } catch(e) {}
             // Firebase Analytics page_view 로깅
             if (window.__gcLogPageView) {
               window.__gcLogPageView(targetUrl);
@@ -646,11 +639,18 @@ const mobileAdInitScript = `
     resizeTimer = setTimeout(initAds, 120);
   }
 
-  if (document.readyState === 'complete') {
+  function bootInitAds() {
     initAds();
-  } else {
-    window.addEventListener('load', initAds);
+    try { requestAnimationFrame(initAds); } catch (e) {}
   }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootInitAds);
+  } else {
+    bootInitAds();
+  }
+
+  window.addEventListener('load', scheduleInitAds);
 
   window.addEventListener('resize', scheduleInitAds);
   window.addEventListener('pageshow', function(e) {

@@ -718,11 +718,18 @@ const lazyAdScript = `
     resizeTimer = setTimeout(initAds, 120);
   }
 
-  if (document.readyState === 'complete') {
+  function bootInitAds() {
     initAds();
-  } else {
-    window.addEventListener('load', initAds);
+    try { requestAnimationFrame(initAds); } catch (e) {}
   }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootInitAds);
+  } else {
+    bootInitAds();
+  }
+
+  window.addEventListener('load', scheduleInitAds);
 
   window.addEventListener('resize', scheduleInitAds);
   window.addEventListener('pageshow', function(e) {

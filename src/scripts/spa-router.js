@@ -13,6 +13,37 @@ const spaRouterScript = `
   const NAV_PAGES = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic', 'news'];
   const TRANSITION_MS = 200;
 
+  // 공용 광고 갱신 (SPA/스와이프 공통)
+  if (!window.__gcRefreshAds) {
+    window.__gcRefreshAds = function(root) {
+      try {
+        var scope = root && root.querySelectorAll ? root : document;
+        var list = scope.querySelectorAll('ins.adsbygoogle');
+        list.forEach(function(ins) {
+          var hasStatus =
+            ins.hasAttribute('data-ad-status') ||
+            ins.hasAttribute('data-adsbygoogle-status') ||
+            ins.hasAttribute('data-ad-loaded');
+          var hasIframe = !!ins.querySelector('iframe');
+          if (!hasStatus && !hasIframe) return;
+
+          try {
+            var newIns = ins.cloneNode(false);
+            newIns.innerHTML = '';
+            newIns.removeAttribute('data-ad-status');
+            newIns.removeAttribute('data-adsbygoogle-status');
+            newIns.removeAttribute('data-ad-loaded');
+            ins.parentNode.replaceChild(newIns, ins);
+          } catch (e) {}
+        });
+      } catch (e) {}
+
+      try {
+        if (window.__gcInitAds) window.__gcInitAds();
+      } catch (e) {}
+    };
+  }
+
   let currentPage = getCurrentPage();
   let isNavigating = false;
   const pageCache = new Map();
@@ -69,22 +100,11 @@ const spaRouterScript = `
     }
   }
 
-  // 광고 갱신 (ins 요소 교체 방식)
+  // 광고 갱신 (공용 함수)
   function refreshAds() {
-    document.querySelectorAll('.ad-card ins.adsbygoogle').forEach(function(ins) {
-      try {
-        const newIns = ins.cloneNode(false);
-        newIns.innerHTML = '';
-        newIns.removeAttribute('data-ad-status');
-        newIns.removeAttribute('data-adsbygoogle-status');
-        newIns.removeAttribute('data-ad-loaded');
-        ins.parentNode.replaceChild(newIns, ins);
-      } catch(e) {}
-    });
-
-    // 숨김(display:none) 상태에서 push()가 돌면 실패할 수 있으므로, 공용 init 함수로 처리
     try {
-      if (window.__gcInitAds) window.__gcInitAds();
+      if (window.__gcRefreshAds) window.__gcRefreshAds(document);
+      else if (window.__gcInitAds) window.__gcInitAds();
     } catch (e) {}
   }
 
