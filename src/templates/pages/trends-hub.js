@@ -260,10 +260,9 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
   <script>
     // 각 섹션별 페이지네이션
     (function() {
-      // PC: 8개(2줄), 모바일: 4개
+      // PC/모바일 모두 4개씩 표시
       const getPageSize = (sectionType) => {
-        if (window.innerWidth <= 768) return 4;
-        return sectionType === 'daily' ? 8 : 4; // 일간만 PC에서 8개
+        return 4;
       };
 
       document.querySelectorAll('.trend-section').forEach(section => {

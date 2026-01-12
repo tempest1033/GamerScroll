@@ -151,7 +151,9 @@ main > .ad-card:first-child,
 
 /* 홈/flex 컨테이너: 마진 없음 (gap으로 처리) */
 .home-main .ad-card,
-.home-sidebar .ad-card {
+.home-sidebar .ad-card,
+.game-container .ad-card,
+.trends-hub-container .ad-card {
   margin: 0;
 }
 

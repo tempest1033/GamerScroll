@@ -81,15 +81,6 @@
   box-sizing: border-box;
 }
 
-/* 트렌드 섹션 간격 */
-.trend-section {
-  margin-bottom: 20px;
-}
-
-.trend-section:last-child {
-  margin-bottom: 0;
-}
-
 /* 트렌드/비디오 섹션 페이지네이션 (헤더 내) */
 .trend-pagination,
 .video-pagination {
@@ -133,14 +124,6 @@
   color: var(--text-secondary);
   min-width: 45px;
   text-align: center;
-}
-
-/* 비디오 섹션 카드 간격 */
-.video-section-card {
-  margin-bottom: 24px;
-}
-.video-section-card:last-child {
-  margin-bottom: 0;
 }
 
 .trend-empty {
