@@ -51,6 +51,13 @@ function processHtmlFiles(dir) {
       html = html.replace(/<div class="ad-card ad-card-vertical">[\s\S]*?<\/div>/g, '');
       html = html.replace(/<div class="ad-card ad-card-rectangle">[\s\S]*?<\/div>/g, '');
 
+      // 모바일: 컨테이너 클래스 통일 (page-container로)
+      html = html.replace(/class="home-container"/g, 'class="page-container"');
+      html = html.replace(/class="insight-container"/g, 'class="page-container"');
+      html = html.replace(/class="game-container([^"]*)"/g, 'class="page-container$1"');
+      html = html.replace(/class="games-hub-container"/g, 'class="page-container"');
+      html = html.replace(/class="deep-dive-container"/g, 'class="page-container"');
+
       // 사이드바 제거 (PC 전용)
       html = html.replace(/<aside class="home-sidebar">[\s\S]*?<\/aside>/g, '');
       html = html.replace(/<div class="home-sidebar">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/g, '</div></section>');
