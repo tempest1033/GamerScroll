@@ -559,7 +559,7 @@ async function generateMobilePages() {
 
   // CSS 복사
   console.log('\n📦 CSS 번들링...');
-  const cssBundle = bundleCssFile('./src/styles/main.css');
+  const cssBundle = bundleCssFile('./src/styles.css');
   fs.writeFileSync(path.join(OUTPUT_DIR, 'styles.css'), cssBundle);
   console.log('  ✅ styles.css');
 

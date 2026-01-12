@@ -19,7 +19,13 @@ const AD_SLOTS = {
   Responsive002: '4840966314',
   Responsive003: '7467129651',
   Responsive004: '7865094213',
-  Responsive005: '3028357040'
+  Responsive005: '3028357040',
+  // 호환용 (PC 템플릿에서 Mobile001 등으로 참조)
+  Mobile001: '5825162341',
+  Mobile002: '4840966314',
+  Mobile003: '7467129651',
+  Mobile004: '7865094213',
+  Mobile005: '3028357040'
 };
 
 // 상단 검색바
@@ -382,6 +388,27 @@ function generateResponsiveAdPairSlot(mobileSlotId) {
   return renderMobileTopAd(mobileSlotId);
 }
 
+// PC/모바일 페어 함수 (모바일에서는 모바일 광고만 렌더링)
+function generateAdPairSlot(pcSlotId, mobileSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderMobileTopAd(mobileSlotId);
+}
+
+function generateMidAdPairSlot(pcSlotId, mobileSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderMobileMidAd(mobileSlotId);
+}
+
+function generateHomeAdPairSlot(pcSlotId, mobileSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderMobileTopAd(mobileSlotId);
+}
+
+function generateMobileOnlyMidAdSlot(mobileSlotId) {
+  if (!SHOW_ADS) return '';
+  return renderMobileMidAd(mobileSlotId);
+}
+
 module.exports = {
   wrapWithLayout,
   SHOW_ADS,
@@ -394,5 +421,9 @@ module.exports = {
   generatePCHomeAdSlot,
   generateResponsiveAdPairSlot,
   generateVerticalAdSlot,
-  generateRectangleAdSlot
+  generateRectangleAdSlot,
+  generateAdPairSlot,
+  generateMidAdPairSlot,
+  generateHomeAdPairSlot,
+  generateMobileOnlyMidAdSlot
 };
