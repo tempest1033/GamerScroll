@@ -191,8 +191,8 @@ const spaRouterScript = `
       updateBodyClass(page);
       currentPage = page;
 
-      // 광고 갱신 (약간 지연)
-      setTimeout(refreshAds, 100);
+      // 광고 갱신
+      refreshAds();
 
       // 인접 페이지 프리페치
       const idx = getPageIndex(page);
