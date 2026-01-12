@@ -303,10 +303,10 @@ const mobileAdInitScript = `
       } catch(e) { console.warn('[Ad] push error:', e.message); }
     });
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAds);
-  } else {
+  if (document.readyState === 'complete') {
     initAds();
+  } else {
+    window.addEventListener('load', initAds);
   }
 })();
 </script>`;
