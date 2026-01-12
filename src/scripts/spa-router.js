@@ -268,8 +268,8 @@ const spaRouterScript = `
       // SPA 미지원 페이지는 일반 이동
       if (targetPage === null) return;
 
-      // 로고 클릭 (헤더 내 홈 링크): 홈이면 새로고침
-      if (link.closest('.header') && href === '/') {
+      // 로고 클릭 (헤더 내 홈 링크 또는 모바일 홈 아이콘): 홈이면 새로고침
+      if ((link.closest('.header') || link.classList.contains('search-home-icon')) && href === '/') {
         if (window.location.pathname === '/') {
           e.preventDefault();
           window.location.reload();

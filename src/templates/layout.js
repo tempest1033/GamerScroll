@@ -215,6 +215,7 @@ const hoverPrefetchScript = `
           const game = recent.find(g => g.slug === item.dataset.slug);
           if (!game) return;
           searchDropdown.classList.remove('active');
+          searchInput.blur();
           try {
             const res = await fetch('/games/' + game.slug + '/', { method: 'HEAD' });
             if (res.ok) {
@@ -302,6 +303,7 @@ const hoverPrefetchScript = `
           } catch {}
           const href = item.getAttribute('href');
           searchDropdown.classList.remove('active');
+          searchInput.blur();
           if (window.spaNavigateTo) {
             history.pushState({}, '', href);
             window.spaNavigateTo('games', { pushState: false });
