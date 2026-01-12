@@ -115,6 +115,17 @@ const spaRouterScript = `
     document.body.classList.add('page-' + (page || 'home'));
   }
 
+  // nav 캐러셀 위치 업데이트 (모바일)
+  function updateNavCarousel(index) {
+    var navInner = document.querySelector('.nav-inner');
+    if (window.innerWidth <= 768 && navInner) {
+      var offset = 0;
+      if (index >= 4) offset = -40;
+      else if (index === 3) offset = -20;
+      navInner.style.transform = 'translateX(' + offset + '%)';
+    }
+  }
+
   // 슬라이드 애니메이션 (두 페이지 연결)
   function slideTransition(direction, newContent, callback) {
     const main = document.querySelector('main.site-container');
@@ -200,8 +211,10 @@ const spaRouterScript = `
       if (pushState) {
         history.pushState({ url: url }, '', url);
       }
+      var newIdx = getPageIndex(newPage);
       updateNavActive(newPage);
       updateBodyClass(newPage);
+      updateNavCarousel(newIdx);
       currentPage = newPage;
       refreshAds();
       isNavigating = false;
@@ -241,9 +254,19 @@ const spaRouterScript = `
 
     // 내부 링크만 SPA 처리
     if (href.startsWith('/')) {
+      const targetPage = getCurrentPageFromUrl(href);
+
+      // SPA 미지원 페이지는 일반 이동
+      if (targetPage === null) return;
+
+      // 같은 페이지면 무시 (홈→홈 등)
+      if (targetPage === currentPage) {
+        e.preventDefault();
+        return;
+      }
+
       e.preventDefault();
       const currentIdx = getPageIndex(currentPage);
-      const targetPage = getCurrentPageFromUrl(href);
       const targetIdx = getPageIndex(targetPage);
       const direction = targetIdx > currentIdx ? 'left' : 'right';
       navigateTo(href, { direction: direction });
