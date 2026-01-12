@@ -634,74 +634,23 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 (PC: lazy loading, 모바일: 일괄 초기화)
+// 광고 초기화 스크립트 (PC/모바일 동일 - 일괄 초기화)
 const lazyAdScript = `
 <script>
 (function() {
-  // 표준 AdSense push 패턴 (바로 push, 스크립트 로드 대기 불필요)
-  function pushAd() {
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch(e) { console.warn('[Ad] push error:', e.message); }
-  }
-
-  // 모바일: 일괄 초기화
-  if (window.innerWidth <= 768) {
-    function initMobileAds() {
-      var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
-      ads.forEach(function(ad) {
-        ad.dataset.adLoaded = 'true';
-        pushAd();
-      });
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initMobileAds);
-    } else {
-      initMobileAds();
-    }
-    return;
-  }
-
-  // PC: Intersection Observer 기반 lazy loading
-  function initLazyAds() {
-    var lazyAds = document.querySelectorAll('ins.adsbygoogle[data-ad-lazy="true"]');
-    if (!lazyAds.length) return;
-
-    // Intersection Observer 미지원 시 바로 로드
-    if (!('IntersectionObserver' in window)) {
-      lazyAds.forEach(function(ad) {
-        if (ad.dataset.adLoaded) return;
-        ad.dataset.adLoaded = 'true';
-        pushAd();
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var ad = entry.target;
-          if (ad.dataset.adLoaded) return;
-          ad.dataset.adLoaded = 'true';
-          pushAd();
-          observer.unobserve(ad);
-        }
-      });
-    }, {
-      rootMargin: '200px 0px',  // 뷰포트 200px 전에 미리 로드
-      threshold: 0
-    });
-
-    lazyAds.forEach(function(ad) {
-      observer.observe(ad);
+  function initAds() {
+    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
+    ads.forEach(function(ad) {
+      ad.dataset.adLoaded = 'true';
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch(e) { console.warn('[Ad] push error:', e.message); }
     });
   }
-
-  // DOM 로드 완료 후 실행
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLazyAds);
+    document.addEventListener('DOMContentLoaded', initAds);
   } else {
-    initLazyAds();
+    initAds();
   }
 })();
 </script>`;
