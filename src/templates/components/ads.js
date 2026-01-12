@@ -15,8 +15,8 @@ function renderPCHomeAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+       data-ad-slot="${slotId}"
+       data-ad-lazy="true"></ins>
 </div>`;
 }
 
@@ -29,8 +29,8 @@ function renderPCAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+       data-ad-slot="${slotId}"
+       data-ad-lazy="true"></ins>
 </div>`;
 }
 
@@ -43,8 +43,8 @@ function renderVerticalAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+       data-ad-slot="${slotId}"
+       data-ad-lazy="true"></ins>
 </div>`;
 }
 
@@ -57,8 +57,8 @@ function renderRectangleAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+       data-ad-slot="${slotId}"
+       data-ad-lazy="true"></ins>
 </div>`;
 }
 
