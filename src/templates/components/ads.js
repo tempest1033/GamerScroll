@@ -16,7 +16,7 @@ function renderPCHomeAd(slotId) {
        style="display:block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
-       data-ad-lazy="true"></ins>
+></ins>
 </div>`;
 }
 
@@ -30,7 +30,7 @@ function renderPCAd(slotId) {
        style="display:block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
-       data-ad-lazy="true"></ins>
+></ins>
 </div>`;
 }
 
@@ -44,7 +44,7 @@ function renderVerticalAd(slotId) {
        style="display:block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
-       data-ad-lazy="true"></ins>
+></ins>
 </div>`;
 }
 
@@ -58,7 +58,7 @@ function renderRectangleAd(slotId) {
        style="display:block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
-       data-ad-lazy="true"></ins>
+></ins>
 </div>`;
 }
 
