@@ -647,10 +647,10 @@ const lazyAdScript = `
       } catch(e) { console.warn('[Ad] push error:', e.message); }
     });
   }
-  if (document.readyState === 'complete') {
-    initAds();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAds);
   } else {
-    window.addEventListener('load', initAds);
+    initAds();
   }
 })();
 </script>`;
