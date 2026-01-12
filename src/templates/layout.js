@@ -1110,13 +1110,13 @@ function wrapWithLayout(content, options = {}) {
   ${generateNav(currentPage)}
   <main class="site-container">
     ${content}
+    ${pageScripts}
   </main>
   ${generateFooter()}
   ${footerModalScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
   ${spaRouterScript}
-  ${pageScripts}
   ${lazyAdScript}
   ${deferredItemsScript}
   ${showSearchBar ? searchBarScript : ''}
