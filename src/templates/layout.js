@@ -688,12 +688,12 @@ const lazyAdScript = `
 <script>
 (function() {
   function initAds() {
-    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
+    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded]):not([data-adsbygoogle-status])');
     ads.forEach(function(ad) {
       ad.dataset.adLoaded = 'true';
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch(e) { console.warn('[Ad] push error:', e.message); }
+      } catch(e) {}
     });
   }
   if (document.readyState === 'complete') {
