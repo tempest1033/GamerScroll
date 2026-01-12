@@ -223,6 +223,11 @@ const spaRouterScript = `
       refreshAds();
       isNavigating = false;
 
+      // Firebase Analytics page_view 로깅
+      if (window.__gcLogPageView) {
+        window.__gcLogPageView(url);
+      }
+
       // 인접 페이지 프리페치
       prefetchAdjacent(newPage);
     }

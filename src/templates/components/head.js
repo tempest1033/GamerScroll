@@ -204,7 +204,7 @@ function generateHead(options = {}) {
 
 	      var init = async function() {
 	        try {
-	          const [{ initializeApp }, { getAnalytics }] = await Promise.all([
+	          const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
 	            import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
 	            import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
 	          ]);
@@ -218,7 +218,14 @@ function generateHead(options = {}) {
 	            measurementId: "G-2269FV044J"
 	          };
 	          const app = initializeApp(firebaseConfig);
-	          getAnalytics(app);
+	          const analytics = getAnalytics(app);
+	          // SPA용 page_view 로깅 함수 전역 노출
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
 	        } catch (e) {}
 	      };
 
