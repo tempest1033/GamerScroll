@@ -4,6 +4,18 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
+// URL 수정 헬퍼 (이미지 프록시)
+const fixUrl = (url) => {
+  if (!url) return url;
+  if (url.startsWith('//')) url = 'https:' + url;
+  // CORS 허용된 도메인은 직접 로드
+  const corsAllowed = ['steamstatic.com', 'googleusercontent.com', 'gamerscrawl.com'];
+  if (corsAllowed.some(d => url.includes(d))) return url;
+  // 나머지 외부 이미지는 프록시
+  if (url.startsWith('http')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+  return url;
+};
+
 function generateNewsPage(data) {
   const { news } = data;
 
@@ -42,7 +54,7 @@ function generateNewsPage(data) {
       const cardsHTML = cards.map((item, i) => `
         <a class="news-grid-card" href="${item.link}" target="_blank" rel="noopener" data-index="${item.originalIndex}">
           <div class="news-grid-card-thumb">
-            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
+            ${item.thumbnail ? `<img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
             <div class="news-thumb-fallback"><img src="/favicon.svg" alt="" width="48" height="48"></div>
           </div>
           <div class="news-grid-card-title">${item.title}</div>
