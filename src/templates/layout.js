@@ -638,29 +638,20 @@ const fontAndEmojiScript = `
 const lazyAdScript = `
 <script>
 (function() {
-  // adsbygoogle 로드 대기 후 push 호출하는 헬퍼
-  function safePush(retryCount) {
-    retryCount = retryCount || 0;
-    if (retryCount > 50) { console.warn('[Ad] adsbygoogle load timeout'); return; }
-
-    // adsbygoogle가 로드되고 초기화됐는지 체크
-    if (typeof adsbygoogle !== 'undefined' && adsbygoogle.push) {
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch(e) { console.warn('[Ad] push error:', e.message); }
-    } else {
-      // 100ms 후 재시도
-      setTimeout(function() { safePush(retryCount + 1); }, 100);
-    }
+  // 표준 AdSense push 패턴 (바로 push, 스크립트 로드 대기 불필요)
+  function pushAd() {
+    try {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch(e) { console.warn('[Ad] push error:', e.message); }
   }
 
-  // 모바일: 인라인 push() 대신 여기서 일괄 초기화
+  // 모바일: 일괄 초기화
   if (window.innerWidth <= 768) {
     function initMobileAds() {
       var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
       ads.forEach(function(ad) {
         ad.dataset.adLoaded = 'true';
-        safePush(0);
+        pushAd();
       });
     }
     if (document.readyState === 'loading') {
@@ -676,10 +667,10 @@ const lazyAdScript = `
     var lazyAds = document.querySelectorAll('ins.adsbygoogle[data-ad-lazy="true"]');
     if (!lazyAds.length) return;
 
-    // Intersection Observer 지원 체크
+    // Intersection Observer 미지원 시 바로 로드
     if (!('IntersectionObserver' in window)) {
       lazyAds.forEach(function(ad) {
-        safePush(0);
+        pushAd();
       });
       return;
     }
@@ -690,7 +681,7 @@ const lazyAdScript = `
           var ad = entry.target;
           if (ad.dataset.adLoaded) return;
           ad.dataset.adLoaded = 'true';
-          safePush(0);
+          pushAd();
           observer.unobserve(ad);
         }
       });

@@ -284,24 +284,17 @@ const footerModalScript = `
 })();
 </script>`;
 
-// 모바일 광고 초기화 (adsbygoogle 로드 대기)
+// 모바일 광고 초기화 (표준 AdSense 패턴 - 바로 push)
 const mobileAdInitScript = `
 <script>
 (function() {
-  function safePush(retryCount) {
-    retryCount = retryCount || 0;
-    if (retryCount > 50) { console.warn('[Ad] adsbygoogle load timeout'); return; }
-    if (typeof adsbygoogle !== 'undefined' && adsbygoogle.push) {
-      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) { console.warn('[Ad] push error:', e.message); }
-    } else {
-      setTimeout(function() { safePush(retryCount + 1); }, 100);
-    }
-  }
   function initAds() {
     var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
     ads.forEach(function(ad) {
       ad.dataset.adLoaded = 'true';
-      safePush(0);
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch(e) { console.warn('[Ad] push error:', e.message); }
     });
   }
   if (document.readyState === 'loading') {
