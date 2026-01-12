@@ -12,6 +12,7 @@ const {
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
+const { spaRouterScript, spaTransitionCss } = require('../scripts/spa-router');
 
 const AD_SLOTS = {
   // 모바일용 (320x150, 300x250)
@@ -201,9 +202,16 @@ const swipeScript = `
     return -1;
   }
 
-  function switchNavSection(index) {
-    if (index < 0 || index >= navSections.length) { window.location.href = '/'; return; }
-    window.location.href = '/' + navSections[index] + '/';
+  function switchNavSection(index, direction) {
+    const page = (index < 0 || index >= navSections.length) ? 'home' : navSections[index];
+    // SPA 라우터 사용
+    if (window.spaNavigateTo) {
+      window.spaNavigateTo(page, { direction: direction });
+      return;
+    }
+    // 폴백
+    if (page === 'home') { window.location.href = '/'; }
+    else { window.location.href = '/' + page + '/'; }
   }
 
   document.body.addEventListener('touchstart', (e) => {
@@ -217,12 +225,13 @@ const swipeScript = `
     if (Math.abs(diffX) <= Math.abs(diffY)) return;
     if (Math.abs(diffX) > 50) {
       const currentIndex = getCurrentNavIndex();
+      const direction = diffX > 0 ? 'left' : 'right';
       if (currentIndex === -1) {
-        if (diffX > 0) switchNavSection(0);
-        else switchNavSection(navSections.length - 1);
+        if (diffX > 0) switchNavSection(0, direction);
+        else switchNavSection(navSections.length - 1, direction);
       } else {
-        if (diffX > 0) switchNavSection(currentIndex + 1);
-        else switchNavSection(currentIndex - 1);
+        if (diffX > 0) switchNavSection(currentIndex + 1, direction);
+        else switchNavSection(currentIndex - 1, direction);
       }
     }
   }, { passive: true });
@@ -336,6 +345,7 @@ function wrapWithLayout(content, options = {}) {
 <head>
   ${generateHead({ title, description, keywords, canonical: mobileCanonical, pageData, articleSchema, noindex })}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  ${spaTransitionCss}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''} is-mobile">
   ${generateHeader()}
@@ -348,6 +358,7 @@ function wrapWithLayout(content, options = {}) {
   ${footerModalScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
+  ${spaRouterScript}
   ${pageScripts}
   ${showSearchBar ? searchBarScript : ''}
   ${swipeScript}
@@ -409,8 +420,18 @@ function generateMobileOnlyMidAdSlot(mobileSlotId) {
   return renderMobileMidAd(mobileSlotId);
 }
 
+/**
+ * SPA용 partial 콘텐츠 생성 (레이아웃 없이 메인 콘텐츠만)
+ */
+function generatePartialContent(content, options = {}) {
+  const { pageScripts = '' } = options;
+  return `${content}
+${pageScripts}`;
+}
+
 module.exports = {
   wrapWithLayout,
+  generatePartialContent,
   SHOW_ADS,
   AD_SLOTS,
   generateAdSlot,
