@@ -1,111 +1,30 @@
 /**
  * 모바일 버전 빌드
- * docs/ 복사 → PC 광고/사이드바 제거 → URL 변환 → docs-mobile/
- *
- * PC 버전은 PC 전용 광고만 포함 (layout.js, ads.js)
- * 모바일 버전은 이 스크립트로 PC 요소 제거 후 배포
+ * generate-html-report.js --mobile 실행 → 모바일 전용 HTML 생성
+ * layout-mobile.js의 실시간 드래그 스와이프 적용
  */
 
-const fs = require('fs');
-const path = require('path');
-
-const SRC_DIR = './docs';
-const DEST_DIR = './docs-mobile';
-
-function copyDirSync(src, dest) {
-  if (!fs.existsSync(dest)) {
-    fs.mkdirSync(dest, { recursive: true });
-  }
-
-  const entries = fs.readdirSync(src, { withFileTypes: true });
-
-  for (const entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-
-    if (entry.isDirectory()) {
-      copyDirSync(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
-  }
-}
-
-function processHtmlFiles(dir) {
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  let count = 0;
-
-  for (const entry of entries) {
-    const filePath = path.join(dir, entry.name);
-
-    if (entry.isDirectory()) {
-      count += processHtmlFiles(filePath);
-    } else if (entry.name.endsWith('.html')) {
-      let html = fs.readFileSync(filePath, 'utf8');
-
-      // URL 변환: gamerscrawl.com → m.gamerscrawl.com
-      html = html.replace(/https:\/\/gamerscrawl\.com/g, 'https://m.gamerscrawl.com');
-
-      // PC 광고 컨테이너 제거 (ad-pc-only, ad-card-pc, ad-card-pc-home, ad-card-vertical, ad-card-rectangle)
-      html = html.replace(/<div class="ad-card ad-card-pc[^"]*">[\s\S]*?<\/div>/g, '');
-      html = html.replace(/<div class="ad-card ad-card-vertical">[\s\S]*?<\/div>/g, '');
-      html = html.replace(/<div class="ad-card ad-card-rectangle">[\s\S]*?<\/div>/g, '');
-
-      // 모바일: 컨테이너 클래스 통일 (page-container로)
-      html = html.replace(/class="home-container"/g, 'class="page-container"');
-      html = html.replace(/class="insight-container"/g, 'class="page-container"');
-      html = html.replace(/class="game-container([^"]*)"/g, 'class="page-container$1"');
-      html = html.replace(/class="games-hub-container"/g, 'class="page-container"');
-      html = html.replace(/class="deep-dive-container"/g, 'class="page-container"');
-
-      // 사이드바 제거 (PC 전용)
-      html = html.replace(/<aside class="home-sidebar">[\s\S]*?<\/aside>/g, '');
-      html = html.replace(/<div class="home-sidebar">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/g, '</div></section>');
-
-      fs.writeFileSync(filePath, html);
-      count++;
-    }
-  }
-
-  return count;
-}
+const { execSync } = require('child_process');
 
 console.log('📱 모바일 버전 빌드 시작...\n');
 
-// 기존 docs-mobile 삭제
-if (fs.existsSync(DEST_DIR)) {
-  fs.rmSync(DEST_DIR, { recursive: true });
-  console.log('🗑️  기존 docs-mobile 삭제');
+// 퀵 모드 여부 확인 (인자 전달)
+const args = process.argv.slice(2);
+const isQuick = args.includes('--quick') || args.includes('-q');
+const quickFlag = isQuick ? '-q' : '';
+
+try {
+  // generate-html-report.js --mobile 실행
+  const cmd = `node generate-html-report.js ${quickFlag} --mobile`.trim();
+  console.log(`🔄 실행: ${cmd}\n`);
+
+  execSync(cmd, {
+    stdio: 'inherit',
+    cwd: __dirname
+  });
+
+  console.log('\n✅ 모바일 빌드 완료! (docs-mobile/)');
+} catch (error) {
+  console.error('\n❌ 모바일 빌드 실패:', error.message);
+  process.exit(1);
 }
-
-// docs 복사
-console.log('📦 docs/ → docs-mobile/ 복사 중...');
-copyDirSync(SRC_DIR, DEST_DIR);
-console.log('  ✅ 복사 완료\n');
-
-// HTML 파일 처리
-console.log('🔄 HTML 파일 처리 중...');
-const htmlCount = processHtmlFiles(DEST_DIR);
-console.log(`  ✅ ${htmlCount}개 HTML 파일 처리 완료\n`);
-
-// CNAME 설정
-fs.writeFileSync(path.join(DEST_DIR, 'CNAME'), 'm.gamerscrawl.com');
-console.log('✅ CNAME 설정 (m.gamerscrawl.com)');
-
-// sitemap URL 변환
-const sitemapPath = path.join(DEST_DIR, 'sitemap.xml');
-if (fs.existsSync(sitemapPath)) {
-  let sitemap = fs.readFileSync(sitemapPath, 'utf8');
-  sitemap = sitemap.replace(/https:\/\/gamerscrawl\.com/g, 'https://m.gamerscrawl.com');
-  fs.writeFileSync(sitemapPath, sitemap);
-  console.log('✅ sitemap.xml URL 변환');
-}
-
-// robots.txt
-fs.writeFileSync(path.join(DEST_DIR, 'robots.txt'), `User-agent: *
-Allow: /
-
-Sitemap: https://m.gamerscrawl.com/sitemap.xml`);
-console.log('✅ robots.txt 생성');
-
-console.log('\n✅ 모바일 빌드 완료! (docs-mobile/)');

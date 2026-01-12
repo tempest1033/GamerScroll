@@ -687,20 +687,48 @@ const fontAndEmojiScript = `
 const lazyAdScript = `
 <script>
 (function() {
+  function isAdRenderable(ad) {
+    if (!ad) return false;
+    // display:none(숨김 패널 등) 상태에서는 availableWidth=0 에러가 날 수 있어 push()를 미루기
+    return !!(ad.offsetWidth && ad.offsetHeight);
+  }
+
   function initAds() {
-    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded])');
+    var ads = document.querySelectorAll('ins.adsbygoogle:not([data-ad-loaded]):not([data-adsbygoogle-status])');
     ads.forEach(function(ad) {
-      ad.dataset.adLoaded = 'true';
+      if (!isAdRenderable(ad)) return;
       try {
+        ad.dataset.adLoaded = 'true';
         (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch(e) {}
+      } catch(e) {
+        try {
+          ad.removeAttribute('data-ad-loaded');
+          delete ad.dataset.adLoaded;
+        } catch (_) {}
+      }
     });
   }
+
+  // SPA/탭 전환에서 재사용
+  if (!window.__gcInitAds) window.__gcInitAds = initAds;
+
+  var resizeTimer = null;
+  function scheduleInitAds() {
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initAds, 120);
+  }
+
   if (document.readyState === 'complete') {
     initAds();
   } else {
     window.addEventListener('load', initAds);
   }
+
+  window.addEventListener('resize', scheduleInitAds);
+  window.addEventListener('pageshow', function(e) {
+    // bfcache 복귀 케이스
+    if (e && e.persisted) scheduleInitAds();
+  });
 })();
 </script>`;
 
@@ -1233,18 +1261,23 @@ function generatePartialContent(content, options = {}) {
 ${pageScripts}`;
 }
 
-module.exports = {
-  wrapWithLayout,
-  generatePartialContent,
-  SHOW_ADS,
-  AD_SLOTS,
-  generateAdSlot,
-  generatePCAdSlot,
-  generatePCHomeAdSlot,
-  generateVerticalAdSlot,
-  generateRectangleAdSlot,
-  generateAdPairSlot,
-  generateMidAdPairSlot,
-  generateHomeAdPairSlot,
-  generateMobileOnlyMidAdSlot
-};
+// 모바일 빌드 시 layout-mobile.js 사용
+if (process.env.MOBILE_BUILD === 'true') {
+  module.exports = require('./layout-mobile');
+} else {
+  module.exports = {
+    wrapWithLayout,
+    generatePartialContent,
+    SHOW_ADS,
+    AD_SLOTS,
+    generateAdSlot,
+    generatePCAdSlot,
+    generatePCHomeAdSlot,
+    generateVerticalAdSlot,
+    generateRectangleAdSlot,
+    generateAdPairSlot,
+    generateMidAdPairSlot,
+    generateHomeAdPairSlot,
+    generateMobileOnlyMidAdSlot
+  };
+}

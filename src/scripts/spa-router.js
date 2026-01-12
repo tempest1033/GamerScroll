@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SPA 라우터 스크립트
  * - 네비게이션 링크 클릭 가로채기
  * - HTML 추출 방식 (partial 파일 불필요)
@@ -77,10 +77,15 @@ const spaRouterScript = `
         newIns.innerHTML = '';
         newIns.removeAttribute('data-ad-status');
         newIns.removeAttribute('data-adsbygoogle-status');
+        newIns.removeAttribute('data-ad-loaded');
         ins.parentNode.replaceChild(newIns, ins);
-        (adsbygoogle = window.adsbygoogle || []).push({});
       } catch(e) {}
     });
+
+    // 숨김(display:none) 상태에서 push()가 돌면 실패할 수 있으므로, 공용 init 함수로 처리
+    try {
+      if (window.__gcInitAds) window.__gcInitAds();
+    } catch (e) {}
   }
 
   // 페이지 스크립트 재실행

@@ -4,6 +4,12 @@ const path = require('path');
 
 // 커맨드라인 인자 파싱
 let isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
+const isMobileBuild = process.argv.includes('--mobile') || process.argv.includes('-m');
+
+// 모바일 빌드 시 환경변수 설정 (layout-mobile.js 사용)
+if (isMobileBuild) {
+  process.env.MOBILE_BUILD = 'true';
+}
 
 // CI 환경에서 캐시가 최근 것이면 자동으로 퀵 모드 (크롤링 스킵)
 const CACHE_FRESHNESS_MINUTES = 25; // 30분 주기 - 5분 여유
@@ -776,7 +782,8 @@ async function main() {
   }
 
   // docs 폴더 동기화 (로컬 개발 환경용)
-  const DOCS_DIR = './docs';
+  // 모바일 빌드 시 docs-mobile/ 폴더에 출력
+  const DOCS_DIR = isMobileBuild ? './docs-mobile' : './docs';
   if (!fs.existsSync(DOCS_DIR)) {
     fs.mkdirSync(DOCS_DIR, { recursive: true });
   }
@@ -954,19 +961,20 @@ async function main() {
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];
+  const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
   // 메인 페이지 URL 목록
   const mainPages = [
-    { loc: 'https://gamerscrawl.com/', changefreq: 'hourly', priority: '1.0' },
-    { loc: 'https://gamerscrawl.com/trend/', changefreq: 'hourly', priority: '0.9' },
-    { loc: 'https://gamerscrawl.com/news/', changefreq: 'hourly', priority: '0.9' },
-    { loc: 'https://gamerscrawl.com/community/', changefreq: 'hourly', priority: '0.8' },
-    { loc: 'https://gamerscrawl.com/youtube/', changefreq: 'hourly', priority: '0.8' },
-    { loc: 'https://gamerscrawl.com/rankings/', changefreq: 'hourly', priority: '0.9' },
-    { loc: 'https://gamerscrawl.com/steam/', changefreq: 'hourly', priority: '0.8' },
-    { loc: 'https://gamerscrawl.com/upcoming/', changefreq: 'daily', priority: '0.7' },
-    { loc: 'https://gamerscrawl.com/metacritic/', changefreq: 'daily', priority: '0.7' },
-    { loc: 'https://gamerscrawl.com/games/', changefreq: 'daily', priority: '0.9' }
+    { loc: `${siteBaseUrl}/`, changefreq: 'hourly', priority: '1.0' },
+    { loc: `${siteBaseUrl}/trend/`, changefreq: 'hourly', priority: '0.9' },
+    { loc: `${siteBaseUrl}/news/`, changefreq: 'hourly', priority: '0.9' },
+    { loc: `${siteBaseUrl}/community/`, changefreq: 'hourly', priority: '0.8' },
+    { loc: `${siteBaseUrl}/youtube/`, changefreq: 'hourly', priority: '0.8' },
+    { loc: `${siteBaseUrl}/rankings/`, changefreq: 'hourly', priority: '0.9' },
+    { loc: `${siteBaseUrl}/steam/`, changefreq: 'hourly', priority: '0.8' },
+    { loc: `${siteBaseUrl}/upcoming/`, changefreq: 'daily', priority: '0.7' },
+    { loc: `${siteBaseUrl}/metacritic/`, changefreq: 'daily', priority: '0.7' },
+    { loc: `${siteBaseUrl}/games/`, changefreq: 'daily', priority: '0.9' }
   ];
 
   // 트렌드 리포트 페이지 자동 스캔
@@ -979,7 +987,7 @@ async function main() {
         .filter(d => d.isDirectory())
         .map(d => d.name);
       trendPages.push(...dailyFolders.map(slug => ({
-        loc: `https://gamerscrawl.com/trend/daily/${slug}/`,
+        loc: `${siteBaseUrl}/trend/daily/${slug}/`,
         changefreq: 'weekly',
         priority: '0.7'
       })));
@@ -991,7 +999,7 @@ async function main() {
         .filter(d => d.isDirectory())
         .map(d => d.name);
       trendPages.push(...weeklyFolders.map(slug => ({
-        loc: `https://gamerscrawl.com/trend/weekly/${slug}/`,
+        loc: `${siteBaseUrl}/trend/weekly/${slug}/`,
         changefreq: 'weekly',
         priority: '0.7'
       })));
@@ -1004,7 +1012,7 @@ async function main() {
         fs.statSync(`${deepDiveSitemapDir}/${f}`).isDirectory()
       );
       trendPages.push(...deepDiveFolders.map(slug => ({
-        loc: `https://gamerscrawl.com/trend/deep-dive/${slug}/`,
+        loc: `${siteBaseUrl}/trend/deep-dive/${slug}/`,
         changefreq: 'monthly',
         priority: '0.8'
       })));
@@ -1026,7 +1034,7 @@ async function main() {
         hasNoindex = html.includes('noindex');
       }
       return {
-        loc: `https://gamerscrawl.com/games/${slug}/`,
+        loc: `${siteBaseUrl}/games/${slug}/`,
         changefreq: 'weekly',
         priority: hasNoindex ? '0.1' : '0.6'  // noindex면 낮은 priority
       };
@@ -1049,7 +1057,18 @@ ${sitemapEntries}
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
   console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 게임 ${gamePages.length}개 + 트렌드 ${trendPages.length}개 = 총 ${allPages.length}개 URL`);
 
-  console.log(`\n✅ 완료! (docs/ 동기화 + sitemap 갱신)`);
+  // 모바일 빌드 시 CNAME, robots.txt 생성
+  if (isMobileBuild) {
+    fs.writeFileSync(`${DOCS_DIR}/CNAME`, 'm.gamerscrawl.com', 'utf8');
+    fs.writeFileSync(`${DOCS_DIR}/robots.txt`, `User-agent: *
+Allow: /
+
+Sitemap: https://m.gamerscrawl.com/sitemap.xml`, 'utf8');
+    console.log('📱 모바일: CNAME, robots.txt 생성');
+  }
+
+  const buildType = isMobileBuild ? 'docs-mobile/ (모바일)' : 'docs/ (PC)';
+  console.log(`\n✅ 완료! (${buildType} 동기화 + sitemap 갱신)`);
 
   // 데일리 인사이트 생성 (하루에 한 번)
   if (!fs.existsSync(REPORTS_DIR)) {

@@ -4,22 +4,12 @@
  * 이후 GamersCrawl-Mobile 저장소로 복사
  */
 
+// 모바일 빌드 환경 변수 설정 (layout.js에서 layout-mobile.js 사용)
+process.env.MOBILE_BUILD = 'true';
+
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
-
-// 모바일 레이아웃 사용을 위해 layout.js를 layout-mobile.js로 교체
-// Node.js 모듈 캐시를 활용해 layout 모듈을 대체
-const layoutMobilePath = require.resolve('./src/templates/layout-mobile.js');
-const layoutPath = require.resolve('./src/templates/layout.js');
-
-// layout.js 모듈을 layout-mobile.js로 대체
-require.cache[layoutPath] = require.cache[layoutMobilePath] || {
-  id: layoutPath,
-  filename: layoutPath,
-  loaded: true,
-  exports: require(layoutMobilePath)
-};
 
 // 캐시 파일 경로
 const CACHE_FILE = './data-cache.json';

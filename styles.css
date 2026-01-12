@@ -795,11 +795,11 @@ ins.adsbygoogle {
 
 /* ===== 광고 크기 ===== */
 
-/* 모바일 상단 광고 (320x100) - Responsive001 */
+/* 모바일 상단 광고 (320x150) - Responsive001 */
 .ad-card-mobile-top {
   width: 100%;
-  height: 100px;
-  min-height: 100px;
+  height: 150px;
+  min-height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -867,6 +867,21 @@ ins.adsbygoogle {
   outline: 1px solid var(--border);
   overflow: hidden;
   touch-action: pan-x pan-y;
+  position: relative;
+}
+
+/* 광고 스와이프 오버레이 (탭 시 제거됨) */
+.ad-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: transparent;
+}
+
+/* 탭 감지 후 오버레이 비활성화 (JS에서 토글) */
+.ad-card.ad-tapped::after {
+  pointer-events: none;
 }
 
 /* ins/iframe 스와이프 허용 + 마진 제거 */
@@ -924,7 +939,9 @@ main > .ad-card:first-child,
 
 /* 홈/flex 컨테이너: 마진 없음 (gap으로 처리) */
 .home-main .ad-card,
-.home-sidebar .ad-card {
+.home-sidebar .ad-card,
+.game-container .ad-card,
+.trends-hub-container .ad-card {
   margin: 0;
 }
 
@@ -11804,15 +11821,6 @@ a.gm-item:hover {
   box-sizing: border-box;
 }
 
-/* 트렌드 섹션 간격 */
-.trend-section {
-  margin-bottom: 20px;
-}
-
-.trend-section:last-child {
-  margin-bottom: 0;
-}
-
 /* 트렌드/비디오 섹션 페이지네이션 (헤더 내) */
 .trend-pagination,
 .video-pagination {
@@ -11856,14 +11864,6 @@ a.gm-item:hover {
   color: var(--text-secondary);
   min-width: 45px;
   text-align: center;
-}
-
-/* 비디오 섹션 카드 간격 */
-.video-section-card {
-  margin-bottom: 24px;
-}
-.video-section-card:last-child {
-  margin-bottom: 0;
 }
 
 .trend-empty {
