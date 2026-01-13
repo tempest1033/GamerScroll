@@ -229,7 +229,7 @@ const swipeScript = `
 <script>
 (function() {
   const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
-  const SWIPE_THRESHOLD = 0.25; // 화면 25% 이상 스와이프하면 전환
+  const SWIPE_THRESHOLD = 0.50; // 화면 50% 이상 스와이프하면 전환
   const FLICK_THRESHOLD = 0.20; // 플릭: 화면 20% + 빠른 속도
   const FLICK_VELOCITY = 0.3;   // 플릭 감지 속도 (px/ms)
   const TRANSITION_MS = 200;
