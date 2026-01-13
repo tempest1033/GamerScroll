@@ -201,9 +201,15 @@ function generateHead(options = {}) {
 	  <script type="module">
 	    (function() {
 	      var host = window.location.hostname;
-      if (host !== 'gamerscrawl.com' && host !== 'm.gamerscrawl.com') return;
+	      if (host !== 'gamerscrawl.com' && host !== 'm.gamerscrawl.com') return;
 
-	      var init = async function() {
+	      // 페이지뷰 큐 (Firebase 로드 전 발생한 이벤트 저장)
+	      var pageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        pageViewQueue.push(path);
+	      };
+
+	      (async function() {
 	        try {
 	          const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
 	            import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
@@ -220,7 +226,16 @@ function generateHead(options = {}) {
 	          };
 	          const app = initializeApp(firebaseConfig);
 	          const analytics = getAnalytics(app);
-	          // SPA용 page_view 로깅 함수 전역 노출
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          pageViewQueue.forEach(function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          });
+
+	          // 실제 로깅 함수로 교체
 	          window.__gcLogPageView = function(path) {
 	            logEvent(analytics, 'page_view', {
 	              page_path: path,
@@ -228,13 +243,7 @@ function generateHead(options = {}) {
 	            });
 	          };
 	        } catch (e) {}
-	      };
-
-	      if ('requestIdleCallback' in window) {
-	        requestIdleCallback(function() { init(); }, { timeout: 2000 });
-	      } else {
-	        setTimeout(function() { init(); }, 0);
-	      }
+	      })();
 	    })();
 	  </script>`;
 }
