@@ -249,6 +249,12 @@ function generateHead(options = {}) {
 	              page_location: window.location.origin + path
 	            });
 	          };
+
+	          // 초기 페이지 로드 page_view 전송 (직접 접속 시)
+	          logEvent(analytics, 'page_view', {
+	            page_path: window.location.pathname,
+	            page_location: window.location.href
+	          });
 	        } catch (e) {}
 	      })();
 	    })();
