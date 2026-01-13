@@ -283,10 +283,16 @@ const swipeScript = `
     return -1;
   }
 
+  // 순환 인덱스 계산
+  function wrapIndex(index) {
+    if (index < -1) return navSections.length - 1; // 홈 이전 -> 마지막 페이지
+    if (index >= navSections.length) return -1;    // 마지막 이후 -> 홈
+    return index;
+  }
+
   function getPageUrl(index) {
-    if (index < -1) return null;  // 홈 이전은 없음
+    index = wrapIndex(index);
     if (index === -1) return '/'; // 홈
-    if (index >= navSections.length) return null;
     return '/' + navSections[index] + '/';
   }
 
@@ -695,7 +701,7 @@ const swipeScript = `
 
     if (shouldTransition) {
       const direction = currentX < 0 ? 'right' : 'left';
-      const targetIndex = currentX < 0 ? currentIndex - 1 : currentIndex + 1;
+      const targetIndex = wrapIndex(currentX < 0 ? currentIndex - 1 : currentIndex + 1);
       const targetUrl = getPageUrl(targetIndex);
       const keep = currentX < 0 ? 'prev' : 'next';
       const targetPane = swipeWrapper.querySelector(keep === 'prev' ? '.swipe-prev' : '.swipe-next');
