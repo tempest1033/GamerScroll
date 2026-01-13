@@ -224,33 +224,22 @@ const searchBarScript = `
 })();
 </script>`;
 
-// 스와이프 스크립트 (오버레이 방식 - 원본 DOM 유지)
+// 스와이프 스크립트 (15% 도달 시 즉시 이동, 미만이면 취소)
 const swipeScript = `
 <script>
 (function() {
   const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
-  const SWIPE_THRESHOLD = 0.50;
-  const FLICK_THRESHOLD = 0.15;
-  const FLICK_VELOCITY = 0.25;
-  const TRANSITION_MS = 250;
-  const DIRECTION_LOCK_PX = 10;
-  const DIRECTION_LOCK_BIAS_PX = 5;
+  const MAX_DRAG_PERCENT = 0.15;
+  const TRANSITION_MS = 120;
+  const DIRECTION_LOCK_PX = 8;
 
   let touchStartX = null, touchStartY = null;
-  let touchStartTime = 0;
   let currentX = 0;
   let isSwiping = false;
   let swipeDirection = null;
-  let swipeOverlay = null;
-  let swipeWrapper = null;
-  let prevContent = null, nextContent = null;
   let hasPrevPage = false, hasNextPage = false;
   let screenWidth = window.innerWidth;
-  let currentMainHtml = null;
-  let swipeEndTimer = 0;
-  let swipeRaf = 0;
-
-  const pageCache = new Map();
+  let navigated = false;
 
   function getCurrentNavIndex() {
     const path = window.location.pathname;
@@ -260,298 +249,62 @@ const swipeScript = `
     return -1;
   }
 
-  function wrapIndex(index) {
-    if (index < -1) return navSections.length - 1;
-    if (index >= navSections.length) return -1;
-    return index;
+  function getTargetPage(index) {
+    if (index < -1) index = navSections.length - 1;
+    if (index >= navSections.length) index = -1;
+    return index < 0 ? 'home' : navSections[index];
   }
 
-  function getPageUrl(index) {
-    index = wrapIndex(index);
-    if (index === -1) return '/';
-    return '/' + navSections[index] + '/';
-  }
-
-  function initAdsSafe(scope) {
-    try {
-      if (window.__gcRefreshAds) window.__gcRefreshAds(scope || document);
-      else if (window.__gcInitAds) window.__gcInitAds(scope || document);
-    } catch (e) {}
-  }
-
-  function runScriptsSafe(scope) {
-    if (!scope) return;
-    const scripts = Array.from(scope.querySelectorAll('script'));
-    scripts.forEach(function(oldScript) {
-      const newScript = document.createElement('script');
-      if (oldScript.src) newScript.src = oldScript.src;
-      else newScript.textContent = '(function(){' + (oldScript.textContent || '') + '})();';
-      oldScript.remove();
-      document.body.appendChild(newScript);
-    });
-  }
-
-  function fetchPageContent(url) {
-    if (!url) return Promise.resolve(null);
-    if (pageCache.has(url)) return Promise.resolve(pageCache.get(url));
-    return fetch(url)
-      .then(r => r.ok ? r.text() : null)
-      .then(html => {
-        if (!html) return null;
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const main = doc.querySelector('main.site-container');
-        const content = main ? main.innerHTML : null;
-        if (content) pageCache.set(url, content);
-        return content;
-      })
-      .catch(() => null);
-  }
-
-  function prefetchAdjacent() {
-    const idx = getCurrentNavIndex();
-    const prevUrl = getPageUrl(idx - 1);
-    const nextUrl = getPageUrl(idx + 1);
-    if (prevUrl && !pageCache.has(prevUrl)) fetchPageContent(prevUrl);
-    if (nextUrl && !pageCache.has(nextUrl)) fetchPageContent(nextUrl);
-  }
-
-  setTimeout(prefetchAdjacent, 500);
-
-  // 오버레이 생성 (원본 DOM 건드리지 않음)
-  function createSwipeOverlay(currentHtml, prevHtml, nextHtml) {
+  function resetSwipe() {
     const main = document.querySelector('main.site-container');
-    if (!main) return null;
-
-    // 1. 먼저 원본을 숨김 (오버레이 생성 전에!)
-    main.style.visibility = 'hidden';
-    main.style.pointerEvents = 'none';
-    void main.offsetHeight; // 강제 리플로우로 숨김 상태 확정
-
-    // 2. 오버레이 top 위치: search-hidden 상태에 따라 고정값 사용
-    // search-hidden: nav만 보임 (52px)
-    // 기본 상태: search(64px) + nav(52px) = 116px
-    const isSearchHidden = document.body.classList.contains('search-hidden');
-    const overlayTop = isSearchHidden ? 52 : 116;
-
-    // 3. 오버레이 생성 (GPU 가속 + CSS 변수 배경)
-    swipeOverlay = document.createElement('div');
-    swipeOverlay.className = 'swipe-overlay';
-    swipeOverlay.style.cssText =
-      'position:fixed;top:' + overlayTop + 'px;left:0;right:0;bottom:0;' +
-      'z-index:9999;overflow:hidden;' +
-      'background:var(--bg,#fff);' +
-      'transform:translate3d(0,0,0);backface-visibility:hidden;';
-
-    // 4. 래퍼: 3개 페인 가로 배치 (GPU 가속)
-    swipeWrapper = document.createElement('div');
-    swipeWrapper.className = 'swipe-wrapper';
-    swipeWrapper.style.cssText =
-      'display:flex;width:300%;height:100%;' +
-      'transform:translate3d(-33.333%,0,0);' +
-      'will-change:transform;backface-visibility:hidden;';
-
-    // 5. 페인 생성 함수
-    function createPane(className, html) {
-      const pane = document.createElement('div');
-      pane.className = 'swipe-pane ' + className;
-      pane.style.cssText =
-        'width:33.333%;height:100%;flex-shrink:0;' +
-        'overflow-y:auto;overflow-x:hidden;' +
-        '-webkit-overflow-scrolling:touch;' +
-        'background:var(--bg,#fff);';
-      if (html) {
-        const inner = document.createElement('main');
-        inner.className = 'site-container';
-        inner.innerHTML = html;
-        pane.appendChild(inner);
-      }
-      return pane;
+    if (main) {
+      main.style.transform = '';
+      main.style.transition = '';
     }
-
-    const prevPane = createPane('swipe-prev', prevHtml);
-    const currentPane = createPane('swipe-current', currentHtml);
-    const nextPane = createPane('swipe-next', nextHtml);
-
-    swipeWrapper.appendChild(prevPane);
-    swipeWrapper.appendChild(currentPane);
-    swipeWrapper.appendChild(nextPane);
-    swipeOverlay.appendChild(swipeWrapper);
-    document.body.appendChild(swipeOverlay);
-
-    // 6. 강제 리플로우로 GPU 레이어 확정
-    void swipeOverlay.offsetHeight;
-
-    return swipeWrapper;
-  }
-
-  function tryFillSwipePane(which, html) {
-    if (!html || !swipeWrapper) return;
-    const pane = swipeWrapper.querySelector(which === 'prev' ? '.swipe-prev' : '.swipe-next');
-    if (!pane || pane.querySelector('.site-container')) return; // 이미 콘텐츠 있음
-    // site-container로 감싸서 추가
-    const inner = document.createElement('main');
-    inner.className = 'site-container';
-    inner.innerHTML = html;
-    pane.innerHTML = '';
-    pane.appendChild(inner);
-  }
-
-  function updateNavUI(targetIndex) {
-    const targetPage = targetIndex < 0 ? 'home' : navSections[targetIndex];
-    document.querySelectorAll('.nav-item').forEach(item => {
-      item.classList.remove('active');
-      const href = item.getAttribute('href') || '';
-      if (targetPage === 'home' && href === '/') item.classList.add('active');
-      else if (href.startsWith('/' + targetPage)) item.classList.add('active');
-    });
-    document.body.className = document.body.className.replace(/page-\\w+/g, '');
-    document.body.classList.add('page-' + targetPage);
-    var navInner = document.querySelector('.nav-inner');
-    if (navInner) {
-      var offset = 0;
-      if (targetIndex >= 4) offset = -40;
-      else if (targetIndex === 3) offset = -20;
-      navInner.style.transform = 'translateX(' + offset + '%)';
-    }
-  }
-
-  function removeOverlay() {
-    const main = document.querySelector('main.site-container');
-    const overlay = swipeOverlay;
-
-    if (overlay && overlay.parentNode) {
-      // 1. 오버레이를 투명하게 (GPU 레이어 유지)
-      overlay.style.opacity = '0';
-      overlay.style.pointerEvents = 'none';
-
-      // 2. 원본 복원 (오버레이가 아직 위에 있으므로 안 보임)
-      if (main) {
-        main.style.visibility = '';
-        main.style.pointerEvents = '';
-      }
-
-      // 3. 다음 프레임에서 오버레이 제거 (double rAF로 안전하게)
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          if (overlay && overlay.parentNode) {
-            overlay.parentNode.removeChild(overlay);
-          }
-        });
-      });
-    } else if (main) {
-      main.style.visibility = '';
-      main.style.pointerEvents = '';
-    }
-
-    swipeOverlay = null;
-    swipeWrapper = null;
-  }
-
-  function resetSwipeState() {
-    if (swipeRaf) { cancelAnimationFrame(swipeRaf); swipeRaf = 0; }
-    if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
-    try { document.body.classList.remove('is-swiping'); } catch (e) {}
-    removeOverlay();
-    prevContent = null;
-    nextContent = null;
-    hasPrevPage = false;
-    hasNextPage = false;
+    document.body.classList.remove('is-swiping');
     isSwiping = false;
     swipeDirection = null;
-    currentMainHtml = null;
     currentX = 0;
-    touchStartTime = 0;
+    navigated = false;
   }
 
-  // 스와이프 완료: main 콘텐츠 교체
-  function finishSwipe(newHtml, targetUrl, targetIndex, runScripts) {
-    const main = document.querySelector('main.site-container');
-    if (!main) { resetSwipeState(); return; }
+  function doNavigate(direction) {
+    if (navigated) return;
+    navigated = true;
 
-    // 오버레이 제거
-    removeOverlay();
+    const idx = getCurrentNavIndex();
+    const targetIndex = direction > 0 ? idx + 1 : idx - 1;
+    const targetPage = getTargetPage(targetIndex);
 
-    // main 콘텐츠 교체 (한 번에)
-    main.innerHTML = newHtml;
-
-    if (runScripts) runScriptsSafe(main);
-
-    // URL 및 UI 업데이트
-    if (targetUrl) {
-      try { history.pushState({ url: targetUrl }, '', targetUrl); } catch (e) {}
-      updateNavUI(targetIndex);
-      try { if (window.__gcLogPageView) window.__gcLogPageView(targetUrl); } catch (e) {}
+    resetSwipe();
+    if (window.spaNavigateTo) {
+      window.spaNavigateTo(targetPage);
     }
-
-    // 광고 초기화
-    setTimeout(function() { initAdsSafe(main); }, 50);
-
-    prefetchAdjacent();
-    resetSwipeState();
-  }
-
-  function waitTransitionEnd(el, ms, onDone) {
-    if (!el) return;
-    if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
-    let done = false;
-    function finish() {
-      if (done) return;
-      done = true;
-      try { el.removeEventListener('transitionend', onEnd); } catch (e) {}
-      if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
-      onDone && onDone();
-    }
-    function onEnd(e) {
-      if (e && e.target !== el) return;
-      if (e && e.propertyName && e.propertyName !== 'transform') return;
-      finish();
-    }
-    try { el.addEventListener('transitionend', onEnd); } catch (e) {}
-    swipeEndTimer = setTimeout(finish, (ms || TRANSITION_MS) + 80);
   }
 
   // 터치 시작
-  document.addEventListener('touchstart', (e) => {
-    if (e.touches && e.touches.length > 1) return;
-
-    // 기존 오버레이 정리
-    if (swipeOverlay) removeOverlay();
-    resetSwipeState();
-
+  document.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) return;
+    if (navigated) return;
     const t = e.target;
     if (t && t.closest && t.closest('.search-dropdown, .modal-overlay, input, textarea')) return;
 
-    const main = document.querySelector('main.site-container');
-    if (!main) return;
-
-    // 현재 main 콘텐츠 스냅샷
-    currentMainHtml = main.innerHTML;
-
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
-    touchStartTime = Date.now();
     currentX = 0;
     swipeDirection = null;
     screenWidth = window.innerWidth;
 
-    const currentIndex = getCurrentNavIndex();
-    const prevUrl = getPageUrl(currentIndex - 1);
-    const nextUrl = getPageUrl(currentIndex + 1);
-
-    hasPrevPage = prevUrl !== null;
-    hasNextPage = nextUrl !== null;
-
-    prevContent = prevUrl ? (pageCache.get(prevUrl) || null) : null;
-    nextContent = nextUrl ? (pageCache.get(nextUrl) || null) : null;
-
-    if (prevUrl && !prevContent) fetchPageContent(prevUrl).then(c => { if (c) { prevContent = c; tryFillSwipePane('prev', c); } });
-    if (nextUrl && !nextContent) fetchPageContent(nextUrl).then(c => { if (c) { nextContent = c; tryFillSwipePane('next', c); } });
-  }, { passive: true, capture: true });
+    const idx = getCurrentNavIndex();
+    hasPrevPage = idx > 0;
+    hasNextPage = idx < navSections.length - 1;
+    if (idx === -1) { hasPrevPage = false; hasNextPage = true; }
+    if (idx === 0) hasPrevPage = true;
+  }, { passive: true });
 
   // 터치 이동
-  document.addEventListener('touchmove', (e) => {
-    if (touchStartX === null) return;
+  document.addEventListener('touchmove', function(e) {
+    if (touchStartX === null || navigated) return;
 
     const touchX = e.touches[0].clientX;
     const touchY = e.touches[0].clientY;
@@ -559,111 +312,70 @@ const swipeScript = `
     const diffY = touchStartY - touchY;
 
     if (!swipeDirection) {
-      const absX = Math.abs(diffX);
-      const absY = Math.abs(diffY);
-      if (absX < DIRECTION_LOCK_PX && absY < DIRECTION_LOCK_PX) return;
-      if (absY > absX + 12) { swipeDirection = 'vertical'; return; }
-      if (absX > absY + DIRECTION_LOCK_BIAS_PX) swipeDirection = 'horizontal';
-      else return;
+      if (Math.abs(diffX) < DIRECTION_LOCK_PX && Math.abs(diffY) < DIRECTION_LOCK_PX) return;
+      if (Math.abs(diffY) > Math.abs(diffX) + 5) { swipeDirection = 'vertical'; return; }
+      swipeDirection = 'horizontal';
     }
 
     if (swipeDirection !== 'horizontal') return;
-    e.preventDefault();
 
+    // 경계 체크
     if (diffX > 0 && !hasNextPage) return;
     if (diffX < 0 && !hasPrevPage) return;
 
+    e.preventDefault();
+
     if (!isSwiping) {
       isSwiping = true;
-      try { document.body.classList.add('is-swiping'); } catch (e) {}
-      const initialPrev = diffX < 0 ? prevContent : null;
-      const initialNext = diffX > 0 ? nextContent : null;
-      swipeWrapper = createSwipeOverlay(currentMainHtml, initialPrev, initialNext);
-      if (!swipeWrapper) { isSwiping = false; return; }
+      document.body.classList.add('is-swiping');
     }
 
-    if (swipeWrapper) {
-      currentX = diffX;
-      const baseOffset = -33.333;
-      const movePercent = (-currentX / screenWidth) * 33.333;
-      const translatePercent = baseOffset + movePercent;
+    // 최대 15%로 제한
+    const maxDrag = screenWidth * MAX_DRAG_PERCENT;
+    currentX = Math.max(-maxDrag, Math.min(maxDrag, diffX));
 
-      if (!swipeRaf) {
-        swipeRaf = requestAnimationFrame(function() {
-          swipeRaf = 0;
-          if (!swipeWrapper) return;
-          swipeWrapper.style.transform = 'translate3d(' + translatePercent + '%,0,0)';
-        });
-      }
+    const main = document.querySelector('main.site-container');
+    if (main) {
+      main.style.transform = 'translateX(' + (-currentX) + 'px)';
     }
-  }, { passive: false, capture: true });
+
+    // 15% 도달 시 즉시 이동
+    if (Math.abs(currentX) >= maxDrag - 1) {
+      doNavigate(currentX);
+    }
+  }, { passive: false });
 
   // 터치 종료
-  document.addEventListener('touchend', () => {
-    if (!isSwiping || !swipeWrapper) {
-      resetSwipeState();
+  document.addEventListener('touchend', function() {
+    if (navigated) {
+      touchStartX = null;
+      touchStartY = null;
       return;
     }
 
-    if (swipeRaf) { cancelAnimationFrame(swipeRaf); swipeRaf = 0; }
+    if (!isSwiping) {
+      touchStartX = null;
+      touchStartY = null;
+      return;
+    }
 
-    const threshold = screenWidth * SWIPE_THRESHOLD;
-    const currentIndex = getCurrentNavIndex();
-    const elapsed = Date.now() - touchStartTime;
-    const velocity = elapsed > 0 ? Math.abs(currentX) / elapsed : 0;
-    const flickThreshold = screenWidth * FLICK_THRESHOLD;
-    const isFlick = velocity >= FLICK_VELOCITY && Math.abs(currentX) >= flickThreshold;
-    const shouldTransition = Math.abs(currentX) > threshold || isFlick;
-
-    if (shouldTransition) {
-      const targetIndex = wrapIndex(currentX < 0 ? currentIndex - 1 : currentIndex + 1);
-      const targetUrl = getPageUrl(targetIndex);
-      const keep = currentX < 0 ? 'prev' : 'next';
-      const targetPane = swipeWrapper.querySelector(keep === 'prev' ? '.swipe-prev' : '.swipe-next');
-      const innerContainer = targetPane ? targetPane.querySelector('.site-container') : null;
-      const hasContent = !!innerContainer;
-      const newHtml = hasContent ? innerContainer.innerHTML : null;
-
-      swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
-      const targetOffset = currentX < 0 ? 0 : -66.666;
-      swipeWrapper.style.transform = 'translate3d(' + targetOffset + '%,0,0)';
-
-      waitTransitionEnd(swipeWrapper, TRANSITION_MS, function() {
-        if (newHtml) {
-          finishSwipe(newHtml, targetUrl, targetIndex, true);
-        } else if (targetUrl) {
-          removeOverlay();
-          if (window.spaNavigateTo) {
-            const targetPage = targetIndex < 0 ? 'home' : navSections[targetIndex];
-            window.spaNavigateTo(targetPage);
-          } else {
-            window.location.href = targetUrl;
-          }
-          resetSwipeState();
-        } else {
-          resetSwipeState();
-        }
-      });
-    } else {
-      // 취소: 원위치로 복귀 후 오버레이 제거
-      swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
-      swipeWrapper.style.transform = 'translate3d(-33.333%,0,0)';
-      waitTransitionEnd(swipeWrapper, TRANSITION_MS, function() {
-        resetSwipeState();
-      });
+    // 15% 미만이면 취소 - 원위치
+    const main = document.querySelector('main.site-container');
+    if (main) {
+      main.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
+      main.style.transform = 'translateX(0)';
+      setTimeout(resetSwipe, TRANSITION_MS);
     }
 
     touchStartX = null;
     touchStartY = null;
-    swipeDirection = null;
-  }, { passive: true, capture: true });
+  }, { passive: true });
 
-  document.addEventListener('touchcancel', () => {
-    resetSwipeState();
+  document.addEventListener('touchcancel', function() {
+    resetSwipe();
     touchStartX = null;
     touchStartY = null;
-    swipeDirection = null;
-  }, { passive: true, capture: true });
+  }, { passive: true });
 })();
 </script>`;
 
