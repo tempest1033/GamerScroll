@@ -295,9 +295,12 @@ const swipeScript = `
 
   function initAdsSafe(scope) {
     try {
-      if (window.__gcInitAds) return window.__gcInitAds(scope || document) || 0;
+      if (window.__gcRefreshAds) {
+        window.__gcRefreshAds(scope || document);
+      } else if (window.__gcInitAds) {
+        window.__gcInitAds(scope || document);
+      }
     } catch (e) {}
-    return 0;
   }
 
   function runScriptsSafe(scope) {
@@ -860,34 +863,15 @@ const mobileAdInitScript = `
   var RETRY_INTERVAL = 2000;
   var MAX_RETRIES = 3;
 
-  function isAdRenderable(ad) {
-    try {
-      return !!(ad && ad.offsetWidth && ad.offsetHeight);
-    } catch (e) {
-      return false;
-    }
-  }
-
   // 광고 초기화 함수 (scope 내 모든 미초기화 광고에 push)
   function initAds(scope) {
     var root = scope || document;
-    var pushed = 0;
-    var ads = root.querySelectorAll('ins.adsbygoogle');
+    var ads = root.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
     for (var i = 0; i < ads.length; i++) {
-      var ad = ads[i];
       try {
-        if (ad.hasAttribute('data-adsbygoogle-status')) continue;
-        if (ad.dataset && ad.dataset.gcRequested === '1') continue;
-        if (ad.querySelector && ad.querySelector('iframe')) continue;
-        if (!isAdRenderable(ad)) continue;
-        if (ad.dataset) ad.dataset.gcRequested = '1';
         (adsbygoogle = window.adsbygoogle || []).push({});
-        pushed++;
-      } catch (e) {
-        try { if (ad && ad.dataset) delete ad.dataset.gcRequested; } catch (_) {}
-      }
+      } catch (e) {}
     }
-    return pushed;
   }
 
   // 광고 영역 새로 생성 (SPA/스와이프 전환용)
