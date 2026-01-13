@@ -287,6 +287,7 @@ const swipeScript = `
     if (e.touches.length > 1) return;
     if (navigated) return;
     const t = e.target;
+    // 입력 요소만 스와이프 제외 (광고/링크는 스와이프+탭 모두 동작)
     if (t && t.closest && t.closest('.search-dropdown, .modal-overlay, input, textarea')) return;
 
     touchStartX = e.touches[0].clientX;
