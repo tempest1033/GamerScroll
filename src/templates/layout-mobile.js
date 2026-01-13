@@ -224,22 +224,31 @@ const searchBarScript = `
 })();
 </script>`;
 
-// 스와이프 스크립트 (15% 도달 시 즉시 이동, 미만이면 취소)
+// 스와이프 스크립트 (좌/우 20% 이상 스와이프 시 페이지 이동, 이동 중 로딩 화면 노출)
 const swipeScript = `
 <script>
 (function() {
   const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
-  const MAX_DRAG_PERCENT = 0.15;
-  const TRANSITION_MS = 120;
+
+  const SWIPE_THRESHOLD_PERCENT = 0.20;
+  const TRANSITION_MS = 160;
   const DIRECTION_LOCK_PX = 8;
 
-  let touchStartX = null, touchStartY = null;
-  let currentX = 0;
+  let touchStartX = null;
+  let touchStartY = null;
+  let dragDistance = 0;
+  let swipeAxis = null; // 'horizontal' | 'vertical'
   let isSwiping = false;
-  let swipeDirection = null;
-  let hasPrevPage = false, hasNextPage = false;
-  let screenWidth = window.innerWidth;
-  let navigated = false;
+  let swipeMode = null; // 'next' | 'prev'
+  let hasPrevPage = false;
+  let hasNextPage = false;
+  let paneWidth = window.innerWidth;
+
+  let swipeWrapper = null;
+  let currentPane = null;
+  let scrollableEl = null;
+
+  let locked = false;
 
   function getCurrentNavIndex() {
     const path = window.location.pathname;
@@ -249,137 +258,268 @@ const swipeScript = `
     return -1;
   }
 
-  function getTargetPage(index) {
-    if (index < -1) index = navSections.length - 1;
-    if (index >= navSections.length) index = -1;
-    return index < 0 ? 'home' : navSections[index];
+  function getPrevIndex(idx) {
+    if (idx === -1) return null;
+    if (idx === 0) return -1;
+    return idx - 1;
   }
 
-  function resetSwipe() {
+  function getNextIndex(idx) {
+    if (idx === -1) return 0;
+    if (idx >= navSections.length - 1) return null;
+    return idx + 1;
+  }
+
+  function getPageByIndex(idx) {
+    if (idx === null || idx === undefined) return null;
+    if (idx < 0) return 'home';
+    return navSections[idx] || null;
+  }
+
+  // 스크롤 가능한 요소(가로 스크롤) 찾기
+  function findScrollableElement(el) {
+    while (el && el !== document.body) {
+      if (el.classList && el.classList.contains('chart-scroll') && el.scrollWidth > el.clientWidth) {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  }
+
+  // 가로 스크롤 요소면 끝/처음에서만 페이지 스와이프 허용
+  function isScrollableAtEdge(el, direction) {
+    if (!el) return true;
+    const isAtStart = el.scrollLeft <= 1;
+    const isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+    return direction === 'next' ? isAtEnd : isAtStart;
+  }
+
+  function createLoadingPane() {
+    const pane = document.createElement('div');
+    pane.className = 'spa-pane gc-swipe-loading';
+    pane.innerHTML = '<div class="gc-swipe-loading-pane"><div class="gc-swipe-spinner" role="status" aria-label="Loading"></div></div>';
+    return pane;
+  }
+
+  // 현재 main DOM을 이동시켜 스와이프 wrapper 구성 (취소 시 원복 가능)
+  function attachSwipeWrapper(mode) {
     const main = document.querySelector('main.site-container');
-    if (main) {
-      main.style.transform = '';
-      main.style.transition = '';
+    if (!main) return false;
+
+    paneWidth = Math.max(1, Math.round(main.getBoundingClientRect().width || window.innerWidth));
+
+    swipeWrapper = document.createElement('div');
+    swipeWrapper.className = 'spa-slide-wrapper gc-swipe-wrapper';
+    swipeWrapper.style.transition = 'none';
+
+    currentPane = document.createElement('div');
+    currentPane.className = 'spa-pane gc-swipe-current';
+    while (main.firstChild) currentPane.appendChild(main.firstChild);
+
+    const loadingPane = createLoadingPane();
+
+    if (mode === 'next') {
+      swipeWrapper.appendChild(currentPane);
+      swipeWrapper.appendChild(loadingPane);
+      swipeWrapper.style.transform = 'translate3d(0,0,0)';
+    } else {
+      swipeWrapper.appendChild(loadingPane);
+      swipeWrapper.appendChild(currentPane);
+      swipeWrapper.style.transform = 'translate3d(' + (-paneWidth) + 'px,0,0)';
     }
-    document.body.classList.remove('is-swiping');
-    isSwiping = false;
-    swipeDirection = null;
-    currentX = 0;
-    navigated = false;
+
+    main.appendChild(swipeWrapper);
+    main.style.overflowX = 'hidden';
+    return true;
   }
 
-  function doNavigate(direction) {
-    if (navigated) return;
-    navigated = true;
+  function restoreMain() {
+    const main = document.querySelector('main.site-container');
+    if (!main) return;
 
-    const idx = getCurrentNavIndex();
-    const targetIndex = direction > 0 ? idx + 1 : idx - 1;
-    const targetPage = getTargetPage(targetIndex);
+    main.style.overflowX = '';
 
-    resetSwipe();
-    if (window.spaNavigateTo) {
-      window.spaNavigateTo(targetPage);
+    if (!swipeWrapper || !currentPane) return;
+
+    try { main.removeChild(swipeWrapper); } catch (e) {}
+
+    while (currentPane.firstChild) {
+      main.appendChild(currentPane.firstChild);
     }
+  }
+
+  function resetSwipe(restore) {
+    try { document.body.classList.remove('is-swiping'); } catch (e) {}
+
+    if (restore) restoreMain();
+
+    touchStartX = null;
+    touchStartY = null;
+    dragDistance = 0;
+    swipeAxis = null;
+    isSwiping = false;
+    swipeMode = null;
+    hasPrevPage = false;
+    hasNextPage = false;
+    swipeWrapper = null;
+    currentPane = null;
+    scrollableEl = null;
+  }
+
+  function navigateByMode(mode, mainEl) {
+    const currentIdx = getCurrentNavIndex();
+    const targetIdx = mode === 'next' ? getNextIndex(currentIdx) : getPrevIndex(currentIdx);
+    const targetPage = getPageByIndex(targetIdx);
+
+    if (!targetPage) {
+      locked = false;
+      resetSwipe(true);
+      return;
+    }
+
+    const direction = mode === 'next' ? 'left' : 'right';
+
+    if (window.spaNavigateTo) {
+      Promise.resolve(window.spaNavigateTo(targetPage, { direction, instant: true }))
+        .then(function(ok) {
+          if (ok === false) {
+            resetSwipe(true);
+            return false;
+          }
+          resetSwipe(false);
+          return true;
+        })
+        .finally(function() {
+          locked = false;
+          try { if (mainEl) mainEl.style.overflowX = ''; } catch (e) {}
+        });
+      return;
+    }
+
+    const url = targetPage === 'home' ? '/' : '/' + targetPage + '/';
+    window.location.href = url;
   }
 
   // 터치 시작
   document.addEventListener('touchstart', function(e) {
-    if (e.touches.length > 1) return;
-    if (navigated) return;
+    if (locked) return;
+    if (!e.touches || e.touches.length > 1) return;
+
     const t = e.target;
-    // 입력 요소만 스와이프 제외 (광고/링크는 스와이프+탭 모두 동작)
     if (t && t.closest && t.closest('.search-dropdown, .modal-overlay, input, textarea')) return;
 
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
-    currentX = 0;
-    swipeDirection = null;
-    screenWidth = window.innerWidth;
+    dragDistance = 0;
+    swipeAxis = null;
+    swipeMode = null;
+    isSwiping = false;
+
+    scrollableEl = findScrollableElement(e.target);
 
     const idx = getCurrentNavIndex();
-    hasPrevPage = idx > 0;
-    hasNextPage = idx < navSections.length - 1;
-    if (idx === -1) { hasPrevPage = false; hasNextPage = true; }
-    if (idx === 0) hasPrevPage = true;
+    hasPrevPage = getPrevIndex(idx) !== null;
+    hasNextPage = getNextIndex(idx) !== null;
   }, { passive: true });
 
   // 터치 이동
   document.addEventListener('touchmove', function(e) {
-    if (touchStartX === null || navigated) return;
+    if (locked) return;
+    if (touchStartX === null) return;
 
     const touchX = e.touches[0].clientX;
     const touchY = e.touches[0].clientY;
     const diffX = touchStartX - touchX;
     const diffY = touchStartY - touchY;
 
-    if (!swipeDirection) {
-      if (Math.abs(diffX) < DIRECTION_LOCK_PX && Math.abs(diffY) < DIRECTION_LOCK_PX) return;
-      if (Math.abs(diffY) > Math.abs(diffX) + 5) { swipeDirection = 'vertical'; return; }
-      swipeDirection = 'horizontal';
+    if (!swipeAxis) {
+      const absX = Math.abs(diffX);
+      const absY = Math.abs(diffY);
+      if (absX < DIRECTION_LOCK_PX && absY < DIRECTION_LOCK_PX) return;
+      if (absY > absX + 12) { swipeAxis = 'vertical'; return; }
+      swipeAxis = 'horizontal';
     }
 
-    if (swipeDirection !== 'horizontal') return;
+    if (swipeAxis !== 'horizontal') return;
 
     // 경계 체크
     if (diffX > 0 && !hasNextPage) return;
     if (diffX < 0 && !hasPrevPage) return;
 
+    const intendedMode = diffX > 0 ? 'next' : 'prev';
+
+    // 스크롤 영역이면 끝/처음이 아니면 페이지 스와이프 금지 (가로 스크롤 우선)
+    if (!isScrollableAtEdge(scrollableEl, intendedMode)) return;
+
     e.preventDefault();
 
     if (!isSwiping) {
+      swipeMode = intendedMode;
+      if (!attachSwipeWrapper(swipeMode)) return;
       isSwiping = true;
-      document.body.classList.add('is-swiping');
+      try { document.body.classList.add('is-swiping'); } catch (e) {}
     }
 
-    // 최대 15%로 제한
-    const maxDrag = screenWidth * MAX_DRAG_PERCENT;
-    currentX = Math.max(-maxDrag, Math.min(maxDrag, diffX));
+    if (!swipeWrapper || !swipeMode) return;
 
-    const main = document.querySelector('main.site-container');
-    if (main) {
-      main.style.transform = 'translateX(' + (-currentX) + 'px)';
-    }
-
-    // 15% 도달 시 즉시 이동
-    if (Math.abs(currentX) >= maxDrag - 1) {
-      doNavigate(currentX);
+    if (swipeMode === 'next') {
+      dragDistance = Math.max(0, Math.min(paneWidth, diffX));
+      swipeWrapper.style.transform = 'translate3d(' + (-dragDistance) + 'px,0,0)';
+    } else {
+      dragDistance = Math.max(0, Math.min(paneWidth, -diffX));
+      swipeWrapper.style.transform = 'translate3d(' + (-paneWidth + dragDistance) + 'px,0,0)';
     }
   }, { passive: false });
 
   // 터치 종료
   document.addEventListener('touchend', function() {
-    if (navigated) {
-      touchStartX = null;
-      touchStartY = null;
-      return;
-    }
-
-    if (!isSwiping) {
-      touchStartX = null;
-      touchStartY = null;
-      return;
-    }
-
-    // 15% 미만이면 취소 - 원위치
-    const main = document.querySelector('main.site-container');
-    if (main) {
-      main.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
-      main.style.transform = 'translateX(0)';
-      setTimeout(resetSwipe, TRANSITION_MS);
-    }
+    if (touchStartX === null) return;
 
     touchStartX = null;
     touchStartY = null;
+
+    if (!isSwiping || !swipeWrapper || !swipeMode) {
+      resetSwipe(false);
+      return;
+    }
+
+    locked = true;
+
+    const threshold = paneWidth * SWIPE_THRESHOLD_PERCENT;
+    const shouldNavigate = dragDistance >= threshold;
+
+    swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
+
+    if (!shouldNavigate) {
+      const backOffset = swipeMode === 'next' ? 0 : -paneWidth;
+      swipeWrapper.style.transform = 'translate3d(' + backOffset + 'px,0,0)';
+      setTimeout(function() {
+        resetSwipe(true);
+        locked = false;
+      }, TRANSITION_MS);
+      return;
+    }
+
+    // 로딩 화면까지 스냅 → 그 상태로 fetch 후 콘텐츠 교체
+    const snapOffset = swipeMode === 'next' ? -paneWidth : 0;
+    swipeWrapper.style.transform = 'translate3d(' + snapOffset + 'px,0,0)';
+
+    const mainEl = document.querySelector('main.site-container');
+
+    setTimeout(function() {
+      try { document.body.classList.remove('is-swiping'); } catch (e) {}
+      navigateByMode(swipeMode, mainEl);
+    }, TRANSITION_MS);
   }, { passive: true });
 
   document.addEventListener('touchcancel', function() {
-    resetSwipe();
-    touchStartX = null;
-    touchStartY = null;
+    if (!isSwiping) { resetSwipe(false); return; }
+    resetSwipe(true);
+    locked = false;
   }, { passive: true });
 })();
 </script>`;
-
 // 스크롤 시 검색창 숨김
 const mobileScrollHideScript = `
 <script>

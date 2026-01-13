@@ -330,10 +330,32 @@ const spaTransitionCss = `
 .spa-slide-wrapper {
   display: flex;
   width: 200%;
+  will-change: transform;
 }
 .spa-pane {
   width: 50%;
   flex-shrink: 0;
+}
+
+/* Swipe 로딩 패널 */
+.gc-swipe-loading-pane {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  width: 100%;
+}
+.gc-swipe-spinner {
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0.12);
+  border-top-color: rgba(0,0,0,0.45);
+  border-radius: 50%;
+  animation: gc-swipe-spin 0.8s linear infinite;
+}
+@keyframes gc-swipe-spin {
+  to { transform: rotate(360deg); }
 }
 </style>`;
 
