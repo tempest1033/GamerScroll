@@ -365,20 +365,23 @@ const swipeScript = `
 
     const wrapper = document.createElement('div');
     wrapper.className = 'swipe-wrapper';
-    wrapper.style.cssText = 'display:flex;width:300%;transform:translate3d(-33.333%,0,0);will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;';
+    wrapper.style.cssText = 'display:flex;width:300%;transform:translate3d(-33.333%,0,0);will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;';
+
+    // GPU 최적화 CSS (깜빡임 방지)
+    const paneStyle = 'width:33.333%;flex-shrink:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0);will-change:transform;';
 
     const prevPane = document.createElement('div');
     prevPane.className = 'swipe-pane swipe-prev';
-    prevPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
+    prevPane.style.cssText = paneStyle;
     prevPane.innerHTML = prevHtml || '<div class="swipe-empty"></div>';
 
     const currentPane = document.createElement('div');
     currentPane.className = 'swipe-pane swipe-current';
-    currentPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
+    currentPane.style.cssText = paneStyle;
 
     const nextPane = document.createElement('div');
     nextPane.className = 'swipe-pane swipe-next';
-    nextPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
+    nextPane.style.cssText = paneStyle;
     nextPane.innerHTML = nextHtml || '<div class="swipe-empty"></div>';
 
     wrapper.appendChild(prevPane);
@@ -473,6 +476,11 @@ const swipeScript = `
     }
 
     main.style.overflow = '';
+    // GPU 레이어 스타일 정리
+    main.style.backfaceVisibility = '';
+    main.style.webkitBackfaceVisibility = '';
+    main.style.transform = '';
+    main.style.webkitTransform = '';
 
     const keep = (options && options.keep) || 'current';
     const runScripts = !!(options && options.runScripts);
@@ -632,7 +640,12 @@ const swipeScript = `
       ensureSwipeShield();
       const main = document.querySelector('main.site-container');
       if (main) {
+        // GPU 레이어 강제 활성화 (깜빡임 방지)
         main.style.overflow = 'hidden';
+        main.style.backfaceVisibility = 'hidden';
+        main.style.webkitBackfaceVisibility = 'hidden';
+        main.style.transform = 'translate3d(0,0,0)';
+        main.style.webkitTransform = 'translate3d(0,0,0)';
         const initialPrev = diffX < 0 ? prevContent : null;
         const initialNext = diffX > 0 ? nextContent : null;
         swipeWrapper = createSwipeWrapper(initialPrev, initialNext);
