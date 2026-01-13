@@ -176,7 +176,7 @@ const spaRouterScript = `
   async function navigateTo(url, options = {}) {
     if (isNavigating) return false;
 
-    const { direction = 'left', pushState = true, skipUrlCheck = false } = options;
+    const { direction = 'left', pushState = true, skipUrlCheck = false, instant = false } = options;
 
     // 같은 URL이면 무시 (popstate에서는 스킵)
     if (!skipUrlCheck && url === window.location.pathname) return false;
@@ -194,8 +194,8 @@ const spaRouterScript = `
     // 새 페이지 정보
     const newPage = getCurrentPageFromUrl(url);
 
-    // 모바일: 슬라이드 / PC: 즉시 교체
-    if (window.innerWidth <= 768) {
+    // 모바일: 슬라이드 (instant가 아닐 때만) / PC: 즉시 교체
+    if (window.innerWidth <= 768 && !instant) {
       slideTransition(direction, content, finish);
     } else {
       const main = document.querySelector('main.site-container');
@@ -283,7 +283,9 @@ const spaRouterScript = `
       const currentIdx = getPageIndex(currentPage);
       const targetIdx = getPageIndex(targetPage);
       const direction = targetIdx > currentIdx ? 'left' : 'right';
-      navigateTo(href, { direction: direction });
+      // 하위 페이지는 애니메이션 없이 즉시 전환 (예: /games/slug/, /trend/daily/slug/)
+      const isSubPage = href.replace(/\/$/, '').split('/').length > 2;
+      navigateTo(href, { direction: direction, instant: isSubPage });
     }
   });
 
