@@ -323,24 +323,35 @@ const swipeScript = `
     const main = document.querySelector('main.site-container');
     if (!main) return null;
 
-    const mainRect = main.getBoundingClientRect();
+    // nav 하단 위치 계산 (고정값: header + search + nav)
+    const nav = document.querySelector('.nav');
+    const navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
+    const overlayTop = Math.max(0, navBottom);
 
-    // 오버레이: body에 추가, main 위치에 정확히 겹침
+    // 현재 스크롤 위치 저장 (current pane에 적용)
+    const currentScroll = window.scrollY;
+
+    // main의 computed style 가져오기
+    const mainStyle = window.getComputedStyle(main);
+    const mainPadding = mainStyle.paddingLeft + ' ' + mainStyle.paddingRight;
+
+    // 오버레이: body에 추가, nav 바로 아래부터 화면 끝까지
     swipeOverlay = document.createElement('div');
     swipeOverlay.className = 'swipe-overlay';
-    swipeOverlay.style.cssText = 'position:fixed;top:' + mainRect.top + 'px;left:0;right:0;bottom:0;z-index:9999;overflow:hidden;background:#f5f7fa;';
+    swipeOverlay.style.cssText = 'position:fixed;top:' + overlayTop + 'px;left:0;right:0;bottom:0;z-index:9999;overflow:hidden;';
 
     // 래퍼: 3개 페인 가로 배치
     swipeWrapper = document.createElement('div');
     swipeWrapper.className = 'swipe-wrapper';
     swipeWrapper.style.cssText = 'display:flex;width:300%;height:100%;transform:translate3d(-33.333%,0,0);will-change:transform;';
 
-    const paneStyle = 'width:33.333%;height:100%;flex-shrink:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;';
+    // 페인 스타일: 배경색 + 패딩 적용
+    const paneStyle = 'width:33.333%;height:100%;flex-shrink:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;background:#f5f7fa;padding:0 16px;box-sizing:border-box;';
 
     const prevPane = document.createElement('div');
     prevPane.className = 'swipe-pane swipe-prev';
     prevPane.style.cssText = paneStyle;
-    prevPane.innerHTML = prevHtml || '<div class="swipe-empty"></div>';
+    prevPane.innerHTML = prevHtml || '';
 
     const currentPane = document.createElement('div');
     currentPane.className = 'swipe-pane swipe-current';
@@ -350,13 +361,16 @@ const swipeScript = `
     const nextPane = document.createElement('div');
     nextPane.className = 'swipe-pane swipe-next';
     nextPane.style.cssText = paneStyle;
-    nextPane.innerHTML = nextHtml || '<div class="swipe-empty"></div>';
+    nextPane.innerHTML = nextHtml || '';
 
     swipeWrapper.appendChild(prevPane);
     swipeWrapper.appendChild(currentPane);
     swipeWrapper.appendChild(nextPane);
     swipeOverlay.appendChild(swipeWrapper);
     document.body.appendChild(swipeOverlay);
+
+    // 원본 DOM 숨김 (오버레이 뒤에 보이지 않도록)
+    main.style.visibility = 'hidden';
 
     return swipeWrapper;
   }
@@ -388,6 +402,10 @@ const swipeScript = `
   }
 
   function removeOverlay() {
+    // main visibility 복원
+    const main = document.querySelector('main.site-container');
+    if (main) main.style.visibility = '';
+
     if (swipeOverlay && swipeOverlay.parentNode) {
       swipeOverlay.parentNode.removeChild(swipeOverlay);
     }
