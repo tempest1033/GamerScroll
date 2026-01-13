@@ -354,6 +354,9 @@ const swipeScript = `
 
     if (originalMainHtml == null) originalMainHtml = main.innerHTML;
 
+    // DOM 이동 중 깜빡임 방지
+    main.style.visibility = 'hidden';
+
     const wrapper = document.createElement('div');
     wrapper.className = 'swipe-wrapper';
     wrapper.style.cssText = 'display:flex;width:300%;transform:translate3d(-33.333%,0,0);will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;';
@@ -387,7 +390,11 @@ const swipeScript = `
     }
     currentPane.appendChild(frag);
 
-  
+    // 다음 프레임에서 visibility 복원
+    requestAnimationFrame(function() {
+      main.style.visibility = '';
+    });
+
     return wrapper;
   }
 
