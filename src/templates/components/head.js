@@ -194,7 +194,7 @@ function generateHead(options = {}) {
 		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 			  <link rel="stylesheet" href="/styles.css">
 	  <!-- AdSense 스크립트 (순정) -->
-	  ${LOAD_ADSENSE_SCRIPT ? `<script async fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
+	  ${LOAD_ADSENSE_SCRIPT ? `<script async fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous" onload="window.__gcAdsenseLoaded='1'; if (window.__gcOnAdsenseLoaded) window.__gcOnAdsenseLoaded();" onerror="window.__gcAdsenseFailed='1';"></script>
 	  ` : ''}
 		  <script async fetchpriority="low" src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	  <!-- Firebase Analytics (프로덕션만) -->
