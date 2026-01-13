@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-01-12T11:43:46.538Z",
+  "updatedAt": "2026-01-13T12:21:11.191Z",
   "period": "30days",
   "games": [
     {
       "slug": "승리의-여신-니케",
-      "views": 155
+      "views": 165
     },
     {
       "slug": "com-proximabeta-nikke",
@@ -16,43 +16,43 @@
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
-      "views": 88
+      "views": 99
     },
     {
       "slug": "com-neowizgames-game-browndust2",
       "views": 87
     },
     {
-      "slug": "스타세이비어",
-      "views": 75
+      "slug": "세븐나이츠-리버스",
+      "views": 82
     },
     {
-      "slug": "세븐나이츠-리버스",
-      "views": 73
+      "slug": "스타세이비어",
+      "views": 81
     },
     {
       "slug": "갓깨비-키우기-999뽑기-증정",
-      "views": 57
+      "views": 64
     },
     {
       "slug": "라스트-워-서바이벌",
-      "views": 52
+      "views": 57
+    },
+    {
+      "slug": "카오스-제로-나이트메어",
+      "views": 54
     },
     {
       "slug": "카트라이더-러쉬플러스",
       "views": 49
     },
     {
-      "slug": "카오스-제로-나이트메어",
-      "views": 44
+      "slug": "메이플-키우기",
+      "views": 48
     },
     {
       "slug": "com-studiobside-starmain",
       "views": 40
-    },
-    {
-      "slug": "메이플-키우기",
-      "views": 38
     },
     {
       "slug": "리니지m",
@@ -68,7 +68,7 @@
     },
     {
       "slug": "블루-아카이브",
-      "views": 24
+      "views": 28
     },
     {
       "slug": "머지-쿠킹-테마-레스토랑",
