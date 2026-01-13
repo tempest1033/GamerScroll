@@ -232,7 +232,8 @@ const swipeScript = `
 
   const SWIPE_THRESHOLD_PERCENT = 0.20;
   const TRANSITION_MS = 160;
-  const DIRECTION_LOCK_PX = 8;
+  const DIRECTION_LOCK_PX = 10;
+  const DIRECTION_LOCK_RATIO = 1.2;
 
   let touchStartX = null;
   let touchStartY = null;
@@ -437,8 +438,9 @@ const swipeScript = `
       const absX = Math.abs(diffX);
       const absY = Math.abs(diffY);
       if (absX < DIRECTION_LOCK_PX && absY < DIRECTION_LOCK_PX) return;
-      if (absY > absX + 12) { swipeAxis = 'vertical'; return; }
-      swipeAxis = 'horizontal';
+      if (absY > absX * DIRECTION_LOCK_RATIO) { swipeAxis = 'vertical'; return; }
+      if (absX > absY * DIRECTION_LOCK_RATIO) swipeAxis = 'horizontal';
+      else return;
     }
 
     if (swipeAxis !== 'horizontal') return;
