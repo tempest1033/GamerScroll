@@ -323,45 +323,39 @@ const swipeScript = `
     const main = document.querySelector('main.site-container');
     if (!main) return null;
 
-    // nav 하단 위치 계산 (고정값: header + search + nav)
+    // nav 하단 위치 계산
     const nav = document.querySelector('.nav');
     const navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
     const overlayTop = Math.max(0, navBottom);
 
-    // 현재 스크롤 위치 저장 (current pane에 적용)
-    const currentScroll = window.scrollY;
-
-    // main의 computed style 가져오기
-    const mainStyle = window.getComputedStyle(main);
-    const mainPadding = mainStyle.paddingLeft + ' ' + mainStyle.paddingRight;
-
-    // 오버레이: body에 추가, nav 바로 아래부터 화면 끝까지
+    // 오버레이: nav 아래부터 화면 끝까지
     swipeOverlay = document.createElement('div');
     swipeOverlay.className = 'swipe-overlay';
-    swipeOverlay.style.cssText = 'position:fixed;top:' + overlayTop + 'px;left:0;right:0;bottom:0;z-index:9999;overflow:hidden;';
+    swipeOverlay.style.cssText = 'position:fixed;top:' + overlayTop + 'px;left:0;right:0;bottom:0;z-index:9999;overflow:hidden;background:#f5f7fa;';
 
     // 래퍼: 3개 페인 가로 배치
     swipeWrapper = document.createElement('div');
     swipeWrapper.className = 'swipe-wrapper';
     swipeWrapper.style.cssText = 'display:flex;width:300%;height:100%;transform:translate3d(-33.333%,0,0);will-change:transform;';
 
-    // 페인 스타일: 배경색 + 패딩 적용
-    const paneStyle = 'width:33.333%;height:100%;flex-shrink:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;background:#f5f7fa;padding:0 16px;box-sizing:border-box;';
+    // 페인: site-container 클래스를 적용하여 원본과 동일한 스타일 유지
+    function createPane(className, html) {
+      const pane = document.createElement('div');
+      pane.className = 'swipe-pane ' + className;
+      pane.style.cssText = 'width:33.333%;height:100%;flex-shrink:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;';
+      if (html) {
+        // site-container로 감싸서 원본과 동일한 레이아웃 유지
+        const inner = document.createElement('main');
+        inner.className = 'site-container';
+        inner.innerHTML = html;
+        pane.appendChild(inner);
+      }
+      return pane;
+    }
 
-    const prevPane = document.createElement('div');
-    prevPane.className = 'swipe-pane swipe-prev';
-    prevPane.style.cssText = paneStyle;
-    prevPane.innerHTML = prevHtml || '';
-
-    const currentPane = document.createElement('div');
-    currentPane.className = 'swipe-pane swipe-current';
-    currentPane.style.cssText = paneStyle;
-    currentPane.innerHTML = currentHtml;
-
-    const nextPane = document.createElement('div');
-    nextPane.className = 'swipe-pane swipe-next';
-    nextPane.style.cssText = paneStyle;
-    nextPane.innerHTML = nextHtml || '';
+    const prevPane = createPane('swipe-prev', prevHtml);
+    const currentPane = createPane('swipe-current', currentHtml);
+    const nextPane = createPane('swipe-next', nextHtml);
 
     swipeWrapper.appendChild(prevPane);
     swipeWrapper.appendChild(currentPane);
@@ -369,7 +363,7 @@ const swipeScript = `
     swipeOverlay.appendChild(swipeWrapper);
     document.body.appendChild(swipeOverlay);
 
-    // 원본 DOM 숨김 (오버레이 뒤에 보이지 않도록)
+    // 원본 DOM 숨김
     main.style.visibility = 'hidden';
 
     return swipeWrapper;
@@ -378,8 +372,13 @@ const swipeScript = `
   function tryFillSwipePane(which, html) {
     if (!html || !swipeWrapper) return;
     const pane = swipeWrapper.querySelector(which === 'prev' ? '.swipe-prev' : '.swipe-next');
-    if (!pane || !pane.querySelector('.swipe-empty')) return;
-    pane.innerHTML = html;
+    if (!pane || pane.querySelector('.site-container')) return; // 이미 콘텐츠 있음
+    // site-container로 감싸서 추가
+    const inner = document.createElement('main');
+    inner.className = 'site-container';
+    inner.innerHTML = html;
+    pane.innerHTML = '';
+    pane.appendChild(inner);
   }
 
   function updateNavUI(targetIndex) {
@@ -585,8 +584,9 @@ const swipeScript = `
       const targetUrl = getPageUrl(targetIndex);
       const keep = currentX < 0 ? 'prev' : 'next';
       const targetPane = swipeWrapper.querySelector(keep === 'prev' ? '.swipe-prev' : '.swipe-next');
-      const hasContent = !!(targetPane && !targetPane.querySelector('.swipe-empty'));
-      const newHtml = hasContent ? targetPane.innerHTML : null;
+      const innerContainer = targetPane ? targetPane.querySelector('.site-container') : null;
+      const hasContent = !!innerContainer;
+      const newHtml = hasContent ? innerContainer.innerHTML : null;
 
       swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
       const targetOffset = currentX < 0 ? 0 : -66.666;
