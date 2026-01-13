@@ -683,17 +683,36 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 (PC/모바일 동일 - 단순화 버전)
+// 광고 초기화 스크립트 (AdSense 로드 대기 + 재시도 강화)
 const lazyAdScript = `
 <script>
 (function() {
-  var RETRY_INTERVAL = 2000;
-  var MAX_RETRIES = 3;
+  var RETRY_INTERVAL = 1500;
+  var MAX_RETRIES = 5;
+  var adsenseReady = false;
+  var pendingInits = [];
+
+  // AdSense 스크립트 로드 감지
+  function checkAdsenseReady() {
+    if (window.adsbygoogle && typeof window.adsbygoogle.push === 'function') {
+      adsenseReady = true;
+      return true;
+    }
+    return false;
+  }
 
   // 광고 초기화 함수 (scope 내 모든 미초기화 광고에 push)
   function initAds(scope) {
     var root = scope || document;
     var ads = root.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
+    if (ads.length === 0) return;
+
+    // AdSense가 아직 로드 안 됐으면 큐에 저장
+    if (!checkAdsenseReady()) {
+      pendingInits.push(scope);
+      return;
+    }
+
     for (var i = 0; i < ads.length; i++) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
@@ -701,12 +720,11 @@ const lazyAdScript = `
     }
   }
 
-  // 광고 영역 새로 생성 (SPA 전환용)
+  // 광고 영역 새로 생성 (SPA 전환용 - innerHTML 교체 시에만 사용)
   function refreshAds(scope) {
     var root = scope || document;
     var ads = root.querySelectorAll('ins.adsbygoogle');
     ads.forEach(function(ad) {
-      // 이미 로드된 광고는 새 요소로 교체
       if (ad.hasAttribute('data-adsbygoogle-status') || ad.querySelector('iframe')) {
         var newIns = document.createElement('ins');
         newIns.className = ad.className;
@@ -716,14 +734,27 @@ const lazyAdScript = `
         ad.parentNode.replaceChild(newIns, ad);
       }
     });
-    // 약간의 딜레이 후 초기화 (DOM 안정화)
     setTimeout(function() { initAds(root); }, 50);
+  }
+
+  // 대기 중인 광고 초기화 처리
+  function processPendingInits() {
+    if (!checkAdsenseReady()) return;
+    var scopes = pendingInits.slice();
+    pendingInits = [];
+    scopes.forEach(function(scope) {
+      initAds(scope);
+    });
+    initAds(document);
   }
 
   // 재시도 로직 (초기 로드 실패 대비)
   function retryInit(retryCount) {
     if (retryCount >= MAX_RETRIES) return;
     setTimeout(function() {
+      if (checkAdsenseReady()) {
+        processPendingInits();
+      }
       var pending = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
       if (pending.length > 0) {
         initAds();
@@ -736,7 +767,7 @@ const lazyAdScript = `
   window.__gcInitAds = initAds;
   window.__gcRefreshAds = refreshAds;
 
-  // 페이지 로드 시 초기화 (공식 예제 방식: adsbygoogle 정의 대기 없이 바로 push)
+  // 페이지 로드 시 초기화
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       initAds();
@@ -747,14 +778,22 @@ const lazyAdScript = `
     retryInit(0);
   }
 
-  // load 이벤트 (안전장치)
+  // load 이벤트 (AdSense 로드 완료 후 처리)
   window.addEventListener('load', function() {
-    setTimeout(initAds, 200);
+    setTimeout(function() {
+      processPendingInits();
+      initAds();
+    }, 100);
   });
 
   // bfcache 복귀 시
   window.addEventListener('pageshow', function(e) {
-    if (e && e.persisted) setTimeout(initAds, 100);
+    if (e && e.persisted) {
+      setTimeout(function() {
+        processPendingInits();
+        initAds();
+      }, 100);
+    }
   });
 })();
 </script>`;
