@@ -198,16 +198,21 @@ function generateHead(options = {}) {
 	  ` : ''}
 		  <script async fetchpriority="low" src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscrawl.com' && host !== 'm.gamerscrawl.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
 	  <script type="module">
 	    (function() {
 	      var host = window.location.hostname;
 	      if (host !== 'gamerscrawl.com' && host !== 'm.gamerscrawl.com') return;
-
-	      // 페이지뷰 큐 (Firebase 로드 전 발생한 이벤트 저장)
-	      var pageViewQueue = [];
-	      window.__gcLogPageView = function(path) {
-	        pageViewQueue.push(path);
-	      };
 
 	      (async function() {
 	        try {
@@ -228,12 +233,14 @@ function generateHead(options = {}) {
 	          const analytics = getAnalytics(app);
 
 	          // 큐에 쌓인 페이지뷰 처리
-	          pageViewQueue.forEach(function(path) {
-	            logEvent(analytics, 'page_view', {
-	              page_path: path,
-	              page_location: window.location.origin + path
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
 	            });
-	          });
+	          }
 
 	          // 실제 로깅 함수로 교체
 	          window.__gcLogPageView = function(path) {

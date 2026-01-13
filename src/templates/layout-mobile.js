@@ -256,23 +256,23 @@ const swipeScript = `
 
   let swipeShield = null;
   function ensureSwipeShield() {
-    if (swipeShield) return;
-    try {
-      swipeShield = document.createElement('div');
-      swipeShield.className = 'swipe-shield';
-      swipeShield.style.cssText = 'position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:transparent;touch-action:none;';
-      document.body.appendChild(swipeShield);
-    } catch (e) {
-      swipeShield = null;
+    if (!swipeShield) {
+      try {
+        swipeShield = document.createElement('div');
+        swipeShield.className = 'swipe-shield';
+        swipeShield.style.cssText = 'position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:transparent;touch-action:none;pointer-events:none;';
+        document.body.appendChild(swipeShield);
+      } catch (e) {
+        swipeShield = null;
+        return;
+      }
     }
+    try { swipeShield.style.pointerEvents = 'auto'; } catch (e) {}
   }
 
   function removeSwipeShield() {
     if (!swipeShield) return;
-    try { swipeShield.remove(); } catch (e) {
-      try { if (swipeShield.parentNode) swipeShield.parentNode.removeChild(swipeShield); } catch (_) {}
-    }
-    swipeShield = null;
+    try { swipeShield.style.pointerEvents = 'none'; } catch (e) {}
   }
 
   // 프리페치 캐시
@@ -358,7 +358,7 @@ const swipeScript = `
 
     const wrapper = document.createElement('div');
     wrapper.className = 'swipe-wrapper';
-    wrapper.style.cssText = 'display:flex;width:300%;transform:translateX(-33.333%);will-change:transform;';
+    wrapper.style.cssText = 'display:flex;width:300%;transform:translate3d(-33.333%,0,0);will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;';
 
     const prevPane = document.createElement('div');
     prevPane.className = 'swipe-pane swipe-prev';
@@ -369,10 +369,6 @@ const swipeScript = `
     currentPane.className = 'swipe-pane swipe-current';
     currentPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
 
-    const frag = document.createDocumentFragment();
-    while (main.firstChild) frag.appendChild(main.firstChild);
-    currentPane.appendChild(frag);
-
     const nextPane = document.createElement('div');
     nextPane.className = 'swipe-pane swipe-next';
     nextPane.style.cssText = 'width:33.333%;flex-shrink:0;overflow:hidden;';
@@ -382,7 +378,16 @@ const swipeScript = `
     wrapper.appendChild(currentPane);
     wrapper.appendChild(nextPane);
 
-    main.appendChild(wrapper);
+    main.insertBefore(wrapper, main.firstChild);
+
+    const frag = document.createDocumentFragment();
+    let node = wrapper.nextSibling;
+    while (node) {
+      const next = node.nextSibling;
+      frag.appendChild(node);
+      node = next;
+    }
+    currentPane.appendChild(frag);
 
   
     return wrapper;
@@ -454,6 +459,7 @@ const swipeScript = `
   function resetSwipeState() {
     if (swipeRaf) { cancelAnimationFrame(swipeRaf); swipeRaf = 0; }
     removeSwipeShield();
+    try { document.body.classList.remove('is-swiping'); } catch (e) {}
     pendingTranslatePercent = -33.333;
 
     swipeWrapper = null;
@@ -645,9 +651,11 @@ const swipeScript = `
         const initialNext = diffX > 0 ? nextContent : null;
         swipeWrapper = createSwipeWrapper(initialPrev, initialNext);
         if (!swipeWrapper) { isSwiping = false; removeSwipeShield(); }
+        else { try { document.body.classList.add('is-swiping'); } catch (e) {} }
       } else {
         isSwiping = false;
         removeSwipeShield();
+        try { document.body.classList.remove('is-swiping'); } catch (e) {}
       }
     }
 
@@ -662,7 +670,7 @@ const swipeScript = `
         swipeRaf = requestAnimationFrame(function() {
           swipeRaf = 0;
           if (!swipeWrapper) return;
-          swipeWrapper.style.transform = 'translateX(' + pendingTranslatePercent + '%)';
+          swipeWrapper.style.transform = 'translate3d(' + pendingTranslatePercent + '%,0,0)';
 
           if (Math.abs(currentX) >= ADS_TRIGGER_PX) {
             if (currentX > 0) maybeInitSideAds('next');
@@ -697,7 +705,7 @@ const swipeScript = `
       const baseOffset = -33.333;
       const movePercent = (-currentX / screenWidth) * 33.333;
       pendingTranslatePercent = baseOffset + movePercent;
-      try { swipeWrapper.style.transform = 'translateX(' + pendingTranslatePercent + '%)'; } catch (e) {}
+      try { swipeWrapper.style.transform = 'translate3d(' + pendingTranslatePercent + '%,0,0)'; } catch (e) {}
     }
 
     const threshold = screenWidth * SWIPE_THRESHOLD;
@@ -713,33 +721,37 @@ const swipeScript = `
 
       swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
       const targetOffset = currentX < 0 ? 0 : -66.666;
-      swipeWrapper.style.transform = 'translateX(' + targetOffset + '%)';
+      swipeWrapper.style.transform = 'translate3d(' + targetOffset + '%,0,0)';
 
       waitTransitionEnd(swipeWrapper, TRANSITION_MS, function() {
-        if (targetUrl && hasContent) {
-          try { history.pushState({ url: targetUrl }, '', targetUrl); } catch (e) {}
-          updateNavUI(targetIndex);
-          cleanupSwipe({ keep: keep, runScripts: true });
-          try { if (window.__gcLogPageView) window.__gcLogPageView(targetUrl); } catch (e) {}
-          prefetchAdjacent();
-        } else {
-          if (targetUrl) {
-            if (window.spaNavigateTo) {
-              const targetPage = targetIndex < 0 ? 'home' : navSections[targetIndex];
-              cleanupSwipe();
-              window.spaNavigateTo(targetPage, { direction: direction });
-            } else {
-              window.location.href = targetUrl;
+        requestAnimationFrame(function() {
+          if (targetUrl && hasContent) {
+            try { history.pushState({ url: targetUrl }, '', targetUrl); } catch (e) {}
+            updateNavUI(targetIndex);
+            cleanupSwipe({ keep: keep, runScripts: true });
+            try { if (window.__gcLogPageView) window.__gcLogPageView(targetUrl); } catch (e) {}
+            prefetchAdjacent();
+          } else {
+            if (targetUrl) {
+              if (window.spaNavigateTo) {
+                const targetPage = targetIndex < 0 ? 'home' : navSections[targetIndex];
+                cleanupSwipe();
+                window.spaNavigateTo(targetPage, { direction: direction });
+                return;
+              } else {
+                window.location.href = targetUrl;
+                return;
+              }
             }
+            cleanupSwipe();
           }
-          cleanupSwipe();
-        }
+        });
       });
     } else {
       swipeWrapper.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
-      swipeWrapper.style.transform = 'translateX(-33.333%)';
+      swipeWrapper.style.transform = 'translate3d(-33.333%,0,0)';
       waitTransitionEnd(swipeWrapper, TRANSITION_MS, function() {
-        cleanupSwipe();
+        requestAnimationFrame(function() { cleanupSwipe(); });
       });
     }
 
