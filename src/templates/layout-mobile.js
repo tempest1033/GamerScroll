@@ -230,8 +230,8 @@ const swipeScript = `
 (function() {
   const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
   const SWIPE_THRESHOLD = 0.25; // 화면 25% 이상 스와이프하면 전환
+  const FLICK_THRESHOLD = 0.20; // 플릭: 화면 20% + 빠른 속도
   const FLICK_VELOCITY = 0.3;   // 플릭 감지 속도 (px/ms)
-  const FLICK_MIN_DIST = 30;    // 플릭 최소 거리 (px)
   const TRANSITION_MS = 200;
   const DIRECTION_LOCK_PX = 8;
   const DIRECTION_LOCK_BIAS_PX = 4;
@@ -671,10 +671,11 @@ const swipeScript = `
     const threshold = screenWidth * SWIPE_THRESHOLD;
     const currentIndex = getCurrentNavIndex();
 
-    // 플릭 감지: 빠른 스와이프는 짧은 거리로도 전환
+    // 플릭 감지: 빠른 스와이프는 짧은 거리(20%)로도 전환
     const elapsed = Date.now() - touchStartTime;
     const velocity = elapsed > 0 ? Math.abs(currentX) / elapsed : 0;
-    const isFlick = velocity >= FLICK_VELOCITY && Math.abs(currentX) >= FLICK_MIN_DIST;
+    const flickThreshold = screenWidth * FLICK_THRESHOLD;
+    const isFlick = velocity >= FLICK_VELOCITY && Math.abs(currentX) >= flickThreshold;
     const shouldTransition = Math.abs(currentX) > threshold || isFlick;
 
     if (shouldTransition) {
