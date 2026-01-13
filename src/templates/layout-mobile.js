@@ -492,11 +492,13 @@ const swipeScript = `
 
       if (runScripts) runScriptsSafe(main);
 
-      // 다음 프레임에서 visibility 복원 + 광고 초기화
-      requestAnimationFrame(function() {
-        main.style.visibility = '';
-        setTimeout(function() { initAdsSafe(main, false); }, 50);
-      });
+      // 스크립트 실행 후 visibility 복원 (스크립트가 DOM 수정할 시간 확보)
+      setTimeout(function() {
+        requestAnimationFrame(function() {
+          main.style.visibility = '';
+          setTimeout(function() { initAdsSafe(main, false); }, 50);
+        });
+      }, 30);
     } else {
       // 비정상 케이스 폴백
       clearChildren(main);
