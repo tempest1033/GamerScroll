@@ -233,6 +233,7 @@ const swipeScript = `
   const TRANSITION_MS = 250;
   const DIRECTION_LOCK_PX = 6;
   const DIRECTION_LOCK_BIAS_PX = 3;
+  const ADS_TRIGGER_PX = 24;
 
   let touchStartX = null, touchStartY = null;
   let currentX = 0;
@@ -245,8 +246,34 @@ const swipeScript = `
   let originalMainHtml = null;
   let swipeEndTimer = 0;
 
+  let swipeRaf = 0;
+  let pendingTranslatePercent = -33.333;
+
   let adsInitPrev = false;
   let adsInitNext = false;
+  let adsInitPrevScheduled = false;
+  let adsInitNextScheduled = false;
+
+  let swipeShield = null;
+  function ensureSwipeShield() {
+    if (swipeShield) return;
+    try {
+      swipeShield = document.createElement('div');
+      swipeShield.className = 'swipe-shield';
+      swipeShield.style.cssText = 'position:fixed;left:0;top:0;right:0;bottom:0;z-index:2147483647;background:transparent;touch-action:none;';
+      document.body.appendChild(swipeShield);
+    } catch (e) {
+      swipeShield = null;
+    }
+  }
+
+  function removeSwipeShield() {
+    if (!swipeShield) return;
+    try { swipeShield.remove(); } catch (e) {
+      try { if (swipeShield.parentNode) swipeShield.parentNode.removeChild(swipeShield); } catch (_) {}
+    }
+    swipeShield = null;
+  }
 
   // 프리페치 캐시
   const pageCache = new Map();
@@ -268,8 +295,9 @@ const swipeScript = `
 
   function initAdsSafe(scope) {
     try {
-      if (window.__gcInitAds) window.__gcInitAds(scope || document);
+      if (window.__gcInitAds) return window.__gcInitAds(scope || document) || 0;
     } catch (e) {}
+    return 0;
   }
 
   function runScriptsSafe(scope) {
@@ -375,14 +403,23 @@ const swipeScript = `
     if (pane.querySelector('.swipe-empty')) return;
 
     if (which === 'prev') {
-      if (adsInitPrev) return;
-      adsInitPrev = true;
+      if (adsInitPrev || adsInitPrevScheduled) return;
+      adsInitPrevScheduled = true;
     } else {
-      if (adsInitNext) return;
-      adsInitNext = true;
+      if (adsInitNext || adsInitNextScheduled) return;
+      adsInitNextScheduled = true;
     }
 
-    initAdsSafe(pane);
+    setTimeout(function() {
+      const pushed = initAdsSafe(pane);
+      if (which === 'prev') {
+        if (pushed > 0) adsInitPrev = true;
+        adsInitPrevScheduled = false;
+      } else {
+        if (pushed > 0) adsInitNext = true;
+        adsInitNextScheduled = false;
+      }
+    }, 0);
   }
 
 
@@ -412,6 +449,10 @@ const swipeScript = `
   }
 
   function resetSwipeState() {
+    if (swipeRaf) { cancelAnimationFrame(swipeRaf); swipeRaf = 0; }
+    removeSwipeShield();
+    pendingTranslatePercent = -33.333;
+
     swipeWrapper = null;
     prevContent = null;
     nextContent = null;
@@ -421,6 +462,11 @@ const swipeScript = `
     swipeDirection = null;
     originalMainHtml = null;
     currentX = 0;
+
+    adsInitPrev = false;
+    adsInitNext = false;
+    adsInitPrevScheduled = false;
+    adsInitNextScheduled = false;
   }
 
   // 스와이프 정리 (pane DOM을 main으로 이동)
@@ -451,8 +497,12 @@ const swipeScript = `
       const frag = document.createDocumentFragment();
       while (pane.firstChild) frag.appendChild(pane.firstChild);
 
-      clearChildren(main);
-      main.appendChild(frag);
+      try {
+        main.replaceChild(frag, swipeWrapper);
+      } catch (e) {
+        clearChildren(main);
+        main.appendChild(frag);
+      }
 
       if (runScripts) runScriptsSafe(main);
       initAdsSafe(main);
@@ -493,10 +543,15 @@ const swipeScript = `
   }
 
   // 터치 시작
-  document.body.addEventListener('touchstart', (e) => {
-    if (e.target.closest('.search-dropdown, .modal-overlay, input, textarea')) return;
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches.length > 1) return;
 
     if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
+
+    touchStartX = null;
+    touchStartY = null;
+    swipeDirection = null;
+    currentX = 0;
 
     // 이전 스와이프 래퍼가 남아있으면 정리
     if (!swipeWrapper) {
@@ -506,7 +561,12 @@ const swipeScript = `
     if (swipeWrapper) {
       try { swipeWrapper.style.transition = 'none'; } catch (e) {}
       cleanupSwipe();
+    } else {
+      removeSwipeShield();
     }
+
+    const t = e.target;
+    if (t && t.closest && t.closest('.search-dropdown, .modal-overlay, input, textarea')) return;
 
     // 폴백용 스냅샷 (정상 흐름에서는 사용하지 않음)
     const main = document.querySelector('main.site-container');
@@ -520,8 +580,13 @@ const swipeScript = `
     swipeDirection = null;
     screenWidth = window.innerWidth;
 
+    if (swipeRaf) { cancelAnimationFrame(swipeRaf); swipeRaf = 0; }
+    pendingTranslatePercent = -33.333;
+
     adsInitPrev = false;
     adsInitNext = false;
+    adsInitPrevScheduled = false;
+    adsInitNextScheduled = false;
 
     const currentIndex = getCurrentNavIndex();
     const prevUrl = getPageUrl(currentIndex - 1);
@@ -535,10 +600,10 @@ const swipeScript = `
 
     if (prevUrl && !prevContent) fetchPageContent(prevUrl).then(c => { if (c) { prevContent = c; tryFillSwipePane('prev', c); } });
     if (nextUrl && !nextContent) fetchPageContent(nextUrl).then(c => { if (c) { nextContent = c; tryFillSwipePane('next', c); } });
-  }, { passive: true });
+  }, { passive: true, capture: true });
 
   // 터치 이동
-  document.body.addEventListener('touchmove', (e) => {
+  document.addEventListener('touchmove', (e) => {
     if (touchStartX === null) return;
 
     const touchX = e.touches[0].clientX;
@@ -569,11 +634,17 @@ const swipeScript = `
 
     if (!isSwiping) {
       isSwiping = true;
+      ensureSwipeShield();
       const main = document.querySelector('main.site-container');
       if (main) {
         main.style.overflow = 'hidden';
-        swipeWrapper = createSwipeWrapper(prevContent, nextContent);
-        if (!swipeWrapper) isSwiping = false;
+        const initialPrev = diffX < 0 ? prevContent : null;
+        const initialNext = diffX > 0 ? nextContent : null;
+        swipeWrapper = createSwipeWrapper(initialPrev, initialNext);
+        if (!swipeWrapper) { isSwiping = false; removeSwipeShield(); }
+      } else {
+        isSwiping = false;
+        removeSwipeShield();
       }
     }
 
@@ -582,16 +653,25 @@ const swipeScript = `
       currentX = diffX;
       const baseOffset = -33.333;
       const movePercent = (-currentX / screenWidth) * 33.333;
-      swipeWrapper.style.transform = 'translateX(' + (baseOffset + movePercent) + '%)';
+      pendingTranslatePercent = baseOffset + movePercent;
 
+      if (!swipeRaf) {
+        swipeRaf = requestAnimationFrame(function() {
+          swipeRaf = 0;
+          if (!swipeWrapper) return;
+          swipeWrapper.style.transform = 'translateX(' + pendingTranslatePercent + '%)';
 
-      if (currentX > 0) maybeInitSideAds('next');
-      else if (currentX < 0) maybeInitSideAds('prev');
+          if (Math.abs(currentX) >= ADS_TRIGGER_PX) {
+            if (currentX > 0) maybeInitSideAds('next');
+            else if (currentX < 0) maybeInitSideAds('prev');
+          }
+        });
+      }
     }
-  }, { passive: false });
+  }, { passive: false, capture: true });
 
   // 터치 종료
-  document.body.addEventListener('touchend', () => {
+  document.addEventListener('touchend', () => {
     if (swipeEndTimer) { clearTimeout(swipeEndTimer); swipeEndTimer = 0; }
 
     if (!swipeWrapper) {
@@ -601,10 +681,20 @@ const swipeScript = `
 
     if (!isSwiping || !swipeWrapper) {
       if (swipeWrapper) cleanupSwipe();
+      else removeSwipeShield();
       touchStartX = null;
       touchStartY = null;
       swipeDirection = null;
       return;
+    }
+
+    if (swipeRaf) { cancelAnimationFrame(swipeRaf); swipeRaf = 0; }
+    if (swipeWrapper) {
+      try { swipeWrapper.style.transition = 'none'; } catch (e) {}
+      const baseOffset = -33.333;
+      const movePercent = (-currentX / screenWidth) * 33.333;
+      pendingTranslatePercent = baseOffset + movePercent;
+      try { swipeWrapper.style.transform = 'translateX(' + pendingTranslatePercent + '%)'; } catch (e) {}
     }
 
     const threshold = screenWidth * SWIPE_THRESHOLD;
@@ -653,9 +743,11 @@ const swipeScript = `
     touchStartX = null;
     touchStartY = null;
     swipeDirection = null;
-  }, { passive: true });
+  }, { passive: true, capture: true });
 
-  document.body.addEventListener('touchcancel', () => {
+  document.addEventListener('touchcancel', () => {
+    removeSwipeShield();
+
     touchStartX = null;
     touchStartY = null;
     swipeDirection = null;
@@ -669,7 +761,7 @@ const swipeScript = `
     if (!swipeWrapper) return;
 
     cleanupSwipe();
-  }, { passive: true });
+  }, { passive: true, capture: true });
 })();
 </script>`;
 
@@ -779,19 +871,23 @@ const mobileAdInitScript = `
   // 광고 초기화 함수 (scope 내 모든 미초기화 광고에 push)
   function initAds(scope) {
     var root = scope || document;
+    var pushed = 0;
     var ads = root.querySelectorAll('ins.adsbygoogle');
     for (var i = 0; i < ads.length; i++) {
       var ad = ads[i];
       try {
         if (ad.hasAttribute('data-adsbygoogle-status')) continue;
         if (ad.dataset && ad.dataset.gcRequested === '1') continue;
+        if (ad.querySelector && ad.querySelector('iframe')) continue;
         if (!isAdRenderable(ad)) continue;
         if (ad.dataset) ad.dataset.gcRequested = '1';
         (adsbygoogle = window.adsbygoogle || []).push({});
+        pushed++;
       } catch (e) {
         try { if (ad && ad.dataset) delete ad.dataset.gcRequested; } catch (_) {}
       }
     }
+    return pushed;
   }
 
   // 광고 영역 새로 생성 (SPA/스와이프 전환용)
