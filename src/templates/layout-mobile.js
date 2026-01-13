@@ -470,6 +470,9 @@ const swipeScript = `
     else pane = swipeWrapper.querySelector('.swipe-current');
 
     if (pane) {
+      // DOM 교체 시 깜빡임 방지: visibility로 숨기고 교체
+      main.style.visibility = 'hidden';
+
       const frag = document.createDocumentFragment();
       while (pane.firstChild) frag.appendChild(pane.firstChild);
 
@@ -482,8 +485,11 @@ const swipeScript = `
 
       if (runScripts) runScriptsSafe(main);
 
-      // 광고 초기화 (새 페이지이므로 initAds만, refresh X)
-      setTimeout(function() { initAdsSafe(main, false); }, 50);
+      // 다음 프레임에서 visibility 복원 + 광고 초기화
+      requestAnimationFrame(function() {
+        main.style.visibility = '';
+        setTimeout(function() { initAdsSafe(main, false); }, 50);
+      });
     } else {
       // 비정상 케이스 폴백
       clearChildren(main);
