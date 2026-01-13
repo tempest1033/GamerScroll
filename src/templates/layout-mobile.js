@@ -323,28 +323,44 @@ const swipeScript = `
     const main = document.querySelector('main.site-container');
     if (!main) return null;
 
-    // nav 하단 위치 계산
-    const nav = document.querySelector('.nav');
-    const navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
-    const overlayTop = Math.max(0, navBottom);
+    // 1. 먼저 원본을 숨김 (오버레이 생성 전에!)
+    main.style.visibility = 'hidden';
+    main.style.pointerEvents = 'none';
+    void main.offsetHeight; // 강제 리플로우로 숨김 상태 확정
 
-    // 오버레이: nav 아래부터 화면 끝까지
+    // 2. 오버레이 top 위치: search-hidden 상태에 따라 고정값 사용
+    // search-hidden: nav만 보임 (52px)
+    // 기본 상태: search(64px) + nav(52px) = 116px
+    const isSearchHidden = document.body.classList.contains('search-hidden');
+    const overlayTop = isSearchHidden ? 52 : 116;
+
+    // 3. 오버레이 생성 (GPU 가속 + CSS 변수 배경)
     swipeOverlay = document.createElement('div');
     swipeOverlay.className = 'swipe-overlay';
-    swipeOverlay.style.cssText = 'position:fixed;top:' + overlayTop + 'px;left:0;right:0;bottom:0;z-index:9999;overflow:hidden;background:#f5f7fa;';
+    swipeOverlay.style.cssText =
+      'position:fixed;top:' + overlayTop + 'px;left:0;right:0;bottom:0;' +
+      'z-index:9999;overflow:hidden;' +
+      'background:var(--bg,#fff);' +
+      'transform:translate3d(0,0,0);backface-visibility:hidden;';
 
-    // 래퍼: 3개 페인 가로 배치
+    // 4. 래퍼: 3개 페인 가로 배치 (GPU 가속)
     swipeWrapper = document.createElement('div');
     swipeWrapper.className = 'swipe-wrapper';
-    swipeWrapper.style.cssText = 'display:flex;width:300%;height:100%;transform:translate3d(-33.333%,0,0);will-change:transform;';
+    swipeWrapper.style.cssText =
+      'display:flex;width:300%;height:100%;' +
+      'transform:translate3d(-33.333%,0,0);' +
+      'will-change:transform;backface-visibility:hidden;';
 
-    // 페인: site-container 클래스를 적용하여 원본과 동일한 스타일 유지
+    // 5. 페인 생성 함수
     function createPane(className, html) {
       const pane = document.createElement('div');
       pane.className = 'swipe-pane ' + className;
-      pane.style.cssText = 'width:33.333%;height:100%;flex-shrink:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;';
+      pane.style.cssText =
+        'width:33.333%;height:100%;flex-shrink:0;' +
+        'overflow-y:auto;overflow-x:hidden;' +
+        '-webkit-overflow-scrolling:touch;' +
+        'background:var(--bg,#fff);';
       if (html) {
-        // site-container로 감싸서 원본과 동일한 레이아웃 유지
         const inner = document.createElement('main');
         inner.className = 'site-container';
         inner.innerHTML = html;
@@ -363,8 +379,8 @@ const swipeScript = `
     swipeOverlay.appendChild(swipeWrapper);
     document.body.appendChild(swipeOverlay);
 
-    // 원본 DOM 숨김
-    main.style.visibility = 'hidden';
+    // 6. 강제 리플로우로 GPU 레이어 확정
+    void swipeOverlay.offsetHeight;
 
     return swipeWrapper;
   }
@@ -401,13 +417,33 @@ const swipeScript = `
   }
 
   function removeOverlay() {
-    // main visibility 복원
     const main = document.querySelector('main.site-container');
-    if (main) main.style.visibility = '';
+    const overlay = swipeOverlay;
 
-    if (swipeOverlay && swipeOverlay.parentNode) {
-      swipeOverlay.parentNode.removeChild(swipeOverlay);
+    if (overlay && overlay.parentNode) {
+      // 1. 오버레이를 투명하게 (GPU 레이어 유지)
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+
+      // 2. 원본 복원 (오버레이가 아직 위에 있으므로 안 보임)
+      if (main) {
+        main.style.visibility = '';
+        main.style.pointerEvents = '';
+      }
+
+      // 3. 다음 프레임에서 오버레이 제거 (double rAF로 안전하게)
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          if (overlay && overlay.parentNode) {
+            overlay.parentNode.removeChild(overlay);
+          }
+        });
+      });
+    } else if (main) {
+      main.style.visibility = '';
+      main.style.pointerEvents = '';
     }
+
     swipeOverlay = null;
     swipeWrapper = null;
   }
