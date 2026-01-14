@@ -362,6 +362,9 @@ const swipeScript = `
     // 광고 위에서 시작한 경우, 충분히 이동해야 스와이프 시작 (탭은 클릭으로 통과)
     if (isOnAd && absX < AD_SWIPE_MIN_PX) return;
 
+    // 가로 스와이프 확정 시 상하 스크롤 차단 (광고 탭은 통과 후)
+    e.preventDefault();
+
     // 경계 체크
     if (diffX > 0 && !hasNextPage) return;
     if (diffX < 0 && !hasPrevPage) return;
@@ -371,7 +374,6 @@ const swipeScript = `
     // 가로 스크롤 영역이면 끝/처음이 아니면 스와이프 금지
     if (!isScrollableAtEdge(scrollableEl, intendedMode)) return;
 
-    e.preventDefault();
     isSwiping = true;
     swipeMode = intendedMode;
 
