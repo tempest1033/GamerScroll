@@ -54,7 +54,7 @@ function generateHead(options = {}) {
   }
   </script>` : '';
 
-  // 페이지별 데이터 스크립트는 layout.js에서 main 안에 삽입 (SPA 호환)
+  // 페이지별 데이터 스크립트는 layout.js에서 main 안에 삽입
 
   return `
 	  <meta charset="UTF-8">

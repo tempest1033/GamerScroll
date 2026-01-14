@@ -12,7 +12,6 @@ const {
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
-const { spaRouterScript, spaTransitionCss } = require('../scripts/spa-router');
 
 const AD_SLOTS = {
   // 모바일용 (320x150, 300x250)
@@ -125,7 +124,7 @@ const searchBarScript = `
       searchDropdown.querySelectorAll('.search-result-delete').forEach(btn => {
         btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); removeRecentSearch(btn.dataset.slug); renderRecentSearches(); });
       });
-      // 최근 본 게임 클릭 시 SPA 이동
+      // 최근 본 게임 클릭 시 페이지 이동
       searchDropdown.querySelectorAll('.search-result-item[data-href]').forEach(item => {
         item.addEventListener('click', (e) => {
           if (e.target.closest('.search-result-delete')) return;
@@ -133,12 +132,7 @@ const searchBarScript = `
           const href = item.dataset.href;
           searchDropdown.classList.remove('active');
           searchInput.blur();
-          if (window.spaNavigateTo) {
-            history.pushState({}, '', href);
-            window.spaNavigateTo('games', { pushState: false });
-          } else {
-            window.location.href = href;
-          }
+          window.location.href = href;
         });
       });
     }
@@ -171,7 +165,7 @@ const searchBarScript = `
         const slug = game.slug || game.id || '';
         return '<a href="/games/' + slug + '/" class="search-result-item" data-game=\\'' + JSON.stringify({slug, name}).replace(/'/g, "\\\\'") + '\\'><div class="search-result-info"><div class="search-result-title">' + name + '</div></div></a>';
       }).join('');
-      // 검색 결과 클릭 시 SPA 이동
+      // 검색 결과 클릭 시 페이지 이동
       searchDropdown.querySelectorAll('.search-result-item[data-game]').forEach(item => {
         item.addEventListener('click', (e) => {
           e.preventDefault();
@@ -179,12 +173,7 @@ const searchBarScript = `
           const href = item.getAttribute('href');
           searchDropdown.classList.remove('active');
           searchInput.blur();
-          if (window.spaNavigateTo) {
-            history.pushState({}, '', href);
-            window.spaNavigateTo('games', { pushState: false });
-          } else {
-            window.location.href = href;
-          }
+          window.location.href = href;
         });
       });
     }
@@ -204,14 +193,7 @@ const searchBarScript = `
     const query = searchInput.value.trim();
     if (!query) return;
     var searchUrl = '/games/?q=' + encodeURIComponent(query);
-    if (window.spaNavigateTo) {
-      history.pushState({}, '', searchUrl);
-      window.spaNavigateTo('games', { pushState: false });
-    } else {
-      window.location.href = searchUrl;
-    }
-    searchDropdown.classList.remove('active');
-    searchInput.blur();
+    window.location.href = searchUrl;
   }
 
   searchInput.addEventListener('keydown', (e) => {
@@ -376,25 +358,6 @@ const swipeScript = `
     if (!targetPage) {
       locked = false;
       resetSwipe(true);
-      return;
-    }
-
-    const direction = mode === 'next' ? 'left' : 'right';
-
-    if (window.spaNavigateTo) {
-      Promise.resolve(window.spaNavigateTo(targetPage, { direction, instant: true }))
-        .then(function(ok) {
-          if (ok === false) {
-            resetSwipe(true);
-            return false;
-          }
-          resetSwipe(false);
-          return true;
-        })
-        .finally(function() {
-          locked = false;
-          try { if (mainEl) mainEl.style.overflowX = ''; } catch (e) {}
-        });
       return;
     }
 
@@ -610,230 +573,77 @@ const footerModalScript = `
 })();
 </script>`;
 
-// 모바일 광고 초기화 (슬롯당 1회 + viewport 기반 + SPA 대응)
+// 모바일 광고 초기화 (슬롯당 1회 push)
 const mobileAdInitScript = `
 <script>
 (function() {
-  // 안정화 버전: 슬롯당 1회 요청 + viewport 기반 초기화 (SPA/동적 DOM 대응)
-  var REQUESTED_ATTR = 'data-gc-ads-requested';
-  var SLOT_SELECTOR = 'ins.adsbygoogle[data-ad-client][data-ad-slot]';
-  var IO_ROOT_MARGIN = '800px 0px';
-  var IMMEDIATE_MARGIN = 1000;
-  var RESCAN_INTERVAL = 1500;
-  var MAX_RESCANS = 4;
+  // 정석/심플 버전: 슬롯당 1회 push() (중복 방지 마커 사용)
+  var RETRY_INTERVAL = 2000;
+  var MAX_RETRIES = 3;
 
-  var io = null;
-  var mo = null;
-  var scanScheduled = false;
-
-  function ensureQueue() {
-    window.adsbygoogle = window.adsbygoogle || [];
-  }
-
-  function isProcessed(ins) {
-    if (!ins) return false;
-    if (ins.hasAttribute('data-adsbygoogle-status')) return true;
+  function safePush(ad) {
+    if (!ad || ad.getAttribute('data-gc-ad-pushed') === '1') return;
+    ad.setAttribute('data-gc-ad-pushed', '1');
     try {
-      if (ins.querySelector('iframe')) return true;
+      (adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {}
-    return false;
   }
 
-  function isRequested(ins) {
-    return ins && ins.getAttribute(REQUESTED_ATTR) === '1';
-  }
-
-  function markRequested(ins) {
-    try { ins.setAttribute(REQUESTED_ATTR, '1'); } catch (e) {}
-  }
-
-  function unmarkRequested(ins) {
-    try { ins.removeAttribute(REQUESTED_ATTR); } catch (e) {}
-  }
-
-  function isHidden(ins) {
-    try {
-      var cs = window.getComputedStyle(ins);
-      if (!cs) return false;
-      if (cs.display === 'none' || cs.visibility === 'hidden') return true;
-      var rect = ins.getBoundingClientRect();
-      if (rect && rect.width === 0 && rect.height === 0) return true;
-    } catch (e) {}
-    return false;
-  }
-
-  function shouldRequestNow(ins) {
-    if (!ins) return false;
-    if (isHidden(ins)) return false;
-    try {
-      var rect = ins.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight || 0;
-      return rect.top < vh + IMMEDIATE_MARGIN && rect.bottom > -IMMEDIATE_MARGIN;
-    } catch (e) {
-      return true;
-    }
-  }
-
-  function request(ins) {
-    if (!ins) return;
-    if (ins.isConnected === false) return;
-    if (isProcessed(ins) || isRequested(ins) || isHidden(ins)) return;
-
-    ensureQueue();
-    markRequested(ins);
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      unmarkRequested(ins);
-    }
-  }
-
-  function ensureIO() {
-    if (io || !('IntersectionObserver' in window)) return;
-    io = new IntersectionObserver(function(entries) {
-      for (var i = 0; i < entries.length; i++) {
-        var entry = entries[i];
-        if (!entry || !entry.isIntersecting) continue;
-        var ins = entry.target;
-        try { io.unobserve(ins); } catch (e) {}
-        request(ins);
-      }
-    }, { rootMargin: IO_ROOT_MARGIN, threshold: 0 });
-  }
-
-  function observe(ins) {
-    if (!ins) return;
-    if (ins.isConnected === false) return;
-    if (isProcessed(ins) || isRequested(ins)) return;
-    ensureIO();
-    if (io) {
-      try { io.observe(ins); } catch (e) {}
-    } else {
-      request(ins);
-    }
-  }
-
-  function scan(scope) {
+  function initAds(scope) {
     var root = scope || document;
     var ads;
-    try { ads = root.querySelectorAll(SLOT_SELECTOR); } catch (e) { return; }
-    if (!ads || ads.length === 0) return;
+    try {
+      ads = root.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status]):not([data-gc-ad-pushed])');
+    } catch (e) {
+      return;
+    }
 
     for (var i = 0; i < ads.length; i++) {
-      var ins = ads[i];
-      if (!ins) continue;
-      if (ins.isConnected === false) continue;
-      if (isProcessed(ins) || isRequested(ins)) continue;
-
-      if (shouldRequestNow(ins)) request(ins);
-      else observe(ins);
+      safePush(ads[i]);
     }
   }
 
-  function scheduleScan(scope) {
-    if (scanScheduled) return;
-    scanScheduled = true;
+  function retryInit(retryCount) {
+    if (retryCount >= MAX_RETRIES) return;
     setTimeout(function() {
-      scanScheduled = false;
-      scan(scope || document);
-    }, 0);
-  }
-
-  function cloneIns(ins) {
-    var newIns = document.createElement('ins');
-    newIns.className = ins.className || 'adsbygoogle';
-    newIns.style.cssText = ins.style.cssText || '';
-
-    try {
-      var attrs = ins.attributes;
-      for (var i = 0; i < attrs.length; i++) {
-        var name = attrs[i].name;
-        if (!name || name.indexOf('data-') !== 0) continue;
-        if (name === 'data-adsbygoogle-status' || name === 'data-ad-status' || name === REQUESTED_ATTR) continue;
-        newIns.setAttribute(name, attrs[i].value);
+      var pending;
+      try {
+        pending = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status]):not([data-gc-ad-pushed])');
+      } catch (e) {
+        pending = null;
       }
-    } catch (e) {}
-
-    return newIns;
-  }
-
-  function refresh(scope) {
-    var root = scope || document;
-    var ads;
-    try { ads = root.querySelectorAll('ins.adsbygoogle'); } catch (e) { return; }
-
-    for (var i = 0; i < ads.length; i++) {
-      var ins = ads[i];
-      if (!ins || !ins.parentNode) continue;
-
-      if (isProcessed(ins)) {
-        var newIns = cloneIns(ins);
-        try { ins.parentNode.replaceChild(newIns, ins); } catch (e) {}
-      } else {
-        unmarkRequested(ins);
+      if (pending && pending.length > 0) {
+        initAds();
+        retryInit(retryCount + 1);
       }
-    }
-
-    scheduleScan(root);
+    }, RETRY_INTERVAL);
   }
 
-  function onAdsenseLoaded() {
-    scheduleScan(document);
+  // 광고 초기화 함수
+  window.__gcInitAds = initAds;
+  window.__gcRefreshAds = initAds;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initAds();
+      retryInit(0);
+    });
+  } else {
+    initAds();
+    retryInit(0);
   }
 
-  // 전역 함수 등록 (SPA/페이지 내 변경 대응)
-  window.__gcInitAds = function(scope) { scheduleScan(scope || document); };
-  window.__gcRefreshAds = function(scope) { refresh(scope || document); };
-
-  // head.js의 onload 훅 연결
-  window.__gcOnAdsenseLoaded = onAdsenseLoaded;
-  if (window.__gcAdsenseLoaded === '1') {
-    onAdsenseLoaded();
-  }
-
-  // DOM 변화(동적 콘텐츠/SPA) 감지
-  if ('MutationObserver' in window && !mo) {
-    try {
-      mo = new MutationObserver(function(mutations) {
-        for (var i = 0; i < mutations.length; i++) {
-          var m = mutations[i];
-          if (m && m.addedNodes && m.addedNodes.length) {
-            scheduleScan(document);
-            break;
-          }
-        }
-      });
-      mo.observe(document.documentElement, { childList: true, subtree: true });
-    } catch (e) {}
-  }
-
-  // 탭/라우팅 등 UI 상호작용으로 display가 바뀌는 경우 대비
-  document.addEventListener('click', function() { scheduleScan(document); }, { passive: true });
-  document.addEventListener('touchend', function() { scheduleScan(document); }, { passive: true });
-  window.addEventListener('resize', function() { scheduleScan(document); }, { passive: true });
-  window.addEventListener('load', function() { setTimeout(function() { scheduleScan(document); }, 200); }, { passive: true });
-
-  // 초기 스캔 + 가벼운 재시도
-  scheduleScan(document);
-  var retry = 0;
-  function rescanLoop() {
-    retry++;
-    if (retry > MAX_RESCANS) return;
-    setTimeout(function() {
-      scheduleScan(document);
-      rescanLoop();
-    }, RESCAN_INTERVAL);
-  }
-  rescanLoop();
+  window.addEventListener('load', function() {
+    setTimeout(function() { initAds(); }, 200);
+  });
 
   // bfcache 복귀 시
   window.addEventListener('pageshow', function(e) {
-    if (e && e.persisted) {
-      setTimeout(function() { scheduleScan(document); }, 100);
-    }
+    if (e && e.persisted) setTimeout(function() { initAds(); }, 100);
   });
 })();
-</script>`;
+</script>
+`;
 
 /**
  * 모바일 페이지 레이아웃
@@ -855,7 +665,7 @@ function wrapWithLayout(content, options = {}) {
   // canonical URL을 m. 도메인으로 변경
   const mobileCanonical = canonical.replace('https://gamerscrawl.com', 'https://m.gamerscrawl.com');
 
-  // 페이지별 데이터 스크립트 (SPA 전환 시 재로드를 위해 main 안에 삽입)
+  // 페이지별 데이터 스크립트
   const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
 <script>
   window.allNewsData = ${pageData.news ? JSON.stringify(pageData.news) : 'null'};
@@ -869,7 +679,6 @@ function wrapWithLayout(content, options = {}) {
 <head>
   ${generateHead({ title, description, keywords, canonical: mobileCanonical, pageData, articleSchema, noindex })}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  ${spaTransitionCss}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''} is-mobile">
   ${generateHeader()}
@@ -885,7 +694,6 @@ function wrapWithLayout(content, options = {}) {
   ${imageFallbackScript}
   ${fontAndEmojiScript}
   ${mobileDeferReleaseScript}
-  ${spaRouterScript}
   ${showSearchBar ? searchBarScript : ''}
   ${swipeScript}
   ${mobileScrollHideScript}
@@ -947,7 +755,7 @@ function generateMobileOnlyMidAdSlot(mobileSlotId) {
 }
 
 /**
- * SPA용 partial 콘텐츠 생성 (레이아웃 없이 메인 콘텐츠만)
+ * Partial 콘텐츠 생성 (레이아웃 없이 메인 콘텐츠만)
  */
 function generatePartialContent(content, options = {}) {
   const { pageScripts = '' } = options;
