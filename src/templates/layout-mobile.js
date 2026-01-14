@@ -489,16 +489,45 @@ const footerModalScript = `
 })();
 </script>`;
 
-// 모바일 광고 초기화 (슬롯당 1회 push)
+// 모바일 광고 초기화 (슬롯당 1회 push, AdSense 로드 대기)
 const mobileAdInitScript = `
 <script>
 (function() {
-  // 정석/심플 버전: 슬롯당 1회 push() (중복 방지 마커 사용)
-  var RETRY_INTERVAL = 2000;
-  var MAX_RETRIES = 3;
+  var RETRY_INTERVAL = 1500;
+  var MAX_RETRIES = 5;
+  var ADSENSE_WAIT_MS = 100;
+  var ADSENSE_MAX_WAIT = 5000;
+
+  // AdSense 로드 대기
+  function waitForAdsense(callback) {
+    if (window.__gcAdsenseLoaded === '1' || window.adsbygoogle) {
+      callback();
+      return;
+    }
+    if (window.__gcAdsenseFailed === '1') return;
+
+    var waited = 0;
+    var check = setInterval(function() {
+      waited += ADSENSE_WAIT_MS;
+      if (window.__gcAdsenseLoaded === '1' || window.adsbygoogle) {
+        clearInterval(check);
+        callback();
+      } else if (waited >= ADSENSE_MAX_WAIT || window.__gcAdsenseFailed === '1') {
+        clearInterval(check);
+      }
+    }, ADSENSE_WAIT_MS);
+  }
+
+  // 요소가 보이는 상태인지 체크
+  function isVisible(el) {
+    if (!el) return false;
+    var style = window.getComputedStyle(el);
+    return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+  }
 
   function safePush(ad) {
     if (!ad || ad.getAttribute('data-gc-ad-pushed') === '1') return;
+    if (!isVisible(ad)) return;
     ad.setAttribute('data-gc-ad-pushed', '1');
     try {
       (adsbygoogle = window.adsbygoogle || []).push({});
@@ -535,27 +564,53 @@ const mobileAdInitScript = `
     }, RETRY_INTERVAL);
   }
 
-  // 광고 초기화 함수
-  window.__gcInitAds = initAds;
-  window.__gcRefreshAds = initAds;
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
+  function startAdInit() {
+    waitForAdsense(function() {
       initAds();
       retryInit(0);
     });
+  }
+
+  // 광고 초기화 함수 (외부 호출용)
+  window.__gcInitAds = function(scope) {
+    waitForAdsense(function() { initAds(scope); });
+  };
+  window.__gcRefreshAds = window.__gcInitAds;
+
+  // js-defer 해제 후 초기화 (숨김 상태에서 push 방지)
+  function onDeferReleased() {
+    setTimeout(startAdInit, 50);
+  }
+
+  // js-defer 해제 감지
+  if (document.documentElement.classList.contains('js-defer')) {
+    var observer = new MutationObserver(function(mutations) {
+      if (!document.documentElement.classList.contains('js-defer')) {
+        observer.disconnect();
+        onDeferReleased();
+      }
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    // 폴백: 3초 후에도 해제 안 되면 강제 시작
+    setTimeout(function() {
+      observer.disconnect();
+      startAdInit();
+    }, 3000);
   } else {
-    initAds();
-    retryInit(0);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startAdInit);
+    } else {
+      startAdInit();
+    }
   }
 
   window.addEventListener('load', function() {
-    setTimeout(function() { initAds(); }, 200);
+    setTimeout(function() { window.__gcInitAds(); }, 300);
   });
 
   // bfcache 복귀 시
   window.addEventListener('pageshow', function(e) {
-    if (e && e.persisted) setTimeout(function() { initAds(); }, 100);
+    if (e && e.persisted) setTimeout(function() { window.__gcInitAds(); }, 150);
   });
 })();
 </script>
