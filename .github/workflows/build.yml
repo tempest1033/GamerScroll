@@ -138,7 +138,7 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           cd docs-mobile
-          git init
+          git init -b main
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git remote add origin https://x-access-token:${GH_PAT}@github.com/tempest1033/GamersCrawl-Mobile.git
