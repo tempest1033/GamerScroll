@@ -132,10 +132,14 @@ jobs:
           git push
 
       - name: Deploy to Mobile repo
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          personal_token: ${{ secrets.GH_PAT }}
-          external_repository: tempest1033/GamersCrawl-Mobile
-          publish_branch: main
-          publish_dir: ./docs-mobile
-          cname: m.gamerscrawl.com
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          cd docs-mobile
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git remote add origin https://x-access-token:${GH_PAT}@github.com/tempest1033/GamersCrawl-Mobile.git
+          git add -A
+          git commit -m "Update mobile $(date +'%Y-%m-%d %H:%M')"
+          git push --force origin main
