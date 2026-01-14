@@ -206,6 +206,61 @@ const searchBarScript = `
 })();
 </script>`;
 
+// 네비 캐러셀 상태 저장/복원 (페이지 전환 시 원점 점프 방지)
+const navCarouselStateScript = `
+<script>
+(function() {
+  var KEY = 'gc_nav_scroll_state_v1';
+  var MAX_AGE_MS = 60000;
+
+  function save() {
+    try {
+      var navInner = document.querySelector('.nav-inner');
+      if (!navInner) return;
+      var state = { left: navInner.scrollLeft || 0, at: Date.now() };
+      sessionStorage.setItem(KEY, JSON.stringify(state));
+    } catch (e) {}
+  }
+
+  function restore() {
+    try {
+      var raw = sessionStorage.getItem(KEY);
+      if (!raw) return;
+      var state = null;
+      try { state = JSON.parse(raw); } catch (e) { return; }
+      if (!state) return;
+
+      var at = parseInt(state.at, 10) || 0;
+      if (at && (Date.now() - at) > MAX_AGE_MS) {
+        try { sessionStorage.removeItem(KEY); } catch (e) {}
+        return;
+      }
+
+      var left = parseFloat(state.left);
+      if (!isFinite(left)) left = 0;
+
+      var navInner = document.querySelector('.nav-inner');
+      if (!navInner) return;
+      navInner.scrollLeft = left;
+      window.__gcNavScrollRestored = '1';
+      window.__gcNavPrevScrollLeft = left;
+      try { sessionStorage.removeItem(KEY); } catch (e) {}
+    } catch (e) {}
+  }
+
+  // nav 렌더 직후 즉시 복원
+  restore();
+
+  // nav 클릭/페이지 이탈 시 상태 저장
+  document.addEventListener('click', function(e) {
+    var link = e.target && e.target.closest ? e.target.closest('a.nav-item') : null;
+    if (!link) return;
+    save();
+  }, true);
+  window.addEventListener('pagehide', save);
+})();
+</script>`;
+
 // 스와이프 스크립트 (좌/우 스와이프 시 페이지 이동, 드래그 중 최대 15% 이동)
 const swipeScript = `
 <script>
@@ -445,6 +500,7 @@ const swipeScript = `
     var itemCenter = targetItem.offsetLeft + (targetItem.offsetWidth / 2);
     var navCenter = navInner.clientWidth / 2;
     var maxScroll = navInner.scrollWidth - navInner.clientWidth;
+    if (maxScroll <= 0) return;
     var scrollPos = Math.max(0, Math.min(maxScroll, itemCenter - navCenter));
 
     if (smooth && navInner.scrollTo) {
@@ -456,24 +512,40 @@ const swipeScript = `
     navInner.scrollLeft = scrollPos;
   }
 
-  // 활성 탭으로 스크롤
-  function scrollNavToActive() {
-    scrollNavToIndex(getCurrentNavIndex(), true);
+  // 활성 탭으로 스크롤 (초기 로드는 애니메이션 없이)
+  function scrollNavToActive(smooth) {
+    scrollNavToIndex(getCurrentNavIndex(), !!smooth);
   }
 
-  // 페이지 로드 시 실행
-  function scheduleScrollNavToActive() {
-    if (window.requestAnimationFrame) {
-      window.requestAnimationFrame(scrollNavToActive);
-    } else {
-      setTimeout(scrollNavToActive, 0);
+  // 초기 로드 시 레이아웃/스타일 적용 전에는 값이 0으로 튈 수 있어 재시도
+  function initNavCarousel(attempt) {
+    attempt = attempt || 0;
+    var navInner = document.querySelector('.nav-inner');
+    if (!navInner) return;
+
+    if ((navInner.clientWidth <= 0 || navInner.scrollWidth <= navInner.clientWidth + 1) && attempt < 60) {
+      if (window.requestAnimationFrame) {
+        window.requestAnimationFrame(function() { initNavCarousel(attempt + 1); });
+      } else {
+        setTimeout(function() { initNavCarousel(attempt + 1); }, 16);
+      }
+      return;
     }
+
+    var prevLeft = window.__gcNavPrevScrollLeft;
+    if (typeof prevLeft === 'number' && isFinite(prevLeft)) {
+      try { navInner.scrollLeft = prevLeft; } catch (e) {}
+    }
+
+    var shouldSmooth = window.__gcNavScrollRestored === '1';
+    scrollNavToActive(shouldSmooth);
+    window.__gcNavScrollRestored = '';
+    window.__gcNavPrevScrollLeft = null;
   }
 
-  scheduleScrollNavToActive();
-  window.addEventListener('load', scheduleScrollNavToActive);
+  initNavCarousel(0);
   window.addEventListener('pageshow', function(e) {
-    if (e && e.persisted) scheduleScrollNavToActive();
+    if (e && e.persisted) initNavCarousel(0);
   });
 })();
 </script>`;
@@ -650,7 +722,7 @@ const mobileAdInitScript = `
       for (var i = 0; i < ads.length; i++) {
         if (i === 0) {
           // 첫 번째 광고(위 폴드)는 즉시 push - 수익 최적화
-          waitForAdsense(function() { pushAd(ads[0]); });
+          pushAd(ads[0]);
         } else {
           adObserver.observe(ads[i]);
         }
@@ -770,6 +842,7 @@ function wrapWithLayout(content, options = {}) {
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
+  ${navCarouselStateScript}
   <main class="site-container">
     ${dataScript}
     ${content}

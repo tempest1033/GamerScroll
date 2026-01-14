@@ -731,7 +731,7 @@ const lazyAdScript = `
       for (var i = 0; i < ads.length; i++) {
         if (i === 0) {
           // 첫 번째 광고(위 폴드)는 즉시 push - 수익 최적화
-          waitForAdsense(function() { pushAd(ads[0]); });
+          pushAd(ads[0]);
         } else {
           adObserver.observe(ads[i]);
         }
