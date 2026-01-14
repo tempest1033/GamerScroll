@@ -212,16 +212,18 @@ const swipeScript = `
 (function() {
   const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
 
-  const SWIPE_THRESHOLD = 0.15; // 15% 넘으면 페이지 이동
+  const SWIPE_THRESHOLD = 0.10; // 10% 넘으면 페이지 이동
   const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동
   const TRANSITION_MS = 150;
   const SLIDE_OUT_MS = 100; // 슬라이드 아웃 애니메이션 시간
   const DIRECTION_LOCK_PX = 10;
   const DIRECTION_LOCK_RATIO = 1.2;
   const AD_SWIPE_MIN_PX = 30; // 광고 위에서는 30px 이상 이동해야 스와이프 시작
+  const VELOCITY_THRESHOLD = 0.5; // 속도 임계값 (px/ms) - 빠른 플릭 감지
 
   let touchStartX = null;
   let touchStartY = null;
+  let touchStartTime = null; // 속도 계산용
   let swipeAxis = null;
   let isSwiping = false;
   let swipeMode = null;
@@ -286,6 +288,7 @@ const swipeScript = `
     }
     touchStartX = null;
     touchStartY = null;
+    touchStartTime = null;
     swipeAxis = null;
     isSwiping = false;
     swipeMode = null;
@@ -324,6 +327,7 @@ const swipeScript = `
 
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
     swipeAxis = null;
     isSwiping = false;
     swipeMode = null;
@@ -396,7 +400,12 @@ const swipeScript = `
     const currentX = match ? parseFloat(match[1]) : 0;
     const dragPercent = Math.abs(currentX) / screenWidth;
 
-    if (dragPercent >= SWIPE_THRESHOLD && swipeMode) {
+    // 속도 계산 (px/ms)
+    const elapsed = Date.now() - touchStartTime;
+    const velocity = elapsed > 0 ? Math.abs(currentX) / elapsed : 0;
+    const isFlick = velocity >= VELOCITY_THRESHOLD && Math.abs(currentX) > 30; // 30px 이상 + 빠른 속도
+
+    if ((dragPercent >= SWIPE_THRESHOLD || isFlick) && swipeMode) {
       // 페이지 이동 (슬라이드 아웃 애니메이션)
       const currentIdx = getCurrentNavIndex();
       const targetIdx = swipeMode === 'next' ? getNextIndex(currentIdx) : getPrevIndex(currentIdx);
