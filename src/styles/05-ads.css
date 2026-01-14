@@ -111,14 +111,7 @@ ins.adsbygoogle {
   background-size: 60px;
 }
 
-/* unfilled(빈 광고)는 접어서 레이아웃/겹침 이슈 최소화 (Google 권장: data-ad-status 활용) */
-ins.adsbygoogle[data-ad-status="unfilled"] {
-  display: none !important;
-}
-
-.ad-card:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
-  display: none !important;
-}
+/* unfilled 광고도 공간 유지 (접지 않음) */
 
 /* ===== 광고 여백 ===== */
 

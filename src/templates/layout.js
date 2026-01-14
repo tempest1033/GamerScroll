@@ -675,11 +675,11 @@ const lazyAdScript = `
     }, ADSENSE_WAIT_MS);
   }
 
-  // 요소가 보이는 상태인지 체크
+  // 요소가 숨겨진 상태가 아닌지 체크 (스크롤 밖도 허용)
   function isVisible(el) {
     if (!el) return false;
     var style = window.getComputedStyle(el);
-    return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+    return style.display !== 'none' && style.visibility !== 'hidden';
   }
 
   function safePush(ad) {
