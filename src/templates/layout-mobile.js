@@ -240,14 +240,14 @@ const swipeScript = `
   }
 
   function getPrevIndex(idx) {
-    if (idx === -1) return null;
+    if (idx === -1) return navSections.length - 1; // 홈 → 마지막 섹션 (순환)
     if (idx === 0) return -1;
     return idx - 1;
   }
 
   function getNextIndex(idx) {
     if (idx === -1) return 0;
-    if (idx >= navSections.length - 1) return null;
+    if (idx >= navSections.length - 1) return -1; // 마지막 → 홈 (순환)
     return idx + 1;
   }
 
@@ -416,6 +416,21 @@ const swipeScript = `
   document.addEventListener('touchcancel', function() {
     resetSwipe();
   }, { passive: true });
+
+  // 네비 캐러셀: 활성 탭 가운데로 스크롤
+  function scrollNavToActive() {
+    var navInner = document.querySelector('.nav-inner');
+    var activeNav = document.querySelector('.nav-item.active');
+    if (navInner && activeNav) {
+      var navRect = navInner.getBoundingClientRect();
+      var activeRect = activeNav.getBoundingClientRect();
+      var scrollLeft = activeNav.offsetLeft - (navRect.width / 2) + (activeRect.width / 2);
+      navInner.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    }
+  }
+  // 페이지 로드 시 실행
+  if (document.readyState === 'complete') scrollNavToActive();
+  else window.addEventListener('load', scrollNavToActive);
 })();
 </script>`;
 // 스크롤 시 검색창 숨김
