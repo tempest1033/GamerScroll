@@ -7,14 +7,24 @@ ins.adsbygoogle {
 
 /* ===== 광고 크기 (인라인 style 오버라이드용 !important) ===== */
 
-/* 모바일 상단 광고 (320x150) - Responsive001 */
+/* 모바일 상단 광고 (300x100) - Responsive001 */
 .ad-card-mobile-top {
   width: 100%;
-  height: 150px !important;
-  min-height: 150px !important;
+  height: 100px !important;
+  min-height: 100px !important;
   display: flex !important;
   justify-content: center;
   align-items: center;
+}
+
+.ad-card-mobile-top ins.adsbygoogle {
+  display: block !important;
+  width: 300px !important;
+  height: 100px !important;
+  min-width: 300px !important;
+  min-height: 100px !important;
+  max-width: 300px !important;
+  max-height: 100px !important;
 }
 
 /* 모바일 중간 광고 (300x250) - Responsive002~005 */
@@ -82,21 +92,6 @@ ins.adsbygoogle {
   position: relative;
 }
 
-/* 광고 스와이프 오버레이 (탭 시 제거됨) */
-.ad-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  background: transparent;
-  pointer-events: none;
-}
-
-/* 탭 감지 후 오버레이 비활성화 (JS에서 토글) */
-.ad-card.ad-tapped::after {
-  pointer-events: none;
-}
-
 /* ins/iframe 스와이프 허용 + 마진 제거 */
 .ad-card ins,
 .ad-card iframe {
@@ -111,6 +106,11 @@ ins.adsbygoogle {
   background-position: center;
   background-size: 60px;
 }
+/* unfilled 광고: 공간은 유지하고 플레이스홀더만 제거 */
+.ad-card:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  background-image: none;
+}
+
 
 /* unfilled 광고도 공간 유지 - 컨테이너 div에 !important 적용됨 (상단 참조) */
 
@@ -135,11 +135,11 @@ main > .ad-card:first-child,
   margin: 0;
 }
 
-/* insight-container, insight-panel, weekly-report 내부 광고 */
-.insight-container .ad-card,
-.insight-panel .ad-card,
-.weekly-report .ad-card {
-  margin: var(--space-block-gap, 16px) 0 0 0;
+/* insight-container, insight-panel, weekly-report 내부 광고 (gap으로 간격 처리) */
+.insight-container > .ad-card,
+.insight-panel > .ad-card,
+.weekly-report > .ad-card {
+  margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -148,6 +148,11 @@ main > .ad-card:first-child,
   .game-container > .ad-card:first-child,
   .games-hub-container > .ad-card:first-child,
   .deep-dive-container > .ad-card:first-child {
+    margin: var(--space-block-gap, 16px) 0 0 0;
+  }
+
+  /* 모바일: insight-container 상단 padding-top 제거 시 여백 보정 */
+  .insight-container > .ad-card:first-child {
     margin: var(--space-block-gap, 16px) 0 0 0;
   }
 }

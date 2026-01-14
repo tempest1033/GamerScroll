@@ -14,7 +14,7 @@ const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 
 const AD_SLOTS = {
-  // 모바일용 (320x150, 300x250)
+  // 모바일용 (300x100, 300x250)
   Responsive001: '5825162341',
   Responsive002: '4840966314',
   Responsive003: '7467129651',
@@ -215,6 +215,15 @@ const navCarouselStateScript = `
 
   function save() {
     try {
+      var overrideLeft = window.__gcNavScrollOverrideLeft;
+      var overrideAt = window.__gcNavScrollOverrideAt;
+      if (typeof overrideLeft === 'number' && isFinite(overrideLeft)) {
+        sessionStorage.setItem(KEY, JSON.stringify({ left: overrideLeft, at: overrideAt || Date.now() }));
+        window.__gcNavScrollOverrideLeft = null;
+        window.__gcNavScrollOverrideAt = null;
+        return;
+      }
+
       var navInner = document.querySelector('.nav-inner');
       if (!navInner) return;
       var state = { left: navInner.scrollLeft || 0, at: Date.now() };
@@ -269,11 +278,25 @@ const swipeScript = `
 
   const SWIPE_THRESHOLD = 0.10; // 10% 넘으면 페이지 이동
   const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동
-  const TRANSITION_MS = 150;
-  const SLIDE_OUT_MS = 100; // 슬라이드 아웃 애니메이션 시간
+  const TRANSITION_MS = 120;
+  const SLIDE_OUT_MS = 80; // 슬라이드 아웃 애니메이션 시간
   const DIRECTION_LOCK_PX = 10;
   const DIRECTION_LOCK_RATIO = 1.2;
   const VELOCITY_THRESHOLD = 0.5; // 속도 임계값 (px/ms) - 빠른 플릭 감지
+
+  let originalNavIdx = null;
+  let previewNavIdx = null;
+
+  function setNavActiveIndex(idx) {
+    if (previewNavIdx === idx) return;
+    previewNavIdx = idx;
+
+    var navInner = document.querySelector('.nav-inner');
+    if (!navInner) return;
+    var navItems = navInner.querySelectorAll('.nav-item');
+    for (var i = 0; i < navItems.length; i++) navItems[i].classList.remove('active');
+    if (idx >= 0 && navItems[idx]) navItems[idx].classList.add('active');
+  }
 
   let touchStartX = null;
   let touchStartY = null;
@@ -332,6 +355,11 @@ const swipeScript = `
   }
 
   function resetSwipe() {
+    if (originalNavIdx !== null && originalNavIdx !== undefined) {
+      setNavActiveIndex(originalNavIdx);
+      originalNavIdx = null;
+      previewNavIdx = null;
+    }
     if (mainEl) {
       mainEl.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
       mainEl.style.transform = '';
@@ -361,7 +389,7 @@ const swipeScript = `
     mainEl.style.transform = 'translate3d(' + targetX + 'px, 0, 0)';
     setTimeout(function() {
       window.location.href = url;
-    }, SLIDE_OUT_MS - 50);
+    }, SLIDE_OUT_MS);
   }
 
   // 터치 시작
@@ -381,6 +409,9 @@ const swipeScript = `
     swipeAxis = null;
     isSwiping = false;
     swipeMode = null;
+
+    originalNavIdx = getCurrentNavIndex();
+    previewNavIdx = originalNavIdx;
 
     scrollableEl = findScrollableElement(e.target);
 
@@ -433,12 +464,6 @@ const swipeScript = `
     mainEl.style.transition = 'none';
     mainEl.style.transform = 'translate3d(' + translateX + 'px, 0, 0)';
 
-    // 스와이프 중 네비게이션 캐러셀 따라가기
-    const currentIdx = getCurrentNavIndex();
-    const targetIdx = intendedMode === 'next' ? getNextIndex(currentIdx) : getPrevIndex(currentIdx);
-    if (targetIdx !== null) {
-      scrollNavToIndex(targetIdx, false);
-    }
   }, { passive: false });
 
   // 터치 종료
@@ -469,6 +494,8 @@ const swipeScript = `
 
       if (targetPage) {
         const url = targetPage === 'home' ? '/' : '/' + targetPage + '/';
+        setNavActiveIndex(targetIdx);
+        animateNavToIndex(targetIdx, SLIDE_OUT_MS);
         slideOutAndNavigate(url, swipeMode);
         return;
       }
@@ -484,6 +511,57 @@ const swipeScript = `
     resetSwipe();
     scrollNavToIndex(getCurrentNavIndex(), true);
   }, { passive: true });
+
+  function getNavScrollPosForIndex(idx) {
+    var navInner = document.querySelector('.nav-inner');
+    if (!navInner) return null;
+    var navItems = navInner.querySelectorAll('.nav-item');
+    var targetIdx = idx < 0 ? 0 : idx;
+    var targetItem = navItems[targetIdx];
+    if (!targetItem) return null;
+
+    var itemCenter = targetItem.offsetLeft + (targetItem.offsetWidth / 2);
+    var navCenter = navInner.clientWidth / 2;
+    var maxScroll = navInner.scrollWidth - navInner.clientWidth;
+    if (maxScroll <= 0) return 0;
+    return Math.max(0, Math.min(maxScroll, itemCenter - navCenter));
+  }
+
+  function animateNavToIndex(idx, durationMs) {
+    var navInner = document.querySelector('.nav-inner');
+    if (!navInner) return;
+
+    var scrollPos = getNavScrollPosForIndex(idx);
+    if (scrollPos === null || scrollPos === undefined) return;
+
+    window.__gcNavScrollOverrideLeft = scrollPos;
+    window.__gcNavScrollOverrideAt = Date.now();
+    try {
+      sessionStorage.setItem('gc_nav_scroll_state_v1', JSON.stringify({ left: scrollPos, at: Date.now() }));
+    } catch (e) {}
+
+    if (!durationMs || durationMs <= 0 || !window.requestAnimationFrame || !window.performance || !performance.now) {
+      navInner.scrollLeft = scrollPos;
+      return;
+    }
+
+    var start = navInner.scrollLeft || 0;
+    var delta = scrollPos - start;
+    if (Math.abs(delta) < 1) {
+      navInner.scrollLeft = scrollPos;
+      return;
+    }
+
+    var startTime = performance.now();
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+    function step(now) {
+      var t = (now - startTime) / durationMs;
+      if (t > 1) t = 1;
+      navInner.scrollLeft = start + delta * easeOutCubic(t);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
 
   // 네비 캐러셀: 특정 인덱스로 스크롤 (-1: 홈, 0~: 섹션)
   // nav에는 홈이 없음 (trend=0, games=1, ... metacritic=6)
@@ -642,42 +720,18 @@ const mobileAdInitScript = `
 <script>
 (function() {
   // ===== 설정 =====
-  var ADSENSE_POLL_MS = 100;      // AdSense 로드 체크 간격
-  var ADSENSE_TIMEOUT = 8000;     // AdSense 로드 타임아웃 (8초)
   var ROOT_MARGIN = '250px 0px 250px 0px';  // Google 권장: 상하 250px 버퍼
   var FALLBACK_INTERVAL = 2000;   // IO 미지원 시 재시도 간격
   var FALLBACK_MAX_RETRY = 3;     // IO 미지원 시 최대 재시도
 
   // ===== 상태 =====
   var adObserver = null;
-  var adsenseReady = false;
-  var pendingQueue = [];
 
   // ===== 유틸 =====
   function isHidden(el) {
     if (!el) return true;
     var s = window.getComputedStyle(el);
     return s.display === 'none' || s.visibility === 'hidden';
-  }
-
-  // ===== AdSense 대기 =====
-  function waitForAdsense(cb) {
-    if (adsenseReady) { cb(); return; }
-    if (window.__gcAdsenseLoaded === '1' || window.adsbygoogle) {
-      adsenseReady = true; cb(); return;
-    }
-    if (window.__gcAdsenseFailed === '1') return;
-
-    var elapsed = 0;
-    var poll = setInterval(function() {
-      elapsed += ADSENSE_POLL_MS;
-      if (window.__gcAdsenseLoaded === '1' || window.adsbygoogle) {
-        clearInterval(poll); adsenseReady = true; cb();
-      } else if (elapsed >= ADSENSE_TIMEOUT || window.__gcAdsenseFailed === '1') {
-        clearInterval(poll);
-        flushQueue();  // 타임아웃에도 시도 (나중에 SDK 로드되면 작동)
-      }
-    }, ADSENSE_POLL_MS);
   }
 
   // ===== 광고 Push =====
@@ -688,10 +742,6 @@ const mobileAdInitScript = `
     try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
   }
 
-  function flushQueue() {
-    while (pendingQueue.length) pushAd(pendingQueue.shift());
-  }
-
   // ===== IntersectionObserver =====
   function createObserver() {
     if (!('IntersectionObserver' in window)) return null;
@@ -700,12 +750,7 @@ const mobileAdInitScript = `
         if (!entry.isIntersecting) return;
         var ad = entry.target;
         adObserver.unobserve(ad);
-        if (adsenseReady) {
-          pushAd(ad);
-        } else {
-          pendingQueue.push(ad);
-          waitForAdsense(flushQueue);
-        }
+        pushAd(ad);
       });
     }, { rootMargin: ROOT_MARGIN, threshold: 0 });
   }
@@ -729,9 +774,7 @@ const mobileAdInitScript = `
       }
     } else {
       // IO 미지원: 즉시 push
-      waitForAdsense(function() {
-        for (var i = 0; i < ads.length; i++) pushAd(ads[i]);
-      });
+      for (var j = 0; j < ads.length; j++) pushAd(ads[j]);
     }
   }
 
@@ -739,16 +782,8 @@ const mobileAdInitScript = `
   function fallbackRetry(n) {
     if (adObserver || n >= FALLBACK_MAX_RETRY) return;
     setTimeout(function() {
-      var pending;
-      try {
-        pending = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status]):not([data-gc-pushed])');
-      } catch(e) { return; }
-      if (pending && pending.length) {
-        waitForAdsense(function() {
-          for (var i = 0; i < pending.length; i++) pushAd(pending[i]);
-        });
-        fallbackRetry(n + 1);
-      }
+      observeAds();
+      fallbackRetry(n + 1);
     }, FALLBACK_INTERVAL);
   }
 
@@ -774,23 +809,8 @@ const mobileAdInitScript = `
   window.__gcInitAds = observeAds;
   window.__gcRefreshAds = observeAds;
 
-  // ===== js-defer 처리 =====
-  if (document.documentElement.classList.contains('js-defer')) {
-    var mo = new MutationObserver(function() {
-      if (!document.documentElement.classList.contains('js-defer')) {
-        mo.disconnect();
-        setTimeout(startInit, 50);
-      }
-    });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    setTimeout(function() { mo.disconnect(); startInit(); }, 3000);
-  } else {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startInit);
-    } else {
-      startInit();
-    }
-  }
+  // ===== 시작 =====
+  startInit();
 
   // ===== 추가 이벤트 =====
   window.addEventListener('load', function() {

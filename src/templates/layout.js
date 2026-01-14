@@ -28,7 +28,7 @@ const AD_SLOTS = {
   // PC 사이드바
   VerticalPC001: '6855905500',
   RectanglePC001: '1104244740',
-  // 모바일 (320x150, 300x250)
+  // 모바일 (300x100, 300x250)
   Mobile001: '5825162341',
   Mobile002: '4840966314',
   Mobile003: '7467129651',
@@ -395,8 +395,6 @@ const swipeScript = `
   let isSwiping = false;
   let touchedElement = null;
   let isTouchMoving = false;
-  let adCard = null;
-  let touchStartTime = 0;
 
   function getCurrentNavIndex() {
     const path = window.location.pathname;
@@ -436,11 +434,9 @@ const swipeScript = `
   document.body.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
-    touchStartTime = Date.now();
     isTouchMoving = false;
     touchedElement = e.target.closest('.nav-item, .tab-btn');
     scrollableEl = findScrollableElement(e.target);
-    adCard = e.target.closest('.ad-card');
   }, { passive: true });
 
   document.body.addEventListener('touchmove', (e) => {
@@ -500,23 +496,6 @@ const swipeScript = `
     const touchEndY = e.changedTouches[0].screenY;
     const diffX = touchStartX - touchEndX;
     const diffY = touchStartY - touchEndY;
-    const touchDuration = Date.now() - touchStartTime;
-
-    // 광고 영역 탭 감지 (짧은 터치 + 이동 거리 작음)
-    if (adCard && touchDuration < 300 && Math.abs(diffX) < 10 && Math.abs(diffY) < 10) {
-      // 탭으로 인식 → 오버레이 비활성화 후 클릭 전달
-      adCard.classList.add('ad-tapped');
-      const touch = e.changedTouches[0];
-      setTimeout(() => {
-        const el = document.elementFromPoint(touch.clientX, touch.clientY);
-        if (el && el !== adCard) el.click();
-        setTimeout(() => adCard.classList.remove('ad-tapped'), 100);
-      }, 10);
-      adCard = null;
-      cleanup();
-      return;
-    }
-    adCard = null;
 
     if (Math.abs(diffX) <= Math.abs(diffY)) {
       cleanup();
@@ -651,42 +630,18 @@ const lazyAdScript = `
 <script>
 (function() {
   // ===== 설정 =====
-  var ADSENSE_POLL_MS = 100;      // AdSense 로드 체크 간격
-  var ADSENSE_TIMEOUT = 8000;     // AdSense 로드 타임아웃 (8초)
   var ROOT_MARGIN = '250px 0px 250px 0px';  // Google 권장: 상하 250px 버퍼
   var FALLBACK_INTERVAL = 2000;   // IO 미지원 시 재시도 간격
   var FALLBACK_MAX_RETRY = 3;     // IO 미지원 시 최대 재시도
 
   // ===== 상태 =====
   var adObserver = null;
-  var adsenseReady = false;
-  var pendingQueue = [];
 
   // ===== 유틸 =====
   function isHidden(el) {
     if (!el) return true;
     var s = window.getComputedStyle(el);
     return s.display === 'none' || s.visibility === 'hidden';
-  }
-
-  // ===== AdSense 대기 =====
-  function waitForAdsense(cb) {
-    if (adsenseReady) { cb(); return; }
-    if (window.__gcAdsenseLoaded === '1' || window.adsbygoogle) {
-      adsenseReady = true; cb(); return;
-    }
-    if (window.__gcAdsenseFailed === '1') return;
-
-    var elapsed = 0;
-    var poll = setInterval(function() {
-      elapsed += ADSENSE_POLL_MS;
-      if (window.__gcAdsenseLoaded === '1' || window.adsbygoogle) {
-        clearInterval(poll); adsenseReady = true; cb();
-      } else if (elapsed >= ADSENSE_TIMEOUT || window.__gcAdsenseFailed === '1') {
-        clearInterval(poll);
-        flushQueue();  // 타임아웃에도 시도 (나중에 SDK 로드되면 작동)
-      }
-    }, ADSENSE_POLL_MS);
   }
 
   // ===== 광고 Push =====
@@ -697,10 +652,6 @@ const lazyAdScript = `
     try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
   }
 
-  function flushQueue() {
-    while (pendingQueue.length) pushAd(pendingQueue.shift());
-  }
-
   // ===== IntersectionObserver =====
   function createObserver() {
     if (!('IntersectionObserver' in window)) return null;
@@ -709,12 +660,7 @@ const lazyAdScript = `
         if (!entry.isIntersecting) return;
         var ad = entry.target;
         adObserver.unobserve(ad);
-        if (adsenseReady) {
-          pushAd(ad);
-        } else {
-          pendingQueue.push(ad);
-          waitForAdsense(flushQueue);
-        }
+        pushAd(ad);
       });
     }, { rootMargin: ROOT_MARGIN, threshold: 0 });
   }
@@ -738,9 +684,7 @@ const lazyAdScript = `
       }
     } else {
       // IO 미지원: 즉시 push
-      waitForAdsense(function() {
-        for (var i = 0; i < ads.length; i++) pushAd(ads[i]);
-      });
+      for (var j = 0; j < ads.length; j++) pushAd(ads[j]);
     }
   }
 
@@ -748,16 +692,8 @@ const lazyAdScript = `
   function fallbackRetry(n) {
     if (adObserver || n >= FALLBACK_MAX_RETRY) return;
     setTimeout(function() {
-      var pending;
-      try {
-        pending = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status]):not([data-gc-pushed])');
-      } catch(e) { return; }
-      if (pending && pending.length) {
-        waitForAdsense(function() {
-          for (var i = 0; i < pending.length; i++) pushAd(pending[i]);
-        });
-        fallbackRetry(n + 1);
-      }
+      observeAds();
+      fallbackRetry(n + 1);
     }, FALLBACK_INTERVAL);
   }
 
@@ -783,23 +719,8 @@ const lazyAdScript = `
   window.__gcInitAds = observeAds;
   window.__gcRefreshAds = observeAds;
 
-  // ===== js-defer 처리 =====
-  if (document.documentElement.classList.contains('js-defer')) {
-    var mo = new MutationObserver(function() {
-      if (!document.documentElement.classList.contains('js-defer')) {
-        mo.disconnect();
-        setTimeout(startInit, 50);
-      }
-    });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    setTimeout(function() { mo.disconnect(); startInit(); }, 3000);
-  } else {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startInit);
-    } else {
-      startInit();
-    }
-  }
+  // ===== 시작 =====
+  startInit();
 
   // ===== 추가 이벤트 =====
   window.addEventListener('load', function() {
