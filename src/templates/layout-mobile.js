@@ -314,8 +314,8 @@ const swipeScript = `
     if (!e.touches || e.touches.length > 1) return;
 
     const t = e.target;
-    // nav 영역, 검색 드롭다운, 모달, 입력 필드 제외
-    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea')) return;
+    // nav 영역, 검색 드롭다운, 모달, 입력 필드, 광고 제외
+    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle')) return;
 
     mainEl = document.querySelector('main.site-container');
     if (!mainEl) return;
@@ -447,11 +447,13 @@ const swipeScript = `
     var maxScroll = navInner.scrollWidth - navInner.clientWidth;
     var scrollPos = Math.max(0, Math.min(maxScroll, itemCenter - navCenter));
 
-    if (smooth) {
-      navInner.scrollTo({ left: scrollPos, behavior: 'smooth' });
-    } else {
-      navInner.scrollLeft = scrollPos;
+    if (smooth && navInner.scrollTo) {
+      try {
+        navInner.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        return;
+      } catch (e) {}
     }
+    navInner.scrollLeft = scrollPos;
   }
 
   // 활성 탭으로 스크롤
@@ -460,8 +462,19 @@ const swipeScript = `
   }
 
   // 페이지 로드 시 실행
-  if (document.readyState === 'complete') scrollNavToActive();
-  else window.addEventListener('load', scrollNavToActive);
+  function scheduleScrollNavToActive() {
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(scrollNavToActive);
+    } else {
+      setTimeout(scrollNavToActive, 0);
+    }
+  }
+
+  scheduleScrollNavToActive();
+  window.addEventListener('load', scheduleScrollNavToActive);
+  window.addEventListener('pageshow', function(e) {
+    if (e && e.persisted) scheduleScrollNavToActive();
+  });
 })();
 </script>`;
 // 스크롤 시 검색창 숨김

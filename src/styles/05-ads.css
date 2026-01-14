@@ -89,6 +89,7 @@ ins.adsbygoogle {
   inset: 0;
   z-index: 10;
   background: transparent;
+  pointer-events: none;
 }
 
 /* 탭 감지 후 오버레이 비활성화 (JS에서 토글) */
