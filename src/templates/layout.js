@@ -684,6 +684,7 @@ const lazyAdScript = `
         clearInterval(poll); adsenseReady = true; cb();
       } else if (elapsed >= ADSENSE_TIMEOUT || window.__gcAdsenseFailed === '1') {
         clearInterval(poll);
+        flushQueue();  // 타임아웃에도 시도 (나중에 SDK 로드되면 작동)
       }
     }, ADSENSE_POLL_MS);
   }
@@ -727,7 +728,14 @@ const lazyAdScript = `
     } catch(e) { return; }
 
     if (adObserver) {
-      for (var i = 0; i < ads.length; i++) adObserver.observe(ads[i]);
+      for (var i = 0; i < ads.length; i++) {
+        if (i === 0) {
+          // 첫 번째 광고(위 폴드)는 즉시 push - 수익 최적화
+          waitForAdsense(function() { pushAd(ads[0]); });
+        } else {
+          adObserver.observe(ads[i]);
+        }
+      }
     } else {
       // IO 미지원: 즉시 push
       waitForAdsense(function() {
@@ -758,6 +766,17 @@ const lazyAdScript = `
     adObserver = createObserver();
     observeAds();
     if (!adObserver) fallbackRetry(0);
+
+    // 5초 후 미처리 광고 강제 재시도 (놓친 광고 복구)
+    setTimeout(function() {
+      var missed;
+      try {
+        missed = document.querySelectorAll('ins.adsbygoogle:not([data-gc-pushed])');
+      } catch(e) { return; }
+      if (missed && missed.length) {
+        for (var i = 0; i < missed.length; i++) pushAd(missed[i]);
+      }
+    }, 5000);
   }
 
   // ===== Public API =====
