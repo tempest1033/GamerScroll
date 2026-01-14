@@ -40,24 +40,8 @@ function generateCommunityItem(item, index, sourceName) {
 	  `;
 	}
 
-// 공통 탭 전환 스크립트
-function generateTabScript(tabSelector, panelPrefix) {
-  return `
-    document.querySelectorAll('${tabSelector}').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('${tabSelector}').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const target = tab.dataset.tab || tab.dataset.news || tab.dataset.community;
-        document.querySelectorAll('[id^="${panelPrefix}"]').forEach(p => p.classList.remove('active'));
-        document.getElementById('${panelPrefix}' + target)?.classList.add('active');
-      });
-    });
-  `;
-}
-
 module.exports = {
   generateNewsItem,
   generateCommunityItem,
-  generateRankItem,
-  generateTabScript
+  generateRankItem
 };

@@ -43,7 +43,6 @@ function generate404Page() {
       var filtered = recent.filter(function(g) { return g.slug !== slug; });
       if (filtered.length !== recent.length) {
         localStorage.setItem(RECENT_KEY, JSON.stringify(filtered));
-        console.log('[404] 최근 본 게임에서 삭제:', slug);
       }
     } catch (e) {}
 
