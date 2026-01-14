@@ -215,6 +215,7 @@ const swipeScript = `
   const SWIPE_THRESHOLD = 0.15; // 15% 넘으면 페이지 이동
   const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동
   const TRANSITION_MS = 150;
+  const SLIDE_OUT_MS = 200; // 슬라이드 아웃 애니메이션 시간
   const DIRECTION_LOCK_PX = 10;
   const DIRECTION_LOCK_RATIO = 1.2;
   const AD_SWIPE_MIN_PX = 30; // 광고 위에서는 30px 이상 이동해야 스와이프 시작
@@ -292,12 +293,28 @@ const swipeScript = `
     isOnAd = false;
   }
 
+  // 슬라이드 아웃 후 페이지 이동
+  function slideOutAndNavigate(url, direction) {
+    if (!mainEl) {
+      window.location.href = url;
+      return;
+    }
+    const screenWidth = window.innerWidth;
+    const targetX = direction === 'next' ? -screenWidth : screenWidth;
+    mainEl.style.transition = 'transform ' + SLIDE_OUT_MS + 'ms ease-in';
+    mainEl.style.transform = 'translate3d(' + targetX + 'px, 0, 0)';
+    setTimeout(function() {
+      window.location.href = url;
+    }, SLIDE_OUT_MS - 50);
+  }
+
   // 터치 시작
   document.addEventListener('touchstart', function(e) {
     if (!e.touches || e.touches.length > 1) return;
 
     const t = e.target;
-    if (t && t.closest && t.closest('.search-dropdown, .modal-overlay, input, textarea')) return;
+    // nav 영역, 검색 드롭다운, 모달, 입력 필드 제외
+    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea')) return;
 
     mainEl = document.querySelector('main.site-container');
     if (!mainEl) return;
@@ -380,14 +397,14 @@ const swipeScript = `
     const dragPercent = Math.abs(currentX) / screenWidth;
 
     if (dragPercent >= SWIPE_THRESHOLD && swipeMode) {
-      // 페이지 이동
+      // 페이지 이동 (슬라이드 아웃 애니메이션)
       const currentIdx = getCurrentNavIndex();
       const targetIdx = swipeMode === 'next' ? getNextIndex(currentIdx) : getPrevIndex(currentIdx);
       const targetPage = getPageByIndex(targetIdx);
 
       if (targetPage) {
         const url = targetPage === 'home' ? '/' : '/' + targetPage + '/';
-        window.location.href = url;
+        slideOutAndNavigate(url, swipeMode);
         return;
       }
     }
