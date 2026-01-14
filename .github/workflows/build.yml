@@ -48,7 +48,7 @@ jobs:
         run: npm ci --prefer-offline
 
       - name: Install Playwright browsers
-        run: npx playwright install chromium --with-deps=false
+        run: npx playwright install chromium
 
       - name: Generate report
         env:
