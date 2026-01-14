@@ -383,6 +383,13 @@ const swipeScript = `
 
     mainEl.style.transition = 'none';
     mainEl.style.transform = 'translate3d(' + translateX + 'px, 0, 0)';
+
+    // 스와이프 중 네비게이션 캐러셀 따라가기
+    const currentIdx = getCurrentNavIndex();
+    const targetIdx = intendedMode === 'next' ? getNextIndex(currentIdx) : getPrevIndex(currentIdx);
+    if (targetIdx !== null) {
+      scrollNavToIndex(targetIdx, false);
+    }
   }, { passive: false });
 
   // 터치 종료
@@ -420,23 +427,44 @@ const swipeScript = `
 
     // threshold 미달 - 원위치
     resetSwipe();
+    // 네비게이션도 현재 탭으로 복귀
+    scrollNavToIndex(getCurrentNavIndex(), true);
   }, { passive: true });
 
   document.addEventListener('touchcancel', function() {
     resetSwipe();
+    scrollNavToIndex(getCurrentNavIndex(), true);
   }, { passive: true });
 
-  // 네비 캐러셀: 활성 탭 가운데로 스크롤
-  function scrollNavToActive() {
+  // 네비 캐러셀: 특정 인덱스로 스크롤 (-1: 홈, 0~: 섹션)
+  // nav에는 홈이 없음 (trend=0, games=1, ... metacritic=6)
+  // 1,2번 → 왼쪽 끝, 3,4,5번 → 가운데, 6,7번 → 오른쪽 끝
+  function scrollNavToIndex(idx, smooth) {
     var navInner = document.querySelector('.nav-inner');
-    var activeNav = document.querySelector('.nav-item.active');
-    if (navInner && activeNav) {
-      var navRect = navInner.getBoundingClientRect();
-      var activeRect = activeNav.getBoundingClientRect();
-      var scrollLeft = activeNav.offsetLeft - (navRect.width / 2) + (activeRect.width / 2);
-      navInner.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    if (!navInner) return;
+    var navItems = navInner.querySelectorAll('.nav-item');
+    var targetIdx = idx < 0 ? 0 : idx;
+    var targetItem = navItems[targetIdx];
+    if (!targetItem) return;
+
+    // 아이템 중심을 nav 중심에 맞추기
+    var itemCenter = targetItem.offsetLeft + (targetItem.offsetWidth / 2);
+    var navCenter = navInner.clientWidth / 2;
+    var maxScroll = navInner.scrollWidth - navInner.clientWidth;
+    var scrollPos = Math.max(0, Math.min(maxScroll, itemCenter - navCenter));
+
+    if (smooth) {
+      navInner.scrollTo({ left: scrollPos, behavior: 'smooth' });
+    } else {
+      navInner.scrollLeft = scrollPos;
     }
   }
+
+  // 활성 탭으로 스크롤
+  function scrollNavToActive() {
+    scrollNavToIndex(getCurrentNavIndex(), true);
+  }
+
   // 페이지 로드 시 실행
   if (document.readyState === 'complete') scrollNavToActive();
   else window.addEventListener('load', scrollNavToActive);
@@ -530,128 +558,148 @@ const footerModalScript = `
 })();
 </script>`;
 
-// 모바일 광고 초기화 (슬롯당 1회 push, AdSense 로드 대기)
+// 모바일 광고 초기화 (IntersectionObserver 기반 Lazy Loading)
 const mobileAdInitScript = `
 <script>
 (function() {
-  var RETRY_INTERVAL = 1500;
-  var MAX_RETRIES = 5;
-  var ADSENSE_WAIT_MS = 100;
-  var ADSENSE_MAX_WAIT = 5000;
+  // ===== 설정 =====
+  var ADSENSE_POLL_MS = 100;      // AdSense 로드 체크 간격
+  var ADSENSE_TIMEOUT = 8000;     // AdSense 로드 타임아웃 (8초)
+  var ROOT_MARGIN = '250px 0px 250px 0px';  // Google 권장: 상하 250px 버퍼
+  var FALLBACK_INTERVAL = 2000;   // IO 미지원 시 재시도 간격
+  var FALLBACK_MAX_RETRY = 3;     // IO 미지원 시 최대 재시도
 
-  // AdSense 로드 대기
-  function waitForAdsense(callback) {
+  // ===== 상태 =====
+  var adObserver = null;
+  var adsenseReady = false;
+  var pendingQueue = [];
+
+  // ===== 유틸 =====
+  function isHidden(el) {
+    if (!el) return true;
+    var s = window.getComputedStyle(el);
+    return s.display === 'none' || s.visibility === 'hidden';
+  }
+
+  // ===== AdSense 대기 =====
+  function waitForAdsense(cb) {
+    if (adsenseReady) { cb(); return; }
     if (window.__gcAdsenseLoaded === '1' || window.adsbygoogle) {
-      callback();
-      return;
+      adsenseReady = true; cb(); return;
     }
     if (window.__gcAdsenseFailed === '1') return;
 
-    var waited = 0;
-    var check = setInterval(function() {
-      waited += ADSENSE_WAIT_MS;
+    var elapsed = 0;
+    var poll = setInterval(function() {
+      elapsed += ADSENSE_POLL_MS;
       if (window.__gcAdsenseLoaded === '1' || window.adsbygoogle) {
-        clearInterval(check);
-        callback();
-      } else if (waited >= ADSENSE_MAX_WAIT || window.__gcAdsenseFailed === '1') {
-        clearInterval(check);
+        clearInterval(poll); adsenseReady = true; cb();
+      } else if (elapsed >= ADSENSE_TIMEOUT || window.__gcAdsenseFailed === '1') {
+        clearInterval(poll);
       }
-    }, ADSENSE_WAIT_MS);
+    }, ADSENSE_POLL_MS);
   }
 
-  // 요소가 숨겨진 상태가 아닌지 체크 (스크롤 밖도 허용)
-  function isVisible(el) {
-    if (!el) return false;
-    var style = window.getComputedStyle(el);
-    return style.display !== 'none' && style.visibility !== 'hidden';
+  // ===== 광고 Push =====
+  function pushAd(ad) {
+    if (!ad || ad.getAttribute('data-gc-pushed') === '1') return;
+    if (isHidden(ad)) return;
+    ad.setAttribute('data-gc-pushed', '1');
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
   }
 
-  function safePush(ad) {
-    if (!ad || ad.getAttribute('data-gc-ad-pushed') === '1') return;
-    if (!isVisible(ad)) return;
-    ad.setAttribute('data-gc-ad-pushed', '1');
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {}
+  function flushQueue() {
+    while (pendingQueue.length) pushAd(pendingQueue.shift());
   }
 
-  function initAds(scope) {
+  // ===== IntersectionObserver =====
+  function createObserver() {
+    if (!('IntersectionObserver' in window)) return null;
+    return new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var ad = entry.target;
+        adObserver.unobserve(ad);
+        if (adsenseReady) {
+          pushAd(ad);
+        } else {
+          pendingQueue.push(ad);
+          waitForAdsense(flushQueue);
+        }
+      });
+    }, { rootMargin: ROOT_MARGIN, threshold: 0 });
+  }
+
+  // ===== 광고 관찰 시작 =====
+  function observeAds(scope) {
     var root = scope || document;
     var ads;
     try {
-      ads = root.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status]):not([data-gc-ad-pushed])');
-    } catch (e) {
-      return;
-    }
+      ads = root.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status]):not([data-gc-pushed])');
+    } catch(e) { return; }
 
-    for (var i = 0; i < ads.length; i++) {
-      safePush(ads[i]);
+    if (adObserver) {
+      for (var i = 0; i < ads.length; i++) adObserver.observe(ads[i]);
+    } else {
+      // IO 미지원: 즉시 push
+      waitForAdsense(function() {
+        for (var i = 0; i < ads.length; i++) pushAd(ads[i]);
+      });
     }
   }
 
-  function retryInit(retryCount) {
-    if (retryCount >= MAX_RETRIES) return;
+  // ===== Fallback 재시도 (IO 미지원) =====
+  function fallbackRetry(n) {
+    if (adObserver || n >= FALLBACK_MAX_RETRY) return;
     setTimeout(function() {
       var pending;
       try {
-        pending = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status]):not([data-gc-ad-pushed])');
-      } catch (e) {
-        pending = null;
+        pending = document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status]):not([data-gc-pushed])');
+      } catch(e) { return; }
+      if (pending && pending.length) {
+        waitForAdsense(function() {
+          for (var i = 0; i < pending.length; i++) pushAd(pending[i]);
+        });
+        fallbackRetry(n + 1);
       }
-      if (pending && pending.length > 0) {
-        initAds();
-        retryInit(retryCount + 1);
-      }
-    }, RETRY_INTERVAL);
+    }, FALLBACK_INTERVAL);
   }
 
-  function startAdInit() {
-    waitForAdsense(function() {
-      initAds();
-      retryInit(0);
-    });
+  // ===== 초기화 =====
+  function startInit() {
+    adObserver = createObserver();
+    observeAds();
+    if (!adObserver) fallbackRetry(0);
   }
 
-  // 광고 초기화 함수 (외부 호출용)
-  window.__gcInitAds = function(scope) {
-    waitForAdsense(function() { initAds(scope); });
-  };
-  window.__gcRefreshAds = window.__gcInitAds;
+  // ===== Public API =====
+  window.__gcInitAds = observeAds;
+  window.__gcRefreshAds = observeAds;
 
-  // js-defer 해제 후 초기화 (숨김 상태에서 push 방지)
-  function onDeferReleased() {
-    setTimeout(startAdInit, 50);
-  }
-
-  // js-defer 해제 감지
+  // ===== js-defer 처리 =====
   if (document.documentElement.classList.contains('js-defer')) {
-    var observer = new MutationObserver(function(mutations) {
+    var mo = new MutationObserver(function() {
       if (!document.documentElement.classList.contains('js-defer')) {
-        observer.disconnect();
-        onDeferReleased();
+        mo.disconnect();
+        setTimeout(startInit, 50);
       }
     });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    // 폴백: 3초 후에도 해제 안 되면 강제 시작
-    setTimeout(function() {
-      observer.disconnect();
-      startAdInit();
-    }, 3000);
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    setTimeout(function() { mo.disconnect(); startInit(); }, 3000);
   } else {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startAdInit);
+      document.addEventListener('DOMContentLoaded', startInit);
     } else {
-      startAdInit();
+      startInit();
     }
   }
 
+  // ===== 추가 이벤트 =====
   window.addEventListener('load', function() {
-    setTimeout(function() { window.__gcInitAds(); }, 300);
+    setTimeout(observeAds, 300);
   });
-
-  // bfcache 복귀 시
   window.addEventListener('pageshow', function(e) {
-    if (e && e.persisted) setTimeout(function() { window.__gcInitAds(); }, 150);
+    if (e && e.persisted) setTimeout(observeAds, 150);
   });
 })();
 </script>
