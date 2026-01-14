@@ -218,7 +218,6 @@ const swipeScript = `
   const SLIDE_OUT_MS = 100; // 슬라이드 아웃 애니메이션 시간
   const DIRECTION_LOCK_PX = 10;
   const DIRECTION_LOCK_RATIO = 1.2;
-  const AD_SWIPE_MIN_PX = 30; // 광고 위에서는 30px 이상 이동해야 스와이프 시작
   const VELOCITY_THRESHOLD = 0.5; // 속도 임계값 (px/ms) - 빠른 플릭 감지
 
   let touchStartX = null;
@@ -231,7 +230,6 @@ const swipeScript = `
   let hasNextPage = false;
   let scrollableEl = null;
   let mainEl = null;
-  let isOnAd = false; // 광고 위에서 시작했는지
 
   function getCurrentNavIndex() {
     const path = window.location.pathname;
@@ -322,9 +320,6 @@ const swipeScript = `
     mainEl = document.querySelector('main.site-container');
     if (!mainEl) return;
 
-    // 광고 위에서 시작했는지 체크
-    isOnAd = !!(t && t.closest && t.closest('.adsbygoogle, ins'));
-
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
     touchStartTime = Date.now();
@@ -359,10 +354,7 @@ const swipeScript = `
 
     if (swipeAxis !== 'horizontal') return;
 
-    // 광고 위에서 시작한 경우, 충분히 이동해야 스와이프 시작 (탭은 클릭으로 통과)
-    if (isOnAd && absX < AD_SWIPE_MIN_PX) return;
-
-    // 가로 스와이프 확정 시 상하 스크롤 차단 (광고 탭은 통과 후)
+    // 가로 스와이프 확정 시 상하 스크롤 차단
     e.preventDefault();
 
     // 경계 체크
