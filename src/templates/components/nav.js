@@ -66,7 +66,8 @@ const searchIcon = `<button type="button" class="nav-search-btn" aria-label="검
 function generateNav(currentPage = 'home') {
   if (isMobileBuild) {
     // 홈페이지: 기존 캐러셀만 (검색창은 별도)
-    if (currentPage === 'home') {
+    // currentPage가 'home' 또는 '' (빈 문자열)이면 홈으로 처리
+    if (currentPage === 'home' || currentPage === '') {
       return `
       <nav class="nav">
         <div class="nav-inner">

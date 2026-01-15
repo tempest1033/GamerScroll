@@ -184,41 +184,34 @@
 
     }
 
-    /* 모바일 네이버 스타일: 상단 검색박스 숨기기 (입력/드롭다운 기능 유지) */
+    /* 모바일 네이버 스타일: 다른 페이지에서 검색창 상단 fixed */
     body:has(.nav-mobile) .search-container {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 300;
-      padding: 0;
+      padding: 8px;
       margin: 0;
-      background: transparent;
-      border: none;
-      pointer-events: none;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
     }
     body:has(.nav-mobile) .search-box {
-      position: absolute;
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    body:has(.nav-mobile) .search-input {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-      pointer-events: auto;
+      max-width: 600px;
+      margin: 0 auto;
     }
     body:has(.nav-mobile) .search-dropdown {
       position: fixed;
-      top: 48px;
+      top: 56px;
       left: 8px;
       right: 8px;
       transform: none;
       width: auto;
       max-width: none;
-      pointer-events: auto;
+    }
+    /* nav-mobile 있을 때 본문에 상단 여백 추가 */
+    body:has(.nav-mobile) main.site-container {
+      padding-top: 56px;
     }
 
     /* 모바일 네이버 스타일 네비게이션 */
