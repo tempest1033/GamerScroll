@@ -3,14 +3,6 @@
  * SEO 메타, 스타일, 폰트, Firebase Analytics 등
  */
 
-// 광고 배너 슬롯 표시 여부
-const SHOW_ADS = true;
-
-// AdSense 스크립트 로드 여부 (심사용/연결용)
-// - 자동광고(Auto ads)는 AdSense 콘솔에서 별도로 OFF 권장
-// - 슬롯(SHOW_ADS)은 계속 OFF 유지 가능
-const LOAD_ADSENSE_SCRIPT = true;
-
 function generateHead(options = {}) {
   const {
     title = '게이머스크롤 | 데일리 게임 인사이트',
@@ -101,7 +93,6 @@ function generateHead(options = {}) {
 		          return;
 		        }
 		      }
-		      document.documentElement.classList.add('js-defer');
 		    })();
 		  </script>
 		  <title>${title}</title>
@@ -193,9 +184,8 @@ function generateHead(options = {}) {
 		  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2" as="font" type="font/woff2" crossorigin>
 		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 			  <link rel="stylesheet" href="/styles.css">
-	  <!-- AdSense 스크립트 (동기 로드 - 안정성 우선) -->
-	  ${LOAD_ADSENSE_SCRIPT ? `<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
-	  ` : ''}
+	  <!-- AdSense 스크립트 -->
+	  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
 		  <script async fetchpriority="low" src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script>
@@ -261,4 +251,4 @@ function generateHead(options = {}) {
 	  </script>`;
 }
 
-module.exports = { generateHead, SHOW_ADS, LOAD_ADSENSE_SCRIPT };
+module.exports = { generateHead };

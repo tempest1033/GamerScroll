@@ -3,7 +3,7 @@
  * 공통 컴포넌트를 조합하여 완전한 HTML 페이지를 생성
  */
 
-const { generateHead, SHOW_ADS } = require('./components/head');
+const { generateHead } = require('./components/head');
 const {
   renderAdCard,
   renderPCAd,
@@ -625,239 +625,6 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-const deferredItemsScript = `
-<script>
-(function() {
-  var html = document.documentElement;
-  if (!html.classList.contains('js-defer')) return;
-
-  var ITEM_SELECTOR = [
-    '.popular-banner-label',
-    '.popular-banner-more',
-    '.column-header',
-    '.country-name',
-    '.flag',
-    '.steam-table-header',
-    '.upcoming-table-header',
-    '.games-hub-section-title',
-    '.group-title',
-    '.group-count',
-    '.index-link',
-    '#search-results-title',
-    '.search-results-close',
-    '.home-card-title',
-    '.home-card-more',
-    '.community-panel-title',
-    '.community-panel-more',
-    '.home-news-tab',
-    '.home-community-tab',
-    '.home-rank-tab',
-    '.home-upcoming-tab',
-    '.insight-tab',
-    '.tab-btn',
-    '.home-news-card',
-    '.home-news-item',
-    '.home-community-item',
-    '.home-video-card',
-    '.home-video-item',
-    '.home-rank-row',
-    '.home-steam-row',
-    '.home-upcoming-row',
-    '.home-trend-card',
-    '.popular-banner-item',
-    '.news-grid-card',
-    '.news-grid-item',
-    '.community-item',
-    '.youtube-card',
-    '.rank-row',
-    '.steam-table-row',
-    '.upcoming-item',
-    '.metacritic-card',
-    '.games-hub-popular-card',
-    '.game-item',
-    '.games-hub-recent-card',
-    '.trend-feed-card',
-    '.game-hero-stat',
-    '.game-rank-country-row',
-    '.game-steam-stat',
-    '.game-news-item',
-    '.game-community-item',
-    '.game-youtube-item',
-    '.gm-item',
-    '.weekly-hot-card',
-    '.weekly-rank-card',
-    '.weekly-metric-card',
-    '.weekly-community-card',
-    '.weekly-streaming-card',
-    '.weekly-stock-item',
-    '.weekly-release-item',
-    '.industry-card',
-    '.global-card'
-  ].join(',');
-
-  var SECTION_SELECTOR = [
-    '.home-card',
-    '.weekly-section',
-    '.community-panel',
-    '.games-hub-popular',
-    '.games-hub-all',
-    '.games-hub-recent',
-    '.games-hub-search-results',
-    '.popular-banner'
-  ].join(',');
-
-  var REVEAL_DELAY_MS = 0;
-  var FALLBACK_TIMEOUT_MS = 2000;
-  var revealStarted = false;
-  var fallbackTimer = null;
-  var raf = window.requestAnimationFrame || function(cb) { return setTimeout(cb, 16); };
-
-  function markVisible(el) {
-    if (!el || el.classList.contains('gc-defer-visible')) return;
-    el.classList.add('gc-defer-visible');
-  }
-
-  function revealSequence(items, done) {
-    if (!items || items.length === 0) {
-      done();
-      return;
-    }
-    var i = 0;
-    function step() {
-      if (i >= items.length) {
-        done();
-        return;
-      }
-      markVisible(items[i]);
-      i += 1;
-      raf(step);
-    }
-    raf(step);
-  }
-
-  function buildRankingSequence(grid) {
-    if (!grid) return [];
-    var columns = grid.querySelectorAll('.country-column');
-    if (!columns.length) return [];
-    var maxRows = 0;
-
-    for (var c = 0; c < columns.length; c++) {
-      var rowCount = columns[c].querySelectorAll('.rank-row').length;
-      if (rowCount > maxRows) maxRows = rowCount;
-    }
-
-    var sequence = [];
-    for (var r = 0; r < maxRows; r++) {
-      if (r === 0) {
-        for (var c0 = 0; c0 < columns.length; c0++) {
-          var header = columns[c0].querySelector('.column-header');
-          if (header) sequence.push(header);
-        }
-      }
-      for (var c1 = 0; c1 < columns.length; c1++) {
-        var rows = columns[c1].querySelectorAll('.rank-row');
-        if (rows[r]) sequence.push(rows[r]);
-      }
-    }
-    return sequence;
-  }
-
-  function getSectionItems(section) {
-    var rankingGrids = section.querySelectorAll('.columns-grid');
-    if (rankingGrids.length) {
-      var seq = [];
-      for (var i = 0; i < rankingGrids.length; i++) {
-        var part = buildRankingSequence(rankingGrids[i]);
-        if (part.length) seq = seq.concat(part);
-      }
-      if (seq.length) return seq;
-    }
-
-    var nodes = section.querySelectorAll(ITEM_SELECTOR);
-    var items = [];
-    for (var j = 0; j < nodes.length; j++) {
-      if (nodes[j].closest(SECTION_SELECTOR) === section) items.push(nodes[j]);
-    }
-    return items;
-  }
-
-  function finalize() {
-    html.classList.remove('js-defer');
-  }
-
-  function startReveal() {
-    if (revealStarted) return;
-    revealStarted = true;
-    if (fallbackTimer) clearTimeout(fallbackTimer);
-    setTimeout(finalize, REVEAL_DELAY_MS);
-  }
-
-  function isAdFilled(ad) {
-    return !!(ad && (ad.dataset.adStatus === 'filled' || ad.childElementCount > 0));
-  }
-
-  function isAdReady(ad) {
-    if (!ad) return false;
-    // filled 또는 unfilled면 완료
-    if (ad.dataset.adStatus) return true;
-    // iframe 로드 완료면 완료
-    var frame = ad.querySelector('iframe');
-    if (frame && frame.__gcLoaded) return true;
-    return false;
-  }
-
-  function waitForAd(ad) {
-    if (!ad) return false;
-    if (isAdReady(ad)) return true;
-
-    // iframe load 이벤트 바인딩
-    var frame = ad.querySelector('iframe');
-    if (frame && !frame.__gcLoadBound) {
-      frame.__gcLoadBound = true;
-      frame.addEventListener('load', function() {
-        frame.__gcLoaded = true;
-        startReveal();
-      }, { once: true });
-    }
-
-    // MutationObserver로 data-ad-status 감지
-    if (!ad.__gcStatusObserver) {
-      ad.__gcStatusObserver = new MutationObserver(function() {
-        if (ad.dataset.adStatus) startReveal();
-      });
-      ad.__gcStatusObserver.observe(ad, { attributes: true, attributeFilter: ['data-ad-status'] });
-    }
-    return false;
-  }
-
-  function checkAds() {
-    var ads = document.querySelectorAll('ins.adsbygoogle');
-    if (!ads.length) {
-      startReveal();
-      return;
-    }
-    for (var i = 0; i < ads.length; i++) {
-      if (waitForAd(ads[i])) {
-        startReveal();
-        return;
-      }
-    }
-    setTimeout(checkAds, 50);
-  }
-
-  function init() {
-    fallbackTimer = setTimeout(startReveal, FALLBACK_TIMEOUT_MS);
-    checkAds();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-</script>`;
-
 // Footer 모달(개인정보처리방침) 열기/닫기 공통 처리 (인라인 onclick 제거)
 const footerModalScript = `
 <script>
@@ -1074,7 +841,6 @@ function wrapWithLayout(content, options = {}) {
   ${footerModalScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
-  ${deferredItemsScript}
   ${showSearchBar ? searchBarScript : ''}
   ${hoverPrefetchScript}
   ${swipeScript}
@@ -1089,46 +855,38 @@ function wrapWithLayout(content, options = {}) {
  * @param {Object} options - { width, height, format, fullWidthResponsive }
  */
 function generateAdSlot(slotId, options = {}) {
-  if (!SHOW_ADS) return '';
   return renderAdCard(slotId, options);
 }
 
 // PC 전용 광고 함수들 (모바일 광고는 layout-mobile.js에서 관리)
 function generatePCAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
   return renderPCAd(slotId);
 }
 
 function generatePCHomeAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
   return renderPCHomeAd(slotId);
 }
 
 function generateVerticalAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
   return renderVerticalAd(slotId);
 }
 
 function generateRectangleAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
   return renderRectangleAd(slotId);
 }
 
 // 템플릿 공용 함수: PC 레이아웃은 PC 슬롯만 렌더링
 // 상단 광고용 (PC)
 function generateAdPairSlot(pcSlotId, mobileSlotId) {
-  if (!SHOW_ADS) return '';
   return renderPCAd(pcSlotId);
 }
 
 // 중간 광고용 (PC)
 function generateMidAdPairSlot(pcSlotId, mobileSlotId) {
-  if (!SHOW_ADS) return '';
   return renderPCAd(pcSlotId);
 }
 
 function generateHomeAdPairSlot(pcSlotId, mobileSlotId) {
-  if (!SHOW_ADS) return '';
   return renderPCHomeAd(pcSlotId);
 }
 
@@ -1157,7 +915,6 @@ if (process.env.MOBILE_BUILD === 'true') {
   module.exports = {
     wrapWithLayout,
     generatePartialContent,
-    SHOW_ADS,
     AD_SLOTS,
     generateAdSlot,
     generatePCAdSlot,

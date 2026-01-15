@@ -3,7 +3,7 @@
  * m.gamerscrawl.com에서 사용
  */
 
-const { generateHead, SHOW_ADS } = require('./components/head');
+const { generateHead } = require('./components/head');
 const {
   renderMobileAd,
   renderMobileTopAd,
@@ -660,33 +660,6 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 모바일: js-defer로 인해 전체가 숨겨지는 케이스 방지 (레이아웃 모바일에는 defer 해제 스크립트가 없을 수 있음)
-const mobileDeferReleaseScript = `
-<script>
-(function() {
-  var html = document.documentElement;
-  if (!html || !html.classList.contains('js-defer')) return;
-
-  function release() {
-    try { html.classList.remove('js-defer'); } catch (e) {}
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', release, { once: true });
-  } else {
-    release();
-  }
-
-  // 폴백: 어떤 이유로든 DOMContentLoaded가 늦거나 누락되면 강제 해제
-  setTimeout(release, 1500);
-
-  // bfcache 복귀 케이스
-  window.addEventListener('pageshow', function(e) {
-    if (e && e.persisted) release();
-  });
-})();
-</script>`;
-
 // 이미지 폴백
 const imageFallbackScript = `
 <script>
@@ -764,7 +737,6 @@ function wrapWithLayout(content, options = {}) {
   ${footerModalScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
-  ${mobileDeferReleaseScript}
   ${showSearchBar ? searchBarScript : ''}
   ${swipeScript}
   ${mobileScrollHideScript}
@@ -774,22 +746,18 @@ function wrapWithLayout(content, options = {}) {
 
 // 광고 슬롯 생성 함수
 function generateAdSlot(slotId, options = {}) {
-  if (!SHOW_ADS) return '';
   return renderMobileAd(slotId);
 }
 
 function generateMobileAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
   return renderMobileAd(slotId);
 }
 
 function generateMobileTopAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
   return renderMobileTopAd(slotId);
 }
 
 function generateMobileMidAdSlot(slotId) {
-  if (!SHOW_ADS) return '';
   return renderMobileMidAd(slotId);
 }
 
@@ -799,28 +767,23 @@ function generatePCHomeAdSlot() { return ''; }
 function generateVerticalAdSlot() { return ''; }
 function generateRectangleAdSlot() { return ''; }
 function generateResponsiveAdPairSlot(mobileSlotId) {
-  if (!SHOW_ADS) return '';
   return renderMobileTopAd(mobileSlotId);
 }
 
 // PC/모바일 페어 함수 (모바일에서는 모바일 광고만 렌더링)
 function generateAdPairSlot(pcSlotId, mobileSlotId) {
-  if (!SHOW_ADS) return '';
   return renderMobileTopAd(mobileSlotId);
 }
 
 function generateMidAdPairSlot(pcSlotId, mobileSlotId) {
-  if (!SHOW_ADS) return '';
   return renderMobileMidAd(mobileSlotId);
 }
 
 function generateHomeAdPairSlot(pcSlotId, mobileSlotId) {
-  if (!SHOW_ADS) return '';
   return renderMobileTopAd(mobileSlotId);
 }
 
 function generateMobileOnlyMidAdSlot(mobileSlotId) {
-  if (!SHOW_ADS) return '';
   return renderMobileMidAd(mobileSlotId);
 }
 
@@ -836,7 +799,6 @@ ${pageScripts}`;
 module.exports = {
   wrapWithLayout,
   generatePartialContent,
-  SHOW_ADS,
   AD_SLOTS,
   generateAdSlot,
   generateMobileAdSlot,
