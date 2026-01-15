@@ -60,6 +60,9 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install chromium
 
+      - name: Install Puppeteer browser
+        run: npx puppeteer browsers install chrome
+
       - name: Generate report
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
