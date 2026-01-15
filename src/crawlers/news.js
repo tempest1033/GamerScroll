@@ -169,9 +169,8 @@ async function fetchNews(axios, cheerio) {
       const results = [];
       const seen = new Set();
 
-      // PC 그리드 영역의 기사 카드 수집 (div.relative > a 구조에서 img가 직접 있는 것)
-      // 각 기사 카드는 div.relative 안에 a 태그와 img가 함께 있음
-      const articleCards = document.querySelectorAll('div.relative > a[href*="/articles/"]');
+      // 모든 기사 링크 수집 (범용 셀렉터)
+      const articleCards = document.querySelectorAll('a[href*="/articles/"]');
 
       articleCards.forEach(link => {
         if (results.length >= 20) return;
