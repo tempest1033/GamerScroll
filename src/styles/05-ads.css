@@ -8,28 +8,36 @@
 .ad-card-mobile-top {
   width: 100%;
   height: 110px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 모바일 중간 광고 (300x300) */
 .ad-card-mobile-mid {
   width: 100%;
   height: 300px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* PC 홈 상단 광고 (728x110) */
 .ad-card-pc-home {
   width: 100%;
   height: 110px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* PC 상단 광고 (970x110) */
 .ad-card-pc {
   width: 100%;
   height: 110px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* PC 사이드바 - Vertical (300x600) */
