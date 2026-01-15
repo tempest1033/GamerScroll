@@ -29,7 +29,7 @@ function renderMobileMidAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-mid">
   <ins class="adsbygoogle"
-       style="display:inline-block;width:300px;height:250px;min-height:280px"
+       style="display:inline-block;max-width:300px;width:100%;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
