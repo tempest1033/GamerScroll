@@ -13,11 +13,13 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
-  return `<ins class="adsbygoogle"
-     style="display:inline-block;width:320px;height:100px"
-     data-ad-client="${ADSENSE_CLIENT}"
-     data-ad-slot="${slotId}"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`;
+  return `<div class="ad-card ad-card-mobile-top">
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:320px;height:100px"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>`;
 }
 
 /**
@@ -25,11 +27,13 @@ function renderMobileTopAd(slotId) {
  */
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
-  return `<ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:250px"
-     data-ad-client="${ADSENSE_CLIENT}"
-     data-ad-slot="${slotId}"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`;
+  return `<div class="ad-card ad-card-mobile-mid">
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:300px;height:250px"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>`;
 }
 
 /**
