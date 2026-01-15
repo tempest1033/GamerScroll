@@ -52,6 +52,11 @@
       border-color: rgba(255, 255, 255, 0.1);
     }
 
+    /* 풀 너비 카드 (그리드 내 2컬럼 차지) */
+    .home-card-full {
+      grid-column: 1 / -1;
+    }
+
     .home-card-header {
       display: flex;
       align-items: center;

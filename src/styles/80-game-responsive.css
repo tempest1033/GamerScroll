@@ -26,7 +26,7 @@
     justify-content: space-around;
   }
 
-  .game-grid {
+  .page-container.game-page-grid {
     grid-template-columns: 1fr;
   }
 

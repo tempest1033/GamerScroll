@@ -61,7 +61,7 @@
 
 /* 게임 히어로 섹션 */
 .game-hero {
-  margin-bottom: var(--space-block-y-lg);
+  /* grid gap이 간격 담당 */
 }
 
 .game-hero-content {
@@ -98,7 +98,6 @@
   border: 1px solid #c2410c;
   border-radius: 8px;
   text-decoration: none;
-  transition: all 0.2s;
   flex-shrink: 0;
 }
 
@@ -177,15 +176,17 @@
   color: #81c784;
 }
 
-/* 게임 그리드 (2컬럼) */
-.game-grid {
+/* 게임 페이지 그리드 (PC 2컬럼, 모바일 1컬럼) */
+.page-container.game-page-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-block-gap-lg);
 }
 
-/* 풀 너비 카드 */
-.home-card-full {
+/* 풀 너비 아이템 */
+.game-page-grid .grid-full,
+.game-page-grid .ad-card,
+.game-page-grid .visually-hidden {
   grid-column: 1 / -1;
 }
 

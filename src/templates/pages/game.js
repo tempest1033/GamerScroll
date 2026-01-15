@@ -3,10 +3,11 @@
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
 
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
+const midAds = generateMidAdPairSlot(AD_SLOTS.ResponsivePC002, AD_SLOTS.Mobile002);
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {
@@ -1170,42 +1171,41 @@ function generateGamePage(gameData) {
 
   const content = `
     <section class="section active" id="game">
-      
-      <div class="page-container">
+
+      <div class="page-container game-page-grid">
         ${topAds}
         <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
-      <!-- 게임 히어로 -->
-      <div class="home-card game-hero">
-        <div class="game-hero-content">
-          ${iconHtml}
-          <div class="game-hero-info">
-            <div class="game-hero-title">${name}</div>
-            ${developer ? `<div class="game-hero-developer">${developer}</div>` : ''}
-            ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
+        <!-- 게임 히어로 -->
+        <div class="home-card game-hero grid-full">
+          <div class="game-hero-content">
+            ${iconHtml}
+            <div class="game-hero-info">
+              <div class="game-hero-title">${name}</div>
+              ${developer ? `<div class="game-hero-developer">${developer}</div>` : ''}
+              ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
+            </div>
+            <a href="/games/" class="game-back-btn" title="게임 DB로 돌아가기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </a>
+            ${isSteamOnly && steam ? `
+            <div class="game-hero-stats">
+              <div class="game-hero-stat stat-ccu">
+                <span class="game-hero-stat-label">동접 순위</span>
+                <span class="game-hero-stat-value">${steam.rank || '-'}</span>
+              </div>
+              <div class="game-hero-stat stat-sales">
+                <span class="game-hero-stat-label">판매 순위</span>
+                <span class="game-hero-stat-value">${steam.salesRank || '-'}</span>
+              </div>
+              <div class="game-hero-stat stat-players">
+                <span class="game-hero-stat-label">현재 접속자</span>
+                <span class="game-hero-stat-value">${steam.currentPlayers ? steam.currentPlayers.toLocaleString() : '-'}</span>
+              </div>
+            </div>
+            ` : ''}
           </div>
-          <a href="/games/" class="game-back-btn" title="게임 DB로 돌아가기">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </a>
-          ${isSteamOnly && steam ? `
-          <div class="game-hero-stats">
-            <div class="game-hero-stat stat-ccu">
-              <span class="game-hero-stat-label">동접 순위</span>
-              <span class="game-hero-stat-value">${steam.rank || '-'}</span>
-            </div>
-            <div class="game-hero-stat stat-sales">
-              <span class="game-hero-stat-label">판매 순위</span>
-              <span class="game-hero-stat-value">${steam.salesRank || '-'}</span>
-            </div>
-            <div class="game-hero-stat stat-players">
-              <span class="game-hero-stat-label">현재 접속자</span>
-              <span class="game-hero-stat-value">${steam.currentPlayers ? steam.currentPlayers.toLocaleString() : '-'}</span>
-            </div>
-          </div>
-          ` : ''}
         </div>
-      </div>
 
-      <div class="game-grid">
         ${isSteamOnly ? `
         <!-- 스팀 게임 순위 -->
         <div class="home-card">
@@ -1239,15 +1239,17 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-        <!-- 뉴스 (풀 너비 2그리드) -->
-        <div class="home-card home-card-full">
+        <!-- 중간 광고 -->
+        <div class="grid-full">${midAds}</div>
+
+        <!-- 뉴스 (풀 너비) -->
+        <div class="home-card grid-full">
           <div class="home-card-header">
             <h2 class="home-card-title">뉴스</h2>
           </div>
           <div class="home-card-body">${generateMentionsSection(true)}</div>
         </div>
       </div>
-    </div>
     </section>
   `;
 
