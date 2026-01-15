@@ -3,71 +3,63 @@
  * gamerscrawl.com (PC 버전)에서 사용
  * 모바일 광고는 ads-mobile.js 참조
  *
- * Google AdSense 공식 방식: 반응형 광고 (안정성 최대화)
+ * Google AdSense 공식 방식: 슬롯 + 즉시 push
  */
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 /**
- * PC 홈 상단 광고 (반응형)
+ * PC 홈 상단 광고 (728x90)
  */
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc-home">
   <ins class="adsbygoogle"
-       style="display:block"
+       style="display:block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
- * PC 상단 광고 (반응형)
+ * PC 상단 광고 (970x90)
  */
 function renderPCAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc">
   <ins class="adsbygoogle"
-       style="display:block"
+       style="display:block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
- * Vertical 광고 (반응형) - PC 사이드바용
+ * Vertical 광고 (300x600) - PC 사이드바용
  */
 function renderVerticalAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-vertical">
   <ins class="adsbygoogle"
-       style="display:block"
+       style="display:block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
- * Rectangle 광고 (반응형) - PC 사이드바용
+ * Rectangle 광고 (300x250) - PC 사이드바용
  */
 function renderRectangleAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-rectangle">
   <ins class="adsbygoogle"
-       style="display:block"
+       style="display:block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+       data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
