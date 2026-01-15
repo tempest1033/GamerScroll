@@ -73,7 +73,8 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
 
       if (scrapeResult && scrapeResult.markdown) {
         const md = scrapeResult.markdown;
-        const urlRegex = /\[((?:[^\[\]]|\\[\[\]])+)\]\((https:\/\/arca\.live\/b\/live\/\d+[^)]*)\)/g;
+        // 새 패턴: [제목\\\n\\\n\[댓글수\]](https://arca.live/b/live/ID?p=1)
+        const urlRegex = /\[([^\]]+)\]\((https:\/\/arca\.live\/b\/live\/\d+[^)]*)\)/g;
         const seenUrls = new Set();
         let match;
 
@@ -82,7 +83,9 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
           if (seenUrls.has(url)) continue;
           seenUrls.add(url);
 
-          if (textRaw.match(/\d+\s*(hour|minute|day)s?\s*ago/i)) continue;
+          // 시간 정보만 있는 링크 건너뛰기
+          if (textRaw.match(/^\d+\s*(hour|minute|day|hours|minutes|days)\s*ago$/i)) continue;
+          if (textRaw.match(/^\w+\d+\s*(hour|minute|day|hours|minutes|days)\s*ago/i)) continue;
 
           let title = textRaw
             .replace(/\\\\n/g, ' ')
@@ -94,14 +97,22 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
             .trim();
 
           if (title.includes('모바일 앱 이용 안내') || title.length === 0) continue;
+          // 작성자+시간+조회수 패턴 건너뛰기 (예: ASH2hours ago18626)
+          if (/^\w+\d+\s*(hour|minute|day)/i.test(title)) continue;
 
+          // 채널 찾기: 게시글 URL 앞에 있는 채널 링크
           const urlIdx = md.indexOf(url);
           let channel = '';
           if (urlIdx > 0) {
             const beforeText = md.substring(Math.max(0, urlIdx - 500), urlIdx);
-            const channelMatches = [...beforeText.matchAll(/\d+\[([^\]]+)\]\(https:\/\/arca\.live\/b\/\w+[^)]*\)/g)];
+            // 패턴: [채널명](https://arca.live/b/채널코드 "채널명 채널")
+            const channelMatches = [...beforeText.matchAll(/\[([^\]]+)\]\(https:\/\/arca\.live\/b\/([a-zA-Z0-9_]+)\s*(?:"[^"]*")?\)/g)];
             if (channelMatches.length > 0) {
-              channel = channelMatches[channelMatches.length - 1][1];
+              const lastMatch = channelMatches[channelMatches.length - 1];
+              // "베스트 라이브" 같은 것은 건너뛰기
+              if (lastMatch[1] !== '베스트 라이브' && !lastMatch[1].includes('알림')) {
+                channel = lastMatch[1];
+              }
             }
           }
 
@@ -128,7 +139,9 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
 
       if (scrapeResult && scrapeResult.markdown) {
         const md = scrapeResult.markdown;
-        const postRegex = /\*\*\\\[([^\]]+)\\\]\*\*\s*([^\]]+)\]\((https:\/\/gall\.dcinside\.com\/board\/view\/[^)]+)\)/g;
+        // 새 패턴: **\\[갤러리\\]** 제목](URL) - 테이블 형식
+        // 예: **\\[몬갤\\]** 5시간 전에 올라온 와일즈 최적화 문제에 대한 레딧 글](https://gall.dcinside.com/board/view/?id=dcbest&no=397077...)
+        const postRegex = /\*\*\\\[([^\]]+)\\\]\*\*\s+([^\]]+)\]\((https:\/\/gall\.dcinside\.com\/board\/view\/\?[^)]+)\)/g;
         let match;
         const seenUrls = new Set();
 
@@ -161,7 +174,9 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
 
       if (scrapeResult && scrapeResult.markdown) {
         const md = scrapeResult.markdown;
-        const postRegex = /\[(\d+)\\\\\n\\\\\n([^\n\\]+)\\\\\n\\\\\n([^\n]+)\s*\\\n\\\[(\d+)\\\]\]\((https:\/\/www\.inven\.co\.kr\/board\/[^)]+)\)/g;
+        // 새 패턴: [순위\\\n\\\n게임\\\n\\\n제목 \\\n\\[댓글\\]](URL)
+        // 예: [1\\\n\\\n아이온2\\\n\\\n아툴이 망해야 아이온2가 산다 \\\n\\[60\\]](https://www.inven.co.kr/board/aion2/6388/66700)
+        const postRegex = /\[(\d+)\s*\\+n\\+n([^\\]+)\\+n\\+n([^\\]+)\s*\\+n\\\[(\d+)\\\]\]\((https:\/\/www\.inven\.co\.kr\/board\/[^)]+)\)/g;
         let match;
         const seenUrls = new Set();
 
@@ -177,6 +192,32 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
             link: url,
             channel: game.trim()
           });
+        }
+
+        // 첫 번째 패턴이 안 맞으면 대체 패턴 시도
+        if (result.inven.length === 0) {
+          // URL로 직접 찾기
+          const urlRegex = /\[([^\]]+)\]\((https:\/\/www\.inven\.co\.kr\/board\/[^/]+\/\d+\/\d+)\)/g;
+          while ((match = urlRegex.exec(md)) !== null && result.inven.length < 20) {
+            const [, textRaw, url] = match;
+            if (seenUrls.has(url)) continue;
+            seenUrls.add(url);
+
+            // 텍스트에서 게임과 제목 추출
+            const parts = textRaw.split(/\\+n\\+n|\\n\\n|\n\n/);
+            if (parts.length >= 3) {
+              const game = parts[1]?.trim() || '';
+              let title = parts[2]?.replace(/\s*\\?\[?\d+\]?$/, '').trim() || '';
+
+              if (title.length === 0) continue;
+
+              result.inven.push({
+                title: title.length > 50 ? title.substring(0, 50) + '...' : title,
+                link: url,
+                channel: game
+              });
+            }
+          }
         }
       }
       console.log(`  인벤 핫이슈: ${result.inven.length}개`);
