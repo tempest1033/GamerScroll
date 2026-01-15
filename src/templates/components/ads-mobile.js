@@ -23,15 +23,17 @@ function renderMobileTopAd(slotId) {
 }
 
 /**
- * 모바일 중간 광고 (336x280) - Large Rectangle
+ * 모바일 중간 광고 - 반응형
  */
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-mid">
   <ins class="adsbygoogle"
-       style="display:inline-block;width:336px;height:280px"
+       style="display:block"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
