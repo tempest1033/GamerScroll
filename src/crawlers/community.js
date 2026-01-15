@@ -174,49 +174,51 @@ async function fetchCommunityPosts(axios, cheerio, FirecrawlClient, firecrawlApi
 
       if (scrapeResult && scrapeResult.markdown) {
         const md = scrapeResult.markdown;
-        // 새 패턴: [순위\\\n\\\n게임\\\n\\\n제목 \\\n\\[댓글\\]](URL)
-        // 예: [1\\\n\\\n아이온2\\\n\\\n아툴이 망해야 아이온2가 산다 \\\n\\[60\\]](https://www.inven.co.kr/board/aion2/6388/66700)
-        const postRegex = /\[(\d+)\s*\\+n\\+n([^\\]+)\\+n\\+n([^\\]+)\s*\\+n\\\[(\d+)\\\]\]\((https:\/\/www\.inven\.co\.kr\/board\/[^)]+)\)/g;
+        // 인벤 핫이슈: ](URL) 패턴으로 URL 찾고, 앞의 [ 까지 텍스트 추출
+        const linkPattern = /\]\((https:\/\/www\.inven\.co\.kr\/board\/[^)]+)\)/g;
         let match;
         const seenUrls = new Set();
 
-        while ((match = postRegex.exec(md)) !== null && result.inven.length < 20) {
-          const [, rank, game, titleRaw, comments, url] = match;
+        while ((match = linkPattern.exec(md)) !== null && result.inven.length < 20) {
+          const url = match[1];
           if (seenUrls.has(url)) continue;
+
+          // URL 앞의 [ 찾기 (\\[가 아닌 순수 [만)
+          const urlStart = match.index;
+          const beforeUrl = md.substring(Math.max(0, urlStart - 300), urlStart);
+          let bracketIdx = -1;
+          for (let i = beforeUrl.length - 1; i >= 0; i--) {
+            if (beforeUrl[i] === '[' && (i === 0 || beforeUrl[i - 1] !== '\\')) {
+              bracketIdx = i;
+              break;
+            }
+          }
+          if (bracketIdx === -1) continue;
+
+          const textRaw = beforeUrl.substring(bracketIdx + 1);
           seenUrls.add(url);
 
-          let title = titleRaw.replace(/\s*\\$/, '').trim();
+          // 줄바꿈으로 split, 백슬래시만 있는 요소와 trailing 백슬래시 제거
+          const parts = textRaw.split(/\n/)
+            .map(p => p.replace(/\\+$/, '').trim())
+            .filter(p => p && !/^\\+$/.test(p));
 
-          result.inven.push({
-            title: title.length > 50 ? title.substring(0, 50) + '...' : title,
-            link: url,
-            channel: game.trim()
-          });
-        }
+          // 최소 3부분: 순위, 게임, 제목
+          if (parts.length >= 3) {
+            const rank = parts[0];
+            const game = parts[1] || '';
+            // 제목에서 댓글수 제거: \[19\] 형태
+            let title = parts[2]?.replace(/\s*\\\[\d+\\?\]?$/, '').trim() || '';
 
-        // 첫 번째 패턴이 안 맞으면 대체 패턴 시도
-        if (result.inven.length === 0) {
-          // URL로 직접 찾기
-          const urlRegex = /\[([^\]]+)\]\((https:\/\/www\.inven\.co\.kr\/board\/[^/]+\/\d+\/\d+)\)/g;
-          while ((match = urlRegex.exec(md)) !== null && result.inven.length < 20) {
-            const [, textRaw, url] = match;
-            if (seenUrls.has(url)) continue;
-            seenUrls.add(url);
+            // 순위가 숫자인지 확인 (1~200)
+            if (!/^\d{1,3}$/.test(rank)) continue;
+            if (title.length === 0) continue;
 
-            // 텍스트에서 게임과 제목 추출
-            const parts = textRaw.split(/\\+n\\+n|\\n\\n|\n\n/);
-            if (parts.length >= 3) {
-              const game = parts[1]?.trim() || '';
-              let title = parts[2]?.replace(/\s*\\?\[?\d+\]?$/, '').trim() || '';
-
-              if (title.length === 0) continue;
-
-              result.inven.push({
-                title: title.length > 50 ? title.substring(0, 50) + '...' : title,
-                link: url,
-                channel: game
-              });
-            }
+            result.inven.push({
+              title: title.length > 50 ? title.substring(0, 50) + '...' : title,
+              link: url,
+              channel: game
+            });
           }
         }
       }
