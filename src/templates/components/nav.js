@@ -65,7 +65,20 @@ const searchIcon = `<button type="button" class="nav-search-btn" aria-label="검
 
 function generateNav(currentPage = 'home') {
   if (isMobileBuild) {
-    // 모바일: [홈파비콘] [캐러셀] [검색아이콘]
+    // 홈페이지: 기존 캐러셀만 (검색창은 별도)
+    if (currentPage === 'home') {
+      return `
+      <nav class="nav">
+        <div class="nav-inner">
+          ${navItems.map(item => `
+          <a class="nav-item${item.id === currentPage ? ' active' : ''}" href="${item.href}">
+            ${item.label}
+          </a>`).join('')}
+        </div>
+      </nav>`;
+    }
+
+    // 다른 페이지: [홈파비콘] [캐러셀] [검색아이콘]
     return `
     <nav class="nav nav-mobile">
       ${homeFavicon}
