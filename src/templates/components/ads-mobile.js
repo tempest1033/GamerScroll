@@ -52,7 +52,7 @@ function renderNativeAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-format="fluid"
-       data-ad-layout-key="-dp+8i-z-1u+73"
+       data-ad-layout-key="-9n+ec-2f-53+ik"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
