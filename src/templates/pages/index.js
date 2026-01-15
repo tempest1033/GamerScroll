@@ -642,7 +642,7 @@ function generateIndexPage(data) {
       '<div class="page-container">' +
       generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
       reportGrid +
-      generateNativeAdSlot(AD_SLOTS.Native001) +
+      generateNativeAdSlot(AD_SLOTS.Article001) +
       (allNews[0] ? renderNewsCard(allNews[0]) : '') +
       (allNews[1] ? renderNewsCard(allNews[1]) : '') +
       (allNews[2] ? renderNewsCard(allNews[2]) : '') +

@@ -44,15 +44,15 @@ function renderMobileAd(slotId) {
 }
 
 /**
- * 네이티브 In-feed 광고
+ * In-article 광고 (기사 내 광고)
  */
 function renderNativeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-native">
   <ins class="adsbygoogle"
-       style="display:block"
+       style="display:block;text-align:center"
+       data-ad-layout="in-article"
        data-ad-format="fluid"
-       data-ad-layout-key="-9n+ec-2f-53+ik"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
