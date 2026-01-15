@@ -89,7 +89,8 @@ main .ad-card {
 }
 
 /* page-container 중간 광고 (mid): gap이 간격 담당하므로 마진 0 */
-.page-container > .ad-card:not(:first-child) {
+.page-container > .ad-card:not(:first-child),
+.page-container .ad-card:not(:first-child) {
   margin: 0;
 }
 
