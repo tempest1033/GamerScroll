@@ -1,60 +1,60 @@
 ﻿/* ========== Game Page ========== */
-.game-container {
+#game .page-container {
   min-height: calc(100vh - 250px);
   padding-top: 0;
   padding-bottom: var(--space-block-y-xl);
 }
 
-.game-container .home-card-body {
+#game .page-container .home-card-body {
   padding: 0;
 }
 
-.game-container .home-card-header {
+#game .page-container .home-card-header {
   padding: 12px 16px;
 }
 
-.game-container .home-card-title svg {
+#game .page-container .home-card-title svg {
   width: 24px;
   height: 24px;
 }
 
-.game-container .rank-trend-section {
+#game .page-container .rank-trend-section {
   padding: 0;
   min-height: 280px;
 }
 
-.game-container .trend-charts {
+#game .page-container .trend-charts {
   padding: 4px 4px;
   display: flex;
   flex-direction: column;
   min-height: 260px;
 }
 
-.game-container .trend-charts .trend-content {
+#game .page-container .trend-charts .trend-content {
   flex: 1;
   display: none;
 }
 
-.game-container .trend-charts .trend-content.active {
+#game .page-container .trend-charts .trend-content.active {
   display: flex;
   flex-direction: column;
 }
 
-.game-container .trend-charts .game-empty {
+#game .page-container .trend-charts .game-empty {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.game-container .trend-charts svg {
+#game .page-container .trend-charts svg {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.game-container .trend-chart-svg,
-.game-container .game-chart-svg {
+#game .page-container .trend-chart-svg,
+#game .page-container .game-chart-svg {
   width: 100%;
   max-height: 260px;
 }

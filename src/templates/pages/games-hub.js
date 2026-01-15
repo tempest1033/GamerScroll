@@ -201,7 +201,7 @@ function generateGamesHubPage(options = {}) {
   const content = `
     <section class="section active" id="games">
       
-      <div class="games-hub-container" id="top">
+      <div class="page-container" id="top">
         ${topAds}
         <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
         ${searchResultsSection}

@@ -1,12 +1,12 @@
 ﻿/* ========== 일간 리포트 섹션별 스타일 (주간과 통일) ========== */
 
 /* 일간 리포트 카드 기본 스타일 */
-.insight-container .insight-card {
+#insight .page-container .insight-card {
   border-radius: var(--radius-lg);
   transition: var(--transition-elevate);
 }
 
-.insight-container .insight-card:hover {
+#insight .page-container .insight-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -171,30 +171,30 @@
   gap: 14px;
 }
 
-.insight-container .insight-card .home-card-header {
+#insight .page-container .insight-card .home-card-header {
   padding: 16px 20px;
   border-bottom: 2px solid var(--border);
 }
 
-.insight-container .insight-card .home-card-body {
+#insight .page-container .insight-card .home-card-body {
   padding: 0;
 }
 
-.insight-container .insight-card .home-insight-split {
+#insight .page-container .insight-card .home-insight-split {
   padding: 16px 20px;
 }
 
-.insight-container .home-insight-split {
+#insight .page-container .home-insight-split {
   align-items: stretch;
 }
 
-.insight-container .home-insight-column {
+#insight .page-container .home-insight-column {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.insight-container .home-insight-column .home-insight-item {
+#insight .page-container .home-insight-column .home-insight-item {
   flex: 1;
   min-height: 120px;
 }
@@ -307,11 +307,11 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .insight-container .home-insight-split {
+  #insight .page-container .home-insight-split {
     flex-direction: column;
   }
 
-  .insight-container .home-insight-column {
+  #insight .page-container .home-insight-column {
     width: 100%;
   }
 
@@ -328,11 +328,11 @@
     gap: 8px;
   }
 
-  .insight-container .insight-card .home-card-header {
+  #insight .page-container .insight-card .home-card-header {
     padding: 10px 12px !important;
   }
 
-  .insight-container .insight-card .home-insight-split {
+  #insight .page-container .insight-card .home-insight-split {
     padding: 10px 12px;
   }
 }

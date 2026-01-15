@@ -286,7 +286,7 @@
 	    }
 
 	    /* Common Page Containers - 세로 스택 레이아웃 */
-	    :is(.page-container, .games-hub-container, .game-container, .insight-container) {
+	    .page-container {
 	      display: flex;
 	      flex-direction: column;
 	      gap: var(--space-block-gap);
@@ -332,6 +332,6 @@
 	    }
 
 	    /* 페이지 컨테이너 - 광고 패딩만 사용 */
-	    :is(.page-container, .games-hub-container, .game-container) {
+	    .page-container {
 	      padding-top: 0;
 	    }

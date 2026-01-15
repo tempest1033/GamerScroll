@@ -261,8 +261,8 @@
       }
 
       /* 다크모드 - 인사이트 페이지 전체 텍스트 */
-      .insight-container p,
-      .insight-container span:not(.home-insight-tag):not([class*="badge"]):not([class*="rank"]):not(.weekly-stock-percent):not(.weekly-stock-arrow) {
+      #insight .page-container p,
+      #insight .page-container span:not(.home-insight-tag):not([class*="badge"]):not([class*="rank"]):not(.weekly-stock-percent):not(.weekly-stock-arrow) {
         color: rgba(255, 255, 255, 0.9);
       }
 

@@ -1,6 +1,6 @@
 ﻿/* 게임 페이지 모바일 반응형 */
 @media (max-width: 768px) {
-  .game-container {
+  #game .page-container {
   min-height: calc(100vh - 250px);
     padding-bottom: var(--space-block-y);
   }
@@ -140,7 +140,7 @@
   body.search-hidden :is(.site-container, .container) {
     padding-top: 56px !important;
   }
-  body.search-hidden .games-hub-container {
+  body.search-hidden #games .page-container {
     padding-top: 56px !important;
   }
 

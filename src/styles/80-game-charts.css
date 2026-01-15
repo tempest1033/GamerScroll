@@ -25,7 +25,7 @@
 }
 
 /* 게임 페이지 탭 - 홈페이지 서브탭과 동일한 스타일 */
-.game-container .tab-group {
+#game .page-container .tab-group {
   display: inline-flex;
   gap: 4px;
   background: transparent;
@@ -34,7 +34,7 @@
   border-radius: 0;
 }
 
-.game-container .tab-btn {
+#game .page-container .tab-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,22 +50,22 @@
   transition: all 0.15s;
 }
 
-.game-container .tab-btn:hover {
+#game .page-container .tab-btn:hover {
   color: #0f172a;
   background: var(--hover-bg);
 }
 
-.game-container .tab-btn.active {
+#game .page-container .tab-btn.active {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
 }
 
 @media (prefers-color-scheme: dark) {
-  .game-container .tab-btn {
+  #game .page-container .tab-btn {
     color: rgba(255, 255, 255, 0.85);
   }
-  .game-container .tab-btn:hover {
+  #game .page-container .tab-btn:hover {
     color: #fff;
   }
 }

@@ -1171,7 +1171,7 @@ function generateGamePage(gameData) {
   const content = `
     <section class="section active" id="game">
       
-      <div class="game-container">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
       <!-- 게임 히어로 -->

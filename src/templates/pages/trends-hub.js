@@ -187,7 +187,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
   const content = `
     <section class="section active" id="trends-hub">
       
-      <div class="game-container trends-hub-container">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스</h1>
 

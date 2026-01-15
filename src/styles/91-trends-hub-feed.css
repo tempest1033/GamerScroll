@@ -1,8 +1,5 @@
 ﻿/* ========== 트렌드 허브 페이지 (피드 카드 스타일) ========== */
-.trends-hub-container {
-  /* 레이아웃은 `.site-container` + `.game-container`에서 관리하고, 이 클래스는 페이지 스코프용 마커로 둡니다. */
-  width: 100%;
-}
+/* trends-hub는 page-container로 통합됨 */
 
 .trend-feed-grid {
   display: grid;

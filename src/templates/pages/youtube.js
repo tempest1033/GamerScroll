@@ -60,7 +60,7 @@ function generateYoutubePage(data) {
   const content = `
     <section class="section active" id="youtube">
       
-      <div class="game-container">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">게임 영상 - 유튜브 인기, 치지직 라이브</h1>
 

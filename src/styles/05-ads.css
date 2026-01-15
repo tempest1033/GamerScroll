@@ -1,4 +1,4 @@
-﻿/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
+/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
 /* ins 태그 스타일은 인라인으로만 관리 (Google 권장 방식) */
 /* CSS는 컨테이너(.ad-card)만 관리 */
 
@@ -7,18 +7,14 @@
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
   width: 100%;
-  max-width: 320px;
   height: 100px;
-  margin: 0 auto;
   text-align: center;
 }
 
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
-  max-width: 300px;
   height: 250px;
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -65,63 +61,28 @@
 
 /* ===== 광고 여백 ===== */
 
-/* 기본: 상단 마진만 (컨테이너 gap과 중복 방지) */
+/* 기본: 상단 마진 (컨테이너 외부 광고) */
 main .ad-card {
   margin: var(--space-block-gap, 16px) 0 0 0;
 }
 
-/* 첫 번째 광고: 상단만 마진 */
-main > .ad-card:first-child,
-.page-container > .ad-card:first-child,
-.game-container > .ad-card:first-child,
-.games-hub-container > .ad-card:first-child,
-.deep-dive-container > .ad-card:first-child {
-  margin: var(--space-block-y, 24px) 0 0 0;
+/* page-container 첫 번째 광고 (top): 상단 마진 유지 */
+.page-container > .ad-card:first-child {
+  margin: var(--space-block-gap, 16px) 0 0 0;
 }
 
-/* insight-container는 컨테이너 padding이 이미 있으므로 상단 마진 제거 */
-.insight-container > .ad-card:first-child {
+/* page-container 중간 광고 (mid): gap이 간격 담당하므로 마진 0 */
+.page-container > .ad-card:not(:first-child) {
   margin: 0;
 }
 
-/* insight-container, insight-panel, weekly-report 내부 광고 (gap으로 간격 처리) */
-.insight-container > .ad-card,
-.insight-panel > .ad-card,
-.weekly-report > .ad-card {
-  margin: 0;
-}
+/* ===== 홈 페이지 (PC) ===== */
 
-@media (max-width: 768px) {
-  main > .ad-card:first-child,
-  .page-container > .ad-card:first-child,
-  .game-container > .ad-card:first-child,
-  .games-hub-container > .ad-card:first-child,
-  .deep-dive-container > .ad-card:first-child {
-    margin: var(--space-block-gap, 16px) 0 0 0;
-  }
-
-  /* 모바일: insight-container 상단 padding-top 제거 시 여백 보정 */
-  .insight-container > .ad-card:first-child {
-    margin: var(--space-block-gap, 16px) 0 0 0;
-  }
-}
-
-/* 홈/flex 컨테이너: 마진 없음 (gap으로 처리) */
+/* home-container (PC 2컬럼): 광고 마진 */
 .home-main .ad-card,
-.home-sidebar .ad-card,
-.game-container .ad-card,
-.trends-hub-container .ad-card {
+.home-sidebar .ad-card {
   margin: 0;
 }
-
-/* 모바일 홈: 첫 광고 상단 마진 */
-@media (max-width: 768px) {
-  .home-main > .ad-card:first-child {
-    margin-top: var(--space-block-gap, 16px);
-  }
-}
-
-/* ===== 홈 페이지 특별 규칙 ===== */
 
 /* 모바일 홈: 사이드바 숨김 (PC 전용) */
 @media (max-width: 768px) {

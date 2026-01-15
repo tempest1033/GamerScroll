@@ -878,7 +878,7 @@ function generateTrendPage(data) {
   const content = `
     <section class="section active" id="insight">
       
-      <div class="insight-container">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         <div class="insight-tabs">
@@ -1326,7 +1326,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   const content = `
     <section class="section active" id="insight">
       
-      <div class="insight-container">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         ${(() => {
@@ -1423,7 +1423,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   const content = `
     <section class="section active" id="insight">
       
-      <div class="insight-container">
+      <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">${h1Title}</h1>
         ${weeklyPanelHtml}
@@ -1576,7 +1576,7 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
   const pageContent = `
     <section class="section active" id="deep-dive">
       
-      <article class="blog-article deep-dive-container">
+      <article class="blog-article page-container">
         ${topAds}
 
         <div class="blog-card">
