@@ -184,34 +184,9 @@
 
     }
 
-    /* 모바일 네이버 스타일: 다른 페이지에서 검색창 상단 fixed */
-    body:has(.nav-mobile) .search-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 300;
-      padding: 8px;
-      margin: 0;
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-    }
-    body:has(.nav-mobile) .search-box {
-      max-width: 600px;
-      margin: 0 auto;
-    }
+    /* 모바일 네이버 스타일 네비게이션 - 검색 드롭다운 위치 */
     body:has(.nav-mobile) .search-dropdown {
-      position: fixed;
-      top: 56px;
-      left: 8px;
-      right: 8px;
-      transform: none;
-      width: auto;
-      max-width: none;
-    }
-    /* nav-mobile 있을 때 본문에 상단 여백 추가 */
-    body:has(.nav-mobile) main.site-container {
-      padding-top: 56px;
+      top: 64px;
     }
 
     /* 모바일 네이버 스타일 네비게이션 */
