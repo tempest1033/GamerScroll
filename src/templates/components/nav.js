@@ -2,9 +2,6 @@
  * 네비게이션 컴포넌트
  */
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-
 const navItems = [
   {
     id: 'trend',
@@ -50,50 +47,7 @@ const navItems = [
   }
 ];
 
-// 홈 파비콘 (왼쪽)
-const homeFavicon = `<a href="/" class="nav-home" aria-label="홈">
-  <img src="/favicon.svg" alt="" class="nav-home-icon">
-</a>`;
-
-// 검색 아이콘 (오른쪽)
-const searchIcon = `<button type="button" class="nav-search-btn" aria-label="검색">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <circle cx="11" cy="11" r="8"/>
-    <path d="M21 21l-4.35-4.35"/>
-  </svg>
-</button>`;
-
 function generateNav(currentPage = 'home') {
-  if (isMobileBuild) {
-    // 홈페이지: 기존 캐러셀만 (검색창은 별도)
-    // currentPage가 'home' 또는 '' (빈 문자열)이면 홈으로 처리
-    if (currentPage === 'home' || currentPage === '') {
-      return `
-      <nav class="nav">
-        <div class="nav-inner">
-          ${navItems.map(item => `
-          <a class="nav-item${item.id === currentPage ? ' active' : ''}" href="${item.href}">
-            ${item.label}
-          </a>`).join('')}
-        </div>
-      </nav>`;
-    }
-
-    // 다른 페이지: [홈파비콘] [캐러셀] [검색아이콘]
-    return `
-    <nav class="nav nav-mobile">
-      ${homeFavicon}
-      <div class="nav-inner">
-        ${navItems.map(item => `
-        <a class="nav-item${item.id === currentPage ? ' active' : ''}" href="${item.href}">
-          ${item.label}
-        </a>`).join('')}
-      </div>
-      ${searchIcon}
-    </nav>`;
-  }
-
-  // PC: 기존 레이아웃
   return `
   <nav class="nav">
     <div class="nav-inner">
