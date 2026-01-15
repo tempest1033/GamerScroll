@@ -10,7 +10,8 @@ const {
   generateHomeAdPairSlot,
   generateMobileOnlyMidAdSlot,
   generateVerticalAdSlot,
-  generateRectangleAdSlot
+  generateRectangleAdSlot,
+  generateNativeAdSlot
 } = require('../layout');
 
 // 모바일 빌드 여부
@@ -641,7 +642,7 @@ function generateIndexPage(data) {
       '<div class="page-container">' +
       generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
       reportGrid +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
+      generateNativeAdSlot(AD_SLOTS.Native001) +
       (allNews[0] ? renderNewsCard(allNews[0]) : '') +
       (allNews[1] ? renderNewsCard(allNews[1]) : '') +
       (allNews[2] ? renderNewsCard(allNews[2]) : '') +

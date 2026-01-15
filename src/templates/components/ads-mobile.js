@@ -43,9 +43,26 @@ function renderMobileAd(slotId) {
   return renderMobileTopAd(slotId);
 }
 
+/**
+ * 네이티브 In-feed 광고
+ */
+function renderNativeAd(slotId) {
+  if (!slotId) return '';
+  return `<div class="ad-card ad-card-native">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-format="fluid"
+       data-ad-layout-key="-dp+8i-z-1u+73"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>`;
+}
+
 module.exports = {
   ADSENSE_CLIENT,
   renderMobileAd,
   renderMobileTopAd,
-  renderMobileMidAd
+  renderMobileMidAd,
+  renderNativeAd
 };

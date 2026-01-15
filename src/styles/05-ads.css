@@ -55,6 +55,12 @@
   border-radius: 0;
 }
 
+/* 네이티브 In-feed 광고 (fluid) */
+.ad-card-native {
+  width: 100%;
+  min-height: 100px;
+}
+
 /* ===== PC/모바일 표시 규칙 ===== */
 /* 인라인 <style> 태그에서 media query로 처리 (Google AdSense 권장 방식) */
 /* ads.js의 각 광고 함수에서 .adslot-* 클래스로 크기/숨김 제어 */

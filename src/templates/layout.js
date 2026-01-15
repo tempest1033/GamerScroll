@@ -33,7 +33,9 @@ const AD_SLOTS = {
   Mobile002: '4840966314',
   Mobile003: '7467129651',
   Mobile004: '7865094213',
-  Mobile005: '3028357040'
+  Mobile005: '3028357040',
+  // 네이티브 (In-feed)
+  Native001: '1067697677'
 };
 
 // 상단 검색바 (홈/일반 페이지용)
@@ -895,6 +897,11 @@ function generateMobileOnlyMidAdSlot(mobileSlotId) {
   return '';
 }
 
+// PC 레이아웃: 네이티브 광고도 모바일 전용
+function generateNativeAdSlot(slotId) {
+  return '';
+}
+
 /**
  * Partial 콘텐츠 생성 (레이아웃 없이 메인 콘텐츠만)
  * @param {string} content - 메인 콘텐츠 HTML
@@ -924,6 +931,7 @@ if (process.env.MOBILE_BUILD === 'true') {
     generateAdPairSlot,
     generateMidAdPairSlot,
     generateHomeAdPairSlot,
-    generateMobileOnlyMidAdSlot
+    generateMobileOnlyMidAdSlot,
+    generateNativeAdSlot
   };
 }
