@@ -8,64 +8,44 @@
 .ad-card-mobile-top {
   width: 100%;
   max-width: 320px;
-  height: 100px;
   min-height: 100px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
   max-width: 300px;
-  height: 250px;
   min-height: 250px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 /* PC 홈 상단 광고 (728x90) */
 .ad-card-pc-home {
   width: 100%;
-  height: 90px;
   min-height: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 /* PC 상단 광고 (970x90) */
 .ad-card-pc {
   width: 100%;
-  height: 90px;
   min-height: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 /* PC 사이드바 - Vertical (300x600) */
 .ad-card-vertical {
   width: 300px;
-  height: 600px;
   min-height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* PC 사이드바 - Rectangle (300x250) */
 .ad-card-rectangle {
   width: 300px;
-  height: 250px;
   min-height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* ===== PC/모바일 표시 규칙 ===== */
@@ -78,16 +58,9 @@
   background: var(--card);
   border-radius: var(--radius);
   outline: 1px solid var(--border);
-  overflow: hidden;
+  /* overflow: hidden 제거 - AdSense 렌더링 방해 */
   touch-action: pan-x pan-y;
   position: relative;
-}
-
-/* ins/iframe 스와이프 허용 + 마진 제거 */
-.ad-card ins,
-.ad-card iframe {
-  touch-action: pan-x pan-y;
-  margin: 0;
 }
 
 /* unfilled 광고도 공간 유지 (min-height로 처리) */
