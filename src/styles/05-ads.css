@@ -62,11 +62,6 @@
   position: relative;
 }
 
-/* ===== unfilled 플레이스홀더 ===== */
-/* Google AdSense가 data-ad-status="unfilled" 추가 시 깔끔한 배경 유지 */
-.ad-card:has(ins[data-ad-status="unfilled"]) {
-  outline-color: transparent;
-}
 
 /* ===== 광고 여백 ===== */
 
