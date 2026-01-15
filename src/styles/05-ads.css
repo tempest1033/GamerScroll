@@ -7,8 +7,10 @@
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
   width: 100%;
+  max-width: 320px;
   height: 100px;
   min-height: 100px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,8 +19,10 @@
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
+  max-width: 300px;
   height: 250px;
   min-height: 250px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
