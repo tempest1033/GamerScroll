@@ -10,7 +10,11 @@ const gamesPath = path.join(__dirname, '..', 'data', 'games.json');
 const historyDir = path.join(__dirname, '..', 'history');
 const reportsDir = path.join(__dirname, '..', 'reports');
 const snapshotsDir = path.join(__dirname, '..', 'snapshots', 'rankings');
-const outputDir = path.join(__dirname, '..', 'docs', 'games');
+
+// PC/모바일 빌드에 따라 출력 경로 결정
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const docsDir = isMobileBuild ? 'docs-mobile' : 'docs';
+const outputDir = path.join(__dirname, '..', docsDir, 'games');
 
 // 템플릿 import
 const { generateGamePage } = require('../src/templates/pages/game');
@@ -881,7 +885,8 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
 }
 
 // ============ 메인 실행 ============
-console.log('🎮 게임 페이지 생성 시작...\n');
+const buildType = isMobileBuild ? '📱 모바일' : '🖥️ PC';
+console.log(`🎮 게임 페이지 생성 시작... (${buildType} → ${docsDir}/games)\n`);
 
 // 출력 디렉토리 생성
 if (!fs.existsSync(outputDir)) {

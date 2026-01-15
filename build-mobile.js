@@ -14,13 +14,21 @@ const isQuick = args.includes('--quick') || args.includes('-q');
 const quickFlag = isQuick ? '-q' : '';
 
 try {
-  // generate-html-report.js --mobile 실행
+  // 1. generate-html-report.js --mobile 실행
   const cmd = `node generate-html-report.js ${quickFlag} --mobile`.trim();
   console.log(`🔄 실행: ${cmd}\n`);
 
   execSync(cmd, {
     stdio: 'inherit',
     cwd: __dirname
+  });
+
+  // 2. 게임 페이지 생성 (모바일용)
+  console.log('\n🎮 모바일 게임 페이지 생성...\n');
+  execSync('node scripts/generate-game-pages.js', {
+    stdio: 'inherit',
+    cwd: __dirname,
+    env: { ...process.env, MOBILE_BUILD: 'true' }
   });
 
   console.log('\n✅ 모바일 빌드 완료! (docs-mobile/)');
