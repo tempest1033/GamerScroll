@@ -646,15 +646,15 @@ function generateIndexPage(data) {
       (allNews[0] ? renderNewsCard(allNews[0]) : '') +
       (allNews[1] ? renderNewsCard(allNews[1]) : '') +
       (allNews[2] ? renderNewsCard(allNews[2]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile003) +
+      generateNativeAdSlot(AD_SLOTS.Article002) +
       (allNews[3] ? renderNewsCard(allNews[3]) : '') +
       (allNews[4] ? renderNewsCard(allNews[4]) : '') +
       (allNews[5] ? renderNewsCard(allNews[5]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile004) +
+      generateNativeAdSlot(AD_SLOTS.Article003) +
       (allNews[6] ? renderNewsCard(allNews[6]) : '') +
       (allNews[7] ? renderNewsCard(allNews[7]) : '') +
       (allNews[8] ? renderNewsCard(allNews[8]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile005) +
+      generateNativeAdSlot(AD_SLOTS.Article004) +
       (allNews[9] ? renderNewsCard(allNews[9]) : '') +
       '</div>' +
       '</section>';
