@@ -1067,6 +1067,16 @@ Sitemap: https://m.gamerscrawl.com/sitemap.xml`, 'utf8');
     console.log('📱 모바일: CNAME, robots.txt 생성');
   }
 
+  // Service Worker 캐시 버전 자동 업데이트 (타임스탬프)
+  const swPath = `${DOCS_DIR}/service-worker.js`;
+  if (fs.existsSync(swPath)) {
+    const swContent = fs.readFileSync(swPath, 'utf8');
+    const cacheVersion = `gamerscrawl-${sitemapDate.replace(/-/g, '')}`;
+    const updatedSw = swContent.replace(/const CACHE_NAME = '[^']+';/, `const CACHE_NAME = '${cacheVersion}';`);
+    fs.writeFileSync(swPath, updatedSw, 'utf8');
+    console.log(`🔄 Service Worker 캐시 버전: ${cacheVersion}`);
+  }
+
   const buildType = isMobileBuild ? 'docs-mobile/ (모바일)' : 'docs/ (PC)';
   console.log(`\n✅ 완료! (${buildType} 동기화 + sitemap 갱신)`);
 
