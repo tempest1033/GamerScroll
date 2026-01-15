@@ -319,14 +319,13 @@
 
     @media (max-width: 768px) {
       .home-trend-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 12px;
         padding: 0;
       }
 
       .home-trend-card-title {
-        padding: 10px 10px 12px;
-        font-size: 0.9rem;
+        padding: 12px 14px 14px;
       }
     }
 
