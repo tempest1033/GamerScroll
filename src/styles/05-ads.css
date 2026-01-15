@@ -1,78 +1,65 @@
 ﻿/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
+/* ins 태그 스타일은 인라인으로만 관리 (Google 권장 방식) */
+/* CSS는 컨테이너(.ad-card)만 관리 */
 
-/* ins 태그 기본 display (인라인 스타일 대신 CSS로 제어) */
-ins.adsbygoogle {
-  display: inline-block;
-}
+/* ===== 광고 컨테이너 크기 ===== */
 
-/* ===== 광고 크기 (인라인 style 오버라이드용 !important) ===== */
-
-/* 모바일 상단 광고 (320x100) - Large Mobile Banner */
+/* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
   width: 100%;
-  height: 100px !important;
-  min-height: 100px !important;
-  display: flex !important;
+  height: 100px;
+  min-height: 100px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.ad-card-mobile-top ins.adsbygoogle {
-  display: block !important;
-  width: 320px !important;
-  height: 100px !important;
-  min-width: 320px !important;
-  min-height: 100px !important;
-  max-width: 320px !important;
-  max-height: 100px !important;
-}
-
-/* 모바일 중간 광고 (300x250) - Responsive002~005 */
+/* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
-  height: 250px !important;
-  min-height: 250px !important;
-  display: flex !important;
+  height: 250px;
+  min-height: 250px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* PC 홈 상단 광고 (728x90) - ResponsivePCHome001 */
+/* PC 홈 상단 광고 (728x90) */
 .ad-card-pc-home {
   width: 100%;
-  height: 90px !important;
-  min-height: 90px !important;
-  display: flex !important;
+  height: 90px;
+  min-height: 90px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* PC 상단 광고 (970x90) - ResponsivePC001~005 */
+/* PC 상단 광고 (970x90) */
 .ad-card-pc {
   width: 100%;
-  height: 90px !important;
-  min-height: 90px !important;
-  display: flex !important;
+  height: 90px;
+  min-height: 90px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 /* PC 사이드바 - Vertical (300x600) */
 .ad-card-vertical {
-  width: 300px !important;
-  height: 600px !important;
-  min-height: 600px !important;
-  display: flex !important;
+  width: 300px;
+  height: 600px;
+  min-height: 600px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 /* PC 사이드바 - Rectangle (300x250) */
 .ad-card-rectangle {
-  width: 300px !important;
-  height: 250px !important;
-  min-height: 250px !important;
-  display: flex !important;
+  width: 300px;
+  height: 250px;
+  min-height: 250px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
