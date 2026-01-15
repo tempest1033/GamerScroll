@@ -5,7 +5,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMidAdPairSlot, generateNativeAdSlot } = require('../layout');
+
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -151,6 +154,14 @@ function generateWeeklyPanel(weeklyInsight) {
   const extractFirst = (t) => t ? (t.split(/[.!?]/).filter(s => s.trim())[0]?.trim() || t.slice(0, 60)) : null;
   const summaryTitle = typeof summary === 'object' ? summary.title : (wai.headline || extractFirst(summary) || seoTitle);
   const summaryDesc = typeof summary === 'object' ? summary.desc : summary;
+  // 모바일용 인피드 슬롯
+  const mobileNativeSlots = [
+    AD_SLOTS.Article001,
+    AD_SLOTS.Article002,
+    AD_SLOTS.Article003,
+    AD_SLOTS.Article004,
+    AD_SLOTS.Article005
+  ];
   const localMidSlotPairs = [
     { pc: AD_SLOTS.ResponsivePC002, mobile: AD_SLOTS.Mobile002 },
     { pc: AD_SLOTS.ResponsivePC003, mobile: AD_SLOTS.Mobile003 },
@@ -158,9 +169,12 @@ function generateWeeklyPanel(weeklyInsight) {
   ];
   let localMidCursor = 0;
   const midAd = () => {
-    const pair = localMidSlotPairs[localMidCursor % localMidSlotPairs.length];
+    const idx = localMidCursor % (isMobileBuild ? mobileNativeSlots.length : localMidSlotPairs.length);
     localMidCursor += 1;
-    return generateMidAdSlot(pair.pc, pair.mobile);
+    if (isMobileBuild) {
+      return generateNativeAdSlot(mobileNativeSlots[idx]);
+    }
+    return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
   };
 
   // 태그별 아이콘 매핑
@@ -863,6 +877,14 @@ function generateTrendPage(data) {
   // summary 객체에서 title과 desc 추출
   const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 트렌드 리포트');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
+  // 모바일용 인피드 슬롯
+  const mobileNativeSlots2 = [
+    AD_SLOTS.Article001,
+    AD_SLOTS.Article002,
+    AD_SLOTS.Article003,
+    AD_SLOTS.Article004,
+    AD_SLOTS.Article005
+  ];
   const localMidSlotPairs = [
     { pc: AD_SLOTS.ResponsivePC002, mobile: AD_SLOTS.Mobile002 },
     { pc: AD_SLOTS.ResponsivePC003, mobile: AD_SLOTS.Mobile003 },
@@ -870,9 +892,12 @@ function generateTrendPage(data) {
   ];
   let localMidCursor = 0;
   const midAd = () => {
-    const pair = localMidSlotPairs[localMidCursor % localMidSlotPairs.length];
+    const idx = localMidCursor % (isMobileBuild ? mobileNativeSlots2.length : localMidSlotPairs.length);
     localMidCursor += 1;
-    return generateMidAdSlot(pair.pc, pair.mobile);
+    if (isMobileBuild) {
+      return generateNativeAdSlot(mobileNativeSlots2[idx]);
+    }
+    return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
   };
 
   const content = `
@@ -1302,6 +1327,14 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   // summary 객체에서 title과 desc 추출
   const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 트렌드 리포트');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
+  // 모바일용 인피드 슬롯
+  const mobileNativeSlots3 = [
+    AD_SLOTS.Article001,
+    AD_SLOTS.Article002,
+    AD_SLOTS.Article003,
+    AD_SLOTS.Article004,
+    AD_SLOTS.Article005
+  ];
   const localMidSlotPairs = [
     { pc: AD_SLOTS.ResponsivePC002, mobile: AD_SLOTS.Mobile002 },
     { pc: AD_SLOTS.ResponsivePC003, mobile: AD_SLOTS.Mobile003 },
@@ -1309,9 +1342,12 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   ];
   let localMidCursor = 0;
   const midAd = () => {
-    const pair = localMidSlotPairs[localMidCursor % localMidSlotPairs.length];
+    const idx = localMidCursor % (isMobileBuild ? mobileNativeSlots3.length : localMidSlotPairs.length);
     localMidCursor += 1;
-    return generateMidAdSlot(pair.pc, pair.mobile);
+    if (isMobileBuild) {
+      return generateNativeAdSlot(mobileNativeSlots3[idx]);
+    }
+    return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
   };
 
   // 네비게이션 (이전/목록/다음 리포트) - 하단에만 표시
