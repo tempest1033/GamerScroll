@@ -10,8 +10,9 @@
 
 .weekly-mvp-card {
   display: flex;
-  gap: 20px;
-  background: var(--card);
+  flex-direction: row;
+  gap: 16px;
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
@@ -21,10 +22,11 @@
 
 .weekly-mvp-thumb {
   flex-shrink: 0;
-  width: 80px;
-  height: 80px;
-  border-radius: var(--radius);
+  width: 100px;
+  height: 70px;
+  border-radius: 10px;
   overflow: hidden;
+  background: var(--border);
 }
 
 .weekly-mvp-thumb img {
@@ -52,6 +54,7 @@
 
 .weekly-mvp-content {
   flex: 1;
+  min-width: 0;
 }
 
 .weekly-mvp-tag {
@@ -62,14 +65,15 @@
   background: rgba(99, 102, 241, 0.18);
   padding: 4px 10px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .weekly-mvp-name {
-  font-size: var(--font-lg-size);
-  font-weight: var(--font-badge-weight);
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--text);
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
 }
 
 .weekly-mvp-desc {
@@ -93,4 +97,22 @@
   background: rgba(245, 158, 11, 0.15);
   padding: 6px 12px;
   border-radius: 20px;
+}
+
+/* 모바일: 세로형 (글로벌 트렌드/주간 지표와 동일) */
+@media (max-width: 768px) {
+  .weekly-mvp-card {
+    flex-direction: column;
+    padding: 0;
+  }
+  .weekly-mvp-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .weekly-mvp-content {
+    padding: 14px 16px 16px;
+  }
 }
