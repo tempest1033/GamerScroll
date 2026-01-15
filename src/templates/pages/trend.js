@@ -511,13 +511,16 @@ function generateWeeklyPanel(weeklyInsight) {
         </div>
       </div>
 
+      ${midAd()}
       ${hotIssuesSection}
+      ${midAd()}
       ${rankingsSection}
       ${midAd()}
       ${industrySection}
-      ${metricsSection}
-      ${globalSection}
       ${midAd()}
+      ${metricsSection}
+      ${midAd()}
+      ${globalSection}
       ${mvpSection}
       ${stocksSection}
       ${releasesSection}
@@ -919,10 +922,13 @@ function generateTrendPage(data) {
             </div>
             ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
           </div>
+          ${midAd()}
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
           ${midAd()}
           ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
+          ${midAd()}
           ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
+          ${midAd()}
           ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
           ${midAd()}
           ${renderStocksCard(stocksData, stockPrices)}
@@ -1381,10 +1387,13 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
           </div>
         </div>`;
         })()}
+        ${midAd()}
         ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
         ${midAd()}
         ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
+        ${midAd()}
         ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
+        ${midAd()}
         ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
         ${midAd()}
         ${renderStocksCard(stocksData, stockPrices)}
