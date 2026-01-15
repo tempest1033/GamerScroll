@@ -574,36 +574,87 @@ function generateIndexPage(data) {
   var content;
 
   if (isMobileBuild) {
-    // 모바일: page-container로 통일
+    // 모바일 전용: 뉴스 피드 (일간 리포트 카드 스타일)
+    const newsSources = [
+      { items: news?.thisisgame || [], name: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' },
+      { items: news?.gamemeca || [], name: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' },
+      { items: news?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
+    ];
+
+    let allNews = [];
+    newsSources.forEach(src => {
+      src.items.filter(item => item.thumbnail).slice(0, 5).forEach(item => {
+        allNews.push({ ...item, source: src.name, icon: src.icon });
+      });
+    });
+
+    // 랜덤 셔플
+    for (let i = allNews.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allNews[i], allNews[j]] = [allNews[j], allNews[i]];
+    }
+    allNews = allNews.slice(0, 10);
+
+    // 뉴스 카드 생성 (일간 리포트 스타일)
+    const renderNewsCard = (item) => `
+      <a href="${item.link}" class="home-trend-card" target="_blank" rel="noopener">
+        <div class="home-trend-card-image">
+          <img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect">
+          <span class="home-trend-card-tag">${item.source}</span>
+        </div>
+        <h3 class="home-trend-card-title">${item.title}</h3>
+      </a>`;
+
+    // 일간/주간 리포트 (헤더 없이)
+    const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
+    const weeklyThumbnail = fixUrl(weeklyInsight?.ai?.thumbnail) || '';
+    const dailyHeadline = aiInsight?.headline || '일간 리포트';
+    const weeklyHeadline = weeklyInsight?.ai?.headline || '주간 리포트';
+    const dailyLink = insightFileDate ? `/trend/daily/${insightFileDate}/` : '/trend/';
+    const wInfo = weeklyInsight?.weekInfo || {};
+    const weekNum = wInfo.weekNumber || weeklyInsight?.ai?.weekNumber || '';
+    const weekYear = wInfo.year || new Date().getFullYear();
+    const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
+    const weeklyLink = weeklySlug ? `/trend/weekly/${weeklySlug}/` : '/trend/';
+
+    const reportGrid = `
+      <div class="home-trend-grid">
+        <a href="${dailyLink}" class="home-trend-card">
+          <div class="home-trend-card-image">
+            ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+            <span class="home-trend-card-tag">일간 리포트</span>
+          </div>
+          <h3 class="home-trend-card-title">${dailyHeadline}</h3>
+        </a>
+        <a href="${weeklyLink}" class="home-trend-card">
+          <div class="home-trend-card-image">
+            ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+            <span class="home-trend-card-tag weekly">주간 리포트</span>
+          </div>
+          <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
+        </a>
+      </div>`;
+
+    // 모바일: 리포트 + 광고 + 뉴스(2개씩) + 광고 패턴
     content = '<section class="home-section active" id="home">' +
       '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
       '<div class="page-container">' +
-      generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
-      insightCardHtml +
+      reportGrid +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile001) +
+      (allNews[0] ? renderNewsCard(allNews[0]) : '') +
+      (allNews[1] ? renderNewsCard(allNews[1]) : '') +
       generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
-      '<div class="home-card" id="home-news">' +
-        '<div class="home-card-header">' +
-          '<h2 class="home-card-title">뉴스</h2>' +
-          '<a href="/news/" class="home-card-more">더보기 →</a>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeNews() + '</div>' +
-      '</div>' +
+      (allNews[2] ? renderNewsCard(allNews[2]) : '') +
+      (allNews[3] ? renderNewsCard(allNews[3]) : '') +
       generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile003) +
-      '<div class="home-card" id="home-community">' +
-        '<div class="home-card-header">' +
-          '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
-          '<a href="/community/" class="home-card-more">더보기 →</a>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
-      '</div>' +
+      (allNews[4] ? renderNewsCard(allNews[4]) : '') +
+      (allNews[5] ? renderNewsCard(allNews[5]) : '') +
       generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile004) +
-      '<div class="home-card" id="home-video">' +
-        '<div class="home-card-header">' +
-          '<h2 class="home-card-title">영상 순위</h2>' +
-          '<a href="/youtube/" class="home-card-more">더보기 →</a>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeVideo() + '</div>' +
-      '</div>' +
+      (allNews[6] ? renderNewsCard(allNews[6]) : '') +
+      (allNews[7] ? renderNewsCard(allNews[7]) : '') +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile005) +
+      (allNews[8] ? renderNewsCard(allNews[8]) : '') +
+      (allNews[9] ? renderNewsCard(allNews[9]) : '') +
       '</div>' +
       '</section>';
   } else {
