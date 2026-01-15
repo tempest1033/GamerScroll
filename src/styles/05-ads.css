@@ -123,9 +123,10 @@ main .ad-card {
   outline-color: transparent;
 }
 
-/* 중간/사이드바 광고: unfilled 시 카드까지 숨김 */
+/* 중간/사이드바/네이티브 광고: unfilled 시 카드까지 숨김 */
 .ad-card-mobile-mid:has(ins[data-ad-status="unfilled"]),
 .ad-card-vertical:has(ins[data-ad-status="unfilled"]),
-.ad-card-rectangle:has(ins[data-ad-status="unfilled"]) {
+.ad-card-rectangle:has(ins[data-ad-status="unfilled"]),
+.ad-card-native:has(ins[data-ad-status="unfilled"]) {
   display: none;
 }
