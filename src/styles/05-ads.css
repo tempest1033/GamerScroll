@@ -90,20 +90,7 @@
   margin: 0;
 }
 
-/* 로딩 중(iframe 생성 전) 플레이스홀더 */
-.ad-card:has(ins.adsbygoogle):not(:has(ins.adsbygoogle iframe)) {
-  background-image: url('/favicon-placeholder.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 60px;
-}
-/* unfilled 광고: 공간은 유지하고 플레이스홀더만 제거 */
-.ad-card:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
-  background-image: none;
-}
-
-
-/* unfilled 광고도 공간 유지 - 컨테이너 div에 !important 적용됨 (상단 참조) */
+/* unfilled 광고도 공간 유지 (min-height로 처리) */
 
 /* ===== 광고 여백 ===== */
 
