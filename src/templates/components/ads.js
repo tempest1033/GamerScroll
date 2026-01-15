@@ -15,7 +15,7 @@ function renderPCHomeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc-home">
   <ins class="adsbygoogle"
-       style="display:block;width:100%;min-height:90px"
+       style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -29,7 +29,7 @@ function renderPCAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc">
   <ins class="adsbygoogle"
-       style="display:block;width:100%;min-height:90px"
+       style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -43,7 +43,7 @@ function renderVerticalAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-vertical">
   <ins class="adsbygoogle"
-       style="display:block;width:300px;height:600px"
+       style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -57,7 +57,7 @@ function renderRectangleAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-rectangle">
   <ins class="adsbygoogle"
-       style="display:block;width:300px;height:250px"
+       style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>

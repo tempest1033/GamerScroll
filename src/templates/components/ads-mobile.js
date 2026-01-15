@@ -15,7 +15,7 @@ function renderMobileTopAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-top">
   <ins class="adsbygoogle"
-       style="display:block;width:100%;min-height:100px"
+       style="display:inline-block;width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -23,13 +23,13 @@ function renderMobileTopAd(slotId) {
 }
 
 /**
- * 모바일 중간 광고 (300x250)
+ * 모바일 중간 광고 (336x280) - Large Rectangle
  */
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-mid">
   <ins class="adsbygoogle"
-       style="display:block;width:100%;min-height:250px"
+       style="display:inline-block;width:336px;height:280px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
