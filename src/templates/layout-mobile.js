@@ -715,9 +715,6 @@ const footerModalScript = `
 })();
 </script>`;
 
-// 모바일 광고 초기화 스크립트 - 제거됨 (Google 공식 방식: 슬롯마다 인라인 push)
-const mobileAdInitScript = '';
-
 /**
  * 모바일 페이지 레이아웃
  */
@@ -771,7 +768,6 @@ function wrapWithLayout(content, options = {}) {
   ${showSearchBar ? searchBarScript : ''}
   ${swipeScript}
   ${mobileScrollHideScript}
-  ${mobileAdInitScript}
 </body>
 </html>`;
 }

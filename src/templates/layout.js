@@ -625,9 +625,6 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 스크립트 - 제거됨 (Google 공식 방식: 슬롯마다 인라인 push)
-const lazyAdScript = '';
-
 const deferredItemsScript = `
 <script>
 (function() {
@@ -1077,7 +1074,6 @@ function wrapWithLayout(content, options = {}) {
   ${footerModalScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
-  ${lazyAdScript}
   ${deferredItemsScript}
   ${showSearchBar ? searchBarScript : ''}
   ${hoverPrefetchScript}
