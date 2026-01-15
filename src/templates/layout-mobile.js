@@ -193,8 +193,18 @@ const searchBarScript = `
 
   searchInput.addEventListener('input', (e) => search(e.target.value.trim()));
   searchInput.addEventListener('focus', () => { loadGamesDataOnce(); if (!searchInput.value.trim()) renderRecentSearches(); else performSearch(searchInput.value.trim()); });
-  document.addEventListener('click', (e) => { if (!e.target.closest('.search-container')) searchDropdown.classList.remove('active'); });
+  document.addEventListener('click', (e) => { if (!e.target.closest('.search-container') && !e.target.closest('.nav-search-btn')) searchDropdown.classList.remove('active'); });
   searchDropdown.addEventListener('mousedown', (e) => e.preventDefault());
+
+  // nav 검색 버튼 클릭 시 검색 드롭다운 열기
+  const navSearchBtn = document.querySelector('.nav-search-btn');
+  if (navSearchBtn) {
+    navSearchBtn.addEventListener('click', () => {
+      searchInput.focus();
+      loadGamesDataOnce();
+      renderRecentSearches();
+    });
+  }
 
   function doSearch() {
     const query = searchInput.value.trim();
