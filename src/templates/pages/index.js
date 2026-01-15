@@ -635,24 +635,24 @@ function generateIndexPage(data) {
         </a>
       </div>`;
 
-    // 모바일: 리포트 + 광고 + 뉴스(2개씩) + 광고 패턴
+    // 모바일: 상단광고 + 리포트 + 광고 + 뉴스(2개씩) + 광고 패턴
     content = '<section class="home-section active" id="home">' +
       '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
       '<div class="page-container">' +
+      generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
       reportGrid +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile001) +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
       (allNews[0] ? renderNewsCard(allNews[0]) : '') +
       (allNews[1] ? renderNewsCard(allNews[1]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile003) +
       (allNews[2] ? renderNewsCard(allNews[2]) : '') +
       (allNews[3] ? renderNewsCard(allNews[3]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile003) +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile004) +
       (allNews[4] ? renderNewsCard(allNews[4]) : '') +
       (allNews[5] ? renderNewsCard(allNews[5]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile004) +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile005) +
       (allNews[6] ? renderNewsCard(allNews[6]) : '') +
       (allNews[7] ? renderNewsCard(allNews[7]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile005) +
       (allNews[8] ? renderNewsCard(allNews[8]) : '') +
       (allNews[9] ? renderNewsCard(allNews[9]) : '') +
       '</div>' +
