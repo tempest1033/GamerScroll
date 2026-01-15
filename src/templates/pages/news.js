@@ -193,7 +193,7 @@ function generateNewsPage(data) {
           ${generateNativeAdSlot(AD_SLOTS.Article001)}
           ${allNews[0] ? renderNewsCard(allNews[0]) : ''}
           ${allNews[1] ? renderNewsCard(allNews[1]) : ''}
-          ${generateMobileTopAdSlot(AD_SLOTS.Responsive001)}
+          ${generateMobileTopAdSlot(AD_SLOTS.Responsive002)}
           ${allNews[2] ? renderNewsCard(allNews[2]) : ''}
           ${allNews[3] ? renderNewsCard(allNews[3]) : ''}
         </div>
