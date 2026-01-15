@@ -68,6 +68,16 @@
   position: relative;
 }
 
+/* AdSense ins 태그 및 내부 iframe 가운데 정렬 */
+.ad-card ins.adsbygoogle {
+  text-align: center;
+}
+
+.ad-card ins.adsbygoogle > iframe,
+.ad-card ins.adsbygoogle > ins {
+  margin: 0 auto;
+}
+
 
 /* ===== 광고 여백 ===== */
 
