@@ -9,13 +9,13 @@
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 /**
- * 모바일 상단 광고 (300x100)
+ * 모바일 상단 광고 (320x100) - Large Mobile Banner
  */
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-top">
   <ins class="adsbygoogle"
-       style="display:block;width:300px;height:100px"
+       style="display:block;width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
