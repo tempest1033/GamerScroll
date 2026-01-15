@@ -98,7 +98,7 @@ jobs:
           cp favicon-16x16.png docs/favicon-16x16.png
           cp favicon-32x32.png docs/favicon-32x32.png
           cp icon-192.png docs/icon-192.png
-          echo "gamerscrawl.com" > docs/CNAME
+          # CNAME 제거됨 - Cloudflare Pages 사용 (GitHub Pages 비활성화)
           # 데일리 인사이트 리포트 복사 (JSON + HTML)
           if [ -d "reports" ]; then
             JSON_COUNT=$(ls reports/*.json 2>/dev/null | wc -l)
