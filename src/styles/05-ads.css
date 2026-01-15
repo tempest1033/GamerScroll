@@ -100,3 +100,24 @@ main .ad-card {
     display: none !important;
   }
 }
+
+/* ===== 주간/일간 리포트 내부 광고 ===== */
+.weekly-report .ad-card {
+  margin: var(--space-block-gap, 16px) 0;
+}
+
+/* ===== Unfilled 광고 처리 ===== */
+
+/* 상단 광고 (top): unfilled여도 플레이스홀더 유지 */
+.ad-card-pc:has(ins[data-ad-status="unfilled"]),
+.ad-card-pc-home:has(ins[data-ad-status="unfilled"]),
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) {
+  /* 유지 - 숨기지 않음 */
+}
+
+/* 중간/사이드바 광고: unfilled 시 카드까지 숨김 */
+.ad-card-mobile-mid:has(ins[data-ad-status="unfilled"]),
+.ad-card-vertical:has(ins[data-ad-status="unfilled"]),
+.ad-card-rectangle:has(ins[data-ad-status="unfilled"]) {
+  display: none;
+}

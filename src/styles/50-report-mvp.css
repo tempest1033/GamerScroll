@@ -19,6 +19,29 @@
   overflow: hidden;
 }
 
+.weekly-mvp-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.weekly-mvp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.weekly-mvp-thumb.is-icon {
+  background: var(--card-hover);
+  padding: 8px;
+}
+
+.weekly-mvp-thumb.is-icon img {
+  object-fit: contain;
+}
+
 .weekly-mvp-card::before {
   display: none;
 }

@@ -431,20 +431,20 @@ function generateWeeklyPanel(weeklyInsight) {
         </div>
         <p class="weekly-section-desc">지난 주 가장 주목받은 게임입니다.</p>
       </div>
-      <div class="mvp-card ${mvp.thumbnail ? 'has-thumb' : ''}">
+      <div class="weekly-mvp-card ${mvp.thumbnail ? 'has-thumb' : ''}">
         ${(() => {
           const thumbUrl = mvp.thumbnail ? fixUrl(mvp.thumbnail) : null;
           const gameIcon = findGameIcon(mvp.name);
           const imageUrl = thumbUrl || gameIcon;
           return imageUrl
-            ? `<div class="mvp-thumb${gameIcon && !thumbUrl ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+            ? `<div class="weekly-mvp-thumb${gameIcon && !thumbUrl ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : '';
         })()}
-        <div class="mvp-content">
-          <div class="mvp-name">${mvp.name}</div>
-          ${mvp.tag ? `<div class="mvp-tag">${mvp.tag}</div>` : ''}
-          <p class="mvp-desc">${mvp.desc}</p>
-          ${mvp.highlights?.length ? `<ul class="mvp-highlights">${mvp.highlights.map(h => `<li>${h}</li>`).join('')}</ul>` : ''}
+        <div class="weekly-mvp-content">
+          <div class="weekly-mvp-name">${mvp.name}</div>
+          ${mvp.tag ? `<div class="weekly-mvp-tag">${mvp.tag}</div>` : ''}
+          <p class="weekly-mvp-desc">${mvp.desc}</p>
+          ${mvp.highlights?.length ? `<ul class="weekly-mvp-highlights">${mvp.highlights.map(h => `<li class="weekly-mvp-highlight">${h}</li>`).join('')}</ul>` : ''}
         </div>
       </div>
     </div>
