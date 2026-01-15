@@ -644,16 +644,16 @@ function generateIndexPage(data) {
       generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
       (allNews[0] ? renderNewsCard(allNews[0]) : '') +
       (allNews[1] ? renderNewsCard(allNews[1]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile003) +
       (allNews[2] ? renderNewsCard(allNews[2]) : '') +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile003) +
       (allNews[3] ? renderNewsCard(allNews[3]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile004) +
       (allNews[4] ? renderNewsCard(allNews[4]) : '') +
       (allNews[5] ? renderNewsCard(allNews[5]) : '') +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile005) +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile004) +
       (allNews[6] ? renderNewsCard(allNews[6]) : '') +
       (allNews[7] ? renderNewsCard(allNews[7]) : '') +
       (allNews[8] ? renderNewsCard(allNews[8]) : '') +
+      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile005) +
       (allNews[9] ? renderNewsCard(allNews[9]) : '') +
       '</div>' +
       '</section>';
