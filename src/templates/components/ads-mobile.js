@@ -1,7 +1,9 @@
-﻿/**
+/**
  * 모바일 전용 광고 모듈
  * m.gamerscrawl.com에서 사용
  * PC/모바일 분기 없이 모바일 광고만 렌더링
+ *
+ * Google AdSense 공식 방식: 슬롯 + 즉시 push
  */
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
@@ -11,12 +13,12 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
-  // 인라인 push() 제거 - layout.js에서 safePush()로 일괄 초기화
   return `<div class="ad-card ad-card-mobile-top">
   <ins class="adsbygoogle"
        style="display:block;width:300px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -25,12 +27,12 @@ function renderMobileTopAd(slotId) {
  */
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
-  // 인라인 push() 제거 - layout.js에서 safePush()로 일괄 초기화
   return `<div class="ad-card ad-card-mobile-mid">
   <ins class="adsbygoogle"
        style="display:block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 

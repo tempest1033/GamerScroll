@@ -1,7 +1,9 @@
-﻿/**
+/**
  * PC 전용 광고 모듈
  * gamerscrawl.com (PC 버전)에서 사용
  * 모바일 광고는 ads-mobile.js 참조
+ *
+ * Google AdSense 공식 방식: 슬롯 + 즉시 push
  */
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
@@ -15,8 +17,8 @@ function renderPCHomeAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-></ins>
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -29,8 +31,8 @@ function renderPCAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-></ins>
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -43,8 +45,8 @@ function renderVerticalAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-></ins>
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -57,8 +59,8 @@ function renderRectangleAd(slotId) {
   <ins class="adsbygoogle"
        style="display:block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-></ins>
+       data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
