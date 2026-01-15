@@ -184,11 +184,6 @@
 
     }
 
-    /* 모바일 네이버 스타일 네비게이션 - 검색 드롭다운 위치 */
-    body:has(.nav-mobile) .search-dropdown {
-      top: 64px;
-    }
-
     /* 모바일 네이버 스타일 네비게이션 */
     .nav-mobile {
       display: flex;
@@ -236,13 +231,11 @@
     }
 
     /* 모바일 캐러셀 네비게이션 */
-    /* 전체 너비에서 파비콘(36px) + 검색(36px) + nav패딩(16px) = 88px 제외 */
-    /* 좌우 5% 여백 + 5개 메뉴(각 18%) = 10% + 90% = 100% */
     .nav-mobile .nav-inner {
       flex: 1;
       display: flex;
       justify-content: flex-start;
-      padding: 0 calc((100vw - 88px) * 0.05);
+      padding: 0;
       gap: 0;
       overflow-x: auto;
       overflow-y: hidden;
@@ -253,10 +246,9 @@
       display: none;
     }
     .nav-mobile .nav-item {
-      /* 5개 표시: 각 18% (3번째가 정가운데) */
-      min-width: calc((100vw - 88px) * 0.18);
-      flex: 0 0 calc((100vw - 88px) * 0.18);
-      padding: 10px 0;
+      min-width: auto;
+      flex: 0 0 auto;
+      padding: 10px 16px;
       font-size: 14px;
       font-weight: 600;
       white-space: nowrap;
