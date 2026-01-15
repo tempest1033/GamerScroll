@@ -4,31 +4,31 @@
 
 /* ===== 광고 컨테이너 크기 ===== */
 
-/* 모바일 상단 광고 (320x100) */
+/* 모바일 상단 광고 (320x110) */
 .ad-card-mobile-top {
   width: 100%;
-  height: 100px;
+  height: 110px;
   text-align: center;
 }
 
-/* 모바일 중간 광고 (300x250) */
+/* 모바일 중간 광고 (300x300) */
 .ad-card-mobile-mid {
   width: 100%;
-  height: 250px;
+  height: 300px;
   text-align: center;
 }
 
-/* PC 홈 상단 광고 (728x90) */
+/* PC 홈 상단 광고 (728x110) */
 .ad-card-pc-home {
   width: 100%;
-  height: 90px;
+  height: 110px;
   text-align: center;
 }
 
-/* PC 상단 광고 (970x90) */
+/* PC 상단 광고 (970x110) */
 .ad-card-pc {
   width: 100%;
-  height: 90px;
+  height: 110px;
   text-align: center;
 }
 
@@ -36,12 +36,14 @@
 .ad-card-vertical {
   width: 300px;
   height: 600px;
+  border-radius: 0;
 }
 
 /* PC 사이드바 - Rectangle (300x250) */
 .ad-card-rectangle {
   width: 300px;
   height: 250px;
+  border-radius: 0;
 }
 
 /* ===== PC/모바일 표시 규칙 ===== */
