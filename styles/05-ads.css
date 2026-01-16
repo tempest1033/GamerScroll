@@ -1,4 +1,4 @@
-﻿/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
+/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
 /* ins 태그 스타일은 인라인으로만 관리 (Google 권장 방식) */
 /* CSS는 컨테이너(.ad-card)만 관리 */
 
@@ -7,10 +7,7 @@
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
   width: 100%;
-  max-width: 320px;
   height: 100px;
-  min-height: 100px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,10 +16,8 @@
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
-  max-width: 300px;
   height: 250px;
   min-height: 250px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +27,6 @@
 .ad-card-pc-home {
   width: 100%;
   height: 90px;
-  min-height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +36,6 @@
 .ad-card-pc {
   width: 100%;
   height: 90px;
-  min-height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,20 +45,20 @@
 .ad-card-vertical {
   width: 300px;
   height: 600px;
-  min-height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 0;
 }
 
 /* PC 사이드바 - Rectangle (300x250) */
 .ad-card-rectangle {
   width: 300px;
   height: 250px;
-  min-height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 0;
+}
+
+/* 네이티브 In-feed 광고 (fluid) */
+.ad-card-native {
+  width: 100%;
+  min-height: 100px;
 }
 
 /* ===== PC/모바일 표시 규칙 ===== */
@@ -77,84 +70,80 @@
 .ad-card {
   background: var(--card);
   border-radius: var(--radius);
-  outline: 1px solid var(--border);
-  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--border);
   touch-action: pan-x pan-y;
   position: relative;
 }
 
-/* ins/iframe 스와이프 허용 + 마진 제거 */
-.ad-card ins,
-.ad-card iframe {
-  touch-action: pan-x pan-y;
-  margin: 0;
-}
-
-/* unfilled 광고도 공간 유지 (min-height로 처리) */
 
 /* ===== 광고 여백 ===== */
 
-/* 기본: 상단 마진만 (컨테이너 gap과 중복 방지) */
+/* 기본: 상단 마진 (컨테이너 외부 광고) */
 main .ad-card {
   margin: var(--space-block-gap, 16px) 0 0 0;
 }
 
-/* 첫 번째 광고: 상단만 마진 */
-main > .ad-card:first-child,
-.page-container > .ad-card:first-child,
-.game-container > .ad-card:first-child,
-.games-hub-container > .ad-card:first-child,
-.deep-dive-container > .ad-card:first-child {
-  margin: var(--space-block-y, 24px) 0 0 0;
+/* page-container 첫 번째 광고 (top): 상단 마진 유지 */
+.page-container > .ad-card:first-child {
+  margin: var(--space-block-gap, 16px) 0 0 0;
 }
 
-/* insight-container는 컨테이너 padding이 이미 있으므로 상단 마진 제거 */
-.insight-container > .ad-card:first-child {
+/* page-container 중간 광고 (mid): gap이 간격 담당하므로 마진 0 */
+.page-container > .ad-card:not(:first-child),
+.page-container .ad-card:not(:first-child) {
   margin: 0;
 }
 
-/* insight-container, insight-panel, weekly-report 내부 광고 (gap으로 간격 처리) */
-.insight-container > .ad-card,
-.insight-panel > .ad-card,
-.weekly-report > .ad-card {
-  margin: 0;
-}
+/* ===== 홈 페이지 (PC) ===== */
 
-@media (max-width: 768px) {
-  main > .ad-card:first-child,
-  .page-container > .ad-card:first-child,
-  .game-container > .ad-card:first-child,
-  .games-hub-container > .ad-card:first-child,
-  .deep-dive-container > .ad-card:first-child {
-    margin: var(--space-block-gap, 16px) 0 0 0;
-  }
-
-  /* 모바일: insight-container 상단 padding-top 제거 시 여백 보정 */
-  .insight-container > .ad-card:first-child {
-    margin: var(--space-block-gap, 16px) 0 0 0;
-  }
-}
-
-/* 홈/flex 컨테이너: 마진 없음 (gap으로 처리) */
+/* home-container (PC 2컬럼): 광고 마진 */
 .home-main .ad-card,
-.home-sidebar .ad-card,
-.game-container .ad-card,
-.trends-hub-container .ad-card {
+.home-sidebar .ad-card {
   margin: 0;
 }
-
-/* 모바일 홈: 첫 광고 상단 마진 */
-@media (max-width: 768px) {
-  .home-main > .ad-card:first-child {
-    margin-top: var(--space-block-gap, 16px);
-  }
-}
-
-/* ===== 홈 페이지 특별 규칙 ===== */
 
 /* 모바일 홈: 사이드바 숨김 (PC 전용) */
 @media (max-width: 768px) {
   .home-sidebar {
     display: none !important;
   }
+}
+
+/* ===== 주간/일간 리포트 내부 광고 ===== */
+.weekly-report .ad-card {
+  margin: var(--space-block-gap, 16px) 0;
+}
+
+/* ===== Unfilled 광고 처리 ===== */
+
+/* 상단 광고 (top): unfilled 시 기존 카드 스타일 유지 + 무채색 파비콘 */
+.ad-card-pc:has(ins[data-ad-status="unfilled"]),
+.ad-card-pc-home:has(ins[data-ad-status="unfilled"]),
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) {
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.ad-card-pc:has(ins[data-ad-status="unfilled"])::before,
+.ad-card-pc-home:has(ins[data-ad-status="unfilled"])::before,
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"])::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: url('/favicon.svg') center/contain no-repeat;
+  filter: grayscale(1);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* 중간/사이드바/네이티브 광고: unfilled 시 카드까지 숨김 */
+.ad-card-mobile-mid:has(ins[data-ad-status="unfilled"]),
+.ad-card-vertical:has(ins[data-ad-status="unfilled"]),
+.ad-card-rectangle:has(ins[data-ad-status="unfilled"]),
+.ad-card-native:has(ins[data-ad-status="unfilled"]) {
+  display: none;
 }

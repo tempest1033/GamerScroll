@@ -769,8 +769,8 @@
       }
 
       /* 다크모드 - 인사이트 페이지 전체 텍스트 */
-      .insight-container p,
-      .insight-container span:not(.home-insight-tag):not([class*="badge"]):not([class*="rank"]):not(.weekly-stock-percent):not(.weekly-stock-arrow) {
+      #insight .page-container p,
+      #insight .page-container span:not(.home-insight-tag):not([class*="badge"]):not([class*="rank"]):not(.weekly-stock-percent):not(.weekly-stock-arrow) {
         color: rgba(255, 255, 255, 0.9);
       }
 
@@ -797,10 +797,7 @@
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
   width: 100%;
-  max-width: 320px;
   height: 100px;
-  min-height: 100px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -809,10 +806,8 @@
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
-  max-width: 300px;
   height: 250px;
   min-height: 250px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -822,7 +817,6 @@
 .ad-card-pc-home {
   width: 100%;
   height: 90px;
-  min-height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -832,7 +826,6 @@
 .ad-card-pc {
   width: 100%;
   height: 90px;
-  min-height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -842,20 +835,20 @@
 .ad-card-vertical {
   width: 300px;
   height: 600px;
-  min-height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 0;
 }
 
 /* PC 사이드바 - Rectangle (300x250) */
 .ad-card-rectangle {
   width: 300px;
   height: 250px;
-  min-height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 0;
+}
+
+/* 네이티브 In-feed 광고 (fluid) */
+.ad-card-native {
+  width: 100%;
+  min-height: 100px;
 }
 
 /* ===== PC/모바일 표시 규칙 ===== */
@@ -867,86 +860,82 @@
 .ad-card {
   background: var(--card);
   border-radius: var(--radius);
-  outline: 1px solid var(--border);
-  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--border);
   touch-action: pan-x pan-y;
   position: relative;
 }
 
-/* ins/iframe 스와이프 허용 + 마진 제거 */
-.ad-card ins,
-.ad-card iframe {
-  touch-action: pan-x pan-y;
-  margin: 0;
-}
-
-/* unfilled 광고도 공간 유지 (min-height로 처리) */
 
 /* ===== 광고 여백 ===== */
 
-/* 기본: 상단 마진만 (컨테이너 gap과 중복 방지) */
+/* 기본: 상단 마진 (컨테이너 외부 광고) */
 main .ad-card {
   margin: var(--space-block-gap, 16px) 0 0 0;
 }
 
-/* 첫 번째 광고: 상단만 마진 */
-main > .ad-card:first-child,
-.page-container > .ad-card:first-child,
-.game-container > .ad-card:first-child,
-.games-hub-container > .ad-card:first-child,
-.deep-dive-container > .ad-card:first-child {
-  margin: var(--space-block-y, 24px) 0 0 0;
+/* page-container 첫 번째 광고 (top): 상단 마진 유지 */
+.page-container > .ad-card:first-child {
+  margin: var(--space-block-gap, 16px) 0 0 0;
 }
 
-/* insight-container는 컨테이너 padding이 이미 있으므로 상단 마진 제거 */
-.insight-container > .ad-card:first-child {
+/* page-container 중간 광고 (mid): gap이 간격 담당하므로 마진 0 */
+.page-container > .ad-card:not(:first-child),
+.page-container .ad-card:not(:first-child) {
   margin: 0;
 }
 
-/* insight-container, insight-panel, weekly-report 내부 광고 (gap으로 간격 처리) */
-.insight-container > .ad-card,
-.insight-panel > .ad-card,
-.weekly-report > .ad-card {
-  margin: 0;
-}
+/* ===== 홈 페이지 (PC) ===== */
 
-@media (max-width: 768px) {
-  main > .ad-card:first-child,
-  .page-container > .ad-card:first-child,
-  .game-container > .ad-card:first-child,
-  .games-hub-container > .ad-card:first-child,
-  .deep-dive-container > .ad-card:first-child {
-    margin: var(--space-block-gap, 16px) 0 0 0;
-  }
-
-  /* 모바일: insight-container 상단 padding-top 제거 시 여백 보정 */
-  .insight-container > .ad-card:first-child {
-    margin: var(--space-block-gap, 16px) 0 0 0;
-  }
-}
-
-/* 홈/flex 컨테이너: 마진 없음 (gap으로 처리) */
+/* home-container (PC 2컬럼): 광고 마진 */
 .home-main .ad-card,
-.home-sidebar .ad-card,
-.game-container .ad-card,
-.trends-hub-container .ad-card {
+.home-sidebar .ad-card {
   margin: 0;
 }
-
-/* 모바일 홈: 첫 광고 상단 마진 */
-@media (max-width: 768px) {
-  .home-main > .ad-card:first-child {
-    margin-top: var(--space-block-gap, 16px);
-  }
-}
-
-/* ===== 홈 페이지 특별 규칙 ===== */
 
 /* 모바일 홈: 사이드바 숨김 (PC 전용) */
 @media (max-width: 768px) {
   .home-sidebar {
     display: none !important;
   }
+}
+
+/* ===== 주간/일간 리포트 내부 광고 ===== */
+.weekly-report .ad-card {
+  margin: var(--space-block-gap, 16px) 0;
+}
+
+/* ===== Unfilled 광고 처리 ===== */
+
+/* 상단 광고 (top): unfilled 시 기존 카드 스타일 유지 + 무채색 파비콘 */
+.ad-card-pc:has(ins[data-ad-status="unfilled"]),
+.ad-card-pc-home:has(ins[data-ad-status="unfilled"]),
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) {
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.ad-card-pc:has(ins[data-ad-status="unfilled"])::before,
+.ad-card-pc-home:has(ins[data-ad-status="unfilled"])::before,
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"])::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: url('/favicon.svg') center/contain no-repeat;
+  filter: grayscale(1);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* 중간/사이드바/네이티브 광고: unfilled 시 카드까지 숨김 */
+.ad-card-mobile-mid:has(ins[data-ad-status="unfilled"]),
+.ad-card-vertical:has(ins[data-ad-status="unfilled"]),
+.ad-card-rectangle:has(ins[data-ad-status="unfilled"]),
+.ad-card-native:has(ins[data-ad-status="unfilled"]) {
+  display: none;
 }
 
 /* ===== Tabs (공통) ===== */
@@ -1269,6 +1258,11 @@ main > .ad-card:first-child,
       border-color: rgba(255, 255, 255, 0.1);
     }
 
+    /* 풀 너비 카드 (그리드 내 2컬럼 차지) */
+    .home-card-full {
+      grid-column: 1 / -1;
+    }
+
     .home-card-header {
       display: flex;
       align-items: center;
@@ -1533,11 +1527,11 @@ main > .ad-card:first-child,
       .home-trend-grid {
         grid-template-columns: 1fr;
         gap: 12px;
-        padding: 8px 12px 12px;
+        padding: 0;
       }
 
       .home-trend-card-title {
-        padding: 12px 12px 14px;
+        padding: 12px 14px 14px;
       }
     }
 
@@ -2446,7 +2440,7 @@ main > .ad-card:first-child,
       }
 
       /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) - search-hidden 제외 */
-      body:not(.search-hidden) :is(.page-container, .games-hub-container, .game-container, .insight-container, .home-container) {
+      body:not(.search-hidden) :is(.page-container, .home-container) {
         padding-top: 0 !important;
       }
     }
@@ -2806,7 +2800,7 @@ main > .ad-card:first-child,
 	    }
 
 	    /* Common Page Containers - 세로 스택 레이아웃 */
-	    :is(.page-container, .games-hub-container, .game-container, .insight-container) {
+	    .page-container {
 	      display: flex;
 	      flex-direction: column;
 	      gap: var(--space-block-gap);
@@ -2852,7 +2846,7 @@ main > .ad-card:first-child,
 	    }
 
 	    /* 페이지 컨테이너 - 광고 패딩만 사용 */
-	    :is(.page-container, .games-hub-container, .game-container) {
+	    .page-container {
 	      padding-top: 0;
 	    }
 
@@ -6897,13 +6891,38 @@ main > .ad-card:first-child,
 
 .weekly-mvp-card {
   display: flex;
-  gap: 20px;
-  background: var(--card);
+  flex-direction: row;
+  gap: 16px;
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
   position: relative;
   overflow: hidden;
+}
+
+.weekly-mvp-thumb {
+  flex-shrink: 0;
+  width: 100px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.weekly-mvp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.weekly-mvp-thumb.is-icon {
+  background: var(--card-hover);
+  padding: 8px;
+}
+
+.weekly-mvp-thumb.is-icon img {
+  object-fit: contain;
 }
 
 .weekly-mvp-card::before {
@@ -6916,6 +6935,7 @@ main > .ad-card:first-child,
 
 .weekly-mvp-content {
   flex: 1;
+  min-width: 0;
 }
 
 .weekly-mvp-tag {
@@ -6926,14 +6946,15 @@ main > .ad-card:first-child,
   background: rgba(99, 102, 241, 0.18);
   padding: 4px 10px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .weekly-mvp-name {
-  font-size: var(--font-lg-size);
-  font-weight: var(--font-badge-weight);
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--text);
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
 }
 
 .weekly-mvp-desc {
@@ -6957,6 +6978,24 @@ main > .ad-card:first-child,
   background: rgba(245, 158, 11, 0.15);
   padding: 6px 12px;
   border-radius: 20px;
+}
+
+/* 모바일: 세로형 (글로벌 트렌드/주간 지표와 동일) */
+@media (max-width: 768px) {
+  .weekly-mvp-card {
+    flex-direction: column;
+    padding: 0;
+  }
+  .weekly-mvp-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .weekly-mvp-content {
+    padding: 14px 16px 16px;
+  }
 }
 
 /* 신작/업데이트 캘린더 */
@@ -7544,7 +7583,7 @@ main > .ad-card:first-child,
   color: var(--text-secondary);
 }
 
-.insight-container {
+#insight .page-container {
   padding: var(--space-block-y) 0;
   display: flex;
   flex-direction: column;
@@ -7554,12 +7593,12 @@ main > .ad-card:first-child,
 /* ========== 일간 리포트 섹션별 스타일 (주간과 통일) ========== */
 
 /* 일간 리포트 카드 기본 스타일 */
-.insight-container .insight-card {
+#insight .page-container .insight-card {
   border-radius: var(--radius-lg);
   transition: var(--transition-elevate);
 }
 
-.insight-container .insight-card:hover {
+#insight .page-container .insight-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -7724,30 +7763,30 @@ main > .ad-card:first-child,
   gap: 14px;
 }
 
-.insight-container .insight-card .home-card-header {
+#insight .page-container .insight-card .home-card-header {
   padding: 16px 20px;
   border-bottom: 2px solid var(--border);
 }
 
-.insight-container .insight-card .home-card-body {
+#insight .page-container .insight-card .home-card-body {
   padding: 0;
 }
 
-.insight-container .insight-card .home-insight-split {
+#insight .page-container .insight-card .home-insight-split {
   padding: 16px 20px;
 }
 
-.insight-container .home-insight-split {
+#insight .page-container .home-insight-split {
   align-items: stretch;
 }
 
-.insight-container .home-insight-column {
+#insight .page-container .home-insight-column {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.insight-container .home-insight-column .home-insight-item {
+#insight .page-container .home-insight-column .home-insight-item {
   flex: 1;
   min-height: 120px;
 }
@@ -7860,11 +7899,11 @@ main > .ad-card:first-child,
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .insight-container .home-insight-split {
+  #insight .page-container .home-insight-split {
     flex-direction: column;
   }
 
-  .insight-container .home-insight-column {
+  #insight .page-container .home-insight-column {
     width: 100%;
   }
 
@@ -7881,11 +7920,11 @@ main > .ad-card:first-child,
     gap: 8px;
   }
 
-  .insight-container .insight-card .home-card-header {
+  #insight .page-container .insight-card .home-card-header {
     padding: 10px 12px !important;
   }
 
-  .insight-container .insight-card .home-insight-split {
+  #insight .page-container .insight-card .home-insight-split {
     padding: 10px 12px;
   }
 }
@@ -8614,7 +8653,7 @@ main > .ad-card:first-child,
   min-height: 100vh;
 }
 
-.page-daily-insight .insight-container {
+.page-daily-insight .page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -9680,69 +9719,69 @@ main > .ad-card:first-child,
 /* ===== Game Page Styles (split) ===== */
 
 /* ========== Game Page ========== */
-.game-container {
+#game .page-container {
   min-height: calc(100vh - 250px);
   padding-top: 0;
   padding-bottom: var(--space-block-y-xl);
 }
 
-.game-container .home-card-body {
+#game .page-container .home-card-body {
   padding: 0;
 }
 
-.game-container .home-card-header {
+#game .page-container .home-card-header {
   padding: 12px 16px;
 }
 
-.game-container .home-card-title svg {
+#game .page-container .home-card-title svg {
   width: 24px;
   height: 24px;
 }
 
-.game-container .rank-trend-section {
+#game .page-container .rank-trend-section {
   padding: 0;
   min-height: 280px;
 }
 
-.game-container .trend-charts {
+#game .page-container .trend-charts {
   padding: 4px 4px;
   display: flex;
   flex-direction: column;
   min-height: 260px;
 }
 
-.game-container .trend-charts .trend-content {
+#game .page-container .trend-charts .trend-content {
   flex: 1;
   display: none;
 }
 
-.game-container .trend-charts .trend-content.active {
+#game .page-container .trend-charts .trend-content.active {
   display: flex;
   flex-direction: column;
 }
 
-.game-container .trend-charts .game-empty {
+#game .page-container .trend-charts .game-empty {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.game-container .trend-charts svg {
+#game .page-container .trend-charts svg {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.game-container .trend-chart-svg,
-.game-container .game-chart-svg {
+#game .page-container .trend-chart-svg,
+#game .page-container .game-chart-svg {
   width: 100%;
   max-height: 260px;
 }
 
 /* 게임 히어로 섹션 */
 .game-hero {
-  margin-bottom: var(--space-block-y-lg);
+  /* grid gap이 간격 담당 */
 }
 
 .game-hero-content {
@@ -9779,7 +9818,6 @@ main > .ad-card:first-child,
   border: 1px solid #c2410c;
   border-radius: 8px;
   text-decoration: none;
-  transition: all 0.2s;
   flex-shrink: 0;
 }
 
@@ -9858,15 +9896,17 @@ main > .ad-card:first-child,
   color: #81c784;
 }
 
-/* 게임 그리드 (2컬럼) */
-.game-grid {
+/* 게임 페이지 그리드 (PC 2컬럼, 모바일 1컬럼) */
+.page-container.game-page-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-block-gap-lg);
 }
 
-/* 풀 너비 카드 */
-.home-card-full {
+/* 풀 너비 아이템 */
+.game-page-grid .grid-full,
+.game-page-grid .ad-card,
+.game-page-grid .visually-hidden {
   grid-column: 1 / -1;
 }
 
@@ -10038,7 +10078,7 @@ main > .ad-card:first-child,
 }
 
 /* 게임 페이지 탭 - 홈페이지 서브탭과 동일한 스타일 */
-.game-container .tab-group {
+#game .page-container .tab-group {
   display: inline-flex;
   gap: 4px;
   background: transparent;
@@ -10047,7 +10087,7 @@ main > .ad-card:first-child,
   border-radius: 0;
 }
 
-.game-container .tab-btn {
+#game .page-container .tab-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10063,22 +10103,22 @@ main > .ad-card:first-child,
   transition: all 0.15s;
 }
 
-.game-container .tab-btn:hover {
+#game .page-container .tab-btn:hover {
   color: #0f172a;
   background: var(--hover-bg);
 }
 
-.game-container .tab-btn.active {
+#game .page-container .tab-btn.active {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
 }
 
 @media (prefers-color-scheme: dark) {
-  .game-container .tab-btn {
+  #game .page-container .tab-btn {
     color: rgba(255, 255, 255, 0.85);
   }
-  .game-container .tab-btn:hover {
+  #game .page-container .tab-btn:hover {
     color: #fff;
   }
 }
@@ -10502,7 +10542,7 @@ a.gm-item:hover {
 
 /* 게임 페이지 모바일 반응형 */
 @media (max-width: 768px) {
-  .game-container {
+  #game .page-container {
   min-height: calc(100vh - 250px);
     padding-bottom: var(--space-block-y);
   }
@@ -10528,7 +10568,7 @@ a.gm-item:hover {
     justify-content: space-around;
   }
 
-  .game-grid {
+  .page-container.game-page-grid {
     grid-template-columns: 1fr;
   }
 
@@ -10642,7 +10682,7 @@ a.gm-item:hover {
   body.search-hidden :is(.site-container, .container) {
     padding-top: 56px !important;
   }
-  body.search-hidden .games-hub-container {
+  body.search-hidden #games .page-container {
     padding-top: 56px !important;
   }
 
@@ -11733,10 +11773,7 @@ a.gm-item:hover {
 }
 
 /* ========== 트렌드 허브 페이지 (피드 카드 스타일) ========== */
-.trends-hub-container {
-  /* 레이아웃은 `.site-container` + `.game-container`에서 관리하고, 이 클래스는 페이지 스코프용 마커로 둡니다. */
-  width: 100%;
-}
+/* trends-hub는 page-container로 통합됨 */
 
 .trend-feed-grid {
   display: grid;
