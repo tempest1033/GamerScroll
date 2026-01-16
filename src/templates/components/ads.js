@@ -15,12 +15,11 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-pc-home">
+  return `<div class="ad-card ad-card-pc-home ad-lazy">
   <ins class="adsbygoogle"
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -29,12 +28,11 @@ function renderPCHomeAd(slotId) {
  */
 function renderPCAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-pc">
+  return `<div class="ad-card ad-card-pc ad-lazy">
   <ins class="adsbygoogle"
        style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 

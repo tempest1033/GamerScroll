@@ -15,12 +15,11 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-mobile-top">
+  return `<div class="ad-card ad-card-mobile-top ad-lazy">
   <ins class="adsbygoogle"
        style="display:inline-block;min-width:320px;min-height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
