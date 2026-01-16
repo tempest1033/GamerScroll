@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-01-15T13:01:59.962Z",
+  "updatedAt": "2026-01-16T13:11:12.501Z",
   "period": "30days",
   "games": [
     {
       "slug": "승리의-여신-니케",
-      "views": 172
+      "views": 180
     },
     {
       "slug": "com-proximabeta-nikke",
@@ -16,23 +16,23 @@
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
-      "views": 99
+      "views": 101
     },
     {
-      "slug": "com-neowizgames-game-browndust2",
-      "views": 87
+      "slug": "스타세이비어",
+      "views": 85
     },
     {
       "slug": "세븐나이츠-리버스",
       "views": 84
     },
     {
-      "slug": "스타세이비어",
-      "views": 83
+      "slug": "com-neowizgames-game-browndust2",
+      "views": 82
     },
     {
       "slug": "갓깨비-키우기-999뽑기-증정",
-      "views": 68
+      "views": 72
     },
     {
       "slug": "라스트-워-서바이벌",
@@ -67,16 +67,16 @@
       "views": 29
     },
     {
+      "slug": "쿠키런-킹덤",
+      "views": 29
+    },
+    {
       "slug": "블루-아카이브",
       "views": 28
     },
     {
-      "slug": "머지-쿠킹-테마-레스토랑",
-      "views": 21
-    },
-    {
       "slug": "쿠키런-오븐브레이크",
-      "views": 21
+      "views": 27
     }
   ]
 }
