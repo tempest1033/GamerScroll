@@ -211,31 +211,39 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
         </div>
         ` : ''}
 
-        <!-- 일간 리포트 (1개) -->
+        <!-- 일간 리포트 -->
         ${dailyReports.length > 0 ? `
-        <div class="home-card home-card-full trend-section-single">
+        <div class="home-card home-card-full trend-section" data-section="daily">
           <div class="home-card-header">
             <h2 class="home-card-title">일간 리포트</h2>
-            <a href="/trend/daily/${dailyReports[0].date}/" class="home-card-more">더보기</a>
+            <div class="trend-pagination">
+              <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
+              <span class="trend-page-index">1/1</span>
+              <button class="trend-page-btn trend-next" aria-label="다음">›</button>
+            </div>
           </div>
           <div class="home-card-body">
             <div class="trend-feed-grid">
-              ${renderDailyCard(dailyReports[0])}
+              ${renderDailyCards()}
             </div>
           </div>
         </div>
         ` : ''}
 
-        <!-- 주간 리포트 (1개) -->
+        <!-- 주간 리포트 -->
         ${weeklyReports.length > 0 ? `
-        <div class="home-card home-card-full trend-section-single">
+        <div class="home-card home-card-full trend-section" data-section="weekly">
           <div class="home-card-header">
             <h2 class="home-card-title">주간 리포트</h2>
-            <a href="/trend/weekly/${weeklyReports[0].year || weeklyReports[0].startDate?.slice(0, 4) || new Date().getFullYear()}-W${String(weeklyReports[0].weekNumber).padStart(2, '0')}/" class="home-card-more">더보기</a>
+            <div class="trend-pagination">
+              <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
+              <span class="trend-page-index">1/1</span>
+              <button class="trend-page-btn trend-next" aria-label="다음">›</button>
+            </div>
           </div>
           <div class="home-card-body">
             <div class="trend-feed-grid">
-              ${renderWeeklyCard(weeklyReports[0])}
+              ${renderWeeklyCards()}
             </div>
           </div>
         </div>
@@ -262,9 +270,13 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
   <script>
     // 각 섹션별 페이지네이션
     (function() {
-      // PC/모바일 모두 4개씩 표시
+      // PC: 4개, 모바일: 1개
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
       const getPageSize = (sectionType) => {
-        return 4;
+        // Deep Dive는 PC/모바일 모두 4개
+        if (sectionType === 'deepdive') return 4;
+        // 일간/주간 리포트: PC 4개, 모바일 1개
+        return isMobile ? 1 : 4;
       };
 
       document.querySelectorAll('.trend-section').forEach(section => {
