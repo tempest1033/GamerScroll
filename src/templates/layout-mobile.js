@@ -692,6 +692,56 @@ const imageFallbackScript = `
 })();
 </script>`;
 
+// 광고 Lazy Loading (IntersectionObserver)
+// .ad-lazy 클래스가 있는 광고는 뷰포트에 가까워지면 로드
+const adLazyLoadScript = `
+<script>
+(function() {
+  function initLazyAds() {
+    var lazyAds = document.querySelectorAll('.ad-lazy .adsbygoogle:not([data-ad-loaded])');
+    if (!lazyAds.length) return;
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var ad = entry.target;
+            if (ad.dataset.adLoaded) return;
+            ad.dataset.adLoaded = '1';
+            try {
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {}
+            observer.unobserve(ad);
+          }
+        });
+      }, {
+        rootMargin: '200px 0px' // 뷰포트 200px 전에 미리 로드
+      });
+
+      lazyAds.forEach(function(ad) {
+        observer.observe(ad);
+      });
+    } else {
+      // IntersectionObserver 미지원 브라우저: 즉시 로드
+      lazyAds.forEach(function(ad) {
+        if (ad.dataset.adLoaded) return;
+        ad.dataset.adLoaded = '1';
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      });
+    }
+  }
+
+  // DOM 준비 후 실행
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLazyAds);
+  } else {
+    initLazyAds();
+  }
+})();
+</script>`;
+
 // Footer 모달
 const footerModalScript = `
 <script>
@@ -752,6 +802,7 @@ function wrapWithLayout(content, options = {}) {
   </main>
   ${generateFooter()}
   ${footerModalScript}
+  ${adLazyLoadScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
   ${showSearchBar ? searchBarScript : ''}

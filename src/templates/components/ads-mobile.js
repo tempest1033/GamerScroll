@@ -3,7 +3,9 @@
  * m.gamerscrawl.com에서 사용
  * PC/모바일 분기 없이 모바일 광고만 렌더링
  *
- * Google AdSense 공식 방식: 슬롯 + 즉시 push
+ * 최적화 전략:
+ * - 상단 광고: 즉시 로드 (viewability 최대화)
+ * - 중간/하단 광고: Lazy Loading (IntersectionObserver)
  */
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
@@ -23,16 +25,15 @@ function renderMobileTopAd(slotId) {
 }
 
 /**
- * 모바일 중간 광고 (300x250)
+ * 모바일 중간 광고 (300x250) - Lazy Loading
  */
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-mobile-mid">
+  return `<div class="ad-card ad-card-mobile-mid ad-lazy">
   <ins class="adsbygoogle"
        style="display:inline-block;max-width:300px;width:100%;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -44,18 +45,17 @@ function renderMobileAd(slotId) {
 }
 
 /**
- * In-feed 네이티브 광고
+ * In-feed 네이티브 광고 - Lazy Loading
  */
 function renderNativeAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-native">
+  return `<div class="ad-card ad-card-native ad-lazy">
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-format="fluid"
        data-ad-layout-key="-7m+ex-1f-2m+ae"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
