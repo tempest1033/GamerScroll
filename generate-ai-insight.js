@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * AI 인사이트 생성 스크립트
  * 별도로 실행하여 AI 인사이트 JSON 저장
@@ -11,6 +11,7 @@ const cheerio = require('cheerio');
 const { generateAIInsight } = require('./src/insights/ai-insight');
 const { loadHistory, getYesterdayDate } = require('./src/insights/daily');
 const { fetchStockPrices } = require('./src/crawlers/stocks');
+const { fillInsightThumbnails, collectNewsItemsFromNewsData, collectHistoryNewsItems } = require('./src/insights/thumbnail-fill');
 
 const CACHE_FILE = './data-cache.json';
 const REPORTS_DIR = './reports';
@@ -263,12 +264,22 @@ async function main() {
     console.log(`  - ${Object.keys(stockPrices).length}개 종목 주가 수집 완료`);
   }
 
+  const today = getTodayDate();
+
+  console.log('\n🖼️ AI 인사이트 썸네일 보강 중...');
+  const cacheNewsItems = collectNewsItemsFromNewsData(cache.news, 'cache');
+  const historyNewsItems = collectHistoryNewsItems([today, yesterday]);
+  const thumbSummary = await fillInsightThumbnails(aiInsight, {
+    newsItems: [...cacheNewsItems, ...historyNewsItems],
+    dateRange: { start: today, end: today }
+  });
+  console.log(`  - 썸네일 갱신: ${thumbSummary.updated}개, 유지: ${thumbSummary.kept}개, 실패: ${thumbSummary.failed}개`);
+
   // 저장
   if (!fs.existsSync(REPORTS_DIR)) {
     fs.mkdirSync(REPORTS_DIR, { recursive: true });
   }
 
-  const today = getTodayDate();
   const insightJsonFile = `${REPORTS_DIR}/${today}.json`;
 
   // 기존 인사이트 로드 (있으면)

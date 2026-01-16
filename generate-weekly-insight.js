@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
  * 주간 AI 인사이트 생성 스크립트
  * 매주 월요일 0시(KST) 기준으로 지난주 핫이슈를 요약합니다.
@@ -12,6 +12,7 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { generateWeeklyAIInsight } = require('./src/insights/weekly-ai-insight');
+const { fillInsightThumbnails, collectNewsItemsFromNewsData, collectHistoryNewsItems, iterateDateRange } = require('./src/insights/thumbnail-fill');
 
 const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
@@ -199,6 +200,21 @@ async function main() {
     console.log('❌ 주간 AI 인사이트 생성 실패');
     process.exit(1);
   }
+
+  console.log('\n🖼️ 주간 인사이트 썸네일 보강 중...');
+  const reportNewsItems = [];
+  weeklyReports.forEach((report) => {
+    if (report?.news) {
+      reportNewsItems.push(...collectNewsItemsFromNewsData(report.news, `report:${report.date}`));
+    }
+  });
+  const historyDates = iterateDateRange(weekInfo.startDate, weekInfo.endDate);
+  const historyNewsItems = collectHistoryNewsItems(historyDates);
+  const thumbSummary = await fillInsightThumbnails(weeklyInsight, {
+    newsItems: [...reportNewsItems, ...historyNewsItems],
+    dateRange: { start: weekInfo.startDate, end: weekInfo.endDate }
+  });
+  console.log(`  - 썸네일 갱신: ${thumbSummary.updated}개, 유지: ${thumbSummary.kept}개, 실패: ${thumbSummary.failed}개`);
 
   // 디렉토리 생성
   if (!fs.existsSync(WEEKLY_REPORTS_DIR)) {

@@ -6,10 +6,11 @@
  * - 뉴스 섹션 통합 (4개 소스)
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot, generateNativeAdSlot } = require('../layout');
 
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
+const nativeAd1 = generateNativeAdSlot(AD_SLOTS.Article001);
 const midAds = generateMidAdPairSlot(AD_SLOTS.ResponsivePC002, AD_SLOTS.Mobile002);
 
 // 뉴스 소스 정보
@@ -210,47 +211,48 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
         </div>
         ` : ''}
 
-        <!-- 일간 리포트 섹션 -->
-        <div class="home-card home-card-full trend-section" data-section="daily">
+        <!-- 일간 리포트 (1개) -->
+        ${dailyReports.length > 0 ? `
+        <div class="home-card home-card-full trend-section-single">
           <div class="home-card-header">
             <h2 class="home-card-title">일간 리포트</h2>
-            <div class="trend-pagination">
-              <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
-              <span class="trend-page-index">1/1</span>
-              <button class="trend-page-btn trend-next" aria-label="다음">›</button>
-            </div>
+            <a href="/trend/daily/${dailyReports[0].date}/" class="home-card-more">더보기</a>
           </div>
           <div class="home-card-body">
             <div class="trend-feed-grid">
-              ${renderDailyCards()}
+              ${renderDailyCard(dailyReports[0])}
             </div>
-            ${dailyReports.length === 0 ? '<div class="trend-empty">일간 리포트가 없습니다</div>' : ''}
           </div>
         </div>
+        ` : ''}
 
-        <!-- 주간 리포트 섹션 -->
-        <div class="home-card home-card-full trend-section" data-section="weekly">
+        <!-- 주간 리포트 (1개) -->
+        ${weeklyReports.length > 0 ? `
+        <div class="home-card home-card-full trend-section-single">
           <div class="home-card-header">
             <h2 class="home-card-title">주간 리포트</h2>
-            <div class="trend-pagination">
-              <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
-              <span class="trend-page-index">1/1</span>
-              <button class="trend-page-btn trend-next" aria-label="다음">›</button>
-            </div>
+            <a href="/trend/weekly/${weeklyReports[0].year || weeklyReports[0].startDate?.slice(0, 4) || new Date().getFullYear()}-W${String(weeklyReports[0].weekNumber).padStart(2, '0')}/" class="home-card-more">더보기</a>
           </div>
           <div class="home-card-body">
             <div class="trend-feed-grid">
-              ${renderWeeklyCards()}
+              ${renderWeeklyCard(weeklyReports[0])}
             </div>
-            ${weeklyReports.length === 0 ? '<div class="trend-empty">주간 리포트가 없습니다</div>' : ''}
           </div>
+        </div>
+        ` : ''}
+
+        ${nativeAd1}
+
+        <!-- 뉴스 섹션 1 (디스이즈게임, 게임메카) -->
+        <div class="news-sources-grid">
+          ${newsSources.slice(0, 2).map(source => generateNewsSection(source)).join('')}
         </div>
 
         ${midAds}
 
-        <!-- 뉴스 섹션 -->
+        <!-- 뉴스 섹션 2 (루리웹, 인벤) -->
         <div class="news-sources-grid">
-          ${newsSources.map(source => generateNewsSection(source)).join('')}
+          ${newsSources.slice(2, 4).map(source => generateNewsSection(source)).join('')}
         </div>
       </div>
     </section>
