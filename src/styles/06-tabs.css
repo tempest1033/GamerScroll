@@ -36,32 +36,13 @@
   }
 }
 
-/* 태블릿(768px 이하): 약간 더 컴팩트 */
+/* 모바일(768px 이하): 컴팩트 */
 @media (max-width: 768px) {
-  :root {
-    --tab-btn-padding: 10px 6px;
-    --tab-btn-min-height: 42px;
-    --tab-btn-gap: 5px;
-    --tab-btn-icon-size: 16px;
-  }
-}
-
-/* 모바일(480px 이하): 버튼/아이콘을 조금 더 컴팩트하게 */
-@media (max-width: 480px) {
   :root {
     --tab-btn-padding: 10px 8px;
     --tab-btn-min-height: 40px;
     --tab-btn-gap: 4px;
     --tab-btn-icon-size: 12px;
-  }
-}
-
-/* 초소형(360px 이하): 아이콘 숨김 */
-@media (max-width: 360px) {
-  :root {
-    --tab-btn-padding: 8px 6px;
-    --tab-btn-min-height: 38px;
-    --tab-btn-icon-display: none;
   }
 }
 

@@ -16,8 +16,7 @@
 }
 
 .metacritic-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .metacritic-card-rank {
@@ -152,8 +151,8 @@
   }
 }
 
-/* Small Mobile: 2 columns */
-@media (max-width: 480px) {
+/* Mobile: 2 columns */
+@media (max-width: 768px) {
   .metacritic-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
@@ -193,8 +192,7 @@
 }
 
 .daily-community-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .daily-community-game {
@@ -255,8 +253,7 @@
 }
 
 .daily-streaming-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 /* 호버 시 상단 띠 효과 제거 */
@@ -414,12 +411,12 @@
 
   .daily-community-title,
   .daily-streaming-title {
-    font-size: var(--font-title-size);
+    font-size: var(--font-heading-size);
   }
 
   .daily-community-desc,
   .daily-streaming-desc {
-    font-size: var(--font-small-size);
+    font-size: calc(var(--font-desc-size) + 1px);
   }
 
   .daily-industry-timeline {
@@ -443,6 +440,6 @@
   }
 
   .daily-industry-desc {
-    font-size: var(--font-small-size);
+    font-size: calc(var(--font-desc-size) + 1px);
   }
 }

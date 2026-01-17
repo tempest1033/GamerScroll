@@ -7,8 +7,7 @@
 }
 
 #insight .page-container .insight-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow);
 }
 
 /* 아이콘 배경 박스 (주간과 동일 - 32px) */
@@ -321,11 +320,15 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .insight-infographic {
     grid-template-columns: repeat(2, 1fr);
     padding: 12px;
     gap: 8px;
+  }
+
+  #insight .page-container .insight-card .home-card-title {
+    font-size: var(--font-section-size);
   }
 
   #insight .page-container .insight-card .home-card-header {

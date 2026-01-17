@@ -25,8 +25,7 @@
 }
 
 .weekly-rank-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .weekly-rank-header {

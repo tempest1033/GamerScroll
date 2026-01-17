@@ -91,7 +91,7 @@
   width: 36px;
   height: 36px;
   padding: 0;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 500;
   color: #c2410c;
   background: rgba(194, 65, 12, 0.15);
@@ -108,14 +108,14 @@
 }
 
 .game-hero-title {
-  font-size: 22px;
+  font-size: var(--font-xl-size);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 6px 0;
 }
 
 .game-hero-developer {
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   color: var(--text-secondary);
   margin-bottom: 6px;
 }
@@ -130,7 +130,7 @@
   display: inline-flex;
   align-items: center;
   padding: 4px 10px;
-  font-size: 12px;
+  font-size: var(--font-badge-size);
   font-weight: 500;
   color: var(--text);
   background: var(--bg-tertiary);
@@ -152,13 +152,13 @@
 }
 
 .game-hero-stat-label {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: var(--text-tertiary);
   margin-bottom: 4px;
 }
 
 .game-hero-stat-value {
-  font-size: 20px;
+  font-size: var(--font-lg-size);
   font-weight: 700;
   color: var(--text);
 }
@@ -216,7 +216,7 @@
   justify-content: center;
   gap: 10px;
   padding: 10px 12px;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 600;
   color: var(--text);
   background: transparent;
@@ -245,7 +245,7 @@
 }
 
 .game-rank-country-flag {
-  font-size: 20px;
+  font-size: var(--font-lg-size);
   width: 28px;
 }
 
@@ -256,7 +256,7 @@
 
 .game-rank-country-name {
   flex: 1;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 600;
   color: #1e293b;
 }
@@ -268,7 +268,7 @@
 }
 
 .game-rank-country-value {
-  font-size: 16px;
+  font-size: var(--font-section-size);
   font-weight: 600;
   color: var(--text);
   min-width: 36px;
@@ -276,7 +276,7 @@
 }
 
 .game-rank-change {
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   font-weight: 500;
   margin-left: 6px;
 }

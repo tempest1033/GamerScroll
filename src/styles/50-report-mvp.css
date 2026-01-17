@@ -23,7 +23,8 @@
 .weekly-mvp-thumb {
   flex-shrink: 0;
   width: 100px;
-  height: 70px;
+  height: 100%;
+  min-height: 80px;
   border-radius: 10px;
   overflow: hidden;
   background: var(--border);
@@ -69,7 +70,7 @@
 }
 
 .weekly-mvp-name {
-  font-size: 1.05rem;
+  font-size: var(--font-section-size);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 8px 0;

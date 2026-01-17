@@ -14,8 +14,7 @@
 }
 
 :is(.report-section, .weekly-section):hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
 }
 
 :is(.report-section-header, .weekly-section-header) {
@@ -94,8 +93,7 @@
 }
 
 .weekly-intro:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
 }
 
 .weekly-intro-header {
@@ -200,8 +198,7 @@
 }
 
 .weekly-hot-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow);
 }
 
 /* 이미지 포함 카드 - 세로 레이아웃 (이미지 상단) */
@@ -358,7 +355,7 @@
 
 .weekly-hot-title {
   font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-weight: var(--font-item-weight);
   color: var(--text);
   margin: 0 0 10px 0;
   padding-bottom: 8px;
@@ -372,4 +369,79 @@
   color: var(--text-secondary);
   line-height: var(--font-desc-line-height);
   margin: 0;
+}
+
+/* Insight typography scale (daily/weekly unified) */
+#insight {
+  --insight-header-size: 20px;
+  --insight-section-size: 20px;
+  --insight-item-size: 17px;
+  --insight-body-size: 16px;
+}
+
+#insight :is(.weekly-header-title) {
+  font-size: var(--insight-header-size);
+}
+
+#insight :is(
+  .weekly-section-title,
+  .insight-card .home-card-title,
+  .weekly-intro-label,
+  .weekly-stocks-table-header
+) {
+  font-size: var(--insight-section-size);
+}
+
+#insight :is(
+  .weekly-hot-title,
+  .weekly-metric-title,
+  .ranking-item .weekly-hot-title,
+  .weekly-rank-game,
+  .weekly-timeline-title,
+  .weekly-community-title,
+  .weekly-streaming-title,
+  .weekly-highlight-title,
+  .weekly-highlight-subtitle,
+  .weekly-mvp-name,
+  .weekly-global-title,
+  .global-title,
+  .industry-title,
+  .weekly-release-title,
+  .weekly-stock-name,
+  .daily-community-title,
+  .daily-streaming-title,
+  .daily-industry-title
+) {
+  font-size: var(--insight-item-size);
+}
+
+#insight :is(
+  .weekly-header-desc,
+  .weekly-section-desc,
+  .weekly-hot-desc,
+  .weekly-metric-desc,
+  .weekly-timeline-desc,
+  .weekly-community-desc,
+  .weekly-streaming-desc,
+  .weekly-highlight-desc,
+  .weekly-global-desc,
+  .global-desc,
+  .industry-desc,
+  .weekly-ranking-desc,
+  .weekly-rank-reason,
+  .weekly-mvp-desc,
+  .weekly-stock-comment,
+  .daily-community-desc,
+  .daily-streaming-desc,
+  .daily-industry-desc
+) {
+  font-size: var(--insight-body-size);
+}
+
+@media (max-width: 768px) {
+  #insight {
+    --insight-section-size: 20px;
+    --insight-item-size: 18px;
+    --insight-body-size: 16px;
+  }
 }

@@ -147,7 +147,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .weekly-summary-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -185,6 +185,36 @@
     font-size: var(--font-section-size);
   }
 
+  .weekly-header-title {
+    font-size: var(--font-heading-size);
+  }
+
+  .weekly-intro-label {
+    font-size: var(--font-section-size);
+  }
+
+  .weekly-stocks-table-header {
+    font-size: var(--font-section-size);
+  }
+
+  .weekly-stock-comment {
+    font-size: calc(var(--font-desc-size) + 1px);
+  }
+
+  .weekly-header-desc,
+  .weekly-section-desc,
+  .weekly-hot-desc,
+  .weekly-metric-desc,
+  .weekly-timeline-desc,
+  .weekly-community-desc,
+  .weekly-streaming-desc,
+  .weekly-highlight-desc,
+  .weekly-global-desc,
+  .weekly-ranking-desc,
+  .weekly-rank-reason {
+    font-size: calc(var(--font-desc-size) + 1px);
+  }
+
   .weekly-icon {
     width: 18px;
     height: 18px;
@@ -206,7 +236,7 @@
   }
 
   .weekly-mvp-desc {
-    font-size: var(--font-small-size);
+    font-size: calc(var(--font-desc-size) + 1px);
   }
 
   .weekly-mvp-highlight {
@@ -252,10 +282,10 @@
   }
 
   .weekly-global-desc {
-    font-size: var(--font-small-size);
+    font-size: calc(var(--font-desc-size) + 1px);
   }
 
-  /* 피드 카드 패딩 통일 - 480px */
+  /* 피드 카드 패딩 통일 - 모바일 */
   .weekly-hot-card,
   .weekly-rank-card,
   .weekly-community-card,
@@ -264,7 +294,7 @@
     border-radius: 10px;
   }
 
-  /* 이미지형 카드 라운드/패딩 통일 - 480px */
+  /* 이미지형 카드 라운드/패딩 통일 - 모바일 */
   .weekly-hot-thumb,
   .industry-thumb,
   .metric-thumb,
@@ -288,44 +318,6 @@
 
   .weekly-timeline-item {
     padding: 10px 0;
-  }
-}
-
-@media (max-width: 360px) {
-  /* 피드 카드 패딩/라운드 통일 - 360px */
-  .weekly-hot-card,
-  .weekly-rank-card,
-  .weekly-community-card,
-  .weekly-streaming-card {
-    padding: 10px;
-    border-radius: 8px;
-  }
-
-  .weekly-release-item,
-  .weekly-global-card,
-  .industry-card,
-  .weekly-metric-card,
-  .global-card,
-  .weekly-stocks-table {
-    border-radius: 8px;
-  }
-
-  .weekly-hot-thumb,
-  .industry-thumb,
-  .metric-thumb,
-  .global-thumb {
-    border-radius: 8px 8px 0 0;
-  }
-
-  .weekly-hot-card.has-thumb .weekly-hot-content,
-  .industry-content,
-  .weekly-metric-content,
-  .global-content {
-    padding: 10px;
-  }
-
-  .weekly-timeline-item {
-    padding: 8px 0;
   }
 }
 .weekly-coming-soon {

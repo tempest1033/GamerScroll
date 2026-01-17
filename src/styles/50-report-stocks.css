@@ -107,7 +107,7 @@
 
 .weekly-stock-name {
   font-size: var(--font-body-size);
-  font-weight: var(--font-title-weight);
+  font-weight: var(--font-item-weight);
   color: var(--text);
 }
 

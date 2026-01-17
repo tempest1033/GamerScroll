@@ -28,7 +28,7 @@
     .header-date {
       position: absolute;
       right: 24px;
-      font-size: 0.9rem;
+      font-size: var(--font-meta-size);
       font-weight: var(--font-meta-weight);
       color: var(--text-secondary);
       background: var(--glass-bg);

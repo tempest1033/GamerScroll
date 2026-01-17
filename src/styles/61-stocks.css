@@ -20,8 +20,7 @@
 }
 
 .stock-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .stock-info {
@@ -38,7 +37,7 @@
 
 .stock-name {
   font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-weight: var(--font-item-weight);
   color: var(--text);
   line-height: 1.45;
 }
@@ -110,8 +109,8 @@
   }
 
   .stock-item {
-    padding: 14px;
-    border-radius: 12px;
+    padding: 12px;
+    border-radius: 10px;
   }
 
   .stock-name {
@@ -128,20 +127,6 @@
 
   .stock-comment {
     font-size: var(--font-body-size);
-  }
-}
-
-@media (max-width: 480px) {
-  .stock-item {
-    padding: 12px;
-    border-radius: 10px;
-  }
-}
-
-@media (max-width: 360px) {
-  .stock-item {
-    padding: 10px;
-    border-radius: 8px;
   }
 }
 
