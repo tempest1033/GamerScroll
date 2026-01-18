@@ -668,7 +668,7 @@ const adLazyLoadScript = `
           }
         });
       }, {
-        rootMargin: '200px 0px' // 뷰포트 200px 전에 미리 로드
+        rootMargin: '800px 0px' // 뷰포트 800px 전에 미리 로드
       });
 
       lazyAds.forEach(function(ad) {

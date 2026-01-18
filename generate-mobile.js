@@ -645,7 +645,7 @@ async function generateMobilePages() {
           .sort((a, b) => b.weekNumber.localeCompare(a.weekNumber))
       : [];
 
-    // 이슈 리포트 데이터 로드
+    // 이슈 리포트 데이터 로드 (승인된 것만 노출)
     let issueReports = [];
     const issueReportsDir = './reports/issue';
     if (fs.existsSync(issueReportsDir)) {
@@ -657,7 +657,7 @@ async function generateMobilePages() {
             return { ...data, slug: f.replace('.json', '') };
           } catch { return null; }
         })
-        .filter(Boolean)
+        .filter(p => p && p.status === 'approved')
         .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     }
 

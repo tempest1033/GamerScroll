@@ -583,12 +583,14 @@ cd docs && npx serve -l 3000
 3. 초안 작성 - JSON 형식으로 작성
 4. 피드백 반영 - 사용자 의견 수정
 5. 최종 저장 - reports/issue/{slug}.json
+6. 승인 시 status를 approved로 변경
 ```
 
 ### JSON 형식
 ```json
 {
   "slug": "2026-01-mobile-game-trend",
+  "status": "draft",
   "title": "제목 (임팩트 있게)",
   "date": "2026-01-04",
   "thumbnail": "대표 이미지 URL",
@@ -622,6 +624,11 @@ cd docs && npx serve -l 3000
 | **이미지** | 섹션마다 1개, 소제목(heading) 바로 다음에 배치 |
 | **광고** | 본문 중간에 2-3개 배치 |
 | **문체** | 블로그형 설명체, 헤더 톤은 자유 |
+
+### 공개 상태
+- `status: "draft" | "approved"`
+- 초기 작성은 반드시 `draft`
+- 빌드/허브/사이트맵에는 **approved만** 반영
 
 ### 이미지 배치 패턴
 ```

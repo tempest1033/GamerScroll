@@ -729,7 +729,7 @@ const adLazyLoadScript = `
           }
         });
       }, {
-        rootMargin: '500px 0px' // 모바일: 뷰포트 500px 전에 미리 로드
+        rootMargin: '1200px 0px' // 모바일: 뷰포트 1200px 전에 미리 로드
       });
 
       lazyAds.forEach(function(ad) {

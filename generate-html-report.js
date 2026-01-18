@@ -594,7 +594,7 @@ async function main() {
     fs.mkdirSync(trendsDir, { recursive: true });
   }
 
-  // 이슈 리포트 데이터 로드 (hub에서 사용)
+  // 이슈 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
   const ISSUE_REPORTS_DIR = './reports/issue';
   let issueReports = [];
   if (fs.existsSync(ISSUE_REPORTS_DIR)) {
@@ -605,7 +605,9 @@ async function main() {
       } catch (e) {
         return null;
       }
-    }).filter(Boolean).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    })
+      .filter(p => p && p.status === 'approved')
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
   try {
