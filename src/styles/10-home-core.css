@@ -1200,11 +1200,14 @@
 
     @media (max-width: 768px) {
       .home-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: var(--space-block-gap);
+        display: block !important;
         padding: var(--space-block-y) 0;
+      }
+      .home-container > * {
+        margin-bottom: var(--space-block-gap);
+      }
+      .home-container > *:last-child {
+        margin-bottom: 0;
       }
 
       .home-sidebar {
