@@ -496,6 +496,36 @@ function generateWeeklyPanel(weeklyInsight) {
   const heroThumb = wai.thumbnail || null;
   const heroThumbUrl = heroThumb ? fixUrl(heroThumb) : null;
 
+  const weeklyBody = isMobileBuild ? `
+      ${midAd()}
+      ${hotIssuesSection}
+      ${midAd()}
+      ${rankingsSection}
+      ${industrySection}
+      ${midAd()}
+      ${metricsSection}
+      ${globalSection}
+      ${mvpSection}
+      ${midAd()}
+      ${stocksSection}
+      ${releasesSection}
+      ${communitySection}
+      ${streamingSection}
+    ` : `
+      ${hotIssuesSection}
+      ${rankingsSection}
+      ${midAd()}
+      ${industrySection}
+      ${metricsSection}
+      ${globalSection}
+      ${mvpSection}
+      ${midAd()}
+      ${stocksSection}
+      ${releasesSection}
+      ${communitySection}
+      ${streamingSection}
+    `;
+
   return `
     <div class="weekly-report">
       <div class="weekly-header-card ${heroThumbUrl ? 'has-hero-image' : ''}">
@@ -511,20 +541,7 @@ function generateWeeklyPanel(weeklyInsight) {
         </div>
       </div>
 
-      ${midAd()}
-      ${hotIssuesSection}
-      ${midAd()}
-      ${rankingsSection}
-      ${industrySection}
-      ${midAd()}
-      ${metricsSection}
-      ${globalSection}
-      ${mvpSection}
-      ${midAd()}
-      ${stocksSection}
-      ${releasesSection}
-      ${communitySection}
-      ${streamingSection}
+      ${weeklyBody}
     </div>
   `;
 }
@@ -901,6 +918,7 @@ function generateTrendPage(data) {
     }
     return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
   };
+  const midAdMobileOnly = () => (isMobileBuild ? midAd() : '');
 
   const content = `
     <section class="section active" id="insight">
@@ -916,12 +934,12 @@ function generateTrendPage(data) {
         <div class="insight-panel active" id="panel-daily">
           <div class="weekly-header-card">
             <div class="weekly-header-title">${summaryTitle}</div>
-            <div class="weekly-header-meta">
-              <span class="weekly-header-period">${formatDateKorean(aiInsight.date || new Date().toISOString().split('T')[0])} 리포트</span>
-            </div>
-            ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
+          <div class="weekly-header-meta">
+            <span class="weekly-header-period">${formatDateKorean(aiInsight.date || new Date().toISOString().split('T')[0])} 리포트</span>
           </div>
-          ${midAd()}
+          ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
+        </div>
+          ${midAdMobileOnly()}
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
           ${midAd()}
           ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
@@ -1352,6 +1370,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     }
     return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
   };
+  const midAdMobileOnly = () => (isMobileBuild ? midAd() : '');
 
   // 네비게이션 (이전/목록/다음 리포트) - 하단에만 표시
   const navHtml = `
@@ -1384,13 +1403,13 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
           </div>
         </div>`;
         })()}
-        ${midAd()}
+        ${midAdMobileOnly()}
         ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
         ${midAd()}
         ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
-        ${midAd()}
+        ${midAdMobileOnly()}
         ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
-        ${midAd()}
+        ${midAdMobileOnly()}
         ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
         ${midAd()}
         ${renderStocksCard(stocksData, stockPrices)}

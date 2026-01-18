@@ -5,6 +5,9 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
 
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 const midAds = generateMidAdPairSlot(AD_SLOTS.ResponsivePC002, AD_SLOTS.Mobile002);
@@ -1239,8 +1242,8 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-        <!-- 중간 광고 -->
-        <div class="grid-full">${midAds}</div>
+        <!-- 중간 광고 (모바일만) -->
+        ${isMobileBuild ? `<div class="grid-full">${midAds}</div>` : ''}
 
         <!-- 뉴스 (풀 너비) -->
         <div class="home-card grid-full">
