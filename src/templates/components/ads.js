@@ -3,9 +3,8 @@
  * gamerscrawl.com (PC 버전)에서 사용
  * 모바일 광고는 ads-mobile.js 참조
  *
- * 최적화 전략:
- * - 상단 광고: 즉시 로드 (viewability 최대화)
- * - 사이드바 광고: Lazy Loading (IntersectionObserver)
+ * 로딩 전략: Google 표준 방식 (인라인 push)
+ * - 모든 광고 즉시 로드 (viewability 최대화)
  */
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';

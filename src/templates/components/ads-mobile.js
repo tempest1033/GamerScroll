@@ -3,9 +3,8 @@
  * m.gamerscrawl.com에서 사용
  * PC/모바일 분기 없이 모바일 광고만 렌더링
  *
- * 최적화 전략:
- * - 상단 광고: 즉시 로드 (viewability 최대화)
- * - 중간/하단 광고: Lazy Loading (IntersectionObserver)
+ * 로딩 전략: Google 표준 방식 (인라인 push)
+ * - 모든 광고 즉시 로드 (viewability 최대화)
  */
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';

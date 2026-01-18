@@ -692,7 +692,7 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 로딩 - Google 표준 방식 (인라인 push 사용, 별도 스크립트 불필요)
+// 광고 초기화 - Google 표준 방식 (인라인 push 사용)
 const adLazyLoadScript = ``;
 
 // Footer 모달

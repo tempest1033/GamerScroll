@@ -631,7 +631,7 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 로딩 - Google 표준 방식 (인라인 push 사용, 별도 스크립트 불필요)
+// 광고 초기화 - Google 표준 방식 (인라인 push 사용)
 const adLazyLoadScript = ``;
 
 // Footer 모달(개인정보처리방침) 열기/닫기 공통 처리 (인라인 onclick 제거)
