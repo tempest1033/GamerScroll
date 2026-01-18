@@ -33,7 +33,7 @@ function renderMobileMidAd(slotId) {
   return `<div class="ad-card ad-card-mobile-mid">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
-       style="display:inline-block;width:300px;height:250px"
+       style="display:block;width:100%;min-height:200px;max-height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
