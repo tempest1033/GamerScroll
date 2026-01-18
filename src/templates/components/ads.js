@@ -17,7 +17,7 @@ function renderPCHomeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc-home">
   <ins class="adsbygoogle"
-       style="display:block;width:728px;height:90px"
+       style="display:block;width:728px;height:90px;margin:0 auto"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
