@@ -697,14 +697,41 @@ const imageFallbackScript = `
 const adLazyLoadScript = `
 <script>
 (function() {
+  var MAX_RETRIES = 12;
+  var RETRY_DELAY = 80;
+
+  function requestAd(ad, attempt) {
+    if (!ad || ad.dataset.adLoaded) return;
+    if (!ad.isConnected) return;
+
+    var rect = ad.getBoundingClientRect();
+    if (!rect || rect.width <= 0 || rect.height <= 0) {
+      if ((attempt || 0) < MAX_RETRIES) {
+        setTimeout(function() {
+          requestAd(ad, (attempt || 0) + 1);
+        }, RETRY_DELAY);
+      }
+      return;
+    }
+
+    ad.dataset.adLoaded = '1';
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push({});
+    } catch (e) {
+      delete ad.dataset.adLoaded;
+      if ((attempt || 0) < MAX_RETRIES) {
+        setTimeout(function() {
+          requestAd(ad, (attempt || 0) + 1);
+        }, RETRY_DELAY);
+      }
+    }
+  }
+
   function loadAds(ads) {
     if (!ads || !ads.length) return;
     ads.forEach(function(ad) {
-      if (ad.dataset.adLoaded) return;
-      ad.dataset.adLoaded = '1';
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {}
+      requestAd(ad, 0);
     });
   }
 
@@ -721,10 +748,7 @@ const adLazyLoadScript = `
           if (entry.isIntersecting) {
             var ad = entry.target;
             if (ad.dataset.adLoaded) return;
-            ad.dataset.adLoaded = '1';
-            try {
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {}
+            requestAd(ad, 0);
             observer.unobserve(ad);
           }
         });
@@ -750,6 +774,14 @@ const adLazyLoadScript = `
 
   // DOMContentLoaded 전이라도 상단 광고는 가능한 즉시 로드
   loadAds(document.querySelectorAll('.ad-eager .adsbygoogle:not([data-ad-loaded])'));
+
+  var prevOnLoad = window.gcOnAdsSDKLoad;
+  window.gcOnAdsSDKLoad = function() {
+    if (typeof prevOnLoad === 'function') prevOnLoad();
+    initLazyAds();
+  };
+
+  if (window.gcAdsSDKLoaded) initLazyAds();
 
   // BFCache 복귀/탭 전환 시 광고 재초기화
   window.addEventListener('pageshow', function(event) {
