@@ -16,7 +16,6 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc-home">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
        style="display:block;width:100%;min-height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
@@ -31,7 +30,6 @@ function renderPCHomeAd(slotId) {
 function renderPCAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
        style="display:block;width:100%;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
@@ -46,7 +44,6 @@ function renderPCAd(slotId) {
 function renderVerticalAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-vertical">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
@@ -61,7 +58,6 @@ function renderVerticalAd(slotId) {
 function renderRectangleAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-rectangle">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"

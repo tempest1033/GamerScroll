@@ -16,7 +16,6 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-top">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
        style="display:block;width:100%;min-height:200px;max-height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
@@ -31,7 +30,6 @@ function renderMobileTopAd(slotId) {
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-mobile-mid">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
        style="display:block;width:100%;min-height:200px;max-height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
@@ -53,7 +51,6 @@ function renderMobileAd(slotId) {
 function renderNativeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-native">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-format="fluid"
