@@ -111,6 +111,8 @@ function generateHead(options = {}) {
 	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
 	    }
 	  </style>
+	  <!-- AdSense: 최상단 로드 (광고 빠른 렌더링) -->
+	  <script async fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
 		  <script>
 		    (function() {
 		      var host = location.hostname;
@@ -184,8 +186,6 @@ function generateHead(options = {}) {
   <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
   <link rel="dns-prefetch" href="https://i.ytimg.com">
   <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
-  <!-- AdSense: 페이지당 1회만 로드 (Google 권장) -->
-  <script async fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
 	  <!-- Prefetch (load 이후, 네트워크 여건이 좋을 때만) -->
 	  <script>
 	    (function() {
