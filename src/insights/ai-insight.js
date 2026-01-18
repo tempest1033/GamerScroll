@@ -65,8 +65,9 @@ ${rankingsSummary}
 - 순위 숫자 절대 수정 금지
 - desc만 웹 검색으로 원인 분석하여 작성` : '';
 
-    // 최근 인사이트 요약 (반복 방지용)
+    // 최근 인사이트 요약 + 지표 블랙리스트 (반복 방지용)
     const recentInsightsSummary = buildRecentInsightsSummary(recentInsights);
+    const metricsBlacklistSummary = buildMetricsBlacklistSummary(recentInsights);
 
     const prompt = `## 중요: 현재 시간 기준 정보
 - 오늘 날짜: ${today}
@@ -76,7 +77,7 @@ ${rankingsSummary}
 한국 게임 업계 종합 인사이트를 JSON 형식으로 작성해줘.
 
 ## 크롤링 데이터:
-${dataSummary}${rankingsData}${recentInsightsSummary}
+${dataSummary}${rankingsData}${recentInsightsSummary}${metricsBlacklistSummary}
 
 ## 요청사항:
 1. 웹 검색으로 최신 한국 게임 뉴스 조사
@@ -162,7 +163,7 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}
   ※ 일반론적 필러 콘텐츠 금지 - 구체적 사건/발표/뉴스 기반으로만 작성
   ※ 블랙리스트 게임/주제 절대 사용 금지
 - metrics: 2개 (주목할만한 지표 변화)
-  ※ ⚠️ 블랙리스트 게임 절대 사용 금지 - 최근 3일 내 metrics에서 언급한 게임 다시 쓰지 말 것
+  ※ ⚠️ 블랙리스트 게임 절대 사용 금지 - 최근 7일 내 metrics에서 언급한 게임 다시 쓰지 말 것
   ※ 같은 게임 반복 언급 금지 - 다른 게임의 지표 변화 찾기${rankingsInstruction}
 - community: 4개 (특정 게임에 대한 유저 반응 - 업데이트/패치/논란 등)
   ※ 블랙리스트 게임 절대 사용 금지
@@ -416,6 +417,34 @@ function buildRecentInsightsSummary(recentInsights) {
 5. 위 규칙 위반 시 결과물 무효 - 반드시 준수!`);
 
   return lines.join('\n');
+}
+
+/**
+ * 최근 N일 지표 블랙리스트 생성 (metrics 전용)
+ * @param {Array} recentInsights - 최근 인사이트 배열
+ * @returns {string} 블랙리스트 문자열
+ */
+function buildMetricsBlacklistSummary(recentInsights) {
+  if (!recentInsights || recentInsights.length === 0) {
+    return '';
+  }
+
+  const titles = [];
+  recentInsights.forEach(insight => {
+    if (insight.metrics && insight.metrics.length > 0) {
+      insight.metrics.forEach(metric => {
+        if (metric.title) {
+          titles.push(metric.title);
+        }
+      });
+    }
+  });
+
+  if (titles.length === 0) {
+    return '';
+  }
+
+  return `\n\n## 🚫 metrics 블랙리스트 (최근 7일 내 지표 제목 - 절대 재사용 금지):\n${titles.join('\n')}\n`;
 }
 
 /**

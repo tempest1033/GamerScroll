@@ -1550,9 +1550,9 @@ function generateIssueDetailPage({ post, nav = {} }) {
 
   // 이슈 리포트 중간 광고
   const ISSUE_REPORT_SLOTS = [
-    AD_SLOTS.Responsive002,
-    AD_SLOTS.Responsive003,
-    AD_SLOTS.Responsive004
+    AD_SLOTS.ResponsivePC002,
+    AD_SLOTS.ResponsivePC003,
+    AD_SLOTS.ResponsivePC004
   ];
 
   const generateIssueAdSlot = (adIndex = 0) => {

@@ -74,8 +74,9 @@ ${rankingsSummary}
   ※ 순위 숫자를 임의로 바꾸지 말 것 - 제공된 데이터 그대로 사용
   ※ desc에만 웹 검색으로 파악한 변동 원인 작성 (업데이트, 이벤트, 할인, 논란 등)` : '';
 
-    // 최근 3주간 인사이트 요약 (반복 방지용)
+    // 최근 3주간 인사이트 요약 + 지표 블랙리스트 (반복 방지용)
     const prevWeekSummary = buildPrevWeekInsightsSummary(prevWeekInsights);
+    const metricsBlacklistSummary = buildWeeklyMetricsBlacklistSummary(prevWeekInsights);
 
     const prompt = `## 중요: 현재 시간 기준 정보
 - 현재 날짜: ${currentDate}
@@ -87,7 +88,7 @@ ${rankingsSummary}
 일간 리포트와 동일한 피드 형태로 표현됩니다.
 
 ## 지난 주 일일 리포트 요약:
-${dataSummary}${rankingsData}${prevWeekSummary}
+${dataSummary}${rankingsData}${prevWeekSummary}${metricsBlacklistSummary}
 
 ## 요청사항:
 1. 웹 검색으로 ${weekInfo.startDate} ~ ${weekInfo.endDate} 기간의 한국 게임 뉴스 조사
@@ -659,6 +660,34 @@ function buildPrevWeekInsightsSummary(prevWeekInsights) {
 5. 위 규칙 위반 시 결과물 무효 - 반드시 준수!`);
 
   return lines.join('\n');
+}
+
+/**
+ * 최근 N주 지표 블랙리스트 생성 (metrics 전용)
+ * @param {Array} prevWeekInsights - 최근 주간 인사이트 배열
+ * @returns {string} 블랙리스트 문자열
+ */
+function buildWeeklyMetricsBlacklistSummary(prevWeekInsights) {
+  if (!prevWeekInsights || prevWeekInsights.length === 0) {
+    return '';
+  }
+
+  const titles = [];
+  prevWeekInsights.forEach(insight => {
+    if (insight.metrics && insight.metrics.length > 0) {
+      insight.metrics.forEach(metric => {
+        if (metric.title) {
+          titles.push(metric.title);
+        }
+      });
+    }
+  });
+
+  if (titles.length === 0) {
+    return '';
+  }
+
+  return `\n\n## 🚫 metrics 블랙리스트 (최근 3주 내 지표 제목 - 절대 재사용 금지):\n${titles.join('\n')}\n`;
 }
 
 module.exports = {
