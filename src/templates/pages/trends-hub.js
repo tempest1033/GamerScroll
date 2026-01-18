@@ -8,6 +8,9 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot, generateNativeAdSlot } = require('../layout');
 
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 const nativeAd1 = generateNativeAdSlot(AD_SLOTS.Article001);
@@ -63,7 +66,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
           ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag">${badgeText}</span>
         </div>
-        <h3 class="trend-feed-card-title">${title}</h3>
+        <h3 class="trend-feed-card-title"><span class="trend-feed-card-title-text">${title}</span></h3>
       </a>
     `;
   };
@@ -83,7 +86,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
           ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag weekly">${badgeText}</span>
         </div>
-        <h3 class="trend-feed-card-title">${title}</h3>
+        <h3 class="trend-feed-card-title"><span class="trend-feed-card-title-text">${title}</span></h3>
       </a>
     `;
   };
@@ -99,7 +102,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
           ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="trend-feed-card-tag deepdive">${badgeText}</span>
         </div>
-        <h3 class="trend-feed-card-title">${post.title}</h3>
+        <h3 class="trend-feed-card-title"><span class="trend-feed-card-title-text">${post.title}</span></h3>
       </a>
     `;
   };
@@ -256,7 +259,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
           ${newsSources.slice(0, 2).map(source => generateNewsSection(source)).join('')}
         </div>
 
-        ${midAds}
+        ${isMobileBuild ? midAds : ''}
 
         <!-- 뉴스 섹션 2 (루리웹, 인벤) -->
         <div class="news-sources-grid">
