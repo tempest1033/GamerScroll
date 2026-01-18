@@ -23,17 +23,25 @@
 	    }
 
 	    .home-main {
-	      display: flex;
-	      flex-direction: column;
-	      gap: var(--space-block-gap);
+	      display: block;
 	      min-width: 0;
 	      overflow-x: clip;
 	    }
+	    .home-main > * {
+	      margin-bottom: var(--space-block-gap);
+	    }
+	    .home-main > *:last-child {
+	      margin-bottom: 0;
+	    }
 
     .home-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-block-gap);
+      display: block;
+    }
+    .home-sidebar > * {
+      margin-bottom: var(--space-block-gap);
+    }
+    .home-sidebar > *:last-child {
+      margin-bottom: 0;
     }
 
 	    /* 홈 카드 공통 */
