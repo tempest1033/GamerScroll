@@ -807,7 +807,6 @@ function wrapWithLayout(content, options = {}) {
 <html lang="ko">
 <head>
   ${generateHead({ title, description, keywords, canonical: mobileCanonical, pageData, articleSchema, noindex })}
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''} is-mobile">
   ${generateHeader()}

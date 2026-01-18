@@ -77,7 +77,7 @@ node generate-ai-insight.js
 ```
 - Claude API 호출하여 AI 분석 생성
 - 게임주 주가 데이터 수집
-- `reports/{date}-{AM|PM}.json`에 저장
+- `reports/{date}.json`에 저장
 - 소요 시간: 약 1-2분
 - **주의**: ANTHROPIC_API_KEY 필요
 
@@ -112,7 +112,7 @@ node generate-weekly-insight.js --force  # 강제 재생성
 │   ├── styles.css             # 스타일시트
 │   ├── CNAME                  # 커스텀 도메인
 │   └── reports/
-│       ├── {date}-{AM|PM}.json # 일별 인사이트 (배포용 복사본)
+│       ├── {date}.json        # 일별 인사이트 (배포용 복사본)
 │       └── weekly/
 │           └── {year}-W{week}.json # 주간 인사이트 (배포용 복사본)
 │
@@ -120,7 +120,9 @@ node generate-weekly-insight.js --force  # 강제 재생성
 │                              # → GamersCrawl-Mobile 저장소로 자동 배포
 │
 ├── reports/                   # 인사이트 데이터
-│   ├── {date}-{AM|PM}.json    # 일간 AI 인사이트 + 주가 + 순위분석
+│   ├── {date}.json            # 일간 AI 인사이트 + 주가 + 순위분석
+│   ├── issue/
+│   │   └── {slug}.json        # 이슈 리포트 (블로그형)
 │   └── weekly/
 │       └── {year}-W{week}.json # 주간 AI 인사이트
 │
@@ -177,7 +179,7 @@ node generate-weekly-insight.js --force  # 강제 재생성
 4. 인사이트 생성
    ├── 어제 데이터 로드: history/{yesterday}.json
    ├── 순위 변동 계산: generateDailyInsight()
-   └── AI 인사이트 로드: reports/{date}-{AM|PM}.json (현재 시간대 우선)
+   └── AI 인사이트 로드: reports/{date}.json
 
 5. HTML 생성: generateHTML() → index.html
 
@@ -214,9 +216,9 @@ node generate-weekly-insight.js --force  # 강제 재생성
    ├── AI가 추천한 종목 코드 매핑
    └── 전일 종가/등락률 스크래핑
 
-6. 저장: reports/{date}-{AM|PM}.json (KST 기준 오전/오후 구분)
+6. 저장: reports/{date}.json (KST 기준, 재생성 시 덮어씀)
    ├── ai: AI 인사이트 전체
-   ├── aiGeneratedAt: 생성 시각 (AM/PM 태그 표시용)
+   ├── aiGeneratedAt: 생성 시각
    ├── stockMap: {종목명: 코드} 맵
    └── stockPrices: {코드: 주가데이터} 맵
 ```
@@ -418,7 +420,7 @@ node scripts/process-review-queue.js [limit]
 
 ```
 1. 지난 주 월~일 날짜 계산
-2. 각 날짜별 일일 리포트 로드 (reports/{date}-PM.json 우선)
+2. 각 날짜별 일일 리포트 로드 (reports/{date}.json)
 3. 일일 리포트 데이터 요약
 4. Codex CLI 호출 (gpt-5.1)
 5. 주간 인사이트 JSON 생성 (일간과 동일한 구조)
@@ -469,7 +471,7 @@ node scripts/process-review-queue.js [limit]
 ## 문제 해결
 
 ### 게임주 현황이 안 보일 때
-1. `reports/{date}-AM.json` 또는 `reports/{date}-PM.json`에 `ai.stocks`, `stockPrices` 확인
+1. `reports/{date}.json`에 `ai.stocks`, `stockPrices` 확인
 2. 없으면: `node generate-ai-insight.js`
 3. HTML 재생성: `node generate-html-report.js -q`
 4. docs 복사: `cp index.html docs/index.html`
@@ -535,7 +537,7 @@ ANTHROPIC_API_KEY=...      # Claude API (AI 인사이트)
 - 트렌드 허브(피드): `game-container` + `trends-hub-container`
 - 게임 DB: `games-hub-container`
 - 인사이트/리포트: `insight-container`
-- Deep Dive 상세: `deep-dive-container` (템플릿의 `blog-article`에 함께 부여)
+- 이슈 리포트 상세: `issue-container` (템플릿의 `blog-article`에 함께 부여)
 
 ### 탭 규칙 (현행)
 - 기본 구성요소는 `.tab-group` + `.tab-btn` 입니다.
@@ -566,13 +568,13 @@ cd docs && npx serve -l 3000
 
 ---
 
-## 심층 리포트 작성 (Deep Dive)
+## 이슈 리포트 작성 (Issue)
 
 ### 개요
-- 게임 업계 트렌드를 깊이 분석하는 장문 콘텐츠
+- 다양한 주제에 대한 블로그형 이슈 글
 - 대화형으로 작성 (주제 논의 → 자료 조사 → 초안 → 수정 → 완성)
-- 저장 경로: `data/deep-dive/{slug}.json`
-- URL: `/trend/deep-dive/{slug}/`
+- 저장 경로: `reports/issue/{slug}.json`
+- URL: `/trend/issue/{slug}/`
 
 ### 작성 프로세스
 ```
@@ -580,7 +582,7 @@ cd docs && npx serve -l 3000
 2. 자료 조사 - 웹 검색으로 데이터 수집
 3. 초안 작성 - JSON 형식으로 작성
 4. 피드백 반영 - 사용자 의견 수정
-5. 최종 저장 - data/deep-dive/{slug}.json
+5. 최종 저장 - reports/issue/{slug}.json
 ```
 
 ### JSON 형식
@@ -613,12 +615,13 @@ cd docs && npx serve -l 3000
 ### 글 스타일 규칙
 | 항목 | 규칙 |
 |------|------|
-| **서론** | 3문장 (짧고 임팩트 있게) |
+| **서론** | 3-4문장 (핵심 요약 중심) |
+| **섹션 수** | 5-8개 (단락 기준) |
 | **본문** | 섹션당 4-5문장 |
 | **소제목** | 섹션마다 heading 사용 |
-| **이미지** | 소제목(heading) 바로 다음에 배치 |
+| **이미지** | 섹션마다 1개, 소제목(heading) 바로 다음에 배치 |
 | **광고** | 본문 중간에 2-3개 배치 |
-| **문체** | 친근한 설명체 (~입니다, ~있습니다) |
+| **문체** | 블로그형 설명체, 헤더 톤은 자유 |
 
 ### 이미지 배치 패턴
 ```
@@ -628,9 +631,9 @@ heading → image → text → text → ad → text
 
 ### 작성 요청 예시
 ```
-"방치형 게임 시장 분석 심층 리포트 써줘"
-"메이플 키우기 성공 요인 분석해줘"
-"2026년 모바일 게임 트렌드 리포트 작성해줘"
+"방치형 게임 시장 이슈 리포트 써줘"
+"메이플 키우기 성공 요인 이슈 리포트 작성해줘"
+"2026년 모바일 게임 트렌드 이슈 리포트 작성해줘"
 ```
 
 ### 빌드

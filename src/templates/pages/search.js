@@ -34,7 +34,8 @@ function generateSearchPage() {
     canonical: 'https://gamerscrawl.com/games/',
     currentPage: 'games',
     showSearchBar: true,
-    pageScripts: redirectScript
+    pageScripts: redirectScript,
+    noindex: true
   });
 }
 

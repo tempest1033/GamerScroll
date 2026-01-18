@@ -63,7 +63,7 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateDeepDiveDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage } = require('./src/templates/pages/trend');
 const { generateTrendsHubPage } = require('./src/templates/pages/trends-hub');
 const { generateNewsPage } = require('./src/templates/pages/news');
 const { generateCommunityPage } = require('./src/templates/pages/community');
@@ -515,7 +515,7 @@ async function main() {
   const dailyReports = [];
   if (fs.existsSync(REPORTS_DIR)) {
     const files = fs.readdirSync(REPORTS_DIR);
-    const dailyJsonFiles = files.filter(f => /^\d{4}-\d{2}-\d{2}(-[AP]M)?\.json$/.test(f));
+    const dailyJsonFiles = files.filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f));
 
     for (const file of dailyJsonFiles) {
       try {
@@ -594,14 +594,14 @@ async function main() {
     fs.mkdirSync(trendsDir, { recursive: true });
   }
 
-  // Deep Dive 데이터 로드 (hub에서 사용)
-  const DEEP_DIVE_DATA_DIR = './data/deep-dive';
-  let deepDivePosts = [];
-  if (fs.existsSync(DEEP_DIVE_DATA_DIR)) {
-    const files = fs.readdirSync(DEEP_DIVE_DATA_DIR).filter(f => f.endsWith('.json'));
-    deepDivePosts = files.map(f => {
+  // 이슈 리포트 데이터 로드 (hub에서 사용)
+  const ISSUE_REPORTS_DIR = './reports/issue';
+  let issueReports = [];
+  if (fs.existsSync(ISSUE_REPORTS_DIR)) {
+    const files = fs.readdirSync(ISSUE_REPORTS_DIR).filter(f => f.endsWith('.json'));
+    issueReports = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${DEEP_DIVE_DATA_DIR}/${f}`, 'utf8'));
+        return JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR}/${f}`, 'utf8'));
       } catch (e) {
         return null;
       }
@@ -627,7 +627,7 @@ async function main() {
         thumbnail: r.thumbnail,
         issues: r.issues
       })),
-      deepDivePosts: deepDivePosts.map(p => ({
+      issueReports: issueReports.map(p => ({
         slug: p.slug,
         title: p.title,
         date: p.date,
@@ -752,33 +752,33 @@ async function main() {
   }
   console.log(`  ✅ 주간 상세 페이지 ${weeklyReports.length}개 생성`);
 
-  // 6. Deep Dive 심층 리포트 페이지 생성 (trend/deep-dive/{slug}/index.html)
-  const deepDiveDir = `${trendsDir}/deep-dive`;
+  // 6. 이슈 리포트 페이지 생성 (trend/issue/{slug}/index.html)
+  const issueDir = `${trendsDir}/issue`;
 
-  if (deepDivePosts.length > 0) {
-    if (!fs.existsSync(deepDiveDir)) {
-      fs.mkdirSync(deepDiveDir, { recursive: true });
+  if (issueReports.length > 0) {
+    if (!fs.existsSync(issueDir)) {
+      fs.mkdirSync(issueDir, { recursive: true });
     }
 
-    for (let i = 0; i < deepDivePosts.length; i++) {
-      const post = deepDivePosts[i];
-      const pageDir = `${deepDiveDir}/${post.slug}`;
+    for (let i = 0; i < issueReports.length; i++) {
+      const post = issueReports[i];
+      const pageDir = `${issueDir}/${post.slug}`;
       if (!fs.existsSync(pageDir)) {
         fs.mkdirSync(pageDir, { recursive: true });
       }
 
       try {
         const nav = {
-          prev: deepDivePosts[i + 1] ? { slug: deepDivePosts[i + 1].slug, title: deepDivePosts[i + 1].title } : null,
-          next: deepDivePosts[i - 1] ? { slug: deepDivePosts[i - 1].slug, title: deepDivePosts[i - 1].title } : null
+          prev: issueReports[i + 1] ? { slug: issueReports[i + 1].slug, title: issueReports[i + 1].title } : null,
+          next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
         };
-        const html = generateDeepDiveDetailPage({ post, nav });
+        const html = generateIssueDetailPage({ post, nav });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
       } catch (err) {
-        console.error(`  ❌ trend/deep-dive/${post.slug}: ${err.message}`);
+        console.error(`  ❌ trend/issue/${post.slug}: ${err.message}`);
       }
     }
-    console.log(`  ✅ Deep Dive 페이지 ${deepDivePosts.length}개 생성`);
+    console.log(`  ✅ 이슈 리포트 페이지 ${issueReports.length}개 생성`);
   }
 
   // docs 폴더 동기화 (로컬 개발 환경용)
@@ -1005,14 +1005,14 @@ async function main() {
       })));
     }
 
-    // Deep Dive 페이지
-    const deepDiveSitemapDir = `${destTrendDir}/deep-dive`;
-    if (fs.existsSync(deepDiveSitemapDir)) {
-      const deepDiveFolders = fs.readdirSync(deepDiveSitemapDir).filter(f =>
-        fs.statSync(`${deepDiveSitemapDir}/${f}`).isDirectory()
+    // 이슈 리포트 페이지
+    const issueSitemapDir = `${destTrendDir}/issue`;
+    if (fs.existsSync(issueSitemapDir)) {
+      const issueFolders = fs.readdirSync(issueSitemapDir).filter(f =>
+        fs.statSync(`${issueSitemapDir}/${f}`).isDirectory()
       );
-      trendPages.push(...deepDiveFolders.map(slug => ({
-        loc: `${siteBaseUrl}/trend/deep-dive/${slug}/`,
+      trendPages.push(...issueFolders.map(slug => ({
+        loc: `${siteBaseUrl}/trend/issue/${slug}/`,
         changefreq: 'monthly',
         priority: '0.8'
       })));

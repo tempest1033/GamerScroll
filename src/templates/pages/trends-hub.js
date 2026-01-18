@@ -49,10 +49,10 @@ const formatDateKr = (dateStr) => {
  * @param {Object} params
  * @param {Array} params.dailyReports - 일간 리포트 목록 [{date, headline, summary, thumbnail}]
  * @param {Array} params.weeklyReports - 주간 리포트 목록 [{weekNumber, startDate, endDate, headline, summary, thumbnail}]
- * @param {Array} params.deepDivePosts - Deep Dive 목록 [{slug, title, date, thumbnail, summary}]
+ * @param {Array} params.issueReports - 이슈 리포트 목록 [{slug, title, date, thumbnail, summary}]
  * @param {Object} params.news - 뉴스 데이터 {thisisgame: [], gamemeca: [], ruliweb: [], inven: []}
  */
-function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDivePosts = [], news = {} }) {
+function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], issueReports = [], news = {} }) {
   // 일간 리포트 카드 렌더링 (피드 카드 스타일)
   const renderDailyCard = (report) => {
     const slug = report.date;
@@ -91,16 +91,16 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
     `;
   };
 
-  // Deep Dive 카드 렌더링
-  const renderDeepDiveCard = (post) => {
+  // 이슈 리포트 카드 렌더링
+  const renderIssueCard = (post) => {
     const thumbnail = fixUrl(post.thumbnail) || '';
-    const badgeText = post.date ? formatDateKr(post.date) : 'Deep Dive';
+    const badgeText = post.date ? formatDateKr(post.date) : '이슈 리포트';
 
     return `
-      <a href="/trend/deep-dive/${post.slug}/" class="trend-feed-card trend-feed-card-deepdive" data-type="deepdive">
+      <a href="/trend/issue/${post.slug}/" class="trend-feed-card trend-feed-card-issue" data-type="issue">
         <div class="trend-feed-card-image">
           ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="trend-feed-card-tag deepdive">${badgeText}</span>
+          <span class="trend-feed-card-tag issue">${badgeText}</span>
         </div>
         <h3 class="trend-feed-card-title"><span class="trend-feed-card-title-text">${post.title}</span></h3>
       </a>
@@ -110,7 +110,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
   // 카드 HTML
   const renderDailyCards = () => dailyReports.map(r => renderDailyCard(r)).join('');
   const renderWeeklyCards = () => weeklyReports.map(r => renderWeeklyCard(r)).join('');
-  const renderDeepDiveCards = () => deepDivePosts.map(p => renderDeepDiveCard(p)).join('');
+  const renderIssueCards = () => issueReports.map(p => renderIssueCard(p)).join('');
 
   // 뉴스 섹션 생성 (좌우 2열, 각 열에 카드 2개 + 리스트 3개)
   const generateNewsSection = (source) => {
@@ -195,11 +195,11 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
         ${topAds}
         <h1 class="visually-hidden">게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스</h1>
 
-        <!-- Deep Dive 섹션 -->
-        ${deepDivePosts.length > 0 ? `
-        <div class="home-card home-card-full trend-section" data-section="deepdive">
+        <!-- 이슈 리포트 섹션 -->
+        ${issueReports.length > 0 ? `
+        <div class="home-card home-card-full trend-section" data-section="issue">
           <div class="home-card-header">
-            <h2 class="home-card-title">Deep Dive</h2>
+            <h2 class="home-card-title">이슈 리포트</h2>
             <div class="trend-pagination">
               <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
               <span class="trend-page-index">1/1</span>
@@ -208,7 +208,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
           </div>
           <div class="home-card-body">
             <div class="trend-feed-grid">
-              ${renderDeepDiveCards()}
+              ${renderIssueCards()}
             </div>
           </div>
         </div>
@@ -276,8 +276,8 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], deepDive
       // PC: 4개, 모바일: 1개
       const isMobile = window.matchMedia('(max-width: 768px)').matches;
       const getPageSize = (sectionType) => {
-        // Deep Dive는 PC/모바일 모두 4개
-        if (sectionType === 'deepdive') return 4;
+        // 이슈 리포트는 PC/모바일 모두 4개
+        if (sectionType === 'issue') return 4;
         // 일간/주간 리포트: PC 4개, 모바일 1개
         return isMobile ? 1 : 4;
       };

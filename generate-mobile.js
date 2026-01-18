@@ -17,7 +17,7 @@ const OUTPUT_DIR = './docs-mobile';
 
 // 페이지별 템플릿 import (layout-mobile.js 사용)
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateDeepDiveDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage } = require('./src/templates/pages/trend');
 const { generateTrendsHubPage } = require('./src/templates/pages/trends-hub');
 const { generateGamePage } = require('./src/templates/pages/game');
 const { generateNewsPage } = require('./src/templates/pages/news');
@@ -645,15 +645,15 @@ async function generateMobilePages() {
           .sort((a, b) => b.weekNumber.localeCompare(a.weekNumber))
       : [];
 
-    // Deep Dive 데이터 로드
-    let deepDivePosts = [];
-    const deepDiveDir = './reports/deep-dive';
-    if (fs.existsSync(deepDiveDir)) {
-      deepDivePosts = fs.readdirSync(deepDiveDir)
+    // 이슈 리포트 데이터 로드
+    let issueReports = [];
+    const issueReportsDir = './reports/issue';
+    if (fs.existsSync(issueReportsDir)) {
+      issueReports = fs.readdirSync(issueReportsDir)
         .filter(f => f.endsWith('.json'))
         .map(f => {
           try {
-            const data = JSON.parse(fs.readFileSync(path.join(deepDiveDir, f), 'utf8'));
+            const data = JSON.parse(fs.readFileSync(path.join(issueReportsDir, f), 'utf8'));
             return { ...data, slug: f.replace('.json', '') };
           } catch { return null; }
         })
@@ -677,7 +677,7 @@ async function generateMobilePages() {
           return { slug: r.slug, weekNumber: r.weekNumber, summary: data.ai?.summary || '' };
         } catch { return { slug: r.slug, weekNumber: r.weekNumber, summary: '' }; }
       }),
-      deepDivePosts: deepDivePosts.slice(0, 6).map(p => ({
+      issueReports: issueReports.slice(0, 6).map(p => ({
         slug: p.slug, title: p.title, date: p.date, summary: p.summary
       })),
       news: cache?.news || {}
@@ -729,27 +729,27 @@ async function generateMobilePages() {
     }
     console.log(`  ✅ 주간 상세 페이지 ${weeklyReportsFiles.length}개 생성`);
 
-    // 4. Deep Dive 페이지 생성
-    if (deepDivePosts.length > 0) {
-      const deepDiveOutDir = path.join(mobileTrendDir, 'deep-dive');
-      if (!fs.existsSync(deepDiveOutDir)) fs.mkdirSync(deepDiveOutDir, { recursive: true });
+    // 4. 이슈 리포트 페이지 생성
+    if (issueReports.length > 0) {
+      const issueOutDir = path.join(mobileTrendDir, 'issue');
+      if (!fs.existsSync(issueOutDir)) fs.mkdirSync(issueOutDir, { recursive: true });
 
-      for (let i = 0; i < deepDivePosts.length; i++) {
-        const post = deepDivePosts[i];
+      for (let i = 0; i < issueReports.length; i++) {
+        const post = issueReports[i];
         try {
-          const pageDir = path.join(deepDiveOutDir, post.slug);
+          const pageDir = path.join(issueOutDir, post.slug);
           if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir, { recursive: true });
 
           const nav = {
-            prev: deepDivePosts[i + 1] ? { slug: deepDivePosts[i + 1].slug, title: deepDivePosts[i + 1].title } : null,
-            next: deepDivePosts[i - 1] ? { slug: deepDivePosts[i - 1].slug, title: deepDivePosts[i - 1].title } : null
+            prev: issueReports[i + 1] ? { slug: issueReports[i + 1].slug, title: issueReports[i + 1].title } : null,
+            next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
           };
 
-          const html = generateDeepDiveDetailPage({ post, nav });
+          const html = generateIssueDetailPage({ post, nav });
           fs.writeFileSync(path.join(pageDir, 'index.html'), html, 'utf8');
-        } catch (e) { console.warn(`  ⚠️ Deep Dive ${post.slug}: ${e.message}`); }
+        } catch (e) { console.warn(`  ⚠️ 이슈 리포트 ${post.slug}: ${e.message}`); }
       }
-      console.log(`  ✅ Deep Dive 페이지 ${deepDivePosts.length}개 생성`);
+      console.log(`  ✅ 이슈 리포트 페이지 ${issueReports.length}개 생성`);
     }
   } catch (e) {
     console.error(`  ❌ 트렌드 페이지 생성 실패: ${e.message}`);

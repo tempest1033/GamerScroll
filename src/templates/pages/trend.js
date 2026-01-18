@@ -1022,7 +1022,8 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       currentPage: 'trend',
       title: '게이머스크롤 | 게임 트렌드 리포트',
       description: '게임 트렌드 리포트를 찾을 수 없습니다.',
-      canonical: `https://gamerscrawl.com/trend/daily/${slug}/`
+      canonical: `https://gamerscrawl.com/trend/daily/${slug}/`,
+      noindex: true
     });
   }
 
@@ -1464,7 +1465,8 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
       currentPage: 'trend',
       title: '게이머스크롤 | 주간 게임 트렌드 리포트',
       description: '주간 게임 트렌드 리포트를 찾을 수 없습니다.',
-      canonical: `https://gamerscrawl.com/trend/weekly/${slug}/`
+      canonical: `https://gamerscrawl.com/trend/weekly/${slug}/`,
+      noindex: true
     });
   }
 
@@ -1528,36 +1530,37 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
 }
 
 /**
- * Deep Dive 심층 리포트 상세 페이지 생성
+ * 이슈 리포트 상세 페이지 생성
  * @param {Object} params
- * @param {Object} params.post - Deep Dive 포스트 데이터
+ * @param {Object} params.post - 이슈 리포트 포스트 데이터
  * @param {Object} params.nav - 이전/다음 포스트 정보
  */
-function generateDeepDiveDetailPage({ post, nav = {} }) {
+function generateIssueDetailPage({ post, nav = {} }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">포스트를 찾을 수 없습니다</div>', {
       currentPage: 'trend',
-      title: '게이머스크롤 | Deep Dive',
-      description: 'Deep Dive를 찾을 수 없습니다.',
-      canonical: 'https://gamerscrawl.com/trend/deep-dive/'
+      title: '게이머스크롤 | 이슈 리포트',
+      description: '이슈 리포트를 찾을 수 없습니다.',
+      canonical: 'https://gamerscrawl.com/trend/issue/',
+      noindex: true
     });
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
 
-	  // Deep Dive 중간 광고
-	  const DEEP_DIVE_SLOTS = [
-	    AD_SLOTS.Responsive002,
-	    AD_SLOTS.Responsive003,
-	    AD_SLOTS.Responsive004
-	  ];
+  // 이슈 리포트 중간 광고
+  const ISSUE_REPORT_SLOTS = [
+    AD_SLOTS.Responsive002,
+    AD_SLOTS.Responsive003,
+    AD_SLOTS.Responsive004
+  ];
 
-			  const generateDeepDiveAdSlot = (adIndex = 0) => {
-			    const slotId = DEEP_DIVE_SLOTS[adIndex % DEEP_DIVE_SLOTS.length];
-			    const adsHtml = generateAdSlot(slotId, { type: 'mobile-400' });
-			    if (!adsHtml) return '';
-			    return `<div class="blog-ad">${adsHtml}</div>`;
-			  };
+  const generateIssueAdSlot = (adIndex = 0) => {
+    const slotId = ISSUE_REPORT_SLOTS[adIndex % ISSUE_REPORT_SLOTS.length];
+    const adsHtml = generateAdSlot(slotId, { type: 'mobile-400' });
+    if (!adsHtml) return '';
+    return `<div class="blog-ad">${adsHtml}</div>`;
+  };
 
   // 관련 게임 찾기
   const findRelatedGames = (text, limit = 4) => {
@@ -1594,7 +1597,7 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
           `;
 
         case 'ad':
-          return generateDeepDiveAdSlot(adIndex++);
+          return generateIssueAdSlot(adIndex++);
 
         case 'quote':
           return `<blockquote class="blog-quote">${block.value}</blockquote>`;
@@ -1628,16 +1631,16 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
   // 네비게이션
   const navHtml = `
     <div class="trend-detail-nav">
-      ${nav.prev ? `<a href="/trend/deep-dive/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      ${nav.prev ? `<a href="/trend/issue/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
       <a href="/trend/" class="trend-nav-btn list">목록</a>
-      ${nav.next ? `<a href="/trend/deep-dive/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+      ${nav.next ? `<a href="/trend/issue/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
     </div>
   `;
 
   const pageContent = `
-    <section class="section active" id="deep-dive">
+    <section class="section active" id="issue">
       
-      <article class="blog-article page-container">
+      <article class="blog-article page-container issue-container">
         ${topAds}
 
         <div class="blog-card">
@@ -1677,10 +1680,10 @@ function generateDeepDiveDetailPage({ post, nav = {} }) {
     currentPage: 'trend',
     title: `${title} | 게이머스크롤`,
     description: summary || title,
-    keywords: '게임 분석, Deep Dive, 심층 리포트, 모바일 게임',
-    canonical: `https://gamerscrawl.com/trend/deep-dive/${slug}/`,
+    keywords: '게임 분석, 이슈 리포트, 게임 이슈, 모바일 게임',
+    canonical: `https://gamerscrawl.com/trend/issue/${slug}/`,
     articleSchema
   });
 }
 
-module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateDeepDiveDetailPage };
+module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage };

@@ -11,8 +11,38 @@ function generateHead(options = {}) {
     canonical = 'https://gamerscrawl.com',
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
-    noindex = false  // 검색엔진 인덱싱 제외 (thin content용)
+    noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
+    ogImage = ''
   } = options;
+
+  const normalizeMeta = (value) => String(value ?? '').replace(/[\r\n]+/g, ' ').trim();
+  const escapeHtmlAttr = (value) => normalizeMeta(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+  const escapeHtmlText = (value) => escapeHtmlAttr(value);
+  const jsonString = (value) => JSON.stringify(value == null ? '' : String(value))
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e');
+
+  const safeTitle = escapeHtmlText(title);
+  const safeDescription = escapeHtmlAttr(description);
+  const safeKeywords = escapeHtmlAttr(keywords || '');
+  const canonicalText = normalizeMeta(canonical);
+  const safeCanonical = escapeHtmlAttr(canonicalText);
+  const isMobileCanonical = canonicalText.startsWith('https://m.gamerscrawl.com');
+  const desktopCanonical = canonicalText.replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
+  const mobileCanonical = canonicalText.replace('https://gamerscrawl.com', 'https://m.gamerscrawl.com');
+  const alternateLink = isMobileCanonical
+    ? `<link rel="alternate" media="only screen and (min-width: 641px)" href="${escapeHtmlAttr(desktopCanonical)}">`
+    : `<link rel="alternate" media="only screen and (max-width: 640px)" href="${escapeHtmlAttr(mobileCanonical)}">`;
+  const resolvedOgImage = escapeHtmlAttr(
+    (typeof ogImage === 'string' && ogImage) ||
+    (articleSchema && typeof articleSchema.image === 'string' && articleSchema.image) ||
+    'https://gamerscrawl.com/og-image.png'
+  );
 
   // Article JSON-LD 생성 (리포트 페이지용)
   const articleJsonLd = articleSchema ? `
@@ -20,10 +50,10 @@ function generateHead(options = {}) {
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "${articleSchema.headline || title}",
-    "description": "${articleSchema.description || description}",
-    "datePublished": "${articleSchema.datePublished}",
-    ${articleSchema.dateModified ? `"dateModified": "${articleSchema.dateModified}",` : ''}
+    "headline": ${jsonString(articleSchema.headline || title)},
+    "description": ${jsonString(articleSchema.description || description)},
+    "datePublished": ${jsonString(articleSchema.datePublished)},
+    ${articleSchema.dateModified ? `"dateModified": ${jsonString(articleSchema.dateModified)},` : ''}
     "author": {
       "@type": "Organization",
       "name": "게이머스크롤",
@@ -40,9 +70,9 @@ function generateHead(options = {}) {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "${canonical}"
+      "@id": ${jsonString(canonicalText)}
     }${articleSchema.image ? `,
-    "image": "${articleSchema.image}"` : ''}
+    "image": ${jsonString(articleSchema.image)}` : ''}
   }
   </script>` : '';
 
@@ -51,7 +81,7 @@ function generateHead(options = {}) {
   return `
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
-	  <meta name="robots" content="noindex, nofollow">` : ''}
+	  <meta name="robots" content="noindex, follow">` : ''}
 	  <!-- Critical CSS: 레이아웃(폭) 선적용 (Auto ads/Side rail 첫 로드 안정화) -->
 	  <style>
 	    :root { --space-page-x: 16px; }
@@ -95,11 +125,12 @@ function generateHead(options = {}) {
 		      }
 		    })();
 		  </script>
-		  <title>${title}</title>
+		  <title>${safeTitle}</title>
   <!-- SEO -->
-  <meta name="description" content="${description}">
-  <meta name="keywords" content="${keywords}">
-  <link rel="canonical" href="${canonical}">
+  <meta name="description" content="${safeDescription}">
+  <meta name="keywords" content="${safeKeywords}">
+  <link rel="canonical" href="${safeCanonical}">
+  ${alternateLink}
   <!-- JSON-LD 구조화 데이터 -->
   <script type="application/ld+json">
   {
@@ -108,7 +139,7 @@ function generateHead(options = {}) {
     "name": "게이머스크롤",
     "alternateName": ["GAMERSCRAWL", "GAMERS CRAWL", "gamerscrawl.com", "게이머스크롤", "게이머 스크롤"],
     "url": "https://gamerscrawl.com/",
-    "description": "${description}",
+    "description": ${jsonString(description)},
     "publisher": {
       "@type": "Organization",
       "name": "게이머스크롤",
@@ -118,17 +149,17 @@ function generateHead(options = {}) {
   </script>${articleJsonLd}
   <!-- Open Graph / SNS 공유 -->
   <meta property="og:type" content="${articleSchema ? 'article' : 'website'}">
-  <meta property="og:title" content="${title}">
-  <meta property="og:description" content="${description}">
-  <meta property="og:image" content="https://gamerscrawl.com/og-image.png">
-  <meta property="og:url" content="${canonical}">
+  <meta property="og:title" content="${safeTitle}">
+  <meta property="og:description" content="${safeDescription}">
+  <meta property="og:image" content="${resolvedOgImage}">
+  <meta property="og:url" content="${safeCanonical}">
   <meta property="og:site_name" content="게이머스크롤">
   <meta property="og:locale" content="ko_KR">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${title}">
-  <meta name="twitter:description" content="${description}">
-  <meta name="twitter:image" content="https://gamerscrawl.com/og-image.png">
+  <meta name="twitter:title" content="${safeTitle}">
+  <meta name="twitter:description" content="${safeDescription}">
+  <meta name="twitter:image" content="${resolvedOgImage}">
   <meta name="twitter:site" content="@gamerscrawl">
   <meta name="twitter:creator" content="@gamerscrawl">
   <!-- Theme & Favicon -->

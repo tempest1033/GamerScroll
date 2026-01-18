@@ -24,9 +24,6 @@ async function generateXCard() {
   const today = getKSTDate();
   const yesterday = getKSTDate(-1);
   const candidates = [
-    `${reportsDir}/${today}-AM.json`,
-    `${reportsDir}/${yesterday}-PM.json`,
-    `${reportsDir}/${yesterday}-AM.json`,
     `${reportsDir}/${today}.json`,
     `${reportsDir}/${yesterday}.json`
   ];

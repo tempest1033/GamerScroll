@@ -50,9 +50,6 @@ async function postToX() {
   const today = getKSTDate();
   const yesterday = getKSTDate(-1);
   const candidates = [
-    `${REPORTS_DIR}/${today}-AM.json`,
-    `${REPORTS_DIR}/${yesterday}-PM.json`,
-    `${REPORTS_DIR}/${yesterday}-AM.json`,
     `${REPORTS_DIR}/${today}.json`,
     `${REPORTS_DIR}/${yesterday}.json`
   ];
