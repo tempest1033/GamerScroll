@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AI Insight Generator
  * Claude CLI를 호출하여 게임 업계 인사이트를 생성합니다.
  */

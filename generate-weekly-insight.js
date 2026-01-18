@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * 주간 AI 인사이트 생성 스크립트
  * 매주 월요일 0시(KST) 기준으로 지난주 핫이슈를 요약합니다.
