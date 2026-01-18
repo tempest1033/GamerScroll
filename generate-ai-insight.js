@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * AI 인사이트 생성 스크립트
  * 별도로 실행하여 AI 인사이트 JSON 저장
