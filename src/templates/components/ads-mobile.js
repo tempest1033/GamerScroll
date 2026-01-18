@@ -15,24 +15,26 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderMobileTopAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-mobile-top ad-eager">
+  return `<div class="ad-card ad-card-mobile-top">
   <ins class="adsbygoogle"
        style="display:inline-block;min-width:320px;min-height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
- * 모바일 중간 광고 (300x250) - Lazy Loading
+ * 모바일 중간 광고 (300x250)
  */
 function renderMobileMidAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-mobile-mid ad-lazy">
+  return `<div class="ad-card ad-card-mobile-mid">
   <ins class="adsbygoogle"
        style="display:inline-block;max-width:300px;width:100%;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -44,17 +46,18 @@ function renderMobileAd(slotId) {
 }
 
 /**
- * In-feed 네이티브 광고 - Lazy Loading
+ * In-feed 네이티브 광고
  */
 function renderNativeAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-native ad-lazy">
+  return `<div class="ad-card ad-card-native">
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-format="fluid"
        data-ad-layout-key="-7m+ex-1f-2m+ae"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 

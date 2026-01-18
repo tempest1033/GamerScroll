@@ -15,11 +15,12 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-pc-home ad-eager">
+  return `<div class="ad-card ad-card-pc-home">
   <ins class="adsbygoogle"
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -28,37 +29,40 @@ function renderPCHomeAd(slotId) {
  */
 function renderPCAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-pc ad-eager">
+  return `<div class="ad-card ad-card-pc">
   <ins class="adsbygoogle"
        style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
- * Vertical 광고 (300x600) - PC 사이드바용 - Lazy Loading
+ * Vertical 광고 (300x600) - PC 사이드바용
  */
 function renderVerticalAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-vertical ad-lazy">
+  return `<div class="ad-card ad-card-vertical">
   <ins class="adsbygoogle"
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
- * Rectangle 광고 (300x250) - PC 사이드바용 - Lazy Loading
+ * Rectangle 광고 (300x250) - PC 사이드바용
  */
 function renderRectangleAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-rectangle ad-lazy">
+  return `<div class="ad-card ad-card-rectangle">
   <ins class="adsbygoogle"
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 

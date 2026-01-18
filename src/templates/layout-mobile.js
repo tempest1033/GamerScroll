@@ -692,62 +692,8 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 로딩 - Google AdSense 표준 방식 + SDK 로드 콜백
-const adLazyLoadScript = `
-<script>
-(function() {
-  function loadAd(ad) {
-    if (!ad || ad.dataset.adLoaded) return;
-    ad.dataset.adLoaded = '1';
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch(e) {}
-  }
-
-  function initAds() {
-    // 상단 광고 즉시 로드
-    document.querySelectorAll('.ad-eager .adsbygoogle:not([data-ad-loaded])').forEach(loadAd);
-
-    // 나머지 광고 lazy loading
-    var lazyAds = document.querySelectorAll('.ad-lazy .adsbygoogle:not([data-ad-loaded])');
-    if (!lazyAds.length) return;
-
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) {
-            loadAd(e.target);
-            obs.unobserve(e.target);
-          }
-        });
-      }, { rootMargin: '300px 0px' });
-      lazyAds.forEach(function(ad) { obs.observe(ad); });
-    } else {
-      lazyAds.forEach(loadAd);
-    }
-  }
-
-  // DOM + SDK 모두 준비 후 실행
-  function tryInit() {
-    if (document.readyState !== 'loading') initAds();
-  }
-
-  // DOM 준비 시
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', tryInit);
-  } else {
-    tryInit();
-  }
-
-  // SDK 로드 완료 콜백
-  var prev = window.gcOnAdsSDKLoad;
-  window.gcOnAdsSDKLoad = function() {
-    if (typeof prev === 'function') prev();
-    tryInit();
-  };
-  if (window.gcAdsSDKLoaded) tryInit();
-})();
-</script>`;
+// 광고 로딩 - Google 표준 방식 (인라인 push 사용, 별도 스크립트 불필요)
+const adLazyLoadScript = ``;
 
 // Footer 모달
 const footerModalScript = `
