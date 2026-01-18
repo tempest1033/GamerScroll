@@ -748,6 +748,9 @@ const adLazyLoadScript = `
     initLazyAds();
   }
 
+  // DOMContentLoaded 전이라도 상단 광고는 가능한 즉시 로드
+  loadAds(document.querySelectorAll('.ad-eager .adsbygoogle:not([data-ad-loaded])'));
+
   // BFCache 복귀/탭 전환 시 광고 재초기화
   window.addEventListener('pageshow', function(event) {
     if (event.persisted) initLazyAds();
