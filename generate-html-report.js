@@ -12,7 +12,7 @@ if (isMobileBuild) {
 }
 
 // CI 환경에서 캐시가 최근 것이면 자동으로 퀵 모드 (크롤링 스킵)
-const CACHE_FRESHNESS_MINUTES = 25; // 30분 주기 - 5분 여유
+const CACHE_FRESHNESS_MINUTES = 30; // 30분 주기 - 캐시 최신이면 스킵
 if (!isQuickMode && process.env.CI && fs.existsSync('./data-cache.json')) {
   try {
     const cache = JSON.parse(fs.readFileSync('./data-cache.json', 'utf8'));

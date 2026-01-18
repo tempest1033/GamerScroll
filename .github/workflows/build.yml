@@ -1,4 +1,4 @@
-name: Build and Deploy Report
+﻿name: Build and Deploy Report
 
 on:
   schedule:
@@ -52,6 +52,15 @@ jobs:
           restore-keys: |
             playwright-${{ runner.os }}-
 
+      - name: Cache Puppeteer browser
+        uses: actions/cache@v4
+        id: puppeteer-cache
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            puppeteer-${{ runner.os }}-
+
       - name: Install dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci --prefer-offline
@@ -61,6 +70,7 @@ jobs:
         run: npx playwright install chromium
 
       - name: Install Puppeteer browser
+        if: steps.puppeteer-cache.outputs.cache-hit != 'true'
         run: npx puppeteer browsers install chrome
 
       - name: Generate report
