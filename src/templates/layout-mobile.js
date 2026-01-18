@@ -692,12 +692,26 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 Lazy Loading (IntersectionObserver)
-// .ad-lazy 클래스가 있는 광고는 뷰포트에 가까워지면 로드
+// 광고 로딩 (상단 즉시 + 나머지 Lazy Loading)
+// .ad-eager: 즉시 로드, .ad-lazy: 뷰포트 근접 시 로드
 const adLazyLoadScript = `
 <script>
 (function() {
+  function loadAds(ads) {
+    if (!ads || !ads.length) return;
+    ads.forEach(function(ad) {
+      if (ad.dataset.adLoaded) return;
+      ad.dataset.adLoaded = '1';
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    });
+  }
+
   function initLazyAds() {
+    var eagerAds = document.querySelectorAll('.ad-eager .adsbygoogle:not([data-ad-loaded])');
+    loadAds(eagerAds);
+
     var lazyAds = document.querySelectorAll('.ad-lazy .adsbygoogle:not([data-ad-loaded])');
     if (!lazyAds.length) return;
 
@@ -723,13 +737,7 @@ const adLazyLoadScript = `
       });
     } else {
       // IntersectionObserver 미지원 브라우저: 즉시 로드
-      lazyAds.forEach(function(ad) {
-        if (ad.dataset.adLoaded) return;
-        ad.dataset.adLoaded = '1';
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      });
+      loadAds(lazyAds);
     }
   }
 
@@ -739,6 +747,14 @@ const adLazyLoadScript = `
   } else {
     initLazyAds();
   }
+
+  // BFCache 복귀/탭 전환 시 광고 재초기화
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted) initLazyAds();
+  });
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') initLazyAds();
+  });
 })();
 </script>`;
 

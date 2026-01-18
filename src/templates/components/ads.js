@@ -15,7 +15,7 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
  */
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-pc-home ad-lazy">
+  return `<div class="ad-card ad-card-pc-home ad-eager">
   <ins class="adsbygoogle"
        style="display:inline-block;width:728px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
@@ -28,7 +28,7 @@ function renderPCHomeAd(slotId) {
  */
 function renderPCAd(slotId) {
   if (!slotId) return '';
-  return `<div class="ad-card ad-card-pc ad-lazy">
+  return `<div class="ad-card ad-card-pc ad-eager">
   <ins class="adsbygoogle"
        style="display:inline-block;width:970px;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
