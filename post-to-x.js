@@ -1,4 +1,4 @@
-/**
+﻿/**
  * X(Twitter) 자동 포스팅 스크립트
  * 생성된 이미지와 함께 트윗 게시
  *
@@ -89,7 +89,7 @@ async function postToX() {
     return `${d.getMonth() + 1}월 ${d.getDate()}일`;
   };
 
-  const tweetText = `${formatDate(insight.date)} 게임 업계 핫이슈 TOP 3
+  const tweetText = `${formatDate(insight.date)} 데일리 핫이슈 TOP3
 
 ${insight.issues.slice(0, 3).map((issue, i) =>
   `${i + 1}. ${issue.title}`
@@ -98,7 +98,7 @@ ${insight.issues.slice(0, 3).map((issue, i) =>
 자세한 내용은 👇
 https://gamerscrawl.com
 
-#게임 #게임순위 #모바일게임 #게이머스크롤`;
+#게임 #게임뉴스 #모바일게임 #게이머스크롤`;
 
   // Twitter 클라이언트 초기화
   const client = new TwitterApi({
