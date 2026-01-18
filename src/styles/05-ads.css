@@ -24,6 +24,7 @@
 /* PC 상단 광고 (970x90) */
 .ad-card-pc {
   width: 100%;
+  height: 90px;
 }
 
 /* PC 사이드바 - Vertical (300x600) */

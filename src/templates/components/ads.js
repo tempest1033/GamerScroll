@@ -33,7 +33,7 @@ function renderPCAd(slotId) {
   return `<div class="ad-card ad-card-pc">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
-       style="display:block;width:100%;min-height:90px"
+       style="display:block;width:100%;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
