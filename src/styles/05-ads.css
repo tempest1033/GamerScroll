@@ -74,18 +74,18 @@ main .ad-card {
   margin: var(--space-block-gap, 16px) 0 0 0;
 }
 
-/* page-container 중간 광고 (mid): gap이 간격 담당하므로 마진 0 */
+/* page-container 중간 광고 (mid): margin-bottom으로 간격 */
 .page-container > .ad-card:not(:first-child),
 .page-container .ad-card:not(:first-child) {
-  margin: 0;
+  margin-top: 0;
 }
 
 /* ===== 홈 페이지 (PC) ===== */
 
-/* home-container (PC 2컬럼): 광고 마진 */
+/* home-container (PC 2컬럼): margin-bottom으로 간격 */
 .home-main .ad-card,
 .home-sidebar .ad-card {
-  margin: 0;
+  margin-top: 0;
 }
 
 /* 모바일 홈: 사이드바 숨김 (PC 전용) */
