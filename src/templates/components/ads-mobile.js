@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 모바일 전용 광고 모듈
  * m.gamerscrawl.com에서 사용
  * PC/모바일 분기 없이 모바일 광고만 렌더링
@@ -18,7 +18,7 @@ function renderMobileTopAd(slotId) {
   return `<div class="ad-card ad-card-mobile-top">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
-       style="display:inline-block;min-width:320px;min-height:100px"
+       style="display:inline-block;width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -33,7 +33,7 @@ function renderMobileMidAd(slotId) {
   return `<div class="ad-card ad-card-mobile-mid">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
   <ins class="adsbygoogle"
-       style="display:inline-block;max-width:300px;width:100%;height:250px"
+       style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
