@@ -791,8 +791,8 @@ function wrapWithLayout(content, options = {}) {
     noindex = false
   } = options;
 
-  // canonical URL을 m. 도메인으로 변경
-  const mobileCanonical = canonical.replace('https://gamerscrawl.com', 'https://m.gamerscrawl.com');
+  // canonical URL을 PC 도메인으로 정규화
+  const desktopCanonical = canonical.replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
 
   // 페이지별 데이터 스크립트
   const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
@@ -806,7 +806,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical: mobileCanonical, pageData, articleSchema, noindex })}
+  ${generateHead({ title, description, keywords, canonical: desktopCanonical, pageData, articleSchema, noindex })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''} is-mobile">
   ${generateHeader()}

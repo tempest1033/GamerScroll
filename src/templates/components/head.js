@@ -36,8 +36,8 @@ function generateHead(options = {}) {
   const desktopCanonical = canonicalText.replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
   const mobileCanonical = canonicalText.replace('https://gamerscrawl.com', 'https://m.gamerscrawl.com');
   const alternateLink = isMobileCanonical
-    ? `<link rel="alternate" media="only screen and (min-width: 641px)" href="${escapeHtmlAttr(desktopCanonical)}">`
-    : `<link rel="alternate" media="only screen and (max-width: 640px)" href="${escapeHtmlAttr(mobileCanonical)}">`;
+    ? `<link rel="alternate" media="only screen and (min-width: 769px)" href="${escapeHtmlAttr(desktopCanonical)}">`
+    : `<link rel="alternate" media="only screen and (max-width: 768px)" href="${escapeHtmlAttr(mobileCanonical)}">`;
   const resolvedOgImage = escapeHtmlAttr(
     (typeof ogImage === 'string' && ogImage) ||
     (articleSchema && typeof articleSchema.image === 'string' && articleSchema.image) ||
