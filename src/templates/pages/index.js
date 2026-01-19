@@ -138,15 +138,16 @@ function generateIndexPage(data) {
       '</div>';
   }
 
+  // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
+  const formatDateKr = (dateStr) => {
+    if (!dateStr) return '';
+    const match = dateStr.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (!match) return dateStr;
+    return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
+  };
+
   // 홈 트렌드 (일간/주간 2컬럼 그리드)
   function generateHomeInsight() {
-    // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일)
-    const formatDateKr = (dateStr) => {
-      if (!dateStr) return '';
-      const match = dateStr.match(/(\d{4})-(\d{2})-(\d{2})/);
-      if (!match) return dateStr;
-      return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
-    };
 
     // 일간 리포트 데이터 (링크는 파일명 기준, 뱃지는 AI 응답 기준)
     const dailyHeadline = aiInsight?.headline || '일간 리포트';
