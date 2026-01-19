@@ -78,8 +78,9 @@ async function generateXCard() {
   await page.setViewportSize({ width: 1200, height: 675 });
   await page.goto(`file://${path.resolve(TEMP_HTML)}`);
 
-  // 폰트 로딩 대기
-  await page.waitForTimeout(1000);
+  // 폰트 및 이미지 로딩 대기
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(500);
 
   await page.screenshot({
     path: outputPath,
