@@ -626,6 +626,7 @@ cd docs && npx serve -l 3000
 | `text` | 본문 문단 | 4-5문장, `\n\n`으로 문단 구분 |
 | `heading` | 소제목 (h2) | 섹션 시작점 |
 | `image` | 이미지 + 캡션 | src, caption 필드 |
+| `video` | 유튜브 임베드 | url, caption 필드 (16:9 반응형) |
 | `ad` | 광고 삽입 위치 | 2-3개 배치 |
 | `quote` | 인용문 | 강조할 문장 |
 

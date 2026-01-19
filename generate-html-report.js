@@ -6,10 +6,16 @@ const { generateRSS } = require('./src/rss/generate-rss');
 // 커맨드라인 인자 파싱
 let isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
 const isMobileBuild = process.argv.includes('--mobile') || process.argv.includes('-m');
+const includeDrafts = process.argv.includes('--draft') || process.argv.includes('-d');
 
 // 모바일 빌드 시 환경변수 설정 (layout-mobile.js 사용)
 if (isMobileBuild) {
   process.env.MOBILE_BUILD = 'true';
+}
+
+// 드래프트 포함 모드 안내
+if (includeDrafts) {
+  console.log('📝 드래프트 모드: draft 상태 이슈 리포트 포함\n');
 }
 
 // CI 환경에서 캐시가 최근 것이면 자동으로 퀵 모드 (크롤링 스킵)
@@ -429,7 +435,7 @@ async function main() {
         return null;
       }
     })
-      .filter(p => p && p.status === 'approved')
+      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
@@ -623,7 +629,7 @@ async function main() {
         return null;
       }
     })
-      .filter(p => p && p.status === 'approved')
+      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 

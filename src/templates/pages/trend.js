@@ -1658,6 +1658,31 @@ function generateIssueDetailPage({ post, nav = {} }) {
           result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
           break;
 
+        case 'video':
+          // 유튜브 URL에서 video ID 추출
+          const videoUrl = block.url || '';
+          const videoMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+          if (videoMatch) {
+            const videoId = videoMatch[1];
+            const videoCaption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
+            result.push(`
+              <figure class="blog-figure blog-video">
+                <div class="blog-video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/${videoId}"
+                    title="${block.caption || 'YouTube video'}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy">
+                  </iframe>
+                </div>
+                ${videoCaption}
+              </figure>
+            `);
+          }
+          break;
+
         case 'heading':
           // 섹션 2개마다 heading 앞에 광고 삽입 (첫 heading 제외)
           sectionCount++;

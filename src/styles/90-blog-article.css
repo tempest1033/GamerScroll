@@ -170,6 +170,24 @@
   border-top: 1px solid var(--border);
 }
 
+/* 비디오 임베드 */
+.blog-video .blog-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  height: 0;
+  overflow: hidden;
+}
+
+.blog-video .blog-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* 인용문 */
 .blog-quote {
   margin: 24px 0;
