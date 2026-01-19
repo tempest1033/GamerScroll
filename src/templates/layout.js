@@ -17,7 +17,11 @@ const { generateFooter } = require('./components/footer');
 
 // 광고 슬롯 (PC + 모바일)
 const AD_SLOTS = {
-  // PC 홈 상단 (728x90)
+  // PC 홈 전용 (새 슬롯)
+  PCHome001: '6527917656',
+  PCHome002: '3901754316',
+  PCHome003: '7596444984',
+  // PC 홈 상단 (728x90) - deprecated
   ResponsivePCHome001: '4377097736',
   // PC 상단 (970x90)
   ResponsivePC001: '1795150514',
@@ -631,8 +635,29 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - Google 표준 방식 (인라인 push 사용)
-const adLazyLoadScript = ``;
+// 광고 초기화 - Intersection Observer 방식 (PC: 600px)
+const adLazyLoadScript = `
+<script>
+(function() {
+  var ads = document.querySelectorAll('.adsbygoogle');
+  if (!ads.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '600px' });
+
+  ads.forEach(function(ad) {
+    observer.observe(ad);
+  });
+})();
+</script>`;
 
 // Footer 모달(개인정보처리방침) 열기/닫기 공통 처리 (인라인 onclick 제거)
 const footerModalScript = `

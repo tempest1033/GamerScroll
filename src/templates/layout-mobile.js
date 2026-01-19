@@ -692,8 +692,29 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 광고 초기화 - Google 표준 방식 (인라인 push 사용)
-const adLazyLoadScript = ``;
+// 광고 초기화 - Intersection Observer 방식 (모바일: 1200px)
+const adLazyLoadScript = `
+<script>
+(function() {
+  var ads = document.querySelectorAll('.adsbygoogle');
+  if (!ads.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '1200px' });
+
+  ads.forEach(function(ad) {
+    observer.observe(ad);
+  });
+})();
+</script>`;
 
 // Footer 모달
 const footerModalScript = `

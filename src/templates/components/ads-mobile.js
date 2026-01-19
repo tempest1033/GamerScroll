@@ -3,8 +3,8 @@
  * m.gamerscrawl.com에서 사용
  * PC/모바일 분기 없이 모바일 광고만 렌더링
  *
- * 로딩 전략: Google 표준 방식 (인라인 push)
- * - 모든 광고 즉시 로드 (viewability 최대화)
+ * 로딩 전략: Intersection Observer 방식
+ * - 광고가 뷰포트에 가까워지면 로드 (layout.js에서 Observer 처리)
  */
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
@@ -19,7 +19,6 @@ function renderMobileTopAd(slotId) {
        style="display:block;width:100%;min-height:200px;max-height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -33,7 +32,6 @@ function renderMobileMidAd(slotId) {
        style="display:block;width:100%;min-height:200px;max-height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -56,7 +54,6 @@ function renderNativeAd(slotId) {
        data-ad-layout-key="-7m+ex-1f-2m+ae"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 

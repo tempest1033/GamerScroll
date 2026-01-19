@@ -3,8 +3,8 @@
  * gamerscrawl.com (PC 버전)에서 사용
  * 모바일 광고는 ads-mobile.js 참조
  *
- * 로딩 전략: Google 표준 방식 (인라인 push)
- * - 모든 광고 즉시 로드 (viewability 최대화)
+ * 로딩 전략: Intersection Observer 방식
+ * - 광고가 뷰포트에 가까워지면 로드 (layout.js에서 Observer 처리)
  */
 
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
@@ -19,7 +19,6 @@ function renderPCHomeAd(slotId) {
        style="display:block;width:728px;height:90px;margin:0 auto"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -33,7 +32,6 @@ function renderPCAd(slotId) {
        style="display:block;width:100%;height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -47,7 +45,6 @@ function renderVerticalAd(slotId) {
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -61,7 +58,6 @@ function renderRectangleAd(slotId) {
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 

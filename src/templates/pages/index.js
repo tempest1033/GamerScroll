@@ -662,7 +662,7 @@ function generateIndexPage(data) {
       '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
       '<div class="home-container">' +
       '<div class="home-main">' +
-      generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
+      generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001) +
       insightCardHtml +
       generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
       '<div class="home-card" id="home-news">' +
@@ -700,7 +700,7 @@ function generateIndexPage(data) {
         '</div>' +
         '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
       '</div>' +
-      generateVerticalAdSlot(AD_SLOTS.VerticalPC001) +
+      generateVerticalAdSlot(AD_SLOTS.PCHome002) +
       '<div class="home-card" id="home-steam">' +
         '<div class="home-card-header">' +
           '<h2 class="home-card-title">스팀 순위</h2>' +
@@ -713,7 +713,7 @@ function generateIndexPage(data) {
         '</div>' +
         '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
       '</div>' +
-      generateRectangleAdSlot(AD_SLOTS.RectanglePC001) +
+      generateRectangleAdSlot(AD_SLOTS.PCHome003) +
       '<div class="home-card" id="home-upcoming">' +
         '<div class="home-card-header">' +
           '<h2 class="home-card-title">출시 게임</h2>' +
