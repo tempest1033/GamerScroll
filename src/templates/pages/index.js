@@ -813,6 +813,17 @@ function generateIndexPage(data) {
     });
   </script>`;
 
+  // PC 홈페이지: 페이지 로드 완료 후 광고 초기화 (onload 방식)
+  if (!isMobileBuild) {
+    pageScripts += `<script>
+    (adsbygoogle = window.adsbygoogle || []).onload = function() {
+      [].forEach.call(document.getElementsByClassName('adsbygoogle'), function() {
+        adsbygoogle.push({});
+      });
+    };
+    </script>`;
+  }
+
   return wrapWithLayout(content, {
     currentPage: '',  // 홈에서는 nav active 없음
     title: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스',
