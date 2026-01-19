@@ -6,7 +6,7 @@
   margin-top: 40px;
   border-top: 1px solid var(--border);
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: var(--font-meta-size);
 }
 
 .site-footer a {
@@ -58,11 +58,11 @@
 .modal-content h3 {
   color: #aaa;
   margin-top: 20px;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
 }
 
 .modal-content p {
-  font-size: 13px;
+  font-size: var(--font-desc-size);
   line-height: 1.6;
 }
 
@@ -73,7 +73,7 @@
   background: none;
   border: none;
   color: #888;
-  font-size: 24px;
+  font-size: var(--font-xl-size);
   cursor: pointer;
 }
 
@@ -84,12 +84,12 @@
 .privacy-modal-list {
   margin: 10px 0;
   padding-left: 20px;
-  font-size: 13px;
+  font-size: var(--font-desc-size);
 }
 
 .privacy-modal-effective-date {
   margin-top: 20px;
   color: #666;
-  font-size: 12px;
+  font-size: var(--font-meta-size);
 }
 

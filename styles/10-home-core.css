@@ -23,33 +23,44 @@
 	    }
 
 	    .home-main {
-	      display: flex;
-	      flex-direction: column;
-	      gap: var(--space-block-gap);
+	      display: block;
 	      min-width: 0;
 	      overflow-x: clip;
 	    }
+	    .home-main > * {
+	      margin-bottom: var(--space-block-gap);
+	    }
+	    .home-main > *:last-child {
+	      margin-bottom: 0;
+	    }
 
     .home-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-block-gap);
+      display: block;
+    }
+    .home-sidebar > * {
+      margin-bottom: var(--space-block-gap);
+    }
+    .home-sidebar > *:last-child {
+      margin-bottom: 0;
     }
 
-    /* 홈 카드 공통 */
-    .home-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
+	    /* 홈 카드 공통 */
+	    .home-card {
+	      background: var(--card);
+	      border-radius: var(--radius);
+	      box-shadow: var(--shadow-sm);
+	      border: 1px solid var(--border);
+	      overflow: hidden;
+	      transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+	    }
 
-    .home-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
+	    .home-card:hover {
+	      box-shadow: var(--shadow);
+	    }
+
+    /* 풀 너비 카드 (그리드 내 2컬럼 차지) */
+    .home-card-full {
+      grid-column: 1 / -1;
     }
 
     .home-card-header {
@@ -66,7 +77,7 @@
 
     .home-card-title {
       font-size: var(--font-title-size);
-      font-weight: var(--font-title-weight);
+      font-weight: var(--font-card-title-weight);
       color: var(--text);
       display: flex;
       align-items: center;
@@ -137,6 +148,15 @@
       white-space: nowrap;
     }
 
+    .home-container .home-sidebar .home-card-controls {
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    .home-container .home-sidebar .home-card-header .home-chart-toggle {
+      padding: 0;
+    }
+
     .home-chart-toggle {
       display: flex;
       align-items: center;
@@ -147,7 +167,7 @@
     }
 
     .home-chart-toggle .tab-btn.small {
-      font-size: 13px !important;
+      font-size: var(--font-tab-size) !important;
       font-weight: var(--font-tab-weight) !important;
       padding: 5px 12px !important;
       border-radius: 4px;
@@ -247,20 +267,19 @@
       padding: 12px 16px 16px;
     }
 
-	    .home-trend-card {
-      display: block;
-	      background: #ffffff;
-	      border: 1px solid var(--border);
-	      border-radius: var(--radius);
-	      text-decoration: none;
-	      overflow: hidden;
-	      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-	    }
+		    .home-trend-card {
+	      display: block;
+		      background: #ffffff;
+		      border: 1px solid var(--border);
+		      border-radius: var(--radius);
+		      text-decoration: none;
+		      overflow: hidden;
+		      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+		    }
 
-    .home-trend-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    .home-trend-card:hover {
+	      box-shadow: var(--shadow-sm);
+	    }
 
     .home-trend-card-image {
       position: relative;
@@ -286,7 +305,7 @@
       top: 10px;
       left: 10px;
       padding: 4px 8px;
-      font-size: 10px;
+      font-size: var(--font-xs-size);
       font-weight: 500;
       color: rgba(255, 255, 255, 0.9);
       background: rgba(0, 0, 0, 0.5);
@@ -298,17 +317,22 @@
       background: rgba(0, 0, 0, 0.5);
     }
 
+    .home-trend-card-tag.issue {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
     .home-trend-card-title {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       margin: 0;
       padding: 12px;
       line-height: 1.4;
-      height: 60px;
+      min-height: 60px;
       box-sizing: border-box;
-      display: flex;
-      align-items: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
@@ -316,11 +340,11 @@
       .home-trend-grid {
         grid-template-columns: 1fr;
         gap: 12px;
-        padding: 8px 12px 12px;
+        padding: 0;
       }
 
       .home-trend-card-title {
-        padding: 12px 12px 14px;
+        padding: 12px 14px 14px;
       }
     }
 
@@ -594,25 +618,25 @@
       min-width: 0;
     }
 
-    .home-community-item {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
+	    .home-community-item {
+	      display: flex;
+	      flex-direction: row;
+	      align-items: center;
+	      gap: 12px;
       padding: 12px 14px;
       text-decoration: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-      min-width: 0;
-      max-width: 100%;
-    }
+	      background: var(--card-bg);
+	      border: 1px solid var(--border);
+	      border-radius: var(--radius-sm);
+	      transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+	      min-width: 0;
+	      max-width: 100%;
+	    }
 
-    .home-community-item:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow);
-    }
+	    .home-community-item:hover {
+	      background: var(--card-hover);
+	      box-shadow: var(--shadow-sm);
+	    }
 
     .home-community-icon {
       width: 24px;
@@ -623,7 +647,7 @@
 
     .home-community-title {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       line-height: 1.4;
       white-space: nowrap;
@@ -661,19 +685,18 @@
       gap: 10px;
     }
 
-    :is(.home-news-card, .home-video-card) {
-      text-decoration: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
+	    :is(.home-news-card, .home-video-card) {
+	      text-decoration: none;
+	      background: var(--card-bg);
+	      border: 1px solid var(--border);
+	      border-radius: var(--radius-sm);
+	      overflow: hidden;
+	      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+	    }
 
-    :is(.home-news-card:hover, .home-video-card:hover) {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    :is(.home-news-card:hover, .home-video-card:hover) {
+	      box-shadow: var(--shadow-sm);
+	    }
 
     :is(.home-news-card-thumb, .home-video-card-thumb) {
       position: relative;
@@ -694,7 +717,7 @@
       top: 10px;
       left: 10px;
       padding: 4px 8px;
-      font-size: 11px;
+      font-size: var(--font-small-size);
       font-weight: 600;
       color: #fff;
       background: rgba(0, 0, 0, 0.6);
@@ -704,7 +727,7 @@
 
     :is(.home-news-card-info, .home-video-card-info) {
       padding: 12px 12px 14px;
-      height: 70px;
+      min-height: 70px;
       box-sizing: border-box;
       display: flex;
       align-items: center;
@@ -736,14 +759,15 @@
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
       overflow: hidden;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
       height: 82px;
+      max-height: 82px;
     }
 
-    :is(.home-news-item:hover, .home-video-item:hover) {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    :is(.home-news-item:hover, .home-video-item:hover) {
+	      background: var(--card-hover);
+	      box-shadow: var(--shadow-sm);
+	    }
 
     :is(.home-news-item-thumb, .home-video-item-thumb) {
       position: relative;
@@ -765,7 +789,7 @@
       top: 6px;
       left: 6px;
       padding: 2px 5px;
-      font-size: 9px;
+      font-size: var(--font-micro-size);
       font-weight: 600;
       color: #fff;
       background: rgba(0, 0, 0, 0.6);
@@ -778,17 +802,21 @@
       padding: 10px;
       display: flex;
       align-items: center;
+      overflow: hidden;
     }
 
     :is(.home-news-title, .home-video-item-title) {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       line-height: 1.4;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 2.8em;
+      max-height: 2.8em;
     }
 
     /* 뉴스/비디오 모바일 반응형 */
@@ -815,6 +843,7 @@
 
       :is(.home-news-item, .home-video-item) {
         height: 76px;
+        max-height: 76px;
       }
 
       :is(.home-news-title, .home-video-item-title) {
@@ -1140,7 +1169,7 @@
       height: 32px;
       line-height: 32px;
       box-sizing: border-box;
-      font-size: 12px;
+      font-size: var(--font-tab-size);
     }
 
     .home-upcoming-tab:hover {
@@ -1175,11 +1204,14 @@
 
     @media (max-width: 768px) {
       .home-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: var(--space-block-gap);
+        display: block !important;
         padding: var(--space-block-y) 0;
+      }
+      .home-container > * {
+        margin-bottom: var(--space-block-gap);
+      }
+      .home-container > *:last-child {
+        margin-bottom: 0;
       }
 
       .home-sidebar {
@@ -1229,16 +1261,16 @@
       }
 
       /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) - search-hidden 제외 */
-      body:not(.search-hidden) :is(.page-container, .games-hub-container, .game-container, .insight-container, .home-container) {
+      body:not(.search-hidden) :is(.page-container, .home-container) {
         padding-top: 0 !important;
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .home-container {
         gap: var(--space-block-gap);
       }
-      /* 480px 패딩은 파일 끝 통합 블록에서 관리 */
+      /* 모바일 패딩은 파일 끝 통합 블록에서 관리 */
     }
 
     /* === Custom Scrollbar === */

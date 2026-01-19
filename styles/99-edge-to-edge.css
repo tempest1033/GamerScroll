@@ -45,6 +45,22 @@
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+
+  #home .page-container :is(
+    .home-trend-card,
+    .home-news-card,
+    .home-video-card,
+    .home-news-item,
+    .home-video-item,
+    .home-community-item,
+    .home-item,
+    .home-rank-row,
+    .home-steam-row,
+    .home-upcoming-row,
+    .popular-banner-item
+  ) {
+    border-radius: 0 !important;
+  }
 }
 
 /* 게임 DB 왼쪽으로 5px 이동 */

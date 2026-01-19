@@ -6,7 +6,7 @@
   min-height: 100vh;
 }
 
-.page-daily-insight .insight-container {
+.page-daily-insight .page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -18,7 +18,7 @@
 }
 
 .page-daily-insight .insight-date {
-  font-size: 2rem;
+  font-size: var(--font-stat-size);
   font-weight: 700;
   color: #fff;
 }
@@ -39,7 +39,7 @@
 .page-daily-insight .insight-tab {
   padding: 12px 32px;
   border-radius: 24px;
-  font-size: 15px;
+  font-size: var(--font-tab-size);
   font-weight: 600;
   cursor: pointer;
   border: 2px solid transparent;
@@ -75,7 +75,7 @@
 }
 
 .page-daily-insight .section-title {
-  font-size: 1.25rem;
+  font-size: var(--font-lg-size);
   font-weight: 600;
   color: #fff;
   margin-bottom: 16px;
@@ -146,7 +146,7 @@
 .page-daily-insight .change {
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: var(--font-badge-size);
   font-weight: 600;
 }
 
@@ -195,7 +195,7 @@
   color: #fff;
   padding: 2px 8px;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: var(--font-badge-size);
   flex-shrink: 0;
 }
 
@@ -263,7 +263,7 @@
   display: inline-block;
   background: #4f46e5;
   color: #fff;
-  font-size: 0.65rem;
+  font-size: var(--font-xs-size);
   padding: 2px 8px;
   border-radius: 4px;
   margin-bottom: 8px;
@@ -271,7 +271,7 @@
 }
 
 .page-daily-insight .ai-card-title {
-  font-size: 1rem;
+  font-size: var(--font-section-size);
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
@@ -279,7 +279,7 @@
 }
 
 .page-daily-insight .ai-card-desc {
-  font-size: 0.85rem;
+  font-size: var(--font-desc-size);
   color: #c7d2fe;
   line-height: 1.7;
   white-space: pre-line;
@@ -297,14 +297,14 @@
   border-radius: 8px;
   margin-bottom: 8px;
   color: #c7d2fe;
-  font-size: 0.9rem;
+  font-size: var(--font-desc-size);
   border-left: 3px solid #818cf8;
 }
 
 .page-daily-insight .ai-badge {
   background: #818cf8;
   color: #1e1b4b;
-  font-size: 0.6rem;
+  font-size: var(--font-micro-size);
   padding: 2px 6px;
   border-radius: 4px;
   margin-right: 8px;
@@ -318,7 +318,7 @@
 }
 
 .page-daily-insight .weekly-title {
-  font-size: 1.5rem;
+  font-size: var(--font-xl-size);
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
@@ -326,7 +326,7 @@
 
 .page-daily-insight .weekly-period {
   color: #9ca3af;
-  font-size: 14px;
+  font-size: var(--font-meta-size);
 }
 
 .page-daily-insight .metrics-grid {
@@ -361,20 +361,20 @@
 .page-daily-insight .metric-card.blue { border-color: #3b82f6; }
 
 .page-daily-insight .metric-label {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: #9ca3af;
   margin-bottom: 8px;
 }
 
 .page-daily-insight .metric-value {
-  font-size: 24px;
+  font-size: var(--font-2xl-size);
   font-weight: 700;
   color: #fff;
   margin-bottom: 4px;
 }
 
 .page-daily-insight .metric-sub {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: #6b7280;
 }
 
@@ -400,7 +400,7 @@
   display: inline-block;
   padding: 4px 10px;
   border-radius: 6px;
-  font-size: 11px;
+  font-size: var(--font-small-size);
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -412,7 +412,7 @@
 .page-daily-insight .highlight-tag.industry { background: rgba(34,197,94,0.2); color: #4ade80; }
 
 .page-daily-insight .highlight-title {
-  font-size: 16px;
+  font-size: var(--font-section-size);
   font-weight: 600;
   color: #fff;
   margin-bottom: 8px;
@@ -420,7 +420,7 @@
 }
 
 .page-daily-insight .highlight-desc {
-  font-size: 13px;
+  font-size: var(--font-desc-size);
   color: #9ca3af;
   line-height: 1.6;
 }
@@ -432,7 +432,7 @@
 }
 
 .page-daily-insight .weekly-coming-soon h3 {
-  font-size: 18px;
+  font-size: var(--font-title-size);
   margin-bottom: 8px;
   color: #9ca3af;
 }

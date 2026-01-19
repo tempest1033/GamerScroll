@@ -36,20 +36,19 @@
     }
 
     /* News Thumbnail Card */
-    .news-grid-card {
-      display: block;
-      text-decoration: none;
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
+	    .news-grid-card {
+	      display: block;
+	      text-decoration: none;
+	      background: var(--card-bg);
+	      border-radius: var(--radius);
+	      overflow: hidden;
+	      border: 1px solid var(--border);
+	      transition: box-shadow 0.15s, border-color 0.15s;
+	    }
 
-    .news-grid-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    .news-grid-card:hover {
+	      box-shadow: var(--shadow-sm);
+	    }
 
     .news-grid-card-thumb {
       aspect-ratio: 16/9;
@@ -85,7 +84,7 @@
     .news-grid-card-title {
       padding: 12px;
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -111,7 +110,7 @@
 
     .news-grid-item-title {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 1;
@@ -146,7 +145,7 @@
 
       .news-grid-card-title {
         padding: 10px;
-        font-size: 13px;
+        font-size: var(--font-desc-size);
       }
 
       .news-grid-item {
@@ -154,7 +153,7 @@
       }
 
       .news-grid-item-title {
-        font-size: 13px;
+        font-size: var(--font-desc-size);
       }
     }
 
@@ -265,7 +264,7 @@
       /* 접힌 상태 - 국가명 숨김 */
       .country-column:not(.rank-column) .country-name { display: none; }
       .country-column.expanded .country-name, .rank-column + .country-column:not(.collapsed) .country-name { display: block; }
-      .flag { font-size: 1.1rem; }
+      .flag { font-size: var(--font-body-size); }
       .rank-row { padding: 5px 3px; gap: 3px; flex-direction: column; align-items: center; }
       .rank-num { width: 20px; height: 20px; font-size: var(--font-xs-size); border-radius: 4px; }
       /* 선택되지 않은 국가의 행 높이 고정 */
@@ -283,7 +282,7 @@
       .app-dev { font-size: var(--font-micro-size); }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
       .nav-item { padding: 10px 12px; gap: 4px; }
       .nav-item svg { width: 14px; height: 14px; }
       .logo-svg { height: 36px; }
@@ -296,7 +295,7 @@
       .country-column.expanded .app-icon, .rank-column + .country-column:not(.collapsed) .app-icon { width: 24px; height: 24px; }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       :root { --space-page-x: 8px; }
       /* 좌우 여백 8px 통일 */
 	      :is(.site-container, .container) { padding: 0 var(--space-page-x) 40px; }
@@ -356,34 +355,4 @@
 
     }
 
-    @media (max-width: 360px) {
-      .nav-item { padding: 6px 8px; gap: 2px; font-size: var(--font-nav-size) !important; font-weight: var(--font-nav-weight) !important; }
-      .nav-item svg { width: 12px; height: 12px; }
-      .logo-svg { height: 28px; }
-      .news-favicon { width: 12px; height: 12px; }
-      /* 순위 - 통일된 크기 */
-      .rank-num { width: 20px; height: 20px; font-size: var(--font-micro-size); }
-      .steam-rank { width: 20px; height: 20px; font-size: var(--font-micro-size); }
-      .upcoming-rank { width: 20px; height: 20px; font-size: var(--font-micro-size); }
-      .app-icon { width: 20px; height: 20px; border-radius: 4px; }
-      .country-column.expanded { flex: 4; }
-      .country-column.expanded .app-icon { width: 20px; height: 20px; }
-      .app-name { font-size: var(--font-micro-size); }
-      .app-dev { display: none; }
-
-      /* Steam 테이블 초소형 모바일 - 6px 통일 */
-      .steam-table-row {
-        grid-template-columns: 28px 1fr 70px;
-        padding: 8px 6px;
-        gap: 6px;
-      }
-      .steam-img {
-        width: 50px;
-        height: 24px;
-      }
-	      .steam-col-players {
-	        font-size: var(--font-small-size);
-	      }
-
-	      /* 홈 모바일 패딩 통합은 30-responsive.css에서 관리 */
-	    }
+    /* 홈 모바일 패딩 통합은 30-responsive.css에서 관리 */

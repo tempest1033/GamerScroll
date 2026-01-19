@@ -1,6 +1,6 @@
 ﻿/* 게임 페이지 모바일 반응형 */
 @media (max-width: 768px) {
-  .game-container {
+  #game .page-container {
   min-height: calc(100vh - 250px);
     padding-bottom: var(--space-block-y);
   }
@@ -16,7 +16,7 @@
   }
 
   .game-hero-title {
-    font-size: 20px;
+    font-size: var(--font-heading-size);
   }
 
   .game-hero-stats {
@@ -26,7 +26,7 @@
     justify-content: space-around;
   }
 
-  .game-grid {
+  .page-container.game-page-grid {
     grid-template-columns: 1fr;
   }
 
@@ -42,7 +42,7 @@
   /* 요약 뷰 - 아이템 패딩만 조정 */
   .realtime-content[data-realtime-view="summary"].active .game-rank-col-header {
     padding: 8px 10px;
-    font-size: 13px;
+    font-size: var(--font-desc-size);
   }
 
   .realtime-content[data-realtime-view="summary"].active .game-rank-country-row {
@@ -50,7 +50,7 @@
   }
 
   .realtime-content[data-realtime-view="summary"].active .game-rank-country-flag {
-    font-size: 16px;
+    font-size: var(--font-section-size);
     width: 24px;
   }
 
@@ -60,11 +60,11 @@
   }
 
   .realtime-content[data-realtime-view="summary"].active .game-rank-country-name {
-    font-size: 13px;
+    font-size: var(--font-desc-size);
   }
 
   .realtime-content[data-realtime-view="summary"].active .game-rank-country-value {
-    font-size: 14px;
+    font-size: var(--font-desc-size);
   }
 
   .gm-items-grid {
@@ -140,7 +140,7 @@
   body.search-hidden :is(.site-container, .container) {
     padding-top: 56px !important;
   }
-  body.search-hidden .games-hub-container {
+  body.search-hidden #games .page-container {
     padding-top: 56px !important;
   }
 
@@ -222,7 +222,7 @@
 
   /* placeholder 폰트 크기 - 네비와 균형 맞춤 */
   .search-input {
-    font-size: 14px;
+    font-size: var(--font-body-size);
   }
 
   /* 검색 버튼 아이콘 크기 키움 */

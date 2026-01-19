@@ -1726,7 +1726,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
     currentPage: 'trend',
     title: `${title} | 게이머스크롤`,
     description: summary || title,
-    keywords: '게임 분석, 이슈 리포트, 게임 이슈, 모바일 게임',
+    keywords: post.keywords || '게임 분석, 이슈 리포트, 게임 이슈, 모바일 게임',
     canonical: `https://gamerscrawl.com/trend/issue/${slug}/`,
     articleSchema
   });

@@ -12,11 +12,11 @@
 }
 
 .game-rank-section-icon {
-  font-size: 16px;
+  font-size: var(--font-section-size);
 }
 
 .game-rank-section-title {
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 600;
   color: var(--text);
 }
@@ -33,12 +33,12 @@
 }
 
 .game-steam-stat-label {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: var(--text-tertiary);
 }
 
 .game-steam-stat-value {
-  font-size: 16px;
+  font-size: var(--font-section-size);
   font-weight: 600;
   color: var(--text);
 }

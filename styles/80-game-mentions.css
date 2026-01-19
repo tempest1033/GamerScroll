@@ -37,7 +37,7 @@
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: var(--font-title-size);
   font-weight: 700;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .gm-page-index {
-  font-size: 15px;
+  font-size: var(--font-body-size);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.8);
   min-width: 48px;
@@ -92,7 +92,6 @@
 }
 
 .gm-item:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-color: rgba(0, 0, 0, 0.15);
   background: rgba(0, 0, 0, 0.02);
@@ -123,7 +122,7 @@
 
 .gm-item-type {
   padding: 3px 8px;
-  font-size: 11px;
+  font-size: var(--font-badge-size);
   font-weight: 600;
   border-radius: 4px;
   background: var(--bg-secondary);
@@ -155,7 +154,6 @@ a.gm-item {
 }
 
 a.gm-item:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
@@ -173,7 +171,7 @@ a.gm-item:hover {
 
 
 .gm-rank-badge {
-  font-size: 11px;
+  font-size: var(--font-meta-size);
   font-weight: 500;
   color: var(--text-secondary);
 }
@@ -183,7 +181,7 @@ a.gm-item:hover {
 
 .gm-item-date {
   margin-left: auto;
-  font-size: 11px;
+  font-size: var(--font-meta-size);
   color: var(--text-tertiary);
 }
 
@@ -212,5 +210,11 @@ a.gm-item:hover {
   }
   .gm-item-desc {
     color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  .gm-item-desc {
+    font-size: var(--font-body-size);
   }
 }

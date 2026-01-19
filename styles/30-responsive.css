@@ -9,12 +9,15 @@
   /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
     padding: 0 0 var(--space-block-y) 0 !important;
-    gap: var(--space-block-gap) !important;
   }
 
   /* 카드 헤더 */
   .home-card-header {
     padding: 10px 12px !important;
+  }
+
+  .home-card-title {
+    font-size: var(--font-section-size);
   }
 
   /* 카드 바디 - 좌우 패딩 없음 */
@@ -113,12 +116,11 @@
 
 }
 
-/* === 모바일 (480px 이하) === */
-@media (max-width: 480px) {
+/* === 모바일 (768px 이하) === */
+@media (max-width: 768px) {
   /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
     padding: 0 0 var(--space-block-y) 0 !important;
-    gap: var(--space-block-gap) !important;
   }
 
   /* 데일리 포커스 문구 */
@@ -128,13 +130,7 @@
 
   .home-daily-focus-text {
     padding: 12px !important;
-    font-size: 15px !important;
-  }
-
-  @media (max-width: 360px) {
-    .home-daily-focus-text {
-      font-size: 14px !important;
-    }
+    font-size: var(--font-body-size) !important;
   }
 
   /* 카드 헤더 */
@@ -168,7 +164,7 @@
     font-size: var(--font-tab-size);
   }
 
-  /* 인사이트 페이지 탭 - 480px */
+  /* 인사이트 페이지 탭 - 모바일 */
   .insight-tabs {
     margin: 0 0 10px 0 !important;
     padding: 4px !important;
@@ -219,113 +215,13 @@
     padding: 6px 8px !important;
   }
 
-  /* 인사이트 스플릿 - 헤더와 정렬 (480px) */
+  /* 인사이트 스플릿 - 헤더와 정렬 (모바일) */
   .home-insight-split {
     padding: 6px 8px !important;
   }
 
   .home-insight-item {
     padding: 12px;
-  }
-}
-
-/* === 작은 화면 (360px 이하) === */
-@media (max-width: 360px) {
-  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
-  .home-container {
-    padding: 0 0 var(--space-block-y) 0 !important;
-    gap: var(--space-block-gap) !important;
-  }
-
-  /* 카드 헤더 */
-  .home-card-header {
-    padding: 6px !important;
-  }
-
-  /* 카드 바디 */
-  .home-card-body {
-    padding: 4px 0 !important;
-  }
-
-  /* 탭 그룹 */
-  .home-rank-tabs {
-    margin: 0 6px 4px 6px !important;
-  }
-
-  /* 커뮤니티 탭 텍스트 축약 */
-  .tab-text-dcinside {
-    font-size: 0;
-  }
-  .tab-text-dcinside::after {
-    content: '디시';
-    font-size: var(--font-tab-size);
-  }
-  .tab-text-arca {
-    font-size: 0;
-  }
-  .tab-text-arca::after {
-    content: '아카';
-    font-size: var(--font-tab-size);
-  }
-
-  /* 인사이트 페이지 탭 - 360px */
-  .insight-tabs {
-    margin: 0 0 8px 0 !important;
-    padding: 3px !important;
-  }
-
-  /* 뉴스/영상 카드 */
-  .home-news-card,
-  .home-video-card {
-    margin: 0 6px 6px 6px !important;
-  }
-
-  /* 리스트 컨테이너 */
-  .home-news-list,
-  .home-video-list {
-    padding: 0 6px !important;
-  }
-
-  /* 뉴스/영상 아이템 */
-  .home-news-item,
-  .home-video-item {
-    padding: 6px !important;
-  }
-
-  /* 일반 아이템 */
-  .home-item {
-    padding: 6px !important;
-  }
-
-  /* 순위/스팀/출시예정 행 */
-  .home-steam-row,
-  .home-upcoming-row,
-  .home-rank-row {
-    padding: 6px !important;
-  }
-
-  /* 탭 그룹 (카드 바디 내) */
-  .home-card-body .tab-group {
-    margin: 0 6px 4px 6px !important;
-  }
-
-  /* 인사이트 그리드 */
-  .home-insight-grid {
-    padding: 4px 6px !important;
-  }
-
-  /* 인사이트 스크롤 - 헤더와 정렬 */
-  .home-insight-scroll {
-    padding: 4px 6px !important;
-  }
-
-  /* 인사이트 스플릿 - 헤더와 정렬 (360px) */
-  .home-insight-split {
-    padding: 4px 6px !important;
-  }
-
-  .home-insight-item {
-    padding: 10px;
   }
 }
 
@@ -338,9 +234,13 @@
 }
 
 .insight-panel.active {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-block-y);
+  display: block;
+}
+.insight-panel.active > * {
+  margin-bottom: var(--space-block-y);
+}
+.insight-panel.active > *:last-child {
+  margin-bottom: 0;
 }
 
 /* 주간 리포트 헤더 카드 (피드 스타일) - 라이트모드 */
@@ -404,6 +304,10 @@
   color: #fff;
 }
 
+.weekly-header-card .weekly-header-meta {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .weekly-header-card .weekly-header-ampm-tag.am {
   background: rgba(255, 255, 255, 0.25);
   color: #fff;
@@ -434,6 +338,9 @@
     background: rgba(0, 0, 0, 0.6);
   }
   .home-trend-card-tag.weekly {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .home-trend-card-tag.issue {
     background: rgba(0, 0, 0, 0.6);
   }
   /* 로고 배지/텍스트 */
@@ -560,7 +467,7 @@
 }
 
 .weekly-header-headline {
-  font-size: 0.95rem;
+  font-size: var(--font-body-size);
   font-weight: 500;
   color: var(--text-secondary);
   margin: 0 0 12px 0;
@@ -590,7 +497,7 @@
   align-items: center;
   gap: 6px;
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--font-meta-size);
   font-weight: 400;
   opacity: 0.7;
   margin-top: 4px;
@@ -598,29 +505,29 @@
 
 .weekly-header-period {
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--font-meta-size);
   font-weight: 400;
 }
 
 .weekly-header-divider {
   opacity: 0.4;
-  font-size: 0.7rem;
+  font-size: var(--font-small-size);
 }
 
 .weekly-header-week {
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--font-meta-size);
   font-weight: 400;
 }
 
 .weekly-header-desc {
   font-size: var(--font-desc-size);
   font-weight: var(--font-desc-weight);
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.92);
   line-height: var(--font-desc-line-height);
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .demo-badge {

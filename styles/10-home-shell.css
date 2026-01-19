@@ -28,7 +28,7 @@
     .header-date {
       position: absolute;
       right: 24px;
-      font-size: 0.9rem;
+      font-size: var(--font-meta-size);
       font-weight: var(--font-meta-weight);
       color: var(--text-secondary);
       background: var(--glass-bg);
@@ -286,10 +286,14 @@
 	    }
 
 	    /* Common Page Containers - 세로 스택 레이아웃 */
-	    :is(.page-container, .games-hub-container, .game-container, .insight-container) {
-	      display: flex;
-	      flex-direction: column;
-	      gap: var(--space-block-gap);
+	    .page-container {
+	      display: block;
+	    }
+	    .page-container > * {
+	      margin-bottom: var(--space-block-gap);
+	    }
+	    .page-container > *:last-child {
+	      margin-bottom: 0;
 	    }
 
 	    /* Page Container - footer 하단 고정 */
@@ -332,6 +336,6 @@
 	    }
 
 	    /* 페이지 컨테이너 - 광고 패딩만 사용 */
-	    :is(.page-container, .games-hub-container, .game-container) {
+	    .page-container {
 	      padding-top: 0;
 	    }

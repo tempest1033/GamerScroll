@@ -3,7 +3,6 @@
   - 실제 스타일은 src/styles/*.css 로 분리되어 있습니다.
   - import 순서(캐스케이드)를 변경하지 마세요.
 */
-
     /* 가로 스크롤 방지 (PC 포함) - AdSense Side Rail 호환성 */
     html {
       overflow-x: clip;
@@ -239,27 +238,29 @@
       --text-muted: #525252; /* 대비 7:1+ */
       --text-tertiary: #6b6b6b; /* 보조 텍스트 */
 
-      /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
-      --font-title-size: 18px;
-      --font-title-weight: 700;
-      --font-body-size: 16px;
-      --font-desc-size: 15px;
-      --font-body-weight: 600;
-      --font-desc-weight: 500;
-      --font-body-line-height: 1.7;
+	      /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
+	      --font-title-size: 20px;
+	      --font-title-weight: 600;
+	      --font-card-title-weight: 700;
+	      --font-item-weight: 600;
+	      --font-body-size: 17px;
+	      --font-desc-size: 16px;
+	      --font-body-weight: 500;
+	      --font-desc-weight: 400;
+	      --font-body-line-height: 1.7;
 
       /* === Typography - UI 요소 (탭, 배지, 네비 등) === */
-      --font-tab-size: 15px;
-      --font-tab-weight: 700;
-      --font-badge-size: 12px;
-      --font-badge-weight: 800;
-      --font-small-size: 12px;
-      --font-nav-size: 16px;
-      --font-nav-weight: 700;
+	      --font-tab-size: 14px;
+	      --font-tab-weight: 700;
+	      --font-badge-size: 11px;
+	      --font-badge-weight: 700;
+	      --font-small-size: 11px;
+	      --font-nav-size: 15px;
+	      --font-nav-weight: 700;
 
       /* === Typography - 순위 테이블 (스팀, 모바일 등) === */
       --font-rank-name-size: 14px;
-      --font-rank-name-weight: 700;
+      --font-rank-name-weight: var(--font-item-weight);
       --font-rank-name-color: var(--text);
       --font-rank-dev-size: 12px;
       --font-rank-dev-weight: 500;
@@ -272,7 +273,7 @@
 
       /* 소형 (10-11px) - 배지 내부, 순위 숫자, 보조 정보 */
       --font-xs-size: 10px;
-      --font-meta-size: 11px;
+      --font-meta-size: 12px;
 
       /* === Typography - 소스 태그 (언론사, 채널명 등) === */
       --font-source-size: var(--font-small-size);
@@ -281,7 +282,7 @@
 
       /* 중형 (16px) - 섹션 제목 */
       --font-section-size: 16px;
-      --font-section-weight: 700;
+      --font-section-weight: var(--font-title-weight);
 
       /* 대형 (18-20px) - 큰 제목, 강조 텍스트 */
       --font-heading-size: 18px;
@@ -307,22 +308,22 @@
       --font-meta-weight: 500; /* 메타 텍스트 굵기 */
       --font-desc-line-height: 1.6; /* 설명 텍스트 행간 */
 
-      /* === Shadows (Multi-layer Soft) - 개선 === */
-      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.03), 0 1px 3px rgb(0 0 0 / 0.02);
-      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 2px 6px rgb(0 0 0 / 0.03);
-      --shadow: 0 2px 4px rgb(0 0 0 / 0.03), 0 4px 12px rgb(0 0 0 / 0.05), 0 8px 24px rgb(0 0 0 / 0.04);
-      --shadow-lg: 0 4px 8px rgb(0 0 0 / 0.04), 0 12px 24px rgb(0 0 0 / 0.06), 0 24px 48px rgb(0 0 0 / 0.05);
-      --shadow-xl: 0 8px 16px rgb(0 0 0 / 0.04), 0 24px 48px rgb(0 0 0 / 0.08), 0 48px 96px rgb(0 0 0 / 0.06);
+	      /* === Shadows (Multi-layer Soft) - 개선 === */
+	      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.03), 0 1px 3px rgb(0 0 0 / 0.02);
+	      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 2px 6px rgb(0 0 0 / 0.03);
+	      --shadow: 0 2px 4px rgb(0 0 0 / 0.03), 0 4px 12px rgb(0 0 0 / 0.05);
+	      --shadow-lg: 0 4px 8px rgb(0 0 0 / 0.04), 0 12px 24px rgb(0 0 0 / 0.06);
+	      --shadow-xl: 0 8px 16px rgb(0 0 0 / 0.04), 0 24px 48px rgb(0 0 0 / 0.08);
 
       /* === Glass Effect === */
       --glass-bg: rgba(255, 255, 255, 0.7);
       --glass-bg-solid: rgba(255, 255, 255, 0.9);
       --glass-border: rgba(255, 255, 255, 0.5);
 
-      /* === Interactive States === */
-      --hover-bg: #ebebeb;
-      --active-bg: #eef2ff;
-      --item-bg: #ffffff;
+	      /* === Interactive States === */
+	      --hover-bg: var(--bg-hover);
+	      --active-bg: #eef2ff;
+	      --item-bg: #ffffff;
 
       /* === Semantic Colors === */
       --success: #16a34a;
@@ -398,42 +399,25 @@
       --glow-accent: 0 0 20px rgba(249, 115, 22, 0.2);
     }
 
-    /* 소형 태블릿/대형 폰 (576px 이하) - 1단계 축소 (-1) */
-    @media (max-width: 576px) {
+    /* 모바일 (768px 이하) - 폰트 스케일 통합 */
+    @media (max-width: 768px) {
       :root {
+        --font-title-size: 28px;
+        --font-body-size: 17px;
+        --font-desc-size: 16px;
         --font-tab-size: 14px;
-        --font-section-size: 15px;
-        --font-heading-size: 17px;
-        --font-lg-size: 19px;
-        --font-stat-size: 27px;
-        --font-xl-size: 21px;
-        --font-2xl-size: 25px;
-        --font-rank-name-size: 13px;
-        --font-rank-dev-size: 11px;
-      }
-    }
-
-    /* 초소형 모바일 (360px 이하) - 2단계 축소 (-1 추가) */
-    @media (max-width: 360px) {
-      :root {
-        --font-title-size: 17px;
-        --font-body-size: 15px;
-        --font-desc-size: 14px;
-        --font-tab-size: 13px;
         --font-nav-size: 15px;
-        --font-section-size: 14px;
-        --font-heading-size: 16px;
-        --font-lg-size: 18px;
-        --font-stat-size: 26px;
-        --font-xl-size: 20px;
-        --font-2xl-size: 24px;
-        --font-small-size: 11px;
-        --font-badge-size: 11px;
-        --font-meta-size: 10px;
-        --font-xs-size: 9px;
-        --font-rank-name-size: 12px;
-        --font-rank-dev-size: 10px;
-        --space-page-x: 6px;
+        --font-section-size: 18px;
+        --font-heading-size: 20px;
+        --font-lg-size: 22px;
+        --font-stat-size: 28px;
+        --font-xl-size: 24px;
+        --font-2xl-size: 28px;
+        --font-small-size: 12px;
+        --font-badge-size: 12px;
+        --font-meta-size: 13px;
+        --font-rank-name-size: 14px;
+        --font-rank-dev-size: 12px;
       }
     }
 
@@ -797,38 +781,24 @@
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
   width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 200px;
 }
 
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
-  height: 250px;
-  min-height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* PC 홈 상단 광고 (728x90) */
 .ad-card-pc-home {
   width: 100%;
   height: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* PC 상단 광고 (970x90) */
 .ad-card-pc {
   width: 100%;
   height: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* PC 사이드바 - Vertical (300x600) */
@@ -867,29 +837,31 @@
 
 
 /* ===== 광고 여백 ===== */
+/* 부모 컨테이너(home-main, home-sidebar, page-container)가 margin-bottom으로 간격 관리 */
+/* 광고 카드는 margin-top만 제어, margin-bottom은 부모 규칙 따름 */
 
 /* 기본: 상단 마진 (컨테이너 외부 광고) */
 main .ad-card {
-  margin: var(--space-block-gap, 16px) 0 0 0;
+  margin-top: var(--space-block-gap, 16px);
 }
 
 /* page-container 첫 번째 광고 (top): 상단 마진 유지 */
 .page-container > .ad-card:first-child {
-  margin: var(--space-block-gap, 16px) 0 0 0;
+  margin-top: var(--space-block-gap, 16px);
 }
 
-/* page-container 중간 광고 (mid): gap이 간격 담당하므로 마진 0 */
+/* page-container 중간 광고 (mid): 상단 마진 제거 */
 .page-container > .ad-card:not(:first-child),
 .page-container .ad-card:not(:first-child) {
-  margin: 0;
+  margin-top: 0;
 }
 
 /* ===== 홈 페이지 (PC) ===== */
 
-/* home-container (PC 2컬럼): 광고 마진 */
+/* home-container (PC 2컬럼): 상단 마진 제거 */
 .home-main .ad-card,
 .home-sidebar .ad-card {
-  margin: 0;
+  margin-top: 0;
 }
 
 /* 모바일 홈: 사이드바 숨김 (PC 전용) */
@@ -976,32 +948,13 @@ main .ad-card {
   }
 }
 
-/* 태블릿(768px 이하): 약간 더 컴팩트 */
+/* 모바일(768px 이하): 컴팩트 */
 @media (max-width: 768px) {
-  :root {
-    --tab-btn-padding: 10px 6px;
-    --tab-btn-min-height: 42px;
-    --tab-btn-gap: 5px;
-    --tab-btn-icon-size: 16px;
-  }
-}
-
-/* 모바일(480px 이하): 버튼/아이콘을 조금 더 컴팩트하게 */
-@media (max-width: 480px) {
   :root {
     --tab-btn-padding: 10px 8px;
     --tab-btn-min-height: 40px;
     --tab-btn-gap: 4px;
     --tab-btn-icon-size: 12px;
-  }
-}
-
-/* 초소형(360px 이하): 아이콘 숨김 */
-@media (max-width: 360px) {
-  :root {
-    --tab-btn-padding: 8px 6px;
-    --tab-btn-min-height: 38px;
-    --tab-btn-icon-display: none;
   }
 }
 
@@ -1229,34 +1182,40 @@ main .ad-card {
 	    }
 
 	    .home-main {
-	      display: flex;
-	      flex-direction: column;
-	      gap: var(--space-block-gap);
+	      display: block;
 	      min-width: 0;
 	      overflow-x: clip;
 	    }
+	    .home-main > * {
+	      margin-bottom: var(--space-block-gap);
+	    }
+	    .home-main > *:last-child {
+	      margin-bottom: 0;
+	    }
 
     .home-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-block-gap);
+      display: block;
+    }
+    .home-sidebar > * {
+      margin-bottom: var(--space-block-gap);
+    }
+    .home-sidebar > *:last-child {
+      margin-bottom: 0;
     }
 
-    /* 홈 카드 공통 */
-    .home-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
+	    /* 홈 카드 공통 */
+	    .home-card {
+	      background: var(--card);
+	      border-radius: var(--radius);
+	      box-shadow: var(--shadow-sm);
+	      border: 1px solid var(--border);
+	      overflow: hidden;
+	      transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+	    }
 
-    .home-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
+	    .home-card:hover {
+	      box-shadow: var(--shadow);
+	    }
 
     /* 풀 너비 카드 (그리드 내 2컬럼 차지) */
     .home-card-full {
@@ -1277,7 +1236,7 @@ main .ad-card {
 
     .home-card-title {
       font-size: var(--font-title-size);
-      font-weight: var(--font-title-weight);
+      font-weight: var(--font-card-title-weight);
       color: var(--text);
       display: flex;
       align-items: center;
@@ -1348,6 +1307,15 @@ main .ad-card {
       white-space: nowrap;
     }
 
+    .home-container .home-sidebar .home-card-controls {
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    .home-container .home-sidebar .home-card-header .home-chart-toggle {
+      padding: 0;
+    }
+
     .home-chart-toggle {
       display: flex;
       align-items: center;
@@ -1358,7 +1326,7 @@ main .ad-card {
     }
 
     .home-chart-toggle .tab-btn.small {
-      font-size: 13px !important;
+      font-size: var(--font-tab-size) !important;
       font-weight: var(--font-tab-weight) !important;
       padding: 5px 12px !important;
       border-radius: 4px;
@@ -1458,20 +1426,19 @@ main .ad-card {
       padding: 12px 16px 16px;
     }
 
-	    .home-trend-card {
-      display: block;
-	      background: #ffffff;
-	      border: 1px solid var(--border);
-	      border-radius: var(--radius);
-	      text-decoration: none;
-	      overflow: hidden;
-	      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-	    }
+		    .home-trend-card {
+	      display: block;
+		      background: #ffffff;
+		      border: 1px solid var(--border);
+		      border-radius: var(--radius);
+		      text-decoration: none;
+		      overflow: hidden;
+		      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+		    }
 
-    .home-trend-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    .home-trend-card:hover {
+	      box-shadow: var(--shadow-sm);
+	    }
 
     .home-trend-card-image {
       position: relative;
@@ -1497,7 +1464,7 @@ main .ad-card {
       top: 10px;
       left: 10px;
       padding: 4px 8px;
-      font-size: 10px;
+      font-size: var(--font-xs-size);
       font-weight: 500;
       color: rgba(255, 255, 255, 0.9);
       background: rgba(0, 0, 0, 0.5);
@@ -1509,17 +1476,22 @@ main .ad-card {
       background: rgba(0, 0, 0, 0.5);
     }
 
+    .home-trend-card-tag.issue {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
     .home-trend-card-title {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       margin: 0;
       padding: 12px;
       line-height: 1.4;
-      height: 60px;
+      min-height: 60px;
       box-sizing: border-box;
-      display: flex;
-      align-items: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
@@ -1805,25 +1777,25 @@ main .ad-card {
       min-width: 0;
     }
 
-    .home-community-item {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
+	    .home-community-item {
+	      display: flex;
+	      flex-direction: row;
+	      align-items: center;
+	      gap: 12px;
       padding: 12px 14px;
       text-decoration: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-      min-width: 0;
-      max-width: 100%;
-    }
+	      background: var(--card-bg);
+	      border: 1px solid var(--border);
+	      border-radius: var(--radius-sm);
+	      transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+	      min-width: 0;
+	      max-width: 100%;
+	    }
 
-    .home-community-item:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow);
-    }
+	    .home-community-item:hover {
+	      background: var(--card-hover);
+	      box-shadow: var(--shadow-sm);
+	    }
 
     .home-community-icon {
       width: 24px;
@@ -1834,7 +1806,7 @@ main .ad-card {
 
     .home-community-title {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       line-height: 1.4;
       white-space: nowrap;
@@ -1872,19 +1844,18 @@ main .ad-card {
       gap: 10px;
     }
 
-    :is(.home-news-card, .home-video-card) {
-      text-decoration: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
+	    :is(.home-news-card, .home-video-card) {
+	      text-decoration: none;
+	      background: var(--card-bg);
+	      border: 1px solid var(--border);
+	      border-radius: var(--radius-sm);
+	      overflow: hidden;
+	      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+	    }
 
-    :is(.home-news-card:hover, .home-video-card:hover) {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    :is(.home-news-card:hover, .home-video-card:hover) {
+	      box-shadow: var(--shadow-sm);
+	    }
 
     :is(.home-news-card-thumb, .home-video-card-thumb) {
       position: relative;
@@ -1905,7 +1876,7 @@ main .ad-card {
       top: 10px;
       left: 10px;
       padding: 4px 8px;
-      font-size: 11px;
+      font-size: var(--font-small-size);
       font-weight: 600;
       color: #fff;
       background: rgba(0, 0, 0, 0.6);
@@ -1915,7 +1886,7 @@ main .ad-card {
 
     :is(.home-news-card-info, .home-video-card-info) {
       padding: 12px 12px 14px;
-      height: 70px;
+      min-height: 70px;
       box-sizing: border-box;
       display: flex;
       align-items: center;
@@ -1947,14 +1918,15 @@ main .ad-card {
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
       overflow: hidden;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
       height: 82px;
+      max-height: 82px;
     }
 
-    :is(.home-news-item:hover, .home-video-item:hover) {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    :is(.home-news-item:hover, .home-video-item:hover) {
+	      background: var(--card-hover);
+	      box-shadow: var(--shadow-sm);
+	    }
 
     :is(.home-news-item-thumb, .home-video-item-thumb) {
       position: relative;
@@ -1976,7 +1948,7 @@ main .ad-card {
       top: 6px;
       left: 6px;
       padding: 2px 5px;
-      font-size: 9px;
+      font-size: var(--font-micro-size);
       font-weight: 600;
       color: #fff;
       background: rgba(0, 0, 0, 0.6);
@@ -1989,17 +1961,21 @@ main .ad-card {
       padding: 10px;
       display: flex;
       align-items: center;
+      overflow: hidden;
     }
 
     :is(.home-news-title, .home-video-item-title) {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       line-height: 1.4;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 2.8em;
+      max-height: 2.8em;
     }
 
     /* 뉴스/비디오 모바일 반응형 */
@@ -2026,6 +2002,7 @@ main .ad-card {
 
       :is(.home-news-item, .home-video-item) {
         height: 76px;
+        max-height: 76px;
       }
 
       :is(.home-news-title, .home-video-item-title) {
@@ -2351,7 +2328,7 @@ main .ad-card {
       height: 32px;
       line-height: 32px;
       box-sizing: border-box;
-      font-size: 12px;
+      font-size: var(--font-tab-size);
     }
 
     .home-upcoming-tab:hover {
@@ -2386,11 +2363,14 @@ main .ad-card {
 
     @media (max-width: 768px) {
       .home-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: var(--space-block-gap);
+        display: block !important;
         padding: var(--space-block-y) 0;
+      }
+      .home-container > * {
+        margin-bottom: var(--space-block-gap);
+      }
+      .home-container > *:last-child {
+        margin-bottom: 0;
       }
 
       .home-sidebar {
@@ -2445,11 +2425,11 @@ main .ad-card {
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .home-container {
         gap: var(--space-block-gap);
       }
-      /* 480px 패딩은 파일 끝 통합 블록에서 관리 */
+      /* 모바일 패딩은 파일 끝 통합 블록에서 관리 */
     }
 
     /* === Custom Scrollbar === */
@@ -2542,7 +2522,7 @@ main .ad-card {
     .header-date {
       position: absolute;
       right: 24px;
-      font-size: 0.9rem;
+      font-size: var(--font-meta-size);
       font-weight: var(--font-meta-weight);
       color: var(--text-secondary);
       background: var(--glass-bg);
@@ -2801,9 +2781,13 @@ main .ad-card {
 
 	    /* Common Page Containers - 세로 스택 레이아웃 */
 	    .page-container {
-	      display: flex;
-	      flex-direction: column;
-	      gap: var(--space-block-gap);
+	      display: block;
+	    }
+	    .page-container > * {
+	      margin-bottom: var(--space-block-gap);
+	    }
+	    .page-container > *:last-child {
+	      margin-bottom: 0;
 	    }
 
 	    /* Page Container - footer 하단 고정 */
@@ -3003,7 +2987,7 @@ main .ad-card {
 
     .community-panel-title {
       font-size: var(--font-title-size);
-      font-weight: var(--font-title-weight);
+      font-weight: var(--font-card-title-weight);
       color: var(--text);
       flex: 1;
     }
@@ -3035,22 +3019,22 @@ main .ad-card {
       display: none;
     }
 
-    .community-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 12px 14px;
-      text-decoration: none;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
+	    .community-item {
+	      display: flex;
+	      align-items: flex-start;
+	      gap: 8px;
+	      padding: 12px 14px;
+	      text-decoration: none;
+	      background: var(--card-bg);
+	      border: 1px solid var(--border);
+	      border-radius: var(--radius-sm);
+	      transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+	    }
 
-    .community-item:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow);
-    }
+	    .community-item:hover {
+	      background: var(--card-hover);
+	      box-shadow: var(--shadow-sm);
+	    }
 
     .community-item-icon {
       width: 16px;
@@ -3061,7 +3045,7 @@ main .ad-card {
 
     .community-item-title {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       line-height: 1.4;
       display: -webkit-box;
@@ -3261,7 +3245,7 @@ main .ad-card {
     }
 
     .section-title {
-      font-size: 1rem;
+      font-size: var(--font-section-size);
       font-weight: var(--font-section-weight);
       margin-bottom: var(--space-header-gap);
       color: var(--text);
@@ -3619,7 +3603,7 @@ main .ad-card {
     }
 
     .flag {
-      font-size: 1.1rem;
+      font-size: var(--font-body-size);
       filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
     }
 
@@ -3642,16 +3626,13 @@ main .ad-card {
 	      height: 48px;
 	      box-sizing: border-box;
 	      border-bottom: 1px solid var(--border-subtle);
-	      transition: all var(--transition-normal);
+	      transition: background var(--transition-fast), box-shadow var(--transition-fast);
 	    }
 
 	    .rank-row:hover {
 	      background: var(--card-hover);
-	      transform: scale(1.01);
 	      box-shadow: var(--shadow-sm);
-      z-index: 1;
-      position: relative;
-    }
+	    }
 
     .rank-row:last-child {
       border-bottom: none;
@@ -4042,13 +4023,12 @@ main .ad-card {
 	      border-radius: var(--radius);
 	      overflow: hidden;
 	      border: 1px solid var(--border);
-	      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+	      transition: border-color 0.15s ease, box-shadow 0.15s ease;
 	    }
 
-    .youtube-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    .youtube-card:hover {
+	      box-shadow: var(--shadow-sm);
+	    }
 
     .youtube-thumb {
       position: relative;
@@ -4083,7 +4063,7 @@ main .ad-card {
 
     .youtube-thumb-empty::after {
       content: 'LIVE';
-      font-size: 16px;
+      font-size: var(--font-section-size);
       font-weight: 700;
       color: #fff;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -4094,7 +4074,7 @@ main .ad-card {
       top: 10px;
       left: 10px;
       padding: 4px 10px;
-      font-size: 11px;
+      font-size: var(--font-small-size);
       font-weight: 500;
       color: rgba(255, 255, 255, 0.95);
       background: rgba(0, 0, 0, 0.55);
@@ -4107,7 +4087,7 @@ main .ad-card {
       bottom: 10px;
       right: 10px;
       padding: 4px 10px;
-      font-size: 11px;
+      font-size: var(--font-small-size);
       font-weight: 500;
       color: rgba(255, 255, 255, 0.95);
       background: rgba(0, 0, 0, 0.55);
@@ -4138,7 +4118,7 @@ main .ad-card {
 
     .youtube-title {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -4174,7 +4154,7 @@ main .ad-card {
       }
       .youtube-tag,
       .youtube-live {
-        font-size: 10px;
+        font-size: var(--font-xs-size);
         padding: 3px 8px;
       }
     }
@@ -4217,20 +4197,19 @@ main .ad-card {
     }
 
     /* News Thumbnail Card */
-    .news-grid-card {
-      display: block;
-      text-decoration: none;
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
+	    .news-grid-card {
+	      display: block;
+	      text-decoration: none;
+	      background: var(--card-bg);
+	      border-radius: var(--radius);
+	      overflow: hidden;
+	      border: 1px solid var(--border);
+	      transition: box-shadow 0.15s, border-color 0.15s;
+	    }
 
-    .news-grid-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+	    .news-grid-card:hover {
+	      box-shadow: var(--shadow-sm);
+	    }
 
     .news-grid-card-thumb {
       aspect-ratio: 16/9;
@@ -4266,7 +4245,7 @@ main .ad-card {
     .news-grid-card-title {
       padding: 12px;
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -4292,7 +4271,7 @@ main .ad-card {
 
     .news-grid-item-title {
       font-size: var(--font-body-size);
-      font-weight: var(--font-body-weight);
+      font-weight: var(--font-title-weight);
       color: var(--text);
       display: -webkit-box;
       -webkit-line-clamp: 1;
@@ -4327,7 +4306,7 @@ main .ad-card {
 
       .news-grid-card-title {
         padding: 10px;
-        font-size: 13px;
+        font-size: var(--font-desc-size);
       }
 
       .news-grid-item {
@@ -4335,7 +4314,7 @@ main .ad-card {
       }
 
       .news-grid-item-title {
-        font-size: 13px;
+        font-size: var(--font-desc-size);
       }
     }
 
@@ -4446,7 +4425,7 @@ main .ad-card {
       /* 접힌 상태 - 국가명 숨김 */
       .country-column:not(.rank-column) .country-name { display: none; }
       .country-column.expanded .country-name, .rank-column + .country-column:not(.collapsed) .country-name { display: block; }
-      .flag { font-size: 1.1rem; }
+      .flag { font-size: var(--font-body-size); }
       .rank-row { padding: 5px 3px; gap: 3px; flex-direction: column; align-items: center; }
       .rank-num { width: 20px; height: 20px; font-size: var(--font-xs-size); border-radius: 4px; }
       /* 선택되지 않은 국가의 행 높이 고정 */
@@ -4464,7 +4443,7 @@ main .ad-card {
       .app-dev { font-size: var(--font-micro-size); }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
       .nav-item { padding: 10px 12px; gap: 4px; }
       .nav-item svg { width: 14px; height: 14px; }
       .logo-svg { height: 36px; }
@@ -4477,7 +4456,7 @@ main .ad-card {
       .country-column.expanded .app-icon, .rank-column + .country-column:not(.collapsed) .app-icon { width: 24px; height: 24px; }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       :root { --space-page-x: 8px; }
       /* 좌우 여백 8px 통일 */
 	      :is(.site-container, .container) { padding: 0 var(--space-page-x) 40px; }
@@ -4537,37 +4516,7 @@ main .ad-card {
 
     }
 
-    @media (max-width: 360px) {
-      .nav-item { padding: 6px 8px; gap: 2px; font-size: var(--font-nav-size) !important; font-weight: var(--font-nav-weight) !important; }
-      .nav-item svg { width: 12px; height: 12px; }
-      .logo-svg { height: 28px; }
-      .news-favicon { width: 12px; height: 12px; }
-      /* 순위 - 통일된 크기 */
-      .rank-num { width: 20px; height: 20px; font-size: var(--font-micro-size); }
-      .steam-rank { width: 20px; height: 20px; font-size: var(--font-micro-size); }
-      .upcoming-rank { width: 20px; height: 20px; font-size: var(--font-micro-size); }
-      .app-icon { width: 20px; height: 20px; border-radius: 4px; }
-      .country-column.expanded { flex: 4; }
-      .country-column.expanded .app-icon { width: 20px; height: 20px; }
-      .app-name { font-size: var(--font-micro-size); }
-      .app-dev { display: none; }
-
-      /* Steam 테이블 초소형 모바일 - 6px 통일 */
-      .steam-table-row {
-        grid-template-columns: 28px 1fr 70px;
-        padding: 8px 6px;
-        gap: 6px;
-      }
-      .steam-img {
-        width: 50px;
-        height: 24px;
-      }
-	      .steam-col-players {
-	        font-size: var(--font-small-size);
-	      }
-
-	      /* 홈 모바일 패딩 통합은 30-responsive.css에서 관리 */
-	    }
+    /* 홈 모바일 패딩 통합은 30-responsive.css에서 관리 */
 
 /* Footer + Privacy Modal */
 
@@ -4577,7 +4526,7 @@ main .ad-card {
   margin-top: 40px;
   border-top: 1px solid var(--border);
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: var(--font-meta-size);
 }
 
 .site-footer a {
@@ -4629,11 +4578,11 @@ main .ad-card {
 .modal-content h3 {
   color: #aaa;
   margin-top: 20px;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
 }
 
 .modal-content p {
-  font-size: 13px;
+  font-size: var(--font-desc-size);
   line-height: 1.6;
 }
 
@@ -4644,7 +4593,7 @@ main .ad-card {
   background: none;
   border: none;
   color: #888;
-  font-size: 24px;
+  font-size: var(--font-xl-size);
   cursor: pointer;
 }
 
@@ -4655,13 +4604,13 @@ main .ad-card {
 .privacy-modal-list {
   margin: 10px 0;
   padding-left: 20px;
-  font-size: 13px;
+  font-size: var(--font-desc-size);
 }
 
 .privacy-modal-effective-date {
   margin-top: 20px;
   color: #666;
-  font-size: 12px;
+  font-size: var(--font-meta-size);
 }
 
 /* 404 Not Found */
@@ -4689,7 +4638,7 @@ main .ad-card {
 }
 
 .not-found-title {
-  font-size: 1.5rem;
+  font-size: var(--font-2xl-size);
   font-weight: 700;
   margin: 0 0 0.75rem;
   color: var(--text-primary, #f1f5f9);
@@ -4698,7 +4647,7 @@ main .ad-card {
 .not-found-desc {
   color: var(--text-secondary, #94a3b8);
   margin: 0 0 1.5rem;
-  font-size: 0.95rem;
+  font-size: var(--font-body-size);
 }
 
 .not-found-links {
@@ -4715,7 +4664,7 @@ main .ad-card {
   color: var(--text-primary, #f1f5f9);
   border-radius: 8px;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: var(--font-desc-size);
   font-weight: 500;
   transition: background 0.15s;
 }
@@ -4913,7 +4862,7 @@ main .ad-card {
       .upcoming-rank { width: 24px; height: 24px; font-size: var(--font-meta-size); }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       .upcoming-table-header {
         grid-template-columns: 28px 1fr 70px;
         padding: 6px 8px;
@@ -4943,12 +4892,15 @@ main .ad-card {
   /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
     padding: 0 0 var(--space-block-y) 0 !important;
-    gap: var(--space-block-gap) !important;
   }
 
   /* 카드 헤더 */
   .home-card-header {
     padding: 10px 12px !important;
+  }
+
+  .home-card-title {
+    font-size: var(--font-section-size);
   }
 
   /* 카드 바디 - 좌우 패딩 없음 */
@@ -5047,12 +4999,11 @@ main .ad-card {
 
 }
 
-/* === 모바일 (480px 이하) === */
-@media (max-width: 480px) {
+/* === 모바일 (768px 이하) === */
+@media (max-width: 768px) {
   /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
     padding: 0 0 var(--space-block-y) 0 !important;
-    gap: var(--space-block-gap) !important;
   }
 
   /* 데일리 포커스 문구 */
@@ -5062,13 +5013,7 @@ main .ad-card {
 
   .home-daily-focus-text {
     padding: 12px !important;
-    font-size: 15px !important;
-  }
-
-  @media (max-width: 360px) {
-    .home-daily-focus-text {
-      font-size: 14px !important;
-    }
+    font-size: var(--font-body-size) !important;
   }
 
   /* 카드 헤더 */
@@ -5102,7 +5047,7 @@ main .ad-card {
     font-size: var(--font-tab-size);
   }
 
-  /* 인사이트 페이지 탭 - 480px */
+  /* 인사이트 페이지 탭 - 모바일 */
   .insight-tabs {
     margin: 0 0 10px 0 !important;
     padding: 4px !important;
@@ -5153,113 +5098,13 @@ main .ad-card {
     padding: 6px 8px !important;
   }
 
-  /* 인사이트 스플릿 - 헤더와 정렬 (480px) */
+  /* 인사이트 스플릿 - 헤더와 정렬 (모바일) */
   .home-insight-split {
     padding: 6px 8px !important;
   }
 
   .home-insight-item {
     padding: 12px;
-  }
-}
-
-/* === 작은 화면 (360px 이하) === */
-@media (max-width: 360px) {
-  /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
-  .home-container {
-    padding: 0 0 var(--space-block-y) 0 !important;
-    gap: var(--space-block-gap) !important;
-  }
-
-  /* 카드 헤더 */
-  .home-card-header {
-    padding: 6px !important;
-  }
-
-  /* 카드 바디 */
-  .home-card-body {
-    padding: 4px 0 !important;
-  }
-
-  /* 탭 그룹 */
-  .home-rank-tabs {
-    margin: 0 6px 4px 6px !important;
-  }
-
-  /* 커뮤니티 탭 텍스트 축약 */
-  .tab-text-dcinside {
-    font-size: 0;
-  }
-  .tab-text-dcinside::after {
-    content: '디시';
-    font-size: var(--font-tab-size);
-  }
-  .tab-text-arca {
-    font-size: 0;
-  }
-  .tab-text-arca::after {
-    content: '아카';
-    font-size: var(--font-tab-size);
-  }
-
-  /* 인사이트 페이지 탭 - 360px */
-  .insight-tabs {
-    margin: 0 0 8px 0 !important;
-    padding: 3px !important;
-  }
-
-  /* 뉴스/영상 카드 */
-  .home-news-card,
-  .home-video-card {
-    margin: 0 6px 6px 6px !important;
-  }
-
-  /* 리스트 컨테이너 */
-  .home-news-list,
-  .home-video-list {
-    padding: 0 6px !important;
-  }
-
-  /* 뉴스/영상 아이템 */
-  .home-news-item,
-  .home-video-item {
-    padding: 6px !important;
-  }
-
-  /* 일반 아이템 */
-  .home-item {
-    padding: 6px !important;
-  }
-
-  /* 순위/스팀/출시예정 행 */
-  .home-steam-row,
-  .home-upcoming-row,
-  .home-rank-row {
-    padding: 6px !important;
-  }
-
-  /* 탭 그룹 (카드 바디 내) */
-  .home-card-body .tab-group {
-    margin: 0 6px 4px 6px !important;
-  }
-
-  /* 인사이트 그리드 */
-  .home-insight-grid {
-    padding: 4px 6px !important;
-  }
-
-  /* 인사이트 스크롤 - 헤더와 정렬 */
-  .home-insight-scroll {
-    padding: 4px 6px !important;
-  }
-
-  /* 인사이트 스플릿 - 헤더와 정렬 (360px) */
-  .home-insight-split {
-    padding: 4px 6px !important;
-  }
-
-  .home-insight-item {
-    padding: 10px;
   }
 }
 
@@ -5272,9 +5117,13 @@ main .ad-card {
 }
 
 .insight-panel.active {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-block-y);
+  display: block;
+}
+.insight-panel.active > * {
+  margin-bottom: var(--space-block-y);
+}
+.insight-panel.active > *:last-child {
+  margin-bottom: 0;
 }
 
 /* 주간 리포트 헤더 카드 (피드 스타일) - 라이트모드 */
@@ -5338,6 +5187,10 @@ main .ad-card {
   color: #fff;
 }
 
+.weekly-header-card .weekly-header-meta {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .weekly-header-card .weekly-header-ampm-tag.am {
   background: rgba(255, 255, 255, 0.25);
   color: #fff;
@@ -5368,6 +5221,9 @@ main .ad-card {
     background: rgba(0, 0, 0, 0.6);
   }
   .home-trend-card-tag.weekly {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .home-trend-card-tag.issue {
     background: rgba(0, 0, 0, 0.6);
   }
   /* 로고 배지/텍스트 */
@@ -5494,7 +5350,7 @@ main .ad-card {
 }
 
 .weekly-header-headline {
-  font-size: 0.95rem;
+  font-size: var(--font-body-size);
   font-weight: 500;
   color: var(--text-secondary);
   margin: 0 0 12px 0;
@@ -5524,7 +5380,7 @@ main .ad-card {
   align-items: center;
   gap: 6px;
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--font-meta-size);
   font-weight: 400;
   opacity: 0.7;
   margin-top: 4px;
@@ -5532,29 +5388,29 @@ main .ad-card {
 
 .weekly-header-period {
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--font-meta-size);
   font-weight: 400;
 }
 
 .weekly-header-divider {
   opacity: 0.4;
-  font-size: 0.7rem;
+  font-size: var(--font-small-size);
 }
 
 .weekly-header-week {
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--font-meta-size);
   font-weight: 400;
 }
 
 .weekly-header-desc {
   font-size: var(--font-desc-size);
   font-weight: var(--font-desc-weight);
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.92);
   line-height: var(--font-desc-line-height);
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .demo-badge {
@@ -5607,8 +5463,7 @@ main .ad-card {
 }
 
 .weekly-stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .weekly-stat-icon {
@@ -5682,8 +5537,7 @@ main .ad-card {
 }
 
 :is(.report-section, .weekly-section):hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
 }
 
 :is(.report-section-header, .weekly-section-header) {
@@ -5762,8 +5616,7 @@ main .ad-card {
 }
 
 .weekly-intro:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
 }
 
 .weekly-intro-header {
@@ -5868,8 +5721,7 @@ main .ad-card {
 }
 
 .weekly-hot-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow);
 }
 
 /* 이미지 포함 카드 - 세로 레이아웃 (이미지 상단) */
@@ -6026,7 +5878,7 @@ main .ad-card {
 
 .weekly-hot-title {
   font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-weight: var(--font-item-weight);
   color: var(--text);
   margin: 0 0 10px 0;
   padding-bottom: 8px;
@@ -6040,6 +5892,81 @@ main .ad-card {
   color: var(--text-secondary);
   line-height: var(--font-desc-line-height);
   margin: 0;
+}
+
+/* Insight typography scale (daily/weekly unified) */
+#insight {
+  --insight-header-size: 20px;
+  --insight-section-size: 20px;
+  --insight-item-size: 17px;
+  --insight-body-size: 16px;
+}
+
+#insight :is(.weekly-header-title) {
+  font-size: var(--insight-header-size);
+}
+
+#insight :is(
+  .weekly-section-title,
+  .insight-card .home-card-title,
+  .weekly-intro-label,
+  .weekly-stocks-table-header
+) {
+  font-size: var(--insight-section-size);
+}
+
+#insight :is(
+  .weekly-hot-title,
+  .weekly-metric-title,
+  .ranking-item .weekly-hot-title,
+  .weekly-rank-game,
+  .weekly-timeline-title,
+  .weekly-community-title,
+  .weekly-streaming-title,
+  .weekly-highlight-title,
+  .weekly-highlight-subtitle,
+  .weekly-mvp-name,
+  .weekly-global-title,
+  .global-title,
+  .industry-title,
+  .weekly-release-title,
+  .weekly-stock-name,
+  .daily-community-title,
+  .daily-streaming-title,
+  .daily-industry-title
+) {
+  font-size: var(--insight-item-size);
+}
+
+#insight :is(
+  .weekly-header-desc,
+  .weekly-section-desc,
+  .weekly-hot-desc,
+  .weekly-metric-desc,
+  .weekly-timeline-desc,
+  .weekly-community-desc,
+  .weekly-streaming-desc,
+  .weekly-highlight-desc,
+  .weekly-global-desc,
+  .global-desc,
+  .industry-desc,
+  .weekly-ranking-desc,
+  .weekly-rank-reason,
+  .weekly-mvp-desc,
+  .weekly-stock-comment,
+  .daily-community-desc,
+  .daily-streaming-desc,
+  .daily-industry-desc
+) {
+  font-size: var(--insight-body-size);
+}
+
+@media (max-width: 768px) {
+  #insight {
+    --insight-section-size: 20px;
+    --insight-item-size: 18px;
+    --insight-body-size: 16px;
+  }
 }
 
 /* ===== Report Content Styles (split) ===== */
@@ -6071,8 +5998,7 @@ main .ad-card {
 }
 
 .weekly-rank-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .weekly-rank-header {
@@ -6320,7 +6246,7 @@ main .ad-card {
 /* 지표/순위변동 제목 강조 + 밑줄 */
 .weekly-metric-title,
 .ranking-item .weekly-hot-title {
-  font-size: 1.1rem;
+  font-size: var(--font-title-size);
   font-weight: 700;
   padding-bottom: 10px;
   margin-bottom: 12px;
@@ -6358,8 +6284,7 @@ main .ad-card {
 }
 
 .industry-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .industry-thumb {
@@ -6383,7 +6308,7 @@ main .ad-card {
 }
 
 .industry-title {
-  font-size: 1.05rem;
+  font-size: var(--font-section-size);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 8px 0;
@@ -6433,8 +6358,7 @@ main .ad-card {
 /* 왼쪽 띠 제거됨 */
 
 .weekly-metric-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .weekly-metric-icon {
@@ -6551,8 +6475,7 @@ main .ad-card {
 }
 
 .weekly-community-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .weekly-community-game {
@@ -6608,8 +6531,7 @@ main .ad-card {
 }
 
 .weekly-streaming-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .weekly-streaming-platform {
@@ -6834,7 +6756,7 @@ main .ad-card {
 
 .weekly-stock-name {
   font-size: var(--font-body-size);
-  font-weight: var(--font-title-weight);
+  font-weight: var(--font-item-weight);
   color: var(--text);
 }
 
@@ -6950,7 +6872,7 @@ main .ad-card {
 }
 
 .weekly-mvp-name {
-  font-size: 1.05rem;
+  font-size: var(--font-section-size);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 8px 0;
@@ -6969,6 +6891,9 @@ main .ad-card {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .weekly-mvp-highlight {
@@ -6992,6 +6917,7 @@ main .ad-card {
     aspect-ratio: 16 / 9;
     max-height: 180px;
     border-radius: var(--radius) var(--radius) 0 0;
+    min-height: auto;
   }
   .weekly-mvp-content {
     padding: 14px 16px 16px;
@@ -7105,8 +7031,7 @@ main .ad-card {
 }
 
 .weekly-global-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .weekly-global-region {
@@ -7167,8 +7092,7 @@ main .ad-card {
 }
 
 .global-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .global-thumb {
@@ -7203,7 +7127,7 @@ main .ad-card {
 }
 
 .global-title {
-  font-size: 1.05rem;
+  font-size: var(--font-section-size);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 8px 0;
@@ -7390,7 +7314,7 @@ main .ad-card {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .weekly-summary-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -7428,6 +7352,36 @@ main .ad-card {
     font-size: var(--font-section-size);
   }
 
+  .weekly-header-title {
+    font-size: var(--font-heading-size);
+  }
+
+  .weekly-intro-label {
+    font-size: var(--font-section-size);
+  }
+
+  .weekly-stocks-table-header {
+    font-size: var(--font-section-size);
+  }
+
+  .weekly-stock-comment {
+    font-size: calc(var(--font-desc-size) + 1px);
+  }
+
+  .weekly-header-desc,
+  .weekly-section-desc,
+  .weekly-hot-desc,
+  .weekly-metric-desc,
+  .weekly-timeline-desc,
+  .weekly-community-desc,
+  .weekly-streaming-desc,
+  .weekly-highlight-desc,
+  .weekly-global-desc,
+  .weekly-ranking-desc,
+  .weekly-rank-reason {
+    font-size: calc(var(--font-desc-size) + 1px);
+  }
+
   .weekly-icon {
     width: 18px;
     height: 18px;
@@ -7449,7 +7403,7 @@ main .ad-card {
   }
 
   .weekly-mvp-desc {
-    font-size: var(--font-small-size);
+    font-size: calc(var(--font-desc-size) + 1px);
   }
 
   .weekly-mvp-highlight {
@@ -7495,10 +7449,10 @@ main .ad-card {
   }
 
   .weekly-global-desc {
-    font-size: var(--font-small-size);
+    font-size: calc(var(--font-desc-size) + 1px);
   }
 
-  /* 피드 카드 패딩 통일 - 480px */
+  /* 피드 카드 패딩 통일 - 모바일 */
   .weekly-hot-card,
   .weekly-rank-card,
   .weekly-community-card,
@@ -7507,7 +7461,7 @@ main .ad-card {
     border-radius: 10px;
   }
 
-  /* 이미지형 카드 라운드/패딩 통일 - 480px */
+  /* 이미지형 카드 라운드/패딩 통일 - 모바일 */
   .weekly-hot-thumb,
   .industry-thumb,
   .metric-thumb,
@@ -7533,44 +7487,6 @@ main .ad-card {
     padding: 10px 0;
   }
 }
-
-@media (max-width: 360px) {
-  /* 피드 카드 패딩/라운드 통일 - 360px */
-  .weekly-hot-card,
-  .weekly-rank-card,
-  .weekly-community-card,
-  .weekly-streaming-card {
-    padding: 10px;
-    border-radius: 8px;
-  }
-
-  .weekly-release-item,
-  .weekly-global-card,
-  .industry-card,
-  .weekly-metric-card,
-  .global-card,
-  .weekly-stocks-table {
-    border-radius: 8px;
-  }
-
-  .weekly-hot-thumb,
-  .industry-thumb,
-  .metric-thumb,
-  .global-thumb {
-    border-radius: 8px 8px 0 0;
-  }
-
-  .weekly-hot-card.has-thumb .weekly-hot-content,
-  .industry-content,
-  .weekly-metric-content,
-  .global-content {
-    padding: 10px;
-  }
-
-  .weekly-timeline-item {
-    padding: 8px 0;
-  }
-}
 .weekly-coming-soon {
   text-align: center;
   padding: 60px 20px;
@@ -7585,9 +7501,13 @@ main .ad-card {
 
 #insight .page-container {
   padding: var(--space-block-y) 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-block-y);
+  display: block;
+}
+#insight .page-container > * {
+  margin-bottom: var(--space-block-y);
+}
+#insight .page-container > *:last-child {
+  margin-bottom: 0;
 }
 
 /* ========== 일간 리포트 섹션별 스타일 (주간과 통일) ========== */
@@ -7599,8 +7519,7 @@ main .ad-card {
 }
 
 #insight .page-container .insight-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow);
 }
 
 /* 아이콘 배경 박스 (주간과 동일 - 32px) */
@@ -7913,11 +7832,15 @@ main .ad-card {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .insight-infographic {
     grid-template-columns: repeat(2, 1fr);
     padding: 12px;
     gap: 8px;
+  }
+
+  #insight .page-container .insight-card .home-card-title {
+    font-size: var(--font-section-size);
   }
 
   #insight .page-container .insight-card .home-card-header {
@@ -8057,8 +7980,7 @@ main .ad-card {
 }
 
 .stock-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .stock-info {
@@ -8075,7 +7997,7 @@ main .ad-card {
 
 .stock-name {
   font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-weight: var(--font-item-weight);
   color: var(--text);
   line-height: 1.45;
 }
@@ -8147,8 +8069,8 @@ main .ad-card {
   }
 
   .stock-item {
-    padding: 14px;
-    border-radius: 12px;
+    padding: 12px;
+    border-radius: 10px;
   }
 
   .stock-name {
@@ -8165,20 +8087,6 @@ main .ad-card {
 
   .stock-comment {
     font-size: var(--font-body-size);
-  }
-}
-
-@media (max-width: 480px) {
-  .stock-item {
-    padding: 12px;
-    border-radius: 10px;
-  }
-}
-
-@media (max-width: 360px) {
-  .stock-item {
-    padding: 10px;
-    border-radius: 8px;
   }
 }
 
@@ -8214,8 +8122,7 @@ main .ad-card {
 }
 
 .metacritic-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .metacritic-card-rank {
@@ -8350,8 +8257,8 @@ main .ad-card {
   }
 }
 
-/* Small Mobile: 2 columns */
-@media (max-width: 480px) {
+/* Mobile: 2 columns */
+@media (max-width: 768px) {
   .metacritic-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
@@ -8391,8 +8298,7 @@ main .ad-card {
 }
 
 .daily-community-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .daily-community-game {
@@ -8453,8 +8359,7 @@ main .ad-card {
 }
 
 .daily-streaming-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 /* 호버 시 상단 띠 효과 제거 */
@@ -8612,12 +8517,12 @@ main .ad-card {
 
   .daily-community-title,
   .daily-streaming-title {
-    font-size: var(--font-title-size);
+    font-size: var(--font-heading-size);
   }
 
   .daily-community-desc,
   .daily-streaming-desc {
-    font-size: var(--font-small-size);
+    font-size: calc(var(--font-desc-size) + 1px);
   }
 
   .daily-industry-timeline {
@@ -8641,7 +8546,7 @@ main .ad-card {
   }
 
   .daily-industry-desc {
-    font-size: var(--font-small-size);
+    font-size: calc(var(--font-desc-size) + 1px);
   }
 }
 
@@ -8665,7 +8570,7 @@ main .ad-card {
 }
 
 .page-daily-insight .insight-date {
-  font-size: 2rem;
+  font-size: var(--font-stat-size);
   font-weight: 700;
   color: #fff;
 }
@@ -8686,7 +8591,7 @@ main .ad-card {
 .page-daily-insight .insight-tab {
   padding: 12px 32px;
   border-radius: 24px;
-  font-size: 15px;
+  font-size: var(--font-tab-size);
   font-weight: 600;
   cursor: pointer;
   border: 2px solid transparent;
@@ -8722,7 +8627,7 @@ main .ad-card {
 }
 
 .page-daily-insight .section-title {
-  font-size: 1.25rem;
+  font-size: var(--font-lg-size);
   font-weight: 600;
   color: #fff;
   margin-bottom: 16px;
@@ -8793,7 +8698,7 @@ main .ad-card {
 .page-daily-insight .change {
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: var(--font-badge-size);
   font-weight: 600;
 }
 
@@ -8842,7 +8747,7 @@ main .ad-card {
   color: #fff;
   padding: 2px 8px;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: var(--font-badge-size);
   flex-shrink: 0;
 }
 
@@ -8910,7 +8815,7 @@ main .ad-card {
   display: inline-block;
   background: #4f46e5;
   color: #fff;
-  font-size: 0.65rem;
+  font-size: var(--font-xs-size);
   padding: 2px 8px;
   border-radius: 4px;
   margin-bottom: 8px;
@@ -8918,7 +8823,7 @@ main .ad-card {
 }
 
 .page-daily-insight .ai-card-title {
-  font-size: 1rem;
+  font-size: var(--font-section-size);
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
@@ -8926,7 +8831,7 @@ main .ad-card {
 }
 
 .page-daily-insight .ai-card-desc {
-  font-size: 0.85rem;
+  font-size: var(--font-desc-size);
   color: #c7d2fe;
   line-height: 1.7;
   white-space: pre-line;
@@ -8944,14 +8849,14 @@ main .ad-card {
   border-radius: 8px;
   margin-bottom: 8px;
   color: #c7d2fe;
-  font-size: 0.9rem;
+  font-size: var(--font-desc-size);
   border-left: 3px solid #818cf8;
 }
 
 .page-daily-insight .ai-badge {
   background: #818cf8;
   color: #1e1b4b;
-  font-size: 0.6rem;
+  font-size: var(--font-micro-size);
   padding: 2px 6px;
   border-radius: 4px;
   margin-right: 8px;
@@ -8965,7 +8870,7 @@ main .ad-card {
 }
 
 .page-daily-insight .weekly-title {
-  font-size: 1.5rem;
+  font-size: var(--font-xl-size);
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
@@ -8973,7 +8878,7 @@ main .ad-card {
 
 .page-daily-insight .weekly-period {
   color: #9ca3af;
-  font-size: 14px;
+  font-size: var(--font-meta-size);
 }
 
 .page-daily-insight .metrics-grid {
@@ -9008,20 +8913,20 @@ main .ad-card {
 .page-daily-insight .metric-card.blue { border-color: #3b82f6; }
 
 .page-daily-insight .metric-label {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: #9ca3af;
   margin-bottom: 8px;
 }
 
 .page-daily-insight .metric-value {
-  font-size: 24px;
+  font-size: var(--font-2xl-size);
   font-weight: 700;
   color: #fff;
   margin-bottom: 4px;
 }
 
 .page-daily-insight .metric-sub {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: #6b7280;
 }
 
@@ -9047,7 +8952,7 @@ main .ad-card {
   display: inline-block;
   padding: 4px 10px;
   border-radius: 6px;
-  font-size: 11px;
+  font-size: var(--font-small-size);
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -9059,7 +8964,7 @@ main .ad-card {
 .page-daily-insight .highlight-tag.industry { background: rgba(34,197,94,0.2); color: #4ade80; }
 
 .page-daily-insight .highlight-title {
-  font-size: 16px;
+  font-size: var(--font-section-size);
   font-weight: 600;
   color: #fff;
   margin-bottom: 8px;
@@ -9067,7 +8972,7 @@ main .ad-card {
 }
 
 .page-daily-insight .highlight-desc {
-  font-size: 13px;
+  font-size: var(--font-desc-size);
   color: #9ca3af;
   line-height: 1.6;
 }
@@ -9079,7 +8984,7 @@ main .ad-card {
 }
 
 .page-daily-insight .weekly-coming-soon h3 {
-  font-size: 18px;
+  font-size: var(--font-title-size);
   margin-bottom: 8px;
   color: #9ca3af;
 }
@@ -9130,7 +9035,7 @@ main .ad-card {
   border: none;
   outline: none;
   color: var(--text-primary);
-  font-size: 13px;
+  font-size: var(--font-desc-size);
   padding: 0 8px;
   min-width: 0;
   height: 100%;
@@ -9241,7 +9146,7 @@ main .ad-card {
 }
 
 .search-recent-title {
-  font-size: 11px;
+  font-size: var(--font-small-size);
   font-weight: 600;
   color: var(--text-tertiary);
   text-transform: uppercase;
@@ -9249,7 +9154,7 @@ main .ad-card {
 }
 
 .search-clear-all {
-  font-size: 11px;
+  font-size: var(--font-small-size);
   color: var(--text-tertiary);
   background: none;
   border: none;
@@ -9305,7 +9210,7 @@ main .ad-card {
 }
 
 .search-result-title {
-  font-size: 13px;
+  font-size: var(--font-desc-size);
   font-weight: 500;
   color: var(--text-primary);
   white-space: nowrap;
@@ -9314,7 +9219,7 @@ main .ad-card {
 }
 
 .search-result-meta {
-  font-size: 11px;
+  font-size: var(--font-meta-size);
   color: var(--text-tertiary);
   margin-top: 2px;
   white-space: nowrap;
@@ -9352,7 +9257,7 @@ main .ad-card {
   padding: 24px 14px;
   text-align: center;
   color: var(--text-tertiary);
-  font-size: 13px;
+  font-size: var(--font-desc-size);
 }
 
 /* 검색바 모바일 반응형 */
@@ -9370,7 +9275,7 @@ main .ad-card {
   }
 
   .search-input {
-    font-size: 12px;
+    font-size: var(--font-desc-size);
   }
 
   .search-btn {
@@ -9403,11 +9308,11 @@ main .ad-card {
   }
 
   .search-result-title {
-    font-size: 14px;
+    font-size: var(--font-desc-size);
   }
 
   .search-result-meta {
-    font-size: 12px;
+    font-size: var(--font-meta-size);
   }
 }
 
@@ -9452,7 +9357,7 @@ main .ad-card {
   border: none;
   outline: none;
   color: var(--text-primary);
-  font-size: 15px;
+  font-size: var(--font-body-size);
   padding: 0 12px 0 0;
   min-width: 0;
   height: 100%;
@@ -9496,7 +9401,7 @@ main .ad-card {
   gap: 12px;
   padding: 48px 16px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: var(--font-desc-size);
 }
 
 .search-loading-spinner {
@@ -9517,7 +9422,7 @@ main .ad-card {
   text-align: center;
   padding: 24px 16px 16px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: var(--font-desc-size);
 }
 
 /* 섹션 */
@@ -9533,7 +9438,7 @@ main .ad-card {
 }
 
 .search-section-title {
-  font-size: 16px;
+  font-size: var(--font-section-size);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 12px 0;
@@ -9547,7 +9452,7 @@ main .ad-card {
   background: none;
   border: none;
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
@@ -9585,7 +9490,7 @@ main .ad-card {
   flex: 1;
   text-decoration: none;
   color: var(--text);
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 500;
 }
 
@@ -9629,12 +9534,12 @@ main .ad-card {
   border: 1px solid var(--border);
   border-radius: 12px;
   text-decoration: none;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-result-card:hover {
   border-color: var(--primary);
-  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .search-result-info {
@@ -9645,7 +9550,7 @@ main .ad-card {
 }
 
 .search-result-name {
-  font-size: 15px;
+  font-size: var(--font-body-size);
   font-weight: 600;
   color: var(--text);
   white-space: nowrap;
@@ -9654,7 +9559,7 @@ main .ad-card {
 }
 
 .search-result-dev {
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   color: var(--text-muted);
 }
 
@@ -9665,7 +9570,7 @@ main .ad-card {
 }
 
 .search-result-platform {
-  font-size: 11px;
+  font-size: var(--font-small-size);
   font-weight: 600;
   color: var(--text-muted);
   background: var(--hover-bg);
@@ -9678,7 +9583,7 @@ main .ad-card {
   text-align: center;
   padding: 48px 16px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: var(--font-desc-size);
 }
 
 /* 모바일 */
@@ -9693,7 +9598,7 @@ main .ad-card {
   }
 
   .search-page-input {
-    font-size: 14px;
+    font-size: var(--font-body-size);
   }
 
   .search-page-btn {
@@ -9712,7 +9617,7 @@ main .ad-card {
   }
 
   .search-result-name {
-    font-size: 14px;
+    font-size: var(--font-body-size);
   }
 }
 
@@ -9811,7 +9716,7 @@ main .ad-card {
   width: 36px;
   height: 36px;
   padding: 0;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 500;
   color: #c2410c;
   background: rgba(194, 65, 12, 0.15);
@@ -9828,14 +9733,14 @@ main .ad-card {
 }
 
 .game-hero-title {
-  font-size: 22px;
+  font-size: var(--font-xl-size);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 6px 0;
 }
 
 .game-hero-developer {
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   color: var(--text-secondary);
   margin-bottom: 6px;
 }
@@ -9850,7 +9755,7 @@ main .ad-card {
   display: inline-flex;
   align-items: center;
   padding: 4px 10px;
-  font-size: 12px;
+  font-size: var(--font-badge-size);
   font-weight: 500;
   color: var(--text);
   background: var(--bg-tertiary);
@@ -9872,13 +9777,13 @@ main .ad-card {
 }
 
 .game-hero-stat-label {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: var(--text-tertiary);
   margin-bottom: 4px;
 }
 
 .game-hero-stat-value {
-  font-size: 20px;
+  font-size: var(--font-lg-size);
   font-weight: 700;
   color: var(--text);
 }
@@ -9936,7 +9841,7 @@ main .ad-card {
   justify-content: center;
   gap: 10px;
   padding: 10px 12px;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 600;
   color: var(--text);
   background: transparent;
@@ -9965,7 +9870,7 @@ main .ad-card {
 }
 
 .game-rank-country-flag {
-  font-size: 20px;
+  font-size: var(--font-lg-size);
   width: 28px;
 }
 
@@ -9976,7 +9881,7 @@ main .ad-card {
 
 .game-rank-country-name {
   flex: 1;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 600;
   color: #1e293b;
 }
@@ -9988,7 +9893,7 @@ main .ad-card {
 }
 
 .game-rank-country-value {
-  font-size: 16px;
+  font-size: var(--font-section-size);
   font-weight: 600;
   color: var(--text);
   min-width: 36px;
@@ -9996,7 +9901,7 @@ main .ad-card {
 }
 
 .game-rank-change {
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   font-weight: 500;
   margin-left: 6px;
 }
@@ -10092,7 +9997,7 @@ main .ad-card {
   align-items: center;
   justify-content: center;
   padding: 10px 16px;
-  font-size: 15px;
+  font-size: var(--font-tab-size);
   font-weight: 600;
   border-radius: 6px;
   border: 1px solid var(--border);
@@ -10141,7 +10046,7 @@ main .ad-card {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   color: var(--text-secondary);
   cursor: pointer;
   transition: opacity 0.2s;
@@ -10172,7 +10077,7 @@ main .ad-card {
 
 .market-toggle-btn {
   padding: 4px 10px;
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   font-weight: 500;
   border-radius: 4px;
   border: 1px solid var(--border);
@@ -10242,17 +10147,17 @@ main .ad-card {
 }
 
 .chart-rank-label {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   font-weight: 600;
 }
 
 .chart-ylabel {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   fill: #64748b;
 }
 
 .chart-xlabel {
-  font-size: 10px;
+  font-size: var(--font-xs-size);
   fill: #64748b;
 }
 
@@ -10275,7 +10180,7 @@ main .ad-card {
   padding: 32px 16px;
   text-align: center;
   color: var(--text-tertiary);
-  font-size: 14px;
+  font-size: var(--font-desc-size);
 }
 
 /* 트렌드 리포트 (mentions) */
@@ -10317,7 +10222,7 @@ main .ad-card {
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: var(--font-title-size);
   font-weight: 700;
 }
 
@@ -10332,7 +10237,7 @@ main .ad-card {
 }
 
 .gm-page-index {
-  font-size: 15px;
+  font-size: var(--font-body-size);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.8);
   min-width: 48px;
@@ -10372,7 +10277,6 @@ main .ad-card {
 }
 
 .gm-item:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-color: rgba(0, 0, 0, 0.15);
   background: rgba(0, 0, 0, 0.02);
@@ -10403,7 +10307,7 @@ main .ad-card {
 
 .gm-item-type {
   padding: 3px 8px;
-  font-size: 11px;
+  font-size: var(--font-badge-size);
   font-weight: 600;
   border-radius: 4px;
   background: var(--bg-secondary);
@@ -10435,7 +10339,6 @@ a.gm-item {
 }
 
 a.gm-item:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
@@ -10453,7 +10356,7 @@ a.gm-item:hover {
 
 
 .gm-rank-badge {
-  font-size: 11px;
+  font-size: var(--font-meta-size);
   font-weight: 500;
   color: var(--text-secondary);
 }
@@ -10463,7 +10366,7 @@ a.gm-item:hover {
 
 .gm-item-date {
   margin-left: auto;
-  font-size: 11px;
+  font-size: var(--font-meta-size);
   color: var(--text-tertiary);
 }
 
@@ -10495,6 +10398,12 @@ a.gm-item:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .gm-item-desc {
+    font-size: var(--font-body-size);
+  }
+}
+
 /* 스팀 섹션 */
 .game-rank-section.steam {
   padding: 16px;
@@ -10509,11 +10418,11 @@ a.gm-item:hover {
 }
 
 .game-rank-section-icon {
-  font-size: 16px;
+  font-size: var(--font-section-size);
 }
 
 .game-rank-section-title {
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 600;
   color: var(--text);
 }
@@ -10530,12 +10439,12 @@ a.gm-item:hover {
 }
 
 .game-steam-stat-label {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: var(--text-tertiary);
 }
 
 .game-steam-stat-value {
-  font-size: 16px;
+  font-size: var(--font-section-size);
   font-weight: 600;
   color: var(--text);
 }
@@ -10558,7 +10467,7 @@ a.gm-item:hover {
   }
 
   .game-hero-title {
-    font-size: 20px;
+    font-size: var(--font-heading-size);
   }
 
   .game-hero-stats {
@@ -10584,7 +10493,7 @@ a.gm-item:hover {
   /* 요약 뷰 - 아이템 패딩만 조정 */
   .realtime-content[data-realtime-view="summary"].active .game-rank-col-header {
     padding: 8px 10px;
-    font-size: 13px;
+    font-size: var(--font-desc-size);
   }
 
   .realtime-content[data-realtime-view="summary"].active .game-rank-country-row {
@@ -10592,7 +10501,7 @@ a.gm-item:hover {
   }
 
   .realtime-content[data-realtime-view="summary"].active .game-rank-country-flag {
-    font-size: 16px;
+    font-size: var(--font-section-size);
     width: 24px;
   }
 
@@ -10602,11 +10511,11 @@ a.gm-item:hover {
   }
 
   .realtime-content[data-realtime-view="summary"].active .game-rank-country-name {
-    font-size: 13px;
+    font-size: var(--font-desc-size);
   }
 
   .realtime-content[data-realtime-view="summary"].active .game-rank-country-value {
-    font-size: 14px;
+    font-size: var(--font-desc-size);
   }
 
   .gm-items-grid {
@@ -10764,7 +10673,7 @@ a.gm-item:hover {
 
   /* placeholder 폰트 크기 - 네비와 균형 맞춤 */
   .search-input {
-    font-size: 14px;
+    font-size: var(--font-body-size);
   }
 
   /* 검색 버튼 아이콘 크기 키움 */
@@ -10790,7 +10699,7 @@ a.gm-item:hover {
   gap: 6px;
   padding: 8px 16px;
   margin-bottom: 16px;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 500;
   color: var(--text-secondary);
   background: var(--card-bg);
@@ -10816,14 +10725,14 @@ a.gm-item:hover {
 }
 
 .games-hub-title {
-  font-size: 28px;
+  font-size: var(--font-stat-size);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 8px;
 }
 
 .games-hub-desc {
-  font-size: 15px;
+  font-size: var(--font-body-size);
   color: var(--text-secondary);
 }
 
@@ -10831,7 +10740,7 @@ a.gm-item:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 18px;
+  font-size: var(--font-title-size);
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 16px;
@@ -10867,7 +10776,6 @@ a.gm-item:hover {
 }
 
 .games-hub-popular-card:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -10879,7 +10787,7 @@ a.gm-item:hover {
   height: 28px;
   background: linear-gradient(135deg, #f97316, #fb923c);
   color: white;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 700;
   border-radius: 8px;
   flex-shrink: 0;
@@ -10901,7 +10809,7 @@ a.gm-item:hover {
 }
 
 .popular-name {
-  font-size: 15px;
+  font-size: var(--font-body-size);
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
@@ -10910,7 +10818,7 @@ a.gm-item:hover {
 }
 
 .popular-views {
-  font-size: 12px;
+  font-size: var(--font-meta-size);
   color: var(--text-tertiary);
 }
 
@@ -10971,7 +10879,7 @@ a.gm-item:hover {
 }
 
 .games-hub-recent-card:hover {
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .recent-link {
@@ -11011,8 +10919,8 @@ a.gm-item:hover {
 }
 
 .recent-name {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-title-weight);
   color: var(--text-primary);
   text-align: center;
   white-space: nowrap;
@@ -11042,7 +10950,7 @@ a.gm-item:hover {
   min-width: 32px;
   height: 32px;
   padding: 0 8px;
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   font-weight: 500;
   color: var(--text-secondary);
   background: var(--card-bg);
@@ -11092,7 +11000,7 @@ a.gm-item:hover {
 }
 
 .group-title {
-  font-size: 16px;
+  font-size: var(--font-section-size);
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 12px;
@@ -11101,7 +11009,7 @@ a.gm-item:hover {
 }
 
 .group-count {
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   font-weight: 400;
   color: var(--text-tertiary);
 }
@@ -11138,14 +11046,13 @@ a.gm-item:hover {
 }
 
 .game-item:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .game-name {
   min-width: 0;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-title-weight);
   color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
@@ -11166,7 +11073,11 @@ a.gm-item:hover {
   }
 
   .games-hub-title {
-    font-size: 22px;
+    font-size: var(--font-xl-size);
+  }
+
+  .games-hub-section-title {
+    font-size: var(--font-section-size);
   }
 
   .games-hub-popular-grid {
@@ -11193,7 +11104,7 @@ a.gm-item:hover {
   .index-link {
     min-width: 28px;
     height: 28px;
-    font-size: 12px;
+    font-size: var(--font-meta-size);
   }
 
   .group-games {
@@ -11211,7 +11122,7 @@ a.gm-item:hover {
   }
 
   .game-name {
-    font-size: 12px;
+    font-size: var(--font-meta-size);
   }
 
   /* 자음 링크 클릭 시 섹션이 필터에 가려지지 않도록 */
@@ -11282,7 +11193,7 @@ a.gm-item:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   font-weight: var(--font-badge-weight);
   color: var(--text-muted);
   background: var(--hover-bg);
@@ -11313,7 +11224,7 @@ a.gm-item:hover {
 }
 
 .popular-banner-name {
-  font-size: 13px;
+  font-size: var(--font-desc-size);
   font-weight: 700;
   max-width: 120px;
   overflow: hidden;
@@ -11351,7 +11262,7 @@ a.gm-item:hover {
 /* 모바일 띠 배너 */
 @media (max-width: 768px) {
   .popular-banner {
-    padding: 4px 10px;
+    padding: 8px;
     gap: 6px;
     overflow: visible;
   }
@@ -11380,7 +11291,7 @@ a.gm-item:hover {
   .popular-banner-rank {
     width: 24px;
     height: 24px;
-    font-size: 12px;
+    font-size: var(--font-meta-size);
   }
 
   .popular-banner-icon {
@@ -11402,42 +11313,33 @@ a.gm-item:hover {
   }
 }
 
-/* 480px 이하 */
-@media (max-width: 480px) {
-  .popular-banner {
-    padding: 8px;
-  }
-}
-
-/* 360px 이하 */
-@media (max-width: 360px) {
-  .popular-banner {
-    padding: 8px 6px;
-  }
-}
-
 /* ========================================
    블로그 심층 리포트 - 일간리포트 스타일 통일
    ======================================== */
 
-/* 컨테이너 - 페이지 표준 */
-.blog-article {
+/* 컨테이너 - 일간리포트와 동일한 스타일 적용 */
+#issue .page-container {
   max-width: 1190px;
   margin: 0 auto;
-  padding: 20px var(--space-page-x);
-  box-sizing: border-box;
+  padding: 0;
+  display: block;
+}
+#issue .page-container > * {
+  margin-bottom: var(--space-block-y);
+}
+#issue .page-container > *:last-child {
+  margin-bottom: 0;
 }
 
-.blog-article .ad-card {
+#issue .page-container .ad-card {
   margin-bottom: 12px;
 }
 
-/* 통합 카드 - 배너+헤더 */
+/* 통합 카드 - 배너+헤더+본문 */
 .blog-card {
   background: var(--card);
-  border-radius: 12px 12px 0 0;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  border-bottom: none;
   overflow: hidden;
 }
 
@@ -11448,7 +11350,7 @@ a.gm-item:hover {
 /* 히어로 이미지 - 카드 상단에 붙음 */
 .blog-hero {
   width: 100%;
-  max-height: 180px;
+  max-height: 280px;
   overflow: hidden;
   background: var(--bg-secondary);
 }
@@ -11466,7 +11368,7 @@ a.gm-item:hover {
 
 /* 제목 */
 .blog-title {
-  font-size: 1.75rem;
+  font-size: var(--font-2xl-size);
   font-weight: 700;
   line-height: 1.4;
   color: var(--text);
@@ -11484,13 +11386,13 @@ a.gm-item:hover {
 }
 
 .blog-date {
-  font-size: 14px;
+  font-size: var(--font-meta-size);
   color: var(--text-muted);
 }
 
 /* 요약 박스 */
 .blog-summary {
-  font-size: 15px;
+  font-size: var(--font-body-size);
   line-height: 1.7;
   color: var(--text-secondary);
   padding: 16px;
@@ -11509,7 +11411,7 @@ a.gm-item:hover {
 
 .blog-tag {
   padding: 4px 12px;
-  font-size: 12px;
+  font-size: var(--font-badge-size);
   font-weight: 600;
   color: var(--primary);
   background: rgba(37, 99, 235, 0.1);
@@ -11523,22 +11425,17 @@ a.gm-item:hover {
   }
 }
 
-/* 본문 섹션 - 헤더와 연결 */
+/* 본문 섹션 - 카드 내부 */
 .blog-content {
-  background: var(--card);
-  border-radius: 0;
   padding: 24px;
-  border: 1px solid var(--border);
-  border-top: none;
-  border-bottom: none;
 }
 
 /* 본문 단락 */
 .blog-paragraph {
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: var(--font-body-size);
+  line-height: 1.85;
   color: var(--text-secondary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .blog-paragraph:last-child {
@@ -11547,7 +11444,7 @@ a.gm-item:hover {
 
 /* 섹션 제목 */
 .blog-heading {
-  font-size: 1.25rem;
+  font-size: var(--font-lg-size);
   font-weight: 600;
   color: var(--text);
   margin: 32px 0 16px;
@@ -11579,7 +11476,7 @@ a.gm-item:hover {
 
 .blog-caption {
   padding: 12px 16px;
-  font-size: 13px;
+  font-size: var(--font-meta-size);
   color: var(--text-muted);
   text-align: center;
   background: var(--hover-bg);
@@ -11593,7 +11490,7 @@ a.gm-item:hover {
   background: var(--hover-bg);
   border-left: 3px solid var(--primary);
   border-radius: 0 8px 8px 0;
-  font-size: 15px;
+  font-size: var(--font-body-size);
   line-height: 1.7;
   color: var(--text-secondary);
   font-style: italic;
@@ -11611,17 +11508,14 @@ a.gm-item:hover {
   margin: 24px 0;
 }
 
-/* 관련 게임 섹션 - 카드 하단 마감 */
+/* 관련 게임 섹션 - 카드 내부 */
 .blog-related-games {
-  background: var(--card);
-  border-radius: 0 0 12px 12px;
   padding: 24px;
-  border: 1px solid var(--border);
   border-top: 1px solid var(--border);
 }
 
 .blog-related-title {
-  font-size: 1.125rem;
+  font-size: var(--font-title-size);
   font-weight: 600;
   color: var(--text);
   margin-bottom: 16px;
@@ -11651,7 +11545,6 @@ a.gm-item:hover {
 .blog-related-card:hover {
   background: var(--card-hover);
   border-color: var(--border);
-  transform: translateY(-1px);
 }
 
 .blog-related-icon {
@@ -11662,7 +11555,7 @@ a.gm-item:hover {
 }
 
 .blog-related-name {
-  font-size: 13px;
+  font-size: var(--font-desc-size);
   font-weight: 500;
   color: var(--text);
   white-space: nowrap;
@@ -11693,7 +11586,7 @@ a.gm-item:hover {
   }
 
   .blog-title {
-    font-size: 1.375rem;
+    font-size: var(--font-xl-size);
   }
 
   .blog-hero {
@@ -11702,11 +11595,11 @@ a.gm-item:hover {
   }
 
   .blog-paragraph {
-    font-size: 15px;
+    font-size: var(--font-body-size);
   }
 
   .blog-heading {
-    font-size: 1.125rem;
+    font-size: var(--font-title-size);
   }
 
   .blog-figure {
@@ -11735,7 +11628,7 @@ a.gm-item:hover {
 .trend-nav-btn {
   padding: 10px 20px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: var(--font-desc-size);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s;
@@ -11793,8 +11686,7 @@ a.gm-item:hover {
 }
 
 .trend-feed-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
 }
 
 .trend-feed-card-image {
@@ -11825,7 +11717,7 @@ a.gm-item:hover {
   top: 10px;
   left: 10px;
   padding: 4px 10px;
-  font-size: 11px;
+  font-size: var(--font-small-size);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.95);
   background: rgba(0, 0, 0, 0.55);
@@ -11844,12 +11736,20 @@ a.gm-item:hover {
   margin: 0;
   padding: 12px;
   line-height: 1.4;
+  height: calc(2.8em + 24px);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.trend-feed-card-title-text {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 60px;
-  box-sizing: border-box;
+  width: 100%;
+  line-height: 1.4;
+  max-height: 2.8em;
 }
 
 /* 트렌드/비디오 섹션 페이지네이션 (헤더 내) */
@@ -11868,7 +11768,7 @@ a.gm-item:hover {
   border-radius: 6px;
   background: var(--card-bg);
   color: var(--text);
-  font-size: 18px;
+  font-size: var(--font-title-size);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -11927,7 +11827,7 @@ a.gm-item:hover {
   }
 
   .trend-feed-card-tag {
-    font-size: 10px;
+    font-size: var(--font-xs-size);
     padding: 3px 8px;
   }
 }
@@ -11978,6 +11878,22 @@ a.gm-item:hover {
   .video-grid {
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+
+  #home .page-container :is(
+    .home-trend-card,
+    .home-news-card,
+    .home-video-card,
+    .home-news-item,
+    .home-video-item,
+    .home-community-item,
+    .home-item,
+    .home-rank-row,
+    .home-steam-row,
+    .home-upcoming-row,
+    .popular-banner-item
+  ) {
+    border-radius: 0 !important;
   }
 }
 
