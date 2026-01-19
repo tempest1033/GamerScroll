@@ -653,25 +653,42 @@ function generateIndexPage(data) {
         </a>
       </div>`;
 
-    // 모바일: 상단광고 + 리포트 + 광고 + 뉴스(2개씩) + 광고 패턴
+    // 이슈 리포트 카드 (일간/주간과 동일 스타일, 최대 2개)
+    const renderIssueCard = (issue) => {
+      const issueThumbnail = fixUrl(issue.thumbnail) || '';
+      const issueBadgeText = issue.date ? `${formatDateKr(issue.date)} 이슈 리포트` : '이슈 리포트';
+      return `
+        <a href="/trend/issue/${issue.slug}/" class="home-trend-card">
+          <div class="home-trend-card-image">
+            ${issueThumbnail ? `<img src="${issueThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+            <span class="home-trend-card-tag">${issueBadgeText}</span>
+          </div>
+          <h3 class="home-trend-card-title">${issue.title}</h3>
+        </a>`;
+    };
+    const issueCards = issueReports.slice(0, 2).map(renderIssueCard).join('');
+
+    // 모바일: 상단광고 + 리포트 + 광고 + 이슈(0~2개) + 광고 + 뉴스 + 광고 패턴
     content = '<section class="home-section active" id="home">' +
       '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
       '<div class="page-container">' +
       generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
       reportGrid +
       generateNativeAdSlot(AD_SLOTS.Article001) +
+      issueCards +
+      generateNativeAdSlot(AD_SLOTS.Article002) +
       (allNews[0] ? renderNewsCard(allNews[0]) : '') +
       (allNews[1] ? renderNewsCard(allNews[1]) : '') +
       (allNews[2] ? renderNewsCard(allNews[2]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article002) +
+      generateNativeAdSlot(AD_SLOTS.Article003) +
       (allNews[3] ? renderNewsCard(allNews[3]) : '') +
       (allNews[4] ? renderNewsCard(allNews[4]) : '') +
       (allNews[5] ? renderNewsCard(allNews[5]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article003) +
+      generateNativeAdSlot(AD_SLOTS.Article004) +
       (allNews[6] ? renderNewsCard(allNews[6]) : '') +
       (allNews[7] ? renderNewsCard(allNews[7]) : '') +
       (allNews[8] ? renderNewsCard(allNews[8]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article004) +
+      generateNativeAdSlot(AD_SLOTS.Article005) +
       (allNews[9] ? renderNewsCard(allNews[9]) : '') +
       '</div>' +
       '</section>';
