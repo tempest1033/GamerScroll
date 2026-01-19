@@ -11,15 +11,15 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 /**
  * PC 홈 상단 광고 (728x90)
- * 홈페이지에서는 onload 방식으로 초기화 (index.js에서 처리)
  */
 function renderPCHomeAd(slotId) {
   if (!slotId) return '';
   return `<div class="ad-card ad-card-pc-home">
   <ins class="adsbygoogle"
-       style="display:block;width:100%;height:90px"
+       style="display:block;width:728px;height:90px;margin:0 auto"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
@@ -39,7 +39,6 @@ function renderPCAd(slotId) {
 
 /**
  * Vertical 광고 (300x600) - PC 사이드바용
- * 홈페이지에서는 onload 방식으로 초기화 (index.js에서 처리)
  */
 function renderVerticalAd(slotId) {
   if (!slotId) return '';
@@ -48,12 +47,12 @@ function renderVerticalAd(slotId) {
        style="display:inline-block;width:300px;height:600px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
 /**
  * Rectangle 광고 (300x250) - PC 사이드바용
- * 홈페이지에서는 onload 방식으로 초기화 (index.js에서 처리)
  */
 function renderRectangleAd(slotId) {
   if (!slotId) return '';
@@ -62,6 +61,7 @@ function renderRectangleAd(slotId) {
        style="display:inline-block;width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>`;
 }
 
