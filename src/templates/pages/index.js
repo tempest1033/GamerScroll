@@ -7,6 +7,7 @@ const {
   wrapWithLayout,
   AD_SLOTS,
   generateAdSlot,
+  generateAdPairSlot,
   generateHomeAdPairSlot,
   generateMobileOnlyMidAdSlot,
   generateVerticalAdSlot,
