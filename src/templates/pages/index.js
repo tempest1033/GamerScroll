@@ -635,21 +635,6 @@ function generateIndexPage(data) {
     const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
     const weeklyLink = weeklySlug ? `/trend/weekly/${weeklySlug}/` : '/trend/';
 
-    // 모바일 이슈 리포트 카드
-    const mobileIssueCards = issueReports.slice(0, 2).map(issue => {
-      const issueThumbnail = fixUrl(issue.thumbnail) || '';
-      const issueBadgeText = issue.date ? `${formatDateKr(issue.date)} 이슈 리포트` : '이슈 리포트';
-      return `
-        <a href="/trend/issue/${issue.slug}/" class="home-trend-card">
-          <div class="home-trend-card-image">
-            ${issueThumbnail ? `<img src="${issueThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag">${issueBadgeText}</span>
-          </div>
-          <h3 class="home-trend-card-title">${issue.title}</h3>
-        </a>`;
-    }).join('');
-    const mobileIssueGrid = mobileIssueCards ? `<div class="home-trend-grid home-trend-grid-issue">${mobileIssueCards}</div>` : '';
-
     const reportGrid = `
       <div class="home-trend-grid">
         <a href="${dailyLink}" class="home-trend-card">
@@ -666,9 +651,7 @@ function generateIndexPage(data) {
           </div>
           <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
         </a>
-      </div>
-      ${generateNativeAdSlot(AD_SLOTS.Article001)}
-      ${mobileIssueGrid}`;
+      </div>`;
 
     // 모바일: 상단광고 + 리포트 + 광고 + 뉴스(2개씩) + 광고 패턴
     content = '<section class="home-section active" id="home">' +
@@ -676,19 +659,19 @@ function generateIndexPage(data) {
       '<div class="page-container">' +
       generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
       reportGrid +
-      generateNativeAdSlot(AD_SLOTS.Article002) +
+      generateNativeAdSlot(AD_SLOTS.Article001) +
       (allNews[0] ? renderNewsCard(allNews[0]) : '') +
       (allNews[1] ? renderNewsCard(allNews[1]) : '') +
       (allNews[2] ? renderNewsCard(allNews[2]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article003) +
+      generateNativeAdSlot(AD_SLOTS.Article002) +
       (allNews[3] ? renderNewsCard(allNews[3]) : '') +
       (allNews[4] ? renderNewsCard(allNews[4]) : '') +
       (allNews[5] ? renderNewsCard(allNews[5]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article004) +
+      generateNativeAdSlot(AD_SLOTS.Article003) +
       (allNews[6] ? renderNewsCard(allNews[6]) : '') +
       (allNews[7] ? renderNewsCard(allNews[7]) : '') +
       (allNews[8] ? renderNewsCard(allNews[8]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article005) +
+      generateNativeAdSlot(AD_SLOTS.Article004) +
       (allNews[9] ? renderNewsCard(allNews[9]) : '') +
       '</div>' +
       '</section>';
