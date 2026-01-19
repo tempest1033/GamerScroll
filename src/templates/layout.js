@@ -9,7 +9,8 @@ const {
   renderPCAd,
   renderPCHomeAd,
   renderVerticalAd,
-  renderRectangleAd
+  renderRectangleAd,
+  renderMultiplexAd
 } = require('./components/ads');
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
@@ -43,7 +44,9 @@ const AD_SLOTS = {
   Article002: '9737299266',
   Article003: '9204970318',
   Article004: '3171890915',
-  Article005: '8232645901'
+  Article005: '8232645901',
+  // 멀티플렉스
+  Multiflex001: '5636974986'
 };
 
 // 상단 검색바 (홈/일반 페이지용)
@@ -935,6 +938,11 @@ function generateNativeAdSlot(slotId) {
   return '';
 }
 
+// 멀티플렉스 광고 (PC + 모바일 공통)
+function generateMultiplexAdSlot(slotId) {
+  return renderMultiplexAd(slotId);
+}
+
 /**
  * Partial 콘텐츠 생성 (레이아웃 없이 메인 콘텐츠만)
  * @param {string} content - 메인 콘텐츠 HTML
@@ -965,6 +973,7 @@ if (process.env.MOBILE_BUILD === 'true') {
     generateMidAdPairSlot,
     generateHomeAdPairSlot,
     generateMobileOnlyMidAdSlot,
-    generateNativeAdSlot
+    generateNativeAdSlot,
+    generateMultiplexAdSlot
   };
 }

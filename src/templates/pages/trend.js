@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMidAdPairSlot, generateNativeAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMidAdPairSlot, generateNativeAdSlot, generateMultiplexAdSlot } = require('../layout');
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
@@ -1416,6 +1416,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
         ${renderStocksCard(stocksData, stockPrices)}
         ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
         ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
+        ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
         ${navHtml}
       </div>
     </section>
@@ -1490,6 +1491,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
         ${topAds}
         <h1 class="visually-hidden">${h1Title}</h1>
         ${weeklyPanelHtml}
+        ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
         ${navHtml}
       </div>
     </section>
@@ -1548,18 +1550,50 @@ function generateIssueDetailPage({ post, nav = {} }) {
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
 
-  // 이슈 리포트 중간 광고
-  const ISSUE_REPORT_SLOTS = [
+  // 이슈 리포트 중간 광고 (PC/모바일 분기)
+  const ISSUE_REPORT_SLOTS_PC = [
+    AD_SLOTS.ResponsivePC001,
     AD_SLOTS.ResponsivePC002,
     AD_SLOTS.ResponsivePC003,
-    AD_SLOTS.ResponsivePC004
+    AD_SLOTS.ResponsivePC004,
+    AD_SLOTS.ResponsivePC005
+  ];
+  const ISSUE_REPORT_SLOTS_MOBILE = [
+    AD_SLOTS.Article001,
+    AD_SLOTS.Article002,
+    AD_SLOTS.Article003,
+    AD_SLOTS.Article004,
+    AD_SLOTS.Article005
   ];
 
   const generateIssueAdSlot = (adIndex = 0) => {
-    const slotId = ISSUE_REPORT_SLOTS[adIndex % ISSUE_REPORT_SLOTS.length];
-    const adsHtml = generateAdSlot(slotId, { type: 'mobile-400' });
-    if (!adsHtml) return '';
-    return `<div class="blog-ad">${adsHtml}</div>`;
+    if (isMobileBuild) {
+      // 모바일: 네이티브 In-feed 광고
+      const slotId = ISSUE_REPORT_SLOTS_MOBILE[adIndex % ISSUE_REPORT_SLOTS_MOBILE.length];
+      return `<div class="blog-ad">
+        <div class="ad-card ad-card-native">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-format="fluid"
+               data-ad-layout-key="-7m+ex-1f-2m+ae"
+               data-ad-client="ca-pub-9477874183990825"
+               data-ad-slot="${slotId}"></ins>
+        </div>
+      </div>`;
+    } else {
+      // PC: 반응형 확장형 광고
+      const slotId = ISSUE_REPORT_SLOTS_PC[adIndex % ISSUE_REPORT_SLOTS_PC.length];
+      return `<div class="blog-ad">
+        <div class="ad-card ad-card-responsive">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-9477874183990825"
+               data-ad-slot="${slotId}"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+        </div>
+      </div>`;
+    }
   };
 
   // 관련 게임 찾기
@@ -1575,40 +1609,52 @@ function generateIssueDetailPage({ post, nav = {} }) {
     return found;
   };
 
-  // 본문 렌더링
+  // 본문 렌더링 (섹션 2개당 광고 1개 자동 삽입)
   const renderContent = () => {
     let adIndex = 0;
-    return content.map((block) => {
+    let sectionCount = 0;
+    const result = [];
+
+    content.forEach((block) => {
       switch (block.type) {
         case 'text':
           const paragraphs = block.value.split('\n\n').map(p =>
             `<p class="blog-paragraph">${p.replace(/\n/g, '<br>')}</p>`
           ).join('');
-          return paragraphs;
+          result.push(paragraphs);
+          break;
 
         case 'image':
           const imgSrc = fixUrl(block.src);
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
-          return `
+          result.push(`
             <figure class="blog-figure">
               <img class="blog-image" src="${imgSrc}" alt="${block.caption || ''}" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
-          `;
+          `);
+          break;
 
         case 'ad':
-          return generateIssueAdSlot(adIndex++);
+          // 수동 광고는 무시 (자동 삽입으로 대체)
+          break;
 
         case 'quote':
-          return `<blockquote class="blog-quote">${block.value}</blockquote>`;
+          result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
+          break;
 
         case 'heading':
-          return `<h2 class="blog-heading">${block.value}</h2>`;
-
-        default:
-          return '';
+          // 섹션 2개마다 heading 앞에 광고 삽입 (첫 heading 제외)
+          sectionCount++;
+          if (sectionCount > 1 && (sectionCount - 1) % 2 === 0) {
+            result.push(generateIssueAdSlot(adIndex++));
+          }
+          result.push(`<h2 class="blog-heading">${block.value}</h2>`);
+          break;
       }
-    }).join('');
+    });
+
+    return result.join('');
   };
 
   // 관련 게임
@@ -1640,7 +1686,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
   const pageContent = `
     <section class="section active" id="issue">
       
-      <article class="blog-article page-container issue-container">
+      <article class="page-container issue-container">
         ${topAds}
 
         <div class="blog-card">
@@ -1656,13 +1702,13 @@ function generateIssueDetailPage({ post, nav = {} }) {
             </div>
             ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
+          <div class="blog-content">
+            ${renderContent()}
+          </div>
+          ${relatedGamesHtml}
         </div>
 
-        <div class="blog-content">
-          ${renderContent()}
-        </div>
-
-        ${relatedGamesHtml}
+        ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
         ${navHtml}
       </article>
     </section>

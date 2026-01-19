@@ -2,24 +2,29 @@
    블로그 심층 리포트 - 일간리포트 스타일 통일
    ======================================== */
 
-/* 컨테이너 - 페이지 표준 */
-.blog-article {
+/* 컨테이너 - 일간리포트와 동일한 스타일 적용 */
+#issue .page-container {
   max-width: 1190px;
   margin: 0 auto;
-  padding: 20px var(--space-page-x);
-  box-sizing: border-box;
+  padding: 0;
+  display: block;
+}
+#issue .page-container > * {
+  margin-bottom: var(--space-block-y);
+}
+#issue .page-container > *:last-child {
+  margin-bottom: 0;
 }
 
-.blog-article .ad-card {
+#issue .page-container .ad-card {
   margin-bottom: 12px;
 }
 
-/* 통합 카드 - 배너+헤더 */
+/* 통합 카드 - 배너+헤더+본문 */
 .blog-card {
   background: var(--card);
-  border-radius: 12px 12px 0 0;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  border-bottom: none;
   overflow: hidden;
 }
 
@@ -30,7 +35,7 @@
 /* 히어로 이미지 - 카드 상단에 붙음 */
 .blog-hero {
   width: 100%;
-  max-height: 180px;
+  max-height: 280px;
   overflow: hidden;
   background: var(--bg-secondary);
 }
@@ -105,22 +110,17 @@
   }
 }
 
-/* 본문 섹션 - 헤더와 연결 */
+/* 본문 섹션 - 카드 내부 */
 .blog-content {
-  background: var(--card);
-  border-radius: 0;
   padding: 24px;
-  border: 1px solid var(--border);
-  border-top: none;
-  border-bottom: none;
 }
 
 /* 본문 단락 */
 .blog-paragraph {
   font-size: var(--font-body-size);
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--text-secondary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .blog-paragraph:last-child {
@@ -193,12 +193,9 @@
   margin: 24px 0;
 }
 
-/* 관련 게임 섹션 - 카드 하단 마감 */
+/* 관련 게임 섹션 - 카드 내부 */
 .blog-related-games {
-  background: var(--card);
-  border-radius: 0 0 12px 12px;
   padding: 24px;
-  border: 1px solid var(--border);
   border-top: 1px solid var(--border);
 }
 

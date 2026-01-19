@@ -238,8 +238,8 @@
 	      --font-title-weight: 600;
 	      --font-card-title-weight: 700;
 	      --font-item-weight: 600;
-	      --font-body-size: 16px;
-	      --font-desc-size: 15px;
+	      --font-body-size: 17px;
+	      --font-desc-size: 16px;
 	      --font-body-weight: 500;
 	      --font-desc-weight: 400;
 	      --font-body-line-height: 1.7;
@@ -399,7 +399,7 @@
       :root {
         --font-title-size: 28px;
         --font-body-size: 17px;
-        --font-desc-size: 15px;
+        --font-desc-size: 16px;
         --font-tab-size: 14px;
         --font-nav-size: 15px;
         --font-section-size: 18px;

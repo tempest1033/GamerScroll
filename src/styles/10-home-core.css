@@ -267,6 +267,10 @@
       padding: 12px 16px 16px;
     }
 
+    .home-trend-grid-issue {
+      padding-top: 0;
+    }
+
 		    .home-trend-card {
 	      display: block;
 		      background: #ffffff;
@@ -314,6 +318,10 @@
     }
 
     .home-trend-card-tag.weekly {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .home-trend-card-tag.issue {
       background: rgba(0, 0, 0, 0.5);
     }
 

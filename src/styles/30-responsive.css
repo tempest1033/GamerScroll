@@ -340,6 +340,9 @@
   .home-trend-card-tag.weekly {
     background: rgba(0, 0, 0, 0.6);
   }
+  .home-trend-card-tag.issue {
+    background: rgba(0, 0, 0, 0.6);
+  }
   /* 로고 배지/텍스트 */
   .logo-badge {
     background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);

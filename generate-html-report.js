@@ -416,7 +416,23 @@ async function main() {
   // HTML 생성
   console.log('\n📄 GAMERSCRAWL 일일 보고서 생성 중...');
 
-  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight };
+  // 이슈 리포트 데이터 로드 (홈페이지용, 승인된 것만)
+  const ISSUE_REPORTS_DIR_HOME = './reports/issue';
+  let issueReportsForHome = [];
+  if (fs.existsSync(ISSUE_REPORTS_DIR_HOME)) {
+    const files = fs.readdirSync(ISSUE_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
+    issueReportsForHome = files.map(f => {
+      try {
+        return JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR_HOME}/${f}`, 'utf8'));
+      } catch (e) {
+        return null;
+      }
+    })
+      .filter(p => p && p.status === 'approved')
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
+  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, issueReports: issueReportsForHome };
 
   // games.json 로드 (게임 허브용)
   let gamesData = {};

@@ -57,10 +57,25 @@ function renderNativeAd(slotId) {
 </div>`;
 }
 
+/**
+ * Multiplex 광고 (자동 반응형)
+ */
+function renderMultiplexAd(slotId) {
+  if (!slotId) return '';
+  return `<div class="ad-card ad-card-multiplex">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"
+       data-ad-format="autorelaxed"></ins>
+</div>`;
+}
+
 module.exports = {
   ADSENSE_CLIENT,
   renderMobileAd,
   renderMobileTopAd,
   renderMobileMidAd,
-  renderNativeAd
+  renderNativeAd,
+  renderMultiplexAd
 };
