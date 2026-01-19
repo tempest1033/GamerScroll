@@ -4,6 +4,10 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+
 function generateYoutubePage(data) {
   const { youtube, chzzk } = data;
 
@@ -160,7 +164,7 @@ function generateYoutubePage(data) {
     title: '게임 영상 - 유튜브 인기, 치지직 라이브',
     description: '게임 영상 - 유튜브 인기, 치지직 라이브를 한눈에.',
     keywords: '게임 영상, 유튜브 게임, 치지직 라이브, 게임 스트리밍',
-    canonical: 'https://gamerscrawl.com/youtube/',
+    canonical: `${siteBaseUrl}/youtube/`,
     pageScripts
   });
 }

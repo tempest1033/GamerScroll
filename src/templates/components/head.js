@@ -133,6 +133,8 @@ function generateHead(options = {}) {
 		        document.documentElement.classList.add('is-localhost');
 		      } else if (host === 'gamerscrawl.com' || host === 'www.gamerscrawl.com') {
 		        var ua = navigator.userAgent || '';
+		        // 봇은 리디렉트 안 함 (canonical/alternate 태그로 처리)
+		        if (/Googlebot|bingbot|AdsBot|Yeti|Naverbot|Slurp|DuckDuckBot|facebookexternalhit|Twitterbot/i.test(ua)) return;
 		        if (/Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua)) {
 		          location.replace('https://m.gamerscrawl.com' + location.pathname + location.search);
 		          return;

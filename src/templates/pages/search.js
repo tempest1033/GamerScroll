@@ -5,6 +5,10 @@
 
 const { wrapWithLayout } = require('../layout');
 
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+
 function generateSearchPage() {
   // 리다이렉트 스크립트
   const redirectScript = `
@@ -31,7 +35,7 @@ function generateSearchPage() {
   return wrapWithLayout(content, {
     title: '검색 | 게이머스크롤',
     description: '게임 검색',
-    canonical: 'https://gamerscrawl.com/games/',
+    canonical: `${siteBaseUrl}/games/`,
     currentPage: 'games',
     showSearchBar: true,
     pageScripts: redirectScript,

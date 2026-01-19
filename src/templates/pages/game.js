@@ -7,6 +7,7 @@ const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = 
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
@@ -1468,7 +1469,7 @@ function generateGamePage(gameData) {
     title: seoTitle,
     description: seoDescription,
     keywords: seoKeywords,
-    canonical: `https://gamerscrawl.com/games/${slug || encodeURIComponent(name.replace(/\s+/g, '-').toLowerCase())}/`,
+    canonical: `${siteBaseUrl}/games/${slug || encodeURIComponent(name.replace(/\s+/g, '-').toLowerCase())}/`,
     pageScripts,
     noindex: !hasMentions
   });

@@ -4,6 +4,10 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+
 function generateMetacriticPage(data) {
   const { metacritic } = data;
 
@@ -69,7 +73,7 @@ function generateMetacriticPage(data) {
     title: '메타크리틱 - 게임 평점, 게임 리뷰',
     description: '메타크리틱 - 게임 평점, 게임 리뷰를 한눈에.',
     keywords: '메타크리틱, 게임 평점, 게임 리뷰, 메타스코어, 명작 게임',
-    canonical: 'https://gamerscrawl.com/metacritic/'
+    canonical: `${siteBaseUrl}/metacritic/`
   });
 }
 

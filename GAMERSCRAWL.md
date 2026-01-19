@@ -581,29 +581,44 @@ cd docs && npx serve -l 3000
 1. 주제 선정 - 사용자와 논의
 2. 자료 조사 - 웹 검색으로 데이터 수집
 3. 초안 작성 - JSON 형식으로 작성
-4. 피드백 반영 - 사용자 의견 수정
-5. 최종 저장 - reports/issue/{slug}.json
-6. 승인 시 status를 approved로 변경
+4. 전문 공유 - 글 전체를 텍스트로 보여주기 (사용자가 확인할 수 있도록)
+5. 피드백 반영 - 사용자 의견 수정
+6. 최종 저장 - reports/issue/{slug}.json
+7. 승인 시 status를 approved로 변경
 ```
+
+**중요**: 초안 작성 후 반드시 글 전문을 텍스트로 공유해야 함. JSON만 보여주면 사용자가 내용 확인이 어려움.
 
 ### JSON 형식
 ```json
 {
-  "slug": "2026-01-mobile-game-trend",
+  "slug": "게임-AI-논란-정리",
   "status": "draft",
   "title": "제목 (임팩트 있게)",
   "date": "2026-01-04",
   "thumbnail": "대표 이미지 URL",
+  "keywords": "키워드1, 키워드2, 키워드3",
   "summary": "요약 2-3문장 (독자 흥미 유발)",
   "content": [
-    { "type": "text", "value": "본문 문단" },
-    { "type": "heading", "value": "소제목" },
+    { "type": "heading", "value": "1. 첫 번째 섹션" },
     { "type": "image", "src": "이미지URL", "caption": "설명" },
+    { "type": "text", "value": "본문 문단" },
     { "type": "ad" },
-    { "type": "quote", "value": "인용문" }
+    { "type": "heading", "value": "마치며" },
+    { "type": "text", "value": "결론 문단" }
   ]
 }
 ```
+
+### 필드 규칙
+| 필드 | 규칙 | 예시 |
+|------|------|------|
+| **slug** | 한글 케밥케이스 (띄어쓰기 → 하이픈) | `리니지-클래식-월-29700원의-귀환` |
+| **title** | 태그 없이 제목만 (~~[이슈 포커스]~~ 등 금지) | `AI 썼다고 수상 박탈?…` |
+| **keywords** | SEO용 키워드, 쉼표로 구분 | `리니지, 엔씨소프트, MMORPG` |
+| **heading** | 번호 포함, 단 마지막은 "마치며" (번호 없이) | `1. 첫 번째`, `2. 두 번째`, `마치며` |
+| **relatedGames** | (선택) 관련 게임 slug 배열, 수동 지정 시 자동 매칭 무시 | `["승리의-여신-니케", "카오스-제로-나이트메어"]` |
+| **sources** | (선택) 정보 출처 배열, SEO에 유리 | `[{name, title, url}]` |
 
 ### content 블록 타입
 | 타입 | 용도 | 예시 |

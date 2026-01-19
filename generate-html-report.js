@@ -423,7 +423,7 @@ async function main() {
     const files = fs.readdirSync(ISSUE_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
     issueReportsForHome = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR_HOME}/${f}`, 'utf8'));
+        return JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
       } catch (e) {
         return null;
       }
@@ -617,7 +617,7 @@ async function main() {
     const files = fs.readdirSync(ISSUE_REPORTS_DIR).filter(f => f.endsWith('.json'));
     issueReports = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR}/${f}`, 'utf8'));
+        return JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
       } catch (e) {
         return null;
       }
@@ -1059,17 +1059,27 @@ async function main() {
     }).filter(p => p.priority !== '0.1');  // noindex 페이지는 sitemap에서 제외
   }
 
-  // Sitemap XML 생성
+  // Sitemap XML 생성 (xhtml:link로 PC↔모바일 관계 명시)
   const allPages = [...mainPages, ...gamePages, ...trendPages];
-  const sitemapEntries = allPages.map(page => `  <url>
+  const sitemapEntries = allPages.map(page => {
+    // 현재 URL의 경로 추출
+    const path = page.loc.replace(siteBaseUrl, '');
+    const pcUrl = `https://gamerscrawl.com${path}`;
+    const mobileUrl = `https://m.gamerscrawl.com${path}`;
+
+    return `  <url>
     <loc>${page.loc}</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 768px)" href="${mobileUrl}"/>
+    <xhtml:link rel="alternate" media="only screen and (min-width: 769px)" href="${pcUrl}"/>
     <lastmod>${sitemapDate}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-  </url>`).join('\n');
+  </url>`;
+  }).join('\n');
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');

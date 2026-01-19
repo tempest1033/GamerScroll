@@ -6,6 +6,10 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
@@ -518,7 +522,7 @@ function generateGamesHubPage(options = {}) {
     title: '게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색',
     description: '게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색을 한눈에.',
     keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 스팀 매출 순위, 스팀 인기 순위, 게임 뉴스',
-    canonical: 'https://gamerscrawl.com/games/',
+    canonical: `${siteBaseUrl}/games/`,
     currentPage: 'games',
     showSearchBar: true,
     pageScripts: pageScript

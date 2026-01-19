@@ -17,6 +17,7 @@ const {
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
 function generateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], games = {}, issueReports = [] } = data;
@@ -699,7 +700,7 @@ function generateIndexPage(data) {
       '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
       '<div class="home-container">' +
       '<div class="home-main">' +
-      generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001) +
+      generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001) +
       insightCardHtml +
       generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
       '<div class="home-card" id="home-news">' +
@@ -855,7 +856,7 @@ function generateIndexPage(data) {
     title: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스',
     description: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스를 한눈에.',
     keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 메타크리틱, 게임 뉴스',
-    canonical: 'https://gamerscrawl.com/',
+    canonical: `${siteBaseUrl}/`,
     pageScripts: pageScripts
   });
 }

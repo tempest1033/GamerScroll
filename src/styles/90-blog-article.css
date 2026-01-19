@@ -156,6 +156,8 @@
 .blog-image {
   width: 100%;
   height: auto;
+  max-height: 800px;
+  object-fit: contain;
   display: block;
 }
 
@@ -248,6 +250,44 @@
   text-overflow: ellipsis;
 }
 
+/* 정보 출처 섹션 */
+.blog-sources {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.blog-sources-title {
+  font-size: var(--font-title-size);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.blog-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blog-sources-list li {
+  font-size: var(--font-small-size);
+  line-height: 1.5;
+}
+
+.blog-sources-list a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.blog-sources-list a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 /* 네비게이션 */
 .blog-nav-wrapper {
   background: var(--card);
@@ -265,6 +305,7 @@
   .blog-header,
   .blog-content,
   .blog-related-games,
+  .blog-sources,
   .blog-nav-wrapper {
     padding: 16px;
     border-radius: 8px;

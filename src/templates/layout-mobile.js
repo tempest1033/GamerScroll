@@ -756,8 +756,8 @@ function wrapWithLayout(content, options = {}) {
     noindex = false
   } = options;
 
-  // canonical URL을 PC 도메인으로 정규화
-  const desktopCanonical = canonical.replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
+  // 모바일은 자기 자신을 canonical로 (Google 권장 방식)
+  // PC 버전은 alternate로 연결됨 (head.js에서 처리)
 
   // 페이지별 데이터 스크립트
   const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
@@ -771,7 +771,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical: desktopCanonical, pageData, articleSchema, noindex })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''} is-mobile">
   ${generateHeader()}

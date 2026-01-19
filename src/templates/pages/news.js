@@ -12,6 +12,7 @@ const {
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {
@@ -264,7 +265,7 @@ function generateNewsPage(data) {
     title: '게임 뉴스',
     description: '게임 뉴스를 한눈에.',
     keywords: '게임 뉴스, 게임 소식',
-    canonical: 'https://gamerscrawl.com/news/',
+    canonical: `${siteBaseUrl}/news/`,
     pageScripts
   });
 }

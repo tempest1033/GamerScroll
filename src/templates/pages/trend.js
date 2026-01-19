@@ -9,6 +9,7 @@ const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMi
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -560,7 +561,7 @@ function generateTrendPage(data) {
       currentPage: 'trend',
       title: '게이머스크롤 | 게임 트렌드 리포트',
       description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
-      canonical: 'https://gamerscrawl.com/trend/'
+      canonical: `${siteBaseUrl}/trend/`
     });
   }
 
@@ -978,7 +979,7 @@ function generateTrendPage(data) {
     currentPage: 'trend',
     title: '게이머스크롤 | 게임 트렌드 리포트',
     description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
-    canonical: 'https://gamerscrawl.com/trend/',
+    canonical: `${siteBaseUrl}/trend/`,
     pageScripts
   });
 }
@@ -1022,7 +1023,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       currentPage: 'trend',
       title: '게이머스크롤 | 게임 트렌드 리포트',
       description: '게임 트렌드 리포트를 찾을 수 없습니다.',
-      canonical: `https://gamerscrawl.com/trend/daily/${slug}/`,
+      canonical: `${siteBaseUrl}/trend/daily/${slug}/`,
       noindex: true
     });
   }
@@ -1443,7 +1444,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     title: summaryTitle,
     description: descriptionText,
     keywords: keywordsText,
-    canonical: `https://gamerscrawl.com/trend/daily/${slug}/`,
+    canonical: `${siteBaseUrl}/trend/daily/${slug}/`,
     articleSchema
   });
 }
@@ -1466,7 +1467,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
       currentPage: 'trend',
       title: '게이머스크롤 | 주간 게임 트렌드 리포트',
       description: '주간 게임 트렌드 리포트를 찾을 수 없습니다.',
-      canonical: `https://gamerscrawl.com/trend/weekly/${slug}/`,
+      canonical: `${siteBaseUrl}/trend/weekly/${slug}/`,
       noindex: true
     });
   }
@@ -1526,7 +1527,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     title: summaryTitle,
     description: descriptionText,
     keywords: keywordsText,
-    canonical: `https://gamerscrawl.com/trend/weekly/${slug}/`,
+    canonical: `${siteBaseUrl}/trend/weekly/${slug}/`,
     articleSchema
   });
 }
@@ -1543,7 +1544,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
       currentPage: 'trend',
       title: '게이머스크롤 | 이슈 리포트',
       description: '이슈 리포트를 찾을 수 없습니다.',
-      canonical: 'https://gamerscrawl.com/trend/issue/',
+      canonical: `${siteBaseUrl}/trend/issue/`,
       noindex: true
     });
   }
@@ -1657,9 +1658,16 @@ function generateIssueDetailPage({ post, nav = {} }) {
     return result.join('');
   };
 
-  // 관련 게임
+  // 관련 게임 (수동 지정 우선, 없으면 자동 매칭)
+  const findGameBySlug = (slug) => {
+    for (const [name, game] of Object.entries(gamesMap)) {
+      if (game.slug === slug) return { name, ...game };
+    }
+    return null;
+  };
+  const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
   const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
-  const relatedGames = findRelatedGames(fullText);
+  const relatedGames = manualGames.length > 0 ? manualGames : findRelatedGames(fullText);
   const relatedGamesHtml = relatedGames.length > 0 ? `
     <div class="blog-related-games">
       <h3 class="blog-related-title">관련 게임</h3>
@@ -1671,6 +1679,19 @@ function generateIssueDetailPage({ post, nav = {} }) {
           </a>
         `).join('')}
       </div>
+    </div>
+  ` : '';
+
+  // 정보 출처
+  const sources = post.sources || [];
+  const sourcesHtml = sources.length > 0 ? `
+    <div class="blog-sources">
+      <h3 class="blog-sources-title">정보 출처</h3>
+      <ul class="blog-sources-list">
+        ${sources.map(s => `
+          <li><a href="${s.url}" target="_blank" rel="nofollow noopener">${s.name} - ${s.title}</a></li>
+        `).join('')}
+      </ul>
     </div>
   ` : '';
 
@@ -1706,6 +1727,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
             ${renderContent()}
           </div>
           ${relatedGamesHtml}
+          ${sourcesHtml}
         </div>
 
         ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
@@ -1727,7 +1749,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
     title: `${title} | 게이머스크롤`,
     description: summary || title,
     keywords: post.keywords || '게임 분석, 이슈 리포트, 게임 이슈, 모바일 게임',
-    canonical: `https://gamerscrawl.com/trend/issue/${slug}/`,
+    canonical: `${siteBaseUrl}/trend/issue/${slug}/`,
     articleSchema
   });
 }

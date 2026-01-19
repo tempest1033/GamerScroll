@@ -10,6 +10,7 @@ const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot, gen
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
@@ -375,7 +376,7 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], issueRep
     title: '게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스',
     description: '게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스를 한눈에.',
     keywords: '게임 트렌드, 게임 리포트, 게임 업계 이슈, 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위',
-    canonical: 'https://gamerscrawl.com/trend/',
+    canonical: `${siteBaseUrl}/trend/`,
     pageScripts
   });
 }

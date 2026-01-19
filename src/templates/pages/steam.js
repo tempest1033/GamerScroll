@@ -4,6 +4,10 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+
 function generateSteamPage(data) {
   const { steam } = data;
 
@@ -205,7 +209,7 @@ function generateSteamPage(data) {
     title: '스팀 게임 순위 - 스팀 매출, 스팀 동접자',
     description: '스팀 게임 순위 TOP 100. 스팀 매출 순위와 동접자 인기 순위를 실시간으로 확인하세요.',
     keywords: '스팀 게임 순위, 스팀 순위, 스팀 매출, 스팀 동접자, 게임 순위',
-    canonical: 'https://gamerscrawl.com/steam/',
+    canonical: `${siteBaseUrl}/steam/`,
     pageScripts
   });
 }

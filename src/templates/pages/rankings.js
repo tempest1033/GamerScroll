@@ -5,6 +5,10 @@
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 const { countries } = require('../../crawlers/rankings');
 
+// 모바일 빌드 여부
+const isMobileBuild = process.env.MOBILE_BUILD === 'true';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+
 function generateRankingsPage(data) {
   const { rankings, games = {} } = data;
   const INITIAL_ROWS = 30;
@@ -551,7 +555,7 @@ function generateRankingsPage(data) {
     title: '모바일 게임 순위 - 앱스토어, 플레이스토어 매출 순위',
     description: '한국, 일본, 미국, 중국, 대만 앱스토어·플레이스토어 게임 매출 순위 TOP 200. 실시간 모바일 게임 인기 차트를 국가별로 비교하세요.',
     keywords: '모바일 게임 순위, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 순위, 모바일 게임 매출',
-    canonical: 'https://gamerscrawl.com/rankings/',
+    canonical: `${siteBaseUrl}/rankings/`,
     pageScripts
   });
 }
