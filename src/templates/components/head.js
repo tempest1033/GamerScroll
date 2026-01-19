@@ -112,7 +112,20 @@ function generateHead(options = {}) {
 	    }
 	  </style>
 	  <!-- AdSense: 최상단 로드 (광고 빠른 렌더링) -->
-	  <script async fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825" crossorigin="anonymous"></script>
+	  <script>
+	    (function() {
+	      var s = document.createElement('script');
+	      s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825';
+	      s.async = true;
+	      s.crossOrigin = 'anonymous';
+	      s.fetchPriority = 'high';
+	      s.onload = function() {
+	        window.__adsenseReady = true;
+	        window.dispatchEvent(new Event('adsenseReady'));
+	      };
+	      document.head.appendChild(s);
+	    })();
+	  </script>
 		  <script>
 		    (function() {
 		      var host = location.hostname;

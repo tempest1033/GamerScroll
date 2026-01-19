@@ -639,26 +639,33 @@ const fontAndEmojiScript = `
 </script>`;
 
 // 광고 초기화 - Intersection Observer 방식 (PC: 600px)
+// AdSense 로드 완료 이벤트 수신 후 Observer 시작
 const adLazyLoadScript = `
 <script>
 (function() {
   var ads = document.querySelectorAll('.adsbygoogle');
   if (!ads.length) return;
 
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '600px' });
+  function initAdsObserver() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '600px' });
 
-  ads.forEach(function(ad) {
-    observer.observe(ad);
-  });
+    ads.forEach(function(ad) { observer.observe(ad); });
+  }
+
+  // AdSense 이미 로드됨 → 즉시 시작
+  if (window.__adsenseReady) {
+    initAdsObserver();
+  } else {
+    // AdSense 로드 완료 이벤트 대기
+    window.addEventListener('adsenseReady', initAdsObserver, { once: true });
+  }
 })();
 </script>`;
 
