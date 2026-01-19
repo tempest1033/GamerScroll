@@ -1,6 +1,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const { generateRSS } = require('./src/rss/generate-rss');
 
 // 커맨드라인 인자 파싱
 let isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
@@ -1113,6 +1114,16 @@ ${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
   console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 게임 ${gamePages.length}개 + 트렌드 ${trendPages.length}개 = 총 ${allPages.length}개 URL`);
+
+  // RSS 피드 생성 (PC 빌드만)
+  if (!isMobileBuild) {
+    try {
+      const rssCount = generateRSS('./reports', `${DOCS_DIR}/rss.xml`);
+      console.log(`📡 RSS 피드 생성: ${rssCount}개 항목`);
+    } catch (err) {
+      console.warn('⚠️ RSS 생성 실패:', err.message);
+    }
+  }
 
   // 모바일 빌드 시 robots.txt 생성 (CNAME 불필요 - Cloudflare Pages 사용)
   if (isMobileBuild) {

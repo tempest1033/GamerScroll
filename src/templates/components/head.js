@@ -190,6 +190,7 @@ function generateHead(options = {}) {
   <meta name="keywords" content="${safeKeywords}">
   <link rel="canonical" href="${safeCanonical}">
   ${alternateLink}
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscrawl.com/rss.xml">
   <!-- JSON-LD 구조화 데이터 -->
   <script type="application/ld+json">
   {
