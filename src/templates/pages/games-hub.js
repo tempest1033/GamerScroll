@@ -525,7 +525,11 @@ function generateGamesHubPage(options = {}) {
     canonical: `${siteBaseUrl}/games/`,
     currentPage: 'games',
     showSearchBar: true,
-    pageScripts: pageScript
+    pageScripts: pageScript,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '게임 DB', url: `${siteBaseUrl}/games/` }
+    ]
   });
 }
 

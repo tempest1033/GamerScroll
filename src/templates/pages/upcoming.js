@@ -121,7 +121,11 @@ function generateUpcomingPage(data) {
     description: '출시 게임 - 신작 게임, 출시 예정 게임 정보를 한눈에.',
     keywords: '출시 게임, 신작 게임, 출시 예정 게임, 스팀 출시, 닌텐도 출시, PS5 출시, 모바일 신작',
     canonical: `${siteBaseUrl}/upcoming/`,
-    pageScripts
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '출시 게임', url: `${siteBaseUrl}/upcoming/` }
+    ]
   });
 }
 

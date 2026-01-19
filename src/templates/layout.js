@@ -855,7 +855,9 @@ function wrapWithLayout(content, options = {}) {
     showSearchBar = true,
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
-    noindex = false  // 검색엔진 인덱싱 제외 (thin content용)
+    noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
+    breadcrumbs = null,  // BreadcrumbList JSON-LD
+    softwareSchema = null  // SoftwareApplication JSON-LD (게임 페이지용)
   } = options;
 
   // 페이지별 데이터 스크립트
@@ -870,7 +872,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}">
   ${generateHeader()}

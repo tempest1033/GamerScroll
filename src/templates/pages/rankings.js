@@ -556,7 +556,11 @@ function generateRankingsPage(data) {
     description: '한국, 일본, 미국, 중국, 대만 앱스토어·플레이스토어 게임 매출 순위 TOP 200. 실시간 모바일 게임 인기 차트를 국가별로 비교하세요.',
     keywords: '모바일 게임 순위, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 순위, 모바일 게임 매출',
     canonical: `${siteBaseUrl}/rankings/`,
-    pageScripts
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '모바일 게임 순위', url: `${siteBaseUrl}/rankings/` }
+    ]
   });
 }
 

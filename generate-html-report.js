@@ -981,24 +981,38 @@ async function main() {
   const sitemapDate = new Date().toISOString().split('T')[0];
   const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
+  // 주차 → 날짜 변환 헬퍼 (ISO week)
+  const getDateFromWeek = (weekStr) => {
+    const match = weekStr.match(/(\d{4})-W(\d{2})/);
+    if (!match) return sitemapDate;
+    const [, year, week] = match;
+    const jan4 = new Date(parseInt(year), 0, 4);
+    const dayOfWeek = jan4.getDay() || 7;
+    const firstMonday = new Date(jan4);
+    firstMonday.setDate(jan4.getDate() - dayOfWeek + 1);
+    const targetDate = new Date(firstMonday);
+    targetDate.setDate(firstMonday.getDate() + (parseInt(week) - 1) * 7);
+    return targetDate.toISOString().split('T')[0];
+  };
+
   // 메인 페이지 URL 목록
   const mainPages = [
-    { loc: `${siteBaseUrl}/`, changefreq: 'hourly', priority: '1.0' },
-    { loc: `${siteBaseUrl}/trend/`, changefreq: 'hourly', priority: '0.9' },
-    { loc: `${siteBaseUrl}/news/`, changefreq: 'hourly', priority: '0.9' },
-    { loc: `${siteBaseUrl}/community/`, changefreq: 'hourly', priority: '0.8' },
-    { loc: `${siteBaseUrl}/youtube/`, changefreq: 'hourly', priority: '0.8' },
-    { loc: `${siteBaseUrl}/rankings/`, changefreq: 'hourly', priority: '0.9' },
-    { loc: `${siteBaseUrl}/steam/`, changefreq: 'hourly', priority: '0.8' },
-    { loc: `${siteBaseUrl}/upcoming/`, changefreq: 'daily', priority: '0.7' },
-    { loc: `${siteBaseUrl}/metacritic/`, changefreq: 'daily', priority: '0.7' },
-    { loc: `${siteBaseUrl}/games/`, changefreq: 'daily', priority: '0.9' }
+    { loc: `${siteBaseUrl}/`, changefreq: 'hourly', priority: '1.0', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/trend/`, changefreq: 'hourly', priority: '0.9', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/news/`, changefreq: 'hourly', priority: '0.9', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/community/`, changefreq: 'hourly', priority: '0.8', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/youtube/`, changefreq: 'hourly', priority: '0.8', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/rankings/`, changefreq: 'hourly', priority: '0.9', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/steam/`, changefreq: 'hourly', priority: '0.8', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/upcoming/`, changefreq: 'daily', priority: '0.7', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/metacritic/`, changefreq: 'daily', priority: '0.7', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/games/`, changefreq: 'daily', priority: '0.9', lastmod: sitemapDate }
   ];
 
   // 트렌드 리포트 페이지 자동 스캔
   let trendPages = [];
   if (fs.existsSync(destTrendDir)) {
-    // 일간 리포트
+    // 일간 리포트 (폴더명이 날짜: 2026-01-19)
     const dailyTrendDir = `${destTrendDir}/daily`;
     if (fs.existsSync(dailyTrendDir)) {
       const dailyFolders = fs.readdirSync(dailyTrendDir, { withFileTypes: true })
@@ -1007,10 +1021,11 @@ async function main() {
       trendPages.push(...dailyFolders.map(slug => ({
         loc: `${siteBaseUrl}/trend/daily/${slug}/`,
         changefreq: 'weekly',
-        priority: '0.7'
+        priority: '0.7',
+        lastmod: slug  // 폴더명이 날짜 형식
       })));
     }
-    // 주간 리포트
+    // 주간 리포트 (폴더명이 주차: 2026-W03)
     const weeklyTrendDir = `${destTrendDir}/weekly`;
     if (fs.existsSync(weeklyTrendDir)) {
       const weeklyFolders = fs.readdirSync(weeklyTrendDir, { withFileTypes: true })
@@ -1019,21 +1034,34 @@ async function main() {
       trendPages.push(...weeklyFolders.map(slug => ({
         loc: `${siteBaseUrl}/trend/weekly/${slug}/`,
         changefreq: 'weekly',
-        priority: '0.7'
+        priority: '0.7',
+        lastmod: getDateFromWeek(slug)  // 주차 → 날짜 변환
       })));
     }
 
-    // 이슈 리포트 페이지
+    // 이슈 리포트 페이지 (JSON의 date 필드 사용)
     const issueSitemapDir = `${destTrendDir}/issue`;
     if (fs.existsSync(issueSitemapDir)) {
       const issueFolders = fs.readdirSync(issueSitemapDir).filter(f =>
         fs.statSync(`${issueSitemapDir}/${f}`).isDirectory()
       );
-      trendPages.push(...issueFolders.map(slug => ({
-        loc: `${siteBaseUrl}/trend/issue/${slug}/`,
-        changefreq: 'monthly',
-        priority: '0.8'
-      })));
+      trendPages.push(...issueFolders.map(slug => {
+        // JSON에서 date 읽기
+        let issueDate = sitemapDate;
+        try {
+          const jsonPath = `${ISSUE_REPORTS_DIR}/${slug}.json`;
+          if (fs.existsSync(jsonPath)) {
+            const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
+            if (json.date) issueDate = json.date;
+          }
+        } catch (e) {}
+        return {
+          loc: `${siteBaseUrl}/trend/issue/${slug}/`,
+          changefreq: 'monthly',
+          priority: '0.8',
+          lastmod: issueDate
+        };
+      }));
     }
   }
 
@@ -1054,7 +1082,8 @@ async function main() {
       return {
         loc: `${siteBaseUrl}/games/${slug}/`,
         changefreq: 'weekly',
-        priority: hasNoindex ? '0.1' : '0.6'  // noindex면 낮은 priority
+        priority: hasNoindex ? '0.1' : '0.6',  // noindex면 낮은 priority
+        lastmod: sitemapDate
       };
     }).filter(p => p.priority !== '0.1');  // noindex 페이지는 sitemap에서 제외
   }
@@ -1071,7 +1100,7 @@ async function main() {
     <loc>${page.loc}</loc>
     <xhtml:link rel="alternate" media="only screen and (max-width: 768px)" href="${mobileUrl}"/>
     <xhtml:link rel="alternate" media="only screen and (min-width: 769px)" href="${pcUrl}"/>
-    <lastmod>${sitemapDate}</lastmod>
+    <lastmod>${page.lastmod || sitemapDate}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`;

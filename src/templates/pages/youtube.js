@@ -165,7 +165,11 @@ function generateYoutubePage(data) {
     description: '게임 영상 - 유튜브 인기, 치지직 라이브를 한눈에.',
     keywords: '게임 영상, 유튜브 게임, 치지직 라이브, 게임 스트리밍',
     canonical: `${siteBaseUrl}/youtube/`,
-    pageScripts
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '게임 영상', url: `${siteBaseUrl}/youtube/` }
+    ]
   });
 }
 

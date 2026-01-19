@@ -11,6 +11,8 @@ function generateHead(options = {}) {
     canonical = 'https://gamerscrawl.com',
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
+    breadcrumbs = null,  // BreadcrumbList JSON-LD [{name, url}]
+    softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, image, operatingSystem, applicationCategory, aggregateRating}
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     ogImage = ''
   } = options;
@@ -31,12 +33,14 @@ function generateHead(options = {}) {
   const safeDescription = escapeHtmlAttr(description);
   const safeKeywords = escapeHtmlAttr(keywords || '');
   const canonicalText = normalizeMeta(canonical);
-  const safeCanonical = escapeHtmlAttr(canonicalText);
   const isMobileCanonical = canonicalText.startsWith('https://m.gamerscrawl.com');
+  // canonical은 항상 데스크톱 URL을 사용 (Google 권장: 모바일도 데스크톱 canonical 지정)
   const desktopCanonical = canonicalText.replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
   const mobileCanonical = canonicalText.replace('https://gamerscrawl.com', 'https://m.gamerscrawl.com');
+  const safeCanonical = escapeHtmlAttr(desktopCanonical);  // 항상 데스크톱 URL
+  // alternate: 데스크톱 빌드만 모바일 alternate 제공, 모바일 빌드는 alternate 불필요
   const alternateLink = isMobileCanonical
-    ? `<link rel="alternate" media="only screen and (min-width: 769px)" href="${escapeHtmlAttr(desktopCanonical)}">`
+    ? ''  // 모바일 페이지: canonical만 있으면 됨 (데스크톱을 가리킴)
     : `<link rel="alternate" media="only screen and (max-width: 768px)" href="${escapeHtmlAttr(mobileCanonical)}">`;
   const resolvedOgImage = escapeHtmlAttr(
     (typeof ogImage === 'string' && ogImage) ||
@@ -73,6 +77,44 @@ function generateHead(options = {}) {
       "@id": ${jsonString(canonicalText)}
     }${articleSchema.image ? `,
     "image": ${jsonString(articleSchema.image)}` : ''}
+  }
+  </script>` : '';
+
+  // BreadcrumbList JSON-LD 생성
+  const breadcrumbJsonLd = breadcrumbs && breadcrumbs.length > 0 ? `
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [${breadcrumbs.map((item, index) => `
+      {
+        "@type": "ListItem",
+        "position": ${index + 1},
+        "name": ${jsonString(item.name)},
+        "item": ${jsonString(item.url)}
+      }`).join(',')}
+    ]
+  }
+  </script>` : '';
+
+  // SoftwareApplication JSON-LD 생성 (게임 페이지용)
+  const softwareJsonLd = softwareSchema ? `
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": ${jsonString(softwareSchema.name)},
+    "description": ${jsonString(softwareSchema.description)},
+    "applicationCategory": "GameApplication"${softwareSchema.operatingSystem ? `,
+    "operatingSystem": ${jsonString(softwareSchema.operatingSystem)}` : ''}${softwareSchema.image ? `,
+    "image": ${jsonString(softwareSchema.image)}` : ''}${softwareSchema.aggregateRating ? `,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": ${jsonString(softwareSchema.aggregateRating.ratingValue)},
+      "bestRating": "100",
+      "worstRating": "0"${softwareSchema.aggregateRating.ratingCount ? `,
+      "ratingCount": ${softwareSchema.aggregateRating.ratingCount}` : ''}
+    }` : ''}
   }
   </script>` : '';
 
@@ -163,7 +205,7 @@ function generateHead(options = {}) {
       "url": "https://gamerscrawl.com/"
     }
   }
-  </script>${articleJsonLd}
+  </script>${articleJsonLd}${breadcrumbJsonLd}${softwareJsonLd}
   <!-- Open Graph / SNS 공유 -->
   <meta property="og:type" content="${articleSchema ? 'article' : 'website'}">
   <meta property="og:title" content="${safeTitle}">

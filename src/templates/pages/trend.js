@@ -980,7 +980,11 @@ function generateTrendPage(data) {
     title: '게이머스크롤 | 게임 트렌드 리포트',
     description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
     canonical: `${siteBaseUrl}/trend/`,
-    pageScripts
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` }
+    ]
   });
 }
 
@@ -1445,7 +1449,12 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     description: descriptionText,
     keywords: keywordsText,
     canonical: `${siteBaseUrl}/trend/daily/${slug}/`,
-    articleSchema
+    articleSchema,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` },
+      { name: `일간 리포트 ${slug}`, url: `${siteBaseUrl}/trend/daily/${slug}/` }
+    ]
   });
 }
 
@@ -1528,7 +1537,12 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     description: descriptionText,
     keywords: keywordsText,
     canonical: `${siteBaseUrl}/trend/weekly/${slug}/`,
-    articleSchema
+    articleSchema,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` },
+      { name: `주간 리포트 ${slug}`, url: `${siteBaseUrl}/trend/weekly/${slug}/` }
+    ]
   });
 }
 
@@ -1750,7 +1764,12 @@ function generateIssueDetailPage({ post, nav = {} }) {
     description: summary || title,
     keywords: post.keywords || '게임 분석, 이슈 리포트, 게임 이슈, 모바일 게임',
     canonical: `${siteBaseUrl}/trend/issue/${slug}/`,
-    articleSchema
+    articleSchema,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` },
+      { name: title, url: `${siteBaseUrl}/trend/issue/${slug}/` }
+    ]
   });
 }
 

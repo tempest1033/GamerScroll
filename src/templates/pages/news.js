@@ -266,7 +266,11 @@ function generateNewsPage(data) {
     description: '게임 뉴스를 한눈에.',
     keywords: '게임 뉴스, 게임 소식',
     canonical: `${siteBaseUrl}/news/`,
-    pageScripts
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '게임 뉴스', url: `${siteBaseUrl}/news/` }
+    ]
   });
 }
 

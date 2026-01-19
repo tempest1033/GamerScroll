@@ -73,7 +73,11 @@ function generateMetacriticPage(data) {
     title: '메타크리틱 - 게임 평점, 게임 리뷰',
     description: '메타크리틱 - 게임 평점, 게임 리뷰를 한눈에.',
     keywords: '메타크리틱, 게임 평점, 게임 리뷰, 메타스코어, 명작 게임',
-    canonical: `${siteBaseUrl}/metacritic/`
+    canonical: `${siteBaseUrl}/metacritic/`,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '메타크리틱', url: `${siteBaseUrl}/metacritic/` }
+    ]
   });
 }
 

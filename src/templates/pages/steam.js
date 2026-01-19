@@ -210,7 +210,11 @@ function generateSteamPage(data) {
     description: '스팀 게임 순위 TOP 100. 스팀 매출 순위와 동접자 인기 순위를 실시간으로 확인하세요.',
     keywords: '스팀 게임 순위, 스팀 순위, 스팀 매출, 스팀 동접자, 게임 순위',
     canonical: `${siteBaseUrl}/steam/`,
-    pageScripts
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '스팀 게임 순위', url: `${siteBaseUrl}/steam/` }
+    ]
   });
 }
 

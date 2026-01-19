@@ -1464,14 +1464,35 @@ function generateGamePage(gameData) {
     ? `${name}, ${name} 매출, ${name} 순위, 모바일 게임 순위, ${name} 앱스토어, ${name} 플레이스토어, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 뉴스`
     : `${name}, ${name} 매출, ${name} 순위, ${name} 스팀, 게임 순위, 스팀 게임 순위, 스팀 매출 순위, 스팀 인기 순위, 게임 뉴스`;
 
+  const canonicalUrl = `${siteBaseUrl}/games/${slug || encodeURIComponent(name.replace(/\s+/g, '-').toLowerCase())}/`;
+
+  // 플랫폼에 따른 운영체제 목록 생성
+  const osMap = { ios: 'iOS', android: 'Android', pc: 'Windows', steam: 'Windows', ps5: 'PlayStation 5', xbox: 'Xbox', switch: 'Nintendo Switch' };
+  const operatingSystems = [...new Set(platforms.map(p => osMap[p]).filter(Boolean))];
+  const operatingSystem = operatingSystems.length > 0 ? operatingSystems.join(', ') : null;
+
+  // SoftwareApplication 스키마 (게임 정보용)
+  const softwareSchema = {
+    name: name,
+    description: seoDescription,
+    image: icon || null,
+    operatingSystem: operatingSystem
+  };
+
   return wrapWithLayout(content, {
     currentPage: 'game',
     title: seoTitle,
     description: seoDescription,
     keywords: seoKeywords,
-    canonical: `${siteBaseUrl}/games/${slug || encodeURIComponent(name.replace(/\s+/g, '-').toLowerCase())}/`,
+    canonical: canonicalUrl,
     pageScripts,
-    noindex: !hasMentions
+    noindex: !hasMentions,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '게임 DB', url: `${siteBaseUrl}/games/` },
+      { name: name, url: canonicalUrl }
+    ],
+    softwareSchema: hasMentions ? softwareSchema : null  // noindex 페이지는 스키마 생략
   });
 }
 

@@ -377,7 +377,11 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], issueRep
     description: '게임 트렌드 리포트 - 게임 업계 이슈, 게임 순위, 게임 뉴스를 한눈에.',
     keywords: '게임 트렌드, 게임 리포트, 게임 업계 이슈, 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위',
     canonical: `${siteBaseUrl}/trend/`,
-    pageScripts
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` }
+    ]
   });
 }
 

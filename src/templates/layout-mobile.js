@@ -753,7 +753,9 @@ function wrapWithLayout(content, options = {}) {
     showSearchBar = true,
     pageData = {},
     articleSchema = null,
-    noindex = false
+    noindex = false,
+    breadcrumbs = null,  // BreadcrumbList JSON-LD
+    softwareSchema = null  // SoftwareApplication JSON-LD (게임 페이지용)
   } = options;
 
   // 모바일은 자기 자신을 canonical로 (Google 권장 방식)
@@ -771,7 +773,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''} is-mobile">
   ${generateHeader()}
