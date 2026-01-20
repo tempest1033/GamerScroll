@@ -5,15 +5,18 @@
  *
  * 로딩 전략: Intersection Observer 방식
  * - 광고가 뷰포트에 가까워지면 로드 (layout.js에서 Observer 처리)
+ *
+ * 광고 ON/OFF: 환경변수 ADS_ENABLED=false 로 전체 비활성화
  */
 
+const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
 /**
  * 모바일 상단 광고 (320x100) - Large Mobile Banner
  */
 function renderMobileTopAd(slotId) {
-  if (!slotId) return '';
+  if (!ADS_ENABLED || !slotId) return '';
   return `<div class="ad-card ad-card-mobile-top">
   <ins class="adsbygoogle"
        style="display:block;width:100%;min-height:200px;max-height:250px"
@@ -26,7 +29,7 @@ function renderMobileTopAd(slotId) {
  * 모바일 중간 광고 (300x250)
  */
 function renderMobileMidAd(slotId) {
-  if (!slotId) return '';
+  if (!ADS_ENABLED || !slotId) return '';
   return `<div class="ad-card ad-card-mobile-mid">
   <ins class="adsbygoogle"
        style="display:block;width:100%;min-height:200px;max-height:250px"
@@ -46,7 +49,7 @@ function renderMobileAd(slotId) {
  * In-feed 네이티브 광고
  */
 function renderNativeAd(slotId) {
-  if (!slotId) return '';
+  if (!ADS_ENABLED || !slotId) return '';
   return `<div class="ad-card ad-card-native">
   <ins class="adsbygoogle"
        style="display:block"
@@ -61,7 +64,7 @@ function renderNativeAd(slotId) {
  * Multiplex 광고 (자동 반응형)
  */
 function renderMultiplexAd(slotId) {
-  if (!slotId) return '';
+  if (!ADS_ENABLED || !slotId) return '';
   return `<div class="ad-card ad-card-multiplex">
   <ins class="adsbygoogle"
        style="display:block"
