@@ -78,7 +78,8 @@ main .ad-card {
 
 /* ===== 광고 비활성화 시 레이아웃 보정 ===== */
 /* ADS_ENABLED=false일 때 body.ads-disabled 클래스 추가됨 */
-body.ads-disabled main {
+/* 홈페이지(page-index)는 home-container가 이미 padding 가짐 → 제외 */
+body.ads-disabled:not(.page-index) main {
   margin-top: var(--space-block-gap, 16px);
 }
 
