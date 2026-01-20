@@ -66,14 +66,19 @@
 /* 부모 컨테이너(home-main, home-sidebar, page-container)가 margin-bottom으로 간격 관리 */
 /* 광고 카드는 margin-top만 제어, margin-bottom은 부모 규칙 따름 */
 
-/* 기본: 상단 마진 (컨테이너 외부 광고) */
-main .ad-card {
+/* main 컨테이너 상단 마진 (광고 유무 관계없이) */
+main {
   margin-top: var(--space-block-gap, 16px);
 }
 
-/* page-container 첫 번째 요소: 상단 마진 유지 (광고 유무 관계없이) */
+/* 광고 카드는 추가 마진 없음 (main이 이미 마진 제공) */
+main .ad-card {
+  margin-top: 0;
+}
+
+/* page-container 첫 번째 요소는 마진 불필요 (main이 이미 마진 제공) */
 .page-container > *:first-child {
-  margin-top: var(--space-block-gap, 16px);
+  margin-top: 0;
 }
 
 /* page-container 중간 광고 (mid): 상단 마진 제거 */
