@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 모바일 버전 빌드 스크립트
  * docs-mobile/ 디렉토리에 모바일 전용 HTML 생성
  * 이후 GamersCrawl-Mobile 저장소로 복사
@@ -758,7 +758,7 @@ async function generateMobilePages() {
   // sitemap 복사
   if (fs.existsSync('./docs/sitemap.xml')) {
     let sitemap = fs.readFileSync('./docs/sitemap.xml', 'utf8');
-    sitemap = sitemap.replace(/https:\/\/gamerscrawl\.com/g, 'https://m.gamerscrawl.com');
+    sitemap = sitemap.replace(/<loc>https:\/\/gamerscrawl\.com/g, '<loc>https://m.gamerscrawl.com');
     fs.writeFileSync(path.join(OUTPUT_DIR, 'sitemap.xml'), sitemap);
     console.log('  ✅ sitemap.xml (URL 변환)');
   }

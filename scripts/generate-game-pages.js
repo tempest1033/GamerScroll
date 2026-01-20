@@ -14,6 +14,7 @@ const snapshotsDir = path.join(__dirname, '..', 'snapshots', 'rankings');
 // PC/모바일 빌드에 따라 출력 경로 결정
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
 const docsDir = isMobileBuild ? 'docs-mobile' : 'docs';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 const outputDir = path.join(__dirname, '..', docsDir, 'games');
 
 // 템플릿 import
@@ -884,6 +885,63 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
   return result;
 }
 
+function updateSitemapGameEntries() {
+  const sitemapPath = path.join(__dirname, '..', docsDir, 'sitemap.xml');
+  if (!fs.existsSync(sitemapPath)) {
+    console.warn('⚠️ sitemap.xml 없음: 게임 페이지 항목 갱신 스킵');
+    return;
+  }
+
+  let xml = fs.readFileSync(sitemapPath, 'utf8');
+  const lineBreak = xml.includes('\r\n') ? '\r\n' : '\n';
+  const sitemapDate = new Date().toISOString().split('T')[0];
+
+  const urlBlockRegex = /<url>[\s\S]*?<\/url>\s*/g;
+  xml = xml.replace(urlBlockRegex, (block) => {
+    const match = block.match(/<loc>([^<]+)<\/loc>/);
+    if (!match) return block;
+    const loc = match[1];
+    const isGameDetail = /^https:\/\/(?:m\.)?gamerscrawl\.com\/games\/[^/]+\/$/.test(loc);
+    return isGameDetail ? '' : block;
+  });
+
+  const gameDirs = fs.readdirSync(outputDir, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
+
+  const entries = [];
+  for (const slug of gameDirs) {
+    const indexPath = path.join(outputDir, slug, 'index.html');
+    if (!fs.existsSync(indexPath)) continue;
+
+    const htmlHead = fs.readFileSync(indexPath, 'utf8').slice(0, 1000);
+    if (htmlHead.includes('noindex')) continue;
+
+    const loc = `${siteBaseUrl}/games/${slug}/`;
+    const pcUrl = `https://gamerscrawl.com/games/${slug}/`;
+    const mobileUrl = `https://m.gamerscrawl.com/games/${slug}/`;
+    entries.push([
+      '  <url>',
+      `    <loc>${loc}</loc>`,
+      `    <xhtml:link rel="alternate" media="only screen and (max-width: 768px)" href="${mobileUrl}"/>`,
+      `    <xhtml:link rel="alternate" media="only screen and (min-width: 769px)" href="${pcUrl}"/>`,
+      `    <lastmod>${sitemapDate}</lastmod>`,
+      '    <changefreq>weekly</changefreq>',
+      '    <priority>0.6</priority>',
+      '  </url>'
+    ].join(lineBreak));
+  }
+
+  const insertBlock = entries.length ? lineBreak + entries.join(lineBreak) + lineBreak : '';
+  if (xml.includes('</urlset>')) {
+    xml = xml.replace(/<\/urlset>\s*$/, `${insertBlock}</urlset>`);
+    fs.writeFileSync(sitemapPath, xml, 'utf8');
+    console.log(`📍 sitemap 게임 항목 갱신: ${entries.length}개`);
+  } else {
+    console.warn('⚠️ sitemap.xml 형식 이상: </urlset> 없음');
+  }
+}
+
 // ============ 메인 실행 ============
 const buildType = isMobileBuild ? '📱 모바일' : '🖥️ PC';
 console.log(`🎮 게임 페이지 생성 시작... (${buildType} → ${docsDir}/games)\n`);
@@ -982,6 +1040,8 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
 // 검색 인덱스 저장
 const searchIndexPath = path.join(outputDir, 'search-index.json');
 fs.writeFileSync(searchIndexPath, JSON.stringify(searchIndex, null, 2), 'utf8');
+
+updateSitemapGameEntries();
 
 console.log(`\n✅ 게임 페이지 생성 완료!`);
 console.log(`생성: ${generatedCount}개`);

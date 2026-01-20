@@ -38,6 +38,11 @@ function generateHead(options = {}) {
   const desktopCanonical = canonicalText.replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
   const mobileCanonical = canonicalText.replace('https://gamerscrawl.com', 'https://m.gamerscrawl.com');
   const safeCanonical = escapeHtmlAttr(desktopCanonical);  // 항상 데스크톱 URL
+  const normalizeToDesktop = (value) => String(value || '').replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
+  const schemaCanonical = normalizeToDesktop(canonicalText);
+  const schemaBreadcrumbs = breadcrumbs && breadcrumbs.length > 0
+    ? breadcrumbs.map(item => ({ ...item, url: normalizeToDesktop(item.url) }))
+    : null;
   // alternate: 데스크톱 빌드만 모바일 alternate 제공, 모바일 빌드는 alternate 불필요
   const alternateLink = isMobileCanonical
     ? ''  // 모바일 페이지: canonical만 있으면 됨 (데스크톱을 가리킴)
@@ -74,19 +79,19 @@ function generateHead(options = {}) {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": ${jsonString(canonicalText)}
+      "@id": ${jsonString(schemaCanonical)}
     }${articleSchema.image ? `,
     "image": ${jsonString(articleSchema.image)}` : ''}
   }
   </script>` : '';
 
   // BreadcrumbList JSON-LD 생성
-  const breadcrumbJsonLd = breadcrumbs && breadcrumbs.length > 0 ? `
+  const breadcrumbJsonLd = schemaBreadcrumbs && schemaBreadcrumbs.length > 0 ? `
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [${breadcrumbs.map((item, index) => `
+    "itemListElement": [${schemaBreadcrumbs.map((item, index) => `
       {
         "@type": "ListItem",
         "position": ${index + 1},
