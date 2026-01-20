@@ -96,9 +96,9 @@ ${insight.issues.slice(0, 3).map((issue, i) =>
 ).join('\n')}
 
 자세한 내용은 👇
-https://gamerscrawl.com
+gamerscrawl.com
 
-#게임 #게임뉴스 #모바일게임 #게이머스크롤`;
+#게임 #게임뉴스 #모바일게임`;
 
   // Twitter 클라이언트 초기화
   const client = new TwitterApi({
