@@ -73,6 +73,46 @@ function formatDateKorean(dateStr) {
   return `${year}년 ${month}월 ${day}일`;
 }
 
+// 이슈 리포트 로컬 이미지 경로 헬퍼
+// 다운로드된 로컬 이미지가 있으면 로컬 경로 반환, 없으면 원본 URL 반환
+const ISSUE_IMAGES_DIR = path.join(__dirname, '../../../docs/assets/images/issue');
+
+function getLocalIssueImagePath(slug, originalUrl, imageType = 'content', imageIndex = 1) {
+  if (!slug || !originalUrl) return originalUrl;
+
+  // 이미 로컬 경로면 그대로 반환
+  if (originalUrl.startsWith('/assets/')) return originalUrl;
+
+  // 확장자 추출
+  let ext = '.jpg';
+  try {
+    const urlPath = new URL(originalUrl).pathname;
+    const extMatch = path.extname(urlPath).toLowerCase();
+    if (['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'].includes(extMatch)) {
+      ext = extMatch;
+    }
+  } catch (e) {}
+
+  // 로컬 파일명 결정
+  let filename;
+  if (imageType === 'thumbnail') {
+    filename = `thumbnail${ext}`;
+  } else {
+    filename = String(imageIndex).padStart(2, '0') + ext;
+  }
+
+  const localPath = path.join(ISSUE_IMAGES_DIR, slug, filename);
+  const webPath = `/assets/images/issue/${slug}/${filename}`;
+
+  // 로컬 파일 존재 확인
+  if (fs.existsSync(localPath)) {
+    return webPath;
+  }
+
+  // 로컬 파일 없으면 원본 URL 반환 (fixUrl 통해서)
+  return fixUrl(originalUrl);
+}
+
 // 중간 광고 슬롯 생성 (PC + 모바일)
 // 중복 슬롯ID 방지를 위해 호출부에서 PC/Mobile 슬롯을 분리해서 넘겨주세요.
 const midSlotPairs = [
@@ -1628,6 +1668,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
   const renderContent = () => {
     let adIndex = 0;
     let sectionCount = 0;
+    let imageIndex = 1; // 이미지 인덱스 (로컬 이미지 경로용)
     const result = [];
 
     content.forEach((block) => {
@@ -1640,7 +1681,9 @@ function generateIssueDetailPage({ post, nav = {} }) {
           break;
 
         case 'image':
-          const imgSrc = fixUrl(block.src);
+          // 로컬 이미지 우선, 없으면 외부 URL
+          const imgSrc = getLocalIssueImagePath(slug, block.src, 'content', imageIndex);
+          imageIndex++;
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
@@ -1752,7 +1795,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
         <div class="blog-card">
           ${thumbnail ? `
             <div class="blog-hero">
-              <img class="blog-hero-image" src="${fixUrl(thumbnail)}" alt="" loading="eager">
+              <img class="blog-hero-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="" loading="eager">
             </div>
           ` : ''}
           <header class="blog-header">
@@ -1775,12 +1818,20 @@ function generateIssueDetailPage({ post, nav = {} }) {
     </section>
   `;
 
+  // JSON-LD용 이미지 URL (로컬 경로를 전체 URL로 변환)
+  const schemaImage = thumbnail
+    ? (() => {
+        const localPath = getLocalIssueImagePath(slug, thumbnail, 'thumbnail');
+        return localPath.startsWith('/') ? `${siteBaseUrl}${localPath}` : localPath;
+      })()
+    : null;
+
   const articleSchema = {
     headline: title,
     description: summary || title,
     datePublished: date,
     dateModified: date,
-    image: thumbnail || null
+    image: schemaImage
   };
 
   return wrapWithLayout(pageContent, {

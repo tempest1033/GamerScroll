@@ -89,6 +89,9 @@ jobs:
           ADS_ENABLED: 'false'  # 광고 정지 기간 동안 비활성화
         run: node scripts/generate-game-pages.js
 
+      - name: Download issue report images
+        run: node scripts/download-issue-images.js
+
       - name: Move report to docs
         run: |
           mkdir -p docs
