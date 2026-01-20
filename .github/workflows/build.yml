@@ -177,8 +177,13 @@ jobs:
           git commit -m "Update mobile $(date +'%Y-%m-%d %H:%M')"
           git push --force origin main
 
-      - name: Ping Google Sitemap
+      - name: Ping Google Sitemap (if changed)
         run: |
-          curl -s "https://www.google.com/ping?sitemap=https://gamerscrawl.com/sitemap.xml"
-          curl -s "https://www.google.com/ping?sitemap=https://m.gamerscrawl.com/sitemap.xml"
-          echo "✅ Sitemap ping sent to Google"
+          # sitemap.xml이 이번 커밋에서 변경됐는지 확인
+          if git diff HEAD~1 --name-only | grep -q "docs/sitemap.xml"; then
+            curl -s "https://www.google.com/ping?sitemap=https://gamerscrawl.com/sitemap.xml"
+            curl -s "https://www.google.com/ping?sitemap=https://m.gamerscrawl.com/sitemap.xml"
+            echo "✅ Sitemap changed - ping sent to Google"
+          else
+            echo "⏭️ Sitemap unchanged - skip ping"
+          fi
