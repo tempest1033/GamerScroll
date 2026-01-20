@@ -90,7 +90,7 @@ function isExternalUrl(url) {
  * 이슈 리포트의 이미지 다운로드
  */
 async function processIssueReport(jsonPath) {
-  const content = fs.readFileSync(jsonPath, 'utf-8');
+  const content = fs.readFileSync(jsonPath, 'utf-8').replace(/^\uFEFF/, ''); // BOM 제거
   const report = JSON.parse(content);
 
   if (!report.slug) {
