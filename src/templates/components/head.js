@@ -33,6 +33,9 @@ function generateHead(options = {}) {
   const safeTitle = escapeHtmlText(title);
   const safeDescription = escapeHtmlAttr(description);
   const safeKeywords = escapeHtmlAttr(keywords || '');
+  const keywordTags = articleSchema && keywords
+    ? String(keywords).split(',').map(tag => normalizeMeta(tag)).filter(Boolean).slice(0, 6)
+    : [];
   const canonicalText = normalizeMeta(canonical);
   const isMobileCanonical = canonicalText.startsWith('https://m.gamerscrawl.com');
   // canonical은 항상 데스크톱 URL을 사용 (Google 권장: 모바일도 데스크톱 canonical 지정)
@@ -60,6 +63,13 @@ function generateHead(options = {}) {
       `<link rel="preload" as="image" href="${escapeHtmlAttr(url)}"${index === 0 ? ' fetchpriority="high"' : ''}>`
     ).join('\n  ')
     : '';
+  const articleOgMeta = articleSchema ? [
+    articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(articleSchema.datePublished)}">` : '',
+    articleSchema.dateModified ? `<meta property="article:modified_time" content="${escapeHtmlAttr(articleSchema.dateModified)}">` : '',
+    `<meta property="article:section" content="게임">`,
+    `<meta property="article:author" content="게이머스크롤">`,
+    ...keywordTags.map(tag => `<meta property="article:tag" content="${escapeHtmlAttr(tag)}">`)
+  ].filter(Boolean).join('\n  ') : '';
 
   // Article JSON-LD 생성 (리포트 페이지용)
   const articleJsonLd = articleSchema ? `
@@ -235,11 +245,8 @@ function generateHead(options = {}) {
   <meta property="og:image" content="${resolvedOgImage}">
   <meta property="og:url" content="${safeCanonical}">
   <meta property="og:site_name" content="게이머스크롤">
-  <meta property="og:locale" content="ko_KR">${articleSchema ? `
-  <meta property="article:published_time" content="${articleSchema.datePublished || ''}">
-  ${articleSchema.dateModified ? `<meta property="article:modified_time" content="${articleSchema.dateModified}">` : ''}
-  <meta property="article:section" content="게임">
-  <meta property="article:author" content="게이머스크롤">` : ''}
+  <meta property="og:locale" content="ko_KR">
+  ${articleOgMeta ? `${articleOgMeta}\n  ` : ''}
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${safeTitle}">

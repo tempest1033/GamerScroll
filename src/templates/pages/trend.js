@@ -1610,6 +1610,12 @@ function generateIssueDetailPage({ post, nav = {} }) {
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const escapeHtmlAttr = (value) => String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '이슈 리포트 대표 이미지');
 
   // 이슈 리포트 중간 광고 (PC/모바일 분기)
   const ISSUE_REPORT_SLOTS_PC = [
@@ -1804,7 +1810,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
         <div class="blog-card">
           ${thumbnail ? `
             <div class="blog-hero">
-              <img class="blog-hero-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="" loading="eager">
+              <img class="blog-hero-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
             </div>
           ` : ''}
           <header class="blog-header">
