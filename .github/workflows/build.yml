@@ -176,3 +176,9 @@ jobs:
           git add -A
           git commit -m "Update mobile $(date +'%Y-%m-%d %H:%M')"
           git push --force origin main
+
+      - name: Ping Google Sitemap
+        run: |
+          curl -s "https://www.google.com/ping?sitemap=https://gamerscrawl.com/sitemap.xml"
+          curl -s "https://www.google.com/ping?sitemap=https://m.gamerscrawl.com/sitemap.xml"
+          echo "✅ Sitemap ping sent to Google"
