@@ -75,7 +75,7 @@ function getWeeklyReports(reportsDir) {
     items.push({
       type: 'weekly',
       title: `[주간] ${data.ai.date || weekId} 게임 업계 동향`,
-      link: `${SITE_URL}/trend/?week=${weekId}`,
+      link: `${SITE_URL}/trend/weekly/${weekId}/`,
       description: data.ai.summary || data.ai.headline || '',
       date: new Date(data.generatedAt || data.weekInfo?.endDate),
       thumbnail: data.ai.thumbnail || '',
@@ -100,7 +100,7 @@ function getDailyReports(reportsDir) {
     items.push({
       type: 'daily',
       title: `[일간] ${dateStr} 게임 업계 인사이트`,
-      link: `${SITE_URL}/trend/?date=${dateStr}`,
+      link: `${SITE_URL}/trend/daily/${dateStr}/`,
       description: data.ai.headline || (data.summary ? data.summary.slice(0, 3).join(' / ') : ''),
       date: new Date(data.generatedAt || dateStr),
       thumbnail: data.ai.thumbnail || '',

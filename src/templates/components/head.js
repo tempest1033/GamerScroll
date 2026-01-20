@@ -217,6 +217,14 @@ function generateHead(options = {}) {
       "@type": "Organization",
       "name": "게이머스크롤",
       "url": "https://gamerscrawl.com/"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://gamerscrawl.com/games/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
     }
   }
   </script>${articleJsonLd}${breadcrumbJsonLd}${softwareJsonLd}
@@ -227,7 +235,11 @@ function generateHead(options = {}) {
   <meta property="og:image" content="${resolvedOgImage}">
   <meta property="og:url" content="${safeCanonical}">
   <meta property="og:site_name" content="게이머스크롤">
-  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale" content="ko_KR">${articleSchema ? `
+  <meta property="article:published_time" content="${articleSchema.datePublished || ''}">
+  ${articleSchema.dateModified ? `<meta property="article:modified_time" content="${articleSchema.dateModified}">` : ''}
+  <meta property="article:section" content="게임">
+  <meta property="article:author" content="게이머스크롤">` : ''}
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${safeTitle}">
