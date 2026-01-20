@@ -3,6 +3,9 @@
  * 공통 컴포넌트를 조합하여 완전한 HTML 페이지를 생성
  */
 
+// 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
+const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
+
 const { generateHead } = require('./components/head');
 const {
   renderAdCard,
@@ -874,7 +877,7 @@ function wrapWithLayout(content, options = {}) {
 <head>
   ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema })}
 </head>
-<body class="${currentPage ? `page-${currentPage}` : ''}">
+<body class="${currentPage ? `page-${currentPage}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}

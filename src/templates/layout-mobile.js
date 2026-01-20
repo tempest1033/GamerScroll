@@ -3,6 +3,9 @@
  * m.gamerscrawl.com에서 사용
  */
 
+// 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
+const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
+
 const { generateHead } = require('./components/head');
 const {
   renderMobileAd,
@@ -775,7 +778,7 @@ function wrapWithLayout(content, options = {}) {
 <head>
   ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema })}
 </head>
-<body class="${currentPage ? `page-${currentPage}` : ''} is-mobile">
+<body class="${currentPage ? `page-${currentPage}` : ''} is-mobile${!ADS_ENABLED ? ' ads-disabled' : ''}">
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
