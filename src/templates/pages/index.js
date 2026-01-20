@@ -855,7 +855,7 @@ function generateIndexPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'index',  // 홈페이지 (body.page-index 클래스 필요)
-    title: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스',
+    title: '게이머스크롤 - 모바일 게임 순위·스팀 게임 순위·게임 뉴스',
     description: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스를 한눈에.',
     keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 메타크리틱, 게임 뉴스',
     canonical: `${siteBaseUrl}/`,
