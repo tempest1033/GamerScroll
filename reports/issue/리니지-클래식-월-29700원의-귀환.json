@@ -1,4 +1,4 @@
-{
+﻿{
   "slug": "리니지-클래식-월-29700원의-귀환",
   "status": "approved",
   "title": "리니지 클래식: \"월 29,700원의 귀환\" — 과금의 늪을 건너, 엔씨소프트가 던진 승부수",
@@ -7,11 +7,11 @@
   "keywords": "리니지 클래식, 엔씨소프트, 리니지, 월정액, MMORPG, 아이온2, TL, 쓰론앤리버티, 리니지M, 리니지W, 온라인게임, PC게임",
   "summary": "1998년 한국 온라인 게임의 역사를 연 리니지가 '클래식'으로 돌아온다. 리니지M부터 TL까지 연이은 실패로 '탐욕의 상징'이 된 엔씨소프트가, 구조조정과 분사의 내홍을 거쳐 월정액 모델로 회귀하며 던지는 승부수.",
   "sources": [
-    { "name": "게임메카", "title": "리니지 클래식, 사전 캐릭터 생성 7분 만에 서버 마감", "url": "https://www.gamemeca.com/view.php?gid=1740123" },
-    { "name": "인벤", "title": "엔씨소프트 '리니지 클래식' 월정액 29,700원 확정", "url": "https://www.inven.co.kr/webzine/news/?news=291234" },
-    { "name": "게임조선", "title": "아이온2 출시 46일 만에 누적 매출 1000억 돌파", "url": "https://www.game.chosun.com/article/202601" },
-    { "name": "한국경제", "title": "엔씨소프트, 창사 이래 첫 연간 영업적자…구조조정 단행", "url": "https://www.hankyung.com/article/202501123456" },
-    { "name": "디스이즈게임", "title": "엔씨 서브컬처 진출, 디나미스원·덱사스튜디오 투자", "url": "https://www.thisisgame.com/webzine/news/nboard/123456" }
+    { "name": "인벤", "title": "추억이 깃든 땅, 리니지 클래식 월드 소개 페이지 오픈", "url": "https://www.inven.co.kr/webzine/news/?news=312575&site=lineage" },
+    { "name": "게임메카", "title": "또 마지막 리니지? 엔씨 '리니지 클래식' 사전예약", "url": "https://www.gamemeca.com/view.php?gid=1769749" },
+    { "name": "연합뉴스", "title": "엔씨소프트, 12년만에 분기 적자…\"본사 인원 3천명대로 축소\"(종합2보)", "url": "https://www.yna.co.kr/view/AKR20241104118352527" },
+    { "name": "한국경제", "title": "엔씨, 지난해 상장 후 첫 적자…대규모 구조조정 단행도", "url": "https://www.hankyung.com/article/202502129414g" },
+    { "name": "NCSOFT", "title": "NCSOFT and Amazon Games Launch THRONE AND LIBERTY", "url": "https://about.ncsoft.com/en/news/article/tl_update_241002" }
   ],
   "content": [
     { "type": "heading", "value": "1. 28년 전 가격, 그리고 엔씨의 메시지" },

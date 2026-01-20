@@ -1,4 +1,4 @@
-{
+﻿{
   "slug": "2026-오픈월드-서브컬처-홍수-시작",
   "status": "approved",
   "title": "2026년 오픈월드 서브컬처의 홍수, 그 시작점에 서다",
@@ -6,6 +6,13 @@
   "thumbnail": "https://img.youtube.com/vi/qZijew4BVvs/maxresdefault.jpg",
   "keywords": "서브컬처, 오픈월드, 명일방주 엔드필드, 드래곤소드, 칠대죄 오리진, 무한대, 실버 팰리스, 2026 게임",
   "summary": "1월 21일 드래곤소드, 22일 명일방주 엔드필드를 시작으로 2026년 서브컬처 오픈월드 대전이 본격화됩니다. 중국 대형 자본이 시장을 장악한 가운데, 국산 게임들의 도전이 시작됩니다.",
+  "sources": [
+    { "name": "Webzen", "title": "드래곤소드 공식 커뮤니티 - Webzen", "url": "https://dragonsword.webzen.co.kr/" },
+    { "name": "GRYPHLINE", "title": "Arknights: Endfield - GRYPHLINE", "url": "https://endfield.gryphline.com/" },
+    { "name": "Netmarble", "title": "The Seven Deadly Sins: Origin - Netmarble", "url": "https://7origin.netmarble.com/en/preorder" },
+    { "name": "ANANTA", "title": "ANANTA", "url": "https://www.anantagame.com/" },
+    { "name": "Elementa Games", "title": "Silver Palace", "url": "https://silverpalace.elementagames.com/en-us/" }
+  ],
   "content": [
     { "type": "text", "value": "2026년 새해가 밝자마자 서브컬처 게임 시장에 전례 없는 신작 러시가 시작됩니다. 1월 21일 드래곤소드를 필두로 22일 명일방주: 엔드필드가 출시되며, 올해는 그야말로 '오픈월드 서브컬처의 해'가 될 전망입니다.\n\n원신이 2020년 시장을 개척한 이후, 명조, 젠리스 존 제로 등 후속작들이 꾸준히 등장했습니다. 하지만 2026년은 차원이 다릅니다. 중국발 초대형 기대작부터 국내 대형 개발사들의 야심작까지 한꺼번에 쏟아집니다. 구해야 할 세계가 너무 많아진 유저들의 고민이 깊어지고 있습니다." },
     { "type": "heading", "value": "1. 드래곤소드 (1월 21일)" },

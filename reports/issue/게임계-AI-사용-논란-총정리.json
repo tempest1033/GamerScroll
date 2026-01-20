@@ -12,29 +12,29 @@
   ],
   "sources": [
     {
-      "name": "연합뉴스",
-      "title": "AI가 만들면 게임 아냐? 게임업계 AI 논쟁 격화",
-      "url": "https://www.yna.co.kr/view/AKR20251226127000017"
+      "name": "Steamworks",
+      "title": "Steamworks Development - AI Content on Steam",
+      "url": "https://store.steampowered.com/news/group/4145017/view/3862463747997849618"
     },
     {
-      "name": "게임메카",
-      "title": "TGA 9관왕 클레르 옵스퀴르, IGA 수상 박탈 논란",
-      "url": "https://www.gamemeca.com/view.php?gid=1234567"
+      "name": "The Verge",
+      "title": "Valve opens the door to more Steam games developed with AI",
+      "url": "https://www.theverge.com/2024/1/10/24032678/valve-steam-generative-ai-rules-disclosure-pre-generated-live-illegal-content-copyright"
     },
     {
-      "name": "게임조선",
-      "title": "크래프톤, AI 중심 조직 전환 선언…대규모 구조조정",
-      "url": "https://www.game.chosun.com/article/12345"
+      "name": "The Verge",
+      "title": "Valve won't approve Steam games that use copyright-infringing AI artwork",
+      "url": "https://www.theverge.com/2023/7/1/23781339/valve-steam-ai-artwork-rejecting-banning-pc-games"
     },
     {
-      "name": "인벤",
-      "title": "시프트업 김형태 대표 '한 사람이 100인분' 발언 파장",
-      "url": "https://www.inven.co.kr/webzine/news/?news=123456"
+      "name": "TechCrunch",
+      "title": "Valve responds to claims it has banned AI-generated games from Steam",
+      "url": "https://techcrunch.com/2023/07/03/valve-responds-to-claims-it-has-banned-ai-generated-games-from-steam/"
     },
     {
-      "name": "게임포커스",
-      "title": "서브컬처 게이머들의 AI 혐오, 어디서 비롯됐나",
-      "url": "https://www.gamefocus.co.kr/detail.php?number=123456"
+      "name": "PC Gamer",
+      "title": "Steam updates AI disclosure form to specify that it's focused on AI-generated content that is 'consumed by players,' not efficiency tools used behind the scenes",
+      "url": "https://www.pcgamer.com/software/ai/steam-updates-ai-disclosure-form-to-specify-that-its-focused-on-ai-generated-content-that-is-consumed-by-players-not-efficiency-tools-used-behind-the-scenes/"
     }
   ],
   "content": [
