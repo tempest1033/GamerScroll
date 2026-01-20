@@ -83,7 +83,21 @@ function getLocalIssueImagePath(slug, originalUrl, imageType = 'content', imageI
   // 이미 로컬 경로면 그대로 반환
   if (originalUrl.startsWith('/assets/')) return originalUrl;
 
-  // 확장자 추출
+  // 파일명 베이스 결정
+  let fileBase;
+  if (imageType === 'thumbnail') {
+    fileBase = 'thumbnail';
+  } else {
+    fileBase = String(imageIndex).padStart(2, '0');
+  }
+
+  // WebP 우선 탐색, 없으면 원본 확장자
+  const webpPath = path.join(ISSUE_IMAGES_DIR, slug, `${fileBase}.webp`);
+  if (fs.existsSync(webpPath)) {
+    return `/assets/images/issue/${slug}/${fileBase}.webp`;
+  }
+
+  // 원본 확장자로 탐색
   let ext = '.jpg';
   try {
     const urlPath = new URL(originalUrl).pathname;
@@ -93,20 +107,9 @@ function getLocalIssueImagePath(slug, originalUrl, imageType = 'content', imageI
     }
   } catch (e) {}
 
-  // 로컬 파일명 결정
-  let filename;
-  if (imageType === 'thumbnail') {
-    filename = `thumbnail${ext}`;
-  } else {
-    filename = String(imageIndex).padStart(2, '0') + ext;
-  }
-
-  const localPath = path.join(ISSUE_IMAGES_DIR, slug, filename);
-  const webPath = `/assets/images/issue/${slug}/${filename}`;
-
-  // 로컬 파일 존재 확인
+  const localPath = path.join(ISSUE_IMAGES_DIR, slug, `${fileBase}${ext}`);
   if (fs.existsSync(localPath)) {
-    return webPath;
+    return `/assets/images/issue/${slug}/${fileBase}${ext}`;
   }
 
   // 로컬 파일 없으면 원본 URL 반환 (fixUrl 통해서)

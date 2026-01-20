@@ -1,7 +1,7 @@
 /**
- * 이슈 리포트 이미지 다운로드 스크립트
+ * 이슈 리포트 이미지 다운로드 + WebP 변환 스크립트
  * - reports/issue/*.json의 외부 이미지 URL을 다운로드
- * - docs/assets/images/issue/{slug}/ 에 저장
+ * - WebP로 변환하여 docs/assets/images/issue/{slug}/ 에 저장
  * - 이미 다운로드된 이미지는 스킵
  */
 
@@ -10,13 +10,21 @@ const path = require('path');
 const https = require('https');
 const http = require('http');
 
+// sharp는 선택적 의존성 (없으면 원본 포맷 유지)
+let sharp;
+try {
+  sharp = require('sharp');
+} catch (e) {
+  console.log('⚠️ sharp 미설치 - WebP 변환 없이 원본 저장\n');
+}
+
 const ISSUE_DIR = path.join(__dirname, '..', 'reports', 'issue');
 const IMAGES_DIR = path.join(__dirname, '..', 'docs', 'assets', 'images', 'issue');
 
 /**
- * URL에서 이미지 다운로드
+ * URL에서 이미지 버퍼로 다운로드
  */
-function downloadImage(url, destPath) {
+function downloadToBuffer(url) {
   return new Promise((resolve, reject) => {
     const protocol = url.startsWith('https') ? https : http;
 
@@ -27,7 +35,7 @@ function downloadImage(url, destPath) {
     }, (response) => {
       // 리다이렉트 처리
       if (response.statusCode >= 300 && response.statusCode < 400 && response.headers.location) {
-        downloadImage(response.headers.location, destPath).then(resolve).catch(reject);
+        downloadToBuffer(response.headers.location).then(resolve).catch(reject);
         return;
       }
 
@@ -36,23 +44,10 @@ function downloadImage(url, destPath) {
         return;
       }
 
-      const dir = path.dirname(destPath);
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-      }
-
-      const file = fs.createWriteStream(destPath);
-      response.pipe(file);
-
-      file.on('finish', () => {
-        file.close();
-        resolve(destPath);
-      });
-
-      file.on('error', (err) => {
-        fs.unlink(destPath, () => {});
-        reject(err);
-      });
+      const chunks = [];
+      response.on('data', chunk => chunks.push(chunk));
+      response.on('end', () => resolve(Buffer.concat(chunks)));
+      response.on('error', reject);
     });
 
     request.on('error', reject);
@@ -64,18 +59,23 @@ function downloadImage(url, destPath) {
 }
 
 /**
- * URL에서 파일 확장자 추출
+ * 이미지를 WebP로 변환하여 저장 (sharp 없으면 원본 저장)
  */
-function getExtension(url) {
-  try {
-    const urlObj = new URL(url);
-    const pathname = urlObj.pathname;
-    const ext = path.extname(pathname).toLowerCase();
-    if (['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'].includes(ext)) {
-      return ext;
-    }
-  } catch (e) {}
-  return '.jpg'; // 기본값
+async function saveAsWebP(buffer, destPath) {
+  const dir = path.dirname(destPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  if (sharp) {
+    // WebP 변환 (quality 85)
+    await sharp(buffer)
+      .webp({ quality: 85 })
+      .toFile(destPath);
+  } else {
+    // sharp 없으면 원본 그대로 저장
+    fs.writeFileSync(destPath, buffer);
+  }
 }
 
 /**
@@ -100,6 +100,7 @@ async function processIssueReport(jsonPath) {
 
   const slug = report.slug;
   const imageDir = path.join(IMAGES_DIR, slug);
+  const ext = sharp ? '.webp' : '.jpg'; // sharp 있으면 WebP, 없으면 원본
 
   let downloaded = 0;
   let skipped = 0;
@@ -107,14 +108,14 @@ async function processIssueReport(jsonPath) {
 
   // 1. 썸네일 처리
   if (report.thumbnail && isExternalUrl(report.thumbnail)) {
-    const ext = getExtension(report.thumbnail);
     const localPath = path.join(imageDir, `thumbnail${ext}`);
 
     if (fs.existsSync(localPath)) {
       skipped++;
     } else {
       try {
-        await downloadImage(report.thumbnail, localPath);
+        const buffer = await downloadToBuffer(report.thumbnail);
+        await saveAsWebP(buffer, localPath);
         console.log(`  ✅ thumbnail${ext}`);
         downloaded++;
       } catch (err) {
@@ -130,7 +131,6 @@ async function processIssueReport(jsonPath) {
 
     for (const block of report.content) {
       if (block.type === 'image' && block.src && isExternalUrl(block.src)) {
-        const ext = getExtension(block.src);
         const filename = String(imageIndex).padStart(2, '0') + ext;
         const localPath = path.join(imageDir, filename);
 
@@ -138,7 +138,8 @@ async function processIssueReport(jsonPath) {
           skipped++;
         } else {
           try {
-            await downloadImage(block.src, localPath);
+            const buffer = await downloadToBuffer(block.src);
+            await saveAsWebP(buffer, localPath);
             console.log(`  ✅ ${filename}`);
             downloaded++;
           } catch (err) {
@@ -159,7 +160,7 @@ async function processIssueReport(jsonPath) {
  * 메인 실행
  */
 async function main() {
-  console.log('🖼️  이슈 리포트 이미지 다운로드\n');
+  console.log('🖼️  이슈 리포트 이미지 다운로드' + (sharp ? ' + WebP 변환' : '') + '\n');
 
   // docs/assets/images/issue 폴더 생성
   if (!fs.existsSync(IMAGES_DIR)) {
