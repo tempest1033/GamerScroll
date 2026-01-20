@@ -32,12 +32,14 @@ function generateIndexPage(data) {
     if (!url) return url;
     if (url.startsWith('//')) url = 'https:' + url;
     if (url.includes('inven.co.kr') || url.includes('nateimg.co.kr')) {
-      const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url);
-      if (/\.avif(?:$|[?#])/i.test(url)) return proxyUrl + '&output=webp';
+      const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=960&output=webp';
       return proxyUrl;
     }
     return url;
   };
+
+  const dailyInsightThumbnail = fixUrl(aiInsight?.thumbnail) || '';
+  const weeklyInsightThumbnail = fixUrl(weeklyInsight?.ai?.thumbnail) || '';
 
   // 홈 뉴스 카드
   function generateHomeNews() {
@@ -172,14 +174,14 @@ function generateIndexPage(data) {
       : '주간 리포트';
 
     // 썸네일 (없으면 CSS gradient 배경만 보임) - fixUrl로 프록시 처리
-    const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
-    const weeklyThumbnail = fixUrl(wai?.thumbnail) || '';
+    const dailyThumbnail = dailyInsightThumbnail;
+    const weeklyThumbnail = weeklyInsightThumbnail;
 
     // 일간 카드 (이미지 + 헤드라인)
     const dailyCard = dailyHeadline ? `
       <a href="${dailyLink}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+          ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="eager" fetchpriority="high" decoding="async" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag">${dailyBadgeText}</span>
         </div>
         <h3 class="home-trend-card-title">${dailyHeadline}</h3>
@@ -190,7 +192,7 @@ function generateIndexPage(data) {
     const weeklyCard = wai ? `
       <a href="${weeklyLink}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+          ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="eager" fetchpriority="auto" decoding="async" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag weekly">${weeklyBadgeText}</span>
         </div>
         <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
@@ -626,8 +628,8 @@ function generateIndexPage(data) {
       </a>`;
 
     // 일간/주간 리포트 (헤더 없이)
-    const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
-    const weeklyThumbnail = fixUrl(weeklyInsight?.ai?.thumbnail) || '';
+    const dailyThumbnail = dailyInsightThumbnail;
+    const weeklyThumbnail = weeklyInsightThumbnail;
     const dailyHeadline = aiInsight?.headline || '일간 리포트';
     const weeklyHeadline = weeklyInsight?.ai?.headline || '주간 리포트';
     const dailyLink = insightFileDate ? `/trend/daily/${insightFileDate}/` : '/trend/';
@@ -641,14 +643,14 @@ function generateIndexPage(data) {
       <div class="home-trend-grid">
         <a href="${dailyLink}" class="home-trend-card">
           <div class="home-trend-card-image">
-            ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+            ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="eager" fetchpriority="high" decoding="async" data-img-fallback="hide">` : ''}
             <span class="home-trend-card-tag">일간 리포트</span>
           </div>
           <h3 class="home-trend-card-title">${dailyHeadline}</h3>
         </a>
         <a href="${weeklyLink}" class="home-trend-card">
           <div class="home-trend-card-image">
-            ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+            ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="eager" fetchpriority="auto" decoding="async" data-img-fallback="hide">` : ''}
             <span class="home-trend-card-tag weekly">주간 리포트</span>
           </div>
           <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
@@ -857,7 +859,8 @@ function generateIndexPage(data) {
     description: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스를 한눈에.',
     keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 메타크리틱, 게임 뉴스',
     canonical: `${siteBaseUrl}/`,
-    pageScripts: pageScripts
+    pageScripts: pageScripts,
+    preloadImages: [dailyInsightThumbnail, weeklyInsightThumbnail].filter(Boolean)
   });
 }
 

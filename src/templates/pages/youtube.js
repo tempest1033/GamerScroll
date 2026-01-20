@@ -105,56 +105,70 @@ function generateYoutubePage(data) {
   <script>
     // 각 섹션별 페이지네이션
     (function() {
-      const getPageSize = () => window.innerWidth <= 768 ? 4 : 8;
+      const sections = Array.from(document.querySelectorAll('.video-section-card'));
+      if (!sections.length) return;
 
-      document.querySelectorAll('.video-section-card').forEach(section => {
+      const getPageSize = () => window.innerWidth <= 768 ? 4 : 8;
+      const stateMap = new Map();
+
+      function updatePagination(state) {
+        const pageSize = getPageSize();
+        const totalPages = Math.ceil(state.items.length / pageSize) || 1;
+
+        if (state.currentPage >= totalPages) state.currentPage = totalPages - 1;
+        if (state.currentPage < 0) state.currentPage = 0;
+
+        state.items.forEach((item, i) => {
+          const start = state.currentPage * pageSize;
+          const end = start + pageSize;
+          item.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+
+        state.pageIndex.textContent = (state.currentPage + 1) + '/' + totalPages;
+        state.prevBtn.disabled = state.currentPage <= 0;
+        state.nextBtn.disabled = state.currentPage >= totalPages - 1;
+      }
+
+      sections.forEach(section => {
         const prevBtn = section.querySelector('.video-prev');
         const nextBtn = section.querySelector('.video-next');
         const pageIndex = section.querySelector('.video-page-index');
-        const items = section.querySelectorAll('.youtube-card');
+        const items = Array.from(section.querySelectorAll('.youtube-card'));
 
-        if (!items.length) return;
+        if (!items.length || !prevBtn || !nextBtn || !pageIndex) return;
 
-        let currentPage = 0;
+        const state = {
+          section,
+          prevBtn,
+          nextBtn,
+          pageIndex,
+          items,
+          currentPage: 0
+        };
 
-        function updatePagination() {
-          const PAGE_SIZE = getPageSize();
-          const totalPages = Math.ceil(items.length / PAGE_SIZE) || 1;
+        stateMap.set(section, state);
+        updatePagination(state);
+      });
 
-          items.forEach((item, i) => {
-            const start = currentPage * PAGE_SIZE;
-            const end = start + PAGE_SIZE;
-            item.style.display = (i >= start && i < end) ? '' : 'none';
-          });
+      document.addEventListener('click', (event) => {
+        const btn = event.target.closest('.video-prev, .video-next');
+        if (!btn || btn.disabled) return;
 
-          pageIndex.textContent = (currentPage + 1) + '/' + totalPages;
-          prevBtn.disabled = currentPage <= 0;
-          nextBtn.disabled = currentPage >= totalPages - 1;
+        const section = btn.closest('.video-section-card');
+        const state = stateMap.get(section);
+        if (!state) return;
+
+        if (btn.classList.contains('video-prev')) {
+          if (state.currentPage > 0) state.currentPage--;
+        } else {
+          state.currentPage++;
         }
 
-        prevBtn.addEventListener('click', () => {
-          if (currentPage > 0) {
-            currentPage--;
-            updatePagination();
-          }
-        });
-        nextBtn.addEventListener('click', () => {
-          const PAGE_SIZE = getPageSize();
-          const totalPages = Math.ceil(items.length / PAGE_SIZE) || 1;
-          if (currentPage < totalPages - 1) {
-            currentPage++;
-            updatePagination();
-          }
-        });
+        updatePagination(state);
+      });
 
-        window.addEventListener('resize', () => {
-          const PAGE_SIZE = getPageSize();
-          const totalPages = Math.ceil(items.length / PAGE_SIZE) || 1;
-          if (currentPage >= totalPages) currentPage = totalPages - 1;
-          updatePagination();
-        });
-
-        updatePagination();
+      window.addEventListener('resize', () => {
+        stateMap.forEach(state => updatePagination(state));
       });
     })();
   </script>`;

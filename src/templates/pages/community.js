@@ -84,41 +84,57 @@ function generateCommunityPage(data) {
   const pageScripts = `
   <script>
     // 페이지네이션 (모바일에서만 작동, PC는 전체 표시)
-    const isMobile = () => window.innerWidth <= 768;
-
-    document.querySelectorAll('.community-panel').forEach(panel => {
-      const items = panel.querySelectorAll('.community-item');
-      const pageBtns = panel.querySelectorAll('.community-page-btn');
+    (function() {
+      const isMobile = () => window.innerWidth <= 768;
       const PAGE_SIZE = 10;
-      let currentPage = 0;
+      const panelStates = new Map();
 
-      function showPage(pageNum) {
-        currentPage = pageNum;
+      function showPage(state, pageNum) {
+        state.currentPage = pageNum;
         if (isMobile()) {
           const start = pageNum * PAGE_SIZE;
           const end = start + PAGE_SIZE;
-          items.forEach((item, i) => {
+          state.items.forEach((item, i) => {
             item.style.display = (i >= start && i < end) ? '' : 'none';
           });
         } else {
           // PC: 모든 아이템 표시
-          items.forEach(item => item.style.display = '');
+          state.items.forEach(item => item.style.display = '');
         }
-        pageBtns.forEach(btn => {
-          btn.classList.toggle('active', parseInt(btn.dataset.page) === pageNum);
+        state.pageBtns.forEach(btn => {
+          btn.classList.toggle('active', parseInt(btn.dataset.page, 10) === pageNum);
         });
       }
 
-      pageBtns.forEach(btn => {
-        btn.addEventListener('click', () => showPage(parseInt(btn.dataset.page)));
+      document.querySelectorAll('.community-panel').forEach(panel => {
+        const items = Array.from(panel.querySelectorAll('.community-item'));
+        const pageBtns = Array.from(panel.querySelectorAll('.community-page-btn'));
+        if (!items.length) return;
+
+        const state = { panel, items, pageBtns, currentPage: 0 };
+        panelStates.set(panel, state);
+        showPage(state, 0);
+      });
+
+      document.addEventListener('click', (event) => {
+        const btn = event.target.closest('.community-page-btn');
+        if (!btn) return;
+
+        const panel = btn.closest('.community-panel');
+        const state = panelStates.get(panel);
+        if (!state) return;
+
+        const pageNum = parseInt(btn.dataset.page, 10);
+        if (Number.isNaN(pageNum)) return;
+
+        showPage(state, pageNum);
       });
 
       // 리사이즈 시 재적용
-      window.addEventListener('resize', () => showPage(currentPage));
-
-      // 초기화
-      showPage(0);
-    });
+      window.addEventListener('resize', () => {
+        panelStates.forEach(state => showPage(state, state.currentPage));
+      });
+    })();
   </script>`;
 
   return wrapWithLayout(content, {

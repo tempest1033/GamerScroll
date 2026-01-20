@@ -14,7 +14,8 @@ function generateHead(options = {}) {
     breadcrumbs = null,  // BreadcrumbList JSON-LD [{name, url}]
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, image, operatingSystem, applicationCategory, aggregateRating}
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
-    ogImage = ''
+    ogImage = '',
+    preloadImages = []
   } = options;
 
   const normalizeMeta = (value) => String(value ?? '').replace(/[\r\n]+/g, ' ').trim();
@@ -52,6 +53,13 @@ function generateHead(options = {}) {
     (articleSchema && typeof articleSchema.image === 'string' && articleSchema.image) ||
     'https://gamerscrawl.com/og-image.png'
   );
+  const preloadImageList = Array.isArray(preloadImages) ? preloadImages : [];
+  const preloadUrls = [...new Set(preloadImageList.map(item => normalizeMeta(item)).filter(Boolean))].slice(0, 2);
+  const preloadLinks = preloadUrls.length > 0
+    ? preloadUrls.map((url, index) =>
+      `<link rel="preload" as="image" href="${escapeHtmlAttr(url)}"${index === 0 ? ' fetchpriority="high"' : ''}>`
+    ).join('\n  ')
+    : '';
 
   // Article JSON-LD 생성 (리포트 페이지용)
   const articleJsonLd = articleSchema ? `
@@ -227,6 +235,7 @@ function generateHead(options = {}) {
   <meta name="twitter:image" content="${resolvedOgImage}">
   <meta name="twitter:site" content="@gamerscrawl">
   <meta name="twitter:creator" content="@gamerscrawl">
+  ${preloadLinks ? `${preloadLinks}\n  ` : ''}
   <!-- Theme & Favicon -->
   <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">

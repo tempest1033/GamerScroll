@@ -57,9 +57,7 @@ const fixUrl = (url) => {
 
   // 나머지 외부 이미지는 프록시
   if (url.startsWith('http')) {
-    const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url);
-    // wsrv.nl은 avif 출력이 비활성화되어 있어 webp로 강제 변환
-    if (/\.avif(?:$|[?#])/i.test(url)) return proxyUrl + '&output=webp';
+    const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=960&output=webp';
     return proxyUrl;
   }
   return url;
@@ -576,7 +574,7 @@ function generateWeeklyPanel(weeklyInsight) {
   return `
     <div class="weekly-report">
       <div class="weekly-header-card ${heroThumbUrl ? 'has-hero-image' : ''}">
-        ${heroThumbUrl ? `<div class="weekly-header-image"><img src="${heroThumbUrl}" alt="" loading="eager" data-img-fallback="thumb-fallback"></div>` : ''}
+        ${heroThumbUrl ? `<div class="weekly-header-image"><img src="${heroThumbUrl}" alt="" loading="eager" fetchpriority="high" decoding="async" data-img-fallback="thumb-fallback"></div>` : ''}
         <div class="weekly-header-text">
           <div class="weekly-header-title">${summaryTitle}</div>
           <div class="weekly-header-meta">
@@ -1560,6 +1558,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     ? `${formatDateKorean(wInfo.startDate)} ~ ${formatDateKorean(wInfo.endDate)}`
     : (wai.date ? formatDateKorean(wai.date) : '');
   const weekNum = wInfo.weekNumber || wai.weekNumber || '';
+  const heroThumbUrl = wai.thumbnail ? fixUrl(wai.thumbnail) : '';
   const summaryTitle = typeof wai.summary === 'object' ? wai.summary.title : (wai.headline || wai.summary);
   const descriptionText = summaryTitle || '주간 게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
 
@@ -1584,6 +1583,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     keywords: keywordsText,
     canonical: `${siteBaseUrl}/trend/weekly/${slug}/`,
     articleSchema,
+    preloadImages: heroThumbUrl ? [heroThumbUrl] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` },

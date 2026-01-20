@@ -22,12 +22,17 @@ const fixUrl = (url) => {
   const corsAllowed = ['steamstatic.com', 'googleusercontent.com', 'gamerscrawl.com'];
   if (corsAllowed.some(d => url.includes(d))) return url;
   // 나머지 외부 이미지는 프록시
-  if (url.startsWith('http')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url);
+  if (url.startsWith('http')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=960&output=webp';
   return url;
 };
 
 function generateNewsPage(data) {
   const { news } = data;
+  const { insight, weeklyInsight } = data;
+  const aiInsight = insight?.ai || null;
+  const wai = weeklyInsight?.ai || null;
+  const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
+  const weeklyThumbnail = fixUrl(wai?.thumbnail) || '';
 
   // PC + 모바일 광고 슬롯
   const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
@@ -120,8 +125,6 @@ function generateNewsPage(data) {
 
   if (isMobileBuild) {
     // 모바일 전용: 일간/주간 리포트 + 인피드 + 뉴스4개 + 리스폰스
-    const { insight, weeklyInsight } = data;
-    const aiInsight = insight?.ai || null;
     const insightFileDate = insight?.insightDate || '';
 
     // 날짜 포맷 헬퍼
@@ -133,14 +136,11 @@ function generateNewsPage(data) {
     };
 
     // 일간 리포트
-    const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
     const dailyHeadline = aiInsight?.headline || '일간 리포트';
     const dailyLink = insightFileDate ? `/trend/daily/${insightFileDate}/` : '/trend/';
 
     // 주간 리포트
-    const wai = weeklyInsight?.ai || null;
     const wInfo = weeklyInsight?.weekInfo || {};
-    const weeklyThumbnail = fixUrl(wai?.thumbnail) || '';
     const weeklyHeadline = wai?.headline || '주간 리포트';
     const weekNum = wInfo.weekNumber || wai?.weekNumber || '';
     const weekYear = wInfo.year || new Date().getFullYear();
@@ -152,14 +152,14 @@ function generateNewsPage(data) {
       <div class="home-trend-grid">
         <a href="${dailyLink}" class="home-trend-card">
           <div class="home-trend-card-image">
-            ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+            ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="eager" fetchpriority="high" decoding="async" data-img-fallback="hide">` : ''}
             <span class="home-trend-card-tag">일간 리포트</span>
           </div>
           <h3 class="home-trend-card-title">${dailyHeadline}</h3>
         </a>
         <a href="${weeklyLink}" class="home-trend-card">
           <div class="home-trend-card-image">
-            ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
+            ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="eager" fetchpriority="auto" decoding="async" data-img-fallback="hide">` : ''}
             <span class="home-trend-card-tag weekly">주간 리포트</span>
           </div>
           <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
@@ -220,42 +220,58 @@ function generateNewsPage(data) {
   <script>
     // 각 뉴스 섹션별 페이지네이션 (컬럼 1개씩)
     (function() {
-      document.querySelectorAll('.news-section-card').forEach(section => {
+      const sections = Array.from(document.querySelectorAll('.news-section-card'));
+      if (!sections.length) return;
+
+      const stateMap = new Map();
+
+      function updatePagination(state) {
+        state.columns.forEach((col, i) => {
+          col.style.display = (i === state.currentPage) ? '' : 'none';
+        });
+
+        state.pageIndex.textContent = (state.currentPage + 1) + '/' + state.totalPages;
+        state.prevBtn.disabled = state.currentPage <= 0;
+        state.nextBtn.disabled = state.currentPage >= state.totalPages - 1;
+      }
+
+      sections.forEach(section => {
         const prevBtn = section.querySelector('.news-prev');
         const nextBtn = section.querySelector('.news-next');
         const pageIndex = section.querySelector('.gm-page-index');
-        const columns = section.querySelectorAll('.news-column');
+        const columns = Array.from(section.querySelectorAll('.news-column'));
 
-        if (!columns.length) return;
+        if (!columns.length || !prevBtn || !nextBtn || !pageIndex) return;
 
-        let currentPage = 0;
-        const totalPages = columns.length;
+        const state = {
+          section,
+          prevBtn,
+          nextBtn,
+          pageIndex,
+          columns,
+          currentPage: 0,
+          totalPages: columns.length
+        };
 
-        function updatePagination() {
-          columns.forEach((col, i) => {
-            col.style.display = (i === currentPage) ? '' : 'none';
-          });
+        stateMap.set(section, state);
+        updatePagination(state);
+      });
 
-          pageIndex.textContent = (currentPage + 1) + '/' + totalPages;
-          prevBtn.disabled = currentPage <= 0;
-          nextBtn.disabled = currentPage >= totalPages - 1;
+      document.addEventListener('click', (event) => {
+        const btn = event.target.closest('.news-prev, .news-next');
+        if (!btn || btn.disabled) return;
+
+        const section = btn.closest('.news-section-card');
+        const state = stateMap.get(section);
+        if (!state) return;
+
+        if (btn.classList.contains('news-prev')) {
+          if (state.currentPage > 0) state.currentPage--;
+        } else {
+          if (state.currentPage < state.totalPages - 1) state.currentPage++;
         }
 
-        prevBtn.addEventListener('click', () => {
-          if (currentPage > 0) {
-            currentPage--;
-            updatePagination();
-          }
-        });
-
-        nextBtn.addEventListener('click', () => {
-          if (currentPage < totalPages - 1) {
-            currentPage++;
-            updatePagination();
-          }
-        });
-
-        updatePagination();
+        updatePagination(state);
       });
     })();
   </script>`;
@@ -267,6 +283,7 @@ function generateNewsPage(data) {
     keywords: '게임 뉴스, 게임 소식',
     canonical: `${siteBaseUrl}/news/`,
     pageScripts,
+    preloadImages: isMobileBuild ? [dailyThumbnail, weeklyThumbnail].filter(Boolean) : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '게임 뉴스', url: `${siteBaseUrl}/news/` }

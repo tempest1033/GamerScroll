@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 모바일 전용 레이아웃
  * m.gamerscrawl.com에서 사용
  */
@@ -69,6 +69,7 @@ const searchBarScript = `
   let gamesData = [];
   let gamesDataLoaded = false;
   let gamesDataPromise = null;
+  let gamesDataScheduled = false;
 
   function getRecentSearches() {
     try { return JSON.parse(localStorage.getItem(RECENT_STORAGE_KEY)) || []; }
@@ -197,8 +198,18 @@ const searchBarScript = `
   const debouncedSearch = (func, delay) => (...args) => { clearTimeout(debounceTimer); debounceTimer = setTimeout(() => func(...args), delay); };
   const search = debouncedSearch(performSearch, 200);
 
-  searchInput.addEventListener('input', (e) => search(e.target.value.trim()));
-  searchInput.addEventListener('focus', () => { loadGamesDataOnce(); if (!searchInput.value.trim()) renderRecentSearches(); else performSearch(searchInput.value.trim()); });
+  function scheduleLoadGamesData() {
+    if (gamesDataLoaded || gamesDataScheduled) return;
+    gamesDataScheduled = true;
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function() { loadGamesDataOnce(); }, { timeout: 1500 });
+    } else {
+      setTimeout(function() { loadGamesDataOnce(); }, 200);
+    }
+  }
+
+  searchInput.addEventListener('input', (e) => { if (e.target.value.trim()) scheduleLoadGamesData(); search(e.target.value.trim()); });
+  searchInput.addEventListener('focus', () => { scheduleLoadGamesData(); if (!searchInput.value.trim()) renderRecentSearches(); else performSearch(searchInput.value.trim()); });
   document.addEventListener('click', (e) => { if (!e.target.closest('.search-container') && !e.target.closest('.nav-search-btn')) searchDropdown.classList.remove('active'); });
   searchDropdown.addEventListener('mousedown', (e) => e.preventDefault());
 
@@ -207,7 +218,7 @@ const searchBarScript = `
   if (navSearchBtn) {
     navSearchBtn.addEventListener('click', () => {
       searchInput.focus();
-      loadGamesDataOnce();
+      scheduleLoadGamesData();
       renderRecentSearches();
     });
   }
@@ -758,7 +769,8 @@ function wrapWithLayout(content, options = {}) {
     articleSchema = null,
     noindex = false,
     breadcrumbs = null,  // BreadcrumbList JSON-LD
-    softwareSchema = null  // SoftwareApplication JSON-LD (게임 페이지용)
+    softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용)
+    preloadImages = null
   } = options;
 
   // 모바일은 자기 자신을 canonical로 (Google 권장 방식)
@@ -776,7 +788,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''} is-mobile${!ADS_ENABLED ? ' ads-disabled' : ''}">
   ${generateHeader()}

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 레이아웃 조합기
  * 공통 컴포넌트를 조합하여 완전한 HTML 페이지를 생성
  */
@@ -113,6 +113,7 @@ const hoverPrefetchScript = `
 	  let gamesData = [];
 	  let gamesDataLoaded = false;
 	  let gamesDataPromise = null;
+	  let gamesDataScheduled = false;
 
   // 최근 검색 저장/로드
   function getRecentSearches() {
@@ -316,14 +317,25 @@ const hoverPrefetchScript = `
 
   const debouncedSearch = debounce(performSearch, 200);
 
+	  function scheduleLoadGamesData() {
+	    if (gamesDataLoaded || gamesDataScheduled) return;
+	    gamesDataScheduled = true;
+	    if ('requestIdleCallback' in window) {
+	      requestIdleCallback(function() { loadGamesDataOnce(); }, { timeout: 1500 });
+	    } else {
+	      setTimeout(function() { loadGamesDataOnce(); }, 200);
+	    }
+	  }
+
 	  // 입력 이벤트
 	  searchInput.addEventListener('input', (e) => {
+	    if (e.target.value.trim()) scheduleLoadGamesData();
 	    debouncedSearch(e.target.value.trim());
 	  });
 
 	  // 포커스 시 드롭다운 열기
 	  searchInput.addEventListener('focus', () => {
-	    loadGamesDataOnce();
+	    scheduleLoadGamesData();
 	    if (!searchInput.value.trim()) {
 	      renderRecentSearches();
 	    } else {
@@ -860,7 +872,8 @@ function wrapWithLayout(content, options = {}) {
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     breadcrumbs = null,  // BreadcrumbList JSON-LD
-    softwareSchema = null  // SoftwareApplication JSON-LD (게임 페이지용)
+    softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용)
+    preloadImages = null
   } = options;
 
   // 페이지별 데이터 스크립트
@@ -875,7 +888,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   ${generateHeader()}

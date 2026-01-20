@@ -1,4 +1,4 @@
-/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
+﻿/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
 /* ins 태그 스타일은 인라인으로만 관리 (Google 권장 방식) */
 /* CSS는 컨테이너(.ad-card)만 관리 */
 
@@ -13,6 +13,7 @@
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
+  min-height: 200px;
 }
 
 /* PC 홈 상단 광고 (728x90) */
@@ -45,6 +46,12 @@
 .ad-card-native {
   width: 100%;
   min-height: 100px;
+}
+
+/* Multiplex 광고 (자동 반응형) */
+.ad-card-multiplex {
+  width: 100%;
+  min-height: 250px;
 }
 
 /* ===== PC/모바일 표시 규칙 ===== */

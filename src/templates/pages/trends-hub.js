@@ -283,51 +283,57 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], issueRep
         return isMobile ? 1 : 4;
       };
 
+      const trendStateMap = new Map();
+      const newsStateMap = new Map();
+
+      function updateTrendPagination(state) {
+        const start = state.currentPage * state.pageSize;
+        const end = start + state.pageSize;
+
+        state.items.forEach((item, i) => {
+          item.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+
+        state.pageIndex.textContent = (state.currentPage + 1) + '/' + state.totalPages;
+        state.prevBtn.disabled = state.currentPage <= 0;
+        state.nextBtn.disabled = state.currentPage >= state.totalPages - 1;
+      }
+
+      function updateNewsPagination(state) {
+        state.columns.forEach((col, i) => {
+          col.style.display = (i === state.currentPage) ? '' : 'none';
+        });
+
+        state.pageIndex.textContent = (state.currentPage + 1) + '/' + state.totalPages;
+        state.prevBtn.disabled = state.currentPage <= 0;
+        state.nextBtn.disabled = state.currentPage >= state.totalPages - 1;
+      }
+
       document.querySelectorAll('.trend-section').forEach(section => {
         const sectionType = section.dataset.section;
         const prevBtn = section.querySelector('.trend-prev');
         const nextBtn = section.querySelector('.trend-next');
         const pageIndex = section.querySelector('.trend-page-index');
-        const items = section.querySelectorAll('.trend-feed-card');
+        const items = Array.from(section.querySelectorAll('.trend-feed-card'));
 
-        if (!items.length) return;
+        if (!items.length || !prevBtn || !nextBtn || !pageIndex) return;
 
-        let currentPage = 0;
-        const PAGE_SIZE = getPageSize(sectionType);
-        const totalPages = Math.ceil(items.length / PAGE_SIZE) || 1;
+        const pageSize = getPageSize(sectionType);
+        const totalPages = Math.ceil(items.length / pageSize) || 1;
 
-        function updatePagination() {
-          // 아이템 표시/숨김
-          items.forEach((item, i) => {
-            const start = currentPage * PAGE_SIZE;
-            const end = start + PAGE_SIZE;
-            item.style.display = (i >= start && i < end) ? '' : 'none';
-          });
+        const state = {
+          section,
+          prevBtn,
+          nextBtn,
+          pageIndex,
+          items,
+          pageSize,
+          totalPages,
+          currentPage: 0
+        };
 
-          // 인덱스 업데이트
-          pageIndex.textContent = (currentPage + 1) + '/' + totalPages;
-
-          // 버튼 활성화
-          prevBtn.disabled = currentPage <= 0;
-          nextBtn.disabled = currentPage >= totalPages - 1;
-        }
-
-        // 페이지 이동
-        prevBtn.addEventListener('click', () => {
-          if (currentPage > 0) {
-            currentPage--;
-            updatePagination();
-          }
-        });
-        nextBtn.addEventListener('click', () => {
-          if (currentPage < totalPages - 1) {
-            currentPage++;
-            updatePagination();
-          }
-        });
-
-        // 초기화
-        updatePagination();
+        trendStateMap.set(section, state);
+        updateTrendPagination(state);
       });
 
       // 뉴스 섹션별 페이지네이션 (컬럼 1개씩)
@@ -335,38 +341,56 @@ function generateTrendsHubPage({ dailyReports = [], weeklyReports = [], issueRep
         const prevBtn = section.querySelector('.news-prev');
         const nextBtn = section.querySelector('.news-next');
         const pageIndex = section.querySelector('.gm-page-index');
-        const columns = section.querySelectorAll('.news-column');
+        const columns = Array.from(section.querySelectorAll('.news-column'));
 
-        if (!columns.length) return;
+        if (!columns.length || !prevBtn || !nextBtn || !pageIndex) return;
 
-        let currentPage = 0;
-        const totalPages = columns.length;
+        const state = {
+          section,
+          prevBtn,
+          nextBtn,
+          pageIndex,
+          columns,
+          currentPage: 0,
+          totalPages: columns.length
+        };
 
-        function updateNewsPagination() {
-          columns.forEach((col, i) => {
-            col.style.display = (i === currentPage) ? '' : 'none';
-          });
+        newsStateMap.set(section, state);
+        updateNewsPagination(state);
+      });
 
-          pageIndex.textContent = (currentPage + 1) + '/' + totalPages;
-          prevBtn.disabled = currentPage <= 0;
-          nextBtn.disabled = currentPage >= totalPages - 1;
+      document.addEventListener('click', (event) => {
+        const trendBtn = event.target.closest('.trend-prev, .trend-next');
+        if (trendBtn) {
+          if (trendBtn.disabled) return;
+          const section = trendBtn.closest('.trend-section');
+          const state = trendStateMap.get(section);
+          if (!state) return;
+
+          if (trendBtn.classList.contains('trend-prev')) {
+            if (state.currentPage > 0) state.currentPage--;
+          } else {
+            if (state.currentPage < state.totalPages - 1) state.currentPage++;
+          }
+
+          updateTrendPagination(state);
+          return;
         }
 
-        prevBtn.addEventListener('click', () => {
-          if (currentPage > 0) {
-            currentPage--;
-            updateNewsPagination();
-          }
-        });
+        const newsBtn = event.target.closest('.news-prev, .news-next');
+        if (!newsBtn || newsBtn.disabled) return;
 
-        nextBtn.addEventListener('click', () => {
-          if (currentPage < totalPages - 1) {
-            currentPage++;
-            updateNewsPagination();
-          }
-        });
+        const section = newsBtn.closest('.news-section-card');
+        const state = newsStateMap.get(section);
+        if (!state) return;
 
-        updateNewsPagination();
+        if (newsBtn.classList.contains('news-prev')) {
+          if (state.currentPage > 0) state.currentPage--;
+        } else {
+          if (state.currentPage < state.totalPages - 1) state.currentPage++;
+        }
+
+        updateNewsPagination(state);
       });
     })();
   </script>`;
