@@ -5,6 +5,8 @@
  */
 
 const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 console.log('📱 모바일 버전 빌드 시작...\n');
 
@@ -23,7 +25,35 @@ try {
     cwd: __dirname
   });
 
-  // 2. 게임 페이지 생성 (모바일용)
+  // 2. 이미지 폴더 동기화 (docs → docs-mobile)
+  const syncImageDirs = [
+    { src: 'docs/assets/images/wiki', dest: 'docs-mobile/assets/images/wiki' },
+    { src: 'docs/assets/images/issue', dest: 'docs-mobile/assets/images/issue' }
+  ];
+
+  for (const { src, dest } of syncImageDirs) {
+    const srcPath = path.join(__dirname, src);
+    const destPath = path.join(__dirname, dest);
+    if (fs.existsSync(srcPath)) {
+      fs.mkdirSync(destPath, { recursive: true });
+      const copyDirRecursive = (s, d) => {
+        fs.mkdirSync(d, { recursive: true });
+        for (const item of fs.readdirSync(s)) {
+          const srcItem = path.join(s, item);
+          const destItem = path.join(d, item);
+          if (fs.statSync(srcItem).isDirectory()) {
+            copyDirRecursive(srcItem, destItem);
+          } else {
+            fs.copyFileSync(srcItem, destItem);
+          }
+        }
+      };
+      copyDirRecursive(srcPath, destPath);
+      console.log(`✅ 이미지 동기화: ${src} → ${dest}`);
+    }
+  }
+
+  // 3. 게임 페이지 생성 (모바일용)
   console.log('\n🎮 모바일 게임 페이지 생성...\n');
   execSync('node scripts/generate-game-pages.js', {
     stdio: 'inherit',

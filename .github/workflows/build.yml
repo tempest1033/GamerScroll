@@ -76,6 +76,9 @@ jobs:
       - name: Download issue report images
         run: node scripts/download-issue-images.js
 
+      - name: Download wiki images
+        run: node scripts/download-wiki-images.js
+
       - name: Generate report
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}

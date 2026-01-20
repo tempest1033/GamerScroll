@@ -308,7 +308,7 @@ const navCarouselStateScript = `
 const swipeScript = `
 <script>
 (function() {
-  const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
+  const navSections = ['trend', 'wiki', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
 
   const SWIPE_THRESHOLD = 0.10; // 10% 넘으면 페이지 이동
   const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동

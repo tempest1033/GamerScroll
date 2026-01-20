@@ -1,0 +1,42 @@
+{
+  "slug": "game-engine",
+  "status": "approved",
+  "title": "게임 엔진의 역사와 현재",
+  "date": "2026-01-21",
+  "thumbnail": "https://gamefromscratch.com/wp-content/uploads/2019/11/GodotVsUnityUnreal4K-scaled.jpg",
+  "keywords": "게임 엔진, 유니티, 언리얼 엔진, 고도 엔진, id Tech, 퀘이크 엔진, 게임 개발, Unity, Unreal Engine, Godot, 라이선스, 로열티",
+  "summary": "게임 엔진은 1990년대 둠과 퀘이크에서 시작해 오늘날 유니티와 언리얼 엔진이 시장을 양분하고 있다. 각 엔진의 역사, 시장 점유율, 라이선스 정책까지 게임 엔진의 모든 것을 정리했다.",
+  "sources": [
+    { "name": "Wikipedia", "title": "Game engine", "url": "https://en.wikipedia.org/wiki/Game_engine" },
+    { "name": "Video Game Insights", "title": "Game Engines on Steam in 2025", "url": "https://gamedevreports.substack.com/p/video-game-insights-game-engines" },
+    { "name": "The Verge", "title": "Unity has eliminated its controversial runtime fee", "url": "https://www.theverge.com/2024/9/12/24242937/unity-runtime-fee-cancelled-subscription-pricing" },
+    { "name": "Unity", "title": "Plans & Pricing", "url": "https://unity.com/products" },
+    { "name": "Unreal Engine", "title": "Licensing options", "url": "https://www.unrealengine.com/en-US/license" }
+  ],
+  "content": [
+    { "type": "text", "value": "게임 엔진(Game Engine)은 게임 개발에 필요한 핵심 기능을 제공하는 소프트웨어 프레임워크다. 렌더링, 물리 엔진, 사운드, 애니메이션, 스크립팅 등 게임 제작에 필수적인 시스템을 통합 제공한다. 1990년대 둠과 퀘이크에서 시작된 게임 엔진은 이제 인디 개발자부터 AAA 스튜디오까지 모두가 사용하는 필수 도구가 되었다." },
+    { "type": "heading", "value": "게임 엔진의 역사" },
+    { "type": "image", "src": "https://assetsio.gnwcdn.com/Doom-1993-screenshot11.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp", "caption": "둠 (1993) 게임플레이. id 소프트웨어의 둠 엔진은 게임 엔진 개념의 시초가 되었다.", "alt": "둠 1993 게임플레이 스크린샷" },
+    { "type": "text", "value": "게임 엔진이 본격적으로 등장하기 전, 게임은 하드웨어에 종속된 단일 프로그램으로 개발되었다. 아타리 2600용 게임은 해당 콘솔에서만 동작했고, 코드 재사용은 거의 불가능했다.\n\n1993년, id 소프트웨어의 '둠'이 이 패러다임을 바꿨다. 존 카맥이 개발한 둠 엔진은 게임 로직과 콘텐츠를 엔진에서 분리해, WAD 파일만 교체하면 새로운 게임을 만들 수 있게 했다. 이것이 현대 게임 엔진 개념의 시작이었다." },
+    { "type": "heading", "value": "퀘이크 엔진과 라이선스 비즈니스" },
+    { "type": "image", "src": "https://bigboxcollection.com/images/textures/front/Quake1.webp", "caption": "퀘이크 (1996). 완전한 3D 엔진의 시대를 열었다.", "alt": "퀘이크 1996 게임 박스아트" },
+    { "type": "text", "value": "1996년 출시된 퀘이크는 완전한 3D 렌더링을 구현한 최초의 게임 중 하나였다. 존 카맥의 퀘이크 엔진(id Tech 2)은 하프라이프, 메달 오브 아너 등 수많은 게임의 기반이 되었다.\n\n더 중요한 것은 id 소프트웨어가 엔진 라이선스 비즈니스 모델을 확립했다는 점이다. 다른 개발사가 퀘이크 엔진을 유료로 사용할 수 있게 하면서, 게임 엔진은 독립적인 상품이 되었다. 이후 id Tech 3(퀘이크 3 엔진)은 콜 오브 듀티 시리즈의 기초가 되기도 했다." },
+    { "type": "heading", "value": "언리얼 엔진의 등장" },
+    { "type": "image", "src": "https://cdn2.unrealengine.com/the-matrix-awakens-bts-header-1920x1080-5d4f4e7970e7.jpg", "caption": "언리얼 엔진 5로 제작된 매트릭스 어웨이큰스. 차세대 그래픽의 기준을 제시했다.", "alt": "언리얼 엔진 5 매트릭스 어웨이큰스 스크린샷" },
+    { "type": "text", "value": "1998년, 에픽 게임즈가 언리얼 엔진을 공개했다. '언리얼' 게임과 함께 출시된 이 엔진은 id Tech과 경쟁하며 빠르게 시장을 넓혔다. 2000년대 들어 언리얼 엔진 2, 3이 연달아 출시되며 기어스 오브 워, 바이오쇼크, 매스 이펙트 등 수많은 AAA 게임이 이 엔진으로 제작되었다.\n\n2014년 출시된 언리얼 엔진 4는 무료 사용 정책으로 전환하며 인디 개발자들에게도 문을 열었다. 현재 언리얼 엔진 5는 나나이트(Nanite)와 루멘(Lumen) 기술로 차세대 그래픽의 기준을 제시하고 있다." },
+    { "type": "heading", "value": "유니티의 대중화" },
+    { "type": "image", "src": "https://cdn.sanity.io/images/fuvbjjlp/production/333700fc4e0205b58d777b3627dfe9bb4692e512-1536x864.jpg", "caption": "유니티로 제작된 할로우 나이트. 인디 게임의 대표작으로 꼽힌다.", "alt": "할로우 나이트 유니티 게임 스크린샷" },
+    { "type": "text", "value": "2005년, 덴마크 코펜하겐에서 시작된 유니티는 '게임 개발의 민주화'를 목표로 했다. 낮은 진입장벽과 직관적인 인터페이스로 인디 개발자들의 사랑을 받았고, 2008년 아이폰 지원을 시작하며 모바일 게임 시장을 장악했다.\n\n유니티의 강점은 멀티플랫폼 지원이다. PC, 콘솔, 모바일, VR까지 한 번의 개발로 다양한 플랫폼에 배포할 수 있다. 컵헤드, 할로우 나이트, 포켓몬 GO 등이 유니티로 제작되었다." },
+    { "type": "heading", "value": "2024년 시장 현황" },
+    { "type": "image", "src": "https://wp.vginsights.com/wp-content/uploads/2025/02/engine-split-1024x575.png", "caption": "2024년 스팀 게임 엔진 점유율. 유니티가 51%로 1위를 차지했다.", "alt": "2024년 스팀 게임 엔진 시장 점유율 차트" },
+    { "type": "text", "value": "Video Game Insights의 2025년 보고서에 따르면, 2024년 스팀 출시 게임 중 유니티가 51%, 언리얼 엔진이 28%의 점유율을 기록했다. 자체 엔진은 16%, 고도 엔진은 5%를 차지했다.\n\n하지만 수익 기준으로 보면 상황이 다르다. 자체 엔진 게임이 전체 수익의 57%를 차지했고, 언리얼 엔진이 31%, 유니티는 8%에 그쳤다. 이는 대형 스튜디오들이 자체 엔진이나 언리얼 엔진을 선호하는 반면, 유니티는 소규모 인디 게임에 집중되어 있기 때문이다." },
+    { "type": "heading", "value": "라이선스와 비용" },
+    { "type": "image", "src": "https://cdn.mos.cms.futurecdn.net/QMNXCjtYpoapzPrriM6Peg-1920-80.jpg", "caption": "2023년 유니티 런타임 피 논란 당시 500개 이상의 스튜디오가 항의에 동참했다.", "alt": "유니티 런타임 피 개발자 항의" },
+    { "type": "text", "value": "게임 엔진 선택에서 라이선스 비용은 중요한 고려사항이다. 각 엔진의 2025년 기준 라이선스 정책을 정리했다." },
+    { "type": "text", "value": "유니티는 좌석당 구독 모델을 사용한다. Personal 플랜은 연매출 또는 자금이 20만 달러 미만인 경우 무료다. Pro 플랜은 연간 2,310달러(월 210달러)이며, 20만 달러 이상의 매출이나 자금을 가진 기업은 반드시 Pro 이상을 사용해야 한다. Enterprise는 대기업용 맞춤 가격이다.\n\n2023년 유니티가 발표한 '런타임 피(Runtime Fee)'는 큰 논란을 일으켰다. 설치 횟수당 요금을 부과하겠다는 정책이었는데, 개발자 커뮤니티의 강한 반발에 2024년 9월 전면 취소되었다. 대신 Pro 구독료가 8% 인상되었다." },
+    { "type": "text", "value": "언리얼 엔진은 로열티 모델을 사용한다. 엔진 사용 자체는 무료이며, 제품의 평생 총수익이 100만 달러를 초과할 때부터 5%의 로열티를 지불한다. 100만 달러 미만 수익의 게임은 완전 무료로 사용할 수 있다.\n\n2025년 1월부터 에픽 게임즈 스토어에서 동시 출시하는 게임은 로열티가 3.5%로 할인된다. 또한 에픽 게임즈 스토어를 통한 결제 수익은 로열티 계산에서 제외된다." },
+    { "type": "text", "value": "고도 엔진은 MIT 라이선스로 완전 무료다. 상업용 게임에도 로열티나 구독료 없이 사용할 수 있으며, 엔진 코드 수정도 자유롭다. 오픈소스 커뮤니티가 개발을 주도하며, 후원금으로 운영된다." },
+    { "type": "heading", "value": "마치며" },
+    { "type": "text", "value": "게임 엔진은 존 카맥의 둠 엔진에서 시작해 30년간 발전해왔다. 오늘날 유니티와 언리얼 엔진이 시장을 양분하고 있지만, 고도 엔진 같은 오픈소스 대안도 빠르게 성장 중이다. 엔진 선택은 프로젝트 규모, 팀 역량, 타겟 플랫폼, 라이선스 비용을 종합적으로 고려해야 한다. 중요한 건 어떤 엔진을 쓰느냐가 아니라, 그 엔진으로 어떤 게임을 만드느냐다." }
+  ]
+}

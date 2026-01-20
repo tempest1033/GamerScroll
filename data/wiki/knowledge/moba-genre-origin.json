@@ -1,0 +1,101 @@
+{
+  "slug": "moba-genre-origin",
+  "title": "유즈맵에서 e스포츠까지, MOBA의 역사",
+  "summary": "MOBA는 스타크래프트 유즈맵 'Aeon of Strife'에서 시작된 장르다. 워크래프트 3의 '도타'가 장르를 정립했고, 리그 오브 레전드와 도타 2가 전 세계적 인기를 이끌었다.",
+  "keywords": "MOBA, AOS, Aeon of Strife, 도타, 도타 올스타즈, 리그 오브 레전드, 도타 2, 유즈맵, 워크래프트 3, 스타크래프트, 구인수, 아이스프로그, Riot Games, Valve, 롤, LoL, 멀티플레이어 온라인 배틀 아레나",
+  "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/42/Dota75-loading-screen.png",
+  "date": "2026-01-21",
+  "status": "approved",
+  "content": [
+    {
+      "type": "text",
+      "value": "오늘날 전 세계에서 가장 인기 있는 게임 장르 중 하나인 MOBA. 리그 오브 레전드, 도타 2, 왕자영요까지, 이 장르의 뿌리는 2000년대 초반 스타크래프트와 워크래프트 3의 유즈맵 커뮤니티에 있다. '유즈맵'이라 불리던 커스텀 맵에서 시작해 전 세계 수억 명이 즐기는 거대 장르로 성장하기까지, MOBA의 역사를 살펴본다."
+    },
+    {
+      "type": "heading",
+      "value": "시초: Aeon of Strife"
+    },
+    {
+      "type": "image",
+      "src": "https://lanepushinggames.com/sites/default/files/inline-images/Aeon_of_Strife6.jpg",
+      "caption": "Aeon of Strife 게임 화면. MOBA 장르의 시초가 된 스타크래프트 유즈맵이다."
+    },
+    {
+      "type": "text",
+      "value": "MOBA 장르의 시초는 스타크래프트: 브루드워의 유즈맵 'Aeon of Strife'다. 2001년 말에서 2002년 초 사이, 당시 고등학생이던 Nick Taijeron(닉네임 Gunner_4_ever)이 괌에서 제작했다. 그는 진삼국무쌍(Dynasty Warriors) 시리즈에서 영감을 받아, 대규모 병력 사이에서 강력한 영웅 유닛 하나를 조종하는 게임플레이를 구현했다.\n\nAeon of Strife는 기존 RTS의 자원 관리와 건물 건설 대신, 하나의 영웅 유닛에 집중하는 새로운 게임플레이를 제시했다. 4개의 레인, 자동으로 진격하는 미니언, 파괴해야 하는 적 기지라는 기본 골격이 이때 만들어졌다."
+    },
+    {
+      "type": "heading",
+      "value": "도타: 장르의 정립"
+    },
+    {
+      "type": "image",
+      "src": "https://upload.wikimedia.org/wikipedia/en/4/42/Dota75-loading-screen.png",
+      "caption": "Defense of the Ancients 로딩 화면. 워크래프트 3 유즈맵으로 MOBA 장르를 정립했다."
+    },
+    {
+      "type": "text",
+      "value": "2002년 워크래프트 3가 출시되자, Aeon of Strife의 아이디어는 새로운 무대를 맞이했다. 워크래프트 3의 월드 에디터는 영웅 유닛 시스템, 레벨업, 아이템 장착 등 더 정교한 기능을 제공했기 때문이다.\n\n2003년, Eul(본명 Kyle Sommer)이 'Defense of the Ancients(도타)'를 제작했다. Karukef의 'Valley of Dissent'를 기반으로 만든 이 맵은 Aeon of Strife의 개념을 워크래프트 3에 맞게 재해석했다. 특히 대각선 코너 기반의 맵 디자인은 정사각형 맵 제한을 극복하면서도 레인 거리를 최대화한 혁신이었다."
+    },
+    {
+      "type": "heading",
+      "value": "도타 올스타즈와 핵심 인물들"
+    },
+    {
+      "type": "image",
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOas7TFxlnmygZZ9-ZAVLb5YEdS7OCZwQ2GpYTIYVZmTiMfLWsNFn6Ah-P1mt1mzdqfciPgMfkmPMcH7SO7eh6m5GkjOWw7OsLBrYmpLkyIYsiRv0Hogk9MROYCcGk983IKLBubONDpDWL/w1200-h630-p-k-no-nu/Loadscreen+Edit.JPG",
+      "caption": "도타 올스타즈 로딩 화면. 여러 도타 변형 맵의 인기 영웅들을 모은 버전이다."
+    },
+    {
+      "type": "text",
+      "value": "2004년, Meian과 Ragn0r가 여러 도타 변형 맵의 인기 영웅들을 모아 '도타 올스타즈'를 만들었다. 이후 Steve Feak(구인수)이 개발을 이어받아 레시피 아이템 시스템과 강력한 보스 '로샨'을 추가했다. 2005년부터는 아이스프로그가 개발을 맡아 지금까지 도타 2를 이끌고 있다.\n\n이 시기 형성된 도타 커뮤니티는 독특했다. 공식 매치메이킹 없이 자체 밴리스트와 규칙으로 운영되었고, dota-allstars.com은 2009년 기준 150만 명 이상의 회원을 보유했다."
+    },
+    {
+      "type": "heading",
+      "value": "MOBA vs AOS: 명칭 논쟁"
+    },
+    {
+      "type": "image",
+      "src": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/c367d5f73f2ffe3c2272c3f52269e527df56cc63-1350x842.png",
+      "caption": "리그 오브 레전드. Riot Games가 'MOBA'라는 용어를 만들어 장르명을 정립했다."
+    },
+    {
+      "type": "text",
+      "value": "흥미롭게도 이 장르의 명칭은 지역마다 다르다. 한국에서는 시초인 'Aeon of Strife'를 따서 'AOS'라 부르지만, 서양에서는 'MOBA(Multiplayer Online Battle Arena)'가 표준이다. MOBA라는 용어는 Riot Games가 리그 오브 레전드 마케팅을 위해 만든 것으로, '도타 클론'이라는 꼬리표를 피하기 위한 전략이었다."
+    },
+    {
+      "type": "heading",
+      "value": "독립 게임으로의 진화"
+    },
+    {
+      "type": "image",
+      "src": "https://img.redbull.com/images/c_limit,w_1500,h_1000/f_auto,q_auto/redbullcom/2020/12/16/c61kpj1fxidgnwiqgz2h/faker-t1-lol",
+      "caption": "T1 페이커. 리그 오브 레전드는 MOBA를 세계적인 e스포츠로 성장시켰다."
+    },
+    {
+      "type": "text",
+      "value": "도타의 성공은 독립 게임 개발로 이어졌다. 2009년, 구인수는 Riot Games에 합류해 '리그 오브 레전드'를 만들었다. 같은 해 아이스프로그는 Valve에 합류해 '도타 2' 개발을 시작했다. 2010년에는 S2 Games의 '히어로즈 오브 뉴어스'가, 2015년에는 블리자드의 '히어로즈 오브 더 스톰'이 출시되었다.\n\n특히 리그 오브 레전드는 무료 플레이 모델과 낮은 진입 장벽으로 MOBA를 대중화했고, 도타 2는 도타의 정통성과 높은 상금의 e스포츠로 코어 팬층을 확보했다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "유즈맵이라는 작은 실험에서 시작된 MOBA는 이제 게임 산업에서 가장 영향력 있는 장르 중 하나가 되었다. 한 명의 괌 고등학생이 진삼국무쌍에서 영감받아 만든 Aeon of Strife가, 전 세계 수억 명이 즐기는 장르의 씨앗이 된 것이다. 커뮤니티가 만들고, 커뮤니티가 발전시킨 MOBA의 역사는 게임 문화의 힘을 보여주는 대표적인 사례다."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Wikipedia",
+      "title": "Defense of the Ancients",
+      "url": "https://en.wikipedia.org/wiki/Defense_of_the_Ancients"
+    },
+    {
+      "name": "David Dannelly",
+      "title": "The Origin of the MOBA: Aeon of Strife and Defense of the Ancients",
+      "url": "https://daviddannelly.com/blog/zjYm/the-origin-of-the-moba-aeon-of-strife-and-defense-of-the-ancients"
+    }
+  ],
+  "relatedArticles": []
+}

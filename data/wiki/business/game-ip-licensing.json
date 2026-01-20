@@ -1,0 +1,36 @@
+{
+  "slug": "game-ip-licensing",
+  "status": "approved",
+  "title": "게임 IP 라이선스, 비용과 수익 구조",
+  "date": "2026-01-21",
+  "thumbnail": "https://channeln.gcdn.netmarble.com/channeln/Upload/c9995577-b052-4fdc-8eca-3f467ab96cde.jpg",
+  "keywords": "게임 IP 라이선스, IP 사용료, 로열티, MG, 최소보장금, 원피스 게임, 드래곤볼 게임, 나혼자만레벨업, 웹툰 IP, 반다이남코, 넷마블, 콜라보레이션",
+  "summary": "원피스, 드래곤볼부터 나 혼자만 레벨업까지. 게임 IP 라이선스는 어떻게 작동하고, 비용은 얼마나 들까? MG(최소보장금)부터 로열티 구조까지 IP 비즈니스의 핵심을 정리했다.",
+  "sources": [
+    { "name": "Licensing International", "title": "Licensing's Next Big Play in Gaming", "url": "https://licensinginternational.org/news/licensings-next-big-play-in-gaming/" },
+    { "name": "Yodo1", "title": "The Economics of IP Licensing", "url": "https://www.yodo1.com/blog/the-economics-of-ip-licensing" },
+    { "name": "Roblox", "title": "IP licensing for creators", "url": "https://create.roblox.com/docs/ip-licensing/creators" },
+    { "name": "Bandai Namco", "title": "Fiscal Year 2024 Report", "url": "https://www.bandainamco.co.jp/en/ir/" },
+    { "name": "Webtoon Entertainment", "title": "Company Strategy", "url": "https://www.forbes.com/sites/reginakim/2024/07/07/webtoon-execs-talk-about-webtoons-creators-ipo-and-company-strategy/" }
+  ],
+  "content": [
+    { "type": "text", "value": "모바일 게임 시장에서 IP(지식재산권) 콜라보레이션은 이제 선택이 아닌 필수가 되었다. 원피스, 드래곤볼 같은 일본 애니메이션부터 나 혼자만 레벨업 같은 한국 웹툰까지, 유명 IP를 활용한 게임이 차트 상위권을 점령하고 있다. 하지만 IP 사용에는 비용이 따른다. 얼마나 내야 하고, 어떻게 나눌까?" },
+    { "type": "heading", "value": "IP 라이선스의 기본 구조" },
+    { "type": "image", "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1490890/capsule_616x353_koreana.jpg", "caption": "귀멸의 칼날 히노카미 혈풍담. 인기 IP의 게임화는 양측 모두에게 수익원이 된다.", "alt": "귀멸의칼날 히노카미 혈풍담 게임" },
+    { "type": "text", "value": "게임 IP 라이선스는 크게 두 가지 요소로 구성된다. 첫째는 MG(Minimum Guarantee, 최소보장금)다. IP 홀더에게 선불로 지급하는 금액으로, 게임이 실패하더라도 최소한 이 금액은 보장된다. 둘째는 로열티(Royalty)다. 게임 매출의 일정 비율을 IP 홀더에게 지급하는 방식이다.\n\n예를 들어, MG 20만 달러에 로열티 20% 계약을 맺었다면, 게임사는 우선 20만 달러를 선불로 지급한다. 이후 게임 매출이 발생하면 그중 20%를 IP 홀더에게 지급하는데, MG를 초과하는 시점부터 추가 지급이 시작된다." },
+    { "type": "heading", "value": "로열티 비율은 얼마나 될까" },
+    { "type": "image", "src": "https://images.squarespace-cdn.com/content/v1/60b3f6f38856205429878909/23c6cf88-2823-4365-b56a-5081837aa8e3/Royalty+type.png", "caption": "게임 라이선스 로열티 유형. 일시불, 러닝 로열티, 혼합형이 있다.", "alt": "게임 IP 로열티 유형 차트" },
+    { "type": "text", "value": "IP 라이선스 로열티 비율은 IP의 인지도, 게임 장르, 계약 조건에 따라 크게 달라진다. 일반적인 범위는 다음과 같다.\n\n업계 표준으로 알려진 로열티 비율은 순매출의 10-25% 수준이다. 로블록스의 IP 라이선스 플랫폼에서도 수익 분배를 10-25%로 설정하고 있다. 다만 인게임 구매(IAP)에 대해서는 더 높은 비율이 적용되기도 한다. Licensing International에 따르면, 라이선서가 인게임 구매 수익의 30-50%를 로열티로 가져가는 경우도 있다.\n\n일부 SSS급 IP의 경우 5:5에 가까운 수익 배분을 요구하기도 한다. 글로벌 팬덤이 확고하고 브랜드 파워가 압도적인 IP일수록 협상력이 강해지기 때문이다." },
+    { "type": "heading", "value": "일본 IP의 위력: 반다이 남코 사례" },
+    { "type": "image", "src": "https://blog.uptodown.com/wp-content/uploads/dragon-ball-awakening.jpg", "caption": "드래곤볼은 반다이 남코의 최대 IP로, 연간 1000억 엔 이상의 매출을 올린다.", "alt": "드래곤볼 IP 게임" },
+    { "type": "text", "value": "일본 IP의 게임 시장 영향력은 반다이 남코의 실적에서 확인할 수 있다. 2024 회계연도 기준, 드래곤볼 IP는 연간 약 1276억 엔(약 1조 1000억 원)의 매출을 기록했다. 원피스는 1121억 엔으로 처음으로 1000억 엔을 돌파했고, 건담은 301억 엔을 기록했다.\n\n이 수치에는 게임뿐 아니라 피규어, 완구, 의류 등 모든 라이선스 상품이 포함되지만, 게임이 차지하는 비중이 상당하다. 드래곤볼 Z 도칸 배틀, 드래곤볼 레전즈 같은 모바일 게임이 꾸준히 수익을 올리고 있기 때문이다." },
+    { "type": "heading", "value": "한국 웹툰 IP의 부상" },
+    { "type": "image", "src": "https://i.ytimg.com/vi/uAACc-M_N3Q/maxresdefault.jpg", "caption": "갓 오브 하이스쿨. 웹툰 IP 게임화의 초기 사례 중 하나다.", "alt": "갓오브하이스쿨 웹툰 IP 게임" },
+    { "type": "text", "value": "한국 웹툰 IP도 게임 시장에서 존재감을 키우고 있다. 대표적인 사례가 넷마블의 '나 혼자만 레벨업: 어라이즈'다. 2024년 5월 출시 후 글로벌 시장에서 큰 성공을 거뒀고, 넷마블은 후속작 '나 혼자만 레벨업: 카르마'까지 준비 중이다.\n\n웹툰 IP의 장점은 비용 구조에 있다. 일본 대형 IP에 비해 라이선스 비용이 상대적으로 낮고, IP 홀더와의 협상이 유연하다. 웹툰 엔터테인먼트의 경우, 라이선싱, 공동 제작, 자체 제작의 세 가지 IP 전략을 운영하며 유연하게 대응하고 있다." },
+    { "type": "heading", "value": "IP 라이선스의 효과" },
+    { "type": "image", "src": "https://static.beebom.com/wp-content/uploads/2024/11/Marvel-Rivals-Fortnite-collaboration-official-poster.jpg", "caption": "포트나이트 x 마블 라이벌스 콜라보. IP 협업은 양측 게임 모두에게 윈윈이다.", "alt": "포트나이트 마블 콜라보레이션" },
+    { "type": "text", "value": "IP 라이선스는 비용만큼 효과도 크다. 기존 게임의 IP 콜라보레이션은 DAU를 평균 11% 이상 끌어올리고, 수익은 20-30%, 다운로드는 15-25% 증가시킨다.\n\n신규 게임의 경우 효과는 더욱 극대화된다. 막강한 인지도를 가진 IP의 후광효과로 출시 초기부터 월등한 유입을 기대할 수 있기 때문이다. 특히 브랜드 파워가 약한 중소 개발사 입장에서 IP 라이선스는 단숨에 시장 인지도를 확보하는 지름길이 된다. 별도의 대규모 마케팅 없이도 IP 팬덤이 초기 유저층을 형성해주기 때문이다." },
+    { "type": "heading", "value": "마치며" },
+    { "type": "text", "value": "게임 IP 라이선스는 단순한 캐릭터 빌려쓰기가 아니다. MG와 로열티 구조를 이해하고, IP의 가치와 게임의 수익성을 정확히 계산해야 하는 비즈니스 의사결정이다. 일본 대형 IP는 검증된 팬덤과 브랜드 파워를, 한국 웹툰 IP는 상대적으로 유연한 조건과 성장 가능성을 제공한다. 중요한 건 IP 자체가 아니라, 그 IP를 얼마나 잘 활용하느냐다." }
+  ]
+}

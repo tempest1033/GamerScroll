@@ -3,6 +3,8 @@
  * 각 섹션의 요약 카드를 표시
  */
 
+const fs = require('fs');
+const path = require('path');
 const {
   wrapWithLayout,
   AD_SLOTS,
@@ -19,8 +21,27 @@ const {
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
 const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
+// docs 폴더 경로 (모바일/PC 구분)
+const docsDir = isMobileBuild
+  ? path.join(__dirname, '../../../docs-mobile')
+  : path.join(__dirname, '../../../docs');
+
+// 위키 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
+function getLocalWikiThumbPath(category, slug, originalUrl) {
+  if (!category || !slug) return originalUrl || '';
+
+  const localPath = `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
+  const fullPath = path.join(docsDir, 'assets/images/wiki', category, slug, 'thumbnail.webp');
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
+  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}` : '';
+}
+
 function generateIndexPage(data) {
-  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], games = {}, issueReports = [] } = data;
+  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], games = {}, issueReports = [], wikiData = {} } = data;
 
   // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
@@ -228,6 +249,60 @@ function generateIndexPage(data) {
     const issueGrid = issueCards ? `<div class="home-trend-grid home-trend-grid-issue">${issueCards}</div>` : '';
     const adBeforeIssue = issueCards ? generateNativeAdSlot(AD_SLOTS.Article005) : '';
     return `<div class="home-trend-grid">${dailyCard}${weeklyCard}</div>${adBeforeIssue}${issueGrid}`;
+  }
+
+  // 홈 위키 카드 (최신 4개, 모바일은 3개)
+  function generateHomeWiki() {
+    // 모든 카테고리에서 위키 수집 후 날짜순 정렬
+    const allWiki = [];
+    for (const category of Object.keys(wikiData)) {
+      const articles = wikiData[category] || [];
+      articles.forEach(article => {
+        allWiki.push({ ...article, category });
+      });
+    }
+    allWiki.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    const limit = isMobileBuild ? 3 : 4;
+    const wikiItems = allWiki.slice(0, limit);
+
+    if (wikiItems.length === 0) return '';
+
+    const categoryNames = {
+      business: '비즈니스',
+      tech: '기술',
+      history: '히스토리',
+      knowledge: '지식'
+    };
+
+    const wikiCards = wikiItems.map(wiki => {
+      const badgeText = categoryNames[wiki.category] || wiki.category;
+      const thumbPath = getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail);
+      return `
+        <a href="/wiki/${wiki.category}/${wiki.slug}/" class="home-trend-card">
+          <div class="home-trend-card-image">
+            ${thumbPath ? `<img src="${thumbPath}" alt="${escapeHtmlAttr(wiki.title || '')}" loading="lazy" data-img-fallback="hide">` : ''}
+            <span class="home-trend-card-tag wiki">${badgeText}</span>
+          </div>
+          <h3 class="home-trend-card-title">${wiki.title}</h3>
+        </a>
+      `;
+    }).join('');
+
+    // 모바일: 헤더 없이 카드만 반환 (피드 스타일)
+    if (isMobileBuild) {
+      return wikiCards;
+    }
+
+    // PC: 헤더 포함 전체 섹션 반환
+    return `
+      <div class="home-card" id="home-wiki">
+        <div class="home-card-header">
+          <h2 class="home-card-title">게임 위키</h2>
+        </div>
+        <div class="home-trend-grid home-trend-grid-wiki">${wikiCards}</div>
+      </div>
+    `;
   }
 
   // 홈 커뮤니티
@@ -676,9 +751,9 @@ function generateIndexPage(data) {
           <h3 class="home-trend-card-title">${issue.title}</h3>
         </a>`;
     };
-    const issueCards = issueReports.slice(0, 2).map(renderIssueCard).join('');
+    const issueCards = issueReports.slice(0, 3).map(renderIssueCard).join('');
 
-    // 모바일: 상단광고 + 리포트 + 광고 + 이슈(0~2개) + 광고 + 뉴스 + 광고 패턴
+    // 모바일: 리포트 + 광고 + 이슈(0~3) + 광고 + 위키(0~3) + 광고 + 뉴스(3개x3) 패턴
     content = '<section class="home-section active" id="home">' +
       '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
       '<div class="page-container">' +
@@ -687,19 +762,19 @@ function generateIndexPage(data) {
       generateNativeAdSlot(AD_SLOTS.Article001) +
       issueCards +
       generateNativeAdSlot(AD_SLOTS.Article002) +
+      generateHomeWiki() +
+      generateNativeAdSlot(AD_SLOTS.Article003) +
       (allNews[0] ? renderNewsCard(allNews[0]) : '') +
       (allNews[1] ? renderNewsCard(allNews[1]) : '') +
       (allNews[2] ? renderNewsCard(allNews[2]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article003) +
+      generateNativeAdSlot(AD_SLOTS.Article004) +
       (allNews[3] ? renderNewsCard(allNews[3]) : '') +
       (allNews[4] ? renderNewsCard(allNews[4]) : '') +
       (allNews[5] ? renderNewsCard(allNews[5]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article004) +
+      generateNativeAdSlot(AD_SLOTS.Article005) +
       (allNews[6] ? renderNewsCard(allNews[6]) : '') +
       (allNews[7] ? renderNewsCard(allNews[7]) : '') +
       (allNews[8] ? renderNewsCard(allNews[8]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article005) +
-      (allNews[9] ? renderNewsCard(allNews[9]) : '') +
       '</div>' +
       '</section>';
   } else {
@@ -710,6 +785,7 @@ function generateIndexPage(data) {
       '<div class="home-main">' +
       generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001) +
       insightCardHtml +
+      generateHomeWiki() +
       generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
       '<div class="home-card" id="home-news">' +
         '<div class="home-card-header">' +

@@ -36,8 +36,8 @@
     @media (max-width: 768px) {
       .rankings-card .home-card-header .tab-btn,
       .steam-card .home-card-header .tab-btn {
-        padding: 8px 16px;
-        font-size: var(--font-body-size);
+        padding: 6px 12px;
+        font-size: var(--font-tab-size);
       }
     }
     .rankings-tabs-row .tab-btn {
@@ -78,8 +78,8 @@
         border: none;
       }
       .rankings-tabs-row .tab-btn {
-        padding: 10px 16px;
-        font-size: var(--font-body-size);
+        padding: 6px 12px;
+        font-size: var(--font-tab-size);
         gap: 6px;
         background: var(--hover-bg);
         border: 1px solid var(--border);

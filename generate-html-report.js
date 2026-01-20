@@ -41,6 +41,45 @@ const HISTORY_DIR = './history';
 const SNAPSHOTS_DIR = './snapshots';
 const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
+const WIKI_DIR = './data/wiki';
+
+// 위키 데이터 로드 함수
+function loadWikiData() {
+  const categories = ['business', 'tech', 'history', 'knowledge'];
+  const wikiData = {};
+
+  for (const category of categories) {
+    const categoryDir = `${WIKI_DIR}/${category}`;
+    wikiData[category] = [];
+
+    if (!fs.existsSync(categoryDir)) continue;
+
+    const files = fs.readdirSync(categoryDir).filter(f => f.endsWith('.json'));
+    for (const file of files) {
+      try {
+        const raw = fs.readFileSync(`${categoryDir}/${file}`, 'utf8').replace(/^\uFEFF/, '');
+        const article = JSON.parse(raw);
+        const status = article.status || '';
+        const isApproved = status === 'approved' || status === 'published';
+        const isDraft = status === 'draft';
+        if (isApproved || (includeDrafts && isDraft)) {
+          const slug = article.slug || file.replace('.json', '');
+          wikiData[category].push({
+            ...article,
+            slug
+          });
+        }
+      } catch (e) {
+        console.warn(`  ⚠️ 위키 파일 로드 실패: ${categoryDir}/${file}`);
+      }
+    }
+
+    // 날짜 기준 정렬 (최신순)
+    wikiData[category].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
+  return wikiData;
+}
 
 // 퀵 모드가 아닐 때만 무거운 모듈 로드
 let gplay, store, axios, cheerio, FirecrawlClient;
@@ -81,6 +120,8 @@ const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
 const { generateMetacriticPage } = require('./src/templates/pages/metacritic');
 const { generateSearchPage } = require('./src/templates/pages/search');
 const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
+const { generateWikiHubPage } = require('./src/templates/pages/wiki-hub');
+const { generateWikiArticlePage } = require('./src/templates/pages/wiki-article');
 const { generate404Page } = require('./src/templates/pages/404');
 const { loadPopularGames, savePopularGames, shouldFetchPopularGames } = require('./src/crawlers/analytics');
 
@@ -468,8 +509,11 @@ async function main() {
     console.log(`  📊 인기 게임 데이터 로드: TOP ${popularGamesData.games.length}`);
   }
 
+  // 위키 데이터 로드 (홈페이지용)
+  const homeWikiData = loadWikiData();
+
   const pages = [
-    { filename: 'index.html', generator: (d) => generateIndexPage({ ...d, popularGames: popularGamesData.games || [], games: gamesData }) },
+    { filename: 'index.html', generator: (d) => generateIndexPage({ ...d, popularGames: popularGamesData.games || [], games: gamesData, wikiData: homeWikiData }) },
     { filename: 'news.html', generator: generateNewsPage },
     { filename: 'community.html', generator: generateCommunityPage },
     { filename: 'youtube.html', generator: generateYoutubePage },
@@ -479,6 +523,7 @@ async function main() {
     { filename: 'metacritic.html', generator: generateMetacriticPage },
     { filename: 'search/index.html', generator: generateSearchPage },
     { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [] }) },
+    { filename: 'wiki/index.html', generator: () => generateWikiHubPage({ wikiData: loadWikiData() }) },
     { filename: '404.html', generator: generate404Page }
   ];
 
@@ -779,6 +824,7 @@ async function main() {
 
   // 6. 이슈 리포트 페이지 생성 (trend/issue/{slug}/index.html)
   const issueDir = `${trendsDir}/issue`;
+  const wikiDataForIssue = loadWikiData(); // 이슈 리포트에서 관련 위키 참조용
 
   if (issueReports.length > 0) {
     if (!fs.existsSync(issueDir)) {
@@ -797,13 +843,65 @@ async function main() {
           prev: issueReports[i + 1] ? { slug: issueReports[i + 1].slug, title: issueReports[i + 1].title } : null,
           next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
         };
-        const html = generateIssueDetailPage({ post, nav, issueReports });
+        const html = generateIssueDetailPage({ post, nav, issueReports, wikiData: wikiDataForIssue });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
       } catch (err) {
         console.error(`  ❌ trend/issue/${post.slug}: ${err.message}`);
       }
     }
     console.log(`  ✅ 이슈 리포트 페이지 ${issueReports.length}개 생성`);
+  }
+
+  // 위키 개별 항목 페이지 생성
+  console.log('\n📚 위키 페이지 생성...');
+  const wikiData = loadWikiData();
+  const categories = ['business', 'tech', 'history', 'knowledge'];
+
+  for (const category of categories) {
+    const articles = wikiData[category] || [];
+    if (articles.length === 0) continue;
+
+    const categoryDir = `./wiki/${category}`;
+    if (!fs.existsSync(categoryDir)) {
+      fs.mkdirSync(categoryDir, { recursive: true });
+    }
+
+    for (let i = 0; i < articles.length; i++) {
+      const article = articles[i];
+      const pageDir = `${categoryDir}/${article.slug}`;
+      if (!fs.existsSync(pageDir)) {
+        fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      try {
+        // 관련 항목: JSON에 명시된 경우만 사용 (자동 생성 없음)
+        const relatedArticles = (article.relatedArticles || [])
+          .map(slug => {
+            const found = articles.find(a => a.slug === slug);
+            return found ? { ...found, category } : null;
+          })
+          .filter(Boolean);
+
+        // 이전/다음 항목
+        const prevNext = {
+          prev: articles[i + 1] ? { slug: articles[i + 1].slug, title: articles[i + 1].title } : null,
+          next: articles[i - 1] ? { slug: articles[i - 1].slug, title: articles[i - 1].title } : null
+        };
+
+        const html = generateWikiArticlePage({
+          article,
+          category,
+          relatedArticles,
+          prevNext,
+          issueReports,
+          allWikiData: wikiData
+        });
+        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+      } catch (err) {
+        console.error(`  ❌ wiki/${category}/${article.slug}: ${err.message}`);
+      }
+    }
+    console.log(`  ✅ ${category} 위키 페이지 ${articles.length}개 생성`);
   }
 
   // docs 폴더 동기화 (로컬 개발 환경용)
@@ -835,6 +933,29 @@ async function main() {
     }
   } catch (err) {
     console.warn('  ⚠️ privacy 페이지 복사 실패:', err.message);
+  }
+
+  // wiki 폴더 복사
+  try {
+    const srcWiki = './wiki';
+    if (fs.existsSync(srcWiki)) {
+      const copyDir = (src, dest) => {
+        if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+        const entries = fs.readdirSync(src, { withFileTypes: true });
+        for (const entry of entries) {
+          const srcPath = `${src}/${entry.name}`;
+          const destPath = `${dest}/${entry.name}`;
+          if (entry.isDirectory()) {
+            copyDir(srcPath, destPath);
+          } else {
+            fs.copyFileSync(srcPath, destPath);
+          }
+        }
+      };
+      copyDir(srcWiki, `${DOCS_DIR}/wiki`);
+    }
+  } catch (err) {
+    console.warn('  ⚠️ wiki 폴더 복사 실패:', err.message);
   }
 
   // steam 탭 전환용 데이터(JSON) 생성 (초기 HTML/DOM 부하 줄이기)

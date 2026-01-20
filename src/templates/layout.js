@@ -416,7 +416,9 @@ const swipeScript = `
 <script>
 (function() {
   // 네비게이션 섹션 정의 (모바일 순서 기준, PC는 CSS order로 시각 조정)
-  const navSections = ['trend', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
+  const navSections = ['trend', 'wiki', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
+  const NAV_SCROLL_KEY = 'gc_nav_scroll_state_v1';
+  const NAV_SCROLL_MAX_AGE_MS = 60000;
   const getNavSections = () => navSections;
   let touchStartX = 0;
   let touchStartY = 0;
@@ -433,9 +435,22 @@ const swipeScript = `
     return -1; // 홈
   }
 
+  function getNavIndexFromLink(link) {
+    if (!link) return -1;
+    const navInner = document.querySelector('.nav-inner');
+    if (!navInner) return -1;
+    const navItems = navInner.querySelectorAll('.nav-item');
+    for (let i = 0; i < navItems.length; i++) {
+      if (navItems[i] === link) return i;
+    }
+    return -1;
+  }
+
   function switchNavSection(index, direction) {
     const sections = getNavSections();
     const page = (index < 0 || index >= sections.length) ? 'home' : sections[index];
+
+    saveNavScrollStateForIndex(index);
 
     // 페이지 이동
     if (page === 'home') {
@@ -457,6 +472,13 @@ const swipeScript = `
   }
 
   let scrollableEl = null;
+
+  document.addEventListener('click', (e) => {
+    const link = e.target && e.target.closest ? e.target.closest('a.nav-item') : null;
+    if (!link) return;
+    const idx = getNavIndexFromLink(link);
+    if (idx >= 0) saveNavScrollStateForIndex(idx);
+  }, true);
 
   // 터치 이벤트
   document.body.addEventListener('touchstart', (e) => {
@@ -491,33 +513,101 @@ const swipeScript = `
     isTouchMoving = false;
   }, { passive: true });
 
-  // 네비게이션 캐러셀 위치 조정
-  function updateNavCarousel(index) {
+  function getNavScrollPosForIndex(idx) {
     const navInner = document.querySelector('.nav-inner');
-    if (window.innerWidth <= 768 && navInner) {
-      let offset = 0;
-      if (index >= 4) offset = -40;
-      else if (index === 3) offset = -20;
-      navInner.style.transform = 'translateX(' + offset + '%)';
-    }
+    if (!navInner) return null;
+    const navItems = navInner.querySelectorAll('.nav-item');
+    const targetIdx = idx < 0 ? 0 : idx;
+    const targetItem = navItems[targetIdx];
+    if (!targetItem) return null;
+
+    const maxScroll = navInner.scrollWidth - navInner.clientWidth;
+    if (maxScroll <= 0) return 0;
+    const lastIdx = navItems.length - 1;
+    if (targetIdx <= 1) return 0;
+    if (targetIdx >= lastIdx - 1) return maxScroll;
+
+    const itemCenter = targetItem.offsetLeft + (targetItem.offsetWidth / 2);
+    const navCenter = navInner.clientWidth / 2;
+    return Math.max(0, Math.min(maxScroll, itemCenter - navCenter));
   }
 
-  // 페이지 로드 시 nav 위치 조정 (초기 로드시 애니메이션 없이)
-  const currentIdx = getCurrentNavIndex();
-  if (currentIdx >= 0) {
+  function saveNavScrollStateForIndex(idx) {
     const navInner = document.querySelector('.nav-inner');
-    if (window.innerWidth <= 768 && navInner) {
-      navInner.style.transition = 'none';
-      let offset = 0;
-      if (currentIdx >= 4) offset = -40;
-      else if (currentIdx === 3) offset = -20;
-      navInner.style.transform = 'translateX(' + offset + '%)';
-      // 강제 리플로우로 즉시 적용
-      void navInner.offsetHeight;
-      // transition 복구
-      navInner.style.transition = '';
+    if (!navInner || window.innerWidth > 768) return;
+    let scrollPos = null;
+    if (idx < 0 || idx >= navSections.length) {
+      scrollPos = navInner.scrollLeft || 0;
+    } else {
+      scrollPos = getNavScrollPosForIndex(idx);
     }
+    if (scrollPos === null || scrollPos === undefined || !isFinite(scrollPos)) return;
+    try {
+      sessionStorage.setItem(NAV_SCROLL_KEY, JSON.stringify({ left: scrollPos, at: Date.now(), mode: 'target', idx: idx }));
+    } catch (e) {}
   }
+
+  function readNavScrollState() {
+    let raw = null;
+    try { raw = sessionStorage.getItem(NAV_SCROLL_KEY); } catch (e) {}
+    if (!raw) return null;
+    let state = null;
+    try { state = JSON.parse(raw); } catch (e) { return null; }
+    try { sessionStorage.removeItem(NAV_SCROLL_KEY); } catch (e) {}
+
+    const at = parseInt(state.at, 10) || 0;
+    if (at && (Date.now() - at) > NAV_SCROLL_MAX_AGE_MS) return null;
+    const left = parseFloat(state.left);
+    if (!isFinite(left)) return null;
+    const idx = parseInt(state.idx, 10);
+    if (!isFinite(idx)) return null;
+    return { left: left, idx: idx };
+  }
+
+  function applyInitialNavScroll(attempt) {
+    attempt = attempt || 0;
+    const navInner = document.querySelector('.nav-inner');
+    if (window.innerWidth > 768 || !navInner) return;
+
+    if ((navInner.clientWidth <= 0 || navInner.scrollWidth <= navInner.clientWidth + 1) && attempt < 60) {
+      requestAnimationFrame(() => applyInitialNavScroll(attempt + 1));
+      return;
+    }
+
+    const state = readNavScrollState();
+    const currentIdx = getCurrentNavIndex();
+    navInner.style.transition = 'none';
+    if (state && typeof state.left === 'number' && isFinite(state.left) && state.idx === currentIdx) {
+      navInner.scrollLeft = state.left;
+    } else {
+      if (currentIdx >= 0) {
+        const scrollPos = getNavScrollPosForIndex(currentIdx);
+        if (scrollPos !== null && scrollPos !== undefined) {
+          navInner.scrollLeft = scrollPos;
+        }
+      }
+    }
+    void navInner.offsetHeight;
+    navInner.style.transition = '';
+  }
+
+  // 네비게이션 캐러셀 위치 조정 (탭 수 변화 대응)
+  function updateNavCarousel(index) {
+    const navInner = document.querySelector('.nav-inner');
+    if (window.innerWidth > 768 || !navInner) return;
+    const scrollPos = getNavScrollPosForIndex(index);
+    if (scrollPos === null || scrollPos === undefined) return;
+    if (navInner.scrollTo) {
+      try {
+        navInner.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        return;
+      } catch (e) {}
+    }
+    navInner.scrollLeft = scrollPos;
+  }
+
+  // 페이지 로드 시 nav 위치 조정 (초기 로드는 애니메이션 없이)
+  applyInitialNavScroll(0);
 
   document.body.addEventListener('touchend', (e) => {
     const touchEndX = e.changedTouches[0].screenX;

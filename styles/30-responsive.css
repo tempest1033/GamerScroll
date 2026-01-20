@@ -118,6 +118,11 @@
 
 /* === 모바일 (768px 이하) === */
 @media (max-width: 768px) {
+  /* 게임 위키 네비 아이템 왼쪽으로 살짝 이동 */
+  .nav-item[href="/wiki/"] {
+    transform: translateX(-8px);
+  }
+
   /* 컨테이너 - 상단 패딩 제거 (광고 패딩만 사용) */
   .home-container {
     padding: 0 0 var(--space-block-y) 0 !important;

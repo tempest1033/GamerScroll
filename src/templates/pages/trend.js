@@ -76,7 +76,11 @@ function formatDateKorean(dateStr) {
 
 // 이슈 리포트 로컬 이미지 경로 헬퍼
 // 다운로드된 로컬 이미지가 있으면 로컬 경로 반환, 없으면 원본 URL 반환
-const ISSUE_IMAGES_DIR = path.join(__dirname, '../../../docs/assets/images/issue');
+const DOCS_DIR = isMobileBuild
+  ? path.join(__dirname, '../../../docs-mobile')
+  : path.join(__dirname, '../../../docs');
+const ISSUE_IMAGES_DIR = path.join(DOCS_DIR, 'assets/images/issue');
+const WIKI_IMAGES_DIR = path.join(DOCS_DIR, 'assets/images/wiki');
 
 function getLocalIssueImagePath(slug, originalUrl, imageType = 'content', imageIndex = 1) {
   if (!slug || !originalUrl) return originalUrl;
@@ -115,6 +119,20 @@ function getLocalIssueImagePath(slug, originalUrl, imageType = 'content', imageI
 
   // 로컬 파일 없으면 원본 URL 반환 (fixUrl 통해서)
   return fixUrl(originalUrl);
+}
+
+// 위키 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
+function getLocalWikiThumbPath(category, slug, originalUrl) {
+  if (!category || !slug) return originalUrl || '/favicon.svg';
+
+  const localPath = `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
+  const fullPath = path.join(WIKI_IMAGES_DIR, category, slug, 'thumbnail.webp');
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
+  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}` : '/favicon.svg';
 }
 
 // 중간 광고 슬롯 생성 (PC + 모바일)
@@ -1598,7 +1616,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
  * @param {Object} params.post - 이슈 리포트 포스트 데이터
  * @param {Object} params.nav - 이전/다음 포스트 정보
  */
-function generateIssueDetailPage({ post, nav = {}, issueReports = [] }) {
+function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData = {} }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">포스트를 찾을 수 없습니다</div>', {
       currentPage: 'trend',
@@ -1779,17 +1797,37 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [] }) {
     </div>
   ` : '';
 
-  // 관련 이슈 리포트 (최대 4개)
+  // 관련 문서 (이슈 리포트 + 위키)
   const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
   const relatedIssuesList = (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
-  const relatedIssuesHtml = relatedIssuesList.length > 0 ? `
+
+  // 관련 위키 (수동 지정 또는 키워드 매칭)
+  const findWikiBySlug = (category, slug) => {
+    const articles = wikiData[category] || [];
+    return articles.find(a => a.slug === slug);
+  };
+  const relatedWikiList = (post.relatedWiki || []).map(ref => {
+    const [cat, slug] = ref.split('/');
+    const article = findWikiBySlug(cat, slug);
+    return article ? { ...article, category: cat } : null;
+  }).filter(Boolean).slice(0, 4);
+
+  // 이슈 + 위키 합쳐서 "관련 문서"
+  const hasRelatedDocs = relatedIssuesList.length > 0 || relatedWikiList.length > 0;
+  const relatedDocsHtml = hasRelatedDocs ? `
     <div class="blog-related-issues">
-      <h3 class="blog-related-title">관련 이슈</h3>
+      <h3 class="blog-related-title">관련 문서</h3>
       <div class="blog-related-issues-list">
         ${relatedIssuesList.map(issue => `
           <a href="/trend/issue/${issue.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
             <span class="blog-related-issue-title">${issue.title}</span>
+          </a>
+        `).join('')}
+        ${relatedWikiList.map(wiki => `
+          <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title">${wiki.title}</span>
           </a>
         `).join('')}
       </div>
@@ -1841,7 +1879,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [] }) {
             ${renderContent()}
           </div>
           ${relatedGamesHtml}
-          ${relatedIssuesHtml}
+          ${relatedDocsHtml}
           ${sourcesHtml}
         </div>
 
