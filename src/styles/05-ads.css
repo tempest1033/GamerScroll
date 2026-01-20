@@ -83,8 +83,9 @@ body.ads-disabled main {
 }
 
 /* 홈페이지: home-container padding 제거 (main margin으로 대체, 중복 방지) */
+/* !important: 30-responsive.css의 !important 규칙보다 우선 적용 */
 body.ads-disabled.page-index .home-container {
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 
 /* page-container 중간 광고 (mid): 상단 마진 제거 */
