@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-01-19T14:20:44.036Z",
+  "updatedAt": "2026-01-20T14:29:12.066Z",
   "period": "30days",
   "games": [
     {
       "slug": "승리의-여신-니케",
-      "views": 188
+      "views": 200
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
-      "views": 125
+      "views": 136
     },
     {
       "slug": "com-proximabeta-nikke",
@@ -16,15 +16,15 @@
     },
     {
       "slug": "limbus-company",
-      "views": 107
+      "views": 111
+    },
+    {
+      "slug": "스타세이비어",
+      "views": 90
     },
     {
       "slug": "세븐나이츠-리버스",
       "views": 88
-    },
-    {
-      "slug": "스타세이비어",
-      "views": 87
     },
     {
       "slug": "com-neowizgames-game-browndust2",
@@ -36,19 +36,19 @@
     },
     {
       "slug": "라스트-워-서바이벌",
-      "views": 59
+      "views": 66
     },
     {
       "slug": "카오스-제로-나이트메어",
-      "views": 58
-    },
-    {
-      "slug": "쿠키런-킹덤",
-      "views": 50
+      "views": 63
     },
     {
       "slug": "카트라이더-러쉬플러스",
-      "views": 49
+      "views": 52
+    },
+    {
+      "slug": "쿠키런-킹덤",
+      "views": 52
     },
     {
       "slug": "메이플-키우기",
@@ -64,7 +64,7 @@
     },
     {
       "slug": "쿠키런-오븐브레이크",
-      "views": 31
+      "views": 35
     },
     {
       "slug": "리니지m",
