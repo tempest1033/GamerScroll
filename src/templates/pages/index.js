@@ -154,6 +154,13 @@ function generateIndexPage(data) {
       allCombined[j] = temp;
     }
 
+    // Lazy load용 뉴스 데이터 (JSON 직렬화)
+    const newsDataForLazy = {
+      thisisgame: sources[0].items.slice(0, 8).map(item => ({ title: item.title, link: item.link, thumbnail: fixUrl(item.thumbnail), source: '디스이즈게임' })),
+      gamemeca: sources[1].items.slice(0, 8).map(item => ({ title: item.title, link: item.link, thumbnail: fixUrl(item.thumbnail), source: '게임메카' })),
+      ruliweb: sources[2].items.slice(0, 8).map(item => ({ title: item.title, link: item.link, thumbnail: fixUrl(item.thumbnail), source: '루리웹' }))
+    };
+
     return '<div class="home-news-tabs">' +
       '<button class="home-news-tab active" data-news="all">전체</button>' +
       '<button class="home-news-tab" data-news="thisisgame"><img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="">디스이즈게임</button>' +
@@ -162,10 +169,11 @@ function generateIndexPage(data) {
       '</div>' +
       '<div class="home-news-body">' +
       '<div class="home-news-panel active" id="home-news-all">' + renderNewsContent(allCombined) + '</div>' +
-      '<div class="home-news-panel" id="home-news-thisisgame">' + renderNewsContent(sources[0].items.map(function(item) { return Object.assign({}, item, { source: '디스이즈게임' }); }), '디스이즈게임') + '</div>' +
-      '<div class="home-news-panel" id="home-news-gamemeca">' + renderNewsContent(sources[1].items.map(function(item) { return Object.assign({}, item, { source: '게임메카' }); }), '게임메카') + '</div>' +
-      '<div class="home-news-panel" id="home-news-ruliweb">' + renderNewsContent(sources[2].items.map(function(item) { return Object.assign({}, item, { source: '루리웹' }); }), '루리웹') + '</div>' +
-      '</div>';
+      '<div class="home-news-panel" id="home-news-thisisgame"></div>' +
+      '<div class="home-news-panel" id="home-news-gamemeca"></div>' +
+      '<div class="home-news-panel" id="home-news-ruliweb"></div>' +
+      '</div>' +
+      '<script>window.__NEWS_DATA__=' + JSON.stringify(newsDataForLazy) + ';</script>';
   }
 
   // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
@@ -849,14 +857,37 @@ function generateIndexPage(data) {
 
   // 페이지 스크립트 (원본 html.js와 동일한 방식)
   var pageScripts = `<script>
-    // 홈 뉴스 서브탭 전환
+    // 뉴스 패널 렌더링 함수 (lazy load용)
+    function renderNewsPanel(items, sourceName) {
+      if (!items || items.length === 0) return '<div class="home-empty">뉴스를 불러올 수 없습니다</div>';
+      var withThumb = items.filter(function(item) { return item.thumbnail; });
+      var mainCard = withThumb[0];
+      var subCard = withThumb[1];
+      var listItems = withThumb.slice(2, 8);
+      var esc = function(s) { return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
+      var mainCardHtml = mainCard ? '<a class="home-news-card home-news-card-main" href="' + mainCard.link + '" target="_blank" rel="noopener"><div class="home-news-card-thumb"><img src="' + mainCard.thumbnail + '" alt="' + esc(mainCard.title) + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect"><span class="home-news-card-tag">' + sourceName + '</span></div><div class="home-news-card-info"><span class="home-news-card-title">' + mainCard.title + '</span></div></a>' : '';
+      var subCardHtml = subCard ? '<a class="home-news-card home-news-card-sub" href="' + subCard.link + '" target="_blank" rel="noopener"><div class="home-news-card-thumb"><img src="' + subCard.thumbnail + '" alt="' + esc(subCard.title) + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect"><span class="home-news-card-tag">' + sourceName + '</span></div><div class="home-news-card-info"><span class="home-news-card-title">' + subCard.title + '</span></div></a>' : '';
+      var leftListHtml = listItems.slice(0, 3).map(function(item) { return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener"><div class="home-news-item-thumb"><img src="' + item.thumbnail + '" alt="' + esc(item.title) + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide"><span class="home-news-item-tag">' + sourceName + '</span></div><div class="home-news-item-info"><span class="home-news-title">' + item.title + '</span></div></a>'; }).join('');
+      var rightListHtml = listItems.slice(3, 6).map(function(item) { return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener"><div class="home-news-item-thumb"><img src="' + item.thumbnail + '" alt="' + esc(item.title) + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide"><span class="home-news-item-tag">' + sourceName + '</span></div><div class="home-news-item-info"><span class="home-news-title">' + item.title + '</span></div></a>'; }).join('');
+      return '<div class="home-news-split"><div class="home-news-column">' + mainCardHtml + '<div class="home-news-list">' + leftListHtml + '</div></div><div class="home-news-column">' + subCardHtml + '<div class="home-news-list">' + rightListHtml + '</div></div></div>';
+    }
+
+    // 홈 뉴스 서브탭 전환 (lazy load 지원)
     document.querySelectorAll('.home-news-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.home-news-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         const targetNews = tab.dataset.news;
         document.querySelectorAll('.home-news-panel').forEach(p => p.classList.remove('active'));
-        document.getElementById('home-news-' + targetNews)?.classList.add('active');
+        const panel = document.getElementById('home-news-' + targetNews);
+        if (panel) {
+          panel.classList.add('active');
+          // Lazy load: 비어있으면 렌더링
+          if (targetNews !== 'all' && !panel.innerHTML.trim() && window.__NEWS_DATA__) {
+            const sourceNames = { thisisgame: '디스이즈게임', gamemeca: '게임메카', ruliweb: '루리웹' };
+            panel.innerHTML = renderNewsPanel(window.__NEWS_DATA__[targetNews], sourceNames[targetNews]);
+          }
+        }
       });
     });
 

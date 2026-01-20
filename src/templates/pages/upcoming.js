@@ -86,16 +86,15 @@ function generateUpcomingPage(data) {
             <div class="upcoming-section active" id="upcoming-steam">
               ${generateUpcomingSection(upcoming?.steam || [], 'steam')}
             </div>
-            <div class="upcoming-section" id="upcoming-ps5">
-              ${generateUpcomingSection(upcoming?.ps5 || [], 'ps5')}
-            </div>
-            <div class="upcoming-section" id="upcoming-nintendo">
-              ${generateUpcomingSection(upcoming?.nintendo || [], 'nintendo')}
-            </div>
-            <div class="upcoming-section" id="upcoming-mobile">
-              ${generateUpcomingSection(upcoming?.mobile || [], 'mobile')}
-            </div>
+            <div class="upcoming-section" id="upcoming-ps5"></div>
+            <div class="upcoming-section" id="upcoming-nintendo"></div>
+            <div class="upcoming-section" id="upcoming-mobile"></div>
           </div>
+          <script>window.__UPCOMING_DATA__=${JSON.stringify({
+            ps5: (upcoming?.ps5 || []).map(g => ({ name: g.name, link: g.link, img: g.img })),
+            nintendo: (upcoming?.nintendo || []).map(g => ({ name: g.name, link: g.link, img: g.img })),
+            mobile: (upcoming?.mobile || []).map(g => ({ name: g.name, link: g.link, img: g.img }))
+          })};</script>
         </div>
       </div>
     </section>
@@ -103,14 +102,37 @@ function generateUpcomingPage(data) {
 
   const pageScripts = `
   <script>
-    // 출시 게임 탭 전환
+    // 출시 게임 섹션 렌더링 (lazy load용)
+    function renderUpcomingSection(items, platform) {
+      if (!items || items.length === 0) return '<div class="upcoming-empty">출시 예정 정보를 불러올 수 없습니다</div>';
+      var logos = {
+        ps5: '<svg viewBox="0 0 24 24" fill="#003791"><path d="M8.984 2.596v17.547l3.915 1.261V6.688c0-.69.304-1.151.794-.991.636.181.76.814.76 1.505v5.875c2.441 1.193 4.362-.002 4.362-3.153 0-3.247-1.199-4.872-3.545-5.596-1.017-.317-2.962-.709-4.269-1.086-1.311-.379-2.017-.683-2.017-.683z"/><path d="M16.997 14.963c-1.387.471-1.81.832-1.81 1.457 0 .571.312.934.991.934.596 0 1.224-.279 1.78-.607v1.623c-.559.328-1.401.583-2.253.583-1.596 0-2.649-.857-2.649-2.181 0-1.45 1.105-2.135 2.812-2.713l1.129-.399V12.1c0-.857-.262-1.262-.936-1.262-.596 0-1.225.314-1.812.643v-1.652c.558-.328 1.401-.553 2.253-.553 1.656 0 2.526.827 2.526 2.426v4.261c0 .857.107 1.284.304 1.602h-2.04c-.165-.285-.262-.596-.262-.931v-.002z"/><path d="M1 18.156v-1.623c.952.5 2.116.91 3.109.91.905 0 1.262-.28 1.262-.704 0-.424-.357-.643-1.453-.991l-.952-.314c-1.355-.44-2.116-1.284-2.116-2.569 0-1.596 1.087-2.569 3.202-2.569.905 0 2.253.286 3.078.643v1.623c-.905-.471-2.166-.881-3.078-.881-.875 0-1.233.286-1.233.674 0 .387.387.613 1.325.931l.952.314c1.566.5 2.253 1.315 2.253 2.629 0 1.596-1.147 2.569-3.23 2.569-.905 0-2.253-.286-3.119-.643z"/></svg>',
+        nintendo: '<svg viewBox="0 0 24 24" fill="#e60012"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>',
+        mobile: '<svg viewBox="0 0 24 24" fill="#34a853"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#34a853" stroke-width="2" fill="none"/><circle cx="12" cy="18" r="1.5" fill="#34a853"/></svg>'
+      };
+      var logo = logos[platform] || logos.mobile;
+      var header = '<div class="upcoming-table-header"><div>순위</div><div>게임</div></div>';
+      var rows = items.map(function(game, i) {
+        return '<a class="upcoming-item" href="' + (game.link || '#') + '" target="_blank" rel="noopener"><div class="upcoming-col-rank"><span class="upcoming-rank ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span></div><div class="upcoming-col-game">' + (game.img ? '<img class="upcoming-icon" src="' + game.img + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1">' : '') + '<div class="upcoming-icon-placeholder' + (game.img ? ' hidden' : '') + '">' + logo + '</div><div class="upcoming-info"><div class="upcoming-name">' + game.name + '</div></div></div></a>';
+      }).join('');
+      return header + rows;
+    }
+
+    // 출시 게임 탭 전환 (lazy load 지원)
     document.querySelectorAll('#upcomingTab .tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('#upcomingTab .tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const target = btn.dataset.upcoming;
         document.querySelectorAll('.upcoming-section').forEach(s => s.classList.remove('active'));
-        document.getElementById('upcoming-' + target)?.classList.add('active');
+        const section = document.getElementById('upcoming-' + target);
+        if (section) {
+          section.classList.add('active');
+          // Lazy load: 비어있으면 렌더링
+          if (target !== 'steam' && !section.innerHTML.trim() && window.__UPCOMING_DATA__) {
+            section.innerHTML = renderUpcomingSection(window.__UPCOMING_DATA__[target], target);
+          }
+        }
       });
     });
   </script>`;

@@ -1140,8 +1140,23 @@ async function main() {
     { loc: `${siteBaseUrl}/steam/`, changefreq: 'hourly', priority: '0.8', lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/upcoming/`, changefreq: 'daily', priority: '0.7', lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/metacritic/`, changefreq: 'daily', priority: '0.7', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/games/`, changefreq: 'daily', priority: '0.9', lastmod: sitemapDate }
+    { loc: `${siteBaseUrl}/games/`, changefreq: 'daily', priority: '0.9', lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/wiki/`, changefreq: 'daily', priority: '0.8', lastmod: sitemapDate }
   ];
+
+  // 위키 페이지 자동 스캔
+  const wikiSitemapData = loadWikiData();
+  const wikiCategories = ['business', 'tech', 'history', 'knowledge'];
+  let wikiPages = [];
+  for (const category of wikiCategories) {
+    const articles = wikiSitemapData[category] || [];
+    wikiPages.push(...articles.map(article => ({
+      loc: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
+      changefreq: 'monthly',
+      priority: '0.7',
+      lastmod: normalizeLastmodDate(article.date)
+    })));
+  }
 
   // 트렌드 리포트 페이지 자동 스캔
   let trendPages = [];
@@ -1223,7 +1238,7 @@ async function main() {
   }
 
   // Sitemap XML 생성 (xhtml:link로 PC↔모바일 관계 명시)
-  const allPages = [...mainPages, ...gamePages, ...trendPages];
+  const allPages = [...mainPages, ...wikiPages, ...gamePages, ...trendPages];
   const sitemapEntries = allPages.map(page => {
     // 현재 URL의 경로 추출
     const path = page.loc.replace(siteBaseUrl, '');
@@ -1246,7 +1261,7 @@ async function main() {
 ${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
-  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 게임 ${gamePages.length}개 + 트렌드 ${trendPages.length}개 = 총 ${allPages.length}개 URL`);
+  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 위키 ${wikiPages.length}개 + 게임 ${gamePages.length}개 + 트렌드 ${trendPages.length}개 = 총 ${allPages.length}개 URL`);
 
   // RSS 피드 생성 (PC 빌드만)
   if (!isMobileBuild) {
