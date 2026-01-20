@@ -664,6 +664,24 @@ heading → image → text → text → ad → text
 npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 ```
 
+### 초안 미리보기
+이미지 다운로드 없이 빠르게 초안을 확인할 수 있는 스크립트:
+
+```bash
+# 최신 draft 미리보기
+node scripts/preview-issue.js
+
+# 특정 slug 미리보기
+node scripts/preview-issue.js [slug]
+
+# draft 목록 보기
+node scripts/preview-issue.js --list
+```
+
+- **출력 위치**: `docs/preview/issue-preview.html`
+- **특징**: 외부 이미지를 wsrv.nl 프록시로 바로 렌더링 (다운로드 불필요)
+- **용도**: 본격 빌드 전 레이아웃/내용 빠른 확인
+
 ---
 
 ## PC/모바일 분리 구조
