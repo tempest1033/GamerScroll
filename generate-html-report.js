@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { generateRSS } = require('./src/rss/generate-rss');
@@ -1001,6 +1001,12 @@ async function main() {
     targetDate.setDate(firstMonday.getDate() + (parseInt(week) - 1) * 7);
     return targetDate.toISOString().split('T')[0];
   };
+  const normalizeLastmodDate = (value) => {
+    if (!value) return sitemapDate;
+    const text = String(value).trim();
+    const match = text.match(/\d{4}-\d{2}-\d{2}/);
+    return match ? match[0] : sitemapDate;
+  };
 
   // 메인 페이지 URL 목록
   const mainPages = [
@@ -1059,7 +1065,7 @@ async function main() {
           const jsonPath = `${ISSUE_REPORTS_DIR}/${slug}.json`;
           if (fs.existsSync(jsonPath)) {
             const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
-            if (json.date) issueDate = json.date;
+            if (json.date) issueDate = normalizeLastmodDate(json.date);
           }
         } catch (e) {}
         return {
