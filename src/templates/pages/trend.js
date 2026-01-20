@@ -11,6 +11,9 @@ const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMi
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
 const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
 
+// 광고 활성화 여부
+const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
+
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
 try {
@@ -1625,6 +1628,9 @@ function generateIssueDetailPage({ post, nav = {} }) {
   ];
 
   const generateIssueAdSlot = (adIndex = 0) => {
+    // 광고 비활성화 시 빈 문자열 반환
+    if (!ADS_ENABLED) return '';
+
     if (isMobileBuild) {
       // 모바일: 네이티브 In-feed 광고
       const slotId = ISSUE_REPORT_SLOTS_MOBILE[adIndex % ISSUE_REPORT_SLOTS_MOBILE.length];
