@@ -1,4 +1,4 @@
-/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
+﻿/* ===== Ads (AdSense) - PC/모바일 분리 방식 ===== */
 /* ins 태그 스타일은 인라인으로만 관리 (Google 권장 방식) */
 /* CSS는 컨테이너(.ad-card)만 관리 */
 
@@ -13,6 +13,7 @@
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
+  min-height: 200px;
 }
 
 /* PC 홈 상단 광고 (728x90) */
@@ -47,6 +48,12 @@
   min-height: 100px;
 }
 
+/* Multiplex 광고 (자동 반응형) */
+.ad-card-multiplex {
+  width: 100%;
+  min-height: 250px;
+}
+
 /* ===== PC/모바일 표시 규칙 ===== */
 /* 인라인 <style> 태그에서 media query로 처리 (Google AdSense 권장 방식) */
 /* ads.js의 각 광고 함수에서 .adslot-* 클래스로 크기/숨김 제어 */
@@ -74,6 +81,18 @@ main .ad-card {
 /* page-container 첫 번째 광고 (top): 상단 마진 유지 */
 .page-container > .ad-card:first-child {
   margin-top: var(--space-block-gap, 16px);
+}
+
+/* ===== 광고 비활성화 시 레이아웃 보정 ===== */
+/* ADS_ENABLED=false일 때 body.ads-disabled 클래스 추가됨 */
+body.ads-disabled main {
+  margin-top: var(--space-block-gap, 16px);
+}
+
+/* 홈페이지: home-container padding 제거 (main margin으로 대체, 중복 방지) */
+/* !important: 30-responsive.css의 !important 규칙보다 우선 적용 */
+body.ads-disabled .home-container {
+  padding-top: 0 !important;
 }
 
 /* page-container 중간 광고 (mid): 상단 마진 제거 */

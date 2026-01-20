@@ -787,6 +787,7 @@
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
+  min-height: 200px;
 }
 
 /* PC 홈 상단 광고 (728x90) */
@@ -821,6 +822,12 @@
   min-height: 100px;
 }
 
+/* Multiplex 광고 (자동 반응형) */
+.ad-card-multiplex {
+  width: 100%;
+  min-height: 250px;
+}
+
 /* ===== PC/모바일 표시 규칙 ===== */
 /* 인라인 <style> 태그에서 media query로 처리 (Google AdSense 권장 방식) */
 /* ads.js의 각 광고 함수에서 .adslot-* 클래스로 크기/숨김 제어 */
@@ -848,6 +855,18 @@ main .ad-card {
 /* page-container 첫 번째 광고 (top): 상단 마진 유지 */
 .page-container > .ad-card:first-child {
   margin-top: var(--space-block-gap, 16px);
+}
+
+/* ===== 광고 비활성화 시 레이아웃 보정 ===== */
+/* ADS_ENABLED=false일 때 body.ads-disabled 클래스 추가됨 */
+body.ads-disabled main {
+  margin-top: var(--space-block-gap, 16px);
+}
+
+/* 홈페이지: home-container padding 제거 (main margin으로 대체, 중복 방지) */
+/* !important: 30-responsive.css의 !important 규칙보다 우선 적용 */
+body.ads-disabled .home-container {
+  padding-top: 0 !important;
 }
 
 /* page-container 중간 광고 (mid): 상단 마진 제거 */
@@ -1424,6 +1443,10 @@ main .ad-card {
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       padding: 12px 16px 16px;
+    }
+
+    .home-trend-grid-issue {
+      padding-top: 0;
     }
 
 		    .home-trend-card {
@@ -11471,6 +11494,8 @@ a.gm-item:hover {
 .blog-image {
   width: 100%;
   height: auto;
+  max-height: 800px;
+  object-fit: contain;
   display: block;
 }
 
@@ -11481,6 +11506,24 @@ a.gm-item:hover {
   text-align: center;
   background: var(--hover-bg);
   border-top: 1px solid var(--border);
+}
+
+/* 비디오 임베드 */
+.blog-video .blog-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  height: 0;
+  overflow: hidden;
+}
+
+.blog-video .blog-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* 인용문 */
@@ -11563,6 +11606,89 @@ a.gm-item:hover {
   text-overflow: ellipsis;
 }
 
+/* 관련 이슈 섹션 */
+.blog-related-issues {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.blog-related-issues-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.blog-related-issue-card {
+  display: block;
+  background: var(--card);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.blog-related-issue-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.blog-related-issue-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-related-issue-title {
+  font-size: var(--font-desc-size);
+  font-weight: 500;
+  color: var(--text);
+  padding: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+/* 정보 출처 섹션 */
+.blog-sources {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.blog-sources-title {
+  font-size: var(--font-title-size);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.blog-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blog-sources-list li {
+  font-size: var(--font-small-size);
+  line-height: 1.5;
+}
+
+.blog-sources-list a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.blog-sources-list a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 /* 네비게이션 */
 .blog-nav-wrapper {
   background: var(--card);
@@ -11580,6 +11706,8 @@ a.gm-item:hover {
   .blog-header,
   .blog-content,
   .blog-related-games,
+  .blog-related-issues,
+  .blog-sources,
   .blog-nav-wrapper {
     padding: 16px;
     border-radius: 8px;
@@ -11610,6 +11738,10 @@ a.gm-item:hover {
   }
 
   .blog-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-related-issues-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -156,6 +156,8 @@
 .blog-image {
   width: 100%;
   height: auto;
+  max-height: 800px;
+  object-fit: contain;
   display: block;
 }
 
@@ -166,6 +168,24 @@
   text-align: center;
   background: var(--hover-bg);
   border-top: 1px solid var(--border);
+}
+
+/* 비디오 임베드 */
+.blog-video .blog-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  height: 0;
+  overflow: hidden;
+}
+
+.blog-video .blog-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* 인용문 */
@@ -248,6 +268,89 @@
   text-overflow: ellipsis;
 }
 
+/* 관련 이슈 섹션 */
+.blog-related-issues {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.blog-related-issues-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.blog-related-issue-card {
+  display: block;
+  background: var(--card);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.blog-related-issue-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.blog-related-issue-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-related-issue-title {
+  font-size: var(--font-desc-size);
+  font-weight: 500;
+  color: var(--text);
+  padding: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+/* 정보 출처 섹션 */
+.blog-sources {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.blog-sources-title {
+  font-size: var(--font-title-size);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.blog-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blog-sources-list li {
+  font-size: var(--font-small-size);
+  line-height: 1.5;
+}
+
+.blog-sources-list a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.blog-sources-list a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 /* 네비게이션 */
 .blog-nav-wrapper {
   background: var(--card);
@@ -265,6 +368,8 @@
   .blog-header,
   .blog-content,
   .blog-related-games,
+  .blog-related-issues,
+  .blog-sources,
   .blog-nav-wrapper {
     padding: 16px;
     border-radius: 8px;
@@ -295,6 +400,10 @@
   }
 
   .blog-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-related-issues-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }

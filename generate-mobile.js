@@ -745,7 +745,7 @@ async function generateMobilePages() {
             next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
           };
 
-          const html = generateIssueDetailPage({ post, nav });
+          const html = generateIssueDetailPage({ post, nav, issueReports });
           fs.writeFileSync(path.join(pageDir, 'index.html'), html, 'utf8');
         } catch (e) { console.warn(`  ⚠️ 이슈 리포트 ${post.slug}: ${e.message}`); }
       }

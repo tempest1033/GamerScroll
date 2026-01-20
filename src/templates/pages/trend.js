@@ -1598,7 +1598,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
  * @param {Object} params.post - 이슈 리포트 포스트 데이터
  * @param {Object} params.nav - 이전/다음 포스트 정보
  */
-function generateIssueDetailPage({ post, nav = {} }) {
+function generateIssueDetailPage({ post, nav = {}, issueReports = [] }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">포스트를 찾을 수 없습니다</div>', {
       currentPage: 'trend',
@@ -1779,6 +1779,23 @@ function generateIssueDetailPage({ post, nav = {} }) {
     </div>
   ` : '';
 
+  // 관련 이슈 리포트 (최대 4개)
+  const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
+  const relatedIssuesList = (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
+  const relatedIssuesHtml = relatedIssuesList.length > 0 ? `
+    <div class="blog-related-issues">
+      <h3 class="blog-related-title">관련 이슈</h3>
+      <div class="blog-related-issues-list">
+        ${relatedIssuesList.map(issue => `
+          <a href="/trend/issue/${issue.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <span class="blog-related-issue-title">${issue.title}</span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
   // 정보 출처
   const sources = post.sources || [];
   const sourcesHtml = sources.length > 0 ? `
@@ -1824,6 +1841,7 @@ function generateIssueDetailPage({ post, nav = {} }) {
             ${renderContent()}
           </div>
           ${relatedGamesHtml}
+          ${relatedIssuesHtml}
           ${sourcesHtml}
         </div>
 

@@ -797,7 +797,7 @@ async function main() {
           prev: issueReports[i + 1] ? { slug: issueReports[i + 1].slug, title: issueReports[i + 1].title } : null,
           next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
         };
-        const html = generateIssueDetailPage({ post, nav });
+        const html = generateIssueDetailPage({ post, nav, issueReports });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
       } catch (err) {
         console.error(`  ❌ trend/issue/${post.slug}: ${err.message}`);
