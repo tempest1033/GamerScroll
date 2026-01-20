@@ -56,6 +56,7 @@ function generateHead(options = {}) {
     (articleSchema && typeof articleSchema.image === 'string' && articleSchema.image) ||
     'https://gamerscrawl.com/og-image.png'
   );
+  const safeImageAlt = safeTitle;
   const preloadImageList = Array.isArray(preloadImages) ? preloadImages : [];
   const preloadUrls = [...new Set(preloadImageList.map(item => normalizeMeta(item)).filter(Boolean))].slice(0, 2);
   const preloadLinks = preloadUrls.length > 0
@@ -243,6 +244,7 @@ function generateHead(options = {}) {
   <meta property="og:title" content="${safeTitle}">
   <meta property="og:description" content="${safeDescription}">
   <meta property="og:image" content="${resolvedOgImage}">
+  <meta property="og:image:alt" content="${safeImageAlt}">
   <meta property="og:url" content="${safeCanonical}">
   <meta property="og:site_name" content="게이머스크롤">
   <meta property="og:locale" content="ko_KR">
@@ -252,6 +254,7 @@ function generateHead(options = {}) {
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeDescription}">
   <meta name="twitter:image" content="${resolvedOgImage}">
+  <meta name="twitter:image:alt" content="${safeImageAlt}">
   <meta name="twitter:site" content="@gamerscrawl">
   <meta name="twitter:creator" content="@gamerscrawl">
   ${preloadLinks ? `${preloadLinks}\n  ` : ''}
