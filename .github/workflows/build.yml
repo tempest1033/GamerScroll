@@ -85,6 +85,8 @@ jobs:
         run: node scripts/sync-and-enrich.js
 
       - name: Generate game pages
+        env:
+          ADS_ENABLED: 'false'  # 광고 정지 기간 동안 비활성화
         run: node scripts/generate-game-pages.js
 
       - name: Move report to docs

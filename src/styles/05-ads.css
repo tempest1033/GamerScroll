@@ -71,8 +71,8 @@ main .ad-card {
   margin-top: var(--space-block-gap, 16px);
 }
 
-/* page-container 첫 번째 광고 (top): 상단 마진 유지 */
-.page-container > .ad-card:first-child {
+/* page-container 첫 번째 요소: 상단 마진 유지 (광고 유무 관계없이) */
+.page-container > *:first-child {
   margin-top: var(--space-block-gap, 16px);
 }
 
