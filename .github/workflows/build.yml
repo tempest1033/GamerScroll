@@ -73,6 +73,9 @@ jobs:
         if: steps.puppeteer-cache.outputs.cache-hit != 'true'
         run: npx puppeteer browsers install chrome
 
+      - name: Download issue report images
+        run: node scripts/download-issue-images.js
+
       - name: Generate report
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
@@ -88,9 +91,6 @@ jobs:
         env:
           ADS_ENABLED: 'false'  # 광고 정지 기간 동안 비활성화
         run: node scripts/generate-game-pages.js
-
-      - name: Download issue report images
-        run: node scripts/download-issue-images.js
 
       - name: Move report to docs
         run: |
