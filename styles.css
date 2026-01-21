@@ -11551,6 +11551,63 @@ a.gm-item:hover {
   }
 }
 
+/* 테이블 */
+.table-title {
+  padding: 12px 16px;
+  font-size: var(--font-title-size);
+  font-weight: 600;
+  color: var(--text);
+  background: var(--hover-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.wiki-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-body-size);
+}
+
+.wiki-table th,
+.wiki-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.wiki-table th {
+  background: var(--hover-bg);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.wiki-table td {
+  color: var(--text-secondary);
+}
+
+.wiki-table tbody tr:hover {
+  background: var(--hover-bg);
+}
+
+.wiki-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .blog-table {
+    overflow-x: auto;
+  }
+
+  .wiki-table {
+    min-width: 400px;
+  }
+
+  .wiki-table th,
+  .wiki-table td {
+    padding: 10px 12px;
+    font-size: var(--font-desc-size);
+  }
+}
+
 /* 광고 영역 */
 .blog-ad {
   margin: 24px 0;

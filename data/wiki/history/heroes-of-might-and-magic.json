@@ -1,0 +1,39 @@
+{
+  "slug": "heroes-of-might-and-magic",
+  "status": "approved",
+  "title": "히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형",
+  "date": "2026-01-21T18:00",
+  "thumbnail": "https://cdna.artstation.com/p/assets/images/images/070/793/854/large/bodom-all.jpg",
+  "keywords": "히어로즈 오브 마이트 앤 매직, HoMM, Heroes of Might and Magic, 턴제 전략, SLG, 모바일 SLG, 라이즈 오브 킹덤, 클래시 오브 킹즈, 뉴 월드 컴퓨팅, 유비소프트",
+  "summary": "1995년 탄생한 히어로즈 오브 마이트 앤 매직은 '영웅이 군대를 이끄는' 전쟁 게임의 원형을 만들었다. 영웅 시스템, 성 건설, 자원 관리, 영토 전쟁까지, 30년 전 공식이 오늘날 모바일 SLG에 어떻게 이어지는지 살펴본다.",
+  "sources": [
+    { "name": "Wikipedia", "title": "Heroes of Might and Magic", "url": "https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic" },
+    { "name": "Wikipedia", "title": "Heroes of Might and Magic III", "url": "https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_III" },
+    { "name": "GOG.com", "title": "Heroes of Might and Magic III", "url": "https://www.gog.com/blog/heroes-of-might-and-magic-iii/" },
+    { "name": "David Mullich", "title": "Heroes of Might & Magic III: Remembering Erathia 15 Years Later", "url": "https://davidmullich.com/2014/02/24/757/" }
+  ],
+  "relatedArticles": [],
+  "relatedGames": ["rise-of-kingdoms", "clash-of-kings"],
+  "content": [
+    { "type": "text", "value": "1995년, 뉴 월드 컴퓨팅(New World Computing)의 존 반 카네헴(Jon Van Caneghem)이 만든 히어로즈 오브 마이트 앤 매직(Heroes of Might and Magic, 이하 HoMM)이 세상에 나왔다. 영웅이 군대를 이끌고, 성을 건설하며, 자원을 모아 적을 정복하는 게임이었다. 단순해 보이는 이 공식은 30년이 지난 지금도 수많은 전략 게임의 기본 문법으로 남아 있다." },
+    { "type": "heading", "value": "시리즈의 역사와 성과" },
+    { "type": "image", "src": "https://i.redd.it/d7cddcy5wr181.jpg", "caption": "HoMM3 캐슬 타운 HD 월페이퍼", "alt": "Heroes of Might and Magic 3 캐슬 타운 HD" },
+    { "type": "text", "value": "HoMM 시리즈는 1995년 첫 작품 출시 이후 7편까지 이어졌다. 1997년에는 시리즈 누적 판매량 50만 장을 돌파했고, 1999년에는 150만 장을 넘어섰다. 마이트 앤 매직 프랜차이즈 전체로 보면 2001년 기준 450만 장 이상이 팔렸다.\n\n시리즈의 전성기는 1999년 출시된 HoMM3다. 지금도 전 세계 팬들 사이에서 '전설'로 불리며, GOG와 스팀에서 꾸준히 팔리고 있다. 2015년에는 HD 리마스터가 출시됐고, 2025년에는 신작 '올든 에라(Olden Era)'가 예정되어 있다.\n\n시리즈의 권리는 여러 번 손바뀜을 겪었다. 원작자 뉴 월드 컴퓨팅은 1996년 3DO에 인수됐고, 3DO가 2003년 파산하면서 유비소프트가 단돈 130만 달러에 프랜차이즈를 사들였다. 이후 유비소프트가 시리즈를 이어가고 있다." },
+    { "type": "heading", "value": "게임의 핵심 특징" },
+    { "type": "image", "src": "https://upload.wikimedia.org/wikipedia/en/5/53/HoMM2_screenshot.png", "caption": "HoMM2의 어드벤처 맵과 성 화면", "alt": "Heroes of Might and Magic 2 스크린샷" },
+    { "type": "text", "value": "HoMM의 핵심은 '영웅+군대' 구조다. 플레이어는 영웅을 조종해 맵을 탐험하고, 적과 싸우며, 자원을 모은다. 영웅 혼자 싸우는 게 아니라 수십~수백 마리의 유닛으로 구성된 군대를 지휘한다. 영웅은 레벨업하며 스킬을 배우고, 아티팩트를 장비해 군대에 버프를 제공한다.\n\n성(타운) 건설도 중요한 축이다. 성을 업그레이드하면 더 강한 유닛을 고용할 수 있고, 특수 건물에서 마법이나 보너스를 얻는다. 자원은 금, 목재, 광석, 보석, 크리스탈, 유황, 수은 7가지로, 맵 곳곳의 광산과 자원지를 점령해 확보한다.\n\n전투는 타일 기반 턴제 방식이다. 유닛마다 이동력, 공격력, 체력이 다르고, 영웅의 마법이 전세를 뒤집기도 한다. 단순한 병력 싸움이 아니라 유닛 배치, 스킬 조합, 마법 타이밍이 승패를 가른다." },
+    { "type": "heading", "value": "영토 전쟁과 멀티플레이" },
+    { "type": "image", "src": "https://upload.wikimedia.org/wikipedia/en/7/7b/HeroesV_Gameplay.png", "caption": "HoMM5의 3D 전투 화면", "alt": "Heroes of Might and Magic 5 전투 스크린샷" },
+    { "type": "text", "value": "HoMM의 궁극적 목표는 맵 장악이다. 상대 플레이어의 성을 모두 함락시키거나, 특정 조건을 달성하면 승리한다. 중립 성을 점령해 세력을 넓히고, 적의 영웅과 군대를 격파해야 한다. 맵 곳곳에는 자원지, 아티팩트, 던전 등이 숨어 있어 탐험과 확장이 동시에 진행된다.\n\n멀티플레이는 시리즈 초기부터 지원됐다. 핫시트(한 컴퓨터에서 번갈아 플레이), LAN, 온라인 대전까지 다양한 방식이 있었다. 상대 플레이어와의 영토 쟁탈전은 AI 상대와는 비교할 수 없는 긴장감을 줬다.\n\n이런 '맵을 점령하고, 적 성을 함락시키며, 세력을 확장하는' 구조가 훗날 모바일 SLG의 영토 전쟁/왕좌전 시스템으로 이어진다." },
+    { "type": "heading", "value": "모바일 SLG에 남긴 유산" },
+    { "type": "image", "src": "https://mmos.com/wp-content/gallery/clash-of-kings/Clash-of-Kings-Main-2.jpg", "caption": "클래시 오브 킹즈의 성 건설 화면", "alt": "클래시 오브 킹즈 모바일 SLG 게임플레이" },
+    { "type": "text", "value": "2010년대 이후 모바일 SLG 장르가 폭발적으로 성장했다. 클래시 오브 킹즈(2014), 라이즈 오브 킹덤(2018), 삼국지 전략판 등이 대표작이다. 이 게임들의 핵심 시스템을 뜯어보면 HoMM의 그림자가 선명하다.\n\n첫째, '장수(영웅)가 부대를 지휘하는' 구조다. 모바일 SLG에서 장수는 단독으로 싸우지 않는다. 병력을 이끌고 출정하며, 장수의 스킬과 능력치가 부대 전체에 영향을 준다. HoMM의 영웅 시스템과 똑같다.\n\n둘째, 성(도시) 건설과 업그레이드다. 건물을 짓고 레벨업하면 더 강한 병종이 해금되고, 자원 생산량이 늘어난다. HoMM의 타운 시스템이 모바일에 그대로 옮겨왔다." },
+    { "type": "ad" },
+    { "type": "text", "value": "셋째, 자원 채집과 점령이다. 맵 곳곳의 자원지를 점령하거나 채집해 성장 재료를 확보하는 방식은 HoMM의 광산 시스템과 일맥상통한다.\n\n넷째, 영토 전쟁이다. 서버 내 동맹들이 왕좌를 두고 싸우는 KvK(Kingdom vs Kingdom), 성 공성전 등은 HoMM 멀티플레이의 확장판이라 할 수 있다. '상대 성을 함락시키면 승리'라는 기본 규칙이 그대로다.\n\nHoMM이 만든 '영웅+군대+성 건설+자원 관리+영토 전쟁'이라는 공식이 30년이 지난 지금도 모바일 SLG의 표준 문법으로 작동하고 있는 셈이다." },
+    { "type": "heading", "value": "25년을 이어온 모딩 문화" },
+    { "type": "image", "src": "https://i.ytimg.com/vi/YLzlp8LetnY/hq720.jpg", "caption": "HoMM3 모드로 추가된 타운 스크린들", "alt": "Heroes of Might and Magic 3 모딩 커뮤니티" },
+    { "type": "text", "value": "HoMM3가 25년 넘게 살아있는 이유 중 하나는 모딩 커뮤니티다. 공식 지원이 끊긴 지 오래지만, 팬들이 직접 맵을 만들고 밸런스를 조정하며 게임을 유지하고 있다. 대표적인 모드가 'HoMM3 HD Mod'와 'Horn of the Abyss(HotA)'다.\n\nHotA는 팬 제작 확장팩이라 부를 만큼 완성도가 높다. 새로운 진영 '코브(Cove)'를 추가하고, 수십 개의 새 유닛과 맵 오브젝트를 넣었다. 밸런스 패치도 꾸준히 이뤄진다. 공식 개발이 멈춘 게임에서 팬 커뮤니티가 사실상 '라이브 서비스'를 하는 셈이다.\n\n맵 에디터도 시리즈의 수명을 늘린 요인이다. 유저들이 만든 커스텀 맵이 수천 개에 달하며, 지금도 새 맵이 올라온다. 이런 유저 생성 콘텐츠 문화는 당시로서는 드문 것이었고, 게임의 리플레이 가치를 극대화했다." },
+    { "type": "heading", "value": "마치며" },
+    { "type": "text", "value": "히어로즈 오브 마이트 앤 매직은 단순한 고전 게임이 아니다. '영웅이 군대를 이끌고, 성을 키우며, 영토를 정복하는' 전쟁 게임의 원형을 정립한 작품이다. 라이즈 오브 킹덤에서 장수를 키우고, 클래시 오브 킹즈에서 성을 업그레이드하며, 동맹전에서 적 성을 함락시킬 때마다, 우리는 30년 전 HoMM이 만든 공식 위에서 플레이하고 있는 셈이다." }
+  ]
+}

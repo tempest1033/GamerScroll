@@ -1767,6 +1767,23 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
           }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
           break;
+
+        case 'table':
+          if (!block.headers || !block.rows) break;
+          const tblHeaders = block.headers.map(h => `<th>${h}</th>`).join('');
+          const tblRows = block.rows.map(row =>
+            `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+          ).join('');
+          result.push(`
+            <figure class="blog-figure blog-table">
+              ${block.caption ? `<div class="table-title">${block.caption}</div>` : ''}
+              <table class="wiki-table">
+                <thead><tr>${tblHeaders}</tr></thead>
+                <tbody>${tblRows}</tbody>
+              </table>
+            </figure>
+          `);
+          break;
       }
     });
 

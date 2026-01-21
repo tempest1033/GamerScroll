@@ -13,6 +13,7 @@
     { "name": "Unity", "title": "Plans & Pricing", "url": "https://unity.com/products" },
     { "name": "Unreal Engine", "title": "Licensing options", "url": "https://www.unrealengine.com/en-US/license" }
   ],
+  "relatedArticles": ["2d-animation-tech"],
   "content": [
     { "type": "text", "value": "게임 엔진(Game Engine)은 게임 개발에 필요한 핵심 기능을 제공하는 소프트웨어 프레임워크다. 렌더링, 물리 엔진, 사운드, 애니메이션, 스크립팅 등 게임 제작에 필수적인 시스템을 통합 제공한다. 1990년대 둠과 퀘이크에서 시작된 게임 엔진은 이제 인디 개발자부터 AAA 스튜디오까지 모두가 사용하는 필수 도구가 되었다." },
     { "type": "heading", "value": "게임 엔진의 역사" },

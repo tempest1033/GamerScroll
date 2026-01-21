@@ -145,6 +145,23 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
         result.push(`<h2 class="blog-heading">${block.value}</h2>`);
         break;
 
+      case 'table':
+        if (!block.headers || !block.rows) break;
+        const tableHeaders = block.headers.map(h => `<th>${h}</th>`).join('');
+        const tableRows = block.rows.map(row =>
+          `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+        ).join('');
+        result.push(`
+          <figure class="blog-figure blog-table">
+            ${block.caption ? `<div class="table-title">${block.caption}</div>` : ''}
+            <table class="wiki-table">
+              <thead><tr>${tableHeaders}</tr></thead>
+              <tbody>${tableRows}</tbody>
+            </table>
+          </figure>
+        `);
+        break;
+
       case 'ad':
         break;
 
