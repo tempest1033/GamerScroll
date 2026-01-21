@@ -1,8 +1,8 @@
-/* ========== 게임 위키 페이지 ========== */
+﻿/* ========== 寃뚯엫 ?꾪궎 ?섏씠吏 ========== */
 
-/* ===== 허브 페이지 (목록) ===== */
+/* ===== ?덈툕 ?섏씠吏 (紐⑸줉) ===== */
 
-/* 카테고리 섹션 최소 높이 (아이템 1개 크기) */
+/* 移댄뀒怨좊━ ?뱀뀡 理쒖냼 ?믪씠 (?꾩씠??1媛??ш린) */
 #wiki-hub .home-card-body {
   min-height: 200px;
 }
@@ -89,7 +89,7 @@
   max-height: 2.8em;
 }
 
-/* 페이지네이션 */
+/* ?섏씠吏?ㅼ씠??*/
 .wiki-pagination {
   display: flex;
   align-items: center;
@@ -135,7 +135,7 @@
   color: var(--text-secondary);
 }
 
-/* ===== 개별 항목 페이지 (아티클) ===== */
+/* ===== 媛쒕퀎 ??ぉ ?섏씠吏 (?꾪떚?? ===== */
 
 #wiki-article .page-container {
   max-width: 1190px;
@@ -152,7 +152,7 @@
   margin-bottom: 0;
 }
 
-/* 통합 카드 */
+/* ?듯빀 移대뱶 */
 .wiki-card {
   background: var(--card);
   border-radius: 12px;
@@ -160,10 +160,10 @@
   overflow: hidden;
 }
 
-/* 히어로 이미지 */
+/* ?덉뼱濡??대?吏 */
 .wiki-hero {
   width: 100%;
-  max-height: 280px;
+  max-height: 380px;
   overflow: hidden;
   background: var(--bg-secondary);
 }
@@ -180,12 +180,12 @@
   display: none;
 }
 
-/* 헤더 */
+/* ?ㅻ뜑 */
 .wiki-header {
   padding: 24px 24px 8px;
 }
 
-/* 브레드크럼 */
+/* 釉뚮젅?쒗겕??*/
 .wiki-breadcrumb {
   display: flex;
   align-items: center;
@@ -208,7 +208,7 @@
   color: var(--text-muted);
 }
 
-/* 제목 */
+/* ?쒕ぉ */
 .wiki-title {
   font-size: var(--font-2xl-size);
   font-weight: 700;
@@ -217,7 +217,7 @@
   margin-bottom: 16px;
 }
 
-/* 메타 정보 */
+/* 硫뷀? ?뺣낫 */
 .wiki-meta {
   display: flex;
   align-items: center;
@@ -233,7 +233,7 @@
   color: var(--text-muted);
 }
 
-/* 요약 박스 */
+/* ?붿빟 諛뺤뒪 */
 .wiki-summary {
   font-size: var(--font-body-size);
   line-height: 1.7;
@@ -245,7 +245,7 @@
   margin-bottom: 16px;
 }
 
-/* 태그 */
+/* ?쒓렇 */
 .wiki-tags {
   display: flex;
   flex-wrap: wrap;
@@ -268,7 +268,7 @@
   }
 }
 
-/* 본문 콘텐츠 */
+/* 蹂몃Ц 肄섑뀗痢?*/
 .wiki-content {
   padding: 24px;
 }
@@ -381,7 +381,7 @@
   color: var(--text-secondary);
 }
 
-/* 관련 항목 */
+/* 愿????ぉ */
 .wiki-related {
   padding: 24px;
   border-top: 1px solid var(--border);
@@ -440,7 +440,7 @@
   text-overflow: ellipsis;
 }
 
-/* 출처 */
+/* 異쒖쿂 */
 .wiki-sources {
   padding: 24px;
   border-top: 1px solid var(--border);
@@ -478,7 +478,7 @@
   text-decoration: underline;
 }
 
-/* 네비게이션 */
+/* ?ㅻ퉬寃뚯씠??*/
 .wiki-nav-wrapper {
   padding: 24px;
   border-top: 1px solid var(--border);
@@ -520,7 +520,7 @@
   pointer-events: none;
 }
 
-/* 다크모드 */
+/* ?ㅽ겕紐⑤뱶 */
 @media (prefers-color-scheme: dark) {
   .wiki-feed-card {
     background: var(--card-bg);
@@ -532,7 +532,7 @@
   }
 }
 
-/* 모바일 반응형 */
+/* 紐⑤컮??諛섏쓳??*/
 @media (max-width: 768px) {
   .wiki-feed-grid {
     grid-template-columns: 1fr;
@@ -562,7 +562,7 @@
   }
 
   .wiki-hero {
-    max-height: 200px;
+    max-height: 300px;
   }
 
   .wiki-related-grid {
