@@ -1129,19 +1129,19 @@ async function main() {
     return match ? match[0] : sitemapDate;
   };
 
-  // 메인 페이지 URL 목록
+  // 메인 페이지 URL 목록 (changefreq/priority 제거 - Google이 무시함)
   const mainPages = [
-    { loc: `${siteBaseUrl}/`, changefreq: 'hourly', priority: '1.0', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/trend/`, changefreq: 'hourly', priority: '0.9', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/news/`, changefreq: 'hourly', priority: '0.9', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/community/`, changefreq: 'hourly', priority: '0.8', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/youtube/`, changefreq: 'hourly', priority: '0.8', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/rankings/`, changefreq: 'hourly', priority: '0.9', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/steam/`, changefreq: 'hourly', priority: '0.8', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/upcoming/`, changefreq: 'daily', priority: '0.7', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/metacritic/`, changefreq: 'daily', priority: '0.7', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/games/`, changefreq: 'daily', priority: '0.9', lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/wiki/`, changefreq: 'daily', priority: '0.8', lastmod: sitemapDate }
+    { loc: `${siteBaseUrl}/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/trend/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/news/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/community/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/youtube/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/upcoming/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/metacritic/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/games/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/wiki/`, lastmod: sitemapDate }
   ];
 
   // 위키 페이지 자동 스캔
@@ -1152,8 +1152,6 @@ async function main() {
     const articles = wikiSitemapData[category] || [];
     wikiPages.push(...articles.map(article => ({
       loc: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
-      changefreq: 'monthly',
-      priority: '0.7',
       lastmod: normalizeLastmodDate(article.date)
     })));
   }
@@ -1169,8 +1167,6 @@ async function main() {
         .map(d => d.name);
       trendPages.push(...dailyFolders.map(slug => ({
         loc: `${siteBaseUrl}/trend/daily/${slug}/`,
-        changefreq: 'weekly',
-        priority: '0.7',
         lastmod: slug  // 폴더명이 날짜 형식
       })));
     }
@@ -1182,8 +1178,6 @@ async function main() {
         .map(d => d.name);
       trendPages.push(...weeklyFolders.map(slug => ({
         loc: `${siteBaseUrl}/trend/weekly/${slug}/`,
-        changefreq: 'weekly',
-        priority: '0.7',
         lastmod: getDateFromWeek(slug)  // 주차 → 날짜 변환
       })));
     }
@@ -1206,15 +1200,13 @@ async function main() {
         } catch (e) {}
         return {
           loc: `${siteBaseUrl}/trend/issue/${slug}/`,
-          changefreq: 'monthly',
-          priority: '0.8',
           lastmod: issueDate
         };
       }));
     }
   }
 
-  // 게임 페이지 자동 스캔 (noindex 페이지는 제외 또는 낮은 priority)
+  // 게임 페이지 자동 스캔 (noindex 페이지는 sitemap에서 제외)
   const gamesDir = `${DOCS_DIR}/games`;
   let gamePages = [];
   if (fs.existsSync(gamesDir)) {
@@ -1228,13 +1220,11 @@ async function main() {
         const html = fs.readFileSync(indexPath, 'utf8').slice(0, 1000);
         hasNoindex = html.includes('noindex');
       }
-      return {
+      return hasNoindex ? null : {
         loc: `${siteBaseUrl}/games/${slug}/`,
-        changefreq: 'weekly',
-        priority: hasNoindex ? '0.1' : '0.6',  // noindex면 낮은 priority
         lastmod: sitemapDate
       };
-    }).filter(p => p.priority !== '0.1');  // noindex 페이지는 sitemap에서 제외
+    }).filter(p => p !== null);  // noindex 페이지는 sitemap에서 제외
   }
 
   // Sitemap XML 생성 (xhtml:link로 PC↔모바일 관계 명시)
@@ -1250,8 +1240,6 @@ async function main() {
     <xhtml:link rel="alternate" media="only screen and (max-width: 768px)" href="${mobileUrl}"/>
     <xhtml:link rel="alternate" media="only screen and (min-width: 769px)" href="${pcUrl}"/>
     <lastmod>${page.lastmod || sitemapDate}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
   </url>`;
   }).join('\n');
 
