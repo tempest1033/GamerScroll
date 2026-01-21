@@ -796,12 +796,31 @@ const footerModalScript = `
     modal.setAttribute('aria-hidden', 'true');
   }
 
+  var privacyLoaded = false;
   document.querySelectorAll('[data-modal-open]').forEach(function(trigger) {
     trigger.addEventListener('click', function(e) {
       var id = trigger.getAttribute('data-modal-open');
       var modal = getModal(id);
       if (!modal) return;
       e.preventDefault();
+      // privacy-modal: 동적 로드 (SEO 개선 - 보일러플레이트 제거)
+      if (id === 'privacy-modal' && !privacyLoaded) {
+        var body = modal.querySelector('.privacy-modal-body');
+        if (body) {
+          fetch('/assets/privacy-content.html')
+            .then(function(r) { return r.ok ? r.text() : ''; })
+            .then(function(html) {
+              body.innerHTML = html || '<p>내용을 불러올 수 없습니다.</p>';
+              privacyLoaded = true;
+              openModal(modal);
+            })
+            .catch(function() {
+              body.innerHTML = '<p>내용을 불러올 수 없습니다.</p>';
+              openModal(modal);
+            });
+          return;
+        }
+      }
       openModal(modal);
     });
   });

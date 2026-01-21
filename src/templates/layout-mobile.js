@@ -740,13 +740,28 @@ const adLazyLoadScript = `
 })();
 </script>`;
 
-// Footer 모달
+// Footer 모달 (privacy-modal 동적 로드 - SEO 개선)
 const footerModalScript = `
 <script>
 (function() {
+  var privacyLoaded = false;
   function openModal(modal) { if (modal) { modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); } }
   function closeModal(modal) { if (modal) { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); } }
-  document.querySelectorAll('[data-modal-open]').forEach(t => t.addEventListener('click', (e) => { e.preventDefault(); openModal(document.getElementById(t.getAttribute('data-modal-open'))); }));
+  document.querySelectorAll('[data-modal-open]').forEach(function(t) {
+    t.addEventListener('click', function(e) {
+      e.preventDefault();
+      var id = t.getAttribute('data-modal-open');
+      var modal = document.getElementById(id);
+      if (id === 'privacy-modal' && !privacyLoaded) {
+        var body = modal && modal.querySelector('.privacy-modal-body');
+        if (body) {
+          fetch('/assets/privacy-content.html').then(function(r) { return r.ok ? r.text() : ''; }).then(function(html) { body.innerHTML = html || '<p>내용을 불러올 수 없습니다.</p>'; privacyLoaded = true; openModal(modal); }).catch(function() { body.innerHTML = '<p>내용을 불러올 수 없습니다.</p>'; openModal(modal); });
+          return;
+        }
+      }
+      openModal(modal);
+    });
+  });
   document.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); closeModal(document.getElementById(b.getAttribute('data-modal-close')) || b.closest('.modal-overlay')); }));
   document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); }));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { const m = document.querySelector('.modal-overlay.is-open'); if (m) closeModal(m); } });
