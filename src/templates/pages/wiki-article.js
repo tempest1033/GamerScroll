@@ -203,7 +203,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
     for (const [name, game] of Object.entries(gamesMap)) {
       if (text.includes(name) && game.slug) {
         found.push({ name, ...game });
-        if (found.length >= 6) break;
+        if (found.length >= 4) break;
       }
     }
     return found;

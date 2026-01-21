@@ -839,24 +839,25 @@ node scripts/preview-issue.js --list
 | **relatedArticles** | (선택) 관련 위키/이슈 slug 배열 | `["unity-engine", "게임-AI-논란"]` |
 | **relatedGames** | (선택) 관련 게임 slug 배열 | `["리니지-m", "메이플스토리"]` |
 
-### 관련 문서 연결 가이드 (relatedArticles / relatedGames)
+### 콘텐츠 연결 규칙 (relatedArticles / relatedGames)
+
+| 필드 | 최대 개수 | 필수 여부 |
+|------|----------|----------|
+| **relatedGames** | 4개 | 선택 (없으면 비워도 됨) |
+| **relatedArticles** | 4개 | 선택 (없으면 비워도 됨) |
 
 **연결 범위:**
-- 위키 ↔ 위키 (같은 카테고리 또는 다른 카테고리)
+- 위키 ↔ 위키
 - 위키 ↔ 이슈 리포트
 - 이슈 리포트 ↔ 이슈 리포트
 
-**연결 기준:**
-| 연결 유형 | 기준 | 예시 |
-|----------|------|------|
-| **주제 연관** | 같은 주제/개념 다룸 | `unity-engine` ↔ `unreal-engine` |
-| **시리즈** | 같은 게임/회사 시리즈 | `퍼블리셔-개발사-관계` ↔ `플랫폼-수수료-비교` |
-| **참조** | 본문에서 언급한 개념 | HoMM 위키 → `rise-of-kingdoms` 게임 |
-| **후속** | 이전/이후 글 | 이슈 리포트 연작 |
+**연결 방식:**
+- 수동 지정: JSON의 slug 배열로 직접 지정 (우선)
+- 자동 감지: 본문에서 게임명 언급 시 자동 연결 (최대 4개)
 
-**연결 개수:**
-- `relatedArticles`: 2-4개 권장
-- `relatedGames`: 본문에서 언급된 게임만, 최대 6개
+**비워도 되는 경우:**
+- 관련 콘텐츠가 없을 때
+- 무리하게 연결할 필요 없음
 
 **slug 찾기:**
 ```bash
@@ -869,8 +870,6 @@ ls reports/issue/*.json | xargs -I {} basename {} .json
 # 게임 slug 검색
 grep -l "게임명" data/games.json
 ```
-
-**주의:** 자동화보다 수동 연결 권장 (맥락 파악 필요)
 
 ### content 블록 타입
 | 타입 | 용도 | 예시 |

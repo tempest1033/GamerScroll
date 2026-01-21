@@ -15,7 +15,7 @@
     { "name": "Artner", "title": "What's the difference between Spine and Live2D?", "url": "https://en.artner.jp/news/blogspinelive2d" },
     { "name": "Melior Games", "title": "The Rise of Animated 2D Game Art: What to Expect in 2025", "url": "https://meliorgames.com/game-art-design/the-rise-of-animated-2d-game-art-what-to-expect-in-2025/" }
   ],
-  "relatedArticles": ["game-engine", "2026-서브컬처-오픈월드-신작"],
+  "relatedArticles": ["game-engine", "2026-subculture-openworld-games"],
   "relatedGames": ["girls-frontline-2-exilium"],
   "content": [
     { "type": "text", "value": "2D 애니메이션 기술은 평면 이미지에 생명을 불어넣는 기술이다. 과거에는 프레임 단위로 일일이 그려야 했지만, 이제는 스켈레탈(뼈대) 방식으로 효율적인 애니메이션이 가능해졌다. Live2D, Spine, Cocos2d 등이 대표적이며, 모바일 게임과 VTuber 산업의 핵심 기반으로 자리 잡았다." },
