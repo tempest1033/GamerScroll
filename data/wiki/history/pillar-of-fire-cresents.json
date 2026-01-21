@@ -4,7 +4,7 @@
   "summary": "1996년 발매된 횡스크롤 액션 게임. 마비노기의 아버지 김동건(나크)과 이은석(파파랑)의 대학 시절 데뷔작으로, 욕설 이스터 에그로 전량 리콜된 전설적인 에피소드를 남겼다. 삼성전자가 게임 퍼블리싱을 하던 시절의 산물.",
   "keywords": "불기둥 크레센츠, 김동건, 나크, 이은석, 파파랑, 마비노기, 마비노기 영웅전, 마비노기 모바일, 데브캣, 넥슨, 횡스크롤 액션, 리콜, 이스터에그, 삼성전자, 카이스트, 화이트데이, 한국 게임 역사",
   "thumbnail": "https://mblogthumb-phinf.pstatic.net/20160406_47/chldydwo123_1459946574841aa55O_PNG/crescent.png?type=w420",
-  "date": "2026-01-21",
+  "date": "2026-01-21T10:00",
   "status": "approved",
   "content": [
     {
@@ -87,14 +87,14 @@
   ],
   "sources": [
     {
-      "name": "나무위키",
-      "title": "불기둥 크레센츠",
-      "url": "https://namu.wiki/w/%EB%B6%88%EA%B8%B0%EB%91%A5%20%ED%81%AC%EB%A0%88%EC%84%BC%EC%B8%A0"
-    },
-    {
       "name": "게임메카",
       "title": "[인물열전] 데브캣 스튜디오 대장 고양이, 김동건",
       "url": "https://www.gamemeca.com/view.php?gid=309651"
+    },
+    {
+      "name": "게임동아",
+      "title": "김동건 데브캣 스튜디오 실장 인터뷰",
+      "url": "https://game.donga.com/69207/"
     }
   ],
   "relatedIssues": [],

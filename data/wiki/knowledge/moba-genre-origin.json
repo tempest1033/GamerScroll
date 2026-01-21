@@ -4,7 +4,7 @@
   "summary": "MOBA는 스타크래프트 유즈맵 'Aeon of Strife'에서 시작된 장르다. 워크래프트 3의 '도타'가 장르를 정립했고, 리그 오브 레전드와 도타 2가 전 세계적 인기를 이끌었다.",
   "keywords": "MOBA, AOS, Aeon of Strife, 도타, 도타 올스타즈, 리그 오브 레전드, 도타 2, 유즈맵, 워크래프트 3, 스타크래프트, 구인수, 아이스프로그, Riot Games, Valve, 롤, LoL, 멀티플레이어 온라인 배틀 아레나",
   "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/42/Dota75-loading-screen.png",
-  "date": "2026-01-21",
+  "date": "2026-01-21T12:00",
   "status": "approved",
   "content": [
     {
@@ -18,7 +18,8 @@
     {
       "type": "image",
       "src": "https://lanepushinggames.com/sites/default/files/inline-images/Aeon_of_Strife6.jpg",
-      "caption": "Aeon of Strife 게임 화면. MOBA 장르의 시초가 된 스타크래프트 유즈맵이다."
+      "caption": "Aeon of Strife 게임 화면. MOBA 장르의 시초가 된 스타크래프트 유즈맵이다.",
+      "alt": "Aeon of Strife 스타크래프트 유즈맵 게임 화면"
     },
     {
       "type": "text",
@@ -31,7 +32,8 @@
     {
       "type": "image",
       "src": "https://upload.wikimedia.org/wikipedia/en/4/42/Dota75-loading-screen.png",
-      "caption": "Defense of the Ancients 로딩 화면. 워크래프트 3 유즈맵으로 MOBA 장르를 정립했다."
+      "caption": "Defense of the Ancients 로딩 화면. 워크래프트 3 유즈맵으로 MOBA 장르를 정립했다.",
+      "alt": "도타 Defense of the Ancients 로딩 화면"
     },
     {
       "type": "text",
@@ -44,7 +46,8 @@
     {
       "type": "image",
       "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOas7TFxlnmygZZ9-ZAVLb5YEdS7OCZwQ2GpYTIYVZmTiMfLWsNFn6Ah-P1mt1mzdqfciPgMfkmPMcH7SO7eh6m5GkjOWw7OsLBrYmpLkyIYsiRv0Hogk9MROYCcGk983IKLBubONDpDWL/w1200-h630-p-k-no-nu/Loadscreen+Edit.JPG",
-      "caption": "도타 올스타즈 로딩 화면. 여러 도타 변형 맵의 인기 영웅들을 모은 버전이다."
+      "caption": "도타 올스타즈 로딩 화면. 여러 도타 변형 맵의 인기 영웅들을 모은 버전이다.",
+      "alt": "도타 올스타즈 DotA Allstars 로딩 화면"
     },
     {
       "type": "text",
@@ -57,7 +60,8 @@
     {
       "type": "image",
       "src": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/c367d5f73f2ffe3c2272c3f52269e527df56cc63-1350x842.png",
-      "caption": "리그 오브 레전드. Riot Games가 'MOBA'라는 용어를 만들어 장르명을 정립했다."
+      "caption": "리그 오브 레전드. Riot Games가 'MOBA'라는 용어를 만들어 장르명을 정립했다.",
+      "alt": "리그 오브 레전드 LoL 게임 화면"
     },
     {
       "type": "text",
@@ -70,7 +74,8 @@
     {
       "type": "image",
       "src": "https://img.redbull.com/images/c_limit,w_1500,h_1000/f_auto,q_auto/redbullcom/2020/12/16/c61kpj1fxidgnwiqgz2h/faker-t1-lol",
-      "caption": "T1 페이커. 리그 오브 레전드는 MOBA를 세계적인 e스포츠로 성장시켰다."
+      "caption": "T1 페이커. 리그 오브 레전드는 MOBA를 세계적인 e스포츠로 성장시켰다.",
+      "alt": "T1 페이커 리그 오브 레전드 e스포츠"
     },
     {
       "type": "text",
