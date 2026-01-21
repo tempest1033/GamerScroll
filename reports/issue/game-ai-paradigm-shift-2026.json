@@ -1,0 +1,99 @@
+{
+  "slug": "game-ai-paradigm-shift-2026",
+  "title": "게임 개발의 패러다임 시프트: 2026년, AI 도입의 현주소",
+  "summary": "AI가 게임 개발의 문법을 바꾸고 있다. 코딩 에이전트부터 이미지 생성, 프리비즈까지 개발 파이프라인 전반에 AI가 침투했다. 게임 업계의 AI 도입 현황을 개발 효율화, 창작 혁신, 기업 전략 세 가지 측면에서 살펴본다.",
+  "keywords": "게임 AI, AI 코딩 에이전트, 커서, Cursor, 클로드 코드, GPT, 제미나이, Nano Banana Pro, Unity AI, 크래프톤, NC소프트, 넷마블, 시프트업, AI 퍼스트, 게임 개발 2026",
+  "thumbnail": "https://cdn.abckr.net/news/photo/202306/50135_31880_5724.jpeg",
+  "date": "2026-01-22T16:00",
+  "status": "approved",
+  "content": [
+    {
+      "type": "text",
+      "value": "AI가 게임 개발의 문법을 바꾸고 있다. 불과 1~2년 전만 해도 단순 보조 도구에 머물렀던 AI는 이제 코딩부터 원화, 기획, 최적화에 이르기까지 개발 파이프라인 전반에 깊숙이 침투했다. 게임 업계 종사자의 상당수가 이미 AI 도구를 활용하고 있는 지금, 게임 업계의 AI 도입 현황을 개발 효율화(Code), 창작 혁신(Art), 그리고 기업 전략(Enterprise) 세 가지 측면에서 살펴본다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 개발 효율화: 코딩 에이전트의 전면 도입"
+    },
+    {
+      "type": "image",
+      "src": "https://www.sentisight.ai/wp-content/uploads/2025/04/Screenshot-2025-04-11-at-15-44-10-Cursor-The-AI-Code-Editor.png",
+      "caption": "커서(Cursor). VS Code 기반의 AI 네이티브 코드 에디터로, 2025년 10월 2.0 업데이트와 함께 Composer 모델을 탑재했다.",
+      "alt": "커서 AI 코드 에디터"
+    },
+    {
+      "type": "text",
+      "value": "가장 극적인 변화가 일어난 곳은 프로그래밍 영역이다. 단순 자동완성을 넘어, 문맥을 이해하고 주도적으로 코드를 제안하는 '에이전틱(Agentic) 워크플로'가 표준으로 자리 잡았다.\n\nVS Code 기반의 커서는 2025년 10월 2.0 업데이트를 통해 '컴포저(Composer)' 모델을 탑재하며 게임 체인저로 등극했다. 핵심인 '커서 탭' 기능은 프로젝트 전체의 컨텍스트를 이해해, 개발자가 탭 키 하나만으로 복잡한 로직을 구현할 수 있게 돕는다. GPT, 클로드, 제미나이 등 다양한 모델을 입맛대로 골라 쓸 수 있는 유연함 덕분에 인디부터 대형 스튜디오까지 가장 폭넓게 쓰이고 있다.\n\n앤트로픽의 '클로드 코드'는 200K 토큰에 달하는 긴 컨텍스트 처리 능력으로 복잡한 게임 시스템 코드에서 안정성을 입증하며 B2B 시장을 선점했다. 오픈AI의 GPT 시리즈 역시 압도적인 범용성을 무기로 수많은 코딩 도구의 엔진 역할을 수행하며, 셰이더부터 서버 로직까지 전천후로 활약 중이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "text",
+      "value": "유니티(Unity)는 엔진 내부에 AI를 내재화했다. 'Unity AI'는 콘솔 에러 해결, NPC 변형 생성, 대량 오브젝트 배치 등 반복 작업을 에이전트에게 일임하여 개발자가 창의적인 작업에 집중할 수 있도록 돕는다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 창작 혁신: 프리비즈와 원화의 가속화"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/nanobananaprohero.width-1300.png",
+      "caption": "구글의 나노바나나 프로(Nano Banana Pro). Gemini 3 기반의 이미지 생성 모델로, 2025년 11월 20일 공개되었다.",
+      "alt": "구글 나노바나나 프로 AI 이미지 생성"
+    },
+    {
+      "type": "text",
+      "value": "이미지와 에셋 제작 분야에서는 생성형 AI가 '시간 단축'의 핵심 키가 되었다. 구글의 제미나이, 특히 Gemini 3 기반의 '나노바나나 프로(Nano Banana Pro)' 모델은 고속으로 고해상도 이미지를 생성하고 텍스트 렌더링까지 자연스럽게 처리하며 게임 아트 작업의 속도를 높였다.\n\n과거에는 며칠이 걸리던 컨셉 아트 시안이나 원화 초안 작업이 이제는 실시간 수준으로 가능해졌다. 아티스트는 AI를 통해 아이디어를 빠르게 시각화하고 방향성을 결정하며, 최종 리터칭에 역량을 집중하는 방식으로 작업 프로세스가 변화했다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 기업 전략: 한국 대기업의 'AI 퍼스트' 행보"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.dailycnc.com/news/photo/202208/213071_218857_5812.png",
+      "caption": "크래프톤 판교 본사. 크래프톤은 'AI 퍼스트' 전환을 선언하며 전 직원 대상 자발적 퇴사 프로그램을 시행했다.",
+      "alt": "크래프톤 판교 본사 건물"
+    },
+    {
+      "type": "text",
+      "value": "한국 게임사들은 단순 도구 도입을 넘어, 사내 문화와 시스템 자체를 AI 중심으로 재편하고 있다. 크래프톤은 사내 에이전트 'KRIS'와 개인 비서 '키라(KIRA)'를 통해 업무 효율을 극대화하고 있으며, NC소프트는 AI센터를 주축으로 기획부터 운영까지 멀티모달 AI를 적용 중이다.\n\n넷마블은 '콜럼버스', '마젤란' 프로젝트로 게임 내 밸런스와 콘텐츠 최적화에 집중하고 있다. 시프트업의 김형태 대표는 \"1명이 100명의 역할을 할 수 있어야 한다\"며, 중국의 물량 공세에 대항하기 위한 필수 생존 전략으로 AI 도입을 강조했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "많은 현업자들이 AI 도입이 업무에 크게 도움이 된다는 의견을 피력한다. 하지만 업계 전문가들은 AI가 인간을 완전히 대체하기엔 시기상조라고 입을 모은다. '재미'에 대한 본질적인 판단, 고수준의 아키텍처 설계는 여전히 베테랑 개발자의 몫이기 때문이다.\n\n한편 게임 업계가 요구하는 능력 자체가 바뀌고 있다는 신호도 감지된다. 크래프톤은 'AI 퍼스트' 전환을 선언하며 전 직원 대상 자발적 퇴사 프로그램을 시행했다. 최대 3년치 연봉을 조건으로 내걸었지만, 업계에서는 'AI 시대에 맞지 않는 인력은 정리하겠다'는 메시지로 받아들이고 있다. 단순히 AI 도구를 쓸 줄 아는 것을 넘어, AI와 협업하는 방식으로 일하는 능력이 생존의 조건이 되고 있는 셈이다.\n\n결국 2026년 게임 개발의 핵심은 'AI와의 협업 능력'이다. AI는 반복 작업을 제거하고 프로토타이핑 속도를 높여주는 강력한 부조종사다. 이 흐름에 얼마나 빠르게 올라타느냐가 개인 개발자는 물론, 게임사의 경쟁력을 좌우할 것으로 보인다."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Cursor",
+      "title": "Introducing Cursor 2.0 and Composer",
+      "url": "https://cursor.com/blog/2-0"
+    },
+    {
+      "name": "Google Blog",
+      "title": "Introducing Nano Banana Pro",
+      "url": "https://blog.google/innovation-and-ai/products/nano-banana-pro/"
+    },
+    {
+      "name": "전자신문",
+      "title": "'AI 퍼스트' 크래프톤, 전직원 대상 '자발적 퇴사선택 프로그램' 공지",
+      "url": "https://www.etnews.com/20251112000164"
+    },
+    {
+      "name": "Unity",
+      "title": "Unity Puts Developer Choice and Flexibility at the Center",
+      "url": "https://unity.com/news/unity-developer-choice-flexibility-center-of-game-development-at-unite-2025"
+    }
+  ],
+  "relatedGames": [],
+  "relatedIssues": ["game-ai-controversy-award-revoked", "ddr5-price-surge-gaming-nightmare"]
+}
