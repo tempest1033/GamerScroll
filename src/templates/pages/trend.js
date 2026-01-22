@@ -1707,9 +1707,13 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     content.forEach((block) => {
       switch (block.type) {
         case 'text':
-          const paragraphs = block.value.split('\n\n').map(p =>
-            `<p class="blog-paragraph">${p.replace(/\n/g, '<br>')}</p>`
-          ).join('');
+          const paragraphs = block.value.split('\n\n').map(p => {
+            // 마크다운 볼드 변환: **텍스트** → <strong>텍스트</strong>
+            const formatted = p
+              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+              .replace(/\n/g, '<br>');
+            return `<p class="blog-paragraph">${formatted}</p>`;
+          }).join('');
           result.push(paragraphs);
           break;
 

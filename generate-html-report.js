@@ -412,6 +412,24 @@ async function main() {
       }
     });
 
+    // iOS 인기 순위 (5개국)
+    iosCountries.forEach(country => {
+      const data = rankings?.free?.[country]?.ios || [];
+      if (data.length > 0) {
+        const rows = data.map((app, i) => ({ rank: i + 1, id: app.id || app.appId || '', title: app.title }));
+        appendCsv(`${rankingsDir}/${snapshotDate}_ios_${country}_free.csv`, rows);
+      }
+    });
+
+    // Android 인기 순위 (4개국, 중국 제외)
+    aosCountries.forEach(country => {
+      const data = rankings?.free?.[country]?.android || [];
+      if (data.length > 0) {
+        const rows = data.map((app, i) => ({ rank: i + 1, id: app.appId || '', title: app.title }));
+        appendCsv(`${rankingsDir}/${snapshotDate}_aos_${country}_free.csv`, rows);
+      }
+    });
+
     // Steam 동접
     if (steam?.mostPlayed?.length > 0) {
       const rows = steam.mostPlayed.map((g, i) => ({ rank: i + 1, id: g.appid || '', title: g.name }));

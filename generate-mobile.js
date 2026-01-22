@@ -191,7 +191,7 @@ function loadHourlySnapshots() {
   const yesterdayStr = kstYesterday.toISOString().split('T')[0];
   const platforms = ['ios', 'aos'];
   const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
-  const categories = ['grossing'];
+  const categories = ['grossing', 'free'];
   const result = {};
   for (const platform of platforms) {
     for (const region of regions) {

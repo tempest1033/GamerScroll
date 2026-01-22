@@ -204,7 +204,7 @@ function loadHourlySnapshots() {
 
   const platforms = ['ios', 'aos'];
   const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
-  const categories = ['grossing'];
+  const categories = ['grossing', 'free'];
 
   const result = {};
 
