@@ -13,7 +13,7 @@
     { "name": "Bandai Namco", "title": "Fiscal Year 2024 Report", "url": "https://www.bandainamco.co.jp/en/ir/" },
     { "name": "Webtoon Entertainment", "title": "Company Strategy", "url": "https://www.forbes.com/sites/reginakim/2024/07/07/webtoon-execs-talk-about-webtoons-creators-ipo-and-company-strategy/" }
   ],
-  "relatedArticles": ["publisher-developer-relationship"],
+  "relatedArticles": ["publisher-developer-relationship", "game-revenue-structure"],
   "relatedGames": ["나-혼자만-레벨업어라이즈"],
   "content": [
     { "type": "text", "value": "모바일 게임 시장에서 IP(지식재산권) 콜라보레이션은 이제 선택이 아닌 필수가 되었다. 원피스, 드래곤볼 같은 일본 애니메이션부터 나 혼자만 레벨업 같은 한국 웹툰까지, 유명 IP를 활용한 게임이 차트 상위권을 점령하고 있다. 하지만 IP 사용에는 비용이 따른다. 얼마나 내야 하고, 어떻게 나눌까?" },
