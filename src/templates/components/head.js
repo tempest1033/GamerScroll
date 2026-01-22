@@ -326,13 +326,13 @@ function generateHead(options = {}) {
 	            import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
 	          ]);
 	          const firebaseConfig = {
-	            apiKey: "AIzaSyBlVfvAGVrhEEMPKpDKJBrOPF7BINleV7I",
-	            authDomain: "gamerscroll-b104b.firebaseapp.com",
-	            projectId: "gamerscroll-b104b",
-	            storageBucket: "gamerscroll-b104b.firebasestorage.app",
-	            messagingSenderId: "831886529376",
-	            appId: "1:831886529376:web:2d9f0f64782fa5e5e80405",
-	            measurementId: "G-2269FV044J"
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
 	          };
 	          const app = initializeApp(firebaseConfig);
 	          const analytics = getAnalytics(app);
