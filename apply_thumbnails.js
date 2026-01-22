@@ -378,7 +378,7 @@ const urlMappings = {
   }
 };
 
-const reportsDir = '/mnt/c/Project/GamersCrawl/reports';
+const reportsDir = '/mnt/c/Project/GamerScroll/reports';
 let totalUpdated = 0;
 let totalFiles = 0;
 

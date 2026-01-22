@@ -324,12 +324,12 @@ function generateInsightHTML(insight) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Insight - ${date} | GAMERS CRAWL</title>
+  <title>Daily Insight - ${date} | GAMER SCROLL</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="page-daily-insight">
   <div class="insight-container">
-    <a href="/" class="back-link">← GAMERS CRAWL로 돌아가기</a>
+    <a href="/" class="back-link">← GAMER SCROLL로 돌아가기</a>
 
     <header class="insight-header">
       <div class="insight-date">${formatDate(date)}</div>

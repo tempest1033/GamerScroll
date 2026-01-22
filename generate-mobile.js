@@ -1,7 +1,7 @@
 ﻿/**
  * 모바일 버전 빌드 스크립트
  * docs-mobile/ 디렉토리에 모바일 전용 HTML 생성
- * 이후 GamersScroll-Mobile 저장소로 복사
+ * 이후 GamerScroll-Mobile 저장소로 복사
  */
 
 // 모바일 빌드 환경 변수 설정 (layout.js에서 layout-mobile.js 사용)

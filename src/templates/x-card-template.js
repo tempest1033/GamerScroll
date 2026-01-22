@@ -218,7 +218,7 @@ const generateXCardHtml = (data) => {
             <stop offset="100%" stop-color="#764ba2" />
           </linearGradient>
         </defs>
-        <text x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMERS CRAWL</text>
+        <text x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
         <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
         <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
         <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>

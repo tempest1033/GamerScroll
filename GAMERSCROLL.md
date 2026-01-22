@@ -1,15 +1,15 @@
-﻿# GamersScroll 프로젝트 가이드
+﻿# GamerScroll 프로젝트 가이드
 
 ## 프로젝트 개요
 게임 업계 데이터 크롤링 및 일일/주간 리포트 생성 사이트
 
 | 환경 | URL | Repository |
 |------|-----|------------|
-| **PC** | https://gamerscroll.com | [GamersScroll](https://github.com/tempest1033/GamersScroll) |
-| **Mobile** | https://m.gamerscroll.com | [GamersScroll-Mobile](https://github.com/tempest1033/GamersScroll-Mobile) |
+| **PC** | https://gamerscroll.com | [GamerScroll](https://github.com/tempest1033/GamerScroll) |
+| **Mobile** | https://m.gamerscroll.com | [GamerScroll-Mobile](https://github.com/tempest1033/GamerScroll-Mobile) |
 
 - PC 버전: `docs/` 폴더 → GitHub Pages
-- Mobile 버전: `docs-mobile/` 폴더 → GamersScroll-Mobile 저장소로 자동 배포
+- Mobile 버전: `docs-mobile/` 폴더 → GamerScroll-Mobile 저장소로 자동 배포
 - PC 접속 시 모바일 UA 감지 → `m.gamerscroll.com`으로 자동 리다이렉트
 
 ---
@@ -117,7 +117,7 @@ node generate-weekly-insight.js --force  # 강제 재생성
 │           └── {year}-W{week}.json # 주간 인사이트 (배포용 복사본)
 │
 ├── docs-mobile/               # 모바일 버전 배포 폴더 (m.gamerscroll.com)
-│                              # → GamersScroll-Mobile 저장소로 자동 배포
+│                              # → GamerScroll-Mobile 저장소로 자동 배포
 │
 ├── reports/                   # 인사이트 데이터
 │   ├── {date}.json            # 일간 AI 인사이트 + 주가 + 순위분석
@@ -444,8 +444,8 @@ node scripts/process-review-queue.js [limit]
   5. `node scripts/generate-game-pages.js` - 게임 상세 페이지 생성
   6. docs/ 폴더로 복사
   7. `node build-mobile.js` - 모바일 버전 생성
-  8. 커밋 & 푸시 (GamersScroll)
-  9. GamersScroll-Mobile 저장소로 배포 (peaceiris/actions-gh-pages)
+  8. 커밋 & 푸시 (GamerScroll)
+  9. GamerScroll-Mobile 저장소로 배포 (peaceiris/actions-gh-pages)
 
 ### ai-insight.yml (일간)
 - 트리거: 12시간마다 (KST 06:00, 18:00) + 수동
@@ -1032,8 +1032,8 @@ node scripts/preview-wiki.js --list
 ### 배포 구조
 | 환경 | 도메인 | 저장소 | 배포 폴더 |
 |------|--------|--------|----------|
-| PC | gamerscroll.com | GamersScroll | `docs/` |
-| Mobile | m.gamerscroll.com | GamersScroll-Mobile | `docs-mobile/` |
+| PC | gamerscroll.com | GamerScroll | `docs/` |
+| Mobile | m.gamerscroll.com | GamerScroll-Mobile | `docs-mobile/` |
 
 ### UA 감지 리다이렉트
 PC 버전(`gamerscroll.com`)에서 모바일 UA 감지 시 자동 리다이렉트:
@@ -1057,7 +1057,7 @@ if (/Android|iPhone|iPad|iPod|Mobile/i.test(ua)) {
 ### GitHub Secrets
 | 키 | 용도 |
 |----|------|
-| `GH_PAT` | GamersScroll-Mobile 저장소 배포용 Personal Access Token |
+| `GH_PAT` | GamerScroll-Mobile 저장소 배포용 Personal Access Token |
 
 ---
 
@@ -1077,16 +1077,16 @@ WSL에서 `/mnt/c/` 경로 접근 시 성능 저하 발생. Git 명령은 PowerS
 
 ```powershell
 # 커밋 & 푸시
-powershell.exe -Command "cd C:\Project\GamersScroll; git add -A; git commit -m '메시지'; git push origin main"
+powershell.exe -Command "cd C:\Project\GamerScroll; git add -A; git commit -m '메시지'; git push origin main"
 
 # 빌드 워크플로우 트리거
-powershell.exe -Command "cd C:\Project\GamersScroll; gh workflow run build.yml"
+powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run build.yml"
 
 # AI 인사이트 워크플로우 트리거
-powershell.exe -Command "cd C:\Project\GamersScroll; gh workflow run ai-insight.yml"
+powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run ai-insight.yml"
 
 # 주간 인사이트 워크플로우 트리거
-powershell.exe -Command "cd C:\Project\GamersScroll; gh workflow run weekly-insight.yml"
+powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run weekly-insight.yml"
 ```
 
-**GitHub Actions**: https://github.com/tempest1033/GamersScroll/actions
+**GitHub Actions**: https://github.com/tempest1033/GamerScroll/actions
