@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-01-21T14:58:28.735Z",
+  "updatedAt": "2026-01-22T15:02:21.592Z",
   "period": "30days",
   "games": [
     {
       "slug": "승리의-여신-니케",
-      "views": 206
+      "views": 208
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
@@ -43,16 +43,20 @@
       "views": 64
     },
     {
+      "slug": "쿠키런-킹덤",
+      "views": 58
+    },
+    {
       "slug": "카트라이더-러쉬플러스",
       "views": 55
     },
     {
-      "slug": "쿠키런-킹덤",
-      "views": 54
-    },
-    {
       "slug": "메이플-키우기",
       "views": 52
+    },
+    {
+      "slug": "드래곤소드",
+      "views": 41
     },
     {
       "slug": "com-studiobside-starmain",
@@ -73,10 +77,6 @@
     {
       "slug": "블루-아카이브",
       "views": 30
-    },
-    {
-      "slug": "com-hoyoverse-nap",
-      "views": 29
     }
   ]
 }
