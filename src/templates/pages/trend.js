@@ -7,9 +7,8 @@ const fs = require('fs');
 const path = require('path');
 const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMidAdPairSlot, generateNativeAdSlot, generateMultiplexAdSlot } = require('../layout');
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 반응형 빌드 - 단일 도메인
+const siteBaseUrl = 'https://gamerscroll.com';
 
 // 광고 활성화 여부
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
@@ -74,11 +73,9 @@ function formatDateKorean(dateStr) {
   return `${year}년 ${month}월 ${day}일`;
 }
 
-// 이슈 리포트 로컬 이미지 경로 헬퍼
+// 이슈 로컬 이미지 경로 헬퍼
 // 다운로드된 로컬 이미지가 있으면 로컬 경로 반환, 없으면 원본 URL 반환
-const DOCS_DIR = isMobileBuild
-  ? path.join(__dirname, '../../../docs-mobile')
-  : path.join(__dirname, '../../../docs');
+const DOCS_DIR = path.join(__dirname, '../../../docs');
 const ISSUE_IMAGES_DIR = path.join(DOCS_DIR, 'assets/images/issue');
 const WIKI_IMAGES_DIR = path.join(DOCS_DIR, 'assets/images/wiki');
 
@@ -170,7 +167,7 @@ const fixedTagClasses = {
   '매출': 'tag-revenue', '동접': 'tag-players'
 };
 
-// SVG 아이콘 정의 (주간 리포트용)
+// SVG 아이콘 정의 (주간용)
 const icons = {
   fire: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/><path d="M12 12c0 2-1.5 3-1.5 5a1.5 1.5 0 0 0 3 0c0-2-1.5-3-1.5-5z"/></svg>`,
   chart: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/></svg>`,
@@ -185,10 +182,10 @@ const icons = {
   globe: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
 };
 
-// 주간 리포트 패널 생성 함수 (원본 html.js의 generateWeeklyReport와 동일)
+// 주간 패널 생성 함수 (원본 html.js의 generateWeeklyReport와 동일)
 function generateWeeklyPanel(weeklyInsight) {
   if (!weeklyInsight?.ai) {
-    return '<div class="home-empty">주간 리포트를 불러올 수 없습니다</div>';
+    return '<div class="home-empty">주간를 불러올 수 없습니다</div>';
   }
 
   const wai = weeklyInsight.ai;
@@ -206,9 +203,9 @@ function generateWeeklyPanel(weeklyInsight) {
     if (match) {
       const month = parseInt(match[2]);
       const weekOfMonth = Math.ceil(parseInt(match[3]) / 7);
-      return `${month}월 ${weekOfMonth}주차 게임 트렌드 리포트`;
+      return `${month}월 ${weekOfMonth}주차 게임 브리핑`;
     }
-    return `${wNum}주차 게임 트렌드 리포트`;
+    return `${wNum}주차 게임 브리핑`;
   };
   const seoTitle = formatWeekTitle(weekPeriod, weekNum);
 
@@ -232,11 +229,9 @@ function generateWeeklyPanel(weeklyInsight) {
   ];
   let localMidCursor = 0;
   const midAd = () => {
-    const idx = localMidCursor % (isMobileBuild ? mobileNativeSlots.length : localMidSlotPairs.length);
+    // 통합 반응형 빌드: PC 슬롯 사용 (CSS 미디어 쿼리로 자동 분기)
+    const idx = localMidCursor % localMidSlotPairs.length;
     localMidCursor += 1;
-    if (isMobileBuild) {
-      return generateNativeAdSlot(mobileNativeSlots[idx]);
-    }
     return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
   };
 
@@ -559,22 +554,8 @@ function generateWeeklyPanel(weeklyInsight) {
   const heroThumb = wai.thumbnail || null;
   const heroThumbUrl = heroThumb ? fixUrl(heroThumb) : null;
 
-  const weeklyBody = isMobileBuild ? `
-      ${midAd()}
-      ${hotIssuesSection}
-      ${midAd()}
-      ${rankingsSection}
-      ${industrySection}
-      ${midAd()}
-      ${metricsSection}
-      ${globalSection}
-      ${mvpSection}
-      ${midAd()}
-      ${stocksSection}
-      ${releasesSection}
-      ${communitySection}
-      ${streamingSection}
-    ` : `
+  // 통합 반응형 빌드: PC 레이아웃 사용 (CSS로 모바일 반응형 처리)
+  const weeklyBody = `
       ${hotIssuesSection}
       ${rankingsSection}
       ${midAd()}
@@ -621,9 +602,9 @@ function generateTrendPage(data) {
     `;
     return wrapWithLayout(content, {
       currentPage: 'trend',
-      title: '게이머스크롤 | 게임 트렌드 리포트',
-      description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
-      canonical: `${siteBaseUrl}/trend/`
+      title: '게이머스크롤 | 게임 브리핑',
+      description: '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간로 한눈에 확인하세요.',
+      canonical: `${siteBaseUrl}/magazine/`
     });
   }
 
@@ -761,7 +742,7 @@ function generateTrendPage(data) {
     `;
   };
 
-  // 유저 반응 카드 그리드 렌더링 (주간 리포트 스타일)
+  // 유저 반응 카드 그리드 렌더링 (주간 스타일)
   const renderCommunityCards = (title, items, iconSvg, desc) => {
     if (!items || items.length === 0) return '';
     const cards = items.map(item => {
@@ -788,7 +769,7 @@ function generateTrendPage(data) {
     `;
   };
 
-  // 스트리밍 트렌드 카드 그리드 렌더링 (주간 리포트 스타일)
+  // 스트리밍 트렌드 카드 그리드 렌더링 (주간 스타일)
   const renderStreamingCards = (title, items, iconSvg, desc) => {
     if (!items || items.length === 0) return '';
     const cards = items.map(item => `
@@ -862,7 +843,7 @@ function generateTrendPage(data) {
     `;
   };
 
-  // 게임주 현황 섹션 렌더링 (일간 리포트용)
+  // 게임주 현황 섹션 렌더링 (일간용)
   const stockMap = {
     '크래프톤': '259960', '넷마블': '251270', '엔씨소프트': '036570',
     '카카오게임즈': '293490', '펄어비스': '263750', '위메이드': '112040',
@@ -957,7 +938,7 @@ function generateTrendPage(data) {
   const stockPrices = insight?.stockPrices || {};
 
   // summary 객체에서 title과 desc 추출
-  const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 트렌드 리포트');
+  const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 브리핑');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
   // 모바일용 인피드 슬롯
   const mobileNativeSlots2 = [
@@ -974,14 +955,13 @@ function generateTrendPage(data) {
   ];
   let localMidCursor = 0;
   const midAd = () => {
-    const idx = localMidCursor % (isMobileBuild ? mobileNativeSlots2.length : localMidSlotPairs.length);
+    // 통합 반응형 빌드: PC 슬롯 사용 (CSS 미디어 쿼리로 자동 분기)
+    const idx = localMidCursor % localMidSlotPairs.length;
     localMidCursor += 1;
-    if (isMobileBuild) {
-      return generateNativeAdSlot(mobileNativeSlots2[idx]);
-    }
     return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
   };
-  const midAdMobileOnly = () => (isMobileBuild ? midAd() : '');
+  // 통합 빌드에서는 빈 문자열 반환 (모바일 전용 광고는 CSS로 처리)
+  const midAdMobileOnly = () => '';
 
   const content = `
     <section class="section active" id="insight">
@@ -990,8 +970,8 @@ function generateTrendPage(data) {
         ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         <div class="insight-tabs">
-          <button class="insight-tab active" data-tab="daily">일간 리포트</button>
-          <button class="insight-tab" data-tab="weekly">주간 리포트</button>
+          <button class="insight-tab active" data-tab="daily">일간</button>
+          <button class="insight-tab" data-tab="weekly">주간</button>
         </div>
 
         <div class="insight-panel active" id="panel-daily">
@@ -1039,19 +1019,19 @@ function generateTrendPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'trend',
-    title: '게이머스크롤 | 게임 트렌드 리포트',
-    description: '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간 리포트로 한눈에 확인하세요.',
-    canonical: `${siteBaseUrl}/trend/`,
+    title: '게이머스크롤 | 게임 브리핑',
+    description: '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간로 한눈에 확인하세요.',
+    canonical: `${siteBaseUrl}/magazine/`,
     pageScripts,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` }
+      { name: '브리핑', url: `${siteBaseUrl}/magazine/` }
     ]
   });
 }
 
 /**
- * 일간 리포트 상세 페이지 생성 (개별 JSON → HTML)
+ * 일간 상세 페이지 생성 (개별 JSON → HTML)
  * @param {Object} params
  * @param {Object} params.insight - 일간 인사이트 데이터 (ai 필드 포함)
  * @param {string} params.slug - URL slug (예: 2025-12-09)
@@ -1082,14 +1062,14 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   if (!aiInsight) {
     const content = `
       <section class="section active" id="insight">
-        <div class="home-empty">일간 리포트를 불러올 수 없습니다</div>
+        <div class="home-empty">일간를 불러올 수 없습니다</div>
       </section>
     `;
     return wrapWithLayout(content, {
       currentPage: 'trend',
-      title: '게이머스크롤 | 게임 트렌드 리포트',
-      description: '게임 트렌드 리포트를 찾을 수 없습니다.',
-      canonical: `${siteBaseUrl}/trend/daily/${slug}/`,
+      title: '게이머스크롤 | 게임 브리핑',
+      description: '게임 브리핑를 찾을 수 없습니다.',
+      canonical: `${siteBaseUrl}/magazine/daily/${slug}/`,
       noindex: true
     });
   }
@@ -1414,7 +1394,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   const stockPrices = insight?.stockPrices || {};
 
   // summary 객체에서 title과 desc 추출
-  const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 트렌드 리포트');
+  const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 브리핑');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
   // 모바일용 인피드 슬롯
   const mobileNativeSlots3 = [
@@ -1431,21 +1411,20 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   ];
   let localMidCursor = 0;
   const midAd = () => {
-    const idx = localMidCursor % (isMobileBuild ? mobileNativeSlots3.length : localMidSlotPairs.length);
+    // 통합 반응형 빌드: PC 슬롯 사용 (CSS 미디어 쿼리로 자동 분기)
+    const idx = localMidCursor % localMidSlotPairs.length;
     localMidCursor += 1;
-    if (isMobileBuild) {
-      return generateNativeAdSlot(mobileNativeSlots3[idx]);
-    }
     return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
   };
-  const midAdMobileOnly = () => (isMobileBuild ? midAd() : '');
+  // 통합 빌드에서는 빈 문자열 반환 (모바일 전용 광고는 CSS로 처리)
+  const midAdMobileOnly = () => '';
 
   // 네비게이션 (이전/목록/다음 리포트) - 하단에만 표시
   const navHtml = `
     <div class="trend-detail-nav">
-      ${nav.prev ? `<a href="/trend/daily/${nav.prev}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/trend/" class="trend-nav-btn list">목록</a>
-      ${nav.next ? `<a href="/trend/daily/${nav.next}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+      ${nav.prev ? `<a href="/magazine/daily/${nav.prev}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      ${nav.next ? `<a href="/magazine/daily/${nav.next}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
     </div>
   `;
 
@@ -1492,7 +1471,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   // SEO 정보
   const dateForTitle = aiInsight.date || slug;
   const summaryText = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : aiInsight.summary;
-  const descriptionText = summaryText || '게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
+  const descriptionText = summaryText || '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
   const dynamicKeywords = issues.slice(0, 4).map(i => i.title).join(', ');
   const keywordsText = dynamicKeywords ? `게임 트렌드, ${dynamicKeywords}` : '게임 트렌드, 게임 업계 이슈, 게임 순위, 게임 뉴스';
 
@@ -1510,18 +1489,18 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     title: summaryTitle,
     description: descriptionText,
     keywords: keywordsText,
-    canonical: `${siteBaseUrl}/trend/daily/${slug}/`,
+    canonical: `${siteBaseUrl}/magazine/daily/${slug}/`,
     articleSchema,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` },
-      { name: `일간 리포트 ${slug}`, url: `${siteBaseUrl}/trend/daily/${slug}/` }
+      { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
+      { name: `일간 ${slug}`, url: `${siteBaseUrl}/magazine/daily/${slug}/` }
     ]
   });
 }
 
 /**
- * 주간 리포트 상세 페이지 생성 (개별 JSON → HTML)
+ * 주간 상세 페이지 생성 (개별 JSON → HTML)
  * @param {Object} params
  * @param {Object} params.weeklyInsight - 주간 인사이트 데이터 (ai, weekInfo 필드 포함)
  * @param {string} params.slug - URL slug (예: 2025-W51)
@@ -1531,14 +1510,14 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   if (!weeklyInsight?.ai) {
     const content = `
       <section class="section active" id="insight">
-        <div class="home-empty">주간 리포트를 불러올 수 없습니다</div>
+        <div class="home-empty">주간를 불러올 수 없습니다</div>
       </section>
     `;
     return wrapWithLayout(content, {
       currentPage: 'trend',
-      title: '게이머스크롤 | 주간 게임 트렌드 리포트',
-      description: '주간 게임 트렌드 리포트를 찾을 수 없습니다.',
-      canonical: `${siteBaseUrl}/trend/weekly/${slug}/`,
+      title: '게이머스크롤 | 주간 게임 브리핑',
+      description: '주간 게임 브리핑를 찾을 수 없습니다.',
+      canonical: `${siteBaseUrl}/magazine/weekly/${slug}/`,
       noindex: true
     });
   }
@@ -1546,15 +1525,15 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   // 네비게이션 (이전/목록/다음 리포트) - 하단에만 표시
   const navHtml = `
     <div class="trend-detail-nav">
-      ${nav.prev ? `<a href="/trend/weekly/${nav.prev}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/trend/" class="trend-nav-btn list">목록</a>
-      ${nav.next ? `<a href="/trend/weekly/${nav.next}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+      ${nav.prev ? `<a href="/magazine/weekly/${nav.prev}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      ${nav.next ? `<a href="/magazine/weekly/${nav.next}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
     </div>
   `;
 
   const weeklyPanelHtml = generateWeeklyPanel(weeklyInsight);
   const waiForH1 = weeklyInsight.ai;
-  const h1Title = typeof waiForH1.summary === 'object' ? waiForH1.summary.title : (waiForH1.headline || waiForH1.summary || `${slug} 주간 게임 트렌드 리포트`);
+  const h1Title = typeof waiForH1.summary === 'object' ? waiForH1.summary.title : (waiForH1.headline || waiForH1.summary || `${slug} 주간 게임 브리핑`);
 
   const content = `
     <section class="section active" id="insight">
@@ -1578,7 +1557,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   const weekNum = wInfo.weekNumber || wai.weekNumber || '';
   const heroThumbUrl = wai.thumbnail ? fixUrl(wai.thumbnail) : '';
   const summaryTitle = typeof wai.summary === 'object' ? wai.summary.title : (wai.headline || wai.summary);
-  const descriptionText = summaryTitle || '주간 게임 트렌드 리포트 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
+  const descriptionText = summaryTitle || '주간 게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
 
   // 동적 키워드 (issues에서 4개 추출)
   const weeklyIssues = wai.issues || [];
@@ -1587,7 +1566,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
 
   // Article JSON-LD 스키마
   const articleSchema = {
-    headline: summaryTitle || `${weekNum}주차 주간 게임 트렌드 리포트`,
+    headline: summaryTitle || `${weekNum}주차 주간 게임 브리핑`,
     description: descriptionText,
     datePublished: wInfo.endDate || wai.date || slug.replace('W', ''),
     dateModified: weeklyInsight.generatedAt?.split('T')[0] || wInfo.endDate || wai.date,
@@ -1599,30 +1578,30 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     title: summaryTitle,
     description: descriptionText,
     keywords: keywordsText,
-    canonical: `${siteBaseUrl}/trend/weekly/${slug}/`,
+    canonical: `${siteBaseUrl}/magazine/weekly/${slug}/`,
     articleSchema,
     preloadImages: heroThumbUrl ? [heroThumbUrl] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` },
-      { name: `주간 리포트 ${slug}`, url: `${siteBaseUrl}/trend/weekly/${slug}/` }
+      { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
+      { name: `주간 ${slug}`, url: `${siteBaseUrl}/magazine/weekly/${slug}/` }
     ]
   });
 }
 
 /**
- * 이슈 리포트 상세 페이지 생성
+ * 이슈 상세 페이지 생성
  * @param {Object} params
- * @param {Object} params.post - 이슈 리포트 포스트 데이터
+ * @param {Object} params.post - 이슈 포스트 데이터
  * @param {Object} params.nav - 이전/다음 포스트 정보
  */
 function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData = {} }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">포스트를 찾을 수 없습니다</div>', {
       currentPage: 'trend',
-      title: '게이머스크롤 | 이슈 리포트',
-      description: '이슈 리포트를 찾을 수 없습니다.',
-      canonical: `${siteBaseUrl}/trend/issue/`,
+      title: '게이머스크롤 | 이슈',
+      description: '이슈를 찾을 수 없습니다.',
+      canonical: `${siteBaseUrl}/magazine/issue/`,
       noindex: true
     });
   }
@@ -1633,9 +1612,9 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
-  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '이슈 리포트 대표 이미지');
+  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '이슈 대표 이미지');
 
-  // 이슈 리포트 중간 광고 (PC/모바일 분기)
+  // 이슈 중간 광고 (PC/모바일 분기)
   const ISSUE_REPORT_SLOTS_PC = [
     AD_SLOTS.ResponsivePC001,
     AD_SLOTS.ResponsivePC002,
@@ -1655,33 +1634,11 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     // 광고 비활성화 시 빈 문자열 반환
     if (!ADS_ENABLED) return '';
 
-    if (isMobileBuild) {
-      // 모바일: 네이티브 In-feed 광고
-      const slotId = ISSUE_REPORT_SLOTS_MOBILE[adIndex % ISSUE_REPORT_SLOTS_MOBILE.length];
-      return `<div class="blog-ad">
-        <div class="ad-card ad-card-native">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-format="fluid"
-               data-ad-layout-key="-7m+ex-1f-2m+ae"
-               data-ad-client="ca-pub-9477874183990825"
-               data-ad-slot="${slotId}"></ins>
-        </div>
-      </div>`;
-    } else {
-      // PC: 반응형 확장형 광고
-      const slotId = ISSUE_REPORT_SLOTS_PC[adIndex % ISSUE_REPORT_SLOTS_PC.length];
-      return `<div class="blog-ad">
-        <div class="ad-card ad-card-responsive">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-9477874183990825"
-               data-ad-slot="${slotId}"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-        </div>
-      </div>`;
-    }
+    // 통합 반응형 빌드: 네이티브 In-feed 광고 사용 (PC/모바일 자동 대응)
+    const slotId = ISSUE_REPORT_SLOTS_MOBILE[adIndex % ISSUE_REPORT_SLOTS_MOBILE.length];
+    return `<div class="blog-ad">
+      ${generateNativeAdSlot(slotId)}
+    </div>`;
   };
 
   // 관련 게임 찾기
@@ -1818,7 +1775,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     </div>
   ` : '';
 
-  // 관련 문서 (이슈 리포트 + 위키)
+  // 관련 문서 (이슈 + 위키)
   const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
   const relatedIssuesList = (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
 
@@ -1840,7 +1797,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
       <h3 class="blog-related-title">관련 문서</h3>
       <div class="blog-related-issues-list">
         ${relatedIssuesList.map(issue => `
-          <a href="/trend/issue/${issue.slug}/" class="blog-related-issue-card">
+          <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
             <span class="blog-related-issue-title">${issue.title}</span>
           </a>
@@ -1871,9 +1828,9 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
   // 네비게이션
   const navHtml = `
     <div class="trend-detail-nav">
-      ${nav.prev ? `<a href="/trend/issue/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/trend/" class="trend-nav-btn list">목록</a>
-      ${nav.next ? `<a href="/trend/issue/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+      ${nav.prev ? `<a href="/magazine/issue/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      ${nav.next ? `<a href="/magazine/issue/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
     </div>
   `;
 
@@ -1930,13 +1887,13 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     currentPage: 'trend',
     title: title,
     description: summary || title,
-    keywords: post.keywords || '게임 분석, 이슈 리포트, 게임 이슈, 모바일 게임',
-    canonical: `${siteBaseUrl}/trend/issue/${slug}/`,
+    keywords: post.keywords || '게임 분석, 이슈, 게임 이슈, 모바일 게임',
+    canonical: `${siteBaseUrl}/magazine/issue/${slug}/`,
     articleSchema,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '트렌드 리포트', url: `${siteBaseUrl}/trend/` },
-      { name: title, url: `${siteBaseUrl}/trend/issue/${slug}/` }
+      { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
+      { name: title, url: `${siteBaseUrl}/magazine/issue/${slug}/` }
     ]
   });
 }

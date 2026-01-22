@@ -10,9 +10,8 @@ const {
   generateMobileTopAdSlot
 } = require('../layout');
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 반응형 빌드 - 단일 도메인
+const siteBaseUrl = 'https://gamerscroll.com';
 
 // URL 수정 헬퍼 (이미지 프록시)
 const fixUrl = (url) => {
@@ -121,100 +120,19 @@ function generateNewsPage(data) {
     `;
   }
 
-  let content;
+  // 통합 반응형 빌드: PC 구조 사용 (CSS로 반응형 처리)
+  const content = `
+    <section class="section active" id="news">
 
-  if (isMobileBuild) {
-    // 모바일 전용: 일간/주간 리포트 + 인피드 + 뉴스4개 + 리스폰스
-    const insightFileDate = insight?.insightDate || '';
-
-    // 날짜 포맷 헬퍼
-    const formatDateKr = (dateStr) => {
-      if (!dateStr) return '';
-      const match = dateStr.match(/(\d{4})-(\d{2})-(\d{2})/);
-      if (!match) return dateStr;
-      return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
-    };
-
-    // 일간 리포트
-    const dailyHeadline = aiInsight?.headline || '일간 리포트';
-    const dailyLink = insightFileDate ? `/trend/daily/${insightFileDate}/` : '/trend/';
-
-    // 주간 리포트
-    const wInfo = weeklyInsight?.weekInfo || {};
-    const weeklyHeadline = wai?.headline || '주간 리포트';
-    const weekNum = wInfo.weekNumber || wai?.weekNumber || '';
-    const weekYear = wInfo.year || new Date().getFullYear();
-    const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
-    const weeklyLink = weeklySlug ? `/trend/weekly/${weeklySlug}/` : '/trend/';
-
-    // 리포트 그리드
-    const reportGrid = `
-      <div class="home-trend-grid">
-        <a href="${dailyLink}" class="home-trend-card">
-          <div class="home-trend-card-image">
-            ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="" loading="eager" fetchpriority="high" decoding="async" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag">일간 리포트</span>
-          </div>
-          <h3 class="home-trend-card-title">${dailyHeadline}</h3>
-        </a>
-        <a href="${weeklyLink}" class="home-trend-card">
-          <div class="home-trend-card-image">
-            ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="" loading="eager" fetchpriority="auto" decoding="async" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag weekly">주간 리포트</span>
-          </div>
-          <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
-        </a>
-      </div>`;
-
-    // 모든 뉴스 합치기 (4개 소스에서 각 1개씩)
-    let allNews = [];
-    newsSources.forEach(src => {
-      const items = news?.[src.key] || [];
-      items.filter(item => item.thumbnail).slice(0, 1).forEach(item => {
-        allNews.push({ ...item, source: src.name });
-      });
-    });
-
-    // 뉴스 카드 렌더
-    const renderNewsCard = (item) => `
-      <a href="${item.link}" class="home-trend-card" target="_blank" rel="noopener">
-        <div class="home-trend-card-image">
-          <img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide">
-          <span class="home-trend-card-tag">${item.source}</span>
+      <div class="page-container">
+        ${topAds}
+        <h1 class="visually-hidden">게임 뉴스</h1>
+        <div class="news-sources-grid">
+          ${newsSources.map(source => generateNewsSection(source)).join('')}
         </div>
-        <h3 class="home-trend-card-title">${item.title}</h3>
-      </a>`;
-
-    content = `
-      <section class="section active" id="news">
-        <div class="page-container">
-          ${topAds}
-          <h1 class="visually-hidden">게임 뉴스</h1>
-          ${reportGrid}
-          ${generateNativeAdSlot(AD_SLOTS.Article001)}
-          ${allNews[0] ? renderNewsCard(allNews[0]) : ''}
-          ${allNews[1] ? renderNewsCard(allNews[1]) : ''}
-          ${generateMobileTopAdSlot(AD_SLOTS.ResponsivePC002)}
-          ${allNews[2] ? renderNewsCard(allNews[2]) : ''}
-          ${allNews[3] ? renderNewsCard(allNews[3]) : ''}
-        </div>
-      </section>
-    `;
-  } else {
-    // PC: 기존 레이아웃
-    content = `
-      <section class="section active" id="news">
-
-        <div class="page-container">
-          ${topAds}
-          <h1 class="visually-hidden">게임 뉴스</h1>
-          <div class="news-sources-grid">
-            ${newsSources.map(source => generateNewsSection(source)).join('')}
-          </div>
-        </div>
-      </section>
-    `;
-  }
+      </div>
+    </section>
+  `;
 
   const pageScripts = `
   <script>
@@ -283,7 +201,7 @@ function generateNewsPage(data) {
     keywords: '게임 뉴스, 게임 소식',
     canonical: `${siteBaseUrl}/news/`,
     pageScripts,
-    preloadImages: isMobileBuild ? [dailyThumbnail, weeklyThumbnail].filter(Boolean) : [],
+    preloadImages: [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '게임 뉴스', url: `${siteBaseUrl}/news/` }

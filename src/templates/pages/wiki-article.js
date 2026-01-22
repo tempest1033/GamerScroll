@@ -18,9 +18,8 @@ try {
   // games.json 없으면 무시
 }
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 반응형 빌드 - 단일 도메인
+const siteBaseUrl = 'https://gamerscroll.com';
 
 // 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
@@ -49,10 +48,8 @@ const escapeHtmlAttr = (value) => String(value ?? '')
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;');
 
-// docs 폴더 경로 (모바일/PC 구분)
-const docsDir = isMobileBuild
-  ? path.join(__dirname, '../../../docs-mobile')
-  : path.join(__dirname, '../../../docs');
+// docs 폴더 경로 (통합 빌드)
+const docsDir = path.join(__dirname, '../../../docs');
 
 /**
  * 로컬 위키 이미지 경로 반환 (폴백: 외부 URL)
@@ -251,7 +248,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
           `;
           }).join('')}
           ${relatedIssuesList.map(issue => `
-            <a href="/trend/issue/${issue.slug}/" class="blog-related-issue-card">
+            <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
               <img class="blog-related-issue-thumb" src="/assets/images/issue/${issue.slug}/thumbnail.webp" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
               <span class="blog-related-issue-title">${issue.title}</span>
             </a>

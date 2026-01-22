@@ -1,28 +1,22 @@
 /**
- * 게임 위키 허브 페이지 (목록)
- * - 피드 카드 스타일 (썸네일 + 제목)
- * - 카테고리별 섹션 분리 (business, tech, history, knowledge)
- * - 각 섹션별 페이지네이션
+ * 게임 위키 허브 페이지
+ * - 홈과 동일한 2컬럼 레이아웃
+ * - 메인: 전체 최신 15개 그리드 + 페이지네이션
+ * - 사이드바: 매거진/위키 메뉴 + 인기/최신글
  */
 
 const path = require('path');
 const fs = require('fs');
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateNativeAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-
-// docs 폴더 경로 (모바일/PC 구분)
-const docsDir = isMobileBuild
-  ? path.join(__dirname, '../../../docs-mobile')
-  : path.join(__dirname, '../../../docs');
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 반응형 빌드 - 단일 도메인/경로
+const docsDir = path.join(__dirname, '../../../docs');
+const siteBaseUrl = 'https://gamerscroll.com';
 
 // 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
-const nativeAd1 = generateNativeAdSlot(AD_SLOTS.Article001);
 
-// 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일)
+// 날짜 포맷 헬퍼
 const formatDateKr = (dateStr) => {
   if (!dateStr) return '';
   const match = dateStr.match(/(\d{4})-(\d{2})-(\d{2})/);
@@ -31,174 +25,202 @@ const formatDateKr = (dateStr) => {
 };
 
 // 카테고리 정보
-const categories = [
-  { key: 'history', name: '히스토리', desc: '게임 역사, 주요 사건, 업계 변화' },
-  { key: 'knowledge', name: '지식', desc: '장르, 용어, 기초 지식' },
-  { key: 'tech', name: '기술', desc: '게임 엔진, 개발 기술, 제작 파이프라인' },
-  { key: 'business', name: '비즈니스', desc: '업계 지표, 수익 구조, 성장 전략' }
-];
+const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
 
-/**
- * 로컬 위키 이미지 경로 반환 (폴백: 프록시 URL)
- */
+// 로컬 위키 이미지 경로 반환
 function getLocalWikiImagePath(category, slug, originalUrl) {
   if (!originalUrl || !originalUrl.startsWith('http')) return originalUrl;
-
   const localPath = `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
   const fullPath = path.join(docsDir, localPath);
-
-  if (fs.existsSync(fullPath)) {
-    return localPath;
-  }
-  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
+  if (fs.existsSync(fullPath)) return localPath;
   return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}`;
 }
 
+// HTML 이스케이프
+function escapeHtmlAttr(str) {
+  if (!str) return '';
+  return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 /**
- * 위키 허브 페이지 생성
- * @param {Object} params
- * @param {Object} params.wikiData - 카테고리별 위키 항목 {business: [], tech: [], history: [], knowledge: []}
+ * 위키 허브 페이지 생성 (/wiki/)
  */
-function generateWikiHubPage({ wikiData = {} }) {
-  // 위키 카드 렌더링
-  const renderWikiCard = (article, category) => {
-    const thumbnail = article.thumbnail
-      ? getLocalWikiImagePath(category, article.slug, article.thumbnail)
-      : '';
-    const catName = categories.find(c => c.key === category)?.name || '';
-    const badgeText = article.date ? formatDateKr(article.date) : catName;
+function generateWikiHubPage({
+  wikiData = {},
+  dailyReportsCount = 0,
+  weeklyReportsCount = 0,
+  issueReportsCount = 0,
+  issueReports = [],
+  sidebarPopularArticles = [],
+  sidebarLatestArticles = []
+}) {
+  // 전체 위키 글을 날짜순 정렬
+  const allWiki = [];
+  for (const cat of Object.keys(wikiData)) {
+    for (const article of (wikiData[cat] || [])) {
+      allWiki.push({ ...article, category: cat });
+    }
+  }
+  allWiki.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-    return `
-      <a href="/wiki/${category}/${article.slug}/" class="trend-feed-card" data-type="wiki">
-        <div class="trend-feed-card-image">
-          ${thumbnail ? `<img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="trend-feed-card-tag">${badgeText}</span>
-        </div>
-        <h3 class="trend-feed-card-title"><span class="trend-feed-card-title-text">${article.title}</span></h3>
-      </a>
-    `;
-  };
+  // 위키 그리드 생성
+  function generateWikiGrid() {
+    if (allWiki.length === 0) return '<p>위키 글이 없습니다.</p>';
 
-  // 카테고리별 섹션 생성
-  const generateCategorySection = (category) => {
-    const articles = wikiData[category.key] || [];
+    const wikiCards = allWiki.map(article => {
+      const thumbnail = article.thumbnail
+        ? getLocalWikiImagePath(article.category, article.slug, article.thumbnail)
+        : '';
+      const catName = categoryNames[article.category] || '';
+      const badgeText = article.date ? formatDateKr(article.date) : catName;
 
-    const cardsHTML = articles.map(article => renderWikiCard(article, category.key)).join('');
-    const totalPages = Math.max(1, Math.ceil(articles.length / 4));
-
-    return `
-      <div class="home-card home-card-full trend-section" data-section="${category.key}">
-        <div class="home-card-header">
-          <h2 class="home-card-title">${category.name}</h2>
-          <div class="trend-pagination">
-            <button class="trend-page-btn trend-prev" aria-label="이전">‹</button>
-            <span class="trend-page-index">1/${totalPages}</span>
-            <button class="trend-page-btn trend-next" aria-label="다음">›</button>
+      return `
+        <a href="/wiki/${article.category}/${article.slug}/" class="home-trend-card">
+          <div class="home-trend-card-image">
+            ${thumbnail ? `<img src="${thumbnail}" alt="${escapeHtmlAttr(article.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+            <span class="home-trend-card-tag wiki">${badgeText}</span>
           </div>
+          <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${article.title}</span></h3>
+        </a>
+      `;
+    }).join('');
+
+    return `
+      <div class="home-card" id="wiki-all">
+        <div class="home-card-header">
+          <h2 class="home-card-title">최신</h2>
         </div>
-        <div class="home-card-body">
-          ${articles.length > 0
-            ? `<div class="trend-feed-grid">${cardsHTML}</div>`
-            : '<div class="trend-empty">아직 등록된 항목이 없습니다</div>'}
+        <div class="home-latest-grid" id="wikiGrid">${wikiCards}</div>
+        <div class="home-pagination" id="wikiPagination">
+          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
+          <span class="home-page-index">1/1</span>
+          <button class="home-page-btn home-next" aria-label="다음">›</button>
         </div>
       </div>
     `;
-  };
+  }
+
+  // 사이드바 (공유 리스트 사용)
+  function generateSidebar() {
+    const counts = {
+      daily: dailyReportsCount,
+      weekly: weeklyReportsCount,
+      issue: issueReportsCount,
+      history: (wikiData.history || []).length,
+      knowledge: (wikiData.knowledge || []).length,
+      tech: (wikiData.tech || []).length,
+      business: (wikiData.business || []).length
+    };
+
+    const magazineCategories = [
+      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
+      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
+    ];
+
+    const wikiCategories = [
+      { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
+      { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
+      { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
+      { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+    ];
+
+    const renderItems = (items) => items.map(cat => `
+      <a href="${cat.link}" class="sidebar-category-item">
+        <span class="sidebar-category-name">${cat.name}${cat.count !== undefined ? ` (${cat.count})` : ''}</span>
+      </a>
+    `).join('');
+
+    const renderArticleList = (items) => items.map((item, i) => `
+      <a href="${item.link || item.path || '#'}" class="sidebar-article-item">
+        <span class="sidebar-article-rank">${i + 1}</span>
+        <span class="sidebar-article-title">${item.title}</span>
+      </a>
+    `).join('');
+
+    return `
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><h2 class="home-card-title">매거진</h2></div>
+          <div class="sidebar-category-list">${renderItems(magazineCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><h2 class="home-card-title">위키</h2></div>
+          <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
+        </div>
+      </div>
+
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">${renderArticleList(sidebarPopularArticles)}</div>
+          <div class="sidebar-article-list" id="sidebar-latest">${renderArticleList(sidebarLatestArticles)}</div>
+        </div>
+      </div>
+    `;
+  }
 
   const content = `
     <section class="section active" id="wiki-hub">
-
-      <div class="page-container">
-        ${topAds}
-        <h1 class="visually-hidden">게임 위키 - 게임 업계 지식백과</h1>
-
-        <!-- Business 섹션 -->
-        ${generateCategorySection(categories[0])}
-
-        <!-- Tech 섹션 -->
-        ${generateCategorySection(categories[1])}
-
-        ${nativeAd1}
-
-        <!-- History 섹션 -->
-        ${generateCategorySection(categories[2])}
-
-        <!-- Knowledge 섹션 -->
-        ${generateCategorySection(categories[3])}
+      ${topAds}
+      <h1 class="visually-hidden">게임 위키 - 게임 업계 지식백과</h1>
+      <div class="home-container">
+        <div class="home-main">
+          ${generateWikiGrid()}
+        </div>
+        <aside class="home-sidebar">
+          ${generateSidebar()}
+        </aside>
       </div>
     </section>
   `;
 
   const pageScripts = `
   <script>
-    // 위키 섹션별 페이지네이션
-    document.addEventListener('DOMContentLoaded', function() {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      const pageSize = isMobile ? 1 : 4;
-
-      const trendStateMap = new Map();
-
-      function updateTrendPagination(state) {
-        const start = state.currentPage * state.pageSize;
-        const end = start + state.pageSize;
-
-        state.items.forEach((item, i) => {
-          item.style.display = (i >= start && i < end) ? '' : 'none';
-        });
-
-        if (state.pageIndex) {
-          state.pageIndex.textContent = (state.currentPage + 1) + '/' + state.totalPages;
+    (function() {
+      // 페이지네이션
+      const grid = document.getElementById('wikiGrid');
+      const pagination = document.getElementById('wikiPagination');
+      if (grid && pagination) {
+        const items = Array.from(grid.querySelectorAll('.home-trend-card'));
+        const pageSize = 15;
+        const totalPages = Math.ceil(items.length / pageSize) || 1;
+        let currentPage = 1;
+        const prevBtn = pagination.querySelector('.home-prev');
+        const nextBtn = pagination.querySelector('.home-next');
+        const pageIndex = pagination.querySelector('.home-page-index');
+        function updatePagination() {
+          const start = (currentPage - 1) * pageSize;
+          const end = start + pageSize;
+          items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
+          pageIndex.textContent = currentPage + ' / ' + totalPages;
+          prevBtn.disabled = currentPage <= 1;
+          nextBtn.disabled = currentPage >= totalPages;
         }
-        if (state.prevBtn) {
-          state.prevBtn.disabled = state.currentPage <= 0;
-        }
-        if (state.nextBtn) {
-          state.nextBtn.disabled = state.currentPage >= state.totalPages - 1;
-        }
+        prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
+        nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
+        updatePagination();
       }
 
-      document.querySelectorAll('.trend-section').forEach(section => {
-        const prevBtn = section.querySelector('.trend-prev');
-        const nextBtn = section.querySelector('.trend-next');
-        const pageIndex = section.querySelector('.trend-page-index');
-        const items = Array.from(section.querySelectorAll('.trend-feed-card'));
-
-        if (!prevBtn || !nextBtn || !pageIndex) return;
-
-        const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
-
-        const state = {
-          section,
-          prevBtn,
-          nextBtn,
-          pageIndex,
-          items,
-          pageSize,
-          totalPages,
-          currentPage: 0
-        };
-
-        trendStateMap.set(section, state);
-        updateTrendPagination(state);
-      });
-
-      document.addEventListener('click', (event) => {
-        const trendBtn = event.target.closest('.trend-prev, .trend-next');
-        if (!trendBtn || trendBtn.disabled) return;
-
-        const section = trendBtn.closest('.trend-section');
-        const state = trendStateMap.get(section);
-        if (!state) return;
-
-        if (trendBtn.classList.contains('trend-prev')) {
-          if (state.currentPage > 0) state.currentPage--;
-        } else {
-          if (state.currentPage < state.totalPages - 1) state.currentPage++;
-        }
-
-        updateTrendPagination(state);
-      });
-    });
+      // 사이드바 인기/최신 탭 토글
+      const sidebarTab = document.getElementById('sidebarArticleTab');
+      if (sidebarTab) {
+        sidebarTab.addEventListener('click', (e) => {
+          const btn = e.target.closest('.tab-btn');
+          if (!btn) return;
+          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const target = btn.dataset.sidebarTab;
+          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
+          document.getElementById('sidebar-' + target)?.classList.add('active');
+        });
+      }
+    })();
   </script>`;
 
   return wrapWithLayout(content, {
@@ -215,4 +237,193 @@ function generateWikiHubPage({ wikiData = {} }) {
   });
 }
 
-module.exports = { generateWikiHubPage };
+/**
+ * 위키 카테고리 목록 페이지 생성 (/wiki/{category}/)
+ */
+function generateWikiCategoryPage({
+  category,
+  wikiData = {},
+  dailyReportsCount = 0,
+  weeklyReportsCount = 0,
+  issueReportsCount = 0,
+  issueReports = [],
+  sidebarPopularArticles = [],
+  sidebarLatestArticles = []
+}) {
+  const articles = wikiData[category] || [];
+  const catName = categoryNames[category] || category;
+
+  function generateCategoryGrid() {
+    if (articles.length === 0) return '<p>위키 글이 없습니다.</p>';
+
+    const wikiCards = articles.map(article => {
+      const thumbnail = article.thumbnail
+        ? getLocalWikiImagePath(category, article.slug, article.thumbnail)
+        : '';
+      const badgeText = article.date ? formatDateKr(article.date) : catName;
+
+      return `
+        <a href="/wiki/${category}/${article.slug}/" class="home-trend-card">
+          <div class="home-trend-card-image">
+            ${thumbnail ? `<img src="${thumbnail}" alt="${escapeHtmlAttr(article.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+            <span class="home-trend-card-tag wiki">${badgeText}</span>
+          </div>
+          <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${article.title}</span></h3>
+        </a>
+      `;
+    }).join('');
+
+    return `
+      <div class="home-card" id="wiki-category">
+        <div class="home-card-header">
+          <h2 class="home-card-title">${catName}</h2>
+        </div>
+        <div class="home-latest-grid" id="wikiGrid">${wikiCards}</div>
+        <div class="home-pagination" id="wikiPagination">
+          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
+          <span class="home-page-index">1/1</span>
+          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // 사이드바 (공유 리스트 사용)
+  function generateSidebar() {
+    const counts = {
+      daily: dailyReportsCount,
+      weekly: weeklyReportsCount,
+      issue: issueReportsCount,
+      history: (wikiData.history || []).length,
+      knowledge: (wikiData.knowledge || []).length,
+      tech: (wikiData.tech || []).length,
+      business: (wikiData.business || []).length
+    };
+
+    const magazineCategories = [
+      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
+      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
+    ];
+
+    const wikiCategories = [
+      { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
+      { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
+      { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
+      { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+    ];
+
+    const renderItems = (items) => items.map(cat => `
+      <a href="${cat.link}" class="sidebar-category-item">
+        <span class="sidebar-category-name">${cat.name}${cat.count !== undefined ? ` (${cat.count})` : ''}</span>
+      </a>
+    `).join('');
+
+    const renderArticleList = (items) => items.map((item, i) => `
+      <a href="${item.link || item.path || '#'}" class="sidebar-article-item">
+        <span class="sidebar-article-rank">${i + 1}</span>
+        <span class="sidebar-article-title">${item.title}</span>
+      </a>
+    `).join('');
+
+    return `
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><h2 class="home-card-title">매거진</h2></div>
+          <div class="sidebar-category-list">${renderItems(magazineCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><h2 class="home-card-title">위키</h2></div>
+          <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
+        </div>
+      </div>
+
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">${renderArticleList(sidebarPopularArticles)}</div>
+          <div class="sidebar-article-list" id="sidebar-latest">${renderArticleList(sidebarLatestArticles)}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  const content = `
+    <section class="section active" id="wiki-category-page">
+      ${topAds}
+      <h1 class="visually-hidden">게임 위키 - ${catName}</h1>
+      <div class="home-container">
+        <div class="home-main">
+          ${generateCategoryGrid()}
+        </div>
+        <aside class="home-sidebar">
+          ${generateSidebar()}
+        </aside>
+      </div>
+    </section>
+  `;
+
+  const pageScripts = `
+  <script>
+    (function() {
+      // 페이지네이션
+      const grid = document.getElementById('wikiGrid');
+      const pagination = document.getElementById('wikiPagination');
+      if (grid && pagination) {
+        const items = Array.from(grid.querySelectorAll('.home-trend-card'));
+        const pageSize = 15;
+        const totalPages = Math.ceil(items.length / pageSize) || 1;
+        let currentPage = 1;
+        const prevBtn = pagination.querySelector('.home-prev');
+        const nextBtn = pagination.querySelector('.home-next');
+        const pageIndex = pagination.querySelector('.home-page-index');
+        function updatePagination() {
+          const start = (currentPage - 1) * pageSize;
+          const end = start + pageSize;
+          items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
+          pageIndex.textContent = currentPage + ' / ' + totalPages;
+          prevBtn.disabled = currentPage <= 1;
+          nextBtn.disabled = currentPage >= totalPages;
+        }
+        prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
+        nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
+        updatePagination();
+      }
+
+      // 사이드바 인기/최신 탭 토글
+      const sidebarTab = document.getElementById('sidebarArticleTab');
+      if (sidebarTab) {
+        sidebarTab.addEventListener('click', (e) => {
+          const btn = e.target.closest('.tab-btn');
+          if (!btn) return;
+          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const target = btn.dataset.sidebarTab;
+          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
+          document.getElementById('sidebar-' + target)?.classList.add('active');
+        });
+      }
+    })();
+  </script>`;
+
+  return wrapWithLayout(content, {
+    currentPage: 'wiki',
+    title: `${catName} - 게임 위키`,
+    description: `게임 업계 ${catName} 관련 심층 정보를 제공합니다.`,
+    keywords: `게임 위키, ${catName}, 게임 ${catName}`,
+    canonical: `${siteBaseUrl}/wiki/${category}/`,
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '게임 위키', url: `${siteBaseUrl}/wiki/` },
+      { name: catName, url: `${siteBaseUrl}/wiki/${category}/` }
+    ]
+  });
+}
+
+module.exports = { generateWikiHubPage, generateWikiCategoryPage };

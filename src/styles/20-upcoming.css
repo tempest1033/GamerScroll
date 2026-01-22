@@ -1,10 +1,6 @@
 ﻿    /* ========== Upcoming Games Section ========== */
-    .upcoming-section {
+    .upcoming-section:not(.active) {
       display: none;
-    }
-
-    .upcoming-section.active {
-      display: block;
     }
 
     .upcoming-card {
@@ -24,7 +20,7 @@
       background: transparent;
       text-align: center;
       border-bottom: 1px solid var(--border);
-      font-size: var(--font-small-size);
+      font-size: var(--font-tab-size);
       font-weight: var(--font-badge-weight);
       color: var(--text);
       letter-spacing: 0.02em;

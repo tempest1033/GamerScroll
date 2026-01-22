@@ -6,9 +6,8 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 반응형 빌드 - 단일 도메인
+const siteBaseUrl = 'https://gamerscroll.com';
 
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);

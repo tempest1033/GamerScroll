@@ -9,11 +9,19 @@ const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const { generateHead } = require('./components/head');
 const {
   renderAdCard,
+  renderResponsiveTopAd,
+  renderResponsiveHomeAd,
+  renderSidebarVerticalAd,
+  renderSidebarRectangleAd,
+  renderMobileOnlyAd,
+  renderContentAd,
+  renderNativeAd,
+  renderMultiplexAd,
+  // 하위 호환 별칭
   renderPCAd,
   renderPCHomeAd,
   renderVerticalAd,
-  renderRectangleAd,
-  renderMultiplexAd
+  renderRectangleAd
 } = require('./components/ads');
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
@@ -411,59 +419,77 @@ const hoverPrefetchScript = `
 })();
 </script>`;
 
-// 공통 스와이프 스크립트
+// 공통 스와이프 스크립트 (드래그 중 화면 이동 + 슬라이드 아웃 애니메이션)
 const swipeScript = `
 <script>
 (function() {
-  // 네비게이션 섹션 정의 (모바일 순서 기준, PC는 CSS order로 시각 조정)
-  const navSections = ['trend', 'wiki', 'games', 'rankings', 'steam', 'youtube', 'upcoming', 'metacritic'];
-  const NAV_SCROLL_KEY = 'gc_nav_scroll_state_v1';
-  const NAV_SCROLL_MAX_AGE_MS = 60000;
-  const getNavSections = () => navSections;
-  let touchStartX = 0;
-  let touchStartY = 0;
+  // PC에서는 스와이프 비활성화
+  if (window.innerWidth > 768) return;
+
+  const navSections = ['magazine', 'wiki', 'games', 'rankings', 'steam', 'upcoming'];
+
+  const SWIPE_THRESHOLD = 0.10; // 10% 넘으면 페이지 이동
+  const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동
+  const TRANSITION_MS = 120;
+  const SLIDE_OUT_MS = 80; // 슬라이드 아웃 애니메이션 시간
+  const DIRECTION_LOCK_PX = 10;
+  const DIRECTION_LOCK_RATIO = 1.2;
+  const VELOCITY_THRESHOLD = 0.5; // 속도 임계값 (px/ms) - 빠른 플릭 감지
+
+  let originalNavIdx = null;
+  let previewNavIdx = null;
+
+  function setNavActiveIndex(idx) {
+    if (previewNavIdx === idx) return;
+    previewNavIdx = idx;
+
+    var navInner = document.querySelector('.nav-inner');
+    if (!navInner) return;
+    var navItems = navInner.querySelectorAll('.nav-item');
+    for (var i = 0; i < navItems.length; i++) navItems[i].classList.remove('active');
+    if (idx >= 0 && navItems[idx]) navItems[idx].classList.add('active');
+  }
+
+  let touchStartX = null;
+  let touchStartY = null;
+  let touchStartTime = null;
+  let swipeAxis = null;
   let isSwiping = false;
-  let touchedElement = null;
-  let isTouchMoving = false;
+  let swipeMode = null;
+  let hasPrevPage = false;
+  let hasNextPage = false;
+  let scrollableEl = null;
+  let mainEl = null;
 
   function getCurrentNavIndex() {
     const path = window.location.pathname;
-    const sections = getNavSections();
-    for (let i = 0; i < sections.length; i++) {
-      if (path.includes(sections[i])) return i;
-    }
-    return -1; // 홈
-  }
-
-  function getNavIndexFromLink(link) {
-    if (!link) return -1;
-    const navInner = document.querySelector('.nav-inner');
-    if (!navInner) return -1;
-    const navItems = navInner.querySelectorAll('.nav-item');
-    for (let i = 0; i < navItems.length; i++) {
-      if (navItems[i] === link) return i;
+    for (let i = 0; i < navSections.length; i++) {
+      if (path.includes(navSections[i])) return i;
     }
     return -1;
   }
 
-  function switchNavSection(index, direction) {
-    const sections = getNavSections();
-    const page = (index < 0 || index >= sections.length) ? 'home' : sections[index];
-
-    saveNavScrollStateForIndex(index);
-
-    // 페이지 이동
-    if (page === 'home') {
-      window.location.href = '/';
-    } else {
-      window.location.href = '/' + page + '/';
-    }
+  function getPrevIndex(idx) {
+    if (idx === -1) return navSections.length - 1;
+    if (idx === 0) return -1;
+    return idx - 1;
   }
 
-  // 스크롤 가능한 요소 찾기
+  function getNextIndex(idx) {
+    if (idx === -1) return 0;
+    if (idx >= navSections.length - 1) return -1;
+    return idx + 1;
+  }
+
+  function getPageByIndex(idx) {
+    if (idx === null || idx === undefined) return null;
+    if (idx < 0) return 'home';
+    return navSections[idx] || null;
+  }
+
   function findScrollableElement(el) {
     while (el && el !== document.body) {
-      if (el.classList.contains('chart-scroll') && el.scrollWidth > el.clientWidth) {
+      if (el.classList && el.classList.contains('chart-scroll') && el.scrollWidth > el.clientWidth) {
         return el;
       }
       el = el.parentElement;
@@ -471,133 +497,213 @@ const swipeScript = `
     return null;
   }
 
-  let scrollableEl = null;
+  function isScrollableAtEdge(el, direction) {
+    if (!el) return true;
+    const isAtStart = el.scrollLeft <= 1;
+    const isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+    return direction === 'next' ? isAtEnd : isAtStart;
+  }
 
-  document.addEventListener('click', (e) => {
-    const link = e.target && e.target.closest ? e.target.closest('a.nav-item') : null;
-    if (!link) return;
-    const idx = getNavIndexFromLink(link);
-    if (idx >= 0) saveNavScrollStateForIndex(idx);
-  }, true);
+  function resetSwipe() {
+    if (originalNavIdx !== null && originalNavIdx !== undefined) {
+      setNavActiveIndex(originalNavIdx);
+      originalNavIdx = null;
+      previewNavIdx = null;
+    }
+    if (mainEl) {
+      mainEl.style.transition = 'transform ' + TRANSITION_MS + 'ms ease-out';
+      mainEl.style.transform = '';
+      setTimeout(function() {
+        if (mainEl) mainEl.style.transition = '';
+      }, TRANSITION_MS);
+    }
+    touchStartX = null;
+    touchStartY = null;
+    touchStartTime = null;
+    swipeAxis = null;
+    isSwiping = false;
+    swipeMode = null;
+    scrollableEl = null;
+  }
 
-  // 터치 이벤트
-  document.body.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
-    isTouchMoving = false;
-    touchedElement = e.target.closest('.nav-item, .tab-btn');
+  function slideOutAndNavigate(url, direction) {
+    if (!mainEl) {
+      window.location.href = url;
+      return;
+    }
+    const screenWidth = window.innerWidth;
+    const targetX = direction === 'next' ? -screenWidth : screenWidth;
+    mainEl.style.transition = 'transform ' + SLIDE_OUT_MS + 'ms ease-in';
+    mainEl.style.transform = 'translate3d(' + targetX + 'px, 0, 0)';
+    setTimeout(function() {
+      window.location.href = url;
+    }, SLIDE_OUT_MS);
+  }
+
+  document.addEventListener('touchstart', function(e) {
+    if (!e.touches || e.touches.length > 1) return;
+
+    const t = e.target;
+    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle')) return;
+
+    mainEl = document.querySelector('main.site-container');
+    if (!mainEl) return;
+
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
+    swipeAxis = null;
+    isSwiping = false;
+    swipeMode = null;
+
+    originalNavIdx = getCurrentNavIndex();
+    previewNavIdx = originalNavIdx;
+
     scrollableEl = findScrollableElement(e.target);
+
+    const idx = getCurrentNavIndex();
+    hasPrevPage = getPrevIndex(idx) !== null;
+    hasNextPage = getNextIndex(idx) !== null;
   }, { passive: true });
 
-  document.body.addEventListener('touchmove', (e) => {
-    const diffX = Math.abs(touchStartX - e.changedTouches[0].screenX);
-    const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
-    if (diffX > 10 || diffY > 10) {
-      isTouchMoving = true;
-      document.body.classList.add('is-swiping');
-      document.activeElement?.blur();
-      if (touchedElement) {
-        touchedElement.style.pointerEvents = 'none';
-        touchedElement.classList.add('swiping');
-      }
+  document.addEventListener('touchmove', function(e) {
+    if (touchStartX === null || !mainEl) return;
+
+    const touchX = e.touches[0].clientX;
+    const touchY = e.touches[0].clientY;
+    const diffX = touchStartX - touchX;
+    const diffY = touchStartY - touchY;
+    const absX = Math.abs(diffX);
+    const absY = Math.abs(diffY);
+
+    if (!swipeAxis) {
+      if (absX < DIRECTION_LOCK_PX && absY < DIRECTION_LOCK_PX) return;
+      if (absY > absX * DIRECTION_LOCK_RATIO) { swipeAxis = 'vertical'; return; }
+      if (absX > absY * DIRECTION_LOCK_RATIO) swipeAxis = 'horizontal';
+      else return;
     }
-  }, { passive: true });
 
-  document.body.addEventListener('touchcancel', () => {
-    document.body.classList.remove('is-swiping');
-    if (touchedElement) {
-      touchedElement.style.pointerEvents = '';
-      touchedElement.classList.remove('swiping');
-      touchedElement = null;
-    }
-    isTouchMoving = false;
-  }, { passive: true });
+    if (swipeAxis !== 'horizontal') return;
 
-  function getNavScrollPosForIndex(idx) {
-    const navInner = document.querySelector('.nav-inner');
-    if (!navInner) return null;
-    const navItems = navInner.querySelectorAll('.nav-item');
-    const targetIdx = idx < 0 ? 0 : idx;
-    const targetItem = navItems[targetIdx];
-    if (!targetItem) return null;
+    e.preventDefault();
 
-    const maxScroll = navInner.scrollWidth - navInner.clientWidth;
-    if (maxScroll <= 0) return 0;
-    const lastIdx = navItems.length - 1;
-    if (targetIdx <= 1) return 0;
-    if (targetIdx >= lastIdx - 1) return maxScroll;
+    if (diffX > 0 && !hasNextPage) return;
+    if (diffX < 0 && !hasPrevPage) return;
 
-    const itemCenter = targetItem.offsetLeft + (targetItem.offsetWidth / 2);
-    const navCenter = navInner.clientWidth / 2;
-    return Math.max(0, Math.min(maxScroll, itemCenter - navCenter));
-  }
+    const intendedMode = diffX > 0 ? 'next' : 'prev';
 
-  function saveNavScrollStateForIndex(idx) {
-    const navInner = document.querySelector('.nav-inner');
-    if (!navInner || window.innerWidth > 768) return;
-    let scrollPos = null;
-    if (idx < 0 || idx >= navSections.length) {
-      scrollPos = navInner.scrollLeft || 0;
-    } else {
-      scrollPos = getNavScrollPosForIndex(idx);
-    }
-    if (scrollPos === null || scrollPos === undefined || !isFinite(scrollPos)) return;
-    try {
-      sessionStorage.setItem(NAV_SCROLL_KEY, JSON.stringify({ left: scrollPos, at: Date.now(), mode: 'target', idx: idx }));
-    } catch (e) {}
-  }
+    if (!isScrollableAtEdge(scrollableEl, intendedMode)) return;
 
-  function readNavScrollState() {
-    let raw = null;
-    try { raw = sessionStorage.getItem(NAV_SCROLL_KEY); } catch (e) {}
-    if (!raw) return null;
-    let state = null;
-    try { state = JSON.parse(raw); } catch (e) { return null; }
-    try { sessionStorage.removeItem(NAV_SCROLL_KEY); } catch (e) {}
+    isSwiping = true;
+    swipeMode = intendedMode;
 
-    const at = parseInt(state.at, 10) || 0;
-    if (at && (Date.now() - at) > NAV_SCROLL_MAX_AGE_MS) return null;
-    const left = parseFloat(state.left);
-    if (!isFinite(left)) return null;
-    const idx = parseInt(state.idx, 10);
-    if (!isFinite(idx)) return null;
-    return { left: left, idx: idx };
-  }
+    const screenWidth = window.innerWidth;
+    const maxDrag = screenWidth * MAX_DRAG_PERCENT;
+    const dragAmount = Math.min(absX, maxDrag);
+    const translateX = diffX > 0 ? -dragAmount : dragAmount;
 
-  function applyInitialNavScroll(attempt) {
-    attempt = attempt || 0;
-    const navInner = document.querySelector('.nav-inner');
-    if (window.innerWidth > 768 || !navInner) return;
+    mainEl.style.transition = 'none';
+    mainEl.style.transform = 'translate3d(' + translateX + 'px, 0, 0)';
 
-    if ((navInner.clientWidth <= 0 || navInner.scrollWidth <= navInner.clientWidth + 1) && attempt < 60) {
-      requestAnimationFrame(() => applyInitialNavScroll(attempt + 1));
+  }, { passive: false });
+
+  document.addEventListener('touchend', function() {
+    if (touchStartX === null || !mainEl) return;
+
+    if (!isSwiping) {
+      resetSwipe();
       return;
     }
 
-    const state = readNavScrollState();
-    const currentIdx = getCurrentNavIndex();
-    navInner.style.transition = 'none';
-    if (state && typeof state.left === 'number' && isFinite(state.left) && state.idx === currentIdx) {
-      navInner.scrollLeft = state.left;
-    } else {
-      if (currentIdx >= 0) {
-        const scrollPos = getNavScrollPosForIndex(currentIdx);
-        if (scrollPos !== null && scrollPos !== undefined) {
-          navInner.scrollLeft = scrollPos;
-        }
+    const screenWidth = window.innerWidth;
+    const currentTransform = mainEl.style.transform;
+    const match = currentTransform.match(/translate3d\\(([\\-\\d.]+)px/);
+    const currentX = match ? parseFloat(match[1]) : 0;
+    const dragPercent = Math.abs(currentX) / screenWidth;
+
+    const elapsed = Date.now() - touchStartTime;
+    const velocity = elapsed > 0 ? Math.abs(currentX) / elapsed : 0;
+    const isFlick = velocity >= VELOCITY_THRESHOLD && Math.abs(currentX) > 30;
+
+    if ((dragPercent >= SWIPE_THRESHOLD || isFlick) && swipeMode) {
+      const currentIdx = getCurrentNavIndex();
+      const targetIdx = swipeMode === 'next' ? getNextIndex(currentIdx) : getPrevIndex(currentIdx);
+      const targetPage = getPageByIndex(targetIdx);
+
+      if (targetPage) {
+        const url = targetPage === 'home' ? '/' : '/' + targetPage + '/';
+        setNavActiveIndex(targetIdx);
+        animateNavToIndex(targetIdx, SLIDE_OUT_MS);
+        slideOutAndNavigate(url, swipeMode);
+        return;
       }
     }
-    void navInner.offsetHeight;
-    navInner.style.transition = '';
+
+    resetSwipe();
+    scrollNavToIndex(getCurrentNavIndex(), true);
+  }, { passive: true });
+
+  document.addEventListener('touchcancel', function() {
+    resetSwipe();
+    scrollNavToIndex(getCurrentNavIndex(), true);
+  }, { passive: true });
+
+  function getNavScrollPosForIndex(idx) {
+    var navInner = document.querySelector('.nav-inner');
+    if (!navInner) return null;
+    var navItems = navInner.querySelectorAll('.nav-item');
+    var targetIdx = idx < 0 ? 0 : idx;
+    var targetItem = navItems[targetIdx];
+    if (!targetItem) return null;
+
+    var itemCenter = targetItem.offsetLeft + (targetItem.offsetWidth / 2);
+    var navCenter = navInner.clientWidth / 2;
+    var maxScroll = navInner.scrollWidth - navInner.clientWidth;
+    if (maxScroll <= 0) return 0;
+    return Math.max(0, Math.min(maxScroll, itemCenter - navCenter));
   }
 
-  // 네비게이션 캐러셀 위치 조정 (탭 수 변화 대응)
-  function updateNavCarousel(index) {
-    const navInner = document.querySelector('.nav-inner');
-    if (window.innerWidth > 768 || !navInner) return;
-    const scrollPos = getNavScrollPosForIndex(index);
+  function animateNavToIndex(idx, durationMs) {
+    var navInner = document.querySelector('.nav-inner');
+    if (!navInner) return;
+
+    var scrollPos = getNavScrollPosForIndex(idx);
     if (scrollPos === null || scrollPos === undefined) return;
-    if (navInner.scrollTo) {
+
+    try {
+      sessionStorage.setItem('gc_nav_scroll_state_v1', JSON.stringify({ left: scrollPos, at: Date.now() }));
+    } catch (e) {}
+
+    if (!durationMs || durationMs <= 0 || !window.requestAnimationFrame || !window.performance || !performance.now) {
+      navInner.scrollLeft = scrollPos;
+      return;
+    }
+
+    var start = navInner.scrollLeft || 0;
+    var delta = scrollPos - start;
+    if (Math.abs(delta) < 1) {
+      navInner.scrollLeft = scrollPos;
+      return;
+    }
+
+    var startTime = performance.now();
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+    function step(now) {
+      var t = (now - startTime) / durationMs;
+      if (t > 1) t = 1;
+      navInner.scrollLeft = start + delta * easeOutCubic(t);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function scrollNavToIndex(idx, smooth) {
+    var navInner = document.querySelector('.nav-inner');
+    if (!navInner) return;
+    var scrollPos = getNavScrollPosForIndex(idx);
+    if (scrollPos === null || scrollPos === undefined) return;
+
+    if (smooth && navInner.scrollTo) {
       try {
         navInner.scrollTo({ left: scrollPos, behavior: 'smooth' });
         return;
@@ -606,63 +712,20 @@ const swipeScript = `
     navInner.scrollLeft = scrollPos;
   }
 
-  // 페이지 로드 시 nav 위치 조정 (초기 로드는 애니메이션 없이)
-  applyInitialNavScroll(0);
-
-  document.body.addEventListener('touchend', (e) => {
-    const touchEndX = e.changedTouches[0].screenX;
-    const touchEndY = e.changedTouches[0].screenY;
-    const diffX = touchStartX - touchEndX;
-    const diffY = touchStartY - touchEndY;
-
-    if (Math.abs(diffX) <= Math.abs(diffY)) {
-      cleanup();
-      return;
-    }
-
-    // 스크롤 영역 경계 체크
-    if (scrollableEl) {
-      const isAtStart = scrollableEl.scrollLeft <= 1;
-      const isAtEnd = scrollableEl.scrollLeft + scrollableEl.clientWidth >= scrollableEl.scrollWidth - 1;
-      // 왼쪽 스와이프(다음 페이지) - 오른쪽 끝에서만 허용
-      if (diffX > 0 && !isAtEnd) { cleanup(); return; }
-      // 오른쪽 스와이프(이전 페이지) - 왼쪽 끝에서만 허용
-      if (diffX < 0 && !isAtStart) { cleanup(); return; }
-    }
-
-    if (Math.abs(diffX) > 50) {
-      isSwiping = true;
-      setTimeout(() => { isSwiping = false; }, 300);
-
-      const currentIndex = getCurrentNavIndex();
-      const direction = diffX > 0 ? 'left' : 'right';
-      if (currentIndex === -1) {
-        if (diffX > 0) switchNavSection(0, direction);
-        else switchNavSection(getNavSections().length - 1, direction);
-      } else {
-        if (diffX > 0) switchNavSection(currentIndex + 1, direction);
-        else switchNavSection(currentIndex - 1, direction);
+  // 초기 위치는 nav.js 인라인 스크립트에서 처리 (CSS visibility + nav-ready 클래스)
+  // pageshow에서 bfcache 복원 시에만 재설정
+  window.addEventListener('pageshow', function(e) {
+    if (e && e.persisted) {
+      var navInner = document.querySelector('.nav-inner');
+      if (!navInner) return;
+      var targetIdx = getCurrentNavIndex();
+      var targetPos = getNavScrollPosForIndex(targetIdx);
+      if (targetPos !== null && targetPos !== undefined) {
+        navInner.style.scrollBehavior = 'auto';
+        navInner.scrollLeft = targetPos;
       }
     }
-    cleanup();
-
-    function cleanup() {
-      if (isTouchMoving && touchedElement) {
-        const el = touchedElement;
-        requestAnimationFrame(() => {
-          el.style.pointerEvents = 'none';
-          el.classList.add('swiping');
-          setTimeout(() => {
-            document.body.classList.remove('is-swiping');
-            el.style.pointerEvents = '';
-            el.classList.remove('swiping');
-          }, 300);
-        });
-      }
-      touchedElement = null;
-      isTouchMoving = false;
-    }
-  }, { passive: true });
+  });
 })();
 </script>`;
 
@@ -743,7 +806,23 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - Intersection Observer 방식 (PC: 600px)
+// 모바일 감지 및 is-mobile 클래스 추가 (반응형 통합용)
+const mobileDetectScript = `
+<script>
+(function() {
+  function updateMobileClass() {
+    if (window.innerWidth <= 768) {
+      document.body.classList.add('is-mobile');
+    } else {
+      document.body.classList.remove('is-mobile');
+    }
+  }
+  updateMobileClass();
+  window.addEventListener('resize', updateMobileClass);
+})();
+</script>`;
+
+// 광고 초기화 - Intersection Observer 방식 (PC/모바일 통합: 900px)
 // AdSense 로드 완료 이벤트 수신 후 Observer 시작
 const adLazyLoadScript = `
 <script>
@@ -759,7 +838,7 @@ const adLazyLoadScript = `
           observer.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '600px' });
+    }, { rootMargin: '900px' });
 
     ads.forEach(function(ad) { observer.observe(ad); });
   }
@@ -1013,6 +1092,7 @@ function wrapWithLayout(content, options = {}) {
   ${adLazyLoadScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
+  ${mobileDetectScript}
   ${showSearchBar ? searchBarScript : ''}
   ${hoverPrefetchScript}
   ${swipeScript}
@@ -1030,46 +1110,46 @@ function generateAdSlot(slotId, options = {}) {
   return renderAdCard(slotId, options);
 }
 
-// PC 전용 광고 함수들 (모바일 광고는 layout-mobile.js에서 관리)
+// 통합 반응형 광고 함수들 (PC/모바일 단일 빌드)
 function generatePCAdSlot(slotId) {
-  return renderPCAd(slotId);
+  return renderResponsiveTopAd(slotId);
 }
 
 function generatePCHomeAdSlot(slotId) {
-  return renderPCHomeAd(slotId);
+  return renderResponsiveHomeAd(slotId);
 }
 
 function generateVerticalAdSlot(slotId) {
-  return renderVerticalAd(slotId);
+  return renderSidebarVerticalAd(slotId);
 }
 
 function generateRectangleAdSlot(slotId) {
-  return renderRectangleAd(slotId);
+  return renderSidebarRectangleAd(slotId);
 }
 
-// 템플릿 공용 함수: PC 레이아웃은 PC 슬롯만 렌더링
-// 상단 광고용 (PC)
+// 상단 광고용 (반응형 - PC/모바일 자동 분기)
 function generateAdPairSlot(pcSlotId, mobileSlotId) {
-  return renderPCAd(pcSlotId);
+  // 반응형: CSS 미디어 쿼리로 PC/모바일 크기 자동 분기
+  return renderResponsiveTopAd(pcSlotId);
 }
 
-// 중간 광고용 (PC)
+// 중간 광고용 (반응형)
 function generateMidAdPairSlot(pcSlotId, mobileSlotId) {
-  return renderPCAd(pcSlotId);
+  return renderContentAd(pcSlotId);
 }
 
 function generateHomeAdPairSlot(pcSlotId, mobileSlotId) {
-  return renderPCHomeAd(pcSlotId);
+  return renderResponsiveHomeAd(pcSlotId);
 }
 
-// PC 레이아웃: 모바일 전용 슬롯은 렌더링하지 않음
+// 모바일 전용 중간 광고 (PC에서는 CSS로 숨김)
 function generateMobileOnlyMidAdSlot(mobileSlotId) {
-  return '';
+  return renderMobileOnlyAd(mobileSlotId);
 }
 
-// PC 레이아웃: 네이티브 광고도 모바일 전용
+// 네이티브 광고 (반응형)
 function generateNativeAdSlot(slotId) {
-  return '';
+  return renderNativeAd(slotId);
 }
 
 // 멀티플렉스 광고 (PC + 모바일 공통)
@@ -1090,24 +1170,20 @@ function generatePartialContent(content, options = {}) {
 ${pageScripts}`;
 }
 
-// 모바일 빌드 시 layout-mobile.js 사용
-if (process.env.MOBILE_BUILD === 'true') {
-  module.exports = require('./layout-mobile');
-} else {
-  module.exports = {
-    wrapWithLayout,
-    generatePartialContent,
-    AD_SLOTS,
-    generateAdSlot,
-    generatePCAdSlot,
-    generatePCHomeAdSlot,
-    generateVerticalAdSlot,
-    generateRectangleAdSlot,
-    generateAdPairSlot,
-    generateMidAdPairSlot,
-    generateHomeAdPairSlot,
-    generateMobileOnlyMidAdSlot,
-    generateNativeAdSlot,
-    generateMultiplexAdSlot
-  };
-}
+// 통합 반응형 빌드 - PC/모바일 단일 레이아웃
+module.exports = {
+  wrapWithLayout,
+  generatePartialContent,
+  AD_SLOTS,
+  generateAdSlot,
+  generatePCAdSlot,
+  generatePCHomeAdSlot,
+  generateVerticalAdSlot,
+  generateRectangleAdSlot,
+  generateAdPairSlot,
+  generateMidAdPairSlot,
+  generateHomeAdPairSlot,
+  generateMobileOnlyMidAdSlot,
+  generateNativeAdSlot,
+  generateMultiplexAdSlot
+};

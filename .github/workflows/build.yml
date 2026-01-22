@@ -102,7 +102,7 @@ jobs:
           # MPA 모드: 폴더 구조로 복사 (clean URLs)
           cp index.html docs/index.html
           # 각 페이지를 폴더/index.html로
-          for page in news community youtube rankings steam upcoming metacritic; do
+          for page in rankings steam upcoming; do
             mkdir -p docs/$page
           cp $page.html docs/$page/index.html
           done
@@ -136,14 +136,6 @@ jobs:
             echo "📂 reports/weekly/ 복사: JSON ${WEEKLY_COUNT}개"
           fi
 
-      - name: Build Mobile version
-        env:
-          ADS_ENABLED: 'false'  # 광고 정지 기간 동안 비활성화
-        run: node build-mobile.js
-
-      - name: Remove mobile ads from PC version
-        run: node scripts/remove-mobile-ads.js
-
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions"
@@ -163,29 +155,15 @@ jobs:
             echo "⚠️ Removing conflict markers from data-cache.json"
             sed -i '/^<<<<<<</d; /^=======/d; /^>>>>>>>/d' data-cache.json
           fi
-          git add docs/ docs-mobile/ reports/ data-cache.json history/ data/ -f snapshots/
+          git add docs/ reports/ data-cache.json history/ data/ -f snapshots/
           git diff --staged --quiet || git commit -m "Update report $(date +'%Y-%m-%d %H:%M')"
           git push
-
-      - name: Deploy to Mobile repo
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-        run: |
-          cd docs-mobile
-          git init -b main
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git remote add origin https://x-access-token:${GH_PAT}@github.com/tempest1033/GamerScroll-Mobile.git
-          git add -A
-          git commit -m "Update mobile $(date +'%Y-%m-%d %H:%M')"
-          git push --force origin main
 
       - name: Ping Google Sitemap (if changed)
         run: |
           # sitemap.xml이 이번 커밋에서 변경됐는지 확인
           if git diff HEAD~1 --name-only | grep -q "docs/sitemap.xml"; then
             curl -s "https://www.google.com/ping?sitemap=https://gamerscroll.com/sitemap.xml"
-            curl -s "https://www.google.com/ping?sitemap=https://m.gamerscroll.com/sitemap.xml"
             echo "✅ Sitemap changed - ping sent to Google"
           else
             echo "⏭️ Sitemap unchanged - skip ping"

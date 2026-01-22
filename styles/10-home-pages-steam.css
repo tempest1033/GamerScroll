@@ -1,11 +1,7 @@
 ﻿    /* Steam Section */
 
-    .steam-section {
+    .steam-section:not(.active) {
       display: none;
-    }
-
-    .steam-section.active {
-      display: block;
     }
 
     .steam-table {
@@ -21,7 +17,7 @@
       box-sizing: border-box;
       background: transparent;
       border-bottom: 1px solid var(--border);
-      font-size: var(--font-small-size);
+      font-size: var(--font-tab-size);
       font-weight: var(--font-badge-weight);
       color: var(--text);
       letter-spacing: 0.02em;

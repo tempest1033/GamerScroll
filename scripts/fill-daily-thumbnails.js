@@ -78,8 +78,7 @@ async function main() {
   const baseDir = path.resolve(__dirname, '..');
   const targets = [
     { label: 'reports', path: path.join(baseDir, 'reports', `${targetDate}.json`) },
-    { label: 'docs/reports', path: path.join(baseDir, 'docs', 'reports', `${targetDate}.json`) },
-    { label: 'docs-mobile/reports', path: path.join(baseDir, 'docs-mobile', 'reports', `${targetDate}.json`) }
+    { label: 'docs/reports', path: path.join(baseDir, 'docs', 'reports', `${targetDate}.json`) }
   ];
 
   for (const target of targets) {

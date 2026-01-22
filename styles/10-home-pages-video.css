@@ -1,11 +1,7 @@
 ﻿    /* Video Section (영상) */
 
-    .video-section {
+    .video-section:not(.active) {
       display: none;
-    }
-
-    .video-section.active {
-      display: block;
     }
 
     .external-links {

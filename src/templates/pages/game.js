@@ -5,9 +5,8 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 반응형 빌드 - 단일 도메인
+const siteBaseUrl = 'https://gamerscroll.com';
 
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
@@ -1243,8 +1242,8 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-        <!-- 중간 광고 (모바일만) -->
-        ${isMobileBuild ? `<div class="grid-full">${midAds}</div>` : ''}
+        <!-- 중간 광고 (반응형 - 모바일 우선 표시) -->
+        <div class="grid-full mobile-only-ad">${midAds}</div>
 
         <!-- 뉴스 (풀 너비) -->
         <div class="home-card grid-full">

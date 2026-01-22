@@ -11,10 +11,9 @@ const historyDir = path.join(__dirname, '..', 'history');
 const reportsDir = path.join(__dirname, '..', 'reports');
 const snapshotsDir = path.join(__dirname, '..', 'snapshots', 'rankings');
 
-// PC/모바일 빌드에 따라 출력 경로 결정
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const docsDir = isMobileBuild ? 'docs-mobile' : 'docs';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 빌드 출력 경로
+const docsDir = 'docs';
+const siteBaseUrl = 'https://gamerscroll.com';
 const outputDir = path.join(__dirname, '..', docsDir, 'games');
 
 // 템플릿 import

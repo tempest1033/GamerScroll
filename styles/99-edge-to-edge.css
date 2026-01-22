@@ -11,6 +11,8 @@
   .games-hub-popular-grid,
   .games-hub-recent-grid {
     border-radius: var(--radius) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .home-card,
@@ -67,5 +69,222 @@
 @media (max-width: 768px) {
   .nav-item[href="/games/"] {
     transform: translateX(-5px);
+  }
+}
+
+/* ===== 모바일 피드형 카드 스타일 ===== */
+@media (max-width: 768px) {
+  /* 피드 카드 헤더 숨김 (홈, 매거진, 위키) */
+  #home-insight > .home-card-header,
+  #home-popular > .home-card-header,
+  #home-latest > .home-card-header,
+  #wiki-all > .home-card-header,
+  #wiki-category > .home-card-header,
+  #magazine-insight > .home-card-header,
+  #magazine-issue > .home-card-header,
+  #daily-list > .home-card-header,
+  #weekly-list > .home-card-header,
+  #issue-list > .home-card-header {
+    display: none !important;
+  }
+
+  /* 그리드 좌우 패딩 제거, 아이템 간격 0 */
+  .home-latest-grid,
+  .home-trend-grid {
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  /* 트렌드 카드 테두리/마진 제거 */
+  .home-trend-card {
+    border-radius: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+
+  /* 트렌드 카드 이미지 간격 제거 */
+  .home-trend-card-image {
+    margin: 0 !important;
+  }
+
+  /* 카드 간 마진 제거 */
+  .home-card {
+    margin-bottom: 0 !important;
+  }
+
+  /* 카드 바디 상하 패딩 제거 */
+  .home-card-body {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* 페이지네이션 하단 스타일 */
+  .home-pagination {
+    padding: 12px 8px !important;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== 상세 페이지 카드 스타일 ===== */
+  /* 일간/주간 - 카드/아이템 둥근 모서리 */
+  .weekly-section,
+  .weekly-header-card,
+  .weekly-hot-card,
+  .weekly-metric-card,
+  .weekly-community-card,
+  .weekly-streaming-card,
+  .industry-card,
+  .stock-item {
+    border-radius: 8px !important;
+  }
+
+  /* 이슈/위키 카드 - 직각 */
+  .blog-card,
+  .blog-related-card,
+  .blog-related-issue-card,
+  .wiki-card {
+    border-radius: 0 !important;
+  }
+
+  /* 헤드라인 이미지 직각 + 패딩 */
+  .weekly-header-card {
+    margin: 8px !important;
+    border-radius: 0 !important;
+  }
+
+  /* 일간/주간 모든 이미지 둥근 모서리 */
+  .weekly-header-image,
+  .weekly-hot-thumb,
+  .industry-thumb,
+  .metric-thumb {
+    border-radius: 8px !important;
+  }
+
+  /* ===== 이슈/위키 상세 페이지 ===== */
+  /* 카드 전체 너비 유지, 직각 */
+  #issue .blog-card,
+  #wiki-article .blog-card {
+    border-radius: 0 !important;
+  }
+
+  /* 히어로 이미지 - 상하좌우 마진 + 둥근 모서리 */
+  #issue .blog-hero,
+  #wiki-article .blog-hero {
+    width: calc(100% - 32px) !important;
+    margin: 16px 16px 16px 16px !important;
+    max-height: 220px !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+  }
+
+  #issue .blog-hero-image,
+  #wiki-article .blog-hero-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+  }
+
+  /* 본문 컨텐츠 - 좌우 패딩 통일 */
+  #issue .blog-content,
+  #wiki-article .blog-content {
+    padding: 16px !important;
+  }
+
+  /* 본문 이미지 - 좌우 마진 제거 (컨텐츠 패딩으로 대체) */
+  #issue .blog-figure,
+  #wiki-article .blog-figure {
+    margin: 16px 0 !important;
+    border-radius: 8px !important;
+  }
+
+  #issue .blog-image,
+  #wiki-article .blog-image {
+    width: 100% !important;
+    max-height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+  }
+
+  /* 단락 제목 - 폰트 크기 */
+  #issue .blog-heading,
+  #wiki-article .blog-heading {
+    font-size: 18px !important;
+    margin: 24px 0 12px !important;
+    padding-bottom: 8px !important;
+  }
+
+  /* 관련 게임/문서/정보출처 제목 - 폰트 크기 */
+  #issue .blog-related-title,
+  #issue .blog-sources-title,
+  #wiki-article .blog-related-title,
+  #wiki-article .blog-sources-title {
+    font-size: 18px !important;
+  }
+
+  /* 표 - 좌우 마진 제거 (컨텐츠 패딩으로 대체) */
+  #issue .blog-figure.blog-table,
+  #wiki-article .blog-figure.blog-table {
+    margin: 16px 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+  }
+
+  /* 표 제목 - 폰트 크기 */
+  #issue .table-title,
+  #wiki-article .table-title {
+    font-size: 16px !important;
+    padding: 10px 12px !important;
+  }
+
+  /* 표 - 컬럼 정렬 개선 */
+  #issue .wiki-table,
+  #wiki-article .wiki-table {
+    table-layout: auto !important;
+    min-width: auto !important;
+    width: 100% !important;
+  }
+
+  /* 표 컬럼 너비 자동 */
+  #issue .wiki-table th,
+  #issue .wiki-table td,
+  #wiki-article .wiki-table th,
+  #wiki-article .wiki-table td {
+    width: auto !important;
+    font-size: 14px !important;
+    padding: 8px 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 표 3번째 컬럼 - 줄바꿈 허용 */
+  #issue .wiki-table th:nth-child(3),
+  #issue .wiki-table td:nth-child(3),
+  #wiki-article .wiki-table th:nth-child(3),
+  #wiki-article .wiki-table td:nth-child(3) {
+    white-space: normal !important;
+  }
+
+  /* 관련 게임/글 - 둥근 모서리 유지 */
+  #issue .blog-related-card,
+  #wiki-article .blog-related-card {
+    border-radius: 8px !important;
+  }
+
+  #issue .blog-related-issue-card,
+  #wiki-article .blog-related-issue-card {
+    border-radius: 8px !important;
+  }
+
+  #issue .blog-related-issue-thumb,
+  #wiki-article .blog-related-issue-thumb {
+    border-radius: 8px 8px 0 0 !important;
+  }
+
+  /* 관련 문서 제목 - 2줄 제한 */
+  #issue .blog-related-issue-title,
+  #wiki-article .blog-related-issue-title {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 }

@@ -5,9 +5,8 @@
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 const { countries } = require('../../crawlers/rankings');
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 반응형 빌드 - 단일 도메인
+const siteBaseUrl = 'https://gamerscroll.com';
 
 function generateRankingsPage(data) {
   const { rankings, games = {} } = data;

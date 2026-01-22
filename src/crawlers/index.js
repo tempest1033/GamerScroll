@@ -5,7 +5,6 @@ const { fetchNews, extractGameTag } = require('./news');
 const { fetchSteamDetails, fetchSteamRankings } = require('./steam');
 const { fetchUpcomingGames, fetchSteamUpcoming, fetchNintendoUpcoming, fetchPS5Upcoming, fetchMobileUpcoming } = require('./upcoming');
 const { fetchRankings, countries } = require('./rankings');
-const { fetchMetacriticGames } = require('./metacritic');
 const { fetchGameStockList, fetchStockPrices, fetchStockPrice, getStockCode } = require('./stocks');
 
 module.exports = {
@@ -38,9 +37,6 @@ module.exports = {
   // Rankings
   fetchRankings,
   countries,
-
-  // Metacritic
-  fetchMetacriticGames,
 
   // Stocks (게임주)
   fetchGameStockList,

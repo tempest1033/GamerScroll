@@ -37,20 +37,13 @@ function generateHead(options = {}) {
     ? String(keywords).split(',').map(tag => normalizeMeta(tag)).filter(Boolean).slice(0, 6)
     : [];
   const canonicalText = normalizeMeta(canonical);
-  const isMobileCanonical = canonicalText.startsWith('https://m.gamerscroll.com');
-  // canonical은 항상 데스크톱 URL을 사용 (Google 권장: 모바일도 데스크톱 canonical 지정)
-  const desktopCanonical = canonicalText.replace('https://m.gamerscroll.com', 'https://gamerscroll.com');
-  const mobileCanonical = canonicalText.replace('https://gamerscroll.com', 'https://m.gamerscroll.com');
-  const safeCanonical = escapeHtmlAttr(desktopCanonical);  // 항상 데스크톱 URL
-  const normalizeToDesktop = (value) => String(value || '').replace('https://m.gamerscroll.com', 'https://gamerscroll.com');
-  const schemaCanonical = normalizeToDesktop(canonicalText);
+  const safeCanonical = escapeHtmlAttr(canonicalText);
+  const normalizeToCanonical = (value) => normalizeMeta(value || '');
+  const schemaCanonical = normalizeToCanonical(canonicalText);
   const schemaBreadcrumbs = breadcrumbs && breadcrumbs.length > 0
-    ? breadcrumbs.map(item => ({ ...item, url: normalizeToDesktop(item.url) }))
+    ? breadcrumbs.map(item => ({ ...item, url: normalizeToCanonical(item.url) }))
     : null;
-  // alternate: 데스크톱 빌드만 모바일 alternate 제공, 모바일 빌드는 alternate 불필요
-  const alternateLink = isMobileCanonical
-    ? ''  // 모바일 페이지: canonical만 있으면 됨 (데스크톱을 가리킴)
-    : `<link rel="alternate" media="only screen and (max-width: 768px)" href="${escapeHtmlAttr(mobileCanonical)}">`;
+  const alternateLink = '';
   const resolvedOgImage = escapeHtmlAttr(
     (typeof ogImage === 'string' && ogImage) ||
     (articleSchema && typeof articleSchema.image === 'string' && articleSchema.image) ||
@@ -148,9 +141,9 @@ function generateHead(options = {}) {
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
 	  <meta name="robots" content="noindex, follow">` : ''}
-	  <!-- Critical CSS: 레이아웃(폭) 선적용 (Auto ads/Side rail 첫 로드 안정화) -->
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
 	  <style>
-	    :root { --space-page-x: 16px; }
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
 	    body { margin: 0; }
 	    :is(.site-container, .container) {
 	      max-width: 1190px;
@@ -171,10 +164,20 @@ function generateHead(options = {}) {
 	      padding: 0 var(--space-page-x);
 	      box-sizing: border-box;
 	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
 	    @media (max-width: 768px) {
 	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
 	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
 	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
 	    }
 	  </style>
 	  <!-- AdSense: 최상단 로드 (광고 빠른 렌더링) -->
@@ -192,22 +195,6 @@ function generateHead(options = {}) {
 	      document.head.appendChild(s);
 	    })();
 	  </script>
-		  <script>
-		    (function() {
-		      var host = location.hostname;
-		      if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0') {
-		        document.documentElement.classList.add('is-localhost');
-		      } else if (host === 'gamerscroll.com' || host === 'www.gamerscroll.com') {
-		        var ua = navigator.userAgent || '';
-		        // 봇은 리디렉트 안 함 (canonical/alternate 태그로 처리)
-		        if (/Googlebot|bingbot|AdsBot|Yeti|Naverbot|Slurp|DuckDuckBot|facebookexternalhit|Twitterbot/i.test(ua)) return;
-		        if (/Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua)) {
-		          location.replace('https://m.gamerscroll.com' + location.pathname + location.search);
-		          return;
-		        }
-		      }
-		    })();
-		  </script>
 		  <title>${safeTitle}</title>
   <!-- SEO -->
   <meta name="description" content="${safeDescription}">
@@ -286,7 +273,7 @@ function generateHead(options = {}) {
 	  <!-- Prefetch (load 이후, 네트워크 여건이 좋을 때만) -->
 	  <script>
 	    (function() {
-	      var urls = ['/trend/', '/news/', '/community/', '/youtube/', '/rankings/', '/steam/', '/upcoming/', '/metacritic/'];
+	      var urls = ['/magazine/', '/wiki/', '/games/', '/rankings/', '/steam/', '/upcoming/'];
 	      function shouldPrefetch() {
 	        var c = navigator.connection;
 	        if (!c) return true;
@@ -320,7 +307,7 @@ function generateHead(options = {}) {
 	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
 	    (function() {
 	      var host = window.location.hostname;
-	      if (host !== 'gamerscroll.com' && host !== 'm.gamerscroll.com') return;
+	      if (host !== 'gamerscroll.com') return;
 	      window.__gcPageViewQueue = [];
 	      window.__gcLogPageView = function(path) {
 	        window.__gcPageViewQueue.push(path);
@@ -330,7 +317,7 @@ function generateHead(options = {}) {
 	  <script type="module">
 	    (function() {
 	      var host = window.location.hostname;
-	      if (host !== 'gamerscroll.com' && host !== 'm.gamerscroll.com') return;
+	      if (host !== 'gamerscroll.com') return;
 
 	      (async function() {
 	        try {

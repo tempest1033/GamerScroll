@@ -17,14 +17,11 @@ const {
   generateNativeAdSlot
 } = require('../layout');
 
-// 모바일 빌드 여부
-const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
+// 통합 반응형 빌드 - 단일 도메인
+const siteBaseUrl = 'https://gamerscroll.com';
 
-// docs 폴더 경로 (모바일/PC 구분)
-const docsDir = isMobileBuild
-  ? path.join(__dirname, '../../../docs-mobile')
-  : path.join(__dirname, '../../../docs');
+// docs 폴더 경로 (통합 빌드)
+const docsDir = path.join(__dirname, '../../../docs');
 
 // 위키 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
 function getLocalWikiThumbPath(category, slug, originalUrl) {
@@ -41,7 +38,7 @@ function getLocalWikiThumbPath(category, slug, originalUrl) {
 }
 
 function generateIndexPage(data) {
-  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], games = {}, issueReports = [], wikiData = {} } = data;
+  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], wikiData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
   // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
@@ -68,114 +65,6 @@ function generateIndexPage(data) {
   const dailyInsightThumbnail = fixUrl(aiInsight?.thumbnail) || '';
   const weeklyInsightThumbnail = fixUrl(weeklyInsight?.ai?.thumbnail) || '';
 
-  // 홈 뉴스 카드
-  function generateHomeNews() {
-    const sources = [
-      { key: 'thisisgame', items: news?.thisisgame || [], name: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' },
-      { key: 'gamemeca', items: news?.gamemeca || [], name: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' },
-      { key: 'ruliweb', items: news?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
-    ];
-
-    function renderNewsContent(items, sourceName) {
-      if (items.length === 0) {
-        return '<div class="home-empty">뉴스를 불러올 수 없습니다</div>';
-      }
-      const withThumb = items.filter(function(item) { return item.thumbnail; });
-      const mainCard = withThumb[0];
-      const subCard = withThumb[1];
-      const listItems = withThumb.slice(2, 8);
-
-      var mainCardHtml = '';
-      if (mainCard) {
-        mainCardHtml = '<a class="home-news-card home-news-card-main" href="' + mainCard.link + '" target="_blank" rel="noopener">' +
-          '<div class="home-news-card-thumb">' +
-          '<img src="' + fixUrl(mainCard.thumbnail) + '" alt="' + escapeHtmlAttr(mainCard.title || '') + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect">' +
-          '<span class="home-news-card-tag">' + (sourceName || mainCard.source) + '</span>' +
-          '</div>' +
-          '<div class="home-news-card-info">' +
-          '<span class="home-news-card-title">' + mainCard.title + '</span>' +
-          '</div></a>';
-      }
-
-      var subCardHtml = '';
-      if (subCard) {
-        subCardHtml = '<a class="home-news-card home-news-card-sub" href="' + subCard.link + '" target="_blank" rel="noopener">' +
-          '<div class="home-news-card-thumb">' +
-          '<img src="' + fixUrl(subCard.thumbnail) + '" alt="' + escapeHtmlAttr(subCard.title || '') + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect">' +
-          '<span class="home-news-card-tag">' + (sourceName || subCard.source) + '</span>' +
-          '</div>' +
-          '<div class="home-news-card-info">' +
-          '<span class="home-news-card-title">' + subCard.title + '</span>' +
-          '</div></a>';
-      }
-
-      // 왼쪽 열 리스트 (0~2)
-      var leftListHtml = listItems.slice(0, 3).map(function(item) {
-        return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener">' +
-          '<div class="home-news-item-thumb">' +
-          '<img src="' + fixUrl(item.thumbnail) + '" alt="' + escapeHtmlAttr(item.title || '') + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide">' +
-          '<span class="home-news-item-tag">' + (sourceName || item.source) + '</span>' +
-          '</div>' +
-          '<div class="home-news-item-info">' +
-          '<span class="home-news-title">' + item.title + '</span>' +
-          '</div></a>';
-      }).join('');
-
-      // 오른쪽 열 리스트 (3~5)
-      var rightListHtml = listItems.slice(3, 6).map(function(item) {
-        return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener">' +
-          '<div class="home-news-item-thumb">' +
-          '<img src="' + fixUrl(item.thumbnail) + '" alt="' + escapeHtmlAttr(item.title || '') + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide">' +
-          '<span class="home-news-item-tag">' + (sourceName || item.source) + '</span>' +
-          '</div>' +
-          '<div class="home-news-item-info">' +
-          '<span class="home-news-title">' + item.title + '</span>' +
-          '</div></a>';
-      }).join('');
-
-      return '<div class="home-news-split">' +
-        '<div class="home-news-column">' + mainCardHtml + '<div class="home-news-list">' + leftListHtml + '</div></div>' +
-        '<div class="home-news-column">' + subCardHtml + '<div class="home-news-list">' + rightListHtml + '</div></div>' +
-        '</div>';
-    }
-
-    // 전체 탭용 데이터 (각 소스에서 섞어서 + 랜덤 셔플)
-    var allCombined = [];
-    sources.forEach(function(src) {
-      src.items.slice(0, 4).forEach(function(item) {
-        allCombined.push(Object.assign({}, item, { source: src.name, icon: src.icon }));
-      });
-    });
-    // 랜덤 셔플
-    for (var i = allCombined.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = allCombined[i];
-      allCombined[i] = allCombined[j];
-      allCombined[j] = temp;
-    }
-
-    // Lazy load용 뉴스 데이터 (JSON 직렬화)
-    const newsDataForLazy = {
-      thisisgame: sources[0].items.slice(0, 8).map(item => ({ title: item.title, link: item.link, thumbnail: fixUrl(item.thumbnail), source: '디스이즈게임' })),
-      gamemeca: sources[1].items.slice(0, 8).map(item => ({ title: item.title, link: item.link, thumbnail: fixUrl(item.thumbnail), source: '게임메카' })),
-      ruliweb: sources[2].items.slice(0, 8).map(item => ({ title: item.title, link: item.link, thumbnail: fixUrl(item.thumbnail), source: '루리웹' }))
-    };
-
-    return '<div class="home-news-tabs">' +
-      '<button class="home-news-tab active" data-news="all">전체</button>' +
-      '<button class="home-news-tab" data-news="thisisgame"><img src="https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32" alt="">디스이즈게임</button>' +
-      '<button class="home-news-tab" data-news="gamemeca"><img src="https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32" alt="">게임메카</button>' +
-      '<button class="home-news-tab" data-news="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹</button>' +
-      '</div>' +
-      '<div class="home-news-body">' +
-      '<div class="home-news-panel active" id="home-news-all">' + renderNewsContent(allCombined) + '</div>' +
-      '<div class="home-news-panel" id="home-news-thisisgame"></div>' +
-      '<div class="home-news-panel" id="home-news-gamemeca"></div>' +
-      '<div class="home-news-panel" id="home-news-ruliweb"></div>' +
-      '</div>' +
-      '<script>window.__NEWS_DATA__=' + JSON.stringify(newsDataForLazy) + ';</script>';
-  }
-
   // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
   const formatDateKr = (dateStr) => {
     if (!dateStr) return '';
@@ -187,26 +76,26 @@ function generateIndexPage(data) {
   // 홈 트렌드 (일간/주간 2컬럼 그리드)
   function generateHomeInsight() {
 
-    // 일간 리포트 데이터 (링크는 파일명 기준, 뱃지는 AI 응답 기준)
-    const dailyHeadline = aiInsight?.headline || '일간 리포트';
+    // 일간 데이터 (링크는 파일명 기준, 뱃지는 AI 응답 기준)
+    const dailyHeadline = aiInsight?.headline || '일간';
     const dailySummary = aiInsight?.summary || '';
     const dailySlug = insightFileDate || '';
-    const dailyLink = dailySlug ? `/trend/daily/${dailySlug}/` : '/trend/';
-    const dailyBadgeText = insightFileDate ? `${formatDateKr(insightFileDate)} 일간 리포트` : '일간 리포트';
+    const dailyLink = dailySlug ? `/magazine/daily/${dailySlug}/` : '/magazine/';
+    const dailyBadgeText = insightFileDate ? `${formatDateKr(insightFileDate)} 일간` : '일간';
 
-    // 주간 리포트 데이터
+    // 주간 데이터
     const wai = weeklyInsight?.ai || null;
     const wInfo = weeklyInsight?.weekInfo || {};
-    const weeklyHeadline = wai?.headline || (typeof wai?.summary === 'object' ? wai.summary.title : null) || '주간 리포트';
+    const weeklyHeadline = wai?.headline || (typeof wai?.summary === 'object' ? wai.summary.title : null) || '주간';
     const weeklySummary = typeof wai?.summary === 'object' ? wai.summary.desc : (wai?.summary || '');
     const weekNum = wInfo.weekNumber || wai?.weekNumber || '';
     const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
     const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
-    const weeklyLink = weeklySlug ? `/trend/weekly/${weeklySlug}/` : '/trend/';
-    // 주간 뱃지: "2025년 12월 15일 ~ 12월 21일 주간 리포트"
+    const weeklyLink = weeklySlug ? `/magazine/weekly/${weeklySlug}/` : '/magazine/';
+    // 주간 뱃지: "2025년 12월 15일 ~ 12월 21일 주간"
     const weeklyBadgeText = wInfo.startDate && wInfo.endDate
-      ? `${formatDateKr(wInfo.startDate)} ~ ${parseInt(wInfo.endDate.slice(5, 7))}월 ${parseInt(wInfo.endDate.slice(8, 10))}일 주간 리포트`
-      : '주간 리포트';
+      ? `${formatDateKr(wInfo.startDate)} ~ ${parseInt(wInfo.endDate.slice(5, 7))}월 ${parseInt(wInfo.endDate.slice(8, 10))}일 주간`
+      : '주간';
 
     // 썸네일 (없으면 CSS gradient 배경만 보임) - fixUrl로 프록시 처리
     const dailyThumbnail = dailyInsightThumbnail;
@@ -234,240 +123,277 @@ function generateIndexPage(data) {
       </a>
     ` : '';
 
-    // 이슈 리포트 카드 (최대 2개)
-    const issueCards = issueReports.slice(0, 2).map(issue => {
-      const issueThumbnail = fixUrl(issue.thumbnail) || '';
-      const issueBadgeText = issue.date ? `${formatDateKr(issue.date)} 이슈 리포트` : '이슈 리포트';
-      return `
-        <a href="/trend/issue/${issue.slug}/" class="home-trend-card">
-          <div class="home-trend-card-image">
-            ${issueThumbnail ? `<img src="${issueThumbnail}" alt="${escapeHtmlAttr(issue.title || '')}" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag issue">${issueBadgeText}</span>
-          </div>
-          <h3 class="home-trend-card-title">${issue.title}</h3>
-        </a>
-      `;
-    }).join('');
-
     if (!dailyCard && !weeklyCard) {
-      return '<div class="home-empty">트렌드를 불러올 수 없습니다</div>';
+      return '<div class="home-empty">매거진을 불러올 수 없습니다</div>';
     }
 
-    // 일간/주간 그리드 + 광고 + 이슈 그리드 (모바일: 광고 사이에 이슈)
-    const issueGrid = issueCards ? `<div class="home-trend-grid home-trend-grid-issue">${issueCards}</div>` : '';
-    const adBeforeIssue = issueCards ? generateNativeAdSlot(AD_SLOTS.Article005) : '';
-    return `<div class="home-trend-grid">${dailyCard}${weeklyCard}</div>${adBeforeIssue}${issueGrid}`;
+    // 일간 + 주간만 반환 (2컬럼 그리드)
+    return `<div class="home-trend-grid">${dailyCard}${weeklyCard}</div>`;
   }
 
-  // 홈 위키 카드 (최신 4개, 모바일은 3개)
-  function generateHomeWiki() {
-    // 모든 카테고리에서 위키 수집 후 날짜순 정렬
-    const allWiki = [];
-    for (const category of Object.keys(wikiData)) {
-      const articles = wikiData[category] || [];
-      articles.forEach(article => {
-        allWiki.push({ ...article, category });
+  // 홈 인기 기사 (가로형 3개 - eyesmag 스타일)
+  function generateHomePopular() {
+    const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
+
+    // popularArticles에서 상위 3개의 상세 정보 조회
+    const popularItems = popularArticles.slice(0, 3).map(article => {
+      if (article.type === 'issue') {
+        const issue = issueReports.find(i => i.slug === article.slug);
+        if (issue) {
+          return {
+            type: 'issue',
+            title: issue.title,
+            summary: issue.summary || '',
+            thumbnail: fixUrl(issue.thumbnail) || '',
+            link: `/magazine/issue/${issue.slug}/`,
+            badge: issue.date ? formatDateKr(issue.date) : '이슈'
+          };
+        }
+      } else if (article.type === 'wiki' && article.category) {
+        const wikiList = wikiData[article.category] || [];
+        const wiki = wikiList.find(w => w.slug === article.slug);
+        if (wiki) {
+          return {
+            type: 'wiki',
+            title: wiki.title,
+            summary: wiki.summary || '',
+            thumbnail: getLocalWikiThumbPath(article.category, article.slug, wiki.thumbnail),
+            link: `/wiki/${article.category}/${article.slug}/`,
+            badge: categoryNames[article.category] || article.category
+          };
+        }
+      }
+      return null;
+    }).filter(Boolean);
+
+    // 인기 데이터가 부족하면 최신 이슈로 채우기
+    if (popularItems.length < 3) {
+      const remaining = 3 - popularItems.length;
+      const usedSlugs = popularItems.map(p => p.link);
+      issueReports.slice(0, remaining + 3).forEach(issue => {
+        if (popularItems.length >= 3) return;
+        const link = `/magazine/issue/${issue.slug}/`;
+        if (!usedSlugs.includes(link)) {
+          popularItems.push({
+            type: 'issue',
+            title: issue.title,
+            summary: issue.summary || '',
+            thumbnail: fixUrl(issue.thumbnail) || '',
+            link,
+            badge: issue.date ? formatDateKr(issue.date) : '이슈'
+          });
+          usedSlugs.push(link);
+        }
       });
     }
-    allWiki.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-    const limit = isMobileBuild ? 3 : 4;
-    const wikiItems = allWiki.slice(0, limit);
+    if (popularItems.length === 0) return '';
 
-    if (wikiItems.length === 0) return '';
-
-    const categoryNames = {
-      business: '비즈니스',
-      tech: '기술',
-      history: '히스토리',
-      knowledge: '지식'
-    };
-
-    const wikiCards = wikiItems.map(wiki => {
-      const badgeText = categoryNames[wiki.category] || wiki.category;
-      const thumbPath = getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail);
-      return `
-        <a href="/wiki/${wiki.category}/${wiki.slug}/" class="home-trend-card">
-          <div class="home-trend-card-image">
-            ${thumbPath ? `<img src="${thumbPath}" alt="${escapeHtmlAttr(wiki.title || '')}" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag wiki">${badgeText}</span>
-          </div>
-          <h3 class="home-trend-card-title">${wiki.title}</h3>
-        </a>
-      `;
-    }).join('');
-
-    // 모바일: 헤더 없이 카드만 반환 (피드 스타일)
-    if (isMobileBuild) {
-      return wikiCards;
-    }
-
-    // PC: 헤더 포함 전체 섹션 반환
-    return `
-      <div class="home-card" id="home-wiki">
-        <div class="home-card-header">
-          <h2 class="home-card-title">게임 위키</h2>
+    const popularCards = popularItems.map((item, i) => `
+      <a href="${item.link}" class="home-popular-card">
+        <div class="home-popular-thumb">
+          ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${escapeHtmlAttr(item.title)}" loading="${i === 0 ? 'eager' : 'lazy'}">` : ''}
         </div>
-        <div class="home-trend-grid home-trend-grid-wiki">${wikiCards}</div>
+        <div class="home-popular-info">
+          <h3 class="home-popular-title">${item.title}</h3>
+          ${item.summary ? `<p class="home-popular-summary">${item.summary}</p>` : ''}
+        </div>
+      </a>
+    `).join('');
+
+    return `
+      <div class="home-card" id="home-popular">
+        <div class="home-card-header">
+          <h2 class="home-card-title">인기</h2>
+        </div>
+        <div class="home-popular-list">${popularCards}</div>
       </div>
     `;
   }
 
-  // 홈 커뮤니티
-  function generateHomeCommunity() {
-    var sources = [
-      { key: 'inven', items: community?.inven || [], name: '인벤', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32' },
-      { key: 'arca', items: community?.arca || [], name: '아카라이브', icon: 'https://www.google.com/s2/favicons?domain=arca.live&sz=32' },
-      { key: 'dcinside', items: community?.dcinside || [], name: '디시인사이드', icon: 'https://www.google.com/s2/favicons?domain=dcinside.com&sz=32' },
-      { key: 'ruliweb', items: community?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
-    ];
+  // 홈 최신 기사 (3x5 그리드 + 페이지네이션 + 카테고리 필터)
+  function generateHomeLatest() {
+    const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
 
-    var allCombined = [];
-    sources.forEach(function(src) {
-      src.items.slice(0, 3).forEach(function(item) {
-        allCombined.push(Object.assign({}, item, { source: src.name, icon: src.icon }));
+    // 모든 기사 수집 (이슈 + 위키)
+    const allArticles = [];
+
+    // 이슈 추가
+    issueReports.forEach(issue => {
+      allArticles.push({
+        type: 'issue',
+        category: 'issue',
+        title: issue.title,
+        thumbnail: fixUrl(issue.thumbnail) || '',
+        link: `/magazine/issue/${issue.slug}/`,
+        badge: '이슈',
+        date: issue.date || ''
       });
     });
-    for (var i = allCombined.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = allCombined[i];
-      allCombined[i] = allCombined[j];
-      allCombined[j] = temp;
-    }
-    allCombined = allCombined.slice(0, 10);
 
-    function renderCommunitySplit(items, sourceName) {
-      if (items.length === 0) {
-        return '<div class="home-empty">인기글을 불러올 수 없습니다</div>';
-      }
-      var leftItems = items.slice(0, 5);
-      var rightItems = items.slice(5, 10);
+    // 위키 추가
+    const categoryOrder = ['history', 'knowledge', 'tech', 'business'];
+    categoryOrder.forEach(category => {
+      (wikiData[category] || []).forEach(wiki => {
+        allArticles.push({
+          type: 'wiki',
+          category: category,
+          title: wiki.title,
+          thumbnail: getLocalWikiThumbPath(category, wiki.slug, wiki.thumbnail),
+          link: `/wiki/${category}/${wiki.slug}/`,
+          badge: categoryNames[category],
+          date: wiki.date || ''
+        });
+      });
+    });
 
-      function renderColumn(columnItems) {
-        return columnItems.map(function(item) {
-          return '<a class="home-community-item" href="' + item.link + '" target="_blank" rel="noopener">' +
-            '<img class="home-community-icon" src="' + item.icon + '" alt="">' +
-            '<span class="home-community-title">' + item.title + '</span>' +
-            '</a>';
-        }).join('');
-      }
+    // 날짜순 정렬 (최신순)
+    allArticles.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-      return '<div class="home-community-split">' +
-        '<div class="home-community-column">' + renderColumn(leftItems) + '</div>' +
-        '<div class="home-community-column">' + renderColumn(rightItems) + '</div>' +
-        '</div>';
-    }
+    if (allArticles.length === 0) return '';
 
-    return '<div class="home-community-tabs">' +
-      '<button class="home-community-tab active" data-community="all">전체</button>' +
-      '<button class="home-community-tab" data-community="inven"><img src="https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32" alt="">인벤</button>' +
-      '<button class="home-community-tab" data-community="arca"><img src="https://www.google.com/s2/favicons?domain=arca.live&sz=32" alt=""><span class="tab-text-arca">아카라이브</span></button>' +
-      '<button class="home-community-tab" data-community="dcinside"><img src="https://www.google.com/s2/favicons?domain=dcinside.com&sz=32" alt=""><span class="tab-text-dcinside">디시인사이드</span></button>' +
-      '<button class="home-community-tab" data-community="ruliweb"><img src="https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32" alt="">루리웹</button>' +
-      '</div>' +
-      '<div class="home-community-body">' +
-      '<div class="home-community-panel active" id="home-community-all">' + renderCommunitySplit(allCombined) + '</div>' +
-      '<div class="home-community-panel" id="home-community-inven">' + renderCommunitySplit(sources[0].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[0].icon }); }), '인벤') + '</div>' +
-      '<div class="home-community-panel" id="home-community-arca">' + renderCommunitySplit(sources[1].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[1].icon }); }), '아카라이브') + '</div>' +
-      '<div class="home-community-panel" id="home-community-dcinside">' + renderCommunitySplit(sources[2].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[2].icon }); }), '디시인사이드') + '</div>' +
-      '<div class="home-community-panel" id="home-community-ruliweb">' + renderCommunitySplit(sources[3].items.slice(0, 10).map(function(item) { return Object.assign({}, item, { icon: sources[3].icon }); }), '루리웹') + '</div>' +
-      '</div>';
+    // 모든 카드 생성 (JS로 페이지네이션 + 카테고리 필터)
+    const latestCards = allArticles.map((item, i) => `
+      <a href="${item.link}" class="home-trend-card home-latest-item" data-index="${i}" data-category="${item.category}">
+        <div class="home-trend-card-image">
+          ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : item.badge}</span>
+        </div>
+        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${item.title}</span></h3>
+      </a>
+    `).join('');
+
+    const totalPages = Math.ceil(allArticles.length / 15);
+
+    return `
+      <div class="home-card" id="home-latest">
+        <div class="home-card-header">
+          <h2 class="home-card-title">최신</h2>
+        </div>
+        <div class="home-latest-grid">${latestCards}</div>
+        <div class="home-pagination" data-total="${allArticles.length}" data-per-page="15">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next">›</button>
+        </div>
+      </div>
+    `;
   }
 
-  // 홈 영상
-  function generateHomeVideo() {
-    var youtubeItems = (youtube?.gaming || []).slice(0, 9).map(function(item) {
-      return {
-        title: item.title,
-        channel: item.channel,
-        thumbnail: item.thumbnail,
-        link: 'https://www.youtube.com/watch?v=' + item.videoId,
-        platform: 'youtube'
-      };
-    });
+  // 사이드바: 카테고리 메뉴 (매거진 + 위키 그룹) - 링크 연결
+  function generateSidebarCategories() {
+    // 카테고리별 글 개수 계산
+    const counts = {
+      daily: dailyReportsCount,
+      weekly: weeklyReportsCount,
+      issue: issueReports.length,
+      history: (wikiData.history || []).length,
+      knowledge: (wikiData.knowledge || []).length,
+      tech: (wikiData.tech || []).length,
+      business: (wikiData.business || []).length
+    };
 
-    var chzzkItems = (chzzk || []).slice(0, 9).map(function(item) {
-      return {
-        title: item.title,
-        channel: item.channel,
-        thumbnail: item.thumbnail,
-        link: 'https://chzzk.naver.com/live/' + item.channelId,
-        platform: 'chzzk',
-        viewers: item.viewers
-      };
-    });
+    // 매거진 카테고리 (시의성)
+    const magazineCategories = [
+      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
+      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
+    ];
 
-    function renderVideoGrid(items) {
-      if (items.length === 0) {
-        return '<div class="home-empty">영상을 불러올 수 없습니다</div>';
-      }
-      var mainItem = items[0];
-      var subItem = items[1];
-      var listItems = items.slice(2, 8);
+    // 위키 카테고리 (에버그린)
+    const wikiCategories = [
+      { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
+      { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
+      { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
+      { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+    ];
 
-      var mainHtml = '<a class="home-video-card home-video-card-main" href="' + mainItem.link + '" target="_blank" rel="noopener">' +
-        '<div class="home-video-card-thumb">' +
-        '<img src="' + mainItem.thumbnail + '" alt="' + escapeHtmlAttr(mainItem.title || '') + '" loading="lazy">' +
-        '<span class="home-video-card-tag">' + mainItem.channel + '</span>' +
-        (mainItem.viewers ? '<span class="home-video-live">LIVE ' + mainItem.viewers.toLocaleString() + '</span>' : '') +
-        '</div>' +
-        '<div class="home-video-card-info">' +
-        '<div class="home-video-card-title">' + mainItem.title + '</div>' +
-        '</div></a>';
+    const renderItems = (items) => items.map(cat => `
+      <a href="${cat.link}" class="sidebar-category-item">
+        <span class="sidebar-category-name">${cat.name}${cat.count !== undefined ? ` (${cat.count})` : ''}</span>
+      </a>
+    `).join('');
 
-      var subHtml = '';
-      if (subItem) {
-        subHtml = '<a class="home-video-card home-video-card-sub" href="' + subItem.link + '" target="_blank" rel="noopener">' +
-          '<div class="home-video-card-thumb">' +
-          '<img src="' + subItem.thumbnail + '" alt="' + escapeHtmlAttr(subItem.title || '') + '" loading="lazy">' +
-          '<span class="home-video-card-tag">' + subItem.channel + '</span>' +
-          (subItem.viewers ? '<span class="home-video-live">' + subItem.viewers.toLocaleString() + '</span>' : '') +
-          '</div>' +
-          '<div class="home-video-card-info">' +
-          '<div class="home-video-card-title">' + subItem.title + '</div>' +
-          '</div></a>';
-      }
+    return `
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><h2 class="home-card-title">매거진</h2></div>
+          <div class="sidebar-category-list">${renderItems(magazineCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><h2 class="home-card-title">위키</h2></div>
+          <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
+        </div>
+      </div>
+    `;
+  }
 
-      // 왼쪽 열 리스트 (0~2)
-      var leftListHtml = listItems.slice(0, 3).map(function(item) {
-        return '<a class="home-video-item" href="' + item.link + '" target="_blank" rel="noopener">' +
-          '<div class="home-video-item-thumb">' +
-          '<img src="' + item.thumbnail + '" alt="' + escapeHtmlAttr(item.title || '') + '" loading="lazy">' +
-          '<span class="home-video-item-tag">' + item.channel + '</span>' +
-          (item.viewers ? '<span class="home-video-live-sm">' + item.viewers.toLocaleString() + '</span>' : '') +
-          '</div>' +
-          '<div class="home-video-item-info">' +
-          '<div class="home-video-item-title">' + item.title + '</div>' +
-          '</div></a>';
-      }).join('');
+  // 사이드바: 인기글/최신글 TOP 10 토글 (공통 리스트 사용)
+  function generateSidebarArticles() {
+    const renderList = (items) => items.map((item, i) => `
+      <a href="${item.link}" class="sidebar-article-item">
+        <span class="sidebar-article-rank">${i + 1}</span>
+        <span class="sidebar-article-title">${item.title}</span>
+      </a>
+    `).join('');
 
-      // 오른쪽 열 리스트 (3~5)
-      var rightListHtml = listItems.slice(3, 6).map(function(item) {
-        return '<a class="home-video-item" href="' + item.link + '" target="_blank" rel="noopener">' +
-          '<div class="home-video-item-thumb">' +
-          '<img src="' + item.thumbnail + '" alt="' + escapeHtmlAttr(item.title || '') + '" loading="lazy">' +
-          '<span class="home-video-item-tag">' + item.channel + '</span>' +
-          (item.viewers ? '<span class="home-video-live-sm">' + item.viewers.toLocaleString() + '</span>' : '') +
-          '</div>' +
-          '<div class="home-video-item-info">' +
-          '<div class="home-video-item-title">' + item.title + '</div>' +
-          '</div></a>';
-      }).join('');
+    return `
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
+          <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+        </div>
+      </div>
+    `;
+  }
 
-      return '<div class="home-video-split">' +
-        '<div class="home-video-column">' + mainHtml + '<div class="home-video-list">' + leftListHtml + '</div></div>' +
-        '<div class="home-video-column">' + subHtml + '<div class="home-video-list">' + rightListHtml + '</div></div>' +
-        '</div>';
-    }
+  // 홈 위키 카드 (카테고리별 4개씩)
+  function generateHomeWiki() {
+    const categoryOrder = ['history', 'knowledge', 'tech', 'business'];
+    const categoryNames = {
+      history: '히스토리',
+      knowledge: '지식',
+      tech: '기술',
+      business: '비즈니스'
+    };
 
-    return '<div class="home-video-tabs">' +
-      '<button class="home-video-tab active" data-video="youtube"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="">인기 동영상</button>' +
-      '<button class="home-video-tab" data-video="chzzk"><img src="https://www.google.com/s2/favicons?domain=chzzk.naver.com&sz=32" alt="">치지직</button>' +
-      '</div>' +
-      '<div class="home-video-body">' +
-      '<div class="home-video-panel active" id="home-video-youtube">' + renderVideoGrid(youtubeItems) + '</div>' +
-      '<div class="home-video-panel" id="home-video-chzzk">' + renderVideoGrid(chzzkItems) + '</div>' +
-      '</div>';
+    const renderWikiCard = (wiki, category) => {
+      const thumbPath = getLocalWikiThumbPath(category, wiki.slug, wiki.thumbnail);
+      return `
+        <a href="/wiki/${category}/${wiki.slug}/" class="home-trend-card">
+          <div class="home-trend-card-image">
+            ${thumbPath ? `<img src="${thumbPath}" alt="${escapeHtmlAttr(wiki.title || '')}" loading="lazy" data-img-fallback="hide">` : ''}
+            <span class="home-trend-card-tag wiki">${categoryNames[category]}</span>
+          </div>
+          <h3 class="home-trend-card-title">${wiki.title}</h3>
+        </a>
+      `;
+    };
+
+    // 각 카테고리별 카드 섹션 생성 (통합 반응형 - CSS로 모바일 스타일 처리)
+    const sections = categoryOrder.map(category => {
+      const articles = (wikiData[category] || []).slice(0, 4);
+      if (articles.length === 0) return '';
+
+      const cards = articles.map(wiki => renderWikiCard(wiki, category)).join('');
+
+      return `
+        <div class="home-card" id="home-wiki-${category}">
+          <div class="home-card-header">
+            <h2 class="home-card-title">${categoryNames[category]}</h2>
+          </div>
+          <div class="home-trend-grid">${cards}</div>
+        </div>
+      `;
+    }).filter(s => s).join('');
+
+    return sections;
   }
 
   // appId로 게임 slug 찾기 (iOS/Android)
@@ -544,6 +470,26 @@ function generateIndexPage(data) {
       '</div>';
   }
 
+  // 사이드바: 모바일 순위
+  function generateSidebarMobileRank() {
+    return `
+      <div class="home-card" id="sidebar-mobile-rank">
+        <div class="home-card-header">
+          <h2 class="home-card-title">모바일 순위</h2>
+          <div class="home-card-controls">
+            <div class="tab-group">
+              <button class="tab-btn active" data-chart="grossing">매출</button>
+              <button class="tab-btn" data-chart="free">인기</button>
+            </div>
+          </div>
+        </div>
+        <div class="home-card-body">
+          ${generateHomeMobileRank()}
+        </div>
+      </div>
+    `;
+  }
+
   // 홈 스팀 순위
   function generateHomeSteam() {
     var mostPlayed = (steam?.mostPlayed || []).slice(0, 10);
@@ -605,7 +551,7 @@ function generateIndexPage(data) {
   var insightCardHtml = (aiInsight || weeklyInsight) ?
     '<div class="home-card" id="home-insight">' +
     '<div class="home-card-header">' +
-    '<h2 class="home-card-title">트렌드 리포트</h2>' +
+    '<h2 class="home-card-title">정기</h2>' +
     '</div>' +
     '<div class="home-card-body">' + generateHomeInsight() + '</div>' +
     '</div>' : '';
@@ -679,240 +625,30 @@ function generateIndexPage(data) {
 
   var popularBannerHtml = generatePopularBanner();
 
-  // 홈페이지 광고 (PC + 모바일)
-  // 모바일: page-container 사용, home-main/sidebar wrapper 제거
-  // PC: home-container > home-main + home-sidebar (2컬럼)
-  var content;
-
-  if (isMobileBuild) {
-    // 모바일 전용: 뉴스 피드 (일간 리포트 카드 스타일)
-    const newsSources = [
-      { items: news?.thisisgame || [], name: '디스이즈게임', icon: 'https://www.google.com/s2/favicons?domain=thisisgame.com&sz=32' },
-      { items: news?.gamemeca || [], name: '게임메카', icon: 'https://www.google.com/s2/favicons?domain=gamemeca.com&sz=32' },
-      { items: news?.ruliweb || [], name: '루리웹', icon: 'https://www.google.com/s2/favicons?domain=ruliweb.com&sz=32' }
-    ];
-
-    let allNews = [];
-    newsSources.forEach(src => {
-      src.items.filter(item => item.thumbnail).slice(0, 5).forEach(item => {
-        allNews.push({ ...item, source: src.name, icon: src.icon });
-      });
-    });
-
-    // 랜덤 셔플
-    for (let i = allNews.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [allNews[i], allNews[j]] = [allNews[j], allNews[i]];
-    }
-    allNews = allNews.slice(0, 10);
-
-    // 뉴스 카드 생성 (일간 리포트 스타일)
-    const renderNewsCard = (item) => `
-      <a href="${item.link}" class="home-trend-card" target="_blank" rel="noopener">
-        <div class="home-trend-card-image">
-          <img src="${fixUrl(item.thumbnail)}" alt="${escapeHtmlAttr(item.title || '')}" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect">
-          <span class="home-trend-card-tag">${item.source}</span>
-        </div>
-        <h3 class="home-trend-card-title">${item.title}</h3>
-      </a>`;
-
-    // 일간/주간 리포트 (헤더 없이)
-    const dailyThumbnail = dailyInsightThumbnail;
-    const weeklyThumbnail = weeklyInsightThumbnail;
-    const dailyHeadline = aiInsight?.headline || '일간 리포트';
-    const weeklyHeadline = weeklyInsight?.ai?.headline || '주간 리포트';
-    const dailyLink = insightFileDate ? `/trend/daily/${insightFileDate}/` : '/trend/';
-    const wInfo = weeklyInsight?.weekInfo || {};
-    const weekNum = wInfo.weekNumber || weeklyInsight?.ai?.weekNumber || '';
-    const weekYear = wInfo.year || new Date().getFullYear();
-    const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
-    const weeklyLink = weeklySlug ? `/trend/weekly/${weeklySlug}/` : '/trend/';
-
-    const reportGrid = `
-      <div class="home-trend-grid">
-        <a href="${dailyLink}" class="home-trend-card">
-          <div class="home-trend-card-image">
-            ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="${escapeHtmlAttr(dailyHeadline)}" loading="eager" fetchpriority="high" decoding="async" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag">일간 리포트</span>
-          </div>
-          <h3 class="home-trend-card-title">${dailyHeadline}</h3>
-        </a>
-        <a href="${weeklyLink}" class="home-trend-card">
-          <div class="home-trend-card-image">
-            ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="${escapeHtmlAttr(weeklyHeadline)}" loading="eager" fetchpriority="auto" decoding="async" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag weekly">주간 리포트</span>
-          </div>
-          <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
-        </a>
-      </div>`;
-
-    // 이슈 리포트 카드 (일간/주간과 동일 스타일, 최대 2개)
-    const renderIssueCard = (issue) => {
-      const issueThumbnail = fixUrl(issue.thumbnail) || '';
-      const issueBadgeText = issue.date ? `${formatDateKr(issue.date)} 이슈 리포트` : '이슈 리포트';
-      return `
-        <a href="/trend/issue/${issue.slug}/" class="home-trend-card">
-          <div class="home-trend-card-image">
-            ${issueThumbnail ? `<img src="${issueThumbnail}" alt="${escapeHtmlAttr(issue.title || '')}" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag">${issueBadgeText}</span>
-          </div>
-          <h3 class="home-trend-card-title">${issue.title}</h3>
-        </a>`;
-    };
-    const issueCards = issueReports.slice(0, 3).map(renderIssueCard).join('');
-
-    // 모바일: 리포트 + 광고 + 이슈(0~3) + 광고 + 위키(0~3) + 광고 + 뉴스(3개x3) 패턴
-    content = '<section class="home-section active" id="home">' +
-      '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
-      '<div class="page-container">' +
-      generateHomeAdPairSlot(AD_SLOTS.ResponsivePCHome001, AD_SLOTS.Mobile001) +
-      reportGrid +
-      generateNativeAdSlot(AD_SLOTS.Article001) +
-      issueCards +
-      generateNativeAdSlot(AD_SLOTS.Article002) +
-      generateHomeWiki() +
-      generateNativeAdSlot(AD_SLOTS.Article003) +
-      (allNews[0] ? renderNewsCard(allNews[0]) : '') +
-      (allNews[1] ? renderNewsCard(allNews[1]) : '') +
-      (allNews[2] ? renderNewsCard(allNews[2]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article004) +
-      (allNews[3] ? renderNewsCard(allNews[3]) : '') +
-      (allNews[4] ? renderNewsCard(allNews[4]) : '') +
-      (allNews[5] ? renderNewsCard(allNews[5]) : '') +
-      generateNativeAdSlot(AD_SLOTS.Article005) +
-      (allNews[6] ? renderNewsCard(allNews[6]) : '') +
-      (allNews[7] ? renderNewsCard(allNews[7]) : '') +
-      (allNews[8] ? renderNewsCard(allNews[8]) : '') +
-      '</div>' +
-      '</section>';
-  } else {
-    // PC: home-container (2컬럼)
-    content = '<section class="home-section active" id="home">' +
-      '<h1 class="visually-hidden">게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스</h1>' +
-      '<div class="home-container">' +
-      '<div class="home-main">' +
-      generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001) +
-      insightCardHtml +
-      generateHomeWiki() +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile002) +
-      '<div class="home-card" id="home-news">' +
-        '<div class="home-card-header">' +
-          '<h2 class="home-card-title">뉴스</h2>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeNews() + '</div>' +
-      '</div>' +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile003) +
-      '<div class="home-card" id="home-community">' +
-        '<div class="home-card-header">' +
-          '<h2 class="home-card-title">커뮤니티 베스트</h2>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeCommunity() + '</div>' +
-      '</div>' +
-      generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile004) +
-      '<div class="home-card" id="home-video">' +
-        '<div class="home-card-header">' +
-          '<h2 class="home-card-title">영상 순위</h2>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeVideo() + '</div>' +
-      '</div>' +
-      '</div>' +
-      '<div class="home-sidebar">' +
-      '<div class="home-card" id="home-mobile-rank">' +
-        '<div class="home-card-header">' +
-          '<h2 class="visually-hidden">모바일 게임 순위</h2>' +
-          '<span class="home-card-title">모바일 순위</span>' +
-          '<div class="home-card-controls">' +
-            '<div class="home-chart-toggle" id="homeChartTab">' +
-              '<button class="tab-btn small active" data-home-chart="grossing">매출</button>' +
-              '<button class="tab-btn small" data-home-chart="free">인기</button>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeMobileRank() + '</div>' +
-      '</div>' +
-      generateVerticalAdSlot(AD_SLOTS.PCHome002) +
-      '<div class="home-card" id="home-steam">' +
-        '<div class="home-card-header">' +
-          '<h2 class="home-card-title">스팀 순위</h2>' +
-          '<div class="home-card-controls">' +
-            '<div class="home-chart-toggle" id="homeSteamTab">' +
-              '<button class="tab-btn small active" data-home-steam="topsellers">매출</button>' +
-              '<button class="tab-btn small" data-home-steam="mostplayed">인기</button>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeSteam() + '</div>' +
-      '</div>' +
-      generateRectangleAdSlot(AD_SLOTS.PCHome003) +
-      '<div class="home-card" id="home-upcoming">' +
-        '<div class="home-card-header">' +
-          '<h2 class="home-card-title">출시 게임</h2>' +
-        '</div>' +
-        '<div class="home-card-body">' + generateHomeUpcoming() + '</div>' +
-      '</div>' +
-      '</div>' +
-      '</div>' +
-      '</section>';
-  }
+  // 홈페이지 (통합 반응형 - PC 2컬럼 구조, 모바일은 CSS로 1컬럼 처리)
+  var content = '<section class="home-section active" id="home">' +
+    '<h1 class="visually-hidden">게이머스크롤 - 게임 트렌드, 게임 업계 소식, 게임 위키</h1>' +
+    '<div class="page-container">' +
+    generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001) +
+    '<div class="home-container">' +
+    '<div class="home-main">' +
+    insightCardHtml +
+    generateHomePopular() +
+    generateNativeAdSlot(AD_SLOTS.Article001) +
+    generateHomeLatest() +
+    '</div>' +
+    '<div class="home-sidebar">' +
+    generateSidebarCategories() +
+    generateSidebarArticles() +
+    generateVerticalAdSlot(AD_SLOTS.PCHome002) +
+    '</div>' +
+    '</div>' +
+    '</div>' +
+    '</section>';
 
   // 페이지 스크립트 (원본 html.js와 동일한 방식)
   var pageScripts = `<script>
     // 뉴스 패널 렌더링 함수 (lazy load용)
-    function renderNewsPanel(items, sourceName) {
-      if (!items || items.length === 0) return '<div class="home-empty">뉴스를 불러올 수 없습니다</div>';
-      var withThumb = items.filter(function(item) { return item.thumbnail; });
-      var mainCard = withThumb[0];
-      var subCard = withThumb[1];
-      var listItems = withThumb.slice(2, 8);
-      var esc = function(s) { return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
-      var mainCardHtml = mainCard ? '<a class="home-news-card home-news-card-main" href="' + mainCard.link + '" target="_blank" rel="noopener"><div class="home-news-card-thumb"><img src="' + mainCard.thumbnail + '" alt="' + esc(mainCard.title) + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect"><span class="home-news-card-tag">' + sourceName + '</span></div><div class="home-news-card-info"><span class="home-news-card-title">' + mainCard.title + '</span></div></a>' : '';
-      var subCardHtml = subCard ? '<a class="home-news-card home-news-card-sub" href="' + subCard.link + '" target="_blank" rel="noopener"><div class="home-news-card-thumb"><img src="' + subCard.thumbnail + '" alt="' + esc(subCard.title) + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback-id="thumb-rect"><span class="home-news-card-tag">' + sourceName + '</span></div><div class="home-news-card-info"><span class="home-news-card-title">' + subCard.title + '</span></div></a>' : '';
-      var leftListHtml = listItems.slice(0, 3).map(function(item) { return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener"><div class="home-news-item-thumb"><img src="' + item.thumbnail + '" alt="' + esc(item.title) + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide"><span class="home-news-item-tag">' + sourceName + '</span></div><div class="home-news-item-info"><span class="home-news-title">' + item.title + '</span></div></a>'; }).join('');
-      var rightListHtml = listItems.slice(3, 6).map(function(item) { return '<a class="home-news-item" href="' + item.link + '" target="_blank" rel="noopener"><div class="home-news-item-thumb"><img src="' + item.thumbnail + '" alt="' + esc(item.title) + '" loading="lazy" referrerpolicy="no-referrer" data-img-fallback="hide"><span class="home-news-item-tag">' + sourceName + '</span></div><div class="home-news-item-info"><span class="home-news-title">' + item.title + '</span></div></a>'; }).join('');
-      return '<div class="home-news-split"><div class="home-news-column">' + mainCardHtml + '<div class="home-news-list">' + leftListHtml + '</div></div><div class="home-news-column">' + subCardHtml + '<div class="home-news-list">' + rightListHtml + '</div></div></div>';
-    }
-
-    // 홈 뉴스 서브탭 전환 (lazy load 지원)
-    document.querySelectorAll('.home-news-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.home-news-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const targetNews = tab.dataset.news;
-        document.querySelectorAll('.home-news-panel').forEach(p => p.classList.remove('active'));
-        const panel = document.getElementById('home-news-' + targetNews);
-        if (panel) {
-          panel.classList.add('active');
-          // Lazy load: 비어있으면 렌더링
-          if (targetNews !== 'all' && !panel.innerHTML.trim() && window.__NEWS_DATA__) {
-            const sourceNames = { thisisgame: '디스이즈게임', gamemeca: '게임메카', ruliweb: '루리웹' };
-            panel.innerHTML = renderNewsPanel(window.__NEWS_DATA__[targetNews], sourceNames[targetNews]);
-          }
-        }
-      });
-    });
-
-    // 홈 커뮤니티 서브탭 전환
-    document.querySelectorAll('.home-community-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.home-community-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const targetCommunity = tab.dataset.community;
-        document.querySelectorAll('.home-community-panel').forEach(p => p.classList.remove('active'));
-        document.getElementById('home-community-' + targetCommunity)?.classList.add('active');
-      });
-    });
-
-    // 홈 영상 서브탭 전환
-    document.querySelectorAll('.home-video-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.home-video-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const targetVideo = tab.dataset.video;
-        document.querySelectorAll('.home-video-panel').forEach(p => p.classList.remove('active'));
-        document.getElementById('home-video-' + targetVideo)?.classList.add('active');
-      });
-    });
-
     // 홈 모바일 랭킹 - 인기/매출 탭 전환
     let homeCurrentChart = 'grossing';
     let homeCurrentPlatform = 'ios';
@@ -943,6 +679,21 @@ function generateIndexPage(data) {
       });
     });
 
+    // 사이드바 모바일 순위 - 매출/인기 탭 전환
+    const sidebarMobileRank = document.getElementById('sidebar-mobile-rank');
+    sidebarMobileRank?.querySelectorAll('.tab-btn').forEach(tab => {
+      tab.addEventListener('click', () => {
+        sidebarMobileRank.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        homeCurrentChart = tab.dataset.chart;
+        sidebarMobileRank.querySelectorAll('.home-rank-chart').forEach(c => c.classList.remove('active'));
+        const targetChart = sidebarMobileRank.querySelector('#home-chart-' + homeCurrentChart);
+        targetChart?.classList.add('active');
+        targetChart?.querySelectorAll('.home-rank-list').forEach(l => l.classList.remove('active'));
+        targetChart?.querySelector('#home-rank-' + homeCurrentChart + '-' + homeCurrentPlatform)?.classList.add('active');
+      });
+    });
+
     // 홈 스팀 서브탭 전환
     document.querySelectorAll('[data-home-steam]').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -964,10 +715,108 @@ function generateIndexPage(data) {
         document.getElementById('home-upcoming-' + targetUpcoming)?.classList.add('active');
       });
     });
+
+    // 최신 기사 페이지네이션 + 카테고리 필터
+    (function() {
+      const pagination = document.querySelector('.home-pagination');
+      const categoryMenu = document.getElementById('sidebar-categories');
+      const popularCard = document.getElementById('home-popular');
+      const insightCard = document.getElementById('home-insight');
+      const latestCard = document.getElementById('home-latest');
+      const latestTitle = latestCard?.querySelector('.home-card-title');
+      if (!pagination) return;
+
+      const categoryNames = { issue: '이슈', history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
+      const perPage = parseInt(pagination.dataset.perPage, 10);
+      const allItems = Array.from(document.querySelectorAll('.home-latest-item'));
+      const prevBtn = pagination.querySelector('.home-page-prev');
+      const nextBtn = pagination.querySelector('.home-page-next');
+      const pageInfo = pagination.querySelector('.home-page-info');
+      let currentPage = 1;
+      let currentCategory = null;
+      let filteredItems = allItems;
+
+      function filterByCategory(category) {
+        // 같은 카테고리 다시 클릭하면 해제 (전체로 복귀)
+        if (currentCategory === category) {
+          currentCategory = null;
+          filteredItems = allItems;
+          categoryMenu.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
+          // 인기/인사이트 카드 복원
+          if (popularCard) popularCard.style.display = '';
+          if (insightCard) insightCard.style.display = '';
+          // 타이틀 복원
+          if (latestTitle) latestTitle.textContent = '최신';
+        } else {
+          currentCategory = category;
+          filteredItems = allItems.filter(item => item.dataset.category === category);
+          // 인기/인사이트 카드 숨기기
+          if (popularCard) popularCard.style.display = 'none';
+          if (insightCard) insightCard.style.display = 'none';
+          // 타이틀 변경
+          if (latestTitle) latestTitle.textContent = categoryNames[category] || category;
+        }
+        currentPage = 1;
+        updatePagination();
+      }
+
+      function updatePagination() {
+        const totalPages = Math.ceil(filteredItems.length / perPage) || 1;
+        const start = (currentPage - 1) * perPage;
+        const end = start + perPage;
+
+        // 모든 아이템 숨기기
+        allItems.forEach(item => item.style.display = 'none');
+
+        // 필터링된 아이템 중 현재 페이지만 표시
+        filteredItems.forEach((item, i) => {
+          item.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
+        prevBtn.disabled = currentPage <= 1;
+        nextBtn.disabled = currentPage >= totalPages;
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        if (currentPage > 1) { currentPage--; updatePagination(); }
+      });
+      nextBtn?.addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredItems.length / perPage);
+        if (currentPage < totalPages) { currentPage++; updatePagination(); }
+      });
+
+      // 사이드바 카테고리 메뉴 클릭
+      categoryMenu?.addEventListener('click', (e) => {
+        const btn = e.target.closest('.sidebar-category-item');
+        if (!btn) return;
+        const isActive = btn.classList.contains('active');
+        categoryMenu.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
+        if (!isActive) btn.classList.add('active');
+        filterByCategory(btn.dataset.filterCategory);
+      });
+
+      updatePagination();
+    })();
+
+    // 사이드바 인기/최신 토글
+    (function() {
+      const sidebarTab = document.getElementById('sidebarArticleTab');
+      if (!sidebarTab) return;
+      sidebarTab.addEventListener('click', (e) => {
+        const btn = e.target.closest('.tab-btn');
+        if (!btn) return;
+        sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.sidebarTab;
+        document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
+        document.getElementById('sidebar-' + target)?.classList.add('active');
+      });
+    })();
   </script>`;
 
   return wrapWithLayout(content, {
-    currentPage: 'index',  // 홈페이지 (body.page-index 클래스 필요)
+    currentPage: 'home',  // 홈페이지 → 네비 선택 없음
     title: '게이머스크롤 - 모바일 게임 순위·스팀 게임 순위·게임 뉴스',
     description: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스를 한눈에.',
     keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 메타크리틱, 게임 뉴스',

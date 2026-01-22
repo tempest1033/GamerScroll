@@ -4,9 +4,9 @@
 
 const navItems = [
   {
-    id: 'trend',
-    label: '뉴스',
-    href: '/trend/',
+    id: 'magazine',
+    label: '매거진',
+    href: '/magazine/',
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>'
   },
   {
@@ -34,26 +34,17 @@ const navItems = [
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12h.01M18 12h.01"/><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 6v12"/></svg>'
   },
   {
-    id: 'youtube',
-    label: '영상 순위',
-    href: '/youtube/',
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>'
-  },
-  {
     id: 'upcoming',
     label: '출시 게임',
     href: '/upcoming/',
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>'
-  },
-  {
-    id: 'metacritic',
-    label: '메타크리틱',
-    href: '/metacritic/',
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>'
   }
 ];
 
 function generateNav(currentPage = 'home') {
+  // 현재 페이지 인덱스 계산
+  const currentIdx = navItems.findIndex(item => item.id === currentPage);
+
   return `
   <nav class="nav">
     <div class="nav-inner">
@@ -63,7 +54,28 @@ function generateNav(currentPage = 'home') {
         ${item.label}
       </a>`).join('')}
     </div>
-  </nav>`;
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    var idx=${currentIdx};
+    function set(){
+      if(n.clientWidth<=0||n.scrollWidth<=n.clientWidth+1){requestAnimationFrame(set);return;}
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var c=t.offsetLeft+t.offsetWidth/2;
+        var nc=n.clientWidth/2;
+        var max=n.scrollWidth-n.clientWidth;
+        n.scrollLeft=Math.max(0,Math.min(max,c-nc));
+      }
+      n.classList.add('nav-ready');
+    }
+    set();
+  })();
+  </script>`;
 }
 
 module.exports = { generateNav, navItems };

@@ -31,7 +31,7 @@
     .rankings-card .home-card-header .tab-btn,
     .steam-card .home-card-header .tab-btn {
       padding: 6px 14px;
-      font-size: var(--font-small-size);
+      font-size: var(--font-tab-size);
     }
     @media (max-width: 768px) {
       .rankings-card .home-card-header .tab-btn,
@@ -42,7 +42,7 @@
     }
     .rankings-tabs-row .tab-btn {
       padding: 6px 12px;
-      font-size: var(--font-small-size);
+      font-size: var(--font-tab-size);
       background: var(--hover-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
@@ -100,12 +100,8 @@
       border: 1px solid var(--border);
     }
 
-    .chart-section {
+    .chart-section:not(.active) {
       display: none;
-    }
-
-    .chart-section.active {
-      display: block;
     }
 
     .chart-scroll {

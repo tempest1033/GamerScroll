@@ -1,78 +1,145 @@
 /**
- * PC 전용 광고 모듈
- * gamerscroll.com (PC 버전)에서 사용
- * 모바일 광고는 ads-mobile.js 참조
+ * 통합 반응형 광고 모듈
+ * PC/모바일 단일 빌드용 - CSS 미디어 쿼리로 크기 분기
  *
- * 로딩 전략: Intersection Observer 방식
- * - 광고가 뷰포트에 가까워지면 로드 (layout.js에서 Observer 처리)
+ * Google AdSense 공식 가이드 준수:
+ * - CSS 미디어 쿼리로 광고 크기 지정 (허용)
+ * - 미디어 쿼리 내 display:none (허용)
+ * - data-ad-format="auto" 제거 (수동 크기 지정 시)
  *
- * 광고 ON/OFF: 환경변수 ADS_ENABLED=false 로 전체 비활성화
+ * Breakpoints:
+ * - Mobile: max-width 768px
+ * - Tablet: 769px ~ 1199px
+ * - Desktop: min-width 1200px (사이드바 표시)
+ *
+ * 로딩 전략: Intersection Observer (layout.js에서 처리)
+ * 광고 ON/OFF: ADS_ENABLED=false 로 전체 비활성화
  */
 
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 
+// 고유 ID 생성용 카운터
+let adStyleCounter = 0;
+
 /**
- * PC 홈 상단 광고 (728x90)
+ * 반응형 상단 광고
+ * Mobile: 320x100, Tablet: 728x90, Desktop: 970x90
  */
-function renderPCHomeAd(slotId) {
+function renderResponsiveTopAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
-  return `<div class="ad-card ad-card-pc-home">
-  <ins class="adsbygoogle"
-       style="display:block;width:728px;height:90px;margin:0 auto"
+  const styleId = `ad-top-${++adStyleCounter}`;
+  return `<div class="ad-card ad-card-responsive-top">
+  <style>
+    .${styleId} { display:block; width:320px; height:100px; margin:0 auto; }
+    @media (min-width: 769px) { .${styleId} { width:728px; height:90px; } }
+    @media (min-width: 1024px) { .${styleId} { width:970px; height:90px; } }
+  </style>
+  <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
 </div>`;
 }
 
 /**
- * PC 상단 광고 (970x90)
+ * 반응형 홈 상단 광고
+ * Mobile: 320x100, Desktop: 728x90
  */
-function renderPCAd(slotId) {
+function renderResponsiveHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
-  return `<div class="ad-card ad-card-pc">
-  <ins class="adsbygoogle"
-       style="display:block;width:100%;height:90px"
+  const styleId = `ad-home-${++adStyleCounter}`;
+  return `<div class="ad-card ad-card-responsive-home">
+  <style>
+    .${styleId} { display:block; width:320px; height:100px; margin:0 auto; }
+    @media (min-width: 769px) { .${styleId} { width:728px; height:90px; } }
+  </style>
+  <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
 </div>`;
 }
 
 /**
- * Vertical 광고 (300x600) - PC 사이드바용
+ * 사이드바 세로 광고 (PC only)
+ * Desktop: 300x600, Mobile/Tablet: 숨김
  */
-function renderVerticalAd(slotId) {
+function renderSidebarVerticalAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
-  return `<div class="ad-card ad-card-vertical">
-  <ins class="adsbygoogle"
-       style="display:inline-block;width:300px;height:600px"
+  const styleId = `ad-sidebar-v-${++adStyleCounter}`;
+  return `<div class="ad-card ad-card-sidebar-vertical">
+  <style>
+    .${styleId} { display:none; }
+    @media (min-width: 1200px) { .${styleId} { display:inline-block; width:300px; height:600px; } }
+  </style>
+  <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
 </div>`;
 }
 
 /**
- * Rectangle 광고 (300x250) - PC 사이드바용
+ * 사이드바 정사각 광고 (PC only)
+ * Desktop: 300x250, Mobile/Tablet: 숨김
  */
-function renderRectangleAd(slotId) {
+function renderSidebarRectangleAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
-  return `<div class="ad-card ad-card-rectangle">
-  <ins class="adsbygoogle"
-       style="display:inline-block;width:300px;height:250px"
+  const styleId = `ad-sidebar-r-${++adStyleCounter}`;
+  return `<div class="ad-card ad-card-sidebar-rectangle">
+  <style>
+    .${styleId} { display:none; }
+    @media (min-width: 1200px) { .${styleId} { display:inline-block; width:300px; height:250px; } }
+  </style>
+  <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
 </div>`;
 }
 
 /**
- * @deprecated 호환용 - renderAdCard
+ * 콘텐츠 중간 광고 (모바일 전용 표시, PC에서는 숨김)
+ * Mobile: 300x250, Desktop: 숨김
  */
-function renderAdCard(slotId, options = {}) {
+function renderMobileOnlyAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
-  const { type = 'pc' } = options;
-  if (type === 'vertical') return renderVerticalAd(slotId);
-  if (type === 'rectangle') return renderRectangleAd(slotId);
-  return renderPCAd(slotId);
+  const styleId = `ad-mobile-only-${++adStyleCounter}`;
+  return `<div class="ad-card ad-card-mobile-only">
+  <style>
+    .${styleId} { display:block; width:300px; height:250px; margin:0 auto; }
+    @media (min-width: 1200px) { .${styleId} { display:none; } }
+  </style>
+  <ins class="adsbygoogle ${styleId}"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+</div>`;
+}
+
+/**
+ * 콘텐츠 중간 광고 (항상 표시)
+ * Mobile/Desktop: 300x250
+ */
+function renderContentAd(slotId) {
+  if (!ADS_ENABLED || !slotId) return '';
+  return `<div class="ad-card ad-card-content">
+  <ins class="adsbygoogle"
+       style="display:block;width:300px;height:250px;margin:0 auto"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+</div>`;
+}
+
+/**
+ * In-feed 네이티브 광고 (자동 반응형)
+ */
+function renderNativeAd(slotId) {
+  if (!ADS_ENABLED || !slotId) return '';
+  return `<div class="ad-card ad-card-native">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-format="fluid"
+       data-ad-layout-key="-7m+ex-1f-2m+ae"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+</div>`;
 }
 
 /**
@@ -89,12 +156,72 @@ function renderMultiplexAd(slotId) {
 </div>`;
 }
 
+// ============================================================
+// 하위 호환용 별칭 (기존 코드 호환)
+// ============================================================
+
+/** @deprecated renderResponsiveTopAd 사용 권장 */
+function renderPCAd(slotId) {
+  return renderResponsiveTopAd(slotId);
+}
+
+/** @deprecated renderResponsiveHomeAd 사용 권장 */
+function renderPCHomeAd(slotId) {
+  return renderResponsiveHomeAd(slotId);
+}
+
+/** @deprecated renderSidebarVerticalAd 사용 권장 */
+function renderVerticalAd(slotId) {
+  return renderSidebarVerticalAd(slotId);
+}
+
+/** @deprecated renderSidebarRectangleAd 사용 권장 */
+function renderRectangleAd(slotId) {
+  return renderSidebarRectangleAd(slotId);
+}
+
+/** @deprecated renderMobileOnlyAd 사용 권장 */
+function renderMobileAd(slotId) {
+  return renderMobileOnlyAd(slotId);
+}
+
+/** @deprecated renderMobileOnlyAd 사용 권장 */
+function renderMobileTopAd(slotId) {
+  return renderMobileOnlyAd(slotId);
+}
+
+/** @deprecated renderContentAd 사용 권장 */
+function renderMobileMidAd(slotId) {
+  return renderContentAd(slotId);
+}
+
+/** @deprecated 호환용 */
+function renderAdCard(slotId, options = {}) {
+  if (!ADS_ENABLED || !slotId) return '';
+  const { type = 'pc' } = options;
+  if (type === 'vertical') return renderSidebarVerticalAd(slotId);
+  if (type === 'rectangle') return renderSidebarRectangleAd(slotId);
+  return renderResponsiveTopAd(slotId);
+}
+
 module.exports = {
   ADSENSE_CLIENT,
+  // 신규 반응형 함수
+  renderResponsiveTopAd,
+  renderResponsiveHomeAd,
+  renderSidebarVerticalAd,
+  renderSidebarRectangleAd,
+  renderMobileOnlyAd,
+  renderContentAd,
+  renderNativeAd,
+  renderMultiplexAd,
+  // 하위 호환 별칭 (deprecated)
   renderAdCard,
   renderPCAd,
   renderPCHomeAd,
   renderVerticalAd,
   renderRectangleAd,
-  renderMultiplexAd
+  renderMobileAd,
+  renderMobileTopAd,
+  renderMobileMidAd
 };
