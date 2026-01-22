@@ -1310,13 +1310,24 @@ async function main() {
 
   // 메인 페이지 URL 목록 (changefreq/priority 제거 - Google이 무시함)
   const mainPages = [
+    // 홈
     { loc: `${siteBaseUrl}/`, lastmod: sitemapDate },
+    // 매거진 (허브 + 목록)
     { loc: `${siteBaseUrl}/magazine/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/magazine/daily/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/magazine/weekly/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/magazine/issue/`, lastmod: sitemapDate },
+    // 순위/데이터
     { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/upcoming/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/games/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/wiki/`, lastmod: sitemapDate }
+    // 위키 (허브 + 카테고리)
+    { loc: `${siteBaseUrl}/wiki/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/wiki/business/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/wiki/tech/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/wiki/history/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/wiki/knowledge/`, lastmod: sitemapDate }
   ];
 
   // 위키 페이지 자동 스캔
@@ -1381,29 +1392,10 @@ async function main() {
     }
   }
 
-  // 게임 페이지 자동 스캔 (noindex 페이지는 sitemap에서 제외)
-  const gamesDir = `${DOCS_DIR}/games`;
-  let gamePages = [];
-  if (fs.existsSync(gamesDir)) {
-    const gameFolders = fs.readdirSync(gamesDir, { withFileTypes: true })
-      .filter(dirent => dirent.isDirectory())
-      .map(dirent => dirent.name);
-    gamePages = gameFolders.map(slug => {
-      const indexPath = `${gamesDir}/${slug}/index.html`;
-      let hasNoindex = false;
-      if (fs.existsSync(indexPath)) {
-        const html = fs.readFileSync(indexPath, 'utf8').slice(0, 1000);
-        hasNoindex = html.includes('noindex');
-      }
-      return hasNoindex ? null : {
-        loc: `${siteBaseUrl}/games/${slug}/`,
-        lastmod: sitemapDate
-      };
-    }).filter(p => p !== null);  // noindex 페이지는 sitemap에서 제외
-  }
+  // 게임 개별 페이지는 sitemap에서 제외 (thin content)
 
   // Sitemap XML 생성 (PC URL만 - 중복 신호 최소화로 색인 효율 향상)
-  const allPages = [...mainPages, ...wikiPages, ...gamePages, ...magazinePages];
+  const allPages = [...mainPages, ...wikiPages, ...magazinePages];
   const sitemapEntries = allPages.map(page => {
     return `  <url>
     <loc>${page.loc}</loc>
@@ -1416,7 +1408,18 @@ async function main() {
 ${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
-  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 위키 ${wikiPages.length}개 + 게임 ${gamePages.length}개 + 브리핑 ${magazinePages.length}개 = 총 ${allPages.length}개 URL`);
+  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 위키 ${wikiPages.length}개 + 매거진 ${magazinePages.length}개 = 총 ${allPages.length}개 URL`);
+
+  // robots.txt 생성
+  const robotsTxt = `# GamerScroll robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gamerscroll.com/sitemap.xml
+`;
+  fs.writeFileSync(`${DOCS_DIR}/robots.txt`, robotsTxt, 'utf8');
+  console.log('🤖 robots.txt 생성 완료');
 
   // RSS 피드 생성
   try {

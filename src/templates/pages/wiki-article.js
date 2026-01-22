@@ -213,7 +213,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
   const relatedGames = findRelatedGames(fullText);
   const relatedGamesHtml = relatedGames.length > 0 ? `
     <div class="blog-related-games">
-      <h3 class="blog-related-title">관련 게임</h3>
+      <div class="blog-related-title">관련 게임</div>
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
@@ -234,7 +234,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
   const relatedHTML = hasRelatedDocs
     ? `
       <div class="blog-related-issues">
-        <h3 class="blog-related-title">관련 문서</h3>
+        <div class="blog-related-title">관련 문서</div>
         <div class="blog-related-issues-list">
           ${relatedArticles.map(item => {
             const thumb = item.thumbnail
@@ -262,7 +262,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
   const sourcesHTML = sources.length > 0
     ? `
       <div class="blog-sources">
-        <h3 class="blog-sources-title">참고 자료</h3>
+        <div class="blog-sources-title">참고 자료</div>
         <ul class="blog-sources-list">
           ${sources.map(src => {
             const label = src.title ? `${src.name} - ${src.title}` : src.name;
@@ -321,13 +321,32 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
   `;
 
   const metaKeywords = keywordText || '게임 위키, 게임 용어';
+  const descriptionText = article.summary || `${article.title}에 대한 게임 업계 심층 분석`;
+
+  // 썸네일 이미지 경로 (스키마용 절대 URL)
+  const thumbnailPath = article.thumbnail
+    ? getLocalWikiImagePath(category, article.slug, article.thumbnail, 'thumbnail')
+    : null;
+  const schemaImage = thumbnailPath
+    ? (thumbnailPath.startsWith('/') ? `${siteBaseUrl}${thumbnailPath}` : thumbnailPath)
+    : null;
+
+  // Article JSON-LD 스키마
+  const articleSchema = {
+    headline: article.title,
+    description: descriptionText,
+    datePublished: article.date,
+    dateModified: article.date,
+    image: schemaImage
+  };
 
   return wrapWithLayout(content, {
     currentPage: 'wiki',
     title: article.title,
-    description: article.summary || `${article.title}에 대한 게임 업계 심층 분석`,
+    description: descriptionText,
     keywords: metaKeywords,
     canonical: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
+    articleSchema,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '게임 위키', url: `${siteBaseUrl}/wiki/` },

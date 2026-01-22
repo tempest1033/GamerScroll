@@ -938,8 +938,7 @@ function updateSitemapGameEntries() {
 }
 
 // ============ 메인 실행 ============
-const buildType = isMobileBuild ? '📱 모바일' : '🖥️ PC';
-console.log(`🎮 게임 페이지 생성 시작... (${buildType} → ${docsDir}/games)\n`);
+console.log(`🎮 게임 페이지 생성 시작... (→ ${docsDir}/games)\n`);
 
 // 출력 디렉토리 생성
 if (!fs.existsSync(outputDir)) {
