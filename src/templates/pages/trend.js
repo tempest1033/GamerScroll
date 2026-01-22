@@ -1928,7 +1928,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
 
   return wrapWithLayout(pageContent, {
     currentPage: 'trend',
-    title: `${title} | 게이머스크롤`,
+    title: title,
     description: summary || title,
     keywords: post.keywords || '게임 분석, 이슈 리포트, 게임 이슈, 모바일 게임',
     canonical: `${siteBaseUrl}/trend/issue/${slug}/`,

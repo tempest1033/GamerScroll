@@ -327,7 +327,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
 
   return wrapWithLayout(content, {
     currentPage: 'wiki',
-    title: `${article.title} - 게임 위키`,
+    title: article.title,
     description: article.summary || `${article.title}에 대한 게임 업계 심층 분석`,
     keywords: metaKeywords,
     canonical: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
