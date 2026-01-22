@@ -1245,25 +1245,17 @@ async function main() {
     }).filter(p => p !== null);  // noindex 페이지는 sitemap에서 제외
   }
 
-  // Sitemap XML 생성 (xhtml:link로 PC↔모바일 관계 명시)
+  // Sitemap XML 생성 (PC URL만 - 중복 신호 최소화로 색인 효율 향상)
   const allPages = [...mainPages, ...wikiPages, ...gamePages, ...trendPages];
   const sitemapEntries = allPages.map(page => {
-    // 현재 URL의 경로 추출
-    const path = page.loc.replace(siteBaseUrl, '');
-    const pcUrl = `https://gamerscrawl.com${path}`;
-    const mobileUrl = `https://m.gamerscrawl.com${path}`;
-
     return `  <url>
     <loc>${page.loc}</loc>
-    <xhtml:link rel="alternate" media="only screen and (max-width: 768px)" href="${mobileUrl}"/>
-    <xhtml:link rel="alternate" media="only screen and (min-width: 769px)" href="${pcUrl}"/>
     <lastmod>${page.lastmod || sitemapDate}</lastmod>
   </url>`;
   }).join('\n');
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');

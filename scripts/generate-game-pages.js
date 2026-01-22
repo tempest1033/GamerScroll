@@ -918,13 +918,9 @@ function updateSitemapGameEntries() {
     if (htmlHead.includes('noindex')) continue;
 
     const loc = `${siteBaseUrl}/games/${slug}/`;
-    const pcUrl = `https://gamerscrawl.com/games/${slug}/`;
-    const mobileUrl = `https://m.gamerscrawl.com/games/${slug}/`;
     entries.push([
       '  <url>',
       `    <loc>${loc}</loc>`,
-      `    <xhtml:link rel="alternate" media="only screen and (max-width: 768px)" href="${mobileUrl}"/>`,
-      `    <xhtml:link rel="alternate" media="only screen and (min-width: 769px)" href="${pcUrl}"/>`,
       `    <lastmod>${sitemapDate}</lastmod>`,
       '    <changefreq>weekly</changefreq>',
       '    <priority>0.6</priority>',
