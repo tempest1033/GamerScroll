@@ -111,9 +111,9 @@ async function fetchKrTitlesFromApi(games, existingMap) {
   for (const [name, info] of Object.entries(games)) {
     for (const [key, appId] of Object.entries(info.appIds || {})) {
       if (!existingMap.has(appId)) {
-        if (key.startsWith('ios:')) {
+        if (key.startsWith('ios_') || key === 'ios') {
           toFetch.push({ type: 'ios', appId });
-        } else if (key.startsWith('android:')) {
+        } else if (key.startsWith('android_') || key === 'android') {
           toFetch.push({ type: 'android', appId });
         }
       }

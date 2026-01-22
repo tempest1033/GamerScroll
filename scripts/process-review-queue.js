@@ -229,10 +229,10 @@ async function getAndroidKrTitle(appId) {
 async function getKrTitleFromItem(item, status) {
   // 현재 플랫폼의 appId로 kr 마켓에서 한국어 이름 조회
   for (const [key, appId] of Object.entries(item.appIds)) {
-    if (status === 'ios-only' && (key === 'ios' || key.startsWith('ios:'))) {
+    if (status === 'ios-only' && (key === 'ios' || key.startsWith('ios_'))) {
       const krTitle = await getIosKrTitle(appId);
       if (krTitle) return krTitle;
-    } else if (status === 'android-only' && (key === 'android' || key.startsWith('android:'))) {
+    } else if (status === 'android-only' && (key === 'android' || key.startsWith('android_'))) {
       const krTitle = await getAndroidKrTitle(appId);
       if (krTitle) return krTitle;
     }

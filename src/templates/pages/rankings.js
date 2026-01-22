@@ -13,13 +13,21 @@ function generateRankingsPage(data) {
   const { rankings, games = {} } = data;
   const INITIAL_ROWS = 30;
 
-  // appId -> slug 빠른 매핑 (iOS/Android)
+  // appId -> slug 빠른 매핑 (iOS/Android + 지역별)
   const iosSlugMap = {};
   const androidSlugMap = {};
+  const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
+
   Object.values(games || {}).forEach(g => {
     if (!g || !g.slug || !g.appIds) return;
+    // 기본 iOS/Android
     if (g.appIds.ios) iosSlugMap[String(g.appIds.ios)] = g.slug;
     if (g.appIds.android) androidSlugMap[String(g.appIds.android)] = g.slug;
+    // 지역별 앱 ID (ios_cn, ios_jp, android_jp 등)
+    regions.forEach(r => {
+      if (g.appIds[`ios_${r}`]) iosSlugMap[String(g.appIds[`ios_${r}`])] = g.slug;
+      if (g.appIds[`android_${r}`]) androidSlugMap[String(g.appIds[`android_${r}`])] = g.slug;
+    });
   });
 
   function findGameSlug(appId, platform) {
