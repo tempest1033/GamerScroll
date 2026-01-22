@@ -1899,8 +1899,8 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
           <div class="blog-content">
             ${renderContent()}
           </div>
-          ${relatedGamesHtml}
           ${relatedDocsHtml}
+          ${relatedGamesHtml}
           ${sourcesHtml}
         </div>
 

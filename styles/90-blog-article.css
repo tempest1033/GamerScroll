@@ -222,6 +222,22 @@
   width: 100%;
   border-collapse: collapse;
   font-size: var(--font-body-size);
+  table-layout: fixed;
+}
+
+.wiki-table th:first-child,
+.wiki-table td:first-child {
+  width: 30%;
+}
+
+.wiki-table th:nth-child(2),
+.wiki-table td:nth-child(2) {
+  width: 20%;
+}
+
+.wiki-table th:nth-child(3),
+.wiki-table td:nth-child(3) {
+  width: 50%;
 }
 
 .wiki-table th,
