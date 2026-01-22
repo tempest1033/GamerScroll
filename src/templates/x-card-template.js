@@ -235,7 +235,7 @@ const generateXCardHtml = (data) => {
     <div class="footer">
       <div class="date">${formattedDate} 데일리 리포트</div>
       <span class="brand-name">게이머스크롤</span>
-      <span class="cta">gamerscrawl.com</span>
+      <span class="cta">gamerscroll.com</span>
     </div>
   </div>
 </body>

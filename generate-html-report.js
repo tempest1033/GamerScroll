@@ -445,7 +445,7 @@ async function main() {
     console.log(`📸 CSV 스냅샷 저장: ${snapshotDate} ${snapshotTime}`);
   }
 
-  console.log('\n📄 GAMERSCRAWL 일일 보고서 생성 중...');
+  console.log('\n📄 GAMERSCROLL 일일 보고서 생성 중...');
 
   // 인사이트 데이터 생성
   const todayData = { news, community, rankings, steam, youtube, chzzk, upcoming };
@@ -480,7 +480,7 @@ async function main() {
   }
 
   // HTML 생성
-  console.log('\n📄 GAMERSCRAWL 일일 보고서 생성 중...');
+  console.log('\n📄 GAMERSCROLL 일일 보고서 생성 중...');
 
   // 이슈 리포트 데이터 로드 (홈페이지용, 승인된 것만)
   const ISSUE_REPORTS_DIR_HOME = './reports/issue';
@@ -1132,7 +1132,7 @@ async function main() {
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];
-  const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+  const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
 
   // 주차 → 날짜 변환 헬퍼 (ISO week)
   const getDateFromWeek = (weekStr) => {
@@ -1289,7 +1289,7 @@ Allow: /`, 'utf8');
   const swPath = `${DOCS_DIR}/service-worker.js`;
   if (fs.existsSync(swPath)) {
     const swContent = fs.readFileSync(swPath, 'utf8');
-    const cacheVersion = `gamerscrawl-${Date.now()}`;
+    const cacheVersion = `gamerscroll-${Date.now()}`;
     const updatedSw = swContent.replace(/const CACHE_NAME = '[^']+';/, `const CACHE_NAME = '${cacheVersion}';`);
     fs.writeFileSync(swPath, updatedSw, 'utf8');
     console.log(`🔄 Service Worker 캐시 버전: ${cacheVersion}`);

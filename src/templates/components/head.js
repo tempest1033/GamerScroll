@@ -8,7 +8,7 @@ function generateHead(options = {}) {
     title = '게이머스크롤 | 데일리 게임 인사이트',
     description = '데일리 게임 인사이트 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
     keywords = '게임 순위, 모바일 게임, 스팀 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위, 게임 업계, 게임주, 게이머스크롤',
-    canonical = 'https://gamerscrawl.com',
+    canonical = 'https://gamerscroll.com',
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
     breadcrumbs = null,  // BreadcrumbList JSON-LD [{name, url}]
@@ -37,12 +37,12 @@ function generateHead(options = {}) {
     ? String(keywords).split(',').map(tag => normalizeMeta(tag)).filter(Boolean).slice(0, 6)
     : [];
   const canonicalText = normalizeMeta(canonical);
-  const isMobileCanonical = canonicalText.startsWith('https://m.gamerscrawl.com');
+  const isMobileCanonical = canonicalText.startsWith('https://m.gamerscroll.com');
   // canonical은 항상 데스크톱 URL을 사용 (Google 권장: 모바일도 데스크톱 canonical 지정)
-  const desktopCanonical = canonicalText.replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
-  const mobileCanonical = canonicalText.replace('https://gamerscrawl.com', 'https://m.gamerscrawl.com');
+  const desktopCanonical = canonicalText.replace('https://m.gamerscroll.com', 'https://gamerscroll.com');
+  const mobileCanonical = canonicalText.replace('https://gamerscroll.com', 'https://m.gamerscroll.com');
   const safeCanonical = escapeHtmlAttr(desktopCanonical);  // 항상 데스크톱 URL
-  const normalizeToDesktop = (value) => String(value || '').replace('https://m.gamerscrawl.com', 'https://gamerscrawl.com');
+  const normalizeToDesktop = (value) => String(value || '').replace('https://m.gamerscroll.com', 'https://gamerscroll.com');
   const schemaCanonical = normalizeToDesktop(canonicalText);
   const schemaBreadcrumbs = breadcrumbs && breadcrumbs.length > 0
     ? breadcrumbs.map(item => ({ ...item, url: normalizeToDesktop(item.url) }))
@@ -54,7 +54,7 @@ function generateHead(options = {}) {
   const resolvedOgImage = escapeHtmlAttr(
     (typeof ogImage === 'string' && ogImage) ||
     (articleSchema && typeof articleSchema.image === 'string' && articleSchema.image) ||
-    'https://gamerscrawl.com/og-image.png'
+    'https://gamerscroll.com/og-image.png'
   );
   const safeImageAlt = safeTitle;
   const preloadImageList = Array.isArray(preloadImages) ? preloadImages : [];
@@ -85,15 +85,15 @@ function generateHead(options = {}) {
     "author": {
       "@type": "Organization",
       "name": "게이머스크롤",
-      "url": "https://gamerscrawl.com/"
+      "url": "https://gamerscroll.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "게이머스크롤",
-      "url": "https://gamerscrawl.com/",
+      "url": "https://gamerscroll.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://gamerscrawl.com/icon-192.png"
+        "url": "https://gamerscroll.com/icon-192.png"
       }
     },
     "mainEntityOfPage": {
@@ -197,12 +197,12 @@ function generateHead(options = {}) {
 		      var host = location.hostname;
 		      if (host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0') {
 		        document.documentElement.classList.add('is-localhost');
-		      } else if (host === 'gamerscrawl.com' || host === 'www.gamerscrawl.com') {
+		      } else if (host === 'gamerscroll.com' || host === 'www.gamerscroll.com') {
 		        var ua = navigator.userAgent || '';
 		        // 봇은 리디렉트 안 함 (canonical/alternate 태그로 처리)
 		        if (/Googlebot|bingbot|AdsBot|Yeti|Naverbot|Slurp|DuckDuckBot|facebookexternalhit|Twitterbot/i.test(ua)) return;
 		        if (/Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua)) {
-		          location.replace('https://m.gamerscrawl.com' + location.pathname + location.search);
+		          location.replace('https://m.gamerscroll.com' + location.pathname + location.search);
 		          return;
 		        }
 		      }
@@ -214,26 +214,26 @@ function generateHead(options = {}) {
   <meta name="keywords" content="${safeKeywords}">
   <link rel="canonical" href="${safeCanonical}">
   ${alternateLink}
-  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscrawl.com/rss.xml">
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
   <!-- JSON-LD 구조화 데이터 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "게이머스크롤",
-    "alternateName": ["GAMERSCRAWL", "GAMERS CRAWL", "gamerscrawl.com", "게이머스크롤", "게이머 스크롤"],
-    "url": "https://gamerscrawl.com/",
+    "alternateName": ["GAMERSCROLL", "GAMERS CRAWL", "gamerscroll.com", "게이머스크롤", "게이머 스크롤"],
+    "url": "https://gamerscroll.com/",
     "description": ${jsonString(description)},
     "publisher": {
       "@type": "Organization",
       "name": "게이머스크롤",
-      "url": "https://gamerscrawl.com/"
+      "url": "https://gamerscroll.com/"
     },
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://gamerscrawl.com/games/?q={search_term_string}"
+        "urlTemplate": "https://gamerscroll.com/games/?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -255,8 +255,8 @@ function generateHead(options = {}) {
   <meta name="twitter:description" content="${safeDescription}">
   <meta name="twitter:image" content="${resolvedOgImage}">
   <meta name="twitter:image:alt" content="${safeImageAlt}">
-  <meta name="twitter:site" content="@gamerscrawl">
-  <meta name="twitter:creator" content="@gamerscrawl">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
   ${preloadLinks ? `${preloadLinks}\n  ` : ''}
   <!-- Theme & Favicon -->
   <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
@@ -320,7 +320,7 @@ function generateHead(options = {}) {
 	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
 	    (function() {
 	      var host = window.location.hostname;
-	      if (host !== 'gamerscrawl.com' && host !== 'm.gamerscrawl.com') return;
+	      if (host !== 'gamerscroll.com' && host !== 'm.gamerscroll.com') return;
 	      window.__gcPageViewQueue = [];
 	      window.__gcLogPageView = function(path) {
 	        window.__gcPageViewQueue.push(path);
@@ -330,7 +330,7 @@ function generateHead(options = {}) {
 	  <script type="module">
 	    (function() {
 	      var host = window.location.hostname;
-	      if (host !== 'gamerscrawl.com' && host !== 'm.gamerscrawl.com') return;
+	      if (host !== 'gamerscroll.com' && host !== 'm.gamerscroll.com') return;
 
 	      (async function() {
 	        try {
@@ -340,9 +340,9 @@ function generateHead(options = {}) {
 	          ]);
 	          const firebaseConfig = {
 	            apiKey: "AIzaSyBlVfvAGVrhEEMPKpDKJBrOPF7BINleV7I",
-	            authDomain: "gamerscrawl-b104b.firebaseapp.com",
-	            projectId: "gamerscrawl-b104b",
-	            storageBucket: "gamerscrawl-b104b.firebasestorage.app",
+	            authDomain: "gamerscroll-b104b.firebaseapp.com",
+	            projectId: "gamerscroll-b104b",
+	            storageBucket: "gamerscroll-b104b.firebasestorage.app",
 	            messagingSenderId: "831886529376",
 	            appId: "1:831886529376:web:2d9f0f64782fa5e5e80405",
 	            measurementId: "G-2269FV044J"

@@ -7,7 +7,7 @@ const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = 
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
 
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
@@ -1260,7 +1260,7 @@ function generateGamePage(gameData) {
   const pageScripts = `<script>
     // 최근 본 게임 저장
     (function() {
-      const RECENT_KEY = 'gamerscrawl_recent_searches';
+      const RECENT_KEY = 'gamerscroll_recent_searches';
       const MAX_RECENT = 8;
       const gameInfo = { name: '${name.replace(/'/g, "\\'")}', slug: '${slug}', icon: '${icon || ''}' };
       try {

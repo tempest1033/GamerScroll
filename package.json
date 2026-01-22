@@ -1,7 +1,7 @@
 {
-  "name": "gamerscrawl",
+  "name": "gamerscroll",
   "version": "1.0.0",
-  "description": "Game news and rankings crawler for GAMERSCRAWL daily report",
+  "description": "Game news and rankings crawler for GAMERSCROLL daily report",
   "main": "generate-html-report.js",
   "scripts": {
     "build": "node generate-html-report.js",

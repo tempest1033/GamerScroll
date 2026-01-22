@@ -29,7 +29,7 @@ function generate404Page() {
   const redirectScript = `
 <script>
 (function() {
-  var RECENT_KEY = 'gamerscrawl_recent_searches';
+  var RECENT_KEY = 'gamerscroll_recent_searches';
   var path = location.pathname;
 
   // /games/xxx/ 패턴 확인

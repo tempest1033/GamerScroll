@@ -23,7 +23,7 @@ const isVerbose = args.has('--verbose');
 const isStrictOnly = args.has('--strict-only');
 const includeDocs = args.has('--include-docs');
 
-const PROJECT_ROOT = path.resolve(__dirname, '..'); // GamersCrawl/
+const PROJECT_ROOT = path.resolve(__dirname, '..'); // GamersScroll/
 const HISTORY_DIR = path.join(PROJECT_ROOT, 'history');
 
 const REPORTS_DIR = path.join(PROJECT_ROOT, 'reports');
@@ -438,7 +438,7 @@ function writeReport(allResults) {
     // ignore
   }
 
-  const fileName = `gamerscrawl-thumbnail-fix-report-${new Date().toISOString().replace(/[:.]/g, '-')}.json`;
+  const fileName = `gamerscroll-thumbnail-fix-report-${new Date().toISOString().replace(/[:.]/g, '-')}.json`;
   const reportPath = path.join(reportDir, fileName);
 
   try {
@@ -458,7 +458,7 @@ function main() {
   results.push(...runDaily(REPORTS_DIR, 'reports'));
   results.push(...runWeekly(WEEKLY_REPORTS_DIR, 'reports/weekly'));
 
-  // 2) 배포 docs/reports (GitHub Pages) - 기본은 제외 (GamersCrawl/GAMERSCRAWL.md 참고)
+  // 2) 배포 docs/reports (GitHub Pages) - 기본은 제외 (GamersScroll/GAMERSCROLL.md 참고)
   if (includeDocs) {
     results.push(...runDaily(DOCS_REPORTS_DIR, 'docs/reports'));
     results.push(...runWeekly(DOCS_WEEKLY_REPORTS_DIR, 'docs/reports/weekly'));

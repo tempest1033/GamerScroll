@@ -6,7 +6,7 @@ const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
 
 function generateYoutubePage(data) {
   const { youtube, chzzk } = data;

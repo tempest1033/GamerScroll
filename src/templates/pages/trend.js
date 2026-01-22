@@ -9,7 +9,7 @@ const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMi
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
 
 // 광고 활성화 여부
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
@@ -51,7 +51,7 @@ const fixUrl = (url) => {
     'steamstatic.com',
     'steamcdn-a.akamaihd.net',
     'googleusercontent.com',
-    'gamerscrawl.com'
+    'gamerscroll.com'
   ];
   if (corsAllowed.some(d => url.includes(d))) return url;
 

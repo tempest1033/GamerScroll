@@ -6,7 +6,7 @@ const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
 
 function generateSteamPage(data) {
   const { steam } = data;
@@ -83,7 +83,7 @@ function generateSteamPage(data) {
 	  <script>
 	    (function() {
 	      const STEAM_DATA_URL = '/steam/data.json';
-	      const STEAM_DATA_CACHE_KEY = 'gamerscrawl_steam_data_v1';
+	      const STEAM_DATA_CACHE_KEY = 'gamerscroll_steam_data_v1';
 	      const STEAM_PLACEHOLDER = ${JSON.stringify(steamPlaceholder)};
 
 	      let steamData = null;

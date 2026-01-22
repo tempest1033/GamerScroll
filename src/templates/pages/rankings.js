@@ -7,7 +7,7 @@ const { countries } = require('../../crawlers/rankings');
 
 // 모바일 빌드 여부
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
 
 function generateRankingsPage(data) {
   const { rankings, games = {} } = data;
@@ -158,7 +158,7 @@ function generateRankingsPage(data) {
 	    }
 
 	    function getCacheKey(chart, store) {
-	      return 'gamerscrawl_rankings_' + chart + '_' + store + '_' + RANKINGS_CACHE_VERSION;
+	      return 'gamerscroll_rankings_' + chart + '_' + store + '_' + RANKINGS_CACHE_VERSION;
 	    }
 
 	    function escapeHtml(text) {

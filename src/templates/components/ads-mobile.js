@@ -1,6 +1,6 @@
 ﻿/**
  * 모바일 전용 광고 모듈
- * m.gamerscrawl.com에서 사용
+ * m.gamerscroll.com에서 사용
  * PC/모바일 분기 없이 모바일 광고만 렌더링
  *
  * 로딩 전략: Intersection Observer 방식

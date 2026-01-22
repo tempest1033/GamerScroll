@@ -14,7 +14,7 @@ const snapshotsDir = path.join(__dirname, '..', 'snapshots', 'rankings');
 // PC/모바일 빌드에 따라 출력 경로 결정
 const isMobileBuild = process.env.MOBILE_BUILD === 'true';
 const docsDir = isMobileBuild ? 'docs-mobile' : 'docs';
-const siteBaseUrl = isMobileBuild ? 'https://m.gamerscrawl.com' : 'https://gamerscrawl.com';
+const siteBaseUrl = isMobileBuild ? 'https://m.gamerscroll.com' : 'https://gamerscroll.com';
 const outputDir = path.join(__dirname, '..', docsDir, 'games');
 
 // 템플릿 import
@@ -901,7 +901,7 @@ function updateSitemapGameEntries() {
     const match = block.match(/<loc>([^<]+)<\/loc>/);
     if (!match) return block;
     const loc = match[1];
-    const isGameDetail = /^https:\/\/(?:m\.)?gamerscrawl\.com\/games\/[^/]+\/$/.test(loc);
+    const isGameDetail = /^https:\/\/(?:m\.)?gamerscroll\.com\/games\/[^/]+\/$/.test(loc);
     return isGameDetail ? '' : block;
   });
 

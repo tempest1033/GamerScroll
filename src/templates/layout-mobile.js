@@ -1,6 +1,6 @@
 ﻿/**
  * 모바일 전용 레이아웃
- * m.gamerscrawl.com에서 사용
+ * m.gamerscroll.com에서 사용
  */
 
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
@@ -62,10 +62,10 @@ const searchBarHtml = `
 const searchBarScript = `
 <script>
 (function() {
-  const RECENT_STORAGE_KEY = 'gamerscrawl_recent_searches';
+  const RECENT_STORAGE_KEY = 'gamerscroll_recent_searches';
   const MAX_RECENT = 8;
   const SEARCH_INDEX_URL = '/games/search-index.json';
-  const SEARCH_INDEX_CACHE_KEY = 'gamerscrawl_search_index_v1';
+  const SEARCH_INDEX_CACHE_KEY = 'gamerscroll_search_index_v1';
   let gamesData = [];
   let gamesDataLoaded = false;
   let gamesDataPromise = null;
@@ -777,7 +777,7 @@ function wrapWithLayout(content, options = {}) {
     title = '게이머스크롤 | 데일리 게임 인사이트',
     description = '데일리 게임 인사이트 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
     keywords,
-    canonical = 'https://m.gamerscrawl.com',
+    canonical = 'https://m.gamerscroll.com',
     pageScripts = '',
     showSearchBar = true,
     pageData = {},

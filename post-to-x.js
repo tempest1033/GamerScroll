@@ -96,7 +96,7 @@ ${insight.issues.slice(0, 3).map((issue, i) =>
 ).join('\n')}
 
 자세한 내용은 👇
-gamerscrawl.com
+gamerscroll.com
 
 #게임 #게임뉴스 #모바일게임`;
 

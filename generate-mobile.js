@@ -1,7 +1,7 @@
 ﻿/**
  * 모바일 버전 빌드 스크립트
  * docs-mobile/ 디렉토리에 모바일 전용 HTML 생성
- * 이후 GamersCrawl-Mobile 저장소로 복사
+ * 이후 GamersScroll-Mobile 저장소로 복사
  */
 
 // 모바일 빌드 환경 변수 설정 (layout.js에서 layout-mobile.js 사용)
@@ -562,9 +562,9 @@ async function generateMobilePages() {
     'CNAME'
   ];
 
-  // CNAME을 m.gamerscrawl.com으로 설정
-  fs.writeFileSync(path.join(OUTPUT_DIR, 'CNAME'), 'm.gamerscrawl.com');
-  console.log('  ✅ CNAME (m.gamerscrawl.com)');
+  // CNAME을 m.gamerscroll.com으로 설정
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'CNAME'), 'm.gamerscroll.com');
+  console.log('  ✅ CNAME (m.gamerscroll.com)');
 
   // docs에서 정적 파일 복사
   for (const file of staticFiles.filter(f => f !== 'CNAME')) {
@@ -758,7 +758,7 @@ async function generateMobilePages() {
   // sitemap 복사
   if (fs.existsSync('./docs/sitemap.xml')) {
     let sitemap = fs.readFileSync('./docs/sitemap.xml', 'utf8');
-    sitemap = sitemap.replace(/<loc>https:\/\/gamerscrawl\.com/g, '<loc>https://m.gamerscrawl.com');
+    sitemap = sitemap.replace(/<loc>https:\/\/gamerscroll\.com/g, '<loc>https://m.gamerscroll.com');
     fs.writeFileSync(path.join(OUTPUT_DIR, 'sitemap.xml'), sitemap);
     console.log('  ✅ sitemap.xml (URL 변환)');
   }
@@ -767,7 +767,7 @@ async function generateMobilePages() {
   fs.writeFileSync(path.join(OUTPUT_DIR, 'robots.txt'), `User-agent: *
 Allow: /
 
-Sitemap: https://m.gamerscrawl.com/sitemap.xml`);
+Sitemap: https://m.gamerscroll.com/sitemap.xml`);
   console.log('  ✅ robots.txt');
 
   console.log('\n✅ 모바일 빌드 완료! (docs-mobile/)');
