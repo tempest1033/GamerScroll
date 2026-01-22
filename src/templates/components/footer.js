@@ -1,5 +1,11 @@
 ﻿/**
  * 푸터 컴포넌트 (개인정보처리방침 모달 포함)
+ *
+ * [SEO 주의사항]
+ * - privacy-modal-body는 빈 상태로 유지 (동적 로드)
+ * - /assets/privacy-content.html이 클릭 시 fetch됨 (layout.js)
+ * - privacy-content.html에 H2/H3 태그 사용 금지 → .privacy-title, .privacy-section-title 클래스 사용
+ * - 이유: 검색엔진이 privacy 내용을 본문 헤딩으로 오인하면 SEO에 악영향
  */
 
 function generateFooter() {
