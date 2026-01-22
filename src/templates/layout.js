@@ -460,6 +460,7 @@ const swipeScript = `
   let hasNextPage = false;
   let scrollableEl = null;
   let mainEl = null;
+  let isNavigating = false;
 
   function getCurrentNavIndex() {
     const path = window.location.pathname;
@@ -527,6 +528,7 @@ const swipeScript = `
   }
 
   function slideOutAndNavigate(url, direction) {
+    isNavigating = true;
     if (!mainEl) {
       window.location.href = url;
       return;
@@ -541,6 +543,7 @@ const swipeScript = `
   }
 
   document.addEventListener('touchstart', function(e) {
+    if (isNavigating) return;
     if (!e.touches || e.touches.length > 1) return;
 
     const t = e.target;

@@ -263,7 +263,7 @@ function generateWeeklyPanel(weeklyInsight) {
           <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
             ${thumbnailHtml}
             <div class="weekly-hot-content">
-              <h3 class="weekly-hot-title">${issue.title}</h4>
+              <h3 class="weekly-hot-title">${issue.title}</h3>
               <p class="weekly-hot-desc">${issue.desc}</p>
             </div>
           </div>
@@ -331,7 +331,7 @@ function generateWeeklyPanel(weeklyInsight) {
           <div class="industry-card has-thumb">
             ${thumbHtml}
             <div class="industry-content">
-              <h3 class="industry-title">${item.title || ''}</h4>
+              <h3 class="industry-title">${item.title || ''}</h3>
               <p class="industry-desc">${item.desc || ''}</p>
             </div>
           </div>
@@ -359,7 +359,7 @@ function generateWeeklyPanel(weeklyInsight) {
             <div class="weekly-metric-card has-thumb">
               ${thumbHtml}
               <div class="weekly-metric-content">
-                <h3 class="weekly-metric-title">${m.title}</h4>
+                <h3 class="weekly-metric-title">${m.title}</h3>
                 <p class="weekly-metric-desc">${m.desc}</p>
               </div>
             </div>
@@ -383,7 +383,7 @@ function generateWeeklyPanel(weeklyInsight) {
           const tagPrefix = c.tag ? `[${c.tag}] ` : '';
           return `
           <div class="weekly-community-card">
-            <h3 class="weekly-community-title">${tagPrefix}${c.title}</h4>
+            <h3 class="weekly-community-title">${tagPrefix}${c.title}</h3>
             <p class="weekly-community-desc">${c.desc}</p>
           </div>
         `;
@@ -404,7 +404,7 @@ function generateWeeklyPanel(weeklyInsight) {
       <div class="weekly-streaming-grid">
         ${streaming.map(s => `
             <div class="weekly-streaming-card">
-              <h3 class="weekly-streaming-title">${s.title}</h4>
+              <h3 class="weekly-streaming-title">${s.title}</h3>
               <p class="weekly-streaming-desc">${s.desc}</p>
             </div>
           `).join('')}
@@ -541,7 +541,7 @@ function generateWeeklyPanel(weeklyInsight) {
           <div class="global-card has-thumb">
             ${thumbHtml}
             <div class="global-content">
-              <h3 class="global-title">${g.title}</h4>
+              <h3 class="global-title">${g.title}</h3>
               <p class="global-desc">${g.desc}</p>
             </div>
           </div>
@@ -624,7 +624,7 @@ function generateTrendPage(data) {
       <div class="weekly-hot-card ${imageUrl ? 'has-thumb' : ''}">
         ${imageHtml}
         <div class="weekly-hot-content">
-          <h3 class="weekly-hot-title">${item.title || ''}</h4>
+          <h3 class="weekly-hot-title">${item.title || ''}</h3>
           <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
         </div>
       </div>
@@ -641,7 +641,7 @@ function generateTrendPage(data) {
       <div class="weekly-metric-card has-thumb">
         ${thumbHtml}
         <div class="weekly-metric-content">
-          <h3 class="weekly-metric-title">${item.title || ''}</h4>
+          <h3 class="weekly-metric-title">${item.title || ''}</h3>
           <p class="weekly-metric-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
         </div>
       </div>
@@ -666,7 +666,7 @@ function generateTrendPage(data) {
 
     return `
       <div class="weekly-hot-card ranking-item">
-        <h3 class="weekly-hot-title">${iconHtml}${item.title || ''}</h4>
+        <h3 class="weekly-hot-title">${iconHtml}${item.title || ''}</h3>
         ${rankBadge}
         <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
       </div>
@@ -732,7 +732,7 @@ function generateTrendPage(data) {
             <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
               ${thumbnailHtml}
               <div class="weekly-hot-content">
-                <h3 class="weekly-hot-title">${item.title || ''}</h4>
+                <h3 class="weekly-hot-title">${item.title || ''}</h3>
                 <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
               </div>
             </div>
@@ -749,7 +749,7 @@ function generateTrendPage(data) {
       const tagPrefix = item.tag ? `[${item.tag}] ` : '';
       return `
       <div class="weekly-community-card">
-        <h3 class="weekly-community-title">${tagPrefix}${item.title || ''}</h4>
+        <h3 class="weekly-community-title">${tagPrefix}${item.title || ''}</h3>
         <p class="weekly-community-desc">${item.desc || ''}</p>
       </div>
     `;
@@ -774,7 +774,7 @@ function generateTrendPage(data) {
     if (!items || items.length === 0) return '';
     const cards = items.map(item => `
         <div class="weekly-streaming-card">
-          <h3 class="weekly-streaming-title">${item.title || ''}</h4>
+          <h3 class="weekly-streaming-title">${item.title || ''}</h3>
           <p class="weekly-streaming-desc">${item.desc || ''}</p>
         </div>
       `).join('');
@@ -822,7 +822,7 @@ function generateTrendPage(data) {
       <div class="industry-card has-thumb">
         ${thumbHtml}
         <div class="industry-content">
-          <h3 class="industry-title">${item.title || ''}</h4>
+          <h3 class="industry-title">${item.title || ''}</h3>
           <p class="industry-desc">${item.desc || ''}</p>
         </div>
       </div>
@@ -1090,7 +1090,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       <div class="weekly-hot-card ${imageUrl ? 'has-thumb' : ''}">
         ${imageHtml}
         <div class="weekly-hot-content">
-          <h3 class="weekly-hot-title">${item.title || ''}</h4>
+          <h3 class="weekly-hot-title">${item.title || ''}</h3>
           <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
         </div>
       </div>
@@ -1115,7 +1115,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
 
     return `
       <div class="weekly-hot-card ranking-item">
-        <h3 class="weekly-hot-title">${iconHtml}${item.title || ''}</h4>
+        <h3 class="weekly-hot-title">${iconHtml}${item.title || ''}</h3>
         ${rankBadge}
         <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
       </div>
@@ -1151,7 +1151,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       <div class="weekly-metric-card has-thumb">
         ${thumbHtml}
         <div class="weekly-metric-content">
-          <h3 class="weekly-metric-title">${item.title || ''}</h4>
+          <h3 class="weekly-metric-title">${item.title || ''}</h3>
           <p class="weekly-metric-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
         </div>
       </div>
@@ -1198,7 +1198,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
             <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
               ${thumbnailHtml}
               <div class="weekly-hot-content">
-                <h3 class="weekly-hot-title">${item.title || ''}</h4>
+                <h3 class="weekly-hot-title">${item.title || ''}</h3>
                 <p class="weekly-hot-desc">${(item.desc || '').replace(/\. /g, '.\n')}</p>
               </div>
             </div>
@@ -1215,7 +1215,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       const tagPrefix = item.tag ? `[${item.tag}] ` : '';
       return `
       <div class="weekly-community-card">
-        <h3 class="weekly-community-title">${tagPrefix}${item.title || ''}</h4>
+        <h3 class="weekly-community-title">${tagPrefix}${item.title || ''}</h3>
         <p class="weekly-community-desc">${item.desc || ''}</p>
       </div>
     `;
@@ -1240,7 +1240,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     if (!items || items.length === 0) return '';
     const cards = items.map(item => `
         <div class="weekly-streaming-card">
-          <h3 class="weekly-streaming-title">${item.title || ''}</h4>
+          <h3 class="weekly-streaming-title">${item.title || ''}</h3>
           <p class="weekly-streaming-desc">${item.desc || ''}</p>
         </div>
       `).join('');
@@ -1288,7 +1288,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       <div class="industry-card has-thumb">
         ${thumbHtml}
         <div class="industry-content">
-          <h3 class="industry-title">${item.title || ''}</h4>
+          <h3 class="industry-title">${item.title || ''}</h3>
           <p class="industry-desc">${item.desc || ''}</p>
         </div>
       </div>

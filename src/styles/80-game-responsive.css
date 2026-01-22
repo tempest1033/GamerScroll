@@ -28,6 +28,7 @@
 
   .page-container.game-page-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-block-gap);
   }
 
   .game-rank-grid {

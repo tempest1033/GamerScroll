@@ -350,7 +350,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '게임 위키', url: `${siteBaseUrl}/wiki/` },
-      { name: catInfo.name, url: `${siteBaseUrl}/wiki/#${category}` },
+      { name: catInfo.name, url: `${siteBaseUrl}/wiki/${category}/` },
       { name: article.title, url: `${siteBaseUrl}/wiki/${category}/${article.slug}/` }
     ]
   });
