@@ -1284,6 +1284,17 @@ async function main() {
     }
   }
 
+  // 정적 파일 복사 (파비콘, 아이콘, OG이미지 등)
+  const staticFiles = ['favicon.svg', 'favicon-16x16.png', 'favicon-32x32.png', 'icon-192.png', 'icon-512.png', 'og-image.png', 'manifest.json'];
+  staticFiles.forEach(file => {
+    const srcPath = `./${file}`;
+    const destPath = `${DOCS_DIR}/${file}`;
+    if (fs.existsSync(srcPath) && !fs.existsSync(destPath)) {
+      fs.copyFileSync(srcPath, destPath);
+      console.log(`  📋 ${file} → docs/`);
+    }
+  });
+
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];
   const siteBaseUrl = 'https://gamerscroll.com'; // 통합 반응형 빌드 - 단일 도메인
