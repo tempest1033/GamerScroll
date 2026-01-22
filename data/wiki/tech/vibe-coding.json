@@ -9,6 +9,7 @@
   "sources": [
     { "name": "X (Twitter)", "title": "Andrej Karpathy - Vibe Coding", "url": "https://x.com/karpathy/status/1886192184808149383" },
     { "name": "Wikipedia", "title": "Vibe coding", "url": "https://en.wikipedia.org/wiki/Vibe_coding" },
+    { "name": "Merriam-Webster", "title": "Vibe coding Definition", "url": "https://www.merriam-webster.com/dictionary/vibe%20coding" },
     { "name": "Google Cloud", "title": "바이브 코딩 설명: 도구 및 가이드", "url": "https://cloud.google.com/discover/what-is-vibe-coding?hl=ko" },
     { "name": "Simon Willison", "title": "Not all AI-assisted programming is vibe coding", "url": "https://simonwillison.net/2025/Mar/19/vibe-coding/" }
   ],
