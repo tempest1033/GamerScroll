@@ -1271,13 +1271,11 @@ ${sitemapEntries}
     }
   }
 
-  // 모바일 빌드 시 robots.txt 생성 (CNAME 불필요 - Cloudflare Pages 사용)
+  // 모바일 빌드 시 robots.txt 생성 (sitemap 참조 제거 - PC sitemap만 구글에 제출)
   if (isMobileBuild) {
     fs.writeFileSync(`${DOCS_DIR}/robots.txt`, `User-agent: *
-Allow: /
-
-Sitemap: https://m.gamerscrawl.com/sitemap.xml`, 'utf8');
-    console.log('📱 모바일: robots.txt 생성');
+Allow: /`, 'utf8');
+    console.log('📱 모바일: robots.txt 생성 (sitemap 참조 없음)');
   }
 
   // Service Worker 캐시 버전 자동 업데이트 (빌드마다 새 버전)
