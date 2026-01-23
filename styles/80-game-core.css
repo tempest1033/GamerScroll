@@ -183,6 +183,11 @@
   gap: var(--space-block-gap-lg);
 }
 
+/* 그리드 간격과 카드 마진 중복 방지 */
+.page-container.game-page-grid .home-card {
+  margin-bottom: 0;
+}
+
 /* 풀 너비 아이템 */
 .game-page-grid .grid-full,
 .game-page-grid .ad-card,

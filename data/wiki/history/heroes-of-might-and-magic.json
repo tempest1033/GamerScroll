@@ -12,7 +12,7 @@
     { "name": "GOG.com", "title": "Heroes of Might and Magic III", "url": "https://www.gog.com/blog/heroes-of-might-and-magic-iii/" },
     { "name": "David Mullich", "title": "Heroes of Might & Magic III: Remembering Erathia 15 Years Later", "url": "https://davidmullich.com/2014/02/24/757/" }
   ],
-  "relatedArticles": [],
+  "relatedArticles": ["rts-genre-rise-and-fall"],
   "relatedGames": ["rise-of-kingdoms", "clash-of-kings"],
   "content": [
     { "type": "text", "value": "1995년, 뉴 월드 컴퓨팅(New World Computing)의 존 반 카네헴(Jon Van Caneghem)이 만든 히어로즈 오브 마이트 앤 매직(Heroes of Might and Magic, 이하 HoMM)이 세상에 나왔다. 영웅이 군대를 이끌고, 성을 건설하며, 자원을 모아 적을 정복하는 게임이었다. 단순해 보이는 이 공식은 30년이 지난 지금도 수많은 전략 게임의 기본 문법으로 남아 있다." },

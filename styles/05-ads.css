@@ -154,3 +154,8 @@ body.ads-disabled .home-container {
 .ad-card-native:has(ins[data-ad-status="unfilled"]) {
   display: none;
 }
+
+/* 빈 광고 컨테이너 숨김 (Grid 레이아웃에서 gap 영향 방지) */
+.mobile-only-ad:empty {
+  display: none;
+}

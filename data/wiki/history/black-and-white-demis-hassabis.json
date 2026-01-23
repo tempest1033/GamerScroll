@@ -1,0 +1,42 @@
+{
+  "slug": "black-and-white-demis-hassabis",
+  "status": "approved",
+  "title": "블랙앤화이트, 알파고의 아버지가 참여한 갓게임",
+  "date": "2026-01-23T12:00",
+  "thumbnail": "https://images.launchbox-app.com/e08f118f-951d-493b-bd71-2d20b42047b1.jpg",
+  "keywords": "블랙앤화이트, Black & White, 데미스 허사비스, Demis Hassabis, 피터 몰리뉴, 라이언헤드 스튜디오, 갓 게임, 크리쳐 AI, 학습형 AI, DeepMind, 알파고, 노벨상, 2001년 PC 게임",
+  "summary": "2001년 출시된 갓 게임 블랙앤화이트는 노벨 화학상 수상자 데미스 허사비스가 AI 리드 프로그래머로 참여한 작품이다. 학습하는 크리쳐 AI라는 혁신적 시스템을 선보였으며, 이 경험은 훗날 DeepMind와 AlphaGo 개발로 이어졌다.",
+  "sources": [
+    { "name": "Game Developer", "title": "Postmortem: Lionhead Studios' Black & White", "url": "https://www.gamedeveloper.com/design/postmortem-lionhead-studios-i-black-white-i-" },
+    { "name": "The Guardian", "title": "Lionhead: the rise and fall of a British video game legend", "url": "https://www.theguardian.com/technology/2016/may/20/lionhead-the-rise-and-fall-of-a-british-video-game-legend" },
+    { "name": "Nobel Prize", "title": "The Nobel Prize in Chemistry 2024", "url": "https://www.nobelprize.org/prizes/chemistry/2024/press-release/" },
+    { "name": "Academy of Achievement", "title": "Sir Demis Hassabis", "url": "https://achievement.org/achiever/demis-hassabis-ph-d/" },
+    { "name": "PC Gamer", "title": "Black and White's AI programmer just won a Nobel prize", "url": "https://www.pcgamer.com/gaming-industry/black-and-whites-ai-programmer-just-won-a-nobel-prize-an-incredible-honor-its-the-big-one-really/" }
+  ],
+  "relatedArticles": ["vibe-coding", "game-engine"],
+  "relatedIssues": ["game-ai-paradigm-shift-2026", "game-ai-controversy-award-revoked"],
+  "relatedGames": [],
+  "content": [
+    { "type": "text", "value": "2024년 노벨 화학상 수상자 데미스 허사비스. 그가 DeepMind를 설립하고 AlphaGo로 세상을 놀라게 하기 전, 게임 업계에서 AI 프로그래머로 활약했다는 사실을 아는 사람은 많지 않다. 2001년 출시된 갓 게임 블랙앤화이트(Black & White)는 그가 AI 리드 프로그래머로 참여한 작품으로, 당시로서는 혁신적인 학습형 크리쳐 AI를 선보였다.\n\n이 게임에서 시작된 AI에 대한 탐구가 결국 노벨상으로 이어진 셈이다." },
+    { "type": "heading", "value": "피터 몰리뉴의 갓 게임 비전" },
+    { "type": "image", "src": "https://i.ytimg.com/vi/69HTviSeQeE/maxresdefault.jpg", "caption": "피터 몰리뉴의 2000년 GDC 블랙앤화이트 키노트", "alt": "피터 몰리뉴 GDC 2000 블랙앤화이트 키노트 발표" },
+    { "type": "text", "value": "블랙앤화이트는 영국의 전설적인 게임 디자이너 피터 몰리뉴가 설립한 라이언헤드 스튜디오의 첫 작품이다. 몰리뉴는 이전에 불프로그에서 파퓰러스, 테마파크, 던전키퍼 등을 만든 갓 게임의 선구자였다. 그는 1995년 EA에 불프로그를 매각한 후 창작의 자유를 되찾기 위해 1997년 새 스튜디오를 설립했다.\n\n몰리뉴의 비전은 명확했다. 플레이어가 신이 되어 세상을 다스리되, 선과 악 중 하나를 선택할 수 있는 게임. 단순히 명령을 내리는 것이 아니라, 플레이어의 성향을 반영하는 거대한 크리쳐를 키우는 게임이었다. 이 야심찬 프로젝트에는 최고의 인재들이 필요했다." },
+    { "type": "heading", "value": "학습하는 크리쳐 AI, 게임 역사의 이정표" },
+    { "type": "image", "src": "https://cdn.mobygames.com/2edcf290-ac0d-11ed-941d-02420a000132.webp", "caption": "원숭이, 호랑이, 소 중 크리쳐를 선택하는 화면", "alt": "블랙앤화이트 크리쳐 선택 화면 원숭이 호랑이 소" },
+    { "type": "text", "value": "블랙앤화이트의 핵심은 크리쳐 시스템이었다. 플레이어는 원숭이, 호랑이, 소 등 다양한 동물 중 하나를 선택해 자신의 분신으로 키운다. 이 크리쳐는 단순한 NPC가 아니었다. 플레이어의 행동을 관찰하고 학습하며, 시간이 지나면 독자적인 성격을 갖게 된다.\n\n크리쳐를 칭찬하면 그 행동을 반복하고, 벌을 주면 그 행동을 피한다. 마을 사람들에게 친절하게 대하면 크리쳐도 선한 존재가 되고, 잔인하게 굴면 크리쳐도 악한 존재가 된다. 기네스북은 이를 초기 게임 AI 중 가장 복잡하고 커스터마이즈 가능한 형태로 인정했다." },
+    { "type": "heading", "value": "데미스 허사비스, AI 리드 프로그래머" },
+    { "type": "image", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Neural_network.svg/1280px-Neural_network.svg.png", "caption": "인공 신경망 구조도 - 블랙앤화이트 크리쳐 AI의 기반 기술", "alt": "인공 신경망 뉴럴 네트워크 다이어그램 AI 머신러닝" },
+    { "type": "text", "value": "이 혁신적인 크리쳐 AI를 설계한 핵심 인물 중 한 명이 바로 데미스 허사비스다. 케임브리지 대학교 컴퓨터과학과를 최우수 성적으로 졸업한 그는 이미 불프로그에서 테마파크와 신디케이트 개발에 참여한 경력이 있었다. 몰리뉴가 라이언헤드를 설립하자 그를 따라 합류했다.\n\n허사비스는 리처드 에반스와 함께 크리쳐 AI 시스템을 구축했다. 그들이 개발한 AI는 지도학습, 비지도학습, 강화학습을 모두 지원했다. 의사결정 트리와 신경망을 결합한 이 시스템은 당시 게임 업계에서 가장 앞선 AI 기술이었다." },
+    { "type": "heading", "value": "2001년 발매, 찬사와 논쟁 속에서" },
+    { "type": "image", "src": "https://cdn.mobygames.com/945f9892-ac13-11ed-9271-02420a000133.webp", "caption": "블랙앤화이트 첫 번째 레벨 전경", "alt": "블랙앤화이트 2001 게임플레이 레벨 전경 스크린샷" },
+    { "type": "text", "value": "2001년 3월 출시된 블랙앤화이트는 즉각적인 성공을 거뒀다. 게임스팟은 9.3점, IGN은 9.3점을 주며 극찬했고, 첫 주에만 50만 장 이상 판매되었다. BAFTA 게임 어워드에서 최우수 PC 게임상을 수상하기도 했다. 크리쳐 AI의 혁신성은 게임 업계 전체에 충격을 주었다.\n\n다만 논쟁도 있었다. 피터 몰리뉴 특유의 과대광고로 기대치가 너무 높아졌다는 비판, 후반부 게임플레이의 반복성, 버그 등이 지적되었다. 그러나 AI 기술의 혁신성만큼은 누구도 부정할 수 없었다. 게임 개발사들은 앞다투어 블랙앤화이트의 AI 시스템을 연구했다." },
+    { "type": "heading", "value": "게임을 떠나 AI의 세계로" },
+    { "type": "image", "src": "https://images.launchbox-app.com/92b934a6-c2c1-4072-be05-70efcedc3122.jpg", "caption": "이블 지니어스 (2004) - 허사비스의 엘릭서 스튜디오에서 개발", "alt": "이블 지니어스 Evil Genius 2004 엘릭서 스튜디오 게임" },
+    { "type": "text", "value": "허사비스는 1998년 라이언헤드를 떠나 엘릭서 스튜디오를 설립했다. 리퍼블릭: 더 레볼루션과 이블 지니어스 등을 개발했지만, 게임 업계의 한계를 느끼고 있었다. 그가 정말로 탐구하고 싶은 것은 게임 AI가 아니라 범용 인공지능이었다.\n\n2005년 게임 업계를 완전히 떠난 허사비스는 UCL에서 신경과학 박사 학위를 취득했다. 그리고 2010년, 셰인 레그, 무스타파 술레이만과 함께 DeepMind를 설립했다. 블랙앤화이트에서 시작된 AI에 대한 열정이 결국 세계적인 AI 연구소로 이어진 것이다." },
+    { "type": "heading", "value": "알파고에서 노벨상까지" },
+    { "type": "image", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Demis_Hassabis%2C_2024_Nobel_Prize_Laureate_in_Chemistry_7.jpg/1280px-Demis_Hassabis%2C_2024_Nobel_Prize_Laureate_in_Chemistry_7.jpg", "caption": "데미스 허사비스 (2024 노벨 화학상 수상)", "alt": "데미스 허사비스 DeepMind CEO 2024 노벨 화학상 수상자 사진" },
+    { "type": "text", "value": "2016년, DeepMind의 AlphaGo가 이세돌 9단을 4대1로 꺾으며 전 세계를 충격에 빠뜨렸다. 게임 AI를 만들던 청년이 결국 인류 최고의 바둑 기사를 이기는 AI를 만든 것이다. 허사비스는 바둑은 인간 직관의 정수를 보여주는 게임이라며 AI 연구의 이정표로 삼았다고 밝혔다.\n\n2024년, 허사비스는 존 점퍼와 함께 노벨 화학상을 수상했다. 단백질 구조를 예측하는 AlphaFold로 생명과학 연구에 혁명을 일으킨 공로였다. 게임 AI 프로그래머에서 노벨상 수상자까지, 그의 여정은 블랙앤화이트의 크리쳐처럼 끊임없이 학습하고 진화한 결과였다." },
+    { "type": "heading", "value": "마치며" },
+    { "type": "text", "value": "블랙앤화이트는 단순한 갓 게임이 아니다. AI가 게임에서 어떤 역할을 할 수 있는지 보여준 이정표이자, 노벨상 수상자를 배출한 역사적인 작품이다. 허사비스가 크리쳐 AI를 설계하며 품었던 질문들, 기계가 학습한다는 것은 무엇인가, 인공지능은 어디까지 발전할 수 있는가는 결국 AlphaGo와 AlphaFold로 이어졌다.\n\n피터 몰리뉴는 당시를 회고하며 이렇게 말했다. \"크리쳐가 처음 깨어났을 때, 마치 프랑켄슈타인 박사가 된 기분이었다.\" 그 프랑켄슈타인의 조수 중 한 명이 결국 노벨상을 받았다. 게임의 역사는 때때로 이렇게 예상치 못한 방향으로 흘러간다." }
+  ]
+}

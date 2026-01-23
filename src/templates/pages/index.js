@@ -639,9 +639,12 @@ function generateIndexPage(data) {
     generateHomeLatest() +
     '</div>' +
     '<div class="home-sidebar">' +
+    generateSidebarMobileRank() +
+    '<div class="home-sidebar-sticky">' +
     generateSidebarCategories() +
     generateSidebarArticles() +
     generateVerticalAdSlot(AD_SLOTS.PCHome002) +
+    '</div>' +
     '</div>' +
     '</div>' +
     '</div>' +

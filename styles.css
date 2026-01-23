@@ -929,6 +929,11 @@ body.ads-disabled .home-container {
   display: none;
 }
 
+/* 빈 광고 컨테이너 숨김 (Grid 레이아웃에서 gap 영향 방지) */
+.mobile-only-ad:empty {
+  display: none;
+}
+
 /* ===== Tabs (공통) ===== */
 
 :root {
@@ -1213,14 +1218,23 @@ body.ads-disabled .home-container {
 
     .home-sidebar {
       display: block;
-      position: sticky;
-      top: 70px;
       align-self: start;
     }
     .home-sidebar > * {
       margin-bottom: var(--space-block-gap);
     }
     .home-sidebar > *:last-child {
+      margin-bottom: 0;
+    }
+
+    .home-sidebar-sticky {
+      position: sticky;
+      top: 70px;
+    }
+    .home-sidebar-sticky > * {
+      margin-bottom: var(--space-block-gap);
+    }
+    .home-sidebar-sticky > *:last-child {
       margin-bottom: 0;
     }
 
@@ -1437,9 +1451,57 @@ body.ads-disabled .home-container {
       gap: 4px;
     }
 
+    #sidebar-mobile-rank .home-card-header {
+      height: 48px;
+      padding: 8px 16px;
+      align-items: center;
+    }
+
     #sidebar-mobile-rank .home-card-header .tab-btn {
-      padding: 6px 14px;
+      padding: 4px 10px;
       font-size: var(--font-tab-size);
+    }
+
+    #sidebar-mobile-rank .home-card-title {
+      font-size: calc(var(--font-title-size) - 1px);
+    }
+
+    #sidebar-mobile-rank .home-rank-content {
+      padding: 4px 0;
+    }
+
+    #sidebar-mobile-rank .home-rank-row {
+      padding: 8px 12px;
+      gap: 8px;
+    }
+
+    #sidebar-mobile-rank .home-rank-num {
+      width: 20px;
+      height: auto;
+      display: block;
+      font-size: var(--font-sm-size);
+      font-weight: 600;
+      line-height: 1.4;
+      background: transparent;
+      border-radius: 0;
+      color: var(--text-muted);
+    }
+
+    #sidebar-mobile-rank .home-rank-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+    }
+
+    #sidebar-mobile-rank .home-rank-name {
+      font-size: var(--font-sm-size, var(--font-rank-name-size));
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    #sidebar-mobile-rank .home-rank-row:nth-child(-n+3) .home-rank-num {
+      background: transparent !important;
+      color: var(--accent) !important;
     }
 
     .home-container .home-sidebar .home-card-header .home-chart-toggle {
@@ -9662,6 +9724,11 @@ body.ads-disabled .home-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-block-gap-lg);
+}
+
+/* 그리드 간격과 카드 마진 중복 방지 */
+.page-container.game-page-grid .home-card {
+  margin-bottom: 0;
 }
 
 /* 풀 너비 아이템 */
