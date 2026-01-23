@@ -1,0 +1,131 @@
+{
+  "slug": "pubg-battlegrounds-birth-history",
+  "status": "approved",
+  "title": "배틀그라운드의 탄생: H1Z1에서 PUBG까지",
+  "date": "2026-01-24T12:00",
+  "thumbnail": "https://wstatic-prod-boc.krafton.com/common/content/news/20260106/BMjJf93G.webp",
+  "keywords": "배틀그라운드, PUBG, 배틀로얄, 브랜든 그린, 김창한, 크래프톤",
+  "summary": "출시 9년차를 맞은 배틀그라운드는 여전히 세계 최고의 게임 중 하나다. 김창한 대표가 브랜든 그린을 영입해 1년 만에 만든 이 게임이 어떻게 배틀로얄 장르를 정립했는지, 그 역사를 되짚어본다.",
+  "relatedIssues": [
+    "china-gaming-superpower-rise",
+    "game-ai-controversy-award-revoked"
+  ],
+  "relatedGames": [
+    "pubg-battlegrounds",
+    "apex-legends",
+    "dayz"
+  ],
+  "sources": [
+    { "name": "한국경제", "title": "잘키운 배그 하나로 또 일냈다…크래프톤 역대 최대실적", "url": "https://www.hankyung.com/article/202504293677g" },
+    { "name": "크래프톤 프레스룸", "title": "PUBG: BATTLEGROUNDS - Erangel Subzero Update 39.1", "url": "https://press.krafton.com/PUBG-BATTLEGROUNDS-INTRODUCES-ERANGEL-SUBZERO-IN-UPDATE-391" },
+    { "name": "인벤", "title": "푸른 눈의 개발자, 블루홀에서 배틀로얄 게임 만드는 이유", "url": "https://www.inven.co.kr/webzine/news/?news=164945" },
+    { "name": "Wikipedia", "title": "PlayerUnknown (Brendan Greene)", "url": "https://en.wikipedia.org/wiki/PlayerUnknown" }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2017년 출시된 배틀그라운드는 9년이 지난 지금도 세계에서 가장 많이 플레이되는 게임 중 하나다. 작년 크래프톤은 배틀그라운드 IP를 앞세워 분기 매출 8,742억원, 영업이익 4,573억원이라는 역대 최대 실적을 기록했다. 동시 접속자는 140만명을 돌파했고, 누적 유저는 1억 8천만명을 넘어섰다.\n\n출시 초기의 폭발적 인기가 사그라들 것이라는 예상과 달리, 배틀그라운드는 꾸준한 업데이트와 콘텐츠 확장으로 제2의 전성기를 맞았다. 한국 게임 역사상 이 정도로 오랜 기간 글로벌 시장에서 정상급 위치를 유지한 타이틀은 손에 꼽힌다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 배틀그라운드가 만든 물결, 배틀로얄 대유행"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.akamai.steamstatic.com/steam/apps/578080/capsule_616x353.jpg",
+      "caption": "배틀그라운드 이후 포트나이트, 에이펙스 레전드, 워존 등 수많은 배틀로얄 게임이 쏟아졌다",
+      "alt": "배틀그라운드 공식 이미지 - 배틀로얄 장르의 시작점"
+    },
+    {
+      "type": "text",
+      "value": "배틀그라운드의 성공은 게임 업계 전체를 뒤흔들었다. 2017년 말 에픽게임즈는 포트나이트에 배틀로얄 모드를 추가했고, 2019년에는 EA의 에이펙스 레전드가 출시 3일 만에 1천만 유저를 모았다. 2020년에는 콜 오브 듀티: 워존이 등장해 기존 FPS 팬들까지 배틀로얄 장르로 끌어들였다.\n\n100명이 낙하해 최후의 1인이 살아남는 방식, 줄어드는 안전구역, 랜덤 아이템 파밍. 배틀그라운드가 정립한 이 공식은 이제 하나의 장르가 되었다. 2010년대 후반 배틀로얄은 단순한 유행을 넘어 게임 산업의 새로운 표준이 되었고, 현재 시장 규모는 약 140억 달러에 달한다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 김창한 대표, 브랜든 그린을 영입하다"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.m-i.kr/news/photo/202402/1092502_858843_540.jpg",
+      "caption": "김창한 크래프톤 대표 (사진=크래프톤)",
+      "alt": "김창한 크래프톤 대표 - 배틀그라운드 영입의 주역"
+    },
+    {
+      "type": "text",
+      "value": "배틀그라운드의 탄생에는 결정적인 만남이 있었다. 2016년 초, 당시 블루홀(현 크래프톤)의 김창한 대표는 한 외국인 개발자에게 메일을 보냈다. 브랜든 그린. 배틀로얄 모드의 창시자로 불리는 인물이었다.\n\n김창한 대표는 10년 넘게 구상해온 배틀로얄 게임 기획서를 그에게 보냈다. 마침 H1Z1과의 계약이 종료된 시점이었던 브랜든 그린은 한국행을 결심했다. 아이디어만 라이센스했던 H1Z1과 달리, 블루홀은 그를 크리에이티브 디렉터로 영입해 게임 개발의 핵심에 세웠다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 브랜든 그린, 배틀로얄의 아버지"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/433850/ss_68cba3b0f7642531f828ed2accedca1db6f39f6f.1920x1080.jpg?t=1579626820",
+      "caption": "H1Z1 (현 Z1 Battle Royale) - 브랜든 그린이 배틀로얄 모드를 만든 게임",
+      "alt": "H1Z1 King of the Kill 게임 스크린샷 - 브랜든 그린의 배틀로얄 작품"
+    },
+    {
+      "type": "text",
+      "value": "브랜든 그린은 원래 게임 개발자가 아니었다. 아일랜드 출신의 그는 사진작가, DJ, 그래픽 디자이너로 일하며 브라질에서 10년을 보냈다. 2013년, 아일랜드로 돌아갈 비행기표를 사기 위해 돈을 모으던 그는 ARMA 2의 DayZ 모드에 빠져들었다.\n\n그는 직접 모드를 만들기 시작했다. 'DayZ: Battle Royale'이라 이름 붙인 이 모드는 2000년 일본 영화 '배틀로얄'에서 영감을 받았다. 마지막 1인이 살아남는 방식, 시간이 지나면 줄어드는 플레이 구역. 이 핵심 메커니즘은 여기서 처음 등장했다.\n\n모드의 인기에 주목한 소니 온라인 엔터테인먼트는 그를 H1Z1 개발 컨설턴트로 영입했다. 하지만 H1Z1은 그의 아이디어만 가져갔을 뿐, 개발의 주도권은 주지 않았다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 배틀로얄, 영화에서 게임으로"
+    },
+    {
+      "type": "image",
+      "src": "https://postfiles.pstatic.net/MjAyNDA4MjFfMTYx/MDAxNzI0MjIzNDczMzQ0.lmkw1qDOU78kZKe-jB3kWVkos2_2HV8njey2Qe0DXAUg.VqIisbG_UbXQMOVymMsWbc4gg0H2rVH7NfkbniDdkTYg.PNG/image.png?type=w580",
+      "caption": "2000년 일본 영화 '배틀로얄' 포스터",
+      "alt": "배틀로얄 2000년 일본 영화 포스터 - 장르의 기원"
+    },
+    {
+      "type": "text",
+      "value": "배틀로얄이라는 개념의 뿌리는 더 깊다. 2000년 개봉한 일본 영화 '배틀로얄'은 고등학생들이 외딴 섬에서 서로를 죽이며 최후의 1인이 될 때까지 싸우는 내용을 담았다. 다카미 코슈의 1999년 동명 소설이 원작이다.\n\n브랜든 그린은 이 영화의 팬이었다. 그는 영화의 핵심 요소인 '고립된 공간', '시간 제한', '최후의 생존자'를 게임 메커니즘으로 번역했다. 줄어드는 안전구역은 영화에서 학생들의 목에 채워진 폭탄 목걸이가 특정 구역에 가면 폭발하는 설정에서 가져온 것이다.\n\n영화 한 편이 뿌린 씨앗이 모드가 되고, 모드가 게임이 되고, 게임이 하나의 장르가 되었다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. 1년 만에 세상에 나온 배틀그라운드"
+    },
+    {
+      "type": "image",
+      "src": "https://wstatic-prod-boc.krafton.com/common/news/20260106/YbxthMI0.webp",
+      "caption": "배틀그라운드 에란겔 맵 (사진=크래프톤)",
+      "alt": "배틀그라운드 에란겔 맵 스크린샷"
+    },
+    {
+      "type": "text",
+      "value": "브랜든 그린이 한국에 도착한 건 2016년 초였다. 블루홀의 작은 팀과 함께 개발을 시작한 지 약 1년 만인 2017년 3월, 배틀그라운드는 스팀 얼리 액세스로 세상에 나왔다. 정식 출시도 아닌 '앞서 해보기' 버전이었다.\n\n반응은 폭발적이었다. 출시 3일 만에 동시 접속자 10만명을 돌파했고, 여름에는 50만, 가을에는 100만을 넘겼다. 그해 12월 정식 출시 때는 동시 접속자 325만명을 기록하며 스팀 역사상 최고 기록을 세웠다. 출시 13주 만에 누적 매출 1억 달러, 판매량 1,800만 장을 돌파했다.\n\nAAA급 대작도 아니고, 글로벌 퍼블리셔의 지원도 없었다. 한국의 중소 스튜디오가 만든 게임이 세계 게임 시장의 판도를 바꿔버린 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "6. 9년이 지난 지금도"
+    },
+    {
+      "type": "image",
+      "src": "https://wstatic-prod-boc.krafton.com/common/content/events/20250310/WoH8BLxX.jpg",
+      "caption": "배틀그라운드 8주년 이벤트 (사진=크래프톤)",
+      "alt": "배틀그라운드 8주년 기념 이벤트 - PU8G"
+    },
+    {
+      "type": "text",
+      "value": "출시 9년차, 배틀그라운드는 여전히 진화 중이다. 작년 말 적용된 '에란겔 서브제로' 업데이트 이후 동접은 다시 80만명을 넘겼다. 크래프톤은 언리얼 엔진 5 기반의 그래픽 업그레이드와 UGC 시스템 도입을 예고하며 'PUBG 2.0' 시대를 준비하고 있다.\n\n브랜든 그린은 2021년 크래프톤을 떠나 자신만의 새 프로젝트를 진행 중이다. 하지만 그가 뿌린 씨앗은 여전히 자라고 있다. 배틀그라운드 IP를 기반으로 한 신작들 - 익스트랙션 슈터 '프로젝트 블랙버짓', 콘솔 배틀로얄 '프로젝트 발러' 등이 개발 중이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "한국의 작은 스튜디오가 아일랜드 출신 모더를 영입해 1년 만에 만든 게임. 그 게임이 지금은 전 세계 1억 8천만 명이 즐기는 글로벌 프랜차이즈가 되었다. 배틀로얄이라는 장르가 존재하는 한, 배틀그라운드의 이름은 계속 기억될 것이다."
+    }
+  ]
+}
