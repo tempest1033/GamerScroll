@@ -7,7 +7,7 @@ const { BetaAnalyticsDataClient } = require('@google-analytics/data');
 const fs = require('fs');
 const path = require('path');
 
-const PROPERTY_ID = '375378301';
+const PROPERTY_ID = '521152130';
 const CREDENTIALS_PATH = path.join(__dirname, '../../credentials/ga4-service-account.json');
 
 /**
