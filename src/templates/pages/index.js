@@ -49,7 +49,8 @@ function generateIndexPage(data) {
   const fixUrl = function(url) {
     if (!url) return url;
     if (url.startsWith('//')) url = 'https:' + url;
-    if (url.includes('inven.co.kr') || url.includes('nateimg.co.kr') || url.includes('ruliweb.com')) {
+    // 모든 외부 이미지 프록시
+    if (url.startsWith('http')) {
       const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=960&output=webp';
       return proxyUrl;
     }
