@@ -1641,6 +1641,38 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     </div>`;
   };
 
+  // 마크다운 표를 HTML table로 변환
+  const parseMarkdownTable = (text) => {
+    const lines = text.trim().split('\n');
+    if (lines.length < 2) return null;
+    if (!lines[0].trim().startsWith('|')) return null;
+    const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
+    if (separatorIndex < 1) return null;
+
+    const parseCells = (line) => {
+      const cells = line.split('|');
+      if (cells.length > 0 && cells[0].trim() === '') cells.shift();
+      if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
+      return cells.map(cell => cell.trim());
+    };
+
+    const headers = parseCells(lines[0]);
+    const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
+    const rows = dataLines.map(line => parseCells(line));
+
+    let html = '<div class="blog-table-wrapper"><table>';
+    html += '<thead><tr>';
+    headers.forEach(h => { html += `<th>${h}</th>`; });
+    html += '</tr></thead><tbody>';
+    rows.forEach(row => {
+      html += '<tr>';
+      row.forEach(cell => { html += `<td>${cell}</td>`; });
+      html += '</tr>';
+    });
+    html += '</tbody></table></div>';
+    return html;
+  };
+
   // 관련 게임 찾기
   const findRelatedGames = (text, limit = 4) => {
     if (!text || !Object.keys(gamesMap).length) return [];
@@ -1665,12 +1697,21 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
       switch (block.type) {
         case 'text':
           const paragraphs = block.value.split('\n\n').map(p => {
+            const trimmed = p.trim();
+            // 마크다운 표 처리
+            if (trimmed.startsWith('|') && trimmed.includes('|---')) {
+              const tableHtml = parseMarkdownTable(trimmed);
+              if (tableHtml) return tableHtml;
+            }
             // 마크다운 볼드 변환: **텍스트** → <strong>텍스트</strong>
-            const formatted = p
+            // 마크다운 리스트 변환: "- " → "• "
+            const formatted = trimmed
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+              .replace(/^- /gm, '• ')
+              .replace(/\n- /g, '\n• ')
               .replace(/\n/g, '<br>');
-            return `<p class="blog-paragraph">${formatted}</p>`;
-          }).join('');
+            return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
+          }).filter(p => p).join('');
           result.push(paragraphs);
           break;
 

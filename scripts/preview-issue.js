@@ -129,6 +129,56 @@ function escapeHtml(str) {
 }
 
 /**
+ * 마크다운 표를 HTML table로 변환
+ */
+function parseMarkdownTable(text) {
+  const lines = text.trim().split('\n');
+  if (lines.length < 2) return null;
+
+  // 첫 줄이 | 로 시작하는지 확인
+  if (!lines[0].trim().startsWith('|')) return null;
+
+  // 구분선 (|---|---|) 찾기
+  const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
+  if (separatorIndex < 1) return null;
+
+  // | 로 split 후 앞뒤 빈 요소 제거하는 헬퍼
+  function parseCells(line) {
+    const cells = line.split('|');
+    // 앞뒤 빈 요소 제거 (| 로 시작/끝나서 생기는 빈 문자열)
+    if (cells.length > 0 && cells[0].trim() === '') cells.shift();
+    if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
+    return cells.map(cell => cell.trim());
+  }
+
+  // 헤더 파싱
+  const headers = parseCells(lines[0]);
+
+  // 데이터 행 파싱
+  const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
+  const rows = dataLines.map(line => parseCells(line));
+
+  // HTML 생성
+  let html = '<div class="blog-table-wrapper"><table>';
+  html += '<thead><tr>';
+  headers.forEach(h => {
+    html += `<th>${h}</th>`;
+  });
+  html += '</tr></thead>';
+  html += '<tbody>';
+  rows.forEach(row => {
+    html += '<tr>';
+    row.forEach(cell => {
+      html += `<td>${cell}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table></div>';
+
+  return html;
+}
+
+/**
  * 본문 렌더링
  */
 function renderContent(content) {
@@ -137,10 +187,25 @@ function renderContent(content) {
   content.forEach(block => {
     switch (block.type) {
       case 'text':
-        const paragraphs = block.value.split('\n\n').map(p =>
-          `<p class="blog-paragraph">${p.replace(/\n/g, '<br>')}</p>`
-        ).join('');
-        result.push(paragraphs);
+        // 단락 분리 후 각각 처리
+        const paragraphs = block.value.split('\n\n');
+        const rendered = paragraphs.map(p => {
+          const trimmed = p.trim();
+          // 표인지 확인 (|로 시작하고 |---| 포함)
+          if (trimmed.startsWith('|') && trimmed.includes('|---')) {
+            const tableHtml = parseMarkdownTable(trimmed);
+            if (tableHtml) return tableHtml;
+          }
+          // 일반 텍스트
+          if (trimmed) {
+            // 볼드 처리 (**text** → <strong>text</strong>)
+            let processed = trimmed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            processed = processed.replace(/\n/g, '<br>');
+            return `<p class="blog-paragraph">${processed}</p>`;
+          }
+          return '';
+        }).filter(p => p).join('\n');
+        result.push(rendered);
         break;
 
       case 'image':
@@ -266,6 +331,42 @@ function generatePreviewHtml(report) {
       color: rgba(255,255,255,0.4);
       margin: 24px 0;
       border-radius: 8px;
+    }
+    /* 표 스타일 */
+    .blog-table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .blog-table-wrapper table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      min-width: 500px;
+    }
+    .blog-table-wrapper th,
+    .blog-table-wrapper td {
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      text-align: left;
+    }
+    .blog-table-wrapper th {
+      background: rgba(255,255,255,0.08);
+      font-weight: 600;
+      color: #fafafa;
+      white-space: nowrap;
+    }
+    .blog-table-wrapper td {
+      color: #d4d4d8;
+    }
+    .blog-table-wrapper tr:hover td {
+      background: rgba(255,255,255,0.03);
+    }
+    @media (max-width: 768px) {
+      .blog-table-wrapper {
+        margin: 16px -16px;
+        padding: 0 16px;
+      }
     }
     .preview-meta {
       background: rgba(255,255,255,0.05);
