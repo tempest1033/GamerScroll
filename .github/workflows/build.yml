@@ -119,6 +119,8 @@ jobs:
           cp icon-192.png docs/icon-192.png
           # ads.txt 복사
           cp ads.txt docs/ads.txt
+          # 네이버 사이트 인증 파일 복사
+          cp naver7c3fb9852973561ab46756977b2f398e.html docs/naver7c3fb9852973561ab46756977b2f398e.html 2>/dev/null || true
           # CNAME 제거됨 - Cloudflare Pages 사용 (GitHub Pages 비활성화)
           # 데일리 인사이트 리포트 복사 (JSON + HTML)
           if [ -d "reports" ]; then
