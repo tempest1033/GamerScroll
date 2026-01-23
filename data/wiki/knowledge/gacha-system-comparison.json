@@ -1,6 +1,7 @@
 {
   "slug": "gacha-system-comparison",
   "status": "approved",
+  "relatedGames": ["원신공월의-노래", "붕괴-스타레일", "명조워더링-웨이브", "승리의-여신-니케"],
   "title": "가챠 시스템 3부: 대표 게임별 가챠 비교",
   "date": "2026-01-24T07:20",
   "thumbnail": "https://pbs.twimg.com/media/GPyKRbEW4AAMlaK?format=jpg&name=large",
@@ -19,7 +20,6 @@
     { "name": "게이머즈", "title": "가챠 게임 비교 분석", "url": "https://www.gamers.co.kr" }
   ],
   "relatedArticles": ["gacha-system-history", "gacha-system-regulations"],
-  "relatedGames": ["genshin-impact", "wuthering-waves", "nikke", "blue-archive", "honkai-star-rail"],
   "content": [
     { "type": "text", "value": "1부에서 가챠의 역사를, 2부에서 각국 규제 현황을 살펴봤다. 원신, 명조, 니케, 블루아카이브, FGO까지 대표 가챠 게임들의 시스템을 주제별로 비교한다. 같은 '가챠'라도 게임마다 구조가 다르고, 그 차이가 플레이 경험을 크게 바꾼다." },
 

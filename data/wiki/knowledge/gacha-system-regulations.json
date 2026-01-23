@@ -1,6 +1,7 @@
 {
   "slug": "gacha-system-regulations",
   "status": "approved",
+  "relatedGames": ["원신공월의-노래", "붕괴-스타레일", "명조워더링-웨이브", "승리의-여신-니케"],
   "title": "가챠 시스템 2부: 각국의 가챠 규제 현황",
   "date": "2026-01-24T07:10",
   "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3224770/ss_67f95b138da201b52e9bcc43ab6f01ae820b7f12.jpg",
@@ -15,7 +16,6 @@
     { "name": "UK Parliament", "title": "Loot boxes in video games", "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-8498/" }
   ],
   "relatedArticles": ["gacha-system-history", "gacha-system-comparison"],
-  "relatedGames": [],
   "content": [
     { "type": "text", "value": "가챠는 도박인가, 게임인가. 이 질문에 대한 답은 나라마다 다르다. 어떤 나라는 전면 금지했고, 어떤 나라는 자율규제에 맡겼다. 어떤 나라는 확률 공개만 요구하고, 어떤 나라는 아직 제대로 된 규제조차 없다. 가챠(서양에서는 '루트박스')를 둘러싼 각국의 규제 현황을 정리했다." },
     { "type": "heading", "value": "일본: 자율규제의 나라" },

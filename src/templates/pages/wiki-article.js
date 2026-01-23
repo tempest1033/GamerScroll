@@ -241,19 +241,34 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
   const metaHtml = metaParts.length > 0 ? `<div class="blog-meta">${metaParts.join('')}</div>` : '';
 
   // 관련 게임 찾기 (키워드 매칭)
+  // 수동 지정 relatedGames 우선, 없으면 자동 매칭
   const findRelatedGames = (text) => {
     if (!text || !Object.keys(gamesMap).length) return [];
     const found = [];
     for (const [name, game] of Object.entries(gamesMap)) {
-      if (text.includes(name) && game.slug) {
+      // 게임 이름 또는 aliases 매칭
+      const aliases = game.aliases || [];
+      const allNames = [name, ...aliases];
+      if (allNames.some(n => text.includes(n)) && game.slug) {
         found.push({ name, ...game });
         if (found.length >= 4) break;
       }
     }
     return found;
   };
-  const fullText = (article.content || []).filter(b => b.type === 'text').map(b => b.value).join(' ') + ' ' + (article.title || '');
-  const relatedGames = findRelatedGames(fullText);
+
+  // 수동 지정된 relatedGames가 있으면 사용
+  let relatedGames = [];
+  if (article.relatedGames && article.relatedGames.length > 0) {
+    relatedGames = article.relatedGames.map(slug => {
+      const game = Object.entries(gamesMap).find(([_, g]) => g.slug === slug);
+      if (game) return { name: game[0], ...game[1] };
+      return null;
+    }).filter(Boolean);
+  } else {
+    const fullText = (article.content || []).filter(b => b.type === 'text').map(b => b.value).join(' ') + ' ' + (article.title || '');
+    relatedGames = findRelatedGames(fullText);
+  }
   const relatedGamesHtml = relatedGames.length > 0 ? `
     <div class="blog-related-games">
       <div class="blog-related-title">관련 게임</div>

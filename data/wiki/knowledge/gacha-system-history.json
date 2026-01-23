@@ -1,6 +1,7 @@
 {
   "slug": "gacha-system-history",
   "status": "approved",
+  "relatedGames": ["퍼즐앤드래곤", "원신공월의-노래", "붕괴-스타레일", "승리의-여신-니케"],
   "title": "가챠 시스템 1부: 가챠의 기원과 역사",
   "date": "2026-01-24T07:00",
   "thumbnail": "https://media.timeout.com/images/105170435/image.jpg",
@@ -19,7 +20,6 @@
     { "name": "인벤", "title": "천장 시스템 비교 분석", "url": "https://www.inven.co.kr" }
   ],
   "relatedArticles": ["gacha-system-regulations", "gacha-system-comparison"],
-  "relatedGames": [],
   "content": [
     { "type": "text", "value": "모바일 게임 시장에서 '가챠'는 핵심 수익 모델이다. 랜덤으로 캐릭터나 아이템을 뽑는 이 시스템은 일본의 캡슐 자판기 '가샤폰'에서 이름을 따왔다. 100엔을 넣고 돌리면 무엇이 나올지 모르는 그 설렘과 조바심이, 디지털 세계에서 수조 원 규모의 시장을 만들어냈다." },
     { "type": "heading", "value": "가샤폰에서 디지털로" },
