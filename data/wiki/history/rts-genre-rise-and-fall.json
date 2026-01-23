@@ -1,0 +1,152 @@
+{
+  "slug": "rts-genre-rise-and-fall",
+  "status": "approved",
+  "category": "history",
+  "title": "RTS 장르의 흥망성쇠, 90년대 황금기부터 역사 속으로 사라진 이유까지",
+  "date": "2026-01-23T20:00",
+  "thumbnail": "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/11/Age-of-Tiberiancraft.jpg",
+  "keywords": "RTS, 실시간 전략 게임, 스타크래프트, 워크래프트, 에이지 오브 엠파이어, 커맨드 앤 컨커, Dune II, e스포츠, MOBA, APM, 게임 역사",
+  "summary": "1992년 Dune II에서 시작된 RTS 장르는 스타크래프트로 전성기를 맞았지만, MOBA의 부상과 높은 진입장벽으로 주류에서 밀려났다. RTS가 남긴 유산과 그 여정을 따라가 본다.",
+  "relatedArticles": [],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Gameproof",
+      "title": "Analyzing the Decline of the RTS Genre",
+      "url": "https://game-proof.com/case-study/how-strategic-differentiation-drives-market-evolution/"
+    },
+    {
+      "name": "EIP Gaming",
+      "title": "The State of RTS Games in 2024",
+      "url": "https://eip.gg/news/the-state-of-rts-games-in-2024/"
+    },
+    {
+      "name": "NBC News",
+      "title": "How fast is fast? Some pro gamers make 10 moves per second",
+      "url": "https://www.nbcnews.com/technolog/how-fast-fast-some-pro-gamers-make-10-moves-second-8c11422946"
+    },
+    {
+      "name": "IGN",
+      "title": "How Starcraft Gave Rise to League of Legends in Korea",
+      "url": "https://sea.ign.com/league-of-legends/93239/feature/how-starcraft-gave-rise-to-league-of-legends-in-korea-part-1"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "1990년대 PC방에서 가장 뜨거웠던 장르가 있다. 바로 RTS(Real-Time Strategy), 실시간 전략 게임이다. 기지를 건설하고, 자원을 모으고, 군대를 양성해 적을 섬멸하는 이 장르는 한때 게임 산업의 중심에 있었다.\n\n스타크래프트, 워크래프트, 에이지 오브 엠파이어. 이 이름들만 들어도 가슴이 뛰는 세대가 있다. 하지만 지금 RTS는 어디에 있을까? 이 글에서는 RTS 장르가 어떻게 탄생하고, 전성기를 맞이했으며, 왜 주류에서 밀려나게 됐는지 그 여정을 따라가 본다."
+    },
+    {
+      "type": "heading",
+      "value": "1. RTS의 탄생, Dune II가 쓴 첫 페이지"
+    },
+    {
+      "type": "image",
+      "src": "http://www.retrogaminggeek.com/wp-content/uploads/2024/05/dune-2-construction-yard.png",
+      "caption": "Dune II (1992) - RTS 장르의 문법을 확립한 전설적인 작품",
+      "alt": "Dune II 게임플레이 화면, 1992년 웨스트우드 스튜디오가 개발한 RTS 장르의 원조 게임"
+    },
+    {
+      "type": "text",
+      "value": "1992년, 웨스트우드 스튜디오는 프랭크 허버트의 SF 소설 '듄'을 원작으로 한 게임을 출시했다. Dune II: The Building of a Dynasty. 이 게임은 오늘날 우리가 아는 RTS의 모든 문법을 처음으로 정립했다.\n\n건물을 지어 유닛을 생산하고, 자원(스파이스)을 수확해 경제를 운영하며, 실시간으로 전투를 벌인다. 지금은 너무나 당연해 보이는 이 공식이 바로 Dune II에서 시작됐다. 물론 이전에도 실시간 요소가 있는 전략 게임들이 있었지만, '기지 건설 → 자원 수집 → 유닛 생산 → 전투'라는 핵심 루프를 완성한 건 Dune II가 처음이었다.\n\n웨스트우드는 이 성공을 발판으로 1995년 커맨드 앤 컨커(Command & Conquer)를 출시하며 RTS 장르를 본격적으로 대중화시켰다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 황금기의 시작, 블리자드와 웨스트우드의 대결"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1213210/ss_77f4464527f8c4e01bccb9e94c2af485e3dd0e08.jpg",
+      "caption": "Command & Conquer Remastered - 90년대 RTS 황금기를 이끈 웨스트우드의 대표작",
+      "alt": "커맨드 앤 컨커 리마스터 게임플레이, 90년대 RTS 황금기를 대표하는 웨스트우드 스튜디오의 명작"
+    },
+    {
+      "type": "text",
+      "value": "1994년, 작은 게임 회사 블리자드 엔터테인먼트가 워크래프트: 오크와 인간(Warcraft: Orcs & Humans)을 출시했다. Dune II에서 영감을 받은 이 게임은 판타지 세계관과 멀티플레이어 대전을 결합해 큰 인기를 끌었다.\n\n같은 시기 웨스트우드의 커맨드 앤 컨커는 현대전 배경과 실사 영상 브리핑으로 차별화를 꾀했다. 두 회사의 경쟁은 RTS 장르 전체의 발전을 이끌었다. 더 나은 AI, 더 다양한 유닛, 더 세련된 인터페이스. 90년대 중반 RTS는 FPS, RPG와 함께 PC 게임의 3대 장르로 자리 잡았다.\n\n1996년 워크래프트 2, 1997년 토탈 어나이얼레이션까지. RTS의 황금기가 본격적으로 시작되고 있었다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 절정기, 스타크래프트와 한국 e스포츠의 탄생"
+    },
+    {
+      "type": "image",
+      "src": "https://sm.ign.com/ign_ap/screenshot/default/screen-shot-2015-09-03-at-81510-pm_wpwg.png",
+      "caption": "한국의 스타크래프트 e스포츠 - 프로게이머라는 직업을 탄생시킨 문화 현상",
+      "alt": "한국 스타크래프트 e스포츠 대회 현장, 2000년대 프로게이머들의 경기 모습"
+    },
+    {
+      "type": "text",
+      "value": "1998년 3월, 블리자드는 스타크래프트(StarCraft)를 출시했다. SF 세계관, 테란/저그/프로토스 세 종족의 완벽한 밸런스, 그리고 배틀넷을 통한 온라인 대전. 스타크래프트는 단순한 게임을 넘어 하나의 문화 현상이 됐다.\n\n특히 한국에서의 반응은 폭발적이었다. PC방 문화와 맞물려 스타크래프트는 국민 게임이 됐고, 세계 최초로 '프로게이머'라는 직업이 탄생했다. 온게임넷(OGN), MBC게임 같은 게임 전문 TV 채널이 생겨났고, 임요환, 이윤열 같은 스타 플레이어들이 연예인 못지않은 인기를 누렸다.\n\ne스포츠라는 개념 자체가 한국의 스타크래프트에서 시작됐다고 해도 과언이 아니다. RTS는 단순히 인기 있는 게임 장르를 넘어 새로운 산업을 창조해낸 것이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 에이지 오브 엠파이어, 역사를 게임으로 배우다"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/YLUY5MF5veLJ7HpE4cvRgD-1920-80.jpg",
+      "caption": "Age of Empires II Definitive Edition - 25년이 지난 지금도 사랑받는 역사 전략 게임",
+      "alt": "에이지 오브 엠파이어 2 게임플레이, 중세 시대 문명들의 전투와 성 공성 장면"
+    },
+    {
+      "type": "text",
+      "value": "블리자드가 판타지와 SF로 승부했다면, 앙상블 스튜디오는 실제 역사를 게임으로 옮겼다. 1997년 에이지 오브 엠파이어(Age of Empires)는 석기시대부터 철기시대까지의 문명 발전을 다뤘고, 1999년 후속작 에이지 오브 엠파이어 2는 중세 시대를 배경으로 큰 성공을 거뒀다.\n\n블리자드 스타일과 달리 에이지 오브 엠파이어는 경제 운영에 더 큰 비중을 뒀다. 다양한 자원 관리, 방대한 문명 선택지, 역사적 캠페인까지. 교육적 가치와 게임성을 동시에 잡은 이 시리즈는 다른 층의 팬덤을 형성했다.\n\n놀라운 건 에이지 오브 엠파이어 2가 25년이 지난 지금도 현역이라는 점이다. 2019년 출시된 Definitive Edition은 Steam에서 일일 2만 명 이상의 플레이어를 유지하며 RTS 장르의 마지막 보루 역할을 하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 쇠퇴의 시작, 자식에게 잡아먹힌 RTS"
+    },
+    {
+      "type": "image",
+      "src": "https://images.igdb.com/igdb/image/upload/t_1080p/sc7db8.jpg",
+      "caption": "DotA - 워크래프트 3의 커스텀 맵에서 탄생해 RTS를 집어삼킨 MOBA의 원조",
+      "alt": "DotA 게임플레이, 워크래프트 3 커스텀 맵에서 시작된 MOBA 장르의 시초"
+    },
+    {
+      "type": "text",
+      "value": "아이러니하게도 RTS의 쇠퇴는 RTS 스스로가 만들어낸 것에서 시작됐다. 2003년, 워크래프트 3의 커스텀 맵 에디터에서 DotA(Defense of the Ancients)가 탄생했다. 수백 개의 유닛을 조종하는 대신 단 하나의 영웅만 컨트롤하는 이 게임은 폭발적인 인기를 끌었다.\n\nDotA의 성공은 리그 오브 레전드(2009)와 도타 2(2013)로 이어졌고, MOBA라는 새로운 장르가 확립됐다. 문제는 MOBA가 RTS의 잠재적 플레이어층을 대부분 흡수해버렸다는 것이다. 전략적 깊이, 빠른 판단력, 경쟁의 쾌감. RTS가 주던 가치를 MOBA도 제공했지만, 훨씬 더 접근하기 쉬웠다.\n\n구글 트렌드를 보면 2010년 이후 RTS 검색량은 지속적으로 하락한 반면, MOBA는 급상승했다. RTS는 자신이 낳은 자식에게 왕좌를 빼앗긴 셈이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. APM의 벽, 프로와 일반인 사이의 건널 수 없는 강"
+    },
+    {
+      "type": "image",
+      "src": "http://media3.s-nbcnews.com/i/streams/2013/October/131021/8C9442102-naniwa.jpg",
+      "caption": "프로게이머들의 APM은 400-500에 달한다. 일반인에게는 도달 불가능한 영역",
+      "alt": "스타크래프트 프로게이머의 키보드 컨트롤, 초당 7회 이상의 입력을 하는 APM의 세계"
+    },
+    {
+      "type": "text",
+      "value": "RTS의 쇠퇴에는 또 다른 근본적인 이유가 있다. 바로 APM(Actions Per Minute), 분당 조작 수라는 장벽이다. 스타크래프트 프로게이머들의 평균 APM은 400~500. 이는 초당 7회 이상의 정확한 입력을 의미한다.\n\n다른 장르와 비교해보자. FPS에서는 조준과 이동만 잘하면 된다. MOBA에서는 하나의 캐릭터만 컨트롤하면 된다. 하지만 RTS에서는 기지 관리, 자원 수집, 유닛 생산, 전투 조작을 '동시에' 처리해야 한다. 이 멀티태스킹 부담은 실력이 올라갈수록 기하급수적으로 늘어난다.\n\nMOBA는 이 문제를 단일 유닛 컨트롤로 해결했다. 전략적 깊이는 유지하면서 조작 부담은 대폭 낮춘 것이다. 더 많은 사람이 즐길 수 있는 게임이 이긴다는 시장의 논리에서 RTS는 패배할 수밖에 없었다."
+    },
+    {
+      "type": "heading",
+      "value": "7. 애매해진 포지션, 턴제와 방치형 사이에서 길을 잃다"
+    },
+    {
+      "type": "image",
+      "src": "https://minireview.io/common/uploads/cache/topgame/1-1100-606-0e15e2476a292410bbf6a3b5cc6f1c8b.webp",
+      "caption": "오토배틀러와 방치형 게임 - 캐주얼 게임이 지배하는 현재의 게임 시장",
+      "alt": "모바일 오토배틀러 게임 화면, 방치형과 자동 전투가 대세가 된 현대 게임 시장"
+    },
+    {
+      "type": "text",
+      "value": "게임 시장은 점점 양극화되고 있다. 한쪽에는 문명, 크루세이더 킹스 같은 턴제 전략 게임이 있다. 천천히 생각하고, 멈춰서 계획을 세울 수 있다. 다른 한쪽에는 방치형 게임, 오토배틀러, 머지 게임이 있다. 터치 몇 번으로 플레이가 끝난다.\n\nRTS는 이 양극단 어디에도 속하지 못한다. 실시간이라 바쁘고, 복잡하기까지 하다. 하드코어 유저에게는 턴제 전략 게임이 더 깊은 전략성을 제공하고, 캐주얼 유저에게는 방치형이 더 편하다. 경쟁을 원하는 유저는 MOBA나 FPS로 간다.\n\n2024년 출시된 스톰게이트(Stormgate)는 블리자드 출신 개발자들이 야심 차게 만든 신작이었지만, 출시 한 달 만에 일일 플레이어 400명대로 떨어졌다. RTS의 부활을 꿈꾸는 시도들이 계속되고 있지만, 시장은 냉정했다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "RTS가 주류에서 밀려난 건 분명하다. 하지만 그 유산은 지금도 살아 숨 쉰다. e스포츠라는 산업, MOBA라는 장르, 기지 건설과 자원 관리라는 게임 문법. 이 모든 것이 RTS에서 시작됐다.\n\n1992년 Dune II부터 1998년 스타크래프트의 전성기까지, RTS는 약 10년간 게임 산업의 중심에 있었다. 그리고 그 10년은 이후 30년의 게임 역사를 바꿔놓았다. 지금 우리가 즐기는 리그 오브 레전드도, e스포츠 대회도, 전략 게임의 기본 공식도 모두 RTS의 황금기에서 탄생한 것들이다.\n\n어쩌면 RTS는 사라진 게 아니라, 너무 많은 것을 남기고 진화한 것인지도 모른다."
+    }
+  ]
+}
