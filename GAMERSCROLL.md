@@ -6,11 +6,8 @@
 | 환경 | URL | Repository |
 |------|-----|------------|
 | **PC** | https://gamerscroll.com | [GamerScroll](https://github.com/tempest1033/GamerScroll) |
-| **Mobile** | https://m.gamerscroll.com | [GamerScroll-Mobile](https://github.com/tempest1033/GamerScroll-Mobile) |
 
-- PC 버전: `docs/` 폴더 → GitHub Pages
-- Mobile 버전: `docs-mobile/` 폴더 → GamerScroll-Mobile 저장소로 자동 배포
-- PC 접속 시 모바일 UA 감지 → `m.gamerscroll.com`으로 자동 리다이렉트
+- 배포: `docs/` 폴더 → GitHub Pages
 
 ---
 
@@ -60,17 +57,6 @@ cd docs && npx serve -l 3001
 | **GitHub Actions** | ✅ 자동 (build.yml) |
 | **로컬 테스트** | ❌ 수동 복사 필요 |
 
-### 모바일 버전 빌드
-```bash
-node build-mobile.js
-```
-- `docs/` 폴더를 `docs-mobile/`로 복사
-- URL 변환: `gamerscroll.com` → `m.gamerscroll.com`
-- PC 전용 광고/사이드바 제거
-- CNAME 설정: `m.gamerscroll.com`
-- sitemap.xml URL 변환
-- **GitHub Actions에서 자동 실행됨** (수동 실행 불필요)
-
 ### AI 인사이트 생성 (일간)
 ```bash
 node generate-ai-insight.js
@@ -102,12 +88,11 @@ node generate-weekly-insight.js --force  # 강제 재생성
 ├── generate-html-report.js    # 메인 진입점
 ├── generate-ai-insight.js     # 일간 AI 인사이트 진입점
 ├── generate-weekly-insight.js # 주간 AI 인사이트 진입점
-├── build-mobile.js            # 모바일 버전 빌드 스크립트
 │
 ├── data-cache.json            # 크롤링 캐시 (git tracked)
 ├── index.html                 # 로컬 생성 HTML
 │
-├── docs/                      # PC 버전 배포 폴더 (gamerscroll.com)
+├── docs/                      # 배포 폴더 (gamerscroll.com)
 │   ├── index.html             # 배포용 HTML
 │   ├── styles.css             # 스타일시트
 │   ├── CNAME                  # 커스텀 도메인
@@ -115,9 +100,6 @@ node generate-weekly-insight.js --force  # 강제 재생성
 │       ├── {date}.json        # 일별 인사이트 (배포용 복사본)
 │       └── weekly/
 │           └── {year}-W{week}.json # 주간 인사이트 (배포용 복사본)
-│
-├── docs-mobile/               # 모바일 버전 배포 폴더 (m.gamerscroll.com)
-│                              # → GamerScroll-Mobile 저장소로 자동 배포
 │
 ├── reports/                   # 인사이트 데이터
 │   ├── {date}.json            # 일간 AI 인사이트 + 주가 + 순위분석
@@ -439,13 +421,11 @@ node scripts/process-review-queue.js [limit]
 - 작업:
   1. `npm ci` (캐시 활용)
   2. Playwright 브라우저 설치 (캐시 활용)
-  3. `node generate-html-report.js` - PC 버전 생성
+  3. `node generate-html-report.js` - 사이트 생성
   4. `node scripts/sync-and-enrich.js` - 게임 DB 동기화
   5. `node scripts/generate-game-pages.js` - 게임 상세 페이지 생성
   6. docs/ 폴더로 복사
-  7. `node build-mobile.js` - 모바일 버전 생성
-  8. 커밋 & 푸시 (GamerScroll)
-  9. GamerScroll-Mobile 저장소로 배포 (peaceiris/actions-gh-pages)
+  7. 커밋 & 푸시 (GamerScroll)
 
 ### ai-insight.yml (일간)
 - 트리거: 12시간마다 (KST 06:00, 18:00) + 수동
@@ -1024,40 +1004,6 @@ node scripts/preview-wiki.js --list
 변형: RCT, 놀이공원 시뮬레이션, 타이쿤 게임
 롱테일: 90년대 PC 게임, 1인 개발 전설, 어셈블리어 게임 개발
 ```
-
----
-
-## PC/모바일 분리 구조
-
-### 배포 구조
-| 환경 | 도메인 | 저장소 | 배포 폴더 |
-|------|--------|--------|----------|
-| PC | gamerscroll.com | GamerScroll | `docs/` |
-| Mobile | m.gamerscroll.com | GamerScroll-Mobile | `docs-mobile/` |
-
-### UA 감지 리다이렉트
-PC 버전(`gamerscroll.com`)에서 모바일 UA 감지 시 자동 리다이렉트:
-```javascript
-// src/templates/components/head.js
-if (/Android|iPhone|iPad|iPod|Mobile/i.test(ua)) {
-  location.replace('https://m.gamerscroll.com' + location.pathname);
-}
-```
-
-### 광고 분리
-- PC 버전: PC 전용 광고만 표시 (사이드바, 직사각형 등)
-- Mobile 버전: 모바일 전용 광고만 표시 (상단/중간 배너)
-- `build-mobile.js`가 PC 광고 컨테이너 자동 제거
-
-### DNS 설정 (Squarespace)
-| 타입 | 호스트 | 데이터 |
-|------|--------|--------|
-| CNAME | m | tempest1033.github.io |
-
-### GitHub Secrets
-| 키 | 용도 |
-|----|------|
-| `GH_PAT` | GamerScroll-Mobile 저장소 배포용 Personal Access Token |
 
 ---
 
