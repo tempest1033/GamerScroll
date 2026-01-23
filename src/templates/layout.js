@@ -783,7 +783,7 @@ const mobileScrollHideScript = `
 })();
 </script>`;
 
-// 폰트 로딩 + twemoji 파싱 (공통)
+// 폰트 로딩 (공통)
 const fontAndEmojiScript = `
 <script>
 (function() {
@@ -796,16 +796,6 @@ const fontAndEmojiScript = `
   } else {
     setTimeout(markFontsLoaded, 100);
   }
-
-  function parseTwemojiOnce() {
-    if (window.__gcTwemojiParsed) return;
-    if (typeof twemoji === 'undefined') return;
-    twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-    window.__gcTwemojiParsed = '1';
-  }
-
-  parseTwemojiOnce();
-  window.addEventListener('load', parseTwemojiOnce);
 })();
 </script>`;
 

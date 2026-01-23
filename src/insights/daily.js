@@ -352,7 +352,7 @@ function generateInsightHTML(insight) {
 
     ${ai ? `
     <section class="insight-section ai-section">
-      <h2 class="section-title">🤖 오늘의 이슈</h2>
+      <h2 class="section-title">오늘의 이슈</h2>
       <div class="ai-grid">
         <div class="ai-column">
           ${(ai.issues || []).slice(0, 2).map(issue => `
@@ -376,7 +376,7 @@ function generateInsightHTML(insight) {
     </section>
 
     <section class="insight-section ai-section">
-      <h2 class="section-title">📈 트렌드</h2>
+      <h2 class="section-title">트렌드</h2>
       <ul class="ai-trends">
         ${(ai.trends || []).map(trend => `<li><span class="ai-badge">TREND</span>${trend}</li>`).join('')}
       </ul>
@@ -385,7 +385,7 @@ function generateInsightHTML(insight) {
 
     <div class="grid-2">
       <section class="insight-section">
-        <h2 class="section-title">📱 모바일 매출 순위 (한국 iOS)</h2>
+        <h2 class="section-title">모바일 매출 순위 (한국 iOS)</h2>
         <table class="ranking-table">
           <thead><tr><th>순위</th><th></th><th>게임</th><th>변동</th></tr></thead>
           <tbody>${mobileKRHTML}</tbody>
@@ -393,7 +393,7 @@ function generateInsightHTML(insight) {
       </section>
 
       <section class="insight-section">
-        <h2 class="section-title">🎮 Steam 동시접속</h2>
+        <h2 class="section-title">Steam 동시접속</h2>
         <table class="ranking-table">
           <thead><tr><th>순위</th><th></th><th>게임</th><th>CCU</th><th>변동</th></tr></thead>
           <tbody>${steamHTML}</tbody>
@@ -403,12 +403,12 @@ function generateInsightHTML(insight) {
 
     <div class="grid-2">
       <section class="insight-section">
-        <h2 class="section-title">📰 주요 뉴스</h2>
+        <h2 class="section-title">주요 뉴스</h2>
         <div class="news-list">${newsHTML}</div>
       </section>
 
       <section class="insight-section">
-        <h2 class="section-title">💬 커뮤니티 핫토픽</h2>
+        <h2 class="section-title">커뮤니티 핫토픽</h2>
         <div class="community-list">${communityHTML}</div>
       </section>
     </div>
@@ -417,7 +417,7 @@ function generateInsightHTML(insight) {
     <!-- 주간 리포트 패널 -->
     <div class="insight-panel" id="panel-weekly">
       <div class="weekly-header">
-        <div class="weekly-title">📊 ${getWeekInfo(date)}</div>
+        <div class="weekly-title">${getWeekInfo(date)}</div>
         <div class="weekly-period">주간 게이밍 인사이트 리포트</div>
       </div>
 
@@ -445,7 +445,7 @@ function generateInsightHTML(insight) {
       </div>
 
       <section class="insight-section">
-        <h2 class="section-title">🎯 금주 하이라이트</h2>
+        <h2 class="section-title">금주 하이라이트</h2>
         <div class="highlights-grid">
           <div class="highlight-card">
             <span class="highlight-tag mobile">모바일</span>
@@ -480,7 +480,7 @@ function generateInsightHTML(insight) {
 
       <div class="grid-2">
         <section class="insight-section">
-          <h2 class="section-title">📱 모바일 TOP 10 (주간)</h2>
+          <h2 class="section-title">모바일 TOP 10 (주간)</h2>
           <table class="ranking-table">
             <thead><tr><th>순위</th><th></th><th>게임</th><th>변동</th></tr></thead>
             <tbody>${mobileKRHTML}</tbody>
@@ -488,7 +488,7 @@ function generateInsightHTML(insight) {
         </section>
 
         <section class="insight-section">
-          <h2 class="section-title">🎮 Steam TOP 10 (주간)</h2>
+          <h2 class="section-title">Steam TOP 10 (주간)</h2>
           <table class="ranking-table">
             <thead><tr><th>순위</th><th></th><th>게임</th><th>CCU</th><th>변동</th></tr></thead>
             <tbody>${steamHTML}</tbody>
@@ -497,7 +497,7 @@ function generateInsightHTML(insight) {
       </div>
 
       <div class="weekly-coming-soon">
-        <h3>📈 더 많은 주간 분석 데이터가 곧 추가됩니다</h3>
+        <h3>더 많은 주간 분석 데이터가 곧 추가됩니다</h3>
         <p>주간 트렌드, 장르별 분석, 커뮤니티 핫이슈 등</p>
       </div>
     </div><!-- /panel-weekly -->

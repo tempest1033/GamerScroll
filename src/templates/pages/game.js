@@ -419,7 +419,7 @@ function generateGamePage(gameData) {
     if (hasSteamDataLocal) {
       html += `<div class="game-rank-section steam">
         <div class="game-rank-section-header">
-          <span class="game-rank-section-icon">🎮</span>
+          <span class="game-rank-section-icon"></span>
           <span class="game-rank-section-title">Steam</span>
         </div>
         <div class="game-steam-inline">`;
