@@ -1035,7 +1035,7 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
 const searchIndexPath = path.join(outputDir, 'search-index.json');
 fs.writeFileSync(searchIndexPath, JSON.stringify(searchIndex, null, 2), 'utf8');
 
-updateSitemapGameEntries();
+// updateSitemapGameEntries(); // 게임 페이지는 noindex → sitemap 제외
 
 console.log(`\n✅ 게임 페이지 생성 완료!`);
 console.log(`생성: ${generatedCount}개`);
