@@ -1218,7 +1218,7 @@ body.ads-disabled .home-container {
 
     .home-sidebar {
       display: block;
-      align-self: start;
+      align-self: stretch;
     }
     .home-sidebar > * {
       margin-bottom: var(--space-block-gap);

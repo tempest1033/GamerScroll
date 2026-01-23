@@ -643,8 +643,8 @@ function generateIndexPage(data) {
     '<div class="home-sidebar-sticky">' +
     generateSidebarCategories() +
     generateSidebarArticles() +
-    generateVerticalAdSlot(AD_SLOTS.PCHome002) +
     '</div>' +
+    generateVerticalAdSlot(AD_SLOTS.PCHome002) +
     '</div>' +
     '</div>' +
     '</div>' +
