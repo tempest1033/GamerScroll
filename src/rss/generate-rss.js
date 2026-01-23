@@ -111,6 +111,37 @@ function getDailyReports(reportsDir) {
   return items;
 }
 
+function getWikiArticles(wikiDir) {
+  if (!fs.existsSync(wikiDir)) return [];
+
+  const items = [];
+  const categories = fs.readdirSync(wikiDir).filter(f =>
+    fs.statSync(path.join(wikiDir, f)).isDirectory()
+  );
+
+  for (const category of categories) {
+    const categoryDir = path.join(wikiDir, category);
+    const files = fs.readdirSync(categoryDir).filter(f => f.endsWith('.json'));
+
+    for (const file of files) {
+      const data = readJsonFile(path.join(categoryDir, file));
+      if (!data || data.status !== 'approved') continue;
+
+      items.push({
+        type: 'wiki',
+        title: `[위키] ${data.title}`,
+        link: `${SITE_URL}/wiki/${category}/${data.slug}/`,
+        description: data.summary || '',
+        date: new Date(data.date),
+        thumbnail: data.thumbnail || '',
+        category: '위키'
+      });
+    }
+  }
+
+  return items;
+}
+
 function generateRSS(reportsDir, outputPath) {
   console.log('=== RSS 피드 생성 시작 ===\n');
 
@@ -119,12 +150,17 @@ function generateRSS(reportsDir, outputPath) {
   const weeklyItems = getWeeklyReports(reportsDir);
   const dailyItems = getDailyReports(reportsDir);
 
+  // 위키 아티클 수집
+  const wikiDir = path.join(reportsDir, '../data/wiki');
+  const wikiItems = getWikiArticles(wikiDir);
+
   console.log(`이슈 리포트: ${issueItems.length}개`);
   console.log(`주간 리포트: ${weeklyItems.length}개`);
   console.log(`일간 리포트: ${dailyItems.length}개`);
+  console.log(`위키 아티클: ${wikiItems.length}개`);
 
   // 합치고 날짜순 정렬
-  const allItems = [...issueItems, ...weeklyItems, ...dailyItems]
+  const allItems = [...issueItems, ...weeklyItems, ...dailyItems, ...wikiItems]
     .sort((a, b) => b.date - a.date)
     .slice(0, MAX_ITEMS);
 
