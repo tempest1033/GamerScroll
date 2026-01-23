@@ -133,21 +133,22 @@ function generateGamePage(gameData) {
       // realtimeRanks 키는 aos 사용 (android → aos 변환)
       const realtimePlatform = platform === 'android' ? 'aos' : platform;
 
-      // 해당 플랫폼/카테고리에서 가장 최근 날짜 찾기
-      let latestDate = null;
+      // 해당 플랫폼/카테고리에서 가장 최근 날짜+시간 찾기
+      let latestDateTime = null;
       regions.forEach(r => {
         const key = `${realtimePlatform}-${r}-${category}`;
         const data = realtimeRanks[key] || [];
         if (data.length > 0) {
-          const lastDate = data[data.length - 1].date;
-          if (!latestDate || lastDate > latestDate) {
-            latestDate = lastDate;
+          const last = data[data.length - 1];
+          const dt = `${last.date}T${last.time}`;
+          if (!latestDateTime || dt > latestDateTime) {
+            latestDateTime = dt;
           }
         }
       });
 
       // 해당 플랫폼/카테고리에 실시간 데이터가 있는지 확인
-      const hasRealtimeForPlatform = latestDate !== null;
+      const hasRealtimeForPlatform = latestDateTime !== null;
 
       return regions.map(region => {
         // 실시간 데이터에서 마지막 값 가져오기
@@ -156,12 +157,15 @@ function generateGamePage(gameData) {
         const lastRealtime = realtimeData.length > 0 ? realtimeData[realtimeData.length - 1] : null;
 
         // 실시간 데이터가 있는 플랫폼이면 실시간만 사용
-        // 단, 마지막 데이터가 가장 최근 날짜와 같아야만 표시 (어제 데이터는 제외)
+        // 단, 마지막 데이터가 최신 스냅샷 시간 기준 2시간 이내여야 표시 (차트아웃 감지)
         const data = platformData[region];
         let rankVal;
         if (hasRealtimeForPlatform) {
-          // 마지막 데이터가 가장 최근 날짜와 같으면 표시, 아니면 '-'
-          rankVal = (lastRealtime && lastRealtime.date === latestDate) ? lastRealtime.rank : '-';
+          // 마지막 데이터가 최신 시간 기준 2시간 이내면 표시, 아니면 '-' (차트아웃)
+          const lastDt = lastRealtime ? `${lastRealtime.date}T${lastRealtime.time}` : null;
+          const timeDiff = lastDt ? (new Date(latestDateTime) - new Date(lastDt)) : Infinity;
+          const isChartedOut = timeDiff > 2 * 60 * 60 * 1000; // 2시간
+          rankVal = (lastRealtime && !isChartedOut) ? lastRealtime.rank : '-';
         } else {
           rankVal = data?.rank ?? '-';
         }

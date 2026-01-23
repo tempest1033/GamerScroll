@@ -128,7 +128,7 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}${metricsBlacklistSummary}
     { "tag": "구체적 회사명(넥슨/넷마블/크래프톤 등) 또는 정책/시장", "title": "업계 이슈 제목 40자", "desc": "업계 동향/뉴스 설명 200자 이내", "thumbnail": null }
   ],
   "metrics": [
-    { "tag": "매출|인기|동접", "title": "제목 40자", "desc": "설명 200자 이내", "thumbnail": null }
+    { "tag": "매출|인기|동접", "gameName": "게임명", "title": "제목 40자", "desc": "설명 200자 이내", "thumbnail": null }
   ],${rankingsSection}
   "community": [
     { "tag": "게임명", "title": "유저 반응 제목 40자", "desc": "해당 게임 커뮤니티 반응 요약 200자 이내" }
@@ -431,22 +431,22 @@ function buildMetricsBlacklistSummary(recentInsights) {
     return '';
   }
 
-  const titles = [];
+  const gameNames = new Set();
   recentInsights.forEach(insight => {
     if (insight.metrics && insight.metrics.length > 0) {
       insight.metrics.forEach(metric => {
-        if (metric.title) {
-          titles.push(metric.title);
+        if (metric.gameName) {
+          gameNames.add(metric.gameName);
         }
       });
     }
   });
 
-  if (titles.length === 0) {
+  if (gameNames.size === 0) {
     return '';
   }
 
-  return `\n\n## 🚫 metrics 블랙리스트 (최근 7일 내 지표 제목 - 절대 재사용 금지):\n${titles.join('\n')}\n`;
+  return `\n\n## 🚫 metrics 블랙리스트 (최근 7일 내 언급된 게임 - 절대 재사용 금지):\n${[...gameNames].join(', ')}\n`;
 }
 
 /**
