@@ -58,8 +58,15 @@ function downloadToBuffer(url) {
   });
 }
 
+// 이미지 최적화 설정
+const IMAGE_CONFIG = {
+  maxWidth: 1200,       // 최대 가로 1200px
+  quality: 80,          // WebP 품질 80
+};
+
 /**
  * 이미지를 WebP로 변환하여 저장 (sharp 없으면 원본 저장)
+ * - 최대 1200px로 리사이징 (원본이 작으면 확대 안 함)
  */
 async function saveAsWebP(buffer, destPath) {
   const dir = path.dirname(destPath);
@@ -68,9 +75,13 @@ async function saveAsWebP(buffer, destPath) {
   }
 
   if (sharp) {
-    // WebP 변환 (quality 85)
+    // 리사이징 + WebP 변환
     await sharp(buffer)
-      .webp({ quality: 85 })
+      .resize({
+        width: IMAGE_CONFIG.maxWidth,
+        withoutEnlargement: true  // 원본이 작으면 확대 안 함
+      })
+      .webp({ quality: IMAGE_CONFIG.quality })
       .toFile(destPath);
   } else {
     // sharp 없으면 원본 그대로 저장

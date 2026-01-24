@@ -11,7 +11,7 @@
     { "name": "Epic Games Store", "title": "New Epic Games Store Webshops and Revenue Share Update", "url": "https://store.epicgames.com/en-US/news/new-epic-games-store-webshops-and-revenue-share-update" },
     { "name": "Steam", "title": "Steamworks Documentation", "url": "https://partner.steamgames.com/doc/finance/payments_salesreporting/faq" }
   ],
-  "relatedArticles": ["publisher-developer-relationship", "game-ip-licensing", "game-revenue-structure"],
+  "relatedArticles": ["publisher-developer-relationship", "game-ip-licensing", "game-revenue-structure", "app-revenue-ranking-algorithm"],
   "relatedGames": [],
   "content": [
     { "type": "text", "value": "게임 개발자가 플랫폼에 게임을 올리면, 판매 수익의 일부를 플랫폼에 지불해야 한다. 이른바 '플랫폼 수수료'다. 대부분의 플랫폼이 30%를 가져가지만, 최근 경쟁이 치열해지면서 수수료 구조가 다양해지고 있다. 개발자 입장에서 어떤 플랫폼이 유리한지, 수수료를 줄일 방법은 없는지 정리했다." },

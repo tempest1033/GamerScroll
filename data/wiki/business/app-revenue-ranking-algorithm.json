@@ -1,0 +1,94 @@
+{
+  "slug": "app-revenue-ranking-algorithm",
+  "status": "approved",
+  "title": "앱 매출 순위 산정 방식: iOS와 Android의 차이",
+  "date": "2026-01-25T16:00",
+  "thumbnail": "https://gdsc-university-of-seoul.github.io/assets/images/post-release-mobile-app/appmarket.jpg",
+  "keywords": "앱 매출 순위, iOS 매출 순위, 구글플레이 매출 순위, App Store ranking, Google Play ranking, 앱스토어 알고리즘, 순위 집계 방식, ARPU, 모바일 게임 순위, 한국 스마트폰 점유율",
+  "summary": "iOS와 Android 앱 마켓의 매출 순위 산정 방식은 완전히 다르다. iOS는 약 3시간 단위로 빠르게 갱신되고, 구글플레이는 하루 1회 업데이트하며 약 1주일치 데이터를 가중 평균한다. 이 차이가 실제 순위에 어떤 영향을 미치는지 정리한다.",
+  "sources": [
+    { "name": "MobileAction", "title": "App Store & Google Play: Key differences in 2026", "url": "https://www.mobileaction.co/blog/app-store-vs-play-store/" },
+    { "name": "AppTweak", "title": "What are the top Google Play ranking factors in 2026?", "url": "https://www.apptweak.com/en/aso-blog/google-play-ranking-factors" },
+    { "name": "데이터뉴스", "title": "스마트폰 점유율, 고령층은 삼성 20대는 애플 (2025)", "url": "https://www.datanews.co.kr/news/article.html?no=139581" },
+    { "name": "StatCounter", "title": "Mobile OS Market Share South Korea", "url": "https://gs.statcounter.com/os-market-share/mobile/south-korea" },
+    { "name": "Counterpoint Research", "title": "Under-30 South Korea Survey: iOS vs Android", "url": "https://counterpointresearch.com/en/insights/30-south-korea-survey-85-bought-android-first-phone-now-53-ios" }
+  ],
+  "relatedArticles": ["platform-fees-comparison", "game-revenue-structure"],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앱 마켓 순위는 게임사의 성적표와 같다. 매출 순위가 높으면 투자자도 유저도 주목한다. 그런데 같은 게임인데 iOS와 안드로이드 매출 순위가 크게 다른 경우가 있다. 왜 그럴까? 두 마켓의 순위 집계 방식이 완전히 다르기 때문이다. 이 차이를 알면 순위표를 더 정확하게 해석할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "iOS 앱스토어: 빠른 반영, 실시간에 가까운 순위"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-hero-230912_Full-Bleed-Image.jpg.large.jpg",
+      "caption": "iPhone 15 Pro",
+      "alt": "Apple iPhone 15 Pro 제품 이미지"
+    },
+    {
+      "type": "text",
+      "value": "iOS 앱스토어는 매출 순위를 약 3시간 단위로 갱신한다. 애플이 공식적으로 발표한 수치는 아니지만, ASO(App Store Optimization) 업계에서는 이 주기가 정설로 통한다.\n\n3시간마다 갱신된다는 건 매출 변화가 빠르게 순위에 반영된다는 뜻이다. 오전에 대규모 이벤트를 열어서 매출이 치솟으면, 오후에 바로 TOP 10에 진입할 수 있다. 반대로 이벤트가 끝나면 순위도 금방 떨어진다.\n\n이런 특성 때문에 iOS 매출 순위는 변동성이 크다. 하루 사이에 10위권 안팎을 오가는 게임도 흔하다. 실시간 반응에 가까운 지표를 원한다면 iOS 순위가 더 적합하다."
+    },
+    {
+      "type": "heading",
+      "value": "구글플레이: 느린 반영, 안정적인 순위"
+    },
+    {
+      "type": "image",
+      "src": "https://api.samsungmobilepress.com/api/v1/file/22C389B1BC85985D0057BACA1FDB03BF607C7AC2D0F2FC60F0946E39C684A8A0A360B6FE61BD3253DB6D839878C29CDF6BDC25E8570147DD5BFFF842650EDA63BBCC1D80D1170055BA8C1A3206379C9C156EF6EA715BB71745C5605B01D895E74667E13BB7A22FA202AF3E66C0D4602F6B48B4CE8BACE7322A653E4E4E791412",
+      "caption": "Samsung Galaxy S24 (Samsung Mobile Press)",
+      "alt": "Samsung Galaxy S24 공식 제품 이미지"
+    },
+    {
+      "type": "text",
+      "value": "구글플레이는 iOS와 완전히 다른 방식을 사용한다. 순위 갱신은 하루 1회이며, 단순히 어제 매출만 보는 게 아니라 약 1주일치 데이터를 종합한다.\n\n핵심은 '가중 평균'이다. 최근 일수록 높은 가중치를 적용하고, 오래된 데이터는 낮은 가중치를 적용한다. 어제 매출이 폭발해도 일주일 동안의 평균이 낮으면 순위가 크게 오르지 않는다.\n\n이 때문에 구글플레이 매출 순위는 iOS보다 변동이 적다. 갑자기 치고 올라오기도 어렵고, 갑자기 떨어지기도 어렵다. 장기적으로 안정적인 매출을 내는 게임에게 유리한 구조다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "iOS vs Android: 유저 성향과 매출 구조의 차이"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.statcdn.com/Infographic/images/normal/22617.jpeg",
+      "caption": "앱스토어 vs 구글플레이 모바일 게임 매출 비교 (Statista)",
+      "alt": "App Store Google Play 모바일 게임 매출 인포그래픽 비교"
+    },
+    {
+      "type": "text",
+      "value": "순위 집계 방식뿐 아니라 유저 성향도 완전히 다르다. 이 차이가 매출 순위 해석에 중요한 맥락을 제공한다.\n\niOS 유저는 결제 전환율이 높고 ARPU(유저당 평균 수익)가 높다. 북미, 유럽, 일본 같은 선진 시장에서 iOS 점유율이 높기 때문이다. 같은 유저 수라도 iOS에서 더 많은 매출이 나오는 경우가 흔하다. 프리미엄 과금 모델이나 구독 모델은 iOS에서 더 잘 먹힌다.\n\nAndroid는 전 세계 스마트폰 시장의 70% 이상을 차지한다. 유저 수는 압도적으로 많지만, 동남아, 인도, 브라질 같은 신흥 시장 비중이 크다. 평균 결제 금액은 iOS보다 낮다. 대신 광고 수익 모델이나 소액 과금 모델이 효과적이다."
+    },
+    {
+      "type": "heading",
+      "value": "한국 시장: 연령대별 플랫폼 점유율의 함정"
+    },
+    {
+      "type": "image",
+      "src": "https://www.datanews.co.kr/data/photos/cdn/20250728/art_1752040182.png",
+      "caption": "한국 연령대별 스마트폰 점유율 (데이터뉴스/갤럽 2025)",
+      "alt": "한국 연령대별 삼성 애플 스마트폰 점유율 인포그래픽"
+    },
+    {
+      "type": "text",
+      "value": "한국 시장은 특수하다. 전체 스마트폰 점유율은 삼성 72%, 애플 24%로 안드로이드가 압도적이지만, 연령대별로 편차가 크다. 2025년 갤럽 조사에 따르면 20대는 오히려 애플(60%)이 삼성(40%)을 앞선다. 30대도 삼성 50%, 애플 47%로 접전이다. 반면 50대는 삼성 89%, 60대 이상은 삼성 92%로 압도적이다.\n\n이 때문에 게임 장르에 따라 순위 해석이 달라진다. 서브컬쳐 게임이나 캐주얼 게임처럼 젊은 층이 타겟인 게임은 iOS 순위가 실제 인기를 더 잘 반영할 수 있다. 반면 리니지 같은 전통 MMORPG는 중장년 유저 비중이 높아서 구글플레이 순위가 더 의미 있다.\n\n단순히 \"iOS 몇 위, 구글플레이 몇 위\"만 보면 타겟 유저층을 놓칠 수 있다. 한국에서 게임 순위를 해석할 때는 반드시 타겟 연령층을 함께 고려해야 한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 순위표 뒤에 숨은 알고리즘"
+    },
+    {
+      "type": "text",
+      "value": "앱 매출 순위는 절대적인 지표가 아니다. iOS와 Android의 집계 방식이 다르고, 그 차이가 실제 순위에 큰 영향을 미친다. iOS는 빠르게 변하는 실시간 지표, 구글플레이는 느리지만 안정적인 추세 지표다.\n\n여기에 유저 성향 차이까지 더해진다. 글로벌에서는 iOS가 고ARPU 시장, Android가 대중 시장이라는 구도가 있고, 한국에서는 연령대별 플랫폼 선호도까지 고려해야 한다.\n\n게임 성적을 판단할 때는 두 마켓을 따로 보고, 각각의 특성을 감안해서 해석해야 한다. 순위표 숫자만 보면 오판하기 쉽다."
+    }
+  ]
+}

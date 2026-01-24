@@ -512,6 +512,14 @@ async function main() {
     } catch (err) {
       console.warn('  ⚠️ GA4 인기 게임 수집 실패:', err.message);
     }
+    // 인기 기사도 함께 수집
+    console.log('  📰 GA4 인기 기사 데이터 수집 중...');
+    try {
+      await savePopularArticles();
+      console.log('  ✅ 인기 기사 데이터 갱신 완료');
+    } catch (err) {
+      console.warn('  ⚠️ GA4 인기 기사 수집 실패:', err.message);
+    }
   }
 
   // 인기 게임 데이터 로드
