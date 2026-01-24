@@ -221,11 +221,11 @@
       --primary-dark: #1d4ed8; /* 어두운 블루 */
       --accent: #0ea5e9; /* 스카이 블루 */
 
-      /* === Background & Surface - 화이트 === */
-      --bg: #ffffff;
-      --bg-elevated: #ffffff;
+      /* === Background & Surface - 따뜻한 화이트 (2026 트렌드) === */
+      --bg: #FAFAF8;
+      --bg-elevated: #FAFAF8;
       --card: #ffffff;
-      --card-hover: #f8fafc; /* 연한 그레이 호버 */
+      --card-hover: #F5F5F2; /* 웜 그레이 호버 */
 
       /* === Border - 웜톤 === */
       --border: #e5e2de; /* 웜 그레이 */
@@ -260,7 +260,7 @@
 
       /* === Typography - 순위 테이블 (스팀, 모바일 등) === */
       --font-rank-name-size: 14px;
-      --font-rank-name-weight: var(--font-item-weight);
+      --font-rank-name-weight: 700; /* bold - 가독성 강화 */
       --font-rank-name-color: var(--text);
       --font-rank-dev-size: 12px;
       --font-rank-dev-weight: 500;
@@ -300,9 +300,9 @@
       --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* 강조 그라데이션 */
 
       /* === 호환성 변수 (별칭) === */
-      --bg-secondary: #f8fafc; /* 보조 배경 */
+      --bg-secondary: #F5F5F2; /* 보조 배경 - 웜톤 */
       --border-color: #e2e8f0; /* 테두리 색상 */
-      --bg-hover: #f1f5f9; /* 호버 배경 */
+      --bg-hover: #F0F0EC; /* 호버 배경 - 웜톤 */
       --accent-color: #4f46e5; /* 강조 색상 */
       --card-bg: var(--card); /* 카드 배경 */
       --font-meta-weight: 500; /* 메타 텍스트 굵기 */
@@ -1252,8 +1252,9 @@ body.ads-disabled .home-container {
       padding-bottom: 8px;
     }
     #sidebar-categories .home-card-header {
+      display: block;
       border-bottom: none;
-      padding: 12px 16px 8px;
+      padding: 0;
       height: auto;
     }
     #sidebar-categories .home-card-title {
@@ -1373,6 +1374,23 @@ body.ads-disabled .home-container {
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    #sidebar-categories .home-card-title-link {
+      display: block;
+      width: 100%;
+      padding: 12px 16px 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: background var(--transition-fast);
+    }
+
+    #sidebar-categories .home-card-title-link:hover {
+      background: var(--hover-bg);
+    }
+
+    #sidebar-categories .home-card-title-link .home-card-title {
+      margin: 0;
     }
 
     /* 홈 인사이트 제목 행 (태그 위, 제목 아래 세로 배치) */
@@ -1876,6 +1894,110 @@ body.ads-disabled .home-container {
       .home-latest-grid {
         grid-template-columns: 1fr;
         padding: 12px;
+      }
+    }
+
+    /* 카테고리 목록 (가로형 카드 리스트) */
+    .category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .category-list-card {
+      display: flex;
+      gap: 16px;
+      padding: 16px 20px;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
+    }
+
+    .category-list-card:last-child {
+      border-bottom: none;
+    }
+
+    .category-list-card:hover {
+      background: var(--bg-hover);
+    }
+
+    .category-list-thumb {
+      position: relative;
+      flex-shrink: 0;
+      width: 200px;
+      height: 125px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .category-list-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .category-list-badge {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      padding: 4px 8px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 4px;
+      font-size: var(--font-xs-size);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .category-list-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .category-list-title {
+      font-size: var(--font-title-size);
+      font-weight: var(--font-title-weight);
+      color: var(--text);
+      margin: 0;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .category-list-summary {
+      font-size: var(--font-sm-size);
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .category-list-card {
+        padding: 12px;
+        gap: 12px;
+      }
+
+      .category-list-thumb {
+        width: 140px;
+        height: 88px;
+      }
+
+      .category-list-title {
+        font-size: var(--font-body-size);
+      }
+
+      .category-list-summary {
+        display: none;
       }
     }
 
@@ -9128,8 +9250,8 @@ body.ads-disabled .home-container {
 }
 
 .search-result-title {
-  font-size: var(--font-desc-size);
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;

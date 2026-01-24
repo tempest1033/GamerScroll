@@ -219,8 +219,8 @@
 }
 
 .search-result-title {
-  font-size: var(--font-desc-size);
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
