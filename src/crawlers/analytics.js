@@ -172,6 +172,41 @@ function shouldFetchPopularGames(filePath = 'data/popular-games.json') {
 }
 
 /**
+ * 인기 기사 데이터 수집이 필요한지 확인 (24시간 쿨타임)
+ * @param {string} filePath - 데이터 파일 경로
+ * @returns {boolean} 수집이 필요하면 true
+ */
+function shouldFetchPopularArticles(filePath = 'data/popular-articles.json') {
+  const fullPath = path.join(__dirname, '../..', filePath);
+
+  if (!fs.existsSync(fullPath)) {
+    return true; // 파일이 없으면 수집 필요
+  }
+
+  try {
+    const data = JSON.parse(fs.readFileSync(fullPath, 'utf-8'));
+    if (!data.updatedAt) {
+      return true; // updatedAt이 없으면 수집 필요
+    }
+
+    const lastUpdate = new Date(data.updatedAt);
+    const now = new Date();
+    const hoursDiff = (now - lastUpdate) / (1000 * 60 * 60);
+
+    if (hoursDiff >= 24) {
+      console.log(`[Analytics] Popular articles last update: ${hoursDiff.toFixed(1)} hours ago - refresh needed`);
+      return true;
+    }
+
+    console.log(`[Analytics] Popular articles last update: ${hoursDiff.toFixed(1)} hours ago - using cached data`);
+    return false;
+  } catch (error) {
+    console.error('[Analytics] Error checking articles cooldown:', error.message);
+    return true; // 에러 시 수집 시도
+  }
+}
+
+/**
  * 인기 기사 TOP N 조회 (최근 7일) - /magazine/, /wiki/ 페이지
  */
 async function fetchPopularArticles(days = 7, limit = 10) {
@@ -308,5 +343,6 @@ module.exports = {
   shouldFetchPopularGames,
   fetchPopularArticles,
   savePopularArticles,
-  loadPopularArticles
+  loadPopularArticles,
+  shouldFetchPopularArticles
 };

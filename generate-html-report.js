@@ -115,7 +115,7 @@ const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
 const { generateWikiHubPage, generateWikiCategoryPage } = require('./src/templates/pages/wiki-hub');
 const { generateWikiArticlePage } = require('./src/templates/pages/wiki-article');
 const { generate404Page } = require('./src/templates/pages/404');
-const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles } = require('./src/crawlers/analytics');
+const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles, shouldFetchPopularArticles } = require('./src/crawlers/analytics');
 
 // 데일리 인사이트 import
 const {
@@ -512,7 +512,10 @@ async function main() {
     } catch (err) {
       console.warn('  ⚠️ GA4 인기 게임 수집 실패:', err.message);
     }
-    // 인기 기사도 함께 수집
+  }
+
+  // GA4 인기 기사 데이터 수집 (24시간 쿨타임, 독립 실행)
+  if (process.env.GA4_SERVICE_ACCOUNT && shouldFetchPopularArticles()) {
     console.log('  📰 GA4 인기 기사 데이터 수집 중...');
     try {
       await savePopularArticles();
