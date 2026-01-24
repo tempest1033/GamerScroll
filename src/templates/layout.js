@@ -94,7 +94,7 @@ const hoverPrefetchScript = `
 <script>
 (function() {
   const prefetched = new Set();
-  document.querySelectorAll('a.nav-item').forEach(link => {
+  document.querySelectorAll('a.nav-item, a.sidebar-article-item, a.blog-related-issue-card, a.trend-nav-btn').forEach(link => {
     link.addEventListener('mouseenter', () => {
       const href = link.getAttribute('href');
       if (href && !prefetched.has(href)) {
