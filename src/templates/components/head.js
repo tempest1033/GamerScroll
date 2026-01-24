@@ -201,14 +201,16 @@ function generateHead(options = {}) {
   <meta name="keywords" content="${safeKeywords}">
   <link rel="canonical" href="${safeCanonical}">
   ${alternateLink}
-  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
-  <!-- JSON-LD 구조화 데이터 -->
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">${
+    // WebSite 스키마는 홈페이지에서만 출력 (구글 권장사항)
+    (canonicalText === 'https://gamerscroll.com' || canonicalText === 'https://gamerscroll.com/') ? `
+  <!-- JSON-LD 구조화 데이터: WebSite (홈페이지 전용) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "게이머스크롤",
-    "alternateName": ["GAMERSCROLL", "GAMER SCROLL", "gamerscroll.com", "게이머스크롤", "게이머 스크롤"],
+    "alternateName": ["GAMERSCROLL", "GAMER SCROLL", "gamerscroll.com", "게이머 스크롤"],
     "url": "https://gamerscroll.com/",
     "description": ${jsonString(description)},
     "publisher": {
@@ -225,7 +227,8 @@ function generateHead(options = {}) {
       "query-input": "required name=search_term_string"
     }
   }
-  </script>${articleJsonLd}${breadcrumbJsonLd}${softwareJsonLd}
+  </script>` : ''
+  }${articleJsonLd}${breadcrumbJsonLd}${softwareJsonLd}
   <!-- Open Graph / SNS 공유 -->
   <meta property="og:type" content="${articleSchema ? 'article' : 'website'}">
   <meta property="og:title" content="${safeTitle}">
