@@ -281,7 +281,7 @@ function generateIndexPage(data) {
     `;
   }
 
-  // 사이드바: 카테고리 메뉴 (매거진 + 위키 그룹) - 링크 연결
+  // 사이드바: 카테고리 메뉴 (정기 매거진 + 이슈 리포트 + 위키 그룹) - 링크 연결
   function generateSidebarCategories() {
     // 카테고리별 글 개수 계산
     const counts = {
@@ -294,10 +294,14 @@ function generateIndexPage(data) {
       business: (wikiData.business || []).length
     };
 
-    // 매거진 카테고리 (시의성)
-    const magazineCategories = [
+    // 정기 매거진 카테고리
+    const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+    ];
+
+    // 이슈 리포트 카테고리
+    const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
     ];
 
@@ -318,11 +322,15 @@ function generateIndexPage(data) {
     return `
       <div class="home-card" id="sidebar-categories">
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">매거진</h2></div>
-          <div class="sidebar-category-list">${renderItems(magazineCategories)}</div>
+          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
         </div>
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">위키</h2></div>
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
         </div>
       </div>
@@ -639,7 +647,6 @@ function generateIndexPage(data) {
     generateHomeLatest() +
     '</div>' +
     '<div class="home-sidebar">' +
-    generateSidebarMobileRank() +
     '<div class="home-sidebar-sticky">' +
     generateSidebarCategories() +
     generateSidebarArticles() +

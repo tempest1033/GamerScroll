@@ -98,7 +98,7 @@ function generateTrendsHubPage({
     `;
   }
 
-  // 이슈 그리드 (15개, 페이지네이션)
+  // 이슈 그리드 (15개, 페이지네이션) - 허브용 3열 그리드
   function generateIssueGrid() {
     if (issueReports.length === 0) return '';
 
@@ -141,9 +141,12 @@ function generateTrendsHubPage({
       business: (wikiData.business || []).length
     };
 
-    const magazineCategories = [
+    const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+    ];
+
+    const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
     ];
 
@@ -163,11 +166,15 @@ function generateTrendsHubPage({
     return `
       <div class="home-card" id="sidebar-categories">
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">매거진</h2></div>
-          <div class="sidebar-category-list">${renderItems(magazineCategories)}</div>
+          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
         </div>
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">위키</h2></div>
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
         </div>
       </div>
@@ -340,12 +347,15 @@ function generateDailyListPage({
     if (dailyReports.length === 0) return '<p>일간 리포트가 없습니다.</p>';
 
     const dailyCards = dailyReports.map(report => `
-      <a href="/magazine/daily/${report.date}/" class="home-trend-card">
-        <div class="home-trend-card-image">
+      <a href="/magazine/daily/${report.date}/" class="category-list-card">
+        <div class="category-list-thumb">
           ${report.thumbnail ? `<img src="${fixUrl(report.thumbnail)}" alt="${escapeHtmlAttr(report.headline)}" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag">${formatDateKr(report.date)} 일간</span>
+          <span class="category-list-badge">${formatDateKr(report.date)}</span>
         </div>
-        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${report.headline || '일간'}</span></h3>
+        <div class="category-list-info">
+          <h3 class="category-list-title">${report.headline || '일간'}</h3>
+          ${report.summary ? `<p class="category-list-summary">${report.summary}</p>` : ''}
+        </div>
       </a>
     `).join('');
 
@@ -354,7 +364,7 @@ function generateDailyListPage({
         <div class="home-card-header">
           <h2 class="home-card-title">일간</h2>
         </div>
-        <div class="home-latest-grid" id="dailyGrid">${dailyCards}</div>
+        <div class="category-list" id="dailyGrid">${dailyCards}</div>
         <div class="home-pagination" id="dailyPagination">
           <button class="home-page-btn home-prev" aria-label="이전">‹</button>
           <span class="home-page-index">1/1</span>
@@ -376,9 +386,12 @@ function generateDailyListPage({
       business: (wikiData.business || []).length
     };
 
-    const magazineCategories = [
+    const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+    ];
+
+    const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
     ];
 
@@ -405,11 +418,15 @@ function generateDailyListPage({
     return `
       <div class="home-card" id="sidebar-categories">
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">매거진</h2></div>
-          <div class="sidebar-category-list">${renderItems(magazineCategories)}</div>
+          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
         </div>
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">위키</h2></div>
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
         </div>
       </div>
@@ -446,7 +463,7 @@ function generateDailyListPage({
       const grid = document.getElementById('dailyGrid');
       const pagination = document.getElementById('dailyPagination');
       if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
+      const items = Array.from(grid.querySelectorAll('.category-list-card'));
       const pageSize = 15;
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;
@@ -517,12 +534,15 @@ function generateWeeklyListPage({
         ? `${formatDateKr(report.startDate)} ~ ${parseInt(report.endDate.slice(5, 7))}월 ${parseInt(report.endDate.slice(8, 10))}일`
         : `${report.weekNumber}주차`;
       return `
-        <a href="/magazine/weekly/${slug}/" class="home-trend-card">
-          <div class="home-trend-card-image">
+        <a href="/magazine/weekly/${slug}/" class="category-list-card">
+          <div class="category-list-thumb">
             ${report.thumbnail ? `<img src="${fixUrl(report.thumbnail)}" alt="${escapeHtmlAttr(report.headline)}" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag weekly">${badge}</span>
+            <span class="category-list-badge">${badge}</span>
           </div>
-          <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${report.headline || '주간'}</span></h3>
+          <div class="category-list-info">
+            <h3 class="category-list-title">${report.headline || '주간'}</h3>
+            ${report.summary ? `<p class="category-list-summary">${report.summary}</p>` : ''}
+          </div>
         </a>
       `;
     }).join('');
@@ -532,7 +552,7 @@ function generateWeeklyListPage({
         <div class="home-card-header">
           <h2 class="home-card-title">주간</h2>
         </div>
-        <div class="home-latest-grid" id="weeklyGrid">${weeklyCards}</div>
+        <div class="category-list" id="weeklyGrid">${weeklyCards}</div>
         <div class="home-pagination" id="weeklyPagination">
           <button class="home-page-btn home-prev" aria-label="이전">‹</button>
           <span class="home-page-index">1/1</span>
@@ -548,9 +568,11 @@ function generateWeeklyListPage({
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
     tech: (wikiData.tech || []).length, business: (wikiData.business || []).length
   };
-  const magazineCategories = [
+  const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-    { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+    { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+  ];
+  const issueCategories = [
     { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
   ];
   const wikiCategories = [
@@ -570,8 +592,9 @@ function generateWeeklyListPage({
 
   const sidebar = `
     <div class="home-card" id="sidebar-categories">
-      <div class="sidebar-category-group"><div class="home-card-header"><h2 class="home-card-title">매거진</h2></div><div class="sidebar-category-list">${renderItems(magazineCategories)}</div></div>
-      <div class="sidebar-category-group"><div class="home-card-header"><h2 class="home-card-title">위키</h2></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div><div class="sidebar-category-list">${renderItems(regularCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div><div class="sidebar-category-list">${renderItems(issueCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
     </div>
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
@@ -605,7 +628,7 @@ function generateWeeklyListPage({
       const grid = document.getElementById('weeklyGrid');
       const pagination = document.getElementById('weeklyPagination');
       if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
+      const items = Array.from(grid.querySelectorAll('.category-list-card'));
       const pageSize = 15;
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;
@@ -671,12 +694,15 @@ function generateIssueListPage({
     if (issueReports.length === 0) return '<p>이슈 리포트가 없습니다.</p>';
 
     const issueCards = issueReports.map(issue => `
-      <a href="/magazine/issue/${issue.slug}/" class="home-trend-card">
-        <div class="home-trend-card-image">
+      <a href="/magazine/issue/${issue.slug}/" class="category-list-card">
+        <div class="category-list-thumb">
           ${issue.thumbnail ? `<img src="${fixUrl(issue.thumbnail)}" alt="${escapeHtmlAttr(issue.title)}" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag issue">${issue.date ? formatDateKr(issue.date) : '이슈'}</span>
+          <span class="category-list-badge">${issue.date ? formatDateKr(issue.date) : '이슈'}</span>
         </div>
-        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${issue.title}</span></h3>
+        <div class="category-list-info">
+          <h3 class="category-list-title">${issue.title}</h3>
+          ${issue.summary ? `<p class="category-list-summary">${issue.summary}</p>` : ''}
+        </div>
       </a>
     `).join('');
 
@@ -685,7 +711,7 @@ function generateIssueListPage({
         <div class="home-card-header">
           <h2 class="home-card-title">이슈</h2>
         </div>
-        <div class="home-latest-grid" id="issueGrid">${issueCards}</div>
+        <div class="category-list" id="issueGrid">${issueCards}</div>
         <div class="home-pagination" id="issuePagination">
           <button class="home-page-btn home-prev" aria-label="이전">‹</button>
           <span class="home-page-index">1/1</span>
@@ -701,9 +727,11 @@ function generateIssueListPage({
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
     tech: (wikiData.tech || []).length, business: (wikiData.business || []).length
   };
-  const magazineCategories = [
+  const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-    { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+    { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+  ];
+  const issueCategories = [
     { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
   ];
   const wikiCategories = [
@@ -723,8 +751,9 @@ function generateIssueListPage({
 
   const sidebar = `
     <div class="home-card" id="sidebar-categories">
-      <div class="sidebar-category-group"><div class="home-card-header"><h2 class="home-card-title">매거진</h2></div><div class="sidebar-category-list">${renderItems(magazineCategories)}</div></div>
-      <div class="sidebar-category-group"><div class="home-card-header"><h2 class="home-card-title">위키</h2></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div><div class="sidebar-category-list">${renderItems(regularCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div><div class="sidebar-category-list">${renderItems(issueCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
     </div>
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
@@ -758,7 +787,7 @@ function generateIssueListPage({
       const grid = document.getElementById('issueGrid');
       const pagination = document.getElementById('issuePagination');
       if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
+      const items = Array.from(grid.querySelectorAll('.category-list-card'));
       const pageSize = 15;
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;

@@ -63,7 +63,7 @@ function generateWikiHubPage({
   }
   allWiki.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-  // 위키 그리드 생성
+  // 위키 그리드 생성 - 허브용 3열 그리드
   function generateWikiGrid() {
     if (allWiki.length === 0) return '<p>위키 글이 없습니다.</p>';
 
@@ -112,9 +112,12 @@ function generateWikiHubPage({
       business: (wikiData.business || []).length
     };
 
-    const magazineCategories = [
+    const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+    ];
+
+    const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
     ];
 
@@ -141,11 +144,15 @@ function generateWikiHubPage({
     return `
       <div class="home-card" id="sidebar-categories">
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">매거진</h2></div>
-          <div class="sidebar-category-list">${renderItems(magazineCategories)}</div>
+          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
         </div>
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">위키</h2></div>
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
         </div>
       </div>
@@ -263,12 +270,15 @@ function generateWikiCategoryPage({
       const badgeText = article.date ? formatDateKr(article.date) : catName;
 
       return `
-        <a href="/wiki/${category}/${article.slug}/" class="home-trend-card">
-          <div class="home-trend-card-image">
+        <a href="/wiki/${category}/${article.slug}/" class="category-list-card">
+          <div class="category-list-thumb">
             ${thumbnail ? `<img src="${thumbnail}" alt="${escapeHtmlAttr(article.title)}" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag wiki">${badgeText}</span>
+            <span class="category-list-badge">${badgeText}</span>
           </div>
-          <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${article.title}</span></h3>
+          <div class="category-list-info">
+            <h3 class="category-list-title">${article.title}</h3>
+            ${article.summary ? `<p class="category-list-summary">${article.summary}</p>` : ''}
+          </div>
         </a>
       `;
     }).join('');
@@ -278,7 +288,7 @@ function generateWikiCategoryPage({
         <div class="home-card-header">
           <h2 class="home-card-title">${catName}</h2>
         </div>
-        <div class="home-latest-grid" id="wikiGrid">${wikiCards}</div>
+        <div class="category-list" id="wikiGrid">${wikiCards}</div>
         <div class="home-pagination" id="wikiPagination">
           <button class="home-page-btn home-prev" aria-label="이전">‹</button>
           <span class="home-page-index">1/1</span>
@@ -300,9 +310,12 @@ function generateWikiCategoryPage({
       business: (wikiData.business || []).length
     };
 
-    const magazineCategories = [
+    const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly },
+      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+    ];
+
+    const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
     ];
 
@@ -329,11 +342,15 @@ function generateWikiCategoryPage({
     return `
       <div class="home-card" id="sidebar-categories">
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">매거진</h2></div>
-          <div class="sidebar-category-list">${renderItems(magazineCategories)}</div>
+          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
         </div>
         <div class="sidebar-category-group">
-          <div class="home-card-header"><h2 class="home-card-title">위키</h2></div>
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
         </div>
       </div>
@@ -375,7 +392,7 @@ function generateWikiCategoryPage({
       const grid = document.getElementById('wikiGrid');
       const pagination = document.getElementById('wikiPagination');
       if (grid && pagination) {
-        const items = Array.from(grid.querySelectorAll('.home-trend-card'));
+        const items = Array.from(grid.querySelectorAll('.category-list-card'));
         const pageSize = 15;
         const totalPages = Math.ceil(items.length / pageSize) || 1;
         let currentPage = 1;
