@@ -89,24 +89,45 @@ const searchBarHtml = `
  * @param {boolean} options.showSearchBar - 상단 검색바 표시 여부
  * @param {Object} options.pageData - 페이지별 데이터 (JSON)
  */
-// 호버 프리페치 스크립트
+// 호버 프리페치 스크립트 (PC: hover, 모바일: viewport 진입)
 const hoverPrefetchScript = `
 <script>
 (function() {
   const prefetched = new Set();
-  document.querySelectorAll('a.nav-item, a.sidebar-article-item, a.blog-related-issue-card, a.trend-nav-btn').forEach(link => {
+  const selector = 'a.nav-item, a.sidebar-article-item, a.blog-related-issue-card, a.trend-nav-btn';
+  const links = document.querySelectorAll(selector);
+
+  function doPrefetch(href) {
+    if (href && !prefetched.has(href)) {
+      prefetched.add(href);
+      const prefetch = document.createElement('link');
+      prefetch.rel = 'prefetch';
+      prefetch.href = href;
+      prefetch.as = 'document';
+      document.head.appendChild(prefetch);
+    }
+  }
+
+  // PC: hover 시 prefetch
+  links.forEach(link => {
     link.addEventListener('mouseenter', () => {
-      const href = link.getAttribute('href');
-      if (href && !prefetched.has(href)) {
-        prefetched.add(href);
-        const prefetch = document.createElement('link');
-        prefetch.rel = 'prefetch';
-        prefetch.href = href;
-        prefetch.as = 'document';
-        document.head.appendChild(prefetch);
-      }
+      doPrefetch(link.getAttribute('href'));
     }, { passive: true });
   });
+
+  // 모바일: 뷰포트 진입 시 prefetch (터치 기기만)
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          doPrefetch(entry.target.getAttribute('href'));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    links.forEach(link => observer.observe(link));
+  }
 })();
 </script>`;
 
