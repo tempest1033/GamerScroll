@@ -48,7 +48,7 @@ const generateXCardHtml = (data) => {
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
       width: 1200px;
-      height: 675px;
+      height: 628px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       padding: 24px;
     }
