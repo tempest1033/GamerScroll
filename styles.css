@@ -11628,25 +11628,17 @@ a.gm-item:hover {
 }
 
 .wiki-table {
-  width: 100%;
+  width: auto;
+  min-width: 50%;
   border-collapse: collapse;
   font-size: var(--font-body-size);
-  table-layout: fixed;
+  table-layout: auto;
 }
 
-.wiki-table th:first-child,
-.wiki-table td:first-child {
-  width: 30%;
-}
-
-.wiki-table th:nth-child(2),
-.wiki-table td:nth-child(2) {
-  width: 20%;
-}
-
-.wiki-table th:nth-child(3),
-.wiki-table td:nth-child(3) {
-  width: 50%;
+@media (max-width: 768px) {
+  .wiki-table {
+    width: 100%;
+  }
 }
 
 .wiki-table th,
