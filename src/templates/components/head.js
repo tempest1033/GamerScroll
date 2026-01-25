@@ -257,10 +257,11 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- preconnect: AdSense + 광고 요청 + 폰트 CDN -->
+  <!-- preconnect: AdSense + 광고 요청 + 폰트 CDN + 이미지 프록시 -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://wsrv.nl" crossorigin>
   <!-- dns-prefetch: fallback + 이미지 CDN + 외부 스크립트 -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">

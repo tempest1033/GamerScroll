@@ -188,6 +188,28 @@ function bundleCssFile(entryPath) {
 }
 
 /**
+ * CSS 압축 (minify)
+ * - 주석 제거, 불필요한 공백/줄바꿈 제거
+ * @param {string} css - 원본 CSS
+ * @returns {string} 압축된 CSS
+ */
+function minifyCss(css) {
+  return css
+    // 주석 제거 (/* ... */)
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    // 연속 공백을 하나로
+    .replace(/\s+/g, ' ')
+    // 셀렉터/속성 주변 공백 제거
+    .replace(/\s*([{}:;,>~+])\s*/g, '$1')
+    // 세미콜론 뒤 공백 제거 (속성 간)
+    .replace(/;\s*/g, ';')
+    // 중괄호 뒤 공백 제거
+    .replace(/}\s*/g, '}')
+    // 시작 공백 제거
+    .trim();
+}
+
+/**
  * 인사이트 JSON 파일 경로 찾기 (날짜 검증 포함)
  * @param {string} today - YYYY-MM-DD 형식 날짜
  * @returns {string|null} 존재하는 파일 경로 또는 null
@@ -599,11 +621,16 @@ async function main() {
     }
   }
 
-  // CSS 파일 복사
+  // CSS 파일 번들링 + 압축
   let didBundleCss = false;
   try {
     const bundledCss = bundleCssFile('./src/styles.css');
-    fs.writeFileSync('./styles.css', bundledCss, 'utf8');
+    const minifiedCss = minifyCss(bundledCss);
+    fs.writeFileSync('./styles.css', minifiedCss, 'utf8');
+    const originalSize = Buffer.byteLength(bundledCss, 'utf8');
+    const minifiedSize = Buffer.byteLength(minifiedCss, 'utf8');
+    const reduction = ((1 - minifiedSize / originalSize) * 100).toFixed(1);
+    console.log(`  ✅ styles.css 압축: ${(originalSize/1024).toFixed(0)}KB → ${(minifiedSize/1024).toFixed(0)}KB (${reduction}% 감소)`);
     didBundleCss = true;
   } catch (e) {
     console.error(`⚠️ CSS 번들링 실패 → 원본 복사: ${e.message}`);
@@ -1444,7 +1471,8 @@ async function main() {
       fs.copyFileSync('./styles.css', `${DOCS_DIR}/styles.css`);
     } else {
       const bundledCss = bundleCssFile('./src/styles.css');
-      fs.writeFileSync(`${DOCS_DIR}/styles.css`, bundledCss, 'utf8');
+      const minifiedCss = minifyCss(bundledCss);
+      fs.writeFileSync(`${DOCS_DIR}/styles.css`, minifiedCss, 'utf8');
     }
   } catch (e) {
     console.error(`⚠️ CSS 번들링 실패(docs) → 원본 복사: ${e.message}`);
