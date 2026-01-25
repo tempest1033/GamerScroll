@@ -1,0 +1,84 @@
+{
+  "slug": "game-business-metrics",
+  "status": "approved",
+  "title": "게임 사업 지표 완벽 가이드: ARPU부터 LTV까지",
+  "date": "2026-01-26T14:00",
+  "thumbnail": "https://lancaric.me/wp-content/uploads/2024/11/user-acquisition-kpis-metrics-mobile-games.png",
+  "keywords": "게임 KPI, ARPU, ARPPU, DAU, MAU, LTV, CAC, Retention, 게임 사업 지표, 모바일 게임 지표, PUR, CPI, ROAS",
+  "summary": "게임 사업에서 사용되는 핵심 지표들을 정리했다. DAU/MAU 같은 유저 지표부터 ARPU/LTV 같은 매출 지표, 그리고 실무에서 활용하는 손익 분기 계산법까지 다룬다.",
+  "sources": [
+    { "name": "GameAnalytics", "title": "2025 Mobile Gaming Benchmarks", "url": "https://gameanalytics.com/resources/mobile-gaming-benchmarks/" },
+    { "name": "Segwise AI", "title": "Understanding the LTV to CAC Ratio in Gaming Apps", "url": "https://segwise.ai/blog/ltv-to-cac-ratio-gaming-apps-guide" },
+    { "name": "AppsFlyer", "title": "Organic uplift in app marketing: Fact vs. fiction", "url": "https://www.appsflyer.com/blog/measurement-analytics/organic-uplift-multiplier-app-marketing/" },
+    { "name": "Adrian Crook", "title": "Retention vs. Monetization: Key Metrics for Market Fit", "url": "https://adriancrook.com/retention-vs-monetization-key-metrics-for-market-fit/" },
+    { "name": "게임메카", "title": "게임 지표의 이해", "url": "https://www.gamemeca.com/" }
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    { "type": "text", "value": "게임 사업에서 데이터는 공용어에 가깝다. DAU가 얼마인지, ARPU가 어느 정도인지 모르면 대화가 어려워지는 경우가 많다. 투자자와 미팅을 하든, 팀 내부에서 라이브 운영을 논의하든 이 지표들은 기본으로 여겨진다.\n\n이 글에서는 게임 업계에서 자주 쓰이는 핵심 지표들을 정리해 본다. 단순한 정의를 넘어 실제 벤치마크와 실무 활용법까지 살펴본다." },
+
+    { "type": "heading", "value": "1. 유저 지표: DAU, WAU, MAU" },
+    { "type": "image", "src": "https://media.wallstreetprep.com/uploads/2022/07/15041902/Facebook-Meta-DAUs-scaled.jpg", "caption": "DAU/WAU/MAU는 게임의 활성 유저 규모를 측정하는 기본 지표로 쓰인다", "alt": "DAU WAU MAU 게임 유저 지표 그래프" },
+    { "type": "text", "value": "**DAU (Daily Active Users)**는 하루 동안 게임에 접속한 순 유저 수를 뜻한다. 같은 유저가 여러 번 접속해도 1명으로 카운트된다. 게임의 일일 활성도를 보여주는 가장 기본적인 지표로 활용된다.\n\n**WAU (Weekly Active Users)**는 일주일간 접속한 순 유저 수, **MAU (Monthly Active Users)**는 한 달간 접속한 순 유저 수를 나타낸다. 기간이 길어질수록 유저 풀의 전체 규모를 파악하기 좋다.\n\nDAU/MAU 비율은 유저들이 얼마나 자주 돌아오는지를 보여주는 지표로 쓰인다. 이 비율이 20%라면 월간 유저 중 20%가 매일 접속한다는 의미다. 캐주얼 게임은 10~20%, 미드코어 이상은 20~30%가 일반적인 벤치마크로 알려져 있다." },
+
+    { "type": "heading", "value": "2. 매출 지표: ARPU, ARPPU, LTV" },
+    { "type": "image", "src": "https://miro.medium.com/v2/resize:fit:1292/0*PoCnNp6yadyNM_hh.png", "caption": "ARPU와 ARPPU는 유저당 매출을 측정하는 핵심 지표로 쓰인다", "alt": "ARPU ARPPU 게임 매출 지표 비교" },
+    { "type": "text", "value": "**ARPU (Average Revenue Per User)**는 전체 유저 1인당 평균 매출을 뜻한다. 계산식은 단순하다.\n\nARPU = 총 매출 / 전체 유저 수\n\n예를 들어 DAU 10,000명에 일 매출 500만 원이면 일간 ARPU는 500원 정도가 된다. 결제하지 않은 유저도 포함하기 때문에 수치가 낮게 나오는 편이다. 캐주얼 게임의 월간 ARPU는 보통 $0.10~$0.50 수준으로 알려져 있다." },
+    { "type": "text", "value": "**ARPPU (Average Revenue Per Paying User)**는 결제 유저 1인당 평균 매출을 의미한다.\n\nARPPU = 총 매출 / 결제 유저 수\n\n같은 예시에서 결제 유저가 100명이라면 ARPPU는 5만 원이 된다. 실제 과금 유저들이 얼마나 쓰는지를 보여주기 때문에 BM 설계에 중요한 지표로 여겨진다. 모바일 게임의 월간 ARPPU는 $15~$25가 일반적이지만, 수집형 RPG의 경우 $50 이상인 경우도 드물지 않다." },
+    { "type": "text", "value": "**LTV (Lifetime Value)**는 유저 한 명이 게임을 떠날 때까지 발생시키는 총 매출을 가리킨다. 가장 단순한 계산법은 다음과 같다.\n\nLTV = ARPU × 평균 플레이 기간(일)\n\n또는 Retention 기반으로 계산하기도 한다. LTV는 마케팅 예산을 결정하는 핵심 기준으로 활용되는 경우가 많다. LTV가 $10인데 유저 획득 비용이 $15라면 적자 구조로 볼 수 있다." },
+
+    { "type": "heading", "value": "3. 잔존율 지표: D1, D7, D30 Retention" },
+    { "type": "image", "src": "https://miro.medium.com/v2/resize:fit:1400/0*bjxCIs92zhaqkp81.jpg", "caption": "Retention Curve는 시간에 따른 유저 이탈 패턴을 보여준다", "alt": "D1 D7 D30 Retention 곡선 그래프" },
+    { "type": "text", "value": "**Retention (잔존율)**은 특정 시점에 유저가 얼마나 남아있는지를 측정하는 지표다. D1은 설치 다음 날, D7은 7일 후, D30은 30일 후 복귀율을 나타낸다.\n\nD1 Retention = (설치 다음 날 접속 유저 / 설치 유저) × 100\n\n업계 평균 벤치마크는 다음과 같이 알려져 있다." },
+    { "type": "table", "caption": "장르별 Retention 벤치마크", "headers": ["장르", "D1", "D7", "D30"], "rows": [
+      ["캐주얼", "25~35%", "8~12%", "3~5%"],
+      ["미드코어", "30~40%", "12~18%", "5~8%"],
+      ["하드코어/RPG", "35~45%", "15~22%", "8~12%"],
+      ["하이퍼캐주얼", "20~30%", "5~8%", "1~3%"]
+    ]},
+    { "type": "text", "value": "D1이 낮으면 온보딩에 문제가 있을 가능성이 있고, D7이 급격히 떨어지면 콘텐츠 볼륨이 부족하다는 신호일 수 있다. D30 이후에도 잔존율이 안정적이면 장기 운영이 가능한 게임으로 볼 수 있다.\n\n참고로 Churn Rate(이탈률)는 Retention의 반대 개념이다. D7 Retention이 15%라면 D7 Churn Rate는 85%가 된다.\n\n한 가지 실무적인 포인트가 있다. 가챠 게임에서는 리세마라(초기 뽑기 반복) 때문에 같은 유저가 여러 계정을 만드는 경우가 많다. 이 때문에 Retention을 계정 기준이 아닌 **디바이스 기준**으로 측정하는 경우가 많다. 계정 기준으로 하면 리세마라 계정들이 D1에 전부 이탈 처리되어 지표가 왜곡될 수 있기 때문이다." },
+
+    { "type": "heading", "value": "4. 마케팅 지표: CAC, CPI, ROAS" },
+    { "type": "image", "src": "https://appagent.com/wp-content/uploads/2019/08/APP_CAC_q_01-1024x513.png", "caption": "마케팅 지표는 유저 획득 효율을 측정하는 데 활용된다", "alt": "CAC CPI ROAS 마케팅 지표 대시보드" },
+    { "type": "text", "value": "**CPI (Cost Per Install)**는 설치 1건당 비용을 뜻한다. 광고비를 설치 수로 나누면 된다.\n\nCPI = 광고비 / 설치 수\n\n지역과 장르에 따라 천차만별이다. 미국 iOS 기준 하이퍼캐주얼은 $0.5~$2, 미드코어는 $3~$8, RPG는 $10 이상인 경우도 많다. 한국은 대체로 미국보다 20~30% 저렴한 편으로 알려져 있다." },
+    { "type": "text", "value": "**CAC (Customer Acquisition Cost)**는 CPI와 비슷하지만 더 넓은 개념이다. 광고비뿐 아니라 마케팅 인건비, 크리에이티브 제작비 등 유저 획득에 들어간 모든 비용을 포함한다. 실무에서는 CPI와 혼용해서 쓰는 경우가 많다.\n\n**ROAS (Return On Ad Spend)**는 광고비 대비 매출 비율을 나타낸다.\n\nROAS = 광고로 인한 매출 / 광고비 × 100\n\nROAS 100%는 본전, 150%면 광고비의 1.5배를 벌었다는 뜻으로 해석된다. D7 ROAS, D30 ROAS처럼 기간별로 측정해서 회수 속도를 파악하는 방식이 일반적이다." },
+
+    { "type": "heading", "value": "5. 수익화 지표: PUR" },
+    { "type": "image", "src": "https://images.squarespace-cdn.com/content/v1/50f30173e4b08d03393c7c01/1544452588728-45S92Y4NBEGC50LP1PMG/f2p+conversion+rate.png", "caption": "PUR은 전체 유저 중 결제 유저 비율을 나타낸다", "alt": "PUR 결제 유저 비율 수익화 지표" },
+    { "type": "text", "value": "**PUR (Paying User Rate)**은 전체 유저 중 결제한 유저의 비율을 뜻한다. 전환율(Conversion Rate)이라고 부르기도 한다.\n\nPUR = 결제 유저 수 / 전체 유저 수 × 100\n\n장르별 벤치마크는 다음과 같이 알려져 있다." },
+    { "type": "table", "caption": "장르별 PUR 벤치마크", "headers": ["장르", "PUR"], "rows": [
+      ["하이퍼캐주얼", "1~3%"],
+      ["캐주얼", "2~5%"],
+      ["미드코어", "3~7%"],
+      ["수집형 RPG", "5~10%"],
+      ["MMORPG", "8~15%"]
+    ]},
+    { "type": "text", "value": "PUR이 낮아도 ARPPU가 높으면 매출은 유지될 수 있다. 반대로 PUR이 높아도 ARPPU가 낮으면 전체 매출은 작을 수 있다. 결국 매출 = 유저 수 × PUR × ARPPU라는 공식으로 이해할 수 있다.\n\n소수의 고과금 유저에 의존하는 모델(고래 의존)인지, 다수의 소액 결제에 기반한 모델인지에 따라 게임 운영 전략이 달라지는 경향이 있다." },
+
+    { "type": "heading", "value": "6. 실제 활용: 손익 분기 계산" },
+    { "type": "image", "src": "https://www.geckoboard.com/uploads/Calculate-LTV-CAC-Ratio.png", "caption": "LTV > CAC가 되어야 사업이 지속 가능하다고 본다", "alt": "LTV CAC 비율 손익 분기점 계산" },
+    { "type": "text", "value": "게임 사업의 손익 분기는 결국 **LTV > CAC**로 요약되는 경우가 많다. 유저 한 명이 벌어다 주는 돈(LTV)이 유저를 데려오는 데 쓴 돈(CAC)보다 커야 수익이 나는 구조다.\n\n업계에서는 **LTV/CAC 비율 3:1**을 건강한 기준으로 보는 경향이 있다. 즉 CAC가 $3이라면 LTV가 최소 $9는 되어야 한다는 뜻이다. 비율이 1:1에 가까우면 마케팅을 늘릴수록 적자가 커질 수 있고, 5:1 이상이면 마케팅을 더 공격적으로 집행해도 될 수 있다는 신호로 해석되기도 한다." },
+    { "type": "text", "value": "**Payback Period(회수 기간)**도 중요한 지표다. CAC를 얼마 만에 회수하는지를 나타낸다.\n\nPayback Period = CAC / 월간 ARPU\n\n예를 들어 CAC가 $6이고 월간 ARPU가 $2라면 회수 기간은 3개월이 된다. 일반적으로 12개월 이내 회수를 목표로 하는 경우가 많고, 6개월 이내면 우수한 편으로 평가되는 경향이 있다.\n\n게임은 출시 초기에 매출이 집중되는 특성이 있어서, D30 ROAS 100%를 달성하면 마케팅 효율이 좋다고 판단하는 경우도 많다." },
+
+    { "type": "heading", "value": "7. 실제 활용: 모객단가의 왜곡" },
+    { "type": "image", "src": "https://www.appsflyer.com/wp-content/uploads/2019/06/2019_06_10_14_50_00_Organic_Uplift_guide_Draft2_Google_Docs.png", "caption": "유료 광고는 자연 유입도 함께 증가시키는 효과가 있는 것으로 알려져 있다", "alt": "Organic Uplift 자연 유입 증가 효과 그래프" },
+    { "type": "text", "value": "모객단가(CAC/CPI)를 볼 때 흔히 간과되는 부분이 있다. 바로 **Organic Uplift(자연 유입 증가 효과)**다.\n\n광고를 집행하면 유료 설치만 늘어나는 게 아니다. 앱스토어 순위가 오르고, 검색 노출이 늘고, 입소문이 퍼지면서 자연 유입도 함께 증가하는 경향이 있다. 이를 업계에서는 'Halo Effect' 또는 'Organic Multiplier'라고 부르기도 한다." },
+    { "type": "text", "value": "예를 들어 CPI $3에 1,000명을 광고로 유입시켰다고 가정해 보자. 그런데 같은 기간 자연 유입이 500명 늘었다면, 실질적으로는 1,500명을 $3,000에 데려온 셈이 된다. 실제 CPI는 $2로 떨어지는 효과가 생긴다.\n\nAppsFlyer 데이터에 따르면 유료 설치 1건당 자연 설치 0.5~1.5건이 추가로 발생하는 경우가 많다고 한다. 특히 앱스토어 피처링이나 바이럴이 붙으면 이 배수는 더 커질 수 있다.\n\n따라서 광고를 끄면 유료 유입만 사라지는 게 아니라 자연 유입까지 동반 하락하는 경우가 많다. 모객단가가 비싸 보여도 전체 그림을 보면 효율적일 수 있다는 점을 고려할 필요가 있다. 마케팅 성과를 평가할 때는 이러한 왜곡 효과를 함께 살펴보는 것이 좋다." },
+
+    { "type": "heading", "value": "8. 국가별·플랫폼별 지표 차이" },
+    { "type": "image", "src": "https://allcorrectgames.com/wp-content/uploads/2019/04/image-1-1506x1024.png", "caption": "국가별로 ARPU와 CPI 수준이 크게 다르다", "alt": "국가별 모바일 게임 시장 ARPU CPI 비교" },
+    { "type": "text", "value": "같은 게임이라도 국가와 플랫폼에 따라 지표가 크게 달라진다. 글로벌 서비스를 준비한다면 이 차이를 이해하는 것이 중요하다.\n\n**ARPU 국가별 차이**를 보면, 일본이 가장 높은 편으로 알려져 있다. 유저당 평균 지출이 $300을 넘는 경우도 있다. 한국과 미국이 그 뒤를 잇고, 동남아시아나 남미는 상대적으로 낮은 편이다. 다만 볼륨은 반대일 수 있어서 전체 매출은 또 다른 이야기가 된다." },
+    { "type": "table", "caption": "주요 국가별 지표 특성", "headers": ["국가", "ARPU", "CPI", "특징"], "rows": [
+      ["일본", "매우 높음", "높음 ($3~$8)", "고과금 성향, RPG 선호"],
+      ["한국", "높음", "중간 ($2~$5)", "MMORPG 강세, 경쟁 치열"],
+      ["미국", "높음", "높음 ($3~$10)", "캐주얼/하이퍼캐주얼 시장 큼"],
+      ["동남아", "낮음", "낮음 ($0.5~$2)", "볼륨 크고 성장 중"],
+      ["중국", "높음", "중간", "판호 필요, 진입 장벽"]
+    ]},
+    { "type": "text", "value": "**플랫폼별 차이**도 무시할 수 없다. iOS 유저는 Android 유저보다 ARPU가 높은 경향이 있다. 대신 iOS의 CPI도 더 비싸다. 미국 기준으로 iOS CPI는 Android보다 30~50% 정도 높은 경우가 많다.\n\n반면 Android는 글로벌 유저 볼륨이 압도적으로 크다. 특히 아시아, 남미, 아프리카에서는 Android 점유율이 80% 이상인 시장이 많다. 따라서 LTV가 높은 유저를 타겟하려면 iOS, 볼륨을 키우려면 Android라는 판단이 나올 수 있다.\n\n결국 타겟 시장에 따라 기대하는 벤치마크 자체가 달라져야 한다. 일본 출시 게임의 D1 Retention 30%와 동남아 출시 게임의 D1 30%는 의미가 다르다. 항상 해당 시장의 맥락에서 지표를 해석하는 것이 중요하다." },
+
+    { "type": "heading", "value": "마치며: 지표는 도구일 뿐" },
+    { "type": "text", "value": "지표는 게임 사업의 공용어에 가깝다. 하지만 숫자에만 매몰되면 전체 그림을 놓칠 수 있다. D1 Retention이 5% 떨어졌다고 무조건 나쁜 건 아니고, ARPU가 올랐다고 무조건 좋은 것도 아니다. 맥락이 중요하다.\n\n예를 들어 광고를 많이 태우면 저품질 유저가 유입되면서 Retention이 일시적으로 떨어질 수 있다. ARPU가 오른 건 고래 한 명이 많이 쓴 것일 수도 있다. 지표 하나만 보지 말고 여러 지표를 교차 분석해야 진짜 상황이 보이는 경우가 많다.\n\n결국 지표는 의사결정을 돕는 도구로 활용하는 것이 바람직하다. 목표를 먼저 정하고, 그 목표에 맞는 지표를 선택해서 추적하는 게 올바른 순서라고 할 수 있다." }
+  ]
+}
