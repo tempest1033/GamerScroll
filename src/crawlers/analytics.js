@@ -194,14 +194,17 @@ function shouldFetchPopularArticles(filePath = 'data/popular-articles.json') {
 
     const lastUpdate = new Date(data.updatedAt);
     const now = new Date();
-    const hoursDiff = (now - lastUpdate) / (1000 * 60 * 60);
 
-    if (hoursDiff >= 24) {
-      console.log(`[Analytics] Popular articles last update: ${hoursDiff.toFixed(1)} hours ago - refresh needed`);
+    // 자정 기준: 날짜가 다르면 수집, 오늘 데이터 있으면 스킵
+    const lastDate = lastUpdate.toISOString().slice(0, 10); // YYYY-MM-DD
+    const todayDate = now.toISOString().slice(0, 10);
+
+    if (lastDate !== todayDate) {
+      console.log(`[Analytics] Popular articles last update: ${lastDate} - today is ${todayDate}, refresh needed`);
       return true;
     }
 
-    console.log(`[Analytics] Popular articles last update: ${hoursDiff.toFixed(1)} hours ago - using cached data`);
+    console.log(`[Analytics] Popular articles already updated today (${todayDate}) - using cached data`);
     return false;
   } catch (error) {
     console.error('[Analytics] Error checking articles cooldown:', error.message);
