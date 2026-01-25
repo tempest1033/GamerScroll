@@ -1,5 +1,71 @@
 {
-  "updatedAt": "2026-01-24T17:41:08.885Z",
+  "updatedAt": "2026-01-25T10:03:33.590Z",
   "period": "7days",
-  "articles": []
+  "articles": [
+    {
+      "type": "issue",
+      "slug": "arknights-endfield-launch-success",
+      "views": 45,
+      "path": "/magazine/issue/arknights-endfield-launch-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "dragon-sword-launch-report",
+      "views": 23,
+      "path": "/magazine/issue/dragon-sword-launch-report/"
+    },
+    {
+      "type": "issue",
+      "slug": "pubg-battlegrounds-birth-history",
+      "views": 12,
+      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
+    },
+    {
+      "type": "issue",
+      "slug": "china-gaming-superpower-rise",
+      "views": 7,
+      "path": "/magazine/issue/china-gaming-superpower-rise/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-revenue-ranking-algorithm",
+      "category": "business",
+      "views": 6,
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+    },
+    {
+      "type": "wiki",
+      "slug": "astonishia-story-sonnori",
+      "category": "history",
+      "views": 6,
+      "path": "/wiki/history/astonishia-story-sonnori/"
+    },
+    {
+      "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
+      "views": 5,
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-subscription-return",
+      "views": 4,
+      "path": "/magazine/issue/lineage-classic-subscription-return/"
+    },
+    {
+      "type": "wiki",
+      "slug": "nier-series",
+      "category": "history",
+      "views": 4,
+      "path": "/wiki/history/nier-series/"
+    },
+    {
+      "type": "wiki",
+      "slug": "rts-genre-rise-and-fall",
+      "category": "history",
+      "views": 4,
+      "path": "/wiki/history/rts-genre-rise-and-fall/"
+    }
+  ]
 }
