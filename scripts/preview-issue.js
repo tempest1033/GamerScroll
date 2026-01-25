@@ -1,11 +1,13 @@
 /**
- * 이슈 리포트 초안 미리보기 스크립트
+ * 이슈/핫픽 리포트 초안 미리보기 스크립트
  * - 이미지 다운로드 없이 외부 URL 프록시로 바로 렌더링
  * - docs/preview/issue-preview.html 생성
  *
  * 사용법:
- *   node scripts/preview-issue.js                    # 최신 draft 미리보기
- *   node scripts/preview-issue.js [slug]             # 특정 slug 미리보기
+ *   node scripts/preview-issue.js                    # 최신 issue draft 미리보기
+ *   node scripts/preview-issue.js [slug]             # 특정 issue slug 미리보기
+ *   node scripts/preview-issue.js --hotpick          # 최신 hotpick draft 미리보기
+ *   node scripts/preview-issue.js --hotpick [slug]   # 특정 hotpick slug 미리보기
  *   node scripts/preview-issue.js --list             # draft 목록 보기
  */
 
@@ -13,53 +15,71 @@ const fs = require('fs');
 const path = require('path');
 
 const ISSUE_DIR = path.join(__dirname, '..', 'reports', 'issue');
+const HOTPICK_DIR = path.join(__dirname, '..', 'reports', 'hotpick');
 const PREVIEW_DIR = path.join(__dirname, '..', 'docs', 'preview');
-const STYLES_PATH = path.join(__dirname, '..', 'src', 'styles.css');
+const STYLES_PATH = path.join(__dirname, '..', 'docs', 'styles.css'); // 빌드된 CSS 사용
 
 // CLI 인자 파싱
 const args = process.argv.slice(2);
+const isHotpick = args.includes('--hotpick');
+const filteredArgs = args.filter(a => a !== '--hotpick');
 
 // --list 옵션
-if (args.includes('--list')) {
+if (filteredArgs.includes('--list')) {
   listDrafts();
   process.exit(0);
 }
 
 // slug 지정 또는 최신 draft
-const targetSlug = args[0] || null;
+const targetSlug = filteredArgs[0] || null;
+const REPORT_DIR = isHotpick ? HOTPICK_DIR : ISSUE_DIR;
+const reportType = isHotpick ? 'hotpick' : 'issue';
 
 /**
  * draft 목록 출력
  */
 function listDrafts() {
-  const files = fs.readdirSync(ISSUE_DIR).filter(f => f.endsWith('.json'));
+  console.log('\n📋 리포트 목록\n');
 
-  console.log('\n📋 이슈 리포트 목록\n');
+  // 이슈 리포트
+  if (fs.existsSync(ISSUE_DIR)) {
+    const issueFiles = fs.readdirSync(ISSUE_DIR).filter(f => f.endsWith('.json'));
+    console.log('=== 이슈 리포트 ===');
+    const issueReports = issueFiles.map(f => {
+      const content = fs.readFileSync(path.join(ISSUE_DIR, f), 'utf-8').replace(/^\uFEFF/, '');
+      const data = JSON.parse(content);
+      return { slug: data.slug, title: data.title, status: data.status || 'draft', date: data.date };
+    }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    issueReports.forEach(r => {
+      const statusIcon = r.status === 'approved' ? '✅' : '📝';
+      console.log(`  ${statusIcon} [${r.status}] ${r.title}`);
+      console.log(`     slug: ${r.slug}\n`);
+    });
+  }
 
-  const reports = files.map(f => {
-    const content = fs.readFileSync(path.join(ISSUE_DIR, f), 'utf-8').replace(/^\uFEFF/, '');
-    const data = JSON.parse(content);
-    return {
-      slug: data.slug,
-      title: data.title,
-      status: data.status || 'draft',
-      date: data.date
-    };
-  }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-
-  reports.forEach(r => {
-    const statusIcon = r.status === 'approved' ? '✅' : '📝';
-    console.log(`  ${statusIcon} [${r.status}] ${r.title}`);
-    console.log(`     slug: ${r.slug}\n`);
-  });
+  // 핫픽 리포트
+  if (fs.existsSync(HOTPICK_DIR)) {
+    const hotpickFiles = fs.readdirSync(HOTPICK_DIR).filter(f => f.endsWith('.json'));
+    console.log('=== 핫픽 리포트 ===');
+    const hotpickReports = hotpickFiles.map(f => {
+      const content = fs.readFileSync(path.join(HOTPICK_DIR, f), 'utf-8').replace(/^\uFEFF/, '');
+      const data = JSON.parse(content);
+      return { slug: data.slug, title: data.title, status: data.status || 'draft', date: data.date };
+    }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    hotpickReports.forEach(r => {
+      const statusIcon = r.status === 'approved' ? '✅' : '📝';
+      console.log(`  ${statusIcon} [${r.status}] ${r.title}`);
+      console.log(`     slug: ${r.slug} (--hotpick)\n`);
+    });
+  }
 }
 
 /**
- * 이슈 리포트 로드
+ * 리포트 로드
  */
-function loadIssueReport(slug) {
+function loadReport(slug, dir) {
   if (slug) {
-    const filePath = path.join(ISSUE_DIR, `${slug}.json`);
+    const filePath = path.join(dir, `${slug}.json`);
     if (!fs.existsSync(filePath)) {
       console.error(`❌ 파일을 찾을 수 없습니다: ${slug}.json`);
       process.exit(1);
@@ -69,12 +89,16 @@ function loadIssueReport(slug) {
   }
 
   // slug 없으면 최신 draft 찾기
-  const files = fs.readdirSync(ISSUE_DIR).filter(f => f.endsWith('.json'));
+  if (!fs.existsSync(dir)) {
+    console.error(`❌ 디렉토리가 없습니다: ${dir}`);
+    process.exit(1);
+  }
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
   let latestDraft = null;
   let latestDate = '';
 
   for (const f of files) {
-    const content = fs.readFileSync(path.join(ISSUE_DIR, f), 'utf-8').replace(/^\uFEFF/, '');
+    const content = fs.readFileSync(path.join(dir, f), 'utf-8').replace(/^\uFEFF/, '');
     const data = JSON.parse(content);
     if (data.status === 'draft' && (data.date || '') >= latestDate) {
       latestDate = data.date || '';
@@ -83,7 +107,7 @@ function loadIssueReport(slug) {
   }
 
   if (!latestDraft) {
-    console.error('❌ draft 상태의 이슈 리포트가 없습니다.');
+    console.error(`❌ draft 상태의 리포트가 없습니다.`);
     process.exit(1);
   }
 
@@ -247,6 +271,52 @@ function renderContent(content) {
       case 'ad':
         // 미리보기에서는 광고 플레이스홀더
         result.push(`<div class="preview-ad-placeholder">[광고 영역]</div>`);
+        break;
+
+      case 'list':
+        if (block.items && Array.isArray(block.items)) {
+          const listItems = block.items.map(item => `<li>${item}</li>`).join('');
+          result.push(`<ul class="blog-list">${listItems}</ul>`);
+        }
+        break;
+
+      case 'table':
+        if (block.headers && block.rows) {
+          const tableHeaders = block.headers.map(h => `<th>${h}</th>`).join('');
+          const tableRows = block.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('');
+          result.push(`
+            <figure class="blog-figure blog-table">
+              ${block.caption ? `<div class="table-title">${block.caption}</div>` : ''}
+              <table class="wiki-table">
+                <thead><tr>${tableHeaders}</tr></thead>
+                <tbody>${tableRows}</tbody>
+              </table>
+            </figure>
+          `);
+        }
+        break;
+
+      case 'game-ranking':
+        if (block.items && Array.isArray(block.items)) {
+          const rankingItems = block.items.map(item => `
+            <div class="game-ranking-item">
+              <span class="game-ranking-rank">${item.rank}</span>
+              <div class="game-ranking-thumb">
+                <img src="${proxyImageUrl(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy">
+              </div>
+              <div class="game-ranking-info">
+                <div class="game-ranking-name">${item.name}${item.price ? ` <span class="game-ranking-price">(${item.price})</span>` : ''}</div>
+                ${item.desc ? `<div class="game-ranking-desc">${item.desc}</div>` : ''}
+              </div>
+            </div>
+          `).join('');
+          result.push(`
+            <div class="game-ranking-list">
+              ${block.caption ? `<div class="game-ranking-title">${block.caption}</div>` : ''}
+              ${rankingItems}
+            </div>
+          `);
+        }
         break;
     }
   });
@@ -421,12 +491,13 @@ function generatePreviewHtml(report) {
  * 메인 실행
  */
 function main() {
-  console.log('\n🔍 이슈 리포트 미리보기 생성\n');
+  console.log(`\n🔍 ${isHotpick ? '핫픽' : '이슈'} 리포트 미리보기 생성\n`);
 
   // 리포트 로드
-  const report = loadIssueReport(targetSlug);
+  const report = loadReport(targetSlug, REPORT_DIR);
   console.log(`📄 ${report.title}`);
   console.log(`   slug: ${report.slug}`);
+  console.log(`   type: ${reportType}`);
   console.log(`   status: ${report.status || 'draft'}\n`);
 
   // preview 폴더 생성

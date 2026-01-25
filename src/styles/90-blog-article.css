@@ -152,6 +152,18 @@
   border: 1px solid var(--border);
 }
 
+/* 표 figure - PC에서 내용에 맞게 축소 */
+.blog-figure.blog-table {
+  width: fit-content;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .blog-figure.blog-table {
+    width: 100%;
+  }
+}
+
 .blog-image {
   width: 100%;
   height: auto;
@@ -210,14 +222,30 @@
 /* 표 래퍼 - 반응형 자동 조정 (마크다운 표 파싱용) */
 .blog-table-wrapper {
   margin: 24px 0;
+  width: fit-content;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .blog-table-wrapper {
+    width: 100%;
+  }
 }
 
 .blog-table-wrapper table,
 .blog-content table {
-  width: 100%;
+  width: auto;
+  min-width: 50%;
   border-collapse: collapse;
   font-size: clamp(12px, 3.5vw, 16px);
   table-layout: auto;
+}
+
+@media (max-width: 768px) {
+  .blog-table-wrapper table,
+  .blog-content table {
+    width: 100%;
+  }
 }
 
 .blog-table-wrapper th,
@@ -567,5 +595,104 @@
     flex: 1;
     text-align: center;
     padding: 10px 12px;
+  }
+}
+
+/* ===== Game Ranking List ===== */
+.game-ranking-list {
+  margin: 24px 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.game-ranking-title {
+  padding: 16px 20px;
+  font-size: var(--font-title-size);
+  font-weight: 600;
+  color: var(--text);
+  background: var(--hover-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.game-ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.game-ranking-item:last-child {
+  border-bottom: none;
+}
+
+.game-ranking-item:hover {
+  background: var(--hover-bg);
+}
+
+.game-ranking-rank {
+  display: none;
+}
+
+.game-ranking-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.game-ranking-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-ranking-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.game-ranking-name {
+  font-size: var(--font-body-size);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.game-ranking-price {
+  font-weight: 400;
+  font-size: 0.85em;
+  color: var(--text-secondary);
+}
+
+.game-ranking-desc {
+  font-size: var(--font-desc-size);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .game-ranking-item {
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .game-ranking-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+  }
+
+  .game-ranking-name {
+    font-size: var(--font-desc-size);
+  }
+
+  .game-ranking-desc {
+    font-size: var(--font-small-size);
   }
 }

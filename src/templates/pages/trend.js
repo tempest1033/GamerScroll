@@ -1868,6 +1868,28 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
             </figure>
           `);
           break;
+
+        case 'game-ranking':
+          if (!block.items || !Array.isArray(block.items)) break;
+          const rankingItems = block.items.map(item => `
+            <div class="game-ranking-item">
+              <span class="game-ranking-rank">${item.rank}</span>
+              <div class="game-ranking-thumb">
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+              </div>
+              <div class="game-ranking-info">
+                <div class="game-ranking-name">${item.name}${item.price ? ` <span class="game-ranking-price">(${item.price})</span>` : ''}</div>
+                ${item.desc ? `<div class="game-ranking-desc">${item.desc}</div>` : ''}
+              </div>
+            </div>
+          `).join('');
+          result.push(`
+            <div class="game-ranking-list">
+              ${block.caption ? `<div class="game-ranking-title">${block.caption}</div>` : ''}
+              ${rankingItems}
+            </div>
+          `);
+          break;
       }
     });
 
@@ -2194,6 +2216,28 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
                 <tbody>${tblRows}</tbody>
               </table>
             </figure>
+          `);
+          break;
+
+        case 'game-ranking':
+          if (!block.items || !Array.isArray(block.items)) break;
+          const rankingItems = block.items.map(item => `
+            <div class="game-ranking-item">
+              <span class="game-ranking-rank">${item.rank}</span>
+              <div class="game-ranking-thumb">
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+              </div>
+              <div class="game-ranking-info">
+                <div class="game-ranking-name">${item.name}${item.price ? ` <span class="game-ranking-price">(${item.price})</span>` : ''}</div>
+                ${item.desc ? `<div class="game-ranking-desc">${item.desc}</div>` : ''}
+              </div>
+            </div>
+          `).join('');
+          result.push(`
+            <div class="game-ranking-list">
+              ${block.caption ? `<div class="game-ranking-title">${block.caption}</div>` : ''}
+              ${rankingItems}
+            </div>
           `);
           break;
       }
@@ -2530,6 +2574,28 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
                 <tbody>${tblRows}</tbody>
               </table>
             </figure>
+          `);
+          break;
+
+        case 'game-ranking':
+          if (!block.items || !Array.isArray(block.items)) break;
+          const rankingItems = block.items.map(item => `
+            <div class="game-ranking-item">
+              <span class="game-ranking-rank">${item.rank}</span>
+              <div class="game-ranking-thumb">
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+              </div>
+              <div class="game-ranking-info">
+                <div class="game-ranking-name">${item.name}${item.price ? ` <span class="game-ranking-price">(${item.price})</span>` : ''}</div>
+                ${item.desc ? `<div class="game-ranking-desc">${item.desc}</div>` : ''}
+              </div>
+            </div>
+          `).join('');
+          result.push(`
+            <div class="game-ranking-list">
+              ${block.caption ? `<div class="game-ranking-title">${block.caption}</div>` : ''}
+              ${rankingItems}
+            </div>
           `);
           break;
       }
