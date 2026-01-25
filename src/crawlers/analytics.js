@@ -243,6 +243,12 @@ async function fetchPopularArticles(days = 7, limit = 10) {
             {
               filter: {
                 fieldName: 'pagePath',
+                stringFilter: { matchType: 'FULL_REGEXP', value: '^/magazine/hotpick/[^/]+/?$' }
+              }
+            },
+            {
+              filter: {
+                fieldName: 'pagePath',
                 stringFilter: { matchType: 'FULL_REGEXP', value: '^/wiki/[^/]+/[^/]+/?$' }
               }
             }
@@ -267,6 +273,7 @@ async function fetchPopularArticles(days = 7, limit = 10) {
 
       // /magazine/issue/some-slug/ -> { type: 'issue', slug: 'some-slug' }
       // /magazine/insight/some-slug/ -> { type: 'insight', slug: 'some-slug' }
+      // /magazine/hotpick/some-slug/ -> { type: 'hotpick', slug: 'some-slug' }
       // /wiki/category/slug/ -> { type: 'wiki', category: 'category', slug: 'slug' }
       let type, slug, category;
 
@@ -276,6 +283,9 @@ async function fetchPopularArticles(days = 7, limit = 10) {
       } else if (pagePath.startsWith('/magazine/insight/')) {
         type = 'insight';
         slug = pagePath.replace('/magazine/insight/', '').replace(/\/$/, '');
+      } else if (pagePath.startsWith('/magazine/hotpick/')) {
+        type = 'hotpick';
+        slug = pagePath.replace('/magazine/hotpick/', '').replace(/\/$/, '');
       } else if (pagePath.startsWith('/wiki/')) {
         type = 'wiki';
         const parts = pagePath.replace('/wiki/', '').replace(/\/$/, '').split('/');

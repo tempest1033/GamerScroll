@@ -38,7 +38,7 @@ function getLocalWikiThumbPath(category, slug, originalUrl) {
 }
 
 function generateIndexPage(data) {
-  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], wikiData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
+  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], wikiData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
   // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
@@ -162,6 +162,18 @@ function generateIndexPage(data) {
             badge: insight.date ? formatDateKr(insight.date) : '인사이트'
           };
         }
+      } else if (article.type === 'hotpick') {
+        const hotpick = hotpickReports.find(h => h.slug === article.slug);
+        if (hotpick) {
+          return {
+            type: 'hotpick',
+            title: hotpick.title,
+            summary: hotpick.summary || '',
+            thumbnail: fixUrl(hotpick.thumbnail) || '',
+            link: `/magazine/hotpick/${hotpick.slug}/`,
+            badge: hotpick.date ? formatDateKr(hotpick.date) : '핫픽'
+          };
+        }
       } else if (article.type === 'wiki' && article.category) {
         const wikiList = wikiData[article.category] || [];
         const wiki = wikiList.find(w => w.slug === article.slug);
@@ -236,6 +248,19 @@ function generateIndexPage(data) {
       });
     });
 
+    // 핫픽 추가
+    hotpickReports.forEach(hotpick => {
+      allArticles.push({
+        type: 'hotpick',
+        category: 'hotpick',
+        title: hotpick.title,
+        thumbnail: fixUrl(hotpick.thumbnail) || '',
+        link: `/magazine/hotpick/${hotpick.slug}/`,
+        badge: '핫픽',
+        date: hotpick.date || ''
+      });
+    });
+
     // 위키 추가
     const categoryOrder = ['history', 'knowledge', 'tech', 'business'];
     categoryOrder.forEach(category => {
@@ -293,6 +318,7 @@ function generateIndexPage(data) {
       weekly: weeklyReportsCount,
       issue: issueReports.length,
       insight: insightReports.length,
+      hotpick: hotpickReports.length,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       tech: (wikiData.tech || []).length,
@@ -308,7 +334,8 @@ function generateIndexPage(data) {
     // 리포트 카테고리
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
-      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight }
+      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
+      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
     ];
 
     // 위키 카테고리 (에버그린)

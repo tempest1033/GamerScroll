@@ -51,6 +51,7 @@ function generateWikiHubPage({
   weeklyReportsCount = 0,
   issueReportsCount = 0,
   insightReportsCount = 0,
+  hotpickReportsCount = 0,
   issueReports = [],
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
@@ -108,6 +109,7 @@ function generateWikiHubPage({
       weekly: weeklyReportsCount,
       issue: issueReportsCount,
       insight: insightReportsCount,
+      hotpick: hotpickReportsCount,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       tech: (wikiData.tech || []).length,
@@ -121,7 +123,8 @@ function generateWikiHubPage({
 
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
-      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight }
+      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
+      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
     ];
 
     const wikiCategories = [
@@ -257,6 +260,7 @@ function generateWikiCategoryPage({
   weeklyReportsCount = 0,
   issueReportsCount = 0,
   insightReportsCount = 0,
+  hotpickReportsCount = 0,
   issueReports = [],
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
@@ -309,6 +313,7 @@ function generateWikiCategoryPage({
       weekly: weeklyReportsCount,
       issue: issueReportsCount,
       insight: insightReportsCount,
+      hotpick: hotpickReportsCount,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       tech: (wikiData.tech || []).length,
@@ -322,7 +327,8 @@ function generateWikiCategoryPage({
 
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
-      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight }
+      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
+      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
     ];
 
     const wikiCategories = [

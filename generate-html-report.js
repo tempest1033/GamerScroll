@@ -105,8 +105,8 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage } = require('./src/templates/pages/trend');
-const { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage, generateInsightListPage } = require('./src/templates/pages/trends-hub');
+const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage } = require('./src/templates/pages/trends-hub');
 // 뉴스/커뮤니티/영상 페이지 제거됨 (크롤링 데이터는 유지)
 const { generateRankingsPage } = require('./src/templates/pages/rankings');
 const { generateSteamPage } = require('./src/templates/pages/steam');
@@ -501,6 +501,22 @@ async function main() {
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
+  // 핫픽 리포트 데이터 로드 (홈페이지용, 승인된 것만)
+  const HOTPICK_REPORTS_DIR_HOME = './reports/hotpick';
+  let hotpickReportsForHome = [];
+  if (fs.existsSync(HOTPICK_REPORTS_DIR_HOME)) {
+    const files = fs.readdirSync(HOTPICK_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
+    hotpickReportsForHome = files.map(f => {
+      try {
+        return JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+      } catch (e) {
+        return null;
+      }
+    })
+      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
   // 일간/주간 리포트 개수는 실제 로드 후 계산 (매거진 섹션에서 설정됨)
   // 임시로 0으로 설정, 나중에 업데이트됨
   let dailyReportsCount = 0;
@@ -508,7 +524,8 @@ async function main() {
 
   const issueReportsCount = issueReportsForHome.length;
   const insightReportsCount = insightReportsForHome.length;
-  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, weeklyInsight, issueReports: issueReportsForHome, insightReports: insightReportsForHome, dailyReportsCount, weeklyReportsCount, issueReportsCount, insightReportsCount };
+  const hotpickReportsCount = hotpickReportsForHome.length;
+  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, weeklyInsight, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, dailyReportsCount, weeklyReportsCount, issueReportsCount, insightReportsCount, hotpickReportsCount };
 
   // games.json 로드 (게임 허브용)
   let gamesData = {};
@@ -738,6 +755,22 @@ async function main() {
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
+  // 핫픽 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
+  const HOTPICK_REPORTS_DIR = './reports/hotpick';
+  let hotpickReports = [];
+  if (fs.existsSync(HOTPICK_REPORTS_DIR)) {
+    const files = fs.readdirSync(HOTPICK_REPORTS_DIR).filter(f => f.endsWith('.json'));
+    hotpickReports = files.map(f => {
+      try {
+        return JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+      } catch (e) {
+        return null;
+      }
+    })
+      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
   // 공통 인기글/최신글 리스트 생성 (홈, 매거진, 위키에서 공유)
   const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
   const wikiDataForSidebar = loadWikiData();
@@ -749,6 +782,10 @@ async function main() {
   // 인사이트 리포트 추가
   insightReports.forEach(insight => {
     allSidebarArticles.push({ title: insight.title, link: `/magazine/insight/${insight.slug}/`, badge: '인사이트', date: insight.date || '' });
+  });
+  // 핫픽 리포트 추가
+  hotpickReports.forEach(hotpick => {
+    allSidebarArticles.push({ title: hotpick.title, link: `/magazine/hotpick/${hotpick.slug}/`, badge: '핫픽', date: hotpick.date || '' });
   });
   // 위키 추가
   for (const cat of Object.keys(wikiDataForSidebar)) {
@@ -766,6 +803,9 @@ async function main() {
     } else if (article.type === 'insight') {
       const insight = insightReports.find(i => i.slug === article.slug);
       if (insight) return { title: insight.title, link: `/magazine/insight/${insight.slug}/`, badge: '인사이트' };
+    } else if (article.type === 'hotpick') {
+      const hotpick = hotpickReports.find(h => h.slug === article.slug);
+      if (hotpick) return { title: hotpick.title, link: `/magazine/hotpick/${hotpick.slug}/`, badge: '핫픽' };
     } else if (article.type === 'wiki' && article.category) {
       const wikiList = wikiDataForSidebar[article.category] || [];
       const wiki = wikiList.find(w => w.slug === article.slug);
@@ -802,6 +842,13 @@ async function main() {
         summary: p.summary
       })),
       insightReports: insightReports.map(p => ({
+        slug: p.slug,
+        title: p.title,
+        date: p.date,
+        thumbnail: p.thumbnail,
+        summary: p.summary
+      })),
+      hotpickReports: hotpickReports.map(p => ({
         slug: p.slug,
         title: p.title,
         date: p.date,
@@ -848,6 +895,13 @@ async function main() {
       summary: p.summary
     })),
     insightReports: insightReports.map(p => ({
+      slug: p.slug,
+      title: p.title,
+      date: p.date,
+      thumbnail: p.thumbnail,
+      summary: p.summary
+    })),
+    hotpickReports: hotpickReports.map(p => ({
       slug: p.slug,
       title: p.title,
       date: p.date,
@@ -911,6 +965,19 @@ async function main() {
     console.log(`  ✅ magazine/insight/index.html`);
   } catch (err) {
     console.error(`  ❌ magazine/insight/index.html: ${err.message}`);
+  }
+
+  // Hotpick 목록 페이지
+  const hotpickDir = `${magazineDir}/hotpick`;
+  if (!fs.existsSync(hotpickDir)) {
+    fs.mkdirSync(hotpickDir, { recursive: true });
+  }
+  try {
+    const hotpickListHtml = generateHotpickListPage({ ...categoryPageData, hotpickReports });
+    fs.writeFileSync(`${hotpickDir}/index.html`, hotpickListHtml, 'utf8');
+    console.log(`  ✅ magazine/hotpick/index.html`);
+  } catch (err) {
+    console.error(`  ❌ magazine/hotpick/index.html: ${err.message}`);
   }
 
   // 6. 일간 상세 페이지 생성 (magazine/daily/{slug}/index.html)
@@ -1062,9 +1129,32 @@ async function main() {
     console.log(`  ✅ 인사이트 리포트 페이지 ${insightReports.length}개 생성`);
   }
 
+  // 10. 핫픽 리포트 페이지 생성 (magazine/hotpick/{slug}/index.html)
+  if (hotpickReports.length > 0) {
+    for (let i = 0; i < hotpickReports.length; i++) {
+      const post = hotpickReports[i];
+      const pageDir = `${hotpickDir}/${post.slug}`;
+      if (!fs.existsSync(pageDir)) {
+        fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      try {
+        const nav = {
+          prev: hotpickReports[i + 1] ? { slug: hotpickReports[i + 1].slug, title: hotpickReports[i + 1].title } : null,
+          next: hotpickReports[i - 1] ? { slug: hotpickReports[i - 1].slug, title: hotpickReports[i - 1].title } : null
+        };
+        const html = generateHotpickDetailPage({ post, nav, hotpickReports, issueReports, insightReports, wikiData: wikiDataForIssue });
+        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+      } catch (err) {
+        console.error(`  ❌ magazine/hotpick/${post.slug}: ${err.message}`);
+      }
+    }
+    console.log(`  ✅ 핫픽 리포트 페이지 ${hotpickReports.length}개 생성`);
+  }
+
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
   try {
-    const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length, insightReports };
+    const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length, insightReports, hotpickReports };
     const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, sidebarPopularArticles, sidebarLatestArticles });
     fs.writeFileSync('./index.html', indexHtml, 'utf8');
     console.log(`  ✅ index.html`);
@@ -1084,6 +1174,7 @@ async function main() {
     weeklyReportsCount: weeklyReports.length,
     issueReportsCount: issueReports.length,
     insightReportsCount: insightReports.length,
+    hotpickReportsCount: hotpickReports.length,
     sidebarPopularArticles,
     sidebarLatestArticles
   };

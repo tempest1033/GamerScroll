@@ -58,6 +58,31 @@ function getIssueReports(reportsDir) {
   return items;
 }
 
+function getHotpickReports(reportsDir) {
+  const hotpickDir = path.join(reportsDir, 'hotpick');
+  if (!fs.existsSync(hotpickDir)) return [];
+
+  const items = [];
+  const files = fs.readdirSync(hotpickDir).filter(f => f.endsWith('.json'));
+
+  for (const file of files) {
+    const data = readJsonFile(path.join(hotpickDir, file));
+    if (!data || data.status !== 'approved') continue;
+
+    items.push({
+      type: 'hotpick',
+      title: data.title,
+      link: `${SITE_URL}/magazine/hotpick/${data.slug}/`,
+      description: data.summary || '',
+      date: new Date(data.date),
+      thumbnail: data.thumbnail || '',
+      category: '핫픽'
+    });
+  }
+
+  return items;
+}
+
 function getWeeklyReports(reportsDir) {
   const weeklyDir = path.join(reportsDir, 'weekly');
   if (!fs.existsSync(weeklyDir)) return [];
@@ -147,6 +172,7 @@ function generateRSS(reportsDir, outputPath) {
 
   // 모든 리포트 수집
   const issueItems = getIssueReports(reportsDir);
+  const hotpickItems = getHotpickReports(reportsDir);
   const weeklyItems = getWeeklyReports(reportsDir);
   const dailyItems = getDailyReports(reportsDir);
 
@@ -155,12 +181,13 @@ function generateRSS(reportsDir, outputPath) {
   const wikiItems = getWikiArticles(wikiDir);
 
   console.log(`이슈 리포트: ${issueItems.length}개`);
+  console.log(`핫픽 리포트: ${hotpickItems.length}개`);
   console.log(`주간 리포트: ${weeklyItems.length}개`);
   console.log(`일간 리포트: ${dailyItems.length}개`);
   console.log(`위키 아티클: ${wikiItems.length}개`);
 
   // 합치고 날짜순 정렬
-  const allItems = [...issueItems, ...weeklyItems, ...dailyItems, ...wikiItems]
+  const allItems = [...issueItems, ...hotpickItems, ...weeklyItems, ...dailyItems, ...wikiItems]
     .sort((a, b) => b.date - a.date)
     .slice(0, MAX_ITEMS);
 
