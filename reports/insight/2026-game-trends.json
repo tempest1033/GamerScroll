@@ -1,25 +1,14 @@
 {
   "slug": "2026-game-trends",
+  "status": "approved",
   "title": "2026년 게임 트렌드",
   "subtitle": "방치형부터 AI까지, 격변하는 게임 시장",
-  "category": "knowledge",
-  "status": "approved",
   "date": "2026-01-25T17:00",
   "thumbnail": "https://cdn.mos.cms.futurecdn.net/HytHQVC6R2sQuZNW2PGDbc.jpg",
-  "summary": "2026년 게임 시장은 방치형 게임의 약진, 하이퍼 캐주얼의 강세, 서브컬처 경쟁 심화, 과금 규제 강화, AI 개발 도입 확대, 그리고 모바일 레드오션화에 따른 플랫폼 다변화가 핵심 키워드로 떠오르고 있다.",
   "keywords": "2026 게임 트렌드, 방치형 게임, 하이퍼 캐주얼, 서브컬처 게임, 확률형 아이템 규제, 게임 AI, 멀티플랫폼, 메이플 키우기, 원신, 스팀",
-  "relatedGames": [
-    { "title": "메이플 키우기", "slug": "메이플-키우기" },
-    { "title": "붕괴: 스타레일", "slug": "붕괴-스타레일" },
-    { "title": "아크 레이더스", "slug": "arc-raiders" },
-    { "title": "리니지2M", "slug": "리니지2m" }
-  ],
-  "relatedArticles": [
-    { "title": "가챠 시스템의 역사", "slug": "gacha-system-history", "category": "knowledge" },
-    { "title": "가챠 시스템 비교", "slug": "gacha-system-comparison", "category": "knowledge" },
-    { "title": "게임사 시가총액 순위", "slug": "top-gaming-companies-by-market-cap", "category": "business" },
-    { "title": "게임 수익 구조", "slug": "game-revenue-structure", "category": "business" }
-  ],
+  "summary": "2026년 게임 시장은 방치형 게임의 약진, 하이퍼 캐주얼의 강세, 서브컬처 경쟁 심화, 과금 규제 강화, AI 개발 도입 확대, 그리고 모바일 레드오션화에 따른 플랫폼 다변화가 핵심 키워드로 떠오르고 있다.",
+  "relatedGames": ["메이플-키우기", "붕괴-스타레일", "arc-raiders", "리니지2m"],
+  "relatedIssues": ["idle-game-era-maple-grow", "game-ai-paradigm-shift-2026"],
   "sources": [
     { "name": "조선비즈", "title": "방치형 RPG 부상, 넥슨 메이플 키우기 글로벌 1위", "url": "https://biz.chosun.com/it-science/ict/2025/12/09/WWMIYC2IGNGSNONA5AN3AUWOB4/" },
     { "name": "인벤", "title": "2025년 서브컬처 게임 결산", "url": "https://www.inven.co.kr/webzine/news/?news=312141" },
@@ -79,7 +68,7 @@
     { "type": "text", "value": "반면 국내 모바일 게임 시장은 성장 정체가 이어지고 있다. 2025년 1~10월 국내 모바일 게임 결제액은 5조 7,000억원으로 전년 대비 5% 하락했다. 숏폼, OTT 등 여가 시간 경쟁이 심화되면서 게임 이용률도 50.2%로 역대 최저치를 기록했다." },
     { "type": "text", "value": "장기적으로는 성장 전망이 밝다. 한국 게임 시장은 2026~2035년 연평균 8.4% 성장해 2035년 약 300억 달러 규모에 도달할 것으로 예상된다. 다만 단기적으로는 멀티플랫폼 전략, 글로벌 출시, 자체 결제 시스템 도입 등으로 수익성 개선을 모색해야 하는 상황이다." },
 
-    { "type": "heading", "value": "전망" },
+    { "type": "heading", "value": "마치며: 변화에 적응하는 자가 살아남는다" },
     { "type": "text", "value": "2026년 게임 시장은 기술(AI), 유저 취향(방치형/캐주얼), 플랫폼(멀티플랫폼)의 변화가 맞물리며 빠르게 재편되고 있다. 한 가지 플랫폼, 한 가지 장르에 안주하기보다는 유연하게 시장 변화에 대응하는 개발사가 살아남을 전망이다." },
     { "type": "text", "value": "특히 AI 기술의 도입과 멀티플랫폼 전략은 개발 비용과 시장 접근성 측면에서 중소 개발사에게도 기회가 될 수 있다. 변화의 속도가 빨라진 만큼, 트렌드를 읽고 빠르게 적응하는 능력이 그 어느 때보다 중요해졌다." }
   ]

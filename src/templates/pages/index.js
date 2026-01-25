@@ -38,7 +38,7 @@ function getLocalWikiThumbPath(category, slug, originalUrl) {
 }
 
 function generateIndexPage(data) {
-  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], wikiData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
+  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], wikiData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
   // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
@@ -216,7 +216,7 @@ function generateIndexPage(data) {
   function generateHomeLatest() {
     const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
 
-    // 모든 기사 수집 (이슈 + 위키)
+    // 모든 기사 수집 (이슈 + 인사이트 + 위키)
     const allArticles = [];
 
     // 이슈 추가
@@ -229,6 +229,19 @@ function generateIndexPage(data) {
         link: `/magazine/issue/${issue.slug}/`,
         badge: '이슈',
         date: issue.date || ''
+      });
+    });
+
+    // 인사이트 추가
+    insightReports.forEach(insight => {
+      allArticles.push({
+        type: 'insight',
+        category: 'insight',
+        title: insight.title,
+        thumbnail: fixUrl(insight.thumbnail) || '',
+        link: `/magazine/insight/${insight.slug}/`,
+        badge: '인사이트',
+        date: insight.date || ''
       });
     });
 
@@ -281,13 +294,14 @@ function generateIndexPage(data) {
     `;
   }
 
-  // 사이드바: 카테고리 메뉴 (정기 매거진 + 이슈 리포트 + 위키 그룹) - 링크 연결
+  // 사이드바: 카테고리 메뉴 (정기 매거진 + 리포트 + 위키 그룹) - 링크 연결
   function generateSidebarCategories() {
     // 카테고리별 글 개수 계산
     const counts = {
       daily: dailyReportsCount,
       weekly: weeklyReportsCount,
       issue: issueReports.length,
+      insight: insightReports.length,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       tech: (wikiData.tech || []).length,
@@ -300,9 +314,10 @@ function generateIndexPage(data) {
       { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
     ];
 
-    // 이슈 리포트 카테고리
+    // 리포트 카테고리
     const issueCategories = [
-      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
+      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
+      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight }
     ];
 
     // 위키 카테고리 (에버그린)
@@ -326,7 +341,7 @@ function generateIndexPage(data) {
           <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
         </div>
         <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div>
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
         </div>
         <div class="sidebar-category-group">

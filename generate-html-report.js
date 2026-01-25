@@ -105,8 +105,8 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage } = require('./src/templates/pages/trend');
-const { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage } = require('./src/templates/pages/trends-hub');
+const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage, generateInsightListPage } = require('./src/templates/pages/trends-hub');
 // 뉴스/커뮤니티/영상 페이지 제거됨 (크롤링 데이터는 유지)
 const { generateRankingsPage } = require('./src/templates/pages/rankings');
 const { generateSteamPage } = require('./src/templates/pages/steam');
@@ -485,13 +485,30 @@ async function main() {
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
+  // 인사이트 리포트 데이터 로드 (홈페이지용, 승인된 것만)
+  const INSIGHT_REPORTS_DIR_HOME = './reports/insight';
+  let insightReportsForHome = [];
+  if (fs.existsSync(INSIGHT_REPORTS_DIR_HOME)) {
+    const files = fs.readdirSync(INSIGHT_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
+    insightReportsForHome = files.map(f => {
+      try {
+        return JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+      } catch (e) {
+        return null;
+      }
+    })
+      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
   // 일간/주간 리포트 개수는 실제 로드 후 계산 (매거진 섹션에서 설정됨)
   // 임시로 0으로 설정, 나중에 업데이트됨
   let dailyReportsCount = 0;
   let weeklyReportsCount = 0;
 
   const issueReportsCount = issueReportsForHome.length;
-  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, weeklyInsight, issueReports: issueReportsForHome, dailyReportsCount, weeklyReportsCount, issueReportsCount };
+  const insightReportsCount = insightReportsForHome.length;
+  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, weeklyInsight, issueReports: issueReportsForHome, insightReports: insightReportsForHome, dailyReportsCount, weeklyReportsCount, issueReportsCount, insightReportsCount };
 
   // games.json 로드 (게임 허브용)
   let gamesData = {};
@@ -705,6 +722,22 @@ async function main() {
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
+  // 인사이트 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
+  const INSIGHT_REPORTS_DIR = './reports/insight';
+  let insightReports = [];
+  if (fs.existsSync(INSIGHT_REPORTS_DIR)) {
+    const files = fs.readdirSync(INSIGHT_REPORTS_DIR).filter(f => f.endsWith('.json'));
+    insightReports = files.map(f => {
+      try {
+        return JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+      } catch (e) {
+        return null;
+      }
+    })
+      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
   // 공통 인기글/최신글 리스트 생성 (홈, 매거진, 위키에서 공유)
   const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
   const wikiDataForSidebar = loadWikiData();
@@ -712,6 +745,10 @@ async function main() {
   // 이슈 리포트 추가
   issueReports.forEach(issue => {
     allSidebarArticles.push({ title: issue.title, link: `/magazine/issue/${issue.slug}/`, badge: '이슈', date: issue.date || '' });
+  });
+  // 인사이트 리포트 추가
+  insightReports.forEach(insight => {
+    allSidebarArticles.push({ title: insight.title, link: `/magazine/insight/${insight.slug}/`, badge: '인사이트', date: insight.date || '' });
   });
   // 위키 추가
   for (const cat of Object.keys(wikiDataForSidebar)) {
@@ -726,6 +763,9 @@ async function main() {
     if (article.type === 'issue') {
       const issue = issueReports.find(i => i.slug === article.slug);
       if (issue) return { title: issue.title, link: `/magazine/issue/${issue.slug}/`, badge: '이슈' };
+    } else if (article.type === 'insight') {
+      const insight = insightReports.find(i => i.slug === article.slug);
+      if (insight) return { title: insight.title, link: `/magazine/insight/${insight.slug}/`, badge: '인사이트' };
     } else if (article.type === 'wiki' && article.category) {
       const wikiList = wikiDataForSidebar[article.category] || [];
       const wiki = wikiList.find(w => w.slug === article.slug);
@@ -780,6 +820,13 @@ async function main() {
         thumbnail: p.thumbnail,
         summary: p.summary
       })),
+      insightReports: insightReports.map(p => ({
+        slug: p.slug,
+        title: p.title,
+        date: p.date,
+        thumbnail: p.thumbnail,
+        summary: p.summary
+      })),
       news: news,
       wikiData: loadWikiData(),
       dailyReportsCount: dailyReports.length,
@@ -813,6 +860,13 @@ async function main() {
       issues: r.issues
     })),
     issueReports: issueReports.map(p => ({
+      slug: p.slug,
+      title: p.title,
+      date: p.date,
+      thumbnail: p.thumbnail,
+      summary: p.summary
+    })),
+    insightReports: insightReports.map(p => ({
       slug: p.slug,
       title: p.title,
       date: p.date,
@@ -863,6 +917,19 @@ async function main() {
     console.log(`  ✅ magazine/issue/index.html`);
   } catch (err) {
     console.error(`  ❌ magazine/issue/index.html: ${err.message}`);
+  }
+
+  // Insight 목록 페이지
+  const insightDir = `${magazineDir}/insight`;
+  if (!fs.existsSync(insightDir)) {
+    fs.mkdirSync(insightDir, { recursive: true });
+  }
+  try {
+    const insightListHtml = generateInsightListPage({ ...categoryPageData, insightReports });
+    fs.writeFileSync(`${insightDir}/index.html`, insightListHtml, 'utf8');
+    console.log(`  ✅ magazine/insight/index.html`);
+  } catch (err) {
+    console.error(`  ❌ magazine/insight/index.html: ${err.message}`);
   }
 
   // 6. 일간 상세 페이지 생성 (magazine/daily/{slug}/index.html)
@@ -991,9 +1058,32 @@ async function main() {
     console.log(`  ✅ 이슈 리포트 페이지 ${issueReports.length}개 생성`);
   }
 
+  // 9. 인사이트 리포트 페이지 생성 (magazine/insight/{slug}/index.html)
+  if (insightReports.length > 0) {
+    for (let i = 0; i < insightReports.length; i++) {
+      const post = insightReports[i];
+      const pageDir = `${insightDir}/${post.slug}`;
+      if (!fs.existsSync(pageDir)) {
+        fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      try {
+        const nav = {
+          prev: insightReports[i + 1] ? { slug: insightReports[i + 1].slug, title: insightReports[i + 1].title } : null,
+          next: insightReports[i - 1] ? { slug: insightReports[i - 1].slug, title: insightReports[i - 1].title } : null
+        };
+        const html = generateInsightDetailPage({ post, nav, insightReports, issueReports, wikiData: wikiDataForIssue });
+        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+      } catch (err) {
+        console.error(`  ❌ magazine/insight/${post.slug}: ${err.message}`);
+      }
+    }
+    console.log(`  ✅ 인사이트 리포트 페이지 ${insightReports.length}개 생성`);
+  }
+
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
   try {
-    const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length };
+    const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length, insightReports };
     const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, sidebarPopularArticles, sidebarLatestArticles });
     fs.writeFileSync('./index.html', indexHtml, 'utf8');
     console.log(`  ✅ index.html`);
@@ -1012,6 +1102,7 @@ async function main() {
     dailyReportsCount: dailyReports.length,
     weeklyReportsCount: weeklyReports.length,
     issueReportsCount: issueReports.length,
+    insightReportsCount: insightReports.length,
     sidebarPopularArticles,
     sidebarLatestArticles
   };

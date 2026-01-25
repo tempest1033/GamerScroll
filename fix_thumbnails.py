@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GamersCrawl 일간 리포트 썸네일 검증 및 수정 스크립트
+GamerScroll 일간 리포트 썸네일 검증 및 수정 스크립트
 
 작업:
 1. ai.issues, ai.industryIssues, ai.metrics 섹션에서 thumbnail 필드 확인
@@ -183,7 +183,7 @@ def process_file(filepath: str) -> Dict[str, Any]:
 
 def main():
     """메인 함수"""
-    base_path = "/mnt/c/Project/GamersCrawl/history"
+    base_path = "/mnt/c/Project/GamerScroll/history"
     files = [
         "2025-12-21.json",
         "2025-12-22.json",
@@ -192,7 +192,7 @@ def main():
     ]
 
     print("=" * 60)
-    print("GamersCrawl 일간 리포트 썸네일 검증 및 수정")
+    print("GamerScroll 일간 리포트 썸네일 검증 및 수정")
     print("=" * 60)
 
     total_fixed = 0

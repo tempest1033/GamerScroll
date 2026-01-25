@@ -78,6 +78,7 @@ function formatDateKorean(dateStr) {
 const DOCS_DIR = path.join(__dirname, '../../../docs');
 const ISSUE_IMAGES_DIR = path.join(DOCS_DIR, 'assets/images/issue');
 const WIKI_IMAGES_DIR = path.join(DOCS_DIR, 'assets/images/wiki');
+const INSIGHT_IMAGES_DIR = path.join(DOCS_DIR, 'assets/images/insight');
 
 function getLocalIssueImagePath(slug, originalUrl, imageType = 'content', imageIndex = 1) {
   if (!slug || !originalUrl) return originalUrl;
@@ -112,6 +113,46 @@ function getLocalIssueImagePath(slug, originalUrl, imageType = 'content', imageI
   const localPath = path.join(ISSUE_IMAGES_DIR, slug, `${fileBase}${ext}`);
   if (fs.existsSync(localPath)) {
     return `/assets/images/issue/${slug}/${fileBase}${ext}`;
+  }
+
+  // 로컬 파일 없으면 원본 URL 반환 (fixUrl 통해서)
+  return fixUrl(originalUrl);
+}
+
+// 인사이트 로컬 이미지 경로 헬퍼
+function getLocalInsightImagePath(slug, originalUrl, imageType = 'content', imageIndex = 1) {
+  if (!slug || !originalUrl) return originalUrl;
+
+  // 이미 로컬 경로면 그대로 반환
+  if (originalUrl.startsWith('/assets/')) return originalUrl;
+
+  // 파일명 베이스 결정
+  let fileBase;
+  if (imageType === 'thumbnail') {
+    fileBase = 'thumbnail';
+  } else {
+    fileBase = String(imageIndex).padStart(2, '0');
+  }
+
+  // WebP 우선 탐색, 없으면 원본 확장자
+  const webpPath = path.join(INSIGHT_IMAGES_DIR, slug, `${fileBase}.webp`);
+  if (fs.existsSync(webpPath)) {
+    return `/assets/images/insight/${slug}/${fileBase}.webp`;
+  }
+
+  // 원본 확장자로 탐색
+  let ext = '.jpg';
+  try {
+    const urlPath = new URL(originalUrl).pathname;
+    const extMatch = path.extname(urlPath).toLowerCase();
+    if (['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'].includes(extMatch)) {
+      ext = extMatch;
+    }
+  } catch (e) {}
+
+  const localPath = path.join(INSIGHT_IMAGES_DIR, slug, `${fileBase}${ext}`);
+  if (fs.existsSync(localPath)) {
+    return `/assets/images/insight/${slug}/${fileBase}${ext}`;
   }
 
   // 로컬 파일 없으면 원본 URL 반환 (fixUrl 통해서)
@@ -1939,4 +1980,340 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
   });
 }
 
-module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage };
+// ========== 인사이트 상세 페이지 ==========
+function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueReports = [], wikiData = {} }) {
+  if (!post) {
+    return wrapWithLayout('<div class="home-empty">인사이트를 찾을 수 없습니다</div>', {
+      currentPage: 'trend',
+      title: '게이머스크롤 | 인사이트',
+      description: '인사이트를 찾을 수 없습니다.',
+      canonical: `${siteBaseUrl}/magazine/insight/`,
+      noindex: true
+    });
+  }
+
+  const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const escapeHtmlAttr = (value) => String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '인사이트 대표 이미지');
+
+  // 인사이트 중간 광고 (PC/모바일 분기)
+  const INSIGHT_REPORT_SLOTS_MOBILE = [
+    AD_SLOTS.Article001,
+    AD_SLOTS.Article002,
+    AD_SLOTS.Article003,
+    AD_SLOTS.Article004,
+    AD_SLOTS.Article005
+  ];
+
+  const generateInsightAdSlot = (adIndex = 0) => {
+    if (!ADS_ENABLED) return '';
+    const slotId = INSIGHT_REPORT_SLOTS_MOBILE[adIndex % INSIGHT_REPORT_SLOTS_MOBILE.length];
+    return `<div class="blog-ad">
+      ${generateNativeAdSlot(slotId)}
+    </div>`;
+  };
+
+  // 마크다운 표를 HTML table로 변환
+  const parseMarkdownTable = (text) => {
+    const lines = text.trim().split('\n');
+    if (lines.length < 2) return null;
+    if (!lines[0].trim().startsWith('|')) return null;
+    const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
+    if (separatorIndex < 1) return null;
+
+    const parseCells = (line) => {
+      const cells = line.split('|');
+      if (cells.length > 0 && cells[0].trim() === '') cells.shift();
+      if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
+      return cells.map(cell => cell.trim());
+    };
+
+    const headers = parseCells(lines[0]);
+    const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
+    const rows = dataLines.map(line => parseCells(line));
+
+    let html = '<div class="blog-table-wrapper"><table>';
+    html += '<thead><tr>';
+    headers.forEach(h => { html += `<th>${h}</th>`; });
+    html += '</tr></thead><tbody>';
+    rows.forEach(row => {
+      html += '<tr>';
+      row.forEach(cell => { html += `<td>${cell}</td>`; });
+      html += '</tr>';
+    });
+    html += '</tbody></table></div>';
+    return html;
+  };
+
+  // 관련 게임 찾기
+  const findRelatedGames = (text, limit = 4) => {
+    if (!text || !Object.keys(gamesMap).length) return [];
+    const found = [];
+    for (const [name, game] of Object.entries(gamesMap)) {
+      if (text.includes(name) || (game.aliases && game.aliases.some(a => text.includes(a)))) {
+        found.push({ name, ...game });
+        if (found.length >= limit) break;
+      }
+    }
+    return found;
+  };
+
+  // 본문 렌더링 (섹션 2개당 광고 1개 자동 삽입)
+  const renderContent = () => {
+    let adIndex = 0;
+    let sectionCount = 0;
+    let imageIndex = 1;
+    const result = [];
+
+    content.forEach((block) => {
+      switch (block.type) {
+        case 'text':
+          const paragraphs = block.value.split('\n\n').map(p => {
+            const trimmed = p.trim();
+            if (trimmed.startsWith('|') && trimmed.includes('|---')) {
+              const tableHtml = parseMarkdownTable(trimmed);
+              if (tableHtml) return tableHtml;
+            }
+            const formatted = trimmed
+              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+              .replace(/^- /gm, '• ')
+              .replace(/\n- /g, '\n• ')
+              .replace(/\n/g, '<br>');
+            return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
+          }).filter(p => p).join('');
+          result.push(paragraphs);
+          break;
+
+        case 'image':
+          const imgSrc = getLocalInsightImagePath(slug, block.src, 'content', imageIndex);
+          imageIndex++;
+          const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
+          result.push(`
+            <figure class="blog-figure">
+              <img class="blog-image" src="${imgSrc}" alt="${block.caption || ''}" loading="lazy" data-img-fallback="parent-hide">
+              ${caption}
+            </figure>
+          `);
+          break;
+
+        case 'ad':
+          break;
+
+        case 'quote':
+          result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
+          break;
+
+        case 'video':
+          const videoUrl = block.url || '';
+          const videoMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+          if (videoMatch) {
+            const videoId = videoMatch[1];
+            const videoCaption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
+            result.push(`
+              <figure class="blog-figure blog-video">
+                <div class="blog-video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/${videoId}"
+                    title="${block.caption || 'YouTube video'}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy">
+                  </iframe>
+                </div>
+                ${videoCaption}
+              </figure>
+            `);
+          }
+          break;
+
+        case 'heading':
+          sectionCount++;
+          if (sectionCount > 1 && (sectionCount - 1) % 2 === 0) {
+            result.push(generateInsightAdSlot(adIndex++));
+          }
+          result.push(`<h2 class="blog-heading">${block.value}</h2>`);
+          break;
+
+        case 'table':
+          if (!block.headers || !block.rows) break;
+          const tblHeaders = block.headers.map(h => `<th>${h}</th>`).join('');
+          const tblRows = block.rows.map(row =>
+            `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+          ).join('');
+          result.push(`
+            <figure class="blog-figure blog-table">
+              ${block.caption ? `<div class="table-title">${block.caption}</div>` : ''}
+              <table class="wiki-table">
+                <thead><tr>${tblHeaders}</tr></thead>
+                <tbody>${tblRows}</tbody>
+              </table>
+            </figure>
+          `);
+          break;
+      }
+    });
+
+    return result.join('');
+  };
+
+  // 관련 게임 (수동 지정 우선, 없으면 자동 매칭)
+  const findGameBySlug = (slug) => {
+    for (const [name, game] of Object.entries(gamesMap)) {
+      if (game.slug === slug) return { name, ...game };
+    }
+    return null;
+  };
+  const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
+  const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
+  const relatedGames = manualGames.length > 0 ? manualGames : findRelatedGames(fullText);
+  const relatedGamesHtml = relatedGames.length > 0 ? `
+    <div class="blog-related-games">
+      <div class="blog-related-title">관련 게임</div>
+      <div class="blog-related-grid">
+        ${relatedGames.map(g => `
+          <a href="/games/${g.slug}/" class="blog-related-card">
+            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">${g.name}</span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  // 관련 문서 (인사이트 + 이슈 + 위키)
+  const findInsightBySlug = (slug) => insightReports.find(r => r.slug === slug);
+  const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
+  const relatedInsightsList = (post.relatedInsights || []).map(slug => findInsightBySlug(slug)).filter(Boolean).slice(0, 2);
+  const relatedIssuesList = (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
+
+  // 관련 위키 (수동 지정 또는 키워드 매칭)
+  const findWikiBySlug = (category, slug) => {
+    const articles = wikiData[category] || [];
+    return articles.find(a => a.slug === slug);
+  };
+  const relatedWikiList = (post.relatedWiki || []).map(ref => {
+    const [cat, slug] = ref.split('/');
+    const article = findWikiBySlug(cat, slug);
+    return article ? { ...article, category: cat } : null;
+  }).filter(Boolean).slice(0, 4);
+
+  // 인사이트 + 이슈 + 위키 합쳐서 "관련 문서"
+  const hasRelatedDocs = relatedInsightsList.length > 0 || relatedIssuesList.length > 0 || relatedWikiList.length > 0;
+  const relatedDocsHtml = hasRelatedDocs ? `
+    <div class="blog-related-issues">
+      <div class="blog-related-title">관련 문서</div>
+      <div class="blog-related-issues-list">
+        ${relatedInsightsList.map(insight => `
+          <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <span class="blog-related-issue-title">${insight.title}</span>
+          </a>
+        `).join('')}
+        ${relatedIssuesList.map(issue => `
+          <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <span class="blog-related-issue-title">${issue.title}</span>
+          </a>
+        `).join('')}
+        ${relatedWikiList.map(wiki => `
+          <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title">${wiki.title}</span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  // 정보 출처
+  const sources = post.sources || [];
+  const sourcesHtml = sources.length > 0 ? `
+    <div class="blog-sources">
+      <div class="blog-sources-title">정보 출처</div>
+      <ul class="blog-sources-list">
+        ${sources.map(s => `
+          <li><a href="${s.url}" target="_blank" rel="nofollow noopener">${s.name} - ${s.title}</a></li>
+        `).join('')}
+      </ul>
+    </div>
+  ` : '';
+
+  // 네비게이션
+  const navHtml = `
+    <div class="trend-detail-nav">
+      ${nav.prev ? `<a href="/magazine/insight/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      ${nav.next ? `<a href="/magazine/insight/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+    </div>
+  `;
+
+  const pageContent = `
+    <section class="section active" id="insight">
+
+      <article class="page-container issue-container">
+        ${topAds}
+
+        <div class="blog-card">
+          ${thumbnail ? `
+            <div class="blog-hero">
+              <img class="blog-hero-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
+            </div>
+          ` : ''}
+          <header class="blog-header">
+            <h1 class="blog-title">${title}</h1>
+            <div class="blog-meta">
+              <time class="blog-date">${formatDateKorean(date)}</time>
+            </div>
+            ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
+          </header>
+          <div class="blog-content">
+            ${renderContent()}
+          </div>
+          ${relatedDocsHtml}
+          ${relatedGamesHtml}
+          ${sourcesHtml}
+        </div>
+
+        ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
+        ${navHtml}
+      </article>
+    </section>
+  `;
+
+  // JSON-LD용 이미지 URL (로컬 경로를 전체 URL로 변환)
+  const schemaImage = thumbnail
+    ? (() => {
+        const localPath = getLocalInsightImagePath(slug, thumbnail, 'thumbnail');
+        return localPath.startsWith('/') ? `${siteBaseUrl}${localPath}` : localPath;
+      })()
+    : null;
+
+  const articleSchema = {
+    headline: title,
+    description: summary || title,
+    datePublished: date,
+    dateModified: date,
+    image: schemaImage
+  };
+
+  return wrapWithLayout(pageContent, {
+    currentPage: 'trend',
+    title: title,
+    description: summary || title,
+    keywords: post.keywords || '게임 트렌드, 인사이트, 게임 분석, 모바일 게임',
+    canonical: `${siteBaseUrl}/magazine/insight/${slug}/`,
+    articleSchema,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
+      { name: title, url: `${siteBaseUrl}/magazine/insight/${slug}/` }
+    ]
+  });
+}
+
+module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage };

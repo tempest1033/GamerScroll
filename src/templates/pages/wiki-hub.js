@@ -50,6 +50,7 @@ function generateWikiHubPage({
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   issueReportsCount = 0,
+  insightReportsCount = 0,
   issueReports = [],
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
@@ -106,6 +107,7 @@ function generateWikiHubPage({
       daily: dailyReportsCount,
       weekly: weeklyReportsCount,
       issue: issueReportsCount,
+      insight: insightReportsCount,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       tech: (wikiData.tech || []).length,
@@ -118,7 +120,8 @@ function generateWikiHubPage({
     ];
 
     const issueCategories = [
-      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
+      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
+      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight }
     ];
 
     const wikiCategories = [
@@ -148,7 +151,7 @@ function generateWikiHubPage({
           <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
         </div>
         <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div>
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
         </div>
         <div class="sidebar-category-group">
@@ -253,6 +256,7 @@ function generateWikiCategoryPage({
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   issueReportsCount = 0,
+  insightReportsCount = 0,
   issueReports = [],
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
@@ -304,6 +308,7 @@ function generateWikiCategoryPage({
       daily: dailyReportsCount,
       weekly: weeklyReportsCount,
       issue: issueReportsCount,
+      insight: insightReportsCount,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       tech: (wikiData.tech || []).length,
@@ -316,7 +321,8 @@ function generateWikiCategoryPage({
     ];
 
     const issueCategories = [
-      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue }
+      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
+      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight }
     ];
 
     const wikiCategories = [
@@ -346,7 +352,7 @@ function generateWikiCategoryPage({
           <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
         </div>
         <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">이슈 리포트</h2></a></div>
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
         </div>
         <div class="sidebar-category-group">
