@@ -153,6 +153,9 @@ function shouldFetchPopularGames(filePath = 'data/popular-games.json') {
     if (!data.updatedAt) {
       return true; // updatedAt이 없으면 수집 필요
     }
+    if (!Array.isArray(data.articles) || data.articles.length === 0) {
+      return true; // 데이터가 비어 있으면 수집 필요
+    }
 
     const lastUpdate = new Date(data.updatedAt);
     const now = new Date();
@@ -207,7 +210,7 @@ function shouldFetchPopularArticles(filePath = 'data/popular-articles.json') {
 }
 
 /**
- * 인기 기사 TOP N 조회 (최근 7일) - /magazine/, /wiki/ 페이지
+ * 인기 기사 TOP N 조회 (최근 7일) - 디테일 페이지 (issue/insight/wiki)
  */
 async function fetchPopularArticles(days = 7, limit = 10) {
   const client = createClient();
@@ -228,13 +231,19 @@ async function fetchPopularArticles(days = 7, limit = 10) {
             {
               filter: {
                 fieldName: 'pagePath',
-                stringFilter: { matchType: 'BEGINS_WITH', value: '/magazine/' }
+                stringFilter: { matchType: 'FULL_REGEXP', value: '^/magazine/issue/[^/]+/?$' }
               }
             },
             {
               filter: {
                 fieldName: 'pagePath',
-                stringFilter: { matchType: 'BEGINS_WITH', value: '/wiki/' }
+                stringFilter: { matchType: 'FULL_REGEXP', value: '^/magazine/insight/[^/]+/?$' }
+              }
+            },
+            {
+              filter: {
+                fieldName: 'pagePath',
+                stringFilter: { matchType: 'FULL_REGEXP', value: '^/wiki/[^/]+/[^/]+/?$' }
               }
             }
           ]
@@ -256,21 +265,17 @@ async function fetchPopularArticles(days = 7, limit = 10) {
       const pagePath = row.dimensionValues[0].value;
       const views = parseInt(row.metricValues[0].value, 10);
 
-      // /magazine/daily/2026-01-22/ -> { type: 'daily', slug: '2026-01-22' }
-      // /magazine/weekly/2026-W03/ -> { type: 'weekly', slug: '2026-W03' }
       // /magazine/issue/some-slug/ -> { type: 'issue', slug: 'some-slug' }
+      // /magazine/insight/some-slug/ -> { type: 'insight', slug: 'some-slug' }
       // /wiki/category/slug/ -> { type: 'wiki', category: 'category', slug: 'slug' }
       let type, slug, category;
 
-      if (pagePath.startsWith('/magazine/daily/')) {
-        type = 'daily';
-        slug = pagePath.replace('/magazine/daily/', '').replace(/\/$/, '');
-      } else if (pagePath.startsWith('/magazine/weekly/')) {
-        type = 'weekly';
-        slug = pagePath.replace('/magazine/weekly/', '').replace(/\/$/, '');
-      } else if (pagePath.startsWith('/magazine/issue/')) {
+      if (pagePath.startsWith('/magazine/issue/')) {
         type = 'issue';
         slug = pagePath.replace('/magazine/issue/', '').replace(/\/$/, '');
+      } else if (pagePath.startsWith('/magazine/insight/')) {
+        type = 'insight';
+        slug = pagePath.replace('/magazine/insight/', '').replace(/\/$/, '');
       } else if (pagePath.startsWith('/wiki/')) {
         type = 'wiki';
         const parts = pagePath.replace('/wiki/', '').replace(/\/$/, '').split('/');

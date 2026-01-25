@@ -150,6 +150,18 @@ function generateIndexPage(data) {
             badge: issue.date ? formatDateKr(issue.date) : '이슈'
           };
         }
+      } else if (article.type === 'insight') {
+        const insight = insightReports.find(i => i.slug === article.slug);
+        if (insight) {
+          return {
+            type: 'insight',
+            title: insight.title,
+            summary: insight.summary || '',
+            thumbnail: fixUrl(insight.thumbnail) || '',
+            link: `/magazine/insight/${insight.slug}/`,
+            badge: insight.date ? formatDateKr(insight.date) : '인사이트'
+          };
+        }
       } else if (article.type === 'wiki' && article.category) {
         const wikiList = wikiData[article.category] || [];
         const wiki = wikiList.find(w => w.slug === article.slug);
@@ -166,27 +178,6 @@ function generateIndexPage(data) {
       }
       return null;
     }).filter(Boolean);
-
-    // 인기 데이터가 부족하면 최신 이슈로 채우기
-    if (popularItems.length < 3) {
-      const remaining = 3 - popularItems.length;
-      const usedSlugs = popularItems.map(p => p.link);
-      issueReports.slice(0, remaining + 3).forEach(issue => {
-        if (popularItems.length >= 3) return;
-        const link = `/magazine/issue/${issue.slug}/`;
-        if (!usedSlugs.includes(link)) {
-          popularItems.push({
-            type: 'issue',
-            title: issue.title,
-            summary: issue.summary || '',
-            thumbnail: fixUrl(issue.thumbnail) || '',
-            link,
-            badge: issue.date ? formatDateKr(issue.date) : '이슈'
-          });
-          usedSlugs.push(link);
-        }
-      });
-    }
 
     if (popularItems.length === 0) return '';
 

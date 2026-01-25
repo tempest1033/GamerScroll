@@ -758,7 +758,7 @@ async function main() {
   }
   // 최신글: 날짜순 정렬 상위 10개
   const sidebarLatestArticles = [...allSidebarArticles].sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
-  // 인기글: GA4 데이터 기반, 없으면 이슈 우선
+  // 인기글: GA4 데이터 기반
   let sidebarPopularArticles = (popularArticlesData.articles || []).slice(0, 10).map(article => {
     if (article.type === 'issue') {
       const issue = issueReports.find(i => i.slug === article.slug);
@@ -773,25 +773,6 @@ async function main() {
     }
     return null;
   }).filter(Boolean);
-  // 부족하면 이슈 리포트 우선으로 채우기
-  if (sidebarPopularArticles.length < 10) {
-    const usedLinks = sidebarPopularArticles.map(p => p.link);
-    issueReports.forEach(issue => {
-      if (sidebarPopularArticles.length >= 10) return;
-      const link = `/magazine/issue/${issue.slug}/`;
-      if (!usedLinks.includes(link)) {
-        sidebarPopularArticles.push({ title: issue.title, link, badge: '이슈' });
-        usedLinks.push(link);
-      }
-    });
-    sidebarLatestArticles.forEach(a => {
-      if (sidebarPopularArticles.length >= 10) return;
-      if (!usedLinks.includes(a.link)) {
-        sidebarPopularArticles.push(a);
-        usedLinks.push(a.link);
-      }
-    });
-  }
   console.log(`  📰 사이드바 인기글 ${sidebarPopularArticles.length}개, 최신글 ${sidebarLatestArticles.length}개 준비`);
 
   try {
