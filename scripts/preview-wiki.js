@@ -310,10 +310,50 @@ function renderSources(sources) {
 }
 
 /**
+ * 관련 게임 렌더링
+ */
+function renderRelatedGames(games) {
+  if (!games || games.length === 0) return '';
+
+  return `
+    <div class="wiki-related">
+      <h3 class="wiki-related-title">관련 게임</h3>
+      <div class="wiki-related-grid">
+        ${games.map(g => `
+          <a href="/games/${g.slug}/" class="wiki-related-card">
+            <span class="wiki-related-name">${escapeHtml(g.title)}</span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * 관련 문서 렌더링
+ */
+function renderRelatedArticles(articles) {
+  if (!articles || articles.length === 0) return '';
+
+  return `
+    <div class="wiki-related">
+      <h3 class="wiki-related-title">관련 문서</h3>
+      <div class="wiki-related-grid">
+        ${articles.map(a => `
+          <a href="/wiki/${a.category}/${a.slug}/" class="wiki-related-card">
+            <span class="wiki-related-name">${escapeHtml(a.title)}</span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+/**
  * 미리보기 HTML 생성
  */
 function generatePreviewHtml(report) {
-  const { slug, title, date, thumbnail, summary, content = [], sources = [], category } = report;
+  const { slug, title, date, thumbnail, summary, content = [], sources = [], relatedGames = [], relatedArticles = [], category } = report;
 
   // CSS 로드
   let cssContent = '';
@@ -480,7 +520,50 @@ function generatePreviewHtml(report) {
     .wiki-sources-list a:hover {
       color: #34d399;
     }
+    /* 관련 게임/문서 스타일 */
+    .wiki-related {
+      padding: 24px;
+      border-top: 1px solid #3f3f46;
+    }
+    .wiki-related-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #e4e4e7;
+    }
+    .wiki-related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .wiki-related-card {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: #27272a;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+      border: 1px solid #3f3f46;
+    }
+    .wiki-related-card:hover {
+      background: #3f3f46;
+    }
+    .wiki-related-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #e4e4e7;
+    }
     /* 표 스타일 */
+    .table-title {
+      padding: 12px 16px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #fafafa;
+      background: #27272a;
+      border-bottom: 1px solid #3f3f46;
+      border-radius: 8px 8px 0 0;
+    }
     .wiki-table-wrapper {
       overflow-x: auto;
       margin: 24px 0;
@@ -552,6 +635,8 @@ function generatePreviewHtml(report) {
       </div>
 
       ${renderSources(sources)}
+      ${renderRelatedGames(relatedGames)}
+      ${renderRelatedArticles(relatedArticles)}
     </article>
   </div>
 </body>
