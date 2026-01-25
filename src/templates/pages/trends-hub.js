@@ -536,7 +536,7 @@ function generateDailyListPage({
       <h1 class="visually-hidden">일간 리포트 - 매일 업데이트되는 게임 뉴스</h1>
       <div class="home-container">
         <div class="home-main">${generateDailyGrid()}</div>
-        <div class="home-sidebar">${generateSidebar()}</div>
+        <div class="home-sidebar"><div class="home-sidebar-sticky">${generateSidebar()}</div></div>
       </div>
     </section>
   `;
@@ -705,7 +705,7 @@ function generateWeeklyListPage({
       <h1 class="visually-hidden">주간 리포트 - 매주 업데이트되는 게임 트렌드</h1>
       <div class="home-container">
         <div class="home-main">${generateWeeklyGrid()}</div>
-        <div class="home-sidebar">${sidebar}</div>
+        <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
       </div>
     </section>
   `;
@@ -868,7 +868,7 @@ function generateIssueListPage({
       <h1 class="visually-hidden">리포트 - 게임 업계 핫이슈</h1>
       <div class="home-container">
         <div class="home-main">${generateIssueGrid()}</div>
-        <div class="home-sidebar">${sidebar}</div>
+        <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
       </div>
     </section>
   `;
@@ -1031,7 +1031,7 @@ function generateInsightListPage({
       <h1 class="visually-hidden">인사이트 - 게임 시장 트렌드와 분석</h1>
       <div class="home-container">
         <div class="home-main">${generateInsightGrid()}</div>
-        <div class="home-sidebar">${sidebar}</div>
+        <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
       </div>
     </section>
   `;
@@ -1192,7 +1192,7 @@ function generateHotpickListPage({
       <h1 class="visually-hidden">핫픽 - 지금 주목할 게임 추천</h1>
       <div class="home-container">
         <div class="home-main">${generateHotpickGrid()}</div>
-        <div class="home-sidebar">${sidebar}</div>
+        <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
       </div>
     </section>
   `;
