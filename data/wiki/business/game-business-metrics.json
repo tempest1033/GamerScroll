@@ -1,7 +1,7 @@
 {
   "slug": "game-business-metrics",
   "status": "approved",
-  "title": "게임 사업 지표 완벽 가이드: ARPU부터 LTV까지",
+  "title": "게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)",
   "date": "2026-01-26T14:00",
   "thumbnail": "https://lancaric.me/wp-content/uploads/2024/11/user-acquisition-kpis-metrics-mobile-games.png",
   "keywords": "게임 KPI, ARPU, ARPPU, DAU, MAU, LTV, CAC, Retention, 게임 사업 지표, 모바일 게임 지표, PUR, CPI, ROAS",
@@ -13,7 +13,7 @@
     { "name": "Adrian Crook", "title": "Retention vs. Monetization: Key Metrics for Market Fit", "url": "https://adriancrook.com/retention-vs-monetization-key-metrics-for-market-fit/" },
     { "name": "게임메카", "title": "게임 지표의 이해", "url": "https://www.gamemeca.com/" }
   ],
-  "relatedArticles": [],
+  "relatedArticles": ["game-revenue-structure", "platform-fees-comparison", "gacha-system-comparison"],
   "relatedGames": [],
   "content": [
     { "type": "text", "value": "게임 사업에서 데이터는 공용어에 가깝다. DAU가 얼마인지, ARPU가 어느 정도인지 모르면 대화가 어려워지는 경우가 많다. 투자자와 미팅을 하든, 팀 내부에서 라이브 운영을 논의하든 이 지표들은 기본으로 여겨진다.\n\n이 글에서는 게임 업계에서 자주 쓰이는 핵심 지표들을 정리해 본다. 단순한 정의를 넘어 실제 벤치마크와 실무 활용법까지 살펴본다." },
