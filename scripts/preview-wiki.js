@@ -265,6 +265,26 @@ function renderContent(content) {
           `);
         }
         break;
+
+      case 'table':
+        if (block.headers && block.rows) {
+          const tableHeaders = block.headers.map(h => `<th>${escapeHtml(h)}</th>`).join('');
+          const tableRows = block.rows.map(row =>
+            `<tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`
+          ).join('');
+          result.push(`
+            <figure class="wiki-figure">
+              ${block.caption ? `<div class="table-title">${escapeHtml(block.caption)}</div>` : ''}
+              <div class="wiki-table-wrapper">
+                <table class="wiki-table">
+                  <thead><tr>${tableHeaders}</tr></thead>
+                  <tbody>${tableRows}</tbody>
+                </table>
+              </div>
+            </figure>
+          `);
+        }
+        break;
     }
   });
 

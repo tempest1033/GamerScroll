@@ -260,8 +260,10 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
   // 수동 지정된 relatedGames가 있으면 사용
   let relatedGames = [];
   if (article.relatedGames && article.relatedGames.length > 0) {
-    relatedGames = article.relatedGames.map(slug => {
-      const game = Object.entries(gamesMap).find(([_, g]) => g.slug === slug);
+    relatedGames = article.relatedGames.map(item => {
+      // 객체 형식 { title, slug } 또는 문자열 slug 둘 다 지원
+      const slugValue = typeof item === 'string' ? item : item.slug;
+      const game = Object.entries(gamesMap).find(([_, g]) => g.slug === slugValue);
       if (game) return { name: game[0], ...game[1] };
       return null;
     }).filter(Boolean);

@@ -1061,10 +1061,14 @@ async function main() {
 
       try {
         // 관련 항목: JSON에 명시된 경우만 사용 (자동 생성 없음)
+        // relatedArticles 형식: [{ category, slug, title }, ...]
         const relatedArticles = (article.relatedArticles || [])
-          .map(slug => {
-            const found = articles.find(a => a.slug === slug);
-            return found ? { ...found, category } : null;
+          .map(item => {
+            const itemCat = item.category || category;
+            const itemSlug = item.slug;
+            const catArticles = wikiData[itemCat] || [];
+            const found = catArticles.find(a => a.slug === itemSlug);
+            return found ? { ...found, category: itemCat } : null;
           })
           .filter(Boolean);
 
