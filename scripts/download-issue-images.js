@@ -1,7 +1,7 @@
 /**
- * 이슈 리포트 이미지 다운로드 + WebP 변환 스크립트
- * - reports/issue/*.json의 외부 이미지 URL을 다운로드
- * - WebP로 변환하여 docs/assets/images/issue/{slug}/ 에 저장
+ * 이슈/핫픽/인사이트 리포트 이미지 다운로드 + WebP 변환 스크립트
+ * - reports/{issue,hotpick,insight}/*.json의 외부 이미지 URL을 다운로드
+ * - WebP로 변환하여 docs/assets/images/{type}/{slug}/ 에 저장
  * - 이미 다운로드된 이미지는 스킵
  */
 
@@ -18,8 +18,11 @@ try {
   console.log('⚠️ sharp 미설치 - WebP 변환 없이 원본 저장\n');
 }
 
-const ISSUE_DIR = path.join(__dirname, '..', 'reports', 'issue');
-const IMAGES_DIR = path.join(__dirname, '..', 'docs', 'assets', 'images', 'issue');
+// 처리할 리포트 타입들
+const REPORT_TYPES = ['issue', 'hotpick', 'insight'];
+
+const REPORTS_BASE = path.join(__dirname, '..', 'reports');
+const IMAGES_BASE = path.join(__dirname, '..', 'docs', 'assets', 'images');
 
 /**
  * URL에서 이미지 버퍼로 다운로드
@@ -98,9 +101,11 @@ function isExternalUrl(url) {
 }
 
 /**
- * 이슈 리포트의 이미지 다운로드
+ * 리포트의 이미지 다운로드
+ * @param {string} jsonPath - JSON 파일 경로
+ * @param {string} reportType - 리포트 타입 (issue, hotpick, insight)
  */
-async function processIssueReport(jsonPath) {
+async function processReport(jsonPath, reportType) {
   const content = fs.readFileSync(jsonPath, 'utf-8').replace(/^\uFEFF/, ''); // BOM 제거
   const report = JSON.parse(content);
 
@@ -110,7 +115,8 @@ async function processIssueReport(jsonPath) {
   }
 
   const slug = report.slug;
-  const imageDir = path.join(IMAGES_DIR, slug);
+  const imagesDir = path.join(IMAGES_BASE, reportType);
+  const imageDir = path.join(imagesDir, slug);
   const ext = sharp ? '.webp' : '.jpg'; // sharp 있으면 WebP, 없으면 원본
 
   let downloaded = 0;
@@ -171,49 +177,58 @@ async function processIssueReport(jsonPath) {
  * 메인 실행
  */
 async function main() {
-  console.log('🖼️  이슈 리포트 이미지 다운로드' + (sharp ? ' + WebP 변환' : '') + '\n');
-
-  // docs/assets/images/issue 폴더 생성
-  if (!fs.existsSync(IMAGES_DIR)) {
-    fs.mkdirSync(IMAGES_DIR, { recursive: true });
-  }
-
-  // reports/issue 폴더 확인
-  if (!fs.existsSync(ISSUE_DIR)) {
-    console.log('⚠️ reports/issue 폴더 없음');
-    return;
-  }
-
-  const files = fs.readdirSync(ISSUE_DIR).filter(f => f.endsWith('.json'));
-
-  if (files.length === 0) {
-    console.log('⚠️ 이슈 리포트 없음');
-    return;
-  }
+  console.log('🖼️  리포트 이미지 다운로드' + (sharp ? ' + WebP 변환' : ''));
+  console.log(`📂 대상: ${REPORT_TYPES.join(', ')}\n`);
 
   let totalDownloaded = 0;
   let totalSkipped = 0;
   let totalErrors = 0;
 
-  for (const file of files) {
-    const jsonPath = path.join(ISSUE_DIR, file);
-    console.log(`📄 ${file}`);
+  for (const reportType of REPORT_TYPES) {
+    const reportDir = path.join(REPORTS_BASE, reportType);
+    const imagesDir = path.join(IMAGES_BASE, reportType);
 
-    try {
-      const result = await processIssueReport(jsonPath);
-      totalDownloaded += result.downloaded;
-      totalSkipped += result.skipped;
-      totalErrors += result.errors;
-
-      if (result.downloaded === 0 && result.skipped > 0) {
-        console.log(`  ⏭️  모든 이미지 이미 존재 (${result.skipped}개)`);
-      }
-    } catch (err) {
-      console.log(`  ❌ 처리 실패: ${err.message}`);
-      totalErrors++;
+    // 이미지 폴더 생성
+    if (!fs.existsSync(imagesDir)) {
+      fs.mkdirSync(imagesDir, { recursive: true });
     }
 
-    console.log('');
+    // 리포트 폴더 확인
+    if (!fs.existsSync(reportDir)) {
+      console.log(`⚠️ reports/${reportType} 폴더 없음\n`);
+      continue;
+    }
+
+    const files = fs.readdirSync(reportDir).filter(f => f.endsWith('.json'));
+
+    if (files.length === 0) {
+      console.log(`⚠️ ${reportType} 리포트 없음\n`);
+      continue;
+    }
+
+    console.log(`\n📁 ${reportType.toUpperCase()} (${files.length}개)`);
+    console.log('─'.repeat(30));
+
+    for (const file of files) {
+      const jsonPath = path.join(reportDir, file);
+      console.log(`📄 ${file}`);
+
+      try {
+        const result = await processReport(jsonPath, reportType);
+        totalDownloaded += result.downloaded;
+        totalSkipped += result.skipped;
+        totalErrors += result.errors;
+
+        if (result.downloaded === 0 && result.skipped > 0) {
+          console.log(`  ⏭️  모든 이미지 이미 존재 (${result.skipped}개)`);
+        }
+      } catch (err) {
+        console.log(`  ❌ 처리 실패: ${err.message}`);
+        totalErrors++;
+      }
+
+      console.log('');
+    }
   }
 
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━');

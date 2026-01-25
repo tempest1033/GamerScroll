@@ -1506,6 +1506,8 @@ async function main() {
     { loc: `${siteBaseUrl}/magazine/daily/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/magazine/weekly/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/magazine/issue/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate },
     // 순위/데이터
     { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate },
@@ -1576,6 +1578,50 @@ async function main() {
         return {
           loc: `${siteBaseUrl}/magazine/issue/${slug}/`,
           lastmod: issueDate
+        };
+      }));
+    }
+
+    // 인사이트 페이지
+    const insightBriefingDir = `${destBriefingDir}/insight`;
+    if (fs.existsSync(insightBriefingDir)) {
+      const insightFolders = fs.readdirSync(insightBriefingDir).filter(f =>
+        fs.statSync(`${insightBriefingDir}/${f}`).isDirectory()
+      );
+      magazinePages.push(...insightFolders.map(slug => {
+        let insightDate = sitemapDate;
+        try {
+          const jsonPath = `${INSIGHT_REPORTS_DIR}/${slug}.json`;
+          if (fs.existsSync(jsonPath)) {
+            const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
+            if (json.date) insightDate = normalizeLastmodDate(json.date);
+          }
+        } catch (e) {}
+        return {
+          loc: `${siteBaseUrl}/magazine/insight/${slug}/`,
+          lastmod: insightDate
+        };
+      }));
+    }
+
+    // 핫픽 페이지
+    const hotpickBriefingDir = `${destBriefingDir}/hotpick`;
+    if (fs.existsSync(hotpickBriefingDir)) {
+      const hotpickFolders = fs.readdirSync(hotpickBriefingDir).filter(f =>
+        fs.statSync(`${hotpickBriefingDir}/${f}`).isDirectory()
+      );
+      magazinePages.push(...hotpickFolders.map(slug => {
+        let hotpickDate = sitemapDate;
+        try {
+          const jsonPath = `${HOTPICK_REPORTS_DIR}/${slug}.json`;
+          if (fs.existsSync(jsonPath)) {
+            const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
+            if (json.date) hotpickDate = normalizeLastmodDate(json.date);
+          }
+        } catch (e) {}
+        return {
+          loc: `${siteBaseUrl}/magazine/hotpick/${slug}/`,
+          lastmod: hotpickDate
         };
       }));
     }
