@@ -187,7 +187,9 @@ function generateWikiHubPage({
           ${generateWikiGrid()}
         </div>
         <aside class="home-sidebar">
-          ${generateSidebar()}
+          <div class="home-sidebar-sticky">
+            ${generateSidebar()}
+          </div>
         </aside>
       </div>
     </section>
@@ -196,29 +198,95 @@ function generateWikiHubPage({
   const pageScripts = `
   <script>
     (function() {
-      // 페이지네이션
+      // PC: 페이지네이션, 모바일: 무한스크롤
       const grid = document.getElementById('wikiGrid');
       const pagination = document.getElementById('wikiPagination');
-      if (grid && pagination) {
-        const items = Array.from(grid.querySelectorAll('.home-trend-card'));
-        const pageSize = 15;
-        const totalPages = Math.ceil(items.length / pageSize) || 1;
-        let currentPage = 1;
-        const prevBtn = pagination.querySelector('.home-prev');
-        const nextBtn = pagination.querySelector('.home-next');
-        const pageIndex = pagination.querySelector('.home-page-index');
-        function updatePagination() {
-          const start = (currentPage - 1) * pageSize;
-          const end = start + pageSize;
-          items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-          pageIndex.textContent = currentPage + ' / ' + totalPages;
-          prevBtn.disabled = currentPage <= 1;
-          nextBtn.disabled = currentPage >= totalPages;
+      if (!grid || !pagination) return;
+
+      const isMobile = window.innerWidth <= 768;
+      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
+      const pageSize = 15;
+
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let visibleCount = pageSize;
+        let observer;
+        let lastAdAfterIndex = -1;
+        const adSlots = ['4840966314', '7467129651', '7865094213', '3028357040'];
+        let adSlotIndex = 0;
+        const adInterval = 3;
+
+        function showItems() {
+          items.forEach((item, i) => {
+            item.style.display = i < visibleCount ? '' : 'none';
+          });
         }
-        prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
-        nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
-        updatePagination();
+
+        function insertAds() {
+          if (document.body.classList.contains('ads-disabled')) return;
+          for (let i = lastAdAfterIndex + 1; i < visibleCount; i++) {
+            if ((i + 1) % adInterval === 0) {
+              const slotId = adSlots[adSlotIndex % adSlots.length];
+              adSlotIndex++;
+              const adId = 'scroll-ad-' + adSlotIndex;
+              const adHtml = '<div class="ad-card ad-card-scroll" id="' + adId + '" style="margin:16px 0;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">' +
+                '<ins class="adsbygoogle" style="display:block;margin:0 auto" ' +
+                'data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
+              items[i]?.insertAdjacentHTML('afterend', adHtml);
+              try {
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+              } catch(e) {
+                document.getElementById(adId)?.remove();
+              }
+              lastAdAfterIndex = i;
+            }
+          }
+        }
+
+        function loadMore() {
+          if (visibleCount >= items.length) return;
+          visibleCount = Math.min(visibleCount + pageSize, items.length);
+          showItems();
+          insertAds();
+          observeLastItem();
+        }
+
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= items.length) return;
+          const lastVisible = items[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) loadMore();
+          }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+
+        showItems();
+        insertAds();
+        observeLastItem();
+        return;
       }
+
+      // PC: 페이지네이션
+      const totalPages = Math.ceil(items.length / pageSize) || 1;
+      let currentPage = 1;
+      const prevBtn = pagination.querySelector('.home-prev');
+      const nextBtn = pagination.querySelector('.home-next');
+      const pageIndex = pagination.querySelector('.home-page-index');
+
+      function updatePagination() {
+        const start = (currentPage - 1) * pageSize;
+        const end = start + pageSize;
+        items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
+        pageIndex.textContent = currentPage + ' / ' + totalPages;
+        prevBtn.disabled = currentPage <= 1;
+        nextBtn.disabled = currentPage >= totalPages;
+      }
+
+      prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
+      nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
+      updatePagination();
 
       // 사이드바 인기/최신 탭 토글
       const sidebarTab = document.getElementById('sidebarArticleTab');
@@ -391,7 +459,9 @@ function generateWikiCategoryPage({
           ${generateCategoryGrid()}
         </div>
         <aside class="home-sidebar">
-          ${generateSidebar()}
+          <div class="home-sidebar-sticky">
+            ${generateSidebar()}
+          </div>
         </aside>
       </div>
     </section>

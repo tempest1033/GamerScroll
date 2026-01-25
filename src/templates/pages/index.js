@@ -760,7 +760,7 @@ function generateIndexPage(data) {
       });
     });
 
-    // 최신 기사 페이지네이션 + 카테고리 필터
+    // 최신 기사 페이지네이션 + 카테고리 필터 (PC: 페이지네이션, 모바일: 무한스크롤)
     (function() {
       const pagination = document.querySelector('.home-pagination');
       const categoryMenu = document.getElementById('sidebar-categories');
@@ -770,8 +770,9 @@ function generateIndexPage(data) {
       const latestTitle = latestCard?.querySelector('.home-card-title');
       if (!pagination) return;
 
+      const isMobile = window.innerWidth <= 768;
       const categoryNames = { issue: '이슈', history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
-      const perPage = parseInt(pagination.dataset.perPage, 10);
+      const perPage = parseInt(pagination.dataset.perPage, 10) || 15;
       const allItems = Array.from(document.querySelectorAll('.home-latest-item'));
       const prevBtn = pagination.querySelector('.home-page-prev');
       const nextBtn = pagination.querySelector('.home-page-next');
@@ -779,25 +780,121 @@ function generateIndexPage(data) {
       let currentPage = 1;
       let currentCategory = null;
       let filteredItems = allItems;
+      let visibleCount = perPage;
+      let observer;
 
+      // 모바일: 무한 스크롤
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let lastAdAfterIndex = -1;
+        const adSlots = ['4840966314', '7467129651', '7865094213', '3028357040'];
+        let adSlotIndex = 0;
+        const adInterval = 3;
+
+        function showItemsMobile() {
+          allItems.forEach(item => item.style.display = 'none');
+          filteredItems.forEach((item, i) => {
+            item.style.display = i < visibleCount ? '' : 'none';
+          });
+        }
+
+        function insertAds() {
+          if (document.body.classList.contains('ads-disabled')) return;
+          for (let i = lastAdAfterIndex + 1; i < visibleCount; i++) {
+            if ((i + 1) % adInterval === 0) {
+              const slotId = adSlots[adSlotIndex % adSlots.length];
+              adSlotIndex++;
+              const adId = 'scroll-ad-' + adSlotIndex;
+              const adHtml = '<div class="ad-card ad-card-scroll" id="' + adId + '" style="margin:16px 0;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">' +
+                '<ins class="adsbygoogle" style="display:block;margin:0 auto" ' +
+                'data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
+              filteredItems[i]?.insertAdjacentHTML('afterend', adHtml);
+              try {
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+              } catch(e) {
+                document.getElementById(adId)?.remove();
+              }
+              lastAdAfterIndex = i;
+            }
+          }
+        }
+
+        function clearAds() {
+          document.querySelectorAll('.ad-card-scroll').forEach(el => el.remove());
+          lastAdAfterIndex = -1;
+          adSlotIndex = 0;
+        }
+
+        function loadMore() {
+          if (visibleCount >= filteredItems.length) return;
+          visibleCount = Math.min(visibleCount + perPage, filteredItems.length);
+          showItemsMobile();
+          insertAds();
+          observeLastItem();
+        }
+
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= filteredItems.length) return;
+          const lastVisible = filteredItems[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) loadMore();
+          }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+
+        function filterByCategory(category) {
+          clearAds();
+          if (currentCategory === category) {
+            currentCategory = null;
+            filteredItems = allItems;
+            categoryMenu?.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
+            if (popularCard) popularCard.style.display = '';
+            if (insightCard) insightCard.style.display = '';
+            if (latestTitle) latestTitle.textContent = '최신';
+          } else {
+            currentCategory = category;
+            filteredItems = allItems.filter(item => item.dataset.category === category);
+            if (popularCard) popularCard.style.display = 'none';
+            if (insightCard) insightCard.style.display = 'none';
+            if (latestTitle) latestTitle.textContent = categoryNames[category] || category;
+          }
+          visibleCount = perPage;
+          showItemsMobile();
+          insertAds();
+          observeLastItem();
+        }
+
+        categoryMenu?.addEventListener('click', (e) => {
+          const btn = e.target.closest('.sidebar-category-item');
+          if (!btn) return;
+          const isActive = btn.classList.contains('active');
+          categoryMenu.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
+          if (!isActive) btn.classList.add('active');
+          filterByCategory(btn.dataset.filterCategory);
+        });
+
+        showItemsMobile();
+        insertAds();
+        observeLastItem();
+        return;
+      }
+
+      // PC: 페이지네이션
       function filterByCategory(category) {
-        // 같은 카테고리 다시 클릭하면 해제 (전체로 복귀)
         if (currentCategory === category) {
           currentCategory = null;
           filteredItems = allItems;
-          categoryMenu.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
-          // 인기/인사이트 카드 복원
+          categoryMenu?.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
           if (popularCard) popularCard.style.display = '';
           if (insightCard) insightCard.style.display = '';
-          // 타이틀 복원
           if (latestTitle) latestTitle.textContent = '최신';
         } else {
           currentCategory = category;
           filteredItems = allItems.filter(item => item.dataset.category === category);
-          // 인기/인사이트 카드 숨기기
           if (popularCard) popularCard.style.display = 'none';
           if (insightCard) insightCard.style.display = 'none';
-          // 타이틀 변경
           if (latestTitle) latestTitle.textContent = categoryNames[category] || category;
         }
         currentPage = 1;
@@ -808,15 +905,10 @@ function generateIndexPage(data) {
         const totalPages = Math.ceil(filteredItems.length / perPage) || 1;
         const start = (currentPage - 1) * perPage;
         const end = start + perPage;
-
-        // 모든 아이템 숨기기
         allItems.forEach(item => item.style.display = 'none');
-
-        // 필터링된 아이템 중 현재 페이지만 표시
         filteredItems.forEach((item, i) => {
           item.style.display = (i >= start && i < end) ? '' : 'none';
         });
-
         pageInfo.textContent = currentPage + ' / ' + totalPages;
         prevBtn.disabled = currentPage <= 1;
         nextBtn.disabled = currentPage >= totalPages;
@@ -830,7 +922,6 @@ function generateIndexPage(data) {
         if (currentPage < totalPages) { currentPage++; updatePagination(); }
       });
 
-      // 사이드바 카테고리 메뉴 클릭
       categoryMenu?.addEventListener('click', (e) => {
         const btn = e.target.closest('.sidebar-category-item');
         if (!btn) return;

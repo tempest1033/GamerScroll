@@ -84,7 +84,8 @@
   #magazine-issue > .home-card-header,
   #daily-list > .home-card-header,
   #weekly-list > .home-card-header,
-  #issue-list > .home-card-header {
+  #issue-list > .home-card-header,
+  #magazine-latest > .home-card-header {
     display: none !important;
   }
 
@@ -93,6 +94,7 @@
   .home-trend-grid {
     padding: 0 !important;
     gap: 0 !important;
+    margin-bottom: 16px !important;
   }
 
   /* 트렌드 카드 테두리/마진 제거 */
@@ -100,6 +102,14 @@
     border-radius: 0 !important;
     border: none !important;
     margin: 0 !important;
+  }
+
+  /* 트렌드/최신 카드 구분선 (모바일) */
+  .home-trend-grid .home-trend-card:not(:last-child),
+  .home-latest-grid .home-trend-card:not(:last-child),
+  .home-popular-list .home-popular-card:not(:last-child) {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1) !important;
+    margin-bottom: 0 !important;
   }
 
   /* 트렌드 카드 이미지 간격 제거 */
