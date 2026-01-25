@@ -1,0 +1,50 @@
+{
+  "slug": "seven-deadly-sins-origin-delay-2026",
+  "status": "approved",
+  "title": "일곱개의 대죄: 오리진, 3월로 출시 연기... K-오픈월드의 자존심을 세울 수 있을까?",
+  "date": "2026-01-25",
+  "thumbnail": "https://sgimage.netmarble.com/images/netmarble/nanaori/20250529/aohd1748500047669.jpg",
+  "keywords": "일곱개의 대죄, 넷마블, 오픈월드, 액션RPG, 2026 출시, CBT, K-게임",
+  "summary": "넷마블의 오픈월드 대작 '일곱개의 대죄: 오리진'이 2026년 3월로 출시를 연기했다. CBT에서 93%가 '또 하겠다'고 답한 기대작의 연기 배경과 전망을 짚어본다.",
+  "relatedGames": [
+    { "title": "원신", "slug": "원신공월의-노래" },
+    { "title": "명조: 워더링 웨이브", "slug": "명조워더링-웨이브" },
+    { "title": "명일방주: 엔드필드", "slug": "명일방주-엔드필드" }
+  ],
+  "relatedIssues": [
+    "2026-subculture-openworld-games",
+    "china-gaming-superpower-rise",
+    "arknights-endfield-launch-success"
+  ],
+  "sources": [
+    { "name": "코리아데일리", "title": "참가자 93% 반했네...신작 '일곱 개의 대죄: 오리진', 글로벌 CBT 호평", "url": "https://www.koreadaily.com/article/20251111213548410" },
+    { "name": "스포츠뉴스", "title": "넷마블 '일곱 개의 대죄: Origin' CBT 개선사항 발표", "url": "https://sports.news.nate.com/view/20260118n05821" },
+    { "name": "Steam", "title": "The Seven Deadly Sins: Origin 상점 페이지", "url": "https://store.steampowered.com/app/3679080/The_Seven_Deadly_Sins_Origin/" },
+    { "name": "넷마블 공식", "title": "일곱개의 대죄: 오리진 공식 사이트", "url": "https://7origin.netmarble.com/" }
+  ],
+  "content": [
+    { "type": "text", "value": "넷마블이 야심차게 준비 중인 오픈월드 액션 RPG '일곱개의 대죄: 오리진(The Seven Deadly Sins: Origin)'이 2026년 3월로 출시를 연기했다. 당초 1월 출시가 예정되어 있었으나, 글로벌 CBT 피드백을 반영한 완성도 제고를 위해 출시일을 조정한 것이다.\n\n일곱개의 대죄 IP를 기반으로 한 이 게임은 넷마블 F&C가 개발을 맡아 PC, 모바일, PS5까지 멀티플랫폼으로 출시될 예정이다. 중국발 오픈월드 서브컬처 게임들이 글로벌 시장을 휩쓸고 있는 지금, K-게임의 자존심이 달린 대작으로 주목받고 있다." },
+
+    { "type": "heading", "value": "어떤 게임인가?" },
+    { "type": "image", "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3679080/86b4734355e3e43b8323426e69d127ce79bab888/header.jpg", "caption": "일곱개의 대죄: 오리진 키 아트", "alt": "일곱개의 대죄 오리진 게임 키 아트, 트리스탄과 캐릭터들" },
+    { "type": "text", "value": "'일곱개의 대죄: 오리진'은 전 세계 누적 5,500만 부 이상 판매된 스즈키 나카바의 동명 만화를 원작으로 하는 오픈월드 액션 RPG다. 플레이어는 리오네스 왕국의 왕자 트리스탄이 되어, 시공간의 충돌로 혼란에 빠진 브리타니아 대륙을 탐험하게 된다.\n\n원작의 세계관을 충실히 재현한 오픈월드, 시리즈 팬이라면 반가울 원작 캐릭터들과의 조우, 그리고 오리지널 스토리가 주요 매력 포인트다. 낚시, 요리, 던전 탐험 등 다양한 콘텐츠도 준비되어 있어 싱글 플레이와 협동 플레이 모두를 아우르는 구성이다." },
+
+    { "type": "heading", "value": "CBT 반응: 93%가 \"또 하겠다\"" },
+    { "type": "image", "src": "https://sgimage.netmarble.com/images/netmarble/nanaori/20250908/7aoq1757318842065.png", "caption": "일곱개의 대죄: 오리진 캐릭터 비주얼", "alt": "일곱개의 대죄 오리진 캐릭터 비주얼 이미지" },
+    { "type": "text", "value": "2024년 11월 진행된 글로벌 CBT는 기대 이상의 호평을 받았다. 참가자 설문 결과, 응답자의 93% 이상이 정식 출시 후에도 플레이 의향을 밝혔다. 그래픽, 스토리, 전투 등 주요 콘텐츠에 대해 85% 이상이 '매우 만족' 또는 '만족'으로 답했다.\n\n특히 애니메이션 원작의 분위기를 살린 그래픽과 액션성 높은 전투 시스템이 호평을 받았다. 다만 조작감과 UI/UX 등 일부 개선 요청도 있었고, 넷마블은 이를 반영해 발매일을 조정했다고 밝혔다. 2025년 1월에는 개선 사항을 담은 업데이트 내용을 공개하며 유저 피드백에 적극 대응하는 모습을 보였다." },
+
+    { "type": "ad" },
+
+    { "type": "heading", "value": "그래서 왜 연기했나?" },
+    { "type": "image", "src": "https://assets-prd.ignimgs.com/2025/11/10/the-seven-deadly-sins-origin-impressions-blogroll-1762797306659.jpg", "caption": "일곱개의 대죄: 오리진 게임플레이", "alt": "일곱개의 대죄 오리진 게임플레이 스크린샷" },
+    { "type": "text", "value": "출시 연기의 공식적인 이유는 '완성도 제고'다. CBT에서 수집된 피드백을 충분히 반영하고, 글로벌 시장에서 경쟁력을 갖추기 위해 추가 개발 기간이 필요했다는 설명이다.\n\n업계에서는 경쟁작들의 출시 일정도 고려했을 것으로 본다. 2026년 초는 여러 대작들이 출시를 앞두고 있는 시기로, 충분한 마케팅 기간 확보와 차별화 전략이 필요했을 것이다. 넷마블로서는 신중하게 접근할 수밖에 없는 상황이다." },
+
+    { "type": "heading", "value": "왜 지금 주목받나?" },
+    { "type": "image", "src": "https://cdn.mos.cms.futurecdn.net/FxoudgTMuzKeQ5dDJVzcqY-1920-80.jpg", "caption": "일곱개의 대죄: 오리진 오픈월드 탐험", "alt": "일곱개의 대죄 오리진 오픈월드 브리타니아 탐험 스크린샷" },
+    { "type": "text", "value": "원신, 명조: 워더링 웨이브, 무한 대전 등 중국 개발사들의 오픈월드 서브컬처 게임이 글로벌 시장에서 두각을 나타내고 있다. 일본 IP와 중국 개발력의 조합이 주류가 된 지금, 한국 개발사가 만드는 오픈월드 대작에 대한 기대와 우려가 공존한다.\n\n'일곱개의 대죄: 오리진'이 주목받는 이유는 여기에 있다. 넷마블이라는 대형 퍼블리셔의 자원과 검증된 IP, 그리고 CBT에서 입증된 완성도가 뒷받침된다. 같은 시기 출시되는 펄어비스의 '붉은사막'과는 장르가 다르지만, 둘 다 K-게임의 글로벌 경쟁력을 시험하는 시금석이 될 것이다." },
+
+    { "type": "heading", "value": "마치며: K-오픈월드의 자존심" },
+    { "type": "image", "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3679080/54aa8a9fd277fafdcb14097106c07e06d4ea9f6a/page_bg_raw.jpg", "caption": "일곱개의 대죄: 오리진 오픈월드 배경", "alt": "일곱개의 대죄 오리진 오픈월드 게임 배경 이미지" },
+    { "type": "text", "value": "출시 연기는 아쉽지만, CBT 반응을 보면 기대할 만한 요소가 충분하다. 넷마블이 피드백을 얼마나 잘 반영하느냐가 관건이다.\n\n중국 오픈월드 서브컬처 게임이 득세하는 이 시점에, '일곱개의 대죄: 오리진'이 K-게임의 자존심을 세워줄 수 있을지 귀추가 주목된다." }
+  ]
+}
