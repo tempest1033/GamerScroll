@@ -1056,16 +1056,16 @@ function generateHotpickListPage({
     `).join('');
 
     return `
-      <div class="section-header">
-        <h2 class="section-title">핫픽</h2>
-      </div>
-      <div class="category-list-grid" id="hotpickGrid">
-        ${hotpickCards}
-      </div>
-      <div class="home-page-nav" id="hotpickPagination">
-        <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-        <span class="home-page-index">1 / 1</span>
-        <button class="home-page-btn home-next" aria-label="다음">›</button>
+      <div class="home-card" id="hotpick-list">
+        <div class="home-card-header">
+          <h2 class="home-card-title">핫픽</h2>
+        </div>
+        <div class="category-list" id="hotpickGrid">${hotpickCards}</div>
+        <div class="home-pagination" id="hotpickPagination">
+          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
+          <span class="home-page-index">1/1</span>
+          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        </div>
       </div>
     `;
   }
