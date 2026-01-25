@@ -6,7 +6,11 @@
   "thumbnail": "https://wac-cdn.atlassian.com/dam/jcr:9c540103-16c2-4875-b579-1deee54101d1/Screen-kanban%20board.png?cdnVersion=3181",
   "keywords": "애자일, Agile, 스크럼, Scrum, 칸반, Kanban, 지라, Jira, 컨플루언스, Confluence, 슬랙, Slack, 게임 개발, 프로젝트 관리, 아틀라시안, 스프린트",
   "summary": "애자일 방법론은 빠른 반복과 피드백을 통해 게임 개발의 불확실성에 대응하는 핵심 전략이다. 지라(Jira)와 컨플루언스(Confluence)는 이러한 애자일 워크플로우를 지원하는 대표적인 협업 도구로, 국내외 게임사에서 널리 활용되고 있다.",
-  "relatedArticles": ["pd-vs-director", "game-business-metrics", "publisher-developer-relationship"],
+  "relatedArticles": [
+    { "category": "knowledge", "slug": "pd-vs-director" },
+    { "category": "business", "slug": "game-business-metrics" },
+    { "category": "business", "slug": "publisher-developer-relationship" }
+  ],
   "relatedGames": [],
   "sources": [
     { "name": "Atlassian", "title": "Jira Confluence scrum", "url": "https://www.atlassian.com/agile/scrum/jira-confluence-scrum" },

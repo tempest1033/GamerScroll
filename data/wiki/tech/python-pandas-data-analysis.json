@@ -6,7 +6,10 @@
   "thumbnail": "https://files.realpython.com/media/fig-1.d24c69699df7.jpg",
   "keywords": "파이썬, Python, 판다스, Pandas, 데이터프레임, DataFrame, 데이터 분석, 게임 로그 분석, SQL, 엑셀 대안, 시각화, matplotlib",
   "summary": "판다스(Pandas)는 파이썬 기반의 데이터 분석 라이브러리로, 엑셀로 처리하기 어려운 대용량 게임 데이터를 다루는 데 유용하다. 직관적인 데이터프레임 구조와 집계 기능으로 게임 업계에서 널리 활용되고 있다.",
-  "relatedArticles": ["agile-jira-confluence-game-dev", "game-business-metrics"],
+  "relatedArticles": [
+    { "category": "knowledge", "slug": "agile-jira-confluence-game-dev" },
+    { "category": "business", "slug": "game-business-metrics" }
+  ],
   "relatedGames": [],
   "sources": [
     { "name": "Dataquest", "title": "Python and Pandas Tutorial: Analyzing Video Game Data", "url": "https://www.dataquest.io/blog/pandas-python-tutorial/" },
