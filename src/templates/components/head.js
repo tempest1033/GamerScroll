@@ -350,7 +350,7 @@ function generateHead(options = {}) {
 	            });
 	          }
 
-	          // 실제 로깅 함수로 교체
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
 	          window.__gcLogPageView = function(path) {
 	            logEvent(analytics, 'page_view', {
 	              page_path: path,
@@ -358,11 +358,7 @@ function generateHead(options = {}) {
 	            });
 	          };
 
-	          // 초기 페이지 로드 page_view 전송 (직접 접속 시)
-	          logEvent(analytics, 'page_view', {
-	            page_path: window.location.pathname,
-	            page_location: window.location.href
-	          });
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
 	        } catch (e) {}
 	      })();
 	    })();
