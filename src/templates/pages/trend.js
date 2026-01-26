@@ -1890,6 +1890,24 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
             </div>
           `);
           break;
+
+        case 'link':
+          if (block.url && block.text) {
+            let iconHtml = '';
+            // 게임 페이지 링크면 아이콘 자동 추가
+            if (block.url.startsWith('/games/')) {
+              const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
+              for (const [name, game] of Object.entries(gamesMap)) {
+                if (game.slug === gameSlug && game.icon) {
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  break;
+                }
+              }
+            }
+            const subtext = block.subtext ? `<span class="blog-link-subtext">${block.subtext}</span>` : '';
+            result.push(`<a href="${block.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${block.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
+          }
+          break;
       }
     });
 
@@ -2239,6 +2257,23 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
               ${rankingItems}
             </div>
           `);
+          break;
+
+        case 'link':
+          if (block.url && block.text) {
+            let iconHtml = '';
+            if (block.url.startsWith('/games/')) {
+              const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
+              for (const [name, game] of Object.entries(gamesMap)) {
+                if (game.slug === gameSlug && game.icon) {
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  break;
+                }
+              }
+            }
+            const subtext = block.subtext ? `<span class="blog-link-subtext">${block.subtext}</span>` : '';
+            result.push(`<a href="${block.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${block.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
+          }
           break;
       }
     });
@@ -2597,6 +2632,23 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
               ${rankingItems}
             </div>
           `);
+          break;
+
+        case 'link':
+          if (block.url && block.text) {
+            let iconHtml = '';
+            if (block.url.startsWith('/games/')) {
+              const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
+              for (const [name, game] of Object.entries(gamesMap)) {
+                if (game.slug === gameSlug && game.icon) {
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  break;
+                }
+              }
+            }
+            const subtext = block.subtext ? `<span class="blog-link-subtext">${block.subtext}</span>` : '';
+            result.push(`<a href="${block.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${block.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
+          }
           break;
       }
     });

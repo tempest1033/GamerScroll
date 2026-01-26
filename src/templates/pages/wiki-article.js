@@ -209,6 +209,23 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
       case 'ad':
         break;
 
+      case 'link':
+        if (block.url && block.text) {
+          let iconHtml = '';
+          if (block.url.startsWith('/games/')) {
+            const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
+            for (const [name, game] of Object.entries(gamesMap)) {
+              if (game.slug === gameSlug && game.icon) {
+                iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                break;
+              }
+            }
+          }
+          const subtext = block.subtext ? `<span class="blog-link-subtext">${block.subtext}</span>` : '';
+          result.push(`<a href="${block.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${block.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
+        }
+        break;
+
       default:
         break;
     }

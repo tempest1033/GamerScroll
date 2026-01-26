@@ -318,6 +318,13 @@ function renderContent(content) {
           `);
         }
         break;
+
+      case 'link':
+        if (block.url && block.text) {
+          const subtext = block.subtext ? `<span class="blog-link-subtext">${escapeHtml(block.subtext)}</span>` : '';
+          result.push(`<a href="${block.url}" class="blog-link-button"><div class="blog-link-content"><span class="blog-link-text">${escapeHtml(block.text)}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
+        }
+        break;
     }
   });
 

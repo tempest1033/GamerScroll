@@ -219,6 +219,72 @@
   }
 }
 
+/* 링크 버튼 (카드 스타일) */
+.blog-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  width: calc(50% - 6px);
+  margin: 6px 0;
+  margin-right: 12px;
+  padding: 14px 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  vertical-align: top;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+.blog-link-button:nth-of-type(2n) {
+  margin-right: 0;
+}
+
+.blog-link-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .blog-link-button {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.blog-link-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.blog-link-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-link-text {
+  display: block;
+  font-size: var(--font-lg-size);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.blog-link-subtext {
+  display: block;
+  font-size: var(--font-body-size);
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.blog-link-arrow {
+  color: var(--text-muted);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
 /* 표 래퍼 - 반응형 자동 조정 (마크다운 표 파싱용) */
 .blog-table-wrapper {
   margin: 24px 0;
