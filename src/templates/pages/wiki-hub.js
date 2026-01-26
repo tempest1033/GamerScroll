@@ -33,7 +33,7 @@ function getLocalWikiImagePath(category, slug, originalUrl) {
   const localPath = `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
   const fullPath = path.join(docsDir, localPath);
   if (fs.existsSync(fullPath)) return localPath;
-  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}`;
+  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=480&output=webp`;
 }
 
 // HTML 이스케이프

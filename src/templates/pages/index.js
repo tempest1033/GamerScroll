@@ -45,13 +45,13 @@ function generateIndexPage(data) {
   // 파일명 기준 날짜 (최신 리포트 링크용)
   const insightFileDate = insight?.insightDate || '';
 
-  // URL 수정 헬퍼
-  const fixUrl = function(url) {
+  // URL 수정 헬퍼 (width: 용도별 크기 - 480 메인카드, 150 사이드바, 960 본문)
+  const fixUrl = function(url, width = 480) {
     if (!url) return url;
     if (url.startsWith('//')) url = 'https:' + url;
     // 모든 외부 이미지 프록시
     if (url.startsWith('http')) {
-      const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=960&output=webp';
+      const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=' + width + '&output=webp';
       return proxyUrl;
     }
     return url;

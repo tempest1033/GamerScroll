@@ -13,15 +13,15 @@ const {
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
 
-// URL 수정 헬퍼 (이미지 프록시)
-const fixUrl = (url) => {
+// URL 수정 헬퍼 (이미지 프록시, width: 용도별 크기)
+const fixUrl = (url, width = 480) => {
   if (!url) return url;
   if (url.startsWith('//')) url = 'https:' + url;
   // CORS 허용된 도메인은 직접 로드
   const corsAllowed = ['steamstatic.com', 'googleusercontent.com', 'gamerscroll.com'];
   if (corsAllowed.some(d => url.includes(d))) return url;
   // 나머지 외부 이미지는 프록시
-  if (url.startsWith('http')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=960&output=webp';
+  if (url.startsWith('http')) return 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=' + width + '&output=webp';
   return url;
 };
 

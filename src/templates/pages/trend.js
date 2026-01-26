@@ -40,8 +40,8 @@ const findGameIcon = (text) => {
 // PC + 모바일 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
-// URL 수정 헬퍼 (이미지 프록시)
-const fixUrl = (url) => {
+// URL 수정 헬퍼 (이미지 프록시, width: 용도별 크기)
+const fixUrl = (url, width = 480) => {
   if (!url) return url;
   if (url.startsWith('//')) url = 'https:' + url;
 
@@ -56,7 +56,7 @@ const fixUrl = (url) => {
 
   // 나머지 외부 이미지는 프록시
   if (url.startsWith('http')) {
-    const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=960&output=webp';
+    const proxyUrl = 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=' + width + '&output=webp';
     return proxyUrl;
   }
   return url;

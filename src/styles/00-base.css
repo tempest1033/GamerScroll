@@ -11,6 +11,16 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* H1 폰트 크기 명시 (브라우저 지원 중단 API 경고 해결) */
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0.67em 0;
+    }
+    section h1, article h1, aside h1, nav h1 {
+      font-size: 1.5em;
+    }
+
     /* 접근성: 시각적으로 숨기지만 스크린리더/SEO에는 노출 */
     .visually-hidden {
       position: absolute;

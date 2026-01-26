@@ -110,8 +110,8 @@ function getLocalWikiImagePath(category, slug, originalUrl, imageType) {
   if (fs.existsSync(fullPath)) {
     return localPath;
   }
-  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
-  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}`;
+  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회 (본문 이미지는 960px)
+  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=960&output=webp`;
 }
 
 const renderContentBlocks = (content = [], category = '', slug = '') => {
