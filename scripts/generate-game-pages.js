@@ -683,10 +683,24 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
           // iOS와 Android 각각 매칭
           for (const platform of ['ios', 'android']) {
             const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
+            const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
+            const bestRankKey = `${keyPrefix}_${region}_${cat}`;
+
+            // 1. bestRanks 우선 사용 (일 최고순위)
+            if (data.bestRanks?.[bestRankKey] && expectedAppId) {
+              const bestRank = data.bestRanks[bestRankKey][String(expectedAppId)];
+              if (bestRank) {
+                dayRanks[`${cat}-${keyPrefix}-${region}`] = bestRank;
+                hasAnyRank = true;
+                continue;
+              }
+            }
+
+            // 2. bestRanks에 없으면 기존 rankings에서 검색 (폴백)
             const items = data.rankings?.[cat]?.[region]?.[platform] || [];
             let matchedIndex = -1;
 
-            // 1. appId 매칭 우선
+            // appId 매칭 우선
             if (expectedAppId) {
               for (let i = 0; i < items.length; i++) {
                 if (String(items[i].appId) === String(expectedAppId)) {
@@ -696,7 +710,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
               }
             }
 
-            // 2. appId 매칭 실패 시 이름으로 폴백
+            // appId 매칭 실패 시 이름으로 폴백
             if (matchedIndex < 0) {
               const titleMatch = findByTitleMatch(items, normalizedNames);
               if (titleMatch) {
@@ -706,7 +720,6 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
 
             // 매칭되면 순위 저장
             if (matchedIndex >= 0) {
-              const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
               dayRanks[`${cat}-${keyPrefix}-${region}`] = matchedIndex + 1;
               hasAnyRank = true;
             }

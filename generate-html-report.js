@@ -39,6 +39,69 @@ const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
 const WIKI_DIR = './data/wiki';
 
+// CSV 스냅샷에서 일 최고순위 계산
+function calculateBestRanksFromSnapshots(date) {
+  const rankingsDir = `${SNAPSHOTS_DIR}/rankings`;
+  if (!fs.existsSync(rankingsDir)) return null;
+
+  const bestRanks = {};
+  const platforms = ['ios', 'aos'];
+  const categories = ['grossing', 'free'];
+  const countries = ['kr', 'jp', 'us', 'cn', 'tw'];
+
+  for (const platform of platforms) {
+    for (const cat of categories) {
+      for (const country of countries) {
+        // 중국 안드로이드는 없음
+        if (platform === 'aos' && country === 'cn') continue;
+
+        const csvFile = `${rankingsDir}/${date}_${platform}_${country}_${cat}.csv`;
+        if (!fs.existsSync(csvFile)) continue;
+
+        try {
+          const content = fs.readFileSync(csvFile, 'utf8');
+          const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('time,'));
+
+          // appId별 최고순위 계산
+          const appBestRanks = {};
+          for (const line of lines) {
+            const match = line.match(/^[\d:]+,(\d+),([^,]+),/);
+            if (match) {
+              const rank = parseInt(match[1]);
+              const appId = match[2];
+              if (!appBestRanks[appId] || rank < appBestRanks[appId]) {
+                appBestRanks[appId] = rank;
+              }
+            }
+          }
+
+          const key = `${platform}_${country}_${cat}`;
+          bestRanks[key] = appBestRanks;
+        } catch (e) {
+          // 파싱 실패 무시
+        }
+      }
+    }
+  }
+
+  return Object.keys(bestRanks).length > 0 ? bestRanks : null;
+}
+
+// 히스토리 파일에 bestRanks 업데이트
+function updateHistoryBestRanks(date, bestRanks) {
+  const historyFile = `${HISTORY_DIR}/${date}.json`;
+  if (!fs.existsSync(historyFile)) return false;
+
+  try {
+    const data = JSON.parse(fs.readFileSync(historyFile, 'utf8'));
+    data.bestRanks = bestRanks;
+    fs.writeFileSync(historyFile, JSON.stringify(data, null, 2), 'utf8');
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 // 위키 데이터 로드 함수
 function loadWikiData() {
   const categories = ['business', 'tech', 'history', 'knowledge'];
@@ -452,6 +515,14 @@ async function main() {
     }
 
     console.log(`📸 CSV 스냅샷 저장: ${snapshotDate} ${snapshotTime}`);
+
+    // 일 최고순위 업데이트 (CSV 스냅샷 기반)
+    const bestRanks = calculateBestRanksFromSnapshots(snapshotDate);
+    if (bestRanks) {
+      if (updateHistoryBestRanks(snapshotDate, bestRanks)) {
+        console.log(`📊 일 최고순위 업데이트: ${snapshotDate}`);
+      }
+    }
   }
 
   console.log('\n📄 GAMERSCROLL 일일 보고서 생성 중...');
