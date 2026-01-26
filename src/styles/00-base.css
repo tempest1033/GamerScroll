@@ -18,7 +18,7 @@
       margin: 0.67em 0;
     }
     section h1, article h1, aside h1, nav h1 {
-      font-size: 1.5em;
+      font-size: 2em;  /* 브라우저 자동 축소 방지 - UserAgent 스타일 오버라이드 */
     }
 
     /* 접근성: 시각적으로 숨기지만 스크린리더/SEO에는 노출 */
