@@ -257,20 +257,22 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- preconnect: AdSense + 광고 요청 + 폰트 CDN + 이미지 프록시 -->
+  <!-- preconnect: 핵심 도메인 4개 (PageSpeed 권고) -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://wsrv.nl" crossorigin>
-  <!-- dns-prefetch: fallback + 이미지 CDN + 외부 스크립트 -->
+  <!-- dns-prefetch: fallback + 추가 도메인 -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://ep1.adtrafficquality.google">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://wsrv.nl">
   <link rel="dns-prefetch" href="https://adservice.google.com">
   <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
   <link rel="dns-prefetch" href="https://www.googletagservices.com">
-  <link rel="dns-prefetch" href="https://www.gstatic.com">
   <link rel="dns-prefetch" href="https://unpkg.com">
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
   <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
   <link rel="dns-prefetch" href="https://i.ytimg.com">
