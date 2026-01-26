@@ -14,7 +14,7 @@
     { "name": "인벤", "title": "실적과 역행하는 韓 게임주...신뢰 회복 '시급'", "url": "https://www.inven.co.kr/webzine/news/?news=311007" },
     { "name": "신한투자증권", "title": "2026년 산업 전망: 게임", "url": "http://bbs2.shinhansec.com/board/message/file.pdf.do?attachmentId=341168" }
   ],
-  "relatedArticles": ["business/platform-fees-comparison", "business/game-revenue-structure"],
+  "relatedArticles": ["platform-fees-comparison", "game-revenue-structure"],
   "relatedIssues": [],
   "relatedGames": ["aion2", "블루-아카이브", "세븐나이츠-리버스", "서머너즈-워-천공의-아레나"],
   "content": [
