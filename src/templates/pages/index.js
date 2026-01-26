@@ -24,27 +24,42 @@ const siteBaseUrl = 'https://gamerscroll.com';
 const docsDir = path.join(__dirname, '../../../docs');
 
 // 위키 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
-// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
+// size: 'xs' = 모바일용 (200px), 'sm' = PC리스트용 (480px), 'lg' = 상세 페이지용 (1200px)
 function getLocalWikiThumbPath(category, slug, originalUrl, size = 'sm') {
   if (!category || !slug) return originalUrl || '';
 
-  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const sizeMap = { xs: 'thumbnail-xs.webp', sm: 'thumbnail-sm.webp', lg: 'thumbnail.webp' };
+  const widthMap = { xs: 200, sm: 480, lg: 1200 };
+  const filename = sizeMap[size] || sizeMap.sm;
   const localPath = `/assets/images/wiki/${category}/${slug}/${filename}`;
   const fullPath = path.join(docsDir, 'assets/images/wiki', category, slug, filename);
 
   if (fs.existsSync(fullPath)) {
     return localPath;
   }
-  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
-  if (size === 'sm') {
+  // 폴백: 기존 thumbnail.webp 확인 (sm/xs가 없을 경우)
+  if (size === 'sm' || size === 'xs') {
     const fallbackPath = path.join(docsDir, 'assets/images/wiki', category, slug, 'thumbnail.webp');
     if (fs.existsSync(fallbackPath)) {
       return `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
     }
   }
   // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
-  const width = size === 'sm' ? 480 : 1200;
+  const width = widthMap[size] || 480;
   return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
+}
+
+// 위키 srcset 헬퍼 - 반응형 이미지용 (xs 200w, sm 480w)
+function getLocalWikiThumbSrcset(category, slug, originalUrl) {
+  const xsUrl = getLocalWikiThumbPath(category, slug, originalUrl, 'xs');
+  const smUrl = getLocalWikiThumbPath(category, slug, originalUrl, 'sm');
+  // xs와 sm이 같으면 srcset 불필요
+  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
+  return {
+    src: smUrl,
+    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
+    sizes: '(max-width: 768px) 133px, 253px'
+  };
 }
 
 // 이슈/핫픽/인사이트 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
@@ -235,11 +250,14 @@ function generateIndexPage(data) {
       if (article.type === 'issue') {
         const issue = issueReports.find(i => i.slug === article.slug);
         if (issue) {
+          const thumbData = getLocalReportThumbnailSrcset('issue', issue.slug, issue.thumbnail);
           return {
             type: 'issue',
             title: issue.title,
             summary: issue.summary || '',
-            thumbnail: getLocalReportThumbnail('issue', issue.slug, issue.thumbnail),
+            thumbnail: thumbData.src,
+            srcset: thumbData.srcset,
+            sizes: thumbData.sizes,
             link: `/magazine/issue/${issue.slug}/`,
             badge: issue.date ? formatDateKr(issue.date) : '이슈'
           };
@@ -247,11 +265,14 @@ function generateIndexPage(data) {
       } else if (article.type === 'insight') {
         const insight = insightReports.find(i => i.slug === article.slug);
         if (insight) {
+          const thumbData = getLocalReportThumbnailSrcset('insight', insight.slug, insight.thumbnail);
           return {
             type: 'insight',
             title: insight.title,
             summary: insight.summary || '',
-            thumbnail: getLocalReportThumbnail('insight', insight.slug, insight.thumbnail),
+            thumbnail: thumbData.src,
+            srcset: thumbData.srcset,
+            sizes: thumbData.sizes,
             link: `/magazine/insight/${insight.slug}/`,
             badge: insight.date ? formatDateKr(insight.date) : '인사이트'
           };
@@ -259,11 +280,14 @@ function generateIndexPage(data) {
       } else if (article.type === 'hotpick') {
         const hotpick = hotpickReports.find(h => h.slug === article.slug);
         if (hotpick) {
+          const thumbData = getLocalReportThumbnailSrcset('hotpick', hotpick.slug, hotpick.thumbnail);
           return {
             type: 'hotpick',
             title: hotpick.title,
             summary: hotpick.summary || '',
-            thumbnail: getLocalReportThumbnail('hotpick', hotpick.slug, hotpick.thumbnail),
+            thumbnail: thumbData.src,
+            srcset: thumbData.srcset,
+            sizes: thumbData.sizes,
             link: `/magazine/hotpick/${hotpick.slug}/`,
             badge: hotpick.date ? formatDateKr(hotpick.date) : '핫픽'
           };
@@ -272,11 +296,14 @@ function generateIndexPage(data) {
         const wikiList = wikiData[article.category] || [];
         const wiki = wikiList.find(w => w.slug === article.slug);
         if (wiki) {
+          const thumbData = getLocalWikiThumbSrcset(article.category, article.slug, wiki.thumbnail);
           return {
             type: 'wiki',
             title: wiki.title,
             summary: wiki.summary || '',
-            thumbnail: getLocalWikiThumbPath(article.category, article.slug, wiki.thumbnail),
+            thumbnail: thumbData.src,
+            srcset: thumbData.srcset,
+            sizes: thumbData.sizes,
             link: `/wiki/${article.category}/${article.slug}/`,
             badge: categoryNames[article.category] || article.category
           };
@@ -287,17 +314,22 @@ function generateIndexPage(data) {
 
     if (popularItems.length === 0) return '';
 
-    const popularCards = popularItems.map((item, i) => `
+    const popularCards = popularItems.map((item, i) => {
+      const imgAttrs = item.srcset
+        ? `src="${item.thumbnail}" srcset="${item.srcset}" sizes="${item.sizes}"`
+        : `src="${item.thumbnail}"`;
+      return `
       <a href="${item.link}" class="home-popular-card">
         <div class="home-popular-thumb">
-          ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${escapeHtmlAttr(item.title)}" loading="${i === 0 ? 'eager' : 'lazy'}">` : ''}
+          ${item.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="${i === 0 ? 'eager' : 'lazy'}">` : ''}
         </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>
           ${item.summary ? `<p class="home-popular-summary">${item.summary}</p>` : ''}
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     return `
       <div class="home-card" id="home-popular">
@@ -382,11 +414,14 @@ function generateIndexPage(data) {
 
     // 모든 카드 생성 (JS로 페이지네이션 + 카테고리 필터)
     const latestCards = allArticles.map((item, i) => {
-      // 위키는 getLocalWikiThumbPath, 나머지는 getLocalReportThumbnailSrcset 사용
+      // 위키도 srcset 사용 (getLocalWikiThumbSrcset)
       let imgHtml = '';
       if (item.type === 'wiki') {
-        const thumbUrl = getLocalWikiThumbPath(item.category, item.slug, item.originalThumbnail);
-        imgHtml = thumbUrl ? `<img src="${thumbUrl}" alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : '';
+        const thumbData = getLocalWikiThumbSrcset(item.category, item.slug, item.originalThumbnail);
+        const imgAttrs = thumbData.srcset
+          ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+          : `src="${thumbData.src}"`;
+        imgHtml = thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : '';
       } else if (item.originalThumbnail) {
         const thumbData = getLocalReportThumbnailSrcset(item.type, item.slug, item.originalThumbnail);
         const imgAttrs = thumbData.srcset
@@ -518,11 +553,14 @@ function generateIndexPage(data) {
     };
 
     const renderWikiCard = (wiki, category) => {
-      const thumbPath = getLocalWikiThumbPath(category, wiki.slug, wiki.thumbnail);
+      const thumbData = getLocalWikiThumbSrcset(category, wiki.slug, wiki.thumbnail);
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
       return `
         <a href="/wiki/${category}/${wiki.slug}/" class="home-trend-card">
           <div class="home-trend-card-image">
-            ${thumbPath ? `<img src="${thumbPath}" alt="${escapeHtmlAttr(wiki.title || '')}" loading="lazy" data-img-fallback="hide">` : ''}
+            ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(wiki.title || '')}" loading="lazy" data-img-fallback="hide">` : ''}
             <span class="home-trend-card-tag wiki">${categoryNames[category]}</span>
           </div>
           <h3 class="home-trend-card-title">${wiki.title}</h3>
