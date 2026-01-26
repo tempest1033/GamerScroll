@@ -19,7 +19,7 @@ try {
 }
 
 // 처리할 리포트 타입들
-const REPORT_TYPES = ['issue', 'hotpick', 'insight'];
+const REPORT_TYPES = ['issue', 'hotpick', 'insight', 'weekly'];
 
 const REPORTS_BASE = path.join(__dirname, '..', 'reports');
 const IMAGES_BASE = path.join(__dirname, '..', 'docs', 'assets', 'images');

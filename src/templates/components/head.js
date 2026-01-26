@@ -303,9 +303,8 @@ function generateHead(options = {}) {
 	  <!-- 폰트 CSS: 다이나믹 서브셋 (페이지에 필요한 글자만 로드) -->
 	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"></noscript>
-	  <!-- 메인 CSS 비동기 로드 (Critical CSS 인라인 있으므로 안전) -->
-	  <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	  <noscript><link rel="stylesheet" href="/styles.css"></noscript>
+	  <!-- 메인 CSS -->
+	  <link rel="stylesheet" href="/styles.css">
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script>
 	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
