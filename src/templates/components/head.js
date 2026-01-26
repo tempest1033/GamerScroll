@@ -324,12 +324,14 @@ function generateHead(options = {}) {
 	      var host = window.location.hostname;
 	      if (host !== 'gamerscroll.com') return;
 
-	      (async function() {
-	        try {
-	          const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
-	            import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
-	            import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
-	          ]);
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
 	          const firebaseConfig = {
 	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
 	            authDomain: "gamerscroll-958b4.firebaseapp.com",
@@ -361,8 +363,15 @@ function generateHead(options = {}) {
 	          };
 
 	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
-	        } catch (e) {}
-	      })();
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
 	    })();
 	  </script>`;
 }

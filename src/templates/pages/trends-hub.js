@@ -16,27 +16,42 @@ const siteBaseUrl = 'https://gamerscroll.com';
 const docsDir = path.join(__dirname, '../../../docs');
 
 // 이슈/핫픽/인사이트 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
-// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
+// size: 'xs' = 모바일용 (200px), 'sm' = PC리스트용 (480px), 'lg' = 상세 페이지용 (1200px)
 function getLocalReportThumbnail(type, slug, originalUrl, size = 'sm') {
   if (!type || !slug) return originalUrl || '';
 
-  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const sizeMap = { xs: 'thumbnail-xs.webp', sm: 'thumbnail-sm.webp', lg: 'thumbnail.webp' };
+  const widthMap = { xs: 200, sm: 480, lg: 1200 };
+  const filename = sizeMap[size] || sizeMap.sm;
   const localPath = `/assets/images/${type}/${slug}/${filename}`;
   const fullPath = path.join(docsDir, 'assets/images', type, slug, filename);
 
   if (fs.existsSync(fullPath)) {
     return localPath;
   }
-  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
-  if (size === 'sm') {
+  // 폴백: 기존 thumbnail.webp 확인 (sm/xs가 없을 경우)
+  if (size === 'sm' || size === 'xs') {
     const fallbackPath = path.join(docsDir, 'assets/images', type, slug, 'thumbnail.webp');
     if (fs.existsSync(fallbackPath)) {
       return `/assets/images/${type}/${slug}/thumbnail.webp`;
     }
   }
   // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
-  const width = size === 'sm' ? 480 : 1200;
+  const width = widthMap[size] || 480;
   return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
+}
+
+// srcset 헬퍼 - 반응형 이미지용 (xs 200w, sm 480w)
+function getLocalReportThumbnailSrcset(type, slug, originalUrl) {
+  const xsUrl = getLocalReportThumbnail(type, slug, originalUrl, 'xs');
+  const smUrl = getLocalReportThumbnail(type, slug, originalUrl, 'sm');
+  // xs와 sm이 같으면 srcset 불필요
+  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
+  return {
+    src: smUrl,
+    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
+    sizes: '(max-width: 768px) 133px, 253px'
+  };
 }
 
 // 일간 뉴스 썸네일 로컬 경로 헬퍼 (날짜 + URL 해시 기반)
@@ -183,15 +198,21 @@ function generateTrendsHubPage({
 
     if (allLatest.length === 0) return '';
 
-    const latestCards = allLatest.map(item => `
+    const latestCards = allLatest.map(item => {
+      const thumbData = getLocalReportThumbnailSrcset(item.type, item.slug, item.thumbnail);
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
+      return `
       <a href="${item.link}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${item.thumbnail ? `<img src="${getLocalReportThumbnail(item.type, item.slug, item.thumbnail)}" alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${item.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : (item.type === 'issue' ? '이슈' : item.type === 'insight' ? '인사이트' : '핫픽')}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${item.title}</span></h3>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     return `
       <div class="home-card" id="magazine-latest">
@@ -855,10 +876,15 @@ function generateIssueListPage({
   function generateIssueGrid() {
     if (issueReports.length === 0) return '<p>리포트가 없습니다.</p>';
 
-    const issueCards = issueReports.map(issue => `
+    const issueCards = issueReports.map(issue => {
+      const thumbData = getLocalReportThumbnailSrcset('issue', issue.slug, issue.thumbnail);
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
+      return `
       <a href="/magazine/issue/${issue.slug}/" class="category-list-card">
         <div class="category-list-thumb">
-          ${issue.thumbnail ? `<img src="${getLocalReportThumbnail('issue', issue.slug, issue.thumbnail)}" alt="${escapeHtmlAttr(issue.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${issue.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(issue.title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="category-list-badge">${issue.date ? formatDateKr(issue.date) : '이슈'}</span>
         </div>
         <div class="category-list-info">
@@ -866,7 +892,8 @@ function generateIssueListPage({
           ${issue.summary ? `<p class="category-list-summary">${issue.summary}</p>` : ''}
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     return `
       <div class="home-card" id="issue-list">
@@ -1018,10 +1045,15 @@ function generateInsightListPage({
   function generateInsightGrid() {
     if (insightReports.length === 0) return '<p>인사이트 리포트가 없습니다.</p>';
 
-    const insightCards = insightReports.map(insight => `
+    const insightCards = insightReports.map(insight => {
+      const thumbData = getLocalReportThumbnailSrcset('insight', insight.slug, insight.thumbnail);
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
+      return `
       <a href="/magazine/insight/${insight.slug}/" class="category-list-card">
         <div class="category-list-thumb">
-          ${insight.thumbnail ? `<img src="${getLocalReportThumbnail('insight', insight.slug, insight.thumbnail)}" alt="${escapeHtmlAttr(insight.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${insight.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(insight.title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="category-list-badge">${insight.date ? formatDateKr(insight.date) : '인사이트'}</span>
         </div>
         <div class="category-list-info">
@@ -1029,7 +1061,8 @@ function generateInsightListPage({
           ${insight.summary ? `<p class="category-list-summary">${insight.summary}</p>` : ''}
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     return `
       <div class="home-card" id="insight-list">
@@ -1179,10 +1212,15 @@ function generateHotpickListPage({
   function generateHotpickGrid() {
     if (hotpickReports.length === 0) return '<p>핫픽 리포트가 없습니다.</p>';
 
-    const hotpickCards = hotpickReports.map(hotpick => `
+    const hotpickCards = hotpickReports.map(hotpick => {
+      const thumbData = getLocalReportThumbnailSrcset('hotpick', hotpick.slug, hotpick.thumbnail);
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
+      return `
       <a href="/magazine/hotpick/${hotpick.slug}/" class="category-list-card">
         <div class="category-list-thumb">
-          ${hotpick.thumbnail ? `<img src="${getLocalReportThumbnail('hotpick', hotpick.slug, hotpick.thumbnail)}" alt="${escapeHtmlAttr(hotpick.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${hotpick.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(hotpick.title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="category-list-badge">${hotpick.date ? formatDateKr(hotpick.date) : '핫픽'}</span>
         </div>
         <div class="category-list-info">
@@ -1190,7 +1228,8 @@ function generateHotpickListPage({
           ${hotpick.summary ? `<p class="category-list-summary">${hotpick.summary}</p>` : ''}
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     return `
       <div class="home-card" id="hotpick-list">

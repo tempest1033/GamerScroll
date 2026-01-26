@@ -48,27 +48,42 @@ function getLocalWikiThumbPath(category, slug, originalUrl, size = 'sm') {
 }
 
 // 이슈/핫픽/인사이트 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
-// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
+// size: 'xs' = 모바일용 (200px), 'sm' = PC리스트용 (480px), 'lg' = 상세 페이지용 (1200px)
 function getLocalReportThumbnail(type, slug, originalUrl, size = 'sm') {
   if (!type || !slug) return originalUrl || '';
 
-  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const sizeMap = { xs: 'thumbnail-xs.webp', sm: 'thumbnail-sm.webp', lg: 'thumbnail.webp' };
+  const widthMap = { xs: 200, sm: 480, lg: 1200 };
+  const filename = sizeMap[size] || sizeMap.sm;
   const localPath = `/assets/images/${type}/${slug}/${filename}`;
   const fullPath = path.join(docsDir, 'assets/images', type, slug, filename);
 
   if (fs.existsSync(fullPath)) {
     return localPath;
   }
-  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
-  if (size === 'sm') {
+  // 폴백: 기존 thumbnail.webp 확인 (sm/xs가 없을 경우)
+  if (size === 'sm' || size === 'xs') {
     const fallbackPath = path.join(docsDir, 'assets/images', type, slug, 'thumbnail.webp');
     if (fs.existsSync(fallbackPath)) {
       return `/assets/images/${type}/${slug}/thumbnail.webp`;
     }
   }
   // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
-  const width = size === 'sm' ? 480 : 1200;
+  const width = widthMap[size] || 480;
   return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
+}
+
+// srcset 헬퍼 - 반응형 이미지용 (xs 200w, sm 480w)
+function getLocalReportThumbnailSrcset(type, slug, originalUrl) {
+  const xsUrl = getLocalReportThumbnail(type, slug, originalUrl, 'xs');
+  const smUrl = getLocalReportThumbnail(type, slug, originalUrl, 'sm');
+  // xs와 sm이 같으면 srcset 불필요
+  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
+  return {
+    src: smUrl,
+    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
+    sizes: '(max-width: 768px) 133px, 253px'
+  };
 }
 
 // 데일리 뉴스 썸네일 로컬 경로 헬퍼 (날짜 + URL 해시 기반)
@@ -306,8 +321,9 @@ function generateIndexPage(data) {
       allArticles.push({
         type: 'issue',
         category: 'issue',
+        slug: issue.slug,
+        originalThumbnail: issue.thumbnail,
         title: issue.title,
-        thumbnail: getLocalReportThumbnail('issue', issue.slug, issue.thumbnail),
         link: `/magazine/issue/${issue.slug}/`,
         badge: '이슈',
         date: issue.date || ''
@@ -319,8 +335,9 @@ function generateIndexPage(data) {
       allArticles.push({
         type: 'insight',
         category: 'insight',
+        slug: insight.slug,
+        originalThumbnail: insight.thumbnail,
         title: insight.title,
-        thumbnail: getLocalReportThumbnail('insight', insight.slug, insight.thumbnail),
         link: `/magazine/insight/${insight.slug}/`,
         badge: '인사이트',
         date: insight.date || ''
@@ -332,8 +349,9 @@ function generateIndexPage(data) {
       allArticles.push({
         type: 'hotpick',
         category: 'hotpick',
+        slug: hotpick.slug,
+        originalThumbnail: hotpick.thumbnail,
         title: hotpick.title,
-        thumbnail: getLocalReportThumbnail('hotpick', hotpick.slug, hotpick.thumbnail),
         link: `/magazine/hotpick/${hotpick.slug}/`,
         badge: '핫픽',
         date: hotpick.date || ''
@@ -347,8 +365,9 @@ function generateIndexPage(data) {
         allArticles.push({
           type: 'wiki',
           category: category,
+          slug: wiki.slug,
+          originalThumbnail: wiki.thumbnail,
           title: wiki.title,
-          thumbnail: getLocalWikiThumbPath(category, wiki.slug, wiki.thumbnail),
           link: `/wiki/${category}/${wiki.slug}/`,
           badge: categoryNames[category],
           date: wiki.date || ''
@@ -362,15 +381,29 @@ function generateIndexPage(data) {
     if (allArticles.length === 0) return '';
 
     // 모든 카드 생성 (JS로 페이지네이션 + 카테고리 필터)
-    const latestCards = allArticles.map((item, i) => `
+    const latestCards = allArticles.map((item, i) => {
+      // 위키는 getLocalWikiThumbPath, 나머지는 getLocalReportThumbnailSrcset 사용
+      let imgHtml = '';
+      if (item.type === 'wiki') {
+        const thumbUrl = getLocalWikiThumbPath(item.category, item.slug, item.originalThumbnail);
+        imgHtml = thumbUrl ? `<img src="${thumbUrl}" alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : '';
+      } else if (item.originalThumbnail) {
+        const thumbData = getLocalReportThumbnailSrcset(item.type, item.slug, item.originalThumbnail);
+        const imgAttrs = thumbData.srcset
+          ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+          : `src="${thumbData.src}"`;
+        imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">`;
+      }
+      return `
       <a href="${item.link}" class="home-trend-card home-latest-item" data-index="${i}" data-category="${item.category}">
         <div class="home-trend-card-image">
-          ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${imgHtml}
           <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : item.badge}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${item.title}</span></h3>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     const totalPages = Math.ceil(allArticles.length / 15);
 

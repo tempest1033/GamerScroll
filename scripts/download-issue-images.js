@@ -64,7 +64,8 @@ function downloadToBuffer(url) {
 // 이미지 최적화 설정
 const IMAGE_CONFIG = {
   maxWidth: 1200,       // 최대 가로 1200px (상세 페이지용)
-  thumbWidth: 480,      // 썸네일 가로 480px (리스트용)
+  thumbWidth: 480,      // 썸네일 가로 480px (PC 리스트용)
+  xsWidth: 200,         // 모바일 썸네일 200px (모바일 리스트용)
   quality: 80,          // WebP 품질 80
 };
 
@@ -94,7 +95,7 @@ async function saveAsWebP(buffer, destPath) {
 }
 
 /**
- * 작은 썸네일용 WebP 변환 (리스트 카드용)
+ * 작은 썸네일용 WebP 변환 (PC 리스트 카드용)
  * - 480px로 리사이징
  */
 async function saveAsWebPSmall(buffer, destPath) {
@@ -107,6 +108,29 @@ async function saveAsWebPSmall(buffer, destPath) {
     await sharp(buffer)
       .resize({
         width: IMAGE_CONFIG.thumbWidth,
+        withoutEnlargement: true
+      })
+      .webp({ quality: IMAGE_CONFIG.quality })
+      .toFile(destPath);
+  } else {
+    fs.writeFileSync(destPath, buffer);
+  }
+}
+
+/**
+ * 모바일용 썸네일 WebP 변환
+ * - 200px로 리사이징
+ */
+async function saveAsWebPXSmall(buffer, destPath) {
+  const dir = path.dirname(destPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  if (sharp) {
+    await sharp(buffer)
+      .resize({
+        width: IMAGE_CONFIG.xsWidth,
         withoutEnlargement: true
       })
       .webp({ quality: IMAGE_CONFIG.quality })
@@ -155,12 +179,13 @@ async function processReport(jsonPath, reportType) {
   let skipped = 0;
   let errors = 0;
 
-  // 1. 썸네일 처리 (두 가지 크기: 원본용 + 리스트용)
+  // 1. 썸네일 처리 (세 가지 크기: 원본용 + PC리스트용 + 모바일용)
   // weekly는 ai.thumbnail 사용
   const thumbnailUrl = report.thumbnail || (report.ai && report.ai.thumbnail);
   if (thumbnailUrl && isExternalUrl(thumbnailUrl)) {
     const localPath = path.join(imageDir, `thumbnail${ext}`);
     const localPathSm = path.join(imageDir, `thumbnail-sm${ext}`);
+    const localPathXs = path.join(imageDir, `thumbnail-xs${ext}`);
 
     // 큰 썸네일 (상세 페이지용)
     if (fs.existsSync(localPath)) {
@@ -177,7 +202,7 @@ async function processReport(jsonPath, reportType) {
       }
     }
 
-    // 작은 썸네일 (리스트용)
+    // PC 리스트용 썸네일 (480px)
     if (fs.existsSync(localPathSm)) {
       skipped++;
     } else {
@@ -188,6 +213,21 @@ async function processReport(jsonPath, reportType) {
         downloaded++;
       } catch (err) {
         console.log(`  ❌ thumbnail-sm: ${err.message}`);
+        errors++;
+      }
+    }
+
+    // 모바일 리스트용 썸네일 (200px)
+    if (fs.existsSync(localPathXs)) {
+      skipped++;
+    } else {
+      try {
+        const buffer = await downloadToBuffer(thumbnailUrl);
+        await saveAsWebPXSmall(buffer, localPathXs);
+        console.log(`  ✅ thumbnail-xs${ext}`);
+        downloaded++;
+      } catch (err) {
+        console.log(`  ❌ thumbnail-xs: ${err.message}`);
         errors++;
       }
     }
