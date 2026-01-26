@@ -45,9 +45,11 @@ function fixUrl(url) {
 
 // 지역별 appId 조회 (지역별 우선, 기본 폴백)
 function getAppIdForRegion(gameAppIds, platform, region) {
-  const regionKey = `${platform}:${region}`;
-  const regionKeyAlt = `${platform}_${region}`;
-  return gameAppIds[regionKey] || gameAppIds[regionKeyAlt] || gameAppIds[platform];
+  // aos → android 매핑 (스냅샷은 aos, games.json은 android)
+  const normalizedPlatform = platform === 'aos' ? 'android' : platform;
+  const regionKey = `${normalizedPlatform}:${region}`;
+  const regionKeyAlt = `${normalizedPlatform}_${region}`;
+  return gameAppIds[regionKey] || gameAppIds[regionKeyAlt] || gameAppIds[normalizedPlatform];
 }
 
 // 이름 기반 매칭 (appId 폴백용)
