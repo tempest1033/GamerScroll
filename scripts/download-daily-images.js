@@ -140,6 +140,60 @@ async function processDaily(jsonPath) {
     }
   }
 
+  // AI 인사이트 썸네일 처리 (일간)
+  if (data.ai && data.ai.thumbnail) {
+    let thumb = data.ai.thumbnail;
+    if (thumb.startsWith('//')) thumb = 'https:' + thumb;
+    if (isExternalUrl(thumb)) {
+      const filename = urlToFilename(thumb);
+      const localPath = path.join(imageDir, filename);
+
+      if (fs.existsSync(localPath)) {
+        skipped++;
+      } else {
+        try {
+          const buffer = await downloadToBuffer(thumb);
+          await saveAsWebP(buffer, localPath);
+          downloaded++;
+          console.log(`    ✅ AI 썸네일: ${filename}`);
+        } catch (err) {
+          console.log(`    ❌ AI 썸네일 실패`);
+          errors++;
+        }
+      }
+    }
+  }
+
+  // AI 인사이트의 issues, metrics, industryIssues 등 썸네일 처리
+  const aiSections = ['issues', 'metrics', 'industryIssues', 'global', 'rankings'];
+  for (const section of aiSections) {
+    const items = data.ai?.[section] || [];
+    if (Array.isArray(items)) {
+      for (const item of items) {
+        let thumb = item.thumbnail;
+        if (thumb) {
+          if (thumb.startsWith('//')) thumb = 'https:' + thumb;
+          if (isExternalUrl(thumb)) {
+            const filename = urlToFilename(thumb);
+            const localPath = path.join(imageDir, filename);
+
+            if (fs.existsSync(localPath)) {
+              skipped++;
+            } else {
+              try {
+                const buffer = await downloadToBuffer(thumb);
+                await saveAsWebP(buffer, localPath);
+                downloaded++;
+              } catch (err) {
+                errors++;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   return { downloaded, skipped, errors };
 }
 

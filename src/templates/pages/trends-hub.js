@@ -5,10 +5,83 @@
  * - 사이드바: 매거진/위키 메뉴 + 인기/최신글
  */
 
+const fs = require('fs');
+const path = require('path');
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateVerticalAdSlot } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
+
+// docs 폴더 경로 (이미지 로컬 확인용)
+const docsDir = path.join(__dirname, '../../../docs');
+
+// 이슈/핫픽/인사이트 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
+// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
+function getLocalReportThumbnail(type, slug, originalUrl, size = 'sm') {
+  if (!type || !slug) return originalUrl || '';
+
+  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const localPath = `/assets/images/${type}/${slug}/${filename}`;
+  const fullPath = path.join(docsDir, 'assets/images', type, slug, filename);
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
+  if (size === 'sm') {
+    const fallbackPath = path.join(docsDir, 'assets/images', type, slug, 'thumbnail.webp');
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/${type}/${slug}/thumbnail.webp`;
+    }
+  }
+  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
+  const width = size === 'sm' ? 480 : 1200;
+  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
+}
+
+// 일간 뉴스 썸네일 로컬 경로 헬퍼 (날짜 + URL 해시 기반)
+function getLocalDailyThumbnail(date, originalUrl) {
+  if (!originalUrl) return '';
+  let url = originalUrl;
+  if (url.startsWith('//')) url = 'https:' + url;
+
+  if (!date || !url.startsWith('http')) {
+    return url.startsWith('http') ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp` : url;
+  }
+
+  const crypto = require('crypto');
+  const hash = crypto.createHash('md5').update(url).digest('hex').substring(0, 8);
+  const localPath = `/assets/images/daily/${date}/${hash}.webp`;
+  const fullPath = path.join(docsDir, 'assets/images/daily', date, `${hash}.webp`);
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp`;
+}
+
+// 주간 리포트 썸네일 로컬 경로 헬퍼 (2026-W04 형식)
+// size: 'sm' = 리스트용 (480px), 'lg' = 상세용 (1200px)
+function getLocalWeeklyThumbnail(weekSlug, originalUrl, size = 'sm') {
+  if (!originalUrl || !weekSlug) return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=480&output=webp` : '';
+
+  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const localPath = `/assets/images/weekly/${weekSlug}/${filename}`;
+  const fullPath = path.join(docsDir, 'assets/images/weekly', weekSlug, filename);
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  // 폴백: 기존 thumbnail.webp 확인
+  if (size === 'sm') {
+    const fallbackPath = path.join(docsDir, 'assets/images/weekly', weekSlug, 'thumbnail.webp');
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/weekly/${weekSlug}/thumbnail.webp`;
+    }
+  }
+  const width = size === 'sm' ? 480 : 1200;
+  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
+}
 
 // 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
@@ -66,7 +139,7 @@ function generateTrendsHubPage({
     const dailyCard = dailyReport ? `
       <a href="/magazine/daily/${dailyReport.date}/" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${dailyReport.thumbnail ? `<img src="${fixUrl(dailyReport.thumbnail)}" alt="${escapeHtmlAttr(dailyReport.headline)}" loading="eager">` : ''}
+          ${dailyReport.thumbnail ? `<img src="${getLocalDailyThumbnail(dailyReport.date, dailyReport.thumbnail)}" alt="${escapeHtmlAttr(dailyReport.headline)}" loading="eager">` : ''}
           <span class="home-trend-card-tag">${formatDateKr(dailyReport.date)} 일간</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${dailyReport.headline || '일간'}</span></h3>
@@ -80,7 +153,7 @@ function generateTrendsHubPage({
     const weeklyCard = weeklyReport ? `
       <a href="/magazine/weekly/${weeklySlug}/" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${weeklyReport.thumbnail ? `<img src="${fixUrl(weeklyReport.thumbnail)}" alt="${escapeHtmlAttr(weeklyReport.headline)}" loading="eager">` : ''}
+          ${weeklyReport.thumbnail ? `<img src="${getLocalWeeklyThumbnail(weeklySlug, weeklyReport.thumbnail)}" alt="${escapeHtmlAttr(weeklyReport.headline)}" loading="eager">` : ''}
           <span class="home-trend-card-tag weekly">${weeklyBadge}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${weeklyReport.headline || '주간'}</span></h3>
@@ -113,7 +186,7 @@ function generateTrendsHubPage({
     const latestCards = allLatest.map(item => `
       <a href="${item.link}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${item.thumbnail ? `<img src="${fixUrl(item.thumbnail)}" alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${item.thumbnail ? `<img src="${getLocalReportThumbnail(item.type, item.slug, item.thumbnail)}" alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : (item.type === 'issue' ? '이슈' : item.type === 'insight' ? '인사이트' : '핫픽')}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${item.title}</span></h3>
@@ -428,7 +501,7 @@ function generateDailyListPage({
     const dailyCards = dailyReports.map(report => `
       <a href="/magazine/daily/${report.date}/" class="category-list-card">
         <div class="category-list-thumb">
-          ${report.thumbnail ? `<img src="${fixUrl(report.thumbnail)}" alt="${escapeHtmlAttr(report.headline)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${report.thumbnail ? `<img src="${getLocalDailyThumbnail(report.date, report.thumbnail)}" alt="${escapeHtmlAttr(report.headline)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="category-list-badge">${formatDateKr(report.date)}</span>
         </div>
         <div class="category-list-info">
@@ -621,7 +694,7 @@ function generateWeeklyListPage({
       return `
         <a href="/magazine/weekly/${slug}/" class="category-list-card">
           <div class="category-list-thumb">
-            ${report.thumbnail ? `<img src="${fixUrl(report.thumbnail)}" alt="${escapeHtmlAttr(report.headline)}" loading="lazy" data-img-fallback="hide">` : ''}
+            ${report.thumbnail ? `<img src="${getLocalWeeklyThumbnail(slug, report.thumbnail)}" alt="${escapeHtmlAttr(report.headline)}" loading="lazy" data-img-fallback="hide">` : ''}
             <span class="category-list-badge">${badge}</span>
           </div>
           <div class="category-list-info">
@@ -785,7 +858,7 @@ function generateIssueListPage({
     const issueCards = issueReports.map(issue => `
       <a href="/magazine/issue/${issue.slug}/" class="category-list-card">
         <div class="category-list-thumb">
-          ${issue.thumbnail ? `<img src="${fixUrl(issue.thumbnail)}" alt="${escapeHtmlAttr(issue.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${issue.thumbnail ? `<img src="${getLocalReportThumbnail('issue', issue.slug, issue.thumbnail)}" alt="${escapeHtmlAttr(issue.title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="category-list-badge">${issue.date ? formatDateKr(issue.date) : '이슈'}</span>
         </div>
         <div class="category-list-info">
@@ -948,7 +1021,7 @@ function generateInsightListPage({
     const insightCards = insightReports.map(insight => `
       <a href="/magazine/insight/${insight.slug}/" class="category-list-card">
         <div class="category-list-thumb">
-          ${insight.thumbnail ? `<img src="${fixUrl(insight.thumbnail)}" alt="${escapeHtmlAttr(insight.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${insight.thumbnail ? `<img src="${getLocalReportThumbnail('insight', insight.slug, insight.thumbnail)}" alt="${escapeHtmlAttr(insight.title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="category-list-badge">${insight.date ? formatDateKr(insight.date) : '인사이트'}</span>
         </div>
         <div class="category-list-info">
@@ -1109,7 +1182,7 @@ function generateHotpickListPage({
     const hotpickCards = hotpickReports.map(hotpick => `
       <a href="/magazine/hotpick/${hotpick.slug}/" class="category-list-card">
         <div class="category-list-thumb">
-          ${hotpick.thumbnail ? `<img src="${fixUrl(hotpick.thumbnail)}" alt="${escapeHtmlAttr(hotpick.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${hotpick.thumbnail ? `<img src="${getLocalReportThumbnail('hotpick', hotpick.slug, hotpick.thumbnail)}" alt="${escapeHtmlAttr(hotpick.title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="category-list-badge">${hotpick.date ? formatDateKr(hotpick.date) : '핫픽'}</span>
         </div>
         <div class="category-list-info">

@@ -24,17 +24,90 @@ const siteBaseUrl = 'https://gamerscroll.com';
 const docsDir = path.join(__dirname, '../../../docs');
 
 // 위키 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
-function getLocalWikiThumbPath(category, slug, originalUrl) {
+// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
+function getLocalWikiThumbPath(category, slug, originalUrl, size = 'sm') {
   if (!category || !slug) return originalUrl || '';
 
-  const localPath = `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
-  const fullPath = path.join(docsDir, 'assets/images/wiki', category, slug, 'thumbnail.webp');
+  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const localPath = `/assets/images/wiki/${category}/${slug}/${filename}`;
+  const fullPath = path.join(docsDir, 'assets/images/wiki', category, slug, filename);
 
   if (fs.existsSync(fullPath)) {
     return localPath;
   }
+  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
+  if (size === 'sm') {
+    const fallbackPath = path.join(docsDir, 'assets/images/wiki', category, slug, 'thumbnail.webp');
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
+    }
+  }
   // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
-  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}` : '';
+  const width = size === 'sm' ? 480 : 1200;
+  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
+}
+
+// 이슈/핫픽/인사이트 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
+// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
+function getLocalReportThumbnail(type, slug, originalUrl, size = 'sm') {
+  if (!type || !slug) return originalUrl || '';
+
+  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const localPath = `/assets/images/${type}/${slug}/${filename}`;
+  const fullPath = path.join(docsDir, 'assets/images', type, slug, filename);
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
+  if (size === 'sm') {
+    const fallbackPath = path.join(docsDir, 'assets/images', type, slug, 'thumbnail.webp');
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/${type}/${slug}/thumbnail.webp`;
+    }
+  }
+  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
+  const width = size === 'sm' ? 480 : 1200;
+  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
+}
+
+// 데일리 뉴스 썸네일 로컬 경로 헬퍼 (날짜 + URL 해시 기반)
+function getLocalDailyThumbnail(date, originalUrl) {
+  if (!originalUrl) return '';
+  let url = originalUrl;
+  if (url.startsWith('//')) url = 'https:' + url;
+
+  if (!date || !url.startsWith('http')) {
+    return url.startsWith('http') ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp` : url;
+  }
+
+  const crypto = require('crypto');
+  const hash = crypto.createHash('md5').update(url).digest('hex').substring(0, 8);
+  const localPath = `/assets/images/daily/${date}/${hash}.webp`;
+  const fullPath = path.join(docsDir, 'assets/images/daily', date, `${hash}.webp`);
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp`;
+}
+
+// 주간 리포트 썸네일 로컬 경로 헬퍼 (2026-W04 형식)
+function getLocalWeeklyThumbnail(weekSlug, originalUrl) {
+  if (!originalUrl || !weekSlug) return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=480&output=webp` : '';
+
+  const localPath = `/assets/images/weekly/${weekSlug}/thumbnail-sm.webp`;
+  const fullPath = path.join(docsDir, 'assets/images/weekly', weekSlug, 'thumbnail-sm.webp');
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  // 폴백: 기존 thumbnail.webp 확인
+  const fallbackPath = path.join(docsDir, 'assets/images/weekly', weekSlug, 'thumbnail.webp');
+  if (fs.existsSync(fallbackPath)) {
+    return `/assets/images/weekly/${weekSlug}/thumbnail.webp`;
+  }
+  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=480&output=webp`;
 }
 
 function generateIndexPage(data) {
@@ -63,8 +136,14 @@ function generateIndexPage(data) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
-  const dailyInsightThumbnail = fixUrl(aiInsight?.thumbnail) || '';
-  const weeklyInsightThumbnail = fixUrl(weeklyInsight?.ai?.thumbnail) || '';
+  // 주간 slug 생성 (2026-W04 형식)
+  const wInfo = weeklyInsight?.weekInfo || {};
+  const weekNum = wInfo.weekNumber || weeklyInsight?.ai?.weekNumber;
+  const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
+  const weeklySlugForThumb = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
+
+  const dailyInsightThumbnail = getLocalDailyThumbnail(insightFileDate, aiInsight?.thumbnail) || '';
+  const weeklyInsightThumbnail = getLocalWeeklyThumbnail(weeklySlugForThumb, weeklyInsight?.ai?.thumbnail) || '';
 
   // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
   const formatDateKr = (dateStr) => {
@@ -145,7 +224,7 @@ function generateIndexPage(data) {
             type: 'issue',
             title: issue.title,
             summary: issue.summary || '',
-            thumbnail: fixUrl(issue.thumbnail) || '',
+            thumbnail: getLocalReportThumbnail('issue', issue.slug, issue.thumbnail),
             link: `/magazine/issue/${issue.slug}/`,
             badge: issue.date ? formatDateKr(issue.date) : '이슈'
           };
@@ -157,7 +236,7 @@ function generateIndexPage(data) {
             type: 'insight',
             title: insight.title,
             summary: insight.summary || '',
-            thumbnail: fixUrl(insight.thumbnail) || '',
+            thumbnail: getLocalReportThumbnail('insight', insight.slug, insight.thumbnail),
             link: `/magazine/insight/${insight.slug}/`,
             badge: insight.date ? formatDateKr(insight.date) : '인사이트'
           };
@@ -169,7 +248,7 @@ function generateIndexPage(data) {
             type: 'hotpick',
             title: hotpick.title,
             summary: hotpick.summary || '',
-            thumbnail: fixUrl(hotpick.thumbnail) || '',
+            thumbnail: getLocalReportThumbnail('hotpick', hotpick.slug, hotpick.thumbnail),
             link: `/magazine/hotpick/${hotpick.slug}/`,
             badge: hotpick.date ? formatDateKr(hotpick.date) : '핫픽'
           };
@@ -228,7 +307,7 @@ function generateIndexPage(data) {
         type: 'issue',
         category: 'issue',
         title: issue.title,
-        thumbnail: fixUrl(issue.thumbnail) || '',
+        thumbnail: getLocalReportThumbnail('issue', issue.slug, issue.thumbnail),
         link: `/magazine/issue/${issue.slug}/`,
         badge: '이슈',
         date: issue.date || ''
@@ -241,7 +320,7 @@ function generateIndexPage(data) {
         type: 'insight',
         category: 'insight',
         title: insight.title,
-        thumbnail: fixUrl(insight.thumbnail) || '',
+        thumbnail: getLocalReportThumbnail('insight', insight.slug, insight.thumbnail),
         link: `/magazine/insight/${insight.slug}/`,
         badge: '인사이트',
         date: insight.date || ''
@@ -254,7 +333,7 @@ function generateIndexPage(data) {
         type: 'hotpick',
         category: 'hotpick',
         title: hotpick.title,
-        thumbnail: fixUrl(hotpick.thumbnail) || '',
+        thumbnail: getLocalReportThumbnail('hotpick', hotpick.slug, hotpick.thumbnail),
         link: `/magazine/hotpick/${hotpick.slug}/`,
         badge: '핫픽',
         date: hotpick.date || ''

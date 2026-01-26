@@ -92,13 +92,23 @@ const docsDir = path.join(__dirname, '../../../docs');
  * @param {string} originalUrl - 원본 외부 URL
  * @param {string} imageType - 'thumbnail' 또는 인덱스 번호
  */
+// imageType: 'thumbnail' | 'thumbnail-sm' | index number
+// 상세 페이지는 기본 lg (1200px), 리스트용은 sm (480px)
 function getLocalWikiImagePath(category, slug, originalUrl, imageType) {
   if (!originalUrl || !originalUrl.startsWith('http')) return originalUrl;
 
   const ext = '.webp';
   let localPath;
-  if (imageType === 'thumbnail') {
+  let width = 960;  // 본문 이미지 기본 크기
+
+  if (imageType === 'thumbnail' || imageType === 'thumbnail-lg') {
+    // 상세 페이지 hero 이미지 (큰 버전)
     localPath = `/assets/images/wiki/${category}/${slug}/thumbnail${ext}`;
+    width = 1200;
+  } else if (imageType === 'thumbnail-sm') {
+    // 리스트용 작은 썸네일
+    localPath = `/assets/images/wiki/${category}/${slug}/thumbnail-sm${ext}`;
+    width = 480;
   } else {
     // content 이미지는 01, 02, 03... 형식
     const idx = String(imageType).padStart(2, '0');
@@ -110,8 +120,17 @@ function getLocalWikiImagePath(category, slug, originalUrl, imageType) {
   if (fs.existsSync(fullPath)) {
     return localPath;
   }
-  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회 (본문 이미지는 960px)
-  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=960&output=webp`;
+
+  // thumbnail-sm 폴백: 기존 thumbnail.webp 확인
+  if (imageType === 'thumbnail-sm') {
+    const fallbackPath = path.join(docsDir, `/assets/images/wiki/${category}/${slug}/thumbnail${ext}`);
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/wiki/${category}/${slug}/thumbnail${ext}`;
+    }
+  }
+
+  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
+  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
 }
 
 const renderContentBlocks = (content = [], category = '', slug = '') => {

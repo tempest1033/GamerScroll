@@ -10,8 +10,123 @@ const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMi
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
 
+// docs 폴더 경로 (이미지 로컬 확인용)
+const docsDir = path.join(__dirname, '../../../docs');
+
 // 광고 활성화 여부
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
+
+// 이슈/핫픽/인사이트 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
+// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
+function getLocalReportThumbnail(type, slug, originalUrl, size = 'lg') {
+  if (!type || !slug) return originalUrl || '';
+
+  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const localPath = `/assets/images/${type}/${slug}/${filename}`;
+  const fullPath = path.join(docsDir, 'assets/images', type, slug, filename);
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
+  if (size === 'sm') {
+    const fallbackPath = path.join(docsDir, 'assets/images', type, slug, 'thumbnail.webp');
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/${type}/${slug}/thumbnail.webp`;
+    }
+  }
+  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
+  const width = size === 'sm' ? 480 : 1200;
+  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
+}
+
+// 일간 뉴스 썸네일 로컬 경로 헬퍼 (MD5 해시 기반 + 모든 날짜 검색)
+function getLocalDailyThumbnail(date, originalUrl) {
+  if (!originalUrl) return '';
+  let url = originalUrl;
+  if (url.startsWith('//')) url = 'https:' + url;
+
+  if (!url.startsWith('http')) {
+    return url;
+  }
+
+  const crypto = require('crypto');
+  const hash = crypto.createHash('md5').update(url).digest('hex').substring(0, 8);
+
+  // 1. 우선 해당 날짜에서 검색
+  if (date) {
+    const fullPath = path.join(docsDir, 'assets/images/daily', date, `${hash}.webp`);
+    if (fs.existsSync(fullPath)) {
+      return `/assets/images/daily/${date}/${hash}.webp`;
+    }
+  }
+
+  // 2. 해당 날짜에 없으면 모든 daily 폴더에서 검색 (최근 날짜 우선)
+  const dailyDir = path.join(docsDir, 'assets/images/daily');
+  if (fs.existsSync(dailyDir)) {
+    const dateDirs = fs.readdirSync(dailyDir)
+      .filter(d => d.match(/^\d{4}-\d{2}-\d{2}$/))
+      .sort((a, b) => b.localeCompare(a)); // 최근 날짜 우선
+    for (const d of dateDirs) {
+      const fullPath = path.join(dailyDir, d, `${hash}.webp`);
+      if (fs.existsSync(fullPath)) {
+        return `/assets/images/daily/${d}/${hash}.webp`;
+      }
+    }
+  }
+
+  // 로컬 없으면 프록시
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp`;
+}
+
+// 주간 뉴스 썸네일 로컬 경로 헬퍼 (여러 날짜 + weekly 폴더에서 검색)
+function getLocalDailyThumbnailFromWeek(dates, originalUrl, weeklySlug = '') {
+  if (!originalUrl) return '';
+  let url = originalUrl;
+  if (url.startsWith('//')) url = 'https:' + url;
+
+  if (!url.startsWith('http')) {
+    return url;
+  }
+
+  const crypto = require('crypto');
+  const hash = crypto.createHash('md5').update(url).digest('hex').substring(0, 8);
+
+  // 1. weekly 폴더에서 먼저 검색 (주간 리포트용 이미지)
+  if (weeklySlug) {
+    const weeklyPath = path.join(docsDir, 'assets/images/weekly', weeklySlug, `${hash}.webp`);
+    if (fs.existsSync(weeklyPath)) {
+      return `/assets/images/weekly/${weeklySlug}/${hash}.webp`;
+    }
+  }
+
+  // 2. daily 폴더에서 검색
+  if (dates && dates.length) {
+    for (const date of dates) {
+      const fullPath = path.join(docsDir, 'assets/images/daily', date, `${hash}.webp`);
+      if (fs.existsSync(fullPath)) {
+        return `/assets/images/daily/${date}/${hash}.webp`;
+      }
+    }
+  }
+
+  // 3. 모든 daily 폴더에서 검색 (최근 날짜 우선)
+  const dailyDir = path.join(docsDir, 'assets/images/daily');
+  if (fs.existsSync(dailyDir)) {
+    const dateDirs = fs.readdirSync(dailyDir)
+      .filter(d => d.match(/^\d{4}-\d{2}-\d{2}$/))
+      .sort((a, b) => b.localeCompare(a));
+    for (const d of dateDirs) {
+      const fullPath = path.join(dailyDir, d, `${hash}.webp`);
+      if (fs.existsSync(fullPath)) {
+        return `/assets/images/daily/${d}/${hash}.webp`;
+      }
+    }
+  }
+
+  // 로컬 없으면 프록시
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp`;
+}
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -272,10 +387,14 @@ function generateWeeklyPanel(weeklyInsight) {
 
   const wai = weeklyInsight.ai;
   const wInfo = weeklyInsight.weekInfo || {};
+  const weekDates = wInfo.dates || []; // 주간 날짜 배열 (이미지 검색용)
   const weekPeriod = wInfo.startDate && wInfo.endDate
     ? `${formatDateKorean(wInfo.startDate)} ~ ${formatDateKorean(wInfo.endDate)}`
     : (wai.date ? formatDateKorean(wai.date) : '');
   const weekNum = wInfo.weekNumber || wai.weekNumber || '';
+  // 주간 slug 생성 (예: 2026-W04)
+  const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
+  const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
 
   const { issues = [], industryIssues = [], metrics = [], rankings = [], community = [], streaming = [], stocks = {}, summary, mvp, releases = [], global = [] } = wai;
 
@@ -337,7 +456,7 @@ function generateWeeklyPanel(weeklyInsight) {
       </div>
       <div class="weekly-hot-issues weekly-hot-grid">
         ${issues.slice(0, 4).map(issue => {
-          const thumbnail = issue.thumbnail ? fixUrl(issue.thumbnail) : null;
+          const thumbnail = issue.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, issue.thumbnail, weeklySlug) : null;
           const thumbnailHtml = thumbnail
             ? `<div class="weekly-hot-thumb"><img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : '';
@@ -405,7 +524,7 @@ function generateWeeklyPanel(weeklyInsight) {
       </div>
       <div class="industry-grid">
         ${industryIssues.map(item => {
-          const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
+          const thumbUrl = item.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, item.thumbnail, weeklySlug) : null;
           const thumbHtml = thumbUrl
             ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : `<div class="industry-thumb thumb-fallback"></div>`;
@@ -433,7 +552,7 @@ function generateWeeklyPanel(weeklyInsight) {
       </div>
       <div class="weekly-metrics-grid">
         ${metrics.map((m, idx) => {
-          const thumbUrl = m.thumbnail ? fixUrl(m.thumbnail) : null;
+          const thumbUrl = m.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, m.thumbnail, weeklySlug) : null;
           const gameIcon = findGameIcon(m.title);
           const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
           const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
@@ -587,7 +706,7 @@ function generateWeeklyPanel(weeklyInsight) {
       </div>
       <div class="weekly-mvp-card ${mvp.thumbnail ? 'has-thumb' : ''}">
         ${(() => {
-          const thumbUrl = mvp.thumbnail ? fixUrl(mvp.thumbnail) : null;
+          const thumbUrl = mvp.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, mvp.thumbnail, weeklySlug) : null;
           const gameIcon = findGameIcon(mvp.name);
           const imageUrl = thumbUrl || gameIcon;
           return imageUrl
@@ -615,7 +734,7 @@ function generateWeeklyPanel(weeklyInsight) {
       </div>
       <div class="global-grid">
         ${global.map(g => {
-          const thumbUrl = g.thumbnail ? fixUrl(g.thumbnail) : null;
+          const thumbUrl = g.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, g.thumbnail, weeklySlug) : null;
           const thumbHtml = thumbUrl
             ? `<div class="global-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : `<div class="global-thumb thumb-fallback"></div>`;
@@ -634,7 +753,7 @@ function generateWeeklyPanel(weeklyInsight) {
 
   // 헤드라인 이미지
   const heroThumb = wai.thumbnail || null;
-  const heroThumbUrl = heroThumb ? fixUrl(heroThumb) : null;
+  const heroThumbUrl = heroThumb ? getLocalDailyThumbnailFromWeek(weekDates, heroThumb, weeklySlug) : null;
 
   // 통합 반응형 빌드: PC 레이아웃 사용 (CSS로 모바일 반응형 처리)
   const weeklyBody = `
@@ -675,6 +794,7 @@ function generateWeeklyPanel(weeklyInsight) {
 function generateTrendPage(data) {
   const { insight, rankings, steam, weeklyInsight, historyNews = [] } = data;
   const aiInsight = insight?.ai || null;
+  const insightDate = insight?.date || aiInsight?.date || ''; // 일간 인사이트 날짜 (이미지 로컬 검색용)
 
   if (!aiInsight) {
     const content = `
@@ -698,7 +818,7 @@ function generateTrendPage(data) {
     // thumbnail 없으면 게임 아이콘 찾기
     const thumbnail = item.thumbnail || null;
     const gameIcon = !thumbnail ? findGameIcon(item.title) : null;
-    const imageUrl = thumbnail ? fixUrl(thumbnail) : gameIcon;
+    const imageUrl = thumbnail ? getLocalDailyThumbnail(insightDate, thumbnail) : gameIcon;
     const imageHtml = imageUrl
       ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
       : '';
@@ -715,7 +835,7 @@ function generateTrendPage(data) {
 
   // 지표 아이템 렌더링 (썸네일 우선, 없으면 게임 아이콘)
   const renderMetricItem = (item) => {
-    const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
+    const thumbUrl = item.thumbnail ? getLocalDailyThumbnail(insightDate, item.thumbnail) : null;
     const gameIcon = findGameIcon(item.title);
     const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
     const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
@@ -808,7 +928,7 @@ function generateTrendPage(data) {
           ${limitedItems.map(item => {
             const thumbnail = typeof findThumbnail === 'function' ? findThumbnail(item) : item.thumbnail;
             const thumbnailHtml = thumbnail
-              ? `<div class="weekly-hot-thumb"><img src="${fixUrl(thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+              ? `<div class="weekly-hot-thumb"><img src="${getLocalDailyThumbnail(insightDate, thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
               : '';
             return `
             <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
@@ -896,7 +1016,7 @@ function generateTrendPage(data) {
 
     const cards = items.map(item => {
       const thumb = item.thumbnail || findThumb(item.title);
-      const thumbUrl = thumb ? fixUrl(thumb) : null;
+      const thumbUrl = thumb ? getLocalDailyThumbnail(insightDate, thumb) : null;
       const thumbHtml = thumbUrl
         ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
         : `<div class="industry-thumb thumb-fallback"></div>`;
@@ -1164,7 +1284,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     // thumbnail 우선, 없으면 historyNews에서 찾기, 그래도 없으면 게임 아이콘
     const thumbnail = findThumbnail(item);
     const gameIcon = !thumbnail ? findGameIcon(item.title) : null;
-    const imageUrl = thumbnail ? fixUrl(thumbnail) : gameIcon;
+    const imageUrl = thumbnail ? getLocalDailyThumbnail(slug, thumbnail) : gameIcon;
     const imageHtml = imageUrl
       ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
       : '';
@@ -1225,7 +1345,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
 
   // 지표 아이템 렌더링 (썸네일 우선, 없으면 게임 아이콘)
   const renderMetricItem = (item) => {
-    const thumbUrl = item.thumbnail ? fixUrl(item.thumbnail) : null;
+    const thumbUrl = item.thumbnail ? getLocalDailyThumbnail(slug, item.thumbnail) : null;
     const gameIcon = findGameIcon(item.title);
     const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
     const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
@@ -1274,7 +1394,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
           ${limitedItems.map(item => {
             const thumbnail = typeof findThumbnail === 'function' ? findThumbnail(item) : item.thumbnail;
             const thumbnailHtml = thumbnail
-              ? `<div class="weekly-hot-thumb"><img src="${fixUrl(thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+              ? `<div class="weekly-hot-thumb"><img src="${getLocalDailyThumbnail(slug, thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
               : '';
             return `
             <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
@@ -1362,7 +1482,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
 
     const cards = items.map(item => {
       const thumb = item.thumbnail || findThumb(item.title);
-      const thumbUrl = thumb ? fixUrl(thumb) : null;
+      const thumbUrl = thumb ? getLocalDailyThumbnail(slug, thumb) : null;
       const thumbHtml = thumbUrl
         ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
         : `<div class="industry-thumb thumb-fallback"></div>`;
@@ -1519,7 +1639,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
         ${(() => {
           // 헤드라인 이미지
           const heroThumb = aiInsight.thumbnail || null;
-          const heroThumbUrl = heroThumb ? fixUrl(heroThumb) : null;
+          const heroThumbUrl = heroThumb ? getLocalDailyThumbnail(slug, heroThumb) : null;
           return `
         <div class="weekly-header-card ${heroThumbUrl ? 'has-hero-image' : ''}">
           ${heroThumbUrl ? `<div class="weekly-header-image"><img src="${heroThumbUrl}" alt="" loading="eager" data-img-fallback="thumb-fallback"></div>` : ''}
@@ -1637,7 +1757,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     ? `${formatDateKorean(wInfo.startDate)} ~ ${formatDateKorean(wInfo.endDate)}`
     : (wai.date ? formatDateKorean(wai.date) : '');
   const weekNum = wInfo.weekNumber || wai.weekNumber || '';
-  const heroThumbUrl = wai.thumbnail ? fixUrl(wai.thumbnail) : '';
+  const heroThumbUrl = wai.thumbnail ? getLocalReportThumbnail('weekly', slug, wai.thumbnail, 'lg') : '';
   const summaryTitle = typeof wai.summary === 'object' ? wai.summary.title : (wai.headline || wai.summary);
   const descriptionText = summaryTitle || '주간 게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
 

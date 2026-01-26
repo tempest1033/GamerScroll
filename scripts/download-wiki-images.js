@@ -60,7 +60,8 @@ function downloadToBuffer(url) {
 
 // 이미지 최적화 설정
 const IMAGE_CONFIG = {
-  maxWidth: 1200,       // 최대 가로 1200px
+  maxWidth: 1200,       // 최대 가로 1200px (상세 페이지용)
+  thumbWidth: 480,      // 썸네일 가로 480px (리스트용)
   quality: 80,          // WebP 품질 80
 };
 
@@ -85,6 +86,29 @@ async function saveAsWebP(buffer, destPath) {
       .toFile(destPath);
   } else {
     // sharp 없으면 원본 그대로 저장
+    fs.writeFileSync(destPath, buffer);
+  }
+}
+
+/**
+ * 작은 썸네일용 WebP 변환 (리스트 카드용)
+ * - 480px로 리사이징
+ */
+async function saveAsWebPSmall(buffer, destPath) {
+  const dir = path.dirname(destPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  if (sharp) {
+    await sharp(buffer)
+      .resize({
+        width: IMAGE_CONFIG.thumbWidth,
+        withoutEnlargement: true
+      })
+      .webp({ quality: IMAGE_CONFIG.quality })
+      .toFile(destPath);
+  } else {
     fs.writeFileSync(destPath, buffer);
   }
 }
@@ -122,20 +146,37 @@ async function processWikiArticle(jsonPath, category) {
   let skipped = 0;
   let errors = 0;
 
-  // 1. 썸네일 처리
+  // 1. 썸네일 처리 (두 가지 크기: 원본용 + 리스트용)
   if (article.thumbnail && isExternalUrl(article.thumbnail)) {
     const localPath = path.join(imageDir, `thumbnail${ext}`);
+    const localPathSm = path.join(imageDir, `thumbnail-sm${ext}`);
 
+    // 큰 썸네일 (상세 페이지용)
     if (fs.existsSync(localPath)) {
       skipped++;
     } else {
       try {
         const buffer = await downloadToBuffer(article.thumbnail);
         await saveAsWebP(buffer, localPath);
-        console.log(`  ✅ thumbnail${ext}`);
+        console.log(`    ✅ thumbnail${ext}`);
         downloaded++;
       } catch (err) {
-        console.log(`  ❌ thumbnail: ${err.message}`);
+        console.log(`    ❌ thumbnail: ${err.message}`);
+        errors++;
+      }
+    }
+
+    // 작은 썸네일 (리스트용)
+    if (fs.existsSync(localPathSm)) {
+      skipped++;
+    } else {
+      try {
+        const buffer = await downloadToBuffer(article.thumbnail);
+        await saveAsWebPSmall(buffer, localPathSm);
+        console.log(`    ✅ thumbnail-sm${ext}`);
+        downloaded++;
+      } catch (err) {
+        console.log(`    ❌ thumbnail-sm: ${err.message}`);
         errors++;
       }
     }

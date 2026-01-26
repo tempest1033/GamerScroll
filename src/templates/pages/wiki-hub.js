@@ -28,12 +28,26 @@ const formatDateKr = (dateStr) => {
 const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
 
 // 로컬 위키 이미지 경로 반환
-function getLocalWikiImagePath(category, slug, originalUrl) {
+// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
+function getLocalWikiImagePath(category, slug, originalUrl, size = 'sm') {
   if (!originalUrl || !originalUrl.startsWith('http')) return originalUrl;
-  const localPath = `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
+
+  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const localPath = `/assets/images/wiki/${category}/${slug}/${filename}`;
   const fullPath = path.join(docsDir, localPath);
+
   if (fs.existsSync(fullPath)) return localPath;
-  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=480&output=webp`;
+
+  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
+  if (size === 'sm') {
+    const fallbackPath = path.join(docsDir, `/assets/images/wiki/${category}/${slug}/thumbnail.webp`);
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/wiki/${category}/${slug}/thumbnail.webp`;
+    }
+  }
+
+  const width = size === 'sm' ? 480 : 1200;
+  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
 }
 
 // HTML 이스케이프
