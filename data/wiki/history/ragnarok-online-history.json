@@ -13,7 +13,10 @@
     { "name": "게임메카", "title": "라그나로크 프랜차이즈 역사", "url": "https://www.gamemeca.com/view.php?gid=1110" },
     { "name": "루리웹", "title": "그라비티, 라그나로크 IP 온라인 및 모바일 게임 7종 대규모 이벤트", "url": "https://m.ruliweb.com/news/read/177176" }
   ],
-  "relatedArticles": ["game-ip-licensing", "type-moon-fate-origin"],
+  "relatedArticles": [
+    { "category": "business", "slug": "game-ip-licensing" },
+    { "category": "history", "slug": "type-moon-fate-origin" }
+  ],
   "relatedGames": ["라그나로크x-next-generation", "the-라그나로크", "트리-오브-세이비어-네버랜드"],
   "content": [
     { "type": "text", "value": "2002년, 한국 온라인 게임 역사에 한 획을 그은 게임이 등장했다. '라그나로크 온라인'. 귀여운 2D 캐릭터가 3D 배경 위를 뛰어다니는 이 게임은 출시 직후 폭발적인 인기를 얻으며 60여 개국에 서비스되는 글로벌 MMORPG로 성장했다.\n\n하지만 라그나로크의 역사는 2002년에 시작된 것이 아니다. 그 뿌리는 2000년 출시된 싱글 RPG '악튜러스'까지 거슬러 올라간다. 한 청년 개발자의 꿈에서 시작된 이야기, 그리고 그 꿈이 만들어낸 유산을 되짚어본다." },
