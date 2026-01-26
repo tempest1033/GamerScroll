@@ -23,6 +23,7 @@
   ],
   "content": [
     { "type": "text", "value": "2026년 새해 벽두부터 글로벌 앱스토어를 뒤흔든 게임이 등장했다. 중국 X.D. Network가 개발하고 X.D. Global이 배급하는 라이프 시뮬레이션 '두근두근타운(Heartopia)'이다. 1월 7일 iOS와 Android로 정식 출시된 이 게임은 출시 당일 50개국 이상에서 앱스토어 무료 차트 1위를 달성하며 화려하게 데뷔했다.\n\n한국에서는 '두근두근타운', 일본에서는 '하토피아 슬로우 라이프', 영미권에서는 'Heartopia'라는 이름으로 서비스되는 이 게임은 출시 2주 만에 글로벌 1,000만 다운로드를 돌파했다. '모바일 동물의 숲'이라는 수식어가 붙을 만큼, 닌텐도의 인기 시리즈와 비교되며 주목받고 있다." },
+    { "type": "link", "url": "/games/두근두근타운/", "text": "두근두근타운", "subtext": "실시간 순위 확인하기" },
 
     { "type": "heading", "value": "동물의 숲을 닮은, 그러나 다른 게임" },
     { "type": "image", "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4025700/extras/e2a51c55463623d08dc0b70b4e41c7c0.avif", "caption": "두근두근타운 인게임 스크린샷", "alt": "두근두근타운 게임 플레이 화면" },
