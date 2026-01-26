@@ -153,7 +153,7 @@ function shouldFetchPopularGames(filePath = 'data/popular-games.json') {
     if (!data.updatedAt) {
       return true; // updatedAt이 없으면 수집 필요
     }
-    if (!Array.isArray(data.articles) || data.articles.length === 0) {
+    if (!Array.isArray(data.games) || data.games.length === 0) {
       return true; // 데이터가 비어 있으면 수집 필요
     }
 
@@ -190,6 +190,9 @@ function shouldFetchPopularArticles(filePath = 'data/popular-articles.json') {
     const data = JSON.parse(fs.readFileSync(fullPath, 'utf-8'));
     if (!data.updatedAt) {
       return true; // updatedAt이 없으면 수집 필요
+    }
+    if (!Array.isArray(data.articles) || data.articles.length === 0) {
+      return true; // 데이터가 비어 있으면 수집 필요
     }
 
     const lastUpdate = new Date(data.updatedAt);
