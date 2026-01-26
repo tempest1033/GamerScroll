@@ -15,6 +15,20 @@ const path = require('path');
 const WIKI_DIR = path.join(__dirname, '..', 'data', 'wiki');
 const PREVIEW_DIR = path.join(__dirname, '..', 'docs', 'preview');
 const STYLES_PATH = path.join(__dirname, '..', 'src', 'styles.css');
+const GAMES_PATH = path.join(__dirname, '..', 'data', 'games.json');
+
+// 게임 데이터 로드
+let gamesData = {};
+if (fs.existsSync(GAMES_PATH)) {
+  let content = fs.readFileSync(GAMES_PATH, 'utf-8');
+  // BOM 제거
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
+  const parsed = JSON.parse(content);
+  // games.json 구조: { version, games: { ... }, lastUpdated }
+  gamesData = parsed.games || parsed;
+}
 
 // CLI 인자 파싱
 const args = process.argv.slice(2);
@@ -319,8 +333,20 @@ function renderSources(sources) {
 /**
  * 관련 게임 렌더링
  */
-function renderRelatedGames(games) {
-  if (!games || games.length === 0) return '';
+function renderRelatedGames(gameSlugs) {
+  if (!gameSlugs || gameSlugs.length === 0) return '';
+
+  // slug 문자열을 게임 객체로 변환
+  const games = gameSlugs.map(slug => {
+    // gamesData에서 slug로 게임 찾기
+    for (const [name, data] of Object.entries(gamesData)) {
+      if (data.slug === slug) {
+        return { slug: data.slug, title: name, icon: data.icon };
+      }
+    }
+    // 못 찾으면 slug를 title로 사용
+    return { slug, title: slug };
+  });
 
   return `
     <div class="wiki-related">
@@ -328,6 +354,7 @@ function renderRelatedGames(games) {
       <div class="wiki-related-grid">
         ${games.map(g => `
           <a href="/games/${g.slug}/" class="wiki-related-card">
+            ${g.icon ? `<img src="${g.icon}" alt="${escapeHtml(g.title)}" class="wiki-related-icon">` : ''}
             <span class="wiki-related-name">${escapeHtml(g.title)}</span>
           </a>
         `).join('')}
@@ -339,8 +366,24 @@ function renderRelatedGames(games) {
 /**
  * 관련 문서 렌더링
  */
-function renderRelatedArticles(articles) {
-  if (!articles || articles.length === 0) return '';
+function renderRelatedArticles(articlePaths) {
+  if (!articlePaths || articlePaths.length === 0) return '';
+
+  // "category/slug" 문자열을 파싱하여 위키 파일에서 제목 가져오기
+  const articles = articlePaths.map(pathStr => {
+    const [category, slug] = pathStr.split('/');
+    const wikiPath = path.join(WIKI_DIR, category, `${slug}.json`);
+    let title = slug;
+    if (fs.existsSync(wikiPath)) {
+      try {
+        let content = fs.readFileSync(wikiPath, 'utf-8');
+        if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
+        const data = JSON.parse(content);
+        title = data.title || slug;
+      } catch (e) {}
+    }
+    return { category, slug, title };
+  });
 
   return `
     <div class="wiki-related">
@@ -362,11 +405,8 @@ function renderRelatedArticles(articles) {
 function generatePreviewHtml(report) {
   const { slug, title, date, thumbnail, summary, content = [], sources = [], relatedGames = [], relatedArticles = [], category } = report;
 
-  // CSS 로드
-  let cssContent = '';
-  if (fs.existsSync(STYLES_PATH)) {
-    cssContent = fs.readFileSync(STYLES_PATH, 'utf-8');
-  }
+  // 프리뷰에서는 외부 CSS @import 사용하지 않음 (경로 문제)
+  // 인라인 스타일만 사용
 
   const thumbnailHtml = thumbnail ? `
     <div class="wiki-hero">
@@ -381,8 +421,6 @@ function generatePreviewHtml(report) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[미리보기] ${escapeHtml(title)}</title>
   <style>
-    ${cssContent}
-
     /* 미리보기 전용 스타일 - 다크 테마 최적화 */
     body {
       background: #0a0a0b;
@@ -560,6 +598,13 @@ function generatePreviewHtml(report) {
       font-size: 0.875rem;
       font-weight: 500;
       color: #e4e4e7;
+    }
+    .wiki-related-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      margin-right: 12px;
+      flex-shrink: 0;
     }
     /* 표 스타일 */
     .table-title {
