@@ -216,7 +216,13 @@ function generateHead(options = {}) {
     "publisher": {
       "@type": "Organization",
       "name": "게이머스크롤",
-      "url": "https://gamerscroll.com/"
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png",
+        "width": 192,
+        "height": 192
+      }
     },
     "potentialAction": {
       "@type": "SearchAction",
