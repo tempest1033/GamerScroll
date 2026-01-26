@@ -1,12 +1,12 @@
 {
   "slug": "aion2-midterm-report-card",
   "status": "approved",
-  "title": "막내야 이번엔 진짜라니까? 아이온2 출시 2개월 중간 성적표",
+  "title": "막내야 이번엔 진짜라니까? 아이온2 중간 성적표",
   "date": "2026-01-27T18:00",
   "thumbnail": "https://biz.chosun.com/resizer/v2/MU2DMNRVMQ2DMNTFGA4WGMLEMM.jpg?auth=4ed01013549c7ee58b5f5a87e95c76663fb6a1484d73e692283f8fe834762a34&width=1200&height=630&smart=true",
   "keywords": "아이온2, 엔씨소프트, MMORPG, PC방 순위, 1000억 매출, 멤버십 BM, 시즌2, PC 크로스플랫폼, RPG 1위, 리니지, 김택진",
   "summary": "엔씨소프트의 야심작 '아이온2'가 출시 46일 만에 1000억원 매출을 돌파했다. PC방 RPG 장르 1위에 올라 장기 흥행 가능성을 입증 중이다. 출시 2개월 차, 현재까지의 성과와 앞으로의 과제를 점검한다.",
-  "relatedGames": ["아이온2", "리니지m"],
+  "relatedGames": ["aion2", "리니지m"],
   "relatedIssues": ["idle-game-era-maple-grow", "lineage-classic-subscription-return"],
   "relatedArticles": [
     { "category": "insight", "slug": "2026-game-trends" }
