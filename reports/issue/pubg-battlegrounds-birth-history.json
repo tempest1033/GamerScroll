@@ -6,13 +6,9 @@
   "thumbnail": "https://wstatic-prod-boc.krafton.com/common/content/news/20260106/BMjJf93G.webp",
   "keywords": "배틀그라운드, PUBG, 배틀로얄, 브랜든 그린, 김창한, 크래프톤",
   "summary": "출시 9년차를 맞은 배틀그라운드는 여전히 세계 최고의 게임 중 하나다. 김창한 대표가 브랜든 그린을 영입해 1년 만에 만든 이 게임이 어떻게 배틀로얄 장르를 정립했는지, 그 역사를 되짚어본다.",
-  "relatedIssues": [
-    "china-gaming-superpower-rise",
-    "game-ai-controversy-award-revoked"
-  ],
-  "relatedGames": [
-    "pubg-battlegrounds",
-    "apex-legends",
+  "relatedIssues": ["china-gaming-superpower-rise", "game-ai-controversy-award-revoked"],
+  "relatedArticles": ["history/rts-genre-rise-and-fall"],
+  "relatedGames": ["pubg-battlegrounds", "apex-legends",
     "dayz"
   ],
   "sources": [

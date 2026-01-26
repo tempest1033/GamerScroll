@@ -8,6 +8,7 @@
   "summary": "2016년 1월 출시된 클래시로얄이 10주년을 맞았습니다. 누적 매출 4조원, 6억 6천만 다운로드를 기록한 이 게임이 어떻게 10년간 정상을 유지했는지, 그리고 2025년 보여준 놀라운 부활의 비결을 분석합니다.",
   "relatedGames": ["클래시-로얄"],
   "relatedIssues": ["idle-game-era-maple-grow", "roguelike-casual-korea-trend", "heartopia-mobile-animal-crossing-success"],
+  "relatedArticles": ["business/game-business-metrics", "business/app-revenue-ranking-algorithm"],
   "sources": [
     { "name": "Udonis Blog", "title": "Clash Royale Player Count, Revenue & Stats [2026]", "url": "https://www.blog.udonis.co/mobile-marketing/mobile-games/clash-royale-player-count" },
     { "name": "Supercell", "title": "Clash Royale Official Blog", "url": "https://supercell.com/en/games/clashroyale/" },

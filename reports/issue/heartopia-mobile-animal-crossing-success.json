@@ -6,15 +6,9 @@
   "thumbnail": "https://assetsio.gnwcdn.com/heartopia-keyart-1.jpeg",
   "keywords": "두근두근타운, Heartopia, 모바일 동물의 숲, X.D. Network, 라이프 시뮬레이션, 힐링 게임, 1000만 다운로드, 50개국 1위",
   "summary": "중국 X.D. Network의 '두근두근타운'이 출시 2주 만에 50개국 앱스토어 1위, 글로벌 1,000만 다운로드를 돌파하며 '모바일 동물의 숲' 자리를 노리고 있다.",
-  "relatedGames": [
-    { "title": "두근두근타운", "slug": "두근두근타운" },
-    { "title": "원신", "slug": "원신공월의-노래" },
-    { "title": "명조:워더링 웨이브", "slug": "명조워더링-웨이브" }
-  ],
-  "relatedIssues": [
-    { "title": "중국은 어떻게 게임 강국이 되었나", "slug": "china-gaming-superpower-rise" },
-    { "title": "게임 AI 사용 논란 총정리", "slug": "game-ai-controversy-award-revoked" }
-  ],
+  "relatedGames": ["두근두근타운", "원신공월의-노래", "명조워더링-웨이브"],
+  "relatedIssues": ["china-gaming-superpower-rise", "game-ai-controversy-award-revoked"],
+  "relatedArticles": ["business/app-revenue-ranking-algorithm"],
   "sources": [
     { "name": "인벤", "title": "XD, 2026년 포문 연다... 첫 라인업 '두근두근타운' 전격 출시", "url": "https://m.inven.co.kr/webzine/wznews.php?site=esportsts&p=8&idx=312609" },
     { "name": "VG247", "title": "Heartopia surprise launches on Steam and shockingly, everyone seems to be happy", "url": "https://www.vg247.com/heartopia-surprise-steam-launch-reviews" },

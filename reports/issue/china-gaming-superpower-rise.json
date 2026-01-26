@@ -6,8 +6,9 @@
   "thumbnail": "https://sm.ign.com/t/ign_kr/gallery/b/black-myth/black-myth-wukong-11-screenshots_ngfj.600.jpg",
   "keywords": "중국 게임, 중국 게임 산업, 텐센트, 호요버스, 원신, 검은신화 오공, 왕자영요, 넷이즈, 미호요, 중국 게임 역사, 996, 게임 개발 노동, 모바일 게임",
   "summary": "한때 짝퉁 천국이었던 중국이 이제 세계 게임 시장을 호령한다. 텐센트의 투자 전략부터 호요버스의 글로벌 히트, 검은신화: 오공의 AAA 신화까지. 그 이면의 996 노동 문화도 함께 들여다본다.",
-  "relatedIssues": ["top-gaming-companies-by-market-cap", "publisher-developer-relationship", "china-game-license-normalization"],
-  "relatedGames": ["원신", "명조", "pubg-battlegrounds"],
+  "relatedIssues": ["china-game-license-normalization"],
+  "relatedArticles": ["business/top-gaming-companies-by-market-cap", "business/publisher-developer-relationship"],
+  "relatedGames": ["원신공월의-노래", "명조워더링-웨이브", "pubg-battlegrounds"],
   "sources": [
     { "name": "South China Morning Post", "title": "China's video game sales reach record in 2025", "url": "https://www.scmp.com/tech/tech-trends/article/3337112/chinas-video-game-sales-reach-record-2025-amid-overseas-expansion-ai-investment" },
     { "name": "Rest of World", "title": "Black Myth: Wukong is shifting China's global gaming strategy", "url": "https://restofworld.org/2024/wukong-china-gaming-strategy/" },

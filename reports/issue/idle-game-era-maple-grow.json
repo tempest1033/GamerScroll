@@ -7,6 +7,8 @@
   "keywords": "메이플키우기, 방치형 RPG, 넥슨, 에이블게임즈, 모바일 게임, 매출 1위, 메이플스토리, 세븐나이츠 키우기, 달토끼 키우기, K게임, 방치형 게임 시장, 1400억, 9주 연속 1위",
   "summary": "넥슨의 '메이플키우기'가 출시 45일 만에 1,400억원 매출을 돌파하며 9주 연속 양대 마켓 1위를 기록 중이다. 방치형 RPG 시장의 급성장과 대형 IP의 힘이 만난 결과를 분석한다.",
   "relatedGames": ["메이플-키우기", "메이플스토리m", "세븐나이츠-키우기", "카피바라-go"],
+  "relatedIssues": ["roguelike-casual-korea-trend", "clash-royale-10th-anniversary-success"],
+  "relatedArticles": ["business/app-revenue-ranking-algorithm", "business/game-business-metrics"],
   "sources": [
     { "name": "디일렉", "title": "넥슨 '메이플키우기' 양대 마켓 매출 1위 독주 비결은?", "url": "https://www.thelec.kr/news/articleView.html?idxno=45085" },
     { "name": "연합뉴스", "title": "'메이플키우기', 올해 출시 방치형 RPG 중 전세계 매출 1위", "url": "https://www.yna.co.kr/view/AKR20251224037300017" },
