@@ -61,12 +61,18 @@ function generateNav(currentPage = 'home') {
     function init(r){
       var n=document.querySelector('.nav-inner');
       if(!n)return;
-      if(n.clientWidth<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
-      if(n.scrollWidth<=n.clientWidth+1){n.classList.add('nav-ready');return;}
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
       var idx=${currentIdx};
       var items=n.querySelectorAll('.nav-item');
       var t=idx<0?items[0]:items[idx];
-      if(t)n.scrollLeft=Math.max(0,t.offsetLeft+t.offsetWidth/2-n.clientWidth/2);
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        // 변경은 나중에
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
       n.classList.add('nav-ready');
     }
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);

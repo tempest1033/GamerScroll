@@ -820,22 +820,6 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 모바일 감지 및 is-mobile 클래스 추가 (반응형 통합용)
-const mobileDetectScript = `
-<script>
-(function() {
-  function updateMobileClass() {
-    if (window.innerWidth <= 768) {
-      document.body.classList.add('is-mobile');
-    } else {
-      document.body.classList.remove('is-mobile');
-    }
-  }
-  updateMobileClass();
-  window.addEventListener('resize', updateMobileClass);
-})();
-</script>`;
-
 // 광고 초기화 - Intersection Observer 방식 (PC/모바일 통합: 900px)
 // AdSense 로드 완료 이벤트 수신 후 Observer 시작
 const adLazyLoadScript = `
@@ -1106,7 +1090,6 @@ function wrapWithLayout(content, options = {}) {
   ${adLazyLoadScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
-  ${mobileDetectScript}
   ${showSearchBar ? searchBarScript : ''}
   ${hoverPrefetchScript}
   ${swipeScript}
