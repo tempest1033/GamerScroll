@@ -281,7 +281,7 @@ function generateTrendsHubPage({
       const pagination = document.getElementById('latestPagination');
       if (!grid || !pagination) return;
 
-      const isMobile = window.innerWidth <= 768;
+      const isMobile = window.matchMedia('(max-width:768px)').matches;
       const items = Array.from(grid.querySelectorAll('.home-trend-card'));
       const pageSize = 15;
 

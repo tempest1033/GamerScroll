@@ -770,7 +770,7 @@ function generateIndexPage(data) {
       const latestTitle = latestCard?.querySelector('.home-card-title');
       if (!pagination) return;
 
-      const isMobile = window.innerWidth <= 768;
+      const isMobile = window.matchMedia('(max-width:768px)').matches;
       const categoryNames = { issue: '이슈', history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
       const perPage = parseInt(pagination.dataset.perPage, 10) || 15;
       const allItems = Array.from(document.querySelectorAll('.home-latest-item'));

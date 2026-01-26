@@ -58,22 +58,19 @@ function generateNav(currentPage = 'home') {
   <script>
   (function(){
     if(window.innerWidth>768)return;
-    var n=document.querySelector('.nav-inner');
-    if(!n)return;
-    var idx=${currentIdx};
-    function set(){
-      if(n.clientWidth<=0||n.scrollWidth<=n.clientWidth+1){requestAnimationFrame(set);return;}
+    function init(r){
+      var n=document.querySelector('.nav-inner');
+      if(!n)return;
+      if(n.clientWidth<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(n.scrollWidth<=n.clientWidth+1){n.classList.add('nav-ready');return;}
+      var idx=${currentIdx};
       var items=n.querySelectorAll('.nav-item');
       var t=idx<0?items[0]:items[idx];
-      if(t){
-        var c=t.offsetLeft+t.offsetWidth/2;
-        var nc=n.clientWidth/2;
-        var max=n.scrollWidth-n.clientWidth;
-        n.scrollLeft=Math.max(0,Math.min(max,c-nc));
-      }
+      if(t)n.scrollLeft=Math.max(0,t.offsetLeft+t.offsetWidth/2-n.clientWidth/2);
       n.classList.add('nav-ready');
     }
-    set();
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
   })();
   </script>`;
 }
