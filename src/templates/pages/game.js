@@ -81,7 +81,7 @@ const chartHelpers = {
  * 게임 대시보드 페이지 생성
  */
 function generateGamePage(gameData) {
-  const { name, slug = '', platforms = [], developer = '', icon = null, rankings = {}, rankHistory = [], realtimeRanks = {}, steamHistory = [], news = [], community = [], steam = null, youtube = [], mentions = [] } = gameData;
+  const { name, slug = '', platforms = [], developer = '', icon = null, rankings = {}, rankHistory = [], realtimeRanks = {}, steamHistory = [], news = [], community = [], steam = null, youtube = [], mentions = [], relatedContent = [] } = gameData;
 
   // 플랫폼 체크
   const hasMobilePlatform = platforms.some(p => p === 'ios' || p === 'android');
@@ -1048,6 +1048,47 @@ function generateGamePage(gameData) {
     `).join('')}</div>`;
   }
 
+  // 관련 콘텐츠 섹션 (이슈, 위키, 핫픽, 인사이트) - 홈 인기 카드 스타일 (가로형) + 페이지네이션
+  function generateRelatedContentSection() {
+    if (!relatedContent || relatedContent.length === 0) {
+      return '';
+    }
+
+    // 링크 생성
+    const getLink = (item) => {
+      if (item.type === 'wiki') {
+        return `/wiki/${item.category}/${item.slug}/`;
+      }
+      return `/magazine/${item.type}/${item.slug}/`;
+    };
+
+    // 카드 생성 (home-popular-card 스타일 - 가로형 + summary) - 홈페이지 인기 섹션과 동일
+    const cards = relatedContent.map((item, i) => `
+      <a href="${getLink(item)}" class="home-popular-card game-related-item" data-index="${i}">
+        <div class="home-popular-thumb">
+          ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${(item.title || '').replace(/"/g, '&quot;')}" loading="${i < 3 ? 'eager' : 'lazy'}">` : ''}
+        </div>
+        <div class="home-popular-info">
+          <h3 class="home-popular-title">${item.title}</h3>
+          ${item.summary ? `<p class="home-popular-summary">${item.summary}</p>` : ''}
+        </div>
+      </a>
+    `).join('');
+
+    const totalPages = Math.ceil(relatedContent.length / 3);
+
+    return `
+      <div class="game-related-container" data-total="${relatedContent.length}" data-per-page="3">
+        <div class="home-popular-list game-related-grid">${cards}</div>
+        <div class="home-pagination">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
+        </div>
+      </div>
+    `;
+  }
+
   // 리포트 Mentions 섹션 (전체/주간/월간 탭)
   function generateMentionsSection(wideLayout = false) {
     const containerClass = wideLayout ? 'gm-container gm-container-wide' : 'gm-container';
@@ -1132,17 +1173,21 @@ function generateGamePage(gameData) {
     const weeklyItems = mentions.filter(m => getComparableDate(m.date) >= toDateStr(weekAgo));
     const monthlyItems = mentions.filter(m => getComparableDate(m.date) >= toDateStr(monthAgo));
 
-    // 전체/주간/월간 탭 + 페이지네이션 컨트롤
+    // 전체/주간/월간 탭 (페이지네이션은 아래로 분리)
     const tabsHtml = `
       <div class="tab-group">
         <button class="tab-btn active" data-gm-period="all">전체</button>
         <button class="tab-btn" data-gm-period="weekly">주간</button>
         <button class="tab-btn" data-gm-period="monthly">월간</button>
       </div>
-      <div class="gm-pagination">
-        <button class="gm-page-btn gm-prev" aria-label="이전">‹</button>
-        <span class="gm-page-index">1/1</span>
-        <button class="gm-page-btn gm-next" aria-label="다음">›</button>
+    `;
+
+    // 페이지네이션 (하단 배치) - 홈페이지 스타일 통일
+    const paginationHtml = `
+      <div class="home-pagination gm-pagination-wrap">
+        <button class="home-page-btn home-page-prev" aria-label="이전" disabled>‹</button>
+        <span class="home-page-info">1/1</span>
+        <button class="home-page-btn home-page-next" aria-label="다음">›</button>
       </div>
     `;
 
@@ -1162,6 +1207,7 @@ function generateGamePage(gameData) {
         <div class="gm-period-content" data-gm-content="monthly">
           <div class="${itemsClass}">${monthlyData.map(renderItem).join('')}</div>
         </div>
+        ${paginationHtml}
       </div>
     `;
   }
@@ -1246,13 +1292,23 @@ function generateGamePage(gameData) {
         </div>
         ` : ''}
 
-        <!-- 중간 광고 (반응형 - 모바일 우선 표시) -->
-        <div class="grid-full mobile-only-ad">${midAds}</div>
+        ${midAds ? `<!-- 중간 광고 (반응형 - 모바일 우선 표시) -->
+        <div class="grid-full mobile-only-ad">${midAds}</div>` : ''}
 
-        <!-- 뉴스 (풀 너비) -->
+        ${relatedContent.length > 0 ? `
+        <!-- 뉴스 (관련 콘텐츠: 이슈/위키/핫픽/인사이트) -->
         <div class="home-card grid-full">
           <div class="home-card-header">
             <h2 class="home-card-title">뉴스</h2>
+          </div>
+          <div class="home-card-body">${generateRelatedContentSection()}</div>
+        </div>
+        ` : ''}
+
+        <!-- 이슈 (리포트 멘션) -->
+        <div class="home-card grid-full">
+          <div class="home-card-header">
+            <h2 class="home-card-title">이슈</h2>
           </div>
           <div class="home-card-body">${generateMentionsSection(true)}</div>
         </div>
@@ -1379,9 +1435,9 @@ function generateGamePage(gameData) {
 
       const tabs = container.querySelectorAll('[data-gm-period]');
       const contents = container.querySelectorAll('[data-gm-content]');
-      const prevBtn = container.querySelector('.gm-prev');
-      const nextBtn = container.querySelector('.gm-next');
-      const pageIndex = container.querySelector('.gm-page-index');
+      const prevBtn = container.querySelector('.gm-pagination-wrap .home-page-prev');
+      const nextBtn = container.querySelector('.gm-pagination-wrap .home-page-next');
+      const pageIndex = container.querySelector('.gm-pagination-wrap .home-page-info');
 
       // PC: 6개, 모바일: 3개
       const getPageSize = () => window.innerWidth <= 768 ? 3 : 6;
@@ -1448,6 +1504,46 @@ function generateGamePage(gameData) {
 
       // 초기화
       updatePagination();
+    })();
+
+    // 관련 콘텐츠 페이지네이션
+    (function() {
+      const container = document.querySelector('.game-related-container');
+      if (!container) return;
+
+      const items = container.querySelectorAll('.game-related-item');
+      const perPage = parseInt(container.dataset.perPage) || 3;
+      const total = parseInt(container.dataset.total) || items.length;
+      const totalPages = Math.ceil(total / perPage);
+      let currentPage = 0;
+
+      const prevBtn = container.querySelector('.home-page-prev');
+      const nextBtn = container.querySelector('.home-page-next');
+      const pageInfo = container.querySelector('.home-page-info');
+
+      function updateDisplay() {
+        const start = currentPage * perPage;
+        const end = start + perPage;
+        items.forEach((item, i) => {
+          item.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+        if (pageInfo) pageInfo.textContent = (currentPage + 1) + ' / ' + totalPages;
+        if (prevBtn) prevBtn.disabled = currentPage === 0;
+        if (nextBtn) nextBtn.disabled = currentPage >= totalPages - 1;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentPage > 0) { currentPage--; updateDisplay(); }
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentPage < totalPages - 1) { currentPage++; updateDisplay(); }
+        });
+      }
+
+      updateDisplay();
     })();
   </script>`;
 

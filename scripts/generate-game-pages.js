@@ -3,6 +3,7 @@
  * games.json의 모든 게임에 대해 개별 페이지 생성
  */
 
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
@@ -10,6 +11,10 @@ const gamesPath = path.join(__dirname, '..', 'data', 'games.json');
 const historyDir = path.join(__dirname, '..', 'history');
 const reportsDir = path.join(__dirname, '..', 'reports');
 const snapshotsDir = path.join(__dirname, '..', 'snapshots', 'rankings');
+const wikiDir = path.join(__dirname, '..', 'data', 'wiki');
+const issueDir = path.join(reportsDir, 'issue');
+const hotpickDir = path.join(reportsDir, 'hotpick');
+const insightDir = path.join(reportsDir, 'insight');
 
 // 통합 빌드 출력 경로
 const docsDir = 'docs';
@@ -25,6 +30,17 @@ const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8').replace(/^\uFEFF
 // 이름 정규화 (비교용)
 function normalize(name) {
   return name.toLowerCase().trim().replace(/\s+/g, ' ');
+}
+
+// URL 수정 헬퍼 (홈페이지와 동일)
+function fixUrl(url) {
+  if (!url) return url;
+  if (url.startsWith('//')) url = 'https:' + url;
+  // 모든 외부 이미지 프록시
+  if (url.startsWith('http')) {
+    return 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=960&output=webp';
+  }
+  return url;
 }
 
 // 지역별 appId 조회 (지역별 우선, 기본 폴백)
@@ -885,6 +901,113 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
   return result;
 }
 
+// 관련 콘텐츠 로드 함수들 (이슈, 위키, 핫픽, 인사이트)
+function loadIssueReports() {
+  if (!fs.existsSync(issueDir)) return [];
+  return fs.readdirSync(issueDir)
+    .filter(f => f.endsWith('.json'))
+    .map(f => {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(issueDir, f), 'utf8'));
+        if (data.status !== 'approved') return null;
+        return {
+          type: 'issue',
+          slug: data.slug,
+          title: data.title,
+          summary: data.summary || '',
+          thumbnail: fixUrl(data.thumbnail) || '',
+          date: data.date,
+          relatedGames: data.relatedGames || []
+        };
+      } catch (e) { return null; }
+    })
+    .filter(Boolean);
+}
+
+function loadHotpickReports() {
+  if (!fs.existsSync(hotpickDir)) return [];
+  return fs.readdirSync(hotpickDir)
+    .filter(f => f.endsWith('.json'))
+    .map(f => {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(hotpickDir, f), 'utf8'));
+        if (data.status !== 'approved') return null;
+        return {
+          type: 'hotpick',
+          slug: data.slug,
+          title: data.title,
+          summary: data.summary || '',
+          thumbnail: fixUrl(data.thumbnail) || '',
+          date: data.date,
+          relatedGames: data.relatedGames || []
+        };
+      } catch (e) { return null; }
+    })
+    .filter(Boolean);
+}
+
+function loadInsightReports() {
+  if (!fs.existsSync(insightDir)) return [];
+  return fs.readdirSync(insightDir)
+    .filter(f => f.endsWith('.json'))
+    .map(f => {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(insightDir, f), 'utf8'));
+        if (data.status !== 'approved') return null;
+        return {
+          type: 'insight',
+          slug: data.slug,
+          title: data.title,
+          summary: data.summary || '',
+          thumbnail: fixUrl(data.thumbnail) || '',
+          date: data.date,
+          relatedGames: data.relatedGames || []
+        };
+      } catch (e) { return null; }
+    })
+    .filter(Boolean);
+}
+
+function loadWikiArticles() {
+  if (!fs.existsSync(wikiDir)) return [];
+  const categories = ['business', 'tech', 'history', 'knowledge'];
+  const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
+  const articles = [];
+
+  for (const category of categories) {
+    const catDir = path.join(wikiDir, category);
+    if (!fs.existsSync(catDir)) continue;
+
+    fs.readdirSync(catDir)
+      .filter(f => f.endsWith('.json'))
+      .forEach(f => {
+        try {
+          const data = JSON.parse(fs.readFileSync(path.join(catDir, f), 'utf8'));
+          if (data.status !== 'approved') return;
+          articles.push({
+            type: 'wiki',
+            category: category,
+            categoryName: categoryNames[category],
+            slug: data.slug,
+            title: data.title,
+            summary: data.summary || '',
+            thumbnail: fixUrl(data.thumbnail) || '',
+            date: data.date,
+            relatedGames: data.relatedGames || []
+          });
+        } catch (e) {}
+      });
+  }
+  return articles;
+}
+
+// 게임 slug로 관련 콘텐츠 필터링
+function collectRelatedContent(gameSlug, allContent) {
+  return allContent
+    .filter(item => item.relatedGames && item.relatedGames.includes(gameSlug))
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+}
+
 function updateSitemapGameEntries() {
   const sitemapPath = path.join(__dirname, '..', docsDir, 'sitemap.xml');
   if (!fs.existsSync(sitemapPath)) {
@@ -972,6 +1095,14 @@ const hourlySnapshots = loadHourlySnapshots();
 const snapshotKeys = Object.keys(hourlySnapshots).filter(k => hourlySnapshots[k].length > 0);
 console.log(`⏱️ 실시간 스냅샷 로드: ${snapshotKeys.length}개 지역`);
 
+// 관련 콘텐츠 로드 (이슈, 위키, 핫픽, 인사이트)
+const issueArticles = loadIssueReports();
+const hotpickArticles = loadHotpickReports();
+const insightArticles = loadInsightReports();
+const wikiArticles = loadWikiArticles();
+const allRelatedContent = [...issueArticles, ...hotpickArticles, ...insightArticles, ...wikiArticles];
+console.log(`📰 관련 콘텐츠 로드: 이슈 ${issueArticles.length}개, 핫픽 ${hotpickArticles.length}개, 인사이트 ${insightArticles.length}개, 위키 ${wikiArticles.length}개`);
+
 // 검색 인덱스 생성
 const searchIndex = [];
 
@@ -985,6 +1116,9 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
 
   // 게임 데이터 수집
   const gameData = collectGameData(gameName, gameInfo, historyData, allReports, allHistory, weeklyReports, hourlySnapshots);
+
+  // 관련 콘텐츠 수집 (relatedGames에 이 게임 slug가 포함된 이슈/위키/핫픽/인사이트)
+  gameData.relatedContent = collectRelatedContent(slug, allRelatedContent);
 
   // 데이터가 없어도 페이지/검색 인덱스를 생성하도록 변경
   const hasData = Object.keys(gameData.rankings).length > 0 ||
