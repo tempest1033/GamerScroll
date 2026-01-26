@@ -366,12 +366,19 @@ function renderRelatedGames(gameSlugs) {
 /**
  * 관련 문서 렌더링
  */
-function renderRelatedArticles(articlePaths) {
+function renderRelatedArticles(articlePaths, currentCategory) {
   if (!articlePaths || articlePaths.length === 0) return '';
 
-  // "category/slug" 문자열을 파싱하여 위키 파일에서 제목 가져오기
+  // "category/slug" 또는 "slug"만 있는 문자열을 파싱하여 위키 파일에서 제목 가져오기
   const articles = articlePaths.map(pathStr => {
-    const [category, slug] = pathStr.split('/');
+    let category, slug;
+    if (pathStr.includes('/')) {
+      [category, slug] = pathStr.split('/');
+    } else {
+      // slug만 있으면 현재 카테고리 사용
+      category = currentCategory;
+      slug = pathStr;
+    }
     const wikiPath = path.join(WIKI_DIR, category, `${slug}.json`);
     let title = slug;
     if (fs.existsSync(wikiPath)) {
@@ -688,7 +695,7 @@ function generatePreviewHtml(report) {
 
       ${renderSources(sources)}
       ${renderRelatedGames(relatedGames)}
-      ${renderRelatedArticles(relatedArticles)}
+      ${renderRelatedArticles(relatedArticles, category)}
     </article>
   </div>
 </body>
