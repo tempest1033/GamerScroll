@@ -1,0 +1,113 @@
+{
+  "slug": "moltbot-clawdbot-ai-assistant",
+  "status": "approved",
+  "title": "Clawdbot, 자율성을 가진 AI 비서의 등장과 72시간의 혼란",
+  "date": "2026-01-28T12:00",
+  "thumbnail": "https://molt.bot/og-image.png",
+  "keywords": "Moltbot, Clawdbot, AI 에이전트, 로컬, AI 비서, 오픈소스, 장기 기억, 자율 에이전트, 왓츠앱, 디스코드, 슬랙, iMessage, 보안",
+  "summary": "Clawdbot(현재 Moltbot)은 며칠간 전세계의 뜨거운 관심을 받은 로컬 AI 비서다. 장기 기억과 자율적 판단이 가능한 에이전트로 주목받았지만, 리브랜딩 과정에서 계정 탈취, 가짜 토큰 스캠, 보안 취약점 등 72시간 동안 연이은 사건이 터졌다.",
+  "sources": [
+    { "name": "GitHub", "title": "Moltbot Repository", "url": "https://github.com/moltbot/moltbot" },
+    { "name": "DEV Community", "title": "From Clawdbot to Moltbot", "url": "https://dev.to/sivarampg/from-clawdbot-to-moltbot-how-a-cd-crypto-scammers-and-10-seconds-of-chaos-took-down-the-4eck" },
+    { "name": "The Register", "title": "Clawdbot becomes Moltbot", "url": "https://www.theregister.com/2026/01/27/clawdbot_moltbot_security_concerns/" },
+    { "name": "Bitdefender", "title": "Moltbot security alert", "url": "https://www.bitdefender.com/en-us/blog/hotforsecurity/moltbot-security-alert-exposed-clawdbot-control-panels-risk-credential-leaks-and-account-takeovers" }
+  ],
+  "relatedArticles": ["chatgpt-desktop-app"],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 1월, GitHub에서 엄청난 화제를 모은 오픈소스 프로젝트가 등장했다. 오스트리아 개발자 피터 스태인버거가 만든 Clawdbot. 단순한 챗봇이 아니라, 사용자 대신 행동하는 자율성을 가진 AI 에이전트였다."
+    },
+    {
+      "type": "heading",
+      "value": "Clawdbot이란?"
+    },
+    {
+      "type": "image",
+      "src": "https://miro.medium.com/v2/resize:fit:700/1*PwoFHSAxdp2CPbwSygXJ1g.png",
+      "caption": "Clawdbot - 실제로 일을 하는 AI",
+      "alt": "Clawdbot 브랜딩 이미지 - The AI that actually does things"
+    },
+    {
+      "type": "text",
+      "value": "Clawdbot은 내 컴퓨터(맥미니 등)에서 직접 실행하는 로컬 AI 비서다. 왓츠앱, 텔레그램, 슬랙, 디스코드, iMessage, 시그널 등 50개 이상의 메신저와 연동되며, Claude나 GPT 같은 AI 모델을 두뇌로 사용한다.\n\n예를 들어 왓츠앱으로 \"내일 오후 3시에 미팅 잡아줘\"라고 보내면, Clawdbot이 캘린더를 확인하고 일정을 등록한다. \"지난주에 받은 인보이스 찾아줘\"라고 하면 이메일을 뒤져서 해당 파일을 찾아준다. 심지어 \"아침마다 오늘 날씨랑 일정 알려줘\"라고 설정하면, 사용자가 묻지 않아도 먼저 알림을 보낸다.\n\n웹 브라우징, 파일 관리, 스크립트 실행까지 가능해서 단순 대화를 넘어 실제로 일을 처리하는 비서 역할을 한다."
+    },
+    {
+      "type": "heading",
+      "value": "뜨거운 반응"
+    },
+    {
+      "type": "text",
+      "value": "개발자 커뮤니티의 반응은 폭발적이었다. \"드디어 진짜 자비스가 나왔다\"는 반응이 쏟아졌고, Clawdbot을 돌리기 위해 맥미니를 사는 사람들이 늘어났다. 테슬라 AI 디렉터 안드레 카파시도 칭찬했고, 맥 스토리즈는 \"개인 AI 비서의 미래\"라고 평가했다.\n\n장기 기억을 가지고, 여러 플랫폼에서 작동하며, 스스로 판단해서 행동하는 AI. 사람들이 오래 기다려온 그런 에이전트였다."
+    },
+    {
+      "type": "heading",
+      "value": "핵심 기능"
+    },
+    {
+      "type": "table",
+      "caption": "Clawdbot 주요 기능",
+      "headers": ["기능", "설명"],
+      "rows": [
+        ["장기 기억", "대화 맥락을 며칠, 몇 주, 몇 달간 유지"],
+        ["자율 작업 실행", "이메일 응답, 캘린더 관리, 스크립트 실행, 웹 브라우징"],
+        ["멀티플랫폼", "왓츠앱, 디스코드, 슬랙, iMessage, 텔레그램 등 50+ 연동"],
+        ["능동적 알림", "사용자 요청 없이도 먼저 리마인더, 브리핑, 알림 전송"],
+        ["로컬 실행", "클라우드가 아닌 내 컴퓨터에서 직접 실행"]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "https://images.fastcompany.com/image/upload/f_webp,c_fit,w_1920,q_auto/wp-cms-2/2025/10/p-1-91417710-beeper-slack-whatsapp-telegram.jpg",
+      "caption": "여러 메신저를 하나로 통합하는 추세",
+      "alt": "슬랙, 왓츠앱, 텔레그램 등 메신저 통합 서비스"
+    },
+    {
+      "type": "heading",
+      "value": "72시간의 혼란"
+    },
+    {
+      "type": "text",
+      "value": "그런데 반전이 찾아왔다. 인기가 치솟던 바로 그 순간, 72시간 동안 연이은 사건이 터졌다."
+    },
+    {
+      "type": "image",
+      "src": "https://www.ampcuscyber.com/wp-content/uploads/2025/08/credential-leaks-fuel-cyber-attacks.webp",
+      "caption": "인증 정보 노출은 심각한 보안 위협이다",
+      "alt": "보안 취약점으로 인한 인증 정보 유출 개념도"
+    },
+    {
+      "type": "text",
+      "value": "첫 번째는 보안 문제였다. 보안 연구원들이 수백 개의 Clawdbot 서버가 인터넷에 노출되어 있다고 경고했다. Shodan 검색으로 쉽게 찾을 수 있었고, 일부는 완전히 인증 없이 열려 있어 API 키, 대화 기록, 로그인 인증 정보가 노출됐다. Google Cloud VP는 \"설치하지 마라\"고 직접 경고할 정도였다."
+    },
+    {
+      "type": "heading",
+      "value": "앤트로픽의 요청, 그리고 10초의 실수"
+    },
+    {
+      "type": "text",
+      "value": "설상가상으로 앤트로픽이 'Clawd'라는 이름이 자사의 'Claude'와 유사하다며 상표권 변경을 요청했다. 프로젝트는 Moltbot으로 리브랜딩되었다. \"랍스터가 탈피(molt)하듯, 새 껍질을 입는다\"는 의미였다."
+    },
+    {
+      "type": "text",
+      "value": "문제는 리브랜딩 과정에서 터졌다. GitHub와 X(트위터) 핸들을 동시에 변경하려다 10초 만에 암호화폐 스캐머들에게 기존 계정을 탈취당했다. 스캐머들은 수만 명의 팔로워에게 가짜 토큰을 홍보했고, 솔라나에 등장한 가짜 $CLAWD 토큰은 1,600만 달러 규모까지 치솟았다가 폭락했다."
+    },
+    {
+      "type": "heading",
+      "value": "불안정하지만, 시사점은 명확하다"
+    },
+    {
+      "type": "text",
+      "value": "Clawdbot은 아직 불안정한 오픈소스 프로젝트다. 보안 취약점, 리브랜딩 혼란, 스캠 피해까지. 지금 당장 쓰기엔 리스크가 크다."
+    },
+    {
+      "type": "text",
+      "value": "그러나 Clawdbot이 보여준 것은 명확하다. 장기 기억, 자율적 판단, 멀티플랫폼 통합을 갖춘 AI 에이전트에 대한 시장의 갈망이다. 오픈소스 1인 개발자가 AI 프론티어들보다 먼저 '실용적 에이전트'를 구현했다는 점은 의미심장하다."
+    },
+    {
+      "type": "text",
+      "value": "분명한 건, 장기 기억이 가능하고 자율적인 의사결정이 가능한 AI의 시대가 도래하고 있다는 것이다."
+    }
+  ]
+}
