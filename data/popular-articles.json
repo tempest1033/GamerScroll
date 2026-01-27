@@ -1,5 +1,68 @@
 {
-  "updatedAt": "2026-01-27T09:21:52.662Z",
+  "updatedAt": "2026-01-27T09:49:33.035Z",
   "period": "7days",
-  "articles": []
+  "articles": [
+    {
+      "type": "issue",
+      "slug": "dragon-sword-launch-report",
+      "views": 89,
+      "path": "/magazine/issue/dragon-sword-launch-report/"
+    },
+    {
+      "type": "issue",
+      "slug": "arknights-endfield-launch-success",
+      "views": 57,
+      "path": "/magazine/issue/arknights-endfield-launch-success/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 16,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "issue",
+      "slug": "pubg-battlegrounds-birth-history",
+      "views": 12,
+      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 11,
+      "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-revenue-ranking-algorithm",
+      "category": "business",
+      "views": 9,
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 8,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "issue",
+      "slug": "aion2-midterm-report-card",
+      "views": 8,
+      "path": "/magazine/issue/aion2-midterm-report-card/"
+    },
+    {
+      "type": "issue",
+      "slug": "china-gaming-superpower-rise",
+      "views": 8,
+      "path": "/magazine/issue/china-gaming-superpower-rise/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 8,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    }
+  ]
 }
