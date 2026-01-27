@@ -8,16 +8,16 @@
   "summary": "애자일 방법론은 빠른 반복과 피드백을 통해 게임 개발의 불확실성에 대응하는 핵심 전략이다. 지라(Jira)와 컨플루언스(Confluence)는 이러한 애자일 워크플로우를 지원하는 대표적인 협업 도구로, 국내외 게임사에서 널리 활용되고 있다.",
   "relatedArticles": [
     {
+      "category": "normal",
+      "slug": "gantt-chart"
+    },
+    {
       "category": "knowledge",
       "slug": "pd-vs-director"
     },
     {
       "category": "business",
       "slug": "game-business-metrics"
-    },
-    {
-      "category": "business",
-      "slug": "publisher-developer-relationship"
     }
   ],
   "relatedGames": [],

@@ -126,11 +126,6 @@ function getLocalTechImagePath(category, slug, originalUrl, imageType) {
     }
   }
 
-  // 기존 wiki/tech 이미지 폴백
-  const wikiLocalPath = `/assets/images/wiki/tech/${slug}/thumbnail${ext}`;
-  const wikiFullPath = path.join(docsDir, wikiLocalPath);
-  if (fs.existsSync(wikiFullPath)) return wikiLocalPath;
-
   // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
   return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
 }
