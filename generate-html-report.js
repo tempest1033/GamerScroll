@@ -1011,6 +1011,7 @@ async function main() {
       })),
       news: news,
       wikiData: loadWikiData(),
+      techData: loadTechData(),
       dailyReportsCount: dailyReports.length,
       weeklyReportsCount: weeklyReports.length,
       sidebarPopularArticles,

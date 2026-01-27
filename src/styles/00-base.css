@@ -1,10 +1,5 @@
-﻿    /* 가로 스크롤 방지 (PC 포함) - AdSense Side Rail 호환성 */
-    html {
-      overflow-x: clip;
-    }
-    body {
-      overflow-x: clip;
-    }
+﻿    /* 가로 스크롤 방지 - sticky 호환성을 위해 html/body에서 제거, 개별 요소에 적용 */
+    /* html, body의 overflow-x: clip은 stacking context를 생성하여 sticky를 깨뜨림 */
 
     /* 모바일 터치 하이라이트 제거 */
     * {
