@@ -23,10 +23,9 @@ const siteBaseUrl = 'https://gamerscroll.com';
 
 // 광고 슬롯
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
-// 카테고리 정보
+// 카테고리 정보 (tech는 별도 메뉴로 분리됨)
 const categoryInfo = {
   business: { name: '비즈니스', desc: '업계 지표, 수익 구조, 성장 전략' },
-  tech: { name: '기술', desc: '게임 엔진, 개발 기술, 제작 파이프라인' },
   history: { name: '히스토리', desc: '게임 역사, 주요 사건, 업계 변화' },
   knowledge: { name: '지식', desc: '장르, 용어, 기초 지식' }
 };

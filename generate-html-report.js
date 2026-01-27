@@ -104,7 +104,7 @@ function updateHistoryBestRanks(date, bestRanks) {
 
 // 위키 데이터 로드 함수
 function loadWikiData() {
-  const categories = ['business', 'tech', 'history', 'knowledge'];
+  const categories = ['business', 'history', 'knowledge'];
   const wikiData = {};
 
   for (const category of categories) {
@@ -138,6 +138,45 @@ function loadWikiData() {
   }
 
   return wikiData;
+}
+
+// 테크 데이터 로드 함수
+const TECH_DIR = './data/tech';
+function loadTechData() {
+  const categories = ['normal', 'ai', 'vibecoding'];
+  const techData = {};
+
+  for (const category of categories) {
+    const categoryDir = `${TECH_DIR}/${category}`;
+    techData[category] = [];
+
+    if (!fs.existsSync(categoryDir)) continue;
+
+    const files = fs.readdirSync(categoryDir).filter(f => f.endsWith('.json'));
+    for (const file of files) {
+      try {
+        const raw = fs.readFileSync(`${categoryDir}/${file}`, 'utf8').replace(/^\uFEFF/, '');
+        const article = JSON.parse(raw);
+        const status = article.status || '';
+        const isApproved = status === 'approved' || status === 'published';
+        const isDraft = status === 'draft';
+        if (isApproved || (includeDrafts && isDraft)) {
+          const slug = article.slug || file.replace('.json', '');
+          techData[category].push({
+            ...article,
+            slug
+          });
+        }
+      } catch (e) {
+        console.warn(`  ⚠️ 테크 파일 로드 실패: ${categoryDir}/${file}`);
+      }
+    }
+
+    // 날짜 기준 정렬 (최신순)
+    techData[category].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
+  return techData;
 }
 
 // 퀵 모드가 아닐 때만 무거운 모듈 로드
@@ -177,6 +216,8 @@ const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
 const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
 const { generateWikiHubPage, generateWikiCategoryPage } = require('./src/templates/pages/wiki-hub');
 const { generateWikiArticlePage } = require('./src/templates/pages/wiki-article');
+const { generateTechHubPage, generateTechCategoryPage } = require('./src/templates/pages/tech-hub');
+const { generateTechArticlePage } = require('./src/templates/pages/tech-article');
 const { generate404Page } = require('./src/templates/pages/404');
 const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles, shouldFetchPopularArticles } = require('./src/crawlers/analytics');
 
@@ -667,6 +708,9 @@ async function main() {
   // 위키 데이터 로드 (홈페이지용)
   const homeWikiData = loadWikiData();
 
+  // 테크 데이터 로드 (홈페이지용)
+  const homeTechData = loadTechData();
+
   const pages = [
     // index.html은 매거진 생성 후 별도로 생성 (dailyReportsCount 정확한 값 필요)
     { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData }) },
@@ -870,8 +914,10 @@ async function main() {
   }
 
   // 공통 인기글/최신글 리스트 생성 (홈, 매거진, 위키에서 공유)
-  const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
+  const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
+  const techCategoryNames = { normal: '일반', ai: 'AI', vibecoding: '바이브코딩' };
   const wikiDataForSidebar = loadWikiData();
+  const techDataForSidebar = loadTechData();
   const allSidebarArticles = [];
   // 이슈 리포트 추가
   issueReports.forEach(issue => {
@@ -891,6 +937,12 @@ async function main() {
       allSidebarArticles.push({ title: article.title, link: `/wiki/${cat}/${article.slug}/`, badge: categoryNames[cat] || cat, date: article.date || '' });
     }
   }
+  // 테크 추가
+  for (const cat of Object.keys(techDataForSidebar)) {
+    for (const article of (techDataForSidebar[cat] || [])) {
+      allSidebarArticles.push({ title: article.title, link: `/tech/${cat}/${article.slug}/`, badge: techCategoryNames[cat] || '테크', date: article.date || '' });
+    }
+  }
   // 최신글: 날짜순 정렬 상위 10개
   const sidebarLatestArticles = [...allSidebarArticles].sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
   // 인기글: GA4 데이터 기반
@@ -908,6 +960,10 @@ async function main() {
       const wikiList = wikiDataForSidebar[article.category] || [];
       const wiki = wikiList.find(w => w.slug === article.slug);
       if (wiki) return { title: wiki.title, link: `/wiki/${article.category}/${article.slug}/`, badge: categoryNames[article.category] };
+    } else if (article.type === 'tech' && article.category) {
+      const techList = techDataForSidebar[article.category] || [];
+      const tech = techList.find(t => t.slug === article.slug);
+      if (tech) return { title: tech.title, link: `/tech/${article.category}/${article.slug}/`, badge: techCategoryNames[article.category] || '테크' };
     }
     return null;
   }).filter(Boolean);
@@ -1007,6 +1063,7 @@ async function main() {
       summary: p.summary
     })),
     wikiData: loadWikiData(),
+    techData: loadTechData(),
     dailyReportsCount: dailyReports.length,
     weeklyReportsCount: weeklyReports.length,
     sidebarPopularArticles,
@@ -1253,7 +1310,7 @@ async function main() {
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
   try {
     const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length, insightReports, hotpickReports };
-    const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, sidebarPopularArticles, sidebarLatestArticles });
+    const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, techData: homeTechData, sidebarPopularArticles, sidebarLatestArticles });
     fs.writeFileSync('./index.html', indexHtml, 'utf8');
     console.log(`  ✅ index.html`);
   } catch (err) {
@@ -1263,11 +1320,13 @@ async function main() {
   // 위키 페이지 생성
   console.log('\n📚 위키 페이지 생성...');
   const wikiData = loadWikiData();
-  const categories = ['business', 'tech', 'history', 'knowledge'];
+  const techData = loadTechData();  // 위키 사이드바에서 테크 카운트 필요
+  const categories = ['business', 'history', 'knowledge'];
 
   // 위키 메인 및 카테고리 목록 페이지 생성
   const wikiCategoryData = {
     wikiData,
+    techData,
     dailyReportsCount: dailyReports.length,
     weeklyReportsCount: weeklyReports.length,
     issueReportsCount: issueReports.length,
@@ -1364,6 +1423,109 @@ async function main() {
     console.log(`  ✅ ${category} 위키 페이지 ${articles.length}개 생성`);
   }
 
+  // ========== 테크 페이지 빌드 ==========
+  console.log('\n📱 테크 페이지 빌드...');
+  const techCategories = ['normal', 'ai', 'vibecoding'];
+
+  const techCategoryData = {
+    techData,
+    wikiData,
+    dailyReportsCount: dailyReports.length,
+    weeklyReportsCount: weeklyReports.length,
+    issueReportsCount: issueReports.length,
+    insightReportsCount: insightReports.length,
+    hotpickReportsCount: hotpickReports.length,
+    issueReports,
+    insightReports,
+    hotpickReports,
+    sidebarPopularArticles,
+    sidebarLatestArticles
+  };
+
+  // tech/index.html 생성
+  try {
+    const techDir = './tech';
+    if (!fs.existsSync(techDir)) {
+      fs.mkdirSync(techDir, { recursive: true });
+    }
+    const techHubHtml = generateTechHubPage(techCategoryData);
+    fs.writeFileSync(`${techDir}/index.html`, techHubHtml, 'utf8');
+    console.log(`  ✅ tech/index.html`);
+  } catch (err) {
+    console.error(`  ❌ tech/index.html: ${err.message}`);
+  }
+
+  // 테크 카테고리 목록 페이지 생성 (normal/index.html 등)
+  for (const category of techCategories) {
+    const categoryDir = `./tech/${category}`;
+    if (!fs.existsSync(categoryDir)) {
+      fs.mkdirSync(categoryDir, { recursive: true });
+    }
+
+    try {
+      const categoryHtml = generateTechCategoryPage({ ...techCategoryData, category });
+      fs.writeFileSync(`${categoryDir}/index.html`, categoryHtml, 'utf8');
+      console.log(`  ✅ tech/${category}/index.html`);
+    } catch (err) {
+      console.error(`  ❌ tech/${category}/index.html: ${err.message}`);
+    }
+  }
+
+  // 테크 개별 항목 페이지 생성
+  for (const category of techCategories) {
+    const articles = techData[category] || [];
+    if (articles.length === 0) continue;
+
+    const categoryDir = `./tech/${category}`;
+
+    for (let i = 0; i < articles.length; i++) {
+      const article = articles[i];
+      const pageDir = `${categoryDir}/${article.slug}`;
+      if (!fs.existsSync(pageDir)) {
+        fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      try {
+        // 관련 항목: JSON에 명시된 경우만 사용
+        const relatedArticles = (article.relatedArticles || [])
+          .map(item => {
+            const itemSlug = typeof item === 'string' ? item : item.slug;
+            const itemCat = typeof item === 'string' ? null : (item.category || category);
+            if (itemCat) {
+              const catArticles = techData[itemCat] || [];
+              const found = catArticles.find(a => a.slug === itemSlug);
+              return found ? { ...found, category: itemCat } : null;
+            }
+            for (const [cat, catArticles] of Object.entries(techData)) {
+              const found = catArticles.find(a => a.slug === itemSlug);
+              if (found) return { ...found, category: cat };
+            }
+            return null;
+          })
+          .filter(Boolean);
+
+        // 이전/다음 항목
+        const prevNext = {
+          prev: articles[i + 1] ? { slug: articles[i + 1].slug, title: articles[i + 1].title } : null,
+          next: articles[i - 1] ? { slug: articles[i - 1].slug, title: articles[i - 1].title } : null
+        };
+
+        const html = generateTechArticlePage({
+          article,
+          category,
+          relatedArticles,
+          prevNext,
+          issueReports,
+          allTechData: techData
+        });
+        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+      } catch (err) {
+        console.error(`  ❌ tech/${category}/${article.slug}: ${err.message}`);
+      }
+    }
+    console.log(`  ✅ ${category} 테크 페이지 ${articles.length}개 생성`);
+  }
+
   // docs 폴더 동기화 (로컬 개발 환경용)
   // 통합 반응형 빌드: 단일 docs/ 폴더에 출력
   const DOCS_DIR = './docs';
@@ -1416,6 +1578,29 @@ async function main() {
     }
   } catch (err) {
     console.warn('  ⚠️ wiki 폴더 복사 실패:', err.message);
+  }
+
+  // tech 폴더 복사
+  try {
+    const srcTech = './tech';
+    if (fs.existsSync(srcTech)) {
+      const copyDir = (src, dest) => {
+        if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+        const entries = fs.readdirSync(src, { withFileTypes: true });
+        for (const entry of entries) {
+          const srcPath = `${src}/${entry.name}`;
+          const destPath = `${dest}/${entry.name}`;
+          if (entry.isDirectory()) {
+            copyDir(srcPath, destPath);
+          } else {
+            fs.copyFileSync(srcPath, destPath);
+          }
+        }
+      };
+      copyDir(srcTech, `${DOCS_DIR}/tech`);
+    }
+  } catch (err) {
+    console.warn('  ⚠️ tech 폴더 복사 실패:', err.message);
   }
 
   // steam 탭 전환용 데이터(JSON) 생성 (초기 HTML/DOM 부하 줄이기)
@@ -1624,19 +1809,33 @@ async function main() {
     // 위키 (허브 + 카테고리)
     { loc: `${siteBaseUrl}/wiki/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/wiki/business/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/wiki/tech/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/wiki/history/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/wiki/knowledge/`, lastmod: sitemapDate }
+    { loc: `${siteBaseUrl}/wiki/knowledge/`, lastmod: sitemapDate },
+    // 테크 (허브 + 카테고리)
+    { loc: `${siteBaseUrl}/tech/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/tech/normal/`, lastmod: sitemapDate }
   ];
 
   // 위키 페이지 자동 스캔
   const wikiSitemapData = loadWikiData();
-  const wikiCategories = ['business', 'tech', 'history', 'knowledge'];
+  const wikiSitemapCategories = ['business', 'history', 'knowledge'];
   let wikiPages = [];
-  for (const category of wikiCategories) {
+  for (const category of wikiSitemapCategories) {
     const articles = wikiSitemapData[category] || [];
     wikiPages.push(...articles.map(article => ({
       loc: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
+      lastmod: normalizeLastmodDate(article.date)
+    })));
+  }
+
+  // 테크 페이지 자동 스캔
+  const techSitemapData = loadTechData();
+  const techSitemapCategories = ['normal', 'ai', 'vibecoding'];
+  let techPages = [];
+  for (const category of techSitemapCategories) {
+    const articles = techSitemapData[category] || [];
+    techPages.push(...articles.map(article => ({
+      loc: `${siteBaseUrl}/tech/${category}/${article.slug}/`,
       lastmod: normalizeLastmodDate(article.date)
     })));
   }
@@ -1738,7 +1937,7 @@ async function main() {
   // 게임 개별 페이지는 sitemap에서 제외 (thin content)
 
   // Sitemap XML 생성 (PC URL만 - 중복 신호 최소화로 색인 효율 향상)
-  const allPages = [...mainPages, ...wikiPages, ...magazinePages];
+  const allPages = [...mainPages, ...wikiPages, ...techPages, ...magazinePages];
   const sitemapEntries = allPages.map(page => {
     return `  <url>
     <loc>${page.loc}</loc>

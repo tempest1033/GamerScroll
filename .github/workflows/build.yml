@@ -73,11 +73,8 @@ jobs:
         if: steps.puppeteer-cache.outputs.cache-hit != 'true'
         run: npx puppeteer browsers install chrome
 
-      - name: Download issue report images
-        run: node scripts/download-issue-images.js
-
-      - name: Download wiki images
-        run: node scripts/download-wiki-images.js
+      - name: Download all images (wiki, tech, issue, insight, hotpick)
+        run: node scripts/download-images.js
 
       - name: Download daily report images
         run: node scripts/download-daily-images.js

@@ -24,8 +24,8 @@ const formatDateKr = (dateStr) => {
   return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
 };
 
-// 카테고리 정보
-const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
+// 카테고리 정보 (tech는 별도 메뉴로 분리됨)
+const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
 // 로컬 위키 이미지 경로 반환
 // size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
@@ -61,6 +61,7 @@ function escapeHtmlAttr(str) {
  */
 function generateWikiHubPage({
   wikiData = {},
+  techData = {},
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   issueReportsCount = 0,
@@ -126,8 +127,10 @@ function generateWikiHubPage({
       hotpick: hotpickReportsCount,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
-      tech: (wikiData.tech || []).length,
-      business: (wikiData.business || []).length
+      business: (wikiData.business || []).length,
+      normal: (techData?.normal || []).length,
+      ai: (techData?.ai || []).length,
+      vibecoding: (techData?.vibecoding || []).length
     };
 
     const regularCategories = [
@@ -144,8 +147,13 @@ function generateWikiHubPage({
     const wikiCategories = [
       { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
       { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-      { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
       { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+    ];
+
+    const techCategories = [
+      { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+      { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+      { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
     ];
 
     const renderItems = (items) => items.map(cat => `
@@ -174,6 +182,10 @@ function generateWikiHubPage({
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(techCategories)}</div>
         </div>
       </div>
 
@@ -338,6 +350,7 @@ function generateWikiHubPage({
 function generateWikiCategoryPage({
   category,
   wikiData = {},
+  techData = {},
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   issueReportsCount = 0,
@@ -398,8 +411,10 @@ function generateWikiCategoryPage({
       hotpick: hotpickReportsCount,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
-      tech: (wikiData.tech || []).length,
-      business: (wikiData.business || []).length
+      business: (wikiData.business || []).length,
+      normal: (techData?.normal || []).length,
+      ai: (techData?.ai || []).length,
+      vibecoding: (techData?.vibecoding || []).length
     };
 
     const regularCategories = [
@@ -416,8 +431,13 @@ function generateWikiCategoryPage({
     const wikiCategories = [
       { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
       { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-      { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
       { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+    ];
+
+    const techCategories = [
+      { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+      { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+      { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
     ];
 
     const renderItems = (items) => items.map(cat => `
@@ -446,6 +466,10 @@ function generateWikiCategoryPage({
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(techCategories)}</div>
         </div>
       </div>
 

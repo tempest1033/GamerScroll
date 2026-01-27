@@ -447,7 +447,7 @@ const swipeScript = `
   // PC에서는 스와이프 비활성화
   if (window.innerWidth > 768) return;
 
-  const navSections = ['magazine', 'wiki', 'games', 'rankings', 'steam', 'upcoming'];
+  const navSections = ['magazine', 'wiki', 'tech', 'games', 'rankings', 'steam', 'upcoming'];
 
   const SWIPE_THRESHOLD = 0.10; // 10% 넘으면 페이지 이동
   const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동
@@ -740,6 +740,40 @@ const swipeScript = `
   // pageshow에서 bfcache 복원 시에만 재설정
   window.addEventListener('pageshow', function(e) {
     if (e && e.persisted) {
+      // URL과 nav active 상태 불일치 시 새로고침
+      var activeNav = document.querySelector('.nav-item.active');
+      var currentPath = window.location.pathname;
+      var isHome = currentPath === '/' || currentPath === '/index.html';
+
+      if (activeNav) {
+        var activeHref = activeNav.getAttribute('href');
+        // 홈(/)인데 다른 메뉴가 active → 불일치
+        if (isHome) {
+          location.reload();
+          return;
+        }
+        // 서브 페이지 불일치 (예: URL=/wiki/ 인데 active=/tech/)
+        if (activeHref && !currentPath.startsWith(activeHref.replace(/\/$/, ''))) {
+          location.reload();
+          return;
+        }
+      } else {
+        // activeNav가 null = 홈 페이지여야 함 (홈은 nav에 없음)
+        // URL이 홈이 아니면 → 불일치
+        if (!isHome) {
+          location.reload();
+          return;
+        }
+      }
+
+      // main 요소 transform 리셋 (슬라이드 아웃 상태에서 복원 방지)
+      var mainEl = document.querySelector('main.site-container');
+      if (mainEl) {
+        mainEl.style.transition = '';
+        mainEl.style.transform = '';
+      }
+      isNavigating = false;
+
       var navInner = document.querySelector('.nav-inner');
       if (!navInner) return;
       var targetIdx = getCurrentNavIndex();
@@ -1072,7 +1106,7 @@ function wrapWithLayout(content, options = {}) {
   </script>` : '';
 
   return `<!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" style="background:#121212">
 <head>
   ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages })}
 </head>

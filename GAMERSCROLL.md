@@ -735,16 +735,19 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 
 ```bash
 # 최신 draft 미리보기
-node scripts/preview-issue.js
+node scripts/preview.js issue
 
 # 특정 slug 미리보기
-node scripts/preview-issue.js [slug]
+node scripts/preview.js issue [slug]
+
+# 핫픽 미리보기
+node scripts/preview.js hotpick [slug]
 
 # draft 목록 보기
-node scripts/preview-issue.js --list
+node scripts/preview.js --list issue
 ```
 
-- **출력 위치**: `docs/preview/issue-preview.html`
+- **출력 위치**: `docs/preview/issue-preview.html` 또는 `hotpick-preview.html`
 - **특징**: 외부 이미지를 wsrv.nl 프록시로 바로 렌더링 (다운로드 불필요)
 - **용도**: 본격 빌드 전 레이아웃/내용 빠른 확인
 
@@ -757,7 +760,12 @@ node scripts/preview-issue.js --list
 - 대화형으로 작성 (주제 논의 → 자료 조사 → 초안 → 수정 → 완성)
 - 저장 경로: `data/wiki/{category}/{slug}.json`
 - URL: `/wiki/{category}/{slug}/`
-- 카테고리: `business` / `tech` / `history` / `knowledge`
+- 카테고리: `business` / `history` / `knowledge`
+
+> **테크 문서**는 별도 섹션으로 분리됨
+> - 저장 경로: `data/tech/{category}/{slug}.json`
+> - URL: `/tech/{category}/{slug}/`
+> - 카테고리: `normal` (일반)
 
 ### 작성 프로세스
 ```
@@ -816,7 +824,7 @@ node scripts/preview-issue.js --list
 | **title** | 태그 없이 제목만 | `Unity 엔진` |
 | **keywords** | SEO용 키워드, 쉼표로 구분 | `Unity, 게임 엔진, 크로스플랫폼` |
 | **heading** | 키워드로 시작, 마지막은 "마치며: 부제" 형식 | `Unity 엔진 특징`, `마치며: 핵심 메시지` |
-| **category** | 폴더명으로 구분 | `business`, `tech`, `history`, `knowledge` |
+| **category** | 폴더명으로 구분 | `business`, `history`, `knowledge` (위키) / `normal` (테크) |
 | **sources** | (선택) 정보 출처 배열, **나무위키 제외** | `[{name, title, url}]` |
 | **relatedArticles** | (선택) 관련 위키/이슈 slug 배열 | `["unity-engine", "게임-AI-논란"]` |
 | **relatedGames** | (선택) 관련 게임 slug 배열 | `["리니지-m", "메이플스토리"]` |
@@ -962,18 +970,25 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 ### 초안 미리보기
 ```bash
 # 최신 draft 미리보기
-node scripts/preview-wiki.js
+node scripts/preview.js wiki
 
 # 특정 카테고리/slug 미리보기
-node scripts/preview-wiki.js {category} {slug}
+node scripts/preview.js wiki {category} {slug}
 
 # draft 목록 보기
-node scripts/preview-wiki.js --list
+node scripts/preview.js --list wiki
 ```
 
 - **출력 위치**: `docs/preview/wiki-preview.html`
 - **특징**: 외부 이미지를 wsrv.nl 프록시로 바로 렌더링 (다운로드 불필요)
 - **용도**: 본격 빌드 전 레이아웃/내용 빠른 확인
+
+**테크 문서 미리보기:**
+```bash
+node scripts/preview.js tech                    # 최신 draft
+node scripts/preview.js tech {category} {slug}  # 특정 문서
+node scripts/preview.js --list tech             # 목록
+```
 
 ### SEO 최종 체크리스트
 작성 완료 후 아래 항목을 점검:

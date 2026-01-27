@@ -62,6 +62,43 @@ function getLocalWikiThumbSrcset(category, slug, originalUrl) {
   };
 }
 
+// 테크 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
+function getLocalTechThumbPath(category, slug, originalUrl, size = 'sm') {
+  if (!category || !slug) return originalUrl || '';
+
+  const sizeMap = { xs: 'thumbnail-xs.webp', sm: 'thumbnail-sm.webp', lg: 'thumbnail.webp' };
+  const widthMap = { xs: 200, sm: 480, lg: 1200 };
+  const filename = sizeMap[size] || sizeMap.sm;
+  const localPath = `/assets/images/tech/${category}/${slug}/${filename}`;
+  const fullPath = path.join(docsDir, 'assets/images/tech', category, slug, filename);
+
+  if (fs.existsSync(fullPath)) {
+    return localPath;
+  }
+  // 폴백: 기존 thumbnail.webp 확인 (sm/xs가 없을 경우)
+  if (size === 'sm' || size === 'xs') {
+    const fallbackPath = path.join(docsDir, 'assets/images/tech', category, slug, 'thumbnail.webp');
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/tech/${category}/${slug}/thumbnail.webp`;
+    }
+  }
+  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
+  const width = widthMap[size] || 480;
+  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
+}
+
+// 테크 srcset 헬퍼 - 반응형 이미지용 (xs 200w, sm 480w)
+function getLocalTechThumbSrcset(category, slug, originalUrl) {
+  const xsUrl = getLocalTechThumbPath(category, slug, originalUrl, 'xs');
+  const smUrl = getLocalTechThumbPath(category, slug, originalUrl, 'sm');
+  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
+  return {
+    src: smUrl,
+    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
+    sizes: '(max-width: 768px) 133px, 253px'
+  };
+}
+
 // 이슈/핫픽/인사이트 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
 // size: 'xs' = 모바일용 (200px), 'sm' = PC리스트용 (480px), 'lg' = 상세 페이지용 (1200px)
 function getLocalReportThumbnail(type, slug, originalUrl, size = 'sm') {
@@ -141,7 +178,7 @@ function getLocalWeeklyThumbnail(weekSlug, originalUrl) {
 }
 
 function generateIndexPage(data) {
-  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], wikiData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
+  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], wikiData = {}, techData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
   // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
@@ -243,7 +280,7 @@ function generateIndexPage(data) {
 
   // 홈 인기 기사 (가로형 3개 - eyesmag 스타일)
   function generateHomePopular() {
-    const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
+    const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
     // popularArticles에서 상위 3개의 상세 정보 조회
     const popularItems = popularArticles.slice(0, 3).map(article => {
@@ -343,7 +380,7 @@ function generateIndexPage(data) {
 
   // 홈 최신 기사 (3x5 그리드 + 페이지네이션 + 카테고리 필터)
   function generateHomeLatest() {
-    const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
+    const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
     // 모든 기사 수집 (이슈 + 인사이트 + 위키)
     const allArticles = [];
@@ -391,7 +428,7 @@ function generateIndexPage(data) {
     });
 
     // 위키 추가
-    const categoryOrder = ['history', 'knowledge', 'tech', 'business'];
+    const categoryOrder = ['history', 'knowledge', 'business'];
     categoryOrder.forEach(category => {
       (wikiData[category] || []).forEach(wiki => {
         allArticles.push({
@@ -407,6 +444,24 @@ function generateIndexPage(data) {
       });
     });
 
+    // 테크 추가
+    const techCategoryOrder = ['normal', 'ai', 'vibecoding'];
+    const techCategoryNames = { normal: '일반', ai: 'AI', vibecoding: '바이브코딩' };
+    techCategoryOrder.forEach(category => {
+      (techData[category] || []).forEach(tech => {
+        allArticles.push({
+          type: 'tech',
+          category: category,
+          slug: tech.slug,
+          originalThumbnail: tech.thumbnail,
+          title: tech.title,
+          link: `/tech/${category}/${tech.slug}/`,
+          badge: techCategoryNames[category],
+          date: tech.date || ''
+        });
+      });
+    });
+
     // 날짜순 정렬 (최신순)
     allArticles.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
@@ -414,10 +469,16 @@ function generateIndexPage(data) {
 
     // 모든 카드 생성 (JS로 페이지네이션 + 카테고리 필터)
     const latestCards = allArticles.map((item, i) => {
-      // 위키도 srcset 사용 (getLocalWikiThumbSrcset)
+      // 위키/테크는 srcset 사용
       let imgHtml = '';
       if (item.type === 'wiki') {
         const thumbData = getLocalWikiThumbSrcset(item.category, item.slug, item.originalThumbnail);
+        const imgAttrs = thumbData.srcset
+          ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+          : `src="${thumbData.src}"`;
+        imgHtml = thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : '';
+      } else if (item.type === 'tech') {
+        const thumbData = getLocalTechThumbSrcset(item.category, item.slug, item.originalThumbnail);
         const imgAttrs = thumbData.srcset
           ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
           : `src="${thumbData.src}"`;
@@ -457,7 +518,7 @@ function generateIndexPage(data) {
     `;
   }
 
-  // 사이드바: 카테고리 메뉴 (정기 매거진 + 리포트 + 위키 그룹) - 링크 연결
+  // 사이드바: 카테고리 메뉴 (정기 매거진 + 리포트 + 위키 + 테크 그룹) - 링크 연결
   function generateSidebarCategories() {
     // 카테고리별 글 개수 계산
     const counts = {
@@ -468,8 +529,10 @@ function generateIndexPage(data) {
       hotpick: hotpickReports.length,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
-      tech: (wikiData.tech || []).length,
-      business: (wikiData.business || []).length
+      business: (wikiData.business || []).length,
+      normal: (techData.normal || []).length,
+      ai: (techData.ai || []).length,
+      vibecoding: (techData.vibecoding || []).length
     };
 
     // 정기 매거진 카테고리
@@ -489,8 +552,14 @@ function generateIndexPage(data) {
     const wikiCategories = [
       { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
       { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-      { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
       { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+    ];
+
+    // 테크 카테고리
+    const techCategories = [
+      { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+      { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+      { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
     ];
 
     const renderItems = (items) => items.map(cat => `
@@ -512,6 +581,10 @@ function generateIndexPage(data) {
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(techCategories)}</div>
         </div>
       </div>
     `;
@@ -544,11 +617,10 @@ function generateIndexPage(data) {
 
   // 홈 위키 카드 (카테고리별 4개씩)
   function generateHomeWiki() {
-    const categoryOrder = ['history', 'knowledge', 'tech', 'business'];
+    const categoryOrder = ['history', 'knowledge', 'business'];
     const categoryNames = {
       history: '히스토리',
       knowledge: '지식',
-      tech: '기술',
       business: '비즈니스'
     };
 
@@ -1019,10 +1091,12 @@ function generateIndexPage(data) {
         categoryMenu?.addEventListener('click', (e) => {
           const btn = e.target.closest('.sidebar-category-item');
           if (!btn) return;
+          const category = btn.dataset.filterCategory;
+          if (!category) return;
           const isActive = btn.classList.contains('active');
           categoryMenu.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
           if (!isActive) btn.classList.add('active');
-          filterByCategory(btn.dataset.filterCategory);
+          filterByCategory(category);
         });
 
         showItemsMobile();
@@ -1075,10 +1149,12 @@ function generateIndexPage(data) {
       categoryMenu?.addEventListener('click', (e) => {
         const btn = e.target.closest('.sidebar-category-item');
         if (!btn) return;
+        const category = btn.dataset.filterCategory;
+        if (!category) return;
         const isActive = btn.classList.contains('active');
         categoryMenu.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
         if (!isActive) btn.classList.add('active');
-        filterByCategory(btn.dataset.filterCategory);
+        filterByCategory(category);
       });
 
       updatePagination();

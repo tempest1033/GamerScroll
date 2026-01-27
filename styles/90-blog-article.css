@@ -114,6 +114,18 @@
   padding: 24px;
 }
 
+/* 본문 내 링크 */
+.blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):hover {
+  color: #34d399;
+}
+
 /* 본문 단락 */
 .blog-paragraph {
   font-size: var(--font-body-size);
@@ -267,14 +279,14 @@
 
 .blog-link-text {
   display: block;
-  font-size: var(--font-lg-size);
+  font-size: var(--font-title-size);
   font-weight: 600;
   color: var(--text);
 }
 
 .blog-link-subtext {
   display: block;
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
   color: var(--text-muted);
   margin-top: 3px;
 }

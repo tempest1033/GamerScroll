@@ -137,12 +137,13 @@ function generateTrendsHubPage({
   insightReports = [],
   hotpickReports = [],
   wikiData = {},
+  techData = {},
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
-  const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
+  const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
   // 정기 카드 (일간/주간) - 홈과 동일
   function generateInsightCards() {
@@ -231,7 +232,7 @@ function generateTrendsHubPage({
     `;
   }
 
-  // 사이드바: 매거진/위키 메뉴
+  // 사이드바: 매거진/위키/테크 메뉴
   function generateSidebarCategories() {
     const counts = {
       daily: dailyReportsCount,
@@ -241,8 +242,10 @@ function generateTrendsHubPage({
       hotpick: hotpickReports.length,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
-      tech: (wikiData.tech || []).length,
-      business: (wikiData.business || []).length
+      business: (wikiData.business || []).length,
+      normal: (techData?.normal || []).length,
+      ai: (techData?.ai || []).length,
+      vibecoding: (techData?.vibecoding || []).length
     };
 
     const regularCategories = [
@@ -259,8 +262,13 @@ function generateTrendsHubPage({
     const wikiCategories = [
       { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
       { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-      { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
       { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+    ];
+
+    const techCategories = [
+      { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+      { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+      { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
     ];
 
     const renderItems = (items) => items.map(cat => `
@@ -282,6 +290,10 @@ function generateTrendsHubPage({
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(techCategories)}</div>
         </div>
       </div>
     `;
@@ -508,6 +520,7 @@ function generateDailyListPage({
   insightReports = [],
   hotpickReports = [],
   wikiData = {},
+  techData = {},
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   sidebarPopularArticles = [],
@@ -557,8 +570,10 @@ function generateDailyListPage({
       hotpick: hotpickReports.length,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
-      tech: (wikiData.tech || []).length,
-      business: (wikiData.business || []).length
+      business: (wikiData.business || []).length,
+      normal: (techData?.normal || []).length,
+      ai: (techData?.ai || []).length,
+      vibecoding: (techData?.vibecoding || []).length
     };
 
     const regularCategories = [
@@ -575,8 +590,13 @@ function generateDailyListPage({
     const wikiCategories = [
       { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
       { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-      { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
       { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+    ];
+
+    const techCategories = [
+      { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+      { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+      { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
     ];
 
     const renderItems = (items) => items.map(cat => `
@@ -605,6 +625,10 @@ function generateDailyListPage({
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">${renderItems(techCategories)}</div>
         </div>
       </div>
       <div class="home-card" id="sidebar-articles">
@@ -699,6 +723,7 @@ function generateWeeklyListPage({
   insightReports = [],
   hotpickReports = [],
   wikiData = {},
+  techData = {},
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   sidebarPopularArticles = [],
@@ -745,7 +770,10 @@ function generateWeeklyListPage({
   const counts = {
     daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length,
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    tech: (wikiData.tech || []).length, business: (wikiData.business || []).length
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
   };
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
@@ -759,8 +787,12 @@ function generateWeeklyListPage({
   const wikiCategories = [
     { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
     { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-    { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
     { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+  ];
+  const techCategories = [
+    { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+    { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+    { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
   ];
   const renderItems = (items) => items.map(cat => `
     <a href="${cat.link}" class="sidebar-category-item">
@@ -776,6 +808,7 @@ function generateWeeklyListPage({
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div><div class="sidebar-category-list">${renderItems(regularCategories)}</div></div>
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div><div class="sidebar-category-list">${renderItems(issueCategories)}</div></div>
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div><div class="sidebar-category-list">${renderItems(techCategories)}</div></div>
     </div>
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
@@ -868,6 +901,7 @@ function generateIssueListPage({
   insightReports = [],
   hotpickReports = [],
   wikiData = {},
+  techData = {},
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   sidebarPopularArticles = [],
@@ -914,7 +948,10 @@ function generateIssueListPage({
   const counts = {
     daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length,
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    tech: (wikiData.tech || []).length, business: (wikiData.business || []).length
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
   };
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
@@ -928,8 +965,12 @@ function generateIssueListPage({
   const wikiCategories = [
     { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
     { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-    { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
     { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+  ];
+  const techCategories = [
+    { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+    { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+    { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
   ];
   const renderItems = (items) => items.map(cat => `
     <a href="${cat.link}" class="sidebar-category-item">
@@ -945,6 +986,7 @@ function generateIssueListPage({
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div><div class="sidebar-category-list">${renderItems(regularCategories)}</div></div>
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div><div class="sidebar-category-list">${renderItems(issueCategories)}</div></div>
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div><div class="sidebar-category-list">${renderItems(techCategories)}</div></div>
     </div>
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
@@ -1037,6 +1079,7 @@ function generateInsightListPage({
   insightReports = [],
   hotpickReports = [],
   wikiData = {},
+  techData = {},
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   sidebarPopularArticles = [],
@@ -1083,7 +1126,10 @@ function generateInsightListPage({
   const counts = {
     daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length,
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    tech: (wikiData.tech || []).length, business: (wikiData.business || []).length
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
   };
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
@@ -1097,8 +1143,12 @@ function generateInsightListPage({
   const wikiCategories = [
     { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
     { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-    { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
     { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+  ];
+  const techCategories = [
+    { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+    { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+    { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
   ];
   const renderItems = (items) => items.map(cat => `
     <a href="${cat.link}" class="sidebar-category-item">
@@ -1114,6 +1164,7 @@ function generateInsightListPage({
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div><div class="sidebar-category-list">${renderItems(regularCategories)}</div></div>
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div><div class="sidebar-category-list">${renderItems(issueCategories)}</div></div>
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div><div class="sidebar-category-list">${renderItems(techCategories)}</div></div>
     </div>
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
@@ -1204,6 +1255,7 @@ function generateHotpickListPage({
   insightReports = [],
   hotpickReports = [],
   wikiData = {},
+  techData = {},
   dailyReportsCount = 0,
   weeklyReportsCount = 0,
   sidebarPopularArticles = [],
@@ -1250,7 +1302,10 @@ function generateHotpickListPage({
   const counts = {
     daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length,
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    tech: (wikiData.tech || []).length, business: (wikiData.business || []).length
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
   };
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
@@ -1264,8 +1319,12 @@ function generateHotpickListPage({
   const wikiCategories = [
     { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
     { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-    { id: 'tech', name: '기술', link: '/wiki/tech/', count: counts.tech },
     { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+  ];
+  const techCategories = [
+    { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+    { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+    { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
   ];
   const renderItems = (items) => items.map(cat => `
     <a href="${cat.link}" class="sidebar-category-item">
@@ -1281,6 +1340,7 @@ function generateHotpickListPage({
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div><div class="sidebar-category-list">${renderItems(regularCategories)}</div></div>
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div><div class="sidebar-category-list">${renderItems(issueCategories)}</div></div>
       <div class="sidebar-category-group"><div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
+      <div class="sidebar-category-group"><div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div><div class="sidebar-category-list">${renderItems(techCategories)}</div></div>
     </div>
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
