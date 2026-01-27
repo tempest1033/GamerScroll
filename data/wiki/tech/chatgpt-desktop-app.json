@@ -1,0 +1,74 @@
+{
+  "slug": "chatgpt-desktop-app",
+  "status": "approved",
+  "title": "챗GPT 데스크톱 앱, 브라우저 없이 AI 쓰는 법",
+  "date": "2026-01-27T12:00",
+  "thumbnail": "https://store-images.s-microsoft.com/image/apps.37799.14423064005243201.9052bdfd-dc99-4d78-867b-c66a845f182c.01458d73-1787-4ac0-899d-746f5d4fced5",
+  "keywords": "챗GPT, ChatGPT, 데스크톱 앱, 윈도우 앱, Alt Space, 단축키, 윈도우 스토어, OpenAI",
+  "summary": "챗GPT 데스크톱 앱은 웹브라우저 없이 바로 AI를 쓸 수 있는 공식 앱이다. Alt + Space 단축키로 어디서든 즉시 호출할 수 있고, 윈도우 스토어에서 무료로 다운로드할 수 있다.",
+  "sources": [
+    { "name": "OpenAI", "title": "Using the ChatGPT Windows app", "url": "https://help.openai.com/en/articles/9982051-using-the-chatgpt-windows-app" },
+    { "name": "OpenAI", "title": "Windows App Release Notes", "url": "https://help.openai.com/en/articles/10003026-windows-app-release-notes" },
+    { "name": "OpenAI", "title": "ChatGPT Desktop Features", "url": "https://chatgpt.com/features/desktop/" },
+    { "name": "Microsoft Store", "title": "ChatGPT App", "url": "https://apps.microsoft.com/detail/9nt1r1c2hh7j" }
+  ],
+  "relatedArticles": ["agile-jira-confluence-game-dev", "vibe-coding"],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "챗GPT를 쓰려면 매번 브라우저를 열고 탭을 찾아야 하는 불편함이 있다. 이를 해결해주는 방법이 있다. 챗GPT 데스크톱 앱을 설치하면 단축키 하나로 바로 AI를 불러올 수 있다. 윈도우 스토어에서 무료로 다운로드할 수 있고, 윈도우 10 이상이면 사용 가능하다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 설치 방법"
+    },
+    {
+      "type": "text",
+      "value": "<a href=\"https://apps.microsoft.com/detail/9nt1r1c2hh7j\" target=\"_blank\">윈도우 스토어</a>에서 'ChatGPT'를 검색하면 OpenAI 공식 앱이 나온다. 무료로 다운로드할 수 있고, 설치 후 OpenAI 계정으로 로그인하면 바로 사용할 수 있다.\n\n앱은 백그라운드에서 실행되면서 단축키 호출을 대기한다. 시스템 트레이에 아이콘이 표시되며, 컴퓨터를 켤 때 자동 시작되도록 설정할 수도 있다."
+    },
+    {
+      "type": "heading",
+      "value": "2. Alt + Space로 즉시 호출"
+    },
+    {
+      "type": "text",
+      "value": "앱의 핵심 기능은 단축키 호출이다. Alt + Space를 누르면 화면에 작은 채팅창이 뜬다. OpenAI는 이걸 '컴패니언 윈도우'라고 부른다.\n\n다른 프로그램을 쓰는 중에도 바로 호출할 수 있다. 문서 작업 중 궁금한 게 생기면 Alt + Space로 질문하고, 답변 확인 후 바로 다시 작업하면 된다. 브라우저 탭을 오갈 필요가 없어서 흐름이 끊기지 않는다.\n\n단축키가 다른 프로그램과 충돌하면 설정에서 변경할 수 있다. 설정 > 앱 > Companion window hotkey에서 원하는 키 조합으로 바꾸면 된다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 주요 단축키"
+    },
+    {
+      "type": "table",
+      "caption": "챗GPT 데스크톱 앱 단축키",
+      "headers": ["단축키", "기능"],
+      "rows": [
+        ["Alt + Space", "채팅창 호출/닫기"],
+        ["Ctrl + N", "새 대화 시작"],
+        ["Ctrl + K", "대화 기록 검색"],
+        ["Ctrl +/-", "글자 크기 조절"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Ctrl + K로 예전 대화를 검색할 수 있어서, 전에 물어봤던 내용을 다시 찾을 때 유용하다. 대화 기록은 웹 버전과 동기화되므로, 웹에서 나눈 대화도 앱에서 이어갈 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 스크린샷과 파일 첨부"
+    },
+    {
+      "type": "text",
+      "value": "스크린샷을 찍어서 바로 대화에 붙일 수 있다. 윈도우 캡처 도구(Snipping Tool)와 연동돼서 원하는 영역만 선택 캡처도 가능하다.\n\n웹캠 촬영 기능도 있다. 실물을 보여주면서 질문하거나, 문서를 빠르게 공유할 때 편하다. 일반 파일 첨부도 지원한다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 탭 하나 줄이는 편리함"
+    },
+    {
+      "type": "text",
+      "value": "챗GPT 데스크톱 앱의 장점은 단순하다. 브라우저 없이 단축키로 바로 AI를 부른다. 자주 챗GPT를 쓴다면 설치해두면 더 편하게 사용할 수 있다."
+    }
+  ]
+}

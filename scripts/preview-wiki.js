@@ -245,8 +245,9 @@ function renderContent(content) {
           if (trimmed) {
             // 볼드 처리 (**text** → <strong>text</strong>)
             let processed = trimmed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            // HTML 태그 보존 (a 태그 등)
             processed = processed.replace(/\n/g, '<br>');
-            return `<p class="wiki-paragraph">${processed}</p>`;
+            return `<p class="blog-paragraph">${processed}</p>`;
           }
           return '';
         }).filter(p => p).join('\n');
@@ -255,30 +256,30 @@ function renderContent(content) {
 
       case 'image':
         const imgSrc = proxyImageUrl(block.src);
-        const caption = block.caption ? `<figcaption class="wiki-caption">${block.caption}</figcaption>` : '';
+        const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
         result.push(`
-          <figure class="wiki-figure">
-            <img class="wiki-image" src="${imgSrc}" alt="${escapeHtml(block.alt || block.caption)}" loading="lazy">
+          <figure class="blog-figure">
+            <img class="blog-image" src="${imgSrc}" alt="${escapeHtml(block.alt || block.caption)}" loading="lazy">
             ${caption}
           </figure>
         `);
         break;
 
       case 'heading':
-        result.push(`<h2 class="wiki-heading">${block.value}</h2>`);
+        result.push(`<h2 class="blog-heading">${block.value}</h2>`);
         break;
 
       case 'quote':
-        result.push(`<blockquote class="wiki-quote">${block.value}</blockquote>`);
+        result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
         break;
 
       case 'video':
         const videoMatch = (block.url || '').match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
         if (videoMatch) {
-          const videoCaption = block.caption ? `<figcaption class="wiki-caption">${block.caption}</figcaption>` : '';
+          const videoCaption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
-            <figure class="wiki-figure wiki-video">
-              <div class="wiki-video-wrapper">
+            <figure class="blog-figure blog-video">
+              <div class="blog-video-wrapper">
                 <iframe src="https://www.youtube.com/embed/${videoMatch[1]}"
                         title="${escapeHtml(block.caption)}"
                         frameborder="0" allowfullscreen loading="lazy"></iframe>
@@ -296,9 +297,9 @@ function renderContent(content) {
             `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
-            <figure class="wiki-figure">
+            <figure class="blog-figure blog-table">
               ${block.caption ? `<div class="table-title">${escapeHtml(block.caption)}</div>` : ''}
-              <div class="wiki-table-wrapper">
+              <div class="blog-table-wrapper">
                 <table class="wiki-table">
                   <thead><tr>${tableHeaders}</tr></thead>
                   <tbody>${tableRows}</tbody>
@@ -328,9 +329,9 @@ function renderSources(sources) {
   if (!sources || sources.length === 0) return '';
 
   return `
-    <div class="wiki-sources">
-      <h3 class="wiki-sources-title">정보 출처</h3>
-      <ul class="wiki-sources-list">
+    <div class="blog-sources">
+      <h3 class="blog-sources-title">정보 출처</h3>
+      <ul class="blog-sources-list">
         ${sources.map(s => `
           <li><a href="${s.url}" target="_blank" rel="nofollow noopener">${s.name} - ${s.title}</a></li>
         `).join('')}
@@ -358,13 +359,13 @@ function renderRelatedGames(gameSlugs) {
   });
 
   return `
-    <div class="wiki-related">
-      <h3 class="wiki-related-title">관련 게임</h3>
-      <div class="wiki-related-grid">
+    <div class="blog-related-games">
+      <h3 class="blog-related-title">관련 게임</h3>
+      <div class="blog-related-grid">
         ${games.map(g => `
-          <a href="/games/${g.slug}/" class="wiki-related-card">
-            ${g.icon ? `<img src="${g.icon}" alt="${escapeHtml(g.title)}" class="wiki-related-icon">` : ''}
-            <span class="wiki-related-name">${escapeHtml(g.title)}</span>
+          <a href="/games/${g.slug}/" class="blog-related-card">
+            ${g.icon ? `<img src="${g.icon}" alt="${escapeHtml(g.title)}" class="blog-related-icon">` : ''}
+            <span class="blog-related-name">${escapeHtml(g.title)}</span>
           </a>
         `).join('')}
       </div>
@@ -402,12 +403,12 @@ function renderRelatedArticles(articlePaths, currentCategory) {
   });
 
   return `
-    <div class="wiki-related">
-      <h3 class="wiki-related-title">관련 문서</h3>
-      <div class="wiki-related-grid">
+    <div class="blog-related-games">
+      <h3 class="blog-related-title">관련 문서</h3>
+      <div class="blog-related-grid">
         ${articles.map(a => `
-          <a href="/wiki/${a.category}/${a.slug}/" class="wiki-related-card">
-            <span class="wiki-related-name">${escapeHtml(a.title)}</span>
+          <a href="/wiki/${a.category}/${a.slug}/" class="blog-related-card">
+            <span class="blog-related-name">${escapeHtml(a.title)}</span>
           </a>
         `).join('')}
       </div>
@@ -421,12 +422,9 @@ function renderRelatedArticles(articlePaths, currentCategory) {
 function generatePreviewHtml(report) {
   const { slug, title, date, thumbnail, summary, content = [], sources = [], relatedGames = [], relatedArticles = [], category } = report;
 
-  // 프리뷰에서는 외부 CSS @import 사용하지 않음 (경로 문제)
-  // 인라인 스타일만 사용
-
   const thumbnailHtml = thumbnail ? `
-    <div class="wiki-hero">
-      <img class="wiki-hero-image" src="${proxyImageUrl(thumbnail)}" alt="${escapeHtml(title)} 대표 이미지">
+    <div class="blog-hero">
+      <img class="blog-hero-image" src="${proxyImageUrl(thumbnail)}" alt="${escapeHtml(title)} 대표 이미지">
     </div>
   ` : '';
 
@@ -437,14 +435,45 @@ function generatePreviewHtml(report) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[미리보기] ${escapeHtml(title)}</title>
   <style>
-    /* 미리보기 전용 스타일 - 다크 테마 최적화 */
-    body {
-      background: #0a0a0b;
-      color: #f4f4f5;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* CSS 변수 정의 - 다크모드 */
+    :root {
+      --bg: #0a0a0b;
+      --bg-secondary: #18181b;
+      --card: #18181b;
+      --card-hover: #27272a;
+      --border: #3f3f46;
+      --text: #fafafa;
+      --text-secondary: #d4d4d8;
+      --text-muted: #a1a1aa;
+      --primary: #f97316;
+      --hover-bg: #27272a;
+      --radius: 12px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --font-2xl-size: 1.75rem;
+      --font-xl-size: 1.5rem;
+      --font-lg-size: 1.25rem;
+      --font-title-size: 1rem;
+      --font-body-size: 0.9375rem;
+      --font-desc-size: 0.875rem;
+      --font-meta-size: 0.8125rem;
+      --font-small-size: 0.75rem;
+      --font-badge-size: 0.6875rem;
     }
+
+    /* 기본 스타일 */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: #60a5fa; text-decoration: none; }
+    a:hover { color: #34d399; }
+
+    /* 프리뷰 배너 */
     .preview-banner {
-      background: linear-gradient(90deg, #10b981, #059669);
+      background: linear-gradient(90deg, #f97316, #ea580c);
       color: #fff;
       padding: 12px 20px;
       text-align: center;
@@ -453,234 +482,300 @@ function generatePreviewHtml(report) {
       top: 0;
       z-index: 1000;
     }
-    .preview-banner a {
-      color: #fff;
-      margin-left: 16px;
-    }
+    .preview-banner a { color: #fff; margin-left: 16px; text-decoration: underline; }
+
     .preview-container {
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
     }
+
     .preview-meta {
-      background: rgba(255,255,255,0.08);
+      background: var(--hover-bg);
       padding: 16px;
       border-radius: 8px;
       margin-bottom: 24px;
-      font-size: 14px;
-      color: #d4d4d8;
+      font-size: var(--font-desc-size);
+      border: 1px solid var(--border);
     }
-    .preview-meta dt { color: #a1a1aa; font-weight: 500; }
-    .preview-meta dd { margin: 0 0 8px 0; color: #e4e4e7; }
-    .preview-meta code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; }
+    .preview-meta dt { color: var(--text-muted); font-weight: 500; margin-top: 8px; }
+    .preview-meta dt:first-child { margin-top: 0; }
+    .preview-meta dd { margin: 4px 0 0 0; color: var(--text-secondary); }
+    .preview-meta code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-size: var(--font-small-size); }
 
-    /* 위키 스타일 */
-    .wiki-card {
-      background: #18181b;
-      border-radius: 12px;
-      border: 1px solid #3f3f46;
+    /* 블로그 카드 */
+    .blog-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
       overflow: hidden;
     }
-    .wiki-hero {
+
+    /* 히어로 이미지 */
+    .blog-hero {
       width: 100%;
       max-height: 280px;
       overflow: hidden;
+      background: var(--bg-secondary);
     }
-    .wiki-hero-image {
+    .blog-hero-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
-    .wiki-header {
-      padding: 24px;
+
+    /* 헤더 */
+    .blog-header {
+      padding: 24px 24px 8px;
     }
-    .wiki-title {
-      font-size: 1.75rem;
+    .blog-title {
+      font-size: var(--font-2xl-size);
       font-weight: 700;
-      margin-bottom: 12px;
-      color: #fafafa;
-    }
-    .wiki-meta {
-      color: #a1a1aa;
-      font-size: 0.875rem;
+      line-height: 1.4;
+      color: var(--text);
       margin-bottom: 16px;
     }
-    .wiki-summary {
-      color: #d4d4d8;
-      line-height: 1.7;
-      padding: 16px;
-      background: rgba(16, 185, 129, 0.08);
-      border-radius: 8px;
-      border-left: 3px solid #10b981;
-    }
-    .wiki-content {
-      padding: 24px;
-    }
-    .wiki-paragraph {
-      line-height: 1.85;
-      color: #e4e4e7;
-      margin-bottom: 20px;
-    }
-    .wiki-heading {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 32px 0 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #3f3f46;
-      color: #fafafa;
-    }
-    .wiki-heading:first-child {
-      margin-top: 0;
-    }
-    .wiki-figure {
-      margin: 24px 0;
-    }
-    .wiki-image {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .wiki-caption {
-      text-align: center;
-      color: #a1a1aa;
-      font-size: 0.875rem;
-      margin-top: 8px;
-    }
-    .wiki-quote {
-      margin: 24px 0;
-      padding: 16px 20px;
-      background: rgba(16, 185, 129, 0.12);
-      border-left: 3px solid #10b981;
-      border-radius: 0 8px 8px 0;
-      font-style: italic;
-      color: #d4d4d8;
-    }
-    .wiki-sources {
-      padding: 24px;
-      border-top: 1px solid #3f3f46;
-    }
-    .wiki-sources-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: #e4e4e7;
-    }
-    .wiki-sources-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .wiki-sources-list li {
-      margin-bottom: 8px;
-      font-size: 0.875rem;
-    }
-    .wiki-sources-list a {
-      color: #a1a1aa;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .wiki-sources-list a:hover {
-      color: #34d399;
-    }
-    /* 관련 게임/문서 스타일 */
-    .wiki-related {
-      padding: 24px;
-      border-top: 1px solid #3f3f46;
-    }
-    .wiki-related-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: #e4e4e7;
-    }
-    .wiki-related-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    .wiki-related-card {
+    .blog-meta {
       display: flex;
       align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-date {
+      font-size: var(--font-meta-size);
+      color: var(--text-muted);
+    }
+    .blog-summary {
+      font-size: var(--font-body-size);
+      line-height: 1.7;
+      color: var(--text-secondary);
+      padding: 16px;
+      background: var(--hover-bg);
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    /* 본문 */
+    .blog-content {
+      padding: 24px;
+    }
+    .blog-paragraph {
+      font-size: var(--font-body-size);
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+    .blog-paragraph:last-child { margin-bottom: 0; }
+
+    .blog-heading {
+      font-size: var(--font-lg-size);
+      font-weight: 600;
+      color: var(--text);
+      margin: 32px 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-heading:first-child { margin-top: 0; }
+
+    /* 이미지 */
+    .blog-figure {
+      margin: 24px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+    }
+    .blog-figure.blog-table {
+      width: fit-content;
+      max-width: 100%;
+    }
+    .blog-image {
+      width: 100%;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
+      display: block;
+    }
+    .blog-caption {
       padding: 12px 16px;
-      background: #27272a;
+      font-size: var(--font-meta-size);
+      color: var(--text-muted);
+      text-align: center;
+      background: var(--hover-bg);
+      border-top: 1px solid var(--border);
+    }
+
+    /* 인용문 */
+    .blog-quote {
+      margin: 24px 0;
+      padding: 16px 20px;
+      background: rgba(249, 115, 22, 0.08);
+      border-left: 3px solid #f97316;
+      border-radius: 0 8px 8px 0;
+      font-size: var(--font-body-size);
+      line-height: 1.7;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* 비디오 */
+    .blog-video .blog-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .blog-video .blog-video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* 표 */
+    .table-title {
+      padding: 12px 16px;
+      font-size: var(--font-title-size);
+      font-weight: 600;
+      color: var(--text);
+      background: var(--hover-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-table-wrapper {
+      margin: 0;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .wiki-table {
+      width: auto;
+      min-width: 50%;
+      border-collapse: collapse;
+      font-size: var(--font-body-size);
+    }
+    .wiki-table th, .wiki-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .wiki-table th {
+      background: var(--hover-bg);
+      font-weight: 600;
+      color: var(--text);
+    }
+    .wiki-table td {
+      color: var(--text-secondary);
+    }
+    .wiki-table tbody tr:hover {
+      background: var(--hover-bg);
+    }
+    .wiki-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .wiki-table a {
+      color: #60a5fa;
+      font-weight: 500;
+    }
+    .wiki-table a:hover {
+      color: #34d399;
+    }
+
+    /* 출처 */
+    .blog-sources {
+      padding: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .blog-sources-title {
+      font-size: var(--font-title-size);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .blog-sources-list {
+      list-style: disc;
+      padding-left: 20px;
+      margin: 0;
+    }
+    .blog-sources-list li {
+      font-size: var(--font-small-size);
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+    .blog-sources-list a {
+      color: var(--text-secondary);
+    }
+    .blog-sources-list a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* 관련 게임/문서 */
+    .blog-related-games {
+      padding: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .blog-related-title {
+      font-size: var(--font-title-size);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .blog-related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .blog-related-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: var(--hover-bg);
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.2s;
-      border: 1px solid #3f3f46;
+      border: 1px solid transparent;
+      transition: all 0.2s;
     }
-    .wiki-related-card:hover {
-      background: #3f3f46;
+    .blog-related-card:hover {
+      background: var(--card-hover);
+      border-color: var(--border);
     }
-    .wiki-related-name {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #e4e4e7;
-    }
-    .wiki-related-icon {
+    .blog-related-icon {
       width: 40px;
       height: 40px;
       border-radius: 8px;
-      margin-right: 12px;
-      flex-shrink: 0;
+      object-fit: cover;
     }
-    /* 표 스타일 */
-    .table-title {
-      padding: 12px 16px;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: #fafafa;
-      background: #27272a;
-      border-bottom: 1px solid #3f3f46;
-      border-radius: 8px 8px 0 0;
-    }
-    .wiki-table-wrapper {
-      overflow-x: auto;
-      margin: 24px 0;
-      -webkit-overflow-scrolling: touch;
-    }
-    .wiki-table-wrapper table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.875rem;
-      min-width: 500px;
-    }
-    .wiki-table-wrapper th,
-    .wiki-table-wrapper td {
-      padding: 12px;
-      border: 1px solid #3f3f46;
-      text-align: left;
-    }
-    .wiki-table-wrapper th {
-      background: #27272a;
-      font-weight: 600;
-      color: #fafafa;
-      white-space: nowrap;
-    }
-    .wiki-table-wrapper td {
-      color: #d4d4d8;
-    }
-    .wiki-table-wrapper tr:hover td {
-      background: rgba(255,255,255,0.03);
-    }
-    .wiki-table-wrapper a {
-      color: #60a5fa;
-      text-decoration: none;
+    .blog-related-name {
+      font-size: var(--font-desc-size);
       font-weight: 500;
-      transition: color 0.2s;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .wiki-table-wrapper a:hover {
-      color: #34d399;
-    }
+
+    /* 모바일 반응형 */
     @media (max-width: 768px) {
-      .wiki-table-wrapper {
-        margin: 16px -16px;
-        padding: 0 16px;
+      .blog-header, .blog-content, .blog-related-games, .blog-sources {
+        padding: 16px;
       }
+      .blog-title { font-size: var(--font-xl-size); }
+      .blog-heading { font-size: var(--font-title-size); }
+      .blog-figure { margin: 16px -16px; border-radius: 0; border-left: none; border-right: none; }
+      .blog-related-grid { grid-template-columns: repeat(2, 1fr); }
+      .blog-figure.blog-table { width: 100%; margin: 16px 0; }
+      .wiki-table { width: 100%; min-width: 400px; }
+      .wiki-table th, .wiki-table td { padding: 10px 12px; font-size: var(--font-desc-size); }
     }
   </style>
 </head>
 <body>
   <div class="preview-banner">
-    📚 위키 미리보기 - 이미지는 외부 프록시 사용 중
+    📚 위키 미리보기 - 실제 사이트 스타일 적용
     <a href="javascript:location.reload()">새로고침</a>
   </div>
 
@@ -696,18 +791,18 @@ function generatePreviewHtml(report) {
       <dd>${report.keywords || '-'}</dd>
     </dl>
 
-    <article class="wiki-card">
+    <article class="blog-card">
       ${thumbnailHtml}
 
-      <header class="wiki-header">
-        <h1 class="wiki-title">${escapeHtml(title)}</h1>
-        <div class="wiki-meta">
-          <time class="wiki-date">${formatDateKorean(date)}</time>
+      <header class="blog-header">
+        <h1 class="blog-title">${escapeHtml(title)}</h1>
+        <div class="blog-meta">
+          <time class="blog-date">${formatDateKorean(date)}</time>
         </div>
-        ${summary ? `<p class="wiki-summary">${escapeHtml(summary)}</p>` : ''}
+        ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
       </header>
 
-      <div class="wiki-content">
+      <div class="blog-content">
         ${renderContent(content)}
       </div>
 
