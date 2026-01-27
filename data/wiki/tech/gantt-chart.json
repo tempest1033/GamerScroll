@@ -1,0 +1,119 @@
+{
+  "slug": "gantt-chart",
+  "status": "approved",
+  "title": "간트 차트, 게임 개발 일정 관리의 핵심 도구",
+  "date": "2026-01-27T20:00",
+  "thumbnail": "https://img.officetimeline.com/website/Content/templates/images/gantt-charts/free-gantt-chart-template.png",
+  "keywords": "간트 차트, Gantt Chart, 프로젝트 관리, 일정 관리, 게임 개발, PM, 마일스톤, Jira, monday.com",
+  "summary": "간트 차트는 작업 항목을 가로 막대로 시각화해 일정을 관리하는 100년 역사의 프로젝트 관리 도구다. 게임 개발에서 팀 간 협업과 마일스톤 관리에 핵심적인 역할을 한다.",
+  "sources": [
+    {
+      "name": "ProjectManager",
+      "title": "Henry Gantt: Biography & Role In the Gantt Chart History",
+      "url": "https://www.projectmanager.com/blog/henry-gantt-chart-history"
+    },
+    {
+      "name": "GanttPRO",
+      "title": "Gantt Project Planner for Game Development",
+      "url": "https://ganttpro.com/gantt-project-planner-for-game-development/"
+    },
+    {
+      "name": "The Digital Project Manager",
+      "title": "27 Best Free Gantt Chart Software Reviewed For 2026",
+      "url": "https://thedigitalprojectmanager.com/tools/free-gantt-chart-software/"
+    },
+    {
+      "name": "Atlassian",
+      "title": "Jira Software",
+      "url": "https://www.atlassian.com/software/jira"
+    },
+    {
+      "name": "Tom's Planner",
+      "title": "Online Gantt Chart Software",
+      "url": "https://www.tomsplanner.com/"
+    }
+  ],
+  "relatedArticles": ["agile-jira-confluence-game-dev", "version-control-system", "pd-vs-director"],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "프로젝트 일정을 한눈에 파악하고 싶다면 간트 차트만 한 도구가 없다. 간트 차트는 작업 항목을 가로 막대로 표현해 시작일, 종료일, 진행 상황을 시각적으로 보여주는 프로젝트 관리 도구다. 게임 개발처럼 수십 명의 인력이 수개월에서 수년간 협업하는 프로젝트에서는 누가 언제 무엇을 해야 하는지 명확히 공유하는 것이 필수인데, 간트 차트가 바로 그 역할을 한다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 간트 차트의 탄생, 100년을 넘긴 역사"
+    },
+    {
+      "type": "image",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Henry_Gantt.jpg",
+      "alt": "간트 차트를 개발한 미국 기계공학자 헨리 간트의 초상화",
+      "caption": "헨리 간트(Henry Gantt, 1861-1919)"
+    },
+    {
+      "type": "text",
+      "value": "간트 차트는 1910년대 미국의 기계공학자 헨리 간트(Henry Gantt)가 개발했다. 당시 미군의 군수품 생산 효율을 높이기 위해 작업 일정을 시각화하는 방법을 고안했고, 이것이 현대 프로젝트 관리의 기초가 됐다.\n\n사실 간트 차트의 원형은 1890년대 폴란드 엔지니어 카롤 아다미에츠키(Karol Adamiecki)가 먼저 만들었다. 하지만 그의 연구가 폴란드어와 러시아어로만 발표되면서 국제적으로 알려지지 못했고, 영어권에서 활동한 헨리 간트의 이름이 붙게 됐다.\n\n이후 간트 차트는 1차 세계대전 군수 물자 관리, 후버 댐 건설 등 대형 프로젝트에 활용되며 표준 도구로 자리 잡았다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 간트 차트 핵심 구성 요소"
+    },
+    {
+      "type": "image",
+      "src": "https://img.officetimeline.com/uploads/assets/simple_gantt_chart_template_9aefdb1098.svg",
+      "alt": "간트 차트 구성 요소를 보여주는 프로젝트 관리 타임라인 예시",
+      "caption": "간트 차트의 기본 구성: 타임라인, 작업 막대, 의존성"
+    },
+    {
+      "type": "text",
+      "value": "간트 차트를 제대로 활용하려면 핵심 구성 요소를 이해해야 한다.\n\n**타임라인(Timeline)**: 가로축에 시간을 배치한다. 일 단위, 주 단위, 월 단위로 설정할 수 있으며, 프로젝트 규모에 따라 조절한다.\n\n**작업 막대(Task Bar)**: 각 작업을 가로 막대로 표현한다. 막대의 길이가 작업 기간을, 위치가 시작일과 종료일을 나타낸다. 색상으로 담당자나 작업 유형을 구분하기도 한다.\n\n**의존성(Dependency)**: 작업 간의 선후 관계를 화살표로 연결한다. 예를 들어 '기획 완료 후 개발 시작'처럼 순서가 정해진 작업들을 명확히 표시한다. 의존성을 제대로 설정하면 일정 지연 시 영향받는 작업을 즉시 파악할 수 있다.\n\n**마일스톤(Milestone)**: 중요한 이정표를 다이아몬드나 깃발 모양으로 표시한다. 알파 빌드, 베타 출시, 정식 런칭 같은 핵심 시점을 한눈에 확인할 수 있다.\n\n**리소스 배분(Resource)**: 각 작업에 투입되는 인력이나 장비를 표시한다. 특정 인원에게 작업이 몰리는 병목 현상을 사전에 발견하고 조정할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 게임 개발에서 간트 차트 활용법"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.ganttpro.com/statics/media/images/opengraph/og-image.png",
+      "alt": "게임 개발 일정을 간트 차트로 관리하는 프로젝트 타임라인",
+      "caption": "게임 개발 프로젝트의 간트 차트 활용 예시"
+    },
+    {
+      "type": "text",
+      "value": "게임 개발은 기획, 아트, 프로그래밍, QA, 마케팅 등 다양한 직군이 동시에 움직이는 복잡한 프로젝트다. 간트 차트는 이런 복잡성을 관리하는 데 효과적이다.\n\n**프로덕션 파이프라인 관리**: 프리 프로덕션부터 런칭까지 전체 일정을 한눈에 조망할 수 있다. 아트팀이 캐릭터 작업을 끝내야 프로그래밍팀이 애니메이션을 붙일 수 있는 것처럼, 팀 간 의존성을 명확히 표시해 병목을 예방한다.\n\n**마일스톤 기반 개발**: 게임 개발에서는 프로토타입, 버티컬 슬라이스, 알파, 베타, 골드 마스터 같은 마일스톤이 중요하다. 간트 차트에 마일스톤을 표시하면 팀 전체가 목표 시점을 공유하고, 현재 진행 상황이 일정에 맞는지 즉시 파악할 수 있다.\n\n**크런치 예방**: 특정 시기에 작업이 몰리면 간트 차트에서 막대가 겹치며 시각적으로 드러난다. 이를 미리 발견해 일정을 재조정하면 과도한 야근을 줄일 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 간트 차트 도구 추천"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/652427f5a7e6506f73697244/65c1479888c719f3153bba5d_5fd8da91b03068e4023d05ce_Video-production-gantt-chart-example.png",
+      "alt": "간트 차트 소프트웨어의 타임라인 인터페이스",
+      "caption": "간트 차트 도구 화면 예시"
+    },
+    {
+      "type": "text",
+      "value": "용도와 규모에 따라 적합한 도구가 다르다. 아래 4가지를 추천한다.\n\n**Jira**: 게임 개발팀과 소프트웨어 팀에서 가장 많이 쓰는 이슈 트래커다. 타임라인 뷰와 로드맵 기능으로 간트 차트를 제공한다. 이미 Jira를 쓰고 있다면 별도 도구 없이 내장 기능만으로 일정 관리가 가능하다. 애자일 스프린트 관리와 연동되는 것도 장점이다.\n\n**monday.com**: 스타트업부터 중견기업까지 폭넓게 사용되는 협업 중심 도구다. 간트 차트 외에도 칸반 보드, 캘린더 등 다양한 뷰를 제공해 팀원 성향에 맞게 선택할 수 있다. 직관적인 UI와 풍부한 통합 기능이 장점이다.\n\n**Tom's Planner**: 간트 차트 전문 도구로, 복잡한 기능 없이 간트 차트만 심플하게 사용하고 싶을 때 적합하다. AI 어시스트 기능으로 프로젝트 설명만 입력하면 자동으로 간트 차트를 생성해준다. 200개 이상의 템플릿을 제공하며, 무료 플랜도 있다.\n\n**Google Sheets**: 별도 도구 없이 스프레드시트로 직접 간트 차트를 만들 수 있다. 무료이고 커스터마이징이 자유로워 소규모 팀이나 개인 프로젝트에 적합하다. 간트 차트 템플릿을 검색해서 복사하면 바로 시작할 수 있다."
+    },
+    {
+      "type": "table",
+      "caption": "간트 차트 도구 비교",
+      "headers": ["도구", "대상", "가격"],
+      "rows": [
+        ["[Jira](https://www.atlassian.com/software/jira)", "개발팀 (게임/SW)", "무료~$8.15/user/월"],
+        ["[monday.com](https://monday.com)", "스타트업~중견", "$9/user/월~"],
+        ["[Tom's Planner](https://www.tomsplanner.com)", "소규모 팀, 개인", "무료~$119/년"],
+        ["[Google Sheets](https://sheets.google.com)", "개인, 소규모 팀", "무료"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 일정 관리의 시작점"
+    },
+    {
+      "type": "text",
+      "value": "간트 차트는 100년 넘게 살아남은 검증된 프로젝트 관리 도구다. 게임 개발처럼 복잡한 프로젝트에서 전체 일정을 조망하고, 팀 간 협업을 조율하며, 마일스톤을 향해 나아가는 데 핵심적인 역할을 한다.\n\n처음에는 간단한 도구로 시작해서 프로젝트 규모가 커지면 전문 도구로 옮겨가는 것도 좋은 전략이다. 중요한 건 도구 자체가 아니라, 일정을 시각화하고 팀과 공유하는 습관이다."
+    }
+  ]
+}
