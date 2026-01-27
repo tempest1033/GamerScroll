@@ -303,7 +303,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
 
   // 수동 지정된 relatedGames가 있으면 사용
   let relatedGames = [];
-  if (article.relatedGames && article.relatedGames.length > 0) {
+  if ('relatedGames' in article) {
     relatedGames = article.relatedGames.map(item => {
       // 객체 형식 { title, slug } 또는 문자열 slug 둘 다 지원
       const slugValue = typeof item === 'string' ? item : item.slug;

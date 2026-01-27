@@ -2047,7 +2047,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
   };
   const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
   const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
-  const relatedGames = manualGames.length > 0 ? manualGames : findRelatedGames(fullText);
+  const relatedGames = 'relatedGames' in post ? manualGames : findRelatedGames(fullText);
   const relatedGamesHtml = relatedGames.length > 0 ? `
     <div class="blog-related-games">
       <div class="blog-related-title">관련 게임</div>
@@ -2418,7 +2418,7 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
   };
   const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
   const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
-  const relatedGames = manualGames.length > 0 ? manualGames : findRelatedGames(fullText);
+  const relatedGames = 'relatedGames' in post ? manualGames : findRelatedGames(fullText);
   const relatedGamesHtml = relatedGames.length > 0 ? `
     <div class="blog-related-games">
       <div class="blog-related-title">관련 게임</div>
@@ -2797,7 +2797,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
   };
   const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
   const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
-  const relatedGames = manualGames.length > 0 ? manualGames : findRelatedGames(fullText);
+  const relatedGames = 'relatedGames' in post ? manualGames : findRelatedGames(fullText);
   const relatedGamesHtml = relatedGames.length > 0 ? `
     <div class="blog-related-games">
       <div class="blog-related-title">관련 게임</div>
