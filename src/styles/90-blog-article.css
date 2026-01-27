@@ -279,14 +279,14 @@
 
 .blog-link-text {
   display: block;
-  font-size: var(--font-lg-size);
+  font-size: var(--font-title-size);
   font-weight: 600;
   color: var(--text);
 }
 
 .blog-link-subtext {
   display: block;
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
   color: var(--text-muted);
   margin-top: 3px;
 }
