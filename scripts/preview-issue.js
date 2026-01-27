@@ -153,6 +153,14 @@ function escapeHtml(str) {
 }
 
 /**
+ * 마크다운 링크를 HTML 앵커 태그로 변환
+ */
+function parseMarkdownLinks(str) {
+  const escaped = escapeHtml(str);
+  return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+}
+
+/**
  * 마크다운 표를 HTML table로 변환
  */
 function parseMarkdownTable(text) {
@@ -282,11 +290,11 @@ function renderContent(content) {
 
       case 'table':
         if (block.headers && block.rows) {
-          const tableHeaders = block.headers.map(h => `<th>${h}</th>`).join('');
-          const tableRows = block.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('');
+          const tableHeaders = block.headers.map(h => `<th>${escapeHtml(h)}</th>`).join('');
+          const tableRows = block.rows.map(row => `<tr>${row.map(c => `<td>${parseMarkdownLinks(c)}</td>`).join('')}</tr>`).join('');
           result.push(`
             <figure class="blog-figure blog-table">
-              ${block.caption ? `<div class="table-title">${block.caption}</div>` : ''}
+              ${block.caption ? `<div class="table-title">${escapeHtml(block.caption)}</div>` : ''}
               <table class="wiki-table">
                 <thead><tr>${tableHeaders}</tr></thead>
                 <tbody>${tableRows}</tbody>

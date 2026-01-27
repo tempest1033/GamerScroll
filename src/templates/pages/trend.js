@@ -1814,6 +1814,10 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+  const parseMarkdownLinks = (str) => {
+    const escaped = escapeHtmlAttr(str);
+    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+  };
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '이슈 대표 이미지');
 
   // 이슈 중간 광고 (PC/모바일 분기)
@@ -1974,13 +1978,13 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
 
         case 'table':
           if (!block.headers || !block.rows) break;
-          const tblHeaders = block.headers.map(h => `<th>${h}</th>`).join('');
+          const tblHeaders = block.headers.map(h => `<th>${escapeHtmlAttr(h)}</th>`).join('');
           const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+            `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
             <figure class="blog-figure blog-table">
-              ${block.caption ? `<div class="table-title">${block.caption}</div>` : ''}
+              ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
               <table class="wiki-table">
                 <thead><tr>${tblHeaders}</tr></thead>
                 <tbody>${tblRows}</tbody>
@@ -2199,6 +2203,10 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+  const parseMarkdownLinks = (str) => {
+    const escaped = escapeHtmlAttr(str);
+    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+  };
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '인사이트 대표 이미지');
 
   // 인사이트 중간 광고 (PC/모바일 분기)
@@ -2342,13 +2350,13 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
 
         case 'table':
           if (!block.headers || !block.rows) break;
-          const tblHeaders = block.headers.map(h => `<th>${h}</th>`).join('');
+          const tblHeaders = block.headers.map(h => `<th>${escapeHtmlAttr(h)}</th>`).join('');
           const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+            `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
             <figure class="blog-figure blog-table">
-              ${block.caption ? `<div class="table-title">${block.caption}</div>` : ''}
+              ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
               <table class="wiki-table">
                 <thead><tr>${tblHeaders}</tr></thead>
                 <tbody>${tblRows}</tbody>
@@ -2574,6 +2582,10 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+  const parseMarkdownLinks = (str) => {
+    const escaped = escapeHtmlAttr(str);
+    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+  };
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '핫픽 대표 이미지');
 
   // 핫픽 중간 광고
@@ -2717,13 +2729,13 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
 
         case 'table':
           if (!block.headers || !block.rows) break;
-          const tblHeaders = block.headers.map(h => `<th>${h}</th>`).join('');
+          const tblHeaders = block.headers.map(h => `<th>${escapeHtmlAttr(h)}</th>`).join('');
           const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+            `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
             <figure class="blog-figure blog-table">
-              ${block.caption ? `<div class="table-title">${block.caption}</div>` : ''}
+              ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
               <table class="wiki-table">
                 <thead><tr>${tblHeaders}</tr></thead>
                 <tbody>${tblRows}</tbody>

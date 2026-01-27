@@ -1322,14 +1322,23 @@ async function main() {
 
       try {
         // 관련 항목: JSON에 명시된 경우만 사용 (자동 생성 없음)
-        // relatedArticles 형식: [{ category, slug, title }, ...]
+        // relatedArticles 형식: [{ category, slug }, ...] 또는 ["slug1", "slug2", ...]
         const relatedArticles = (article.relatedArticles || [])
           .map(item => {
-            const itemCat = item.category || category;
-            const itemSlug = item.slug;
-            const catArticles = wikiData[itemCat] || [];
-            const found = catArticles.find(a => a.slug === itemSlug);
-            return found ? { ...found, category: itemCat } : null;
+            const itemSlug = typeof item === 'string' ? item : item.slug;
+            const itemCat = typeof item === 'string' ? null : (item.category || category);
+            // 카테고리가 지정된 경우
+            if (itemCat) {
+              const catArticles = wikiData[itemCat] || [];
+              const found = catArticles.find(a => a.slug === itemSlug);
+              return found ? { ...found, category: itemCat } : null;
+            }
+            // 카테고리 없이 slug만 있는 경우 - 전체 위키에서 검색
+            for (const [cat, catArticles] of Object.entries(wikiData)) {
+              const found = catArticles.find(a => a.slug === itemSlug);
+              if (found) return { ...found, category: cat };
+            }
+            return null;
           })
           .filter(Boolean);
 

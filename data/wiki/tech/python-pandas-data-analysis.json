@@ -8,7 +8,7 @@
   "summary": "판다스(Pandas)는 파이썬 기반의 데이터 분석 라이브러리로, 엑셀로 처리하기 어려운 대용량 게임 데이터를 다루는 데 유용하다. 직관적인 데이터프레임 구조와 집계 기능으로 게임 업계에서 널리 활용되고 있다.",
   "relatedArticles": [
     {
-      "category": "knowledge",
+      "category": "tech",
       "slug": "agile-jira-confluence-game-dev"
     },
     {

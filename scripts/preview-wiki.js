@@ -165,6 +165,15 @@ function escapeHtml(str) {
 }
 
 /**
+ * 마크다운 링크를 HTML 앵커 태그로 변환
+ * [텍스트](URL) → <a href="URL">텍스트</a>
+ */
+function parseMarkdownLinks(str) {
+  const escaped = escapeHtml(str);
+  return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+}
+
+/**
  * 마크다운 표를 HTML table로 변환
  */
 function parseMarkdownTable(text) {
@@ -284,7 +293,7 @@ function renderContent(content) {
         if (block.headers && block.rows) {
           const tableHeaders = block.headers.map(h => `<th>${escapeHtml(h)}</th>`).join('');
           const tableRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`
+            `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
             <figure class="wiki-figure">
@@ -651,6 +660,15 @@ function generatePreviewHtml(report) {
     }
     .wiki-table-wrapper tr:hover td {
       background: rgba(255,255,255,0.03);
+    }
+    .wiki-table-wrapper a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .wiki-table-wrapper a:hover {
+      color: #34d399;
     }
     @media (max-width: 768px) {
       .wiki-table-wrapper {

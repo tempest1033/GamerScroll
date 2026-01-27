@@ -399,6 +399,17 @@
   border-bottom: none;
 }
 
+.wiki-table a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.wiki-table a:hover {
+  color: #34d399;
+}
+
 @media (max-width: 768px) {
   .blog-table {
     overflow-x: auto;
