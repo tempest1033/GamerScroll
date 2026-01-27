@@ -25,7 +25,9 @@ const siteBaseUrl = 'https://gamerscroll.com';
 const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 // 카테고리 정보
 const categoryInfo = {
-  normal: { name: '일반', desc: '기술, AI, 개발 도구, 바이브 코딩' }
+  normal: { name: '일반', desc: '개발 도구, 기술 트렌드' },
+  ai: { name: 'AI', desc: 'AI 기술, 도구, 활용법' },
+  vibecoding: { name: '바이브코딩', desc: '바이브 코딩, AI 코딩' }
 };
 
 // 날짜 형식화 함수 (2026-01-01 → 2026년 1월 1일)
