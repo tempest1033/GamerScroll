@@ -340,6 +340,42 @@ function renderContent(content) {
 }
 
 /**
+ * 관련 문서 렌더링
+ */
+function renderRelatedDocs(relatedIssues, reportDir) {
+  if (!relatedIssues || relatedIssues.length === 0) return '';
+
+  // 관련 이슈 정보 조회
+  const relatedList = relatedIssues.map(slug => {
+    const filePath = path.join(reportDir, `${slug}.json`);
+    if (!fs.existsSync(filePath)) return null;
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8').replace(/^\uFEFF/, '');
+      const data = JSON.parse(content);
+      return { slug: data.slug, title: data.title, thumbnail: data.thumbnail };
+    } catch {
+      return null;
+    }
+  }).filter(Boolean);
+
+  if (relatedList.length === 0) return '';
+
+  return `
+    <div class="blog-related-issues">
+      <div class="blog-related-title">관련 문서</div>
+      <div class="blog-related-issues-list">
+        ${relatedList.map(issue => `
+          <div class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${proxyImageUrl(issue.thumbnail)}" alt="" loading="lazy">
+            <span class="blog-related-issue-title">${escapeHtml(issue.title)}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+/**
  * 정보 출처 렌더링
  */
 function renderSources(sources) {
@@ -361,7 +397,7 @@ function renderSources(sources) {
  * 미리보기 HTML 생성
  */
 function generatePreviewHtml(report) {
-  const { slug, title, date, thumbnail, summary, content = [], sources = [] } = report;
+  const { slug, title, date, thumbnail, summary, content = [], sources = [], relatedIssues = [], relatedGames = [] } = report;
 
   // CSS 로드
   let cssContent = '';
@@ -462,6 +498,58 @@ function generatePreviewHtml(report) {
     }
     .preview-meta dt { color: rgba(255,255,255,0.5); }
     .preview-meta dd { margin: 0 0 8px 0; }
+    /* 관련 문서 스타일 */
+    .blog-related-issues {
+      padding: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 24px;
+    }
+    .blog-related-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fafafa;
+      margin-bottom: 16px;
+    }
+    .blog-related-issues-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 600px) {
+      .blog-related-issues-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    .blog-related-issue-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+    .blog-related-issue-card:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    .blog-related-issue-thumb {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .blog-related-issue-title {
+      font-size: 0.875rem;
+      color: #e4e4e7;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -495,6 +583,7 @@ function generatePreviewHtml(report) {
         ${renderContent(content)}
       </div>
 
+      ${renderRelatedDocs(relatedIssues, ISSUE_DIR)}
       ${renderSources(sources)}
     </article>
   </div>
