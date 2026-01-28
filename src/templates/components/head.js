@@ -284,31 +284,6 @@ function generateHead(options = {}) {
   <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
   <link rel="dns-prefetch" href="https://i.ytimg.com">
   <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
-	  <!-- Prefetch (load 이후, 네트워크 여건이 좋을 때만) -->
-	  <script>
-	    (function() {
-	      var urls = ['/magazine/', '/wiki/', '/games/', '/rankings/', '/steam/', '/upcoming/'];
-	      function shouldPrefetch() {
-	        var c = navigator.connection;
-	        if (!c) return true;
-	        if (c.saveData) return false;
-	        var type = String(c.effectiveType || '').toLowerCase();
-	        if (type.includes('2g')) return false;
-	        return true;
-	      }
-	      function addPrefetch() {
-	        if (!shouldPrefetch()) return;
-	        for (var i = 0; i < urls.length; i++) {
-	          var link = document.createElement('link');
-	          link.rel = 'prefetch';
-	          link.as = 'document';
-	          link.href = urls[i];
-	          document.head.appendChild(link);
-	        }
-	      }
-	      window.addEventListener('load', addPrefetch);
-	    })();
-	  </script>
 	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->
 	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
