@@ -13,6 +13,12 @@ const siteBaseUrl = 'https://gamerscroll.com';
 // docs 폴더 경로 (이미지 로컬 확인용)
 const docsDir = path.join(__dirname, '../../../docs');
 
+// history 폴더 경로 (순위 분석 차트용)
+const historyDir = path.join(__dirname, '../../../history');
+
+// games.json 경로
+const gamesJsonPath = path.join(__dirname, '../../../data/games.json');
+
 // 광고 활성화 여부
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
@@ -139,6 +145,257 @@ try {
 } catch (e) {
   // 로드 실패 시 빈 객체
 }
+
+// ========== 순위 분석 차트 헬퍼 ==========
+
+// 히스토리 파일에서 특정 기간의 게임 순위 데이터 로드
+function loadGameRankHistory(gameSlug, startDate, endDate, category = 'grossing', market = 'ios') {
+  if (!fs.existsSync(historyDir)) return [];
+
+  // 게임 정보 찾기
+  let gameInfo = null;
+  let gameName = null;
+  for (const [name, info] of Object.entries(gamesMap)) {
+    if (info.slug === gameSlug) {
+      gameInfo = info;
+      gameName = name;
+      break;
+    }
+  }
+  if (!gameInfo) return [];
+
+  const allNames = [gameName, ...(gameInfo.aliases || [])].map(n => n.toLowerCase().trim());
+  const appIds = gameInfo.appIds || {};
+  const platform = market === 'ios' ? 'ios' : 'android';
+
+  // 히스토리 파일 목록
+  const files = fs.readdirSync(historyDir)
+    .filter(f => f.endsWith('.json') && !f.includes('mentions'))
+    .filter(f => {
+      const dateMatch = f.match(/(\d{4}-\d{2}-\d{2})/);
+      if (!dateMatch) return false;
+      const fileDate = dateMatch[1];
+      return fileDate >= startDate && fileDate <= endDate;
+    })
+    .sort();
+
+  const result = [];
+  const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
+
+  for (const file of files) {
+    try {
+      const data = JSON.parse(fs.readFileSync(path.join(historyDir, file), 'utf8'));
+      const dateMatch = file.match(/(\d{4}-\d{2}-\d{2})/);
+      if (!dateMatch) continue;
+
+      const dayData = { date: dateMatch[1] };
+      const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
+
+      for (const region of regions) {
+        const expectedAppId = appIds[platform] || appIds[`${platform}:${region}`];
+        const bestRankKey = `${keyPrefix}_${region}_${category}`;
+
+        // 1. bestRanks 우선 사용 (일 최고순위) - 게임 페이지와 동일
+        if (data.bestRanks?.[bestRankKey] && expectedAppId) {
+          const bestRank = data.bestRanks[bestRankKey][String(expectedAppId)];
+          if (bestRank) {
+            dayData[region] = bestRank;
+            continue;
+          }
+        }
+
+        // 2. bestRanks에 없으면 rankings에서 검색 (폴백)
+        const items = data.rankings?.[category]?.[region]?.[platform] || [];
+
+        // appId 매칭 우선
+        let matchedIndex = -1;
+        if (expectedAppId) {
+          for (let i = 0; i < items.length; i++) {
+            if (String(items[i].appId) === String(expectedAppId)) {
+              matchedIndex = i;
+              break;
+            }
+          }
+        }
+        // 이름 매칭 폴백
+        if (matchedIndex < 0) {
+          for (let i = 0; i < items.length; i++) {
+            if (allNames.includes((items[i].title || '').toLowerCase().trim())) {
+              matchedIndex = i;
+              break;
+            }
+          }
+        }
+
+        if (matchedIndex >= 0) {
+          dayData[region] = matchedIndex + 1;
+        }
+      }
+
+      // 최소 하나 이상의 지역 데이터가 있으면 추가
+      if (Object.keys(dayData).length > 1) {
+        result.push(dayData);
+      }
+    } catch (e) {
+      // 파싱 실패 무시
+    }
+  }
+
+  return result;
+}
+
+// 비교 차트 SVG 생성 - 게임 페이지 차트와 동일한 스타일
+function generateComparisonChart(chartBlock) {
+  const { games = [], category = 'grossing', market = 'ios', startDate, endDate, title } = chartBlock;
+
+  if (!games.length || !startDate || !endDate) {
+    return '<div class="chart-error">차트 데이터가 부족합니다</div>';
+  }
+
+  // 각 게임의 순위 데이터 로드
+  const gameDataList = games.map(slug => {
+    const history = loadGameRankHistory(slug, startDate, endDate, category, market);
+    const gameInfo = Object.entries(gamesMap).find(([name, info]) => info.slug === slug);
+    return {
+      slug,
+      name: gameInfo ? gameInfo[0] : slug,
+      icon: gameInfo ? gameInfo[1].icon : null,
+      history
+    };
+  }).filter(g => g.history.length > 0);
+
+  if (gameDataList.length === 0) {
+    return '<div class="chart-error">순위 데이터가 없습니다</div>';
+  }
+
+  // 차트 설정 - 게임 페이지와 동일
+  const width = 400;
+  const height = 200;
+  const padding = { top: 6, right: 4, bottom: 18, left: 18 };
+  const xLabelPadding = 16;
+  const chartWidth = width - padding.left - padding.right;
+  const chartHeight = height - padding.top - padding.bottom;
+  const xLabelWidth = chartWidth - xLabelPadding * 2;
+
+  // startDate~endDate 전체 날짜 생성
+  const allDates = [];
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+    allDates.push(d.toISOString().slice(0, 10));
+  }
+
+  // Y축 범위: iOS=100, Android=200 고정
+  const yMin = 1;
+  const yMax = market === 'ios' ? 100 : 200;
+
+  // 좌표 계산 헬퍼 - 게임 페이지와 동일한 방식
+  const getX = (i) => padding.left + xLabelPadding + (i / Math.max(1, allDates.length - 1)) * xLabelWidth;
+  const getY = (rank) => padding.top + ((rank - yMin) / (yMax - yMin)) * chartHeight;
+
+  // 게임별 색상
+  const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'];
+
+  // SVG 시작 - 게임 페이지와 동일한 클래스
+  let svg = `<svg viewBox="0 0 ${width} ${height}" class="trend-chart-svg" preserveAspectRatio="xMidYMid meet">`;
+
+  // Y축 그리드
+  const yTicks = [];
+  const tickCount = 5;
+  for (let i = 0; i <= tickCount; i++) {
+    const val = Math.round(yMin + (i / tickCount) * (yMax - yMin));
+    if (!yTicks.includes(val)) yTicks.push(val);
+  }
+
+  yTicks.forEach(tick => {
+    const y = getY(tick);
+    const yLabelX = padding.left / 2 - 3;
+    svg += `<line class="chart-grid" x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}"/>`;
+    svg += `<text class="chart-ylabel" x="${yLabelX}" y="${y}" text-anchor="middle" dominant-baseline="middle">${tick}</text>`;
+  });
+
+  // X축 라벨 (날짜)
+  allDates.forEach((date, i) => {
+    const x = getX(i);
+    const month = parseInt(date.slice(5, 7), 10);
+    const day = parseInt(date.slice(8, 10), 10);
+    const label = `${month}월${day}일`;
+    svg += `<text class="chart-xlabel" x="${x}" y="${height - 2}" text-anchor="middle">${label}</text>`;
+  });
+
+  // 게임별 라인 그리기
+  gameDataList.forEach((game, gameIdx) => {
+    const color = colors[gameIdx % colors.length];
+    const allPoints = []; // 모든 포인트 (null 포함)
+
+    allDates.forEach((date, i) => {
+      const dayData = game.history.find(h => h.date === date);
+      if (dayData && dayData.kr) {
+        allPoints.push({ x: getX(i), y: getY(dayData.kr), rank: dayData.kr });
+      } else {
+        allPoints.push(null); // 데이터 없는 날짜
+      }
+    });
+
+    // 연속된 구간만 선으로 연결 (데이터 없는 구간에서 끊기)
+    let segment = [];
+    allPoints.forEach((p, i) => {
+      if (p) {
+        segment.push(p);
+      } else {
+        // 데이터 없으면 현재 구간 그리고 새 구간 시작
+        if (segment.length > 1) {
+          const linePoints = segment.map(pt => `${pt.x},${pt.y}`).join(' ');
+          svg += `<polyline class="chart-line" stroke="${color}" points="${linePoints}"/>`;
+        }
+        segment = [];
+      }
+    });
+    // 마지막 구간 처리
+    if (segment.length > 1) {
+      const linePoints = segment.map(pt => `${pt.x},${pt.y}`).join(' ');
+      svg += `<polyline class="chart-line" stroke="${color}" points="${linePoints}"/>`;
+    }
+
+    // 점 먼저 그리기
+    allPoints.filter(Boolean).forEach(p => {
+      svg += `<circle class="chart-dot" fill="${color}" cx="${p.x}" cy="${p.y}" r="2.5"/>`;
+    });
+
+    // 라벨은 나중에 그려서 항상 앞에 표시
+    allPoints.filter(Boolean).forEach(p => {
+      const labelY = p.y < 20 ? p.y + 14 : p.y - 6;
+      svg += `<text class="chart-rank-label" fill="${color}" x="${p.x}" y="${labelY}" text-anchor="middle">${p.rank}</text>`;
+    });
+  });
+
+  svg += '</svg>';
+
+  // 범례
+  const legendHtml = gameDataList.map((game, i) => {
+    const color = colors[i % colors.length];
+    const iconHtml = game.icon ? `<img src="${game.icon}" alt="" class="chart-legend-icon">` : '';
+    return `<span class="chart-legend-item" style="--color: ${color}">${iconHtml}${game.name}</span>`;
+  }).join('');
+
+  // 차트 제목
+  const categoryLabel = category === 'grossing' ? '매출' : '인기';
+  const marketLabel = market === 'ios' ? 'iOS' : 'Android';
+  const chartTitle = title || `${marketLabel} ${categoryLabel} 순위 비교 (한국)`;
+
+  return `
+    <div class="blog-chart-wrapper">
+      <div class="chart-header">
+        <h4 class="chart-title">${chartTitle}</h4>
+        <div class="chart-legend">${legendHtml}</div>
+      </div>
+      <div class="chart-container">${svg}</div>
+      <div class="chart-period">${startDate} ~ ${endDate}</div>
+    </div>
+  `;
+}
+
+// ========== 순위 분석 차트 헬퍼 끝 ==========
 
 // 게임명으로 아이콘 찾기
 const findGameIcon = (text) => {
@@ -1899,7 +2156,25 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     let imageIndex = 1; // 이미지 인덱스 (로컬 이미지 경로용)
     const result = [];
 
-    content.forEach((block) => {
+    // 연속 link 블록 그룹화 전처리
+    const processedContent = [];
+    let linkGroup = [];
+    content.forEach((block, idx) => {
+      if (block.type === 'link') {
+        linkGroup.push(block);
+      } else {
+        if (linkGroup.length > 0) {
+          processedContent.push({ type: 'link-group', links: linkGroup });
+          linkGroup = [];
+        }
+        processedContent.push(block);
+      }
+    });
+    if (linkGroup.length > 0) {
+      processedContent.push({ type: 'link-group', links: linkGroup });
+    }
+
+    processedContent.forEach((block) => {
       switch (block.type) {
         case 'text':
           const paragraphs = block.value.split('\n\n').map(p => {
@@ -2013,6 +2288,27 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
               ${rankingItems}
             </div>
           `);
+          break;
+
+        case 'link-group':
+          const linkItems = block.links.map(link => {
+            if (!link.url || !link.text) return '';
+            let iconHtml = '';
+            if (link.url.startsWith('/games/')) {
+              const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
+              for (const [name, game] of Object.entries(gamesMap)) {
+                if (game.slug === gameSlug && game.icon) {
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  break;
+                }
+              }
+            }
+            const subtext = link.subtext ? `<span class="blog-link-subtext">${link.subtext}</span>` : '';
+            return `<a href="${link.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${link.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`;
+          }).filter(Boolean).join('');
+          if (linkItems) {
+            result.push(`<div class="blog-link-grid">${linkItems}</div>`);
+          }
           break;
 
         case 'link':
@@ -2278,7 +2574,25 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
     let imageIndex = 1;
     const result = [];
 
-    content.forEach((block) => {
+    // 연속 link 블록 그룹화 전처리
+    const processedContent = [];
+    let linkGroup = [];
+    content.forEach((block, idx) => {
+      if (block.type === 'link') {
+        linkGroup.push(block);
+      } else {
+        if (linkGroup.length > 0) {
+          processedContent.push({ type: 'link-group', links: linkGroup });
+          linkGroup = [];
+        }
+        processedContent.push(block);
+      }
+    });
+    if (linkGroup.length > 0) {
+      processedContent.push({ type: 'link-group', links: linkGroup });
+    }
+
+    processedContent.forEach((block) => {
       switch (block.type) {
         case 'text':
           const paragraphs = block.value.split('\n\n').map(p => {
@@ -2385,6 +2699,27 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
               ${rankingItems}
             </div>
           `);
+          break;
+
+        case 'link-group':
+          const linkItems = block.links.map(link => {
+            if (!link.url || !link.text) return '';
+            let iconHtml = '';
+            if (link.url.startsWith('/games/')) {
+              const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
+              for (const [name, game] of Object.entries(gamesMap)) {
+                if (game.slug === gameSlug && game.icon) {
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  break;
+                }
+              }
+            }
+            const subtext = link.subtext ? `<span class="blog-link-subtext">${link.subtext}</span>` : '';
+            return `<a href="${link.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${link.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`;
+          }).filter(Boolean).join('');
+          if (linkItems) {
+            result.push(`<div class="blog-link-grid">${linkItems}</div>`);
+          }
           break;
 
         case 'link':
@@ -2657,7 +2992,25 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
     let imageIndex = 1;
     const result = [];
 
-    content.forEach((block) => {
+    // 연속 link 블록 그룹화 전처리
+    const processedContent = [];
+    let linkGroup = [];
+    content.forEach((block, idx) => {
+      if (block.type === 'link') {
+        linkGroup.push(block);
+      } else {
+        if (linkGroup.length > 0) {
+          processedContent.push({ type: 'link-group', links: linkGroup });
+          linkGroup = [];
+        }
+        processedContent.push(block);
+      }
+    });
+    if (linkGroup.length > 0) {
+      processedContent.push({ type: 'link-group', links: linkGroup });
+    }
+
+    processedContent.forEach((block) => {
       switch (block.type) {
         case 'text':
           const paragraphs = block.value.split('\n\n').map(p => {
@@ -2764,6 +3117,27 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
               ${rankingItems}
             </div>
           `);
+          break;
+
+        case 'link-group':
+          const linkItems = block.links.map(link => {
+            if (!link.url || !link.text) return '';
+            let iconHtml = '';
+            if (link.url.startsWith('/games/')) {
+              const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
+              for (const [name, game] of Object.entries(gamesMap)) {
+                if (game.slug === gameSlug && game.icon) {
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  break;
+                }
+              }
+            }
+            const subtext = link.subtext ? `<span class="blog-link-subtext">${link.subtext}</span>` : '';
+            return `<a href="${link.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${link.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`;
+          }).filter(Boolean).join('');
+          if (linkItems) {
+            result.push(`<div class="blog-link-grid">${linkItems}</div>`);
+          }
           break;
 
         case 'link':
@@ -2950,4 +3324,417 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
   });
 }
 
-module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage };
+/**
+ * 순위 분석 상세 페이지 생성
+ */
+function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueReports = [], insightReports = [], hotpickReports = [], wikiData = {} }) {
+  if (!post) {
+    return wrapWithLayout('<div class="home-empty">순위 분석을 찾을 수 없습니다</div>', {
+      currentPage: 'trend',
+      title: '게이머스크롤 | 순위 분석',
+      description: '순위 분석을 찾을 수 없습니다.',
+      canonical: `${siteBaseUrl}/magazine/ranking/`,
+      noindex: true
+    });
+  }
+
+  const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const escapeHtmlAttr = (value) => String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  const parseMarkdownLinks = (str) => {
+    const escaped = escapeHtmlAttr(str);
+    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+  };
+  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '순위 분석 대표 이미지');
+
+  // 순위 분석 중간 광고
+  const RANKING_REPORT_SLOTS_MOBILE = [
+    AD_SLOTS.Article001,
+    AD_SLOTS.Article002,
+    AD_SLOTS.Article003,
+    AD_SLOTS.Article004,
+    AD_SLOTS.Article005
+  ];
+
+  const generateRankingAdSlot = (adIndex = 0) => {
+    if (!ADS_ENABLED) return '';
+    const slotId = RANKING_REPORT_SLOTS_MOBILE[adIndex % RANKING_REPORT_SLOTS_MOBILE.length];
+    return `<div class="blog-ad">
+      ${generateNativeAdSlot(slotId)}
+    </div>`;
+  };
+
+  // 마크다운 표를 HTML table로 변환
+  const parseMarkdownTable = (text) => {
+    const lines = text.trim().split('\n');
+    if (lines.length < 2) return null;
+    if (!lines[0].trim().startsWith('|')) return null;
+    const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
+    if (separatorIndex < 1) return null;
+
+    const parseCells = (line) => {
+      const cells = line.split('|');
+      if (cells.length > 0 && cells[0].trim() === '') cells.shift();
+      if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
+      return cells.map(cell => cell.trim());
+    };
+
+    const headers = parseCells(lines[0]);
+    const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
+    const rows = dataLines.map(line => parseCells(line));
+
+    let html = '<div class="blog-table-wrapper"><table>';
+    html += '<thead><tr>';
+    headers.forEach(h => { html += `<th>${h}</th>`; });
+    html += '</tr></thead><tbody>';
+    rows.forEach(row => {
+      html += '<tr>';
+      row.forEach(cell => { html += `<td>${cell}</td>`; });
+      html += '</tr>';
+    });
+    html += '</tbody></table></div>';
+    return html;
+  };
+
+  // 관련 게임 찾기
+  const findRelatedGames = (text, limit = 4) => {
+    if (!text || !Object.keys(gamesMap).length) return [];
+    const found = [];
+    for (const [name, game] of Object.entries(gamesMap)) {
+      if (text.includes(name) || (game.aliases && game.aliases.some(a => text.includes(a)))) {
+        found.push({ name, ...game });
+        if (found.length >= limit) break;
+      }
+    }
+    return found;
+  };
+
+  // 본문 렌더링
+  const renderContent = () => {
+    let adIndex = 0;
+    let sectionCount = 0;
+    let imageIndex = 1;
+    const result = [];
+
+    // 연속 link 및 chart 블록 그룹화 전처리
+    const processedContent = [];
+    let linkGroup = [];
+    let chartGroup = [];
+    content.forEach((block, idx) => {
+      if (block.type === 'link') {
+        // chart 그룹이 있으면 먼저 푸시
+        if (chartGroup.length > 0) {
+          processedContent.push({ type: 'chart-group', charts: chartGroup });
+          chartGroup = [];
+        }
+        linkGroup.push(block);
+      } else if (block.type === 'chart') {
+        // link 그룹이 있으면 먼저 푸시
+        if (linkGroup.length > 0) {
+          processedContent.push({ type: 'link-group', links: linkGroup });
+          linkGroup = [];
+        }
+        chartGroup.push(block);
+      } else {
+        if (linkGroup.length > 0) {
+          processedContent.push({ type: 'link-group', links: linkGroup });
+          linkGroup = [];
+        }
+        if (chartGroup.length > 0) {
+          processedContent.push({ type: 'chart-group', charts: chartGroup });
+          chartGroup = [];
+        }
+        processedContent.push(block);
+      }
+    });
+    if (linkGroup.length > 0) {
+      processedContent.push({ type: 'link-group', links: linkGroup });
+    }
+    if (chartGroup.length > 0) {
+      processedContent.push({ type: 'chart-group', charts: chartGroup });
+    }
+
+    processedContent.forEach((block) => {
+      switch (block.type) {
+        case 'text':
+          const paragraphs = block.value.split('\n\n').map(p => {
+            const trimmed = p.trim();
+            if (trimmed.startsWith('|') && trimmed.includes('|---')) {
+              const tableHtml = parseMarkdownTable(trimmed);
+              if (tableHtml) return tableHtml;
+            }
+            // 마크다운 볼드 변환: **텍스트** → <strong>텍스트</strong>
+            // 마크다운 리스트 변환: "- " → "• "
+            const formatted = trimmed
+              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+              .replace(/^- /gm, '• ')
+              .replace(/\n- /g, '\n• ')
+              .replace(/\n/g, '<br>');
+            return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
+          }).filter(p => p).join('');
+          result.push(paragraphs);
+          break;
+        case 'heading':
+          sectionCount++;
+          if (sectionCount > 1 && (sectionCount - 1) % 2 === 0) {
+            result.push(generateRankingAdSlot(adIndex++));
+          }
+          result.push(`<h2 class="blog-heading">${escapeHtmlAttr(block.value)}</h2>`);
+          break;
+        case 'image':
+          const imgUrl = block.src?.startsWith('http')
+            ? `https://wsrv.nl/?url=${encodeURIComponent(block.src)}&w=800&output=webp`
+            : block.src;
+          const imgCaption = block.caption ? `<figcaption class="blog-caption">${parseMarkdownLinks(block.caption)}</figcaption>` : '';
+          result.push(`
+            <figure class="blog-figure">
+              <img class="blog-image" src="${imgUrl}" alt="${escapeHtmlAttr(block.alt || block.caption || title)}" loading="lazy" data-img-fallback="parent-hide">
+              ${imgCaption}
+            </figure>
+          `);
+          imageIndex++;
+          break;
+        case 'quote':
+          result.push(`<blockquote class="blog-quote">${parseMarkdownLinks(block.value)}</blockquote>`);
+          break;
+        case 'list':
+          if (Array.isArray(block.items)) {
+            const listItems = block.items.map(item => `<li>${parseMarkdownLinks(item)}</li>`).join('');
+            result.push(`<ul>${listItems}</ul>`);
+          }
+          break;
+        case 'table':
+          if (block.headers && block.rows) {
+            let tableHtml = '<div class="blog-table-wrapper"><table>';
+            if (block.caption) {
+              tableHtml += `<caption>${escapeHtmlAttr(block.caption)}</caption>`;
+            }
+            tableHtml += '<thead><tr>';
+            block.headers.forEach(h => { tableHtml += `<th>${escapeHtmlAttr(h)}</th>`; });
+            tableHtml += '</tr></thead><tbody>';
+            block.rows.forEach(row => {
+              tableHtml += '<tr>';
+              row.forEach(cell => { tableHtml += `<td>${parseMarkdownLinks(cell).replace(/\n/g, '<br>')}</td>`; });
+              tableHtml += '</tr>';
+            });
+            tableHtml += '</tbody></table></div>';
+            result.push(tableHtml);
+          }
+          break;
+        case 'chart':
+          // 단일 차트 블록 (그룹화되지 않은 경우)
+          result.push(generateComparisonChart(block));
+          break;
+        case 'chart-group':
+          // 연속 차트 블록 그룹 - 2열 그리드로 배치
+          const chartItems = block.charts.map(chart => generateComparisonChart(chart)).join('');
+          result.push(`<div class="blog-charts-grid">${chartItems}</div>`);
+          break;
+        case 'link-group':
+          const linkItems = block.links.map(link => {
+            if (!link.url || !link.text) return '';
+            let iconHtml = '';
+            if (link.url.startsWith('/games/')) {
+              const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
+              for (const [name, game] of Object.entries(gamesMap)) {
+                if (game.slug === gameSlug && game.icon) {
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  break;
+                }
+              }
+            }
+            const subtext = link.subtext ? `<span class="blog-link-subtext">${link.subtext}</span>` : '';
+            return `<a href="${link.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${link.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`;
+          }).filter(Boolean).join('');
+          if (linkItems) {
+            result.push(`<div class="blog-link-grid">${linkItems}</div>`);
+          }
+          break;
+        case 'link':
+          if (block.url && block.text) {
+            let iconHtml = '';
+            if (block.url.startsWith('/games/')) {
+              const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
+              for (const [name, game] of Object.entries(gamesMap)) {
+                if (game.slug === gameSlug && game.icon) {
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  break;
+                }
+              }
+            }
+            const subtext = block.subtext ? `<span class="blog-link-subtext">${block.subtext}</span>` : '';
+            result.push(`<a href="${block.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${block.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
+          }
+          break;
+        case 'ad':
+          result.push(generateRankingAdSlot(adIndex++));
+          break;
+        default:
+          break;
+      }
+    });
+
+    return result.join('');
+  };
+
+  // 출처 렌더링
+  const sourcesHtml = post.sources && post.sources.length > 0 ? `
+    <div class="blog-sources">
+      <div class="blog-sources-title">정보 출처</div>
+      <ul class="blog-sources-list">
+        ${post.sources.map(src => `
+          <li><a href="${src.url}" target="_blank" rel="nofollow noopener">${src.title || src.name}</a></li>
+        `).join('')}
+      </ul>
+    </div>
+  ` : '';
+
+  // 관련 문서 (이슈, 인사이트, 핫픽)
+  const relatedDocs = [];
+  if (post.relatedIssues && post.relatedIssues.length > 0) {
+    post.relatedIssues.forEach(issueSlug => {
+      const issue = issueReports.find(i => i.slug === issueSlug);
+      if (issue) {
+        relatedDocs.push({ type: 'issue', title: issue.title, link: `/magazine/issue/${issue.slug}/`, thumbnail: issue.thumbnail, slug: issue.slug });
+      }
+    });
+  }
+  const relatedDocsHtml = relatedDocs.length > 0 ? `
+    <div class="blog-related-issues">
+      <div class="blog-related-title">관련 문서</div>
+      <div class="blog-related-issues-list">
+        ${relatedDocs.map(doc => {
+          const thumbUrl = doc.thumbnail
+            ? getLocalIssueImagePath(doc.slug, doc.thumbnail, 'thumbnail')
+            : '';
+          return `
+            <a href="${doc.link}" class="blog-related-issue-card">
+              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="" loading="lazy">
+              <span class="blog-related-issue-title">${doc.title}</span>
+            </a>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  // 관련 게임 (수동 지정 우선, 없으면 자동 매칭)
+  const findGameBySlug = (slug) => {
+    for (const [name, game] of Object.entries(gamesMap)) {
+      if (game.slug === slug) return { name, ...game };
+    }
+    return null;
+  };
+  const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
+  const fullText = content.map(b => b.value || '').join(' ');
+  const relatedGames = 'relatedGames' in post ? manualGames : findRelatedGames(fullText, 4);
+  const relatedGamesHtml = relatedGames.length > 0 ? `
+    <div class="blog-related-games">
+      <div class="blog-related-title">관련 게임</div>
+      <div class="blog-related-grid">
+        ${relatedGames.map(game => `
+          <a href="/games/${game.slug}/" class="blog-related-card">
+            <img class="blog-related-icon" src="${game.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">${game.name}</span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  // 네비게이션 (이전/다음)
+  const navHtml = `
+    <div class="trend-detail-nav">
+      ${nav.prev ? `<a href="/magazine/ranking/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      ${nav.next ? `<a href="/magazine/ranking/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+    </div>
+  `;
+
+  // 로컬 이미지 경로 헬퍼 (ranking 타입)
+  const getLocalRankingImagePath = (slug, originalUrl, size = 'thumbnail') => {
+    if (!slug || !originalUrl) return originalUrl || '';
+    const sizeMap = { 'thumbnail-xs': 'thumbnail-xs.webp', 'thumbnail-sm': 'thumbnail-sm.webp', 'thumbnail': 'thumbnail.webp' };
+    const filename = sizeMap[size] || 'thumbnail.webp';
+    const localPath = `/assets/images/ranking/${slug}/${filename}`;
+    const fullPath = path.join(docsDir, 'assets/images/ranking', slug, filename);
+    if (fs.existsSync(fullPath)) return localPath;
+    // 폴백: wsrv.nl 프록시
+    const width = size === 'thumbnail-xs' ? 200 : size === 'thumbnail-sm' ? 480 : 1200;
+    return originalUrl.startsWith('http')
+      ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`
+      : originalUrl;
+  };
+
+  const heroImg = thumbnail ? getLocalRankingImagePath(slug, thumbnail, 'thumbnail') : '';
+
+  // 상단 광고
+  const topAds = ADS_ENABLED ? `<div class="ad-card">${generateAdPairSlot(AD_SLOTS.PCArticle001, AD_SLOTS.Article001)}</div>` : '';
+
+  const pageContent = `
+    <section class="section active" id="ranking">
+      <article class="page-container issue-container">
+        ${topAds}
+
+        <div class="blog-card">
+          ${thumbnail ? `
+            <div class="blog-hero">
+              <img class="blog-hero-image" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
+            </div>
+          ` : ''}
+          <header class="blog-header">
+            <h1 class="blog-title">${title}</h1>
+            <div class="blog-meta">
+              <time class="blog-date">${formatDateKorean(date)}</time>
+            </div>
+            ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
+          </header>
+          <div class="blog-content">
+            ${renderContent()}
+          </div>
+          ${relatedDocsHtml}
+          ${relatedGamesHtml}
+          ${sourcesHtml}
+        </div>
+
+        ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
+        ${navHtml}
+      </article>
+    </section>
+  `;
+
+  // JSON-LD용 이미지 URL
+  const schemaImage = thumbnail
+    ? (() => {
+        const localPath = getLocalRankingImagePath(slug, thumbnail, 'thumbnail');
+        return localPath.startsWith('/') ? `${siteBaseUrl}${localPath}` : localPath;
+      })()
+    : null;
+
+  const articleSchema = {
+    headline: title,
+    description: summary || title,
+    datePublished: date,
+    dateModified: date,
+    image: schemaImage
+  };
+
+  return wrapWithLayout(pageContent, {
+    currentPage: 'trend',
+    title: title,
+    description: summary || title,
+    keywords: post.keywords || '게임 순위, 순위 분석, 차트 분석, 게임 비교',
+    canonical: `${siteBaseUrl}/magazine/ranking/${slug}/`,
+    articleSchema,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '매거진', url: `${siteBaseUrl}/magazine/` },
+      { name: title, url: `${siteBaseUrl}/magazine/ranking/${slug}/` }
+    ]
+  });
+}
+
+module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage };

@@ -69,7 +69,7 @@
 /* 지표/순위변동 제목 강조 + 밑줄 */
 .weekly-metric-title,
 .ranking-item .weekly-hot-title {
-  font-size: var(--font-title-size);
+  font-size: 1rem;
   font-weight: 700;
   padding-bottom: 10px;
   margin-bottom: 12px;
@@ -253,7 +253,7 @@
 }
 
 .weekly-metric-title {
-  font-size: var(--font-title-size);
+  font-size: 1rem;
   font-weight: var(--font-title-weight);
   color: var(--text);
   margin: 0 0 8px 0;

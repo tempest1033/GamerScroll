@@ -72,7 +72,8 @@ const chartHelpers = {
     const { padding } = CHART_CONFIG;
     return yTicks.map(tick => {
       const y = chartHelpers.getY(tick, yMin, yMax);
-      return `<text class="chart-ylabel" x="${padding.left - 4}" y="${y + 3}" text-anchor="end">${tick}</text>`;
+      const yLabelX = padding.left / 2 - 3;
+      return `<text class="chart-ylabel" x="${yLabelX}" y="${y + 3}" text-anchor="middle">${tick}</text>`;
     }).join('');
   }
 };

@@ -140,8 +140,8 @@
 
 /* 섹션 제목 */
 .blog-heading {
-  font-size: var(--font-lg-size);
-  font-weight: 600;
+  font-size: var(--font-title-size);
+  font-weight: 700;
   color: var(--text);
   margin: 32px 0 16px;
   padding-bottom: 12px;
@@ -231,43 +231,43 @@
   }
 }
 
-/* 링크 버튼 (카드 스타일) */
-.blog-link-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  width: calc(50% - 6px);
-  margin: 6px 0;
-  margin-right: 12px;
-  padding: 14px 18px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  text-decoration: none;
-  vertical-align: top;
-  box-sizing: border-box;
-  transition: box-shadow 0.2s;
-}
-
-.blog-link-button:nth-of-type(2n) {
-  margin-right: 0;
-}
-
-.blog-link-button:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+/* 링크 그리드 (2열 레이아웃) */
+.blog-link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 16px 0;
 }
 
 @media (max-width: 768px) {
-  .blog-link-button {
-    width: 100%;
-    margin-right: 0;
+  .blog-link-grid {
+    grid-template-columns: 1fr;
   }
 }
 
+/* 링크 버튼 (관련 게임 카드와 동일한 스타일) */
+.blog-link-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--hover-bg);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.blog-link-button:hover {
+  background: var(--card-hover);
+  border-color: var(--border);
+}
+
 .blog-link-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -279,21 +279,24 @@
 
 .blog-link-text {
   display: block;
-  font-size: var(--font-title-size);
-  font-weight: 600;
+  font-size: var(--font-desc-size);
+  font-weight: 500;
   color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .blog-link-subtext {
   display: block;
-  font-size: var(--font-desc-size);
+  font-size: var(--font-meta-size);
   color: var(--text-muted);
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .blog-link-arrow {
   color: var(--text-muted);
-  font-size: 20px;
+  font-size: 16px;
   flex-shrink: 0;
 }
 
@@ -536,11 +539,14 @@
   font-weight: 500;
   color: var(--text);
   padding: 12px;
+  line-height: 1.4;
+  box-sizing: border-box;
+  max-height: calc(2.8em + 24px);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.4;
+  text-overflow: ellipsis;
 }
 
 /* 정보 출처 섹션 */
@@ -617,7 +623,7 @@
   }
 
   .blog-heading {
-    font-size: var(--font-title-size);
+    margin: 28px 0 14px;
   }
 
   .blog-figure {
@@ -783,5 +789,130 @@
 
   .game-ranking-desc {
     font-size: var(--font-small-size);
+  }
+}
+
+/* ========================================
+   순위 비교 차트 스타일 (게임 페이지 차트와 통일)
+   ======================================== */
+
+/* 차트 2열 그리드 레이아웃 (PC: 2열, 모바일: 1열) */
+.blog-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.blog-chart-wrapper {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0; /* 그리드 내에서는 마진 제거 */
+}
+
+/* 그리드 외부에서 사용 시 마진 */
+.blog-content > .blog-chart-wrapper {
+  margin: 24px 0;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chart-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.chart-legend-item::before {
+  content: '';
+  width: 10px;
+  height: 3px;
+  background: var(--color);
+  border-radius: 2px;
+}
+
+.chart-legend-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.chart-container {
+  width: 100%;
+}
+
+/* trend-chart-svg 스타일은 80-game-charts.css에서 상속 */
+
+.chart-period {
+  text-align: center;
+  font-size: var(--font-small-size);
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.chart-error {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: var(--font-desc-size);
+}
+
+@media (max-width: 768px) {
+  .blog-charts-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .blog-chart-wrapper {
+    padding: 12px;
+  }
+
+  .blog-content > .blog-chart-wrapper {
+    margin: 16px 0;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .chart-legend {
+    gap: 8px;
+  }
+
+  .chart-legend-item {
+    font-size: 14px;
+  }
+
+  .chart-legend-icon {
+    width: 16px;
+    height: 16px;
   }
 }

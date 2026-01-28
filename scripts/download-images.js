@@ -31,7 +31,8 @@ const DATA_DIRS = {
   tech: path.join(__dirname, '..', 'data', 'tech'),
   issue: path.join(__dirname, '..', 'reports', 'issue'),
   insight: path.join(__dirname, '..', 'reports', 'insight'),
-  hotpick: path.join(__dirname, '..', 'reports', 'hotpick')
+  hotpick: path.join(__dirname, '..', 'reports', 'hotpick'),
+  ranking: path.join(__dirname, '..', 'reports', 'ranking')
 };
 const IMAGES_BASE = path.join(__dirname, '..', 'docs', 'assets', 'images');
 
@@ -402,7 +403,7 @@ async function main() {
   let grandDrafts = 0;
 
   for (const type of targetTypes) {
-    const emojis = { wiki: '📚', tech: '🔧', issue: '📰', insight: '💡', hotpick: '🔥' };
+    const emojis = { wiki: '📚', tech: '🔧', issue: '📰', insight: '💡', hotpick: '🔥', ranking: '🏆' };
     const emoji = emojis[type] || '📄';
     console.log(`${emoji} === ${type.toUpperCase()} ===\n`);
 

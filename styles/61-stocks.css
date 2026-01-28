@@ -36,7 +36,7 @@
 }
 
 .stock-name {
-  font-size: var(--font-body-size);
+  font-size: 1rem;
   font-weight: var(--font-item-weight);
   color: var(--text);
   line-height: 1.45;
@@ -114,7 +114,7 @@
   }
 
   .stock-name {
-    font-size: var(--font-lg-size);
+    font-size: 1rem;
   }
 
   .stock-price-value {

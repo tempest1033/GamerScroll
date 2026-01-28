@@ -207,8 +207,8 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage } = require('./src/templates/pages/trend');
-const { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage } = require('./src/templates/pages/trends-hub');
+const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage, generateRankingListPage } = require('./src/templates/pages/trends-hub');
 // 뉴스/커뮤니티/영상 페이지 제거됨 (크롤링 데이터는 유지)
 const { generateRankingsPage } = require('./src/templates/pages/rankings');
 const { generateSteamPage } = require('./src/templates/pages/steam');
@@ -651,6 +651,22 @@ async function main() {
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
+  // 순위 분석 리포트 데이터 로드 (홈페이지용, 승인된 것만)
+  const RANKING_REPORTS_DIR_HOME = './reports/ranking';
+  let rankingReportsForHome = [];
+  if (fs.existsSync(RANKING_REPORTS_DIR_HOME)) {
+    const files = fs.readdirSync(RANKING_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
+    rankingReportsForHome = files.map(f => {
+      try {
+        return JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+      } catch (e) {
+        return null;
+      }
+    })
+      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
   // 일간/주간 리포트 개수는 실제 로드 후 계산 (매거진 섹션에서 설정됨)
   // 임시로 0으로 설정, 나중에 업데이트됨
   let dailyReportsCount = 0;
@@ -659,7 +675,8 @@ async function main() {
   const issueReportsCount = issueReportsForHome.length;
   const insightReportsCount = insightReportsForHome.length;
   const hotpickReportsCount = hotpickReportsForHome.length;
-  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, weeklyInsight, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, dailyReportsCount, weeklyReportsCount, issueReportsCount, insightReportsCount, hotpickReportsCount };
+  const rankingReportsCount = rankingReportsForHome.length;
+  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, weeklyInsight, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, rankingReports: rankingReportsForHome, dailyReportsCount, weeklyReportsCount, issueReportsCount, insightReportsCount, hotpickReportsCount, rankingReportsCount };
 
   // games.json 로드 (게임 허브용)
   let gamesData = {};
@@ -913,6 +930,22 @@ async function main() {
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
+  // 순위 분석 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
+  const RANKING_REPORTS_DIR = './reports/ranking';
+  let rankingReports = [];
+  if (fs.existsSync(RANKING_REPORTS_DIR)) {
+    const files = fs.readdirSync(RANKING_REPORTS_DIR).filter(f => f.endsWith('.json'));
+    rankingReports = files.map(f => {
+      try {
+        return JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+      } catch (e) {
+        return null;
+      }
+    })
+      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
   // 공통 인기글/최신글 리스트 생성 (홈, 매거진, 위키에서 공유)
   const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
   const techCategoryNames = { normal: '일반', ai: 'AI', vibecoding: '바이브코딩' };
@@ -930,6 +963,10 @@ async function main() {
   // 핫픽 리포트 추가
   hotpickReports.forEach(hotpick => {
     allSidebarArticles.push({ title: hotpick.title, link: `/magazine/hotpick/${hotpick.slug}/`, badge: '핫픽', date: hotpick.date || '' });
+  });
+  // 순위 분석 리포트 추가
+  rankingReports.forEach(ranking => {
+    allSidebarArticles.push({ title: ranking.title, link: `/magazine/ranking/${ranking.slug}/`, badge: '순위 분석', date: ranking.date || '' });
   });
   // 위키 추가
   for (const cat of Object.keys(wikiDataForSidebar)) {
@@ -956,6 +993,9 @@ async function main() {
     } else if (article.type === 'hotpick') {
       const hotpick = hotpickReports.find(h => h.slug === article.slug);
       if (hotpick) return { title: hotpick.title, link: `/magazine/hotpick/${hotpick.slug}/`, badge: '핫픽' };
+    } else if (article.type === 'ranking') {
+      const ranking = rankingReports.find(r => r.slug === article.slug);
+      if (ranking) return { title: ranking.title, link: `/magazine/ranking/${ranking.slug}/`, badge: '순위 분석' };
     } else if (article.type === 'wiki' && article.category) {
       const wikiList = wikiDataForSidebar[article.category] || [];
       const wiki = wikiList.find(w => w.slug === article.slug);
@@ -1003,6 +1043,13 @@ async function main() {
         summary: p.summary
       })),
       hotpickReports: hotpickReports.map(p => ({
+        slug: p.slug,
+        title: p.title,
+        date: p.date,
+        thumbnail: p.thumbnail,
+        summary: p.summary
+      })),
+      rankingReports: rankingReports.map(p => ({
         slug: p.slug,
         title: p.title,
         date: p.date,
@@ -1057,6 +1104,13 @@ async function main() {
       summary: p.summary
     })),
     hotpickReports: hotpickReports.map(p => ({
+      slug: p.slug,
+      title: p.title,
+      date: p.date,
+      thumbnail: p.thumbnail,
+      summary: p.summary
+    })),
+    rankingReports: rankingReports.map(p => ({
       slug: p.slug,
       title: p.title,
       date: p.date,
@@ -1134,6 +1188,19 @@ async function main() {
     console.log(`  ✅ magazine/hotpick/index.html`);
   } catch (err) {
     console.error(`  ❌ magazine/hotpick/index.html: ${err.message}`);
+  }
+
+  // Ranking 목록 페이지
+  const rankingDir = `${magazineDir}/ranking`;
+  if (!fs.existsSync(rankingDir)) {
+    fs.mkdirSync(rankingDir, { recursive: true });
+  }
+  try {
+    const rankingListHtml = generateRankingListPage({ ...categoryPageData, rankingReports });
+    fs.writeFileSync(`${rankingDir}/index.html`, rankingListHtml, 'utf8');
+    console.log(`  ✅ magazine/ranking/index.html`);
+  } catch (err) {
+    console.error(`  ❌ magazine/ranking/index.html: ${err.message}`);
   }
 
   // 6. 일간 상세 페이지 생성 (magazine/daily/{slug}/index.html)
@@ -1308,9 +1375,32 @@ async function main() {
     console.log(`  ✅ 핫픽 리포트 페이지 ${hotpickReports.length}개 생성`);
   }
 
+  // 11. 순위 분석 리포트 페이지 생성 (magazine/ranking/{slug}/index.html)
+  if (rankingReports.length > 0) {
+    for (let i = 0; i < rankingReports.length; i++) {
+      const post = rankingReports[i];
+      const pageDir = `${rankingDir}/${post.slug}`;
+      if (!fs.existsSync(pageDir)) {
+        fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      try {
+        const nav = {
+          prev: rankingReports[i + 1] ? { slug: rankingReports[i + 1].slug, title: rankingReports[i + 1].title } : null,
+          next: rankingReports[i - 1] ? { slug: rankingReports[i - 1].slug, title: rankingReports[i - 1].title } : null
+        };
+        const html = generateRankingDetailPage({ post, nav, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue });
+        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+      } catch (err) {
+        console.error(`  ❌ magazine/ranking/${post.slug}: ${err.message}`);
+      }
+    }
+    console.log(`  ✅ 순위 분석 리포트 페이지 ${rankingReports.length}개 생성`);
+  }
+
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
   try {
-    const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length, insightReports, hotpickReports };
+    const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length, insightReports, hotpickReports, rankingReports };
     const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, techData: homeTechData, sidebarPopularArticles, sidebarLatestArticles });
     fs.writeFileSync('./index.html', indexHtml, 'utf8');
     console.log(`  ✅ index.html`);
@@ -1333,6 +1423,7 @@ async function main() {
     issueReportsCount: issueReports.length,
     insightReportsCount: insightReports.length,
     hotpickReportsCount: hotpickReports.length,
+    rankingReportsCount: rankingReports.length,
     sidebarPopularArticles,
     sidebarLatestArticles
   };
@@ -1436,6 +1527,7 @@ async function main() {
     issueReportsCount: issueReports.length,
     insightReportsCount: insightReports.length,
     hotpickReportsCount: hotpickReports.length,
+    rankingReportsCount: rankingReports.length,
     issueReports,
     insightReports,
     hotpickReports,
@@ -1802,6 +1894,7 @@ async function main() {
     { loc: `${siteBaseUrl}/magazine/issue/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/magazine/ranking/`, lastmod: sitemapDate },
     // 순위/데이터
     { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate },
@@ -1930,6 +2023,28 @@ async function main() {
         return {
           loc: `${siteBaseUrl}/magazine/hotpick/${slug}/`,
           lastmod: hotpickDate
+        };
+      }));
+    }
+
+    // 순위 분석 페이지
+    const rankingBriefingDir = `${destBriefingDir}/ranking`;
+    if (fs.existsSync(rankingBriefingDir)) {
+      const rankingFolders = fs.readdirSync(rankingBriefingDir).filter(f =>
+        fs.statSync(`${rankingBriefingDir}/${f}`).isDirectory()
+      );
+      magazinePages.push(...rankingFolders.map(slug => {
+        let rankingDate = sitemapDate;
+        try {
+          const jsonPath = `${RANKING_REPORTS_DIR}/${slug}.json`;
+          if (fs.existsSync(jsonPath)) {
+            const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
+            if (json.date) rankingDate = normalizeLastmodDate(json.date);
+          }
+        } catch (e) {}
+        return {
+          loc: `${siteBaseUrl}/magazine/ranking/${slug}/`,
+          lastmod: rankingDate
         };
       }));
     }

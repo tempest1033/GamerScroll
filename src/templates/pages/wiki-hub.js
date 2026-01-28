@@ -67,6 +67,7 @@ function generateWikiHubPage({
   issueReportsCount = 0,
   insightReportsCount = 0,
   hotpickReportsCount = 0,
+  rankingReportsCount = 0,
   issueReports = [],
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
@@ -125,6 +126,7 @@ function generateWikiHubPage({
       issue: issueReportsCount,
       insight: insightReportsCount,
       hotpick: hotpickReportsCount,
+      ranking: rankingReportsCount,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       business: (wikiData.business || []).length,
@@ -141,7 +143,8 @@ function generateWikiHubPage({
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+      { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
     ];
 
     const wikiCategories = [
@@ -356,6 +359,7 @@ function generateWikiCategoryPage({
   issueReportsCount = 0,
   insightReportsCount = 0,
   hotpickReportsCount = 0,
+  rankingReportsCount = 0,
   issueReports = [],
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
@@ -409,6 +413,7 @@ function generateWikiCategoryPage({
       issue: issueReportsCount,
       insight: insightReportsCount,
       hotpick: hotpickReportsCount,
+      ranking: rankingReportsCount,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       business: (wikiData.business || []).length,
@@ -425,7 +430,8 @@ function generateWikiCategoryPage({
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+      { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
     ];
 
     const wikiCategories = [

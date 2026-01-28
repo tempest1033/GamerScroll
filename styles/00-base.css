@@ -1,10 +1,5 @@
-﻿    /* 가로 스크롤 방지 (PC 포함) - AdSense Side Rail 호환성 */
-    html {
-      overflow-x: clip;
-    }
-    body {
-      overflow-x: clip;
-    }
+﻿    /* 가로 스크롤 방지 - sticky 호환성을 위해 html/body에서 제거, 개별 요소에 적용 */
+    /* html, body의 overflow-x: clip은 stacking context를 생성하여 sticky를 깨뜨림 */
 
     /* 모바일 터치 하이라이트 제거 */
     * {
@@ -260,7 +255,7 @@
     /* 모바일 (768px 이하) - 폰트 스케일 통합 */
     @media (max-width: 768px) {
       :root {
-        --font-title-size: 28px;
+        --font-title-size: 20px;
         --font-body-size: 17px;
         --font-desc-size: 16px;
         --font-tab-size: 14px;

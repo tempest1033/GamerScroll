@@ -255,7 +255,7 @@
     /* 모바일 (768px 이하) - 폰트 스케일 통합 */
     @media (max-width: 768px) {
       :root {
-        --font-title-size: 28px;
+        --font-title-size: 20px;
         --font-body-size: 17px;
         --font-desc-size: 16px;
         --font-tab-size: 14px;

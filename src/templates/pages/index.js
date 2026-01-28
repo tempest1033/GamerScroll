@@ -178,7 +178,7 @@ function getLocalWeeklyThumbnail(weekSlug, originalUrl) {
 }
 
 function generateIndexPage(data) {
-  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], wikiData = {}, techData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
+  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
   // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
@@ -427,6 +427,20 @@ function generateIndexPage(data) {
       });
     });
 
+    // 순위 분석 추가
+    rankingReports.forEach(ranking => {
+      allArticles.push({
+        type: 'ranking',
+        category: 'ranking',
+        slug: ranking.slug,
+        originalThumbnail: ranking.thumbnail,
+        title: ranking.title,
+        link: `/magazine/ranking/${ranking.slug}/`,
+        badge: '순위 분석',
+        date: ranking.date || ''
+      });
+    });
+
     // 위키 추가
     const categoryOrder = ['history', 'knowledge', 'business'];
     categoryOrder.forEach(category => {
@@ -527,6 +541,7 @@ function generateIndexPage(data) {
       issue: issueReports.length,
       insight: insightReports.length,
       hotpick: hotpickReports.length,
+      ranking: rankingReports.length,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       business: (wikiData.business || []).length,
@@ -545,7 +560,8 @@ function generateIndexPage(data) {
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+      { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
     ];
 
     // 위키 카테고리 (에버그린)

@@ -753,6 +753,109 @@ node scripts/preview.js --list issue
 
 ---
 
+## 랭킹 리포트 작성 (Ranking)
+
+### 개요
+- 게임 간 순위 비교 분석 리포트
+- 대화형으로 작성 (주제 논의 → 데이터 확인 → 초안 → 수정 → 완성)
+- 저장 경로: `reports/ranking/{slug}.json`
+- URL: `/trend/ranking/{slug}/`
+
+### 작성 프로세스
+```
+1. 주제 선정 - 비교할 게임 선정
+2. 데이터 확인 - history/{date}.json의 bestRanks로 실제 순위 확인
+3. 초안 작성 - JSON 형식으로 작성
+4. 전문 공유 - 글 전체를 텍스트로 보여주기
+5. 피드백 반영 - 사용자 의견 수정
+6. 최종 저장 - reports/ranking/{slug}.json
+7. 승인 시 status를 approved로 변경
+8. 퀵빌드로 확인
+```
+
+### JSON 형식
+```json
+{
+  "slug": "game-a-vs-game-b-2026",
+  "status": "draft",
+  "title": "제목 (비교 구도 명확하게)",
+  "date": "2026-01-28T21:00",
+  "thumbnail": "대표 이미지 URL",
+  "keywords": "게임A, 게임B, 순위 비교, 매출 순위",
+  "summary": "요약 2-3문장",
+  "relatedIssues": ["관련-이슈-slug"],
+  "relatedGames": ["게임A-slug", "게임B-slug"],
+  "sources": [],
+  "content": [
+    { "type": "text", "value": "서론 문단" },
+    { "type": "link", "url": "/games/게임A/", "text": "게임A", "subtext": "실시간 순위 확인하기" },
+    { "type": "heading", "value": "1. 매출 순위: 분석 제목" },
+    { "type": "chart", "games": ["게임A", "게임B"], "category": "grossing", "market": "ios", "startDate": "2026-01-22", "endDate": "2026-01-28", "title": "iOS 매출 순위 비교" },
+    { "type": "text", "value": "분석 내용" },
+    { "type": "image", "src": "이미지URL", "caption": "캡션" },
+    { "type": "ad" }
+  ]
+}
+```
+
+### content 블록 타입 (랭킹 전용)
+| 타입 | 용도 | 필드 |
+|------|------|------|
+| `chart` | 순위 차트 | games, category, market, startDate, endDate, title |
+| `link` | 게임 페이지 링크 | url, text, subtext |
+
+**chart 블록 필드:**
+| 필드 | 값 | 예시 |
+|------|-----|------|
+| games | 게임 slug 배열 | `["명일방주-엔드필드", "드래곤소드"]` |
+| category | `grossing` / `free` | 매출 / 인기(다운로드) |
+| market | `ios` / `android` | 플랫폼 |
+| startDate | `YYYY-MM-DD` | 차트 시작일 |
+| endDate | `YYYY-MM-DD` | 차트 종료일 |
+| title | 차트 제목 | `iOS 매출 순위 비교 (한국)` |
+
+### bestRanks 데이터 확인
+실제 순위 데이터는 `history/{date}.json`의 `bestRanks`에서 확인:
+
+```javascript
+// history/2026-01-28.json 구조
+{
+  "bestRanks": {
+    "ios_kr_grossing": { "앱ID": 순위 },
+    "ios_kr_free": { "앱ID": 순위 },
+    "android_kr_grossing": { "패키지명": 순위 },
+    "android_kr_free": { "패키지명": 순위 }
+  }
+}
+```
+
+**앱 ID 찾기:** `games.json`에서 게임명으로 검색
+
+### 이미지 배치 규칙
+- **heading 바로 아래에 이미지 배치** (텍스트 위)
+- 캡션은 해당 섹션 내용과 일치해야 함
+- 예: 글로벌 시장 섹션 → "글로벌 동시 출시된 게임명" (❌ "오픈월드 환경")
+
+```
+heading → image → text → text
+```
+
+### 작성 체크리스트 (랭킹 리포트)
+| 항목 | 체크 | 설명 |
+|------|:----:|------|
+| **bestRanks 확인** | ☐ | 실제 순위 데이터로 워딩 검증 |
+| **chart 날짜** | ☐ | startDate/endDate가 분석 기간과 일치 |
+| **이미지 캡션** | ☐ | 섹션 주제와 일치하는지 확인 |
+| **게임 링크** | ☐ | 서론에 비교 대상 게임 link 블록 추가 |
+| **퀵빌드 확인** | ☐ | 차트 렌더링, 이미지 로드 확인 |
+
+### 미리보기
+```bash
+node scripts/preview.js ranking [slug]
+```
+
+---
+
 ## 게임 위키 작성 (Wiki)
 
 ### 개요

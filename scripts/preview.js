@@ -20,7 +20,8 @@ const DATA_DIRS = {
   wiki: path.join(__dirname, '..', 'data', 'wiki'),
   tech: path.join(__dirname, '..', 'data', 'tech'),
   issue: path.join(__dirname, '..', 'reports', 'issue'),
-  hotpick: path.join(__dirname, '..', 'reports', 'hotpick')
+  hotpick: path.join(__dirname, '..', 'reports', 'hotpick'),
+  ranking: path.join(__dirname, '..', 'reports', 'ranking')
 };
 const PREVIEW_DIR = path.join(__dirname, '..', 'docs', 'preview');
 const GAMES_PATH = path.join(__dirname, '..', 'data', 'games.json');
@@ -58,6 +59,14 @@ const TYPE_CONFIG = {
     bannerColor: 'linear-gradient(90deg, #f59e0b, #d97706)',
     quoteColor: '#f59e0b',
     hasCategory: false
+  },
+  ranking: {
+    name: '순위 분석',
+    emoji: '🏆',
+    urlPrefix: '/magazine/ranking/',
+    bannerColor: 'linear-gradient(90deg, #8b5cf6, #6d28d9)',
+    quoteColor: '#8b5cf6',
+    hasCategory: false
   }
 };
 
@@ -84,7 +93,7 @@ if (args.includes('--list')) {
 const docType = args[0] || 'wiki';
 if (!TYPE_CONFIG[docType]) {
   console.error(`❌ 알 수 없는 타입: ${docType}`);
-  console.log('사용 가능한 타입: wiki, tech, issue, hotpick');
+  console.log('사용 가능한 타입: wiki, tech, issue, hotpick, ranking');
   process.exit(1);
 }
 
@@ -311,7 +320,25 @@ function parseMarkdownTable(text) {
 function renderContent(content) {
   const result = [];
 
-  content.forEach(block => {
+  // 연속 link 블록 그룹화 전처리
+  const processedContent = [];
+  let linkGroup = [];
+  content.forEach((block) => {
+    if (block.type === 'link') {
+      linkGroup.push(block);
+    } else {
+      if (linkGroup.length > 0) {
+        processedContent.push({ type: 'link-group', links: linkGroup });
+        linkGroup = [];
+      }
+      processedContent.push(block);
+    }
+  });
+  if (linkGroup.length > 0) {
+    processedContent.push({ type: 'link-group', links: linkGroup });
+  }
+
+  processedContent.forEach(block => {
     switch (block.type) {
       case 'text':
         const paragraphs = block.value.split('\n\n');
@@ -387,11 +414,51 @@ function renderContent(content) {
         }
         break;
 
+      case 'link-group':
+        const linkItems = block.links.map(link => {
+          if (!link.url || !link.text) return '';
+          let iconHtml = '';
+          if (link.url.startsWith('/games/')) {
+            const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
+            for (const [name, game] of Object.entries(gamesData)) {
+              if (game.slug === gameSlug && game.icon) {
+                iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                break;
+              }
+            }
+          }
+          const subtext = link.subtext ? `<span class="blog-link-subtext">${escapeHtml(link.subtext)}</span>` : '';
+          return `<a href="${link.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${escapeHtml(link.text)}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`;
+        }).filter(Boolean).join('');
+        if (linkItems) {
+          result.push(`<div class="blog-link-grid">${linkItems}</div>`);
+        }
+        break;
+
       case 'link':
         if (block.url && block.text) {
           const subtext = block.subtext ? `<span class="blog-link-subtext">${escapeHtml(block.subtext)}</span>` : '';
           result.push(`<a href="${block.url}" class="blog-link-button"><div class="blog-link-content"><span class="blog-link-text">${escapeHtml(block.text)}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
         }
+        break;
+
+      case 'chart':
+        // 차트 미리보기 플레이스홀더
+        const chartTitle = block.title || '순위 차트';
+        const chartGames = (block.games || []).join(', ');
+        const chartPeriod = block.startDate && block.endDate ? `${block.startDate} ~ ${block.endDate}` : '';
+        result.push(`
+          <div class="preview-chart-placeholder">
+            <div class="chart-placeholder-icon">📊</div>
+            <div class="chart-placeholder-title">${escapeHtml(chartTitle)}</div>
+            <div class="chart-placeholder-info">
+              <span>게임: ${escapeHtml(chartGames)}</span>
+              ${chartPeriod ? `<span>기간: ${chartPeriod}</span>` : ''}
+              <span>카테고리: ${block.category || 'grossing'} / ${block.market || 'ios'}</span>
+            </div>
+            <div class="chart-placeholder-note">※ 실제 차트는 빌드 후 확인 가능</div>
+          </div>
+        `);
         break;
 
       case 'ad':
@@ -600,7 +667,7 @@ function generatePreviewHtml(doc, type) {
     }
     .preview-banner a { color: #fff; margin-left: 16px; text-decoration: underline; }
 
-    .preview-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    .preview-container { max-width: 1190px; margin: 0 auto; padding: 20px; }
 
     .preview-meta {
       background: var(--hover-bg);
@@ -690,14 +757,23 @@ function generatePreviewHtml(doc, type) {
     .game-ranking-price { color: var(--text-muted); font-size: 0.875rem; }
     .game-ranking-desc { font-size: 0.8125rem; color: var(--text-muted); margin-top: 4px; }
 
-    .blog-link-button { display: flex; align-items: center; justify-content: space-between; padding: 16px; background: var(--hover-bg); border-radius: 8px; margin: 16px 0; border: 1px solid var(--border); transition: all 0.2s; }
-    .blog-link-button:hover { background: var(--card-hover); border-color: var(--primary); }
-    .blog-link-content { flex: 1; }
-    .blog-link-text { font-weight: 500; color: var(--text); }
-    .blog-link-subtext { display: block; font-size: 0.8125rem; color: var(--text-muted); margin-top: 4px; }
-    .blog-link-arrow { font-size: 1.5rem; color: var(--text-muted); }
+    .blog-link-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0; }
+    .blog-link-button { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: var(--hover-bg); border-radius: 12px; border: 1px solid var(--border); transition: all 0.2s; text-decoration: none; }
+    .blog-link-button:hover { background: var(--card-hover); border-color: var(--primary); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+    .blog-link-icon { width: 64px; height: 64px; border-radius: 14px; object-fit: cover; flex-shrink: 0; }
+    .blog-link-content { flex: 1; min-width: 0; }
+    .blog-link-text { display: block; font-weight: 600; color: var(--text); font-size: 1rem; }
+    .blog-link-subtext { display: block; font-size: 0.8125rem; color: var(--text-muted); margin-top: 3px; }
+    .blog-link-arrow { font-size: 1.25rem; color: var(--text-muted); flex-shrink: 0; }
+
+    .preview-chart-placeholder { background: var(--hover-bg); border: 2px dashed var(--border); border-radius: 12px; padding: 32px; margin: 24px 0; text-align: center; }
+    .chart-placeholder-icon { font-size: 3rem; margin-bottom: 12px; }
+    .chart-placeholder-title { font-size: 1.125rem; font-weight: 600; color: var(--text); margin-bottom: 16px; }
+    .chart-placeholder-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 12px; }
+    .chart-placeholder-note { font-size: 0.75rem; color: var(--text-muted); opacity: 0.7; }
 
     @media (max-width: 768px) {
+      .blog-link-grid { grid-template-columns: 1fr; }
       .blog-header, .blog-content, .blog-related-games, .blog-sources { padding: 16px; }
       .blog-title { font-size: 1.5rem; }
       .blog-heading { font-size: 1rem; }

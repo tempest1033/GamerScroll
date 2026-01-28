@@ -40,7 +40,7 @@
 }
 
 .weekly-community-title {
-  font-size: var(--font-title-size);
+  font-size: 1rem;
   font-weight: var(--font-title-weight);
   color: var(--text);
   margin: 0 0 10px 0;

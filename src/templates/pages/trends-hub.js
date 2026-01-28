@@ -136,6 +136,7 @@ function generateTrendsHubPage({
   issueReports = [],
   insightReports = [],
   hotpickReports = [],
+  rankingReports = [],
   wikiData = {},
   techData = {},
   dailyReportsCount = 0,
@@ -188,13 +189,14 @@ function generateTrendsHubPage({
     `;
   }
 
-  // 최신 그리드 (이슈 + 인사이트 + 핫픽 합침, 15개, 페이지네이션) - 허브용 3열 그리드
+  // 최신 그리드 (이슈 + 인사이트 + 핫픽 + 순위 분석 합침, 15개, 페이지네이션) - 허브용 3열 그리드
   function generateLatestGrid() {
-    // 이슈 + 인사이트 + 핫픽 합쳐서 날짜순 정렬
+    // 이슈 + 인사이트 + 핫픽 + 순위 분석 합쳐서 날짜순 정렬
     const allLatest = [
       ...issueReports.map(issue => ({ ...issue, type: 'issue', link: `/magazine/issue/${issue.slug}/` })),
       ...insightReports.map(insight => ({ ...insight, type: 'insight', link: `/magazine/insight/${insight.slug}/` })),
-      ...hotpickReports.map(hotpick => ({ ...hotpick, type: 'hotpick', link: `/magazine/hotpick/${hotpick.slug}/` }))
+      ...hotpickReports.map(hotpick => ({ ...hotpick, type: 'hotpick', link: `/magazine/hotpick/${hotpick.slug}/` })),
+      ...rankingReports.map(ranking => ({ ...ranking, type: 'ranking', link: `/magazine/ranking/${ranking.slug}/` }))
     ].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
     if (allLatest.length === 0) return '';
@@ -208,7 +210,7 @@ function generateTrendsHubPage({
       <a href="${item.link}" class="home-trend-card">
         <div class="home-trend-card-image">
           ${item.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : (item.type === 'issue' ? '이슈' : item.type === 'insight' ? '인사이트' : '핫픽')}</span>
+          <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : (item.type === 'issue' ? '이슈' : item.type === 'insight' ? '인사이트' : item.type === 'hotpick' ? '핫픽' : '순위 분석')}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${item.title}</span></h3>
       </a>
@@ -240,6 +242,7 @@ function generateTrendsHubPage({
       issue: issueReports.length,
       insight: insightReports.length,
       hotpick: hotpickReports.length,
+      ranking: rankingReports.length,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       business: (wikiData.business || []).length,
@@ -256,7 +259,8 @@ function generateTrendsHubPage({
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+      { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
     ];
 
     const wikiCategories = [
@@ -519,6 +523,7 @@ function generateDailyListPage({
   issueReports = [],
   insightReports = [],
   hotpickReports = [],
+  rankingReports = [],
   wikiData = {},
   techData = {},
   dailyReportsCount = 0,
@@ -568,6 +573,7 @@ function generateDailyListPage({
       issue: issueReports.length,
       insight: insightReports.length,
       hotpick: hotpickReports.length,
+      ranking: rankingReports.length,
       history: (wikiData.history || []).length,
       knowledge: (wikiData.knowledge || []).length,
       business: (wikiData.business || []).length,
@@ -584,7 +590,8 @@ function generateDailyListPage({
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+      { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
     ];
 
     const wikiCategories = [
@@ -722,6 +729,7 @@ function generateWeeklyListPage({
   issueReports = [],
   insightReports = [],
   hotpickReports = [],
+  rankingReports = [],
   wikiData = {},
   techData = {},
   dailyReportsCount = 0,
@@ -768,7 +776,7 @@ function generateWeeklyListPage({
 
   // 사이드바 (공유 리스트 사용)
   const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length,
+    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
     business: (wikiData.business || []).length,
     normal: (techData?.normal || []).length,
@@ -782,7 +790,8 @@ function generateWeeklyListPage({
   const issueCategories = [
     { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
     { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+    { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
   ];
   const wikiCategories = [
     { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
@@ -900,6 +909,7 @@ function generateIssueListPage({
   issueReports = [],
   insightReports = [],
   hotpickReports = [],
+  rankingReports = [],
   wikiData = {},
   techData = {},
   dailyReportsCount = 0,
@@ -946,7 +956,7 @@ function generateIssueListPage({
 
   // 사이드바 (공유 리스트 사용)
   const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length,
+    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
     business: (wikiData.business || []).length,
     normal: (techData?.normal || []).length,
@@ -960,7 +970,8 @@ function generateIssueListPage({
   const issueCategories = [
     { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
     { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+    { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
   ];
   const wikiCategories = [
     { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
@@ -1078,6 +1089,7 @@ function generateInsightListPage({
   issueReports = [],
   insightReports = [],
   hotpickReports = [],
+  rankingReports = [],
   wikiData = {},
   techData = {},
   dailyReportsCount = 0,
@@ -1124,7 +1136,7 @@ function generateInsightListPage({
 
   // 사이드바 (공유 리스트 사용)
   const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length,
+    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
     business: (wikiData.business || []).length,
     normal: (techData?.normal || []).length,
@@ -1138,7 +1150,8 @@ function generateInsightListPage({
   const issueCategories = [
     { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
     { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+    { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
   ];
   const wikiCategories = [
     { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
@@ -1254,6 +1267,7 @@ function generateHotpickListPage({
   issueReports = [],
   insightReports = [],
   hotpickReports = [],
+  rankingReports = [],
   wikiData = {},
   techData = {},
   dailyReportsCount = 0,
@@ -1300,7 +1314,7 @@ function generateHotpickListPage({
 
   // 사이드바 (공유 리스트 사용)
   const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length,
+    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
     history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
     business: (wikiData.business || []).length,
     normal: (techData?.normal || []).length,
@@ -1314,7 +1328,8 @@ function generateHotpickListPage({
   const issueCategories = [
     { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
     { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick }
+    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+    { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
   ];
   const wikiCategories = [
     { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
@@ -1424,4 +1439,200 @@ function generateHotpickListPage({
   });
 }
 
-module.exports = { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage };
+/**
+ * 순위 분석 목록 페이지 생성
+ */
+function generateRankingListPage({
+  dailyReports = [],
+  weeklyReports = [],
+  issueReports = [],
+  insightReports = [],
+  hotpickReports = [],
+  rankingReports = [],
+  wikiData = {},
+  techData = {},
+  dailyReportsCount = 0,
+  weeklyReportsCount = 0,
+  sidebarPopularArticles = [],
+  sidebarLatestArticles = []
+}) {
+  function generateRankingGrid() {
+    if (rankingReports.length === 0) return '<p>순위 분석 리포트가 없습니다.</p>';
+
+    const rankingCards = rankingReports.map(ranking => {
+      const thumbData = getLocalReportThumbnailSrcset('ranking', ranking.slug, ranking.thumbnail);
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
+      return `
+      <a href="/magazine/ranking/${ranking.slug}/" class="category-list-card">
+        <div class="category-list-thumb">
+          ${ranking.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(ranking.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          <span class="category-list-badge">${ranking.date ? formatDateKr(ranking.date) : '순위 분석'}</span>
+        </div>
+        <div class="category-list-info">
+          <h3 class="category-list-title">${ranking.title}</h3>
+          ${ranking.summary ? `<p class="category-list-summary">${ranking.summary}</p>` : ''}
+        </div>
+      </a>
+    `;
+    }).join('');
+
+    return `
+      <div class="home-card" id="ranking-list">
+        <div class="home-card-header">
+          <h2 class="home-card-title">순위 분석</h2>
+        </div>
+        <div class="category-list" id="rankingGrid">${rankingCards}</div>
+        <div class="home-pagination" id="rankingPagination">
+          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
+          <span class="home-page-index">1/1</span>
+          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // 사이드바 (공유 리스트 사용)
+  const counts = {
+    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
+    history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+  const regularCategories = [
+    { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
+    { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+  ];
+  const issueCategories = [
+    { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
+    { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
+    { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
+    { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
+  ];
+  const wikiCategories = [
+    { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
+    { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
+    { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
+  ];
+  const techCategories = [
+    { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
+    { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
+    { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
+  ];
+  const renderItems = (items) => items.map(cat => `
+    <a href="${cat.link}" class="sidebar-category-item">
+      <span class="sidebar-category-name">${cat.name}${cat.count !== undefined ? ` (${cat.count})` : ''}</span>
+    </a>
+  `).join('');
+
+  const renderList = (items) => items.map((item, i) => `
+    <a href="${item.link || item.path || '#'}" class="sidebar-article-item">
+      <span class="sidebar-article-rank">${i + 1}</span>
+      <span class="sidebar-article-title">${item.title}</span>
+    </a>
+  `).join('');
+
+  const content = `
+    <section class="section active" id="ranking-list-page">
+      ${topAds}
+      <h1 class="visually-hidden">순위 분석 - 게임 순위 심층 분석</h1>
+
+      <div class="home-container">
+        <div class="home-main">
+          ${generateRankingGrid()}
+        </div>
+        <div class="home-sidebar">
+          <div class="home-sidebar-sticky">
+            <div class="home-card" id="sidebar-categories">
+              <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div><div class="sidebar-category-list">${renderItems(regularCategories)}</div></div>
+              <div class="sidebar-category-group"><div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div><div class="sidebar-category-list">${renderItems(issueCategories)}</div></div>
+              <div class="sidebar-category-group"><div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div><div class="sidebar-category-list">${renderItems(wikiCategories)}</div></div>
+              <div class="sidebar-category-group"><div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div><div class="sidebar-category-list">${renderItems(techCategories)}</div></div>
+            </div>
+            <div class="home-card" id="sidebar-articles">
+              <div class="home-card-header">
+                <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+                  <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+                  <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+                </div>
+              </div>
+              <div class="home-card-body">
+                <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
+                <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+              </div>
+            </div>
+            ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+
+  const pageScripts = `
+  <script>
+    (function() {
+      const grid = document.getElementById('rankingGrid');
+      const pagination = document.getElementById('rankingPagination');
+      if (!grid || !pagination) return;
+
+      const items = Array.from(grid.querySelectorAll('.category-list-card'));
+      const pageSize = 15;
+      let currentPage = 0;
+      const totalPages = Math.ceil(items.length / pageSize);
+
+      function showPage(page) {
+        items.forEach((item, i) => {
+          item.style.display = (i >= page * pageSize && i < (page + 1) * pageSize) ? '' : 'none';
+        });
+        pagination.querySelector('.home-page-index').textContent = (page + 1) + '/' + totalPages;
+      }
+
+      pagination.querySelector('.home-prev').addEventListener('click', () => {
+        if (currentPage > 0) { currentPage--; showPage(currentPage); }
+      });
+      pagination.querySelector('.home-next').addEventListener('click', () => {
+        if (currentPage < totalPages - 1) { currentPage++; showPage(currentPage); }
+      });
+
+      function updatePagination() {
+        pagination.style.display = totalPages > 1 ? '' : 'none';
+      }
+
+      showPage(0);
+      updatePagination();
+
+      // 사이드바 인기/최신 탭 토글
+      const sidebarTab = document.getElementById('sidebarArticleTab');
+      if (sidebarTab) {
+        sidebarTab.addEventListener('click', (e) => {
+          const btn = e.target.closest('.tab-btn');
+          if (!btn) return;
+          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const tabName = btn.dataset.sidebarTab;
+          document.querySelectorAll('.sidebar-article-list').forEach(list => {
+            list.classList.toggle('active', list.id === 'sidebar-' + tabName);
+          });
+        });
+      }
+    })();
+  </script>`;
+
+  return wrapWithLayout(content, {
+    currentPage: 'magazine',
+    title: '순위 분석 - 게임 순위 심층 분석',
+    description: '순위 분석 리포트 목록 - 게임 순위 비교와 심층 분석.',
+    canonical: `${siteBaseUrl}/magazine/ranking/`,
+    pageScripts,
+    breadcrumbs: [
+      { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '매거진', url: `${siteBaseUrl}/magazine/` },
+      { name: '순위 분석', url: `${siteBaseUrl}/magazine/ranking/` }
+    ]
+  });
+}
+
+module.exports = { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage, generateRankingListPage };
