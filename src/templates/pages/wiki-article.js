@@ -396,17 +396,17 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
         ${topAds}
 
         <div class="blog-card">
-          ${article.thumbnail ? `
-          <div class="blog-hero">
-            <img src="${getLocalWikiImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-hero-image" alt="" loading="eager">
-          </div>
-          ` : ''}
-
           <header class="blog-header">
             <h1 class="blog-title">${article.title}</h1>
             ${metaHtml}
             ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
           </header>
+
+          ${article.thumbnail ? `
+          <figure class="blog-figure">
+            <img src="${getLocalWikiImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="" loading="eager">
+          </figure>
+          ` : ''}
 
           <div class="blog-content">
             ${renderContentBlocks(article.content, category, article.slug)}

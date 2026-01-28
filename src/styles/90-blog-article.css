@@ -164,6 +164,11 @@
   border: 1px solid var(--border);
 }
 
+/* 상단 대표 이미지 (blog-header 바로 다음) - blog-content 내 이미지와 동일 */
+.blog-header + .blog-figure {
+  margin: 0 24px;
+}
+
 /* 표 figure - PC에서 내용에 맞게 축소 */
 .blog-figure.blog-table {
   width: fit-content;
@@ -631,6 +636,10 @@
     border-radius: 0;
     border-left: none;
     border-right: none;
+  }
+
+  .blog-header + .blog-figure {
+    margin: 0 16px;
   }
 
   .blog-related-grid {

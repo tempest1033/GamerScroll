@@ -336,6 +336,10 @@
   padding: var(--space-block-y) 0;
   display: block;
 }
+/* 정기 페이지(일간/주간)만 상단 패딩 제거 */
+#insight .page-container:not(.issue-container) {
+  padding-top: 0;
+}
 #insight .page-container > * {
   margin-bottom: var(--space-block-y);
 }

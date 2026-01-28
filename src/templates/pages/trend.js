@@ -670,7 +670,7 @@ function generateWeeklyPanel(weeklyInsight) {
   // summary 객체에서 title과 desc 추출
   // summary에서 첫 문장 추출
   const extractFirst = (t) => t ? (t.split(/[.!?]/).filter(s => s.trim())[0]?.trim() || t.slice(0, 60)) : null;
-  const summaryTitle = typeof summary === 'object' ? summary.title : (wai.headline || extractFirst(summary) || seoTitle);
+  const summaryTitle = typeof summary === 'object' ? summary.title : (wai.issues?.[0]?.title || extractFirst(summary) || seoTitle);
   const summaryDesc = typeof summary === 'object' ? summary.desc : summary;
   // 모바일용 인피드 슬롯
   const mobileNativeSlots = [
@@ -1030,19 +1030,6 @@ function generateWeeklyPanel(weeklyInsight) {
 
   return `
     <div class="weekly-report">
-      <div class="weekly-header-card ${heroThumbUrl ? 'has-hero-image' : ''}">
-        ${heroThumbUrl ? `<div class="weekly-header-image"><img src="${heroThumbUrl}" alt="" loading="eager" fetchpriority="high" decoding="async" data-img-fallback="thumb-fallback"></div>` : ''}
-        <div class="weekly-header-text">
-          <div class="weekly-header-title">${summaryTitle}</div>
-          <div class="weekly-header-meta">
-            <span class="weekly-header-period">${weekPeriod}</span>
-            <span class="weekly-header-divider">·</span>
-            <span class="weekly-header-week">${weekNum}주차</span>
-          </div>
-          ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
-        </div>
-      </div>
-
       ${weeklyBody}
     </div>
   `;
@@ -1397,7 +1384,7 @@ function generateTrendPage(data) {
   const stockPrices = insight?.stockPrices || {};
 
   // summary 객체에서 title과 desc 추출
-  const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 브리핑');
+  const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.issues?.[0]?.title || '게임 브리핑');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
   // 모바일용 인피드 슬롯
   const mobileNativeSlots2 = [
@@ -1434,13 +1421,6 @@ function generateTrendPage(data) {
         </div>
 
         <div class="insight-panel active" id="panel-daily">
-          <div class="weekly-header-card">
-            <div class="weekly-header-title">${summaryTitle}</div>
-          <div class="weekly-header-meta">
-            <span class="weekly-header-period">${formatDateKorean(aiInsight.date || new Date().toISOString().split('T')[0])} 리포트</span>
-          </div>
-          ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
-        </div>
           ${midAdMobileOnly()}
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
           ${midAd()}
@@ -1853,7 +1833,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   const stockPrices = insight?.stockPrices || {};
 
   // summary 객체에서 title과 desc 추출
-  const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.headline || '게임 브리핑');
+  const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.issues?.[0]?.title || '게임 브리핑');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
   // 모바일용 인피드 슬롯
   const mobileNativeSlots3 = [
@@ -1893,22 +1873,6 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
-        ${(() => {
-          // 헤드라인 이미지
-          const heroThumb = aiInsight.thumbnail || null;
-          const heroThumbUrl = heroThumb ? getLocalDailyThumbnail(slug, heroThumb) : null;
-          return `
-        <div class="weekly-header-card ${heroThumbUrl ? 'has-hero-image' : ''}">
-          ${heroThumbUrl ? `<div class="weekly-header-image"><img src="${heroThumbUrl}" alt="" loading="eager" data-img-fallback="thumb-fallback"></div>` : ''}
-          <div class="weekly-header-text">
-            <div class="weekly-header-title">${summaryTitle}</div>
-            <div class="weekly-header-meta">
-              <span class="weekly-header-period">${formatDateKorean(aiInsight.date || slug)} 리포트</span>
-            </div>
-            ${summaryDesc ? `<p class="weekly-header-desc">${summaryDesc}</p>` : ''}
-          </div>
-        </div>`;
-        })()}
         ${midAdMobileOnly()}
         ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
         ${midAd()}
@@ -1992,7 +1956,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
 
   const weeklyPanelHtml = generateWeeklyPanel(weeklyInsight);
   const waiForH1 = weeklyInsight.ai;
-  const h1Title = typeof waiForH1.summary === 'object' ? waiForH1.summary.title : (waiForH1.headline || waiForH1.summary || `${slug} 주간 게임 브리핑`);
+  const h1Title = typeof waiForH1.summary === 'object' ? waiForH1.summary.title : (waiForH1.issues?.[0]?.title || waiForH1.summary || `${slug} 주간 게임 브리핑`);
 
   const content = `
     <section class="section active" id="insight">
@@ -2015,7 +1979,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     : (wai.date ? formatDateKorean(wai.date) : '');
   const weekNum = wInfo.weekNumber || wai.weekNumber || '';
   const heroThumbUrl = wai.thumbnail ? getLocalReportThumbnail('weekly', slug, wai.thumbnail, 'lg') : '';
-  const summaryTitle = typeof wai.summary === 'object' ? wai.summary.title : (wai.headline || wai.summary);
+  const summaryTitle = typeof wai.summary === 'object' ? wai.summary.title : (wai.issues?.[0]?.title || wai.summary);
   const descriptionText = summaryTitle || '주간 게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
 
   // 동적 키워드 (issues에서 4개 추출)
@@ -2424,11 +2388,6 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
         ${topAds}
 
         <div class="blog-card">
-          ${thumbnail ? `
-            <div class="blog-hero">
-              <img class="blog-hero-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
-            </div>
-          ` : ''}
           <header class="blog-header">
             <h1 class="blog-title">${title}</h1>
             <div class="blog-meta">
@@ -2436,6 +2395,11 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
             </div>
             ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
+          ${thumbnail ? `
+            <figure class="blog-figure">
+              <img class="blog-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
+            </figure>
+          ` : ''}
           <div class="blog-content">
             ${renderContent()}
           </div>
@@ -2842,11 +2806,6 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
         ${topAds}
 
         <div class="blog-card">
-          ${thumbnail ? `
-            <div class="blog-hero">
-              <img class="blog-hero-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
-            </div>
-          ` : ''}
           <header class="blog-header">
             <h1 class="blog-title">${title}</h1>
             <div class="blog-meta">
@@ -2854,6 +2813,11 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
             </div>
             ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
+          ${thumbnail ? `
+            <figure class="blog-figure">
+              <img class="blog-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
+            </figure>
+          ` : ''}
           <div class="blog-content">
             ${renderContent()}
           </div>
@@ -3267,11 +3231,6 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
         ${topAds}
 
         <div class="blog-card">
-          ${thumbnail ? `
-            <div class="blog-hero">
-              <img class="blog-hero-image" src="${getLocalHotpickImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
-            </div>
-          ` : ''}
           <header class="blog-header">
             <h1 class="blog-title">${title}</h1>
             <div class="blog-meta">
@@ -3279,6 +3238,11 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
             </div>
             ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
+          ${thumbnail ? `
+            <figure class="blog-figure">
+              <img class="blog-image" src="${getLocalHotpickImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
+            </figure>
+          ` : ''}
           <div class="blog-content">
             ${renderContent()}
           </div>
@@ -3680,11 +3644,6 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
         ${topAds}
 
         <div class="blog-card">
-          ${thumbnail ? `
-            <div class="blog-hero">
-              <img class="blog-hero-image" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
-            </div>
-          ` : ''}
           <header class="blog-header">
             <h1 class="blog-title">${title}</h1>
             <div class="blog-meta">
@@ -3692,6 +3651,11 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
             </div>
             ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
+          ${thumbnail ? `
+            <figure class="blog-figure">
+              <img class="blog-image" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
+            </figure>
+          ` : ''}
           <div class="blog-content">
             ${renderContent()}
           </div>

@@ -529,22 +529,28 @@ function generateDailyListPage({
 }) {
   const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
 
-  // 일간 그리드 (15개, 페이지네이션)
+  // 일간 그리드 (15개, 페이지네이션) - 첫 번째 핫이슈 썸네일+제목 사용
   function generateDailyGrid() {
     if (dailyReports.length === 0) return '<p>일간 리포트가 없습니다.</p>';
 
-    const dailyCards = dailyReports.map(report => `
+    const dailyCards = dailyReports.map(report => {
+      const firstIssue = report.issues && report.issues[0];
+      const thumbUrl = firstIssue?.thumbnail || '';
+      const title = firstIssue?.title || '일간';
+      const desc = firstIssue?.desc || '';
+      return `
       <a href="/magazine/daily/${report.date}/" class="category-list-card">
         <div class="category-list-thumb">
-          ${report.thumbnail ? `<img src="${getLocalDailyThumbnail(report.date, report.thumbnail)}" alt="${escapeHtmlAttr(report.headline)}" loading="lazy" data-img-fallback="hide">` : ''}
+          ${thumbUrl ? `<img src="${getLocalDailyThumbnail(report.date, thumbUrl)}" alt="${escapeHtmlAttr(title)}" loading="lazy" data-img-fallback="hide">` : ''}
           <span class="category-list-badge">${formatDateKr(report.date)}</span>
         </div>
         <div class="category-list-info">
-          <h3 class="category-list-title">${report.headline || '일간'}</h3>
-          ${report.summary ? `<p class="category-list-summary">${report.summary}</p>` : ''}
+          <h3 class="category-list-title">${title}</h3>
+          ${desc ? `<p class="category-list-summary">${desc}</p>` : ''}
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     return `
       <div class="home-card" id="daily-list">
@@ -733,6 +739,7 @@ function generateWeeklyListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  // 주간 그리드 - 첫 번째 핫이슈 썸네일+제목 사용
   function generateWeeklyGrid() {
     if (weeklyReports.length === 0) return '<p>주간 리포트가 없습니다.</p>';
 
@@ -741,15 +748,19 @@ function generateWeeklyListPage({
       const badge = report.startDate && report.endDate
         ? `${formatDateKr(report.startDate)} ~ ${parseInt(report.endDate.slice(5, 7))}월 ${parseInt(report.endDate.slice(8, 10))}일`
         : `${report.weekNumber}주차`;
+      const firstIssue = report.issues && report.issues[0];
+      const thumbUrl = firstIssue?.thumbnail || '';
+      const title = firstIssue?.title || '주간';
+      const desc = firstIssue?.desc || '';
       return `
         <a href="/magazine/weekly/${slug}/" class="category-list-card">
           <div class="category-list-thumb">
-            ${report.thumbnail ? `<img src="${getLocalWeeklyThumbnail(slug, report.thumbnail)}" alt="${escapeHtmlAttr(report.headline)}" loading="lazy" data-img-fallback="hide">` : ''}
+            ${thumbUrl ? `<img src="${getLocalWeeklyThumbnail(slug, thumbUrl)}" alt="${escapeHtmlAttr(title)}" loading="lazy" data-img-fallback="hide">` : ''}
             <span class="category-list-badge">${badge}</span>
           </div>
           <div class="category-list-info">
-            <h3 class="category-list-title">${report.headline || '주간'}</h3>
-            ${report.summary ? `<p class="category-list-summary">${report.summary}</p>` : ''}
+            <h3 class="category-list-title">${title}</h3>
+            ${desc ? `<p class="category-list-summary">${desc}</p>` : ''}
           </div>
         </a>
       `;

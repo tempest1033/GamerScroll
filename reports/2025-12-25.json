@@ -4574,7 +4574,6 @@
   ],
   "ai": {
     "date": "2025-12-25",
-    "headline": "주술회전 50계단 급상승, ARC Raiders 동접 26만 돌파",
     "summary": "모바일 매출 상위권은 방치와 서바이벌 계열이 iOS와 Android 모두에서 견고했고, 크리스마스 시즌 보상형 이벤트로 일부 장수 타이틀의 순위가 크게 흔들렸어요. PC에선 Steam 동접이 FPS와 익스트랙션 장르로 쏠리며, 팬덤 굿즈와 참여형 콜라보가 존재감을 키웠어요.",
     "issues": [
       {
@@ -4711,8 +4710,7 @@
         "name": "컴투스(078340)",
         "comment": "서머너즈 워 연말 이벤트 집중"
       }
-    ],
-    "thumbnail": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ea/d5/b4/ead5b42e-bce6-45d5-d3d5-c5fb8578fd86/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png"
+    ]
   },
   "aiGeneratedAt": "2025-12-24T21:20:52.313Z",
   "stockMap": {

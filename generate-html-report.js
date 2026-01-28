@@ -820,9 +820,7 @@ async function main() {
           dailyReports.push({
             slug,
             date: fileDate,
-            headline: content.ai.headline || '',
             summary: content.ai.summary || '',
-            thumbnail: content.ai.thumbnail || '',
             issues: content.ai.issues || [],
             insight: content
           });
@@ -854,9 +852,7 @@ async function main() {
             weekNumber: wInfo.weekNumber || content.ai.weekNumber || parseInt(slug.match(/W(\d+)/)?.[1] || '0'),
             startDate: wInfo.startDate || '',
             endDate: wInfo.endDate || '',
-            headline: content.ai.headline || '',
             summary: content.ai.summary || '',
-            thumbnail: content.ai.thumbnail || '',
             issues: content.ai.issues || [],
             weeklyInsight: content
           });
@@ -1013,9 +1009,7 @@ async function main() {
     const hubHtml = generateTrendsHubPage({
       dailyReports: dailyReports.map(r => ({
         date: r.date,
-        headline: r.headline,
         summary: r.summary,
-        thumbnail: r.thumbnail,
         issues: r.issues
       })),
       weeklyReports: weeklyReports.map(r => ({
@@ -1023,9 +1017,7 @@ async function main() {
         year: r.year,
         startDate: r.startDate,
         endDate: r.endDate,
-        headline: r.headline,
         summary: r.summary,
-        thumbnail: r.thumbnail,
         issues: r.issues
       })),
       issueReports: issueReports.map(p => ({
@@ -1074,9 +1066,7 @@ async function main() {
   const categoryPageData = {
     dailyReports: dailyReports.map(r => ({
       date: r.date,
-      headline: r.headline,
       summary: r.summary,
-      thumbnail: r.thumbnail,
       issues: r.issues
     })),
     weeklyReports: weeklyReports.map(r => ({
@@ -1084,9 +1074,7 @@ async function main() {
       year: r.year,
       startDate: r.startDate,
       endDate: r.endDate,
-      headline: r.headline,
       summary: r.summary,
-      thumbnail: r.thumbnail,
       issues: r.issues
     })),
     issueReports: issueReports.map(p => ({

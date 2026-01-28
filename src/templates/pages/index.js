@@ -209,8 +209,8 @@ function generateIndexPage(data) {
   const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
   const weeklySlugForThumb = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
 
-  const dailyInsightThumbnail = getLocalDailyThumbnail(insightFileDate, aiInsight?.thumbnail) || '';
-  const weeklyInsightThumbnail = getLocalWeeklyThumbnail(weeklySlugForThumb, weeklyInsight?.ai?.thumbnail) || '';
+  const dailyInsightThumbnail = getLocalDailyThumbnail(insightFileDate, aiInsight?.issues?.[0]?.thumbnail) || '';
+  const weeklyInsightThumbnail = getLocalWeeklyThumbnail(weeklySlugForThumb, weeklyInsight?.ai?.issues?.[0]?.thumbnail) || '';
 
   // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
   const formatDateKr = (dateStr) => {
@@ -224,7 +224,7 @@ function generateIndexPage(data) {
   function generateHomeInsight() {
 
     // 일간 데이터 (링크는 파일명 기준, 뱃지는 AI 응답 기준)
-    const dailyHeadline = aiInsight?.headline || '일간';
+    const dailyHeadline = aiInsight?.issues?.[0]?.title || '일간';
     const dailySummary = aiInsight?.summary || '';
     const dailySlug = insightFileDate || '';
     const dailyLink = dailySlug ? `/magazine/daily/${dailySlug}/` : '/magazine/';
@@ -233,7 +233,7 @@ function generateIndexPage(data) {
     // 주간 데이터
     const wai = weeklyInsight?.ai || null;
     const wInfo = weeklyInsight?.weekInfo || {};
-    const weeklyHeadline = wai?.headline || (typeof wai?.summary === 'object' ? wai.summary.title : null) || '주간';
+    const weeklyHeadline = wai?.issues?.[0]?.title || '주간';
     const weeklySummary = typeof wai?.summary === 'object' ? wai.summary.desc : (wai?.summary || '');
     const weekNum = wInfo.weekNumber || wai?.weekNumber || '';
     const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());

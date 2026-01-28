@@ -1809,7 +1809,7 @@
 
     html {
       overflow-y: scroll; /* 스크롤바 예약 - body가 아닌 html에 설정해야 sticky 작동 */
-      overflow-x: hidden; /* 스와이프 중 가로 확장 방지 */
+      overflow-x: hidden; /* 모바일 스와이프 중 가로 확장 방지 */
     }
 
     body {
@@ -1818,5 +1818,15 @@
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden; /* 스와이프 중 가로 스크롤 방지 */
+      overflow-x: hidden; /* 모바일 스와이프 중 가로 스크롤 방지 */
+    }
+
+    /* PC에서는 overflow-x 제거 (sticky 호환) */
+    @media (min-width: 769px) {
+      html, body {
+        overflow-x: visible;
+      }
+      .site-container {
+        overflow-x: clip; /* 가로 스크롤 방지는 컨테이너에서 처리 */
+      }
     }

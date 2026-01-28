@@ -220,6 +220,16 @@
     border-radius: 8px !important;
   }
 
+  /* 상단 대표 이미지 - 좌우 패딩 유지, 상하 0 */
+  #issue .blog-header + .blog-figure,
+  #wiki-article .blog-header + .blog-figure,
+  #ranking .blog-header + .blog-figure,
+  #tech-article .blog-header + .blog-figure,
+  #insight .blog-header + .blog-figure,
+  #hotpick .blog-header + .blog-figure {
+    margin: 0 16px !important;
+  }
+
   #issue .blog-image,
   #wiki-article .blog-image,
   #ranking .blog-image,
