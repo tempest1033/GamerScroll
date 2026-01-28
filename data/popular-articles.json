@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-01-27T09:49:33.035Z",
+  "updatedAt": "2026-01-28T00:48:43.544Z",
   "period": "7days",
   "articles": [
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
-      "views": 89,
+      "views": 94,
       "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
@@ -30,8 +30,14 @@
       "type": "wiki",
       "slug": "game-business-metrics",
       "category": "business",
-      "views": 11,
+      "views": 12,
       "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "issue",
+      "slug": "aion2-midterm-report-card",
+      "views": 10,
+      "path": "/magazine/issue/aion2-midterm-report-card/"
     },
     {
       "type": "wiki",
@@ -45,12 +51,6 @@
       "slug": "2026-game-trends",
       "views": 8,
       "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "issue",
-      "slug": "aion2-midterm-report-card",
-      "views": 8,
-      "path": "/magazine/issue/aion2-midterm-report-card/"
     },
     {
       "type": "issue",
