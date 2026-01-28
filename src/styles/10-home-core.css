@@ -580,6 +580,20 @@
       background: var(--bg-hover);
     }
 
+    .home-popular-rank {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-body-size);
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg-secondary);
+      border-radius: 6px;
+    }
+
     .home-popular-thumb {
       position: relative;
       flex-shrink: 0;

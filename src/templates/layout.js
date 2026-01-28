@@ -444,8 +444,10 @@ const hoverPrefetchScript = `
 const swipeScript = `
 <script>
 (function() {
-  // PC에서는 스와이프 비활성화
-  if (window.innerWidth > 768) return;
+  // 터치/코스 포인터가 아닌 환경에서는 스와이프 비활성화
+  const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 ||
+    (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  if (!isTouchDevice) return;
 
   const navSections = ['magazine', 'wiki', 'tech', 'games', 'rankings', 'steam', 'upcoming'];
 

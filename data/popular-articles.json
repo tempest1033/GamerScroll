@@ -1,18 +1,25 @@
 {
-  "updatedAt": "2026-01-28T00:48:43.544Z",
+  "updatedAt": "2026-01-28T17:05:03.935Z",
   "period": "7days",
   "articles": [
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
-      "views": 94,
+      "views": 110,
       "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "issue",
       "slug": "arknights-endfield-launch-success",
-      "views": 57,
+      "views": 60,
       "path": "/magazine/issue/arknights-endfield-launch-success/"
+    },
+    {
+      "type": "tech",
+      "slug": "moltbot-clawdbot-ai-assistant",
+      "category": "ai",
+      "views": 35,
+      "path": "/tech/ai/moltbot-clawdbot-ai-assistant/"
     },
     {
       "type": "hotpick",
@@ -27,17 +34,28 @@
       "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
     },
     {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 12,
-      "path": "/wiki/business/game-business-metrics/"
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 11,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 11,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
       "slug": "aion2-midterm-report-card",
       "views": 10,
       "path": "/magazine/issue/aion2-midterm-report-card/"
+    },
+    {
+      "type": "ranking",
+      "slug": "endfield-vs-dragonsword-new-year-2026",
+      "views": 10,
+      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
     },
     {
       "type": "wiki",
@@ -47,12 +65,6 @@
       "path": "/wiki/business/app-revenue-ranking-algorithm/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 8,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
       "type": "issue",
       "slug": "china-gaming-superpower-rise",
       "views": 8,
@@ -60,9 +72,128 @@
     },
     {
       "type": "issue",
+      "slug": "chzzk-lck-naver-viewer-complaints",
+      "views": 8,
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
       "slug": "heartopia-mobile-animal-crossing-success",
       "views": 8,
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 8,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gantt-chart",
+      "category": "tech",
+      "views": 8,
+      "path": "/wiki/tech/gantt-chart/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-subscription-return",
+      "views": 7,
+      "path": "/magazine/issue/lineage-classic-subscription-return/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-regulations",
+      "category": "knowledge",
+      "views": 7,
+      "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "issue",
+      "slug": "seven-deadly-sins-origin-delay-2026",
+      "views": 6,
+      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 6,
+      "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "wiki",
+      "slug": "astonishia-story-sonnori",
+      "category": "history",
+      "views": 6,
+      "path": "/wiki/history/astonishia-story-sonnori/"
+    },
+    {
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
+      "views": 5,
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "clash-royale-10th-anniversary-success",
+      "views": 5,
+      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "game-ai-paradigm-shift-2026",
+      "views": 5,
+      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-game-stocks-2025",
+      "category": "business",
+      "views": 5,
+      "path": "/wiki/business/korean-game-stocks-2025/"
+    },
+    {
+      "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
+      "views": 5,
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 5,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chatgpt-desktop-app",
+      "category": "tech",
+      "views": 5,
+      "path": "/wiki/tech/chatgpt-desktop-app/"
+    },
+    {
+      "type": "wiki",
+      "slug": "version-control-system",
+      "category": "tech",
+      "views": 5,
+      "path": "/wiki/tech/version-control-system/"
+    },
+    {
+      "type": "wiki",
+      "slug": "vibe-coding",
+      "category": "tech",
+      "views": 5,
+      "path": "/wiki/tech/vibe-coding/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "switch-2-buying-guide-2026",
+      "views": 4,
+      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
     }
   ]
 }

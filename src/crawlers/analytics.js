@@ -263,6 +263,12 @@ async function fetchPopularArticles(days = 7, limit = 10) {
                 fieldName: 'pagePath',
                 stringFilter: { matchType: 'FULL_REGEXP', value: '^/wiki/[^/]+/[^/]+/?$' }
               }
+            },
+            {
+              filter: {
+                fieldName: 'pagePath',
+                stringFilter: { matchType: 'FULL_REGEXP', value: '^/tech/[^/]+/[^/]+/?$' }
+              }
             }
           ]
         }
@@ -307,6 +313,11 @@ async function fetchPopularArticles(days = 7, limit = 10) {
         const parts = pagePath.replace('/wiki/', '').replace(/\/$/, '').split('/');
         category = parts[0];
         slug = parts[1];
+      } else if (pagePath.startsWith('/tech/')) {
+        type = 'tech';
+        const parts = pagePath.replace('/tech/', '').replace(/\/$/, '').split('/');
+        category = parts[0];
+        slug = parts[1];
       } else {
         return null;
       }
@@ -327,7 +338,7 @@ async function fetchPopularArticles(days = 7, limit = 10) {
  * 인기 기사 데이터를 JSON 파일로 저장
  */
 async function savePopularArticles(outputPath = 'data/popular-articles.json') {
-  const articles = await fetchPopularArticles(7, 10);
+  const articles = await fetchPopularArticles(7, 30);
 
   const data = {
     updatedAt: new Date().toISOString(),

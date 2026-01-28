@@ -8,7 +8,7 @@ function generateHeader() {
 	    <div class="header-inner">
 	      <div class="header-title">
 	        <a href="/">
-	          <span class="visually-hidden">게이머스크롤 - 게임 트렌드, 순위, 뉴스를 한눈에</span>
+	          <span class="visually-hidden">게이머스크롤</span>
 	          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 	            <defs>
 	              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">

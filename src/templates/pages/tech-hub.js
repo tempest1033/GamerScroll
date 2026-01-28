@@ -85,6 +85,35 @@ function generateTechHubPage({
   }
   allTech.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
+  // 인기 기사 Top 3 (테크 카테고리만 필터링)
+  function generatePopularSection() {
+    // 테크 카테고리만 필터링
+    const techPopular = sidebarPopularArticles.filter(item => {
+      const p = item.path || item.link || '';
+      return p.startsWith('/tech/');
+    }).slice(0, 3);
+
+    if (techPopular.length === 0) return '';
+
+    const popularCards = techPopular.map((item, i) => `
+      <a href="${item.link || item.path || '#'}" class="home-popular-card">
+        <span class="home-popular-rank">${i + 1}</span>
+        <div class="home-popular-info">
+          <h3 class="home-popular-title">${item.title}</h3>
+        </div>
+      </a>
+    `).join('');
+
+    return `
+      <div class="home-card" id="tech-popular">
+        <div class="home-card-header">
+          <h2 class="home-card-title">인기</h2>
+        </div>
+        <div class="home-popular-list">${popularCards}</div>
+      </div>
+    `;
+  }
+
   // 테크 그리드 생성 - 허브용 3열 그리드
   function generateTechGrid() {
     if (allTech.length === 0) return '<p>테크 글이 없습니다.</p>';
@@ -217,6 +246,7 @@ function generateTechHubPage({
       <h1 class="visually-hidden">테크 - 기술, AI, 개발 도구</h1>
       <div class="home-container">
         <div class="home-main">
+          ${generatePopularSection()}
           ${generateTechGrid()}
         </div>
         <aside class="home-sidebar">

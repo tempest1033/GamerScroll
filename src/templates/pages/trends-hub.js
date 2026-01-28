@@ -146,45 +146,32 @@ function generateTrendsHubPage({
 }) {
   const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
-  // 정기 카드 (일간/주간) - 홈과 동일
-  function generateInsightCards() {
-    const dailyReport = dailyReports[0];
-    const weeklyReport = weeklyReports[0];
+  // 인기 기사 Top 3 (매거진 카테고리만 필터링)
+  function generatePopularSection() {
+    // 매거진 카테고리만 필터링 (issue, insight, hotpick, ranking)
+    const magazinePopular = sidebarPopularArticles.filter(item => {
+      const p = item.path || item.link || '';
+      return p.startsWith('/magazine/issue/') || p.startsWith('/magazine/insight/') ||
+             p.startsWith('/magazine/hotpick/') || p.startsWith('/magazine/ranking/');
+    }).slice(0, 3);
 
-    if (!dailyReport && !weeklyReport) return '';
+    if (magazinePopular.length === 0) return '';
 
-    const dailyCard = dailyReport ? `
-      <a href="/magazine/daily/${dailyReport.date}/" class="home-trend-card">
-        <div class="home-trend-card-image">
-          ${dailyReport.thumbnail ? `<img src="${getLocalDailyThumbnail(dailyReport.date, dailyReport.thumbnail)}" alt="${escapeHtmlAttr(dailyReport.headline)}" loading="eager">` : ''}
-          <span class="home-trend-card-tag">${formatDateKr(dailyReport.date)} 일간</span>
+    const popularCards = magazinePopular.map((item, i) => `
+      <a href="${item.link || item.path || '#'}" class="home-popular-card">
+        <span class="home-popular-rank">${i + 1}</span>
+        <div class="home-popular-info">
+          <h3 class="home-popular-title">${item.title}</h3>
         </div>
-        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${dailyReport.headline || '일간'}</span></h3>
       </a>
-    ` : '';
-
-    const weeklySlug = weeklyReport ? `${weeklyReport.year || weeklyReport.startDate?.slice(0, 4) || new Date().getFullYear()}-W${String(weeklyReport.weekNumber).padStart(2, '0')}` : '';
-    const weeklyBadge = weeklyReport?.startDate && weeklyReport?.endDate
-      ? `${formatDateKr(weeklyReport.startDate)} ~ ${parseInt(weeklyReport.endDate.slice(5, 7))}월 ${parseInt(weeklyReport.endDate.slice(8, 10))}일`
-      : '주간';
-    const weeklyCard = weeklyReport ? `
-      <a href="/magazine/weekly/${weeklySlug}/" class="home-trend-card">
-        <div class="home-trend-card-image">
-          ${weeklyReport.thumbnail ? `<img src="${getLocalWeeklyThumbnail(weeklySlug, weeklyReport.thumbnail)}" alt="${escapeHtmlAttr(weeklyReport.headline)}" loading="eager">` : ''}
-          <span class="home-trend-card-tag weekly">${weeklyBadge}</span>
-        </div>
-        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${weeklyReport.headline || '주간'}</span></h3>
-      </a>
-    ` : '';
+    `).join('');
 
     return `
-      <div class="home-card" id="magazine-insight">
+      <div class="home-card" id="magazine-popular">
         <div class="home-card-header">
-          <h2 class="home-card-title">정기</h2>
+          <h2 class="home-card-title">인기</h2>
         </div>
-        <div class="home-card-body">
-          <div class="home-trend-grid">${dailyCard}${weeklyCard}</div>
-        </div>
+        <div class="home-popular-list">${popularCards}</div>
       </div>
     `;
   }
@@ -369,7 +356,7 @@ function generateTrendsHubPage({
 
       <div class="home-container">
         <div class="home-main">
-          ${generateInsightCards()}
+          ${generatePopularSection()}
           ${generateLatestGrid()}
         </div>
         <div class="home-sidebar">
