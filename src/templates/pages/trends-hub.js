@@ -146,7 +146,7 @@ function generateTrendsHubPage({
 }) {
   const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
-  // 인기 기사 Top 3 (매거진 카테고리만 필터링)
+  // 인기 기사 Top 3 (매거진 카테고리만 필터링) - 홈페이지 스타일 (썸네일 + 요약)
   function generatePopularSection() {
     // 매거진 카테고리만 필터링 (issue, insight, hotpick, ranking)
     const magazinePopular = sidebarPopularArticles.filter(item => {
@@ -157,14 +157,23 @@ function generateTrendsHubPage({
 
     if (magazinePopular.length === 0) return '';
 
-    const popularCards = magazinePopular.map((item, i) => `
+    const popularCards = magazinePopular.map((item, i) => {
+      const thumbData = getLocalReportThumbnailSrcset(item.type, item.slug, item.thumbnail);
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
+      return `
       <a href="${item.link || item.path || '#'}" class="home-popular-card">
-        <span class="home-popular-rank">${i + 1}</span>
+        <div class="home-popular-thumb">
+          ${item.thumbnail ? `<img ${imgAttrs} alt="${item.title}" loading="${i === 0 ? 'eager' : 'lazy'}">` : ''}
+        </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>
+          ${item.summary ? `<p class="home-popular-summary">${item.summary}</p>` : ''}
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     return `
       <div class="home-card" id="magazine-popular">

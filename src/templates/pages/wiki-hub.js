@@ -81,7 +81,7 @@ function generateWikiHubPage({
   }
   allWiki.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-  // 인기 기사 Top 3 (위키 카테고리만 필터링)
+  // 인기 기사 Top 3 (위키 카테고리만 필터링) - 홈페이지 스타일 (썸네일 + 요약)
   function generatePopularSection() {
     // 위키 카테고리만 필터링
     const wikiPopular = sidebarPopularArticles.filter(item => {
@@ -91,14 +91,20 @@ function generateWikiHubPage({
 
     if (wikiPopular.length === 0) return '';
 
-    const popularCards = wikiPopular.map((item, i) => `
+    const popularCards = wikiPopular.map((item, i) => {
+      const thumbUrl = item.thumbnail ? getLocalWikiImagePath(item.category, item.slug, item.thumbnail) : '';
+      return `
       <a href="${item.link || item.path || '#'}" class="home-popular-card">
-        <span class="home-popular-rank">${i + 1}</span>
+        <div class="home-popular-thumb">
+          ${thumbUrl ? `<img src="${thumbUrl}" alt="${escapeHtmlAttr(item.title)}" loading="${i === 0 ? 'eager' : 'lazy'}">` : ''}
+        </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>
+          ${item.summary ? `<p class="home-popular-summary">${item.summary}</p>` : ''}
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
 
     return `
       <div class="home-card" id="wiki-popular">

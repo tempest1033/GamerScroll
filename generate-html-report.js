@@ -982,28 +982,28 @@ async function main() {
   }
   // 최신글: 날짜순 정렬 상위 10개
   const sidebarLatestArticles = [...allSidebarArticles].sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
-  // 인기글: GA4 데이터 기반
-  let sidebarPopularArticles = (popularArticlesData.articles || []).slice(0, 10).map(article => {
+  // 인기글: GA4 데이터 기반 (썸네일, 요약 포함)
+  let sidebarPopularArticles = (popularArticlesData.articles || []).slice(0, 30).map(article => {
     if (article.type === 'issue') {
       const issue = issueReports.find(i => i.slug === article.slug);
-      if (issue) return { title: issue.title, link: `/magazine/issue/${issue.slug}/`, badge: '이슈' };
+      if (issue) return { title: issue.title, link: `/magazine/issue/${issue.slug}/`, badge: '이슈', thumbnail: issue.thumbnail || '', summary: issue.summary || '', type: 'issue', slug: issue.slug };
     } else if (article.type === 'insight') {
       const insight = insightReports.find(i => i.slug === article.slug);
-      if (insight) return { title: insight.title, link: `/magazine/insight/${insight.slug}/`, badge: '인사이트' };
+      if (insight) return { title: insight.title, link: `/magazine/insight/${insight.slug}/`, badge: '인사이트', thumbnail: insight.thumbnail || '', summary: insight.summary || '', type: 'insight', slug: insight.slug };
     } else if (article.type === 'hotpick') {
       const hotpick = hotpickReports.find(h => h.slug === article.slug);
-      if (hotpick) return { title: hotpick.title, link: `/magazine/hotpick/${hotpick.slug}/`, badge: '핫픽' };
+      if (hotpick) return { title: hotpick.title, link: `/magazine/hotpick/${hotpick.slug}/`, badge: '핫픽', thumbnail: hotpick.thumbnail || '', summary: hotpick.summary || '', type: 'hotpick', slug: hotpick.slug };
     } else if (article.type === 'ranking') {
       const ranking = rankingReports.find(r => r.slug === article.slug);
-      if (ranking) return { title: ranking.title, link: `/magazine/ranking/${ranking.slug}/`, badge: '순위 분석' };
+      if (ranking) return { title: ranking.title, link: `/magazine/ranking/${ranking.slug}/`, badge: '순위 분석', thumbnail: ranking.thumbnail || '', summary: ranking.summary || '', type: 'ranking', slug: ranking.slug };
     } else if (article.type === 'wiki' && article.category) {
       const wikiList = wikiDataForSidebar[article.category] || [];
       const wiki = wikiList.find(w => w.slug === article.slug);
-      if (wiki) return { title: wiki.title, link: `/wiki/${article.category}/${article.slug}/`, badge: categoryNames[article.category] };
+      if (wiki) return { title: wiki.title, link: `/wiki/${article.category}/${article.slug}/`, badge: categoryNames[article.category], thumbnail: wiki.thumbnail || '', summary: wiki.summary || '', type: 'wiki', category: article.category, slug: wiki.slug };
     } else if (article.type === 'tech' && article.category) {
       const techList = techDataForSidebar[article.category] || [];
       const tech = techList.find(t => t.slug === article.slug);
-      if (tech) return { title: tech.title, link: `/tech/${article.category}/${article.slug}/`, badge: techCategoryNames[article.category] || '테크' };
+      if (tech) return { title: tech.title, link: `/tech/${article.category}/${article.slug}/`, badge: techCategoryNames[article.category] || '테크', thumbnail: tech.thumbnail || '', summary: tech.summary || '', type: 'tech', category: article.category, slug: tech.slug };
     }
     return null;
   }).filter(Boolean);
