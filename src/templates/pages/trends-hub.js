@@ -351,8 +351,8 @@ function generateTrendsHubPage({
           </div>
         </div>
         <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles.slice(0, 10))}</div>
+          <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
         </div>
       </div>
     `;
@@ -642,8 +642,8 @@ function generateDailyListPage({
           </div>
         </div>
         <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles.slice(0, 10))}</div>
+          <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
         </div>
       </div>
       ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
@@ -823,8 +823,8 @@ function generateWeeklyListPage({
         </div>
       </div>
       <div class="home-card-body">
-        <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
-        <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+        <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles.slice(0, 10))}</div>
+        <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
       </div>
     </div>
     ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
@@ -1003,8 +1003,8 @@ function generateIssueListPage({
         </div>
       </div>
       <div class="home-card-body">
-        <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
-        <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+        <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles.slice(0, 10))}</div>
+        <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
       </div>
     </div>
     ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
@@ -1183,8 +1183,8 @@ function generateInsightListPage({
         </div>
       </div>
       <div class="home-card-body">
-        <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
-        <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+        <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles.slice(0, 10))}</div>
+        <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
       </div>
     </div>
     ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
@@ -1361,8 +1361,8 @@ function generateHotpickListPage({
         </div>
       </div>
       <div class="home-card-body">
-        <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
-        <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+        <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles.slice(0, 10))}</div>
+        <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
       </div>
     </div>
     ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
@@ -1556,8 +1556,8 @@ function generateRankingListPage({
                 </div>
               </div>
               <div class="home-card-body">
-                <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
-                <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+                <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles.slice(0, 10))}</div>
+                <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
               </div>
             </div>
             ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}

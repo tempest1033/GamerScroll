@@ -239,8 +239,8 @@ function generateTechHubPage({
           </div>
         </div>
         <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderArticleList(sidebarPopularArticles)}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderArticleList(sidebarLatestArticles)}</div>
+          <div class="sidebar-article-list active" id="sidebar-popular">${renderArticleList(sidebarPopularArticles.slice(0, 10))}</div>
+          <div class="sidebar-article-list" id="sidebar-latest">${renderArticleList(sidebarLatestArticles.slice(0, 10))}</div>
         </div>
       </div>
     `;
@@ -527,8 +527,8 @@ function generateTechCategoryPage({
           </div>
         </div>
         <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderArticleList(sidebarPopularArticles)}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderArticleList(sidebarLatestArticles)}</div>
+          <div class="sidebar-article-list active" id="sidebar-popular">${renderArticleList(sidebarPopularArticles.slice(0, 10))}</div>
+          <div class="sidebar-article-list" id="sidebar-latest">${renderArticleList(sidebarLatestArticles.slice(0, 10))}</div>
         </div>
       </div>
     `;
