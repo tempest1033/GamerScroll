@@ -1,6 +1,7 @@
 ﻿require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { generateRSS } = require('./src/rss/generate-rss');
 
 // 커맨드라인 인자 파싱
@@ -219,6 +220,7 @@ const { generateWikiArticlePage } = require('./src/templates/pages/wiki-article'
 const { generateTechHubPage, generateTechCategoryPage } = require('./src/templates/pages/tech-hub');
 const { generateTechArticlePage } = require('./src/templates/pages/tech-article');
 const { generate404Page } = require('./src/templates/pages/404');
+const { setCssFilename } = require('./src/templates/layout');
 const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles, shouldFetchPopularArticles } = require('./src/crawlers/analytics');
 
 // 데일리 인사이트 import
@@ -753,21 +755,52 @@ async function main() {
     }
   }
 
-  // CSS 파일 번들링 + 압축
+  // CSS 파일 번들링 + 압축 + 해시 파일명
   let didBundleCss = false;
+  let cssHash = '';
+  let cssFilename = '/styles.css';  // 기본값
   try {
     const bundledCss = bundleCssFile('./src/styles.css');
     const minifiedCss = minifyCss(bundledCss);
-    fs.writeFileSync('./styles.css', minifiedCss, 'utf8');
+
+    // CSS 내용 기반 해시 생성 (앞 8자리)
+    cssHash = crypto.createHash('md5').update(minifiedCss).digest('hex').slice(0, 8);
+    cssFilename = `/styles.${cssHash}.css`;
+
+    // 해시 파일명으로 저장
+    fs.writeFileSync(`./styles.${cssHash}.css`, minifiedCss, 'utf8');
+
+    // 전역 CSS 파일명 설정 (템플릿에서 사용)
+    setCssFilename(cssFilename);
+
     const originalSize = Buffer.byteLength(bundledCss, 'utf8');
     const minifiedSize = Buffer.byteLength(minifiedCss, 'utf8');
     const reduction = ((1 - minifiedSize / originalSize) * 100).toFixed(1);
-    console.log(`  ✅ styles.css 압축: ${(originalSize/1024).toFixed(0)}KB → ${(minifiedSize/1024).toFixed(0)}KB (${reduction}% 감소)`);
+    console.log(`  ✅ styles.${cssHash}.css 압축: ${(originalSize/1024).toFixed(0)}KB → ${(minifiedSize/1024).toFixed(0)}KB (${reduction}% 감소)`);
     didBundleCss = true;
   } catch (e) {
     console.error(`⚠️ CSS 번들링 실패 → 원본 복사: ${e.message}`);
     fs.copyFileSync('./src/styles.css', './styles.css');
+    cssFilename = '/styles.css';
+    setCssFilename(cssFilename);
   }
+
+  // 루트 디렉토리의 이전 해시 CSS 파일 정리
+  try {
+    const rootFiles = fs.readdirSync('.');
+    for (const file of rootFiles) {
+      if (file.match(/^styles\.[a-f0-9]{8}\.css$/) && file !== `styles.${cssHash}.css`) {
+        fs.unlinkSync(`./${file}`);
+      }
+    }
+    // 기존 styles.css도 삭제 (해시 방식으로 전환)
+    if (cssHash && fs.existsSync('./styles.css')) {
+      fs.unlinkSync('./styles.css');
+    }
+  } catch (e) {
+    // 정리 실패는 무시
+  }
+
   // 분리된 CSS 모듈 동기화 (src/styles/*.css -> styles/)
   const SRC_STYLES_DIR = './src/styles';
   if (fs.existsSync(SRC_STYLES_DIR)) {
@@ -1813,12 +1846,28 @@ async function main() {
   }
 
   try {
-    if (didBundleCss && fs.existsSync('./styles.css')) {
-      fs.copyFileSync('./styles.css', `${DOCS_DIR}/styles.css`);
+    // 이전 해시 CSS 파일 삭제 (docs/ 내 styles.*.css)
+    const docsFiles = fs.readdirSync(DOCS_DIR);
+    for (const file of docsFiles) {
+      if (file.match(/^styles\.[a-f0-9]{8}\.css$/)) {
+        fs.unlinkSync(`${DOCS_DIR}/${file}`);
+      }
+    }
+    // 기존 styles.css도 삭제 (해시 방식으로 전환)
+    if (fs.existsSync(`${DOCS_DIR}/styles.css`)) {
+      fs.unlinkSync(`${DOCS_DIR}/styles.css`);
+    }
+
+    // 새 해시 CSS 파일 복사
+    if (didBundleCss && cssHash && fs.existsSync(`./styles.${cssHash}.css`)) {
+      fs.copyFileSync(`./styles.${cssHash}.css`, `${DOCS_DIR}/styles.${cssHash}.css`);
     } else {
       const bundledCss = bundleCssFile('./src/styles.css');
       const minifiedCss = minifyCss(bundledCss);
-      fs.writeFileSync(`${DOCS_DIR}/styles.css`, minifiedCss, 'utf8');
+      const fallbackHash = crypto.createHash('md5').update(minifiedCss).digest('hex').slice(0, 8);
+      fs.writeFileSync(`${DOCS_DIR}/styles.${fallbackHash}.css`, minifiedCss, 'utf8');
+      cssFilename = `/styles.${fallbackHash}.css`;
+      setCssFilename(cssFilename);
     }
   } catch (e) {
     console.error(`⚠️ CSS 번들링 실패(docs) → 원본 복사: ${e.message}`);
@@ -2078,11 +2127,14 @@ Sitemap: https://gamerscroll.com/sitemap.xml
   // Service Worker 캐시 버전 자동 업데이트 (빌드마다 새 버전)
   const swPath = `${DOCS_DIR}/service-worker.js`;
   if (fs.existsSync(swPath)) {
-    const swContent = fs.readFileSync(swPath, 'utf8');
+    let swContent = fs.readFileSync(swPath, 'utf8');
     const cacheVersion = `gamerscroll-${Date.now()}`;
-    const updatedSw = swContent.replace(/const CACHE_NAME = '[^']+';/, `const CACHE_NAME = '${cacheVersion}';`);
-    fs.writeFileSync(swPath, updatedSw, 'utf8');
-    console.log(`🔄 Service Worker 캐시 버전: ${cacheVersion}`);
+    swContent = swContent.replace(/const CACHE_NAME = '[^']+';/, `const CACHE_NAME = '${cacheVersion}';`);
+    // CSS 파일명을 해시 버전으로 업데이트
+    swContent = swContent.replace(/['"]\/styles\.css['"]/, `'${cssFilename}'`);
+    swContent = swContent.replace(/['"]\/styles\.[a-f0-9]{8}\.css['"]/, `'${cssFilename}'`);
+    fs.writeFileSync(swPath, swContent, 'utf8');
+    console.log(`🔄 Service Worker 캐시 버전: ${cacheVersion} (CSS: ${cssFilename})`);
   }
 
   console.log(`\n✅ 완료! (docs/ 통합 반응형 빌드 + sitemap 갱신)`);

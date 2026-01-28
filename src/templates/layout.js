@@ -6,6 +6,15 @@
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
+// 전역 CSS 파일명 (해시 기반)
+let globalCssFilename = '/styles.css';
+function setCssFilename(filename) {
+  globalCssFilename = filename;
+}
+function getCssFilename() {
+  return globalCssFilename;
+}
+
 const { generateHead } = require('./components/head');
 const {
   renderAdCard,
@@ -1095,7 +1104,8 @@ function wrapWithLayout(content, options = {}) {
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     breadcrumbs = null,  // BreadcrumbList JSON-LD
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용)
-    preloadImages = null
+    preloadImages = null,
+    cssFilename = globalCssFilename  // 해시 기반 CSS 파일명 (전역 설정 사용)
   } = options;
 
   // 페이지별 데이터 스크립트
@@ -1110,7 +1120,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko" style="background:#121212">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages, cssFilename })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   ${generateHeader()}
@@ -1218,5 +1228,6 @@ module.exports = {
   generateHomeAdPairSlot,
   generateMobileOnlyMidAdSlot,
   generateNativeAdSlot,
-  generateMultiplexAdSlot
+  generateMultiplexAdSlot,
+  setCssFilename  // 해시 기반 CSS 파일명 설정
 };

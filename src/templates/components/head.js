@@ -15,7 +15,8 @@ function generateHead(options = {}) {
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, image, operatingSystem, applicationCategory, aggregateRating}
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     ogImage = '',
-    preloadImages = []
+    preloadImages = [],
+    cssFilename = '/styles.css'  // 해시 기반 CSS 파일명
   } = options;
 
   const normalizeMeta = (value) => String(value ?? '').replace(/[\r\n]+/g, ' ').trim();
@@ -312,7 +313,7 @@ function generateHead(options = {}) {
 	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
 	  <!-- 메인 CSS -->
-	  <link rel="stylesheet" href="/styles.css">
+	  <link rel="stylesheet" href="${cssFilename}">
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script>
 	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
