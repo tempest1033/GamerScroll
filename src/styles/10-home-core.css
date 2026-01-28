@@ -1817,4 +1817,5 @@
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; /* 스와이프 중 가로 스크롤 방지 */
     }
