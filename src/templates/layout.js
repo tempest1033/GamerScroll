@@ -755,7 +755,7 @@ const swipeScript = `
           return;
         }
         // 서브 페이지 불일치 (예: URL=/wiki/ 인데 active=/tech/)
-        if (activeHref && !currentPath.startsWith(activeHref.replace(/\/$/, ''))) {
+        if (activeHref && !currentPath.startsWith(activeHref.replace(/\\/$/, ''))) {
           location.reload();
           return;
         }
