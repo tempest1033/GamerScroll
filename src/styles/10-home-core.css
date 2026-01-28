@@ -1809,6 +1809,7 @@
 
     html {
       overflow-y: scroll; /* 스크롤바 예약 - body가 아닌 html에 설정해야 sticky 작동 */
+      overflow-x: hidden; /* 스와이프 중 가로 확장 방지 */
     }
 
     body {
