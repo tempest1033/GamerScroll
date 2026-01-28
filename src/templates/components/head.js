@@ -308,9 +308,6 @@ function generateHead(options = {}) {
 	      window.addEventListener('load', addPrefetch);
 	    })();
 	  </script>
-	  <!-- 폰트 CSS: 다이나믹 서브셋 (페이지에 필요한 글자만 로드) -->
-	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"></noscript>
 	  <!-- 메인 CSS -->
 	  <link rel="stylesheet" href="/styles.css">
 	  <!-- Firebase Analytics (프로덕션만) -->
