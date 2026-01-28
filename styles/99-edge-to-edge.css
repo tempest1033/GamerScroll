@@ -74,14 +74,17 @@
 
 /* ===== 모바일 피드형 카드 스타일 ===== */
 @media (max-width: 768px) {
-  /* 피드 카드 헤더 숨김 (홈, 매거진, 위키) */
+  /* 피드 카드 헤더 숨김 (홈, 매거진, 위키, 테크) */
   #home-insight > .home-card-header,
   #home-popular > .home-card-header,
   #home-latest > .home-card-header,
   #wiki-all > .home-card-header,
   #wiki-category > .home-card-header,
+  #wiki-popular > .home-card-header,
   #magazine-insight > .home-card-header,
   #magazine-issue > .home-card-header,
+  #magazine-popular > .home-card-header,
+  #tech-popular > .home-card-header,
   #daily-list > .home-card-header,
   #weekly-list > .home-card-header,
   #issue-list > .home-card-header,

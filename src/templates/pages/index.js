@@ -282,8 +282,8 @@ function generateIndexPage(data) {
   function generateHomePopular() {
     const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
-    // popularArticles에서 상위 3개의 상세 정보 조회
-    const popularItems = popularArticles.slice(0, 3).map(article => {
+    // popularArticles에서 상세 정보 조회 후 상위 3개 선택 (매칭 안 되는 항목 제외)
+    const popularItems = popularArticles.map(article => {
       if (article.type === 'issue') {
         const issue = issueReports.find(i => i.slug === article.slug);
         if (issue) {
@@ -347,7 +347,7 @@ function generateIndexPage(data) {
         }
       }
       return null;
-    }).filter(Boolean);
+    }).filter(Boolean).slice(0, 3);
 
     if (popularItems.length === 0) return '';
 

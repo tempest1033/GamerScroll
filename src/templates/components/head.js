@@ -308,6 +308,9 @@ function generateHead(options = {}) {
 	      window.addEventListener('load', addPrefetch);
 	    })();
 	  </script>
+	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->
+	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
 	  <!-- 메인 CSS -->
 	  <link rel="stylesheet" href="/styles.css">
 	  <!-- Firebase Analytics (프로덕션만) -->
