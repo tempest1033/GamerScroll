@@ -2393,13 +2393,13 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
             <div class="blog-meta">
               <time class="blog-date">${formatDateKorean(date)}</time>
             </div>
-            ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
           ${thumbnail ? `
             <figure class="blog-figure">
               <img class="blog-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
             </figure>
           ` : ''}
+          ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           <div class="blog-content">
             ${renderContent()}
           </div>
@@ -2811,13 +2811,13 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
             <div class="blog-meta">
               <time class="blog-date">${formatDateKorean(date)}</time>
             </div>
-            ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
           ${thumbnail ? `
             <figure class="blog-figure">
               <img class="blog-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
             </figure>
           ` : ''}
+          ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           <div class="blog-content">
             ${renderContent()}
           </div>
@@ -3236,13 +3236,13 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
             <div class="blog-meta">
               <time class="blog-date">${formatDateKorean(date)}</time>
             </div>
-            ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
           ${thumbnail ? `
             <figure class="blog-figure">
               <img class="blog-image" src="${getLocalHotpickImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
             </figure>
           ` : ''}
+          ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           <div class="blog-content">
             ${renderContent()}
           </div>
@@ -3649,13 +3649,13 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
             <div class="blog-meta">
               <time class="blog-date">${formatDateKorean(date)}</time>
             </div>
-            ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           </header>
           ${thumbnail ? `
             <figure class="blog-figure">
               <img class="blog-image" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
             </figure>
           ` : ''}
+          ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
           <div class="blog-content">
             ${renderContent()}
           </div>

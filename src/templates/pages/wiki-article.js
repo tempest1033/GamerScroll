@@ -399,7 +399,6 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
           <header class="blog-header">
             <h1 class="blog-title">${article.title}</h1>
             ${metaHtml}
-            ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
           </header>
 
           ${article.thumbnail ? `
@@ -407,6 +406,8 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
             <img src="${getLocalWikiImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="" loading="eager">
           </figure>
           ` : ''}
+
+          ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
 
           <div class="blog-content">
             ${renderContentBlocks(article.content, category, article.slug)}
