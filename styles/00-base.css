@@ -75,13 +75,13 @@
       --accent: #0ea5e9; /* 스카이 블루 */
 
       /* === Background & Surface - 따뜻한 화이트 (2026 트렌드) === */
-      --bg: #FAFAF8;
+      --bg: #F5F5F5;
       --bg-elevated: #FAFAF8;
       --card: #ffffff;
       --card-hover: #F5F5F2; /* 웜 그레이 호버 */
 
       /* === Border - 웜톤 === */
-      --border: #e5e2de; /* 웜 그레이 */
+      --border: #d8d8d8; /* 더 진한 회색 */
       --border-subtle: #f0ede8;
 
       /* === Text - 대비 강화 (WCAG AAA) === */
@@ -163,7 +163,7 @@
 
 	      /* === Shadows (Multi-layer Soft) - 개선 === */
 	      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.03), 0 1px 3px rgb(0 0 0 / 0.02);
-	      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 2px 6px rgb(0 0 0 / 0.03);
+	      --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.08), 0 2px 6px rgb(0 0 0 / 0.06);
 	      --shadow: 0 2px 4px rgb(0 0 0 / 0.03), 0 4px 12px rgb(0 0 0 / 0.05);
 	      --shadow-lg: 0 4px 8px rgb(0 0 0 / 0.04), 0 12px 24px rgb(0 0 0 / 0.06);
 	      --shadow-xl: 0 8px 16px rgb(0 0 0 / 0.04), 0 24px 48px rgb(0 0 0 / 0.08);

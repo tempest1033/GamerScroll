@@ -332,124 +332,120 @@
   color: #fff;
 }
 
-/* 다크모드 - 블루/인디고→오렌지 복원 */
-@media (prefers-color-scheme: dark) {
-  /* 네비 active - 밑줄만 오렌지, 폰트 색 유지 */
-  .nav-item.active::after {
-    background: #f97316;
-  }
-  /* 데일리 포커스 문구 - 미니멀 (투명 배경 + 은은한 테두리) */
-  .home-daily-focus-text {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-  /* 홈 트렌드 카드 다크모드 */
-  .home-trend-card {
-    background: var(--card-bg);
-    border-color: var(--border);
-  }
-  .home-trend-card-tag {
-    background: rgba(0, 0, 0, 0.6);
-  }
-  .home-trend-card-tag.weekly {
-    background: rgba(0, 0, 0, 0.6);
-  }
-  .home-trend-card-tag.issue {
-    background: rgba(0, 0, 0, 0.6);
-  }
-  /* 로고 배지/텍스트 */
-  .logo-badge {
-    background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
-  }
-  .header-title .logo-game {
-    background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-  /* === 트렌드 페이지 전체 오버라이드 === */
-  /* 모든 insight 카드 테두리 */
-  .insight-card[class*="daily-section-"] {
-    border-color: rgba(255, 107, 53, 0.25) !important;
-  }
-  /* 모든 카드 헤더 하단 테두리 */
-  .insight-card[class*="daily-section-"] .home-card-header {
-    border-bottom-color: rgba(255, 107, 53, 0.2) !important;
-  }
-  /* 모든 섹션 아이콘 */
-  .daily-section-icon {
-    color: #ff6b35 !important;
-  }
-  /* 아이콘 래퍼 배경 */
-  .daily-section-icon-wrap {
-    background: rgba(255, 107, 53, 0.15) !important;
-  }
-  /* 급상승/급하락 뱃지 */
-  .rank-badge {
-    background: rgba(255, 107, 53, 0.15) !important;
-    color: #ff6b35 !important;
-  }
-  /* 통계 아이콘 */
-  .weekly-stat-icon.industry {
-    background: rgba(249, 115, 22, 0.15);
-    color: #f97316;
-  }
-  /* 카드 호버 그라디언트 */
-  .weekly-hot-card::before {
-    background: linear-gradient(90deg, #ef4444, #f97316);
-  }
+/* 다크모드 강제 - 블루/인디고→오렌지 복원 */
+/* 네비 active - 밑줄만 오렌지, 폰트 색 유지 */
+.nav-item.active::after {
+  background: #f97316;
+}
+/* 데일리 포커스 문구 - 미니멀 (투명 배경 + 은은한 테두리) */
+.home-daily-focus-text {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+/* 홈 트렌드 카드 다크모드 */
+.home-trend-card {
+  background: var(--card-bg);
+  border-color: var(--border);
+}
+.home-trend-card-tag {
+  background: rgba(0, 0, 0, 0.6);
+}
+.home-trend-card-tag.weekly {
+  background: rgba(0, 0, 0, 0.6);
+}
+.home-trend-card-tag.issue {
+  background: rgba(0, 0, 0, 0.6);
+}
+/* 로고 배지/텍스트 */
+.logo-badge {
+  background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+}
+.header-title .logo-game {
+  background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+/* === 트렌드 페이지 전체 오버라이드 === */
+/* 모든 insight 카드 테두리 */
+.insight-card[class*="daily-section-"] {
+  border-color: rgba(255, 107, 53, 0.25) !important;
+}
+/* 모든 카드 헤더 하단 테두리 */
+.insight-card[class*="daily-section-"] .home-card-header {
+  border-bottom-color: rgba(255, 107, 53, 0.2) !important;
+}
+/* 모든 섹션 아이콘 */
+.daily-section-icon {
+  color: #ff6b35 !important;
+}
+/* 아이콘 래퍼 배경 */
+.daily-section-icon-wrap {
+  background: rgba(255, 107, 53, 0.15) !important;
+}
+/* 급상승/급하락 뱃지 */
+.rank-badge {
+  background: rgba(255, 107, 53, 0.15) !important;
+  color: #ff6b35 !important;
+}
+/* 통계 아이콘 */
+.weekly-stat-icon.industry {
+  background: rgba(249, 115, 22, 0.15);
+  color: #f97316;
+}
+/* 카드 호버 그라디언트 */
+.weekly-hot-card::before {
+  background: linear-gradient(90deg, #ef4444, #f97316);
 }
 
-/* 주간 리포트 헤더 카드 - 다크모드 */
-@media (prefers-color-scheme: dark) {
-  .weekly-header-card {
-    background: linear-gradient(135deg, #1e1e1e 0%, #252525 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
+/* 주간 리포트 헤더 카드 - 다크모드 강제 */
+.weekly-header-card {
+  background: linear-gradient(135deg, #1e1e1e 0%, #252525 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  .weekly-header-card .weekly-header-period {
-    background: transparent;
-    color: rgba(255, 255, 255, 0.5);
-  }
+.weekly-header-card .weekly-header-period {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+}
 
-  .weekly-header-card .weekly-header-week {
-    background: transparent;
-    color: rgba(255, 255, 255, 0.5);
-  }
+.weekly-header-card .weekly-header-week {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+}
 
-  .weekly-header-card .weekly-header-meta {
-    color: rgba(255, 255, 255, 0.5);
-  }
+.weekly-header-card .weekly-header-meta {
+  color: rgba(255, 255, 255, 0.5);
+}
 
-  .weekly-header-card .weekly-header-ampm-tag.am {
-    background: rgba(251, 191, 36, 0.2);
-    color: #fbbf24;
-  }
+.weekly-header-card .weekly-header-ampm-tag.am {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
 
-  .weekly-header-card .weekly-header-ampm-tag.pm {
-    background: rgba(167, 139, 250, 0.2);
-    color: #a78bfa;
-  }
+.weekly-header-card .weekly-header-ampm-tag.pm {
+  background: rgba(167, 139, 250, 0.2);
+  color: #a78bfa;
+}
 
-  /* === 카드 미니멀 + 포인트 하이라이트 === */
-  /* MVP 카드 */
-  .weekly-mvp-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: 3px solid #f59e0b;
-  }
+/* === 카드 미니멀 + 포인트 하이라이트 === */
+/* MVP 카드 */
+.weekly-mvp-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #f59e0b;
+}
 
-  /* 핫이슈 featured 카드 */
-  .weekly-hot-card.featured {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: 3px solid #ef4444;
-  }
+/* 핫이슈 featured 카드 */
+.weekly-hot-card.featured {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #ef4444;
+}
 
-  /* 일반 핫이슈 카드 */
-  .weekly-hot-card {
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
+/* 일반 핫이슈 카드 */
+.weekly-hot-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* 헤더 상단 하이라이트 선 제거됨 */

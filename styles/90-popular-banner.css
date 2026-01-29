@@ -6,7 +6,7 @@
   align-items: center;
   gap: 12px;
   padding: 8px 20px;
-  background: #ffffff;
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   width: 100%;
@@ -40,9 +40,9 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background: #e8f0fe;
+  background: var(--bg-secondary);
   border-radius: 8px;
-  border: 1px solid #d2e3fc;
+  border: 1px solid var(--border);
   text-decoration: none;
   color: var(--text);
   transition: background 0.2s;
@@ -111,19 +111,16 @@
   opacity: 0.7;
 }
 
-/* 다크모드 실시간 인기 배너 */
-@media (prefers-color-scheme: dark) {
-  .popular-banner {
-    background: var(--card);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .popular-banner-item {
-    background: var(--card-hover);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .popular-banner-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
+/* 다크모드 강제 - 실시간 인기 배너 */
+.popular-banner {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.popular-banner-item {
+  background: var(--card-hover);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.popular-banner-item:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* 모바일 띠 배너 */
