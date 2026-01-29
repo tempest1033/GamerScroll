@@ -7,7 +7,8 @@ const buildCache = require('./build-cache');
 
 // 커맨드라인 인자 파싱
 let isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
-const includeDrafts = process.argv.includes('--draft') || process.argv.includes('-d');
+// CI 환경(GitHub Actions)에서는 draft 제외, 로컬에서는 기본 포함
+const includeDrafts = !process.env.CI || process.argv.includes('--draft') || process.argv.includes('-d');
 
 // 통합 반응형 빌드 (PC/모바일 단일 빌드)
 
