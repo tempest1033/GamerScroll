@@ -67,19 +67,40 @@ function buildGlobalPairs(games) {
   return pairs;
 }
 
-// 기존 게임명 탐색 (과도한 병합 방지: exact 우선, 정규화는 길이 3 이상만 허용)
-function findExistingName(gameName, gamesData) {
-  if (gamesData.games[gameName]) return gameName;
+// 이름 키 인덱스 빌드 (O(n) 1회 → 이후 조회 O(1))
+function buildNameKeyIndex(games) {
+  const index = new Map();  // normalizedKey -> gameName
+  for (const name of Object.keys(games)) {
+    // exact match용
+    index.set(name, name);
+    // normalized key용
+    const key = normalizeNameKey(name);
+    if (key.length >= 3 && !index.has(key)) {
+      index.set(key, name);
+    }
+  }
+  return index;
+}
 
+// 인덱스 업데이트 (게임 추가 시)
+function updateNameKeyIndex(index, gameName) {
+  index.set(gameName, gameName);
+  const key = normalizeNameKey(gameName);
+  if (key.length >= 3 && !index.has(key)) {
+    index.set(key, gameName);
+  }
+}
+
+// 기존 게임명 탐색 (인덱스 사용 - O(1))
+function findExistingName(gameName, nameKeyIndex) {
+  // exact match 우선
+  if (nameKeyIndex.has(gameName)) return nameKeyIndex.get(gameName);
+
+  // normalized key로 조회
   const key = normalizeNameKey(gameName);
   if (key.length < 3) return null;
 
-  for (const name of Object.keys(gamesData.games)) {
-    if (normalizeNameKey(name) === key) {
-      return name;
-    }
-  }
-  return null;
+  return nameKeyIndex.get(key) || null;
 }
 
 // ============================================
@@ -276,7 +297,7 @@ function isNameMatch(name1, name2) {
 // 메인 처리
 // ============================================
 
-async function processGame(game, gamesData, appIdIndex, stats, pairs) {
+async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pairs) {
   const { platform, region, appId, title, developer, icon } = game;
 
   // 1. appId로 기존 게임 체크
@@ -288,7 +309,7 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs) {
   // 2. Steam은 바로 등록 (기존 엔트리 병합 제한)
   if (platform === 'steam') {
     const gameName = title;
-    const targetName = findExistingName(gameName, gamesData) || gameName;
+    const targetName = findExistingName(gameName, nameKeyIndex) || gameName;
     const existing = gamesData.games[targetName] || { appIds: {}, aliases: [], developer: '', icon: '', slug: generateSlug(targetName), platforms: [] };
 
     const appIds = { ...existing.appIds, steam: appId };
@@ -305,6 +326,7 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs) {
     };
 
     gamesData.games[targetName] = merged;
+    updateNameKeyIndex(nameKeyIndex, targetName);
     appIdIndex.set(appId, targetName);
     stats.steam++;
     console.log(`  [Steam] 등록: "${targetName}"`);
@@ -316,6 +338,7 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs) {
 
   // kr이 아닌 region이면 kr 마켓에서 한국어 이름 조회
   if (region !== 'kr') {
+    stats.apiCalled = true;  // API 호출 플래그
     if (platform === 'ios') {
       const krName = await getIosKrTitle(appId);
       if (krName) {
@@ -361,6 +384,7 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs) {
   }
 
   if (!matched) {
+    stats.apiCalled = true;  // API 호출 플래그
     if (oppositePlatform === 'android') {
       searchResults = await searchAndroid(krTitle);
     } else {
@@ -394,7 +418,7 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs) {
 
   // 4. 매칭 성공 - 양쪽 appId로 통합 등록 (병합)
   if (matched) {
-    const targetName = findExistingName(gameName, gamesData) || gameName;
+    const targetName = findExistingName(gameName, nameKeyIndex) || gameName;
     const existing = gamesData.games[targetName] || { appIds: {}, aliases: [], developer: '', icon: '', slug: generateSlug(targetName), platforms: [] };
 
     const appIds = { ...existing.appIds, [appIdKey]: appId, [oppositeKey]: matched.appId };
@@ -416,6 +440,7 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs) {
     };
 
     gamesData.games[targetName] = merged;
+    updateNameKeyIndex(nameKeyIndex, targetName);
     appIdIndex.set(appId, targetName);
     appIdIndex.set(matched.appId, targetName);
     stats.matched++;
@@ -434,7 +459,7 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs) {
   }
 
   // 5. 매칭 실패 - 한쪽만 등록 + pending
-  const targetName = findExistingName(gameName, gamesData) || gameName;
+  const targetName = findExistingName(gameName, nameKeyIndex) || gameName;
   const existing = gamesData.games[targetName] || { appIds: {}, aliases: [], developer: '', icon: '', slug: generateSlug(targetName), platforms: [] };
 
   const appIds = { ...existing.appIds, [appIdKey]: appId };
@@ -449,6 +474,7 @@ async function processGame(game, gamesData, appIdIndex, stats, pairs) {
     slug: existing.slug || generateSlug(targetName, aliases),
     platforms
   };
+  updateNameKeyIndex(nameKeyIndex, targetName);
   appIdIndex.set(appId, targetName);
   stats.single++;
   console.log(`  [${platform.toUpperCase()}] 단독 등록: "${targetName}"`);
@@ -478,6 +504,7 @@ async function main() {
   const gamesData = loadGames();
   const reviewQueue = loadReviewQueue();
   const appIdIndex = buildAppIdIndex(gamesData.games);
+  const nameKeyIndex = buildNameKeyIndex(gamesData.games);
 
   console.log('기존 게임:', Object.keys(gamesData.games).length);
 
@@ -496,7 +523,7 @@ async function main() {
   }
   console.log('고유 게임:', uniqueGames.length);
 
-  const stats = { existing: 0, steam: 0, matched: 0, single: 0, pending: 0 };
+  const stats = { existing: 0, steam: 0, matched: 0, single: 0, pending: 0, apiCalled: false };
   // targetName 기준으로 마지막 상태만 저장
   const pendingMap = new Map();
   const globalPairs = buildGlobalPairs(uniqueGames);
@@ -509,7 +536,7 @@ async function main() {
       console.log(`\n진행: ${i + 1}/${uniqueGames.length}`);
     }
 
-    const pendingItem = await processGame(game, gamesData, appIdIndex, stats, globalPairs);
+    const pendingItem = await processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, globalPairs);
 
     // 매칭 성공/실패 모두 리뷰 큐 후보에 적재, 동일 타이틀은 병합
     if (pendingItem) {
@@ -539,9 +566,10 @@ async function main() {
       stats.pending++;
     }
 
-    // API 호출 간격
-    if (game.platform !== 'steam') {
+    // API 호출했을 때만 딜레이 (스킵 시 딜레이 없음)
+    if (stats.apiCalled) {
       await new Promise(r => setTimeout(r, 100));
+      stats.apiCalled = false;
     }
   }
 

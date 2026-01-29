@@ -64,6 +64,67 @@ function findByTitleMatch(items, normalizedNames) {
   return null;
 }
 
+/**
+ * 순위 인덱스 미리 빌드 (성능 최적화)
+ * 구조: { appId: { "date|cat|platform|region": rank } }
+ */
+function buildRankIndex(allHistory) {
+  const index = new Map();  // appId -> Map(key -> rank)
+
+  const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
+  const categories = ['grossing', 'free'];
+
+  for (const { date, data } of allHistory) {
+    for (const cat of categories) {
+      for (const region of regions) {
+        for (const platform of ['ios', 'android']) {
+          const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
+          const bestRankKey = `${keyPrefix}_${region}_${cat}`;
+
+          // 1. bestRanks에서 인덱스 빌드
+          if (data.bestRanks?.[bestRankKey]) {
+            for (const [appId, rank] of Object.entries(data.bestRanks[bestRankKey])) {
+              if (!index.has(appId)) index.set(appId, new Map());
+              index.get(appId).set(`${date}|${cat}|${keyPrefix}|${region}`, rank);
+            }
+          }
+
+          // 2. rankings에서도 인덱스 빌드 (bestRanks 없는 경우 폴백)
+          const items = data.rankings?.[cat]?.[region]?.[platform] || [];
+          for (let i = 0; i < items.length; i++) {
+            const appId = String(items[i].appId);
+            if (!appId) continue;
+            const rankKey = `${date}|${cat}|${keyPrefix}|${region}`;
+            if (!index.has(appId)) index.set(appId, new Map());
+            // bestRanks가 없을 때만 설정
+            if (!index.get(appId).has(rankKey)) {
+              index.get(appId).set(rankKey, i + 1);
+            }
+          }
+        }
+      }
+    }
+
+    // 스팀 인덱스도 빌드
+    const steamMostPlayed = data.steam?.mostPlayed || [];
+    const steamTopSellers = data.steam?.topSellers || [];
+
+    for (const item of steamMostPlayed) {
+      const appId = `steam:${item.appid}`;
+      if (!index.has(appId)) index.set(appId, new Map());
+      index.get(appId).set(`${date}|mostPlayed`, { rank: item.rank, ccu: item.ccu });
+    }
+
+    for (const item of steamTopSellers) {
+      const appId = `steam:${item.appid}`;
+      if (!index.has(appId)) index.set(appId, new Map());
+      index.get(appId).set(`${date}|topSellers`, { rank: item.rank });
+    }
+  }
+
+  return index;
+}
+
 // URL-safe 슬러그 생성 (앱 ID 우선, 없으면 이름 기반)
 function createSlug(name, appIds = null) {
   // 앱 ID가 있으면 우선 사용 (Android > iOS)
@@ -633,10 +694,346 @@ function collectWeeklyMentions(normalizedNames, weeklyReports) {
   return mentions;
 }
 
+/**
+ * 최신 히스토리 순위 역인덱스 빌드
+ * historyData.rankings를 appId/title 기반 O(1) 조회용으로 변환
+ */
+function buildLatestRankingsIndex(historyData) {
+  const index = {
+    byAppId: new Map(),   // "cat-region-platform-appId" -> {item, index}
+    byTitle: new Map(),   // "cat-region-platform-normalizedTitle" -> {item, index}
+    steam: {
+      mostPlayedById: new Map(),   // appId -> item
+      mostPlayedByName: new Map(), // normalizedName -> item
+      topSellersById: new Map(),   // appId -> item
+      topSellersByName: new Map()  // normalizedName -> item
+    }
+  };
+
+  if (!historyData) return index;
+
+  const categories = ['grossing', 'free'];
+  const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
+  const platforms = ['ios', 'android'];
+
+  // Rankings 인덱싱
+  for (const cat of categories) {
+    for (const region of regions) {
+      for (const platform of platforms) {
+        const items = historyData.rankings?.[cat]?.[region]?.[platform] || [];
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+          const keyBase = `${cat}-${region}-${platform}`;
+
+          // appId로 인덱싱
+          if (item.appId) {
+            index.byAppId.set(`${keyBase}-${item.appId}`, { item, index: i });
+          }
+
+          // title로 인덱싱 (폴백용)
+          if (item.title) {
+            const normalizedTitle = normalize(item.title);
+            const titleKey = `${keyBase}-${normalizedTitle}`;
+            if (!index.byTitle.has(titleKey)) {
+              index.byTitle.set(titleKey, { item, index: i });
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Steam 인덱싱
+  const mostPlayed = historyData.steam?.mostPlayed || [];
+  for (const item of mostPlayed) {
+    if (item.appid) {
+      index.steam.mostPlayedById.set(String(item.appid), item);
+    }
+    if (item.name) {
+      index.steam.mostPlayedByName.set(normalize(item.name), item);
+    }
+  }
+
+  const topSellers = historyData.steam?.topSellers || [];
+  for (const item of topSellers) {
+    if (item.appid) {
+      index.steam.topSellersById.set(String(item.appid), item);
+    }
+    if (item.name) {
+      index.steam.topSellersByName.set(normalize(item.name), item);
+    }
+  }
+
+  return index;
+}
+
+/**
+ * 리포트 멘션 역인덱스 빌드
+ * 한 번만 실행하여 gameName → mentions[] 매핑 생성
+ */
+function buildMentionsIndex(reports, weeklyReports, gamesData) {
+  const index = new Map();  // gameName -> mentions[]
+
+  // 모든 게임명 + 별칭을 정규화해서 매핑 준비
+  const gameNameMap = new Map();  // normalizedName -> gameName
+  for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
+    const allNames = [gameName, ...(gameInfo.aliases || [])];
+    for (const name of allNames) {
+      gameNameMap.set(normalize(name), gameName);
+    }
+    index.set(gameName, []);
+  }
+
+  const allNormalizedNames = [...gameNameMap.keys()];
+
+  // 헬퍼: 텍스트에서 게임명 찾기
+  const findGameInText = (text) => {
+    const lowerText = text.toLowerCase();
+    for (const normalizedName of allNormalizedNames) {
+      if (lowerText.includes(normalizedName)) {
+        return gameNameMap.get(normalizedName);
+      }
+    }
+    return null;
+  };
+
+  // 헬퍼: 정확한 이름 매칭
+  const findGameExact = (name) => {
+    const normalized = normalize(name || '');
+    return gameNameMap.get(normalized) || null;
+  };
+
+  // 일간 리포트 인덱싱
+  for (const report of reports) {
+    const ai = report.ai;
+    if (!ai) continue;
+    const date = report.date;
+
+    // ai.rankings
+    for (const item of ai.rankings || []) {
+      const gameName = findGameExact(item.title);
+      if (gameName) {
+        index.get(gameName).push({
+          date, type: 'ranking', tag: item.tag, title: item.title,
+          desc: item.desc, platform: item.platform, rank: item.rank,
+          prevRank: item.prevRank, change: item.change
+        });
+      }
+    }
+
+    // ai.community
+    for (const item of ai.community || []) {
+      const gameName = findGameExact(item.tag);
+      if (gameName) {
+        index.get(gameName).push({
+          date, type: 'community', tag: item.tag, title: item.title, desc: item.desc
+        });
+      }
+    }
+
+    // ai.issues, metrics, streaming, industryIssues, stocks - 텍스트 검색
+    const textSections = [
+      { key: 'issues', type: 'issue' },
+      { key: 'metrics', type: 'metric' },
+      { key: 'streaming', type: 'streaming' },
+      { key: 'industryIssues', type: 'industry', defaultTag: '업계' },
+      { key: 'stocks', type: 'stock', defaultTag: '주가', useNameField: true }
+    ];
+
+    for (const section of textSections) {
+      for (const item of ai[section.key] || []) {
+        const text = section.useNameField
+          ? `${item.name || ''} ${item.title || ''} ${item.desc || ''}`
+          : `${item.title || ''} ${item.desc || ''}`;
+        const gameName = findGameInText(text);
+        if (gameName) {
+          index.get(gameName).push({
+            date, type: section.type, tag: item.tag || section.defaultTag,
+            title: section.useNameField ? (item.name || item.title) : item.title,
+            desc: item.desc
+          });
+        }
+      }
+    }
+  }
+
+  // 주간 리포트 인덱싱
+  for (const report of weeklyReports) {
+    const ai = report.ai;
+    if (!ai) continue;
+    const weekDate = ai.date || `W${report.weekNumber}`;
+
+    // MVP
+    if (ai.mvp) {
+      const gameName = findGameExact(ai.mvp.name);
+      if (gameName) {
+        index.get(gameName).push({
+          date: weekDate, type: 'mvp', tag: 'MVP', title: ai.mvp.name,
+          desc: ai.mvp.desc, highlights: ai.mvp.highlights || []
+        });
+      }
+    }
+
+    // issues, industryIssues, metrics, community, streaming, prediction
+    const weeklySections = [
+      { key: 'issues', type: 'issue', defaultTag: '이슈' },
+      { key: 'industryIssues', type: 'industry', defaultTag: '업계' },
+      { key: 'metrics', type: 'metric', defaultTag: '지표' },
+      { key: 'streaming', type: 'streaming', defaultTag: '스트리밍' },
+      { key: 'prediction', type: 'prediction', defaultTag: '전망' }
+    ];
+
+    for (const section of weeklySections) {
+      for (const item of ai[section.key] || []) {
+        const text = `${item.title || ''} ${item.desc || ''}`;
+        const gameName = findGameInText(text);
+        if (gameName) {
+          index.get(gameName).push({
+            date: weekDate, type: section.type, tag: item.tag || section.defaultTag,
+            title: item.title, desc: item.desc
+          });
+        }
+      }
+    }
+
+    // community - exact match
+    for (const item of ai.community || []) {
+      const gameName = findGameExact(item.tag);
+      if (gameName) {
+        index.get(gameName).push({
+          date: weekDate, type: 'community', tag: item.tag,
+          title: item.title, desc: item.desc
+        });
+      }
+    }
+
+    // rankings - exact match
+    for (const item of ai.rankings || []) {
+      const gameName = findGameExact(item.title);
+      if (gameName) {
+        index.get(gameName).push({
+          date: weekDate, type: 'ranking', tag: item.tag, title: item.title,
+          desc: item.desc, platform: item.platform, rank: item.rank,
+          prevRank: item.prevRank, change: item.change
+        });
+      }
+    }
+  }
+
+  // 각 게임별로 중복 제거 + 정렬 적용
+  for (const [gameName, mentions] of index) {
+    const uniqueMap = new Map();
+    for (const m of mentions) {
+      const titleKey = `${m.type}-${(m.title || '').slice(0, 30)}`;
+      const existing = uniqueMap.get(titleKey);
+      if (!existing) {
+        uniqueMap.set(titleKey, m);
+      } else if (m.type === 'ranking') {
+        if (Math.abs(m.change || 0) > Math.abs(existing.change || 0)) {
+          uniqueMap.set(titleKey, m);
+        }
+      } else if (m.date > existing.date) {
+        uniqueMap.set(titleKey, m);
+      }
+    }
+    const deduped = Array.from(uniqueMap.values());
+    deduped.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    index.set(gameName, deduped);
+  }
+
+  return index;
+}
+
+/**
+ * 뉴스/커뮤니티/유튜브 콘텐츠 역인덱스 빌드
+ * 한 번만 실행하여 gameName → {news, community, youtube} 매핑 생성
+ */
+function buildContentIndex(historyData, gamesData) {
+  const index = new Map();  // gameName -> { news: [], community: [], youtube: [] }
+
+  // 모든 게임명 + 별칭을 정규화해서 매핑 준비
+  const gameNameMap = new Map();  // normalizedName -> gameName
+  for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
+    const allNames = [gameName, ...(gameInfo.aliases || [])];
+    for (const name of allNames) {
+      gameNameMap.set(normalize(name), gameName);
+    }
+    // 결과 저장용 초기화
+    index.set(gameName, { news: [], community: [], youtube: [] });
+  }
+
+  const allNormalizedNames = [...gameNameMap.keys()];
+
+  // 뉴스 인덱싱
+  const newsSources = historyData?.news || {};
+  for (const [source, items] of Object.entries(newsSources)) {
+    if (!Array.isArray(items)) continue;
+    for (const item of items) {
+      const title = (item.title || '').toLowerCase();
+      for (const normalizedName of allNormalizedNames) {
+        if (title.includes(normalizedName)) {
+          const gameName = gameNameMap.get(normalizedName);
+          index.get(gameName).news.push({
+            title: item.title,
+            link: item.link,
+            thumbnail: item.thumbnail,
+            source: source,
+            date: item.date
+          });
+          break;  // 한 아이템은 한 게임에만 매칭 (중복 방지)
+        }
+      }
+    }
+  }
+
+  // 커뮤니티 인덱싱
+  const communityData = historyData?.community || {};
+  for (const [source, items] of Object.entries(communityData)) {
+    if (!Array.isArray(items)) continue;
+    for (const item of items) {
+      const title = (item.title || '').toLowerCase();
+      for (const normalizedName of allNormalizedNames) {
+        if (title.includes(normalizedName)) {
+          const gameName = gameNameMap.get(normalizedName);
+          index.get(gameName).community.push({
+            title: item.title,
+            link: item.link,
+            source: source,
+            comments: item.comments,
+            views: item.views
+          });
+          break;
+        }
+      }
+    }
+  }
+
+  // 유튜브 인덱싱
+  const youtubeItems = Array.isArray(historyData?.youtube) ? historyData.youtube : [];
+  for (const item of youtubeItems) {
+    const title = (item.title || '').toLowerCase();
+    for (const normalizedName of allNormalizedNames) {
+      if (title.includes(normalizedName)) {
+        const gameName = gameNameMap.get(normalizedName);
+        index.get(gameName).youtube.push({
+          title: item.title,
+          link: item.link,
+          thumbnail: item.thumbnail,
+          channel: item.channel
+        });
+        break;
+      }
+    }
+  }
+
+  return index;
+}
+
 // 게임 이름으로 관련 데이터 수집
-function collectGameData(gameName, gameInfo, historyData, reports, allHistory, weeklyReports = [], hourlySnapshots = {}) {
+function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, historyDates, weeklyReports = [], hourlySnapshots = {}, contentIndex = null, mentionsIndex = null, latestRankingsIndex = null) {
   const allNames = [gameName, ...(gameInfo.aliases || [])];
   const normalizedNames = allNames.map(n => normalize(n));
+  const normalizedNameSet = new Set(normalizedNames);  // O(1) 조회용
 
   const result = {
     name: gameName,
@@ -657,73 +1054,46 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
   // 실시간 순위 추출
   result.realtimeRanks = extractGameHourlyRanks(gameName, gameInfo, hourlySnapshots);
 
-  // 리포트에서 mentions 수집 (일간 + 주간)
-  const dailyMentions = reports && reports.length > 0
-    ? collectReportMentions(normalizedNames, reports)
-    : [];
-  const weeklyMentions = weeklyReports && weeklyReports.length > 0
-    ? collectWeeklyMentions(normalizedNames, weeklyReports)
-    : [];
+  // 리포트 mentions (역인덱스 사용 - O(1) 조회)
+  if (mentionsIndex && mentionsIndex.has(gameName)) {
+    result.mentions = mentionsIndex.get(gameName);
+  }
 
-  // 일간 + 주간 합쳐서 날짜순 정렬
-  result.mentions = [...dailyMentions, ...weeklyMentions]
-    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-
-  // 순위 히스토리 수집 (매출 추이용) - 모든 국가, 카테고리
-  // appId 기반 매칭
+  // 순위 히스토리 수집 (매출 추이용) - 인덱스 기반 O(1) 조회
   const gameAppIds = gameInfo.appIds || {};
+  const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
+  const categories = ['grossing', 'free'];
 
-  if (allHistory && allHistory.length > 0) {
-    const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
-    const categories = ['grossing', 'free'];
+  if (rankIndex && historyDates && historyDates.length > 0) {
+    // 이 게임의 모든 appId 수집
+    const appIdList = [];
+    for (const platform of ['ios', 'android']) {
+      for (const region of regions) {
+        const appId = getAppIdForRegion(gameAppIds, platform, region);
+        if (appId) appIdList.push(String(appId));
+      }
+    }
+    // 중복 제거
+    const uniqueAppIds = [...new Set(appIdList)];
 
-    for (const { date, data } of allHistory) {
+    // 각 날짜별로 순위 수집 (인덱스에서 O(1) 조회)
+    for (const date of historyDates) {
       const dayRanks = { date };
       let hasAnyRank = false;
 
       for (const cat of categories) {
         for (const region of regions) {
-          // iOS와 Android 각각 매칭
           for (const platform of ['ios', 'android']) {
             const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
+            if (!expectedAppId) continue;
+
             const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
-            const bestRankKey = `${keyPrefix}_${region}_${cat}`;
+            const rankKey = `${date}|${cat}|${keyPrefix}|${region}`;
 
-            // 1. bestRanks 우선 사용 (일 최고순위)
-            if (data.bestRanks?.[bestRankKey] && expectedAppId) {
-              const bestRank = data.bestRanks[bestRankKey][String(expectedAppId)];
-              if (bestRank) {
-                dayRanks[`${cat}-${keyPrefix}-${region}`] = bestRank;
-                hasAnyRank = true;
-                continue;
-              }
-            }
-
-            // 2. bestRanks에 없으면 기존 rankings에서 검색 (폴백)
-            const items = data.rankings?.[cat]?.[region]?.[platform] || [];
-            let matchedIndex = -1;
-
-            // appId 매칭 우선
-            if (expectedAppId) {
-              for (let i = 0; i < items.length; i++) {
-                if (String(items[i].appId) === String(expectedAppId)) {
-                  matchedIndex = i;
-                  break;
-                }
-              }
-            }
-
-            // appId 매칭 실패 시 이름으로 폴백
-            if (matchedIndex < 0) {
-              const titleMatch = findByTitleMatch(items, normalizedNames);
-              if (titleMatch) {
-                matchedIndex = titleMatch.index;
-              }
-            }
-
-            // 매칭되면 순위 저장
-            if (matchedIndex >= 0) {
-              dayRanks[`${cat}-${keyPrefix}-${region}`] = matchedIndex + 1;
+            // 인덱스에서 O(1) 조회
+            const appIdIndex = rankIndex.get(String(expectedAppId));
+            if (appIdIndex && appIdIndex.has(rankKey)) {
+              dayRanks[`${cat}-${keyPrefix}-${region}`] = appIdIndex.get(rankKey);
               hasAnyRank = true;
             }
           }
@@ -734,108 +1104,102 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
         result.rankHistory.push(dayRanks);
       }
 
-      // 스팀 히스토리 수집 (동접 순위) - appid 우선, 이름 폴백
+      // 스팀 히스토리 수집 (인덱스에서 조회)
       const steamAppId = gameAppIds['steam:global'] || gameAppIds['steam'];
-      const steamMostPlayed = data.steam?.mostPlayed || [];
-      const steamTopSellers = data.steam?.topSellers || [];
+      if (steamAppId) {
+        const steamKey = `steam:${steamAppId}`;
+        const steamIndex = rankIndex.get(steamKey);
 
-      // 스팀용 이름 매칭 헬퍼
-      const findSteamItemByName = (items) => items.find(g =>
-        normalizedNames.includes(normalize(g.name || ''))
-      );
+        if (steamIndex) {
+          let steamDay = null;
 
-      let steamDay = null;
+          const mpData = steamIndex.get(`${date}|mostPlayed`);
+          if (mpData) {
+            steamDay = { date, ccuRank: mpData.rank, ccu: mpData.ccu };
+          }
 
-      // mostPlayed에서 찾기 (appId 우선, 이름 폴백)
-      let mpItem = steamAppId ? steamMostPlayed.find(g => String(g.appid) === String(steamAppId)) : null;
-      if (!mpItem) mpItem = findSteamItemByName(steamMostPlayed);
+          const tsData = steamIndex.get(`${date}|topSellers`);
+          if (tsData) {
+            if (!steamDay) steamDay = { date };
+            steamDay.salesRank = tsData.rank;
+          }
 
-      if (mpItem) {
-        if (!steamDay) {
-          steamDay = { date };
-          result.steamHistory.push(steamDay);
+          if (steamDay) {
+            result.steamHistory.push(steamDay);
+          }
         }
-        steamDay.ccuRank = mpItem.rank;
-        steamDay.ccu = mpItem.ccu;
-      }
-
-      // topSellers에서 찾기 (appId 우선, 이름 폴백)
-      let tsItem = steamAppId ? steamTopSellers.find(g => String(g.appid) === String(steamAppId)) : null;
-      if (!tsItem) tsItem = findSteamItemByName(steamTopSellers);
-
-      if (tsItem) {
-        if (!steamDay) {
-          steamDay = { date };
-          result.steamHistory.push(steamDay);
-        }
-        steamDay.salesRank = tsItem.rank;
       }
     }
   }
 
   if (!historyData) return result;
 
-  // 순위 데이터 수집 + 아이콘 수집 (appId 우선, 이름 폴백)
-  const categories = ['grossing', 'free'];
-  const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
+  // 순위 데이터 수집 + 아이콘 수집 (역인덱스 사용 - O(1))
   const platforms = ['ios', 'android'];
 
-  for (const cat of categories) {
-    for (const region of regions) {
-      for (const platform of platforms) {
-        const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
-        const items = historyData.rankings?.[cat]?.[region]?.[platform] || [];
-        let matchedIndex = -1;
-        let matchedItem = null;
+  if (latestRankingsIndex) {
+    for (const cat of categories) {
+      for (const region of regions) {
+        for (const platform of platforms) {
+          const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
+          const keyBase = `${cat}-${region}-${platform}`;
+          let matched = null;
 
-        // 1. appId 매칭 우선
-        if (expectedAppId) {
-          for (let i = 0; i < items.length; i++) {
-            if (String(items[i].appId) === String(expectedAppId)) {
-              matchedIndex = i;
-              matchedItem = items[i];
-              break;
+          // 1. appId로 O(1) 조회
+          if (expectedAppId) {
+            matched = latestRankingsIndex.byAppId.get(`${keyBase}-${expectedAppId}`);
+          }
+
+          // 2. 폴백: title로 O(1) 조회
+          if (!matched) {
+            for (const normalizedName of normalizedNames) {
+              matched = latestRankingsIndex.byTitle.get(`${keyBase}-${normalizedName}`);
+              if (matched) break;
             }
           }
-        }
 
-        // 2. appId 매칭 실패 시 이름으로 폴백
-        if (matchedIndex < 0) {
-          const titleMatch = findByTitleMatch(items, normalizedNames);
-          if (titleMatch) {
-            matchedIndex = titleMatch.index;
-            matchedItem = titleMatch.item;
-          }
-        }
-
-        // 매칭되면 순위 저장
-        if (matchedIndex >= 0 && matchedItem) {
-          result.rankings[`${region}-${platform}-${cat}`] = {
-            rank: matchedIndex + 1,
-            change: matchedItem.change || 0
-          };
-          // 아이콘이 없으면 수집
-          if (!result.icon && matchedItem.icon) {
-            result.icon = matchedItem.icon;
+          if (matched) {
+            result.rankings[`${region}-${platform}-${cat}`] = {
+              rank: matched.index + 1,
+              change: matched.item.change || 0
+            };
+            if (!result.icon && matched.item.icon) {
+              result.icon = matched.item.icon;
+            }
           }
         }
       }
     }
   }
 
-  // 스팀 데이터 수집 (동접 순위 + 판매 순위 각각) - appid 우선, 이름 폴백
-  const mostPlayed = historyData.steam?.mostPlayed || [];
-  const topSellers = historyData.steam?.topSellers || [];
+  // 스팀 데이터 수집 (역인덱스 사용 - O(1))
   const steamAppId = gameAppIds['steam:global'] || gameAppIds['steam'];
+  let mpItem = null;
+  let tsItem = null;
 
-  // 스팀용 이름 매칭 헬퍼 (name 필드 사용)
-  const findSteamByName = (items) => items.find(item =>
-    normalizedNames.includes(normalize(item.name || ''))
-  );
+  if (latestRankingsIndex) {
+    // mostPlayed - appId 우선, 이름 폴백
+    if (steamAppId) {
+      mpItem = latestRankingsIndex.steam.mostPlayedById.get(String(steamAppId));
+    }
+    if (!mpItem) {
+      for (const normalizedName of normalizedNames) {
+        mpItem = latestRankingsIndex.steam.mostPlayedByName.get(normalizedName);
+        if (mpItem) break;
+      }
+    }
 
-  // mostPlayed에서 동접 순위 찾기
-  let mpItem = steamAppId ? mostPlayed.find(item => String(item.appid) === String(steamAppId)) : null;
-  if (!mpItem) mpItem = findSteamByName(mostPlayed);  // 이름 폴백
+    // topSellers - appId 우선, 이름 폴백
+    if (steamAppId) {
+      tsItem = latestRankingsIndex.steam.topSellersById.get(String(steamAppId));
+    }
+    if (!tsItem) {
+      for (const normalizedName of normalizedNames) {
+        tsItem = latestRankingsIndex.steam.topSellersByName.get(normalizedName);
+        if (tsItem) break;
+      }
+    }
+  }
 
   if (mpItem) {
     result.steam = {
@@ -848,10 +1212,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
     }
   }
 
-  // topSellers에서 판매 순위 + 가격/할인 찾기
-  let tsItem = steamAppId ? topSellers.find(item => String(item.appid) === String(steamAppId)) : null;
-  if (!tsItem) tsItem = findSteamByName(topSellers);  // 이름 폴백
-
+  // topSellers 처리 (위에서 이미 조회됨)
   if (tsItem) {
     if (!result.steam) {
       result.steam = { img: tsItem.img };
@@ -864,54 +1225,12 @@ function collectGameData(gameName, gameInfo, historyData, reports, allHistory, w
     }
   }
 
-  // 뉴스 수집
-  const newsSources = historyData.news || {};
-  for (const [source, items] of Object.entries(newsSources)) {
-    if (!Array.isArray(items)) continue;
-    for (const item of items) {
-      const title = (item.title || '').toLowerCase();
-      if (normalizedNames.some(n => title.includes(n))) {
-        result.news.push({
-          title: item.title,
-          link: item.link,
-          thumbnail: item.thumbnail,
-          source: source,
-          date: item.date
-        });
-      }
-    }
-  }
-
-  // 커뮤니티 수집
-  const communityData = historyData.community || {};
-  for (const [source, items] of Object.entries(communityData)) {
-    if (!Array.isArray(items)) continue;
-    for (const item of items) {
-      const title = (item.title || '').toLowerCase();
-      if (normalizedNames.some(n => title.includes(n))) {
-        result.community.push({
-          title: item.title,
-          link: item.link,
-          source: source,
-          comments: item.comments,
-          views: item.views
-        });
-      }
-    }
-  }
-
-  // 유튜브 수집
-  const youtubeItems = Array.isArray(historyData.youtube) ? historyData.youtube : [];
-  for (const item of youtubeItems) {
-    const title = (item.title || '').toLowerCase();
-    if (normalizedNames.some(n => title.includes(n))) {
-      result.youtube.push({
-        title: item.title,
-        link: item.link,
-        thumbnail: item.thumbnail,
-        channel: item.channel
-      });
-    }
+  // 뉴스/커뮤니티/유튜브 수집 (역인덱스 사용 - O(1) 조회)
+  if (contentIndex && contentIndex.has(gameName)) {
+    const cached = contentIndex.get(gameName);
+    result.news = cached.news || [];
+    result.community = cached.community || [];
+    result.youtube = cached.youtube || [];
   }
 
   return result;
@@ -1085,6 +1404,35 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
+// ★ 스킵 체크를 파일 로드 전에 수행 (성능 최적화)
+const incrementalCache = buildCache.loadCache();
+const inputSignature = buildCache.getInputFilesSignature([
+  gamesPath,
+  historyDir,
+  reportsDir,
+  snapshotsDir,
+  wikiDir,
+  issueDir,
+  hotpickDir,
+  insightDir
+]);
+
+const searchIndexPath = path.join(outputDir, 'search-index.json');
+if (!buildCache.checkInputFilesChanged(incrementalCache, 'gamePages', inputSignature)) {
+  // 입력 파일 변경 없음 → 전체 스킵 (파일 로드 없이 즉시 종료)
+  console.log(`  ⚡ 입력 파일 변경 없음 → 게임 페이지 전체 스킵`);
+  buildCache.saveCache(incrementalCache);
+
+  if (fs.existsSync(searchIndexPath)) {
+    const existingIndex = JSON.parse(fs.readFileSync(searchIndexPath, 'utf8'));
+    console.log(`\n✅ 게임 페이지 생성 완료! (전체 스킵)`);
+    console.log(`검색 인덱스: ${existingIndex.length}개 (기존 유지)`);
+    process.exit(0);
+  }
+}
+
+console.log(`  🔄 입력 파일 변경 감지 → 증분 빌드 진행`);
+
 // 전체 파일 목록 가져오기
 const allHistoryFiles = getAllHistoryFiles();
 const allReportFiles = getAllReportFiles();
@@ -1092,12 +1440,22 @@ const allReportFiles = getAllReportFiles();
 console.log(`📈 히스토리: ${allHistoryFiles.length}개`);
 console.log(`📊 리포트: ${allReportFiles.length}개`);
 
-// 히스토리 로드
-const historyData = loadLatestHistory();
+// 전체 히스토리 로드 (1회만)
+const allHistory = loadHistoryFiles(allHistoryFiles);
+
+// 최신 히스토리 = allHistory 마지막 항목 (중복 로드 제거)
+const historyData = allHistory.length > 0 ? allHistory[allHistory.length - 1].data : null;
 console.log(`📂 최신 히스토리 로드: ${historyData ? '성공' : '없음'}`);
 
-// 전체 히스토리 로드
-const allHistory = loadHistoryFiles(allHistoryFiles);
+// 최신 히스토리 순위/스팀 역인덱스 빌드
+const latestRankingsIndex = buildLatestRankingsIndex(historyData);
+
+// 순위 인덱스 빌드 (성능 최적화)
+console.time('🔍 순위 인덱스 빌드');
+const rankIndex = buildRankIndex(allHistory);
+const historyDates = allHistory.map(h => h.date).sort();
+console.timeEnd('🔍 순위 인덱스 빌드');
+console.log(`   인덱스 크기: ${rankIndex.size}개 appId`);
 
 // 전체 리포트 로드
 const allReports = loadReportFiles(allReportFiles);
@@ -1119,39 +1477,6 @@ const wikiArticles = loadWikiArticles();
 const allRelatedContent = [...issueArticles, ...hotpickArticles, ...insightArticles, ...wikiArticles];
 console.log(`📰 관련 콘텐츠 로드: 이슈 ${issueArticles.length}개, 핫픽 ${hotpickArticles.length}개, 인사이트 ${insightArticles.length}개, 위키 ${wikiArticles.length}개`);
 
-// 증분 빌드: 캐시 로드
-const incrementalCache = buildCache.loadCache();
-
-// 입력 파일 시그니처 계산 (games.json, history, reports, snapshots)
-const inputSignature = buildCache.getInputFilesSignature([
-  gamesPath,
-  historyDir,
-  reportsDir,
-  snapshotsDir,
-  wikiDir,
-  issueDir,
-  hotpickDir,
-  insightDir
-]);
-
-// 입력 파일 변경 체크
-const searchIndexPath = path.join(outputDir, 'search-index.json');
-if (!buildCache.checkInputFilesChanged(incrementalCache, 'gamePages', inputSignature)) {
-  // 입력 파일 변경 없음 → 전체 스킵
-  console.log(`  ⚡ 입력 파일 변경 없음 → 게임 페이지 전체 스킵`);
-  buildCache.saveCache(incrementalCache);
-
-  // 기존 searchIndex 확인
-  if (fs.existsSync(searchIndexPath)) {
-    const existingIndex = JSON.parse(fs.readFileSync(searchIndexPath, 'utf8'));
-    console.log(`\n✅ 게임 페이지 생성 완료! (전체 스킵)`);
-    console.log(`검색 인덱스: ${existingIndex.length}개 (기존 유지)`);
-    process.exit(0);
-  }
-}
-
-console.log(`  🔄 입력 파일 변경 감지 → 증분 빌드 진행`);
-
 // 검색 인덱스 생성
 const searchIndex = [];
 
@@ -1168,15 +1493,31 @@ let generatedCount = 0;
 let skippedCount = 0;
 let cacheSkippedCount = 0;
 
+// 성능 측정
+let timeCollectData = 0, timeRelated = 0, timeHash = 0, timeTemplate = 0, timeWrite = 0;
+
+// 파일 쓰기 카운터
+let writeCount = 0;
+
+// 역인덱스 사전 빌드 (O(items × games) → 1회만)
+const t0Index = Date.now();
+const contentIndex = buildContentIndex(historyData, gamesData);
+const mentionsIndex = buildMentionsIndex(allReports, weeklyReports, gamesData);
+console.log(`🔍 역인덱스 빌드: ${Date.now() - t0Index}ms (콘텐츠 + 멘션)`);
+
 for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
   // games.json의 slug를 우선 사용, 없으면 createSlug로 생성
   const slug = gameInfo.slug || createSlug(gameName, gameInfo.appIds);
 
   // 게임 데이터 수집
-  const gameData = collectGameData(gameName, gameInfo, historyData, allReports, allHistory, weeklyReports, hourlySnapshots);
+  let t0 = Date.now();
+  const gameData = collectGameData(gameName, gameInfo, historyData, allReports, rankIndex, historyDates, weeklyReports, hourlySnapshots, contentIndex, mentionsIndex, latestRankingsIndex);
+  timeCollectData += Date.now() - t0;
 
   // 관련 콘텐츠 수집 (relatedGames에 이 게임 slug가 포함된 이슈/위키/핫픽/인사이트)
+  t0 = Date.now();
   gameData.relatedContent = collectRelatedContent(slug, allRelatedContent);
+  timeRelated += Date.now() - t0;
 
   // 데이터가 없어도 페이지/검색 인덱스를 생성하도록 변경
   const hasData = Object.keys(gameData.rankings).length > 0 ||
@@ -1222,11 +1563,18 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
     continue;
   }
 
+  t0 = Date.now();
   const html = generateGamePage(gameData);
+  timeTemplate += Date.now() - t0;
+
+  // 파일 쓰기 (동기)
+  const t0w = Date.now();
   fs.writeFileSync(path.join(gameDir, 'index.html'), html, 'utf8');
+  timeWrite += Date.now() - t0w;
 
   // 캐시 업데이트
   buildCache.updateCacheSection(incrementalCache.games, cacheKey, gameData);
+  writeCount++;
 
   // 검색 인덱스에 추가
   searchIndex.push({
@@ -1246,6 +1594,13 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
     console.log(`✓ ${gameName} → /games/${slug}/`);
   }
 }
+
+// 성능 측정 결과 출력
+console.log(`\n⏱️  성능 측정:`);
+console.log(`   collectGameData: ${(timeCollectData/1000).toFixed(2)}s`);
+console.log(`   collectRelatedContent: ${(timeRelated/1000).toFixed(2)}s`);
+console.log(`   generateGamePage: ${(timeTemplate/1000).toFixed(2)}s`);
+console.log(`   파일 쓰기: ${(timeWrite/1000).toFixed(2)}s`);
 
 // 검색 인덱스 저장
 fs.writeFileSync(searchIndexPath, JSON.stringify(searchIndex, null, 2), 'utf8');
