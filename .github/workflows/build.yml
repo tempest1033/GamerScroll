@@ -150,8 +150,9 @@ jobs:
           if ! git stash pop; then
             echo "⚠️ Conflict detected - using newly generated data"
             git checkout --ours data-cache.json 2>/dev/null || true
+            git checkout --ours .build-cache.json 2>/dev/null || true
             git checkout --ours docs/ 2>/dev/null || true
-            git add data-cache.json docs/
+            git add data-cache.json .build-cache.json docs/
             git stash drop 2>/dev/null || true
           fi
           # conflict 마커 남아있으면 제거
@@ -159,7 +160,7 @@ jobs:
             echo "⚠️ Removing conflict markers from data-cache.json"
             sed -i '/^<<<<<<</d; /^=======/d; /^>>>>>>>/d' data-cache.json
           fi
-          git add docs/ reports/ data-cache.json history/ data/ -f snapshots/
+          git add docs/ reports/ data-cache.json .build-cache.json history/ data/ -f snapshots/
           git diff --staged --quiet || git commit -m "Update report $(date +'%Y-%m-%d %H:%M')"
           git push
 
