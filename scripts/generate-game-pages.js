@@ -28,8 +28,10 @@ const { setCssFilename } = require('../src/templates/layout');
 
 // 해시된 CSS 파일명 찾아서 설정
 const cssFiles = fs.readdirSync(path.join(__dirname, '..', docsDir)).filter(f => f.match(/^styles\.[a-f0-9]{8}\.css$/));
+let currentCssHash = null;
 if (cssFiles.length > 0) {
   setCssFilename('/' + cssFiles[0]);
+  currentCssHash = cssFiles[0].match(/styles\.([a-f0-9]{8})\.css/)?.[1] || null;
 }
 
 // 게임 데이터 로드
@@ -1552,10 +1554,16 @@ const searchIndex = [];
 
 let forceFullRebuild = false;
 
-// CSS/템플릿 변경 시 전체 재빌드 (generate-html-report.js에서 이미 체크했으므로 여기선 캐시만 참조)
+// CSS/템플릿 변경 시 전체 재빌드
 if (buildCache.checkTemplateChanged(incrementalCache)) {
   forceFullRebuild = true;
   console.log('  📝 템플릿 버전 변경 → 전체 재빌드');
+}
+
+// CSS 해시 변경 시 전체 재빌드
+if (currentCssHash && incrementalCache.meta.cssHash !== currentCssHash) {
+  forceFullRebuild = true;
+  console.log(`  🎨 CSS 해시 변경 (${incrementalCache.meta.cssHash?.slice(0,6) || 'null'} → ${currentCssHash.slice(0,6)}) → 전체 재빌드`);
 }
 
 // 순위에 있거나 데이터가 있는 게임만 페이지 생성
