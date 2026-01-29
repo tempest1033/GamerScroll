@@ -541,6 +541,14 @@ const swipeScript = `
     const t = e.target;
     if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle')) return;
 
+    // 검색 드롭다운 닫기 (스와이프 시작 시)
+    const searchDropdown = document.querySelector('.search-dropdown');
+    if (searchDropdown && searchDropdown.classList.contains('active')) {
+      searchDropdown.classList.remove('active');
+      const searchInput = document.querySelector('.search-input');
+      if (searchInput) searchInput.blur();
+    }
+
     mainEl = document.querySelector('main.site-container');
     if (!mainEl) return;
 

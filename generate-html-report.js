@@ -762,32 +762,7 @@ async function main() {
   // 테크 데이터 로드 (홈페이지용)
   const homeTechData = loadTechData();
 
-  const pages = [
-    // index.html은 매거진 생성 후 별도로 생성 (dailyReportsCount 정확한 값 필요)
-    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData }) },
-    { filename: 'steam.html', generator: generateSteamPage },
-    { filename: 'upcoming.html', generator: generateUpcomingPage },
-    { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [] }) },
-    // wiki/index.html은 위키 섹션에서 생성 (dailyReportsCount 정확한 값 필요)
-    { filename: '404.html', generator: generate404Page }
-  ];
-
-  for (const page of pages) {
-    try {
-      const html = page.generator(data);
-      // 디렉토리가 있으면 생성
-      const dir = require('path').dirname(page.filename);
-      if (dir !== '.' && !fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-      }
-      fs.writeFileSync(page.filename, html, 'utf8');
-      console.log(`  ✅ ${page.filename}`);
-    } catch (err) {
-      console.error(`  ❌ ${page.filename}: ${err.message}`);
-    }
-  }
-
-  // CSS 파일 번들링 + 압축 + 해시 파일명
+  // CSS 파일 번들링 + 압축 + 해시 파일명 (페이지 생성 전에 먼저 설정)
   let didBundleCss = false;
   let cssHash = '';
   let cssFilename = '/styles.css';  // 기본값
@@ -815,6 +790,31 @@ async function main() {
     fs.copyFileSync('./src/styles.css', './styles.css');
     cssFilename = '/styles.css';
     setCssFilename(cssFilename);
+  }
+
+  const pages = [
+    // index.html은 매거진 생성 후 별도로 생성 (dailyReportsCount 정확한 값 필요)
+    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData }) },
+    { filename: 'steam.html', generator: generateSteamPage },
+    { filename: 'upcoming.html', generator: generateUpcomingPage },
+    { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [] }) },
+    // wiki/index.html은 위키 섹션에서 생성 (dailyReportsCount 정확한 값 필요)
+    { filename: '404.html', generator: generate404Page }
+  ];
+
+  for (const page of pages) {
+    try {
+      const html = page.generator(data);
+      // 디렉토리가 있으면 생성
+      const dir = require('path').dirname(page.filename);
+      if (dir !== '.' && !fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      fs.writeFileSync(page.filename, html, 'utf8');
+      console.log(`  ✅ ${page.filename}`);
+    } catch (err) {
+      console.error(`  ❌ ${page.filename}: ${err.message}`);
+    }
   }
 
   // 루트 디렉토리의 이전 해시 CSS 파일 정리
@@ -1772,7 +1772,7 @@ async function main() {
     fs.copyFileSync(`./${page}.html`, `${pageDir}/index.html`);
   }
 
-  // privacy 페이지 복사 (푸터 링크 폴백/SEO용)
+  // privacy 페이지 복사 (푸터 링크 폴백/SEO용) - CSS 해시 동적 교체
   try {
     const srcPrivacy = './privacy/index.html';
     if (fs.existsSync(srcPrivacy)) {
@@ -1780,7 +1780,9 @@ async function main() {
       if (!fs.existsSync(privacyDir)) {
         fs.mkdirSync(privacyDir, { recursive: true });
       }
-      fs.copyFileSync(srcPrivacy, `${privacyDir}/index.html`);
+      let privacyHtml = fs.readFileSync(srcPrivacy, 'utf8');
+      privacyHtml = privacyHtml.replace(/\/styles\.[a-f0-9]*\.css|\/styles\.css/, cssFilename);
+      fs.writeFileSync(`${privacyDir}/index.html`, privacyHtml);
     }
   } catch (err) {
     console.warn('  ⚠️ privacy 페이지 복사 실패:', err.message);
