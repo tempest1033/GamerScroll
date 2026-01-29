@@ -1,13 +1,11 @@
 ﻿/* ========== Dark Mode Overrides ========== */
 
-@media (prefers-color-scheme: dark) {
-  img[loading="lazy"] {
-    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-  }
+/* 다크모드 강제 적용 */
+img[loading="lazy"] {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
 }
 
-    /* === Dark Mode === */
-    @media (prefers-color-scheme: dark) {
+/* === Dark Mode (강제) === */
       :root {
         /* Primary Colors - 게이밍 느낌 오렌지 계열 */
         --primary: #ff6b35; /* Orange-Red */
@@ -278,4 +276,3 @@
       .weekly-stock-change.down .weekly-stock-percent {
         color: #f87171 !important;
       }
-    }
