@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { generateRSS } = require('./src/rss/generate-rss');
+const buildCache = require('./build-cache');
 
 // 커맨드라인 인자 파싱
 let isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
@@ -417,6 +418,16 @@ function findLatestWeeklyReport() {
 async function main() {
   let news, community, rankings, steam, youtube, chzzk, upcoming;
 
+  // KST 시간 계산
+  const now = new Date();
+  const kstNow = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+  const currentHour = kstNow.getUTCHours();
+
+  // 오늘 히스토리 파일 존재 여부로 크롤링 필요 판단
+  const todayDate = getTodayDate();
+  const todayHistoryFile = `${HISTORY_DIR}/${todayDate}.json`;
+  const needsCrawling = !fs.existsSync(todayHistoryFile);
+
   if (isQuickMode) {
     // 퀵 모드: 캐시에서 로드
     if (!fs.existsSync(CACHE_FILE)) {
@@ -434,29 +445,49 @@ async function main() {
     chzzk = cache.chzzk;
     upcoming = cache.upcoming;
   } else {
-    // 일반 모드: 크롤링 실행
-    console.log('📰 뉴스 크롤링 중 (인벤, 루리웹, 게임메카, 디스이즈게임)...\n');
-    news = await fetchNews(axios, cheerio);
-    const totalNews = news.inven.length + news.ruliweb.length + news.gamemeca.length + news.thisisgame.length;
-    console.log(`\n  총 ${totalNews}개 뉴스 수집 완료`);
+    // 일반 모드: 시간대별 조건부 크롤링
+    const existingCache = fs.existsSync(CACHE_FILE) ? JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8')) : null;
 
-    console.log('\n💬 커뮤니티 인기글 수집 중 (루리웹, 아카라이브)...');
-    community = await fetchCommunityPosts(axios, cheerio, FirecrawlClient, FIRECRAWL_API_KEY);
-
+    // 순위는 30분마다 항상 수집
     console.log('\n🔄 5대 마켓 순위 데이터 수집 중 (200위까지)...\n');
     rankings = await fetchRankings(gplay, store);
 
     console.log('\n🎮 Steam 순위 데이터 수집 중...');
     steam = await fetchSteamRankings(axios, cheerio);
 
-    console.log('\n📺 YouTube 인기 동영상 수집 중...');
-    youtube = await fetchYouTubeVideos(axios, YOUTUBE_API_KEY);
+    // 뉴스/커뮤니티/유튜브/치지직은 하루 한 번만
+    if (needsCrawling || !existingCache) {
+      console.log(`\n🕐 현재 ${currentHour}시 (KST) - 오늘 첫 실행, 전체 크롤링\n`);
 
-    console.log('\n📡 치지직 라이브 수집 중...');
-    chzzk = await fetchChzzkLives(axios);
+      console.log('📰 뉴스 크롤링 중 (인벤, 루리웹, 게임메카, 디스이즈게임)...\n');
+      news = await fetchNews(axios, cheerio);
+      const totalNews = news.inven.length + news.ruliweb.length + news.gamemeca.length + news.thisisgame.length;
+      console.log(`\n  총 ${totalNews}개 뉴스 수집 완료`);
 
-    // 출시 예정 게임 수집
-    upcoming = await fetchUpcomingGames(store, FirecrawlClient, FIRECRAWL_API_KEY);
+      console.log('\n💬 커뮤니티 인기글 수집 중 (루리웹, 아카라이브)...');
+      community = await fetchCommunityPosts(axios, cheerio, FirecrawlClient, FIRECRAWL_API_KEY);
+
+      console.log('\n📺 YouTube 인기 동영상 수집 중...');
+      youtube = await fetchYouTubeVideos(axios, YOUTUBE_API_KEY);
+
+      console.log('\n📡 치지직 라이브 수집 중...');
+      chzzk = await fetchChzzkLives(axios);
+    } else {
+      console.log(`\n🕐 현재 ${currentHour}시 (KST) - 뉴스/커뮤니티/유튜브/치지직 캐시 사용\n`);
+      news = existingCache.news;
+      community = existingCache.community;
+      youtube = existingCache.youtube;
+      chzzk = existingCache.chzzk;
+    }
+
+    // 출시 예정 게임 - 크롤링할 때 같이 갱신
+    if (needsCrawling || !existingCache?.upcoming) {
+      console.log('\n📅 출시 예정 게임 수집 중...');
+      upcoming = await fetchUpcomingGames(store, FirecrawlClient, FIRECRAWL_API_KEY);
+    } else {
+      console.log('📅 출시 예정 - 캐시 사용');
+      upcoming = existingCache.upcoming;
+    }
 
     // 캐시 저장
     const cache = { timestamp: new Date().toISOString(), news, community, rankings, steam, youtube, chzzk, upcoming };
@@ -799,6 +830,26 @@ async function main() {
     }
   } catch (e) {
     // 정리 실패는 무시
+  }
+
+  // ========== 증분 빌드 캐시 로드 ==========
+  const incrementalCache = buildCache.loadCache();
+  let forceFullRebuild = false;
+
+  // CSS 또는 템플릿 변경 시 전체 재빌드
+  if (buildCache.checkCssChanged(incrementalCache, cssHash)) {
+    forceFullRebuild = true;
+    incrementalCache.meta.cssHash = cssHash;
+  }
+  if (buildCache.checkTemplateChanged(incrementalCache)) {
+    forceFullRebuild = true;
+    incrementalCache.meta.templateVersion = buildCache.TEMPLATE_VERSION;
+  }
+
+  if (forceFullRebuild) {
+    console.log('  🔄 CSS/템플릿 변경 → 전체 재빌드');
+  } else {
+    console.log('  ⚡ 증분 빌드 모드 (변경된 파일만 빌드)');
   }
 
   // 분리된 CSS 모듈 동기화 (src/styles/*.css -> styles/)
@@ -1328,12 +1379,20 @@ async function main() {
   const wikiDataForIssue = loadWikiData(); // 이슈 리포트에서 관련 위키 참조용
 
   if (issueReports.length > 0) {
+    let issueBuilt = 0, issueSkipped = 0;
 
     for (let i = 0; i < issueReports.length; i++) {
       const post = issueReports[i];
       const pageDir = `${issueDir}/${post.slug}`;
       if (!fs.existsSync(pageDir)) {
         fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      // 증분 빌드: 캐시 체크
+      const cacheKey = post.slug;
+      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.issues, cacheKey, post)) {
+        issueSkipped++;
+        continue;
       }
 
       try {
@@ -1343,20 +1402,31 @@ async function main() {
         };
         const html = generateIssueDetailPage({ post, nav, issueReports, wikiData: wikiDataForIssue });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+        buildCache.updateCacheSection(incrementalCache.issues, cacheKey, post);
+        issueBuilt++;
       } catch (err) {
         console.error(`  ❌ magazine/issue/${post.slug}: ${err.message}`);
       }
     }
-    console.log(`  ✅ 이슈 리포트 페이지 ${issueReports.length}개 생성`);
+    buildCache.printBuildStats({ total: issueReports.length, built: issueBuilt, skipped: issueSkipped, type: '이슈 리포트 페이지' });
   }
 
   // 9. 인사이트 리포트 페이지 생성 (magazine/insight/{slug}/index.html)
   if (insightReports.length > 0) {
+    let insightBuilt = 0, insightSkipped = 0;
+
     for (let i = 0; i < insightReports.length; i++) {
       const post = insightReports[i];
       const pageDir = `${insightDir}/${post.slug}`;
       if (!fs.existsSync(pageDir)) {
         fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      // 증분 빌드: 캐시 체크
+      const cacheKey = post.slug;
+      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.insights, cacheKey, post)) {
+        insightSkipped++;
+        continue;
       }
 
       try {
@@ -1366,20 +1436,31 @@ async function main() {
         };
         const html = generateInsightDetailPage({ post, nav, insightReports, issueReports, wikiData: wikiDataForIssue });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+        buildCache.updateCacheSection(incrementalCache.insights, cacheKey, post);
+        insightBuilt++;
       } catch (err) {
         console.error(`  ❌ magazine/insight/${post.slug}: ${err.message}`);
       }
     }
-    console.log(`  ✅ 인사이트 리포트 페이지 ${insightReports.length}개 생성`);
+    buildCache.printBuildStats({ total: insightReports.length, built: insightBuilt, skipped: insightSkipped, type: '인사이트 리포트 페이지' });
   }
 
   // 10. 핫픽 리포트 페이지 생성 (magazine/hotpick/{slug}/index.html)
   if (hotpickReports.length > 0) {
+    let hotpickBuilt = 0, hotpickSkipped = 0;
+
     for (let i = 0; i < hotpickReports.length; i++) {
       const post = hotpickReports[i];
       const pageDir = `${hotpickDir}/${post.slug}`;
       if (!fs.existsSync(pageDir)) {
         fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      // 증분 빌드: 캐시 체크
+      const cacheKey = post.slug;
+      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.hotpicks, cacheKey, post)) {
+        hotpickSkipped++;
+        continue;
       }
 
       try {
@@ -1389,20 +1470,31 @@ async function main() {
         };
         const html = generateHotpickDetailPage({ post, nav, hotpickReports, issueReports, insightReports, wikiData: wikiDataForIssue });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+        buildCache.updateCacheSection(incrementalCache.hotpicks, cacheKey, post);
+        hotpickBuilt++;
       } catch (err) {
         console.error(`  ❌ magazine/hotpick/${post.slug}: ${err.message}`);
       }
     }
-    console.log(`  ✅ 핫픽 리포트 페이지 ${hotpickReports.length}개 생성`);
+    buildCache.printBuildStats({ total: hotpickReports.length, built: hotpickBuilt, skipped: hotpickSkipped, type: '핫픽 리포트 페이지' });
   }
 
   // 11. 순위 분석 리포트 페이지 생성 (magazine/ranking/{slug}/index.html)
   if (rankingReports.length > 0) {
+    let rankingBuilt = 0, rankingSkipped = 0;
+
     for (let i = 0; i < rankingReports.length; i++) {
       const post = rankingReports[i];
       const pageDir = `${rankingDir}/${post.slug}`;
       if (!fs.existsSync(pageDir)) {
         fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      // 증분 빌드: 캐시 체크
+      const cacheKey = post.slug;
+      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.rankings, cacheKey, post)) {
+        rankingSkipped++;
+        continue;
       }
 
       try {
@@ -1412,11 +1504,13 @@ async function main() {
         };
         const html = generateRankingDetailPage({ post, nav, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+        buildCache.updateCacheSection(incrementalCache.rankings, cacheKey, post);
+        rankingBuilt++;
       } catch (err) {
         console.error(`  ❌ magazine/ranking/${post.slug}: ${err.message}`);
       }
     }
-    console.log(`  ✅ 순위 분석 리포트 페이지 ${rankingReports.length}개 생성`);
+    buildCache.printBuildStats({ total: rankingReports.length, built: rankingBuilt, skipped: rankingSkipped, type: '순위 분석 리포트 페이지' });
   }
 
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
@@ -1484,12 +1578,20 @@ async function main() {
     if (articles.length === 0) continue;
 
     const categoryDir = `./wiki/${category}`;
+    let wikiBuilt = 0, wikiSkipped = 0;
 
     for (let i = 0; i < articles.length; i++) {
       const article = articles[i];
       const pageDir = `${categoryDir}/${article.slug}`;
       if (!fs.existsSync(pageDir)) {
         fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      // 증분 빌드: 캐시 체크
+      const cacheKey = `${category}/${article.slug}`;
+      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.wiki, cacheKey, article)) {
+        wikiSkipped++;
+        continue;
       }
 
       try {
@@ -1529,11 +1631,13 @@ async function main() {
           allWikiData: wikiData
         });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+        buildCache.updateCacheSection(incrementalCache.wiki, cacheKey, article);
+        wikiBuilt++;
       } catch (err) {
         console.error(`  ❌ wiki/${category}/${article.slug}: ${err.message}`);
       }
     }
-    console.log(`  ✅ ${category} 위키 페이지 ${articles.length}개 생성`);
+    buildCache.printBuildStats({ total: articles.length, built: wikiBuilt, skipped: wikiSkipped, type: `${category} 위키 페이지` });
   }
 
   // ========== 테크 페이지 빌드 ==========
@@ -1591,12 +1695,20 @@ async function main() {
     if (articles.length === 0) continue;
 
     const categoryDir = `./tech/${category}`;
+    let techBuilt = 0, techSkipped = 0;
 
     for (let i = 0; i < articles.length; i++) {
       const article = articles[i];
       const pageDir = `${categoryDir}/${article.slug}`;
       if (!fs.existsSync(pageDir)) {
         fs.mkdirSync(pageDir, { recursive: true });
+      }
+
+      // 증분 빌드: 캐시 체크
+      const cacheKey = `${category}/${article.slug}`;
+      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.tech, cacheKey, article)) {
+        techSkipped++;
+        continue;
       }
 
       try {
@@ -1633,11 +1745,13 @@ async function main() {
           allTechData: techData
         });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
+        buildCache.updateCacheSection(incrementalCache.tech, cacheKey, article);
+        techBuilt++;
       } catch (err) {
         console.error(`  ❌ tech/${category}/${article.slug}: ${err.message}`);
       }
     }
-    console.log(`  ✅ ${category} 테크 페이지 ${articles.length}개 생성`);
+    buildCache.printBuildStats({ total: articles.length, built: techBuilt, skipped: techSkipped, type: `${category} 테크 페이지` });
   }
 
   // docs 폴더 동기화 (로컬 개발 환경용)
@@ -2136,6 +2250,9 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     fs.writeFileSync(swPath, swContent, 'utf8');
     console.log(`🔄 Service Worker 캐시 버전: ${cacheVersion} (CSS: ${cssFilename})`);
   }
+
+  // 증분 빌드 캐시 저장
+  buildCache.saveCache(incrementalCache);
 
   console.log(`\n✅ 완료! (docs/ 통합 반응형 빌드 + sitemap 갱신)`);
 

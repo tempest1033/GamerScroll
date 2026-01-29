@@ -6,6 +6,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const buildCache = require('../build-cache');
 
 const gamesPath = path.join(__dirname, '..', 'data', 'games.json');
 const historyDir = path.join(__dirname, '..', 'history');
@@ -1118,12 +1119,54 @@ const wikiArticles = loadWikiArticles();
 const allRelatedContent = [...issueArticles, ...hotpickArticles, ...insightArticles, ...wikiArticles];
 console.log(`📰 관련 콘텐츠 로드: 이슈 ${issueArticles.length}개, 핫픽 ${hotpickArticles.length}개, 인사이트 ${insightArticles.length}개, 위키 ${wikiArticles.length}개`);
 
+// 증분 빌드: 캐시 로드
+const incrementalCache = buildCache.loadCache();
+
+// 입력 파일 시그니처 계산 (games.json, history, reports, snapshots)
+const inputSignature = buildCache.getInputFilesSignature([
+  gamesPath,
+  historyDir,
+  reportsDir,
+  snapshotsDir,
+  wikiDir,
+  issueDir,
+  hotpickDir,
+  insightDir
+]);
+
+// 입력 파일 변경 체크
+const searchIndexPath = path.join(outputDir, 'search-index.json');
+if (!buildCache.checkInputFilesChanged(incrementalCache, 'gamePages', inputSignature)) {
+  // 입력 파일 변경 없음 → 전체 스킵
+  console.log(`  ⚡ 입력 파일 변경 없음 → 게임 페이지 전체 스킵`);
+  buildCache.saveCache(incrementalCache);
+
+  // 기존 searchIndex 확인
+  if (fs.existsSync(searchIndexPath)) {
+    const existingIndex = JSON.parse(fs.readFileSync(searchIndexPath, 'utf8'));
+    console.log(`\n✅ 게임 페이지 생성 완료! (전체 스킵)`);
+    console.log(`검색 인덱스: ${existingIndex.length}개 (기존 유지)`);
+    process.exit(0);
+  }
+}
+
+console.log(`  🔄 입력 파일 변경 감지 → 증분 빌드 진행`);
+
 // 검색 인덱스 생성
 const searchIndex = [];
+
+let forceFullRebuild = false;
+
+// CSS/템플릿 변경 시 전체 재빌드 (generate-html-report.js에서 이미 체크했으므로 여기선 캐시만 참조)
+if (buildCache.checkTemplateChanged(incrementalCache)) {
+  forceFullRebuild = true;
+  console.log('  📝 템플릿 버전 변경 → 전체 재빌드');
+}
 
 // 순위에 있거나 데이터가 있는 게임만 페이지 생성
 let generatedCount = 0;
 let skippedCount = 0;
+let cacheSkippedCount = 0;
 
 for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
   // games.json의 slug를 우선 사용, 없으면 createSlug로 생성
@@ -1159,8 +1202,31 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
   gameData.slug = slug;
   gameData.hasData = hasData;
 
+  // 증분 빌드: 게임 데이터 해시 비교
+  const cacheKey = slug;
+  if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.games, cacheKey, gameData)) {
+    cacheSkippedCount++;
+    // 검색 인덱스에는 항상 추가 (스킵해도)
+    searchIndex.push({
+      name: gameName,
+      slug: slug,
+      icon: gameInfo.icon || null,
+      aliases: gameInfo.aliases || [],
+      platforms: gameInfo.platforms || [],
+      developer: gameInfo.developer || '',
+      hasRankings: Object.keys(gameData.rankings).length > 0,
+      hasSteam: (gameInfo.platforms || []).includes('steam'),
+      hasData
+    });
+    generatedCount++;
+    continue;
+  }
+
   const html = generateGamePage(gameData);
   fs.writeFileSync(path.join(gameDir, 'index.html'), html, 'utf8');
+
+  // 캐시 업데이트
+  buildCache.updateCacheSection(incrementalCache.games, cacheKey, gameData);
 
   // 검색 인덱스에 추가
   searchIndex.push({
@@ -1182,12 +1248,16 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
 }
 
 // 검색 인덱스 저장
-const searchIndexPath = path.join(outputDir, 'search-index.json');
 fs.writeFileSync(searchIndexPath, JSON.stringify(searchIndex, null, 2), 'utf8');
+
+// 증분 빌드: 입력 파일 시그니처 + 캐시 저장
+buildCache.updateInputFilesSignature(incrementalCache, 'gamePages', inputSignature);
+buildCache.saveCache(incrementalCache);
 
 // updateSitemapGameEntries(); // 게임 페이지는 noindex → sitemap 제외
 
+const actualBuilt = generatedCount - cacheSkippedCount;
 console.log(`\n✅ 게임 페이지 생성 완료!`);
-console.log(`생성: ${generatedCount}개`);
-console.log(`스킵 (데이터 없음): ${skippedCount}개`);
+console.log(`총: ${generatedCount}개, 빌드: ${actualBuilt}개, 캐시 스킵: ${cacheSkippedCount}개`);
+console.log(`데이터 없음 스킵: ${skippedCount}개`);
 console.log(`검색 인덱스: ${searchIndexPath}`);

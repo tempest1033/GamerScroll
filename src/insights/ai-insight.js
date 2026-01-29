@@ -76,7 +76,12 @@ ${rankingsSummary}
 
 한국 게임 업계 종합 인사이트를 JSON 형식으로 작성해줘.
 
-## 크롤링 데이터:
+## 크롤링 데이터 (전체 순위 제공됨 - 폭넓게 분석 가능):
+- 모바일: iOS/Android 매출/인기 순위 전체 (최대 200위)
+- Steam: 동시접속 + 매출 순위 전체 (각 100위)
+- 뉴스/커뮤니티/유튜브/치지직: 전체 수집 데이터
+※ 상위권 외에도 중하위권에서 주목할 만한 변화 찾기
+
 ${dataSummary}${rankingsData}${recentInsightsSummary}${metricsBlacklistSummary}
 
 ## 요청사항:
@@ -244,73 +249,87 @@ JSON만 출력해. 다른 설명 없이.`;
 
 /**
  * 크롤링 데이터 요약 문자열 생성
+ * 전체 순위 데이터를 AI에 전달하여 폭넓은 분석 가능
  */
 function buildDataSummary(data) {
   const lines = [];
 
-  // 모바일 순위
-  const iosTop5 = data.rankings?.grossing?.kr?.ios?.slice(0, 5) || [];
-  const androidTop5 = data.rankings?.grossing?.kr?.android?.slice(0, 5) || [];
-  const iosFreeTop5 = data.rankings?.free?.kr?.ios?.slice(0, 5) || [];
+  // 모바일 순위 - 한국만, 전체 (최대 200위)
+  const iosGrossing = data.rankings?.grossing?.kr?.ios || [];
+  const androidGrossing = data.rankings?.grossing?.kr?.android || [];
+  const iosFree = data.rankings?.free?.kr?.ios || [];
+  const androidFree = data.rankings?.free?.kr?.android || [];
 
-  if (iosTop5.length > 0) {
-    lines.push('### iOS 매출 TOP 5:');
-    iosTop5.forEach((g, i) => lines.push(`${i + 1}. ${g.title} - ${g.developer}`));
+  if (iosGrossing.length > 0) {
+    lines.push(`### iOS 매출 순위 (${iosGrossing.length}개):`);
+    iosGrossing.forEach((g, i) => lines.push(`${i + 1}. ${g.title} - ${g.developer || ''}`));
   }
 
-  if (androidTop5.length > 0) {
-    lines.push('\n### Android 매출 TOP 5:');
-    androidTop5.forEach((g, i) => lines.push(`${i + 1}. ${g.title} - ${g.developer}`));
+  if (androidGrossing.length > 0) {
+    lines.push(`\n### Android 매출 순위 (${androidGrossing.length}개):`);
+    androidGrossing.forEach((g, i) => lines.push(`${i + 1}. ${g.title} - ${g.developer || ''}`));
   }
 
-  if (iosFreeTop5.length > 0) {
-    lines.push('\n### iOS 인기 TOP 5:');
-    iosFreeTop5.forEach((g, i) => lines.push(`${i + 1}. ${g.title}`));
+  if (iosFree.length > 0) {
+    lines.push(`\n### iOS 인기 순위 (${iosFree.length}개):`);
+    iosFree.forEach((g, i) => lines.push(`${i + 1}. ${g.title}`));
   }
 
-  // Steam
-  const steamTop5 = data.steam?.mostPlayed?.slice(0, 5) || [];
-  if (steamTop5.length > 0) {
-    lines.push('\n### Steam 동시접속 TOP 5:');
-    steamTop5.forEach((g, i) => lines.push(`${i + 1}. ${g.name} - ${g.ccu?.toLocaleString() || 'N/A'}명`));
+  if (androidFree.length > 0) {
+    lines.push(`\n### Android 인기 순위 (${androidFree.length}개):`);
+    androidFree.forEach((g, i) => lines.push(`${i + 1}. ${g.title}`));
   }
 
-  // 뉴스 (썸네일 URL 포함)
+  // Steam - 동시접속 + 매출 순위 전체 (최대 100위)
+  const steamMostPlayed = data.steam?.mostPlayed || [];
+  const steamTopSellers = data.steam?.topSellers || [];
+
+  if (steamMostPlayed.length > 0) {
+    lines.push(`\n### Steam 동시접속 순위 (${steamMostPlayed.length}개):`);
+    steamMostPlayed.forEach((g, i) => lines.push(`${i + 1}. ${g.name} - ${g.ccu?.toLocaleString() || 'N/A'}명`));
+  }
+
+  if (steamTopSellers.length > 0) {
+    lines.push(`\n### Steam 매출 순위 (${steamTopSellers.length}개):`);
+    steamTopSellers.forEach((g, i) => lines.push(`${i + 1}. ${g.name}${g.discount ? ` (${g.discount}% 할인)` : ''}`));
+  }
+
+  // 뉴스 (썸네일 URL 포함) - 전체
   const newsItems = [
     ...(data.news?.inven || []),
     ...(data.news?.ruliweb || []),
     ...(data.news?.gamemeca || []),
     ...(data.news?.thisisgame || [])
-  ].filter(n => n.thumbnail).slice(0, 20);
+  ].filter(n => n.thumbnail);
 
   if (newsItems.length > 0) {
-    lines.push('\n### 최신 뉴스 (썸네일 URL 포함):');
+    lines.push(`\n### 최신 뉴스 (${newsItems.length}개, 썸네일 URL 포함):`);
     newsItems.forEach((n, i) => lines.push(`${i + 1}. [${n.title}] → ${n.thumbnail}`));
   }
 
-  // 커뮤니티 인기글
+  // 커뮤니티 인기글 - 전체
   const communityItems = [
-    ...(data.community?.dcinside || []).slice(0, 3).map(c => ({ ...c, source: '디시' })),
-    ...(data.community?.arca || []).slice(0, 3).map(c => ({ ...c, source: '아카' })),
-    ...(data.community?.inven || []).slice(0, 3).map(c => ({ ...c, source: '인벤' }))
+    ...(data.community?.dcinside || []).map(c => ({ ...c, source: '디시' })),
+    ...(data.community?.arca || []).map(c => ({ ...c, source: '아카' })),
+    ...(data.community?.inven || []).map(c => ({ ...c, source: '인벤' }))
   ];
 
   if (communityItems.length > 0) {
-    lines.push('\n### 커뮤니티 인기글:');
+    lines.push(`\n### 커뮤니티 인기글 (${communityItems.length}개):`);
     communityItems.forEach(c => lines.push(`- [${c.source}] ${c.title}`));
   }
 
-  // 유튜브/치지직
-  const youtubeItems = data.youtube?.gaming?.slice(0, 5) || [];
-  const chzzkItems = data.chzzk?.slice(0, 5) || [];
+  // 유튜브/치지직 - 전체
+  const youtubeItems = data.youtube?.gaming || [];
+  const chzzkItems = data.chzzk || [];
 
   if (youtubeItems.length > 0) {
-    lines.push('\n### 유튜브 인기 게임 영상:');
+    lines.push(`\n### 유튜브 인기 게임 영상 (${youtubeItems.length}개):`);
     youtubeItems.forEach(v => lines.push(`- ${v.title} (${v.channel})`));
   }
 
   if (chzzkItems.length > 0) {
-    lines.push('\n### 치지직 인기 방송:');
+    lines.push(`\n### 치지직 인기 방송 (${chzzkItems.length}개):`);
     chzzkItems.forEach(s => lines.push(`- ${s.title} (${s.streamer})`));
   }
 
