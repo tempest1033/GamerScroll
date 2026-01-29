@@ -54,7 +54,7 @@
 /* 제목 */
 .blog-title {
   font-size: var(--font-2xl-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   line-height: 1.4;
   color: var(--text);
   margin-bottom: 16px;
@@ -77,7 +77,7 @@
 
 /* 요약 박스 */
 .blog-summary {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
   line-height: 1.7;
   color: var(--text-secondary);
   padding: 16px;
@@ -101,16 +101,17 @@
 .blog-tag {
   padding: 4px 12px;
   font-size: var(--font-badge-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--primary);
   background: rgba(37, 99, 235, 0.1);
   border-radius: 6px;
 }
 
-/* 다크모드 강제 */
-.blog-tag {
-  background: rgba(249, 115, 22, 0.15);
-  color: #fb923c;
+@media (prefers-color-scheme: dark) {
+  .blog-tag {
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+  }
 }
 
 /* 본문 섹션 - 카드 내부 */
@@ -122,7 +123,7 @@
 .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
   color: #60a5fa;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   transition: color 0.2s;
 }
 
@@ -132,7 +133,7 @@
 
 /* 본문 단락 */
 .blog-paragraph {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
   line-height: 1.85;
   color: var(--text-secondary);
   margin-bottom: 20px;
@@ -145,7 +146,7 @@
 /* 섹션 제목 */
 .blog-heading {
   font-size: var(--font-title-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
   margin: 32px 0 16px;
   padding-bottom: 12px;
@@ -197,7 +198,7 @@
 
 .blog-caption {
   padding: 12px 16px;
-  font-size: var(--font-meta-size);
+  font-size: var(--font-caption-size);
   color: var(--text-muted);
   text-align: center;
   background: var(--hover-bg);
@@ -235,10 +236,11 @@
   font-style: italic;
 }
 
-/* 다크모드 강제 */
-.blog-quote {
-  background: rgba(249, 115, 22, 0.08);
-  border-left-color: #f97316;
+@media (prefers-color-scheme: dark) {
+  .blog-quote {
+    background: rgba(249, 115, 22, 0.08);
+    border-left-color: #f97316;
+  }
 }
 
 /* 링크 그리드 (2열 레이아웃) */
@@ -290,7 +292,7 @@
 .blog-link-text {
   display: block;
   font-size: var(--font-desc-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
@@ -323,46 +325,82 @@
   }
 }
 
+/* ===== 표 스타일 (정석) ===== */
 .blog-table-wrapper table,
-.blog-content table {
+.blog-content table,
+.wiki-table {
   width: auto;
   min-width: 50%;
-  border-collapse: collapse;
-  font-size: clamp(12px, 3.5vw, 16px);
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: var(--font-body-size);
   table-layout: auto;
+  background: var(--card-bg);
 }
 
 @media (max-width: 768px) {
   .blog-table-wrapper table,
-  .blog-content table {
+  .blog-content table,
+  .wiki-table {
     width: 100%;
+    font-size: var(--font-desc-size);
   }
 }
 
-.blog-table-wrapper th,
-.blog-table-wrapper td,
-.blog-content th,
-.blog-content td {
-  padding: 12px;
-  border: 1px solid var(--border);
-  text-align: left;
-  word-wrap: break-word;
-}
-
-.blog-table-wrapper th,
-.blog-content th {
-  background: var(--hover-bg);
-  font-weight: 600;
+/* 표 제목 */
+.table-title {
+  padding: 12px 16px;
+  font-size: var(--font-title-size);
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
+  background: var(--hover-bg);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
 }
 
+.table-title + .wiki-table,
+.table-title + table {
+  border-radius: 0 0 8px 8px;
+}
+
+/* 헤더 셀 */
+.blog-table-wrapper th,
+.blog-content th,
+.wiki-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: var(--font-title-weight);
+  color: var(--text);
+  background: var(--hover-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+/* 데이터 셀 */
 .blog-table-wrapper td,
-.blog-content td {
+.blog-content td,
+.wiki-table td {
+  padding: 12px 16px;
+  text-align: left;
   color: var(--text-secondary);
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
 }
 
-.blog-table-wrapper tr:hover td,
-.blog-content tr:hover td {
+/* 마지막 행 테두리 제거 */
+.blog-table-wrapper tr:last-child td,
+.blog-content tr:last-child td,
+.wiki-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 호버 효과 */
+.blog-table-wrapper tbody tr:hover td,
+.blog-content tbody tr:hover td,
+.wiki-table tbody tr:hover td {
   background: var(--hover-bg);
 }
 
@@ -370,85 +408,28 @@
   .blog-table-wrapper th,
   .blog-table-wrapper td,
   .blog-content th,
-  .blog-content td {
-    padding: 8px 6px;
+  .blog-content td,
+  .wiki-table th,
+  .wiki-table td {
+    padding: 10px 12px;
+  }
+  .table-title {
+    font-size: var(--font-section-size);
+    padding: 10px 12px;
   }
 }
 
-/* 테이블 */
-.table-title {
-  padding: 12px 16px;
-  font-size: var(--font-title-size);
-  font-weight: 600;
-  color: var(--text);
-  background: var(--hover-bg);
-  border-bottom: 1px solid var(--border);
-}
-
-.wiki-table {
-  width: auto;
-  min-width: 50%;
-  border-collapse: collapse;
-  font-size: var(--font-body-size);
-  table-layout: auto;
-}
-
-@media (max-width: 768px) {
-  .wiki-table {
-    width: 100%;
-  }
-}
-
-.wiki-table th,
-.wiki-table td {
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-}
-
-.wiki-table th {
-  background: var(--hover-bg);
-  font-weight: 600;
-  color: var(--text);
-}
-
-.wiki-table td {
-  color: var(--text-secondary);
-}
-
-.wiki-table tbody tr:hover {
-  background: var(--hover-bg);
-}
-
-.wiki-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
+/* 표 내 링크 */
 .wiki-table a {
-  color: #60a5fa;
+  color: var(--primary);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   transition: color 0.2s;
 }
 
 .wiki-table a:hover {
-  color: #34d399;
-}
-
-@media (max-width: 768px) {
-  .blog-table {
-    overflow-x: auto;
-  }
-
-  .wiki-table {
-    min-width: 400px;
-  }
-
-  .wiki-table th,
-  .wiki-table td {
-    padding: 10px 12px;
-    font-size: var(--font-desc-size);
-  }
+  color: var(--primary-dark);
+  text-decoration: underline;
 }
 
 /* 광고 영역 */
@@ -464,7 +445,7 @@
 
 .blog-related-title {
   font-size: var(--font-title-size);
-  font-weight: 600;
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
   margin-bottom: 16px;
   display: flex;
@@ -504,7 +485,7 @@
 
 .blog-related-name {
   font-size: var(--font-desc-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
@@ -546,7 +527,7 @@
 
 .blog-related-issue-title {
   font-size: var(--font-desc-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   color: var(--text);
   padding: 12px;
   line-height: 1.4;
@@ -567,7 +548,7 @@
 
 .blog-sources-title {
   font-size: var(--font-title-size);
-  font-weight: 600;
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
   margin-bottom: 12px;
 }
@@ -580,8 +561,8 @@
 }
 
 .blog-sources-list li {
-  font-size: var(--font-small-size);
-  line-height: 1.5;
+  font-size: var(--font-caption-size);
+  line-height: 1.6;
 }
 
 .blog-sources-list a {
@@ -679,7 +660,7 @@
   padding: 10px 20px;
   border-radius: 8px;
   font-size: var(--font-desc-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   text-decoration: none;
   transition: all 0.2s;
   white-space: nowrap;
@@ -727,7 +708,7 @@
 .game-ranking-title {
   padding: 16px 20px;
   font-size: var(--font-title-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
   background: var(--hover-bg);
   border-bottom: 1px solid var(--border);
@@ -776,13 +757,13 @@
 
 .game-ranking-name {
   font-size: var(--font-body-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
   margin-bottom: 4px;
 }
 
 .game-ranking-price {
-  font-weight: 400;
+  font-weight: var(--font-body-weight);
   font-size: 0.85em;
   color: var(--text-secondary);
 }
@@ -850,7 +831,7 @@
 
 .chart-title {
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
   margin: 0;
 }

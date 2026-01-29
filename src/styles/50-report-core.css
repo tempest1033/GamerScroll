@@ -52,11 +52,11 @@
 }
 
 .report-section-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
   margin: 0;
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
 }
 
 /* 섹션 공통 (주간 리포트) */
@@ -268,7 +268,7 @@
 }
 
 .weekly-hot-card.featured .weekly-hot-desc {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
 }
 
 .weekly-hot-card.featured::before {

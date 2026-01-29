@@ -76,7 +76,7 @@
 :is(.tab-btn, .insight-tab) {
   font-size: var(--font-tab-size);
   font-weight: var(--font-tab-weight);
-  color: #1e293b;
+  color: var(--text);
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -92,7 +92,7 @@
 /* PC에서만 hover 적용 (모바일 터치 문제 방지) */
 @media (hover: hover) {
   :is(.tab-btn, .insight-tab):hover {
-    color: #0f172a;
+    color: var(--text);
     background: var(--hover-bg);
   }
 }

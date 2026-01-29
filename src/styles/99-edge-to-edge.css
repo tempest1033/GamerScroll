@@ -1,9 +1,11 @@
-﻿/* ===== 인기 섹션 숨김 (홈/허브/테크) ===== */
-#home-popular,
-#magazine-popular,
-#wiki-popular,
-#tech-popular {
-  display: none !important;
+﻿/* ===== 인기 섹션 숨김 - 모바일만 ===== */
+@media (max-width: 768px) {
+  #home-popular,
+  #magazine-popular,
+  #wiki-popular,
+  #tech-popular {
+    display: none !important;
+  }
 }
 
 /* ===== 모바일 Edge-to-Edge 스타일 ===== */

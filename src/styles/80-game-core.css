@@ -242,7 +242,7 @@
   align-items: center;
   padding: 8px 10px;
   gap: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
 }
 
 .game-rank-country-row:last-child {

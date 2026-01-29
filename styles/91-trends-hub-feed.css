@@ -51,7 +51,7 @@
   left: 10px;
   padding: 4px 10px;
   font-size: var(--font-small-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   color: rgba(255, 255, 255, 0.95);
   background: rgba(0, 0, 0, 0.55);
   border-radius: 4px;
@@ -102,7 +102,7 @@
   background: var(--card-bg);
   color: var(--text);
   font-size: var(--font-title-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   cursor: pointer;
   transition: all 0.15s ease;
   display: flex;
@@ -136,13 +136,15 @@
   color: var(--text-secondary);
 }
 
-/* 다크모드 강제 - 트렌드 피드 */
-.trend-feed-card {
-  background: var(--card-bg);
-  border-color: var(--border);
-}
-.trend-feed-card-tag {
-  background: rgba(0, 0, 0, 0.65);
+/* 다크모드 - 트렌드 피드 */
+@media (prefers-color-scheme: dark) {
+  .trend-feed-card {
+    background: var(--card-bg);
+    border-color: var(--border);
+  }
+  .trend-feed-card-tag {
+    background: rgba(0, 0, 0, 0.65);
+  }
 }
 
 /* 모바일 - 트렌드 피드 */

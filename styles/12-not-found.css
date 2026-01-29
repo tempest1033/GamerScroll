@@ -24,7 +24,7 @@
 
 .not-found-title {
   font-size: var(--font-2xl-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   margin: 0 0 0.75rem;
   color: var(--text-primary, #f1f5f9);
 }
@@ -32,7 +32,7 @@
 .not-found-desc {
   color: var(--text-secondary, #94a3b8);
   margin: 0 0 1.5rem;
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
 }
 
 .not-found-links {
@@ -50,7 +50,7 @@
   border-radius: 8px;
   text-decoration: none;
   font-size: var(--font-desc-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   transition: background 0.15s;
 }
 

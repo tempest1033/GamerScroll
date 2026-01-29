@@ -59,7 +59,7 @@
   }
 
   .weekly-intro-text {
-    font-size: var(--font-body-size);
+    font-size: var(--font-desc-size);
   }
 
   /* MVP 섹션 */
@@ -109,7 +109,7 @@
   }
 
   .weekly-global-desc {
-    font-size: var(--font-body-size);
+    font-size: var(--font-desc-size);
   }
 
   /* 피드 카드 패딩 통일 - 768px */

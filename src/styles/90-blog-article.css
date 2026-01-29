@@ -77,7 +77,7 @@
 
 /* 요약 박스 */
 .blog-summary {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
   line-height: 1.7;
   color: var(--text-secondary);
   padding: 16px;
@@ -133,7 +133,7 @@
 
 /* 본문 단락 */
 .blog-paragraph {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
   line-height: 1.85;
   color: var(--text-secondary);
   margin-bottom: 20px;

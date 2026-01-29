@@ -19,7 +19,7 @@
 
 .page-daily-insight .insight-date {
   font-size: var(--font-stat-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: #fff;
 }
 
@@ -40,7 +40,7 @@
   padding: 12px 32px;
   border-radius: 24px;
   font-size: var(--font-tab-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   cursor: pointer;
   border: 2px solid transparent;
   transition: all 0.2s ease;
@@ -76,7 +76,7 @@
 
 .page-daily-insight .section-title {
   font-size: var(--font-lg-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: #fff;
   margin-bottom: 16px;
   display: flex;
@@ -111,12 +111,12 @@
 
 .page-daily-insight .ranking-table th {
   color: #9ca3af;
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
 }
 
 .page-daily-insight .ranking-table .rank {
   width: 40px;
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: #fff;
 }
 
@@ -147,7 +147,7 @@
   padding: 4px 8px;
   border-radius: 4px;
   font-size: var(--font-badge-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
 }
 
 .page-daily-insight .change.up {
@@ -272,7 +272,7 @@
 
 .page-daily-insight .ai-card-title {
   font-size: var(--font-section-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: #fff;
   margin-bottom: 8px;
   line-height: 1.4;
@@ -308,7 +308,7 @@
   padding: 2px 6px;
   border-radius: 4px;
   margin-right: 8px;
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
 }
 
 /* Weekly Panel */
@@ -319,7 +319,7 @@
 
 .page-daily-insight .weekly-title {
   font-size: var(--font-xl-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: #fff;
   margin-bottom: 8px;
 }
@@ -368,7 +368,7 @@
 
 .page-daily-insight .metric-value {
   font-size: var(--font-2xl-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: #fff;
   margin-bottom: 4px;
 }
@@ -401,7 +401,7 @@
   padding: 4px 10px;
   border-radius: 6px;
   font-size: var(--font-small-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   margin-bottom: 12px;
 }
 
@@ -413,7 +413,7 @@
 
 .page-daily-insight .highlight-title {
   font-size: var(--font-section-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: #fff;
   margin-bottom: 8px;
   line-height: 1.4;

@@ -126,12 +126,10 @@
   }
 }
 
-/* 모바일 띠 배너 */
+/* 모바일 띠 배너 - 숨김 */
 @media (max-width: 768px) {
   .popular-banner {
-    padding: 8px;
-    gap: 6px;
-    overflow: visible;
+    display: none;
   }
 
   .popular-banner-label {

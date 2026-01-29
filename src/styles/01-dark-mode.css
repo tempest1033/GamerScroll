@@ -23,6 +23,7 @@
     /* Border - 검정 계열 */
     --border: #333333; /* Neutral 700 */
     --border-subtle: #262626; /* Neutral 800 */
+    --border-hover: var(--primary); /* 호버 시 보더 색상 */
 
     /* Text - WCAG AA 준수 */
     --text: rgba(255, 255, 255, 0.87); /* High-emphasis (MD3) */
@@ -185,7 +186,7 @@
     border-color: var(--primary) !important;
   }
 
-  /* 다크모드 - 모든 본문/설명 텍스트 흰색 계열 */
+  /* 다크모드 - 모든 본문/설명 텍스트 회색 계열 */
   .home-insight-desc,
   .weekly-section-desc,
   .weekly-hot-desc,
@@ -207,7 +208,7 @@
   .report-section-desc,
   .stock-comment,
   .stock-desc {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: var(--text-secondary) !important;
   }
 
   /* 다크모드 - 모든 제목 텍스트 순백색 */

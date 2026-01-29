@@ -200,15 +200,15 @@ a.gm-item {
 
 @media (prefers-color-scheme: dark) {
   .gm-item-title {
-    color: #f0f0f0;
+    color: var(--text);
   }
   .gm-item-desc {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-secondary);
   }
 }
 
 @media (max-width: 768px) {
   .gm-item-desc {
-    font-size: var(--font-body-size);
+    font-size: var(--font-desc-size);
   }
 }

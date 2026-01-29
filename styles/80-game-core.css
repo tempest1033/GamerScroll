@@ -92,7 +92,7 @@
   height: 36px;
   padding: 0;
   font-size: var(--font-desc-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   color: #c2410c;
   background: rgba(194, 65, 12, 0.15);
   border: 1px solid #c2410c;
@@ -109,7 +109,7 @@
 
 .game-hero-title {
   font-size: var(--font-xl-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
   margin: 0 0 6px 0;
 }
@@ -131,7 +131,7 @@
   align-items: center;
   padding: 4px 10px;
   font-size: var(--font-badge-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   color: var(--text);
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
@@ -159,7 +159,7 @@
 
 .game-hero-stat-value {
   font-size: var(--font-lg-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
 }
 
@@ -222,7 +222,7 @@
   gap: 10px;
   padding: 10px 12px;
   font-size: var(--font-desc-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
   background: transparent;
   border-bottom: 1px solid var(--border);
@@ -242,7 +242,7 @@
   align-items: center;
   padding: 8px 10px;
   gap: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
 }
 
 .game-rank-country-row:last-child {
@@ -262,13 +262,19 @@
 .game-rank-country-name {
   flex: 1;
   font-size: var(--font-desc-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  .game-rank-country-name {
+    color: rgba(255, 255, 255, 0.9);
+  }
 }
 
 .game-rank-country-value {
   font-size: var(--font-section-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
   min-width: 36px;
   text-align: right;
@@ -276,7 +282,7 @@
 
 .game-rank-change {
   font-size: var(--font-meta-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   margin-left: 6px;
 }
 

@@ -70,7 +70,7 @@
 
 .weekly-mvp-name {
   font-size: var(--font-section-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
   margin: 0 0 8px 0;
   line-height: 1.4;

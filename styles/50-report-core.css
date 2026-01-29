@@ -44,7 +44,7 @@
 
 :is(.report-section-title, .weekly-section-title) {
   font-size: var(--font-title-size);
-  font-weight: var(--font-title-weight);
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
   margin: 0;
   letter-spacing: -0.01em;
@@ -52,11 +52,11 @@
 }
 
 .report-section-desc {
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-size: var(--font-desc-size);
+  font-weight: var(--font-desc-weight);
   color: var(--text-secondary);
   margin: 0;
-  line-height: var(--font-body-line-height);
+  line-height: var(--font-desc-line-height);
 }
 
 /* 섹션 공통 (주간 리포트) */
@@ -116,7 +116,7 @@
 
 .weekly-intro-label {
   font-size: var(--font-title-size);
-  font-weight: var(--font-title-weight);
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
   letter-spacing: -0.01em;
   line-height: 1.5;
@@ -268,7 +268,7 @@
 }
 
 .weekly-hot-card.featured .weekly-hot-desc {
-  font-size: var(--font-body-size);
+  font-size: var(--font-desc-size);
 }
 
 .weekly-hot-card.featured::before {

@@ -43,7 +43,7 @@
 }
 
 .stock-date {
-  font-size: var(--font-small-size);
+  font-size: var(--font-caption-size);
   color: var(--text-tertiary);
 }
 
@@ -118,15 +118,15 @@
   }
 
   .stock-price-value {
-    font-size: var(--font-2xl-size);
+    font-size: var(--font-xl-size);
   }
 
   .stock-change-badge {
-    font-size: var(--font-title-size);
+    font-size: var(--font-body-size);
   }
 
   .stock-comment {
-    font-size: var(--font-body-size);
+    font-size: var(--font-desc-size);
   }
 }
 
