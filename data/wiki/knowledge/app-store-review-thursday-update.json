@@ -1,0 +1,70 @@
+{
+  "slug": "app-store-review-thursday-update",
+  "status": "approved",
+  "relatedGames": [],
+  "title": "앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?",
+  "date": "2026-01-29T15:00",
+  "keywords": "앱스토어 검수 시간, 앱 심사 기간, 앱 승인 얼마나, 구글플레이 검수, 목요일 업데이트 이유, 모바일 게임 점검 시간, 앱 반려 재심사, 휴먼 리뷰, 새벽 점검 폐지, 글로벌 원빌드, 앱스토어 피처드, 앱 검수 빨리 받는 법",
+  "summary": "왜 모바일 게임들은 화~목요일에 업데이트할까. 앱스토어 검수 프로세스, 과거 추천작 갱신일 관행, 주말 검수 공백, 새벽 점검이 사라지는 이유까지 살펴본다.",
+  "thumbnail": "https://media.dashdevs.com/how-to-submit-an-app1.jpg",
+  "sources": [
+    { "name": "Apple Developer", "title": "App Store Review Guidelines", "url": "https://developer.apple.com/app-store/review/guidelines/" },
+    { "name": "Runway", "title": "Live App Store Review Times", "url": "https://www.runway.team/appreviewtimes" },
+    { "name": "Apple Developer News", "title": "Holiday Season Submission Guidelines", "url": "https://developer.apple.com/news/" },
+    { "name": "Medium", "title": "Why Mobile Games Ship Content on Thursdays", "url": "https://medium.com/@saurabhsarpotdar/why-mobile-games-ship-content-on-thursdays-a-strategic-playbook-fc0b6b129d57" },
+    { "name": "BE-DEV", "title": "App Store Review Time 2025", "url": "https://be-dev.pl/blog/eng/how-long-does-app-store-review-take-in-2025-average-time-common-mistakes-how-to-speed-it-up" }
+  ],
+  "relatedArticles": ["platform-fees-comparison", "gacha-system-regulations", "app-revenue-ranking-algorithm"],
+  "content": [
+    { "type": "text", "value": "모바일 게임 업데이트 공지를 보면 유독 목요일이 많다. 브롤스타즈, 클래시 로얄 같은 대형 게임들도 목요일에 새 콘텐츠를 푼다. 우연이 아니다. 앱마켓 검수 프로세스와 주말 플레이 시간을 고려한 전략적 선택이다." },
+
+    { "type": "heading", "value": "1. 화~목, 업데이트의 황금 구간" },
+    { "type": "image", "src": "https://supercell.com/images/b524ca49e8549e5d3f5485452da7f26c/cropped.png", "caption": "브롤스타즈 - 목요일 업데이트의 대표 사례", "alt": "슈퍼셀 브롤스타즈 게임 캐릭터" },
+    { "type": "text", "value": "모바일 게임 업데이트는 **화요일~목요일**에 집중된다. 이유는 간단하다.\n\n**월요일**은 주말 검수 공백으로 대기열이 쌓여 있어 승인 지연 위험이 크다. **화~목요일**은 검수가 가장 원활하게 돌아가는 시간대로, 문제 발생 시 금요일까지 대응할 수 있다. **금요일**은 주말 전이라 긴급 대응이 어렵고, **주말**은 검수 공백에 운영팀 부재까지 겹쳐 사실상 금기다." },
+    { "type": "text", "value": "특히 목요일은 주말 플레이 타임 직전이라 새 콘텐츠 노출 효과가 극대화된다. 슈퍼셀, 넥슨 등 대형사들이 목요일을 선호하는 이유다.\n\n역사적 맥락도 있다. 소매점에서 패키지 게임을 팔던 시절, 미국은 화요일, 유럽은 목요일이 게임 출시일이었다. 물류와 매장 진열 일정에 맞춘 관행이었는데, 디지털 시대에도 습관처럼 이어지고 있다." },
+
+    { "type": "heading", "value": "2. 과거 추천작 갱신일 관행" },
+    { "type": "image", "src": "https://www.apple.com/newsroom/images/product/services/standard/Apple-services-apple-app-store-screen-01072020_inline.jpg.large.jpg", "caption": "앱스토어 화면 - 추천작 갱신이 매일로 바뀌었다", "alt": "애플 앱스토어 iOS 앱 화면" },
+    { "type": "text", "value": "앱스토어 초창기(2008~2010년대 초), 추천 탭은 **주 1회 갱신**이 원칙이었다. 아이튠즈 뮤직스토어의 운영 방식을 그대로 가져온 것이다. 추천작에 선정되면 그 주 내내 노출이 보장됐고, 개발사들은 추천 갱신일에 맞춰 업데이트 일정을 잡았다.\n\n당시 목요일은 특히 중요했다. 주간 추천이 갱신되는 시점에 맞춰 업데이트를 하면, 새 버전이 추천 후보로 고려될 가능성이 높았기 때문이다. 마케팅 예산이 부족한 인디 개발사들에게 추천 선정은 생존의 문제였다." },
+    { "type": "text", "value": "2017년 iOS 11과 함께 앱스토어가 대대적으로 개편되면서 상황이 바뀌었다. 투데이 탭이 등장하고, '오늘의 앱'과 '오늘의 게임'이 **매일 갱신**되는 방식으로 전환됐다. 주간 추천의 시대는 끝났지만, 목요일 업데이트 관행은 이미 업계 표준으로 자리 잡은 뒤였다." },
+
+    { "type": "ad" },
+
+    { "type": "heading", "value": "3. 주말 검수 공백 문제" },
+    { "type": "image", "src": "https://www.bridge-global.com/blog/wp-content/uploads/2024/02/App-Store-Publishing-Process.jpg", "caption": "앱스토어 검수는 주말에 사실상 멈춘다", "alt": "앱스토어 앱 제출 검수 프로세스" },
+    { "type": "text", "value": "애플은 공식적으로 주말 검수를 하지 않는다고 밝힌 적 없지만, 업계에서는 공공연한 사실이다. 화요일~목요일에 제출한 앱이 가장 빠르게 검수되고, 주말에 제출하면 월요일까지 대기열에 쌓인다.\n\n실제로 런웨이(Runway)의 실시간 검수 시간 추적 데이터를 보면, 주중과 주말의 검수 속도 차이가 확연하다. 토요일에 승인되는 경우도 있지만, 개발자들은 이를 계획에 포함하지 말라고 권고받는다." },
+    { "type": "text", "value": "연휴 시즌은 더 심각하다. 애플은 매년 12월 20일~26일경 검수 지연을 공식 예고한다. \"시간에 민감한 제출은 일찍 제출하라\"는 공지가 해마다 나온다. 크리스마스 시즌 매출을 노리는 게임들은 12월 초까지 모든 업데이트를 마무리해야 한다." },
+
+    { "type": "heading", "value": "4. 검수 프로세스: 자동화와 휴먼 리뷰" },
+    { "type": "image", "src": "https://images.pexels.com/photos/13633184/pexels-photo-13633184.jpeg", "caption": "애플 파크 - 앱 검수팀이 있는 본사", "alt": "애플 파크 본사 앱 심사팀 휴먼 리뷰" },
+    { "type": "text", "value": "앱 검수는 자동화 시스템과 휴먼 리뷰어의 조합으로 이루어진다.\n\n**1단계 - 자동 검사**: 앱을 제출하는 즉시 애플의 자동화 시스템이 가동된다. 악성코드 탐지, 개인정보 정책 위반 여부, 금지된 기능 사용, 메타데이터 오류 등을 검사한다. 대부분의 반려는 이 단계에서 발생한다." },
+    { "type": "text", "value": "**2단계 - 휴먼 리뷰**: 자동 검사를 통과하면 애플 직원이 직접 앱을 테스트한다. 사용자 경험, 결제 정책 준수, 콘텐츠 가이드라인 위반 여부를 확인한다. 게임의 경우 실제 플레이를 통해 사행성 요소, 폭력성 등도 검토한다.\n\n구글 플레이도 비슷하지만, 초기에는 애플보다 느슨한 편이었다. 하지만 최근 몇 년간 구글도 검수를 강화해 애플과 비슷한 수준이 됐다." },
+
+    { "type": "ad" },
+
+    { "type": "heading", "value": "5. 검수 시간: 최근 현황" },
+    { "type": "image", "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtqzPdoh452pa9FP0b0jxRaXKegxT8XwcusRRx6E0ESQDLc2fT7kNJyoGvyMc2AFzpF8oeLQOLdBPsgaj_4z7zL4bOg0gjd3V_PnBEXFdjqNlRYOzQyxOGU6-S3aoE1iZ_bQFDkW3RIB8/s1600/page.png", "caption": "구글 플레이 - 애플과 함께 양대 앱마켓", "alt": "구글 플레이스토어 앱 화면 인터페이스" },
+    { "type": "text", "value": "검수 시간은 과거에 비해 크게 단축됐다. 신규 앱은 24~72시간, 앱 업데이트는 12~24시간, 반려 후 재제출은 12~24시간(우선 처리)이 평균이다.\n\n애플에 따르면 제출된 앱의 **90%가 24시간 내에 검수**된다. 10년 전만 해도 일주일 이상 걸리던 것에 비하면 혁명적인 변화다." },
+    { "type": "text", "value": "다만 변수는 있다. 연휴 시즌, 세계개발자회의(WWDC) 직후, 새 운영체제 출시 직전에는 검수량이 폭증해 지연이 발생한다. 중요한 출시일이 있다면 최소 2주 전 제출을 권장한다." },
+
+    { "type": "heading", "value": "6. 인공지능 도입과 검수의 미래" },
+    { "type": "image", "src": "https://www.thermofisher.com/blog/connectedlab/wp-content/uploads/sites/14/2020/01/istock-962219860-2-scaled.jpg", "caption": "AI 기술이 앱 검수에도 적용되고 있다", "alt": "인공지능 AI 머신러닝 기술" },
+    { "type": "text", "value": "검수 속도가 빨라진 배경에는 인공지능과 기계학습 도입이 있다. 애플은 자동 검사 단계에서 인공지능을 적극 활용해 명백한 위반 사항을 빠르게 걸러낸다. 덕분에 휴먼 리뷰어는 더 복잡한 판단이 필요한 앱에 집중할 수 있게 됐다.\n\n최근 애플은 인공지능 앱에 대한 검수 기준을 강화했다. 인공지능 기능이 있는 앱은 제3자 서비스에 개인정보를 공유하는지, 사용자 동의를 받았는지 명시해야 한다." },
+    { "type": "text", "value": "구글 플레이도 인공지능을 활용하고 있다. 인공지능 기반 리뷰 요약 기능을 도입해 유저들이 긴 리뷰를 읽지 않아도 핵심을 파악할 수 있게 했다. 앱 검수 자체에도 기계학습이 적용돼 스팸 앱, 복제 앱을 빠르게 걸러낸다." },
+
+    { "type": "ad" },
+
+    { "type": "heading", "value": "7. 새벽 점검의 종말" },
+    { "type": "image", "src": "https://www.nexongames.co.kr/img/sub/nexon_games_culture1_re.jpg", "caption": "넥슨게임즈 - 낮 시간 점검으로 전환 중인 대표 기업", "alt": "넥슨게임즈 오피스 게임 개발사" },
+    { "type": "text", "value": "과거 한국 게임들은 **새벽 점검**이 당연했다. 유저 접속이 가장 적은 새벽 2~6시에 서버를 내리고 업데이트를 진행했다. 유저 불편을 최소화한다는 명목이었지만, 실상은 개발자들의 야근이었다.\n\n최근 이 관행이 바뀌고 있다. **노동 환경 개선**과 워라밸 이슈가 부각되면서, 낮 시간대 점검으로 전환하는 회사가 늘었다. 넥슨, 넷마블, 엔씨소프트 등 대형사들도 일부 게임에서 오전~오후 점검을 시행 중이다." },
+    { "type": "text", "value": "유저 반발이 있을 수 있지만, \"개발자도 사람이다\"라는 인식이 확산되면서 수용하는 분위기다. 새벽에 서버 터지면 어차피 대응도 못 한다는 현실적인 이유도 있다." },
+
+    { "type": "heading", "value": "8. 글로벌 원빌드의 딜레마" },
+    { "type": "image", "src": "https://upload-os-bbs.hoyolab.com/upload/2024/06/11/193218494/d9658b6c922c933ed322b30cd22b139b_3648303749346542932.jpg", "caption": "원신 - 글로벌 동시 서비스 대표 게임", "alt": "원신 Genshin Impact 호요버스 게임 캐릭터" },
+    { "type": "text", "value": "글로벌 동시 서비스가 늘면서 **지역별 맞춤 타이밍**은 사실상 불가능해졌다.\n\n예전에는 한국 서버, 일본 서버, 글로벌 서버가 따로 있어서 각 지역 시간대에 맞춰 점검할 수 있었다. 하지만 요즘은 **원빌드**(전 세계 동일 버전) 운영이 대세다. 개발 효율과 콘텐츠 동시성 때문이다." },
+    { "type": "text", "value": "문제는 시차다. 한국 낮 12시는 미국 서부 저녁 7시, 유럽은 새벽 4시다. 어디에 맞춰도 누군가는 피크 타임에 점검을 맞게 된다.\n\n결국 **본사 기준 업무 시간**에 맞추는 경우가 많다. 원신(호요버스)은 중국 시간 기준, 브롤스타즈(슈퍼셀)는 핀란드 시간 기준으로 업데이트가 돌아간다. 한국 유저 입장에서 \"왜 이 시간에?\"라는 의문이 들 때, 답은 대부분 \"본사 시간\"이다." },
+
+    { "type": "heading", "value": "마치며: 타이밍도 전략이다" },
+    { "type": "text", "value": "목요일 업데이트는 단순한 관행이 아니다. 앱마켓 검수 프로세스, 주말 플레이 패턴, 운영 위험 관리를 종합한 전략적 선택이다.\n\n하지만 시대가 변하고 있다. 새벽 점검은 노동 환경 이슈로 사라지는 추세고, 글로벌 원빌드는 지역 맞춤 타이밍을 불가능하게 만들었다. 앱마켓 검수는 인공지능 도입으로 빨라졌지만, 주말 공백과 연휴 지연은 여전하다.\n\n결국 중요한 건 **계획**이다. 검수 일정, 본사 시간대, 글로벌 유저 분포를 종합해서 최적의 타이밍을 찾는 것. 그게 라이브 서비스 운영의 기본기다." }
+  ]
+}
