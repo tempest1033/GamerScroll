@@ -1937,10 +1937,7 @@ async function main() {
   const srcBriefingDir = './magazine';
   const destBriefingDir = `${DOCS_DIR}/magazine`;
   if (fs.existsSync(srcBriefingDir)) {
-    // 기존 docs/magazine 정리 후 재복사 (삭제되지 않는 잔존 파일 방지)
-    if (fs.existsSync(destBriefingDir)) {
-      fs.rmSync(destBriefingDir, { recursive: true, force: true });
-    }
+    // 덮어쓰기 방식 (incremental build 호환 - 삭제하면 스킵된 파일이 사라짐)
 
     // magazine 디렉토리 재귀 복사
     const copyDirRecursive = (src, dest) => {
