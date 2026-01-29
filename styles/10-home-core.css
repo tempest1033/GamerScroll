@@ -632,7 +632,7 @@
     }
 
     .home-popular-title {
-      font-size: var(--font-title-size);
+      font-size: var(--font-body-size);
       font-weight: var(--font-title-weight);
       color: var(--text);
       margin: 0;
@@ -1333,7 +1333,7 @@
       }
 
       :is(.home-news-title, .home-video-item-title) {
-        font-size: var(--font-desc-size);
+        font-size: var(--font-body-size);
         -webkit-line-clamp: 3;
       }
     }

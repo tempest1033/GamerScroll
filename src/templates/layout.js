@@ -76,7 +76,7 @@ const searchBarHtml = `
       <a href="/" class="search-home-icon" aria-label="홈으로 이동">
         <img src="/favicon.svg" alt="" width="20" height="20">
       </a>
-      <input type="text" class="search-input" placeholder="게임 검색" autocomplete="off">
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
       <button class="search-btn" type="button" aria-label="검색">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>

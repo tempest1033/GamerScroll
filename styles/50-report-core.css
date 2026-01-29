@@ -374,8 +374,8 @@
 /* Insight typography scale (daily/weekly unified) */
 #insight {
   --insight-header-size: 20px;
-  --insight-section-size: 20px;
-  --insight-item-size: 18px;
+  --insight-section-size: var(--font-title-size);
+  --insight-item-size: 17px;
   --insight-body-size: 16px;
 }
 
@@ -440,8 +440,8 @@
 
 @media (max-width: 768px) {
   #insight {
-    --insight-section-size: 20px;
-    --insight-item-size: 18px;
+    --insight-section-size: var(--font-title-size);
+    --insight-item-size: 17px;
     --insight-body-size: 16px;
   }
 }
