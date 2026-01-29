@@ -18,11 +18,75 @@ try {
 
 const REPORTS_DIR = path.join(__dirname, '..', 'reports');
 const IMAGES_DIR = path.join(__dirname, '..', 'docs', 'assets', 'images', 'daily');
+const PENDING_FILE = path.join(__dirname, '..', 'data', 'pending-images.json');
 
 const IMAGE_CONFIG = {
   maxWidth: 480,  // 썸네일은 작게
   quality: 80,
 };
+
+// 기존 이미지 파일 캐시 (fs.existsSync 반복 호출 방지)
+let existingImagesCache = null;
+
+// 펜딩 URL 캐시
+let pendingData = { pending: [] };
+let pendingUrls = new Set();
+
+function loadPendingData() {
+  try {
+    if (fs.existsSync(PENDING_FILE)) {
+      const content = fs.readFileSync(PENDING_FILE, 'utf-8').replace(/^\uFEFF/, '');
+      pendingData = JSON.parse(content);
+      pendingUrls = new Set(pendingData.pending.map(p => p.url));
+    }
+  } catch (e) {
+    console.log('⚠️ pending-images.json 로드 실패, 새로 생성');
+    pendingData = { pending: [] };
+    pendingUrls = new Set();
+  }
+}
+
+function savePendingData() {
+  const json = JSON.stringify(pendingData, null, 2);
+  fs.writeFileSync(PENDING_FILE, json, 'utf-8');
+}
+
+function isPending(url) {
+  return pendingUrls.has(url);
+}
+
+function addToPending(url, date, type, error) {
+  if (pendingUrls.has(url)) return;
+  pendingData.pending.push({
+    url,
+    date,
+    type,
+    failedAt: new Date().toISOString(),
+    error: error || 'unknown'
+  });
+  pendingUrls.add(url);
+}
+
+function buildExistingImagesCache() {
+  const cache = new Set();
+  if (!fs.existsSync(IMAGES_DIR)) return cache;
+  const dateFolders = fs.readdirSync(IMAGES_DIR).filter(f => {
+    const fullPath = path.join(IMAGES_DIR, f);
+    return fs.statSync(fullPath).isDirectory();
+  });
+  for (const dateFolder of dateFolders) {
+    const folderPath = path.join(IMAGES_DIR, dateFolder);
+    const files = fs.readdirSync(folderPath);
+    for (const file of files) {
+      cache.add(path.join(folderPath, file));
+    }
+  }
+  return cache;
+}
+
+function imageExists(localPath) {
+  return existingImagesCache.has(localPath);
+}
 
 function downloadToBuffer(url) {
   return new Promise((resolve, reject) => {
@@ -44,7 +108,7 @@ function downloadToBuffer(url) {
       response.on('error', reject);
     });
     request.on('error', reject);
-    request.setTimeout(15000, () => {
+    request.setTimeout(1000, () => {
       request.destroy();
       reject(new Error('Timeout'));
     });
@@ -85,83 +149,59 @@ async function processDaily(jsonPath) {
   const date = data.date;
   const imageDir = path.join(IMAGES_DIR, date);
 
-  let downloaded = 0, skipped = 0, errors = 0;
+  let downloaded = 0, skipped = 0, errors = 0, pendingSkipped = 0;
 
-  // news 섹션의 썸네일 처리 (배열)
+  // 공통 다운로드 함수
+  async function tryDownload(thumb, type) {
+    if (thumb.startsWith('//')) thumb = 'https:' + thumb;
+    if (!isExternalUrl(thumb)) return null;
+
+    const filename = urlToFilename(thumb);
+    const localPath = path.join(imageDir, filename);
+
+    // 이미 다운로드됨
+    if (imageExists(localPath)) {
+      skipped++;
+      return 'skipped';
+    }
+
+    // 펜딩에 있으면 스킵
+    if (isPending(thumb)) {
+      pendingSkipped++;
+      return 'pending';
+    }
+
+    // 다운로드 시도
+    try {
+      const buffer = await downloadToBuffer(thumb);
+      await saveAsWebP(buffer, localPath);
+      downloaded++;
+      return 'downloaded';
+    } catch (err) {
+      // 실패 시 펜딩에 추가
+      addToPending(thumb, date, type, err.message);
+      errors++;
+      return 'error';
+    }
+  }
+
+  // news 섹션의 썸네일 처리
   if (Array.isArray(data.news)) {
     for (const item of data.news) {
-      let thumb = item.thumbnail;
-      if (thumb) {
-        // // 로 시작하면 https: 붙이기
-        if (thumb.startsWith('//')) thumb = 'https:' + thumb;
-        if (isExternalUrl(thumb)) {
-          const filename = urlToFilename(thumb);
-          const localPath = path.join(imageDir, filename);
-
-          if (fs.existsSync(localPath)) {
-            skipped++;
-          } else {
-            try {
-              const buffer = await downloadToBuffer(thumb);
-              await saveAsWebP(buffer, localPath);
-              downloaded++;
-            } catch (err) {
-              errors++;
-            }
-          }
-        }
-      }
+      if (item.thumbnail) await tryDownload(item.thumbnail, 'news');
     }
   }
 
-  // community 섹션의 썸네일 처리 (배열)
+  // community 섹션의 썸네일 처리
   if (Array.isArray(data.community)) {
     for (const item of data.community) {
-      let thumb = item.thumbnail;
-      if (thumb) {
-        if (thumb.startsWith('//')) thumb = 'https:' + thumb;
-        if (isExternalUrl(thumb)) {
-          const filename = urlToFilename(thumb);
-          const localPath = path.join(imageDir, filename);
-
-          if (fs.existsSync(localPath)) {
-            skipped++;
-          } else {
-            try {
-              const buffer = await downloadToBuffer(thumb);
-              await saveAsWebP(buffer, localPath);
-              downloaded++;
-            } catch (err) {
-              errors++;
-            }
-          }
-        }
-      }
+      if (item.thumbnail) await tryDownload(item.thumbnail, 'community');
     }
   }
 
-  // AI 인사이트 썸네일 처리 (일간)
+  // AI 인사이트 썸네일 처리
   if (data.ai && data.ai.thumbnail) {
-    let thumb = data.ai.thumbnail;
-    if (thumb.startsWith('//')) thumb = 'https:' + thumb;
-    if (isExternalUrl(thumb)) {
-      const filename = urlToFilename(thumb);
-      const localPath = path.join(imageDir, filename);
-
-      if (fs.existsSync(localPath)) {
-        skipped++;
-      } else {
-        try {
-          const buffer = await downloadToBuffer(thumb);
-          await saveAsWebP(buffer, localPath);
-          downloaded++;
-          console.log(`    ✅ AI 썸네일: ${filename}`);
-        } catch (err) {
-          console.log(`    ❌ AI 썸네일 실패`);
-          errors++;
-        }
-      }
-    }
+    await tryDownload(data.ai.thumbnail, 'ai.thumbnail');
   }
 
   // AI 인사이트의 issues, metrics, industryIssues 등 썸네일 처리
@@ -170,31 +210,12 @@ async function processDaily(jsonPath) {
     const items = data.ai?.[section] || [];
     if (Array.isArray(items)) {
       for (const item of items) {
-        let thumb = item.thumbnail;
-        if (thumb) {
-          if (thumb.startsWith('//')) thumb = 'https:' + thumb;
-          if (isExternalUrl(thumb)) {
-            const filename = urlToFilename(thumb);
-            const localPath = path.join(imageDir, filename);
-
-            if (fs.existsSync(localPath)) {
-              skipped++;
-            } else {
-              try {
-                const buffer = await downloadToBuffer(thumb);
-                await saveAsWebP(buffer, localPath);
-                downloaded++;
-              } catch (err) {
-                errors++;
-              }
-            }
-          }
-        }
+        if (item.thumbnail) await tryDownload(item.thumbnail, `ai.${section}`);
       }
     }
   }
 
-  return { downloaded, skipped, errors };
+  return { downloaded, skipped, errors, pendingSkipped };
 }
 
 async function main() {
@@ -204,13 +225,21 @@ async function main() {
     fs.mkdirSync(IMAGES_DIR, { recursive: true });
   }
 
+  // 펜딩 데이터 로드
+  loadPendingData();
+  console.log(`⏸️  펜딩 URL: ${pendingUrls.size}개`);
+
+  // 기존 이미지 캐시 빌드 (한 번만 실행)
+  existingImagesCache = buildExistingImagesCache();
+  console.log(`💾 캐시된 이미지: ${existingImagesCache.size}개`);
+
   // 날짜 형식 JSON만 처리 (2026-01-27.json)
   const files = fs.readdirSync(REPORTS_DIR)
     .filter(f => f.match(/^\d{4}-\d{2}-\d{2}\.json$/));
 
   console.log(`📁 데일리 리포트: ${files.length}개\n`);
 
-  let totalDownloaded = 0, totalSkipped = 0, totalErrors = 0;
+  let totalDownloaded = 0, totalSkipped = 0, totalErrors = 0, totalPendingSkipped = 0;
 
   for (const file of files) {
     const jsonPath = path.join(REPORTS_DIR, file);
@@ -220,15 +249,20 @@ async function main() {
     totalDownloaded += result.downloaded;
     totalSkipped += result.skipped;
     totalErrors += result.errors;
+    totalPendingSkipped += result.pendingSkipped || 0;
 
     if (result.downloaded > 0) {
       console.log(`  ✅ ${date}: ${result.downloaded}개 다운로드`);
     }
   }
 
+  // 펜딩 데이터 저장
+  savePendingData();
+
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`✅ 다운로드: ${totalDownloaded}개`);
   console.log(`⏭️  스킵: ${totalSkipped}개`);
+  console.log(`⏸️  펜딩: ${pendingUrls.size}개`);
   if (totalErrors > 0) {
     console.log(`❌ 오류: ${totalErrors}개`);
   }

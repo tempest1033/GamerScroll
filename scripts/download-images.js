@@ -35,6 +35,72 @@ const DATA_DIRS = {
   ranking: path.join(__dirname, '..', 'reports', 'ranking')
 };
 const IMAGES_BASE = path.join(__dirname, '..', 'docs', 'assets', 'images');
+const PENDING_FILE = path.join(__dirname, '..', 'data', 'pending-images.json');
+
+// 기존 이미지 파일 캐시 (fs.existsSync 반복 호출 방지)
+let existingImagesCache = null;
+
+// 펜딩 URL 캐시
+let pendingData = { pending: [] };
+let pendingUrls = new Set();
+
+function loadPendingData() {
+  try {
+    if (fs.existsSync(PENDING_FILE)) {
+      const content = fs.readFileSync(PENDING_FILE, 'utf-8').replace(/^\uFEFF/, '');
+      pendingData = JSON.parse(content);
+      pendingUrls = new Set(pendingData.pending.map(p => p.url));
+    }
+  } catch (e) {
+    console.log('⚠️ pending-images.json 로드 실패');
+    pendingData = { pending: [] };
+    pendingUrls = new Set();
+  }
+}
+
+function savePendingData() {
+  const json = JSON.stringify(pendingData, null, 2);
+  fs.writeFileSync(PENDING_FILE, json, 'utf-8');
+}
+
+function isPending(url) {
+  return pendingUrls.has(url);
+}
+
+function addToPending(url, slug, type, error) {
+  if (pendingUrls.has(url)) return;
+  pendingData.pending.push({
+    url,
+    slug,
+    type,
+    failedAt: new Date().toISOString(),
+    error: error || 'unknown'
+  });
+  pendingUrls.add(url);
+}
+
+function buildExistingImagesCache(baseDir) {
+  const cache = new Set();
+  function scanDir(dir) {
+    if (!fs.existsSync(dir)) return;
+    const entries = fs.readdirSync(dir);
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory()) {
+        scanDir(fullPath);
+      } else {
+        cache.add(fullPath);
+      }
+    }
+  }
+  scanDir(baseDir);
+  return cache;
+}
+
+function imageExists(localPath) {
+  return existingImagesCache.has(localPath);
+}
 
 // CLI 인자 파싱
 const args = process.argv.slice(2);
@@ -77,7 +143,7 @@ function downloadToBuffer(url) {
     });
 
     request.on('error', reject);
-    request.setTimeout(30000, () => {
+    request.setTimeout(5000, () => {
       request.destroy();
       reject(new Error(`Timeout: ${url}`));
     });
@@ -190,6 +256,34 @@ async function processArticle(jsonPath, category, imagesDir) {
   let downloaded = 0;
   let skipped = 0;
   let errors = 0;
+  let pendingSkipped = 0;
+
+  // 공통 다운로드 함수
+  async function tryDownload(url, localPath, saveFn, label) {
+    // 이미 다운로드됨
+    if (imageExists(localPath)) {
+      skipped++;
+      return 'skipped';
+    }
+    // 펜딩에 있으면 스킵
+    if (isPending(url)) {
+      pendingSkipped++;
+      return 'pending';
+    }
+    // 다운로드 시도
+    try {
+      const buffer = await downloadToBuffer(url);
+      await saveFn(buffer, localPath);
+      console.log(`    ✅ ${label}`);
+      downloaded++;
+      return 'downloaded';
+    } catch (err) {
+      console.log(`    ❌ ${label}: ${err.message}`);
+      addToPending(url, slug, label, err.message);
+      errors++;
+      return 'error';
+    }
+  }
 
   // 1. 썸네일 처리 (세 가지 크기)
   if (article.thumbnail && isExternalUrl(article.thumbnail)) {
@@ -197,50 +291,9 @@ async function processArticle(jsonPath, category, imagesDir) {
     const localPathSm = path.join(imageDir, `thumbnail-sm${ext}`);
     const localPathXs = path.join(imageDir, `thumbnail-xs${ext}`);
 
-    // 큰 썸네일 (상세 페이지용)
-    if (fs.existsSync(localPath)) {
-      skipped++;
-    } else {
-      try {
-        const buffer = await downloadToBuffer(article.thumbnail);
-        await saveAsWebP(buffer, localPath);
-        console.log(`    ✅ thumbnail${ext}`);
-        downloaded++;
-      } catch (err) {
-        console.log(`    ❌ thumbnail: ${err.message}`);
-        errors++;
-      }
-    }
-
-    // PC 리스트용 썸네일 (480px)
-    if (fs.existsSync(localPathSm)) {
-      skipped++;
-    } else {
-      try {
-        const buffer = await downloadToBuffer(article.thumbnail);
-        await saveAsWebPSmall(buffer, localPathSm);
-        console.log(`    ✅ thumbnail-sm${ext}`);
-        downloaded++;
-      } catch (err) {
-        console.log(`    ❌ thumbnail-sm: ${err.message}`);
-        errors++;
-      }
-    }
-
-    // 모바일 리스트용 썸네일 (200px)
-    if (fs.existsSync(localPathXs)) {
-      skipped++;
-    } else {
-      try {
-        const buffer = await downloadToBuffer(article.thumbnail);
-        await saveAsWebPXSmall(buffer, localPathXs);
-        console.log(`    ✅ thumbnail-xs${ext}`);
-        downloaded++;
-      } catch (err) {
-        console.log(`    ❌ thumbnail-xs: ${err.message}`);
-        errors++;
-      }
-    }
+    await tryDownload(article.thumbnail, localPath, saveAsWebP, `thumbnail${ext}`);
+    await tryDownload(article.thumbnail, localPathSm, saveAsWebPSmall, `thumbnail-sm${ext}`);
+    await tryDownload(article.thumbnail, localPathXs, saveAsWebPXSmall, `thumbnail-xs${ext}`);
   }
 
   // 2. content 이미지 처리
@@ -252,26 +305,14 @@ async function processArticle(jsonPath, category, imagesDir) {
         const filename = String(imageIndex).padStart(2, '0') + ext;
         const localPath = path.join(imageDir, filename);
 
-        if (fs.existsSync(localPath)) {
-          skipped++;
-        } else {
-          try {
-            const buffer = await downloadToBuffer(block.src);
-            await saveAsWebP(buffer, localPath);
-            console.log(`  ✅ ${filename}`);
-            downloaded++;
-          } catch (err) {
-            console.log(`  ❌ ${filename}: ${err.message}`);
-            errors++;
-          }
-        }
+        await tryDownload(block.src, localPath, saveAsWebP, filename);
 
         imageIndex++;
       }
     }
   }
 
-  return { downloaded, skipped, errors };
+  return { downloaded, skipped, errors, pendingSkipped };
 }
 
 /**
@@ -397,10 +438,19 @@ async function main() {
   console.log('🖼️  이미지 다운로드' + (sharp ? ' + WebP 변환' : ''));
   console.log(`   대상: ${targetTypes.join(', ')}\n`);
 
+  // 펜딩 데이터 로드
+  loadPendingData();
+  console.log(`⏸️  펜딩 URL: ${pendingUrls.size}개`);
+
+  // 기존 이미지 캐시 빌드 (한 번만 실행)
+  existingImagesCache = buildExistingImagesCache(IMAGES_BASE);
+  console.log(`💾 캐시된 이미지: ${existingImagesCache.size}개\n`);
+
   let grandDownloaded = 0;
   let grandSkipped = 0;
   let grandErrors = 0;
   let grandDrafts = 0;
+  let grandPendingSkipped = 0;
 
   for (const type of targetTypes) {
     const emojis = { wiki: '📚', tech: '🔧', issue: '📰', insight: '💡', hotpick: '🔥', ranking: '🏆' };
@@ -412,11 +462,16 @@ async function main() {
     grandSkipped += result.skipped;
     grandErrors += result.errors;
     grandDrafts += result.drafts;
+    grandPendingSkipped += result.pendingSkipped || 0;
   }
+
+  // 펜딩 데이터 저장
+  savePendingData();
 
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`✅ 다운로드: ${grandDownloaded}개`);
   console.log(`⏭️  스킵: ${grandSkipped}개`);
+  console.log(`⏸️  펜딩: ${pendingUrls.size}개`);
   if (grandDrafts > 0) {
     console.log(`📝 Draft: ${grandDrafts}개`);
   }

@@ -1,0 +1,116 @@
+{
+  "pending": [
+    {
+      "url": "https://mabinogimobile.nexon.com/img/common/og.jpg",
+      "date": "2025-12-20",
+      "type": "ai.issues",
+      "failedAt": "2026-01-29T13:55:22.848Z",
+      "error": "Timeout"
+    },
+    {
+      "url": "https://www.freeiconspng.com/uploads/arrow-down-icon-png-22.png",
+      "date": "2025-12-20",
+      "type": "ai.industryIssues",
+      "failedAt": "2026-01-29T13:55:27.656Z",
+      "error": "Timeout"
+    },
+    {
+      "url": "https://www.freeiconspng.com/thumbs/gavel-icon/gavel-icon-1.png",
+      "date": "2026-01-01",
+      "type": "ai.issues",
+      "failedAt": "2026-01-29T13:55:33.224Z",
+      "error": "Timeout"
+    },
+    {
+      "url": "https://static.inven.co.kr/column/2026/01/05/news/thumb/s1155398617.jpg",
+      "date": "2026-01-06",
+      "type": "ai.issues",
+      "failedAt": "2026-01-29T13:55:38.262Z",
+      "error": "Timeout"
+    },
+    {
+      "url": "https://img3.yna.co.kr/etc/inner/KR/2026/01/07/AKR20260107093000017_02_i_P4.jpg",
+      "date": "2026-01-08",
+      "type": "ai.industryIssues",
+      "failedAt": "2026-01-29T13:55:43.317Z",
+      "error": "Timeout"
+    },
+    {
+      "url": "https://img2.quasarzone.com/editor/2026/01/15/38d51d8793cd4f197d569fa4316510e3.png",
+      "date": "2026-01-28",
+      "type": "ai.issues",
+      "failedAt": "2026-01-29T13:55:43.951Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://asiaexchange.org/wp-content/uploads/2020/04/Korea-The-e-Sports-Capital-of-the-World-1.jpg",
+      "slug": "korean-esports-history",
+      "type": "11.webp",
+      "failedAt": "2026-01-29T13:57:38.921Z",
+      "error": "Timeout: https://asiaexchange.org/wp-content/uploads/2020/04/Korea-The-e-Sports-Capital-of-the-World-1.jpg"
+    },
+    {
+      "url": "https://firebase.google.com/images/social.png",
+      "slug": "firebase-serverless-game-backend",
+      "type": "thumbnail.webp",
+      "failedAt": "2026-01-29T13:57:39.305Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://firebase.google.com/static/images/brand-guidelines/logo-vertical.png",
+      "slug": "firebase-serverless-game-backend",
+      "type": "01.webp",
+      "failedAt": "2026-01-29T13:57:39.603Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://firebase.google.com/static/images/games/FirebaseGames_Spot1_1x.png",
+      "slug": "firebase-serverless-game-backend",
+      "type": "02.webp",
+      "failedAt": "2026-01-29T13:57:39.915Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://firebase.google.com/static/images/games/FirebaseGames_Spot3_1x.png",
+      "slug": "firebase-serverless-game-backend",
+      "type": "03.webp",
+      "failedAt": "2026-01-29T13:57:40.236Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://miro.medium.com/v2/resize:fit:1400/1*Jf0GQjhkxwnBL3QEAw-R4Q.png",
+      "slug": "firebase-serverless-game-backend",
+      "type": "04.webp",
+      "failedAt": "2026-01-29T13:57:40.759Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://www.gstatic.com/mobilesdk/240501_mobilesdk/pricing_bg.png",
+      "slug": "firebase-serverless-game-backend",
+      "type": "05.webp",
+      "failedAt": "2026-01-29T13:57:41.019Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://firebase.google.com/static/images/games/FirebaseGames_Spot2_1x.png",
+      "slug": "firebase-serverless-game-backend",
+      "type": "06.webp",
+      "failedAt": "2026-01-29T13:57:41.338Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://firebase.google.com/static/images/games/FirebaseGames_Support_1x.png",
+      "slug": "firebase-serverless-game-backend",
+      "type": "07.webp",
+      "failedAt": "2026-01-29T13:57:41.599Z",
+      "error": "unknown"
+    },
+    {
+      "url": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws",
+      "slug": "vibe-coding",
+      "type": "thumbnail-sm.webp",
+      "failedAt": "2026-01-29T13:57:42.128Z",
+      "error": "unknown"
+    }
+  ]
+}

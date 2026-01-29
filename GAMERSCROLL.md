@@ -1122,6 +1122,55 @@ node scripts/preview.js --list tech             # 목록
 
 ---
 
+## 이미지 펜딩 큐
+
+### 개요
+- 이미지 다운로드 실패 시 펜딩 큐에 추가
+- 다음 실행부터 펜딩에 있는 URL은 스킵 (시간 절약)
+- 나중에 수동으로 확인 후 처리
+
+### 데이터 구조
+- 저장 경로: `data/pending-images.json`
+
+```json
+{
+  "pending": [
+    {
+      "url": "https://example.com/image.jpg",
+      "date": "2025-12-22",
+      "type": "ai.issues",
+      "failedAt": "2026-01-29T12:00:00.000Z",
+      "error": "timeout"
+    }
+  ]
+}
+```
+
+### 데이터 흐름
+
+```
+이미지 다운로드 실패 → pending-images.json에 추가
+              ↓
+         다음 실행 시 → pending에 있으면 스킵
+              ↓
+         수동 확인 (URL 살아났는지, 대체 이미지 등)
+              ↓
+         해결되면 → pending에서 제거
+```
+
+### 수동 처리 방법
+| 상황 | 작업 |
+|------|------|
+| URL 살아남 | pending에서 제거 후 재실행 |
+| URL 죽음 | 해당 날짜 JSON에서 썸네일 제거 또는 대체 |
+| 오래된 날짜 | 해당 날짜 리포트 자체 삭제 |
+
+### 관련 스크립트
+- `scripts/download-daily-images.js` - 데일리 이미지 다운로드
+- `scripts/download-images.js` - 위키/테크/이슈 이미지 다운로드
+
+---
+
 ## 주의사항
 
 1. **워크플로우 타이밍**: build(30분)이 ai-insight(12시간) 이후에 실행되어야 게임주 현황 표시됨
