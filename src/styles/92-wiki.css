@@ -135,14 +135,16 @@
   color: var(--text-secondary);
 }
 
-/* 다크모드 강제 */
-.wiki-feed-card {
-  background: var(--card-bg);
-  border-color: var(--border);
-}
+/* 다크모드 */
+@media (prefers-color-scheme: dark) {
+  .wiki-feed-card {
+    background: var(--card-bg);
+    border-color: var(--border);
+  }
 
-.wiki-feed-card-tag {
-  background: rgba(0, 0, 0, 0.65);
+  .wiki-feed-card-tag {
+    background: rgba(0, 0, 0, 0.65);
+  }
 }
 
 /* 모바일 반응형 */

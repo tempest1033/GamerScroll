@@ -266,6 +266,12 @@
   color: var(--text);
 }
 
+@media (prefers-color-scheme: dark) {
+  .game-rank-country-name {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
 .game-rank-country-value {
   font-size: var(--font-section-size);
   font-weight: 600;

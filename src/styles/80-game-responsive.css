@@ -186,9 +186,14 @@
     border-radius: 1px !important;
   }
 
-  /* 다크모드 강제 - 폰트 흰색 */
-  .nav-item.active {
-    color: #fff !important;
+  /* 다크모드 - 폰트 흰색 */
+  @media (prefers-color-scheme: dark) {
+    .nav-item.active {
+      color: #fff !important;
+    }
+    .nav-item.active::after {
+      background: #f97316 !important;
+    }
   }
 
   /* 검색창 내부 홈 아이콘 표시 */

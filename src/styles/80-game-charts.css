@@ -61,12 +61,14 @@
   border-color: var(--primary);
 }
 
-/* 다크모드 강제 - 탭 버튼 */
-#game .page-container .tab-btn {
-  color: rgba(255, 255, 255, 0.85);
-}
-#game .page-container .tab-btn:hover {
-  color: #fff;
+/* 다크모드 - 탭 버튼 */
+@media (prefers-color-scheme: dark) {
+  #game .page-container .tab-btn {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  #game .page-container .tab-btn:hover {
+    color: #fff;
+  }
 }
 
 .trend-legend-row {
@@ -203,12 +205,15 @@
   fill: rgba(255, 255, 255, 0.7);
 }
 
-/* 다크모드 강제 - 차트 스타일 */
-.chart-grid {
-  stroke: rgba(255, 255, 255, 0.1);
-}
-.chart-ylabel {
-  fill: rgba(255, 255, 255, 0.7);
+/* 다크모드 - 차트 스타일 */
+@media (prefers-color-scheme: dark) {
+  .chart-grid {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+  .chart-ylabel,
+  .chart-xlabel {
+    fill: rgba(255, 255, 255, 0.7);
+  }
 }
 
 /* 게임 empty 상태 */

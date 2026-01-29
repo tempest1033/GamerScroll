@@ -107,10 +107,11 @@
   border-radius: 6px;
 }
 
-/* 다크모드 강제 */
-.blog-tag {
-  background: rgba(249, 115, 22, 0.15);
-  color: #fb923c;
+@media (prefers-color-scheme: dark) {
+  .blog-tag {
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+  }
 }
 
 /* 본문 섹션 - 카드 내부 */
@@ -235,10 +236,11 @@
   font-style: italic;
 }
 
-/* 다크모드 강제 */
-.blog-quote {
-  background: rgba(249, 115, 22, 0.08);
-  border-left-color: #f97316;
+@media (prefers-color-scheme: dark) {
+  .blog-quote {
+    background: rgba(249, 115, 22, 0.08);
+    border-left-color: #f97316;
+  }
 }
 
 /* 링크 그리드 (2열 레이아웃) */

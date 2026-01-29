@@ -1086,7 +1086,7 @@ function wrapWithLayout(content, options = {}) {
   </script>` : '';
 
   return `<!DOCTYPE html>
-<html lang="ko" style="background:#121212">
+<html lang="ko">
 <head>
   ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages, cssFilename })}
 </head>
