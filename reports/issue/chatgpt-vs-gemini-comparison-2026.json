@@ -268,5 +268,6 @@
     }
   ],
   "relatedGames": [],
-  "relatedIssues": ["game-ai-paradigm-shift-2026", "ai-basic-act-game-industry-confusion", "game-ai-controversy-award-revoked"]
+  "relatedIssues": ["game-ai-paradigm-shift-2026", "ai-basic-act-game-industry-confusion", "game-ai-controversy-award-revoked"],
+  "relatedArticles": ["claude-code-vs-codex-coding-agent"]
 }
