@@ -1468,6 +1468,8 @@ if (!fs.existsSync(outputDir)) {
 
 // ★ 스킵 체크를 파일 로드 전에 수행 (성능 최적화)
 const incrementalCache = buildCache.loadCache();
+// CSS 파일 경로 (변경 시 재빌드 트리거)
+const cssFilePath = cssFiles.length > 0 ? path.join(__dirname, '..', docsDir, cssFiles[0]) : null;
 const inputSignature = buildCache.getInputFilesSignature([
   gamesPath,
   historyDir,
@@ -1476,8 +1478,9 @@ const inputSignature = buildCache.getInputFilesSignature([
   wikiDir,
   issueDir,
   hotpickDir,
-  insightDir
-]);
+  insightDir,
+  cssFilePath
+].filter(Boolean));
 
 const searchIndexPath = path.join(outputDir, 'search-index.json');
 if (!buildCache.checkInputFilesChanged(incrementalCache, 'gamePages', inputSignature)) {

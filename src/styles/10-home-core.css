@@ -440,7 +440,7 @@
       color: var(--text);
       margin: 0;
       padding: 16px;
-	      background: #ffffff;
+	      background: var(--card);
 	      border: 1px solid var(--border);
 	      border-radius: var(--radius);
 	    }
@@ -459,7 +459,7 @@
 
 		    .home-trend-card {
 	      display: block;
-		      background: #ffffff;
+		      background: var(--card);
 		      border: 1px solid var(--border);
 		      border-radius: var(--radius);
 		      text-decoration: none;
