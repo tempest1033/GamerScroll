@@ -59,7 +59,7 @@
   left: 10px;
   padding: 4px 10px;
   font-size: var(--font-small-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   color: rgba(255, 255, 255, 0.95);
   background: rgba(0, 0, 0, 0.55);
   border-radius: 4px;
@@ -104,7 +104,7 @@
   background: var(--card-bg);
   color: var(--text);
   font-size: var(--font-title-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   cursor: pointer;
   transition: all 0.15s ease;
   display: flex;

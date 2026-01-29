@@ -77,12 +77,36 @@ function saveCache(cache) {
 }
 
 /**
+ * src/styles 폴더의 CSS 파일들 해시 계산
+ */
+function computeSourceCssHash() {
+  const stylesDir = './src/styles';
+  if (!fs.existsSync(stylesDir)) return null;
+
+  const files = fs.readdirSync(stylesDir).filter(f => f.endsWith('.css')).sort();
+  const hashes = [];
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(stylesDir, file), 'utf8');
+    hashes.push(`${file}:${computeHash(content)}`);
+  }
+  return computeHash(hashes.join('|'));
+}
+
+/**
  * CSS 해시 변경 여부 확인
  * @returns {boolean} true면 전체 재빌드 필요
  */
 function checkCssChanged(cache, currentCssHash) {
+  // src/styles 원본 파일 기준 해시 비교 (번들 해시와 별도)
+  const sourceCssHash = computeSourceCssHash();
+  if (cache.meta.sourceCssHash !== sourceCssHash) {
+    console.log(`  🎨 CSS 소스 변경 감지 (${cache.meta.sourceCssHash?.slice(0,6) || 'null'} → ${sourceCssHash?.slice(0,6)})`);
+    cache.meta.sourceCssHash = sourceCssHash;
+    return true;
+  }
+  // 번들 해시도 체크 (호환성)
   if (cache.meta.cssHash !== currentCssHash) {
-    console.log(`  🎨 CSS 변경 감지 (${cache.meta.cssHash?.slice(0,6) || 'null'} → ${currentCssHash.slice(0,6)})`);
+    console.log(`  🎨 CSS 번들 변경 감지 (${cache.meta.cssHash?.slice(0,6) || 'null'} → ${currentCssHash.slice(0,6)})`);
     return true;
   }
   return false;

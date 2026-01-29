@@ -166,7 +166,7 @@
   .nav-item.active {
     color: var(--nav-active-color, #1e293b) !important;
     background: transparent !important;
-    font-weight: 700 !important;
+    font-weight: var(--font-nav-weight) !important;
     border-bottom: none !important;
     border-radius: 0 !important;
     position: relative !important;

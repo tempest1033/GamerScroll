@@ -112,7 +112,7 @@
 }
 
 .weekly-stock-price {
-  font-size: var(--font-small-size);
+  font-size: var(--font-caption-size);
   color: var(--text-secondary);
 }
 
@@ -123,6 +123,9 @@
   font-weight: var(--font-badge-weight);
   flex-shrink: 0;
   color: var(--text);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--bg-tertiary);
 }
 
 .weekly-stock-arrow {
@@ -134,16 +137,18 @@
 }
 
 .weekly-stock-change.up {
+  background: rgba(74, 222, 128, 0.15);
   color: #4ade80 !important;
 }
 
 .weekly-stock-change.down {
+  background: rgba(248, 113, 113, 0.15);
   color: #f87171 !important;
 }
 
 .weekly-stock-comment {
   padding: 8px 14px 12px;
-  font-size: var(--font-small-size);
+  font-size: var(--font-caption-size);
   line-height: 1.5;
   color: var(--text-secondary);
   display: -webkit-box;

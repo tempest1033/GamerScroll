@@ -17,7 +17,7 @@
 
 .game-rank-section-title {
   font-size: var(--font-desc-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
 }
 
@@ -39,6 +39,6 @@
 
 .game-steam-stat-value {
   font-size: var(--font-section-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
 }

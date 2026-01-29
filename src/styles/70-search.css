@@ -156,7 +156,7 @@
 
 .search-recent-title {
   font-size: var(--font-small-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -220,7 +220,7 @@
 
 .search-result-title {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
@@ -448,7 +448,7 @@
 
 .search-section-title {
   font-size: var(--font-section-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
   color: var(--text);
   margin: 0 0 12px 0;
 }
@@ -500,7 +500,7 @@
   text-decoration: none;
   color: var(--text);
   font-size: var(--font-desc-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
 }
 
 .search-recent-delete {
@@ -560,7 +560,7 @@
 
 .search-result-name {
   font-size: var(--font-body-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
@@ -580,7 +580,7 @@
 
 .search-result-platform {
   font-size: var(--font-small-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text-muted);
   background: var(--hover-bg);
   padding: 4px 8px;

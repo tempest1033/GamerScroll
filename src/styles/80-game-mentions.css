@@ -38,7 +38,7 @@
   color: #fff;
   cursor: pointer;
   font-size: var(--font-title-size);
-  font-weight: 700;
+  font-weight: var(--font-card-title-weight);
 }
 
 .gm-page-btn:hover:not(:disabled) {
@@ -53,7 +53,7 @@
 
 .gm-page-index {
   font-size: var(--font-body-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: rgba(255, 255, 255, 0.8);
   min-width: 48px;
   text-align: center;
@@ -115,7 +115,7 @@
 .gm-item-type {
   padding: 3px 8px;
   font-size: var(--font-badge-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   border-radius: 4px;
   background: var(--bg-secondary);
   color: var(--text-secondary);
@@ -166,7 +166,7 @@ a.gm-item {
 
 .gm-rank-badge {
   font-size: var(--font-meta-size);
-  font-weight: 500;
+  font-weight: var(--font-tab-weight);
   color: var(--text-secondary);
 }
 
@@ -181,7 +181,7 @@ a.gm-item {
 
 .gm-item-title {
   font-size: var(--font-body-size);
-  font-weight: 600;
+  font-weight: var(--font-title-weight);
   color: var(--text);
   margin-bottom: 6px;
   line-height: 1.4;

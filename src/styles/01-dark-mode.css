@@ -25,9 +25,9 @@
     --border-subtle: #262626; /* Neutral 800 */
 
     /* Text - WCAG AA 준수 */
-    --text: #f0f0f0; /* 대비 높임 */
-    --text-primary: #ffffff; /* 다크모드 - 순백색 */
-    --text-secondary: rgba(255, 255, 255, 0.9); /* 본문 설명 - 더 밝게 */
+    --text: rgba(255, 255, 255, 0.87); /* High-emphasis (MD3) */
+    --text-primary: rgba(255, 255, 255, 0.87); /* High-emphasis */
+    --text-secondary: rgba(255, 255, 255, 0.6); /* Medium-emphasis (MD3) */
     --text-muted: #888888; /* 대비 높임 */
     --text-tertiary: #9ca3af; /* 보조 텍스트 - WCAG AA 준수 (대비 7.4:1) */
 

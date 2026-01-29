@@ -43,7 +43,7 @@
 }
 
 .stock-date {
-  font-size: var(--font-small-size);
+  font-size: var(--font-caption-size);
   color: var(--text-tertiary);
 }
 

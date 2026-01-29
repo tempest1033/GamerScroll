@@ -232,7 +232,7 @@
       background: var(--card-bg);
       color: var(--text-muted);
       font-size: var(--font-small-size);
-      font-weight: 600;
+      font-weight: var(--font-title-weight);
       cursor: pointer;
       transition: all var(--transition-fast);
     }

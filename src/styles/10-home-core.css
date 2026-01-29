@@ -107,7 +107,7 @@
     }
     .sidebar-category-name {
       font-size: 15px;
-      font-weight: 600;
+      font-weight: var(--font-title-weight);
     }
 
     /* 사이드바 글 리스트 */
@@ -136,7 +136,7 @@
       flex-shrink: 0;
       width: 20px;
       font-size: var(--font-sm-size);
-      font-weight: 600;
+      font-weight: var(--font-title-weight);
       color: var(--text-muted);
       text-align: center;
     }
@@ -315,7 +315,7 @@
       height: auto;
       display: block;
       font-size: var(--font-sm-size);
-      font-weight: 600;
+      font-weight: var(--font-title-weight);
       line-height: 1.4;
       background: transparent;
       border-radius: 0;
@@ -330,7 +330,7 @@
 
     #sidebar-mobile-rank .home-rank-name {
       font-size: var(--font-sm-size, var(--font-rank-name-size));
-      font-weight: 400;
+      font-weight: var(--font-body-weight);
       line-height: 1.4;
     }
 
@@ -496,7 +496,7 @@
       left: 10px;
       padding: 4px 8px;
       font-size: var(--font-xs-size);
-      font-weight: 500;
+      font-weight: var(--font-tab-weight);
       color: rgba(255, 255, 255, 0.9);
       background: rgba(0, 0, 0, 0.5);
       border-radius: 4px;
@@ -588,7 +588,7 @@
       align-items: center;
       justify-content: center;
       font-size: var(--font-body-size);
-      font-weight: 700;
+      font-weight: var(--font-title-weight);
       color: var(--text-muted);
       background: var(--bg-secondary);
       border-radius: 6px;
@@ -618,7 +618,7 @@
       background: rgba(0, 0, 0, 0.5);
       border-radius: 4px;
       font-size: var(--font-xs-size);
-      font-weight: 500;
+      font-weight: var(--font-tab-weight);
       color: rgba(255, 255, 255, 0.9);
     }
 
@@ -778,7 +778,7 @@
       background: rgba(0, 0, 0, 0.6);
       border-radius: 4px;
       font-size: var(--font-xs-size);
-      font-weight: 500;
+      font-weight: var(--font-tab-weight);
       color: rgba(255, 255, 255, 0.95);
     }
 
@@ -1204,7 +1204,7 @@
       left: 10px;
       padding: 4px 8px;
       font-size: var(--font-small-size);
-      font-weight: 600;
+      font-weight: var(--font-badge-weight);
       color: #fff;
       background: rgba(0, 0, 0, 0.6);
       border-radius: 4px;
@@ -1276,7 +1276,7 @@
       left: 6px;
       padding: 2px 5px;
       font-size: var(--font-micro-size);
-      font-weight: 600;
+      font-weight: var(--font-badge-weight);
       color: #fff;
       background: rgba(0, 0, 0, 0.6);
       border-radius: 3px;

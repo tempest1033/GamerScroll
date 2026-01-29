@@ -31,7 +31,7 @@
 /* 섹션 타이틀 스타일 (주간과 동일) */
 .insight-card .home-card-title {
   font-size: var(--font-title-size);
-  font-weight: var(--font-title-weight);
+  font-weight: var(--font-card-title-weight);
   letter-spacing: -0.01em;
   line-height: 1.5;
 }

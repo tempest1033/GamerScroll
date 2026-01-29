@@ -93,27 +93,28 @@
 
 	      /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
 	      --font-title-size: 20px;
-	      --font-title-weight: 600;
-	      --font-card-title-weight: 700;
-	      --font-item-weight: 600;
+	      --font-title-weight: 500;
+	      --font-card-title-weight: 600;
+	      --font-item-weight: 500;
+	      --font-logo-weight: 800;
 	      --font-body-size: 17px;
 	      --font-desc-size: 16px;
-	      --font-body-weight: 500;
+	      --font-body-weight: 400;
 	      --font-desc-weight: 400;
 	      --font-body-line-height: 1.7;
 
       /* === Typography - UI 요소 (탭, 배지, 네비 등) === */
 	      --font-tab-size: 14px;
-	      --font-tab-weight: 700;
+	      --font-tab-weight: 500;
 	      --font-badge-size: 11px;
-	      --font-badge-weight: 700;
+	      --font-badge-weight: 500;
 	      --font-small-size: 11px;
 	      --font-nav-size: 15px;
-	      --font-nav-weight: 700;
+	      --font-nav-weight: 500;
 
       /* === Typography - 순위 테이블 (스팀, 모바일 등) === */
       --font-rank-name-size: 14px;
-      --font-rank-name-weight: 700; /* bold - 가독성 강화 */
+      --font-rank-name-weight: 600; /* semi-bold - 가독성 강화 */
       --font-rank-name-color: var(--text);
       --font-rank-dev-size: 12px;
       --font-rank-dev-weight: 500;
@@ -127,10 +128,11 @@
       /* 소형 (10-11px) - 배지 내부, 순위 숫자, 보조 정보 */
       --font-xs-size: 10px;
       --font-meta-size: 12px;
+      --font-caption-size: 14px;
 
       /* === Typography - 소스 태그 (언론사, 채널명 등) === */
       --font-source-size: var(--font-small-size);
-      --font-source-weight: 700;
+      --font-source-weight: 500;
       --font-source-color: var(--primary);
 
       /* 중형 (16px) - 섹션 제목 */
