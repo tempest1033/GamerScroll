@@ -189,9 +189,11 @@
 .blog-image {
   width: 100%;
   height: auto;
+  aspect-ratio: 16/9;  /* CLS 방지용 공간 예약 */
   max-height: 650px;
   object-fit: contain;
   display: block;
+  background: var(--bg-secondary);  /* 로딩 중 placeholder */
 }
 
 .blog-caption {
