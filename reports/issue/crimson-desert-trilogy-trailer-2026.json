@@ -6,8 +6,9 @@
   "keywords": "붉은사막, Crimson Desert, 펄어비스, Pearl Abyss, 붉은사막 출시일, 2026년 3월, 붉은사막 오픈월드, 붉은사막 트레일러, 클리프, 회색갈기, 검은사막, 게임스컴 2024, PS5, Xbox, Steam",
   "summary": "펄어비스가 붉은사막 3부작 트레일러 시리즈를 시작했다. 2019년 첫 공개 이후 7년, 수차례 연기 끝에 드디어 출시가 두 달 앞으로 다가왔다.",
   "thumbnail": "https://assets-prd.ignimgs.com/2026/01/29/3-3840-bi-1769699732446.jpg",
-  "relatedIssues": [],
-  "relatedGames": [],
+  "relatedIssues": ["seven-deadly-sins-origin-delay-2026"],
+  "relatedWiki": ["business/korean-game-stocks-2025"],
+  "relatedGames": ["검은사막-모바일"],
   "sources": [
     { "name": "YouTube", "title": "Features Overview #1: Kliff and the Open World of Pywel", "url": "https://www.youtube.com/watch?v=MfZCV8EySac" },
     { "name": "IGN", "title": "Crimson Desert Gets 15-Minute Video Showing Off Open World and New Gameplay", "url": "https://www.ign.com/articles/crimson-desert-gets-15-minute-video-showing-off-open-world-and-new-gameplay" },
