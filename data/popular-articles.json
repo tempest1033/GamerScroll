@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-01-28T17:05:03.935Z",
+  "updatedAt": "2026-01-29T04:36:27.803Z",
   "period": "7days",
   "articles": [
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
-      "views": 110,
+      "views": 126,
       "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
@@ -18,14 +18,44 @@
       "type": "tech",
       "slug": "moltbot-clawdbot-ai-assistant",
       "category": "ai",
-      "views": 35,
+      "views": 42,
       "path": "/tech/ai/moltbot-clawdbot-ai-assistant/"
+    },
+    {
+      "type": "issue",
+      "slug": "gpt-5-3-garlic-update-rumor",
+      "views": 29,
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+    },
+    {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 21,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
-      "views": 16,
+      "views": 18,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 15,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 14,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "ranking",
+      "slug": "endfield-vs-dragonsword-new-year-2026",
+      "views": 14,
+      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
     },
     {
       "type": "issue",
@@ -34,16 +64,24 @@
       "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 11,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+      "type": "wiki",
+      "slug": "app-revenue-ranking-algorithm",
+      "category": "business",
+      "views": 12,
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
+      "type": "issue",
+      "slug": "lineage-classic-subscription-return",
       "views": 11,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/magazine/issue/lineage-classic-subscription-return/"
+    },
+    {
+      "type": "wiki",
+      "slug": "ragnarok-online-history",
+      "category": "history",
+      "views": 11,
+      "path": "/wiki/history/ragnarok-online-history/"
     },
     {
       "type": "issue",
@@ -52,35 +90,54 @@
       "path": "/magazine/issue/aion2-midterm-report-card/"
     },
     {
-      "type": "ranking",
-      "slug": "endfield-vs-dragonsword-new-year-2026",
-      "views": 10,
-      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-revenue-ranking-algorithm",
-      "category": "business",
-      "views": 9,
-      "path": "/wiki/business/app-revenue-ranking-algorithm/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-gaming-superpower-rise",
-      "views": 8,
-      "path": "/magazine/issue/china-gaming-superpower-rise/"
-    },
-    {
       "type": "issue",
       "slug": "chzzk-lck-naver-viewer-complaints",
-      "views": 8,
+      "views": 10,
       "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
     },
     {
       "type": "issue",
+      "slug": "maplestory-idle-full-refund",
+      "views": 10,
+      "path": "/magazine/issue/maplestory-idle-full-refund/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-regulations",
+      "category": "knowledge",
+      "views": 10,
+      "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "issue",
+      "slug": "china-gaming-superpower-rise",
+      "views": 9,
+      "path": "/magazine/issue/china-gaming-superpower-rise/"
+    },
+    {
+      "type": "issue",
       "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "lucky-defense-long-run-success",
+      "views": 8,
+      "path": "/magazine/issue/lucky-defense-long-run-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "seven-deadly-sins-origin-delay-2026",
+      "views": 8,
+      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
+    },
+    {
+      "type": "wiki",
+      "slug": "astonishia-story-sonnori",
+      "category": "history",
+      "views": 8,
+      "path": "/wiki/history/astonishia-story-sonnori/"
     },
     {
       "type": "wiki",
@@ -98,102 +155,41 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-subscription-return",
-      "views": 7,
-      "path": "/magazine/issue/lineage-classic-subscription-return/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
-      "category": "knowledge",
-      "views": 7,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "issue",
-      "slug": "seven-deadly-sins-origin-delay-2026",
-      "views": 6,
-      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 6,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
-      "type": "wiki",
-      "slug": "astonishia-story-sonnori",
-      "category": "history",
-      "views": 6,
-      "path": "/wiki/history/astonishia-story-sonnori/"
-    },
-    {
-      "type": "issue",
-      "slug": "2026-subculture-openworld-games",
-      "views": 5,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
-    },
-    {
-      "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
-      "views": 5,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
-    },
-    {
-      "type": "issue",
       "slug": "game-ai-paradigm-shift-2026",
-      "views": 5,
+      "views": 7,
       "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "korean-game-stocks-2025",
-      "category": "business",
-      "views": 5,
-      "path": "/wiki/business/korean-game-stocks-2025/"
     },
     {
       "type": "wiki",
       "slug": "top-gaming-companies-by-market-cap",
       "category": "business",
-      "views": 5,
+      "views": 7,
       "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chatgpt-desktop-app",
-      "category": "tech",
-      "views": 5,
-      "path": "/wiki/tech/chatgpt-desktop-app/"
-    },
-    {
-      "type": "wiki",
-      "slug": "version-control-system",
-      "category": "tech",
-      "views": 5,
-      "path": "/wiki/tech/version-control-system/"
-    },
-    {
-      "type": "wiki",
-      "slug": "vibe-coding",
-      "category": "tech",
-      "views": 5,
-      "path": "/wiki/tech/vibe-coding/"
+      "slug": "rts-genre-rise-and-fall",
+      "category": "history",
+      "views": 7,
+      "path": "/wiki/history/rts-genre-rise-and-fall/"
     },
     {
       "type": "hotpick",
       "slug": "switch-2-buying-guide-2026",
-      "views": 4,
+      "views": 6,
       "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
+      "views": 6,
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "clash-royale-10th-anniversary-success",
+      "views": 6,
+      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
     }
   ]
 }
