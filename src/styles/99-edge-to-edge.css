@@ -1,4 +1,12 @@
-﻿/* ===== 모바일 Edge-to-Edge 스타일 ===== */
+﻿/* ===== 인기 섹션 숨김 (홈/허브/테크) ===== */
+#home-popular,
+#magazine-popular,
+#wiki-popular,
+#tech-popular {
+  display: none !important;
+}
+
+/* ===== 모바일 Edge-to-Edge 스타일 ===== */
 @media (max-width: 768px) {
   :is(.site-container, .container) {
     padding-left: 0 !important;
@@ -85,6 +93,7 @@
   #magazine-issue > .home-card-header,
   #magazine-popular > .home-card-header,
   #tech-popular > .home-card-header,
+  #tech-all > .home-card-header,
   #daily-list > .home-card-header,
   #weekly-list > .home-card-header,
   #issue-list > .home-card-header,
