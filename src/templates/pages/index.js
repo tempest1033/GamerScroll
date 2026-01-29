@@ -345,6 +345,38 @@ function generateIndexPage(data) {
             badge: categoryNames[article.category] || article.category
           };
         }
+      } else if (article.type === 'ranking') {
+        const ranking = rankingReports.find(r => r.slug === article.slug);
+        if (ranking) {
+          const thumbData = getLocalReportThumbnailSrcset('ranking', ranking.slug, ranking.thumbnail);
+          return {
+            type: 'ranking',
+            title: ranking.title,
+            summary: ranking.summary || '',
+            thumbnail: thumbData.src,
+            srcset: thumbData.srcset,
+            sizes: thumbData.sizes,
+            link: `/magazine/ranking/${ranking.slug}/`,
+            badge: ranking.date ? formatDateKr(ranking.date) : '순위 분석'
+          };
+        }
+      } else if (article.type === 'tech' && article.category) {
+        const techCategoryNames = { normal: '테크', ai: 'AI', vibecoding: '바이브코딩' };
+        const techList = techData[article.category] || [];
+        const tech = techList.find(t => t.slug === article.slug);
+        if (tech) {
+          const thumbData = getLocalTechThumbSrcset(article.category, article.slug, tech.thumbnail);
+          return {
+            type: 'tech',
+            title: tech.title,
+            summary: tech.summary || '',
+            thumbnail: thumbData.src,
+            srcset: thumbData.srcset,
+            sizes: thumbData.sizes,
+            link: `/tech/${article.category}/${article.slug}/`,
+            badge: techCategoryNames[article.category] || article.category
+          };
+        }
       }
       return null;
     }).filter(Boolean).slice(0, 3);
