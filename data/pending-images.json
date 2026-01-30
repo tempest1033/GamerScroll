@@ -125,6 +125,13 @@
       "type": "03.webp",
       "failedAt": "2026-01-30T18:19:09.453Z",
       "error": "Timeout: https://image.ytn.co.kr/general/jpg/2023/1206/202312061335508453_t.jpg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1712002641085-8cc53984f228?w=800",
+      "slug": "moltbook-ai-social-network",
+      "type": "01.webp",
+      "failedAt": "2026-01-30T22:20:18.973Z",
+      "error": "HTTP 404: https://images.unsplash.com/photo-1712002641085-8cc53984f228?w=800"
     }
   ]
 }

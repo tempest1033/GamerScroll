@@ -1,6 +1,7 @@
 {
   "slug": "claude-sonnet-47-fennec-release-rumor",
   "status": "approved",
+  "category": "anthropic",
   "title": "클로드 소넷 4.7 \"페넥\" 출시 임박? 앤트로픽의 다음 수는",
   "date": "2026-01-30T18:00",
   "keywords": "클로드 소넷 4.7, Claude Sonnet 4.7, 페넥, Fennec, 앤트로픽, Anthropic, 다리오 아모데이, GPT 5.3, 제미나이 3.0, AI 경쟁, 클로드 코드, Claude Code, 오푸스 4.5, LLM, AI 코딩",
@@ -114,5 +115,78 @@
     "issue:gpt-5-3-garlic-update-rumor",
     "issue:chatgpt-vs-gemini-comparison-2026",
     "issue:game-ai-paradigm-shift-2026"
-  ]
+  ],
+  "titleEn": "Claude Sonnet 4.7 \"Fennec\" Release Imminent? Anthropic's Next Move",
+  "summaryEn": "Rumors are spreading that Anthropic's next-generation model Claude Sonnet 4.7 \"Fennec\" will surpass Opus 4.5 and even beat Gemini 3.0. A three-way showdown between OpenAI, Google, and Anthropic is expected in February.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "While OpenAI prepares GPT 5.3 \"Garlic,\" Anthropic is quietly making moves. Rumors about their next-generation model Claude Sonnet 4.7 are rapidly spreading. From the internal codename \"Fennec\" to a 10-minute exposure of an internal model and performance exceeding Gemini 3.0—here's a compilation of the clues revealed so far."
+    },
+    {
+      "type": "heading",
+      "value": "1. Internal Codename \"Fennec\""
+    },
+    {
+      "type": "text",
+      "value": "Interesting information surfaced on X (formerly Twitter). According to @chetaslua, known as an LLM pre-tester, multiple models are being tested internally at Anthropic, with \"Fennec\" being the core codename for the Sonnet update.\n\nWhat's notable is the rumor that this model demonstrates performance surpassing Opus 4.5. While Sonnet exceeding Opus has become a familiar pattern, this time the scale is different. @chetaslua expressed the opinion that parallel testing results show performance superior even to the upcoming official release of Gemini 3.0."
+    },
+    {
+      "type": "heading",
+      "value": "2. Internal Model Exposed for 10 Minutes"
+    },
+    {
+      "type": "image",
+      "src": "https://aimatters.co.kr/wp-content/uploads/2025/08/llm-.jpg",
+      "caption": "Mid-2025 LLM market share. Anthropic leads with 32%, while OpenAI dropped to 25%.",
+      "alt": "2025 LLM market share, Anthropic OpenAI Google comparison"
+    },
+    {
+      "type": "text",
+      "value": "In mid-January, an incident became a hot topic in the Reddit r/ClaudeAI community. An individual named Sam Pullara claimed that \"an Anthropic internal model was exposed externally for about 10 minutes.\"\n\nAccording to the post, this model was presumed to be Sonnet 4.7 and was briefly accessible via an API endpoint. There was no official confirmation and the authenticity remains unclear. However, after this incident, rumors of \"Sonnet 4.7 imminent\" began to spread in earnest. On YouTube, an analysis video titled \"Claude Sonnet 4.7 Leaked – Release Next Week?\" was uploaded, drawing attention."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Competitive Landscape with GPT 5.3"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/66d30e4e03308c30f799c1c9/679870e4b850d1c900c1c1f6_Claude-Vs-ChatGPT-scaled-p-800.jpg",
+      "caption": "Claude vs ChatGPT. Release cycles are accelerating as AI industry competition intensifies.",
+      "alt": "Claude vs ChatGPT comparison, Anthropic OpenAI competition"
+    },
+    {
+      "type": "text",
+      "value": "Another rumor emerged on Reddit r/Anthropic: the claim that \"Sonnet 4.7 development accelerated after GPT's release.\"\n\nAccording to the post, the release originally scheduled for the first half of 2026 was moved up to late January to early February. The analysis suggests that as OpenAI released GPT-5.1 in August 2025 and recently unveiled GPT-5.3, Anthropic is also feeling competitive pressure. Given the fierce competition in the AI industry, this is a plausible scenario."
+    },
+    {
+      "type": "heading",
+      "value": "4. February: Three Giants Clash Again"
+    },
+    {
+      "type": "text",
+      "value": "Compiling the rumors, it appears Anthropic is preparing a model with significant performance improvements. It seems likely to be released around the same time as GPT 5.3 \"Garlic\" or the official GA version of Gemini 3.0.\n\nThe possibility of OpenAI, Google, and Anthropic—all three companies—clashing once again in February looks extremely high. Intensifying competition is rapidly pulling forward release cycles. Particularly as Anthropic and OpenAI are discussing going public, both companies appear to be putting all their efforts into not falling behind in the competition."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Will 2026 Be the Year of Coding Agents?"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.aitimes.kr/news/photo/202501/33711_51293_5321.jpg",
+      "caption": "Anthropic CEO Dario Amodei at the Davos Forum. He predicted that \"100% of coding will be done by AI by the end of 2026.\"",
+      "alt": "Dario Amodei Davos Forum 2026, Anthropic CEO AI coding"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic CEO Dario Amodei recently made headlines at the Davos Forum by stating that \"software engineering will be automated within 6-12 months.\" He also predicted that \"100% of coding will be done by AI by the end of 2026.\"\n\nIn fact, Anthropic is already demonstrating this through action. Boris Cherny, who leads Claude Code development, revealed that \"100% of the code I currently write is written by AI.\" Similar statements have emerged from OpenAI as well. Compared to Google's Sundar Pichai saying \"25% of Google's coding is AI,\" Anthropic's level of AI utilization is already on a different dimension.\n\nThe key point to watch is whether 2026 can truly become the year of coding agents as they claim, and whether Fennec can be that starting point."
+    }
+  ],
+  "needTranslate": false
 }

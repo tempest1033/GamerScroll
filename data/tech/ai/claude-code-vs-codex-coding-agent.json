@@ -1,6 +1,7 @@
 {
   "slug": "claude-code-vs-codex-coding-agent",
   "status": "approved",
+  "category": "general",
   "title": "코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교",
   "date": "2026-01-29T18:00",
   "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png",
@@ -171,5 +172,141 @@
     "tech:vibecoding/vibe-coding",
     "tech:ai/chatgpt-desktop-app",
     "issue:chatgpt-vs-gemini-comparison-2026"
-  ]
+  ],
+  "titleEn": "Claude Code vs Codex: Comparing the Pros and Cons of Two Leading Coding Agents",
+  "summaryEn": "The two giants of the AI coding agent market: Claude Code and Codex. How do these coding tools, created by two companies from the same roots, differ? We compare the features, strengths, and weaknesses of industry leader Claude Code and the fast-pursuing Codex.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In February 2025, Anthropic unveiled **Claude Code** as a research preview, opening up the AI coding agent market. It introduced a new paradigm where developers could write code, modify files, and run tests from the terminal using natural language. As Claude Code gained explosive popularity among developers, OpenAI fired back with the launch of **Codex CLI** on **April 16, 2025**.\n\nCodex was clearly a latecomer, released in response to Claude Code's success. However, OpenAI has rapidly closed the gap, and as of 2026, the two tools have established themselves as the twin pillars of the AI coding agent market. Both are in fierce competition, with updates rolling out on a weekly basis."
+    },
+    {
+      "type": "heading",
+      "value": "Same Roots, Different Paths"
+    },
+    {
+      "type": "image",
+      "src": "https://miro.medium.com/v2/resize:fit:1400/0*RFJd7J3DgYZI1Wll.png",
+      "caption": "앤트로픽은 OpenAI 출신들이 설립한 회사다",
+      "alt": "앤트로픽 Anthropic 로고 Dario Amodei"
+    },
+    {
+      "type": "text",
+      "value": "What's interesting is that both companies share the same roots. Anthropic was founded in 2021 by 11 former OpenAI employees. CEO Dario Amodei was OpenAI's VP of Research who led the development of GPT-2 and GPT-3. His sister Daniela Amodei was OpenAI's VP of Safety.\n\nDisagreeing with OpenAI's commercial direction, they broke away with \"AI safety\" as their core value. Coming from the same technical background and similar philosophy, it's no coincidence that the two companies' AIs seem somehow alike."
+    },
+    {
+      "type": "heading",
+      "value": "Claude Code: Industry-Leading Excellence"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.digitaltoday.co.kr/news/photo/202510/595361_553180_948.png",
+      "caption": "클로드 코드는 AI 코딩 에이전트 시장의 선두주자다",
+      "alt": "클로드 코드 Claude Code 앤트로픽"
+    },
+    {
+      "type": "text",
+      "value": "Claude Code is currently dominating the B2B market for AI coding agents. Cognizant deployed Claude to 350,000 employees, and its cultural impact among developers is so significant that a new term, \"vibe coding,\" has emerged."
+    },
+    {
+      "type": "text",
+      "value": "The reason Claude Code is leading the pack is **the completeness of its agent framework**. Various features like Skills, sub-agents, background agents, and MCP (Model Context Protocol) are organically connected.\n\n- **MCP**: A standard protocol for connecting with external tools. Can directly communicate with Unity Editor, databases, APIs, etc.\n- **Sub-agents**: Distribute complex tasks to multiple specialized agents. Division of roles like exploration, planning, review, etc.\n- **Background agents**: Handle time-consuming tasks in the background\n- **Skills**: A custom command system for automating repetitive tasks"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Codex: The Relentless Challenger"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.aitimes.com/news/photo/202512/204919_206318_4340.jpeg",
+      "caption": "코덱스는 클로드 코드의 기능들을 빠르게 벤치마킹하고 있다",
+      "alt": "OpenAI 코덱스 Codex"
+    },
+    {
+      "type": "text",
+      "value": "Codex is a latecomer but fiercely catching up. OpenAI is rapidly benchmarking Claude Code's successful features. Features that Claude Code pioneered first, such as background tasks and agent systems, are being successively introduced to Codex as well.\n\nCodex's greatest weapon is its **reasoning ability**. OpenAI is leading the industry in COT (Chain of Thought) reasoning and continues to advance reasoning-specialized models. It shows strength in complex algorithm design and large-scale refactoring, with Codex excelling in its ability to think deeply about problems and solve them step by step."
+    },
+    {
+      "type": "heading",
+      "value": "Claude Code's Strengths and Weaknesses"
+    },
+    {
+      "type": "text",
+      "value": "**Strengths**\n- **Tool Use Performance**: Best-in-class capability for utilizing tools such as file read/write, terminal commands, and external tool integration\n- **Stability**: Fewer errors during tasks and predictable behavior\n- **Speed**: Fast responses and efficient task processing\n- **Agent Framework**: Most mature ecosystem including MCP, sub-agents, etc.\n- **Frontend**: Excellent code quality for UI/UX-related work\n- **Readability**: Explanations and task processes are communicated much more clearly"
+    },
+    {
+      "type": "text",
+      "value": "**Weaknesses**\n- **Large-scale refactoring**: Falls short on massive changes spanning the entire codebase\n- **Complex algorithms**: Loses to Codex in algorithm design requiring deep reasoning\n- **Context management**: Context window management becomes tricky during long sessions\n- **Pricing**: Usage limits were tight, forcing users to higher-tier plans for normal work. However, limits have been significantly relaxed since the Opus 4.5 release due to increased competition"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Strengths and Weaknesses of Codex"
+    },
+    {
+      "type": "text",
+      "value": "**Strengths**\n- **Reasoning ability**: Excellent at breaking down complex problems step by step\n- **Large-scale refactoring**: Strong at making large code changes that consider overall architecture\n- **Algorithm design**: High success rate in implementing complex algorithms\n- **Pricing**: Relatively affordable. Even the Pro plan at $20/month provides quite generous usage limits"
+    },
+    {
+      "type": "text",
+      "value": "**Weaknesses**\n- **Speed**: Long reasoning time results in slow responses\n- **Tool Use**: Inferior at file manipulation, terminal commands, and other tool utilization compared to Claude Code\n- **Agent Capabilities**: Sub-agent and MCP functionalities are still immature\n- **Frontend**: Relatively lower code quality for UI-related work\n- **Windows Support**: CLI requires WSL on Windows. Currently, Windows only supports sandbox mode\n- **Stability**: Occasionally exhibits unexpected behavior\n- **Explanatory Ability**: Poor at explaining tasks and somewhat lacking in language capabilities"
+    },
+    {
+      "type": "heading",
+      "value": "When to Use Which Tool?"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Situation",
+        "Recommended Tools",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "일상적인 코딩 작업",
+          "클로드 코드",
+          "속도와 안정성이 중요"
+        ],
+        [
+          "복잡한 알고리즘 구현",
+          "코덱스",
+          "추론 능력이 필요"
+        ],
+        [
+          "대규모 리팩토링",
+          "코덱스",
+          "전체 구조 파악에 강함"
+        ],
+        [
+          "프론트엔드 개발",
+          "클로드 코드",
+          "UI 코드 품질이 높음"
+        ],
+        [
+          "예산이 제한적일 때",
+          "코덱스",
+          "가격이 저렴"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Fierce Competition, Rapid Evolution"
+    },
+    {
+      "type": "text",
+      "value": "Both tools are evolving so rapidly that they're **updated weekly**. When Claude Code introduces a new feature, Codex quickly follows suit, and when Codex's reasoning capabilities improve, Claude responds in kind.\n\nAt this point in time, **Claude Code leads in agent framework maturity**, while **Codex excels in pure reasoning ability**. However, this gap is narrowing every week. Comparisons from six months ago may already be obsolete."
+    },
+    {
+      "type": "text",
+      "value": "However, it's important to note that Claude **lacks versatility**. In areas outside of coding—such as multimodal capabilities, image generation, video generation, and everyday use—GPT is overwhelmingly superior. If you're interested in coding agents, trying out Codex first might be a good choice, as it's included with a GPT paid subscription (Plus plan). That said, for programmers, Claude Code may be the more stable choice at this point. Codex has fairly generous usage limits and good versatility, so using Claude Code as your main tool while supplementing with Codex is also highly recommended.\n\nUltimately, what matters is choosing the tool that fits your work style and budget. If everyday coding and stability are important, go with Claude Code; if complex problem-solving and cost efficiency are priorities, choose Codex. Using both tools strategically depending on the situation is also a solid strategy."
+    }
+  ],
+  "needTranslate": false
 }

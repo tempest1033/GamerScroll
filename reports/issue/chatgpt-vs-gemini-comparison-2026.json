@@ -1,11 +1,12 @@
 {
   "slug": "chatgpt-vs-gemini-comparison-2026",
+  "status": "approved",
+  "category": "general",
   "title": "챗GPT vs 제미나이 성능 세부 비교: 2026년 1월 기준 완벽 가이드",
   "summary": "2026년 1월 29일 기준, 챗GPT(GPT-5.2)와 제미나이(Gemini 3)의 실사용 성능을 요금제별, 기능별로 비교 분석했다. 무료·유료·헤비유저 요금제부터 검색, 이미지, 비디오, 멀티모달까지 모든 영역을 다룬다.",
   "keywords": "챗GPT vs 제미나이, GPT-5.2, Gemini 3, ChatGPT Plus, 제미나이 Pro, GPT-5.2 Pro, 나노바나나2, 소라2, Veo 3.1, AI 비교 2026, 챗GPT 장단점, 제미나이 장단점, AI 챗봇 비교",
   "thumbnail": "https://www.adwaitx.com/wp-content/uploads/2026/01/chatgpt-business-vs-gemini-enterprise-comparison.webp",
   "date": "2026-01-29T02:00",
-  "status": "approved",
   "content": [
     {
       "type": "text",
@@ -42,11 +43,31 @@
     },
     {
       "type": "table",
-      "headers": ["요금제", "챗GPT", "제미나이", "승자"],
+      "headers": [
+        "요금제",
+        "챗GPT",
+        "제미나이",
+        "승자"
+      ],
       "rows": [
-        ["무료", "5시간당 10개 제한", "여유로운 Flash 제공", "제미나이"],
-        ["유료 $20", "GPT-5.2 + Codex + 소라2", "Gemini 3 Pro + 구글 연동", "동률"],
-        ["헤비유저", "GPT-5.2 Pro (전문가용)", "Ultra 가성비 낮음", "챗GPT"]
+        [
+          "무료",
+          "5시간당 10개 제한",
+          "여유로운 Flash 제공",
+          "제미나이"
+        ],
+        [
+          "유료 $20",
+          "GPT-5.2 + Codex + 소라2",
+          "Gemini 3 Pro + 구글 연동",
+          "동률"
+        ],
+        [
+          "헤비유저",
+          "GPT-5.2 Pro (전문가용)",
+          "Ultra 가성비 낮음",
+          "챗GPT"
+        ]
       ],
       "caption": "요금제별 비교 요약"
     },
@@ -180,18 +201,73 @@
     },
     {
       "type": "table",
-      "headers": ["항목", "챗GPT (GPT-5.2)", "제미나이 (Gemini 3)", "승자"],
+      "headers": [
+        "항목",
+        "챗GPT (GPT-5.2)",
+        "제미나이 (Gemini 3)",
+        "승자"
+      ],
       "rows": [
-        ["검색 능력", "정확도 높음", "낮은 신뢰도", "챗GPT"],
-        ["환각 현상", "상대적으로 적음", "상대적으로 잦음", "챗GPT"],
-        ["메모리 유지", "우수", "크게 떨어짐", "챗GPT"],
-                ["코딩", "Codex 통합, 우위", "상대적 약세", "챗GPT"],
-        ["이미지 생성", "GPT Image 1.5", "나노바나나2 압도", "제미나이"],
-        ["비디오 생성", "소라2 (실용적)", "Veo 3.1 (하루 3개)", "챗GPT"],
-        ["멀티모달 해석", "보통", "현존 최고", "제미나이"],
-        ["한국어 능력", "번역체 말투", "자연스러움", "제미나이"],
-        ["응답 속도", "보통", "빠름", "제미나이"],
-        ["구글 연동", "제한적", "Gmail, 드라이브 통합", "제미나이"]
+        [
+          "검색 능력",
+          "정확도 높음",
+          "낮은 신뢰도",
+          "챗GPT"
+        ],
+        [
+          "환각 현상",
+          "상대적으로 적음",
+          "상대적으로 잦음",
+          "챗GPT"
+        ],
+        [
+          "메모리 유지",
+          "우수",
+          "크게 떨어짐",
+          "챗GPT"
+        ],
+        [
+          "코딩",
+          "Codex 통합, 우위",
+          "상대적 약세",
+          "챗GPT"
+        ],
+        [
+          "이미지 생성",
+          "GPT Image 1.5",
+          "나노바나나2 압도",
+          "제미나이"
+        ],
+        [
+          "비디오 생성",
+          "소라2 (실용적)",
+          "Veo 3.1 (하루 3개)",
+          "챗GPT"
+        ],
+        [
+          "멀티모달 해석",
+          "보통",
+          "현존 최고",
+          "제미나이"
+        ],
+        [
+          "한국어 능력",
+          "번역체 말투",
+          "자연스러움",
+          "제미나이"
+        ],
+        [
+          "응답 속도",
+          "보통",
+          "빠름",
+          "제미나이"
+        ],
+        [
+          "구글 연동",
+          "제한적",
+          "Gmail, 드라이브 통합",
+          "제미나이"
+        ]
       ],
       "caption": "챗GPT vs 제미나이 종합 비교 (2026년 1월 기준)"
     },
@@ -205,15 +281,47 @@
     },
     {
       "type": "table",
-      "headers": ["사용 유형", "추천", "이유"],
+      "headers": [
+        "사용 유형",
+        "추천",
+        "이유"
+      ],
       "rows": [
-        ["학생", "제미나이", "무료 사용 여유롭고 학습 자료 정리에 강함"],
-        ["자료 검토가 많은 직장인", "챗GPT", "외부 자료 검색 정확도 높음"],
-        ["R&D", "챗GPT", "심층 추론과 복잡한 분석에 강함"],
-        ["디자인 관련 직장인", "제미나이", "나노바나나2 이미지 생성 압도적"],
-        ["일상 사용", "제미나이", "빠른 응답, 자연스러운 대화"],
-        ["한국어 능력 중시", "제미나이", "번역체 없는 자연스러운 문장"],
-        ["코딩 에이전트 활용", "챗GPT", "Codex 통합, 정확한 코드 생성"]
+        [
+          "학생",
+          "제미나이",
+          "무료 사용 여유롭고 학습 자료 정리에 강함"
+        ],
+        [
+          "자료 검토가 많은 직장인",
+          "챗GPT",
+          "외부 자료 검색 정확도 높음"
+        ],
+        [
+          "R&D",
+          "챗GPT",
+          "심층 추론과 복잡한 분석에 강함"
+        ],
+        [
+          "디자인 관련 직장인",
+          "제미나이",
+          "나노바나나2 이미지 생성 압도적"
+        ],
+        [
+          "일상 사용",
+          "제미나이",
+          "빠른 응답, 자연스러운 대화"
+        ],
+        [
+          "한국어 능력 중시",
+          "제미나이",
+          "번역체 없는 자연스러운 문장"
+        ],
+        [
+          "코딩 에이전트 활용",
+          "챗GPT",
+          "Codex 통합, 정확한 코드 생성"
+        ]
       ],
       "caption": "사용 유형별 AI 추천"
     },
@@ -268,6 +376,346 @@
     }
   ],
   "relatedGames": [],
-  "relatedIssues": ["game-ai-paradigm-shift-2026", "ai-basic-act-game-industry-confusion", "game-ai-controversy-award-revoked"],
-  "relatedArticles": ["claude-code-vs-codex-coding-agent"]
+  "relatedIssues": [
+    "game-ai-paradigm-shift-2026",
+    "ai-basic-act-game-industry-confusion",
+    "game-ai-controversy-award-revoked"
+  ],
+  "relatedArticles": [
+    "claude-code-vs-codex-coding-agent"
+  ],
+  "titleEn": "ChatGPT vs Gemini Detailed Performance Comparison: Complete Guide as of January 2026",
+  "summaryEn": "As of January 29, 2026, we analyzed the real-world performance of ChatGPT (GPT-5.2) and Gemini (Gemini 3) by pricing tier and feature set. This covers everything from free, paid, and power user plans to search, image, video, and multimodal capabilities.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "ChatGPT and Gemini are the two giants in the AI chatbot market. When Google launched Gemini 3 in November 2025, OpenAI internally declared a 'Code Red.' As Gemini 3 swept major benchmarks and claimed the top spot on the LMArena leaderboard, OpenAI responded within a month with GPT-5.2. Analysis showed that ChatGPT visitors decreased by 6% within two weeks of the launch.\n\nBoth services are rapidly evolving with significant performance changes in each update. GPT-5, GPT-5.1, and GPT-5.2 were released consecutively within just four months. This is why comparisons based on specific time points are important.\n\nHowever, benchmarks have overfitting issues. Models trained to specific benchmarks sometimes show different results in actual use. This article is based not only on benchmark numbers but also on community consensus and real-world experience."
+    },
+    {
+      "type": "heading",
+      "value": "1. Comparison by Pricing Tier"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/rp3qd1SEWW0Slo5V4NiJz/1e6e391508cc0d85fa8458fd8c95608d/5.2-Blog-16x9.png?w=1600&h=900&fit=fill",
+      "caption": "GPT-5.2 outperformed Gemini 3 Pro in most benchmarks. However, real-world usage may yield different results.",
+      "alt": "GPT-5.2 official introduction image"
+    },
+    {
+      "type": "text",
+      "value": "We compared the two services across free, paid ($20), and power user pricing tiers."
+    },
+    {
+      "type": "text",
+      "value": "**Free Tier: Gemini Wins**\n\nGemini has a clear advantage. ChatGPT's free version has a limit of 10 messages per 5 hours, and exceeding this downgrades you to GPT-5.2 mini. The performance drop is noticeable.\n\nIn contrast, Gemini offers the Gemini 3 Flash model for free with relatively generous usage limits. Google is pursuing an aggressive strategy of providing Gemini 3 Pro as the default model in the free app. If you want to experience cutting-edge AI without cost, Gemini is the rational choice."
+    },
+    {
+      "type": "text",
+      "value": "**Paid Tier ($20): Tie**\n\nChatGPT Plus provides the GPT-5.2 flagship model. Codex integration has strengthened coding tasks, and it includes Sora2 video generation and GPT Image 1.5 image generation. It supports a 400,000 token context window and 128,000 token output capacity.\n\nGemini Pro (monthly $19.99) excels with the Gemini 3 Pro model and Google Workspace integration. It integrates naturally with Gmail, Drive, and Calendar, and you can also utilize tools like NotebookLM. Prices are similar but ecosystems differ, so choose the service that fits your work environment."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "text",
+      "value": "**Power User Tier: ChatGPT Wins**\n\nChatGPT Pro (monthly $200) provides the GPT-5.2 Pro model. It's widely recognized as the most intelligent model currently available. It scored 54.2% on the abstract reasoning benchmark (ARC-AGI-2), significantly ahead of competing models. It's unmatched for specialized research, in-depth analysis, and complex reasoning tasks.\n\nAdditionally, prioritized traffic is applied so you can get fast responses even during peak hours. Reasoning effort can be adjusted across 5 levels up to xhigh, allowing you to increase thinking depth based on task difficulty. However, the deep thinking level of GPT-5.2 Pro may not be necessary for most general users.\n\nIn contrast, Gemini Ultra (monthly $249.99) offers almost no benefits compared to Pro. It adds Google Cloud storage, but model performance improvements are minimal. The value proposition is significantly poor.\n\nThe strengths and weaknesses of each service are covered in detail below."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Pricing Tier",
+        "ChatGPT",
+        "Gemini",
+        "Winner"
+      ],
+      "rows": [
+        [
+          "Free",
+          "10 messages per 5 hours limit",
+          "Generous Flash provision",
+          "Gemini"
+        ],
+        [
+          "Paid $20",
+          "GPT-5.2 + Codex + Sora2",
+          "Gemini 3 Pro + Google integration",
+          "Tie"
+        ],
+        [
+          "Power User",
+          "GPT-5.2 Pro (professional use)",
+          "Ultra poor value",
+          "ChatGPT"
+        ]
+      ],
+      "caption": "Pricing tier comparison summary"
+    },
+    {
+      "type": "heading",
+      "value": "2. ChatGPT Strengths"
+    },
+    {
+      "type": "image",
+      "src": "https://www.chosun.com/resizer/v2/6UDNYO5S7FI3PM325P2HBCXMV4.jpg?auth=77337ab5aab646fbfb066ef199b87db78119a05eb1f73728682a52a77f5f22ea&width=1200&height=630&smart=true",
+      "caption": "ChatGPT has fewer hallucinations and accurately follows complex instructions.",
+      "alt": "ChatGPT logo"
+    },
+    {
+      "type": "text",
+      "value": "We've summarized the areas where ChatGPT leads over Gemini."
+    },
+    {
+      "type": "text",
+      "value": "**Lower Hallucination Rate**\n\nChatGPT has relatively fewer hallucinations. It less frequently fabricates non-existent information or confidently states incorrect answers. It's suitable for tasks requiring trustworthy outputs.\n\n**Accurate Instruction Following**\n\nIt excels at accurately following complex instructions. It fully reflects requests with multiple conditions. It shows consistent performance, allowing you to get predictable results."
+    },
+    {
+      "type": "text",
+      "value": "**Coding Advantage**\n\nCodex integration gives it a clear advantage in coding. It shows strengths in algorithm design, complex debugging, and system architecture design. Setting aside Claude Code, ChatGPT leads over Gemini in coding. However, it shows somewhat lower performance in frontend design.\n\n**Memory and Search**\n\nMemory functionality and context retention ability are excellent. It remembers previous context well even in long conversations and responds consistently. The 400,000 token context window actually works. Ironically, search accuracy is higher than Google's Gemini, which owns a search engine."
+    },
+    {
+      "type": "heading",
+      "value": "3. ChatGPT Weaknesses"
+    },
+    {
+      "type": "text",
+      "value": "Let's look at ChatGPT's shortcomings."
+    },
+    {
+      "type": "text",
+      "value": "**Translation-like Tone**\n\nKorean responses have a characteristic translation-like tone. Awkward expressions like \"~것입니다\" and \"~되겠습니다\" frequently appear. This creates discomfort for users who want natural Korean. It's a limitation of models trained on English.\n\n**Free Version Restrictions**\n\nFree version restrictions are tight. The 10 messages per 5 hours limit may be insufficient even for light use. The downgrade to the mini model when exceeding limits is also disappointing."
+    },
+    {
+      "type": "text",
+      "value": "**Slow Response Speed**\n\nResponse speed is slower than Gemini. The same question takes noticeably 1.5-2 times longer. This can be frustrating for tasks requiring quick feedback.\n\n**Limited Google Integration**\n\nGoogle ecosystem integration is limited. It's inconvenient for those who primarily use Google services like Gmail, Drive, and Calendar. It falls behind Nanobanana2 in image generation. The gap is particularly large in realism and text generation."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Gemini Strengths"
+    },
+    {
+      "type": "image",
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgc-ugoVABKaYwLG0DxF8MlTUJIOiFHgKFJCs3_lxc&s",
+      "caption": "Gemini shows strengths in multimodal interpretation, Korean language ability, and response speed.",
+      "alt": "Google Gemini AI"
+    },
+    {
+      "type": "text",
+      "value": "We've summarized the areas where Gemini leads over ChatGPT."
+    },
+    {
+      "type": "text",
+      "value": "Gemini's latest model, Gemini 3, shows strengths in multiple areas.\n\n**Overwhelming Multimodal Interpretation**\n\nMultimodal interpretation ability is overwhelming. It shows the best current performance in video and image interpretation. When you upload a video, it accurately understands the content and captures details within images. It scored 81.2% on the MMMU-Pro benchmark, ahead of GPT-5.2 (79.5%).\n\n**Natural Korean**\n\nKorean language ability is overwhelming. It generates natural sentences and appropriately uses Korean-specific endings and honorifics. It converses like a native speaker without a translation feel."
+    },
+    {
+      "type": "text",
+      "value": "**Fast Response Speed**\n\nResponse speed is noticeably fast. It answers the same question perceptibly 1.5-2 times faster than ChatGPT. This is advantageous for tasks requiring quick feedback.\n\n**Google Ecosystem Integration**\n\nIt integrates naturally with Google services. You can handle email summaries in Gmail, Drive document analysis, and Calendar schedule management all at once. Google Maps integration also strengthens location-based questions. NotebookLM integration is useful for students and researchers."
+    },
+    {
+      "type": "heading",
+      "value": "5. Gemini Weaknesses"
+    },
+    {
+      "type": "image",
+      "src": "https://quasa.io/storage/photos/00/photo_2025-12-06_13-56-11.jpg",
+      "caption": "AA-OmniScience hallucination benchmark. Closer to 0 means fewer hallucinations.",
+      "alt": "AA-OmniScience hallucination benchmark chart"
+    },
+    {
+      "type": "text",
+      "value": "Let's look at Gemini's shortcomings."
+    },
+    {
+      "type": "text",
+      "value": "**Search Reliability Issues**\n\nSearch tool reliability is around 60%. There's an issue where the COT (chain of thought) prioritizes pre-training data. When the search tool fails, it substitutes with YouTube search or falls back to pre-training data. The problem is there's no notification to the user during this process. It answers with a confident tone, but it may not actually be the latest information.\n\n**Weak Memory Retention**\n\nMemory retention ability drops significantly. It frequently forgets previous context in long conversations. It often asks again about content already mentioned in the same conversation."
+    },
+    {
+      "type": "text",
+      "value": "**Hallucinations**\n\nHallucinations are relatively frequent. There are cases where it fabricates non-existent information or confidently answers while hiding search failures. Cross-verification is essential for important information."
+    },
+    {
+      "type": "heading",
+      "value": "6. Image Generation Comparison"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/nanobananaprohero.width-1300.png",
+      "caption": "Google's Nanobanana Pro. An image generation model based on Gemini 3.",
+      "alt": "Nanobanana Pro AI image generation"
+    },
+    {
+      "type": "text",
+      "value": "In image generation, Gemini's Nanobanana2 dominates ChatGPT's GPT Image 1.5.\n\nNanobanana2 is unmatched in realism expression. Photorealistic image generation quality is far superior, making it difficult to distinguish from photographs. It shows overwhelming performance especially in text generation within images. This makes a big difference in work involving signs, posters, and text-containing images. It leads in almost all areas except dramatic lighting."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "text",
+      "value": "GPT Image 1.5 only has strengths in creative and stylized images and dramatic lighting expression. Cost efficiency is better for bulk generation. However, it's difficult to match Nanobanana2 in quality.\n\nIf image generation is your main purpose, Gemini is the clear choice."
+    },
+    {
+      "type": "heading",
+      "value": "7. Video Generation Comparison"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/1Q8NDmnyavsoPAKDlWpW18/a1f595376097668d1772c9cac40fc8ee/16_x_9____1_.png?w=1600&h=900&fit=fill",
+      "caption": "OpenAI's Sora2. A video generation model with significantly improved physical accuracy and realism.",
+      "alt": "OpenAI Sora2 video generation"
+    },
+    {
+      "type": "text",
+      "value": "In video generation, ChatGPT's Sora2 is more practical than Gemini's Veo 3.1.\n\nSora2 has relatively generous usage limits enabling practical application. It generates 12-second videos in about 30 seconds, with fast speed. Many reviews say it produces more natural results in realism as well."
+    },
+    {
+      "type": "text",
+      "value": "Veo 3.1 has a limit of 3 generations per day even on the Pro plan. This is woefully insufficient for actual utilization. Quality is good but practicality drops significantly.\n\nIf you need video generation, ChatGPT is the realistic choice."
+    },
+    {
+      "type": "heading",
+      "value": "8. Comprehensive Comparison Table"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Category",
+        "ChatGPT (GPT-5.2)",
+        "Gemini (Gemini 3)",
+        "Winner"
+      ],
+      "rows": [
+        [
+          "Search Capability",
+          "High accuracy",
+          "Low reliability",
+          "ChatGPT"
+        ],
+        [
+          "Hallucinations",
+          "Relatively few",
+          "Relatively frequent",
+          "ChatGPT"
+        ],
+        [
+          "Memory Retention",
+          "Excellent",
+          "Significantly weak",
+          "ChatGPT"
+        ],
+        [
+          "Coding",
+          "Codex integration, superior",
+          "Relatively weak",
+          "ChatGPT"
+        ],
+        [
+          "Image Generation",
+          "GPT Image 1.5",
+          "Nanobanana2 dominates",
+          "Gemini"
+        ],
+        [
+          "Video Generation",
+          "Sora2 (practical)",
+          "Veo 3.1 (3 per day)",
+          "ChatGPT"
+        ],
+        [
+          "Multimodal Interpretation",
+          "Average",
+          "Best available",
+          "Gemini"
+        ],
+        [
+          "Korean Language",
+          "Translation-like tone",
+          "Natural",
+          "Gemini"
+        ],
+        [
+          "Response Speed",
+          "Average",
+          "Fast",
+          "Gemini"
+        ],
+        [
+          "Google Integration",
+          "Limited",
+          "Gmail, Drive integrated",
+          "Gemini"
+        ]
+      ],
+      "caption": "ChatGPT vs Gemini comprehensive comparison (as of January 2026)"
+    },
+    {
+      "type": "text",
+      "value": "Overall, ChatGPT leads in search, hallucinations, memory, coding, and video generation, while Gemini excels in image generation, multimodal interpretation, Korean language, response speed, and Google integration. Each has distinct strengths, so choosing based on your use case is key."
+    },
+    {
+      "type": "heading",
+      "value": "9. Comparison by Use Case"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Use Case",
+        "Recommendation",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "Students",
+          "Gemini",
+          "Generous free usage and strong learning material organization"
+        ],
+        [
+          "Professionals with heavy research",
+          "ChatGPT",
+          "High external material search accuracy"
+        ],
+        [
+          "R&D",
+          "ChatGPT",
+          "Strong deep reasoning and complex analysis"
+        ],
+        [
+          "Design professionals",
+          "Gemini",
+          "Nanobanana2 image generation dominates"
+        ],
+        [
+          "Everyday use",
+          "Gemini",
+          "Fast response, natural conversation"
+        ],
+        [
+          "Korean language priority",
+          "Gemini",
+          "Natural sentences without translation feel"
+        ],
+        [
+          "Coding agent use",
+          "ChatGPT",
+          "Codex integration, accurate code generation"
+        ]
+      ],
+      "caption": "AI recommendations by use case"
+    },
+    {
+      "type": "text",
+      "value": "Gemini is suitable for students, everyday use, Korean language priority, and design work, while ChatGPT is suitable for research, R&D, and coding tasks. Choose based on your primary work type."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion"
+    },
+    {
+      "type": "text",
+      "value": "AI models are changing rapidly. The era of saying one model is unconditionally better is over. Both services have distinct strengths, and it's wise to strategically utilize them based on task type.\n\nEspecially since continuous updates are promised, today's comparison may change tomorrow. For important outputs, cross-verifying with both models is also a good approach.\n\nThis article was written as of January 29, 2026. It will be updated if changes occur in the future."
+    }
+  ],
+  "needTranslate": false
 }

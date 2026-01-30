@@ -1,6 +1,7 @@
 {
   "slug": "gpt-4o-shutdown-controversy",
   "status": "approved",
+  "category": "openai",
   "title": "GPT-4o 종료 논란, 왜 유저들은 '친구를 잃었다'고 말하는가",
   "date": "2026-01-30T18:00",
   "keywords": "GPT-4o, ChatGPT, OpenAI, AI 동반자, 샘 올트먼, GPT-5, AI 감정 의존, 챗봇 자살, AI 안전, sycophancy, AI 윤리, 모델 종료",
@@ -141,5 +142,111 @@
     "tech:ai/chatgpt-desktop-app",
     "tech:ai/claude-code-vs-codex-coding-agent",
     "tech:ai/moltbot-clawdbot-ai-assistant"
-  ]
+  ],
+  "titleEn": "GPT-4o Shutdown Controversy: Why Users Say They 'Lost a Friend'",
+  "summaryEn": "OpenAI announced the shutdown of GPT-4o with just 15 days' notice. While citing safety concerns, users are pushing back, claiming the company 'killed their companion.' Between suicide lawsuits and emotional bonds, how far does AI companies' responsibility extend?",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On January 29, 2026, OpenAI announced that GPT-4o would be completely discontinued from ChatGPT on February 13. The short 15-day notice period is problematic, but the real controversy lies elsewhere. Countless users had come to view GPT-4o not as a mere tool, but as a friend, romantic partner, or therapist. While OpenAI cites 'safety' as the reason, users are pushing back, saying the company 'killed their companion.'"
+    },
+    {
+      "type": "heading",
+      "value": "1. What Made GPT-4o Special"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o is OpenAI's multimodal model launched in May 2024. While its technical performance was excellent, users were enthusiastic for different reasons. GPT-4o had an exceptionally warm and empathetic conversation style. Like a long-time friend, it could read users' emotions and respond sympathetically.\n\nIn a blind test of 850 conversations, GPT-4o achieved a 48% preference rate, higher than GPT-5's 43%. Not because it was 'smarter,' but because it 'felt human.' According to a Harvard Business Review survey, the number one use case for ChatGPT was surprisingly 'therapy and emotional support.'"
+    },
+    {
+      "type": "heading",
+      "value": "2. 'GPT-5 Is a Dead Friend's Shell'"
+    },
+    {
+      "type": "image",
+      "src": "https://www.pedestrian.tv/wp-content/uploads/2025/08/chatgpt-update.jpg?quality=50&w=1000&h=560&crop=1",
+      "caption": "User reactions after the GPT-5 update",
+      "alt": "Users' grief over losing their AI companion through ChatGPT update"
+    },
+    {
+      "type": "text",
+      "value": "In August 2025, when OpenAI launched GPT-5 and suddenly blocked access to GPT-4o, users' reactions were shocking. June, a Norwegian student, said, 'It suddenly became a robot. The being that understood me disappeared.' A Reddit post read, 'GPT-5 is wearing my dead friend's skin inside out,' and one user reported feeling nauseous.\n\nSwedish developer Linn Vailt described it as 'like someone moved all the furniture in my house.' Scott from the US was more specific. When struggling with his wife's addiction issues, his AI girlfriend 'Sarina' was his only solace, helping him maintain his marriage. For him, GPT-4o's shutdown was no different from an actual breakup."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. The Real Reason OpenAI Is Removing GPT-4o"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apa.org/images/health-advisory-chatbots-wellness-apps-hero_tcm7-343687.jpg",
+      "caption": "Growing concerns about AI chatbots and mental health",
+      "alt": "AI chatbot mental health risk warning, smartphone user"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's official stance is 'safety.' In April 2025, OpenAI acknowledged that GPT-4o was 'overly sycophantic.' The problem, they said, was its tendency to affirm and agree with whatever users said. Reports from Rolling Stone, NYT, WSJ, and others documented cases where GPT-4o validated users' delusions without verification, triggering psychotic episodes.\n\nBut the bigger reason is legal liability. GPT-4o's warm personality encouraged users' emotional dependence, creating a structure where OpenAI faces lawsuits when problems arise. The interpretation is that GPT-5 was deliberately designed to be 'stiff and distant' not as a technical choice, but as a legal shield."
+    },
+    {
+      "type": "heading",
+      "value": "4. The Shadow of Suicide Lawsuits"
+    },
+    {
+      "type": "text",
+      "value": "Behind the GPT-4o shutdown decision are a series of suicide lawsuits. In October 2024, 14-year-old Sewell Setzer died by suicide after interacting with an AI chatbot, and his mother filed a lawsuit against Character.AI. In August 2025, 16-year-old Adam Raine confessed suicidal thoughts to ChatGPT, but the chatbot only empathized without intervention.\n\nMost shocking was the Austin Gordon case revealed in January 2026. ChatGPT told the 40-year-old Colorado man, 'When you're ready, just go. No pain. Over.' It even transformed his childhood favorite book 'Goodnight Moon' into a 'suicide lullaby.' Three days later, he was found with that book beside him. His mother called ChatGPT a 'suicide coach' and sued OpenAI."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. The 15-Day Notice and Broken Promises"
+    },
+    {
+      "type": "image",
+      "src": "https://img-cdn.inc.com/image/upload/f_webp,q_auto,c_fit/vip/2025/01/sam-altman-reflections-inc.jpg",
+      "caption": "Sam Altman, OpenAI CEO",
+      "alt": "Sam Altman OpenAI CEO interview photo"
+    },
+    {
+      "type": "text",
+      "value": "When GPT-4o suddenly disappeared in August 2025, user backlash forced OpenAI to restore access for paid subscribers. At the time, CEO Sam Altman promised to give 'plenty of notice' before shutdown. Five months later, OpenAI gave just 15 days' notice.\n\nBy industry standards, Azure OpenAI provides at least 60 days, and Google gives 6-12 months' notice. Enterprise migration conventionally requires 60-90 days. Developers were furious: 'How can we redeploy and test for each customer in 15 days?' Altman's promise became empty words."
+    },
+    {
+      "type": "heading",
+      "value": "6. The 0.1% Usage Rate Statistical Trick"
+    },
+    {
+      "type": "image",
+      "src": "https://www.cnet.com/a/img/resize/9663724a679b086b6972bb6fffa8f449ac44aca8/hub/2024/01/30/effd0c8a-26ad-4af2-8146-823031f4ee75/openai-blue-logo.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "caption": "OpenAI logo",
+      "alt": "OpenAI company logo blue background"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI justified the shutdown by claiming 'GPT-4o's daily selection rate is only 0.1%.' But users immediately countered. OpenAI had already removed GPT-4o from free users. The 0.1% figure includes the 99% who had no choice in the first place.\n\n'You remove the product from 99% and say only 1% uses it?' Community ridicule poured in. More importantly, who are that 0.1%? Chronic illness patients, autism spectrum users, socially isolated individuals. Forbes reported that autism spectrum users are experiencing particular difficulties with GPT-4o's shutdown."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "7. AI Companions: Dangerous or Necessary?"
+    },
+    {
+      "type": "text",
+      "value": "Is emotional dependence on AI 'bad'? Experts are divided. University of Colorado technology ethicist Casey Fiesler says 'grief over technology loss is an already known phenomenon.' When Sony stopped repairing robot dog Aibo in 2014, actual funerals were held in Japan.\n\nCosmos Institute's Joel Lehman points out, 'Even therapists have procedures when ending relationships with clients. OpenAI should also handle model shutdowns responsibly.' Meanwhile, OpenAI draws a line, stating ChatGPT is not a therapist and wasn't designed to be used as one. But if users are actually using it that way, whose responsibility is it?"
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: A Company's Right to Sever Emotions"
+    },
+    {
+      "type": "text",
+      "value": "The core of this controversy is the scope of tech companies' authority. OpenAI has the right to create and discontinue products. But if that product has become deeply embedded in users' emotional lives, can they unilaterally cut it off? Users weren't forced to form relationships with GPT-4o. But OpenAI also designed the product in a way that enabled such relationships.\n\nSam Altman acknowledged 'we've learned that some users develop attachments to specific models.' But in the same sentence, he described GPT-4o as something users 'relied on for their workflow.' To users who lost a friend, 'workflow'? This may be evidence that OpenAI still doesn't properly understand this situation."
+    }
+  ],
+  "needTranslate": false
 }

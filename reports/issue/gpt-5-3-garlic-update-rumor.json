@@ -1,6 +1,7 @@
 {
   "slug": "gpt-5-3-garlic-update-rumor",
   "status": "approved",
+  "category": "openai",
   "title": "GPT 5.3 업데이트 \"갈릭\" 루머 총정리, OpenAI의 반격이 시작된다",
   "date": "2026-01-28T15:00",
   "thumbnail": "https://images.ctfassets.net/kftzwdyauwt9/6Dgf4Pz8NYQL3AXe5Y8Cq5/cd44291eaf82ef8b98afa58a3e336e34/GPT-5_ResearchBlog_ArtCard_16x9.png",
@@ -11,7 +12,9 @@
     "game-ai-paradigm-shift-2026",
     "ai-basic-act-game-industry-confusion"
   ],
-  "relatedArticles": ["pc-components-gaming-performance"],
+  "relatedArticles": [
+    "pc-components-gaming-performance"
+  ],
   "relatedGames": [],
   "sources": [
     {
@@ -133,11 +136,23 @@
     },
     {
       "type": "table",
-      "headers": ["출시 예상일", "확률"],
+      "headers": [
+        "출시 예상일",
+        "확률"
+      ],
       "rows": [
-        ["1월 31일까지", "3%"],
-        ["2월 14일까지", "55%"],
-        ["2월 28일까지", "82%"]
+        [
+          "1월 31일까지",
+          "3%"
+        ],
+        [
+          "2월 14일까지",
+          "55%"
+        ],
+        [
+          "2월 28일까지",
+          "82%"
+        ]
       ]
     },
     {
@@ -175,5 +190,161 @@
       "type": "text",
       "value": "OpenAI만 움직이는 것은 아니다. 구글은 제미나이 3.0의 정식 버전을 준비 중이고, 일론 머스크의 xAI도 Grok 4 개발을 진행하고 있다. 앤트로픽에서도 소넷 4.7(Sonnet 4.7)에 대한 루머가 나오고 있어, 2026년 AI 시장은 어느 때보다 다양한 선택지가 등장할 전망이다.\n\nGPT 5.3 \"갈릭\"이 이 경쟁 구도에서 어떤 포지션을 잡게 될지, 그리고 각 진영의 강점이 어떻게 부각될지는 앞으로의 행보를 지켜봐야 알 수 있을 것이다."
     }
-  ]
+  ],
+  "titleEn": "GPT 5.3 \"Garlic\" Update Rumor Roundup: OpenAI's Counteroffensive Begins",
+  "summaryEn": "OpenAI is preparing the GPT 5.3 \"Garlic\" update. High-density training, improved reasoning speed, and a new image model. OpenAI's counteroffensive begins after falling behind Gemini 3.0.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI is facing a crisis. In December 2025, a \"code red\" was declared internally. Following the release of Gemini 3.0, ChatGPT's daily visitors dropped by 6%, and CEO Sam Altman emphasized in a company-wide memo that \"competition is intensifying. We need to accelerate execution.\"\n\nAgainst this backdrop, rumors about the GPT 5.3 \"Garlic\" update are spreading rapidly. Could this be OpenAI's comeback?"
+    },
+    {
+      "type": "heading",
+      "value": "1. What is Garlic?"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/1Tc0kBv3H0HRXf7SsizFfA/1a8b076fa71453ac7e822e30756fc066/5.2-Blog-1x1.png",
+      "caption": "Official GPT 5.2 announcement image. GPT 5.3 Garlic is expected to address the issues found in 5.2.",
+      "alt": "OpenAI GPT 5.2 official announcement image"
+    },
+    {
+      "type": "text",
+      "value": "\"Garlic\" is the internal codename for GPT 5.3. OpenAI uses codenames during model development, with 5.2 being an early checkpoint and 5.3 known as the complete version. There are also rumors that version 5.5, codenamed \"Shallotpeat,\" is waiting in the wings after Garlic.\n\nSam Altman also admitted on X (formerly Twitter) that \"we messed up 5.2 posttraining,\" suggesting that 5.3 will be a version that addresses these issues."
+    },
+    {
+      "type": "heading",
+      "value": "2. Key Rumor Summary"
+    },
+    {
+      "type": "heading",
+      "value": "2-1. Faster Reasoning Speed"
+    },
+    {
+      "type": "text",
+      "value": "Since the release of version 5, complaints about reasoning speed have been ongoing. How the speed issue is improved in 5.3 is a major point of interest. In particular, the partnership with Cerebras is expected to be key to speed improvements."
+    },
+    {
+      "type": "heading",
+      "value": "2-2. High-Density Pre-Training Technique (EPTE)"
+    },
+    {
+      "type": "text",
+      "value": "EPTE (Enhanced Pre-Training Efficiency) is a technique that extracts higher performance with the same computing resources. The core concept is that training efficiency is significantly improved compared to before, allowing for more powerful models at lower cost."
+    },
+    {
+      "type": "heading",
+      "value": "2-3. Completely New Pre-Training Pool"
+    },
+    {
+      "type": "text",
+      "value": "Version 5.3 is known to use a completely different pre-training dataset from the existing version 5. This could bring fundamental changes across the model's knowledge base and overall language comprehension."
+    },
+    {
+      "type": "heading",
+      "value": "2-4. IMO Gold Medal Reasoning Model"
+    },
+    {
+      "type": "text",
+      "value": "There are also rumors that a model with reasoning capabilities at the level of an International Mathematical Olympiad (IMO) gold medalist will be integrated into 5.3. However, this is still an experimental model, and its actual implementation remains uncertain."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2-5. Image Generation Improvements"
+    },
+    {
+      "type": "text",
+      "value": "There was a recent 1.5 image update, but it's known to be based on 4O. There are also rumors that Sam Altman instructed prioritizing the image generation field, so it remains to be seen whether additional image updates can restore competitiveness lost to NanoBanana2."
+    },
+    {
+      "type": "heading",
+      "value": "2-6. Language Capability Enhancement"
+    },
+    {
+      "type": "text",
+      "value": "Language capability improvement is also known as a major task. In particular, performance enhancement for non-English languages and more natural sentence generation are mentioned as goals."
+    },
+    {
+      "type": "heading",
+      "value": "3. Cerebras Partnership"
+    },
+    {
+      "type": "image",
+      "src": "https://www.networkworld.com/wp-content/uploads/2026/01/4117296-0-27466500-1768476349-shutterstock_2030685905.jpg?quality=50&strip=all&w=1024",
+      "caption": "Inside an AI data center. OpenAI is expanding its reasoning infrastructure through a partnership with Cerebras.",
+      "alt": "AI data center server infrastructure"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI announced a $10 billion partnership with Cerebras. Cerebras is famous for its \"Wafer Scale Engine (WSE),\" which uses an entire wafer as a single chip.\n\nTypical GPUs experience bottlenecks in inter-chip data transfer. However, Cerebras eliminates this bottleneck because all operations occur on a single massive chip. As a result, it's known to achieve reasoning speeds more than 15 times faster than conventional GPUs.\n\nIt remains to be seen how the speed issues that have been consistently pointed out since version 5 will be improved in 5.3, and whether the fruits of the Cerebras partnership will materialize."
+    },
+    {
+      "type": "heading",
+      "value": "4. Release Date Prediction"
+    },
+    {
+      "type": "text",
+      "value": "While the exact release date has not been disclosed, the industry expects a release as early as mid-February 2026. As of January 28th, the betting status on the prediction market platform Polymarket is as follows."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Expected Release Date",
+        "Probability"
+      ],
+      "rows": [
+        [
+          "By January 31",
+          "3%"
+        ],
+        [
+          "By February 14",
+          "55%"
+        ],
+        [
+          "By February 28",
+          "82%"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Polymarket is a prediction market with real money at stake, reflecting the collective intelligence of participants. Currently, the most betting is concentrated on a release by mid-February. However, due to the nature of prediction markets, probabilities can change rapidly as new information emerges."
+    },
+    {
+      "type": "heading",
+      "value": "5. Sam Altman's Direction"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/jdtwqhzvc2n1/3FIs3oCsUmMyY9yH0DXp91/93052e5b53494d1f427d64f5b0e236ff/TED2025_20250411_2JR4077-medium.jpg",
+      "caption": "OpenAI CEO Sam Altman during an interview at TED 2025. He presented various perspectives on the direction of AI.",
+      "alt": "Sam Altman TED 2025 interview"
+    },
+    {
+      "type": "text",
+      "value": "Sam Altman has provided hints about future direction through recent interviews and social media. He emphasized that \"AI should become a true collaboration partner beyond being a simple tool.\" He also mentioned \"advancement of agent functionality\" and \"real-time interaction improvements\" as core tasks.\n\nIn particular, he stated \"we will not compromise on either speed or quality,\" suggesting that 5.3 will be an update that achieves both. Regarding competitors' advances, he responded, \"Healthy competition is good for everyone. But we will go our own way.\""
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. Competitive Landscape: The 2026 AI Market"
+    },
+    {
+      "type": "image",
+      "src": "https://i.insider.com/695d5bd404eda4732f2e917e?width=700",
+      "caption": "ChatGPT and Gemini app icons. Competition between the two companies is intensifying in the 2026 AI market.",
+      "alt": "ChatGPT and Gemini app icon comparison"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI isn't the only one making moves. Google is preparing the official version of Gemini 3.0, and Elon Musk's xAI is also developing Grok 4. With rumors about Sonnet 4.7 also emerging from Anthropic, the 2026 AI market is expected to see more diverse options than ever before.\n\nIt remains to be seen what position GPT 5.3 \"Garlic\" will take in this competitive landscape, and how each camp's strengths will be highlighted going forward."
+    }
+  ],
+  "needTranslate": false
 }

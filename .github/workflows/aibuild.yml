@@ -2,15 +2,6 @@ name: Build AIScroll
 
 on:
   workflow_dispatch:
-    inputs:
-      skip_translate:
-        description: '번역 스킵 (이미 번역된 경우)'
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - 'false'
-          - 'true'
 
 jobs:
   build:
@@ -32,13 +23,59 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check for untranslated articles
+        id: check-translate
+        run: |
+          NEED_TRANSLATE=$(node -e "
+            const fs = require('fs');
+            const path = require('path');
+            let need = false;
+
+            // data/tech/ai/*.json 체크 (needTranslate가 false가 아니면 번역 필요)
+            const aiDir = 'data/tech/ai';
+            if (fs.existsSync(aiDir)) {
+              fs.readdirSync(aiDir).filter(f => f.endsWith('.json')).forEach(f => {
+                const data = JSON.parse(fs.readFileSync(path.join(aiDir, f), 'utf8'));
+                if (data.needTranslate !== false) {
+                  need = true;
+                }
+              });
+            }
+
+            // reports/issue/*.json 체크
+            const issueDir = 'reports/issue';
+            const extras = ['gpt-5-3-garlic-update-rumor', 'chatgpt-vs-gemini-comparison-2026'];
+            if (fs.existsSync(issueDir)) {
+              extras.forEach(slug => {
+                const f = path.join(issueDir, slug + '.json');
+                if (fs.existsSync(f)) {
+                  const data = JSON.parse(fs.readFileSync(f, 'utf8'));
+                  if (data.needTranslate !== false) need = true;
+                }
+              });
+            }
+
+            console.log(need ? 'true' : 'false');
+          ")
+          echo "need_translate=$NEED_TRANSLATE" >> $GITHUB_OUTPUT
+          if [ "$NEED_TRANSLATE" = "true" ]; then
+            echo "📝 번역이 필요한 글이 있습니다"
+          else
+            echo "✅ 모든 글이 번역되어 있습니다"
+          fi
+
+      - name: Translate articles (if needed)
+        if: steps.check-translate.outputs.need_translate == 'true'
+        run: |
+          export PATH="/opt/homebrew/bin:$PATH"
+          echo "🌐 번역 시작..."
+          node translate-ai-blog.js
+        timeout-minutes: 30
+
       - name: Build AIScroll
         run: |
-          if [ "${{ inputs.skip_translate }}" = "true" ]; then
-            node generate-ai-blog.js --skip-translate
-          else
-            node generate-ai-blog.js
-          fi
+          echo "🔨 빌드 시작..."
+          node generate-ai-blog.js
 
       - name: Commit and push
         run: |

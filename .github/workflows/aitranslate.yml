@@ -1,0 +1,35 @@
+name: Translate AIScroll
+
+on:
+  workflow_dispatch:
+
+jobs:
+  translate:
+    runs-on: self-hosted
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout GamerScroll
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Translate articles
+        run: node translate-ai-blog.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data/ reports/
+          git diff --staged --quiet || git commit -m "Translate AIScroll articles $(date +'%Y-%m-%d %H:%M')"
+          git push

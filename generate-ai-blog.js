@@ -4,18 +4,16 @@
  *
  * 1. data/tech/ai/*.json 로드
  * 2. reports/issue/*.json에서 isGlobal: true 로드
- * 3. 영문 필드 없으면 Claude API로 번역
- * 4. 영문 HTML 생성
- * 5. AIScroll 저장소 docs/에 푸시
+ * 3. 영문 HTML 생성
+ *
+ * 번역은 translate-ai-blog.js로 분리됨
  */
 
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
-const os = require('os');
 
 // 템플릿
-const { generateAIBlogIndex } = require('./src/templates/ai-blog/index');
+const { generateAIBlogIndex, generateSearchPage, generateCategoryPage } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 
 // 경로 설정
@@ -25,54 +23,45 @@ const REPORTS_DIR = path.join(__dirname, 'reports');
 const DOCS_DIR = path.join(__dirname, 'ai-docs');
 const STYLES_SRC = path.join(__dirname, 'src', 'styles');
 
-// Claude CLI로 번역
-async function translateWithClaude(text, type = 'content') {
-  const prompt = type === 'title'
-    ? `Translate this title to English. Keep it concise and professional. Only output the translated title, nothing else:\n\n${text}`
-    : `Translate this content to English. Maintain the same tone and style. Only output the translated content, nothing else:\n\n${text}`;
-
-  const tmpFile = path.join(os.tmpdir(), `translate-${Date.now()}.txt`);
-  fs.writeFileSync(tmpFile, prompt, 'utf8');
-
-  try {
-    const result = execSync(`cat "${tmpFile}" | claude -p - --model sonnet`, {
-      encoding: 'utf8',
-      maxBuffer: 1024 * 1024,
-      timeout: 300000 // 5분
-    });
-    fs.unlinkSync(tmpFile);
-    return result.trim();
-  } catch (error) {
-    console.error('번역 실패:', error.message);
-    fs.unlinkSync(tmpFile);
-    return text; // 실패 시 원문 반환
-  }
+/**
+ * CSS 압축 (minify) - GamerScroll과 동일
+ */
+function minifyCss(css) {
+  return css
+    // 주석 제거 (/* ... */)
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    // 연속 공백을 하나로
+    .replace(/\s+/g, ' ')
+    // 셀렉터/속성 주변 공백 제거
+    .replace(/\s*([{}:;,>~+])\s*/g, '$1')
+    // 세미콜론 뒤 공백 제거 (속성 간)
+    .replace(/;\s*/g, ';')
+    // 중괄호 뒤 공백 제거
+    .replace(/}\s*/g, '}')
+    // 시작 공백 제거
+    .trim();
 }
 
-// JSON 콘텐츠 번역
-async function translateContent(content) {
-  if (!content || !Array.isArray(content)) return content;
+// 추가로 가져올 기사 목록
+const EXTRA_ARTICLES = {
+  // reports/issue/*.json
+  issue: [
+    'gpt-5-3-garlic-update-rumor',
+    'chatgpt-vs-gemini-comparison-2026'
+  ],
+  // data/wiki/{category}/*.json
+  wiki: [
+    { category: 'business', slug: 'google-genie3-unity-stock-crash' }
+  ]
+};
 
-  const translated = [];
-  for (const block of content) {
-    if (block.type === 'text' || block.type === 'heading' || block.type === 'subheading' || block.type === 'quote') {
-      const translatedValue = await translateWithClaude(block.value, block.type === 'heading' ? 'title' : 'content');
-      translated.push({ ...block, value: translatedValue });
-    } else if (block.type === 'table') {
-      // 테이블 헤더/캡션 번역
-      const translatedHeaders = block.headers ? await Promise.all(block.headers.map(h => translateWithClaude(h, 'title'))) : block.headers;
-      const translatedCaption = block.caption ? await translateWithClaude(block.caption, 'title') : block.caption;
-      translated.push({ ...block, headers: translatedHeaders, caption: translatedCaption });
-    } else {
-      translated.push(block);
-    }
-  }
-  return translated;
-}
+// 카테고리 목록 (폴더 분리용)
+const CATEGORIES = ['general', 'openai', 'google', 'anthropic'];
 
 // 글 데이터 로드
 function loadArticles() {
   const articles = [];
+  const loadedSlugs = new Set();
 
   // 1. data/tech/ai/*.json 로드
   const techAiDir = path.join(DATA_DIR, 'tech', 'ai');
@@ -84,6 +73,7 @@ function loadArticles() {
         const data = JSON.parse(content);
         if (data.status === 'approved' || data.status === 'published') {
           articles.push({ ...data, source: 'tech/ai', sourceFile: file });
+          loadedSlugs.add(data.slug);
         }
       } catch (e) {
         console.error(`로드 실패: ${file}`, e.message);
@@ -91,7 +81,7 @@ function loadArticles() {
     }
   }
 
-  // 2. reports/issue/*.json에서 isGlobal: true 로드
+  // 2. reports/issue/*.json에서 isGlobal: true 또는 추가 목록에 있는 것 로드
   const issueDir = path.join(REPORTS_DIR, 'issue');
   if (fs.existsSync(issueDir)) {
     const files = fs.readdirSync(issueDir).filter(f => f.endsWith('.json'));
@@ -99,11 +89,33 @@ function loadArticles() {
       try {
         const content = fs.readFileSync(path.join(issueDir, file), 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
-        if (data.isGlobal === true && (data.status === 'approved' || data.status === 'published')) {
+        const isExtra = EXTRA_ARTICLES.issue.includes(data.slug);
+        const isGlobal = data.isGlobal === true;
+        const isValid = data.status === 'approved' || data.status === 'published';
+
+        if ((isGlobal || isExtra) && isValid && !loadedSlugs.has(data.slug)) {
           articles.push({ ...data, source: 'issue', sourceFile: file });
+          loadedSlugs.add(data.slug);
         }
       } catch (e) {
         console.error(`로드 실패: ${file}`, e.message);
+      }
+    }
+  }
+
+  // 3. data/wiki/{category}/*.json에서 추가 목록에 있는 것 로드
+  for (const wikiItem of EXTRA_ARTICLES.wiki) {
+    const wikiFile = path.join(DATA_DIR, 'wiki', wikiItem.category, `${wikiItem.slug}.json`);
+    if (fs.existsSync(wikiFile) && !loadedSlugs.has(wikiItem.slug)) {
+      try {
+        const content = fs.readFileSync(wikiFile, 'utf8').replace(/^\uFEFF/, '');
+        const data = JSON.parse(content);
+        if (data.status === 'approved' || data.status === 'published') {
+          articles.push({ ...data, source: `wiki/${wikiItem.category}`, sourceFile: `${wikiItem.slug}.json` });
+          loadedSlugs.add(data.slug);
+        }
+      } catch (e) {
+        console.error(`로드 실패: ${wikiItem.slug}`, e.message);
       }
     }
   }
@@ -114,57 +126,7 @@ function loadArticles() {
   return articles;
 }
 
-// 번역 필요 여부 확인 및 번역
-async function ensureTranslation(article) {
-  // 이미 영문 필드가 있으면 스킵
-  if (article.titleEn && article.contentEn) {
-    return article;
-  }
-
-  console.log(`번역 중: ${article.title}`);
-
-  // 제목 번역
-  if (!article.titleEn) {
-    article.titleEn = await translateWithClaude(article.title, 'title');
-  }
-
-  // 요약 번역
-  if (article.summary && !article.summaryEn) {
-    article.summaryEn = await translateWithClaude(article.summary, 'content');
-  }
-
-  // 본문 번역
-  if (article.content && !article.contentEn) {
-    article.contentEn = await translateContent(article.content);
-  }
-
-  // 원본 파일에 저장 (다음 빌드 시 스킵)
-  saveTranslation(article);
-
-  return article;
-}
-
-// 번역 결과 저장
-function saveTranslation(article) {
-  let filePath;
-  if (article.source === 'tech/ai') {
-    filePath = path.join(DATA_DIR, 'tech', 'ai', article.sourceFile);
-  } else if (article.source === 'issue') {
-    filePath = path.join(REPORTS_DIR, 'issue', article.sourceFile);
-  }
-
-  if (filePath && fs.existsSync(filePath)) {
-    const content = fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, '');
-    const data = JSON.parse(content);
-    data.titleEn = article.titleEn;
-    data.summaryEn = article.summaryEn;
-    data.contentEn = article.contentEn;
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
-    console.log(`저장됨: ${article.sourceFile}`);
-  }
-}
-
-// 스타일 복사
+// 스타일 복사 (GamerScroll CSS 그대로 사용, minify 적용)
 function copyStyles() {
   // GamerScroll 스타일 파일들 합치기
   const styleFiles = fs.readdirSync(STYLES_SRC)
@@ -174,103 +136,34 @@ function copyStyles() {
   let combinedCss = '';
   for (const file of styleFiles) {
     const content = fs.readFileSync(path.join(STYLES_SRC, file), 'utf8');
-    combinedCss += `/* ${file} */\n${content}\n\n`;
+    combinedCss += content + '\n';
   }
 
-  // AIScroll 전용 오버라이드 추가
-  combinedCss += `
-/* AIScroll Overrides */
-.site-header {
-  text-align: center;
-  padding: 24px 16px;
+  // GamerScroll과 동일하게 minify 적용
+  const minifiedCss = minifyCss(combinedCss);
+  fs.writeFileSync(path.join(DOCS_DIR, 'styles.css'), minifiedCss, 'utf8');
+  console.log('스타일 복사 완료 (minified)');
 }
 
-.site-logo {
-  display: inline-flex;
-  justify-content: center;
+// 디렉토리 재귀 복사
+function copyDirRecursive(src, dest) {
+  if (!fs.existsSync(src)) return;
+  if (!fs.existsSync(dest)) {
+    fs.mkdirSync(dest, { recursive: true });
+  }
+  const entries = fs.readdirSync(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+    if (entry.isDirectory()) {
+      copyDirRecursive(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
 }
 
-.logo-svg {
-  height: 28px;
-  width: auto;
-}
-
-.search-bar-wrapper {
-  max-width: 600px;
-  margin: 0 auto 24px;
-  padding: 0 16px;
-}
-
-.search-container {
-  position: relative;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 12px;
-}
-
-.search-input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  color: var(--text-primary);
-  outline: none;
-}
-
-.search-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-top: 4px;
-  max-height: 300px;
-  overflow-y: auto;
-  display: none;
-  z-index: 100;
-}
-
-.search-dropdown.active {
-  display: block;
-}
-
-.search-result-item {
-  display: block;
-  padding: 12px 16px;
-  text-decoration: none;
-  color: var(--text-primary);
-  border-bottom: 1px solid var(--border);
-}
-
-.search-result-item:hover {
-  background: var(--bg-hover);
-}
-
-.search-result-item:last-child {
-  border-bottom: none;
-}
-
-.site-footer {
-  text-align: center;
-  padding: 24px 16px;
-  color: var(--text-secondary);
-  font-size: 12px;
-}
-`;
-
-  fs.writeFileSync(path.join(DOCS_DIR, 'styles.css'), combinedCss, 'utf8');
-  console.log('스타일 복사 완료');
-}
-
-// favicon 복사
+// 에셋 복사 (favicon + 이미지)
 function copyAssets() {
   // favicon
   const faviconSrc = path.join(__dirname, 'docs', 'favicon.svg');
@@ -283,6 +176,35 @@ function copyAssets() {
     </svg>`;
     fs.writeFileSync(path.join(DOCS_DIR, 'favicon.svg'), defaultFavicon, 'utf8');
   }
+
+  // tech/ai 이미지 복사
+  const techAiImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'tech', 'ai');
+  const techAiImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'tech', 'ai');
+  if (fs.existsSync(techAiImagesSrc)) {
+    copyDirRecursive(techAiImagesSrc, techAiImagesDest);
+    console.log('tech/ai 이미지 복사 완료');
+  }
+
+  // issue 이미지 복사 (isGlobal 기사용)
+  const issueImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'issue');
+  const issueImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'issue');
+  if (fs.existsSync(issueImagesSrc)) {
+    copyDirRecursive(issueImagesSrc, issueImagesDest);
+    console.log('issue 이미지 복사 완료');
+  }
+
+  // wiki 이미지 복사 (추가 목록용)
+  for (const wikiItem of EXTRA_ARTICLES.wiki) {
+    const wikiImageSrc = path.join(__dirname, 'docs', 'assets', 'images', 'wiki', wikiItem.category, wikiItem.slug);
+    const wikiImageDest = path.join(DOCS_DIR, 'assets', 'images', 'wiki', wikiItem.category, wikiItem.slug);
+    if (fs.existsSync(wikiImageSrc)) {
+      copyDirRecursive(wikiImageSrc, wikiImageDest);
+    }
+  }
+  if (EXTRA_ARTICLES.wiki.length > 0) {
+    console.log('wiki 이미지 복사 완료');
+  }
+
   console.log('에셋 복사 완료');
 }
 
@@ -299,9 +221,10 @@ function generateHTML(articles) {
     fs.mkdirSync(articleDir, { recursive: true });
   }
 
-  // 영문 데이터로 변환
+  // 영문 데이터로 변환 (category 포함)
   const enArticles = articles.map(a => ({
     slug: a.slug,
+    category: a.category || 'general',
     title: a.titleEn || a.title,
     summary: a.summaryEn || a.summary,
     content: a.contentEn || a.content,
@@ -309,7 +232,8 @@ function generateHTML(articles) {
     date: a.date,
     keywords: a.keywords,
     sources: a.sources,
-    relatedArticles: a.relatedArticles
+    relatedArticles: a.relatedArticles,
+    relatedDocs: a.relatedDocs
   }));
 
   // 인기/최신 글 (임시로 같은 데이터 사용)
@@ -325,16 +249,138 @@ function generateHTML(articles) {
   fs.writeFileSync(path.join(DOCS_DIR, 'index.html'), indexHtml, 'utf8');
   console.log('홈페이지 생성 완료');
 
-  // 개별 글 페이지 생성
+  // 카테고리별 폴더 생성
+  for (const cat of CATEGORIES) {
+    const catDir = path.join(articleDir, cat);
+    if (!fs.existsSync(catDir)) {
+      fs.mkdirSync(catDir, { recursive: true });
+    }
+  }
+
+  // 개별 글 페이지 생성 (/article/{category}/{slug}/)
   for (const article of enArticles) {
-    const articleHtml = generateAIBlogArticle(article, { popularArticles, latestArticles });
-    const articlePath = path.join(articleDir, article.slug);
+    const articleHtml = generateAIBlogArticle(article, { popularArticles, latestArticles, allArticles: enArticles });
+    const articlePath = path.join(articleDir, article.category, article.slug);
     if (!fs.existsSync(articlePath)) {
       fs.mkdirSync(articlePath, { recursive: true });
     }
     fs.writeFileSync(path.join(articlePath, 'index.html'), articleHtml, 'utf8');
   }
-  console.log(`글 ${enArticles.length}개 생성 완료`);
+  console.log(`글 ${enArticles.length}개 생성 완료 (카테고리별 폴더)`);
+
+  // 기사 검색용 JSON 생성 (카테고리, 썸네일, 날짜, 요약 포함)
+  const searchData = enArticles.map(a => ({
+    slug: a.slug,
+    title: a.title,
+    thumbnail: a.thumbnail || '',
+    category: a.category,
+    date: a.date || '',
+    summary: a.summary || ''
+  }));
+  fs.writeFileSync(path.join(DOCS_DIR, 'articles.json'), JSON.stringify(searchData), 'utf8');
+  console.log('검색용 JSON 생성 완료');
+
+  // Privacy Policy 페이지 생성
+  generatePrivacyPage();
+
+  // Search 페이지 생성
+  generateSearchPageFile();
+
+  // 카테고리 페이지 생성
+  generateCategoryPages(enArticles, popularArticles, latestArticles);
+}
+
+// Privacy Policy 페이지 생성
+function generatePrivacyPage() {
+  const { wrapWithLayout } = require('./src/templates/ai-blog/index');
+
+  const privacyContent = `
+    <section class="home-section active" id="privacy">
+      <article class="page-container issue-container">
+        <div class="blog-card">
+          <header class="blog-header">
+            <h1 class="blog-title">Privacy Policy</h1>
+            <div class="blog-meta">
+              <time class="blog-date">Last updated: January 2026</time>
+            </div>
+          </header>
+
+          <div class="blog-content">
+            <h2 class="blog-heading">1. Information We Collect</h2>
+            <p class="blog-paragraph">AI Scroll collects minimal information to provide and improve our services:</p>
+            <p class="blog-paragraph">• <strong>Usage Data:</strong> We collect anonymous usage statistics such as pages visited, time spent on pages, and general traffic patterns.<br>• <strong>Cookies:</strong> We use essential cookies to ensure the website functions properly.</p>
+
+            <h2 class="blog-heading">2. How We Use Information</h2>
+            <p class="blog-paragraph">The information we collect is used to:</p>
+            <p class="blog-paragraph">• Provide and maintain our service<br>• Improve user experience<br>• Analyze usage patterns to enhance content<br>• Ensure security and prevent abuse</p>
+
+            <h2 class="blog-heading">3. Third-Party Services</h2>
+            <p class="blog-paragraph">We may use third-party services that collect information:</p>
+            <p class="blog-paragraph">• <strong>Analytics:</strong> To understand how visitors use our site<br>• <strong>Content Delivery Networks:</strong> To serve content efficiently<br>• <strong>Image Proxies:</strong> To optimize image loading</p>
+
+            <h2 class="blog-heading">4. Data Retention</h2>
+            <p class="blog-paragraph">We retain collected data only for as long as necessary to provide our services and comply with legal obligations.</p>
+
+            <h2 class="blog-heading">5. Your Rights</h2>
+            <p class="blog-paragraph">You have the right to:</p>
+            <p class="blog-paragraph">• Access your personal data<br>• Request deletion of your data<br>• Opt-out of analytics tracking<br>• Contact us with privacy concerns</p>
+
+            <h2 class="blog-heading">6. Contact</h2>
+            <p class="blog-paragraph">For any privacy-related questions, please contact us through our website.</p>
+
+            <h2 class="blog-heading">7. Changes to This Policy</h2>
+            <p class="blog-paragraph">We may update this Privacy Policy from time to time. We will notify users of any material changes by posting the new policy on this page.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  `;
+
+  const privacyHtml = wrapWithLayout(privacyContent, {
+    title: 'Privacy Policy - AI Scroll',
+    description: 'AI Scroll Privacy Policy - Information about data collection, usage, and your rights.',
+    keywords: 'privacy policy, data protection, AI Scroll',
+    canonical: 'https://aiscroll.io/privacy/'
+  });
+
+  const privacyDir = path.join(DOCS_DIR, 'privacy');
+  if (!fs.existsSync(privacyDir)) {
+    fs.mkdirSync(privacyDir, { recursive: true });
+  }
+  fs.writeFileSync(path.join(privacyDir, 'index.html'), privacyHtml, 'utf8');
+  console.log('Privacy Policy 페이지 생성 완료');
+}
+
+// Search 페이지 생성
+function generateSearchPageFile() {
+  const searchHtml = generateSearchPage();
+
+  const searchDir = path.join(DOCS_DIR, 'search');
+  if (!fs.existsSync(searchDir)) {
+    fs.mkdirSync(searchDir, { recursive: true });
+  }
+  fs.writeFileSync(path.join(searchDir, 'index.html'), searchHtml, 'utf8');
+  console.log('Search 페이지 생성 완료');
+}
+
+// 카테고리 페이지 생성
+function generateCategoryPages(articles, popularArticles, latestArticles) {
+  const categoryMeta = {
+    'general': 'General',
+    'openai': 'OpenAI',
+    'google': 'Google',
+    'anthropic': 'Anthropic'
+  };
+
+  for (const [catId, catLabel] of Object.entries(categoryMeta)) {
+    const catHtml = generateCategoryPage(catId, catLabel, articles, popularArticles, latestArticles);
+    const catDir = path.join(DOCS_DIR, 'article', catId);
+    if (!fs.existsSync(catDir)) {
+      fs.mkdirSync(catDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(catDir, 'index.html'), catHtml, 'utf8');
+  }
+  console.log('카테고리 페이지 4개 생성 완료');
 }
 
 // 빌드 완료 메시지
@@ -357,34 +403,22 @@ async function main() {
     return;
   }
 
-  // 2. 번역 (--skip-translate 옵션으로 스킵 가능)
-  const skipTranslate = process.argv.includes('--skip-translate');
-  if (!skipTranslate) {
-    console.log('2. 번역 확인 중...');
-    for (const article of articles) {
-      await ensureTranslation(article);
-    }
-    console.log('   번역 완료\n');
-  } else {
-    console.log('2. 번역 스킵\n');
-  }
-
-  // 3. HTML 생성
-  console.log('3. HTML 생성 중...');
+  // 2. HTML 생성
+  console.log('2. HTML 생성 중...');
   generateHTML(articles);
   console.log('');
 
-  // 4. 스타일 복사
-  console.log('4. 스타일 복사 중...');
+  // 3. 스타일 복사
+  console.log('3. 스타일 복사 중...');
   copyStyles();
   console.log('');
 
-  // 5. 에셋 복사
-  console.log('5. 에셋 복사 중...');
+  // 4. 에셋 복사
+  console.log('4. 에셋 복사 중...');
   copyAssets();
   console.log('');
 
-  // 6. 완료 메시지
+  // 5. 완료 메시지
   showBuildSummary();
 
   console.log('\n=== AIScroll 빌드 완료 ===');

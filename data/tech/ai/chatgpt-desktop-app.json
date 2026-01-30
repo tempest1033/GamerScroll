@@ -1,6 +1,7 @@
 {
   "slug": "chatgpt-desktop-app",
   "status": "approved",
+  "category": "openai",
   "title": "챗GPT 데스크톱 앱, 브라우저 없이 AI 쓰는 법",
   "date": "2026-01-27T12:00",
   "thumbnail": "https://store-images.s-microsoft.com/image/apps.37799.14423064005243201.9052bdfd-dc99-4d78-867b-c66a845f182c.01458d73-1787-4ac0-899d-746f5d4fced5",
@@ -104,5 +105,80 @@
   "relatedDocs": [
     "tech:normal/agile-jira-confluence-game-dev",
     "tech:vibecoding/vibe-coding"
+  ],
+  "needTranslate": false,
+  "titleEn": "ChatGPT Desktop App: How to Use AI Without a Browser",
+  "summaryEn": "The ChatGPT desktop app is an official application that lets you use AI directly without a web browser. You can instantly invoke it from anywhere with the Alt + Space shortcut, and download it for free from the Windows Store.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Using ChatGPT typically requires opening a browser and finding the right tab, which can be inconvenient. There's a solution to this problem. By installing the ChatGPT desktop app, you can summon AI instantly with a single keyboard shortcut. It's available for free download from the Windows Store and works on Windows 10 or later."
+    },
+    {
+      "type": "heading",
+      "value": "1. Installation"
+    },
+    {
+      "type": "text",
+      "value": "Search for 'ChatGPT' in the <a href=\"https://apps.microsoft.com/detail/9nt1r1c2hh7j\" target=\"_blank\">Windows Store</a> to find the official OpenAI app. It's free to download, and after installation, you can start using it immediately by logging in with your OpenAI account.\n\nThe app runs in the background, waiting for shortcut activation. An icon appears in the system tray, and you can configure it to start automatically when your computer boots."
+    },
+    {
+      "type": "heading",
+      "value": "2. Instant Access with Alt + Space"
+    },
+    {
+      "type": "text",
+      "value": "The app's core feature is shortcut activation. Press Alt + Space to bring up a small chat window on your screen. OpenAI calls this the 'companion window.'\n\nYou can invoke it while using other programs. If you have a question while working on a document, press Alt + Space to ask, check the response, and immediately return to your work. There's no need to switch between browser tabs, so your workflow remains uninterrupted.\n\nIf the shortcut conflicts with other programs, you can change it in settings. Go to Settings > App > Companion window hotkey to customize your key combination."
+    },
+    {
+      "type": "heading",
+      "value": "3. Key Shortcuts"
+    },
+    {
+      "type": "table",
+      "caption": "ChatGPT Desktop App Shortcuts",
+      "headers": [
+        "Shortcut",
+        "Function"
+      ],
+      "rows": [
+        [
+          "Alt + Space",
+          "Open/close chat window"
+        ],
+        [
+          "Ctrl + N",
+          "Start new conversation"
+        ],
+        [
+          "Ctrl + K",
+          "Search conversation history"
+        ],
+        [
+          "Ctrl +/-",
+          "Adjust text size"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Ctrl + K lets you search previous conversations, which is useful when you need to find something you asked before. Conversation history syncs with the web version, so you can continue conversations started on the web in the app."
+    },
+    {
+      "type": "heading",
+      "value": "4. Screenshots and File Attachments"
+    },
+    {
+      "type": "text",
+      "value": "You can take screenshots and attach them directly to conversations. It integrates with Windows Snipping Tool, allowing you to capture selected areas.\n\nWebcam capture is also available. This is convenient when showing physical objects while asking questions or quickly sharing documents. Regular file attachments are supported as well."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: The Convenience of One Less Tab"
+    },
+    {
+      "type": "text",
+      "value": "The ChatGPT desktop app's advantage is simple: it lets you summon AI with a shortcut, without opening a browser. If you use ChatGPT frequently, installing it will make your experience much more convenient."
+    }
   ]
 }

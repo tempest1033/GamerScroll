@@ -1,6 +1,7 @@
 {
   "slug": "moltbot-clawdbot-ai-assistant",
   "status": "approved",
+  "category": "anthropic",
   "title": "Clawdbot, 자율성을 가진 AI 비서의 등장과 72시간의 혼란",
   "date": "2026-01-28T12:00",
   "thumbnail": "https://molt.bot/og-image.png",
@@ -145,5 +146,122 @@
   ],
   "relatedDocs": [
     "tech:ai/chatgpt-desktop-app"
-  ]
+  ],
+  "titleEn": "Clawdbot: The Rise of an Autonomous AI Assistant and 72 Hours of Chaos",
+  "summaryEn": "Clawdbot (now Moltbot) is a local AI assistant that captured global attention for several days. Praised as an agent with long-term memory and autonomous decision-making capabilities, it faced a turbulent 72 hours during its rebranding process, marked by account hijacking, fake token scams, and security vulnerabilities.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In January 2026, an open-source project gained massive attention on GitHub. Clawdbot, created by Austrian developer Peter Steinberger, was not just another chatbot—it was an autonomous AI agent capable of acting on behalf of users."
+    },
+    {
+      "type": "heading",
+      "value": "What is Clawdbot?"
+    },
+    {
+      "type": "image",
+      "src": "https://miro.medium.com/v2/resize:fit:700/1*PwoFHSAxdp2CPbwSygXJ1g.png",
+      "caption": "Clawdbot - The AI that actually does things",
+      "alt": "Clawdbot branding image - The AI that actually does things"
+    },
+    {
+      "type": "text",
+      "value": "Clawdbot is a local AI assistant that runs directly on your computer (such as a Mac mini). It integrates with over 50 messaging platforms including WhatsApp, Telegram, Slack, Discord, iMessage, and Signal, using AI models like Claude or GPT as its brain.\n\nFor example, if you send \"Schedule a meeting tomorrow at 3 PM\" via WhatsApp, Clawdbot checks your calendar and creates the appointment. Ask \"Find the invoice I received last week,\" and it searches your email for the file. You can even set it to proactively send you daily weather updates and schedule summaries without being asked.\n\nWith capabilities including web browsing, file management, and script execution, it goes beyond simple conversation to actually perform tasks as a virtual assistant."
+    },
+    {
+      "type": "heading",
+      "value": "Explosive Response"
+    },
+    {
+      "type": "text",
+      "value": "The developer community's reaction was explosive. Comments like \"Finally, a real Jarvis has arrived\" flooded in, and people began purchasing Mac minis specifically to run Clawdbot. Tesla's AI Director Andrej Karpathy praised it, and MacStories called it \"the future of personal AI assistants.\"\n\nAn AI with long-term memory, multi-platform functionality, and autonomous decision-making—this was the kind of agent people had been waiting for."
+    },
+    {
+      "type": "heading",
+      "value": "Core Features"
+    },
+    {
+      "type": "table",
+      "caption": "Key Features of Clawdbot",
+      "headers": [
+        "Feature",
+        "Description"
+      ],
+      "rows": [
+        [
+          "Long-term Memory",
+          "Maintains conversation context for days, weeks, or months"
+        ],
+        [
+          "Autonomous Task Execution",
+          "Email responses, calendar management, script execution, web browsing"
+        ],
+        [
+          "Multi-platform",
+          "Integrates with 50+ platforms including WhatsApp, Discord, Slack, iMessage, Telegram"
+        ],
+        [
+          "Proactive Notifications",
+          "Sends reminders, briefings, and alerts without user requests"
+        ],
+        [
+          "Local Execution",
+          "Runs directly on your computer, not in the cloud"
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "https://images.fastcompany.com/image/upload/f_webp,c_fit,w_1920,q_auto/wp-cms-2/2025/10/p-1-91417710-beeper-slack-whatsapp-telegram.jpg",
+      "caption": "The trend of integrating multiple messaging platforms",
+      "alt": "Messaging integration services including Slack, WhatsApp, and Telegram"
+    },
+    {
+      "type": "heading",
+      "value": "72 Hours of Chaos"
+    },
+    {
+      "type": "text",
+      "value": "But then came the plot twist. At the peak of its popularity, a series of incidents unfolded over 72 hours."
+    },
+    {
+      "type": "image",
+      "src": "https://www.ampcuscyber.com/wp-content/uploads/2025/08/credential-leaks-fuel-cyber-attacks.webp",
+      "caption": "Credential exposure poses serious security threats",
+      "alt": "Conceptual diagram of credential leaks due to security vulnerabilities"
+    },
+    {
+      "type": "text",
+      "value": "First came the security issues. Security researchers warned that hundreds of Clawdbot servers were exposed on the internet. They were easily discoverable through Shodan searches, and some were completely open without authentication, exposing API keys, conversation histories, and login credentials. A Google Cloud VP directly warned users to \"not install it.\""
+    },
+    {
+      "type": "heading",
+      "value": "Anthropic's Request, and a 10-Second Mistake"
+    },
+    {
+      "type": "text",
+      "value": "Making matters worse, Anthropic requested a trademark change, citing the similarity between 'Clawd' and their 'Claude.' The project was rebranded to Moltbot, meaning \"like a lobster that molts, donning a new shell.\""
+    },
+    {
+      "type": "text",
+      "value": "The problem arose during the rebranding process. While attempting to simultaneously change GitHub and X (Twitter) handles, the original accounts were hijacked by cryptocurrency scammers within 10 seconds. The scammers promoted a fake token to tens of thousands of followers, and a fraudulent $CLAWD token appeared on Solana, reaching a market cap of $16 million before crashing."
+    },
+    {
+      "type": "heading",
+      "value": "Unstable, But the Implications Are Clear"
+    },
+    {
+      "type": "text",
+      "value": "Clawdbot remains an unstable open-source project. Security vulnerabilities, rebranding chaos, scam incidents—the risks of using it right now are significant."
+    },
+    {
+      "type": "text",
+      "value": "However, what Clawdbot demonstrated is clear: the market's hunger for AI agents with long-term memory, autonomous decision-making, and multi-platform integration. It's significant that a solo open-source developer implemented a 'practical agent' before AI frontier companies did."
+    },
+    {
+      "type": "text",
+      "value": "What's certain is that the era of AI with long-term memory and autonomous decision-making capabilities is arriving."
+    }
+  ],
+  "needTranslate": false
 }

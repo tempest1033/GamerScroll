@@ -840,6 +840,37 @@ heading → image → text → text
 > - URL: `/tech/{category}/{slug}/`
 > - 카테고리: `normal` (일반)
 
+> **AI 기사 (AIScroll)**는 테크 문서의 `ai` 카테고리로 작성
+> - 저장 경로: `data/tech/ai/{slug}.json`
+> - AIScroll URL: `/article/{category}/{slug}/`
+> - **필수 필드**: `category` - 반드시 지정 (폴더 분리됨)
+> - 카테고리 값: `general` | `openai` | `google` | `anthropic`
+>
+> | 카테고리 | 대상 |
+> |----------|------|
+> | `general` | 일반 AI 뉴스, 복수 회사 비교, 업계 동향 |
+> | `openai` | OpenAI, ChatGPT, GPT 시리즈, DALL-E, Sora |
+> | `google` | Google, DeepMind, Gemini, Bard, Genie |
+> | `anthropic` | Anthropic, Claude, Constitutional AI |
+>
+> **번역 필드 (AIScroll 전용)**
+> | 필드 | 값 | 설명 |
+> |------|-----|------|
+> | `needTranslate` | 없음/`true` | 번역 필요 (기본값, 새 글은 필드 없어도 됨) |
+> | `needTranslate` | `false` | 번역 완료 (자동으로 변경됨) |
+> | `titleEn` | string | 영어 제목 (번역 후 자동 생성) |
+> | `summaryEn` | string | 영어 요약 (번역 후 자동 생성) |
+> | `contentEn` | array | 영어 본문 (번역 후 자동 생성) |
+>
+> **번역 워크플로우**
+> ```
+> 1. 새 글 작성 (needTranslate 필드 없어도 됨)
+> 2. aibuild.yml 실행 → needTranslate !== false인 글 감지
+> 3. translate-ai-blog.js 실행 → Claude로 번역
+> 4. 번역 완료 후 needTranslate: false + titleEn/summaryEn/contentEn 저장
+> 5. generate-ai-blog.js 실행 → HTML 생성
+> ```
+
 ### 작성 프로세스
 ```
 1. 주제 선정 - 사용자와 논의
