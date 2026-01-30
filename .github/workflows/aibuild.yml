@@ -1,0 +1,67 @@
+name: Build AIScroll
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_translate:
+        description: '번역 스킵 (이미 번역된 경우)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+jobs:
+  build:
+    runs-on: self-hosted
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout GamerScroll
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Checkout AIScroll
+        uses: actions/checkout@v4
+        with:
+          repository: tempest1033/AIScroll
+          path: ../AIScroll
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build AIScroll
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "${{ inputs.skip_translate }}" = "true" ]; then
+            node generate-ai-blog.js --skip-translate --no-push
+          else
+            node generate-ai-blog.js --no-push
+          fi
+
+      - name: Commit translation updates
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data/ reports/
+          git diff --staged --quiet || git commit -m "Update translations $(date +'%Y-%m-%d %H:%M')"
+          git push || true
+
+      - name: Push to AIScroll
+        run: |
+          cd ../AIScroll
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "Update $(date +'%Y-%m-%d %H:%M')"
+          git push
