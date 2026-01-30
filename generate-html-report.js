@@ -762,20 +762,15 @@ async function main() {
   // 테크 데이터 로드 (홈페이지용)
   const homeTechData = loadTechData();
 
-  // CSS 파일 번들링 + 압축 + 해시 파일명 (페이지 생성 전에 먼저 설정)
+  // CSS 파일 번들링 + 압축 (해시 없이 고정 파일명)
   let didBundleCss = false;
-  let cssHash = '';
-  let cssFilename = '/styles.css';  // 기본값
+  const cssFilename = '/styles.css';
   try {
     const bundledCss = bundleCssFile('./src/styles.css');
     const minifiedCss = minifyCss(bundledCss);
 
-    // CSS 내용 기반 해시 생성 (앞 8자리)
-    cssHash = crypto.createHash('md5').update(minifiedCss).digest('hex').slice(0, 8);
-    cssFilename = `/styles.${cssHash}.css`;
-
-    // 해시 파일명으로 저장
-    fs.writeFileSync(`./styles.${cssHash}.css`, minifiedCss, 'utf8');
+    // 고정 파일명으로 저장
+    fs.writeFileSync('./styles.css', minifiedCss, 'utf8');
 
     // 전역 CSS 파일명 설정 (템플릿에서 사용)
     setCssFilename(cssFilename);
@@ -783,12 +778,11 @@ async function main() {
     const originalSize = Buffer.byteLength(bundledCss, 'utf8');
     const minifiedSize = Buffer.byteLength(minifiedCss, 'utf8');
     const reduction = ((1 - minifiedSize / originalSize) * 100).toFixed(1);
-    console.log(`  ✅ styles.${cssHash}.css 압축: ${(originalSize/1024).toFixed(0)}KB → ${(minifiedSize/1024).toFixed(0)}KB (${reduction}% 감소)`);
+    console.log(`  ✅ styles.css 압축: ${(originalSize/1024).toFixed(0)}KB → ${(minifiedSize/1024).toFixed(0)}KB (${reduction}% 감소)`);
     didBundleCss = true;
   } catch (e) {
     console.error(`⚠️ CSS 번들링 실패 → 원본 복사: ${e.message}`);
     fs.copyFileSync('./src/styles.css', './styles.css');
-    cssFilename = '/styles.css';
     setCssFilename(cssFilename);
   }
 
@@ -821,13 +815,9 @@ async function main() {
   try {
     const rootFiles = fs.readdirSync('.');
     for (const file of rootFiles) {
-      if (file.match(/^styles\.[a-f0-9]{8}\.css$/) && file !== `styles.${cssHash}.css`) {
+      if (file.match(/^styles\.[a-f0-9]{8}\.css$/)) {
         fs.unlinkSync(`./${file}`);
       }
-    }
-    // 기존 styles.css도 삭제 (해시 방식으로 전환)
-    if (cssHash && fs.existsSync('./styles.css')) {
-      fs.unlinkSync('./styles.css');
     }
   } catch (e) {
     // 정리 실패는 무시
@@ -838,9 +828,10 @@ async function main() {
   let forceFullRebuild = false;
 
   // CSS 또는 템플릿 변경 시 전체 재빌드
-  if (buildCache.checkCssChanged(incrementalCache, cssHash)) {
+  const cssContentHash = didBundleCss ? crypto.createHash('md5').update(fs.readFileSync('./styles.css', 'utf8')).digest('hex').slice(0, 8) : null;
+  if (buildCache.checkCssChanged(incrementalCache, cssContentHash)) {
     forceFullRebuild = true;
-    incrementalCache.meta.cssHash = cssHash;
+    incrementalCache.meta.cssHash = cssContentHash;
   }
   if (buildCache.checkTemplateChanged(incrementalCache)) {
     forceFullRebuild = true;
@@ -1967,24 +1958,15 @@ async function main() {
         fs.unlinkSync(`${DOCS_DIR}/${file}`);
       }
     }
-    // 기존 styles.css도 삭제 (해시 방식으로 전환)
-    if (fs.existsSync(`${DOCS_DIR}/styles.css`)) {
-      fs.unlinkSync(`${DOCS_DIR}/styles.css`);
-    }
 
-    // 새 해시 CSS 파일 복사
-    if (didBundleCss && cssHash && fs.existsSync(`./styles.${cssHash}.css`)) {
-      fs.copyFileSync(`./styles.${cssHash}.css`, `${DOCS_DIR}/styles.${cssHash}.css`);
+    // styles.css 복사
+    if (fs.existsSync('./styles.css')) {
+      fs.copyFileSync('./styles.css', `${DOCS_DIR}/styles.css`);
     } else {
-      const bundledCss = bundleCssFile('./src/styles.css');
-      const minifiedCss = minifyCss(bundledCss);
-      const fallbackHash = crypto.createHash('md5').update(minifiedCss).digest('hex').slice(0, 8);
-      fs.writeFileSync(`${DOCS_DIR}/styles.${fallbackHash}.css`, minifiedCss, 'utf8');
-      cssFilename = `/styles.${fallbackHash}.css`;
-      setCssFilename(cssFilename);
+      fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
     }
   } catch (e) {
-    console.error(`⚠️ CSS 번들링 실패(docs) → 원본 복사: ${e.message}`);
+    console.error(`⚠️ CSS 복사 실패(docs): ${e.message}`);
     fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
   }
   // 분리된 CSS 모듈 동기화 (src/styles/*.css -> docs/styles/)

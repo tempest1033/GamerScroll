@@ -26,13 +26,8 @@ const outputDir = path.join(__dirname, '..', docsDir, 'games');
 const { generateGamePage } = require('../src/templates/pages/game');
 const { setCssFilename } = require('../src/templates/layout');
 
-// 해시된 CSS 파일명 찾아서 설정
-const cssFiles = fs.readdirSync(path.join(__dirname, '..', docsDir)).filter(f => f.match(/^styles\.[a-f0-9]{8}\.css$/));
-let currentCssHash = null;
-if (cssFiles.length > 0) {
-  setCssFilename('/' + cssFiles[0]);
-  currentCssHash = cssFiles[0].match(/styles\.([a-f0-9]{8})\.css/)?.[1] || null;
-}
+// CSS 파일명 설정 (고정)
+setCssFilename('/styles.css');
 
 // 게임 데이터 로드
 const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8').replace(/^\uFEFF/, ''));
