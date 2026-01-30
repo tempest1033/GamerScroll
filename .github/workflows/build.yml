@@ -106,8 +106,8 @@ jobs:
             mkdir -p docs/$page
           cp $page.html docs/$page/index.html
           done
-          # 번들된 해시 CSS 복사 (styles.{hash}.css → docs/)
-          cp styles.*.css docs/ 2>/dev/null || true
+          # CSS 복사 (styles.css → docs/)
+          cp styles.css docs/ 2>/dev/null || true
           # 분리된 CSS 모듈(추가 요청) 복사
           if [ -d "src/styles" ]; then
             mkdir -p docs/styles
