@@ -111,6 +111,20 @@
       "type": "thumbnail-sm.webp",
       "failedAt": "2026-01-29T13:57:42.128Z",
       "error": "unknown"
+    },
+    {
+      "url": "https://img0.yna.co.kr/etc/graphic/YH/2022/10/11/GYH2022101100040004400_P4.jpg",
+      "slug": "chzzk-soop-p2p-grid",
+      "type": "02.webp",
+      "failedAt": "2026-01-30T18:19:04.450Z",
+      "error": "write EPROTO 80CC48A64A7F0000:error:0A000152:SSL routines:final_renegotiate:unsafe legacy renegotiation disabled:../deps/openssl/openssl/ssl/statem/extensions.c:893:\n"
+    },
+    {
+      "url": "https://image.ytn.co.kr/general/jpg/2023/1206/202312061335508453_t.jpg",
+      "slug": "chzzk-soop-p2p-grid",
+      "type": "03.webp",
+      "failedAt": "2026-01-30T18:19:09.453Z",
+      "error": "Timeout: https://image.ytn.co.kr/general/jpg/2023/1206/202312061335508453_t.jpg"
     }
   ]
 }
