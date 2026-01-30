@@ -2433,6 +2433,8 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     image: schemaImage
   };
 
+  const thumbnailPath = thumbnail ? getLocalIssueImagePath(slug, thumbnail, 'thumbnail') : null;
+
   return wrapWithLayout(pageContent, {
     currentPage: 'trend',
     title: title,
@@ -2440,6 +2442,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
     keywords: post.keywords || '게임 분석, 이슈, 게임 이슈, 모바일 게임',
     canonical: `${siteBaseUrl}/magazine/issue/${slug}/`,
     articleSchema,
+    preloadImages: thumbnailPath ? [thumbnailPath] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -2854,6 +2857,10 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
     image: schemaImage
   };
 
+  const issueThumbUrls = relatedIssuesList.map(issue =>
+    getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')
+  ).filter(Boolean);
+
   return wrapWithLayout(pageContent, {
     currentPage: 'trend',
     title: title,
@@ -2861,6 +2868,7 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
     keywords: post.keywords || '게임 트렌드, 인사이트, 게임 분석, 모바일 게임',
     canonical: `${siteBaseUrl}/magazine/insight/${slug}/`,
     articleSchema,
+    preloadImages: issueThumbUrls,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -3282,6 +3290,8 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
     image: schemaImage
   };
 
+  const thumbnailPath = thumbnail ? getLocalHotpickImagePath(slug, thumbnail, 'thumbnail') : null;
+
   return wrapWithLayout(pageContent, {
     currentPage: 'trend',
     title: title,
@@ -3289,6 +3299,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
     keywords: post.keywords || '게임 추천, 핫픽, 구매 가이드, 세일 추천',
     canonical: `${siteBaseUrl}/magazine/hotpick/${slug}/`,
     articleSchema,
+    preloadImages: thumbnailPath ? [thumbnailPath] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },

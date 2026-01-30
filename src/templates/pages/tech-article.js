@@ -429,6 +429,7 @@ function generateTechArticlePage({ article, category, relatedArticles = [], prev
     keywords: metaKeywords,
     canonical: `${siteBaseUrl}/tech/${category}/${article.slug}/`,
     articleSchema,
+    preloadImages: thumbnailPath ? [thumbnailPath] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '테크', url: `${siteBaseUrl}/tech/` },

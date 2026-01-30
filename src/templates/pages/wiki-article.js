@@ -508,6 +508,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
     keywords: metaKeywords,
     canonical: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
     articleSchema,
+    preloadImages: thumbnailPath ? [thumbnailPath] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '게임 위키', url: `${siteBaseUrl}/wiki/` },
