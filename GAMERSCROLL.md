@@ -560,12 +560,10 @@ cd docs && npx serve -l 3000
 ```
 1. 주제 선정 - 사용자와 논의
 2. 자료 조사 - 웹 검색으로 데이터 수집
-3. 초안 작성 - JSON 형식으로 작성
-4. 전문 공유 - 글 전체를 텍스트로 보여주기 (사용자가 확인할 수 있도록)
-5. 피드백 반영 - 사용자 의견 수정
-6. 최종 저장 - reports/issue/{slug}.json
-7. 승인 시 status를 approved로 변경
-8. 퀵빌드로 확인
+3. 초안 작성 - JSON 저장 (draft 상태)
+4. 퀵빌드로 로컬 확인 - draft도 로컬에서 보임
+5. 피드백 반영 - 수정 후 퀵빌드 반복
+6. 올릴 때 status → approved로 변경
 ```
 
 **중요**: 초안 작성 후 반드시 글 전문을 텍스트로 공유해야 함. JSON만 보여주면 사용자가 내용 확인이 어려움.
@@ -730,27 +728,6 @@ heading → image → text → text → ad → text
 npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 ```
 
-### 초안 미리보기
-이미지 다운로드 없이 빠르게 초안을 확인할 수 있는 스크립트:
-
-```bash
-# 최신 draft 미리보기
-node scripts/preview.js issue
-
-# 특정 slug 미리보기
-node scripts/preview.js issue [slug]
-
-# 핫픽 미리보기
-node scripts/preview.js hotpick [slug]
-
-# draft 목록 보기
-node scripts/preview.js --list issue
-```
-
-- **출력 위치**: `docs/preview/issue-preview.html` 또는 `hotpick-preview.html`
-- **특징**: 외부 이미지를 wsrv.nl 프록시로 바로 렌더링 (다운로드 불필요)
-- **용도**: 본격 빌드 전 레이아웃/내용 빠른 확인
-
 ---
 
 ## 랭킹 리포트 작성 (Ranking)
@@ -765,12 +742,10 @@ node scripts/preview.js --list issue
 ```
 1. 주제 선정 - 비교할 게임 선정
 2. 데이터 확인 - history/{date}.json의 bestRanks로 실제 순위 확인
-3. 초안 작성 - JSON 형식으로 작성
-4. 전문 공유 - 글 전체를 텍스트로 보여주기
-5. 피드백 반영 - 사용자 의견 수정
-6. 최종 저장 - reports/ranking/{slug}.json
-7. 승인 시 status를 approved로 변경
-8. 퀵빌드로 확인
+3. 초안 작성 - JSON 저장 (draft 상태)
+4. 퀵빌드로 로컬 확인 - draft도 로컬에서 보임
+5. 피드백 반영 - 수정 후 퀵빌드 반복
+6. 올릴 때 status → approved로 변경
 ```
 
 ### JSON 형식
@@ -849,11 +824,6 @@ heading → image → text → text
 | **게임 링크** | ☐ | 서론에 비교 대상 게임 link 블록 추가 |
 | **퀵빌드 확인** | ☐ | 차트 렌더링, 이미지 로드 확인 |
 
-### 미리보기
-```bash
-node scripts/preview.js ranking [slug]
-```
-
 ---
 
 ## 게임 위키 작성 (Wiki)
@@ -874,12 +844,10 @@ node scripts/preview.js ranking [slug]
 ```
 1. 주제 선정 - 사용자와 논의
 2. 자료 조사 - 웹 검색으로 데이터 수집
-3. 초안 작성 - JSON 형식으로 작성
-4. 전문 공유 - 글 전체를 텍스트로 보여주기 (사용자가 확인할 수 있도록)
-5. 피드백 반영 - 사용자 의견 수정
-6. 최종 저장 - data/wiki/{category}/{slug}.json
-7. 승인 시 status를 approved로 변경
-8. 퀵빌드로 확인
+3. 초안 작성 - JSON 저장 (draft 상태)
+4. 퀵빌드로 로컬 확인 - draft도 로컬에서 보임
+5. 피드백 반영 - 수정 후 퀵빌드 반복
+6. 올릴 때 status → approved로 변경
 ```
 
 **중요**: 초안 작성 후 반드시 글 전문을 텍스트로 공유해야 함. JSON만 보여주면 사용자가 내용 확인이 어려움.
@@ -1068,29 +1036,6 @@ text (서론) → heading → image → text → heading → image → text → 
 ### 빌드
 ```bash
 npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
-```
-
-### 초안 미리보기
-```bash
-# 최신 draft 미리보기
-node scripts/preview.js wiki
-
-# 특정 카테고리/slug 미리보기
-node scripts/preview.js wiki {category} {slug}
-
-# draft 목록 보기
-node scripts/preview.js --list wiki
-```
-
-- **출력 위치**: `docs/preview/wiki-preview.html`
-- **특징**: 외부 이미지를 wsrv.nl 프록시로 바로 렌더링 (다운로드 불필요)
-- **용도**: 본격 빌드 전 레이아웃/내용 빠른 확인
-
-**테크 문서 미리보기:**
-```bash
-node scripts/preview.js tech                    # 최신 draft
-node scripts/preview.js tech {category} {slug}  # 특정 문서
-node scripts/preview.js --list tech             # 목록
 ```
 
 ### SEO 최종 체크리스트
