@@ -1149,7 +1149,8 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 **규칙:**
 1. 소스 파일만 커밋
 2. 빌드 산출물은 로컬에서 수정/삭제하지 않기
-3. 푸시 후 반드시 빌드 트리거 (`gh workflow run build.yml`)
+3. **푸시 전 리베이스 필수** (서버 빌드 산출물 반영)
+4. 푸시 후 빌드 트리거
 
 ---
 
@@ -1158,14 +1159,14 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 WSL에서 `/mnt/c/` 경로 접근 시 성능 저하 발생. Git 명령은 PowerShell로 실행:
 
 ```powershell
-# 소스만 커밋 & 푸시
-powershell.exe -Command "cd C:\Project\GamerScroll; git add data/ reports/ src/ scripts/ *.js *.md package.json; git commit -m '메시지'; git push origin main"
+# 1. 소스만 커밋
+powershell.exe -Command "cd C:\Project\GamerScroll; git add data/ reports/ src/ scripts/ *.js *.md package.json; git commit -m '메시지'"
 
-# 푸시 후 빌드 트리거 (필수)
-powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run build.yml"
+# 2. 리베이스 (서버 산출물 반영) - 필수!
+powershell.exe -Command "cd C:\Project\GamerScroll; git pull --rebase origin main"
 
-# 빌드 워크플로우 트리거
-powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run build.yml"
+# 3. 푸시 & 빌드 트리거
+powershell.exe -Command "cd C:\Project\GamerScroll; git push origin main; gh workflow run build.yml"
 
 # AI 인사이트 워크플로우 트리거
 powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run ai-insight.yml"
