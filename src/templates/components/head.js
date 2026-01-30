@@ -200,6 +200,8 @@ function generateHead(options = {}) {
   <!-- SEO -->
   <meta name="description" content="${safeDescription}">
   <meta name="keywords" content="${safeKeywords}">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
   <link rel="canonical" href="${safeCanonical}">
   ${alternateLink}
   <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">${
@@ -211,7 +213,7 @@ function generateHead(options = {}) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "게이머스크롤",
-    "alternateName": ["GAMERSCROLL", "GAMER SCROLL", "게이머 스크롤"],
+    "alternateName": ["게이머스크롤", "게이머 스크롤"],
     "url": "https://gamerscroll.com/",
     "description": ${jsonString(description)},
     "publisher": {
