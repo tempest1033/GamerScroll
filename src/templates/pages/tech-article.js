@@ -146,10 +146,13 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
             if (tableHtml) return tableHtml;
           }
           const formatted = trimmed
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
             .replace(/^- /gm, '• ')
             .replace(/\n- /g, '\n• ')
-            .replace(/\n/g, '<br>');
+            .replace(/\n/g, '<br>')
+            .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
           return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
         }).filter(p => p).join('');
         result.push(paragraphs);

@@ -2151,10 +2151,13 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], wikiData =
             // 마크다운 볼드 변환: **텍스트** → <strong>텍스트</strong>
             // 마크다운 리스트 변환: "- " → "• "
             const formatted = trimmed
+              .replace(/`([^`]+)`/g, '<code>$1</code>')
+              .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
               .replace(/^- /gm, '• ')
               .replace(/\n- /g, '\n• ')
-              .replace(/\n/g, '<br>');
+              .replace(/\n/g, '<br>')
+              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
             return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
           }).filter(p => p).join('');
           result.push(paragraphs);
@@ -2566,10 +2569,13 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
               if (tableHtml) return tableHtml;
             }
             const formatted = trimmed
+              .replace(/`([^`]+)`/g, '<code>$1</code>')
+              .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
               .replace(/^- /gm, '• ')
               .replace(/\n- /g, '\n• ')
-              .replace(/\n/g, '<br>');
+              .replace(/\n/g, '<br>')
+              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
             return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
           }).filter(p => p).join('');
           result.push(paragraphs);
@@ -2984,10 +2990,13 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
               if (tableHtml) return tableHtml;
             }
             const formatted = trimmed
+              .replace(/`([^`]+)`/g, '<code>$1</code>')
+              .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
               .replace(/^- /gm, '• ')
               .replace(/\n- /g, '\n• ')
-              .replace(/\n/g, '<br>');
+              .replace(/\n/g, '<br>')
+              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
             return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
           }).filter(p => p).join('');
           result.push(paragraphs);
@@ -3433,10 +3442,13 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
             // 마크다운 볼드 변환: **텍스트** → <strong>텍스트</strong>
             // 마크다운 리스트 변환: "- " → "• "
             const formatted = trimmed
+              .replace(/`([^`]+)`/g, '<code>$1</code>')
+              .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
               .replace(/^- /gm, '• ')
               .replace(/\n- /g, '\n• ')
-              .replace(/\n/g, '<br>');
+              .replace(/\n/g, '<br>')
+              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
             return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
           }).filter(p => p).join('');
           result.push(paragraphs);

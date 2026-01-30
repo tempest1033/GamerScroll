@@ -140,6 +140,35 @@ function getLocalWikiImagePath(category, slug, originalUrl, imageType) {
   return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
 }
 
+// heading을 slug로 변환
+const toSlug = (text) => {
+  return text
+    .replace(/^\d+\.\s*/, '') // "1. " 같은 번호 제거
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+};
+
+// 목차 생성
+const renderToc = (content = []) => {
+  const headings = content.filter(b => b.type === 'heading' && b.value);
+  if (headings.length < 3) return ''; // 3개 미만이면 목차 생략
+
+  const items = headings.map(h => {
+    const id = toSlug(h.value);
+    return `<li><a href="#${id}">${h.value}</a></li>`;
+  }).join('');
+
+  return `
+    <nav class="blog-toc">
+      <div class="blog-toc-title">목차</div>
+      <ol>${items}</ol>
+    </nav>
+  `;
+};
+
 const renderContentBlocks = (content = [], category = '', slug = '') => {
   if (!Array.isArray(content) || content.length === 0) return '';
   const result = [];
@@ -158,10 +187,13 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
           // 마크다운 볼드 변환: **텍스트** → <strong>텍스트</strong>
           // 마크다운 리스트 변환: "- " → "• "
           const formatted = trimmed
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
             .replace(/^- /gm, '• ')
             .replace(/\n- /g, '\n• ')
-            .replace(/\n/g, '<br>');
+            .replace(/\n/g, '<br>')
+            .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
           return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
         }).filter(p => p).join('');
         result.push(paragraphs);
@@ -212,7 +244,8 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
 
       case 'heading':
         if (!block.value) break;
-        result.push(`<h2 class="blog-heading">${block.value}</h2>`);
+        const headingId = toSlug(block.value);
+        result.push(`<h2 id="${headingId}" class="blog-heading">${block.value}</h2>`);
         break;
 
       case 'table':
@@ -410,6 +443,7 @@ function generateWikiArticlePage({ article, category, relatedArticles = [], prev
           ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
 
           <div class="blog-content">
+            ${article.toc ? renderToc(article.content) : ''}
             ${renderContentBlocks(article.content, category, article.slug)}
           </div>
 
