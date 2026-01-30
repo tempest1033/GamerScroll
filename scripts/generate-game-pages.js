@@ -316,7 +316,7 @@ function loadHourlySnapshots() {
               for (const line of lines) {
                 if (!line.trim()) continue;
                 // CSV 파싱: time,rank,id,title (id는 빈 값일 수 있음)
-                const match = line.match(/^(\d{2}:\d{2}),(\d+),([^,]*),"?([^"]*)"?$/);
+                const match = line.trim().match(/^(\d{2}:\d{2}),(\d+),([^,]*),"?([^"]*)"?$/);
                 if (match) {
                   const [, time, rank, appId, title] = match;
                   allData.push({
@@ -420,7 +420,9 @@ function extractGameHourlyRanks(gameName, gameInfo, hourlySnapshots, hourlyIndex
   const snapshotKeys = Object.keys(hourlySnapshots);
 
   for (const snapshotKey of snapshotKeys) {
-    const [platform, region] = snapshotKey.split('-');
+    const [snapshotPlatform, region] = snapshotKey.split('-');
+    // aos -> android 변환 (스냅샷은 aos, appIds는 android 사용)
+    const platform = snapshotPlatform === 'aos' ? 'android' : snapshotPlatform;
     const expectedAppId = getAppIdForRegion(gameAppIds, platform, region);
 
     let gameRanks = null;
@@ -1107,6 +1109,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
     rankings: {},
     rankHistory: [],  // 모바일 순위 추이 데이터
     realtimeRanks: {},  // 24시간 실시간 순위 데이터
+    snapshotLatestTimes: {},  // 각 스냅샷 키별 전체 최신 시간 (100위 밖 체크용)
     steamHistory: [],  // 스팀 순위 추이 데이터
     news: [],
     community: [],
@@ -1114,6 +1117,14 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
     youtube: [],
     mentions: []  // 리포트 mentions 추가
   };
+
+  // 각 스냅샷 키별 전체 최신 시간 계산
+  for (const [snapshotKey, data] of Object.entries(hourlySnapshots)) {
+    if (data && data.length > 0) {
+      const latest = data[data.length - 1];
+      result.snapshotLatestTimes[snapshotKey] = `${latest.date}T${latest.time}`;
+    }
+  }
 
   // 실시간 순위 추출 (역인덱스 사용)
   result.realtimeRanks = extractGameHourlyRanks(gameName, gameInfo, hourlySnapshots, hourlyIndex);
@@ -1198,9 +1209,38 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
 
   if (!historyData) return result;
 
-  // 순위 데이터 수집 + 아이콘 수집 (역인덱스 사용 - O(1))
+  // 순위 데이터 수집 (스냅샷 기반 실시간) + 아이콘 수집 (히스토리 기반)
   const platforms = ['ios', 'android'];
 
+  // 1. 스냅샷에서 최신 순위 추출 (실시간)
+  // 최신 시간대에 100위 안에 있는 경우만 표시 (100위 밖이면 설정 안 함)
+  for (const snapshotKey of Object.keys(result.realtimeRanks)) {
+    const ranks = result.realtimeRanks[snapshotKey];
+    if (ranks && ranks.length > 0) {
+      const gameLatest = ranks[ranks.length - 1];  // 게임의 가장 최근 데이터
+
+      // 전체 스냅샷의 최신 시간 확인
+      const snapshotData = hourlySnapshots[snapshotKey];
+      if (snapshotData && snapshotData.length > 0) {
+        const globalLatest = snapshotData[snapshotData.length - 1];  // 전체 최신
+
+        // 게임의 마지막 기록이 전체 최신과 같은 시간대인지 확인
+        // 다르면 100위 밖으로 떨어진 것
+        if (gameLatest.date === globalLatest.date && gameLatest.time === globalLatest.time) {
+          const [snapshotPlatform, region, cat] = snapshotKey.split('-');
+          const platform = snapshotPlatform === 'aos' ? 'android' : snapshotPlatform;
+          if (platform && region && cat) {
+            result.rankings[`${region}-${platform}-${cat}`] = {
+              rank: gameLatest.rank,
+              change: 0
+            };
+          }
+        }
+      }
+    }
+  }
+
+  // 2. 아이콘 수집 (히스토리 기반 - 스냅샷에 아이콘 없음)
   if (latestRankingsIndex) {
     for (const cat of categories) {
       for (const region of regions) {
@@ -1209,12 +1249,9 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
           const keyBase = `${cat}-${region}-${platform}`;
           let matched = null;
 
-          // 1. appId로 O(1) 조회
           if (expectedAppId) {
             matched = latestRankingsIndex.byAppId.get(`${keyBase}-${expectedAppId}`);
           }
-
-          // 2. 폴백: title로 O(1) 조회
           if (!matched) {
             for (const normalizedName of normalizedNames) {
               matched = latestRankingsIndex.byTitle.get(`${keyBase}-${normalizedName}`);
@@ -1222,14 +1259,8 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
             }
           }
 
-          if (matched) {
-            result.rankings[`${region}-${platform}-${cat}`] = {
-              rank: matched.index + 1,
-              change: matched.item.change || 0
-            };
-            if (!result.icon && matched.item.icon) {
-              result.icon = matched.item.icon;
-            }
+          if (matched && !result.icon && matched.item.icon) {
+            result.icon = matched.item.icon;
           }
         }
       }

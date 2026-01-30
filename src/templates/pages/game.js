@@ -82,7 +82,7 @@ const chartHelpers = {
  * 게임 대시보드 페이지 생성
  */
 function generateGamePage(gameData) {
-  const { name, slug = '', platforms = [], developer = '', icon = null, rankings = {}, rankHistory = [], realtimeRanks = {}, steamHistory = [], news = [], community = [], steam = null, youtube = [], mentions = [], relatedContent = [] } = gameData;
+  const { name, slug = '', platforms = [], developer = '', icon = null, rankings = {}, rankHistory = [], realtimeRanks = {}, snapshotLatestTimes = {}, steamHistory = [], news = [], community = [], steam = null, youtube = [], mentions = [], relatedContent = [] } = gameData;
 
   // 플랫폼 체크
   const hasMobilePlatform = platforms.some(p => p === 'ios' || p === 'android');
@@ -134,42 +134,30 @@ function generateGamePage(gameData) {
       // realtimeRanks 키는 aos 사용 (android → aos 변환)
       const realtimePlatform = platform === 'android' ? 'aos' : platform;
 
-      // 해당 플랫폼/카테고리에서 가장 최근 날짜+시간 찾기
-      let latestDateTime = null;
-      regions.forEach(r => {
-        const key = `${realtimePlatform}-${r}-${category}`;
-        const data = realtimeRanks[key] || [];
-        if (data.length > 0) {
-          const last = data[data.length - 1];
-          const dt = `${last.date}T${last.time}`;
-          if (!latestDateTime || dt > latestDateTime) {
-            latestDateTime = dt;
-          }
-        }
-      });
-
-      // 해당 플랫폼/카테고리에 실시간 데이터가 있는지 확인
-      const hasRealtimeForPlatform = latestDateTime !== null;
-
       return regions.map(region => {
-        // 실시간 데이터에서 마지막 값 가져오기
         const realtimeKey = `${realtimePlatform}-${region}-${category}`;
         const realtimeData = realtimeRanks[realtimeKey] || [];
         const lastRealtime = realtimeData.length > 0 ? realtimeData[realtimeData.length - 1] : null;
 
-        // 실시간 데이터가 있는 플랫폼이면 실시간만 사용
-        // 단, 마지막 데이터가 최신 스냅샷 시간 기준 2시간 이내여야 표시 (차트아웃 감지)
+        // 전체 스냅샷의 최신 시간 (snapshotLatestTimes에서 가져옴)
+        const globalLatestTime = snapshotLatestTimes[realtimeKey];
+
+        // 게임의 마지막 데이터 시간
+        const gameDt = lastRealtime ? `${lastRealtime.date}T${lastRealtime.time}` : null;
+
+        // 전체 최신 시간과 게임 마지막 시간이 같으면 100위 안에 있음
+        // 다르면 100위 밖으로 떨어진 것
         const data = platformData[region];
         let rankVal;
-        if (hasRealtimeForPlatform) {
-          // 마지막 데이터가 최신 시간 기준 2시간 이내면 표시, 아니면 '-' (차트아웃)
-          const lastDt = lastRealtime ? `${lastRealtime.date}T${lastRealtime.time}` : null;
-          const timeDiff = lastDt ? (new Date(latestDateTime) - new Date(lastDt)) : Infinity;
-          const isChartedOut = timeDiff > 2 * 60 * 60 * 1000; // 2시간
-          rankVal = (lastRealtime && !isChartedOut) ? lastRealtime.rank : '-';
+        if (globalLatestTime && gameDt) {
+          rankVal = (gameDt === globalLatestTime) ? lastRealtime.rank : '-';
+        } else if (lastRealtime) {
+          // snapshotLatestTimes가 없으면 기존 방식 (폴백)
+          rankVal = lastRealtime.rank;
         } else {
           rankVal = data?.rank ?? '-';
         }
+
         const changeVal = data?.change || 0;
         const changeClass = changeVal > 0 ? 'up' : changeVal < 0 ? 'down' : '';
         const changeHtml = changeVal !== 0
@@ -226,8 +214,22 @@ function generateGamePage(gameData) {
         dateTimeLabels.sort();
         dateTimeLabels = dateTimeLabels.slice(-48); // 30분 간격 * 48 = 24시간
 
-        // 마지막 시간 기준 (데이터가 이미 KST)
-        const lastDt = dateTimeLabels[dateTimeLabels.length - 1];
+        // 마지막 시간 기준: 전체 스냅샷의 최신 시간 사용 (100위 밖 처리를 위해)
+        // snapshotLatestTimes에서 해당 마켓의 가장 최신 시간 찾기
+        let globalLatestDt = null;
+        regionConfigs.forEach(r => {
+          const key = marketId + '-' + r.id + '-' + category;
+          const latestTime = snapshotLatestTimes[key];
+          if (latestTime) {
+            const dt = latestTime.replace('T', ' ');
+            if (!globalLatestDt || dt > globalLatestDt) {
+              globalLatestDt = dt;
+            }
+          }
+        });
+
+        // 전체 스냅샷 최신 시간이 없으면 게임 데이터의 마지막 시간 사용 (폴백)
+        const lastDt = globalLatestDt || dateTimeLabels[dateTimeLabels.length - 1];
         const [lastDateStr, lastTimeStr] = lastDt.split(' ');
         const lastKstDate = new Date(lastDateStr + 'T' + lastTimeStr + ':00');
         const lastKstHour = lastKstDate.getHours();
