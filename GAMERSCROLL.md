@@ -1126,13 +1126,43 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 
 ---
 
+## Git 커밋 규칙
+
+### 소스 파일 (커밋 대상)
+| 경로 | 설명 |
+|------|------|
+| `data/` | 게임DB, 위키, 테크, 이슈 JSON |
+| `reports/` | AI 인사이트 JSON |
+| `src/` | 크롤러, 템플릿 |
+| `scripts/` | 스크립트 |
+| `*.js` | 진입점 (generate-*.js 등) |
+| `GAMERSCROLL.md` | 프로젝트 가이드 |
+| `package.json` | 의존성 |
+
+### 빌드 산출물 (건드리지 않기)
+| 경로 | 설명 |
+|------|------|
+| `docs/` | 서버에서 빌드 |
+| `styles.*.css` | 서버에서 생성 |
+| `.build-cache.json` | 서버에서 관리 |
+
+**규칙:**
+1. 소스 파일만 커밋
+2. 빌드 산출물은 로컬에서 수정/삭제하지 않기
+3. 푸시 후 반드시 빌드 트리거 (`gh workflow run build.yml`)
+
+---
+
 ## Git 명령 (WSL 환경)
 
 WSL에서 `/mnt/c/` 경로 접근 시 성능 저하 발생. Git 명령은 PowerShell로 실행:
 
 ```powershell
-# 커밋 & 푸시
-powershell.exe -Command "cd C:\Project\GamerScroll; git add -A; git commit -m '메시지'; git push origin main"
+# 소스만 커밋 & 푸시
+powershell.exe -Command "cd C:\Project\GamerScroll; git add data/ reports/ src/ scripts/ *.js *.md package.json; git commit -m '메시지'; git push origin main"
+
+# 푸시 후 빌드 트리거 (필수)
+powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run build.yml"
 
 # 빌드 워크플로우 트리거
 powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run build.yml"
