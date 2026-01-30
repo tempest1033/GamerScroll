@@ -20,7 +20,9 @@ const EXTRA_ARTICLES = {
     'gpt-5-3-garlic-update-rumor',
     'chatgpt-vs-gemini-comparison-2026'
   ],
-  wiki: []
+  wiki: [
+    'business/google-genie3-unity-stock-crash'
+  ]
 };
 
 // 기사 전체를 한 번에 번역 (기사당 에이전트 1개)
@@ -28,16 +30,18 @@ async function translateArticle(article, slug) {
   const toTranslate = {
     title: article.title,
     summary: article.summary,
+    keywords: article.keywords,
     content: article.content
   };
 
   const prompt = `CRITICAL: You MUST respond with ONLY valid JSON. No markdown, no explanation, no text before or after.
 
 Translate Korean to English. Output structure:
-{"title":"...","summary":"...","content":[...]}
+{"title":"...","summary":"...","keywords":"...","content":[...]}
 
 Rules:
-- Translate title, summary, all content blocks
+- Translate title, summary, keywords, all content blocks
+- keywords: comma-separated SEO keywords in English
 - For content: translate "value" for text/heading/subheading/quote
 - For tables: translate headers, caption, rows
 - Keep HTML tags intact
@@ -70,6 +74,7 @@ ${JSON.stringify(toTranslate, null, 2)}`;
     return {
       titleEn: translated.title,
       summaryEn: translated.summary,
+      keywordsEn: translated.keywords,
       contentEn: translated.content
     };
   } catch (error) {
@@ -98,6 +103,7 @@ async function ensureTranslation(article, filePath) {
   // 번역 결과 병합
   article.titleEn = translated.titleEn;
   article.summaryEn = translated.summaryEn;
+  article.keywordsEn = translated.keywordsEn;
   article.contentEn = translated.contentEn;
   article.needTranslate = false; // 번역 완료
 
@@ -132,6 +138,15 @@ function loadArticles() {
         const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         articles.push({ data, filePath, source: 'issue' });
       }
+    }
+  }
+
+  // 3. data/wiki/*/*.json 에서 EXTRA_ARTICLES.wiki에 해당하는 것만
+  for (const wikiPath of EXTRA_ARTICLES.wiki) {
+    const filePath = path.join(DATA_DIR, 'wiki', `${wikiPath}.json`);
+    if (fs.existsSync(filePath)) {
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      articles.push({ data, filePath, source: 'wiki' });
     }
   }
 

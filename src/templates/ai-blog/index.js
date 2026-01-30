@@ -375,12 +375,30 @@ function generateAIBlogIndex(data) {
 
   </script>`;
 
+  // WebSite JSON-LD for homepage (includes SearchAction)
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": SITE_CONFIG.name,
+    "url": SITE_CONFIG.baseUrl,
+    "description": SITE_CONFIG.description,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${SITE_CONFIG.baseUrl}/search/?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return wrapWithLayout(content, {
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
     keywords: SITE_CONFIG.keywords,
     canonical: SITE_CONFIG.baseUrl + '/',
-    pageScripts: pageScripts
+    pageScripts: pageScripts,
+    jsonLd: websiteJsonLd
   });
 }
 
@@ -431,8 +449,23 @@ function wrapWithLayout(content, options = {}) {
     keywords = SITE_CONFIG.keywords,
     canonical = SITE_CONFIG.baseUrl,
     pageScripts = '',
-    currentPage = 'home'
+    currentPage = 'home',
+    jsonLd = null,
+    ogImage = null,
+    // Article-specific OG tags
+    articleMeta = null,  // { publishedTime, modifiedTime, section, author, tags }
+    ogType = 'website'   // 'website' for homepage, 'article' for articles
   } = options;
+
+  const ogImageUrl = ogImage || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`;
+  const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
+
+  // Article OG tags
+  const articleOgTags = articleMeta ? `
+  <meta property="article:published_time" content="${articleMeta.publishedTime}">
+  <meta property="article:modified_time" content="${articleMeta.modifiedTime}">
+  <meta property="article:section" content="${escapeHtml(articleMeta.section)}">
+  <meta property="article:author" content="AIScroll Team">` : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -443,21 +476,37 @@ function wrapWithLayout(content, options = {}) {
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="keywords" content="${escapeHtml(keywords)}">
   <link rel="canonical" href="${canonical}">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="${SITE_CONFIG.favicon}">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#4f46e5">
 
   <!-- Open Graph -->
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}">
+  <meta property="og:type" content="${ogType}">
+  <meta property="og:image" content="${ogImageUrl}">
   <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="${SITE_CONFIG.name}">${articleOgTags}
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@aiscroll_io">
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
-  <meta name="twitter:image" content="${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}">
+  <meta name="twitter:image" content="${ogImageUrl}">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="${SITE_CONFIG.name} RSS Feed" href="${SITE_CONFIG.baseUrl}/rss.xml">
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://wsrv.nl" crossorigin>
+  <link rel="dns-prefetch" href="https://wsrv.nl">${jsonLdScript}
 
   <link rel="stylesheet" href="/styles.css">
   <style>

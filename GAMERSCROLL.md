@@ -860,11 +860,14 @@ heading → image → text → text
 > | `needTranslate` | `false` | 번역 완료 (자동으로 변경됨) |
 > | `titleEn` | string | 영어 제목 (번역 후 자동 생성) |
 > | `summaryEn` | string | 영어 요약 (번역 후 자동 생성) |
+> | `keywordsEn` | string | 영어 키워드 (**JSON 작성 시 수동 추가 필수**) |
 > | `contentEn` | array | 영어 본문 (번역 후 자동 생성) |
+>
+> ⚠️ **keywordsEn은 자동 번역되지 않음** - JSON 작성 시 직접 영문 키워드 추가 필요
 >
 > **번역 워크플로우**
 > ```
-> 1. 새 글 작성 (needTranslate 필드 없어도 됨)
+> 1. 새 글 작성 시 keywordsEn 필드 함께 추가 (필수)
 > 2. aibuild.yml 실행 → needTranslate !== false인 글 감지
 > 3. translate-ai-blog.js 실행 → Claude로 번역
 > 4. 번역 완료 후 needTranslate: false + titleEn/summaryEn/contentEn 저장

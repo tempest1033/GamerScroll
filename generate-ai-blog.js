@@ -11,6 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const sharp = require('sharp');
 
 // 템플릿
 const { generateAIBlogIndex, generateSearchPage, generateCategoryPage } = require('./src/templates/ai-blog/index');
@@ -163,19 +164,85 @@ function copyDirRecursive(src, dest) {
   }
 }
 
-// 에셋 복사 (favicon + 이미지)
-function copyAssets() {
-  // favicon
-  const faviconSrc = path.join(__dirname, 'docs', 'favicon.svg');
-  if (fs.existsSync(faviconSrc)) {
-    fs.copyFileSync(faviconSrc, path.join(DOCS_DIR, 'favicon.svg'));
-  } else {
-    // 기본 favicon 생성
-    const defaultFavicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6366f1">
-      <text x="4" y="18" font-family="system-ui" font-size="16" font-weight="bold">AI</text>
-    </svg>`;
-    fs.writeFileSync(path.join(DOCS_DIR, 'favicon.svg'), defaultFavicon, 'utf8');
+// Favicon PNG 생성 (sharp 사용)
+async function generateFaviconPNGs() {
+  const faviconSvg = path.join(__dirname, 'ai-docs', 'favicon.svg');
+  if (!fs.existsSync(faviconSvg)) {
+    console.log('favicon.svg 없음, PNG 생성 스킵');
+    return;
   }
+
+  const svgBuffer = fs.readFileSync(faviconSvg);
+
+  try {
+    // favicon-16x16.png
+    await sharp(svgBuffer)
+      .resize(16, 16)
+      .png()
+      .toFile(path.join(DOCS_DIR, 'favicon-16x16.png'));
+
+    // favicon-32x32.png
+    await sharp(svgBuffer)
+      .resize(32, 32)
+      .png()
+      .toFile(path.join(DOCS_DIR, 'favicon-32x32.png'));
+
+    // apple-touch-icon.png (180x180)
+    await sharp(svgBuffer)
+      .resize(180, 180)
+      .png()
+      .toFile(path.join(DOCS_DIR, 'apple-touch-icon.png'));
+
+    // icon-192.png (PWA)
+    await sharp(svgBuffer)
+      .resize(192, 192)
+      .png()
+      .toFile(path.join(DOCS_DIR, 'icon-192.png'));
+
+    // icon-512.png (PWA)
+    await sharp(svgBuffer)
+      .resize(512, 512)
+      .png()
+      .toFile(path.join(DOCS_DIR, 'icon-512.png'));
+
+    // og-image.png (1200x630 - 소셜 공유용)
+    await sharp({
+      create: {
+        width: 1200,
+        height: 630,
+        channels: 4,
+        background: { r: 15, g: 15, b: 30, alpha: 1 }  // #0f0f1e
+      }
+    })
+      .composite([{
+        input: await sharp(svgBuffer).resize(300, 300).png().toBuffer(),
+        gravity: 'center'
+      }])
+      .png()
+      .toFile(path.join(DOCS_DIR, 'og-image.png'));
+
+    console.log('Favicon PNG 생성 완료 (16, 32, 180, 192, 512, og-image)');
+  } catch (err) {
+    console.error('Favicon PNG 생성 실패:', err.message);
+  }
+}
+
+// 에셋 복사 (favicon + 이미지)
+async function copyAssets() {
+  // AIScroll 전용 favicon.svg 복사
+  const aiFaviconSrc = path.join(__dirname, 'ai-docs', 'favicon.svg');
+  if (fs.existsSync(aiFaviconSrc)) {
+    fs.copyFileSync(aiFaviconSrc, path.join(DOCS_DIR, 'favicon.svg'));
+  }
+
+  // manifest.json 복사
+  const manifestSrc = path.join(__dirname, 'ai-docs', 'manifest.json');
+  if (fs.existsSync(manifestSrc)) {
+    fs.copyFileSync(manifestSrc, path.join(DOCS_DIR, 'manifest.json'));
+  }
+
+  // PNG 아이콘 생성 (sharp 사용)
+  await generateFaviconPNGs();
 
   // tech/ai 이미지 복사
   const techAiImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'tech', 'ai');
@@ -230,7 +297,7 @@ function generateHTML(articles) {
     content: a.contentEn || a.content,
     thumbnail: a.thumbnail,
     date: a.date,
-    keywords: a.keywords,
+    keywords: a.keywordsEn || a.keywords,
     sources: a.sources,
     relatedArticles: a.relatedArticles,
     relatedDocs: a.relatedDocs
@@ -415,13 +482,111 @@ async function main() {
 
   // 4. 에셋 복사
   console.log('4. 에셋 복사 중...');
-  copyAssets();
+  await copyAssets();
   console.log('');
 
-  // 5. 완료 메시지
+  // 5. SEO 파일 생성
+  console.log('5. SEO 파일 생성 중...');
+  generateSEOFiles(articles);
+  console.log('');
+
+  // 6. 완료 메시지
   showBuildSummary();
 
   console.log('\n=== AIScroll 빌드 완료 ===');
+}
+
+// SEO 파일 생성 (sitemap, robots.txt, RSS)
+function generateSEOFiles(articles) {
+  const SITE_URL = 'https://aiscroll.io';
+  const today = new Date().toISOString().split('T')[0];
+
+  // 영문 데이터로 변환
+  const enArticles = articles.map(a => ({
+    slug: a.slug,
+    category: a.category || 'general',
+    title: a.titleEn || a.title,
+    summary: a.summaryEn || a.summary,
+    date: a.date,
+    thumbnail: a.thumbnail
+  }));
+
+  // 1. sitemap.xml 생성
+  const sitemapPages = [
+    { loc: `${SITE_URL}/`, lastmod: today, priority: '1.0' },
+    { loc: `${SITE_URL}/search/`, lastmod: today, priority: '0.5' },
+    { loc: `${SITE_URL}/privacy/`, lastmod: today, priority: '0.3' },
+    // 카테고리 페이지
+    { loc: `${SITE_URL}/article/general/`, lastmod: today, priority: '0.8' },
+    { loc: `${SITE_URL}/article/openai/`, lastmod: today, priority: '0.8' },
+    { loc: `${SITE_URL}/article/google/`, lastmod: today, priority: '0.8' },
+    { loc: `${SITE_URL}/article/anthropic/`, lastmod: today, priority: '0.8' }
+  ];
+
+  // 기사 페이지 추가
+  for (const article of enArticles) {
+    const articleDate = article.date ? article.date.split('T')[0] : today;
+    sitemapPages.push({
+      loc: `${SITE_URL}/article/${article.category}/${article.slug}/`,
+      lastmod: articleDate,
+      priority: '0.7'
+    });
+  }
+
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapPages.map(p => `  <url>
+    <loc>${p.loc}</loc>
+    <lastmod>${p.lastmod}</lastmod>
+    <priority>${p.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+  fs.writeFileSync(path.join(DOCS_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
+  console.log('sitemap.xml 생성 완료');
+
+  // 2. robots.txt 생성
+  const robotsTxt = `# AIScroll robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+  fs.writeFileSync(path.join(DOCS_DIR, 'robots.txt'), robotsTxt, 'utf8');
+  console.log('robots.txt 생성 완료');
+
+  // 3. RSS 피드 생성
+  const rssItems = enArticles
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 20)
+    .map(article => {
+      const pubDate = new Date(article.date).toUTCString();
+      const link = `${SITE_URL}/article/${article.category}/${article.slug}/`;
+      return `    <item>
+      <title><![CDATA[${article.title}]]></title>
+      <link>${link}</link>
+      <guid>${link}</guid>
+      <pubDate>${pubDate}</pubDate>
+      <description><![CDATA[${article.summary}]]></description>
+      <category>${article.category}</category>
+    </item>`;
+    });
+
+  const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AIScroll - AI News & Insights</title>
+    <link>${SITE_URL}</link>
+    <description>Latest AI news, trends, and insights. Stay updated with the AI industry.</description>
+    <language>en-us</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
+${rssItems.join('\n')}
+  </channel>
+</rss>`;
+
+  fs.writeFileSync(path.join(DOCS_DIR, 'rss.xml'), rssXml, 'utf8');
+  console.log(`RSS 피드 생성 완료 (${rssItems.length}개 항목)`);
 }
 
 main().catch(console.error);

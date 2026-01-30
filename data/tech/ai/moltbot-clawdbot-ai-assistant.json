@@ -6,6 +6,7 @@
   "date": "2026-01-28T12:00",
   "thumbnail": "https://molt.bot/og-image.png",
   "keywords": "Moltbot, Clawdbot, AI 에이전트, 로컬, AI 비서, 오픈소스, 장기 기억, 자율 에이전트, 왓츠앱, 디스코드, 슬랙, iMessage, 보안",
+  "keywordsEn": "Moltbot, Clawdbot, AI agent, local, AI assistant, open source, long-term memory, autonomous agent, WhatsApp, Discord, Slack, iMessage, security",
   "summary": "Clawdbot(현재 Moltbot)은 며칠간 전세계의 뜨거운 관심을 받은 로컬 AI 비서다. 장기 기억과 자율적 판단이 가능한 에이전트로 주목받았지만, 리브랜딩 과정에서 계정 탈취, 가짜 토큰 스캠, 보안 취약점 등 72시간 동안 연이은 사건이 터졌다.",
   "sources": [
     {

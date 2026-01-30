@@ -244,12 +244,89 @@ function generateAIBlogArticle(article, data = {}) {
     })();
   </script>`;
 
+  // 카테고리 라벨 매핑
+  const categoryLabels = {
+    general: 'General',
+    openai: 'OpenAI',
+    google: 'Google',
+    anthropic: 'Anthropic'
+  };
+  const categoryLabel = categoryLabels[article.category] || 'General';
+
+  // 날짜 ISO 형식 변환
+  const dateISO = article.date ? new Date(article.date).toISOString() : new Date().toISOString();
+
+  // JSON-LD 구조화 데이터 (Article + BreadcrumbList)
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": article.title,
+      "description": article.summary || '',
+      "image": article.thumbnail || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`,
+      "datePublished": dateISO,
+      "dateModified": dateISO,
+      "author": {
+        "@type": "Organization",
+        "name": SITE_CONFIG.name,
+        "url": SITE_CONFIG.baseUrl
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": SITE_CONFIG.name,
+        "url": SITE_CONFIG.baseUrl,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `${SITE_CONFIG.baseUrl}/article/${article.category || 'general'}/${article.slug}/`
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": SITE_CONFIG.baseUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": categoryLabel,
+          "item": `${SITE_CONFIG.baseUrl}/article/${article.category || 'general'}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": article.title
+        }
+      ]
+    }
+  ];
+
+  // Article OG meta
+  const articleMeta = {
+    publishedTime: dateISO,
+    modifiedTime: dateISO,
+    section: categoryLabel
+  };
+
   return wrapWithLayout(content, {
     title: `${article.title} - ${SITE_CONFIG.name}`,
     description: article.summary || SITE_CONFIG.description,
     keywords: article.keywords || SITE_CONFIG.keywords,
     canonical: `${SITE_CONFIG.baseUrl}/article/${article.category || 'general'}/${article.slug}/`,
-    pageScripts: pageScripts
+    pageScripts: pageScripts,
+    jsonLd: jsonLd,
+    ogImage: article.thumbnail,
+    ogType: 'article',
+    articleMeta: articleMeta
   });
 }
 
