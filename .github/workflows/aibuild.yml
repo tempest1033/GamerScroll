@@ -23,12 +23,10 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Checkout AIScroll
-        uses: actions/checkout@v4
-        with:
-          repository: tempest1033/AIScroll
-          path: ../AIScroll
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Clone AIScroll
+        run: |
+          rm -rf AIScroll
+          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/tempest1033/AIScroll.git AIScroll
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -59,7 +57,7 @@ jobs:
 
       - name: Push to AIScroll
         run: |
-          cd ../AIScroll
+          cd AIScroll
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add docs/

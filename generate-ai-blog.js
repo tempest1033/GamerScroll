@@ -21,7 +21,10 @@ const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 // 경로 설정
 const DATA_DIR = path.join(__dirname, 'data');
 const REPORTS_DIR = path.join(__dirname, 'reports');
-const AISCROLL_DIR = path.join(__dirname, '..', 'AIScroll');
+// GitHub Actions에서는 ./AIScroll, 로컬에서는 ../AIScroll
+const AISCROLL_DIR = process.env.GITHUB_ACTIONS
+  ? path.join(__dirname, 'AIScroll')
+  : path.join(__dirname, '..', 'AIScroll');
 const DOCS_DIR = path.join(AISCROLL_DIR, 'docs');
 const STYLES_SRC = path.join(__dirname, 'src', 'styles');
 
