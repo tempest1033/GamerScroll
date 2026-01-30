@@ -995,3 +995,28 @@
     height: 16px;
   }
 }
+
+/* ========================================
+   시리즈 네비게이션 블록 (관련 문서 스타일 재사용 + 태그)
+   ======================================== */
+
+.blog-series {
+  margin: 0 0 24px;
+}
+
+.blog-series-card {
+  position: relative;
+}
+
+.blog-series-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 8px;
+  font-size: var(--font-xs-size);
+  font-weight: var(--font-tab-weight);
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+}

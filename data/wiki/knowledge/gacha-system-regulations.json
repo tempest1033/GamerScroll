@@ -17,6 +17,15 @@
   ],
   "relatedArticles": ["gacha-system-history", "gacha-system-comparison"],
   "content": [
+    {
+      "type": "series",
+      "title": "가챠 시스템 완전 해부 시리즈",
+      "articles": [
+        { "part": 1, "slug": "gacha-system-history", "title": "가챠의 기원과 역사", "thumbnail": "https://media.timeout.com/images/105170435/image.jpg" },
+        { "part": 2, "slug": "gacha-system-regulations", "title": "각국의 가챠 규제 현황", "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3224770/ss_67f95b138da201b52e9bcc43ab6f01ae820b7f12.jpg" },
+        { "part": 3, "slug": "gacha-system-comparison", "title": "대표 게임별 가챠 비교", "thumbnail": "https://pbs.twimg.com/media/GPyKRbEW4AAMlaK?format=jpg&name=large" }
+      ]
+    },
     { "type": "text", "value": "가챠는 도박인가, 게임인가. 이 질문에 대한 답은 나라마다 다르다. 어떤 나라는 전면 금지했고, 어떤 나라는 자율규제에 맡겼다. 어떤 나라는 확률 공개만 요구하고, 어떤 나라는 아직 제대로 된 규제조차 없다. 가챠(서양에서는 '루트박스')를 둘러싼 각국의 규제 현황을 정리했다." },
     { "type": "heading", "value": "일본: 자율규제의 나라" },
     { "type": "image", "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3224770/ss_67f95b138da201b52e9bcc43ab6f01ae820b7f12.jpg", "caption": "우마무스메 - 일본 가챠 게임의 대표 주자", "alt": "우마무스메 프리티 더비 게임 이미지" },

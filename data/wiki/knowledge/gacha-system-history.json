@@ -21,6 +21,15 @@
   ],
   "relatedArticles": ["gacha-system-regulations", "gacha-system-comparison"],
   "content": [
+    {
+      "type": "series",
+      "title": "가챠 시스템 완전 해부 시리즈",
+      "articles": [
+        { "part": 1, "slug": "gacha-system-history", "title": "가챠의 기원과 역사", "thumbnail": "https://media.timeout.com/images/105170435/image.jpg" },
+        { "part": 2, "slug": "gacha-system-regulations", "title": "각국의 가챠 규제 현황", "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3224770/ss_67f95b138da201b52e9bcc43ab6f01ae820b7f12.jpg" },
+        { "part": 3, "slug": "gacha-system-comparison", "title": "대표 게임별 가챠 비교", "thumbnail": "https://pbs.twimg.com/media/GPyKRbEW4AAMlaK?format=jpg&name=large" }
+      ]
+    },
     { "type": "text", "value": "모바일 게임 시장에서 '가챠'는 핵심 수익 모델이다. 랜덤으로 캐릭터나 아이템을 뽑는 이 시스템은 일본의 캡슐 자판기 '가샤폰'에서 이름을 따왔다. 100엔을 넣고 돌리면 무엇이 나올지 모르는 그 설렘과 조바심이, 디지털 세계에서 수조 원 규모의 시장을 만들어냈다." },
     { "type": "heading", "value": "가샤폰에서 디지털로" },
     { "type": "image", "src": "https://media.timeout.com/images/105170435/image.jpg", "caption": "일본 아키하바라의 가샤폰 자판기", "alt": "일본 가샤폰 캡슐 자판기 아키하바라" },

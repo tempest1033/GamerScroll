@@ -268,6 +268,29 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
       case 'ad':
         break;
 
+      case 'series':
+        if (!block.articles || !Array.isArray(block.articles)) break;
+        const seriesTitle = block.title || '시리즈';
+        const seriesCards = block.articles.map(article => {
+          const partLabel = article.part ? `${article.part}부` : '';
+          const href = `/wiki/knowledge/${article.slug}/`;
+          const thumbUrl = article.thumbnail || '';
+          return `
+            <a href="${href}" class="blog-related-issue-card blog-series-card">
+              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="" loading="lazy">
+              <span class="blog-series-tag">${partLabel}</span>
+              <span class="blog-related-issue-title">${article.title}</span>
+            </a>
+          `;
+        }).join('');
+        result.push(`
+          <nav class="blog-series">
+            <div class="blog-related-title">${seriesTitle}</div>
+            <div class="blog-related-issues-list">${seriesCards}</div>
+          </nav>
+        `);
+        break;
+
       case 'link':
         if (block.url && block.text) {
           let iconHtml = '';
