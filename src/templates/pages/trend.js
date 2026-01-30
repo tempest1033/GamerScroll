@@ -1907,6 +1907,12 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     image: insight?.ai?.thumbnail || null
   };
 
+  // 핫이슈 썸네일 프리로드 (최대 4개)
+  const issueThumbUrls = issues.slice(0, 4)
+    .map(item => findThumbnail(item))
+    .filter(Boolean)
+    .map(thumb => getLocalDailyThumbnail(slug, thumb));
+
   return wrapWithLayout(content, {
     currentPage: 'trend',
     title: summaryTitle,
@@ -1914,6 +1920,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     keywords: keywordsText,
     canonical: `${siteBaseUrl}/magazine/daily/${slug}/`,
     articleSchema,
+    preloadImages: issueThumbUrls,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -1987,6 +1994,13 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   const dynamicKeywords = weeklyIssues.slice(0, 4).map(i => i.title).join(', ');
   const keywordsText = dynamicKeywords ? `게임 트렌드, ${dynamicKeywords}` : '게임 트렌드, 게임 업계 이슈, 게임 순위, 게임 뉴스';
 
+  // 핫이슈 썸네일 프리로드 (최대 4개)
+  const weekDates = wInfo.dates || [];
+  const issueThumbUrls = weeklyIssues.slice(0, 4)
+    .map(issue => issue.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, issue.thumbnail, slug) : null)
+    .filter(Boolean);
+  const preloadUrls = heroThumbUrl ? [heroThumbUrl, ...issueThumbUrls] : issueThumbUrls;
+
   // Article JSON-LD 스키마
   const articleSchema = {
     headline: summaryTitle || `${weekNum}주차 주간 게임 브리핑`,
@@ -2003,7 +2017,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     keywords: keywordsText,
     canonical: `${siteBaseUrl}/magazine/weekly/${slug}/`,
     articleSchema,
-    preloadImages: heroThumbUrl ? [heroThumbUrl] : [],
+    preloadImages: preloadUrls,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
