@@ -7,33 +7,99 @@
   "keywords": "국전, 한우리, 국제전자센터, 콘솔 게임, 중고 게임, 게임 매장, 남부터미널, 신도림, 플레이스테이션, 닌텐도 스위치, 엑스박스",
   "summary": "서울 남부터미널 국제전자센터 9층에 있는 콘솔 게임 전문 매장. 정품만 취급하고 정찰제로 운영해서 바가지 걱정 없이 쇼핑할 수 있다. 중고 거래도 가능하다.",
   "sources": [
-    { "name": "콘솔러", "title": "한우리 판매 순위", "url": "https://konsoler.com/g2/bbs/board.php?bo_table=salesreport" }
-  ],
-  "relatedArticles": [
-    { "category": "business", "slug": "platform-fees-comparison", "title": "플랫폼 수수료 비교: 스팀, 에픽, 콘솔" },
-    { "category": "history", "slug": "legend-of-zelda-history", "title": "젤다의 전설, 닌텐도의 간판 시리즈" }
+    {
+      "name": "콘솔러",
+      "title": "한우리 판매 순위",
+      "url": "https://konsoler.com/g2/bbs/board.php?bo_table=salesreport"
+    }
   ],
   "relatedIssues": [],
   "relatedGames": [],
   "content": [
-    { "type": "text", "value": "콘솔 게임을 사고 싶은데 어디서 사야 할지 모르겠다면, 국전 한우리를 고려해볼 만하다. 서울 남부터미널역 국제전자센터(국전) 9층에 있는 이 매장은 정품만 취급하고 정찰제로 운영한다. 호객행위를 하지 않고, 누구에게나 동일한 가격을 받기 때문에 게임에 대해 잘 몰라도 바가지 쓸 걱정 없이 쇼핑할 수 있다." },
-    { "type": "heading", "value": "왜 알려졌나" },
-    { "type": "image", "src": "https://mblogthumb-phinf.pstatic.net/MjAyMDEwMjRfMTAg/MDAxNjAzNTQxNTY1Mjc3.2FvsAzBNDWZvILM7-gtxzaH6dEIvJX66VmtpzdSNLjsg.t-V4EHLRVj2tZsg6wSXeS-TyUPPDVjhZQQFyLw11xOog.JPEG.777bubu/20201024_141822.jpg?type=w800", "caption": "국제전자센터 9층 한우리 매장", "alt": "국전 한우리 매장 전경" },
-    { "type": "text", "value": "2000년대 초반 PS2가 국내에 정식 발매되면서 정품 콘솔 게임 시장이 커지기 시작했다. 당시 용산전자상가는 호객행위와 바가지가 심해서 초보자가 가기엔 부담스러운 곳이었다. 이때 국제전자센터의 한우리가 '호객행위 없음, 정찰제, 정품만 취급'이라는 방침으로 운영하면서 루리웹 등 게임 커뮤니티를 통해 입소문이 퍼졌다.\n\n이후 PS3, XBOX 360, 닌텐도 DS 등 신기종이 나올 때마다 한우리를 찾는 사람들이 늘었고, 한우리 덕분에 국전 자체가 콘솔 게임 쇼핑 장소로 알려지게 됐다. 지금은 주변 매장들도 비슷한 방식으로 영업한다." },
-    { "type": "heading", "value": "장점" },
-    { "type": "image", "src": "https://blogthumb.pstatic.net/MjAyNDAxMDNfMTY3/MDAxNzA0MjUyMDMyNjkx.uHWMVhK6Yt2eqy4mrtoPW7VP1bhUQ_Nlgd3ZIVvU7fYg.KSHySv5MJeM8uLo7f5OPlKhpIv-gltfxPz2iXPg4Z1sg.JPEG.shr11130/20231209%A3%DF162007.jpg?type=w2", "caption": "한우리 중고 게임 코너", "alt": "한우리 중고 게임 진열대" },
-    { "type": "text", "value": "정찰제 운영이 가장 큰 특징이다. 단골이든 처음 온 손님이든 같은 가격을 받고, 품절된 인기 타이틀이라고 웃돈을 붙이지 않는다. 불법 복제칩이나 해적판을 취급하지 않아서 정품만 원하는 사람에게 적합하다.\n\n중고 게임 매입과 판매도 한다. 중고 시세도 적당한 편이라 개인 거래가 번거로운 사람에게 편하다. 다만 중고 재고 확인은 방문해야 한다. 전화로는 잘 안 알려준다." },
-    { "type": "heading", "value": "마일리지 제도" },
-    { "type": "text", "value": "자체 마일리지 제도를 운영한다. 현금 결제 시 마일리지 적립률이 더 높고, 적립된 마일리지는 즉시 사용할 수 있다. 카드 결제 시에도 마일리지가 적립된다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "위치와 가는 법" },
-    { "type": "image", "src": "https://blog.kakaocdn.net/dna/cmzKUm/btrNxdL9CeG/AAAAAAAAAAAAAAAAAAAAAH8EamJni1cgp09K4wRqCcKIQxqcPymppINBb1K1dDWW/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1769871599&allow_ip=&allow_referer=&signature=d6Fib9OYg19%2FY21MeqKedax2YZM%3D", "caption": "국전 한우리 내부", "alt": "한우리 매장 내부 게임 진열" },
-    { "type": "text", "value": "**본점: 국제전자센터 (남부터미널)**\n서울 서초구 남부터미널역 3번 출구에서 도보 3분. 국제전자센터 9층으로 올라가면 된다. 에스컬레이터로 올라가면 바로 앞에 보인다.\n\n**신도림점: 테크노마트**\n신도림역 1번 출구 테크노마트 내 위치.\n\n**노원점**\n노원역 근처 위치." },
-    { "type": "heading", "value": "영업 정보" },
-    { "type": "text", "value": "**국전 본점**\n- 전화: 02-3465-0048\n- 영업: 오전 10시 ~ 오후 8시\n- 휴무: 매월 1, 3째 일요일\n\n**신도림점**\n- 전화: 02-2111-7144\n- 영업: 오전 10시 30분 ~ 오후 8시 30분\n- 휴무: 매월 2, 4째 화요일" },
-    { "type": "heading", "value": "실물 게임 활용 팁" },
-    { "type": "text", "value": "디지털로 게임을 샀다가 환불하는 번거로움 대신, 실물로 여러 개 사서 마음에 안 드는 건 중고로 되파는 방법이 있다. 빨리 클리어한 게임은 팔고, 소장할 게임만 남기는 식으로 순환시키면 결과적으로 더 저렴하게 여러 게임을 즐길 수 있다." },
-    { "type": "heading", "value": "알아두면 좋은 것" },
-    { "type": "text", "value": "바쁠 때는 전화를 잘 안 받는다. 재고 문의나 중고 확인은 직접 방문하는 게 낫다.\n\n게임 추천을 물어보면 기본적으로 장점 위주로 설명해준다. 매장이니까 당연한 부분이다.\n\n참고로 '고깃집', '슈퍼울트라고깃집'이라는 별명이 있다. 한**우**리라서." }
+    {
+      "type": "text",
+      "value": "콘솔 게임을 사고 싶은데 어디서 사야 할지 모르겠다면, 국전 한우리를 고려해볼 만하다. 서울 남부터미널역 국제전자센터(국전) 9층에 있는 이 매장은 정품만 취급하고 정찰제로 운영한다. 호객행위를 하지 않고, 누구에게나 동일한 가격을 받기 때문에 게임에 대해 잘 몰라도 바가지 쓸 걱정 없이 쇼핑할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "왜 알려졌나"
+    },
+    {
+      "type": "image",
+      "src": "https://mblogthumb-phinf.pstatic.net/MjAyMDEwMjRfMTAg/MDAxNjAzNTQxNTY1Mjc3.2FvsAzBNDWZvILM7-gtxzaH6dEIvJX66VmtpzdSNLjsg.t-V4EHLRVj2tZsg6wSXeS-TyUPPDVjhZQQFyLw11xOog.JPEG.777bubu/20201024_141822.jpg?type=w800",
+      "caption": "국제전자센터 9층 한우리 매장",
+      "alt": "국전 한우리 매장 전경"
+    },
+    {
+      "type": "text",
+      "value": "2000년대 초반 PS2가 국내에 정식 발매되면서 정품 콘솔 게임 시장이 커지기 시작했다. 당시 용산전자상가는 호객행위와 바가지가 심해서 초보자가 가기엔 부담스러운 곳이었다. 이때 국제전자센터의 한우리가 '호객행위 없음, 정찰제, 정품만 취급'이라는 방침으로 운영하면서 루리웹 등 게임 커뮤니티를 통해 입소문이 퍼졌다.\n\n이후 PS3, XBOX 360, 닌텐도 DS 등 신기종이 나올 때마다 한우리를 찾는 사람들이 늘었고, 한우리 덕분에 국전 자체가 콘솔 게임 쇼핑 장소로 알려지게 됐다. 지금은 주변 매장들도 비슷한 방식으로 영업한다."
+    },
+    {
+      "type": "heading",
+      "value": "장점"
+    },
+    {
+      "type": "image",
+      "src": "https://blogthumb.pstatic.net/MjAyNDAxMDNfMTY3/MDAxNzA0MjUyMDMyNjkx.uHWMVhK6Yt2eqy4mrtoPW7VP1bhUQ_Nlgd3ZIVvU7fYg.KSHySv5MJeM8uLo7f5OPlKhpIv-gltfxPz2iXPg4Z1sg.JPEG.shr11130/20231209%A3%DF162007.jpg?type=w2",
+      "caption": "한우리 중고 게임 코너",
+      "alt": "한우리 중고 게임 진열대"
+    },
+    {
+      "type": "text",
+      "value": "정찰제 운영이 가장 큰 특징이다. 단골이든 처음 온 손님이든 같은 가격을 받고, 품절된 인기 타이틀이라고 웃돈을 붙이지 않는다. 불법 복제칩이나 해적판을 취급하지 않아서 정품만 원하는 사람에게 적합하다.\n\n중고 게임 매입과 판매도 한다. 중고 시세도 적당한 편이라 개인 거래가 번거로운 사람에게 편하다. 다만 중고 재고 확인은 방문해야 한다. 전화로는 잘 안 알려준다."
+    },
+    {
+      "type": "heading",
+      "value": "마일리지 제도"
+    },
+    {
+      "type": "text",
+      "value": "자체 마일리지 제도를 운영한다. 현금 결제 시 마일리지 적립률이 더 높고, 적립된 마일리지는 즉시 사용할 수 있다. 카드 결제 시에도 마일리지가 적립된다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "위치와 가는 법"
+    },
+    {
+      "type": "image",
+      "src": "https://blog.kakaocdn.net/dna/cmzKUm/btrNxdL9CeG/AAAAAAAAAAAAAAAAAAAAAH8EamJni1cgp09K4wRqCcKIQxqcPymppINBb1K1dDWW/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1769871599&allow_ip=&allow_referer=&signature=d6Fib9OYg19%2FY21MeqKedax2YZM%3D",
+      "caption": "국전 한우리 내부",
+      "alt": "한우리 매장 내부 게임 진열"
+    },
+    {
+      "type": "text",
+      "value": "**본점: 국제전자센터 (남부터미널)**\n서울 서초구 남부터미널역 3번 출구에서 도보 3분. 국제전자센터 9층으로 올라가면 된다. 에스컬레이터로 올라가면 바로 앞에 보인다.\n\n**신도림점: 테크노마트**\n신도림역 1번 출구 테크노마트 내 위치.\n\n**노원점**\n노원역 근처 위치."
+    },
+    {
+      "type": "heading",
+      "value": "영업 정보"
+    },
+    {
+      "type": "text",
+      "value": "**국전 본점**\n- 전화: 02-3465-0048\n- 영업: 오전 10시 ~ 오후 8시\n- 휴무: 매월 1, 3째 일요일\n\n**신도림점**\n- 전화: 02-2111-7144\n- 영업: 오전 10시 30분 ~ 오후 8시 30분\n- 휴무: 매월 2, 4째 화요일"
+    },
+    {
+      "type": "heading",
+      "value": "실물 게임 활용 팁"
+    },
+    {
+      "type": "text",
+      "value": "디지털로 게임을 샀다가 환불하는 번거로움 대신, 실물로 여러 개 사서 마음에 안 드는 건 중고로 되파는 방법이 있다. 빨리 클리어한 게임은 팔고, 소장할 게임만 남기는 식으로 순환시키면 결과적으로 더 저렴하게 여러 게임을 즐길 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "알아두면 좋은 것"
+    },
+    {
+      "type": "text",
+      "value": "바쁠 때는 전화를 잘 안 받는다. 재고 문의나 중고 확인은 직접 방문하는 게 낫다.\n\n게임 추천을 물어보면 기본적으로 장점 위주로 설명해준다. 매장이니까 당연한 부분이다.\n\n참고로 '고깃집', '슈퍼울트라고깃집'이라는 별명이 있다. 한**우**리라서."
+    }
+  ],
+  "relatedDocs": [
+    "wiki:business/platform-fees-comparison",
+    "wiki:history/legend-of-zelda-history"
   ]
 }

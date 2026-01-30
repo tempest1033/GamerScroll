@@ -7,13 +7,32 @@
   "keywords": "앱 매출 순위, iOS 매출 순위, 구글플레이 매출 순위, App Store ranking, Google Play ranking, 앱스토어 알고리즘, 순위 집계 방식, ARPU, 모바일 게임 순위, 한국 스마트폰 점유율",
   "summary": "iOS와 Android 앱 마켓의 매출 순위 산정 방식은 완전히 다르다. iOS는 약 3시간 단위로 빠르게 갱신되고, 구글플레이는 하루 1회 업데이트하며 약 1주일치 데이터를 가중 평균한다. 이 차이가 실제 순위에 어떤 영향을 미치는지 정리한다.",
   "sources": [
-    { "name": "MobileAction", "title": "App Store & Google Play: Key differences in 2026", "url": "https://www.mobileaction.co/blog/app-store-vs-play-store/" },
-    { "name": "AppTweak", "title": "What are the top Google Play ranking factors in 2026?", "url": "https://www.apptweak.com/en/aso-blog/google-play-ranking-factors" },
-    { "name": "데이터뉴스", "title": "스마트폰 점유율, 고령층은 삼성 20대는 애플 (2025)", "url": "https://www.datanews.co.kr/news/article.html?no=139581" },
-    { "name": "StatCounter", "title": "Mobile OS Market Share South Korea", "url": "https://gs.statcounter.com/os-market-share/mobile/south-korea" },
-    { "name": "Counterpoint Research", "title": "Under-30 South Korea Survey: iOS vs Android", "url": "https://counterpointresearch.com/en/insights/30-south-korea-survey-85-bought-android-first-phone-now-53-ios" }
+    {
+      "name": "MobileAction",
+      "title": "App Store & Google Play: Key differences in 2026",
+      "url": "https://www.mobileaction.co/blog/app-store-vs-play-store/"
+    },
+    {
+      "name": "AppTweak",
+      "title": "What are the top Google Play ranking factors in 2026?",
+      "url": "https://www.apptweak.com/en/aso-blog/google-play-ranking-factors"
+    },
+    {
+      "name": "데이터뉴스",
+      "title": "스마트폰 점유율, 고령층은 삼성 20대는 애플 (2025)",
+      "url": "https://www.datanews.co.kr/news/article.html?no=139581"
+    },
+    {
+      "name": "StatCounter",
+      "title": "Mobile OS Market Share South Korea",
+      "url": "https://gs.statcounter.com/os-market-share/mobile/south-korea"
+    },
+    {
+      "name": "Counterpoint Research",
+      "title": "Under-30 South Korea Survey: iOS vs Android",
+      "url": "https://counterpointresearch.com/en/insights/30-south-korea-survey-85-bought-android-first-phone-now-53-ios"
+    }
   ],
-  "relatedArticles": ["platform-fees-comparison", "game-revenue-structure"],
   "relatedGames": [],
   "content": [
     {
@@ -90,5 +109,9 @@
       "type": "text",
       "value": "앱 매출 순위는 절대적인 지표가 아니다. iOS와 Android의 집계 방식이 다르고, 그 차이가 실제 순위에 큰 영향을 미친다. iOS는 빠르게 변하는 실시간 지표, 구글플레이는 느리지만 안정적인 추세 지표다.\n\n여기에 유저 성향 차이까지 더해진다. 글로벌에서는 iOS가 고ARPU 시장, Android가 대중 시장이라는 구도가 있고, 한국에서는 연령대별 플랫폼 선호도까지 고려해야 한다.\n\n게임 성적을 판단할 때는 두 마켓을 따로 보고, 각각의 특성을 감안해서 해석해야 한다. 순위표 숫자만 보면 오판하기 쉽다."
     }
+  ],
+  "relatedDocs": [
+    "wiki:business/platform-fees-comparison",
+    "wiki:business/game-revenue-structure"
   ]
 }

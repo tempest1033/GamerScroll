@@ -228,6 +228,12 @@
       "url": "https://pitchbook.com/profiles/company/51714-73"
     }
   ],
-  "relatedArticles": ["publisher-developer-relationship", "game-ip-licensing"],
-  "relatedGames": ["pubg-battlegrounds", "블루-아카이브"]
+  "relatedGames": [
+    "pubg-battlegrounds",
+    "블루-아카이브"
+  ],
+  "relatedDocs": [
+    "wiki:business/publisher-developer-relationship",
+    "wiki:business/game-ip-licensing"
+  ]
 }

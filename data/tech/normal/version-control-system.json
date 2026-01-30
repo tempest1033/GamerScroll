@@ -7,44 +7,168 @@
   "keywords": "형상관리, 버전관리, Git, GitHub, SVN, Subversion, Perforce, Helix Core, 게임개발, 소스관리, VCS, 분산버전관리, 중앙집중형",
   "summary": "형상관리툴은 코드와 리소스의 변경 이력을 추적하고 협업을 가능하게 하는 개발 필수 도구다. Git은 프로그래머 중심의 표준으로 자리잡았고, Perforce는 대규모 게임 스튜디오에서, SVN은 중앙집중형 환경에서 여전히 사용된다.",
   "sources": [
-    { "name": "Perforce", "title": "Game Development Software & Solutions", "url": "https://www.perforce.com/solutions/game-development" },
-    { "name": "Stack Overflow Blog", "title": "Beyond Git: The other version control systems developers use", "url": "https://stackoverflow.blog/2023/01/09/beyond-git-the-other-version-control-systems-developers-use/" },
-    { "name": "RhodeCode", "title": "Version Control Systems Popularity in 2025", "url": "https://rhodecode.com/blog/156/version-control-systems-popularity-in-2025" },
-    { "name": "Anchorpoint", "title": "Best version control software for Unity in 2025", "url": "https://www.anchorpoint.app/blog/best-version-control-software-for-unity" }
+    {
+      "name": "Perforce",
+      "title": "Game Development Software & Solutions",
+      "url": "https://www.perforce.com/solutions/game-development"
+    },
+    {
+      "name": "Stack Overflow Blog",
+      "title": "Beyond Git: The other version control systems developers use",
+      "url": "https://stackoverflow.blog/2023/01/09/beyond-git-the-other-version-control-systems-developers-use/"
+    },
+    {
+      "name": "RhodeCode",
+      "title": "Version Control Systems Popularity in 2025",
+      "url": "https://rhodecode.com/blog/156/version-control-systems-popularity-in-2025"
+    },
+    {
+      "name": "Anchorpoint",
+      "title": "Best version control software for Unity in 2025",
+      "url": "https://www.anchorpoint.app/blog/best-version-control-software-for-unity"
+    }
   ],
-  "relatedArticles": ["game-engine", "vibe-coding"],
   "relatedGames": [],
   "content": [
-    { "type": "text", "value": "형상관리(Version Control)는 파일의 변경 이력을 기록하고 관리하는 시스템이다. 누가, 언제, 무엇을 수정했는지 추적할 수 있어 협업 개발에 필수적인 도구로 자리잡았다. 실수로 파일을 덮어써도 이전 버전으로 되돌릴 수 있고, 여러 명이 동시에 같은 프로젝트를 수정해도 충돌을 관리할 수 있다.\n\n게임 개발에서 형상관리는 특히 중요하다. 코드뿐 아니라 3D 모델, 텍스처, 사운드 같은 대용량 바이너리 파일까지 관리해야 하기 때문이다. 이런 특성 때문에 프로그래머와 아티스트가 서로 다른 도구를 사용하는 경우도 흔하다." },
-    { "type": "heading", "value": "1. 형상관리 기본 기능" },
-    { "type": "image", "src": "https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1", "caption": "Git 워크플로우 다이어그램", "alt": "Git 브랜치 워크플로우 다이어그램 - 커밋, 푸쉬, 머지의 흐름을 보여주는 형상관리 기본 구조" },
-    { "type": "text", "value": "형상관리 도구들은 공통적으로 몇 가지 핵심 기능을 제공한다. 용어는 도구마다 조금씩 다르지만 개념은 동일하다. Commit은 변경사항을 저장소에 기록하는 행위이고, Push와 Pull은 로컬과 원격 저장소 간 동기화를 담당한다.\n\nBranch는 독립적인 작업 공간을 만들어 기능 개발이나 버그 수정을 분리할 수 있게 해준다. 작업이 끝나면 Merge로 다시 합친다. 여러 명이 같은 파일을 수정하면 Conflict가 발생하는데, 이를 해결하는 것도 형상관리의 핵심 역할이다.\n\nLock은 SVN과 Perforce에서 주로 쓰이는 기능으로, 바이너리 파일처럼 머지가 불가능한 파일의 동시 수정을 원천 차단한다. Diff는 버전 간 차이를 비교하고, Revert는 실수를 되돌릴 때 사용한다." },
-    { "type": "table", "caption": "형상관리 기본 기능", "headers": ["기능", "설명"], "rows": [
-      ["Commit", "변경사항을 저장소에 기록"],
-      ["Push", "로컬 커밋을 원격 저장소에 업로드"],
-      ["Pull", "원격 저장소의 변경사항을 로컬로 가져오기"],
-      ["Branch", "독립적인 작업 공간 생성"],
-      ["Merge", "브랜치를 하나로 합치기"],
-      ["Checkout", "특정 버전이나 브랜치로 전환"],
-      ["Lock", "파일을 잠가 다른 사람의 수정 차단"],
-      ["Revert", "변경사항을 이전 상태로 되돌리기"],
-      ["Diff", "두 버전 간 차이점 비교"],
-      ["Patch", "변경사항을 파일로 추출하여 적용"],
-      ["Conflict", "같은 파일 동시 수정 시 발생하는 충돌"]
-    ]},
-    { "type": "heading", "value": "2. Git - 프로그래머의 표준이 된 분산형 버전 관리" },
-    { "type": "image", "src": "https://github.blog/wp-content/uploads/2015/11/2b38e278-8c46-11e5-8a25-06aa80342ad1.png", "caption": "GitHub 레포지토리 인터페이스", "alt": "GitHub 레포지토리 화면 - Git 분산 버전 관리 시스템의 대표적인 호스팅 서비스" },
-    { "type": "text", "value": "Git은 2005년 리누스 토르발스가 리눅스 커널 개발을 위해 만든 분산형 버전 관리 시스템이다. 각 개발자가 전체 저장소의 복사본을 로컬에 갖고 작업하는 방식으로, 네트워크 연결 없이도 커밋과 브랜치 작업이 가능하다.\n\nGit이 프로그래머 사이에서 표준이 된 데는 몇 가지 이유가 있다. Visual Studio, VS Code 등 주요 IDE에 기본 통합되어 있고, GitHub Actions 같은 CI/CD 워크플로우와 자연스럽게 연동된다. 오픈소스 생태계 전체가 GitHub를 중심으로 돌아가면서, Git을 모르면 개발자 커뮤니티에 참여하기 어려운 수준이 됐다.\n\n다만 Git은 대용량 바이너리 파일에 취약하다. 텍스트 파일의 변경은 효율적으로 저장하지만, 100MB가 넘는 PSD나 FBX 파일은 매 버전마다 전체를 저장해야 한다. Git LFS(Large File Storage)로 이를 보완하지만, GitHub 기준 단일 파일 4GB 제한이 있고 추가 비용이 발생한다." },
-    { "type": "heading", "value": "3. SVN - 중앙집중형의 원조" },
-    { "type": "image", "src": "https://tortoisesvn.net/assets/img/TMerge_ThreePane.88b06e39.png", "caption": "TortoiseSVN 머지 화면", "alt": "TortoiseSVN 3방향 머지 인터페이스 - SVN 중앙집중형 버전 관리의 대표 클라이언트" },
-    { "type": "text", "value": "SVN(Subversion)은 2000년에 등장한 중앙집중형 버전 관리 시스템이다. 하나의 중앙 서버에 저장소가 있고, 모든 개발자가 이 서버에 접속해 작업하는 방식이다. CVS의 후속작으로 개발되어 한때 업계 표준이었다.\n\n중앙집중형의 장점은 단순함이다. 모든 변경사항이 한 곳에 모이므로 관리가 직관적이고, 누가 어떤 파일을 수정 중인지 바로 파악할 수 있다. 대용량 파일도 Git보다 자연스럽게 처리한다. 파일 잠금(Lock) 기능이 있어 바이너리 파일의 동시 수정 충돌을 원천 방지할 수 있다.\n\nGit이 대세가 된 지금도 SVN을 유지하는 조직이 있다. 기존 워크플로우를 바꾸는 비용, 대용량 리소스 관리의 편의성, 단순한 학습 곡선 등이 이유다. 특히 비개발 직군이 많은 환경에서는 Git의 분산 개념이 오히려 혼란을 주기도 한다." },
-    { "type": "heading", "value": "4. Perforce - AAA 게임 스튜디오의 선택" },
-    { "type": "image", "src": "https://www.perforce.com/sites/default/files/2025-01/image-web-vcs-p4v-dark-mode.png", "caption": "Perforce P4V 클라이언트", "alt": "Perforce Helix Core P4V 비주얼 클라이언트 - AAA 게임 스튜디오에서 사용하는 버전 관리 도구" },
-    { "type": "text", "value": "Perforce(현재 정식 명칭 Helix Core)는 대규모 프로젝트에 특화된 중앙집중형 버전 관리 시스템이다. 상용 소프트웨어로 라이선스 비용이 있지만, 엔터프라이즈급 성능과 지원을 제공한다.\n\n게임 업계에서 Perforce의 입지는 독보적이다. EA, Ubisoft, Epic Games, Capcom, CD Projekt Red 등 AAA 스튜디오 대부분이 Perforce를 사용한다. Perforce 공식 자료에 따르면 상위 20개 AAA 게임 스튜디오 중 19곳이 Helix Core를 채택했다. Unreal Engine이 Perforce와의 통합을 공식 지원하는 것도 큰 이유다.\n\nPerforce가 게임 개발에 강한 이유는 대용량 바이너리 처리 능력이다. 수십 GB 단위의 리소스를 네이티브로 처리하고, 필요한 파일만 선택적으로 받는 기능(Sparse Checkout)이 기본 제공된다. 아티스트와 디자이너가 수천 개의 텍스처와 모델을 다루는 환경에서 Git LFS보다 훨씬 안정적이다." },
-    { "type": "heading", "value": "5. 직군별 도구 선택 트렌드" },
-    { "type": "image", "src": "https://cdn-jbaml.nitrocdn.com/TslETkoQPZQfqKchqmbgIbVlJeZplxgv/assets/images/optimized/rev-8cab4df/gamedesignskills.com/wp-content/uploads/2024/08/image7.png", "caption": "게임 개발 파이프라인", "alt": "게임 개발 프로세스 파이프라인 다이어그램 - 프로그래머와 아티스트의 협업 구조" },
-    { "type": "text", "value": "현대 게임 개발에서는 직군에 따라 다른 형상관리 도구를 사용하는 경우가 많다. 프로그래머는 Git을, 아티스트와 디자이너는 Perforce나 SVN을 쓰는 하이브리드 환경이다.\n\n프로그래머가 Git을 선호하는 이유는 생태계다. GitHub, GitLab의 이슈 트래커, PR 리뷰 시스템, GitHub Actions 같은 자동화 도구가 개발 워크플로우의 표준이 됐다. 코드 변경사항을 diff로 보고, 브랜치를 자유롭게 만들어 실험하는 방식이 프로그래밍 작업에 맞다.\n\n반면 아티스트에게는 Perforce가 맞는 경우가 많다. 대용량 PSD, Maya, 3ds Max 파일을 다루는데 Git LFS의 제약이 번거롭고, 파일 잠금으로 \"내가 이 파일 수정 중\"이라고 선언하는 방식이 직관적이다. 브랜치나 머지 개념 없이 단순히 최신 버전을 받고, 수정하고, 올리는 흐름이 비개발 직군에게 친숙하다." },
-    { "type": "heading", "value": "마치며" },
-    { "type": "text", "value": "국내 게임 업계에서도 하이브리드 형태가 일반적이다. 프로그래머는 Git으로 코드를 관리하고, 아트팀은 Perforce나 SVN으로 리소스를 관리하는 식이다. 넥슨, 엔씨소프트, 크래프톤 같은 대형 스튜디오들도 프로젝트 규모와 팀 구성에 따라 여러 도구를 병행 사용하는 것으로 알려져 있다.\n\n최근에는 Unity Version Control(구 Plastic SCM)처럼 게임 개발에 특화된 새로운 도구들도 등장하고 있다. Git의 분산형 장점과 Perforce의 대용량 파일 처리를 결합하려는 시도다. 형상관리 도구 시장은 여전히 진화 중이며, 각 도구는 자신만의 영역에서 역할을 이어가고 있다." }
+    {
+      "type": "text",
+      "value": "형상관리(Version Control)는 파일의 변경 이력을 기록하고 관리하는 시스템이다. 누가, 언제, 무엇을 수정했는지 추적할 수 있어 협업 개발에 필수적인 도구로 자리잡았다. 실수로 파일을 덮어써도 이전 버전으로 되돌릴 수 있고, 여러 명이 동시에 같은 프로젝트를 수정해도 충돌을 관리할 수 있다.\n\n게임 개발에서 형상관리는 특히 중요하다. 코드뿐 아니라 3D 모델, 텍스처, 사운드 같은 대용량 바이너리 파일까지 관리해야 하기 때문이다. 이런 특성 때문에 프로그래머와 아티스트가 서로 다른 도구를 사용하는 경우도 흔하다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 형상관리 기본 기능"
+    },
+    {
+      "type": "image",
+      "src": "https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1",
+      "caption": "Git 워크플로우 다이어그램",
+      "alt": "Git 브랜치 워크플로우 다이어그램 - 커밋, 푸쉬, 머지의 흐름을 보여주는 형상관리 기본 구조"
+    },
+    {
+      "type": "text",
+      "value": "형상관리 도구들은 공통적으로 몇 가지 핵심 기능을 제공한다. 용어는 도구마다 조금씩 다르지만 개념은 동일하다. Commit은 변경사항을 저장소에 기록하는 행위이고, Push와 Pull은 로컬과 원격 저장소 간 동기화를 담당한다.\n\nBranch는 독립적인 작업 공간을 만들어 기능 개발이나 버그 수정을 분리할 수 있게 해준다. 작업이 끝나면 Merge로 다시 합친다. 여러 명이 같은 파일을 수정하면 Conflict가 발생하는데, 이를 해결하는 것도 형상관리의 핵심 역할이다.\n\nLock은 SVN과 Perforce에서 주로 쓰이는 기능으로, 바이너리 파일처럼 머지가 불가능한 파일의 동시 수정을 원천 차단한다. Diff는 버전 간 차이를 비교하고, Revert는 실수를 되돌릴 때 사용한다."
+    },
+    {
+      "type": "table",
+      "caption": "형상관리 기본 기능",
+      "headers": [
+        "기능",
+        "설명"
+      ],
+      "rows": [
+        [
+          "Commit",
+          "변경사항을 저장소에 기록"
+        ],
+        [
+          "Push",
+          "로컬 커밋을 원격 저장소에 업로드"
+        ],
+        [
+          "Pull",
+          "원격 저장소의 변경사항을 로컬로 가져오기"
+        ],
+        [
+          "Branch",
+          "독립적인 작업 공간 생성"
+        ],
+        [
+          "Merge",
+          "브랜치를 하나로 합치기"
+        ],
+        [
+          "Checkout",
+          "특정 버전이나 브랜치로 전환"
+        ],
+        [
+          "Lock",
+          "파일을 잠가 다른 사람의 수정 차단"
+        ],
+        [
+          "Revert",
+          "변경사항을 이전 상태로 되돌리기"
+        ],
+        [
+          "Diff",
+          "두 버전 간 차이점 비교"
+        ],
+        [
+          "Patch",
+          "변경사항을 파일로 추출하여 적용"
+        ],
+        [
+          "Conflict",
+          "같은 파일 동시 수정 시 발생하는 충돌"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "2. Git - 프로그래머의 표준이 된 분산형 버전 관리"
+    },
+    {
+      "type": "image",
+      "src": "https://github.blog/wp-content/uploads/2015/11/2b38e278-8c46-11e5-8a25-06aa80342ad1.png",
+      "caption": "GitHub 레포지토리 인터페이스",
+      "alt": "GitHub 레포지토리 화면 - Git 분산 버전 관리 시스템의 대표적인 호스팅 서비스"
+    },
+    {
+      "type": "text",
+      "value": "Git은 2005년 리누스 토르발스가 리눅스 커널 개발을 위해 만든 분산형 버전 관리 시스템이다. 각 개발자가 전체 저장소의 복사본을 로컬에 갖고 작업하는 방식으로, 네트워크 연결 없이도 커밋과 브랜치 작업이 가능하다.\n\nGit이 프로그래머 사이에서 표준이 된 데는 몇 가지 이유가 있다. Visual Studio, VS Code 등 주요 IDE에 기본 통합되어 있고, GitHub Actions 같은 CI/CD 워크플로우와 자연스럽게 연동된다. 오픈소스 생태계 전체가 GitHub를 중심으로 돌아가면서, Git을 모르면 개발자 커뮤니티에 참여하기 어려운 수준이 됐다.\n\n다만 Git은 대용량 바이너리 파일에 취약하다. 텍스트 파일의 변경은 효율적으로 저장하지만, 100MB가 넘는 PSD나 FBX 파일은 매 버전마다 전체를 저장해야 한다. Git LFS(Large File Storage)로 이를 보완하지만, GitHub 기준 단일 파일 4GB 제한이 있고 추가 비용이 발생한다."
+    },
+    {
+      "type": "heading",
+      "value": "3. SVN - 중앙집중형의 원조"
+    },
+    {
+      "type": "image",
+      "src": "https://tortoisesvn.net/assets/img/TMerge_ThreePane.88b06e39.png",
+      "caption": "TortoiseSVN 머지 화면",
+      "alt": "TortoiseSVN 3방향 머지 인터페이스 - SVN 중앙집중형 버전 관리의 대표 클라이언트"
+    },
+    {
+      "type": "text",
+      "value": "SVN(Subversion)은 2000년에 등장한 중앙집중형 버전 관리 시스템이다. 하나의 중앙 서버에 저장소가 있고, 모든 개발자가 이 서버에 접속해 작업하는 방식이다. CVS의 후속작으로 개발되어 한때 업계 표준이었다.\n\n중앙집중형의 장점은 단순함이다. 모든 변경사항이 한 곳에 모이므로 관리가 직관적이고, 누가 어떤 파일을 수정 중인지 바로 파악할 수 있다. 대용량 파일도 Git보다 자연스럽게 처리한다. 파일 잠금(Lock) 기능이 있어 바이너리 파일의 동시 수정 충돌을 원천 방지할 수 있다.\n\nGit이 대세가 된 지금도 SVN을 유지하는 조직이 있다. 기존 워크플로우를 바꾸는 비용, 대용량 리소스 관리의 편의성, 단순한 학습 곡선 등이 이유다. 특히 비개발 직군이 많은 환경에서는 Git의 분산 개념이 오히려 혼란을 주기도 한다."
+    },
+    {
+      "type": "heading",
+      "value": "4. Perforce - AAA 게임 스튜디오의 선택"
+    },
+    {
+      "type": "image",
+      "src": "https://www.perforce.com/sites/default/files/2025-01/image-web-vcs-p4v-dark-mode.png",
+      "caption": "Perforce P4V 클라이언트",
+      "alt": "Perforce Helix Core P4V 비주얼 클라이언트 - AAA 게임 스튜디오에서 사용하는 버전 관리 도구"
+    },
+    {
+      "type": "text",
+      "value": "Perforce(현재 정식 명칭 Helix Core)는 대규모 프로젝트에 특화된 중앙집중형 버전 관리 시스템이다. 상용 소프트웨어로 라이선스 비용이 있지만, 엔터프라이즈급 성능과 지원을 제공한다.\n\n게임 업계에서 Perforce의 입지는 독보적이다. EA, Ubisoft, Epic Games, Capcom, CD Projekt Red 등 AAA 스튜디오 대부분이 Perforce를 사용한다. Perforce 공식 자료에 따르면 상위 20개 AAA 게임 스튜디오 중 19곳이 Helix Core를 채택했다. Unreal Engine이 Perforce와의 통합을 공식 지원하는 것도 큰 이유다.\n\nPerforce가 게임 개발에 강한 이유는 대용량 바이너리 처리 능력이다. 수십 GB 단위의 리소스를 네이티브로 처리하고, 필요한 파일만 선택적으로 받는 기능(Sparse Checkout)이 기본 제공된다. 아티스트와 디자이너가 수천 개의 텍스처와 모델을 다루는 환경에서 Git LFS보다 훨씬 안정적이다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 직군별 도구 선택 트렌드"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn-jbaml.nitrocdn.com/TslETkoQPZQfqKchqmbgIbVlJeZplxgv/assets/images/optimized/rev-8cab4df/gamedesignskills.com/wp-content/uploads/2024/08/image7.png",
+      "caption": "게임 개발 파이프라인",
+      "alt": "게임 개발 프로세스 파이프라인 다이어그램 - 프로그래머와 아티스트의 협업 구조"
+    },
+    {
+      "type": "text",
+      "value": "현대 게임 개발에서는 직군에 따라 다른 형상관리 도구를 사용하는 경우가 많다. 프로그래머는 Git을, 아티스트와 디자이너는 Perforce나 SVN을 쓰는 하이브리드 환경이다.\n\n프로그래머가 Git을 선호하는 이유는 생태계다. GitHub, GitLab의 이슈 트래커, PR 리뷰 시스템, GitHub Actions 같은 자동화 도구가 개발 워크플로우의 표준이 됐다. 코드 변경사항을 diff로 보고, 브랜치를 자유롭게 만들어 실험하는 방식이 프로그래밍 작업에 맞다.\n\n반면 아티스트에게는 Perforce가 맞는 경우가 많다. 대용량 PSD, Maya, 3ds Max 파일을 다루는데 Git LFS의 제약이 번거롭고, 파일 잠금으로 \"내가 이 파일 수정 중\"이라고 선언하는 방식이 직관적이다. 브랜치나 머지 개념 없이 단순히 최신 버전을 받고, 수정하고, 올리는 흐름이 비개발 직군에게 친숙하다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "국내 게임 업계에서도 하이브리드 형태가 일반적이다. 프로그래머는 Git으로 코드를 관리하고, 아트팀은 Perforce나 SVN으로 리소스를 관리하는 식이다. 넥슨, 엔씨소프트, 크래프톤 같은 대형 스튜디오들도 프로젝트 규모와 팀 구성에 따라 여러 도구를 병행 사용하는 것으로 알려져 있다.\n\n최근에는 Unity Version Control(구 Plastic SCM)처럼 게임 개발에 특화된 새로운 도구들도 등장하고 있다. Git의 분산형 장점과 Perforce의 대용량 파일 처리를 결합하려는 시도다. 형상관리 도구 시장은 여전히 진화 중이며, 각 도구는 자신만의 영역에서 역할을 이어가고 있다."
+    }
+  ],
+  "relatedDocs": [
+    "tech:normal/game-engine",
+    "tech:vibecoding/vibe-coding"
   ]
 }

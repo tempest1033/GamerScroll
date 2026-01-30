@@ -7,30 +7,110 @@
   "summary": "2026년 1월 30일, 구글 지니3 공개 직후 유니티 주가가 19% 급락했다. 이틀째 하락이 이어지며 $31까지 추락 중. AI가 게임 개발 패러다임을 바꿀 것인가, 아니면 메타버스처럼 거품으로 끝날 것인가?",
   "thumbnail": "https://lh3.googleusercontent.com/dNKT4AeaE1sc8lfh-BCQBCFVh6fJUjuhyzBls7tdZ0yivviY-bPJXzJfUr27uEg9jc3XozI6jzlWTnI_7umL2NI2lTRVY-BBJiMFmswJpA=w1440-h810-n-nu",
   "sources": [
-    { "name": "Yahoo Finance", "title": "Unity stock falls alongside Take-Two, Roblox after Google's Project Genie launch", "url": "https://uk.finance.yahoo.com/news/unity-stock-falls-alongside-two-155608681.html" },
-    { "name": "Google DeepMind", "title": "지니3: A new frontier for world models", "url": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/" },
-    { "name": "The Verge", "title": "Google's AI helped me make bad Nintendo knockoffs", "url": "https://www.theverge.com/news/869726/google-ai-project-genie-3-world-model-hands-on" },
-    { "name": "PCMag", "title": "Google's 지니3 Hints at a Future Where AI Builds the Video Games", "url": "https://www.pcmag.com/news/googles-genie-3-hints-at-a-future-where-ai-builds-the-video-games-we-play" }
+    {
+      "name": "Yahoo Finance",
+      "title": "Unity stock falls alongside Take-Two, Roblox after Google's Project Genie launch",
+      "url": "https://uk.finance.yahoo.com/news/unity-stock-falls-alongside-two-155608681.html"
+    },
+    {
+      "name": "Google DeepMind",
+      "title": "지니3: A new frontier for world models",
+      "url": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/"
+    },
+    {
+      "name": "The Verge",
+      "title": "Google's AI helped me make bad Nintendo knockoffs",
+      "url": "https://www.theverge.com/news/869726/google-ai-project-genie-3-world-model-hands-on"
+    },
+    {
+      "name": "PCMag",
+      "title": "Google's 지니3 Hints at a Future Where AI Builds the Video Games",
+      "url": "https://www.pcmag.com/news/googles-genie-3-hints-at-a-future-where-ai-builds-the-video-games-we-play"
+    }
   ],
-  "relatedArticles": ["korean-game-stocks-2025", "game-business-metrics", "platform-fees-comparison", "top-gaming-companies-by-market-cap"],
   "relatedGames": [],
   "content": [
-    { "type": "text", "value": "2026년 1월 30일, 유니티 주가가 하루 만에 19% 급락했다. 구글이 텍스트로 3D 게임 환경을 실시간 생성하는 '지니3'를 공개한 직후다. 단순한 조정인가, 게임 개발 패러다임 변화의 시작인가?" },
-    { "type": "heading", "value": "1. 유니티, 어제 19% 폭락 후 오늘도 하락 중" },
-    { "type": "image", "src": "https://static.gurufocus.com/cdn-cgi/image/width=500,quality=100/logos/0C0000BY8L.png", "caption": "유니티 소프트웨어 로고", "alt": "Unity Software 로고 이미지, 게임 엔진 기업 유니티" },
-    { "type": "text", "value": "1월 30일(금) 유니티(NYSE: U)는 전일 대비 19% 급락, 장중 27% 하락을 기록했다. 테이크투(-7%), 로블록스(-8%)도 동반 하락했다. 원인은 구글 'Project Genie' 발표다.\n\n하락세는 오늘도 이어지고 있다. 1월 31일 현재 $31까지 추가 하락 중. 이틀 연속 매도세가 멈추지 않고 있다. 시장은 AI가 게임 엔진을 대체할 수 있다는 가능성만으로도 민감하게 반응하고 있다." },
-    { "type": "heading", "value": "2. 구글 지니3, 도대체 뭔가" },
-    { "type": "image", "src": "https://i.pcmag.com/imagery/articles/029hbgRP9WNcytDMzkqQt1c-1..v1754410928.jpg", "caption": "구글 지니3로 생성한 게임 환경", "alt": "구글 딥마인드 지니3 AI 월드 모델 게임 생성 데모 화면" },
-    { "type": "text", "value": "지니3는 구글 딥마인드가 개발한 '월드 모델'이다. 기존 AI가 정지 이미지나 영상을 생성했다면, 지니3는 사용자가 직접 걸어 다니고 조작할 수 있는 3D 환경을 만든다. 텍스트 프롬프트 한 줄이면 된다.\n\n720p 해상도에 24fps로 실시간 렌더링되며, 수 분간 환경 일관성을 유지한다. 일부 매체에서는 마리오64, 젤다 스타일 세계를 직접 만들어 시연했다. 구글은 이 기술을 \"AGI를 향한 핵심 단계\"라고 부른다.\n\n아직 연구 프리뷰 단계지만, Google AI Ultra 구독자 대상으로 미국에서 순차 공개 중이다. 시장은 이를 게임 엔진 시대의 종말 신호로 해석했다." },
-    { "type": "heading", "value": "3. 지니3의 기술적 한계는 명확하다" },
-    { "type": "image", "src": "https://cdn2.vox-cdn.com/thumbor/epbSw9y-Xyj1jnBAfclvHJ-LINI=/0x1080/volume-assets.voxmedia.com/production/4f7eb4967e30bee3e7a88f55b53f9860/Screenshot_2025-08-04_at_4_02_01_PM.png", "caption": "지니3 데모 영상 캡처", "alt": "구글 지니3 AI 게임 환경 생성 데모 영상 스크린샷" },
-    { "type": "text", "value": "구글 스스로 인정한 한계가 있다. 상호작용 시간이 수 분에 불과하고, 복잡한 게임 로직이나 규칙을 구현할 수 없다. 다중 NPC 상호작용도 제한적이며, 실제 지역을 정확하게 재현하기 어렵다. 텍스트 렌더링 품질도 불안정하다.\n\n지금 당장 유니티나 언리얼을 대체할 수준은 아니다. 완성된 상용 게임을 만들려면 여전히 전통적인 게임 엔진이 필수다. 현재 지니3는 '콘셉트 시연 도구'에 가깝다." },
-    { "type": "heading", "value": "4. 게임주 주가, 미래를 먼저 반영한다" },
-    { "type": "image", "src": "https://lh3.googleusercontent.com/AL00igUjorpZwELX26VwMQCA6_x4VO6yGGyfLzfmq6zlarUXiErInGQA8SDRzueRtcBaFKZZ6uhPc2Cs7RJGjMSyQXhxzuGQTYR4GaIN=w1920-h1080-n-nu", "caption": "구글 딥마인드 지니3 공식 이미지", "alt": "Google DeepMind 지니3 월드 모델 AI 기술 공식 발표 이미지" },
-    { "type": "text", "value": "기술적 한계는 명확하지만, 시장은 늘 현재가 아닌 미래에 반응한다. AI 발전 속도를 고려하면 1~2년 후엔 상황이 완전히 달라질 수 있다. 빅테크들이 게임 생성 AI에 본격 투자하면서, \"프롬프트로 프로토타입, 엔진으로 상용화\"라는 새로운 개발 방식이 표준이 될 가능성이 열렸다.\n\n투자자들은 이미 이 시나리오를 가격에 선반영하고 있다. 기술이 완성되기 전에 시장 판도가 먼저 바뀌는 건 테크 업계에서 흔한 일이다. 유니티 주가는 그 불안감의 바로미터다." },
-    { "type": "heading", "value": "5. 게임주의 동반 약세, 계속되나?" },
-    { "type": "text", "value": "유니티 폭락은 아직 심리적 충격에 가깝다. 하지만 시장은 이미 패러다임 전환을 가격에 반영하기 시작했다. 게임주 동반 약세가 단기 조정에 그칠지, 장기 하락 추세의 시작인지는 AI 기술의 진화 속도에 달려 있다.\n\n테이크투, 로블록스 외에도 EA, 넥슨 등 글로벌 게임사 주가에 영향이 확산될 수 있다. AI 게임 생성 기술이 고도화되면 개발 비용 구조 자체가 바뀌기 때문이다. 시장은 그 가능성을 주시하고 있다." },
-    { "type": "heading", "value": "마치며: 적응이 생존을 좌우한다" },
-    { "type": "text", "value": "아직은 시기상조로 보인다. 하지만 AI 기술의 발전 속도가 매우 빠른 것은 분명하다. 변화하는 생태계에 얼마나 빠르게 적응하느냐가 기성 기업의 생존에 결정적인 영향을 줄 수 있다.\n\n유니티가 2023년 런타임 요금 논란을 겪고도 살아남은 건 빠른 방향 전환 덕분이었다. 이번에도 AI 시대에 맞는 포지셔닝을 얼마나 빨리 보여주느냐가 관건이다. 메타버스 시즌2가 될지, 진짜 변화가 될지는 지켜볼 일이다." }
+    {
+      "type": "text",
+      "value": "2026년 1월 30일, 유니티 주가가 하루 만에 19% 급락했다. 구글이 텍스트로 3D 게임 환경을 실시간 생성하는 '지니3'를 공개한 직후다. 단순한 조정인가, 게임 개발 패러다임 변화의 시작인가?"
+    },
+    {
+      "type": "heading",
+      "value": "1. 유니티, 어제 19% 폭락 후 오늘도 하락 중"
+    },
+    {
+      "type": "image",
+      "src": "https://static.gurufocus.com/cdn-cgi/image/width=500,quality=100/logos/0C0000BY8L.png",
+      "caption": "유니티 소프트웨어 로고",
+      "alt": "Unity Software 로고 이미지, 게임 엔진 기업 유니티"
+    },
+    {
+      "type": "text",
+      "value": "1월 30일(금) 유니티(NYSE: U)는 전일 대비 19% 급락, 장중 27% 하락을 기록했다. 테이크투(-7%), 로블록스(-8%)도 동반 하락했다. 원인은 구글 'Project Genie' 발표다.\n\n하락세는 오늘도 이어지고 있다. 1월 31일 현재 $31까지 추가 하락 중. 이틀 연속 매도세가 멈추지 않고 있다. 시장은 AI가 게임 엔진을 대체할 수 있다는 가능성만으로도 민감하게 반응하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 구글 지니3, 도대체 뭔가"
+    },
+    {
+      "type": "image",
+      "src": "https://i.pcmag.com/imagery/articles/029hbgRP9WNcytDMzkqQt1c-1..v1754410928.jpg",
+      "caption": "구글 지니3로 생성한 게임 환경",
+      "alt": "구글 딥마인드 지니3 AI 월드 모델 게임 생성 데모 화면"
+    },
+    {
+      "type": "text",
+      "value": "지니3는 구글 딥마인드가 개발한 '월드 모델'이다. 기존 AI가 정지 이미지나 영상을 생성했다면, 지니3는 사용자가 직접 걸어 다니고 조작할 수 있는 3D 환경을 만든다. 텍스트 프롬프트 한 줄이면 된다.\n\n720p 해상도에 24fps로 실시간 렌더링되며, 수 분간 환경 일관성을 유지한다. 일부 매체에서는 마리오64, 젤다 스타일 세계를 직접 만들어 시연했다. 구글은 이 기술을 \"AGI를 향한 핵심 단계\"라고 부른다.\n\n아직 연구 프리뷰 단계지만, Google AI Ultra 구독자 대상으로 미국에서 순차 공개 중이다. 시장은 이를 게임 엔진 시대의 종말 신호로 해석했다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 지니3의 기술적 한계는 명확하다"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn2.vox-cdn.com/thumbor/epbSw9y-Xyj1jnBAfclvHJ-LINI=/0x1080/volume-assets.voxmedia.com/production/4f7eb4967e30bee3e7a88f55b53f9860/Screenshot_2025-08-04_at_4_02_01_PM.png",
+      "caption": "지니3 데모 영상 캡처",
+      "alt": "구글 지니3 AI 게임 환경 생성 데모 영상 스크린샷"
+    },
+    {
+      "type": "text",
+      "value": "구글 스스로 인정한 한계가 있다. 상호작용 시간이 수 분에 불과하고, 복잡한 게임 로직이나 규칙을 구현할 수 없다. 다중 NPC 상호작용도 제한적이며, 실제 지역을 정확하게 재현하기 어렵다. 텍스트 렌더링 품질도 불안정하다.\n\n지금 당장 유니티나 언리얼을 대체할 수준은 아니다. 완성된 상용 게임을 만들려면 여전히 전통적인 게임 엔진이 필수다. 현재 지니3는 '콘셉트 시연 도구'에 가깝다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 게임주 주가, 미래를 먼저 반영한다"
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/AL00igUjorpZwELX26VwMQCA6_x4VO6yGGyfLzfmq6zlarUXiErInGQA8SDRzueRtcBaFKZZ6uhPc2Cs7RJGjMSyQXhxzuGQTYR4GaIN=w1920-h1080-n-nu",
+      "caption": "구글 딥마인드 지니3 공식 이미지",
+      "alt": "Google DeepMind 지니3 월드 모델 AI 기술 공식 발표 이미지"
+    },
+    {
+      "type": "text",
+      "value": "기술적 한계는 명확하지만, 시장은 늘 현재가 아닌 미래에 반응한다. AI 발전 속도를 고려하면 1~2년 후엔 상황이 완전히 달라질 수 있다. 빅테크들이 게임 생성 AI에 본격 투자하면서, \"프롬프트로 프로토타입, 엔진으로 상용화\"라는 새로운 개발 방식이 표준이 될 가능성이 열렸다.\n\n투자자들은 이미 이 시나리오를 가격에 선반영하고 있다. 기술이 완성되기 전에 시장 판도가 먼저 바뀌는 건 테크 업계에서 흔한 일이다. 유니티 주가는 그 불안감의 바로미터다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 게임주의 동반 약세, 계속되나?"
+    },
+    {
+      "type": "text",
+      "value": "유니티 폭락은 아직 심리적 충격에 가깝다. 하지만 시장은 이미 패러다임 전환을 가격에 반영하기 시작했다. 게임주 동반 약세가 단기 조정에 그칠지, 장기 하락 추세의 시작인지는 AI 기술의 진화 속도에 달려 있다.\n\n테이크투, 로블록스 외에도 EA, 넥슨 등 글로벌 게임사 주가에 영향이 확산될 수 있다. AI 게임 생성 기술이 고도화되면 개발 비용 구조 자체가 바뀌기 때문이다. 시장은 그 가능성을 주시하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 적응이 생존을 좌우한다"
+    },
+    {
+      "type": "text",
+      "value": "아직은 시기상조로 보인다. 하지만 AI 기술의 발전 속도가 매우 빠른 것은 분명하다. 변화하는 생태계에 얼마나 빠르게 적응하느냐가 기성 기업의 생존에 결정적인 영향을 줄 수 있다.\n\n유니티가 2023년 런타임 요금 논란을 겪고도 살아남은 건 빠른 방향 전환 덕분이었다. 이번에도 AI 시대에 맞는 포지셔닝을 얼마나 빨리 보여주느냐가 관건이다. 메타버스 시즌2가 될지, 진짜 변화가 될지는 지켜볼 일이다."
+    }
+  ],
+  "relatedDocs": [
+    "wiki:business/korean-game-stocks-2025",
+    "wiki:business/game-business-metrics",
+    "wiki:business/platform-fees-comparison",
+    "wiki:business/top-gaming-companies-by-market-cap"
   ]
 }

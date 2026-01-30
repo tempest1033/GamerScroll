@@ -7,14 +7,32 @@
   "keywords": "클로드 코드, Claude Code, 코덱스, Codex CLI, 코딩 에이전트, AI 코딩, 앤트로픽, OpenAI, 바이브 코딩, MCP, 서브에이전트, 툴유즈",
   "summary": "AI 코딩 에이전트 시장의 양대산맥, 클로드 코드와 코덱스. 같은 뿌리에서 나온 두 회사가 만든 코딩 도구는 어떻게 다른가. 업계 선두 클로드 코드와 맹추격 중인 코덱스의 특징과 장단점을 비교한다.",
   "sources": [
-    { "name": "Builder.io", "title": "Codex vs Claude Code: which is the better AI coding agent?", "url": "https://www.builder.io/blog/codex-vs-claude-code" },
-    { "name": "Wikipedia", "title": "Anthropic", "url": "https://en.wikipedia.org/wiki/Anthropic" },
-    { "name": "Incremys", "title": "Claude statistics 2026", "url": "https://www.incremys.com/en/resources/blog/claude-statistics" },
-    { "name": "LinkedIn", "title": "Claude Code Dominates AI Coding Market", "url": "https://www.linkedin.com/posts/brianjuliusdc_claude-codes-revolutionary-producer-consumer-activity-7413700604411330560-_CAZ" },
-    { "name": "Wavespeed", "title": "Claude vs Codex Comparison 2026", "url": "https://wavespeed.ai/blog/posts/claude-vs-codex-comparison-2026" }
+    {
+      "name": "Builder.io",
+      "title": "Codex vs Claude Code: which is the better AI coding agent?",
+      "url": "https://www.builder.io/blog/codex-vs-claude-code"
+    },
+    {
+      "name": "Wikipedia",
+      "title": "Anthropic",
+      "url": "https://en.wikipedia.org/wiki/Anthropic"
+    },
+    {
+      "name": "Incremys",
+      "title": "Claude statistics 2026",
+      "url": "https://www.incremys.com/en/resources/blog/claude-statistics"
+    },
+    {
+      "name": "LinkedIn",
+      "title": "Claude Code Dominates AI Coding Market",
+      "url": "https://www.linkedin.com/posts/brianjuliusdc_claude-codes-revolutionary-producer-consumer-activity-7413700604411330560-_CAZ"
+    },
+    {
+      "name": "Wavespeed",
+      "title": "Claude vs Codex Comparison 2026",
+      "url": "https://wavespeed.ai/blog/posts/claude-vs-codex-comparison-2026"
+    }
   ],
-  "relatedArticles": ["vibe-coding", "chatgpt-desktop-app"],
-  "relatedIssues": ["chatgpt-vs-gemini-comparison-2026"],
   "relatedGames": [],
   "content": [
     {
@@ -103,13 +121,37 @@
     },
     {
       "type": "table",
-      "headers": ["상황", "추천 도구", "이유"],
+      "headers": [
+        "상황",
+        "추천 도구",
+        "이유"
+      ],
       "rows": [
-        ["일상적인 코딩 작업", "클로드 코드", "속도와 안정성이 중요"],
-        ["복잡한 알고리즘 구현", "코덱스", "추론 능력이 필요"],
-        ["대규모 리팩토링", "코덱스", "전체 구조 파악에 강함"],
-        ["프론트엔드 개발", "클로드 코드", "UI 코드 품질이 높음"],
-        ["예산이 제한적일 때", "코덱스", "가격이 저렴"]
+        [
+          "일상적인 코딩 작업",
+          "클로드 코드",
+          "속도와 안정성이 중요"
+        ],
+        [
+          "복잡한 알고리즘 구현",
+          "코덱스",
+          "추론 능력이 필요"
+        ],
+        [
+          "대규모 리팩토링",
+          "코덱스",
+          "전체 구조 파악에 강함"
+        ],
+        [
+          "프론트엔드 개발",
+          "클로드 코드",
+          "UI 코드 품질이 높음"
+        ],
+        [
+          "예산이 제한적일 때",
+          "코덱스",
+          "가격이 저렴"
+        ]
       ]
     },
     {
@@ -124,5 +166,10 @@
       "type": "text",
       "value": "다만 클로드는 **범용성이 떨어진다**는 점을 알아둘 필요가 있다. 멀티모달, 이미지 생성, 동영상 생성, 일상 활용 등 코딩 외의 영역에서는 GPT가 압도적으로 앞선다. 코딩 에이전트에 관심이 있다면 GPT 유료 구독(Plus 플랜)에 코덱스가 포함되어 있으니 먼저 써보는 것도 좋은 선택이다. 다만 프로그래머라면 현시점에서는 클로드 코드가 더 안정적인 선택이 될 수 있다. 코덱스는 사용량이 꽤 널널한 편이고 범용성이 좋아서, 클로드 코드를 주력으로 사용하면서 코덱스를 병행하는 방식도 매우 추천한다.\n\n결국 중요한 건 자신의 작업 스타일과 예산에 맞는 도구를 선택하는 것이다. 일상적인 코딩과 안정성이 중요하다면 클로드 코드, 복잡한 문제 해결과 비용 효율이 중요하다면 코덱스. 두 도구를 상황에 따라 병행하는 것도 좋은 전략이다."
     }
+  ],
+  "relatedDocs": [
+    "tech:vibecoding/vibe-coding",
+    "tech:ai/chatgpt-desktop-app",
+    "issue:chatgpt-vs-gemini-comparison-2026"
   ]
 }

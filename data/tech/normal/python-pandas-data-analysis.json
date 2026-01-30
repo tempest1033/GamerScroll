@@ -6,16 +6,6 @@
   "thumbnail": "https://files.realpython.com/media/fig-1.d24c69699df7.jpg",
   "keywords": "파이썬, Python, 판다스, Pandas, 데이터프레임, DataFrame, 데이터 분석, 게임 로그 분석, SQL, 엑셀 대안, 시각화, matplotlib",
   "summary": "판다스(Pandas)는 파이썬 기반의 데이터 분석 라이브러리로, 엑셀로 처리하기 어려운 대용량 게임 데이터를 다루는 데 유용하다. 직관적인 데이터프레임 구조와 집계 기능으로 게임 업계에서 널리 활용되고 있다.",
-  "relatedArticles": [
-    {
-      "category": "normal",
-      "slug": "agile-jira-confluence-game-dev"
-    },
-    {
-      "category": "business",
-      "slug": "game-business-metrics"
-    }
-  ],
   "relatedGames": [],
   "sources": [
     {
@@ -141,5 +131,9 @@
       "type": "text",
       "value": "판다스는 게임 데이터 분석의 진입장벽을 낮춰주는 도구다. 엑셀에 익숙한 기획자라면 비교적 쉽게 배울 수 있고, 프로그래머라면 자동화까지 확장할 수 있다.\n\n데이터 기반 의사결정이 중요해지는 시대에, 판다스는 게임 개발자와 기획자 모두에게 유용한 역량이 될 수 있다. 간단한 튜토리얼부터 시작해 실제 게임 데이터에 적용해보는 것을 권한다."
     }
+  ],
+  "relatedDocs": [
+    "tech:normal/agile-jira-confluence-game-dev",
+    "wiki:business/game-business-metrics"
   ]
 }

@@ -254,7 +254,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
 /**
  * 테크 개별 항목 페이지 생성
  */
-function generateTechArticlePage({ article, category, relatedArticles = [], prevNext = {}, issueReports = [], allTechData = {} }) {
+function generateTechArticlePage({ article, category, relatedDocs = [], prevNext = {}, issueReports = [], allTechData = {} }) {
   const catInfo = categoryInfo[category] || { name: category, desc: '' };
 
   const keywordText = typeof article.keywords === 'string' ? article.keywords : '';
@@ -308,34 +308,40 @@ function generateTechArticlePage({ article, category, relatedArticles = [], prev
     </div>
   ` : '';
 
-  // 관련 이슈 리포트
-  const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
-  const relatedIssuesList = (article.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
-
-  // 관련 문서
-  const hasRelatedDocs = relatedArticles.length > 0 || relatedIssuesList.length > 0;
-  const relatedHTML = hasRelatedDocs
+  // 관련 문서 (relatedDocs 통합 - wiki/tech/issue 지원)
+  const relatedHTML = relatedDocs.length > 0
     ? `
       <div class="blog-related-issues">
         <div class="blog-related-title">관련 문서</div>
         <div class="blog-related-issues-list">
-          ${relatedArticles.map(item => {
-            const thumb = item.thumbnail
-              ? getLocalTechImagePath(item.category, item.slug, item.thumbnail, 'thumbnail')
-              : '/favicon.svg';
-            return `
-            <a href="/tech/${item.category}/${item.slug}/" class="blog-related-issue-card">
-              <img class="blog-related-issue-thumb" src="${thumb}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
-              <span class="blog-related-issue-title">${item.title}</span>
-            </a>
-          `;
+          ${relatedDocs.map(item => {
+            if (item.type === 'wiki') {
+              const thumb = item.thumbnail
+                ? `/assets/images/wiki/${item.category}/${item.slug}/thumbnail.webp`
+                : '/favicon.svg';
+              return `
+              <a href="/wiki/${item.category}/${item.slug}/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="${thumb}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title">${item.title}</span>
+              </a>`;
+            } else if (item.type === 'tech') {
+              const thumb = item.thumbnail
+                ? getLocalTechImagePath(item.category, item.slug, item.thumbnail, 'thumbnail')
+                : '/favicon.svg';
+              return `
+              <a href="/tech/${item.category}/${item.slug}/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="${thumb}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title">${item.title}</span>
+              </a>`;
+            } else if (item.type === 'issue') {
+              return `
+              <a href="/magazine/issue/${item.slug}/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/issue/${item.slug}/thumbnail.webp" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title">${item.title}</span>
+              </a>`;
+            }
+            return '';
           }).join('')}
-          ${relatedIssuesList.map(issue => `
-            <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
-              <img class="blog-related-issue-thumb" src="/assets/images/issue/${issue.slug}/thumbnail.webp" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
-              <span class="blog-related-issue-title">${issue.title}</span>
-            </a>
-          `).join('')}
         </div>
       </div>
     `

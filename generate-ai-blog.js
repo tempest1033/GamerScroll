@@ -21,11 +21,8 @@ const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 // 경로 설정
 const DATA_DIR = path.join(__dirname, 'data');
 const REPORTS_DIR = path.join(__dirname, 'reports');
-// GitHub Actions에서는 ./AIScroll, 로컬에서는 ../AIScroll
-const AISCROLL_DIR = process.env.GITHUB_ACTIONS
-  ? path.join(__dirname, 'AIScroll')
-  : path.join(__dirname, '..', 'AIScroll');
-const DOCS_DIR = path.join(AISCROLL_DIR, 'docs');
+// GamerScroll 내 ai-docs/ 폴더에 빌드
+const DOCS_DIR = path.join(__dirname, 'ai-docs');
 const STYLES_SRC = path.join(__dirname, 'src', 'styles');
 
 // Claude CLI로 번역
@@ -340,27 +337,10 @@ function generateHTML(articles) {
   console.log(`글 ${enArticles.length}개 생성 완료`);
 }
 
-// AIScroll 저장소에 푸시
-function pushToAIScroll() {
-  try {
-    process.chdir(AISCROLL_DIR);
-
-    // git 상태 확인
-    const status = execSync('git status --porcelain', { encoding: 'utf8' });
-    if (!status.trim()) {
-      console.log('변경사항 없음');
-      return;
-    }
-
-    // 커밋 및 푸시
-    execSync('git add docs/', { encoding: 'utf8' });
-    const date = new Date().toISOString().slice(0, 16).replace('T', ' ');
-    execSync(`git commit -m "Update ${date}"`, { encoding: 'utf8' });
-    execSync('git push', { encoding: 'utf8' });
-    console.log('AIScroll 저장소 푸시 완료');
-  } catch (error) {
-    console.error('푸시 실패:', error.message);
-  }
+// 빌드 완료 메시지
+function showBuildSummary() {
+  console.log('\n빌드 완료! ai-docs/ 폴더에 생성됨');
+  console.log('CloudFront에서 ai-docs/를 aiscroll.io로 연결하세요');
 }
 
 // 메인
@@ -404,14 +384,8 @@ async function main() {
   copyAssets();
   console.log('');
 
-  // 6. 푸시 (--no-push 옵션으로 스킵 가능)
-  const noPush = process.argv.includes('--no-push');
-  if (!noPush) {
-    console.log('6. AIScroll 저장소 푸시 중...');
-    pushToAIScroll();
-  } else {
-    console.log('6. 푸시 스킵\n');
-  }
+  // 6. 완료 메시지
+  showBuildSummary();
 
   console.log('\n=== AIScroll 빌드 완료 ===');
 }

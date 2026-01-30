@@ -7,19 +7,35 @@
   "keywords": "젤다의 전설, Legend of Zelda, 닌텐도, 미야모토 시게루, 시간의 오카리나, 야생의 숨결, 왕국의 눈물, 링크, 젤다 공주, 하이랄, 트라이포스, 젤다 타임라인, 오픈월드 RPG",
   "summary": "1986년 패미컴에서 시작된 젤다의 전설은 40년 가까이 게임 역사의 한 축을 담당해온 닌텐도의 대표 프랜차이즈다. 2D에서 3D로, 오픈월드까지 매번 혁신을 이끌어온 하이랄의 전설을 돌아본다.",
   "sources": [
-    { "name": "Nintendo", "title": "The Legend of Zelda Official Site", "url": "https://zelda.nintendo.com/about/" },
-    { "name": "IGDB", "title": "The Legend of Zelda Series", "url": "https://www.igdb.com/collections/the-legend-of-zelda" },
-    { "name": "Nintendo", "title": "Hyrule Warriors: Age of Imprisonment", "url": "https://www.nintendo.com/us/store/products/hyrule-warriors-age-of-imprisonment-switch-2/" }
-  ],
-  "relatedArticles": [
-    { "category": "history", "slug": "nier-series", "title": "니어 시리즈, 실패작에서 900만 판매 명작으로" },
-    { "category": "history", "slug": "rts-genre-rise-and-fall", "title": "RTS 장르의 흥망성쇠" },
-    { "category": "knowledge", "slug": "gacha-system-history", "title": "가챠 시스템의 역사" }
+    {
+      "name": "Nintendo",
+      "title": "The Legend of Zelda Official Site",
+      "url": "https://zelda.nintendo.com/about/"
+    },
+    {
+      "name": "IGDB",
+      "title": "The Legend of Zelda Series",
+      "url": "https://www.igdb.com/collections/the-legend-of-zelda"
+    },
+    {
+      "name": "Nintendo",
+      "title": "Hyrule Warriors: Age of Imprisonment",
+      "url": "https://www.nintendo.com/us/store/products/hyrule-warriors-age-of-imprisonment-switch-2/"
+    }
   ],
   "relatedGames": [
-    { "title": "원신", "slug": "genshin-impact" },
-    { "title": "젤다의 전설: 야생의 숨결", "slug": "the-legend-of-zelda-breath-of-the-wild" },
-    { "title": "젤다의 전설: 왕국의 눈물", "slug": "the-legend-of-zelda-tears-of-the-kingdom" }
+    {
+      "title": "원신",
+      "slug": "genshin-impact"
+    },
+    {
+      "title": "젤다의 전설: 야생의 숨결",
+      "slug": "the-legend-of-zelda-breath-of-the-wild"
+    },
+    {
+      "title": "젤다의 전설: 왕국의 눈물",
+      "slug": "the-legend-of-zelda-tears-of-the-kingdom"
+    }
   ],
   "content": [
     {
@@ -29,18 +45,73 @@
     {
       "type": "table",
       "caption": "젤다의 전설 주요 연표",
-      "headers": ["연도", "작품", "플랫폼", "키워드"],
+      "headers": [
+        "연도",
+        "작품",
+        "플랫폼",
+        "키워드"
+      ],
       "rows": [
-        ["1986", "젤다의 전설", "패미컴", "시리즈의 시작"],
-        ["1991", "신들의 트라이포스", "슈퍼 패미컴", "2D의 완성"],
-        ["1998", "시간의 오카리나", "닌텐도 64", "3D 혁명, 타임라인 분기"],
-        ["2000", "무쥬라의 가면", "닌텐도 64", "3일 루프, 컬트 명작"],
-        ["2006", "황혼의 공주", "Wii/GC", "어둡고 성숙한 분위기"],
-        ["2011", "스카이워드 소드", "Wii", "타임라인 최초의 이야기"],
-        ["2017", "야생의 숨결", "스위치", "오픈월드 혁신"],
-        ["2023", "왕국의 눈물", "스위치", "창의적 빌드 시스템"],
-        ["2024", "지혜의 투영", "스위치", "젤다가 주인공"],
-        ["2025", "Age of Imprisonment", "스위치2", "봉인 전쟁 스토리"]
+        [
+          "1986",
+          "젤다의 전설",
+          "패미컴",
+          "시리즈의 시작"
+        ],
+        [
+          "1991",
+          "신들의 트라이포스",
+          "슈퍼 패미컴",
+          "2D의 완성"
+        ],
+        [
+          "1998",
+          "시간의 오카리나",
+          "닌텐도 64",
+          "3D 혁명, 타임라인 분기"
+        ],
+        [
+          "2000",
+          "무쥬라의 가면",
+          "닌텐도 64",
+          "3일 루프, 컬트 명작"
+        ],
+        [
+          "2006",
+          "황혼의 공주",
+          "Wii/GC",
+          "어둡고 성숙한 분위기"
+        ],
+        [
+          "2011",
+          "스카이워드 소드",
+          "Wii",
+          "타임라인 최초의 이야기"
+        ],
+        [
+          "2017",
+          "야생의 숨결",
+          "스위치",
+          "오픈월드 혁신"
+        ],
+        [
+          "2023",
+          "왕국의 눈물",
+          "스위치",
+          "창의적 빌드 시스템"
+        ],
+        [
+          "2024",
+          "지혜의 투영",
+          "스위치",
+          "젤다가 주인공"
+        ],
+        [
+          "2025",
+          "Age of Imprisonment",
+          "스위치2",
+          "봉인 전쟁 스토리"
+        ]
       ]
     },
     {
@@ -163,5 +234,10 @@
       "type": "text",
       "value": "1986년 패미컴 디스크 하나에서 시작된 젤다의 전설은 40년 가까이 진화를 거듭해왔다. 2D에서 3D로, 선형 구조에서 오픈월드로, 그리고 다시 2D의 재해석까지 매번 새로운 도전을 멈추지 않았다.\n\n용사 링크는 매 작품마다 새로운 하이랄에서 새로운 모험을 떠난다. 젤다 공주는 이제 직접 칼을 들고 왕국을 구하기도 한다. 트라이포스를 둘러싼 전설은 여전히 현재진행형이다.\n\n닌텐도 스위치 2 시대가 열린 지금, 다음 젤다는 어떤 모습일까? 확실한 건 하나다. 하이랄의 전설은 아직 끝나지 않았다."
     }
+  ],
+  "relatedDocs": [
+    "wiki:history/nier-series",
+    "wiki:history/rts-genre-rise-and-fall",
+    "wiki:knowledge/gacha-system-history"
   ]
 }

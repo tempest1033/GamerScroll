@@ -42,6 +42,90 @@ const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
 const WIKI_DIR = './data/wiki';
 
+/**
+ * relatedDocs 통합 파싱 함수
+ * 형식: ["wiki:slug", "wiki:category/slug", "issue:slug", "tech:category/slug"]
+ * 하위 호환: relatedArticles, relatedIssues가 있으면 폴백
+ */
+function parseRelatedDocs(article, currentCategory, wikiData, techData, issueReports) {
+  const result = [];
+
+  // 1. relatedDocs가 있으면 우선 처리
+  if (article.relatedDocs && article.relatedDocs.length > 0) {
+    for (const doc of article.relatedDocs) {
+      const [type, pathPart] = doc.split(':');
+      if (!type || !pathPart) continue;
+
+      const parts = pathPart.split('/');
+      const slug = parts.pop();
+      const category = parts.length > 0 ? parts.join('/') : null;
+
+      if (type === 'wiki') {
+        // 위키 문서 검색
+        if (category && wikiData[category]) {
+          const found = wikiData[category].find(a => a.slug === slug);
+          if (found) result.push({ type: 'wiki', ...found, category });
+        } else {
+          // 카테고리 없으면 전체 검색
+          for (const [cat, catArticles] of Object.entries(wikiData)) {
+            const found = catArticles.find(a => a.slug === slug);
+            if (found) { result.push({ type: 'wiki', ...found, category: cat }); break; }
+          }
+        }
+      } else if (type === 'issue') {
+        // 이슈 리포트 검색
+        const found = issueReports.find(r => r.slug === slug);
+        if (found) result.push({ type: 'issue', ...found });
+      } else if (type === 'tech') {
+        // 테크 문서 검색
+        if (category && techData[category]) {
+          const found = techData[category].find(a => a.slug === slug);
+          if (found) result.push({ type: 'tech', ...found, category });
+        } else {
+          for (const [cat, catArticles] of Object.entries(techData)) {
+            const found = catArticles.find(a => a.slug === slug);
+            if (found) { result.push({ type: 'tech', ...found, category: cat }); break; }
+          }
+        }
+      }
+    }
+    return result;
+  }
+
+  // 2. 레거시 폴백: relatedArticles (위키/테크)
+  if (article.relatedArticles && article.relatedArticles.length > 0) {
+    for (const item of article.relatedArticles) {
+      const itemSlug = typeof item === 'string' ? item : item.slug;
+      const itemCat = typeof item === 'string' ? null : (item.category || currentCategory);
+
+      // 위키에서 검색
+      if (itemCat && wikiData[itemCat]) {
+        const found = wikiData[itemCat].find(a => a.slug === itemSlug);
+        if (found) { result.push({ type: 'wiki', ...found, category: itemCat }); continue; }
+      }
+      for (const [cat, catArticles] of Object.entries(wikiData)) {
+        const found = catArticles.find(a => a.slug === itemSlug);
+        if (found) { result.push({ type: 'wiki', ...found, category: cat }); break; }
+      }
+      // 테크에서도 검색
+      for (const [cat, catArticles] of Object.entries(techData)) {
+        const found = catArticles.find(a => a.slug === itemSlug);
+        if (found) { result.push({ type: 'tech', ...found, category: cat }); break; }
+      }
+    }
+  }
+
+  // 3. 레거시 폴백: relatedIssues
+  if (article.relatedIssues && article.relatedIssues.length > 0) {
+    for (const slug of article.relatedIssues) {
+      const found = issueReports.find(r => r.slug === slug);
+      if (found) result.push({ type: 'issue', ...found });
+    }
+  }
+
+  return result;
+}
+
 // CSV 스냅샷에서 일 최고순위 계산
 function calculateBestRanksFromSnapshots(date) {
   const rankingsDir = `${SNAPSHOTS_DIR}/rankings`;
@@ -1587,26 +1671,8 @@ async function main() {
       }
 
       try {
-        // 관련 항목: JSON에 명시된 경우만 사용 (자동 생성 없음)
-        // relatedArticles 형식: [{ category, slug }, ...] 또는 ["slug1", "slug2", ...]
-        const relatedArticles = (article.relatedArticles || [])
-          .map(item => {
-            const itemSlug = typeof item === 'string' ? item : item.slug;
-            const itemCat = typeof item === 'string' ? null : (item.category || category);
-            // 카테고리가 지정된 경우
-            if (itemCat) {
-              const catArticles = wikiData[itemCat] || [];
-              const found = catArticles.find(a => a.slug === itemSlug);
-              return found ? { ...found, category: itemCat } : null;
-            }
-            // 카테고리 없이 slug만 있는 경우 - 전체 위키에서 검색
-            for (const [cat, catArticles] of Object.entries(wikiData)) {
-              const found = catArticles.find(a => a.slug === itemSlug);
-              if (found) return { ...found, category: cat };
-            }
-            return null;
-          })
-          .filter(Boolean);
+        // 관련 문서: parseRelatedDocs 통합 함수 사용
+        const relatedDocs = parseRelatedDocs(article, category, wikiData, techData, issueReports);
 
         // 이전/다음 항목
         const prevNext = {
@@ -1617,7 +1683,7 @@ async function main() {
         const html = generateWikiArticlePage({
           article,
           category,
-          relatedArticles,
+          relatedDocs,
           prevNext,
           issueReports,
           allWikiData: wikiData
@@ -1704,23 +1770,8 @@ async function main() {
       }
 
       try {
-        // 관련 항목: JSON에 명시된 경우만 사용
-        const relatedArticles = (article.relatedArticles || [])
-          .map(item => {
-            const itemSlug = typeof item === 'string' ? item : item.slug;
-            const itemCat = typeof item === 'string' ? null : (item.category || category);
-            if (itemCat) {
-              const catArticles = techData[itemCat] || [];
-              const found = catArticles.find(a => a.slug === itemSlug);
-              return found ? { ...found, category: itemCat } : null;
-            }
-            for (const [cat, catArticles] of Object.entries(techData)) {
-              const found = catArticles.find(a => a.slug === itemSlug);
-              if (found) return { ...found, category: cat };
-            }
-            return null;
-          })
-          .filter(Boolean);
+        // 관련 문서: parseRelatedDocs 통합 함수 사용
+        const relatedDocs = parseRelatedDocs(article, category, wikiData, techData, issueReports);
 
         // 이전/다음 항목
         const prevNext = {
@@ -1731,7 +1782,7 @@ async function main() {
         const html = generateTechArticlePage({
           article,
           category,
-          relatedArticles,
+          relatedDocs,
           prevNext,
           issueReports,
           allTechData: techData

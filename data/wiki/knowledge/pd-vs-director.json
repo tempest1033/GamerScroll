@@ -74,6 +74,8 @@
       "url": "https://gamedev.stackexchange.com/questions/23813/what-is-the-difference-between-a-game-director-and-game-producer"
     }
   ],
-  "relatedArticles": ["raph-koster-theory-of-fun"],
-  "relatedGames": []
+  "relatedGames": [],
+  "relatedDocs": [
+    "wiki:knowledge/raph-koster-theory-of-fun"
+  ]
 }

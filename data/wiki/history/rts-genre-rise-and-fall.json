@@ -7,7 +7,6 @@
   "thumbnail": "https://static0.srcdn.com/wordpress/wp-content/uploads/2020/11/Age-of-Tiberiancraft.jpg",
   "keywords": "RTS, 실시간 전략 게임, 스타크래프트, 워크래프트, 에이지 오브 엠파이어, 커맨드 앤 컨커, Dune II, e스포츠, MOBA, APM, 게임 역사",
   "summary": "1992년 Dune II에서 시작된 RTS 장르는 스타크래프트로 전성기를 맞았지만, MOBA의 부상과 높은 진입장벽으로 주류에서 밀려났다. RTS가 남긴 유산과 그 여정을 따라가 본다.",
-  "relatedArticles": ["moba-genre-origin", "heroes-of-might-and-magic"],
   "relatedGames": [],
   "sources": [
     {
@@ -148,5 +147,9 @@
       "type": "text",
       "value": "RTS가 주류에서 밀려난 건 분명하다. 하지만 그 유산은 지금도 살아 숨 쉰다. e스포츠라는 산업, MOBA라는 장르, 기지 건설과 자원 관리라는 게임 문법. 이 모든 것이 RTS에서 시작됐다.\n\n1992년 Dune II부터 1998년 스타크래프트의 전성기까지, RTS는 약 10년간 게임 산업의 중심에 있었다. 그리고 그 10년은 이후 30년의 게임 역사를 바꿔놓았다. 지금 우리가 즐기는 리그 오브 레전드도, e스포츠 대회도, 전략 게임의 기본 공식도 모두 RTS의 황금기에서 탄생한 것들이다.\n\n어쩌면 RTS는 사라진 게 아니라, 너무 많은 것을 남기고 진화한 것인지도 모른다."
     }
+  ],
+  "relatedDocs": [
+    "wiki:knowledge/moba-genre-origin",
+    "wiki:history/heroes-of-might-and-magic"
   ]
 }

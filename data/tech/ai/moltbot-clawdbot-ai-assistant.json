@@ -7,12 +7,27 @@
   "keywords": "Moltbot, Clawdbot, AI 에이전트, 로컬, AI 비서, 오픈소스, 장기 기억, 자율 에이전트, 왓츠앱, 디스코드, 슬랙, iMessage, 보안",
   "summary": "Clawdbot(현재 Moltbot)은 며칠간 전세계의 뜨거운 관심을 받은 로컬 AI 비서다. 장기 기억과 자율적 판단이 가능한 에이전트로 주목받았지만, 리브랜딩 과정에서 계정 탈취, 가짜 토큰 스캠, 보안 취약점 등 72시간 동안 연이은 사건이 터졌다.",
   "sources": [
-    { "name": "GitHub", "title": "Moltbot Repository", "url": "https://github.com/moltbot/moltbot" },
-    { "name": "DEV Community", "title": "From Clawdbot to Moltbot", "url": "https://dev.to/sivarampg/from-clawdbot-to-moltbot-how-a-cd-crypto-scammers-and-10-seconds-of-chaos-took-down-the-4eck" },
-    { "name": "The Register", "title": "Clawdbot becomes Moltbot", "url": "https://www.theregister.com/2026/01/27/clawdbot_moltbot_security_concerns/" },
-    { "name": "Bitdefender", "title": "Moltbot security alert", "url": "https://www.bitdefender.com/en-us/blog/hotforsecurity/moltbot-security-alert-exposed-clawdbot-control-panels-risk-credential-leaks-and-account-takeovers" }
+    {
+      "name": "GitHub",
+      "title": "Moltbot Repository",
+      "url": "https://github.com/moltbot/moltbot"
+    },
+    {
+      "name": "DEV Community",
+      "title": "From Clawdbot to Moltbot",
+      "url": "https://dev.to/sivarampg/from-clawdbot-to-moltbot-how-a-cd-crypto-scammers-and-10-seconds-of-chaos-took-down-the-4eck"
+    },
+    {
+      "name": "The Register",
+      "title": "Clawdbot becomes Moltbot",
+      "url": "https://www.theregister.com/2026/01/27/clawdbot_moltbot_security_concerns/"
+    },
+    {
+      "name": "Bitdefender",
+      "title": "Moltbot security alert",
+      "url": "https://www.bitdefender.com/en-us/blog/hotforsecurity/moltbot-security-alert-exposed-clawdbot-control-panels-risk-credential-leaks-and-account-takeovers"
+    }
   ],
-  "relatedArticles": ["chatgpt-desktop-app"],
   "relatedGames": [],
   "content": [
     {
@@ -48,13 +63,31 @@
     {
       "type": "table",
       "caption": "Clawdbot 주요 기능",
-      "headers": ["기능", "설명"],
+      "headers": [
+        "기능",
+        "설명"
+      ],
       "rows": [
-        ["장기 기억", "대화 맥락을 며칠, 몇 주, 몇 달간 유지"],
-        ["자율 작업 실행", "이메일 응답, 캘린더 관리, 스크립트 실행, 웹 브라우징"],
-        ["멀티플랫폼", "왓츠앱, 디스코드, 슬랙, iMessage, 텔레그램 등 50+ 연동"],
-        ["능동적 알림", "사용자 요청 없이도 먼저 리마인더, 브리핑, 알림 전송"],
-        ["로컬 실행", "클라우드가 아닌 내 컴퓨터에서 직접 실행"]
+        [
+          "장기 기억",
+          "대화 맥락을 며칠, 몇 주, 몇 달간 유지"
+        ],
+        [
+          "자율 작업 실행",
+          "이메일 응답, 캘린더 관리, 스크립트 실행, 웹 브라우징"
+        ],
+        [
+          "멀티플랫폼",
+          "왓츠앱, 디스코드, 슬랙, iMessage, 텔레그램 등 50+ 연동"
+        ],
+        [
+          "능동적 알림",
+          "사용자 요청 없이도 먼저 리마인더, 브리핑, 알림 전송"
+        ],
+        [
+          "로컬 실행",
+          "클라우드가 아닌 내 컴퓨터에서 직접 실행"
+        ]
       ]
     },
     {
@@ -109,5 +142,8 @@
       "type": "text",
       "value": "분명한 건, 장기 기억이 가능하고 자율적인 의사결정이 가능한 AI의 시대가 도래하고 있다는 것이다."
     }
+  ],
+  "relatedDocs": [
+    "tech:ai/chatgpt-desktop-app"
   ]
 }

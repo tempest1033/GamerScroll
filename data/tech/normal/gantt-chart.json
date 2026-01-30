@@ -33,7 +33,6 @@
       "url": "https://www.tomsplanner.com/"
     }
   ],
-  "relatedArticles": ["agile-jira-confluence-game-dev", "version-control-system", "pd-vs-director"],
   "relatedGames": [],
   "content": [
     {
@@ -99,12 +98,32 @@
     {
       "type": "table",
       "caption": "간트 차트 도구 비교",
-      "headers": ["도구", "대상", "가격"],
+      "headers": [
+        "도구",
+        "대상",
+        "가격"
+      ],
       "rows": [
-        ["[Jira](https://www.atlassian.com/software/jira)", "개발팀 (게임/SW)", "무료~$8.15/user/월"],
-        ["[monday.com](https://monday.com)", "스타트업~중견", "$9/user/월~"],
-        ["[Tom's Planner](https://www.tomsplanner.com)", "소규모 팀, 개인", "무료~$119/년"],
-        ["[Google Sheets](https://sheets.google.com)", "개인, 소규모 팀", "무료"]
+        [
+          "[Jira](https://www.atlassian.com/software/jira)",
+          "개발팀 (게임/SW)",
+          "무료~$8.15/user/월"
+        ],
+        [
+          "[monday.com](https://monday.com)",
+          "스타트업~중견",
+          "$9/user/월~"
+        ],
+        [
+          "[Tom's Planner](https://www.tomsplanner.com)",
+          "소규모 팀, 개인",
+          "무료~$119/년"
+        ],
+        [
+          "[Google Sheets](https://sheets.google.com)",
+          "개인, 소규모 팀",
+          "무료"
+        ]
       ]
     },
     {
@@ -115,5 +134,10 @@
       "type": "text",
       "value": "간트 차트는 100년 넘게 살아남은 검증된 프로젝트 관리 도구다. 게임 개발처럼 복잡한 프로젝트에서 전체 일정을 조망하고, 팀 간 협업을 조율하며, 마일스톤을 향해 나아가는 데 핵심적인 역할을 한다.\n\n처음에는 간단한 도구로 시작해서 프로젝트 규모가 커지면 전문 도구로 옮겨가는 것도 좋은 전략이다. 중요한 건 도구 자체가 아니라, 일정을 시각화하고 팀과 공유하는 습관이다."
     }
+  ],
+  "relatedDocs": [
+    "tech:normal/agile-jira-confluence-game-dev",
+    "tech:normal/version-control-system",
+    "wiki:knowledge/pd-vs-director"
   ]
 }

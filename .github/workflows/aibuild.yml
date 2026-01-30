@@ -23,11 +23,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Clone AIScroll
-        run: |
-          rm -rf AIScroll
-          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/tempest1033/AIScroll.git AIScroll
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -38,28 +33,17 @@ jobs:
         run: npm ci
 
       - name: Build AIScroll
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           if [ "${{ inputs.skip_translate }}" = "true" ]; then
-            node generate-ai-blog.js --skip-translate --no-push
+            node generate-ai-blog.js --skip-translate
           else
-            node generate-ai-blog.js --no-push
+            node generate-ai-blog.js
           fi
 
-      - name: Commit translation updates
+      - name: Commit and push
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add data/ reports/
-          git diff --staged --quiet || git commit -m "Update translations $(date +'%Y-%m-%d %H:%M')"
-          git push || true
-
-      - name: Push to AIScroll
-        run: |
-          cd AIScroll
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add docs/
-          git diff --staged --quiet || git commit -m "Update $(date +'%Y-%m-%d %H:%M')"
+          git add ai-docs/ data/ reports/
+          git diff --staged --quiet || git commit -m "Update AIScroll $(date +'%Y-%m-%d %H:%M')"
           git push

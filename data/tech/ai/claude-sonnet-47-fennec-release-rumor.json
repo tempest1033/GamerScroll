@@ -6,12 +6,6 @@
   "keywords": "클로드 소넷 4.7, Claude Sonnet 4.7, 페넥, Fennec, 앤트로픽, Anthropic, 다리오 아모데이, GPT 5.3, 제미나이 3.0, AI 경쟁, 클로드 코드, Claude Code, 오푸스 4.5, LLM, AI 코딩",
   "summary": "앤트로픽의 차세대 모델 클로드 소넷 4.7 \"페넥\"이 오푸스 4.5를 압도하고 제미나이 3.0까지 넘어선다는 루머가 확산 중이다. 2월 중 OpenAI, 구글, 앤트로픽 3사가 다시 맞붙을 전망이다.",
   "thumbnail": "https://cdn.aitimes.com/news/photo/202312/156119_167390_2745.jpg",
-  "relatedIssues": [
-    "gpt-5-3-garlic-update-rumor",
-    "chatgpt-vs-gemini-comparison-2026",
-    "game-ai-paradigm-shift-2026"
-  ],
-  "relatedArticles": ["claude-code-vs-codex-coding-agent"],
   "relatedGames": [],
   "sources": [
     {
@@ -114,5 +108,11 @@
       "type": "text",
       "value": "다리오 아모데이 앤트로픽 CEO는 최근 다보스 포럼에서 \"소프트웨어 엔지니어링은 6~12개월 내 자동화될 것\"이라고 발언해 화제가 됐다. 또한 \"2026년 말까지 100% 코딩이 AI로 이루어질 것\"이라는 전망도 내놨다.\n\n실제로 앤트로픽은 이미 행동으로 보여주고 있다. 클로드 코드(Claude Code) 개발을 이끄는 보리스 체르니(Boris Cherny)는 \"현재 자신이 작성하는 코드의 100%가 AI로 작성된다\"고 밝혔다. OpenAI 측에서도 비슷한 발언이 나왔다. 구글 순다르 피차이가 \"구글 코딩의 25%가 AI\"라고 한 것과 비교하면, 앤트로픽의 AI 활용 수준은 이미 다른 차원에 있다.\n\n본인들 말처럼 2026년이 정말 코딩 에이전트의 해가 될 수 있을지, 페넥이 그 시작점이 될 수 있을지가 관전 포인트다."
     }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "issue:gpt-5-3-garlic-update-rumor",
+    "issue:chatgpt-vs-gemini-comparison-2026",
+    "issue:game-ai-paradigm-shift-2026"
   ]
 }

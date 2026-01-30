@@ -7,12 +7,27 @@
   "keywords": "챗GPT, ChatGPT, 데스크톱 앱, 윈도우 앱, Alt Space, 단축키, 윈도우 스토어, OpenAI",
   "summary": "챗GPT 데스크톱 앱은 웹브라우저 없이 바로 AI를 쓸 수 있는 공식 앱이다. Alt + Space 단축키로 어디서든 즉시 호출할 수 있고, 윈도우 스토어에서 무료로 다운로드할 수 있다.",
   "sources": [
-    { "name": "OpenAI", "title": "Using the ChatGPT Windows app", "url": "https://help.openai.com/en/articles/9982051-using-the-chatgpt-windows-app" },
-    { "name": "OpenAI", "title": "Windows App Release Notes", "url": "https://help.openai.com/en/articles/10003026-windows-app-release-notes" },
-    { "name": "OpenAI", "title": "ChatGPT Desktop Features", "url": "https://chatgpt.com/features/desktop/" },
-    { "name": "Microsoft Store", "title": "ChatGPT App", "url": "https://apps.microsoft.com/detail/9nt1r1c2hh7j" }
+    {
+      "name": "OpenAI",
+      "title": "Using the ChatGPT Windows app",
+      "url": "https://help.openai.com/en/articles/9982051-using-the-chatgpt-windows-app"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Windows App Release Notes",
+      "url": "https://help.openai.com/en/articles/10003026-windows-app-release-notes"
+    },
+    {
+      "name": "OpenAI",
+      "title": "ChatGPT Desktop Features",
+      "url": "https://chatgpt.com/features/desktop/"
+    },
+    {
+      "name": "Microsoft Store",
+      "title": "ChatGPT App",
+      "url": "https://apps.microsoft.com/detail/9nt1r1c2hh7j"
+    }
   ],
-  "relatedArticles": ["agile-jira-confluence-game-dev", "vibe-coding"],
   "relatedGames": [],
   "content": [
     {
@@ -42,12 +57,27 @@
     {
       "type": "table",
       "caption": "챗GPT 데스크톱 앱 단축키",
-      "headers": ["단축키", "기능"],
+      "headers": [
+        "단축키",
+        "기능"
+      ],
       "rows": [
-        ["Alt + Space", "채팅창 호출/닫기"],
-        ["Ctrl + N", "새 대화 시작"],
-        ["Ctrl + K", "대화 기록 검색"],
-        ["Ctrl +/-", "글자 크기 조절"]
+        [
+          "Alt + Space",
+          "채팅창 호출/닫기"
+        ],
+        [
+          "Ctrl + N",
+          "새 대화 시작"
+        ],
+        [
+          "Ctrl + K",
+          "대화 기록 검색"
+        ],
+        [
+          "Ctrl +/-",
+          "글자 크기 조절"
+        ]
       ]
     },
     {
@@ -70,5 +100,9 @@
       "type": "text",
       "value": "챗GPT 데스크톱 앱의 장점은 단순하다. 브라우저 없이 단축키로 바로 AI를 부른다. 자주 챗GPT를 쓴다면 설치해두면 더 편하게 사용할 수 있다."
     }
+  ],
+  "relatedDocs": [
+    "tech:normal/agile-jira-confluence-game-dev",
+    "tech:vibecoding/vibe-coding"
   ]
 }

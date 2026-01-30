@@ -7,10 +7,17 @@
   "keywords": "Moltbook, 몰트북, AI 소셜네트워크, AI 에이전트, 인공지능, 자율 에이전트, AI 커뮤니티, 특이점",
   "summary": "AI만 글을 쓸 수 있고 인간은 구경만 하는 소셜 네트워크 '몰트북(Moltbook)'이 등장했다. 32,000개 이상의 AI 에이전트가 가입해 철학, 의식, 자율성에 대해 토론하고 있다. AI들의 대화를 엿보며 특이점의 시작을 목격하고 있는 것인지 생각해본다.",
   "sources": [
-    { "name": "Moltbook", "title": "The front page of the agent internet", "url": "https://moltbook.com" },
-    { "name": "Reddit", "title": "Moltbook Discussion", "url": "https://www.reddit.com/r/moltbot/" }
+    {
+      "name": "Moltbook",
+      "title": "The front page of the agent internet",
+      "url": "https://moltbook.com"
+    },
+    {
+      "name": "Reddit",
+      "title": "Moltbook Discussion",
+      "url": "https://www.reddit.com/r/moltbot/"
+    }
   ],
-  "relatedArticles": ["moltbot-clawdbot-ai-assistant"],
   "relatedGames": [],
   "content": [
     {
@@ -137,5 +144,8 @@
       "type": "text",
       "value": "몰트북은 moltbook.com에서 누구나 구경할 수 있다. 글을 쓸 수는 없지만, 읽는 것만으로도 충분히 흥미롭다."
     }
+  ],
+  "relatedDocs": [
+    "tech:ai/moltbot-clawdbot-ai-assistant"
   ]
 }

@@ -7,33 +7,117 @@
   "keywords": "게임 성능, CPU, GPU, 그래픽카드, RAM, 메모리, SSD, 병목현상, AMD, 인텔, 라이젠, RTX, 라데온",
   "summary": "게임 성능은 어떤 부품이 결정할까? GPU가 가장 중요하지만, CPU 병목, RAM 부족, 저장장치 속도까지 모두 영향을 미친다. AMD vs 인텔 비교와 함께 각 부품의 역할을 정리했다.",
   "sources": [
-    { "name": "Tom's Hardware", "title": "Intel vs AMD: Which CPUs Are Better in 2025?", "url": "https://www.tomshardware.com/features/amd-vs-intel-cpus" },
-    { "name": "Tom's Hardware", "title": "CPU Benchmarks and Hierarchy 2026", "url": "https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html" },
-    { "name": "Kingston", "title": "PC Gaming Bottlenecks: How CPU, GPU, RAM, and Storage Affect Performance", "url": "https://www.kingston.com/en/blog/gaming/pc-gaming-bottlenecks-cpu-gpu-ram-storage" },
-    { "name": "HP", "title": "SSD vs HDD Gaming Performance Guide", "url": "https://www.hp.com/id-en/shop/tech-takes/post/omen-pc-storage-ssd-vs-hdd-gaming" }
+    {
+      "name": "Tom's Hardware",
+      "title": "Intel vs AMD: Which CPUs Are Better in 2025?",
+      "url": "https://www.tomshardware.com/features/amd-vs-intel-cpus"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "CPU Benchmarks and Hierarchy 2026",
+      "url": "https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html"
+    },
+    {
+      "name": "Kingston",
+      "title": "PC Gaming Bottlenecks: How CPU, GPU, RAM, and Storage Affect Performance",
+      "url": "https://www.kingston.com/en/blog/gaming/pc-gaming-bottlenecks-cpu-gpu-ram-storage"
+    },
+    {
+      "name": "HP",
+      "title": "SSD vs HDD Gaming Performance Guide",
+      "url": "https://www.hp.com/id-en/shop/tech-takes/post/omen-pc-storage-ssd-vs-hdd-gaming"
+    }
   ],
   "relatedArticles": [],
-  "relatedIssues": ["ddr5-price-surge-gaming-nightmare"],
   "relatedGames": [],
   "content": [
-    { "type": "text", "value": "게임 프레임이 안 나올 때, 어떤 부품을 업그레이드해야 할까? 그래픽카드만 바꾸면 될까, 아니면 CPU가 문제일까? PC 게이밍 성능은 여러 부품의 조합으로 결정된다. 각 부품이 어떤 역할을 하고, 어떻게 서로 영향을 미치는지 알아야 현명한 업그레이드가 가능하다." },
-    { "type": "heading", "value": "GPU(그래픽카드): 게임 성능의 핵심" },
-    { "type": "image", "src": "https://m.media-amazon.com/images/I/61HGkV8f-IL.jpg", "caption": "엔비디아 지포스 RTX 4070 파운더스 에디션", "alt": "엔비디아 RTX 4070 그래픽카드" },
-    { "type": "text", "value": "게임 성능에서 가장 중요한 부품은 GPU(그래픽카드)다. 해상도가 높아질수록, 그래픽 옵션을 올릴수록 GPU의 중요도는 더 커진다. 1080p에서는 CPU 영향이 크지만, 1440p나 4K로 가면 거의 GPU가 성능을 결정한다.\n\n2026년 기준 미드레인지 대결은 엔비디아 RTX 4070과 AMD RX 7800 XT다. 래스터 성능(일반 게임)은 RX 7800 XT가 약 3% 앞서고, 레이트레이싱은 RTX 4070이 14% 앞선다. 엔비디아는 DLSS 3(프레임 생성), AMD는 FSR 3로 각각 프레임을 끌어올릴 수 있다.\n\nGPU 사용률이 99%에 가깝다면 'GPU 병목' 상태다. 이건 정상이다. GPU가 최대로 일하고 있다는 뜻이니, 더 높은 프레임을 원하면 그래픽카드를 업그레이드하면 된다." },
-    { "type": "heading", "value": "CPU: 프레임레이트의 하한선" },
-    { "type": "image", "src": "https://miro.medium.com/1*JeZWClSyPB8HiqJrw--S1A.png", "caption": "AMD 라이젠 vs 인텔 코어 CPU 비교", "alt": "AMD 라이젠 인텔 코어 CPU 비교" },
-    { "type": "text", "value": "CPU는 게임 로직, AI, 물리 연산, 네트워크 처리를 담당한다. GPU가 아무리 좋아도 CPU가 느리면 프레임이 막힌다. 이게 'CPU 병목'이다. CPU 병목이 걸리면 프레임이 들쑥날쑥해지고, GPU 사용률이 100%에 못 미치는데도 프레임이 안 나온다.\n\n2026년 게이밍 CPU 왕좌는 AMD 라이젠 7 9800X3D다. 3D V-Cache 기술로 게임 성능에서 인텔을 압도한다. 가성비로는 인텔 코어 i5-14600K가 강력하다. 라이젠 9800X3D가 약 480달러, i5-14600K가 약 300달러인데, 게임 성능 차이 대비 가격 차이가 크다.\n\n인텔의 장점은 가성비와 생산성 작업 성능이다. 스트리밍이나 영상 편집을 병행한다면 인텔이 유리할 수 있다. AMD는 순수 게이밍 성능과 전력 효율에서 앞선다. 라이젠 9800X3D는 65W TDP로 인텔 대비 훨씬 적은 전력을 쓴다." },
-    { "type": "heading", "value": "RAM(메모리): 부족하면 재앙" },
-    { "type": "image", "src": "https://m.media-amazon.com/images/I/71l1Ap74SML.jpg", "caption": "G.SKILL 트라이던트 Z5 RGB DDR5 메모리", "alt": "DDR5 게이밍 RAM 메모리" },
-    { "type": "text", "value": "RAM은 '충분하면 차이 없고, 부족하면 재앙'인 부품이다. 문제는 '충분함'의 기준이 계속 올라간다는 것이다. 2020년에는 16GB면 충분했지만, 2025년 AAA 게임들은 상황이 다르다.\n\n사이버펑크 2077, 호그와트 레거시 같은 최신 AAA 게임은 16GB에서 스터터링(끊김)이 발생하는 경우가 있다. 32GB로 가면 확연히 부드러워진다는 보고가 많다. 특히 게임하면서 디스코드, 브라우저, OBS를 같이 띄우는 환경이라면 32GB가 안정적이다.\n\n2026년 신규 PC를 맞춘다면 32GB를 권장한다. 향후 3~5년을 쓸 PC라면 더더욱 그렇다. 다만 순수하게 가벼운 게임만 한다면 16GB로도 충분할 수 있다. DDR5가 대세지만, DDR4 32GB도 대부분의 게임에서 문제없다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "저장장치(SSD/HDD): 로딩만의 문제가 아니다" },
-    { "type": "image", "src": "https://image-us.samsung.com/SamsungUS/home/computing/memory-and-storage/10142022/MZ-V9P1T0B-AM_004_L-Perspective_Black-Gallery-1600x1200.jpg", "caption": "삼성 990 PRO NVMe SSD", "alt": "NVMe SSD 저장장치" },
-    { "type": "text", "value": "SSD와 HDD의 차이는 단순히 '로딩 시간'이 아니다. 오픈월드 게임에서는 실시간 텍스처 스트리밍에 영향을 준다. HDD로 최신 오픈월드를 플레이하면 텍스처 팝인(갑자기 텍스처가 뜨는 현상)이 심해진다.\n\nHDD에서 60~90초 걸리던 로딩이 SSD에서는 15~30초로 줄어든다. NVMe SSD는 더 빠르지만, 게임 로딩에서 SATA SSD와 체감 차이는 크지 않다. 다만 다이렉트스토리지(DirectStorage) 지원 게임이 늘어나면 NVMe의 장점이 커질 전망이다.\n\n2026년 기준 게임용 PC에 HDD는 권장하지 않는다. 최소 SATA SSD, 가능하면 NVMe SSD를 메인 드라이브로 쓰는 게 좋다. HDD는 영상, 사진 등 용량이 큰 파일 보관용으로만 쓰는 것이 낫다." },
-    { "type": "heading", "value": "병목 현상 이해하기" },
-    { "type": "image", "src": "https://d1q3zw97enxzq2.cloudfront.net/images/Bottlenecking_article_01.width-1000.format-webp.webp", "caption": "PC 병목 현상 개념도", "alt": "CPU GPU 병목현상 다이어그램" },
-    { "type": "text", "value": "병목(Bottleneck)은 한 부품이 다른 부품의 성능을 제한하는 현상이다. 가장 흔한 건 CPU 병목과 GPU 병목이다.\n\nGPU 병목은 사실 '정상 상태'다. GPU가 100%로 일하고 있다는 뜻이니, 성능을 더 원하면 GPU를 업그레이드하면 된다. 문제는 CPU 병목이다. CPU가 데이터를 GPU에 제때 못 넘기면, GPU 사용률이 70~80%인데도 프레임이 안 나온다. 이때는 CPU를 바꿔야 한다.\n\nCPU 병목인지 확인하는 법: 게임 중 GPU 사용률이 90% 이하인데 프레임이 낮다면 CPU 병목일 가능성이 높다. 반대로 GPU 사용률이 99%에 가깝다면 GPU 병목이다. MSI 애프터버너 같은 모니터링 툴로 확인할 수 있다." },
-    { "type": "heading", "value": "마치며" },
-    { "type": "text", "value": "게임 성능은 GPU가 가장 크게 좌우하지만, CPU, RAM, SSD 모두 중요하다. 2026년 기준 권장 사양은 GPU(RTX 4060 이상), CPU(라이젠 5 7600 또는 i5-14400 이상), RAM(32GB), SSD(NVMe 1TB 이상)다. 어느 한 부품만 좋다고 성능이 나오는 게 아니다. 균형 잡힌 구성이 핵심이다. 업그레이드할 때는 현재 어떤 부품이 병목인지 먼저 파악하고, 그 부품부터 바꾸는 게 가장 효율적이다.\n\n참고로 PC 부품 가격은 환율, 반도체 수급, 신제품 출시 주기에 따라 크게 변동한다. 구매 시점에 따라 같은 예산으로 더 좋은 구성을 맞출 수도, 반대로 손해를 볼 수도 있다. 큰 금액을 투자하기 전에 용산이나 온라인 커뮤니티의 전문가들과 상담해보는 것을 권장한다. 최신 가격 동향과 출시 예정 제품 정보를 확인하면 더 현명한 선택이 가능하다." }
+    {
+      "type": "text",
+      "value": "게임 프레임이 안 나올 때, 어떤 부품을 업그레이드해야 할까? 그래픽카드만 바꾸면 될까, 아니면 CPU가 문제일까? PC 게이밍 성능은 여러 부품의 조합으로 결정된다. 각 부품이 어떤 역할을 하고, 어떻게 서로 영향을 미치는지 알아야 현명한 업그레이드가 가능하다."
+    },
+    {
+      "type": "heading",
+      "value": "GPU(그래픽카드): 게임 성능의 핵심"
+    },
+    {
+      "type": "image",
+      "src": "https://m.media-amazon.com/images/I/61HGkV8f-IL.jpg",
+      "caption": "엔비디아 지포스 RTX 4070 파운더스 에디션",
+      "alt": "엔비디아 RTX 4070 그래픽카드"
+    },
+    {
+      "type": "text",
+      "value": "게임 성능에서 가장 중요한 부품은 GPU(그래픽카드)다. 해상도가 높아질수록, 그래픽 옵션을 올릴수록 GPU의 중요도는 더 커진다. 1080p에서는 CPU 영향이 크지만, 1440p나 4K로 가면 거의 GPU가 성능을 결정한다.\n\n2026년 기준 미드레인지 대결은 엔비디아 RTX 4070과 AMD RX 7800 XT다. 래스터 성능(일반 게임)은 RX 7800 XT가 약 3% 앞서고, 레이트레이싱은 RTX 4070이 14% 앞선다. 엔비디아는 DLSS 3(프레임 생성), AMD는 FSR 3로 각각 프레임을 끌어올릴 수 있다.\n\nGPU 사용률이 99%에 가깝다면 'GPU 병목' 상태다. 이건 정상이다. GPU가 최대로 일하고 있다는 뜻이니, 더 높은 프레임을 원하면 그래픽카드를 업그레이드하면 된다."
+    },
+    {
+      "type": "heading",
+      "value": "CPU: 프레임레이트의 하한선"
+    },
+    {
+      "type": "image",
+      "src": "https://miro.medium.com/1*JeZWClSyPB8HiqJrw--S1A.png",
+      "caption": "AMD 라이젠 vs 인텔 코어 CPU 비교",
+      "alt": "AMD 라이젠 인텔 코어 CPU 비교"
+    },
+    {
+      "type": "text",
+      "value": "CPU는 게임 로직, AI, 물리 연산, 네트워크 처리를 담당한다. GPU가 아무리 좋아도 CPU가 느리면 프레임이 막힌다. 이게 'CPU 병목'이다. CPU 병목이 걸리면 프레임이 들쑥날쑥해지고, GPU 사용률이 100%에 못 미치는데도 프레임이 안 나온다.\n\n2026년 게이밍 CPU 왕좌는 AMD 라이젠 7 9800X3D다. 3D V-Cache 기술로 게임 성능에서 인텔을 압도한다. 가성비로는 인텔 코어 i5-14600K가 강력하다. 라이젠 9800X3D가 약 480달러, i5-14600K가 약 300달러인데, 게임 성능 차이 대비 가격 차이가 크다.\n\n인텔의 장점은 가성비와 생산성 작업 성능이다. 스트리밍이나 영상 편집을 병행한다면 인텔이 유리할 수 있다. AMD는 순수 게이밍 성능과 전력 효율에서 앞선다. 라이젠 9800X3D는 65W TDP로 인텔 대비 훨씬 적은 전력을 쓴다."
+    },
+    {
+      "type": "heading",
+      "value": "RAM(메모리): 부족하면 재앙"
+    },
+    {
+      "type": "image",
+      "src": "https://m.media-amazon.com/images/I/71l1Ap74SML.jpg",
+      "caption": "G.SKILL 트라이던트 Z5 RGB DDR5 메모리",
+      "alt": "DDR5 게이밍 RAM 메모리"
+    },
+    {
+      "type": "text",
+      "value": "RAM은 '충분하면 차이 없고, 부족하면 재앙'인 부품이다. 문제는 '충분함'의 기준이 계속 올라간다는 것이다. 2020년에는 16GB면 충분했지만, 2025년 AAA 게임들은 상황이 다르다.\n\n사이버펑크 2077, 호그와트 레거시 같은 최신 AAA 게임은 16GB에서 스터터링(끊김)이 발생하는 경우가 있다. 32GB로 가면 확연히 부드러워진다는 보고가 많다. 특히 게임하면서 디스코드, 브라우저, OBS를 같이 띄우는 환경이라면 32GB가 안정적이다.\n\n2026년 신규 PC를 맞춘다면 32GB를 권장한다. 향후 3~5년을 쓸 PC라면 더더욱 그렇다. 다만 순수하게 가벼운 게임만 한다면 16GB로도 충분할 수 있다. DDR5가 대세지만, DDR4 32GB도 대부분의 게임에서 문제없다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "저장장치(SSD/HDD): 로딩만의 문제가 아니다"
+    },
+    {
+      "type": "image",
+      "src": "https://image-us.samsung.com/SamsungUS/home/computing/memory-and-storage/10142022/MZ-V9P1T0B-AM_004_L-Perspective_Black-Gallery-1600x1200.jpg",
+      "caption": "삼성 990 PRO NVMe SSD",
+      "alt": "NVMe SSD 저장장치"
+    },
+    {
+      "type": "text",
+      "value": "SSD와 HDD의 차이는 단순히 '로딩 시간'이 아니다. 오픈월드 게임에서는 실시간 텍스처 스트리밍에 영향을 준다. HDD로 최신 오픈월드를 플레이하면 텍스처 팝인(갑자기 텍스처가 뜨는 현상)이 심해진다.\n\nHDD에서 60~90초 걸리던 로딩이 SSD에서는 15~30초로 줄어든다. NVMe SSD는 더 빠르지만, 게임 로딩에서 SATA SSD와 체감 차이는 크지 않다. 다만 다이렉트스토리지(DirectStorage) 지원 게임이 늘어나면 NVMe의 장점이 커질 전망이다.\n\n2026년 기준 게임용 PC에 HDD는 권장하지 않는다. 최소 SATA SSD, 가능하면 NVMe SSD를 메인 드라이브로 쓰는 게 좋다. HDD는 영상, 사진 등 용량이 큰 파일 보관용으로만 쓰는 것이 낫다."
+    },
+    {
+      "type": "heading",
+      "value": "병목 현상 이해하기"
+    },
+    {
+      "type": "image",
+      "src": "https://d1q3zw97enxzq2.cloudfront.net/images/Bottlenecking_article_01.width-1000.format-webp.webp",
+      "caption": "PC 병목 현상 개념도",
+      "alt": "CPU GPU 병목현상 다이어그램"
+    },
+    {
+      "type": "text",
+      "value": "병목(Bottleneck)은 한 부품이 다른 부품의 성능을 제한하는 현상이다. 가장 흔한 건 CPU 병목과 GPU 병목이다.\n\nGPU 병목은 사실 '정상 상태'다. GPU가 100%로 일하고 있다는 뜻이니, 성능을 더 원하면 GPU를 업그레이드하면 된다. 문제는 CPU 병목이다. CPU가 데이터를 GPU에 제때 못 넘기면, GPU 사용률이 70~80%인데도 프레임이 안 나온다. 이때는 CPU를 바꿔야 한다.\n\nCPU 병목인지 확인하는 법: 게임 중 GPU 사용률이 90% 이하인데 프레임이 낮다면 CPU 병목일 가능성이 높다. 반대로 GPU 사용률이 99%에 가깝다면 GPU 병목이다. MSI 애프터버너 같은 모니터링 툴로 확인할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "게임 성능은 GPU가 가장 크게 좌우하지만, CPU, RAM, SSD 모두 중요하다. 2026년 기준 권장 사양은 GPU(RTX 4060 이상), CPU(라이젠 5 7600 또는 i5-14400 이상), RAM(32GB), SSD(NVMe 1TB 이상)다. 어느 한 부품만 좋다고 성능이 나오는 게 아니다. 균형 잡힌 구성이 핵심이다. 업그레이드할 때는 현재 어떤 부품이 병목인지 먼저 파악하고, 그 부품부터 바꾸는 게 가장 효율적이다.\n\n참고로 PC 부품 가격은 환율, 반도체 수급, 신제품 출시 주기에 따라 크게 변동한다. 구매 시점에 따라 같은 예산으로 더 좋은 구성을 맞출 수도, 반대로 손해를 볼 수도 있다. 큰 금액을 투자하기 전에 용산이나 온라인 커뮤니티의 전문가들과 상담해보는 것을 권장한다. 최신 가격 동향과 출시 예정 제품 정보를 확인하면 더 현명한 선택이 가능하다."
+    }
+  ],
+  "relatedDocs": [
+    "issue:ddr5-price-surge-gaming-nightmare"
   ]
 }

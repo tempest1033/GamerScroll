@@ -7,47 +7,197 @@
   "keywords": "플랫폼 수수료, 스팀, Steam, 에픽게임즈 스토어, Epic Games Store, 앱스토어, App Store, 구글플레이, Google Play, 플레이스테이션, Xbox, 닌텐도, GOG, 인디 개발자",
   "summary": "게임을 팔면 플랫폼이 얼마나 가져갈까? 스팀 30%, 에픽 12%(첫 100만 달러 0%), 앱스토어 30%. PC, 모바일, 콘솔 플랫폼별 수수료를 정리하고, 인디 개발자를 위한 우회 전략까지 살펴본다.",
   "sources": [
-    { "name": "1D3 DIGITECH", "title": "Platform Fees in the Videogame Industry: Full List", "url": "https://www.1d3.com/blog/platform-fees" },
-    { "name": "Epic Games Store", "title": "New Epic Games Store Webshops and Revenue Share Update", "url": "https://store.epicgames.com/en-US/news/new-epic-games-store-webshops-and-revenue-share-update" },
-    { "name": "Steam", "title": "Steamworks Documentation", "url": "https://partner.steamgames.com/doc/finance/payments_salesreporting/faq" }
+    {
+      "name": "1D3 DIGITECH",
+      "title": "Platform Fees in the Videogame Industry: Full List",
+      "url": "https://www.1d3.com/blog/platform-fees"
+    },
+    {
+      "name": "Epic Games Store",
+      "title": "New Epic Games Store Webshops and Revenue Share Update",
+      "url": "https://store.epicgames.com/en-US/news/new-epic-games-store-webshops-and-revenue-share-update"
+    },
+    {
+      "name": "Steam",
+      "title": "Steamworks Documentation",
+      "url": "https://partner.steamgames.com/doc/finance/payments_salesreporting/faq"
+    }
   ],
-  "relatedArticles": ["publisher-developer-relationship", "game-ip-licensing", "game-revenue-structure", "app-revenue-ranking-algorithm"],
   "relatedGames": [],
   "content": [
-    { "type": "text", "value": "게임 개발자가 플랫폼에 게임을 올리면, 판매 수익의 일부를 플랫폼에 지불해야 한다. 이른바 '플랫폼 수수료'다. 대부분의 플랫폼이 30%를 가져가지만, 최근 경쟁이 치열해지면서 수수료 구조가 다양해지고 있다. 개발자 입장에서 어떤 플랫폼이 유리한지, 수수료를 줄일 방법은 없는지 정리했다." },
-    { "type": "heading", "value": "PC 플랫폼" },
-    { "type": "image", "src": "https://www.techpowerup.com/img/AATDjVxf6deMqeLI.jpg", "caption": "2024년 리뉴얼된 스팀 스토어 페이지", "alt": "Steam 스토어 리디자인 스크린샷" },
-    { "type": "text", "value": "스팀(Steam)은 PC 게임 유통의 절대 강자다. 기본 수수료는 30%이지만, 매출 규모에 따라 단계적으로 낮아진다. 1,000만 달러 초과 시 25%, 5,000만 달러 초과 시 20%로 줄어든다. 다만 이 혜택은 대형 퍼블리셔에게나 해당되는 이야기다.\n\n에픽게임즈 스토어(Epic Games Store)는 12%의 낮은 수수료로 개발자들을 끌어들였다. 2025년 6월부터는 더 파격적인 정책을 시행 중이다. 앱당 연간 첫 100만 달러까지는 수수료가 0%다. 100만 달러를 넘으면 그때부터 12%를 적용한다. 인디 개발자에게는 사실상 무료에 가까운 조건이다.\n\nGOG는 30% 수수료를 받지만, DRM-Free(복사 방지 없음) 정책으로 특정 유저층에게 인기가 높다. 마이크로소프트 스토어(PC)는 12%로, 에픽과 동일한 수준이다." },
-    { "type": "heading", "value": "모바일 플랫폼" },
-    { "type": "image", "src": "https://cdn.statcdn.com/Infographic/images/normal/22617.jpeg", "caption": "앱스토어 vs 구글플레이 모바일 게임 매출 비교 (Statista)", "alt": "App Store Google Play 모바일 게임 매출 인포그래픽" },
-    { "type": "text", "value": "애플 앱스토어와 구글플레이는 모두 기본 30% 수수료를 적용한다. 다만 양쪽 모두 소규모 개발자 프로그램을 운영 중이다. 연 매출 100만 달러 이하일 경우 수수료가 15%로 줄어든다.\n\n애플은 EU 지역에서 외부 결제 수단을 허용하기 시작했지만, 여전히 별도의 '핵심 기술 수수료'를 부과한다. 구글플레이 역시 EU 외 지역에서는 자체 결제 시스템 사용이 필수다.\n\n대안 스토어들도 있다. 아마존 앱스토어는 30%(소규모 개발자 20%), 삼성 갤럭시 스토어는 30%, 원스토어(한국)는 20%를 적용한다. 화웨이 앱갤러리는 30%다." },
-    { "type": "heading", "value": "콘솔 플랫폼" },
-    { "type": "image", "src": "https://static0.pocketlintimages.com/wordpress/wp-content/uploads/162806-games-news-vs-playstation-5-vs-xbox-series-x-vs-nintendo-switch-which-console-should-you-pick-image1-zfnydtrd4o.jpg", "caption": "PS5, Xbox Series X, 닌텐도 스위치 - 모두 30% 수수료", "alt": "PlayStation Xbox Nintendo 콘솔 비교" },
-    { "type": "text", "value": "콘솔 3사(소니, 마이크로소프트, 닌텐도)는 모두 30% 수수료를 적용한다. 플레이스테이션 스토어, Xbox 스토어, 닌텐도 e숍 전부 동일하다.\n\n콘솔은 PC나 모바일과 달리 대안 스토어가 없다. 해당 플랫폼에서 게임을 팔려면 무조건 공식 스토어를 거쳐야 한다. 협상력이 있는 대형 퍼블리셔가 아니라면 30%는 피할 수 없는 비용이다.\n\n다만 콘솔 플랫폼은 결제 처리, 세금 관리, 마케팅 노출, 온라인 서비스(PSN, Xbox Live) 통합 등을 제공한다. 수수료가 높은 만큼 인프라 지원도 포함되어 있는 셈이다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "플랫폼별 수수료 한눈에 보기" },
-    { "type": "table", "caption": "PC 플랫폼", "headers": ["플랫폼", "기본 수수료", "소규모/특례"], "rows": [
-      ["스팀", "30%", "$10M 초과 25%, $50M 초과 20%"],
-      ["에픽게임즈 스토어", "12%", "첫 $1M 0%"],
-      ["GOG", "30%", "-"],
-      ["MS 스토어", "12%", "-"]
-    ] },
-    { "type": "table", "caption": "모바일 플랫폼", "headers": ["플랫폼", "기본 수수료", "소규모/특례"], "rows": [
-      ["앱스토어", "30%", "연 $1M 이하 15%"],
-      ["구글플레이", "30%", "연 $1M 이하 15%"],
-      ["원스토어", "20%", "-"],
-      ["삼성 갤럭시 스토어", "30%", "-"],
-      ["아마존 앱스토어", "30%", "소규모 20%"]
-    ] },
-    { "type": "table", "caption": "콘솔 플랫폼", "headers": ["플랫폼", "기본 수수료", "소규모/특례"], "rows": [
-      ["플레이스테이션", "30%", "-"],
-      ["Xbox", "30%", "-"],
-      ["닌텐도 e숍", "30%", "-"]
-    ] },
-    { "type": "heading", "value": "수수료를 줄이는 방법" },
-    { "type": "image", "src": "https://techraptor.net/sites/default/files/imports/2018/12/epic-games-store.jpg", "caption": "에픽게임즈 스토어의 12% 수수료 정책", "alt": "Epic Games Store 12% 수수료 발표" },
-    { "type": "text", "value": "가장 확실한 방법은 자체 웹사이트에서 직접 판매하는 것이다. 이른바 D2C(Direct-to-Consumer) 모델이다. 타르코프, 월드 오브 워크래프트 같은 게임들이 이 방식을 사용한다. 플랫폼 수수료 30% 대신 결제 대행 수수료 3~5%만 내면 된다.\n\n다만 D2C는 마케팅, 결제 처리, 세금 관리, 고객 지원을 전부 자체적으로 해결해야 한다. 이미 팬층이 있는 게임이 아니라면 쉽지 않은 선택이다.\n\n에픽게임즈 스토어의 웹숍 기능도 주목할 만하다. 2025년 6월부터 개발자들이 에픽 호스팅 웹숍을 통해 인앱 구매 없이 직접 판매할 수 있게 됐다. iOS(EU, 미국)에서도 앱 외부 결제 링크를 제공할 수 있어, 앱스토어 30%를 우회하는 방법으로 활용 가능하다." },
-    { "type": "heading", "value": "마치며: 수수료보다 중요한 것" },
-    { "type": "text", "value": "30%라는 수치는 업계 관행으로 굳어졌지만, 에픽의 도전 이후 조금씩 균열이 생기고 있다. 인디 개발자라면 에픽(첫 100만 달러 0%)이나 마이크로소프트 스토어(12%)를 적극 고려해볼 만하다. 이미 커뮤니티가 있다면 D2C 판매로 수익을 극대화하는 것도 방법이다.\n\n다만 수수료만 보고 플랫폼을 선택하면 안 된다. 스팀의 압도적인 유저 기반, 앱스토어의 높은 결제 전환율 등 각 플랫폼의 장점도 함께 고려해야 한다. 결국 '낮은 수수료 × 적은 판매'보다 '높은 수수료 × 많은 판매'가 더 나을 수 있다." }
+    {
+      "type": "text",
+      "value": "게임 개발자가 플랫폼에 게임을 올리면, 판매 수익의 일부를 플랫폼에 지불해야 한다. 이른바 '플랫폼 수수료'다. 대부분의 플랫폼이 30%를 가져가지만, 최근 경쟁이 치열해지면서 수수료 구조가 다양해지고 있다. 개발자 입장에서 어떤 플랫폼이 유리한지, 수수료를 줄일 방법은 없는지 정리했다."
+    },
+    {
+      "type": "heading",
+      "value": "PC 플랫폼"
+    },
+    {
+      "type": "image",
+      "src": "https://www.techpowerup.com/img/AATDjVxf6deMqeLI.jpg",
+      "caption": "2024년 리뉴얼된 스팀 스토어 페이지",
+      "alt": "Steam 스토어 리디자인 스크린샷"
+    },
+    {
+      "type": "text",
+      "value": "스팀(Steam)은 PC 게임 유통의 절대 강자다. 기본 수수료는 30%이지만, 매출 규모에 따라 단계적으로 낮아진다. 1,000만 달러 초과 시 25%, 5,000만 달러 초과 시 20%로 줄어든다. 다만 이 혜택은 대형 퍼블리셔에게나 해당되는 이야기다.\n\n에픽게임즈 스토어(Epic Games Store)는 12%의 낮은 수수료로 개발자들을 끌어들였다. 2025년 6월부터는 더 파격적인 정책을 시행 중이다. 앱당 연간 첫 100만 달러까지는 수수료가 0%다. 100만 달러를 넘으면 그때부터 12%를 적용한다. 인디 개발자에게는 사실상 무료에 가까운 조건이다.\n\nGOG는 30% 수수료를 받지만, DRM-Free(복사 방지 없음) 정책으로 특정 유저층에게 인기가 높다. 마이크로소프트 스토어(PC)는 12%로, 에픽과 동일한 수준이다."
+    },
+    {
+      "type": "heading",
+      "value": "모바일 플랫폼"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.statcdn.com/Infographic/images/normal/22617.jpeg",
+      "caption": "앱스토어 vs 구글플레이 모바일 게임 매출 비교 (Statista)",
+      "alt": "App Store Google Play 모바일 게임 매출 인포그래픽"
+    },
+    {
+      "type": "text",
+      "value": "애플 앱스토어와 구글플레이는 모두 기본 30% 수수료를 적용한다. 다만 양쪽 모두 소규모 개발자 프로그램을 운영 중이다. 연 매출 100만 달러 이하일 경우 수수료가 15%로 줄어든다.\n\n애플은 EU 지역에서 외부 결제 수단을 허용하기 시작했지만, 여전히 별도의 '핵심 기술 수수료'를 부과한다. 구글플레이 역시 EU 외 지역에서는 자체 결제 시스템 사용이 필수다.\n\n대안 스토어들도 있다. 아마존 앱스토어는 30%(소규모 개발자 20%), 삼성 갤럭시 스토어는 30%, 원스토어(한국)는 20%를 적용한다. 화웨이 앱갤러리는 30%다."
+    },
+    {
+      "type": "heading",
+      "value": "콘솔 플랫폼"
+    },
+    {
+      "type": "image",
+      "src": "https://static0.pocketlintimages.com/wordpress/wp-content/uploads/162806-games-news-vs-playstation-5-vs-xbox-series-x-vs-nintendo-switch-which-console-should-you-pick-image1-zfnydtrd4o.jpg",
+      "caption": "PS5, Xbox Series X, 닌텐도 스위치 - 모두 30% 수수료",
+      "alt": "PlayStation Xbox Nintendo 콘솔 비교"
+    },
+    {
+      "type": "text",
+      "value": "콘솔 3사(소니, 마이크로소프트, 닌텐도)는 모두 30% 수수료를 적용한다. 플레이스테이션 스토어, Xbox 스토어, 닌텐도 e숍 전부 동일하다.\n\n콘솔은 PC나 모바일과 달리 대안 스토어가 없다. 해당 플랫폼에서 게임을 팔려면 무조건 공식 스토어를 거쳐야 한다. 협상력이 있는 대형 퍼블리셔가 아니라면 30%는 피할 수 없는 비용이다.\n\n다만 콘솔 플랫폼은 결제 처리, 세금 관리, 마케팅 노출, 온라인 서비스(PSN, Xbox Live) 통합 등을 제공한다. 수수료가 높은 만큼 인프라 지원도 포함되어 있는 셈이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "플랫폼별 수수료 한눈에 보기"
+    },
+    {
+      "type": "table",
+      "caption": "PC 플랫폼",
+      "headers": [
+        "플랫폼",
+        "기본 수수료",
+        "소규모/특례"
+      ],
+      "rows": [
+        [
+          "스팀",
+          "30%",
+          "$10M 초과 25%, $50M 초과 20%"
+        ],
+        [
+          "에픽게임즈 스토어",
+          "12%",
+          "첫 $1M 0%"
+        ],
+        [
+          "GOG",
+          "30%",
+          "-"
+        ],
+        [
+          "MS 스토어",
+          "12%",
+          "-"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "모바일 플랫폼",
+      "headers": [
+        "플랫폼",
+        "기본 수수료",
+        "소규모/특례"
+      ],
+      "rows": [
+        [
+          "앱스토어",
+          "30%",
+          "연 $1M 이하 15%"
+        ],
+        [
+          "구글플레이",
+          "30%",
+          "연 $1M 이하 15%"
+        ],
+        [
+          "원스토어",
+          "20%",
+          "-"
+        ],
+        [
+          "삼성 갤럭시 스토어",
+          "30%",
+          "-"
+        ],
+        [
+          "아마존 앱스토어",
+          "30%",
+          "소규모 20%"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "콘솔 플랫폼",
+      "headers": [
+        "플랫폼",
+        "기본 수수료",
+        "소규모/특례"
+      ],
+      "rows": [
+        [
+          "플레이스테이션",
+          "30%",
+          "-"
+        ],
+        [
+          "Xbox",
+          "30%",
+          "-"
+        ],
+        [
+          "닌텐도 e숍",
+          "30%",
+          "-"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "수수료를 줄이는 방법"
+    },
+    {
+      "type": "image",
+      "src": "https://techraptor.net/sites/default/files/imports/2018/12/epic-games-store.jpg",
+      "caption": "에픽게임즈 스토어의 12% 수수료 정책",
+      "alt": "Epic Games Store 12% 수수료 발표"
+    },
+    {
+      "type": "text",
+      "value": "가장 확실한 방법은 자체 웹사이트에서 직접 판매하는 것이다. 이른바 D2C(Direct-to-Consumer) 모델이다. 타르코프, 월드 오브 워크래프트 같은 게임들이 이 방식을 사용한다. 플랫폼 수수료 30% 대신 결제 대행 수수료 3~5%만 내면 된다.\n\n다만 D2C는 마케팅, 결제 처리, 세금 관리, 고객 지원을 전부 자체적으로 해결해야 한다. 이미 팬층이 있는 게임이 아니라면 쉽지 않은 선택이다.\n\n에픽게임즈 스토어의 웹숍 기능도 주목할 만하다. 2025년 6월부터 개발자들이 에픽 호스팅 웹숍을 통해 인앱 구매 없이 직접 판매할 수 있게 됐다. iOS(EU, 미국)에서도 앱 외부 결제 링크를 제공할 수 있어, 앱스토어 30%를 우회하는 방법으로 활용 가능하다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 수수료보다 중요한 것"
+    },
+    {
+      "type": "text",
+      "value": "30%라는 수치는 업계 관행으로 굳어졌지만, 에픽의 도전 이후 조금씩 균열이 생기고 있다. 인디 개발자라면 에픽(첫 100만 달러 0%)이나 마이크로소프트 스토어(12%)를 적극 고려해볼 만하다. 이미 커뮤니티가 있다면 D2C 판매로 수익을 극대화하는 것도 방법이다.\n\n다만 수수료만 보고 플랫폼을 선택하면 안 된다. 스팀의 압도적인 유저 기반, 앱스토어의 높은 결제 전환율 등 각 플랫폼의 장점도 함께 고려해야 한다. 결국 '낮은 수수료 × 적은 판매'보다 '높은 수수료 × 많은 판매'가 더 나을 수 있다."
+    }
+  ],
+  "relatedDocs": [
+    "wiki:business/publisher-developer-relationship",
+    "wiki:business/game-ip-licensing",
+    "wiki:business/game-revenue-structure",
+    "wiki:business/app-revenue-ranking-algorithm"
   ]
 }

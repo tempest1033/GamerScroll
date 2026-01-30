@@ -154,6 +154,10 @@
       "url": "https://www.kitguru.net/gaming/joao-silva/nier-automata-has-sold-over-9-million-copies/"
     }
   ],
-  "relatedArticles": ["publisher-developer-relationship"],
-  "relatedGames": ["승리의-여신-니케"]
+  "relatedGames": [
+    "승리의-여신-니케"
+  ],
+  "relatedDocs": [
+    "wiki:business/publisher-developer-relationship"
+  ]
 }

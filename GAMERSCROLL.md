@@ -859,7 +859,7 @@ heading → image → text → text
 | **이미지** | ☐ | 서론/마치며 제외 모든 섹션에 1개씩, 깨진 이미지 없는지 확인 |
 | **이미지 alt** | ☐ | 모든 이미지에 alt 텍스트 필수 (키워드 포함 설명) |
 | **출처** | ☐ | 최소 4-5개 이상, **나무위키 절대 제외** |
-| **관련 문서** | ☐ | relatedArticles에 관련 위키/이슈 slug 연결 |
+| **관련 문서** | ☐ | relatedDocs에 관련 문서 연결 (예: `wiki:slug`, `tech:cat/slug`, `issue:slug`) |
 | **관련 게임** | ☐ | relatedGames에 본문에서 언급된 게임 slug 연결 |
 | **썸네일 중복** | ☐ | 썸네일과 본문 이미지 중복 금지 |
 | **연도 표현** | ☐ | "2025년 트렌드" 대신 "최근 트렌드" 사용 (시의성 유지) |
@@ -897,20 +897,47 @@ heading → image → text → text
 | **heading** | 키워드로 시작, 마지막은 "마치며: 부제" 형식 | `Unity 엔진 특징`, `마치며: 핵심 메시지` |
 | **category** | 폴더명으로 구분 | `business`, `history`, `knowledge` (위키) / `normal` (테크) |
 | **sources** | (선택) 정보 출처 배열, **나무위키 제외** | `[{name, title, url}]` |
-| **relatedArticles** | (선택) 관련 위키/이슈 slug 배열 | `["unity-engine", "게임-AI-논란"]` |
+| **relatedDocs** | (선택, 권장) 통합 관련 문서 배열 | `["wiki:unity-engine", "issue:게임-AI-논란"]` |
+| **relatedArticles** | (선택, 레거시) 관련 위키 slug 배열 | `["unity-engine"]` |
+| **relatedIssues** | (선택, 레거시) 관련 이슈 slug 배열 | `["게임-AI-논란"]` |
 | **relatedGames** | (선택) 관련 게임 slug 배열 | `["리니지-m", "메이플스토리"]` |
 
-### 콘텐츠 연결 규칙 (relatedArticles / relatedGames)
+### 콘텐츠 연결 규칙 (relatedDocs / relatedGames)
 
 | 필드 | 최대 개수 | 필수 여부 |
 |------|----------|----------|
 | **relatedGames** | 4개 | 선택 (없으면 비워도 됨) |
-| **relatedArticles** | 4개 | 선택 (없으면 비워도 됨) |
+| **relatedDocs** | 4개 | 선택 (통합 형식, 권장) |
+| **relatedArticles** | 4개 | 선택 (레거시, 위키/테크용) |
+| **relatedIssues** | 4개 | 선택 (레거시, 위키/테크용) |
+
+**relatedDocs 통합 형식 (권장):**
+```json
+"relatedDocs": [
+  "wiki:slug",                    // 위키 문서 (전체 검색)
+  "wiki:category/slug",           // 위키 문서 (카테고리 지정)
+  "tech:category/slug",           // 테크 문서
+  "issue:slug"                    // 이슈 리포트
+]
+```
+
+**예시:**
+```json
+"relatedDocs": [
+  "wiki:knowledge/chzzk-soop-p2p-grid",
+  "tech:ai/moltbook-ai-social-network",
+  "issue:pc-bang-decline-arcade-fate"
+]
+```
+
+**레거시 폴백:**
+- `relatedDocs`가 없으면 `relatedArticles` + `relatedIssues` 조합 사용
+- 기존 JSON 파일은 수정 없이 동작
 
 **연결 범위:**
-- 위키 ↔ 위키
-- 위키 ↔ 이슈 리포트
-- 이슈 리포트 ↔ 이슈 리포트
+- 위키 ↔ 위키/테크/이슈
+- 테크 ↔ 위키/테크/이슈
+- 이슈 리포트: `relatedWiki`, `relatedIssues` 사용 (기존 형식 유지)
 
 **연결 방식:**
 - 수동 지정: JSON의 slug 배열로 직접 지정 (우선)
@@ -924,6 +951,9 @@ heading → image → text → text
 ```bash
 # 위키 slug 목록
 ls data/wiki/*/*.json | xargs -I {} basename {} .json
+
+# 테크 slug 목록
+ls data/tech/*/*.json | xargs -I {} basename {} .json
 
 # 이슈 리포트 slug 목록
 ls reports/issue/*.json | xargs -I {} basename {} .json

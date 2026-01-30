@@ -6,8 +6,9 @@
   "thumbnail": "https://www.siliconera.com/wp-content/uploads/2025/03/fate-stay-night-20th-anniversary-concert-finale-key-visual-features-saber-as-conductor.png?fit=1200%2C675",
   "keywords": "타입문, TYPE-MOON, 페이트, Fate, Fate stay night, FGO, 페이트 그랜드 오더, 월희, 츠키히메, 나스 키노코, 비주얼 노벨, 동인 서클, 서브컬처",
   "summary": "1998년 두 명의 창작자가 시작한 동인 서클 타입문은 어떻게 Fate 시리즈라는 글로벌 IP 제국을 건설했을까. 월희에서 FGO까지, 서브컬처 역사에 남을 성공 신화를 살펴본다.",
-  "relatedArticles": ["nier-series", "2026-subculture-openworld-games"],
-  "relatedGames": ["페이트-그랜드-오더"],
+  "relatedGames": [
+    "페이트-그랜드-오더"
+  ],
   "sources": [
     {
       "name": "Sensor Tower",
@@ -146,5 +147,9 @@
       "type": "text",
       "value": "두 명의 창작자가 시작한 작은 동인 서클이 어떻게 세계적인 IP를 만들어냈는지, 타입문의 역사는 그 자체로 하나의 드라마다. 월희에서 Fate/stay night로, 그리고 FGO까지 이어지는 여정은 '좋아하는 것을 끝까지 밀고 나가면 무엇이든 될 수 있다'는 서브컬처 정신의 증명이다.\n\n앞으로도 타입문이 어떤 새로운 이야기를 들려줄지, 팬들의 기대는 계속되고 있다."
     }
+  ],
+  "relatedDocs": [
+    "wiki:history/nier-series",
+    "issue:2026-subculture-openworld-games"
   ]
 }

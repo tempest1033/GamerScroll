@@ -112,6 +112,8 @@
       "url": "https://gamedesignskills.com/game-design/game-flow/"
     }
   ],
-  "relatedArticles": ["pd-vs-director"],
-  "relatedGames": []
+  "relatedGames": [],
+  "relatedDocs": [
+    "wiki:knowledge/pd-vs-director"
+  ]
 }

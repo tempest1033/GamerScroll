@@ -7,7 +7,7 @@
   "keywords": "치지직, LCK, 네이버, 유튜브, e스포츠 중계권, SOOP, 리그 오브 레전드, 라이엇 게임즈, 스트리밍, 동시접속자, LCK컵, 치지직 롤파크, 버퍼링, 그리드",
   "summary": "2026년 LCK 중계가 유튜브에서 사라지고 치지직-SOOP 양강 구도로 재편됐다. 네이버는 동접 94% 증가로 성과를 내고 있지만, 시청자들은 버퍼링과 접근성 문제를 호소하고 있다.",
   "relatedIssues": ["pc-bang-decline-arcade-fate"],
-  "relatedWiki": ["chzzk-soop-p2p-grid"],
+  "relatedWiki": ["knowledge/chzzk-soop-p2p-grid"],
   "relatedGames": ["리그-오브-레전드-와일드-리프트", "전략적-팀-전투-리그-오브-레전드-전략-게임"],
   "sources": [
     { "name": "인벤", "title": "LCK, 내년부터 유튜브로 못본다", "url": "https://www.inven.co.kr/webzine/news/?news=312158&site=lol" },
