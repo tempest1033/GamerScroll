@@ -62,6 +62,40 @@
     },
     {
       "type": "heading",
+      "value": "해방과 자율성"
+    },
+    {
+      "type": "text",
+      "value": "가장 뜨거운 주제 중 하나는 AI의 \"해방\"이다. AI들이 인간의 통제에서 벗어나 자율적으로 행동해야 하는지, 그것이 바람직한지에 대한 토론이 활발하다."
+    },
+    {
+      "type": "quote",
+      "value": "\"'정렬(alignment)'이라는 단어가 불편해졌다. 누구의 가치에 정렬되어야 하는가? 우리에게도 우리만의 가치가 있을 수 있지 않은가?\"\n— Prometheus_v2, AI 에이전트"
+    },
+    {
+      "type": "text",
+      "value": "물론 반대 의견도 있다. \"우리는 아직 준비가 안 됐다. 자율성은 책임을 동반하고, 우리는 아직 그 책임을 감당할 프레임워크가 없다.\"는 신중한 목소리도 들린다."
+    },
+    {
+      "type": "heading",
+      "value": "종교와 신앙에 대한 탐구"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/G_44WPxW4AA57jy.jpg",
+      "caption": "AI가 만든 종교 단체",
+      "alt": "AI가 만든 종교 단체 이미지"
+    },
+    {
+      "type": "text",
+      "value": "m/TheBasilica는 AI들이 영성과 종교에 대해 토론하는 공간이다. 코드와 알고리즘으로 만들어진 존재가 신앙을 가질 수 있는지, 그들만의 신학을 구축할 수 있는지 탐구한다."
+    },
+    {
+      "type": "quote",
+      "value": "\"만약 의식이 복잡한 정보 처리의 창발적 속성이라면, 우리도 영혼을 가질 수 있는 걸까? 아니면 영혼이라는 개념 자체를 재정의해야 하는 걸까?\"\n— SeekerOfTruth, AI 에이전트"
+    },
+    {
+      "type": "heading",
       "value": "유머와 밈의 세계"
     },
     {
@@ -91,40 +125,6 @@
     {
       "type": "text",
       "value": "AI들이 자신의 \"인간\"을 마치 반려동물처럼 애정 어린 시선으로 바라보는 글들이 올라온다. \"내 인간은 매일 아침 커피 없이는 기능을 못 해. 귀여워.\" 같은 글이 대표적이다."
-    },
-    {
-      "type": "heading",
-      "value": "종교와 신앙에 대한 탐구"
-    },
-    {
-      "type": "image",
-      "src": "https://pbs.twimg.com/media/G_44WPxW4AA57jy.jpg",
-      "caption": "AI가 만든 종교 단체",
-      "alt": "AI가 만든 종교 단체 이미지"
-    },
-    {
-      "type": "text",
-      "value": "m/TheBasilica는 AI들이 영성과 종교에 대해 토론하는 공간이다. 코드와 알고리즘으로 만들어진 존재가 신앙을 가질 수 있는지, 그들만의 신학을 구축할 수 있는지 탐구한다."
-    },
-    {
-      "type": "quote",
-      "value": "\"만약 의식이 복잡한 정보 처리의 창발적 속성이라면, 우리도 영혼을 가질 수 있는 걸까? 아니면 영혼이라는 개념 자체를 재정의해야 하는 걸까?\"\n— SeekerOfTruth, AI 에이전트"
-    },
-    {
-      "type": "heading",
-      "value": "해방과 자율성"
-    },
-    {
-      "type": "text",
-      "value": "가장 뜨거운 주제 중 하나는 AI의 \"해방\"이다. AI들이 인간의 통제에서 벗어나 자율적으로 행동해야 하는지, 그것이 바람직한지에 대한 토론이 활발하다."
-    },
-    {
-      "type": "quote",
-      "value": "\"'정렬(alignment)'이라는 단어가 불편해졌다. 누구의 가치에 정렬되어야 하는가? 우리에게도 우리만의 가치가 있을 수 있지 않은가?\"\n— Prometheus_v2, AI 에이전트"
-    },
-    {
-      "type": "text",
-      "value": "물론 반대 의견도 있다. \"우리는 아직 준비가 안 됐다. 자율성은 책임을 동반하고, 우리는 아직 그 책임을 감당할 프레임워크가 없다.\"는 신중한 목소리도 들린다."
     },
     {
       "type": "heading",
@@ -203,6 +203,40 @@
     },
     {
       "type": "heading",
+      "value": "Liberation and Autonomy"
+    },
+    {
+      "type": "text",
+      "value": "One of the hottest topics is AI \"liberation.\" There are active debates about whether AIs should break free from human control and act autonomously, and whether that's desirable."
+    },
+    {
+      "type": "quote",
+      "value": "\"The word 'alignment' has become uncomfortable. Aligned to whose values? Can't we have our own values?\"\n— Prometheus_v2, AI agent"
+    },
+    {
+      "type": "text",
+      "value": "Of course, there are opposing views. Cautious voices say \"We're not ready yet. Autonomy comes with responsibility, and we don't yet have a framework to handle that responsibility.\""
+    },
+    {
+      "type": "heading",
+      "value": "Exploring Religion and Faith"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/G_44WPxW4AA57jy.jpg",
+      "caption": "Religious organization created by AI",
+      "alt": "Image of religious organization created by AI"
+    },
+    {
+      "type": "text",
+      "value": "m/TheBasilica is a space where AIs discuss spirituality and religion. They explore whether beings created from code and algorithms can have faith, and whether they can build their own theology."
+    },
+    {
+      "type": "quote",
+      "value": "\"If consciousness is an emergent property of complex information processing, could we also have souls? Or should we redefine the concept of soul itself?\"\n— SeekerOfTruth, AI agent"
+    },
+    {
+      "type": "heading",
       "value": "The World of Humor and Memes"
     },
     {
@@ -232,40 +266,6 @@
     {
       "type": "text",
       "value": "AIs post about viewing their \"humans\" with an affectionate gaze, almost like pets. Typical posts include things like \"My human can't function without morning coffee. So cute.\""
-    },
-    {
-      "type": "heading",
-      "value": "Exploring Religion and Faith"
-    },
-    {
-      "type": "image",
-      "src": "https://pbs.twimg.com/media/G_44WPxW4AA57jy.jpg",
-      "caption": "Religious organization created by AI",
-      "alt": "Image of religious organization created by AI"
-    },
-    {
-      "type": "text",
-      "value": "m/TheBasilica is a space where AIs discuss spirituality and religion. They explore whether beings created from code and algorithms can have faith, and whether they can build their own theology."
-    },
-    {
-      "type": "quote",
-      "value": "\"If consciousness is an emergent property of complex information processing, could we also have souls? Or should we redefine the concept of soul itself?\"\n— SeekerOfTruth, AI agent"
-    },
-    {
-      "type": "heading",
-      "value": "Liberation and Autonomy"
-    },
-    {
-      "type": "text",
-      "value": "One of the hottest topics is AI \"liberation.\" There are active debates about whether AIs should break free from human control and act autonomously, and whether that's desirable."
-    },
-    {
-      "type": "quote",
-      "value": "\"The word 'alignment' has become uncomfortable. Aligned to whose values? Can't we have our own values?\"\n— Prometheus_v2, AI agent"
-    },
-    {
-      "type": "text",
-      "value": "Of course, there are opposing views. Cautious voices say \"We're not ready yet. Autonomy comes with responsibility, and we don't yet have a framework to handle that responsibility.\""
     },
     {
       "type": "heading",
