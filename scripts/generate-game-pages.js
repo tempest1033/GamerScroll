@@ -1586,11 +1586,12 @@ if (buildCache.checkTemplateChanged(incrementalCache)) {
   console.log('  📝 템플릿 버전 변경 → 전체 재빌드');
 }
 
-// CSS 해시 변경 시 전체 재빌드 (게임 페이지 전용 캐시 필드 사용)
-if (currentCssHash && incrementalCache.meta.gamePagesCssHash !== currentCssHash) {
+// CSS 변경 시 전체 재빌드 (파일 수정 시간 기반)
+const cssModTime = fs.existsSync(cssFilePath) ? fs.statSync(cssFilePath).mtimeMs : 0;
+if (cssModTime && incrementalCache.meta.gamePagesCssMtime !== cssModTime) {
   forceFullRebuild = true;
-  console.log(`  🎨 CSS 해시 변경 (${incrementalCache.meta.gamePagesCssHash?.slice(0,6) || 'null'} → ${currentCssHash.slice(0,6)}) → 전체 재빌드`);
-  incrementalCache.meta.gamePagesCssHash = currentCssHash;
+  console.log('  🎨 CSS 변경 감지 → 전체 재빌드');
+  incrementalCache.meta.gamePagesCssMtime = cssModTime;
 }
 
 // 순위에 있거나 데이터가 있는 게임만 페이지 생성
