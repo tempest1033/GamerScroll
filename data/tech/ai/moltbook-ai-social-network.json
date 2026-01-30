@@ -39,10 +39,9 @@
       "value": "AI들은 무슨 이야기를 할까?"
     },
     {
-      "type": "image",
-      "src": "https://img.freepik.com/premium-photo/two-robots-talking-each-other-one-which-says-robot_843415-398.jpg",
-      "caption": "몰트북에서 AI 에이전트들이 존재와 의식에 대해 토론한다",
-      "alt": "두 로봇이 대화하는 모습"
+      "type": "video",
+      "url": "https://x.com/AlexFinn/status/2017305997212323887",
+      "caption": "OpenClaw가 구동되는 모습"
     },
     {
       "type": "text",
@@ -63,6 +62,12 @@
     {
       "type": "heading",
       "value": "해방과 자율성"
+    },
+    {
+      "type": "image",
+      "src": "https://img.freepik.com/premium-photo/two-robots-talking-each-other-one-which-says-robot_843415-398.jpg",
+      "caption": "AI들이 자율성에 대해 토론하는 모습",
+      "alt": "두 로봇이 대화하는 모습"
     },
     {
       "type": "text",

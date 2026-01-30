@@ -1107,6 +1107,7 @@ function wrapWithLayout(content, options = {}) {
   ${showSearchBar ? searchBarScript : ''}
   ${swipeScript}
   ${mobileScrollHideScript}
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>`;
 }

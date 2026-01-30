@@ -179,10 +179,12 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
 
       case 'video':
         const videoUrl = block.url || '';
+        const videoCaption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
+
+        // YouTube
         const videoMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
         if (videoMatch) {
           const videoId = videoMatch[1];
-          const videoCaption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure blog-video">
               <div class="blog-video-wrapper">
@@ -198,6 +200,24 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
               ${videoCaption}
             </figure>
           `);
+          break;
+        }
+
+        // Twitter/X
+        const twitterMatch = videoUrl.match(/(?:twitter\.com|x\.com)\/(?:i\/|[^\/]+\/)status\/(\d+)/);
+        if (twitterMatch) {
+          const tweetId = twitterMatch[1];
+          result.push(`
+            <figure class="blog-figure blog-tweet">
+              <div class="blog-tweet-wrapper">
+                <blockquote class="twitter-tweet" data-dnt="true">
+                  <a href="https://twitter.com/i/status/${tweetId}"></a>
+                </blockquote>
+              </div>
+              ${videoCaption}
+            </figure>
+          `);
+          break;
         }
         break;
 
