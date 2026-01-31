@@ -636,7 +636,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
       return `    <item>
       <title><![CDATA[${article.title}]]></title>
       <link>${link}</link>
-      <guid>${link}</guid>
+      <guid isPermaLink="true">${link}</guid>
       <pubDate>${pubDate}</pubDate>
       <description><![CDATA[${article.summary}]]></description>
       <category>${article.category}</category>

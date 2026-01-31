@@ -237,12 +237,12 @@ function generateRSS(reportsDir, outputPath) {
   for (const item of allItems) {
     xml += `
     <item>
-      <title>${escapeXml(item.title)}</title>
+      <title><![CDATA[${item.title}]]></title>
       <link>${item.link}</link>
-      <description>${escapeXml(item.description)}</description>
+      <description><![CDATA[${item.description}]]></description>
       <pubDate>${toRFC822(item.date)}</pubDate>
       <guid isPermaLink="true">${item.link}</guid>
-      <category>${escapeXml(item.category)}</category>
+      <category><![CDATA[${item.category}]]></category>
     </item>`;
   }
 

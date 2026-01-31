@@ -503,7 +503,10 @@ function wrapWithLayout(content, options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#4f46e5">
+  <meta name="application-name" content="${SITE_CONFIG.name}">
+  <meta name="apple-mobile-web-app-title" content="${SITE_CONFIG.name}">
+  <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)">
 
   <!-- Open Graph -->
   <meta property="og:title" content="${escapeHtml(title)}">
