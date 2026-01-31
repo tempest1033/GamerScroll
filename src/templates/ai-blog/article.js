@@ -260,35 +260,47 @@ function generateAIBlogArticle(article, data = {}) {
     </div>
   `;
 
-  // 메인 콘텐츠 (GamerScroll 스타일)
+  // 사이드바 HTML
+  const sidebarHTML = generateSidebarArticles();
+
+  // 메인 콘텐츠 (GamerScroll 스타일 + 사이드바 레이아웃)
   const content = `
     <section class="home-section active" id="ai-article">
       <article class="page-container issue-container">
-        <div class="blog-card">
-          <header class="blog-header">
-            <h1 class="blog-title">${escapeHtml(article.title)}</h1>
-            <div class="blog-meta">
-              <time class="blog-date">${formatDateEn(article.date)}</time>
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">${escapeHtml(article.title)}</h1>
+                <div class="blog-meta">
+                  <time class="blog-date">${formatDateEn(article.date)}</time>
+                </div>
+              </header>
+
+              ${article.thumbnail ? `
+              <figure class="blog-figure">
+                <img src="${getThumbUrl(article.thumbnail, 1200)}" class="blog-image" alt="" loading="eager">
+              </figure>
+              ` : ''}
+
+              ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
+
+              <div class="blog-content">
+                ${renderContent(article.content)}
+              </div>
+
+              ${generateRelatedArticles()}
+              ${sourcesHTML}
             </div>
-          </header>
 
-          ${article.thumbnail ? `
-          <figure class="blog-figure">
-            <img src="${getThumbUrl(article.thumbnail, 1200)}" class="blog-image" alt="" loading="eager">
-          </figure>
-          ` : ''}
-
-          ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
-
-          <div class="blog-content">
-            ${renderContent(article.content)}
+            ${navHTML}
           </div>
-
-          ${generateRelatedArticles()}
-          ${sourcesHTML}
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              ${sidebarHTML}
+            </div>
+          </aside>
         </div>
-
-        ${navHTML}
       </article>
     </section>
   `;

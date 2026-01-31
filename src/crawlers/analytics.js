@@ -338,7 +338,7 @@ async function fetchPopularArticles(days = 7, limit = 10) {
  * 인기 기사 데이터를 JSON 파일로 저장
  */
 async function savePopularArticles(outputPath = 'data/popular-articles.json') {
-  const articles = await fetchPopularArticles(7, 30);
+  const articles = await fetchPopularArticles(7, 200);
 
   const data = {
     updatedAt: new Date().toISOString(),

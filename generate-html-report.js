@@ -1136,10 +1136,8 @@ async function main() {
       allSidebarArticles.push({ title: article.title, link: `/tech/${cat}/${article.slug}/`, badge: techCategoryNames[cat] || '테크', date: article.date || '' });
     }
   }
-  // 최신글: 날짜순 정렬 상위 10개
-  const sidebarLatestArticles = [...allSidebarArticles].sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
-  // 인기글: GA4 데이터 기반 (썸네일, 요약 포함)
-  let sidebarPopularArticles = (popularArticlesData.articles || []).slice(0, 30).map(article => {
+  // 인기글: GA4 데이터 기반 (썸네일, 요약 포함) - 카테고리별 10위 확보 위해 200개 조회
+  let sidebarPopularArticles = (popularArticlesData.articles || []).slice(0, 200).map(article => {
     if (article.type === 'issue') {
       const issue = issueReports.find(i => i.slug === article.slug);
       if (issue) return { title: issue.title, link: `/magazine/issue/${issue.slug}/`, badge: '이슈', thumbnail: issue.thumbnail || '', summary: issue.summary || '', type: 'issue', slug: issue.slug };
@@ -1163,7 +1161,31 @@ async function main() {
     }
     return null;
   }).filter(Boolean);
-  console.log(`  📰 사이드바 인기글 ${sidebarPopularArticles.length}개, 최신글 ${sidebarLatestArticles.length}개 준비`);
+
+  // === 인기글: GA4 기반 카테고리별 10위 ===
+  const sidebarPopularAll = sidebarPopularArticles.slice(0, 10);
+  const sidebarPopularMagazine = sidebarPopularArticles
+    .filter(a => ['issue', 'insight', 'hotpick', 'ranking'].includes(a.type)).slice(0, 10);
+  const sidebarPopularWiki = sidebarPopularArticles
+    .filter(a => a.type === 'wiki').slice(0, 10);
+  const sidebarPopularTech = sidebarPopularArticles
+    .filter(a => a.type === 'tech').slice(0, 10);
+
+  // === 최신글: 날짜순 카테고리별 10개 ===
+  const sidebarLatestAll = [...allSidebarArticles]
+    .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
+  const sidebarLatestMagazine = allSidebarArticles
+    .filter(a => ['이슈', '인사이트', '핫픽', '순위 분석'].includes(a.badge))
+    .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
+  const sidebarLatestWiki = allSidebarArticles
+    .filter(a => ['히스토리', '지식', '비즈니스'].includes(a.badge))
+    .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
+  const sidebarLatestTech = allSidebarArticles
+    .filter(a => ['일반', 'AI', '바이브코딩'].includes(a.badge))
+    .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
+
+  console.log(`  📰 사이드바 인기글: 전체 ${sidebarPopularAll.length}개, 매거진 ${sidebarPopularMagazine.length}개, 위키 ${sidebarPopularWiki.length}개, 테크 ${sidebarPopularTech.length}개`);
+  console.log(`  📰 사이드바 최신글: 전체 ${sidebarLatestAll.length}개, 매거진 ${sidebarLatestMagazine.length}개, 위키 ${sidebarLatestWiki.length}개, 테크 ${sidebarLatestTech.length}개`);
 
   try {
     const hubHtml = generateTrendsHubPage({
@@ -1213,8 +1235,8 @@ async function main() {
       techData: loadTechData(),
       dailyReportsCount: dailyReports.length,
       weeklyReportsCount: weeklyReports.length,
-      sidebarPopularArticles,
-      sidebarLatestArticles
+      sidebarPopularArticles: sidebarPopularMagazine,
+      sidebarLatestArticles: sidebarLatestMagazine
     });
     fs.writeFileSync(`${magazineDir}/index.html`, hubHtml, 'utf8');
     console.log(`  ✅ magazine/index.html`);
@@ -1269,8 +1291,8 @@ async function main() {
     techData: loadTechData(),
     dailyReportsCount: dailyReports.length,
     weeklyReportsCount: weeklyReports.length,
-    sidebarPopularArticles,
-    sidebarLatestArticles
+    sidebarPopularArticles: sidebarPopularMagazine,
+    sidebarLatestArticles: sidebarLatestMagazine
   };
 
   // Daily 목록 페이지
@@ -1453,6 +1475,21 @@ async function main() {
 
   // 8. 이슈 리포트 페이지 생성 (magazine/issue/{slug}/index.html)
   const wikiDataForIssue = loadWikiData(); // 이슈 리포트에서 관련 위키 참조용
+  const techDataForIssue = loadTechData(); // 이슈 리포트 사이드바 카운트용
+  const wikiCounts = {
+    history: (wikiDataForIssue.history || []).length,
+    knowledge: (wikiDataForIssue.knowledge || []).length,
+    business: (wikiDataForIssue.business || []).length
+  };
+  const techCounts = {
+    normal: (techDataForIssue.normal || []).length,
+    ai: (techDataForIssue.ai || []).length,
+    vibecoding: (techDataForIssue.vibecoding || []).length
+  };
+  const magazineCounts = {
+    daily: dailyReports.length,
+    weekly: weeklyReports.length
+  };
 
   if (issueReports.length > 0) {
     let issueBuilt = 0, issueSkipped = 0;
@@ -1476,7 +1513,7 @@ async function main() {
           prev: issueReports[i + 1] ? { slug: issueReports[i + 1].slug, title: issueReports[i + 1].title } : null,
           next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
         };
-        const html = generateIssueDetailPage({ post, nav, issueReports, wikiData: wikiDataForIssue });
+        const html = generateIssueDetailPage({ post, nav, issueReports, insightReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.issues, cacheKey, post);
         issueBuilt++;
@@ -1510,7 +1547,7 @@ async function main() {
           prev: insightReports[i + 1] ? { slug: insightReports[i + 1].slug, title: insightReports[i + 1].title } : null,
           next: insightReports[i - 1] ? { slug: insightReports[i - 1].slug, title: insightReports[i - 1].title } : null
         };
-        const html = generateInsightDetailPage({ post, nav, insightReports, issueReports, wikiData: wikiDataForIssue });
+        const html = generateInsightDetailPage({ post, nav, insightReports, issueReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.insights, cacheKey, post);
         insightBuilt++;
@@ -1544,7 +1581,7 @@ async function main() {
           prev: hotpickReports[i + 1] ? { slug: hotpickReports[i + 1].slug, title: hotpickReports[i + 1].title } : null,
           next: hotpickReports[i - 1] ? { slug: hotpickReports[i - 1].slug, title: hotpickReports[i - 1].title } : null
         };
-        const html = generateHotpickDetailPage({ post, nav, hotpickReports, issueReports, insightReports, wikiData: wikiDataForIssue });
+        const html = generateHotpickDetailPage({ post, nav, hotpickReports, issueReports, insightReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.hotpicks, cacheKey, post);
         hotpickBuilt++;
@@ -1578,7 +1615,7 @@ async function main() {
           prev: rankingReports[i + 1] ? { slug: rankingReports[i + 1].slug, title: rankingReports[i + 1].title } : null,
           next: rankingReports[i - 1] ? { slug: rankingReports[i - 1].slug, title: rankingReports[i - 1].title } : null
         };
-        const html = generateRankingDetailPage({ post, nav, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue });
+        const html = generateRankingDetailPage({ post, nav, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.rankings, cacheKey, post);
         rankingBuilt++;
@@ -1592,7 +1629,7 @@ async function main() {
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
   try {
     const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length, insightReports, hotpickReports, rankingReports };
-    const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, techData: homeTechData, sidebarPopularArticles, sidebarLatestArticles });
+    const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, techData: homeTechData, sidebarPopularArticles: sidebarPopularAll, sidebarLatestArticles: sidebarLatestAll });
     fs.writeFileSync('./index.html', indexHtml, 'utf8');
     console.log(`  ✅ index.html`);
   } catch (err) {
@@ -1615,8 +1652,8 @@ async function main() {
     insightReportsCount: insightReports.length,
     hotpickReportsCount: hotpickReports.length,
     rankingReportsCount: rankingReports.length,
-    sidebarPopularArticles,
-    sidebarLatestArticles
+    sidebarPopularArticles: sidebarPopularWiki,
+    sidebarLatestArticles: sidebarLatestWiki
   };
 
   // wiki/index.html 생성
@@ -1686,7 +1723,20 @@ async function main() {
           relatedDocs,
           prevNext,
           issueReports,
-          allWikiData: wikiData
+          allWikiData: wikiData,
+          allTechData: techData,
+          reportCounts: {
+            issue: issueReports.length,
+            insight: insightReports.length,
+            hotpick: hotpickReports.length,
+            ranking: rankingReports.length
+          },
+          magazineCounts: {
+            daily: dailyReports.length,
+            weekly: weeklyReports.length
+          },
+          sidebarPopularArticles: sidebarPopularWiki,
+          sidebarLatestArticles: sidebarLatestWiki
         });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.wiki, cacheKey, article);
@@ -1714,8 +1764,8 @@ async function main() {
     issueReports,
     insightReports,
     hotpickReports,
-    sidebarPopularArticles,
-    sidebarLatestArticles
+    sidebarPopularArticles: sidebarPopularTech,
+    sidebarLatestArticles: sidebarLatestTech
   };
 
   // tech/index.html 생성
@@ -1785,7 +1835,20 @@ async function main() {
           relatedDocs,
           prevNext,
           issueReports,
-          allTechData: techData
+          allTechData: techData,
+          allWikiData: wikiData,
+          reportCounts: {
+            issue: issueReports.length,
+            insight: insightReports.length,
+            hotpick: hotpickReports.length,
+            ranking: rankingReports.length
+          },
+          magazineCounts: {
+            daily: dailyReports.length,
+            weekly: weeklyReports.length
+          },
+          sidebarPopularArticles: sidebarPopularTech,
+          sidebarLatestArticles: sidebarLatestTech
         });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.tech, cacheKey, article);

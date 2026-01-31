@@ -274,7 +274,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
 /**
  * 테크 개별 항목 페이지 생성
  */
-function generateTechArticlePage({ article, category, relatedDocs = [], prevNext = {}, issueReports = [], allTechData = {} }) {
+function generateTechArticlePage({ article, category, relatedDocs = [], prevNext = {}, issueReports = [], allTechData = {}, allWikiData = {}, reportCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   const catInfo = categoryInfo[category] || { name: category, desc: '' };
 
   const keywordText = typeof article.keywords === 'string' ? article.keywords : '';
@@ -302,6 +302,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
     return found;
   };
 
+  // 수동 지정된 relatedGames가 있으면 사용 (최대 4개)
   let relatedGames = [];
   if ('relatedGames' in article) {
     relatedGames = article.relatedGames.map(item => {
@@ -309,7 +310,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
       const game = Object.entries(gamesMap).find(([_, g]) => g.slug === slugValue);
       if (game) return { name: game[0], ...game[1] };
       return null;
-    }).filter(Boolean);
+    }).filter(Boolean).slice(0, 4);
   } else {
     const fullText = (article.content || []).filter(b => b.type === 'text').map(b => b.value).join(' ') + ' ' + (article.title || '');
     relatedGames = findRelatedGames(fullText);
@@ -396,38 +397,157 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
     </div>
   `;
 
+  // 사이드바: 카테고리 메뉴 (홈과 동일 + 카운트)
+  const generateSidebarCategories = () => {
+    const techCounts = {
+      normal: (allTechData.normal || []).length,
+      ai: (allTechData.ai || []).length,
+      vibecoding: (allTechData.vibecoding || []).length
+    };
+    const wikiCounts = {
+      history: (allWikiData.history || []).length,
+      knowledge: (allWikiData.knowledge || []).length,
+      business: (allWikiData.business || []).length
+    };
+
+    return `
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간 (${magazineCounts.daily || 0})</span></a>
+            <a href="/magazine/weekly/" class="sidebar-category-item"><span class="sidebar-category-name">주간 (${magazineCounts.weekly || 0})</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (${reportCounts.issue || 0})</span></a>
+            <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (${reportCounts.insight || 0})</span></a>
+            <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (${reportCounts.hotpick || 0})</span></a>
+            <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (${reportCounts.ranking || 0})</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (${wikiCounts.history})</span></a>
+            <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (${wikiCounts.knowledge})</span></a>
+            <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (${wikiCounts.business})</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (${techCounts.normal})</span></a>
+            <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (${techCounts.ai})</span></a>
+            <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (${techCounts.vibecoding})</span></a>
+          </div>
+        </div>
+      </div>
+    `;
+  };
+
+  // 사이드바: 인기/최신 글 (테크만 - GA4 기반 데이터 사용)
+  const generateSidebarArticles = () => {
+    const currentLink = `/tech/${category}/${article.slug}/`;
+
+    if (sidebarPopularArticles.length === 0 && sidebarLatestArticles.length === 0) return '';
+
+    const renderList = (items) => items.map((item, i) => {
+      const isCurrent = item.link === currentLink;
+      const activeClass = isCurrent ? ' active' : '';
+      return `
+      <a href="${item.link}" class="sidebar-article-item${activeClass}">
+        <span class="sidebar-article-rank">${i + 1}</span>
+        <span class="sidebar-article-title">${item.title}</span>
+      </a>
+    `;
+    }).join('');
+
+    return `
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
+          <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
+        </div>
+      </div>
+    `;
+  };
+
+  const sidebarCategoriesHTML = generateSidebarCategories();
+  const sidebarArticlesHTML = generateSidebarArticles();
+  const sidebarHTML = sidebarCategoriesHTML + sidebarArticlesHTML;
+
+  const sidebarScript = sidebarHTML ? `
+    <script>
+      (function() {
+        const sidebarTab = document.getElementById('sidebarArticleTab');
+        if (!sidebarTab) return;
+        sidebarTab.addEventListener('click', (e) => {
+          const btn = e.target.closest('.tab-btn');
+          if (!btn) return;
+          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const target = btn.dataset.sidebarTab;
+          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
+          document.getElementById('sidebar-' + target)?.classList.add('active');
+        });
+      })();
+    </script>
+  ` : '';
+
   const content = `
     <section class="section active" id="tech-article">
       <article class="page-container issue-container">
         ${topAds}
 
-        <div class="blog-card">
-          <header class="blog-header">
-            <h1 class="blog-title">${article.title}</h1>
-            ${metaHtml}
-          </header>
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">${article.title}</h1>
+                ${metaHtml}
+              </header>
 
-          ${article.thumbnail ? `
-          <figure class="blog-figure">
-            <img src="${getLocalTechImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="" loading="eager">
-          </figure>
-          ` : ''}
+              ${article.thumbnail ? `
+              <figure class="blog-figure">
+                <img src="${getLocalTechImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="" loading="eager">
+              </figure>
+              ` : ''}
 
-          ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
+              ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
 
-          <div class="blog-content">
-            ${renderContentBlocks(article.content, category, article.slug)}
+              <div class="blog-content">
+                ${renderContentBlocks(article.content, category, article.slug)}
+              </div>
+
+              ${relatedGamesHtml}
+              ${relatedHTML}
+              ${sourcesHTML}
+            </div>
+
+            ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
+            ${navHTML}
           </div>
 
-          ${relatedGamesHtml}
-          ${relatedHTML}
-          ${sourcesHTML}
+          ${sidebarHTML ? `
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              ${sidebarHTML}
+            </div>
+          </aside>
+          ` : ''}
         </div>
-
-        ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
-        ${navHTML}
       </article>
     </section>
+    ${sidebarScript}
   `;
 
   const metaKeywords = keywordText || '테크, 기술, AI, 개발 도구';
