@@ -194,6 +194,12 @@ async function generateFaviconPNGs() {
       .png()
       .toFile(path.join(DOCS_DIR, 'favicon-32x32.png'));
 
+    // favicon.ico (32x32 PNG를 ICO로 사용 - 대부분 브라우저 지원)
+    await sharp(svgBuffer)
+      .resize(32, 32)
+      .png()
+      .toFile(path.join(DOCS_DIR, 'favicon.ico'));
+
     // apple-touch-icon.png (180x180)
     await sharp(svgBuffer)
       .resize(180, 180)
@@ -246,6 +252,12 @@ async function copyAssets() {
   const manifestSrc = path.join(__dirname, 'ai-docs', 'manifest.json');
   if (fs.existsSync(manifestSrc)) {
     fs.copyFileSync(manifestSrc, path.join(DOCS_DIR, 'manifest.json'));
+  }
+
+  // ads.txt 복사
+  const adsTxtSrc = path.join(__dirname, 'ai-docs', 'ads.txt');
+  if (fs.existsSync(adsTxtSrc)) {
+    fs.copyFileSync(adsTxtSrc, path.join(DOCS_DIR, 'ads.txt'));
   }
 
   // PNG 아이콘 생성 (sharp 사용)
@@ -681,7 +693,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
       <guid isPermaLink="true">${link}</guid>
       <pubDate>${pubDate}</pubDate>
       <description><![CDATA[${article.summary}]]></description>
-      <category>${article.category}</category>
+      <category><![CDATA[${article.category}]]></category>
     </item>`;
     });
 
@@ -700,6 +712,66 @@ ${rssItems.join('\n')}
 
   fs.writeFileSync(path.join(DOCS_DIR, 'rss.xml'), rssXml, 'utf8');
   console.log(`RSS 피드 생성 완료 (${rssItems.length}개 항목)`);
+
+  // 4. Service Worker 생성
+  const swContent = `const CACHE_NAME = 'aiscroll-${Date.now()}';
+const urlsToCache = [
+  '/',
+  '/styles.css',
+  '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png'
+];
+
+// 설치 시 캐시
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
+  );
+  self.skipWaiting();
+});
+
+// 활성화 시 이전 캐시 삭제
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+// Cache First: 캐시에 있으면 즉시 반환, 없으면 네트워크에서 받아서 캐시에 저장
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        return fetch(event.request)
+          .then(response => {
+            if (response.status === 200) {
+              const responseClone = response.clone();
+              caches.open(CACHE_NAME).then(cache => {
+                cache.put(event.request, responseClone);
+              });
+            }
+            return response;
+          });
+      })
+  );
+});
+`;
+  fs.writeFileSync(path.join(DOCS_DIR, 'service-worker.js'), swContent, 'utf8');
+  console.log('Service Worker 생성 완료');
 }
 
 main().catch(console.error);

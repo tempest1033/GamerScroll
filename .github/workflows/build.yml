@@ -96,6 +96,7 @@ jobs:
         run: node scripts/generate-game-pages.js
 
       - name: Build AIScroll
+        continue-on-error: true
         env:
           AISCROLL_GA4_PROPERTY_ID: ${{ secrets.AISCROLL_GA4_PROPERTY_ID }}
           AISCROLL_GA4_SERVICE_ACCOUNT: ${{ secrets.AISCROLL_GA4_SERVICE_ACCOUNT }}

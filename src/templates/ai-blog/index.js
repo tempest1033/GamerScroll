@@ -471,11 +471,15 @@ function wrapWithLayout(content, options = {}) {
   const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
 
   // Article OG tags
+  const articleTagsMeta = (articleMeta?.tags || []).map(tag =>
+    `<meta property="article:tag" content="${escapeHtml(tag)}">`
+  ).join('\n  ');
   const articleOgTags = articleMeta ? `
   <meta property="article:published_time" content="${articleMeta.publishedTime}">
   <meta property="article:modified_time" content="${articleMeta.modifiedTime}">
   <meta property="article:section" content="${escapeHtml(articleMeta.section)}">
-  <meta property="article:author" content="AIScroll Team">` : '';
+  <meta property="article:author" content="AIScroll Team">
+  ${articleTagsMeta}` : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -489,6 +493,11 @@ function wrapWithLayout(content, options = {}) {
       s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825';
       s.async = true;
       s.crossOrigin = 'anonymous';
+      s.fetchPriority = 'high';
+      s.onload = function() {
+        window.__adsenseReady = true;
+        window.dispatchEvent(new Event('adsenseReady'));
+      };
       document.head.appendChild(s);
     })();
   </script>
@@ -530,8 +539,14 @@ function wrapWithLayout(content, options = {}) {
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="${SITE_CONFIG.name} RSS Feed" href="${SITE_CONFIG.baseUrl}/rss.xml">
 
-  <!-- Performance hints -->
+  <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>
   <link rel="preconnect" href="https://wsrv.nl" crossorigin>
+  <!-- dns-prefetch: fallback -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
   <link rel="dns-prefetch" href="https://wsrv.nl">${jsonLdScript}
 
   <link rel="stylesheet" href="/styles.css">
@@ -849,15 +864,28 @@ function wrapWithLayout(content, options = {}) {
       font-size: var(--font-body-size);
     }
   </style>
+  <!-- Firebase Analytics (프로덕션만) -->
+  <script>
+    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+    (function() {
+      var host = window.location.hostname;
+      if (host !== 'aiscroll.io') return;
+      window.__asPageViewQueue = [];
+      window.__asLogPageView = function(path) {
+        window.__asPageViewQueue.push(path);
+      };
+    })();
+  </script>
   <script type="module">
     (function() {
       var host = window.location.hostname;
       if (host !== 'aiscroll.io') return;
 
+      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
       function initFirebase() {
         (async function() {
           try {
-            const [{ initializeApp }, { getAnalytics }] = await Promise.all([
+            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
               import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
               import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
             ]);
@@ -871,7 +899,25 @@ function wrapWithLayout(content, options = {}) {
               measurementId: "G-RKW0H8HYMS"
             };
             const app = initializeApp(firebaseConfig);
-            getAnalytics(app);
+            const analytics = getAnalytics(app);
+
+            // 큐에 쌓인 페이지뷰 처리
+            if (window.__asPageViewQueue) {
+              window.__asPageViewQueue.forEach(function(path) {
+                logEvent(analytics, 'page_view', {
+                  page_path: path,
+                  page_location: window.location.origin + path
+                });
+              });
+            }
+
+            // 실제 로깅 함수로 교체 (SPA 페이지 전환용)
+            window.__asLogPageView = function(path) {
+              logEvent(analytics, 'page_view', {
+                page_path: path,
+                page_location: window.location.origin + path
+              });
+            };
           } catch (e) {}
         })();
       }

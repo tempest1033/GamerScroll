@@ -378,10 +378,14 @@ function generateAIBlogArticle(article, data = {}) {
   ];
 
   // Article OG meta
+  const keywordTags = article.keywords
+    ? article.keywords.split(',').map(k => k.trim()).filter(Boolean).slice(0, 5)
+    : [];
   const articleMeta = {
     publishedTime: dateISO,
     modifiedTime: dateISO,
-    section: categoryLabel
+    section: categoryLabel,
+    tags: keywordTags
   };
 
   return wrapWithLayout(content, {
