@@ -853,6 +853,17 @@ heading → image → text → text
 > | `google` | Google, DeepMind, Gemini, Bard, Genie |
 > | `anthropic` | Anthropic, Claude, Constitutional AI |
 >
+> **출처 규칙 (AIScroll)**
+> - **해외 언론 우선**: AI 기사는 되도록 해외 언론(WSJ, Bloomberg, Reuters, TechCrunch 등)을 참고
+> - 국내 언론은 보조 출처로만 사용, 단독 출처로 사용 금지
+> - 최소 2-3개의 해외 출처 확보 권장
+>
+> **영문 동시 작성 (AIScroll 권장)**
+> - AI 기사 작성 시 영문 버전 동시 작성 권장
+> - 필요한 영문 필드: `keywordsEn`, `titleEn`, `summaryEn`, `contentEn`
+> - 동시 작성 시 `needTranslate: false` 설정 (자동 번역 스킵)
+> - 번역 워크플로우 대기 시간 절약 + 품질 향상
+>
 > **번역 필드 (AIScroll 전용)**
 > | 필드 | 값 | 설명 |
 > |------|-----|------|
