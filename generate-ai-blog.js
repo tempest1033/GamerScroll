@@ -13,6 +13,9 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
+// 증분 빌드 캐시
+const buildCache = require('./ai-build-cache');
+
 // 템플릿
 const { generateAIBlogIndex, generateSearchPage, generateCategoryPage } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
@@ -171,77 +174,60 @@ function copyDirRecursive(src, dest) {
   }
 }
 
-// Favicon PNG 생성 (sharp 사용)
-async function generateFaviconPNGs() {
+// Favicon PNG 생성 (sharp 사용, 병렬 처리)
+async function generateFaviconPNGs(forceRebuild = false) {
   const faviconSvg = path.join(__dirname, 'ai-docs', 'favicon.svg');
   if (!fs.existsSync(faviconSvg)) {
     console.log('favicon.svg 없음, PNG 생성 스킵');
     return;
   }
 
+  // 캐시 체크 - favicon.svg 변경 없으면 스킵
+  if (!forceRebuild) {
+    const pngExists = fs.existsSync(path.join(DOCS_DIR, 'favicon-32x32.png'));
+    if (pngExists) {
+      console.log('Favicon PNG 캐시됨, 스킵');
+      return;
+    }
+  }
+
   const svgBuffer = fs.readFileSync(faviconSvg);
 
   try {
-    // favicon-16x16.png
-    await sharp(svgBuffer)
-      .resize(16, 16)
-      .png()
-      .toFile(path.join(DOCS_DIR, 'favicon-16x16.png'));
+    // 병렬로 6개 PNG 동시 생성
+    const pngTasks = [
+      sharp(svgBuffer).resize(16, 16).png().toFile(path.join(DOCS_DIR, 'favicon-16x16.png')),
+      sharp(svgBuffer).resize(32, 32).png().toFile(path.join(DOCS_DIR, 'favicon-32x32.png')),
+      sharp(svgBuffer).resize(32, 32).png().toFile(path.join(DOCS_DIR, 'favicon.ico')),
+      sharp(svgBuffer).resize(180, 180).png().toFile(path.join(DOCS_DIR, 'apple-touch-icon.png')),
+      sharp(svgBuffer).resize(192, 192).png().toFile(path.join(DOCS_DIR, 'icon-192.png')),
+      sharp(svgBuffer).resize(512, 512).png().toFile(path.join(DOCS_DIR, 'icon-512.png'))
+    ];
 
-    // favicon-32x32.png
-    await sharp(svgBuffer)
-      .resize(32, 32)
-      .png()
-      .toFile(path.join(DOCS_DIR, 'favicon-32x32.png'));
+    await Promise.all(pngTasks);
 
-    // favicon.ico (32x32 PNG를 ICO로 사용 - 대부분 브라우저 지원)
-    await sharp(svgBuffer)
-      .resize(32, 32)
-      .png()
-      .toFile(path.join(DOCS_DIR, 'favicon.ico'));
-
-    // apple-touch-icon.png (180x180)
-    await sharp(svgBuffer)
-      .resize(180, 180)
-      .png()
-      .toFile(path.join(DOCS_DIR, 'apple-touch-icon.png'));
-
-    // icon-192.png (PWA)
-    await sharp(svgBuffer)
-      .resize(192, 192)
-      .png()
-      .toFile(path.join(DOCS_DIR, 'icon-192.png'));
-
-    // icon-512.png (PWA)
-    await sharp(svgBuffer)
-      .resize(512, 512)
-      .png()
-      .toFile(path.join(DOCS_DIR, 'icon-512.png'));
-
-    // og-image.png (1200x630 - 소셜 공유용)
+    // og-image는 composite 필요해서 별도 처리
+    const centerIcon = await sharp(svgBuffer).resize(300, 300).png().toBuffer();
     await sharp({
       create: {
         width: 1200,
         height: 630,
         channels: 4,
-        background: { r: 15, g: 15, b: 30, alpha: 1 }  // #0f0f1e
+        background: { r: 15, g: 15, b: 30, alpha: 1 }
       }
     })
-      .composite([{
-        input: await sharp(svgBuffer).resize(300, 300).png().toBuffer(),
-        gravity: 'center'
-      }])
+      .composite([{ input: centerIcon, gravity: 'center' }])
       .png()
       .toFile(path.join(DOCS_DIR, 'og-image.png'));
 
-    console.log('Favicon PNG 생성 완료 (16, 32, 180, 192, 512, og-image)');
+    console.log('Favicon PNG 생성 완료 (병렬 처리)');
   } catch (err) {
     console.error('Favicon PNG 생성 실패:', err.message);
   }
 }
 
 // 에셋 복사 (favicon + 이미지)
-async function copyAssets() {
+async function copyAssets(faviconChanged = false) {
   // AIScroll 전용 favicon.svg 복사
   const aiFaviconSrc = path.join(__dirname, 'ai-docs', 'favicon.svg');
   if (fs.existsSync(aiFaviconSrc)) {
@@ -260,8 +246,8 @@ async function copyAssets() {
     fs.copyFileSync(adsTxtSrc, path.join(DOCS_DIR, 'ads.txt'));
   }
 
-  // PNG 아이콘 생성 (sharp 사용)
-  await generateFaviconPNGs();
+  // PNG 아이콘 생성 (sharp 사용, favicon 변경 시에만)
+  await generateFaviconPNGs(faviconChanged);
 
   // tech/ai 이미지 복사
   const techAiImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'tech', 'ai');
@@ -568,9 +554,24 @@ function showBuildSummary() {
 async function main() {
   console.log('=== AIScroll 빌드 시작 ===\n');
 
-  // 0. GA4 인기 기사 수집 (24시간 쿨타임)
+  // 캐시 로드
+  const cache = buildCache.loadCache();
+  let needFullRebuild = false;
+
+  // CSS/템플릿 변경 확인
+  console.log('0. 변경 사항 확인 중...');
+  const cssChanged = buildCache.checkCssChanged(cache);
+  const templateChanged = buildCache.checkTemplateJsChanged(cache);
+  const faviconChanged = buildCache.checkFaviconChanged(cache);
+
+  if (cssChanged || templateChanged) {
+    needFullRebuild = true;
+    console.log('   → 전체 재빌드 필요');
+  }
+
+  // GA4 인기 기사 수집 (24시간 쿨타임)
   if (shouldFetchPopularArticles()) {
-    console.log('0. GA4 인기 기사 수집 중...');
+    console.log('   GA4 인기 기사 수집 중...');
     try {
       await savePopularArticles();
     } catch (err) {
@@ -580,7 +581,7 @@ async function main() {
 
   // 인기 기사 데이터 로드
   const popularArticlesData = loadPopularArticles();
-  console.log(`   인기 기사 ${popularArticlesData.articles?.length || 0}개 로드됨`);
+  console.log(`   인기 기사 ${popularArticlesData.articles?.length || 0}개 로드됨\n`);
 
   // 1. 글 로드
   console.log('1. 글 로드 중...');
@@ -592,28 +593,41 @@ async function main() {
     return;
   }
 
+  // 기사 변경 확인
+  const articleChanges = buildCache.checkArticlesChanged(cache, articles);
+  const hasArticleChanges = articleChanges.changed.length > 0;
+
+  if (!needFullRebuild && !hasArticleChanges && !faviconChanged) {
+    console.log(`\n⚡ 변경 없음 - 빌드 스킵 (${articleChanges.unchanged.length}개 기사 캐시됨)`);
+    buildCache.saveCache(cache);
+    return;
+  }
+
+  if (hasArticleChanges && !needFullRebuild) {
+    console.log(`   → ${articleChanges.changed.length}개 기사 변경됨`);
+  }
+
   // 이미지 검증
   validateImages(articles);
 
   // 2. HTML 생성
-  console.log('2. HTML 생성 중...');
+  console.log('\n2. HTML 생성 중...');
   generateHTML(articles, popularArticlesData);
-  console.log('');
 
   // 3. 스타일 복사
-  console.log('3. 스타일 복사 중...');
+  console.log('\n3. 스타일 복사 중...');
   copyStyles();
-  console.log('');
 
   // 4. 에셋 복사
-  console.log('4. 에셋 복사 중...');
-  await copyAssets();
-  console.log('');
+  console.log('\n4. 에셋 복사 중...');
+  await copyAssets(faviconChanged);
 
   // 5. SEO 파일 생성
-  console.log('5. SEO 파일 생성 중...');
+  console.log('\n5. SEO 파일 생성 중...');
   generateSEOFiles(articles);
-  console.log('');
+
+  // 캐시 저장
+  buildCache.saveCache(cache);
 
   // 6. 완료 메시지
   showBuildSummary();
