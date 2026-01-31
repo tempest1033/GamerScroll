@@ -224,6 +224,29 @@
   border: none;
 }
 
+/* 트위터/X 임베드 */
+.blog-tweet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-tweet .blog-tweet-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 550px;
+}
+
+.blog-tweet .twitter-tweet {
+  margin: 0 !important;
+}
+
+.blog-tweet .blog-caption {
+  width: 100%;
+  text-align: center;
+}
+
 /* 인용문 */
 .blog-quote {
   margin: 24px 0;
