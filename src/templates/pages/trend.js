@@ -148,9 +148,11 @@ try {
 
 // ========== 순위 분석 차트 헬퍼 ==========
 
-// 히스토리 파일에서 특정 기간의 게임 순위 데이터 로드
+const snapshotsDir = path.join(__dirname, '../../../snapshots/rankings');
+
+// snapshots/rankings/*.csv에서 특정 기간의 게임 순위 데이터 로드
 function loadGameRankHistory(gameSlug, startDate, endDate, category = 'grossing', market = 'ios') {
-  if (!fs.existsSync(historyDir)) return [];
+  if (!fs.existsSync(snapshotsDir)) return [];
 
   // 게임 정보 찾기
   let gameInfo = null;
@@ -166,78 +168,79 @@ function loadGameRankHistory(gameSlug, startDate, endDate, category = 'grossing'
 
   const allNames = [gameName, ...(gameInfo.aliases || [])].map(n => n.toLowerCase().trim());
   const appIds = gameInfo.appIds || {};
-  const platform = market === 'ios' ? 'ios' : 'android';
+  const platform = market === 'ios' ? 'ios' : 'aos';
+  const expectedAppId = appIds[market] || appIds[`${market}:kr`];
 
-  // 히스토리 파일 목록
-  const files = fs.readdirSync(historyDir)
-    .filter(f => f.endsWith('.json') && !f.includes('mentions'))
-    .filter(f => {
-      const dateMatch = f.match(/(\d{4}-\d{2}-\d{2})/);
-      if (!dateMatch) return false;
-      const fileDate = dateMatch[1];
-      return fileDate >= startDate && fileDate <= endDate;
-    })
-    .sort();
+  // 날짜 범위 생성
+  const dates = [];
+  const s = new Date(startDate);
+  const e = new Date(endDate);
+  for (let d = new Date(s); d <= e; d.setDate(d.getDate() + 1)) {
+    dates.push(d.toISOString().slice(0, 10));
+  }
 
   const result = [];
   const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
 
-  for (const file of files) {
-    try {
-      const data = JSON.parse(fs.readFileSync(path.join(historyDir, file), 'utf8'));
-      const dateMatch = file.match(/(\d{4}-\d{2}-\d{2})/);
-      if (!dateMatch) continue;
+  for (const date of dates) {
+    const dayData = { date };
 
-      const dayData = { date: dateMatch[1] };
-      const keyPrefix = platform === 'ios' ? 'ios' : 'aos';
+    for (const region of regions) {
+      // 중국 Android는 없음
+      if (platform === 'aos' && region === 'cn') continue;
 
-      for (const region of regions) {
-        const expectedAppId = appIds[platform] || appIds[`${platform}:${region}`];
-        const bestRankKey = `${keyPrefix}_${region}_${category}`;
+      const csvFile = path.join(snapshotsDir, `${date}_${platform}_${region}_${category}.csv`);
+      if (!fs.existsSync(csvFile)) continue;
 
-        // 1. bestRanks 우선 사용 (일 최고순위) - 게임 페이지와 동일
-        if (data.bestRanks?.[bestRankKey] && expectedAppId) {
-          const bestRank = data.bestRanks[bestRankKey][String(expectedAppId)];
-          if (bestRank) {
-            dayData[region] = bestRank;
-            continue;
-          }
-        }
+      try {
+        const content = fs.readFileSync(csvFile, 'utf8');
+        const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('time,'));
 
-        // 2. bestRanks에 없으면 rankings에서 검색 (폴백)
-        const items = data.rankings?.[category]?.[region]?.[platform] || [];
+        let bestRank = null;
+        const regionAppId = appIds[market] || appIds[`${market}:${region}`];
 
-        // appId 매칭 우선
-        let matchedIndex = -1;
-        if (expectedAppId) {
-          for (let i = 0; i < items.length; i++) {
-            if (String(items[i].appId) === String(expectedAppId)) {
-              matchedIndex = i;
-              break;
-            }
-          }
-        }
-        // 이름 매칭 폴백
-        if (matchedIndex < 0) {
-          for (let i = 0; i < items.length; i++) {
-            if (allNames.includes((items[i].title || '').toLowerCase().trim())) {
-              matchedIndex = i;
-              break;
+        for (const line of lines) {
+          // CSV 파싱: time,rank,id,title
+          const match = line.match(/^[^,]+,(\d+),([^,]+),/);
+          if (!match) continue;
+
+          const rank = parseInt(match[1], 10);
+          const appId = match[2].replace(/"/g, '');
+
+          // appId 매칭
+          if (regionAppId && String(appId) === String(regionAppId)) {
+            if (bestRank === null || rank < bestRank) {
+              bestRank = rank;
             }
           }
         }
 
-        if (matchedIndex >= 0) {
-          dayData[region] = matchedIndex + 1;
+        // appId 매칭 실패 시 이름 매칭 폴백
+        if (bestRank === null) {
+          for (const line of lines) {
+            const parts = line.split(',');
+            if (parts.length < 4) continue;
+            const rank = parseInt(parts[1], 10);
+            const title = (parts[3] || '').replace(/"/g, '').toLowerCase().trim();
+            if (allNames.includes(title)) {
+              if (bestRank === null || rank < bestRank) {
+                bestRank = rank;
+              }
+            }
+          }
         }
-      }
 
-      // 최소 하나 이상의 지역 데이터가 있으면 추가
-      if (Object.keys(dayData).length > 1) {
-        result.push(dayData);
+        if (bestRank !== null) {
+          dayData[region] = bestRank;
+        }
+      } catch (e) {
+        // 파일 읽기 실패 무시
       }
-    } catch (e) {
-      // 파싱 실패 무시
+    }
+
+    // 최소 하나 이상의 지역 데이터가 있으면 추가
+    if (Object.keys(dayData).length > 1) {
+      result.push(dayData);
     }
   }
 
