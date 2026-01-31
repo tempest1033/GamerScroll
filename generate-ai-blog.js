@@ -272,6 +272,40 @@ async function copyAssets() {
     console.log('wiki 이미지 복사 완료');
   }
 
+  // tech/ai 기사 폴더 내 이미지 복사 (상대경로 이미지 지원)
+  const techAiSrcDir = path.join(__dirname, 'docs', 'tech', 'ai');
+  if (fs.existsSync(techAiSrcDir)) {
+    const slugDirs = fs.readdirSync(techAiSrcDir).filter(f =>
+      fs.statSync(path.join(techAiSrcDir, f)).isDirectory()
+    );
+    for (const slug of slugDirs) {
+      const srcDir = path.join(techAiSrcDir, slug);
+      // 이미지 확장자만 복사 (html 제외)
+      const files = fs.readdirSync(srcDir).filter(f =>
+        /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(f)
+      );
+      if (files.length > 0) {
+        // category 찾기 (기본 general)
+        const jsonPath = path.join(__dirname, 'data', 'tech', 'ai', `${slug}.json`);
+        let category = 'general';
+        if (fs.existsSync(jsonPath)) {
+          try {
+            const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+            category = data.category || 'general';
+          } catch (e) {}
+        }
+        const destDir = path.join(DOCS_DIR, 'article', category, slug);
+        if (!fs.existsSync(destDir)) {
+          fs.mkdirSync(destDir, { recursive: true });
+        }
+        for (const file of files) {
+          fs.copyFileSync(path.join(srcDir, file), path.join(destDir, file));
+        }
+      }
+    }
+    console.log('기사 폴더 이미지 복사 완료');
+  }
+
   console.log('에셋 복사 완료');
 }
 
@@ -450,6 +484,40 @@ function generateCategoryPages(articles, popularArticles, latestArticles) {
   console.log('카테고리 페이지 4개 생성 완료');
 }
 
+// 이미지 검증 (누락 경고)
+function validateImages(articles) {
+  const warnings = [];
+  const localImagesDir = path.join(__dirname, 'docs', 'assets', 'images', 'tech', 'ai');
+
+  for (const article of articles) {
+    const slug = article.slug;
+    // 영문 콘텐츠 기준으로 체크 (실제 렌더링되는 것)
+    const content = article.contentEn || article.content || [];
+
+    let imageIndex = 0;
+    for (const block of content) {
+      if (block.type === 'image' && block.src) {
+        imageIndex++;
+        const src = block.src;
+        const localPath = path.join(localImagesDir, slug, `${String(imageIndex).padStart(2, '0')}.webp`);
+        const hasLocalFile = fs.existsSync(localPath);
+        const isHttpUrl = src.startsWith('http');
+
+        // 로컬 파일도 없고 HTTP URL도 아니면 경고
+        if (!hasLocalFile && !isHttpUrl) {
+          warnings.push(`[${slug}] 이미지 ${imageIndex}: 로컬 파일(${imageIndex.toString().padStart(2,'0')}.webp) 없고 HTTP URL 아님 (${src})`);
+        }
+      }
+    }
+  }
+
+  if (warnings.length > 0) {
+    console.log('\n⚠️  이미지 경고:');
+    warnings.forEach(w => console.log(`   ${w}`));
+    console.log('');
+  }
+}
+
 // 빌드 완료 메시지
 function showBuildSummary() {
   console.log('\n빌드 완료! ai-docs/ 폴더에 생성됨');
@@ -463,12 +531,15 @@ async function main() {
   // 1. 글 로드
   console.log('1. 글 로드 중...');
   const articles = loadArticles();
-  console.log(`   ${articles.length}개 글 로드됨\n`);
+  console.log(`   ${articles.length}개 글 로드됨`);
 
   if (articles.length === 0) {
     console.log('빌드할 글이 없습니다.');
     return;
   }
+
+  // 이미지 검증
+  validateImages(articles);
 
   // 2. HTML 생성
   console.log('2. HTML 생성 중...');
