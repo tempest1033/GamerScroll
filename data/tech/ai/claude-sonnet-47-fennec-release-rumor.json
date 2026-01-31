@@ -112,6 +112,7 @@
     }
   ],
   "relatedDocs": [
+    "tech:ai/claude-fennec-release-imminent",
     "tech:ai/claude-code-vs-codex-coding-agent",
     "issue:gpt-5-3-garlic-update-rumor",
     "issue:chatgpt-vs-gemini-comparison-2026",
