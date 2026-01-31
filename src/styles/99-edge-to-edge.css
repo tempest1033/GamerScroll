@@ -351,18 +351,31 @@
     border-radius: 8px 8px 0 0 !important;
   }
 
-  /* 관련 문서 제목 - 2줄 제한 */
+  /* 관련 문서 제목 - 3줄 제한 */
   #issue .blog-related-issue-title,
   #wiki-article .blog-related-issue-title,
   #ranking .blog-related-issue-title,
-  #tech-article .blog-related-issue-title {
+  #tech-article .blog-related-issue-title,
+  #ai-article .blog-related-issue-title {
     display: block !important;
-    -webkit-line-clamp: 2 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    height: calc(4.2em + 24px) !important;
+    box-sizing: border-box !important;
+  }
+
+  #issue .blog-related-issue-title-text,
+  #wiki-article .blog-related-issue-title-text,
+  #ranking .blog-related-issue-title-text,
+  #tech-article .blog-related-issue-title-text,
+  #ai-article .blog-related-issue-title-text {
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    max-height: calc(2.8em + 24px) !important;
-    height: calc(2.8em + 24px) !important;
-    box-sizing: border-box !important;
+    max-height: 4.2em !important;
   }
 }

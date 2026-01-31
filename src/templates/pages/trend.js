@@ -2363,13 +2363,13 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
         ${relatedIssuesList.map(issue => `
           <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
-            <span class="blog-related-issue-title">${issue.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
           </a>
         `).join('')}
         ${relatedWikiList.map(wiki => `
           <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title">${wiki.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
           </a>
         `).join('')}
       </div>
@@ -2891,19 +2891,19 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
         ${relatedInsightsList.map(insight => `
           <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="" loading="lazy">
-            <span class="blog-related-issue-title">${insight.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${insight.title}</span></span>
           </a>
         `).join('')}
         ${relatedIssuesList.map(issue => `
           <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
-            <span class="blog-related-issue-title">${issue.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
           </a>
         `).join('')}
         ${relatedWikiList.map(wiki => `
           <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title">${wiki.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
           </a>
         `).join('')}
       </div>
@@ -3428,25 +3428,25 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
         ${relatedHotpicksList.map(hotpick => `
           <a href="/magazine/hotpick/${hotpick.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalHotpickImagePath(hotpick.slug, hotpick.thumbnail, 'thumbnail')}" alt="" loading="lazy">
-            <span class="blog-related-issue-title">${hotpick.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${hotpick.title}</span></span>
           </a>
         `).join('')}
         ${relatedInsightsList.map(insight => `
           <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="" loading="lazy">
-            <span class="blog-related-issue-title">${insight.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${insight.title}</span></span>
           </a>
         `).join('')}
         ${relatedIssuesList.map(issue => `
           <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
-            <span class="blog-related-issue-title">${issue.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
           </a>
         `).join('')}
         ${relatedWikiList.map(wiki => `
           <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title">${wiki.title}</span>
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
           </a>
         `).join('')}
       </div>
@@ -3944,7 +3944,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
           return `
             <a href="${doc.link}" class="blog-related-issue-card">
               <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="" loading="lazy">
-              <span class="blog-related-issue-title">${doc.title}</span>
+              <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${doc.title}</span></span>
             </a>
           `;
         }).join('')}

@@ -820,14 +820,6 @@ function wrapWithLayout(content, options = {}) {
         display: none;
       }
     }
-    /* 기사/정책 페이지 상단 마진 */
-    .issue-container {
-      margin-top: 20px;
-    }
-    /* blog-card border-radius를 home-card와 동일하게 */
-    .blog-card {
-      border-radius: 16px;
-    }
     /* Popular 상단 2컬럼 그리드 */
     .popular-top-grid {
       display: grid;

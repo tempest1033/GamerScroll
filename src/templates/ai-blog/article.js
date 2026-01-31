@@ -230,7 +230,7 @@ function generateAIBlogArticle(article, data = {}) {
           ${filteredRelated.map(item => `
             <a href="/article/${item.category || 'general'}/${item.slug}/" class="blog-related-issue-card">
               ${item.thumbnail ? `<img class="blog-related-issue-thumb" src="${getThumbUrl(item.thumbnail, 480)}" alt="" loading="lazy">` : ''}
-              <span class="blog-related-issue-title">${escapeHtml(item.title)}</span>
+              <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${escapeHtml(item.title)}</span></span>
             </a>
           `).join('')}
         </div>
@@ -253,10 +253,17 @@ function generateAIBlogArticle(article, data = {}) {
     `
     : '';
 
-  // 네비게이션 (목록으로)
+  // 네비게이션 (이전/목록/다음)
+  const sortedArticles = [...allArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const currentCategory = article.category || 'general';
+  const currentIndex = sortedArticles.findIndex(a => a.slug === article.slug && (a.category || 'general') === currentCategory);
+  const prevArticle = currentIndex >= 0 ? sortedArticles[currentIndex + 1] : null;
+  const nextArticle = currentIndex > 0 ? sortedArticles[currentIndex - 1] : null;
   const navHTML = `
     <div class="trend-detail-nav">
-      <a href="/" class="trend-nav-btn list">Back to List</a>
+      ${prevArticle ? `<a href="/article/${prevArticle.category || 'general'}/${prevArticle.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      <a href="/" class="trend-nav-btn list">목록</a>
+      ${nextArticle ? `<a href="/article/${nextArticle.category || 'general'}/${nextArticle.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
     </div>
   `;
 
@@ -265,7 +272,7 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 메인 콘텐츠 (GamerScroll 스타일 + 사이드바 레이아웃)
   const content = `
-    <section class="home-section active" id="ai-article">
+    <section class="section active" id="issue">
       <article class="page-container issue-container">
         <div class="article-layout">
           <div class="article-main">

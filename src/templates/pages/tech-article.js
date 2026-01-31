@@ -343,7 +343,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
               return `
               <a href="/wiki/${item.category}/${item.slug}/" class="blog-related-issue-card">
                 <img class="blog-related-issue-thumb" src="${thumb}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
-                <span class="blog-related-issue-title">${item.title}</span>
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'tech') {
               const thumb = item.thumbnail
@@ -352,13 +352,13 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
               return `
               <a href="/tech/${item.category}/${item.slug}/" class="blog-related-issue-card">
                 <img class="blog-related-issue-thumb" src="${thumb}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
-                <span class="blog-related-issue-title">${item.title}</span>
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'issue') {
               return `
               <a href="/magazine/issue/${item.slug}/" class="blog-related-issue-card">
                 <img class="blog-related-issue-thumb" src="/assets/images/issue/${item.slug}/thumbnail.webp" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
-                <span class="blog-related-issue-title">${item.title}</span>
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             }
             return '';

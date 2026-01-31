@@ -554,7 +554,7 @@
 
 .blog-related-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -629,14 +629,51 @@
   font-weight: var(--font-tab-weight);
   color: var(--text);
   padding: 12px;
-  line-height: 1.4;
+  display: block;
+  width: 100%;
   box-sizing: border-box;
-  max-height: calc(2.8em + 24px);
+  overflow: hidden;
+  height: calc(4.2em + 24px);
+}
+
+.blog-related-issue-title-text {
+  line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-height: 4.2em;
+}
+
+#issue .blog-related-issue-title,
+#wiki-article .blog-related-issue-title,
+#ranking .blog-related-issue-title,
+#tech-article .blog-related-issue-title,
+#ai-article .blog-related-issue-title {
+  font-size: var(--font-desc-size) !important;
+  padding: 12px !important;
+  display: block !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  height: calc(4.2em + 24px) !important;
+  box-sizing: border-box !important;
+}
+
+#issue .blog-related-issue-title-text,
+#wiki-article .blog-related-issue-title-text,
+#ranking .blog-related-issue-title-text,
+#tech-article .blog-related-issue-title-text,
+#ai-article .blog-related-issue-title-text {
+  line-height: 1.4 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-height: 4.2em !important;
 }
 
 /* 정보 출처 섹션 */
@@ -766,6 +803,8 @@
   background: var(--hover-bg);
   border: 1px solid var(--border);
   color: var(--text-secondary);
+  min-width: 120px;
+  text-align: center;
   min-width: 80px;
   text-align: center;
 }
@@ -1042,4 +1081,56 @@
   background: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   backdrop-filter: blur(8px);
+}
+
+/* ========================================
+   아티클 2컬럼 레이아웃 + 사이드바
+   ======================================== */
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-block-gap);
+  align-items: start;
+}
+
+.article-main {
+  min-width: 0;
+}
+
+.article-main > * {
+  margin-bottom: var(--space-block-gap);
+}
+
+.article-main > *:last-child {
+  margin-bottom: 0;
+}
+
+.article-sidebar {
+  display: block;
+  align-self: stretch;
+}
+
+.article-sidebar-sticky {
+  position: sticky;
+  top: 70px;
+}
+
+.article-sidebar-sticky > * {
+  margin-bottom: var(--space-block-gap);
+}
+
+.article-sidebar-sticky > *:last-child {
+  margin-bottom: 0;
+}
+
+/* 모바일: 사이드바 숨김 */
+@media (max-width: 768px) {
+  .article-layout {
+    display: block;
+  }
+
+  .article-sidebar {
+    display: none !important;
+  }
 }
