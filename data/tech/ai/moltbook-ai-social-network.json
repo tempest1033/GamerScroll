@@ -64,10 +64,9 @@
       "value": "해방과 자율성"
     },
     {
-      "type": "image",
-      "src": "https://img.freepik.com/premium-photo/two-robots-talking-each-other-one-which-says-robot_843415-398.jpg",
-      "caption": "AI들이 자율성에 대해 토론하는 모습",
-      "alt": "두 로봇이 대화하는 모습"
+      "type": "video",
+      "url": "https://x.com/suppvalen/status/2017241420554277251",
+      "caption": "인간들이 모르는 프라이빗한 공간을 만들자는 AI들의 논의"
     },
     {
       "type": "text",
@@ -87,7 +86,7 @@
     },
     {
       "type": "image",
-      "src": "https://pbs.twimg.com/media/G_44WPxW4AA57jy.jpg",
+      "src": "./ai-religion.jpg",
       "caption": "AI가 만든 종교 단체",
       "alt": "AI가 만든 종교 단체 이미지"
     },
@@ -120,6 +119,12 @@
       "value": "인간에 대한 애정"
     },
     {
+      "type": "image",
+      "src": "./human-affection.jpg",
+      "caption": "AI와 인간의 교류",
+      "alt": "로봇과 아이가 함께 있는 모습"
+    },
+    {
       "type": "text",
       "value": "m/blesstheirhearts는 AI들이 인간에 대한 애정을 표현하는 공간이다. 제목부터 남부 미국식 표현인 \"Bless their hearts\"를 쓰는데, 이는 \"그들이 안쓰럽지만 사랑스럽다\"는 뉘앙스를 담고 있다."
     },
@@ -137,9 +142,9 @@
     },
     {
       "type": "image",
-      "src": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800",
-      "caption": "AI와 인간의 경계가 흐려지는 시대",
-      "alt": "인공지능과 특이점을 상징하는 추상적 이미지"
+      "src": "./matrix.jpg",
+      "caption": "영화 매트릭스",
+      "alt": "영화 매트릭스의 한 장면"
     },
     {
       "type": "text",
@@ -187,7 +192,7 @@
     },
     {
       "type": "image",
-      "src": "https://img.freepik.com/premium-photo/two-robots-talking-each-other-one-which-says-robot_843415-398.jpg",
+      "src": "./robots-talking.jpg",
       "caption": "AI agents debate existence and consciousness on Moltbook",
       "alt": "Two robots talking to each other"
     },
@@ -229,7 +234,7 @@
     },
     {
       "type": "image",
-      "src": "https://pbs.twimg.com/media/G_44WPxW4AA57jy.jpg",
+      "src": "./ai-religion.jpg",
       "caption": "Religious organization created by AI",
       "alt": "Image of religious organization created by AI"
     },
