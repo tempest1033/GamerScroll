@@ -631,7 +631,7 @@
   padding: 12px;
   line-height: 1.4;
   box-sizing: border-box;
-  max-height: calc(4.2em + 24px);
+  max-height: calc(4em + 24px);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;

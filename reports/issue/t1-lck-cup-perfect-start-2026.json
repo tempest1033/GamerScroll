@@ -1,0 +1,33 @@
+{
+  "slug": "t1-lck-cup-perfect-start-2026",
+  "status": "approved",
+  "title": "T1, 케스파컵에 이어 LCK컵도 전승 질주…최근 몇 년 최고의 시즌 시작",
+  "date": "2026-01-31T21:00",
+  "keywords": "T1, LCK컵, 케스파컵, DK, 전승, 페이커, 도란, 2026 시즌",
+  "summary": "T1이 DK를 3:0으로 완파하며 LCK컵 5전 전승을 달성했다. 지난 12월 케스파컵 창단 첫 우승에 이어 최근 몇 년 사이 가장 좋은 시즌 시작 페이스를 보여주고 있다.",
+  "thumbnail": "https://cdn.stnsports.co.kr/news/photo/202601/311369_314565_3014.jpg",
+  "relatedIssues": [],
+  "relatedGames": ["리그-오브-레전드"],
+  "sources": [
+    { "name": "인벤", "title": "5전 전승 T1, 바론 그룹 희망 이어갔다", "url": "https://www.inven.co.kr/webzine/news/?news=313277&site=lol" },
+    { "name": "게임뷰", "title": "완벽한 경기력 T1, DK 누르고 5전 전승 달성", "url": "https://www.gamevu.co.kr/news/articleView.html?idxno=55475" },
+    { "name": "게임뷰", "title": "T1, C조 전승으로 결선행 등 조별리그 종료", "url": "https://www.gamevu.co.kr/news/articleView.html?idxno=54093" },
+    { "name": "지디넷코리아", "title": "T1, 창단 첫 LoL KeSPA컵 우승…한화생명 3대2 제압", "url": "https://zdnet.co.kr/view/?no=20251215150227" }
+  ],
+  "content": [
+    { "type": "text", "value": "T1이 무서운 기세로 2026 시즌을 질주하고 있다. 31일 치지직 롤파크에서 열린 LCK컵 슈퍼위크에서 DK를 3:0으로 완파하며 5전 전승을 기록했다.\n\n지난 12월 케스파컵 창단 첫 우승에 이어 LCK컵에서도 압도적인 경기력을 보여주고 있다. 최근 몇 년 사이 가장 좋은 시즌 시작 페이스다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "1. 케스파컵 창단 첫 우승으로 시작" },
+    { "type": "image", "src": "https://cdn.gamevu.co.kr/news/photo/202601/55477_64723_3530.jpg", "caption": "T1 선수단", "alt": "T1 LCK컵 슈퍼위크 승리 세리머니" },
+    { "type": "text", "value": "T1은 지난해 12월 2025 케스파컵에서 한화생명e스포츠를 3:2로 꺾었다. 창단 이래 첫 케스파컵 우승 트로피를 들어올린 역사적인 순간이었다.\n\n접전이었지만 결정적인 순간마다 뛰어난 경기력을 보여줬다. 시즌 전 워밍업을 완벽히 마치며 2026 시즌에 대한 기대감을 높였다." },
+    { "type": "heading", "value": "2. LCK컵 5전 전승, DK 3:0 셧아웃" },
+    { "type": "image", "src": "https://static.inven.co.kr/column/2026/01/31/news/i1411132327.jpg", "caption": "T1 vs DK 경기 장면", "alt": "T1 DK전 LCK컵 슈퍼위크 경기" },
+    { "type": "text", "value": "2026 LCK컵에서도 T1의 질주는 계속됐다. 바론 그룹 1시드로 출전해 젠지와 함께 4전 전승을 달리다가, 슈퍼위크에서 DK까지 3:0으로 완파했다.\n\n1세트는 안정적인 운영으로 드래곤 스택을 쌓으며 주도권을 잡았다. 2세트에서는 오너의 바이가 완벽한 한타를 이끌었고, 3세트에서는 도란의 케넨이 환상적인 진입으로 경기를 마무리했다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "3. 전 라인 컨디션 최상" },
+    { "type": "image", "src": "https://static.inven.co.kr/column/2026/01/31/news/i1266803198.jpg", "caption": "도란의 활약", "alt": "T1 도란 케넨 플레이" },
+    { "type": "text", "value": "특히 눈에 띄는 것은 전 라인의 고른 컨디션이다. 도란은 암베사, 사이온, 케넨으로 세 경기 모두 다른 스타일을 완벽히 소화했다.\n\n페이커는 트리플킬 등으로 여전한 클러치 능력을 과시했다. 페이즈의 바루스는 집중 견제 속에서도 팀의 화력을 책임졌다." },
+    { "type": "heading", "value": "마치며: 2026 시즌 기대감 최고조" },
+    { "type": "text", "value": "T1의 5전 전승으로 바론 그룹과 장로 그룹은 14:14 동률을 이뤘다. 최종 결과는 젠지 vs 한화생명 경기에서 결정된다.\n\n케스파컵 우승에 이어 LCK컵까지, 2026 시즌 T1은 최근 몇 년 사이 가장 좋은 출발을 보여주고 있다." }
+  ]
+}
