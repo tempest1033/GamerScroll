@@ -405,7 +405,11 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     });
   }
 
-  // 뉴스 썸네일 URL 목록 (AI가 선택할 수 있도록)
+  // 뉴스 썸네일 URL 목록 (AI가 선택할 수 있도록) - 최근 1주일만
+  const weekStart = new Date(weekInfo.startDate);
+  const weekEnd = new Date(weekInfo.endDate);
+  weekEnd.setDate(weekEnd.getDate() + 1); // endDate 포함
+
   const allNews = [];
   weeklyReports.forEach(report => {
     if (report?.news) {
@@ -414,7 +418,15 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
         ...(report.news?.ruliweb || []),
         ...(report.news?.gamemeca || []),
         ...(report.news?.thisisgame || [])
-      ].filter(n => n.thumbnail && n.title);
+      ].filter(n => {
+        if (!n.thumbnail || !n.title) return false;
+        // 날짜가 있으면 해당 주 기간 내인지 확인
+        if (n.date) {
+          const newsDate = new Date(n.date);
+          return newsDate >= weekStart && newsDate < weekEnd;
+        }
+        return true; // 날짜 없으면 포함
+      });
       allNews.push(...reportNews);
     }
   });

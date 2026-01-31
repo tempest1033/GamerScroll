@@ -294,13 +294,24 @@ function buildDataSummary(data) {
     steamTopSellers.forEach((g, i) => lines.push(`${i + 1}. ${g.name}${g.discount ? ` (${g.discount}% 할인)` : ''}`));
   }
 
-  // 뉴스 (썸네일 URL 포함) - 전체
+  // 뉴스 (썸네일 URL 포함) - 최근 1일만 (오래된 뉴스 필터링)
+  const oneDayAgo = new Date();
+  oneDayAgo.setDate(oneDayAgo.getDate() - 1);
+
   const newsItems = [
     ...(data.news?.inven || []),
     ...(data.news?.ruliweb || []),
     ...(data.news?.gamemeca || []),
     ...(data.news?.thisisgame || [])
-  ].filter(n => n.thumbnail);
+  ].filter(n => {
+    if (!n.thumbnail) return false;
+    // 날짜가 있으면 최근 1일 이내인지 확인
+    if (n.date) {
+      const newsDate = new Date(n.date);
+      return newsDate >= oneDayAgo;
+    }
+    return true; // 날짜 없으면 포함
+  });
 
   if (newsItems.length > 0) {
     lines.push(`\n### 최신 뉴스 (${newsItems.length}개, 썸네일 URL 포함):`);
