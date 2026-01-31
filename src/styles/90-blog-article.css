@@ -250,14 +250,14 @@
 /* 인용문 */
 .blog-quote {
   margin: 24px 0;
-  padding: 16px 20px;
+  padding: 12px 16px;
   background: var(--hover-bg);
   border-left: 3px solid #94a3b8;
   border-radius: 0 8px 8px 0;
-  font-size: var(--font-body-size);
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--text-secondary);
-  font-style: italic;
+  font-style: normal;
 }
 
 @media (prefers-color-scheme: dark) {
