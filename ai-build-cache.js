@@ -92,12 +92,12 @@ function computeTemplateJsHash() {
   if (!fs.existsSync(templatesDir)) return null;
 
   const hashes = [];
-  const files = fs.readdirSync(templatesDir).filter(f => f.endsWith('.js'));
+  const files = fs.readdirSync(templatesDir).filter(f => f.endsWith('.js')).sort();
   for (const file of files) {
     const content = fs.readFileSync(path.join(templatesDir, file), 'utf8');
     hashes.push(`${file}:${computeHash(content)}`);
   }
-  return computeHash(hashes.sort().join('|'));
+  return computeHash(hashes.join('|'));
 }
 
 /**
@@ -149,7 +149,7 @@ function checkFaviconChanged(cache) {
 
 /**
  * 기사 변경 확인
- * @returns {Object} { changed: [slugs], unchanged: [slugs], needFullRebuild: boolean }
+ * @returns {Object} { changed: [slugs], unchanged: [slugs], all: [slugs] }
  */
 function checkArticlesChanged(cache, articles) {
   const result = { changed: [], unchanged: [], all: [] };

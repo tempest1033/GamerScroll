@@ -93,6 +93,47 @@ function computeSourceCssHash() {
 }
 
 /**
+ * src/templates 폴더의 JS 파일들 해시 계산 (재귀)
+ */
+function computeTemplateJsHash() {
+  const templatesDir = './src/templates';
+  if (!fs.existsSync(templatesDir)) return null;
+
+  const hashes = [];
+
+  function scanDir(dir) {
+    const items = fs.readdirSync(dir);
+    for (const item of items) {
+      const fullPath = path.join(dir, item);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory()) {
+        scanDir(fullPath);
+      } else if (item.endsWith('.js')) {
+        const content = fs.readFileSync(fullPath, 'utf8');
+        hashes.push(`${fullPath}:${computeHash(content)}`);
+      }
+    }
+  }
+
+  scanDir(templatesDir);
+  return computeHash(hashes.sort().join('|'));
+}
+
+/**
+ * 템플릿 JS 파일 변경 여부 확인
+ * @returns {boolean} true면 전체 재빌드 필요
+ */
+function checkTemplateJsChanged(cache) {
+  const currentHash = computeTemplateJsHash();
+  if (cache.meta.templateJsHash !== currentHash) {
+    console.log(`  📝 템플릿 JS 변경 감지 (${cache.meta.templateJsHash?.slice(0,6) || 'null'} → ${currentHash?.slice(0,6)})`);
+    cache.meta.templateJsHash = currentHash;
+    return true;
+  }
+  return false;
+}
+
+/**
  * CSS 해시 변경 여부 확인
  * @returns {boolean} true면 전체 재빌드 필요
  */
@@ -265,6 +306,7 @@ module.exports = {
   createEmptyCache,
   checkCssChanged,
   checkTemplateChanged,
+  checkTemplateJsChanged,
   checkGamesChanged,
   checkItemChanged,
   updateCacheSection,

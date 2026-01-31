@@ -1134,3 +1134,381 @@
     display: none !important;
   }
 }
+
+/* ========================================
+   순위 분석 전용 시각화 컴포넌트
+   ======================================== */
+
+/* 공통 차트 래퍼 */
+.ranking-chart-wrapper {
+  margin: 24px 0;
+  padding: 24px;
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ApexCharts 툴팁 - 사이트 테마 통일 */
+.apexcharts-tooltip {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+.apexcharts-tooltip-title {
+  background: var(--hover-bg) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  font-weight: 600 !important;
+  padding: 8px 12px !important;
+}
+.apexcharts-tooltip-series-group {
+  padding: 6px 12px !important;
+}
+.apexcharts-tooltip-text,
+.apexcharts-tooltip-text-y-label,
+.apexcharts-tooltip-text-y-value,
+.apexcharts-tooltip-text-goals-label,
+.apexcharts-tooltip-text-goals-value {
+  color: var(--text) !important;
+}
+.apexcharts-tooltip-marker {
+  margin-right: 8px !important;
+}
+
+/* ApexCharts 범례 텍스트 색상 */
+.apexcharts-legend-text {
+  color: var(--text-secondary) !important;
+}
+
+/* ApexCharts 축 라벨 색상 */
+.apexcharts-xaxis-label,
+.apexcharts-yaxis-label,
+.apexcharts-xaxis text,
+.apexcharts-yaxis text {
+  fill: var(--text-muted) !important;
+}
+
+/* ApexCharts crosshair 라벨 (날짜 선택 시) */
+.apexcharts-xcrosshairs,
+.apexcharts-ycrosshairs {
+  stroke: var(--border) !important;
+}
+.apexcharts-xaxistooltip {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+.apexcharts-xaxistooltip-text {
+  color: var(--text) !important;
+}
+
+.ranking-chart-wrapper.ranking-chart-small {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ranking-chart-title {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+.ranking-chart {
+  width: 100%;
+  min-height: 300px;
+}
+
+/* 포디움 (1/2/3위) */
+.ranking-podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.podium-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--text);
+}
+
+.podium-medal {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.podium-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: 3px solid var(--border);
+  margin-bottom: 8px;
+  object-fit: cover;
+}
+
+.podium-1st .podium-icon {
+  width: 80px;
+  height: 80px;
+  border-color: #FFD700;
+}
+
+.podium-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.podium-score {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.podium-bar {
+  width: 80px;
+  border-radius: 8px 8px 0 0;
+  background: var(--border);
+}
+
+.podium-bar-1st { height: 120px; background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%); }
+.podium-bar-2nd { height: 90px; background: linear-gradient(180deg, #C0C0C0 0%, #A0A0A0 100%); }
+.podium-bar-3rd { height: 60px; background: linear-gradient(180deg, #CD7F32 0%, #8B4513 100%); }
+
+/* 랭킹 카드 */
+.ranking-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+
+.ranking-card-highlight {
+  border-color: #FF6B6B;
+  background: linear-gradient(135deg, rgba(255,107,107,0.05) 0%, rgba(255,107,107,0.02) 100%);
+}
+
+.ranking-card-rank {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+  min-width: 50px;
+  text-align: center;
+}
+
+.ranking-card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.ranking-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ranking-card-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.ranking-card-score {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.ranking-card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.ranking-card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ranking-card-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.ranking-card-stat .stat-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.ranking-card-stat .stat-value {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* iOS/AOS 색상 구분 */
+.ranking-card-stat.stat-ios .stat-label {
+  color: #007AFF;
+}
+.ranking-card-stat.stat-aos .stat-label {
+  color: #3DDC84;
+}
+
+/* 요약 통계 */
+.ranking-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.ranking-summary-item {
+  padding: 20px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.ranking-summary-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.ranking-summary-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* 다크모드 */
+@media (prefers-color-scheme: dark) {
+  .ranking-chart-wrapper,
+  .ranking-card,
+  .ranking-summary-item {
+    background: var(--card);
+    border-color: var(--border);
+  }
+
+  .ranking-chart .apexcharts-text,
+  .ranking-chart .apexcharts-xaxis-label,
+  .ranking-chart .apexcharts-yaxis-label {
+    fill: var(--text-muted) !important;
+  }
+
+  .ranking-chart .apexcharts-gridline {
+    stroke: var(--border) !important;
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .ranking-chart-wrapper {
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .ranking-podium {
+    flex-direction: row;
+    padding: 16px;
+    gap: 8px;
+    margin: 16px 0;
+    border-radius: 12px;
+  }
+
+  .podium-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .podium-1st .podium-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .podium-bar {
+    width: 60px;
+  }
+
+  .podium-bar-1st { height: 80px; }
+  .podium-bar-2nd { height: 60px; }
+  .podium-bar-3rd { height: 40px; }
+
+  .podium-name {
+    font-size: 12px;
+    max-width: 70px;
+  }
+
+  .ranking-card {
+    flex-wrap: wrap;
+    padding: 16px;
+    margin: 12px 0;
+    border-radius: 12px;
+  }
+
+  .ranking-card-rank {
+    font-size: 24px;
+    min-width: 40px;
+  }
+
+  .ranking-card-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ranking-card-stats {
+    width: 100%;
+    flex-direction: row;
+    margin-top: 12px;
+  }
+
+  .ranking-summary {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 16px 0;
+    gap: 0;
+    border-radius: 12px;
+  }
+
+  .ranking-summary-item {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+
+  .ranking-summary-item:nth-child(2n) {
+    border-right: none;
+  }
+}

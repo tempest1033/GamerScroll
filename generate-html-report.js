@@ -1030,6 +1030,9 @@ async function main() {
     forceFullRebuild = true;
     incrementalCache.meta.templateVersion = buildCache.TEMPLATE_VERSION;
   }
+  if (buildCache.checkTemplateJsChanged(incrementalCache)) {
+    forceFullRebuild = true;
+  }
 
   if (forceFullRebuild) {
     console.log('  🔄 CSS/템플릿 변경 → 전체 재빌드');

@@ -182,10 +182,11 @@ async function generateFaviconPNGs(forceRebuild = false) {
     return;
   }
 
-  // 캐시 체크 - favicon.svg 변경 없으면 스킵
+  // 캐시 체크 - favicon.svg 변경 없고 모든 PNG 존재하면 스킵
   if (!forceRebuild) {
-    const pngExists = fs.existsSync(path.join(DOCS_DIR, 'favicon-32x32.png'));
-    if (pngExists) {
+    const requiredFiles = ['favicon-16x16.png', 'favicon-32x32.png', 'icon-192.png', 'icon-512.png', 'og-image.png'];
+    const allExist = requiredFiles.every(f => fs.existsSync(path.join(DOCS_DIR, f)));
+    if (allExist) {
       console.log('Favicon PNG 캐시됨, 스킵');
       return;
     }

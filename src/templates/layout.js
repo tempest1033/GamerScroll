@@ -1108,6 +1108,7 @@ function wrapWithLayout(content, options = {}) {
   ${swipeScript}
   ${mobileScrollHideScript}
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js" defer></script>
 </body>
 </html>`;
 }
