@@ -6,7 +6,7 @@
   "keywords": "T1, LCK컵, 케스파컵, DK, 전승, 페이커, 도란, 2026 시즌",
   "summary": "T1이 DK를 3:0으로 완파하며 LCK컵 5전 전승을 달성했다. 지난 12월 케스파컵 창단 첫 우승에 이어 최근 몇 년 사이 가장 좋은 시즌 시작 페이스를 보여주고 있다.",
   "thumbnail": "https://cdn.stnsports.co.kr/news/photo/202601/311369_314565_3014.jpg",
-  "relatedIssues": [],
+  "relatedIssues": ["chzzk-lck-naver-viewer-complaints"],
   "relatedGames": ["리그-오브-레전드"],
   "sources": [
     { "name": "인벤", "title": "5전 전승 T1, 바론 그룹 희망 이어갔다", "url": "https://www.inven.co.kr/webzine/news/?news=313277&site=lol" },
