@@ -3,32 +3,23 @@
  * GamerScroll tech-article.js 스타일 적용
  */
 
-const fs = require('fs');
-const path = require('path');
 const { wrapWithLayout, SITE_CONFIG, formatDateEn, escapeHtml, getThumbUrl } = require('./index');
 
-// ai-docs 폴더 경로
-const docsDir = path.join(__dirname, '../../../ai-docs');
-
 /**
- * 로컬 이미지 경로 반환 (폴백: 외부 URL via wsrv.nl)
+ * 이미지 경로 처리 (GamerScroll과 동일 방식)
+ * - 상대경로 (./image.jpg): 그대로 사용 (기사 폴더에 이미지 복사됨)
+ * - HTTP URL: wsrv.nl 프록시로 변환
  */
-function getLocalImagePath(slug, originalSrc, imageIndex) {
-  const ext = '.webp';
-  const idx = String(imageIndex).padStart(2, '0');
-  const localPath = `/assets/images/tech/ai/${slug}/${idx}${ext}`;
-  const fullPath = path.join(docsDir, localPath);
+function getImageSrc(originalSrc) {
+  if (!originalSrc) return '';
 
-  if (fs.existsSync(fullPath)) {
-    return localPath;
-  }
-
-  // 외부 URL은 wsrv.nl 프록시로 변환
-  if (originalSrc && originalSrc.startsWith('http')) {
+  // HTTP URL은 wsrv.nl 프록시로 변환
+  if (originalSrc.startsWith('http')) {
     return `https://wsrv.nl/?url=${encodeURIComponent(originalSrc)}&w=960&output=webp`;
   }
 
-  return originalSrc || '';
+  // 상대경로는 그대로 사용 (빌드 시 이미지 파일 복사됨)
+  return originalSrc;
 }
 
 /**
@@ -44,8 +35,6 @@ function generateAIBlogArticle(article, data = {}) {
   function renderContent(content) {
     if (!content || !Array.isArray(content)) return '';
 
-    const slug = article.slug;
-    let imageIndex = 0;
     const result = [];
 
     for (const block of content) {
@@ -74,8 +63,7 @@ function generateAIBlogArticle(article, data = {}) {
           break;
         case 'image': {
           if (!block.src) break;
-          imageIndex++;
-          const imgSrc = getLocalImagePath(slug, block.src, imageIndex);
+          const imgSrc = getImageSrc(block.src);
           const altText = escapeHtml(block.alt || block.caption || '');
           const caption = block.caption ? `<figcaption class="blog-caption">${escapeHtml(block.caption)}</figcaption>` : '';
           result.push(`

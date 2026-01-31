@@ -487,25 +487,25 @@ function generateCategoryPages(articles, popularArticles, latestArticles) {
 // 이미지 검증 (누락 경고)
 function validateImages(articles) {
   const warnings = [];
-  const localImagesDir = path.join(__dirname, 'docs', 'assets', 'images', 'tech', 'ai');
+  const techAiDir = path.join(__dirname, 'docs', 'tech', 'ai');
 
   for (const article of articles) {
     const slug = article.slug;
     // 영문 콘텐츠 기준으로 체크 (실제 렌더링되는 것)
     const content = article.contentEn || article.content || [];
 
-    let imageIndex = 0;
     for (const block of content) {
       if (block.type === 'image' && block.src) {
-        imageIndex++;
         const src = block.src;
-        const localPath = path.join(localImagesDir, slug, `${String(imageIndex).padStart(2, '0')}.webp`);
-        const hasLocalFile = fs.existsSync(localPath);
         const isHttpUrl = src.startsWith('http');
 
-        // 로컬 파일도 없고 HTTP URL도 아니면 경고
-        if (!hasLocalFile && !isHttpUrl) {
-          warnings.push(`[${slug}] 이미지 ${imageIndex}: 로컬 파일(${imageIndex.toString().padStart(2,'0')}.webp) 없고 HTTP URL 아님 (${src})`);
+        // 상대경로면 docs/tech/ai/{slug}/ 폴더에 파일 있는지 확인
+        if (!isHttpUrl && src.startsWith('./')) {
+          const filename = src.replace('./', '');
+          const filePath = path.join(techAiDir, slug, filename);
+          if (!fs.existsSync(filePath)) {
+            warnings.push(`[${slug}] 이미지 파일 없음: ${filename}`);
+          }
         }
       }
     }
