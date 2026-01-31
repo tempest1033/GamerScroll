@@ -132,6 +132,34 @@
       "type": "01.webp",
       "failedAt": "2026-01-30T22:20:18.973Z",
       "error": "HTTP 404: https://images.unsplash.com/photo-1712002641085-8cc53984f228?w=800"
+    },
+    {
+      "url": "https://blogs.nvidia.com/wp-content/uploads/2025/01/jensen-ces-2025-keynote-background.jpg",
+      "slug": "nvidia-openai-investment-retreat",
+      "type": "02.webp",
+      "failedAt": "2026-01-31T16:03:20.258Z",
+      "error": "HTTP 404: https://blogs.nvidia.com/wp-content/uploads/2025/01/jensen-ces-2025-keynote-background.jpg"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sam_Altman_2024.jpg",
+      "slug": "nvidia-openai-investment-retreat",
+      "type": "03.webp",
+      "failedAt": "2026-01-31T16:03:20.466Z",
+      "error": "HTTP 404: https://upload.wikimedia.org/wikipedia/commons/4/4b/Sam_Altman_2024.jpg"
+    },
+    {
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2288150/ss_fb4cb6c0d50c09b7f3b0a46b51ddc2e6bc5df3c2.jpg",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "type": "02.webp",
+      "failedAt": "2026-01-31T16:03:20.905Z",
+      "error": "HTTP 404: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2288150/ss_fb4cb6c0d50c09b7f3b0a46b51ddc2e6bc5df3c2.jpg"
+    },
+    {
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2288150/ss_8a97b7e5e4c8ed40e60c0f95f7ac16e1e8cf2a02.jpg",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "type": "04.webp",
+      "failedAt": "2026-01-31T16:03:21.075Z",
+      "error": "HTTP 404: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2288150/ss_8a97b7e5e4c8ed40e60c0f95f7ac16e1e8cf2a02.jpg"
     }
   ]
 }
