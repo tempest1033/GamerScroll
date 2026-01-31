@@ -380,8 +380,18 @@ function generateAIBlogIndex(data) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": SITE_CONFIG.name,
+    "alternateName": ["AI Scroll", "aiscroll"],
     "url": SITE_CONFIG.baseUrl,
     "description": SITE_CONFIG.description,
+    "publisher": {
+      "@type": "Organization",
+      "name": SITE_CONFIG.name,
+      "url": SITE_CONFIG.baseUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_CONFIG.baseUrl}/icon-192.png`
+      }
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -501,15 +511,18 @@ function wrapWithLayout(content, options = {}) {
   <meta property="og:url" content="${canonical}">
   <meta property="og:type" content="${ogType}">
   <meta property="og:image" content="${ogImageUrl}">
+  <meta property="og:image:alt" content="${escapeHtml(title)}">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="${SITE_CONFIG.name}">${articleOgTags}
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@aiscroll_io">
+  <meta name="twitter:creator" content="@aiscroll_io">
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${ogImageUrl}">
+  <meta name="twitter:image:alt" content="${escapeHtml(title)}">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="${SITE_CONFIG.name} RSS Feed" href="${SITE_CONFIG.baseUrl}/rss.xml">
