@@ -815,6 +815,77 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 heading → image → text → text
 ```
 
+### 월간 순위 분석 리포트 작성 요령
+
+월간 서브컬쳐/장르별 순위 분석 리포트 작성 시 참고:
+
+**1. 제목 형식**
+- `{연도}년 {월}월 {장르} 게임 매출 순위`
+- 예: "2026년 1월 서브컬쳐 게임 매출 순위"
+
+**2. 구조**
+```
+서문 (text) → 순위표 (ranking-bar) → 개별 게임 분석 (10위→1위 역순)
+```
+- "TOP 10 순위" 같은 헤딩 없이 서문 바로 아래 차트 배치
+- 각 게임별: heading → ranking-card → ranking-compare → text
+
+**3. 순위 데이터 확인 (필수)**
+- `history/{date}.json`의 `bestRanks`에서 실제 최고 순위 확인
+- `data/stats/ranking/{month}-kr.json` 파일과 교차 검증
+- 앱 ID는 `games.json`에서 조회
+
+```bash
+# bestRanks에서 특정 게임 순위 확인
+python3 -c "
+import json, os
+app_id = '앱ID'  # games.json에서 확인
+for day in range(1, 32):
+    f = f'history/2026-01-{day:02d}.json'
+    if os.path.exists(f):
+        data = json.load(open(f, encoding='utf-8-sig'))
+        rank = data.get('bestRanks',{}).get('ios_kr_grossing',{}).get(app_id)
+        if rank: print(f'{day}일: {rank}위')
+"
+```
+
+**4. ranking-card 블록**
+```json
+{
+  "type": "ranking-card",
+  "item": {
+    "name": "게임명",
+    "score": 1234,
+    "slug": "게임-slug",
+    "ios": "최고 3위",
+    "android": "최고 5위"
+  }
+}
+```
+
+**5. ranking-compare 블록** (iOS vs Android 차트)
+```json
+{
+  "type": "ranking-compare",
+  "title": "게임명 iOS vs Android",
+  "startDate": "2026-01-01",
+  "endDate": "2026-01-31",
+  "items": [
+    {"slug": "게임-slug", "market": "ios", "label": "iOS"},
+    {"slug": "게임-slug", "market": "android", "label": "Android"}
+  ]
+}
+```
+
+**6. relatedGames**
+- TOP 10 게임 전체를 slug로 추가
+- `games.json`에서 정확한 slug 확인
+
+**7. 게임별 설명 작성**
+- MCP firecrawl로 해당 월의 업데이트/이벤트 조사
+- 픽업 캐릭터, 콜라보, 기념일 이벤트 등 구체적 정보 포함
+- "픽업 직후 순위 상승 후 하락" 같은 당연한 패턴은 생략
+
 ### 작성 체크리스트 (랭킹 리포트)
 | 항목 | 체크 | 설명 |
 |------|:----:|------|

@@ -1,0 +1,117 @@
+{
+  "period": "2026-01",
+  "country": "kr",
+  "category": "grossing",
+  "games": {
+    "브라운더스트2-가슴-벅찬-rpg": {
+      "name": "브라운더스트2",
+      "ios": {
+        "best": 66,
+        "avg": 89.7
+      },
+      "android": {
+        "best": 34,
+        "avg": 63.1
+      }
+    },
+    "우마무스메-프리티-더비": {
+      "name": "우마무스메",
+      "ios": {
+        "best": 37,
+        "avg": 67.7
+      },
+      "android": {
+        "best": 47,
+        "avg": 69.1
+      }
+    },
+    "명일방주": {
+      "name": "명일방주",
+      "ios": {
+        "best": 9,
+        "avg": 61.0
+      },
+      "android": {
+        "best": 18,
+        "avg": 98.6
+      }
+    },
+    "명일방주-엔드필드": {
+      "name": "명일방주: 엔드필드",
+      "ios": {
+        "best": 3,
+        "avg": 11.0
+      },
+      "android": {
+        "best": 5,
+        "avg": 7.2
+      }
+    },
+    "limbus-company": {
+      "name": "Limbus Company",
+      "ios": {
+        "best": 14,
+        "avg": 68.8
+      },
+      "android": {
+        "best": 24,
+        "avg": 40.5
+      }
+    },
+    "원신공월의-노래": {
+      "name": "원신",
+      "ios": {
+        "best": 5,
+        "avg": 50.5
+      },
+      "android": {
+        "best": 5,
+        "avg": 45.7
+      }
+    },
+    "트릭컬-리바이브": {
+      "name": "트릭컬 리바이브",
+      "ios": {
+        "best": 34,
+        "avg": 55.7
+      },
+      "android": {
+        "best": 12,
+        "avg": 22.9
+      }
+    },
+    "젠레스-존-제로": {
+      "name": "젠레스 존 제로",
+      "ios": {
+        "best": 3,
+        "avg": 42.4
+      },
+      "android": {
+        "best": 6,
+        "avg": 26.5
+      }
+    },
+    "명조워더링-웨이브": {
+      "name": "명조:워더링 웨이브",
+      "ios": {
+        "best": 2,
+        "avg": 31.5
+      },
+      "android": {
+        "best": 9,
+        "avg": 25.2
+      }
+    },
+    "승리의-여신-니케": {
+      "name": "승리의 여신: 니케",
+      "ios": {
+        "best": 3,
+        "avg": 23.5
+      },
+      "android": {
+        "best": 5,
+        "avg": 12.2
+      }
+    }
+  }
+}

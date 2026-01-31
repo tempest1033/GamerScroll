@@ -189,6 +189,110 @@ function updateHistoryBestRanks(date, bestRanks) {
   }
 }
 
+// CSV 스냅샷에서 일 최고순위 기반 rankings 배열 생성
+function getBestRankingsFromCSV(date, country, platform) {
+  const rankingsDir = `${SNAPSHOTS_DIR}/rankings`;
+  const csvPlatform = platform === 'android' ? 'aos' : platform;
+  const csvPath = `${rankingsDir}/${date}_${csvPlatform}_${country}_grossing.csv`;
+
+  if (!fs.existsSync(csvPath)) return null;
+
+  const content = fs.readFileSync(csvPath, 'utf8');
+  const lines = content.trim().split('\n').slice(1); // 헤더 제외
+
+  const bestRanks = {}; // appId -> { rank, title }
+
+  for (const line of lines) {
+    const parts = line.split(',');
+    if (parts.length < 4) continue;
+
+    const rank = parseInt(parts[1], 10);
+    const appId = parts[2];
+    let title = parts.slice(3).join(',').replace(/\r/g, '').trim().replace(/^"|"$/g, '');
+
+    if (isNaN(rank)) continue;
+
+    const key = appId || title;
+    if (!bestRanks[key] || rank < bestRanks[key].rank) {
+      bestRanks[key] = { rank, title, appId };
+    }
+  }
+
+  // 최고 순위 기준 정렬
+  return Object.values(bestRanks)
+    .sort((a, b) => a.rank - b.rank)
+    .map(item => ({
+      title: item.title,
+      developer: '',
+      icon: '',
+      appId: item.appId
+    }));
+}
+
+// history의 rankings.grossing을 CSV 기반으로 업데이트
+function updateHistoryRankingsFromCSV(date) {
+  const historyFile = `${HISTORY_DIR}/${date}.json`;
+  if (!fs.existsSync(historyFile)) return false;
+
+  try {
+    const data = JSON.parse(fs.readFileSync(historyFile, 'utf8'));
+    if (!data.rankings) data.rankings = {};
+    if (!data.rankings.grossing) data.rankings.grossing = {};
+
+    const countries = ['kr', 'jp', 'us', 'tw', 'cn'];
+    const platforms = [
+      { csv: 'ios', json: 'ios' },
+      { csv: 'aos', json: 'android' }
+    ];
+
+    let updated = false;
+
+    for (const country of countries) {
+      if (!data.rankings.grossing[country]) {
+        data.rankings.grossing[country] = {};
+      }
+
+      for (const p of platforms) {
+        // 중국은 Android 제외
+        if (country === 'cn' && p.json === 'android') continue;
+
+        const csvRankings = getBestRankingsFromCSV(date, country, p.json);
+        if (csvRankings && csvRankings.length > 0) {
+          // 기존 데이터에서 developer, icon 가져오기
+          const existing = data.rankings.grossing[country]?.[p.json] || [];
+          const existingMap = {};
+          for (const app of existing) {
+            if (app.appId) existingMap[app.appId] = app;
+            if (app.title) existingMap[app.title] = app;
+          }
+
+          // CSV 기반 rankings에 기존 메타데이터 병합
+          const newRankings = csvRankings.map(item => {
+            const ex = existingMap[item.appId] || existingMap[item.title] || {};
+            return {
+              title: item.title,
+              developer: ex.developer || item.developer || '',
+              icon: ex.icon || item.icon || '',
+              appId: item.appId || ex.appId || ''
+            };
+          });
+
+          data.rankings.grossing[country][p.json] = newRankings;
+          updated = true;
+        }
+      }
+    }
+
+    if (updated) {
+      fs.writeFileSync(historyFile, JSON.stringify(data, null, 2), 'utf8');
+    }
+    return updated;
+  } catch (e) {
+    console.error(`Error updating history rankings: ${e.message}`);
+    return false;
+  }
+}
+
 // 위키 데이터 로드 함수
 function loadWikiData() {
   const categories = ['business', 'history', 'knowledge'];
@@ -681,6 +785,11 @@ async function main() {
       if (updateHistoryBestRanks(snapshotDate, bestRanks)) {
         console.log(`📊 일 최고순위 업데이트: ${snapshotDate}`);
       }
+    }
+
+    // rankings.grossing 배열도 CSV 기반으로 업데이트 (재발 방지)
+    if (updateHistoryRankingsFromCSV(snapshotDate)) {
+      console.log(`📋 rankings 배열 업데이트: ${snapshotDate}`);
     }
   }
 
