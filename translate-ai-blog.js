@@ -86,9 +86,17 @@ ${JSON.stringify(toTranslate, null, 2)}`;
 
 // 번역 확인 및 실행
 async function ensureTranslation(article, filePath) {
-  // needTranslate 필드로 체크 (false면 스킵, 없거나 true면 번역 필요)
-  if (article.needTranslate === false) {
-    return false;
+  // En 필드 누락 체크 → 없으면 추가
+  if (!('titleEn' in article)) article.titleEn = '';
+  if (!('summaryEn' in article)) article.summaryEn = '';
+  if (!('keywordsEn' in article)) article.keywordsEn = '';
+  if (!('contentEn' in article)) article.contentEn = '';
+
+  // needTranslate 필드로 체크 + En 필드 값 체크
+  const hasAllEn = article.titleEn && article.summaryEn &&
+                   article.keywordsEn && article.contentEn;
+  if (article.needTranslate === false && hasAllEn) {
+    return false;  // 번역 완료 + 모든 En 필드 값 있음 → 스킵
   }
 
   const slug = article.slug || path.basename(filePath, '.json');
@@ -100,7 +108,7 @@ async function ensureTranslation(article, filePath) {
     return false;
   }
 
-  // 번역 결과 병합
+  // 번역 결과 병합 (전체 덮어쓰기)
   article.titleEn = translated.titleEn;
   article.summaryEn = translated.summaryEn;
   article.keywordsEn = translated.keywordsEn;
