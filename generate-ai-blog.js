@@ -17,6 +17,13 @@ const sharp = require('sharp');
 const { generateAIBlogIndex, generateSearchPage, generateCategoryPage } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 
+// GA4 Analytics
+const {
+  savePopularArticles,
+  loadPopularArticles,
+  shouldFetchPopularArticles
+} = require('./src/ai-blog/analytics');
+
 // 경로 설정
 const DATA_DIR = path.join(__dirname, 'data');
 const REPORTS_DIR = path.join(__dirname, 'reports');
@@ -310,7 +317,7 @@ async function copyAssets() {
 }
 
 // HTML 생성
-function generateHTML(articles) {
+function generateHTML(articles, popularArticlesData = { articles: [] }) {
   // docs 폴더 초기화
   if (!fs.existsSync(DOCS_DIR)) {
     fs.mkdirSync(DOCS_DIR, { recursive: true });
@@ -337,9 +344,30 @@ function generateHTML(articles) {
     relatedDocs: a.relatedDocs
   }));
 
-  // 인기/최신 글 (임시로 같은 데이터 사용)
-  const popularArticles = [...enArticles].slice(0, 10);
-  const latestArticles = [...enArticles].slice(0, 10);
+  // 인기 글 (GA4 데이터 기반, 없으면 최신순)
+  let popularArticles = [];
+  if (popularArticlesData.articles && popularArticlesData.articles.length > 0) {
+    // GA4 조회수 데이터와 기사 매칭
+    popularArticles = popularArticlesData.articles
+      .map(pa => {
+        const article = enArticles.find(a => a.slug === pa.slug && a.category === pa.category);
+        if (article) {
+          return { ...article, views: pa.views };
+        }
+        return null;
+      })
+      .filter(Boolean)
+      .slice(0, 10);
+  }
+  // GA4 데이터 없으면 최신순으로 대체
+  if (popularArticles.length === 0) {
+    popularArticles = [...enArticles].slice(0, 10);
+  }
+
+  // 최신 글 (날짜순)
+  const latestArticles = [...enArticles]
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 10);
 
   // 홈페이지 생성
   const indexHtml = generateAIBlogIndex({
@@ -528,6 +556,20 @@ function showBuildSummary() {
 async function main() {
   console.log('=== AIScroll 빌드 시작 ===\n');
 
+  // 0. GA4 인기 기사 수집 (24시간 쿨타임)
+  if (shouldFetchPopularArticles()) {
+    console.log('0. GA4 인기 기사 수집 중...');
+    try {
+      await savePopularArticles();
+    } catch (err) {
+      console.log(`   GA4 수집 실패: ${err.message}`);
+    }
+  }
+
+  // 인기 기사 데이터 로드
+  const popularArticlesData = loadPopularArticles();
+  console.log(`   인기 기사 ${popularArticlesData.articles?.length || 0}개 로드됨`);
+
   // 1. 글 로드
   console.log('1. 글 로드 중...');
   const articles = loadArticles();
@@ -543,7 +585,7 @@ async function main() {
 
   // 2. HTML 생성
   console.log('2. HTML 생성 중...');
-  generateHTML(articles);
+  generateHTML(articles, popularArticlesData);
   console.log('');
 
   // 3. 스타일 복사

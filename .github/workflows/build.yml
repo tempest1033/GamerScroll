@@ -95,6 +95,12 @@ jobs:
           ADS_ENABLED: 'false'  # 광고 정지 기간 동안 비활성화
         run: node scripts/generate-game-pages.js
 
+      - name: Build AIScroll
+        env:
+          AISCROLL_GA4_PROPERTY_ID: ${{ secrets.AISCROLL_GA4_PROPERTY_ID }}
+          AISCROLL_GA4_SERVICE_ACCOUNT: ${{ secrets.AISCROLL_GA4_SERVICE_ACCOUNT }}
+        run: node generate-ai-blog.js
+
       - name: Move report to docs
         run: |
           mkdir -p docs
