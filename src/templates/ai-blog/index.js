@@ -1146,6 +1146,7 @@ function wrapWithLayout(content, options = {}) {
   })();
   </script>
   ${pageScripts}
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>`;
 }
