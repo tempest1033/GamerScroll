@@ -823,6 +823,39 @@ function wrapWithLayout(content, options = {}) {
       font-size: var(--font-body-size);
     }
   </style>
+  <script type="module">
+    (function() {
+      var host = window.location.hostname;
+      if (host !== 'aiscroll.io') return;
+
+      function initFirebase() {
+        (async function() {
+          try {
+            const [{ initializeApp }, { getAnalytics }] = await Promise.all([
+              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+            ]);
+            const firebaseConfig = {
+              apiKey: "AIzaSyBrklaUMi0oCBdwdAKidy-ZrZSNeHR9irg",
+              authDomain: "aiscroll.firebaseapp.com",
+              projectId: "aiscroll",
+              storageBucket: "aiscroll.firebasestorage.app",
+              messagingSenderId: "616378969440",
+              appId: "1:616378969440:web:9a8e65a68fe990cc934205",
+              measurementId: "G-RKW0H8HYMS"
+            };
+            const app = initializeApp(firebaseConfig);
+            getAnalytics(app);
+          } catch (e) {}
+        })();
+      }
+      if (document.readyState === 'complete') {
+        setTimeout(initFirebase, 0);
+      } else {
+        window.addEventListener('load', initFirebase);
+      }
+    })();
+  </script>
 </head>
 <body>
   ${generateHeader()}

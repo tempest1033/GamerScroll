@@ -68,7 +68,7 @@ function generateAIBlogArticle(article, data = {}) {
           const caption = block.caption ? `<figcaption class="blog-caption">${escapeHtml(block.caption)}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${altText}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}" alt="${altText}" loading="lazy" onerror="this.parentElement.style.display='none'">
               ${caption}
             </figure>`);
           break;
