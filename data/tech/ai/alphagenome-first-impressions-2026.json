@@ -108,7 +108,7 @@
     },
     {
       "type": "text",
-      "value": "영국 암연구소 CEO 크리스티안 헬린 교수의 평가가 인상적이다.\n\n**\"지금 당장 혁명은 아니다. 하지만 연구자들이 가설을 세우고, 실험 우선순위를 정하는 방식을 바꿀 수 있다. 장기적으로 보면 상당히 중요한 도구가 될 것.\"**\n\n칼리코 생명과학의 데이비드 켈리도 비슷한 의견이다.\n\n\"아직은 작은 진전이다. 하지만 100만 글자를 한 번에 처리할 수 있게 된 건 확실히 기술적 돌파구다. **작지만 실질적인 한 걸음.**\"\n\n2018년 알파폴드가 어땠는지 생각해보자. 진지하게 받아들이는 사람이 거의 없던 단순한 프로토타입이었다. 그런데 이 프로젝트는 4년 후, 노벨상을 받았다."
+      "value": "영국 암연구소 CEO 크리스티안 헬린 교수의 평가가 인상적이다.\n\n**\"지금 당장 혁명은 아니다. 하지만 연구자들이 가설을 세우고, 실험 우선순위를 정하는 방식을 바꿀 수 있다. 당장은 작은 진전일 수 있지만, 장기적으로는 상당히 중요한 도구가 될 것.\"**\n\n2018년 알파폴드가 어땠는지 생각해보자. 진지하게 받아들이는 사람이 거의 없던 단순한 프로토타입이었다. 그런데 이 프로젝트는 4년 후, 노벨상을 받았다."
     },
     {
       "type": "heading",
@@ -193,7 +193,7 @@
     },
     {
       "type": "text",
-      "value": "Professor Kristian Helin, CEO of The Institute of Cancer Research, offers perspective:\n\n**\"It's not a revolution today. But it could change how researchers form hypotheses and prioritize experiments. Long-term, this will be quite significant.\"**\n\nDavid Kelley from Calico Life Sciences shares a similar view:\n\n\"It's a small step forward. But being able to process 1 million letters at once is clearly a technical breakthrough. **A small but real step.**\"\n\nThink about AlphaFold in 2018. It was just a prototype that few took seriously. Four years later, it won the Nobel Prize."
+      "value": "Professor Kristian Helin, CEO of The Institute of Cancer Research, offers perspective:\n\n**\"It's not a revolution today. But it could change how researchers form hypotheses and prioritize experiments. Its immediate impact may be incremental, but its longer-term significance is substantial.\"**\n\nThink about AlphaFold in 2018. It was just a prototype that few took seriously. Four years later, it won the Nobel Prize."
     },
     {
       "type": "heading",
