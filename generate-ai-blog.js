@@ -63,6 +63,10 @@ const EXTRA_ARTICLES = {
   // data/wiki/{category}/*.json
   wiki: [
     { category: 'business', slug: 'google-genie3-unity-stock-crash' }
+  ],
+  // reports/hotpick/*.json
+  hotpick: [
+    'mac-mini-m4-best-value-2026'
   ]
 };
 
@@ -127,6 +131,26 @@ function loadArticles() {
         }
       } catch (e) {
         console.error(`로드 실패: ${wikiItem.slug}`, e.message);
+      }
+    }
+  }
+
+  // 4. reports/hotpick/*.json에서 추가 목록에 있는 것 로드
+  const hotpickDir = path.join(REPORTS_DIR, 'hotpick');
+  if (fs.existsSync(hotpickDir) && EXTRA_ARTICLES.hotpick) {
+    for (const slug of EXTRA_ARTICLES.hotpick) {
+      const hotpickFile = path.join(hotpickDir, `${slug}.json`);
+      if (fs.existsSync(hotpickFile) && !loadedSlugs.has(slug)) {
+        try {
+          const content = fs.readFileSync(hotpickFile, 'utf8').replace(/^\uFEFF/, '');
+          const data = JSON.parse(content);
+          if (data.status === 'approved' || data.status === 'published') {
+            articles.push({ ...data, source: 'hotpick', sourceFile: `${slug}.json` });
+            loadedSlugs.add(data.slug);
+          }
+        } catch (e) {
+          console.error(`로드 실패: ${slug}`, e.message);
+        }
       }
     }
   }
