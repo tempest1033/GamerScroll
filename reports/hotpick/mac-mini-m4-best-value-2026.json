@@ -15,22 +15,22 @@
   "sources": [
     {
       "name": "Apple",
-      "title": "Mac mini 공식 페이지",
+      "title": "Mac mini Official Page",
       "url": "https://www.apple.com/kr/shop/buy-mac/mac-mini"
     },
     {
-      "name": "아시아투데이",
-      "title": "AI가 불붙인 메모리 전쟁…DDR5 램 가격 반년 만에 4배 폭등",
+      "name": "Asia Today",
+      "title": "AI Ignites Memory War: DDR5 RAM Prices Quadruple in Six Months",
       "url": "https://www.asiatoday.co.kr/kn/view.php?key=20251229010014938"
     },
     {
-      "name": "카운터포인트",
-      "title": "2025년 4분기 메모리 가격 약 50% 급등, 2026년 상반기 추가 상승 전망",
+      "name": "Counterpoint Research",
+      "title": "Memory Prices Surge 50% in Q4 2025, Further Increases Expected in H1 2026",
       "url": "https://korea.counterpointresearch.com/memory-price-tracker-january-2026/"
     },
     {
       "name": "GeekNews",
-      "title": "Clawdbot - 모든 OS와 플랫폼에서 작동하는 개인용 AI 비서",
+      "title": "Clawdbot - Personal AI Assistant for All OS and Platforms",
       "url": "https://news.hada.io/topic?id=26122"
     }
   ],
