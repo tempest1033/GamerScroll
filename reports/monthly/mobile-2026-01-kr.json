@@ -1,0 +1,5882 @@
+{
+  "meta": {
+    "month": "2026-01",
+    "country": "kr",
+    "minDays": 15,
+    "totalDays": 31,
+    "generatedAt": "2026-01-31T21:27:02.969Z"
+  },
+  "summary": {
+    "totalGames": 100,
+    "unclassifiedCount": 100,
+    "newEntriesCount": 50
+  },
+  "genreDistribution": {
+    "unclassified": {
+      "count": 100,
+      "games": [
+        "메이플 키우기",
+        "WOS: 화이트아웃 서바이벌",
+        "라스트 워: 서바이벌",
+        "리니지M",
+        "킹샷:Kingshot",
+        "로얄 매치 (Royal Match)",
+        "라스트 Z: 서바이벌 슈터",
+        "가십하버: 합성 & 스토리 게임",
+        "FC 모바일",
+        "마비노기 모바일",
+        "AION2",
+        "운빨존많겜",
+        "씨사이드 익스케이프: 합성 & 스토리 게임",
+        "승리의 여신: 니케",
+        "Dark War:Survival",
+        "탑 히어로즈: 영웅의 시대",
+        "뱀피르",
+        "Gardenscapes",
+        "오딘: 발할라 라이징",
+        "컴투스프로야구V25",
+        "EA SPORTS FC Online M",
+        "전략적 팀 전투: 리그 오브 레전드 전략 게임",
+        "세븐나이츠 리버스",
+        "명조:워더링 웨이브 - 라하이 로이를 향하여",
+        "배틀그라운드",
+        "한게임 포커",
+        "테이스티 트레블: 합성 게임",
+        "한게임 섯다&맞고",
+        "메이플스토리M",
+        "젠레스 존 제로",
+        "귀판오분전",
+        "로얄 킹덤 (Royal Kingdom)",
+        "Homescapes",
+        "리니지2M",
+        "트릭컬 리바이브",
+        "브롤스타즈",
+        "캔디크러쉬사가",
+        "아키텍트: 랜드 오브 엑자일",
+        "한게임포커 클래식 - 7포커 홀덤 섯다 훌라 슬롯",
+        "eFootball™",
+        "쿠키런: 킹덤",
+        "협동 타워 디펜스 : 깐부와 함께",
+        "카트라이더 러쉬플러스",
+        "꿈의 마을 (Township)",
+        "Travel Town - 결합 어드벤처",
+        "그놈은 드래곤",
+        "Roblox",
+        "SD건담 지 제네레이션 이터널",
+        "리니지M(12)",
+        "RF 온라인 넥스트",
+        "쿠키런: 오븐브레이크",
+        "원신·공월의 노래",
+        "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+        "Limbus Company",
+        "두근두근타운",
+        "갓깨비 키우기",
+        "리그 오브 레전드: 와일드 리프트",
+        "클래시 로얄",
+        "리니지W",
+        "I9: 인페르노 나인",
+        "던전앤파이터 모바일",
+        "핫레스토랑: 머지&쿠킹",
+        "Pokémon GO",
+        "나이트 크로우",
+        "마피아42",
+        "블러드 앤 소울",
+        "변신 키우기",
+        "머지 쿠킹 테마 레스토랑",
+        "냥코 대전쟁",
+        "피망 포커",
+        "캣 히어로 : 방치형 RPG",
+        "오피스 퀸 키우기",
+        "모바일 레전드: Bang Bang",
+        "명일방주",
+        "잠룡 : 도트 무협 RPG",
+        "우마무스메 프리티 더비",
+        "창세기전 모바일 - 서풍의 광시곡",
+        "삼국지 전략판",
+        "서머너즈 워: 천공의 아레나",
+        "I9: 인페르노 나인(19) - 세로형 RPG",
+        "세포 특공대 - 전략형 타워 디펜스",
+        "브라운더스트2 - 가슴 벅찬 RPG",
+        "S.O.S: 스테이트 오브 서바이벌",
+        "카오스 제로 나이트메어",
+        "삼국지 왕전",
+        "피망 뉴맞고: 고스톱 대표 맞고 게임",
+        "뮤 모나크2",
+        "좀비 웨이브스",
+        "피쉬돔 (Fishdom)",
+        "포켓몬 카드 게임 Pocket",
+        "컴투스프로야구2026",
+        "Disney Solitaire",
+        "Legends Reborn: 마지막 전투",
+        "주술회전 팬텀 퍼레이드",
+        "퍼즐 오브 Z",
+        "아키에이지 워 (ArcheAge WAR)",
+        "카발RED",
+        "I9: 인페르노 나인",
+        "한게임 신맞고 : 대한민국 원조 고스톱",
+        "쿠키런"
+      ],
+      "avgRanks": [
+        1,
+        2.6,
+        2.6,
+        5.5,
+        6,
+        9,
+        9.5,
+        9.5,
+        10,
+        11.6,
+        15,
+        15.1,
+        16.3,
+        17.9,
+        19.5,
+        20.6,
+        22.5,
+        22.6,
+        22.8,
+        23.3,
+        24.4,
+        26.9,
+        27,
+        28.4,
+        31.3,
+        31.7,
+        32.1,
+        33.2,
+        33.8,
+        34.4,
+        35.4,
+        37.1,
+        38.3,
+        39.3,
+        39.3,
+        40.2,
+        41.1,
+        41.9,
+        44.8,
+        48.2,
+        46.1,
+        47.9,
+        48.2,
+        50.6,
+        51.6,
+        14.5,
+        5.8,
+        49.5,
+        58.9,
+        51.5,
+        56.7,
+        48.1,
+        57.4,
+        54.6,
+        47.2,
+        58.9,
+        61.7,
+        61.4,
+        55,
+        27.1,
+        65.8,
+        64.5,
+        72.4,
+        62.9,
+        81.5,
+        60.3,
+        70.5,
+        72.4,
+        69.4,
+        69.1,
+        93.7,
+        104,
+        79.9,
+        79.8,
+        88.5,
+        68.4,
+        71.6,
+        77.8,
+        74.2,
+        75.6,
+        83.6,
+        76.4,
+        61.1,
+        84.5,
+        69.7,
+        82.1,
+        65.1,
+        78.4,
+        83.6,
+        102.2,
+        80.7,
+        107.6,
+        66.7,
+        88,
+        68.6,
+        80.5,
+        69.2,
+        69.5,
+        69.9,
+        97.5
+      ],
+      "avgPosition": 50.1
+    }
+  },
+  "rankings": {
+    "regular": [
+      {
+        "gameKey": "메이플 키우기",
+        "slug": "메이플-키우기",
+        "title": "메이플 키우기",
+        "developer": "NEXON Company",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/20/b5/9420b50e-190c-12cc-2719-714dd9e5a541/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 1,
+          "minRank": 1,
+          "maxRank": 2,
+          "days": 31,
+          "points": 3100
+        },
+        "aos": {
+          "avgRank": 1,
+          "minRank": 1,
+          "maxRank": 1,
+          "days": 31,
+          "points": 3100
+        },
+        "combinedAvg": 1,
+        "totalPoints": 6200,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "WOS: 화이트아웃 서바이벌",
+        "slug": "wos-화이트아웃-서바이벌",
+        "title": "WOS: 화이트아웃 서바이벌",
+        "developer": "Century Games Pte. Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/02/06/6802063f-0ff6-2cfe-004d-856ea8f6e123/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 2.3,
+          "minRank": 1,
+          "maxRank": 10,
+          "days": 31,
+          "points": 3061
+        },
+        "aos": {
+          "avgRank": 2.9,
+          "minRank": 2,
+          "maxRank": 4,
+          "days": 31,
+          "points": 3041
+        },
+        "combinedAvg": 2.6,
+        "totalPoints": 6102,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "라스트 워: 서바이벌",
+        "slug": "라스트-워-서바이벌",
+        "title": "라스트 워: 서바이벌",
+        "developer": "FUNFLY PTE. LTD.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e0/fd/ce/e0fdcea0-fdf2-b585-d301-b2d0505ce855/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 2.8,
+          "minRank": 2,
+          "maxRank": 7,
+          "days": 31,
+          "points": 3044
+        },
+        "aos": {
+          "avgRank": 2.4,
+          "minRank": 2,
+          "maxRank": 3,
+          "days": 31,
+          "points": 3057
+        },
+        "combinedAvg": 2.6,
+        "totalPoints": 6101,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "리니지M",
+        "slug": "리니지m",
+        "title": "리니지M",
+        "developer": "NCSOFT",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/55/a4/d555a4c5-93c9-2a25-9b2f-8322339871ac/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 5.1,
+          "minRank": 2,
+          "maxRank": 13,
+          "days": 31,
+          "points": 2974
+        },
+        "aos": {
+          "avgRank": 6,
+          "minRank": 2,
+          "maxRank": 10,
+          "days": 31,
+          "points": 2944
+        },
+        "combinedAvg": 5.5,
+        "totalPoints": 5918,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "킹샷:Kingshot",
+        "slug": "킹샷kingshot",
+        "title": "킹샷:Kingshot",
+        "developer": "Century Games Pte. Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/48/98/494898b6-c6a4-42ab-01e9-c50cc73322ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 5.1,
+          "minRank": 3,
+          "maxRank": 14,
+          "days": 31,
+          "points": 2973
+        },
+        "aos": {
+          "avgRank": 6.8,
+          "minRank": 5,
+          "maxRank": 9,
+          "days": 31,
+          "points": 2920
+        },
+        "combinedAvg": 6,
+        "totalPoints": 5893,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "로얄 매치 Royal Match",
+        "slug": "로얄-매치-royal-match",
+        "title": "로얄 매치 (Royal Match)",
+        "developer": "Dream Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/41/45/07414531-382b-9d3d-7d27-8f0d6fdfbfef/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 9.1,
+          "minRank": 5,
+          "maxRank": 24,
+          "days": 31,
+          "points": 2848
+        },
+        "aos": {
+          "avgRank": 8.9,
+          "minRank": 6,
+          "maxRank": 13,
+          "days": 31,
+          "points": 2855
+        },
+        "combinedAvg": 9,
+        "totalPoints": 5703,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "라스트 Z: 서바이벌 슈터",
+        "slug": "라스트-z-서바이벌-슈터",
+        "title": "라스트 Z: 서바이벌 슈터",
+        "developer": "Florere Game Limited",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/17/e9/b317e95b-cf45-0abf-8de5-7b7f75db6344/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 14.2,
+          "minRank": 6,
+          "maxRank": 31,
+          "days": 31,
+          "points": 2690
+        },
+        "aos": {
+          "avgRank": 4.7,
+          "minRank": 4,
+          "maxRank": 8,
+          "days": 31,
+          "points": 2985
+        },
+        "combinedAvg": 9.5,
+        "totalPoints": 5675,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "가십하버: 합성 & 스토리 게임",
+        "slug": "가십하버-합성-스토리-게임",
+        "title": "가십하버: 합성 & 스토리 게임",
+        "developer": "Microfun Limited",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/79/09/36790964-d235-12b4-3e15-bb8d3e9a5c80/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 8.1,
+          "minRank": 5,
+          "maxRank": 18,
+          "days": 31,
+          "points": 2881
+        },
+        "aos": {
+          "avgRank": 11,
+          "minRank": 10,
+          "maxRank": 15,
+          "days": 31,
+          "points": 2789
+        },
+        "combinedAvg": 9.5,
+        "totalPoints": 5670,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "FC 모바일",
+        "slug": "fc-모바일",
+        "title": "FC 모바일",
+        "developer": "NEXON Company",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c3/4f/4d/c34f4d2e-7836-b02a-1c53-d23b8f7edeb5/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 5.5,
+          "minRank": 2,
+          "maxRank": 18,
+          "days": 31,
+          "points": 2960
+        },
+        "aos": {
+          "avgRank": 14.5,
+          "minRank": 12,
+          "maxRank": 21,
+          "days": 31,
+          "points": 2683
+        },
+        "combinedAvg": 10,
+        "totalPoints": 5643,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "마비노기 모바일",
+        "slug": "마비노기-모바일",
+        "title": "마비노기 모바일",
+        "developer": "NEXON Company",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/94/e0/12/94e0122e-276d-f1cf-6323-949e08b0acb3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 8.6,
+          "minRank": 3,
+          "maxRank": 100,
+          "days": 31,
+          "points": 2865
+        },
+        "aos": {
+          "avgRank": 14.6,
+          "minRank": 11,
+          "maxRank": 22,
+          "days": 31,
+          "points": 2677
+        },
+        "combinedAvg": 11.6,
+        "totalPoints": 5542,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "AION2",
+        "slug": "aion2",
+        "title": "AION2",
+        "developer": "NCSOFT",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/28/e8/2e/28e82e73-1e8a-ce33-2965-94d7403f23bb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 17.4,
+          "minRank": 2,
+          "maxRank": 31,
+          "days": 31,
+          "points": 2591
+        },
+        "aos": {
+          "avgRank": 12.6,
+          "minRank": 7,
+          "maxRank": 21,
+          "days": 31,
+          "points": 2740
+        },
+        "combinedAvg": 15,
+        "totalPoints": 5331,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "운빨존많겜",
+        "slug": "운빨존많겜",
+        "title": "운빨존많겜",
+        "developer": "111%",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/26/62/67266262-92eb-f8c8-35e7-751750245088/AppIcon-1x_U007emarketing-0-5-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 9.3,
+          "minRank": 3,
+          "maxRank": 20,
+          "days": 31,
+          "points": 2844
+        },
+        "aos": {
+          "avgRank": 20.9,
+          "minRank": 15,
+          "maxRank": 30,
+          "days": 31,
+          "points": 2484
+        },
+        "combinedAvg": 15.1,
+        "totalPoints": 5328,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "씨사이드 익스케이프: 합성 & 스토리 게임",
+        "slug": "씨사이드-익스케이프-합성-스토리-게임",
+        "title": "씨사이드 익스케이프: 합성 & 스토리 게임",
+        "developer": "Microfun Limited",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/51/26/42/512642d0-b542-75be-9f21-838cba5e9a5a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 12,
+          "minRank": 7,
+          "maxRank": 28,
+          "days": 31,
+          "points": 2758
+        },
+        "aos": {
+          "avgRank": 20.5,
+          "minRank": 18,
+          "maxRank": 26,
+          "days": 31,
+          "points": 2495
+        },
+        "combinedAvg": 16.3,
+        "totalPoints": 5253,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "승리의 여신: 니케",
+        "slug": "승리의-여신-니케",
+        "title": "승리의 여신: 니케",
+        "developer": "Level Infinite",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/d9/51/fad9513e-d868-0f1c-65b8-537267cab525/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 23.5,
+          "minRank": 3,
+          "maxRank": 73,
+          "days": 31,
+          "points": 2403
+        },
+        "aos": {
+          "avgRank": 12.2,
+          "minRank": 5,
+          "maxRank": 42,
+          "days": 31,
+          "points": 2752
+        },
+        "combinedAvg": 17.9,
+        "totalPoints": 5155,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "Dark War:Survival",
+        "slug": "dark-warsurvival",
+        "title": "Dark War:Survival",
+        "developer": "Florere Game Limited",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b0/d1/a4/b0d1a4dc-4d99-585c-c3db-7a4e9b894a28/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 22.1,
+          "minRank": 13,
+          "maxRank": 41,
+          "days": 31,
+          "points": 2446
+        },
+        "aos": {
+          "avgRank": 16.9,
+          "minRank": 14,
+          "maxRank": 23,
+          "days": 31,
+          "points": 2606
+        },
+        "combinedAvg": 19.5,
+        "totalPoints": 5052,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "탑 히어로즈",
+        "slug": "탑-히어로즈",
+        "title": "탑 히어로즈: 영웅의 시대",
+        "developer": "River Game HK Limited",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8d/e5/ef/8de5ef42-db80-da20-0a37-d43816d6b2ca/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 23.2,
+          "minRank": 17,
+          "maxRank": 42,
+          "days": 31,
+          "points": 2412
+        },
+        "aos": {
+          "avgRank": 17.9,
+          "minRank": 15,
+          "maxRank": 22,
+          "days": 31,
+          "points": 2575
+        },
+        "combinedAvg": 20.6,
+        "totalPoints": 4987,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "뱀피르",
+        "slug": "뱀피르",
+        "title": "뱀피르",
+        "developer": "Netmarble Corporation",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/04/5e/13/045e13a3-e35d-a9e4-246c-45c3b0140186/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 29.3,
+          "minRank": 12,
+          "maxRank": 66,
+          "days": 31,
+          "points": 2224
+        },
+        "aos": {
+          "avgRank": 15.7,
+          "minRank": 12,
+          "maxRank": 19,
+          "days": 31,
+          "points": 2645
+        },
+        "combinedAvg": 22.5,
+        "totalPoints": 4869,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "꿈의 정원 (Gardenscapes)",
+        "slug": "꿈의-정원-gardenscapes",
+        "title": "Gardenscapes",
+        "developer": "Playrix",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/e8/2c/32e82cef-d46d-833d-e5fe-d781b3072c00/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 18.1,
+          "minRank": 15,
+          "maxRank": 40,
+          "days": 31,
+          "points": 2571
+        },
+        "aos": {
+          "avgRank": 27.1,
+          "minRank": 23,
+          "maxRank": 33,
+          "days": 31,
+          "points": 2291
+        },
+        "combinedAvg": 22.6,
+        "totalPoints": 4862,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "오딘: 발할라 라이징",
+        "slug": "오딘-발할라-라이징",
+        "title": "오딘: 발할라 라이징",
+        "developer": "Kakao Games Corp.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9b/2a/25/9b2a252a-7515-ee67-752e-bb04d450c255/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 35.7,
+          "minRank": 5,
+          "maxRank": 89,
+          "days": 31,
+          "points": 2024
+        },
+        "aos": {
+          "avgRank": 9.9,
+          "minRank": 5,
+          "maxRank": 16,
+          "days": 31,
+          "points": 2823
+        },
+        "combinedAvg": 22.8,
+        "totalPoints": 4847,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "컴투스프로야구V25",
+        "slug": "컴투스프로야구v25",
+        "title": "컴투스프로야구V25",
+        "developer": "Com2uS Corp.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/53/6e/71536e25-4a51-7212-0b2b-0b38af0ae164/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 9.1,
+          "minRank": 5,
+          "maxRank": 18,
+          "days": 31,
+          "points": 2850
+        },
+        "aos": {
+          "avgRank": 37.6,
+          "minRank": 32,
+          "maxRank": 42,
+          "days": 31,
+          "points": 1966
+        },
+        "combinedAvg": 23.3,
+        "totalPoints": 4816,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "EA SPORTS FC Online M",
+        "slug": "ea-sports-fc-online-m",
+        "title": "EA SPORTS FC Online M",
+        "developer": "NEXON Company",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/6f/4a/8e6f4acc-f922-27f7-65c4-3ca372c5e2f3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 9.7,
+          "minRank": 2,
+          "maxRank": 31,
+          "days": 31,
+          "points": 2830
+        },
+        "aos": {
+          "avgRank": 39.2,
+          "minRank": 31,
+          "maxRank": 65,
+          "days": 31,
+          "points": 1917
+        },
+        "combinedAvg": 24.4,
+        "totalPoints": 4747,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "전략적 팀 전투: 리그 오브 레전드 전략 게임",
+        "slug": "전략적-팀-전투-리그-오브-레전드-전략-게임",
+        "title": "전략적 팀 전투: 리그 오브 레전드 전략 게임",
+        "developer": "Riot Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/fd/91/52fd912a-3e53-2a48-e8b5-69986e4b1ab1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 16.3,
+          "minRank": 6,
+          "maxRank": 46,
+          "days": 31,
+          "points": 2626
+        },
+        "aos": {
+          "avgRank": 37.5,
+          "minRank": 23,
+          "maxRank": 65,
+          "days": 31,
+          "points": 1967
+        },
+        "combinedAvg": 26.9,
+        "totalPoints": 4593,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "세븐나이츠 리버스",
+        "slug": "세븐나이츠-리버스",
+        "title": "세븐나이츠 리버스",
+        "developer": "Netmarble Corporation",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/44/66/b3/4466b37e-0cf2-39fa-05bf-5ec21e1f34fc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 26,
+          "minRank": 10,
+          "maxRank": 55,
+          "days": 31,
+          "points": 2325
+        },
+        "aos": {
+          "avgRank": 28.1,
+          "minRank": 21,
+          "maxRank": 40,
+          "days": 31,
+          "points": 2261
+        },
+        "combinedAvg": 27,
+        "totalPoints": 4586,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "명조:워더링 웨이브",
+        "slug": "명조워더링-웨이브",
+        "title": "명조:워더링 웨이브 - 라하이 로이를 향하여",
+        "developer": "KURO GAMES",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a6/6e/72/a66e725a-31d4-5635-0216-49012206ef06/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 31.5,
+          "minRank": 2,
+          "maxRank": 98,
+          "days": 31,
+          "points": 2153
+        },
+        "aos": {
+          "avgRank": 25.2,
+          "minRank": 9,
+          "maxRank": 47,
+          "days": 31,
+          "points": 2350
+        },
+        "combinedAvg": 28.4,
+        "totalPoints": 4503,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "배틀그라운드",
+        "slug": "배틀그라운드",
+        "title": "배틀그라운드",
+        "developer": "KRAFTON Inc",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/83/3e/eb/833eeb2b-dd8f-0d0a-a169-b2f00b39a6d9/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 16.6,
+          "minRank": 6,
+          "maxRank": 35,
+          "days": 31,
+          "points": 2615
+        },
+        "aos": {
+          "avgRank": 45.9,
+          "minRank": 36,
+          "maxRank": 64,
+          "days": 31,
+          "points": 1707
+        },
+        "combinedAvg": 31.3,
+        "totalPoints": 4322,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "한게임 포커",
+        "slug": "한게임-포커",
+        "title": "한게임 포커",
+        "developer": "NHN Corp.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/77/61/6177615f-8c6b-f4cc-b14f-07a1aca9a188/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 40.7,
+          "minRank": 25,
+          "maxRank": 80,
+          "days": 31,
+          "points": 1870
+        },
+        "aos": {
+          "avgRank": 22.7,
+          "minRank": 12,
+          "maxRank": 34,
+          "days": 31,
+          "points": 2426
+        },
+        "combinedAvg": 31.7,
+        "totalPoints": 4296,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "푸드 앤 트레블: 합성 게임",
+        "slug": "푸드-앤-트레블-합성-게임",
+        "title": "테이스티 트레블: 합성 게임",
+        "developer": "Century Games Pte. Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/7d/95/327d950c-eaec-7d1f-c6d0-427a77632a42/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 25.4,
+          "minRank": 17,
+          "maxRank": 49,
+          "days": 31,
+          "points": 2344
+        },
+        "aos": {
+          "avgRank": 38.7,
+          "minRank": 26,
+          "maxRank": 53,
+          "days": 31,
+          "points": 1930
+        },
+        "combinedAvg": 32.1,
+        "totalPoints": 4274,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "한게임 섯다&맞고",
+        "slug": "한게임-섯다맞고",
+        "title": "한게임 섯다&맞고",
+        "developer": "NHN Corp.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/44/96/eb/4496eb8c-eeb7-a160-95bd-3ece154eb478/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 24.5,
+          "minRank": 10,
+          "maxRank": 43,
+          "days": 31,
+          "points": 2370
+        },
+        "aos": {
+          "avgRank": 41.8,
+          "minRank": 21,
+          "maxRank": 67,
+          "days": 31,
+          "points": 1834
+        },
+        "combinedAvg": 33.2,
+        "totalPoints": 4204,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "메이플스토리M",
+        "slug": "메이플스토리m",
+        "title": "메이플스토리M",
+        "developer": "NEXON Company",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/99/81/a0998153-353f-78c1-0686-51aee1b80e91/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 32.1,
+          "minRank": 20,
+          "maxRank": 56,
+          "days": 31,
+          "points": 2135
+        },
+        "aos": {
+          "avgRank": 35.5,
+          "minRank": 25,
+          "maxRank": 55,
+          "days": 31,
+          "points": 2031
+        },
+        "combinedAvg": 33.8,
+        "totalPoints": 4166,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "젠레스 존 제로",
+        "slug": "젠레스-존-제로",
+        "title": "젠레스 존 제로",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/60/a2/73/60a27358-3b48-2083-388b-0ad380a58d27/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 42.4,
+          "minRank": 3,
+          "maxRank": 81,
+          "days": 31,
+          "points": 1818
+        },
+        "aos": {
+          "avgRank": 26.5,
+          "minRank": 6,
+          "maxRank": 49,
+          "days": 31,
+          "points": 2310
+        },
+        "combinedAvg": 34.4,
+        "totalPoints": 4128,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "귀판오분전",
+        "slug": "귀판오분전",
+        "title": "귀판오분전",
+        "developer": "Joy Net Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/50/9a/36/509a3658-ef6d-77c2-341f-7d817f030e46/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 37.5,
+          "minRank": 26,
+          "maxRank": 63,
+          "days": 31,
+          "points": 1970
+        },
+        "aos": {
+          "avgRank": 33.3,
+          "minRank": 26,
+          "maxRank": 42,
+          "days": 31,
+          "points": 2100
+        },
+        "combinedAvg": 35.4,
+        "totalPoints": 4070,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "로얄 킹덤 (Royal Kingdom)",
+        "slug": "로얄-킹덤-royal-kingdom",
+        "title": "로얄 킹덤 (Royal Kingdom)",
+        "developer": "Dream Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2f/90/ef/2f90ef28-26cf-0491-a446-4104a38c454f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 43.5,
+          "minRank": 35,
+          "maxRank": 80,
+          "days": 31,
+          "points": 1782
+        },
+        "aos": {
+          "avgRank": 30.7,
+          "minRank": 22,
+          "maxRank": 42,
+          "days": 31,
+          "points": 2178
+        },
+        "combinedAvg": 37.1,
+        "totalPoints": 3960,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "꿈의 집 (Homescapes)",
+        "slug": "꿈의-집-homescapes",
+        "title": "Homescapes",
+        "developer": "Playrix",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/6a/73/7c6a7310-c047-d04a-5dec-36f0b175426c/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 27.5,
+          "minRank": 22,
+          "maxRank": 54,
+          "days": 31,
+          "points": 2277
+        },
+        "aos": {
+          "avgRank": 49.1,
+          "minRank": 44,
+          "maxRank": 60,
+          "days": 31,
+          "points": 1608
+        },
+        "combinedAvg": 38.3,
+        "totalPoints": 3885,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "리니지2M",
+        "slug": "리니지2m",
+        "title": "리니지2M",
+        "developer": "NCSOFT",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/7e/c7/9c7ec784-985d-aa88-9d20-a50d22bcf7c6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 38.8,
+          "minRank": 6,
+          "maxRank": 96,
+          "days": 31,
+          "points": 1929
+        },
+        "aos": {
+          "avgRank": 39.8,
+          "minRank": 29,
+          "maxRank": 56,
+          "days": 31,
+          "points": 1897
+        },
+        "combinedAvg": 39.3,
+        "totalPoints": 3826,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "트릭컬 리바이브",
+        "slug": "트릭컬-리바이브",
+        "title": "트릭컬 리바이브",
+        "developer": "EPIDGAMES INC",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/9c/f8/4b9cf870-53fd-ab1e-fe39-aa08e4f2e0e9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 55.7,
+          "minRank": 34,
+          "maxRank": 92,
+          "days": 31,
+          "points": 1405
+        },
+        "aos": {
+          "avgRank": 22.9,
+          "minRank": 12,
+          "maxRank": 37,
+          "days": 31,
+          "points": 2420
+        },
+        "combinedAvg": 39.3,
+        "totalPoints": 3825,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "브롤스타즈",
+        "slug": "브롤스타즈",
+        "title": "브롤스타즈",
+        "developer": "Supercell",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/f1/20/69f120c4-e014-7ed8-7ced-ebb9a0b0e8b6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 32.9,
+          "minRank": 19,
+          "maxRank": 68,
+          "days": 31,
+          "points": 2110
+        },
+        "aos": {
+          "avgRank": 47.5,
+          "minRank": 30,
+          "maxRank": 65,
+          "days": 31,
+          "points": 1658
+        },
+        "combinedAvg": 40.2,
+        "totalPoints": 3768,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "캔디크러쉬사가 (Candy Crush Saga)",
+        "slug": "캔디크러쉬사가-candy-crush-saga",
+        "title": "캔디크러쉬사가",
+        "developer": "King",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/c3/ab/23c3ab3e-446d-5172-17df-d2639742d7ae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 39,
+          "minRank": 30,
+          "maxRank": 70,
+          "days": 31,
+          "points": 1921
+        },
+        "aos": {
+          "avgRank": 43.2,
+          "minRank": 37,
+          "maxRank": 53,
+          "days": 31,
+          "points": 1791
+        },
+        "combinedAvg": 41.1,
+        "totalPoints": 3712,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "아키텍트: 랜드 오브 엑자일",
+        "slug": "아키텍트-랜드-오브-엑자일",
+        "title": "아키텍트: 랜드 오브 엑자일",
+        "developer": "DRIMAGE Co., Ltd",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/47/2e/cc/472ecc3f-2fb1-d7e6-a622-f13f2ea64ddd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 59.1,
+          "minRank": 24,
+          "maxRank": 100,
+          "days": 27,
+          "points": 1130
+        },
+        "aos": {
+          "avgRank": 24.7,
+          "minRank": 21,
+          "maxRank": 37,
+          "days": 31,
+          "points": 2366
+        },
+        "combinedAvg": 41.9,
+        "totalPoints": 3496,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "한게임포커 클래식 : 7포커 홀덤 섯다 훌라 슬롯",
+        "slug": "한게임포커-클래식-7포커-홀덤-섯다-훌라-슬롯",
+        "title": "한게임포커 클래식 - 7포커 홀덤 섯다 훌라 슬롯",
+        "developer": "NHN Corp.",
+        "icon": "https://play-lh.googleusercontent.com/Hv-D0Heegr2EW_eyGcfNv-HzI_WRrjxMqnN575pY17XaRfXA4wjmAtTwWsO_ON6WqVtTP0ajH2bKKRDx6CNXhQ",
+        "genre": null,
+        "ios": {
+          "avgRank": 63.9,
+          "minRank": 34,
+          "maxRank": 100,
+          "days": 31,
+          "points": 1151
+        },
+        "aos": {
+          "avgRank": 25.7,
+          "minRank": 14,
+          "maxRank": 54,
+          "days": 31,
+          "points": 2333
+        },
+        "combinedAvg": 44.8,
+        "totalPoints": 3484,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "eFootball™",
+        "slug": "efootball",
+        "title": "eFootball™",
+        "developer": "KONAMI",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b9/2c/1e/b92c1e53-b34f-8b6f-c99a-ea40ad10b03b/PesMobile-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 24.3,
+          "minRank": 7,
+          "maxRank": 96,
+          "days": 31,
+          "points": 2377
+        },
+        "aos": {
+          "avgRank": 72,
+          "minRank": 40,
+          "maxRank": 138,
+          "days": 31,
+          "points": 1057
+        },
+        "combinedAvg": 48.2,
+        "totalPoints": 3434,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "쿠키런: 킹덤",
+        "slug": "쿠키런-킹덤",
+        "title": "쿠키런: 킹덤",
+        "developer": "Devsisters",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/08/d4/7f/08d47f21-50f8-f640-2e56-df19cd959980/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 33.7,
+          "minRank": 2,
+          "maxRank": 82,
+          "days": 31,
+          "points": 2087
+        },
+        "aos": {
+          "avgRank": 58.5,
+          "minRank": 20,
+          "maxRank": 117,
+          "days": 31,
+          "points": 1334
+        },
+        "combinedAvg": 46.1,
+        "totalPoints": 3421,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "협동 타워 디펜스 : 깐부와 함께",
+        "slug": "협동-타워-디펜스-깐부와-함께",
+        "title": "협동 타워 디펜스 : 깐부와 함께",
+        "developer": "SuperMagic",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/ba/8a/fdba8af5-b4ba-642e-4957-8d6f6d4c5fd8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 38.4,
+          "minRank": 21,
+          "maxRank": 74,
+          "days": 31,
+          "points": 1940
+        },
+        "aos": {
+          "avgRank": 57.4,
+          "minRank": 43,
+          "maxRank": 76,
+          "days": 31,
+          "points": 1351
+        },
+        "combinedAvg": 47.9,
+        "totalPoints": 3291,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "카트라이더 러쉬플러스",
+        "slug": "카트라이더-러쉬플러스",
+        "title": "카트라이더 러쉬플러스",
+        "developer": "NEXON Company",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/12/4b/00/124b00ee-f561-fa94-b731-33a22a6f98e8/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 28.4,
+          "minRank": 20,
+          "maxRank": 43,
+          "days": 31,
+          "points": 2251
+        },
+        "aos": {
+          "avgRank": 68.1,
+          "minRank": 52,
+          "maxRank": 91,
+          "days": 31,
+          "points": 1020
+        },
+        "combinedAvg": 48.2,
+        "totalPoints": 3271,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "꿈의 마을 (Township)",
+        "slug": "꿈의-마을-township",
+        "title": "꿈의 마을 (Township)",
+        "developer": "Playrix",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/ad/50/a8ad5036-075b-1080-8034-7bffc60430c5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 38.9,
+          "minRank": 25,
+          "maxRank": 75,
+          "days": 31,
+          "points": 1924
+        },
+        "aos": {
+          "avgRank": 62.3,
+          "minRank": 51,
+          "maxRank": 85,
+          "days": 31,
+          "points": 1201
+        },
+        "combinedAvg": 50.6,
+        "totalPoints": 3125,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "Travel Town - 결합 어드벤처",
+        "slug": "travel-town-결합-어드벤처",
+        "title": "Travel Town - 결합 어드벤처",
+        "developer": "Moon Active",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/13/02/e6/1302e63d-2ca6-eb8b-ce16-51cb034e93a2/NewAppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 46.9,
+          "minRank": 38,
+          "maxRank": 76,
+          "days": 31,
+          "points": 1677
+        },
+        "aos": {
+          "avgRank": 56.3,
+          "minRank": 49,
+          "maxRank": 65,
+          "days": 31,
+          "points": 1386
+        },
+        "combinedAvg": 51.6,
+        "totalPoints": 3063,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "그놈은 드래곤",
+        "slug": "그놈은-드래곤",
+        "title": "그놈은 드래곤",
+        "developer": "GameTree Entertainment",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/25/88/0e258813-fd40-1d7b-e298-c0925d68d8e2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 13.6,
+          "minRank": 8,
+          "maxRank": 64,
+          "days": 19,
+          "points": 1661
+        },
+        "aos": {
+          "avgRank": 15.5,
+          "minRank": 9,
+          "maxRank": 43,
+          "days": 16,
+          "points": 1368
+        },
+        "combinedAvg": 14.5,
+        "totalPoints": 3029,
+        "totalDays": 19
+      },
+      {
+        "gameKey": "Roblox",
+        "slug": "roblox",
+        "title": "Roblox",
+        "developer": "Roblox Corporation",
+        "icon": "https://play-lh.googleusercontent.com/7cIIPlWm4m7AGqVpEsIfyL-HW4cQla4ucXnfalMft1TMIYQIlf2vqgmthlZgbNAQoaQ",
+        "genre": null,
+        "ios": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "aos": {
+          "avgRank": 5.8,
+          "minRank": 3,
+          "maxRank": 8,
+          "days": 31,
+          "points": 2951
+        },
+        "combinedAvg": 5.8,
+        "totalPoints": 2951,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "SD건담 지 제네레이션 이터널",
+        "slug": "sd건담-지-제네레이션-이터널",
+        "title": "SD건담 지 제네레이션 이터널",
+        "developer": "Bandai Namco Entertainment Inc.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/85/84/7c85844e-13d8-e8f3-9596-7ff90fb93157/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 56,
+          "minRank": 6,
+          "maxRank": 97,
+          "days": 25,
+          "points": 1125
+        },
+        "aos": {
+          "avgRank": 42.9,
+          "minRank": 17,
+          "maxRank": 118,
+          "days": 31,
+          "points": 1815
+        },
+        "combinedAvg": 49.5,
+        "totalPoints": 2940,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "리니지M(12)",
+        "slug": "리니지m12",
+        "title": "리니지M(12)",
+        "developer": "NCSOFT",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ac/36/6d/ac366dc6-ff29-9584-fb4b-dcb05d2bba14/AppIcon-12-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 34.6,
+          "minRank": 13,
+          "maxRank": 70,
+          "days": 31,
+          "points": 2058
+        },
+        "aos": {
+          "avgRank": 83.2,
+          "minRank": 28,
+          "maxRank": 144,
+          "days": 31,
+          "points": 776
+        },
+        "combinedAvg": 58.9,
+        "totalPoints": 2834,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "RF 온라인 넥스트",
+        "slug": "rf-온라인-넥스트",
+        "title": "RF 온라인 넥스트",
+        "developer": "Netmarble Corporation",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/e4/16/abe41634-6bfb-4cc8-525a-0a9e9af489a5/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 65,
+          "minRank": 23,
+          "maxRank": 100,
+          "days": 24,
+          "points": 864
+        },
+        "aos": {
+          "avgRank": 38,
+          "minRank": 29,
+          "maxRank": 49,
+          "days": 31,
+          "points": 1953
+        },
+        "combinedAvg": 51.5,
+        "totalPoints": 2817,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "쿠키런: 오븐브레이크",
+        "slug": "쿠키런-오븐브레이크",
+        "title": "쿠키런: 오븐브레이크",
+        "developer": "Devsisters",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/5c/90/735c9039-260c-0711-c677-e9bc9db7d8a5/AppIcon-1x_U007epad-0-11-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 38.4,
+          "minRank": 19,
+          "maxRank": 60,
+          "days": 31,
+          "points": 1941
+        },
+        "aos": {
+          "avgRank": 75,
+          "minRank": 45,
+          "maxRank": 95,
+          "days": 31,
+          "points": 805
+        },
+        "combinedAvg": 56.7,
+        "totalPoints": 2746,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "원신·공월의 노래",
+        "slug": "원신공월의-노래",
+        "title": "원신·공월의 노래",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "icon": "https://play-lh.googleusercontent.com/YQqyKaXX-63krqsfIzUEJWUWLINxcb5tbS6QVySdxbS7eZV7YB2dUjUvX27xA0TIGtfxQ5v-tQjwlT5tTB-O",
+        "genre": null,
+        "ios": {
+          "avgRank": 50.5,
+          "minRank": 5,
+          "maxRank": 100,
+          "days": 20,
+          "points": 1010
+        },
+        "aos": {
+          "avgRank": 45.7,
+          "minRank": 5,
+          "maxRank": 94,
+          "days": 31,
+          "points": 1713
+        },
+        "combinedAvg": 48.1,
+        "totalPoints": 2723,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+        "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
+        "title": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+        "developer": "Zempot Inc.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/48/54/e1/4854e108-dfbd-6b04-0ef1-5c812e7f47ce/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 38.7,
+          "minRank": 27,
+          "maxRank": 69,
+          "days": 31,
+          "points": 1930
+        },
+        "aos": {
+          "avgRank": 76,
+          "minRank": 45,
+          "maxRank": 124,
+          "days": 31,
+          "points": 790
+        },
+        "combinedAvg": 57.4,
+        "totalPoints": 2720,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "Limbus Company",
+        "slug": "limbus-company",
+        "title": "Limbus Company",
+        "developer": "Project Moon Co., Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/78/3d/48/783d485a-9f18-7935-52d3-0b3086e07b4c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 68.8,
+          "minRank": 14,
+          "maxRank": 100,
+          "days": 26,
+          "points": 838
+        },
+        "aos": {
+          "avgRank": 40.5,
+          "minRank": 24,
+          "maxRank": 118,
+          "days": 31,
+          "points": 1875
+        },
+        "combinedAvg": 54.6,
+        "totalPoints": 2713,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "두근두근타운",
+        "slug": "두근두근타운",
+        "title": "두근두근타운",
+        "developer": "XD Entertainment Co., Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dc/cd/b2/dccdb254-82c8-8a85-b469-0ca1e7c5f652/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 29,
+          "minRank": 13,
+          "maxRank": 63,
+          "days": 24,
+          "points": 1729
+        },
+        "aos": {
+          "avgRank": 65.5,
+          "minRank": 50,
+          "maxRank": 196,
+          "days": 22,
+          "points": 884
+        },
+        "combinedAvg": 47.2,
+        "totalPoints": 2613,
+        "totalDays": 24
+      },
+      {
+        "gameKey": "갓깨비 키우기-999뽑기 증정",
+        "slug": "갓깨비-키우기-999뽑기-증정",
+        "title": "갓깨비 키우기",
+        "developer": "Joy Net Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/46/a9/e146a9f0-11eb-d87a-c627-22de91f7ea55/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 62,
+          "minRank": 48,
+          "maxRank": 100,
+          "days": 31,
+          "points": 1208
+        },
+        "aos": {
+          "avgRank": 55.8,
+          "minRank": 39,
+          "maxRank": 72,
+          "days": 31,
+          "points": 1401
+        },
+        "combinedAvg": 58.9,
+        "totalPoints": 2609,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "리그 오브 레전드: 와일드 리프트",
+        "slug": "리그-오브-레전드-와일드-리프트",
+        "title": "리그 오브 레전드: 와일드 리프트",
+        "developer": "Riot Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1c/a0/47/1ca047ea-f956-613c-99f5-c4f1de0878d7/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 39.6,
+          "minRank": 13,
+          "maxRank": 70,
+          "days": 31,
+          "points": 1903
+        },
+        "aos": {
+          "avgRank": 83.8,
+          "minRank": 47,
+          "maxRank": 132,
+          "days": 31,
+          "points": 641
+        },
+        "combinedAvg": 61.7,
+        "totalPoints": 2544,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "클래시 로얄",
+        "slug": "클래시-로얄",
+        "title": "클래시 로얄",
+        "developer": "Supercell",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/fa/60/2efa60d5-da94-6039-0521-727ca9318e26/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 39,
+          "minRank": 24,
+          "maxRank": 69,
+          "days": 31,
+          "points": 1921
+        },
+        "aos": {
+          "avgRank": 83.7,
+          "minRank": 65,
+          "maxRank": 107,
+          "days": 31,
+          "points": 541
+        },
+        "combinedAvg": 61.4,
+        "totalPoints": 2462,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "리니지W",
+        "slug": "리니지w",
+        "title": "리니지W",
+        "developer": "NCSOFT",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/97/a8/32/97a83254-99a5-4938-5202-1d53785a3b96/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 80.1,
+          "minRank": 61,
+          "maxRank": 99,
+          "days": 10,
+          "points": 209
+        },
+        "aos": {
+          "avgRank": 29.9,
+          "minRank": 24,
+          "maxRank": 37,
+          "days": 31,
+          "points": 2205
+        },
+        "combinedAvg": 55,
+        "totalPoints": 2414,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "I9: 인페르노 나인 - 1주년",
+        "slug": "i9-인페르노-나인-1주년",
+        "title": "I9: 인페르노 나인",
+        "developer": "Leniu Technology Co., Limited",
+        "icon": "https://play-lh.googleusercontent.com/jZ0P5ZxOE4VorYhs9QmbcxzXi7VYiNqh4I5YlO2JXUdh_5D80ymAagbYxjtP6pGnU_7f_W0gWUVWUm9mIkCI5A",
+        "genre": null,
+        "ios": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "aos": {
+          "avgRank": 27.1,
+          "minRank": 24,
+          "maxRank": 32,
+          "days": 31,
+          "points": 2292
+        },
+        "combinedAvg": 27.1,
+        "totalPoints": 2292,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "던전앤파이터 모바일",
+        "slug": "던전앤파이터-모바일",
+        "title": "던전앤파이터 모바일",
+        "developer": "NEXON Company",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/17/73/66/17736629-a3fc-de8e-fdf6-53471f6b91d7/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 56.5,
+          "minRank": 21,
+          "maxRank": 99,
+          "days": 30,
+          "points": 1334
+        },
+        "aos": {
+          "avgRank": 75,
+          "minRank": 38,
+          "maxRank": 137,
+          "days": 31,
+          "points": 951
+        },
+        "combinedAvg": 65.8,
+        "totalPoints": 2285,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "핫레스토랑: 머지&쿠킹",
+        "slug": "핫레스토랑-머지쿠킹",
+        "title": "핫레스토랑: 머지&쿠킹",
+        "developer": "Microfun Limited",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8c/cb/5a/8ccb5a92-c3ae-957a-dacf-c4718f733cd0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 55.5,
+          "minRank": 38,
+          "maxRank": 99,
+          "days": 31,
+          "points": 1409
+        },
+        "aos": {
+          "avgRank": 73.5,
+          "minRank": 62,
+          "maxRank": 92,
+          "days": 31,
+          "points": 853
+        },
+        "combinedAvg": 64.5,
+        "totalPoints": 2262,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "Pokémon GO",
+        "slug": "pokmon-go",
+        "title": "Pokémon GO",
+        "developer": "Niantic, Inc.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5d/c0/f3/5dc0f391-5c27-22ec-503a-f29dd9c3978d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 48.5,
+          "minRank": 2,
+          "maxRank": 92,
+          "days": 31,
+          "points": 1628
+        },
+        "aos": {
+          "avgRank": 96.4,
+          "minRank": 43,
+          "maxRank": 141,
+          "days": 31,
+          "points": 474
+        },
+        "combinedAvg": 72.4,
+        "totalPoints": 2102,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "나이트 크로우",
+        "slug": "나이트-크로우",
+        "title": "나이트 크로우",
+        "developer": "Wemade Co., Ltd",
+        "icon": "https://play-lh.googleusercontent.com/TjjQk-u1yoZ-9pWHa6vMqY46rN7NhyVGVrb9yZ54nJdzj8U1LwsWj91KzJFKwRliFg",
+        "genre": null,
+        "ios": {
+          "avgRank": 71.9,
+          "minRank": 53,
+          "maxRank": 100,
+          "days": 19,
+          "points": 552
+        },
+        "aos": {
+          "avgRank": 53.8,
+          "minRank": 41,
+          "maxRank": 64,
+          "days": 31,
+          "points": 1464
+        },
+        "combinedAvg": 62.9,
+        "totalPoints": 2016,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "마피아42",
+        "slug": "마피아42",
+        "title": "마피아42",
+        "developer": "TEAM42 CO., LTD.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/dd/94/39dd9483-984c-7328-f0aa-3fcec0e4b101/AppIcon-0-0-1x_U007ephone-0-1-0-0-sRGB-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 37.5,
+          "minRank": 8,
+          "maxRank": 86,
+          "days": 31,
+          "points": 1968
+        },
+        "aos": {
+          "avgRank": 125.4,
+          "minRank": 70,
+          "maxRank": 164,
+          "days": 31,
+          "points": 45
+        },
+        "combinedAvg": 81.5,
+        "totalPoints": 2013,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "블러드 앤 소울",
+        "slug": "블러드-앤-소울",
+        "title": "블러드 앤 소울",
+        "developer": "sp_games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/34/9e/37/349e3720-4f7c-4917-0247-f7d678e1fc7a/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 67.7,
+          "minRank": 46,
+          "maxRank": 100,
+          "days": 24,
+          "points": 800
+        },
+        "aos": {
+          "avgRank": 53,
+          "minRank": 37,
+          "maxRank": 180,
+          "days": 22,
+          "points": 1141
+        },
+        "combinedAvg": 60.3,
+        "totalPoints": 1941,
+        "totalDays": 24
+      },
+      {
+        "gameKey": "변신 키우기",
+        "slug": "변신-키우기",
+        "title": "변신 키우기",
+        "developer": "Billionairegames",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/99/91/6f/99916fe6-ebd0-c989-40ab-c544621a09df/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 63.1,
+          "minRank": 24,
+          "maxRank": 100,
+          "days": 31,
+          "points": 1175
+        },
+        "aos": {
+          "avgRank": 77.9,
+          "minRank": 64,
+          "maxRank": 98,
+          "days": 31,
+          "points": 715
+        },
+        "combinedAvg": 70.5,
+        "totalPoints": 1890,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "머지 쿠킹 테마 레스토랑",
+        "slug": "머지-쿠킹-테마-레스토랑",
+        "title": "머지 쿠킹 테마 레스토랑",
+        "developer": "Happibits",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d2/6b/a8/d26ba845-eaba-96c4-e4b2-818af47f5e93/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 47.5,
+          "minRank": 35,
+          "maxRank": 80,
+          "days": 31,
+          "points": 1658
+        },
+        "aos": {
+          "avgRank": 97.2,
+          "minRank": 80,
+          "maxRank": 115,
+          "days": 31,
+          "points": 185
+        },
+        "combinedAvg": 72.4,
+        "totalPoints": 1843,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "냥코 대전쟁",
+        "slug": "냥코-대전쟁",
+        "title": "냥코 대전쟁",
+        "developer": "PONOS Corporation",
+        "icon": "https://play-lh.googleusercontent.com/O4jgjsv3A6JN6kYIpXcA3bETFDeVMdlzddOGEx-9GaroFvOsrBcUWOf06vM_5aGueVOT-6JmL_UsBJZL5FFP",
+        "genre": null,
+        "ios": {
+          "avgRank": 61.1,
+          "minRank": 24,
+          "maxRank": 100,
+          "days": 28,
+          "points": 1117
+        },
+        "aos": {
+          "avgRank": 77.7,
+          "minRank": 60,
+          "maxRank": 103,
+          "days": 31,
+          "points": 722
+        },
+        "combinedAvg": 69.4,
+        "totalPoints": 1839,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "피망 포커 : 카지노 로얄 - 홀덤, 7포커, 바둑이",
+        "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+        "title": "피망 포커",
+        "developer": "NEOWIZ corp",
+        "icon": "https://play-lh.googleusercontent.com/isQpniEjKL8RDxTcHsHvRtBawTyo3HDkLIP4_BUQKfYU0ZDB9HsZ7QYCRji8e0gtCA",
+        "genre": null,
+        "ios": {
+          "avgRank": 93.5,
+          "minRank": 85,
+          "maxRank": 100,
+          "days": 10,
+          "points": 75
+        },
+        "aos": {
+          "avgRank": 44.6,
+          "minRank": 24,
+          "maxRank": 71,
+          "days": 31,
+          "points": 1748
+        },
+        "combinedAvg": 69.1,
+        "totalPoints": 1823,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "캣 히어로 : 방치형 RPG",
+        "slug": "캣-히어로-방치형-rpg",
+        "title": "캣 히어로 : 방치형 RPG",
+        "developer": "Game Duo Co.,Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f3/35/07/f3350775-512e-ebb1-d5ad-27736e9b7548/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 47,
+          "minRank": 29,
+          "maxRank": 81,
+          "days": 31,
+          "points": 1673
+        },
+        "aos": {
+          "avgRank": 140.3,
+          "minRank": 126,
+          "maxRank": 170,
+          "days": 31,
+          "points": 0
+        },
+        "combinedAvg": 93.7,
+        "totalPoints": 1673,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "오피스 퀸 키우기",
+        "slug": "오피스-퀸-키우기",
+        "title": "오피스 퀸 키우기",
+        "developer": "Wish Interactive Technology Limited",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/10/97/f810976f-d946-528d-e5b2-ff7d0eae31d8/AppIcon-0-0-1x_U007emarketing-0-7-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 48.4,
+          "minRank": 36,
+          "maxRank": 82,
+          "days": 31,
+          "points": 1631
+        },
+        "aos": {
+          "avgRank": 159.7,
+          "minRank": 120,
+          "maxRank": 199,
+          "days": 31,
+          "points": 0
+        },
+        "combinedAvg": 104,
+        "totalPoints": 1631,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "모바일 레전드: Bang Bang",
+        "slug": "모바일-레전드-bang-bang",
+        "title": "모바일 레전드: Bang Bang",
+        "developer": "MOONTON",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5d/9d/09/5d9d09b3-bfe1-a2c2-f114-55a3a611df7e/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 53,
+          "minRank": 32,
+          "maxRank": 100,
+          "days": 31,
+          "points": 1487
+        },
+        "aos": {
+          "avgRank": 106.8,
+          "minRank": 80,
+          "maxRank": 145,
+          "days": 29,
+          "points": 66
+        },
+        "combinedAvg": 79.9,
+        "totalPoints": 1553,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "명일방주",
+        "slug": "명일방주",
+        "title": "명일방주",
+        "developer": "Yostar Limited.",
+        "icon": "https://play-lh.googleusercontent.com/CV04ek0EGV3IGD9iZDPcMEIKlYKW30p7Gia4qIjdiXk8_XkzmKUvgjznxZ0WneN6dNg",
+        "genre": null,
+        "ios": {
+          "avgRank": 61,
+          "minRank": 9,
+          "maxRank": 99,
+          "days": 15,
+          "points": 600
+        },
+        "aos": {
+          "avgRank": 98.6,
+          "minRank": 18,
+          "maxRank": 181,
+          "days": 31,
+          "points": 918
+        },
+        "combinedAvg": 79.8,
+        "totalPoints": 1518,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "건틀렛: 방치형 액션 RPG",
+        "slug": "건틀렛-방치형-액션-rpg",
+        "title": "잠룡 : 도트 무협 RPG",
+        "developer": "Standegg",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e7/66/fd/e766fd56-3d95-9001-0b9e-2070707eff75/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 52.2,
+          "minRank": 31,
+          "maxRank": 90,
+          "days": 31,
+          "points": 1514
+        },
+        "aos": {
+          "avgRank": 124.9,
+          "minRank": 105,
+          "maxRank": 169,
+          "days": 31,
+          "points": 0
+        },
+        "combinedAvg": 88.5,
+        "totalPoints": 1514,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "우마무스메 프리티 더비",
+        "slug": "우마무스메-프리티-더비",
+        "title": "우마무스메 프리티 더비",
+        "developer": "Kakao Games Corp.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b6/47/5c/b6475c9d-4e18-1a6a-9214-c0200107443f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 67.7,
+          "minRank": 37,
+          "maxRank": 99,
+          "days": 15,
+          "points": 500
+        },
+        "aos": {
+          "avgRank": 69.1,
+          "minRank": 47,
+          "maxRank": 115,
+          "days": 30,
+          "points": 970
+        },
+        "combinedAvg": 68.4,
+        "totalPoints": 1470,
+        "totalDays": 30
+      },
+      {
+        "gameKey": "창세기전 모바일 - 서풍의 광시곡",
+        "slug": "창세기전-모바일-서풍의-광시곡",
+        "title": "창세기전 모바일 - 서풍의 광시곡",
+        "developer": "LINE Games",
+        "icon": "https://play-lh.googleusercontent.com/KDKDTIzadyXjl-jwNWwkc29YvqrEebhgUM75XNsGx9Zp9Ie4wZRF80NG-2wM5PdM27g8IdjoPYaQ6rqhejzNzs4",
+        "genre": null,
+        "ios": {
+          "avgRank": 50.7,
+          "minRank": 5,
+          "maxRank": 100,
+          "days": 20,
+          "points": 1006
+        },
+        "aos": {
+          "avgRank": 92.5,
+          "minRank": 49,
+          "maxRank": 195,
+          "days": 20,
+          "points": 385
+        },
+        "combinedAvg": 71.6,
+        "totalPoints": 1391,
+        "totalDays": 20
+      },
+      {
+        "gameKey": "삼국지 전략판",
+        "slug": "삼국지-전략판",
+        "title": "삼국지 전략판",
+        "developer": "Qookka Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c3/ae/19/c3ae19a4-1f9f-024b-01b2-8aa6b67b33b8/AppIcon-kr-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 35.4,
+          "minRank": 3,
+          "maxRank": 100,
+          "days": 16,
+          "points": 1050
+        },
+        "aos": {
+          "avgRank": 120.3,
+          "minRank": 41,
+          "maxRank": 196,
+          "days": 23,
+          "points": 333
+        },
+        "combinedAvg": 77.8,
+        "totalPoints": 1383,
+        "totalDays": 23
+      },
+      {
+        "gameKey": "서머너즈 워: 천공의 아레나",
+        "slug": "서머너즈-워-천공의-아레나",
+        "title": "서머너즈 워: 천공의 아레나",
+        "developer": "Com2uS Corp.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0e/34/93/0e34931d-8fa5-4be4-ec68-53fe7ce0f7ac/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 76.9,
+          "minRank": 26,
+          "maxRank": 100,
+          "days": 19,
+          "points": 458
+        },
+        "aos": {
+          "avgRank": 71.4,
+          "minRank": 46,
+          "maxRank": 93,
+          "days": 31,
+          "points": 917
+        },
+        "combinedAvg": 74.2,
+        "totalPoints": 1375,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "I9: 인페르노 나인(19) - 세로형 RPG",
+        "slug": "i9-인페르노-나인19-세로형-rpg",
+        "title": "I9: 인페르노 나인(19) - 세로형 RPG",
+        "developer": "Leniu Technology Co., Limited",
+        "icon": "https://play-lh.googleusercontent.com/mXF7HtbUud3zSsdOzFkh-zKHE5G9n2nASkBz6-d4Fqt9wMHJkP3jniIjjcOQxFwuCWJCRLeJYrxKXBs2GbuxFg",
+        "genre": null,
+        "ios": {
+          "avgRank": 92.6,
+          "minRank": 82,
+          "maxRank": 100,
+          "days": 5,
+          "points": 42
+        },
+        "aos": {
+          "avgRank": 58.5,
+          "minRank": 50,
+          "maxRank": 71,
+          "days": 31,
+          "points": 1316
+        },
+        "combinedAvg": 75.6,
+        "totalPoints": 1358,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "세포 특공대",
+        "slug": "세포-특공대",
+        "title": "세포 특공대 - 전략형 타워 디펜스",
+        "developer": "SkyFury",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5f/02/7e/5f027ed7-6162-ed32-5642-1e90c693df7a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 63.9,
+          "minRank": 49,
+          "maxRank": 99,
+          "days": 31,
+          "points": 1149
+        },
+        "aos": {
+          "avgRank": 103.4,
+          "minRank": 78,
+          "maxRank": 133,
+          "days": 31,
+          "points": 185
+        },
+        "combinedAvg": 83.6,
+        "totalPoints": 1334,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "브라운더스트2 - 가슴 벅찬 RPG",
+        "slug": "브라운더스트2-가슴-벅찬-rpg",
+        "title": "브라운더스트2 - 가슴 벅찬 RPG",
+        "developer": "NEOWIZ",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e9/22/c6/e922c6f9-afaa-12a8-35b3-207b5cdaef49/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 89.7,
+          "minRank": 66,
+          "maxRank": 100,
+          "days": 6,
+          "points": 68
+        },
+        "aos": {
+          "avgRank": 63.1,
+          "minRank": 34,
+          "maxRank": 105,
+          "days": 31,
+          "points": 1185
+        },
+        "combinedAvg": 76.4,
+        "totalPoints": 1253,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "S.O.S:스테이트 오브 서바이벌",
+        "slug": "sos스테이트-오브-서바이벌",
+        "title": "S.O.S: 스테이트 오브 서바이벌",
+        "developer": "FunPlus International AG",
+        "icon": "https://play-lh.googleusercontent.com/g7IlaVOg6pqpCJVu5oHyOUNFq4mDpNcfkIRU1yiiGxjE4GF2nCrkJ5gf76mLRYsmcQ",
+        "genre": null,
+        "ios": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "aos": {
+          "avgRank": 61.1,
+          "minRank": 46,
+          "maxRank": 100,
+          "days": 31,
+          "points": 1236
+        },
+        "combinedAvg": 61.1,
+        "totalPoints": 1236,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "카오스 제로 나이트메어",
+        "slug": "카오스-제로-나이트메어",
+        "title": "카오스 제로 나이트메어",
+        "developer": "Smilegate Holdings, Inc.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/ff/b8/1fffb886-3383-9a93-0597-a63d1c76d0c0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 71.7,
+          "minRank": 27,
+          "maxRank": 100,
+          "days": 14,
+          "points": 410
+        },
+        "aos": {
+          "avgRank": 97.2,
+          "minRank": 21,
+          "maxRank": 188,
+          "days": 31,
+          "points": 752
+        },
+        "combinedAvg": 84.5,
+        "totalPoints": 1162,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "삼국지 왕전",
+        "slug": "삼국지-왕전",
+        "title": "삼국지 왕전",
+        "developer": "HKBBGL",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b6/06/51/b606511e-4170-be1a-7e30-8be4ee846ab8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 48.5,
+          "minRank": 34,
+          "maxRank": 90,
+          "days": 15,
+          "points": 787
+        },
+        "aos": {
+          "avgRank": 90.8,
+          "minRank": 60,
+          "maxRank": 179,
+          "days": 13,
+          "points": 364
+        },
+        "combinedAvg": 69.7,
+        "totalPoints": 1151,
+        "totalDays": 15
+      },
+      {
+        "gameKey": "피망 뉴맞고 : 고스톱으로 대한민국 1등",
+        "slug": "피망-뉴맞고-고스톱으로-대한민국-1등",
+        "title": "피망 뉴맞고: 고스톱 대표 맞고 게임",
+        "developer": "NEOWIZ corp",
+        "icon": "https://play-lh.googleusercontent.com/khsD_dv1Ku2EEcKtzX3jVkMRxLEZzMsSET4Hk0xVt3mCwWX47jWua3hA9GuofSLUPRUCd8N7CQw0rc-NCRpG",
+        "genre": null,
+        "ios": {
+          "avgRank": 92.2,
+          "minRank": 83,
+          "maxRank": 100,
+          "days": 26,
+          "points": 230
+        },
+        "aos": {
+          "avgRank": 72.1,
+          "minRank": 58,
+          "maxRank": 94,
+          "days": 31,
+          "points": 896
+        },
+        "combinedAvg": 82.1,
+        "totalPoints": 1126,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "뮤 모나크2",
+        "slug": "뮤-모나크2",
+        "title": "뮤 모나크2",
+        "developer": "Webzen Inc.",
+        "icon": "https://play-lh.googleusercontent.com/2gp6GXk0PmCpkJsebFK2vsbINe9bStBtDJx23uC9zCjhXK0hByjklYtGMG5q1uQFyQ",
+        "genre": null,
+        "ios": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "aos": {
+          "avgRank": 65.1,
+          "minRank": 47,
+          "maxRank": 83,
+          "days": 31,
+          "points": 1113
+        },
+        "combinedAvg": 65.1,
+        "totalPoints": 1113,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "좀비 웨이브스",
+        "slug": "좀비-웨이브스",
+        "title": "좀비 웨이브스",
+        "developer": "Fun Formula",
+        "icon": "https://play-lh.googleusercontent.com/RBS57n8UMbzGOezcYN1QTuE39rjV01haLomxwN5I3qIukvRaHTvq1OCRgjITvUHO7CiF",
+        "genre": null,
+        "ios": {
+          "avgRank": 82.9,
+          "minRank": 55,
+          "maxRank": 100,
+          "days": 15,
+          "points": 272
+        },
+        "aos": {
+          "avgRank": 73.9,
+          "minRank": 57,
+          "maxRank": 91,
+          "days": 31,
+          "points": 840
+        },
+        "combinedAvg": 78.4,
+        "totalPoints": 1112,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "피쉬돔 (Fishdom)",
+        "slug": "피쉬돔-fishdom",
+        "title": "피쉬돔 (Fishdom)",
+        "developer": "Playrix",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e9/da/bd/e9dabd7a-5fa5-a041-8797-65fa701f7088/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 78.7,
+          "minRank": 66,
+          "maxRank": 100,
+          "days": 31,
+          "points": 692
+        },
+        "aos": {
+          "avgRank": 88.5,
+          "minRank": 77,
+          "maxRank": 103,
+          "days": 31,
+          "points": 387
+        },
+        "combinedAvg": 83.6,
+        "totalPoints": 1079,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "포켓몬 카드 게임 Pocket",
+        "slug": "포켓몬-카드-게임-pocket",
+        "title": "포켓몬 카드 게임 Pocket",
+        "developer": "The Pokemon Company",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/bf/46/62bf46e1-ed47-0304-8c36-0fb497eb8a59/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 63.1,
+          "minRank": 13,
+          "maxRank": 100,
+          "days": 28,
+          "points": 1062
+        },
+        "aos": {
+          "avgRank": 141.3,
+          "minRank": 94,
+          "maxRank": 195,
+          "days": 31,
+          "points": 16
+        },
+        "combinedAvg": 102.2,
+        "totalPoints": 1078,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "컴투스프로야구2026",
+        "slug": "컴투스프로야구2026",
+        "title": "컴투스프로야구2026",
+        "developer": "Com2uS Corp.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dc/8f/fa/dc8ffa2f-1a3e-a8cb-3892-17c02f00697d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 80.2,
+          "minRank": 36,
+          "maxRank": 100,
+          "days": 21,
+          "points": 437
+        },
+        "aos": {
+          "avgRank": 81.2,
+          "minRank": 51,
+          "maxRank": 112,
+          "days": 31,
+          "points": 630
+        },
+        "combinedAvg": 80.7,
+        "totalPoints": 1067,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "Disney Solitaire",
+        "slug": "disney-solitaire",
+        "title": "Disney Solitaire",
+        "developer": "SuperPlay",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/8f/d6/408fd677-e473-8cad-b7ff-d73078633479/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 65.5,
+          "minRank": 45,
+          "maxRank": 100,
+          "days": 30,
+          "points": 1064
+        },
+        "aos": {
+          "avgRank": 149.6,
+          "minRank": 115,
+          "maxRank": 199,
+          "days": 31,
+          "points": 0
+        },
+        "combinedAvg": 107.6,
+        "totalPoints": 1064,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "Legends Reborn: 마지막 전투",
+        "slug": "legends-reborn-마지막-전투",
+        "title": "Legends Reborn: 마지막 전투",
+        "developer": "ACE GAME INTERNATIONAL LIMITED",
+        "icon": "https://play-lh.googleusercontent.com/QuMlJ6-RZLmgY98Nmo5GDSFyHOfWWaEE-4sN8tMxIXk-T2YFRR6_-mmbqEe3aRWABO3Ura-ErNcfrzE6FThGuA",
+        "genre": null,
+        "ios": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "aos": {
+          "avgRank": 66.7,
+          "minRank": 51,
+          "maxRank": 82,
+          "days": 31,
+          "points": 1062
+        },
+        "combinedAvg": 66.7,
+        "totalPoints": 1062,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "주술회전 팬텀 퍼레이드",
+        "slug": "주술회전-팬텀-퍼레이드",
+        "title": "주술회전 팬텀 퍼레이드",
+        "developer": "BILIBILI HK LIMITED",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ea/d5/b4/ead5b42e-bce6-45d5-d3d5-c5fb8578fd86/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 59.4,
+          "minRank": 29,
+          "maxRank": 99,
+          "days": 22,
+          "points": 915
+        },
+        "aos": {
+          "avgRank": 116.7,
+          "minRank": 72,
+          "maxRank": 197,
+          "days": 30,
+          "points": 133
+        },
+        "combinedAvg": 88,
+        "totalPoints": 1048,
+        "totalDays": 30
+      },
+      {
+        "gameKey": "퍼즐 오브 Z",
+        "slug": "퍼즐-오브-z",
+        "title": "퍼즐 오브 Z",
+        "developer": "BLANCOZONE NETWORK CO., LIMITED",
+        "icon": "https://play-lh.googleusercontent.com/mtxDU0hGKP74EmLVEtdJ5sdzxPLXO9qdvZslGBWaSRL4Ffb3i7K48iTQwHPEC0LbPOOBsBaOoTf0Oas1JYwDyQ",
+        "genre": null,
+        "ios": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "aos": {
+          "avgRank": 68.6,
+          "minRank": 62,
+          "maxRank": 85,
+          "days": 31,
+          "points": 1004
+        },
+        "combinedAvg": 68.6,
+        "totalPoints": 1004,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "아키에이지 워 (ArcheAge WAR)",
+        "slug": "아키에이지-워-archeage-war",
+        "title": "아키에이지 워 (ArcheAge WAR)",
+        "developer": "Kakao Games Corp.",
+        "icon": "https://play-lh.googleusercontent.com/SmVl96LKpWuYKOOZQ4rogWJQVc8WneK2lq16evHx1KkN0GPCGTTskUYlmO3kDLlVxlo",
+        "genre": null,
+        "ios": {
+          "avgRank": 90.7,
+          "minRank": 90,
+          "maxRank": 97,
+          "days": 3,
+          "points": 31
+        },
+        "aos": {
+          "avgRank": 70.3,
+          "minRank": 52,
+          "maxRank": 104,
+          "days": 31,
+          "points": 954
+        },
+        "combinedAvg": 80.5,
+        "totalPoints": 985,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "카발RED",
+        "slug": "카발red",
+        "title": "카발RED",
+        "developer": "ESTgames Corp.",
+        "icon": "https://play-lh.googleusercontent.com/u7AtKbtkSonuGOyzDkY2ki4_H_mzf-mxgr-E9KVZxmqoMPsCtATZJzyp76N2SSCXyKrcniMa2i9-38AYVTur",
+        "genre": null,
+        "ios": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "aos": {
+          "avgRank": 69.2,
+          "minRank": 55,
+          "maxRank": 80,
+          "days": 31,
+          "points": 985
+        },
+        "combinedAvg": 69.2,
+        "totalPoints": 985,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "I9: 인페르노 나인",
+        "slug": "i9-인페르노-나인",
+        "title": "I9: 인페르노 나인",
+        "developer": "Leniu Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/44/dc/35/44dc35af-a14c-645f-ee4f-d7f414f68f7c/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 69.5,
+          "minRank": 43,
+          "maxRank": 100,
+          "days": 31,
+          "points": 976
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 69.5,
+        "totalPoints": 976,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "한게임 신맞고 : 대한민국 원조 고스톱",
+        "slug": "한게임-신맞고-대한민국-원조-고스톱",
+        "title": "한게임 신맞고 : 대한민국 원조 고스톱",
+        "developer": "NHN Corp.",
+        "icon": "https://play-lh.googleusercontent.com/2Dm6dQmaz4_NDxunGpDDSUMX0Q4MVgVxD1seG0u35T1hjJ4YwaYqreU26JefFBdZtZgn",
+        "genre": null,
+        "ios": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "aos": {
+          "avgRank": 69.9,
+          "minRank": 54,
+          "maxRank": 88,
+          "days": 31,
+          "points": 964
+        },
+        "combinedAvg": 69.9,
+        "totalPoints": 964,
+        "totalDays": 31
+      },
+      {
+        "gameKey": "쿠키런",
+        "slug": "쿠키런",
+        "title": "쿠키런",
+        "developer": "Devsisters",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/73/30/73733015-5182-d41c-151b-d9f998c7765d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 61,
+          "minRank": 32,
+          "maxRank": 100,
+          "days": 24,
+          "points": 961
+        },
+        "aos": {
+          "avgRank": 134.1,
+          "minRank": 109,
+          "maxRank": 182,
+          "days": 15,
+          "points": 0
+        },
+        "combinedAvg": 97.5,
+        "totalPoints": 961,
+        "totalDays": 24
+      }
+    ],
+    "newEntries": [
+      {
+        "gameKey": "명일방주: 엔드필드",
+        "slug": "명일방주-엔드필드",
+        "title": "명일방주: 엔드필드",
+        "developer": "GRYPH FRONTIER PTE.LTD.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/99/fc/ba/99fcba67-2a34-2873-8350-037cbf55f8ca/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 11,
+          "minRank": 3,
+          "maxRank": 24,
+          "days": 10,
+          "points": 900
+        },
+        "aos": {
+          "avgRank": 7.3,
+          "minRank": 5,
+          "maxRank": 42,
+          "days": 8,
+          "points": 750
+        },
+        "combinedAvg": 9.1,
+        "totalPoints": 1650,
+        "totalDays": 10
+      },
+      {
+        "gameKey": "EA SPORTS FC™ 26 Companion",
+        "slug": "ea-sports-fc-26-companion",
+        "title": "EA SPORTS FC™ 26 Companion",
+        "developer": "Electronic Arts",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e1/82/97/e1829783-a75a-3881-0e18-51fc3ec4be00/AppIcon-1x_U007emarketing-0-11-0-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 73.1,
+          "minRank": 55,
+          "maxRank": 98,
+          "days": 13,
+          "points": 363
+        },
+        "aos": {
+          "avgRank": 153.6,
+          "minRank": 139,
+          "maxRank": 177,
+          "days": 10,
+          "points": 0
+        },
+        "combinedAvg": 113.3,
+        "totalPoints": 363,
+        "totalDays": 13
+      },
+      {
+        "gameKey": "팰몬: 서바이벌",
+        "slug": "팰몬-서바이벌",
+        "title": "팰몬: 서바이벌",
+        "developer": "LILITH TECHNOLOGY HONG KONG LIMITED",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/17/b4/0e17b46b-fb81-e71e-297c-3652039b9e12/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 69.2,
+          "minRank": 61,
+          "maxRank": 100,
+          "days": 11,
+          "points": 350
+        },
+        "aos": {
+          "avgRank": 132.6,
+          "minRank": 98,
+          "maxRank": 195,
+          "days": 7,
+          "points": 6
+        },
+        "combinedAvg": 100.9,
+        "totalPoints": 356,
+        "totalDays": 11
+      },
+      {
+        "gameKey": "스타일라잇 × 카캡체 콜라보 출시",
+        "slug": "스타일라잇-카캡체-콜라보-출시",
+        "title": "스타일라잇 × 카캡체 콜라보 출시",
+        "developer": "Archosaur Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/ae/ca/92aeca9b-0f89-548a-3b06-ee4a5af51dd9/AppIcon-1x_U007emarketing-0-8-0-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 61.8,
+          "minRank": 32,
+          "maxRank": 98,
+          "days": 9,
+          "points": 353
+        },
+        "aos": {
+          "avgRank": 189.6,
+          "minRank": 181,
+          "maxRank": 200,
+          "days": 10,
+          "points": 0
+        },
+        "combinedAvg": 125.7,
+        "totalPoints": 353,
+        "totalDays": 10
+      },
+      {
+        "gameKey": "쿠키런: 모험의 탑",
+        "slug": "쿠키런-모험의-탑",
+        "title": "쿠키런: 모험의 탑",
+        "developer": "Devsisters",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5b/63/98/5b639876-5ddc-97e9-d341-a4efe3f5dd54/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 76.7,
+          "minRank": 26,
+          "maxRank": 100,
+          "days": 14,
+          "points": 340
+        },
+        "aos": {
+          "avgRank": 153.6,
+          "minRank": 124,
+          "maxRank": 200,
+          "days": 12,
+          "points": 0
+        },
+        "combinedAvg": 115.1,
+        "totalPoints": 340,
+        "totalDays": 14
+      },
+      {
+        "gameKey": "문명: 연맹의 시대",
+        "slug": "문명-연맹의-시대",
+        "title": "문명: 연맹의 시대",
+        "developer": "2K",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e1/cd/14/e1cd1453-ddf8-9af5-894d-4ccbc780e60b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 76.6,
+          "minRank": 39,
+          "maxRank": 100,
+          "days": 13,
+          "points": 317
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 76.6,
+        "totalPoints": 317,
+        "totalDays": 13
+      },
+      {
+        "gameKey": "트리 오브 세이비어: 네버랜드",
+        "slug": "트리-오브-세이비어-네버랜드",
+        "title": "트리 오브 세이비어: 네버랜드",
+        "developer": "Qookka Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f0/2e/23/f02e2321-9544-005d-de2a-fa04601a51ca/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 78.2,
+          "minRank": 45,
+          "maxRank": 100,
+          "days": 13,
+          "points": 297
+        },
+        "aos": {
+          "avgRank": 169.3,
+          "minRank": 148,
+          "maxRank": 199,
+          "days": 13,
+          "points": 0
+        },
+        "combinedAvg": 123.7,
+        "totalPoints": 297,
+        "totalDays": 13
+      },
+      {
+        "gameKey": "DRAGON BALL Z 폭렬격전",
+        "slug": "dragon-ball-z-폭렬격전",
+        "title": "DRAGON BALL Z 폭렬격전",
+        "developer": "Bandai Namco Entertainment Inc.",
+        "icon": "https://play-lh.googleusercontent.com/3wPaD-PGK0f0RlM3sqH0rFEV0gLwhAGDRaIK8DcDvK8bExY6pR8INE6F0EjuHIIp5Whx",
+        "genre": null,
+        "ios": {
+          "avgRank": 28.3,
+          "minRank": 26,
+          "maxRank": 57,
+          "days": 3,
+          "points": 218
+        },
+        "aos": {
+          "avgRank": 166.5,
+          "minRank": 138,
+          "maxRank": 192,
+          "days": 8,
+          "points": 0
+        },
+        "combinedAvg": 97.4,
+        "totalPoints": 218,
+        "totalDays": 8
+      },
+      {
+        "gameKey": "퍼즐앤드래곤",
+        "slug": "퍼즐앤드래곤",
+        "title": "퍼즐앤드래곤",
+        "developer": "GungHo Online Entertainment, Inc.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/e8/32/e8e83216-bf39-8d96-7e6c-0a188f728ea3/Appicon_new-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 59.4,
+          "minRank": 29,
+          "maxRank": 94,
+          "days": 5,
+          "points": 208
+        },
+        "aos": {
+          "avgRank": 142.7,
+          "minRank": 123,
+          "maxRank": 171,
+          "days": 6,
+          "points": 0
+        },
+        "combinedAvg": 101,
+        "totalPoints": 208,
+        "totalDays": 6
+      },
+      {
+        "gameKey": "ONE PIECE Bounty Rush",
+        "slug": "one-piece-bounty-rush",
+        "title": "ONE PIECE Bounty Rush",
+        "developer": "Bandai Namco Entertainment Inc.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/db/50/4f/db504fb0-c686-0a60-c888-b06f67bc1196/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 51,
+          "minRank": 30,
+          "maxRank": 98,
+          "days": 4,
+          "points": 200
+        },
+        "aos": {
+          "avgRank": 182,
+          "minRank": 182,
+          "maxRank": 185,
+          "days": 2,
+          "points": 0
+        },
+        "combinedAvg": 116.5,
+        "totalPoints": 200,
+        "totalDays": 4
+      },
+      {
+        "gameKey": "더 스파이크 크로스",
+        "slug": "더-스파이크-크로스",
+        "title": "더 스파이크 크로스",
+        "developer": "SUNCYAN",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/f1/86/20f186b0-e7ae-8aff-efa5-8e643985b08d/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 83.8,
+          "minRank": 38,
+          "maxRank": 100,
+          "days": 11,
+          "points": 189
+        },
+        "aos": {
+          "avgRank": 140.1,
+          "minRank": 101,
+          "maxRank": 191,
+          "days": 11,
+          "points": 0
+        },
+        "combinedAvg": 112,
+        "totalPoints": 189,
+        "totalDays": 11
+      },
+      {
+        "gameKey": "이사만루25",
+        "slug": "이사만루25",
+        "title": "이사만루25",
+        "developer": "(주)공게임즈",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/9a/b9/a09ab96c-75d9-0dbd-b5b4-68ba1fdfb59c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 87.7,
+          "minRank": 79,
+          "maxRank": 100,
+          "days": 14,
+          "points": 186
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 87.7,
+        "totalPoints": 186,
+        "totalDays": 14
+      },
+      {
+        "gameKey": "드래곤소드",
+        "slug": "드래곤소드",
+        "title": "드래곤소드",
+        "developer": "WEBZEN INC.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/50/7d/0b507da4-3bc2-a800-cc47-56466270a85f/AppIcon-0-0-1x_U007emarketing-0-7-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 86.3,
+          "minRank": 72,
+          "maxRank": 100,
+          "days": 9,
+          "points": 132
+        },
+        "aos": {
+          "avgRank": 109.3,
+          "minRank": 82,
+          "maxRank": 162,
+          "days": 7,
+          "points": 52
+        },
+        "combinedAvg": 97.8,
+        "totalPoints": 184,
+        "totalDays": 9
+      },
+      {
+        "gameKey": "인생존망겜",
+        "slug": "인생존망겜",
+        "title": "인생존망겜",
+        "developer": "37GAMES",
+        "icon": "https://play-lh.googleusercontent.com/HcK8j0gkwe07w9TM_cPUmD0H3FLzgq9YhJLFTEVovusqdapM0UFVEcE6TpE5PX6EbDQGUXdP-cxnFCUrrXSZHg",
+        "genre": null,
+        "ios": {
+          "avgRank": 85.5,
+          "minRank": 71,
+          "maxRank": 100,
+          "days": 11,
+          "points": 171
+        },
+        "aos": {
+          "avgRank": 190.4,
+          "minRank": 176,
+          "maxRank": 200,
+          "days": 14,
+          "points": 0
+        },
+        "combinedAvg": 137.9,
+        "totalPoints": 171,
+        "totalDays": 14
+      },
+      {
+        "gameKey": "Project Makeover",
+        "slug": "project-makeover",
+        "title": "Project Makeover",
+        "developer": "Magic Tavern, Inc.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d8/11/a6/d811a625-6ec7-9508-b2ba-fc2f3c4dd431/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 88.4,
+          "minRank": 77,
+          "maxRank": 100,
+          "days": 13,
+          "points": 164
+        },
+        "aos": {
+          "avgRank": 193.5,
+          "minRank": 193,
+          "maxRank": 197,
+          "days": 2,
+          "points": 0
+        },
+        "combinedAvg": 140.9,
+        "totalPoints": 164,
+        "totalDays": 13
+      },
+      {
+        "gameKey": "소울 헌터 키우기 : 방치형 RPG",
+        "slug": "소울-헌터-키우기-방치형-rpg",
+        "title": "소울 헌터 키우기 : 방치형 RPG",
+        "developer": "Ryong Game Co., Ltd",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5b/e1/d4/5be1d449-b91d-dfca-9c36-bac36e0fcab9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 81.9,
+          "minRank": 64,
+          "maxRank": 100,
+          "days": 7,
+          "points": 134
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 81.9,
+        "totalPoints": 134,
+        "totalDays": 7
+      },
+      {
+        "gameKey": "아이러브커피 키우기",
+        "slug": "아이러브커피-키우기",
+        "title": "아이러브커피 키우기",
+        "developer": "Natris",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/0d/3f/c90d3fcf-0daa-fdcc-a9a3-94a07fefc74a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 77.8,
+          "minRank": 69,
+          "maxRank": 100,
+          "days": 5,
+          "points": 116
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 77.8,
+        "totalPoints": 116,
+        "totalDays": 5
+      },
+      {
+        "gameKey": "탕탕특공대",
+        "slug": "탕탕특공대",
+        "title": "탕탕특공대",
+        "developer": "Habby",
+        "icon": "https://play-lh.googleusercontent.com/os7JIk6PtULMjal93noyeGqWKjxQ_35sXrT708XxHq_ORk_AIhqW3_iIm8-OjuRLyDDb_MVs5EZAwC4aXIbgtA",
+        "genre": null,
+        "ios": {
+          "avgRank": 77.5,
+          "minRank": 60,
+          "maxRank": 99,
+          "days": 4,
+          "points": 94
+        },
+        "aos": {
+          "avgRank": 166.6,
+          "minRank": 141,
+          "maxRank": 200,
+          "days": 14,
+          "points": 0
+        },
+        "combinedAvg": 122,
+        "totalPoints": 94,
+        "totalDays": 14
+      },
+      {
+        "gameKey": "기동전사 워",
+        "slug": "기동전사-워",
+        "title": "기동전사 워",
+        "developer": "Lixin Yaoji Network Technology Co., Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/75/2d/07752d56-65fc-d2e3-1577-93c957da0f13/AppIcon-1x_U007epad-0-1-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 85.7,
+          "minRank": 76,
+          "maxRank": 100,
+          "days": 6,
+          "points": 92
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 85.7,
+        "totalPoints": 92,
+        "totalDays": 6
+      },
+      {
+        "gameKey": "카피바라 Go!",
+        "slug": "카피바라-go",
+        "title": "카피바라 Go!",
+        "developer": "Habby",
+        "icon": "https://play-lh.googleusercontent.com/UK3PEAFTzKfNyFeXRX_p-9DR34u137jyGnW-Nhy6KlDWoMRHywGQA2uvYPwZMLHoc9Pc",
+        "genre": null,
+        "ios": {
+          "avgRank": 78.3,
+          "minRank": 70,
+          "maxRank": 99,
+          "days": 4,
+          "points": 91
+        },
+        "aos": {
+          "avgRank": 185.6,
+          "minRank": 170,
+          "maxRank": 200,
+          "days": 9,
+          "points": 0
+        },
+        "combinedAvg": 131.9,
+        "totalPoints": 91,
+        "totalDays": 9
+      },
+      {
+        "gameKey": "일곱 개의 대죄: GRAND CROSS",
+        "slug": "일곱-개의-대죄-grand-cross",
+        "title": "일곱 개의 대죄: GRAND CROSS",
+        "developer": "Netmarble",
+        "icon": "https://play-lh.googleusercontent.com/ahRG_1xssE2VNsQo7y7HlWYvjqc-veU-Ime4cunmrNYCtjLE8N4qy0vXNWDfCztQvONelnpkyhUVkHDpAz_l",
+        "genre": null,
+        "ios": {
+          "avgRank": 72.3,
+          "minRank": 64,
+          "maxRank": 100,
+          "days": 3,
+          "points": 86
+        },
+        "aos": {
+          "avgRank": 161.1,
+          "minRank": 105,
+          "maxRank": 199,
+          "days": 14,
+          "points": 0
+        },
+        "combinedAvg": 116.7,
+        "totalPoints": 86,
+        "totalDays": 14
+      },
+      {
+        "gameKey": "우르르수비대",
+        "slug": "우르르수비대",
+        "title": "우르르수비대",
+        "developer": "PLAYHARD",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dd/f5/bb/ddf5bbd0-e742-ae93-1319-2039cb7fd1f9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 58,
+          "minRank": 51,
+          "maxRank": 89,
+          "days": 2,
+          "points": 86
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 58,
+        "totalPoints": 86,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "피망 쇼다운 홀덤 : 텍사스 홀덤, 포커, 토너먼트",
+        "slug": "피망-쇼다운-홀덤-텍사스-홀덤-포커-토너먼트",
+        "title": "피망 쇼다운 홀덤 : 텍사스 홀덤, 포커, 토너먼트",
+        "developer": "NEOWIZ corp",
+        "icon": "https://play-lh.googleusercontent.com/6bY1qIiLAYnCGjTLAGjPy7THRYbXb2IpzUEaHrzNmcXu59D4z0Enu8ZMY_9rNwdPqa8",
+        "genre": null,
+        "ios": {
+          "avgRank": 87.2,
+          "minRank": 70,
+          "maxRank": 99,
+          "days": 6,
+          "points": 83
+        },
+        "aos": {
+          "avgRank": 191,
+          "minRank": 185,
+          "maxRank": 200,
+          "days": 7,
+          "points": 0
+        },
+        "combinedAvg": 139.1,
+        "totalPoints": 83,
+        "totalDays": 7
+      },
+      {
+        "gameKey": "콜 오브 드래곤즈",
+        "slug": "콜-오브-드래곤즈",
+        "title": "콜 오브 드래곤즈",
+        "developer": "FARLIGHT",
+        "icon": "https://play-lh.googleusercontent.com/_RfXWqDkmCbpur-TDq-bkfIlu6sXt5noe9bk9lij53cfr7u8ySbwUjilvlWSsWTgIJs",
+        "genre": null,
+        "ios": {
+          "avgRank": 84.4,
+          "minRank": 67,
+          "maxRank": 100,
+          "days": 5,
+          "points": 83
+        },
+        "aos": {
+          "avgRank": 194,
+          "minRank": 193,
+          "maxRank": 198,
+          "days": 3,
+          "points": 0
+        },
+        "combinedAvg": 139.2,
+        "totalPoints": 83,
+        "totalDays": 5
+      },
+      {
+        "gameKey": "Once Human",
+        "slug": "once-human",
+        "title": "Once Human",
+        "developer": "NETEASE INTERACTIVE ENTERTAINMENT PTE. LTD",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/86/a2/27/86a2278c-b807-6148-afd0-4608668b3830/AppIcon-0-0-1x_U007emarketing-0-11-0-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 62.5,
+          "minRank": 60,
+          "maxRank": 100,
+          "days": 2,
+          "points": 77
+        },
+        "aos": {
+          "avgRank": 188.2,
+          "minRank": 183,
+          "maxRank": 197,
+          "days": 6,
+          "points": 0
+        },
+        "combinedAvg": 125.3,
+        "totalPoints": 77,
+        "totalDays": 6
+      },
+      {
+        "gameKey": "Pikmin Bloom",
+        "slug": "pikmin-bloom",
+        "title": "Pikmin Bloom",
+        "developer": "Niantic, Inc.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ff/96/a5/ff96a5ac-e21a-22be-a7d6-89af5a505946/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 93.4,
+          "minRank": 88,
+          "maxRank": 100,
+          "days": 9,
+          "points": 68
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 93.4,
+        "totalPoints": 68,
+        "totalDays": 9
+      },
+      {
+        "gameKey": "플레이투게더 (Play Together)",
+        "slug": "플레이투게더-play-together",
+        "title": "플레이투게더 (Play Together)",
+        "developer": "HAEGIN Co., Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/cc/d7/06ccd795-e14b-3bb3-e572-fcb163748f67/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 88,
+          "minRank": 77,
+          "maxRank": 100,
+          "days": 5,
+          "points": 65
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 88,
+        "totalPoints": 65,
+        "totalDays": 5
+      },
+      {
+        "gameKey": "언디셈버: 4주년 축제",
+        "slug": "언디셈버-4주년-축제",
+        "title": "언디셈버: 4주년 축제",
+        "developer": "LINE Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/04/03/610403e3-f4e6-6fd6-fb23-dfb8998249cb/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 80.3,
+          "minRank": 69,
+          "maxRank": 99,
+          "days": 3,
+          "points": 62
+        },
+        "aos": {
+          "avgRank": 174,
+          "minRank": 171,
+          "maxRank": 180,
+          "days": 3,
+          "points": 0
+        },
+        "combinedAvg": 127.2,
+        "totalPoints": 62,
+        "totalDays": 3
+      },
+      {
+        "gameKey": "앙상블스타즈",
+        "slug": "앙상블스타즈",
+        "title": "앙상블스타즈",
+        "developer": "Eureka Creation Limited",
+        "icon": "https://play-lh.googleusercontent.com/tnimxp7j5GvAC8pMW5AT2azjyYykdEthvqH16yja2G2n_gQDKmLceqtI4cBBpP56XHyl2RYcqSoHWxA4BsxbHgg",
+        "genre": null,
+        "ios": {
+          "avgRank": 89,
+          "minRank": 78,
+          "maxRank": 99,
+          "days": 5,
+          "points": 60
+        },
+        "aos": {
+          "avgRank": 193.5,
+          "minRank": 185,
+          "maxRank": 200,
+          "days": 13,
+          "points": 0
+        },
+        "combinedAvg": 141.2,
+        "totalPoints": 60,
+        "totalDays": 13
+      },
+      {
+        "gameKey": "소드 오브 콘발라리아",
+        "slug": "소드-오브-콘발라리아",
+        "title": "소드 오브 콘발라리아",
+        "developer": "XD Entertainment Pte Ltd",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7d/65/9a/7d659ac7-9d31-f522-9786-a50c1000c5fa/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 72.5,
+          "minRank": 70,
+          "maxRank": 95,
+          "days": 2,
+          "points": 57
+        },
+        "aos": {
+          "avgRank": 170.7,
+          "minRank": 161,
+          "maxRank": 187,
+          "days": 7,
+          "points": 0
+        },
+        "combinedAvg": 121.6,
+        "totalPoints": 57,
+        "totalDays": 7
+      },
+      {
+        "gameKey": "Dynasty Legends 2: 무쌍전란",
+        "slug": "dynasty-legends-2-무쌍전란",
+        "title": "Dynasty Legends 2: 무쌍전란",
+        "developer": "Taihe Interactive",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1e/f8/d0/1ef8d0d5-8ea5-d4cd-e20c-0165cdf7106e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 87.8,
+          "minRank": 80,
+          "maxRank": 99,
+          "days": 4,
+          "points": 53
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 87.8,
+        "totalPoints": 53,
+        "totalDays": 4
+      },
+      {
+        "gameKey": "닌자 머스트 다이",
+        "slug": "닌자-머스트-다이",
+        "title": "닌자 머스트 다이",
+        "developer": "Pandada Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4c/09/ca/4c09cafc-bfa3-964a-bfc5-6d9b6f883d7c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 74.5,
+          "minRank": 74,
+          "maxRank": 99,
+          "days": 2,
+          "points": 53
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 74.5,
+        "totalPoints": 53,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "헌티드 머지: 괴담",
+        "slug": "헌티드-머지-괴담",
+        "title": "Haunted Merge: Horror Story",
+        "developer": "WhaleJoy Game Limited",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dd/42/14/dd421493-e620-110b-c0ca-3109e2ced2cb/AppIcon-gl-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 92.2,
+          "minRank": 82,
+          "maxRank": 100,
+          "days": 5,
+          "points": 44
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 92.2,
+        "totalPoints": 44,
+        "totalDays": 5
+      },
+      {
+        "gameKey": "엘피스 전기: 소울링",
+        "slug": "엘피스-전기-소울링",
+        "title": "엘피스 전기: 소울링",
+        "developer": "LING CHAI (HONG KONG) LIMITED",
+        "icon": "https://play-lh.googleusercontent.com/Sh6mpGuUdEQAZrkDv-GOL6N125ej8F-4qavF5ITSu45Ng8OaHroqkJP0nuhAKeZ_zg",
+        "genre": null,
+        "ios": {
+          "avgRank": 80.5,
+          "minRank": 80,
+          "maxRank": 99,
+          "days": 2,
+          "points": 41
+        },
+        "aos": {
+          "avgRank": 178.6,
+          "minRank": 158,
+          "maxRank": 193,
+          "days": 9,
+          "points": 0
+        },
+        "combinedAvg": 129.5,
+        "totalPoints": 41,
+        "totalDays": 9
+      },
+      {
+        "gameKey": "영웅전설: 가가브 트릴로지",
+        "slug": "영웅전설-가가브-트릴로지",
+        "title": "영웅전설: 가가브 트릴로지",
+        "developer": "Fow Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/4e/39/7e4e3955-5a1b-8b53-e706-1f2fe24f626f/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 81,
+          "minRank": 81,
+          "maxRank": 97,
+          "days": 2,
+          "points": 40
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 81,
+        "totalPoints": 40,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "킹 오브 파이터 AFK",
+        "slug": "킹-오브-파이터-afk",
+        "title": "천만여신 : 가장 치명적인 AFK",
+        "developer": "GAME REPUBLIC KOR",
+        "icon": "https://play-lh.googleusercontent.com/wx1hyyoNPt6BW5Tjz63XMLe28ELMgKuPVRWhWv2v2Fthdu7u-p8EJeiljAPsYgUXHPHLkmlZhCMtZYloPmPK",
+        "genre": null,
+        "ios": {
+          "avgRank": 82.5,
+          "minRank": 71,
+          "maxRank": 94,
+          "days": 2,
+          "points": 37
+        },
+        "aos": {
+          "avgRank": 186,
+          "minRank": 186,
+          "maxRank": 198,
+          "days": 2,
+          "points": 0
+        },
+        "combinedAvg": 134.3,
+        "totalPoints": 37,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "미르4",
+        "slug": "미르4",
+        "title": "미르4",
+        "developer": "Wemade Co., Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/12/75/701275a1-5ace-dfd4-9241-a80cc9f6d2c3/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 83,
+          "minRank": 83,
+          "maxRank": 97,
+          "days": 2,
+          "points": 36
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 83,
+        "totalPoints": 36,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "아이모: The World of Magic",
+        "slug": "아이모-the-world-of-magic",
+        "title": "아이모: The World of Magic",
+        "developer": "Com2uS Corp.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/36/d3/7536d341-eace-f4fa-8554-fee1c7e63264/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 89.3,
+          "minRank": 86,
+          "maxRank": 96,
+          "days": 3,
+          "points": 35
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 89.3,
+        "totalPoints": 35,
+        "totalDays": 3
+      },
+      {
+        "gameKey": "라그나로크X : Next Generation",
+        "slug": "라그나로크x-next-generation",
+        "title": "라그나로크X : Next Generation",
+        "developer": "GRAVITY Co., Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/c5/45/2ac54533-817a-a620-8714-8dedc8beb560/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 84.5,
+          "minRank": 76,
+          "maxRank": 93,
+          "days": 2,
+          "points": 33
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 84.5,
+        "totalPoints": 33,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "세븐나이츠 키우기",
+        "slug": "세븐나이츠-키우기",
+        "title": "세븐나이츠 키우기",
+        "developer": "Netmarble Corporation",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d4/43/44/d4434474-90b6-2eb4-60e6-360fe2144201/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 90.3,
+          "minRank": 80,
+          "maxRank": 100,
+          "days": 3,
+          "points": 32
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 90.3,
+        "totalPoints": 32,
+        "totalDays": 3
+      },
+      {
+        "gameKey": "미친 타워가 되었다",
+        "slug": "미친-타워가-되었다",
+        "title": "미친 타워가 되었다",
+        "developer": "V2R",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/46/b7/9d46b708-5df7-5338-2a0e-189d17d32673/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 71,
+          "minRank": 71,
+          "maxRank": 97,
+          "days": 1,
+          "points": 30
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 71,
+        "totalPoints": 30,
+        "totalDays": 1
+      },
+      {
+        "gameKey": "Dream League Soccer 2026",
+        "slug": "dream-league-soccer-2026",
+        "title": "Dream League Soccer 2026",
+        "developer": "First Touch Games Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/8d/76/ae8d763e-b0a1-d9b9-4a78-376517d62012/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 87.5,
+          "minRank": 77,
+          "maxRank": 98,
+          "days": 2,
+          "points": 27
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 87.5,
+        "totalPoints": 27,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "해적왕: 바다의 전설",
+        "slug": "해적왕-바다의-전설",
+        "title": "해적왕: 바다의 전설",
+        "developer": "Guangzhou Waliang Trading Co., Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/43/bb/c843bb67-b5a0-3d05-2f31-e0fe66979e54/AppIcon-1x_U007epad-0-1-85-220-0.jpeg/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 94.5,
+          "minRank": 82,
+          "maxRank": 100,
+          "days": 4,
+          "points": 26
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 94.5,
+        "totalPoints": 26,
+        "totalDays": 4
+      },
+      {
+        "gameKey": "우파루 오딧세이",
+        "slug": "우파루-오딧세이",
+        "title": "우파루 오딧세이",
+        "developer": "NHN Corp.",
+        "icon": "https://play-lh.googleusercontent.com/DBG2eU6D1lGg-BUzlqM7uGHWT5pzN6sdOxXctI82xyY8ZNnAZ5Ro049mRAANmU1_oSN2Yt40ml6icy1AUScETCE",
+        "genre": null,
+        "ios": {
+          "avgRank": 93.3,
+          "minRank": 86,
+          "maxRank": 99,
+          "days": 3,
+          "points": 23
+        },
+        "aos": {
+          "avgRank": 199.5,
+          "minRank": 199,
+          "maxRank": 200,
+          "days": 2,
+          "points": 0
+        },
+        "combinedAvg": 146.4,
+        "totalPoints": 23,
+        "totalDays": 3
+      },
+      {
+        "gameKey": "헬로키티 마이 드림 스토어",
+        "slug": "헬로키티-마이-드림-스토어",
+        "title": "헬로키티 마이 드림 스토어",
+        "developer": "ACTGames Co., Ltd.",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d4/11/db/d411db57-498f-774e-f552-b46e85b09096/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 93.3,
+          "minRank": 86,
+          "maxRank": 100,
+          "days": 3,
+          "points": 23
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 93.3,
+        "totalPoints": 23,
+        "totalDays": 3
+      },
+      {
+        "gameKey": "삼국지 오리진2: 적벽대전",
+        "slug": "삼국지-오리진2-적벽대전",
+        "title": "삼국지 오리진2: 적벽대전",
+        "developer": "GURU GAMES CO., LIMITED",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/61/c7/6161c784-5f21-8d92-1e55-bb4af3be9586/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 90,
+          "minRank": 83,
+          "maxRank": 97,
+          "days": 2,
+          "points": 22
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 90,
+        "totalPoints": 22,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "드래곤빌리지",
+        "slug": "드래곤빌리지",
+        "title": "드래곤빌리지",
+        "developer": "highbrow",
+        "icon": "https://play-lh.googleusercontent.com/MnaEVjzPqzCjOSpEXk7MNOwC1x4XWX5nwv_c4DQCCrERA_-N3YFuWzL70i76tVaJxpYY8e2NUkMeELuEAbek5g",
+        "genre": null,
+        "ios": {
+          "avgRank": 94.7,
+          "minRank": 87,
+          "maxRank": 99,
+          "days": 3,
+          "points": 19
+        },
+        "aos": {
+          "avgRank": 167,
+          "minRank": 167,
+          "maxRank": 168,
+          "days": 1,
+          "points": 0
+        },
+        "combinedAvg": 130.8,
+        "totalPoints": 19,
+        "totalDays": 3
+      },
+      {
+        "gameKey": "갓오브하이스쿨 X 신의탑",
+        "slug": "갓오브하이스쿨-x-신의탑",
+        "title": "갓오브하이스쿨",
+        "developer": "WONCOMZ.INC",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ad/ad/af/adadaf85-0151-02a4-66f4-10cc28f25a43/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 91.5,
+          "minRank": 88,
+          "maxRank": 99,
+          "days": 2,
+          "points": 19
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 91.5,
+        "totalPoints": 19,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "비지 세이비어",
+        "slug": "비지-세이비어",
+        "title": "비지 세이비어",
+        "developer": "Joy Net Games",
+        "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/2f/1f/6e2f1f21-0918-65fa-3752-e9d4d6d4b249/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.jpeg/100x100bb.png",
+        "genre": null,
+        "ios": {
+          "avgRank": 93,
+          "minRank": 91,
+          "maxRank": 98,
+          "days": 2,
+          "points": 16
+        },
+        "aos": {
+          "avgRank": null,
+          "minRank": null,
+          "maxRank": null,
+          "days": 0,
+          "points": 0
+        },
+        "combinedAvg": 93,
+        "totalPoints": 16,
+        "totalDays": 2
+      },
+      {
+        "gameKey": "기어몬: 타워 디펜스",
+        "slug": "기어몬-타워-디펜스",
+        "title": "기어몬: 타워 디펜스",
+        "developer": "Perfeggs",
+        "icon": "https://play-lh.googleusercontent.com/o3vqaTfFRSzsu1ZfhWmLOPrgROz6BpOGMPnTq1ovxKRVHdZOvnFckcODaIkqPyno5eErx5fnmeRlCglvA0mt3To",
+        "genre": null,
+        "ios": {
+          "avgRank": 88,
+          "minRank": 88,
+          "maxRank": 99,
+          "days": 1,
+          "points": 13
+        },
+        "aos": {
+          "avgRank": 178.5,
+          "minRank": 167,
+          "maxRank": 200,
+          "days": 11,
+          "points": 0
+        },
+        "combinedAvg": 133.3,
+        "totalPoints": 13,
+        "totalDays": 11
+      }
+    ]
+  },
+  "unclassified": [
+    {
+      "gameKey": "메이플 키우기",
+      "title": "메이플 키우기",
+      "combinedAvg": 1,
+      "ios": {
+        "avgRank": 1,
+        "minRank": 1,
+        "maxRank": 2,
+        "days": 31,
+        "points": 3100
+      },
+      "aos": {
+        "avgRank": 1,
+        "minRank": 1,
+        "maxRank": 1,
+        "days": 31,
+        "points": 3100
+      }
+    },
+    {
+      "gameKey": "WOS: 화이트아웃 서바이벌",
+      "title": "WOS: 화이트아웃 서바이벌",
+      "combinedAvg": 2.6,
+      "ios": {
+        "avgRank": 2.3,
+        "minRank": 1,
+        "maxRank": 10,
+        "days": 31,
+        "points": 3061
+      },
+      "aos": {
+        "avgRank": 2.9,
+        "minRank": 2,
+        "maxRank": 4,
+        "days": 31,
+        "points": 3041
+      }
+    },
+    {
+      "gameKey": "라스트 워: 서바이벌",
+      "title": "라스트 워: 서바이벌",
+      "combinedAvg": 2.6,
+      "ios": {
+        "avgRank": 2.8,
+        "minRank": 2,
+        "maxRank": 7,
+        "days": 31,
+        "points": 3044
+      },
+      "aos": {
+        "avgRank": 2.4,
+        "minRank": 2,
+        "maxRank": 3,
+        "days": 31,
+        "points": 3057
+      }
+    },
+    {
+      "gameKey": "리니지M",
+      "title": "리니지M",
+      "combinedAvg": 5.5,
+      "ios": {
+        "avgRank": 5.1,
+        "minRank": 2,
+        "maxRank": 13,
+        "days": 31,
+        "points": 2974
+      },
+      "aos": {
+        "avgRank": 6,
+        "minRank": 2,
+        "maxRank": 10,
+        "days": 31,
+        "points": 2944
+      }
+    },
+    {
+      "gameKey": "킹샷:Kingshot",
+      "title": "킹샷:Kingshot",
+      "combinedAvg": 6,
+      "ios": {
+        "avgRank": 5.1,
+        "minRank": 3,
+        "maxRank": 14,
+        "days": 31,
+        "points": 2973
+      },
+      "aos": {
+        "avgRank": 6.8,
+        "minRank": 5,
+        "maxRank": 9,
+        "days": 31,
+        "points": 2920
+      }
+    },
+    {
+      "gameKey": "로얄 매치 Royal Match",
+      "title": "로얄 매치 (Royal Match)",
+      "combinedAvg": 9,
+      "ios": {
+        "avgRank": 9.1,
+        "minRank": 5,
+        "maxRank": 24,
+        "days": 31,
+        "points": 2848
+      },
+      "aos": {
+        "avgRank": 8.9,
+        "minRank": 6,
+        "maxRank": 13,
+        "days": 31,
+        "points": 2855
+      }
+    },
+    {
+      "gameKey": "라스트 Z: 서바이벌 슈터",
+      "title": "라스트 Z: 서바이벌 슈터",
+      "combinedAvg": 9.5,
+      "ios": {
+        "avgRank": 14.2,
+        "minRank": 6,
+        "maxRank": 31,
+        "days": 31,
+        "points": 2690
+      },
+      "aos": {
+        "avgRank": 4.7,
+        "minRank": 4,
+        "maxRank": 8,
+        "days": 31,
+        "points": 2985
+      }
+    },
+    {
+      "gameKey": "가십하버: 합성 & 스토리 게임",
+      "title": "가십하버: 합성 & 스토리 게임",
+      "combinedAvg": 9.5,
+      "ios": {
+        "avgRank": 8.1,
+        "minRank": 5,
+        "maxRank": 18,
+        "days": 31,
+        "points": 2881
+      },
+      "aos": {
+        "avgRank": 11,
+        "minRank": 10,
+        "maxRank": 15,
+        "days": 31,
+        "points": 2789
+      }
+    },
+    {
+      "gameKey": "FC 모바일",
+      "title": "FC 모바일",
+      "combinedAvg": 10,
+      "ios": {
+        "avgRank": 5.5,
+        "minRank": 2,
+        "maxRank": 18,
+        "days": 31,
+        "points": 2960
+      },
+      "aos": {
+        "avgRank": 14.5,
+        "minRank": 12,
+        "maxRank": 21,
+        "days": 31,
+        "points": 2683
+      }
+    },
+    {
+      "gameKey": "마비노기 모바일",
+      "title": "마비노기 모바일",
+      "combinedAvg": 11.6,
+      "ios": {
+        "avgRank": 8.6,
+        "minRank": 3,
+        "maxRank": 100,
+        "days": 31,
+        "points": 2865
+      },
+      "aos": {
+        "avgRank": 14.6,
+        "minRank": 11,
+        "maxRank": 22,
+        "days": 31,
+        "points": 2677
+      }
+    },
+    {
+      "gameKey": "AION2",
+      "title": "AION2",
+      "combinedAvg": 15,
+      "ios": {
+        "avgRank": 17.4,
+        "minRank": 2,
+        "maxRank": 31,
+        "days": 31,
+        "points": 2591
+      },
+      "aos": {
+        "avgRank": 12.6,
+        "minRank": 7,
+        "maxRank": 21,
+        "days": 31,
+        "points": 2740
+      }
+    },
+    {
+      "gameKey": "운빨존많겜",
+      "title": "운빨존많겜",
+      "combinedAvg": 15.1,
+      "ios": {
+        "avgRank": 9.3,
+        "minRank": 3,
+        "maxRank": 20,
+        "days": 31,
+        "points": 2844
+      },
+      "aos": {
+        "avgRank": 20.9,
+        "minRank": 15,
+        "maxRank": 30,
+        "days": 31,
+        "points": 2484
+      }
+    },
+    {
+      "gameKey": "씨사이드 익스케이프: 합성 & 스토리 게임",
+      "title": "씨사이드 익스케이프: 합성 & 스토리 게임",
+      "combinedAvg": 16.3,
+      "ios": {
+        "avgRank": 12,
+        "minRank": 7,
+        "maxRank": 28,
+        "days": 31,
+        "points": 2758
+      },
+      "aos": {
+        "avgRank": 20.5,
+        "minRank": 18,
+        "maxRank": 26,
+        "days": 31,
+        "points": 2495
+      }
+    },
+    {
+      "gameKey": "승리의 여신: 니케",
+      "title": "승리의 여신: 니케",
+      "combinedAvg": 17.9,
+      "ios": {
+        "avgRank": 23.5,
+        "minRank": 3,
+        "maxRank": 73,
+        "days": 31,
+        "points": 2403
+      },
+      "aos": {
+        "avgRank": 12.2,
+        "minRank": 5,
+        "maxRank": 42,
+        "days": 31,
+        "points": 2752
+      }
+    },
+    {
+      "gameKey": "Dark War:Survival",
+      "title": "Dark War:Survival",
+      "combinedAvg": 19.5,
+      "ios": {
+        "avgRank": 22.1,
+        "minRank": 13,
+        "maxRank": 41,
+        "days": 31,
+        "points": 2446
+      },
+      "aos": {
+        "avgRank": 16.9,
+        "minRank": 14,
+        "maxRank": 23,
+        "days": 31,
+        "points": 2606
+      }
+    },
+    {
+      "gameKey": "탑 히어로즈",
+      "title": "탑 히어로즈: 영웅의 시대",
+      "combinedAvg": 20.6,
+      "ios": {
+        "avgRank": 23.2,
+        "minRank": 17,
+        "maxRank": 42,
+        "days": 31,
+        "points": 2412
+      },
+      "aos": {
+        "avgRank": 17.9,
+        "minRank": 15,
+        "maxRank": 22,
+        "days": 31,
+        "points": 2575
+      }
+    },
+    {
+      "gameKey": "뱀피르",
+      "title": "뱀피르",
+      "combinedAvg": 22.5,
+      "ios": {
+        "avgRank": 29.3,
+        "minRank": 12,
+        "maxRank": 66,
+        "days": 31,
+        "points": 2224
+      },
+      "aos": {
+        "avgRank": 15.7,
+        "minRank": 12,
+        "maxRank": 19,
+        "days": 31,
+        "points": 2645
+      }
+    },
+    {
+      "gameKey": "꿈의 정원 (Gardenscapes)",
+      "title": "Gardenscapes",
+      "combinedAvg": 22.6,
+      "ios": {
+        "avgRank": 18.1,
+        "minRank": 15,
+        "maxRank": 40,
+        "days": 31,
+        "points": 2571
+      },
+      "aos": {
+        "avgRank": 27.1,
+        "minRank": 23,
+        "maxRank": 33,
+        "days": 31,
+        "points": 2291
+      }
+    },
+    {
+      "gameKey": "오딘: 발할라 라이징",
+      "title": "오딘: 발할라 라이징",
+      "combinedAvg": 22.8,
+      "ios": {
+        "avgRank": 35.7,
+        "minRank": 5,
+        "maxRank": 89,
+        "days": 31,
+        "points": 2024
+      },
+      "aos": {
+        "avgRank": 9.9,
+        "minRank": 5,
+        "maxRank": 16,
+        "days": 31,
+        "points": 2823
+      }
+    },
+    {
+      "gameKey": "컴투스프로야구V25",
+      "title": "컴투스프로야구V25",
+      "combinedAvg": 23.3,
+      "ios": {
+        "avgRank": 9.1,
+        "minRank": 5,
+        "maxRank": 18,
+        "days": 31,
+        "points": 2850
+      },
+      "aos": {
+        "avgRank": 37.6,
+        "minRank": 32,
+        "maxRank": 42,
+        "days": 31,
+        "points": 1966
+      }
+    },
+    {
+      "gameKey": "EA SPORTS FC Online M",
+      "title": "EA SPORTS FC Online M",
+      "combinedAvg": 24.4,
+      "ios": {
+        "avgRank": 9.7,
+        "minRank": 2,
+        "maxRank": 31,
+        "days": 31,
+        "points": 2830
+      },
+      "aos": {
+        "avgRank": 39.2,
+        "minRank": 31,
+        "maxRank": 65,
+        "days": 31,
+        "points": 1917
+      }
+    },
+    {
+      "gameKey": "전략적 팀 전투: 리그 오브 레전드 전략 게임",
+      "title": "전략적 팀 전투: 리그 오브 레전드 전략 게임",
+      "combinedAvg": 26.9,
+      "ios": {
+        "avgRank": 16.3,
+        "minRank": 6,
+        "maxRank": 46,
+        "days": 31,
+        "points": 2626
+      },
+      "aos": {
+        "avgRank": 37.5,
+        "minRank": 23,
+        "maxRank": 65,
+        "days": 31,
+        "points": 1967
+      }
+    },
+    {
+      "gameKey": "세븐나이츠 리버스",
+      "title": "세븐나이츠 리버스",
+      "combinedAvg": 27,
+      "ios": {
+        "avgRank": 26,
+        "minRank": 10,
+        "maxRank": 55,
+        "days": 31,
+        "points": 2325
+      },
+      "aos": {
+        "avgRank": 28.1,
+        "minRank": 21,
+        "maxRank": 40,
+        "days": 31,
+        "points": 2261
+      }
+    },
+    {
+      "gameKey": "명조:워더링 웨이브",
+      "title": "명조:워더링 웨이브 - 라하이 로이를 향하여",
+      "combinedAvg": 28.4,
+      "ios": {
+        "avgRank": 31.5,
+        "minRank": 2,
+        "maxRank": 98,
+        "days": 31,
+        "points": 2153
+      },
+      "aos": {
+        "avgRank": 25.2,
+        "minRank": 9,
+        "maxRank": 47,
+        "days": 31,
+        "points": 2350
+      }
+    },
+    {
+      "gameKey": "배틀그라운드",
+      "title": "배틀그라운드",
+      "combinedAvg": 31.3,
+      "ios": {
+        "avgRank": 16.6,
+        "minRank": 6,
+        "maxRank": 35,
+        "days": 31,
+        "points": 2615
+      },
+      "aos": {
+        "avgRank": 45.9,
+        "minRank": 36,
+        "maxRank": 64,
+        "days": 31,
+        "points": 1707
+      }
+    },
+    {
+      "gameKey": "한게임 포커",
+      "title": "한게임 포커",
+      "combinedAvg": 31.7,
+      "ios": {
+        "avgRank": 40.7,
+        "minRank": 25,
+        "maxRank": 80,
+        "days": 31,
+        "points": 1870
+      },
+      "aos": {
+        "avgRank": 22.7,
+        "minRank": 12,
+        "maxRank": 34,
+        "days": 31,
+        "points": 2426
+      }
+    },
+    {
+      "gameKey": "푸드 앤 트레블: 합성 게임",
+      "title": "테이스티 트레블: 합성 게임",
+      "combinedAvg": 32.1,
+      "ios": {
+        "avgRank": 25.4,
+        "minRank": 17,
+        "maxRank": 49,
+        "days": 31,
+        "points": 2344
+      },
+      "aos": {
+        "avgRank": 38.7,
+        "minRank": 26,
+        "maxRank": 53,
+        "days": 31,
+        "points": 1930
+      }
+    },
+    {
+      "gameKey": "한게임 섯다&맞고",
+      "title": "한게임 섯다&맞고",
+      "combinedAvg": 33.2,
+      "ios": {
+        "avgRank": 24.5,
+        "minRank": 10,
+        "maxRank": 43,
+        "days": 31,
+        "points": 2370
+      },
+      "aos": {
+        "avgRank": 41.8,
+        "minRank": 21,
+        "maxRank": 67,
+        "days": 31,
+        "points": 1834
+      }
+    },
+    {
+      "gameKey": "메이플스토리M",
+      "title": "메이플스토리M",
+      "combinedAvg": 33.8,
+      "ios": {
+        "avgRank": 32.1,
+        "minRank": 20,
+        "maxRank": 56,
+        "days": 31,
+        "points": 2135
+      },
+      "aos": {
+        "avgRank": 35.5,
+        "minRank": 25,
+        "maxRank": 55,
+        "days": 31,
+        "points": 2031
+      }
+    },
+    {
+      "gameKey": "젠레스 존 제로",
+      "title": "젠레스 존 제로",
+      "combinedAvg": 34.4,
+      "ios": {
+        "avgRank": 42.4,
+        "minRank": 3,
+        "maxRank": 81,
+        "days": 31,
+        "points": 1818
+      },
+      "aos": {
+        "avgRank": 26.5,
+        "minRank": 6,
+        "maxRank": 49,
+        "days": 31,
+        "points": 2310
+      }
+    },
+    {
+      "gameKey": "귀판오분전",
+      "title": "귀판오분전",
+      "combinedAvg": 35.4,
+      "ios": {
+        "avgRank": 37.5,
+        "minRank": 26,
+        "maxRank": 63,
+        "days": 31,
+        "points": 1970
+      },
+      "aos": {
+        "avgRank": 33.3,
+        "minRank": 26,
+        "maxRank": 42,
+        "days": 31,
+        "points": 2100
+      }
+    },
+    {
+      "gameKey": "로얄 킹덤 (Royal Kingdom)",
+      "title": "로얄 킹덤 (Royal Kingdom)",
+      "combinedAvg": 37.1,
+      "ios": {
+        "avgRank": 43.5,
+        "minRank": 35,
+        "maxRank": 80,
+        "days": 31,
+        "points": 1782
+      },
+      "aos": {
+        "avgRank": 30.7,
+        "minRank": 22,
+        "maxRank": 42,
+        "days": 31,
+        "points": 2178
+      }
+    },
+    {
+      "gameKey": "꿈의 집 (Homescapes)",
+      "title": "Homescapes",
+      "combinedAvg": 38.3,
+      "ios": {
+        "avgRank": 27.5,
+        "minRank": 22,
+        "maxRank": 54,
+        "days": 31,
+        "points": 2277
+      },
+      "aos": {
+        "avgRank": 49.1,
+        "minRank": 44,
+        "maxRank": 60,
+        "days": 31,
+        "points": 1608
+      }
+    },
+    {
+      "gameKey": "리니지2M",
+      "title": "리니지2M",
+      "combinedAvg": 39.3,
+      "ios": {
+        "avgRank": 38.8,
+        "minRank": 6,
+        "maxRank": 96,
+        "days": 31,
+        "points": 1929
+      },
+      "aos": {
+        "avgRank": 39.8,
+        "minRank": 29,
+        "maxRank": 56,
+        "days": 31,
+        "points": 1897
+      }
+    },
+    {
+      "gameKey": "트릭컬 리바이브",
+      "title": "트릭컬 리바이브",
+      "combinedAvg": 39.3,
+      "ios": {
+        "avgRank": 55.7,
+        "minRank": 34,
+        "maxRank": 92,
+        "days": 31,
+        "points": 1405
+      },
+      "aos": {
+        "avgRank": 22.9,
+        "minRank": 12,
+        "maxRank": 37,
+        "days": 31,
+        "points": 2420
+      }
+    },
+    {
+      "gameKey": "브롤스타즈",
+      "title": "브롤스타즈",
+      "combinedAvg": 40.2,
+      "ios": {
+        "avgRank": 32.9,
+        "minRank": 19,
+        "maxRank": 68,
+        "days": 31,
+        "points": 2110
+      },
+      "aos": {
+        "avgRank": 47.5,
+        "minRank": 30,
+        "maxRank": 65,
+        "days": 31,
+        "points": 1658
+      }
+    },
+    {
+      "gameKey": "캔디크러쉬사가 (Candy Crush Saga)",
+      "title": "캔디크러쉬사가",
+      "combinedAvg": 41.1,
+      "ios": {
+        "avgRank": 39,
+        "minRank": 30,
+        "maxRank": 70,
+        "days": 31,
+        "points": 1921
+      },
+      "aos": {
+        "avgRank": 43.2,
+        "minRank": 37,
+        "maxRank": 53,
+        "days": 31,
+        "points": 1791
+      }
+    },
+    {
+      "gameKey": "아키텍트: 랜드 오브 엑자일",
+      "title": "아키텍트: 랜드 오브 엑자일",
+      "combinedAvg": 41.9,
+      "ios": {
+        "avgRank": 59.1,
+        "minRank": 24,
+        "maxRank": 100,
+        "days": 27,
+        "points": 1130
+      },
+      "aos": {
+        "avgRank": 24.7,
+        "minRank": 21,
+        "maxRank": 37,
+        "days": 31,
+        "points": 2366
+      }
+    },
+    {
+      "gameKey": "한게임포커 클래식 : 7포커 홀덤 섯다 훌라 슬롯",
+      "title": "한게임포커 클래식 - 7포커 홀덤 섯다 훌라 슬롯",
+      "combinedAvg": 44.8,
+      "ios": {
+        "avgRank": 63.9,
+        "minRank": 34,
+        "maxRank": 100,
+        "days": 31,
+        "points": 1151
+      },
+      "aos": {
+        "avgRank": 25.7,
+        "minRank": 14,
+        "maxRank": 54,
+        "days": 31,
+        "points": 2333
+      }
+    },
+    {
+      "gameKey": "eFootball™",
+      "title": "eFootball™",
+      "combinedAvg": 48.2,
+      "ios": {
+        "avgRank": 24.3,
+        "minRank": 7,
+        "maxRank": 96,
+        "days": 31,
+        "points": 2377
+      },
+      "aos": {
+        "avgRank": 72,
+        "minRank": 40,
+        "maxRank": 138,
+        "days": 31,
+        "points": 1057
+      }
+    },
+    {
+      "gameKey": "쿠키런: 킹덤",
+      "title": "쿠키런: 킹덤",
+      "combinedAvg": 46.1,
+      "ios": {
+        "avgRank": 33.7,
+        "minRank": 2,
+        "maxRank": 82,
+        "days": 31,
+        "points": 2087
+      },
+      "aos": {
+        "avgRank": 58.5,
+        "minRank": 20,
+        "maxRank": 117,
+        "days": 31,
+        "points": 1334
+      }
+    },
+    {
+      "gameKey": "협동 타워 디펜스 : 깐부와 함께",
+      "title": "협동 타워 디펜스 : 깐부와 함께",
+      "combinedAvg": 47.9,
+      "ios": {
+        "avgRank": 38.4,
+        "minRank": 21,
+        "maxRank": 74,
+        "days": 31,
+        "points": 1940
+      },
+      "aos": {
+        "avgRank": 57.4,
+        "minRank": 43,
+        "maxRank": 76,
+        "days": 31,
+        "points": 1351
+      }
+    },
+    {
+      "gameKey": "카트라이더 러쉬플러스",
+      "title": "카트라이더 러쉬플러스",
+      "combinedAvg": 48.2,
+      "ios": {
+        "avgRank": 28.4,
+        "minRank": 20,
+        "maxRank": 43,
+        "days": 31,
+        "points": 2251
+      },
+      "aos": {
+        "avgRank": 68.1,
+        "minRank": 52,
+        "maxRank": 91,
+        "days": 31,
+        "points": 1020
+      }
+    },
+    {
+      "gameKey": "꿈의 마을 (Township)",
+      "title": "꿈의 마을 (Township)",
+      "combinedAvg": 50.6,
+      "ios": {
+        "avgRank": 38.9,
+        "minRank": 25,
+        "maxRank": 75,
+        "days": 31,
+        "points": 1924
+      },
+      "aos": {
+        "avgRank": 62.3,
+        "minRank": 51,
+        "maxRank": 85,
+        "days": 31,
+        "points": 1201
+      }
+    },
+    {
+      "gameKey": "Travel Town - 결합 어드벤처",
+      "title": "Travel Town - 결합 어드벤처",
+      "combinedAvg": 51.6,
+      "ios": {
+        "avgRank": 46.9,
+        "minRank": 38,
+        "maxRank": 76,
+        "days": 31,
+        "points": 1677
+      },
+      "aos": {
+        "avgRank": 56.3,
+        "minRank": 49,
+        "maxRank": 65,
+        "days": 31,
+        "points": 1386
+      }
+    },
+    {
+      "gameKey": "그놈은 드래곤",
+      "title": "그놈은 드래곤",
+      "combinedAvg": 14.5,
+      "ios": {
+        "avgRank": 13.6,
+        "minRank": 8,
+        "maxRank": 64,
+        "days": 19,
+        "points": 1661
+      },
+      "aos": {
+        "avgRank": 15.5,
+        "minRank": 9,
+        "maxRank": 43,
+        "days": 16,
+        "points": 1368
+      }
+    },
+    {
+      "gameKey": "Roblox",
+      "title": "Roblox",
+      "combinedAvg": 5.8,
+      "ios": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      },
+      "aos": {
+        "avgRank": 5.8,
+        "minRank": 3,
+        "maxRank": 8,
+        "days": 31,
+        "points": 2951
+      }
+    },
+    {
+      "gameKey": "SD건담 지 제네레이션 이터널",
+      "title": "SD건담 지 제네레이션 이터널",
+      "combinedAvg": 49.5,
+      "ios": {
+        "avgRank": 56,
+        "minRank": 6,
+        "maxRank": 97,
+        "days": 25,
+        "points": 1125
+      },
+      "aos": {
+        "avgRank": 42.9,
+        "minRank": 17,
+        "maxRank": 118,
+        "days": 31,
+        "points": 1815
+      }
+    },
+    {
+      "gameKey": "리니지M(12)",
+      "title": "리니지M(12)",
+      "combinedAvg": 58.9,
+      "ios": {
+        "avgRank": 34.6,
+        "minRank": 13,
+        "maxRank": 70,
+        "days": 31,
+        "points": 2058
+      },
+      "aos": {
+        "avgRank": 83.2,
+        "minRank": 28,
+        "maxRank": 144,
+        "days": 31,
+        "points": 776
+      }
+    },
+    {
+      "gameKey": "RF 온라인 넥스트",
+      "title": "RF 온라인 넥스트",
+      "combinedAvg": 51.5,
+      "ios": {
+        "avgRank": 65,
+        "minRank": 23,
+        "maxRank": 100,
+        "days": 24,
+        "points": 864
+      },
+      "aos": {
+        "avgRank": 38,
+        "minRank": 29,
+        "maxRank": 49,
+        "days": 31,
+        "points": 1953
+      }
+    },
+    {
+      "gameKey": "쿠키런: 오븐브레이크",
+      "title": "쿠키런: 오븐브레이크",
+      "combinedAvg": 56.7,
+      "ios": {
+        "avgRank": 38.4,
+        "minRank": 19,
+        "maxRank": 60,
+        "days": 31,
+        "points": 1941
+      },
+      "aos": {
+        "avgRank": 75,
+        "minRank": 45,
+        "maxRank": 95,
+        "days": 31,
+        "points": 805
+      }
+    },
+    {
+      "gameKey": "원신·공월의 노래",
+      "title": "원신·공월의 노래",
+      "combinedAvg": 48.1,
+      "ios": {
+        "avgRank": 50.5,
+        "minRank": 5,
+        "maxRank": 100,
+        "days": 20,
+        "points": 1010
+      },
+      "aos": {
+        "avgRank": 45.7,
+        "minRank": 5,
+        "maxRank": 94,
+        "days": 31,
+        "points": 1713
+      }
+    },
+    {
+      "gameKey": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+      "title": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+      "combinedAvg": 57.4,
+      "ios": {
+        "avgRank": 38.7,
+        "minRank": 27,
+        "maxRank": 69,
+        "days": 31,
+        "points": 1930
+      },
+      "aos": {
+        "avgRank": 76,
+        "minRank": 45,
+        "maxRank": 124,
+        "days": 31,
+        "points": 790
+      }
+    },
+    {
+      "gameKey": "Limbus Company",
+      "title": "Limbus Company",
+      "combinedAvg": 54.6,
+      "ios": {
+        "avgRank": 68.8,
+        "minRank": 14,
+        "maxRank": 100,
+        "days": 26,
+        "points": 838
+      },
+      "aos": {
+        "avgRank": 40.5,
+        "minRank": 24,
+        "maxRank": 118,
+        "days": 31,
+        "points": 1875
+      }
+    },
+    {
+      "gameKey": "두근두근타운",
+      "title": "두근두근타운",
+      "combinedAvg": 47.2,
+      "ios": {
+        "avgRank": 29,
+        "minRank": 13,
+        "maxRank": 63,
+        "days": 24,
+        "points": 1729
+      },
+      "aos": {
+        "avgRank": 65.5,
+        "minRank": 50,
+        "maxRank": 196,
+        "days": 22,
+        "points": 884
+      }
+    },
+    {
+      "gameKey": "갓깨비 키우기-999뽑기 증정",
+      "title": "갓깨비 키우기",
+      "combinedAvg": 58.9,
+      "ios": {
+        "avgRank": 62,
+        "minRank": 48,
+        "maxRank": 100,
+        "days": 31,
+        "points": 1208
+      },
+      "aos": {
+        "avgRank": 55.8,
+        "minRank": 39,
+        "maxRank": 72,
+        "days": 31,
+        "points": 1401
+      }
+    },
+    {
+      "gameKey": "리그 오브 레전드: 와일드 리프트",
+      "title": "리그 오브 레전드: 와일드 리프트",
+      "combinedAvg": 61.7,
+      "ios": {
+        "avgRank": 39.6,
+        "minRank": 13,
+        "maxRank": 70,
+        "days": 31,
+        "points": 1903
+      },
+      "aos": {
+        "avgRank": 83.8,
+        "minRank": 47,
+        "maxRank": 132,
+        "days": 31,
+        "points": 641
+      }
+    },
+    {
+      "gameKey": "클래시 로얄",
+      "title": "클래시 로얄",
+      "combinedAvg": 61.4,
+      "ios": {
+        "avgRank": 39,
+        "minRank": 24,
+        "maxRank": 69,
+        "days": 31,
+        "points": 1921
+      },
+      "aos": {
+        "avgRank": 83.7,
+        "minRank": 65,
+        "maxRank": 107,
+        "days": 31,
+        "points": 541
+      }
+    },
+    {
+      "gameKey": "리니지W",
+      "title": "리니지W",
+      "combinedAvg": 55,
+      "ios": {
+        "avgRank": 80.1,
+        "minRank": 61,
+        "maxRank": 99,
+        "days": 10,
+        "points": 209
+      },
+      "aos": {
+        "avgRank": 29.9,
+        "minRank": 24,
+        "maxRank": 37,
+        "days": 31,
+        "points": 2205
+      }
+    },
+    {
+      "gameKey": "I9: 인페르노 나인 - 1주년",
+      "title": "I9: 인페르노 나인",
+      "combinedAvg": 27.1,
+      "ios": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      },
+      "aos": {
+        "avgRank": 27.1,
+        "minRank": 24,
+        "maxRank": 32,
+        "days": 31,
+        "points": 2292
+      }
+    },
+    {
+      "gameKey": "던전앤파이터 모바일",
+      "title": "던전앤파이터 모바일",
+      "combinedAvg": 65.8,
+      "ios": {
+        "avgRank": 56.5,
+        "minRank": 21,
+        "maxRank": 99,
+        "days": 30,
+        "points": 1334
+      },
+      "aos": {
+        "avgRank": 75,
+        "minRank": 38,
+        "maxRank": 137,
+        "days": 31,
+        "points": 951
+      }
+    },
+    {
+      "gameKey": "핫레스토랑: 머지&쿠킹",
+      "title": "핫레스토랑: 머지&쿠킹",
+      "combinedAvg": 64.5,
+      "ios": {
+        "avgRank": 55.5,
+        "minRank": 38,
+        "maxRank": 99,
+        "days": 31,
+        "points": 1409
+      },
+      "aos": {
+        "avgRank": 73.5,
+        "minRank": 62,
+        "maxRank": 92,
+        "days": 31,
+        "points": 853
+      }
+    },
+    {
+      "gameKey": "Pokémon GO",
+      "title": "Pokémon GO",
+      "combinedAvg": 72.4,
+      "ios": {
+        "avgRank": 48.5,
+        "minRank": 2,
+        "maxRank": 92,
+        "days": 31,
+        "points": 1628
+      },
+      "aos": {
+        "avgRank": 96.4,
+        "minRank": 43,
+        "maxRank": 141,
+        "days": 31,
+        "points": 474
+      }
+    },
+    {
+      "gameKey": "나이트 크로우",
+      "title": "나이트 크로우",
+      "combinedAvg": 62.9,
+      "ios": {
+        "avgRank": 71.9,
+        "minRank": 53,
+        "maxRank": 100,
+        "days": 19,
+        "points": 552
+      },
+      "aos": {
+        "avgRank": 53.8,
+        "minRank": 41,
+        "maxRank": 64,
+        "days": 31,
+        "points": 1464
+      }
+    },
+    {
+      "gameKey": "마피아42",
+      "title": "마피아42",
+      "combinedAvg": 81.5,
+      "ios": {
+        "avgRank": 37.5,
+        "minRank": 8,
+        "maxRank": 86,
+        "days": 31,
+        "points": 1968
+      },
+      "aos": {
+        "avgRank": 125.4,
+        "minRank": 70,
+        "maxRank": 164,
+        "days": 31,
+        "points": 45
+      }
+    },
+    {
+      "gameKey": "블러드 앤 소울",
+      "title": "블러드 앤 소울",
+      "combinedAvg": 60.3,
+      "ios": {
+        "avgRank": 67.7,
+        "minRank": 46,
+        "maxRank": 100,
+        "days": 24,
+        "points": 800
+      },
+      "aos": {
+        "avgRank": 53,
+        "minRank": 37,
+        "maxRank": 180,
+        "days": 22,
+        "points": 1141
+      }
+    },
+    {
+      "gameKey": "변신 키우기",
+      "title": "변신 키우기",
+      "combinedAvg": 70.5,
+      "ios": {
+        "avgRank": 63.1,
+        "minRank": 24,
+        "maxRank": 100,
+        "days": 31,
+        "points": 1175
+      },
+      "aos": {
+        "avgRank": 77.9,
+        "minRank": 64,
+        "maxRank": 98,
+        "days": 31,
+        "points": 715
+      }
+    },
+    {
+      "gameKey": "머지 쿠킹 테마 레스토랑",
+      "title": "머지 쿠킹 테마 레스토랑",
+      "combinedAvg": 72.4,
+      "ios": {
+        "avgRank": 47.5,
+        "minRank": 35,
+        "maxRank": 80,
+        "days": 31,
+        "points": 1658
+      },
+      "aos": {
+        "avgRank": 97.2,
+        "minRank": 80,
+        "maxRank": 115,
+        "days": 31,
+        "points": 185
+      }
+    },
+    {
+      "gameKey": "냥코 대전쟁",
+      "title": "냥코 대전쟁",
+      "combinedAvg": 69.4,
+      "ios": {
+        "avgRank": 61.1,
+        "minRank": 24,
+        "maxRank": 100,
+        "days": 28,
+        "points": 1117
+      },
+      "aos": {
+        "avgRank": 77.7,
+        "minRank": 60,
+        "maxRank": 103,
+        "days": 31,
+        "points": 722
+      }
+    },
+    {
+      "gameKey": "피망 포커 : 카지노 로얄 - 홀덤, 7포커, 바둑이",
+      "title": "피망 포커",
+      "combinedAvg": 69.1,
+      "ios": {
+        "avgRank": 93.5,
+        "minRank": 85,
+        "maxRank": 100,
+        "days": 10,
+        "points": 75
+      },
+      "aos": {
+        "avgRank": 44.6,
+        "minRank": 24,
+        "maxRank": 71,
+        "days": 31,
+        "points": 1748
+      }
+    },
+    {
+      "gameKey": "캣 히어로 : 방치형 RPG",
+      "title": "캣 히어로 : 방치형 RPG",
+      "combinedAvg": 93.7,
+      "ios": {
+        "avgRank": 47,
+        "minRank": 29,
+        "maxRank": 81,
+        "days": 31,
+        "points": 1673
+      },
+      "aos": {
+        "avgRank": 140.3,
+        "minRank": 126,
+        "maxRank": 170,
+        "days": 31,
+        "points": 0
+      }
+    },
+    {
+      "gameKey": "오피스 퀸 키우기",
+      "title": "오피스 퀸 키우기",
+      "combinedAvg": 104,
+      "ios": {
+        "avgRank": 48.4,
+        "minRank": 36,
+        "maxRank": 82,
+        "days": 31,
+        "points": 1631
+      },
+      "aos": {
+        "avgRank": 159.7,
+        "minRank": 120,
+        "maxRank": 199,
+        "days": 31,
+        "points": 0
+      }
+    },
+    {
+      "gameKey": "모바일 레전드: Bang Bang",
+      "title": "모바일 레전드: Bang Bang",
+      "combinedAvg": 79.9,
+      "ios": {
+        "avgRank": 53,
+        "minRank": 32,
+        "maxRank": 100,
+        "days": 31,
+        "points": 1487
+      },
+      "aos": {
+        "avgRank": 106.8,
+        "minRank": 80,
+        "maxRank": 145,
+        "days": 29,
+        "points": 66
+      }
+    },
+    {
+      "gameKey": "명일방주",
+      "title": "명일방주",
+      "combinedAvg": 79.8,
+      "ios": {
+        "avgRank": 61,
+        "minRank": 9,
+        "maxRank": 99,
+        "days": 15,
+        "points": 600
+      },
+      "aos": {
+        "avgRank": 98.6,
+        "minRank": 18,
+        "maxRank": 181,
+        "days": 31,
+        "points": 918
+      }
+    },
+    {
+      "gameKey": "건틀렛: 방치형 액션 RPG",
+      "title": "잠룡 : 도트 무협 RPG",
+      "combinedAvg": 88.5,
+      "ios": {
+        "avgRank": 52.2,
+        "minRank": 31,
+        "maxRank": 90,
+        "days": 31,
+        "points": 1514
+      },
+      "aos": {
+        "avgRank": 124.9,
+        "minRank": 105,
+        "maxRank": 169,
+        "days": 31,
+        "points": 0
+      }
+    },
+    {
+      "gameKey": "우마무스메 프리티 더비",
+      "title": "우마무스메 프리티 더비",
+      "combinedAvg": 68.4,
+      "ios": {
+        "avgRank": 67.7,
+        "minRank": 37,
+        "maxRank": 99,
+        "days": 15,
+        "points": 500
+      },
+      "aos": {
+        "avgRank": 69.1,
+        "minRank": 47,
+        "maxRank": 115,
+        "days": 30,
+        "points": 970
+      }
+    },
+    {
+      "gameKey": "창세기전 모바일 - 서풍의 광시곡",
+      "title": "창세기전 모바일 - 서풍의 광시곡",
+      "combinedAvg": 71.6,
+      "ios": {
+        "avgRank": 50.7,
+        "minRank": 5,
+        "maxRank": 100,
+        "days": 20,
+        "points": 1006
+      },
+      "aos": {
+        "avgRank": 92.5,
+        "minRank": 49,
+        "maxRank": 195,
+        "days": 20,
+        "points": 385
+      }
+    },
+    {
+      "gameKey": "삼국지 전략판",
+      "title": "삼국지 전략판",
+      "combinedAvg": 77.8,
+      "ios": {
+        "avgRank": 35.4,
+        "minRank": 3,
+        "maxRank": 100,
+        "days": 16,
+        "points": 1050
+      },
+      "aos": {
+        "avgRank": 120.3,
+        "minRank": 41,
+        "maxRank": 196,
+        "days": 23,
+        "points": 333
+      }
+    },
+    {
+      "gameKey": "서머너즈 워: 천공의 아레나",
+      "title": "서머너즈 워: 천공의 아레나",
+      "combinedAvg": 74.2,
+      "ios": {
+        "avgRank": 76.9,
+        "minRank": 26,
+        "maxRank": 100,
+        "days": 19,
+        "points": 458
+      },
+      "aos": {
+        "avgRank": 71.4,
+        "minRank": 46,
+        "maxRank": 93,
+        "days": 31,
+        "points": 917
+      }
+    },
+    {
+      "gameKey": "I9: 인페르노 나인(19) - 세로형 RPG",
+      "title": "I9: 인페르노 나인(19) - 세로형 RPG",
+      "combinedAvg": 75.6,
+      "ios": {
+        "avgRank": 92.6,
+        "minRank": 82,
+        "maxRank": 100,
+        "days": 5,
+        "points": 42
+      },
+      "aos": {
+        "avgRank": 58.5,
+        "minRank": 50,
+        "maxRank": 71,
+        "days": 31,
+        "points": 1316
+      }
+    },
+    {
+      "gameKey": "세포 특공대",
+      "title": "세포 특공대 - 전략형 타워 디펜스",
+      "combinedAvg": 83.6,
+      "ios": {
+        "avgRank": 63.9,
+        "minRank": 49,
+        "maxRank": 99,
+        "days": 31,
+        "points": 1149
+      },
+      "aos": {
+        "avgRank": 103.4,
+        "minRank": 78,
+        "maxRank": 133,
+        "days": 31,
+        "points": 185
+      }
+    },
+    {
+      "gameKey": "브라운더스트2 - 가슴 벅찬 RPG",
+      "title": "브라운더스트2 - 가슴 벅찬 RPG",
+      "combinedAvg": 76.4,
+      "ios": {
+        "avgRank": 89.7,
+        "minRank": 66,
+        "maxRank": 100,
+        "days": 6,
+        "points": 68
+      },
+      "aos": {
+        "avgRank": 63.1,
+        "minRank": 34,
+        "maxRank": 105,
+        "days": 31,
+        "points": 1185
+      }
+    },
+    {
+      "gameKey": "S.O.S:스테이트 오브 서바이벌",
+      "title": "S.O.S: 스테이트 오브 서바이벌",
+      "combinedAvg": 61.1,
+      "ios": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      },
+      "aos": {
+        "avgRank": 61.1,
+        "minRank": 46,
+        "maxRank": 100,
+        "days": 31,
+        "points": 1236
+      }
+    },
+    {
+      "gameKey": "카오스 제로 나이트메어",
+      "title": "카오스 제로 나이트메어",
+      "combinedAvg": 84.5,
+      "ios": {
+        "avgRank": 71.7,
+        "minRank": 27,
+        "maxRank": 100,
+        "days": 14,
+        "points": 410
+      },
+      "aos": {
+        "avgRank": 97.2,
+        "minRank": 21,
+        "maxRank": 188,
+        "days": 31,
+        "points": 752
+      }
+    },
+    {
+      "gameKey": "삼국지 왕전",
+      "title": "삼국지 왕전",
+      "combinedAvg": 69.7,
+      "ios": {
+        "avgRank": 48.5,
+        "minRank": 34,
+        "maxRank": 90,
+        "days": 15,
+        "points": 787
+      },
+      "aos": {
+        "avgRank": 90.8,
+        "minRank": 60,
+        "maxRank": 179,
+        "days": 13,
+        "points": 364
+      }
+    },
+    {
+      "gameKey": "피망 뉴맞고 : 고스톱으로 대한민국 1등",
+      "title": "피망 뉴맞고: 고스톱 대표 맞고 게임",
+      "combinedAvg": 82.1,
+      "ios": {
+        "avgRank": 92.2,
+        "minRank": 83,
+        "maxRank": 100,
+        "days": 26,
+        "points": 230
+      },
+      "aos": {
+        "avgRank": 72.1,
+        "minRank": 58,
+        "maxRank": 94,
+        "days": 31,
+        "points": 896
+      }
+    },
+    {
+      "gameKey": "뮤 모나크2",
+      "title": "뮤 모나크2",
+      "combinedAvg": 65.1,
+      "ios": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      },
+      "aos": {
+        "avgRank": 65.1,
+        "minRank": 47,
+        "maxRank": 83,
+        "days": 31,
+        "points": 1113
+      }
+    },
+    {
+      "gameKey": "좀비 웨이브스",
+      "title": "좀비 웨이브스",
+      "combinedAvg": 78.4,
+      "ios": {
+        "avgRank": 82.9,
+        "minRank": 55,
+        "maxRank": 100,
+        "days": 15,
+        "points": 272
+      },
+      "aos": {
+        "avgRank": 73.9,
+        "minRank": 57,
+        "maxRank": 91,
+        "days": 31,
+        "points": 840
+      }
+    },
+    {
+      "gameKey": "피쉬돔 (Fishdom)",
+      "title": "피쉬돔 (Fishdom)",
+      "combinedAvg": 83.6,
+      "ios": {
+        "avgRank": 78.7,
+        "minRank": 66,
+        "maxRank": 100,
+        "days": 31,
+        "points": 692
+      },
+      "aos": {
+        "avgRank": 88.5,
+        "minRank": 77,
+        "maxRank": 103,
+        "days": 31,
+        "points": 387
+      }
+    },
+    {
+      "gameKey": "포켓몬 카드 게임 Pocket",
+      "title": "포켓몬 카드 게임 Pocket",
+      "combinedAvg": 102.2,
+      "ios": {
+        "avgRank": 63.1,
+        "minRank": 13,
+        "maxRank": 100,
+        "days": 28,
+        "points": 1062
+      },
+      "aos": {
+        "avgRank": 141.3,
+        "minRank": 94,
+        "maxRank": 195,
+        "days": 31,
+        "points": 16
+      }
+    },
+    {
+      "gameKey": "컴투스프로야구2026",
+      "title": "컴투스프로야구2026",
+      "combinedAvg": 80.7,
+      "ios": {
+        "avgRank": 80.2,
+        "minRank": 36,
+        "maxRank": 100,
+        "days": 21,
+        "points": 437
+      },
+      "aos": {
+        "avgRank": 81.2,
+        "minRank": 51,
+        "maxRank": 112,
+        "days": 31,
+        "points": 630
+      }
+    },
+    {
+      "gameKey": "Disney Solitaire",
+      "title": "Disney Solitaire",
+      "combinedAvg": 107.6,
+      "ios": {
+        "avgRank": 65.5,
+        "minRank": 45,
+        "maxRank": 100,
+        "days": 30,
+        "points": 1064
+      },
+      "aos": {
+        "avgRank": 149.6,
+        "minRank": 115,
+        "maxRank": 199,
+        "days": 31,
+        "points": 0
+      }
+    },
+    {
+      "gameKey": "Legends Reborn: 마지막 전투",
+      "title": "Legends Reborn: 마지막 전투",
+      "combinedAvg": 66.7,
+      "ios": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      },
+      "aos": {
+        "avgRank": 66.7,
+        "minRank": 51,
+        "maxRank": 82,
+        "days": 31,
+        "points": 1062
+      }
+    },
+    {
+      "gameKey": "주술회전 팬텀 퍼레이드",
+      "title": "주술회전 팬텀 퍼레이드",
+      "combinedAvg": 88,
+      "ios": {
+        "avgRank": 59.4,
+        "minRank": 29,
+        "maxRank": 99,
+        "days": 22,
+        "points": 915
+      },
+      "aos": {
+        "avgRank": 116.7,
+        "minRank": 72,
+        "maxRank": 197,
+        "days": 30,
+        "points": 133
+      }
+    },
+    {
+      "gameKey": "퍼즐 오브 Z",
+      "title": "퍼즐 오브 Z",
+      "combinedAvg": 68.6,
+      "ios": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      },
+      "aos": {
+        "avgRank": 68.6,
+        "minRank": 62,
+        "maxRank": 85,
+        "days": 31,
+        "points": 1004
+      }
+    },
+    {
+      "gameKey": "아키에이지 워 (ArcheAge WAR)",
+      "title": "아키에이지 워 (ArcheAge WAR)",
+      "combinedAvg": 80.5,
+      "ios": {
+        "avgRank": 90.7,
+        "minRank": 90,
+        "maxRank": 97,
+        "days": 3,
+        "points": 31
+      },
+      "aos": {
+        "avgRank": 70.3,
+        "minRank": 52,
+        "maxRank": 104,
+        "days": 31,
+        "points": 954
+      }
+    },
+    {
+      "gameKey": "카발RED",
+      "title": "카발RED",
+      "combinedAvg": 69.2,
+      "ios": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      },
+      "aos": {
+        "avgRank": 69.2,
+        "minRank": 55,
+        "maxRank": 80,
+        "days": 31,
+        "points": 985
+      }
+    },
+    {
+      "gameKey": "I9: 인페르노 나인",
+      "title": "I9: 인페르노 나인",
+      "combinedAvg": 69.5,
+      "ios": {
+        "avgRank": 69.5,
+        "minRank": 43,
+        "maxRank": 100,
+        "days": 31,
+        "points": 976
+      },
+      "aos": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      }
+    },
+    {
+      "gameKey": "한게임 신맞고 : 대한민국 원조 고스톱",
+      "title": "한게임 신맞고 : 대한민국 원조 고스톱",
+      "combinedAvg": 69.9,
+      "ios": {
+        "avgRank": null,
+        "minRank": null,
+        "maxRank": null,
+        "days": 0,
+        "points": 0
+      },
+      "aos": {
+        "avgRank": 69.9,
+        "minRank": 54,
+        "maxRank": 88,
+        "days": 31,
+        "points": 964
+      }
+    },
+    {
+      "gameKey": "쿠키런",
+      "title": "쿠키런",
+      "combinedAvg": 97.5,
+      "ios": {
+        "avgRank": 61,
+        "minRank": 32,
+        "maxRank": 100,
+        "days": 24,
+        "points": 961
+      },
+      "aos": {
+        "avgRank": 134.1,
+        "minRank": 109,
+        "maxRank": 182,
+        "days": 15,
+        "points": 0
+      }
+    }
+  ]
+}

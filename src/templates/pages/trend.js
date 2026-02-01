@@ -3846,6 +3846,9 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
         case 'quote':
           result.push(`<blockquote class="blog-quote">${parseMarkdownLinks(block.value)}</blockquote>`);
           break;
+        case 'note':
+          result.push(`<div class="blog-note">${block.value.replace(/\n/g, '<br>')}</div>`);
+          break;
         case 'list':
           if (Array.isArray(block.items)) {
             const listItems = block.items.map(item => `<li>${parseMarkdownLinks(item)}</li>`).join('');
@@ -3923,10 +3926,10 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
           const barChartId = `ranking-bar-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`;
           const barItems = block.items || [];
 
-          // 아이콘 가져오기
+          // 아이콘 가져오기 (item.icon/img fallback 지원)
           const barIcons = barItems.map(item => {
             const gameData = gamesMap[item.name] || Object.values(gamesMap).find(g => g.slug === item.slug);
-            return gameData?.icon || '';
+            return item.icon || item.img || gameData?.icon || '';
           });
 
           const barScores = barItems.map(item => item.score);
@@ -3950,7 +3953,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
                 <img src="${icon}" alt="${escapeHtmlAttr(item.name)}" title="${escapeHtmlAttr(item.name)}" style="width:36px; height:36px; border-radius:8px; object-fit:cover; flex-shrink:0;">
                 <div class="ranking-bar-track" style="flex:1; height:32px; background:var(--hover-bg); border-radius:6px; position:relative;">
                   <div class="ranking-bar-fill" style="width:${pct}%; height:100%; background:${color}; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px;">
-                    <span style="font-size:12px; font-weight:600; color:#333;">${item.score.toLocaleString()}점</span>
+                    <span style="font-size:12px; font-weight:600; color:#333;">${item.score.toLocaleString()}${block.unit !== undefined ? block.unit : '점'}</span>
                   </div>
                 </div>
               </div>
@@ -4084,19 +4087,20 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
         case 'ranking-card':
           // 게임 상세 카드
           const cardItem = block.item || block;
-          let cardIcon = cardItem.icon || '';
+          let cardIcon = cardItem.icon || cardItem.img || '';
           if (!cardIcon && cardItem.slug) {
             for (const [name, game] of Object.entries(gamesMap)) {
               if (game.slug === cardItem.slug && game.icon) { cardIcon = game.icon; break; }
             }
           }
+          const cardUnit = cardItem.unit || block.unit || '점';
 
           result.push(`
             <div class="ranking-card ${cardItem.highlight ? 'ranking-card-highlight' : ''}">
               <img class="ranking-card-icon" src="${cardIcon}" alt="" loading="lazy">
               <div class="ranking-card-info">
                 <div class="ranking-card-name">${escapeHtmlAttr(cardItem.name || '')}</div>
-                <div class="ranking-card-score">${cardItem.score?.toLocaleString() || ''}점</div>
+                <div class="ranking-card-score">${cardItem.score?.toLocaleString() || ''}${cardUnit}</div>
               </div>
               <div class="ranking-card-stats">
                 ${cardItem.ios ? `<div class="ranking-card-stat stat-ios"><span class="stat-label">iOS</span><span class="stat-value">${cardItem.ios}</span></div>` : ''}
