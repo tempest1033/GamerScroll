@@ -52,7 +52,7 @@ function generateHead(options = {}) {
   );
   const safeImageAlt = safeTitle;
   const preloadImageList = Array.isArray(preloadImages) ? preloadImages : [];
-  const preloadUrls = [...new Set(preloadImageList.map(item => normalizeMeta(item)).filter(Boolean))].slice(0, 2);
+  const preloadUrls = [...new Set(preloadImageList.map(item => normalizeMeta(item)).filter(Boolean))].slice(0, 3);
   const preloadLinks = preloadUrls.length > 0
     ? preloadUrls.map((url, index) =>
       `<link rel="preload" as="image" href="${escapeHtmlAttr(url)}"${index === 0 ? ' fetchpriority="high"' : ''}>`
@@ -145,7 +145,8 @@ function generateHead(options = {}) {
 	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
 	  <style>
 	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
-	    body { margin: 0; }
+	    body { margin: 0; visibility: hidden; }
+	    .home-trend-card-image { background: transparent !important; }
 	    :is(.site-container, .container) {
 	      max-width: 1190px;
 	      margin: 0 auto;

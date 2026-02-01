@@ -7,7 +7,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateNativeAdSlot } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인/경로
 const docsDir = path.join(__dirname, '../../../docs');
@@ -76,6 +76,22 @@ function generateTechHubPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReportsCount,
+    insight: insightReportsCount,
+    hotpick: hotpickReportsCount,
+    ranking: rankingReportsCount,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
   // 전체 테크 글을 날짜순 정렬
   const allTech = [];
   for (const cat of Object.keys(techData)) {
@@ -159,20 +175,7 @@ function generateTechHubPage({
 
   // 사이드바 (공유 리스트 사용)
   function generateSidebar() {
-    const counts = {
-      daily: dailyReportsCount,
-      weekly: weeklyReportsCount,
-      issue: issueReportsCount,
-      insight: insightReportsCount,
-      hotpick: hotpickReportsCount,
-      ranking: rankingReportsCount,
-      history: (wikiData.history || []).length,
-      knowledge: (wikiData.knowledge || []).length,
-      business: (wikiData.business || []).length,
-      normal: (techData.normal || []).length,
-      ai: (techData.ai || []).length,
-      vibecoding: (techData.vibecoding || []).length
-    };
+    const counts = sidebarCounts;
 
     const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
@@ -373,6 +376,11 @@ function generateTechHubPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드
+  const preloadImages = allTech.slice(0, 3)
+    .map(a => a.thumbnail ? getLocalTechImagePath(a.category, a.slug, a.thumbnail, 'sm') : null)
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'tech',
     title: '테크 - 기술, AI, 개발 도구',
@@ -380,10 +388,13 @@ function generateTechHubPage({
     keywords: '테크, 기술, AI, 개발 도구, 바이브 코딩, 게임 엔진',
     canonical: `${siteBaseUrl}/tech/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '테크', url: `${siteBaseUrl}/tech/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -404,42 +415,60 @@ function generateTechCategoryPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReportsCount,
+    insight: insightReportsCount,
+    hotpick: hotpickReportsCount,
+    ranking: rankingReportsCount,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
   const articles = techData[category] || [];
   const catName = categoryNames[category] || category;
 
   function generateCategoryGrid() {
     if (articles.length === 0) return '<p>테크 글이 없습니다.</p>';
 
-    const techCards = articles.map(article => {
+    const cards = [];
+    articles.forEach((article, i) => {
       const thumbnail = article.thumbnail
         ? getLocalTechImagePath(category, article.slug, article.thumbnail)
         : '';
       const badgeText = article.date ? formatDateKr(article.date) : catName;
 
-      return `
-        <a href="/tech/${category}/${article.slug}/" class="category-list-card">
-          <div class="category-list-thumb">
+      cards.push(`
+        <a href="/tech/${category}/${article.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+          <div class="home-trend-card-image">
             ${thumbnail ? `<img src="${thumbnail}" alt="${escapeHtmlAttr(article.title)}" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="category-list-badge">${badgeText}</span>
+            <span class="home-trend-card-tag tech">${badgeText}</span>
           </div>
-          <div class="category-list-info">
-            <h3 class="category-list-title">${article.title}</h3>
-            ${article.summary ? `<p class="category-list-summary">${article.summary}</p>` : ''}
-          </div>
-        </a>
-      `;
-    }).join('');
+          <h3 class="home-trend-card-title">${article.title}</h3>
+        </a>`);
+      if ((i + 1) % 3 === 0 && i < articles.length - 1) {
+        cards.push(generateNativeAdSlot(AD_SLOTS.Article001));
+      }
+    });
+
+    const totalPages = Math.ceil(articles.length / 15);
 
     return `
       <div class="home-card" id="tech-category">
         <div class="home-card-header">
           <h2 class="home-card-title">${catName}</h2>
         </div>
-        <div class="category-list" id="techGrid">${techCards}</div>
-        <div class="home-pagination" id="techPagination">
-          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-          <span class="home-page-index">1/1</span>
-          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        <div class="home-trend-grid" id="techGrid">${cards.join('')}</div>
+        <div class="home-pagination" id="techPagination" data-total="${articles.length}" data-per-page="15">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
         </div>
       </div>
     `;
@@ -447,20 +476,7 @@ function generateTechCategoryPage({
 
   // 사이드바 (공유 리스트 사용)
   function generateSidebar() {
-    const counts = {
-      daily: dailyReportsCount,
-      weekly: weeklyReportsCount,
-      issue: issueReportsCount,
-      insight: insightReportsCount,
-      hotpick: hotpickReportsCount,
-      ranking: rankingReportsCount,
-      history: (wikiData.history || []).length,
-      knowledge: (wikiData.knowledge || []).length,
-      business: (wikiData.business || []).length,
-      normal: (techData.normal || []).length,
-      ai: (techData.ai || []).length,
-      vibecoding: (techData.vibecoding || []).length
-    };
+    const counts = sidebarCounts;
 
     const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
@@ -554,29 +570,51 @@ function generateTechCategoryPage({
   const pageScripts = `
   <script>
     (function() {
-      // 페이지네이션
       const grid = document.getElementById('techGrid');
       const pagination = document.getElementById('techPagination');
-      if (grid && pagination) {
-        const items = Array.from(grid.querySelectorAll('.category-list-card'));
-        const pageSize = 15;
-        const totalPages = Math.ceil(items.length / pageSize) || 1;
-        let currentPage = 1;
-        const prevBtn = pagination.querySelector('.home-prev');
-        const nextBtn = pagination.querySelector('.home-next');
-        const pageIndex = pagination.querySelector('.home-page-index');
-        function updatePagination() {
-          const start = (currentPage - 1) * pageSize;
-          const end = start + pageSize;
-          items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-          pageIndex.textContent = currentPage + ' / ' + totalPages;
-          prevBtn.disabled = currentPage <= 1;
-          nextBtn.disabled = currentPage >= totalPages;
+      if (!grid || !pagination) return;
+      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
+      const pageSize = 15;
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let visibleCount = pageSize;
+        let observer;
+        function showItems() { items.forEach((item, i) => { item.style.display = i < visibleCount ? '' : 'none'; }); }
+        function loadMore() {
+          if (visibleCount >= items.length) return;
+          visibleCount = Math.min(visibleCount + pageSize, items.length);
+          showItems(); observeLastItem();
         }
-        prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
-        nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
-        updatePagination();
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= items.length) return;
+          const lastVisible = items[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) loadMore(); }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+        showItems(); observeLastItem();
+        return;
       }
+
+      const totalPages = Math.ceil(items.length / pageSize) || 1;
+      let currentPage = 1;
+      const prevBtn = pagination.querySelector('.home-page-prev');
+      const nextBtn = pagination.querySelector('.home-page-next');
+      const pageInfo = pagination.querySelector('.home-page-info');
+      function updatePagination() {
+        const start = (currentPage - 1) * pageSize;
+        const end = start + pageSize;
+        items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
+        prevBtn.disabled = currentPage <= 1;
+        nextBtn.disabled = currentPage >= totalPages;
+      }
+      prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
+      nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
+      updatePagination();
 
       // 사이드바 인기/최신 탭 토글
       const sidebarTab = document.getElementById('sidebarArticleTab');
@@ -594,6 +632,11 @@ function generateTechCategoryPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드
+  const preloadImages = articles.slice(0, 3)
+    .map(a => a.thumbnail ? getLocalTechImagePath(category, a.slug, a.thumbnail, 'sm') : null)
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'tech',
     title: `${catName} - 테크`,
@@ -601,11 +644,14 @@ function generateTechCategoryPage({
     keywords: `테크, ${catName}, 기술`,
     canonical: `${siteBaseUrl}/tech/${category}/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '테크', url: `${siteBaseUrl}/tech/` },
       { name: catName, url: `${siteBaseUrl}/tech/${category}/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 

@@ -7,7 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateVerticalAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateVerticalAdSlot, generateNativeAdSlot } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -43,7 +43,7 @@ function getLocalReportThumbnail(type, slug, originalUrl, size = 'sm') {
 
 // srcset 헬퍼 - 반응형 이미지용 (xs 200w, sm 480w)
 function getLocalReportThumbnailSrcset(type, slug, originalUrl) {
-  const xsUrl = getLocalReportThumbnail(type, slug, originalUrl, 'xs');
+  const xsUrl = getLocalReportThumbnail(type, slug, originalUrl, 'sm');
   const smUrl = getLocalReportThumbnail(type, slug, originalUrl, 'sm');
   // xs와 sm이 같으면 srcset 불필요
   if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
@@ -146,6 +146,22 @@ function generateTrendsHubPage({
 }) {
   const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
   // 인기 기사 Top 3 (매거진 카테고리만 필터링) - 홈페이지 스타일 (썸네일 + 요약)
   function generatePopularSection() {
     // 매거진 카테고리만 필터링 (issue, insight, hotpick, ranking)
@@ -232,20 +248,7 @@ function generateTrendsHubPage({
 
   // 사이드바: 매거진/위키/테크 메뉴
   function generateSidebarCategories() {
-    const counts = {
-      daily: dailyReportsCount,
-      weekly: weeklyReportsCount,
-      issue: issueReports.length,
-      insight: insightReports.length,
-      hotpick: hotpickReports.length,
-      ranking: rankingReports.length,
-      history: (wikiData.history || []).length,
-      knowledge: (wikiData.knowledge || []).length,
-      business: (wikiData.business || []).length,
-      normal: (techData?.normal || []).length,
-      ai: (techData?.ai || []).length,
-      vibecoding: (techData?.vibecoding || []).length
-    };
+    const counts = sidebarCounts;
 
     const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
@@ -455,9 +458,9 @@ function generateTrendsHubPage({
       // PC: 페이지네이션
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-prev');
-      const nextBtn = pagination.querySelector('.home-next');
-      const pageIndex = pagination.querySelector('.home-page-index');
+      const prevBtn = pagination.querySelector('.home-page-prev');
+      const nextBtn = pagination.querySelector('.home-page-next');
+      const pageInfo = pagination.querySelector('.home-page-info');
 
       function updatePagination() {
         const start = (currentPage - 1) * pageSize;
@@ -465,7 +468,7 @@ function generateTrendsHubPage({
         items.forEach((item, i) => {
           item.style.display = (i >= start && i < end) ? '' : 'none';
         });
-        pageIndex.textContent = currentPage + ' / ' + totalPages;
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
         prevBtn.disabled = currentPage <= 1;
         nextBtn.disabled = currentPage >= totalPages;
       }
@@ -496,6 +499,17 @@ function generateTrendsHubPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드 (모바일 FOUC 방지)
+  const allLatestForPreload = [
+    ...issueReports.map(r => ({ ...r, type: 'issue' })),
+    ...insightReports.map(r => ({ ...r, type: 'insight' })),
+    ...hotpickReports.map(r => ({ ...r, type: 'hotpick' })),
+    ...rankingReports.map(r => ({ ...r, type: 'ranking' }))
+  ].sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 3);
+  const preloadImages = allLatestForPreload
+    .map(r => getLocalReportThumbnail(r.type, r.slug, r.thumbnail, 'sm'))
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '매거진 - 게임 업계 이슈, 일간/주간 리포트',
@@ -503,10 +517,13 @@ function generateTrendsHubPage({
     keywords: '게임 트렌드, 게임 리포트, 게임 업계 이슈, 게임 순위, 게임 뉴스',
     canonical: `${siteBaseUrl}/magazine/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -529,39 +546,58 @@ function generateDailyListPage({
 }) {
   const categoryNames = { history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
 
-  // 일간 그리드 (15개, 페이지네이션) - 첫 번째 핫이슈 썸네일+제목 사용
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
+  // 일간 그리드 (홈 스타일, 3개마다 광고, 자동 페이지네이션)
   function generateDailyGrid() {
     if (dailyReports.length === 0) return '<p>일간 리포트가 없습니다.</p>';
 
-    const dailyCards = dailyReports.map(report => {
+    // 카드 생성 (3개마다 광고 삽입)
+    const cards = [];
+    dailyReports.forEach((report, i) => {
       const firstIssue = report.issues && report.issues[0];
       const thumbUrl = firstIssue?.thumbnail || '';
       const title = firstIssue?.title || '일간';
-      const desc = firstIssue?.desc || '';
-      return `
-      <a href="/magazine/daily/${report.date}/" class="category-list-card">
-        <div class="category-list-thumb">
+      cards.push(`
+      <a href="/magazine/daily/${report.date}/" class="home-trend-card home-latest-item" data-index="${i}">
+        <div class="home-trend-card-image">
           ${thumbUrl ? `<img src="${getLocalDailyThumbnail(report.date, thumbUrl)}" alt="${escapeHtmlAttr(title)}" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="category-list-badge">${formatDateKr(report.date)}</span>
+          <span class="home-trend-card-tag">${formatDateKr(report.date)}</span>
         </div>
-        <div class="category-list-info">
-          <h3 class="category-list-title">${title}</h3>
-          ${desc ? `<p class="category-list-summary">${desc}</p>` : ''}
-        </div>
-      </a>
-    `;
-    }).join('');
+        <h3 class="home-trend-card-title">${title}</h3>
+      </a>`);
+      // 3개마다 광고 삽입
+      if ((i + 1) % 3 === 0 && i < dailyReports.length - 1) {
+        cards.push(generateNativeAdSlot(AD_SLOTS.Article001));
+      }
+    });
+
+    const totalPages = Math.ceil(dailyReports.length / 15);
 
     return `
       <div class="home-card" id="daily-list">
         <div class="home-card-header">
           <h2 class="home-card-title">일간</h2>
         </div>
-        <div class="category-list" id="dailyGrid">${dailyCards}</div>
-        <div class="home-pagination" id="dailyPagination">
-          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-          <span class="home-page-index">1/1</span>
-          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        <div class="home-trend-grid" id="dailyGrid">${cards.join('')}</div>
+        <div class="home-pagination" id="dailyPagination" data-total="${dailyReports.length}" data-per-page="15">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
         </div>
       </div>
     `;
@@ -569,20 +605,7 @@ function generateDailyListPage({
 
   // 사이드바 (공통 - 공유 리스트 사용)
   function generateSidebar() {
-    const counts = {
-      daily: dailyReportsCount,
-      weekly: weeklyReportsCount,
-      issue: issueReports.length,
-      insight: insightReports.length,
-      hotpick: hotpickReports.length,
-      ranking: rankingReports.length,
-      history: (wikiData.history || []).length,
-      knowledge: (wikiData.knowledge || []).length,
-      business: (wikiData.business || []).length,
-      normal: (techData?.normal || []).length,
-      ai: (techData?.ai || []).length,
-      vibecoding: (techData?.vibecoding || []).length
-    };
+    const counts = sidebarCounts;
 
     const regularCategories = [
       { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
@@ -673,18 +696,54 @@ function generateDailyListPage({
       const grid = document.getElementById('dailyGrid');
       const pagination = document.getElementById('dailyPagination');
       if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.category-list-card'));
+      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
       const pageSize = 15;
+      const isMobile = window.innerWidth <= 768;
+
+      // 모바일: 무한 스크롤
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let visibleCount = pageSize;
+        let observer;
+
+        function showItems() {
+          items.forEach((item, i) => { item.style.display = i < visibleCount ? '' : 'none'; });
+        }
+
+        function loadMore() {
+          if (visibleCount >= items.length) return;
+          visibleCount = Math.min(visibleCount + pageSize, items.length);
+          showItems();
+          observeLastItem();
+        }
+
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= items.length) return;
+          const lastVisible = items[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) loadMore();
+          }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+
+        showItems();
+        observeLastItem();
+        return;
+      }
+
+      // PC: 페이지네이션
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-prev');
-      const nextBtn = pagination.querySelector('.home-next');
-      const pageIndex = pagination.querySelector('.home-page-index');
+      const prevBtn = pagination.querySelector('.home-page-prev');
+      const nextBtn = pagination.querySelector('.home-page-next');
+      const pageInfo = pagination.querySelector('.home-page-info');
       function updatePagination() {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
         items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-        pageIndex.textContent = currentPage + ' / ' + totalPages;
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
         prevBtn.disabled = currentPage <= 1;
         nextBtn.disabled = currentPage >= totalPages;
       }
@@ -708,17 +767,25 @@ function generateDailyListPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드
+  const preloadImages = dailyReports.slice(0, 3)
+    .map(r => r.issues?.[0]?.thumbnail ? getLocalDailyThumbnail(r.date, r.issues[0].thumbnail) : null)
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '일간 리포트 - 매일 업데이트되는 게임 뉴스',
     description: '일간 리포트 목록 - 매일 업데이트되는 게임 뉴스.',
     canonical: `${siteBaseUrl}/magazine/daily/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
       { name: '일간', url: `${siteBaseUrl}/magazine/daily/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -739,11 +806,28 @@ function generateWeeklyListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
-  // 주간 그리드 - 첫 번째 핫이슈 썸네일+제목 사용
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
+  // 주간 그리드 (홈 스타일, 3개마다 광고, 자동 페이지네이션)
   function generateWeeklyGrid() {
     if (weeklyReports.length === 0) return '<p>주간 리포트가 없습니다.</p>';
 
-    const weeklyCards = weeklyReports.map(report => {
+    const cards = [];
+    weeklyReports.forEach((report, i) => {
       const slug = `${report.year || report.startDate?.slice(0, 4) || new Date().getFullYear()}-W${String(report.weekNumber).padStart(2, '0')}`;
       const badge = report.startDate && report.endDate
         ? `${formatDateKr(report.startDate)} ~ ${parseInt(report.endDate.slice(5, 7))}월 ${parseInt(report.endDate.slice(8, 10))}일`
@@ -751,45 +835,38 @@ function generateWeeklyListPage({
       const firstIssue = report.issues && report.issues[0];
       const thumbUrl = firstIssue?.thumbnail || '';
       const title = firstIssue?.title || '주간';
-      const desc = firstIssue?.desc || '';
-      return `
-        <a href="/magazine/weekly/${slug}/" class="category-list-card">
-          <div class="category-list-thumb">
-            ${thumbUrl ? `<img src="${getLocalWeeklyThumbnail(slug, thumbUrl)}" alt="${escapeHtmlAttr(title)}" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="category-list-badge">${badge}</span>
-          </div>
-          <div class="category-list-info">
-            <h3 class="category-list-title">${title}</h3>
-            ${desc ? `<p class="category-list-summary">${desc}</p>` : ''}
-          </div>
-        </a>
-      `;
-    }).join('');
+      cards.push(`
+      <a href="/magazine/weekly/${slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+        <div class="home-trend-card-image">
+          ${thumbUrl ? `<img src="${getLocalWeeklyThumbnail(slug, thumbUrl)}" alt="${escapeHtmlAttr(title)}" loading="lazy" data-img-fallback="hide">` : ''}
+          <span class="home-trend-card-tag weekly">${badge}</span>
+        </div>
+        <h3 class="home-trend-card-title">${title}</h3>
+      </a>`);
+      if ((i + 1) % 3 === 0 && i < weeklyReports.length - 1) {
+        cards.push(generateNativeAdSlot(AD_SLOTS.Article001));
+      }
+    });
+
+    const totalPages = Math.ceil(weeklyReports.length / 15);
 
     return `
       <div class="home-card" id="weekly-list">
         <div class="home-card-header">
           <h2 class="home-card-title">주간</h2>
         </div>
-        <div class="category-list" id="weeklyGrid">${weeklyCards}</div>
-        <div class="home-pagination" id="weeklyPagination">
-          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-          <span class="home-page-index">1/1</span>
-          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        <div class="home-trend-grid" id="weeklyGrid">${cards.join('')}</div>
+        <div class="home-pagination" id="weeklyPagination" data-total="${weeklyReports.length}" data-per-page="15">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
         </div>
       </div>
     `;
   }
 
   // 사이드바 (공유 리스트 사용)
-  const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
-    history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    business: (wikiData.business || []).length,
-    normal: (techData?.normal || []).length,
-    ai: (techData?.ai || []).length,
-    vibecoding: (techData?.vibecoding || []).length
-  };
+  const counts = sidebarCounts;
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
     { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
@@ -858,18 +935,42 @@ function generateWeeklyListPage({
       const grid = document.getElementById('weeklyGrid');
       const pagination = document.getElementById('weeklyPagination');
       if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.category-list-card'));
+      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
       const pageSize = 15;
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let visibleCount = pageSize;
+        let observer;
+        function showItems() { items.forEach((item, i) => { item.style.display = i < visibleCount ? '' : 'none'; }); }
+        function loadMore() {
+          if (visibleCount >= items.length) return;
+          visibleCount = Math.min(visibleCount + pageSize, items.length);
+          showItems(); observeLastItem();
+        }
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= items.length) return;
+          const lastVisible = items[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) loadMore(); }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+        showItems(); observeLastItem();
+        return;
+      }
+
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-prev');
-      const nextBtn = pagination.querySelector('.home-next');
-      const pageIndex = pagination.querySelector('.home-page-index');
+      const prevBtn = pagination.querySelector('.home-page-prev');
+      const nextBtn = pagination.querySelector('.home-page-next');
+      const pageInfo = pagination.querySelector('.home-page-info');
       function updatePagination() {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
         items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-        pageIndex.textContent = currentPage + ' / ' + totalPages;
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
         prevBtn.disabled = currentPage <= 1;
         nextBtn.disabled = currentPage >= totalPages;
       }
@@ -893,17 +994,25 @@ function generateWeeklyListPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드
+  const preloadImages = weeklyReports.slice(0, 3)
+    .map(r => r.thumbnail ? getLocalWeeklyThumbnail(r.slug, r.thumbnail, 'sm') : null)
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '주간 리포트 - 매주 업데이트되는 게임 트렌드',
     description: '주간 리포트 목록 - 매주 업데이트되는 게임 트렌드.',
     canonical: `${siteBaseUrl}/magazine/weekly/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
       { name: '주간', url: `${siteBaseUrl}/magazine/weekly/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -924,52 +1033,63 @@ function generateIssueListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
   function generateIssueGrid() {
     if (issueReports.length === 0) return '<p>리포트가 없습니다.</p>';
 
-    const issueCards = issueReports.map(issue => {
+    const cards = [];
+    issueReports.forEach((issue, i) => {
       const thumbData = getLocalReportThumbnailSrcset('issue', issue.slug, issue.thumbnail);
       const imgAttrs = thumbData.srcset
         ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
         : `src="${thumbData.src}"`;
-      return `
-      <a href="/magazine/issue/${issue.slug}/" class="category-list-card">
-        <div class="category-list-thumb">
+      cards.push(`
+      <a href="/magazine/issue/${issue.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+        <div class="home-trend-card-image">
           ${issue.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(issue.title)}" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="category-list-badge">${issue.date ? formatDateKr(issue.date) : '이슈'}</span>
+          <span class="home-trend-card-tag issue">${issue.date ? formatDateKr(issue.date) : '이슈'}</span>
         </div>
-        <div class="category-list-info">
-          <h3 class="category-list-title">${issue.title}</h3>
-          ${issue.summary ? `<p class="category-list-summary">${issue.summary}</p>` : ''}
-        </div>
-      </a>
-    `;
-    }).join('');
+        <h3 class="home-trend-card-title">${issue.title}</h3>
+      </a>`);
+      if ((i + 1) % 3 === 0 && i < issueReports.length - 1) {
+        cards.push(generateNativeAdSlot(AD_SLOTS.Article001));
+      }
+    });
+
+    const totalPages = Math.ceil(issueReports.length / 15);
 
     return `
       <div class="home-card" id="issue-list">
         <div class="home-card-header">
           <h2 class="home-card-title">이슈</h2>
         </div>
-        <div class="category-list" id="issueGrid">${issueCards}</div>
-        <div class="home-pagination" id="issuePagination">
-          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-          <span class="home-page-index">1/1</span>
-          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        <div class="home-trend-grid" id="issueGrid">${cards.join('')}</div>
+        <div class="home-pagination" id="issuePagination" data-total="${issueReports.length}" data-per-page="15">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
         </div>
       </div>
     `;
   }
 
   // 사이드바 (공유 리스트 사용)
-  const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
-    history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    business: (wikiData.business || []).length,
-    normal: (techData?.normal || []).length,
-    ai: (techData?.ai || []).length,
-    vibecoding: (techData?.vibecoding || []).length
-  };
+  const counts = sidebarCounts;
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
     { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
@@ -1038,18 +1158,42 @@ function generateIssueListPage({
       const grid = document.getElementById('issueGrid');
       const pagination = document.getElementById('issuePagination');
       if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.category-list-card'));
+      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
       const pageSize = 15;
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let visibleCount = pageSize;
+        let observer;
+        function showItems() { items.forEach((item, i) => { item.style.display = i < visibleCount ? '' : 'none'; }); }
+        function loadMore() {
+          if (visibleCount >= items.length) return;
+          visibleCount = Math.min(visibleCount + pageSize, items.length);
+          showItems(); observeLastItem();
+        }
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= items.length) return;
+          const lastVisible = items[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) loadMore(); }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+        showItems(); observeLastItem();
+        return;
+      }
+
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-prev');
-      const nextBtn = pagination.querySelector('.home-next');
-      const pageIndex = pagination.querySelector('.home-page-index');
+      const prevBtn = pagination.querySelector('.home-page-prev');
+      const nextBtn = pagination.querySelector('.home-page-next');
+      const pageInfo = pagination.querySelector('.home-page-info');
       function updatePagination() {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
         items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-        pageIndex.textContent = currentPage + ' / ' + totalPages;
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
         prevBtn.disabled = currentPage <= 1;
         nextBtn.disabled = currentPage >= totalPages;
       }
@@ -1073,17 +1217,25 @@ function generateIssueListPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드
+  const preloadImages = issueReports.slice(0, 3)
+    .map(r => getLocalReportThumbnail('issue', r.slug, r.thumbnail, 'sm'))
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '리포트 - 게임 업계 핫이슈',
     description: '리포트 목록 - 게임 업계 핫이슈.',
     canonical: `${siteBaseUrl}/magazine/issue/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
       { name: '이슈', url: `${siteBaseUrl}/magazine/issue/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -1104,52 +1256,63 @@ function generateInsightListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
   function generateInsightGrid() {
     if (insightReports.length === 0) return '<p>인사이트 리포트가 없습니다.</p>';
 
-    const insightCards = insightReports.map(insight => {
+    const cards = [];
+    insightReports.forEach((insight, i) => {
       const thumbData = getLocalReportThumbnailSrcset('insight', insight.slug, insight.thumbnail);
       const imgAttrs = thumbData.srcset
         ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
         : `src="${thumbData.src}"`;
-      return `
-      <a href="/magazine/insight/${insight.slug}/" class="category-list-card">
-        <div class="category-list-thumb">
+      cards.push(`
+      <a href="/magazine/insight/${insight.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+        <div class="home-trend-card-image">
           ${insight.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(insight.title)}" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="category-list-badge">${insight.date ? formatDateKr(insight.date) : '인사이트'}</span>
+          <span class="home-trend-card-tag insight">${insight.date ? formatDateKr(insight.date) : '인사이트'}</span>
         </div>
-        <div class="category-list-info">
-          <h3 class="category-list-title">${insight.title}</h3>
-          ${insight.summary ? `<p class="category-list-summary">${insight.summary}</p>` : ''}
-        </div>
-      </a>
-    `;
-    }).join('');
+        <h3 class="home-trend-card-title">${insight.title}</h3>
+      </a>`);
+      if ((i + 1) % 3 === 0 && i < insightReports.length - 1) {
+        cards.push(generateNativeAdSlot(AD_SLOTS.Article001));
+      }
+    });
+
+    const totalPages = Math.ceil(insightReports.length / 15);
 
     return `
       <div class="home-card" id="insight-list">
         <div class="home-card-header">
           <h2 class="home-card-title">인사이트</h2>
         </div>
-        <div class="category-list" id="insightGrid">${insightCards}</div>
-        <div class="home-pagination" id="insightPagination">
-          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-          <span class="home-page-index">1/1</span>
-          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        <div class="home-trend-grid" id="insightGrid">${cards.join('')}</div>
+        <div class="home-pagination" id="insightPagination" data-total="${insightReports.length}" data-per-page="15">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
         </div>
       </div>
     `;
   }
 
   // 사이드바 (공유 리스트 사용)
-  const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
-    history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    business: (wikiData.business || []).length,
-    normal: (techData?.normal || []).length,
-    ai: (techData?.ai || []).length,
-    vibecoding: (techData?.vibecoding || []).length
-  };
+  const counts = sidebarCounts;
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
     { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
@@ -1218,18 +1381,42 @@ function generateInsightListPage({
       const grid = document.getElementById('insightGrid');
       const pagination = document.getElementById('insightPagination');
       if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.category-list-card'));
+      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
       const pageSize = 15;
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let visibleCount = pageSize;
+        let observer;
+        function showItems() { items.forEach((item, i) => { item.style.display = i < visibleCount ? '' : 'none'; }); }
+        function loadMore() {
+          if (visibleCount >= items.length) return;
+          visibleCount = Math.min(visibleCount + pageSize, items.length);
+          showItems(); observeLastItem();
+        }
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= items.length) return;
+          const lastVisible = items[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) loadMore(); }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+        showItems(); observeLastItem();
+        return;
+      }
+
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-prev');
-      const nextBtn = pagination.querySelector('.home-next');
-      const pageIndex = pagination.querySelector('.home-page-index');
+      const prevBtn = pagination.querySelector('.home-page-prev');
+      const nextBtn = pagination.querySelector('.home-page-next');
+      const pageInfo = pagination.querySelector('.home-page-info');
       function updatePagination() {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
         items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-        pageIndex.textContent = currentPage + ' / ' + totalPages;
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
         prevBtn.disabled = currentPage <= 1;
         nextBtn.disabled = currentPage >= totalPages;
       }
@@ -1254,17 +1441,25 @@ function generateInsightListPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드
+  const preloadImages = insightReports.slice(0, 3)
+    .map(r => getLocalReportThumbnail('insight', r.slug, r.thumbnail, 'sm'))
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '인사이트 - 게임 시장 트렌드와 분석',
     description: '인사이트 리포트 목록 - 게임 시장 트렌드와 분석.',
     canonical: `${siteBaseUrl}/magazine/insight/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
       { name: '인사이트', url: `${siteBaseUrl}/magazine/insight/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -1282,52 +1477,63 @@ function generateHotpickListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
   function generateHotpickGrid() {
     if (hotpickReports.length === 0) return '<p>핫픽 리포트가 없습니다.</p>';
 
-    const hotpickCards = hotpickReports.map(hotpick => {
+    const cards = [];
+    hotpickReports.forEach((hotpick, i) => {
       const thumbData = getLocalReportThumbnailSrcset('hotpick', hotpick.slug, hotpick.thumbnail);
       const imgAttrs = thumbData.srcset
         ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
         : `src="${thumbData.src}"`;
-      return `
-      <a href="/magazine/hotpick/${hotpick.slug}/" class="category-list-card">
-        <div class="category-list-thumb">
+      cards.push(`
+      <a href="/magazine/hotpick/${hotpick.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+        <div class="home-trend-card-image">
           ${hotpick.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(hotpick.title)}" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="category-list-badge">${hotpick.date ? formatDateKr(hotpick.date) : '핫픽'}</span>
+          <span class="home-trend-card-tag hotpick">${hotpick.date ? formatDateKr(hotpick.date) : '핫픽'}</span>
         </div>
-        <div class="category-list-info">
-          <h3 class="category-list-title">${hotpick.title}</h3>
-          ${hotpick.summary ? `<p class="category-list-summary">${hotpick.summary}</p>` : ''}
-        </div>
-      </a>
-    `;
-    }).join('');
+        <h3 class="home-trend-card-title">${hotpick.title}</h3>
+      </a>`);
+      if ((i + 1) % 3 === 0 && i < hotpickReports.length - 1) {
+        cards.push(generateNativeAdSlot(AD_SLOTS.Article001));
+      }
+    });
+
+    const totalPages = Math.ceil(hotpickReports.length / 15);
 
     return `
       <div class="home-card" id="hotpick-list">
         <div class="home-card-header">
           <h2 class="home-card-title">핫픽</h2>
         </div>
-        <div class="category-list" id="hotpickGrid">${hotpickCards}</div>
-        <div class="home-pagination" id="hotpickPagination">
-          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-          <span class="home-page-index">1/1</span>
-          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        <div class="home-trend-grid" id="hotpickGrid">${cards.join('')}</div>
+        <div class="home-pagination" id="hotpickPagination" data-total="${hotpickReports.length}" data-per-page="15">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
         </div>
       </div>
     `;
   }
 
   // 사이드바 (공유 리스트 사용)
-  const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
-    history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    business: (wikiData.business || []).length,
-    normal: (techData?.normal || []).length,
-    ai: (techData?.ai || []).length,
-    vibecoding: (techData?.vibecoding || []).length
-  };
+  const counts = sidebarCounts;
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
     { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
@@ -1396,18 +1602,42 @@ function generateHotpickListPage({
       const grid = document.getElementById('hotpickGrid');
       const pagination = document.getElementById('hotpickPagination');
       if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.category-list-card'));
+      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
       const pageSize = 15;
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let visibleCount = pageSize;
+        let observer;
+        function showItems() { items.forEach((item, i) => { item.style.display = i < visibleCount ? '' : 'none'; }); }
+        function loadMore() {
+          if (visibleCount >= items.length) return;
+          visibleCount = Math.min(visibleCount + pageSize, items.length);
+          showItems(); observeLastItem();
+        }
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= items.length) return;
+          const lastVisible = items[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) loadMore(); }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+        showItems(); observeLastItem();
+        return;
+      }
+
       const totalPages = Math.ceil(items.length / pageSize) || 1;
       let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-prev');
-      const nextBtn = pagination.querySelector('.home-next');
-      const pageIndex = pagination.querySelector('.home-page-index');
+      const prevBtn = pagination.querySelector('.home-page-prev');
+      const nextBtn = pagination.querySelector('.home-page-next');
+      const pageInfo = pagination.querySelector('.home-page-info');
       function updatePagination() {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
         items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-        pageIndex.textContent = currentPage + ' / ' + totalPages;
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
         prevBtn.disabled = currentPage <= 1;
         nextBtn.disabled = currentPage >= totalPages;
       }
@@ -1432,17 +1662,25 @@ function generateHotpickListPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드
+  const preloadImages = hotpickReports.slice(0, 3)
+    .map(r => getLocalReportThumbnail('hotpick', r.slug, r.thumbnail, 'sm'))
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '핫픽 - 지금 주목할 게임 추천',
     description: '핫픽 리포트 목록 - 지금 구매할 만한 게임 추천과 가이드.',
     canonical: `${siteBaseUrl}/magazine/hotpick/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
       { name: '핫픽', url: `${siteBaseUrl}/magazine/hotpick/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -1463,52 +1701,63 @@ function generateRankingListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
   function generateRankingGrid() {
     if (rankingReports.length === 0) return '<p>순위 분석 리포트가 없습니다.</p>';
 
-    const rankingCards = rankingReports.map(ranking => {
+    const cards = [];
+    rankingReports.forEach((ranking, i) => {
       const thumbData = getLocalReportThumbnailSrcset('ranking', ranking.slug, ranking.thumbnail);
       const imgAttrs = thumbData.srcset
         ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
         : `src="${thumbData.src}"`;
-      return `
-      <a href="/magazine/ranking/${ranking.slug}/" class="category-list-card">
-        <div class="category-list-thumb">
+      cards.push(`
+      <a href="/magazine/ranking/${ranking.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+        <div class="home-trend-card-image">
           ${ranking.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(ranking.title)}" loading="lazy" data-img-fallback="hide">` : ''}
-          <span class="category-list-badge">${ranking.date ? formatDateKr(ranking.date) : '순위 분석'}</span>
+          <span class="home-trend-card-tag ranking">${ranking.date ? formatDateKr(ranking.date) : '순위 분석'}</span>
         </div>
-        <div class="category-list-info">
-          <h3 class="category-list-title">${ranking.title}</h3>
-          ${ranking.summary ? `<p class="category-list-summary">${ranking.summary}</p>` : ''}
-        </div>
-      </a>
-    `;
-    }).join('');
+        <h3 class="home-trend-card-title">${ranking.title}</h3>
+      </a>`);
+      if ((i + 1) % 3 === 0 && i < rankingReports.length - 1) {
+        cards.push(generateNativeAdSlot(AD_SLOTS.Article001));
+      }
+    });
+
+    const totalPages = Math.ceil(rankingReports.length / 15);
 
     return `
       <div class="home-card" id="ranking-list">
         <div class="home-card-header">
           <h2 class="home-card-title">순위 분석</h2>
         </div>
-        <div class="category-list" id="rankingGrid">${rankingCards}</div>
-        <div class="home-pagination" id="rankingPagination">
-          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-          <span class="home-page-index">1/1</span>
-          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        <div class="home-trend-grid" id="rankingGrid">${cards.join('')}</div>
+        <div class="home-pagination" id="rankingPagination" data-total="${rankingReports.length}" data-per-page="15">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / ${totalPages}</span>
+          <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
         </div>
       </div>
     `;
   }
 
   // 사이드바 (공유 리스트 사용)
-  const counts = {
-    daily: dailyReportsCount, weekly: weeklyReportsCount, issue: issueReports.length, insight: insightReports.length, hotpick: hotpickReports.length, ranking: rankingReports.length,
-    history: (wikiData.history || []).length, knowledge: (wikiData.knowledge || []).length,
-    business: (wikiData.business || []).length,
-    normal: (techData?.normal || []).length,
-    ai: (techData?.ai || []).length,
-    vibecoding: (techData?.vibecoding || []).length
-  };
+  const counts = sidebarCounts;
   const regularCategories = [
     { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
     { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
@@ -1585,8 +1834,32 @@ function generateRankingListPage({
       const pagination = document.getElementById('rankingPagination');
       if (!grid || !pagination) return;
 
-      const items = Array.from(grid.querySelectorAll('.category-list-card'));
+      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
       const pageSize = 15;
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        pagination.style.display = 'none';
+        let visibleCount = pageSize;
+        let observer;
+        function showItems() { items.forEach((item, i) => { item.style.display = i < visibleCount ? '' : 'none'; }); }
+        function loadMore() {
+          if (visibleCount >= items.length) return;
+          visibleCount = Math.min(visibleCount + pageSize, items.length);
+          showItems(); observeLastItem();
+        }
+        function observeLastItem() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= items.length) return;
+          const lastVisible = items[visibleCount - 1];
+          if (!lastVisible) return;
+          observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) loadMore(); }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+        showItems(); observeLastItem();
+        return;
+      }
+
       let currentPage = 0;
       const totalPages = Math.ceil(items.length / pageSize);
 
@@ -1594,13 +1867,13 @@ function generateRankingListPage({
         items.forEach((item, i) => {
           item.style.display = (i >= page * pageSize && i < (page + 1) * pageSize) ? '' : 'none';
         });
-        pagination.querySelector('.home-page-index').textContent = (page + 1) + '/' + totalPages;
+        pagination.querySelector('.home-page-info').textContent = (page + 1) + ' / ' + totalPages;
       }
 
-      pagination.querySelector('.home-prev').addEventListener('click', () => {
+      pagination.querySelector('.home-page-prev').addEventListener('click', () => {
         if (currentPage > 0) { currentPage--; showPage(currentPage); }
       });
-      pagination.querySelector('.home-next').addEventListener('click', () => {
+      pagination.querySelector('.home-page-next').addEventListener('click', () => {
         if (currentPage < totalPages - 1) { currentPage++; showPage(currentPage); }
       });
 
@@ -1628,17 +1901,25 @@ function generateRankingListPage({
     })();
   </script>`;
 
+  // 첫 화면 이미지 프리로드
+  const preloadImages = rankingReports.slice(0, 3)
+    .map(r => getLocalReportThumbnail('ranking', r.slug, r.thumbnail, 'sm'))
+    .filter(Boolean);
+
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '순위 분석 - 게임 순위 심층 분석',
     description: '순위 분석 리포트 목록 - 게임 순위 비교와 심층 분석.',
     canonical: `${siteBaseUrl}/magazine/ranking/`,
     pageScripts,
+    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
       { name: '순위 분석', url: `${siteBaseUrl}/magazine/ranking/` }
-    ]
+    ],
+    sidebarCounts,
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 

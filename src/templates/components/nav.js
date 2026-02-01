@@ -64,9 +64,19 @@ function generateNav(currentPage = 'home') {
   <script>
   (function(){
     if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
     function init(r){
-      var n=document.querySelector('.nav-inner');
-      if(!n)return;
       // 측정을 한 번에 모아서
       var cw=n.clientWidth,sw=n.scrollWidth;
       if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
@@ -76,7 +86,6 @@ function generateNav(currentPage = 'home') {
       var t=idx<0?items[0]:items[idx];
       if(t){
         var left=t.offsetLeft,tw=t.offsetWidth;
-        // 변경은 나중에
         n.scrollLeft=Math.max(0,left+tw/2-cw/2);
       }
       n.classList.add('nav-ready');

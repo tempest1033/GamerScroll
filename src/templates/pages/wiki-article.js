@@ -642,7 +642,8 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
       { name: '게임 위키', url: `${siteBaseUrl}/wiki/` },
       { name: catInfo.name, url: `${siteBaseUrl}/wiki/${category}/` },
       { name: article.title, url: `${siteBaseUrl}/wiki/${category}/${article.slug}/` }
-    ]
+    ],
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 

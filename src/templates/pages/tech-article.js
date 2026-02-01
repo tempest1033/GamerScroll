@@ -581,7 +581,8 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
       { name: '테크', url: `${siteBaseUrl}/tech/` },
       { name: catInfo.name, url: `${siteBaseUrl}/tech/${category}/` },
       { name: article.title, url: `${siteBaseUrl}/tech/${category}/${article.slug}/` }
-    ]
+    ],
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 

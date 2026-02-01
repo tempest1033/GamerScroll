@@ -180,6 +180,22 @@ function getLocalWeeklyThumbnail(weekSlug, originalUrl) {
 function generateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
+  // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
+  const sidebarCounts = {
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (wikiData.history || []).length,
+    knowledge: (wikiData.knowledge || []).length,
+    business: (wikiData.business || []).length,
+    normal: (techData?.normal || []).length,
+    ai: (techData?.ai || []).length,
+    vibecoding: (techData?.vibecoding || []).length
+  };
+
   // AI 트렌드 데이터
   const aiInsight = insight?.ai || null;
   // 파일명 기준 날짜 (최신 리포트 링크용)
@@ -937,6 +953,9 @@ function generateIndexPage(data) {
 
   var popularBannerHtml = generatePopularBanner();
 
+  // 모바일 사이드 패널 콘텐츠 (layout.js에서 공통 처리)
+  var sidebarContent = generateSidebarCategories() + generateSidebarArticles();
+
   // 홈페이지 (통합 반응형 - PC 2컬럼 구조, 모바일은 CSS로 1컬럼 처리)
   var content = '<section class="home-section active" id="home">' +
     '<h1 class="visually-hidden">게이머스크롤 - 게임 트렌드, 게임 업계 소식, 게임 위키</h1>' +
@@ -1222,6 +1241,7 @@ function generateIndexPage(data) {
         document.getElementById('sidebar-' + target)?.classList.add('active');
       });
     })();
+
   </script>`;
 
   return wrapWithLayout(content, {
@@ -1231,7 +1251,9 @@ function generateIndexPage(data) {
     keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 메타크리틱, 게임 뉴스',
     canonical: `${siteBaseUrl}/`,
     pageScripts: pageScripts,
-    preloadImages: [dailyInsightThumbnail, weeklyInsightThumbnail].filter(Boolean)
+    preloadImages: [dailyInsightThumbnail, weeklyInsightThumbnail].filter(Boolean),
+    sidebarContent: sidebarContent,
+    sidebarCounts
   });
 }
 

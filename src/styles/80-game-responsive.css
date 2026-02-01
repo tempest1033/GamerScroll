@@ -141,9 +141,7 @@
   body.search-hidden :is(.site-container, .container) {
     padding-top: 56px !important;
   }
-  body.search-hidden #games .page-container {
-    padding-top: 56px !important;
-  }
+  /* games는 site-container에서 처리되므로 제거 */
 
   /* ===== 게임 DB 자음 필터 sticky용 CSS 변수 ===== */
   /* 기본 상태: search(64px) + nav(52px) = 116px */

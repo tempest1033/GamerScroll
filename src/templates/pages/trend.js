@@ -1050,7 +1050,7 @@ function generateTrendPage(data) {
       </section>
     `;
     return wrapWithLayout(content, {
-      currentPage: 'trend',
+      currentPage: 'magazine',
       title: '게이머스크롤 | 게임 브리핑',
       description: '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간로 한눈에 확인하세요.',
       canonical: `${siteBaseUrl}/magazine/`
@@ -1460,7 +1460,7 @@ function generateTrendPage(data) {
   </script>`;
 
   return wrapWithLayout(content, {
-    currentPage: 'trend',
+    currentPage: 'magazine',
     title: '게이머스크롤 | 게임 브리핑',
     description: '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간로 한눈에 확인하세요.',
     canonical: `${siteBaseUrl}/magazine/`,
@@ -1508,7 +1508,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       </section>
     `;
     return wrapWithLayout(content, {
-      currentPage: 'trend',
+      currentPage: 'magazine',
       title: '게이머스크롤 | 게임 브리핑',
       description: '게임 브리핑를 찾을 수 없습니다.',
       canonical: `${siteBaseUrl}/magazine/daily/${slug}/`,
@@ -1917,7 +1917,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     .map(thumb => getLocalDailyThumbnail(slug, thumb));
 
   return wrapWithLayout(content, {
-    currentPage: 'trend',
+    currentPage: 'magazine',
     title: summaryTitle,
     description: descriptionText,
     keywords: keywordsText,
@@ -1947,7 +1947,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
       </section>
     `;
     return wrapWithLayout(content, {
-      currentPage: 'trend',
+      currentPage: 'magazine',
       title: '게이머스크롤 | 주간 게임 브리핑',
       description: '주간 게임 브리핑를 찾을 수 없습니다.',
       canonical: `${siteBaseUrl}/magazine/weekly/${slug}/`,
@@ -2014,7 +2014,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   };
 
   return wrapWithLayout(content, {
-    currentPage: 'trend',
+    currentPage: 'magazine',
     title: summaryTitle,
     description: descriptionText,
     keywords: keywordsText,
@@ -2038,7 +2038,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
 function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">포스트를 찾을 수 없습니다</div>', {
-      currentPage: 'trend',
+      currentPage: 'magazine',
       title: '게이머스크롤 | 이슈',
       description: '이슈를 찾을 수 없습니다.',
       canonical: `${siteBaseUrl}/magazine/issue/`,
@@ -2567,7 +2567,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
   const thumbnailPath = thumbnail ? getLocalIssueImagePath(slug, thumbnail, 'thumbnail') : null;
 
   return wrapWithLayout(pageContent, {
-    currentPage: 'trend',
+    currentPage: 'magazine',
     title: title,
     description: summary || title,
     keywords: post.keywords || '게임 분석, 이슈, 게임 이슈, 모바일 게임',
@@ -2578,7 +2578,8 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
       { name: title, url: `${siteBaseUrl}/magazine/issue/${slug}/` }
-    ]
+    ],
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -2586,7 +2587,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
 function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">인사이트를 찾을 수 없습니다</div>', {
-      currentPage: 'trend',
+      currentPage: 'magazine',
       title: '게이머스크롤 | 인사이트',
       description: '인사이트를 찾을 수 없습니다.',
       canonical: `${siteBaseUrl}/magazine/insight/`,
@@ -3107,7 +3108,7 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
   ).filter(Boolean);
 
   return wrapWithLayout(pageContent, {
-    currentPage: 'trend',
+    currentPage: 'magazine',
     title: title,
     description: summary || title,
     keywords: post.keywords || '게임 트렌드, 인사이트, 게임 분석, 모바일 게임',
@@ -3118,7 +3119,8 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
       { name: title, url: `${siteBaseUrl}/magazine/insight/${slug}/` }
-    ]
+    ],
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -3126,7 +3128,7 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
 function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueReports = [], insightReports = [], rankingReports = [], wikiData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">핫픽을 찾을 수 없습니다</div>', {
-      currentPage: 'trend',
+      currentPage: 'magazine',
       title: '게이머스크롤 | 핫픽',
       description: '핫픽을 찾을 수 없습니다.',
       canonical: `${siteBaseUrl}/magazine/hotpick/`,
@@ -3652,7 +3654,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
   const thumbnailPath = thumbnail ? getLocalHotpickImagePath(slug, thumbnail, 'thumbnail') : null;
 
   return wrapWithLayout(pageContent, {
-    currentPage: 'trend',
+    currentPage: 'magazine',
     title: title,
     description: summary || title,
     keywords: post.keywords || '게임 추천, 핫픽, 구매 가이드, 세일 추천',
@@ -3663,7 +3665,8 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
       { name: title, url: `${siteBaseUrl}/magazine/hotpick/${slug}/` }
-    ]
+    ],
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 
@@ -3673,7 +3676,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
 function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueReports = [], insightReports = [], hotpickReports = [], wikiData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">순위 분석을 찾을 수 없습니다</div>', {
-      currentPage: 'trend',
+      currentPage: 'magazine',
       title: '게이머스크롤 | 순위 분석',
       description: '순위 분석을 찾을 수 없습니다.',
       canonical: `${siteBaseUrl}/magazine/ranking/`,
@@ -4660,7 +4663,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
   };
 
   return wrapWithLayout(pageContent, {
-    currentPage: 'trend',
+    currentPage: 'magazine',
     title: title,
     description: summary || title,
     keywords: post.keywords || '게임 순위, 순위 분석, 차트 분석, 게임 비교',
@@ -4670,7 +4673,8 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
       { name: title, url: `${siteBaseUrl}/magazine/ranking/${slug}/` }
-    ]
+    ],
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
   });
 }
 

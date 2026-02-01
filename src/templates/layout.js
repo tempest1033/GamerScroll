@@ -15,6 +15,23 @@ function getCssFilename() {
   return globalCssFilename;
 }
 
+// 전역 사이드바 카운트 (모바일 메뉴용)
+let globalSidebarCounts = {};
+function setGlobalSidebarCounts(counts) {
+  globalSidebarCounts = counts;
+}
+function getGlobalSidebarCounts() {
+  return globalSidebarCounts;
+}
+
+// 전역 사이드바 아티클 (모바일 메뉴용 인기/최신)
+let globalPopularArticles = [];
+let globalLatestArticles = [];
+function setGlobalSidebarArticles(popular, latest) {
+  globalPopularArticles = popular || [];
+  globalLatestArticles = latest || [];
+}
+
 const { generateHead } = require('./components/head');
 const {
   renderAdCard,
@@ -521,6 +538,12 @@ const swipeScript = `
 
   function slideOutAndNavigate(url, direction) {
     isNavigating = true;
+    // 검색창 접힘 상태 저장
+    try {
+      if (document.body.classList.contains('search-hidden')) {
+        sessionStorage.setItem('gs-search-hidden', '1');
+      }
+    } catch(e) {}
     if (!mainEl) {
       window.location.href = url;
       return;
@@ -539,7 +562,7 @@ const swipeScript = `
     if (!e.touches || e.touches.length > 1) return;
 
     const t = e.target;
-    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle')) return;
+    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle, .mobile-fab, .mobile-side-panel, .mobile-side-overlay')) return;
 
     // 검색 드롭다운 닫기 (스와이프 시작 시)
     const searchDropdown = document.querySelector('.search-dropdown');
@@ -637,6 +660,11 @@ const swipeScript = `
         const url = targetPage === 'home' ? '/' : '/' + targetPage + '/';
         setNavActiveIndex(targetIdx);
         animateNavToIndex(targetIdx, SLIDE_OUT_MS);
+        // 목표 scrollLeft 저장 (애니메이션 최종 위치)
+        try {
+          var targetScroll = getNavScrollPosForIndex(targetIdx);
+          if (targetScroll !== null) sessionStorage.setItem('gs-nav-scroll', targetScroll);
+        } catch(e) {}
         slideOutAndNavigate(url, swipeMode);
         return;
       }
@@ -777,6 +805,12 @@ const mobileScrollHideScript = `
   let isHidden = false;
   const showThreshold = 10;   // 위로 10px 이상 스크롤하면 표시
   const hideThreshold = 80;   // 80px 이상에서 아래로 스크롤하면 숨김
+
+  // 스와이프 이동 시 검색창 접힘 상태 (body 시작 시 이미 적용됨)
+  if (document.body.classList.contains('search-hidden')) {
+    isHidden = true;
+    lastScrollY = window.scrollY;
+  }
 
   function updateSearchVisibility() {
     const currentScrollY = window.scrollY;
@@ -1055,6 +1089,173 @@ const imageFallbackScript = `
   } else {
     sweepBrokenImages();
   }
+
+  // 이미지 로드 완료 시 loaded 클래스 추가 (FOUC/CLS 방지)
+  function markImageLoaded(img) {
+    if (img.classList) img.classList.add('loaded');
+  }
+
+  function initImageLoadHandlers() {
+    document.querySelectorAll('.home-trend-card-image img, .category-list-thumb img, .home-popular-thumb img').forEach(function(img) {
+      if (img.complete && img.naturalWidth > 0) {
+        markImageLoaded(img);
+      } else {
+        img.addEventListener('load', function() { markImageLoaded(img); }, { once: true });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initImageLoadHandlers);
+  } else {
+    initImageLoadHandlers();
+  }
+})();
+</script>`;
+
+// 기본 사이드바 콘텐츠 (카테고리 링크)
+function generateDefaultSidebarContent(counts = {}, articles = {}) {
+  const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
+  const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  // 페이지별 articles > 전역 변수 순으로 폴백
+  const popularItems = (articles.popular && articles.popular.length > 0) ? articles.popular : globalPopularArticles;
+  const latestItems = (articles.latest && articles.latest.length > 0) ? articles.latest : globalLatestArticles;
+
+  const renderArticleList = (items) => items.slice(0, 10).map((item, i) => `
+    <a href="${item.url || item.path || item.link || '#'}" class="sidebar-article-item">
+      <span class="sidebar-article-rank">${i + 1}</span>
+      <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
+    </a>
+  `).join('');
+
+  return `
+    <div class="home-card" id="sidebar-categories">
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간${c('daily')}</span></a>
+          <a href="/magazine/weekly/" class="sidebar-category-item"><span class="sidebar-category-name">주간${c('weekly')}</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈${c('issue')}</span></a>
+          <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트${c('insight')}</span></a>
+          <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽${c('hotpick')}</span></a>
+          <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석${c('ranking')}</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리${c('history')}</span></a>
+          <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식${c('knowledge')}</span></a>
+          <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스${c('business')}</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반${c('normal')}</span></a>
+          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI${c('ai')}</span></a>
+          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩${c('vibecoding')}</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="home-card" id="sidebar-articles">
+      <div class="home-card-header">
+        <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+          <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+          <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+        </div>
+      </div>
+      <div class="home-card-body">
+        <div class="sidebar-article-list active" id="panel-sidebar-popular">${renderArticleList(popularItems)}</div>
+        <div class="sidebar-article-list" id="panel-sidebar-latest">${renderArticleList(latestItems)}</div>
+      </div>
+    </div>
+  `;
+}
+
+// 모바일 사이드 패널 HTML 생성
+function generateMobileSidePanel(sidebarContent = '') {
+  const content = sidebarContent || generateDefaultSidebarContent();
+  return `
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        ${content}
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  `;
+}
+
+// 모바일 사이드 패널 스크립트
+const mobileSidePanelScript = `<script>
+(function() {
+  const fab = document.getElementById('mobileFab');
+  const panel = document.getElementById('mobileSidePanel');
+  const overlay = document.getElementById('mobileSideOverlay');
+  const closeBtn = document.getElementById('mobileSidePanelClose');
+  if (!fab || !panel || !overlay) return;
+
+  function openPanel() {
+    panel.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePanel() {
+    panel.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function togglePanel() {
+    if (panel.classList.contains('open')) {
+      closePanel();
+    } else {
+      openPanel();
+    }
+  }
+
+  fab.addEventListener('click', togglePanel);
+  closeBtn?.addEventListener('click', closePanel);
+  overlay.addEventListener('click', closePanel);
+
+  // 패널 내 링크 클릭 시 닫기
+  panel.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      closePanel();
+    }
+  });
+
+  // 모바일 사이드 패널 내 인기/최신 토글
+  const panelSidebarTab = panel.querySelector('#panelSidebarTab');
+  panelSidebarTab?.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    panelSidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const target = btn.dataset.sidebarTab;
+    panel.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
+    panel.querySelector('#panel-sidebar-' + target)?.classList.add('active');
+  });
 })();
 </script>`;
 
@@ -1073,8 +1274,14 @@ function wrapWithLayout(content, options = {}) {
     breadcrumbs = null,  // BreadcrumbList JSON-LD
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용)
     preloadImages = null,
-    cssFilename = globalCssFilename  // 해시 기반 CSS 파일명 (전역 설정 사용)
+    cssFilename = globalCssFilename,  // 해시 기반 CSS 파일명 (전역 설정 사용)
+    sidebarContent = '',  // 모바일 사이드 패널 콘텐츠
+    sidebarCounts = {},  // 모바일 사이드 패널 카테고리 숫자
+    sidebarArticles = {}  // 모바일 사이드 패널 인기/최신 글 { popular: [], latest: [] }
   } = options;
+
+  // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
+  const effectiveCounts = Object.keys(sidebarCounts).length > 0 ? sidebarCounts : globalSidebarCounts;
 
   // 페이지별 데이터 스크립트
   const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
@@ -1091,6 +1298,7 @@ function wrapWithLayout(content, options = {}) {
   ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages, cssFilename })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
@@ -1099,6 +1307,7 @@ function wrapWithLayout(content, options = {}) {
     ${content}
     ${pageScripts}
   </main>
+  ${generateMobileSidePanel(sidebarContent || generateDefaultSidebarContent(effectiveCounts, sidebarArticles))}
   ${generateFooter()}
   ${footerModalScript}
   ${adLazyLoadScript}
@@ -1107,8 +1316,10 @@ function wrapWithLayout(content, options = {}) {
   ${showSearchBar ? searchBarScript : ''}
   ${swipeScript}
   ${mobileScrollHideScript}
+  ${mobileSidePanelScript}
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js" defer></script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}document.body.style.visibility='visible';if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
 </body>
 </html>`;
 }
@@ -1198,5 +1409,7 @@ module.exports = {
   generateMobileOnlyMidAdSlot,
   generateNativeAdSlot,
   generateMultiplexAdSlot,
-  setCssFilename  // 해시 기반 CSS 파일명 설정
+  setCssFilename,  // 해시 기반 CSS 파일명 설정
+  setGlobalSidebarCounts,  // 글로벌 사이드바 카운트 설정
+  setGlobalSidebarArticles  // 글로벌 사이드바 인기/최신 글 설정
 };

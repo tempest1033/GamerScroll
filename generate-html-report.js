@@ -410,7 +410,7 @@ const { generateWikiArticlePage } = require('./src/templates/pages/wiki-article'
 const { generateTechHubPage, generateTechCategoryPage } = require('./src/templates/pages/tech-hub');
 const { generateTechArticlePage } = require('./src/templates/pages/tech-article');
 const { generate404Page } = require('./src/templates/pages/404');
-const { setCssFilename } = require('./src/templates/layout');
+const { setCssFilename, setGlobalSidebarCounts } = require('./src/templates/layout');
 const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles, shouldFetchPopularArticles } = require('./src/crawlers/analytics');
 
 // 데일리 인사이트 import
@@ -979,6 +979,22 @@ async function main() {
     setCssFilename(cssFilename);
   }
 
+  // 글로벌 사이드바 카운트 초기 설정 (위키/테크만, 매거진 counts는 나중에 업데이트)
+  setGlobalSidebarCounts({
+    daily: 0,
+    weekly: 0,
+    issue: 0,
+    insight: 0,
+    hotpick: 0,
+    ranking: 0,
+    history: (homeWikiData.history || []).length,
+    knowledge: (homeWikiData.knowledge || []).length,
+    business: (homeWikiData.business || []).length,
+    normal: (homeTechData?.normal || []).length,
+    ai: (homeTechData?.ai || []).length,
+    vibecoding: (homeTechData?.vibecoding || []).length
+  });
+
   const pages = [
     // index.html은 매거진 생성 후 별도로 생성 (dailyReportsCount 정확한 값 필요)
     { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData }) },
@@ -1485,6 +1501,22 @@ async function main() {
     console.error(`  ❌ magazine/ranking/index.html: ${err.message}`);
   }
 
+  // 글로벌 사이드바 카운트 설정 (상세 페이지 생성 전 필요)
+  setGlobalSidebarCounts({
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (homeWikiData.history || []).length,
+    knowledge: (homeWikiData.knowledge || []).length,
+    business: (homeWikiData.business || []).length,
+    normal: (homeTechData?.normal || []).length,
+    ai: (homeTechData?.ai || []).length,
+    vibecoding: (homeTechData?.vibecoding || []).length
+  });
+
   // 6. 일간 상세 페이지 생성 (magazine/daily/{slug}/index.html)
   // 기존에 남아있는 불필요한 일간 페이지 정리 (현재 dailyReports 목록에 없는 폴더 제거)
   try {
@@ -1599,8 +1631,12 @@ async function main() {
     vibecoding: (techDataForIssue.vibecoding || []).length
   };
   const magazineCounts = {
-    daily: dailyReports.length,
-    weekly: weeklyReports.length
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length
   };
 
   if (issueReports.length > 0) {
@@ -1736,6 +1772,38 @@ async function main() {
       }
     }
     buildCache.printBuildStats({ total: rankingReports.length, built: rankingBuilt, skipped: rankingSkipped, type: '순위 분석 리포트 페이지' });
+  }
+
+  // 글로벌 사이드바 카운트 설정 (모든 페이지에서 사용)
+  setGlobalSidebarCounts({
+    daily: dailyReportsCount,
+    weekly: weeklyReportsCount,
+    issue: issueReports.length,
+    insight: insightReports.length,
+    hotpick: hotpickReports.length,
+    ranking: rankingReports.length,
+    history: (homeWikiData.history || []).length,
+    knowledge: (homeWikiData.knowledge || []).length,
+    business: (homeWikiData.business || []).length,
+    normal: (homeTechData?.normal || []).length,
+    ai: (homeTechData?.ai || []).length,
+    vibecoding: (homeTechData?.vibecoding || []).length
+  });
+
+  // 기타 페이지 재생성 (정확한 매거진 counts 반영)
+  const latePages = [
+    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData }) },
+    { filename: 'steam.html', generator: generateSteamPage },
+    { filename: 'upcoming.html', generator: generateUpcomingPage },
+    { filename: '404.html', generator: generate404Page }
+  ];
+  for (const page of latePages) {
+    try {
+      const html = page.generator(data);
+      fs.writeFileSync(page.filename, html, 'utf8');
+    } catch (err) {
+      console.error(`  ❌ ${page.filename} 재생성: ${err.message}`);
+    }
   }
 
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)

@@ -97,6 +97,131 @@ const AI_NAV_ITEMS = [
   { id: 'anthropic', label: 'Anthropic', href: '/article/anthropic/' }
 ];
 
+// 글로벌 사이드바 카운트 (모바일 메뉴용)
+let globalSidebarCounts = {};
+let globalPopularArticles = [];
+let globalLatestArticles = [];
+
+function setGlobalSidebarCounts(counts) {
+  globalSidebarCounts = counts;
+}
+
+function setGlobalSidebarArticles(popular, latest) {
+  globalPopularArticles = popular || [];
+  globalLatestArticles = latest || [];
+}
+
+// 모바일 사이드 패널 기본 콘텐츠 생성
+function generateDefaultSidebarContent(counts = {}) {
+  const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
+  const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  const renderArticleList = (items) => items.slice(0, 10).map((item, i) => `
+    <a href="/article/${item.category || 'general'}/${item.slug}/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">${i + 1}</span>
+      <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
+    </a>
+  `).join('');
+
+  return `
+    <div class="home-card" id="sidebar-categories">
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><span class="home-card-title-link"><h2 class="home-card-title">Categories</h2></span></div>
+        <div class="sidebar-category-list">
+          <a href="/article/general/" class="sidebar-category-item"><span class="sidebar-category-name">General${c('general')}</span></a>
+          <a href="/article/openai/" class="sidebar-category-item"><span class="sidebar-category-name">OpenAI${c('openai')}</span></a>
+          <a href="/article/google/" class="sidebar-category-item"><span class="sidebar-category-name">Google${c('google')}</span></a>
+          <a href="/article/anthropic/" class="sidebar-category-item"><span class="sidebar-category-name">Anthropic${c('anthropic')}</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="home-card" id="sidebar-articles">
+      <div class="home-card-header">
+        <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+          <button class="tab-btn small active" data-sidebar-tab="popular">Popular</button>
+          <button class="tab-btn small" data-sidebar-tab="latest">Latest</button>
+        </div>
+      </div>
+      <div class="home-card-body">
+        <div class="sidebar-article-list active" id="panel-sidebar-popular">${renderArticleList(globalPopularArticles)}</div>
+        <div class="sidebar-article-list" id="panel-sidebar-latest">${renderArticleList(globalLatestArticles)}</div>
+      </div>
+    </div>
+  `;
+}
+
+// 모바일 사이드 패널 HTML 생성
+function generateMobileSidePanel(sidebarContent = '') {
+  const content = sidebarContent || generateDefaultSidebarContent();
+  return `
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">Menu</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        ${content}
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  `;
+}
+
+// 모바일 사이드 패널 스크립트
+const mobileSidePanelScript = `<script>
+(function() {
+  var fab = document.getElementById('mobileFab');
+  var panel = document.getElementById('mobileSidePanel');
+  var overlay = document.getElementById('mobileSideOverlay');
+  var closeBtn = document.getElementById('mobileSidePanelClose');
+  if (!fab || !panel || !overlay) return;
+
+  function openPanel() {
+    panel.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePanel() {
+    panel.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  fab.addEventListener('click', function() {
+    if (panel.classList.contains('open')) closePanel();
+    else openPanel();
+  });
+  overlay.addEventListener('click', closePanel);
+  if (closeBtn) closeBtn.addEventListener('click', closePanel);
+
+  // 사이드바 탭 전환 (Popular/Latest)
+  var panelTabWrap = document.getElementById('panelSidebarTab');
+  if (panelTabWrap) {
+    panelTabWrap.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-sidebar-tab]');
+      if (!btn) return;
+      var tab = btn.getAttribute('data-sidebar-tab');
+      panelTabWrap.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var popList = document.getElementById('panel-sidebar-popular');
+      var latList = document.getElementById('panel-sidebar-latest');
+      if (popList) popList.classList.toggle('active', tab === 'popular');
+      if (latList) latList.classList.toggle('active', tab === 'latest');
+    });
+  }
+})();
+</script>`;
+
 function generateNav(currentPage = 'home') {
   const currentIdx = AI_NAV_ITEMS.findIndex(item => item.id === currentPage);
   return `
@@ -431,6 +556,27 @@ const imageFallbackScript = `
     var t = e && e.target;
     if (t && t.tagName === 'IMG') applyFallback(t);
   }, true);
+
+  // 이미지 로드 완료 시 loaded 클래스 추가 (FOUC/CLS 방지)
+  function markImageLoaded(img) {
+    if (img.classList) img.classList.add('loaded');
+  }
+
+  function initImageLoadHandlers() {
+    document.querySelectorAll('.home-trend-card-image img').forEach(function(img) {
+      if (img.complete && img.naturalWidth > 0) {
+        markImageLoaded(img);
+      } else {
+        img.addEventListener('load', function() { markImageLoaded(img); }, { once: true });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initImageLoadHandlers);
+  } else {
+    initImageLoadHandlers();
+  }
 })();
 </script>`;
 
@@ -464,8 +610,12 @@ function wrapWithLayout(content, options = {}) {
     ogImage = null,
     // Article-specific OG tags
     articleMeta = null,  // { publishedTime, modifiedTime, section, author, tags }
-    ogType = 'website'   // 'website' for homepage, 'article' for articles
+    ogType = 'website',   // 'website' for homepage, 'article' for articles
+    sidebarCounts = {}  // 모바일 사이드 패널 카테고리 숫자
   } = options;
+
+  // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
+  const effectiveCounts = Object.keys(sidebarCounts).length > 0 ? sidebarCounts : globalSidebarCounts;
 
   const ogImageUrl = ogImage || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`;
   const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
@@ -551,6 +701,13 @@ function wrapWithLayout(content, options = {}) {
 
   <link rel="stylesheet" href="/styles.css">
   <style>
+    /* 홈/카테고리 페이지 상단 마진 - 모바일만 (개별 기사와 동일하게) */
+    @media (max-width: 768px) {
+      #home .page-container,
+      #category .page-container {
+        padding-top: var(--space-block-y);
+      }
+    }
     /* AIScroll 헤더 레이아웃 */
     .aiscroll-header {
       padding: 16px 0;
@@ -788,7 +945,7 @@ function wrapWithLayout(content, options = {}) {
       }
       /* 네비 밑줄 위치 조정 */
       .nav-item.active::after {
-        bottom: 2px !important;
+        bottom: 0 !important;
       }
       /* 모바일 페이지네이션 숨김 */
       .home-pagination {
@@ -854,6 +1011,127 @@ function wrapWithLayout(content, options = {}) {
       text-align: center;
       color: var(--text-muted);
       font-size: var(--font-body-size);
+    }
+    /* 모바일 플로팅 버튼 + 사이드 패널 */
+    .mobile-fab { display: none; }
+    .mobile-side-panel { display: none; }
+    .mobile-side-overlay { display: none; }
+    @media (max-width: 768px) {
+      .mobile-fab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 20px;
+        left: 16px;
+        width: 47px;
+        height: 47px;
+        min-width: 47px;
+        min-height: 47px;
+        padding: 0;
+        margin: 0;
+        background: var(--card);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        z-index: 10001;
+        transition: background 0.2s, box-shadow 0.2s;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      .mobile-fab:active { background: var(--card-hover); }
+      .mobile-fab svg {
+        width: 22px;
+        height: 22px;
+        pointer-events: none;
+        flex-shrink: 0;
+        stroke: var(--text);
+      }
+      .mobile-side-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        z-index: 9998;
+      }
+      .mobile-side-overlay.open { display: block; }
+      .mobile-side-panel {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        max-width: 85vw;
+        height: 100%;
+        background: var(--bg);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+      .mobile-side-panel.open { transform: translateX(0); }
+      .mobile-side-panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: var(--bg);
+        z-index: 1;
+      }
+      .mobile-side-panel-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .mobile-side-panel-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 50%;
+        transition: background 0.15s;
+      }
+      .mobile-side-panel-close:hover { background: var(--bg-hover); }
+      .mobile-side-panel-body { padding: 0; }
+      .mobile-side-panel-body .home-card {
+        margin-bottom: 0;
+        background: transparent;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+      .mobile-side-panel-body .home-card-header,
+      .mobile-side-panel-body #sidebar-categories .home-card-header {
+        padding: 0;
+        border-bottom: none;
+      }
+      .mobile-side-panel-body .home-card-title-link {
+        display: block;
+        padding: 12px 16px 8px;
+      }
+      .mobile-side-panel-body .sidebar-category-list {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+      }
+      .mobile-side-panel-body .sidebar-category-item {
+        padding: 10px 16px;
+      }
     }
   </style>
   <!-- Firebase Analytics (프로덕션만) -->
@@ -922,13 +1200,16 @@ function wrapWithLayout(content, options = {}) {
   </script>
 </head>
 <body>
+  <script>try{if(sessionStorage.getItem('ai-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('ai-search-hidden');}}catch(e){}</script>
   ${generateHeader()}
   ${generateSearchContainer()}
   ${generateNav(currentPage)}
   <main class="site-container">
     ${content}
   </main>
+  ${generateMobileSidePanel(generateDefaultSidebarContent(effectiveCounts))}
   ${generateFooter()}
+  ${mobileSidePanelScript}
   ${imageFallbackScript}
   ${fontScript}
   <script>
@@ -1039,6 +1320,12 @@ function wrapWithLayout(content, options = {}) {
       const showThreshold = 10;
       const hideThreshold = 80;
 
+      // 스와이프 이동 시 검색창 접힘 상태 (body 시작 시 이미 적용됨)
+      if (document.body.classList.contains('search-hidden')) {
+        isHidden = true;
+        lastScrollY = window.scrollY;
+      }
+
       function updateSearchVisibility() {
         const currentScrollY = window.scrollY;
         const scrollDelta = currentScrollY - lastScrollY;
@@ -1137,7 +1424,16 @@ function wrapWithLayout(content, options = {}) {
 
     function slideOutAndNavigate(url, direction) {
       isNavigating = true;
-      if (!mainEl) return;
+      // 검색창 접힘 상태 저장
+      try {
+        if (document.body.classList.contains('search-hidden')) {
+          sessionStorage.setItem('ai-search-hidden', '1');
+        }
+      } catch(e) {}
+      if (!mainEl) {
+        window.location.href = url;
+        return;
+      }
       const translateX = direction === 'next' ? '-100%' : '100%';
       mainEl.style.transition = 'transform ' + SLIDE_OUT_MS + 'ms ease';
       mainEl.style.transform = 'translate3d(' + translateX + ', 0, 0)';
@@ -1244,6 +1540,7 @@ function wrapWithLayout(content, options = {}) {
   </script>
   ${pageScripts}
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}document.body.style.visibility='visible';if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
 </body>
 </html>`;
 }
@@ -1513,6 +1810,8 @@ module.exports = {
   generateSearchPage,
   generateCategoryPage,
   wrapWithLayout,
+  setGlobalSidebarCounts,
+  setGlobalSidebarArticles,
   SITE_CONFIG,
   formatDateEn,
   escapeHtml,

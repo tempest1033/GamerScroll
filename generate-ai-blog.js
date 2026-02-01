@@ -17,7 +17,7 @@ const sharp = require('sharp');
 const buildCache = require('./ai-build-cache');
 
 // 템플릿
-const { generateAIBlogIndex, generateSearchPage, generateCategoryPage } = require('./src/templates/ai-blog/index');
+const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, setGlobalSidebarCounts, setGlobalSidebarArticles } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 
 // GA4 Analytics
@@ -392,6 +392,9 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 10);
 
+  // 모바일 사이드바 아티클 데이터 설정
+  setGlobalSidebarArticles(popularArticles, latestArticles);
+
   // 홈페이지 생성
   const indexHtml = generateAIBlogIndex({
     articles: enArticles,
@@ -617,6 +620,16 @@ async function main() {
     console.log('빌드할 글이 없습니다.');
     return;
   }
+
+  // 카테고리별 카운트 계산 및 글로벌 설정 (category 없는 기사는 general로 분류)
+  const countByCategory = {
+    general: articles.filter(a => a.category === 'general' || !a.category).length,
+    openai: articles.filter(a => a.category === 'openai').length,
+    google: articles.filter(a => a.category === 'google').length,
+    anthropic: articles.filter(a => a.category === 'anthropic').length
+  };
+  setGlobalSidebarCounts(countByCategory);
+  console.log(`   카테고리별: General(${countByCategory.general}), OpenAI(${countByCategory.openai}), Google(${countByCategory.google}), Anthropic(${countByCategory.anthropic})`);
 
   // 기사 변경 확인
   const articleChanges = buildCache.checkArticlesChanged(cache, articles);

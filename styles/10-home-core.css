@@ -477,12 +477,23 @@
       aspect-ratio: 16 / 9;
       overflow: hidden;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: background 0.2s ease;
+    }
+
+    .home-trend-card-image:has(img.loaded) {
+      background: transparent;
     }
 
     .home-trend-card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .home-trend-card-image img.loaded {
+      opacity: 1;
     }
 
     .home-trend-card-image img[src=""],
@@ -1819,6 +1830,7 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden; /* 모바일 스와이프 중 가로 스크롤 방지 */
+      opacity: 1; /* FOUC 방지 - head의 opacity:0 이후 CSS 로드되면 표시 */
     }
 
     /* PC에서는 overflow-x 제거 (sticky 호환) */
@@ -1828,5 +1840,161 @@
       }
       .site-container {
         overflow-x: clip; /* 가로 스크롤 방지는 컨테이너에서 처리 */
+      }
+    }
+
+    /* ===== 모바일 플로팅 버튼 + 사이드 패널 ===== */
+    .mobile-fab {
+      display: none;
+    }
+
+    .mobile-side-panel {
+      display: none;
+    }
+
+    .mobile-side-overlay {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      /* 플로팅 버튼 (FAB) */
+      .mobile-fab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 20px;
+        left: 16px;
+        width: 47px;
+        height: 47px;
+        min-width: 47px;
+        min-height: 47px;
+        padding: 0;
+        margin: 0;
+        background: var(--card);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        z-index: 10001;
+        transition: background 0.2s, box-shadow 0.2s;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        overflow: visible;
+      }
+
+      .mobile-fab:active {
+        background: var(--card-hover);
+      }
+
+      .mobile-fab svg {
+        width: 22px;
+        height: 22px;
+        pointer-events: none;
+        flex-shrink: 0;
+        stroke: var(--text);
+      }
+
+      /* 오버레이 (투명, 클릭 영역만) */
+      .mobile-side-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        z-index: 9998;
+      }
+
+      .mobile-side-overlay.open {
+        display: block;
+      }
+
+      /* 사이드 패널 */
+      .mobile-side-panel {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        max-width: 85vw;
+        height: 100%;
+        background: var(--bg);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .mobile-side-panel.open {
+        transform: translateX(0);
+      }
+
+      .mobile-side-panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: var(--bg);
+        z-index: 1;
+      }
+
+      .mobile-side-panel-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .mobile-side-panel-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 50%;
+        transition: background 0.15s;
+      }
+
+      .mobile-side-panel-close:hover {
+        background: var(--bg-hover);
+      }
+
+      .mobile-side-panel-body {
+        padding: 0;
+      }
+
+      .mobile-side-panel-body .home-card {
+        margin-bottom: 0;
+        background: transparent;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+
+      .mobile-side-panel-body .home-card-header {
+        padding: 12px 16px;
+        border-bottom: none;
+      }
+
+      .mobile-side-panel-body .sidebar-category-list,
+      .mobile-side-panel-body .sidebar-article-list,
+      .mobile-side-panel-body .home-card-body {
+        padding: 0;
+      }
+
+      .mobile-side-panel-body .sidebar-category-item,
+      .mobile-side-panel-body .sidebar-article-item {
+        padding: 10px 16px;
       }
     }
