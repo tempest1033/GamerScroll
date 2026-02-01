@@ -2201,6 +2201,10 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
           result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
           break;
 
+        case 'note':
+          result.push(`<div class="blog-note">${block.value}</div>`);
+          break;
+
         case 'video':
           // 유튜브 URL에서 video ID 추출
           const videoUrl = block.url || '';
@@ -2728,6 +2732,10 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
 
         case 'quote':
           result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
+          break;
+
+        case 'note':
+          result.push(`<div class="blog-note">${block.value}</div>`);
           break;
 
         case 'video':
@@ -3264,6 +3272,10 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
 
         case 'quote':
           result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
+          break;
+
+        case 'note':
+          result.push(`<div class="blog-note">${block.value}</div>`);
           break;
 
         case 'video':

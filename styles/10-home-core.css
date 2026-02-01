@@ -788,11 +788,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .category-list-title {
-      font-size: var(--font-title-size);
+      font-size: var(--font-body-size);
       font-weight: var(--font-title-weight);
       color: var(--text);
       margin: 0;
@@ -804,10 +804,10 @@
     }
 
     .category-list-summary {
-      font-size: var(--font-sm-size);
-      color: var(--text-muted);
+      font-size: var(--font-desc-size);
+      color: var(--text-secondary);
       margin: 0;
-      line-height: 1.6;
+      line-height: 1.5;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;

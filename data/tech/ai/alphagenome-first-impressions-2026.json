@@ -1,0 +1,207 @@
+{
+  "slug": "alphagenome-first-impressions-2026",
+  "status": "approved",
+  "title": "알파폴드 후속작 알파게놈 출시 1주일, 연구자들의 솔직한 평가",
+  "titleEn": "AlphaGenome First Week: Researchers Share Their Honest Verdict",
+  "date": "2026-02-02T12:00",
+  "thumbnail": "https://static.scientificamerican.com/dam/m/233b03af8c316b18/original/GettyImages-1344985871_resized.jpeg",
+  "keywords": "알파게놈, AlphaGenome, 딥마인드, DeepMind, 유전체, DNA, 유전자, 알파폴드, AI",
+  "keywordsEn": "AlphaGenome, DeepMind, genomics, AI, DNA, gene regulation, AlphaFold, bioinformatics",
+  "summary": "구글 딥마인드가 알파폴드 후속작 알파게놈을 공개했다. DNA만 보고 유전자 작동을 예측하는 AI다. 출시 1주일, 연구자들 평가는? 한계는 분명하지만, 가능성도 확실하다.",
+  "summaryEn": "Google DeepMind released AlphaGenome on January 28th, an AI that predicts how genes turn on and off. After a week of testing, researchers share candid feedback—limitations exist, but the potential is undeniable.",
+  "category": "google",
+  "needTranslate": false,
+  "relatedIssues": [],
+  "sources": [
+    {
+      "name": "Nature",
+      "title": "Advancing regulatory variant effect prediction with AlphaGenome",
+      "url": "https://www.nature.com/articles/s41586-025-10014-0"
+    },
+    {
+      "name": "Science Media Centre",
+      "title": "Expert reaction to paper on Google DeepMind's AlphaGenome",
+      "url": "https://www.sciencemediacentre.org/expert-reaction-to-paper-on-google-deepminds-alphagenome/"
+    },
+    {
+      "name": "Scientific American",
+      "title": "Google DeepMind unleashes new AI to investigate DNA's 'dark matter'",
+      "url": "https://www.scientificamerican.com/article/google-deepmind-unleashes-new-ai-alphagenome-to-investigate-dnas-dark-matter/"
+    },
+    {
+      "name": "Hacker News",
+      "title": "AlphaGenome: AI for better understanding the genome",
+      "url": "https://news.ycombinator.com/item?id=44387659"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 1월 28일, 구글 딥마인드가 알파게놈(AlphaGenome)을 공개했다. 노벨상 받은 알파폴드 기억하는가? 그 후속작이다.\n\n알파폴드가 '단백질 구조 예측'을 혁신했다면, 알파게놈은 'DNA 해독'에 도전한다. 출시 1주일, 전 세계 연구자들이 직접 써보고 내린 평가를 정리했다."
+    },
+    {
+      "type": "heading",
+      "value": "알파게놈이 뭘 하는 건가"
+    },
+    {
+      "type": "text",
+      "value": "우리 DNA의 98%는 단백질을 만들지 않는다. 예전엔 '쓸모없는 DNA'라고 불렀지만, 지금은 이 영역이 유전자를 켜고 끄는 스위치 역할을 한다고 알려져 있다. 문제는 이 스위치가 어떻게 작동하는지 아직 잘 모른다는 것.\n\n알파게놈은 DNA 서열을 읽고, 이 스위치들이 어떻게 작동할지 예측하는 AI다. 한 번에 100만 글자의 DNA를 분석할 수 있다."
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/dANwKv8H8EJHgprvdpg0tdwbGMzMwcTbLtvJUtNPAq9me3gu05dUshc71sed6CeCxmrQFccnje0l_slo94tFMLOazmstmTQDRpWkikpklA=w1440-h810-n-nu",
+      "caption": "알파게놈 개요 (Google DeepMind)",
+      "alt": "알파게놈 DNA 분석 개요 이미지"
+    },
+    {
+      "type": "heading",
+      "value": "연구자들 반응: 꽤 쓸만하다"
+    },
+    {
+      "type": "text",
+      "value": "프랜시스 크릭 연구소의 로버트 골드스톤 박사는 **\"중요한 이정표\"**라고 평가했다.\n\n\"이 정도 정밀도는 처음이다. 특정 작업에서는 기존 도구를 바로 대체할 수 있을 것.\"\n\n웰컴 생어 연구소의 벤 레너 교수는 직접 **대규모 테스트**를 진행했다.\n\n\"50만 건 이상의 실험 데이터로 검증해봤다. 실제로 잘 작동한다.\""
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/9Y9VPb6x0p1vPKlPSsvPj2BmR5aVsqHMCJ8h0hCnGdq8TDNVJjhUBXJCvNEu9zPiKgOO9C7fplqh6S7Lp_L0HHY6bB_uBYyE_Azo0hM=w1232-rw",
+      "caption": "알파게놈 구조도 (Google DeepMind)",
+      "alt": "알파게놈 모델 아키텍처"
+    },
+    {
+      "type": "heading",
+      "value": "아직 부족한 점도 있다"
+    },
+    {
+      "type": "text",
+      "value": "물론 만능은 아니다. 킹스칼리지 런던의 리 샹화 박사는 이렇게 지적했다.\n\n\"기존 최고 도구만큼은 한다. 하지만 '더 낫다'고 하긴 어렵다. 병원에서 환자 진단에 쓰기엔 아직 신뢰도가 부족하다.\"\n\n실무자들이 지적한 문제점도 있다."
+    },
+    {
+      "type": "quote",
+      "value": "\"API로만 접근 가능해서 제약회사는 기밀 문제로 못 쓴다. 연구 재현성도 떨어진다.\""
+    },
+    {
+      "type": "text",
+      "value": "또한 100만 글자가 많아 보여도, 실제로 유전자끼리는 그보다 더 먼 거리에서 서로 영향을 주고받기도 한다. 이런 '먼 거리 상호작용'은 아직 잡아내지 못한다."
+    },
+    {
+      "type": "table",
+      "caption": "알파게놈, 어디에 쓸 수 있나",
+      "headers": ["용도", "평가", "설명"],
+      "rows": [
+        ["유전자 스위치 예측", "좋음", "기존 도구 대체 가능"],
+        ["질병 원인 추적 연구", "좋음", "후보 유전자 좁히기에 유용"],
+        ["병원 진단", "아직 어려움", "신뢰도 부족"]
+      ]
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "현실적이지만 의미 있는 시작"
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/TKrwytUPS5ybrzPH1iS2LQL4oeN88dyAnTB-3f8C3utyzmDEI5txFDduM1RQEYMGCv3U32DvW-sE_OffiBPtSXjm9jdW6qjvzyBz1ZIE2W4=w1440-h810-n-nu",
+      "caption": "알파게놈 성능 비교 (Google DeepMind)",
+      "alt": "알파게놈과 기존 도구들의 성능 비교 그래프"
+    },
+    {
+      "type": "text",
+      "value": "영국 암연구소 CEO 크리스티안 헬린 교수의 평가가 인상적이다.\n\n**\"지금 당장 혁명은 아니다. 하지만 연구자들이 가설을 세우고, 실험 우선순위를 정하는 방식을 바꿀 수 있다. 장기적으로 보면 상당히 중요한 도구가 될 것.\"**\n\n칼리코 생명과학의 데이비드 켈리도 비슷한 의견이다.\n\n\"아직은 작은 진전이다. 하지만 100만 글자를 한 번에 처리할 수 있게 된 건 확실히 기술적 돌파구다. **작지만 실질적인 한 걸음.**\"\n\n2018년 알파폴드가 어땠는지 생각해보자. 진지하게 받아들이는 사람이 거의 없던 단순한 프로토타입이었다. 그런데 이 프로젝트는 4년 후, 노벨상을 받았다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "알파게놈은 완벽하지 않다. 분석 범위의 한계, API 전용 접근, 임상 적용 불가—분명한 제약이 있다.\n\n하지만 DNA의 미해독 영역을 읽는 도구 중에선 현재 최고다. 그리고 이건 버전 1.0이다. 앞으로 더 좋아질 거다.\n\n알파폴드 2.0이냐고? 아직은 아니다. 하지만 모든 혁명은 어딘가에서 시작해야 한다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On January 28th, 2026, Google DeepMind released AlphaGenome. Remember AlphaFold, the Nobel Prize winner? This is its successor.\n\nWhile AlphaFold revolutionized protein structure prediction, AlphaGenome tackles DNA interpretation. After a week of hands-on testing, here's what researchers really think."
+    },
+    {
+      "type": "heading",
+      "value": "What Does AlphaGenome Do?"
+    },
+    {
+      "type": "text",
+      "value": "98% of our DNA doesn't code for proteins. Once called 'junk DNA,' we now know these regions act as switches that turn genes on and off. The problem? We still don't fully understand how these switches work.\n\nAlphaGenome is an AI that reads DNA sequences and predicts how these switches will behave. It can analyze up to 1 million letters of DNA at once."
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/dANwKv8H8EJHgprvdpg0tdwbGMzMwcTbLtvJUtNPAq9me3gu05dUshc71sed6CeCxmrQFccnje0l_slo94tFMLOazmstmTQDRpWkikpklA=w1440-h810-n-nu",
+      "caption": "AlphaGenome overview (Google DeepMind)",
+      "alt": "AlphaGenome DNA analysis overview"
+    },
+    {
+      "type": "heading",
+      "value": "Researcher Reactions: Pretty Useful"
+    },
+    {
+      "type": "text",
+      "value": "Dr. Robert Goldstone from the Francis Crick Institute calls it **\"a major milestone\"**:\n\n\"This level of precision is unprecedented. For certain tasks, it could immediately replace existing tools.\"\n\nProfessor Ben Lehner from the Wellcome Sanger Institute ran **extensive tests**:\n\n\"We validated it against over 500,000 experiments. It actually works well.\""
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/9Y9VPb6x0p1vPKlPSsvPj2BmR5aVsqHMCJ8h0hCnGdq8TDNVJjhUBXJCvNEu9zPiKgOO9C7fplqh6S7Lp_L0HHY6bB_uBYyE_Azo0hM=w1232-rw",
+      "caption": "AlphaGenome architecture (Google DeepMind)",
+      "alt": "AlphaGenome model architecture diagram"
+    },
+    {
+      "type": "heading",
+      "value": "Room for Improvement"
+    },
+    {
+      "type": "text",
+      "value": "Of course, it's not perfect. Dr. Xianghua Li from King's College London notes:\n\n\"It performs as well as the best existing tools—but not better. For clinical diagnosis, the reliability just isn't there yet.\"\n\nPractitioners also raised concerns:"
+    },
+    {
+      "type": "quote",
+      "value": "\"API-only access means pharmaceutical companies can't use it due to confidentiality. It also hurts research reproducibility.\""
+    },
+    {
+      "type": "text",
+      "value": "And while 1 million letters sounds like a lot, genes can influence each other from even greater distances. These distant interactions still slip through."
+    },
+    {
+      "type": "table",
+      "caption": "What AlphaGenome Can and Can't Do",
+      "headers": ["Use Case", "Rating", "Notes"],
+      "rows": [
+        ["Gene switch prediction", "Good", "Can replace existing tools"],
+        ["Disease research", "Good", "Useful for narrowing candidates"],
+        ["Clinical diagnosis", "Not ready", "Insufficient reliability"]
+      ]
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Realistic but Meaningful"
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/TKrwytUPS5ybrzPH1iS2LQL4oeN88dyAnTB-3f8C3utyzmDEI5txFDduM1RQEYMGCv3U32DvW-sE_OffiBPtSXjm9jdW6qjvzyBz1ZIE2W4=w1440-h810-n-nu",
+      "caption": "AlphaGenome performance comparison (Google DeepMind)",
+      "alt": "Performance comparison graph of AlphaGenome vs existing tools"
+    },
+    {
+      "type": "text",
+      "value": "Professor Kristian Helin, CEO of The Institute of Cancer Research, offers perspective:\n\n**\"It's not a revolution today. But it could change how researchers form hypotheses and prioritize experiments. Long-term, this will be quite significant.\"**\n\nDavid Kelley from Calico Life Sciences shares a similar view:\n\n\"It's a small step forward. But being able to process 1 million letters at once is clearly a technical breakthrough. **A small but real step.**\"\n\nThink about AlphaFold in 2018. It was just a prototype that few took seriously. Four years later, it won the Nobel Prize."
+    },
+    {
+      "type": "heading",
+      "value": "The Bottom Line"
+    },
+    {
+      "type": "text",
+      "value": "AlphaGenome isn't perfect. Limited analysis range, API-only access, no clinical use—real constraints exist.\n\nBut among tools for reading DNA's uncharted regions, it's currently the best. And this is version 1.0. It will only get better.\n\nIs it AlphaFold 2.0? Not yet. But every revolution has to start somewhere."
+    }
+  ]
+}
