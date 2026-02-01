@@ -160,6 +160,13 @@
       "type": "04.webp",
       "failedAt": "2026-01-31T16:03:21.075Z",
       "error": "HTTP 404: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2288150/ss_8a97b7e5e4c8ed40e60c0f95f7ac16e1e8cf2a02.jpg"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/9Y9VPb6x0p1vPKlPSsvPj2BmR5aVsqHMCJ8h0hCnGdq8TDNVJjhUBXJCvNEu9zPiKgOO9C7fplqh6S7Lp_L0HHY6bB_uBYyE_Azo0hM=w1232-rw",
+      "slug": "alphagenome-first-impressions-2026",
+      "type": "02.webp",
+      "failedAt": "2026-02-01T16:00:35.312Z",
+      "error": "HTTP 400: https://lh3.googleusercontent.com/9Y9VPb6x0p1vPKlPSsvPj2BmR5aVsqHMCJ8h0hCnGdq8TDNVJjhUBXJCvNEu9zPiKgOO9C7fplqh6S7Lp_L0HHY6bB_uBYyE_Azo0hM=w1232-rw"
     }
   ]
 }
