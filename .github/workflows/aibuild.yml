@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     timeout-minutes: 60
 
     steps:
@@ -23,7 +23,15 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        id: node-cache
+        with:
+          path: node_modules
+          key: node-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
       - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Check for untranslated articles
@@ -69,8 +77,9 @@ jobs:
 
       - name: Translate articles (if needed)
         if: steps.check-translate.outputs.need_translate == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          export PATH="/opt/homebrew/bin:$PATH"
           echo "🌐 번역 시작..."
           node translate-ai-blog.js
         timeout-minutes: 30
