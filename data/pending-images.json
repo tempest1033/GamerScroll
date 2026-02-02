@@ -167,6 +167,13 @@
       "type": "02.webp",
       "failedAt": "2026-02-01T16:00:35.312Z",
       "error": "HTTP 400: https://lh3.googleusercontent.com/9Y9VPb6x0p1vPKlPSsvPj2BmR5aVsqHMCJ8h0hCnGdq8TDNVJjhUBXJCvNEu9zPiKgOO9C7fplqh6S7Lp_L0HHY6bB_uBYyE_Azo0hM=w1232-rw"
+    },
+    {
+      "url": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg",
+      "slug": "vibe-coding-guide",
+      "type": "thumbnail.webp",
+      "failedAt": "2026-02-02T23:01:26.790Z",
+      "error": "HTTP 403: https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
     }
   ]
 }
