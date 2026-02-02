@@ -639,6 +639,7 @@ function generateTechCategoryPage({
 
   return wrapWithLayout(content, {
     currentPage: 'tech',
+    bodyClass: 'category-detail',
     title: `${catName} - 테크`,
     description: `테크 ${catName} 관련 심층 정보를 제공합니다.`,
     keywords: `테크, ${catName}, 기술`,

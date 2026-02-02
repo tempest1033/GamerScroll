@@ -1277,7 +1277,8 @@ function wrapWithLayout(content, options = {}) {
     cssFilename = globalCssFilename,  // 해시 기반 CSS 파일명 (전역 설정 사용)
     sidebarContent = '',  // 모바일 사이드 패널 콘텐츠
     sidebarCounts = {},  // 모바일 사이드 패널 카테고리 숫자
-    sidebarArticles = {}  // 모바일 사이드 패널 인기/최신 글 { popular: [], latest: [] }
+    sidebarArticles = {},  // 모바일 사이드 패널 인기/최신 글 { popular: [], latest: [] }
+    bodyClass = ''  // 추가 body 클래스 (예: 'category-detail')
   } = options;
 
   // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
@@ -1297,7 +1298,7 @@ function wrapWithLayout(content, options = {}) {
 <head>
   ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages, cssFilename })}
 </head>
-<body class="${currentPage ? `page-${currentPage}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
+<body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
   ${generateHeader()}
   ${showSearchBar ? searchBarHtml : ''}

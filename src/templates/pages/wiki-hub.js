@@ -635,6 +635,7 @@ function generateWikiCategoryPage({
 
   return wrapWithLayout(content, {
     currentPage: 'wiki',
+    bodyClass: 'category-detail',
     title: `${catName} - 게임 위키`,
     description: `게임 업계 ${catName} 관련 심층 정보를 제공합니다.`,
     keywords: `게임 위키, ${catName}, 게임 ${catName}`,
