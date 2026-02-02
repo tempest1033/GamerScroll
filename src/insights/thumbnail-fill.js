@@ -194,20 +194,32 @@ function computeMatchScore(itemTitle, candidateTitle) {
   return { score, matchedCount, tokens };
 }
 
-function buildNewsCandidates(title, newsItems, limit = 8) {
+function buildNewsCandidates(title, newsItems, limit = 8, options = {}) {
   const candidates = [];
   const tokens = extractKeywords(title);
   const core = tokens.slice(0, 2).map(t => t.toLowerCase());
+  const gameName = options.gameName ? options.gameName.toLowerCase() : null;
+  const usedUrls = options.usedUrls || new Set();
 
   for (const item of newsItems) {
     const thumb = normalizeUrl(item.thumbnail);
     if (!thumb || isBlockedThumb(thumb)) continue;
+    // 이미 사용된 URL 제외
+    if (usedUrls.has(thumb)) continue;
+
     const { score, matchedCount } = computeMatchScore(title, item.title);
     if (score === 0) continue;
 
+    const itemTitleLower = (item.title || '').toLowerCase();
     const strict = core.length
-      ? core.every(t => (item.title || '').toLowerCase().includes(t))
+      ? core.every(t => itemTitleLower.includes(t))
       : false;
+
+    // 게임명 정확 매칭 여부 (gameName이 있으면 해당 게임명이 뉴스 제목에 포함되어야 함)
+    const gameNameMatch = gameName ? itemTitleLower.includes(gameName) : true;
+
+    // 게임명이 불일치하면 점수 대폭 감소
+    const adjustedScore = gameNameMatch ? score : Math.floor(score * 0.3);
 
     candidates.push({
       url: thumb,
@@ -215,9 +227,10 @@ function buildNewsCandidates(title, newsItems, limit = 8) {
       sourceUrl: item.link || '',
       source: `news:${item.source}`,
       group: item.group || 'news',
-      score,
+      score: adjustedScore,
       matchedCount,
-      strict,
+      strict: strict && gameNameMatch,
+      gameNameMatch,
       isImageUrl: isLikelyImageUrl(thumb)
     });
   }
@@ -535,6 +548,7 @@ function buildCodexPrompt(context, candidates, options) {
 - source: ${cand.source || ''}
 - sourceUrl: ${cand.sourceUrl || ''}
 - strict: ${cand.strict ? 'yes' : 'no'}
+- gameNameMatch: ${cand.gameNameMatch === false ? 'no' : 'yes'}
 - score: ${cand.score || 0}`;
   }).join('\n\n');
 
@@ -550,6 +564,8 @@ ${rangeText}
 - 후보 중에서 가장 관련성이 높은 이미지 URL 1개를 선택하세요.
 - 반드시 이미지 URL이어야 합니다 (HTML 페이지 URL 선택 금지).
 - 아래 도메인은 선택 금지: ${[...BLOCKED_THUMB_HOSTS].join(', ')}
+- **gameNameMatch가 yes인 후보를 강하게 우선합니다.**
+- **strict가 yes이고 gameNameMatch가 yes인 후보가 가장 좋습니다.**
 - 제목 키워드와 가장 잘 매칭되는 후보를 우선합니다.
 - 적절한 후보가 없으면 null을 선택합니다.
 
@@ -626,15 +642,29 @@ async function pickBestThumbnail(entry, root, candidates, options) {
   const ranked = rankCandidates(dedupeCandidates(candidates));
   if (ranked.length === 0) return null;
 
+  const usedUrls = options?.usedUrls || new Set();
   const useCodex = options?.disableCodex ? false : true;
+
   if (useCodex) {
     const context = getEntryContext(entry, root);
     const prompt = buildCodexPrompt(context, ranked, options);
     const selected = runCodexSelect(prompt, options);
-    if (selected) return normalizeUrl(selected);
+    const normalized = normalizeUrl(selected);
+    // Codex가 선택한 URL이 이미 사용 중이면 다음 후보 선택
+    if (normalized && !usedUrls.has(normalized)) {
+      return normalized;
+    }
   }
 
-  return normalizeUrl(ranked[0].url);
+  // Codex 실패 또는 중복일 경우 첫 번째 미사용 후보 선택
+  for (const cand of ranked) {
+    const url = normalizeUrl(cand.url);
+    if (url && !usedUrls.has(url)) {
+      return url;
+    }
+  }
+
+  return null;
 }
 
 async function fillInsightThumbnails(ai, options = {}) {
@@ -655,6 +685,9 @@ async function fillInsightThumbnails(ai, options = {}) {
   const firecrawlApiKey = options.firecrawlApiKey || process.env.FIRECRAWL_API_KEY || '';
   const firecrawl = firecrawlApiKey && FirecrawlClient ? new FirecrawlClient({ apiKey: firecrawlApiKey }) : null;
 
+  // 이미 선택된 URL 추적 (중복 방지)
+  const usedUrls = new Set();
+
   for (const entry of entries) {
     const currentRaw = entry.get();
     if (currentRaw === '') {
@@ -667,6 +700,8 @@ async function fillInsightThumbnails(ai, options = {}) {
     if (current && !isBlockedThumb(current)) {
       const isValid = await validateImageUrl(current);
       if (isValid) {
+        // 유지되는 URL도 usedUrls에 추가
+        usedUrls.add(current);
         summary.kept += 1;
         continue;
       }
@@ -680,14 +715,20 @@ async function fillInsightThumbnails(ai, options = {}) {
       continue;
     }
 
+    // gameName 추출 (metrics, rankings 등에서 사용)
+    const owner = entry.owner || {};
+    const gameName = owner.gameName || owner.name || null;
+
     const candidates = [];
-    candidates.push(...buildNewsCandidates(title, newsItems, 8));
+    candidates.push(...buildNewsCandidates(title, newsItems, 8, { gameName, usedUrls }));
 
     const query = buildSearchQuery(context);
     const hasStrongCandidate = candidates.some(cand => cand.strict || cand.score >= 6);
     if (query && !hasStrongCandidate) {
       const searched = await searchWebCandidates(query, firecrawl, 8);
       for (const cand of searched) {
+        // 이미 사용된 URL 제외
+        if (usedUrls.has(normalizeUrl(cand.url))) continue;
         const { score, matchedCount } = computeMatchScore(title, cand.title || '');
         candidates.push({
           ...cand,
@@ -697,14 +738,16 @@ async function fillInsightThumbnails(ai, options = {}) {
       }
     }
 
-    const ranked = rankCandidates(dedupeCandidates(candidates));
+    // 이미 사용된 URL 필터링
+    const filtered = candidates.filter(cand => !usedUrls.has(normalizeUrl(cand.url)));
+    const ranked = rankCandidates(dedupeCandidates(filtered));
     if (ranked.length === 0) {
       if (hadCurrent) entry.set(null);
       summary.failed += 1;
       continue;
     }
 
-    const selected = await pickBestThumbnail(entry, ai, ranked, options);
+    const selected = await pickBestThumbnail(entry, ai, ranked, { ...options, usedUrls });
     if (!selected) {
       if (hadCurrent) entry.set(null);
       summary.failed += 1;
@@ -713,29 +756,33 @@ async function fillInsightThumbnails(ai, options = {}) {
 
     const valid = await validateImageUrl(selected);
     if (!valid) {
-      const fallback = await findFirstValidCandidate(ranked, selected);
+      const fallback = await findFirstValidCandidate(ranked, selected, usedUrls);
       if (!fallback) {
         if (hadCurrent) entry.set(null);
         summary.failed += 1;
         continue;
       }
       entry.set(fallback);
+      usedUrls.add(fallback);
       summary.updated += 1;
       continue;
     }
 
     entry.set(selected);
+    usedUrls.add(selected);
     summary.updated += 1;
   }
 
   return summary;
 }
 
-async function findFirstValidCandidate(candidates, excludeUrl) {
+async function findFirstValidCandidate(candidates, excludeUrl, usedUrls = new Set()) {
   const exclude = normalizeUrl(excludeUrl);
   for (const cand of candidates) {
     const url = normalizeUrl(cand.url);
-    if (!url || url == exclude) continue;
+    if (!url || url === exclude) continue;
+    // 이미 사용된 URL 제외
+    if (usedUrls.has(url)) continue;
     const ok = await validateImageUrl(url);
     if (ok) return url;
   }
