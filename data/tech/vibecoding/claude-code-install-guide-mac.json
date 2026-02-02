@@ -37,7 +37,7 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "목차로 돌아가기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        { "part": 0, "slug": "vibe-coding-guide", "title": "가이드로 돌아가기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
       ]
     },
     {
@@ -160,7 +160,7 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Table of Contents", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Guide", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
       ]
     },
     {
