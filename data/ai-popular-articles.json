@@ -1,72 +1,90 @@
 {
-  "updatedAt": "2026-02-01T01:05:48.383Z",
+  "updatedAt": "2026-02-02T00:10:39.793Z",
   "period": "7days",
   "articles": [
     {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 43,
+      "views": 112,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
-    },
-    {
-      "category": "general",
-      "slug": "moltbook-ai-social-network",
-      "views": 20,
-      "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
-      "views": 13,
+      "views": 64,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
     },
     {
-      "category": "google",
-      "slug": "google-genie3-unity-stock-crash",
-      "views": 13,
-      "path": "/article/google/google-genie3-unity-stock-crash/"
+      "category": "general",
+      "slug": "moltbook-ai-social-network",
+      "views": 27,
+      "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "openai",
       "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 9,
+      "views": 17,
       "path": "/article/openai/gpt-5-3-garlic-update-rumor/"
+    },
+    {
+      "category": "google",
+      "slug": "google-genie3-unity-stock-crash",
+      "views": 16,
+      "path": "/article/google/google-genie3-unity-stock-crash/"
+    },
+    {
+      "category": "general",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 5,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "general",
       "slug": "claude-code-vs-codex-coding-agent",
-      "views": 4,
+      "views": 5,
       "path": "/article/general/claude-code-vs-codex-coding-agent/"
     },
     {
       "category": "general",
       "slug": "dead-internet-theory",
-      "views": 4,
+      "views": 5,
       "path": "/article/general/dead-internet-theory/"
-    },
-    {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 2,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-openai-investment-retreat",
-      "views": 2,
-      "path": "/article/general/nvidia-openai-investment-retreat/"
     },
     {
       "category": "openai",
       "slug": "gpt-4o-shutdown-controversy",
-      "views": 2,
+      "views": 5,
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
+    },
+    {
+      "category": "general",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 4,
+      "path": "/article/general/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "nvidia-openai-investment-retreat",
+      "views": 4,
+      "path": "/article/general/nvidia-openai-investment-retreat/"
+    },
+    {
+      "category": "openai",
+      "slug": "stargate-ai-crisis-2026",
+      "views": 3,
+      "path": "/article/openai/stargate-ai-crisis-2026/"
     },
     {
       "category": "anthropic",
       "slug": "moltbot-clawdbot-ai-assistant",
-      "views": 1,
+      "views": 2,
       "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
+    },
+    {
+      "category": "google",
+      "slug": "alphagenome-first-impressions-2026",
+      "views": 1,
+      "path": "/article/google/alphagenome-first-impressions-2026/"
     },
     {
       "category": "openai",
