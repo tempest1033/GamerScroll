@@ -78,23 +78,21 @@
     },
     {
       "type": "heading",
-      "value": "권한 설정 및 기본 설정 제어"
+      "value": "기본 개념 및 설정"
     },
     {
       "type": "text",
-      "value": "업데이트 예정"
+      "value": "바이브 코딩 도구를 제대로 활용하려면 몇 가지 기본 개념을 이해하고 설정을 해줘야 한다. 사용량 관리, 세션, 컨텍스트, 권한, 모델 선택까지 핵심 개념을 정리했다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "vibe-coding-basics", "title": "기본 개념 및 설정", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+      ]
     },
     {
       "type": "heading",
-      "value": "프로젝트 기본 설정 (MD: 마크다운)"
-    },
-    {
-      "type": "text",
-      "value": "업데이트 예정"
-    },
-    {
-      "type": "heading",
-      "value": "섹션 관리 및 컴팩트"
+      "value": "프로젝트 개별 설정"
     },
     {
       "type": "text",
@@ -207,27 +205,17 @@
     },
     {
       "type": "heading",
-      "value": "Permission Settings and Basic Configuration"
+      "value": "Basic Concepts and Settings"
     },
     {
       "type": "text",
-      "value": "Coming soon"
+      "value": "To properly use vibe coding tools, you need to understand some basic concepts and configure settings. This section covers essential concepts including usage management, sessions, context, permissions, and model selection."
     },
     {
-      "type": "heading",
-      "value": "Project Configuration (MD: Markdown)"
-    },
-    {
-      "type": "text",
-      "value": "Coming soon"
-    },
-    {
-      "type": "heading",
-      "value": "Session Management and Compact"
-    },
-    {
-      "type": "text",
-      "value": "Coming soon"
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "vibe-coding-basics", "title": "Basic Concepts and Settings", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+      ]
     },
     {
       "type": "heading",
