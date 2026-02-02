@@ -89,12 +89,13 @@ function generateFooter() {
   </footer>`;
 }
 
-// AIScroll 네비게이션 (카테고리 4개)
+// AIScroll 네비게이션 (카테고리 5개)
 const AI_NAV_ITEMS = [
   { id: 'general', label: 'General', href: '/article/general/' },
   { id: 'openai', label: 'OpenAI', href: '/article/openai/' },
   { id: 'google', label: 'Google', href: '/article/google/' },
-  { id: 'anthropic', label: 'Anthropic', href: '/article/anthropic/' }
+  { id: 'anthropic', label: 'Anthropic', href: '/article/anthropic/' },
+  { id: 'vibecoding', label: 'Coding', href: '/article/vibecoding/' }
 ];
 
 // 글로벌 사이드바 카운트 (모바일 메뉴용)
@@ -132,6 +133,7 @@ function generateDefaultSidebarContent(counts = {}) {
           <a href="/article/openai/" class="sidebar-category-item"><span class="sidebar-category-name">OpenAI${c('openai')}</span></a>
           <a href="/article/google/" class="sidebar-category-item"><span class="sidebar-category-name">Google${c('google')}</span></a>
           <a href="/article/anthropic/" class="sidebar-category-item"><span class="sidebar-category-name">Anthropic${c('anthropic')}</span></a>
+          <a href="/article/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">Vibe Coding${c('vibecoding')}</span></a>
         </div>
       </div>
     </div>
@@ -374,7 +376,8 @@ function generateAIBlogIndex(data) {
       { id: 'general', label: 'General' },
       { id: 'openai', label: 'OpenAI' },
       { id: 'google', label: 'Google' },
-      { id: 'anthropic', label: 'Anthropic' }
+      { id: 'anthropic', label: 'Anthropic' },
+      { id: 'vibecoding', label: 'Vibe Coding' }
     ];
     // 카테고리별 기사 개수 계산
     const countByCategory = {};
@@ -563,7 +566,7 @@ const imageFallbackScript = `
   }
 
   function initImageLoadHandlers() {
-    document.querySelectorAll('.home-trend-card-image img').forEach(function(img) {
+    document.querySelectorAll('.home-trend-card-image img, .home-popular-thumb img').forEach(function(img) {
       if (img.complete && img.naturalWidth > 0) {
         markImageLoaded(img);
       } else {
@@ -934,10 +937,10 @@ function wrapWithLayout(content, options = {}) {
       .nav-inner::-webkit-scrollbar {
         display: none;
       }
-      /* 4개 카테고리용 25% */
+      /* 5개 카테고리용 20% */
       .nav-item {
-        min-width: 25% !important;
-        flex: 0 0 25% !important;
+        min-width: 20% !important;
+        flex: 0 0 20% !important;
         justify-content: center;
         text-align: center;
         padding: 8px 4px 10px;
@@ -965,7 +968,7 @@ function wrapWithLayout(content, options = {}) {
         transform: translateY(-64px) !important;
       }
       body.search-hidden .site-container {
-        padding-top: 56px !important;
+        padding-top: 120px !important;
       }
     }
     /* PC에서 검색 컨테이너 숨김 */
@@ -1364,7 +1367,7 @@ function wrapWithLayout(content, options = {}) {
       (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
     if (!isTouchDevice) return;
 
-    const navSections = ['home', 'general', 'openai', 'google', 'anthropic'];
+    const navSections = ['home', 'general', 'openai', 'google', 'anthropic', 'vibecoding'];
     const currentPage = '${currentPage}';
 
     const SWIPE_THRESHOLD = 0.10;
@@ -1541,6 +1544,7 @@ function wrapWithLayout(content, options = {}) {
   ${pageScripts}
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}document.body.style.visibility='visible';if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('ai-search-hidden','1');else sessionStorage.removeItem('ai-search-hidden');}catch(ex){}},true);})();</script>
 </body>
 </html>`;
 }
@@ -1689,7 +1693,8 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     { id: 'general', label: 'General' },
     { id: 'openai', label: 'OpenAI' },
     { id: 'google', label: 'Google' },
-    { id: 'anthropic', label: 'Anthropic' }
+    { id: 'anthropic', label: 'Anthropic' },
+    { id: 'vibecoding', label: 'Vibe Coding' }
   ];
 
   // 사이드바 렌더링

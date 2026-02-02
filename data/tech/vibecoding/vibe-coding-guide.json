@@ -1,0 +1,274 @@
+{
+  "slug": "vibe-coding-guide",
+  "status": "approved",
+  "category": "vibecoding",
+  "toc": true,
+  "title": "바이브 코딩 종합 가이드: 툴 비교&설치부터 실전까지",
+  "titleEn": "Vibe Coding Complete Guide: From Tool Comparison & Installation to Practice",
+  "date": "2026-02-03T12:00",
+  "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg",
+  "keywords": "바이브 코딩, Vibe Coding, AI 코딩, Claude Code, OpenAI Codex, 설치 가이드, 입문, 시작하기",
+  "keywordsEn": "vibe coding, AI coding, Claude Code, OpenAI Codex, installation guide, beginner, getting started",
+  "summary": "바이브 코딩 입문자를 위한 종합 안내서. 바이브 코딩의 개념부터 클로드 코드와 코덱스 비교, 맥·윈도우 설치 방법, 실전 활용법, 고급 팁까지 체계적으로 안내한다.",
+  "summaryEn": "A comprehensive guide for vibe coding beginners. From the concept of vibe coding to Claude Code and Codex comparison, Mac/Windows installation methods, practical usage, and advanced tips.",
+  "sources": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "바이브 코딩에 관심은 있지만 어디서부터 시작해야 할지 막막한 경우가 많다. 도구 설치부터 막히거나, 용어가 낯설어 진입 자체가 어렵기도 하다. 이 가이드는 그런 입문자를 위해 준비했다. 개념 이해부터 도구 선택, 설치, 실전 활용까지 단계별로 안내하며, 새로운 내용이 추가될 때마다 지속적으로 업데이트될 예정이다."
+    },
+    {
+      "type": "heading",
+      "value": "바이브 코딩이란?"
+    },
+    {
+      "type": "text",
+      "value": "바이브 코딩의 정의와 등장 배경을 살펴본다. 안드레이 카파시가 이 용어를 처음 사용한 맥락과 핵심 개념을 함께 다룬다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "vibe-coding", "title": "바이브 코딩 - AI로 코딩 시작하기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "도구 비교"
+    },
+    {
+      "type": "text",
+      "value": "대표적인 AI 코딩 도구인 클로드 코드와 코덱스를 비교한다. 각 도구의 특징과 장단점을 정리했다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "claude-code-vs-codex-coding-agent", "category": "ai", "title": "클로드 코드 vs 코덱스 비교", "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "클로드 코드 설치"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽의 AI 코딩 에이전트 클로드 코드를 설치하는 방법을 안내한다. 데스크탑 앱, VS Code 확장, CLI 세 가지 방식을 다룬다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "claude-code-install-guide-mac", "title": "Mac 설치 가이드", "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg" },
+        { "part": 2, "slug": "claude-code-install-guide-windows", "title": "Windows 설치 가이드", "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "오픈AI 코덱스 설치"
+    },
+    {
+      "type": "text",
+      "value": "오픈AI의 AI 코딩 에이전트 코덱스를 설치하는 방법을 안내한다. 데스크탑 앱, VS Code 확장, CLI 세 가지 방식을 다룬다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "codex-install-guide-mac", "title": "Mac 설치 가이드", "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg" },
+        { "part": 2, "slug": "codex-install-guide-windows", "title": "Windows 설치 가이드", "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "권한 설정 및 기본 설정 제어"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 예정"
+    },
+    {
+      "type": "heading",
+      "value": "프로젝트 기본 설정 (MD: 마크다운)"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 예정"
+    },
+    {
+      "type": "heading",
+      "value": "섹션 관리 및 컴팩트"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 예정"
+    },
+    {
+      "type": "heading",
+      "value": "작업 플로우 및 프롬프트 작성 요령"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 예정"
+    },
+    {
+      "type": "heading",
+      "value": "형상 관리소 연동"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 예정"
+    },
+    {
+      "type": "heading",
+      "value": "MCP"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 예정"
+    },
+    {
+      "type": "heading",
+      "value": "에이전트"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 예정"
+    },
+    {
+      "type": "heading",
+      "value": "스킬 / 훅"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 예정"
+    }
+  ],
+  "relatedDocs": [],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Many people are interested in vibe coding but often don't know where to start. Getting stuck on tool installation or finding unfamiliar terminology can make it difficult to even begin. This guide was prepared for such beginners. It provides step-by-step guidance from understanding concepts to choosing tools, installation, and practical usage, and will be continuously updated as new content is added."
+    },
+    {
+      "type": "heading",
+      "value": "What is Vibe Coding?"
+    },
+    {
+      "type": "text",
+      "value": "We explore the definition and background of vibe coding. This section covers the context in which Andrej Karpathy first used this term and its core concepts."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "vibe-coding", "title": "Vibe Coding - Getting Started with AI", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Tool Comparison"
+    },
+    {
+      "type": "text",
+      "value": "We compare Claude Code and Codex, two representative AI coding tools. This section summarizes each tool's features, strengths, and weaknesses."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "claude-code-vs-codex-coding-agent", "category": "ai", "title": "Claude Code vs Codex Comparison", "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Claude Code Installation"
+    },
+    {
+      "type": "text",
+      "value": "This section guides you through installing Claude Code, Anthropic's AI coding agent. It covers three methods: Desktop app, VS Code extension, and CLI."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "claude-code-install-guide-mac", "title": "Mac Installation Guide", "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg" },
+        { "part": 2, "slug": "claude-code-install-guide-windows", "title": "Windows Installation Guide", "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "OpenAI Codex Installation"
+    },
+    {
+      "type": "text",
+      "value": "This section guides you through installing Codex, OpenAI's AI coding agent. It covers three methods: Desktop app, VS Code extension, and CLI."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "codex-install-guide-mac", "title": "Mac Installation Guide", "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg" },
+        { "part": 2, "slug": "codex-install-guide-windows", "title": "Windows Installation Guide", "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Permission Settings and Basic Configuration"
+    },
+    {
+      "type": "text",
+      "value": "Coming soon"
+    },
+    {
+      "type": "heading",
+      "value": "Project Configuration (MD: Markdown)"
+    },
+    {
+      "type": "text",
+      "value": "Coming soon"
+    },
+    {
+      "type": "heading",
+      "value": "Session Management and Compact"
+    },
+    {
+      "type": "text",
+      "value": "Coming soon"
+    },
+    {
+      "type": "heading",
+      "value": "Workflow and Prompt Writing Tips"
+    },
+    {
+      "type": "text",
+      "value": "Coming soon"
+    },
+    {
+      "type": "heading",
+      "value": "Version Control Integration"
+    },
+    {
+      "type": "text",
+      "value": "Coming soon"
+    },
+    {
+      "type": "heading",
+      "value": "MCP"
+    },
+    {
+      "type": "text",
+      "value": "Coming soon"
+    },
+    {
+      "type": "heading",
+      "value": "Agents"
+    },
+    {
+      "type": "text",
+      "value": "Coming soon"
+    },
+    {
+      "type": "heading",
+      "value": "Skills / Hooks"
+    },
+    {
+      "type": "text",
+      "value": "Coming soon"
+    }
+  ],
+  "needTranslate": false
+}

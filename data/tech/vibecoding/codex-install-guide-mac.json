@@ -1,0 +1,403 @@
+{
+  "slug": "codex-install-guide-mac",
+  "status": "approved",
+  "category": "vibecoding",
+  "title": "OpenAI Codex 설치 가이드 - Mac",
+  "titleEn": "OpenAI Codex Installation Guide - Mac",
+  "date": "2026-02-03T12:00",
+  "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg",
+  "keywords": "OpenAI Codex, Codex 설치, Mac, macOS, Codex App, VS Code, Homebrew, npm, CLI, IDE Extension, 바이브 코딩, AI 코딩",
+  "keywordsEn": "OpenAI Codex, Codex installation, Mac, macOS, Codex App, VS Code, Homebrew, npm, CLI, IDE Extension, vibe coding, AI coding",
+  "summary": "Mac에서 OpenAI Codex를 설치하는 방법을 단계별로 안내한다. 데스크탑 앱, VS Code 확장, CLI 세 가지 방식을 모두 다루며, 가장 쉬운 방법부터 순서대로 정리했다.",
+  "summaryEn": "A step-by-step guide to installing OpenAI Codex on Mac. Covers all three methods: Desktop app, VS Code extension, and CLI, organized from easiest to advanced.",
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "Introducing the Codex app",
+      "url": "https://openai.com/index/introducing-the-codex-app/"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Codex CLI - OpenAI for developers",
+      "url": "https://developers.openai.com/codex/cli/"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Codex IDE extension",
+      "url": "https://developers.openai.com/codex/ide"
+    },
+    {
+      "name": "DataCamp",
+      "title": "OpenAI Codex CLI Tutorial",
+      "url": "https://www.datacamp.com/tutorial/open-ai-codex-cli-tutorial"
+    },
+    {
+      "name": "DeployHQ",
+      "title": "Getting Started with OpenAI Codex CLI",
+      "url": "https://www.deployhq.com/blog/getting-started-with-openai-codex-cli-ai-powered-code-generation-from-your-terminal"
+    }
+  ],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "목차로 돌아가기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "OpenAI Codex는 코드를 읽고, 수정하고, 실행할 수 있는 AI 코딩 에이전트다. VS Code 확장으로 IDE에서 바로 사용하거나, CLI로 터미널에서 대화하듯 코딩할 수 있다. Mac은 Codex가 공식 지원하는 환경으로, 별도의 가상화 없이 바로 설치해서 사용할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "사전 준비"
+    },
+    {
+      "type": "text",
+      "value": "**필수 요구사항**\n- macOS 12 이상\n- ChatGPT Plus, Pro, Business, Edu, 또는 Enterprise 구독\n\nCodex는 ChatGPT 유료 플랜에 포함되어 있다. 별도 API 키 없이 ChatGPT 계정으로 로그인하면 바로 사용할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "방법 1: 데스크탑 앱 설치 (가장 쉬움)"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/6HToRfDNge2GeFFd4e6B0J/da793ad54e4495450debc82aa01aae03/Research_Model_Blog_SEO.png",
+      "caption": "OpenAI Codex 데스크탑 앱",
+      "alt": "OpenAI Codex 데스크탑 앱 소개 이미지"
+    },
+    {
+      "type": "text",
+      "value": "2026년 2월, OpenAI가 Mac용 Codex 데스크탑 앱을 출시했다. 다운로드해서 설치하면 바로 사용할 수 있다.\n\n**설치 순서**\n1. [openai.com/codex](https://openai.com/codex) 접속\n2. Download for Mac 클릭\n3. 다운로드된 dmg 파일 실행\n4. Codex.app을 Applications 폴더로 드래그\n5. Codex 실행 후 ChatGPT 계정으로 로그인"
+    },
+    {
+      "type": "heading",
+      "value": "방법 2: VS Code 확장 설치"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/vscode-download-page.png",
+      "caption": "VS Code 공식 사이트",
+      "alt": "VS Code 다운로드 페이지 - The open source AI code editor"
+    },
+    {
+      "type": "text",
+      "value": "VS Code가 없다면 먼저 설치한다.\n\n**VS Code 설치**\n1. [code.visualstudio.com](https://code.visualstudio.com) 접속\n2. Download for Mac 클릭 (Apple Silicon 또는 Intel 선택)\n3. 다운로드된 zip 파일 압축 해제\n4. Visual Studio Code.app을 Applications 폴더로 이동\n5. VS Code 실행"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/codex-extension.png",
+      "caption": "VS Code Codex 확장 설치 화면",
+      "alt": "VS Code 마켓플레이스에서 Codex 확장 검색 결과"
+    },
+    {
+      "type": "text",
+      "value": "**Codex 확장 설치**\n1. VS Code를 연다\n2. 왼쪽 사이드바에서 확장(Extensions) 아이콘 클릭 (또는 Cmd+Shift+X)\n3. 검색창에 OpenAI Codex 입력\n4. Codex 확장을 찾아 설치 클릭\n5. VS Code 재시작\n6. 왼쪽 사이드바에 Codex 아이콘이 나타남\n7. 클릭 후 ChatGPT 계정으로 로그인"
+    },
+    {
+      "type": "text",
+      "value": "설치 후 Codex 아이콘을 클릭하면 채팅 인터페이스가 열린다. 여기서 코드에 대해 질문하거나, 파일 수정을 요청하거나, 터미널 명령어 실행을 시킬 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "방법 3: CLI 설치"
+    },
+    {
+      "type": "text",
+      "value": "CLI는 터미널에서 Codex를 실행하는 방식이다. Homebrew 또는 npm으로 설치할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3-1. Homebrew로 설치 (권장)"
+    },
+    {
+      "type": "text",
+      "value": "Homebrew가 설치되어 있다면 가장 간단한 방법이다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "brew install openai-codex"
+    },
+    {
+      "type": "text",
+      "value": "설치가 완료되면 바로 실행할 수 있다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "codex"
+    },
+    {
+      "type": "text",
+      "value": "Homebrew가 없다면 먼저 설치한다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    },
+    {
+      "type": "heading",
+      "value": "3-2. npm으로 설치"
+    },
+    {
+      "type": "text",
+      "value": "Node.js가 설치되어 있다면 npm으로도 설치할 수 있다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "npm i -g @openai/codex"
+    },
+    {
+      "type": "text",
+      "value": "Node.js가 없다면 Homebrew로 설치한다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "brew install node"
+    },
+    {
+      "type": "text",
+      "value": "또는 nvm을 사용해서 설치할 수도 있다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash\n# 터미널 재시작 후\nnvm install 22"
+    },
+    {
+      "type": "heading",
+      "value": "첫 실행과 로그인"
+    },
+    {
+      "type": "text",
+      "value": "CLI 설치 후 터미널에서 `codex`를 실행하면 로그인 화면이 나타난다.\n\n**로그인 방법**\n1. 터미널에서 `codex` 입력\n2. 브라우저가 열리며 ChatGPT 로그인 페이지로 이동\n3. ChatGPT 계정으로 로그인\n4. 인증 완료 후 터미널로 돌아오면 Codex 사용 준비 완료\n\nAPI 키로 로그인하려면 환경변수를 설정한다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "export OPENAI_API_KEY=\"your-api-key\"\ncodex"
+    },
+    {
+      "type": "heading",
+      "value": "업데이트"
+    },
+    {
+      "type": "text",
+      "value": "Codex는 자주 업데이트된다. 최신 버전으로 유지하려면:\n\n**Homebrew**"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "brew upgrade openai-codex"
+    },
+    {
+      "type": "text",
+      "value": "**npm**"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "npm i -g @openai/codex@latest"
+    },
+    {
+      "type": "text",
+      "value": "VS Code 확장은 자동으로 업데이트되지만, 확장 페이지에서 수동으로 확인할 수도 있다."
+    },
+    {
+      "type": "heading",
+      "value": "다음 단계"
+    },
+    {
+      "type": "text",
+      "value": "설치가 완료되면 Codex에게 간단한 작업부터 시켜보자. '이 폴더에 있는 파일 목록 보여줘', '이 코드 설명해줘' 같은 요청으로 시작하면 된다. Codex는 파일을 읽고, 수정하고, 터미널 명령어도 실행할 수 있다."
+    }
+  ],
+  "relatedDocs": [
+    "tech:vibecoding/vibe-coding-guide"
+  ],
+  "contentEn": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Table of Contents", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "OpenAI Codex is an AI coding agent that can read, modify, and execute code. You can use it directly in your IDE with the VS Code extension, or code conversationally in the terminal via CLI. Mac is an officially supported platform for Codex, allowing direct installation without any virtualization."
+    },
+    {
+      "type": "heading",
+      "value": "Prerequisites"
+    },
+    {
+      "type": "text",
+      "value": "**Requirements**\n- macOS 12 or later\n- ChatGPT Plus, Pro, Business, Edu, or Enterprise subscription\n\nCodex is included in ChatGPT paid plans. You can start using it immediately by logging in with your ChatGPT account, without a separate API key."
+    },
+    {
+      "type": "heading",
+      "value": "Method 1: Desktop App Installation (Easiest)"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/6HToRfDNge2GeFFd4e6B0J/da793ad54e4495450debc82aa01aae03/Research_Model_Blog_SEO.png",
+      "caption": "OpenAI Codex Desktop App",
+      "alt": "OpenAI Codex desktop app introduction image"
+    },
+    {
+      "type": "text",
+      "value": "In February 2026, OpenAI released the Codex desktop app for Mac. Download and install it to start using right away.\n\n**Installation Steps**\n1. Go to [openai.com/codex](https://openai.com/codex)\n2. Click Download for Mac\n3. Run the downloaded dmg file\n4. Drag Codex.app to the Applications folder\n5. Launch Codex and log in with your ChatGPT account"
+    },
+    {
+      "type": "heading",
+      "value": "Method 2: VS Code Extension Installation"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/vscode-download-page.png",
+      "caption": "VS Code Official Site",
+      "alt": "VS Code download page - The open source AI code editor"
+    },
+    {
+      "type": "text",
+      "value": "If you don't have VS Code, install it first.\n\n**VS Code Installation**\n1. Go to [code.visualstudio.com](https://code.visualstudio.com)\n2. Click Download for Mac (choose Apple Silicon or Intel)\n3. Extract the downloaded zip file\n4. Move Visual Studio Code.app to the Applications folder\n5. Launch VS Code"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/codex-extension.png",
+      "caption": "VS Code Codex Extension Installation",
+      "alt": "Codex extension search results in VS Code Marketplace"
+    },
+    {
+      "type": "text",
+      "value": "**Codex Extension Installation**\n1. Open VS Code\n2. Click the Extensions icon in the left sidebar (or Cmd+Shift+X)\n3. Type OpenAI Codex in the search box\n4. Find the Codex extension and click Install\n5. Restart VS Code\n6. The Codex icon appears in the left sidebar\n7. Click and log in with your ChatGPT account"
+    },
+    {
+      "type": "text",
+      "value": "After installation, clicking the Codex icon opens a chat interface. Here you can ask questions about code, request file modifications, or have it execute terminal commands."
+    },
+    {
+      "type": "heading",
+      "value": "Method 3: CLI Installation"
+    },
+    {
+      "type": "text",
+      "value": "CLI runs Codex from the terminal. You can install it via Homebrew or npm."
+    },
+    {
+      "type": "heading",
+      "value": "3-1. Homebrew Installation (Recommended)"
+    },
+    {
+      "type": "text",
+      "value": "If you have Homebrew installed, this is the simplest method."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "brew install openai-codex"
+    },
+    {
+      "type": "text",
+      "value": "Once installation is complete, you can run it immediately."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "codex"
+    },
+    {
+      "type": "text",
+      "value": "If you don't have Homebrew, install it first."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    },
+    {
+      "type": "heading",
+      "value": "3-2. npm Installation"
+    },
+    {
+      "type": "text",
+      "value": "If you have Node.js installed, you can also install via npm."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "npm i -g @openai/codex"
+    },
+    {
+      "type": "text",
+      "value": "If you don't have Node.js, install it with Homebrew."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "brew install node"
+    },
+    {
+      "type": "text",
+      "value": "You can also use nvm to install."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash\n# After restarting terminal\nnvm install 22"
+    },
+    {
+      "type": "heading",
+      "value": "First Run and Login"
+    },
+    {
+      "type": "text",
+      "value": "After CLI installation, running `codex` in the terminal shows the login screen.\n\n**Login Method**\n1. Type `codex` in the terminal\n2. A browser opens and navigates to the ChatGPT login page\n3. Log in with your ChatGPT account\n4. After authentication, return to the terminal and Codex is ready to use\n\nTo log in with an API key, set the environment variable."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "export OPENAI_API_KEY=\"your-api-key\"\ncodex"
+    },
+    {
+      "type": "heading",
+      "value": "Updates"
+    },
+    {
+      "type": "text",
+      "value": "Codex updates frequently. To stay on the latest version:\n\n**Homebrew**"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "brew upgrade openai-codex"
+    },
+    {
+      "type": "text",
+      "value": "**npm**"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "npm i -g @openai/codex@latest"
+    },
+    {
+      "type": "text",
+      "value": "The VS Code extension updates automatically, but you can also check manually on the extension page."
+    },
+    {
+      "type": "heading",
+      "value": "Next Steps"
+    },
+    {
+      "type": "text",
+      "value": "Once installation is complete, try giving Codex simple tasks. Start with requests like 'Show me the files in this folder' or 'Explain this code'. Codex can read files, make modifications, and execute terminal commands."
+    }
+  ],
+  "needTranslate": false
+}

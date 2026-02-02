@@ -276,6 +276,40 @@
   }
 }
 
+/* 코드블록 */
+.blog-code {
+  margin: 24px 0;
+}
+
+.blog-code pre {
+  margin: 0;
+  padding: 20px 24px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.blog-code code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d4d4d4;
+  background: transparent;
+  padding: 0;
+}
+
+.blog-code .blog-caption {
+  margin-top: 8px;
+  text-align: left;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.blog-code .code-comment {
+  color: #87ceeb;
+}
+
 /* 주석/메타 정보 (순위 분석 서문 등) */
 .blog-note {
   margin: 16px 0 24px;
@@ -291,6 +325,50 @@
 @media (prefers-color-scheme: dark) {
   .blog-note {
     background: rgba(148, 163, 184, 0.08);
+  }
+}
+
+/* 부가 설명 박스 (VS Code란? 등) */
+.blog-aside {
+  margin: 16px 0 24px;
+  padding: 14px 16px;
+  background: var(--hover-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.blog-aside .aside-title {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.blog-aside p {
+  margin: 0;
+}
+
+.blog-aside code {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* aside 다음 코드블록 간격 */
+.blog-aside + .blog-code {
+  margin-top: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-aside {
+    background: rgba(148, 163, 184, 0.08);
+  }
+  .blog-aside code {
+    background: rgba(255, 255, 255, 0.1);
   }
 }
 

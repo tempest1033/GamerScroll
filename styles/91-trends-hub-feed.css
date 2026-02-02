@@ -27,11 +27,11 @@
   width: 100%;
   aspect-ratio: 16 / 11;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: rgba(0,0,0,0.05);
 }
 
 .trend-feed-card-weekly .trend-feed-card-image {
-  background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+  background: rgba(0,0,0,0.05);
 }
 
 .trend-feed-card-image img {

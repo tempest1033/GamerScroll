@@ -946,7 +946,26 @@ for day in range(1, 32):
 > | `contentEn` | array | 영어 본문 (번역 후 자동 생성) |
 >
 > ⚠️ **keywordsEn은 자동 번역되지 않음** - JSON 작성 시 직접 영문 키워드 추가 필요
+
+> **바이브코딩 (VibeCoding)**은 테크 문서의 `vibecoding` 카테고리로 작성
+> - 저장 경로: `data/tech/vibecoding/{slug}.json`
+> - URL: `/tech/vibecoding/{slug}/`
+> - **필수 필드**: `category: "vibecoding"` 지정
 >
+> **영문 동시 작성 (VibeCoding 권장)**
+> - 필요한 영문 필드: `keywordsEn`, `titleEn`, `summaryEn`
+> - 동시 작성 시 `needTranslate: false` 설정 (자동 번역 스킵)
+>
+> **번역 필드 (VibeCoding)**
+> | 필드 | 설명 |
+> |------|------|
+> | `category` | `"vibecoding"` 고정 |
+> | `keywordsEn` | 영어 키워드 (수동 추가 필수) |
+> | `titleEn` | 영어 제목 |
+> | `summaryEn` | 영어 요약 |
+> | `contentEn` | 영어 본문 (content와 동일 구조) |
+> | `needTranslate` | `true` (번역 필요) / `false` (번역 완료) |
+
 > **번역 워크플로우**
 > ```
 > 1. 새 글 작성 시 keywordsEn 필드 함께 추가 (필수)

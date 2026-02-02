@@ -23,6 +23,38 @@ function getImageSrc(originalSrc) {
 }
 
 /**
+ * 슬러그 생성 (heading용 ID)
+ */
+const toSlug = (text) => {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+};
+
+/**
+ * 목차 생성
+ */
+const renderToc = (content = [], isEnglish = false) => {
+  const headings = content.filter(b => b.type === 'heading' && b.value);
+  if (headings.length < 3) return ''; // 3개 미만이면 목차 생략
+
+  const items = headings.map(h => {
+    const id = toSlug(h.value);
+    return `<li><a href="#${id}">${escapeHtml(h.value)}</a></li>`;
+  }).join('');
+
+  return `
+    <nav class="blog-toc">
+      <div class="blog-toc-title">${isEnglish ? 'Table of Contents' : '목차'}</div>
+      <ol>${items}</ol>
+    </nav>
+  `;
+};
+
+/**
  * 글 상세 페이지 생성
  */
 function generateAIBlogArticle(article, data = {}) {
@@ -46,6 +78,7 @@ function generateAIBlogArticle(article, data = {}) {
               .replace(/`([^`]+)`/g, '<code>$1</code>')
               .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+              .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
               .replace(/^- /gm, '• ')
               .replace(/\n- /g, '\n• ')
               .replace(/\n/g, '<br>')
@@ -55,9 +88,11 @@ function generateAIBlogArticle(article, data = {}) {
           result.push(paragraphs);
           break;
         }
-        case 'heading':
-          result.push(`<h2 class="blog-heading">${escapeHtml(block.value)}</h2>`);
+        case 'heading': {
+          const headingId = toSlug(block.value);
+          result.push(`<h2 id="${headingId}" class="blog-heading">${escapeHtml(block.value)}</h2>`);
           break;
+        }
         case 'subheading':
           result.push(`<h3 class="blog-subheading">${escapeHtml(block.value)}</h3>`);
           break;
@@ -92,9 +127,62 @@ function generateAIBlogArticle(article, data = {}) {
               </table>
             </figure>`);
           break;
-        case 'code':
-          result.push(`<pre class="blog-code"><code>${escapeHtml(block.value)}</code></pre>`);
+        case 'code': {
+          if (!block.value) break;
+          const lang = block.lang || '';
+          const codeCaption = block.caption ? `<figcaption class="blog-caption">${escapeHtml(block.caption)}</figcaption>` : '';
+          const escapedCode = String(block.value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/^(#.*)$/gm, '<span class="code-comment">$1</span>');
+          result.push(`
+            <figure class="blog-figure blog-code">
+              <pre><code${lang ? ` class="language-${lang}"` : ''}>${escapedCode}</code></pre>
+              ${codeCaption}
+            </figure>`);
           break;
+        }
+        case 'aside': {
+          if (!block.value) break;
+          const asideTitle = block.title ? `<strong class="aside-title">${escapeHtml(block.title)}</strong>` : '';
+          const asideFormatted = String(block.value)
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+            .replace(/\n/g, '<br>');
+          result.push(`
+            <aside class="blog-aside">
+              ${asideTitle}
+              <p>${asideFormatted}</p>
+            </aside>`);
+          break;
+        }
+        case 'series': {
+          // 시리즈 네비게이션 블록 (GamerScroll 스타일 클래스)
+          if (!block.articles || !Array.isArray(block.articles)) break;
+          const seriesTitleHtml = block.title ? `<div class="blog-related-title">${escapeHtml(block.title)}</div>` : '';
+          const seriesCards = block.articles.map(item => {
+            const partLabel = item.part === 0 ? 'Index' : (item.part ? `Part ${item.part}` : '');
+            // 실제 기사 데이터에서 category 조회 (AI Blog 카테고리 매핑)
+            const actualArticle = allArticles.find(a => a.slug === item.slug);
+            const itemCategory = actualArticle?.category || article.category || 'general';
+            const href = `/article/${itemCategory}/${item.slug}/`;
+            const thumbUrl = item.thumbnail ? getThumbUrl(item.thumbnail, 200) : '';
+            return `
+              <a href="${href}" class="blog-related-issue-card blog-series-card">
+                <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="" loading="lazy">
+                <span class="blog-series-tag">${partLabel}</span>
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${escapeHtml(item.title)}</span></span>
+              </a>`;
+          }).join('');
+          result.push(`
+            <nav class="blog-series">
+              ${seriesTitleHtml}
+              <div class="blog-related-issues-list">${seriesCards}</div>
+            </nav>`);
+          break;
+        }
         case 'video':
         case 'post': {
           const embedUrl = block.url || '';
@@ -141,7 +229,8 @@ function generateAIBlogArticle(article, data = {}) {
       { id: 'general', label: 'General' },
       { id: 'openai', label: 'OpenAI' },
       { id: 'google', label: 'Google' },
-      { id: 'anthropic', label: 'Anthropic' }
+      { id: 'anthropic', label: 'Anthropic' },
+      { id: 'vibecoding', label: 'Vibe Coding' }
     ];
     // 카테고리별 기사 개수 계산
     const countByCategory = {};
@@ -293,6 +382,7 @@ function generateAIBlogArticle(article, data = {}) {
               ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
 
               <div class="blog-content">
+                ${article.toc ? renderToc(article.content, true) : ''}
                 ${renderContent(article.content)}
               </div>
 
@@ -335,7 +425,8 @@ function generateAIBlogArticle(article, data = {}) {
     general: 'General',
     openai: 'OpenAI',
     google: 'Google',
-    anthropic: 'Anthropic'
+    anthropic: 'Anthropic',
+    vibecoding: 'Coding'
   };
   const categoryLabel = categoryLabels[article.category] || 'General';
 
@@ -416,7 +507,8 @@ function generateAIBlogArticle(article, data = {}) {
     jsonLd: jsonLd,
     ogImage: article.thumbnail,
     ogType: 'article',
-    articleMeta: articleMeta
+    articleMeta: articleMeta,
+    currentPage: article.category || 'general'
   });
 }
 

@@ -71,7 +71,7 @@ const EXTRA_ARTICLES = {
 };
 
 // 카테고리 목록 (폴더 분리용)
-const CATEGORIES = ['general', 'openai', 'google', 'anthropic'];
+const CATEGORIES = ['general', 'openai', 'google', 'anthropic', 'vibecoding'];
 
 // 글 데이터 로드
 function loadArticles() {
@@ -88,6 +88,25 @@ function loadArticles() {
         const data = JSON.parse(content);
         if (data.status === 'approved' || data.status === 'published') {
           articles.push({ ...data, source: 'tech/ai', sourceFile: file });
+          loadedSlugs.add(data.slug);
+        }
+      } catch (e) {
+        console.error(`로드 실패: ${file}`, e.message);
+      }
+    }
+  }
+
+  // 1-2. data/tech/vibecoding/*.json 로드
+  const techVibeCodingDir = path.join(DATA_DIR, 'tech', 'vibecoding');
+  if (fs.existsSync(techVibeCodingDir)) {
+    const files = fs.readdirSync(techVibeCodingDir).filter(f => f.endsWith('.json'));
+    for (const file of files) {
+      try {
+        const content = fs.readFileSync(path.join(techVibeCodingDir, file), 'utf8').replace(/^\uFEFF/, '');
+        const data = JSON.parse(content);
+        if (data.status === 'approved' || data.status === 'published') {
+          // vibecoding 카테고리 강제 지정
+          articles.push({ ...data, category: 'vibecoding', source: 'tech/vibecoding', sourceFile: file });
           loadedSlugs.add(data.slug);
         }
       } catch (e) {
@@ -282,6 +301,14 @@ async function copyAssets(faviconChanged = false) {
     console.log('tech/ai 이미지 복사 완료');
   }
 
+  // tech/vibecoding 이미지 복사
+  const techVibeCodingImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'tech', 'vibecoding');
+  const techVibeCodingImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'tech', 'vibecoding');
+  if (fs.existsSync(techVibeCodingImagesSrc)) {
+    copyDirRecursive(techVibeCodingImagesSrc, techVibeCodingImagesDest);
+    console.log('tech/vibecoding 이미지 복사 완료');
+  }
+
   // issue 이미지 복사 (isGlobal 기사용)
   const issueImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'issue');
   const issueImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'issue');
@@ -364,7 +391,8 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     keywords: a.keywordsEn || a.keywords,
     sources: a.sources,
     relatedArticles: a.relatedArticles,
-    relatedDocs: a.relatedDocs
+    relatedDocs: a.relatedDocs,
+    toc: a.toc
   }));
 
   // 인기 글 (GA4 데이터 기반, 없으면 최신순)
@@ -524,7 +552,8 @@ function generateCategoryPages(articles, popularArticles, latestArticles) {
     'general': 'General',
     'openai': 'OpenAI',
     'google': 'Google',
-    'anthropic': 'Anthropic'
+    'anthropic': 'Anthropic',
+    'vibecoding': 'Coding'
   };
 
   for (const [catId, catLabel] of Object.entries(categoryMeta)) {
@@ -535,7 +564,7 @@ function generateCategoryPages(articles, popularArticles, latestArticles) {
     }
     fs.writeFileSync(path.join(catDir, 'index.html'), catHtml, 'utf8');
   }
-  console.log('카테고리 페이지 4개 생성 완료');
+  console.log('카테고리 페이지 5개 생성 완료');
 }
 
 // 이미지 검증 (누락 경고)
@@ -626,10 +655,11 @@ async function main() {
     general: articles.filter(a => a.category === 'general' || !a.category).length,
     openai: articles.filter(a => a.category === 'openai').length,
     google: articles.filter(a => a.category === 'google').length,
-    anthropic: articles.filter(a => a.category === 'anthropic').length
+    anthropic: articles.filter(a => a.category === 'anthropic').length,
+    vibecoding: articles.filter(a => a.category === 'vibecoding').length
   };
   setGlobalSidebarCounts(countByCategory);
-  console.log(`   카테고리별: General(${countByCategory.general}), OpenAI(${countByCategory.openai}), Google(${countByCategory.google}), Anthropic(${countByCategory.anthropic})`);
+  console.log(`   카테고리별: General(${countByCategory.general}), OpenAI(${countByCategory.openai}), Google(${countByCategory.google}), Anthropic(${countByCategory.anthropic}), VibeCoding(${countByCategory.vibecoding})`);
 
   // 기사 변경 확인
   const articleChanges = buildCache.checkArticlesChanged(cache, articles);
@@ -697,7 +727,8 @@ function generateSEOFiles(articles) {
     { loc: `${SITE_URL}/article/general/`, lastmod: today, priority: '0.8' },
     { loc: `${SITE_URL}/article/openai/`, lastmod: today, priority: '0.8' },
     { loc: `${SITE_URL}/article/google/`, lastmod: today, priority: '0.8' },
-    { loc: `${SITE_URL}/article/anthropic/`, lastmod: today, priority: '0.8' }
+    { loc: `${SITE_URL}/article/anthropic/`, lastmod: today, priority: '0.8' },
+    { loc: `${SITE_URL}/article/vibecoding/`, lastmod: today, priority: '0.8' }
   ];
 
   // 기사 페이지 추가

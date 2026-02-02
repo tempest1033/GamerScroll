@@ -1,0 +1,360 @@
+{
+  "slug": "claude-code-install-guide-windows",
+  "status": "approved",
+  "category": "vibecoding",
+  "title": "Claude Code 설치 가이드 - Windows",
+  "titleEn": "Claude Code Installation Guide - Windows",
+  "date": "2026-02-03T12:00",
+  "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg",
+  "keywords": "Claude Code, Claude 설치, Windows, Claude Desktop, VS Code, CLI, PowerShell, WinGet, 바이브 코딩, AI 코딩",
+  "keywordsEn": "Claude Code, Claude installation, Windows, Claude Desktop, VS Code, CLI, PowerShell, WinGet, vibe coding, AI coding",
+  "summary": "Windows에서 Claude Code를 설치하는 방법을 단계별로 안내한다. Desktop 앱, VS Code 확장, CLI 세 가지 방식을 모두 다루며, 가장 쉬운 방법부터 순서대로 정리했다.",
+  "summaryEn": "A step-by-step guide to installing Claude Code on Windows. Covers all three methods: Desktop app, VS Code extension, and CLI, organized from easiest to advanced.",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Download Claude",
+      "url": "https://claude.com/download"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Code overview",
+      "url": "https://code.claude.com/docs"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Code on desktop",
+      "url": "https://code.claude.com/docs/en/desktop"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Use Claude Code in VS Code",
+      "url": "https://code.claude.com/docs/en/vs-code"
+    }
+  ],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "목차로 돌아가기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Claude Code는 Anthropic의 AI 코딩 에이전트다. 코드를 읽고, 수정하고, 터미널 명령어를 실행할 수 있다. Desktop 앱, VS Code 확장, CLI 세 가지 방식으로 사용할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "사전 준비"
+    },
+    {
+      "type": "text",
+      "value": "**필수 요구사항**\n- Windows 10/11\n- Claude Pro, Max, Teams, 또는 Enterprise 구독\n\nFree 플랜도 Desktop 앱은 사용할 수 있지만 일부 기능이 제한된다. Claude Code의 모든 기능을 사용하려면 유료 플랜이 필요하다."
+    },
+    {
+      "type": "heading",
+      "value": "방법 1: Desktop 앱 설치 (가장 쉬움)"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/claude-download-page.png",
+      "caption": "Claude Desktop 다운로드 페이지",
+      "alt": "claude.com/download 페이지 - Bring Claude to your desktop"
+    },
+    {
+      "type": "text",
+      "value": "Claude Desktop 앱은 Chat, Cowork, Code 세 가지 탭을 제공한다. Code 탭에서 Claude Code를 사용할 수 있다.\n\n**설치 순서**\n1. [claude.com/download](https://claude.com/download) 접속\n2. Windows 버튼 클릭 (ARM64 기기는 Windows (arm64) 선택)\n3. 다운로드된 exe 파일 실행\n4. 설치 완료 후 Claude 실행\n5. 계정으로 로그인\n6. Code 탭 선택"
+    },
+    {
+      "type": "aside",
+      "title": "Windows ARM64 참고",
+      "value": "ARM64 기기에서는 로컬 세션이 지원되지 않는다. 대신 Remote 세션을 사용하면 된다."
+    },
+    {
+      "type": "heading",
+      "value": "방법 2: VS Code 확장 설치"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/claude-code-extension.png",
+      "caption": "VS Code Claude Code 확장 설치 화면",
+      "alt": "VS Code 마켓플레이스에서 Claude Code 확장 검색 결과"
+    },
+    {
+      "type": "text",
+      "value": "VS Code 안에서 바로 Claude Code를 사용할 수 있다. VS Code 1.98.0 이상이 필요하다.\n\n**설치 순서**\n1. VS Code를 연다\n2. 왼쪽 사이드바에서 확장(Extensions) 아이콘 클릭 (또는 Ctrl+Shift+X)\n3. 검색창에 Claude Code 입력\n4. Anthropic의 Claude Code 확장을 찾아 설치 클릭\n5. VS Code 재시작\n6. 에디터 오른쪽 상단의 Spark 아이콘 클릭\n7. Claude 계정으로 로그인"
+    },
+    {
+      "type": "heading",
+      "value": "방법 3: CLI 설치"
+    },
+    {
+      "type": "text",
+      "value": "터미널에서 직접 Claude Code를 실행하는 방식이다. 스크립팅이나 자동화에 유용하다."
+    },
+    {
+      "type": "heading",
+      "value": "3-1. PowerShell로 설치 (권장)"
+    },
+    {
+      "type": "aside",
+      "title": "PowerShell이란?",
+      "value": "PowerShell은 Windows에 기본 설치된 명령어 입력 프로그램이다. 마우스로 클릭하는 대신 텍스트 명령어를 입력해서 컴퓨터를 조작한다."
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/powershell-search.png",
+      "caption": "Windows 검색에서 PowerShell 찾기",
+      "alt": "Windows 시작 메뉴에서 PowerShell 검색 결과"
+    },
+    {
+      "type": "text",
+      "value": "자동 업데이트를 지원하는 공식 설치 방법이다.\n\n**PowerShell 여는 법**\n1. 키보드에서 Windows 키를 누른다\n2. powershell 입력\n3. Windows PowerShell이 나타나면 클릭\n\nPowerShell이 열리면 다음 명령어를 실행한다."
+    },
+    {
+      "type": "code",
+      "lang": "powershell",
+      "value": "irm https://claude.ai/install.ps1 | iex"
+    },
+    {
+      "type": "heading",
+      "value": "3-2. WinGet으로 설치"
+    },
+    {
+      "type": "text",
+      "value": "Windows 패키지 관리자를 사용한다면 이 방법도 가능하다. 단, 자동 업데이트가 되지 않으므로 주기적으로 업그레이드해야 한다."
+    },
+    {
+      "type": "code",
+      "lang": "powershell",
+      "value": "winget install Anthropic.ClaudeCode"
+    },
+    {
+      "type": "heading",
+      "value": "3-3. WSL에서 설치"
+    },
+    {
+      "type": "aside",
+      "title": "WSL과 Ubuntu란?",
+      "value": "WSL(Windows Subsystem for Linux)은 Windows 안에서 Linux를 실행할 수 있게 해주는 기능이다. Ubuntu는 가장 많이 쓰이는 Linux 운영체제다.\n\nWSL은 개발자들이 많이 사용하는 환경이다. 이미 WSL을 사용 중이라면 이 방법으로 설치할 수 있다."
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/ubuntu-search.png",
+      "caption": "Windows 검색에서 Ubuntu 찾기",
+      "alt": "Windows 시작 메뉴에서 Ubuntu 검색 결과"
+    },
+    {
+      "type": "text",
+      "value": "WSL이 설치되어 있다면 Ubuntu 터미널에서 다음 명령어를 실행한다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "curl -fsSL https://claude.ai/install.sh | bash"
+    },
+    {
+      "type": "text",
+      "value": "설치가 완료되면 터미널에서 바로 실행할 수 있다."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "cd your-project\nclaude"
+    },
+    {
+      "type": "text",
+      "value": "처음 실행하면 브라우저가 열리며 로그인을 요청한다. Claude 계정으로 로그인하면 바로 사용할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "업데이트"
+    },
+    {
+      "type": "text",
+      "value": "PowerShell로 설치한 경우 자동으로 업데이트된다. WinGet으로 설치한 경우 수동으로 업데이트해야 한다."
+    },
+    {
+      "type": "code",
+      "lang": "powershell",
+      "value": "winget upgrade Anthropic.ClaudeCode"
+    },
+    {
+      "type": "text",
+      "value": "Desktop 앱과 VS Code 확장은 자동으로 업데이트된다."
+    },
+    {
+      "type": "heading",
+      "value": "다음 단계"
+    },
+    {
+      "type": "text",
+      "value": "설치가 완료되면 Claude에게 간단한 작업부터 시켜보자. '이 코드 설명해줘', '버그 찾아줘', '테스트 추가해줘' 같은 요청으로 시작하면 된다. Claude Code는 파일을 읽고, 수정하고, 터미널 명령어도 실행할 수 있다."
+    }
+  ],
+  "relatedDocs": [
+    "tech:vibecoding/vibe-coding-guide"
+  ],
+  "contentEn": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Table of Contents", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Claude Code is Anthropic's AI coding agent. It can read code, make modifications, and execute terminal commands. You can use it in three ways: Desktop app, VS Code extension, and CLI."
+    },
+    {
+      "type": "heading",
+      "value": "Prerequisites"
+    },
+    {
+      "type": "text",
+      "value": "**Requirements**\n- Windows 10/11\n- Claude Pro, Max, Teams, or Enterprise subscription\n\nThe Free plan can use the Desktop app but with some feature limitations. A paid plan is required to use all features of Claude Code."
+    },
+    {
+      "type": "heading",
+      "value": "Method 1: Desktop App Installation (Easiest)"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/claude-download-page.png",
+      "caption": "Claude Desktop Download Page",
+      "alt": "claude.com/download page - Bring Claude to your desktop"
+    },
+    {
+      "type": "text",
+      "value": "The Claude Desktop app provides three tabs: Chat, Cowork, and Code. You can use Claude Code in the Code tab.\n\n**Installation Steps**\n1. Go to [claude.com/download](https://claude.com/download)\n2. Click the Windows button (select Windows (arm64) for ARM64 devices)\n3. Run the downloaded exe file\n4. After installation, launch Claude\n5. Log in with your account\n6. Select the Code tab"
+    },
+    {
+      "type": "aside",
+      "title": "Windows ARM64 Note",
+      "value": "Local sessions are not supported on ARM64 devices. Use Remote sessions instead."
+    },
+    {
+      "type": "heading",
+      "value": "Method 2: VS Code Extension Installation"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/claude-code-extension.png",
+      "caption": "VS Code Claude Code Extension Installation",
+      "alt": "Claude Code extension search results in VS Code Marketplace"
+    },
+    {
+      "type": "text",
+      "value": "You can use Claude Code directly within VS Code. VS Code 1.98.0 or later is required.\n\n**Installation Steps**\n1. Open VS Code\n2. Click the Extensions icon in the left sidebar (or Ctrl+Shift+X)\n3. Type Claude Code in the search box\n4. Find Anthropic's Claude Code extension and click Install\n5. Restart VS Code\n6. Click the Spark icon in the top right of the editor\n7. Log in with your Claude account"
+    },
+    {
+      "type": "heading",
+      "value": "Method 3: CLI Installation"
+    },
+    {
+      "type": "text",
+      "value": "This method runs Claude Code directly from the terminal. Useful for scripting and automation."
+    },
+    {
+      "type": "heading",
+      "value": "3-1. PowerShell Installation (Recommended)"
+    },
+    {
+      "type": "aside",
+      "title": "What is PowerShell?",
+      "value": "PowerShell is a command-line program that comes pre-installed with Windows. Instead of clicking with a mouse, you control your computer by typing text commands."
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/powershell-search.png",
+      "caption": "Finding PowerShell in Windows Search",
+      "alt": "PowerShell search results in Windows Start menu"
+    },
+    {
+      "type": "text",
+      "value": "The official installation method with automatic updates.\n\n**How to open PowerShell**\n1. Press the Windows key on your keyboard\n2. Type powershell\n3. Click Windows PowerShell when it appears\n\nOnce PowerShell is open, run the following command."
+    },
+    {
+      "type": "code",
+      "lang": "powershell",
+      "value": "irm https://claude.ai/install.ps1 | iex"
+    },
+    {
+      "type": "heading",
+      "value": "3-2. WinGet Installation"
+    },
+    {
+      "type": "text",
+      "value": "If you use the Windows Package Manager, this method is also available. Note that automatic updates are not supported, so you'll need to upgrade periodically."
+    },
+    {
+      "type": "code",
+      "lang": "powershell",
+      "value": "winget install Anthropic.ClaudeCode"
+    },
+    {
+      "type": "heading",
+      "value": "3-3. WSL Installation"
+    },
+    {
+      "type": "aside",
+      "title": "What are WSL and Ubuntu?",
+      "value": "WSL (Windows Subsystem for Linux) is a feature that allows you to run Linux within Windows. Ubuntu is the most widely used Linux operating system.\n\nWSL is a commonly used environment among developers. If you're already using WSL, you can install using this method."
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/ubuntu-search.png",
+      "caption": "Finding Ubuntu in Windows Search",
+      "alt": "Ubuntu search results in Windows Start menu"
+    },
+    {
+      "type": "text",
+      "value": "If WSL is installed, run the following command in the Ubuntu terminal."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "curl -fsSL https://claude.ai/install.sh | bash"
+    },
+    {
+      "type": "text",
+      "value": "Once installation is complete, you can run it directly from the terminal."
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "cd your-project\nclaude"
+    },
+    {
+      "type": "text",
+      "value": "On first run, a browser will open requesting login. Log in with your Claude account to start using it."
+    },
+    {
+      "type": "heading",
+      "value": "Updates"
+    },
+    {
+      "type": "text",
+      "value": "PowerShell installation updates automatically. If installed via WinGet, you'll need to update manually."
+    },
+    {
+      "type": "code",
+      "lang": "powershell",
+      "value": "winget upgrade Anthropic.ClaudeCode"
+    },
+    {
+      "type": "text",
+      "value": "The Desktop app and VS Code extension update automatically."
+    },
+    {
+      "type": "heading",
+      "value": "Next Steps"
+    },
+    {
+      "type": "text",
+      "value": "Once installation is complete, try giving Claude simple tasks. Start with requests like 'Explain this code', 'Find bugs', or 'Add tests'. Claude Code can read files, make modifications, and execute terminal commands."
+    }
+  ],
+  "needTranslate": false
+}

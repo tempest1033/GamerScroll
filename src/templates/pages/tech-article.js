@@ -89,6 +89,34 @@ function parseMarkdownTable(text) {
   return html;
 }
 
+// 한글/영문 텍스트를 URL-friendly slug로 변환
+const toSlug = (text) => {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+};
+
+// 목차 생성
+const renderToc = (content = []) => {
+  const headings = content.filter(b => b.type === 'heading' && b.value);
+  if (headings.length < 3) return ''; // 3개 미만이면 목차 생략
+
+  const items = headings.map(h => {
+    const id = toSlug(h.value);
+    return `<li><a href="#${id}">${h.value}</a></li>`;
+  }).join('');
+
+  return `
+    <nav class="blog-toc">
+      <div class="blog-toc-title">목차</div>
+      <ol>${items}</ol>
+    </nav>
+  `;
+};
+
 // docs 폴더 경로 (통합 빌드)
 const docsDir = path.join(__dirname, '../../../docs');
 
@@ -149,6 +177,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
             .replace(/`([^`]+)`/g, '<code>$1</code>')
             .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
             .replace(/^- /gm, '• ')
             .replace(/\n- /g, '\n• ')
             .replace(/\n/g, '<br>')
@@ -175,6 +204,63 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
       case 'quote':
         if (!block.value) break;
         result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
+        break;
+
+      case 'code':
+        if (!block.value) break;
+        const lang = block.lang || '';
+        const codeCaption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
+        const escapedCode = String(block.value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/^(#.*)$/gm, '<span class="code-comment">$1</span>');
+        result.push(`
+          <figure class="blog-figure blog-code">
+            <pre><code${lang ? ` class="language-${lang}"` : ''}>${escapedCode}</code></pre>
+            ${codeCaption}
+          </figure>
+        `);
+        break;
+
+      case 'aside':
+        if (!block.value) break;
+        const asideTitle = block.title ? `<strong class="aside-title">${block.title}</strong>` : '';
+        const asideFormatted = String(block.value)
+          .replace(/`([^`]+)`/g, '<code>$1</code>')
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+          .replace(/\n/g, '<br>');
+        result.push(`
+          <aside class="blog-aside">
+            ${asideTitle}
+            <p>${asideFormatted}</p>
+          </aside>
+        `);
+        break;
+
+      case 'series':
+        if (!block.articles || !Array.isArray(block.articles)) break;
+        const seriesTitleHtml = block.title ? `<div class="blog-related-title">${block.title}</div>` : '';
+        const seriesCards = block.articles.map(article => {
+          const partLabel = article.part === 0 ? '목차' : (article.part ? `${article.part}부` : '');
+          const articleCategory = article.category || category;
+          const href = `/tech/${articleCategory}/${article.slug}/`;
+          const thumbUrl = article.thumbnail || '';
+          return `
+            <a href="${href}" class="blog-related-issue-card blog-series-card">
+              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="" loading="lazy">
+              <span class="blog-series-tag">${partLabel}</span>
+              <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${article.title}</span></span>
+            </a>
+          `;
+        }).join('');
+        result.push(`
+          <nav class="blog-series">
+            ${seriesTitleHtml}
+            <div class="blog-related-issues-list">${seriesCards}</div>
+          </nav>
+        `);
         break;
 
       case 'video':
@@ -223,7 +309,8 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
 
       case 'heading':
         if (!block.value) break;
-        result.push(`<h2 class="blog-heading">${block.value}</h2>`);
+        const headingId = toSlug(block.value);
+        result.push(`<h2 id="${headingId}" class="blog-heading">${block.value}</h2>`);
         break;
 
       case 'table':
@@ -525,6 +612,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
               ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
 
               <div class="blog-content">
+                ${article.toc ? renderToc(article.content) : ''}
                 ${renderContentBlocks(article.content, category, article.slug)}
               </div>
 
