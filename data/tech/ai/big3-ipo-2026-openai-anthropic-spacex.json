@@ -1,0 +1,183 @@
+{
+  "slug": "big3-ipo-2026-openai-anthropic-spacex",
+  "status": "approved",
+  "needTranslate": false,
+  "title": "2026년 IPO 빅3: 오픈AI·앤트로픽·스페이스X 상장 임박",
+  "date": "2026-02-03T00:00",
+  "keywords": "IPO, 기업공개, 오픈AI, OpenAI, 앤트로픽, Anthropic, 스페이스X, SpaceX, 상장, 2026 IPO, 샘 알트만, 다리오 아모데이, 일론 머스크, AI 상장, 테크 상장, 스타링크",
+  "keywordsEn": "IPO, Initial Public Offering, OpenAI, Anthropic, SpaceX, 2026 IPO, Sam Altman, Dario Amodei, Elon Musk, AI IPO, Tech IPO, Starlink",
+  "summary": "2026년은 역대 최대 IPO 시즌이 될 전망이다. 스페이스X는 6월, 오픈AI는 4분기 상장을 검토 중이며, 앤트로픽도 올해 안에 움직일 가능성이 높다. 다만 오픈AI는 재무 상황에 따라 2027년으로 지연될 수 있다는 관측도 나온다.",
+  "titleEn": "2026 IPO Big Three: OpenAI, Anthropic, and SpaceX Approaching Public Listings",
+  "summaryEn": "2026 is shaping up to be the biggest IPO season ever. SpaceX is considering a June listing, OpenAI targets Q4, and Anthropic may also move this year. However, OpenAI's IPO could be delayed to 2027 depending on its financial situation.",
+  "thumbnail": "https://image.dongascience.com/Photo/2019/01/178904330d0abf8f308c3447231d6629.jpg",
+  "relatedIssues": [],
+  "relatedArticles": ["anthropic-b2b-strategy-success", "stargate-ai-crisis-2026", "nvidia-openai-investment-retreat"],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "WSJ",
+      "title": "OpenAI Plans Fourth-Quarter IPO in Race to Beat Anthropic to Market",
+      "url": "https://www.wsj.com/tech/ai/openai-ipo-anthropic-race-69f06a42"
+    },
+    {
+      "name": "Reuters",
+      "title": "SpaceX weighs June 2026 IPO at $1.5 trillion valuation",
+      "url": "https://www.reuters.com/science/spacex-weighs-june-2026-ipo-15-trillion-valuation-ft-reports-2026-01-28/"
+    },
+        {
+      "name": "TechBuzz",
+      "title": "Anthropic doubles funding target to $20B at $350B valuation",
+      "url": "https://www.techbuzz.ai/articles/anthropic-doubles-funding-target-to-20b-at-350b-valuation"
+    },
+    {
+      "name": "Seeking Alpha",
+      "title": "Anthropic raises 2026 revenue forecast by 20% to $18B",
+      "url": "https://seekingalpha.com/news/4543624-anthropic-raises-2026-revenue-forecast-by-20-to-18b"
+    },
+    {
+      "name": "Yahoo Finance",
+      "title": "Elon Musk Weighs SpaceX IPO at $1.5 Trillion Valuation",
+      "url": "https://finance.yahoo.com/news/elon-musk-weighs-spacex-ipo-115010375.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년이 역대 최대 IPO 시즌이 될 것이라는 전망이 나오고 있다. 그 중심에는 오픈AI, 앤트로픽, 스페이스X가 있다. 세 기업 모두 올해 안에 기업공개를 단행할 가능성이 높으며, 합산 기업가치는 약 3조 달러(약 4,000조원)에 달한다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 스페이스X: 6월 상장, 기업가치 1.5조 달러"
+    },
+    {
+      "type": "image",
+      "src": "https://news.kbs.co.kr/data/news/2024/04/09/20240409_oBlOap.jpg",
+      "caption": "일론 머스크 스페이스X CEO",
+      "alt": "일론 머스크"
+    },
+    {
+      "type": "text",
+      "value": "가장 먼저 움직일 것으로 보이는 건 스페이스X다. 파이낸셜타임스에 따르면, 일론 머스크는 2026년 6월 중순 IPO를 검토 중이다. 목표 기업가치는 1.5조 달러(약 2,100조원), 조달 규모는 최대 500억 달러(약 71조원)다.\n\n2025년 12월 2차 주식 매매에서 스페이스X는 8,000억 달러 가치로 평가받았다. 불과 몇 달 만에 거의 두 배로 뛰어오른 셈이다. 스타링크(Starlink) 서비스와 로켓 발사 사업이 성장을 견인하고 있으며, 2025년 매출은 약 200억 달러로 전년(150억 달러) 대비 33% 증가했다.\n\n머스크의 55세 생일이 6월 28일이라 그에 맞춘 것 아니냐는 관측도 나온다. 뱅크오브아메리카, 골드만삭스, JP모건, 모건스탠리가 주관사로 거론되고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 오픈AI: 4분기 목표, 그러나 2027년 지연 가능성도"
+    },
+    {
+      "type": "image",
+      "src": "https://dsi523du1o5iq.cloudfront.net/fit-in/1200x0/production/article/3759a2fb4c/4e93cf5110_1707656109",
+      "caption": "샘 알트만 오픈AI CEO (출처: 세계경제포럼)",
+      "alt": "샘 알트만"
+    },
+    {
+      "type": "text",
+      "value": "WSJ에 따르면, 오픈AI는 2026년 4분기 IPO를 목표로 하고 있다. 핵심 이유 중 하나는 경쟁사 앤트로픽보다 먼저 시장을 선점하기 위해서다.\n\n현재 오픈AI는 1,000억 달러 이상의 Pre-IPO 펀딩을 추진 중이며, 기업가치는 8,300억 달러에서 최대 1조 달러까지 거론되고 있다. 2년 사이에 매출이 10배 성장해 200억 달러 수준에 도달했지만, 여전히 연간 140억 달러 이상의 적자를 기록 중이다.\n\n다만 변수가 있다. 로이터에 따르면, 오픈AI의 IPO가 2026년 말~2027년 초로 지연될 수 있다는 관측이 나온다. 2025년 10월 마이크로소프트와의 지분 구조 재협상과 공익법인 전환은 마무리됐지만, 일론 머스크와의 소송이 여전히 변수다. 머스크는 오픈AI의 영리 전환이 창립 취지에 어긋난다며 법적 대응을 이어가고 있다.\n\n더 우려되는 건 재무 상황이다. 일부 금융 전문가들은 \"오픈AI가 2027년 중반까지 현금이 바닥날 수 있다\"고 경고했다. 2029년까지 약 440억 달러(약 63조원) 적자가 누적될 것이라는 전망도 있다. IPO를 서두르는 이유가 단순한 경쟁 때문만이 아닐 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 앤트로픽: 조용하지만 가장 빠를 수도"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.aitimes.kr/news/photo/202501/33711_51293_5321.jpg",
+      "caption": "다리오 아모데이 앤트로픽 CEO (출처: 세계경제포럼 2025)",
+      "alt": "다리오 아모데이"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽은 공식적인 IPO 일정을 발표하지 않았지만, 업계에서는 올해 안에 움직일 것으로 본다. 최근 기업가치는 3,500억 달러(약 500조원)로 평가받았으며, 펀딩 목표를 100억 달러에서 200억 달러로 두 배 늘렸다.\n\n아마존이 20% 지분(약 700억 달러 가치)을, 구글이 14% 지분(약 490억 달러 가치)을 보유하고 있다. 2026년 매출 전망은 180억~260억 달러로, 전년 대비 20% 이상 상향 조정됐다.\n\n링크드인 분석가 John Battelle은 \"2026년이 역대 최대 IPO 해가 될 잠재력이 있으며, 앤트로픽이 올해 상장할 것\"이라고 전망했다. 오픈AI가 지연된다면, 앤트로픽이 'AI 기업 최초 IPO' 타이틀을 가져갈 수도 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 빅3 비교: 한눈에 보기"
+    },
+    {
+      "type": "text",
+      "value": "세 기업의 IPO 전망을 정리하면 다음과 같다.\n\n**스페이스X**\n- 상장 시점: 2026년 6월 (검토 중)\n- 기업가치: 1.5조 달러 (약 2,100조원)\n- 조달 목표: 500억 달러\n- 2025년 매출: 약 200억 달러\n\n**오픈AI**\n- 상장 시점: 2026년 4분기 목표 (2027년 지연 가능)\n- 기업가치: 8,300억~1조 달러 (약 1,200~1,400조원)\n- Pre-IPO 펀딩: 1,000억 달러 이상\n- 2025년 매출: 약 200억 달러 (적자 140억 달러)\n\n**앤트로픽**\n- 상장 시점: 2026년 내 (미정)\n- 기업가치: 3,500억 달러 (약 500조원)\n- 펀딩 목표: 200억 달러\n- 2026년 매출 전망: 180억~260억 달러"
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "세 기업의 합산 기업가치는 약 3조 달러, 한화로 4,000조원이 넘는다. 2024년 한국 GDP(약 1,700조원)의 두 배가 넘는 규모다.\n\n흥미로운 건 세 기업 모두 서로 다른 영역에서 최전선을 달리고 있다는 점이다. 스페이스X는 우주, 오픈AI와 앤트로픽은 AI다. 하지만 공통점이 있다. 모두 \"미래 인프라\"를 구축하고 있다는 것이다. 스타링크는 글로벌 인터넷 인프라, ChatGPT와 Claude는 AI 인프라다.\n\n2026년 하반기, 이 세 기업이 어떤 순서로 시장에 등장할지 지켜볼 필요가 있다. 특히 오픈AI의 재무 상황과 앤트로픽과의 경쟁이 IPO 타이밍에 어떤 영향을 미칠지 주목된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "2026 is expected to be the biggest IPO season in history. At the center are OpenAI, Anthropic, and SpaceX. All three companies are likely to go public this year, with a combined valuation of approximately $3 trillion."
+    },
+    {
+      "type": "heading",
+      "value": "1. SpaceX: June IPO at $1.5 Trillion Valuation"
+    },
+    {
+      "type": "image",
+      "src": "https://news.kbs.co.kr/data/news/2024/04/09/20240409_oBlOap.jpg",
+      "caption": "Elon Musk, SpaceX CEO",
+      "alt": "Elon Musk"
+    },
+    {
+      "type": "text",
+      "value": "SpaceX appears to be moving first. According to the Financial Times, Elon Musk is considering a mid-June 2026 IPO. The target valuation is $1.5 trillion, with up to $50 billion in capital to be raised.\n\nIn December 2025, SpaceX was valued at $800 billion in a secondary share sale—nearly doubling in just a few months. Starlink services and rocket launch operations are driving growth, with 2025 revenue reaching approximately $20 billion, up 33% from the previous year ($15 billion).\n\nSome speculate the timing aligns with Musk's 55th birthday on June 28. Bank of America, Goldman Sachs, JPMorgan, and Morgan Stanley are mentioned as potential underwriters."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. OpenAI: Q4 Target, But Possible Delay to 2027"
+    },
+    {
+      "type": "image",
+      "src": "https://dsi523du1o5iq.cloudfront.net/fit-in/1200x0/production/article/3759a2fb4c/4e93cf5110_1707656109",
+      "caption": "Sam Altman, OpenAI CEO (Source: World Economic Forum)",
+      "alt": "Sam Altman"
+    },
+    {
+      "type": "text",
+      "value": "According to WSJ, OpenAI is targeting a Q4 2026 IPO. A key reason is to beat competitor Anthropic to market.\n\nOpenAI is currently pursuing over $100 billion in pre-IPO funding, with valuations ranging from $830 billion to potentially $1 trillion. Revenue has grown 10x in two years to approximately $20 billion, but the company still records over $14 billion in annual losses.\n\nHowever, there are variables. According to Reuters, OpenAI's IPO could be delayed to late 2026 or early 2027. While the October 2025 restructuring with Microsoft and the nonprofit conversion were completed, the ongoing lawsuit with Elon Musk remains a concern. Musk argues that OpenAI's for-profit conversion violates its founding mission.\n\nMore concerning is the financial situation. Some financial experts warn that OpenAI could run out of cash by mid-2027. Cumulative losses through 2029 are projected at approximately $44 billion. The rush to IPO may not be solely about competition."
+    },
+    {
+      "type": "heading",
+      "value": "3. Anthropic: Quiet But Could Be First"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.aitimes.kr/news/photo/202501/33711_51293_5321.jpg",
+      "caption": "Dario Amodei, Anthropic CEO (Source: World Economic Forum 2025)",
+      "alt": "Dario Amodei"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic hasn't announced an official IPO timeline, but industry observers expect movement this year. The company was recently valued at $350 billion and doubled its funding target from $10 billion to $20 billion.\n\nAmazon holds a 20% stake (worth approximately $70 billion), and Google holds 14% (worth approximately $49 billion). The 2026 revenue forecast is $18-26 billion, revised upward by over 20% from the previous year.\n\nLinkedIn analyst John Battelle predicted that 2026 has potential to be the biggest IPO year ever, and Anthropic will go public this year. If OpenAI is delayed, Anthropic could claim the title of 'first AI company IPO.'"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Big Three Comparison: At a Glance"
+    },
+    {
+      "type": "text",
+      "value": "Here's a summary of the three companies' IPO outlook:\n\n**SpaceX**\n- IPO Timeline: June 2026 (under consideration)\n- Valuation: $1.5 trillion\n- Funding Target: $50 billion\n- 2025 Revenue: ~$20 billion\n\n**OpenAI**\n- IPO Timeline: Q4 2026 target (possible delay to 2027)\n- Valuation: $830 billion - $1 trillion\n- Pre-IPO Funding: Over $100 billion\n- 2025 Revenue: ~$20 billion (with $14 billion loss)\n\n**Anthropic**\n- IPO Timeline: Within 2026 (TBD)\n- Valuation: $350 billion\n- Funding Target: $20 billion\n- 2026 Revenue Forecast: $18-26 billion"
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion"
+    },
+    {
+      "type": "text",
+      "value": "The combined valuation of these three companies exceeds $3 trillion. That's more than twice South Korea's 2024 GDP (approximately $1.3 trillion).\n\nInterestingly, all three companies are leading different frontiers. SpaceX in space, OpenAI and Anthropic in AI. But they share something in common: they're all building 'future infrastructure.' Starlink is global internet infrastructure, while ChatGPT and Claude are AI infrastructure.\n\nIn the second half of 2026, it will be worth watching the order in which these three companies enter the market. Particularly noteworthy is how OpenAI's financial situation and competition with Anthropic will affect IPO timing."
+    }
+  ]
+}

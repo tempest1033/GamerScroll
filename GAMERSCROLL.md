@@ -925,8 +925,8 @@ for day in range(1, 32):
 > | `anthropic` | Anthropic, Claude, Constitutional AI |
 >
 > **출처 규칙 (AIScroll)**
-> - **해외 언론 우선**: AI 기사는 되도록 해외 언론(WSJ, Bloomberg, Reuters, TechCrunch 등)을 참고
-> - 국내 언론은 보조 출처로만 사용, 단독 출처로 사용 금지
+> - **해외 언론만 사용**: AI 기사는 해외 언론(WSJ, Bloomberg, Reuters, TechCrunch, The Verge 등)만 참고자료로 사용
+> - 국내 언론 사용 금지 (매일경제, 글로벌이코노믹 등 포함)
 > - 최소 2-3개의 해외 출처 확보 권장
 >
 > **영문 동시 작성 (AIScroll 권장)**
