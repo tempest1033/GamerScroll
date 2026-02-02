@@ -1,6 +1,6 @@
 {
   "slug": "vibe-coding-basics",
-  "status": "draft",
+  "status": "approved",
   "category": "vibecoding",
   "title": "바이브 코딩 기본 개념 및 설정: 사용량, 세션, 권한, 모델까지",
   "titleEn": "Vibe Coding Basics: Usage, Sessions, Permissions, and Model Selection",
@@ -102,5 +102,93 @@
       "value": "바이브 코딩 도구의 기본 개념과 설정을 살펴봤다. 사용량 관리, 권한 설정, 웹 검색, 모델 선택, 세션 개념, 컨텍스트와 컴팩트까지 한번 익혀두면 Claude Code든 Codex든 어떤 도구를 쓰더라도 빠르게 적응할 수 있다. 다음 단계로는 프로젝트별 개별 설정(CLAUDE.md, codex.md)을 배워보자."
     }
   ],
-  "needTranslate": true
+  "contentEn": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Table of Contents", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "To make the most of vibe coding tools, you need to understand some basic concepts and configure settings. Claude Code and Codex share similar structures, so once you learn one, you can easily adapt to any tool.\n\n**Settings file locations:**\n- Claude Code: `~/.claude/settings.json`\n- Codex: `~/.codex/config.toml`\n- `/config` command to open settings screen (common)\n\nOnce you've completed installation, you can now proceed with help from the coding agent. Rather than manually editing settings files, it's recommended to ask the agent things like \"turn on web search\" or \"change the default model to Opus.\" You don't need to memorize file paths or syntax—the agent handles it for you."
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/claude-config-settings.png",
+      "caption": "Claude Code /config settings screen",
+      "alt": "Settings screen opened by Claude Code's /config command. Shows various options including Auto-compact, Model, Theme, etc."
+    },
+    {
+      "type": "heading",
+      "value": "Usage and Pricing"
+    },
+    {
+      "type": "text",
+      "value": "Most vibe coding tools operate on subscription-based pricing. Free trials are available, but paid subscriptions are required for serious work.\n\n**Claude Code:**\n- Requires Anthropic's Claude Pro/Max subscription ($20/month ~)\n- Weekly usage limits apply. High-performance models like Opus deplete faster\n- When usage is exhausted, wait until next week or switch to cheaper models (Haiku)\n- Check usage: `/status` command in CLI, status bar or settings panel in IDE/desktop app\n\n**Codex:**\n- Requires OpenAI's ChatGPT Plus/Pro subscription ($20/month ~)\n- Similarly has weekly/monthly usage limits\n- Pro subscription provides higher usage limits\n- Check usage: `/status` in CLI, UI in IDE/desktop\n\nTo manage usage efficiently, use cheaper models for simple tasks and high-performance models only for complex work. Reducing unnecessary conversation and giving clear instructions at once helps save usage."
+    },
+    {
+      "type": "heading",
+      "value": "Project Root Settings"
+    },
+    {
+      "type": "text",
+      "value": "Before running vibe coding tools, you need to specify the project folder to work with. The tool reads files, makes modifications, and executes commands based on this folder.\n\n**Setting in CLI:**\nNavigate to the project folder in terminal before running.\n```bash\ncd ~/my-project\nclaude  # or codex\n```\n\n**Setting in Desktop/IDE:**\n- Claude Desktop: Select folder using 'Select folder' button in Code tab\n- VS Code extension: Currently open workspace automatically becomes project root\n\nIf you set the wrong project root, you might modify wrong files or fail to find necessary files. Always verify you're starting from the correct folder before working."
+    },
+    {
+      "type": "heading",
+      "value": "Permissions"
+    },
+    {
+      "type": "text",
+      "value": "You need to configure permissions for vibe coding tools to read and write files. By default, access is restricted to files within the project directory, but you can adjust as needed.\n\n**Permission types:**\n- **Read permission**: Permission to read files for code analysis, search, and understanding\n- **Write permission**: Permission to create new files and modify existing ones\n- **Execute permission**: Permission to run terminal commands (build, test, etc.)\n\n**Configuration methods:**\n- Claude Code: Configure detailed permissions with `allow`, `deny`, `ask` arrays in `~/.claude/settings.json` or project's `.claude/settings.json`. Example: specify patterns like `Bash(npm run *)`, `Read(./.env)`\n- Codex: Select mode with `--sandbox` flag. Choose from `workspace-write` (default), `read-only`, `danger-full-access`. Use `--yolo` flag to skip all approvals\n\nIt's safe to start in 'cautious mode' requesting confirmation for all actions. As you become familiar with the tool, you can set trusted actions to auto-approve for faster workflow. However, dangerous operations like git push or file deletion should always require confirmation."
+    },
+    {
+      "type": "heading",
+      "value": "Web Search"
+    },
+    {
+      "type": "text",
+      "value": "AI model training data has time limitations. Latest library documentation, new API changes, and recently released tool usage need to be found in real-time through web search.\n\nWith web search enabled:\n- Access latest official documentation\n- Check breaking changes in new versions\n- Search community solutions on Stack Overflow, etc.\n- Check latest security vulnerability information\n\n**Configuration methods:**\n- Claude Code: Enabled by default. Automatically performs web search when needed\n- Codex: Disabled by default. Enable with `codex --search` flag or add `web_search_request = true` in `~/.codex/config.toml`\n\nHowever, web search can increase response time and add costs. It's efficient to turn it off for tasks where basic knowledge suffices and only enable when latest information is needed."
+    },
+    {
+      "type": "heading",
+      "value": "Model Selection"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/vibecoding/claude-model-select.png",
+      "caption": "Claude Code model selection screen",
+      "alt": "Dropdown menu for selecting Default (Opus 4.5), Sonnet, Haiku models in Claude Code"
+    },
+    {
+      "type": "text",
+      "value": "Select the AI model to use. Performance, speed, and cost vary by model, so choose according to task requirements.\n\n**Claude Code models (as of February 2026):**\n- **Opus 4.5**: Top-tier model. Suitable for complex architecture design, large-scale refactoring, difficult bug fixes. Slow but highly accurate.\n- **Sonnet 4**: Default model. Optimized for general coding tasks with good balance of speed and quality. Recommended for most tasks.\n- **Haiku**: Lightweight model. Use for simple tasks or when fast responses are needed. Cost-effective.\n\n**Codex models (as of February 2026):**\n- **codex-max-5.2**: Default model. Excellent code generation quality with coding-specialized training.\n- **GPT-5.2**: General-purpose model, but many users prefer it for complex problems requiring deep thinking.\n- **Reasoning Effort**: Adjusts reasoning intensity separately from model. Choose from Low/Medium/High/xHigh—higher means deeper thinking but slower responses.\n\n**Configuration methods:**\n- `/model` command to change model (common)\n- Claude Code: Can also specify with `--model opus` flag when running CLI\n- Codex: Adjust Reasoning Effort in settings menu\n\nIt's efficient to start with default models (Sonnet 4, codex-max-5.2) and switch to higher models or higher reasoning effort when encountering complex problems."
+    },
+    {
+      "type": "heading",
+      "value": "Session Concept"
+    },
+    {
+      "type": "text",
+      "value": "In vibe coding, a 'session' means one continuous conversation flow. Within a session, the AI remembers previous conversation content and maintains context.\n\n**Session characteristics:**\n- Within the same session, you can reference context like \"that file earlier\" or \"the function we just created\"\n- Starting a new session erases previous conversation content (blank slate)\n- Long sessions reach context limits\n\n**Session management commands:**\n- `/new`: End current session and start new one (resets conversation)\n- `/resume`: Reload previous session to continue work\n\n**When to start a new session?**\n- When starting completely different work\n- When you want to discard incorrect context from previous conversation\n- When context becomes too complex and AI gets confused\n\nIt's efficient to keep related work like implementing a feature or fixing a bug in the same session."
+    },
+    {
+      "type": "heading",
+      "value": "Context and Compact"
+    },
+    {
+      "type": "text",
+      "value": "AI models have limits on how much text they can process at once. This is called the 'context window.' As conversations grow longer, you reach this limit—this is when 'compact' summarizes and compresses previous conversation.\n\n**When compact happens:**\n- AI remembers previous conversation as summary\n- Detailed content (specific code lines, exact expressions, etc.) may be lost\n- Core context and decisions are retained\n\n**Compact commands and settings:**\n- `/compact`: Manually summarize current conversation to free up context (CLI, IDE, desktop common)\n- **Auto-compact**: Automatically compresses when context reaches threshold (~75%). Enabled by default in both Claude Code and Codex\n\nHowever, compact can lose important context during summarization and is still unstable. Unless unavoidable, starting a new session with `/new` is more reliable."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion"
+    },
+    {
+      "type": "text",
+      "value": "We've covered the basic concepts and settings of vibe coding tools. Once you learn usage management, permission settings, web search, model selection, session concepts, and context/compact, you can quickly adapt to any tool whether it's Claude Code or Codex. Next, learn about project-specific settings (CLAUDE.md, codex.md)."
+    }
+  ],
+  "needTranslate": false
 }
