@@ -77,8 +77,6 @@ jobs:
 
       - name: Translate articles (if needed)
         if: steps.check-translate.outputs.need_translate == 'true'
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           echo "🌐 번역 시작..."
           node translate-ai-blog.js
