@@ -1,48 +1,54 @@
 {
-  "updatedAt": "2026-02-02T00:10:39.793Z",
+  "updatedAt": "2026-02-03T00:59:51.229Z",
   "period": "7days",
   "articles": [
     {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 112,
+      "views": 189,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
-      "views": 64,
+      "views": 109,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
     },
     {
       "category": "general",
       "slug": "moltbook-ai-social-network",
-      "views": 27,
+      "views": 32,
       "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "openai",
       "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 17,
+      "views": 27,
       "path": "/article/openai/gpt-5-3-garlic-update-rumor/"
     },
     {
       "category": "google",
       "slug": "google-genie3-unity-stock-crash",
-      "views": 16,
+      "views": 22,
       "path": "/article/google/google-genie3-unity-stock-crash/"
     },
     {
       "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 5,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+      "slug": "claude-code-vs-codex-coding-agent",
+      "views": 12,
+      "path": "/article/general/claude-code-vs-codex-coding-agent/"
     },
     {
       "category": "general",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "views": 5,
-      "path": "/article/general/claude-code-vs-codex-coding-agent/"
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 8,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-4o-shutdown-controversy",
+      "views": 8,
+      "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
       "category": "general",
@@ -51,10 +57,10 @@
       "path": "/article/general/dead-internet-theory/"
     },
     {
-      "category": "openai",
-      "slug": "gpt-4o-shutdown-controversy",
+      "category": "general",
+      "slug": "nvidia-openai-investment-retreat",
       "views": 5,
-      "path": "/article/openai/gpt-4o-shutdown-controversy/"
+      "path": "/article/general/nvidia-openai-investment-retreat/"
     },
     {
       "category": "general",
@@ -63,10 +69,16 @@
       "path": "/article/general/mac-mini-m4-best-value-2026/"
     },
     {
-      "category": "general",
-      "slug": "nvidia-openai-investment-retreat",
-      "views": 4,
-      "path": "/article/general/nvidia-openai-investment-retreat/"
+      "category": "google",
+      "slug": "alphagenome-first-impressions-2026",
+      "views": 3,
+      "path": "/article/google/alphagenome-first-impressions-2026/"
+    },
+    {
+      "category": "openai",
+      "slug": "chatgpt-desktop-app",
+      "views": 3,
+      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "openai",
@@ -81,16 +93,34 @@
       "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
     },
     {
-      "category": "google",
-      "slug": "alphagenome-first-impressions-2026",
-      "views": 1,
-      "path": "/article/google/alphagenome-first-impressions-2026/"
+      "category": "general",
+      "slug": "big3-ipo-2026-openai-anthropic-spacex",
+      "views": 2,
+      "path": "/article/general/big3-ipo-2026-openai-anthropic-spacex/"
     },
     {
-      "category": "openai",
-      "slug": "chatgpt-desktop-app",
+      "category": "anthropic",
+      "slug": "anthropic-b2b-strategy-success",
       "views": 1,
-      "path": "/article/openai/chatgpt-desktop-app/"
+      "path": "/article/anthropic/anthropic-b2b-strategy-success/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 1,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-basics",
+      "views": 1,
+      "path": "/article/vibecoding/vibe-coding-basics/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-guide",
+      "views": 1,
+      "path": "/article/vibecoding/vibe-coding-guide/"
     }
   ]
 }
