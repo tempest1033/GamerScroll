@@ -174,6 +174,20 @@
       "type": "thumbnail.webp",
       "failedAt": "2026-02-02T23:01:26.790Z",
       "error": "HTTP 403: https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+    },
+    {
+      "url": "https://blog.ko.playstation.com/tachyon/2025/06/eca0009e65abc2c13f2daae40bc0f94b5c23c814.png",
+      "slug": "nte-gameplay-reveal-before-cbt3",
+      "type": "02.webp",
+      "failedAt": "2026-02-03T11:47:01.372Z",
+      "error": "HTTP 404: https://blog.ko.playstation.com/tachyon/2025/06/eca0009e65abc2c13f2daae40bc0f94b5c23c814.png"
+    },
+    {
+      "url": "https://nte.perfectworld.com/kr/assets/images/main/kv-4.webp",
+      "slug": "nte-gameplay-reveal-before-cbt3",
+      "type": "03.webp",
+      "failedAt": "2026-02-03T11:47:01.725Z",
+      "error": "HTTP 404: https://nte.perfectworld.com/kr/assets/images/main/kv-4.webp"
     }
   ]
 }
