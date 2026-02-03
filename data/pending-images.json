@@ -188,6 +188,13 @@
       "type": "03.webp",
       "failedAt": "2026-02-03T11:47:01.725Z",
       "error": "HTTP 404: https://nte.perfectworld.com/kr/assets/images/main/kv-4.webp"
+    },
+    {
+      "url": "https://img5.yna.co.kr/etc/inner/KR/2026/02/02/AKR20260202170600061_01_i_P4.jpg",
+      "date": "2026-02-04",
+      "type": "ai.thumbnail",
+      "failedAt": "2026-02-03T22:17:04.608Z",
+      "error": "write EPROTO 803CD275727F0000:error:0A000152:SSL routines:final_renegotiate:unsafe legacy renegotiation disabled:../deps/openssl/openssl/ssl/statem/extensions.c:893:\n"
     }
   ]
 }
