@@ -1,0 +1,122 @@
+{
+  "slug": "ai-big4-ipo-spacex-xai-merger",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "general",
+  "title": "스페이스X, AI 기업으로 진화...xAI 품고 1.25조 달러 IPO 추진",
+  "titleEn": "SpaceX Evolves into AI Company: Absorbs xAI, Pursues $1.25 Trillion IPO",
+  "date": "2026-02-03T22:00",
+  "keywords": "xAI, 스페이스X, 합병, Grok, 일론 머스크, 우주 데이터센터, 스타링크, AI 컴퓨팅, IPO",
+  "keywordsEn": "xAI, SpaceX, merger, Grok, Elon Musk, orbital data center, Starlink, AI computing, IPO",
+  "summary": "일론 머스크가 스페이스X와 xAI의 합병을 전격 발표했다. 로켓 회사가 AI 기업을 품으며 1.25조 달러 규모의 거대 기업이 탄생했다. 머스크는 '우주가 AI 컴퓨팅의 가장 저렴한 방법이 될 것'이라며 궤도 데이터센터 구상을 밝혔다.",
+  "summaryEn": "Elon Musk announced the merger of SpaceX and xAI. The rocket company absorbing an AI firm creates a $1.25 trillion giant. Musk revealed plans for orbital data centers, claiming 'space will become the cheapest way to generate AI compute.'",
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/6dEQD8kozATFYG4cKoXfGk.jpg",
+  "relatedIssues": [],
+  "relatedArticles": ["big3-ipo-2026-openai-anthropic-spacex"],
+  "relatedGames": [],
+  "sources": [
+    { "name": "CNBC", "title": "Elon Musk's SpaceX acquiring AI startup xAI ahead of potential IPO", "url": "https://www.cnbc.com/2026/02/02/elon-musk-spacex-xai-ipo.html" },
+    { "name": "BBC", "title": "Musk's SpaceX and xAI merge to make world's most valuable private company", "url": "https://www.bbc.com/news/articles/cq6vnrye06po" },
+    { "name": "The Guardian", "title": "Elon Musk's xAI announces it has raised $20bn", "url": "https://www.theguardian.com/technology/2026/jan/06/elon-musk-xai-investment-grok-backlash" }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월 2일, 일론 머스크가 스페이스X와 xAI의 합병을 전격 발표했다. 로켓과 위성 인터넷을 만들던 우주 기업이 AI 회사를 품으며, 세계 최대 비상장 기업이 탄생했다."
+    },
+    {
+      "type": "heading",
+      "value": "로켓 회사가 AI를 삼킨 이유"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2246892016-20260127163344544.jpg?c=16x9&q=w_1280,c_fill",
+      "caption": "일론 머스크",
+      "alt": "일론 머스크"
+    },
+    {
+      "type": "text",
+      "value": "합병 전 스페이스X는 8000억 달러, xAI는 2300억 달러로 평가받았다. 합쳐서 1.25조 달러(약 1,800조원). 사우디 아람코의 IPO 기록(250억 달러)을 가볍게 뛰어넘는 규모다.\n\n머스크는 블로그에서 합병 이유를 밝혔다. \"2~3년 내에 AI 컴퓨팅을 생성하는 가장 저렴한 방법이 우주가 될 것.\" 스페이스X는 이미 FCC에 100만 개의 '궤도 데이터센터' 위성 발사 허가를 요청했다. 지구의 토지와 에너지 제약을 우회해 xAI에 압도적 인프라 우위를 제공하겠다는 구상이다."
+    },
+    {
+      "type": "heading",
+      "value": "xAI, 합병 직전 200억 달러 투자 유치"
+    },
+    {
+      "type": "text",
+      "value": "xAI는 합병 발표 직전인 1월 초, 200억 달러 규모의 시리즈 E 투자를 마감했다. 엔비디아, 시스코, 피델리티, 카타르 투자청 등 대형 투자자들이 참여했고, 테슬라도 약 20억 달러를 투자한다고 발표했다.\n\n2023년 설립된 xAI는 챗봇 Grok으로 주목받았다. X(구 트위터)에 통합되어 실시간 정보 접근이 가능한 점이 차별점이었다. 다만 딥페이크 논란 등 안전 문제로 비판도 받아왔다."
+    },
+    {
+      "type": "heading",
+      "value": "6월 IPO, 머스크 생일에 맞춘다?"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/sEoeyvUbZCESaRbMwNXGPi-1200-80.jpg",
+      "caption": "지구 궤도를 도는 스타링크 위성",
+      "alt": "스페이스X 스타링크 위성이 지구 궤도에서 빛나는 모습"
+    },
+    {
+      "type": "text",
+      "value": "합병 법인의 IPO는 2026년 6월로 계획되어 있다. 머스크의 55세 생일(6월 28일)과 수성·금성·목성 정렬 시기에 맞추려 한다는 관측도 나온다. 모건 스탠리, 골드만 삭스, JP모건, 뱅크오브아메리카가 주관사로 거론되고 있다.\n\n머스크는 테슬라 장기 주주들에게 우선 배정권을 주겠다고 암시했다. 이미 테슬라 주주들에게 스페이스X 주식을 제공한 전례가 있어 실현 가능성이 있다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: AI 빅4, 모두 상장 초읽기"
+    },
+    {
+      "type": "text",
+      "value": "알파벳(구글)-딥마인드, 앤트로픽, 오픈AI, 그리고 xAI. 흔히 'AI 빅4'로 불리는 기업들이다. 알파벳은 이미 상장사이고, 나머지 셋은 2026년 IPO를 준비 중이다. 이번 합병으로 xAI가 스페이스X를 통해 시장에 나오게 되면서, AI 빅4 모두가 공개 시장에서 거래되는 시대가 열린다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 2, 2026, Elon Musk announced the merger of SpaceX and xAI. The space company that builds rockets and satellite internet has absorbed an AI firm, creating the world's largest private company."
+    },
+    {
+      "type": "heading",
+      "value": "Why a Rocket Company Swallowed an AI Firm"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2246892016-20260127163344544.jpg?c=16x9&q=w_1280,c_fill",
+      "caption": "Elon Musk",
+      "alt": "Elon Musk"
+    },
+    {
+      "type": "text",
+      "value": "Before the merger, SpaceX was valued at $800 billion and xAI at $230 billion. Combined: $1.25 trillion. That easily surpasses Saudi Aramco's IPO record of $25 billion.\n\nMusk explained the merger rationale in his blog: 'Within 2-3 years, the lowest cost way to generate AI compute will be in space.' SpaceX has already asked the FCC for authorization to launch up to 1 million 'orbital data center' satellites. The plan is to bypass Earth's land and energy constraints to give xAI an overwhelming infrastructure advantage."
+    },
+    {
+      "type": "heading",
+      "value": "xAI Raised $20 Billion Just Before Merger"
+    },
+    {
+      "type": "text",
+      "value": "Just before the merger announcement in early January, xAI closed a $20 billion Series E round. Major investors included Nvidia, Cisco, Fidelity, and Qatar Investment Authority. Tesla also announced it would invest about $2 billion.\n\nFounded in 2023, xAI gained attention with its chatbot Grok. Its integration with X (formerly Twitter) enabling real-time information access was a key differentiator. However, it has faced criticism for safety issues including deepfake controversies."
+    },
+    {
+      "type": "heading",
+      "value": "June IPO: Timed for Musk's Birthday?"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/sEoeyvUbZCESaRbMwNXGPi-1200-80.jpg",
+      "caption": "Starlink satellites orbiting Earth",
+      "alt": "SpaceX Starlink satellites shining in Earth orbit"
+    },
+    {
+      "type": "text",
+      "value": "The merged company's IPO is planned for June 2026. Some speculate it's timed for Musk's 55th birthday (June 28) and the alignment of Mercury, Venus, and Jupiter. Morgan Stanley, Goldman Sachs, JPMorgan, and Bank of America are mentioned as potential underwriters.\n\nMusk has hinted at giving long-term Tesla shareholders priority allocation. Given his precedent of offering SpaceX shares to Tesla shareholders, this seems feasible."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: AI Big 4, All Heading to Market"
+    },
+    {
+      "type": "text",
+      "value": "Alphabet (Google)-DeepMind, Anthropic, OpenAI, and xAI. These are commonly called the 'AI Big 4.' Alphabet is already public, while the other three are preparing for 2026 IPOs. With this merger bringing xAI to market through SpaceX, an era begins where all AI Big 4 will be traded on public markets."
+    }
+  ]
+}
