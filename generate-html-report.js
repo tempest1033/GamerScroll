@@ -683,16 +683,14 @@ async function main() {
     fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf8');
     console.log('\n💾 캐시 저장 완료');
 
-    // 일간 히스토리 저장 (하루에 한 번만)
+    // 일간 히스토리 저장 (매 크롤링마다 최신 데이터로 업데이트)
     if (!fs.existsSync(HISTORY_DIR)) {
       fs.mkdirSync(HISTORY_DIR, { recursive: true });
     }
     const todayDate = getTodayDate();
     const historyFile = `${HISTORY_DIR}/${todayDate}.json`;
-    if (!fs.existsSync(historyFile)) {
-      fs.writeFileSync(historyFile, JSON.stringify(cache, null, 2), 'utf8');
-      console.log(`📁 일간 스냅샷 저장: ${historyFile}`);
-    }
+    fs.writeFileSync(historyFile, JSON.stringify(cache, null, 2), 'utf8');
+    console.log(`📁 일간 스냅샷 저장: ${historyFile}`);
 
     // 30분마다 CSV 스냅샷 저장
     const now = new Date();
