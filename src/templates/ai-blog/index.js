@@ -704,12 +704,9 @@ function wrapWithLayout(content, options = {}) {
 
   <link rel="stylesheet" href="/styles.css">
   <style>
-    /* 홈/카테고리 페이지 상단 마진 - 모바일만 (개별 기사와 동일하게) */
-    @media (max-width: 768px) {
-      #home .page-container,
-      #category .page-container {
-        padding-top: var(--space-block-y);
-      }
+    /* AIScroll 전용: 기사 페이지 상단 마진 */
+    #issue .page-container {
+      padding-top: var(--space-block-y);
     }
     /* AIScroll 헤더 레이아웃 */
     .aiscroll-header {
