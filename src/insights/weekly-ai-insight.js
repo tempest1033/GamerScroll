@@ -12,7 +12,7 @@ const path = require('path');
 const os = require('os');
 
 // 모델 설정
-const MODEL = 'codex';
+const MODEL = 'claude';
 
 // 히스토리 디렉토리
 const HISTORY_DIR = './history';
@@ -26,7 +26,7 @@ const HISTORY_DIR = './history';
  */
 async function generateWeeklyAIInsight(weeklyReports, weekInfo, prevWeekInsights = []) {
   try {
-    console.log(`  - Codex exec 호출 중 (${MODEL})...`);
+    console.log(`  - Claude CLI 호출 중 (${MODEL})...`);
 
     // 주간 데이터 요약
     const dataSummary = buildWeeklyDataSummary(weeklyReports, weekInfo);
@@ -224,7 +224,7 @@ JSON만 출력해. 다른 설명 없이.`;
         }
 
         result = execSync(
-          `cat "${tmpFile}" | codex exec -m gpt-5.2`,
+          `cat "${tmpFile}" | claude -p - --model opus`,
           {
             encoding: 'utf8',
             maxBuffer: 1024 * 1024,
@@ -261,7 +261,7 @@ JSON만 출력해. 다른 설명 없이.`;
         // 성공 - 임시 파일 삭제 후 반환
         fs.unlinkSync(tmpFile);
 
-        console.log('  - 주간 AI 인사이트 생성 완료 (Codex)');
+        console.log('  - 주간 AI 인사이트 생성 완료 (Claude)');
         return weeklyInsight;
 
       } catch (retryError) {
