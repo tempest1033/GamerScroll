@@ -96,7 +96,13 @@
     },
     {
       "type": "text",
-      "value": "업데이트 예정"
+      "value": "프로젝트마다 AI 코딩 도구의 동작을 맞춤 설정할 수 있다. CLAUDE.md, AGENTS.md 등 설정 파일의 작성법과 활용 방법을 안내한다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "project-md-settings-guide", "title": "CLAUDE.md와 AGENTS.md 설정 가이드", "thumbnail": "https://velog.velcdn.com/images/nsunny0908/post/409f269d-2791-496d-abcc-896935163d3f/362222e42d54.jpg" }
+      ]
     },
     {
       "type": "heading",
@@ -215,6 +221,20 @@
       "type": "series",
       "articles": [
         { "part": 1, "slug": "vibe-coding-basics", "title": "Basic Concepts and Settings", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Project-Specific Settings"
+    },
+    {
+      "type": "text",
+      "value": "You can customize the behavior of AI coding tools for each project. This section guides you through writing and using configuration files like CLAUDE.md and AGENTS.md."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "project-md-settings-guide", "title": "CLAUDE.md and AGENTS.md Settings Guide", "thumbnail": "https://velog.velcdn.com/images/nsunny0908/post/409f269d-2791-496d-abcc-896935163d3f/362222e42d54.jpg" }
       ]
     },
     {
