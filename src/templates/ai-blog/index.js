@@ -704,9 +704,9 @@ function wrapWithLayout(content, options = {}) {
 
   <link rel="stylesheet" href="/styles.css">
   <style>
-    /* AIScroll 전용: 기사 페이지 상단 마진 */
+    /* AIScroll 전용: 기사 페이지 상단 마진 (!important: styles.css의 padding 단축 속성보다 우선) */
     #issue .page-container {
-      padding-top: var(--space-block-y);
+      padding-top: var(--space-block-y) !important;
     }
     /* AIScroll 헤더 레이아웃 */
     .aiscroll-header {
