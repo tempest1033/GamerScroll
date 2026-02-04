@@ -9,7 +9,7 @@ const path = require('path');
 const os = require('os');
 
 // 모델 설정
-const MODEL = 'claude';
+const MODEL = 'codex';
 
 // 히스토리 디렉토리
 const HISTORY_DIR = './history';
@@ -23,7 +23,7 @@ const HISTORY_DIR = './history';
  */
 async function generateAIInsight(crawlData, rankingChanges = null, recentInsights = []) {
   try {
-    console.log(`  - Claude CLI 호출 중 (${MODEL})...`);
+    console.log(`  - Codex exec 호출 중 (${MODEL})...`);
 
     // 크롤링 데이터 요약
     const dataSummary = buildDataSummary(crawlData);
@@ -185,7 +185,7 @@ JSON만 출력해. 다른 설명 없이.`;
         }
 
         result = execSync(
-          `cat "${tmpFile}" | claude -p - --tools default --model opus`,
+          `cat "${tmpFile}" | codex exec -m gpt-5.2`,
           {
             encoding: 'utf8',
             maxBuffer: 1024 * 1024,
@@ -225,7 +225,7 @@ JSON만 출력해. 다른 설명 없이.`;
         // AI 응답의 date를 현재 KST 날짜로 강제 교정
         aiInsight.date = today;
 
-        console.log('  - AI 인사이트 생성 완료 (Claude)');
+        console.log('  - AI 인사이트 생성 완료 (Codex)');
         return aiInsight;
 
       } catch (retryError) {
