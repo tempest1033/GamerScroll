@@ -15,6 +15,12 @@ function getCssFilename() {
   return globalCssFilename;
 }
 
+// 전역 검색 인덱스 버전 (빌드 해시 → 캐시 무효화)
+let globalSearchIndexVersion = '';
+function setSearchIndexVersion(v) {
+  globalSearchIndexVersion = v;
+}
+
 // 전역 사이드바 카운트 (모바일 메뉴용)
 let globalSidebarCounts = {};
 function setGlobalSidebarCounts(counts) {
@@ -175,6 +181,7 @@ const searchBarHtml = `
 	        const data = await response.json();
 	        gamesData = Array.isArray(data) ? data : (data.games || []);
 	        try {
+	          for(var i=sessionStorage.length-1;i>=0;i--){var sk=sessionStorage.key(i);if(sk&&sk.startsWith('gs_si_')&&sk!==SEARCH_INDEX_CACHE_KEY)sessionStorage.removeItem(sk);}
 	          sessionStorage.setItem(SEARCH_INDEX_CACHE_KEY, JSON.stringify(gamesData));
 	        } catch {}
 	      } catch (e) {
@@ -1314,7 +1321,7 @@ function wrapWithLayout(content, options = {}) {
   ${adLazyLoadScript}
   ${imageFallbackScript}
   ${fontAndEmojiScript}
-  ${showSearchBar ? searchBarScript : ''}
+  ${showSearchBar ? searchBarScript.replace(/gamerscroll_search_index_v1/g, 'gs_si_' + (globalSearchIndexVersion || 'v1')) : ''}
   ${swipeScript}
   ${mobileScrollHideScript}
   ${mobileSidePanelScript}
@@ -1412,6 +1419,7 @@ module.exports = {
   generateNativeAdSlot,
   generateMultiplexAdSlot,
   setCssFilename,  // 해시 기반 CSS 파일명 설정
+  setSearchIndexVersion,  // 검색 인덱스 버전 설정 (캐시 무효화)
   setGlobalSidebarCounts,  // 글로벌 사이드바 카운트 설정
   setGlobalSidebarArticles  // 글로벌 사이드바 인기/최신 글 설정
 };

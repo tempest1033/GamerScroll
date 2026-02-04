@@ -1,12 +1,11 @@
 {
   "date": "2026-02-05",
-  "generatedAt": "2026-02-04T15:31:46.282Z",
+  "generatedAt": "2026-02-04T15:11:58.727Z",
   "hasYesterdayData": true,
   "summary": [
     "iOS: \"씨사이드 익스케이프: 합성 & 스토리 게임\" 3단계 상승 (현재 11위)",
     "iOS: \"카트라이더 러쉬플러스\" 3단계 상승 (현재 13위)",
-    "iOS: \"한게임 포커\" 3단계 상승 (현재 20위)",
-    "Steam: \"Fallout 76\" TOP100 신규 진입 (99위)"
+    "iOS: \"한게임 포커\" 3단계 상승 (현재 20위)"
   ],
   "mobile": {
     "kr": {
@@ -1763,7 +1762,7 @@
           "rank": 95,
           "title": "모바일 레전드: Bang Bang",
           "developer": "MOONTON",
-          "icon": "https://play-lh.googleusercontent.com/Bi6Ci1rk-szbr2-zaiy1ERCwgf6ndaNX81btfma8JurIMAg-_E5erEHGT2E5U6pyRCGSaV0091Kdt6tOboL9t9Y",
+          "icon": "https://play-lh.googleusercontent.com/NiIHdrOS85r76ggTpn1uLxslWAfmvi1WVVQY5Enrj3ZAcVBcb11RkkTFbej8qxB9UK0JPDhRVajVz_ogmqiC",
           "change": 0,
           "status": "same",
           "yesterdayRank": 95
@@ -3626,8 +3625,8 @@
     {
       "rank": 1,
       "name": "Counter-Strike 2",
-      "ccu": 1548478,
-      "ccuChange": 68977,
+      "ccu": 1479501,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_231x87.jpg?t=1749053861"
@@ -3635,8 +3634,8 @@
     {
       "rank": 2,
       "name": "Dota 2",
-      "ccu": 751012,
-      "ccuChange": 52090,
+      "ccu": 698922,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/capsule_231x87.jpg?t=1769535998"
@@ -3644,8 +3643,8 @@
     {
       "rank": 3,
       "name": "PUBG: BATTLEGROUNDS",
-      "ccu": 640487,
-      "ccuChange": 20148,
+      "ccu": 620339,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/14f42ab797699a9c9f137fda66582d8776da4330/capsule_231x87.jpg?t=1764817633"
@@ -3653,62 +3652,62 @@
     {
       "rank": 4,
       "name": "Terraria",
-      "ccu": 162648,
-      "ccuChange": 10145,
+      "ccu": 152503,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/105600/capsule_231x87.jpg?t=1769844435"
     },
     {
       "rank": 5,
-      "name": "Delta Force",
-      "ccu": 155724,
-      "ccuChange": 3277,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2507950/92df4765702824d990b1f7f3046fc0c11c98aa2c/capsule_231x87_alt_assets_9.jpg?t=1770088070"
-    },
-    {
-      "rank": 6,
-      "name": "Apex Legends",
-      "ccu": 155220,
-      "ccuChange": 5890,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/33d4b71b2b9c8eb837b7ea5f6c5d12ca3501ea27/capsule_231x87.jpg?t=1762457261"
-    },
-    {
-      "rank": 7,
       "name": "Bongo Cat",
-      "ccu": 153681,
-      "ccuChange": 1223,
-      "change": -2,
-      "status": "down",
+      "ccu": 152458,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/2e6c93c020fe13d09d8120bb9164ed7cb58f00c5/header.jpg?t=1759317272"
     },
     {
+      "rank": 6,
+      "name": "Delta Force",
+      "ccu": 152447,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2507950/92df4765702824d990b1f7f3046fc0c11c98aa2c/capsule_231x87_alt_assets_9.jpg?t=1770088070"
+    },
+    {
+      "rank": 7,
+      "name": "Apex Legends",
+      "ccu": 149330,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/33d4b71b2b9c8eb837b7ea5f6c5d12ca3501ea27/capsule_231x87.jpg?t=1762457261"
+    },
+    {
       "rank": 8,
-      "name": "ARC Raiders",
-      "ccu": 131827,
-      "ccuChange": 15427,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1808500/542a243d39bd7ed791359be9e96c82f419b81475/capsule_231x87.jpg?t=1769454248"
+      "name": "Wallpaper Engine",
+      "ccu": 121896,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/431960/capsule_231x87.jpg?t=1739211362"
     },
     {
       "rank": 9,
-      "name": "Wallpaper Engine",
-      "ccu": 126199,
-      "ccuChange": 4303,
-      "change": -1,
-      "status": "down",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/431960/capsule_231x87.jpg?t=1739211362"
+      "name": "ARC Raiders",
+      "ccu": 116400,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1808500/542a243d39bd7ed791359be9e96c82f419b81475/capsule_231x87.jpg?t=1769454248"
     },
     {
       "rank": 10,
       "name": "Rust",
-      "ccu": 103012,
-      "ccuChange": 5638,
+      "ccu": 97374,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252490/21aac0b6e20e1ba12f635e7deb730e32a51afbd5/capsule_231x87.jpg?t=1761667247"
@@ -3716,8 +3715,8 @@
     {
       "rank": 11,
       "name": "Grand Theft Auto V Legacy",
-      "ccu": 102948,
-      "ccuChange": 6127,
+      "ccu": 96821,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg?t=1765387725"
@@ -3725,8 +3724,8 @@
     {
       "rank": 12,
       "name": "Stardew Valley",
-      "ccu": 96222,
-      "ccuChange": 5109,
+      "ccu": 91113,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/413150/capsule_231x87.jpg?t=1754692865"
@@ -3734,8 +3733,8 @@
     {
       "rank": 13,
       "name": "Grand Theft Auto V Enhanced",
-      "ccu": 84334,
-      "ccuChange": 5155,
+      "ccu": 79179,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3240220/a318bd9affe8eee32984b18794b273c256e9b2d6/capsule_231x87.jpg?t=1765479644"
@@ -3743,53 +3742,53 @@
     {
       "rank": 14,
       "name": "War Thunder",
-      "ccu": 82880,
-      "ccuChange": 4158,
+      "ccu": 78722,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/236390/dac785ed4a474c05d70850b7d63d5ca89e5f23f1/capsule_231x87.jpg?t=1769516831"
     },
     {
       "rank": 15,
-      "name": "FiveM",
-      "ccu": 81664,
-      "ccuChange": 12258,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2676230/9e8a2df18bfdd24267aefa6d3e14778c2ecb1708/header.jpg?t=1769533323"
-    },
-    {
-      "rank": 16,
       "name": "HELLDIVERS™ 2",
-      "ccu": 76425,
-      "ccuChange": 6160,
-      "change": -1,
-      "status": "down",
+      "ccu": 70265,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/3dfb18846a0d2db277c70d5a9e1ecb98e74668b8/capsule_231x87.jpg?t=1767634300"
     },
     {
+      "rank": 16,
+      "name": "FiveM",
+      "ccu": 69406,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2676230/9e8a2df18bfdd24267aefa6d3e14778c2ecb1708/header.jpg?t=1769533323"
+    },
+    {
       "rank": 17,
-      "name": "Warframe",
-      "ccu": 68320,
-      "ccuChange": 3552,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/230410/1fdfe5abd091ca959a6550868a39b6c4cc200852/capsule_231x87.jpg?t=1765508208"
+      "name": "NARAKA: BLADEPOINT",
+      "ccu": 69233,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1203220/ac3c1ef5595921372c532ce21c9d8e874fec08a4/header.jpg?t=1767856108"
     },
     {
       "rank": 18,
-      "name": "NARAKA: BLADEPOINT",
-      "ccu": 67884,
-      "ccuChange": -1349,
-      "change": -1,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1203220/ac3c1ef5595921372c532ce21c9d8e874fec08a4/header.jpg?t=1767856108"
+      "name": "Warframe",
+      "ccu": 64768,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/230410/1fdfe5abd091ca959a6550868a39b6c4cc200852/capsule_231x87.jpg?t=1765508208"
     },
     {
       "rank": 19,
       "name": "Spacewar",
-      "ccu": 60196,
-      "ccuChange": 3869,
+      "ccu": 56327,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://cdn.cloudflare.steamstatic.com/store/home/store_home_share.jpg"
@@ -3797,8 +3796,8 @@
     {
       "rank": 20,
       "name": "Dead by Daylight",
-      "ccu": 58514,
-      "ccuChange": 5010,
+      "ccu": 53504,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/381210/da4679866bcc56f9b29479893d5640fe218b7a5b/capsule_231x87_alt_assets_4.jpg?t=1769630637"
@@ -3806,422 +3805,422 @@
     {
       "rank": 21,
       "name": "ELDEN RING NIGHTREIGN",
-      "ccu": 56056,
-      "ccuChange": 3063,
+      "ccu": 52993,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2622380/8ebc4260af27bc55ba8b88982fd7eb7f970d43c9/capsule_231x87.jpg?t=1769023313"
     },
     {
       "rank": 22,
-      "name": "Marvel Rivals",
-      "ccu": 53265,
-      "ccuChange": 5645,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2767030/0d2320ad32448ada538d0903d44ad8df7e185800/header.jpg?t=1768793897"
-    },
-    {
-      "rank": 23,
       "name": "Heartopia",
-      "ccu": 53168,
-      "ccuChange": 3657,
-      "change": -1,
-      "status": "down",
+      "ccu": 49511,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4025700/2cfc752138a31ce4847ba014a8603ffaf4bf64d8/capsule_231x87.jpg?t=1768814884"
     },
     {
-      "rank": 24,
-      "name": "Geometry Dash",
-      "ccu": 52721,
-      "ccuChange": 7132,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322170/header.jpg?t=1703006148"
+      "rank": 23,
+      "name": "Marvel Rivals",
+      "ccu": 47620,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2767030/f77a7018444fbf8bd96dd79de42b4f5d6603d236/capsule_231x87.jpg?t=1768793897"
     },
     {
-      "rank": 25,
+      "rank": 24,
       "name": "Red Dead Redemption 2",
-      "ccu": 50862,
-      "ccuChange": 3401,
-      "change": -1,
-      "status": "down",
+      "ccu": 47461,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/capsule_231x87.jpg?t=1759502961"
     },
     {
+      "rank": 25,
+      "name": "Team Fortress 2",
+      "ccu": 46224,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/440/header.jpg?t=1757348372"
+    },
+    {
       "rank": 26,
-      "name": "EA SPORTS FC™ 26",
-      "ccu": 50276,
-      "ccuChange": 6849,
-      "change": 3,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3405690/abca0fd9695521a046d407327d82f808162315f7/capsule_231x87.jpg?t=1769020260"
+      "name": "Geometry Dash",
+      "ccu": 45589,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322170/header.jpg?t=1703006148"
     },
     {
       "rank": 27,
       "name": "Where Winds Meet",
-      "ccu": 48524,
-      "ccuChange": 3400,
+      "ccu": 45124,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3564740/1b28e8902ae9ca3b3f8aec849c200ff7e90fb2ee/capsule_231x87_alt_assets_1.jpg?t=1770004522"
     },
     {
       "rank": 28,
-      "name": "VRChat",
-      "ccu": 47799,
-      "ccuChange": 4949,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/438100/header.jpg?t=1762366454"
-    },
-    {
-      "rank": 29,
-      "name": "Team Fortress 2",
-      "ccu": 46924,
-      "ccuChange": 700,
-      "change": -4,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/440/header.jpg?t=1757348372"
-    },
-    {
-      "rank": 30,
-      "name": "Baldur's Gate 3",
-      "ccu": 46131,
-      "ccuChange": 3899,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1086940/3dd81008e9c385caf68152450c22353f6a8abec9/capsule_231x87.jpg?t=1765505948"
-    },
-    {
-      "rank": 31,
       "name": "Palworld",
-      "ccu": 45800,
-      "ccuChange": 1924,
-      "change": -3,
-      "status": "down",
+      "ccu": 43876,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/4f823e476ad290ad4f19763e7d800723df422dfa/capsule_231x87.jpg?t=1768450096"
     },
     {
+      "rank": 29,
+      "name": "EA SPORTS FC™ 26",
+      "ccu": 43427,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3405690/abca0fd9695521a046d407327d82f808162315f7/capsule_231x87.jpg?t=1769020260"
+    },
+    {
+      "rank": 30,
+      "name": "VRChat",
+      "ccu": 42850,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/438100/header.jpg?t=1762366454"
+    },
+    {
+      "rank": 31,
+      "name": "Baldur's Gate 3",
+      "ccu": 42232,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1086940/3dd81008e9c385caf68152450c22353f6a8abec9/capsule_231x87.jpg?t=1765505948"
+    },
+    {
       "rank": 32,
-      "name": "tModLoader",
-      "ccu": 43611,
-      "ccuChange": 2891,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281930/header.jpg?t=1718143594"
-    },
-    {
-      "rank": 33,
-      "name": "Hearts of Iron IV",
-      "ccu": 43362,
-      "ccuChange": 3043,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/394360/08a0a8f6c28071017611aa39b835c193a27f2518/capsule_231x87.jpg?t=1765368663"
-    },
-    {
-      "rank": 34,
-      "name": "R.E.P.O.",
-      "ccu": 42246,
-      "ccuChange": 6551,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3241660/28c1bb423e9af8646047e9e881c3a0ac121647f6/capsule_231x87.jpg?t=1765552338"
-    },
-    {
-      "rank": 35,
       "name": "Don't Starve Together",
-      "ccu": 41973,
-      "ccuChange": 1162,
-      "change": -3,
-      "status": "down",
+      "ccu": 40811,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322330/a43e9b0ec0d787b4fa8b68e30b95501d96cfd6ab/header_alt_assets_48.jpg?t=1766081346"
     },
     {
-      "rank": 36,
-      "name": "Tom Clancy's Rainbow Six® Siege X",
-      "ccu": 39690,
-      "ccuChange": 4621,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/359550/429275e1f06a9697892acdc57ae0a9d06bafe9f1/capsule_231x87.jpg?t=1770141487"
+      "rank": 33,
+      "name": "tModLoader",
+      "ccu": 40720,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281930/header.jpg?t=1718143594"
     },
     {
-      "rank": 37,
+      "rank": 34,
+      "name": "Hearts of Iron IV",
+      "ccu": 40319,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/394360/08a0a8f6c28071017611aa39b835c193a27f2518/capsule_231x87.jpg?t=1765368663"
+    },
+    {
+      "rank": 35,
       "name": "Crosshair X",
-      "ccu": 39187,
-      "ccuChange": 2764,
-      "change": -2,
-      "status": "down",
+      "ccu": 36423,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366800/22e1a703a4d8f45c900741b53a4f933862798a10/header.jpg?t=1767906506"
     },
     {
-      "rank": 38,
+      "rank": 36,
+      "name": "R.E.P.O.",
+      "ccu": 35695,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3241660/28c1bb423e9af8646047e9e881c3a0ac121647f6/capsule_231x87.jpg?t=1765552338"
+    },
+    {
+      "rank": 37,
       "name": "DayZ",
-      "ccu": 39113,
-      "ccuChange": 3475,
-      "change": -1,
-      "status": "down",
+      "ccu": 35638,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221100/header.jpg?t=1769695513"
+    },
+    {
+      "rank": 38,
+      "name": "Tom Clancy's Rainbow Six® Siege X",
+      "ccu": 35069,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/359550/429275e1f06a9697892acdc57ae0a9d06bafe9f1/capsule_231x87.jpg?t=1770141487"
     },
     {
       "rank": 39,
       "name": "Sid Meier's Civilization VI",
-      "ccu": 35872,
-      "ccuChange": 1560,
+      "ccu": 34312,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289070/header.jpg?t=1740607040"
     },
     {
       "rank": 40,
-      "name": "Euro Truck Simulator 2",
-      "ccu": 35608,
-      "ccuChange": 3562,
-      "change": 3,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/227300/da84d11d3ddd817e0cca299608b469a854d75ba5/capsule_231x87.jpg?t=1764266628"
-    },
-    {
-      "rank": 41,
       "name": "Football Manager 26",
-      "ccu": 35593,
-      "ccuChange": 2430,
-      "change": -1,
-      "status": "down",
+      "ccu": 33163,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3551340/7d28b9aa8dcfcd96593d112736f58b4b1d3cc7a4/header.jpg?t=1768478704"
     },
     {
-      "rank": 42,
-      "name": "Battlefield™ 6",
-      "ccu": 34497,
-      "ccuChange": 2514,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/d7ae078e0a543a97ff5a5d72165999535b0b1cdc/capsule_231x87.jpg?t=1770142929"
-    },
-    {
-      "rank": 43,
-      "name": "ELDEN RING",
-      "ccu": 33777,
-      "ccuChange": 1950,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_231x87.jpg?t=1767883716"
-    },
-    {
-      "rank": 44,
-      "name": "No Rest for the Wicked",
-      "ccu": 33214,
-      "ccuChange": 3677,
-      "change": 3,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1371980/9d2efe7754b0843dddbf7c495fe55ccc69e99b6c/capsule_231x87.jpg?t=1769237814"
-    },
-    {
-      "rank": 45,
-      "name": "Street Fighter™ 6",
-      "ccu": 32997,
-      "ccuChange": 828,
-      "change": -3,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/header.jpg?t=1769142441"
-    },
-    {
-      "rank": 46,
+      "rank": 41,
       "name": "Limbus Company",
-      "ccu": 32497,
-      "ccuChange": -439,
-      "change": -5,
-      "status": "down",
+      "ccu": 32936,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1973530/capsule_231x87.jpg?t=1767762486"
     },
     {
-      "rank": 47,
+      "rank": 42,
+      "name": "Street Fighter™ 6",
+      "ccu": 32169,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/header.jpg?t=1769142441"
+    },
+    {
+      "rank": 43,
+      "name": "Euro Truck Simulator 2",
+      "ccu": 32046,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/227300/da84d11d3ddd817e0cca299608b469a854d75ba5/capsule_231x87.jpg?t=1764266628"
+    },
+    {
+      "rank": 44,
+      "name": "Battlefield™ 6",
+      "ccu": 31983,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/d7ae078e0a543a97ff5a5d72165999535b0b1cdc/capsule_231x87.jpg?t=1770142929"
+    },
+    {
+      "rank": 45,
+      "name": "ELDEN RING",
+      "ccu": 31827,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_231x87.jpg?t=1767883716"
+    },
+    {
+      "rank": 46,
       "name": "7 Days to Die",
-      "ccu": 31714,
-      "ccuChange": 2066,
-      "change": -1,
-      "status": "down",
+      "ccu": 29648,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/251570/capsule_231x87.jpg?t=1766024790"
     },
     {
+      "rank": 47,
+      "name": "No Rest for the Wicked",
+      "ccu": 29537,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1371980/9d2efe7754b0843dddbf7c495fe55ccc69e99b6c/capsule_231x87.jpg?t=1769237814"
+    },
+    {
       "rank": 48,
-      "name": "Overwatch® 2",
-      "ccu": 29805,
-      "ccuChange": 2842,
-      "change": 5,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2357570/d503d7c3b87bc386c8fdc8f0af3837a7554516e2/header_alt_assets_18_koreana.jpg?t=1766101535"
+      "name": "World of Warships",
+      "ccu": 29301,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552990/abbc679f780559a8fc4abb0f48c7862ee97c4b3d/header_alt_assets_9.jpg?t=1770206029"
     },
     {
       "rank": 49,
-      "name": "Cyberpunk 2077",
-      "ccu": 29567,
-      "ccuChange": 1809,
-      "change": 3,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/590e0988a2fb79f44d3e31e41fd4949eb76abc41/capsule_231x87.jpg?t=1769690377"
+      "name": "Slay the Spire",
+      "ccu": 28194,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg?t=1769094928"
     },
     {
       "rank": 50,
       "name": "RimWorld",
-      "ccu": 29201,
-      "ccuChange": 1066,
+      "ccu": 28135,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/294100/capsule_231x87.jpg?t=1770059921"
     },
     {
       "rank": 51,
-      "name": "Slay the Spire",
-      "ccu": 28992,
-      "ccuChange": 798,
-      "change": -2,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg?t=1769094928"
+      "name": "Banana",
+      "ccu": 28049,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2923300/6d550eab6dcbc01a824763edbafa9e439e625d5e/header.jpg?t=1748551280"
     },
     {
       "rank": 52,
-      "name": "World of Warships",
-      "ccu": 28574,
-      "ccuChange": -727,
-      "change": -4,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552990/abbc679f780559a8fc4abb0f48c7862ee97c4b3d/header_alt_assets_9.jpg?t=1770206029"
+      "name": "Cyberpunk 2077",
+      "ccu": 27758,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/590e0988a2fb79f44d3e31e41fd4949eb76abc41/capsule_231x87.jpg?t=1769690377"
     },
     {
       "rank": 53,
-      "name": "Project Zomboid",
-      "ccu": 28306,
-      "ccuChange": 2712,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/108600/capsule_231x87.jpg?t=1762369969"
+      "name": "Overwatch® 2",
+      "ccu": 26963,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2357570/d503d7c3b87bc386c8fdc8f0af3837a7554516e2/header_alt_assets_18_koreana.jpg?t=1766101535"
     },
     {
       "rank": 54,
       "name": "Fallout 4",
-      "ccu": 28222,
-      "ccuChange": 2515,
+      "ccu": 25707,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/377160/header.jpg?t=1764687456"
     },
     {
       "rank": 55,
-      "name": "Banana",
-      "ccu": 27917,
-      "ccuChange": -132,
-      "change": -4,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2923300/6d550eab6dcbc01a824763edbafa9e439e625d5e/header.jpg?t=1748551280"
+      "name": "Project Zomboid",
+      "ccu": 25594,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/108600/capsule_231x87.jpg?t=1762369969"
     },
     {
       "rank": 56,
       "name": "Mount & Blade II: Bannerlord",
-      "ccu": 26968,
-      "ccuChange": 1578,
+      "ccu": 25390,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/261550/capsule_231x87.jpg?t=1764252300"
     },
     {
       "rank": 57,
-      "name": "Call of Duty®",
-      "ccu": 26675,
-      "ccuChange": 2382,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1938090/3c66561c9d6f46605a9134b2bb43c0f4424332ac/header_koreana.jpg?t=1766101980"
-    },
-    {
-      "rank": 58,
       "name": "OBS Studio",
-      "ccu": 26436,
-      "ccuChange": 1374,
-      "change": -1,
-      "status": "down",
+      "ccu": 25062,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1905180/header.jpg?t=1768433435"
     },
     {
-      "rank": 59,
+      "rank": 58,
       "name": "ARK: Survival Evolved",
-      "ccu": 26221,
-      "ccuChange": 1612,
-      "change": -1,
-      "status": "down",
+      "ccu": 24609,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/346110/header.jpg?t=1765677889"
+    },
+    {
+      "rank": 59,
+      "name": "Call of Duty®",
+      "ccu": 24293,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1938090/3c66561c9d6f46605a9134b2bb43c0f4424332ac/header_koreana.jpg?t=1766101980"
     },
     {
       "rank": 60,
       "name": "Kingdom Come: Deliverance II",
-      "ccu": 26130,
-      "ccuChange": 2047,
+      "ccu": 24083,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1771300/93e28946c46f09d761bbfab1e17e8c1c4a8323a0/capsule_231x87.jpg?t=1769507535"
     },
     {
       "rank": 61,
-      "name": "Arena Breakout: Infinite",
-      "ccu": 25656,
-      "ccuChange": 2049,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2073620/65588a8c7e3c040b4ae4cb0b32831cf3859d3439/capsule_231x87.jpg?t=1768449900"
+      "name": "ARK: Survival Ascended",
+      "ccu": 23758,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/d934813ca531af0fce69fe36bc972f1c90d1aa19/header.jpg?t=1766710980"
     },
     {
       "rank": 62,
-      "name": "The Sims™ 4",
-      "ccu": 25387,
-      "ccuChange": 2414,
-      "change": 3,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222670/capsule_231x87.jpg?t=1768493570"
+      "name": "Arena Breakout: Infinite",
+      "ccu": 23607,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2073620/65588a8c7e3c040b4ae4cb0b32831cf3859d3439/capsule_231x87.jpg?t=1768449900"
     },
     {
       "rank": 63,
-      "name": "ARK: Survival Ascended",
-      "ccu": 25068,
-      "ccuChange": 1310,
-      "change": -2,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/d934813ca531af0fce69fe36bc972f1c90d1aa19/header.jpg?t=1766710980"
+      "name": "Monster Hunter Wilds",
+      "ccu": 23601,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2246340/970508d58e4f11f6f9ff3e2921b7eec558a50af8/capsule_231x87.jpg?t=1768871237"
     },
     {
       "rank": 64,
       "name": "Path of Exile 2",
-      "ccu": 24976,
-      "ccuChange": 1660,
+      "ccu": 23316,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2694490/cf9f17c1f9eaa59a6a87f2faf3c03ac5a750b9da/header.jpg?t=1770195127"
     },
     {
       "rank": 65,
-      "name": "Hunt: Showdown 1896",
-      "ccu": 24712,
-      "ccuChange": 1899,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/594650/12ae33eb49c548a6789ce26088c64cea5850eefc/header_alt_assets_22.jpg?t=1768400891"
+      "name": "The Sims™ 4",
+      "ccu": 22973,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222670/capsule_231x87.jpg?t=1768493570"
     },
     {
       "rank": 66,
-      "name": "Monster Hunter Wilds",
-      "ccu": 24421,
-      "ccuChange": 820,
-      "change": -3,
-      "status": "down",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2246340/970508d58e4f11f6f9ff3e2921b7eec558a50af8/capsule_231x87.jpg?t=1768871237"
+      "name": "Hunt: Showdown 1896",
+      "ccu": 22813,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/594650/12ae33eb49c548a6789ce26088c64cea5850eefc/header_alt_assets_22.jpg?t=1768400891"
     },
     {
       "rank": 67,
       "name": "NBA 2K26",
-      "ccu": 24106,
-      "ccuChange": 1642,
+      "ccu": 22464,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3472040/356867a38f3bfef003b091766c4eebcf1f994df6/capsule_231x87.jpg?t=1767975845"
@@ -4229,8 +4228,8 @@
     {
       "rank": 68,
       "name": "Total War: WARHAMMER III",
-      "ccu": 23892,
-      "ccuChange": 1653,
+      "ccu": 22239,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1142710/header.jpg?t=1764870033"
@@ -4238,8 +4237,8 @@
     {
       "rank": 69,
       "name": "The Binding of Isaac: Rebirth",
-      "ccu": 23703,
-      "ccuChange": 1495,
+      "ccu": 22208,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250900/header.jpg?t=1731977365"
@@ -4247,8 +4246,8 @@
     {
       "rank": 70,
       "name": "Farming Simulator 25",
-      "ccu": 23625,
-      "ccuChange": 2488,
+      "ccu": 21137,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2300320/c2a205133d23cd24faf3c152d972a1d0177661b8/header.jpg?t=1764249746"
@@ -4256,188 +4255,188 @@
     {
       "rank": 71,
       "name": "Left 4 Dead 2",
-      "ccu": 22868,
-      "ccuChange": 1948,
+      "ccu": 20920,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/header.jpg?t=1745368562"
     },
     {
       "rank": 72,
-      "name": "Garry's Mod",
-      "ccu": 22038,
-      "ccuChange": 1465,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1764757984"
+      "name": "Russian Fishing 4",
+      "ccu": 20908,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/766570/header.jpg?t=1752656375"
     },
     {
       "rank": 73,
-      "name": "Valheim",
-      "ccu": 21773,
-      "ccuChange": 2418,
-      "change": 3,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/de0bdcf6c008c508a79d8e75eb91fc67f4bebd5d/header.jpg?t=1765967243"
+      "name": "Garry's Mod",
+      "ccu": 20573,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg?t=1764757984"
     },
     {
       "rank": 74,
-      "name": "BeamNG.drive",
-      "ccu": 21463,
-      "ccuChange": 2326,
-      "change": 5,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284160/17f8af1312bc48e6cd90e5fb639d4981682af260/header.jpg?t=1769542627"
+      "name": "Black Desert",
+      "ccu": 20320,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582660/4f0ea9284b5fae9464dadc528bb572c629666313/header_alt_assets_27.jpg?t=1765935954"
     },
     {
       "rank": 75,
       "name": "The Elder Scrolls V: Skyrim Special Edition",
-      "ccu": 21296,
-      "ccuChange": 1509,
+      "ccu": 19787,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778"
     },
     {
       "rank": 76,
-      "name": "Russian Fishing 4",
-      "ccu": 21285,
-      "ccuChange": 377,
-      "change": -4,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/766570/header.jpg?t=1752656375"
+      "name": "Valheim",
+      "ccu": 19355,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/de0bdcf6c008c508a79d8e75eb91fc67f4bebd5d/header.jpg?t=1765967243"
     },
     {
       "rank": 77,
       "name": "Path of Exile",
-      "ccu": 20901,
-      "ccuChange": 1555,
+      "ccu": 19346,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238960/ca612c5e33f8705754dcb89ddb465a6b364d0cb1/header.jpg?t=1761681686"
     },
     {
       "rank": 78,
-      "name": "Black Desert",
-      "ccu": 20817,
-      "ccuChange": 497,
-      "change": -4,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582660/4f0ea9284b5fae9464dadc528bb572c629666313/header_alt_assets_27.jpg?t=1765935954"
-    },
-    {
-      "rank": 79,
-      "name": "Deep Rock Galactic",
-      "ccu": 20647,
-      "ccuChange": 1848,
-      "change": 3,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/0252d6ef8860a445f307d9d2bd182af6fba23f35/header_alt_assets_27_koreana.jpg?t=1769697951"
-    },
-    {
-      "rank": 80,
       "name": "Forza Horizon 5",
-      "ccu": 20502,
-      "ccuChange": 1310,
-      "change": -2,
-      "status": "down",
+      "ccu": 19192,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/capsule_231x87.jpg?t=1746471508"
     },
     {
-      "rank": 81,
-      "name": "PEAK",
-      "ccu": 20107,
-      "ccuChange": 2358,
-      "change": 6,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3527290/1844964d7a353e50eb3cc979ea922729d8c1b0ad/capsule_231x87.jpg?t=1764003551"
+      "rank": 79,
+      "name": "BeamNG.drive",
+      "ccu": 19137,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284160/17f8af1312bc48e6cd90e5fb639d4981682af260/header.jpg?t=1769542627"
     },
     {
-      "rank": 82,
+      "rank": 80,
       "name": "Football Manager 2024",
-      "ccu": 19814,
-      "ccuChange": 817,
-      "change": -2,
-      "status": "down",
+      "ccu": 18997,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2252570/header.jpg?t=1763646323"
     },
     {
+      "rank": 81,
+      "name": "Eternal Return",
+      "ccu": 18850,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1049590/72e5450fe6a6578b5aebe3430d2a957257ccaa1c/capsule_231x87.jpg?t=1769051165"
+    },
+    {
+      "rank": 82,
+      "name": "Deep Rock Galactic",
+      "ccu": 18799,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/0252d6ef8860a445f307d9d2bd182af6fba23f35/header_alt_assets_27_koreana.jpg?t=1769697951"
+    },
+    {
       "rank": 83,
-      "name": "It Takes Two",
-      "ccu": 18919,
-      "ccuChange": 819,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1426210/capsule_231x87.jpg?t=1763484491"
-    },
-    {
-      "rank": 84,
-      "name": "STALCRAFT: X",
-      "ccu": 18877,
-      "ccuChange": 1546,
-      "change": 4,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1818450/96ae26795e147669dd9db4f62c9c202bd26ddb06/header_koreana.jpg?t=1769606128"
-    },
-    {
-      "rank": 85,
       "name": "VTube Studio",
-      "ccu": 18737,
-      "ccuChange": 122,
-      "change": -2,
-      "status": "down",
+      "ccu": 18615,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1325860/header.jpg?t=1750309780"
     },
     {
-      "rank": 86,
+      "rank": 84,
+      "name": "It Takes Two",
+      "ccu": 18100,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1426210/capsule_231x87.jpg?t=1763484491"
+    },
+    {
+      "rank": 85,
       "name": "Escape from Tarkov",
-      "ccu": 18714,
-      "ccuChange": 669,
-      "change": -1,
-      "status": "down",
+      "ccu": 18045,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3932890/2c6e1e35562ccc39bb34436d2ea1064710691d9d/capsule_231x87.jpg?t=1770112829"
     },
     {
-      "rank": 87,
-      "name": "Crusader Kings III",
-      "ccu": 18705,
-      "ccuChange": 1427,
-      "change": 2,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/8a7e814d13f8e73c0d40471f585ece908f9be282/header.jpg?t=1770193652"
-    },
-    {
-      "rank": 88,
-      "name": "Goose Goose Duck",
-      "ccu": 18690,
-      "ccuChange": 3609,
-      "change": 10,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1568590/header.jpg?t=1750955551"
-    },
-    {
-      "rank": 89,
+      "rank": 86,
       "name": "Counter-Strike: Source",
-      "ccu": 18639,
-      "ccuChange": 641,
-      "change": -3,
-      "status": "down",
+      "ccu": 17998,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240/header.jpg?t=1745368575"
     },
     {
+      "rank": 87,
+      "name": "PEAK",
+      "ccu": 17749,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3527290/1844964d7a353e50eb3cc979ea922729d8c1b0ad/capsule_231x87.jpg?t=1764003551"
+    },
+    {
+      "rank": 88,
+      "name": "STALCRAFT: X",
+      "ccu": 17331,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1818450/96ae26795e147669dd9db4f62c9c202bd26ddb06/header_koreana.jpg?t=1769606128"
+    },
+    {
+      "rank": 89,
+      "name": "Crusader Kings III",
+      "ccu": 17278,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1158310/8a7e814d13f8e73c0d40471f585ece908f9be282/header.jpg?t=1770193652"
+    },
+    {
       "rank": 90,
-      "name": "Eternal Return",
-      "ccu": 18387,
-      "ccuChange": -463,
-      "change": -9,
-      "status": "down",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1049590/72e5450fe6a6578b5aebe3430d2a957257ccaa1c/capsule_231x87.jpg?t=1769051165"
+      "name": "Yu-Gi-Oh! Master Duel",
+      "ccu": 17070,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1449850/fbff40b621aefe6f9206e3d8c14b28718de4b8c6/capsule_231x87.jpg?t=1769733849"
     },
     {
       "rank": 91,
       "name": "Age of Empires II: Definitive Edition",
-      "ccu": 18335,
-      "ccuChange": 1367,
+      "ccu": 16968,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813780/header.jpg?t=1767895383"
@@ -4445,8 +4444,8 @@
     {
       "rank": 92,
       "name": "The Witcher 3: Wild Hunt",
-      "ccu": 18083,
-      "ccuChange": 1519,
+      "ccu": 16564,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991"
@@ -4454,8 +4453,8 @@
     {
       "rank": 93,
       "name": "Once Human",
-      "ccu": 17395,
-      "ccuChange": 965,
+      "ccu": 16430,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2139460/fd820f7b1d9b665330d49e5dfa0809adab23c48f/capsule_231x87.jpg?t=1769047255"
@@ -4463,129 +4462,129 @@
     {
       "rank": 94,
       "name": "Soundpad",
-      "ccu": 17246,
-      "ccuChange": 1275,
+      "ccu": 15971,
+      "ccuChange": 0,
       "change": 0,
       "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/629520/header.jpg?t=1760026851"
     },
     {
       "rank": 95,
-      "name": "Yu-Gi-Oh! Master Duel",
-      "ccu": 16867,
-      "ccuChange": -203,
-      "change": -5,
-      "status": "down",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1449850/fbff40b621aefe6f9206e3d8c14b28718de4b8c6/capsule_231x87.jpg?t=1769733849"
-    },
-    {
-      "rank": 96,
       "name": "Monster Hunter: World",
-      "ccu": 16649,
-      "ccuChange": 944,
-      "change": -1,
-      "status": "down",
+      "ccu": 15705,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/582010/header.jpg?t=1768871319"
     },
     {
-      "rank": 97,
+      "rank": 96,
       "name": "Factorio",
-      "ccu": 16279,
-      "ccuChange": 898,
-      "change": -1,
-      "status": "down",
+      "ccu": 15381,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
       "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/427520/capsule_231x87.jpg?t=1763986204"
     },
     {
+      "rank": 97,
+      "name": "Stellaris",
+      "ccu": 15163,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/281990/header.jpg?t=1768919788"
+    },
+    {
       "rank": 98,
-      "name": "Satisfactory",
-      "ccu": 16249,
-      "ccuChange": 1274,
-      "change": 1,
-      "status": "up",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/header.jpg?t=1749717464"
+      "name": "Goose Goose Duck",
+      "ccu": 15081,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1568590/header.jpg?t=1750955551"
     },
     {
       "rank": 99,
-      "name": "Fallout 76",
-      "ccu": 16054,
+      "name": "Satisfactory",
+      "ccu": 14975,
       "ccuChange": 0,
       "change": 0,
-      "status": "new",
-      "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1151340/0e5d4b462d67b28f56add1c3c5ba22f7595f4d3d/capsule_231x87.jpg?t=1769707037"
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/header.jpg?t=1749717464"
     },
     {
       "rank": 100,
-      "name": "Stellaris",
-      "ccu": 15813,
-      "ccuChange": 650,
-      "change": -3,
-      "status": "down",
-      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/281990/header.jpg?t=1768919788"
+      "name": "Black Myth: Wukong",
+      "ccu": 14858,
+      "ccuChange": 0,
+      "change": 0,
+      "status": "same",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg?t=1760601605"
     }
   ],
   "news": [
     {
       "source": "inven",
-      "title": "인왕3 - 팬들의 놀이터가 되어줄 오픈필드",
-      "link": "https://www.inven.co.kr/webzine/news/?news=313321&hotnews=1",
-      "thumbnail": "https://static.inven.co.kr/column/2026/02/04/news/thumb/s1871519741.jpg"
+      "title": "클래스 변경권 도입되나? 아이온2 2/3(화) 라이브 요약",
+      "link": "https://www.inven.co.kr/webzine/news/?news=313330&hotnews=1",
+      "thumbnail": "https://static.inven.co.kr/column/2026/02/03/news/thumb/s1371905494.png"
     },
     {
       "source": "inven",
-      "title": "출시 D-2! '인왕3' 데모, 100만 다운로드 돌파",
-      "link": "https://www.inven.co.kr/webzine/news/?news=313359&hotnews=1",
-      "thumbnail": "https://static.inven.co.kr/column/2026/02/04/news/thumb/s1832658349.jpg"
+      "title": "번뜩임 교체에 성장 보정도 추가, '카제나' 시즌2 라이브",
+      "link": "https://www.inven.co.kr/webzine/news/?news=313329&hotnews=1",
+      "thumbnail": "https://static.inven.co.kr/column/webzine3/news/202602/i1374519842.jpg"
     },
     {
       "source": "ruliweb",
-      "title": "'나의 히어로 아카데미아 올즈 저스티스' 한국어판 UHD(4K) 플레이 동영상",
-      "link": "https://bbs.ruliweb.com/news/read/220565",
-      "thumbnail": "//img.ruliweb.com/data/news27/02m/05/ps5/mh.jpg"
+      "title": "최신 플레이 영상 및 DLC 계획 공개, 인왕3 발매 직전 공식 생방송",
+      "link": "https://bbs.ruliweb.com/news/read/220804",
+      "thumbnail": "//img.ruliweb.com/data/news/tn/26/02/03/19c23a98bfb_vhyzbf.webp"
     },
     {
       "source": "ruliweb",
-      "title": "㈜에이치투 인터렉티브, 덱빌딩 로그라이트 ‘마스터 오브 피스’ PC 한국어판 오늘(4일)  앞서 해",
-      "link": "https://bbs.ruliweb.com/news/read/220852",
-      "thumbnail": "//img.ruliweb.com/data/news/tn/26/02/04/19c288f343b_dlxtke.webp"
+      "title": "MMORPG에서 NPC의 삶을 살다, MMORPG NPC 시뮬레이터",
+      "link": "https://bbs.ruliweb.com/news/read/220803",
+      "thumbnail": "//img.ruliweb.com/data/news/tn/26/02/03/19c22af5a8c_nmsyqk.webp"
     },
     {
       "source": "gamemeca",
-      "title": "설날 기념, 레이븐2 신규 성의 '진홍의 차사' 선물한다",
-      "link": "https://www.gamemeca.com/view.php?gid=1771085",
-      "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/771/085/resize_gm931117_thumb__2_.jpg"
+      "title": "방치 힐링게임 포레스트 아일랜드, 발렌타인 업데이트",
+      "link": "https://www.gamemeca.com/view.php?gid=1771030",
+      "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/771/030/resize_gm131193_thumb___.jpg"
     }
   ],
   "community": [
     {
       "source": "ruliweb",
-      "title": "자칭 소울게임 마스터의 인왕3 초보를 위한 팁 5가지",
-      "link": "https://bbs.ruliweb.com/best/board/186940/read/717?m=game",
-      "channel": "인왕 3"
+      "title": "일섭 헤세드 플래티넘 커트라인 참고용",
+      "link": "https://bbs.ruliweb.com/best/board/185438/read/1393850?m=game",
+      "channel": "블루 아카이브"
     },
     {
       "source": "ruliweb",
-      "title": "혈도수라, 메즈키 녹여봤습니다.",
-      "link": "https://bbs.ruliweb.com/best/board/186940/read/715?m=game",
-      "channel": ""
+      "title": "헤세드(야전) 대결전 진동 토먼트 3994 (1페 수나코 솔딜)",
+      "link": "https://bbs.ruliweb.com/best/board/185438/read/1393849?m=game",
+      "channel": "블루 아카이브"
     },
     {
       "source": "arca",
-      "title": "야릴로02-03474471",
-      "link": "https://arca.live/b/live/161392235?p=1",
-      "channel": "원신"
+      "title": "두우주체계에대한대화9hours ago155964",
+      "link": "https://arca.live/b/live/161347055?p=1",
+      "channel": "리그 오브 레전드"
     },
     {
       "source": "arca",
-      "title": "나기\\_사단02-036110201",
-      "link": "https://arca.live/b/live/161392497?p=1",
-      "channel": "로보토미 코퍼레이션"
+      "title": "반디공주님사랑해요3hours ago25522",
+      "link": "https://arca.live/b/live/161374632?p=1",
+      "channel": "이준석"
     },
     {
       "source": "dcinside",
-      "title": "특붕봇 만화 : 트랜스포머와 생각하는 로봇",
-      "link": "https://gall.dcinside.com/board/view/?id=dcbest&no=402726&_dcbest=1&page=1",
-      "channel": "특갤"
+      "title": "생로병사의 비밀에 나온 46살vs19살",
+      "link": "https://gall.dcinside.com/board/view/?id=dcbest&no=402418&_dcbest=1&page=1",
+      "channel": "야갤"
     }
   ]
 }

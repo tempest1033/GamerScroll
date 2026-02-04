@@ -9,7 +9,7 @@ const { countries } = require('../../crawlers/rankings');
 const siteBaseUrl = 'https://gamerscroll.com';
 
 function generateRankingsPage(data) {
-  const { rankings, games = {} } = data;
+  const { rankings, games = {}, cacheVersion = '' } = data;
   const INITIAL_ROWS = 30;
 
   // appId -> slug 빠른 매핑 (iOS/Android + 지역별)
@@ -143,7 +143,7 @@ function generateRankingsPage(data) {
 	    const COUNTRIES = ${JSON.stringify(countries)};
 	    const INITIAL_COUNT = ${INITIAL_ROWS};
 	    const RANKINGS_ALL_DATA_URL = '/rankings/data.json';
-	    const RANKINGS_CACHE_VERSION = 'v2';
+	    const RANKINGS_CACHE_VERSION = '${cacheVersion || "v2"}';
 
 	    const rankingsCache = {};
 	    const rankingsPromise = {};

@@ -6,7 +6,7 @@
 #issue .page-container {
   max-width: 1190px;
   margin: 0 auto;
-  padding: var(--space-block-y) 0;
+  padding: 0 0 var(--space-block-y) 0;
   display: block;
 }
 #issue .page-container > * {

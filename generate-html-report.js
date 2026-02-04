@@ -410,7 +410,7 @@ const { generateWikiArticlePage } = require('./src/templates/pages/wiki-article'
 const { generateTechHubPage, generateTechCategoryPage } = require('./src/templates/pages/tech-hub');
 const { generateTechArticlePage } = require('./src/templates/pages/tech-article');
 const { generate404Page } = require('./src/templates/pages/404');
-const { setCssFilename, setGlobalSidebarCounts } = require('./src/templates/layout');
+const { setCssFilename, setSearchIndexVersion, setGlobalSidebarCounts } = require('./src/templates/layout');
 const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles, shouldFetchPopularArticles } = require('./src/crawlers/analytics');
 
 // 데일리 인사이트 import
@@ -993,12 +993,19 @@ async function main() {
     vibecoding: (homeTechData?.vibecoding || []).length
   });
 
+  // 캐시 버전 해시 (데이터 변경 시 브라우저 캐시 자동 무효화)
+  const searchVersionPath = path.join('./docs', 'games', '.search-version');
+  const searchIndexVersion = fs.existsSync(searchVersionPath) ? fs.readFileSync(searchVersionPath, 'utf8').trim() : '';
+  if (searchIndexVersion) setSearchIndexVersion(searchIndexVersion);
+  const rankingsCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.rankings || {})).digest('hex').slice(0, 8);
+  const steamCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.steam || {})).digest('hex').slice(0, 8);
+
   const pages = [
     // index.html은 매거진 생성 후 별도로 생성 (dailyReportsCount 정확한 값 필요)
-    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData }) },
-    { filename: 'steam.html', generator: generateSteamPage },
+    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData, cacheVersion: rankingsCacheVersion }) },
+    { filename: 'steam.html', generator: (d) => generateSteamPage({ ...d, cacheVersion: steamCacheVersion }) },
     { filename: 'upcoming.html', generator: generateUpcomingPage },
-    { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [] }) },
+    { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [], searchIndexVersion }) },
     // wiki/index.html은 위키 섹션에서 생성 (dailyReportsCount 정확한 값 필요)
     { filename: '404.html', generator: generate404Page }
   ];
@@ -1790,8 +1797,8 @@ async function main() {
 
   // 기타 페이지 재생성 (정확한 매거진 counts 반영)
   const latePages = [
-    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData }) },
-    { filename: 'steam.html', generator: generateSteamPage },
+    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData, cacheVersion: rankingsCacheVersion }) },
+    { filename: 'steam.html', generator: (d) => generateSteamPage({ ...d, cacheVersion: steamCacheVersion }) },
     { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: '404.html', generator: generate404Page }
   ];

@@ -6,6 +6,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const buildCache = require('../build-cache');
 
 const gamesPath = path.join(__dirname, '..', 'data', 'games.json');
@@ -1518,8 +1519,10 @@ if (!buildCache.checkInputFilesChanged(incrementalCache, 'gamePages', inputSigna
 
   if (fs.existsSync(searchIndexPath)) {
     const existingIndex = JSON.parse(fs.readFileSync(searchIndexPath, 'utf8'));
+    const count = Array.isArray(existingIndex) ? existingIndex.length : (existingIndex.games || []).length;
     console.log(`\n✅ 게임 페이지 생성 완료! (전체 스킵)`);
-    console.log(`검색 인덱스: ${existingIndex.length}개 (기존 유지)`);
+    console.log(`검색 인덱스: ${count}개 (기존 유지)`);
+    if (existingIndex.version) console.log(`🔑 검색 인덱스 버전: ${existingIndex.version}`);
     process.exit(0);
   }
 }
@@ -1708,8 +1711,13 @@ console.log(`   collectRelatedContent: ${(timeRelated/1000).toFixed(2)}s`);
 console.log(`   generateGamePage: ${(timeTemplate/1000).toFixed(2)}s`);
 console.log(`   파일 쓰기: ${(timeWrite/1000).toFixed(2)}s`);
 
-// 검색 인덱스 저장
-fs.writeFileSync(searchIndexPath, JSON.stringify(searchIndex, null, 2), 'utf8');
+// 검색 인덱스 저장 (version 해시 포함 → 캐시 무효화용)
+const searchIndexVersion = crypto.createHash('md5').update(JSON.stringify(searchIndex)).digest('hex').slice(0, 8);
+const searchIndexOutput = { version: searchIndexVersion, games: searchIndex };
+fs.writeFileSync(searchIndexPath, JSON.stringify(searchIndexOutput, null, 2), 'utf8');
+// version 파일 (generate-html-report.js 참조용)
+fs.writeFileSync(path.join(outputDir, '.search-version'), searchIndexVersion, 'utf8');
+console.log(`🔑 검색 인덱스 버전: ${searchIndexVersion}`);
 
 // 증분 빌드: 입력 파일 시그니처 + 캐시 저장
 buildCache.updateInputFilesSignature(incrementalCache, 'gamePages', inputSignature);

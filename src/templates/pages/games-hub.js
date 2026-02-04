@@ -81,7 +81,7 @@ function getInitialOrder() {
  * @param {Array} options.popularGames - GA4 인기 게임 TOP 10 [{slug, views}]
  */
 function generateGamesHubPage(options = {}) {
-  const { games = [], popularGames = [] } = options;
+  const { games = [], popularGames = [], searchIndexVersion = '' } = options;
 
   // 게임 데이터를 배열로 변환
   const gamesList = Object.entries(games).map(([name, data]) => ({
@@ -221,7 +221,7 @@ function generateGamesHubPage(options = {}) {
 (function() {
   const RECENT_KEY = 'gamerscroll_recent_searches';
   const SEARCH_INDEX_URL = '/games/search-index.json';
-  const SEARCH_INDEX_CACHE_KEY = 'gamerscroll_search_index_v1';
+  const SEARCH_INDEX_CACHE_KEY = 'gs_si_${searchIndexVersion || "v1"}';
   const requestIdle = (fn) => {
     if ('requestIdleCallback' in window) {
       requestIdleCallback(fn, { timeout: 1500 });
@@ -254,8 +254,10 @@ function generateGamesHubPage(options = {}) {
     try {
       const res = await fetch(SEARCH_INDEX_URL);
       if (!res.ok) throw new Error('search-index fetch failed');
-      searchIndexCache = await res.json();
+      const raw = await res.json();
+      searchIndexCache = Array.isArray(raw) ? raw : (raw.games || []);
       try {
+        for(var i=sessionStorage.length-1;i>=0;i--){var sk=sessionStorage.key(i);if(sk&&sk.startsWith('gs_si_')&&sk!==SEARCH_INDEX_CACHE_KEY)sessionStorage.removeItem(sk);}
         sessionStorage.setItem(SEARCH_INDEX_CACHE_KEY, JSON.stringify(searchIndexCache));
       } catch (e) {}
     } catch (e) {

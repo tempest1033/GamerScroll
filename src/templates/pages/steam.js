@@ -8,7 +8,7 @@ const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 const siteBaseUrl = 'https://gamerscroll.com';
 
 function generateSteamPage(data) {
-  const { steam } = data;
+  const { steam, cacheVersion = '' } = data;
 
   // PC + 모바일 광고 슬롯
   const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
@@ -82,7 +82,7 @@ function generateSteamPage(data) {
 	  <script>
 	    (function() {
 	      const STEAM_DATA_URL = '/steam/data.json';
-	      const STEAM_DATA_CACHE_KEY = 'gamerscroll_steam_data_v1';
+	      const STEAM_DATA_CACHE_KEY = 'gs_steam_${cacheVersion || "v1"}';
 	      const STEAM_PLACEHOLDER = ${JSON.stringify(steamPlaceholder)};
 
 	      let steamData = null;
@@ -113,6 +113,7 @@ function generateSteamPage(data) {
 	            if (!res.ok) throw new Error('steam data fetch failed');
 	            steamData = await res.json();
 	            try {
+	              for(var i=sessionStorage.length-1;i>=0;i--){var sk=sessionStorage.key(i);if(sk&&(sk.startsWith('gs_steam_')||sk==='gamerscroll_steam_data_v1')&&sk!==STEAM_DATA_CACHE_KEY)sessionStorage.removeItem(sk);}
 	              sessionStorage.setItem(STEAM_DATA_CACHE_KEY, JSON.stringify(steamData));
 	            } catch (e) {}
 	            return steamData;
