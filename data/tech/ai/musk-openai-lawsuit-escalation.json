@@ -1,0 +1,224 @@
+{
+  "slug": "musk-openai-lawsuit-escalation",
+  "status": "approved",
+  "category": "general",
+  "needTranslate": false,
+  "title": "머스크의 끝나지 않는 복수전, OpenAI 소송전 점입가경",
+  "titleEn": "Musk's Endless Vendetta: The Escalating Legal Battle Against OpenAI",
+  "date": "2026-02-04T15:30",
+  "keywords": "머스크 OpenAI 소송, xAI vs OpenAI, 샘 알트먼 머스크, AI 업계 법적 분쟁, Grok ChatGPT, 머스크 복수전, OpenAI 소스코드, 머스크 알트먼 갈등, AI 소송, 비영리 영리 전환",
+  "keywordsEn": "Musk OpenAI lawsuit, xAI vs OpenAI, Sam Altman Musk, AI legal battle, Grok ChatGPT, OpenAI source code, Musk Altman feud, AI litigation, nonprofit to profit conversion",
+  "summary": "일론 머스크가 OpenAI를 상대로 벌이는 법적 공방이 갈수록 격화되고 있다. 소스코드 제출 요구 기각, 영업비밀 소송 패소 시사, 증거 인멸 공방까지… 3월 배심 재판을 앞두고 양측의 신경전이 극에 달했다.",
+  "summaryEn": "Elon Musk's legal war against OpenAI is intensifying. From rejected source code demands to trade secret lawsuit setbacks and evidence destruction allegations, the showdown heads toward a March jury trial.",
+  "thumbnail": "https://api.time.com/wp-content/uploads/2025/02/elon-musk-sam-altman-openai.jpg?quality=85&w=1024",
+  "sources": [
+    {
+      "name": "TechCrunch",
+      "title": "Elon Musk's lawsuit against OpenAI will face a jury in March",
+      "url": "https://techcrunch.com/2026/01/08/elon-musks-lawsuit-against-openai-will-face-a-jury-in-march/"
+    },
+    {
+      "name": "The Guardian",
+      "title": "Musk lawsuit over OpenAI for-profit conversion can go to trial, US judge says",
+      "url": "https://www.theguardian.com/technology/2026/jan/08/elon-musk-openai-lawsuit-for-profit-conversion-can-go-to-trial-us-judge-says"
+    },
+    {
+      "name": "9to5Mac",
+      "title": "Judge denies Musk's bid to force OpenAI to hand over source code in Apple AI lawsuit",
+      "url": "https://9to5mac.com/2026/01/22/judge-denies-musks-bid-to-force-openai-to-hand-over-source-code-in-apple-ai-lawsuit/"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "OpenAI Accuses Musk's xAI of Destroying Evidence in Court Fight",
+      "url": "https://www.bloomberg.com/news/articles/2026-02-02/openai-accuses-musk-s-xai-of-destroying-evidence-in-court-fight"
+    },
+    {
+      "name": "Reuters",
+      "title": "US judge signals Musk's xAI may lose lawsuit accusing Altman's OpenAI of stealing trade secrets",
+      "url": "https://www.reuters.com/sustainability/boards-policy-regulation/us-judge-signals-musks-xai-may-lose-lawsuit-accusing-altmans-openai-of-stealing-2026-01-31/"
+    }
+  ],
+  "relatedDocs": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "일론 머스크와 OpenAI의 법적 전쟁이 점입가경이다. 한때 같은 배를 탔던 두 진영이 이제는 법정에서 칼날을 겨누고 있다. 소스코드 제출 요구 기각, 영업비밀 소송 패소 시사, 심지어 증거 인멸 의혹까지… 소송은 하나가 아니라 세 건이 동시에 진행 중이고, 매주 새로운 뉴스가 쏟아진다.\n\nOpenAI는 머스크의 행보를 \"근거 없는 소송이자 지속적인 괴롭힘 패턴\"이라고 일축한다. 반면 머스크 측은 \"모든 증거를 배심원에게 제시할 것\"이라며 물러서지 않는다. 도대체 왜 이 지경까지 왔을까?"
+    },
+    {
+      "type": "heading",
+      "value": "1. 앙심의 시작: CEO 자리를 원했던 남자"
+    },
+    {
+      "type": "image",
+      "src": "https://variety.com/wp-content/uploads/2025/02/altman-musk-split.jpg?w=1000&h=666&crop=1",
+      "caption": "샘 알트먼(좌)과 일론 머스크(우)",
+      "alt": "샘 알트먼과 일론 머스크의 대립 구도를 보여주는 분할 이미지"
+    },
+    {
+      "type": "text",
+      "value": "머스크와 OpenAI의 악연은 2018년으로 거슬러 올라간다. 2015년 OpenAI 공동창립자였던 그는 이사회에서 CEO 자리를 노렸다. 하지만 다른 공동창립자들은 샘 알트먼을 선택했고, 머스크는 \"Tesla AI와 이해충돌\"을 이유로 이사회를 떠났다.\n\n공식적인 이유는 그랬지만, 업계에서는 CEO 탈락에 대한 불만이 진짜 이유라는 시각이 지배적이다. 이후 머스크는 OpenAI에 대한 비판 수위를 점점 높여갔다.\n\n결정적 계기는 2025년 2월, 머스크가 974억 달러(약 130조 원)를 제시하며 OpenAI 인수를 시도한 사건이다. 알트먼은 \"no thank you\"라는 짧은 트윗으로 거절 의사를 밝혔고, 머스크의 분노는 더욱 깊어졌다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 소송①: 비영리 약속 위반, 3월 배심 재판"
+    },
+    {
+      "type": "image",
+      "src": "https://images.wsj.net/im-59917721?width=700&height=467",
+      "caption": "OpenAI는 2025년 공익법인으로 전환을 완료했다",
+      "alt": "OpenAI의 비영리에서 영리로 전환과 Microsoft 투자 관련 이미지"
+    },
+    {
+      "type": "text",
+      "value": "머스크가 2024년 제기한 첫 번째 소송의 핵심은 \"배신\"이다. 그는 약 3,800만 달러(약 500억 원)를 초기 투자하며 \"비영리 조직으로 인류를 위한 AI를 개발한다\"는 약속을 받았다고 주장한다.\n\n하지만 OpenAI는 2019년 영리 자회사를 설립하고, 마이크로소프트와 수십조 원 규모의 투자 계약을 체결했다. 2025년 10월에는 아예 공익법인(Public Benefit Corporation)으로 전환을 완료했다.\n\n2026년 1월 8일, 캘리포니아 연방법원의 이본 곤잘레스 로저스 판사는 \"OpenAI 지도부가 비영리 구조를 유지하겠다고 약속했다는 충분한 증거가 있다\"며 배심원 재판을 허용했다. 재판은 3월로 예정되어 있다.\n\nOpenAI는 투자자들에게 보낸 서한에서 \"머스크가 일부러 터무니없는 주장을 할 것\"이라고 경고했다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 소송②: 애플 반독점과 소스코드 요구 기각"
+    },
+    {
+      "type": "image",
+      "src": "https://dimg.donga.com/wps/NEWS/IMAGE/2023/04/21/118948672.1.jpg",
+      "caption": "2016년 샘 알트만과 일론 머스크가 대담을 나누는 모습 (출처: 와이콤비네이터)",
+      "alt": "OpenAI 공동설립 직후 샘 알트만과 일론 머스크의 2016년 대담 장면"
+    },
+    {
+      "type": "text",
+      "value": "두 번째 전선은 2025년 8월 텍사스에서 열렸다. 머스크의 xAI가 애플과 OpenAI를 상대로 반독점 소송을 제기한 것이다.\n\n핵심 주장은 \"ChatGPT가 iOS에 독점 통합되어 Grok 같은 경쟁 AI가 불이익을 받는다\"는 것. 하지만 이 주장은 X(구 트위터) 사용자들의 커뮤니티 노트에 의해 즉시 반박됐다. DeepSeek이 2025년 1월 앱스토어 1위를 차지했고, Perplexity도 인도에서 1위를 기록했다는 사실이 지적된 것이다.\n\n소송 과정에서 xAI는 OpenAI의 소스코드 제출을 요구했다. \"Grok이 iOS에 기술적으로 통합 불가능하다는 OpenAI 주장을 반박하려면 소스코드가 필요하다\"는 논리였다."
+    },
+    {
+      "type": "text",
+      "value": "2026년 1월 22일, 할 레이 주니어 판사는 이 요구를 기각했다. \"소스코드는 소송과 무관하며, 경쟁사에게 민감한 독점 정보를 넘기라고 강요할 수 없다\"는 것이 이유였다. 판사는 또한 \"이 사건은 아직 5개월도 안 됐는데 135건 이상의 기록과 수많은 디스커버리 분쟁이 쌓여 있다\"며 xAI의 과도한 소송 전략에 불쾌감을 드러냈다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 소송③: 영업비밀 도용 주장도 패소 위기"
+    },
+    {
+      "type": "text",
+      "value": "세 번째 소송은 2025년 9월 xAI가 제기한 영업비밀 도용 건이다. \"OpenAI가 xAI의 영업비밀을 훔쳤다\"는 주장이었지만, 2026년 1월 31일 연방 판사는 xAI의 패소를 시사했다.\n\n구체적인 증거 부족이 문제였다. 법원은 xAI의 주장이 \"추측에 가깝다\"고 지적했다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 최신 공방: \"증거를 인멸했다\""
+    },
+    {
+      "type": "image",
+      "src": "https://npr.brightspotcdn.com/dims4/default/983a432/2147483647/strip/true/crop/1000x667+0+0/resize/880x587!/quality/90/?url=https%3A%2F%2Fmedia.wbur.org%2Fwp%2F2026%2F01%2FGettyImages-2193208191-1-1000x667.jpg",
+      "caption": "xAI의 Grok 챗봇",
+      "alt": "일론 머스크의 AI 챗봇 Grok 관련 뉴스 이미지"
+    },
+    {
+      "type": "text",
+      "value": "2026년 2월 3일, 이번에는 OpenAI가 반격에 나섰다. xAI 직원들이 자동 삭제 기능이 있는 메시징 앱을 사용해 증거를 인멸했다는 것이다.\n\nOpenAI는 법원 제출 문서에서 \"증거 파기가 목적이었다\"고 주장하며 \"xAI의 행위로 인해 불공정한 불이익을 받고 있다\"고 호소했다.\n\n한편 xAI는 OpenAI의 전 정렬팀장 얀 라이케(현재 Anthropic 소속)를 증거 제출 대상에 포함시키려 했으나, 법원은 이 역시 기각했다. \"해당 인물은 애플 AI 통합과 무관하며, 관련성이 희박하다\"는 이유였다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 3월, 법정에서 만난다"
+    },
+    {
+      "type": "text",
+      "value": "머스크와 OpenAI의 대결은 이제 3월 배심 재판으로 향한다. 텍사스 반독점 소송과 영업비밀 소송은 각각 기각 또는 패소 위기에 처했지만, 캘리포니아의 비영리 전환 소송만큼은 재판까지 가게 됐다.\n\n승부의 향방은 알 수 없다. 다만 한 가지는 분명하다. 머스크의 복수전은 아직 끝나지 않았고, AI 업계 역사상 가장 드라마틱한 법정 대결이 될 것이라는 점이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The legal war between Elon Musk and OpenAI is escalating rapidly. Once allies on the same ship, the two camps are now crossing swords in court. Source code demands rejected, trade secret lawsuit heading toward defeat, and even allegations of evidence destruction… Three lawsuits are running simultaneously, with new developments every week.\n\nOpenAI dismisses Musk's actions as \"baseless litigation and a pattern of ongoing harassment.\" Meanwhile, Musk's side refuses to back down, stating they will \"present all evidence to the jury.\" How did it come to this?"
+    },
+    {
+      "type": "heading",
+      "value": "1. The Origin of the Grudge: The Man Who Wanted to Be CEO"
+    },
+    {
+      "type": "image",
+      "src": "https://variety.com/wp-content/uploads/2025/02/altman-musk-split.jpg?w=1000&h=666&crop=1",
+      "caption": "Sam Altman (left) and Elon Musk (right)",
+      "alt": "Split image showing the confrontation between Sam Altman and Elon Musk"
+    },
+    {
+      "type": "text",
+      "value": "The bad blood between Musk and OpenAI dates back to 2018. As a co-founder of OpenAI in 2015, Musk sought the CEO position on the board. However, the other co-founders chose Sam Altman, and Musk left the board citing \"conflicts of interest with Tesla AI.\"\n\nThat was the official reason, but industry insiders believe his frustration over losing the CEO position was the real cause. Since then, Musk has steadily escalated his criticism of OpenAI.\n\nThe decisive moment came in February 2025, when Musk attempted to acquire OpenAI with a $97.4 billion offer. Altman declined with a brief tweet: \"no thank you.\" Musk's fury only deepened."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Lawsuit #1: Nonprofit Promise Violation, March Jury Trial"
+    },
+    {
+      "type": "image",
+      "src": "https://images.wsj.net/im-59917721?width=700&height=467",
+      "caption": "OpenAI completed its conversion to a Public Benefit Corporation in 2025",
+      "alt": "Image related to OpenAI's transition from nonprofit to for-profit and Microsoft investment"
+    },
+    {
+      "type": "text",
+      "value": "The core of Musk's first lawsuit, filed in 2024, is \"betrayal.\" He claims he invested approximately $38 million in early funding based on promises that OpenAI would remain \"a nonprofit developing AI for humanity.\"\n\nHowever, OpenAI established a for-profit subsidiary in 2019 and signed multi-billion dollar investment deals with Microsoft. In October 2025, it completed its transformation into a Public Benefit Corporation.\n\nOn January 8, 2026, California federal judge Yvonne Gonzalez Rogers allowed the case to proceed to jury trial, stating there was \"sufficient evidence that OpenAI's leadership promised to maintain the nonprofit structure.\" The trial is scheduled for March.\n\nOpenAI warned investors in a letter that \"Musk will make deliberately outlandish claims.\""
+    },
+    {
+      "type": "heading",
+      "value": "3. Lawsuit #2: Apple Antitrust and Source Code Demand Rejected"
+    },
+    {
+      "type": "image",
+      "src": "https://dimg.donga.com/wps/NEWS/IMAGE/2023/04/21/118948672.1.jpg",
+      "caption": "Sam Altman and Elon Musk in conversation, 2016 (Source: Y Combinator)",
+      "alt": "Sam Altman and Elon Musk in a 2016 discussion shortly after co-founding OpenAI"
+    },
+    {
+      "type": "text",
+      "value": "The second front opened in Texas in August 2025, when Musk's xAI filed an antitrust lawsuit against Apple and OpenAI.\n\nThe core claim was that \"ChatGPT's exclusive integration into iOS disadvantages competing AI like Grok.\" However, this claim was immediately debunked by X (formerly Twitter) users through Community Notes. They pointed out that DeepSeek reached #1 on the App Store in January 2025, and Perplexity also hit #1 in India.\n\nDuring the lawsuit, xAI demanded OpenAI's source code, arguing it was needed to \"disprove OpenAI's claim that Grok cannot be technically integrated into iOS.\""
+    },
+    {
+      "type": "text",
+      "value": "On January 22, 2026, Judge Hal R. Ray Jr. rejected this demand. His reasoning: \"Source code is irrelevant to the lawsuit, and we cannot force a competitor to hand over sensitive proprietary information.\" The judge also expressed frustration, noting that \"this case is less than five months old, yet contains over 135 docket entries and countless discovery disputes.\""
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Lawsuit #3: Trade Secret Theft Claim Also Facing Defeat"
+    },
+    {
+      "type": "text",
+      "value": "The third lawsuit was filed by xAI in September 2025, claiming that \"OpenAI stole xAI's trade secrets.\" However, on January 31, 2026, a federal judge signaled that xAI would likely lose.\n\nThe problem was a lack of concrete evidence. The court noted that xAI's claims were \"closer to speculation.\""
+    },
+    {
+      "type": "heading",
+      "value": "5. Latest Development: \"They Destroyed Evidence\""
+    },
+    {
+      "type": "image",
+      "src": "https://npr.brightspotcdn.com/dims4/default/983a432/2147483647/strip/true/crop/1000x667+0+0/resize/880x587!/quality/90/?url=https%3A%2F%2Fmedia.wbur.org%2Fwp%2F2026%2F01%2FGettyImages-2193208191-1-1000x667.jpg",
+      "caption": "xAI's Grok chatbot",
+      "alt": "News image related to Elon Musk's AI chatbot Grok"
+    },
+    {
+      "type": "text",
+      "value": "On February 3, 2026, OpenAI went on the offensive. They alleged that xAI employees used messaging apps with auto-delete features to destroy evidence.\n\nIn court filings, OpenAI claimed \"evidence destruction was the intent\" and argued that \"xAI's actions have put OpenAI at an unfair disadvantage.\"\n\nMeanwhile, xAI attempted to include Jan Leike, OpenAI's former Head of Alignment (now at Anthropic), as a document custodian, but the court rejected this as well, stating the individual was \"irrelevant to the Apple AI integration and has minimal connection to the case.\""
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "In Closing: See You in Court, March"
+    },
+    {
+      "type": "text",
+      "value": "The showdown between Musk and OpenAI now heads toward a March jury trial. While the Texas antitrust lawsuit and trade secret case face rejection or defeat, the California nonprofit conversion lawsuit will proceed to trial.\n\nThe outcome remains uncertain. But one thing is clear: Musk's vendetta is far from over, and this will be the most dramatic courtroom battle in AI industry history."
+    }
+  ]
+}
