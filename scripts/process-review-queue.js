@@ -66,17 +66,16 @@ function normalizeName(name) {
     .trim();
 }
 
-// 이름 완전 일치 확인 (부분 일치도 체크)
+// 이름 완전 일치 확인 (부분 일치 제거됨 - 오병합 방지)
 function isNameMatch(original, found) {
   const a = normalizeName(original);
   const b = normalizeName(found);
 
-  // 완전 일치
+  // 완전 일치만 허용 (부분 일치는 오병합 위험이 높아 제거됨)
   if (a === b) return { match: true, type: 'exact' };
 
-  // 한쪽이 다른 쪽을 포함 (예: "소녀총사 키우기" vs "소녀총사 키우기 : 도트 방치형 RPG")
-  if (a.includes(b) || b.includes(a)) return { match: true, type: 'partial' };
-
+  // 부분 일치는 더 이상 자동 매칭하지 않음 (수동 처리 필요)
+  // 예: "헌터 키우기" vs "헤븐헬즈" 같은 오병합 방지
   return { match: false, type: 'none' };
 }
 

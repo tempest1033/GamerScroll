@@ -288,8 +288,9 @@ function isNameMatch(name1, name2) {
   const n1 = normalizeTitle(name1);
   const n2 = normalizeTitle(name2);
 
+  // 완전 일치만 허용 (부분 일치는 오병합 위험이 높아 제거됨)
   if (n1 === n2) return { match: true, type: 'exact' };
-  if (n1.includes(n2) || n2.includes(n1)) return { match: true, type: 'partial' };
+  // 부분 일치 제거됨 - 수동 처리 필요
   return { match: false, type: null };
 }
 
