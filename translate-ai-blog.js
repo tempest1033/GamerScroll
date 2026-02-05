@@ -55,7 +55,7 @@ ${JSON.stringify(toTranslate, null, 2)}`;
   fs.writeFileSync(tmpFile, prompt, 'utf8');
 
   try {
-    const result = execSync(`cat "${tmpFile}" | claude -p - --model sonnet`, {
+    const result = execSync(`cat "${tmpFile}" | claude -p - --model opus`, {
       encoding: 'utf8',
       maxBuffer: 5 * 1024 * 1024,
       timeout: 600000 // 10분

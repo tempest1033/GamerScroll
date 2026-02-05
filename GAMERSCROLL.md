@@ -404,7 +404,7 @@ node scripts/process-review-queue.js [limit]
 1. 지난 주 월~일 날짜 계산
 2. 각 날짜별 일일 리포트 로드 (reports/{date}.json)
 3. 일일 리포트 데이터 요약
-4. Codex CLI 호출 (gpt-5.1)
+4. Codex CLI 호출 (gpt-5.3-codex)
 5. 주간 인사이트 JSON 생성 (일간과 동일한 구조)
 6. reports/weekly/{year}-W{week}.json 저장
 7. docs/reports/weekly/ 복사
