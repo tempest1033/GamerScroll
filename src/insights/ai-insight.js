@@ -184,14 +184,25 @@ JSON만 출력해. 다른 설명 없이.`;
           await new Promise(r => setTimeout(r, 5000));
         }
 
-        result = execSync(
-          `cat "${tmpFile}" | claude -p - --model opus`,
-          {
-            encoding: 'utf8',
-            maxBuffer: 1024 * 1024,
-            timeout: 1800000 // 30분 타임아웃
-          }
-        );
+        try {
+          result = execSync(
+            `cat "${tmpFile}" | claude -p - --model opus`,
+            {
+              encoding: 'utf8',
+              maxBuffer: 1024 * 1024,
+              timeout: 3600000, // 1시간 타임아웃
+              stdio: ['pipe', 'pipe', 'pipe']
+            }
+          );
+        } catch (cliError) {
+          const stderr = cliError.stderr ? cliError.stderr.toString() : '';
+          const stdout = cliError.stdout ? cliError.stdout.toString() : '';
+          console.log(`  - CLI stderr: ${stderr.substring(0, 500)}`);
+          console.log(`  - CLI stdout 길이: ${stdout.length}`);
+          console.log(`  - CLI exit code: ${cliError.status}`);
+          if (stdout) { result = stdout; } else { throw new Error(`CLI 실행 실패: ${stderr.substring(0, 200) || 'exit code ' + cliError.status}`); }
+        }
+        console.log(`  - 응답 길이: ${result ? result.length : 0}`);
 
         // JSON 파싱 시도
         const jsonStart = result.indexOf('{');
