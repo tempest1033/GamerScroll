@@ -774,6 +774,7 @@ function generateDailyListPage({
 
   return wrapWithLayout(content, {
     currentPage: 'magazine',
+    bodyClass: 'category-detail',
     title: '일간 리포트 - 매일 업데이트되는 게임 뉴스',
     description: '일간 리포트 목록 - 매일 업데이트되는 게임 뉴스.',
     canonical: `${siteBaseUrl}/magazine/daily/`,
@@ -1001,6 +1002,7 @@ function generateWeeklyListPage({
 
   return wrapWithLayout(content, {
     currentPage: 'magazine',
+    bodyClass: 'category-detail',
     title: '주간 리포트 - 매주 업데이트되는 게임 트렌드',
     description: '주간 리포트 목록 - 매주 업데이트되는 게임 트렌드.',
     canonical: `${siteBaseUrl}/magazine/weekly/`,
@@ -1224,6 +1226,7 @@ function generateIssueListPage({
 
   return wrapWithLayout(content, {
     currentPage: 'magazine',
+    bodyClass: 'category-detail',
     title: '리포트 - 게임 업계 핫이슈',
     description: '리포트 목록 - 게임 업계 핫이슈.',
     canonical: `${siteBaseUrl}/magazine/issue/`,
@@ -1448,6 +1451,7 @@ function generateInsightListPage({
 
   return wrapWithLayout(content, {
     currentPage: 'magazine',
+    bodyClass: 'category-detail',
     title: '인사이트 - 게임 시장 트렌드와 분석',
     description: '인사이트 리포트 목록 - 게임 시장 트렌드와 분석.',
     canonical: `${siteBaseUrl}/magazine/insight/`,
@@ -1669,6 +1673,7 @@ function generateHotpickListPage({
 
   return wrapWithLayout(content, {
     currentPage: 'magazine',
+    bodyClass: 'category-detail',
     title: '핫픽 - 지금 주목할 게임 추천',
     description: '핫픽 리포트 목록 - 지금 구매할 만한 게임 추천과 가이드.',
     canonical: `${siteBaseUrl}/magazine/hotpick/`,
@@ -1908,6 +1913,7 @@ function generateRankingListPage({
 
   return wrapWithLayout(content, {
     currentPage: 'magazine',
+    bodyClass: 'category-detail',
     title: '순위 분석 - 게임 순위 심층 분석',
     description: '순위 분석 리포트 목록 - 게임 순위 비교와 심층 분석.',
     canonical: `${siteBaseUrl}/magazine/ranking/`,

@@ -1,0 +1,175 @@
+{
+  "slug": "claude-cowork-saaspocalypse",
+  "status": "approved",
+  "category": "anthropic",
+  "title": "사무직 종말의 시작인가? 클로드 코워크가 촉발한 SW 주가 대폭락",
+  "titleEn": "Is This the End of Office Jobs? Claude Cowork Triggers Historic Software Stock Crash",
+  "date": "2026-02-05T22:00",
+  "keywords": "클로드 코워크, Claude Cowork, 사스포칼립스, SaaSpocalypse, 소프트웨어 주가 폭락, AI 에이전트, 앤트로픽, 사무직 AI 대체, 바이브 코딩, SaaS 주식 위기 2026, 클로드 코드, AI 일자리 위협, SW 기업 주가 하락",
+  "keywordsEn": "Claude Cowork, SaaSpocalypse, software stock crash 2026, AI agent, Anthropic, office job replacement AI, vibe coding, SaaS stock crisis, Claude Code, AI layoffs, software industry disruption, white collar AI",
+  "summary": "앤트로픽이 출시한 AI 에이전트 '클로드 코워크'가 SaaS 업계에 공포를 불러왔다. 월가에서는 '사스포칼립스'라는 신조어까지 등장했고, S&P 북미 소프트웨어 지수는 2008년 이후 최악의 1월을 기록했다. AI가 사무직을 정말 대체할 수 있을까?",
+  "summaryEn": "Anthropic's AI agent Claude Cowork has sent shockwaves through the SaaS industry. Wall Street coined the term 'SaaSpocalypse' as the S&P North American Software Index posted its worst January since 2008. Can AI truly replace office workers?",
+  "thumbnail": "https://img1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/3XFk/image/MKdSNqha_Sk_gxaKIs4mU4ekoVo.png",
+  "needTranslate": false,
+  "relatedDocs": [
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/anthropic-b2b-strategy-success",
+    "tech:vibecoding/vibe-coding-guide"
+  ],
+  "sources": [
+    {
+      "name": "Bloomberg",
+      "title": "'Get Me Out': Traders Dump Software Stocks as AI Fears Erupt",
+      "url": "https://www.bloomberg.com/news/articles/2026-02-03/-get-me-out-traders-dump-software-stocks-as-ai-fears-take-hold"
+    },
+    {
+      "name": "Reuters",
+      "title": "US software stocks slump as AI disruption fears take over",
+      "url": "https://www.reuters.com/business/us-software-stocks-slide-after-sap-servicenow-results-fuel-ai-disruption-fears-2026-01-29/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic's new Cowork tool offers Claude Code without the code",
+      "url": "https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/"
+    },
+    {
+      "name": "Fortune",
+      "title": "Anthropic launches Cowork, a file-managing AI agent that could threaten dozens of startups",
+      "url": "https://fortune.com/2026/01/13/anthropic-claude-cowork-ai-agent-file-managing-threaten-startups/"
+    },
+    {
+      "name": "The Economist",
+      "title": "Why software stocks are getting pummelled",
+      "url": "https://www.economist.com/business/2026/02/01/why-software-stocks-are-getting-pummelled"
+    },
+    {
+      "name": "Harvard Business Review",
+      "title": "Companies Are Laying Off Workers Because of AI's Potential—Not Its Performance",
+      "url": "https://hbr.org/2026/01/companies-are-laying-off-workers-because-of-ais-potential-not-its-performance"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "'사스포칼립스(SaaSpocalypse)'가 현실이 됐다. 제프리스 주식 트레이딩 데스크의 제프리 파부자는 블룸버그 인터뷰에서 이렇게 선언했다. 2026년 1월, 앤트로픽이 AI 에이전트 '클로드 코워크(Claude Cowork)'를 출시하면서 소프트웨어 업계에 전례 없는 공포가 엄습했다. S&P 북미 소프트웨어 지수는 한 달간 15% 급락해 2008년 10월 이후 최악의 월간 성적을 기록했고, 마이크로소프트조차 10년 만에 최악의 한 달을 보냈다.\n\nAI가 사무직의 동료가 되는 세상, 그 시작이 한 번의 제품 출시로 가시화됐다. 코드를 몰라도 AI가 파일을 관리하고 문서를 만들어주는 시대, 월가는 이를 '소프트웨어의 종말'로 해석하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 클로드 코워크, '코드 없는 클로드 코드'의 등장"
+    },
+    {
+      "type": "image",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2026/01/GettyImages-2216956965-e1768310894331.jpg",
+      "caption": "앤트로픽의 클로드 코워크는 비개발자를 위한 AI 에이전트로 출시됐다",
+      "alt": "앤트로픽 클로드 AI 에이전트 모바일 앱 화면과 로고"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 1월 12일 출시한 클로드 코워크는 한마디로 '비개발자를 위한 클로드 코드'다. 클로드 데스크톱 앱에 탑재된 이 도구는 사용자가 지정한 폴더의 파일을 읽고, 수정하고, 새로 생성할 수 있다. 영수증 사진을 경비 보고서로 만들고, 메모를 정리해 초안을 작성하며, 다운로드 폴더를 자동으로 정리한다. 테크크런치는 이를 '코드 없는 클로드 코드'라고 표현했다.\n\n흥미로운 점은 클로드 코워크가 불과 1주일 반 만에, 클로드 코드를 이용해 만들어졌다는 것이다. 앤트로픽 클로드 코드 책임자 보리스 체르니가 이를 직접 공개하며 AI 에이전트의 자기복제적 가능성을 보여줬다. 포춘은 \"수십 개 스타트업을 위협할 수 있는 파일 관리 AI 에이전트\"라고 보도했고, 악시오스는 \"사무직 업무에 진출하는 클로드\"라고 평가했다.\n\n앤트로픽은 코워크를 \"동료에게 메모를 남기는 것에 가깝다\"고 설명한다. 채팅 형식의 대화가 아니라, 자율적으로 여러 작업을 연속 수행하는 에이전트라는 뜻이다. 이는 기존 챗봇과 근본적으로 다른 접근이며, 마이크로소프트 코파일럿과 직접 경쟁하는 구도를 만들어냈다."
+    },
+    {
+      "type": "heading",
+      "value": "2. SW 기업 주가 대학살, 숫자로 보는 폭락"
+    },
+    {
+      "type": "image",
+      "src": "https://www.reuters.com/graphics/SOFTWARE-STOCKS/byvrbwbxgve/chart.png",
+      "caption": "소프트웨어 주식은 S&P 500 대비 큰 폭으로 하락한 반면, 반도체주는 상승했다 (출처: 로이터)",
+      "alt": "2026년 소프트웨어 주식 vs 반도체 주식 vs S&P 500 비교 차트"
+    },
+    {
+      "type": "text",
+      "value": "클로드 코워크 출시 이후 소프트웨어 기업 주가가 도미노처럼 무너졌다. 1월 29일 하루만 놓고 봐도 SAP가 16% 폭락했고, 서비스나우는 호실적에도 불구하고 11% 하락했다. 세일즈포스(-7.1%), 어도비(-3.9%), 데이터독(-8.3%)이 줄줄이 빠졌고, S&P 500 소프트웨어 및 서비스 지수는 하루 만에 8.7% 급락하며 9개월 최저치를 기록했다.\n\n마이크로소프트도 예외가 아니었다. AI에 역대 최대 규모를 투자했다고 발표했지만, 클라우드 매출 성장 둔화에 주가가 12.1% 급락했다. 아틀라시안(-12.6%), 허브스팟(-11.5%), 인튜잇(-7.8%) 등 SaaS 대표 종목들이 두 자릿수 하락을 기록했다. 1월은 마이크로소프트에게 10년 만에 최악의 한 달이었다.\n\n2월 초에는 앤트로픽이 사내 법률팀용 생산성 도구를 출시하면서 법률 소프트웨어 주가도 직격탄을 맞았다. 톰슨 로이터스(-16%), 런던증권거래소그룹(-13%), CS 디스코(-12%), 리걸줌(-20%)이 하루 만에 폭락했다. AI 에이전트가 특정 산업에 진출할 때마다 해당 분야 종목이 즉각 반응하는 패턴이 굳어지고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 과매도 논란, 공포 속에서 기회를 잡는 투자자들"
+    },
+    {
+      "type": "image",
+      "src": "https://miro.medium.com/v2/resize:fit:1200/1*ELyAFsPaRT4_LEjBCU2j1g.png",
+      "caption": "클로드 코드는 2026년 가장 인기 있는 코딩 에이전트로 자리잡았다",
+      "alt": "클로드 코드 2026년 코딩 에이전트 시장 점유율과 소프트웨어 산업 영향"
+    },
+    {
+      "type": "text",
+      "value": "모든 전문가가 비관적인 것은 아니다. 유럽 펀드 시코모어 서스테이너블 테크는 하락장에서 마이크로소프트 주식을 매수했다. 마이크로소프트의 예상 수익 대비 주가배수는 약 23배로 3년 만에 최저치까지 떨어졌고, RSI(상대강도지수)도 과매도 영역에 진입했기 때문이다.\n\nBTIG의 수석 시장 기술 분석가 조나단 크린스키는 \"소프트웨어 섹터가 반등할 만큼 충분히 과매도됐을 수 있다\"면서도 \"회복과 새로운 기반 구축에는 오랜 시간이 걸릴 것\"이라고 경고했다.\n\n이코노미스트는 2월 1일 \"소프트웨어 주식이 왜 두들겨 맞고 있는가\"라는 기사에서 투자자들이 AI의 리스크를 과대평가하고 있을 수 있다고 지적했다. 같은 매체는 \"AI가 화이트칼라 일자리를 전멸시키지는 않을 것\"이라며, 컴퓨터가 그랬듯 AI도 특정 인지 활동의 비용을 줄일 뿐이라고 분석했다. 뱅크오브아메리카도 \"이번 테크주 폭락은 말이 안 된다\"며 섹터 롱 포지션을 유지했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 사스포칼립스는 시작에 불과한가"
+    },
+    {
+      "type": "text",
+      "value": "\"극단적 시각은 소프트웨어가 인쇄 매체나 백화점처럼 될 것이라는 거죠.\" 제프리스의 파부자는 이렇게 말했다. \"하지만 진자가 이렇게 극단적으로 매도 쪽으로 흔들렸다는 건, 그 안에서 매력적인 기회가 나올 거라는 뜻이기도 합니다.\"\n\n클로드 코워크의 등장은 분명 소프트웨어 산업의 게임 체인저다. 코딩을 몰라도 AI 에이전트가 파일을 관리하고 문서를 만들어주는 세상은 이미 현실이 됐다. 하지만 그것이 곧 사무직의 종말을 뜻하는지는 아직 결론짓기 이르다. 확실한 것은 하나다. AI와 함께 일하는 법을 배우는 사람과, 그렇지 않은 사람 사이의 격차는 빠르게 벌어지고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The 'SaaSpocalypse' has arrived. Jeffrey Favuzza from Jefferies' equity trading desk declared as much in a Bloomberg interview. In January 2026, Anthropic launched its AI agent 'Claude Cowork,' sending unprecedented fear through the software industry. The S&P North American Software Index plunged 15% in a single month — its worst January since October 2008 — and even Microsoft suffered its worst month in over a decade.\n\nThe era of AI becoming an office coworker has materialized with a single product launch. Wall Street is interpreting this as the 'death of software,' as AI agents that can manage files and create documents without any coding knowledge become reality."
+    },
+    {
+      "type": "heading",
+      "value": "1. Claude Cowork: 'Claude Code Without the Code'"
+    },
+    {
+      "type": "image",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2026/01/GettyImages-2216956965-e1768310894331.jpg",
+      "caption": "Anthropic's Claude Cowork launched as an AI agent for non-developers",
+      "alt": "Anthropic Claude AI agent mobile app screen with Anthropic logo"
+    },
+    {
+      "type": "text",
+      "value": "Claude Cowork, launched by Anthropic on January 12, is essentially 'Claude Code for non-developers.' Built into the Claude Desktop app, the tool can read, modify, and create files in user-designated folders. It turns receipt photos into expense reports, organizes notes into drafts, and automatically tidies download folders. TechCrunch described it as 'Claude Code without the code.'\n\nRemarkably, Claude Cowork was built in just a week and a half using Claude Code itself, as revealed by Anthropic's Claude Code lead Boris Cherny. Fortune called it 'a file-managing AI agent that could threaten dozens of startups,' while Axios described it as 'Claude advancing on office worker tasks.'\n\nAnthropic describes Cowork as 'less like a back-and-forth and more like leaving messages for a coworker.' Rather than a chatbot conversation, it's an agent that autonomously performs chains of actions. This fundamentally differs from existing chatbots and puts Anthropic in direct competition with Microsoft Copilot."
+    },
+    {
+      "type": "heading",
+      "value": "2. Software Stock Massacre: The Numbers Behind the Crash"
+    },
+    {
+      "type": "image",
+      "src": "https://www.reuters.com/graphics/SOFTWARE-STOCKS/byvrbwbxgve/chart.png",
+      "caption": "Software stocks plunged against the S&P 500 while semiconductor stocks rose (Source: Reuters)",
+      "alt": "2026 software stocks vs semiconductor stocks vs S&P 500 comparison chart"
+    },
+    {
+      "type": "text",
+      "value": "After Claude Cowork's launch, software stocks fell like dominoes. On January 29 alone, SAP plunged 16% and ServiceNow dropped 11% despite strong earnings. Salesforce (-7.1%), Adobe (-3.9%), and Datadog (-8.3%) all tumbled, while the S&P 500 Software and Services Index crashed 8.7% in a single day to hit a nine-month low.\n\nMicrosoft was no exception. Despite announcing record AI spending, cloud revenue growth deceleration sent shares down 12.1%. Atlassian (-12.6%), HubSpot (-11.5%), and Intuit (-7.8%) all posted double-digit declines. January was Microsoft's worst month in a decade.\n\nIn early February, Anthropic released a productivity tool for in-house legal teams, sending legal software stocks reeling. Thomson Reuters (-16%), London Stock Exchange Group (-13%), CS Disco (-12%), and LegalZoom (-20%) all crashed in a single day. A pattern has solidified: whenever an AI agent enters a specific industry, stocks in that sector react immediately."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. The Oversold Debate: Finding Opportunity in Fear"
+    },
+    {
+      "type": "image",
+      "src": "https://miro.medium.com/v2/resize:fit:1200/1*ELyAFsPaRT4_LEjBCU2j1g.png",
+      "caption": "Claude Code became the most popular coding agent of 2026",
+      "alt": "Claude Code 2026 coding agent market share and software industry impact"
+    },
+    {
+      "type": "text",
+      "value": "Not all experts are bearish. European fund Sycomore Sustainable Tech bought Microsoft shares during the downturn. Microsoft's price-to-earnings multiple dropped to about 23x — its lowest in three years — and its RSI entered oversold territory.\n\nBTIG's chief market technician Jonathan Krinsky said the software sector is 'probably oversold enough for a bounce,' but warned that 'it is going to take a long time to repair and build a new base.'\n\nThe Economist asked on February 1 whether 'investors are overestimating the risk from AI.' The same publication argued that 'AI won't wipe out white-collar jobs,' suggesting that like the computer before it, AI will simply reduce the cost of specific cognitive activities. Bank of America also called the tech selloff 'irrational' and maintained its long position."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Final Thoughts: Is the SaaSpocalypse Just the Beginning?"
+    },
+    {
+      "type": "text",
+      "value": "\"The draconian view is that software will be the next print media or department stores,\" said Favuzza at Jefferies. \"But that the pendulum has swung so far to the sell-everything side suggests there will be super-attractive opportunities that come out of this.\"\n\nClaude Cowork's emergence is undeniably a game-changer for the software industry. A world where AI agents manage files and create documents without requiring any coding knowledge is already here. But whether this truly signals the end of office jobs remains an open question. One thing is certain: the gap between those who learn to work alongside AI and those who don't is widening rapidly."
+    }
+  ]
+}
