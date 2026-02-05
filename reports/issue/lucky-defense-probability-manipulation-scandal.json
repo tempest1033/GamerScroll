@@ -1,0 +1,221 @@
+{
+  "slug": "lucky-defense-probability-manipulation-scandal",
+  "status": "approved",
+  "needTranslate": false,
+  "title": "운빨존많겜 확률 조작 논란, 10개월간 특정 펫만 나왔다",
+  "titleEn": "Lucky Defense Probability Manipulation Scandal: Same Pets for 10 Months",
+  "date": "2026-02-05T14:00",
+  "keywords": "운빨존많겜, 확률 조작, 111퍼센트, 펫 뽑기, 셔플 로직 오류, 가챠, 확률형 아이템, 콘분위, 환불, 럭키 디펜스, 모바일 게임, 확률 편향",
+  "keywordsEn": "Lucky Defense, probability manipulation, 111 percent, pet gacha, shuffle logic bug, gacha, loot box, refund, mobile game, probability bias",
+  "summary": "111%의 인기 모바일 게임 운빨존많겜에서 펫 뽑기 확률 조작 논란이 터졌다. 셔플 로직 오류로 10개월간 모든 유저가 같은 펫만 뽑은 것으로 확인됐다.",
+  "summaryEn": "111%'s hit mobile game Lucky Defense is embroiled in a probability manipulation scandal. A shuffle logic bug caused all users to draw the same pets for 10 months.",
+  "thumbnail": "https://images.ctfassets.net/vfkpgemp7ek3/6b4Pb0U0I2fatakYTqoVEI/d7c815a42818a47e9e8f236e4b8b019a/Cover_Image.jpg",
+  "relatedIssues": ["lucky-defense-long-run-success", "maple-grow-probability-scandal-2026", "maplestory-idle-full-refund", "nexon-maple-scandal-chief-fired"],
+  "relatedGames": ["운빨존많겜"],
+  "sources": [
+    {
+      "name": "뉴스웨이",
+      "title": "[단독] \"돈 써도 특정 펫만\"...111% '운빨존많겜' 확률 조작 논란",
+      "url": "https://www.newsway.co.kr/news/view?ud=2026020508393678634"
+    },
+    {
+      "name": "다음 뉴스",
+      "title": "운빨존많겜 확률 조작 논란",
+      "url": "https://v.daum.net/v/20260205085503597"
+    },
+    {
+      "name": "에펨코리아",
+      "title": "모바일게임 확률조작 떠 터짐 (운빨존많겜, 111%)",
+      "url": "https://www.fmkorea.com/9458234246"
+    },
+    {
+      "name": "디시인사이드",
+      "title": "콘분위 조정신청서 1안",
+      "url": "https://m.dcinside.com/board/onlyluckygame/1137980"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "111퍼센트의 인기 모바일 게임 '운빨존많겜'에서 확률 조작 논란이 터졌다. 펫 뽑기 시스템의 셔플 로직에 오류가 있어, 출시 이후 10개월간 **모든 유저가 사실상 같은 펫만 뽑고 있었던** 것으로 확인됐다. 글로벌 1,100만 다운로드를 기록한 게임의 핵심 시스템이 처음부터 고장나 있었던 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "셔플 로직 오류: 확률이 아닌 순서"
+    },
+    {
+      "type": "image",
+      "src": "https://i.ytimg.com/vi/QpGdvOyJWcQ/maxresdefault.jpg",
+      "caption": "유튜브에서도 운빨존많겜 펫 확률 논란 영상이 빠르게 확산되고 있다.",
+      "alt": "운빨존많겜 펫 확률 논란 유튜브 영상"
+    },
+    {
+      "type": "text",
+      "value": "운빨존많겜의 펫 뽑기는 두 단계로 나뉜다. 먼저 등급(일반/희귀/영웅/전설/신화/불멸)을 결정하고, 그 안에서 어떤 펫이 나올지 정하는 구조다. **등급 확률 자체에는 문제가 없었다.** 문제는 2단계, 등급 내에서 펫을 고르는 과정이었다.\n\n셔플(무작위 섞기) 로직의 구현에 결함이 있어, **리스트 순서상 앞에 있는 펫이 압도적으로 많이 뽑혔다.** 확률형 아이템이 아니라 사실상 '순차 지급형 상품'이 확률형으로 포장돼 판매된 것이다.\n\n더 큰 문제는 이 불량 코드가 **룬 뽑기 시스템에도 그대로 복붙**되어 동일한 편향이 존재했다는 점이다."
+    },
+    {
+      "type": "heading",
+      "value": "모든 유저가 같은 펫만 뽑았다"
+    },
+    {
+      "type": "image",
+      "src": "https://image.fmkorea.com/files/attach/new5/20260205/9458234246_486616_390694200281fc8898848b7de74c850e.png.webp",
+      "caption": "에펨코리아에 올라온 확률 편향 제보. 모든 유저에게서 동일한 패턴이 관측됐다.",
+      "alt": "운빨존많겜 확률 편향 데이터 에펨코리아 제보"
+    },
+    {
+      "type": "text",
+      "value": "유저 커뮤니티에서 \"특정 펫이 유독 많이 나온다\"는 제보가 시작됐고, 데이터를 모아보니 **거의 모든 유저에게서 동일한 편향 패턴**이 나타났다."
+    },
+    {
+      "type": "table",
+      "headers": ["등급", "편향된 1위 펫"],
+      "rows": [
+        ["신화", "고래킹"],
+        ["전설", "샐러맨더"],
+        ["영웅", "스티키"],
+        ["희귀", "젤리"],
+        ["일반", "단세포"]
+      ],
+      "caption": "등급별 가장 많이 뽑힌 펫 (모든 유저 동일)"
+    },
+    {
+      "type": "text",
+      "value": "이 패턴은 개인 차이가 아니라 **시스템 자체의 결함**이었다. 유저들은 \"개인 운이 나빴던 게 아니라 시스템이 처음부터 고장나 있었다\"며 분노했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "111퍼센트 공식 대응과 보상안"
+    },
+    {
+      "type": "image",
+      "src": "https://nimage.newsway.co.kr/photo/2026/02/05/20260205000002_0640.png",
+      "caption": "뉴스웨이가 오늘 오전 단독 보도로 사건을 기사화했다.",
+      "alt": "뉴스웨이 운빨존많겜 확률 조작 단독 보도"
+    },
+    {
+      "type": "text",
+      "value": "111퍼센트는 당일 공지를 통해 셔플 로직 오류를 **공식 시인**하고 사과했다. \"신규 기능 개발 과정에서 불찰로 의도치 않은 로직이 적용됐다\"는 해명이다.\n\n보상으로는 3가지 선택지를 제시했다.\n\n- **(1)** 보유 펫 전체 회수 + 펫 뽑기 레벨 초기화 + 사용 배터리 환급\n- **(2)** 편향된 펫 수량을 확률에 맞게 보정\n- **(3)** 현재 상태 유지\n\n핫픽스 업데이트도 준비 중이며, 펫 뽑기와 룬 스톤 소모 기록이 있는 모든 유저에게 재화 보상도 예고했다."
+    },
+    {
+      "type": "heading",
+      "value": "커뮤니티 폭발: 환불, 콘분위, 전수조사 요구"
+    },
+    {
+      "type": "image",
+      "src": "https://111percent.net/og/og_main.png",
+      "caption": "111퍼센트는 글로벌 1,100만 다운로드를 달성한 운빨존많겜의 개발사다.",
+      "alt": "111퍼센트 공식 로고"
+    },
+    {
+      "type": "text",
+      "value": "커뮤니티 반응은 폭발적이다. 디시인사이드 운빨존많겜 갤러리에는 아침부터 항의글이 쏟아졌고, 에펨코리아에도 \"모바일게임 확률조작 터짐\"이라는 제목으로 글이 퍼지고 있다.\n\n유저들의 핵심 요구는 세 가지다.\n\n- **현금 환불** — 인게임 재화 보상이 아닌 결제 취소를 요구\n- **콘분위(콘텐츠분쟁조정위원회) 조정 신청** — 실제 신청서 초안이 디시인사이드에 게시됨\n- **전수 조사** — 펫·룬 외에 영웅 모집, 유물, 블롭 피규어 등 모든 확률 시스템 점검 요구\n\n\"10개월간 방치한 건 의도 아니냐\", \"메이플키우기 재현이다\"라는 반응과 함께, 공격력 합연산/곱연산 표기 오류 등 **기존에 은폐됐던 문제들도 함께 공론화**되고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 확률 시스템, 신뢰가 전부다"
+    },
+    {
+      "type": "text",
+      "value": "확률형 아이템은 유저의 신뢰 위에서만 성립하는 시스템이다. 그 신뢰가 무너지면 어떤 보상도 소용없다. 10개월간 고장난 시스템을 방치한 것이 실수든 의도든, 결과는 같다. 유저들은 이미 지갑 대신 콘분위 신청서를 꺼내 들었다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "A probability manipulation scandal has erupted in 111%'s hit mobile game Lucky Defense. A shuffle logic bug in the pet gacha system meant that for 10 months since launch, **all users were effectively drawing the same pets.** The core system of a game with over 11 million global downloads was broken from the start."
+    },
+    {
+      "type": "heading",
+      "value": "Shuffle Logic Bug: Order, Not Probability"
+    },
+    {
+      "type": "image",
+      "src": "https://i.ytimg.com/vi/QpGdvOyJWcQ/maxresdefault.jpg",
+      "caption": "YouTube videos about the Lucky Defense pet probability controversy are spreading rapidly.",
+      "alt": "Lucky Defense pet probability controversy YouTube video"
+    },
+    {
+      "type": "text",
+      "value": "Lucky Defense's pet gacha works in two stages: first it determines the rarity tier (Common/Rare/Hero/Legend/Myth/Immortal), then selects which pet from that tier. **The tier probabilities were correct.** The problem was in stage two — selecting the pet within each tier.\n\nA flaw in the shuffle (randomization) logic caused **pets listed earlier in the array to be drawn overwhelmingly more often.** What was sold as a probabilistic loot box was effectively a sequential distribution system disguised as random.\n\nWorse still, this broken code was **copy-pasted into the rune gacha system**, creating the same bias there too."
+    },
+    {
+      "type": "heading",
+      "value": "Every User Drew the Same Pets"
+    },
+    {
+      "type": "image",
+      "src": "https://image.fmkorea.com/files/attach/new5/20260205/9458234246_486616_390694200281fc8898848b7de74c850e.png.webp",
+      "caption": "A user report on FM Korea showing the probability bias. The same pattern was observed across all users.",
+      "alt": "Lucky Defense probability bias data reported on FM Korea"
+    },
+    {
+      "type": "text",
+      "value": "Community reports of \"certain pets appearing way too often\" led to data collection that revealed **an identical bias pattern across virtually all users.**"
+    },
+    {
+      "type": "table",
+      "headers": ["Tier", "Most Drawn Pet"],
+      "rows": [
+        ["Myth", "Whale King"],
+        ["Legend", "Salamander"],
+        ["Hero", "Sticky"],
+        ["Rare", "Jelly"],
+        ["Common", "Amoeba"]
+      ],
+      "caption": "Most frequently drawn pet by tier (identical across all users)"
+    },
+    {
+      "type": "text",
+      "value": "This wasn't individual bad luck — it was a **systemic defect**. Players were furious: \"It wasn't our luck that was bad, the system was broken from day one.\""
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "111%'s Official Response and Compensation"
+    },
+    {
+      "type": "image",
+      "src": "https://nimage.newsway.co.kr/photo/2026/02/05/20260205000002_0640.png",
+      "caption": "Newsway broke the story this morning with an exclusive report.",
+      "alt": "Newsway exclusive report on Lucky Defense probability manipulation"
+    },
+    {
+      "type": "text",
+      "value": "111% issued a same-day notice **officially acknowledging** the shuffle logic bug and apologizing. Their explanation: \"An unintended logic was applied due to an oversight during new feature development.\"\n\nThree compensation options were offered:\n\n- **(1)** Full pet recall + gacha level reset + spent battery refund\n- **(2)** Redistribute biased pet counts to match correct probabilities\n- **(3)** Keep current state as-is\n\nA hotfix update is also in preparation, with currency compensation promised for all users who spent on pet gacha or rune stones."
+    },
+    {
+      "type": "heading",
+      "value": "Community Erupts: Refunds, Legal Action, Full Audit"
+    },
+    {
+      "type": "image",
+      "src": "https://111percent.net/og/og_main.png",
+      "caption": "111% is the developer behind Lucky Defense, which reached 11 million global downloads.",
+      "alt": "111 Percent official logo"
+    },
+    {
+      "type": "text",
+      "value": "The community response has been explosive. DC Inside's Lucky Defense gallery has been flooded with protest posts since morning, and FM Korea threads titled \"Mobile game probability manipulation just dropped\" are going viral.\n\nPlayers have three core demands:\n\n- **Cash refunds** — not in-game currency, but actual payment reversals\n- **Content Dispute Mediation Committee filing** — draft applications are already circulating on DC Inside\n- **Full system audit** — inspection of all probabilistic systems beyond pets and runes, including hero recruitment, relics, and blob figures\n\nSentiment ranges from \"10 months of neglect must have been intentional\" to \"this is MapleStory Idle all over again,\" with **previously hidden issues like attack stat calculation errors also being exposed.**"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Closing: Trust Is Everything in Gacha"
+    },
+    {
+      "type": "text",
+      "value": "Gacha systems only work on a foundation of user trust. Once that trust collapses, no amount of compensation can restore it. Whether leaving a broken system untouched for 10 months was negligence or intent, the result is the same. Players have already put away their wallets and picked up dispute filing forms instead."
+    }
+  ]
+}
