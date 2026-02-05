@@ -114,7 +114,7 @@ function generateUpcomingPage(data) {
       function resizeIconUrl(url, size) {
         if (!url) return '';
         size = size || 100;
-        if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\/\\d+x\\d+bb\\./, '/' + size + 'x' + size + 'bb.');
+        if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/' + size + 'x' + size + 'bb.');
         if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s' + size;
         return url;
       }
