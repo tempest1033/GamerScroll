@@ -59,7 +59,7 @@ jobs:
 
             // reports/issue/*.json 체크
             const issueDir = 'reports/issue';
-            const extras = ['gpt-5-3-garlic-update-rumor', 'chatgpt-vs-gemini-comparison-2026'];
+            const extras = ['gpt-5-3-garlic-update-rumor', 'chatgpt-vs-gemini-comparison-2026', 'gemini-3-hallucination-memory-overfitting'];
             if (fs.existsSync(issueDir)) {
               extras.forEach(slug => {
                 const f = path.join(issueDir, slug + '.json');
