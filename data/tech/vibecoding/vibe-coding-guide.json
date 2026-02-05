@@ -110,7 +110,13 @@
     },
     {
       "type": "text",
-      "value": "업데이트 예정"
+      "value": "AI와 효과적으로 협업하는 작업 플로우와 좋은 프롬프트 작성법을 다룬다. 기본 작업 사이클, Plan Mode 활용법, 프롬프트 5원칙까지 실전 중심으로 정리했다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "vibe-coding-workflow-prompt-guide", "title": "작업 플로우 및 프롬프트 작성 요령", "thumbnail": "https://media.licdn.com/dms/image/v2/D4D12AQFZxpGfQB5vaQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1701591592898?e=2147483647&v=beta&t=LV1iFHejPmWT3Q1wVCsYR82PK89-7HXSBa-xpVmsA4U" }
+      ]
     },
     {
       "type": "heading",
@@ -243,7 +249,13 @@
     },
     {
       "type": "text",
-      "value": "Coming soon"
+      "value": "This section covers effective workflows for collaborating with AI and how to write better prompts. It provides practical guidance on the basic work cycle, Plan Mode usage, and 5 principles of good prompts."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "vibe-coding-workflow-prompt-guide", "title": "Workflow and Prompt Writing Tips", "thumbnail": "https://media.licdn.com/dms/image/v2/D4D12AQFZxpGfQB5vaQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1701591592898?e=2147483647&v=beta&t=LV1iFHejPmWT3Q1wVCsYR82PK89-7HXSBa-xpVmsA4U" }
+      ]
     },
     {
       "type": "heading",

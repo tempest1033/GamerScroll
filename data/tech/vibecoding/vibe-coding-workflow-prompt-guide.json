@@ -1,0 +1,433 @@
+{
+  "slug": "vibe-coding-workflow-prompt-guide",
+  "status": "approved",
+  "category": "vibecoding",
+  "title": "바이브 코딩 작업 플로우 및 프롬프트 작성 요령",
+  "titleEn": "Vibe Coding Workflow and Prompt Writing Tips",
+  "date": "2026-02-05T12:00",
+  "thumbnail": "https://media.licdn.com/dms/image/v2/D4D12AQFZxpGfQB5vaQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1701591592898?e=2147483647&v=beta&t=LV1iFHejPmWT3Q1wVCsYR82PK89-7HXSBa-xpVmsA4U",
+  "keywords": "바이브 코딩, 프롬프트, 작업 플로우, Plan Mode, AI 코딩, Claude Code, Codex, 프롬프트 엔지니어링, 워크플로우",
+  "keywordsEn": "vibe coding, prompt, workflow, Plan Mode, AI coding, Claude Code, Codex, prompt engineering, workflow",
+  "summary": "바이브 코딩에서 AI와 효과적으로 협업하는 작업 플로우와 프롬프트 작성법을 다룬다. 기본 작업 사이클, Plan Mode 활용법, 좋은 프롬프트의 원칙, 상황별 프롬프트 예시, 이미지 활용법까지 실전 중심으로 정리했다.",
+  "summaryEn": "This guide covers effective workflows for collaborating with AI in vibe coding and how to write better prompts. It provides practical guidance on the basic work cycle, Plan Mode usage, principles of good prompts, situation-specific prompt examples, and image utilization.",
+  "sources": [
+    { "name": "Claude Code Docs", "title": "Common Workflows - Plan Mode", "url": "https://code.claude.com/docs/en/common-workflows" },
+    { "name": "Claude Code Docs", "title": "Best Practices", "url": "https://code.claude.com/docs/en/best-practices" },
+    { "name": "OpenAI Developers", "title": "Codex CLI Features", "url": "https://developers.openai.com/codex/cli/features/" },
+    { "name": "Armin Ronacher", "title": "What Actually Is Claude Code's Plan Mode?", "url": "https://lucumr.pocoo.org/2025/12/17/what-is-plan-mode/" }
+  ],
+  "relatedGames": [],
+  "relatedDocs": ["vibe-coding-basics", "project-md-settings-guide"],
+  "toc": true,
+  "content": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "가이드로 돌아가기", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "바이브 코딩에서 가장 중요한 두 가지는 **\"AI에게 어떻게 말하느냐\"**와 **\"어떤 순서로 작업하느냐\"**다. 같은 도구라도 프롬프트를 어떻게 쓰고, 어떤 흐름으로 진행하느냐에 따라 결과물의 품질이 크게 달라진다.\n\n이 글에서는 AI와 효과적으로 협업하기 위한 작업 플로우의 기본 구조, 복잡한 작업에서 유용한 Plan Mode 활용법, 그리고 좋은 프롬프트를 작성하는 구체적인 요령까지 다룬다."
+    },
+    {
+      "type": "heading",
+      "value": "기본 작업 플로우"
+    },
+    {
+      "type": "image",
+      "src": "https://media.excellentwebworld.com/wp-content/uploads/2025/06/04031013/how-vibe-coding-works.webp",
+      "caption": "바이브 코딩 작업 플로우",
+      "alt": "바이브 코딩 작업 플로우 다이어그램"
+    },
+    {
+      "type": "text",
+      "value": "바이브 코딩은 AI에게 한마디 던지고 끝나는 게 아니다. 체계적인 플로우를 따라야 원하는 결과를 얻을 수 있다.\n\n**계획 → 계획 검토 및 피드백 → 실행 → 피드백 → 수정 → 최종 리뷰 → 저장**\n\n**1. 계획** - AI에게 먼저 계획을 세우게 한다. \"바로 수정하지 말고, 어떻게 할지 계획부터 보여줘.\" 어떤 파일을 어떻게 바꿀 건지 전체 그림을 먼저 확인한다.\n\n**2. 계획 검토 및 피드백** - AI가 제시한 계획을 검토한다. 방향이 맞는지, 빠진 건 없는지 확인하고 피드백을 준다. \"이 부분은 다른 방식으로 하자\", \"이 파일도 같이 수정해야 해\" 같은 조정을 거친다.\n\n**3. 실행** - 계획에 합의가 되면 AI가 실제 코드를 수정한다.\n\n**4. 피드백** - 수정 결과를 확인하고 문제점이나 개선할 점을 전달한다.\n\n**5. 수정** - 피드백을 반영해서 AI가 다시 수정한다. 4~5단계는 만족할 때까지 반복할 수 있다.\n\n**6. 최종 리뷰** - 전체 변경사항을 리뷰한다. 의도대로 수정됐는지, 빠뜨린 건 없는지 최종 점검.\n\n**7. 저장** - 문제가 없으면 커밋하거나 저장한다.\n\n핵심은 \"계획 먼저, 실행은 나중에\"다. AI에게 바로 코드를 수정하라고 시키면 방향이 틀어졌을 때 되돌리기 어렵다. 계획 단계에서 충분히 방향을 맞추고, 합의된 후에 실행하는 것이 훨씬 효율적이다."
+    },
+    {
+      "type": "heading",
+      "value": "작업 크기 조절하기"
+    },
+    {
+      "type": "text",
+      "value": "큰 작업을 한 번에 시키면 AI가 방향을 잘못 잡거나 실수할 확률이 높아진다. 작업을 적절한 크기로 쪼개는 것이 중요하다.\n\n**너무 큰 요청:**\n\"로그인 기능 전체를 만들어줘. UI, API 연동, 에러 처리, 세션 관리까지 한 번에.\"\n\n**적절하게 나눈 요청:**\n1. \"먼저 로그인 UI를 만들어줘\"\n2. (결과 확인 후) \"이제 API 연동을 추가해줘\"\n3. (결과 확인 후) \"에러 처리도 넣어줘\"\n4. (결과 확인 후) \"세션 관리 로직을 추가해줘\"\n\n각 단계에서 결과를 확인하고 넘어가기 때문에 방향이 틀어질 가능성이 줄어든다. AI가 이전 단계의 코드를 보면서 다음 단계를 진행하니 일관성도 유지된다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "프롬프트란?"
+    },
+    {
+      "type": "text",
+      "value": "프롬프트는 AI에게 보내는 **지시문**이다. 채팅 창에 입력하는 모든 텍스트가 프롬프트다.\n\n같은 목적이라도 프롬프트를 어떻게 쓰느냐에 따라 AI의 응답 품질이 크게 달라진다. 요리에 비유하면, 프롬프트는 AI에게 주는 레시피 같은 것이다. 재료와 순서를 명확하게 알려줄수록 원하는 결과물에 가까워진다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "좋은 프롬프트의 5가지 원칙"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.educba.com/academy/wp-content/uploads/2025/05/What-is-Prompt-Engineering.jpg",
+      "caption": "프롬프트 엔지니어링",
+      "alt": "프롬프트 엔지니어링 개념 일러스트"
+    },
+    {
+      "type": "heading",
+      "value": "1. 구체적으로 쓴다"
+    },
+    {
+      "type": "text",
+      "value": "모호한 표현 대신 구체적인 대상과 동작을 명시한다.\n\n❌ \"이거 고쳐줘\"\n✅ \"UserService.cs의 Login 메서드에서 password가 null일 때 NullReferenceException이 발생해. null 체크를 추가해줘\"\n\n❌ \"더 좋게 만들어줘\"\n✅ \"이 함수의 시간 복잡도가 O(n²)인데, 해시맵을 사용해서 O(n)으로 개선해줘\"\n\n어떤 파일의 어떤 부분을 어떻게 바꿀지 구체적으로 쓸수록 AI가 정확하게 작업한다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 맥락을 제공한다"
+    },
+    {
+      "type": "text",
+      "value": "AI는 대화 시작 시점에서는 프로젝트에 대해 아무것도 모른다. 필요한 배경 정보를 함께 전달해야 한다.\n\n**하지만 매번 프롬프트에 맥락을 입력할 필요는 없다.** 반복되는 맥락은 CLAUDE.md나 AGENTS.md에 기록해두는 것이 훨씬 효율적이다. 설정 파일에 적어두면 세션이 시작될 때 AI가 자동으로 읽기 때문에, 매번 \"한국어로 대답해\", \"이 폴더는 건드리지 마\" 같은 지시를 반복하지 않아도 된다.\n\n**MD에 기록하면 좋은 것:**\n- 기술 스택 (Unity + C# + Firebase 등)\n- 프로젝트 구조와 작업 범위\n- 코드 컨벤션, 네이밍 규칙\n- 금지 사항 (자동 커밋 금지, 특정 파일 수정 금지 등)\n- 언어, 어투 설정\n\n**프롬프트에서 직접 제공할 것:**\n- 현재 작업의 구체적 상황: \"지금 로그인 기능을 추가하는 중이야. 기본 UI는 만들어뒀는데, API 연동이 아직이야.\"\n- 이전 작업과의 연결: \"아까 만든 AuthManager에 이어서, 토큰 갱신 로직을 추가하고 싶어.\"\n- 이번 작업만의 특수한 요구사항\n\n프로젝트 설정 파일 작성법은 이 시리즈의 CLAUDE.md와 AGENTS.md 설정 가이드에서 자세히 다뤘다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 단계를 나눈다"
+    },
+    {
+      "type": "text",
+      "value": "한 번에 여러 가지를 시키면 AI가 일부를 빠뜨리거나 방향을 잘못 잡을 수 있다.\n\n❌ \"데이터베이스 스키마 설계하고, API 엔드포인트 만들고, 프론트엔드 연동까지 해줘\"\n\n✅ 1단계: \"먼저 사용자 데이터 스키마를 설계해줘\"\n✅ 2단계: \"이 스키마에 맞는 CRUD API를 만들어줘\"\n✅ 3단계: \"API를 프론트엔드에서 호출하는 코드를 작성해줘\"\n\n각 단계의 결과를 확인하고 다음으로 넘어가면 수정 비용도 줄어든다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 예시를 포함한다"
+    },
+    {
+      "type": "text",
+      "value": "원하는 결과물의 형태를 예시로 보여주면 AI가 의도를 더 정확히 파악한다.\n\n\"API 응답 형식을 이렇게 맞춰줘:\""
+    },
+    {
+      "type": "code",
+      "lang": "json",
+      "value": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"userId\": \"abc123\",\n    \"nickname\": \"player1\"\n  },\n  \"error\": null\n}"
+    },
+    {
+      "type": "text",
+      "value": "\"커밋 메시지는 이런 형식으로 써줘: '2026-02-05 14:30 로그인 기능 추가'\"\n\n\"로그 출력은 이런 포맷으로: [INFO] 2026-02-05 14:30:00 - 메시지\"\n\n예시 하나가 긴 설명보다 효과적일 때가 많다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 제약조건을 명시한다"
+    },
+    {
+      "type": "text",
+      "value": "AI가 하지 말아야 할 것, 지켜야 할 것을 명확하게 알려준다.\n\n**프롬프트에서 전달하는 제약조건 (작업별):**\n\"기존 API 인터페이스는 바꾸지 마. 하위 호환성을 유지해야 해.\"\n\"이 파일만 수정해. 다른 파일은 건드리지 마.\"\n\"바로 수정하지 말고 계획만 먼저 보여줘.\"\n\n**MD에 기록해두면 좋은 제약조건 (매번 반복되는 것):**\n- 코드 수정 전 반드시 승인 받기\n- 자동 커밋/푸시 금지\n- 특정 폴더 수정 금지 (빌드 산출물, 환경변수 등)\n- 외부 라이브러리 함부로 추가하지 않기\n- 에러 메시지 언어 설정\n\n매번 반복하는 제약조건이 있다면 CLAUDE.md나 AGENTS.md에 기록해두자. 세션마다 자동으로 적용되니 실수 방지에도 효과적이다."
+    },
+    {
+      "type": "heading",
+      "value": "나쁜 프롬프트 vs 좋은 프롬프트"
+    },
+    {
+      "type": "image",
+      "src": "https://hatchworks.com/wp-content/uploads/2024/03/snapbar-good-vs-bad-prompt-1024x486.webp",
+      "caption": "좋은 프롬프트 vs 나쁜 프롬프트",
+      "alt": "좋은 프롬프트와 나쁜 프롬프트 비교 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "실제 예시로 비교해보자.\n\n**버그 수정:**\n❌ \"버그 고쳐줘\"\n✅ \"PlayerController.cs의 Jump() 메서드에서 더블점프가 되는 버그가 있어. 점프 중에 다시 점프 키를 누르면 공중에서 또 점프가 돼. isGrounded 체크 로직을 확인하고 수정해줘.\"\n\n**기능 추가:**\n❌ \"다크모드 만들어줘\"\n✅ \"설정 화면에 다크모드 토글을 추가하려고 해. 기존 SettingsUI.cs에 토글 버튼을 추가하고, 선택한 테마를 PlayerPrefs에 저장하는 방식으로 구현해줘. 색상 팔레트는 기존 ThemeColors.cs에 정의되어 있어.\"\n\n**리팩토링:**\n❌ \"코드 정리해줘\"\n✅ \"AuthManager.cs가 500줄이 넘어서 역할별로 분리하고 싶어. 먼저 현재 이 파일이 담당하는 책임들을 분석해주고, 어떻게 분리하면 좋을지 제안해줘. 바로 수정하지 말고 계획만 먼저 보여줘.\"\n\n**코드 이해:**\n❌ \"이 코드 뭐야\"\n✅ \"NetworkManager.cs의 HandleDisconnect 메서드가 어떤 흐름으로 동작하는지 설명해줘. 특히 재연결 로직이 어떤 조건에서 트리거되는지 알고 싶어.\""
+    },
+    {
+      "type": "heading",
+      "value": "이미지와 스크린샷 활용"
+    },
+    {
+      "type": "text",
+      "value": "Claude Code와 Codex 모두 이미지를 분석할 수 있다. 텍스트로 설명하기 어려운 상황에서는 스크린샷을 적극 활용하자.\n\n**에러 메시지:**\n터미널이나 에디터에 나타난 에러 메시지를 캡처해서 \"이 에러 해결해줘\"와 함께 전달한다. 에러 메시지를 일일이 타이핑하는 것보다 정확하고 빠르다.\n\n**UI 디자인:**\n디자인 시안이나 목업을 보여주면서 \"이 디자인대로 UI를 구현해줘\"라고 요청한다. 레이아웃, 색상, 간격 등을 AI가 직접 보고 파악할 수 있다.\n\n**현재 상태:**\n\"지금 화면이 이렇게 보이는데, 여기서 이 부분을 바꾸고 싶어\"처럼 현재 상태를 보여주면서 요청하면 의사소통이 명확해진다.\n\n**이미지 전달 방법:**\n- CLI: 클립보드에 복사한 이미지를 프롬프트에 붙여넣기\n- Desktop/IDE: 드래그 앤 드롭 또는 붙여넣기\n- 파일 경로: \"이 이미지를 참고해줘: ./screenshots/error.png\""
+    },
+    {
+      "type": "heading",
+      "value": "대화를 이어가는 팁"
+    },
+    {
+      "type": "text",
+      "value": "바이브 코딩은 한 번의 프롬프트로 끝나는 게 아니라, 대화를 이어가며 결과를 다듬는 과정이다.\n\n**후속 요청으로 다듬기:**\n\"좋은데, 이 부분만 다르게 해줘\"\n\"에러 처리도 추가해줘\"\n\"변수명을 좀 더 명확하게 바꿔줘\"\n\n**되돌리기:**\n\"방금 수정한 거 원래대로 돌려줘\"\n\"아까 방식이 더 나았어. 그걸로 다시 해줘\"\n\n**확인 요청:**\n\"이 코드에 문제가 없는지 한번 확인해줘\"\n\"엣지 케이스를 빠뜨린 게 없는지 검토해줘\"\n\n**방향 전환:**\n\"이 방식 말고 다른 접근법도 있을까?\"\n\"성능이 더 중요하니까, 최적화 위주로 다시 해줘\""
+    },
+    {
+      "type": "heading",
+      "value": "새 세션을 시작해야 할 때"
+    },
+    {
+      "type": "text",
+      "value": "하나의 세션(대화)이 너무 길어지면 AI의 응답 품질이 떨어질 수 있다. 컨텍스트가 복잡해지면서 이전 내용과 충돌하거나, 불필요한 맥락에 의해 판단이 흐려지기도 한다.\n\n**새 세션을 시작하면 좋은 경우:**\n- 현재 작업과 완전히 다른 새로운 작업을 시작할 때\n- 대화가 너무 길어져서 AI가 이전 맥락을 혼동할 때\n- 이전 대화에서 잘못된 방향으로 너무 깊이 들어갔을 때\n\n새 세션을 시작하려면 `/new` 명령어를 사용한다. 이전 세션으로 돌아가고 싶으면 `/resume`으로 불러올 수 있다. 이 내용은 이 시리즈의 기본 개념 및 설정 편에서 자세히 다뤘다."
+    },
+    {
+      "type": "heading",
+      "value": "Plan Mode 활용"
+    },
+    {
+      "type": "image",
+      "src": "https://www.eesel.ai/_next/image?url=https%3A%2F%2Fwebsite-cms.eesel.ai%2Fwp-content%2Fuploads%2F2025%2F09%2FClaudeCode-Plan-Mode.png&w=1680&q=100",
+      "caption": "Claude Code Plan Mode",
+      "alt": "Claude Code Plan Mode 화면"
+    },
+    {
+      "type": "text",
+      "value": "복잡한 작업을 시작하기 전에 먼저 계획을 세우고 싶을 때가 있다. 코드를 바로 수정하기 전에 \"어떤 파일을 어떻게 바꿀 건지\" 전체 그림을 먼저 보고 싶은 경우다. 이럴 때 **Plan Mode**를 사용한다.\n\nPlan Mode에서는 AI가 코드를 **읽기만** 하고 **수정하지 않는다.** 파일을 분석하고, 구조를 파악하고, 구현 계획을 세워서 보여주기만 한다. 사용자가 계획을 검토하고 승인한 후에야 실제 코드 수정이 진행된다."
+    },
+    {
+      "type": "heading",
+      "value": "Plan Mode 진입 방법"
+    },
+    {
+      "type": "text",
+      "value": "**Claude Code:**"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "# 방법 1: 실행 중에 모드 전환\nShift+Tab  # Normal → Auto-Accept → Plan Mode 순환\n\n# 방법 2: 처음부터 Plan Mode로 시작\nclaude --permission-mode plan"
+    },
+    {
+      "type": "text",
+      "value": "**Codex:**"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "# 방법 1: 슬래시 명령어\n/plan\n/plan \"인증 시스템 리팩토링 계획 세워줘\"\n\n# 방법 2: 모드 전환\nShift+Tab"
+    },
+    {
+      "type": "heading",
+      "value": "Plan Mode 동작 흐름"
+    },
+    {
+      "type": "text",
+      "value": "Plan Mode에서 AI는 다음 단계를 따른다.\n\n**1단계 - 탐색:** 코드를 읽고 구조를 파악한다\n**2단계 - 설계:** 어떤 접근 방식으로 구현할지 설계한다\n**3단계 - 검토:** 불명확한 부분은 사용자에게 질문한다\n**4단계 - 계획 작성:** 최종 계획을 문서로 정리한다\n\n**Claude Code:**\n- 계획은 `.claude/plans/` 폴더에 마크다운 파일로 자동 저장된다\n- `Ctrl+G`로 계획 파일을 에디터에서 직접 편집할 수 있다\n- 계획이 마음에 들면 `Shift+Tab`으로 Normal Mode로 전환하여 구현을 시작한다\n\n**Codex:**\n- 계획이 터미널 화면에 실시간으로 스트리밍된다\n- 계획 검토 후 모드를 전환하여 실행으로 넘어간다"
+    },
+    {
+      "type": "heading",
+      "value": "Plan Mode를 쓰면 좋은 경우"
+    },
+    {
+      "type": "text",
+      "value": "**사용하면 좋은 경우:**\n- 여러 파일을 동시에 수정해야 하는 작업\n- 큰 리팩토링이나 아키텍처 변경\n- 접근 방식이 여러 가지라 뭐가 좋을지 모를 때\n- 잘못 수정하면 되돌리기 어려운 작업\n\n**굳이 필요 없는 경우:**\n- 오타 수정, 로그 한 줄 추가 같은 간단한 작업\n- 한 파일 안에서 몇 줄만 바꾸는 작업\n- 이미 방향이 명확한 작업\n\n복잡한 작업에서 Plan Mode를 활용하면 \"일단 수정해봤는데 방향이 틀렸다\"는 상황을 미리 방지할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "정리"
+    },
+    {
+      "type": "text",
+      "value": "**작업 플로우:**\n- 계획 → 계획 검토 및 피드백 → 실행 → 피드백 → 수정 → 최종 리뷰 → 저장\n- 핵심은 \"계획 먼저, 실행은 나중에\"\n- 큰 작업은 작게 쪼개서 단계별로 진행\n- 복잡한 작업은 Plan Mode를 활용한다\n\n**프롬프트 작성:**\n- 구체적으로 쓰고, 맥락을 제공하고, 단계를 나누고, 예시를 포함하고, 제약조건을 명시한다\n- 반복되는 맥락과 제약조건은 CLAUDE.md / AGENTS.md에 기록해둔다\n- 이미지를 적극 활용한다\n- 대화를 이어가며 결과를 다듬는다\n\n처음에는 프롬프트 작성이 어색할 수 있다. 하지만 몇 번 반복하다 보면 AI에게 무엇을 어떻게 전달해야 좋은 결과가 나오는지 감이 잡힌다. 완벽한 프롬프트를 쓰려고 고민하기보다, 일단 대화를 시작하고 피드백을 주면서 다듬어 나가자."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Guide", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "The two most important things in vibe coding are **\"how you talk to AI\"** and **\"in what order you work.\"** Even with the same tools, the quality of results varies dramatically depending on how you write prompts and what workflow you follow.\n\nThis article covers the basic structure of workflows for effective collaboration with AI, how to use Plan Mode for complex tasks, and specific tips for writing good prompts."
+    },
+    {
+      "type": "heading",
+      "value": "Basic Workflow"
+    },
+    {
+      "type": "image",
+      "src": "https://media.excellentwebworld.com/wp-content/uploads/2025/06/04031013/how-vibe-coding-works.webp",
+      "caption": "Vibe Coding Workflow",
+      "alt": "Vibe coding workflow diagram"
+    },
+    {
+      "type": "text",
+      "value": "Vibe coding isn't about throwing a single request at AI and calling it done. You need to follow a structured workflow to get the results you want.\n\n**Plan → Review Plan & Feedback → Execute → Feedback → Revise → Final Review → Save**\n\n**1. Plan** - Have the AI create a plan first. \"Don't modify anything yet — show me the plan first.\" Check the big picture of which files to change and how.\n\n**2. Review Plan & Feedback** - Review the AI's proposed plan. Check if the direction is right and nothing is missing. Adjust as needed: \"Let's use a different approach for this part,\" \"This file needs to be modified too.\"\n\n**3. Execute** - Once the plan is agreed upon, the AI modifies the actual code.\n\n**4. Feedback** - Review the results and communicate any issues or improvements.\n\n**5. Revise** - The AI revises based on your feedback. Steps 4-5 can repeat until you're satisfied.\n\n**6. Final Review** - Review all changes. Final check that everything was modified as intended and nothing was missed.\n\n**7. Save** - If everything looks good, commit or save.\n\nThe key is \"plan first, execute later.\" If you tell AI to modify code directly, it's hard to recover when the direction goes wrong. Aligning the direction thoroughly in the planning stage and executing after agreement is much more efficient."
+    },
+    {
+      "type": "heading",
+      "value": "Controlling Task Size"
+    },
+    {
+      "type": "text",
+      "value": "When you ask for a large task all at once, the AI is more likely to go in the wrong direction or make mistakes. Breaking tasks into appropriate sizes is important.\n\n**Request that's too large:**\n\"Build the entire login feature. UI, API integration, error handling, and session management all at once.\"\n\n**Appropriately broken down:**\n1. \"First, create the login UI\"\n2. (After reviewing) \"Now add the API integration\"\n3. (After reviewing) \"Add error handling\"\n4. (After reviewing) \"Add session management logic\"\n\nSince you verify results at each step, the chance of going off track decreases. And because the AI can see the code from previous steps, consistency is maintained."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "What is a Prompt?"
+    },
+    {
+      "type": "text",
+      "value": "A prompt is the **instruction you send to AI.** Every text you type in the chat window is a prompt.\n\nEven for the same purpose, the quality of AI's response varies significantly depending on how you write the prompt. Think of it like a recipe — the clearer you specify the ingredients and steps, the closer the result will be to what you want."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5 Principles of Good Prompts"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.educba.com/academy/wp-content/uploads/2025/05/What-is-Prompt-Engineering.jpg",
+      "caption": "Prompt Engineering",
+      "alt": "Prompt engineering concept illustration"
+    },
+    {
+      "type": "heading",
+      "value": "1. Be Specific"
+    },
+    {
+      "type": "text",
+      "value": "Instead of vague expressions, specify concrete targets and actions.\n\n❌ \"Fix this\"\n✅ \"In UserService.cs, the Login method throws a NullReferenceException when password is null. Add a null check.\"\n\n❌ \"Make it better\"\n✅ \"This function has O(n²) time complexity. Improve it to O(n) using a hashmap.\"\n\nThe more specific you are about which file, which part, and what change, the more accurately the AI works."
+    },
+    {
+      "type": "heading",
+      "value": "2. Provide Context"
+    },
+    {
+      "type": "text",
+      "value": "At the start of a conversation, the AI knows nothing about your project. You need to provide the necessary background.\n\n**But you don't need to type context into every prompt.** It's far more efficient to record recurring context in CLAUDE.md or AGENTS.md. Since the AI automatically reads these files when a session starts, you don't have to repeat instructions like \"respond in Korean\" or \"don't touch this folder\" every time.\n\n**Good things to record in MD:**\n- Tech stack (Unity + C# + Firebase, etc.)\n- Project structure and work scope\n- Code conventions and naming rules\n- Prohibitions (no auto-commit, no modifying certain files, etc.)\n- Language and tone settings\n\n**Things to provide directly in prompts:**\n- Current task specifics: \"I'm adding login functionality. The basic UI is done, but API integration isn't yet.\"\n- Connection to previous work: \"Following up on the AuthManager we built earlier, I want to add token refresh logic.\"\n- Special requirements unique to this task\n\nThe project settings file guide is covered in detail in the CLAUDE.md and AGENTS.md settings guide in this series."
+    },
+    {
+      "type": "heading",
+      "value": "3. Break It Down"
+    },
+    {
+      "type": "text",
+      "value": "When you ask for multiple things at once, the AI may skip some or go in the wrong direction.\n\n❌ \"Design the database schema, create API endpoints, and connect the frontend.\"\n\n✅ Step 1: \"First, design the user data schema\"\n✅ Step 2: \"Create CRUD APIs for this schema\"\n✅ Step 3: \"Write the frontend code to call these APIs\"\n\nReviewing results at each step reduces the cost of corrections."
+    },
+    {
+      "type": "heading",
+      "value": "4. Include Examples"
+    },
+    {
+      "type": "text",
+      "value": "Showing examples of the desired output helps the AI understand your intent more accurately.\n\n\"Format the API response like this:\""
+    },
+    {
+      "type": "code",
+      "lang": "json",
+      "value": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"userId\": \"abc123\",\n    \"nickname\": \"player1\"\n  },\n  \"error\": null\n}"
+    },
+    {
+      "type": "text",
+      "value": "\"Write commit messages in this format: '2026-02-05 14:30 Add login feature'\"\n\n\"Format logs like this: [INFO] 2026-02-05 14:30:00 - message\"\n\nA single example is often more effective than a lengthy explanation."
+    },
+    {
+      "type": "heading",
+      "value": "5. State Constraints"
+    },
+    {
+      "type": "text",
+      "value": "Clearly tell the AI what it should and shouldn't do.\n\n**Constraints to provide in prompts (per-task):**\n\"Don't change the existing API interface. Backward compatibility must be maintained.\"\n\"Only modify this file. Don't touch other files.\"\n\"Don't modify anything yet — just show me the plan.\"\n\n**Constraints to record in MD (recurring ones):**\n- Always get approval before modifying code\n- No auto-commit/push\n- Certain folders off-limits (build outputs, environment variables, etc.)\n- Don't add external libraries without permission\n- Error message language settings\n\nIf you find yourself repeating the same constraints, record them in CLAUDE.md or AGENTS.md. They'll be applied automatically every session, which also helps prevent mistakes."
+    },
+    {
+      "type": "heading",
+      "value": "Bad Prompts vs Good Prompts"
+    },
+    {
+      "type": "image",
+      "src": "https://hatchworks.com/wp-content/uploads/2024/03/snapbar-good-vs-bad-prompt-1024x486.webp",
+      "caption": "Good Prompts vs Bad Prompts",
+      "alt": "Good prompts vs bad prompts comparison illustration"
+    },
+    {
+      "type": "text",
+      "value": "Let's compare with real examples.\n\n**Bug Fix:**\n❌ \"Fix the bug\"\n✅ \"There's a double-jump bug in PlayerController.cs's Jump() method. Pressing the jump key while already in the air triggers another jump. Check and fix the isGrounded logic.\"\n\n**Feature Addition:**\n❌ \"Add dark mode\"\n✅ \"I want to add a dark mode toggle to the settings screen. Add a toggle button to the existing SettingsUI.cs and implement saving the selected theme to PlayerPrefs. Color palettes are defined in ThemeColors.cs.\"\n\n**Refactoring:**\n❌ \"Clean up the code\"\n✅ \"AuthManager.cs is over 500 lines and I want to split it by responsibility. First, analyze what responsibilities this file handles and suggest how to separate them. Don't modify anything yet — just show me the plan.\"\n\n**Code Understanding:**\n❌ \"What is this code\"\n✅ \"Explain how the HandleDisconnect method in NetworkManager.cs works. I especially want to know under what conditions the reconnection logic is triggered.\""
+    },
+    {
+      "type": "heading",
+      "value": "Using Images and Screenshots"
+    },
+    {
+      "type": "text",
+      "value": "Both Claude Code and Codex can analyze images. Use screenshots when situations are hard to describe with text.\n\n**Error Messages:**\nCapture the error message from your terminal or editor and send it with \"Help me fix this error.\" It's more accurate and faster than typing out the error.\n\n**UI Design:**\nShow design mockups and request \"Implement the UI according to this design.\" The AI can directly see and understand the layout, colors, and spacing.\n\n**Current State:**\nShowing the current screen with \"This is how it looks now, I want to change this part\" makes communication much clearer.\n\n**How to send images:**\n- CLI: Paste an image from clipboard into the prompt\n- Desktop/IDE: Drag and drop or paste\n- File path: \"Refer to this image: ./screenshots/error.png\""
+    },
+    {
+      "type": "heading",
+      "value": "Tips for Continuing Conversations"
+    },
+    {
+      "type": "text",
+      "value": "Vibe coding isn't about a single prompt — it's about refining results through ongoing dialogue.\n\n**Refining with follow-ups:**\n\"Good, but change just this part differently\"\n\"Add error handling too\"\n\"Rename the variables to be more descriptive\"\n\n**Reverting:**\n\"Undo the last change\"\n\"The previous approach was better. Go back to that.\"\n\n**Verification requests:**\n\"Check if there are any issues with this code\"\n\"Review if I missed any edge cases\"\n\n**Changing direction:**\n\"Is there another approach besides this?\"\n\"Performance matters more, so redo it with optimization in mind\""
+    },
+    {
+      "type": "heading",
+      "value": "When to Start a New Session"
+    },
+    {
+      "type": "text",
+      "value": "If a single session gets too long, the AI's response quality may degrade. As context becomes complex, it may conflict with earlier information or get confused by irrelevant context.\n\n**Good times to start a new session:**\n- When starting a completely different task from the current one\n- When the conversation has gotten so long that the AI confuses earlier context\n- When you've gone too deep in the wrong direction\n\nUse the `/new` command to start a new session. If you want to return to a previous session, use `/resume`. These concepts are covered in detail in the Basic Concepts and Settings article in this series."
+    },
+    {
+      "type": "heading",
+      "value": "Using Plan Mode"
+    },
+    {
+      "type": "image",
+      "src": "https://www.eesel.ai/_next/image?url=https%3A%2F%2Fwebsite-cms.eesel.ai%2Fwp-content%2Fuploads%2F2025%2F09%2FClaudeCode-Plan-Mode.png&w=1680&q=100",
+      "caption": "Claude Code Plan Mode",
+      "alt": "Claude Code Plan Mode screen"
+    },
+    {
+      "type": "text",
+      "value": "Sometimes you want to plan before jumping into a complex task. You want to see the big picture of \"which files to change and how\" before any code is actually modified. That's when you use **Plan Mode.**\n\nIn Plan Mode, the AI only **reads** code and **doesn't modify** anything. It analyzes files, understands the structure, creates an implementation plan, and presents it. Actual code modifications only begin after the user reviews and approves the plan."
+    },
+    {
+      "type": "heading",
+      "value": "How to Enter Plan Mode"
+    },
+    {
+      "type": "text",
+      "value": "**Claude Code:**"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "# Method 1: Switch mode during a session\nShift+Tab  # Cycles: Normal → Auto-Accept → Plan Mode\n\n# Method 2: Start directly in Plan Mode\nclaude --permission-mode plan"
+    },
+    {
+      "type": "text",
+      "value": "**Codex:**"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "# Method 1: Slash command\n/plan\n/plan \"Create a refactoring plan for the auth system\"\n\n# Method 2: Mode switch\nShift+Tab"
+    },
+    {
+      "type": "heading",
+      "value": "How Plan Mode Works"
+    },
+    {
+      "type": "text",
+      "value": "In Plan Mode, the AI follows these steps:\n\n**Phase 1 - Explore:** Reads code and understands the structure\n**Phase 2 - Design:** Designs the implementation approach\n**Phase 3 - Review:** Asks the user about unclear parts\n**Phase 4 - Write Plan:** Documents the final plan\n\n**Claude Code:**\n- Plans are automatically saved as markdown files in the `.claude/plans/` folder\n- You can edit the plan file directly in your editor with `Ctrl+G`\n- When satisfied, switch to Normal Mode with `Shift+Tab` to start implementation\n\n**Codex:**\n- Plans are streamed in real-time to the terminal view\n- After reviewing, switch modes to proceed with execution"
+    },
+    {
+      "type": "heading",
+      "value": "When to Use Plan Mode"
+    },
+    {
+      "type": "text",
+      "value": "**Good situations for Plan Mode:**\n- Tasks that modify multiple files simultaneously\n- Large refactoring or architecture changes\n- When you're unsure about which approach to take\n- Changes that are hard to reverse if done wrong\n\n**When it's unnecessary:**\n- Simple tasks like fixing typos or adding a log line\n- Changes to just a few lines in a single file\n- Tasks where the direction is already clear\n\nUsing Plan Mode for complex tasks helps prevent the \"I made changes but the direction was wrong\" situation."
+    },
+    {
+      "type": "heading",
+      "value": "Summary"
+    },
+    {
+      "type": "text",
+      "value": "**Workflow:**\n- Plan → Review Plan & Feedback → Execute → Feedback → Revise → Final Review → Save\n- The key is \"plan first, execute later\"\n- Break large tasks into smaller steps\n- Use Plan Mode for complex tasks\n\n**Prompt Writing:**\n- Be specific, provide context, break it down, include examples, and state constraints\n- Record recurring context and constraints in CLAUDE.md / AGENTS.md\n- Make good use of images\n- Refine results through ongoing conversation\n\nWriting prompts may feel awkward at first. But after a few iterations, you'll develop a sense for what and how to communicate with AI to get good results. Rather than agonizing over the perfect prompt, just start the conversation and refine as you go."
+    }
+  ],
+  "needTranslate": false
+}
