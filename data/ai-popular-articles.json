@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-02-04T00:54:39.446Z",
+  "updatedAt": "2026-02-05T00:59:23.505Z",
   "period": "7days",
   "articles": [
     {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 235,
+      "views": 247,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
@@ -17,20 +17,32 @@
     {
       "category": "general",
       "slug": "moltbook-ai-social-network",
-      "views": 35,
+      "views": 36,
       "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "openai",
       "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 29,
+      "views": 31,
       "path": "/article/openai/gpt-5-3-garlic-update-rumor/"
     },
     {
       "category": "google",
       "slug": "google-genie3-unity-stock-crash",
-      "views": 23,
+      "views": 24,
       "path": "/article/google/google-genie3-unity-stock-crash/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 15,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "general",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 12,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "general",
@@ -39,28 +51,22 @@
       "path": "/article/general/claude-code-vs-codex-coding-agent/"
     },
     {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 11,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 11,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
       "category": "openai",
       "slug": "gpt-4o-shutdown-controversy",
-      "views": 9,
+      "views": 10,
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
       "category": "google",
       "slug": "alphagenome-first-impressions-2026",
-      "views": 7,
+      "views": 9,
       "path": "/article/google/alphagenome-first-impressions-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "musk-openai-lawsuit-escalation",
+      "views": 8,
+      "path": "/article/general/musk-openai-lawsuit-escalation/"
     },
     {
       "category": "general",
@@ -81,6 +87,12 @@
       "path": "/article/general/nvidia-openai-investment-retreat/"
     },
     {
+      "category": "anthropic",
+      "slug": "anthropic-b2b-strategy-success",
+      "views": 3,
+      "path": "/article/anthropic/anthropic-b2b-strategy-success/"
+    },
+    {
       "category": "openai",
       "slug": "chatgpt-desktop-app",
       "views": 3,
@@ -91,12 +103,6 @@
       "slug": "stargate-ai-crisis-2026",
       "views": 3,
       "path": "/article/openai/stargate-ai-crisis-2026/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-b2b-strategy-success",
-      "views": 2,
-      "path": "/article/anthropic/anthropic-b2b-strategy-success/"
     },
     {
       "category": "anthropic",

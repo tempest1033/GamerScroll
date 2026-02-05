@@ -202,6 +202,13 @@
       "type": "02.webp",
       "failedAt": "2026-02-04T11:30:09.744Z",
       "error": "write EPROTO 806C0E92097F0000:error:0A000152:SSL routines:final_renegotiate:unsafe legacy renegotiation disabled:../deps/openssl/openssl/ssl/statem/extensions.c:893:\n"
+    },
+    {
+      "url": "https://cdn.gamemeca.com/gmdata/0001/771/030/resize_gm131193_thumb___.jpg",
+      "date": "2026-02-05",
+      "type": "news",
+      "failedAt": "2026-02-05T00:58:19.084Z",
+      "error": "Timeout"
     }
   ]
 }
