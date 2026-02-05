@@ -216,6 +216,13 @@
       "type": "thumbnail.webp",
       "failedAt": "2026-02-05T01:56:46.428Z",
       "error": "source: bad seek to 13082\nsource: bad seek to 13056\nsource: bad seek to 13052\nsource: bad seek to 13051\nheif: Invalid input: Unspecified: Bitstream not supported by this decoder (2.0)"
+    },
+    {
+      "url": "https://img2.quasarzone.com/editor/2026/01/28/9a1a0d8b8a72c2983516c65e521b09d9.jpg",
+      "date": "2026-02-05",
+      "type": "ai.thumbnail",
+      "failedAt": "2026-02-05T02:10:51.318Z",
+      "error": "HTTP 403"
     }
   ]
 }
