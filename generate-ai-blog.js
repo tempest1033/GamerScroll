@@ -58,7 +58,8 @@ const EXTRA_ARTICLES = {
   // reports/issue/*.json
   issue: [
     'gpt-5-3-garlic-update-rumor',
-    'chatgpt-vs-gemini-comparison-2026'
+    'chatgpt-vs-gemini-comparison-2026',
+    'gemini-3-hallucination-memory-overfitting'
   ],
   // data/wiki/{category}/*.json
   wiki: [
