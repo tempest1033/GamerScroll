@@ -223,6 +223,13 @@
       "type": "ai.thumbnail",
       "failedAt": "2026-02-05T02:10:51.318Z",
       "error": "HTTP 403"
+    },
+    {
+      "url": "https://windowsreport.com/wp-content/uploads/2026/02/claude-opus-4.6-spotted.jpg",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "type": "02.webp",
+      "failedAt": "2026-02-05T20:34:41.105Z",
+      "error": "HTTP 403: https://windowsreport.com/wp-content/uploads/2026/02/claude-opus-4.6-spotted.jpg"
     }
   ]
 }
