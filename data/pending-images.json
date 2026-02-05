@@ -209,6 +209,13 @@
       "type": "news",
       "failedAt": "2026-02-05T00:58:19.084Z",
       "error": "Timeout"
+    },
+    {
+      "url": "https://assets.eweek.com/uploads/2025/11/gemini-3_model-blog_header-dark.width-2200.format-webp.jpg?w=1024",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "type": "thumbnail.webp",
+      "failedAt": "2026-02-05T01:56:46.428Z",
+      "error": "source: bad seek to 13082\nsource: bad seek to 13056\nsource: bad seek to 13052\nsource: bad seek to 13051\nheif: Invalid input: Unspecified: Bitstream not supported by this decoder (2.0)"
     }
   ]
 }
