@@ -3,6 +3,7 @@
  */
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -44,7 +45,7 @@ function generateUpcomingPage(data) {
 	          <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
 	        </div>
 	        <div class="upcoming-col-game">
-	          ${game.img ? `<img class="upcoming-icon" src="${game.img}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1"${retryAttr}>` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
+	          ${game.img ? `<img class="upcoming-icon" src="${resizeIcon(game.img)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1"${retryAttr}>` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
 	          <div class="upcoming-info">
 	            <div class="upcoming-name">${game.name}</div>
 	          </div>
@@ -110,9 +111,17 @@ function generateUpcomingPage(data) {
         mobile: '<svg viewBox="0 0 24 24" fill="#34a853"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#34a853" stroke-width="2" fill="none"/><circle cx="12" cy="18" r="1.5" fill="#34a853"/></svg>'
       };
       var logo = logos[platform] || logos.mobile;
+      function resizeIconUrl(url, size) {
+        if (!url) return '';
+        size = size || 100;
+        if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\/\\d+x\\d+bb\\./, '/' + size + 'x' + size + 'bb.');
+        if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s' + size;
+        return url;
+      }
       var header = '<div class="upcoming-table-header"><div>순위</div><div>게임</div></div>';
       var rows = items.map(function(game, i) {
-        return '<a class="upcoming-item" href="' + (game.link || '#') + '" target="_blank" rel="noopener"><div class="upcoming-col-rank"><span class="upcoming-rank ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span></div><div class="upcoming-col-game">' + (game.img ? '<img class="upcoming-icon" src="' + game.img + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1">' : '') + '<div class="upcoming-icon-placeholder' + (game.img ? ' hidden' : '') + '">' + logo + '</div><div class="upcoming-info"><div class="upcoming-name">' + game.name + '</div></div></div></a>';
+        var iconSrc = resizeIconUrl(game.img);
+        return '<a class="upcoming-item" href="' + (game.link || '#') + '" target="_blank" rel="noopener"><div class="upcoming-col-rank"><span class="upcoming-rank ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span></div><div class="upcoming-col-game">' + (game.img ? '<img class="upcoming-icon" src="' + iconSrc + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1">' : '') + '<div class="upcoming-icon-placeholder' + (game.img ? ' hidden' : '') + '">' + logo + '</div><div class="upcoming-info"><div class="upcoming-name">' + game.name + '</div></div></div></a>';
       }).join('');
       return header + rows;
     }

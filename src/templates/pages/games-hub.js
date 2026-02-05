@@ -5,6 +5,7 @@
  */
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -130,7 +131,7 @@ function generateGamesHubPage(options = {}) {
         ${popularGamesWithInfo.map(game => `
           <a href="/games/${game.slug}/" class="games-hub-popular-card">
             <span class="popular-rank">${game.rank}</span>
-            <img src="${game.icon}" alt="${game.name}" class="popular-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
+            <img src="${resizeIcon(game.icon)}" alt="${game.name}" class="popular-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
             <div class="popular-info">
               <span class="popular-name">${game.name}</span>
               <span class="popular-views">${game.views.toLocaleString()}회 조회</span>
@@ -269,8 +270,16 @@ function generateGamesHubPage(options = {}) {
 
   // 전체 게임 목록 아이콘: HTML을 가볍게 유지하고(SEO: 텍스트/링크 유지),
   // 보이는 항목만 search-index 기반으로 lazy hydrate 처리
+  function resizeIconUrl(url) {
+    if (!url) return '';
+    if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\/\\d+x\\d+bb\\./, '/100x100bb.');
+    if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
+    return url;
+  }
+
   function cssUrl(url) {
     if (!url) return '';
+    url = resizeIconUrl(url);
     const safe = String(url).replace(/\\\\/g, '\\\\\\\\').replace(/"/g, '\\"');
     return 'url("' + safe + '")';
   }
@@ -341,7 +350,7 @@ function generateGamesHubPage(options = {}) {
             </svg>
           </button>
           <a href="/games/\${game.slug}/" class="recent-link">
-            <img src="\${iconUrl}" alt="\${game.name}" class="recent-icon" loading="lazy" data-slug="\${game.slug}"\${needsIcon} data-img-fallback-src="/icon-192.png">
+            <img src="\${resizeIconUrl(iconUrl)}" alt="\${game.name}" class="recent-icon" loading="lazy" data-slug="\${game.slug}"\${needsIcon} data-img-fallback-src="/icon-192.png">
             <span class="recent-name">\${game.name}</span>
           </a>
         </div>
@@ -425,7 +434,7 @@ function generateGamesHubPage(options = {}) {
       } else {
         grid.innerHTML = results.slice(0, 50).map(game => \`
           <a href="/games/\${game.slug}/" class="games-hub-recent-card">
-            <img src="\${game.icon || '/icon-192.png'}" alt="\${game.name}" class="recent-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
+            <img src="\${resizeIconUrl(game.icon) || '/icon-192.png'}" alt="\${game.name}" class="recent-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
             <span class="recent-name">\${game.name}</span>
           </a>
         \`).join('');

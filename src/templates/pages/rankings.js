@@ -4,6 +4,7 @@
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
 const { countries } = require('../../crawlers/rankings');
+const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -54,7 +55,7 @@ function generateRankingsPage(data) {
       const items = chartData[c.code]?.[store] || [];
       const rows = items.length > 0 ? items.slice(0, maxItems).map((app, i) => {
         const slug = findGameSlug(app.appId, store);
-        const rowContent = `<img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
+        const rowContent = `<img class="app-icon" src="${resizeIcon(app.icon)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
         return slug
           ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
           : `<div class="rank-row">${rowContent}</div>`;
@@ -75,7 +76,7 @@ function generateRankingsPage(data) {
       } else if (items.length > 0) {
         rows = items.map((app, i) => {
           const slug = findGameSlug(app.appId, 'android');
-          const rowContent = `<img class="app-icon" src="${app.icon || ''}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
+          const rowContent = `<img class="app-icon" src="${resizeIcon(app.icon)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
           return slug
             ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
             : `<div class="rank-row">${rowContent}</div>`;
@@ -150,6 +151,13 @@ function generateRankingsPage(data) {
 
 	    function getMaxItems(store) {
 	      return 200;
+	    }
+
+	    function resizeIconUrl(url) {
+	      if (!url) return '';
+	      if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\/\d+x\d+bb\./, '/100x100bb.');
+	      if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
+	      return url;
 	    }
 
 	    function getDataUrl(chart, store) {
@@ -337,7 +345,7 @@ function generateRankingsPage(data) {
 
 	    function buildRow(app) {
 	      const title = escapeHtml(app && app.title ? app.title : '');
-	      const icon = escapeHtml(app && app.icon ? app.icon : '');
+	      const icon = escapeHtml(app && app.icon ? resizeIconUrl(app.icon) : '');
 	      const rowContent =
 	        '<img class="app-icon" src="' + icon + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility">' +
 	        '<div class="app-info"><div class="app-name">' + title + '</div></div>';

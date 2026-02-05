@@ -4,6 +4,7 @@
  */
 
 const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
+const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -102,7 +103,7 @@ function generateGamePage(gameData) {
 
   // 게임 아이콘
   const iconHtml = icon
-    ? `<img class="game-hero-icon" src="${icon}" alt="${name}" loading="lazy" data-img-fallback="hide">`
+    ? `<img class="game-hero-icon" src="${resizeIcon(icon)}" alt="${name}" loading="lazy" data-img-fallback="hide">`
     : '';
 
   // 순위 섹션 - iOS/Android 그리드 + 서브탭
