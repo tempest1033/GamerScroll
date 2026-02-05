@@ -1,7 +1,7 @@
 {
   "slug": "gemini-3-hallucination-memory-overfitting",
   "status": "approved",
-  "category": "general",
+  "category": "google",
   "needTranslate": false,
   "title": "벤치마크 괴물 제미나이, 환각 91%에 대화도 까먹는다?",
   "titleEn": "Gemini 3: Benchmark Beast, But 91% Hallucination and It Forgets Your Conversations",

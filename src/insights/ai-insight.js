@@ -141,11 +141,13 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}${metricsBlacklistSummary}
 - 아래 모든 thumbnail 필드는 항상 null로 출력
 - 썸네일은 후처리 단계(Codex)에서 웹 검색으로 채움
 
-## 중복 방지 (필수):
+## 중복 방지 (필수 - 가장 중요한 규칙):
 - summary(데일리 포커스)는 최근 리포트와 중복된 주제/표현 피할 것
 - issues의 tag는 각각 다르게 (5개 모두 다른 태그 사용, 중복 금지)
-- 최근 리포트에서 다룬 게임/주제 재언급 금지
+- ⚠️ 블랙리스트에 있는 게임은 issues, industryIssues, metrics, community 어디에도 절대 사용 금지
+- 같은 게임이 여러 날 연속 등장하면 안 됨 - 반드시 다른 게임/주제를 찾을 것
 - 1위 게임이 연속이면 다른 순위나 다른 이슈 찾기
+- 크롤링 데이터에 특정 게임이 두드러져도 블랙리스트면 무시할 것
 
 ## 각 섹션별 개수:
 - issues: 5개 (태그: 모바일/PC/콘솔/글로벌/e스포츠/인디/업계동향/정책/기술/신작/업데이트/콜라보/스트리밍/출시·종료(게임 출시 혹은 서비스 종료 소식)/행사(게임쇼, 전시회, 오프라인 이벤트) 중 5개 선택, 중복 금지)
@@ -460,11 +462,37 @@ function buildMetricsBlacklistSummary(recentInsights) {
 
   const gameNames = new Set();
   recentInsights.forEach(insight => {
+    // metrics에서 gameName 수집
     if (insight.metrics && insight.metrics.length > 0) {
       insight.metrics.forEach(metric => {
         if (metric.gameName) {
           gameNames.add(metric.gameName);
         }
+      });
+    }
+    // issues에서 게임명 추출 (title에서 주요 게임명 패턴 포함)
+    if (insight.issues && insight.issues.length > 0) {
+      insight.issues.forEach(issue => {
+        if (issue.gameName) gameNames.add(issue.gameName);
+      });
+    }
+    // industryIssues에서 게임명 추출
+    if (insight.industryIssues && insight.industryIssues.length > 0) {
+      insight.industryIssues.forEach(issue => {
+        if (issue.gameName) gameNames.add(issue.gameName);
+      });
+    }
+    // community에서 게임명 수집
+    if (insight.community && insight.community.length > 0) {
+      insight.community.forEach(comm => {
+        if (comm.tag) gameNames.add(comm.tag);
+        if (comm.gameName) gameNames.add(comm.gameName);
+      });
+    }
+    // rankings에서 게임명 수집
+    if (insight.rankings && insight.rankings.length > 0) {
+      insight.rankings.forEach(rank => {
+        if (rank.title) gameNames.add(rank.title);
       });
     }
   });
@@ -473,7 +501,7 @@ function buildMetricsBlacklistSummary(recentInsights) {
     return '';
   }
 
-  return `\n\n## 🚫 metrics 블랙리스트 (최근 7일 내 언급된 게임 - 절대 재사용 금지):\n${[...gameNames].join(', ')}\n`;
+  return `\n\n## 🚫 전체 게임 블랙리스트 (최근 7일 내 모든 섹션에서 언급된 게임 - 절대 재사용 금지):\n${[...gameNames].join(', ')}\n⚠️ 위 게임들은 issues, industryIssues, metrics, community 어디에도 다시 사용하지 마세요.\n`;
 }
 
 /**

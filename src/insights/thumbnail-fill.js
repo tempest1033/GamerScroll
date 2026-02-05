@@ -720,14 +720,12 @@ async function fillInsightThumbnails(ai, options = {}) {
     const gameName = owner.gameName || owner.name || null;
 
     const candidates = [];
-    candidates.push(...buildNewsCandidates(title, newsItems, 8, { gameName, usedUrls }));
 
+    // 항상 웹 이미지 검색 먼저 실행 (게임별 개별 이미지 확보)
     const query = buildSearchQuery(context);
-    const hasStrongCandidate = candidates.some(cand => cand.strict || cand.score >= 6);
-    if (query && !hasStrongCandidate) {
+    if (query) {
       const searched = await searchWebCandidates(query, firecrawl, 8);
       for (const cand of searched) {
-        // 이미 사용된 URL 제외
         if (usedUrls.has(normalizeUrl(cand.url))) continue;
         const { score, matchedCount } = computeMatchScore(title, cand.title || '');
         candidates.push({
@@ -737,6 +735,9 @@ async function fillInsightThumbnails(ai, options = {}) {
         });
       }
     }
+
+    // 뉴스 데이터 후보를 보조로 추가
+    candidates.push(...buildNewsCandidates(title, newsItems, 8, { gameName, usedUrls }));
 
     // 이미 사용된 URL 필터링
     const filtered = candidates.filter(cand => !usedUrls.has(normalizeUrl(cand.url)));
