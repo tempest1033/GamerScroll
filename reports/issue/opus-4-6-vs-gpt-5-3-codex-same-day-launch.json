@@ -1,0 +1,281 @@
+{
+  "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+  "status": "approved",
+  "title": "같은 날 격돌, 클로드 오푸스 4.6 vs GPT 5.3 코덱스 동시 출시",
+  "date": "2026-02-06T10:00",
+  "category": "general",
+  "keywords": "클로드 오푸스 4.6, GPT 5.3 코덱스, 앤트로픽, 오픈AI, AI 코딩, 에이전트, Terminal-Bench, SWE-Bench, AI 모델, 프론티어 모델",
+  "summary": "2월 5일, 앤트로픽 오푸스 4.6과 오픈AI GPT 5.3 코덱스가 동시 출시됐다. 30분 간격으로 Terminal-Bench 최고 기록이 뒤바뀐 AI 코딩 에이전트 전쟁의 전말.",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/01d06528567e4bd22c3ddedc87f609ee5716a009-2400x1260.png",
+  "titleEn": "Same-Day Showdown: Claude Opus 4.6 vs GPT-5.3-Codex Simultaneous Launch",
+  "summaryEn": "Anthropic's Opus 4.6 and OpenAI's GPT-5.3-Codex launched simultaneously on Feb 5. The Terminal-Bench top score changed hands within 30 minutes — a full breakdown of the AI coding agent war.",
+  "keywordsEn": "Claude Opus 4.6, GPT-5.3-Codex, Anthropic, OpenAI, AI coding, agents, Terminal-Bench, SWE-Bench, AI models, frontier models",
+  "needTranslate": false,
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 5, 2026, the two titans of the AI industry—Anthropic and OpenAI—simultaneously unveiled their next-generation models on the same day. Anthropic released Opus 4.6 while OpenAI launched GPT-5.3-Codex, forming a direct head-to-head confrontation over dominance in the AI agent era."
+    },
+    {
+      "type": "heading",
+      "value": "1. Claude Opus 4.6 — A Premium General-Purpose Model That 'Thinks Longer and Deeper'"
+    },
+    {
+      "type": "image",
+      "src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/0e5c55fa8fd05a893d11168654dc36999e90908b-2600x2968.png",
+      "caption": "Claude Opus 4.6 official benchmark card (Source: Anthropic)",
+      "alt": "Claude Opus 4.6 benchmark card"
+    },
+    {
+      "type": "image",
+      "src": "https://windowsreport.com/wp-content/uploads/2026/02/claude-opus-4.6-spotted.jpg",
+      "caption": "Claude Opus 4.6 announcement image (Source: Windows Report)",
+      "alt": "Claude Opus 4.6 announcement"
+    },
+    {
+      "type": "text",
+      "value": "Opus 4.6 significantly enhances the coding capabilities of its predecessor Opus 4.5 while delivering dominant performance in general knowledge tasks. It's the first Opus model to support 1 million token context (beta), with maximum output doubled to 128K tokens."
+    },
+    {
+      "type": "text",
+      "value": "The most notable change is 'Adaptive Thinking.' Previously, extended thinking was a binary on/off choice, but now the model autonomously determines whether to think deeply or respond quickly based on context. Additionally, reasoning effort levels (low/medium/high/max) allow developers to fine-tune the balance between intelligence, speed, and cost."
+    },
+    {
+      "type": "text",
+      "value": "Benchmark results are impressive. It set the top score on Terminal-Bench 2.0 (an AI coding agent evaluation), and ranked first among all models in composite reasoning tests. In real-world knowledge task evaluations, it led OpenAI's GPT-5.2 by approximately 144 Elo points. In long-context retrieval, it scored 76%, vastly outperforming Sonnet 4.5's 18.5%."
+    },
+    {
+      "type": "text",
+      "value": "Claude Code added an 'Agent Teams' feature in preview, enabling multiple agents to collaborate in parallel on large-scale tasks like code reviews. Pricing was maintained at $5 per million input tokens and $25 per million output tokens, the same as Opus 4.5."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. GPT-5.3-Codex — The Coding Agent That 'Built Itself'"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7e3gCpXDMIRl5xyjwMyGkq/d37f812bea33c8f3ba20531bc74b06f4/GPT-5.4-Codex_SEOcard_16x9.png",
+      "caption": "GPT-5.3-Codex official announcement image (Source: OpenAI)",
+      "alt": "GPT-5.3-Codex announcement"
+    },
+    {
+      "type": "text",
+      "value": "On the same day, OpenAI released GPT-5.3-Codex with the striking title of 'the first model to participate in its own training.' OpenAI revealed that early versions of GPT-5.3-Codex were used to debug its own training, manage deployments, and diagnose test results."
+    },
+    {
+      "type": "text",
+      "value": "Performance-wise, GPT-5.3-Codex achieved an industry-best 56.8% on SWE-Bench Pro (a real-world software engineering evaluation) and 77.3% on Terminal-Bench 2.0. It scored 64.7% on OSWorld-Verified (productivity tasks in visual desktop environments), a major leap from GPT-5.2's 37.9%."
+    },
+    {
+      "type": "text",
+      "value": "Versatility beyond coding was also emphasized. It supports presentation creation, spreadsheet analysis, and data processing pipeline construction, showing GPT-5.2-level performance across 44 professional knowledge task evaluations. A 25% speed improvement over its predecessor is also noteworthy."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Counterfire 30 Minutes Later — The Timing War"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/codex-benchmarks.webp",
+      "caption": "GPT-5.3-Codex benchmark results (Source: OpenAI)",
+      "alt": "GPT-5.3-Codex benchmarks"
+    },
+    {
+      "type": "text",
+      "value": "After Anthropic unveiled Opus 4.6, OpenAI responded with GPT-5.3-Codex just 30 minutes later. The timing was too precise to be coincidental. Industry observers believe OpenAI anticipated Anthropic's announcement and prepared a counter-launch strategy. In fact, OpenAI's Codex app had already been released on February 2, and 5.3-Codex was a model upgrade on top of it."
+    },
+    {
+      "type": "text",
+      "value": "The most dramatic moment unfolded on the Terminal-Bench 2.0 leaderboard. The previous #1 was Factory's Droid + GPT-5.2 combination at 64.9%. Opus 4.6 claimed the top spot at 65.4% (max reasoning), edging ahead by just 0.5 percentage points. But merely 30 minutes later, GPT-5.3-Codex posted 77.3%, overtaking it by roughly 12 percentage points. Opus 4.6's record lasted only 30 minutes. However, since both companies used different execution environments (harnesses), direct model-to-model performance comparison has its limitations."
+    },
+    {
+      "type": "heading",
+      "value": "4. Head-to-Head Benchmark Comparison"
+    },
+    {
+      "type": "text",
+      "value": "Comparing the figures released by both companies: Terminal-Bench 2.0: Opus 4.6 65.4% vs GPT-5.3-Codex 77.3%. Interestingly, both chose different SWE-Bench evaluation versions. Anthropic reported Verified (80.84%) and Multilingual (77.83%), while OpenAI highlighted Pro (56.8%). The current SWE-Bench Pro leaderboard has Opus 4.5 at #1 with 45.89%, so if Opus 4.6's Pro score is released, the landscape could shift again. Both companies strategically showcased evaluation criteria favorable to their own models."
+    },
+    {
+      "type": "text",
+      "value": "In real-world knowledge task evaluations, Opus 4.6 led GPT-5.2 by approximately 144 Elo points. GPT-5.3-Codex achieved a 70.9% win rate in the same evaluation, maintaining GPT-5.2-level performance. In desktop environment productivity task evaluations, GPT-5.3-Codex dominated at 64.7%. In cybersecurity CTF evaluations, GPT-5.3-Codex scored 77.6%, while Opus 4.6 used the expression 'industry-leading' instead of providing exact figures."
+    },
+    {
+      "type": "text",
+      "value": "In long-context tasks, Opus 4.6 held a clear advantage. It scored 76% in retrieving key information from 1 million token-scale documents, vastly outperforming Sonnet 4.5's 18.5%. Opus 4.6 supports 1 million token context (beta) and 128K output tokens, while GPT-5.3-Codex opted for context compression to manage long sessions."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Closing: What Lies Ahead?"
+    },
+    {
+      "type": "text",
+      "value": "Coincidentally, this simultaneous launch came right after a war of words between the two companies over Super Bowl advertising. The two companies that were trading barbs on social media the day before released their next-generation models at the same time the very next day. Their fierce competition will continue to be the biggest spectacle in the AI industry."
+    },
+    {
+      "type": "text",
+      "value": "Meanwhile, it's puzzling that GPT-5.3-Codex is explicitly described as a GPT-5.2-based model. Given the '5.3' numbering, some interpret it as closer to a coding agent-specialized fine-tune rather than a fundamental architectural change."
+    }
+  ],
+  "relatedIssues": [
+    "gpt-5-3-garlic-update-rumor",
+    "chatgpt-vs-gemini-comparison-2026"
+  ],
+  "relatedTech": [
+    "ai/claude-code-vs-codex-coding-agent",
+    "ai/anthropic-b2b-strategy-success",
+    "ai/claude-fennec-release-imminent"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "앤트로픽",
+      "title": "Introducing Claude Opus 4.6",
+      "url": "https://www.anthropic.com/news/claude-opus-4-6"
+    },
+    {
+      "name": "오픈AI",
+      "title": "Introducing GPT-5.3-Codex",
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic releases Opus 4.6 with new 'agent teams'",
+      "url": "https://techcrunch.com/2026/02/05/anthropic-releases-opus-4-6-with-new-agent-teams/"
+    },
+    {
+      "name": "ZDNET",
+      "title": "OpenAI's new GPT-5.3-Codex is 25% faster and goes way beyond coding",
+      "url": "https://www.zdnet.com/article/openai-gpt-5-3-codex-faster-goes-beyond-coding/"
+    },
+    {
+      "name": "CNBC",
+      "title": "Anthropic launches Claude Opus 4.6 as AI moves toward a 'vibe working' era",
+      "url": "https://www.cnbc.com/2026/02/05/anthropic-claude-opus-4-6-vibe-working.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월 5일, AI 업계의 양대 축인 앤트로픽과 오픈AI가 같은 날 차세대 모델을 동시에 공개했다. 앤트로픽은 오푸스 4.6을, 오픈AI는 GPT 5.3 코덱스를 내놓으며 AI 에이전트 시대의 주도권을 놓고 정면 대결 구도를 형성했다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 클로드 오푸스 4.6 — '더 오래, 더 깊이' 생각하는 범용 프리미엄"
+    },
+    {
+      "type": "image",
+      "src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/0e5c55fa8fd05a893d11168654dc36999e90908b-2600x2968.png",
+      "caption": "클로드 오푸스 4.6 공식 벤치마크 카드 (출처: 앤트로픽)",
+      "alt": "Claude Opus 4.6 benchmark card"
+    },
+    {
+      "type": "image",
+      "src": "https://windowsreport.com/wp-content/uploads/2026/02/claude-opus-4.6-spotted.jpg",
+      "caption": "클로드 오푸스 4.6 발표 이미지 (출처: Windows Report)",
+      "alt": "Claude Opus 4.6 announcement"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 공개한 오푸스 4.6은 전작 오푸스 4.5의 코딩 능력을 전면 강화하면서도 범용 지식 업무에서 압도적 성능을 보여준다. 오푸스 계열 최초로 100만 토큰 컨텍스트(베타)를 지원하고, 최대 출력이 12만 8천 토큰으로 두 배 늘어났다."
+    },
+    {
+      "type": "text",
+      "value": "가장 눈에 띄는 변화는 '적응형 사고' 기능이다. 기존에는 확장 사고를 켜거나 끄는 이진 선택이었지만, 이제 모델이 문맥을 파악해 깊이 사고할지 빠르게 답할지를 스스로 판단한다. 여기에 추론 레벨(최소/중간/높음/최대)을 도입해 개발자가 지능, 속도, 비용의 균형을 세밀하게 조절할 수 있게 했다."
+    },
+    {
+      "type": "text",
+      "value": "벤치마크 성적도 인상적이다. AI 코딩 에이전트 평가인 Terminal-Bench 2.0에서 업계 최고점을 기록했고, 복합 추론 시험에서도 전 모델 중 1위를 차지했다. 실무 지식 업무 평가에서는 오픈AI의 GPT-5.2를 약 144 Elo 포인트 차이로 앞섰다. 장기 컨텍스트 검색에서는 76%를 기록하며 소넷 4.5의 18.5%를 압도했다."
+    },
+    {
+      "type": "text",
+      "value": "클로드 코드에서는 '에이전트 팀' 기능이 프리뷰로 추가되어, 여러 에이전트가 병렬로 협업하며 코드 리뷰 같은 대규모 작업을 처리할 수 있게 됐다. 가격은 백만 토큰당 입력 5달러, 출력 25달러로 오푸스 4.5와 동일하게 유지됐다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. GPT 5.3 코덱스 — '스스로를 만든' 코딩 에이전트"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7e3gCpXDMIRl5xyjwMyGkq/d37f812bea33c8f3ba20531bc74b06f4/GPT-5.4-Codex_SEOcard_16x9.png",
+      "caption": "GPT 5.3 코덱스 공식 발표 이미지 (출처: 오픈AI)",
+      "alt": "GPT-5.3-Codex announcement"
+    },
+    {
+      "type": "text",
+      "value": "같은 날 오픈AI가 내놓은 GPT 5.3 코덱스는 '자기 자신의 학습에 참여한 최초의 모델'이라는 강렬한 타이틀을 달고 등장했다. 오픈AI는 초기 버전의 GPT 5.3 코덱스가 자체 훈련을 디버깅하고, 배포를 관리하며, 테스트 결과를 진단하는 데 활용됐다고 밝혔다."
+    },
+    {
+      "type": "text",
+      "value": "성능 면에서 GPT 5.3 코덱스는 SWE-Bench Pro(실전 소프트웨어 엔지니어링 평가)에서 56.8%로 업계 최고를 기록했고, Terminal-Bench 2.0에서는 77.3%를 달성했다. 특히 OSWorld-Verified(시각적 데스크톱 환경에서의 생산성 작업)에서 64.7%를 기록해 전작 GPT-5.2의 37.9%를 크게 뛰어넘었다."
+    },
+    {
+      "type": "text",
+      "value": "코딩을 넘어서는 범용성도 강조됐다. 발표 자료 제작, 스프레드시트 분석, 데이터 처리 파이프라인 구축까지 지원하며, 44개 직종의 실무 지식 업무 평가에서 GPT-5.2 수준의 성능을 보여줬다. 전작 대비 25% 빨라진 속도도 주목할 점이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 30분 뒤의 맞불 — 타이밍 전쟁"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/codex-benchmarks.webp",
+      "caption": "GPT 5.3 코덱스 벤치마크 성적표 (출처: 오픈AI)",
+      "alt": "GPT-5.3-Codex benchmarks"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 오푸스 4.6을 먼저 공개한 뒤, 오픈AI는 불과 30분 만에 GPT 5.3 코덱스를 발표하며 즉각 대응했다. 우연이라기엔 너무 정확한 타이밍이다. 업계에서는 오픈AI가 앤트로픽의 발표를 예상하고 맞불 전략을 준비한 것으로 보고 있다. 실제로 오픈AI의 코덱스 앱은 2월 2일에 이미 출시된 상태였고, 5.3-코덱스는 그 위에 올라가는 모델 업그레이드였다."
+    },
+    {
+      "type": "text",
+      "value": "가장 극적인 장면은 Terminal-Bench 2.0 순위표에서 벌어졌다. 기존 1위는 Factory의 Droid + GPT-5.2 조합으로 64.9%였다. 오푸스 4.6은 65.4%(최대 추론)를 기록하며 0.5%p 차이로 최고 기록을 탈환했다. 하지만 불과 30분 뒤, GPT 5.3 코덱스가 77.3%를 발표하며 약 12%p 차이로 역전했다. 오푸스 4.6의 최고 기록은 30분밖에 유지되지 못한 셈이다. 다만 양사가 서로 다른 실행 환경(하네스)을 사용했기 때문에 순수 모델 성능 비교에는 한계가 있다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 벤치마크 정면 비교"
+    },
+    {
+      "type": "text",
+      "value": "양사가 공개한 수치를 직접 비교하면 다음과 같다. Terminal-Bench 2.0: 오푸스 4.6 65.4% 대 GPT 5.3 코덱스 77.3%. SWE-Bench에서는 흥미롭게도 양사가 서로 다른 평가 버전을 선택했다. 앤트로픽은 검증판(80.84%)과 다국어판(77.83%)을 발표한 반면, 오픈AI는 프로판(56.8%)을 내세웠다. 현재 SWE-Bench 프로판 순위표에는 전작 오푸스 4.5가 45.89%로 1위를 차지하고 있어, 오푸스 4.6의 프로판 점수가 공개되면 판도가 뒤바뀔 가능성도 있다. 양사 모두 자사에 유리한 평가 기준을 전면에 내세운 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "실무 지식 업무 평가에서는 오푸스 4.6이 GPT-5.2를 약 144 Elo 포인트 차이로 앞섰다. GPT 5.3 코덱스는 같은 평가에서 70.9% 승률을 기록해 GPT-5.2 수준을 유지했다. 데스크톱 환경 생산성 작업 평가에서는 GPT 5.3 코덱스가 64.7%로 압도적이었다. 사이버보안 해킹 대회 평가에서는 GPT 5.3 코덱스가 77.6%를 기록한 반면, 오푸스 4.6은 정확한 수치 대신 '업계 최고'라는 표현을 사용했다."
+    },
+    {
+      "type": "text",
+      "value": "장기 컨텍스트에서는 오푸스 4.6이 확실한 우위를 점했다. 100만 토큰 규모의 문서에서 핵심 정보를 찾아내는 평가에서 76%를 기록해 소넷 4.5의 18.5%를 압도했다. 오푸스 4.6은 100만 토큰 컨텍스트(베타)와 12만 8천 출력 토큰을 지원하는 반면, GPT 5.3 코덱스는 컨텍스트 압축을 통해 긴 세션을 관리하는 방식을 택했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 앞으로의 전망은?"
+    },
+    {
+      "type": "text",
+      "value": "공교롭게도 이번 동시 출시는 슈퍼볼 광고를 둘러싼 양사의 설전 직후에 벌어졌다. 전날까지 SNS에서 언쟁을 주고받던 두 회사가 다음 날 같은 시각에 차세대 모델을 내놓은 셈이다. 양사의 치열한 경쟁은 앞으로도 AI 업계 최대의 관전 포인트가 될 것이다."
+    },
+    {
+      "type": "text",
+      "value": "한편 GPT 5.3 코덱스가 GPT-5.2 기반 모델이라고 명시된 점은 의아하다. '5.3'이라는 넘버링에 비해 아키텍처 변화보다는 코딩 에이전트 특화 튜닝에 가까운 것 아니냐는 해석이 나온다."
+    }
+  ]
+}

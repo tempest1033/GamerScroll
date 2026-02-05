@@ -2035,7 +2035,7 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
  * @param {Object} params.post - 이슈 포스트 데이터
  * @param {Object} params.nav - 이전/다음 포스트 정보
  */
-function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
+function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">포스트를 찾을 수 없습니다</div>', {
       currentPage: 'magazine',
@@ -2346,7 +2346,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
     </div>
   ` : '';
 
-  // 관련 문서 (이슈 + 위키)
+  // 관련 문서 (이슈 + 위키 + 테크)
   const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
   const relatedIssuesList = (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
 
@@ -2361,8 +2361,19 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
     return article ? { ...article, category: cat } : null;
   }).filter(Boolean).slice(0, 4);
 
-  // 이슈 + 위키 합쳐서 "관련 문서"
-  const hasRelatedDocs = relatedIssuesList.length > 0 || relatedWikiList.length > 0;
+  // 관련 테크 (수동 지정)
+  // 형식: "ai/slug", "normal/slug", "vibecoding/slug", 또는 "slug"(ai 기본)
+  const relatedTechList = (post.relatedTech || []).map(ref => {
+    if (typeof ref !== 'string' || !ref.trim()) return null;
+    const parts = ref.split('/');
+    const category = parts.length > 1 ? parts[0] : 'ai';
+    const articleSlug = parts.length > 1 ? parts[1] : parts[0];
+    const article = (techData[category] || []).find(a => a.slug === articleSlug);
+    return article ? { ...article, category } : null;
+  }).filter(Boolean).slice(0, 4);
+
+  // 이슈 + 위키 + 테크 합쳐서 "관련 문서"
+  const hasRelatedDocs = relatedIssuesList.length > 0 || relatedWikiList.length > 0 || relatedTechList.length > 0;
   const relatedDocsHtml = hasRelatedDocs ? `
     <div class="blog-related-issues">
       <div class="blog-related-title">관련 문서</div>
@@ -2377,6 +2388,12 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
           <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
             <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
+          </a>
+        `).join('')}
+        ${relatedTechList.map(tech => `
+          <a href="/tech/${tech.category}/${tech.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${fixUrl(tech.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${tech.title}</span></span>
           </a>
         `).join('')}
       </div>
@@ -3673,7 +3690,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
 /**
  * 순위 분석 상세 페이지 생성
  */
-function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueReports = [], insightReports = [], hotpickReports = [], wikiData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
+function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueReports = [], insightReports = [], hotpickReports = [], wikiData = {}, techData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   if (!post) {
     return wrapWithLayout('<div class="home-empty">순위 분석을 찾을 수 없습니다</div>', {
       currentPage: 'magazine',
@@ -4424,7 +4441,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
     </div>
   ` : '';
 
-  // 관련 문서 (이슈, 인사이트, 핫픽)
+  // 관련 문서 (이슈, 인사이트, 핫픽, 테크)
   const relatedDocs = [];
   if (post.relatedIssues && post.relatedIssues.length > 0) {
     post.relatedIssues.forEach(issueSlug => {
@@ -4434,13 +4451,25 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
       }
     });
   }
+  console.log(`  🔍 relatedTech debug: post.relatedTech=${JSON.stringify(post.relatedTech)}, techData keys=${Object.keys(techData)}, ai count=${(techData.ai||[]).length}`);
+  if (post.relatedTech && post.relatedTech.length > 0) {
+    post.relatedTech.forEach(techPath => {
+      const parts = techPath.split('/');
+      const category = parts.length > 1 ? parts[0] : 'ai';
+      const slug = parts.length > 1 ? parts[1] : parts[0];
+      const techArticle = (techData[category] || []).find(a => a.slug === slug);
+      if (techArticle) {
+        relatedDocs.push({ type: 'tech', title: techArticle.title, link: `/tech/${category}/${slug}/`, thumbnail: techArticle.thumbnail, slug: slug });
+      }
+    });
+  }
   const relatedDocsHtml = relatedDocs.length > 0 ? `
     <div class="blog-related-issues">
       <div class="blog-related-title">관련 문서</div>
       <div class="blog-related-issues-list">
         ${relatedDocs.map(doc => {
           const thumbUrl = doc.thumbnail
-            ? getLocalIssueImagePath(doc.slug, doc.thumbnail, 'thumbnail')
+            ? (doc.type === 'tech' ? fixUrl(doc.thumbnail) : getLocalIssueImagePath(doc.slug, doc.thumbnail, 'thumbnail'))
             : '';
           return `
             <a href="${doc.link}" class="blog-related-issue-card">

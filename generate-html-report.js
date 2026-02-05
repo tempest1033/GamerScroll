@@ -1666,7 +1666,7 @@ async function main() {
           prev: issueReports[i + 1] ? { slug: issueReports[i + 1].slug, title: issueReports[i + 1].title } : null,
           next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
         };
-        const html = generateIssueDetailPage({ post, nav, issueReports, insightReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
+        const html = generateIssueDetailPage({ post, nav, issueReports, insightReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, techData: techDataForSidebar, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.issues, cacheKey, post);
         issueBuilt++;
@@ -1768,7 +1768,7 @@ async function main() {
           prev: rankingReports[i + 1] ? { slug: rankingReports[i + 1].slug, title: rankingReports[i + 1].title } : null,
           next: rankingReports[i - 1] ? { slug: rankingReports[i - 1].slug, title: rankingReports[i - 1].title } : null
         };
-        const html = generateRankingDetailPage({ post, nav, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
+        const html = generateRankingDetailPage({ post, nav, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue, techData: techDataForSidebar, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.rankings, cacheKey, post);
         rankingBuilt++;
