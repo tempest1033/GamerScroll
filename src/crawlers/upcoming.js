@@ -218,14 +218,22 @@ async function fetchPS5Upcoming(FirecrawlClient, firecrawlApiKey) {
 
 // 모바일 신규 인기 게임 (iOS)
 async function fetchMobileUpcoming(store) {
+  const { fetchIosTopApps } = require('./ios-top-charts');
   const games = [];
   try {
-    const topApps = await store.list({
-      collection: store.collection.TOP_FREE_IOS,
-      category: store.category.GAMES,
-      country: 'kr',
-      num: 200
-    });
+    let topApps;
+    try {
+      topApps = await fetchIosTopApps({ chart: 'topFree', country: 'kr' });
+      console.log(`  모바일 iOS viewTop: ${topApps.length}개`);
+    } catch (e) {
+      console.log(`  viewTop 실패 (${e.message}), RSS fallback`);
+      topApps = await store.list({
+        collection: store.collection.TOP_FREE_IOS,
+        category: store.category.GAMES,
+        country: 'kr',
+        num: 200
+      });
+    }
 
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);

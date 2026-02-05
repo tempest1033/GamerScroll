@@ -118,8 +118,8 @@ function buildRankingChanges(todayRankings, yesterdayRankings) {
       yesterdayMap[app.title] = idx + 1;
     });
 
-    // 오늘 순위와 비교 (TOP 100)
-    todayList.slice(0, 100).forEach((app, idx) => {
+    // 오늘 순위와 비교 (TOP 200)
+    todayList.slice(0, 200).forEach((app, idx) => {
       const rank = idx + 1;
       const prevRank = yesterdayMap[app.title];
 

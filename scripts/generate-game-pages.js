@@ -1105,7 +1105,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
     rankings: {},
     rankHistory: [],  // 모바일 순위 추이 데이터
     realtimeRanks: {},  // 24시간 실시간 순위 데이터
-    snapshotLatestTimes: {},  // 각 스냅샷 키별 전체 최신 시간 (100위 밖 체크용)
+    snapshotLatestTimes: {},  // 각 스냅샷 키별 전체 최신 시간 (200위 밖 체크용)
     steamHistory: [],  // 스팀 순위 추이 데이터
     news: [],
     community: [],
@@ -1209,7 +1209,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
   const platforms = ['ios', 'android'];
 
   // 1. 스냅샷에서 최신 순위 추출 (실시간)
-  // 최신 시간대에 100위 안에 있는 경우만 표시 (100위 밖이면 설정 안 함)
+  // 최신 시간대에 200위 안에 있는 경우만 표시 (200위 밖이면 설정 안 함)
   for (const snapshotKey of Object.keys(result.realtimeRanks)) {
     const ranks = result.realtimeRanks[snapshotKey];
     if (ranks && ranks.length > 0) {
@@ -1221,7 +1221,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
         const globalLatest = snapshotData[snapshotData.length - 1];  // 전체 최신
 
         // 게임의 마지막 기록이 전체 최신과 같은 시간대인지 확인
-        // 다르면 100위 밖으로 떨어진 것
+        // 다르면 200위 밖으로 떨어진 것
         if (gameLatest.date === globalLatest.date && gameLatest.time === globalLatest.time) {
           const [snapshotPlatform, region, cat] = snapshotKey.split('-');
           const platform = snapshotPlatform === 'aos' ? 'android' : snapshotPlatform;

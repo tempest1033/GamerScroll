@@ -288,9 +288,9 @@ function generateComparisonChart(chartBlock) {
     allDates.push(d.toISOString().slice(0, 10));
   }
 
-  // Y축 범위: iOS=100, Android=200 고정
+  // Y축 범위: iOS/Android 모두 200 고정
   const yMin = 1;
-  const yMax = market === 'ios' ? 100 : 200;
+  const yMax = 200;
 
   // 좌표 계산 헬퍼 - 게임 페이지와 동일한 방식
   const getX = (i) => padding.left + xLabelPadding + (i / Math.max(1, allDates.length - 1)) * xLabelWidth;
@@ -4027,7 +4027,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
                         stroke: { width: 3, curve: 'smooth' },
                         markers: { size: 4, hover: { size: 6 } },
                         xaxis: { categories: ${JSON.stringify(lineLabels)}, labels: { rotate: -45, style: { fontSize: '11px' } }, tickAmount: 10 },
-                        yaxis: { reversed: true, min: 1, max: 100, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
+                        yaxis: { reversed: true, min: 1, max: 200, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
                         legend: { position: 'top', horizontalAlign: 'center' },
                         tooltip: { y: { formatter: function(v) { return v + '위'; } } },
                         grid: { borderColor: '#e0e0e0', strokeDashArray: 4 }
@@ -4195,8 +4195,8 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
           trendHistory.forEach(h => {
             if (h.kr) {
               trendLabels.push(h.date.slice(5).replace('-', '/'));
-              // 100위 밖은 null로 처리 (차트에서 숨김)
-              trendData.push(h.kr <= 100 ? h.kr : null);
+              // 200위 밖은 null로 처리 (차트에서 숨김)
+              trendData.push(h.kr <= 200 ? h.kr : null);
             }
           });
 
@@ -4222,7 +4222,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
                         stroke: { width: 3, curve: 'smooth' },
                         markers: { size: 0, hover: { size: 5 } },
                         xaxis: { categories: ${JSON.stringify(trendLabels)}, labels: { rotate: -45, style: { fontSize: '10px' } }, tickAmount: Math.min(10, ${trendLabels.length}) },
-                        yaxis: { reversed: true, min: 1, max: 100, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
+                        yaxis: { reversed: true, min: 1, max: 200, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
                         tooltip: { y: { formatter: function(v) { return v + '위'; } } },
                         grid: { borderColor: '#e0e0e0', strokeDashArray: 4 },
                         annotations: { yaxis: [{ y: ${trendMin}, borderColor: '${trendColor}', label: { text: '최고 ${trendMin}위', style: { background: '${trendColor}', color: '#fff', fontSize: '11px' } } }] }
@@ -4277,10 +4277,10 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
             const histMap = {};
             compHistory.forEach(h => { if (h.kr) histMap[h.date] = h.kr; });
 
-            // 전체 날짜에 맞춰 데이터 배열 생성 (없거나 100위 밖이면 null)
+            // 전체 날짜에 맞춰 데이터 배열 생성 (없거나 200위 밖이면 null)
             const itemData = compAllDates.map(d => {
               const rank = histMap[d];
-              return (rank && rank <= 100) ? rank : null;
+              return (rank && rank <= 200) ? rank : null;
             });
 
             if (itemData.some(v => v !== null)) {
@@ -4307,7 +4307,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
                         stroke: { width: 3, curve: 'straight' },
                         markers: { size: 4, hover: { size: 6 } },
                         xaxis: { categories: ${JSON.stringify(compLabels)}, labels: { rotate: -45, style: { fontSize: '10px' } }, tickAmount: Math.min(10, ${compLabels.length}) },
-                        yaxis: { reversed: true, min: 1, max: 100, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
+                        yaxis: { reversed: true, min: 1, max: 200, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
                         legend: { position: 'top', horizontalAlign: 'center', fontSize: '13px' },
                         tooltip: { y: { formatter: function(v) { return v ? v + '위' : '데이터 없음'; } } },
                         grid: { borderColor: '#e0e0e0', strokeDashArray: 4 },
@@ -4349,7 +4349,9 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
                           { from: 1, to: 10, color: '#00A100', name: 'TOP 10' },
                           { from: 11, to: 30, color: '#128FD9', name: '11-30위' },
                           { from: 31, to: 50, color: '#FFB200', name: '31-50위' },
-                          { from: 51, to: 100, color: '#FF0000', name: '51-100위' }
+                          { from: 51, to: 100, color: '#FF0000', name: '51-100위' },
+                          { from: 101, to: 150, color: '#CC0000', name: '101-150위' },
+                          { from: 151, to: 200, color: '#990000', name: '151-200위' }
                         ] } } },
                         xaxis: { labels: { style: { fontSize: '11px' } } },
                         legend: { position: 'bottom' }

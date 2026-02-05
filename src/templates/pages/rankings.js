@@ -47,8 +47,8 @@ function generateRankingsPage(data) {
     return `<div class="country-column rank-column" data-country="rank"><div class="column-header"><span class="country-name">순위</span></div><div class="rank-list">${rows}</div></div>`;
   }
 
-  // iOS 국가별 컬럼 생성 (100위까지)
-  function generateCountryColumns(chartData, store = 'ios', maxItems = 100) {
+  // iOS 국가별 컬럼 생성 (200위까지)
+  function generateCountryColumns(chartData, store = 'ios', maxItems = 200) {
     const rankCol = generateRankColumn(maxItems);
     const countryCols = countries.map(c => {
       const items = chartData[c.code]?.[store] || [];
@@ -149,7 +149,7 @@ function generateRankingsPage(data) {
 	    const rankingsPromise = {};
 
 	    function getMaxItems(store) {
-	      return store === 'ios' ? 100 : 200;
+	      return 200;
 	    }
 
 	    function getDataUrl(chart, store) {

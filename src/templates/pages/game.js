@@ -145,8 +145,8 @@ function generateGamePage(gameData) {
         // 게임의 마지막 데이터 시간
         const gameDt = lastRealtime ? `${lastRealtime.date}T${lastRealtime.time}` : null;
 
-        // 전체 최신 시간과 게임 마지막 시간이 같으면 100위 안에 있음
-        // 다르면 100위 밖으로 떨어진 것
+        // 전체 최신 시간과 게임 마지막 시간이 같으면 200위 안에 있음
+        // 다르면 200위 밖으로 떨어진 것
         const data = platformData[region];
         let rankVal;
         if (globalLatestTime && gameDt) {
@@ -214,7 +214,7 @@ function generateGamePage(gameData) {
         dateTimeLabels.sort();
         dateTimeLabels = dateTimeLabels.slice(-48); // 30분 간격 * 48 = 24시간
 
-        // 마지막 시간 기준: 전체 스냅샷의 최신 시간 사용 (100위 밖 처리를 위해)
+        // 마지막 시간 기준: 전체 스냅샷의 최신 시간 사용 (200위 밖 처리를 위해)
         // snapshotLatestTimes에서 해당 마켓의 가장 최신 시간 찾기
         let globalLatestDt = null;
         regionConfigs.forEach(r => {
@@ -666,7 +666,7 @@ function generateGamePage(gameData) {
         });
 
         if (minRank === Infinity) minRank = 1;
-        if (maxRank === 0) maxRank = 100;
+        if (maxRank === 0) maxRank = 200;
 
         const range = maxRank - minRank || 1;
         const yPad = Math.max(1, Math.ceil(range * 0.1));

@@ -67,7 +67,7 @@ function buildRankingChanges(todayRankings, yesterdayRankings) {
     const yesterdayMap = {};
     yesterdayList.forEach((app, idx) => { yesterdayMap[app.title] = idx + 1; });
 
-    todayList.slice(0, 100).forEach((app, idx) => {
+    todayList.slice(0, 200).forEach((app, idx) => {
       const rank = idx + 1;
       const prevRank = yesterdayMap[app.title];
       if (!prevRank) {

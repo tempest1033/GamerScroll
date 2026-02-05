@@ -1,3 +1,5 @@
+const { fetchIosTopApps } = require('./ios-top-charts');
+
 const countries = [
   { code: 'kr', name: '대한민국', flag: '🇰🇷' },
   { code: 'jp', name: '일본', flag: '🇯🇵' },
@@ -5,6 +7,34 @@ const countries = [
   { code: 'cn', name: '중국', flag: '🇨🇳' },
   { code: 'tw', name: '대만', flag: '🇹🇼' }
 ];
+
+// iOS 순위 조회 (viewTop API → RSS fallback)
+async function fetchIosRanking(store, chart, collection, country) {
+  try {
+    const apps = await fetchIosTopApps({ chart, country });
+    console.log(`  iOS ${chart} (${country}): ${apps.length}개 (viewTop)`);
+    return apps.map(a => ({
+      title: a.title,
+      developer: a.developer,
+      icon: a.icon,
+      appId: a.id || a.appId || ''
+    }));
+  } catch (e) {
+    console.log(`  iOS ${chart} viewTop 실패 (${e.message}), RSS fallback`);
+    const apps = await store.list({
+      collection,
+      category: store.category.GAMES,
+      country,
+      num: 200
+    });
+    return apps.map(a => ({
+      title: a.title,
+      developer: a.developer,
+      icon: a.icon,
+      appId: a.id || a.appId || ''
+    }));
+  }
+}
 
 // 마켓 순위 데이터
 async function fetchRankings(gplay, store) {
@@ -20,36 +50,18 @@ async function fetchRankings(gplay, store) {
 
     // iOS - Grossing
     try {
-      const iosGrossing = await store.list({
-        collection: store.collection.TOP_GROSSING_IOS,
-        category: store.category.GAMES,
-        country: c.code,
-        num: 200
-      });
-      results.grossing[c.code].ios = iosGrossing.map(a => ({
-        title: a.title,
-        developer: a.developer,
-        icon: a.icon,
-        appId: a.id || a.appId || ''
-      }));
+      results.grossing[c.code].ios = await fetchIosRanking(
+        store, 'topGrossing', store.collection.TOP_GROSSING_IOS, c.code
+      );
     } catch (e) {
       console.log(`  iOS Grossing error: ${e.message}`);
     }
 
     // iOS - Free
     try {
-      const iosFree = await store.list({
-        collection: store.collection.TOP_FREE_IOS,
-        category: store.category.GAMES,
-        country: c.code,
-        num: 200
-      });
-      results.free[c.code].ios = iosFree.map(a => ({
-        title: a.title,
-        developer: a.developer,
-        icon: a.icon,
-        appId: a.id || a.appId || ''
-      }));
+      results.free[c.code].ios = await fetchIosRanking(
+        store, 'topFree', store.collection.TOP_FREE_IOS, c.code
+      );
     } catch (e) {
       console.log(`  iOS Free error: ${e.message}`);
     }

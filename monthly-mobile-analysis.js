@@ -25,7 +25,7 @@ function parseArgs() {
     month: null,      // YYYY-MM 형식
     country: 'kr',    // kr, jp, us, cn, tw
     minDays: 15,      // 최소 출현 일수
-    limit: 100        // TOP N
+    limit: 200        // TOP N
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -272,11 +272,11 @@ function calculateMinMax(ranks) {
   };
 }
 
-// 총점 계산 (1위=100점, 100위=1점, OUT=0점)
+// 총점 계산 (1위=200점, 200위=1점, OUT=0점)
 function calculateTotalPoints(ranks) {
   if (!ranks || ranks.length === 0) return 0;
   return ranks.reduce((sum, rank) => {
-    const points = Math.max(0, 101 - rank); // 100위 이하는 1점, 101위 이상은 0점
+    const points = Math.max(0, 201 - rank); // 200위 이하는 1점, 201위 이상은 0점
     return sum + points;
   }, 0);
 }
@@ -306,7 +306,7 @@ function processResults(gameStats, gamesData, minDays, limit, totalDays, snapsho
       max: snapshotData.aos.max !== null ? snapshotData.aos.max : calcAosMinMax.max
     };
 
-    // 총점 계산 (1위=100점, 100위=1점)
+    // 총점 계산 (1위=200점, 200위=1점)
     const iosPoints = calculateTotalPoints(stats.ios.ranks);
     const aosPoints = calculateTotalPoints(stats.aos.ranks);
     const totalPoints = iosPoints + aosPoints;

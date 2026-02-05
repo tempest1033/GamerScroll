@@ -213,19 +213,19 @@ function generateSummary(mobileChanges, steamChanges) {
 function generateDailyInsight(todayData, yesterdayData) {
   const today = getTodayDate();
 
-  // 순위 변동 분석 (TOP 100)
+  // 순위 변동 분석 (TOP 200)
   const mobileChangesKR = analyzeRankingChanges(
     todayData.rankings,
     yesterdayData?.rankings,
     'kr',
-    100
+    200
   );
 
   const mobileChangesUS = analyzeRankingChanges(
     todayData.rankings,
     yesterdayData?.rankings,
     'us',
-    100
+    200
   );
 
   const steamChanges = analyzeSteamChanges(
@@ -435,12 +435,12 @@ function generateInsightHTML(insight) {
         <div class="metric-card success">
           <div class="metric-label">주간 급상승</div>
           <div class="metric-value">${mobile.kr.ios.filter(g => g.status === 'up' && g.change >= 5)[0]?.title || '-'}</div>
-          <div class="metric-sub">iOS TOP 100 기준</div>
+          <div class="metric-sub">iOS TOP 200 기준</div>
         </div>
         <div class="metric-card blue">
           <div class="metric-label">신규 진입</div>
           <div class="metric-value">${mobile.kr.ios.filter(g => g.status === 'new')[0]?.title || '-'}</div>
-          <div class="metric-sub">TOP 100 신규</div>
+          <div class="metric-sub">TOP 200 신규</div>
         </div>
       </div>
 
