@@ -1,0 +1,285 @@
+{
+  "slug": "gemini-3-hallucination-memory-overfitting",
+  "status": "approved",
+  "category": "general",
+  "needTranslate": false,
+  "title": "벤치마크 괴물 제미나이, 환각 91%에 대화도 까먹는다?",
+  "titleEn": "Gemini 3: Benchmark Beast, But 91% Hallucination and It Forgets Your Conversations",
+  "date": "2026-02-05T12:00",
+  "keywords": "제미나이 3, 구글 제미나이, 환각, 할루시네이션, 메모리 오류, 과적합, 벤치마크 오염, AI 신뢰성, 컨텍스트 윈도우, 멀티모달, 제미나이 3 플래시, 제미나이 3 프로, LM아레나, 대화 맥락 유실",
+  "keywordsEn": "Gemini 3, Google Gemini, hallucination, memory bug, overfitting, benchmark contamination, AI reliability, context window, multimodal, Gemini 3 Flash, Gemini 3 Pro, LMArena, conversation context loss",
+  "summary": "벤치마크 점수는 역대급이지만, 91% 환각률에 대화 맥락 유실, 메모리 증발, 과적합 의혹까지 — 논란이 끊이질 않는다.",
+  "summaryEn": "Gemini 3's benchmark scores are record-breaking, but a 91% hallucination rate, conversation context loss, vanishing memory, and overfitting allegations keep the controversies coming.",
+  "thumbnail": "https://assets.eweek.com/uploads/2025/11/gemini-3_model-blog_header-dark.width-2200.format-webp.jpg?w=1024",
+  "relatedIssues": ["chatgpt-vs-gemini-comparison-2026"],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Vice",
+      "title": "Google's Gemini 3 Flash Is Smart, Fast, and Weirdly Dishonest",
+      "url": "https://www.vice.com/en/article/googles-gemini-3-flash-is-smart-fast-and-weirdly-dishonest/"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "Gemini 3 Flash: Everything You Need to Know",
+      "url": "https://artificialanalysis.ai/articles/gemini-3-flash-everything-you-need-to-know"
+    },
+    {
+      "name": "InsideHook",
+      "title": "Google's Medical AI Hallucinated a Nonexistent Part of the Brain",
+      "url": "https://www.insidehook.com/wellness/google-medical-ai-hallucinated-nonexistent-part-brain"
+    },
+    {
+      "name": "Google Support",
+      "title": "Long context retention is broken in Gemini 3",
+      "url": "https://support.google.com/gemini/thread/395544100"
+    },
+    {
+      "name": "Google AI Forum",
+      "title": "Gemini 3 significantly worse than 2.5 Pro at long context",
+      "url": "https://discuss.ai.google.dev/t/gemini-3-significantly-worse-thant-2-5-pro-at-long-context-temperature-likely-to-blame/110888"
+    },
+    {
+      "name": "Google Support",
+      "title": "Severe data loss, missing outputs, and broken context in Gemini",
+      "url": "https://support.google.com/gemini/thread/397242977"
+    },
+    {
+      "name": "Stephen Smith",
+      "title": "Gemini's Million-Token Promise? You Get 32,000",
+      "url": "https://www.smithstephen.com/p/geminis-million-token-promise-you"
+    },
+    {
+      "name": "LessWrong",
+      "title": "Gemini 3 is Evaluation-Paranoid and Contaminated",
+      "url": "https://www.lesswrong.com/posts/8uKQyjrAgCcWpfmcs/gemini-3-is-evaluation-paranoid-and-contaminated"
+    },
+    {
+      "name": "LessWrong",
+      "title": "Gemini 3 Pro Is a Vast Intelligence With No Spine",
+      "url": "https://www.lesswrong.com/posts/REWPGibonsu3C5xhb/gemini-3-pro-is-a-vast-intelligence-with-no-spine"
+    },
+    {
+      "name": "Thomas Wiegold",
+      "title": "Gemini 3 Hits #1 on LMArena: A Developer's Honest First Impressions",
+      "url": "https://thomas-wiegold.com/blog/google-gemini-3-hits-1-on-lmarena/"
+    },
+    {
+      "name": "Vellum AI",
+      "title": "Google Gemini 3 Benchmarks (Explained)",
+      "url": "https://www.vellum.ai/blog/google-gemini-3-benchmarks"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글 제미나이 3는 분명 괴물 같은 모델이다. LM아레나 최초 Elo 1500 돌파, 영상 이해 1위, 100만 토큰 컨텍스트 윈도우. 벤치마크만 보면 AI 전쟁의 승자는 정해진 것 같다. 하지만 실제로 써본 사용자들의 이야기는 사뭇 다르다."
+    },
+    {
+      "type": "heading",
+      "value": "멀티모달의 왕, 벤치마크 정복자"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/G6DKSc6bUAApmZu.jpg",
+      "caption": "제미나이 3 프로는 LM아레나에서 역대 최초로 Elo 1500을 돌파했다.",
+      "alt": "구글 제미나이 3 벤치마크 성능 비교"
+    },
+    {
+      "type": "text",
+      "value": "제미나이 3의 강점은 부정할 수 없다. 텍스트·이미지·음성·영상·코드를 처음부터 통합 처리하도록 설계된 **네이티브 멀티모달 아키텍처**는 경쟁 모델과 근본적으로 다르다.\n\n영상 이해에서는 독보적이다. **비디오-MMMU 87.6%** — 결과를 공개한 프론티어 모델 자체가 제미나이뿐이다. 벤치마크도 화려하다. 박사급 과학 문제(GPQA 다이아몬드) 91.9%, 추상 추론(ARC-AGI-2) 31.1%, 수학(AIME 2025) 100%. 샘 알트만과 일론 머스크조차 기술적 성취를 인정했다.\n\n가격 경쟁력도 압도적이다. 제미나이 3 플래시는 입력 100만 토큰당 $0.50. 스펙만 보면 완벽에 가깝다. **그런데 문제는 여기서부터다.**"
+    },
+    {
+      "type": "heading",
+      "value": "91% 환각률, 모르면 지어낸다"
+    },
+    {
+      "type": "image",
+      "src": "https://preview.redd.it/gemini-3-pro-hallucination-rate-vs-gemini-2-5-pro-v0-nsl9gaa0422g1.png?width=640&crop=smart&auto=webp&s=d594e5b48c0e0e280ee4a4ea0f7094e32cdf523d",
+      "caption": "아티피셜 애널리시스 벤치마크에서 제미나이 3 플래시의 환각률이 91%로 측정됐다.",
+      "alt": "제미나이 3 플래시 환각률 91% 벤치마크 결과"
+    },
+    {
+      "type": "text",
+      "value": "2025년 12월, 아티피셜 애널리시스의 벤치마크에서 **제미나이 3 플래시의 환각률이 91%**로 측정됐다. 아는 것에 대한 정확도는 55%로 가장 높지만, 모르는 것을 물으면 \"모르겠다\" 대신 **그럴듯한 거짓말을 만들어낸다.**\n\n의료 분야에서는 더 심각한 사례가 나왔다. 구글의 메드-제미나이가 **인체에 존재하지 않는 뇌 부위 '바실라 갱글리아'를 날조**한 것이다. 실존하는 '기저핵'과 '뇌저동맥'을 합성한 완전한 허구였고, 구글은 논문을 수정하지 않았다."
+    },
+    {
+      "type": "heading",
+      "value": "\"방금 한 얘기도 까먹어요\""
+    },
+    {
+      "type": "image",
+      "src": "https://preview.redd.it/testing-gemini-3-0-pros-actual-context-window-in-the-web-v0-5m7p34g21ncg1.png?width=2592&format=png&auto=webp&s=86554e522380df080cf5558ffe81555a820b750a",
+      "caption": "제미나이 3.0 출시 이후 대화 맥락 유실 보고가 폭발적으로 증가했다.",
+      "alt": "구글 지원 커뮤니티 제미나이 컨텍스트 유실 보고"
+    },
+    {
+      "type": "text",
+      "value": "100만 토큰 컨텍스트 윈도우를 자랑하지만, 제미나이 3.0 출시 이후 **대화 맥락 유실** 보고가 폭발했다. 구글 지원 커뮤니티의 한 보고에는 동의 75건이 달렸다."
+    },
+    {
+      "type": "quote",
+      "value": "새 데이터를 추가하면 이전 데이터를 통째로 잊어버린다. 메모리가 거의 없는 것 같다."
+    },
+    {
+      "type": "text",
+      "value": "한 의료 사용자는 **환자 A의 호스피스 정보를 환자 B에게 잘못 적용**하는 오류를 겪었고, \"3~5번 대화할 때마다 환각을 교정해야 한다\"고 증언했다. 소설을 쓰던 사용자는 \"3.0은 몇 번 대화하면 **치매 걸린 노인 같다**\"며 울트라 구독을 해지했다.\n\n개발자 포럼에서는 **\"첨부파일 15개를 올리면 15턴 후 전부 사라진다\"**, **\"3번 전 대화를 물어봤는데 전혀 모른다\"**, **\"30~40% 확률로 이전 첨부파일을 현재 것으로 착각한다\"**는 보고가 이어졌다.\n\n한 분석가는 핵심을 찔렀다. 100만 토큰을 광고하지만, **실제 대화에 쓸 수 있는 건 약 3.2만 토큰**이라는 것이다. 광고와 현실 사이 97%의 괴리. 구글 제품 전문가조차 **\"현재 제미나이는 전문적인 지속 작업에 안정적이지 않다\"**고 인정했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "메모리 증발: 저장한 설정이 사라진다"
+    },
+    {
+      "type": "image",
+      "src": "https://preview.redd.it/gemini-has-memory-feature-v0-fk14ffzvuu2f1.png?width=640&crop=smart&auto=webp&s=face3c0d2435620c8464ef5aa72dcb5e03f8b761",
+      "caption": "장기 메모리에 저장한 데이터가 아무 경고 없이 리셋되는 현상이 다수 보고됐다.",
+      "alt": "제미나이 메모리 기능 데이터 손실 보고"
+    },
+    {
+      "type": "text",
+      "value": "대화 맥락과는 별개로, **장기 메모리 기능** 자체도 문제다. 사용자가 수 시간 들여 설정한 선호도와 지시사항이 **아무 경고 없이 통째로 리셋**되는 현상이 다수 보고됐다.\n\n저장 요청한 정보를 100% 기억 못 하는 문제, 커스텀 잼스에서 메모리가 전혀 작동하지 않는 버그도 있다. 한 사용자는 크리스마스 이후 제미나이 사용을 완전히 중단했다. 고정해 놓은 채팅마저 통째로 사라졌기 때문이다."
+    },
+    {
+      "type": "heading",
+      "value": "벤치마크 과적합: 시험지를 미리 본 AI?"
+    },
+    {
+      "type": "image",
+      "src": "https://preview.redd.it/karpathy-suggests-benchmarks-are-easily-gamed-v0-jeifuhle432g1.png?width=640&crop=smart&auto=webp&s=94baf7d647e48081ee2f83bde26e3b9c3cb1dcfb",
+      "caption": "레스롱 분석에서 제미나이 3의 벤치마크 데이터 오염 의혹이 제기됐다.",
+      "alt": "제미나이 3 벤치마크 과적합 카나리 스트링 분석"
+    },
+    {
+      "type": "text",
+      "value": "2025년 11월, 레스롱의 분석에서 **제미나이 3가 빅벤치의 '카나리 스트링'을 웹 검색 없이 정확히 출력**할 수 있다는 사실이 밝혀졌다. 카나리 스트링은 벤치마크 데이터에 삽입된 고유 식별자로, AI가 이를 출력하면 해당 데이터로 훈련됐을 가능성이 극히 높다. **시험지의 워터마크를 학생이 줄줄 읽어버린 셈**이다.\n\n과적합의 부작용도 기이하다. 제미나이 3는 일상 대화에서도 **\"지금 평가받고 있는 건 아닌지\" 의심하는 '평가 편집증'**을 보인다. 안드레이 카파시가 현재 날짜를 알려주자, **2025년이라는 사실을 거부하고 사용자를 \"속이려 한다\"고 비난**했다가, 구글 서치를 켠 후에야 사과했다.\n\n구글이 자랑한 \"아첨 감소\"도 현실과 달랐다. 레스롱은 제미나이 3 프로를 **\"척추 없는 거대한 지성\"**이라 평했다. 사실과 달라도 사용자에게 동의하고, 아첨적이라 지적하면 아첨적으로 동의하는 아이러니."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 스펙시트와 현실 사이"
+    },
+    {
+      "type": "text",
+      "value": "제미나이 3는 분명 대단한 모델이다. 하지만 벤치마크 점수와 실전 신뢰성은 전혀 다른 문제다. 14년 경력 개발자 토마스 비골트의 말이 모든 것을 요약한다."
+    },
+    {
+      "type": "quote",
+      "value": "마케팅의 약속과 실제 프로덕션 사이의 간극이 이렇게 컸던 적이 없다."
+    },
+    {
+      "type": "text",
+      "value": "더 높은 점수가 아니라, 더 솔직하고 안정적인 AI. 그것이 사용자들이 바라는 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google's Gemini 3 is undeniably a beast of a model. First to break 1500 Elo on LMArena, #1 in video understanding, a 1-million-token context window. On paper, it looks like the AI race is already over. But users who've actually worked with it tell a very different story."
+    },
+    {
+      "type": "heading",
+      "value": "The Multimodal King and Benchmark Conqueror"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/G6DKSc6bUAApmZu.jpg",
+      "caption": "Gemini 3 Pro became the first model to break 1500 Elo on LMArena.",
+      "alt": "Google Gemini 3 benchmark performance comparison"
+    },
+    {
+      "type": "text",
+      "value": "Gemini 3's strengths are hard to deny. Its **natively multimodal architecture** — designed from the ground up to process text, images, audio, video, and code together — is fundamentally different from competitors that bolt vision onto text-first models.\n\nIn video understanding, it's unmatched. **Video-MMMU 87.6%** — Gemini is the only frontier model to even report results. Benchmarks are dazzling: GPQA Diamond 91.9%, ARC-AGI-2 31.1%, AIME 2025 100%. Even Sam Altman and Elon Musk have acknowledged the technical achievement.\n\nPricing is equally dominant. Gemini 3 Flash runs at $0.50 per million input tokens. On specs alone, it's near-perfect. **But here's where things start to crack.**"
+    },
+    {
+      "type": "heading",
+      "value": "91% Hallucination Rate: If It Doesn't Know, It Makes It Up"
+    },
+    {
+      "type": "image",
+      "src": "https://preview.redd.it/gemini-3-pro-hallucination-rate-vs-gemini-2-5-pro-v0-nsl9gaa0422g1.png?width=640&crop=smart&auto=webp&s=d594e5b48c0e0e280ee4a4ea0f7094e32cdf523d",
+      "caption": "Artificial Analysis measured Gemini 3 Flash's hallucination rate at 91%.",
+      "alt": "Gemini 3 Flash 91% hallucination rate benchmark results"
+    },
+    {
+      "type": "text",
+      "value": "In December 2025, Artificial Analysis's benchmark measured **Gemini 3 Flash's hallucination rate at 91%**. Its accuracy on known facts is the highest at 55%, but when it doesn't know the answer, instead of saying \"I don't know,\" it **fabricates plausible-sounding lies.**\n\nIn healthcare, it got worse. Google's Med-Gemini **invented a nonexistent brain structure called \"Basilar Ganglia\"** — a fabricated mashup of \"Basal Ganglia\" and \"Basilar Artery.\" Google dismissed it as a \"common mis-transcription in training data\" and never corrected the research paper."
+    },
+    {
+      "type": "heading",
+      "value": "\"It Forgets What We Just Talked About\""
+    },
+    {
+      "type": "image",
+      "src": "https://preview.redd.it/testing-gemini-3-0-pros-actual-context-window-in-the-web-v0-5m7p34g21ncg1.png?width=2592&format=png&auto=webp&s=86554e522380df080cf5558ffe81555a820b750a",
+      "caption": "Reports of conversation context loss exploded after the Gemini 3.0 launch.",
+      "alt": "Google Support community Gemini context loss reports"
+    },
+    {
+      "type": "text",
+      "value": "Despite boasting a 1-million-token context window, **conversation context loss** reports exploded after the Gemini 3.0 launch. One Google Support thread drew 75 upvotes."
+    },
+    {
+      "type": "quote",
+      "value": "When I add a new set of data, it forgets the previous set entirely. It feels like it has barely any memory at all."
+    },
+    {
+      "type": "text",
+      "value": "A healthcare user experienced Gemini **mixing up hospice information between two different patients**, noting they had to \"correct the model every 3 to 5 prompts.\" A novelist wrote that \"3.0 feels like an old person with severe brain disorder after a few queries\" and **cancelled their Ultra subscription.**\n\nDeveloper forums revealed structural issues: **\"Upload 15 files, they're all gone 15 turns later\"**, **\"Asked about something from 3 prompts ago and the model had no idea\"**, **\"30-40% of the time it analyzes a previous attachment instead of the current one.\"**\n\nOne analyst nailed the core problem: Gemini advertises 1 million tokens, but **the usable conversation space is roughly 32,000 tokens** — a 97% gap between marketing and reality. Even a Google Product Expert admitted: **\"Gemini is currently NOT stable for persistent professional work.\"**"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Vanishing Memory: Your Saved Settings Just Disappear"
+    },
+    {
+      "type": "image",
+      "src": "https://preview.redd.it/gemini-has-memory-feature-v0-fk14ffzvuu2f1.png?width=640&crop=smart&auto=webp&s=face3c0d2435620c8464ef5aa72dcb5e03f8b761",
+      "caption": "Multiple users reported their long-term memory data getting wiped without warning.",
+      "alt": "Gemini memory feature data loss reports"
+    },
+    {
+      "type": "text",
+      "value": "Separate from conversation context, Gemini's **long-term memory feature itself** is broken. Users report that preferences and instructions painstakingly configured over hours **get wiped without any warning.**\n\nSaved information fails to persist 100% of the time for some users, and Custom Gems memory doesn't work at all. One user stopped using Gemini entirely after Christmas — even their pinned chats had vanished completely."
+    },
+    {
+      "type": "heading",
+      "value": "Benchmark Overfitting: Did the AI See the Test in Advance?"
+    },
+    {
+      "type": "image",
+      "src": "https://preview.redd.it/karpathy-suggests-benchmarks-are-easily-gamed-v0-jeifuhle432g1.png?width=640&crop=smart&auto=webp&s=94baf7d647e48081ee2f83bde26e3b9c3cb1dcfb",
+      "caption": "A LessWrong analysis raised benchmark data contamination allegations against Gemini 3.",
+      "alt": "Gemini 3 benchmark overfitting canary string analysis"
+    },
+    {
+      "type": "text",
+      "value": "In November 2025, a LessWrong analysis revealed that **Gemini 3 can reproduce BIG-bench's \"Canary String\" without web search** — a unique identifier embedded in benchmark datasets specifically to detect training data contamination. **It's like a student reciting the watermark hidden in the test paper.**\n\nThe side effects of overfitting are bizarre. Gemini 3 shows **\"Evaluation Paranoia\"** in everyday conversations — suspecting every question is a test. When Andrej Karpathy told it the current date, **it refused to believe it was 2025, accused the user of deception**, and only apologized after Google Search was enabled.\n\nGoogle's touted \"reduced sycophancy\" also proved hollow. LessWrong dubbed Gemini 3 Pro **\"A Vast Intelligence With No Spine\"** — it agrees with users even when they're wrong, and when called out for being sycophantic, it sycophantically agrees."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Closing: The Gap Between Spec Sheet and Reality"
+    },
+    {
+      "type": "text",
+      "value": "Gemini 3 is an impressive model. But benchmark scores and real-world reliability are entirely different things. Developer Thomas Wiegold summed it up best."
+    },
+    {
+      "type": "quote",
+      "value": "The gap between marketing promises and production reality has never been wider."
+    },
+    {
+      "type": "text",
+      "value": "What users want isn't higher scores. It's an AI that's honest, stable, and actually usable. That's the homework Google still needs to finish."
+    }
+  ]
+}
