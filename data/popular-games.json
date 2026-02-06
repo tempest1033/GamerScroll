@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-05T12:30:51.889Z",
+  "updatedAt": "2026-02-06T13:44:25.789Z",
   "period": "30days",
   "games": [
     {
@@ -12,22 +12,22 @@
     },
     {
       "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
-      "views": 17
+      "views": 26
+    },
+    {
+      "slug": "명조워더링-웨이브",
+      "views": 6
+    },
+    {
+      "slug": "crosshair-x",
+      "views": 5
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
       "views": 5
     },
     {
-      "slug": "crosshair-x",
-      "views": 4
-    },
-    {
       "slug": "메이플-키우기",
-      "views": 4
-    },
-    {
-      "slug": "명조워더링-웨이브",
       "views": 4
     },
     {
