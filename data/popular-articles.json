@@ -1,49 +1,49 @@
 {
-  "updatedAt": "2026-02-05T00:58:52.149Z",
+  "updatedAt": "2026-02-06T00:56:03.250Z",
   "period": "7days",
   "articles": [
     {
       "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
-      "views": 2593,
+      "views": 2608,
       "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "issue",
       "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 288,
+      "views": 249,
       "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 204,
+      "views": 240,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 95,
+      "views": 75,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragon-sword-launch-report",
-      "views": 86,
-      "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "tech",
       "slug": "moltbot-clawdbot-ai-assistant",
       "category": "ai",
-      "views": 80,
+      "views": 73,
       "path": "/tech/ai/moltbot-clawdbot-ai-assistant/"
+    },
+    {
+      "type": "issue",
+      "slug": "dragon-sword-launch-report",
+      "views": 65,
+      "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
-      "views": 55,
+      "views": 57,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
@@ -63,40 +63,53 @@
     {
       "type": "ranking",
       "slug": "mobile-january-2026-kr",
-      "views": 25,
+      "views": 29,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
       "slug": "gpt-4o-shutdown-controversy",
       "category": "ai",
-      "views": 21,
+      "views": 23,
       "path": "/tech/ai/gpt-4o-shutdown-controversy/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-pc-launch-feb7",
+      "views": 19,
+      "path": "/magazine/issue/lineage-classic-pc-launch-feb7/"
+    },
+    {
+      "type": "issue",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 17,
+      "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "heavenhells-launch-initial-reaction",
+      "views": 16,
+      "path": "/magazine/issue/heavenhells-launch-initial-reaction/"
     },
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 18,
+      "views": 16,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-pc-launch-feb7",
-      "views": 17,
-      "path": "/magazine/issue/lineage-classic-pc-launch-feb7/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
+      "slug": "lucky-defense-probability-manipulation-scandal",
       "views": 14,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
     },
     {
-      "type": "issue",
-      "slug": "chzzk-lck-naver-viewer-complaints",
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
       "views": 13,
-      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "issue",
@@ -105,41 +118,23 @@
       "path": "/magazine/issue/aion2-midterm-report-card/"
     },
     {
-      "type": "issue",
-      "slug": "heavenhells-launch-initial-reaction",
-      "views": 12,
-      "path": "/magazine/issue/heavenhells-launch-initial-reaction/"
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 11,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 12,
-      "path": "/wiki/business/game-business-metrics/"
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 11,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "issue",
       "slug": "arknights-endfield-launch-success",
-      "views": 11,
+      "views": 9,
       "path": "/magazine/issue/arknights-endfield-launch-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "maplestory-idle-full-refund",
-      "views": 11,
-      "path": "/magazine/issue/maplestory-idle-full-refund/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 9,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "ranking",
-      "slug": "endfield-vs-dragonsword-new-year-2026",
-      "views": 9,
-      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
     },
     {
       "type": "tech",
@@ -149,71 +144,90 @@
       "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
     },
     {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 9,
-      "path": "/wiki/history/korean-esports-history/"
+      "type": "tech",
+      "slug": "vibe-coding-basics",
+      "category": "vibecoding",
+      "views": 8,
+      "path": "/tech/vibecoding/vibe-coding-basics/"
     },
     {
       "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
-      "views": 9,
+      "views": 8,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "issue",
-      "slug": "lucky-defense-long-run-success",
-      "views": 8,
-      "path": "/magazine/issue/lucky-defense-long-run-success/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 8,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 8,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 7,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "maple-grow-probability-scandal-2026",
-      "views": 7,
-      "path": "/magazine/issue/maple-grow-probability-scandal-2026/"
-    },
-    {
-      "type": "tech",
-      "slug": "chatgpt-desktop-app",
-      "category": "ai",
-      "views": 7,
-      "path": "/tech/ai/chatgpt-desktop-app/"
-    },
-    {
-      "type": "tech",
-      "slug": "vibe-coding-basics",
-      "category": "vibecoding",
-      "views": 7,
-      "path": "/tech/vibecoding/vibe-coding-basics/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 7,
+      "views": 8,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "issue",
+      "slug": "chzzk-lck-naver-viewer-complaints",
+      "views": 7,
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-fennec-release-imminent",
+      "category": "ai",
+      "views": 7,
+      "path": "/tech/ai/claude-fennec-release-imminent/"
+    },
+    {
+      "type": "tech",
+      "slug": "vibe-coding-guide",
+      "category": "vibecoding",
+      "views": 7,
+      "path": "/tech/vibecoding/vibe-coding-guide/"
+    },
+    {
+      "type": "tech",
+      "slug": "vibe-coding",
+      "category": "vibecoding",
+      "views": 7,
+      "path": "/tech/vibecoding/vibe-coding/"
+    },
+    {
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
+      "category": "knowledge",
+      "views": 7,
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 6,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 6,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "lucky-defense-long-run-success",
+      "views": 6,
+      "path": "/magazine/issue/lucky-defense-long-run-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "views": 6,
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+    },
+    {
+      "type": "tech",
+      "slug": "chatgpt-desktop-app",
+      "category": "ai",
+      "views": 6,
+      "path": "/tech/ai/chatgpt-desktop-app/"
     },
     {
       "type": "tech",
@@ -223,57 +237,30 @@
       "path": "/tech/normal/firebase-serverless-game-backend/"
     },
     {
-      "type": "tech",
-      "slug": "vibe-coding-guide",
-      "category": "vibecoding",
-      "views": 6,
-      "path": "/tech/vibecoding/vibe-coding-guide/"
-    },
-    {
-      "type": "tech",
-      "slug": "vibe-coding",
-      "category": "vibecoding",
-      "views": 6,
-      "path": "/tech/vibecoding/vibe-coding/"
-    },
-    {
       "type": "wiki",
-      "slug": "ragnarok-online-history",
+      "slug": "korean-esports-history",
       "category": "history",
       "views": 6,
-      "path": "/wiki/history/ragnarok-online-history/"
+      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
+      "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 6,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "issue",
+      "slug": "maplestory-idle-full-refund",
+      "views": 5,
+      "path": "/magazine/issue/maplestory-idle-full-refund/"
     },
     {
       "type": "issue",
       "slug": "ai-basic-act-game-industry-confusion",
-      "views": 5,
+      "views": 4,
       "path": "/magazine/issue/ai-basic-act-game-industry-confusion/"
-    },
-    {
-      "type": "issue",
-      "slug": "game-ai-paradigm-shift-2026",
-      "views": 5,
-      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 5,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-fennec-release-imminent",
-      "category": "ai",
-      "views": 5,
-      "path": "/tech/ai/claude-fennec-release-imminent/"
     },
     {
       "type": "issue",
@@ -283,9 +270,15 @@
     },
     {
       "type": "issue",
-      "slug": "seven-deadly-sins-origin-delay-2026",
+      "slug": "nte-gameplay-reveal-before-cbt3",
       "views": 4,
-      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
+      "path": "/magazine/issue/nte-gameplay-reveal-before-cbt3/"
+    },
+    {
+      "type": "ranking",
+      "slug": "endfield-vs-dragonsword-new-year-2026",
+      "views": 4,
+      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
     },
     {
       "type": "ranking",
@@ -295,62 +288,35 @@
     },
     {
       "type": "tech",
+      "slug": "claude-cowork-saaspocalypse",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/claude-cowork-saaspocalypse/"
+    },
+    {
+      "type": "tech",
       "slug": "nvidia-openai-investment-retreat",
       "category": "ai",
       "views": 4,
       "path": "/tech/ai/nvidia-openai-investment-retreat/"
     },
     {
-      "type": "wiki",
-      "slug": "app-revenue-ranking-algorithm",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/app-revenue-ranking-algorithm/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-revenue-structure",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/game-revenue-structure/"
-    },
-    {
-      "type": "wiki",
-      "slug": "rts-genre-rise-and-fall",
-      "category": "history",
-      "views": 4,
-      "path": "/wiki/history/rts-genre-rise-and-fall/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
+      "type": "insight",
+      "slug": "subculture-market-crisis-winner-takes-all",
+      "views": 3,
+      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
-      "slug": "ddr5-price-surge-gaming-nightmare",
+      "slug": "game-ai-paradigm-shift-2026",
       "views": 3,
-      "path": "/magazine/issue/ddr5-price-surge-gaming-nightmare/"
+      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-subscription-return",
+      "slug": "maple-grow-probability-scandal-2026",
       "views": 3,
-      "path": "/magazine/issue/lineage-classic-subscription-return/"
-    },
-    {
-      "type": "issue",
-      "slug": "nikke-doro-meme-success",
-      "views": 3,
-      "path": "/magazine/issue/nikke-doro-meme-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "nte-gameplay-reveal-before-cbt3",
-      "views": 3,
-      "path": "/magazine/issue/nte-gameplay-reveal-before-cbt3/"
+      "path": "/magazine/issue/maple-grow-probability-scandal-2026/"
     },
     {
       "type": "issue",
@@ -367,10 +333,10 @@
     },
     {
       "type": "tech",
-      "slug": "agile-jira-confluence-game-dev",
-      "category": "normal",
+      "slug": "musk-openai-lawsuit-escalation",
+      "category": "ai",
       "views": 3,
-      "path": "/tech/normal/agile-jira-confluence-game-dev/"
+      "path": "/tech/ai/musk-openai-lawsuit-escalation/"
     },
     {
       "type": "tech",
@@ -380,35 +346,10 @@
       "path": "/tech/normal/gantt-chart/"
     },
     {
-      "type": "wiki",
-      "slug": "legend-of-zelda-history",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/legend-of-zelda-history/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "switch-2-buying-guide-2026",
-      "views": 2,
-      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
-    },
-    {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
-      "views": 2,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
-    },
-    {
       "type": "issue",
       "slug": "arc-raiders-ddos-attack-jan-2026",
       "views": 2,
       "path": "/magazine/issue/arc-raiders-ddos-attack-jan-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "blue-archive-5th-anniversary-japan",
-      "views": 2,
-      "path": "/magazine/issue/blue-archive-5th-anniversary-japan/"
     },
     {
       "type": "issue",
@@ -418,33 +359,21 @@
     },
     {
       "type": "issue",
-      "slug": "china-gaming-superpower-rise",
+      "slug": "ddr5-price-surge-gaming-nightmare",
       "views": 2,
-      "path": "/magazine/issue/china-gaming-superpower-rise/"
+      "path": "/magazine/issue/ddr5-price-surge-gaming-nightmare/"
     },
     {
       "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
+      "slug": "heavenhells-sales-decline-launch",
       "views": 2,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
       "type": "issue",
-      "slug": "game-ai-controversy-award-revoked",
+      "slug": "seven-deadly-sins-origin-delay-2026",
       "views": 2,
-      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
-    },
-    {
-      "type": "issue",
-      "slug": "metacritic-top-10-games-2025",
-      "views": 2,
-      "path": "/magazine/issue/metacritic-top-10-games-2025/"
-    },
-    {
-      "type": "issue",
-      "slug": "pc-bang-decline-arcade-fate",
-      "views": 2,
-      "path": "/magazine/issue/pc-bang-decline-arcade-fate/"
+      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
     },
     {
       "type": "tech",
@@ -455,10 +384,24 @@
     },
     {
       "type": "tech",
-      "slug": "musk-openai-lawsuit-escalation",
+      "slug": "stargate-ai-crisis-2026",
       "category": "ai",
       "views": 2,
-      "path": "/tech/ai/musk-openai-lawsuit-escalation/"
+      "path": "/tech/ai/stargate-ai-crisis-2026/"
+    },
+    {
+      "type": "tech",
+      "slug": "2d-animation-tech",
+      "category": "normal",
+      "views": 2,
+      "path": "/tech/normal/2d-animation-tech/"
+    },
+    {
+      "type": "tech",
+      "slug": "agile-jira-confluence-game-dev",
+      "category": "normal",
+      "views": 2,
+      "path": "/tech/normal/agile-jira-confluence-game-dev/"
     },
     {
       "type": "tech",
@@ -469,13 +412,6 @@
     },
     {
       "type": "tech",
-      "slug": "version-control-system",
-      "category": "normal",
-      "views": 2,
-      "path": "/tech/normal/version-control-system/"
-    },
-    {
-      "type": "tech",
       "slug": "codex-install-guide-windows",
       "category": "vibecoding",
       "views": 2,
@@ -483,17 +419,10 @@
     },
     {
       "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
+      "slug": "game-revenue-structure",
       "category": "business",
       "views": 2,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
-      "slug": "astonishia-story-sonnori",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/astonishia-story-sonnori/"
+      "path": "/wiki/business/game-revenue-structure/"
     },
     {
       "type": "wiki",
@@ -504,10 +433,10 @@
     },
     {
       "type": "wiki",
-      "slug": "moba-genre-origin",
+      "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/moba-genre-origin/"
+      "path": "/wiki/knowledge/gacha-system-regulations/"
     },
     {
       "type": "issue",
@@ -517,21 +446,63 @@
     },
     {
       "type": "issue",
-      "slug": "idle-game-era-maple-grow",
+      "slug": "blue-archive-5th-anniversary-japan",
       "views": 1,
-      "path": "/magazine/issue/idle-game-era-maple-grow/"
+      "path": "/magazine/issue/blue-archive-5th-anniversary-japan/"
+    },
+    {
+      "type": "issue",
+      "slug": "china-gaming-superpower-rise",
+      "views": 1,
+      "path": "/magazine/issue/china-gaming-superpower-rise/"
+    },
+    {
+      "type": "issue",
+      "slug": "clash-royale-10th-anniversary-success",
+      "views": 1,
+      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "dragon-quest-7-reimagined-metacritic",
+      "views": 1,
+      "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
+    },
+    {
+      "type": "issue",
+      "slug": "game-ai-controversy-award-revoked",
+      "views": 1,
+      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
+    },
+    {
+      "type": "issue",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 1,
+      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
+    },
+    {
+      "type": "issue",
+      "slug": "metacritic-top-10-games-2025",
+      "views": 1,
+      "path": "/magazine/issue/metacritic-top-10-games-2025/"
+    },
+    {
+      "type": "issue",
+      "slug": "nikke-doro-meme-success",
+      "views": 1,
+      "path": "/magazine/issue/nikke-doro-meme-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "pc-bang-decline-arcade-fate",
+      "views": 1,
+      "path": "/magazine/issue/pc-bang-decline-arcade-fate/"
     },
     {
       "type": "issue",
       "slug": "pubg-battlegrounds-birth-history",
       "views": 1,
       "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
-    },
-    {
-      "type": "issue",
-      "slug": "roguelike-casual-korea-trend",
-      "views": 1,
-      "path": "/magazine/issue/roguelike-casual-korea-trend/"
     },
     {
       "type": "tech",
@@ -542,24 +513,17 @@
     },
     {
       "type": "tech",
-      "slug": "stargate-ai-crisis-2026",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/stargate-ai-crisis-2026/"
-    },
-    {
-      "type": "tech",
-      "slug": "2d-animation-tech",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/2d-animation-tech/"
-    },
-    {
-      "type": "tech",
       "slug": "game-engine",
       "category": "normal",
       "views": 1,
       "path": "/tech/normal/game-engine/"
+    },
+    {
+      "type": "tech",
+      "slug": "version-control-system",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/version-control-system/"
     },
     {
       "type": "tech",
@@ -590,6 +554,20 @@
       "path": "/tech/vibecoding/project-md-settings-guide/"
     },
     {
+      "type": "tech",
+      "slug": "vibe-coding-workflow-prompt-guide",
+      "category": "vibecoding",
+      "views": 1,
+      "path": "/tech/vibecoding/vibe-coding-workflow-prompt-guide/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-revenue-ranking-algorithm",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+    },
+    {
       "type": "wiki",
       "slug": "game-ip-licensing",
       "category": "business",
@@ -605,24 +583,24 @@
     },
     {
       "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
-      "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 1,
       "path": "/wiki/history/heroes-of-might-and-magic/"
+    },
+    {
+      "type": "wiki",
+      "slug": "legend-of-zelda-history",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/legend-of-zelda-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "rts-genre-rise-and-fall",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/rts-genre-rise-and-fall/"
     },
     {
       "type": "wiki",
@@ -633,17 +611,17 @@
     },
     {
       "type": "wiki",
-      "slug": "type-moon-fate-origin",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/type-moon-fate-origin/"
-    },
-    {
-      "type": "wiki",
       "slug": "dead-internet-theory",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/dead-internet-theory/"
+    },
+    {
+      "type": "wiki",
+      "slug": "moba-genre-origin",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/moba-genre-origin/"
     },
     {
       "type": "wiki",

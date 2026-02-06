@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-02-05T00:59:23.505Z",
+  "updatedAt": "2026-02-06T00:57:41.885Z",
   "period": "7days",
   "articles": [
     {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 247,
+      "views": 262,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
-      "views": 122,
+      "views": 123,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
     },
     {
@@ -23,7 +23,7 @@
     {
       "category": "openai",
       "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 31,
+      "views": 32,
       "path": "/article/openai/gpt-5-3-garlic-update-rumor/"
     },
     {
@@ -33,15 +33,21 @@
       "path": "/article/google/google-genie3-unity-stock-crash/"
     },
     {
+      "category": "anthropic",
+      "slug": "claude-cowork-saaspocalypse",
+      "views": 23,
+      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
+    },
+    {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 15,
+      "views": 21,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 12,
+      "views": 14,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
@@ -53,8 +59,14 @@
     {
       "category": "openai",
       "slug": "gpt-4o-shutdown-controversy",
-      "views": 10,
+      "views": 11,
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
+    },
+    {
+      "category": "general",
+      "slug": "musk-openai-lawsuit-escalation",
+      "views": 10,
+      "path": "/article/general/musk-openai-lawsuit-escalation/"
     },
     {
       "category": "google",
@@ -63,10 +75,10 @@
       "path": "/article/google/alphagenome-first-impressions-2026/"
     },
     {
-      "category": "general",
-      "slug": "musk-openai-lawsuit-escalation",
-      "views": 8,
-      "path": "/article/general/musk-openai-lawsuit-escalation/"
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 6,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "general",
@@ -87,6 +99,18 @@
       "path": "/article/general/nvidia-openai-investment-retreat/"
     },
     {
+      "category": "general",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 5,
+      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 5,
+      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
+    },
+    {
       "category": "anthropic",
       "slug": "anthropic-b2b-strategy-success",
       "views": 3,
@@ -105,6 +129,12 @@
       "path": "/article/openai/stargate-ai-crisis-2026/"
     },
     {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 3,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
       "category": "anthropic",
       "slug": "moltbot-clawdbot-ai-assistant",
       "views": 2,
@@ -118,27 +148,27 @@
     },
     {
       "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 2,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "vibecoding",
       "slug": "vibe-coding-basics",
       "views": 2,
       "path": "/article/vibecoding/vibe-coding-basics/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-workflow-prompt-guide",
+      "views": 2,
+      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     },
     {
       "category": "general",
       "slug": "ai-big4-ipo-spacex-xai-merger",
       "views": 1,
       "path": "/article/general/ai-big4-ipo-spacex-xai-merger/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 1,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 1,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "vibecoding",
