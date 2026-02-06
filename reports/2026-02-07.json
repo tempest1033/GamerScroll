@@ -8190,5 +8190,17 @@
       "link": "https://gall.dcinside.com/board/view/?id=dcbest&no=403333&_dcbest=1&page=1",
       "channel": "이갤"
     }
-  ]
+  ],
+  "ai": {
+    "type": "error",
+    "error": {
+      "type": "authentication_error",
+      "message": "OAuth token has expired. Please obtain a new token or refresh your existing token."
+    },
+    "request_id": "req_011CXsWxTBZQBCBWDEyic9vf",
+    "date": "2026-02-07"
+  },
+  "aiGeneratedAt": "2026-02-06T21:22:18.047Z",
+  "stockMap": {},
+  "stockPrices": {}
 }
