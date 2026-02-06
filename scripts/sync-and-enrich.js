@@ -120,7 +120,13 @@ function loadReviewQueue() {
   if (!fs.existsSync(filePath)) {
     return { pending: [], approved: [], rejected: [] };
   }
-  return JSON.parse(fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, ''));
+  const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, ''));
+  const queue = (parsed && typeof parsed === 'object') ? parsed : {};
+  return {
+    pending: Array.isArray(queue.pending) ? queue.pending : [],
+    approved: Array.isArray(queue.approved) ? queue.approved : [],
+    rejected: Array.isArray(queue.rejected) ? queue.rejected : []
+  };
 }
 
 function saveGames(gamesData) {
@@ -633,4 +639,7 @@ async function main() {
   console.log('\n저장 완료!');
 }
 
-main().catch(console.error);
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
