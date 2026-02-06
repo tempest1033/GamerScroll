@@ -124,7 +124,13 @@
     },
     {
       "type": "text",
-      "value": "업데이트 예정"
+      "value": "바이브 코딩에서 형상관리(Git)는 단순한 백업이 아니라 필수 안전망이다. AI가 대량으로 코드를 수정하는 환경에서, 클로드 코드와 코덱스 각각의 CLI·IDE·앱에서 Git을 사용하는 구체적인 방법을 다룬다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "vibe-coding-version-control-guide", "title": "바이브 코딩과 형상관리 - Git 사용하기", "thumbnail": "https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1" }
+      ]
     },
     {
       "type": "heading",
@@ -263,7 +269,13 @@
     },
     {
       "type": "text",
-      "value": "Coming soon"
+      "value": "In vibe coding, version control (Git) isn't just a backup—it's an essential safety net. This section covers how to use Git across CLI, IDE, and app environments in both Claude Code and Codex."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "vibe-coding-version-control-guide", "title": "Vibe Coding and Version Control - Using Git", "thumbnail": "https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1" }
+      ]
     },
     {
       "type": "heading",
