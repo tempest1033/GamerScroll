@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-02-06T00:57:41.885Z",
+  "updatedAt": "2026-02-07T00:55:56.473Z",
   "period": "7days",
   "articles": [
     {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 262,
+      "views": 263,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
-      "views": 123,
+      "views": 124,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
     },
     {
       "category": "general",
       "slug": "moltbook-ai-social-network",
-      "views": 36,
+      "views": 37,
       "path": "/article/general/moltbook-ai-social-network/"
     },
     {
@@ -25,6 +25,18 @@
       "slug": "gpt-5-3-garlic-update-rumor",
       "views": 32,
       "path": "/article/openai/gpt-5-3-garlic-update-rumor/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 25,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "general",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 24,
+      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
     },
     {
       "category": "google",
@@ -39,10 +51,10 @@
       "path": "/article/anthropic/claude-cowork-saaspocalypse/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 21,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
+      "category": "openai",
+      "slug": "gpt-4o-shutdown-controversy",
+      "views": 15,
+      "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
       "category": "general",
@@ -57,15 +69,9 @@
       "path": "/article/general/claude-code-vs-codex-coding-agent/"
     },
     {
-      "category": "openai",
-      "slug": "gpt-4o-shutdown-controversy",
-      "views": 11,
-      "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
       "category": "general",
       "slug": "musk-openai-lawsuit-escalation",
-      "views": 10,
+      "views": 11,
       "path": "/article/general/musk-openai-lawsuit-escalation/"
     },
     {
@@ -77,8 +83,14 @@
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
-      "views": 6,
+      "views": 9,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 6,
+      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "category": "general",
@@ -99,16 +111,10 @@
       "path": "/article/general/nvidia-openai-investment-retreat/"
     },
     {
-      "category": "general",
-      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
-      "views": 5,
-      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 5,
-      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 4,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "anthropic",
@@ -127,12 +133,6 @@
       "slug": "stargate-ai-crisis-2026",
       "views": 3,
       "path": "/article/openai/stargate-ai-crisis-2026/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 3,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "anthropic",
@@ -154,9 +154,21 @@
     },
     {
       "category": "vibecoding",
+      "slug": "project-md-settings-guide",
+      "views": 2,
+      "path": "/article/vibecoding/project-md-settings-guide/"
+    },
+    {
+      "category": "vibecoding",
       "slug": "vibe-coding-basics",
       "views": 2,
       "path": "/article/vibecoding/vibe-coding-basics/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-guide",
+      "views": 2,
+      "path": "/article/vibecoding/vibe-coding-guide/"
     },
     {
       "category": "vibecoding",
@@ -169,18 +181,6 @@
       "slug": "ai-big4-ipo-spacex-xai-merger",
       "views": 1,
       "path": "/article/general/ai-big4-ipo-spacex-xai-merger/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "project-md-settings-guide",
-      "views": 1,
-      "path": "/article/vibecoding/project-md-settings-guide/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-guide/"
     }
   ]
 }
