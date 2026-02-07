@@ -327,12 +327,11 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- preconnect: 핵심 도메인 4개 (PageSpeed 권고) -->
+  <!-- preconnect: 핵심 도메인 4개 (LCP 우선) -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://wsrv.nl" crossorigin>
   <!-- dns-prefetch: fallback + 추가 도메인 -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://www.gstatic.com">

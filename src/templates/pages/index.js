@@ -258,11 +258,11 @@ function generateIndexPage(data) {
   const INITIAL_FEED_RENDER_COUNT = 9;
   const LCP_IMAGE_LOADING_ATTRS = 'loading="eager" fetchpriority="high"';
   const LAZY_IMAGE_LOADING_ATTRS = 'loading="lazy" fetchpriority="auto"';
-  const createLcpImageAttrPicker = () => {
-    let used = false;
+  const createLcpImageAttrPicker = (highPriorityCount = 1) => {
+    let remaining = Math.max(0, Number(highPriorityCount) || 0);
     return () => {
-      if (!used) {
-        used = true;
+      if (remaining > 0) {
+        remaining -= 1;
         return LCP_IMAGE_LOADING_ATTRS;
       }
       return LAZY_IMAGE_LOADING_ATTRS;
@@ -280,7 +280,8 @@ function generateIndexPage(data) {
       : LAZY_IMAGE_LOADING_ATTRS;
     return `${loadingAttrs} ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
   };
-  const pickLcpImageAttrs = createLcpImageAttrPicker();
+  // 홈 상단 "정기" 카드(일간/주간) 2개를 모두 초기 요청 대상으로 유지
+  const pickLcpImageAttrs = createLcpImageAttrPicker(2);
   const extractSeoLinkFromCardHtml = (html) => {
     if (!html || typeof html !== 'string') return null;
     const hrefMatch = html.match(/<a[^>]*href="([^"]+)"/i);
