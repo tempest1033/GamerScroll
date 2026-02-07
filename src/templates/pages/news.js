@@ -68,7 +68,7 @@ function generateNewsPage(data) {
       const cardsHTML = cards.map((item, i) => `
         <a class="news-grid-card" href="${item.link}" target="_blank" rel="noopener" data-index="${item.originalIndex}">
           <div class="news-grid-card-thumb">
-            ${item.thumbnail ? `<img src="${fixUrl(item.thumbnail)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
+            ${item.thumbnail ? `<img src="${fixUrl(item.thumbnail)}" alt="${item.title}" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
             <div class="news-thumb-fallback"><img src="/favicon.svg" alt="" width="48" height="48"></div>
           </div>
           <div class="news-grid-card-title">${item.title}</div>
@@ -201,7 +201,6 @@ function generateNewsPage(data) {
     keywords: '게임 뉴스, 게임 소식',
     canonical: `${siteBaseUrl}/news/`,
     pageScripts,
-    preloadImages: [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '게임 뉴스', url: `${siteBaseUrl}/news/` }

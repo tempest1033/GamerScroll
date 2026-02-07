@@ -41,6 +41,132 @@ const SNAPSHOTS_DIR = './snapshots';
 const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
 const WIKI_DIR = './data/wiki';
+const FEED_ASSETS_DIR = './assets/feed';
+const DEFERRED_JSON_SCRIPT_REGEX = /<script\s+type="application\/json"\s+id="([A-Za-z0-9_-]*DeferredData)"[^>]*>([\s\S]*?)<\/script>/g;
+
+function ensureDir(dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+}
+
+function collectHtmlFilesUnderDir(baseDir, list) {
+  if (!fs.existsSync(baseDir)) return;
+  const entries = fs.readdirSync(baseDir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(baseDir, entry.name);
+    if (entry.isDirectory()) {
+      collectHtmlFilesUnderDir(fullPath, list);
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) {
+      list.push(fullPath);
+    }
+  }
+}
+
+function externalizeDeferredJsonFromHtml(html, pageRelPath) {
+  if (typeof html !== 'string' || html.indexOf('DeferredData') === -1) return html;
+
+  return html.replace(DEFERRED_JSON_SCRIPT_REGEX, (fullMatch, scriptId, payloadRaw) => {
+    const payload = (payloadRaw || '').trim();
+    if (!payload) return fullMatch;
+
+    let parsed;
+    try {
+      parsed = JSON.parse(payload);
+    } catch (e) {
+      return fullMatch;
+    }
+    if (!Array.isArray(parsed)) return fullMatch;
+
+    const normalizedPayload = JSON.stringify(parsed).replace(/</g, '\\u003c');
+    const hash = crypto.createHash('md5').update(normalizedPayload).digest('hex').slice(0, 12);
+    const pageKey = (pageRelPath || 'index')
+      .replace(/\\/g, '/')
+      .replace(/^\.\/+/, '')
+      .replace(/\.html$/i, '')
+      .replace(/\//g, '-')
+      .replace(/[^a-zA-Z0-9_-]/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '') || 'index';
+    const fileName = `${pageKey}-${scriptId}-${hash}.json`;
+    const filePath = path.join(FEED_ASSETS_DIR, fileName);
+    const feedUrl = `/assets/feed/${fileName}`;
+
+    fs.writeFileSync(filePath, normalizedPayload, 'utf8');
+    return `<script type="application/json" id="${scriptId}" data-src="${feedUrl}"></script>`;
+  });
+}
+
+function externalizeDeferredJsonPayloads() {
+  ensureDir('./assets');
+  if (fs.existsSync(FEED_ASSETS_DIR)) {
+    fs.rmSync(FEED_ASSETS_DIR, { recursive: true, force: true });
+  }
+  ensureDir(FEED_ASSETS_DIR);
+
+  const rootHtmlFiles = ['index.html', '404.html', 'rankings.html', 'steam.html', 'upcoming.html']
+    .filter((file) => fs.existsSync(file))
+    .map((file) => `./${file}`);
+  const nestedHtmlFiles = [];
+  ['games', 'wiki', 'tech', 'magazine'].forEach((dir) => collectHtmlFilesUnderDir(`./${dir}`, nestedHtmlFiles));
+  const allHtmlFiles = [...rootHtmlFiles, ...nestedHtmlFiles];
+
+  allHtmlFiles.forEach((filePath) => {
+    try {
+      const originalHtml = fs.readFileSync(filePath, 'utf8');
+      const relPath = path.relative('.', filePath);
+      const transformedHtml = externalizeDeferredJsonFromHtml(originalHtml, relPath);
+      if (transformedHtml !== originalHtml) {
+        fs.writeFileSync(filePath, transformedHtml, 'utf8');
+      }
+    } catch (e) {
+      console.warn(`  ⚠️ deferred JSON 외부화 실패 (${filePath}): ${e.message}`);
+    }
+  });
+}
+
+function getCssBundlesForDocPath(relativePath) {
+  const normalized = String(relativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
+  const bundles = ['/styles-core.css'];
+
+  if (normalized.startsWith('magazine/')) {
+    bundles.push('/styles-report.css', '/styles-article.css');
+  } else if (normalized.startsWith('games/') && normalized !== 'games/index.html') {
+    bundles.push('/styles-game.css');
+  } else if (normalized.startsWith('wiki/') || normalized.startsWith('tech/')) {
+    bundles.push('/styles-article.css');
+  }
+
+  return bundles;
+}
+
+function rewriteDocsStylesheetLinks(docsDir) {
+  const htmlFiles = [];
+  collectHtmlFilesUnderDir(docsDir, htmlFiles);
+  const styleLinksBlockRe = /(?:[ \t]*<link rel="stylesheet" href="\/styles(?:[.-][a-z0-9-]+)?\.css">\r?\n?)+/gi;
+  let changedCount = 0;
+
+  for (const filePath of htmlFiles) {
+    let html;
+    try {
+      html = fs.readFileSync(filePath, 'utf8');
+    } catch (e) {
+      continue;
+    }
+
+    const relPath = path.relative(docsDir, filePath);
+    const cssFiles = getCssBundlesForDocPath(relPath);
+    const cssLinks = cssFiles.map((href) => `  <link rel="stylesheet" href="${href}">`).join('\n');
+    const replacedHtml = html.replace(styleLinksBlockRe, `${cssLinks}\n`);
+
+    if (replacedHtml !== html) {
+      fs.writeFileSync(filePath, replacedHtml, 'utf8');
+      changedCount += 1;
+    }
+  }
+
+  console.log(`  🎨 CSS 링크 재작성: ${changedCount}개 HTML`);
+}
 
 /**
  * relatedDocs 통합 파싱 함수
@@ -410,7 +536,16 @@ const { generateWikiArticlePage } = require('./src/templates/pages/wiki-article'
 const { generateTechHubPage, generateTechCategoryPage } = require('./src/templates/pages/tech-hub');
 const { generateTechArticlePage } = require('./src/templates/pages/tech-article');
 const { generate404Page } = require('./src/templates/pages/404');
-const { setCssFilename, setSearchIndexVersion, setGlobalSidebarCounts } = require('./src/templates/layout');
+const {
+  setCssFilename,
+  setSearchIndexVersion,
+  setRuntimeAssetVersion,
+  setGlobalSidebarCounts,
+  buildLayoutCoreBundle,
+  buildLayoutRuntimeBundle,
+  LAYOUT_CORE_ASSET,
+  LAYOUT_RUNTIME_ASSET
+} = require('./src/templates/layout');
 const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles, shouldFetchPopularArticles } = require('./src/crawlers/analytics');
 
 // 데일리 인사이트 import
@@ -953,29 +1088,59 @@ async function main() {
   // 테크 데이터 로드 (홈페이지용)
   const homeTechData = loadTechData();
 
-  // CSS 파일 번들링 + 압축 (해시 없이 고정 파일명)
+  // CSS 파일 번들링 + 압축 (코어/페이지군 분리)
   let didBundleCss = false;
-  const cssFilename = '/styles.css';
-  try {
-    const bundledCss = bundleCssFile('./src/styles.css');
+  const generatedCssFiles = [];
+  const cssFilename = '/styles-core.css';
+  const cssBundles = [
+    { entry: './src/styles.css', output: './styles.css', publicPath: '/styles.css', label: 'styles.css(legacy)', required: true },
+    { entry: './src/styles/bundle-core.css', output: './styles-core.css', publicPath: '/styles-core.css', label: 'styles-core.css', required: true },
+    { entry: './src/styles/bundle-report.css', output: './styles-report.css', publicPath: '/styles-report.css', label: 'styles-report.css', required: false },
+    { entry: './src/styles/bundle-game.css', output: './styles-game.css', publicPath: '/styles-game.css', label: 'styles-game.css', required: false },
+    { entry: './src/styles/bundle-article.css', output: './styles-article.css', publicPath: '/styles-article.css', label: 'styles-article.css', required: false }
+  ];
+
+  const buildCssBundle = (bundle) => {
+    const bundledCss = bundleCssFile(bundle.entry);
     const minifiedCss = minifyCss(bundledCss);
-
-    // 고정 파일명으로 저장
-    fs.writeFileSync('./styles.css', minifiedCss, 'utf8');
-
-    // 전역 CSS 파일명 설정 (템플릿에서 사용)
-    setCssFilename(cssFilename);
-
+    fs.writeFileSync(bundle.output, minifiedCss, 'utf8');
     const originalSize = Buffer.byteLength(bundledCss, 'utf8');
     const minifiedSize = Buffer.byteLength(minifiedCss, 'utf8');
     const reduction = ((1 - minifiedSize / originalSize) * 100).toFixed(1);
-    console.log(`  ✅ styles.css 압축: ${(originalSize/1024).toFixed(0)}KB → ${(minifiedSize/1024).toFixed(0)}KB (${reduction}% 감소)`);
-    didBundleCss = true;
-  } catch (e) {
-    console.error(`⚠️ CSS 번들링 실패 → 원본 복사: ${e.message}`);
-    fs.copyFileSync('./src/styles.css', './styles.css');
-    setCssFilename(cssFilename);
+    console.log(`  ✅ ${bundle.label} 압축: ${(originalSize / 1024).toFixed(0)}KB → ${(minifiedSize / 1024).toFixed(0)}KB (${reduction}% 감소)`);
+    generatedCssFiles.push(bundle.publicPath);
+  };
+
+  for (const bundle of cssBundles) {
+    try {
+      buildCssBundle(bundle);
+      if (bundle.publicPath === '/styles-core.css') {
+        didBundleCss = true;
+      }
+    } catch (e) {
+      if (bundle.required) {
+        console.error(`⚠️ CSS 번들링 실패(${bundle.label}) → 폴백 적용: ${e.message}`);
+        if (bundle.publicPath === '/styles.css' && fs.existsSync('./src/styles.css')) {
+          fs.copyFileSync('./src/styles.css', bundle.output);
+          generatedCssFiles.push(bundle.publicPath);
+          continue;
+        }
+        if (bundle.publicPath === '/styles-core.css' && fs.existsSync('./styles.css')) {
+          fs.copyFileSync('./styles.css', bundle.output);
+          generatedCssFiles.push(bundle.publicPath);
+          didBundleCss = true;
+          continue;
+        }
+      } else {
+        console.warn(`  ⚠️ 선택 CSS 번들 스킵(${bundle.label}): ${e.message}`);
+      }
+      fs.writeFileSync(bundle.output, '', 'utf8');
+      generatedCssFiles.push(bundle.publicPath);
+    }
   }
+
+  // 전역 CSS 파일명 설정 (템플릿에서 사용)
+  setCssFilename(cssFilename);
 
   // 글로벌 사이드바 카운트 초기 설정 (위키/테크만, 매거진 counts는 나중에 업데이트)
   setGlobalSidebarCounts({
@@ -997,6 +1162,29 @@ async function main() {
   const searchVersionPath = path.join('./docs', 'games', '.search-version');
   const searchIndexVersion = fs.existsSync(searchVersionPath) ? fs.readFileSync(searchVersionPath, 'utf8').trim() : '';
   if (searchIndexVersion) setSearchIndexVersion(searchIndexVersion);
+
+  // 공통 런타임 번들 생성 (HTML 인라인 스크립트 분리)
+  const WEB_ASSETS_DIR = './assets';
+  if (!fs.existsSync(WEB_ASSETS_DIR)) {
+    fs.mkdirSync(WEB_ASSETS_DIR, { recursive: true });
+  }
+  const layoutCoreBundle = buildLayoutCoreBundle();
+  const layoutRuntimeBundle = buildLayoutRuntimeBundle({ searchIndexVersion });
+  const runtimeAssetVersion = crypto
+    .createHash('md5')
+    .update(layoutCoreBundle)
+    .update(layoutRuntimeBundle)
+    .digest('hex')
+    .slice(0, 8);
+  setRuntimeAssetVersion(runtimeAssetVersion);
+
+  fs.writeFileSync(`${WEB_ASSETS_DIR}/${LAYOUT_CORE_ASSET}`, layoutCoreBundle, 'utf8');
+  fs.writeFileSync(
+    `${WEB_ASSETS_DIR}/${LAYOUT_RUNTIME_ASSET}`,
+    layoutRuntimeBundle,
+    'utf8'
+  );
+
   const rankingsCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.rankings || {})).digest('hex').slice(0, 8);
   const steamCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.steam || {})).digest('hex').slice(0, 8);
 
@@ -1042,7 +1230,14 @@ async function main() {
   let forceFullRebuild = false;
 
   // CSS 또는 템플릿 변경 시 전체 재빌드
-  const cssContentHash = didBundleCss ? crypto.createHash('md5').update(fs.readFileSync('./styles.css', 'utf8')).digest('hex').slice(0, 8) : null;
+  const cssHashTargets = ['./styles-core.css', './styles-report.css', './styles-game.css', './styles-article.css'];
+  const cssContentHash = didBundleCss
+    ? crypto
+        .createHash('md5')
+        .update(cssHashTargets.map((p) => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '')).join('\n'))
+        .digest('hex')
+        .slice(0, 8)
+    : null;
   if (buildCache.checkCssChanged(incrementalCache, cssContentHash)) {
     forceFullRebuild = true;
     incrementalCache.meta.cssHash = cssContentHash;
@@ -2045,6 +2240,9 @@ async function main() {
     buildCache.printBuildStats({ total: articles.length, built: techBuilt, skipped: techSkipped, type: `${category} 테크 페이지` });
   }
 
+  // 카드 deferred JSON을 외부 정적 파일로 분리 (초기 HTML 경량화)
+  externalizeDeferredJsonPayloads();
+
   // docs 폴더 동기화 (로컬 개발 환경용)
   // 통합 반응형 빌드: 단일 docs/ 폴더에 출력
   const DOCS_DIR = './docs';
@@ -2258,15 +2456,31 @@ async function main() {
       }
     }
 
-    // styles.css 복사
-    if (fs.existsSync('./styles.css')) {
-      fs.copyFileSync('./styles.css', `${DOCS_DIR}/styles.css`);
-    } else {
-      fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
+    const cssOutputs = [
+      'styles.css',
+      'styles-core.css',
+      'styles-report.css',
+      'styles-game.css',
+      'styles-article.css'
+    ];
+    for (const filename of cssOutputs) {
+      const srcPath = `./${filename}`;
+      if (fs.existsSync(srcPath)) {
+        fs.copyFileSync(srcPath, `${DOCS_DIR}/${filename}`);
+      } else if (filename === 'styles.css' && fs.existsSync('./src/styles.css')) {
+        fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
+      } else if (filename === 'styles-core.css' && fs.existsSync('./styles.css')) {
+        fs.copyFileSync('./styles.css', `${DOCS_DIR}/styles-core.css`);
+      } else {
+        fs.writeFileSync(`${DOCS_DIR}/${filename}`, '', 'utf8');
+      }
     }
   } catch (e) {
     console.error(`⚠️ CSS 복사 실패(docs): ${e.message}`);
-    fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
+    if (fs.existsSync('./src/styles.css')) {
+      fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
+      fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles-core.css`);
+    }
   }
   // 분리된 CSS 모듈 동기화 (src/styles/*.css -> docs/styles/)
   if (fs.existsSync(SRC_STYLES_DIR)) {
@@ -2280,6 +2494,49 @@ async function main() {
     }
   }
 
+  // 공통 런타임 스크립트 동기화 (assets/layout-core.js, assets/layout-runtime.js)
+  try {
+    const docsAssetsDir = `${DOCS_DIR}/assets`;
+    if (!fs.existsSync(docsAssetsDir)) {
+      fs.mkdirSync(docsAssetsDir, { recursive: true });
+    }
+    const runtimeAssets = [LAYOUT_CORE_ASSET, LAYOUT_RUNTIME_ASSET];
+    for (const file of runtimeAssets) {
+      const srcPath = `./assets/${file}`;
+      const destPath = `${docsAssetsDir}/${file}`;
+      if (fs.existsSync(srcPath)) {
+        fs.copyFileSync(srcPath, destPath);
+      }
+    }
+
+    // deferred 카드 데이터 JSON 동기화 (assets/feed/*.json)
+    const srcFeedDir = './assets/feed';
+    const destFeedDir = `${docsAssetsDir}/feed`;
+    if (fs.existsSync(srcFeedDir)) {
+      const copyDirRecursive = (src, dest) => {
+        if (!fs.existsSync(dest)) {
+          fs.mkdirSync(dest, { recursive: true });
+        }
+        const entries = fs.readdirSync(src, { withFileTypes: true });
+        for (const entry of entries) {
+          const srcPath = `${src}/${entry.name}`;
+          const destPath = `${dest}/${entry.name}`;
+          if (entry.isDirectory()) {
+            copyDirRecursive(srcPath, destPath);
+          } else {
+            fs.copyFileSync(srcPath, destPath);
+          }
+        }
+      };
+      if (fs.existsSync(destFeedDir)) {
+        fs.rmSync(destFeedDir, { recursive: true, force: true });
+      }
+      copyDirRecursive(srcFeedDir, destFeedDir);
+    }
+  } catch (e) {
+    console.error(`⚠️ 런타임 스크립트 복사 실패(docs/assets): ${e.message}`);
+  }
+
   // 정적 파일 복사 (파비콘, 아이콘, OG이미지 등)
   const staticFiles = ['favicon.svg', 'favicon-16x16.png', 'favicon-32x32.png', 'icon-192.png', 'icon-512.png', 'og-image.png', 'manifest.json'];
   staticFiles.forEach(file => {
@@ -2290,6 +2547,9 @@ async function main() {
       console.log(`  📋 ${file} → docs/`);
     }
   });
+
+  // docs 전체 HTML의 스타일 링크를 페이지군 기준으로 일괄 정규화
+  rewriteDocsStylesheetLinks(DOCS_DIR);
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];
@@ -2519,11 +2779,11 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     console.warn('⚠️ RSS 생성 실패:', err.message);
   }
 
-  // Service Worker 캐시 버전 자동 업데이트 (빌드마다 새 버전)
+  // Service Worker 캐시 버전 업데이트 (콘텐츠 해시 기반)
   const swPath = `${DOCS_DIR}/service-worker.js`;
   if (fs.existsSync(swPath)) {
     let swContent = fs.readFileSync(swPath, 'utf8');
-    const cacheVersion = `gamerscroll-${Date.now()}`;
+    const cacheVersion = `gamerscroll-${runtimeAssetVersion}${searchIndexVersion ? `-${searchIndexVersion}` : ''}`;
     swContent = swContent.replace(/const CACHE_NAME = '[^']+';/, `const CACHE_NAME = '${cacheVersion}';`);
     // CSS 파일명을 해시 버전으로 업데이트
     swContent = swContent.replace(/['"]\/styles\.css['"]/, `'${cssFilename}'`);

@@ -377,7 +377,7 @@ function generateComparisonChart(chartBlock) {
   // 범례
   const legendHtml = gameDataList.map((game, i) => {
     const color = colors[i % colors.length];
-    const iconHtml = game.icon ? `<img src="${game.icon}" alt="" class="chart-legend-icon">` : '';
+    const iconHtml = game.icon ? `<img src="${game.icon}" alt="${game.name}" class="chart-legend-icon">` : '';
     return `<span class="chart-legend-item" style="--color: ${color}">${iconHtml}${game.name}</span>`;
   }).join('');
 
@@ -718,7 +718,7 @@ function generateWeeklyPanel(weeklyInsight) {
         ${issues.slice(0, 4).map(issue => {
           const thumbnail = issue.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, issue.thumbnail, weeklySlug) : null;
           const thumbnailHtml = thumbnail
-            ? `<div class="weekly-hot-thumb"><img src="${thumbnail}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+            ? `<div class="weekly-hot-thumb"><img src="${thumbnail}" alt="${issue.title}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : '';
           return `
           <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
@@ -786,7 +786,7 @@ function generateWeeklyPanel(weeklyInsight) {
         ${industryIssues.map(item => {
           const thumbUrl = item.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, item.thumbnail, weeklySlug) : null;
           const thumbHtml = thumbUrl
-            ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+            ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : `<div class="industry-thumb thumb-fallback"></div>`;
           return `
           <div class="industry-card has-thumb">
@@ -815,7 +815,7 @@ function generateWeeklyPanel(weeklyInsight) {
           const thumbUrl = m.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, m.thumbnail, weeklySlug) : null;
           const gameIcon = findGameIcon(m.title);
           const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
-          const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
+          const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="${m.title}" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
           return `
             <div class="weekly-metric-card has-thumb">
               ${thumbHtml}
@@ -970,7 +970,7 @@ function generateWeeklyPanel(weeklyInsight) {
           const gameIcon = findGameIcon(mvp.name);
           const imageUrl = thumbUrl || gameIcon;
           return imageUrl
-            ? `<div class="weekly-mvp-thumb${gameIcon && !thumbUrl ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+            ? `<div class="weekly-mvp-thumb${gameIcon && !thumbUrl ? ' is-icon' : ''}"><img src="${imageUrl}" alt="${mvp.name}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : '';
         })()}
         <div class="weekly-mvp-content">
@@ -996,7 +996,7 @@ function generateWeeklyPanel(weeklyInsight) {
         ${global.map(g => {
           const thumbUrl = g.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, g.thumbnail, weeklySlug) : null;
           const thumbHtml = thumbUrl
-            ? `<div class="global-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+            ? `<div class="global-thumb"><img src="${thumbUrl}" alt="${g.title}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
             : `<div class="global-thumb thumb-fallback"></div>`;
           return `
           <div class="global-card has-thumb">
@@ -1067,7 +1067,7 @@ function generateTrendPage(data) {
     const gameIcon = !thumbnail ? findGameIcon(item.title) : null;
     const imageUrl = thumbnail ? getLocalDailyThumbnail(insightDate, thumbnail) : gameIcon;
     const imageHtml = imageUrl
-      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
       : '';
     return `
       <div class="weekly-hot-card ${imageUrl ? 'has-thumb' : ''}">
@@ -1085,7 +1085,7 @@ function generateTrendPage(data) {
     const thumbUrl = item.thumbnail ? getLocalDailyThumbnail(insightDate, item.thumbnail) : null;
     const gameIcon = findGameIcon(item.title);
     const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
-    const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
+    const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
     return `
       <div class="weekly-metric-card has-thumb">
         ${thumbHtml}
@@ -1111,7 +1111,7 @@ function generateTrendPage(data) {
       </span>
     ` : '';
 
-    const iconHtml = `<img class="title-icon" src="${gameIcon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">`;
+    const iconHtml = `<img class="title-icon" src="${gameIcon || '/favicon.svg'}" alt="${item.title || ''}" loading="lazy" data-img-fallback-src="/favicon.svg">`;
 
     return `
       <div class="weekly-hot-card ranking-item">
@@ -1175,7 +1175,7 @@ function generateTrendPage(data) {
           ${limitedItems.map(item => {
             const thumbnail = typeof findThumbnail === 'function' ? findThumbnail(item) : item.thumbnail;
             const thumbnailHtml = thumbnail
-              ? `<div class="weekly-hot-thumb"><img src="${getLocalDailyThumbnail(insightDate, thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+              ? `<div class="weekly-hot-thumb"><img src="${getLocalDailyThumbnail(insightDate, thumbnail)}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
               : '';
             return `
             <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
@@ -1265,7 +1265,7 @@ function generateTrendPage(data) {
       const thumb = item.thumbnail || findThumb(item.title);
       const thumbUrl = thumb ? getLocalDailyThumbnail(insightDate, thumb) : null;
       const thumbHtml = thumbUrl
-        ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+        ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
         : `<div class="industry-thumb thumb-fallback"></div>`;
       return `
       <div class="industry-card has-thumb">
@@ -1526,7 +1526,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     const gameIcon = !thumbnail ? findGameIcon(item.title) : null;
     const imageUrl = thumbnail ? getLocalDailyThumbnail(slug, thumbnail) : gameIcon;
     const imageHtml = imageUrl
-      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+      ? `<div class="weekly-hot-thumb${gameIcon ? ' is-icon' : ''}"><img src="${imageUrl}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
       : '';
     return `
       <div class="weekly-hot-card ${imageUrl ? 'has-thumb' : ''}">
@@ -1553,7 +1553,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       </span>
     ` : '';
 
-    const iconHtml = `<img class="title-icon" src="${gameIcon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">`;
+    const iconHtml = `<img class="title-icon" src="${gameIcon || '/favicon.svg'}" alt="${item.title || ''}" loading="lazy" data-img-fallback-src="/favicon.svg">`;
 
     return `
       <div class="weekly-hot-card ranking-item">
@@ -1588,7 +1588,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     const thumbUrl = item.thumbnail ? getLocalDailyThumbnail(slug, item.thumbnail) : null;
     const gameIcon = findGameIcon(item.title);
     const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
-    const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
+    const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
     return `
       <div class="weekly-metric-card has-thumb">
         ${thumbHtml}
@@ -1634,7 +1634,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
           ${limitedItems.map(item => {
             const thumbnail = typeof findThumbnail === 'function' ? findThumbnail(item) : item.thumbnail;
             const thumbnailHtml = thumbnail
-              ? `<div class="weekly-hot-thumb"><img src="${getLocalDailyThumbnail(slug, thumbnail)}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+              ? `<div class="weekly-hot-thumb"><img src="${getLocalDailyThumbnail(slug, thumbnail)}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
               : '';
             return `
             <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
@@ -1724,7 +1724,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
       const thumb = item.thumbnail || findThumb(item.title);
       const thumbUrl = thumb ? getLocalDailyThumbnail(slug, thumb) : null;
       const thumbHtml = thumbUrl
-        ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="" loading="lazy" data-img-fallback="thumb-fallback"></div>`
+        ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
         : `<div class="industry-thumb thumb-fallback"></div>`;
       return `
       <div class="industry-card has-thumb">
@@ -1910,12 +1910,6 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     image: insight?.ai?.thumbnail || null
   };
 
-  // 핫이슈 썸네일 프리로드 (최대 4개)
-  const issueThumbUrls = issues.slice(0, 4)
-    .map(item => findThumbnail(item))
-    .filter(Boolean)
-    .map(thumb => getLocalDailyThumbnail(slug, thumb));
-
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: summaryTitle,
@@ -1923,7 +1917,6 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     keywords: keywordsText,
     canonical: `${siteBaseUrl}/magazine/daily/${slug}/`,
     articleSchema,
-    preloadImages: issueThumbUrls,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -1988,7 +1981,6 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     ? `${formatDateKorean(wInfo.startDate)} ~ ${formatDateKorean(wInfo.endDate)}`
     : (wai.date ? formatDateKorean(wai.date) : '');
   const weekNum = wInfo.weekNumber || wai.weekNumber || '';
-  const heroThumbUrl = wai.thumbnail ? getLocalReportThumbnail('weekly', slug, wai.thumbnail, 'lg') : '';
   const summaryTitle = typeof wai.summary === 'object' ? wai.summary.title : (wai.issues?.[0]?.title || wai.summary);
   const descriptionText = summaryTitle || '주간 게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
 
@@ -1996,13 +1988,6 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
   const weeklyIssues = wai.issues || [];
   const dynamicKeywords = weeklyIssues.slice(0, 4).map(i => i.title).join(', ');
   const keywordsText = dynamicKeywords ? `게임 트렌드, ${dynamicKeywords}` : '게임 트렌드, 게임 업계 이슈, 게임 순위, 게임 뉴스';
-
-  // 핫이슈 썸네일 프리로드 (최대 4개)
-  const weekDates = wInfo.dates || [];
-  const issueThumbUrls = weeklyIssues.slice(0, 4)
-    .map(issue => issue.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, issue.thumbnail, slug) : null)
-    .filter(Boolean);
-  const preloadUrls = heroThumbUrl ? [heroThumbUrl, ...issueThumbUrls] : issueThumbUrls;
 
   // Article JSON-LD 스키마
   const articleSchema = {
@@ -2020,7 +2005,6 @@ function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
     keywords: keywordsText,
     canonical: `${siteBaseUrl}/magazine/weekly/${slug}/`,
     articleSchema,
-    preloadImages: preloadUrls,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -2286,7 +2270,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
               const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -2307,7 +2291,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
               const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -2338,7 +2322,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${g.name}</span>
           </a>
         `).join('')}
@@ -2380,19 +2364,19 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
       <div class="blog-related-issues-list">
         ${relatedIssuesList.map(issue => `
           <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="${issue.title}" loading="lazy">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
           </a>
         `).join('')}
         ${relatedWikiList.map(wiki => `
           <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="${wiki.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
           </a>
         `).join('')}
         ${relatedTechList.map(tech => `
           <a href="/tech/${tech.category}/${tech.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${fixUrl(tech.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-issue-thumb" src="${fixUrl(tech.thumbnail)}" alt="${tech.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${tech.title}</span></span>
           </a>
         `).join('')}
@@ -2504,17 +2488,19 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
   const sidebarScript = sidebarHTML ? `
     <script>
       (function() {
-        const sidebarTab = document.getElementById('sidebarArticleTab');
-        if (!sidebarTab) return;
-        sidebarTab.addEventListener('click', (e) => {
-          const btn = e.target.closest('.tab-btn');
-          if (!btn) return;
-          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const target = btn.dataset.sidebarTab;
-          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-          document.getElementById('sidebar-' + target)?.classList.add('active');
-        });
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
       })();
     </script>
   ` : '';
@@ -2536,7 +2522,7 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
+                  <img class="blog-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="lazy" fetchpriority="auto">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -2581,8 +2567,6 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
     image: schemaImage
   };
 
-  const thumbnailPath = thumbnail ? getLocalIssueImagePath(slug, thumbnail, 'thumbnail') : null;
-
   return wrapWithLayout(pageContent, {
     currentPage: 'magazine',
     title: title,
@@ -2590,7 +2574,6 @@ function generateIssueDetailPage({ post, nav = {}, issueReports = [], insightRep
     keywords: post.keywords || '게임 분석, 이슈, 게임 이슈, 모바일 게임',
     canonical: `${siteBaseUrl}/magazine/issue/${slug}/`,
     articleSchema,
-    preloadImages: thumbnailPath ? [thumbnailPath] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -2835,7 +2818,7 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
               const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -2855,7 +2838,7 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
               const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -2886,7 +2869,7 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${g.name}</span>
           </a>
         `).join('')}
@@ -2919,19 +2902,19 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
       <div class="blog-related-issues-list">
         ${relatedInsightsList.map(insight => `
           <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="${insight.title}" loading="lazy">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${insight.title}</span></span>
           </a>
         `).join('')}
         ${relatedIssuesList.map(issue => `
           <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="${issue.title}" loading="lazy">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
           </a>
         `).join('')}
         ${relatedWikiList.map(wiki => `
           <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="${wiki.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
           </a>
         `).join('')}
@@ -3043,17 +3026,19 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
   const sidebarScript = sidebarHTML ? `
     <script>
       (function() {
-        const sidebarTab = document.getElementById('sidebarArticleTab');
-        if (!sidebarTab) return;
-        sidebarTab.addEventListener('click', (e) => {
-          const btn = e.target.closest('.tab-btn');
-          if (!btn) return;
-          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const target = btn.dataset.sidebarTab;
-          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-          document.getElementById('sidebar-' + target)?.classList.add('active');
-        });
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
       })();
     </script>
   ` : '';
@@ -3075,7 +3060,7 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
+                  <img class="blog-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="lazy" fetchpriority="auto">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -3120,10 +3105,6 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
     image: schemaImage
   };
 
-  const issueThumbUrls = relatedIssuesList.map(issue =>
-    getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')
-  ).filter(Boolean);
-
   return wrapWithLayout(pageContent, {
     currentPage: 'magazine',
     title: title,
@@ -3131,7 +3112,6 @@ function generateInsightDetailPage({ post, nav = {}, insightReports = [], issueR
     keywords: post.keywords || '게임 트렌드, 인사이트, 게임 분석, 모바일 게임',
     canonical: `${siteBaseUrl}/magazine/insight/${slug}/`,
     articleSchema,
-    preloadImages: issueThumbUrls,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -3376,7 +3356,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
               const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -3396,7 +3376,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
               const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -3427,7 +3407,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${g.name}</span>
           </a>
         `).join('')}
@@ -3461,25 +3441,25 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
       <div class="blog-related-issues-list">
         ${relatedHotpicksList.map(hotpick => `
           <a href="/magazine/hotpick/${hotpick.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalHotpickImagePath(hotpick.slug, hotpick.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <img class="blog-related-issue-thumb" src="${getLocalHotpickImagePath(hotpick.slug, hotpick.thumbnail, 'thumbnail')}" alt="${hotpick.title}" loading="lazy">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${hotpick.title}</span></span>
           </a>
         `).join('')}
         ${relatedInsightsList.map(insight => `
           <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="${insight.title}" loading="lazy">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${insight.title}</span></span>
           </a>
         `).join('')}
         ${relatedIssuesList.map(issue => `
           <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="" loading="lazy">
+            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="${issue.title}" loading="lazy">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
           </a>
         `).join('')}
         ${relatedWikiList.map(wiki => `
           <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="${wiki.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
           </a>
         `).join('')}
@@ -3591,17 +3571,19 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
   const sidebarScript = sidebarHTML ? `
     <script>
       (function() {
-        const sidebarTab = document.getElementById('sidebarArticleTab');
-        if (!sidebarTab) return;
-        sidebarTab.addEventListener('click', (e) => {
-          const btn = e.target.closest('.tab-btn');
-          if (!btn) return;
-          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const target = btn.dataset.sidebarTab;
-          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-          document.getElementById('sidebar-' + target)?.classList.add('active');
-        });
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
       })();
     </script>
   ` : '';
@@ -3623,7 +3605,7 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalHotpickImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager">
+                  <img class="blog-image" src="${getLocalHotpickImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="lazy" fetchpriority="auto">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -3668,8 +3650,6 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
     image: schemaImage
   };
 
-  const thumbnailPath = thumbnail ? getLocalHotpickImagePath(slug, thumbnail, 'thumbnail') : null;
-
   return wrapWithLayout(pageContent, {
     currentPage: 'magazine',
     title: title,
@@ -3677,7 +3657,6 @@ function generateHotpickDetailPage({ post, nav = {}, hotpickReports = [], issueR
     keywords: post.keywords || '게임 추천, 핫픽, 구매 가이드, 세일 추천',
     canonical: `${siteBaseUrl}/magazine/hotpick/${slug}/`,
     articleSchema,
-    preloadImages: thumbnailPath ? [thumbnailPath] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -3910,7 +3889,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
               const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -3929,7 +3908,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
               const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -4076,7 +4055,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
               ${top3[1] ? `
                 <div class="podium-item podium-2nd">
                   <div class="podium-medal">🥈</div>
-                  <img class="podium-icon" src="${getPodiumIcon(top3[1].slug)}" alt="" loading="lazy">
+                  <img class="podium-icon" src="${getPodiumIcon(top3[1].slug)}" alt="${escapeHtmlAttr(top3[1].name)}" loading="lazy">
                   <div class="podium-name">${escapeHtmlAttr(top3[1].name)}</div>
                   <div class="podium-score">${top3[1].score?.toLocaleString() || ''}점</div>
                   <div class="podium-bar podium-bar-2nd"></div>
@@ -4085,7 +4064,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
               ${top3[0] ? `
                 <div class="podium-item podium-1st">
                   <div class="podium-medal">🥇</div>
-                  <img class="podium-icon" src="${getPodiumIcon(top3[0].slug)}" alt="" loading="lazy">
+                  <img class="podium-icon" src="${getPodiumIcon(top3[0].slug)}" alt="${escapeHtmlAttr(top3[0].name)}" loading="lazy">
                   <div class="podium-name">${escapeHtmlAttr(top3[0].name)}</div>
                   <div class="podium-score">${top3[0].score?.toLocaleString() || ''}점</div>
                   <div class="podium-bar podium-bar-1st"></div>
@@ -4094,7 +4073,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
               ${top3[2] ? `
                 <div class="podium-item podium-3rd">
                   <div class="podium-medal">🥉</div>
-                  <img class="podium-icon" src="${getPodiumIcon(top3[2].slug)}" alt="" loading="lazy">
+                  <img class="podium-icon" src="${getPodiumIcon(top3[2].slug)}" alt="${escapeHtmlAttr(top3[2].name)}" loading="lazy">
                   <div class="podium-name">${escapeHtmlAttr(top3[2].name)}</div>
                   <div class="podium-score">${top3[2].score?.toLocaleString() || ''}점</div>
                   <div class="podium-bar podium-bar-3rd"></div>
@@ -4117,7 +4096,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
 
           result.push(`
             <div class="ranking-card ${cardItem.highlight ? 'ranking-card-highlight' : ''}">
-              <img class="ranking-card-icon" src="${cardIcon}" alt="" loading="lazy">
+              <img class="ranking-card-icon" src="${cardIcon}" alt="${escapeHtmlAttr(cardItem.name || '')}" loading="lazy">
               <div class="ranking-card-info">
                 <div class="ranking-card-name">${escapeHtmlAttr(cardItem.name || '')}</div>
                 <div class="ranking-card-score">${cardItem.score?.toLocaleString() || ''}${cardUnit}</div>
@@ -4451,7 +4430,6 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
       }
     });
   }
-  console.log(`  🔍 relatedTech debug: post.relatedTech=${JSON.stringify(post.relatedTech)}, techData keys=${Object.keys(techData)}, ai count=${(techData.ai||[]).length}`);
   if (post.relatedTech && post.relatedTech.length > 0) {
     post.relatedTech.forEach(techPath => {
       const parts = techPath.split('/');
@@ -4473,7 +4451,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
             : '';
           return `
             <a href="${doc.link}" class="blog-related-issue-card">
-              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="" loading="lazy">
+              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="${doc.title}" loading="lazy">
               <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${doc.title}</span></span>
             </a>
           `;
@@ -4498,7 +4476,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
       <div class="blog-related-grid">
         ${relatedGames.map(game => `
           <a href="/games/${game.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${game.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" src="${game.icon || '/favicon.svg'}" alt="${game.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${game.name}</span>
           </a>
         `).join('')}
@@ -4597,17 +4575,19 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
   const sidebarScript = sidebarHTML ? `
     <script>
       (function() {
-        const sidebarTab = document.getElementById('sidebarArticleTab');
-        if (!sidebarTab) return;
-        sidebarTab.addEventListener('click', (e) => {
-          const btn = e.target.closest('.tab-btn');
-          if (!btn) return;
-          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const target = btn.dataset.sidebarTab;
-          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-          document.getElementById('sidebar-' + target)?.classList.add('active');
-        });
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
       })();
     </script>
   ` : '';
@@ -4648,7 +4628,7 @@ function generateRankingDetailPage({ post, nav = {}, rankingReports = [], issueR
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
+                  <img class="blog-image" src="${heroImg}" alt="${heroAlt}" loading="lazy" fetchpriority="auto">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}

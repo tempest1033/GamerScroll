@@ -18,7 +18,8 @@
     {
       "type": "image",
       "src": "https://mblogthumb-phinf.pstatic.net/20160406_47/chldydwo123_1459946574841aa55O_PNG/crescent.png?type=w420",
-      "caption": "불기둥 크레센츠 타이틀 이미지"
+      "caption": "불기둥 크레센츠 타이틀 이미지",
+      "alt": "불기둥 크레센츠 타이틀 이미지"
     },
     {
       "type": "text",
@@ -31,7 +32,8 @@
     {
       "type": "image",
       "src": "https://i.ytimg.com/vi/p2P5WEZgmbw/maxresdefault.jpg",
-      "caption": "불기둥 크레센츠 게임 플레이 화면"
+      "caption": "불기둥 크레센츠 게임 플레이 화면",
+      "alt": "불기둥 크레센츠 게임 플레이 화면"
     },
     {
       "type": "text",
@@ -44,7 +46,8 @@
     {
       "type": "image",
       "src": "https://media.bunjang.co.kr/product/382241441_1_1768508101_w1200.jpg",
-      "caption": "불기둥 크레센츠 CD (민트급 소장품)"
+      "caption": "불기둥 크레센츠 CD (민트급 소장품)",
+      "alt": "불기둥 크레센츠 CD 소장품"
     },
     {
       "type": "text",
@@ -57,7 +60,8 @@
     {
       "type": "image",
       "src": "https://mblogthumb-phinf.pstatic.net/20160406_244/chldydwo123_1459946485296sNsXs_JPEG/bandicam_2016-04-06_20-57-13-087.jpg?type=w420",
-      "caption": "불기둥 크레센츠 인게임 스크린샷"
+      "caption": "불기둥 크레센츠 인게임 스크린샷",
+      "alt": "불기둥 크레센츠 인게임 스크린샷"
     },
     {
       "type": "text",
@@ -70,7 +74,8 @@
     {
       "type": "image",
       "src": "https://cdn.gamemeca.com/gmdata/0000/309/651/blue201307oppa-31.jpg",
-      "caption": "이후 발매된 '삭제되었수다'. 패러디의 패러디를 거듭한 작품이다."
+      "caption": "이후 발매된 '삭제되었수다'. 패러디의 패러디를 거듭한 작품이다.",
+      "alt": "삭제되었수다 - 불기둥 크레센츠 패러디 게임"
     },
     {
       "type": "text",

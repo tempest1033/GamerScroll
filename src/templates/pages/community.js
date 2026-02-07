@@ -41,7 +41,7 @@ function generateCommunityPage(data) {
 
     const itemsHtml = items.map((item, i) => `
       <a class="community-item" href="${item.link}" target="_blank" rel="noopener" data-index="${i}">
-        <img src="${source.icon}" alt="" class="community-item-icon">
+        <img src="${source.icon}" alt="${source.name}" class="community-item-icon">
         <span class="community-item-title">${item.title}</span>
       </a>
     `).join('');

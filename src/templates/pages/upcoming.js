@@ -45,7 +45,7 @@ function generateUpcomingPage(data) {
 	          <span class="upcoming-rank ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span>
 	        </div>
 	        <div class="upcoming-col-game">
-	          ${game.img ? `<img class="upcoming-icon" src="${resizeIcon(game.img)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1"${retryAttr}>` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
+	          ${game.img ? `<img class="upcoming-icon" src="${resizeIcon(game.img)}" alt="${game.name}" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1"${retryAttr}>` : ''}<div class="upcoming-icon-placeholder ${game.img ? 'hidden' : ''}">${defaultLogo}</div>
 	          <div class="upcoming-info">
 	            <div class="upcoming-name">${game.name}</div>
 	          </div>

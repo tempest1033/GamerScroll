@@ -1043,7 +1043,7 @@ function generateGamePage(gameData) {
     }
     return `<div class="game-youtube-grid">${youtube.slice(0, 4).map(video => `
       <a class="game-youtube-item" href="${video.link}" target="_blank" rel="noopener">
-	        <div class="game-youtube-thumb"><img src="${video.thumbnail}" alt="" loading="lazy" data-img-fallback="parent-hide"></div>
+	        <div class="game-youtube-thumb"><img src="${video.thumbnail}" alt="${video.title}" loading="lazy" data-img-fallback="parent-hide"></div>
         <div class="game-youtube-info">
           <span class="game-youtube-title">${video.title}</span>
           <span class="game-youtube-channel">${video.channel}</span>
@@ -1070,7 +1070,7 @@ function generateGamePage(gameData) {
     const cards = relatedContent.map((item, i) => `
       <a href="${getLink(item)}" class="home-popular-card game-related-item" data-index="${i}">
         <div class="home-popular-thumb">
-          ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${(item.title || '').replace(/"/g, '&quot;')}" loading="${i < 3 ? 'eager' : 'lazy'}">` : ''}
+          ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${(item.title || '').replace(/"/g, '&quot;')}" loading="lazy" fetchpriority="auto">` : ''}
         </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>

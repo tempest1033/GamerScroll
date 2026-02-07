@@ -277,7 +277,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
           const thumbUrl = article.thumbnail || '';
           return `
             <a href="${href}" class="blog-related-issue-card blog-series-card">
-              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="" loading="lazy">
+              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="${article.title}" loading="lazy">
               <span class="blog-series-tag">${partLabel}</span>
               <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${article.title}</span></span>
             </a>
@@ -376,7 +376,7 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${g.name}</span>
           </a>
         `).join('')}
@@ -397,7 +397,7 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
                 : '/favicon.svg';
               return `
               <a href="/wiki/${item.category}/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="${thumb}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'tech') {
@@ -406,13 +406,13 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
                 : '/favicon.svg';
               return `
               <a href="/tech/${item.category}/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="${thumb}" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'issue') {
               return `
               <a href="/magazine/issue/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="/assets/images/issue/${item.slug}/thumbnail.webp" alt="" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" src="/assets/images/issue/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             }
@@ -546,17 +546,19 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
   const sidebarScript = sidebarHTML ? `
     <script>
       (function() {
-        const sidebarTab = document.getElementById('sidebarArticleTab');
-        if (!sidebarTab) return;
-        sidebarTab.addEventListener('click', (e) => {
-          const btn = e.target.closest('.tab-btn');
-          if (!btn) return;
-          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const target = btn.dataset.sidebarTab;
-          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-          document.getElementById('sidebar-' + target)?.classList.add('active');
-        });
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
       })();
     </script>
   ` : '';
@@ -576,7 +578,7 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
 
               ${article.thumbnail ? `
               <figure class="blog-figure">
-                <img src="${getLocalWikiImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="" loading="eager">
+                <img src="${getLocalWikiImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="" loading="lazy" fetchpriority="auto">
               </figure>
               ` : ''}
 
@@ -636,7 +638,6 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
     keywords: metaKeywords,
     canonical: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
     articleSchema,
-    preloadImages: thumbnailPath ? [thumbnailPath] : [],
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '게임 위키', url: `${siteBaseUrl}/wiki/` },

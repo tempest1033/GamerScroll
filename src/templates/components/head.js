@@ -15,8 +15,8 @@ function generateHead(options = {}) {
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, image, operatingSystem, applicationCategory, aggregateRating}
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     ogImage = '',
-    preloadImages = [],
-    cssFilename = '/styles.css'  // 해시 기반 CSS 파일명
+    cssFilename = '/styles-core.css',  // 기본 CSS 파일명 (하위 호환)
+    cssFilenames = null  // 다중 CSS 파일명
   } = options;
 
   const normalizeMeta = (value) => String(value ?? '').replace(/[\r\n]+/g, ' ').trim();
@@ -51,13 +51,21 @@ function generateHead(options = {}) {
     'https://gamerscroll.com/og-image.png'
   );
   const safeImageAlt = safeTitle;
-  const preloadImageList = Array.isArray(preloadImages) ? preloadImages : [];
-  const preloadUrls = [...new Set(preloadImageList.map(item => normalizeMeta(item)).filter(Boolean))].slice(0, 3);
-  const preloadLinks = preloadUrls.length > 0
-    ? preloadUrls.map((url, index) =>
-      `<link rel="preload" as="image" href="${escapeHtmlAttr(url)}"${index === 0 ? ' fetchpriority="high"' : ''}>`
-    ).join('\n  ')
-    : '';
+  const resolvedCssFiles = (() => {
+    const files = Array.isArray(cssFilenames) && cssFilenames.length > 0
+      ? cssFilenames
+      : [cssFilename];
+    const seen = new Set();
+    const out = [];
+    for (const file of files) {
+      const normalized = String(file || '').trim();
+      if (!normalized || seen.has(normalized)) continue;
+      seen.add(normalized);
+      out.push(normalized);
+    }
+    return out.length > 0 ? out : ['/styles-core.css'];
+  })();
+  const cssLinksHtml = resolvedCssFiles.map((file) => `<link rel="stylesheet" href="${escapeHtmlAttr(file)}">`).join('\n  ');
   const articleOgMeta = articleSchema ? [
     articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(articleSchema.datePublished)}">` : '',
     articleSchema.dateModified ? `<meta property="article:modified_time" content="${escapeHtmlAttr(articleSchema.dateModified)}">` : '',
@@ -145,7 +153,7 @@ function generateHead(options = {}) {
 	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
 	  <style>
 	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
-	    body { margin: 0; visibility: hidden; }
+	    body { margin: 0; }
 	    .home-trend-card-image { background: transparent !important; }
 	    :is(.site-container, .container) {
 	      max-width: 1190px;
@@ -257,7 +265,6 @@ function generateHead(options = {}) {
   <meta name="twitter:image:alt" content="${safeImageAlt}">
   <meta name="twitter:site" content="@gamerscroll">
   <meta name="twitter:creator" content="@gamerscroll">
-  ${preloadLinks ? `${preloadLinks}\n  ` : ''}
   <!-- Theme & Favicon -->
   <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
@@ -291,7 +298,7 @@ function generateHead(options = {}) {
 	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
 	  <!-- 메인 CSS -->
-	  <link rel="stylesheet" href="${cssFilename}">
+	  ${cssLinksHtml}
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script>
 	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행

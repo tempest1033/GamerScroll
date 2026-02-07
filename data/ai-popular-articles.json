@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-02-07T00:55:56.473Z",
+  "updatedAt": "2026-02-07T13:35:16.397Z",
   "period": "7days",
   "articles": [
     {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 263,
+      "views": 265,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
-      "views": 124,
+      "views": 125,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
     },
     {
@@ -23,20 +23,26 @@
     {
       "category": "openai",
       "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 32,
+      "views": 33,
       "path": "/article/openai/gpt-5-3-garlic-update-rumor/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 25,
+      "views": 26,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "general",
       "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
-      "views": 24,
+      "views": 25,
       "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-cowork-saaspocalypse",
+      "views": 24,
+      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
     },
     {
       "category": "google",
@@ -45,22 +51,16 @@
       "path": "/article/google/google-genie3-unity-stock-crash/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-cowork-saaspocalypse",
-      "views": 23,
-      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
+      "category": "general",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 15,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "openai",
       "slug": "gpt-4o-shutdown-controversy",
       "views": 15,
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 14,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "general",
@@ -81,16 +81,16 @@
       "path": "/article/google/alphagenome-first-impressions-2026/"
     },
     {
+      "category": "google",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 9,
+      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
+    },
+    {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
       "views": 9,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 6,
-      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "category": "general",
@@ -113,7 +113,7 @@
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 4,
+      "views": 5,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -135,6 +135,12 @@
       "path": "/article/openai/stargate-ai-crisis-2026/"
     },
     {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 3,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
       "category": "anthropic",
       "slug": "moltbot-clawdbot-ai-assistant",
       "views": 2,
@@ -145,12 +151,6 @@
       "slug": "big3-ipo-2026-openai-anthropic-spacex",
       "views": 2,
       "path": "/article/general/big3-ipo-2026-openai-anthropic-spacex/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 2,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",

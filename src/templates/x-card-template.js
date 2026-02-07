@@ -26,7 +26,7 @@ const generateXCardHtml = (data) => {
     return `
       <div class="issue">
         <div class="issue-media">
-          ${thumbnail ? `<img class="issue-thumb" src="${thumbnail}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          ${thumbnail ? `<img class="issue-thumb" src="${thumbnail}" alt="${title}" loading="lazy" onerror="this.style.display='none'">` : ''}
           <span class="issue-num">${idx + 1}</span>
           <span class="issue-tag">${tag}</span>
         </div>

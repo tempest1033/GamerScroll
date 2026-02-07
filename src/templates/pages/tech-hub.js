@@ -7,7 +7,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateNativeAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateNativeAdSlot, buildCardFeedPagerScript } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인/경로
 const docsDir = path.join(__dirname, '../../../docs');
@@ -29,17 +29,26 @@ const categoryNames = { normal: '일반', ai: 'AI', vibecoding: '바이브코딩
 
 // 로컬 테크 이미지 경로 반환
 function getLocalTechImagePath(category, slug, originalUrl, size = 'sm') {
-  if (!originalUrl || !originalUrl.startsWith('http')) return originalUrl;
+  if (!originalUrl) return '';
+  let url = originalUrl;
+  if (url.startsWith('//')) url = `https:${url}`;
+  if (!url.startsWith('http')) return url;
+  if (!category || !slug) {
+    const widthFallback = size === 'xs' ? 200 : (size === 'lg' ? 1200 : 480);
+    return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${widthFallback}&output=webp`;
+  }
 
-  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
+  const sizeMap = { xs: 'thumbnail-xs.webp', sm: 'thumbnail-sm.webp', lg: 'thumbnail.webp' };
+  const widthMap = { xs: 200, sm: 480, lg: 1200 };
+  const filename = sizeMap[size] || sizeMap.sm;
   const localPath = `/assets/images/tech/${category}/${slug}/${filename}`;
-  const fullPath = path.join(docsDir, localPath);
+  const fullPath = path.join(docsDir, 'assets/images/tech', category, slug, filename);
 
   if (fs.existsSync(fullPath)) return localPath;
 
   // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
-  if (size === 'sm') {
-    const fallbackPath = path.join(docsDir, `/assets/images/tech/${category}/${slug}/thumbnail.webp`);
+  if (size === 'sm' || size === 'xs') {
+    const fallbackPath = path.join(docsDir, 'assets/images/tech', category, slug, 'thumbnail.webp');
     if (fs.existsSync(fallbackPath)) {
       return `/assets/images/tech/${category}/${slug}/thumbnail.webp`;
     }
@@ -50,14 +59,122 @@ function getLocalTechImagePath(category, slug, originalUrl, size = 'sm') {
   const wikiFullPath = path.join(docsDir, wikiLocalPath);
   if (fs.existsSync(wikiFullPath)) return wikiLocalPath;
 
-  const width = size === 'sm' ? 480 : 1200;
-  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
+  const width = widthMap[size] || 480;
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp`;
+}
+
+function getLocalTechImageSrcset(category, slug, originalUrl) {
+  const xsUrl = getLocalTechImagePath(category, slug, originalUrl, 'xs');
+  const smUrl = getLocalTechImagePath(category, slug, originalUrl, 'sm');
+  if (!smUrl) return { src: '', srcset: '' };
+  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
+  return {
+    src: smUrl,
+    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
+    sizes: '(max-width: 768px) 133px, 253px'
+  };
 }
 
 // HTML 이스케이프
 function escapeHtmlAttr(str) {
   if (!str) return '';
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+const FEED_PAGE_SIZE = 15;
+const INITIAL_FEED_RENDER_COUNT = 9;
+function extractSeoLinkFromCardHtml(html) {
+  if (!html || typeof html !== 'string') return null;
+  const hrefMatch = html.match(/<a[^>]*href="([^"]+)"/i);
+  if (!hrefMatch || !hrefMatch[1]) return null;
+
+  let title = '';
+  const lazyTitleMatch = html.match(/data-lazy-img-alt="([^"]+)"/i);
+  if (lazyTitleMatch && lazyTitleMatch[1]) title = lazyTitleMatch[1];
+  if (!title) {
+    const titleMatch = html.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i);
+    if (titleMatch && titleMatch[1]) {
+      title = titleMatch[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+  }
+
+  return {
+    href: hrefMatch[1],
+    title: title || hrefMatch[1]
+  };
+}
+function renderDeferredSeoLinks(links, id = '') {
+  if (!Array.isArray(links) || links.length === 0) return '';
+  const idAttr = id ? ` id="${id}"` : '';
+  return `<div class="visually-hidden"${idAttr}>${links.map(link => `
+      <a href="${escapeHtmlAttr(link.href)}">${escapeHtmlAttr(link.title || link.href)}</a>
+    `).join('')}</div>`;
+}
+function serializeDeferredCards(cards) {
+  if (!Array.isArray(cards) || cards.length === 0) return '';
+  return JSON.stringify(cards).replace(/</g, '\\u003c');
+}
+function splitFeedCardsByIndex(entries, pageSize = FEED_PAGE_SIZE, initialRenderCount = pageSize) {
+  const initial = [];
+  const deferred = [];
+  const deferredSeoLinks = [];
+  const safeInitialRenderCount = Math.max(1, Math.min(initialRenderCount, pageSize));
+  entries.forEach(entry => {
+    if (!entry || typeof entry.html !== 'string') return;
+    if ((entry.itemIndex || 0) < safeInitialRenderCount) initial.push(entry.html);
+    else {
+      deferred.push(entry.html);
+      const seoLink = extractSeoLinkFromCardHtml(entry.html);
+      if (seoLink) deferredSeoLinks.push(seoLink);
+    }
+  });
+  return {
+    initialHtml: initial.join(''),
+    deferredHtml: deferred.join(''),
+    deferredJson: serializeDeferredCards(deferred),
+    deferredSeoLinksHtml: renderDeferredSeoLinks(deferredSeoLinks)
+  };
+}
+
+const FEED_IMAGE_DIMENSION_ATTRS = 'width="1600" height="900" decoding="async"';
+const POPULAR_IMAGE_DIMENSION_ATTRS = 'width="480" height="300" decoding="async"';
+function getFeedImageLoadingAttrs() {
+  return 'loading="lazy" fetchpriority="auto"';
+}
+function getFeedImagePerfAttrs() {
+  return `${getFeedImageLoadingAttrs()} ${FEED_IMAGE_DIMENSION_ATTRS}`;
+}
+function getPopularImagePerfAttrs() {
+  return `loading="lazy" fetchpriority="auto" ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
+}
+
+const CATEGORY_FEED_PAGER_OPTIONS = {
+  itemSelector: '.home-trend-card',
+  pageSize: FEED_PAGE_SIZE,
+  hydrateLazyImages: true,
+  mobileAds: true,
+  adInterval: 3,
+  mobileDomWindowPages: 5,
+  adSlots: ['4840966314', '7467129651', '7865094213', '3028357040']
+};
+
+function buildCategoryCardFeedPagerScript(gridSelector, paginationSelector, deferredDataSelector = '') {
+  return buildCardFeedPagerScript({
+    grid: gridSelector,
+    pagination: paginationSelector,
+    deferredJson: deferredDataSelector,
+    itemSelector: CATEGORY_FEED_PAGER_OPTIONS.itemSelector,
+    pageSize: CATEGORY_FEED_PAGER_OPTIONS.pageSize,
+    hydrateLazyImages: CATEGORY_FEED_PAGER_OPTIONS.hydrateLazyImages,
+    mobileAds: CATEGORY_FEED_PAGER_OPTIONS.mobileAds,
+    adInterval: CATEGORY_FEED_PAGER_OPTIONS.adInterval,
+    mobileDomWindowPages: CATEGORY_FEED_PAGER_OPTIONS.mobileDomWindowPages,
+    adSlots: CATEGORY_FEED_PAGER_OPTIONS.adSlots,
+    initialRenderCount: INITIAL_FEED_RENDER_COUNT,
+    idleFillFirstPage: true,
+    idleFillDelay: 120,
+    sidebarTabId: 'sidebarArticleTab'
+  });
 }
 
 /**
@@ -112,11 +229,14 @@ function generateTechHubPage({
     if (techPopular.length === 0) return '';
 
     const popularCards = techPopular.map((item, i) => {
-      const thumbUrl = item.thumbnail ? getLocalTechImagePath(item.category, item.slug, item.thumbnail) : '';
+      const thumbData = item.thumbnail ? getLocalTechImageSrcset(item.category, item.slug, item.thumbnail) : { src: '', srcset: '' };
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
       return `
       <a href="${item.link || item.path || '#'}" class="home-popular-card">
         <div class="home-popular-thumb">
-          ${thumbUrl ? `<img src="${thumbUrl}" alt="${escapeHtmlAttr(item.title)}" loading="${i === 0 ? 'eager' : 'lazy'}">` : ''}
+          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getPopularImagePerfAttrs(i)}>` : ''}
         </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>
@@ -125,13 +245,14 @@ function generateTechHubPage({
       </a>
     `;
     }).join('');
+    const popularListId = 'techPopularList';
 
     return `
       <div class="home-card" id="tech-popular">
         <div class="home-card-header">
           <h2 class="home-card-title">인기</h2>
         </div>
-        <div class="home-popular-list">${popularCards}</div>
+        <div class="home-popular-list" id="${popularListId}">${popularCards}</div>
       </div>
     `;
   }
@@ -140,34 +261,49 @@ function generateTechHubPage({
   function generateTechGrid() {
     if (allTech.length === 0) return '<p>테크 글이 없습니다.</p>';
 
-    const techCards = allTech.map(article => {
-      const thumbnail = article.thumbnail
-        ? getLocalTechImagePath(article.category, article.slug, article.thumbnail)
-        : '';
+    const techCardEntries = allTech.map((article, i) => {
+      const thumbData = article.thumbnail
+        ? getLocalTechImageSrcset(article.category, article.slug, article.thumbnail)
+        : { src: '', srcset: '' };
+      const imgAttrs = thumbData.srcset
+        ? `src="${escapeHtmlAttr(thumbData.src)}" srcset="${escapeHtmlAttr(thumbData.srcset)}" sizes="${escapeHtmlAttr(thumbData.sizes)}"`
+        : (thumbData.src ? `src="${escapeHtmlAttr(thumbData.src)}"` : '');
       const catName = categoryNames[article.category] || '';
       const badgeText = article.date ? formatDateKr(article.date) : catName;
+      const imgHtml = (i < INITIAL_FEED_RENDER_COUNT && thumbData.src)
+        ? `<img ${imgAttrs} alt="${escapeHtmlAttr(article.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">`
+        : '';
+      const lazySrcsetAttr = thumbData.srcset ? ` data-lazy-img-srcset="${escapeHtmlAttr(thumbData.srcset)}" data-lazy-img-sizes="${escapeHtmlAttr(thumbData.sizes)}"` : '';
+      const lazyAttrs = (!imgHtml && thumbData.src)
+        ? ` data-lazy-img-src="${escapeHtmlAttr(thumbData.src)}"${lazySrcsetAttr} data-lazy-img-alt="${escapeHtmlAttr(article.title)}"`
+        : '';
 
-      return `
-        <a href="/tech/${article.category}/${article.slug}/" class="home-trend-card">
+      return {
+        itemIndex: i,
+        html: `
+        <a href="/tech/${article.category}/${article.slug}/" class="home-trend-card"${lazyAttrs}>
           <div class="home-trend-card-image">
-            ${thumbnail ? `<img src="${thumbnail}" alt="${escapeHtmlAttr(article.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+            ${imgHtml}
             <span class="home-trend-card-tag tech">${badgeText}</span>
           </div>
           <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${article.title}</span></h3>
         </a>
-      `;
-    }).join('');
+      `
+      };
+    });
+    const techCards = splitFeedCardsByIndex(techCardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
     return `
       <div class="home-card" id="tech-all">
         <div class="home-card-header">
           <h2 class="home-card-title">최신</h2>
         </div>
-        <div class="home-latest-grid" id="techGrid">${techCards}</div>
-        <div class="home-pagination" id="techPagination">
-          <button class="home-page-btn home-prev" aria-label="이전">‹</button>
-          <span class="home-page-index">1/1</span>
-          <button class="home-page-btn home-next" aria-label="다음">›</button>
+        <div class="home-latest-grid" id="techGrid">${techCards.initialHtml}</div>
+        ${techCards.deferredJson ? `<script type="application/json" id="techGridDeferredData">${techCards.deferredJson}</script>${techCards.deferredSeoLinksHtml}` : ''}
+        <div class="home-pagination" id="techPagination" data-total="${allTech.length}" data-per-page="${FEED_PAGE_SIZE}">
+          <button class="home-page-btn home-page-prev home-prev" aria-label="이전">‹</button>
+          <span class="home-page-info home-page-index">1 / 1</span>
+          <button class="home-page-btn home-page-next home-next" aria-label="다음">›</button>
         </div>
       </div>
     `;
@@ -267,119 +403,7 @@ function generateTechHubPage({
     </section>
   `;
 
-  const pageScripts = `
-  <script>
-    (function() {
-      // PC: 페이지네이션, 모바일: 무한스크롤
-      const grid = document.getElementById('techGrid');
-      const pagination = document.getElementById('techPagination');
-      if (!grid || !pagination) return;
-
-      const isMobile = window.matchMedia('(max-width:768px)').matches;
-      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
-      const pageSize = 15;
-
-      if (isMobile) {
-        pagination.style.display = 'none';
-        let visibleCount = pageSize;
-        let observer;
-        let lastAdAfterIndex = -1;
-        const adSlots = ['4840966314', '7467129651', '7865094213', '3028357040'];
-        let adSlotIndex = 0;
-        const adInterval = 3;
-
-        function showItems() {
-          items.forEach((item, i) => {
-            item.style.display = i < visibleCount ? '' : 'none';
-          });
-        }
-
-        function insertAds() {
-          if (document.body.classList.contains('ads-disabled')) return;
-          for (let i = lastAdAfterIndex + 1; i < visibleCount; i++) {
-            if ((i + 1) % adInterval === 0) {
-              const slotId = adSlots[adSlotIndex % adSlots.length];
-              adSlotIndex++;
-              const adId = 'scroll-ad-' + adSlotIndex;
-              const adHtml = '<div class="ad-card ad-card-scroll" id="' + adId + '" style="margin:16px 0;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">' +
-                '<ins class="adsbygoogle" style="display:block;margin:0 auto" ' +
-                'data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
-              items[i]?.insertAdjacentHTML('afterend', adHtml);
-              try {
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-              } catch(e) {
-                document.getElementById(adId)?.remove();
-              }
-              lastAdAfterIndex = i;
-            }
-          }
-        }
-
-        function loadMore() {
-          if (visibleCount >= items.length) return;
-          visibleCount = Math.min(visibleCount + pageSize, items.length);
-          showItems();
-          insertAds();
-          observeLastItem();
-        }
-
-        function observeLastItem() {
-          if (observer) observer.disconnect();
-          if (visibleCount >= items.length) return;
-          const lastVisible = items[visibleCount - 1];
-          if (!lastVisible) return;
-          observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) loadMore();
-          }, { rootMargin: '200px' });
-          observer.observe(lastVisible);
-        }
-
-        showItems();
-        insertAds();
-        observeLastItem();
-        return;
-      }
-
-      // PC: 페이지네이션
-      const totalPages = Math.ceil(items.length / pageSize) || 1;
-      let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-prev');
-      const nextBtn = pagination.querySelector('.home-next');
-      const pageIndex = pagination.querySelector('.home-page-index');
-
-      function updatePagination() {
-        const start = (currentPage - 1) * pageSize;
-        const end = start + pageSize;
-        items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-        pageIndex.textContent = currentPage + ' / ' + totalPages;
-        prevBtn.disabled = currentPage <= 1;
-        nextBtn.disabled = currentPage >= totalPages;
-      }
-
-      prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
-      nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
-      updatePagination();
-
-      // 사이드바 인기/최신 탭 토글
-      const sidebarTab = document.getElementById('sidebarArticleTab');
-      if (sidebarTab) {
-        sidebarTab.addEventListener('click', (e) => {
-          const btn = e.target.closest('.tab-btn');
-          if (!btn) return;
-          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const target = btn.dataset.sidebarTab;
-          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-          document.getElementById('sidebar-' + target)?.classList.add('active');
-        });
-      }
-    })();
-  </script>`;
-
-  // 첫 화면 이미지 프리로드
-  const preloadImages = allTech.slice(0, 3)
-    .map(a => a.thumbnail ? getLocalTechImagePath(a.category, a.slug, a.thumbnail, 'sm') : null)
-    .filter(Boolean);
+  const pageScripts = buildCategoryCardFeedPagerScript('#techGrid', '#techPagination', '#techGridDeferredData');
 
   return wrapWithLayout(content, {
     currentPage: 'tech',
@@ -388,7 +412,6 @@ function generateTechHubPage({
     keywords: '테크, 기술, AI, 개발 도구, 바이브 코딩, 게임 엔진',
     canonical: `${siteBaseUrl}/tech/`,
     pageScripts,
-    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '테크', url: `${siteBaseUrl}/tech/` }
@@ -437,35 +460,50 @@ function generateTechCategoryPage({
   function generateCategoryGrid() {
     if (articles.length === 0) return '<p>테크 글이 없습니다.</p>';
 
-    const cards = [];
+    const cardEntries = [];
     articles.forEach((article, i) => {
-      const thumbnail = article.thumbnail
-        ? getLocalTechImagePath(category, article.slug, article.thumbnail)
+      const thumbData = article.thumbnail
+        ? getLocalTechImageSrcset(category, article.slug, article.thumbnail)
+        : { src: '', srcset: '' };
+      const imgAttrs = thumbData.srcset
+        ? `src="${escapeHtmlAttr(thumbData.src)}" srcset="${escapeHtmlAttr(thumbData.srcset)}" sizes="${escapeHtmlAttr(thumbData.sizes)}"`
+        : (thumbData.src ? `src="${escapeHtmlAttr(thumbData.src)}"` : '');
+      const lazySrcsetAttr = thumbData.srcset ? ` data-lazy-img-srcset="${escapeHtmlAttr(thumbData.srcset)}" data-lazy-img-sizes="${escapeHtmlAttr(thumbData.sizes)}"` : '';
+      const lazyAttrs = (i >= INITIAL_FEED_RENDER_COUNT && thumbData.src)
+        ? ` data-lazy-img-src="${escapeHtmlAttr(thumbData.src)}"${lazySrcsetAttr} data-lazy-img-alt="${escapeHtmlAttr(article.title)}"`
         : '';
       const badgeText = article.date ? formatDateKr(article.date) : catName;
 
-      cards.push(`
-        <a href="/tech/${category}/${article.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+      cardEntries.push({
+        itemIndex: i,
+        html: `
+        <a href="/tech/${category}/${article.slug}/" class="home-trend-card home-latest-item" data-index="${i}"${lazyAttrs}>
           <div class="home-trend-card-image">
-            ${thumbnail ? `<img src="${thumbnail}" alt="${escapeHtmlAttr(article.title)}" loading="lazy" data-img-fallback="hide">` : ''}
+            ${(i < INITIAL_FEED_RENDER_COUNT && thumbData.src) ? `<img ${imgAttrs} alt="${escapeHtmlAttr(article.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">` : ''}
             <span class="home-trend-card-tag tech">${badgeText}</span>
           </div>
           <h3 class="home-trend-card-title">${article.title}</h3>
-        </a>`);
+        </a>`
+      });
       if ((i + 1) % 3 === 0 && i < articles.length - 1) {
-        cards.push(generateNativeAdSlot(AD_SLOTS.Article001));
+        cardEntries.push({
+          itemIndex: i,
+          html: generateNativeAdSlot(AD_SLOTS.Article001)
+        });
       }
     });
+    const cards = splitFeedCardsByIndex(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
-    const totalPages = Math.ceil(articles.length / 15);
+    const totalPages = Math.ceil(articles.length / FEED_PAGE_SIZE);
 
     return `
       <div class="home-card" id="tech-category">
         <div class="home-card-header">
           <h2 class="home-card-title">${catName}</h2>
         </div>
-        <div class="home-trend-grid" id="techGrid">${cards.join('')}</div>
-        <div class="home-pagination" id="techPagination" data-total="${articles.length}" data-per-page="15">
+        <div class="home-trend-grid" id="techGrid">${cards.initialHtml}</div>
+        ${cards.deferredJson ? `<script type="application/json" id="techCategoryGridDeferredData">${cards.deferredJson}</script>${cards.deferredSeoLinksHtml}` : ''}
+        <div class="home-pagination" id="techPagination" data-total="${articles.length}" data-per-page="${FEED_PAGE_SIZE}">
           <button class="home-page-btn home-page-prev" disabled>‹</button>
           <span class="home-page-info">1 / ${totalPages}</span>
           <button class="home-page-btn home-page-next"${totalPages <= 1 ? ' disabled' : ''}>›</button>
@@ -567,75 +605,7 @@ function generateTechCategoryPage({
     </section>
   `;
 
-  const pageScripts = `
-  <script>
-    (function() {
-      const grid = document.getElementById('techGrid');
-      const pagination = document.getElementById('techPagination');
-      if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
-      const pageSize = 15;
-      const isMobile = window.innerWidth <= 768;
-
-      if (isMobile) {
-        pagination.style.display = 'none';
-        let visibleCount = pageSize;
-        let observer;
-        function showItems() { items.forEach((item, i) => { item.style.display = i < visibleCount ? '' : 'none'; }); }
-        function loadMore() {
-          if (visibleCount >= items.length) return;
-          visibleCount = Math.min(visibleCount + pageSize, items.length);
-          showItems(); observeLastItem();
-        }
-        function observeLastItem() {
-          if (observer) observer.disconnect();
-          if (visibleCount >= items.length) return;
-          const lastVisible = items[visibleCount - 1];
-          if (!lastVisible) return;
-          observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) loadMore(); }, { rootMargin: '200px' });
-          observer.observe(lastVisible);
-        }
-        showItems(); observeLastItem();
-        return;
-      }
-
-      const totalPages = Math.ceil(items.length / pageSize) || 1;
-      let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-page-prev');
-      const nextBtn = pagination.querySelector('.home-page-next');
-      const pageInfo = pagination.querySelector('.home-page-info');
-      function updatePagination() {
-        const start = (currentPage - 1) * pageSize;
-        const end = start + pageSize;
-        items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-        pageInfo.textContent = currentPage + ' / ' + totalPages;
-        prevBtn.disabled = currentPage <= 1;
-        nextBtn.disabled = currentPage >= totalPages;
-      }
-      prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
-      nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
-      updatePagination();
-
-      // 사이드바 인기/최신 탭 토글
-      const sidebarTab = document.getElementById('sidebarArticleTab');
-      if (sidebarTab) {
-        sidebarTab.addEventListener('click', (e) => {
-          const btn = e.target.closest('.tab-btn');
-          if (!btn) return;
-          sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const target = btn.dataset.sidebarTab;
-          document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-          document.getElementById('sidebar-' + target)?.classList.add('active');
-        });
-      }
-    })();
-  </script>`;
-
-  // 첫 화면 이미지 프리로드
-  const preloadImages = articles.slice(0, 3)
-    .map(a => a.thumbnail ? getLocalTechImagePath(category, a.slug, a.thumbnail, 'sm') : null)
-    .filter(Boolean);
+  const pageScripts = buildCategoryCardFeedPagerScript('#techGrid', '#techPagination', '#techCategoryGridDeferredData');
 
   return wrapWithLayout(content, {
     currentPage: 'tech',
@@ -645,7 +615,6 @@ function generateTechCategoryPage({
     keywords: `테크, ${catName}, 기술`,
     canonical: `${siteBaseUrl}/tech/${category}/`,
     pageScripts,
-    preloadImages,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '테크', url: `${siteBaseUrl}/tech/` },

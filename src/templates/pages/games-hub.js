@@ -223,12 +223,18 @@ function generateGamesHubPage(options = {}) {
   const RECENT_KEY = 'gamerscroll_recent_searches';
   const SEARCH_INDEX_URL = '/games/search-index.json';
   const SEARCH_INDEX_CACHE_KEY = 'gs_si_${searchIndexVersion || "v1"}';
-  const requestIdle = (fn) => {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(fn, { timeout: 1500 });
-    } else {
-      setTimeout(fn, 300);
+  const getGsUtils = () => window.GSUtils || {};
+  const requestIdle = (fn, timeout, fallbackDelay) => {
+    const gsUtils = getGsUtils();
+    if (typeof gsUtils.requestIdle === 'function') {
+      return gsUtils.requestIdle(fn, timeout, fallbackDelay);
     }
+    if ('requestIdleCallback' in window) {
+      return requestIdleCallback(fn, { timeout: typeof timeout === 'number' ? timeout : 1500 });
+    }
+    return setTimeout(function() {
+      fn({ didTimeout: true, timeRemaining: function() { return 0; } });
+    }, typeof fallbackDelay === 'number' ? fallbackDelay : 300);
   };
 
   // 최근 본 게임 로드
@@ -271,6 +277,10 @@ function generateGamesHubPage(options = {}) {
   // 전체 게임 목록 아이콘: HTML을 가볍게 유지하고(SEO: 텍스트/링크 유지),
   // 보이는 항목만 search-index 기반으로 lazy hydrate 처리
   function resizeIconUrl(url) {
+    const gsUtils = getGsUtils();
+    if (typeof gsUtils.resizeStoreIconUrl === 'function') {
+      return gsUtils.resizeStoreIconUrl(url);
+    }
     if (!url) return '';
     if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/100x100bb.');
     if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
@@ -282,6 +292,18 @@ function generateGamesHubPage(options = {}) {
     url = resizeIconUrl(url);
     const safe = String(url).replace(/\\\\/g, '\\\\\\\\').replace(/"/g, '\\"');
     return 'url("' + safe + '")';
+  }
+
+  function createObserver(callback, options) {
+    const gsUtils = getGsUtils();
+    if (typeof gsUtils.createIntersectionObserver === 'function') {
+      return gsUtils.createIntersectionObserver(callback, options);
+    }
+    if (!('IntersectionObserver' in window)) return null;
+    const observer = new IntersectionObserver(function(entries) {
+      callback(entries, observer);
+    }, options || {});
+    return observer;
   }
 
   function initGameListIcons() {
@@ -299,8 +321,19 @@ function generateGamesHubPage(options = {}) {
         iconMap.set(g.slug, g.icon);
       }
 
+      const observer = createObserver((entries, activeObserver) => {
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i];
+          if (!entry.isIntersecting) continue;
+          const el = entry.target;
+          const icon = iconMap.get(el.dataset.slug);
+          if (icon) el.style.setProperty('--game-icon', cssUrl(icon));
+          if (activeObserver) activeObserver.unobserve(el);
+        }
+      }, { rootMargin: '200px 0px' });
+
       // 구형 브라우저 폴백: 상단 일부만 적용(대량 이미지 로드를 피함)
-      if (!('IntersectionObserver' in window)) {
+      if (!observer) {
         const limit = Math.min(80, items.length);
         for (let i = 0; i < limit; i++) {
           const el = items[i];
@@ -310,21 +343,10 @@ function generateGamesHubPage(options = {}) {
         return;
       }
 
-      const observer = new IntersectionObserver((entries) => {
-        for (let i = 0; i < entries.length; i++) {
-          const entry = entries[i];
-          if (!entry.isIntersecting) continue;
-          const el = entry.target;
-          const icon = iconMap.get(el.dataset.slug);
-          if (icon) el.style.setProperty('--game-icon', cssUrl(icon));
-          observer.unobserve(el);
-        }
-      }, { rootMargin: '200px 0px' });
-
       for (let i = 0; i < items.length; i++) {
         observer.observe(items[i]);
       }
-    });
+    }, 1500, 300);
   }
 
   // 최근 본 게임 섹션 렌더링
@@ -385,7 +407,7 @@ function generateGamesHubPage(options = {}) {
             img.removeAttribute('data-needs-icon');
           }
         });
-      });
+      }, 1500, 300);
     }
   }
 

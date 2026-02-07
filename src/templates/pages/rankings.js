@@ -55,7 +55,7 @@ function generateRankingsPage(data) {
       const items = chartData[c.code]?.[store] || [];
       const rows = items.length > 0 ? items.slice(0, maxItems).map((app, i) => {
         const slug = findGameSlug(app.appId, store);
-        const rowContent = `<img class="app-icon" src="${resizeIcon(app.icon)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
+        const rowContent = `<img class="app-icon" src="${resizeIcon(app.icon)}" alt="${app.title}" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
         return slug
           ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
           : `<div class="rank-row">${rowContent}</div>`;
@@ -76,7 +76,7 @@ function generateRankingsPage(data) {
       } else if (items.length > 0) {
         rows = items.map((app, i) => {
           const slug = findGameSlug(app.appId, 'android');
-          const rowContent = `<img class="app-icon" src="${resizeIcon(app.icon)}" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
+          const rowContent = `<img class="app-icon" src="${resizeIcon(app.icon)}" alt="${app.title}" loading="lazy" decoding="async" data-img-fallback="hide-visibility"><div class="app-info"><div class="app-name">${app.title}</div></div>`;
           return slug
             ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
             : `<div class="rank-row">${rowContent}</div>`;
@@ -148,12 +148,17 @@ function generateRankingsPage(data) {
 
 	    const rankingsCache = {};
 	    const rankingsPromise = {};
+	    const getGsUtils = () => window.GSUtils || {};
 
 	    function getMaxItems(store) {
 	      return 200;
 	    }
 
 	    function resizeIconUrl(url) {
+	      const gsUtils = getGsUtils();
+	      if (typeof gsUtils.resizeStoreIconUrl === 'function') {
+	        return gsUtils.resizeStoreIconUrl(url);
+	      }
 	      if (!url) return '';
 	      if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/100x100bb.');
 	      if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
@@ -251,6 +256,31 @@ function generateRankingsPage(data) {
 	      return true;
 	    }
 
+	    function runIdle(fn, timeout, fallbackDelay) {
+	      const gsUtils = getGsUtils();
+	      if (typeof gsUtils.requestIdle === 'function') {
+	        return gsUtils.requestIdle(fn, timeout, fallbackDelay);
+	      }
+	      if ('requestIdleCallback' in window) {
+	        return requestIdleCallback(fn, { timeout: typeof timeout === 'number' ? timeout : 1000 });
+	      }
+	      return setTimeout(function() {
+	        fn({ didTimeout: true, timeRemaining: function() { return 0; } });
+	      }, typeof fallbackDelay === 'number' ? fallbackDelay : 0);
+	    }
+
+	    function createObserver(callback, options) {
+	      const gsUtils = getGsUtils();
+	      if (typeof gsUtils.createIntersectionObserver === 'function') {
+	        return gsUtils.createIntersectionObserver(callback, options);
+	      }
+	      if (!('IntersectionObserver' in window)) return null;
+	      const observer = new IntersectionObserver(function(entries) {
+	        callback(entries, observer);
+	      }, options || {});
+	      return observer;
+	    }
+
 	    function createIconPrefetcher() {
 	      if (!canPrefetchIcons()) return { observe: function() {} };
 
@@ -286,17 +316,15 @@ function generateRankingsPage(data) {
 	        pump();
 	      }
 
-	      const observer = ('IntersectionObserver' in window)
-	        ? new IntersectionObserver(function(entries) {
-	          for (let i = 0; i < entries.length; i++) {
-	            const entry = entries[i];
-	            if (!entry.isIntersecting) continue;
-	            const img = entry.target;
-	            observer.unobserve(img);
-	            enqueue(img.getAttribute('src') || '');
-	          }
-	        }, { root: null, rootMargin: '2000px 0px', threshold: 0.01 })
-	        : null;
+	      const observer = createObserver(function(entries, activeObserver) {
+	        for (let i = 0; i < entries.length; i++) {
+	          const entry = entries[i];
+	          if (!entry.isIntersecting) continue;
+	          const img = entry.target;
+	          if (activeObserver) activeObserver.unobserve(img);
+	          enqueue(img.getAttribute('src') || '');
+	        }
+	      }, { root: null, rootMargin: '2000px 0px', threshold: 0.01 });
 
 	      function getVisibleIcons(grid) {
 	        if (!grid) return [];
@@ -347,7 +375,7 @@ function generateRankingsPage(data) {
 	      const title = escapeHtml(app && app.title ? app.title : '');
 	      const icon = escapeHtml(app && app.icon ? resizeIconUrl(app.icon) : '');
 	      const rowContent =
-	        '<img class="app-icon" src="' + icon + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-visibility">' +
+	        '<img class="app-icon" src="' + icon + '" alt="' + title + '" loading="lazy" decoding="async" data-img-fallback="hide-visibility">' +
 	        '<div class="app-info"><div class="app-name">' + title + '</div></div>';
 
 	      if (app && app.slug) {
@@ -438,11 +466,7 @@ function generateRankingsPage(data) {
 	        } while (loaded < maxItems && remaining > 6);
 
 	        if (loaded < maxItems) {
-	          if ('requestIdleCallback' in window) {
-	            requestIdleCallback(step, { timeout: 1000 });
-	          } else {
-	            setTimeout(function() { step({ timeRemaining: function() { return 0; } }); }, 16);
-	          }
+	          runIdle(step, 1000, 16);
 	          return;
 	        }
 
@@ -450,11 +474,7 @@ function generateRankingsPage(data) {
 	        grid.dataset.fillInProgress = '0';
 	      }
 
-	      if ('requestIdleCallback' in window) {
-	        requestIdleCallback(step, { timeout: 1000 });
-	      } else {
-	        setTimeout(function() { step({ timeRemaining: function() { return 0; } }); }, 0);
-	      }
+	      runIdle(step, 1000, 0);
 	    }
 
 	    function initMobileColumns(grid) {

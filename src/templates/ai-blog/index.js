@@ -5,6 +5,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const { buildCardFeedPagerScript, LAYOUT_CORE_ASSET, buildLayoutCoreBundle } = require('../layout');
 
 // 사이트 설정
 const SITE_CONFIG = {
@@ -291,6 +293,103 @@ function getThumbUrl(url, width = 480) {
   return url;
 }
 
+function getThumbSrcset(url, xsWidth = 240, smWidth = 480, sizes = '(max-width: 768px) 133px, 253px') {
+  const xsUrl = getThumbUrl(url, xsWidth);
+  const smUrl = getThumbUrl(url, smWidth);
+  if (!smUrl) return { src: '', srcset: '' };
+  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
+  return {
+    src: smUrl,
+    srcset: `${xsUrl} ${xsWidth}w, ${smUrl} ${smWidth}w`,
+    sizes
+  };
+}
+
+const FEED_PAGE_SIZE = 15;
+const INITIAL_FEED_RENDER_COUNT = 9;
+const AI_LAYOUT_ASSET_VERSION = (() => {
+  try {
+    const coreBundle = buildLayoutCoreBundle();
+    if (!coreBundle || typeof coreBundle !== 'string') return 'v1';
+    return crypto.createHash('md5').update(coreBundle).digest('hex').slice(0, 10);
+  } catch (_) {
+    return 'v1';
+  }
+})();
+
+const coreReadyBootstrapScript = `
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>`;
+
+function extractSeoLinkFromCardHtml(cardHtml) {
+  if (!cardHtml || typeof cardHtml !== 'string') return null;
+  const hrefMatch = cardHtml.match(/<a[^>]*href="([^"]+)"/i);
+  if (!hrefMatch || !hrefMatch[1]) return null;
+
+  let title = '';
+  const lazyTitleMatch = cardHtml.match(/alt="([^"]+)"/i);
+  if (lazyTitleMatch && lazyTitleMatch[1]) title = lazyTitleMatch[1];
+  if (!title) {
+    const titleMatch = cardHtml.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i);
+    if (titleMatch && titleMatch[1]) {
+      title = titleMatch[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+  }
+
+  return {
+    href: hrefMatch[1],
+    title: title || hrefMatch[1]
+  };
+}
+
+function serializeDeferredCards(cards) {
+  if (!Array.isArray(cards) || cards.length === 0) return '';
+  return JSON.stringify(cards).replace(/</g, '\\u003c');
+}
+
+function renderDeferredSeoLinks(links, id = '') {
+  if (!Array.isArray(links) || links.length === 0) return '';
+  const idAttr = id ? ` id="${id}"` : '';
+  return `<div class="visually-hidden"${idAttr}>${links.map((link) => `
+    <a href="${escapeHtml(link.href)}">${escapeHtml(link.title || link.href)}</a>
+  `).join('')}</div>`;
+}
+
+function buildDeferredCardPayload(cardHtmlList, pageSize = FEED_PAGE_SIZE, initialRenderCount = pageSize) {
+  const safeCards = Array.isArray(cardHtmlList) ? cardHtmlList.filter(item => typeof item === 'string' && item.trim() !== '') : [];
+  const safeInitialRenderCount = Math.max(1, Math.min(initialRenderCount, pageSize));
+  const initialCards = safeCards.slice(0, safeInitialRenderCount);
+  const deferredCards = safeCards.slice(safeInitialRenderCount);
+  const deferredLinks = deferredCards.map(extractSeoLinkFromCardHtml).filter(Boolean);
+
+  return {
+    initialHtml: initialCards.join(''),
+    deferredJson: serializeDeferredCards(deferredCards),
+    deferredSeoLinksHtml: renderDeferredSeoLinks(deferredLinks)
+  };
+}
+
 /**
  * AIScroll 홈페이지 생성
  */
@@ -304,10 +403,16 @@ function generateAIBlogIndex(data) {
 
     // 1, 2등: 2컬럼 그리드
     const topItems = items.slice(0, 2);
-    const topGrid = topItems.map((item, i) => `
+    const topGrid = topItems.map((item) => `
       <a href="/article/${item.category || 'general'}/${item.slug}/" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${item.thumbnail ? `<img src="${getThumbUrl(item.thumbnail)}" alt="${escapeHtml(item.title)}" loading="${i === 0 ? 'eager' : 'lazy'}">` : ''}
+          ${item.thumbnail ? (() => {
+            const thumbData = getThumbSrcset(item.thumbnail, 320, 640, '(max-width: 768px) 46vw, 360px');
+            const imgAttrs = thumbData.srcset
+              ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+              : `src="${thumbData.src}"`;
+            return `<img ${imgAttrs} alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" fetchpriority="auto" data-img-fallback="hide">`;
+          })() : ''}
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
       </a>
@@ -318,7 +423,13 @@ function generateAIBlogIndex(data) {
     const restList = restItems.map((item) => `
       <a href="/article/${item.category || 'general'}/${item.slug}/" class="home-popular-card">
         <div class="home-popular-thumb">
-          ${item.thumbnail ? `<img src="${getThumbUrl(item.thumbnail)}" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
+          ${item.thumbnail ? (() => {
+            const thumbData = getThumbSrcset(item.thumbnail, 200, 400, '(max-width: 768px) 33vw, 200px');
+            const imgAttrs = thumbData.srcset
+              ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+              : `src="${thumbData.src}"`;
+            return `<img ${imgAttrs} alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" data-img-fallback="hide">`;
+          })() : ''}
         </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${escapeHtml(item.title)}</h3>
@@ -343,25 +454,33 @@ function generateAIBlogIndex(data) {
     const items = articles;
     if (items.length === 0) return '';
 
-    const cards = items.map((item, i) => `
+    const cardEntries = items.map((item, i) => {
+      const thumbData = getThumbSrcset(item.thumbnail, 240, 480, '(max-width: 768px) 133px, 253px');
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
+      return `
       <a href="/article/${item.category || 'general'}/${item.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${item.thumbnail ? `<img src="${getThumbUrl(item.thumbnail)}" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
+          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag">${formatDateEn(item.date)}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
       </a>
-    `).join('');
+    `;
+    });
+    const cardPayload = buildDeferredCardPayload(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
-    const totalPages = Math.ceil(items.length / 15);
+    const totalPages = Math.ceil(items.length / FEED_PAGE_SIZE);
 
     return `
       <div class="home-card" id="home-latest">
         <div class="home-card-header">
           <h2 class="home-card-title">Latest</h2>
         </div>
-        <div class="home-latest-grid">${cards}</div>
-        <div class="home-pagination" data-total="${items.length}" data-per-page="15">
+        <div class="home-latest-grid" id="homeLatestGrid">${cardPayload.initialHtml}</div>
+        ${cardPayload.deferredJson ? `<script type="application/json" id="homeLatestDeferredData">${cardPayload.deferredJson}</script>${cardPayload.deferredSeoLinksHtml}` : ''}
+        <div class="home-pagination" data-total="${items.length}" data-per-page="${FEED_PAGE_SIZE}" data-initial-render="${INITIAL_FEED_RENDER_COUNT}">
           <button class="home-page-btn home-page-prev" disabled>‹</button>
           <span class="home-page-info">1 / ${totalPages}</span>
           <button class="home-page-btn home-page-next">›</button>
@@ -411,6 +530,7 @@ function generateAIBlogIndex(data) {
         <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
       </a>
     `).join('');
+    const latestListHtml = renderList(latestArticles);
 
     return `
       ${generateCategoryMenu()}
@@ -423,7 +543,8 @@ function generateAIBlogIndex(data) {
         </div>
         <div class="home-card-body">
           <div class="sidebar-article-list active" id="sidebar-popular">${renderList(popularArticles)}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderList(latestArticles)}</div>
+          <div class="sidebar-article-list" id="sidebar-latest"></div>
+          <template id="sidebar-latest-template">${latestListHtml}</template>
         </div>
       </div>
     `;
@@ -449,59 +570,51 @@ function generateAIBlogIndex(data) {
     </section>
   `;
 
-  // 페이지 스크립트
-  const pageScripts = `<script>
-    // 최신 기사 페이지네이션
+  // 페이지 스크립트 (GamerScroll 공통 페이저/탭 유틸 동일 사용)
+  const sidebarLatestDeferScript = `
+  <script>
     (function() {
-      const pagination = document.querySelector('.home-pagination');
-      if (!pagination) return;
-
-      const perPage = parseInt(pagination.dataset.perPage, 10) || 15;
-      const allItems = Array.from(document.querySelectorAll('.home-latest-item'));
-      const prevBtn = pagination.querySelector('.home-page-prev');
-      const nextBtn = pagination.querySelector('.home-page-next');
-      const pageInfo = pagination.querySelector('.home-page-info');
-      let currentPage = 1;
-
-      function updatePagination() {
-        const totalPages = Math.ceil(allItems.length / perPage) || 1;
-        const start = (currentPage - 1) * perPage;
-        const end = start + perPage;
-        allItems.forEach((item, i) => {
-          item.style.display = (i >= start && i < end) ? '' : 'none';
+      var init = function() {
+        if (!window.GSUtils || typeof window.GSUtils.initSidebarLatestDefer !== 'function') return;
+        window.GSUtils.initSidebarLatestDefer({
+          tabId: 'sidebarArticleTab',
+          latestListId: 'sidebar-latest',
+          templateId: 'sidebar-latest-template',
+          idleTimeout: 3200,
+          fallbackDelay: 1600
         });
-        pageInfo.textContent = currentPage + ' / ' + totalPages;
-        prevBtn.disabled = currentPage <= 1;
-        nextBtn.disabled = currentPage >= totalPages;
+      };
+      if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.initSidebarLatestDefer === 'function') {
+        init();
+      } else if (typeof window.__gsOnReady === 'function') {
+        window.__gsOnReady(init);
+      } else if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+      } else {
+        init();
       }
-
-      prevBtn?.addEventListener('click', () => {
-        if (currentPage > 1) { currentPage--; updatePagination(); }
-      });
-      nextBtn?.addEventListener('click', () => {
-        const totalPages = Math.ceil(allItems.length / perPage);
-        if (currentPage < totalPages) { currentPage++; updatePagination(); }
-      });
-
-      updatePagination();
     })();
-
-    // 사이드바 인기/최신 토글
-    (function() {
-      const sidebarTab = document.getElementById('sidebarArticleTab');
-      if (!sidebarTab) return;
-      sidebarTab.addEventListener('click', (e) => {
-        const btn = e.target.closest('.tab-btn');
-        if (!btn) return;
-        sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const target = btn.dataset.sidebarTab;
-        document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-        document.getElementById('sidebar-' + target)?.classList.add('active');
-      });
-    })();
-
   </script>`;
+  const pageScripts = `
+    ${buildCardFeedPagerScript({
+      grid: '#homeLatestGrid',
+      pagination: '.home-pagination',
+      deferredJson: '#homeLatestDeferredData',
+      itemSelector: '.home-latest-item',
+      pageSize: FEED_PAGE_SIZE,
+      hydrateLazyImages: false,
+      mobileAds: false,
+      prevSelector: '.home-page-prev',
+      nextSelector: '.home-page-next',
+      infoSelector: '.home-page-info',
+      initialRenderCount: INITIAL_FEED_RENDER_COUNT,
+      idleFillFirstPage: true,
+      idleFillDelay: 120,
+      mobileDomWindowPages: 5,
+      sidebarTabId: 'sidebarArticleTab'
+    })}
+    ${sidebarLatestDeferScript}
+  `;
 
   // WebSite JSON-LD for homepage (includes SearchAction)
   const websiteJsonLd = {
@@ -614,11 +727,32 @@ function wrapWithLayout(content, options = {}) {
     // Article-specific OG tags
     articleMeta = null,  // { publishedTime, modifiedTime, section, author, tags }
     ogType = 'website',   // 'website' for homepage, 'article' for articles
-    sidebarCounts = {}  // 모바일 사이드 패널 카테고리 숫자
+    sidebarCounts = {},  // 모바일 사이드 패널 카테고리 숫자
+    cssFilenames = null
   } = options;
 
   // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
   const effectiveCounts = Object.keys(sidebarCounts).length > 0 ? sidebarCounts : globalSidebarCounts;
+  const runtimeAssetVersion = encodeURIComponent(AI_LAYOUT_ASSET_VERSION || 'v1');
+  const coreScriptUrl = `/assets/${LAYOUT_CORE_ASSET}?v=${runtimeAssetVersion}`;
+  const shouldLoadTwitterWidget = /twitter-tweet/.test(content || '') || /twitter-tweet/.test(pageScripts || '');
+  const hasBlogArticleLayout = /\bblog-card\b/.test(content || '');
+  const baseCssFiles = Array.isArray(cssFilenames) && cssFilenames.length > 0
+    ? cssFilenames
+    : ['/styles-core.css'];
+  const resolvedCssFiles = (() => {
+    const files = hasBlogArticleLayout ? [...baseCssFiles, '/styles-article.css'] : baseCssFiles;
+    const seen = new Set();
+    const out = [];
+    for (const file of files) {
+      const normalized = String(file || '').trim();
+      if (!normalized || seen.has(normalized)) continue;
+      seen.add(normalized);
+      out.push(normalized);
+    }
+    return out.length > 0 ? out : ['/styles-core.css'];
+  })();
+  const cssLinksHtml = resolvedCssFiles.map((file) => `<link rel="stylesheet" href="${escapeHtml(file)}">`).join('\n  ');
 
   const ogImageUrl = ogImage || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`;
   const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
@@ -702,7 +836,7 @@ function wrapWithLayout(content, options = {}) {
   <link rel="dns-prefetch" href="https://www.gstatic.com">
   <link rel="dns-prefetch" href="https://wsrv.nl">${jsonLdScript}
 
-  <link rel="stylesheet" href="/styles.css">
+  ${cssLinksHtml}
   <style>
     /* AIScroll 전용: 기사 페이지 상단 마진 (!important: styles.css의 padding 단축 속성보다 우선) */
     #issue .page-container {
@@ -1205,6 +1339,8 @@ function wrapWithLayout(content, options = {}) {
   ${generateSearchContainer()}
   ${generateNav(currentPage)}
   <main class="site-container">
+    ${coreReadyBootstrapScript}
+    <script defer src="${coreScriptUrl}"></script>
     ${content}
   </main>
   ${generateMobileSidePanel(generateDefaultSidebarContent(effectiveCounts))}
@@ -1213,89 +1349,177 @@ function wrapWithLayout(content, options = {}) {
   ${imageFallbackScript}
   ${fontScript}
   <script>
-    // 공통 검색 기능
-    (function() {
-      const searchInput = document.querySelector('.search-input');
-      const searchDropdown = document.querySelector('.search-dropdown');
-      if (!searchInput || !searchDropdown) return;
-
-      let articles = [];
-      fetch('/articles.json')
-        .then(res => res.json())
-        .then(data => { articles = data; })
-        .catch(() => { articles = []; });
-
-      searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        if (query.length < 2) {
-          searchDropdown.innerHTML = '';
-          searchDropdown.classList.remove('active');
-          return;
-        }
-
-        const results = articles.filter(a => a.title.toLowerCase().includes(query)).slice(0, 8);
-        if (results.length === 0) {
-          searchDropdown.innerHTML = '<div class="search-no-results">No results found</div>';
-        } else {
-          searchDropdown.innerHTML = results.map(a =>
-            '<a href="/article/' + (a.category || 'general') + '/' + a.slug + '/" class="search-result-item">' +
-              '<div class="search-result-title">' + a.title + '</div>' +
-            '</a>'
-          ).join('');
-        }
-        searchDropdown.classList.add('active');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.aiscroll-search') && !e.target.closest('.search-container')) {
-          searchDropdown.classList.remove('active');
-        }
-      });
-
-      // 엔터 시 검색 페이지로 이동
-      searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          const query = searchInput.value.trim();
-          if (query.length >= 2) {
-            window.location.href = '/search/?q=' + encodeURIComponent(query);
-          }
-        }
-      });
+    const loadArticlesShared = (function() {
+      if (typeof window.__asLoadArticles === 'function') return window.__asLoadArticles;
+      window.__asLoadArticles = function() {
+        if (window.__asArticlesPromise) return window.__asArticlesPromise;
+        window.__asArticlesPromise = fetch('/articles.json', { credentials: 'same-origin' })
+          .then(function(res) { return res.ok ? res.json() : []; })
+          .then(function(data) { return Array.isArray(data) ? data : []; })
+          .catch(function() { return []; });
+        return window.__asArticlesPromise;
+      };
+      return window.__asLoadArticles;
     })();
 
-    // 모바일 검색 컨테이너용 검색 기능
-    (function() {
-      const container = document.querySelector('.search-container');
+    const loadSearchArticlesShared = (function() {
+      if (typeof window.__asLoadSearchArticles === 'function') return window.__asLoadSearchArticles;
+      window.__asLoadSearchArticles = function() {
+        if (window.__asSearchArticlesPromise) return window.__asSearchArticlesPromise;
+        window.__asSearchArticlesPromise = fetch('/articles-search.json', { credentials: 'same-origin' })
+          .then(function(res) {
+            if (!res || !res.ok) throw new Error('search index fetch failed');
+            return res.json();
+          })
+          .then(function(data) {
+            return Array.isArray(data) ? data : [];
+          })
+          .catch(function() {
+            return loadArticlesShared().then(function(list) {
+              const safeList = Array.isArray(list) ? list : [];
+              return safeList.map(function(item) {
+                const title = item && item.title ? String(item.title) : '';
+                return {
+                  title: title,
+                  titleLower: title.toLowerCase(),
+                  category: item && item.category ? String(item.category) : 'general',
+                  slug: item && item.slug ? String(item.slug) : ''
+                };
+              });
+            });
+          });
+        return window.__asSearchArticlesPromise;
+      };
+      return window.__asLoadSearchArticles;
+    })();
+
+    const getArticleSearchIndex = (function() {
+      return function() {
+        if (window.__asSearchIndexPromise) return window.__asSearchIndexPromise;
+        window.__asSearchIndexPromise = loadSearchArticlesShared().then(function(data) {
+          const list = Array.isArray(data) ? data : [];
+          window.__asSearchIndex = list.map(function(item) {
+            const title = item && item.title ? String(item.title) : '';
+            const titleLower = item && item.titleLower ? String(item.titleLower) : title.toLowerCase();
+            return {
+              title: title,
+              titleLower: titleLower,
+              category: item && item.category ? String(item.category) : 'general',
+              slug: item && item.slug ? String(item.slug) : ''
+            };
+          });
+          return window.__asSearchIndex;
+        }).catch(function() {
+          window.__asSearchIndex = [];
+          return window.__asSearchIndex;
+        });
+        return window.__asSearchIndexPromise;
+      };
+    })();
+
+    function escapeSearchHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function bindSearchBox(options) {
+      options = options || {};
+      const container = document.querySelector(options.containerSelector || '');
       if (!container) return;
       const searchInput = container.querySelector('.search-input');
       const searchDropdown = container.querySelector('.search-dropdown');
       if (!searchInput || !searchDropdown) return;
 
-      let articles = [];
-      fetch('/articles.json')
-        .then(res => res.json())
-        .then(data => { articles = data; })
-        .catch(() => { articles = []; });
+      const mobileMode = options.mobileMode === true;
+      const loadingHtml = mobileMode
+        ? '<div class="search-no-results" style="padding:16px;text-align:center;color:var(--text-muted);">Loading...</div>'
+        : '<div class="search-no-results">Loading...</div>';
+      const emptyHtml = mobileMode
+        ? '<div class="search-no-results" style="padding:16px;text-align:center;color:var(--text-muted);">No results found</div>'
+        : '<div class="search-no-results">No results found</div>';
+      let latestQuery = '';
+      let debounceTimer = null;
+      let prefetchScheduled = false;
 
-      searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        if (query.length < 2) {
-          searchDropdown.innerHTML = '';
-          searchDropdown.classList.remove('active');
+      function hideDropdown() {
+        searchDropdown.classList.remove('active');
+      }
+
+      function renderResults(results) {
+        if (!results || results.length === 0) {
+          searchDropdown.innerHTML = emptyHtml;
+          searchDropdown.classList.add('active');
           return;
         }
-        const results = articles.filter(a => a.title.toLowerCase().includes(query)).slice(0, 8);
-        if (results.length === 0) {
-          searchDropdown.innerHTML = '<div class="search-no-results" style="padding:16px;text-align:center;color:var(--text-muted);">No results found</div>';
-        } else {
-          searchDropdown.innerHTML = results.map(a =>
-            '<a href="/article/' + (a.category || 'general') + '/' + a.slug + '/" style="display:block;padding:12px 16px;color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border);">' + a.title + '</a>'
-          ).join('');
-        }
+        searchDropdown.innerHTML = results.map(function(item) {
+          const href = '/article/' + (item.category || 'general') + '/' + item.slug + '/';
+          const title = escapeSearchHtml(item.title);
+          if (mobileMode) {
+            return '<a href="' + href + '" style="display:block;padding:12px 16px;color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border);">' + title + '</a>';
+          }
+          return '<a href="' + href + '" class="search-result-item"><div class="search-result-title">' + title + '</div></a>';
+        }).join('');
         searchDropdown.classList.add('active');
+      }
+
+      function runSearch(query) {
+        const normalized = String(query || '').toLowerCase().trim();
+        if (normalized.length < 2) {
+          searchDropdown.innerHTML = '';
+          hideDropdown();
+          return;
+        }
+
+        latestQuery = normalized;
+        if (!window.__asSearchIndex) {
+          searchDropdown.innerHTML = loadingHtml;
+          searchDropdown.classList.add('active');
+        }
+
+        getArticleSearchIndex().then(function(index) {
+          if (latestQuery !== normalized) return;
+          const safeIndex = Array.isArray(index) ? index : [];
+          const matched = safeIndex.filter(function(item) {
+            return item && item.titleLower && item.titleLower.indexOf(normalized) !== -1;
+          }).slice(0, 8);
+          renderResults(matched);
+        }).catch(function() {
+          if (latestQuery !== normalized) return;
+          searchDropdown.innerHTML = emptyHtml;
+          searchDropdown.classList.add('active');
+        });
+      }
+
+      function schedulePrefetch() {
+        if (window.__asSearchIndexPromise || prefetchScheduled) return;
+        prefetchScheduled = true;
+        const run = function() {
+          prefetchScheduled = false;
+          getArticleSearchIndex();
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(run, { timeout: 1400 });
+        } else {
+          setTimeout(run, 200);
+        }
+      }
+
+      searchInput.addEventListener('focus', function() {
+        schedulePrefetch();
       });
 
-      searchInput.addEventListener('keydown', (e) => {
+      searchInput.addEventListener('input', function(e) {
+        const query = e && e.target ? e.target.value : '';
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() {
+          runSearch(query);
+        }, 120);
+      });
+
+      searchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
           const query = searchInput.value.trim();
           if (query.length >= 2) {
@@ -1304,12 +1528,21 @@ function wrapWithLayout(content, options = {}) {
         }
       });
 
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.search-container')) {
-          searchDropdown.classList.remove('active');
-        }
+      searchDropdown.addEventListener('mousedown', function(e) {
+        e.preventDefault();
       });
-    })();
+    }
+
+    bindSearchBox({ containerSelector: '.aiscroll-search', mobileMode: false });
+    bindSearchBox({ containerSelector: '.search-container', mobileMode: true });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.aiscroll-search') && !e.target.closest('.search-container')) {
+        document.querySelectorAll('.search-dropdown.active').forEach(function(dropdown) {
+          dropdown.classList.remove('active');
+        });
+      }
+    });
 
     // 모바일 스크롤 시 검색창 숨기기
     (function() {
@@ -1447,7 +1680,10 @@ function wrapWithLayout(content, options = {}) {
       if (!e.touches || e.touches.length > 1) return;
 
       const t = e.target;
-      if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .search-container, input, textarea')) return;
+      if (
+        t && t.closest &&
+        t.closest('.nav, .nav-inner, .search-dropdown, .search-container, .mobile-side-panel, .mobile-side-overlay, .mobile-fab, #mobileSidePanel, #mobileSideOverlay, #mobileFab, input, textarea')
+      ) return;
 
       mainEl = document.querySelector('main.site-container');
       if (!mainEl) return;
@@ -1539,7 +1775,17 @@ function wrapWithLayout(content, options = {}) {
   })();
   </script>
   ${pageScripts}
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  ${shouldLoadTwitterWidget ? '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' : ''}
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      if (location.hostname !== 'aiscroll.io') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
   <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}document.body.style.visibility='visible';if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
   <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('ai-search-hidden','1');else sessionStorage.removeItem('ai-search-hidden');}catch(ex){}},true);})();</script>
 </body>
@@ -1589,6 +1835,17 @@ function generateSearchPage() {
       let currentPage = 1;
       let allResults = [];
 
+      function resolveSearchThumbUrl(url) {
+        const raw = String(url || '');
+        if (!raw) return '';
+        if (raw.startsWith('/assets/') || raw.startsWith('/favicon')) return raw;
+        if (raw.startsWith('https://wsrv.nl/')) return raw;
+        if (/^https?:\/\//i.test(raw)) {
+          return 'https://wsrv.nl/?url=' + encodeURIComponent(raw) + '&w=480&output=webp';
+        }
+        return raw;
+      }
+
       function renderPage() {
         const totalPages = Math.ceil(allResults.length / perPage) || 1;
         const start = (currentPage - 1) * perPage;
@@ -1599,7 +1856,7 @@ function generateSearchPage() {
           pageResults.map(a =>
             '<a href="/article/' + (a.category || 'general') + '/' + a.slug + '/" class="category-list-card">' +
               '<div class="category-list-thumb">' +
-                (a.thumbnail ? '<img src="' + a.thumbnail + '" alt="" loading="lazy">' : '') +
+                (a.thumbnail ? '<img src="' + resolveSearchThumbUrl(a.thumbnail) + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide">' : '') +
                 (a.date ? '<span class="category-list-badge">' + a.date + '</span>' : '') +
               '</div>' +
               '<div class="category-list-info">' +
@@ -1618,8 +1875,16 @@ function generateSearchPage() {
         }
       }
 
-      fetch('/articles.json')
-        .then(res => res.json())
+      const loadArticles = (typeof window.__asLoadArticles === 'function')
+        ? window.__asLoadArticles
+        : function() {
+          return fetch('/articles.json', { credentials: 'same-origin' })
+            .then(function(res) { return res.ok ? res.json() : []; })
+            .then(function(data) { return Array.isArray(data) ? data : []; })
+            .catch(function() { return []; });
+        };
+
+      loadArticles()
         .then(articles => {
           const q = query.toLowerCase();
           allResults = articles.filter(a => a.title.toLowerCase().includes(q));
@@ -1659,22 +1924,32 @@ function generateSearchPage() {
  */
 function generateCategoryPage(categoryId, categoryLabel, articles, popularArticles = [], latestArticles = []) {
   const categoryArticles = articles.filter(a => a.category === categoryId);
+  const categoryCardEntries = categoryArticles.map((a, i) => {
+    const thumbData = getThumbSrcset(a.thumbnail, 240, 480, '(max-width: 768px) 133px, 253px');
+    const imgAttrs = thumbData.srcset
+      ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+      : `src="${thumbData.src}"`;
+    return `
+    <a href="/article/${a.category}/${a.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+      <div class="home-trend-card-image">
+        ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtml(a.title)}" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
+        <span class="home-trend-card-tag">${formatDateEn(a.date)}</span>
+      </div>
+      <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(a.title)}</span></h3>
+    </a>
+  `;
+  });
+  const categoryCardPayload = buildDeferredCardPayload(categoryCardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
+  const categoryTotalPages = Math.ceil(categoryArticles.length / FEED_PAGE_SIZE) || 1;
 
   const articleListHtml = categoryArticles.length > 0
     ? `<div class="home-latest-grid" id="categoryGrid">
-        ${categoryArticles.map((a, i) => `
-          <a href="/article/${a.category}/${a.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
-            <div class="home-trend-card-image">
-              ${a.thumbnail ? `<img src="${getThumbUrl(a.thumbnail, 480)}" alt="${escapeHtml(a.title)}" loading="lazy">` : ''}
-              <span class="home-trend-card-tag">${formatDateEn(a.date)}</span>
-            </div>
-            <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(a.title)}</span></h3>
-          </a>
-        `).join('')}
+        ${categoryCardPayload.initialHtml}
       </div>
-      <div class="home-pagination" id="categoryPagination">
+      ${categoryCardPayload.deferredJson ? `<script type="application/json" id="categoryGridDeferredData">${categoryCardPayload.deferredJson}</script>${categoryCardPayload.deferredSeoLinksHtml}` : ''}
+      <div class="home-pagination" id="categoryPagination" data-total="${categoryArticles.length}" data-per-page="${FEED_PAGE_SIZE}" data-initial-render="${INITIAL_FEED_RENDER_COUNT}">
         <button class="home-page-btn home-prev" aria-label="Previous">‹</button>
-        <span class="home-page-index">1/1</span>
+        <span class="home-page-index">1 / ${categoryTotalPages}</span>
         <button class="home-page-btn home-next" aria-label="Next">›</button>
       </div>`
     : '<p class="search-empty">No articles in this category yet.</p>';
@@ -1701,6 +1976,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
       <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
     </a>
   `).join('');
+  const latestSidebarListHtml = renderSidebarList(latestArticles);
 
   const sidebarHtml = `
     <div class="home-sidebar">
@@ -1728,7 +2004,8 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
           </div>
           <div class="home-card-body">
             <div class="sidebar-article-list active" id="sidebar-popular">${renderSidebarList(popularArticles)}</div>
-            <div class="sidebar-article-list" id="sidebar-latest">${renderSidebarList(latestArticles)}</div>
+            <div class="sidebar-article-list" id="sidebar-latest"></div>
+            <template id="sidebar-latest-template">${latestSidebarListHtml}</template>
           </div>
         </div>
       </div>
@@ -1755,47 +2032,50 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     </section>
   `;
 
-  const pageScripts = `<script>
-    // 카테고리 페이지네이션
+  const sidebarLatestDeferScript = `
+  <script>
     (function() {
-      const grid = document.getElementById('categoryGrid');
-      const pagination = document.getElementById('categoryPagination');
-      if (!grid || !pagination) return;
-      const items = Array.from(grid.querySelectorAll('.home-trend-card'));
-      const pageSize = 15;
-      const totalPages = Math.ceil(items.length / pageSize) || 1;
-      let currentPage = 1;
-      const prevBtn = pagination.querySelector('.home-prev');
-      const nextBtn = pagination.querySelector('.home-next');
-      const pageIndex = pagination.querySelector('.home-page-index');
-      function updatePagination() {
-        const start = (currentPage - 1) * pageSize;
-        const end = start + pageSize;
-        items.forEach((item, i) => { item.style.display = (i >= start && i < end) ? '' : 'none'; });
-        pageIndex.textContent = currentPage + ' / ' + totalPages;
-        prevBtn.disabled = currentPage <= 1;
-        nextBtn.disabled = currentPage >= totalPages;
+      var init = function() {
+        if (!window.GSUtils || typeof window.GSUtils.initSidebarLatestDefer !== 'function') return;
+        window.GSUtils.initSidebarLatestDefer({
+          tabId: 'sidebarArticleTab',
+          latestListId: 'sidebar-latest',
+          templateId: 'sidebar-latest-template',
+          idleTimeout: 3200,
+          fallbackDelay: 1600
+        });
+      };
+      if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.initSidebarLatestDefer === 'function') {
+        init();
+      } else if (typeof window.__gsOnReady === 'function') {
+        window.__gsOnReady(init);
+      } else if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+      } else {
+        init();
       }
-      prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; updatePagination(); } });
-      nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; updatePagination(); } });
-      updatePagination();
-    })();
-
-    // 사이드바 인기/최신 토글
-    (function() {
-      const sidebarTab = document.getElementById('sidebarArticleTab');
-      if (!sidebarTab) return;
-      sidebarTab.addEventListener('click', (e) => {
-        const btn = e.target.closest('.tab-btn');
-        if (!btn) return;
-        sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const target = btn.dataset.sidebarTab;
-        document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-        document.getElementById('sidebar-' + target)?.classList.add('active');
-      });
     })();
   </script>`;
+  const pageScripts = `
+    ${buildCardFeedPagerScript({
+      grid: '#categoryGrid',
+      pagination: '#categoryPagination',
+      deferredJson: '#categoryGridDeferredData',
+      itemSelector: '.home-trend-card',
+      pageSize: FEED_PAGE_SIZE,
+      hydrateLazyImages: false,
+      mobileAds: false,
+      prevSelector: '.home-prev',
+      nextSelector: '.home-next',
+      infoSelector: '.home-page-index',
+      initialRenderCount: INITIAL_FEED_RENDER_COUNT,
+      idleFillFirstPage: true,
+      idleFillDelay: 120,
+      mobileDomWindowPages: 5,
+      sidebarTabId: 'sidebarArticleTab'
+    })}
+    ${sidebarLatestDeferScript}
+  `;
 
   return wrapWithLayout(content, {
     title: `${categoryLabel} - ${SITE_CONFIG.name}`,

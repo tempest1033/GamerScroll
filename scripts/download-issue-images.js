@@ -19,7 +19,19 @@ try {
 }
 
 // 처리할 리포트 타입들
-const REPORT_TYPES = ['issue', 'hotpick', 'insight', 'weekly'];
+const ALL_REPORT_TYPES = ['issue', 'hotpick', 'insight', 'weekly'];
+
+// CLI 인자 파싱
+//   node scripts/download-issue-images.js          # 전체
+//   node scripts/download-issue-images.js weekly   # 주간만
+const args = process.argv.slice(2).map(arg => arg.toLowerCase());
+const invalidTypes = args.filter(arg => !ALL_REPORT_TYPES.includes(arg));
+if (invalidTypes.length > 0) {
+  console.error('❌ 알 수 없는 타입:', invalidTypes.join(', '));
+  console.log('사용 가능한 타입:', ALL_REPORT_TYPES.join(', '));
+  process.exit(1);
+}
+const targetReportTypes = args.length > 0 ? args : ALL_REPORT_TYPES;
 
 const REPORTS_BASE = path.join(__dirname, '..', 'reports');
 const IMAGES_BASE = path.join(__dirname, '..', 'docs', 'assets', 'images');
@@ -303,13 +315,13 @@ async function processReport(jsonPath, reportType) {
  */
 async function main() {
   console.log('🖼️  리포트 이미지 다운로드' + (sharp ? ' + WebP 변환' : ''));
-  console.log(`📂 대상: ${REPORT_TYPES.join(', ')}\n`);
+  console.log(`📂 대상: ${targetReportTypes.join(', ')}\n`);
 
   let totalDownloaded = 0;
   let totalSkipped = 0;
   let totalErrors = 0;
 
-  for (const reportType of REPORT_TYPES) {
+  for (const reportType of targetReportTypes) {
     const reportDir = path.join(REPORTS_BASE, reportType);
     const imagesDir = path.join(IMAGES_BASE, reportType);
 

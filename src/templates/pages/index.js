@@ -14,7 +14,8 @@ const {
   generateMobileOnlyMidAdSlot,
   generateVerticalAdSlot,
   generateRectangleAdSlot,
-  generateNativeAdSlot
+  generateNativeAdSlot,
+  buildCardFeedPagerScript
 } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
@@ -139,13 +140,13 @@ function getLocalReportThumbnailSrcset(type, slug, originalUrl) {
 }
 
 // 데일리 뉴스 썸네일 로컬 경로 헬퍼 (날짜 + URL 해시 기반)
-function getLocalDailyThumbnail(date, originalUrl) {
+function getLocalDailyThumbnail(date, originalUrl, width = 480) {
   if (!originalUrl) return '';
   let url = originalUrl;
   if (url.startsWith('//')) url = 'https:' + url;
 
   if (!date || !url.startsWith('http')) {
-    return url.startsWith('http') ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp` : url;
+    return url.startsWith('http') ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp` : url;
   }
 
   const crypto = require('crypto');
@@ -156,25 +157,58 @@ function getLocalDailyThumbnail(date, originalUrl) {
   if (fs.existsSync(fullPath)) {
     return localPath;
   }
-  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp`;
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp`;
+}
+
+function getLocalDailyThumbnailSrcset(date, originalUrl) {
+  const xsUrl = getLocalDailyThumbnail(date, originalUrl, 200);
+  const smUrl = getLocalDailyThumbnail(date, originalUrl, 480);
+  if (!smUrl) return { src: '', srcset: '' };
+  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
+  return {
+    src: smUrl,
+    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
+    sizes: '(max-width: 768px) 133px, 253px'
+  };
 }
 
 // 주간 리포트 썸네일 로컬 경로 헬퍼 (2026-W04 형식)
-function getLocalWeeklyThumbnail(weekSlug, originalUrl) {
-  if (!originalUrl || !weekSlug) return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=480&output=webp` : '';
+function getLocalWeeklyThumbnail(weekSlug, originalUrl, size = 'sm') {
+  if (!originalUrl || !weekSlug) {
+    const widthFallback = size === 'xs' ? 200 : (size === 'lg' ? 1200 : 480);
+    return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${widthFallback}&output=webp` : '';
+  }
 
-  const localPath = `/assets/images/weekly/${weekSlug}/thumbnail-sm.webp`;
-  const fullPath = path.join(docsDir, 'assets/images/weekly', weekSlug, 'thumbnail-sm.webp');
+  const sizeMap = { xs: 'thumbnail-xs.webp', sm: 'thumbnail-sm.webp', lg: 'thumbnail.webp' };
+  const widthMap = { xs: 200, sm: 480, lg: 1200 };
+  const filename = sizeMap[size] || sizeMap.sm;
+  const localPath = `/assets/images/weekly/${weekSlug}/${filename}`;
+  const fullPath = path.join(docsDir, 'assets/images/weekly', weekSlug, filename);
 
   if (fs.existsSync(fullPath)) {
     return localPath;
   }
   // 폴백: 기존 thumbnail.webp 확인
-  const fallbackPath = path.join(docsDir, 'assets/images/weekly', weekSlug, 'thumbnail.webp');
-  if (fs.existsSync(fallbackPath)) {
-    return `/assets/images/weekly/${weekSlug}/thumbnail.webp`;
+  if (size === 'sm' || size === 'xs') {
+    const fallbackPath = path.join(docsDir, 'assets/images/weekly', weekSlug, 'thumbnail.webp');
+    if (fs.existsSync(fallbackPath)) {
+      return `/assets/images/weekly/${weekSlug}/thumbnail.webp`;
+    }
   }
-  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=480&output=webp`;
+  const width = widthMap[size] || 480;
+  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
+}
+
+function getLocalWeeklyThumbnailSrcset(weekSlug, originalUrl) {
+  const xsUrl = getLocalWeeklyThumbnail(weekSlug, originalUrl, 'xs');
+  const smUrl = getLocalWeeklyThumbnail(weekSlug, originalUrl, 'sm');
+  if (!smUrl) return { src: '', srcset: '' };
+  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
+  return {
+    src: smUrl,
+    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
+    sizes: '(max-width: 768px) 133px, 253px'
+  };
 }
 
 function generateIndexPage(data) {
@@ -218,6 +252,45 @@ function generateIndexPage(data) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+  const FEED_IMAGE_DIMENSION_ATTRS = 'width="1600" height="900" decoding="async"';
+  const POPULAR_IMAGE_DIMENSION_ATTRS = 'width="480" height="300" decoding="async"';
+  const FEED_PAGE_SIZE = 15;
+  const INITIAL_FEED_RENDER_COUNT = 9;
+  const getFeedImageLoadingAttrs = () => 'loading="lazy" fetchpriority="auto"';
+  const getFeedImagePerfAttrs = () =>
+    `${getFeedImageLoadingAttrs()} ${FEED_IMAGE_DIMENSION_ATTRS}`;
+  const getPopularImagePerfAttrs = () => `loading="lazy" fetchpriority="auto" ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
+  const extractSeoLinkFromCardHtml = (html) => {
+    if (!html || typeof html !== 'string') return null;
+    const hrefMatch = html.match(/<a[^>]*href="([^"]+)"/i);
+    if (!hrefMatch || !hrefMatch[1]) return null;
+
+    let title = '';
+    const lazyTitleMatch = html.match(/data-lazy-img-alt="([^"]+)"/i);
+    if (lazyTitleMatch && lazyTitleMatch[1]) title = lazyTitleMatch[1];
+    if (!title) {
+      const titleMatch = html.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i);
+      if (titleMatch && titleMatch[1]) {
+        title = titleMatch[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+    }
+
+    return {
+      href: hrefMatch[1],
+      title: title || hrefMatch[1]
+    };
+  };
+  const renderDeferredSeoLinks = (links, id) => {
+    if (!Array.isArray(links) || links.length === 0) return '';
+    const idAttr = id ? ` id="${id}"` : '';
+    return `<div class="visually-hidden"${idAttr}>${links.map((link) => `
+      <a href="${escapeHtmlAttr(link.href)}">${escapeHtmlAttr(link.title || link.href)}</a>
+    `).join('')}</div>`;
+  };
+  const serializeDeferredCards = (cards) => {
+    if (!Array.isArray(cards) || cards.length === 0) return '';
+    return JSON.stringify(cards).replace(/</g, '\\u003c');
+  };
 
   // 주간 slug 생성 (2026-W04 형식)
   const wInfo = weeklyInsight?.weekInfo || {};
@@ -225,8 +298,8 @@ function generateIndexPage(data) {
   const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
   const weeklySlugForThumb = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
 
-  const dailyInsightThumbnail = getLocalDailyThumbnail(insightFileDate, aiInsight?.issues?.[0]?.thumbnail) || '';
-  const weeklyInsightThumbnail = getLocalWeeklyThumbnail(weeklySlugForThumb, weeklyInsight?.ai?.issues?.[0]?.thumbnail) || '';
+  const dailyInsightThumbData = getLocalDailyThumbnailSrcset(insightFileDate, aiInsight?.issues?.[0]?.thumbnail);
+  const weeklyInsightThumbData = getLocalWeeklyThumbnailSrcset(weeklySlugForThumb, weeklyInsight?.ai?.issues?.[0]?.thumbnail);
 
   // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
   const formatDateKr = (dateStr) => {
@@ -261,14 +334,20 @@ function generateIndexPage(data) {
       : '주간';
 
     // 썸네일 (없으면 CSS gradient 배경만 보임) - fixUrl로 프록시 처리
-    const dailyThumbnail = dailyInsightThumbnail;
-    const weeklyThumbnail = weeklyInsightThumbnail;
+    const dailyThumbnail = dailyInsightThumbData?.src || '';
+    const weeklyThumbnail = weeklyInsightThumbData?.src || '';
+    const dailyImgAttrs = dailyInsightThumbData?.srcset
+      ? `src="${dailyInsightThumbData.src}" srcset="${dailyInsightThumbData.srcset}" sizes="${dailyInsightThumbData.sizes}"`
+      : (dailyInsightThumbData?.src ? `src="${dailyInsightThumbData.src}"` : '');
+    const weeklyImgAttrs = weeklyInsightThumbData?.srcset
+      ? `src="${weeklyInsightThumbData.src}" srcset="${weeklyInsightThumbData.srcset}" sizes="${weeklyInsightThumbData.sizes}"`
+      : (weeklyInsightThumbData?.src ? `src="${weeklyInsightThumbData.src}"` : '');
 
     // 일간 카드 (이미지 + 헤드라인)
     const dailyCard = dailyHeadline ? `
       <a href="${dailyLink}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${dailyThumbnail ? `<img src="${dailyThumbnail}" alt="${escapeHtmlAttr(dailyHeadline)}" loading="eager" fetchpriority="high" decoding="async" data-img-fallback="hide">` : ''}
+          ${dailyThumbnail ? `<img ${dailyImgAttrs} alt="${escapeHtmlAttr(dailyHeadline)}" loading="lazy" fetchpriority="auto" decoding="async" width="1600" height="900" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag">${dailyBadgeText}</span>
         </div>
         <h3 class="home-trend-card-title">${dailyHeadline}</h3>
@@ -279,7 +358,7 @@ function generateIndexPage(data) {
     const weeklyCard = wai ? `
       <a href="${weeklyLink}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${weeklyThumbnail ? `<img src="${weeklyThumbnail}" alt="${escapeHtmlAttr(weeklyHeadline)}" loading="eager" fetchpriority="auto" decoding="async" data-img-fallback="hide">` : ''}
+          ${weeklyThumbnail ? `<img ${weeklyImgAttrs} alt="${escapeHtmlAttr(weeklyHeadline)}" loading="lazy" fetchpriority="auto" decoding="async" width="1600" height="900" data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag weekly">${weeklyBadgeText}</span>
         </div>
         <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
@@ -406,7 +485,7 @@ function generateIndexPage(data) {
       return `
       <a href="${item.link}" class="home-popular-card">
         <div class="home-popular-thumb">
-          ${item.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="${i === 0 ? 'eager' : 'lazy'}">` : ''}
+          ${item.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getPopularImagePerfAttrs(i)}>` : ''}
         </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>
@@ -415,13 +494,14 @@ function generateIndexPage(data) {
       </a>
     `;
     }).join('');
+    const popularListId = 'homePopularList';
 
     return `
       <div class="home-card" id="home-popular">
         <div class="home-card-header">
           <h2 class="home-card-title">인기</h2>
         </div>
-        <div class="home-popular-list">${popularCards}</div>
+        <div class="home-popular-list" id="${popularListId}">${popularCards}</div>
       </div>
     `;
   }
@@ -529,49 +609,89 @@ function generateIndexPage(data) {
 
     if (allArticles.length === 0) return '';
 
-    // 모든 카드 생성 (JS로 페이지네이션 + 카테고리 필터)
-    const latestCards = allArticles.map((item, i) => {
+    // 모든 카드 생성 (첫 페이지만 SSR, 나머지는 템플릿 지연 삽입)
+    const latestCardEntries = allArticles.map((item, i) => {
       // 위키/테크는 srcset 사용
       let imgHtml = '';
+      let lazyImgSrc = '';
+      let lazyImgSrcset = '';
+      let lazyImgSizes = '';
       if (item.type === 'wiki') {
         const thumbData = getLocalWikiThumbSrcset(item.category, item.slug, item.originalThumbnail);
         const imgAttrs = thumbData.srcset
           ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
           : `src="${thumbData.src}"`;
-        imgHtml = thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : '';
+        lazyImgSrc = thumbData.src || '';
+        lazyImgSrcset = thumbData.srcset || '';
+        lazyImgSizes = thumbData.sizes || '';
+        if (i < INITIAL_FEED_RENDER_COUNT && thumbData.src) {
+          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(i, 2, false)} data-img-fallback="hide">`;
+        }
       } else if (item.type === 'tech') {
         const thumbData = getLocalTechThumbSrcset(item.category, item.slug, item.originalThumbnail);
         const imgAttrs = thumbData.srcset
           ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
           : `src="${thumbData.src}"`;
-        imgHtml = thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">` : '';
+        lazyImgSrc = thumbData.src || '';
+        lazyImgSrcset = thumbData.srcset || '';
+        lazyImgSizes = thumbData.sizes || '';
+        if (i < INITIAL_FEED_RENDER_COUNT && thumbData.src) {
+          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(i, 2, false)} data-img-fallback="hide">`;
+        }
       } else if (item.originalThumbnail) {
         const thumbData = getLocalReportThumbnailSrcset(item.type, item.slug, item.originalThumbnail);
         const imgAttrs = thumbData.srcset
           ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
           : `src="${thumbData.src}"`;
-        imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" loading="lazy" data-img-fallback="hide">`;
+        lazyImgSrc = thumbData.src || '';
+        lazyImgSrcset = thumbData.srcset || '';
+        lazyImgSizes = thumbData.sizes || '';
+        if (i < INITIAL_FEED_RENDER_COUNT && thumbData.src) {
+          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(i, 2, false)} data-img-fallback="hide">`;
+        }
       }
-      return `
-      <a href="${item.link}" class="home-trend-card home-latest-item" data-index="${i}" data-category="${item.category}">
+      const lazySrcsetAttrs = lazyImgSrcset
+        ? ` data-lazy-img-srcset="${escapeHtmlAttr(lazyImgSrcset)}" data-lazy-img-sizes="${escapeHtmlAttr(lazyImgSizes)}"`
+        : '';
+      const lazyAttrs = (!imgHtml && lazyImgSrc)
+        ? ` data-lazy-img-src="${escapeHtmlAttr(lazyImgSrc)}"${lazySrcsetAttrs} data-lazy-img-alt="${escapeHtmlAttr(item.title)}"`
+        : '';
+      return {
+        itemIndex: i,
+        html: `
+      <a href="${item.link}" class="home-trend-card home-latest-item" data-index="${i}"${lazyAttrs}>
         <div class="home-trend-card-image">
           ${imgHtml}
           <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : item.badge}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${item.title}</span></h3>
       </a>
-    `;
-    }).join('');
+    `
+      };
+    });
+    const initialCards = [];
+    const deferredCards = [];
+    const deferredSeoLinks = [];
+    latestCardEntries.forEach(entry => {
+      if (entry.itemIndex < INITIAL_FEED_RENDER_COUNT) initialCards.push(entry.html);
+      else {
+        deferredCards.push(entry.html);
+        const seoLink = extractSeoLinkFromCardHtml(entry.html);
+        if (seoLink) deferredSeoLinks.push(seoLink);
+      }
+    });
+    const deferredCardsJson = serializeDeferredCards(deferredCards);
 
-    const totalPages = Math.ceil(allArticles.length / 15);
+    const totalPages = Math.ceil(allArticles.length / FEED_PAGE_SIZE);
 
     return `
       <div class="home-card" id="home-latest">
         <div class="home-card-header">
           <h2 class="home-card-title">최신</h2>
         </div>
-        <div class="home-latest-grid">${latestCards}</div>
-        <div class="home-pagination" data-total="${allArticles.length}" data-per-page="15">
+        <div class="home-latest-grid">${initialCards.join('')}</div>
+        ${deferredCardsJson ? `<script type="application/json" id="homeLatestDeferredData">${deferredCardsJson}</script>${renderDeferredSeoLinks(deferredSeoLinks, 'homeLatestDeferredSeoLinks')}` : ''}
+        <div class="home-pagination" data-total="${allArticles.length}" data-per-page="${FEED_PAGE_SIZE}">
           <button class="home-page-btn home-page-prev" disabled>‹</button>
           <span class="home-page-info">1 / ${totalPages}</span>
           <button class="home-page-btn home-page-next">›</button>
@@ -1049,200 +1169,22 @@ function generateIndexPage(data) {
       });
     });
 
-    // 최신 기사 페이지네이션 + 카테고리 필터 (PC: 페이지네이션, 모바일: 무한스크롤)
-    (function() {
-      const pagination = document.querySelector('.home-pagination');
-      const categoryMenu = document.getElementById('sidebar-categories');
-      const popularCard = document.getElementById('home-popular');
-      const insightCard = document.getElementById('home-insight');
-      const latestCard = document.getElementById('home-latest');
-      const latestTitle = latestCard?.querySelector('.home-card-title');
-      if (!pagination) return;
-
-      const isMobile = window.matchMedia('(max-width:768px)').matches;
-      const categoryNames = { issue: '이슈', history: '히스토리', knowledge: '지식', tech: '기술', business: '비즈니스' };
-      const perPage = parseInt(pagination.dataset.perPage, 10) || 15;
-      const allItems = Array.from(document.querySelectorAll('.home-latest-item'));
-      const prevBtn = pagination.querySelector('.home-page-prev');
-      const nextBtn = pagination.querySelector('.home-page-next');
-      const pageInfo = pagination.querySelector('.home-page-info');
-      let currentPage = 1;
-      let currentCategory = null;
-      let filteredItems = allItems;
-      let visibleCount = perPage;
-      let observer;
-
-      // 모바일: 무한 스크롤
-      if (isMobile) {
-        pagination.style.display = 'none';
-        let lastAdAfterIndex = -1;
-        const adSlots = ['4840966314', '7467129651', '7865094213', '3028357040'];
-        let adSlotIndex = 0;
-        const adInterval = 3;
-
-        function showItemsMobile() {
-          allItems.forEach(item => item.style.display = 'none');
-          filteredItems.forEach((item, i) => {
-            item.style.display = i < visibleCount ? '' : 'none';
-          });
-        }
-
-        function insertAds() {
-          if (document.body.classList.contains('ads-disabled')) return;
-          for (let i = lastAdAfterIndex + 1; i < visibleCount; i++) {
-            if ((i + 1) % adInterval === 0) {
-              const slotId = adSlots[adSlotIndex % adSlots.length];
-              adSlotIndex++;
-              const adId = 'scroll-ad-' + adSlotIndex;
-              const adHtml = '<div class="ad-card ad-card-scroll" id="' + adId + '" style="margin:16px 0;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">' +
-                '<ins class="adsbygoogle" style="display:block;margin:0 auto" ' +
-                'data-ad-client="ca-pub-9477874183990825" data-ad-slot="' + slotId + '" data-ad-format="auto" data-full-width-responsive="true"></ins></div>';
-              filteredItems[i]?.insertAdjacentHTML('afterend', adHtml);
-              try {
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-              } catch(e) {
-                document.getElementById(adId)?.remove();
-              }
-              lastAdAfterIndex = i;
-            }
-          }
-        }
-
-        function clearAds() {
-          document.querySelectorAll('.ad-card-scroll').forEach(el => el.remove());
-          lastAdAfterIndex = -1;
-          adSlotIndex = 0;
-        }
-
-        function loadMore() {
-          if (visibleCount >= filteredItems.length) return;
-          visibleCount = Math.min(visibleCount + perPage, filteredItems.length);
-          showItemsMobile();
-          insertAds();
-          observeLastItem();
-        }
-
-        function observeLastItem() {
-          if (observer) observer.disconnect();
-          if (visibleCount >= filteredItems.length) return;
-          const lastVisible = filteredItems[visibleCount - 1];
-          if (!lastVisible) return;
-          observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) loadMore();
-          }, { rootMargin: '200px' });
-          observer.observe(lastVisible);
-        }
-
-        function filterByCategory(category) {
-          clearAds();
-          if (currentCategory === category) {
-            currentCategory = null;
-            filteredItems = allItems;
-            categoryMenu?.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
-            if (popularCard) popularCard.style.display = '';
-            if (insightCard) insightCard.style.display = '';
-            if (latestTitle) latestTitle.textContent = '최신';
-          } else {
-            currentCategory = category;
-            filteredItems = allItems.filter(item => item.dataset.category === category);
-            if (popularCard) popularCard.style.display = 'none';
-            if (insightCard) insightCard.style.display = 'none';
-            if (latestTitle) latestTitle.textContent = categoryNames[category] || category;
-          }
-          visibleCount = perPage;
-          showItemsMobile();
-          insertAds();
-          observeLastItem();
-        }
-
-        categoryMenu?.addEventListener('click', (e) => {
-          const btn = e.target.closest('.sidebar-category-item');
-          if (!btn) return;
-          const category = btn.dataset.filterCategory;
-          if (!category) return;
-          const isActive = btn.classList.contains('active');
-          categoryMenu.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
-          if (!isActive) btn.classList.add('active');
-          filterByCategory(category);
-        });
-
-        showItemsMobile();
-        insertAds();
-        observeLastItem();
-        return;
-      }
-
-      // PC: 페이지네이션
-      function filterByCategory(category) {
-        if (currentCategory === category) {
-          currentCategory = null;
-          filteredItems = allItems;
-          categoryMenu?.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
-          if (popularCard) popularCard.style.display = '';
-          if (insightCard) insightCard.style.display = '';
-          if (latestTitle) latestTitle.textContent = '최신';
-        } else {
-          currentCategory = category;
-          filteredItems = allItems.filter(item => item.dataset.category === category);
-          if (popularCard) popularCard.style.display = 'none';
-          if (insightCard) insightCard.style.display = 'none';
-          if (latestTitle) latestTitle.textContent = categoryNames[category] || category;
-        }
-        currentPage = 1;
-        updatePagination();
-      }
-
-      function updatePagination() {
-        const totalPages = Math.ceil(filteredItems.length / perPage) || 1;
-        const start = (currentPage - 1) * perPage;
-        const end = start + perPage;
-        allItems.forEach(item => item.style.display = 'none');
-        filteredItems.forEach((item, i) => {
-          item.style.display = (i >= start && i < end) ? '' : 'none';
-        });
-        pageInfo.textContent = currentPage + ' / ' + totalPages;
-        prevBtn.disabled = currentPage <= 1;
-        nextBtn.disabled = currentPage >= totalPages;
-      }
-
-      prevBtn?.addEventListener('click', () => {
-        if (currentPage > 1) { currentPage--; updatePagination(); }
-      });
-      nextBtn?.addEventListener('click', () => {
-        const totalPages = Math.ceil(filteredItems.length / perPage);
-        if (currentPage < totalPages) { currentPage++; updatePagination(); }
-      });
-
-      categoryMenu?.addEventListener('click', (e) => {
-        const btn = e.target.closest('.sidebar-category-item');
-        if (!btn) return;
-        const category = btn.dataset.filterCategory;
-        if (!category) return;
-        const isActive = btn.classList.contains('active');
-        categoryMenu.querySelectorAll('.sidebar-category-item').forEach(b => b.classList.remove('active'));
-        if (!isActive) btn.classList.add('active');
-        filterByCategory(category);
-      });
-
-      updatePagination();
-    })();
-
-    // 사이드바 인기/최신 토글
-    (function() {
-      const sidebarTab = document.getElementById('sidebarArticleTab');
-      if (!sidebarTab) return;
-      sidebarTab.addEventListener('click', (e) => {
-        const btn = e.target.closest('.tab-btn');
-        if (!btn) return;
-        sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const target = btn.dataset.sidebarTab;
-        document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-        document.getElementById('sidebar-' + target)?.classList.add('active');
-      });
-    })();
-
-  </script>`;
+  </script>${buildCardFeedPagerScript({
+    grid: '.home-latest-grid',
+    pagination: '.home-pagination',
+    deferredJson: '#homeLatestDeferredData',
+    itemSelector: '.home-latest-item',
+    pageSize: FEED_PAGE_SIZE,
+    hydrateLazyImages: true,
+    mobileAds: true,
+    adInterval: 3,
+    mobileDomWindowPages: 4,
+    adSlots: ['4840966314', '7467129651', '7865094213', '3028357040'],
+    initialRenderCount: INITIAL_FEED_RENDER_COUNT,
+    idleFillFirstPage: true,
+    idleFillDelay: 120,
+    sidebarTabId: 'sidebarArticleTab'
+  })}`;
 
   return wrapWithLayout(content, {
     currentPage: 'home',  // 홈페이지 → 네비 선택 없음
@@ -1251,7 +1193,6 @@ function generateIndexPage(data) {
     keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 메타크리틱, 게임 뉴스',
     canonical: `${siteBaseUrl}/`,
     pageScripts: pageScripts,
-    preloadImages: [dailyInsightThumbnail, weeklyInsightThumbnail].filter(Boolean),
     sidebarContent: sidebarContent,
     sidebarCounts
   });

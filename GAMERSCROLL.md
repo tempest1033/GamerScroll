@@ -446,6 +446,11 @@ node scripts/process-review-queue.js [limit]
   4. 커밋 & 푸시
 - **주의**: 지난 주 일일 리포트가 있어야 함
 
+### GamerScroll / AI Scroll 빌드 분리
+- GamerScroll과 AI Scroll(AIScroll 블로그)은 **별도 빌드 워크플로우**를 사용
+- AI 관련 아티클 배포 시 AI 빌드 워크플로우 사용 (GamerScroll 워크플로우 아님)
+- 빌드 트리거 전 **어떤 사이트/워크플로우 대상인지 반드시 확인**
+
 ---
 
 ## 문제 해결
@@ -1341,3 +1346,12 @@ powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run weekly-insig
 ```
 
 **GitHub Actions**: https://github.com/tempest1033/GamerScroll/actions
+
+---
+
+## Git 운영 규칙
+
+1. **푸시 전 리베이스 필수**: 항상 `git pull --rebase` 후 푸시. 리베이스 없이 푸시 금지
+2. **아티클 푸시 시 JSON 콘텐츠 파일만 커밋** — 관련 없는 변경사항은 포함하지 않기
+3. **카테고리 이동 시 정리**: 콘텐츠를 다른 카테고리로 옮길 때(예: issue → insight) 이전 빌드 산출물 정리
+4. **미스테이지 변경사항 처리**: Git 작업 시작 전에 unstaged 변경사항이 있으면 stash하거나 해결 후 진행

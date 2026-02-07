@@ -11,6 +11,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const sharp = require('sharp');
 
 // 증분 빌드 캐시
@@ -19,6 +20,7 @@ const buildCache = require('./ai-build-cache');
 // 템플릿
 const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, setGlobalSidebarCounts, setGlobalSidebarArticles } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
+const { buildLayoutCoreBundle, LAYOUT_CORE_ASSET } = require('./src/templates/layout');
 
 // GA4 Analytics
 const {
@@ -33,6 +35,163 @@ const REPORTS_DIR = path.join(__dirname, 'reports');
 // GamerScroll 내 ai-docs/ 폴더에 빌드
 const DOCS_DIR = path.join(__dirname, 'ai-docs');
 const STYLES_SRC = path.join(__dirname, 'src', 'styles');
+const FEED_ASSETS_DIR = path.join(DOCS_DIR, 'assets', 'feed');
+const DEFERRED_JSON_SCRIPT_REGEX = /<script\s+type="application\/json"\s+id="([A-Za-z0-9_-]*DeferredData)"[^>]*>([\s\S]*?)<\/script>/g;
+const AI_CSS_BUNDLES = [
+  { entry: path.join(STYLES_SRC, 'bundle-core.css'), output: 'styles-core.css', required: true },
+  { entry: path.join(STYLES_SRC, 'bundle-article.css'), output: 'styles-article.css', required: true },
+  // 하위 호환: 일부 페이지/캐시가 /styles.css를 참조할 수 있음
+  { entry: path.join(STYLES_SRC, 'bundle-core.css'), output: 'styles.css', required: true }
+];
+
+function ensureDir(dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+}
+
+function collectHtmlFilesUnderDir(baseDir, list) {
+  if (!fs.existsSync(baseDir)) return;
+  const entries = fs.readdirSync(baseDir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(baseDir, entry.name);
+    if (entry.isDirectory()) {
+      collectHtmlFilesUnderDir(fullPath, list);
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) {
+      list.push(fullPath);
+    }
+  }
+}
+
+function externalizeDeferredJsonFromHtml(html, pageRelPath) {
+  if (typeof html !== 'string' || html.indexOf('DeferredData') === -1) return html;
+
+  return html.replace(DEFERRED_JSON_SCRIPT_REGEX, (fullMatch, scriptId, payloadRaw) => {
+    const payload = (payloadRaw || '').trim();
+    if (!payload) return fullMatch;
+
+    let parsed;
+    try {
+      parsed = JSON.parse(payload);
+    } catch (e) {
+      return fullMatch;
+    }
+    if (!Array.isArray(parsed)) return fullMatch;
+
+    const normalizedPayload = JSON.stringify(parsed).replace(/</g, '\\u003c');
+    const hash = crypto.createHash('md5').update(normalizedPayload).digest('hex').slice(0, 12);
+    const pageKey = (pageRelPath || 'index')
+      .replace(/\\/g, '/')
+      .replace(/^\/+/, '')
+      .replace(/\.html$/i, '')
+      .replace(/\//g, '-')
+      .replace(/[^a-zA-Z0-9_-]/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '') || 'index';
+    const fileName = `${pageKey}-${scriptId}-${hash}.json`;
+    const filePath = path.join(FEED_ASSETS_DIR, fileName);
+    const feedUrl = `/assets/feed/${fileName}`;
+
+    fs.writeFileSync(filePath, normalizedPayload, 'utf8');
+    return `<script type="application/json" id="${scriptId}" data-src="${feedUrl}"></script>`;
+  });
+}
+
+function externalizeDeferredJsonPayloads() {
+  ensureDir(path.join(DOCS_DIR, 'assets'));
+  if (fs.existsSync(FEED_ASSETS_DIR)) {
+    fs.rmSync(FEED_ASSETS_DIR, { recursive: true, force: true });
+  }
+  ensureDir(FEED_ASSETS_DIR);
+
+  const htmlFiles = [];
+  collectHtmlFilesUnderDir(DOCS_DIR, htmlFiles);
+
+  htmlFiles.forEach((filePath) => {
+    try {
+      const originalHtml = fs.readFileSync(filePath, 'utf8');
+      const relPath = path.relative(DOCS_DIR, filePath);
+      const transformedHtml = externalizeDeferredJsonFromHtml(originalHtml, relPath);
+      if (transformedHtml !== originalHtml) {
+        fs.writeFileSync(filePath, transformedHtml, 'utf8');
+      }
+    } catch (e) {
+      console.warn(`  ⚠️ deferred JSON 외부화 실패 (${filePath}): ${e.message}`);
+    }
+  });
+}
+
+function syncLayoutCoreAsset() {
+  try {
+    const assetsDir = path.join(DOCS_DIR, 'assets');
+    ensureDir(assetsDir);
+    const bundle = buildLayoutCoreBundle();
+    if (typeof bundle !== 'string' || bundle.trim() === '') {
+      throw new Error('layout core bundle is empty');
+    }
+    fs.writeFileSync(path.join(assetsDir, LAYOUT_CORE_ASSET), bundle, 'utf8');
+  } catch (e) {
+    console.warn(`  ⚠️ layout-core 동기화 실패: ${e.message}`);
+  }
+}
+
+function stripBom(text) {
+  if (!text) return '';
+  return text.charCodeAt(0) === 0xFEFF ? text.slice(1) : text;
+}
+
+function normalizeLineEndingsToLf(text) {
+  return String(text).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+}
+
+function toCrlf(text) {
+  return String(text).replace(/\n/g, '\r\n');
+}
+
+function bundleCssFile(entryPath) {
+  const entryAbsPath = path.resolve(entryPath);
+
+  function bundleRecursive(filePath, stack) {
+    const absPath = path.resolve(filePath);
+    if (stack.has(absPath)) {
+      const cycle = [...stack, absPath].map((p) => path.relative(process.cwd(), p)).join(' -> ');
+      throw new Error(`CSS @import cycle detected: ${cycle}`);
+    }
+
+    stack.add(absPath);
+
+    const dir = path.dirname(absPath);
+    const raw = fs.readFileSync(absPath, 'utf8');
+    const css = normalizeLineEndingsToLf(stripBom(raw));
+    const lines = css.split('\n');
+    const out = [];
+
+    for (const line of lines) {
+      const match = line.match(/^\s*@import\s+(?:url\(\s*)?['"]([^'"]+)['"]\s*\)?\s*;\s*$/);
+      if (!match) {
+        out.push(line);
+        continue;
+      }
+
+      const importTarget = match[1];
+      const isRemote = /^https?:\/\//.test(importTarget) || /^\/\//.test(importTarget);
+      const isSpecial = importTarget.startsWith('/') || importTarget.startsWith('data:');
+      if (isRemote || isSpecial) {
+        out.push(line);
+        continue;
+      }
+
+      const importedPath = path.resolve(dir, importTarget);
+      out.push(bundleRecursive(importedPath, stack));
+    }
+
+    stack.delete(absPath);
+    return out.join('\n').trimEnd() + '\n';
+  }
+
+  const bundled = bundleRecursive(entryAbsPath, new Set());
+  return toCrlf('\ufeff' + bundled);
+}
 
 /**
  * CSS 압축 (minify) - GamerScroll과 동일
@@ -73,6 +232,51 @@ const EXTRA_ARTICLES = {
 
 // 카테고리 목록 (폴더 분리용)
 const CATEGORIES = ['general', 'openai', 'google', 'anthropic', 'vibecoding'];
+
+const SOURCE_IMAGES_ROOT = path.join(__dirname, 'docs', 'assets', 'images');
+
+function getLocalThumbnailUrl(article) {
+  if (!article || !article.slug) return '';
+  const source = String(article.source || '');
+  let relDir = '';
+
+  if (source === 'tech/ai') {
+    relDir = `tech/ai/${article.slug}`;
+  } else if (source === 'tech/vibecoding') {
+    relDir = `tech/vibecoding/${article.slug}`;
+  } else if (source === 'issue') {
+    relDir = `issue/${article.slug}`;
+  } else if (source === 'hotpick') {
+    relDir = `hotpick/${article.slug}`;
+  } else if (source.startsWith('wiki/')) {
+    const wikiCategory = source.split('/')[1] || article.category || '';
+    if (!wikiCategory) return '';
+    relDir = `wiki/${wikiCategory}/${article.slug}`;
+  } else {
+    return '';
+  }
+
+  const normalizedRelDir = relDir.replace(/\\/g, '/');
+  const relParts = normalizedRelDir.split('/').filter(Boolean);
+  const candidates = ['thumbnail-sm.webp', 'thumbnail.webp', 'thumbnail-xs.webp'];
+
+  for (const fileName of candidates) {
+    const absPath = path.join(SOURCE_IMAGES_ROOT, ...relParts, fileName);
+    if (fs.existsSync(absPath)) {
+      return `/assets/images/${normalizedRelDir}/${fileName}`;
+    }
+  }
+
+  return '';
+}
+
+function resolveArticleThumbnail(article) {
+  const thumb = String(article?.thumbnail || '');
+  if (thumb.startsWith('/assets/') || thumb.startsWith('/favicon')) return thumb;
+  const localThumb = getLocalThumbnailUrl(article);
+  if (localThumb) return localThumb;
+  return thumb;
+}
 
 // 글 데이터 로드
 function loadArticles() {
@@ -181,23 +385,23 @@ function loadArticles() {
   return articles;
 }
 
-// 스타일 복사 (GamerScroll CSS 그대로 사용, minify 적용)
+// 스타일 번들 생성 (AIScroll: core + article, legacy styles.css 유지)
 function copyStyles() {
-  // GamerScroll 스타일 파일들 합치기
-  const styleFiles = fs.readdirSync(STYLES_SRC)
-    .filter(f => f.endsWith('.css'))
-    .sort(); // 파일명 순서대로 (00-, 01-, 10- 등)
-
-  let combinedCss = '';
-  for (const file of styleFiles) {
-    const content = fs.readFileSync(path.join(STYLES_SRC, file), 'utf8');
-    combinedCss += content + '\n';
+  let builtCount = 0;
+  for (const bundle of AI_CSS_BUNDLES) {
+    try {
+      const bundledCss = bundleCssFile(bundle.entry);
+      const minifiedCss = minifyCss(bundledCss);
+      fs.writeFileSync(path.join(DOCS_DIR, bundle.output), minifiedCss, 'utf8');
+      builtCount++;
+    } catch (e) {
+      if (bundle.required) {
+        console.warn(`  ⚠️ CSS 번들 생성 실패 (${bundle.output}): ${e.message}`);
+      }
+      fs.writeFileSync(path.join(DOCS_DIR, bundle.output), '', 'utf8');
+    }
   }
-
-  // GamerScroll과 동일하게 minify 적용
-  const minifiedCss = minifyCss(combinedCss);
-  fs.writeFileSync(path.join(DOCS_DIR, 'styles.css'), minifiedCss, 'utf8');
-  console.log('스타일 복사 완료 (minified)');
+  console.log(`스타일 번들 생성 완료 (${builtCount}/${AI_CSS_BUNDLES.length})`);
 }
 
 // 디렉토리 재귀 복사
@@ -318,6 +522,14 @@ async function copyAssets(faviconChanged = false) {
     console.log('issue 이미지 복사 완료');
   }
 
+  // hotpick 이미지 복사 (AIScroll 포함 hotpick 기사용)
+  const hotpickImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'hotpick');
+  const hotpickImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'hotpick');
+  if (fs.existsSync(hotpickImagesSrc)) {
+    copyDirRecursive(hotpickImagesSrc, hotpickImagesDest);
+    console.log('hotpick 이미지 복사 완료');
+  }
+
   // wiki 이미지 복사 (추가 목록용)
   for (const wikiItem of EXTRA_ARTICLES.wiki) {
     const wikiImageSrc = path.join(__dirname, 'docs', 'assets', 'images', 'wiki', wikiItem.category, wikiItem.slug);
@@ -387,7 +599,7 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     title: a.titleEn || a.title,
     summary: a.summaryEn || a.summary,
     content: a.contentEn || a.content,
-    thumbnail: a.thumbnail,
+    thumbnail: resolveArticleThumbnail(a),
     date: a.date,
     keywords: a.keywordsEn || a.keywords,
     sources: a.sources,
@@ -462,7 +674,15 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     summary: a.summary || ''
   }));
   fs.writeFileSync(path.join(DOCS_DIR, 'articles.json'), JSON.stringify(searchData), 'utf8');
-  console.log('검색용 JSON 생성 완료');
+  // 자동완성용 경량 인덱스 (title/category/slug + titleLower)
+  const searchIndexData = enArticles.map(a => ({
+    slug: a.slug,
+    title: a.title,
+    titleLower: String(a.title || '').toLowerCase(),
+    category: a.category
+  }));
+  fs.writeFileSync(path.join(DOCS_DIR, 'articles-search.json'), JSON.stringify(searchIndexData), 'utf8');
+  console.log('검색용 JSON 생성 완료 (full + search index)');
 
   // Privacy Policy 페이지 생성
   generatePrivacyPage();
@@ -683,6 +903,14 @@ async function main() {
   console.log('\n2. HTML 생성 중...');
   generateHTML(articles, popularArticlesData);
 
+  // 2-1. GamerScroll 공통 코어 유틸 동기화
+  console.log('\n2-1. Layout Core 동기화 중...');
+  syncLayoutCoreAsset();
+
+  // 2-2. 카드 deferred JSON 외부화 (초기 HTML 경량화)
+  console.log('\n2-2. Deferred JSON 외부화 중...');
+  externalizeDeferredJsonPayloads();
+
   // 3. 스타일 복사
   console.log('\n3. 스타일 복사 중...');
   copyStyles();
@@ -716,7 +944,7 @@ function generateSEOFiles(articles) {
     title: a.titleEn || a.title,
     summary: a.summaryEn || a.summary,
     date: a.date,
-    thumbnail: a.thumbnail
+    thumbnail: resolveArticleThumbnail(a)
   }));
 
   // 1. sitemap.xml 생성
@@ -797,61 +1025,128 @@ ${rssItems.join('\n')}
   fs.writeFileSync(path.join(DOCS_DIR, 'rss.xml'), rssXml, 'utf8');
   console.log(`RSS 피드 생성 완료 (${rssItems.length}개 항목)`);
 
-  // 4. Service Worker 생성
-  const swContent = `const CACHE_NAME = 'aiscroll-${Date.now()}';
-const urlsToCache = [
+  // 4. Service Worker 생성 (콘텐츠 해시 기반 버전)
+  const swVersionHash = (() => {
+    try {
+      const parts = [];
+      parts.push(buildLayoutCoreBundle());
+      const styleFiles = ['styles-core.css', 'styles-article.css'];
+      for (const file of styleFiles) {
+        const stylesPath = path.join(DOCS_DIR, file);
+        if (fs.existsSync(stylesPath)) {
+          parts.push(fs.readFileSync(stylesPath, 'utf8'));
+        }
+      }
+      const searchIndexPath = path.join(DOCS_DIR, 'articles-search.json');
+      if (fs.existsSync(searchIndexPath)) {
+        parts.push(fs.readFileSync(searchIndexPath, 'utf8'));
+      }
+      return crypto.createHash('md5').update(parts.join('\n')).digest('hex').slice(0, 12);
+    } catch (_) {
+      return 'v1';
+    }
+  })();
+
+  const swContent = `const CACHE_NAME = 'aiscroll-${swVersionHash}';
+const STATIC_CACHE = CACHE_NAME + '-static';
+const RUNTIME_CACHE = CACHE_NAME + '-runtime';
+const PRECACHE_URLS = [
   '/',
-  '/styles.css',
+  '/styles-core.css',
+  '/styles-article.css',
   '/manifest.json',
   '/icon-192.png',
-  '/icon-512.png'
+  '/icon-512.png',
+  '/assets/layout-core.js',
+  '/articles-search.json'
 ];
+const STATIC_EXT_RE = /\\.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf|json)$/i;
 
-// 설치 시 캐시
-self.addEventListener('install', event => {
+async function cachePut(cacheName, request, response) {
+  if (!response || response.status !== 200) return response;
+  const cache = await caches.open(cacheName);
+  cache.put(request, response.clone());
+  return response;
+}
+
+async function networkFirst(request, cacheName, fallbackUrl = '') {
+  try {
+    const response = await fetch(request);
+    return cachePut(cacheName, request, response);
+  } catch (err) {
+    const cached = await caches.match(request, { ignoreSearch: true });
+    if (cached) return cached;
+    if (fallbackUrl) {
+      const fallback = await caches.match(fallbackUrl, { ignoreSearch: true });
+      if (fallback) return fallback;
+    }
+    throw err;
+  }
+}
+
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+    caches.open(STATIC_CACHE)
+      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .catch(() => undefined)
   );
   self.skipWaiting();
 });
 
-// 활성화 시 이전 캐시 삭제
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== STATIC_CACHE && cacheName !== RUNTIME_CACHE) {
             return caches.delete(cacheName);
           }
+          return null;
         })
-      );
-    })
+      )
+    )
   );
   self.clients.claim();
 });
 
-// Cache First: 캐시에 있으면 즉시 반환, 없으면 네트워크에서 받아서 캐시에 저장
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(cachedResponse => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(event.request)
-          .then(response => {
-            if (response.status === 200) {
-              const responseClone = response.clone();
-              caches.open(CACHE_NAME).then(cache => {
-                cache.put(event.request, responseClone);
-              });
-            }
-            return response;
-          });
-      })
-  );
+self.addEventListener('fetch', (event) => {
+  const request = event.request;
+  if (!request || request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  const accept = request.headers.get('accept') || '';
+  const isHtml = request.mode === 'navigate' || accept.includes('text/html');
+  const isStatic = url.pathname.startsWith('/assets/') ||
+    url.pathname === '/articles-search.json' ||
+    STATIC_EXT_RE.test(url.pathname);
+
+  if (isHtml) {
+    event.respondWith(networkFirst(request, RUNTIME_CACHE, '/'));
+    return;
+  }
+
+  if (isStatic) {
+    event.respondWith((async () => {
+      const cached = await caches.match(request, { ignoreSearch: true });
+      const revalidate = fetch(request)
+        .then((response) => cachePut(STATIC_CACHE, request, response))
+        .catch(() => null);
+
+      if (cached) {
+        event.waitUntil(revalidate);
+        return cached;
+      }
+
+      const fresh = await revalidate;
+      if (fresh) return fresh;
+      return new Response('', { status: 504, statusText: 'Gateway Timeout' });
+    })());
+    return;
+  }
+
+  event.respondWith(networkFirst(request, RUNTIME_CACHE));
 });
 `;
   fs.writeFileSync(path.join(DOCS_DIR, 'service-worker.js'), swContent, 'utf8');

@@ -23,7 +23,7 @@ function generateYoutubePage(data) {
         ${videos.map((video) => `
           <a class="youtube-card" href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">
             <div class="youtube-thumb">
-              <img src="${video.thumbnail}" alt="" loading="lazy" decoding="async">
+              <img src="${video.thumbnail}" alt="${video.title}" loading="lazy" decoding="async">
               <span class="youtube-tag">${video.channel}</span>
             </div>
             <div class="youtube-info">
@@ -47,7 +47,7 @@ function generateYoutubePage(data) {
         ${lives.map((live) => `
           <a class="youtube-card" href="https://chzzk.naver.com/live/${live.channelId}" target="_blank">
             <div class="youtube-thumb${!live.thumbnail ? ' youtube-thumb-empty' : ''}">
-              ${live.thumbnail ? `<img src="${live.thumbnail}" alt="" loading="lazy" decoding="async">` : ''}
+              ${live.thumbnail ? `<img src="${live.thumbnail}" alt="${live.title || live.channel}" loading="lazy" decoding="async">` : ''}
               <span class="youtube-tag">${live.channel}</span>
               <span class="youtube-live">LIVE ${live.viewers.toLocaleString()}</span>
             </div>
@@ -102,73 +102,35 @@ function generateYoutubePage(data) {
 
   const pageScripts = `
   <script>
-    // 각 섹션별 페이지네이션
     (function() {
-      const sections = Array.from(document.querySelectorAll('.video-section-card'));
-      if (!sections.length) return;
+      var init = function() {
+        if (!window.GSUtils || typeof window.GSUtils.initListPager !== 'function') return;
+        const sections = document.querySelectorAll('.video-section-card');
+        if (!sections || sections.length === 0) return;
 
-      const getPageSize = () => window.innerWidth <= 768 ? 4 : 8;
-      const stateMap = new Map();
-
-      function updatePagination(state) {
-        const pageSize = getPageSize();
-        const totalPages = Math.ceil(state.items.length / pageSize) || 1;
-
-        if (state.currentPage >= totalPages) state.currentPage = totalPages - 1;
-        if (state.currentPage < 0) state.currentPage = 0;
-
-        state.items.forEach((item, i) => {
-          const start = state.currentPage * pageSize;
-          const end = start + pageSize;
-          item.style.display = (i >= start && i < end) ? '' : 'none';
+        sections.forEach(function(section) {
+          window.GSUtils.initListPager({
+            root: section,
+            itemSelector: '.youtube-card',
+            prevSelector: '.video-prev',
+            nextSelector: '.video-next',
+            infoSelector: '.video-page-index',
+            desktopPageSize: 8,
+            mobilePageSize: 4,
+            infoSeparator: '/',
+            hideIfSingle: true
+          });
         });
-
-        state.pageIndex.textContent = (state.currentPage + 1) + '/' + totalPages;
-        state.prevBtn.disabled = state.currentPage <= 0;
-        state.nextBtn.disabled = state.currentPage >= totalPages - 1;
+      };
+      if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.initListPager === 'function') {
+        init();
+      } else if (typeof window.__gsOnReady === 'function') {
+        window.__gsOnReady(init);
+      } else if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+      } else {
+        init();
       }
-
-      sections.forEach(section => {
-        const prevBtn = section.querySelector('.video-prev');
-        const nextBtn = section.querySelector('.video-next');
-        const pageIndex = section.querySelector('.video-page-index');
-        const items = Array.from(section.querySelectorAll('.youtube-card'));
-
-        if (!items.length || !prevBtn || !nextBtn || !pageIndex) return;
-
-        const state = {
-          section,
-          prevBtn,
-          nextBtn,
-          pageIndex,
-          items,
-          currentPage: 0
-        };
-
-        stateMap.set(section, state);
-        updatePagination(state);
-      });
-
-      document.addEventListener('click', (event) => {
-        const btn = event.target.closest('.video-prev, .video-next');
-        if (!btn || btn.disabled) return;
-
-        const section = btn.closest('.video-section-card');
-        const state = stateMap.get(section);
-        if (!state) return;
-
-        if (btn.classList.contains('video-prev')) {
-          if (state.currentPage > 0) state.currentPage--;
-        } else {
-          state.currentPage++;
-        }
-
-        updatePagination(state);
-      });
-
-      window.addEventListener('resize', () => {
-        stateMap.forEach(state => updatePagination(state));
-      });
     })();
   </script>`;
 

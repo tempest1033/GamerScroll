@@ -6,8 +6,8 @@
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
-// 전역 CSS 파일명 (해시 기반)
-let globalCssFilename = '/styles.css';
+// 전역 CSS 파일명 (기본 코어 번들)
+let globalCssFilename = '/styles-core.css';
 function setCssFilename(filename) {
   globalCssFilename = filename;
 }
@@ -15,10 +15,24 @@ function getCssFilename() {
   return globalCssFilename;
 }
 
+function getPageExtraCssFiles(currentPage = '') {
+  const page = String(currentPage || '').toLowerCase();
+  if (page === 'magazine') return ['/styles-report.css', '/styles-article.css'];
+  if (page === 'game') return ['/styles-game.css'];
+  if (page === 'wiki' || page === 'tech') return ['/styles-article.css'];
+  return [];
+}
+
 // 전역 검색 인덱스 버전 (빌드 해시 → 캐시 무효화)
 let globalSearchIndexVersion = '';
 function setSearchIndexVersion(v) {
   globalSearchIndexVersion = v;
+}
+
+// 공통 런타임 스크립트 버전 (자산 해시 기반)
+let globalRuntimeAssetVersion = 'v1';
+function setRuntimeAssetVersion(v) {
+  globalRuntimeAssetVersion = String(v || 'v1');
 }
 
 // 전역 사이드바 카운트 (모바일 메뉴용)
@@ -91,6 +105,10 @@ const AD_SLOTS = {
   // 멀티플렉스
   Multiflex001: '5636974986'
 };
+
+// 공통 런타임 스크립트 파일명
+const LAYOUT_CORE_ASSET = 'layout-core.js';
+const LAYOUT_RUNTIME_ASSET = 'layout-runtime.js';
 
 // 상단 검색바 (홈/일반 페이지용)
 const searchBarHtml = `
@@ -241,28 +259,21 @@ const searchBarHtml = `
         });
       });
 
-      // 아이템 클릭 시 페이지 존재 확인 후 이동
+      // 아이템 클릭 시 즉시 이동 (추가 HEAD 요청 제거)
       searchDropdown.querySelectorAll('.search-result-info').forEach(link => {
-        link.addEventListener('click', async (e) => {
+        link.addEventListener('click', (e) => {
           e.preventDefault();
           const item = link.closest('.search-result-item');
           const game = recent.find(g => g.slug === item.dataset.slug);
           if (!game) return;
           searchDropdown.classList.remove('active');
           searchInput.blur();
-          try {
-            const res = await fetch('/games/' + game.slug + '/', { method: 'HEAD' });
-            if (res.ok) {
-              saveRecentSearch(game);
-              location.href = '/games/' + game.slug + '/';
-            } else {
-              removeRecentSearch(game.slug);
-              location.href = '/games/';
-            }
-          } catch {
-            removeRecentSearch(game.slug);
+          if (!game.slug) {
             location.href = '/games/';
+            return;
           }
+          saveRecentSearch(game);
+          location.href = '/games/' + game.slug + '/';
         });
       });
     }
@@ -270,6 +281,18 @@ const searchBarHtml = `
   }
 
 	  let currentResults = [];
+
+	  function filterGames(query) {
+	    if (!query) return [];
+	    const lowerQuery = query.toLowerCase();
+	    return gamesData.filter(game => {
+	      const name = (game.name || game.title || '').toLowerCase();
+	      const developer = (game.developer || game.publisher || '').toLowerCase();
+	      const aliases = Array.isArray(game.aliases) ? game.aliases : [];
+	      const aliasMatch = aliases.some(a => (a || '').toLowerCase().includes(lowerQuery));
+	      return name.includes(lowerQuery) || developer.includes(lowerQuery) || aliasMatch;
+	    }).slice(0, 10);
+	  }
 
 	  function performSearch(query) {
 	    if (!query || query.length < 1) {
@@ -285,14 +308,7 @@ const searchBarHtml = `
 	      return;
 	    }
 
-    const lowerQuery = query.toLowerCase();
-    currentResults = gamesData.filter(game => {
-      const name = (game.name || game.title || '').toLowerCase();
-      const developer = (game.developer || game.publisher || '').toLowerCase();
-      const aliases = Array.isArray(game.aliases) ? game.aliases : [];
-      const aliasMatch = aliases.some(a => (a || '').toLowerCase().includes(lowerQuery));
-      return name.includes(lowerQuery) || developer.includes(lowerQuery) || aliasMatch;
-    }).slice(0, 10);
+    currentResults = filterGames(query);
 
     if (currentResults.length === 0) {
       searchDropdown.innerHTML = '<div class="search-no-results">검색 결과가 없습니다</div>';
@@ -379,15 +395,7 @@ const searchBarHtml = `
 
   // 즉시 검색 (debounce 없이)
   function searchImmediate(query) {
-    if (!query) return [];
-    const lowerQuery = query.toLowerCase();
-    return gamesData.filter(game => {
-      const name = (game.name || game.title || '').toLowerCase();
-      const developer = (game.developer || game.publisher || '').toLowerCase();
-      const aliases = Array.isArray(game.aliases) ? game.aliases : [];
-      const aliasMatch = aliases.some(a => (a || '').toLowerCase().includes(lowerQuery));
-      return name.includes(lowerQuery) || developer.includes(lowerQuery) || aliasMatch;
-    }).slice(0, 10);
+    return filterGames(query);
   }
 
 	  // 검색 실행 (결과 1개면 바로 이동)
@@ -429,6 +437,942 @@ const searchBarHtml = `
   const searchBtn = document.querySelector('.search-btn');
   if (searchBtn) {
     searchBtn.addEventListener('click', executeSearch);
+  }
+})();
+</script>`;
+
+// 지연 카드 이미지 hydration 공통 유틸 (홈/매거진 공통)
+const lazyCardHydrationScript = `
+<script>
+(function() {
+  window.GSUtils = window.GSUtils || {};
+
+  if (typeof window.GSUtils.hydrateLazyCardImage !== 'function') {
+    window.GSUtils.hydrateLazyCardImage = function(card) {
+      if (!card || card.querySelector('.home-trend-card-image img')) return;
+      var src = card.getAttribute('data-lazy-img-src');
+      if (!src) return;
+      var srcset = card.getAttribute('data-lazy-img-srcset');
+      var sizes = card.getAttribute('data-lazy-img-sizes');
+      var imageWrap = card.querySelector('.home-trend-card-image');
+      if (!imageWrap) return;
+      var tag = imageWrap.querySelector('.home-trend-card-tag');
+      var img = document.createElement('img');
+      img.src = src;
+      if (srcset) img.srcset = srcset;
+      if (sizes) img.sizes = sizes;
+      img.alt = card.getAttribute('data-lazy-img-alt') || '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.width = 1600;
+      img.height = 900;
+      img.setAttribute('fetchpriority', 'auto');
+      img.setAttribute('data-img-fallback', 'hide');
+      if (img.complete && img.naturalWidth > 0) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function() {
+          img.classList.add('loaded');
+        }, { once: true });
+      }
+      if (tag) imageWrap.insertBefore(img, tag);
+      else imageWrap.appendChild(img);
+      card.removeAttribute('data-lazy-img-src');
+      card.removeAttribute('data-lazy-img-srcset');
+      card.removeAttribute('data-lazy-img-sizes');
+      card.removeAttribute('data-lazy-img-alt');
+    };
+  }
+
+  if (typeof window.GSUtils.hydrateLazyCardImages !== 'function') {
+    window.GSUtils.hydrateLazyCardImages = function(cards) {
+      if (!cards || typeof cards.forEach !== 'function') return;
+      cards.forEach(window.GSUtils.hydrateLazyCardImage);
+    };
+  }
+
+  if (typeof window.GSUtils.toggleSidebarArticleTab !== 'function') {
+    window.GSUtils.toggleSidebarArticleTab = function(tabId) {
+      var sidebarTab = document.getElementById(tabId || 'sidebarArticleTab');
+      if (!sidebarTab || sidebarTab.dataset.bound === '1') return;
+      sidebarTab.dataset.bound = '1';
+      sidebarTab.addEventListener('click', function(e) {
+        var btn = e.target.closest('.tab-btn');
+        if (!btn) return;
+        sidebarTab.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var target = btn.dataset.sidebarTab;
+        document.querySelectorAll('.sidebar-article-list').forEach(function(list) {
+          list.classList.toggle('active', list.id === 'sidebar-' + target);
+        });
+      });
+    };
+  }
+
+  if (typeof window.GSUtils.requestIdle !== 'function') {
+    window.GSUtils.requestIdle = function(fn, timeout, fallbackDelay) {
+      if (typeof fn !== 'function') return null;
+      if ('requestIdleCallback' in window) {
+        return requestIdleCallback(fn, { timeout: typeof timeout === 'number' ? timeout : 1000 });
+      }
+      var delay = typeof fallbackDelay === 'number' ? fallbackDelay : 0;
+      return setTimeout(function() {
+        fn({ didTimeout: true, timeRemaining: function() { return 0; } });
+      }, delay);
+    };
+  }
+
+  if (typeof window.GSUtils.createIntersectionObserver !== 'function') {
+    window.GSUtils.createIntersectionObserver = function(callback, options) {
+      if (typeof callback !== 'function') return null;
+      if (!('IntersectionObserver' in window)) return null;
+      var observer = new IntersectionObserver(function(entries) {
+        callback(entries, observer);
+      }, options || {});
+      return observer;
+    };
+  }
+
+  if (typeof window.GSUtils.resizeStoreIconUrl !== 'function') {
+    window.GSUtils.resizeStoreIconUrl = function(url) {
+      if (!url) return '';
+      if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/100x100bb.');
+      if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
+      return url;
+    };
+  }
+
+  if (typeof window.GSUtils.initCardFeedPager !== 'function') {
+    window.GSUtils.initCardFeedPager = function(options) {
+      options = options || {};
+      var grid = typeof options.grid === 'string' ? document.querySelector(options.grid) : options.grid;
+      var pagination = typeof options.pagination === 'string' ? document.querySelector(options.pagination) : options.pagination;
+      if (!grid || !pagination) return;
+
+      var itemSelector = options.itemSelector || '.home-trend-card';
+      var items = Array.from(grid.querySelectorAll(itemSelector));
+      if (!items.length) return;
+
+      var parsedPageSize = parseInt(pagination.dataset.perPage || '', 10);
+      var pageSize = parseInt(options.pageSize, 10) || parsedPageSize || 15;
+      var parsedTotal = parseInt(pagination.dataset.total || '', 10);
+      var totalItemCount = parsedTotal > 0 ? parsedTotal : items.length;
+      var initialRenderCount = parseInt(options.initialRenderCount, 10);
+      if (!(initialRenderCount > 0)) initialRenderCount = pageSize;
+      initialRenderCount = Math.max(1, Math.min(initialRenderCount, pageSize, totalItemCount || pageSize));
+      var idleFillFirstPage = options.idleFillFirstPage === true;
+      var idleFillDelay = parseInt(options.idleFillDelay, 10);
+      if (!(idleFillDelay >= 0)) idleFillDelay = 120;
+      var mobileMaxWidth = parseInt(options.mobileMaxWidth, 10) || 768;
+      var isMobile = window.matchMedia
+        ? window.matchMedia('(max-width:' + mobileMaxWidth + 'px)').matches
+        : window.innerWidth <= mobileMaxWidth;
+      var shouldHydrateLazyImages = !!options.hydrateLazyImages;
+      var useMobileAds = !!options.mobileAds;
+      var adSlots = Array.isArray(options.adSlots) && options.adSlots.length
+        ? options.adSlots
+        : ['4840966314', '7467129651', '7865094213', '3028357040'];
+      var adInterval = parseInt(options.adInterval, 10) || 3;
+      var adNodeSelector = '.ad-card-native, .ad-card-content, .ad-card-mobile-only, .ad-card-multiplex, .ad-card-scroll';
+      var deferredDataScript = null;
+      if (options.deferredJson) {
+        deferredDataScript = typeof options.deferredJson === 'string'
+          ? document.querySelector(options.deferredJson)
+          : options.deferredJson;
+      }
+      var deferredDataUrl = '';
+      if (typeof options.deferredJsonUrl === 'string' && options.deferredJsonUrl.trim()) {
+        deferredDataUrl = options.deferredJsonUrl.trim();
+      } else if (deferredDataScript && deferredDataScript.getAttribute) {
+        deferredDataUrl = deferredDataScript.getAttribute('data-src') || '';
+      }
+      var deferredTemplate = null;
+      if (options.deferredTemplate) {
+        deferredTemplate = typeof options.deferredTemplate === 'string'
+          ? document.querySelector(options.deferredTemplate)
+          : options.deferredTemplate;
+      }
+      var deferredNodes = deferredTemplate && deferredTemplate.content
+        ? Array.from(deferredTemplate.content.childNodes)
+        : [];
+      var deferredNodeIndex = 0;
+      var deferredDataList = [];
+      var deferredDataIndex = 0;
+      var deferredDataLoadedFromUrl = !deferredDataUrl;
+      var deferredDataLoadErrored = false;
+      var deferredDataLoadingPromise = null;
+      var rerenderAfterDeferredDataLoaded = null;
+      function parseDeferredDataList(raw) {
+        if (typeof raw !== 'string' || raw.trim() === '') return [];
+        try {
+          var parsedDeferredData = JSON.parse(raw);
+          if (Array.isArray(parsedDeferredData)) {
+            return parsedDeferredData.filter(function(item) {
+              return typeof item === 'string' && item.trim() !== '';
+            });
+          }
+        } catch (e) {}
+        return [];
+      }
+      if (deferredDataScript) {
+        var deferredRaw = deferredDataScript.textContent || deferredDataScript.innerText || '';
+        deferredDataList = parseDeferredDataList(deferredRaw);
+        if (deferredDataList.length > 0) {
+          deferredDataLoadedFromUrl = true;
+        }
+      }
+      function requestDeferredDataLoad() {
+        if (!deferredDataUrl || deferredDataLoadedFromUrl || deferredDataLoadErrored) {
+          return Promise.resolve(deferredDataList);
+        }
+        if (deferredDataLoadingPromise) return deferredDataLoadingPromise;
+
+        deferredDataLoadingPromise = fetch(deferredDataUrl, { credentials: 'same-origin' })
+          .then(function(response) {
+            if (!response || !response.ok) throw new Error('deferred fetch failed');
+            return response.text();
+          })
+          .then(function(raw) {
+            deferredDataList = parseDeferredDataList(raw);
+            deferredDataIndex = 0;
+            deferredDataLoadedFromUrl = true;
+            if (deferredDataScript && deferredDataScript.removeAttribute) {
+              deferredDataScript.removeAttribute('data-src');
+            }
+            return deferredDataList;
+          })
+          .catch(function() {
+            deferredDataLoadErrored = true;
+            deferredDataLoadedFromUrl = true;
+            deferredDataList = [];
+            return deferredDataList;
+          })
+          .finally(function() {
+            deferredDataLoadingPromise = null;
+            if (typeof rerenderAfterDeferredDataLoaded === 'function') {
+              rerenderAfterDeferredDataLoaded();
+            }
+          });
+
+        return deferredDataLoadingPromise;
+      }
+      function scheduleDeferredDataPrefetch() {
+        if (!deferredDataUrl || deferredDataLoadedFromUrl || deferredDataLoadErrored || deferredDataLoadingPromise) return;
+        if (window.GSUtils && typeof window.GSUtils.requestIdle === 'function') {
+          window.GSUtils.requestIdle(function() {
+            requestDeferredDataLoad();
+          }, 1400, 120);
+          return;
+        }
+        setTimeout(function() {
+          requestDeferredDataLoad();
+        }, 120);
+      }
+      var prunedCardCount = 0;
+      var topSpacer = null;
+      var topSpacerHeight = 0;
+      var removedTopGroups = [];
+      var mobileDomWindowPages = parseInt(options.mobileDomWindowPages, 10);
+      if (!(mobileDomWindowPages > 0)) {
+        // 콘텐츠 규모별 기본 DOM 윈도우(카드 DOM 누적 억제)
+        if (totalItemCount >= pageSize * 16) mobileDomWindowPages = 4;
+        else if (totalItemCount >= pageSize * 8) mobileDomWindowPages = 5;
+        else mobileDomWindowPages = 6;
+      }
+      var maxMobileDomItems = mobileDomWindowPages > 0
+        ? Math.max(pageSize * mobileDomWindowPages, pageSize * 2)
+        : 0;
+      var enableMobileDomWindowing = maxMobileDomItems > 0;
+
+      function hydrateVisibleCards(visibleItems) {
+        if (!shouldHydrateLazyImages) return;
+        if (!window.GSUtils || typeof window.GSUtils.hydrateLazyCardImages !== 'function') return;
+        window.GSUtils.hydrateLazyCardImages(visibleItems);
+      }
+
+      function isAdNode(node) {
+        return !!(node && node.nodeType === 1 && node.matches && node.matches(adNodeSelector));
+      }
+
+      function appendDeferredNode(node) {
+        if (!node) return;
+        if (node.nodeType === 1 && isMobile && useMobileAds && isAdNode(node)) {
+          return;
+        }
+        grid.appendChild(node);
+        if (node.nodeType === 1 && window.GSUtils && typeof window.GSUtils.bindImageLoadState === 'function') {
+          // 동적 append 카드의 썸네일도 loaded 클래스를 부여해 opacity:0 상태로 남지 않게 함
+          window.GSUtils.bindImageLoadState(node);
+        }
+        if (node.nodeType === 1 && node.matches && node.matches(itemSelector)) {
+          items.push(node);
+        }
+      }
+
+      function consumeDeferredUntil(targetCardCount) {
+        if (!deferredNodes.length && deferredDataIndex >= deferredDataList.length) {
+          if (deferredDataUrl && !deferredDataLoadedFromUrl && !deferredDataLoadErrored) {
+            requestDeferredDataLoad();
+          }
+          return;
+        }
+        var targetCount = Math.min(targetCardCount, totalItemCount);
+        var loadedCount = prunedCardCount + items.length;
+        if (loadedCount >= targetCount) return;
+
+        while ((prunedCardCount + items.length) < targetCount) {
+          if (deferredNodeIndex < deferredNodes.length) {
+            var srcNode = deferredNodes[deferredNodeIndex++];
+            if (!srcNode) continue;
+            appendDeferredNode(srcNode.cloneNode(true));
+            continue;
+          }
+
+          if (deferredDataIndex >= deferredDataList.length) {
+            if (deferredDataUrl && !deferredDataLoadedFromUrl && !deferredDataLoadErrored) {
+              requestDeferredDataLoad();
+            }
+            break;
+          }
+
+          var deferredCardHtml = deferredDataList[deferredDataIndex++];
+          if (!deferredCardHtml) continue;
+
+          var temp = document.createElement('template');
+          temp.innerHTML = deferredCardHtml;
+          var parsedNodes = Array.from(temp.content.childNodes);
+          if (!parsedNodes.length) continue;
+
+          for (var parsedIndex = 0; parsedIndex < parsedNodes.length; parsedIndex++) {
+            appendDeferredNode(parsedNodes[parsedIndex]);
+            if ((prunedCardCount + items.length) >= targetCount) break;
+          }
+        }
+
+        if (deferredTemplate && deferredNodeIndex >= deferredNodes.length) {
+          deferredTemplate.remove();
+          deferredTemplate = null;
+          deferredNodes = [];
+        }
+        if (
+          deferredDataScript &&
+          deferredDataIndex >= deferredDataList.length &&
+          (!deferredDataUrl || deferredDataLoadedFromUrl || deferredDataLoadErrored)
+        ) {
+          deferredDataScript.remove();
+          deferredDataScript = null;
+          deferredDataList = [];
+          deferredDataUrl = '';
+        }
+
+        // 총 개수 메타데이터가 실제 카드 수보다 큰 경우, 무한 대기를 방지
+        if (
+          deferredNodeIndex >= deferredNodes.length &&
+          deferredDataIndex >= deferredDataList.length &&
+          (!deferredDataUrl || deferredDataLoadedFromUrl || deferredDataLoadErrored) &&
+          (prunedCardCount + items.length) < totalItemCount
+        ) {
+          totalItemCount = prunedCardCount + items.length;
+        }
+      }
+
+      if (isMobile) {
+        pagination.style.display = 'none';
+        var visibleCount = Math.min(initialRenderCount, totalItemCount);
+        var observer = null;
+        var fallbackTicking = false;
+        var fallbackBound = false;
+        var maxDomCards = enableMobileDomWindowing ? maxMobileDomItems : 0;
+        var renderedScrollAds = new Map();
+        rerenderAfterDeferredDataLoaded = function() {
+          consumeDeferredUntil(visibleCount);
+          visibleCount = Math.min(visibleCount, getLoadedCardCount());
+          showItemsMobile();
+          pruneTopCardsIfNeeded();
+          showItemsMobile();
+          syncMobileAds();
+          observeLastItemMobile();
+        };
+        scheduleDeferredDataPrefetch();
+
+        function getLoadedCardCount() {
+          return prunedCardCount + items.length;
+        }
+
+        function getVisibleDomCount() {
+          return Math.max(0, Math.min(items.length, visibleCount - prunedCardCount));
+        }
+
+        function measureNodeOuterHeight(node) {
+          if (!node || node.nodeType !== 1) return 0;
+          var rect = node.getBoundingClientRect();
+          var style = window.getComputedStyle ? window.getComputedStyle(node) : null;
+          var marginTop = style ? parseFloat(style.marginTop || '0') : 0;
+          var marginBottom = style ? parseFloat(style.marginBottom || '0') : 0;
+          var height = rect && rect.height ? rect.height : node.offsetHeight;
+          return Math.max(0, height + marginTop + marginBottom);
+        }
+
+        function ensureTopSpacer() {
+          if (topSpacer) return;
+          topSpacer = document.createElement('div');
+          topSpacer.className = 'feed-top-spacer';
+          topSpacer.setAttribute('aria-hidden', 'true');
+          topSpacer.style.height = '0px';
+          grid.insertBefore(topSpacer, grid.firstChild);
+        }
+
+        function syncTopSpacer() {
+          if (!topSpacer && topSpacerHeight <= 0) return;
+          ensureTopSpacer();
+          if (!topSpacer) return;
+          topSpacer.style.height = (topSpacerHeight > 0 ? topSpacerHeight : 0) + 'px';
+          if (topSpacerHeight <= 0 && topSpacer.parentNode) {
+            topSpacer.parentNode.removeChild(topSpacer);
+            topSpacer = null;
+          }
+        }
+
+        function pruneTopCardsIfNeeded() {
+          if (!maxDomCards || maxDomCards < pageSize) return;
+          var visibleDomCount = getVisibleDomCount();
+          if (visibleDomCount <= maxDomCards) return;
+
+          var overflow = visibleDomCount - maxDomCards;
+          var pruneCount = overflow;
+          if (pageSize > 1) {
+            pruneCount = Math.floor(pruneCount / pageSize) * pageSize;
+            if (pruneCount <= 0) pruneCount = pageSize;
+          }
+
+          var maxPrune = Math.max(0, visibleDomCount - pageSize);
+          pruneCount = Math.min(pruneCount, maxPrune, items.length);
+          if (pruneCount <= 0) return;
+
+          var removedNodes = items.splice(0, pruneCount);
+          if (!removedNodes.length) return;
+
+          var removedHeight = 0;
+          removedNodes.forEach(function(node) {
+            removedHeight += measureNodeOuterHeight(node);
+            if (node && node.parentNode) node.parentNode.removeChild(node);
+          });
+
+          prunedCardCount += removedNodes.length;
+          topSpacerHeight += removedHeight;
+          removedTopGroups.push({ nodes: removedNodes, height: removedHeight });
+          syncTopSpacer();
+        }
+
+        function maybeRestoreTopCards() {
+          if (!removedTopGroups.length || !topSpacer) return false;
+          var rect = topSpacer.getBoundingClientRect();
+          if (rect.top < -220) return false;
+
+          var group = removedTopGroups.pop();
+          if (!group || !Array.isArray(group.nodes) || !group.nodes.length) return false;
+
+          var fragment = document.createDocumentFragment();
+          group.nodes.forEach(function(node) { fragment.appendChild(node); });
+          grid.insertBefore(fragment, topSpacer.nextSibling);
+          items = group.nodes.concat(items);
+          prunedCardCount = Math.max(0, prunedCardCount - group.nodes.length);
+          topSpacerHeight = Math.max(0, topSpacerHeight - (group.height || 0));
+          syncTopSpacer();
+          return true;
+        }
+
+        if (useMobileAds) {
+          grid.querySelectorAll(adNodeSelector).forEach(function(ad) {
+            if (ad && ad.parentNode) ad.parentNode.removeChild(ad);
+          });
+        }
+
+        function showItemsMobile() {
+          var visibleDomCount = getVisibleDomCount();
+          items.forEach(function(item, i) {
+            item.style.display = i < visibleDomCount ? '' : 'none';
+          });
+          hydrateVisibleCards(items.slice(0, visibleDomCount));
+        }
+
+        function removeTrackedScrollAd(globalCardIndex) {
+          var adEl = renderedScrollAds.get(globalCardIndex);
+          if (adEl && adEl.parentNode) adEl.parentNode.removeChild(adEl);
+          renderedScrollAds.delete(globalCardIndex);
+        }
+
+        function clearTrackedScrollAds() {
+          renderedScrollAds.forEach(function(adEl) {
+            if (adEl && adEl.parentNode) adEl.parentNode.removeChild(adEl);
+          });
+          renderedScrollAds.clear();
+        }
+
+        function createScrollAdElement(globalCardIndex, slotId) {
+          var adId = 'scroll-ad-' + (globalCardIndex + 1);
+          var adWrap = document.createElement('div');
+          adWrap.className = 'ad-card ad-card-scroll';
+          adWrap.id = adId;
+          adWrap.style.margin = '16px 0';
+          adWrap.style.padding = '12px 0';
+          adWrap.style.borderTop = '1px solid var(--border)';
+          adWrap.style.borderBottom = '1px solid var(--border)';
+
+          var ins = document.createElement('ins');
+          ins.className = 'adsbygoogle';
+          ins.style.display = 'block';
+          ins.style.margin = '0 auto';
+          ins.setAttribute('data-ad-client', 'ca-pub-9477874183990825');
+          ins.setAttribute('data-ad-slot', slotId);
+          ins.setAttribute('data-ad-format', 'auto');
+          ins.setAttribute('data-full-width-responsive', 'true');
+          adWrap.appendChild(ins);
+
+          return adWrap;
+        }
+
+        function syncMobileAds() {
+          if (!useMobileAds || document.body.classList.contains('ads-disabled')) {
+            clearTrackedScrollAds();
+            return;
+          }
+
+          var visibleDomCount = getVisibleDomCount();
+          var visibleStart = prunedCardCount;
+          var visibleEnd = prunedCardCount + visibleDomCount;
+          var staleKeys = [];
+
+          renderedScrollAds.forEach(function(adEl, globalCardIndex) {
+            var inVisibleRange = globalCardIndex >= visibleStart && globalCardIndex < visibleEnd;
+            var shouldExist = inVisibleRange && ((globalCardIndex + 1) % adInterval === 0);
+            if (!shouldExist || !adEl || !adEl.parentNode) {
+              staleKeys.push(globalCardIndex);
+              return;
+            }
+
+            var localIndex = globalCardIndex - prunedCardCount;
+            var anchor = items[localIndex];
+            if (!anchor || anchor.style.display === 'none') {
+              staleKeys.push(globalCardIndex);
+              return;
+            }
+
+            if (anchor.nextElementSibling !== adEl) {
+              anchor.insertAdjacentElement('afterend', adEl);
+            }
+          });
+
+          staleKeys.forEach(function(globalCardIndex) {
+            removeTrackedScrollAd(globalCardIndex);
+          });
+
+          for (var i = 0; i < visibleDomCount; i++) {
+            var globalCardIndex = prunedCardCount + i;
+            if ((globalCardIndex + 1) % adInterval !== 0) continue;
+
+            var anchor = items[i];
+            if (!anchor) continue;
+
+            var existingAd = renderedScrollAds.get(globalCardIndex);
+            if (existingAd && existingAd.parentNode) {
+              if (anchor.nextElementSibling !== existingAd) {
+                anchor.insertAdjacentElement('afterend', existingAd);
+              }
+              continue;
+            }
+
+            var adOrder = Math.floor((globalCardIndex + 1) / adInterval);
+            var slotId = adSlots[(adOrder - 1) % adSlots.length];
+            var adEl = createScrollAdElement(globalCardIndex, slotId);
+            anchor.insertAdjacentElement('afterend', adEl);
+            renderedScrollAds.set(globalCardIndex, adEl);
+
+            try {
+              (window.adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+              removeTrackedScrollAd(globalCardIndex);
+            }
+          }
+        }
+
+        function loadMoreMobile() {
+          if (visibleCount >= totalItemCount) {
+            unbindFallbackListeners();
+            return;
+          }
+          var nextVisible = Math.min(visibleCount + pageSize, totalItemCount);
+          consumeDeferredUntil(nextVisible);
+          visibleCount = Math.min(nextVisible, getLoadedCardCount());
+          showItemsMobile();
+          pruneTopCardsIfNeeded();
+          showItemsMobile();
+          syncMobileAds();
+          observeLastItemMobile();
+          if (visibleCount >= totalItemCount) unbindFallbackListeners();
+        }
+
+        function isNearLastVisible() {
+          if (visibleCount >= totalItemCount) return false;
+          if (visibleCount > getLoadedCardCount()) return true;
+          var visibleDomCount = getVisibleDomCount();
+          if (visibleDomCount <= 0) return true;
+          var lastVisible = items[visibleDomCount - 1];
+          if (!lastVisible || typeof lastVisible.getBoundingClientRect !== 'function') return false;
+          var rect = lastVisible.getBoundingClientRect();
+          var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+          return rect.top <= viewportHeight + 220;
+        }
+
+        function runFallbackCheck() {
+          if (fallbackTicking) return;
+          fallbackTicking = true;
+          requestAnimationFrame(function() {
+            fallbackTicking = false;
+            if (maybeRestoreTopCards()) {
+              showItemsMobile();
+              syncMobileAds();
+            }
+            if (isNearLastVisible()) loadMoreMobile();
+          });
+        }
+
+        function bindFallbackListeners() {
+          if (fallbackBound) return;
+          fallbackBound = true;
+          window.addEventListener('scroll', runFallbackCheck, { passive: true });
+          window.addEventListener('resize', runFallbackCheck);
+        }
+
+        function unbindFallbackListeners() {
+          if (!fallbackBound) return;
+          fallbackBound = false;
+          window.removeEventListener('scroll', runFallbackCheck);
+          window.removeEventListener('resize', runFallbackCheck);
+        }
+
+        function observeLastItemMobile() {
+          if (observer) observer.disconnect();
+          if (visibleCount >= totalItemCount) {
+            unbindFallbackListeners();
+            return;
+          }
+          consumeDeferredUntil(visibleCount);
+          var visibleDomCount = getVisibleDomCount();
+          var lastVisible = visibleDomCount > 0 ? items[visibleDomCount - 1] : null;
+          if (!lastVisible) {
+            loadMoreMobile();
+            return;
+          }
+          if (!('IntersectionObserver' in window)) {
+            consumeDeferredUntil(totalItemCount);
+            visibleCount = Math.min(totalItemCount, getLoadedCardCount());
+            showItemsMobile();
+            pruneTopCardsIfNeeded();
+            showItemsMobile();
+            syncMobileAds();
+            unbindFallbackListeners();
+            return;
+          }
+          observer = new IntersectionObserver(function(entries) {
+            if (entries[0] && entries[0].isIntersecting) loadMoreMobile();
+          }, { rootMargin: '200px' });
+          observer.observe(lastVisible);
+        }
+
+        consumeDeferredUntil(visibleCount);
+        visibleCount = Math.min(visibleCount, getLoadedCardCount());
+        showItemsMobile();
+        pruneTopCardsIfNeeded();
+        showItemsMobile();
+        syncMobileAds();
+        observeLastItemMobile();
+        bindFallbackListeners();
+        runFallbackCheck();
+        if (idleFillFirstPage && visibleCount < Math.min(pageSize, totalItemCount)) {
+          var targetVisibleCount = Math.min(pageSize, totalItemCount);
+          if (window.GSUtils && typeof window.GSUtils.requestIdle === 'function') {
+            window.GSUtils.requestIdle(function() {
+              consumeDeferredUntil(targetVisibleCount);
+              visibleCount = Math.min(targetVisibleCount, getLoadedCardCount());
+              showItemsMobile();
+              pruneTopCardsIfNeeded();
+              showItemsMobile();
+              syncMobileAds();
+              observeLastItemMobile();
+            }, 1400, idleFillDelay);
+          } else {
+            setTimeout(function() {
+              consumeDeferredUntil(targetVisibleCount);
+              visibleCount = Math.min(targetVisibleCount, getLoadedCardCount());
+              showItemsMobile();
+              pruneTopCardsIfNeeded();
+              showItemsMobile();
+              syncMobileAds();
+              observeLastItemMobile();
+            }, idleFillDelay);
+          }
+        }
+        return;
+      }
+
+      var totalPages = Math.ceil(totalItemCount / pageSize) || 1;
+      var currentPage = 1;
+      var prevSelector = options.prevSelector || '.home-page-prev, .home-prev';
+      var nextSelector = options.nextSelector || '.home-page-next, .home-next';
+      var infoSelector = options.infoSelector || '.home-page-info, .home-page-index';
+      var prevBtn = pagination.querySelector(prevSelector);
+      var nextBtn = pagination.querySelector(nextSelector);
+      var pageInfo = pagination.querySelector(infoSelector);
+      if (!prevBtn || !nextBtn || !pageInfo) return;
+      var didInitialIdleFill = false;
+
+      function updateDesktopPage(start, end) {
+        items.forEach(function(item, i) {
+          item.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+        hydrateVisibleCards(items.slice(start, end));
+      }
+
+      function renderPage() {
+        var start = (currentPage - 1) * pageSize;
+        var end = Math.min(start + pageSize, totalItemCount);
+        var shouldDeferFirstFill = idleFillFirstPage && !didInitialIdleFill && currentPage === 1 && start === 0 && initialRenderCount < end;
+        if (!shouldDeferFirstFill) {
+          consumeDeferredUntil(end);
+        }
+        updateDesktopPage(start, shouldDeferFirstFill ? Math.min(end, items.length) : end);
+        pageInfo.textContent = currentPage + ' / ' + totalPages;
+        prevBtn.disabled = currentPage <= 1;
+        nextBtn.disabled = currentPage >= totalPages;
+
+        if (shouldDeferFirstFill) {
+          var idleFill = function() {
+            if (currentPage !== 1) return;
+            consumeDeferredUntil(end);
+            updateDesktopPage(start, end);
+          };
+          if (window.GSUtils && typeof window.GSUtils.requestIdle === 'function') {
+            window.GSUtils.requestIdle(idleFill, 1400, idleFillDelay);
+          } else {
+            setTimeout(idleFill, idleFillDelay);
+          }
+          didInitialIdleFill = true;
+        }
+      }
+      rerenderAfterDeferredDataLoaded = function() {
+        renderPage();
+      };
+      scheduleDeferredDataPrefetch();
+
+      prevBtn.addEventListener('click', function() {
+        if (currentPage > 1) {
+          currentPage--;
+          renderPage();
+        }
+      });
+      nextBtn.addEventListener('click', function() {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderPage();
+        }
+      });
+
+      renderPage();
+    };
+  }
+
+  if (typeof window.GSUtils.initListPager !== 'function') {
+    window.GSUtils.initListPager = function(options) {
+      options = options || {};
+      var root = typeof options.root === 'string' ? document.querySelector(options.root) : options.root;
+      if (!root) return;
+
+      var itemSelector = options.itemSelector || '.item';
+      var prevSelector = options.prevSelector || '.prev';
+      var nextSelector = options.nextSelector || '.next';
+      var infoSelector = options.infoSelector || '.page-info';
+      var items = Array.from(root.querySelectorAll(itemSelector));
+      var prevBtn = root.querySelector(prevSelector);
+      var nextBtn = root.querySelector(nextSelector);
+      var pageInfo = root.querySelector(infoSelector);
+      if (!items.length || !prevBtn || !nextBtn || !pageInfo) return;
+
+      var mobileMaxWidth = parseInt(options.mobileMaxWidth, 10) || 768;
+      var desktopPageSize = parseInt(options.desktopPageSize || options.pageSize, 10) || 8;
+      var mobilePageSize = parseInt(options.mobilePageSize, 10) || desktopPageSize;
+      var infoSeparator = options.infoSeparator || '/';
+      var hideIfSingle = options.hideIfSingle === true;
+      var currentPage = 0;
+      var resizeTicking = false;
+      var paginationEl = typeof options.pagination === 'string'
+        ? root.querySelector(options.pagination)
+        : (options.pagination || pageInfo.closest('.video-pagination, .home-pagination'));
+
+      function getPageSize() {
+        return window.innerWidth <= mobileMaxWidth ? mobilePageSize : desktopPageSize;
+      }
+
+      function render() {
+        var pageSize = getPageSize();
+        if (!pageSize || pageSize < 1) pageSize = 1;
+        var totalPages = Math.ceil(items.length / pageSize) || 1;
+        if (currentPage >= totalPages) currentPage = totalPages - 1;
+        if (currentPage < 0) currentPage = 0;
+
+        var start = currentPage * pageSize;
+        var end = start + pageSize;
+        items.forEach(function(item, i) {
+          item.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+
+        if (typeof options.formatPageInfo === 'function') {
+          pageInfo.textContent = options.formatPageInfo(currentPage + 1, totalPages);
+        } else {
+          pageInfo.textContent = (currentPage + 1) + infoSeparator + totalPages;
+        }
+        prevBtn.disabled = currentPage <= 0;
+        nextBtn.disabled = currentPage >= totalPages - 1;
+
+        if (hideIfSingle && paginationEl) {
+          paginationEl.style.display = totalPages > 1 ? '' : 'none';
+        }
+      }
+
+      prevBtn.addEventListener('click', function() {
+        if (currentPage > 0) {
+          currentPage--;
+          render();
+        }
+      });
+      nextBtn.addEventListener('click', function() {
+        var pageSize = getPageSize();
+        if (!pageSize || pageSize < 1) pageSize = 1;
+        var totalPages = Math.ceil(items.length / pageSize) || 1;
+        if (currentPage < totalPages - 1) {
+          currentPage++;
+          render();
+        }
+      });
+
+      window.addEventListener('resize', function() {
+        if (resizeTicking) return;
+        resizeTicking = true;
+        requestAnimationFrame(function() {
+          render();
+          resizeTicking = false;
+        });
+      });
+
+      render();
+    };
+  }
+
+  if (typeof window.GSUtils.bindImageLoadState !== 'function') {
+    window.GSUtils.bindImageLoadState = function(root) {
+      var scope = root && root.querySelectorAll ? root : document;
+      if (!scope || typeof scope.querySelectorAll !== 'function') return;
+      var selector = '.home-trend-card-image img, .category-list-thumb img, .home-popular-thumb img';
+      scope.querySelectorAll(selector).forEach(function(img) {
+        if (!img || img.dataset.gsLoadBound === '1') return;
+        if (img.complete && img.naturalWidth > 0) {
+          if (img.classList) img.classList.add('loaded');
+          img.dataset.gsLoadBound = '1';
+          return;
+        }
+        img.addEventListener('load', function() {
+          if (img.classList) img.classList.add('loaded');
+        }, { once: true });
+        img.dataset.gsLoadBound = '1';
+      });
+    };
+  }
+
+  if (typeof window.GSUtils.deferTemplateRender !== 'function') {
+    window.GSUtils.deferTemplateRender = function(options) {
+      options = options || {};
+      var target = typeof options.target === 'string' ? document.querySelector(options.target) : options.target;
+      var template = typeof options.template === 'string' ? document.querySelector(options.template) : options.template;
+      if (!target || !template || !template.content) return;
+
+      var rendered = false;
+      var observer = null;
+      var rootMargin = options.rootMargin || '260px';
+      var idleTimeout = parseInt(options.idleTimeout, 10);
+      var fallbackDelay = parseInt(options.fallbackDelay, 10);
+      if (!(idleTimeout > 0)) idleTimeout = 2400;
+      if (!(fallbackDelay >= 0)) fallbackDelay = 1000;
+
+      function mount() {
+        if (rendered) return;
+        rendered = true;
+        target.appendChild(template.content.cloneNode(true));
+        if (template.parentNode) template.parentNode.removeChild(template);
+        if (observer) observer.disconnect();
+        if (window.GSUtils && typeof window.GSUtils.bindImageLoadState === 'function') {
+          window.GSUtils.bindImageLoadState(target);
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver(function(entries) {
+          if (entries[0] && entries[0].isIntersecting) mount();
+        }, { rootMargin: rootMargin });
+        observer.observe(target);
+      }
+
+      if (window.GSUtils && typeof window.GSUtils.requestIdle === 'function') {
+        window.GSUtils.requestIdle(function() { mount(); }, idleTimeout, fallbackDelay);
+      } else {
+        setTimeout(function() { mount(); }, fallbackDelay);
+      }
+    };
+  }
+
+  if (typeof window.GSUtils.initSidebarLatestDefer !== 'function') {
+    window.GSUtils.initSidebarLatestDefer = function(options) {
+      options = options || {};
+      var tabRoot = document.getElementById(options.tabId || 'sidebarArticleTab');
+      var latestList = document.getElementById(options.latestListId || 'sidebar-latest');
+      var latestTemplate = document.getElementById(options.templateId || 'sidebar-latest-template');
+      if (!latestList || !latestTemplate || !latestTemplate.content) return;
+
+      var mounted = false;
+      var idleTimeout = parseInt(options.idleTimeout, 10);
+      var fallbackDelay = parseInt(options.fallbackDelay, 10);
+      if (!(idleTimeout > 0)) idleTimeout = 3200;
+      if (!(fallbackDelay >= 0)) fallbackDelay = 1600;
+
+      function mountLatest() {
+        if (mounted) return;
+        mounted = true;
+        latestList.appendChild(latestTemplate.content.cloneNode(true));
+        if (latestTemplate.parentNode) latestTemplate.parentNode.removeChild(latestTemplate);
+        if (window.GSUtils && typeof window.GSUtils.bindImageLoadState === 'function') {
+          window.GSUtils.bindImageLoadState(latestList);
+        }
+      }
+
+      if (tabRoot && tabRoot.dataset.latestDeferBound !== '1') {
+        tabRoot.dataset.latestDeferBound = '1';
+        tabRoot.addEventListener('click', function(e) {
+          var btn = e.target && e.target.closest ? e.target.closest('.tab-btn') : null;
+          if (!btn) return;
+          if (btn.dataset && btn.dataset.sidebarTab === 'latest') mountLatest();
+        });
+      }
+
+      if (window.GSUtils && typeof window.GSUtils.requestIdle === 'function') {
+        window.GSUtils.requestIdle(function() { mountLatest(); }, idleTimeout, fallbackDelay);
+      } else {
+        setTimeout(function() { mountLatest(); }, fallbackDelay);
+      }
+    };
+  }
+
+  window.GSUtils.__ready = true;
+  if (typeof window.__gsFlushReadyQueue === 'function') {
+    window.__gsFlushReadyQueue();
   }
 })();
 </script>`;
@@ -1266,6 +2210,139 @@ const mobileSidePanelScript = `<script>
 })();
 </script>`;
 
+function unwrapScriptTag(scriptBlock = '') {
+  const script = String(scriptBlock || '').trim();
+  if (!script) return '';
+  return script
+    .replace(/^<script>\s*/i, '')
+    .replace(/\s*<\/script>$/i, '')
+    .trim();
+}
+
+function buildLayoutCoreBundle() {
+  return `${unwrapScriptTag(lazyCardHydrationScript)}\n`;
+}
+
+function buildLayoutRuntimeBundle(options = {}) {
+  const searchIndexVersion = String(options.searchIndexVersion || globalSearchIndexVersion || 'v1');
+  const searchCacheKey = `gs_si_${searchIndexVersion}`;
+  const scripts = [
+    footerModalScript,
+    adLazyLoadScript,
+    imageFallbackScript,
+    fontAndEmojiScript,
+    searchBarScript.replace(/gamerscroll_search_index_v1/g, searchCacheKey),
+    swipeScript,
+    mobileScrollHideScript,
+    mobileSidePanelScript
+  ];
+  return `${scripts.map(unwrapScriptTag).join('\n\n')}\n`;
+}
+
+function buildCardFeedPagerScript(options = {}) {
+  const {
+    grid = '',
+    pagination = '',
+    deferredJson = '',
+    deferredTemplate = '',
+    itemSelector = '.home-trend-card',
+    pageSize = 15,
+    hydrateLazyImages = true,
+    mobileAds = true,
+    adInterval = 3,
+    mobileDomWindowPages = 5,
+    prevSelector = '.home-page-prev, .home-prev',
+    nextSelector = '.home-page-next, .home-next',
+    infoSelector = '.home-page-info, .home-page-index',
+    adSlots = ['4840966314', '7467129651', '7865094213', '3028357040'],
+    initialRenderCount = 15,
+    idleFillFirstPage = false,
+    idleFillDelay = 120,
+    sidebarTabId = ''
+  } = options;
+
+  if (!grid || !pagination) return '';
+
+  const safeNumber = (value, fallback) => {
+    const n = Number(value);
+    return Number.isFinite(n) ? n : fallback;
+  };
+  const safeBool = (value) => value === true;
+
+  const deferredJsonOption = deferredJson ? `,\n        deferredJson: ${JSON.stringify(deferredJson)}` : '';
+  const deferredTemplateOption = deferredTemplate ? `,\n        deferredTemplate: ${JSON.stringify(deferredTemplate)}` : '';
+  const sidebarToggleScript = sidebarTabId
+    ? `\n      window.GSUtils.toggleSidebarArticleTab(${JSON.stringify(sidebarTabId)});`
+    : '';
+
+  return `
+  <script>
+    (function() {
+      var initialized = false;
+      var init = function() {
+        if (initialized) return;
+        initialized = true;
+        if (!window.GSUtils || typeof window.GSUtils.initCardFeedPager !== 'function') return;
+        window.GSUtils.initCardFeedPager({
+          grid: ${JSON.stringify(grid)},
+          pagination: ${JSON.stringify(pagination)},
+          itemSelector: ${JSON.stringify(itemSelector)},
+          pageSize: ${safeNumber(pageSize, 15)},
+          hydrateLazyImages: ${safeBool(hydrateLazyImages)},
+          mobileAds: ${safeBool(mobileAds)},
+          adInterval: ${safeNumber(adInterval, 3)},
+          mobileDomWindowPages: ${safeNumber(mobileDomWindowPages, 5)},
+          prevSelector: ${JSON.stringify(prevSelector)},
+          nextSelector: ${JSON.stringify(nextSelector)},
+          infoSelector: ${JSON.stringify(infoSelector)},
+          adSlots: ${JSON.stringify(Array.isArray(adSlots) ? adSlots : [])},
+          initialRenderCount: ${safeNumber(initialRenderCount, 15)},
+          idleFillFirstPage: ${safeBool(idleFillFirstPage)},
+          idleFillDelay: ${safeNumber(idleFillDelay, 120)}${deferredJsonOption}${deferredTemplateOption}
+        });${sidebarToggleScript}
+      };
+      if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.initCardFeedPager === 'function') {
+        init();
+        return;
+      }
+      if (typeof window.__gsOnReady === 'function') {
+        window.__gsOnReady(init);
+        return;
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+      } else {
+        init();
+      }
+    })();
+  </script>`;
+}
+
+const coreReadyBootstrapScript = `
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>`;
+
 function wrapWithLayout(content, options = {}) {
   const {
     currentPage = 'home',
@@ -1280,30 +2357,44 @@ function wrapWithLayout(content, options = {}) {
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     breadcrumbs = null,  // BreadcrumbList JSON-LD
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용)
-    preloadImages = null,
-    cssFilename = globalCssFilename,  // 해시 기반 CSS 파일명 (전역 설정 사용)
+    cssFilename = globalCssFilename,  // 기본 CSS 파일명 (전역 설정 사용)
+    cssFilenames = null,  // 다중 CSS 파일명
     sidebarContent = '',  // 모바일 사이드 패널 콘텐츠
     sidebarCounts = {},  // 모바일 사이드 패널 카테고리 숫자
     sidebarArticles = {},  // 모바일 사이드 패널 인기/최신 글 { popular: [], latest: [] }
-    bodyClass = ''  // 추가 body 클래스 (예: 'category-detail')
+    bodyClass = '',  // 추가 body 클래스 (예: 'category-detail')
+    loadApexCharts = false,
+    loadTwitterWidget = false
   } = options;
 
   // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
   const effectiveCounts = Object.keys(sidebarCounts).length > 0 ? sidebarCounts : globalSidebarCounts;
+  const runtimeScriptVersion = encodeURIComponent(globalRuntimeAssetVersion || 'v1');
+  const coreScriptUrl = `/assets/${LAYOUT_CORE_ASSET}?v=${runtimeScriptVersion}`;
+  const runtimeScriptUrl = `/assets/${LAYOUT_RUNTIME_ASSET}?v=${runtimeScriptVersion}`;
+  const baseCssFiles = Array.isArray(cssFilenames) && cssFilenames.length > 0
+    ? cssFilenames
+    : [cssFilename];
+  const resolvedCssFiles = (() => {
+    const files = [...baseCssFiles, ...getPageExtraCssFiles(currentPage)];
+    const seen = new Set();
+    const out = [];
+    for (const file of files) {
+      const normalized = String(file || '').trim();
+      if (!normalized || seen.has(normalized)) continue;
+      seen.add(normalized);
+      out.push(normalized);
+    }
+    return out;
+  })();
 
-  // 페이지별 데이터 스크립트
-  const dataScript = pageData.news || pageData.community || pageData.youtube || pageData.chzzk ? `
-  <script>
-    window.allNewsData = ${pageData.news ? JSON.stringify(pageData.news) : 'null'};
-    window.allCommunityData = ${pageData.community ? JSON.stringify(pageData.community) : 'null'};
-    window.allYoutubeData = ${pageData.youtube ? JSON.stringify(pageData.youtube) : 'null'};
-    window.allChzzkData = ${pageData.chzzk ? JSON.stringify(pageData.chzzk) : 'null'};
-  </script>` : '';
+  const shouldLoadApexCharts = loadApexCharts || /ApexCharts/.test(pageScripts || '');
+  const shouldLoadTwitterWidget = loadTwitterWidget || /twitter-tweet/.test(content || '') || /twitter-tweet/.test(pageScripts || '');
 
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, preloadImages, cssFilename })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, cssFilename, cssFilenames: resolvedCssFiles })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
@@ -1311,23 +2402,28 @@ function wrapWithLayout(content, options = {}) {
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
   <main class="site-container">
-    ${dataScript}
+    ${coreReadyBootstrapScript}
+    <script defer src="${coreScriptUrl}"></script>
     ${content}
     ${pageScripts}
   </main>
   ${generateMobileSidePanel(sidebarContent || generateDefaultSidebarContent(effectiveCounts, sidebarArticles))}
   ${generateFooter()}
-  ${footerModalScript}
-  ${adLazyLoadScript}
-  ${imageFallbackScript}
-  ${fontAndEmojiScript}
-  ${showSearchBar ? searchBarScript.replace(/gamerscroll_search_index_v1/g, 'gs_si_' + (globalSearchIndexVersion || 'v1')) : ''}
-  ${swipeScript}
-  ${mobileScrollHideScript}
-  ${mobileSidePanelScript}
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js" defer></script>
-  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}document.body.style.visibility='visible';if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script defer src="${runtimeScriptUrl}"></script>
+  ${shouldLoadTwitterWidget ? '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' : ''}
+  ${shouldLoadApexCharts ? '<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js" defer></script>' : ''}
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
   <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
 </body>
 </html>`;
@@ -1419,7 +2515,15 @@ module.exports = {
   generateNativeAdSlot,
   generateMultiplexAdSlot,
   setCssFilename,  // 해시 기반 CSS 파일명 설정
+  getCssFilename,
   setSearchIndexVersion,  // 검색 인덱스 버전 설정 (캐시 무효화)
+  setRuntimeAssetVersion,
+  buildLayoutCoreBundle,
+  buildLayoutRuntimeBundle,
+  buildCardFeedPagerScript,
+  LAYOUT_CORE_ASSET,
+  LAYOUT_RUNTIME_ASSET,
   setGlobalSidebarCounts,  // 글로벌 사이드바 카운트 설정
+  getGlobalSidebarCounts,
   setGlobalSidebarArticles  // 글로벌 사이드바 인기/최신 글 설정
 };

@@ -79,6 +79,9 @@ jobs:
       - name: Download daily report images
         run: node scripts/download-daily-images.js
 
+      - name: Download weekly report images
+        run: node scripts/download-issue-images.js weekly
+
       - name: Generate report
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}

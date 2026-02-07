@@ -63,6 +63,34 @@ function generateAIBlogArticle(article, data = {}) {
   // AIScroll에 포함된 기사 slug 목록
   const validSlugs = new Set(allArticles.map(a => a.slug));
 
+  function normalizeInternalHref(rawHref = '') {
+    const href = String(rawHref || '').trim();
+    if (!href || !href.startsWith('/')) return '';
+    if (!href.startsWith('/article/')) return href;
+
+    const pathOnly = href.split('#')[0].split('?')[0];
+    const segments = pathOnly.split('/').filter(Boolean);
+    const slug = segments.length >= 3 ? segments[2] : '';
+    if (!slug) return href;
+    return validSlugs.has(slug) ? href : '';
+  }
+
+  function renderInlineMarkdownLinks(text = '') {
+    return String(text || '').replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, rawHref) => {
+      const href = String(rawHref || '').trim();
+      const safeLabel = escapeHtml(label || '');
+      if (!href || /^javascript:/i.test(href)) return safeLabel;
+
+      if (href.startsWith('/')) {
+        const normalized = normalizeInternalHref(href);
+        if (!normalized) return safeLabel;
+        return `<a href="${escapeHtml(normalized)}">${safeLabel}</a>`;
+      }
+
+      return `<a href="${escapeHtml(href)}" target="_blank" rel="noopener">${safeLabel}</a>`;
+    });
+  }
+
   // 본문 렌더링 (GamerScroll 스타일)
   function renderContent(content) {
     if (!content || !Array.isArray(content)) return '';
@@ -74,15 +102,14 @@ function generateAIBlogArticle(article, data = {}) {
         case 'text': {
           const paragraphs = String(block.value || '').split('\n\n').map(p => {
             const trimmed = p.trim();
-            const formatted = trimmed
+            const formatted = renderInlineMarkdownLinks(trimmed
               .replace(/`([^`]+)`/g, '<code>$1</code>')
               .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-              .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
               .replace(/^- /gm, '• ')
               .replace(/\n- /g, '\n• ')
               .replace(/\n/g, '<br>')
-              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
+              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>'));
             return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
           }).filter(p => p).join('');
           result.push(paragraphs);
@@ -146,11 +173,10 @@ function generateAIBlogArticle(article, data = {}) {
         case 'aside': {
           if (!block.value) break;
           const asideTitle = block.title ? `<strong class="aside-title">${escapeHtml(block.title)}</strong>` : '';
-          const asideFormatted = String(block.value)
+          const asideFormatted = renderInlineMarkdownLinks(String(block.value)
             .replace(/`([^`]+)`/g, '<code>$1</code>')
             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-            .replace(/\n/g, '<br>');
+            .replace(/\n/g, '<br>'));
           result.push(`
             <aside class="blog-aside">
               ${asideTitle}
@@ -166,16 +192,19 @@ function generateAIBlogArticle(article, data = {}) {
             const partLabel = item.part === 0 ? 'Index' : (item.part ? `Part ${item.part}` : '');
             // 실제 기사 데이터에서 category 조회 (AI Blog 카테고리 매핑)
             const actualArticle = allArticles.find(a => a.slug === item.slug);
-            const itemCategory = actualArticle?.category || article.category || 'general';
+            if (!actualArticle) return '';
+            const itemCategory = actualArticle.category || article.category || 'general';
             const href = `/article/${itemCategory}/${item.slug}/`;
-            const thumbUrl = item.thumbnail ? getThumbUrl(item.thumbnail, 200) : '';
+            const seriesThumb = actualArticle.thumbnail || item.thumbnail || '';
+            const thumbUrl = seriesThumb ? getThumbUrl(seriesThumb, 200) : '';
             return `
               <a href="${href}" class="blog-related-issue-card blog-series-card">
-                <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="" loading="lazy">
+                <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="${escapeHtml(item.title)}" loading="lazy">
                 <span class="blog-series-tag">${partLabel}</span>
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${escapeHtml(item.title)}</span></span>
               </a>`;
-          }).join('');
+          }).filter(Boolean).join('');
+          if (!seriesCards) break;
           result.push(`
             <nav class="blog-series">
               ${seriesTitleHtml}
@@ -264,6 +293,7 @@ function generateAIBlogArticle(article, data = {}) {
         <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
       </a>
     `).join('');
+    const latestListHtml = renderList(latestArticles);
 
     return `
       ${generateCategoryMenu()}
@@ -276,7 +306,8 @@ function generateAIBlogArticle(article, data = {}) {
         </div>
         <div class="home-card-body">
           <div class="sidebar-article-list active" id="sidebar-popular">${renderList(popularArticles)}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderList(latestArticles)}</div>
+          <div class="sidebar-article-list" id="sidebar-latest"></div>
+          <template id="sidebar-latest-template">${latestListHtml}</template>
         </div>
       </div>
     `;
@@ -318,7 +349,7 @@ function generateAIBlogArticle(article, data = {}) {
         <div class="blog-related-issues-list">
           ${filteredRelated.map(item => `
             <a href="/article/${item.category || 'general'}/${item.slug}/" class="blog-related-issue-card">
-              ${item.thumbnail ? `<img class="blog-related-issue-thumb" src="${getThumbUrl(item.thumbnail, 480)}" alt="" loading="lazy">` : ''}
+              ${item.thumbnail ? `<img class="blog-related-issue-thumb" src="${getThumbUrl(item.thumbnail, 480)}" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
               <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${escapeHtml(item.title)}</span></span>
             </a>
           `).join('')}
@@ -375,7 +406,7 @@ function generateAIBlogArticle(article, data = {}) {
 
               ${article.thumbnail ? `
               <figure class="blog-figure">
-                <img src="${getThumbUrl(article.thumbnail, 1200)}" class="blog-image" alt="" loading="eager">
+                <img src="${getThumbUrl(article.thumbnail, 1200)}" class="blog-image" alt="${escapeHtml(article.title)}" loading="lazy" fetchpriority="auto">
               </figure>
               ` : ''}
 
@@ -404,19 +435,31 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 페이지 스크립트
   const pageScripts = `<script>
-    // 사이드바 인기/최신 토글
     (function() {
-      const sidebarTab = document.getElementById('sidebarArticleTab');
-      if (!sidebarTab) return;
-      sidebarTab.addEventListener('click', (e) => {
-        const btn = e.target.closest('.tab-btn');
-        if (!btn) return;
-        sidebarTab.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const target = btn.dataset.sidebarTab;
-        document.querySelectorAll('.sidebar-article-list').forEach(l => l.classList.remove('active'));
-        document.getElementById('sidebar-' + target)?.classList.add('active');
-      });
+      var init = function() {
+        if (!window.GSUtils) return;
+        if (typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        }
+        if (typeof window.GSUtils.initSidebarLatestDefer === 'function') {
+          window.GSUtils.initSidebarLatestDefer({
+            tabId: 'sidebarArticleTab',
+            latestListId: 'sidebar-latest',
+            templateId: 'sidebar-latest-template',
+            idleTimeout: 3200,
+            fallbackDelay: 1600
+          });
+        }
+      };
+      if (window.GSUtils && window.GSUtils.__ready === true) {
+        init();
+      } else if (typeof window.__gsOnReady === 'function') {
+        window.__gsOnReady(init);
+      } else if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+      } else {
+        init();
+      }
     })();
   </script>`;
 
