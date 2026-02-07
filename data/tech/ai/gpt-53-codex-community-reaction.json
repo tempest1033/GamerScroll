@@ -1,0 +1,220 @@
+{
+  "slug": "gpt-53-codex-community-reaction",
+  "status": "approved",
+  "category": "openai",
+  "title": "완전 자율 코딩의 시작? GPT-5.3 코덱스 출시 후 커뮤니티 반응 총정리",
+  "date": "2026-02-07T18:00",
+  "thumbnail": "https://images.ctfassets.net/kftzwdyauwt9/7e3gCpXDMIRl5xyjwMyGkq/d37f812bea33c8f3ba20531bc74b06f4/GPT-5.4-Codex_SEOcard_16x9.png",
+  "keywords": "GPT-5.3 코덱스, GPT-5.3 Codex, OpenAI 코덱스, 코딩 에이전트 리뷰, AI 코딩, 완전 자율 코딩, 코덱스 커뮤니티 반응, GPT-5.2 코덱스 비교, 스티어링, 셀프빌딩 AI, 코덱스 벤치마크, 사이버보안 AI",
+  "keywordsEn": "GPT-5.3 Codex, GPT-5.3 Codex review, OpenAI Codex, coding agent review, AI coding, full autonomy coding, Codex community reaction, GPT-5.2 Codex comparison, steering, self-building AI, Codex benchmark, cybersecurity AI",
+  "summary": "OpenAI가 출시한 GPT-5.3 코덱스에 대해 개발자 커뮤니티가 '완전 자율의 시대'라고 평가했다. 5.2 대비 벤치마크 대폭 향상, 스티어링 기능, 셀프빌딩 화제 속에 API 미개방과 사이버보안 우려가 남아 있다.",
+  "sources": [
+    {
+      "name": "matt shumer",
+      "title": "My GPT-5.3-Codex Review: Full Autonomy Has Arrived",
+      "url": "https://shumer.dev/gpt53-codex-review"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Introducing GPT-5.3-Codex",
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex/"
+    },
+    {
+      "name": "Fortune",
+      "title": "OpenAI's new model leaps ahead in coding capabilities—but raises unprecedented cybersecurity risks",
+      "url": "https://fortune.com/2026/02/05/openai-gpt-5-3-codex-warns-unprecedented-cybersecurity-risks/"
+    },
+    {
+      "name": "OpenAI Developer Community",
+      "title": "Introducing GPT-5.3-Codex—the most powerful, interactive, and productive Codex yet",
+      "url": "https://community.openai.com/t/introducing-gpt-5-3-codex-the-most-powerful-interactive-and-productive-codex-yet/1373453"
+    },
+    {
+      "name": "eesel.ai",
+      "title": "Our complete GPT 5.3 Codex review: A new era for agentic AI",
+      "url": "https://www.eesel.ai/blog/gpt-53-codex-review"
+    }
+  ],
+  "relatedGames": [],
+  "relatedDocs": [
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/claude-cowork-saaspocalypse"
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월 5일, OpenAI가 GPT-5.3 코덱스를 출시했다. \"역대 가장 유능한 에이전트형 코딩 모델\"이라는 자평과 함께다. GPT-5.2 코덱스의 코딩 성능과 GPT-5.2의 추론·전문 지식을 하나로 합치면서 속도까지 25% 향상시켰다는 게 OpenAI의 설명이다. 자기 학습을 직접 디버깅한 최초의 모델이라는 타이틀까지 달고 나온 이 모델에 대해, 개발자 커뮤니티는 어떻게 반응했을까."
+    },
+    {
+      "type": "heading",
+      "value": "1. \"드디어 완전 자율이 왔다\""
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7E1L5KrvfinYdmBBNDPhf5/710a8a46258bafe8fe2d26f31ff242c0/Codex_Landing_Page_SEO.png",
+      "caption": "OpenAI 코덱스 앱은 CLI, IDE 확장, 웹에서 모두 사용 가능하다",
+      "alt": "OpenAI 코덱스 Codex 앱 공식 이미지 AI 코딩 에이전트"
+    },
+    {
+      "type": "text",
+      "value": "AI 에이전트 개발자 맷 슈머(Matt Shumer)는 자신의 블로그에 \"Full Autonomy Has Arrived(완전 자율이 도래했다)\"라는 제목의 리뷰를 올렸다. 그는 GPT-5.3 코덱스를 \"실행을 시작하고, 자리를 떠났다가 돌아오면 작동하는 소프트웨어가 완성되어 있는 최초의 코딩 모델\"이라고 평가했다. 실제로 8시간 이상 지속된 작업에서도 모델이 맥락을 잃지 않고 끝까지 과제를 완수했다고 밝혔다.\n\n슈머가 꼽은 5.2 대비 가장 큰 변화는 '모호함 속에서의 판단력'이다. 프롬프트에 빠진 세부 사항이 있을 때, 코덱스가 내리는 가정이 \"자신이 직접 내렸을 결정과 놀랍도록 비슷하다\"고 했다. 5.2까지는 제약 조건과 비목표를 극도로 상세히 지정하지 않으면 \"가장 빨라 보이는 그럴듯한 경로\"를 택하는 경향이 있었다. 5.3에서는 그런 가드레일 없이도 올바른 판단을 내린다는 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "2. GPT-5.2 대비 벤치마크와 신기능"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/3kfYeisRWae4jKIMSphLhU/0e06a3ac9f3a42b91d6cc7bba01c2e8c/System_Card_Art.png",
+      "caption": "GPT-5.3 코덱스 시스템 카드에는 벤치마크 결과와 안전성 평가가 포함되어 있다",
+      "alt": "GPT-5.3 코덱스 시스템 카드 벤치마크 성능 평가"
+    },
+    {
+      "type": "table",
+      "caption": "GPT-5.3 코덱스 vs GPT-5.2 코덱스 벤치마크 비교",
+      "headers": ["벤치마크", "5.3 코덱스", "5.2 코덱스", "변화"],
+      "rows": [
+        ["SWE-Bench Pro", "56.8%", "56.4%", "소폭 상승"],
+        ["Terminal-Bench 2.0", "77.3%", "64.0%", "+13.3%p"],
+        ["OSWorld", "64.7%", "38.2%", "+26.5%p"],
+        ["사이버보안 CTF", "77.6%", "67.4%", "+10.2%p"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Terminal-Bench 2.0에서 77.3%라는 수치는 코딩 에이전트에게 필수적인 터미널 조작 능력이 크게 향상됐다는 뜻이다. OSWorld에서의 64.7%는 인간(약 72%)에 근접하는 수치로, 컴퓨터 화면을 보고 생산성 작업을 수행하는 능력이 이전 세대에서 거의 두 배 가까이 뛰었다. SWE-Bench Pro에서는 소폭 상승에 그쳤지만, 소비 토큰은 줄었다. 같은 성능을 더 적은 비용으로 달성한다는 뜻이다.\n\n새로 추가된 '스티어링(Steering)' 기능도 핵심 변화다. 기존에는 프롬프트를 주고 결과를 기다리는 방식이었다면, 스티어링은 AI가 작업하는 도중에 끼어들어 질문하고 방향을 수정할 수 있게 해준다. 동료에게 일을 맡기고 중간중간 확인하는 것과 같은 경험이다.\n\n가장 화제가 된 건 '자기 자신을 만든 AI'라는 수식어다. OpenAI는 코덱스 팀이 초기 버전을 활용해 학습 과정의 버그를 디버깅하고, 배포를 관리하고, 출시 당일 GPU 클러스터를 동적으로 확장하는 데까지 코덱스를 직접 투입했다고 밝혔다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 개발자 커뮤니티의 환호"
+    },
+    {
+      "type": "image",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2026/02/GettyImages-2236933448-e1770047303587.jpg",
+      "caption": "코덱스 앱 출시 이후 개발자들의 반응은 뜨겁다",
+      "alt": "OpenAI 코덱스 앱 출시 개발자 커뮤니티 반응 AI 코딩"
+    },
+    {
+      "type": "text",
+      "value": "레딧에서는 한 사용자가 \"나는 항상 코덱스를 싫어하고 5.2 high와 xhigh만 사용해왔다. 하지만 5.3-codex-xhigh는 놀랍다. 4시간 만에 지난 한 주보다 더 많은 걸 만들었다\"며 극찬했다. OpenAI 개발자 커뮤니티에서도 \"Xbox 360에 GTA 4를 처음 넣었을 때의 느낌\", \"2월이 크리스마스 같다\"는 반응이 쏟아졌다.\n\nDiscourse 창업자 샘 사프론(Sam Saffron)은 특히 테스트 주도 개발(TDD) 성향에 주목했다. \"기능을 만들기 전에 실패하는 테스트를 먼저 작성하려고 거의 고집한다. OpenAI의 좋은 선택\"이라고 평가했다. 슈머도 \"테스트와 검증 기준을 제공하면 수 시간 동안 방향을 잃지 않고 반복 작업을 수행한다. 테스트 없이도 훌륭하지만, 테스트를 주면 완전히 다른 클래스의 도구가 된다\"고 했다.\n\n코드 품질에 대한 평가도 눈에 띈다. 슈머는 \"5.2 대비 더 깔끔한 아키텍처, 더 적은 땜질식 패치, 시간이 지나도 누적되는 버그가 적다. 작업을 끝내기만 하는 게 아니라 코드베이스를 더 나은 상태로 남겨놓는다\"고 평가했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 속도 호평 속 API 미개방이 아쉽다"
+    },
+    {
+      "type": "image",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2025/08/GettyImages-2214110034.jpg",
+      "caption": "샘 알트만은 GPT-5.3 코덱스가 사이버보안 '고위험' 모델이라고 밝혔다",
+      "alt": "OpenAI CEO 샘 알트만 Sam Altman GPT-5.3 코덱스 사이버보안"
+    },
+    {
+      "type": "text",
+      "value": "5.2 대비 속도 개선은 대체로 호평이다. OpenAI는 25% 빨라졌다고 밝혔고, Discourse 창업자 샘 사프론도 \"5.3은 확실히 더 빠르다\"고 확인했다. 소비 토큰도 줄어 비용 효율성이 개선됐다. 다만 일부 사용자는 출시 직후 체감 속도가 느리다고 지적했다. OpenAI 커뮤니티의 matt98은 \"5.2 대비 체감 3배 느리다. 출시일 이슈이길 바란다\"고 적었는데, 서버 부하에 따른 일시적 현상으로 보인다.\n\n가장 큰 불만은 API 미개방이다. 코덱스 앱, CLI, IDE 확장, 웹에서 유료 ChatGPT 사용자에게 제공되지만 API는 아직 열리지 않았다. 기업들이 자체 제품에 코덱스를 통합할 수 없다는 뜻이고, 가격 정책도 불투명하다. OpenAI 준비도 프레임워크에서 사이버보안 '고위험'으로 분류된 최초의 모델이라는 점이 API 지연의 이유로 추정된다. Fortune은 \"코딩 능력의 돌파구가 오히려 배포 속도를 재고하게 만들고 있다\"고 보도했다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: \"코덱스가 일하는 동안 나는 뭘 해야 할까\""
+    },
+    {
+      "type": "text",
+      "value": "슈머의 리뷰에서 가장 인상적인 문장은 이것이다. \"코덱스가 너무 유능해서, 작업하는 동안 나는 뭘 해야 할지 모르겠다. 이상한 문제지만, 그게 현실이 됐다.\" GPT-5.3 코덱스는 완벽하지 않다. API도 아직 없고, 사이버보안 우려도 크다. 하지만 5.2에서 5.3으로의 도약은 단순한 성능 개선이 아니라, 코딩 에이전트의 '자율성'이라는 새로운 기준을 세운 업그레이드다. 실행하고 떠나도 되는 AI, 그 시대가 성큼 다가왔다."
+    }
+  ],
+  "titleEn": "Full Autonomy Has Arrived? Community Reactions to GPT-5.3 Codex Launch",
+  "summaryEn": "The developer community hails GPT-5.3 Codex as the dawn of 'full autonomy.' With massive benchmark gains over 5.2, a new steering feature, and the self-building narrative, the excitement is real — though API unavailability and cybersecurity concerns remain.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 5, 2026, OpenAI released GPT-5.3 Codex, calling it \"the most capable agentic coding model to date.\" The new model combines GPT-5.2 Codex's coding performance with GPT-5.2's reasoning and professional knowledge capabilities, while also being 25% faster. It even carries the title of being the first model that helped debug its own training. So how did the developer community react?"
+    },
+    {
+      "type": "heading",
+      "value": "1. \"Full Autonomy Has Arrived\""
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7E1L5KrvfinYdmBBNDPhf5/710a8a46258bafe8fe2d26f31ff242c0/Codex_Landing_Page_SEO.png",
+      "caption": "The OpenAI Codex app is available across CLI, IDE extensions, and web",
+      "alt": "OpenAI Codex app official image AI coding agent"
+    },
+    {
+      "type": "text",
+      "value": "AI agent developer Matt Shumer published a review titled \"Full Autonomy Has Arrived\" on his blog. He called GPT-5.3 Codex \"the first coding model I can start, walk away from, and come back to working software.\" He reported that runs lasting over 8 hours maintained context and completed tasks without degradation.\n\nThe biggest upgrade Shumer identified over 5.2 was 'judgment under ambiguity.' When prompts are missing details, the model's assumptions are \"shockingly similar to what I would personally decide.\" Previous versions tended to choose \"the fastest plausible path to success\" unless constraints were extremely explicit. With 5.3, the model makes the right calls even without those guardrails."
+    },
+    {
+      "type": "heading",
+      "value": "2. Benchmarks and New Features vs GPT-5.2"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/3kfYeisRWae4jKIMSphLhU/0e06a3ac9f3a42b91d6cc7bba01c2e8c/System_Card_Art.png",
+      "caption": "The GPT-5.3 Codex system card includes benchmark results and safety evaluations",
+      "alt": "GPT-5.3 Codex system card benchmark performance evaluation"
+    },
+    {
+      "type": "table",
+      "caption": "GPT-5.3 Codex vs GPT-5.2 Codex Benchmark Comparison",
+      "headers": ["Benchmark", "5.3 Codex", "5.2 Codex", "Change"],
+      "rows": [
+        ["SWE-Bench Pro", "56.8%", "56.4%", "Slight increase"],
+        ["Terminal-Bench 2.0", "77.3%", "64.0%", "+13.3%p"],
+        ["OSWorld", "64.7%", "38.2%", "+26.5%p"],
+        ["Cybersecurity CTF", "77.6%", "67.4%", "+10.2%p"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "The 77.3% score on Terminal-Bench 2.0 represents a massive leap in terminal proficiency essential for coding agents. The 64.7% on OSWorld approaches the human baseline of roughly 72%, meaning the model's ability to perform productivity tasks by operating a computer screen has nearly doubled from the previous generation. While SWE-Bench Pro showed only a marginal gain, token consumption decreased — achieving the same performance at lower cost.\n\nThe new 'steering' feature is another key change. Instead of submitting a prompt and waiting for the final result, users can now intervene mid-task to ask questions and correct the model's direction. It's like delegating work to a colleague and checking in along the way.\n\nThe most talked-about aspect is the 'self-building AI' narrative. OpenAI revealed that the Codex team used early versions to debug the model's own training, manage deployment, and even dynamically scale GPU clusters on launch day."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Developer Community Cheers"
+    },
+    {
+      "type": "image",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2026/02/GettyImages-2236933448-e1770047303587.jpg",
+      "caption": "Developer reactions have been overwhelming since the Codex app launch",
+      "alt": "OpenAI Codex app launch developer community reaction AI coding"
+    },
+    {
+      "type": "text",
+      "value": "On Reddit, one user wrote: \"I've always hated Codex and only used 5.2 high and xhigh. But 5.3-codex-xhigh is amazing. I've built more in 4 hours than I have in the last week.\" The OpenAI Developer Community was flooded with reactions like \"feels like being a kid, and getting GTA 4 for the Xbox 360\" and \"This February feels like Christmas!\"\n\nDiscourse co-founder Sam Saffron highlighted the model's test-driven development (TDD) tendency: \"It almost insists to write failing tests prior to building features. Great move by OpenAI.\" Shumer echoed this: \"With clear validation targets, GPT-5.3-Codex will iterate for hours without losing the thread. Without tests, it is excellent. With tests, it becomes a different class of tool.\"\n\nCode quality assessments were also notable. Shumer observed that compared to 5.2, the output features \"cleaner architecture, fewer hacky patches, fewer subtle bugs accumulating over time. It usually leaves the codebase in much better shape.\""
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Speed Praised, But No API Access Yet"
+    },
+    {
+      "type": "image",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2025/08/GettyImages-2214110034.jpg",
+      "caption": "Sam Altman confirmed GPT-5.3 Codex is the first model rated 'high' for cybersecurity",
+      "alt": "OpenAI CEO Sam Altman GPT-5.3 Codex cybersecurity"
+    },
+    {
+      "type": "text",
+      "value": "Speed improvements over 5.2 have been generally well-received. OpenAI claims a 25% speed boost, and Discourse's Sam Saffron confirmed that \"5.3 is definitely proving to be faster.\" Token consumption is also down, meaning better cost efficiency. Some users reported sluggishness immediately after launch — one OpenAI community member wrote \"probably 3x slower than 5.2 codex\" — but this appears to be a temporary server load issue.\n\nThe biggest complaint is the lack of API access. While GPT-5.3 Codex is available through the Codex app, CLI, IDE extensions, and web for paid ChatGPT users, the API remains closed. This means businesses cannot integrate Codex into their own products, and pricing remains unclear. The model being the first classified as 'High' for cybersecurity under OpenAI's Preparedness Framework is the suspected reason for the delay. Fortune reported that \"the coding breakthrough is forcing OpenAI to rethink how fast it can deploy its most powerful models.\""
+    },
+    {
+      "type": "heading",
+      "value": "Final Thoughts: \"I Don't Know What to Do With Myself\""
+    },
+    {
+      "type": "text",
+      "value": "The most striking line from Shumer's review: \"It's so capable that I sometimes don't know what to do with myself while it's running. That's a weird problem to have.\" GPT-5.3 Codex isn't perfect — there's no API, and cybersecurity concerns loom large. But the leap from 5.2 to 5.3 isn't just a performance upgrade. It establishes a new benchmark for coding agent autonomy. The age of AI you can start and walk away from has arrived."
+    }
+  ],
+  "needTranslate": false
+}
