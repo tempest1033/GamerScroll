@@ -230,6 +230,13 @@
       "type": "02.webp",
       "failedAt": "2026-02-05T20:34:41.105Z",
       "error": "HTTP 403: https://windowsreport.com/wp-content/uploads/2026/02/claude-opus-4.6-spotted.jpg"
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/raw/main/.github/assets/claude-code-demo.gif",
+      "slug": "claude-opus-46-pricing-controversy",
+      "type": "02.webp",
+      "failedAt": "2026-02-07T20:25:40.274Z",
+      "error": "HTTP 404: https://github.com/anthropics/claude-code/raw/main/.github/assets/claude-code-demo.gif"
     }
   ]
 }
