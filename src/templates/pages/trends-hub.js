@@ -213,14 +213,29 @@ function splitFeedCardsByIndex(entries, pageSize = FEED_PAGE_SIZE, initialRender
 
 const FEED_IMAGE_DIMENSION_ATTRS = 'width="1600" height="900" decoding="async"';
 const POPULAR_IMAGE_DIMENSION_ATTRS = 'width="480" height="300" decoding="async"';
-function getFeedImageLoadingAttrs() {
-  return 'loading="lazy" fetchpriority="auto"';
+const LCP_IMAGE_LOADING_ATTRS = 'loading="eager" fetchpriority="high"';
+const LAZY_IMAGE_LOADING_ATTRS = 'loading="lazy" fetchpriority="auto"';
+function createLcpImageAttrPicker() {
+  let used = false;
+  return function pickLcpImageAttrs() {
+    if (!used) {
+      used = true;
+      return LCP_IMAGE_LOADING_ATTRS;
+    }
+    return LAZY_IMAGE_LOADING_ATTRS;
+  };
 }
-function getFeedImagePerfAttrs() {
-  return `${getFeedImageLoadingAttrs()} ${FEED_IMAGE_DIMENSION_ATTRS}`;
+function getFeedImagePerfAttrs(pickLcpImageAttrs = null) {
+  const loadingAttrs = typeof pickLcpImageAttrs === 'function'
+    ? pickLcpImageAttrs()
+    : LAZY_IMAGE_LOADING_ATTRS;
+  return `${loadingAttrs} ${FEED_IMAGE_DIMENSION_ATTRS}`;
 }
-function getPopularImagePerfAttrs() {
-  return `loading="lazy" fetchpriority="auto" ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
+function getPopularImagePerfAttrs(pickLcpImageAttrs = null) {
+  const loadingAttrs = typeof pickLcpImageAttrs === 'function'
+    ? pickLcpImageAttrs()
+    : LAZY_IMAGE_LOADING_ATTRS;
+  return `${loadingAttrs} ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
 }
 
 const CATEGORY_FEED_PAGER_OPTIONS = {
@@ -269,6 +284,7 @@ function generateTrendsHubPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
@@ -306,7 +322,7 @@ function generateTrendsHubPage({
       return `
       <a href="${item.link || item.path || '#'}" class="home-popular-card">
         <div class="home-popular-thumb">
-          ${item.thumbnail ? `<img ${imgAttrs} alt="${item.title}" ${getPopularImagePerfAttrs(i)}>` : ''}
+          ${item.thumbnail ? `<img ${imgAttrs} alt="${item.title}" ${getPopularImagePerfAttrs(pickLcpImageAttrs)}>` : ''}
         </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>
@@ -345,7 +361,7 @@ function generateTrendsHubPage({
         ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
         : `src="${thumbData.src}"`;
       const imgHtml = (i < INITIAL_FEED_RENDER_COUNT && item.thumbnail)
-        ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">`
+        ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">`
         : '';
       const lazySrcsetAttr = thumbData.srcset ? ` data-lazy-img-srcset="${escapeHtmlAttr(thumbData.srcset)}" data-lazy-img-sizes="${escapeHtmlAttr(thumbData.sizes)}"` : '';
       const lazyAttrs = (!imgHtml && thumbData.src)
@@ -555,6 +571,7 @@ function generateDailyListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
@@ -589,7 +606,7 @@ function generateDailyListPage({
         html: `
       <a href="/magazine/daily/${report.date}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">` : ''}
+          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag">${formatDateKr(report.date)}</span>
         </div>
         <h3 class="home-trend-card-title">${title}</h3>
@@ -722,6 +739,7 @@ function generateWeeklyListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
@@ -760,7 +778,7 @@ function generateWeeklyListPage({
         html: `
       <a href="/magazine/weekly/${slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">` : ''}
+          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag weekly">${badge}</span>
         </div>
         <h3 class="home-trend-card-title">${title}</h3>
@@ -893,6 +911,7 @@ function generateIssueListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
@@ -923,7 +942,7 @@ function generateIssueListPage({
         html: `
       <a href="/magazine/issue/${issue.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${issue.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(issue.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">` : ''}
+          ${issue.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(issue.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag issue">${issue.date ? formatDateKr(issue.date) : '이슈'}</span>
         </div>
         <h3 class="home-trend-card-title">${issue.title}</h3>
@@ -1056,6 +1075,7 @@ function generateInsightListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
@@ -1086,7 +1106,7 @@ function generateInsightListPage({
         html: `
       <a href="/magazine/insight/${insight.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${insight.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(insight.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">` : ''}
+          ${insight.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(insight.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag insight">${insight.date ? formatDateKr(insight.date) : '인사이트'}</span>
         </div>
         <h3 class="home-trend-card-title">${insight.title}</h3>
@@ -1216,6 +1236,7 @@ function generateHotpickListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
@@ -1246,7 +1267,7 @@ function generateHotpickListPage({
         html: `
       <a href="/magazine/hotpick/${hotpick.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${hotpick.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(hotpick.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">` : ''}
+          ${hotpick.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(hotpick.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag hotpick">${hotpick.date ? formatDateKr(hotpick.date) : '핫픽'}</span>
         </div>
         <h3 class="home-trend-card-title">${hotpick.title}</h3>
@@ -1379,6 +1400,7 @@ function generateRankingListPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
@@ -1409,7 +1431,7 @@ function generateRankingListPage({
         html: `
       <a href="/magazine/ranking/${ranking.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${ranking.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(ranking.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">` : ''}
+          ${ranking.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(ranking.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag ranking">${ranking.date ? formatDateKr(ranking.date) : '순위 분석'}</span>
         </div>
         <h3 class="home-trend-card-title">${ranking.title}</h3>

@@ -256,10 +256,31 @@ function generateIndexPage(data) {
   const POPULAR_IMAGE_DIMENSION_ATTRS = 'width="480" height="300" decoding="async"';
   const FEED_PAGE_SIZE = 15;
   const INITIAL_FEED_RENDER_COUNT = 9;
-  const getFeedImageLoadingAttrs = () => 'loading="lazy" fetchpriority="auto"';
-  const getFeedImagePerfAttrs = () =>
-    `${getFeedImageLoadingAttrs()} ${FEED_IMAGE_DIMENSION_ATTRS}`;
-  const getPopularImagePerfAttrs = () => `loading="lazy" fetchpriority="auto" ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
+  const LCP_IMAGE_LOADING_ATTRS = 'loading="eager" fetchpriority="high"';
+  const LAZY_IMAGE_LOADING_ATTRS = 'loading="lazy" fetchpriority="auto"';
+  const createLcpImageAttrPicker = () => {
+    let used = false;
+    return () => {
+      if (!used) {
+        used = true;
+        return LCP_IMAGE_LOADING_ATTRS;
+      }
+      return LAZY_IMAGE_LOADING_ATTRS;
+    };
+  };
+  const getFeedImagePerfAttrs = (pickLcpImageAttrs = null) => {
+    const loadingAttrs = typeof pickLcpImageAttrs === 'function'
+      ? pickLcpImageAttrs()
+      : LAZY_IMAGE_LOADING_ATTRS;
+    return `${loadingAttrs} ${FEED_IMAGE_DIMENSION_ATTRS}`;
+  };
+  const getPopularImagePerfAttrs = (pickLcpImageAttrs = null) => {
+    const loadingAttrs = typeof pickLcpImageAttrs === 'function'
+      ? pickLcpImageAttrs()
+      : LAZY_IMAGE_LOADING_ATTRS;
+    return `${loadingAttrs} ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
+  };
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   const extractSeoLinkFromCardHtml = (html) => {
     if (!html || typeof html !== 'string') return null;
     const hrefMatch = html.match(/<a[^>]*href="([^"]+)"/i);
@@ -347,7 +368,7 @@ function generateIndexPage(data) {
     const dailyCard = dailyHeadline ? `
       <a href="${dailyLink}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${dailyThumbnail ? `<img ${dailyImgAttrs} alt="${escapeHtmlAttr(dailyHeadline)}" loading="lazy" fetchpriority="auto" decoding="async" width="1600" height="900" data-img-fallback="hide">` : ''}
+          ${dailyThumbnail ? `<img ${dailyImgAttrs} alt="${escapeHtmlAttr(dailyHeadline)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag">${dailyBadgeText}</span>
         </div>
         <h3 class="home-trend-card-title">${dailyHeadline}</h3>
@@ -358,7 +379,7 @@ function generateIndexPage(data) {
     const weeklyCard = wai ? `
       <a href="${weeklyLink}" class="home-trend-card">
         <div class="home-trend-card-image">
-          ${weeklyThumbnail ? `<img ${weeklyImgAttrs} alt="${escapeHtmlAttr(weeklyHeadline)}" loading="lazy" fetchpriority="auto" decoding="async" width="1600" height="900" data-img-fallback="hide">` : ''}
+          ${weeklyThumbnail ? `<img ${weeklyImgAttrs} alt="${escapeHtmlAttr(weeklyHeadline)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag weekly">${weeklyBadgeText}</span>
         </div>
         <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
@@ -485,7 +506,7 @@ function generateIndexPage(data) {
       return `
       <a href="${item.link}" class="home-popular-card">
         <div class="home-popular-thumb">
-          ${item.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getPopularImagePerfAttrs(i)}>` : ''}
+          ${item.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getPopularImagePerfAttrs(pickLcpImageAttrs)}>` : ''}
         </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>
@@ -625,7 +646,7 @@ function generateIndexPage(data) {
         lazyImgSrcset = thumbData.srcset || '';
         lazyImgSizes = thumbData.sizes || '';
         if (i < INITIAL_FEED_RENDER_COUNT && thumbData.src) {
-          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(i, 2, false)} data-img-fallback="hide">`;
+          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">`;
         }
       } else if (item.type === 'tech') {
         const thumbData = getLocalTechThumbSrcset(item.category, item.slug, item.originalThumbnail);
@@ -636,7 +657,7 @@ function generateIndexPage(data) {
         lazyImgSrcset = thumbData.srcset || '';
         lazyImgSizes = thumbData.sizes || '';
         if (i < INITIAL_FEED_RENDER_COUNT && thumbData.src) {
-          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(i, 2, false)} data-img-fallback="hide">`;
+          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">`;
         }
       } else if (item.originalThumbnail) {
         const thumbData = getLocalReportThumbnailSrcset(item.type, item.slug, item.originalThumbnail);
@@ -647,7 +668,7 @@ function generateIndexPage(data) {
         lazyImgSrcset = thumbData.srcset || '';
         lazyImgSizes = thumbData.sizes || '';
         if (i < INITIAL_FEED_RENDER_COUNT && thumbData.src) {
-          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(i, 2, false)} data-img-fallback="hide">`;
+          imgHtml = `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">`;
         }
       }
       const lazySrcsetAttrs = lazyImgSrcset

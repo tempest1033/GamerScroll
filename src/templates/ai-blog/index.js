@@ -395,6 +395,9 @@ function buildDeferredCardPayload(cardHtmlList, pageSize = FEED_PAGE_SIZE, initi
  */
 function generateAIBlogIndex(data) {
   const { articles = [], popularArticles = [], latestArticles = [] } = data;
+  const hasPopularLcpCandidate = popularArticles.length > 0;
+  const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
+  const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
 
   // 인기 카드 (1,2등 그리드 + 3,4,5등 가로형)
   function generatePopularCards() {
@@ -403,7 +406,7 @@ function generateAIBlogIndex(data) {
 
     // 1, 2등: 2컬럼 그리드
     const topItems = items.slice(0, 2);
-    const topGrid = topItems.map((item) => `
+    const topGrid = topItems.map((item, idx) => `
       <a href="/article/${item.category || 'general'}/${item.slug}/" class="home-trend-card">
         <div class="home-trend-card-image">
           ${item.thumbnail ? (() => {
@@ -411,7 +414,8 @@ function generateAIBlogIndex(data) {
             const imgAttrs = thumbData.srcset
               ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
               : `src="${thumbData.src}"`;
-            return `<img ${imgAttrs} alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" fetchpriority="auto" data-img-fallback="hide">`;
+            const perfAttrs = idx === 0 ? lcpImageAttrs : lazyImageAttrs;
+            return `<img ${imgAttrs} alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">`;
           })() : ''}
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
@@ -428,7 +432,7 @@ function generateAIBlogIndex(data) {
             const imgAttrs = thumbData.srcset
               ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
               : `src="${thumbData.src}"`;
-            return `<img ${imgAttrs} alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" data-img-fallback="hide">`;
+            return `<img ${imgAttrs} alt="${escapeHtml(item.title)}" ${lazyImageAttrs} data-img-fallback="hide">`;
           })() : ''}
         </div>
         <div class="home-popular-info">
@@ -459,10 +463,11 @@ function generateAIBlogIndex(data) {
       const imgAttrs = thumbData.srcset
         ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
         : `src="${thumbData.src}"`;
+      const perfAttrs = (!hasPopularLcpCandidate && i === 0) ? lcpImageAttrs : lazyImageAttrs;
       return `
       <a href="/article/${item.category || 'general'}/${item.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
+          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag">${formatDateEn(item.date)}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
@@ -752,7 +757,51 @@ function wrapWithLayout(content, options = {}) {
     }
     return out.length > 0 ? out : ['/styles-core.css'];
   })();
-  const cssLinksHtml = resolvedCssFiles.map((file) => `<link rel="stylesheet" href="${escapeHtml(file)}">`).join('\n  ');
+  const blockingCssFile = resolvedCssFiles[0] || '/styles-core.css';
+  const deferredCssFiles = resolvedCssFiles.slice(1);
+  const blockingCssHtml = `<link rel="stylesheet" href="${escapeHtml(blockingCssFile)}">`;
+  const deferredCssHtml = deferredCssFiles.map((file) => {
+    const safeFile = escapeHtml(file);
+    return `<link rel="preload" href="${safeFile}" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="${safeFile}"></noscript>`;
+  }).join('\n  ');
+  const cssLinksHtml = deferredCssHtml ? `${blockingCssHtml}\n  ${deferredCssHtml}` : blockingCssHtml;
+  const deferredCssGuardScript = deferredCssFiles.length > 0 ? `
+  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var finished = false;
+      function markDone() {
+        if (finished) return;
+        pending -= 1;
+        if (pending <= 0) {
+          finished = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', markDone, { once: true });
+        link.addEventListener('error', markDone, { once: true });
+      });
+      setTimeout(function() {
+        if (finished) return;
+        finished = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3000);
+    })();
+  </script>` : '';
+  const htmlClassNames = ['dark-mode'];
+  if (deferredCssFiles.length > 0) htmlClassNames.push('deferred-css-pending');
+  const htmlClassAttr = escapeHtml(htmlClassNames.join(' '));
 
   const ogImageUrl = ogImage || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`;
   const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
@@ -769,7 +818,7 @@ function wrapWithLayout(content, options = {}) {
   ${articleTagsMeta}` : '';
 
   return `<!DOCTYPE html>
-<html lang="en" class="dark-mode">
+<html lang="en" class="${htmlClassAttr}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -829,15 +878,24 @@ function wrapWithLayout(content, options = {}) {
   <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>
   <link rel="preconnect" href="https://wsrv.nl" crossorigin>
   <!-- dns-prefetch: fallback -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
   <link rel="dns-prefetch" href="https://wsrv.nl">${jsonLdScript}
 
   ${cssLinksHtml}
+  ${deferredCssGuardScript}
   <style>
+    html.deferred-css-pending *,
+    html.deferred-css-pending *::before,
+    html.deferred-css-pending *::after {
+      transition: none !important;
+      animation: none !important;
+    }
     /* AIScroll 전용: 기사 페이지 상단 마진 (!important: styles.css의 padding 단축 속성보다 우선) */
     #issue .page-container {
       padding-top: var(--space-block-y) !important;
@@ -1924,15 +1982,18 @@ function generateSearchPage() {
  */
 function generateCategoryPage(categoryId, categoryLabel, articles, popularArticles = [], latestArticles = []) {
   const categoryArticles = articles.filter(a => a.category === categoryId);
+  const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
+  const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
   const categoryCardEntries = categoryArticles.map((a, i) => {
     const thumbData = getThumbSrcset(a.thumbnail, 240, 480, '(max-width: 768px) 133px, 253px');
     const imgAttrs = thumbData.srcset
       ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
       : `src="${thumbData.src}"`;
+    const perfAttrs = i === 0 ? lcpImageAttrs : lazyImageAttrs;
     return `
     <a href="/article/${a.category}/${a.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
       <div class="home-trend-card-image">
-        ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtml(a.title)}" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
+        ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtml(a.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
         <span class="home-trend-card-tag">${formatDateEn(a.date)}</span>
       </div>
       <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(a.title)}</span></h3>

@@ -323,7 +323,7 @@ function buildDataSummary(data) {
       const newsDate = new Date(n.date);
       return newsDate >= oneDayAgo;
     }
-    return true; // 날짜 없으면 포함
+    return false; // 날짜 없으면 제외
   });
 
   if (newsItems.length > 0) {

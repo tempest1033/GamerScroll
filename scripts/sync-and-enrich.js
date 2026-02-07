@@ -45,13 +45,13 @@ function generateSlug(name, aliases = []) {
 function normalizeNameKey(name) {
   return (name || '')
     .toLowerCase()
-    .normalize('NFKD')
+    .normalize('NFC')
     .replace(/[^a-z0-9가-힣]/g, '');
 }
 
 // 모든 region 랭킹에서 iOS/Android 동일 이름 선매칭용 맵 생성
 function buildGlobalPairs(games) {
-  const pairs = new Map(); // key -> { title, ios, android }
+  const pairs = new Map(); // key -> { title, ios, android, conflict }
   for (const game of games) {
     if (!game.title) continue;
     if (game.platform !== 'ios' && game.platform !== 'android') continue;
@@ -59,8 +59,14 @@ function buildGlobalPairs(games) {
     const key = normalizeNameKey(game.title);
     if (!key || key.length < 3) continue;
 
-    const entry = pairs.get(key) || { title: game.title, ios: null, android: null };
-    entry[game.platform] = game;
+    const entry = pairs.get(key) || { title: game.title, ios: null, android: null, conflict: false };
+    const existing = entry[game.platform];
+    if (existing && String(existing.appId) !== String(game.appId)) {
+      // 동일 정규화 키에 서로 다른 appId가 붙으면 자동 매칭에서 제외
+      entry.conflict = true;
+    } else {
+      entry[game.platform] = game;
+    }
     if (!entry.title && game.title) entry.title = game.title;
     pairs.set(key, entry);
   }
@@ -101,6 +107,15 @@ function findExistingName(gameName, nameKeyIndex) {
   if (key.length < 3) return null;
 
   return nameKeyIndex.get(key) || null;
+}
+
+function mergePendingStatus(statusA, statusB) {
+  const priority = { matched: 3, conflict: 2, single: 1 };
+  const a = statusA || '';
+  const b = statusB || '';
+  if (!a) return b;
+  if (!b) return a;
+  return (priority[a] || 0) >= (priority[b] || 0) ? a : b;
 }
 
 // ============================================
@@ -155,7 +170,9 @@ function buildAppIdIndex(games) {
   const index = new Map(); // appId -> gameName
   for (const [name, data] of Object.entries(games)) {
     for (const appId of Object.values(data.appIds || {})) {
-      index.set(appId, name);
+      const key = String(appId || '');
+      if (!key) continue;
+      index.set(key, name);
     }
   }
   return index;
@@ -306,9 +323,11 @@ function isNameMatch(name1, name2) {
 
 async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pairs) {
   const { platform, region, appId, title, developer, icon } = game;
+  const appIdStr = String(appId || '');
+  if (!appIdStr) return null;
 
   // 1. appId로 기존 게임 체크
-  if (appIdIndex.has(appId)) {
+  if (appIdIndex.has(appIdStr)) {
     stats.existing++;
     return null; // 이미 등록됨
   }
@@ -334,7 +353,7 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
 
     gamesData.games[targetName] = merged;
     updateNameKeyIndex(nameKeyIndex, targetName);
-    appIdIndex.set(appId, targetName);
+    appIdIndex.set(appIdStr, targetName);
     stats.steam++;
     console.log(`  [Steam] 등록: "${targetName}"`);
     return null;
@@ -375,9 +394,9 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
 
     for (const key of keys) {
       const pair = pairs.get(key);
-      if (pair && pair.ios && pair.android) {
+      if (pair && !pair.conflict && pair.ios && pair.android) {
         const oppositeEntry = platform === 'ios' ? pair.android : pair.ios;
-        if (oppositeEntry && oppositeEntry.appId !== appId) {
+        if (oppositeEntry && String(oppositeEntry.appId) !== appIdStr) {
           matched = {
             appId: oppositeEntry.appId,
             title: oppositeEntry.title,
@@ -427,6 +446,36 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
   if (matched) {
     const targetName = findExistingName(gameName, nameKeyIndex) || gameName;
     const existing = gamesData.games[targetName] || { appIds: {}, aliases: [], developer: '', icon: '', slug: generateSlug(targetName), platforms: [] };
+    const matchedAppIdStr = String(matched.appId || '');
+    const existingCurrent = existing.appIds?.[appIdKey];
+    const existingOpposite = existing.appIds?.[oppositeKey];
+    const currentConflict = existingCurrent && String(existingCurrent) !== appIdStr;
+    const oppositeConflict = existingOpposite && String(existingOpposite) !== matchedAppIdStr;
+
+    if (currentConflict || oppositeConflict) {
+      stats.conflict++;
+
+      const appIds = {
+        ...(existing.appIds || {}),
+        ...(currentConflict ? {} : { [appIdKey]: appId }),
+        ...(oppositeConflict ? {} : { [oppositeKey]: matched.appId })
+      };
+
+      const conflictReasons = [];
+      if (currentConflict) conflictReasons.push(`${appIdKey}: ${existingCurrent} != ${appId}`);
+      if (oppositeConflict) conflictReasons.push(`${oppositeKey}: ${existingOpposite} != ${matched.appId}`);
+      console.log(`  [충돌 보류] "${targetName}" (${conflictReasons.join(', ')})`);
+
+      return {
+        title: targetName,
+        status: 'conflict',
+        appIds,
+        developer: existing.developer || developer || matched.developer || '',
+        icon: existing.icon || icon,
+        searchResults: searchResults.slice(0, 3).map(r => ({ title: r.title, appId: r.appId })),
+        addedAt: new Date().toISOString()
+      };
+    }
 
     const appIds = { ...existing.appIds, [appIdKey]: appId, [oppositeKey]: matched.appId };
     const aliases = Array.from(new Set([
@@ -448,8 +497,8 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
 
     gamesData.games[targetName] = merged;
     updateNameKeyIndex(nameKeyIndex, targetName);
-    appIdIndex.set(appId, targetName);
-    appIdIndex.set(matched.appId, targetName);
+    appIdIndex.set(appIdStr, targetName);
+    appIdIndex.set(matchedAppIdStr, targetName);
     stats.matched++;
     console.log(`  [${platform.toUpperCase()}+${oppositePlatform.toUpperCase()}] 통합: "${targetName}"`);
 
@@ -482,7 +531,7 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
     platforms
   };
   updateNameKeyIndex(nameKeyIndex, targetName);
-  appIdIndex.set(appId, targetName);
+  appIdIndex.set(appIdStr, targetName);
   stats.single++;
   console.log(`  [${platform.toUpperCase()}] 단독 등록: "${targetName}"`);
 
@@ -519,18 +568,20 @@ async function main() {
   const todayGames = extractTodayGames(dateStr, overrideFile);
   console.log('오늘 크롤링 게임:', todayGames.length, overrideFile ? `(from ${overrideFile})` : '');
 
-  // 중복 제거 (같은 appId)
+  // 중복 제거 (같은 appId, 타입 차이 방지 위해 문자열 통일)
   const uniqueGames = [];
   const seenAppIds = new Set();
   for (const game of todayGames) {
-    if (!seenAppIds.has(game.appId)) {
-      seenAppIds.add(game.appId);
+    const appId = String(game.appId || '');
+    if (!appId) continue;
+    if (!seenAppIds.has(appId)) {
+      seenAppIds.add(appId);
       uniqueGames.push(game);
     }
   }
   console.log('고유 게임:', uniqueGames.length);
 
-  const stats = { existing: 0, steam: 0, matched: 0, single: 0, pending: 0, apiCalled: false };
+  const stats = { existing: 0, steam: 0, matched: 0, single: 0, conflict: 0, pending: 0, apiCalled: false };
   // targetName 기준으로 마지막 상태만 저장
   const pendingMap = new Map();
   const globalPairs = buildGlobalPairs(uniqueGames);
@@ -567,7 +618,7 @@ async function main() {
           ...pendingItem,
           appIds: mergedAppIds,
           searchResults: uniqueSearchResults.slice(0, 3),
-          status: existing.status === 'matched' || pendingItem.status === 'matched' ? 'matched' : existing.status
+          status: mergePendingStatus(existing.status, pendingItem.status)
         });
       }
       stats.pending++;
@@ -615,7 +666,7 @@ async function main() {
       ...item,
       appIds: mergedAppIds,
       searchResults: uniqueSearchResults.slice(0, 3),
-      status: existing.status === 'matched' || item.status === 'matched' ? 'matched' : (existing.status || item.status),
+      status: mergePendingStatus(existing.status, item.status),
       addedAt: existing.addedAt || item.addedAt,
       developer: existing.developer || item.developer,
       icon: existing.icon || item.icon
@@ -633,6 +684,7 @@ async function main() {
   console.log('Steam 등록:', stats.steam);
   console.log('양쪽 통합 등록:', stats.matched);
   console.log('단독 등록:', stats.single);
+  console.log('충돌 보류:', stats.conflict);
   console.log('pending 추가:', stats.pending);
   console.log('최종 게임 수:', gamesData.totalGames);
   console.log('pending 큐:', reviewQueue.pending.length);

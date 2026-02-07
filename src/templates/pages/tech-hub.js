@@ -138,14 +138,29 @@ function splitFeedCardsByIndex(entries, pageSize = FEED_PAGE_SIZE, initialRender
 
 const FEED_IMAGE_DIMENSION_ATTRS = 'width="1600" height="900" decoding="async"';
 const POPULAR_IMAGE_DIMENSION_ATTRS = 'width="480" height="300" decoding="async"';
-function getFeedImageLoadingAttrs() {
-  return 'loading="lazy" fetchpriority="auto"';
+const LCP_IMAGE_LOADING_ATTRS = 'loading="eager" fetchpriority="high"';
+const LAZY_IMAGE_LOADING_ATTRS = 'loading="lazy" fetchpriority="auto"';
+function createLcpImageAttrPicker() {
+  let used = false;
+  return function pickLcpImageAttrs() {
+    if (!used) {
+      used = true;
+      return LCP_IMAGE_LOADING_ATTRS;
+    }
+    return LAZY_IMAGE_LOADING_ATTRS;
+  };
 }
-function getFeedImagePerfAttrs() {
-  return `${getFeedImageLoadingAttrs()} ${FEED_IMAGE_DIMENSION_ATTRS}`;
+function getFeedImagePerfAttrs(pickLcpImageAttrs = null) {
+  const loadingAttrs = typeof pickLcpImageAttrs === 'function'
+    ? pickLcpImageAttrs()
+    : LAZY_IMAGE_LOADING_ATTRS;
+  return `${loadingAttrs} ${FEED_IMAGE_DIMENSION_ATTRS}`;
 }
-function getPopularImagePerfAttrs() {
-  return `loading="lazy" fetchpriority="auto" ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
+function getPopularImagePerfAttrs(pickLcpImageAttrs = null) {
+  const loadingAttrs = typeof pickLcpImageAttrs === 'function'
+    ? pickLcpImageAttrs()
+    : LAZY_IMAGE_LOADING_ATTRS;
+  return `${loadingAttrs} ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
 }
 
 const CATEGORY_FEED_PAGER_OPTIONS = {
@@ -193,6 +208,7 @@ function generateTechHubPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
@@ -236,7 +252,7 @@ function generateTechHubPage({
       return `
       <a href="${item.link || item.path || '#'}" class="home-popular-card">
         <div class="home-popular-thumb">
-          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getPopularImagePerfAttrs(i)}>` : ''}
+          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getPopularImagePerfAttrs(pickLcpImageAttrs)}>` : ''}
         </div>
         <div class="home-popular-info">
           <h3 class="home-popular-title">${item.title}</h3>
@@ -271,7 +287,7 @@ function generateTechHubPage({
       const catName = categoryNames[article.category] || '';
       const badgeText = article.date ? formatDateKr(article.date) : catName;
       const imgHtml = (i < INITIAL_FEED_RENDER_COUNT && thumbData.src)
-        ? `<img ${imgAttrs} alt="${escapeHtmlAttr(article.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">`
+        ? `<img ${imgAttrs} alt="${escapeHtmlAttr(article.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">`
         : '';
       const lazySrcsetAttr = thumbData.srcset ? ` data-lazy-img-srcset="${escapeHtmlAttr(thumbData.srcset)}" data-lazy-img-sizes="${escapeHtmlAttr(thumbData.sizes)}"` : '';
       const lazyAttrs = (!imgHtml && thumbData.src)
@@ -438,6 +454,7 @@ function generateTechCategoryPage({
   sidebarPopularArticles = [],
   sidebarLatestArticles = []
 }) {
+  const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
@@ -479,7 +496,7 @@ function generateTechCategoryPage({
         html: `
         <a href="/tech/${category}/${article.slug}/" class="home-trend-card home-latest-item" data-index="${i}"${lazyAttrs}>
           <div class="home-trend-card-image">
-            ${(i < INITIAL_FEED_RENDER_COUNT && thumbData.src) ? `<img ${imgAttrs} alt="${escapeHtmlAttr(article.title)}" ${getFeedImagePerfAttrs(i, 2)} data-img-fallback="hide">` : ''}
+            ${(i < INITIAL_FEED_RENDER_COUNT && thumbData.src) ? `<img ${imgAttrs} alt="${escapeHtmlAttr(article.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
             <span class="home-trend-card-tag tech">${badgeText}</span>
           </div>
           <h3 class="home-trend-card-title">${article.title}</h3>

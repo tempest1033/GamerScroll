@@ -72,12 +72,18 @@ async function fetchNews(axios, cheerio) {
       const tag = extractGameTag(rawTitle);
       let title = rawTitle.replace(/\[.*?\]/g, '').replace(/^HOT\s*/i, '').trim();
 
+      // 날짜 추출 (span.info 텍스트에서 YYYY-MM-DD)
+      const infoText = $(el).parent().find('span.info').text();
+      const dateMatch = infoText.match(/(\d{4}-\d{2}-\d{2})/);
+      const date = dateMatch ? dateMatch[1] : '';
+
       if (title && title.length > 10 && !newsBySource.inven.find(n => n.title === title)) {
         newsBySource.inven.push({
           title: title.substring(0, 55),
           link: href.startsWith('http') ? href : 'https://www.inven.co.kr' + href,
           tag: tag,
-          thumbnail: thumbnail
+          thumbnail: thumbnail,
+          date: date
         });
       }
     });
@@ -104,8 +110,12 @@ async function fetchNews(axios, cheerio) {
       const imgMatch = desc.match(/<img[^>]+src=["']([^"']+)["']/i);
       const thumbnail = imgMatch ? imgMatch[1] : '';
 
+      // 날짜 추출 (RSS pubDate)
+      const pubDate = $(el).find('pubDate').text().trim();
+      const date = pubDate ? new Date(pubDate).toISOString().split('T')[0] : '';
+
       if (title && link) {
-        newsBySource.ruliweb.push({ title: title.substring(0, 55), link, tag, thumbnail });
+        newsBySource.ruliweb.push({ title: title.substring(0, 55), link, tag, thumbnail, date });
       }
     });
     console.log(`  루리웹: ${newsBySource.ruliweb.length}개`);
@@ -136,12 +146,17 @@ async function fetchNews(axios, cheerio) {
       const tag = extractGameTag(rawTitle);
       const cleanTitle = rawTitle.replace(/\[.*?\]/g, '').trim().split('\n')[0];
 
+      // 날짜 추출 (div.day_news: "2026.02.07 17:06")
+      const dayNews = $(el).closest('li').find('.day_news').text().trim();
+      const date = dayNews ? dayNews.substring(0, 10).replace(/\./g, '-') : '';
+
       if (cleanTitle && cleanTitle.length > 10 && !newsBySource.gamemeca.find(n => n.title === cleanTitle)) {
         newsBySource.gamemeca.push({
           title: cleanTitle.substring(0, 55),
           link: link.startsWith('http') ? link : 'https://www.gamemeca.com' + link,
           tag: tag,
-          thumbnail: thumbnail
+          thumbnail: thumbnail,
+          date: date
         });
       }
     });
@@ -212,13 +227,26 @@ async function fetchNews(axios, cheerio) {
 
     await browser.close();
 
+    // 날짜 추출 (개별 기사 페이지의 meta article:published_time)
+    const dateResults = await Promise.all(articles.map(async (article) => {
+      try {
+        const res = await axios.get(article.link, {
+          timeout: 5000,
+          headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' }
+        });
+        const match = res.data.match(/article:published_time"[^>]*content="([^"]+)"/i);
+        return match ? match[1].split('T')[0] : '';
+      } catch (e) { return ''; }
+    }));
+
     // 결과 저장
-    articles.forEach(article => {
+    articles.forEach((article, i) => {
       const tag = extractGameTag(article.title);
       newsBySource.thisisgame.push({
         ...article,
         title: article.title.replace(/\[.*?\]/g, '').trim(),
-        tag: tag
+        tag: tag,
+        date: dateResults[i] || ''
       });
     });
 

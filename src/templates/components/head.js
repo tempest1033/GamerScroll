@@ -65,7 +65,60 @@ function generateHead(options = {}) {
     }
     return out.length > 0 ? out : ['/styles-core.css'];
   })();
-  const cssLinksHtml = resolvedCssFiles.map((file) => `<link rel="stylesheet" href="${escapeHtmlAttr(file)}">`).join('\n  ');
+  const blockingCssFile = resolvedCssFiles[0] || '/styles-core.css';
+  const deferredCssFiles = resolvedCssFiles.slice(1);
+  const blockingCssHtml = `<link rel="stylesheet" href="${escapeHtmlAttr(blockingCssFile)}">`;
+  const deferredCssHtml = deferredCssFiles.map((file) => {
+    const safeFile = escapeHtmlAttr(file);
+    return `<link rel="preload" href="${safeFile}" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="${safeFile}"></noscript>`;
+  }).join('\n  ');
+  const cssLinksHtml = deferredCssHtml ? `${blockingCssHtml}\n  ${deferredCssHtml}` : blockingCssHtml;
+  const deferredCssInitScript = deferredCssFiles.length > 0 ? `<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>` : '';
+  const deferredCssGuardStyle = deferredCssFiles.length > 0 ? `<style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>` : '';
+  const deferredCssGuardScript = deferredCssFiles.length > 0 ? `<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>` : '';
   const articleOgMeta = articleSchema ? [
     articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(articleSchema.datePublished)}">` : '',
     articleSchema.dateModified ? `<meta property="article:modified_time" content="${escapeHtmlAttr(articleSchema.dateModified)}">` : '',
@@ -277,11 +330,13 @@ function generateHead(options = {}) {
   <!-- preconnect: 핵심 도메인 4개 (PageSpeed 권고) -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <!-- dns-prefetch: fallback + 추가 도메인 -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
   <link rel="dns-prefetch" href="https://ep1.adtrafficquality.google">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
@@ -292,13 +347,16 @@ function generateHead(options = {}) {
   <link rel="dns-prefetch" href="https://unpkg.com">
   <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
   <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
-  <link rel="dns-prefetch" href="https://i.ytimg.com">
-  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <link rel="dns-prefetch" href="https://i.ytimg.com">
+	  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  ${deferredCssInitScript}
+	  ${deferredCssGuardStyle}
 	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->
 	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
 	  <!-- 메인 CSS -->
 	  ${cssLinksHtml}
+	  ${deferredCssGuardScript}
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script>
 	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
