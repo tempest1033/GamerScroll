@@ -13,6 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const sharp = require('sharp');
+const { PurgeCSS } = require('purgecss');
 
 // 증분 빌드 캐시
 const buildCache = require('./ai-build-cache');
@@ -767,6 +768,62 @@ function validateImages(articles) {
   }
 }
 
+// PurgeCSS 동적 클래스 safelist (런타임 JS에서 classList.add/toggle/className으로 추가되는 클래스)
+const PURGECSS_SAFELIST = {
+  standard: [
+    'active', 'loaded', 'open', 'hidden', 'expanded', 'collapsed',
+    'fonts-loaded', 'nav-ready', 'thumb-fallback',
+    'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
+    'ads-disabled', 'deferred-css-pending', 'realtime',
+    'search-hidden', 'is-open', 'is-hidden',
+  ],
+  deep: [/^search-/, /^is-/, /^has-/],
+  greedy: [],
+};
+
+// PurgeCSS: ai-docs/ 내 CSS 번들에서 미사용 CSS 제거
+async function purgeCssInDocs(docsDir) {
+  const bundles = [
+    {
+      css: `${docsDir}/styles-core.css`,
+      content: [`${docsDir}/**/*.html`],
+      label: 'styles-core.css',
+    },
+    {
+      css: `${docsDir}/styles-article.css`,
+      content: [`${docsDir}/article/**/*.html`],
+      label: 'styles-article.css',
+    },
+  ];
+
+  console.log('\n🧹 PurgeCSS 실행 중...');
+  for (const bundle of bundles) {
+    if (!fs.existsSync(bundle.css)) continue;
+    const originalSize = Buffer.byteLength(fs.readFileSync(bundle.css), 'utf8');
+    if (originalSize === 0) continue;
+
+    try {
+      const result = await new PurgeCSS().purge({
+        content: bundle.content,
+        css: [bundle.css],
+        safelist: PURGECSS_SAFELIST,
+        fontFace: true,
+        keyframes: true,
+        variables: true,
+      });
+
+      if (result.length > 0 && result[0].css) {
+        fs.writeFileSync(bundle.css, result[0].css, 'utf8');
+        const purgedSize = Buffer.byteLength(result[0].css, 'utf8');
+        const reduction = ((1 - purgedSize / originalSize) * 100).toFixed(1);
+        console.log(`  ✅ ${bundle.label}: ${(originalSize / 1024).toFixed(0)}KB → ${(purgedSize / 1024).toFixed(0)}KB (${reduction}% 감소)`);
+      }
+    } catch (e) {
+      console.warn(`  ⚠️ PurgeCSS 실패 (${bundle.label}): ${e.message}`);
+    }
+  }
+}
+
 // 빌드 완료 메시지
 function showBuildSummary() {
   console.log('\n빌드 완료! ai-docs/ 폴더에 생성됨');
@@ -868,10 +925,13 @@ async function main() {
   console.log('\n5. SEO 파일 생성 중...');
   generateSEOFiles(articles);
 
+  // 6. PurgeCSS: 미사용 CSS 제거
+  await purgeCssInDocs(DOCS_DIR);
+
   // 캐시 저장
   buildCache.saveCache(cache);
 
-  // 6. 완료 메시지
+  // 7. 완료 메시지
   showBuildSummary();
 
   console.log('\n=== AIScroll 빌드 완료 ===');
