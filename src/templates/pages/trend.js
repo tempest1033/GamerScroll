@@ -22,30 +22,6 @@ const gamesJsonPath = path.join(__dirname, '../../../data/games.json');
 // 광고 활성화 여부
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
-// 이슈/핫픽/인사이트 썸네일 로컬 경로 헬퍼 (폴백: 프록시 URL)
-// size: 'sm' = 리스트용 작은 썸네일 (480px), 'lg' = 상세 페이지용 큰 썸네일 (1200px)
-function getLocalReportThumbnail(type, slug, originalUrl, size = 'lg') {
-  if (!type || !slug) return originalUrl || '';
-
-  const filename = size === 'sm' ? 'thumbnail-sm.webp' : 'thumbnail.webp';
-  const localPath = `/assets/images/${type}/${slug}/${filename}`;
-  const fullPath = path.join(docsDir, 'assets/images', type, slug, filename);
-
-  if (fs.existsSync(fullPath)) {
-    return localPath;
-  }
-  // 폴백: 기존 thumbnail.webp 확인 (sm이 없을 경우)
-  if (size === 'sm') {
-    const fallbackPath = path.join(docsDir, 'assets/images', type, slug, 'thumbnail.webp');
-    if (fs.existsSync(fallbackPath)) {
-      return `/assets/images/${type}/${slug}/thumbnail.webp`;
-    }
-  }
-  // 외부 URL은 wsrv.nl 프록시로 핫링크 차단 우회
-  const width = size === 'sm' ? 480 : 1200;
-  return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp` : '';
-}
-
 // 일간 뉴스 썸네일 로컬 경로 헬퍼 (MD5 해시 기반 + 모든 날짜 검색)
 function getLocalDailyThumbnail(date, originalUrl) {
   if (!originalUrl) return '';

@@ -36,66 +36,11 @@ const REPORTS_DIR = path.join(__dirname, 'reports');
 const DOCS_DIR = path.join(__dirname, 'ai-docs');
 const STYLES_SRC = path.join(__dirname, 'src', 'styles');
 const FEED_ASSETS_DIR = path.join(DOCS_DIR, 'assets', 'feed');
-const DEFERRED_JSON_SCRIPT_REGEX = /<script\s+type="application\/json"\s+id="([A-Za-z0-9_-]*DeferredData)"[^>]*>([\s\S]*?)<\/script>/g;
+const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
 const AI_CSS_BUNDLES = [
   { entry: path.join(STYLES_SRC, 'bundle-core.css'), output: 'styles-core.css', required: true },
-  { entry: path.join(STYLES_SRC, 'bundle-article.css'), output: 'styles-article.css', required: true },
-  // 하위 호환: 일부 페이지/캐시가 /styles.css를 참조할 수 있음
-  { entry: path.join(STYLES_SRC, 'bundle-core.css'), output: 'styles.css', required: true }
+  { entry: path.join(STYLES_SRC, 'bundle-article.css'), output: 'styles-article.css', required: true }
 ];
-
-function ensureDir(dirPath) {
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
-  }
-}
-
-function collectHtmlFilesUnderDir(baseDir, list) {
-  if (!fs.existsSync(baseDir)) return;
-  const entries = fs.readdirSync(baseDir, { withFileTypes: true });
-  for (const entry of entries) {
-    const fullPath = path.join(baseDir, entry.name);
-    if (entry.isDirectory()) {
-      collectHtmlFilesUnderDir(fullPath, list);
-    } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) {
-      list.push(fullPath);
-    }
-  }
-}
-
-function externalizeDeferredJsonFromHtml(html, pageRelPath) {
-  if (typeof html !== 'string' || html.indexOf('DeferredData') === -1) return html;
-
-  return html.replace(DEFERRED_JSON_SCRIPT_REGEX, (fullMatch, scriptId, payloadRaw) => {
-    const payload = (payloadRaw || '').trim();
-    if (!payload) return fullMatch;
-
-    let parsed;
-    try {
-      parsed = JSON.parse(payload);
-    } catch (e) {
-      return fullMatch;
-    }
-    if (!Array.isArray(parsed)) return fullMatch;
-
-    const normalizedPayload = JSON.stringify(parsed).replace(/</g, '\\u003c');
-    const hash = crypto.createHash('md5').update(normalizedPayload).digest('hex').slice(0, 12);
-    const pageKey = (pageRelPath || 'index')
-      .replace(/\\/g, '/')
-      .replace(/^\/+/, '')
-      .replace(/\.html$/i, '')
-      .replace(/\//g, '-')
-      .replace(/[^a-zA-Z0-9_-]/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '') || 'index';
-    const fileName = `${pageKey}-${scriptId}-${hash}.json`;
-    const filePath = path.join(FEED_ASSETS_DIR, fileName);
-    const feedUrl = `/assets/feed/${fileName}`;
-
-    fs.writeFileSync(filePath, normalizedPayload, 'utf8');
-    return `<script type="application/json" id="${scriptId}" data-src="${feedUrl}"></script>`;
-  });
-}
 
 function externalizeDeferredJsonPayloads() {
   ensureDir(path.join(DOCS_DIR, 'assets'));
@@ -111,7 +56,7 @@ function externalizeDeferredJsonPayloads() {
     try {
       const originalHtml = fs.readFileSync(filePath, 'utf8');
       const relPath = path.relative(DOCS_DIR, filePath);
-      const transformedHtml = externalizeDeferredJsonFromHtml(originalHtml, relPath);
+      const transformedHtml = externalizeDeferredJsonFromHtml(originalHtml, relPath, FEED_ASSETS_DIR);
       if (transformedHtml !== originalHtml) {
         fs.writeFileSync(filePath, transformedHtml, 'utf8');
       }
@@ -385,7 +330,7 @@ function loadArticles() {
   return articles;
 }
 
-// 스타일 번들 생성 (AIScroll: core + article, legacy styles.css 유지)
+// 스타일 번들 생성 (AIScroll: core + article)
 function copyStyles() {
   let builtCount = 0;
   for (const bundle of AI_CSS_BUNDLES) {

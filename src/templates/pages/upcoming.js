@@ -111,12 +111,8 @@ function generateUpcomingPage(data) {
         mobile: '<svg viewBox="0 0 24 24" fill="#34a853"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#34a853" stroke-width="2" fill="none"/><circle cx="12" cy="18" r="1.5" fill="#34a853"/></svg>'
       };
       var logo = logos[platform] || logos.mobile;
-      function resizeIconUrl(url, size) {
-        if (!url) return '';
-        size = size || 100;
-        if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/' + size + 'x' + size + 'bb.');
-        if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s' + size;
-        return url;
+      function resizeIconUrl(url) {
+        return (window.GSUtils && window.GSUtils.resizeStoreIconUrl) ? window.GSUtils.resizeStoreIconUrl(url) : (url || '');
       }
       var header = '<div class="upcoming-table-header"><div>순위</div><div>게임</div></div>';
       var rows = items.map(function(game, i) {

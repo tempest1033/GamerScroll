@@ -14,5 +14,8 @@ snapshots/
 # 빌드 캐시 (로컬/Actions 각자 관리)
 .build-cache.json
 
+# 임시 파일
+tmp_*.json
+
 # 인증 정보 (절대 커밋 금지)
 credentials/

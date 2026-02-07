@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { PurgeCSS } = require('purgecss');
 const { generateRSS } = require('./src/rss/generate-rss');
 const buildCache = require('./build-cache');
 
@@ -42,60 +43,7 @@ const REPORTS_DIR = './reports';
 const WEEKLY_REPORTS_DIR = './reports/weekly';
 const WIKI_DIR = './data/wiki';
 const FEED_ASSETS_DIR = './assets/feed';
-const DEFERRED_JSON_SCRIPT_REGEX = /<script\s+type="application\/json"\s+id="([A-Za-z0-9_-]*DeferredData)"[^>]*>([\s\S]*?)<\/script>/g;
-
-function ensureDir(dirPath) {
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
-  }
-}
-
-function collectHtmlFilesUnderDir(baseDir, list) {
-  if (!fs.existsSync(baseDir)) return;
-  const entries = fs.readdirSync(baseDir, { withFileTypes: true });
-  for (const entry of entries) {
-    const fullPath = path.join(baseDir, entry.name);
-    if (entry.isDirectory()) {
-      collectHtmlFilesUnderDir(fullPath, list);
-    } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) {
-      list.push(fullPath);
-    }
-  }
-}
-
-function externalizeDeferredJsonFromHtml(html, pageRelPath) {
-  if (typeof html !== 'string' || html.indexOf('DeferredData') === -1) return html;
-
-  return html.replace(DEFERRED_JSON_SCRIPT_REGEX, (fullMatch, scriptId, payloadRaw) => {
-    const payload = (payloadRaw || '').trim();
-    if (!payload) return fullMatch;
-
-    let parsed;
-    try {
-      parsed = JSON.parse(payload);
-    } catch (e) {
-      return fullMatch;
-    }
-    if (!Array.isArray(parsed)) return fullMatch;
-
-    const normalizedPayload = JSON.stringify(parsed).replace(/</g, '\\u003c');
-    const hash = crypto.createHash('md5').update(normalizedPayload).digest('hex').slice(0, 12);
-    const pageKey = (pageRelPath || 'index')
-      .replace(/\\/g, '/')
-      .replace(/^\.\/+/, '')
-      .replace(/\.html$/i, '')
-      .replace(/\//g, '-')
-      .replace(/[^a-zA-Z0-9_-]/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '') || 'index';
-    const fileName = `${pageKey}-${scriptId}-${hash}.json`;
-    const filePath = path.join(FEED_ASSETS_DIR, fileName);
-    const feedUrl = `/assets/feed/${fileName}`;
-
-    fs.writeFileSync(filePath, normalizedPayload, 'utf8');
-    return `<script type="application/json" id="${scriptId}" data-src="${feedUrl}"></script>`;
-  });
-}
+const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
 
 function externalizeDeferredJsonPayloads() {
   ensureDir('./assets');
@@ -115,7 +63,7 @@ function externalizeDeferredJsonPayloads() {
     try {
       const originalHtml = fs.readFileSync(filePath, 'utf8');
       const relPath = path.relative('.', filePath);
-      const transformedHtml = externalizeDeferredJsonFromHtml(originalHtml, relPath);
+      const transformedHtml = externalizeDeferredJsonFromHtml(originalHtml, relPath, FEED_ASSETS_DIR);
       if (transformedHtml !== originalHtml) {
         fs.writeFileSync(filePath, transformedHtml, 'utf8');
       }
@@ -739,6 +687,75 @@ function findLatestWeeklyReport() {
   return `${WEEKLY_REPORTS_DIR}/${files[0]}`;
 }
 
+// PurgeCSS 동적 클래스 safelist (런타임 JS에서 classList.add/toggle/className으로 추가되는 클래스)
+const PURGECSS_SAFELIST = {
+  standard: [
+    'active', 'loaded', 'open', 'hidden', 'expanded', 'collapsed',
+    'fonts-loaded', 'nav-ready', 'thumb-fallback',
+    'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
+    'ads-disabled', 'deferred-css-pending', 'realtime',
+  ],
+  deep: [/^search-/, /^is-/, /^has-/],
+  greedy: [],
+};
+
+// PurgeCSS: docs/ 내 CSS 번들에서 미사용 CSS 제거
+async function purgeCssInDocs(docsDir) {
+  const bundles = [
+    {
+      css: `${docsDir}/styles-core.css`,
+      content: [`${docsDir}/**/*.html`],
+      label: 'styles-core.css',
+    },
+    {
+      css: `${docsDir}/styles-report.css`,
+      content: [`${docsDir}/magazine/**/*.html`],
+      label: 'styles-report.css',
+    },
+    {
+      css: `${docsDir}/styles-game.css`,
+      content: [`${docsDir}/games/**/*.html`],
+      label: 'styles-game.css',
+    },
+    {
+      css: `${docsDir}/styles-article.css`,
+      content: [
+        `${docsDir}/magazine/**/*.html`,
+        `${docsDir}/wiki/**/*.html`,
+        `${docsDir}/tech/**/*.html`,
+      ],
+      label: 'styles-article.css',
+    },
+  ];
+
+  console.log('\n🧹 PurgeCSS 실행 중...');
+  for (const bundle of bundles) {
+    if (!fs.existsSync(bundle.css)) continue;
+    const originalSize = Buffer.byteLength(fs.readFileSync(bundle.css), 'utf8');
+    if (originalSize === 0) continue;
+
+    try {
+      const result = await new PurgeCSS().purge({
+        content: bundle.content,
+        css: [bundle.css],
+        safelist: PURGECSS_SAFELIST,
+        fontFace: true,
+        keyframes: true,
+        variables: true,
+      });
+
+      if (result.length > 0 && result[0].css) {
+        fs.writeFileSync(bundle.css, result[0].css, 'utf8');
+        const purgedSize = Buffer.byteLength(result[0].css, 'utf8');
+        const reduction = ((1 - purgedSize / originalSize) * 100).toFixed(1);
+        console.log(`  ✅ ${bundle.label}: ${(originalSize / 1024).toFixed(0)}KB → ${(purgedSize / 1024).toFixed(0)}KB (${reduction}% 감소)`);
+      }
+    } catch (e) {
+      console.warn(`  ⚠️ PurgeCSS 실패 (${bundle.label}): ${e.message}`);
+    }
+  }
+}
+
 async function main() {
   let news, community, rankings, steam, youtube, chzzk, upcoming;
 
@@ -1093,7 +1110,6 @@ async function main() {
   const generatedCssFiles = [];
   const cssFilename = '/styles-core.css';
   const cssBundles = [
-    { entry: './src/styles.css', output: './styles.css', publicPath: '/styles.css', label: 'styles.css(legacy)', required: true },
     { entry: './src/styles/bundle-core.css', output: './styles-core.css', publicPath: '/styles-core.css', label: 'styles-core.css', required: true },
     { entry: './src/styles/bundle-report.css', output: './styles-report.css', publicPath: '/styles-report.css', label: 'styles-report.css', required: false },
     { entry: './src/styles/bundle-game.css', output: './styles-game.css', publicPath: '/styles-game.css', label: 'styles-game.css', required: false },
@@ -1120,17 +1136,6 @@ async function main() {
     } catch (e) {
       if (bundle.required) {
         console.error(`⚠️ CSS 번들링 실패(${bundle.label}) → 폴백 적용: ${e.message}`);
-        if (bundle.publicPath === '/styles.css' && fs.existsSync('./src/styles.css')) {
-          fs.copyFileSync('./src/styles.css', bundle.output);
-          generatedCssFiles.push(bundle.publicPath);
-          continue;
-        }
-        if (bundle.publicPath === '/styles-core.css' && fs.existsSync('./styles.css')) {
-          fs.copyFileSync('./styles.css', bundle.output);
-          generatedCssFiles.push(bundle.publicPath);
-          didBundleCss = true;
-          continue;
-        }
       } else {
         console.warn(`  ⚠️ 선택 CSS 번들 스킵(${bundle.label}): ${e.message}`);
       }
@@ -2457,7 +2462,6 @@ async function main() {
     }
 
     const cssOutputs = [
-      'styles.css',
       'styles-core.css',
       'styles-report.css',
       'styles-game.css',
@@ -2467,20 +2471,12 @@ async function main() {
       const srcPath = `./${filename}`;
       if (fs.existsSync(srcPath)) {
         fs.copyFileSync(srcPath, `${DOCS_DIR}/${filename}`);
-      } else if (filename === 'styles.css' && fs.existsSync('./src/styles.css')) {
-        fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
-      } else if (filename === 'styles-core.css' && fs.existsSync('./styles.css')) {
-        fs.copyFileSync('./styles.css', `${DOCS_DIR}/styles-core.css`);
       } else {
         fs.writeFileSync(`${DOCS_DIR}/${filename}`, '', 'utf8');
       }
     }
   } catch (e) {
     console.error(`⚠️ CSS 복사 실패(docs): ${e.message}`);
-    if (fs.existsSync('./src/styles.css')) {
-      fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles.css`);
-      fs.copyFileSync('./src/styles.css', `${DOCS_DIR}/styles-core.css`);
-    }
   }
   // 분리된 CSS 모듈 동기화 (src/styles/*.css -> docs/styles/)
   if (fs.existsSync(SRC_STYLES_DIR)) {
@@ -2550,6 +2546,9 @@ async function main() {
 
   // docs 전체 HTML의 스타일 링크를 페이지군 기준으로 일괄 정규화
   rewriteDocsStylesheetLinks(DOCS_DIR);
+
+  // PurgeCSS: 사용되지 않는 CSS 제거 (docs/ 내 CSS만 대상)
+  await purgeCssInDocs(DOCS_DIR);
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];

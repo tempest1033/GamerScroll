@@ -28,7 +28,7 @@ const { generateGamePage } = require('../src/templates/pages/game');
 const { setCssFilename } = require('../src/templates/layout');
 
 // CSS 파일명 설정 (고정)
-setCssFilename('/styles.css');
+setCssFilename('/styles-core.css');
 
 // 게임 데이터 로드
 const gamesData = JSON.parse(fs.readFileSync(gamesPath, 'utf8').replace(/^\uFEFF/, ''));
@@ -1498,7 +1498,7 @@ if (!fs.existsSync(outputDir)) {
 // ★ 스킵 체크를 파일 로드 전에 수행 (성능 최적화)
 const incrementalCache = buildCache.loadCache();
 // CSS 파일 경로 (변경 시 재빌드 트리거)
-const cssFilePath = path.join(__dirname, '..', docsDir, 'styles.css');
+const cssFilePath = path.join(__dirname, '..', docsDir, 'styles-core.css');
 const inputSignature = buildCache.getInputFilesSignature([
   gamesPath,
   historyDir,

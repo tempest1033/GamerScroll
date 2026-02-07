@@ -158,6 +158,7 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}${metricsBlacklistSummary}
   ※ 일반론적 필러 콘텐츠 금지 - 구체적 사건/발표/뉴스 기반으로만 작성
   ※ 블랙리스트 게임/주제 절대 사용 금지
 - metrics: 2개 (주목할만한 지표 변화)
+  ※ 모바일(iOS/Android) 순위 변동을 우선적으로 선정 — 2개 중 최소 1개는 모바일 순위 관련으로 작성
   ※ ⚠️ 블랙리스트 게임 절대 사용 금지 - 최근 7일 내 metrics에서 언급한 게임 다시 쓰지 말 것
   ※ 같은 게임 반복 언급 금지 - 다른 게임의 지표 변화 찾기${rankingsInstruction}
 - community: 4개 (특정 게임에 대한 유저 반응 - 업데이트/패치/논란 등)

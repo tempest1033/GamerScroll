@@ -1,266 +1,259 @@
-﻿# GamerScroll 프로젝트 가이드
+# GamerScroll Project Guide
 
-## 프로젝트 개요
-게임 업계 데이터 크롤링 및 일일/주간 리포트 생성 사이트
+## Overview
+Game industry data crawling and daily/weekly report generation site.
 
-| 환경 | URL | Repository |
-|------|-----|------------|
+| Environment | URL | Repository |
+|-------------|-----|------------|
 | **PC** | https://gamerscroll.com | [GamerScroll](https://github.com/tempest1033/GamerScroll) |
 
-- 배포: `docs/` 폴더 → GitHub Pages
+- Deployment: `docs/` folder via GitHub Pages
 
 ---
 
-## 실행 모드
+## Execution Modes
 
-### 일반 모드 (전체 크롤링)
+### Normal Mode (Full Crawl)
 ```bash
 node generate-html-report.js
 ```
-- 모든 소스에서 실시간 크롤링
-- `data-cache.json`에 결과 저장
-- `history/{date}.json`에 일별 스냅샷 저장
-- 소요 시간: 약 3-5분
+- Crawls all sources live
+- Saves results to `data-cache.json`
+- Saves daily snapshot to `history/{date}.json`
+- Duration: ~3-5 min
 
-### 퀵 모드 (캐시 사용)
+### Quick Mode (Cache)
 ```bash
-node generate-html-report.js --quick
-node generate-html-report.js -q
+node generate-html-report.js --quick   # or -q
 ```
-- `data-cache.json`에서 데이터 로드
-- 크롤링 없이 HTML만 재생성
-- 소요 시간: 약 5초
-- **용도**: HTML 템플릿 수정 테스트, AI 인사이트 반영 등
+- Loads data from `data-cache.json`
+- Regenerates HTML only (no crawling)
+- Duration: ~5 sec
+- **Use case**: HTML template testing, AI insight updates
 
-### 자동 퀵 모드 (CI 환경)
-- GitHub Actions에서 캐시가 25분 이내면 자동으로 크롤링 스킵
-- 30분 주기 빌드에서 중복 크롤링 방지
-- 빌드 시간 대폭 단축 (3-5분 → 5초)
-- 로컬에서는 기존대로 동작 (개발자가 원할 때 크롤링)
+### Auto Quick Mode (CI)
+- GitHub Actions auto-skips crawling if cache is < 25 min old
+- Prevents duplicate crawling in 30-min build cycle (3-5 min -> 5 sec)
+- Local runs behave normally
 
-### 로컬 테스트
-빌드 결과물은 **루트**에 생성되고, **docs/** 폴더는 GitHub Pages 배포용.
+### Local Testing
+Build output is generated at **root**; **docs/** is for GitHub Pages deployment.
 
 ```bash
-# 1. 빌드 (퀵 모드)
+# 1. Quick build
 node generate-html-report.js -q
 
-# 2. docs 폴더로 복사 (로컬 테스트용)
+# 2. Copy to docs (for local testing)
 cp index.html docs/index.html
 
-# 3. 로컬 서버 실행
+# 3. Start local server
 cd docs && npx serve -l 3001
 ```
 
-| 환경 | docs 복사 |
-|------|----------|
-| **GitHub Actions** | ✅ 자동 (build.yml) |
-| **로컬 테스트** | ❌ 수동 복사 필요 |
+| Environment | docs copy |
+|-------------|-----------|
+| **GitHub Actions** | Automatic (build.yml) |
+| **Local** | Manual copy required |
 
-### AI 인사이트 생성 (일간)
+### Daily AI Insight
 ```bash
 node generate-ai-insight.js
 ```
-- Claude API 호출하여 AI 분석 생성
-- 게임주 주가 데이터 수집
-- `reports/{date}.json`에 저장
-- 소요 시간: 약 1-2분
-- **주의**: ANTHROPIC_API_KEY 필요
+- Calls Claude API for AI analysis
+- Collects game stock data
+- Saves to `reports/{date}.json`
+- Duration: ~1-2 min
+- **Requires**: ANTHROPIC_API_KEY
 
-### 주간 인사이트 생성
+### Weekly Insight
 ```bash
-node generate-weekly-insight.js          # 지난주 리포트 생성
-node generate-weekly-insight.js --force  # 강제 재생성
+node generate-weekly-insight.js          # Generate last week's report
+node generate-weekly-insight.js --force  # Force regeneration
 ```
-- 지난 주 일일 리포트를 기반으로 주간 요약 생성
-- Codex CLI 호출하여 AI 분석 생성
-- `reports/weekly/{year}-W{week}.json`에 저장
-- 소요 시간: 약 5-10분
-- **실행 시점**: 매주 월요일 0시 (KST)
-- **주의**: 지난 주 일일 리포트가 있어야 함
+- Summarizes last week's daily reports into a weekly report
+- Uses Codex CLI for AI analysis
+- Saves to `reports/weekly/{year}-W{week}.json`
+- Duration: ~5-10 min
+- **Schedule**: Every Monday 00:00 KST
+- **Requires**: Previous week's daily reports
 
 ---
 
-## 파일 구조
+## File Structure
 
 ```
 /
-├── generate-html-report.js    # 메인 진입점
-├── generate-ai-insight.js     # 일간 AI 인사이트 진입점
-├── generate-weekly-insight.js # 주간 AI 인사이트 진입점
+├── generate-html-report.js    # Main entry point
+├── generate-ai-insight.js     # Daily AI insight entry
+├── generate-weekly-insight.js # Weekly AI insight entry
 │
-├── data-cache.json            # 크롤링 캐시 (git tracked)
-├── index.html                 # 로컬 생성 HTML
+├── data-cache.json            # Crawl cache (git tracked)
+├── index.html                 # Local generated HTML
 │
-├── docs/                      # 배포 폴더 (gamerscroll.com)
-│   ├── index.html             # 배포용 HTML
-│   ├── styles.css             # 스타일시트
-│   ├── CNAME                  # 커스텀 도메인
+├── docs/                      # Deploy folder (gamerscroll.com)
+│   ├── index.html             # Deployed HTML
+│   ├── styles.css             # Stylesheet
+│   ├── CNAME                  # Custom domain
 │   └── reports/
-│       ├── {date}.json        # 일별 인사이트 (배포용 복사본)
+│       ├── {date}.json        # Daily insight (deploy copy)
 │       └── weekly/
-│           └── {year}-W{week}.json # 주간 인사이트 (배포용 복사본)
+│           └── {year}-W{week}.json  # Weekly insight (deploy copy)
 │
-├── reports/                   # 인사이트 데이터
-│   ├── {date}.json            # 일간 AI 인사이트 + 주가 + 순위분석
+├── reports/                   # Insight data
+│   ├── {date}.json            # Daily AI insight + stocks + rankings
 │   ├── issue/
-│   │   └── {slug}.json        # 이슈 리포트 (블로그형)
+│   │   └── {slug}.json        # Issue reports (blog-style)
 │   └── weekly/
-│       └── {year}-W{week}.json # 주간 AI 인사이트
+│       └── {year}-W{week}.json  # Weekly AI insight
 │
-├── history/                   # 크롤링 스냅샷
-│   └── {date}.json            # 일별 전체 크롤링 데이터
+├── history/                   # Crawl snapshots
+│   └── {date}.json            # Daily full crawl data
 │
 └── src/
-    ├── crawlers/              # 크롤러 모듈
-    │   ├── index.js           # 크롤러 export
-    │   ├── rankings.js        # 앱스토어/플레이스토어 순위
-    │   ├── steam.js           # 스팀 순위
-    │   ├── news.js            # 뉴스 (인벤, 루리웹, 게임메카, 디게)
-    │   ├── community.js       # 커뮤니티 (디시, 아카, 인벤, 루리웹)
-    │   ├── youtube.js         # 유튜브 인기 영상
-    │   ├── live.js            # 치지직/숲 라이브
-    │   ├── upcoming.js        # 출시 예정 게임
-    │   ├── metacritic.js      # 메타크리틱 평점
-    │   └── stocks.js          # 게임주 주가 (네이버 증권)
+    ├── crawlers/              # Crawler modules
+    │   ├── index.js           # Crawler exports
+    │   ├── rankings.js        # App Store / Play Store rankings
+    │   ├── steam.js           # Steam rankings
+    │   ├── news.js            # News (Inven, Ruliweb, GameMeca, Dige)
+    │   ├── community.js       # Community (DCInside, Arca, Inven, Ruliweb)
+    │   ├── youtube.js         # YouTube trending videos
+    │   ├── live.js            # Chzzk/SOOP live
+    │   ├── upcoming.js        # Upcoming games
+    │   ├── metacritic.js      # Metacritic scores
+    │   └── stocks.js          # Game stocks (Naver Finance)
     │
     ├── templates/
-    │   └── html.js            # HTML 템플릿 생성
+    │   └── html.js            # HTML template generator
     │
     ├── insights/
-    │   ├── daily.js           # 일일 인사이트 분석 (변동 계산)
-    │   ├── ai-insight.js      # 일간 AI 인사이트 생성
-    │   └── weekly-ai-insight.js # 주간 AI 인사이트 생성
+    │   ├── daily.js           # Daily insight analysis (delta calc)
+    │   ├── ai-insight.js      # Daily AI insight generation
+    │   └── weekly-ai-insight.js  # Weekly AI insight generation
     │
-    └── styles.css             # 스타일시트 원본
+    └── styles.css             # Source stylesheet
 ```
 
 ---
 
-## 데이터 흐름
+## Data Flow
 
-### generate-html-report.js 실행 흐름
+### generate-html-report.js Flow
 
 ```
-1. 모드 확인 (--quick 플래그)
-   ├── 퀵 모드: data-cache.json 로드
-   └── 일반 모드: 크롤링 실행
-       ├── fetchNews()         → news
-       ├── fetchCommunityPosts() → community
-       ├── fetchRankings()     → rankings (iOS/Android 매출/인기)
-       ├── fetchSteamRankings() → steam
-       ├── fetchYouTubeVideos() → youtube
-       ├── fetchChzzkLives()   → chzzk
-       ├── fetchUpcomingGames() → upcoming
+1. Check mode (--quick flag)
+   ├── Quick: load data-cache.json
+   └── Normal: run crawlers
+       ├── fetchNews()            → news
+       ├── fetchCommunityPosts()  → community
+       ├── fetchRankings()        → rankings (iOS/Android grossing/free)
+       ├── fetchSteamRankings()   → steam
+       ├── fetchYouTubeVideos()   → youtube
+       ├── fetchChzzkLives()      → chzzk
+       ├── fetchUpcomingGames()   → upcoming
        └── fetchMetacriticGames() → metacritic
 
-2. 캐시 저장: data-cache.json
-
-3. 히스토리 저장: history/{date}.json (하루 1회)
-
-4. 인사이트 생성
-   ├── 어제 데이터 로드: history/{yesterday}.json
-   ├── 순위 변동 계산: generateDailyInsight()
-   └── AI 인사이트 로드: reports/{date}.json
-
-5. HTML 생성: generateHTML() → index.html
-
-6. 파일 복사: src/styles.css → styles.css
-
-7. 데일리 리포트 생성: reports/{date}.html (하루 1회)
+2. Save cache: data-cache.json
+3. Save history: history/{date}.json (once/day)
+4. Generate insight
+   ├── Load yesterday: history/{yesterday}.json
+   ├── Calculate rank changes: generateDailyInsight()
+   └── Load AI insight: reports/{date}.json
+5. Generate HTML: generateHTML() → index.html
+6. Copy file: src/styles.css → styles.css
+7. Generate daily report: reports/{date}.html (once/day)
 ```
 
-### generate-ai-insight.js 실행 흐름
+### generate-ai-insight.js Flow
 
 ```
-1. data-cache.json 로드 (없으면 종료)
+1. Load data-cache.json (exit if missing)
 
-2. 어제 순위 데이터 로드
-   ├── history/{yesterday}.json 시도
-   └── reports/{yesterday}.json 시도 (GitHub Actions용)
+2. Load yesterday's ranking data
+   ├── Try history/{yesterday}.json
+   └── Try reports/{yesterday}.json (GitHub Actions fallback)
 
-3. 순위 변동 분석: buildRankingChanges()
-   ├── up: 5단계 이상 상승
-   ├── down: 5단계 이상 하락
-   └── new: TOP100 신규 진입
+3. Analyze rank changes: buildRankingChanges()
+   ├── up:  5+ rank rise
+   ├── down: 5+ rank drop
+   └── new: new TOP100 entry
 
-4. Claude API 호출: generateAIInsight()
-   ├── 오늘의 이슈 (4개)
-   ├── 업계 이슈 (2개)
-   ├── 주목할만한 지표 (2개)
-   ├── 순위 변동 분석 (4개)
-   ├── 유저 반응 (4개)
-   ├── 스트리머 인기 (2개)
-   └── 게임주 추천 (2개) ← stocks 배열
+4. Call Claude API: generateAIInsight()
+   ├── Today's issues (4)
+   ├── Industry issues (2)
+   ├── Notable metrics (2)
+   ├── Rank change analysis (4)
+   ├── User reactions (4)
+   ├── Streamer popularity (2)
+   └── Stock picks (2) ← stocks array
 
-5. 게임주 주가 수집: fetchStockPrices()
-   ├── 네이버 증권 게임엔터테인먼트 업종 조회
-   ├── AI가 추천한 종목 코드 매핑
-   └── 전일 종가/등락률 스크래핑
+5. Fetch stock prices: fetchStockPrices()
+   ├── Query Naver Finance game/entertainment sector
+   ├── Map AI-recommended stock codes
+   └── Scrape closing price/change rate
 
-6. 저장: reports/{date}.json (KST 기준, 재생성 시 덮어씀)
-   ├── ai: AI 인사이트 전체
-   ├── aiGeneratedAt: 생성 시각
-   ├── stockMap: {종목명: 코드} 맵
-   └── stockPrices: {코드: 주가데이터} 맵
+6. Save: reports/{date}.json (KST, overwrites on regeneration)
+   ├── ai: full AI insight
+   ├── aiGeneratedAt: generation timestamp
+   ├── stockMap: {stockName: code}
+   └── stockPrices: {code: priceData}
 ```
 
 ---
 
-## 게임 DB 관리 (리뷰 큐)
+## Game DB Management (Review Queue)
 
-### 개요
-- `games.json`: 게임 마스터 데이터
-- `review-queue.json`: 신규 게임 검증 대기열
+### Overview
+- `games.json`: Game master data
+- `review-queue.json`: New game verification queue
 
-### 데이터 흐름
+### Data Flow
 
 ```
-크롤링 → sync-and-enrich.js
+Crawl → sync-and-enrich.js
               ↓
-         신규 게임 → games.json 등록 + pending 추가
+         New game → register in games.json + add to pending
               ↓
-         수동 검증 (process-review-queue.js 또는 직접)
+         Manual review (process-review-queue.js or direct)
               ↓
-         검증 완료 → pending에서 제거
+         Verified → remove from pending
 ```
 
-### 1단계: 자동 동기화 (sync-and-enrich.js)
+### Step 1: Auto Sync (sync-and-enrich.js)
 ```bash
-node scripts/sync-and-enrich.js [날짜]
+node scripts/sync-and-enrich.js [date]
 ```
-- 히스토리에서 신규 게임 감지
-- games.json에 자동 등록
-- 모든 신규 게임을 pending에 추가
+- Detects new games from history
+- Auto-registers in games.json
+- Adds all new games to pending
 
-### 2단계: 자동 재처리 (process-review-queue.js)
+### Step 2: Auto Reprocess (process-review-queue.js)
 ```bash
 node scripts/process-review-queue.js [limit]
 ```
-- pending 게임들 반대 플랫폼 재검색
-- 이름 완전 일치 시 자동 매칭
-- 자동 매칭돼도 pending 유지 (수동 확인 후 제거)
+- Searches opposite platform for pending games
+- Auto-matches on exact name match
+- Keeps in pending even after auto-match (manual confirmation required)
 
-### 3단계: 수동 검증
+### Step 3: Manual Review
 
-**반대 플랫폼 검증:**
-| 상태 | 작업 |
-|------|------|
-| 양쪽 매칭됨 | 자동 매칭 확인 (오매칭 체크) |
-| 단일 플랫폼 | 인터넷 검색으로 반대 플랫폼 찾기 |
+**Cross-platform verification:**
+| Status | Action |
+|--------|--------|
+| Both matched | Verify auto-match (check for false positives) |
+| Single platform | Search opposite platform via web |
 
-**aliases 검증:**
-| 체크 항목 | 예시 |
-|----------|------|
-| 반대 플랫폼 이름 | 매직 레벨 9 ↔ 피아노 레벨 9 |
-| 영문/한글 변형 | 헌티드 머지 ↔ Haunted Merge |
-| 공백/특수문자 변형 | 돼지 키우는 중입니다 ↔ 돼지키우는중입니다 |
+**Aliases verification:**
+| Check | Example |
+|-------|---------|
+| Opposite platform name | 매직 레벨 9 <-> 피아노 레벨 9 |
+| EN/KR variants | 헌티드 머지 <-> Haunted Merge |
+| Space/special char variants | 돼지 키우는 중입니다 <-> 돼지키우는중입니다 |
 
-**최종 정리:**
-- games.json 업데이트 (appId + aliases)
-- pending에서 제거
+**Final cleanup:**
+- Update games.json (appId + aliases)
+- Remove from pending
 
-### games.json 구조
+### games.json Structure
 ```json
 {
   "게임명": {
@@ -269,16 +262,16 @@ node scripts/process-review-queue.js [limit]
       "android": "com.company.game",
       "steam": "12345"
     },
-    "aliases": ["영문명", "다른이름"],
-    "developer": "개발사",
-    "icon": "아이콘URL",
+    "aliases": ["english-name", "alt-name"],
+    "developer": "Developer",
+    "icon": "iconURL",
     "slug": "game-slug",
     "platforms": ["ios", "android"]
   }
 }
 ```
 
-### review-queue.json 구조
+### review-queue.json Structure
 ```json
 {
   "pending": [
@@ -296,9 +289,9 @@ node scripts/process-review-queue.js [limit]
 
 ---
 
-## 게임주 현황 카드
+## Game Stock Card
 
-### 데이터 구조 (reports/{date}.json)
+### Data Structure (reports/{date}.json)
 
 ```json
 {
@@ -328,37 +321,37 @@ node scripts/process-review-queue.js [limit]
 }
 ```
 
-### 주가 스크래핑 상세 (stocks.js)
+### Stock Scraping Details (stocks.js)
 
 ```javascript
-// 네이버 증권 게임엔터테인먼트 업종
+// Naver Finance game/entertainment sector
 // URL: https://finance.naver.com/sise/sise_group_detail.naver?type=upjong&no=263
 
-// 일별 시세 페이지
-// URL: https://finance.naver.com/item/sise_day.naver?code={종목코드}
+// Daily price page
+// URL: https://finance.naver.com/item/sise_day.naver?code={stockCode}
 
-// 등락 방향 판별
-// - em.bu_pup: 상승 (빨간색)
-// - em.bu_pdn: 하락 (파란색)
-// - span.tah: 변동 수치
+// Direction detection
+// - em.bu_pup: up (red)
+// - em.bu_pdn: down (blue)
+// - span.tah: change value
 
-// 인코딩: EUC-KR → iconv-lite로 디코딩
+// Encoding: EUC-KR → decoded via iconv-lite
 ```
 
-### HTML 렌더링 (html.js)
+### HTML Rendering (html.js)
 
 ```javascript
-// insight.ai.stocks + insight.stockMap + insight.stockPrices 조합
-// 종목명 → 코드 → 주가데이터 매핑
-// 네이버 증권 차트 이미지 URL 생성
-// https://ssl.pstatic.net/imgfinance/chart/item/candle/day/{코드}.png
+// Combines insight.ai.stocks + insight.stockMap + insight.stockPrices
+// Maps stockName → code → priceData
+// Generates Naver Finance chart image URL
+// https://ssl.pstatic.net/imgfinance/chart/item/candle/day/{code}.png
 ```
 
 ---
 
-## 주간 인사이트
+## Weekly Insight
 
-### 데이터 구조 (reports/weekly/{year}-W{week}.json)
+### Data Structure (reports/weekly/{year}-W{week}.json)
 
 ```json
 {
@@ -366,7 +359,7 @@ node scripts/process-review-queue.js [limit]
     "startDate": "2025-11-25",
     "endDate": "2025-12-01",
     "weekNumber": 48,
-    "dates": ["2025-11-25", "2025-11-26", ...]
+    "dates": ["2025-11-25", "2025-11-26", "..."]
   },
   "generatedAt": "2025-12-02T00:00:00.000Z",
   "dailyReportCount": 7,
@@ -398,196 +391,193 @@ node scripts/process-review-queue.js [limit]
 }
 ```
 
-### 생성 흐름
+### Generation Flow
 
 ```
-1. 지난 주 월~일 날짜 계산
-2. 각 날짜별 일일 리포트 로드 (reports/{date}.json)
-3. 일일 리포트 데이터 요약
-4. Codex CLI 호출 (gpt-5.3-codex)
-5. 주간 인사이트 JSON 생성 (일간과 동일한 구조)
-6. reports/weekly/{year}-W{week}.json 저장
-7. docs/reports/weekly/ 복사
+1. Calculate Mon-Sun dates of last week
+2. Load daily reports for each date (reports/{date}.json)
+3. Summarize daily report data
+4. Call Codex CLI (gpt-5.3-codex)
+5. Generate weekly insight JSON (same structure as daily)
+6. Save to reports/weekly/{year}-W{week}.json
+7. Copy to docs/reports/weekly/
 ```
 
 ---
 
-## 워크플로우 (GitHub Actions)
+## Workflows (GitHub Actions)
 
 ### build.yml
-- 트리거: 30분마다 + 수동
-- 러너: ubuntu-latest
-- 캐싱: npm + Playwright 브라우저
-- 작업:
-  1. `npm ci` (캐시 활용)
-  2. Playwright 브라우저 설치 (캐시 활용)
-  3. `node generate-html-report.js` - 사이트 생성
-  4. `node scripts/sync-and-enrich.js` - 게임 DB 동기화
-  5. `node scripts/generate-game-pages.js` - 게임 상세 페이지 생성
-  6. docs/ 폴더로 복사
-  7. 커밋 & 푸시 (GamerScroll)
+- Trigger: Every 30 min + manual
+- Runner: ubuntu-latest
+- Caching: npm + Playwright browsers
+- Steps:
+  1. `npm ci` (cached)
+  2. Install Playwright browsers (cached)
+  3. `node generate-html-report.js` - site generation
+  4. `node scripts/sync-and-enrich.js` - game DB sync
+  5. `node scripts/generate-game-pages.js` - game detail pages
+  6. Copy to docs/
+  7. Commit & push (GamerScroll)
 
-### ai-insight.yml (일간)
-- 트리거: 12시간마다 (KST 06:00, 18:00) + 수동
-- 러너: self-hosted (로컬 맥)
-- 작업:
-  1. npm install --production
+### ai-insight.yml (Daily)
+- Trigger: Every 12 hours (KST 06:00, 18:00) + manual
+- Runner: self-hosted (local Mac)
+- Steps:
+  1. `npm install --production`
   2. `node generate-ai-insight.js`
-  3. reports/ → docs/reports/ 복사
-  4. 커밋 & 푸시
+  3. Copy reports/ -> docs/reports/
+  4. Commit & push
 
-### weekly-insight.yml (주간)
-- 트리거: 매주 월요일 03시 (KST) + 수동
-- 러너: self-hosted (로컬 맥)
-- 작업:
-  1. npm install --production
+### weekly-insight.yml (Weekly)
+- Trigger: Every Monday 03:00 KST + manual
+- Runner: self-hosted (local Mac)
+- Steps:
+  1. `npm install --production`
   2. `node generate-weekly-insight.js`
-  3. reports/weekly/ → docs/reports/weekly/ 복사
-  4. 커밋 & 푸시
-- **주의**: 지난 주 일일 리포트가 있어야 함
+  3. Copy reports/weekly/ -> docs/reports/weekly/
+  4. Commit & push
+- **Requires**: Previous week's daily reports
 
-### GamerScroll / AI Scroll 빌드 분리
-- GamerScroll과 AI Scroll(AIScroll 블로그)은 **별도 빌드 워크플로우**를 사용
-- AI 관련 아티클 배포 시 AI 빌드 워크플로우 사용 (GamerScroll 워크플로우 아님)
-- 빌드 트리거 전 **어떤 사이트/워크플로우 대상인지 반드시 확인**
+### GamerScroll / AI Scroll Build Separation
+- GamerScroll and AI Scroll (AIScroll blog) use **separate build workflows**
+- Use AI build workflow for AI article deployment (not GamerScroll workflow)
+- **Always verify target site/workflow before triggering a build**
 
 ---
 
-## 문제 해결
+## Troubleshooting
 
-### 게임주 현황이 안 보일 때
-1. `reports/{date}.json`에 `ai.stocks`, `stockPrices` 확인
-2. 없으면: `node generate-ai-insight.js`
-3. HTML 재생성: `node generate-html-report.js -q`
-4. docs 복사: `cp index.html docs/index.html`
-5. 커밋 & 푸시
+### Stock card not showing
+1. Check `reports/{date}.json` for `ai.stocks` and `stockPrices`
+2. If missing: `node generate-ai-insight.js`
+3. Regenerate HTML: `node generate-html-report.js -q`
+4. Copy to docs: `cp index.html docs/index.html`
+5. Commit & push
 
-### Git 충돌 해결
+### Git conflicts
 ```bash
-# data-cache.json 충돌 시 (리모트 우선)
+# data-cache.json conflict (prefer remote)
 git checkout --theirs data-cache.json
 
-# docs/index.html 충돌 시 (로컬 우선 - 게임주 포함)
+# docs/index.html conflict (prefer local - includes stocks)
 cp index.html docs/index.html
 git add docs/index.html
 ```
 
-### 주가가 0원으로 표시될 때
-- 네이버 증권 HTML 구조 변경 가능성
-- stocks.js의 셀렉터 확인 필요
-- `span.tah`, `em.bu_pup`, `em.bu_pdn` 클래스
+### Stock price showing 0
+- Possible Naver Finance HTML structure change
+- Check selectors in stocks.js
+- Relevant classes: `span.tah`, `em.bu_pup`, `em.bu_pdn`
 
 ---
 
-## 환경 변수 (.env)
+## Environment Variables (.env)
 
 ```
 YOUTUBE_API_KEY=...        # YouTube Data API
-FIRECRAWL_API_KEY=...      # Firecrawl API (커뮤니티 크롤링)
-ANTHROPIC_API_KEY=...      # Claude API (AI 인사이트)
+FIRECRAWL_API_KEY=...      # Firecrawl API (community crawling)
+ANTHROPIC_API_KEY=...      # Claude API (AI insight)
 ```
 
 ---
 
-## 파일 수정 규칙
+## File Modification Rules
 
-### 소스 vs 배포 폴더
-| 폴더 | 용도 | 수정 |
-|------|------|------|
-| **src/** | 소스 코드 (원본) | ✅ 여기서 수정 |
-| **docs/** | GitHub Pages 배포용 | ❌ 빌드 시 덮어씌워짐 |
+### Source vs Deploy Folder
+| Folder | Purpose | Editable |
+|--------|---------|----------|
+| **src/** | Source code (original) | Yes - edit here |
+| **docs/** | GitHub Pages deploy | No - overwritten on build |
 
-**중요**: CSS, 템플릿 등 수정 시 반드시 `src/` 폴더의 파일을 수정해야 합니다. `docs/` 폴더는 빌드 시 자동으로 덮어씌워집니다.
+**Important**: Always edit files in `src/`. The `docs/` folder is overwritten on build.
 
-### CSS 구조/규칙 (현행)
-- 엔트리: `src/styles.css` (import 순서/캐스케이드 의존 — 순서 변경 금지)
-- 모듈: `src/styles/*.css` (역할별로 파일 분리)
-- 다크모드 전역 오버라이드: `src/styles/01-dark-mode.css`
-- 집합(aggregator) 파일
-  - 홈: `src/styles/10-home.css` → `10-home-core.css`, `10-home-shell.css`, `10-home-pages.css`
-  - 홈(페이지별): `src/styles/10-home-pages.css` → `10-home-pages-*.css`
-  - 리포트: `src/styles/50-report-base.css` → `50-report-*.css`
-  - 게임 상세: `src/styles/80-game.css` → `80-game-*.css`
-  - 게임 DB/트렌드: `src/styles/90-games-hub-and-trend.css` → `90-*.css`
+### CSS Structure/Rules
+- Entry: `src/styles.css` (import order/cascade dependent - do not reorder)
+- Modules: `src/styles/*.css` (split by role)
+- Dark mode global override: `src/styles/01-dark-mode.css`
+- Aggregator files:
+  - Home: `src/styles/10-home.css` -> `10-home-core.css`, `10-home-shell.css`, `10-home-pages.css`
+  - Home (per-page): `src/styles/10-home-pages.css` -> `10-home-pages-*.css`
+  - Report: `src/styles/50-report-base.css` -> `50-report-*.css`
+  - Game detail: `src/styles/80-game.css` -> `80-game-*.css`
+  - Game DB/Trend: `src/styles/90-games-hub-and-trend.css` -> `90-*.css`
 
-### 네이밍 규칙 (현행)
-#### 레이아웃 컨테이너
-- 사이트 전체 폭/패딩 래퍼: `.site-container` (레거시 `.container`는 호환용으로 유지)
+### Naming Conventions
+#### Layout Container
+- Site-wide width/padding wrapper: `.site-container` (legacy `.container` kept for compatibility)
 
-#### 페이지 컨테이너
-페이지 최상위 래퍼 클래스는 `*-container` 접미사로 통일합니다.
-- 홈: `home-container`
-- 일반 페이지(뉴스/커뮤니티/스팀/순위/출시/메타): `page-container`
-- 게임 상세: `game-container`
-- 트렌드 허브(피드): `game-container` + `trends-hub-container`
-- 게임 DB: `games-hub-container`
-- 인사이트/리포트: `insight-container`
-- 이슈 리포트 상세: `issue-container` (템플릿의 `blog-article`에 함께 부여)
+#### Page Container
+Top-level page wrapper classes use `*-container` suffix:
+- Home: `home-container`
+- General pages (news/community/steam/rankings/upcoming/meta): `page-container`
+- Game detail: `game-container`
+- Trend hub (feed): `game-container` + `trends-hub-container`
+- Game DB: `games-hub-container`
+- Insight/report: `insight-container`
+- Issue report detail: `issue-container` (added alongside template's `blog-article`)
 
-### 탭 규칙 (현행)
-- 기본 구성요소는 `.tab-group` + `.tab-btn` 입니다.
-- 공통 탭 스타일/브레이크포인트는 `src/styles/06-tabs.css`에서 관리합니다.
-- 홈 뉴스/커뮤니티/영상 서브탭(홈 전용)은 `src/styles/07-home-subtabs.css`에서 관리합니다.
-- 페이지별 오버라이드는 해당 페이지 모듈 CSS에서만 추가합니다.
+### Tab Rules
+- Base components: `.tab-group` + `.tab-btn`
+- Shared tab styles/breakpoints: `src/styles/06-tabs.css`
+- Home news/community/video subtabs (home-only): `src/styles/07-home-subtabs.css`
+- Per-page overrides: only in that page's module CSS
 
-### 빌드 명령어
+### Build Commands
 ```bash
-# 일반 빌드 (전체 크롤링 + HTML 생성)
+# Normal build (full crawl + HTML generation)
 npm run build
 
-# 퀵 빌드 (캐시 사용, HTML만 재생성) - 로컬 테스트용
-npm run build -- --quick
-npm run build -- -q
+# Quick build (cache, HTML only) - for local testing
+npm run build -- --quick   # or -q
 ```
 
-### 수정 → 테스트 워크플로우
+### Edit -> Test Workflow
 ```bash
-# 1. src/ 파일 수정 (예: src/styles.css)
-
-# 2. 퀵 빌드 (캐시 사용, 빠름)
+# 1. Edit src/ files (e.g., src/styles.css)
+# 2. Quick build
 npm run build -- --quick
-
-# 3. 로컬 서버로 확인
+# 3. Local server
 cd docs && npx serve -l 3000
 ```
 
 ---
 
-## 이슈 리포트 작성 (Issue)
+## Issue Report Writing
 
-### 개요
-- 다양한 주제에 대한 블로그형 이슈 글
-- 대화형으로 작성 (주제 논의 → 자료 조사 → 초안 → 수정 → 완성)
-- 저장 경로: `reports/issue/{slug}.json`
+### Overview
+- Blog-style articles on various topics
+- Interactive process (topic discussion -> research -> draft -> revise -> publish)
+- Path: `reports/issue/{slug}.json`
 - URL: `/trend/issue/{slug}/`
 
-### 작성 프로세스
+### Writing Process
 ```
-1. 주제 선정 - 사용자와 논의
-2. 자료 조사 - 웹 검색으로 데이터 수집
-3. 초안 작성 - JSON 저장 (draft 상태)
-4. 퀵빌드로 로컬 확인 - draft도 로컬에서 보임
-5. 피드백 반영 - 수정 후 퀵빌드 반복
-6. 올릴 때 status → approved로 변경
+1. Topic selection - discuss with user
+2. Research - collect data via web search
+3. Draft - save JSON (status: draft)
+4. Quick build for local preview - drafts visible locally
+5. Apply feedback - revise and rebuild
+6. Set status -> approved when ready to publish
 ```
 
-**중요**: 초안 작성 후 반드시 글 전문을 텍스트로 공유해야 함. JSON만 보여주면 사용자가 내용 확인이 어려움.
+**Important**: After drafting, always share the full text. Showing only JSON makes it hard for the user to review.
 
-### 작성 체크리스트 (이슈 리포트)
-| 항목 | 체크 | 설명 |
-|------|:----:|------|
-| **날짜 형식** | ☐ | `YYYY-MM-DDTHH:MM` 형식, **현재 시간 기준 30분 단위** (예: 01:00, 01:30, 02:00) |
-| **이미지** | ☐ | 2-3 섹션 간격으로 배치 (예: 섹션 2, 4, 6). 전체 본문 이미지 3-4개 적절. 서론/마치며에는 이미지 불필요, 깨진 이미지 없는지 확인 |
-| **이미지 alt** | ☐ | 모든 이미지에 alt 텍스트 필수 (키워드 포함 설명) |
-| **본문 구조** | ☐ | 섹션당 2-3단락, 단락당 2-4문장, `\n\n`으로 구분 |
-| **출처** | ☐ | 최소 4-5개 이상, **나무위키 절대 제외** |
-| **관련 이슈** | ☐ | relatedIssues에 관련 이슈 slug 연결 (최대 4개) |
-| **관련 게임** | ☐ | relatedGames에 언급된 게임 slug 연결 |
-| **K게임 관점** | ☐ | 한국과 무관한 내용 배제 (예: 중국 업체 폐업 → K게임 영향으로) |
-| **썸네일 중복** | ☐ | 썸네일과 본문 이미지 중복 금지 |
-| **퀵빌드 확인** | ☐ | 이미지 로드, 레이아웃 확인 |
+### Writing Checklist (Issue Report)
+| Item | Check | Description |
+|------|:-----:|-------------|
+| **Date format** | - | `YYYY-MM-DDTHH:MM`, **rounded to 30-min intervals** (e.g., 01:00, 01:30) |
+| **Images** | - | Place every 2-3 sections. 3-4 images total. None in intro/conclusion. Check for broken images |
+| **Image alt** | - | Required for all images (keyword-rich description) |
+| **Body structure** | - | 2-3 paragraphs per section, 2-4 sentences each, separated by `\n\n` |
+| **Sources** | - | Minimum 4-5. **Never use Namuwiki** |
+| **Related issues** | - | Link related issue slugs in relatedIssues (max 4) |
+| **Related games** | - | Link mentioned game slugs in relatedGames |
+| **K-game perspective** | - | Exclude content unrelated to Korea (e.g., frame China shutdowns as impact on K-games) |
+| **Thumbnail duplication** | - | Thumbnail and body images must not overlap |
+| **Quick build check** | - | Verify image loading and layout |
 
-### JSON 형식
+### JSON Format
 ```json
 {
   "slug": "게임-AI-논란-수상박탈",
@@ -596,164 +586,158 @@ cd docs && npx serve -l 3000
   "date": "2026-01-04T12:00",
   "keywords": "키워드1, 키워드2, 키워드3",
   "summary": "요약 2-3문장 (독자 흥미 유발)",
-  "thumbnail": "대표 이미지 URL",
+  "thumbnail": "thumbnailURL",
   "relatedIssues": ["관련-이슈-slug-1", "관련-이슈-slug-2"],
   "sources": [{ "name": "출처명", "title": "기사제목", "url": "URL" }],
   "content": [
     { "type": "heading", "value": "키워드로 시작하는 소제목" },
-    { "type": "image", "src": "이미지URL", "caption": "캡션", "alt": "키워드 포함 설명" },
-    { "type": "text", "value": "본문 문단" },
+    { "type": "image", "src": "imageURL", "caption": "caption", "alt": "keyword description" },
+    { "type": "text", "value": "body paragraph" },
     { "type": "ad" },
     { "type": "heading", "value": "마치며" },
-    { "type": "text", "value": "결론 문단" }
+    { "type": "text", "value": "conclusion paragraph" }
   ]
 }
 ```
 
-### 필드 규칙
-| 필드 | 규칙 | 예시 |
-|------|------|------|
-| **slug** | 3-5단어, 케밥케이스 (SEO 최적화) | `리니지-클래식-월정액-복귀` |
-| **date** | ISO 형식 + 시간 (같은 날 정렬용) | `2026-01-20T12:00` |
-| **title** | 태그 없이 제목만 (~~[이슈 포커스]~~ 등 금지) | `AI 썼다고 수상 박탈?…` |
-| **keywords** | SEO용 키워드, 쉼표로 구분 | `리니지, 엔씨소프트, MMORPG` |
-| **heading** | 번호 포함, 마지막은 "마치며: 부제" 형식 (번호 없이) | `1. 첫 번째`, `2. 두 번째`, `마치며: 핵심 메시지` |
-| **relatedGames** | (선택) 관련 게임 slug 배열, 수동 지정 시 자동 매칭 무시 | `["승리의-여신-니케", "카오스-제로-나이트메어"]` |
-| **relatedIssues** | (선택) 관련 이슈 리포트 slug 배열 (최대 4개, PC 4열/모바일 2열 그리드) | `["게임-AI-논란-수상박탈"]` |
-| **sources** | (선택) 정보 출처 배열, SEO에 유리 | `[{name, title, url}]` |
+### Field Rules
+| Field | Rule | Example |
+|-------|------|---------|
+| **slug** | 3-5 words, kebab-case (SEO) | `리니지-클래식-월정액-복귀` |
+| **date** | ISO + time (for same-day sorting) | `2026-01-20T12:00` |
+| **title** | Title only, no tags (~~[이슈 포커스]~~ forbidden) | `AI 썼다고 수상 박탈?…` |
+| **keywords** | SEO keywords, comma-separated | `리니지, 엔씨소프트, MMORPG` |
+| **heading** | Numbered, last one "마치며: subtitle" (no number) | `1. 첫 번째`, `마치며: 핵심 메시지` |
+| **relatedGames** | (Optional) Related game slug array; manual overrides auto-match | `["승리의-여신-니케"]` |
+| **relatedIssues** | (Optional) Related issue slug array (max 4, PC 4-col / mobile 2-col grid) | `["게임-AI-논란-수상박탈"]` |
+| **sources** | (Optional) Source array, good for SEO | `[{name, title, url}]` |
 
-### content 블록 타입
-| 타입 | 용도 | 예시 |
-|------|------|------|
-| `text` | 본문 문단 | 3-4단락, 단락당 3-5문장, `\n\n`으로 문단 구분 |
-| `heading` | 소제목 (h2) | 섹션 시작점 |
-| `image` | 이미지 + 캡션 | src, caption 필드 |
-| `video` | 유튜브 임베드 | url, caption 필드 (16:9 반응형) |
-| `ad` | 광고 삽입 위치 | 2-3개 배치 |
-| `quote` | 인용문 | 강조할 문장 |
-| `table` | 표 | headers, rows, caption(선택) 필드 |
+### Content Block Types
+| Type | Purpose | Details |
+|------|---------|---------|
+| `text` | Body paragraph | 3-4 paragraphs, 3-5 sentences each, `\n\n` separator |
+| `heading` | Subheading (h2) | Section start |
+| `image` | Image + caption | src, caption, alt fields |
+| `video` | YouTube embed | url, caption fields (16:9 responsive) |
+| `ad` | Ad placement | Place 2-3 throughout |
+| `quote` | Block quote | Emphasized statement |
+| `table` | Table | headers, rows, caption (optional) fields |
 
-### 글 스타일 규칙
-| 항목 | 규칙 |
+### Writing Style Rules
+| Item | Rule |
 |------|------|
-| **서론** | 2-3문장 (핵심 요약 중심) |
-| **섹션 수** | 5-10개 |
-| **본문** | 섹션당 2-3단락, 단락당 2-4문장 |
-| **소제목** | 섹션마다 heading 사용 |
-| **이미지** | 섹션마다 1개, 소제목(heading) 바로 다음에 배치, **썸네일과 본문 이미지 중복 금지**, **구글 이미지/뉴스 최우선, Wikipedia 금지** |
-| **이미지 비율** | **가로형(16:9) 우선 사용**, 세로형(박스아트 등) 지양, 게임플레이/스크린샷/프로모션 이미지 선호 |
-| **이미지 높이** | 히어로(썸네일): 데스크탑 280px / 모바일 200px, 본문 이미지: 800px |
-| **광고** | 본문 중간에 2-3개 배치 |
-| **문체** | 블로그형 설명체, 헤더 톤은 자유 |
+| **Intro** | 2-3 sentences (key summary) |
+| **Section count** | 5-10 |
+| **Body** | 2-3 paragraphs/section, 2-4 sentences/paragraph |
+| **Subheadings** | Use heading for each section |
+| **Images** | 1 per section, placed right after heading. **No thumbnail/body duplication**. **Prefer Google Images/News, never Wikipedia** |
+| **Image ratio** | **Prefer landscape (16:9)**. Avoid portrait. Prefer gameplay/screenshot/promo images |
+| **Image height** | Hero (thumbnail): desktop 280px / mobile 200px. Body images: 800px |
+| **Ads** | 2-3 placements within body |
+| **Tone** | Blog-style explanatory. Header tone is flexible |
+| **Output language** | Korean (한국어) |
 
-### SEO 최적화 규칙
+### SEO Rules
 
 #### URL/Slug
-| 항목 | 규칙 | 예시 |
-|------|------|------|
-| **길이** | 3-5개 단어 이내 | `ram-price-surge-2026` |
-| **언어** | 영문 소문자만 (한글 불가) | `roguelike-casual-korea` |
-| **구분자** | 하이픈(-) 사용 | ✅ `game-ai` ❌ `game_ai` |
-| **날짜/숫자** | 가급적 제외 (재활용 어려움) | ❌ `2026-01-ram-price` |
+| Item | Rule | Example |
+|------|------|---------|
+| **Length** | 3-5 words | `ram-price-surge-2026` |
+| **Language** | Lowercase English only (no Korean) | `roguelike-casual-korea` |
+| **Separator** | Hyphen (-) | `game-ai` (not `game_ai`) |
+| **Dates/numbers** | Avoid (hard to reuse) | Not `2026-01-ram-price` |
 
-#### 제목 (H1 = title)
-- **핵심 키워드를 앞부분에** 배치
-- 50자 이내 권장
-- ❌ `게이머의 악몽이 시작됐다, 램가격 폭등`
-- ✅ `램가격 폭등이 컴퓨터가격 폭등으로, 게이머의 악몽`
+#### Title (H1 = title)
+- Place **core keyword at the front**
+- Under 50 chars recommended
+- Bad: `게이머의 악몽이 시작됐다, 램가격 폭등`
+- Good: `램가격 폭등이 컴퓨터가격 폭등으로, 게이머의 악몽`
 
-#### 소제목 (H2 = heading)
-- **키워드로 시작**, 번호는 선택
-- ❌ `1. 왜 갑자기 램이 이렇게 비싸졌나?`
-- ✅ `DDR5 램 가격 폭등, 왜 이렇게 비싸졌나?`
-- ✅ `1. DDR5 램 가격 폭등 원인` (번호 포함도 OK)
+#### Subheading (H2 = heading)
+- **Start with keyword**
+- Bad: `1. 왜 갑자기 램이 이렇게 비싸졌나?`
+- Good: `DDR5 램 가격 폭등, 왜 이렇게 비싸졌나?`
+- Good: `1. DDR5 램 가격 폭등 원인` (numbered OK)
 
-#### 키워드 (keywords)
-- 메인 키워드 + 롱테일 키워드 혼합
-- 연도 포함 (`2026`)
-- 10-15개 권장
-- 예: `DDR5 램 가격, 램가격 폭등 2026, 메모리 슈퍼사이클, PC 조립 비용`
+#### Keywords
+- Mix main + long-tail keywords
+- Include year (`2026`)
+- 10-15 recommended
+- Example: `DDR5 램 가격, 램가격 폭등 2026, 메모리 슈퍼사이클, PC 조립 비용`
 
-#### 요약 (summary = 메타 디스크립션)
-- **120-150자** 이내
-- 핵심 키워드 포함
-- 클릭 유도 문구 포함
+#### Summary (= meta description)
+- **120-150 chars**
+- Include core keywords
+- Include click-inducing phrasing
 
-#### 첫 문단 (서론)
-- **첫 3문장에 핵심 키워드** 자연스럽게 포함
-- 문제 제기 → 핵심 정보 → 이 글의 가치
+#### First Paragraph (Intro)
+- **Include core keyword in first 3 sentences** naturally
+- Pattern: problem statement -> key info -> value of this article
 
-#### 본문 키워드 배치
-- 핵심 키워드: 전체 글에서 5-8회 자연스럽게 등장
-- 소제목마다 관련 키워드 1개 이상
-- 마지막 문단에 핵심 키워드 재등장
+#### Body Keyword Placement
+- Core keyword: 5-8 natural occurrences across entire article
+- At least 1 related keyword per subheading
+- Core keyword reappears in final paragraph
 
-#### 내부 링크 (필수)
-- **relatedIssues 필드** 사용 (최대 4개)
-- 관련 게임은 **relatedGames 필드** 또는 자동 매칭
-- 본문에서는 텍스트로 언급만 (인라인 링크 불필요)
+#### Internal Links
+- Use **relatedIssues** field (max 4)
+- Related games via **relatedGames** field or auto-matching
+- In body text, mention by name only (no inline links needed)
 
-#### 이미지 SEO
-| 필드 | 용도 | 규칙 |
-|------|------|------|
-| **src** | 이미지 URL | 필수 |
-| **caption** | 화면 표시 캡션 | 간결하게 |
-| **alt** | 검색엔진용 | **필수**, 키워드 포함 설명 |
+#### Image SEO
+| Field | Purpose | Rule |
+|-------|---------|------|
+| **src** | Image URL | Required |
+| **caption** | Display caption | Concise |
+| **alt** | For search engines | **Required**, keyword-rich description |
 
-#### 글 분량
-| 항목 | 권장 |
-|------|------|
-| 전체 | 2,500~3,500자 |
-| 섹션당 | 3-4단락, 단락당 3-5문장 |
+#### Article Length
+| Item | Recommended |
+|------|-------------|
+| Total | 2,500-3,500 chars |
+| Per section | 3-4 paragraphs, 3-5 sentences each |
 
-#### 줄바꿈 정책
-- **단락 구분**: `\n\n` (빈 줄)로 단락 구분
-- **단락 내 문장**: 줄바꿈 없이 이어서 작성
+#### Line Break Policy
+- **Paragraph separation**: `\n\n` (blank line)
+- **Within paragraph**: No line breaks, continuous text
 
-### 공개 상태
+### Publication Status
 - `status: "draft" | "approved"`
-- 초기 작성은 반드시 `draft`
-- 빌드/허브/사이트맵에는 **approved만** 반영
+- Initial writing must be `draft`
+- Build/hub/sitemap includes **approved only**
 
-### 이미지 배치 패턴
+### Image Placement Pattern
 ```
 heading → image → text → text → text
 heading → image → text → text → ad → text
 ```
 
-### 작성 요청 예시
-```
-"방치형 게임 시장 이슈 리포트 써줘"
-"메이플 키우기 성공 요인 이슈 리포트 작성해줘"
-"2026년 모바일 게임 트렌드 이슈 리포트 작성해줘"
-```
-
-### 빌드
+### Build
 ```bash
-npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
+npm run build -- -q   # Quick build auto-generates pages
 ```
 
 ---
 
-## 랭킹 리포트 작성 (Ranking)
+## Ranking Report Writing
 
-### 개요
-- 게임 간 순위 비교 분석 리포트
-- 대화형으로 작성 (주제 논의 → 데이터 확인 → 초안 → 수정 → 완성)
-- 저장 경로: `reports/ranking/{slug}.json`
+### Overview
+- Comparative ranking analysis reports between games
+- Interactive process (topic -> data check -> draft -> revise -> publish)
+- Path: `reports/ranking/{slug}.json`
 - URL: `/trend/ranking/{slug}/`
 
-### 작성 프로세스
+### Writing Process
 ```
-1. 주제 선정 - 비교할 게임 선정
-2. 데이터 확인 - history/{date}.json의 bestRanks로 실제 순위 확인
-3. 초안 작성 - JSON 저장 (draft 상태)
-4. 퀵빌드로 로컬 확인 - draft도 로컬에서 보임
-5. 피드백 반영 - 수정 후 퀵빌드 반복
-6. 올릴 때 status → approved로 변경
+1. Topic selection - choose games to compare
+2. Data check - verify actual rankings from history/{date}.json bestRanks
+3. Draft - save JSON (status: draft)
+4. Quick build for local preview
+5. Apply feedback - revise and rebuild
+6. Set status -> approved when ready to publish
 ```
 
-### JSON 형식
+### JSON Format
 ```json
 {
   "slug": "game-a-vs-game-b-2026",
@@ -762,113 +746,113 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
   "date": "2026-01-28T21:00",
   "keywords": "게임A, 게임B, 순위 비교, 매출 순위",
   "summary": "요약 2-3문장",
-  "thumbnail": "대표 이미지 URL",
+  "thumbnail": "thumbnailURL",
   "relatedIssues": ["관련-이슈-slug"],
   "relatedGames": ["게임A-slug", "게임B-slug"],
   "sources": [],
   "content": [
-    { "type": "text", "value": "서론 문단" },
+    { "type": "text", "value": "intro paragraph" },
     { "type": "link", "url": "/games/게임A/", "text": "게임A", "subtext": "실시간 순위 확인하기" },
     { "type": "heading", "value": "1. 매출 순위: 분석 제목" },
     { "type": "chart", "games": ["게임A", "게임B"], "category": "grossing", "market": "ios", "startDate": "2026-01-22", "endDate": "2026-01-28", "title": "iOS 매출 순위 비교" },
-    { "type": "text", "value": "분석 내용" },
-    { "type": "image", "src": "이미지URL", "caption": "캡션" },
+    { "type": "text", "value": "analysis content" },
+    { "type": "image", "src": "imageURL", "caption": "caption" },
     { "type": "ad" }
   ]
 }
 ```
 
-### content 블록 타입 (랭킹 전용)
-| 타입 | 용도 | 필드 |
-|------|------|------|
-| `chart` | 순위 차트 | games, category, market, startDate, endDate, title |
-| `link` | 게임 페이지 링크 | url, text, subtext |
+### Ranking-Specific Content Block Types
+| Type | Purpose | Fields |
+|------|---------|--------|
+| `chart` | Ranking chart | games, category, market, startDate, endDate, title |
+| `link` | Game page link | url, text, subtext |
 
-**chart 블록 필드:**
-| 필드 | 값 | 예시 |
-|------|-----|------|
-| games | 게임 slug 배열 | `["명일방주-엔드필드", "드래곤소드"]` |
-| category | `grossing` / `free` | 매출 / 인기(다운로드) |
-| market | `ios` / `android` | 플랫폼 |
-| startDate | `YYYY-MM-DD` | 차트 시작일 |
-| endDate | `YYYY-MM-DD` | 차트 종료일 |
-| title | 차트 제목 | `iOS 매출 순위 비교 (한국)` |
+**Chart block fields:**
+| Field | Values | Example |
+|-------|--------|---------|
+| games | Game slug array | `["명일방주-엔드필드", "드래곤소드"]` |
+| category | `grossing` / `free` | Revenue / Downloads |
+| market | `ios` / `android` | Platform |
+| startDate | `YYYY-MM-DD` | Chart start date |
+| endDate | `YYYY-MM-DD` | Chart end date |
+| title | Chart title | `iOS 매출 순위 비교 (한국)` |
 
-### bestRanks 데이터 확인
-실제 순위 데이터는 `history/{date}.json`의 `bestRanks`에서 확인:
+### bestRanks Data Check
+Actual ranking data is in `history/{date}.json` under `bestRanks`:
 
 ```javascript
-// history/2026-01-28.json 구조
+// history/2026-01-28.json structure
 {
   "bestRanks": {
-    "ios_kr_grossing": { "앱ID": 순위 },
-    "ios_kr_free": { "앱ID": 순위 },
-    "android_kr_grossing": { "패키지명": 순위 },
-    "android_kr_free": { "패키지명": 순위 }
+    "ios_kr_grossing": { "appID": rank },
+    "ios_kr_free": { "appID": rank },
+    "android_kr_grossing": { "packageName": rank },
+    "android_kr_free": { "packageName": rank }
   }
 }
 ```
 
-**앱 ID 찾기:** `games.json`에서 게임명으로 검색
+**Finding app IDs:** Search by game name in `games.json`
 
-### 이미지 배치 규칙
-- **heading 바로 아래에 이미지 배치** (텍스트 위)
-- 캡션은 해당 섹션 내용과 일치해야 함
-- 예: 글로벌 시장 섹션 → "글로벌 동시 출시된 게임명" (❌ "오픈월드 환경")
+### Image Placement Rules
+- **Place image right after heading** (before text)
+- Caption must match section content
+- Example: Global market section -> "게임명 글로벌 동시 출시" (not "오픈월드 환경")
 
 ```
 heading → image → text → text
 ```
 
-### 월간 순위 분석 리포트 작성 요령
+### Monthly Ranking Report Guidelines
 
-월간 서브컬쳐/장르별 순위 분석 리포트 작성 시 참고:
+For monthly subculture/genre ranking reports:
 
-**1. 제목 형식**
-- `{연도}년 {월}월 {장르} 게임 매출 순위`
-- 예: "2026년 1월 서브컬쳐 게임 매출 순위"
+**1. Title format**
+- `{Year}년 {Month}월 {Genre} 게임 매출 순위`
+- Example: "2026년 1월 서브컬쳐 게임 매출 순위"
 
-**2. 구조**
+**2. Structure**
 ```
-서문 (text) → 순위표 (ranking-bar) → 개별 게임 분석 (10위→1위 역순)
+Intro (text) → ranking chart (ranking-bar) → individual game analysis (10th→1st reverse order)
 ```
-- "TOP 10 순위" 같은 헤딩 없이 서문 바로 아래 차트 배치
-- 각 게임별: heading → ranking-card → ranking-compare → text
+- No "TOP 10 순위" heading; chart directly below intro
+- Per game: heading -> ranking-card -> ranking-compare -> text
 
-**3. 순위 데이터 확인 (필수)**
-- `history/{date}.json`의 `bestRanks`에서 실제 최고 순위 확인
-- `data/stats/ranking/{month}-kr.json` 파일과 교차 검증
-- 앱 ID는 `games.json`에서 조회
+**3. Ranking Data Verification (Required)**
+- Check actual best ranks from `history/{date}.json` `bestRanks`
+- Cross-verify with `data/stats/ranking/{month}-kr.json`
+- Look up app IDs in `games.json`
 
 ```bash
-# bestRanks에서 특정 게임 순위 확인
+# Check specific game ranking from bestRanks
 python3 -c "
 import json, os
-app_id = '앱ID'  # games.json에서 확인
+app_id = 'APP_ID'  # from games.json
 for day in range(1, 32):
     f = f'history/2026-01-{day:02d}.json'
     if os.path.exists(f):
         data = json.load(open(f, encoding='utf-8-sig'))
         rank = data.get('bestRanks',{}).get('ios_kr_grossing',{}).get(app_id)
-        if rank: print(f'{day}일: {rank}위')
+        if rank: print(f'Day {day}: rank {rank}')
 "
 ```
 
-**4. ranking-card 블록**
+**4. ranking-card block**
 ```json
 {
   "type": "ranking-card",
   "item": {
     "name": "게임명",
     "score": 1234,
-    "slug": "게임-slug",
+    "slug": "game-slug",
     "ios": "최고 3위",
     "android": "최고 5위"
   }
 }
 ```
 
-**5. ranking-compare 블록** (iOS vs Android 차트)
+**5. ranking-compare block** (iOS vs Android chart)
 ```json
 {
   "type": "ranking-compare",
@@ -876,136 +860,136 @@ for day in range(1, 32):
   "startDate": "2026-01-01",
   "endDate": "2026-01-31",
   "items": [
-    {"slug": "게임-slug", "market": "ios", "label": "iOS"},
-    {"slug": "게임-slug", "market": "android", "label": "Android"}
+    {"slug": "game-slug", "market": "ios", "label": "iOS"},
+    {"slug": "game-slug", "market": "android", "label": "Android"}
   ]
 }
 ```
 
 **6. relatedGames**
-- TOP 10 게임 전체를 slug로 추가
-- `games.json`에서 정확한 slug 확인
+- Add all TOP 10 game slugs
+- Verify exact slugs from `games.json`
 
-**7. 게임별 설명 작성**
-- MCP firecrawl로 해당 월의 업데이트/이벤트 조사
-- 픽업 캐릭터, 콜라보, 기념일 이벤트 등 구체적 정보 포함
-- "픽업 직후 순위 상승 후 하락" 같은 당연한 패턴은 생략
+**7. Per-game descriptions**
+- Research updates/events for that month using MCP firecrawl
+- Include specific info: pickup characters, collabs, anniversary events
+- Omit obvious patterns like "rank rose after pickup then dropped"
 
-### 작성 체크리스트 (랭킹 리포트)
-| 항목 | 체크 | 설명 |
-|------|:----:|------|
-| **bestRanks 확인** | ☐ | 실제 순위 데이터로 워딩 검증 |
-| **chart 날짜** | ☐ | startDate/endDate가 분석 기간과 일치 |
-| **이미지 캡션** | ☐ | 섹션 주제와 일치하는지 확인 |
-| **게임 링크** | ☐ | 서론에 비교 대상 게임 link 블록 추가 |
-| **퀵빌드 확인** | ☐ | 차트 렌더링, 이미지 로드 확인 |
+### Writing Checklist (Ranking Report)
+| Item | Check | Description |
+|------|:-----:|-------------|
+| **bestRanks verified** | - | Verify wording against actual ranking data |
+| **Chart dates** | - | startDate/endDate match analysis period |
+| **Image captions** | - | Match section topic |
+| **Game links** | - | Add link blocks for compared games in intro |
+| **Quick build check** | - | Verify chart rendering, image loading |
 
 ---
 
-## 게임 위키 작성 (Wiki)
+## Game Wiki Writing
 
-### 개요
-- 게임 업계 지식/용어를 정리하는 위키형 글
-- 대화형으로 작성 (주제 논의 → 자료 조사 → 초안 → 수정 → 완성)
-- 저장 경로: `data/wiki/{category}/{slug}.json`
+### Overview
+- Wiki-style articles about game industry knowledge/terminology
+- Interactive process (topic -> research -> draft -> revise -> publish)
+- Path: `data/wiki/{category}/{slug}.json`
 - URL: `/wiki/{category}/{slug}/`
-- 카테고리: `business` / `history` / `knowledge`
+- Categories: `business` / `history` / `knowledge`
 
-> **테크 문서**는 별도 섹션으로 분리됨
-> - 저장 경로: `data/tech/{category}/{slug}.json`
+> **Tech articles** are in a separate section:
+> - Path: `data/tech/{category}/{slug}.json`
 > - URL: `/tech/{category}/{slug}/`
-> - 카테고리: `normal` (일반)
+> - Category: `normal` (general)
 
-> **AI 기사 (AIScroll)**는 테크 문서의 `ai` 카테고리로 작성
-> - 저장 경로: `data/tech/ai/{slug}.json`
+> **AI articles (AIScroll)** use the `ai` category under tech:
+> - Path: `data/tech/ai/{slug}.json`
 > - AIScroll URL: `/article/{category}/{slug}/`
-> - **필수 필드**: `category` - 반드시 지정 (폴더 분리됨)
-> - 카테고리 값: `general` | `openai` | `google` | `anthropic`
+> - **Required field**: `category` (determines folder)
+> - Category values: `general` | `openai` | `google` | `anthropic`
 >
-> | 카테고리 | 대상 |
-> |----------|------|
-> | `general` | 일반 AI 뉴스, 복수 회사 비교, 업계 동향 |
-> | `openai` | OpenAI, ChatGPT, GPT 시리즈, DALL-E, Sora |
+> | Category | Target |
+> |----------|--------|
+> | `general` | General AI news, multi-company comparisons, industry trends |
+> | `openai` | OpenAI, ChatGPT, GPT series, DALL-E, Sora |
 > | `google` | Google, DeepMind, Gemini, Bard, Genie |
 > | `anthropic` | Anthropic, Claude, Constitutional AI |
 >
-> **출처 규칙 (AIScroll)**
-> - **해외 언론만 사용**: AI 기사는 해외 언론(WSJ, Bloomberg, Reuters, TechCrunch, The Verge 등)만 참고자료로 사용
-> - 국내 언론 사용 금지 (매일경제, 글로벌이코노믹 등 포함)
-> - 최소 2-3개의 해외 출처 확보 권장
+> **Source Rules (AIScroll)**
+> - **International media only**: Use WSJ, Bloomberg, Reuters, TechCrunch, The Verge, etc.
+> - No Korean domestic media (Maeil Business, Global Economic, etc.)
+> - Minimum 2-3 international sources recommended
 >
-> **영문 동시 작성 (AIScroll 권장)**
-> - AI 기사 작성 시 영문 버전 동시 작성 권장
-> - 필요한 영문 필드: `keywordsEn`, `titleEn`, `summaryEn`, `contentEn`
-> - 동시 작성 시 `needTranslate: false` 설정 (자동 번역 스킵)
-> - 번역 워크플로우 대기 시간 절약 + 품질 향상
+> **English Co-writing (AIScroll, recommended)**
+> - Write English version alongside Korean
+> - Required English fields: `keywordsEn`, `titleEn`, `summaryEn`, `contentEn`
+> - Set `needTranslate: false` when co-writing (skips auto-translation)
+> - Saves translation workflow time + better quality
 >
-> **번역 필드 (AIScroll 전용)**
-> | 필드 | 값 | 설명 |
-> |------|-----|------|
-> | `needTranslate` | 없음/`true` | 번역 필요 (기본값, 새 글은 필드 없어도 됨) |
-> | `needTranslate` | `false` | 번역 완료 (자동으로 변경됨) |
-> | `titleEn` | string | 영어 제목 (번역 후 자동 생성) |
-> | `summaryEn` | string | 영어 요약 (번역 후 자동 생성) |
-> | `keywordsEn` | string | 영어 키워드 (**JSON 작성 시 수동 추가 필수**) |
-> | `contentEn` | array | 영어 본문 (번역 후 자동 생성) |
+> **Translation Fields (AIScroll only)**
+> | Field | Value | Description |
+> |-------|-------|-------------|
+> | `needTranslate` | absent/`true` | Translation needed (default) |
+> | `needTranslate` | `false` | Translation complete |
+> | `titleEn` | string | English title (auto-generated after translation) |
+> | `summaryEn` | string | English summary (auto-generated after translation) |
+> | `keywordsEn` | string | English keywords (**must add manually when writing JSON**) |
+> | `contentEn` | array | English body (auto-generated after translation) |
 >
-> ⚠️ **keywordsEn은 자동 번역되지 않음** - JSON 작성 시 직접 영문 키워드 추가 필요
+> Warning: **keywordsEn is NOT auto-translated** - add English keywords manually when writing JSON
 
-> **바이브코딩 (VibeCoding)**은 테크 문서의 `vibecoding` 카테고리로 작성
-> - 저장 경로: `data/tech/vibecoding/{slug}.json`
+> **VibeCoding** uses the `vibecoding` category under tech:
+> - Path: `data/tech/vibecoding/{slug}.json`
 > - URL: `/tech/vibecoding/{slug}/`
-> - **필수 필드**: `category: "vibecoding"` 지정
+> - **Required field**: `category: "vibecoding"`
 >
-> **영문 동시 작성 (VibeCoding 권장)**
-> - 필요한 영문 필드: `keywordsEn`, `titleEn`, `summaryEn`
-> - 동시 작성 시 `needTranslate: false` 설정 (자동 번역 스킵)
+> **English Co-writing (VibeCoding, recommended)**
+> - Required English fields: `keywordsEn`, `titleEn`, `summaryEn`
+> - Set `needTranslate: false` when co-writing
 >
-> **번역 필드 (VibeCoding)**
-> | 필드 | 설명 |
-> |------|------|
-> | `category` | `"vibecoding"` 고정 |
-> | `keywordsEn` | 영어 키워드 (수동 추가 필수) |
-> | `titleEn` | 영어 제목 |
-> | `summaryEn` | 영어 요약 |
-> | `contentEn` | 영어 본문 (content와 동일 구조) |
-> | `needTranslate` | `true` (번역 필요) / `false` (번역 완료) |
+> **Translation Fields (VibeCoding)**
+> | Field | Description |
+> |-------|-------------|
+> | `category` | `"vibecoding"` (fixed) |
+> | `keywordsEn` | English keywords (must add manually) |
+> | `titleEn` | English title |
+> | `summaryEn` | English summary |
+> | `contentEn` | English body (same structure as content) |
+> | `needTranslate` | `true` (needs translation) / `false` (done) |
 
-> **번역 워크플로우**
+> **Translation Workflow**
 > ```
-> 1. 새 글 작성 시 keywordsEn 필드 함께 추가 (필수)
-> 2. aibuild.yml 실행 → needTranslate !== false인 글 감지
-> 3. translate-ai-blog.js 실행 → Claude로 번역
-> 4. 번역 완료 후 needTranslate: false + titleEn/summaryEn/contentEn 저장
-> 5. generate-ai-blog.js 실행 → HTML 생성
+> 1. Add keywordsEn field when writing new article (required)
+> 2. Run aibuild.yml → detects articles where needTranslate !== false
+> 3. translate-ai-blog.js runs → translates via Claude
+> 4. On completion: needTranslate: false + titleEn/summaryEn/contentEn saved
+> 5. generate-ai-blog.js runs → generates HTML
 > ```
 
-### 작성 프로세스
+### Writing Process
 ```
-1. 주제 선정 - 사용자와 논의
-2. 자료 조사 - 웹 검색으로 데이터 수집
-3. 초안 작성 - JSON 저장 (draft 상태)
-4. 퀵빌드로 로컬 확인 - draft도 로컬에서 보임
-5. 피드백 반영 - 수정 후 퀵빌드 반복
-6. 올릴 때 status → approved로 변경
+1. Topic selection - discuss with user
+2. Research - collect data via web search
+3. Draft - save JSON (status: draft)
+4. Quick build for local preview - drafts visible locally
+5. Apply feedback - revise and rebuild
+6. Set status -> approved when ready to publish
 ```
 
-**중요**: 초안 작성 후 반드시 글 전문을 텍스트로 공유해야 함. JSON만 보여주면 사용자가 내용 확인이 어려움.
+**Important**: After drafting, always share the full text. Showing only JSON makes it hard for the user to review.
 
-### 작성 체크리스트 (위키)
-| 항목 | 체크 | 설명 |
-|------|:----:|------|
-| **날짜 형식** | ☐ | `YYYY-MM-DDTHH:MM` 형식, **현재 시간 기준 30분 단위** (예: 01:00, 01:30, 02:00) |
-| **이미지** | ☐ | 2-3 섹션 간격으로 배치 (예: 섹션 2, 4, 6). 전체 본문 이미지 3-4개 적절. 서론/마치며에는 이미지 불필요, 깨진 이미지 없는지 확인 |
-| **이미지 alt** | ☐ | 모든 이미지에 alt 텍스트 필수 (키워드 포함 설명) |
-| **출처** | ☐ | 최소 4-5개 이상, **나무위키 절대 제외** |
-| **관련 문서** | ☐ | relatedDocs에 관련 문서 연결 (예: `wiki:slug`, `tech:cat/slug`, `issue:slug`) |
-| **관련 게임** | ☐ | relatedGames에 본문에서 언급된 게임 slug 연결 |
-| **썸네일 중복** | ☐ | 썸네일과 본문 이미지 중복 금지 |
-| **연도 표현** | ☐ | "2025년 트렌드" 대신 "최근 트렌드" 사용 (시의성 유지) |
-| **퀵빌드 확인** | ☐ | 이미지 로드, 레이아웃 확인 |
+### Writing Checklist (Wiki)
+| Item | Check | Description |
+|------|:-----:|-------------|
+| **Date format** | - | `YYYY-MM-DDTHH:MM`, **rounded to 30-min intervals** |
+| **Images** | - | Every 2-3 sections. 3-4 total. None in intro/conclusion. Check for broken images |
+| **Image alt** | - | Required for all images (keyword-rich description) |
+| **Sources** | - | Minimum 4-5. **Never use Namuwiki** |
+| **Related docs** | - | Link via relatedDocs (e.g., `wiki:slug`, `tech:cat/slug`, `issue:slug`) |
+| **Related games** | - | Link mentioned game slugs in relatedGames |
+| **Thumbnail duplication** | - | Thumbnail and body images must not overlap |
+| **Year references** | - | Use "recent trends" instead of "2025 trends" (maintain timeliness) |
+| **Quick build check** | - | Verify image loading and layout |
 
-### JSON 형식
+### JSON Format
 ```json
 {
   "slug": "unity-engine",
@@ -1014,54 +998,54 @@ for day in range(1, 32):
   "date": "2026-01-20T12:00",
   "keywords": "키워드1, 키워드2, 키워드3",
   "summary": "요약 2-3문장 (핵심 정의/가치 중심)",
-  "thumbnail": "대표 이미지 URL",
+  "thumbnail": "thumbnailURL",
   "sources": [{ "name": "출처명", "title": "문서/기사 제목", "url": "URL" }],
   "content": [
     { "type": "heading", "value": "키워드로 시작하는 소제목" },
-    { "type": "image", "src": "이미지URL", "caption": "캡션", "alt": "키워드 포함 설명" },
-    { "type": "text", "value": "본문 문단" },
-    { "type": "quote", "value": "인용문" },
+    { "type": "image", "src": "imageURL", "caption": "caption", "alt": "keyword description" },
+    { "type": "text", "value": "body paragraph" },
+    { "type": "quote", "value": "quote" },
     { "type": "heading", "value": "마치며" },
-    { "type": "text", "value": "정리 문단" }
+    { "type": "text", "value": "closing paragraph" }
   ]
 }
 ```
 
-### 필드 규칙
-| 필드 | 규칙 | 예시 |
-|------|------|------|
-| **slug** | 3-5단어, 케밥케이스 (SEO 최적화) | `unity-engine` |
-| **date** | ISO 형식 + 시간 (같은 날 정렬용) | `2026-01-20T12:00` |
-| **title** | 태그 없이 제목만 | `Unity 엔진` |
-| **keywords** | SEO용 키워드, 쉼표로 구분 | `Unity, 게임 엔진, 크로스플랫폼` |
-| **heading** | 키워드로 시작, 마지막은 "마치며: 부제" 형식 | `Unity 엔진 특징`, `마치며: 핵심 메시지` |
-| **category** | 폴더명으로 구분 | `business`, `history`, `knowledge` (위키) / `normal` (테크) |
-| **sources** | (선택) 정보 출처 배열, **나무위키 제외** | `[{name, title, url}]` |
-| **relatedDocs** | (선택, 권장) 통합 관련 문서 배열 | `["wiki:unity-engine", "issue:게임-AI-논란"]` |
-| **relatedArticles** | (선택, 레거시) 관련 위키 slug 배열 | `["unity-engine"]` |
-| **relatedIssues** | (선택, 레거시) 관련 이슈 slug 배열 | `["게임-AI-논란"]` |
-| **relatedGames** | (선택) 관련 게임 slug 배열 | `["리니지-m", "메이플스토리"]` |
+### Field Rules
+| Field | Rule | Example |
+|-------|------|---------|
+| **slug** | 3-5 words, kebab-case (SEO) | `unity-engine` |
+| **date** | ISO + time (for same-day sorting) | `2026-01-20T12:00` |
+| **title** | Title only, no tags | `Unity 엔진` |
+| **keywords** | SEO keywords, comma-separated | `Unity, 게임 엔진, 크로스플랫폼` |
+| **heading** | Start with keyword, last one "마치며: subtitle" | `Unity 엔진 특징`, `마치며: 핵심 메시지` |
+| **category** | Folder name | `business`, `history`, `knowledge` (wiki) / `normal` (tech) |
+| **sources** | (Optional) Source array, **no Namuwiki** | `[{name, title, url}]` |
+| **relatedDocs** | (Optional, recommended) Unified related docs array | `["wiki:unity-engine", "issue:게임-AI-논란"]` |
+| **relatedArticles** | (Optional, legacy) Related wiki slug array | `["unity-engine"]` |
+| **relatedIssues** | (Optional, legacy) Related issue slug array | `["게임-AI-논란"]` |
+| **relatedGames** | (Optional) Related game slug array | `["리니지-m", "메이플스토리"]` |
 
-### 콘텐츠 연결 규칙 (relatedDocs / relatedGames)
+### Content Linking Rules (relatedDocs / relatedGames)
 
-| 필드 | 최대 개수 | 필수 여부 |
-|------|----------|----------|
-| **relatedGames** | 4개 | 선택 (없으면 비워도 됨) |
-| **relatedDocs** | 4개 | 선택 (통합 형식, 권장) |
-| **relatedArticles** | 4개 | 선택 (레거시, 위키/테크용) |
-| **relatedIssues** | 4개 | 선택 (레거시, 위키/테크용) |
+| Field | Max | Required |
+|-------|-----|----------|
+| **relatedGames** | 4 | Optional |
+| **relatedDocs** | 4 | Optional (unified format, recommended) |
+| **relatedArticles** | 4 | Optional (legacy, wiki/tech) |
+| **relatedIssues** | 4 | Optional (legacy, wiki/tech) |
 
-**relatedDocs 통합 형식 (권장):**
+**relatedDocs unified format (recommended):**
 ```json
 "relatedDocs": [
-  "wiki:slug",                    // 위키 문서 (전체 검색)
-  "wiki:category/slug",           // 위키 문서 (카테고리 지정)
-  "tech:category/slug",           // 테크 문서
-  "issue:slug"                    // 이슈 리포트
+  "wiki:slug",                    // Wiki doc (searches all categories)
+  "wiki:category/slug",           // Wiki doc (specific category)
+  "tech:category/slug",           // Tech doc
+  "issue:slug"                    // Issue report
 ]
 ```
 
-**예시:**
+**Example:**
 ```json
 "relatedDocs": [
   "wiki:knowledge/chzzk-soop-p2p-grid",
@@ -1070,49 +1054,47 @@ for day in range(1, 32):
 ]
 ```
 
-**레거시 폴백:**
-- `relatedDocs`가 없으면 `relatedArticles` + `relatedIssues` 조합 사용
-- 기존 JSON 파일은 수정 없이 동작
+**Legacy fallback:**
+- If `relatedDocs` is absent, uses `relatedArticles` + `relatedIssues` combination
+- Existing JSON files work without modification
 
-**연결 범위:**
-- 위키 ↔ 위키/테크/이슈
-- 테크 ↔ 위키/테크/이슈
-- 이슈 리포트: `relatedWiki`, `relatedIssues` 사용 (기존 형식 유지)
+**Linking scope:**
+- Wiki <-> Wiki/Tech/Issue
+- Tech <-> Wiki/Tech/Issue
+- Issue reports: use `relatedWiki`, `relatedIssues` (existing format maintained)
 
-**연결 방식:**
-- 수동 지정: JSON의 slug 배열로 직접 지정 (우선)
-- 자동 감지: 본문에서 게임명 언급 시 자동 연결 (최대 4개)
+**Linking method:**
+- Manual: specify slugs in JSON array (takes priority)
+- Auto: auto-links when game names are mentioned in body (max 4)
 
-**비워도 되는 경우:**
-- 관련 콘텐츠가 없을 때
-- 무리하게 연결할 필요 없음
+**OK to leave empty** when no related content exists.
 
-**slug 찾기:**
+**Finding slugs:**
 ```bash
-# 위키 slug 목록
+# Wiki slugs
 ls data/wiki/*/*.json | xargs -I {} basename {} .json
 
-# 테크 slug 목록
+# Tech slugs
 ls data/tech/*/*.json | xargs -I {} basename {} .json
 
-# 이슈 리포트 slug 목록
+# Issue report slugs
 ls reports/issue/*.json | xargs -I {} basename {} .json
 
-# 게임 slug 검색
+# Game slug search
 grep -l "게임명" data/games.json
 ```
 
-### content 블록 타입
-| 타입 | 용도 | 예시 |
-|------|------|------|
-| `text` | 본문 문단 | 3-4단락, 단락당 3-5문장, `\n\n`으로 문단 구분 |
-| `heading` | 소제목 (h2) | 섹션 시작점 |
-| `image` | 이미지 + 캡션 | src, caption 필드 |
-| `video` | 유튜브 임베드 | url, caption 필드 (16:9 반응형) |
-| `quote` | 인용문 | 강조할 문장 |
-| `table` | 표 | headers, rows, caption(선택) 필드 |
+### Content Block Types
+| Type | Purpose | Details |
+|------|---------|---------|
+| `text` | Body paragraph | 3-4 paragraphs, 3-5 sentences each, `\n\n` separator |
+| `heading` | Subheading (h2) | Section start |
+| `image` | Image + caption | src, caption, alt fields |
+| `video` | YouTube embed | url, caption fields (16:9 responsive) |
+| `quote` | Block quote | Emphasized statement |
+| `table` | Table | headers, rows, caption (optional) |
 
-**table 블록 예시:**
+**Table block example:**
 ```json
 {
   "type": "table",
@@ -1125,127 +1107,116 @@ grep -l "게임명" data/games.json
 }
 ```
 
-### 글 스타일 규칙
-| 항목 | 규칙 |
+### Writing Style Rules
+| Item | Rule |
 |------|------|
-| **서론** | 2-3문장 (핵심 정의 중심) |
-| **섹션 수** | 5-10개 |
-| **본문** | 섹션당 2-3단락, 단락당 2-4문장 |
-| **소제목** | 섹션마다 heading 사용 |
-| **이미지** | 2-3 섹션 간격으로 배치 (예: 섹션 2, 4, 6). 전체 본문 이미지 3-4개 적절. 서론/마치며에는 이미지 불필요, **썸네일과 본문 이미지 중복 금지**, **구글 이미지/뉴스 최우선, Wikipedia 금지** |
-| **이미지 높이** | 히어로(썸네일): 데스크탑 280px / 모바일 200px, 본문 이미지: 800px |
-| **문체** | 설명형, 간결하고 직관적으로 |
+| **Intro** | 2-3 sentences (core definition) |
+| **Section count** | 5-10 |
+| **Body** | 2-3 paragraphs/section, 2-4 sentences/paragraph |
+| **Subheadings** | Use heading for each section |
+| **Images** | Every 2-3 sections. 3-4 total. None in intro/conclusion. **No thumbnail/body duplication. Google Images/News preferred, never Wikipedia** |
+| **Image height** | Hero (thumbnail): desktop 280px / mobile 200px. Body images: 800px |
+| **Tone** | Explanatory, concise, and direct |
+| **Output language** | Korean (한국어) |
 
-### SEO 최적화 규칙
+### SEO Rules
 
 #### URL/Slug
-| 항목 | 규칙 | 예시 |
-|------|------|------|
-| **길이** | 3-5개 단어 이내 | `unity-engine` |
-| **언어** | 영문 소문자 권장, 한글도 허용 | `게임-엔진-정의` |
-| **구분자** | 하이픈(-) 사용 | ✅ `game-engine` ❌ `game_engine` |
-| **날짜/숫자** | 가급적 제외 | ❌ `2026-unity-engine` |
+| Item | Rule | Example |
+|------|------|---------|
+| **Length** | 3-5 words | `unity-engine` |
+| **Language** | Lowercase English preferred, Korean allowed | `게임-엔진-정의` |
+| **Separator** | Hyphen (-) | `game-engine` (not `game_engine`) |
+| **Dates/numbers** | Avoid | Not `2026-unity-engine` |
 
-#### 제목 (H1 = title)
-- **핵심 키워드를 앞부분에** 배치
-- 40자 이내 권장
-- ✅ `Unity 엔진, 모바일 시장을 장악한 이유`
+#### Title (H1 = title)
+- **Core keyword at the front**
+- Under 40 chars recommended
 
-#### 소제목 (H2 = heading)
-- **키워드로 시작**
-- ✅ `Unity 엔진 주요 특징`
-- ✅ `Unity 엔진 라이선스 정책`
+#### Subheading (H2 = heading)
+- **Start with keyword**
 
-#### 키워드 (keywords)
-- 핵심 키워드 + 롱테일 키워드 혼합
-- 8-12개 권장
-- 예: `Unity, 게임 엔진, 크로스플랫폼, 모바일 개발, 에셋 스토어`
+#### Keywords
+- Mix main + long-tail keywords
+- 8-12 recommended
 
-#### 요약 (summary = 메타 디스크립션)
-- **120-150자** 이내
-- 핵심 키워드 포함
-- 정의 + 실무적 가치 한 줄 요약
+#### Summary (= meta description)
+- **120-150 chars**
+- Include core keywords
+- Definition + practical value in one line
 
-#### 본문 키워드 배치
-- 핵심 키워드: 전체 글에서 4-6회 자연스럽게 등장
-- 소제목마다 관련 키워드 1개 이상
+#### Body Keyword Placement
+- Core keyword: 4-6 natural occurrences
+- At least 1 related keyword per subheading
 
-#### 이미지 SEO
-| 필드 | 용도 | 규칙 |
-|------|------|------|
-| **src** | 이미지 URL | 필수 |
-| **caption** | 화면 표시 캡션 | 간결하게 |
-| **alt** | 검색엔진용 | **필수**, 키워드 포함 설명 |
+#### Image SEO
+| Field | Purpose | Rule |
+|-------|---------|------|
+| **src** | Image URL | Required |
+| **caption** | Display caption | Concise |
+| **alt** | For search engines | **Required**, keyword-rich description |
 
-#### 글 분량
-| 항목 | 권장 |
-|------|------|
-| 전체 | 2,500~3,500자 |
-| 섹션당 | 3-4단락, 단락당 3-5문장 |
+#### Article Length
+| Item | Recommended |
+|------|-------------|
+| Total | 2,500-3,500 chars |
+| Per section | 3-4 paragraphs, 3-5 sentences each |
 
-### 공개 상태
+### Publication Status
 - `status: "draft" | "approved"`
-- 초기 작성은 반드시 `draft`
-- 빌드/허브/사이트맵에는 **approved만** 반영
+- Initial writing must be `draft`
+- Build/hub/sitemap includes **approved only**
 
-### content 구조 패턴
+### Content Structure Pattern
 ```
-text (서론) → heading → image → text → heading → image → text → ... → heading (마치며) → text
+text (intro) → heading → image → text → heading → image → text → ... → heading (마치며) → text
 ```
-- **서론**: heading 없이 text로 시작 (3-4문장)
-- **본문 섹션**: heading → image → text 순서
-- **마지막 섹션**: "마치며" heading → text (이미지 불필요)
+- **Intro**: Start with text, no heading (3-4 sentences)
+- **Body sections**: heading -> image -> text order
+- **Final section**: "마치며" heading -> text (no image needed)
 
-### 작성 요청 예시
-```
-"Unity 엔진 위키 작성해줘"
-"ARPU 위키 항목 작성해줘"
-"게임 엔진 종류 비교 위키 작성해줘"
-```
-
-### 빌드
+### Build
 ```bash
-npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
+npm run build -- -q   # Quick build auto-generates pages
 ```
 
-### SEO 최종 체크리스트
-작성 완료 후 아래 항목을 점검:
+### SEO Final Checklist
 
-| 항목 | 체크 | 기준 |
-|------|:----:|------|
-| **Slug** | ☐ | 3-5단어, 영문 케밥케이스, 핵심 키워드 포함 |
-| **제목** | ☐ | 핵심 키워드 앞부분에, 40자 이내 |
-| **요약** | ☐ | 120-150자, 핵심 키워드 + 클릭 유도 |
-| **키워드** | ☐ | 8-12개, 메인 + 롱테일 혼합, **변형 다양화** |
-| **첫 문단** | ☐ | 첫 3문장에 핵심 키워드 자연스럽게 포함 |
-| **소제목** | ☐ | 관련 키워드 자연스럽게, 마지막은 "마치며" |
-| **본문 키워드** | ☐ | 전체 4-6회 자연스럽게 등장 |
-| **이미지 alt** | ☐ | 모든 이미지에 키워드 포함 설명 |
-| **출처** | ☐ | 신뢰할 수 있는 출처 2개 이상 |
+| Item | Check | Criteria |
+|------|:-----:|---------|
+| **Slug** | - | 3-5 words, English kebab-case, includes core keyword |
+| **Title** | - | Core keyword at front, under 40 chars |
+| **Summary** | - | 120-150 chars, core keyword + click trigger |
+| **Keywords** | - | 8-12, main + long-tail mix, **diversified variants** |
+| **First paragraph** | - | Core keyword naturally in first 3 sentences |
+| **Subheadings** | - | Related keywords naturally, last one "마치며" |
+| **Body keywords** | - | 4-6 natural occurrences throughout |
+| **Image alt** | - | All images have keyword-rich descriptions |
+| **Sources** | - | 2+ credible sources |
 
-#### 키워드 다양화 원칙
-- **동일 키워드 반복 금지**: 소제목마다 같은 키워드 나열은 키워드 스터핑으로 간주
-- **변형 사용**: 메인 키워드의 유의어, 약어, 관련어로 자연스럽게 분산
-- **롱테일 활용**: "롤러코스터 타이쿤" → "놀이공원 시뮬레이션", "타이쿤 장르", "RCT"
+#### Keyword Diversification Principle
+- **No identical keyword repetition**: same keyword in every subheading = keyword stuffing
+- **Use variants**: synonyms, abbreviations, related terms of the main keyword
+- **Use long-tail**: "롤러코스터 타이쿤" -> "놀이공원 시뮬레이션", "타이쿤 장르", "RCT"
 
-**예시 (좋은 키워드 구성):**
+**Example (good keyword composition):**
 ```
-메인: 롤러코스터 타이쿤
-변형: RCT, 놀이공원 시뮬레이션, 타이쿤 게임
-롱테일: 90년대 PC 게임, 1인 개발 전설, 어셈블리어 게임 개발
+Main: 롤러코스터 타이쿤
+Variants: RCT, 놀이공원 시뮬레이션, 타이쿤 게임
+Long-tail: 90년대 PC 게임, 1인 개발 전설, 어셈블리어 게임 개발
 ```
 
 ---
 
-## 이미지 펜딩 큐
+## Image Pending Queue
 
-### 개요
-- 이미지 다운로드 실패 시 펜딩 큐에 추가
-- 다음 실행부터 펜딩에 있는 URL은 스킵 (시간 절약)
-- 나중에 수동으로 확인 후 처리
+### Overview
+- Failed image downloads are added to the pending queue
+- Subsequent runs skip URLs in pending (saves time)
+- Manually review and resolve later
 
-### 데이터 구조
-- 저장 경로: `data/pending-images.json`
+### Data Structure
+- Path: `data/pending-images.json`
 
 ```json
 {
@@ -1261,87 +1232,86 @@ npm run build -- -q   # 퀵 빌드 시 자동으로 페이지 생성
 }
 ```
 
-### 데이터 흐름
-
+### Data Flow
 ```
-이미지 다운로드 실패 → pending-images.json에 추가
+Image download fails → add to pending-images.json
               ↓
-         다음 실행 시 → pending에 있으면 스킵
+         Next run → skip if in pending
               ↓
-         수동 확인 (URL 살아났는지, 대체 이미지 등)
+         Manual review (check if URL is alive, find replacement)
               ↓
-         해결되면 → pending에서 제거
+         Resolved → remove from pending
 ```
 
-### 수동 처리 방법
-| 상황 | 작업 |
-|------|------|
-| URL 살아남 | pending에서 제거 후 재실행 |
-| URL 죽음 | 해당 날짜 JSON에서 썸네일 제거 또는 대체 |
-| 오래된 날짜 | 해당 날짜 리포트 자체 삭제 |
+### Manual Resolution
+| Situation | Action |
+|-----------|--------|
+| URL alive | Remove from pending and re-run |
+| URL dead | Remove/replace thumbnail in the date's JSON |
+| Old date | Delete the entire date's report |
 
-### 관련 스크립트
-- `scripts/download-daily-images.js` - 데일리 이미지 다운로드
-- `scripts/download-images.js` - 위키/테크/이슈 이미지 다운로드
-
----
-
-## 주의사항
-
-1. **워크플로우 타이밍**: build(30분)이 ai-insight(12시간) 이후에 실행되어야 게임주 현황 표시됨
-2. **주말/공휴일**: 주가는 마지막 거래일 기준
-3. **캐시 의존성**: 퀵 모드는 data-cache.json 필수
-4. **API 비용**: AI 인사이트는 Claude API 호출 (self-hosted runner 사용)
-5. **EUC-KR**: 네이버 증권은 EUC-KR 인코딩 사용
+### Related Scripts
+- `scripts/download-daily-images.js` - Daily image download
+- `scripts/download-images.js` - Wiki/tech/issue image download
 
 ---
 
-## Git 커밋 규칙
+## Important Notes
 
-### 소스 파일 (커밋 대상)
-| 경로 | 설명 |
-|------|------|
-| `data/` | 게임DB, 위키, 테크, 이슈 JSON |
-| `reports/` | AI 인사이트 JSON |
-| `src/` | 크롤러, 템플릿 |
-| `scripts/` | 스크립트 |
-| `*.js` | 진입점 (generate-*.js 등) |
-| `GAMERSCROLL.md` | 프로젝트 가이드 |
-| `package.json` | 의존성 |
-
-### 빌드 산출물 (건드리지 않기)
-| 경로 | 설명 |
-|------|------|
-| `docs/` | 서버에서 빌드 |
-| `styles.*.css` | 서버에서 생성 |
-| `.build-cache.json` | 서버에서 관리 |
-
-**규칙:**
-1. 소스 파일만 커밋
-2. 빌드 산출물은 로컬에서 수정/삭제하지 않기
-3. **푸시 전 리베이스 필수** (서버 빌드 산출물 반영)
-4. 푸시 후 빌드 트리거
+1. **Workflow timing**: build (30 min) must run after ai-insight (12 hr) for stock cards to display
+2. **Weekends/holidays**: Stock data uses last trading day
+3. **Cache dependency**: Quick mode requires data-cache.json
+4. **API cost**: AI insight calls Claude API (self-hosted runner)
+5. **EUC-KR**: Naver Finance uses EUC-KR encoding
 
 ---
 
-## Git 명령 (WSL 환경)
+## Git Commit Rules
 
-WSL에서 `/mnt/c/` 경로 접근 시 성능 저하 발생. Git 명령은 PowerShell로 실행:
+### Source Files (Commit Targets)
+| Path | Description |
+|------|-------------|
+| `data/` | Game DB, wiki, tech, issue JSON |
+| `reports/` | AI insight JSON |
+| `src/` | Crawlers, templates |
+| `scripts/` | Scripts |
+| `*.js` | Entry points (generate-*.js, etc.) |
+| `GAMERSCROLL.md` | Project guide |
+| `package.json` | Dependencies |
+
+### Build Artifacts (Do Not Touch)
+| Path | Description |
+|------|-------------|
+| `docs/` | Built on server |
+| `styles.*.css` | Generated on server |
+| `.build-cache.json` | Managed by server |
+
+**Rules:**
+1. Commit source files only
+2. Do not modify/delete build artifacts locally
+3. **Rebase before push** (to incorporate server build artifacts)
+4. Trigger build after push
+
+---
+
+## Git Commands (WSL)
+
+WSL `/mnt/c/` path access has performance issues. Run Git commands via PowerShell:
 
 ```powershell
-# 1. 소스만 커밋
-powershell.exe -Command "cd C:\Project\GamerScroll; git add data/ reports/ src/ scripts/ *.js *.md package.json; git commit -m '메시지'"
+# 1. Commit sources only
+powershell.exe -Command "cd C:\Project\GamerScroll; git add data/ reports/ src/ scripts/ *.js *.md package.json; git commit -m 'message'"
 
-# 2. 리베이스 (서버 산출물 반영) - 필수!
+# 2. Rebase (incorporate server artifacts) - required!
 powershell.exe -Command "cd C:\Project\GamerScroll; git pull --rebase origin main"
 
-# 3. 푸시 & 빌드 트리거
+# 3. Push & trigger build
 powershell.exe -Command "cd C:\Project\GamerScroll; git push origin main; gh workflow run build.yml"
 
-# AI 인사이트 워크플로우 트리거
+# Trigger AI insight workflow
 powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run ai-insight.yml"
 
-# 주간 인사이트 워크플로우 트리거
+# Trigger weekly insight workflow
 powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run weekly-insight.yml"
 ```
 
@@ -1349,9 +1319,9 @@ powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run weekly-insig
 
 ---
 
-## Git 운영 규칙
+## Git Operation Rules
 
-1. **푸시 전 리베이스 필수**: 항상 `git pull --rebase` 후 푸시. 리베이스 없이 푸시 금지
-2. **아티클 푸시 시 JSON 콘텐츠 파일만 커밋** — 관련 없는 변경사항은 포함하지 않기
-3. **카테고리 이동 시 정리**: 콘텐츠를 다른 카테고리로 옮길 때(예: issue → insight) 이전 빌드 산출물 정리
-4. **미스테이지 변경사항 처리**: Git 작업 시작 전에 unstaged 변경사항이 있으면 stash하거나 해결 후 진행
+1. **Rebase before push**: Always `git pull --rebase` before push. Never push without rebase
+2. **Article push**: Commit only JSON content files - exclude unrelated changes
+3. **Category migration**: Clean up previous build artifacts when moving content between categories (e.g., issue -> insight)
+4. **Unstaged changes**: Stash or resolve unstaged changes before starting Git operations
