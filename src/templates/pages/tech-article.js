@@ -447,6 +447,27 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
                 <img class="blog-related-issue-thumb" src="/assets/images/issue/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
+            } else if (item.type === 'insight') {
+              return `
+              <a href="/magazine/insight/${item.slug}/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/insight/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
+              </a>`;
+            } else if (item.type === 'hotpick') {
+              return `
+              <a href="/magazine/hotpick/${item.slug}/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/hotpick/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
+              </a>`;
+            } else if (item.type === 'ranking') {
+              const thumb = item.thumbnail
+                ? (item.thumbnail.startsWith('/') ? item.thumbnail : `/assets/images/ranking/${item.slug}/thumbnail.webp`)
+                : '/favicon.svg';
+              return `
+              <a href="/magazine/ranking/${item.slug}/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
+              </a>`;
             }
             return '';
           }).join('')}

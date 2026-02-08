@@ -566,12 +566,12 @@ cd docs && npx serve -l 3000
 ### Writing Checklist (Issue Report)
 | Item | Check | Description |
 |------|:-----:|-------------|
-| **Date format** | - | `YYYY-MM-DDTHH:MM`, **rounded to 30-min intervals** (e.g., 01:00, 01:30) |
+| **Date format** | - | `YYYY-MM-DDTHH:MM`, **rounded to 30-min intervals** (e.g., 01:00, 01:30). 비워두면(`""`) status가 approved일 때 빌드 시 자동 기록 (KST) |
 | **Images** | - | Place every 2-3 sections. 3-4 images total. None in intro/conclusion. Check for broken images |
 | **Image alt** | - | Required for all images (keyword-rich description) |
 | **Body structure** | - | 2-3 paragraphs per section, 2-4 sentences each, separated by `\n\n` |
 | **Sources** | - | Minimum 4-5. **Never use Namuwiki** |
-| **Related issues** | - | Link related issue slugs in relatedIssues (max 4) |
+| **Related docs** | - | Link via relatedDocs (e.g., `issue:slug`, `hotpick:slug`, `insight:slug`, `ranking:slug`, `wiki:slug`, `tech:cat/slug`). Max 4. Legacy relatedIssues also supported |
 | **Related games** | - | Link mentioned game slugs in relatedGames |
 | **K-game perspective** | - | Exclude content unrelated to Korea (e.g., frame China shutdowns as impact on K-games) |
 | **Thumbnail duplication** | - | Thumbnail and body images must not overlap |
@@ -587,7 +587,7 @@ cd docs && npx serve -l 3000
   "keywords": "키워드1, 키워드2, 키워드3",
   "summary": "요약 2-3문장 (독자 흥미 유발)",
   "thumbnail": "thumbnailURL",
-  "relatedIssues": ["관련-이슈-slug-1", "관련-이슈-slug-2"],
+  "relatedDocs": ["issue:관련-이슈-slug", "hotpick:관련-핫픽-slug"],
   "sources": [{ "name": "출처명", "title": "기사제목", "url": "URL" }],
   "content": [
     { "type": "heading", "value": "키워드로 시작하는 소제목" },
@@ -604,12 +604,13 @@ cd docs && npx serve -l 3000
 | Field | Rule | Example |
 |-------|------|---------|
 | **slug** | 3-5 words, kebab-case (SEO) | `리니지-클래식-월정액-복귀` |
-| **date** | ISO + time (for same-day sorting) | `2026-01-20T12:00` |
+| **date** | ISO + time (for same-day sorting). 비워두면(`""`) approved 시 빌드에서 현재 시각 자동 기록 (KST, JSON에 write-back) | `2026-01-20T12:00` 또는 `""` |
 | **title** | Title only, no tags (~~[이슈 포커스]~~ forbidden) | `AI 썼다고 수상 박탈?…` |
 | **keywords** | SEO keywords, comma-separated | `리니지, 엔씨소프트, MMORPG` |
 | **heading** | Numbered, last one "마치며: subtitle" (no number) | `1. 첫 번째`, `마치며: 핵심 메시지` |
 | **relatedGames** | (Optional) Related game slug array; manual overrides auto-match | `["승리의-여신-니케"]` |
-| **relatedIssues** | (Optional) Related issue slug array (max 4, PC 4-col / mobile 2-col grid) | `["게임-AI-논란-수상박탈"]` |
+| **relatedDocs** | (Optional) Unified related docs array (max 4). Prefix: issue, insight, hotpick, ranking, wiki, tech. Slug-only also works (auto-search) | `["issue:게임-AI-논란", "hotpick:ff7-remake"]` |
+| **relatedIssues** | (Optional, legacy) Related issue slug array. Use relatedDocs instead | `["게임-AI-논란-수상박탈"]` |
 | **sources** | (Optional) Source array, good for SEO | `[{name, title, url}]` |
 
 ### Content Block Types
@@ -680,7 +681,8 @@ cd docs && npx serve -l 3000
 - Core keyword reappears in final paragraph
 
 #### Internal Links
-- Use **relatedIssues** field (max 4)
+- Use **relatedDocs** field (max 4, unified format: `issue:slug`, `hotpick:slug`, etc.)
+- Legacy **relatedIssues** also supported
 - Related games via **relatedGames** field or auto-matching
 - In body text, mention by name only (no inline links needed)
 
@@ -747,7 +749,7 @@ npm run build -- -q   # Quick build auto-generates pages
   "keywords": "게임A, 게임B, 순위 비교, 매출 순위",
   "summary": "요약 2-3문장",
   "thumbnail": "thumbnailURL",
-  "relatedIssues": ["관련-이슈-slug"],
+  "relatedDocs": ["issue:관련-이슈-slug"],
   "relatedGames": ["게임A-slug", "게임B-slug"],
   "sources": [],
   "content": [
@@ -979,7 +981,7 @@ for day in range(1, 32):
 ### Writing Checklist (Wiki)
 | Item | Check | Description |
 |------|:-----:|-------------|
-| **Date format** | - | `YYYY-MM-DDTHH:MM`, **rounded to 30-min intervals** |
+| **Date format** | - | `YYYY-MM-DDTHH:MM`, **rounded to 30-min intervals**. 비워두면(`""`) status가 approved일 때 빌드 시 자동 기록 (KST) |
 | **Images** | - | Every 2-3 sections. 3-4 total. None in intro/conclusion. Check for broken images |
 | **Image alt** | - | Required for all images (keyword-rich description) |
 | **Sources** | - | Minimum 4-5. **Never use Namuwiki** |
@@ -1015,7 +1017,7 @@ for day in range(1, 32):
 | Field | Rule | Example |
 |-------|------|---------|
 | **slug** | 3-5 words, kebab-case (SEO) | `unity-engine` |
-| **date** | ISO + time (for same-day sorting) | `2026-01-20T12:00` |
+| **date** | ISO + time (for same-day sorting). 비워두면(`""`) approved 시 빌드에서 현재 시각 자동 기록 (KST, JSON에 write-back) | `2026-01-20T12:00` 또는 `""` |
 | **title** | Title only, no tags | `Unity 엔진` |
 | **keywords** | SEO keywords, comma-separated | `Unity, 게임 엔진, 크로스플랫폼` |
 | **heading** | Start with keyword, last one "마치며: subtitle" | `Unity 엔진 특징`, `마치며: 핵심 메시지` |
@@ -1041,7 +1043,11 @@ for day in range(1, 32):
   "wiki:slug",                    // Wiki doc (searches all categories)
   "wiki:category/slug",           // Wiki doc (specific category)
   "tech:category/slug",           // Tech doc
-  "issue:slug"                    // Issue report
+  "issue:slug",                   // Issue report
+  "insight:slug",                 // Insight report
+  "hotpick:slug",                 // Hotpick report
+  "ranking:slug",                 // Ranking report
+  "slug-only"                     // Auto-search (issue → insight → hotpick → ranking → wiki → tech)
 ]
 ```
 
@@ -1050,18 +1056,19 @@ for day in range(1, 32):
 "relatedDocs": [
   "wiki:knowledge/chzzk-soop-p2p-grid",
   "tech:ai/moltbook-ai-social-network",
-  "issue:pc-bang-decline-arcade-fate"
+  "issue:pc-bang-decline-arcade-fate",
+  "hotpick:ff7-remake-switch2-release",
+  "ranking:steam-january-2026"
 ]
 ```
 
 **Legacy fallback:**
-- If `relatedDocs` is absent, uses `relatedArticles` + `relatedIssues` combination
+- If `relatedDocs` is absent, uses `relatedArticles` + `relatedIssues` + `relatedInsights` + `relatedHotpicks` combination
 - Existing JSON files work without modification
 
 **Linking scope:**
-- Wiki <-> Wiki/Tech/Issue
-- Tech <-> Wiki/Tech/Issue
-- Issue reports: use `relatedWiki`, `relatedIssues` (existing format maintained)
+- All types can link to all types (wiki, tech, issue, insight, hotpick, ranking)
+- Slug-only (no prefix) auto-searches all collections
 
 **Linking method:**
 - Manual: specify slugs in JSON array (takes priority)

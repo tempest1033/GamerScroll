@@ -38,6 +38,46 @@ const DOCS_DIR = path.join(__dirname, 'ai-docs');
 const STYLES_SRC = path.join(__dirname, 'src', 'styles');
 const FEED_ASSETS_DIR = path.join(DOCS_DIR, 'assets', 'feed');
 const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
+
+/**
+ * 발행시간 자동 기록: date가 비어있고 status === 'approved'인 기사에 현재 시각 기록
+ * @param {object} article - 기사 데이터
+ * @param {string} jsonFilePath - JSON 파일 경로 (write back용)
+ * @param {'KST'|'UTC'} timezone - 시간대
+ */
+function ensurePublishDate(article, jsonFilePath, timezone) {
+  if (article.date || article.status !== 'approved') return;
+  const now = new Date();
+  if (timezone === 'KST') {
+    now.setTime(now.getTime() + 9 * 60 * 60 * 1000);
+  }
+  // 30분 단위 반올림
+  const minutes = now.getUTCMinutes();
+  const roundedMinutes = minutes < 15 ? 0 : minutes < 45 ? 30 : 60;
+  if (roundedMinutes === 60) {
+    now.setUTCHours(now.getUTCHours() + 1);
+    now.setUTCMinutes(0);
+  } else {
+    now.setUTCMinutes(roundedMinutes);
+  }
+  const yyyy = now.getUTCFullYear();
+  const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(now.getUTCDate()).padStart(2, '0');
+  const hh = String(now.getUTCHours()).padStart(2, '0');
+  const min = String(now.getUTCMinutes()).padStart(2, '0');
+  article.date = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
+  // JSON 파일에 write back
+  try {
+    const raw = fs.readFileSync(jsonFilePath, 'utf8').replace(/^\uFEFF/, '');
+    const fileData = JSON.parse(raw);
+    fileData.date = article.date;
+    fs.writeFileSync(jsonFilePath, JSON.stringify(fileData, null, 2), 'utf8');
+    console.log(`  📅 발행시간 자동 기록: ${jsonFilePath} → ${article.date}`);
+  } catch (e) {
+    console.warn(`  ⚠️ 발행시간 write back 실패: ${jsonFilePath}`, e.message);
+  }
+}
+
 const AI_CSS_BUNDLES = [
   { entry: path.join(STYLES_SRC, 'bundle-core.css'), output: 'styles-core.css', required: true },
   { entry: path.join(STYLES_SRC, 'bundle-article.css'), output: 'styles-article.css', required: true }
@@ -237,6 +277,7 @@ function loadArticles() {
       try {
         const content = fs.readFileSync(path.join(techAiDir, file), 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
+        ensurePublishDate(data, path.join(techAiDir, file), 'UTC');
         if (data.status === 'approved' || data.status === 'published') {
           articles.push({ ...data, source: 'tech/ai', sourceFile: file });
           loadedSlugs.add(data.slug);
@@ -255,6 +296,7 @@ function loadArticles() {
       try {
         const content = fs.readFileSync(path.join(techVibeCodingDir, file), 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
+        ensurePublishDate(data, path.join(techVibeCodingDir, file), 'UTC');
         if (data.status === 'approved' || data.status === 'published') {
           // vibecoding 카테고리 강제 지정
           articles.push({ ...data, category: 'vibecoding', source: 'tech/vibecoding', sourceFile: file });

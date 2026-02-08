@@ -45,6 +45,45 @@ const WIKI_DIR = './data/wiki';
 const FEED_ASSETS_DIR = './assets/feed';
 const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
 
+/**
+ * 발행시간 자동 기록: date가 비어있고 status === 'approved'인 기사에 현재 시각 기록
+ * @param {object} article - 기사 데이터
+ * @param {string} jsonFilePath - JSON 파일 경로 (write back용)
+ * @param {'KST'|'UTC'} timezone - 시간대
+ */
+function ensurePublishDate(article, jsonFilePath, timezone) {
+  if (article.date || article.status !== 'approved') return;
+  const now = new Date();
+  if (timezone === 'KST') {
+    now.setTime(now.getTime() + 9 * 60 * 60 * 1000);
+  }
+  // 30분 단위 반올림
+  const minutes = now.getUTCMinutes();
+  const roundedMinutes = minutes < 15 ? 0 : minutes < 45 ? 30 : 60;
+  if (roundedMinutes === 60) {
+    now.setUTCHours(now.getUTCHours() + 1);
+    now.setUTCMinutes(0);
+  } else {
+    now.setUTCMinutes(roundedMinutes);
+  }
+  const yyyy = now.getUTCFullYear();
+  const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(now.getUTCDate()).padStart(2, '0');
+  const hh = String(now.getUTCHours()).padStart(2, '0');
+  const min = String(now.getUTCMinutes()).padStart(2, '0');
+  article.date = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
+  // JSON 파일에 write back
+  try {
+    const raw = fs.readFileSync(jsonFilePath, 'utf8').replace(/^\uFEFF/, '');
+    const fileData = JSON.parse(raw);
+    fileData.date = article.date;
+    fs.writeFileSync(jsonFilePath, JSON.stringify(fileData, null, 2), 'utf8');
+    console.log(`  📅 발행시간 자동 기록: ${jsonFilePath} → ${article.date}`);
+  } catch (e) {
+    console.warn(`  ⚠️ 발행시간 write back 실패: ${jsonFilePath}`, e.message);
+  }
+}
+
 function externalizeDeferredJsonPayloads() {
   ensureDir('./assets');
   if (fs.existsSync(FEED_ASSETS_DIR)) {
@@ -118,40 +157,76 @@ function rewriteDocsStylesheetLinks(docsDir) {
 
 /**
  * relatedDocs 통합 파싱 함수
- * 형식: ["wiki:slug", "wiki:category/slug", "issue:slug", "tech:category/slug"]
- * 하위 호환: relatedArticles, relatedIssues가 있으면 폴백
+ * 형식: ["wiki:slug", "wiki:category/slug", "issue:slug", "tech:category/slug",
+ *        "insight:slug", "hotpick:slug", "ranking:slug"]
+ * 프리픽스 없이 slug만 넣어도 자동 검색 (issue → insight → hotpick → ranking → wiki → tech 순)
+ * 하위 호환: relatedArticles, relatedIssues, relatedInsights, relatedHotpicks가 있으면 폴백
  */
-function parseRelatedDocs(article, currentCategory, wikiData, techData, issueReports) {
+function parseRelatedDocs(article, currentCategory, wikiData, techData, issueReports, insightReports = [], hotpickReports = [], rankingReports = []) {
   const result = [];
+
+  // 슬러그로 각 컬렉션 검색하는 헬퍼
+  function findBySlugAuto(slug) {
+    // issue → insight → hotpick → ranking → wiki → tech 순서
+    let found = issueReports.find(r => r.slug === slug);
+    if (found) return { type: 'issue', ...found };
+
+    found = insightReports.find(r => r.slug === slug);
+    if (found) return { type: 'insight', ...found };
+
+    found = hotpickReports.find(r => r.slug === slug);
+    if (found) return { type: 'hotpick', ...found };
+
+    found = rankingReports.find(r => r.slug === slug);
+    if (found) return { type: 'ranking', ...found };
+
+    for (const [cat, catArticles] of Object.entries(wikiData)) {
+      found = catArticles.find(a => a.slug === slug);
+      if (found) return { type: 'wiki', ...found, category: cat };
+    }
+
+    for (const [cat, catArticles] of Object.entries(techData)) {
+      found = catArticles.find(a => a.slug === slug);
+      if (found) return { type: 'tech', ...found, category: cat };
+    }
+
+    return null;
+  }
 
   // 1. relatedDocs가 있으면 우선 처리
   if (article.relatedDocs && article.relatedDocs.length > 0) {
     for (const doc of article.relatedDocs) {
-      const [type, pathPart] = doc.split(':');
-      if (!type || !pathPart) continue;
+      const colonIdx = doc.indexOf(':');
+
+      // 프리픽스 없이 slug만 넣은 경우 → 자동 검색
+      if (colonIdx === -1) {
+        const found = findBySlugAuto(doc);
+        if (found) result.push(found);
+        continue;
+      }
+
+      const type = doc.substring(0, colonIdx);
+      const pathPart = doc.substring(colonIdx + 1);
+      if (!pathPart) continue;
 
       const parts = pathPart.split('/');
       const slug = parts.pop();
       const category = parts.length > 0 ? parts.join('/') : null;
 
       if (type === 'wiki') {
-        // 위키 문서 검색
         if (category && wikiData[category]) {
           const found = wikiData[category].find(a => a.slug === slug);
           if (found) result.push({ type: 'wiki', ...found, category });
         } else {
-          // 카테고리 없으면 전체 검색
           for (const [cat, catArticles] of Object.entries(wikiData)) {
             const found = catArticles.find(a => a.slug === slug);
             if (found) { result.push({ type: 'wiki', ...found, category: cat }); break; }
           }
         }
       } else if (type === 'issue') {
-        // 이슈 리포트 검색
         const found = issueReports.find(r => r.slug === slug);
         if (found) result.push({ type: 'issue', ...found });
       } else if (type === 'tech') {
-        // 테크 문서 검색
         if (category && techData[category]) {
           const found = techData[category].find(a => a.slug === slug);
           if (found) result.push({ type: 'tech', ...found, category });
@@ -161,6 +236,15 @@ function parseRelatedDocs(article, currentCategory, wikiData, techData, issueRep
             if (found) { result.push({ type: 'tech', ...found, category: cat }); break; }
           }
         }
+      } else if (type === 'insight') {
+        const found = insightReports.find(r => r.slug === slug);
+        if (found) result.push({ type: 'insight', ...found });
+      } else if (type === 'hotpick') {
+        const found = hotpickReports.find(r => r.slug === slug);
+        if (found) result.push({ type: 'hotpick', ...found });
+      } else if (type === 'ranking') {
+        const found = rankingReports.find(r => r.slug === slug);
+        if (found) result.push({ type: 'ranking', ...found });
       }
     }
     return result;
@@ -194,6 +278,22 @@ function parseRelatedDocs(article, currentCategory, wikiData, techData, issueRep
     for (const slug of article.relatedIssues) {
       const found = issueReports.find(r => r.slug === slug);
       if (found) result.push({ type: 'issue', ...found });
+    }
+  }
+
+  // 4. 레거시 폴백: relatedInsights
+  if (article.relatedInsights && article.relatedInsights.length > 0) {
+    for (const slug of article.relatedInsights) {
+      const found = insightReports.find(r => r.slug === slug);
+      if (found) result.push({ type: 'insight', ...found });
+    }
+  }
+
+  // 5. 레거시 폴백: relatedHotpicks
+  if (article.relatedHotpicks && article.relatedHotpicks.length > 0) {
+    for (const slug of article.relatedHotpicks) {
+      const found = hotpickReports.find(r => r.slug === slug);
+      if (found) result.push({ type: 'hotpick', ...found });
     }
   }
 
@@ -383,6 +483,7 @@ function loadWikiData() {
       try {
         const raw = fs.readFileSync(`${categoryDir}/${file}`, 'utf8').replace(/^\uFEFF/, '');
         const article = JSON.parse(raw);
+        ensurePublishDate(article, `${categoryDir}/${file}`, 'KST');
         const status = article.status || '';
         const isApproved = status === 'approved' || status === 'published';
         const isDraft = status === 'draft';
@@ -422,6 +523,7 @@ function loadTechData() {
       try {
         const raw = fs.readFileSync(`${categoryDir}/${file}`, 'utf8').replace(/^\uFEFF/, '');
         const article = JSON.parse(raw);
+        ensurePublishDate(article, `${categoryDir}/${file}`, 'KST');
         const status = article.status || '';
         const isApproved = status === 'approved' || status === 'published';
         const isDraft = status === 'draft';
@@ -1378,7 +1480,9 @@ async function main() {
     const files = fs.readdirSync(ISSUE_REPORTS_DIR).filter(f => f.endsWith('.json'));
     issueReports = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        const data = JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        ensurePublishDate(data, `${ISSUE_REPORTS_DIR}/${f}`, 'KST');
+        return data;
       } catch (e) {
         return null;
       }
@@ -1394,7 +1498,9 @@ async function main() {
     const files = fs.readdirSync(INSIGHT_REPORTS_DIR).filter(f => f.endsWith('.json'));
     insightReports = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        const data = JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        ensurePublishDate(data, `${INSIGHT_REPORTS_DIR}/${f}`, 'KST');
+        return data;
       } catch (e) {
         return null;
       }
@@ -1410,7 +1516,9 @@ async function main() {
     const files = fs.readdirSync(HOTPICK_REPORTS_DIR).filter(f => f.endsWith('.json'));
     hotpickReports = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        const data = JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        ensurePublishDate(data, `${HOTPICK_REPORTS_DIR}/${f}`, 'KST');
+        return data;
       } catch (e) {
         return null;
       }
@@ -1426,7 +1534,9 @@ async function main() {
     const files = fs.readdirSync(RANKING_REPORTS_DIR).filter(f => f.endsWith('.json'));
     rankingReports = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        const data = JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        ensurePublishDate(data, `${RANKING_REPORTS_DIR}/${f}`, 'KST');
+        return data;
       } catch (e) {
         return null;
       }
@@ -1866,7 +1976,8 @@ async function main() {
           prev: issueReports[i + 1] ? { slug: issueReports[i + 1].slug, title: issueReports[i + 1].title } : null,
           next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
         };
-        const html = generateIssueDetailPage({ post, nav, issueReports, insightReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, techData: techDataForSidebar, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
+        const parsedRelatedDocs = parseRelatedDocs(post, null, wikiDataForIssue, techDataForSidebar, issueReports, insightReports, hotpickReports, rankingReports);
+        const html = generateIssueDetailPage({ post, nav, parsedRelatedDocs, issueReports, insightReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, techData: techDataForSidebar, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.issues, cacheKey, post);
         issueBuilt++;
@@ -1900,7 +2011,8 @@ async function main() {
           prev: insightReports[i + 1] ? { slug: insightReports[i + 1].slug, title: insightReports[i + 1].title } : null,
           next: insightReports[i - 1] ? { slug: insightReports[i - 1].slug, title: insightReports[i - 1].title } : null
         };
-        const html = generateInsightDetailPage({ post, nav, insightReports, issueReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
+        const parsedRelatedDocs = parseRelatedDocs(post, null, wikiDataForIssue, techDataForSidebar, issueReports, insightReports, hotpickReports, rankingReports);
+        const html = generateInsightDetailPage({ post, nav, parsedRelatedDocs, insightReports, issueReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.insights, cacheKey, post);
         insightBuilt++;
@@ -1934,7 +2046,8 @@ async function main() {
           prev: hotpickReports[i + 1] ? { slug: hotpickReports[i + 1].slug, title: hotpickReports[i + 1].title } : null,
           next: hotpickReports[i - 1] ? { slug: hotpickReports[i - 1].slug, title: hotpickReports[i - 1].title } : null
         };
-        const html = generateHotpickDetailPage({ post, nav, hotpickReports, issueReports, insightReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
+        const parsedRelatedDocs = parseRelatedDocs(post, null, wikiDataForIssue, techDataForSidebar, issueReports, insightReports, hotpickReports, rankingReports);
+        const html = generateHotpickDetailPage({ post, nav, parsedRelatedDocs, hotpickReports, issueReports, insightReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.hotpicks, cacheKey, post);
         hotpickBuilt++;
@@ -1968,7 +2081,8 @@ async function main() {
           prev: rankingReports[i + 1] ? { slug: rankingReports[i + 1].slug, title: rankingReports[i + 1].title } : null,
           next: rankingReports[i - 1] ? { slug: rankingReports[i - 1].slug, title: rankingReports[i - 1].title } : null
         };
-        const html = generateRankingDetailPage({ post, nav, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue, techData: techDataForSidebar, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
+        const parsedRelatedDocs = parseRelatedDocs(post, null, wikiDataForIssue, techDataForSidebar, issueReports, insightReports, hotpickReports, rankingReports);
+        const html = generateRankingDetailPage({ post, nav, parsedRelatedDocs, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue, techData: techDataForSidebar, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
         fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
         buildCache.updateCacheSection(incrementalCache.rankings, cacheKey, post);
         rankingBuilt++;
@@ -2094,7 +2208,7 @@ async function main() {
 
       try {
         // 관련 문서: parseRelatedDocs 통합 함수 사용
-        const relatedDocs = parseRelatedDocs(article, category, wikiData, techData, issueReports);
+        const relatedDocs = parseRelatedDocs(article, category, wikiData, techData, issueReports, insightReports, hotpickReports, rankingReports);
 
         // 이전/다음 항목
         const prevNext = {
@@ -2206,7 +2320,7 @@ async function main() {
 
       try {
         // 관련 문서: parseRelatedDocs 통합 함수 사용
-        const relatedDocs = parseRelatedDocs(article, category, wikiData, techData, issueReports);
+        const relatedDocs = parseRelatedDocs(article, category, wikiData, techData, issueReports, insightReports, hotpickReports, rankingReports);
 
         // 이전/다음 항목
         const prevNext = {
