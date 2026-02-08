@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-07T13:57:28.538Z",
+  "updatedAt": "2026-02-08T13:58:17.156Z",
   "period": "30days",
   "games": [
     {
@@ -8,15 +8,19 @@
     },
     {
       "slug": "드래곤소드",
-      "views": 87
+      "views": 91
     },
     {
       "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
-      "views": 28
+      "views": 33
     },
     {
       "slug": "명조워더링-웨이브",
-      "views": 6
+      "views": 9
+    },
+    {
+      "slug": "에르피스",
+      "views": 9
     },
     {
       "slug": "crosshair-x",
@@ -27,15 +31,15 @@
       "views": 5
     },
     {
+      "slug": "원신공월의-노래",
+      "views": 5
+    },
+    {
       "slug": "메이플-키우기",
       "views": 4
     },
     {
       "slug": "승리의-여신-니케",
-      "views": 4
-    },
-    {
-      "slug": "원신공월의-노래",
       "views": 4
     },
     {
@@ -72,10 +76,6 @@
     },
     {
       "slug": "소울-스트라이크-qwer-키우기",
-      "views": 1
-    },
-    {
-      "slug": "앵그리버드-2-angry-birds-2",
       "views": 1
     }
   ]
