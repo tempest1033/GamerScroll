@@ -277,7 +277,10 @@ function generateGamesHubPage(options = {}) {
   // 전체 게임 목록 아이콘: HTML을 가볍게 유지하고(SEO: 텍스트/링크 유지),
   // 보이는 항목만 search-index 기반으로 lazy hydrate 처리
   function resizeIconUrl(url) {
-    return getGsUtils().resizeStoreIconUrl(url);
+    if (!url) return '';
+    if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/100x100bb.');
+    if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
+    return url;
   }
 
   function cssUrl(url) {

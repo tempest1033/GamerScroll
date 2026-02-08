@@ -155,7 +155,10 @@ function generateRankingsPage(data) {
 	    }
 
 	    function resizeIconUrl(url) {
-	      return getGsUtils().resizeStoreIconUrl(url);
+	      if (!url) return '';
+	      if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/100x100bb.');
+	      if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
+	      return url;
 	    }
 
 	    function getDataUrl(chart, store) {

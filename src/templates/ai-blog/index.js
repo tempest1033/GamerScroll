@@ -896,8 +896,8 @@ function wrapWithLayout(content, options = {}) {
       transition: none !important;
       animation: none !important;
     }
-    /* AIScroll 전용: 기사 페이지 상단 마진 (!important: styles.css의 padding 단축 속성보다 우선) */
-    #issue .page-container {
+    /* AIScroll 전용: 모바일 상단 마진 (!important: styles.css의 padding 단축 속성보다 우선) */
+    .page-container {
       padding-top: var(--space-block-y) !important;
     }
     /* AIScroll 헤더 레이아웃 */
