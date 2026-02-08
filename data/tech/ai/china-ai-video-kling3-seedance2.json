@@ -1,0 +1,153 @@
+{
+  "slug": "china-ai-video-kling3-seedance2",
+  "status": "approved",
+  "category": "general",
+  "title": "이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시",
+  "titleEn": "Are Chinese Video Models Now the Best? Kling 3.0 and Seedance 2.0 Launch Together",
+  "date": "2026-02-08T19:30",
+  "keywords": "클링 3.0, 시댄스 2.0, 중국 AI, AI 동영상 생성, 콰이쇼우, 바이트댄스, Kling 3.0, Seedance 2.0, OpenAI Sora 2, Google Veo 3.1, AI 비디오, 4K AI 영상, 중국 AI 약진, AI 영상 생성 2026, 틱톡 AI, AI 동영상 만들기",
+  "keywordsEn": "Kling 3.0, Seedance 2.0, China AI, AI video generation, Kuaishou, ByteDance, OpenAI Sora 2, Google Veo 3.1, AI video, 4K AI video, China AI advancement, AI video generator 2026, TikTok AI, best AI video tool",
+  "summary": "텍스트 몇 줄이면 4K 영상이 뚝딱? 중국에서 이틀 간격으로 AI 영상 생성 모델 두 개가 나왔다. 콰이쇼우의 클링 3.0과 바이트댄스의 시댄스 2.0인데, OpenAI Sora 2나 Google Veo 3.1이 아직 못 하는 것들을 이미 해내고 있어 AI 영상 시장의 판도가 바뀔 수 있다.",
+  "summaryEn": "Type a few lines, get a 4K video? China dropped two AI video models in two days. Kuaishou's Kling 3.0 and ByteDance's Seedance 2.0 are already doing things OpenAI's Sora 2 and Google's Veo 3.1 can't, and the AI video market could be in for a shakeup.",
+  "thumbnail": "https://www.cined.com/content/uploads/2026/02/Kling-3-featured.jpg",
+  "sources": [
+    { "name": "Curious Refuge", "title": "Kling 3.0: The New King of AI Video Generation", "url": "https://www.curiousrefuge.com/blog/kling-3" },
+    { "name": "TechCrunch", "title": "Kuaishou launches Kling 3.0 with native 4K video generation", "url": "https://techcrunch.com/2025/02/05/kuaishou-launches-kling-3-0/" },
+    { "name": "VentureBeat", "title": "ByteDance unveils Seedance 2.0 multimodal video model", "url": "https://venturebeat.com/ai/bytedance-unveils-seedance-2-0/" }
+  ],
+  "relatedDocs": ["tech:ai/dead-internet-theory", "tech:ai/stargate-ai-crisis-2026", "tech:ai/nvidia-openai-investment-retreat"],
+  "relatedGames": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "글 몇 줄 쓰면 4K 영상이 만들어진다. 불과 1년 전만 해도 먼 이야기처럼 들렸는데, 2026년 2월 첫째 주에 중국에서 이걸 해내는 AI 영상 생성 모델이 두 개나 나왔다. 2월 5일 콰이쇼우(틱톡의 경쟁사)의 클링 3.0, 이틀 뒤인 2월 7일 바이트댄스(틱톡 모회사)의 시댄스 2.0이다.\n\nOpenAI의 Sora 2, Google의 Veo 3.1이 AI 영상 생성의 선두주자로 꼽혀왔는데, 중국에서 단 이틀 간격으로 이 둘을 위협하는 모델이 쏟아져 나온 것이다. 이번엔 영상 분야에서 공격적인 행보가 시작됐다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 클링 3.0: 처음부터 4K, 돈도 벌고 있다"
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/ColawMide/status/2020008886573625429?s=20",
+      "caption": "클링 3.0 AI 4K 영상 생성 데모"
+    },
+    {
+      "type": "text",
+      "value": "콰이쇼우가 2월 5일 공개한 클링 3.0의 가장 큰 특징은 '진짜 4K'다. 기존 AI 영상 도구들은 낮은 해상도로 만든 뒤 억지로 4K로 늘리는(업스케일링) 방식이 많았는데, 클링 3.0은 아예 처음부터 4K로 만든다. 그만큼 디테일이 살아있고, 최대 15초짜리 영상을 생성할 수 있다.\n\n한국어를 포함한 5개 언어로 음성까지 자동 생성해준다는 점도 눈길을 끈다. 더 재미있는 건 '멀티샷 스토리보드'라는 기능이다. 프롬프트 하나만 쓰면 AI가 알아서 여러 장면을 나눠서 구성한다. 마치 감독이 콘티를 짜는 것처럼. 3~8초짜리 캐릭터 영상에서 얼굴과 목소리를 뽑아내 다른 장면에 재활용하는 기능도 있다."
+    },
+    {
+      "type": "text",
+      "value": "기술만 좋은 게 아니라 실제로 돈을 벌고 있다는 게 포인트다. 클링은 이미 사용자 6천만 명, 월간 활성 사용자 1,200만 명을 확보했고, 연 매출이 2.4억 달러(약 3,500억 원)에 달한다. 기업 고객만 3만 곳이 넘는다. AI 영상 리뷰 매체 Curious Refuge는 10점 만점에 8.1점을 주면서 'AI 비디오 생성기의 새로운 왕'이라고 평가했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 시댄스 2.0: 사진+영상+음악+텍스트를 한꺼번에 넣는다"
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/dynamicwangs/status/2020054894741451123?s=20",
+      "caption": "시댄스 2.0 멀티모달 AI 영상 생성 데모"
+    },
+    {
+      "type": "text",
+      "value": "이틀 뒤, 틱톡의 모회사 바이트댄스가 시댄스 2.0을 내놨다. 공식 발표는 2월 24일이지만, 데모 영상이 먼저 풀리면서 화제가 됐다.\n\n시댄스 2.0이 특별한 이유는 입력 방식이다. 보통 AI 영상 도구는 텍스트를 입력하면 영상을 만들어주는 방식이다. 그런데 시댄스 2.0은 사진, 동영상, 음악 파일, 텍스트를 한꺼번에 넣을 수 있다. 예를 들어 '이 캐릭터 사진 3장, 이 배경 영상, 이 BGM을 써서 이런 내용의 영상을 만들어줘'라고 할 수 있다는 뜻이다. 참조 파일도 최대 12개까지 동시에 받는다."
+    },
+    {
+      "type": "text",
+      "value": "캐릭터 고정 기능도 인상적이다. 한 번 설정한 캐릭터가 장면이 바뀌어도 같은 모습을 유지한다. 입 모양에 맞춰 음성을 동기화하고, 배경음과 효과음도 알아서 만들어준다. 물이 흐르거나 물건이 떨어지는 물리 법칙까지 자연스럽게 반영된다.\n\n속도도 놀랍다. 5초짜리 영상을 만드는 데 1분이 안 걸린다. 다른 AI 영상 도구들이 보통 3~5분 걸리는 걸 생각하면 엄청나게 빠른 거다. 해외 레딧에서는 'Sora 2보다 낫다'는 반응이 나왔고, '중국판 Sora 2 모먼트'라는 평가까지 등장했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. AI 영상 생성 경쟁: Sora 2, Veo 3.1을 넘었나?"
+    },
+    {
+      "type": "text",
+      "value": "물론 OpenAI와 Google이 가만히 있는 건 아니다. OpenAI Sora 2는 여전히 가장 유명한 AI 영상 모델이고, Google Veo 3.1도 좋은 평가를 받고 있다. 하지만 클링 3.0의 '진짜 4K' 생성이나 시댄스 2.0의 멀티 입력 방식은 현재 Sora 2나 Veo 3.1이 못 하는 것들이다.\n\n특히 속도 차이가 크다. 시댄스 2.0은 다른 도구보다 3~5배 빠르다. 클링은 이미 연 매출 2.4억 달러를 올리고 있어서, 아직 '기술 데모' 수준인 경쟁 모델들과 차원이 다른 상황이다."
+    },
+    {
+      "type": "text",
+      "value": "그렇다고 중국이 미국을 역전했다고 말하기엔 이르다. Sora 2와 Veo 3.1은 아직 다음 버전 카드를 꺼내지 않았고, OpenAI와 Google의 투자 규모는 여전히 압도적이다. 다만 한 주 만에 최고 수준의 모델 2개가 동시에 나왔다는 사실 자체가, AI 영상 시장이 더 이상 미국만의 무대가 아니라는 걸 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 경쟁이 빨라지면, 좋은 건 사용자다"
+    },
+    {
+      "type": "text",
+      "value": "클링 3.0과 시댄스 2.0이 같은 주에 나온 건, 중국 AI가 영상 생성에서도 본격적으로 속도를 내고 있다는 신호다. 4K 영상, 여러 소스를 한꺼번에 넣는 멀티 입력, 물리 법칙까지 반영하는 시뮬레이션, 그리고 압도적인 생성 속도. 각자 다른 강점을 가진 두 모델이 OpenAI와 Google에 실질적인 경쟁 압력을 만들어내고 있다.\n\n중국 AI의 약진이 영상까지 확대되면서, 2026년 AI 영상 시장은 그 어느 때보다 뜨거운 한 해가 될 것으로 보인다. 경쟁이 치열해질수록 더 좋은 도구가 더 빠르게 나온다. 사용자 입장에서는 나쁠 게 없는 상황이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Write a few lines of text, get a 4K video. Just a year ago, that sounded like science fiction. But in the first week of February 2026, two Chinese companies made it real with new AI video generation models. On February 5, Kuaishou (TikTok's rival) dropped Kling 3.0. Two days later on February 7, ByteDance (TikTok's parent) followed with Seedance 2.0.\n\nOpenAI's Sora 2 and Google's Veo 3.1 have been the frontrunners in AI video generation. Now, two Chinese challengers showed up in the same week, and China's aggressive push has reached the video space."
+    },
+    {
+      "type": "heading",
+      "value": "1. Kling 3.0: True 4K, and Already Making Money"
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/ColawMide/status/2020008886573625429?s=20",
+      "caption": "Kling 3.0 AI 4K Video Generation Demo"
+    },
+    {
+      "type": "text",
+      "value": "The biggest deal about Kling 3.0 is 'real 4K.' Most AI video tools generate at lower resolutions and then stretch the image to 4K (upscaling). Kling 3.0 renders in 4K from the start. The difference in detail is noticeable, and it can produce clips up to 15 seconds long.\n\nIt also auto-generates voice in five languages, including Korean. But the really fun part is 'multi-shot storyboarding.' Write one prompt, and the AI automatically splits it into multiple scenes and shots, like a director planning a storyboard. There's even a feature that extracts a character's face and voice from a short clip and reuses them across different scenes."
+    },
+    {
+      "type": "text",
+      "value": "What sets Kling apart isn't just the tech, though. It's already making serious money. The platform has 60 million users, 12 million monthly active users, and pulls in $240 million a year in revenue. Over 30,000 businesses are paying customers. AI video review site Curious Refuge gave it an 8.1 out of 10, calling it 'the new king of AI video generators.'"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Seedance 2.0: Feed It Photos, Video, Music, and Text All at Once"
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/dynamicwangs/status/2020054894741451123?s=20",
+      "caption": "Seedance 2.0 Multimodal AI Video Generation Demo"
+    },
+    {
+      "type": "text",
+      "value": "Two days later, TikTok's parent company ByteDance unveiled Seedance 2.0. The official launch is set for February 24, but demo videos leaked early and got everyone talking.\n\nWhat makes Seedance 2.0 special is how you feed it information. Most AI video tools take text in and spit video out. Seedance 2.0 takes photos, videos, audio files, and text all at the same time. You can literally say 'use these 3 character photos, this background clip, this music track, and make a video about this.' It handles up to 12 reference files at once."
+    },
+    {
+      "type": "text",
+      "value": "Character locking is another neat trick. Once you set up a character, they look the same across every scene. The AI auto-syncs lip movements to dialogue, adds ambient sounds, background music, and sound effects. It even simulates physics, so water flows and objects fall naturally.\n\nThe speed is wild. A 5-second video takes less than a minute to generate. Most competitors need 3 to 5 minutes. On Reddit, users are saying it's 'better than Sora 2,' and some are calling it 'China's Sora 2 moment.'"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. The AI Video Generation Race: Has China Passed Sora 2 and Veo 3.1?"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI and Google aren't sitting around, of course. Sora 2 is still the most well-known AI video model, and Google's Veo 3.1 gets solid reviews. But Kling's true 4K generation and Seedance's multi-input approach are things neither Sora 2 nor Veo 3.1 can do right now.\n\nThe speed gap stands out the most. Seedance 2.0 is 3 to 5 times faster than the competition. And Kling is already pulling in $240 million a year in real revenue, while many rivals are still in the 'cool demo' phase."
+    },
+    {
+      "type": "text",
+      "value": "That said, calling it an overtake would be premature. Sora 2 and Veo 3.1 haven't played their next cards yet, and OpenAI and Google still have vastly more resources. But two top-tier models dropping in a single week makes one thing clear: the AI video race is no longer America's game alone."
+    },
+    {
+      "type": "heading",
+      "value": "Looking Ahead: More Competition Means Better Tools for Everyone"
+    },
+    {
+      "type": "text",
+      "value": "Kling 3.0 and Seedance 2.0 arriving in the same week is a clear signal: China's AI push into video generation is picking up serious speed. True 4K, multi-source input, physics simulation, and blazing-fast generation. Each model brings different strengths, and together they're putting real pressure on OpenAI and Google.\n\nWith China's AI momentum now reaching into video, 2026 is shaping up to be the hottest year yet for AI video tools. The more intense the competition gets, the faster better tools arrive. For users, that's nothing but good news."
+    }
+  ]
+}
