@@ -1,35 +1,29 @@
 {
-  "updatedAt": "2026-02-07T13:35:16.397Z",
+  "updatedAt": "2026-02-08T00:05:23.903Z",
   "period": "7days",
   "articles": [
     {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 265,
+      "views": 262,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
-      "views": 125,
+      "views": 126,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
-    },
-    {
-      "category": "general",
-      "slug": "moltbook-ai-social-network",
-      "views": 37,
-      "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "openai",
       "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 33,
+      "views": 32,
       "path": "/article/openai/gpt-5-3-garlic-update-rumor/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 26,
+      "views": 30,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -45,28 +39,22 @@
       "path": "/article/anthropic/claude-cowork-saaspocalypse/"
     },
     {
-      "category": "google",
-      "slug": "google-genie3-unity-stock-crash",
-      "views": 24,
-      "path": "/article/google/google-genie3-unity-stock-crash/"
+      "category": "general",
+      "slug": "moltbook-ai-social-network",
+      "views": 20,
+      "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 15,
+      "views": 16,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "openai",
       "slug": "gpt-4o-shutdown-controversy",
-      "views": 15,
+      "views": 16,
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
-      "category": "general",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "views": 12,
-      "path": "/article/general/claude-code-vs-codex-coding-agent/"
     },
     {
       "category": "general",
@@ -76,27 +64,33 @@
     },
     {
       "category": "google",
-      "slug": "alphagenome-first-impressions-2026",
-      "views": 9,
-      "path": "/article/google/alphagenome-first-impressions-2026/"
+      "slug": "google-genie3-unity-stock-crash",
+      "views": 11,
+      "path": "/article/google/google-genie3-unity-stock-crash/"
     },
     {
       "category": "google",
       "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 9,
+      "views": 10,
       "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
+    },
+    {
+      "category": "general",
+      "slug": "claude-code-vs-codex-coding-agent",
+      "views": 9,
+      "path": "/article/general/claude-code-vs-codex-coding-agent/"
+    },
+    {
+      "category": "google",
+      "slug": "alphagenome-first-impressions-2026",
+      "views": 9,
+      "path": "/article/google/alphagenome-first-impressions-2026/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
       "views": 9,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
-    },
-    {
-      "category": "general",
-      "slug": "dead-internet-theory",
-      "views": 5,
-      "path": "/article/general/dead-internet-theory/"
     },
     {
       "category": "general",
@@ -117,16 +111,16 @@
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
+      "category": "vibecoding",
+      "slug": "project-md-settings-guide",
+      "views": 4,
+      "path": "/article/vibecoding/project-md-settings-guide/"
+    },
+    {
       "category": "anthropic",
       "slug": "anthropic-b2b-strategy-success",
       "views": 3,
       "path": "/article/anthropic/anthropic-b2b-strategy-success/"
-    },
-    {
-      "category": "openai",
-      "slug": "chatgpt-desktop-app",
-      "views": 3,
-      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "openai",
@@ -141,22 +135,16 @@
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
-      "category": "anthropic",
-      "slug": "moltbot-clawdbot-ai-assistant",
-      "views": 2,
-      "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
-    },
-    {
       "category": "general",
       "slug": "big3-ipo-2026-openai-anthropic-spacex",
       "views": 2,
       "path": "/article/general/big3-ipo-2026-openai-anthropic-spacex/"
     },
     {
-      "category": "vibecoding",
-      "slug": "project-md-settings-guide",
+      "category": "openai",
+      "slug": "chatgpt-desktop-app",
       "views": 2,
-      "path": "/article/vibecoding/project-md-settings-guide/"
+      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "vibecoding",
@@ -175,6 +163,18 @@
       "slug": "vibe-coding-workflow-prompt-guide",
       "views": 2,
       "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-opus-46-pricing-controversy",
+      "views": 1,
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "moltbot-clawdbot-ai-assistant",
+      "views": 1,
+      "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
     },
     {
       "category": "general",
