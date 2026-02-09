@@ -223,14 +223,25 @@ JSON만 출력해. 다른 설명 없이.`;
           await new Promise(r => setTimeout(r, 5000));
         }
 
-        result = execSync(
-          `cat "${tmpFile}" | claude -p - --tools default --model opus`,
-          {
-            encoding: 'utf8',
-            maxBuffer: 1024 * 1024,
-            timeout: 1800000 // 30분 타임아웃
-          }
-        );
+        try {
+          result = execSync(
+            `cat "${tmpFile}" | claude -p - --tools default --model opus`,
+            {
+              encoding: 'utf8',
+              maxBuffer: 1024 * 1024,
+              timeout: 3600000, // 60분 타임아웃
+              stdio: ['pipe', 'pipe', 'pipe']
+            }
+          );
+        } catch (cliError) {
+          const stderr = cliError.stderr ? cliError.stderr.toString() : '';
+          const stdout = cliError.stdout ? cliError.stdout.toString() : '';
+          console.log(`  - CLI stderr: ${stderr.substring(0, 500)}`);
+          console.log(`  - CLI stdout 길이: ${stdout.length}`);
+          console.log(`  - CLI exit code: ${cliError.status}`);
+          if (stdout) { result = stdout; } else { throw new Error(`CLI 실행 실패: ${stderr.substring(0, 200) || 'exit code ' + cliError.status}`); }
+        }
+        console.log(`  - 응답 길이: ${result ? result.length : 0}`);
 
         // JSON 파싱 시도
         const jsonStart = result.indexOf('{');
@@ -577,69 +588,69 @@ function buildPrevWeekInsightsSummary(prevWeekInsights) {
   prevWeekInsights.forEach((insight, idx) => {
     lines.push(`\n### 최근 ${idx + 1}주 전 리포트:`);
 
-    // summary (위클리 포커스)
+    // summary (위클리 포커스) - 제목만 전달 (프롬프트 경량화)
     if (insight.summary) {
       lines.push(`- [요약] ${insight.summary}`);
     }
 
-    // issues
+    // issues - 제목만 전달
     if (insight.issues && insight.issues.length > 0) {
       insight.issues.forEach(issue => {
-        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        lines.push(`- [${issue.tag}] ${issue.title}`);
         blacklistKeywords.add(issue.title);
       });
     }
 
-    // industryIssues
+    // industryIssues - 제목만 전달
     if (insight.industryIssues && insight.industryIssues.length > 0) {
       insight.industryIssues.forEach(issue => {
-        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        lines.push(`- [${issue.tag}] ${issue.title}`);
         blacklistKeywords.add(issue.title);
       });
     }
 
-    // metrics
+    // metrics - 제목만 전달
     if (insight.metrics && insight.metrics.length > 0) {
       insight.metrics.forEach(metric => {
-        lines.push(`- [지표] ${metric.title}: ${metric.desc}`);
+        lines.push(`- [지표] ${metric.title}`);
         blacklistKeywords.add(metric.title);
       });
     }
 
-    // rankings
+    // rankings - 제목만 전달
     if (insight.rankings && insight.rankings.length > 0) {
       insight.rankings.forEach(rank => {
-        lines.push(`- [순위] ${rank.title}: ${rank.desc}`);
+        lines.push(`- [순위] ${rank.title}`);
         blacklistKeywords.add(rank.title);
       });
     }
 
-    // community
+    // community - 제목만 전달
     if (insight.community && insight.community.length > 0) {
       insight.community.forEach(comm => {
-        lines.push(`- [커뮤니티] ${comm.title}: ${comm.desc}`);
+        lines.push(`- [커뮤니티] ${comm.title}`);
         blacklistKeywords.add(comm.tag); // 게임명
       });
     }
 
-    // streaming
+    // streaming - 제목만 전달
     if (insight.streaming && insight.streaming.length > 0) {
       insight.streaming.forEach(stream => {
-        lines.push(`- [스트리밍] ${stream.title}: ${stream.desc}`);
+        lines.push(`- [스트리밍] ${stream.title}`);
       });
     }
 
-    // global
+    // global - 제목만 전달
     if (insight.global && insight.global.length > 0) {
       insight.global.forEach(g => {
-        lines.push(`- [글로벌] ${g.title}: ${g.desc}`);
+        lines.push(`- [글로벌] ${g.title}`);
         blacklistKeywords.add(g.title);
       });
     }
 
-    // mvp
+    // mvp - 이름만 전달
     if (insight.mvp) {
-      lines.push(`- [MVP] ${insight.mvp.name}: ${insight.mvp.desc}`);
+      lines.push(`- [MVP] ${insight.mvp.name}`);
       blacklistKeywords.add(insight.mvp.name);
     }
   });
