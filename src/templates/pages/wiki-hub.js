@@ -191,7 +191,7 @@ function generateWikiHubPage({
   wikiData = {},
   techData = {},
   dailyReportsCount = 0,
-  weeklyReportsCount = 0,
+
   issueReportsCount = 0,
   insightReportsCount = 0,
   hotpickReportsCount = 0,
@@ -204,7 +204,7 @@ function generateWikiHubPage({
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
-    weekly: weeklyReportsCount,
+
     issue: issueReportsCount,
     insight: insightReportsCount,
     hotpick: hotpickReportsCount,
@@ -322,8 +322,7 @@ function generateWikiHubPage({
     const counts = sidebarCounts;
 
     const regularCategories = [
-      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily }
     ];
 
     const issueCategories = [
@@ -437,7 +436,7 @@ function generateWikiCategoryPage({
   wikiData = {},
   techData = {},
   dailyReportsCount = 0,
-  weeklyReportsCount = 0,
+
   issueReportsCount = 0,
   insightReportsCount = 0,
   hotpickReportsCount = 0,
@@ -450,7 +449,7 @@ function generateWikiCategoryPage({
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
-    weekly: weeklyReportsCount,
+
     issue: issueReportsCount,
     insight: insightReportsCount,
     hotpick: hotpickReportsCount,
@@ -526,8 +525,7 @@ function generateWikiCategoryPage({
     const counts = sidebarCounts;
 
     const regularCategories = [
-      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily }
     ];
 
     const issueCategories = [

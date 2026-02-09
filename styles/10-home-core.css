@@ -219,16 +219,6 @@
       margin-bottom: 8px;
     }
 
-    .home-insight-title-row .weekly-hot-tag {
-      margin-bottom: 0;
-      flex-shrink: 0;
-    }
-
-    .home-insight-title-row .weekly-hot-title {
-      margin: 0;
-      line-height: 1.4;
-    }
-
     .home-card-title svg {
       width: 24px;
       height: 24px;
@@ -519,10 +509,6 @@
       backdrop-filter: blur(8px);
     }
 
-    .home-trend-card-tag.weekly {
-      background: rgba(0, 0, 0, 0.5);
-    }
-
     .home-trend-card-tag.issue {
       background: rgba(0, 0, 0, 0.5);
     }
@@ -755,6 +741,20 @@
         display: none;
       }
 
+      #home-insight .home-popular-card {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+      }
+      #home-insight .home-popular-thumb {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+      #home-insight .home-popular-info {
+        padding: 12px 14px 14px;
+      }
+
       .home-latest-grid {
         grid-template-columns: 1fr;
         padding: 12px;
@@ -902,8 +902,7 @@
     }
 
     /* 순위 변동 배지 */
-    .ranking-badge,
-    .weekly-ranking-badge {
+    .ranking-badge {
       display: inline-flex;
       align-items: center;
       font-size: var(--font-badge-size);
@@ -916,15 +915,13 @@
       margin-bottom: 10px;
     }
 
-    .ranking-badge.up,
-    .weekly-ranking-badge.up {
+    .ranking-badge.up {
       background: rgba(34, 197, 94, 0.15);
       color: #22c55e;
       border: 1px solid rgba(34, 197, 94, 0.3);
     }
 
-    .ranking-badge.down,
-    .weekly-ranking-badge.down {
+    .ranking-badge.down {
       background: rgba(239, 68, 68, 0.15);
       color: #ef4444;
       border: 1px solid rgba(239, 68, 68, 0.3);

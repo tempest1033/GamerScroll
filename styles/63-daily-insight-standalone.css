@@ -311,24 +311,6 @@
   font-weight: var(--font-card-title-weight);
 }
 
-/* Weekly Panel */
-.page-daily-insight .weekly-header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.page-daily-insight .weekly-title {
-  font-size: var(--font-xl-size);
-  font-weight: var(--font-card-title-weight);
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.page-daily-insight .weekly-period {
-  color: #9ca3af;
-  font-size: var(--font-meta-size);
-}
-
 .page-daily-insight .metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -425,15 +407,4 @@
   line-height: 1.6;
 }
 
-.page-daily-insight .weekly-coming-soon {
-  text-align: center;
-  padding: 60px 20px;
-  color: #6b7280;
-}
-
-.page-daily-insight .weekly-coming-soon h3 {
-  font-size: var(--font-title-size);
-  margin-bottom: 8px;
-  color: #9ca3af;
-}
 

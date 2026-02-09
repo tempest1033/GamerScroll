@@ -61,8 +61,8 @@ function getLocalDailyThumbnail(date, originalUrl) {
   return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp`;
 }
 
-// 주간 뉴스 썸네일 로컬 경로 헬퍼 (여러 날짜 + weekly 폴더에서 검색)
-function getLocalDailyThumbnailFromWeek(dates, originalUrl, weeklySlug = '') {
+// 뉴스 썸네일 로컬 경로 헬퍼 (여러 날짜 폴더에서 검색)
+function getLocalDailyThumbnailFromWeek(dates, originalUrl) {
   if (!originalUrl) return '';
   let url = originalUrl;
   if (url.startsWith('//')) url = 'https:' + url;
@@ -74,15 +74,7 @@ function getLocalDailyThumbnailFromWeek(dates, originalUrl, weeklySlug = '') {
   const crypto = require('crypto');
   const hash = crypto.createHash('md5').update(url).digest('hex').substring(0, 8);
 
-  // 1. weekly 폴더에서 먼저 검색 (주간 리포트용 이미지)
-  if (weeklySlug) {
-    const weeklyPath = path.join(docsDir, 'assets/images/weekly', weeklySlug, `${hash}.webp`);
-    if (fs.existsSync(weeklyPath)) {
-      return `/assets/images/weekly/${weeklySlug}/${hash}.webp`;
-    }
-  }
-
-  // 2. daily 폴더에서 검색
+  // daily 폴더에서 검색
   if (dates && dates.length) {
     for (const date of dates) {
       const fullPath = path.join(docsDir, 'assets/images/daily', date, `${hash}.webp`);
@@ -661,407 +653,9 @@ const icons = {
   globe: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
 };
 
-// 주간 패널 생성 함수 (원본 html.js의 generateWeeklyReport와 동일)
-function generateWeeklyPanel(weeklyInsight) {
-  if (!weeklyInsight?.ai) {
-    return '<div class="home-empty">주간를 불러올 수 없습니다</div>';
-  }
-
-  const wai = weeklyInsight.ai;
-  const wInfo = weeklyInsight.weekInfo || {};
-  const weekDates = wInfo.dates || []; // 주간 날짜 배열 (이미지 검색용)
-  const weekPeriod = wInfo.startDate && wInfo.endDate
-    ? `${formatDateKorean(wInfo.startDate)} ~ ${formatDateKorean(wInfo.endDate)}`
-    : (wai.date ? formatDateKorean(wai.date) : '');
-  const weekNum = wInfo.weekNumber || wai.weekNumber || '';
-  // 주간 slug 생성 (예: 2026-W04)
-  const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
-  const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
-
-  const { issues = [], industryIssues = [], metrics = [], rankings = [], community = [], streaming = [], stocks = {}, summary, mvp, releases = [], global = [] } = wai;
-
-  // seoTitle 미리 계산
-  const formatWeekTitle = (period, wNum) => {
-    const match = period.match(/(\d{4})-(\d{2})-(\d{2})/);
-    if (match) {
-      const month = parseInt(match[2]);
-      const weekOfMonth = Math.ceil(parseInt(match[3]) / 7);
-      return `${month}월 ${weekOfMonth}주차 게임 브리핑`;
-    }
-    return `${wNum}주차 게임 브리핑`;
-  };
-  const seoTitle = formatWeekTitle(weekPeriod, weekNum);
-
-  // summary 객체에서 title과 desc 추출
-  // summary에서 첫 문장 추출
-  const extractFirst = (t) => t ? (t.split(/[.!?]/).filter(s => s.trim())[0]?.trim() || t.slice(0, 60)) : null;
-  const summaryTitle = typeof summary === 'object' ? summary.title : (wai.issues?.[0]?.title || extractFirst(summary) || seoTitle);
-  const summaryDesc = typeof summary === 'object' ? summary.desc : summary;
-  // 모바일용 인피드 슬롯
-  const mobileNativeSlots = [
-    AD_SLOTS.Article001,
-    AD_SLOTS.Article002,
-    AD_SLOTS.Article003,
-    AD_SLOTS.Article004,
-    AD_SLOTS.Article005
-  ];
-  const localMidSlotPairs = [
-    { pc: AD_SLOTS.ResponsivePC002, mobile: AD_SLOTS.Mobile002 },
-    { pc: AD_SLOTS.ResponsivePC003, mobile: AD_SLOTS.Mobile003 },
-    { pc: AD_SLOTS.ResponsivePC004, mobile: AD_SLOTS.Mobile004 }
-  ];
-  let localMidCursor = 0;
-  const midAd = () => {
-    // 통합 반응형 빌드: PC 슬롯 사용 (CSS 미디어 쿼리로 자동 분기)
-    const idx = localMidCursor % localMidSlotPairs.length;
-    localMidCursor += 1;
-    return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
-  };
-
-  // 태그별 아이콘 매핑
-  const getTagIcon = (tag) => {
-    if (tag === '모바일') return tagIcons['모바일'];
-    if (tag === 'PC') return tagIcons['PC'];
-    if (tag === '콘솔') return tagIcons['콘솔'];
-    if (tag === 'e스포츠') return tagIcons['e스포츠'];
-    return '';
-  };
-
-  // 금주의 핫이슈 (2x2 그리드) - 최대 4개, 이미지 포함
-  const hotIssuesSection = issues.length > 0 ? `
-    <div class="weekly-section weekly-section-hot">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">금주의 핫이슈</h2>
-        </div>
-        <p class="weekly-section-desc">지난 주 게임 업계에서 가장 주목받은 소식들을 정리했습니다.</p>
-      </div>
-      <div class="weekly-hot-issues weekly-hot-grid">
-        ${issues.slice(0, 4).map(issue => {
-          const thumbnail = issue.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, issue.thumbnail, weeklySlug) : null;
-          const thumbnailHtml = thumbnail
-            ? `<div class="weekly-hot-thumb"><img src="${thumbnail}" alt="${issue.title}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
-            : '';
-          return `
-          <div class="weekly-hot-card ${thumbnail ? 'has-thumb' : ''}">
-            ${thumbnailHtml}
-            <div class="weekly-hot-content">
-              <h3 class="weekly-hot-title">${issue.title}</h3>
-              <p class="weekly-hot-desc">${issue.desc}</p>
-            </div>
-          </div>
-        `}).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 순위 변동 분석 (비주얼 차트)
-  const rankingsSection = rankings.length > 0 ? `
-    <div class="weekly-section weekly-section-rankings">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">순위 변동 분석</h2>
-        </div>
-        <p class="weekly-section-desc">앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.</p>
-      </div>
-      <div class="weekly-rankings-grid">
-        ${rankings.map(r => {
-          const isUp = r.tag === '급상승' || r.change > 0;
-          const isDown = r.tag === '급하락' || r.change < 0;
-          const isNew = r.tag === '신규진입';
-          const changeClass = isUp ? 'up' : isDown ? 'down' : 'new';
-          const changeIcon = isUp ? '▲' : isDown ? '▼' : '★';
-          const changeText = isNew ? 'NEW' : (r.change > 0 ? `+${r.change}` : r.change);
-
-          return `
-            <div class="weekly-rank-card ${changeClass}">
-              <div class="weekly-rank-header">
-                <span class="weekly-rank-badge ${changeClass}">${r.tag}</span>
-                <span class="weekly-rank-platform">${r.platform || ''}</span>
-              </div>
-              <div class="weekly-rank-game">${r.title}</div>
-              <div class="weekly-rank-change">
-                <span class="weekly-rank-arrow ${changeClass}">${changeIcon}</span>
-                <span class="weekly-rank-positions">
-                  ${isNew ? `${r.rank}위 진입` : `${r.prevRank}위 → ${r.rank}위`}
-                </span>
-                <span class="weekly-rank-delta ${changeClass}">${changeText}</span>
-              </div>
-              <p class="weekly-rank-reason">${r.desc}</p>
-            </div>
-          `;
-        }).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 업계 동향 (썸네일 포함 카드)
-  const industrySection = industryIssues.length > 0 ? `
-    <div class="weekly-section weekly-section-industry">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">업계 동향</h2>
-        </div>
-        <p class="weekly-section-desc">국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.</p>
-      </div>
-      <div class="industry-grid">
-        ${industryIssues.map(item => {
-          const thumbUrl = item.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, item.thumbnail, weeklySlug) : null;
-          const thumbHtml = thumbUrl
-            ? `<div class="industry-thumb"><img src="${thumbUrl}" alt="${item.title || ''}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
-            : `<div class="industry-thumb thumb-fallback"></div>`;
-          return `
-          <div class="industry-card has-thumb">
-            ${thumbHtml}
-            <div class="industry-content">
-              <h3 class="industry-title">${item.title || ''}</h3>
-              <p class="industry-desc">${item.desc || ''}</p>
-            </div>
-          </div>
-        `}).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 주간 지표 (썸네일 포함 카드)
-  const metricsSection = metrics.length > 0 ? `
-    <div class="weekly-section weekly-section-metrics">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">주간 지표</h2>
-        </div>
-        <p class="weekly-section-desc">지난 주 주목할 만한 수치 변화와 시장 지표입니다.</p>
-      </div>
-      <div class="weekly-metrics-grid">
-        ${metrics.map((m, idx) => {
-          const thumbUrl = m.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, m.thumbnail, weeklySlug) : null;
-          const gameIcon = findGameIcon(m.title);
-          const imageUrl = thumbUrl || gameIcon || '/favicon.svg';
-          const thumbHtml = `<div class="metric-thumb"><img src="${imageUrl}" alt="${m.title}" loading="lazy" data-img-fallback="thumb-fallback"></div>`;
-          return `
-            <div class="weekly-metric-card has-thumb">
-              ${thumbHtml}
-              <div class="weekly-metric-content">
-                <h3 class="weekly-metric-title">${m.title}</h3>
-                <p class="weekly-metric-desc">${m.desc}</p>
-              </div>
-            </div>
-          `;
-        }).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 커뮤니티 반응 (말풍선 스타일)
-  const communitySection = community.length > 0 ? `
-    <div class="weekly-section weekly-section-community">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">커뮤니티 반응</h2>
-        </div>
-        <p class="weekly-section-desc">디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.</p>
-      </div>
-      <div class="weekly-community-grid">
-        ${community.map(c => {
-          const tagPrefix = c.tag ? `[${c.tag}] ` : '';
-          return `
-          <div class="weekly-community-card">
-            <h3 class="weekly-community-title">${tagPrefix}${c.title}</h3>
-            <p class="weekly-community-desc">${c.desc}</p>
-          </div>
-        `;
-        }).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 스트리밍 트렌드 (카드형 그리드)
-  const streamingSection = streaming.length > 0 ? `
-    <div class="weekly-section weekly-section-streaming">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">스트리밍 트렌드</h2>
-        </div>
-        <p class="weekly-section-desc">치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.</p>
-      </div>
-      <div class="weekly-streaming-grid">
-        ${streaming.map(s => `
-            <div class="weekly-streaming-card">
-              <h3 class="weekly-streaming-title">${s.title}</h3>
-              <p class="weekly-streaming-desc">${s.desc}</p>
-            </div>
-          `).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 게임주 동향 (주간 전용)
-  const stocksUp = stocks.up || [];
-  const stocksDown = stocks.down || [];
-  const hasStocks = stocksUp.length > 0 || stocksDown.length > 0;
-
-  const renderStockRow = (stock, rank, isUp) => {
-    const changeClass = isUp ? 'up' : 'down';
-    const arrow = isUp ? '▲' : '▼';
-    const sign = isUp ? '+' : '';
-    return `
-      <div class="weekly-stock-item">
-        <div class="weekly-stock-row ${changeClass}">
-          <div class="weekly-stock-rank">${rank}</div>
-          <div class="weekly-stock-info">
-            <span class="weekly-stock-name">${stock.name}</span>
-            <span class="weekly-stock-price">${stock.price?.toLocaleString() || '-'}원</span>
-          </div>
-          <div class="weekly-stock-change ${changeClass}">
-            <span class="weekly-stock-arrow">${arrow}</span>
-            <span class="weekly-stock-percent">${sign}${stock.changePercent?.toFixed(2) || 0}%</span>
-          </div>
-        </div>
-        <div class="weekly-stock-comment">${stock.comment || ''}</div>
-      </div>
-    `;
-  };
-
-  const stocksSection = hasStocks ? `
-    <div class="weekly-section weekly-section-stocks">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">주간 게임주 분석</h2>
-        </div>
-        <p class="weekly-section-desc">지난주 종가 기준 게임 업종 등락률 TOP3와 주요 이슈입니다.</p>
-      </div>
-      <div class="weekly-stocks-tables">
-        <div class="weekly-stocks-table">
-          <div class="weekly-stocks-table-header up">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-            상승 TOP3
-          </div>
-          <div class="weekly-stocks-table-body">
-            ${stocksUp.slice(0, 3).map((s, i) => renderStockRow(s, i + 1, true)).join('')}
-          </div>
-        </div>
-        <div class="weekly-stocks-table">
-          <div class="weekly-stocks-table-header down">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-            하락 TOP3
-          </div>
-          <div class="weekly-stocks-table-body">
-            ${stocksDown.slice(0, 3).map((s, i) => renderStockRow(s, i + 1, false)).join('')}
-          </div>
-        </div>
-      </div>
-    </div>
-  ` : '';
-
-  // 신작/업데이트 캘린더 섹션
-  const releasesSection = releases && releases.length > 0 ? `
-    <div class="weekly-section weekly-section-releases">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">이번 주 신작/업데이트</h2>
-        </div>
-        <p class="weekly-section-desc">이번 주 출시 예정이거나 업데이트된 주요 게임들입니다.</p>
-      </div>
-      <div class="weekly-releases-list">
-        ${releases.slice(0, 6).map(r => `
-          <div class="weekly-release-item">
-            <div class="weekly-release-date">${r.date}</div>
-            <div class="weekly-release-info">
-              <span class="weekly-release-title">${r.title}</span>
-              <span class="weekly-release-platform">${r.platform}</span>
-            </div>
-            <div class="weekly-release-type ${r.type === '신작' ? 'new' : 'update'}">${r.type}</div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // MVP 섹션 (썸네일 포함)
-  const mvpSection = mvp ? `
-    <div class="weekly-section weekly-section-mvp">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">이 주의 MVP</h2>
-        </div>
-        <p class="weekly-section-desc">지난 주 가장 주목받은 게임입니다.</p>
-      </div>
-      <div class="weekly-mvp-card ${mvp.thumbnail ? 'has-thumb' : ''}">
-        ${(() => {
-          const thumbUrl = mvp.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, mvp.thumbnail, weeklySlug) : null;
-          const gameIcon = findGameIcon(mvp.name);
-          const imageUrl = thumbUrl || gameIcon;
-          return imageUrl
-            ? `<div class="weekly-mvp-thumb${gameIcon && !thumbUrl ? ' is-icon' : ''}"><img src="${imageUrl}" alt="${mvp.name}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
-            : '';
-        })()}
-        <div class="weekly-mvp-content">
-          <div class="weekly-mvp-name">${mvp.name}</div>
-          ${mvp.tag ? `<div class="weekly-mvp-tag">${mvp.tag}</div>` : ''}
-          <p class="weekly-mvp-desc">${mvp.desc}</p>
-          ${mvp.highlights?.length ? `<ul class="weekly-mvp-highlights">${mvp.highlights.map(h => `<li class="weekly-mvp-highlight">${h}</li>`).join('')}</ul>` : ''}
-        </div>
-      </div>
-    </div>
-  ` : '';
-
-  // 글로벌 트렌드 섹션 (썸네일 포함, 태그 제거)
-  const globalSection = global && global.length > 0 ? `
-    <div class="weekly-section weekly-section-global">
-      <div class="weekly-section-header">
-        <div class="weekly-section-title-wrap">
-          <h2 class="weekly-section-title">글로벌 트렌드</h2>
-        </div>
-        <p class="weekly-section-desc">해외 게임 시장의 주요 동향을 살펴봅니다.</p>
-      </div>
-      <div class="global-grid">
-        ${global.map(g => {
-          const thumbUrl = g.thumbnail ? getLocalDailyThumbnailFromWeek(weekDates, g.thumbnail, weeklySlug) : null;
-          const thumbHtml = thumbUrl
-            ? `<div class="global-thumb"><img src="${thumbUrl}" alt="${g.title}" loading="lazy" data-img-fallback="thumb-fallback"></div>`
-            : `<div class="global-thumb thumb-fallback"></div>`;
-          return `
-          <div class="global-card has-thumb">
-            ${thumbHtml}
-            <div class="global-content">
-              <h3 class="global-title">${g.title}</h3>
-              <p class="global-desc">${g.desc}</p>
-            </div>
-          </div>
-        `}).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 헤드라인 이미지
-  const heroThumb = wai.thumbnail || null;
-  const heroThumbUrl = heroThumb ? getLocalDailyThumbnailFromWeek(weekDates, heroThumb, weeklySlug) : null;
-
-  // 통합 반응형 빌드: PC 레이아웃 사용 (CSS로 모바일 반응형 처리)
-  const weeklyBody = `
-      ${hotIssuesSection}
-      ${rankingsSection}
-      ${midAd()}
-      ${industrySection}
-      ${metricsSection}
-      ${globalSection}
-      ${mvpSection}
-      ${midAd()}
-      ${stocksSection}
-      ${releasesSection}
-      ${communitySection}
-      ${streamingSection}
-    `;
-
-  return `
-    <div class="weekly-report">
-      ${weeklyBody}
-    </div>
-  `;
-}
 
 function generateTrendPage(data) {
-  const { insight, rankings, steam, weeklyInsight, historyNews = [] } = data;
+  const { insight, rankings, steam, historyNews = [] } = data;
   const aiInsight = insight?.ai || null;
   const insightDate = insight?.date || aiInsight?.date || ''; // 일간 인사이트 날짜 (이미지 로컬 검색용)
 
@@ -1074,7 +668,7 @@ function generateTrendPage(data) {
     return wrapWithLayout(content, {
       currentPage: 'magazine',
       title: '게이머스크롤 | 게임 브리핑',
-      description: '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간로 한눈에 확인하세요.',
+      description: '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.',
       canonical: `${siteBaseUrl}/magazine/`
     });
   }
@@ -1440,11 +1034,6 @@ function generateTrendPage(data) {
       <div class="page-container">
         ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
-        <div class="insight-tabs">
-          <button class="insight-tab active" data-tab="daily">일간</button>
-          <button class="insight-tab" data-tab="weekly">주간</button>
-        </div>
-
         <div class="insight-panel active" id="panel-daily">
           ${midAdMobileOnly()}
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
@@ -1457,36 +1046,15 @@ function generateTrendPage(data) {
           ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
           ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
         </div>
-
-        <div class="insight-panel" id="panel-weekly">
-          ${generateWeeklyPanel(weeklyInsight, getTagIcon)}
-        </div>
       </div>
     </section>
   `;
 
-  const pageScripts = `
-  <script>
-    // 인사이트 탭 전환
-    document.querySelectorAll('.insight-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.insight-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.insight-panel').forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        const panelId = 'panel-' + tab.dataset.tab;
-        document.getElementById(panelId)?.classList.add('active');
-        // 숨겨진 패널 내부 광고가 폭 0 상태에서 초기화되는 것을 방지하고, 활성화 후 재초기화 트리거
-        requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
-      });
-    });
-  </script>`;
-
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '게이머스크롤 | 게임 브리핑',
-    description: '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 일간·주간로 한눈에 확인하세요.',
+    description: '게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.',
     canonical: `${siteBaseUrl}/magazine/`,
-    pageScripts,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` }
@@ -1949,92 +1517,6 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
 
 /**
  * 주간 상세 페이지 생성 (개별 JSON → HTML)
- * @param {Object} params
- * @param {Object} params.weeklyInsight - 주간 인사이트 데이터 (ai, weekInfo 필드 포함)
- * @param {string} params.slug - URL slug (예: 2025-W51)
- * @param {Object} params.nav - 이전/다음 리포트 정보 (optional)
- */
-function generateWeeklyDetailPage({ weeklyInsight, slug, nav = {} }) {
-  if (!weeklyInsight?.ai) {
-    const content = `
-      <section class="section active" id="insight">
-        <div class="home-empty">주간를 불러올 수 없습니다</div>
-      </section>
-    `;
-    return wrapWithLayout(content, {
-      currentPage: 'magazine',
-      title: '게이머스크롤 | 주간 게임 브리핑',
-      description: '주간 게임 브리핑를 찾을 수 없습니다.',
-      canonical: `${siteBaseUrl}/magazine/weekly/${slug}/`,
-      noindex: true
-    });
-  }
-
-  // 네비게이션 (이전/목록/다음 리포트) - 하단에만 표시
-  const navHtml = `
-    <div class="trend-detail-nav">
-      ${nav.prev ? `<a href="/magazine/weekly/${nav.prev}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/magazine/" class="trend-nav-btn list">목록</a>
-      ${nav.next ? `<a href="/magazine/weekly/${nav.next}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
-    </div>
-  `;
-
-  const weeklyPanelHtml = generateWeeklyPanel(weeklyInsight);
-  const waiForH1 = weeklyInsight.ai;
-  const h1Title = typeof waiForH1.summary === 'object' ? waiForH1.summary.title : (waiForH1.issues?.[0]?.title || waiForH1.summary || `${slug} 주간 게임 브리핑`);
-
-  const content = `
-    <section class="section active" id="insight">
-      
-      <div class="page-container">
-        ${topAds}
-        <h1 class="visually-hidden">${h1Title}</h1>
-        ${weeklyPanelHtml}
-        ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
-        ${navHtml}
-      </div>
-    </section>
-  `;
-
-  // SEO 정보
-  const wai = weeklyInsight.ai;
-  const wInfo = weeklyInsight.weekInfo || {};
-  const weekPeriod = wInfo.startDate && wInfo.endDate
-    ? `${formatDateKorean(wInfo.startDate)} ~ ${formatDateKorean(wInfo.endDate)}`
-    : (wai.date ? formatDateKorean(wai.date) : '');
-  const weekNum = wInfo.weekNumber || wai.weekNumber || '';
-  const summaryTitle = typeof wai.summary === 'object' ? wai.summary.title : (wai.issues?.[0]?.title || wai.summary);
-  const descriptionText = summaryTitle || '주간 게임 브리핑 - 모바일/PC 게임 순위 변동, 뉴스, 커뮤니티 반응, 게임주 동향까지 한눈에 확인하세요.';
-
-  // 동적 키워드 (issues에서 4개 추출)
-  const weeklyIssues = wai.issues || [];
-  const dynamicKeywords = weeklyIssues.slice(0, 4).map(i => i.title).join(', ');
-  const keywordsText = dynamicKeywords ? `게임 트렌드, ${dynamicKeywords}` : '게임 트렌드, 게임 업계 이슈, 게임 순위, 게임 뉴스';
-
-  // Article JSON-LD 스키마
-  const articleSchema = {
-    headline: summaryTitle || `${weekNum}주차 주간 게임 브리핑`,
-    description: descriptionText,
-    datePublished: wInfo.endDate || wai.date || slug.replace('W', ''),
-    dateModified: weeklyInsight.generatedAt?.split('T')[0] || wInfo.endDate || wai.date,
-    image: wai.thumbnail || null
-  };
-
-  return wrapWithLayout(content, {
-    currentPage: 'magazine',
-    title: summaryTitle,
-    description: descriptionText,
-    keywords: keywordsText,
-    canonical: `${siteBaseUrl}/magazine/weekly/${slug}/`,
-    articleSchema,
-    breadcrumbs: [
-      { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
-      { name: `주간 ${slug}`, url: `${siteBaseUrl}/magazine/weekly/${slug}/` }
-    ]
-  });
-}
-
 /**
  * 이슈 상세 페이지 생성
  * @param {Object} params
@@ -2441,7 +1923,6 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
         <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
         <div class="sidebar-category-list">
           <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간 (${magazineCounts.daily || 0})</span></a>
-          <a href="/magazine/weekly/" class="sidebar-category-item"><span class="sidebar-category-name">주간 (${magazineCounts.weekly || 0})</span></a>
         </div>
       </div>
       <div class="sidebar-category-group">
@@ -2981,7 +2462,6 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
         <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
         <div class="sidebar-category-list">
           <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간 (${magazineCounts.daily || 0})</span></a>
-          <a href="/magazine/weekly/" class="sidebar-category-item"><span class="sidebar-category-name">주간 (${magazineCounts.weekly || 0})</span></a>
         </div>
       </div>
       <div class="sidebar-category-group">
@@ -3529,7 +3009,6 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
         <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
         <div class="sidebar-category-list">
           <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간 (${magazineCounts.daily || 0})</span></a>
-          <a href="/magazine/weekly/" class="sidebar-category-item"><span class="sidebar-category-name">주간 (${magazineCounts.weekly || 0})</span></a>
         </div>
       </div>
       <div class="sidebar-category-group">
@@ -4539,7 +4018,6 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
         <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
         <div class="sidebar-category-list">
           <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간 (${magazineCounts.daily || 0})</span></a>
-          <a href="/magazine/weekly/" class="sidebar-category-item"><span class="sidebar-category-name">주간 (${magazineCounts.weekly || 0})</span></a>
         </div>
       </div>
       <div class="sidebar-category-group">
@@ -4721,4 +4199,4 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   });
 }
 
-module.exports = { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage };
+module.exports = { generateTrendPage, generateDailyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage };

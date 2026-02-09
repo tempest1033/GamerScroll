@@ -30,10 +30,6 @@
   background: rgba(0,0,0,0.05);
 }
 
-.trend-feed-card-weekly .trend-feed-card-image {
-  background: rgba(0,0,0,0.05);
-}
-
 .trend-feed-card-image img {
   width: 100%;
   height: 100%;
@@ -56,10 +52,6 @@
   background: rgba(0, 0, 0, 0.55);
   border-radius: 4px;
   backdrop-filter: blur(8px);
-}
-
-.trend-feed-card-tag.weekly {
-  background: rgba(0, 0, 0, 0.55);
 }
 
 .trend-feed-card-title {

@@ -3,7 +3,7 @@ const path = require('path');
 
 const SITE_URL = 'https://gamerscroll.com';
 const SITE_TITLE = '게이머스크롤';
-const SITE_DESC = '게임 업계 데이터 크롤링 및 일일/주간 리포트';
+const SITE_DESC = '게임 업계 데이터 크롤링 및 일일 리포트';
 const MAX_ITEMS = 30;
 
 function escapeXml(str) {
@@ -108,34 +108,6 @@ function getRankingReports(reportsDir) {
   return items;
 }
 
-function getWeeklyReports(reportsDir) {
-  const weeklyDir = path.join(reportsDir, 'weekly');
-  if (!fs.existsSync(weeklyDir)) return [];
-
-  const items = [];
-  const files = fs.readdirSync(weeklyDir).filter(f => f.endsWith('.json'));
-
-  for (const file of files) {
-    const data = readJsonFile(path.join(weeklyDir, file));
-    if (!data || !data.ai) continue;
-
-    const weekId = file.replace('.json', '');
-    const weekNum = data.weekInfo?.weekNumber || data.ai?.weekNumber;
-
-    items.push({
-      type: 'weekly',
-      title: `[주간] ${data.ai.date || weekId} 게임 업계 동향`,
-      link: `${SITE_URL}/magazine/weekly/${weekId}/`,
-      description: data.ai.summary || data.ai.headline || '',
-      date: new Date(data.generatedAt || data.weekInfo?.endDate),
-      thumbnail: data.ai.thumbnail || '',
-      category: '주간 리포트'
-    });
-  }
-
-  return items;
-}
-
 function getDailyReports(reportsDir) {
   const items = [];
   const files = fs.readdirSync(reportsDir)
@@ -199,7 +171,6 @@ function generateRSS(reportsDir, outputPath) {
   const issueItems = getIssueReports(reportsDir);
   const hotpickItems = getHotpickReports(reportsDir);
   const rankingItems = getRankingReports(reportsDir);
-  const weeklyItems = getWeeklyReports(reportsDir);
   const dailyItems = getDailyReports(reportsDir);
 
   // 위키 아티클 수집
@@ -209,12 +180,11 @@ function generateRSS(reportsDir, outputPath) {
   console.log(`이슈 리포트: ${issueItems.length}개`);
   console.log(`핫픽 리포트: ${hotpickItems.length}개`);
   console.log(`순위 분석: ${rankingItems.length}개`);
-  console.log(`주간 리포트: ${weeklyItems.length}개`);
   console.log(`일간 리포트: ${dailyItems.length}개`);
   console.log(`위키 아티클: ${wikiItems.length}개`);
 
   // 합치고 날짜순 정렬
-  const allItems = [...issueItems, ...hotpickItems, ...rankingItems, ...weeklyItems, ...dailyItems, ...wikiItems]
+  const allItems = [...issueItems, ...hotpickItems, ...rankingItems, ...dailyItems, ...wikiItems]
     .sort((a, b) => b.date - a.date)
     .slice(0, MAX_ITEMS);
 

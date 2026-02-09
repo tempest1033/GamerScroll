@@ -27,11 +27,9 @@ const fixUrl = (url, width = 480) => {
 
 function generateNewsPage(data) {
   const { news } = data;
-  const { insight, weeklyInsight } = data;
+  const { insight } = data;
   const aiInsight = insight?.ai || null;
-  const wai = weeklyInsight?.ai || null;
   const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
-  const weeklyThumbnail = fixUrl(wai?.thumbnail) || '';
 
   // PC + 모바일 광고 슬롯
   const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);

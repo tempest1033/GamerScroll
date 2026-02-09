@@ -100,15 +100,14 @@ function getLocalTechThumbSrcset(category, slug, originalUrl) {
   };
 }
 
-const { getLocalReportThumbnail, getLocalReportThumbnailSrcset, getLocalDailyThumbnail, getLocalDailyThumbnailSrcset, getLocalWeeklyThumbnail, getLocalWeeklyThumbnailSrcset } = require('../helpers/thumbnail');
+const { getLocalReportThumbnail, getLocalReportThumbnailSrcset, getLocalDailyThumbnail, getLocalDailyThumbnailSrcset } = require('../helpers/thumbnail');
 
 function generateIndexPage(data) {
-  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, weeklyInsight, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, dailyReportsCount = 0, weeklyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
+  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, dailyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
     daily: dailyReportsCount,
-    weekly: weeklyReportsCount,
     issue: issueReports.length,
     insight: insightReports.length,
     hotpick: hotpickReports.length,
@@ -205,14 +204,7 @@ function generateIndexPage(data) {
     return JSON.stringify(cards).replace(/</g, '\\u003c');
   };
 
-  // 주간 slug 생성 (2026-W04 형식)
-  const wInfo = weeklyInsight?.weekInfo || {};
-  const weekNum = wInfo.weekNumber || weeklyInsight?.ai?.weekNumber;
-  const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
-  const weeklySlugForThumb = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
-
   const dailyInsightThumbData = getLocalDailyThumbnailSrcset(insightFileDate, aiInsight?.issues?.[0]?.thumbnail);
-  const weeklyInsightThumbData = getLocalWeeklyThumbnailSrcset(weeklySlugForThumb, weeklyInsight?.ai?.issues?.[0]?.thumbnail);
 
   // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
   const formatDateKr = (dateStr) => {
@@ -222,68 +214,40 @@ function generateIndexPage(data) {
     return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
   };
 
-  // 홈 트렌드 (일간/주간 2컬럼 그리드)
+  // 홈 트렌드 (일간 카드 - 가로형)
   function generateHomeInsight() {
 
     // 일간 데이터 (링크는 파일명 기준, 뱃지는 AI 응답 기준)
     const dailyHeadline = aiInsight?.issues?.[0]?.title || '일간';
-    const dailySummary = aiInsight?.summary || '';
+    const dailySummary = typeof aiInsight?.summary === 'object' ? aiInsight.summary.desc : (aiInsight?.summary || '');
     const dailySlug = insightFileDate || '';
     const dailyLink = dailySlug ? `/magazine/daily/${dailySlug}/` : '/magazine/';
     const dailyBadgeText = insightFileDate ? `${formatDateKr(insightFileDate)} 일간` : '일간';
 
-    // 주간 데이터
-    const wai = weeklyInsight?.ai || null;
-    const wInfo = weeklyInsight?.weekInfo || {};
-    const weeklyHeadline = wai?.issues?.[0]?.title || '주간';
-    const weeklySummary = typeof wai?.summary === 'object' ? wai.summary.desc : (wai?.summary || '');
-    const weekNum = wInfo.weekNumber || wai?.weekNumber || '';
-    const weekYear = wInfo.year || (wInfo.startDate ? wInfo.startDate.slice(0, 4) : new Date().getFullYear());
-    const weeklySlug = weekNum ? `${weekYear}-W${String(weekNum).padStart(2, '0')}` : '';
-    const weeklyLink = weeklySlug ? `/magazine/weekly/${weeklySlug}/` : '/magazine/';
-    // 주간 뱃지: "2025년 12월 15일 ~ 12월 21일 주간"
-    const weeklyBadgeText = wInfo.startDate && wInfo.endDate
-      ? `${formatDateKr(wInfo.startDate)} ~ ${parseInt(wInfo.endDate.slice(5, 7))}월 ${parseInt(wInfo.endDate.slice(8, 10))}일 주간`
-      : '주간';
-
     // 썸네일 (없으면 CSS gradient 배경만 보임) - fixUrl로 프록시 처리
     const dailyThumbnail = dailyInsightThumbData?.src || '';
-    const weeklyThumbnail = weeklyInsightThumbData?.src || '';
     const dailyImgAttrs = dailyInsightThumbData?.srcset
       ? `src="${dailyInsightThumbData.src}" srcset="${dailyInsightThumbData.srcset}" sizes="${dailyInsightThumbData.sizes}"`
       : (dailyInsightThumbData?.src ? `src="${dailyInsightThumbData.src}"` : '');
-    const weeklyImgAttrs = weeklyInsightThumbData?.srcset
-      ? `src="${weeklyInsightThumbData.src}" srcset="${weeklyInsightThumbData.srcset}" sizes="${weeklyInsightThumbData.sizes}"`
-      : (weeklyInsightThumbData?.src ? `src="${weeklyInsightThumbData.src}"` : '');
 
-    // 일간 카드 (이미지 + 헤드라인)
-    const dailyCard = dailyHeadline ? `
-      <a href="${dailyLink}" class="home-trend-card">
-        <div class="home-trend-card-image">
-          ${dailyThumbnail ? `<img ${dailyImgAttrs} alt="${escapeHtmlAttr(dailyHeadline)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag">${dailyBadgeText}</span>
-        </div>
-        <h3 class="home-trend-card-title">${dailyHeadline}</h3>
-      </a>
-    ` : '';
-
-    // 주간 카드 (이미지 + 헤드라인)
-    const weeklyCard = wai ? `
-      <a href="${weeklyLink}" class="home-trend-card">
-        <div class="home-trend-card-image">
-          ${weeklyThumbnail ? `<img ${weeklyImgAttrs} alt="${escapeHtmlAttr(weeklyHeadline)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag weekly">${weeklyBadgeText}</span>
-        </div>
-        <h3 class="home-trend-card-title">${weeklyHeadline}</h3>
-      </a>
-    ` : '';
-
-    if (!dailyCard && !weeklyCard) {
+    if (!dailyHeadline) {
       return '<div class="home-empty">매거진을 불러올 수 없습니다</div>';
     }
 
-    // 일간 + 주간만 반환 (2컬럼 그리드)
-    return `<div class="home-trend-grid">${dailyCard}${weeklyCard}</div>`;
+    // 가로형 카드 (인기 카드 스타일 재활용)
+    return `
+      <div class="home-popular-list">
+        <a href="${dailyLink}" class="home-popular-card">
+          <div class="home-popular-thumb">
+            ${dailyThumbnail ? `<img ${dailyImgAttrs} alt="${escapeHtmlAttr(dailyHeadline)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
+            <span class="home-trend-card-tag">${dailyBadgeText}</span>
+          </div>
+          <div class="home-popular-info">
+            <h3 class="home-popular-title">${dailyHeadline}</h3>
+            ${dailySummary ? `<p class="home-popular-summary">${dailySummary}</p>` : ''}
+          </div>
+        </a>
+      </div>`;
   }
 
   // 홈 인기 기사 (가로형 3개 - eyesmag 스타일)
@@ -618,7 +582,6 @@ function generateIndexPage(data) {
     // 카테고리별 글 개수 계산
     const counts = {
       daily: dailyReportsCount,
-      weekly: weeklyReportsCount,
       issue: issueReports.length,
       insight: insightReports.length,
       hotpick: hotpickReports.length,
@@ -633,8 +596,7 @@ function generateIndexPage(data) {
 
     // 정기 매거진 카테고리
     const regularCategories = [
-      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily },
-      { id: 'weekly', name: '주간', link: '/magazine/weekly/', count: counts.weekly }
+      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily }
     ];
 
     // 리포트 카테고리
@@ -909,7 +871,7 @@ function generateIndexPage(data) {
   }
 
   // 트렌드 카드 HTML
-  var insightCardHtml = (aiInsight || weeklyInsight) ?
+  var insightCardHtml = aiInsight ?
     '<div class="home-card" id="home-insight">' +
     '<div class="home-card-header">' +
     '<h2 class="home-card-title">정기</h2>' +

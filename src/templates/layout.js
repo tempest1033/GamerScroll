@@ -2086,7 +2086,6 @@ function generateDefaultSidebarContent(counts = {}, articles = {}) {
         <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
         <div class="sidebar-category-list">
           <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간${c('daily')}</span></a>
-          <a href="/magazine/weekly/" class="sidebar-category-item"><span class="sidebar-category-name">주간${c('weekly')}</span></a>
         </div>
       </div>
       <div class="sidebar-category-group">

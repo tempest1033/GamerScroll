@@ -2,7 +2,6 @@
  * 썸네일 로컬 경로 헬퍼 (공통 모듈)
  * - 이슈/핫픽/인사이트 리포트 썸네일
  * - 일간 뉴스 썸네일
- * - 주간 리포트 썸네일
  */
 
 const fs = require('fs');
@@ -83,51 +82,9 @@ function getLocalDailyThumbnailSrcset(date, originalUrl) {
   };
 }
 
-// 주간 리포트 썸네일 로컬 경로 헬퍼 (2026-W04 형식)
-// size: 'xs' = 모바일(200px), 'sm' = 리스트용 (480px), 'lg' = 상세용 (1200px)
-function getLocalWeeklyThumbnail(weekSlug, originalUrl, size = 'sm') {
-  if (!originalUrl || !weekSlug) {
-    const widthFallback = size === 'xs' ? 200 : (size === 'lg' ? 1200 : 480);
-    return originalUrl ? `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${widthFallback}&output=webp` : '';
-  }
-
-  const sizeMap = { xs: 'thumbnail-xs.webp', sm: 'thumbnail-sm.webp', lg: 'thumbnail.webp' };
-  const widthMap = { xs: 200, sm: 480, lg: 1200 };
-  const filename = sizeMap[size] || sizeMap.sm;
-  const localPath = `/assets/images/weekly/${weekSlug}/${filename}`;
-  const fullPath = path.join(docsDir, 'assets/images/weekly', weekSlug, filename);
-
-  if (fs.existsSync(fullPath)) {
-    return localPath;
-  }
-  // 폴백: 기존 thumbnail.webp 확인
-  if (size === 'sm' || size === 'xs') {
-    const fallbackPath = path.join(docsDir, 'assets/images/weekly', weekSlug, 'thumbnail.webp');
-    if (fs.existsSync(fallbackPath)) {
-      return `/assets/images/weekly/${weekSlug}/thumbnail.webp`;
-    }
-  }
-  const width = widthMap[size] || 480;
-  return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
-}
-
-function getLocalWeeklyThumbnailSrcset(weekSlug, originalUrl) {
-  const xsUrl = getLocalWeeklyThumbnail(weekSlug, originalUrl, 'xs');
-  const smUrl = getLocalWeeklyThumbnail(weekSlug, originalUrl, 'sm');
-  if (!smUrl) return { src: '', srcset: '' };
-  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
-  return {
-    src: smUrl,
-    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
-    sizes: '(max-width: 768px) 133px, 253px'
-  };
-}
-
 module.exports = {
   getLocalReportThumbnail,
   getLocalReportThumbnailSrcset,
   getLocalDailyThumbnail,
   getLocalDailyThumbnailSrcset,
-  getLocalWeeklyThumbnail,
-  getLocalWeeklyThumbnailSrcset,
 };

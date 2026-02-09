@@ -40,7 +40,6 @@ const CACHE_FILE = './data-cache.json';
 const HISTORY_DIR = './history';
 const SNAPSHOTS_DIR = './snapshots';
 const REPORTS_DIR = './reports';
-const WEEKLY_REPORTS_DIR = './reports/weekly';
 const WIKI_DIR = './data/wiki';
 const FEED_ASSETS_DIR = './assets/feed';
 const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
@@ -574,8 +573,8 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage, generateDailyDetailPage, generateWeeklyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage } = require('./src/templates/pages/trend');
-const { generateTrendsHubPage, generateDailyListPage, generateWeeklyListPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage, generateRankingListPage } = require('./src/templates/pages/trends-hub');
+const { generateTrendPage, generateDailyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendsHubPage, generateDailyListPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage, generateRankingListPage } = require('./src/templates/pages/trends-hub');
 // 뉴스/커뮤니티/영상 페이지 제거됨 (크롤링 데이터는 유지)
 const { generateRankingsPage } = require('./src/templates/pages/rankings');
 const { generateSteamPage } = require('./src/templates/pages/steam');
@@ -766,27 +765,6 @@ function loadAIInsightFromFile(filePath, insight, includeStock = true) {
     console.log(`⚠️ AI 인사이트 파싱 실패: ${e.message}`);
   }
   return false;
-}
-
-/**
- * 가장 최근 주간 리포트 파일 찾기
- * @returns {string|null} 존재하는 파일 경로 또는 null
- */
-function findLatestWeeklyReport() {
-  if (!fs.existsSync(WEEKLY_REPORTS_DIR)) {
-    return null;
-  }
-
-  const files = fs.readdirSync(WEEKLY_REPORTS_DIR)
-    .filter(f => f.endsWith('.json'))
-    .sort()
-    .reverse(); // 최신 파일 먼저
-
-  if (files.length === 0) {
-    return null;
-  }
-
-  return `${WEEKLY_REPORTS_DIR}/${files[0]}`;
 }
 
 // PurgeCSS 동적 클래스 safelist (런타임 JS에서 classList.add/toggle/className으로 추가되는 클래스)
@@ -1064,21 +1042,6 @@ async function main() {
     }
   }
 
-  // 주간 인사이트 로드 (별도 스크립트로 생성됨)
-  let weeklyInsight = null;
-  const weeklyReportFile = findLatestWeeklyReport();
-  if (weeklyReportFile) {
-    try {
-      const weeklyReport = JSON.parse(fs.readFileSync(weeklyReportFile, 'utf8'));
-      if (weeklyReport.ai) {
-        weeklyInsight = weeklyReport;
-        console.log(`📂 주간 인사이트 로드 완료 (${weeklyReportFile.split('/').pop()})`);
-      }
-    } catch (e) {
-      console.log('⚠️ 주간 인사이트 로드 실패');
-    }
-  }
-
   // HTML 생성
   console.log('\n📄 GAMERSCROLL 일일 보고서 생성 중...');
 
@@ -1146,16 +1109,15 @@ async function main() {
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   }
 
-  // 일간/주간 리포트 개수는 실제 로드 후 계산 (매거진 섹션에서 설정됨)
+  // 일간 리포트 개수는 실제 로드 후 계산 (매거진 섹션에서 설정됨)
   // 임시로 0으로 설정, 나중에 업데이트됨
   let dailyReportsCount = 0;
-  let weeklyReportsCount = 0;
 
   const issueReportsCount = issueReportsForHome.length;
   const insightReportsCount = insightReportsForHome.length;
   const hotpickReportsCount = hotpickReportsForHome.length;
   const rankingReportsCount = rankingReportsForHome.length;
-  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, weeklyInsight, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, rankingReports: rankingReportsForHome, dailyReportsCount, weeklyReportsCount, issueReportsCount, insightReportsCount, hotpickReportsCount, rankingReportsCount };
+  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, rankingReports: rankingReportsForHome, dailyReportsCount, issueReportsCount, insightReportsCount, hotpickReportsCount, rankingReportsCount };
 
   // games.json 로드 (게임 허브용)
   let gamesData = {};
@@ -1252,7 +1214,6 @@ async function main() {
   // 글로벌 사이드바 카운트 초기 설정 (위키/테크만, 매거진 counts는 나중에 업데이트)
   setGlobalSidebarCounts({
     daily: 0,
-    weekly: 0,
     issue: 0,
     insight: 0,
     hotpick: 0,
@@ -1428,44 +1389,10 @@ async function main() {
     dailyReports.sort((a, b) => b.slug.localeCompare(a.slug));
   }
 
-  // 2. 주간 리포트 JSON 스캔
-  const weeklyReports = [];
-  if (fs.existsSync(WEEKLY_REPORTS_DIR)) {
-    const files = fs.readdirSync(WEEKLY_REPORTS_DIR);
-    const weeklyJsonFiles = files.filter(f => /^\d{4}-W\d{2}\.json$/.test(f));
-
-    for (const file of weeklyJsonFiles) {
-      try {
-        const filePath = `${WEEKLY_REPORTS_DIR}/${file}`;
-        const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        if (content.ai) {
-          const slug = file.replace('.json', '');
-          const wInfo = content.weekInfo || {};
-          weeklyReports.push({
-            slug,
-            year: wInfo.startDate?.slice(0, 4) || slug.slice(0, 4),
-            weekNumber: wInfo.weekNumber || content.ai.weekNumber || parseInt(slug.match(/W(\d+)/)?.[1] || '0'),
-            startDate: wInfo.startDate || '',
-            endDate: wInfo.endDate || '',
-            summary: content.ai.summary || '',
-            issues: content.ai.issues || [],
-            weeklyInsight: content
-          });
-        }
-      } catch (e) {
-        console.warn(`  ⚠️ 주간 리포트 로드 실패: ${file}`);
-      }
-    }
-    // 주차 내림차순 정렬
-    weeklyReports.sort((a, b) => b.slug.localeCompare(a.slug));
-  }
-
   console.log(`  📅 일간 리포트: ${dailyReports.length}개`);
-  console.log(`  📊 주간 리포트: ${weeklyReports.length}개`);
 
   // 실제 로드된 개수로 업데이트 (홈 사이드바용)
   dailyReportsCount = dailyReports.length;
-  weeklyReportsCount = weeklyReports.length;
 
   // 3. 목록 페이지 생성 (magazine/index.html)
   const magazineDir = './magazine';
@@ -1637,14 +1564,6 @@ async function main() {
         summary: r.summary,
         issues: r.issues
       })),
-      weeklyReports: weeklyReports.map(r => ({
-        weekNumber: r.weekNumber,
-        year: r.year,
-        startDate: r.startDate,
-        endDate: r.endDate,
-        summary: r.summary,
-        issues: r.issues
-      })),
       issueReports: issueReports.map(p => ({
         slug: p.slug,
         title: p.title,
@@ -1677,7 +1596,6 @@ async function main() {
       wikiData: loadWikiData(),
       techData: loadTechData(),
       dailyReportsCount: dailyReports.length,
-      weeklyReportsCount: weeklyReports.length,
       sidebarPopularArticles: sidebarPopularMagazine,
       sidebarLatestArticles: sidebarLatestMagazine
     });
@@ -1687,18 +1605,10 @@ async function main() {
     console.error(`  ❌ magazine/index.html: ${err.message}`);
   }
 
-  // 4. 카테고리 목록 페이지 생성 (daily/index.html, weekly/index.html, issue/index.html)
+  // 4. 카테고리 목록 페이지 생성 (daily/index.html, issue/index.html)
   const categoryPageData = {
     dailyReports: dailyReports.map(r => ({
       date: r.date,
-      summary: r.summary,
-      issues: r.issues
-    })),
-    weeklyReports: weeklyReports.map(r => ({
-      weekNumber: r.weekNumber,
-      year: r.year,
-      startDate: r.startDate,
-      endDate: r.endDate,
       summary: r.summary,
       issues: r.issues
     })),
@@ -1733,7 +1643,6 @@ async function main() {
     wikiData: loadWikiData(),
     techData: loadTechData(),
     dailyReportsCount: dailyReports.length,
-    weeklyReportsCount: weeklyReports.length,
     sidebarPopularArticles: sidebarPopularMagazine,
     sidebarLatestArticles: sidebarLatestMagazine
   };
@@ -1749,19 +1658,6 @@ async function main() {
     console.log(`  ✅ magazine/daily/index.html`);
   } catch (err) {
     console.error(`  ❌ magazine/daily/index.html: ${err.message}`);
-  }
-
-  // Weekly 목록 페이지
-  const weeklyDir = `${magazineDir}/weekly`;
-  if (!fs.existsSync(weeklyDir)) {
-    fs.mkdirSync(weeklyDir, { recursive: true });
-  }
-  try {
-    const weeklyListHtml = generateWeeklyListPage(categoryPageData);
-    fs.writeFileSync(`${weeklyDir}/index.html`, weeklyListHtml, 'utf8');
-    console.log(`  ✅ magazine/weekly/index.html`);
-  } catch (err) {
-    console.error(`  ❌ magazine/weekly/index.html: ${err.message}`);
   }
 
   // Issue 목록 페이지
@@ -1819,7 +1715,6 @@ async function main() {
   // 글로벌 사이드바 카운트 설정 (상세 페이지 생성 전 필요)
   setGlobalSidebarCounts({
     daily: dailyReportsCount,
-    weekly: weeklyReportsCount,
     issue: issueReports.length,
     insight: insightReports.length,
     hotpick: hotpickReports.length,
@@ -1892,47 +1787,7 @@ async function main() {
   }
   console.log(`  ✅ 일간 상세 페이지 ${dailyReports.length}개 생성`);
 
-  // 7. 주간 상세 페이지 생성 (magazine/weekly/{slug}/index.html)
-  // 기존에 남아있는 불필요한 주간 페이지 정리 (현재 weeklyReports 목록에 없는 폴더 제거)
-  try {
-    const expectedWeeklySlugs = new Set(weeklyReports.map(r => r.slug));
-    const existingWeeklyDirs = fs.readdirSync(weeklyDir, { withFileTypes: true })
-      .filter(d => d.isDirectory())
-      .map(d => d.name);
-    for (const dirName of existingWeeklyDirs) {
-      if (!expectedWeeklySlugs.has(dirName)) {
-        fs.rmSync(`${weeklyDir}/${dirName}`, { recursive: true, force: true });
-      }
-    }
-  } catch (e) {
-    // 정리 실패 시에도 생성은 계속 진행
-  }
-
-  for (let i = 0; i < weeklyReports.length; i++) {
-    const report = weeklyReports[i];
-    const pageDir = `${weeklyDir}/${report.slug}`;
-    if (!fs.existsSync(pageDir)) {
-      fs.mkdirSync(pageDir, { recursive: true });
-    }
-
-    try {
-      const nav = {
-        prev: weeklyReports[i + 1]?.slug || null,
-        next: weeklyReports[i - 1]?.slug || null
-      };
-      const html = generateWeeklyDetailPage({
-        weeklyInsight: report.weeklyInsight,
-        slug: report.slug,
-        nav
-      });
-      fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
-    } catch (err) {
-      console.error(`  ❌ magazine/weekly/${report.slug}: ${err.message}`);
-    }
-  }
-  console.log(`  ✅ 주간 상세 페이지 ${weeklyReports.length}개 생성`);
-
-  // 8. 이슈 리포트 페이지 생성 (magazine/issue/{slug}/index.html)
+  // 7. 이슈 리포트 페이지 생성 (magazine/issue/{slug}/index.html)
   const wikiDataForIssue = loadWikiData(); // 이슈 리포트에서 관련 위키 참조용
   const techDataForIssue = loadTechData(); // 이슈 리포트 사이드바 카운트용
   const wikiCounts = {
@@ -1947,7 +1802,6 @@ async function main() {
   };
   const magazineCounts = {
     daily: dailyReportsCount,
-    weekly: weeklyReportsCount,
     issue: issueReports.length,
     insight: insightReports.length,
     hotpick: hotpickReports.length,
@@ -2096,7 +1950,6 @@ async function main() {
   // 글로벌 사이드바 카운트 설정 (모든 페이지에서 사용)
   setGlobalSidebarCounts({
     daily: dailyReportsCount,
-    weekly: weeklyReportsCount,
     issue: issueReports.length,
     insight: insightReports.length,
     hotpick: hotpickReports.length,
@@ -2127,7 +1980,7 @@ async function main() {
 
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
   try {
-    const homeData = { ...data, dailyReportsCount, weeklyReportsCount, issueReportsCount: issueReports.length, insightReports, hotpickReports, rankingReports };
+    const homeData = { ...data, dailyReportsCount, issueReportsCount: issueReports.length, insightReports, hotpickReports, rankingReports };
     const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, techData: homeTechData, sidebarPopularArticles: sidebarPopularAll, sidebarLatestArticles: sidebarLatestAll });
     fs.writeFileSync('./index.html', indexHtml, 'utf8');
     console.log(`  ✅ index.html`);
@@ -2146,7 +1999,6 @@ async function main() {
     wikiData,
     techData,
     dailyReportsCount: dailyReports.length,
-    weeklyReportsCount: weeklyReports.length,
     issueReportsCount: issueReports.length,
     insightReportsCount: insightReports.length,
     hotpickReportsCount: hotpickReports.length,
@@ -2231,8 +2083,7 @@ async function main() {
             ranking: rankingReports.length
           },
           magazineCounts: {
-            daily: dailyReports.length,
-            weekly: weeklyReports.length
+            daily: dailyReports.length
           },
           sidebarPopularArticles: sidebarPopularWiki,
           sidebarLatestArticles: sidebarLatestWiki
@@ -2255,7 +2106,6 @@ async function main() {
     techData,
     wikiData,
     dailyReportsCount: dailyReports.length,
-    weeklyReportsCount: weeklyReports.length,
     issueReportsCount: issueReports.length,
     insightReportsCount: insightReports.length,
     hotpickReportsCount: hotpickReports.length,
@@ -2343,8 +2193,7 @@ async function main() {
             ranking: rankingReports.length
           },
           magazineCounts: {
-            daily: dailyReports.length,
-            weekly: weeklyReports.length
+            daily: dailyReports.length
           },
           sidebarPopularArticles: sidebarPopularTech,
           sidebarLatestArticles: sidebarLatestTech
@@ -2668,19 +2517,6 @@ async function main() {
   const sitemapDate = new Date().toISOString().split('T')[0];
   const siteBaseUrl = 'https://gamerscroll.com'; // 통합 반응형 빌드 - 단일 도메인
 
-  // 주차 → 날짜 변환 헬퍼 (ISO week)
-  const getDateFromWeek = (weekStr) => {
-    const match = weekStr.match(/(\d{4})-W(\d{2})/);
-    if (!match) return sitemapDate;
-    const [, year, week] = match;
-    const jan4 = new Date(parseInt(year), 0, 4);
-    const dayOfWeek = jan4.getDay() || 7;
-    const firstMonday = new Date(jan4);
-    firstMonday.setDate(jan4.getDate() - dayOfWeek + 1);
-    const targetDate = new Date(firstMonday);
-    targetDate.setDate(firstMonday.getDate() + (parseInt(week) - 1) * 7);
-    return targetDate.toISOString().split('T')[0];
-  };
   const normalizeLastmodDate = (value) => {
     if (!value) return sitemapDate;
     const text = String(value).trim();
@@ -2695,7 +2531,6 @@ async function main() {
     // 매거진 (허브 + 목록)
     { loc: `${siteBaseUrl}/magazine/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/magazine/daily/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/magazine/weekly/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/magazine/issue/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate },
     { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate },
@@ -2753,18 +2588,6 @@ async function main() {
         lastmod: slug  // 폴더명이 날짜 형식
       })));
     }
-    // 주간 (폴더명이 주차: 2026-W03)
-    const weeklyBriefingDir = `${destBriefingDir}/weekly`;
-    if (fs.existsSync(weeklyBriefingDir)) {
-      const weeklyFolders = fs.readdirSync(weeklyBriefingDir, { withFileTypes: true })
-        .filter(d => d.isDirectory())
-        .map(d => d.name);
-      magazinePages.push(...weeklyFolders.map(slug => ({
-        loc: `${siteBaseUrl}/magazine/weekly/${slug}/`,
-        lastmod: getDateFromWeek(slug)  // 주차 → 날짜 변환
-      })));
-    }
-
     // 이슈 페이지 (JSON의 date 필드 사용)
     const issueBriefingDir = `${destBriefingDir}/issue`;
     if (fs.existsSync(issueBriefingDir)) {

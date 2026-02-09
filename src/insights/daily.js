@@ -336,13 +336,7 @@ function generateInsightHTML(insight) {
       <div class="insight-subtitle">Gaming Insight Report</div>
     </header>
 
-    <!-- 탭 -->
-    <div class="insight-tabs">
-      <button class="insight-tab active" data-tab="daily">일간 리포트</button>
-      <button class="insight-tab" data-tab="weekly">주간 리포트</button>
-    </div>
-
-    <!-- 일간 리포트 패널 -->
+    <!-- 일간 리포트 -->
     <div class="insight-panel active" id="panel-daily">
 
     <section class="insight-section">
@@ -414,111 +408,8 @@ function generateInsightHTML(insight) {
     </div>
     </div><!-- /panel-daily -->
 
-    <!-- 주간 리포트 패널 -->
-    <div class="insight-panel" id="panel-weekly">
-      <div class="weekly-header">
-        <div class="weekly-title">${getWeekInfo(date)}</div>
-        <div class="weekly-period">주간 게이밍 인사이트 리포트</div>
-      </div>
-
-      <div class="metrics-grid">
-        <div class="metric-card primary">
-          <div class="metric-label">모바일 1위 유지</div>
-          <div class="metric-value">${mobile.kr.ios[0]?.title || '-'}</div>
-          <div class="metric-sub">iOS 매출 순위</div>
-        </div>
-        <div class="metric-card accent">
-          <div class="metric-label">Steam 최다 동접</div>
-          <div class="metric-value">${steam[0]?.name || '-'}</div>
-          <div class="metric-sub">${steam[0]?.ccu?.toLocaleString() || '-'} CCU</div>
-        </div>
-        <div class="metric-card success">
-          <div class="metric-label">주간 급상승</div>
-          <div class="metric-value">${mobile.kr.ios.filter(g => g.status === 'up' && g.change >= 5)[0]?.title || '-'}</div>
-          <div class="metric-sub">iOS TOP 200 기준</div>
-        </div>
-        <div class="metric-card blue">
-          <div class="metric-label">신규 진입</div>
-          <div class="metric-value">${mobile.kr.ios.filter(g => g.status === 'new')[0]?.title || '-'}</div>
-          <div class="metric-sub">TOP 200 신규</div>
-        </div>
-      </div>
-
-      <section class="insight-section">
-        <h2 class="section-title">금주 하이라이트</h2>
-        <div class="highlights-grid">
-          <div class="highlight-card">
-            <span class="highlight-tag mobile">모바일</span>
-            <div class="highlight-title">iOS 매출 순위 동향</div>
-            <div class="highlight-desc">
-              ${mobile.kr.ios.slice(0, 3).map((g, i) => `${i + 1}위: ${g.title}`).join(' / ')}
-            </div>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-tag pc">PC</span>
-            <div class="highlight-title">Steam 동시접속 TOP 3</div>
-            <div class="highlight-desc">
-              ${steam.slice(0, 3).map((g, i) => `${i + 1}위: ${g.name} (${g.ccu?.toLocaleString() || '-'})`).join(' / ')}
-            </div>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-tag industry">순위 변동</span>
-            <div class="highlight-title">주요 순위 변동 게임</div>
-            <div class="highlight-desc">
-              ${mobile.kr.ios.filter(g => g.status !== 'same').slice(0, 3).map(g => `${g.title} (${g.status === 'up' ? '▲' : g.status === 'down' ? '▼' : ''}${Math.abs(g.change)})`).join(', ') || '변동 없음'}
-            </div>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-tag esports">뉴스</span>
-            <div class="highlight-title">금주 주요 뉴스</div>
-            <div class="highlight-desc">
-              ${news.slice(0, 2).map(n => n.title).join(' / ') || '주요 뉴스 없음'}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="grid-2">
-        <section class="insight-section">
-          <h2 class="section-title">모바일 TOP 10 (주간)</h2>
-          <table class="ranking-table">
-            <thead><tr><th>순위</th><th></th><th>게임</th><th>변동</th></tr></thead>
-            <tbody>${mobileKRHTML}</tbody>
-          </table>
-        </section>
-
-        <section class="insight-section">
-          <h2 class="section-title">Steam TOP 10 (주간)</h2>
-          <table class="ranking-table">
-            <thead><tr><th>순위</th><th></th><th>게임</th><th>CCU</th><th>변동</th></tr></thead>
-            <tbody>${steamHTML}</tbody>
-          </table>
-        </section>
-      </div>
-
-      <div class="weekly-coming-soon">
-        <h3>더 많은 주간 분석 데이터가 곧 추가됩니다</h3>
-        <p>주간 트렌드, 장르별 분석, 커뮤니티 핫이슈 등</p>
-      </div>
-    </div><!-- /panel-weekly -->
-
   </div>
 
-  <script>
-    // 탭 전환 기능
-    document.querySelectorAll('.insight-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        // 모든 탭 비활성화
-        document.querySelectorAll('.insight-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.insight-panel').forEach(p => p.classList.remove('active'));
-
-        // 클릭한 탭 활성화
-        tab.classList.add('active');
-        const panelId = 'panel-' + tab.dataset.tab;
-        document.getElementById(panelId).classList.add('active');
-      });
-    });
-  </script>
 </body>
 </html>`;
 }

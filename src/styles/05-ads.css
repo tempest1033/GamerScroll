@@ -116,11 +116,6 @@ body.ads-disabled .home-container {
   }
 }
 
-/* ===== 주간/일간 리포트 내부 광고 ===== */
-.weekly-report .ad-card {
-  margin: var(--space-block-gap, 16px) 0;
-}
-
 /* ===== Unfilled 광고 처리 ===== */
 
 /* 상단 광고 (top): unfilled 시 기존 카드 스타일 유지 + 무채색 파비콘 */
