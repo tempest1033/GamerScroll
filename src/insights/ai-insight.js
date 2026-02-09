@@ -329,7 +329,7 @@ function buildDataSummary(data) {
 
   if (newsItems.length > 0) {
     lines.push(`\n### 최신 뉴스 (${newsItems.length}개, 썸네일 URL 포함):`);
-    newsItems.forEach((n, i) => lines.push(`${i + 1}. [${n.date || ''}] ${n.title} → ${n.thumbnail}`));
+    newsItems.forEach((n, i) => lines.push(`${i + 1}. [${n.title}] → ${n.thumbnail}`));
   }
 
   // 커뮤니티 인기글 - 전체

@@ -436,7 +436,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
 
   if (combinedNews.length > 0) {
     lines.push('\n### 뉴스 썸네일 URL 목록 (이슈별 thumbnail 선택용):');
-    combinedNews.forEach((n, i) => lines.push(`${i + 1}. [${n.date || ''}] ${n.title} → ${n.thumbnail}`));
+    combinedNews.forEach((n, i) => lines.push(`${i + 1}. [${n.title}] → ${n.thumbnail}`));
   }
 
   return lines.join('\n');
