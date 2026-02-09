@@ -1,0 +1,319 @@
+{
+  "slug": "openai-chatgpt-growth-100b-funding",
+  "status": "approved",
+  "category": "openai",
+  "title": "OpenAI 2월 12일 신규 모델 출시 유력",
+  "titleEn": "OpenAI Likely to Launch New Model on February 12",
+  "date": "2026-02-10T01:00",
+  "keywords": "OpenAI, ChatGPT, 신규 모델, 2월 12일, GPT-5.3-Codex, Codex, 1000억 달러, AI 코딩, Claude Code, 샘 올트먼, ChatGPT 광고, AI 모델 2026, OpenAI 기업공개, ChatGPT 성장",
+  "keywordsEn": "OpenAI, ChatGPT, new model, February 12, GPT-5.3-Codex, Codex, $100 billion funding, AI coding, Claude Code, Sam Altman, ChatGPT ads, AI model 2026, OpenAI IPO, ChatGPT growth",
+  "summary": "OpenAI가 2월 12일 신규 Chat 모델을 출시할 것으로 유력하다. GPT-5.3-Codex 출시에 이어 ChatGPT 8억 사용자 돌파, 1000억 달러 펀딩, 광고 도입까지 겹치며 AI 시장 재편이 가속화되고 있다.",
+  "summaryEn": "OpenAI is likely to launch a new Chat model on February 12. Following GPT-5.3-Codex, with 800M ChatGPT users, $100B funding, and ad rollout, the AI landscape is shifting fast.",
+  "thumbnail": "https://marketing4ecommerce.net/en/wp-content/uploads/sites/8/2025/02/history-of-openai-how-the-famous-company-that-created-chatgpt-and-dall-e-was-founded-1.jpg",
+  "needTranslate": false,
+  "relatedDocs": [
+    "tech:ai/gpt-53-codex-community-reaction",
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/big3-ipo-2026-openai-anthropic-spacex"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "CNBC",
+      "title": "Sam Altman touts ChatGPT growth as OpenAI nears $100 billion funding",
+      "url": "https://www.cnbc.com/2026/02/09/sam-altman-touts-chatgpt-growth-as-openai-nears-100-billion-funding.html"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Introducing GPT-5.3-Codex",
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "OpenAI launches new agentic coding model",
+      "url": "https://techcrunch.com/2026/02/05/openai-launches-new-agentic-coding-model-only-minutes-after-anthropic-drops-its-own/"
+    },
+    {
+      "name": "Reuters",
+      "title": "OpenAI launches Codex app to gain ground in AI coding race",
+      "url": "https://www.reuters.com/business/media-telecom/openai-launches-codex-app-gain-ground-ai-coding-race-2026-02-02/"
+    },
+    {
+      "name": "Ars Technica",
+      "title": "OpenAI picks up pace against Claude Code with new Codex desktop app",
+      "url": "https://arstechnica.com/ai/2026/02/openai-picks-up-pace-against-claude-code-with-new-codex-desktop-app/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "OpenAI가 2026년 2월 첫째 주, AI 업계 역사에 남을 공격적 행보를 쏟아냈다. ChatGPT 주간 활성 사용자가 8억 명을 돌파하고, 1000억 달러(약 145조 원) 규모의 역대급 펀딩이 마무리 단계에 접어들었다. 여기에 지난주 GPT-5.3-Codex 출시, 이번 주 새 Chat 모델 업데이트 확정, 광고 도입까지 겹치며 AI 시장의 지형이 빠르게 재편되고 있다.\n\n샘 올트먼(Sam Altman) CEO는 2월 7일 사내 슬랙에서 ChatGPT의 월간 성장률이 10%를 넘어섰다고 밝혔다. 2025년 12월 '코드 레드'를 선언하며 위기감을 드러냈던 OpenAI가 불과 두 달 만에 성장 재가속에 성공한 셈이다. 최근 OpenAI가 보여준 변화들을 하나씩 짚어본다."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT-5.3-Codex 출시, 역대 최강 AI 코딩 모델"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7e3gCpXDMIRl5xyjwMyGkq/d37f812bea33c8f3ba20531bc74b06f4/GPT-5.4-Codex_SEOcard_16x9.png?w=1600&h=900&fit=fill",
+      "caption": "OpenAI가 공개한 GPT-5.3-Codex",
+      "alt": "OpenAI GPT-5.3-Codex 공식 발표 이미지"
+    },
+    {
+      "type": "text",
+      "value": "2월 5일, OpenAI는 GPT-5.3-Codex를 공식 출시했다. '역대 가장 강력한 자율형 코딩 모델'이라는 수식어가 붙은 이 모델은, 단순한 코드 자동완성을 넘어 복잡한 소프트웨어 개발 작업을 알아서 수행할 수 있는 능력을 갖췄다. 흥미로운 점은 Anthropic이 Claude Opus 4.6을 발표한 바로 그 시간에 맞춰 출시했다는 것으로, 두 회사 간의 치열한 경쟁 구도를 보여준다.\n\n이에 앞서 2월 2일에는 macOS용 Codex 독립 앱도 출시되었다. 기존에는 ChatGPT 화면 안에서만 사용할 수 있었던 코딩 기능을 별도 데스크톱 앱으로 분리한 것이다. 올트먼에 따르면 Codex는 출시 일주일 만에 약 50% 성장했으며, 그는 이를 \"미쳤다(insane)\"고 표현했다. Codex가 Anthropic의 Claude Code 시장 점유율을 빠르게 잠식하고 있다는 분석도 나온다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. ChatGPT 새 Chat 모델, 이번 주 업데이트 확정"
+    },
+    {
+      "type": "text",
+      "value": "올트먼은 사내 슬랙 메시지에서 이번 주 내로 ChatGPT에 업데이트된 Chat 모델을 출시할 것이라고 밝혔다. GPT-5.3-Codex가 코딩 특화 모델이라면, 이번에 나올 Chat 모델은 일반 대화와 추론 능력이 강화된 범용 모델로 알려졌다. 연이은 신규 모델 출시는 OpenAI가 기술 우위를 유지하기 위해 얼마나 공격적으로 움직이고 있는지를 단적으로 보여준다.\n\n2025년 12월 '코드 레드' 선언 이후 OpenAI는 내부적으로 개발 속도를 대폭 끌어올린 것으로 보인다. Codex 독립 앱(2/2), GPT-5.3-Codex(2/5), 새 Chat 모델(이번 주)까지 2주도 안 되는 기간에 세 가지 주요 제품을 쏟아내는 것은 이례적인 속도다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 1000억 달러 펀딩과 8300억 달러 기업가치"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/3KGOHkSXu53naMuSFNaiwv/aa2f914943c839ce6b75b8620a46b340/SEO_Banner_2560x1440_02.png?w=1600&h=900&fit=fill",
+      "caption": "OpenAI, 1000억 달러 규모 투자 유치 추진 중",
+      "alt": "OpenAI 공식 로고 배너 이미지"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI는 현재 1000억 달러(약 145조 원) 규모의 투자 유치를 마무리하고 있다. 아마존이 500억 달러, 소프트뱅크가 300억 달러를 투자하며, 마이크로소프트와 엔비디아도 참여한다. 이번 투자가 완료되면 OpenAI의 기업가치는 약 8300억 달러에 달할 전망이다. 이는 전 세계 비상장 기업 중 역대 최대 규모다.\n\n올트먼은 2026년 말 기업공개(IPO)를 목표로 하고 있으며, 이번 투자 유치는 그 전 마지막 대규모 자금 조달이 될 것으로 보인다. AI 인프라 구축과 모델 개발에 천문학적 비용이 드는 상황에서, 이 정도 규모의 자금은 경쟁사들과의 격차를 더욱 벌릴 수 있는 무기가 된다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. ChatGPT 광고 도입, 무료 사용자 수익화 시작"
+    },
+    {
+      "type": "image",
+      "src": "https://image.cnbcfm.com/api/v1/image/108246653-17671040502025-02-03t071606z_1023857156_rc2umca1iyne_rtrmadp_0_softbank-openai.jpeg?v=1767104178&w=1858&h=1045&vtcrop=y",
+      "caption": "소프트뱅크 CEO 손정의와 OpenAI CEO 샘 올트먼 (도쿄, 2025)",
+      "alt": "손정의 소프트뱅크 CEO와 샘 올트먼 OpenAI CEO 도쿄 이벤트"
+    },
+    {
+      "type": "text",
+      "value": "2월 10일부터 ChatGPT에 광고 테스트가 시작된다. 대상은 무료 요금제와 Go(저가) 요금제 사용자다. OpenAI는 지난 1월 16일 광고 도입 계획을 발표한 바 있으며, 이제 본격적으로 실행에 옮기는 것이다.\n\n이는 OpenAI의 수익 모델이 구독료 중심에서 광고 수익 병행으로 전환되는 중요한 분기점이다. 8억 명이 넘는 주간 활성 사용자 기반은 광고 플랫폼으로서도 엄청난 가치를 지닌다. 다만 AI 챗봇에 광고가 삽입되는 것에 대한 사용자 반발도 예상되는 만큼, 테스트 결과에 업계의 이목이 집중되고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "5. Anthropic과의 AI 패권 경쟁 격화"
+    },
+    {
+      "type": "image",
+      "src": "https://www.reuters.com/resizer/v2/2AWUTJJFXNOILMLDLIB7ICTZUQ.jpg?auth=fa3df32b061e5e47e1886738cb365db8aa5ec54a299855c9dd8ccc6538df2155&width=1920&quality=80",
+      "caption": "OpenAI와 Anthropic의 AI 패권 경쟁이 격화되고 있다",
+      "alt": "OpenAI Anthropic AI 경쟁 로고 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "최근 OpenAI의 행보에는 Anthropic과의 경쟁이 큰 배경으로 작용하고 있다. Anthropic은 슈퍼볼(미국 프로미식축구 결승전) 광고에서 OpenAI를 조롱하는 듯한 메시지를 내보냈고, 올트먼은 이를 \"기만적\"이라며 강하게 반박했다. GPT-5.3-Codex 역시 Anthropic의 Claude Opus 4.6 발표와 동시에 출시되어, 두 회사가 서로를 강하게 의식하고 있음을 드러냈다.\n\nAI 코딩 도구 시장에서도 Codex와 Claude Code의 직접 대결이 벌어지고 있다. Codex의 급격한 성장세는 Claude Code의 시장 점유율을 위협하고 있으며, 이 경쟁은 AI 코딩 도구의 품질을 빠르게 끌어올리는 효과를 낳고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. OpenAI 타임라인 총정리"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "날짜",
+        "이벤트"
+      ],
+      "rows": [
+        [
+          "2025년 12월",
+          "Anthropic 성장에 '코드 레드' 선언"
+        ],
+        [
+          "2026년 1월 16일",
+          "ChatGPT 광고 도입 공식 발표"
+        ],
+        [
+          "2026년 2월 2일",
+          "macOS용 Codex 독립 앱 출시"
+        ],
+        [
+          "2026년 2월 5일",
+          "GPT-5.3-Codex 모델 출시"
+        ],
+        [
+          "2026년 2월 7일",
+          "올트먼, 성장률 10%+ 복귀 발표"
+        ],
+        [
+          "2026년 2월 10일",
+          "ChatGPT 광고 테스트 시작"
+        ],
+        [
+          "향후 2주",
+          "1000억 달러 펀딩 마무리"
+        ],
+        [
+          "2026년 말",
+          "기업공개(IPO) 목표"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "불과 2주 사이에 이 정도의 이벤트가 집중된 것은 OpenAI 역사상 전례가 없는 일이다. '코드 레드' 이후 OpenAI가 얼마나 위기감을 느끼고 있는지, 그리고 그 위기감이 얼마나 강력한 실행력으로 전환되고 있는지를 보여주는 타임라인이다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 위기를 기회로 바꿀 수 있을지"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI는 2025년 12월 '코드 레드'라는 위기 선언에서 출발해, 불과 두 달 만에 GPT-5.3-Codex 출시, 새 Chat 모델 확정, 1000억 달러 투자 유치, 광고 도입까지 숨 가쁜 반격을 이어가고 있다. 위기감이 실행력으로 전환된 것은 분명하다.\n\n다만 이 공격적 전략이 진정한 기회로 이어질지는 아직 미지수다. 천문학적 투자금에 걸맞은 수익을 만들어낼 수 있을지, Anthropic과 Google의 추격을 뿌리칠 수 있을지, 광고 도입이 사용자 이탈로 이어지지는 않을지. OpenAI가 이 위기를 기회로 바꿀 수 있을지, 2026년 AI 시장의 가장 큰 관전 포인트가 될 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In the first week of February 2026, OpenAI unleashed an aggressive series of moves that may go down in AI industry history. ChatGPT surpassed 800 million weekly active users, and a record-breaking $100 billion funding round is nearing completion. Add to that last week's GPT-5.3-Codex launch, a confirmed new Chat model update this week, and the introduction of ads, and the AI landscape is being rapidly reshaped.\n\nCEO Sam Altman announced on the company's internal Slack on February 7 that ChatGPT's monthly growth rate had exceeded 10%. Just two months after declaring \"Code Red\" in December 2025, OpenAI has successfully reignited its growth trajectory. Here's a breakdown of the changes OpenAI has made recently."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT-5.3-Codex Launch: The Most Powerful AI Coding Model Ever"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7e3gCpXDMIRl5xyjwMyGkq/d37f812bea33c8f3ba20531bc74b06f4/GPT-5.4-Codex_SEOcard_16x9.png?w=1600&h=900&fit=fill",
+      "caption": "OpenAI's GPT-5.3-Codex announcement",
+      "alt": "OpenAI GPT-5.3-Codex official announcement image"
+    },
+    {
+      "type": "text",
+      "value": "On February 5, OpenAI officially launched GPT-5.3-Codex. Dubbed \"the most powerful agentic coding model ever,\" it goes beyond simple code autocompletion to autonomously handle complex software development tasks. Notably, it was released at the exact same time Anthropic announced Claude Opus 4.6, underscoring the fierce rivalry between the two companies.\n\nThree days earlier, on February 2, OpenAI had also launched a standalone Codex desktop app for macOS, separating the coding capabilities from the ChatGPT interface into a dedicated application. According to Altman, Codex grew approximately 50% in just one week after launch, which he described as \"insane.\" Analysts note that Codex is rapidly eating into Anthropic's Claude Code market share."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. New ChatGPT Chat Model Confirmed for This Week"
+    },
+    {
+      "type": "text",
+      "value": "Altman revealed in an internal Slack message that an updated Chat model would be released for ChatGPT within the week. While GPT-5.3-Codex is a coding-specialized model, the upcoming Chat model is reportedly a general-purpose model with enhanced conversational and reasoning capabilities. The rapid succession of model releases demonstrates just how aggressively OpenAI is moving to maintain its technological edge.\n\nSince the \"Code Red\" declaration in December 2025, OpenAI appears to have dramatically accelerated its development pace internally. Shipping three major products in less than two weeks, the standalone Codex app (Feb 2), GPT-5.3-Codex (Feb 5), and the new Chat model (this week), is an unprecedented cadence."
+    },
+    {
+      "type": "heading",
+      "value": "3. $100 Billion Funding and $830 Billion Valuation"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/3KGOHkSXu53naMuSFNaiwv/aa2f914943c839ce6b75b8620a46b340/SEO_Banner_2560x1440_02.png?w=1600&h=900&fit=fill",
+      "caption": "OpenAI, 1000억 달러 규모 투자 유치 추진 중",
+      "alt": "OpenAI 공식 로고 배너 이미지"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI is currently finalizing a $100 billion funding round. Amazon is investing $50 billion, SoftBank $30 billion, with Microsoft and Nvidia also participating. Once completed, OpenAI's valuation will reach approximately $830 billion, making it the largest private company funding in history.\n\nAltman is targeting an IPO by the end of 2026, and this round is expected to be the last major fundraise before going public. With astronomical costs for AI infrastructure and model development, this level of capital serves as a powerful weapon to widen the gap with competitors."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. ChatGPT Ad Rollout: Monetizing Free Users"
+    },
+    {
+      "type": "image",
+      "src": "https://image.cnbcfm.com/api/v1/image/108246653-17671040502025-02-03t071606z_1023857156_rc2umca1iyne_rtrmadp_0_softbank-openai.jpeg?v=1767104178&w=1858&h=1045&vtcrop=y",
+      "caption": "SoftBank CEO Masayoshi Son and OpenAI CEO Sam Altman (Tokyo, 2025)",
+      "alt": "SoftBank CEO Masayoshi Son and OpenAI CEO Sam Altman at Tokyo event"
+    },
+    {
+      "type": "text",
+      "value": "Starting February 10, ChatGPT will begin testing advertisements. The rollout targets free-tier and Go (low-cost) plan users. OpenAI announced its advertising plans on January 16, and is now moving to execution.\n\nThis marks a critical inflection point as OpenAI's revenue model shifts from subscription-only to a hybrid subscription-plus-advertising approach. A user base of over 800 million weekly active users carries enormous value as an advertising platform. However, user backlash over ads being inserted into an AI chatbot is anticipated, making the test results a focal point for the industry."
+    },
+    {
+      "type": "heading",
+      "value": "5. Intensifying AI Rivalry with Anthropic"
+    },
+    {
+      "type": "image",
+      "src": "https://www.reuters.com/resizer/v2/2AWUTJJFXNOILMLDLIB7ICTZUQ.jpg?auth=fa3df32b061e5e47e1886738cb365db8aa5ec54a299855c9dd8ccc6538df2155&width=1920&quality=80",
+      "caption": "The AI rivalry between OpenAI and Anthropic is intensifying",
+      "alt": "OpenAI and Anthropic AI competition logo illustration"
+    },
+    {
+      "type": "text",
+      "value": "Competition with Anthropic looms large behind OpenAI's recent moves. Anthropic ran a Super Bowl ad that appeared to mock OpenAI, prompting Altman to fire back, calling it \"deceptive.\" GPT-5.3-Codex was also released simultaneously with Anthropic's Claude Opus 4.6 announcement, making clear that both companies are keenly aware of each other.\n\nThe AI coding tools market is seeing a direct showdown between Codex and Claude Code. Codex's explosive growth is threatening Claude Code's market share, and this competition is rapidly driving up the quality of AI coding tools across the board."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. OpenAI Timeline Recap"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Date",
+        "Event"
+      ],
+      "rows": [
+        [
+          "Dec 2025",
+          "\"Code Red\" declared in response to Anthropic's growth"
+        ],
+        [
+          "Jan 16, 2026",
+          "ChatGPT ad integration officially announced"
+        ],
+        [
+          "Feb 2, 2026",
+          "Codex standalone macOS app launched"
+        ],
+        [
+          "Feb 5, 2026",
+          "GPT-5.3-Codex model released"
+        ],
+        [
+          "Feb 7, 2026",
+          "Altman announces 10%+ growth rate recovery"
+        ],
+        [
+          "Feb 10, 2026",
+          "ChatGPT ad testing begins"
+        ],
+        [
+          "Within 2 weeks",
+          "$100 billion funding round closing"
+        ],
+        [
+          "Late 2026",
+          "IPO target"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "This concentration of events within just two weeks is unprecedented in OpenAI's history. The timeline reveals how urgently OpenAI perceives the competitive threat and how effectively that urgency has been channeled into execution."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Can OpenAI Turn Crisis into Opportunity?"
+    },
+    {
+      "type": "text",
+      "value": "Starting from the \"Code Red\" crisis declaration in December 2025, OpenAI has mounted a breathless counteroffensive in just two months: GPT-5.3-Codex launch, new Chat model confirmation, $100 billion investment, and ad rollout. The transformation of urgency into execution is undeniable.\n\nYet whether this aggressive strategy will translate into genuine opportunity remains uncertain. Can they generate returns worthy of astronomical investments? Can they fend off Anthropic and Google's pursuit? Will ad integration drive users away? Whether OpenAI can turn this crisis into opportunity will be the biggest storyline in the AI market of 2026."
+    }
+  ]
+}
