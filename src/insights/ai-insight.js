@@ -138,8 +138,11 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}${metricsBlacklistSummary}
 - desc: 200자 이내
 
 ## 썸네일 처리 규칙 (필수):
-- 아래 모든 thumbnail 필드는 항상 null로 출력
-- 썸네일은 후처리 단계(Codex)에서 웹 검색으로 채움
+- 각 이슈의 thumbnail 필드에 관련 이미지 URL을 웹 검색으로 찾아서 채워줘
+- 반드시 https:// 로 시작하는 절대 URL만 사용 (// 시작 금지)
+- 해당 기사/뉴스의 대표 이미지 또는 게임 공식 이미지 사용
+- 제목/내용과 확실히 일치하는 이미지만 사용하고, 애매하면 null
+- encrypted-tbn0.gstatic.com 등 구글 이미지 검색 썸네일 URL 사용 금지
 
 ## 중복 방지 (필수 - 가장 중요한 규칙):
 - summary(데일리 포커스)는 최근 리포트와 중복된 주제/표현 피할 것
