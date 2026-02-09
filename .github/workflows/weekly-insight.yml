@@ -60,7 +60,7 @@ jobs:
       - name: Generate Weekly Insight
         if: steps.check-reports.outputs.reports_exist == 'true'
         run: |
-          export PATH="/opt/homebrew/bin:$PATH"
+          export PATH="/Users/jyp/.local/bin:/opt/homebrew/bin:$PATH"
           echo "📅 주간 인사이트 생성 시작..."
           if [ "${{ github.event.inputs.force }}" == "true" ]; then
             node generate-weekly-insight.js --force

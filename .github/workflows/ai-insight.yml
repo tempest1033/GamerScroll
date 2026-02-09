@@ -53,7 +53,7 @@ jobs:
       - name: Generate AI Insight
         if: steps.check-cache.outputs.cache_exists == 'true'
         run: |
-          export PATH="/opt/homebrew/bin:$PATH"
+          export PATH="/Users/jyp/.local/bin:/opt/homebrew/bin:$PATH"
           echo "🤖 AI 인사이트 생성 시작..."
           node generate-ai-insight.js
         timeout-minutes: 30
