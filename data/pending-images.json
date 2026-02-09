@@ -237,6 +237,13 @@
       "type": "02.webp",
       "failedAt": "2026-02-07T20:25:40.274Z",
       "error": "HTTP 404: https://github.com/anthropics/claude-code/raw/main/.github/assets/claude-code-demo.gif"
+    },
+    {
+      "url": "https://marketing4ecommerce.net/en/wp-content/uploads/sites/8/2025/02/history-of-openai-how-the-famous-company-that-created-chatgpt-and-dall-e-was-founded-1.jpg",
+      "slug": "openai-chatgpt-growth-100b-funding",
+      "type": "thumbnail.webp",
+      "failedAt": "2026-02-09T17:14:14.833Z",
+      "error": "HTTP 403: https://marketing4ecommerce.net/en/wp-content/uploads/sites/8/2025/02/history-of-openai-how-the-famous-company-that-created-chatgpt-and-dall-e-was-founded-1.jpg"
     }
   ]
 }
