@@ -74,9 +74,9 @@ ${rankingsSummary}
   ※ 순위 숫자를 임의로 바꾸지 말 것 - 제공된 데이터 그대로 사용
   ※ desc에만 웹 검색으로 파악한 변동 원인 작성 (업데이트, 이벤트, 할인, 논란 등)` : '';
 
-    // 최근 3주간 인사이트 요약 + 지표 블랙리스트 (반복 방지용)
-    const prevWeekSummary = buildPrevWeekInsightsSummary(prevWeekInsights);
-    const metricsBlacklistSummary = buildWeeklyMetricsBlacklistSummary(prevWeekInsights);
+    // 블랙리스트 비활성화 (프롬프트 경량화)
+    const prevWeekSummary = '';
+    const metricsBlacklistSummary = '';
 
     const prompt = `## 중요: 현재 시간 기준 정보
 - 현재 날짜: ${currentDate}
