@@ -307,7 +307,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.issues && report.ai.issues.length > 0) {
       lines.push('- 주요 이슈:');
       report.ai.issues.forEach(issue => {
-        lines.push(`  • [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        lines.push(`  • [${issue.tag}] ${issue.title}: ${(issue.desc || '').substring(0, 80)}`);
       });
     }
 
@@ -315,7 +315,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.industryIssues && report.ai.industryIssues.length > 0) {
       lines.push('- 업계 동향:');
       report.ai.industryIssues.forEach(issue => {
-        lines.push(`  • [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        lines.push(`  • [${issue.tag}] ${issue.title}: ${(issue.desc || '').substring(0, 80)}`);
       });
     }
 
@@ -323,7 +323,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.rankings && report.ai.rankings.length > 0) {
       lines.push('- 순위 변동:');
       report.ai.rankings.forEach(rank => {
-        lines.push(`  • [${rank.tag}] ${rank.title}: ${rank.desc}`);
+        lines.push(`  • [${rank.tag}] ${rank.title}`);
       });
     }
 
@@ -331,7 +331,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.community && report.ai.community.length > 0) {
       lines.push('- 커뮤니티:');
       report.ai.community.forEach(comm => {
-        lines.push(`  • [${comm.tag}] ${comm.title}: ${comm.desc}`);
+        lines.push(`  • [${comm.tag}] ${comm.title}`);
       });
     }
 
@@ -578,17 +578,12 @@ function buildPrevWeekInsightsSummary(prevWeekInsights) {
   const blacklistKeywords = new Set();
 
   prevWeekInsights.forEach((insight, idx) => {
-    lines.push(`\n### 최근 ${idx + 1}주 전 리포트:`);
-
-    // summary (위클리 포커스)
-    if (insight.summary) {
-      lines.push(`- [요약] ${insight.summary}`);
-    }
+    lines.push(`\n### 최근 ${idx + 1}주 전 (제목만 - 중복 방지용):`);
 
     // issues
     if (insight.issues && insight.issues.length > 0) {
       insight.issues.forEach(issue => {
-        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        lines.push(`- [${issue.tag}] ${issue.title}`);
         blacklistKeywords.add(issue.title);
       });
     }
@@ -596,7 +591,7 @@ function buildPrevWeekInsightsSummary(prevWeekInsights) {
     // industryIssues
     if (insight.industryIssues && insight.industryIssues.length > 0) {
       insight.industryIssues.forEach(issue => {
-        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        lines.push(`- [${issue.tag}] ${issue.title}`);
         blacklistKeywords.add(issue.title);
       });
     }
@@ -604,45 +599,27 @@ function buildPrevWeekInsightsSummary(prevWeekInsights) {
     // metrics
     if (insight.metrics && insight.metrics.length > 0) {
       insight.metrics.forEach(metric => {
-        lines.push(`- [지표] ${metric.title}: ${metric.desc}`);
+        lines.push(`- [지표] ${metric.title}`);
         blacklistKeywords.add(metric.title);
-      });
-    }
-
-    // rankings
-    if (insight.rankings && insight.rankings.length > 0) {
-      insight.rankings.forEach(rank => {
-        lines.push(`- [순위] ${rank.title}: ${rank.desc}`);
-        blacklistKeywords.add(rank.title);
       });
     }
 
     // community
     if (insight.community && insight.community.length > 0) {
       insight.community.forEach(comm => {
-        lines.push(`- [커뮤니티] ${comm.title}: ${comm.desc}`);
-        blacklistKeywords.add(comm.tag); // 게임명
-      });
-    }
-
-    // streaming
-    if (insight.streaming && insight.streaming.length > 0) {
-      insight.streaming.forEach(stream => {
-        lines.push(`- [스트리밍] ${stream.title}: ${stream.desc}`);
+        blacklistKeywords.add(comm.tag);
       });
     }
 
     // global
     if (insight.global && insight.global.length > 0) {
       insight.global.forEach(g => {
-        lines.push(`- [글로벌] ${g.title}: ${g.desc}`);
         blacklistKeywords.add(g.title);
       });
     }
 
     // mvp
     if (insight.mvp) {
-      lines.push(`- [MVP] ${insight.mvp.name}: ${insight.mvp.desc}`);
       blacklistKeywords.add(insight.mvp.name);
     }
   });
