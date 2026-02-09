@@ -224,7 +224,7 @@ JSON만 출력해. 다른 설명 없이.`;
         }
 
         result = execSync(
-          `cat "${tmpFile}" | claude -p - --model opus`,
+          `cat "${tmpFile}" | claude -p - --tools default --model opus`,
           {
             encoding: 'utf8',
             maxBuffer: 1024 * 1024,
@@ -425,7 +425,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
           const newsDate = new Date(n.date);
           return newsDate >= weekStart && newsDate < weekEnd;
         }
-        return false; // 날짜 없으면 제외
+        return true; // 날짜 없으면 포함
       });
       allNews.push(...reportNews);
     }

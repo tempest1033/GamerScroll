@@ -189,7 +189,7 @@ JSON만 출력해. 다른 설명 없이.`;
 
         try {
           result = execSync(
-            `cat "${tmpFile}" | claude -p - --model opus`,
+            `cat "${tmpFile}" | claude -p - --tools default --model opus`,
             {
               encoding: 'utf8',
               maxBuffer: 1024 * 1024,
