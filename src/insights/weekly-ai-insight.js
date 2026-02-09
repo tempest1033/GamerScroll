@@ -307,7 +307,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.issues && report.ai.issues.length > 0) {
       lines.push('- 주요 이슈:');
       report.ai.issues.forEach(issue => {
-        lines.push(`  • [${issue.tag}] ${issue.title}: ${(issue.desc || '').substring(0, 80)}`);
+        lines.push(`  • [${issue.tag}] ${issue.title}: ${issue.desc}`);
       });
     }
 
@@ -315,7 +315,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.industryIssues && report.ai.industryIssues.length > 0) {
       lines.push('- 업계 동향:');
       report.ai.industryIssues.forEach(issue => {
-        lines.push(`  • [${issue.tag}] ${issue.title}: ${(issue.desc || '').substring(0, 80)}`);
+        lines.push(`  • [${issue.tag}] ${issue.title}: ${issue.desc}`);
       });
     }
 
@@ -323,7 +323,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.rankings && report.ai.rankings.length > 0) {
       lines.push('- 순위 변동:');
       report.ai.rankings.forEach(rank => {
-        lines.push(`  • [${rank.tag}] ${rank.title}`);
+        lines.push(`  • [${rank.tag}] ${rank.title}: ${rank.desc}`);
       });
     }
 
@@ -331,7 +331,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.community && report.ai.community.length > 0) {
       lines.push('- 커뮤니티:');
       report.ai.community.forEach(comm => {
-        lines.push(`  • [${comm.tag}] ${comm.title}`);
+        lines.push(`  • [${comm.tag}] ${comm.title}: ${comm.desc}`);
       });
     }
 
