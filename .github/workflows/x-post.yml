@@ -33,6 +33,20 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      - name: Check today's AI insight exists
+        run: |
+          TODAY=$(TZ=Asia/Seoul date +'%Y-%m-%d')
+          REPORT="docs/reports/${TODAY}.json"
+          if [ ! -f "$REPORT" ]; then
+            echo "❌ 오늘자 리포트 없음: $REPORT"
+            exit 1
+          fi
+          if ! node -e "const r=JSON.parse(require('fs').readFileSync('$REPORT','utf8')); if(!r.ai){process.exit(1)}"; then
+            echo "❌ 오늘자 리포트에 AI 인사이트 없음"
+            exit 1
+          fi
+          echo "✅ 오늘자 AI 인사이트 확인: $REPORT"
+
       - name: Generate X card image
         run: npm run x-card
 
