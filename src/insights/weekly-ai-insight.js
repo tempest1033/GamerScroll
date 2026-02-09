@@ -210,6 +210,7 @@ JSON만 출력해. 다른 설명 없이.`;
     // 프롬프트를 임시 파일로 저장
     const tmpFile = path.join(os.tmpdir(), `claude-weekly-prompt-${Date.now()}.txt`);
     fs.writeFileSync(tmpFile, prompt, 'utf8');
+    console.log(`  - 프롬프트 크기: ${Buffer.byteLength(prompt, 'utf8')} bytes (${prompt.length} chars)`);
 
     // Claude CLI 호출 (최대 2회 재시도)
     const MAX_RETRIES = 2;
@@ -311,11 +312,11 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
 
     lines.push(`\n#### ${report.date}:`);
 
-    // 오늘의 이슈
+    // 오늘의 이슈 (제목만 - 프롬프트 크기 최적화)
     if (report.ai.issues && report.ai.issues.length > 0) {
       lines.push('- 주요 이슈:');
       report.ai.issues.forEach(issue => {
-        lines.push(`  • [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        lines.push(`  • [${issue.tag}] ${issue.title}`);
       });
     }
 
@@ -323,7 +324,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.industryIssues && report.ai.industryIssues.length > 0) {
       lines.push('- 업계 동향:');
       report.ai.industryIssues.forEach(issue => {
-        lines.push(`  • [${issue.tag}] ${issue.title}: ${issue.desc}`);
+        lines.push(`  • [${issue.tag}] ${issue.title}`);
       });
     }
 
@@ -331,7 +332,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.rankings && report.ai.rankings.length > 0) {
       lines.push('- 순위 변동:');
       report.ai.rankings.forEach(rank => {
-        lines.push(`  • [${rank.tag}] ${rank.title}: ${rank.desc}`);
+        lines.push(`  • [${rank.tag}] ${rank.title}`);
       });
     }
 
@@ -339,23 +340,7 @@ function buildWeeklyDataSummary(weeklyReports, weekInfo) {
     if (report.ai.community && report.ai.community.length > 0) {
       lines.push('- 커뮤니티:');
       report.ai.community.forEach(comm => {
-        lines.push(`  • [${comm.tag}] ${comm.title}: ${comm.desc}`);
-      });
-    }
-
-    // 스트리밍
-    if (report.ai.streaming && report.ai.streaming.length > 0) {
-      lines.push('- 스트리밍:');
-      report.ai.streaming.forEach(stream => {
-        lines.push(`  • [${stream.tag}] ${stream.title}`);
-      });
-    }
-
-    // 게임주
-    if (report.ai.stocks && report.ai.stocks.length > 0) {
-      lines.push('- 주목 게임주:');
-      report.ai.stocks.forEach(stock => {
-        lines.push(`  • ${stock.name}: ${stock.comment}`);
+        lines.push(`  • [${comm.tag}] ${comm.title}`);
       });
     }
   });
