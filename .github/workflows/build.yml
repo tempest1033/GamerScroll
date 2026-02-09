@@ -79,8 +79,6 @@ jobs:
       - name: Download daily report images
         run: node scripts/download-daily-images.js
 
-      - name: Download weekly report images
-        run: node scripts/download-issue-images.js weekly
 
       - name: Generate report
         env:
@@ -141,13 +139,6 @@ jobs:
             echo "📂 reports/ 복사: JSON ${JSON_COUNT}개, HTML ${HTML_COUNT}개"
           else
             echo "⚠️ reports/ 폴더 없음"
-          fi
-          # 주간 인사이트 리포트 복사
-          if [ -d "reports/weekly" ]; then
-            mkdir -p docs/reports/weekly
-            WEEKLY_COUNT=$(ls reports/weekly/*.json 2>/dev/null | wc -l)
-            cp -r reports/weekly/*.json docs/reports/weekly/ 2>/dev/null || echo "⚠️ weekly/*.json 복사 실패"
-            echo "📂 reports/weekly/ 복사: JSON ${WEEKLY_COUNT}개"
           fi
 
       - name: Commit and push
