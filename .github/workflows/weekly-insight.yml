@@ -67,7 +67,7 @@ jobs:
           else
             node generate-weekly-insight.js
           fi
-        timeout-minutes: 30
+        timeout-minutes: 60
 
       - name: Finalize Weekly thumbnails (Codex)
         if: steps.check-reports.outputs.reports_exist == 'true'
