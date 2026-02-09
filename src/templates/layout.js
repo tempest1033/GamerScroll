@@ -2388,7 +2388,7 @@ function wrapWithLayout(content, options = {}) {
     return out;
   })();
 
-  const shouldLoadApexCharts = loadApexCharts || /ApexCharts/.test(pageScripts || '');
+  const shouldLoadApexCharts = loadApexCharts || /ApexCharts/.test(pageScripts || '') || /ApexCharts/.test(content || '');
   const shouldLoadTwitterWidget = loadTwitterWidget || /twitter-tweet/.test(content || '') || /twitter-tweet/.test(pageScripts || '');
 
   return `<!DOCTYPE html>

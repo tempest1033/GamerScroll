@@ -74,9 +74,9 @@ ${rankingsSummary}
   ※ 순위 숫자를 임의로 바꾸지 말 것 - 제공된 데이터 그대로 사용
   ※ desc에만 웹 검색으로 파악한 변동 원인 작성 (업데이트, 이벤트, 할인, 논란 등)` : '';
 
-    // 블랙리스트 비활성화 (프롬프트 경량화)
-    const prevWeekSummary = '';
-    const metricsBlacklistSummary = '';
+    // 최근 3주간 인사이트 요약 + 지표 블랙리스트 (반복 방지용)
+    const prevWeekSummary = buildPrevWeekInsightsSummary(prevWeekInsights);
+    const metricsBlacklistSummary = buildWeeklyMetricsBlacklistSummary(prevWeekInsights);
 
     const prompt = `## 중요: 현재 시간 기준 정보
 - 현재 날짜: ${currentDate}
@@ -165,11 +165,8 @@ ${dataSummary}${rankingsData}${prevWeekSummary}${metricsBlacklistSummary}
 - desc: 200자 이내
 
 ## 썸네일 처리 규칙 (필수):
-- 각 이슈의 thumbnail 필드에 관련 이미지 URL을 웹 검색으로 찾아서 채워줘
-- 반드시 https:// 로 시작하는 절대 URL만 사용 (// 시작 금지)
-- 해당 기사/뉴스의 대표 이미지 또는 게임 공식 이미지 사용
-- 제목/내용과 확실히 일치하는 이미지만 사용하고, 애매하면 null
-- encrypted-tbn0.gstatic.com 등 구글 이미지 검색 썸네일 URL 사용 금지
+- 아래 모든 thumbnail 필드는 항상 null로 출력
+- 썸네일은 후처리 단계(Codex)에서 웹 검색으로 채움
 
 ## 중복 방지 (필수):
 - summary(위클리 포커스)는 전주 리포트와 중복된 주제/표현 피할 것
@@ -578,12 +575,17 @@ function buildPrevWeekInsightsSummary(prevWeekInsights) {
   const blacklistKeywords = new Set();
 
   prevWeekInsights.forEach((insight, idx) => {
-    lines.push(`\n### 최근 ${idx + 1}주 전 (제목만 - 중복 방지용):`);
+    lines.push(`\n### 최근 ${idx + 1}주 전 리포트:`);
+
+    // summary (위클리 포커스)
+    if (insight.summary) {
+      lines.push(`- [요약] ${insight.summary}`);
+    }
 
     // issues
     if (insight.issues && insight.issues.length > 0) {
       insight.issues.forEach(issue => {
-        lines.push(`- [${issue.tag}] ${issue.title}`);
+        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
         blacklistKeywords.add(issue.title);
       });
     }
@@ -591,7 +593,7 @@ function buildPrevWeekInsightsSummary(prevWeekInsights) {
     // industryIssues
     if (insight.industryIssues && insight.industryIssues.length > 0) {
       insight.industryIssues.forEach(issue => {
-        lines.push(`- [${issue.tag}] ${issue.title}`);
+        lines.push(`- [${issue.tag}] ${issue.title}: ${issue.desc}`);
         blacklistKeywords.add(issue.title);
       });
     }
@@ -599,27 +601,45 @@ function buildPrevWeekInsightsSummary(prevWeekInsights) {
     // metrics
     if (insight.metrics && insight.metrics.length > 0) {
       insight.metrics.forEach(metric => {
-        lines.push(`- [지표] ${metric.title}`);
+        lines.push(`- [지표] ${metric.title}: ${metric.desc}`);
         blacklistKeywords.add(metric.title);
+      });
+    }
+
+    // rankings
+    if (insight.rankings && insight.rankings.length > 0) {
+      insight.rankings.forEach(rank => {
+        lines.push(`- [순위] ${rank.title}: ${rank.desc}`);
+        blacklistKeywords.add(rank.title);
       });
     }
 
     // community
     if (insight.community && insight.community.length > 0) {
       insight.community.forEach(comm => {
-        blacklistKeywords.add(comm.tag);
+        lines.push(`- [커뮤니티] ${comm.title}: ${comm.desc}`);
+        blacklistKeywords.add(comm.tag); // 게임명
+      });
+    }
+
+    // streaming
+    if (insight.streaming && insight.streaming.length > 0) {
+      insight.streaming.forEach(stream => {
+        lines.push(`- [스트리밍] ${stream.title}: ${stream.desc}`);
       });
     }
 
     // global
     if (insight.global && insight.global.length > 0) {
       insight.global.forEach(g => {
+        lines.push(`- [글로벌] ${g.title}: ${g.desc}`);
         blacklistKeywords.add(g.title);
       });
     }
 
     // mvp
     if (insight.mvp) {
+      lines.push(`- [MVP] ${insight.mvp.name}: ${insight.mvp.desc}`);
       blacklistKeywords.add(insight.mvp.name);
     }
   });
