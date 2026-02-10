@@ -1,30 +1,30 @@
 {
-  "updatedAt": "2026-02-09T14:07:02.177Z",
+  "updatedAt": "2026-02-10T14:15:14.174Z",
   "period": "30days",
   "games": [
+    {
+      "slug": "드래곤소드",
+      "views": 95
+    },
     {
       "slug": "명일방주-엔드필드",
       "views": 93
     },
     {
-      "slug": "드래곤소드",
-      "views": 92
+      "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
+      "views": 34
     },
     {
-      "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
-      "views": 33
+      "slug": "에르피스",
+      "views": 10
     },
     {
       "slug": "명조워더링-웨이브",
       "views": 9
     },
     {
-      "slug": "에르피스",
-      "views": 9
-    },
-    {
       "slug": "crosshair-x",
-      "views": 5
+      "views": 6
     },
     {
       "slug": "브라운더스트2-가슴-벅찬-rpg",
@@ -35,15 +35,15 @@
       "views": 5
     },
     {
+      "slug": "카오스-제로-나이트메어",
+      "views": 5
+    },
+    {
       "slug": "메이플-키우기",
       "views": 4
     },
     {
       "slug": "승리의-여신-니케",
-      "views": 4
-    },
-    {
-      "slug": "카오스-제로-나이트메어",
       "views": 4
     },
     {
