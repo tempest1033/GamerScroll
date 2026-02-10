@@ -696,8 +696,8 @@ cd docs && npx serve -l 3000
 #### Article Length
 | Item | Recommended |
 |------|-------------|
-| Total | 2,500-3,500 chars |
-| Per section | 3-4 paragraphs, 3-5 sentences each |
+| Total | 2,000-3,000 chars |
+| Per section | 2-3 paragraphs, 2-4 sentences each |
 
 #### Line Break Policy
 - **Paragraph separation**: `\n\n` (blank line)
@@ -1166,8 +1166,8 @@ grep -l "게임명" data/games.json
 #### Article Length
 | Item | Recommended |
 |------|-------------|
-| Total | 2,500-3,500 chars |
-| Per section | 3-4 paragraphs, 3-5 sentences each |
+| Total | 2,000-3,000 chars |
+| Per section | 2-3 paragraphs, 2-4 sentences each |
 
 ### Publication Status
 - `status: "draft" | "approved"`
