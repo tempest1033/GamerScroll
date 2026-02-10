@@ -169,6 +169,28 @@ function buildRankingChanges(todayRankings, yesterdayRankings) {
 async function main() {
   console.log('🤖 AI 인사이트 생성 시작...\n');
 
+  const forceMode = process.argv.includes('--force');
+
+  // 이미 발행된 AI 인사이트가 있으면 스킵
+  if (!forceMode) {
+    const today = getTodayDate();
+    const todayReportFile = `${REPORTS_DIR}/${today}.json`;
+    if (fs.existsSync(todayReportFile)) {
+      try {
+        const existing = JSON.parse(fs.readFileSync(todayReportFile, 'utf8'));
+        if (existing.ai && existing.aiGeneratedAt) {
+          console.log(`✅ 오늘자 AI 인사이트가 이미 존재합니다 (${existing.aiGeneratedAt})`);
+          console.log('   재생성하려면 --force 옵션을 사용하세요.');
+          process.exit(0);
+        }
+      } catch (e) {
+        // 파싱 실패 시 무시하고 계속 진행
+      }
+    }
+  } else {
+    console.log('⚡ --force 모드: 기존 인사이트 무시하고 재생성합니다.\n');
+  }
+
   // 캐시 데이터 로드
   if (!fs.existsSync(CACHE_FILE)) {
     console.log('❌ 캐시 파일이 없습니다. 먼저 크롤링을 실행해주세요.');
