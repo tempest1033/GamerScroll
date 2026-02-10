@@ -1063,6 +1063,11 @@
   margin: 24px 0;
 }
 
+/* 그리드 내에서 ranking-chart-wrapper 마진 제거 */
+.blog-charts-grid > .ranking-chart-wrapper {
+  margin: 0;
+}
+
 .chart-header {
   display: flex;
   justify-content: space-between;

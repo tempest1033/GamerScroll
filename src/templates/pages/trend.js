@@ -215,7 +215,7 @@ function loadGameRankHistory(gameSlug, startDate, endDate, category = 'grossing'
   return result;
 }
 
-// 비교 차트 SVG 생성 - 게임 페이지 차트와 동일한 스타일
+// 비교 차트 생성 (ApexCharts) - ranking-line과 동일한 패턴
 function generateComparisonChart(chartBlock) {
   const { games = [], category = 'grossing', market = 'ios', startDate, endDate, title } = chartBlock;
 
@@ -239,15 +239,6 @@ function generateComparisonChart(chartBlock) {
     return '<div class="chart-error">순위 데이터가 없습니다</div>';
   }
 
-  // 차트 설정 - 게임 페이지와 동일
-  const width = 400;
-  const height = 200;
-  const padding = { top: 6, right: 4, bottom: 18, left: 18 };
-  const xLabelPadding = 16;
-  const chartWidth = width - padding.left - padding.right;
-  const chartHeight = height - padding.top - padding.bottom;
-  const xLabelWidth = chartWidth - xLabelPadding * 2;
-
   // startDate~endDate 전체 날짜 생성
   const allDates = [];
   const start = new Date(startDate);
@@ -256,112 +247,77 @@ function generateComparisonChart(chartBlock) {
     allDates.push(d.toISOString().slice(0, 10));
   }
 
-  // Y축 범위: iOS/Android 모두 200 고정
-  const yMin = 1;
-  const yMax = 200;
-
-  // 좌표 계산 헬퍼 - 게임 페이지와 동일한 방식
-  const getX = (i) => padding.left + xLabelPadding + (i / Math.max(1, allDates.length - 1)) * xLabelWidth;
-  const getY = (rank) => padding.top + ((rank - yMin) / (yMax - yMin)) * chartHeight;
-
   // 게임별 색상
-  const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'];
+  const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F'];
 
-  // SVG 시작 - 게임 페이지와 동일한 클래스
-  let svg = `<svg viewBox="0 0 ${width} ${height}" class="trend-chart-svg" preserveAspectRatio="xMidYMid meet">`;
+  // ApexCharts series 데이터 구성
+  const rawSeries = [];
+  gameDataList.forEach((game) => {
+    const data = allDates.map(date => {
+      const dayData = game.history.find(h => h.date === date);
+      return (dayData && dayData.kr) ? dayData.kr : null;
+    });
+    const displayName = game.name.length > 12 ? game.name.substring(0, 12) + '...' : game.name;
+    rawSeries.push({ name: displayName, data });
+  });
 
-  // Y축 그리드
-  const yTicks = [];
-  const tickCount = 5;
-  for (let i = 0; i <= tickCount; i++) {
-    const val = Math.round(yMin + (i / tickCount) * (yMax - yMin));
-    if (!yTicks.includes(val)) yTicks.push(val);
+  if (rawSeries.length === 0) {
+    return '<div class="chart-error">순위 데이터가 없습니다</div>';
   }
 
-  yTicks.forEach(tick => {
-    const y = getY(tick);
-    const yLabelX = padding.left / 2 - 3;
-    svg += `<line class="chart-grid" x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}"/>`;
-    svg += `<text class="chart-ylabel" x="${yLabelX}" y="${y}" text-anchor="middle" dominant-baseline="middle">${tick}</text>`;
-  });
-
-  // X축 라벨 (날짜)
-  allDates.forEach((date, i) => {
-    const x = getX(i);
-    const month = parseInt(date.slice(5, 7), 10);
-    const day = parseInt(date.slice(8, 10), 10);
-    const label = `${month}월${day}일`;
-    svg += `<text class="chart-xlabel" x="${x}" y="${height - 2}" text-anchor="middle">${label}</text>`;
-  });
-
-  // 게임별 라인 그리기
-  gameDataList.forEach((game, gameIdx) => {
-    const color = colors[gameIdx % colors.length];
-    const allPoints = []; // 모든 포인트 (null 포함)
-
-    allDates.forEach((date, i) => {
-      const dayData = game.history.find(h => h.date === date);
-      if (dayData && dayData.kr) {
-        allPoints.push({ x: getX(i), y: getY(dayData.kr), rank: dayData.kr });
-      } else {
-        allPoints.push(null); // 데이터 없는 날짜
-      }
-    });
-
-    // 연속된 구간만 선으로 연결 (데이터 없는 구간에서 끊기)
-    let segment = [];
-    allPoints.forEach((p, i) => {
-      if (p) {
-        segment.push(p);
-      } else {
-        // 데이터 없으면 현재 구간 그리고 새 구간 시작
-        if (segment.length > 1) {
-          const linePoints = segment.map(pt => `${pt.x},${pt.y}`).join(' ');
-          svg += `<polyline class="chart-line" stroke="${color}" points="${linePoints}"/>`;
-        }
-        segment = [];
-      }
-    });
-    // 마지막 구간 처리
-    if (segment.length > 1) {
-      const linePoints = segment.map(pt => `${pt.x},${pt.y}`).join(' ');
-      svg += `<polyline class="chart-line" stroke="${color}" points="${linePoints}"/>`;
+  // 앞뒤 null 트리밍: 모든 시리즈에서 데이터가 시작/끝나는 범위만 남김
+  let trimStart = allDates.length;
+  let trimEnd = -1;
+  rawSeries.forEach(s => {
+    for (let i = 0; i < s.data.length; i++) {
+      if (s.data[i] !== null) { trimStart = Math.min(trimStart, i); break; }
     }
-
-    // 점 먼저 그리기
-    allPoints.filter(Boolean).forEach(p => {
-      svg += `<circle class="chart-dot" fill="${color}" cx="${p.x}" cy="${p.y}" r="2.5"/>`;
-    });
-
-    // 라벨은 나중에 그려서 항상 앞에 표시
-    allPoints.filter(Boolean).forEach(p => {
-      const labelY = p.y < 20 ? p.y + 14 : p.y - 6;
-      svg += `<text class="chart-rank-label" fill="${color}" x="${p.x}" y="${labelY}" text-anchor="middle">${p.rank}</text>`;
-    });
+    for (let i = s.data.length - 1; i >= 0; i--) {
+      if (s.data[i] !== null) { trimEnd = Math.max(trimEnd, i); break; }
+    }
   });
-
-  svg += '</svg>';
-
-  // 범례
-  const legendHtml = gameDataList.map((game, i) => {
-    const color = colors[i % colors.length];
-    const iconHtml = game.icon ? `<img src="${game.icon}" alt="${game.name}" class="chart-legend-icon">` : '';
-    return `<span class="chart-legend-item" style="--color: ${color}">${iconHtml}${game.name}</span>`;
-  }).join('');
+  if (trimStart > trimEnd) trimStart = 0;
+  const labels = allDates.slice(trimStart, trimEnd + 1);
+  const series = rawSeries.map(s => ({ name: s.name, data: s.data.slice(trimStart, trimEnd + 1) }));
 
   // 차트 제목
   const categoryLabel = category === 'grossing' ? '매출' : '인기';
   const marketLabel = market === 'ios' ? 'iOS' : 'Android';
   const chartTitle = title || `${marketLabel} ${categoryLabel} 순위 비교 (한국)`;
 
+  const chartId = `comp-chart-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`;
+
   return `
-    <div class="blog-chart-wrapper">
-      <div class="chart-header">
-        <h4 class="chart-title">${chartTitle}</h4>
-        <div class="chart-legend">${legendHtml}</div>
-      </div>
-      <div class="chart-container">${svg}</div>
-      <div class="chart-period">${startDate} ~ ${endDate}</div>
+    <div class="ranking-chart-wrapper">
+      <h4 class="ranking-chart-title">${String(chartTitle).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')}</h4>
+      <div id="${chartId}" class="ranking-chart"></div>
+      <script>
+        (function() {
+          function init() {
+            if (typeof ApexCharts === 'undefined') { setTimeout(init, 100); return; }
+            var el = document.getElementById('${chartId}');
+            if (!el || el.dataset.rendered) return;
+            el.dataset.rendered = 'true';
+            var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var labelColor = isDark ? '#adb5bd' : '#666';
+            var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
+            new ApexCharts(el, {
+              series: ${JSON.stringify(series)},
+              chart: { type: 'line', height: 350, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', zoom: { enabled: false }, foreColor: labelColor },
+              colors: ${JSON.stringify(colors.slice(0, series.length))},
+              stroke: { width: 3, curve: 'straight' },
+              markers: { size: 4, hover: { size: 6 } },
+              xaxis: { categories: ${JSON.stringify(labels)}, labels: { rotate: -45, style: { fontSize: '11px', colors: labelColor } }, tickAmount: 10 },
+              yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '위'; } } },
+              legend: { position: 'top', horizontalAlign: 'center', labels: { colors: labelColor } },
+              tooltip: { y: { formatter: function(v) { return v ? v + '위' : '데이터 없음'; } } },
+              grid: { borderColor: gridColor, strokeDashArray: 4 }
+            }).render();
+          }
+          if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+          else init();
+        })();
+      </script>
     </div>
   `;
 }
@@ -3527,17 +3483,20 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${lineChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
+                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var labelColor = isDark ? '#adb5bd' : '#666';
+                      var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {
                         series: ${JSON.stringify(lineSeries)},
-                        chart: { type: 'line', height: 350, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', zoom: { enabled: false } },
+                        chart: { type: 'line', height: 350, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', zoom: { enabled: false }, foreColor: labelColor },
                         colors: ${JSON.stringify(lineColors.slice(0, lineSeries.length))},
-                        stroke: { width: 3, curve: 'smooth' },
+                        stroke: { width: 3, curve: 'straight' },
                         markers: { size: 4, hover: { size: 6 } },
-                        xaxis: { categories: ${JSON.stringify(lineLabels)}, labels: { rotate: -45, style: { fontSize: '11px' } }, tickAmount: 10 },
-                        yaxis: { reversed: true, min: 1, max: 200, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
-                        legend: { position: 'top', horizontalAlign: 'center' },
-                        tooltip: { y: { formatter: function(v) { return v + '위'; } } },
-                        grid: { borderColor: '#e0e0e0', strokeDashArray: 4 }
+                        xaxis: { categories: ${JSON.stringify(lineLabels)}, labels: { rotate: -45, style: { fontSize: '11px', colors: labelColor } }, tickAmount: 10 },
+                        yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '위'; } } },
+                        legend: { position: 'top', horizontalAlign: 'center', labels: { colors: labelColor } },
+                        tooltip: { y: { formatter: function(v) { return v ? v + '위' : '데이터 없음'; } } },
+                        grid: { borderColor: gridColor, strokeDashArray: 4 }
                       }).render();
                     }
                     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
