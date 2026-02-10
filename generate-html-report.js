@@ -2715,18 +2715,127 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     console.warn('⚠️ RSS 생성 실패:', err.message);
   }
 
-  // Service Worker 캐시 버전 업데이트 (콘텐츠 해시 기반)
-  const swPath = `${DOCS_DIR}/service-worker.js`;
-  if (fs.existsSync(swPath)) {
-    let swContent = fs.readFileSync(swPath, 'utf8');
-    const cacheVersion = `gamerscroll-${runtimeAssetVersion}${searchIndexVersion ? `-${searchIndexVersion}` : ''}`;
-    swContent = swContent.replace(/const CACHE_NAME = '[^']+';/, `const CACHE_NAME = '${cacheVersion}';`);
-    // CSS 파일명을 해시 버전으로 업데이트
-    swContent = swContent.replace(/['"]\/styles\.css['"]/, `'${cssFilename}'`);
-    swContent = swContent.replace(/['"]\/styles\.[a-f0-9]{8}\.css['"]/, `'${cssFilename}'`);
-    fs.writeFileSync(swPath, swContent, 'utf8');
-    console.log(`🔄 Service Worker 캐시 버전: ${cacheVersion} (CSS: ${cssFilename})`);
+  // Service Worker 전체 생성 (template literal)
+  const swCacheVersion = `gamerscroll-${runtimeAssetVersion}${searchIndexVersion ? `-${searchIndexVersion}` : ''}`;
+  const swContent = `const CACHE_NAME = '${swCacheVersion}';
+const STATIC_CACHE = CACHE_NAME + '-static';
+const RUNTIME_CACHE = CACHE_NAME + '-runtime';
+const PRECACHE_URLS = [
+  '/',
+  '${cssFilename}',
+  '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/assets/layout-core.js',
+  '/assets/layout-runtime.js'
+];
+const STATIC_EXT_RE = /\\\\.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf|json)$/i;
+
+async function cachePut(cacheName, request, response) {
+  if (!response || response.status !== 200) return response;
+  const cache = await caches.open(cacheName);
+  cache.put(request, response.clone());
+  return response;
+}
+
+async function networkFirst(request, cacheName, fallbackUrl) {
+  try {
+    const response = await fetch(request);
+    return cachePut(cacheName, request, response);
+  } catch (err) {
+    const cached = await caches.match(request, { ignoreSearch: true });
+    if (cached) return cached;
+    if (fallbackUrl) {
+      const fallback = await caches.match(fallbackUrl, { ignoreSearch: true });
+      if (fallback) return fallback;
+    }
+    throw err;
   }
+}
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(STATIC_CACHE)
+      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .catch(() => undefined)
+  );
+  // warm-up: rankings JSON (fire-and-forget, does not block install)
+  const warmupUrls = [
+    '/rankings/grossing-ios.json',
+    '/rankings/grossing-android.json',
+    '/rankings/free-ios.json',
+    '/rankings/free-android.json'
+  ];
+  caches.open(RUNTIME_CACHE).then((cache) =>
+    Promise.all(
+      warmupUrls.map((url) =>
+        fetch(url)
+          .then((res) => { if (res.status === 200) cache.put(url, res); })
+          .catch(() => undefined)
+      )
+    )
+  ).catch(() => undefined);
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== STATIC_CACHE && cacheName !== RUNTIME_CACHE) {
+            return caches.delete(cacheName);
+          }
+          return null;
+        })
+      )
+    )
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  const request = event.request;
+  if (!request || request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  const accept = request.headers.get('accept') || '';
+  const isHtml = request.mode === 'navigate' || accept.includes('text/html');
+  const isStatic = url.pathname.startsWith('/assets/') ||
+    url.pathname.startsWith('/rankings/') ||
+    STATIC_EXT_RE.test(url.pathname);
+
+  if (isHtml) {
+    event.respondWith(networkFirst(request, RUNTIME_CACHE, '/'));
+    return;
+  }
+
+  if (isStatic) {
+    event.respondWith((async () => {
+      const cached = await caches.match(request, { ignoreSearch: true });
+      const revalidate = fetch(request)
+        .then((response) => cachePut(STATIC_CACHE, request, response))
+        .catch(() => null);
+
+      if (cached) {
+        event.waitUntil(revalidate);
+        return cached;
+      }
+
+      const fresh = await revalidate;
+      if (fresh) return fresh;
+      return new Response('', { status: 504, statusText: 'Gateway Timeout' });
+    })());
+    return;
+  }
+
+  event.respondWith(networkFirst(request, RUNTIME_CACHE));
+});
+`;
+  fs.writeFileSync(`${DOCS_DIR}/service-worker.js`, swContent, 'utf8');
+  console.log(`🔄 Service Worker 생성 완료: ${swCacheVersion} (CSS: ${cssFilename})`);
 
   // 증분 빌드 캐시 저장
   buildCache.saveCache(incrementalCache);

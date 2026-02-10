@@ -1,16 +1,16 @@
 {
   "slug": "nvidia-gpu-launch-halt-ai-priority",
   "status": "approved",
-  "needTranslate": true,
+  "needTranslate": false,
   "category": "general",
   "title": "엔비디아 그래픽카드 신제품 출시 전면 중단, AI가 게이밍을 삼켰다",
-  "titleEn": "",
+  "titleEn": "Nvidia Halts All New GPU Launches as AI Devours Gaming",
   "date": "2026-02-11T02:00",
   "thumbnail": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/50-series/rtx-5090/geforce-rtx-5090-learn-more-og-1200x630.jpg",
   "keywords": "엔비디아 RTX 50, RTX 50 SUPER 연기, RTX 60 시리즈 2028, 그래픽카드 출시 중단 2026, GDDR7 메모리 부족, 엔비디아 AI 우선순위, GPU 가격 상승, AMD RX 9070, 게이밍 GPU 업데이트 중단, 엔비디아 게이밍 포기, PC 게이밍 위기, RTX 5070 Ti 생산 축소, Intel Arc B시리즈, 그래픽카드 품귀 2026",
   "keywordsEn": "Nvidia RTX 50, RTX 50 SUPER delayed, RTX 60 series 2028, GPU launch halt 2026, GDDR7 memory shortage, Nvidia AI priority, GPU price surge, AMD RX 9070, gaming GPU update cycle broken, Nvidia gaming abandoned, PC gaming crisis, RTX 5070 Ti production cut, Intel Arc B series, GPU shortage 2026",
   "summary": "엔비디아가 RTX 50 SUPER 시리즈를 전면 연기하고 RTX 50 전체 생산을 일시 중단했다. AI 칩 우선순위와 GDDR7 부족이 원인으로, 약 30년 만에 연례 게이밍 GPU 업데이트 주기가 처음으로 끊겼다.",
-  "summaryEn": "",
+  "summaryEn": "Nvidia has indefinitely delayed the entire RTX 50 SUPER lineup and paused RTX 50 series production. Driven by AI chip priority and a GDDR7 shortage, the company's nearly 30-year annual gaming GPU update cycle has broken for the first time.",
   "relatedDocs": [
     "issue:ddr5-price-surge-gaming-nightmare",
     "tech:ai/nvidia-openai-investment-retreat",
@@ -158,6 +158,123 @@
     {
       "type": "text",
       "value": "현실적으로 게이머들이 할 수 있는 건 많지 않다. AMD와 Intel이 경쟁력을 키워서 시장의 균형을 맞춰주길 기대하거나, 현재 장비를 최대한 오래 쓰는 수밖에 없다. 엔비디아가 게이머를 다시 신경 쓰게 만들려면, 경쟁사들이 더 강해지는 것만이 유일한 해법일지도 모른다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Nvidia has pulled the plug on new gaming GPU launches entirely. The RTX 50 SUPER series has been delayed indefinitely, and production of the entire RTX 50 lineup has been paused. For the first time in roughly 30 years, the annual gaming GPU update cycle has ground to a halt. The reason is simple: AI is far more profitable than gaming."
+    },
+    {
+      "type": "heading",
+      "value": "1. RTX 50 SUPER Indefinitely Delayed: What Happened"
+    },
+    {
+      "type": "text",
+      "value": "In early February 2026, major tech outlets broke the news simultaneously, and it was a bombshell. Nvidia had postponed the entire RTX 50 SUPER lineup\u2014the RTX 5070 SUPER, RTX 5070 Ti SUPER, RTX 5080 SUPER, and everything else in the range. This wasn't a minor schedule adjustment. It was effectively a shelving with no confirmed return date.\n\nWhat's even more alarming is that production of the existing RTX 50 series itself is being scaled back. According to NotebookCheck, RTX 50 series production has been temporarily suspended, with no normalization expected until at least Q3 2026. The RTX 5070 Ti had already been at the center of production cut rumors, with ASUS citing GDDR7 memory supply constraints as the reason."
+    },
+    {
+      "type": "text",
+      "value": "The next-generation RTX 60 series (codenamed Rubin) isn't faring any better. According to Tom's Hardware, the originally expected 2027 launch has slipped to 2028. That means gamers will have to wait at least two more years before they can get their hands on next-gen graphics cards."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. GDDR7 Shortage and AI Chip Priority: The Root Causes"
+    },
+    {
+      "type": "image",
+      "src": "https://www.nvidia.com/content/dam/en-zz/solutions/data-center/home/data-center-og.jpg",
+      "caption": "Nvidia AI data center GPU infrastructure",
+      "alt": "Nvidia AI data center GPU servers \u2013 AI chip priority is driving gaming GPU production cuts"
+    },
+    {
+      "type": "text",
+      "value": "Two factors are driving this crisis: an acute shortage of GDDR7 memory and Nvidia's strategic pivot to AI.\n\nAs demand for AI server memory has skyrocketed, the entire supply chain for high-performance memory\u2014including GDDR7\u2014is under extreme pressure. Memory manufacturers are pouring their production capacity into HBM (High Bandwidth Memory) for AI data centers, where margins are far higher. GDDR7 destined for gaming GPUs has been deprioritized."
+    },
+    {
+      "type": "text",
+      "value": "Nvidia's internal priorities tell the same story. AI chip margins sit at around 65%, while gaming GPUs yield roughly 40%. When the same fabs and the same resources can produce either, the math is obvious. In practice, gaming's share of Nvidia's total revenue has plummeted from 35% in 2022 to just 8% in 2025. With gaming accounting for less than a tenth of the company's revenue, the incentive to allocate scarce memory and production capacity to graphics cards is evaporating."
+    },
+    {
+      "type": "heading",
+      "value": "3. GPU Prices Are Surging\u2014and Gamers Are Out of Options"
+    },
+    {
+      "type": "text",
+      "value": "When supply shrinks, prices rise\u2014that's Economics 101. RTX 50 series cards are currently selling for 30% or more above their official MSRPs. As the shortage deepens, premiums on certain models are climbing even higher.\n\nThe problem is that competitors' products are getting more expensive too. AMD has been trending toward price increases of its own. In a high-end GPU market that Nvidia dominates almost entirely, when even the alternatives cost more, gamers are left with nowhere to turn."
+    },
+    {
+      "type": "text",
+      "value": "Anyone planning a gaming PC upgrade is in a tough spot. Their current GPU feels underpowered, but new cards are priced out of reach. And with Nvidia's annual update cycle broken, the old strategy of \"just wait one generation\" no longer works."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Nvidia Is No Longer a Gaming Company\u2014Community Backlash"
+    },
+    {
+      "type": "image",
+      "src": "https://siriuspowerpc.com/wp-content/uploads/2023/10/Custom-RGB-Gaming-PC-Is-it-Good-Practical-or-Expensive.webp",
+      "caption": "Inside a high-end gaming PC",
+      "alt": "RGB gaming PC build \u2013 GPU price spikes are driving up upgrade costs"
+    },
+    {
+      "type": "text",
+      "value": "The reaction across gaming communities and tech forums has been fierce. The most common sentiment: \"Nvidia isn't a gaming company anymore.\"\n\nOfficially, Nvidia still calls itself a GPU company, but its actual business is now almost entirely AI infrastructure. A company whose gaming revenue has dwindled to 8% isn't going to sacrifice memory supply for gamers. Reddit threads and forum posts are filled with statements like \"We're no longer important customers to Nvidia\" and \"Jensen Huang has abandoned gamers.\""
+    },
+    {
+      "type": "text",
+      "value": "Pessimistic forecasts abound. With the RTX 60 series pushed to 2028, there may be no meaningful new gaming GPU releases for the next two to three years. The roughly 30-year cadence of annual or biennial gaming GPU generational leaps has, for the first time, come to a complete stop."
+    },
+    {
+      "type": "heading",
+      "value": "5. Can AMD and Intel Fill the Void?"
+    },
+    {
+      "type": "text",
+      "value": "While Nvidia turns its back on gaming, the door is opening for competitors.\n\nAMD's RX 9070 XT is drawing attention for its value proposition. It delivers solid performance at a more reasonable price point compared to Nvidia's offerings, earning praise particularly for 1080p and 1440p gaming. That said, AMD isn't immune to rising memory costs either, and its prices have been creeping up."
+    },
+    {
+      "type": "text",
+      "value": "Intel is targeting the budget segment with its Arc B-series. While it's nowhere near threatening Nvidia in the high-end space, it's becoming a viable option for budget-conscious gamers. However, driver stability and game compatibility still have a long way to go.\n\nUltimately, no company can fully replace Nvidia in the high-performance GPU market\u2014not yet. Gamers are stuck choosing the best of imperfect alternatives."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. Storm Clouds Over the Entire PC Gaming Ecosystem"
+    },
+    {
+      "type": "image",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/6782e1588a6722bca6e4bc11/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+      "caption": "AMD Radeon RX 9070 XT graphics card",
+      "alt": "AMD RX 9070 XT \u2013 emerging as an alternative to Nvidia"
+    },
+    {
+      "type": "text",
+      "value": "This isn't just about one graphics card. Rising GPU prices drive up the total cost of building a gaming PC. With DDR5 RAM and SSD prices already surging, the barrier to entry for PC gaming has hit an all-time high.\n\nGame developers could feel the impact too. If the high-end PC gaming audience shrinks, the return on investment for AAA titles' cutting-edge graphics drops. There are already reports of some studios shifting their focus toward low-spec optimization."
+    },
+    {
+      "type": "text",
+      "value": "The exodus to consoles could accelerate as well. The idea that a PS5 or Xbox offers better value for the same money is gaining traction. PC gaming's core appeal\u2014the ultimate performance experience\u2014is being walled off by price, and the entire ecosystem risks contraction."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Will Gamers Ever Matter to Nvidia Again?"
+    },
+    {
+      "type": "text",
+      "value": "Nvidia's decision is cold, hard business logic. AI chips are vastly more profitable than gaming GPUs, so there's no reason to devote scarce resources to gaming. From a corporate standpoint, it's rational.\n\nBut it was gamers who built Nvidia into a global powerhouse. Thirty years of gaming GPU innovation laid the foundation that made the AI empire possible. Watching those same gamers get pushed aside so easily leaves a bitter taste."
+    },
+    {
+      "type": "text",
+      "value": "Realistically, there isn't much gamers can do. They can hope AMD and Intel step up to restore competitive balance, or squeeze as much life as possible out of their current hardware. The only thing that will make Nvidia care about gamers again may be stronger competition\u2014and that can't come soon enough."
     }
   ]
 }
