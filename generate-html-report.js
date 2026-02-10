@@ -775,7 +775,7 @@ const PURGECSS_SAFELIST = {
     'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
     'ads-disabled', 'deferred-css-pending', 'realtime',
   ],
-  deep: [/^search-/, /^is-/, /^has-/],
+  deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/],
   greedy: [],
 };
 

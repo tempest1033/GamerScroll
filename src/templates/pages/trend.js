@@ -3598,12 +3598,15 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                     var el = document.getElementById('${donutChartId}');
                     if (!el || el.dataset.rendered) return;
                     el.dataset.rendered = 'true';
+                    var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    var labelColor = isDark ? '#adb5bd' : '#666';
+                    var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                     new ApexCharts(el, {
                       series: ${JSON.stringify(donutValues)},
-                      chart: { type: 'donut', height: 300, fontFamily: 'Pretendard Variable, sans-serif' },
+                      chart: { type: 'donut', height: 300, fontFamily: 'Pretendard Variable, sans-serif', foreColor: labelColor },
                       labels: ${JSON.stringify(donutLabels)},
                       colors: ${JSON.stringify(donutColors.slice(0, donutItems.length))},
-                      legend: { position: 'bottom' },
+                      legend: { position: 'bottom', labels: { colors: labelColor } },
                       dataLabels: { enabled: true, formatter: function(v) { return Math.round(v) + '%'; } },
                       plotOptions: { pie: { donut: { size: '55%', labels: { show: true, total: { show: true, label: '총점', formatter: function(w) { return w.globals.seriesTotals.reduce((a,b) => a+b, 0).toLocaleString(); } } } } } },
                       tooltip: { y: { formatter: function(v) { return v.toLocaleString() + '점'; } } }
@@ -3680,17 +3683,20 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${trendChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
+                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var labelColor = isDark ? '#adb5bd' : '#666';
+                      var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {
                         series: [{ name: '${escapeHtmlAttr(trendName)}', data: ${JSON.stringify(trendData)} }],
-                        chart: { type: 'area', height: 280, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', zoom: { enabled: false }, sparkline: { enabled: false } },
+                        chart: { type: 'area', height: 280, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', zoom: { enabled: false }, sparkline: { enabled: false }, foreColor: labelColor },
                         colors: ['${trendColor}'],
                         fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.5, opacityTo: 0.1, stops: [0, 90, 100] } },
                         stroke: { width: 3, curve: 'smooth' },
                         markers: { size: 0, hover: { size: 5 } },
-                        xaxis: { categories: ${JSON.stringify(trendLabels)}, labels: { rotate: -45, style: { fontSize: '10px' } }, tickAmount: Math.min(10, ${trendLabels.length}) },
-                        yaxis: { reversed: true, min: 1, max: 200, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
+                        xaxis: { categories: ${JSON.stringify(trendLabels)}, labels: { rotate: -45, style: { fontSize: '10px', colors: labelColor } }, tickAmount: Math.min(10, ${trendLabels.length}) },
+                        yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '위'; } } },
                         tooltip: { y: { formatter: function(v) { return v + '위'; } } },
-                        grid: { borderColor: '#e0e0e0', strokeDashArray: 4 },
+                        grid: { borderColor: gridColor, strokeDashArray: 4 },
                         annotations: { yaxis: [{ y: ${trendMin}, borderColor: '${trendColor}', label: { text: '최고 ${trendMin}위', style: { background: '${trendColor}', color: '#fff', fontSize: '11px' } } }] }
                       }).render();
                     }
@@ -3766,17 +3772,20 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${compChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
+                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var labelColor = isDark ? '#adb5bd' : '#666';
+                      var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {
                         series: ${JSON.stringify(compSeries)},
-                        chart: { type: 'line', height: 320, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', zoom: { enabled: false } },
+                        chart: { type: 'line', height: 320, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', zoom: { enabled: false }, foreColor: labelColor },
                         colors: ${JSON.stringify(compColors.slice(0, compSeries.length))},
                         stroke: { width: 3, curve: 'straight' },
                         markers: { size: 4, hover: { size: 6 } },
-                        xaxis: { categories: ${JSON.stringify(compLabels)}, labels: { rotate: -45, style: { fontSize: '10px' } }, tickAmount: Math.min(10, ${compLabels.length}) },
-                        yaxis: { reversed: true, min: 1, max: 200, labels: { formatter: function(v) { return Math.round(v) + '위'; } } },
-                        legend: { position: 'top', horizontalAlign: 'center', fontSize: '13px' },
+                        xaxis: { categories: ${JSON.stringify(compLabels)}, labels: { rotate: -45, style: { fontSize: '10px', colors: labelColor } }, tickAmount: Math.min(10, ${compLabels.length}) },
+                        yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '위'; } } },
+                        legend: { position: 'top', horizontalAlign: 'center', fontSize: '13px', labels: { colors: labelColor } },
                         tooltip: { y: { formatter: function(v) { return v ? v + '위' : '데이터 없음'; } } },
-                        grid: { borderColor: '#e0e0e0', strokeDashArray: 4 },
+                        grid: { borderColor: gridColor, strokeDashArray: 4 },
                         forecastDataPoints: { count: 0, fillOpacity: 0.5 }
                       }).render();
                     }
@@ -3806,9 +3815,12 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${heatChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
+                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var labelColor = isDark ? '#adb5bd' : '#666';
+                      var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {
                         series: ${JSON.stringify(heatItems)},
-                        chart: { type: 'heatmap', height: 300, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif' },
+                        chart: { type: 'heatmap', height: 300, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', foreColor: labelColor },
                         dataLabels: { enabled: false },
                         colors: ['#008FFB'],
                         plotOptions: { heatmap: { shadeIntensity: 0.5, colorScale: { ranges: [
@@ -3819,8 +3831,8 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                           { from: 101, to: 150, color: '#CC0000', name: '101-150위' },
                           { from: 151, to: 200, color: '#990000', name: '151-200위' }
                         ] } } },
-                        xaxis: { labels: { style: { fontSize: '11px' } } },
-                        legend: { position: 'bottom' }
+                        xaxis: { labels: { style: { fontSize: '11px', colors: labelColor } } },
+                        legend: { position: 'bottom', labels: { colors: labelColor } }
                       }).render();
                     }
                     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
@@ -3850,13 +3862,16 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${radarChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
+                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var labelColor = isDark ? '#adb5bd' : '#666';
+                      var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {
                         series: ${JSON.stringify(radarSeries)},
-                        chart: { type: 'radar', height: 350, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif' },
+                        chart: { type: 'radar', height: 350, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', foreColor: labelColor },
                         colors: ['#FF6B6B', '#4ECDC4', '#45B7D1'],
-                        xaxis: { categories: ${JSON.stringify(radarCategories)} },
+                        xaxis: { categories: ${JSON.stringify(radarCategories)}, labels: { style: { colors: labelColor } } },
                         yaxis: { show: false },
-                        legend: { position: 'bottom' },
+                        legend: { position: 'bottom', labels: { colors: labelColor } },
                         markers: { size: 4 },
                         fill: { opacity: 0.2 },
                         stroke: { width: 2 }
