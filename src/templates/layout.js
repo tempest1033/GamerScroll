@@ -2047,7 +2047,7 @@ const imageFallbackScript = `
   }
 
   function initImageLoadHandlers() {
-    document.querySelectorAll('.home-trend-card-image img, .category-list-thumb img, .home-popular-thumb img').forEach(function(img) {
+    document.querySelectorAll('.home-trend-card-image img, .category-list-thumb img, .home-popular-thumb img, .weekly-hot-thumb img, .metric-thumb img, .industry-thumb img').forEach(function(img) {
       if (img.complete && img.naturalWidth > 0) {
         markImageLoaded(img);
       } else {

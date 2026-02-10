@@ -36,7 +36,7 @@ const IMAGE_EXTS = new Set([
   '.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif'
 ]);
 
-const DEFAULT_CODEX_MODEL = process.env.CODEX_THUMBNAIL_MODEL || 'gpt-5.3-codex';
+const DEFAULT_CODEX_MODEL = process.env.CODEX_THUMBNAIL_MODEL || 'gpt-5.2';
 const DEFAULT_CODEX_REASONING = process.env.CODEX_THUMBNAIL_REASONING || 'xhigh';
 
 const STOP_WORDS = new Set([

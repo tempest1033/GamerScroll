@@ -715,15 +715,18 @@ function generateTrendPage(data) {
 
   // 순위 변동 아이템 렌더링 - 제목 앞 인라인 아이콘
   const renderRankingItem = (item) => {
-    const hasRankInfo = item.prevRank !== undefined && item.rank !== undefined;
-    const changeText = item.change > 0 ? `+${item.change}` : item.change < 0 ? `${item.change}` : '0';
-    const changeClass = item.change > 0 ? 'up' : item.change < 0 ? 'down' : '';
+    const hasRankInfo = item.rank !== undefined && item.rank !== null;
+    const isNewEntry = !item.prevRank || item.prevRank === 0;
+    const changeClass = isNewEntry ? 'new' : (item.change > 0 ? 'up' : item.change < 0 ? 'down' : '');
+    const changeText = isNewEntry ? '신규' : (item.change > 0 ? `+${item.change}` : item.change < 0 ? `${item.change}` : '0');
     const platformText = item.platform ? `${item.platform} ` : '';
     const gameIcon = findGameIcon(item.title);
 
     const rankBadge = hasRankInfo ? `
       <span class="weekly-ranking-badge ${changeClass}">
-        ${platformText}${item.prevRank}위 → ${item.rank}위 (${changeText})
+        ${isNewEntry
+          ? `${platformText}${item.rank}위 신규진입`
+          : `${platformText}${item.prevRank}위 → ${item.rank}위 (${changeText})`}
       </span>
     ` : '';
 
@@ -1131,15 +1134,18 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
 
   // 순위 변동 아이템 렌더링 - 제목 앞 인라인 아이콘
   const renderRankingItem = (item) => {
-    const hasRankInfo = item.prevRank !== undefined && item.rank !== undefined;
-    const changeText = item.change > 0 ? `+${item.change}` : item.change < 0 ? `${item.change}` : '0';
-    const changeClass = item.change > 0 ? 'up' : item.change < 0 ? 'down' : '';
+    const hasRankInfo = item.rank !== undefined && item.rank !== null;
+    const isNewEntry = !item.prevRank || item.prevRank === 0;
+    const changeClass = isNewEntry ? 'new' : (item.change > 0 ? 'up' : item.change < 0 ? 'down' : '');
+    const changeText = isNewEntry ? '신규' : (item.change > 0 ? `+${item.change}` : item.change < 0 ? `${item.change}` : '0');
     const platformText = item.platform ? `${item.platform} ` : '';
     const gameIcon = findGameIcon(item.title);
 
     const rankBadge = hasRankInfo ? `
       <span class="weekly-ranking-badge ${changeClass}">
-        ${platformText}${item.prevRank}위 → ${item.rank}위 (${changeText})
+        ${isNewEntry
+          ? `${platformText}${item.rank}위 신규진입`
+          : `${platformText}${item.prevRank}위 → ${item.rank}위 (${changeText})`}
       </span>
     ` : '';
 
