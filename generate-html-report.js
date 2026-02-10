@@ -1818,9 +1818,10 @@ async function main() {
         fs.mkdirSync(pageDir, { recursive: true });
       }
 
-      // 증분 빌드: 캐시 체크
+      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
       const cacheKey = post.slug;
-      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.issues, cacheKey, post)) {
+      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
+      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.issues, cacheKey, post)) {
         issueSkipped++;
         continue;
       }
@@ -1853,9 +1854,10 @@ async function main() {
         fs.mkdirSync(pageDir, { recursive: true });
       }
 
-      // 증분 빌드: 캐시 체크
+      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
       const cacheKey = post.slug;
-      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.insights, cacheKey, post)) {
+      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
+      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.insights, cacheKey, post)) {
         insightSkipped++;
         continue;
       }
@@ -1888,9 +1890,10 @@ async function main() {
         fs.mkdirSync(pageDir, { recursive: true });
       }
 
-      // 증분 빌드: 캐시 체크
+      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
       const cacheKey = post.slug;
-      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.hotpicks, cacheKey, post)) {
+      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
+      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.hotpicks, cacheKey, post)) {
         hotpickSkipped++;
         continue;
       }
@@ -1923,9 +1926,10 @@ async function main() {
         fs.mkdirSync(pageDir, { recursive: true });
       }
 
-      // 증분 빌드: 캐시 체크
+      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
       const cacheKey = post.slug;
-      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.rankings, cacheKey, post)) {
+      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
+      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.rankings, cacheKey, post)) {
         rankingSkipped++;
         continue;
       }
@@ -2051,9 +2055,10 @@ async function main() {
         fs.mkdirSync(pageDir, { recursive: true });
       }
 
-      // 증분 빌드: 캐시 체크
+      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
       const cacheKey = `${category}/${article.slug}`;
-      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.wiki, cacheKey, article)) {
+      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
+      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.wiki, cacheKey, article)) {
         wikiSkipped++;
         continue;
       }
@@ -2161,9 +2166,10 @@ async function main() {
         fs.mkdirSync(pageDir, { recursive: true });
       }
 
-      // 증분 빌드: 캐시 체크
+      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
       const cacheKey = `${category}/${article.slug}`;
-      if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.tech, cacheKey, article)) {
+      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
+      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.tech, cacheKey, article)) {
         techSkipped++;
         continue;
       }
