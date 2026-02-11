@@ -1,0 +1,303 @@
+{
+  "slug": "mcp-guide",
+  "status": "approved",
+  "category": "vibecoding",
+  "toc": true,
+  "title": "MCP 가이드: AI 코딩 에이전트와 외부 도구 연결하기",
+  "titleEn": "MCP Guide: Connecting AI Coding Agents with External Tools",
+  "date": "2026-02-11T12:00",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/1aef864f9b246c740fe3cef6e1068f2220995d5e-2400x1260.png",
+  "keywords": "MCP, Model Context Protocol, AI 코딩, 바이브 코딩, Claude Code, Codex, 외부 도구 연결, MCP 서버, MCP 설정, AI 에이전트",
+  "keywordsEn": "MCP, Model Context Protocol, AI coding, vibe coding, Claude Code, Codex, external tool integration, MCP server, MCP setup, AI agent",
+  "summary": "MCP(Model Context Protocol)는 AI 코딩 에이전트가 데이터베이스, 웹 크롤러, 메신저 등 외부 도구와 소통하는 표준 프로토콜이다. MCP의 개념부터 생태계 현황, 주요 서버, 설정 방법, 실전 활용까지 바이브코딩에서 MCP를 활용하는 방법을 안내한다.",
+  "summaryEn": "MCP (Model Context Protocol) is a standard protocol that enables AI coding agents to communicate with external tools like databases, web crawlers, and messaging platforms. This guide covers everything from MCP concepts and ecosystem to setup methods and practical usage in vibe coding.",
+  "sources": [
+    { "title": "Introducing the Model Context Protocol", "url": "https://www.anthropic.com/news/model-context-protocol" },
+    { "title": "MCP 1st Anniversary", "url": "https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/" },
+    { "title": "Agentic AI Foundation 설립", "url": "https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" },
+    { "title": "a16z - A Deep Dive into MCP", "url": "https://a16z.com/a-deep-dive-into-mcp-and-the-future-of-ai-tooling/" },
+    { "title": "MCP 공식 사이트", "url": "https://modelcontextprotocol.io/" },
+    { "title": "Claude Code MCP 문서", "url": "https://code.claude.com/docs/en/mcp" }
+  ],
+  "relatedGames": [],
+  "relatedDocs": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "가이드로 돌아가기", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "바이브 코딩으로 AI에게 코드를 맡기다 보면, \"DB에서 데이터 좀 가져와\" 같은 요청에서 한계를 느끼게 된다. AI가 코드를 작성하는 건 잘하지만, 외부 서비스에 직접 접근하는 건 별도의 연결이 필요하기 때문이다. MCP는 바로 이 문제를 해결한다. AI 코딩 에이전트가 DB, 웹 크롤러, 메신저, 디자인 도구 등과 직접 소통할 수 있게 해주는 표준 프로토콜이다.\n\nMCP를 활용하면 바이브 코딩의 가능성이 크게 넓어진다. 단순히 코드를 생성하는 수준을 넘어, AI가 실제 데이터를 조회하고, 웹을 크롤링하고, 외부 API를 호출하는 것까지 가능해진다."
+    },
+    {
+      "type": "heading",
+      "value": "MCP(Model Context Protocol)란?"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68f64b7d51a1d57549b3ad8e_What%20is%20MCP_%20Final%402x.png",
+      "alt": "MCP 아키텍처 다이어그램",
+      "caption": "MCP는 USB-C처럼 AI와 다양한 도구를 하나의 표준으로 연결한다"
+    },
+    {
+      "type": "text",
+      "value": "MCP(Model Context Protocol)는 AI 모델과 외부 도구를 연결하는 개방형 표준 프로토콜이다. 쉽게 비유하면 \"AI 세계의 USB-C\"다. USB-C가 어떤 기기든 하나의 포트로 연결하듯, MCP는 어떤 AI 도구든 하나의 프로토콜로 외부 서비스에 연결할 수 있게 해준다.\n\nAnthropic이 2024년 11월에 처음 공개했으며, 2025년 3월에는 OpenAI가 채택을 발표했다. 이후 Google, Microsoft까지 합류하면서 사실상 업계 표준이 되었다. 2025년 12월에는 Linux Foundation 산하 AAIF(AI Alliance for Interoperability Foundation)에 기부되어 특정 회사에 종속되지 않는 진정한 개방형 표준으로 자리잡았다."
+    },
+    {
+      "type": "heading",
+      "value": "MCP 생태계 현황"
+    },
+    {
+      "type": "image",
+      "src": "https://d1lamhf6l6yk6d.cloudfront.net/uploads/2025/03/250319-MCP-Market-Map-v2-x2000.png",
+      "alt": "MCP 생태계 마켓 맵",
+      "caption": "MCP 생태계 전체 마켓 맵 — 클라이언트, 서버, 인프라 (출처: a16z)"
+    },
+    {
+      "type": "text",
+      "value": "MCP 생태계는 빠르게 성장하고 있다. 숫자로 보면 그 규모를 실감할 수 있다.\n\n- 월간 SDK 다운로드: 9,700만 회 이상\n- 활성 MCP 서버: 10,000개 이상\n- MCP Registry 등록 서버: 2,000개 이상\n\n주요 MCP 클라이언트로는 Claude Desktop, ChatGPT Desktop, Cursor, VS Code(GitHub Copilot), Gemini CLI 등이 있다. 사실상 주요 AI 코딩 도구 대부분이 MCP를 지원하고 있어, 한번 설정해두면 어떤 도구를 쓰더라도 동일한 MCP 서버를 활용할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "주요 MCP 서버 목록"
+    },
+    {
+      "type": "text",
+      "value": "바이브 코딩에서 자주 사용되는 MCP 서버들을 정리했다. 프로젝트 성격에 맞는 서버를 골라 연결하면 된다."
+    },
+    {
+      "type": "table",
+      "headers": ["MCP 서버", "기능", "활용 예시"],
+      "rows": [
+        ["Slack", "메시지 전송/조회", "팀 알림, 채널 메시지 읽기"],
+        ["Notion", "문서 읽기/쓰기", "기획서 참조, 문서 자동 생성"],
+        ["Supabase", "DB 스키마/데이터 조회", "테이블 구조 파악, 쿼리 실행"],
+        ["Firecrawl", "웹 크롤링/스크래핑", "웹 자료 수집, 콘텐츠 추출"],
+        ["Playwright", "브라우저 자동화/테스트", "E2E 테스트, 스크린샷 캡처"],
+        ["Blender", "3D 모델링 조작", "3D 씬 생성, 모델 수정"],
+        ["PostgreSQL", "SQL 쿼리 실행", "DB 직접 조회, 스키마 분석"]
+      ],
+      "caption": "자주 사용되는 MCP 서버"
+    },
+    {
+      "type": "heading",
+      "value": "MCP 설정하기"
+    },
+    {
+      "type": "text",
+      "value": "Claude Code에서 MCP 서버를 추가하는 방법은 간단하다. `claude mcp add` 명령어 한 줄이면 된다.\n\n**기본 문법:**"
+    },
+    {
+      "type": "code",
+      "value": "claude mcp add <서버이름> <실행명령> [인자...]",
+      "lang": "bash"
+    },
+    {
+      "type": "text",
+      "value": "**예시 - Firecrawl 추가:**"
+    },
+    {
+      "type": "code",
+      "value": "claude mcp add firecrawl-mcp -- npx -y firecrawl-mcp",
+      "lang": "bash"
+    },
+    {
+      "type": "text",
+      "value": "**예시 - Slack 추가:**"
+    },
+    {
+      "type": "code",
+      "value": "claude mcp add slack -- npx -y @anthropic/mcp-server-slack",
+      "lang": "bash"
+    },
+    {
+      "type": "text",
+      "value": "설정은 3가지 스코프로 관리된다. `--scope user`는 모든 프로젝트에서 사용할 전역 설정, `--scope local`은 현재 프로젝트 전용, `--scope project`는 `.mcp.json` 파일로 팀원과 공유할 수 있는 설정이다. 팀 프로젝트라면 `.mcp.json`을 Git에 커밋해두면 팀원 모두가 동일한 MCP 환경을 사용할 수 있다."
+    },
+    {
+      "type": "text",
+      "value": "OpenAI도 2025년 3월 MCP를 공식 채택했다. ChatGPT Desktop 앱에서 MCP 서버를 연결할 수 있고, Codex CLI에서도 MCP를 지원한다. 설정 방식은 Claude Code와 유사하게 서버를 추가하고 도구를 사용하는 구조다. MCP가 업계 표준인 만큼, 한번 설정해둔 MCP 서버는 Claude Code든 Codex든 동일하게 활용할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "바이브 코딩에서 MCP 활용 예시"
+    },
+    {
+      "type": "text",
+      "value": "MCP를 연결하면 바이브 코딩에서 할 수 있는 일이 크게 늘어난다. 대표적인 활용 사례를 살펴보자.\n\n**DB 연동**: Supabase나 PostgreSQL MCP를 연결하면 AI가 DB 스키마를 자동으로 파악하고, 적절한 쿼리를 생성한다. \"users 테이블에서 최근 가입자 10명 보여줘\" 같은 자연어 요청이 바로 실행된다.\n\n**웹 크롤링**: Firecrawl MCP를 사용하면 AI가 웹에서 필요한 자료를 직접 수집한다. 경쟁사 가격 정보를 모아 비교 표를 만들거나, 기술 문서를 참고해서 코드를 작성하는 것도 가능하다.\n\n**브라우저 테스트**: Playwright MCP를 연결하면 AI가 작성한 웹 페이지를 자동으로 브라우저에서 열어 테스트한다. 스크린샷을 찍어 레이아웃을 확인하고, 버그를 발견하면 바로 수정까지 진행한다.\n\n**디자인 연동**: Figma MCP를 사용하면 디자인 파일에서 직접 컴포넌트 정보를 읽어 코드로 변환할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "MCP vs CLI"
+    },
+    {
+      "type": "image",
+      "src": "https://cli.github.com/assets/images/social-card.png",
+      "alt": "GitHub CLI 터미널",
+      "caption": "GitHub CLI처럼 강력한 CLI가 있는 도구는 MCP 없이도 충분하다"
+    },
+    {
+      "type": "text",
+      "value": "모든 도구에 MCP를 연결할 필요는 없다. GitHub, PostgreSQL, npm 같은 도구는 이미 강력한 CLI를 갖추고 있다. AI 코딩 에이전트는 Bash를 통해 이런 CLI를 직접 호출할 수 있으므로, 굳이 MCP를 추가하면 컨텍스트만 낭비될 수 있다. `git status`, `psql`, `npm install` 같은 명령어는 MCP 없이도 잘 동작한다.\n\n반면 Figma, Notion, Slack, Blender처럼 CLI가 없는 도구는 이야기가 다르다. 디자인 파일에서 컴포넌트 정보를 읽어오거나, 노션 문서를 검색하거나, Slack 채널에 메시지를 보내는 건 CLI로 불가능하다. 이런 도구들은 API를 통해서만 접근할 수 있는데, MCP는 그 API를 AI에게 열어주는 유일한 통로다.\n\n결론적으로 MCP의 진짜 가치는 CLI로 닿을 수 없는 영역을 AI에게 연결해주는 데 있다. CLI가 이미 있는 도구에 굳이 MCP를 쓸 필요는 없고, 프로젝트 상황에 맞게 선택하면 된다."
+    },
+    {
+      "type": "heading",
+      "value": "MCP 사용 시 주의사항"
+    },
+    {
+      "type": "text",
+      "value": "MCP는 강력하지만, 무작정 서버를 많이 연결하면 오히려 역효과가 날 수 있다. 몇 가지 주의할 점이 있다.\n\n**컨텍스트 소비**: 연결된 MCP 서버가 많을수록 AI의 컨텍스트 윈도우를 많이 차지한다. 서버 10개 이상 연결하면 전체 컨텍스트의 40% 이상을 MCP 도구 설명에 소비할 수 있다. 실제 코딩에 쓸 공간이 줄어드는 셈이다.\n\n**보안 위험**: MCP 서버는 외부 서비스에 접근 권한을 부여하는 것이다. 인증이 없는 서버를 연결하면 민감한 데이터가 노출될 위험이 있다. 공식 서버나 검증된 서버만 사용하고, API 키 관리에 주의해야 한다.\n\n**권장 사항**: 프로젝트에 실제로 필요한 서버만 선별적으로 연결하는 것이 좋다. 일반적으로 3-5개 정도가 적절하다. 사용하지 않는 서버는 `claude mcp remove` 명령어로 제거할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "MCP는 바이브 코딩을 단순한 \"코드 자동완성\"에서 \"자율 에이전트\"로 진화시키는 핵심 인프라다. AI가 코드만 쓰는 게 아니라, DB를 조회하고, 웹을 크롤링하고, 메신저로 알림을 보내는 것까지 가능해진다. Anthropic, OpenAI, Google, Microsoft가 모두 채택한 업계 표준인 만큼, MCP를 익혀두면 어떤 AI 도구를 쓰더라도 활용할 수 있다.\n\n아직 MCP를 사용해보지 않았다면, 가장 필요한 서버 하나만 먼저 연결해보는 것을 추천한다. Firecrawl이나 Notion 같은 범용 서버부터 시작하면 MCP의 가치를 바로 체감할 수 있을 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "series",
+      "articles": [
+        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Guide", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "When you start delegating code to AI through vibe coding, you quickly hit a wall with requests like \"fetch some data from the DB.\" While AI is great at writing code, accessing external services directly requires a separate connection. MCP solves exactly this problem. It's a standard protocol that enables AI coding agents to communicate directly with databases, web crawlers, messaging platforms, design tools, and more.\n\nWith MCP, the possibilities of vibe coding expand dramatically. Beyond simply generating code, AI can query real data, crawl the web, and call external APIs."
+    },
+    {
+      "type": "heading",
+      "value": "What is MCP (Model Context Protocol)?"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68f64b7d51a1d57549b3ad8e_What%20is%20MCP_%20Final%402x.png",
+      "alt": "MCP Architecture Diagram",
+      "caption": "MCP connects AI to various tools through a single standard, like USB-C"
+    },
+    {
+      "type": "text",
+      "value": "MCP (Model Context Protocol) is an open standard protocol that connects AI models with external tools. Think of it as \"USB-C for the AI world.\" Just as USB-C connects any device through a single port, MCP allows any AI tool to connect to external services through a single protocol.\n\nAnthropic first released it in November 2024, and OpenAI announced its adoption in March 2025. Google and Microsoft soon followed, making it a de facto industry standard. In December 2025, it was donated to the Linux Foundation's AAIF (AI Alliance for Interoperability Foundation), establishing it as a truly open standard not tied to any single company."
+    },
+    {
+      "type": "heading",
+      "value": "MCP Ecosystem Overview"
+    },
+    {
+      "type": "image",
+      "src": "https://d1lamhf6l6yk6d.cloudfront.net/uploads/2025/03/250319-MCP-Market-Map-v2-x2000.png",
+      "alt": "MCP Ecosystem Market Map",
+      "caption": "MCP ecosystem market map — clients, servers, infrastructure (Source: a16z)"
+    },
+    {
+      "type": "text",
+      "value": "The MCP ecosystem is growing rapidly. The numbers speak for themselves.\n\n- Monthly SDK downloads: Over 97 million\n- Active MCP servers: Over 10,000\n- MCP Registry listings: Over 2,000\n\nMajor MCP clients include Claude Desktop, ChatGPT Desktop, Cursor, VS Code (GitHub Copilot), and Gemini CLI. Virtually all major AI coding tools support MCP, so once you set it up, you can use the same MCP servers regardless of which tool you choose."
+    },
+    {
+      "type": "heading",
+      "value": "Popular MCP Servers"
+    },
+    {
+      "type": "text",
+      "value": "Here's a summary of frequently used MCP servers in vibe coding. Choose the ones that match your project's needs."
+    },
+    {
+      "type": "table",
+      "headers": ["MCP Server", "Function", "Use Case"],
+      "rows": [
+        ["Slack", "Send/read messages", "Team notifications, channel messages"],
+        ["Notion", "Read/write documents", "Reference specs, auto-generate docs"],
+        ["Supabase", "DB schema/data queries", "Table structure analysis, query execution"],
+        ["Firecrawl", "Web crawling/scraping", "Data collection, content extraction"],
+        ["Playwright", "Browser automation/testing", "E2E testing, screenshot capture"],
+        ["Blender", "3D modeling operations", "3D scene creation, model editing"],
+        ["PostgreSQL", "SQL query execution", "Direct DB queries, schema analysis"]
+      ],
+      "caption": "Frequently used MCP servers"
+    },
+    {
+      "type": "heading",
+      "value": "Setting Up MCP"
+    },
+    {
+      "type": "text",
+      "value": "Adding an MCP server in Claude Code is simple. It takes just one command: `claude mcp add`.\n\n**Basic syntax:**"
+    },
+    {
+      "type": "code",
+      "value": "claude mcp add <server-name> <command> [args...]",
+      "lang": "bash"
+    },
+    {
+      "type": "text",
+      "value": "**Example - Adding Firecrawl:**"
+    },
+    {
+      "type": "code",
+      "value": "claude mcp add firecrawl-mcp -- npx -y firecrawl-mcp",
+      "lang": "bash"
+    },
+    {
+      "type": "text",
+      "value": "**Example - Adding Slack:**"
+    },
+    {
+      "type": "code",
+      "value": "claude mcp add slack -- npx -y @anthropic/mcp-server-slack",
+      "lang": "bash"
+    },
+    {
+      "type": "text",
+      "value": "Settings are managed across 3 scopes. `--scope user` is a global setting for all projects, `--scope local` is for the current project only, and `--scope project` creates a `.mcp.json` file that can be shared with team members. For team projects, committing `.mcp.json` to Git ensures everyone uses the same MCP environment."
+    },
+    {
+      "type": "text",
+      "value": "OpenAI also officially adopted MCP in March 2025. You can connect MCP servers in the ChatGPT Desktop app, and Codex CLI supports MCP as well. The setup process is similar to Claude Code—add a server and use its tools. Since MCP is an industry standard, any MCP server you configure works the same way whether you're using Claude Code or Codex."
+    },
+    {
+      "type": "heading",
+      "value": "MCP Use Cases in Vibe Coding"
+    },
+    {
+      "type": "text",
+      "value": "Connecting MCP servers dramatically expands what you can do with vibe coding. Here are some representative use cases.\n\n**DB Integration**: With Supabase or PostgreSQL MCP, AI automatically understands your DB schema and generates appropriate queries. Natural language requests like \"show me the 10 most recent signups from the users table\" execute directly.\n\n**Web Crawling**: Firecrawl MCP lets AI collect data directly from the web. It can gather competitor pricing to create comparison tables or reference technical documentation while writing code.\n\n**Browser Testing**: With Playwright MCP, AI can automatically open web pages it built in a browser for testing. It captures screenshots to verify layouts and immediately fixes any bugs it discovers.\n\n**Design Integration**: Figma MCP lets you read component information directly from design files and convert them to code."
+    },
+    {
+      "type": "heading",
+      "value": "MCP vs CLI"
+    },
+    {
+      "type": "image",
+      "src": "https://cli.github.com/assets/images/social-card.png",
+      "alt": "GitHub CLI Terminal",
+      "caption": "Tools with powerful CLIs like GitHub CLI work perfectly fine without MCP"
+    },
+    {
+      "type": "text",
+      "value": "You don't need to connect MCP for every tool. Tools like GitHub, PostgreSQL, and npm already have powerful CLIs. AI coding agents can call these CLIs directly through Bash, so adding MCP for them would just waste context. Commands like `git status`, `psql`, and `npm install` work perfectly fine without MCP.\n\nHowever, tools like Figma, Notion, Slack, and Blender are a different story—they don't have CLIs. Reading component information from design files, searching Notion documents, or sending messages to Slack channels is impossible via CLI. These tools are only accessible through APIs, and MCP is the sole bridge that opens those APIs to AI.\n\nThe bottom line: MCP's real value lies in connecting AI to areas that CLI can't reach. There's no need to use MCP for tools that already have CLIs—just choose the right approach for your project."
+    },
+    {
+      "type": "heading",
+      "value": "MCP Precautions"
+    },
+    {
+      "type": "text",
+      "value": "MCP is powerful, but connecting too many servers can backfire. Here are some things to watch out for.\n\n**Context Consumption**: The more MCP servers you connect, the more of AI's context window they consume. With 10+ servers connected, MCP tool descriptions alone can take up over 40% of the total context, leaving less room for actual coding.\n\n**Security Risks**: MCP servers grant access to external services. Connecting unauthenticated servers can expose sensitive data. Only use official or verified servers, and be careful with API key management.\n\n**Recommendations**: Selectively connect only the servers your project actually needs. Generally, 3-5 servers is appropriate. You can remove unused servers with the `claude mcp remove` command."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion"
+    },
+    {
+      "type": "text",
+      "value": "MCP is the key infrastructure that evolves vibe coding from simple \"code autocomplete\" to \"autonomous agents.\" AI doesn't just write code—it can query databases, crawl the web, and send notifications through messaging platforms. As an industry standard adopted by Anthropic, OpenAI, Google, and Microsoft, learning MCP means you can leverage it with any AI tool.\n\nIf you haven't tried MCP yet, we recommend starting by connecting just one server you need most. Starting with versatile servers like Firecrawl or Notion will let you immediately experience the value MCP brings."
+    }
+  ]
+}

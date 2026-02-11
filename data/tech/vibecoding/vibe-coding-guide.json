@@ -138,7 +138,13 @@
     },
     {
       "type": "text",
-      "value": "업데이트 예정"
+      "value": "MCP(Model Context Protocol)는 AI 코딩 에이전트가 외부 도구와 소통하는 표준 프로토콜이다. DB, 웹 크롤러, 메신저 등 다양한 서비스를 AI에 연결해 바이브코딩의 가능성을 크게 넓혀준다."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "mcp-guide", "title": "MCP 가이드", "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/1aef864f9b246c740fe3cef6e1068f2220995d5e-2400x1260.png" }
+      ]
     },
     {
       "type": "heading",
@@ -283,7 +289,13 @@
     },
     {
       "type": "text",
-      "value": "Coming soon"
+      "value": "MCP (Model Context Protocol) is a standard protocol that enables AI coding agents to communicate with external tools. It significantly expands the possibilities of vibe coding by connecting various services like databases, web crawlers, and messaging platforms to AI."
+    },
+    {
+      "type": "series",
+      "articles": [
+        { "part": 1, "slug": "mcp-guide", "title": "MCP Guide", "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/1aef864f9b246c740fe3cef6e1068f2220995d5e-2400x1260.png" }
+      ]
     },
     {
       "type": "heading",
