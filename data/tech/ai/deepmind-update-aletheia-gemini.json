@@ -1,0 +1,257 @@
+{
+  "slug": "deepmind-update-aletheia-gemini",
+  "status": "approved",
+  "category": "google",
+  "title": "딥마인드 신무기 연속 공개: 알레테이아부터 제미나이 3.1 프리뷰까지",
+  "titleEn": "DeepMind's Back-to-Back Reveals: From Aletheia to Gemini 3.1 Preview",
+  "date": "2026-02-12T12:00",
+  "keywords": "딥마인드 알레테이아, 구글 딥마인드 2026, 수학 AI 에이전트, 에르되시 미해결 문제, 제미나이 3 프로, 제미나이 딥씽크, 제미나이 3.1 프리뷰, IMO ProofBench, 김상현 교수, 하사비스 AI 르네상스, Project Genie, LMArena 1위",
+  "keywordsEn": "DeepMind Aletheia, Google DeepMind 2026, math AI agent, Erdos unsolved problems, Gemini 3 Pro, Gemini Deep Think, Gemini 3.1 Preview, IMO ProofBench, Professor Kim Sanghyun, Hassabis AI Renaissance, Project Genie, LMArena first place",
+  "summary": "구글 딥마인드가 수학 연구 에이전트 '알레테이아'를 공개했다. 에르되시 미해결 문제 13개를 해결하고, 제미나이 3가 벤치마크 1위를 석권하는 가운데 3.1 프리뷰까지 포착됐다. 딥마인드 2월 소식을 총정리한다.",
+  "summaryEn": "Google DeepMind unveiled Aletheia, a math research agent that solved 13 unsolved Erdos problems. With Gemini 3 dominating benchmarks and a 3.1 Preview spotted in the wild, here's the full DeepMind February roundup.",
+  "thumbnail": "https://lh3.googleusercontent.com/9AkeV8GPqkUlVW9qorYg-JqQNy7yLqqndSzFIWK-sG4MfZ9vA3ajM6Fzpr29h5fdTGpOVVxXEP7QU0mSzpe3ox-jFp-SQ7fsA2CkMmNol7THDdEWqQ=w1440-h810-n-nu",
+  "sources": [
+    { "name": "Google DeepMind", "title": "Accelerating mathematical and scientific discovery with Gemini Deep Think", "url": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/" },
+    { "name": "Artificial Analysis", "title": "LLM Leaderboard", "url": "https://artificialanalysis.ai/leaderboards/models" },
+    { "name": "The Verge", "title": "Google DeepMind's Aletheia solves unsolved math problems", "url": "https://www.theverge.com/2026/2/11/google-deepmind-aletheia-math" },
+    { "name": "Google", "title": "Gemini 3 Model Card", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-v3" },
+    { "name": "Fortune", "title": "Demis Hassabis predicts AI Renaissance and radical abundance", "url": "https://fortune.com/2026/02/11/demis-hassabis-nobel-google-deepmind-predicts-ai-renaissance-radical-abundance/" },
+    { "name": "연합뉴스", "title": "한국 수학자, 딥마인드 알레테이아 검증 참여", "url": "https://www.yna.co.kr/view/AKR20260207040000017" }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-opus-46-pricing-controversy",
+    "tech:ai/alphagenome-first-impressions-2026",
+    "wiki:business/google-genie3-unity-stock-crash",
+    "wiki:history/black-and-white-demis-hassabis"
+  ],
+  "relatedGames": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "구글 딥마인드가 2월 11일, 수학 연구 전용 AI 에이전트 '알레테이아(Aletheia)'를 공개했다. 고대 그리스어로 '진리'를 뜻하는 이 에이전트는 에르되시가 남긴 미해결 문제 약 700개 중 13개에 의미 있는 해답을 내놓으며 단숨에 주목을 받은 모양새다. 같은 날 제미나이 3가 주요 벤치마크를 석권하고 있다는 소식과 함께, 아직 3.0 정식 출시도 되지 않은 상황에서 3.1 프리뷰까지 포착되면서 딥마인드 뉴스가 한꺼번에 쏟아진 하루였다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 알레테이아, AI가 수학 난제를 푸는 방법"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/original_images/DeepThink-maths-science-discovery__figure-01-Aletheia__dark_MQtmOaf.svg",
+      "caption": "알레테이아의 Generator-Verifier-Reviser 반복 구조",
+      "alt": "구글 딥마인드 알레테이아 AI 수학 연구 에이전트 아키텍처 다이어그램 Generator Verifier Reviser 구조"
+    },
+    {
+      "type": "text",
+      "value": "알레테이아는 제미나이 딥씽크(Deep Think) 모드 위에 구축된 맞춤형 수학 연구 에이전트라고 한다. 단순히 답을 내놓는 게 아니라, 세 단계의 반복 과정을 거치는 구조로 보인다. 먼저 Generator가 후보 해법을 대량으로 생성하고, Verifier가 자연어 기반으로 각 해법의 오류를 찾아낸다. 살아남은 해법은 Reviser가 다듬어 증명을 완성하는 방식이다. 이 과정을 수십 번씩 반복하는데, 핵심은 '실패를 인정하는 능력'으로 보인다. 풀 수 없는 문제에는 솔직하게 '못 풀겠다'고 보고한다고 한다."
+    },
+    {
+      "type": "text",
+      "value": "구글 검색과 웹 브라우징까지 활용해 기존 문헌을 직접 확인하기 때문에, AI가 존재하지 않는 논문을 인용하는 허위 인용(hallucination) 문제도 크게 줄었다고 한다. 딥마인드는 알레테이아를 발표하면서 동시에 두 편의 논문을 공개해 기술적 검증을 함께 제시하기도 했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 에르되시 미해결 문제 13개, 그 성과의 실체"
+    },
+    {
+      "type": "text",
+      "value": "딥마인드는 에르되시가 남긴 약 700개의 미해결 문제를 알레테이아에 던졌다고 한다. 알레테이아는 200개 문제에 대해 해답을 주장했고, 수학자들의 분석을 거쳐 최종적으로 13개가 의미 있는 결과로 인정받았다. 이 중 5개는 완전히 새로운 자율 해법이었다고 한다. 인간의 도움 없이 AI가 처음부터 끝까지 독자적으로 증명을 완성한 셈이다. 나머지 8개는 기존 문헌에서 이전에 발표된 풀이를 찾아낸 경우로 알려져 있다."
+    },
+    {
+      "type": "text",
+      "value": "특히 에르되시-1051번 문제는 알레테이아가 완전히 자율적으로 해결한 대표 사례로 꼽히고 있다. IMO-ProofBench Advanced에서는 91.9%를 기록했다고 한다. 딥마인드는 여기서 멈추지 않고 물리학과 컴퓨터 과학으로 영역을 넓히고 있는 것으로 보이는데, 이미 Max-Cut 문제 해결, 10년 된 추측 반증, 우주 끈(cosmic string) 물리학에서 새로운 해석해 발견 등의 성과를 보고한 바 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 수학자들의 평가, 13개 해답의 무게"
+    },
+    {
+      "type": "text",
+      "value": "알레테이아의 결과물에 대해 검증에 참여한 수학자들의 반응도 공개됐다. 고등과학원의 김상현 교수는 연합뉴스 인터뷰에서 \"5~6개는 참신한 해답\"이라고 평가하면서, \"그런 수준의 전문가가 전 세계에 10명도 안 된다\"고 알레테이아의 역량을 높이 산 것으로 전해진다. 브라운대의 정준혁 교수도 검증 작업에 참여한 것으로 알려져 있다."
+    },
+    {
+      "type": "text",
+      "value": "김상현 교수가 남긴 또 하나의 코멘트도 눈에 띈다. \"수학자들이 AI에 기대하는 것은 정답이 아니라, 인간이 생각하지 못한 길을 가보라고 속삭여 주는 것이다.\" AI를 수학자의 대체재가 아닌, 새로운 방향을 제시하는 도구로 바라보는 시각이 담긴 발언이었다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 제미나이 3, 벤치마크 전면 석권"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_model-blog_meta-dark.width-1300.jpg",
+      "caption": "Gemini 3",
+      "alt": "구글 제미나이 3 프로 공식 로고 브랜딩 이미지 2026 AI 모델"
+    },
+    {
+      "type": "text",
+      "value": "알레테이아의 기반이 되는 제미나이 3도 범용 모델로서 압도적인 성적을 보여주고 있는 상황이다. 제미나이 3 프로는 LMArena에서 Elo 1501로 전체 1위, GPQA Diamond 91.9%, SWE-bench Verified 76.2%, WebDev Arena에서도 1487 Elo로 1위를 기록한 것으로 나타났다. 딥씽크 모드는 Humanity's Last Exam에서 41.0%, GPQA Diamond에서 93.8%를 찍었다고 한다."
+    },
+    {
+      "type": "text",
+      "value": "더 흥미로운 건 제미나이 3 플래시일 수 있다. 프로급 추론 능력에 플래시급 효율을 결합한 것으로 보이는데, SWE-Bench에서 78%를 기록해 오히려 프로(76.2%)를 능가한 모양이다. 가격은 프로의 4분의 1 수준이라고 한다. 1월 27일에 추가된 Agentic Vision 기능으로 이미지를 능동적으로 탐색하는 것도 가능해진 것으로 전해진다. 여기에 제미나이 3 기반의 에이전틱 개발 플랫폼 'Google Antigravity'까지 발표되면서 생태계 확장도 본격화하는 분위기다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 제미나이 3.1 프리뷰 포착, 3.0 GA도 안 나왔는데"
+    },
+    {
+      "type": "text",
+      "value": "같은 2월 11일, Artificial Analysis Arena에 'Gemini 3.1 Pro Preview'가 별다른 공지 없이 등장한 것으로 확인됐다. 공식 발표는 아니지만 외부 벤치마크 플랫폼에 올라온 만큼 '신뢰할 만한 단서(credible breadcrumb)' 수준으로 받아들여지고 있는 듯하다. 제미나이 3.0의 정식 출시(GA)조차 아직인 상황에서 3.1이 이미 외부 테스트를 돌고 있다는 사실이 커뮤니티를 놀라게 한 것으로 보인다."
+    },
+    {
+      "type": "text",
+      "value": "구글의 로건 킬패트릭은 GA가 나오면 성능이 더 올라갈 것이라고 암시했고, 커뮤니티에서는 'GA 출시 시 3.5급 점프가 가능하다'는 관측까지 나오고 있다. 프리뷰만으로 벤치마크 1위를 차지한 상태에서 GA와 3.1까지 동시에 준비하고 있는 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "6. Project Genie와 하사비스의 AI 르네상스 예측"
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/dNKT4AeaE1sc8lfh-BCQBCFVh6fJUjuhyzBls7tdZ0yivviY-bPJXzJfUr27uEg9jc3XozI6jzlWTnI_7umL2NI2lTRVY-BBJiMFmswJpA=w1440-h810-n-nu",
+      "caption": "Genie 3 기반 텍스트-to-3D 월드 생성 데모",
+      "alt": "구글 딥마인드 Project Genie 3 텍스트 이미지 기반 인터랙티브 3D 세계 실시간 생성 기술"
+    },
+    {
+      "type": "text",
+      "value": "딥마인드의 최근 행보는 알레테이아와 제미나이만이 아닌 것으로 보인다. 1월 29일에 공개된 Project Genie는 Genie 3 기반으로 텍스트나 이미지에서 인터랙티브 3D 세계를 실시간으로 생성하는 기술이라고 한다. AI Ultra 구독자(월 250달러) 대상으로 제공되는데, 발표 직후 유니티 주가가 21.6%, 로블록스가 12.3% 급락하면서 게임 업계에 직접적인 충격파를 던진 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "같은 날 Fortune 인터뷰에서 데미스 하사비스 CEO는 \"10~15년 내 새로운 르네상스가 올 것\"이라고 예측했다. 그가 말하는 '급진적 풍요(radical abundance)'의 시대란, AI가 과학적 발견을 가속화하면서 인류 전체의 생산성이 근본적으로 달라지는 미래를 뜻하는 것으로 풀이된다. 다만 그 르네상스를 향해 달리고 있는 건 딥마인드만이 아니다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: AI 패권 경쟁 심화"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI는 GPT-5 시리즈로 추론과 코딩을 밀어붙이고 있고, 앤트로픽은 클로드 오푸스 4.6으로 에이전트 시장을 공략하고 있다. 세 회사 모두 2월 안에 새 카드를 꺼낸 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "AI 업계의 발표 주기가 갈수록 짧아지고 있고, 잠시 조용했던 딥마인드까지 알레테이아와 제미나이 3.1을 같은 날 들고 나오면서 그 속도가 한층 더 빨라진 모양새다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 11, Google DeepMind unveiled Aletheia, a dedicated AI agent for mathematical research. Named after the ancient Greek word for 'truth,' the agent immediately drew attention by producing meaningful solutions to 13 of the roughly 700 unsolved problems left behind by Paul Erdos. The same day brought news of Gemini 3 sweeping major benchmarks, plus the surprise appearance of a Gemini 3.1 Preview — before 3.0 even reached general availability."
+    },
+    {
+      "type": "heading",
+      "value": "1. Aletheia: How AI Tackles Unsolved Math"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/original_images/DeepThink-maths-science-discovery__figure-01-Aletheia__dark_MQtmOaf.svg",
+      "caption": "Aletheia's Generator-Verifier-Reviser iterative architecture",
+      "alt": "Google DeepMind Aletheia AI math research agent architecture diagram Generator Verifier Reviser workflow"
+    },
+    {
+      "type": "text",
+      "value": "Aletheia is a custom math research agent built on top of Gemini's Deep Think mode. Rather than simply outputting answers, it works through a three-stage iterative process. First, the Generator produces candidate solutions in bulk. Then the Verifier uses natural-language-based reasoning to identify errors in each one. Survivors are refined by the Reviser into complete proofs. This cycle repeats dozens of times per problem, and the key feature is its ability to admit failure — when it can't solve a problem, it honestly reports that it couldn't."
+    },
+    {
+      "type": "text",
+      "value": "Because Aletheia leverages Google Search and web browsing to verify existing literature directly, the hallucination problem — where AI cites nonexistent papers — is significantly reduced. DeepMind published two papers alongside the announcement to provide technical validation."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 13 Erdos Problems: What the Results Actually Mean"
+    },
+    {
+      "type": "text",
+      "value": "DeepMind fed Aletheia approximately 700 unsolved Erdos problems. The agent claimed solutions to 200 of them, and after review by mathematicians, 13 were recognized as meaningful results. Five of these were entirely new autonomous solutions — proofs the AI completed from start to finish without human assistance. The remaining eight were cases where Aletheia located previously published solutions in existing literature."
+    },
+    {
+      "type": "text",
+      "value": "Erdos Problem 1051 stands out as a flagship example of Aletheia's fully autonomous problem-solving. The agent also scored 91.9% on IMO-ProofBench Advanced. DeepMind isn't stopping at mathematics — they're already expanding into physics and computer science, reporting achievements including solving the Max-Cut problem, disproving a decade-old conjecture, and discovering new analytic solutions in cosmic string physics."
+    },
+    {
+      "type": "heading",
+      "value": "3. Mathematicians Weigh In on the 13 Solutions"
+    },
+    {
+      "type": "text",
+      "value": "Reactions from mathematicians who participated in verifying Aletheia's results have also surfaced. Professor Kim Sanghyun of the Korea Institute for Advanced Study told Yonhap News that \"five or six are genuinely novel solutions\" and noted that \"there aren't even ten people in the world at that level of expertise,\" expressing high regard for Aletheia's capabilities. Professor Jung Junhyeok of Brown University also contributed to the verification work."
+    },
+    {
+      "type": "text",
+      "value": "Professor Kim left another notable comment: \"What mathematicians expect from AI isn't the right answer — it's a whisper suggesting a path humans never thought to explore.\" The remark frames AI not as a replacement for mathematicians but as a tool for opening new directions of inquiry."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Gemini 3 Sweeps the Benchmarks"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_model-blog_meta-dark.width-1300.jpg",
+      "caption": "Gemini 3",
+      "alt": "Google Gemini 3 Pro official logo branding image 2026 AI model"
+    },
+    {
+      "type": "text",
+      "value": "The foundation behind Aletheia, Gemini 3, is also delivering dominant results as a general-purpose model. Gemini 3 Pro holds the #1 spot on LMArena with an Elo of 1501, scores 91.9% on GPQA Diamond, 76.2% on SWE-bench Verified, and leads WebDev Arena at 1487 Elo. Deep Think mode hit 41.0% on Humanity's Last Exam and 93.8% on GPQA Diamond."
+    },
+    {
+      "type": "text",
+      "value": "Even more interesting is Gemini 3 Flash. Combining Pro-level reasoning with Flash-level efficiency, it scored 78% on SWE-Bench — actually surpassing Pro (76.2%) — at one quarter the price. The Agentic Vision feature added on January 27 enables active image exploration. Google also announced Antigravity, an agentic development platform built on Gemini 3, signaling a serious push to expand the ecosystem."
+    },
+    {
+      "type": "heading",
+      "value": "5. Gemini 3.1 Preview Spotted — Before 3.0 GA"
+    },
+    {
+      "type": "text",
+      "value": "Also on February 11, 'Gemini 3.1 Pro Preview' quietly appeared on the Artificial Analysis Arena with no official announcement. While not confirmed by Google, its presence on an external benchmark platform makes it a 'credible breadcrumb.' The community was stunned that 3.1 was already in external testing when 3.0 hadn't even reached general availability."
+    },
+    {
+      "type": "text",
+      "value": "Google's Logan Kilpatrick hinted that performance will improve further once GA ships, and community observers are speculating this could be a '3.5-level jump' rather than a simple stability update. If a model already ranked #1 in preview jumps another tier at GA, competitors will have serious catching up to do."
+    },
+    {
+      "type": "heading",
+      "value": "6. Project Genie and Hassabis's AI Renaissance Prediction"
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/dNKT4AeaE1sc8lfh-BCQBCFVh6fJUjuhyzBls7tdZ0yivviY-bPJXzJfUr27uEg9jc3XozI6jzlWTnI_7umL2NI2lTRVY-BBJiMFmswJpA=w1440-h810-n-nu",
+      "caption": "Genie 3 text-to-3D world generation demo",
+      "alt": "Google DeepMind Project Genie 3 text image based interactive 3D world real-time generation technology"
+    },
+    {
+      "type": "text",
+      "value": "DeepMind's recent moves extend beyond Aletheia and Gemini. Project Genie, unveiled January 29, uses Genie 3 to generate interactive 3D worlds in real-time from text or images. Available to AI Ultra subscribers at $250/month, the announcement immediately rattled gaming stocks — Unity dropped 21.6% and Roblox fell 12.3%."
+    },
+    {
+      "type": "text",
+      "value": "In a Fortune interview the same day, CEO Demis Hassabis predicted \"a new Renaissance within 10 to 15 years.\" His vision of 'radical abundance' describes a future where AI accelerates scientific discovery so dramatically that humanity's overall productivity fundamentally transforms. DeepMind, however, isn't the only one racing toward that renaissance."
+    },
+    {
+      "type": "heading",
+      "value": "Wrapping Up: The AI Race Intensifies"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI is pushing reasoning and coding with the GPT-5 series, while Anthropic is targeting the agent market with Claude Opus 4.6. All three companies have played new cards within the same month."
+    },
+    {
+      "type": "text",
+      "value": "The AI industry's release cadence keeps shrinking, and with the previously quiet DeepMind now dropping Aletheia and Gemini 3.1 on the same day, that pace appears to have picked up yet another notch."
+    }
+  ]
+}

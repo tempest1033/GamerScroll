@@ -1637,7 +1637,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${block.caption || ''}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);
@@ -2186,7 +2186,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${block.caption || ''}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);
@@ -2725,7 +2725,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${block.caption || ''}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);

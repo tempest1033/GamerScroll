@@ -1,0 +1,242 @@
+{
+  "slug": "mewgenics-edmund-mcmillen-14-years",
+  "status": "approved",
+  "title": "아이작의 번제 후속작 뮤제닉스 14년 만에 출시, 메타크리틱 90점 출발",
+  "date": "2026-02-12T19:00",
+  "keywords": "뮤제닉스, Mewgenics, 에드먼드 맥밀런, Edmund McMillen, 타일러 글라이엘, Tyler Glaiel, 고양이 로그라이크, 턴제 전술 RPG, 스팀 1위, 메타크리틱 90점, 2026 GOTY 후보, 아이작의 번제, 인디 게임 흥행, Team Meat, 스팀 동시접속",
+  "keywordsEn": "Mewgenics, Edmund McMillen, Tyler Glaiel, cat roguelike, turn-based tactical RPG, Steam number one, Metacritic 90, 2026 GOTY candidate, The Binding of Isaac, indie game hit, Team Meat, Steam concurrent players",
+  "summary": "14년간의 개발 지옥을 뚫고 나온 뮤제닉스가 출시 3시간 만에 개발비 140만 달러를 전액 회수했다. 메타크리틱 90점, 스팀 동시접속 65,893명, 12시간 만에 25만 장 판매. Polygon이 '2026년 첫 번째 진정한 GOTY 후보'라 부른 이 게임의 모든 것을 정리한다.",
+  "summaryEn": "After 14 years in development hell, Mewgenics recouped its entire $1.4M budget in just 3 hours. Metacritic 90, 65,893 peak concurrent players on Steam, 250K copies sold in 12 hours. Polygon called it '2026's first true GOTY candidate.' Here's everything about this game.",
+  "thumbnail": "https://www.mewgenics.info/promotional_cat_army.jpg",
+  "sources": [
+    {
+      "name": "Steam",
+      "title": "Mewgenics on Steam",
+      "url": "https://store.steampowered.com/app/1236990/Mewgenics/"
+    },
+    {
+      "name": "Metacritic",
+      "title": "Mewgenics Reviews",
+      "url": "https://www.metacritic.com/game/mewgenics/"
+    },
+    {
+      "name": "IGN",
+      "title": "Mewgenics Review - 9/10",
+      "url": "https://www.ign.com/articles/mewgenics-review"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "Mewgenics Review - 92/100",
+      "url": "https://www.pcgamer.com/games/roguelike/mewgenics-review/"
+    },
+    {
+      "name": "Polygon",
+      "title": "Mewgenics is 2026's first true GOTY candidate",
+      "url": "https://www.polygon.com/review/mewgenics"
+    },
+    {
+      "name": "Forbes",
+      "title": "Mewgenics Sales Numbers",
+      "url": "https://www.forbes.com/sites/games/mewgenics-sales/"
+    },
+    {
+      "name": "Game World Observer",
+      "title": "Mewgenics recoups dev costs in 3 hours",
+      "url": "https://gameworldobserver.com/mewgenics-sales-launch"
+    }
+  ],
+  "relatedDocs": ["ranking:steam-january-2026", "hotpick:nioh3-hotpick-soulslike-masterpiece", "issue:roguelike-casual-korea-trend", "issue:metacritic-top-10-games-2025"],
+  "relatedGames": [],
+  "needTranslate": false,
+  "titleEn": "Binding of Isaac Follow-Up Mewgenics Launches After 14 Years with Metacritic 90",
+  "content": [
+    {
+      "type": "text",
+      "value": "2012년 10월, 슈퍼 미트 보이와 아이작의 번제로 인디 게임계의 전설이 된 에드먼드 맥밀런이 신작을 발표했다. 고양이를 키우고 싸우는 게임, 뮤제닉스(Mewgenics). 그로부터 14년이 지난 2026년 2월 10일, 이 게임이 드디어 세상에 나왔다.\n\n결과는 폭발적이었다. 출시 3시간 만에 개발비 전액 회수, 5.5시간 만에 15만 2천 장, 12시간 만에 25만 장 판매. 스팀 동시접속 65,893명으로 전세계 1위를 찍었고, 메타크리틱 90점에 오픈크리틱 추천율 94%. Polygon은 '2026년 첫 번째 진정한 GOTY 후보'라고 불렀다. 14년이라는 시간이 어떻게 이런 결과를 만들었는지 살펴본다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 뮤제닉스 개발 14년, 두 번의 죽음과 부활"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/686060/b76bf94de0b466797f9455a6da347507020a9966/ss_b76bf94de0b466797f9455a6da347507020a9966.600x338.jpg?t=1770734760",
+      "caption": "뮤제닉스 턴제 전투 화면, 14년의 개발 끝에 완성된 전술 시스템",
+      "alt": "뮤제닉스 Mewgenics 턴제 전술 전투 스크린샷 에드먼드 맥밀런 인디 로그라이크"
+    },
+    {
+      "type": "text",
+      "value": "뮤제닉스의 개발사는 그 자체로 하나의 드라마다. 2012년 에드먼드 맥밀런과 토미 레페네스가 Team Meat 시절에 처음 공개했다. 2013년 PAX East에서 시연까지 했지만, 게임플레이 방향성 문제로 개발이 중단됐다. 2016년에는 맥밀런이 공식적으로 개발 취소를 선언하면서 뮤제닉스는 '영원히 안 나올 게임' 목록에 올랐다.\n\n전환점은 2018년이었다. 맥밀런이 Team Meat을 떠나면서 뮤제닉스의 권리를 가져왔고, 동료 개발자 타일러 글라이엘과 손잡고 완전히 새로운 방향으로 재개발에 들어갔다. 기존의 액션 기반 구조를 버리고 턴제 전술 RPG로 전면 재설계한 것이다. 2020년 초에 핵심 구조가 확정됐고, 2022년 10월에 스팀 페이지가 공개됐다.\n\n그리고 2026년 2월 10일, $29.99(출시 할인 10% 적용 시 $26.99)라는 가격표를 달고 정식 출시됐다. 음악은 아이작의 번제 시리즈에서 함께한 Ridiculon이 맡았다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 고양이 유전자 조합, 1000개 능력의 전술 전투"
+    },
+    {
+      "type": "image",
+      "src": "https://www.mewgenics.info/screenshot_cats_house.jpg",
+      "caption": "고양이들의 집, 육성과 번식이 이루어지는 뮤제닉스의 핵심 공간",
+      "alt": "뮤제닉스 고양이 육성 시뮬레이션 집 화면 번식 유전 시스템 스크린샷"
+    },
+    {
+      "type": "text",
+      "value": "뮤제닉스의 핵심은 고양이 육성과 턴제 전술 전투의 결합이다. 단순히 고양이를 모으는 게 아니라 유전 시스템이 존재한다. 부모 고양이의 특성, 돌연변이, 능력이 자식에게 유전되며, 이를 활용해 전투에 최적화된 고양이를 만들어가는 것이 게임의 근간이다.\n\n규모가 상당하다. 14개의 클래스, 1,000개 이상의 고유 능력, 900개 이상의 아이템이 있다. 여기에 날씨, 지형, 식생 같은 환경 요소가 전투에 영향을 미친다. 영구적인 결과 시스템도 있어서 고양이가 뇌손상을 입거나 완전히 사망하면 되돌릴 수 없고, 아이템도 영구 소실된다.\n\n콘텐츠 양도 압도적이다. 메인 캠페인 클리어에 200시간 이상, 100% 달성에는 500시간 이상이 필요하다고 한다. 에드먼드 맥밀런 특유의 '끝없는 조합'이 고양이 유전이라는 테마와 만나면서 리플레이 가치가 극대화됐다는 평가다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 메타크리틱 90점, 2026년 첫 번째 90점대 게임"
+    },
+    {
+      "type": "image",
+      "src": "https://www.mewgenics.info/classes_chart.jpeg",
+      "caption": "뮤제닉스의 14개 클래스 시스템, 다양한 빌드 조합이 가능하다",
+      "alt": "뮤제닉스 Mewgenics 14개 클래스 차트 빌드 시스템 턴제 RPG 능력 조합"
+    },
+    {
+      "type": "text",
+      "value": "비평가들의 반응은 일관되게 호의적이다. 메타크리틱 90점은 2026년 출시 게임 중 최초의 90점대 진입으로, 인디 게임으로서는 이례적인 성적이다. 오픈크리틱에서도 90점에 추천율 94%를 기록하며 'Must-Play' 등급을 받았다.\n\n개별 매체 평점도 높다. PC Gamer 92점, IGN 9/10, GameSpot 9/10, GamesRadar+ 4.5/5. 스팀 유저 리뷰는 '압도적으로 긍정적' 등급이다. 리뷰어들은 공통적으로 시스템의 깊이와 조합의 다양성을 칭찬하면서도, 귀여운 외관 뒤에 숨겨진 잔혹한 난이도를 특징으로 꼽았다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 뮤제닉스 판매량, 출시 3시간 만에 개발비 회수"
+    },
+    {
+      "type": "text",
+      "value": "판매 기록이 인상적이다. 맥밀런은 출시 직후 \"3시간 만에 개발비 140만 달러를 전액 회수했다\"고 밝혔다. 5.5시간 만에 15만 2천 장, 12시간 만에 25만 장을 돌파했다. 스팀 동시접속 피크는 65,893명으로, 전세계 판매 1위를 기록했다.\n\nPolygon은 뮤제닉스를 \"2026년 첫 번째 진정한 GOTY 후보\"라고 평했다. 14년간의 개발 기간을 생각하면 개발비가 140만 달러(약 19억 원)라는 건 의외로 적은 금액인데, 이는 소규모 팀이 오랜 기간에 걸쳐 작업한 인디 프로젝트의 특성을 보여준다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. 한국어 지원 현황, 유저 한글패치와 공식 다국어 지원 예고"
+    },
+    {
+      "type": "image",
+      "src": "https://files.manuscdn.com/user_upload_by_module/session_file/309930434056187969/ytemainCmooAOmkc.jpg",
+      "caption": "뮤제닉스 보스전, 귀여운 외관 뒤에 숨겨진 잔혹한 전투",
+      "alt": "뮤제닉스 Mewgenics 보스전 전투 스크린샷 고양이 로그라이크 난이도"
+    },
+    {
+      "type": "text",
+      "value": "현재 뮤제닉스는 영어 전용으로 출시됐지만, 한국어 플레이 환경은 빠르게 갖춰지고 있다. 출시 직후부터 유저 커뮤니티에서 한글패치를 제작해 배포하고 있어, 지금 당장 한국어로 즐기는 것도 가능하다. 인벤, 루리웹 등 국내 커뮤니티에서도 게임에 대한 관심이 높고, 한글패치 적용 후기가 활발하게 공유되는 분위기다.\n\n더 반가운 소식은 공식 다국어 지원이 예고됐다는 점이다. 맥밀런은 글로벌 다국어 지원을 약 3개월 내로 추가할 계획이라고 밝혔다. 폭발적인 글로벌 판매량을 고려하면 한국어 포함 가능성도 충분히 높다. 유저 패치로 먼저 즐기고, 공식 한국어가 나오면 갈아타는 것도 좋은 전략이다."
+    },
+    {
+      "type": "heading",
+      "value": "6. 향후 계획, DLC와 콘솔 출시"
+    },
+    {
+      "type": "text",
+      "value": "맥밀런은 이미 DLC 개발을 확인한 상태다. 아이작의 번제가 지속적인 DLC로 수명을 크게 늘렸던 전례를 생각하면, 뮤제닉스 역시 장기적인 콘텐츠 확장이 예상된다.\n\n콘솔 출시를 위한 퍼블리셔도 물색 중이다. 현재는 Windows(Steam) 전용이지만, Switch 2가 유력한 콘솔 플랫폼으로 거론되고 있다. 추가 언어 지원과 콘솔 확장이 이루어지면 판매량은 더 크게 늘어날 전망이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 2026년 가장 추천하고 싶은 로그라이크"
+    },
+    {
+      "type": "text",
+      "value": "메타크리틱 90점, 스팀 압도적 긍정, 출시 12시간 만에 25만 장. 숫자만 봐도 충분히 설득력 있지만, 뮤제닉스의 진짜 매력은 직접 플레이해봐야 느낄 수 있다. 1,000개 넘는 능력 조합, 고양이 유전이 만들어내는 예측 불가능한 전투, 200시간이 넘는 캠페인까지. 한 판 한 판이 완전히 다른 경험을 선사하는 게임은 흔치 않다.\n\n로그라이크를 좋아하는 사람에게는 물론이고, 아이작의 번제에 빠져봤던 사람이라면 더더욱 놓치기 아까운 작품이다. $29.99라는 가격 대비 콘텐츠 양을 생각하면 가성비도 뛰어나다. 2026년 상반기, 한 게임만 골라야 한다면 뮤제닉스를 추천하고 싶다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In October 2012, Edmund McMillen — the indie legend behind Super Meat Boy and The Binding of Isaac — announced a new game. A cat breeding and fighting game called Mewgenics. Fourteen years later, on February 10, 2026, it finally launched.\n\nThe results were explosive. Full development costs recouped in 3 hours. 152,000 copies in 5.5 hours. 250,000 copies in 12 hours. Peak concurrent players hit 65,893, topping Steam worldwide. Metacritic 90, OpenCritic 94% recommended. Polygon called it '2026's first true GOTY candidate.' Here's how 14 years led to this outcome."
+    },
+    {
+      "type": "heading",
+      "value": "1. 14 Years of Development: Two Deaths and Two Resurrections"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/686060/b76bf94de0b466797f9455a6da347507020a9966/ss_b76bf94de0b466797f9455a6da347507020a9966.600x338.jpg?t=1770734760",
+      "caption": "Mewgenics turn-based combat, the tactical system perfected after 14 years of development",
+      "alt": "Mewgenics turn-based tactical combat screenshot Edmund McMillen indie roguelike gameplay"
+    },
+    {
+      "type": "text",
+      "value": "The development history of Mewgenics is a drama in itself. Edmund McMillen and Tommy Refenes first revealed it in 2012 during the Team Meat era. They even demoed it at PAX East 2013, but development stalled over gameplay direction issues. In 2016, McMillen officially cancelled the project, and Mewgenics was filed under 'games that will never come out.'\n\nThe turning point came in 2018. McMillen left Team Meat, took the rights to Mewgenics with him, and partnered with fellow developer Tyler Glaiel for a complete overhaul. They scrapped the original action-based design and rebuilt it as a turn-based tactical RPG. The core structure was locked in by early 2020, and the Steam page went live in October 2022.\n\nOn February 10, 2026, it launched at $29.99 ($26.99 with a 10% launch discount). The soundtrack was composed by Ridiculon, the same team behind The Binding of Isaac's music."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Cat Genetics and 1,000+ Abilities in Tactical Combat"
+    },
+    {
+      "type": "image",
+      "src": "https://www.mewgenics.info/screenshot_cats_house.jpg",
+      "caption": "The cats' home, the core space where breeding and raising take place in Mewgenics",
+      "alt": "Mewgenics cat breeding simulation house screen genetics system screenshot"
+    },
+    {
+      "type": "text",
+      "value": "At its core, Mewgenics combines cat breeding with turn-based tactical combat. This isn't just collecting cats — there's a full genetics system. Parent traits, mutations, and abilities pass down to offspring, and the game revolves around breeding combat-optimized cats.\n\nThe scale is impressive. 14 classes, over 1,000 unique abilities, and 900+ items. Environmental factors like weather, terrain, and vegetation affect combat. There's also a permanent consequences system: brain damage and permadeath are irreversible, and items are permanently lost.\n\nContent volume is staggering. The main campaign takes 200+ hours to complete, and 100% completion requires 500+ hours. McMillen's signature 'infinite combinations' philosophy meets cat genetics, maximizing replayability."
+    },
+    {
+      "type": "heading",
+      "value": "3. Metacritic 90: The First 90+ Score of 2026"
+    },
+    {
+      "type": "image",
+      "src": "https://www.mewgenics.info/classes_chart.jpeg",
+      "caption": "Mewgenics' 14 class system enables diverse build combinations",
+      "alt": "Mewgenics 14 classes chart build system turn-based RPG ability combinations"
+    },
+    {
+      "type": "text",
+      "value": "Critical reception has been consistently enthusiastic. A Metacritic score of 90 makes it the first 2026 release to break into the 90s — an exceptional result for an indie title. OpenCritic gave it 90 with a 94% recommendation rate and a 'Must-Play' designation.\n\nIndividual scores are equally strong. PC Gamer 92, IGN 9/10, GameSpot 9/10, GamesRadar+ 4.5/5. Steam user reviews sit at 'Overwhelmingly Positive.' Reviewers consistently praise the system depth and combinatorial variety while noting the brutal difficulty hidden behind the cute aesthetic."
+    },
+    {
+      "type": "heading",
+      "value": "4. Sales Records: Dev Costs Recouped in 3 Hours"
+    },
+    {
+      "type": "text",
+      "value": "The sales figures speak for themselves. McMillen revealed shortly after launch that the entire $1.4 million development budget was recouped within 3 hours. By 5.5 hours, sales hit 152,000 copies. By 12 hours, they crossed 250,000. Peak concurrent players reached 65,893, making it the #1 game on Steam worldwide.\n\nPolygon declared Mewgenics '2026's first true GOTY candidate.' Considering the 14-year development timeline, the $1.4M budget is surprisingly modest — a testament to the nature of small-team indie development sustained over a long period."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. Korean Language Status: Community Patches and Official Multilingual Support Coming"
+    },
+    {
+      "type": "image",
+      "src": "https://files.manuscdn.com/user_upload_by_module/session_file/309930434056187969/ytemainCmooAOmkc.jpg",
+      "caption": "Mewgenics boss fight, brutal combat hidden behind the cute exterior",
+      "alt": "Mewgenics boss fight combat screenshot cat roguelike difficulty gameplay"
+    },
+    {
+      "type": "text",
+      "value": "Mewgenics launched in English only, but Korean-language play is already accessible. Community-made Korean patches appeared almost immediately after launch, making it playable in Korean right now. Korean gaming communities on Inven and Ruliweb are buzzing with interest, actively sharing impressions and patch installation guides.\n\nEven better news: official multilingual support has been announced. McMillen confirmed plans to add global language support within approximately three months. Given the explosive worldwide sales, Korean inclusion looks highly likely. Playing with the community patch now and switching to official localization later is a solid approach."
+    },
+    {
+      "type": "heading",
+      "value": "6. What's Next: DLC and Console Plans"
+    },
+    {
+      "type": "text",
+      "value": "McMillen has already confirmed DLC development. Given how The Binding of Isaac dramatically extended its lifespan through continuous DLC releases, long-term content expansion for Mewgenics seems likely.\n\nA publisher search for console ports is underway. Currently Windows-only on Steam, the Switch 2 is widely cited as the most likely console platform. Once additional language support and console expansion materialize, sales are expected to grow significantly."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "In Closing: The Most Recommendable Roguelike of 2026"
+    },
+    {
+      "type": "text",
+      "value": "Metacritic 90, Overwhelmingly Positive on Steam, 250,000 copies in 12 hours. The numbers alone make a compelling case, but the real appeal of Mewgenics is something you have to experience firsthand. Over 1,000 ability combinations, unpredictable battles shaped by cat genetics, and a campaign stretching past 200 hours. Games that deliver a completely different experience every run are rare.\n\nIf you enjoy roguelikes, this is an easy recommendation. If you've ever lost yourself in The Binding of Isaac, it's even harder to pass up. At $29.99 for the sheer volume of content on offer, the value proposition is outstanding. If you could only pick one game in the first half of 2026, Mewgenics would be our pick."
+    }
+  ]
+}

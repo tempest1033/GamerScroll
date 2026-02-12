@@ -598,7 +598,7 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
 
               ${article.thumbnail ? `
               <figure class="blog-figure">
-                <img src="${getLocalWikiImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="" loading="lazy" fetchpriority="auto">
+                <img src="${getLocalWikiImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="${escapeHtmlAttr(article.title)}" loading="lazy" fetchpriority="auto">
               </figure>
               ` : ''}
 
