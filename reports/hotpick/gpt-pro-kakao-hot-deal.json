@@ -1,0 +1,96 @@
+{
+  "slug": "gpt-pro-kakao-hot-deal",
+  "status": "approved",
+  "title": "GPT Pro 90% 할인 초특가 핫딜, 카카오 선물하기에서 29,000원에",
+  "date": "2026-02-12T22:30",
+  "thumbnail": "https://img1.kakaocdn.net/thumb/C375x375@2x.fwebp.q82/?fname=https%3A%2F%2Fst.kakaocdn.net%2Fproduct%2Fgift%2Fproduct%2F20260211111522_2c62c09b271b40dab1f3e13e8ae756f2.jpg",
+  "keywords": "GPT Pro, ChatGPT Pro, 카카오, 카카오 선물하기, ChatGPT for Kakao, GPT Pro 할인, GPT Pro 특가, OpenAI, AI 구독, GPT 이용권",
+  "summary": "월 200달러짜리 GPT Pro 플랜을 카카오 선물하기에서 29,000원에 구매할 수 있다. 인당 최대 5개까지 구매 가능하며, 기존 ChatGPT 계정에 연동하면 모든 기능을 동일하게 사용할 수 있다.",
+  "relatedIssues": [],
+  "relatedDocs": ["tech:ai/chatgpt-desktop-app", "issue:chatgpt-vs-gemini-comparison-2026", "issue:opus-4-6-vs-gpt-5-3-codex-same-day-launch", "issue:gpt-5-3-garlic-update-rumor"],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "ChatGPT for Kakao",
+      "title": "ChatGPT Pro 1개월 이용권 - 카카오 선물하기",
+      "url": "https://gift.kakao.com/product/12953074"
+    },
+    {
+      "name": "OpenAI",
+      "title": "OpenAI Help Center",
+      "url": "https://help.openai.com/en"
+    },
+    {
+      "name": "OpenAI",
+      "title": "ChatGPT 요금제",
+      "url": "https://chatgpt.com/pricing/"
+    },
+    {
+      "name": "OpenAI",
+      "title": "ChatGPT Pro Plan",
+      "url": "https://chatgpt.com/plans/pro/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "OpenAI의 최상위 플랜인 GPT Pro는 월 200달러(약 29만 원)에 달하는 고가 구독 상품이다. 그런데 지금 <a href=\"https://gift.kakao.com/product/12953074\" target=\"_blank\">카카오 선물하기</a>에서 이 GPT Pro 1개월 이용권을 29,000원에 구매할 수 있다. 정가 대비 약 90% 할인된 가격으로, AI를 적극 활용하는 사용자에게는 놓치기 어려운 기회다."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT Pro 카카오 특가, 구매 조건과 가격"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/hotpick/gpt-pro-kakao-hot-deal/02-voucher-registration.jpg",
+      "caption": "ChatGPT Pro 이용권 등록 화면 - 5개 구매 시 사용중/사용예정 상태",
+      "alt": "ChatGPT for Kakao 이용권 등록 및 변경 화면, 5개 이용권의 사용중과 사용예정 상태 표시"
+    },
+    {
+      "type": "text",
+      "value": "카카오 선물하기에서 'ChatGPT for Kakao' 채널이 판매하는 이 상품은 ChatGPT Pro 1개월 이용권이다. 가격은 29,000원이며, 1인당 최대 5개까지 구매할 수 있다.\n\n다만 유효기간에 주의해야 한다. 2월 12일 현시점 기준 교환권 유효기간은 93일(약 3개월)이다. 첫 번째 이용권을 등록하면 즉시 사용이 시작되고, 나머지는 '사용예정' 상태로 대기하며 이전 이용권 만료 후 자동 적용된다."
+    },
+    {
+      "type": "text",
+      "value": "유효기간 내에 등록 가능한 횟수는 최대 4회(금일 등록 + 90일 이내 3회 추가등록)이므로, 5개를 구매해도 실제 사용 가능한 건 4개(약 4개월)다. 미사용분은 자동 환불되지만, 처음부터 4개만 구매하는 것이 가장 효율적이다. 4개 기준 116,000원으로, 정가 대비 약 90% 할인된 가격에 4개월간 GPT Pro를 사용할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "2. ChatGPT 기존 계정 연동 방법"
+    },
+    {
+      "type": "text",
+      "value": "구매한 이용권은 ChatGPT for Kakao 사이트(my.kakao.com)에서 등록할 수 있다. 핵심은 기존에 사용하던 ChatGPT 계정을 그대로 연동할 수 있다는 점이다. 연동 후에는 기존 ChatGPT 앱이나 웹에서 Pro 플랜의 모든 기능을 동일하게 사용할 수 있다.\n\n이미 GPT Pro나 Plus를 구독 중이라면, 구독이 끝날 때까지 기다릴 필요 없다. <a href=\"https://help.openai.com/en\" target=\"_blank\">OpenAI 헬프센터</a>에서 챗봇에 환불을 요청하면 남은 기간에 대해 즉시 환불받을 수 있다. 환불 처리 후 카카오 이용권을 바로 등록하면 되므로, 기존 구독을 빠르게 정리하고 카카오 특가로 갈아타는 것을 추천한다."
+    },
+    {
+      "type": "heading",
+      "value": "3. GPT Pro 플랜, 무엇이 다른가"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/hotpick/gpt-pro-kakao-hot-deal/03-chatgpt-for-kakao.jpg",
+      "caption": "ChatGPT for Kakao 앱 인터페이스",
+      "alt": "ChatGPT for Kakao 앱 메인 화면, 카카오 택시 호출과 맛집 검색 등 카카오 도구 연동 기능"
+    },
+    {
+      "type": "text",
+      "value": "GPT Pro는 OpenAI의 최상위 구독 플랜이다. Pro 플랜은 Plus 대비 Pro 모드와 Sora 2 생성 한도 대폭 증가, Codex 사용량 대폭 증가 및 우선권 할당 등 다양한 혜택이 추가되고, 추론 강도도 더 늘어나는 것으로 알려져 있다.\n\n코딩, 데이터 분석, 논문 작성 등 고성능 AI가 필요한 작업에서 Plus와의 체감 차이가 크다. 평소 Plus 플랜의 사용량 제한에 불편함을 느꼈다면 Pro 플랜은 확실한 업그레이드가 된다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 구매 시 주의사항"
+    },
+    {
+      "type": "text",
+      "value": "미사용 이용권은 유효기간 내에 자동 환불된다. 하지만 한 번 등록한 이용권은 취소가 어려우므로, 등록 전에 기존 구독 상태를 반드시 확인해야 한다.\n\n앞서 언급한 4개 구매 추천은 2월 12일 현시점 기준이다. 구매 시점이 늦어지면 유효기간이 그만큼 줄어들어, 기간 내 등록 가능한 횟수도 줄어들 수 있다. 예를 들어 한 달 뒤에 구매하면 유효기간이 약 2개월만 남아 3개까지만 등록 가능할 수 있다.\n\n또한 이 특가는 카카오 선물하기 단독 혜택으로, 재고 소진이나 프로모션 종료 시 구매가 불가능해질 수 있다. AI를 본격적으로 활용할 계획이 있다면 빠르게 결정하는 것이 유리하다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 90% 할인의 기회"
+    },
+    {
+      "type": "text",
+      "value": "월 29만 원짜리 GPT Pro를 29,000원에 사용할 수 있는 기회는 흔치 않다. 4개를 구매하면 약 4개월간 GPT Pro를 116,000원에 이용할 수 있어, 원래 가격 대비 압도적인 가성비다. 이 딜이 추후 연장될지는 알 수 없고, 빨리 구매할수록 유효기간 내에 더 많은 이용권을 등록할 수 있다. ChatGPT를 자주 사용하거나 Pro 플랜이 궁금했던 사용자라면 지금 바로 확인해보길 추천한다."
+    }
+  ]
+}
