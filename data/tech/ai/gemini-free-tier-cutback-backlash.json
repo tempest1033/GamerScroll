@@ -1,0 +1,370 @@
+{
+  "slug": "gemini-free-tier-cutback-backlash",
+  "status": "approved",
+  "category": "google",
+  "title": "제미나이 사용량 축소 논란",
+  "titleEn": "Gemini Usage Cutback Controversy",
+  "date": "2026-02-13T15:00",
+  "keywords": "제미나이, Gemini, 구글 AI, 사용량 제한, 제미나이 쿼타, Antigravity, 주간 한도, 구글 코딩 IDE, AI 요금제, Gemini Pro 제한, AI Plus, 구글 수익화, 유료 구독 한도, 제미나이 개발자 반발, API 삭감, Cursor 이탈",
+  "keywordsEn": "Gemini, Google AI, usage limits, Gemini quota, Antigravity, weekly limit, Google coding IDE, AI pricing, Gemini Pro limits, AI Plus plan, Google monetization, paid subscription cap, developer backlash, API rate cut, Cursor migration",
+  "summary": "2026년 2월, 구글 제미나이 API 무료 쿼타 92% 삭감에 이어 유료 Tier 1도 97% 삭감. 코딩 IDE Antigravity는 '주간 한도'를 공식화하며 Pro 구독자가 최대 10일간 잠기고 있다. 실제 이탈이 시작됐다.",
+  "summaryEn": "In February 2026, Google Gemini's usage controversy entered a new phase. While AI Studio's free API quota partially recovered from a 92% slash, paid Tier 1 was cut by 97%. In the Antigravity coding IDE, 'weekly limits' became official policy, locking Pro subscribers for 4-10 days. Real migration has begun.",
+  "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_model-blog_meta-dark.width-1300.jpg",
+  "sources": [
+    { "name": "9to5Google", "title": "Google changes Gemini 3 Pro free access limits", "url": "https://9to5google.com/2025/11/27/gemini-3-pro-free-limits/" },
+    { "name": "Tom's Guide", "title": "Google and OpenAI are cutting back free AI usage", "url": "https://www.tomsguide.com/ai/google-and-openai-are-cutting-back-free-usage-for-gemini-3-pro-and-sora-2-here-are-the-new-limits" },
+    { "name": "Google AI Forum", "title": "92% free tier quota reduction discussion", "url": "https://discuss.ai.google.dev/t/do-they-really-think-we-wouldnt-notice-a-92-free-tier-quota-nerf/111262" },
+    { "name": "Google AI Forum", "title": "Antigravity quota refresh", "url": "https://discuss.ai.google.dev/t/antigravity-quota-refresh/112317" },
+    { "name": "Google AI for Developers", "title": "Gemini API rate limits", "url": "https://ai.google.dev/gemini-api/docs/rate-limits" },
+    { "name": "Google AI Blog", "title": "New Antigravity rate limits for AI Pro/Ultra subscribers", "url": "https://blog.google/feed/new-antigravity-rate-limits-pro-ultra-subsribers/" },
+    { "name": "TechCrunch", "title": "Google's AI Plus plan rolls out globally", "url": "https://techcrunch.com/2026/01/27/googles-ai-plus-plan-rolls-out-to-all-markets-including-the-u-s/" },
+    { "name": "Android Central", "title": "Google Antigravity rate limits are changing amid demand", "url": "https://www.androidcentral.com/apps-software/ai/google-antigravitys-rate-limits-are-changing-amid-incredible-demand" }
+  ],
+  "relatedDocs": ["tech:ai/claude-opus-46-pricing-controversy", "tech:ai/deepmind-update-aletheia-gemini", "tech:ai/claude-code-vs-codex-coding-agent", "tech:ai/gpt-4o-shutdown-controversy"],
+  "relatedGames": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월, 구글 제미나이(Gemini)의 사용량 논란이 새 국면에 접어들었다. 2025년 12월 AI Studio API 무료 쿼타 92% 삭감으로 시작된 위기는 일부 복구됐지만, 문제는 오히려 깊어졌다. 유료 Tier 1(첫 번째 유료 등급)은 97% 삭감됐고, 코딩 IDE Antigravity에서는 '주간 사용 한도'가 공식 정책으로 굳어지며 Pro 구독자가 4~10일간 잠기는 사태가 계속되고 있다. 구글 직원이 직접 '주간 한도'를 인정한 2월 9일 이후, 사용자들의 반응은 분노를 넘어 실제 이탈로 이어지고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 타임라인: 2025년 11월부터 2026년 2월까지"
+    },
+    {
+      "type": "image",
+      "src": "https://ai.google.dev/static/site-assets/images/share.png",
+      "caption": "구글 AI Studio는 제미나이 API를 무료로 테스트할 수 있는 개발자 플랫폼이다. 2025년 12월 무료 쿼타가 최대 92% 삭감됐고, 이후 Flash는 복구됐지만 유료 등급은 오히려 더 큰 삭감을 맞았다.",
+      "alt": "구글 AI Studio 개발자 플랫폼 로고 및 제미나이 API 인터페이스"
+    },
+    {
+      "type": "text",
+      "value": "논란의 시작은 2025년 11월이었다. 제미나이 3 출시 직후 무료 접근이 '기본 접근(Basic access)'으로 격하됐고, 12월 7일에는 AI Studio의 무료 API 쿼타가 사전 통보 없이 대폭 삭감됐다. 플래시(Flash) 일일 호출이 250회에서 20회로 92% 줄었고, 제미나이 2.5 Pro는 무료 등급에서 완전 제거됐다. Google AI 포럼에는 \"92% 삭감을 우리가 눈치 못 챌 줄 알았나?\"라는 분노 게시글이 올라왔다."
+    },
+    {
+      "type": "text",
+      "value": "구글 AI 담당 로건 킬패트릭(Logan Kilpatrick)의 해명은 사용자들의 분노를 가라앉히지 못했다. 그는 \"관대한 무료 한도는 원래 한 주말용이었는데, 실수로 수개월간 유지된 것\"이라며 \"대규모 남용 때문에 축소할 수밖에 없었다\"고 밝혔다. 수개월간 그 한도에 의존해 사이드 프로젝트와 IoT 연동을 구축한 개발자들에게 '실수로 유지됐다'는 해명은 납득하기 어려운 것이었다."
+    },
+    {
+      "type": "table",
+      "caption": "AI Studio API 무료 쿼타 변동 타임라인",
+      "headers": ["모델", "삭감 전 (11월)", "삭감 후 (12월)", "현재 (2월)", "상태"],
+      "rows": [
+        ["Flash RPD (일일)", "250회", "20회 (92%↓)", "250회", "복구"],
+        ["Pro RPD (일일)", "500회", "100회 (80%↓)", "100회", "유지"],
+        ["Pro RPM (분당)", "15회", "5회 (67%↓)", "5회", "유지 (축소 상태)"],
+        ["2.5 Pro RPD (일일)", "50회", "0회 (100%↓)", "0회", "제거 유지"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "2월 현재, Flash의 무료 일일 호출은 250회로 복구됐다. 하지만 Pro의 분당 호출은 5회로 축소된 채 유지되고 있고, 2.5 Pro는 여전히 무료 등급에서 사라진 상태다. 더 심각한 건 유료 등급이다. 유료 첫 단계인 Tier 1의 Pro 일일 호출이 10,000회에서 300회로 **97% 삭감**됐다. 무료 쿼타는 일부 돌려줬지만, 돈을 내는 개발자의 쿼타는 오히려 더 깎인 셈이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Antigravity 주간 한도 공식화: 버그가 아니라 정책이었다"
+    },
+    {
+      "type": "image",
+      "src": "https://antigravity.google/assets/image/sitecards/sitecard-default.png",
+      "caption": "구글 Antigravity는 '새로운 방식으로 개발하라(Build the new way)'를 슬로건으로 내건 AI 코딩 IDE다. 2월 9일, 구글은 Antigravity의 '주간 사용 한도'를 공식 정책으로 인정했다.",
+      "alt": "구글 Antigravity 코딩 IDE 공식 로고 및 브랜드 이미지"
+    },
+    {
+      "type": "text",
+      "value": "가장 뜨거운 이슈는 구글의 코딩 IDE Antigravity다. 1월부터 Pro 구독자들이 수일간 잠기는 사태가 반복됐지만, 많은 사용자가 버그이거나 일시적 문제라고 기대했다. 그 기대는 2월 9일에 무너졌다."
+    },
+    {
+      "type": "text",
+      "value": "구글의 아비짓 프라마닉(Abhijit Pramanik)은 포럼에서 이렇게 밝혔다. \"공평한 접근과 플랫폼 안정성을 위해 모든 모델에 **주간 사용 한도**를 설정했다. 현재 Pro 일부 사용자에게만 영향이 있으며, Ultra는 해당 없다.\" 버그가 아니라 의도된 정책이었던 것이다. 하지만 '주간 한도'가 정확히 얼마인지, 어떤 기준으로 적용되는지는 여전히 공개되지 않았다."
+    },
+    {
+      "type": "quote",
+      "value": "\"공평한 접근과 플랫폼 안정성을 위해 모든 모델에 주간 사용 한도를 설정했다.\" — 구글 Abhijit Pramanik (2026년 2월 9일)"
+    },
+    {
+      "type": "text",
+      "value": "사용자 반응은 즉각적이었다. Google AI 포럼의 잠금 스레드는 현재 **288개 댓글, 11,200회 조회**를 기록하며 계속 증가하고 있다. 2월에 올라온 최신 사례들이 상황의 심각성을 보여준다."
+    },
+    {
+      "type": "table",
+      "caption": "Antigravity 2월 최신 잠금 사례",
+      "headers": ["날짜", "구독", "증상", "잠금 기간"],
+      "rows": [
+        ["2/10", "Pro", "사용 중 갑자기 잠금", "4일"],
+        ["2/10", "Pro", "11분 남았다가 자고 일어나니 대기", "5일 12시간"],
+        ["2/6", "Pro", "X(트위터)에서만 주간 한도 공지 발견", "수일 (모니터링 불가)"],
+        ["2/3", "Pro", "2월 첫날 사용 즉시 한도 도달", "26시간"],
+        ["1/22→2/1", "Pro", "1월 22일 잠금, 10일 후 해제", "10일"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "가장 큰 불만은 주간 한도의 정확한 수치가 공개되지 않았다는 점이다. 한도가 얼마인지, 언제 리셋되는지, 어떤 기준으로 소진되는지 알 수 없다. 2월 6일의 한 사용자 게시글이 상황을 정확히 요약한다. \"X(트위터)에서만 주간 한도를 공지했다. 사용량을 모니터링할 방법이 없다. 러시안 룰렛이다.\""
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 유료 구독자의 현실: Pro $20의 가치는?"
+    },
+    {
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200",
+      "caption": "월 $19.99를 내는 Pro 구독자가 공식 한도에 한참 못 미치는 수준에서 잠기고 있다. 구글 문서에 따르면 '한도가 하루 동안 분배'되어 시간대별로 나뉘어 제공되는 구조다.",
+      "alt": "구독 요금 결제를 상징하는 달러 지폐 이미지"
+    },
+    {
+      "type": "text",
+      "value": "Antigravity만의 문제가 아니다. 제미나이 앱에서도 월 $19.99를 내는 Pro 구독자가 공식 한도에 한참 못 미치는 수준에서 잠기고 있다. 공식적으로 Pro 모델 일 100회, 씽킹(Thinking) 모델 일 300회를 각각 제공한다. 출시 당시에는 두 모델이 한도를 공유해 씽킹을 쓰면 Pro까지 소진됐지만, 1월 14일 구글이 한도를 분리했다. 그런데도 문제는 사라지지 않았다. 구글 문서에 따르면 '한도가 하루 동안 분배된다(Limits are distributed throughout the day)'. 즉 일 100회가 한 번에 주어지는 것이 아니라 시간대별로 나뉘어 제공되는 구조다. 레딧 r/Bard에서는 \"텍스트만 25개 프롬프트 쓰고 한도에 걸렸다\"는 보고가 71명의 동의를 받았는데, 복잡한 프롬프트나 긴 대화에서는 이 시간대별 할당이 더 빨리 소진되기 때문이다."
+    },
+    {
+      "type": "text",
+      "value": "이미지 생성도 마찬가지다. 공식 일 100장에서 실제로는 18장 수준으로 줄었다는 보고가 나오고 있다. 3~4장 생성 후 '한도 도달(Limit Reached)' 에러가 뜬다. 한도에 걸렸을 때 ChatGPT는 다른 모델로 전환할 수 있지만, 제미나이는 플래시(Flash) 모델로 자동 전환되거나 아예 사용이 잠긴다. 사용자가 선택할 여지가 없다."
+    },
+    {
+      "type": "text",
+      "value": "투명성의 부재가 핵심이다. 쿼타가 정확히 얼마인지, 언제 리셋되는지, 어떤 기준으로 소진되는지—아무것도 명확하지 않다. 커서(Cursor)나 윈드서프(Windsurf) 같은 경쟁 코딩 IDE는 남은 사용량을 실시간으로 표시한다. 제미나이는 '갑자기 잠기고 나서야' 한도가 있었다는 사실을 알게 되는 구조다. 공식적으로 일 100회를 약속하면서 시간대별 분배로 인해 사용자들이 25회 내외에서 잠기는 현실은 계약 불이행이 아니냐는 법적 지적까지 나오고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 실제 이탈이 시작됐다"
+    },
+    {
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200",
+      "caption": "Antigravity 잠금 사태 이후, 개발자들이 커서(Cursor), 클로드 코드(Claude Code), 깃허브 코파일럿(GitHub Copilot) 등 대안 코딩 도구로 빠르게 이동하고 있다.",
+      "alt": "개발자의 코드 편집기 화면 — AI 코딩 도구 이탈을 상징하는 이미지"
+    },
+    {
+      "type": "text",
+      "value": "2월에 들어서면서 '불만'은 '이탈'로 바뀌고 있다. Google AI 포럼과 레딧에서 경쟁 서비스로 실제 이동했다는 게시글이 급증하고 있다.\n\n2월 10일, 한 프리랜서 개발자는 \"JetBrains에서 구글로 왔다가, 커서(Cursor)로 2분 만에 이전했다\"고 보고했다. 2월 11일에는 \"사무실 전원이 잠겼다. Antigravity를 동료들에게 홍보까지 했는데, 이제 클로드 코드(Claude Code)와 커서 구독을 고려 중\"이라는 게시글이 올라왔다."
+    },
+    {
+      "type": "table",
+      "caption": "Antigravity 대안으로 언급되는 서비스 (2월 기준)",
+      "headers": ["서비스", "월 요금", "특징"],
+      "rows": [
+        ["클로드 Pro (Claude Pro)", "$20", "Anthropic, 코딩 에이전트 Claude Code 포함"],
+        ["클로드 Max (Claude Max)", "$100", "사실상 무제한 사용량"],
+        ["커서 (Cursor)", "$20", "VS Code 기반, 사용량 실시간 표시"],
+        ["깃허브 코파일럿 (GitHub Copilot)", "$10", "MS/OpenAI 기반, 최저가"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "이탈의 핵심 원인은 단순히 한도가 낮아서가 아니다. 한도가 얼마인지 모르고, 언제 잠길지 모르고, 잠기면 언제 풀릴지 모른다는 것이다. 경쟁 서비스들이 명확한 사용량 표시와 예측 가능한 요금 체계를 제공하는 상황에서, 제미나이의 '깜깜이 한도'는 업무용으로 신뢰하기 어렵다는 평가가 지배적이다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 구글의 수익화 전략: 요금제는 늘었지만 신뢰는 줄었다"
+    },
+    {
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200",
+      "caption": "구글은 4단계 요금 체계(무료/AI Plus/AI Pro/AI Ultra)로 수익화에 나섰지만, 공식 수치와 실제 사용 경험의 괴리가 해소되지 않는 한 요금표의 숫자는 의미를 잃는다.",
+      "alt": "재무 차트와 계산기 — AI 서비스 요금 체계를 상징하는 이미지"
+    },
+    {
+      "type": "text",
+      "value": "구글의 해법은 4단계 요금 체계와 저가 요금제다. 2026년 초 글로벌 출시된 AI Plus($7.99/월)로 무료와 Pro 사이의 간극을 메우려는 전략이다. 하지만 공식 수치와 실제 사용 경험의 괴리가 해소되지 않는 한, 요금표의 숫자는 의미를 잃는다."
+    },
+    {
+      "type": "table",
+      "caption": "제미나이 요금 체계 (2026년 2월 기준)",
+      "headers": ["모델", "무료", "AI Plus ($7.99)", "AI Pro ($19.99)", "AI Ultra ($249.99)"],
+      "rows": [
+        ["Pro", "기본 접근 (수시 변동)", "일 30회", "일 100회", "일 500회"],
+        ["씽킹(Thinking)", "기본 접근 (수시 변동)", "일 90회", "일 300회", "일 1,500회"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 요금표는 약속이다"
+    },
+    {
+      "type": "text",
+      "value": "구독 경제의 본질은 단순하다. '매달 이만큼 내면, 이만큼 쓸 수 있다'는 약속이다. 사용자는 그 약속을 믿고 지갑을 연다.\n\n제미나이는 그 약속을 스스로 깨뜨렸다. 요금표에는 '일 100회'라고 적혀 있지만 시간대별 분배 때문에 25회 내외에서 잠기고, '주간 한도'는 정확한 수치도 없이 공지는 X(트위터)에서만 했다. $20을 내는 Pro 구독자가 4일간 잠기고, 사무실 전원이 잠기는데도 '조사 중'만 반복한다. 약속한 숫자와 실제 경험이 다른 서비스에 매달 결제를 이어갈 사용자는 많지 않다.\n\nChatGPT, 클로드, 커서, 깃허브 코파일럿—대안은 넘쳐난다. AI 경쟁에서 기술력은 필요조건일 뿐, 충분조건이 아니다. 사용자가 떠나는 건 모델 성능이 부족해서가 아니라 '내일도 똑같이 쓸 수 있을까'라는 확신이 사라졌기 때문이다. 요금표에 적힌 숫자가 곧 신뢰의 최소 단위라는 것—구글이 제미나이에서 다시 배워야 할 교훈이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In February 2026, Google Gemini's usage controversy has entered a new phase. The crisis that began with a 92% slash to AI Studio's free API quota in December 2025 has partially recovered, but the problems have deepened. Paid Tier 1 was cut by 97%, and in the Antigravity coding IDE, 'weekly usage limits' have solidified into official policy, with Pro subscribers locked out for 4-10 days at a stretch. Since a Google employee formally acknowledged 'weekly limits' on February 9, user reactions have escalated from frustration to actual migration."
+    },
+    {
+      "type": "heading",
+      "value": "1. Timeline: November 2025 to February 2026"
+    },
+    {
+      "type": "image",
+      "src": "https://ai.google.dev/static/site-assets/images/share.png",
+      "caption": "Google AI Studio is the developer platform for free Gemini API testing. Free quotas were slashed by up to 92% in December 2025. Flash has since recovered, but paid tiers faced even deeper cuts.",
+      "alt": "Google AI Studio developer platform logo and Gemini API interface"
+    },
+    {
+      "type": "text",
+      "value": "The controversy began in November 2025. Shortly after the Gemini 3 launch, free access was downgraded to 'Basic access,' and on December 7, AI Studio's free API quotas were slashed without notice. Flash daily calls dropped from 250 to 20 — a 92% cut — and Gemini 2.5 Pro was completely removed from the free tier. On Google's AI Forum, a furious post titled 'Did you think we wouldn't notice a 92% cut?' drew hundreds of reactions."
+    },
+    {
+      "type": "text",
+      "value": "Logan Kilpatrick, Google's AI lead, offered an explanation that failed to calm the outrage. He said the generous free limits 'were meant for one weekend but were accidentally maintained for months,' and that 'large-scale abuse' necessitated the cuts. For developers who had spent months building side projects and IoT integrations on those limits, 'accidentally maintained' was a hard sell."
+    },
+    {
+      "type": "table",
+      "caption": "AI Studio API Free Quota Timeline",
+      "headers": ["Model", "Pre-Cut (Nov)", "Post-Cut (Dec)", "Current (Feb)", "Status"],
+      "rows": [
+        ["Flash RPD (Daily)", "250", "20 (92%↓)", "250", "Recovered"],
+        ["Pro RPD (Daily)", "500", "100 (80%↓)", "100", "Maintained"],
+        ["Pro RPM (Per Min)", "15", "5 (67%↓)", "5", "Still reduced"],
+        ["2.5 Pro RPD (Daily)", "50", "0 (100%↓)", "0", "Still removed"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "As of February, Flash's free daily calls have recovered to 250. But Pro's per-minute rate remains at 5, and 2.5 Pro is still absent from the free tier. More critically, the paid tiers got hit harder. Tier 1 (the first paid tier) saw Pro daily calls slashed from 10,000 to 300 — a **97% cut**. Google gave some free quota back, but paying developers actually got less."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Antigravity Weekly Limits Go Official: It Was Policy, Not a Bug"
+    },
+    {
+      "type": "image",
+      "src": "https://antigravity.google/assets/image/sitecards/sitecard-default.png",
+      "caption": "Google Antigravity is an AI coding IDE with the slogan 'Build the new way.' On February 9, Google officially acknowledged Antigravity's 'weekly usage limits' as deliberate policy.",
+      "alt": "Google Antigravity coding IDE official logo and brand image"
+    },
+    {
+      "type": "text",
+      "value": "The hottest issue is Google's coding IDE, Antigravity. Since January, Pro subscribers had been locked out for days at a time, but many expected it to be a bug or temporary glitch. That hope died on February 9."
+    },
+    {
+      "type": "text",
+      "value": "Google's Abhijit Pramanik stated on the forum: 'For fair access and platform stability, we've set **weekly usage limits** across all models. Currently only some Pro users are affected; Ultra is not.' It wasn't a bug — it was deliberate policy. Yet the exact weekly limit, the criteria, and monitoring tools remain undisclosed."
+    },
+    {
+      "type": "quote",
+      "value": "\"For fair access and platform stability, we've set weekly usage limits across all models.\" — Google's Abhijit Pramanik (February 9, 2026)"
+    },
+    {
+      "type": "text",
+      "value": "The response was immediate. The forum lockout thread now has **288 comments and 11,200 views**, and continues to grow. February's latest reports paint a dire picture."
+    },
+    {
+      "type": "table",
+      "caption": "Antigravity February 2026 Lockout Reports",
+      "headers": ["Date", "Plan", "Symptom", "Lockout Duration"],
+      "rows": [
+        ["2/10", "Pro", "Suddenly locked mid-use", "4 days"],
+        ["2/10", "Pro", "11 min remaining, woke up to extended wait", "5 days 12 hours"],
+        ["2/6", "Pro", "Weekly limit announced only on X (Twitter)", "Days (no monitoring available)"],
+        ["2/3", "Pro", "Hit limit immediately on first use in February", "26 hours"],
+        ["1/22→2/1", "Pro", "Locked Jan 22, unlocked after 10 days", "10 days"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "The biggest frustration is that the exact weekly limit remains undisclosed. How much quota you have, when it resets, what criteria determine consumption — none of it is known. A February 6 post summed it up perfectly: 'They announced weekly limits only on X (Twitter). There's no way to monitor your usage. It's Russian roulette.'"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. The Paid Subscriber Reality: What Is $20 Pro Worth?"
+    },
+    {
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200",
+      "caption": "Pro subscribers paying $19.99/month are being locked well below official limits. Google's documentation states that 'limits are distributed throughout the day,' spreading quotas across time slots.",
+      "alt": "Dollar bills symbolizing subscription payment"
+    },
+    {
+      "type": "text",
+      "value": "It's not just Antigravity. In the Gemini app itself, Pro subscribers paying $19.99/month are being locked well below official limits. Officially, Pro offers 100 Pro model queries and 300 Thinking model queries per day, separately. At launch, the two models shared a single usage pool — using Thinking would drain Pro too — but Google separated the limits on January 14. Yet the problem persists. Google's documentation states that 'limits are distributed throughout the day,' meaning the daily 100 aren't available all at once but are spread across time slots. On Reddit's r/Bard, a report of 'hitting the limit after just 25 text-only prompts' received 71 upvotes — because complex prompts and long conversations exhaust these time-slotted allocations faster."
+    },
+    {
+      "type": "text",
+      "value": "Image generation tells the same story — officially 100/day, but reports indicate roughly 18 in practice, with 'Limit Reached' errors after just 3-4 images. When you hit the limit on ChatGPT, you can switch models. Gemini either auto-downgrades to Flash or locks you out entirely — no user choice."
+    },
+    {
+      "type": "text",
+      "value": "Transparency is the core issue. How much quota remains, when it resets, what criteria determine consumption — nothing is clear. Competing IDEs like Cursor and Windsurf display remaining usage in real-time. With Gemini, you only discover limits exist when you're suddenly locked out. Promising 100 daily queries while time-slotted distribution causes users to hit limits around 25 has raised questions about breach of contract."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Real Migration Has Begun"
+    },
+    {
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200",
+      "caption": "After the Antigravity lockout crisis, developers are rapidly migrating to alternatives like Cursor, Claude Code, and GitHub Copilot.",
+      "alt": "Developer's code editor screen — symbolizing the AI coding tool migration"
+    },
+    {
+      "type": "text",
+      "value": "In February, complaints have turned into departures. Posts reporting actual migration to competitors are surging on Google's AI Forum and Reddit.\n\nOn February 10, a freelance developer reported: 'Went from JetBrains to Google to Cursor in 2 minutes.' On February 11, another wrote: 'The entire office got locked out. I'd been promoting Antigravity to colleagues — now I'm considering Claude Code and Cursor subscriptions.'"
+    },
+    {
+      "type": "table",
+      "caption": "Services Mentioned as Antigravity Alternatives (February 2026)",
+      "headers": ["Service", "Monthly", "Key Feature"],
+      "rows": [
+        ["Claude Pro", "$20", "Anthropic, includes Claude Code agent"],
+        ["Claude Max", "$100", "Virtually unlimited usage"],
+        ["Cursor", "$20", "VS Code-based, real-time usage display"],
+        ["GitHub Copilot", "$10", "MS/OpenAI-based, lowest price"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "The migration isn't just about low limits. It's about not knowing what the limits are, not knowing when you'll be locked, and not knowing when you'll be unlocked. While competitors offer clear usage displays and predictable pricing, Gemini's 'blind limits' are widely seen as untrustworthy for professional use."
+    },
+    {
+      "type": "heading",
+      "value": "5. Google's Monetization Strategy: More Tiers, Less Trust"
+    },
+    {
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200",
+      "caption": "Google has rolled out a four-tier pricing system (Free/AI Plus/AI Pro/AI Ultra), but until the gap between official numbers and actual experience closes, the pricing table numbers remain meaningless.",
+      "alt": "Financial chart and calculator — symbolizing AI service pricing structure"
+    },
+    {
+      "type": "text",
+      "value": "Google's solution is a four-tier pricing system, with the newly launched AI Plus ($7.99/month) bridging the gap between free and Pro. But as long as the gap between official numbers and actual experience persists, the pricing table numbers are meaningless."
+    },
+    {
+      "type": "table",
+      "caption": "Gemini Pricing Tiers (February 2026)",
+      "headers": ["Model", "Free", "AI Plus ($7.99)", "AI Pro ($19.99)", "AI Ultra ($249.99)"],
+      "rows": [
+        ["Pro", "Basic access (variable)", "30/day", "100/day", "500/day"],
+        ["Thinking", "Basic access (variable)", "90/day", "300/day", "1,500/day"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Final Thoughts: A Pricing Table Is a Promise"
+    },
+    {
+      "type": "text",
+      "value": "The essence of the subscription economy is simple: 'Pay this much each month, use this much.' Users open their wallets trusting that promise.\n\nGemini broke its own promise. The pricing table says '100/day' but time-slotted distribution locks you around 25. 'Weekly limits' were imposed with no specific numbers, announced only via X (Twitter). Pro subscribers paying $20 get locked for 4 days, entire offices get shut out, and the only response is 'investigating.' Few users will keep paying for a service where the promised numbers don't match reality.\n\nChatGPT, Claude, Cursor, GitHub Copilot — alternatives abound. In the AI race, technology is a necessary condition, not a sufficient one. Users don't leave because the model isn't good enough — they leave because they've lost confidence that 'tomorrow will work the same as today.' The numbers on a pricing table are the minimum unit of trust — and that's the lesson Google needs to relearn with Gemini."
+    }
+  ]
+}
