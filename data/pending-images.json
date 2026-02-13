@@ -251,6 +251,13 @@
       "type": "02.webp",
       "failedAt": "2026-02-12T08:45:53.739Z",
       "error": "HTTP 404: https://www.mewgenics.info/screenshot_cats_house.jpg"
+    },
+    {
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2536520/extras/16cd0efead843c59bec98dc2e11368fc.avif?t=1770849273",
+      "slug": "diablo2-resurrected-steam-launch",
+      "type": "02.webp",
+      "failedAt": "2026-02-13T09:50:44.116Z",
+      "error": "source: bad seek to 51558\nsource: bad seek to 51533\nsource: bad seek to 51529\nsource: bad seek to 51527\nheif: Invalid input: Unspecified: Bitstream not supported by this decoder (2.0)"
     }
   ]
 }
