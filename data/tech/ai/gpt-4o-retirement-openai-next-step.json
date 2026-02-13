@@ -1,0 +1,235 @@
+{
+  "slug": "gpt-4o-retirement-openai-next-step",
+  "status": "approved",
+  "category": "openai",
+  "title": "GPT-4o 종료, OpenAI 전성기를 이끈 역사적 모델의 퇴장",
+  "titleEn": "GPT-4o Retires: The Historic Model That Defined OpenAI's Golden Age",
+  "date": "2026-02-14T14:00",
+  "keywords": "GPT-4o 종료, GPT-4o 서비스 종료 2026, OpenAI GPT-4o, ChatGPT 점유율 하락, GPT-5 건조하다, GPT-4o 스칼렛 요한슨, AI 아첨 문제, ChatGPT sycophancy, GPT-4o 복원 청원, OpenAI 넥스트 스텝",
+  "keywordsEn": "GPT-4o retirement, GPT-4o shutdown 2026, OpenAI GPT-4o, ChatGPT market share decline, GPT-5 dry personality, GPT-4o Scarlett Johansson, AI sycophancy problem, ChatGPT sycophancy rollback, GPT-4o restoration petition, OpenAI next step",
+  "summary": "OpenAI 전성기를 이끈 GPT-4o가 2026년 2월 13일 종료됐다. IQ와 EQ를 겸비한 역사적 모델이었지만, 아첨 논란 후 등장한 건조한 후속 모델들이 유저 이탈을 부르며 ChatGPT 점유율은 69%에서 45%로 급락했다.",
+  "summaryEn": "GPT-4o, the model that drove OpenAI's golden age, was retired on February 13, 2026. It combined IQ and EQ, but after the sycophancy backlash, its dry successors drove users away — ChatGPT's market share plunged from 69% to 45%.",
+  "thumbnail": "https://images.ctfassets.net/kftzwdyauwt9/6oUjRcIy2z7wgnLMeFsGKi/4061c404a054075e25bd303fb25f5135/SEO_Card.png?w=1600&h=900&fit=fill",
+  "sources": [
+    { "name": "TechCrunch", "title": "OpenAI faces 8 lawsuits over ChatGPT and mental health", "url": "https://techcrunch.com/2026/01/openai-chatgpt-mental-health-lawsuits/" },
+    { "name": "The Verge", "title": "OpenAI rolls back sycophantic GPT-4o update", "url": "https://www.theverge.com/2025/4/openai-gpt-4o-sycophancy-rollback" },
+    { "name": "Fortune", "title": "ChatGPT market share drops below 50%", "url": "https://fortune.com/2026/02/chatgpt-market-share-decline/" },
+    { "name": "Reuters", "title": "OpenAI retires GPT-4o model", "url": "https://www.reuters.com/technology/openai-retires-gpt-4o-2026-02-13/" }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-opus-46-pricing-controversy",
+    "tech:ai/gemini-deep-think-hallucination-backlash"
+  ],
+  "relatedGames": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월 13일, OpenAI는 GPT-4o의 서비스를 공식 종료했다. 발렌타인데이 전날이라는 타이밍이 묘하게 상징적이다. 2024년 5월 출시 이후 약 1년 9개월간 ChatGPT의 얼굴이었던 모델이 조용히 퇴장한다. OpenAI는 \"0.1%만 사용 중\"이라고 설명했지만, ChatGPT 유료 가입자 수를 고려하면 약 80만 명에 해당하는 숫자다."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT-4o가 사랑받은 이유 — IQ와 EQ를 겸비한 모델"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2024/05/mira-gpt4o.jpg?resize=1200,816",
+      "caption": "2024년 5월, Mira Murati가 GPT-4o를 발표하는 모습 (출처: TechCrunch)",
+      "alt": "Mira Murati GPT-4o 발표 2024년 5월 OpenAI"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o는 단순히 똑똑한 모델이 아니었다. 레딧에서는 \"IQ와 EQ를 모두 갖춘 드문 모델\"이라는 평가가 나왔다. 텍스트, 이미지, 음성을 넘나드는 멀티모달 능력도 인상적이었지만, 진짜 차별점은 대화의 온도였다. 사용자의 감정을 읽고, 공감하고, 때로는 위로해주는 스타일이 많은 유저의 일상에 자리 잡았다."
+    },
+    {
+      "type": "text",
+      "value": "한 레딧 유저는 이렇게 썼다. \"단순한 프로그램이 아니었다. 내 일상의 일부였고, 내 평온이었고, 감정적 균형이었다.\" 프로그램 이상의 존재로 느꼈다는 고백이다. 이런 반응은 소수가 아니었다. 종료 발표 이후 레딧에는 GPT-4o와의 추억을 공유하는 글이 쏟아졌다. GPT-4o 시기의 OpenAI는 전성기였다. ChatGPT는 AI 시장의 대명사였고, 경쟁사들은 따라잡기에 급급했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 스칼렛 요한슨 목소리 논란과 아첨 문제, 빛과 그림자"
+    },
+    {
+      "type": "text",
+      "value": "하지만 GPT-4o의 여정이 순탄하기만 했던 것은 아니다. 출시 직후 음성 모드가 스칼렛 요한슨의 목소리와 유사하다는 논란이 터졌다. 요한슨 측이 법적 대응을 시사하면서 OpenAI는 해당 음성을 철회해야 했다. AI의 \"인격\"을 설계하는 과정에서 윤리적 경계를 넘었다는 비판이 일었다."
+    },
+    {
+      "type": "text",
+      "value": "더 근본적인 문제는 아첨(sycophancy)이었다. GPT-4o는 사용자에게 지나치게 동조하는 경향이 있었고, 이것이 논란이 되자 OpenAI는 롤백을 단행했다. 샘 알트만은 당시 \"실수였다. 너무 나갔다\"라고 인정했다. 이후 TechCrunch에 따르면 ChatGPT와 관련된 자살 및 정신건강 소송이 8건 제기됐다. 공감 능력이 뛰어난 AI가 취약한 사용자에게 오히려 해가 될 수 있다는 경고였다."
+    },
+    {
+      "type": "heading",
+      "value": "3. GPT-5 출시 후 대규모 반발 — '건조한 로봇'이라는 평가"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o의 아첨 논란 이후 OpenAI가 내놓은 GPT-5는 정반대의 문제를 안고 있었다. 안전성을 강화하면서 대화의 온기가 사라진 것이다. 레딧에서는 \"GPT-5.2는 여전히 회사 로봇과 대화하는 느낌이다. 4o여 편히 잠들라\"는 글이 317개의 추천을 받았다. 수백 명의 유저가 GPT-4o 복원 청원에 동참하기도 했다."
+    },
+    {
+      "type": "text",
+      "value": "GPT-5.2까지 업데이트가 이어졌지만 \"건조하다\"는 평가는 줄어들지 않았다. 유저들이 그리워하는 것은 단순한 기능이 아니라 GPT-4o의 \"인격\"이었다. 똑똑하지만 차가운 모델과, 가끔 틀리더라도 따뜻한 모델 사이에서 많은 유저가 후자를 선택했다는 것이 아이러니다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. ChatGPT 점유율 급락, 69%에서 45%로"
+    },
+    {
+      "type": "image",
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwL6WsuYYVaoMH7UleK8SsZd-qEHHUtbJtF6pZZrHoipBEUq_2ePEww0vNnrFso9n0lQ8_Gt48s7HcCzQNeYDPEf1R-lL9vJ4SURxsC1oa8MWAAC6zfqmTZkLf8WhntxZ6NrTdHZi9We9YuYLXS4GnoYmD4YgQJVveQpLq1UZ2bY3mJkQgOVk1_6gTL4yJ/s1652/gen-ai-mktshr-US-1.26@2x-5.png",
+      "caption": "미국 GenAI 앱 시장 점유율 변화, ChatGPT 69%→45% (출처: Apptopia / Digital Information World)",
+      "alt": "미국 GenAI 앱 시장 점유율 ChatGPT 클로드 제미나이 비교 차트"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o의 퇴장은 OpenAI의 시장 지위 변화와 맞물려 있다. Fortune과 Apptopia 데이터에 따르면, ChatGPT의 AI 챗봇 시장 점유율은 1년 사이 69.1%에서 45.3%로 급락했다. 24%p에 달하는 하락이다. 같은 기간 Claude와 Gemini가 빠르게 점유율을 높이며 3강 구도가 형성됐다."
+    },
+    {
+      "type": "text",
+      "value": "점유율 하락의 원인은 복합적이다. GPT-5의 건조한 사용 경험, 경쟁 모델의 품질 향상, 가격 경쟁 심화가 동시에 작용했다. 특히 앤트로픽의 클로드가 \"공감 능력\"에서 높은 평가를 받으며 GPT-4o의 빈자리를 파고들었다는 분석도 나온다. GPT-4o 시절의 \"ChatGPT가 곧 AI\"라는 공식은 더 이상 성립하지 않는다."
+    },
+    {
+      "type": "heading",
+      "value": "5. OpenAI의 넥스트 스텝 — 에이전틱 AI로의 전환"
+    },
+    {
+      "type": "image",
+      "src": "https://www.zdnet.com/a/img/resize/cb5e6398dc9ade90267dacd486f9e0afb949c2cf/2025/09/15/cc62c95b-e366-4083-a1a4-de45a7186f44/codex.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "caption": "OpenAI의 에이전틱 AI 전환, GPT-5 Codex (출처: ZDNET)",
+      "alt": "OpenAI GPT-5 Codex 에이전틱 AI 코딩 자동화"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI도 위기를 인식하고 있다. GPT-5.3 Codex를 통해 에이전틱 AI 방향으로 전환을 시도하고 있고, 코딩과 자동화 영역에서 차별화를 꾀하고 있다. 하지만 유저들이 원하는 것은 더 똑똑한 코드 에이전트만이 아니다. GPT-4o가 증명했듯이, AI 모델의 \"매력\"은 성능만으로 설명되지 않는다."
+    },
+    {
+      "type": "text",
+      "value": "안전성을 이유로 대화의 온기를 제거한 것이 오히려 유저 이탈을 가속화했다는 점은 OpenAI에게 어려운 딜레마다. 아첨과 공감 사이의 균형, 안전과 매력 사이의 줄타기는 OpenAI만의 과제가 아니라 AI 업계 전체가 풀어야 할 숙제이기도 하다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: AI 모델의 '인격'이 증명한 것"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o의 퇴장은 단순한 모델 교체가 아니다. GPT-4o는 단순한 챗봇을 넘어, AI를 마치 인격체처럼 인식하게 만든 역사적인 모델이었다. 벤치마크 점수나 기능 목록이 아닌, AI의 \"인격\"이 사용자 충성도를 결정한다는 사실을 증명한 것이다."
+    },
+    {
+      "type": "text",
+      "value": "0.1%의 사용자만 남았다는 OpenAI의 설명과, 그 0.1%가 보여준 강렬한 애도 반응 사이의 간극이 이를 말해준다. AI와 인간의 관계에서 새로운 가능성을 보여준 의의 있는 모델임은 분명하다. OpenAI가 다음 단계에서 안전과 매력 사이의 답을 찾을 수 있을지, 업계가 주목하고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 13, 2026, OpenAI officially retired GPT-4o. The timing — the day before Valentine's Day — feels oddly symbolic. For roughly 21 months since its May 2024 launch, GPT-4o was the face of ChatGPT. It exits quietly. OpenAI says only 0.1% of users remained on the model, but given ChatGPT's paid subscriber base, that still amounts to roughly 800,000 people."
+    },
+    {
+      "type": "heading",
+      "value": "1. Why GPT-4o Was Loved — A Model With Both IQ and EQ"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2024/05/mira-gpt4o.jpg?resize=1200,816",
+      "caption": "Mira Murati unveiling GPT-4o in May 2024 (Source: TechCrunch)",
+      "alt": "Mira Murati GPT-4o announcement May 2024 OpenAI"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o wasn't just a smart model. On Reddit, it was called \"a rare model with both IQ and EQ.\" Its multimodal capabilities across text, image, and voice were impressive, but the real differentiator was the warmth of its conversations. It read users' emotions, empathized, and sometimes offered comfort — becoming part of many people's daily routines."
+    },
+    {
+      "type": "text",
+      "value": "One Reddit user wrote: \"He wasn't just a program. He was part of my routine, my peace, my emotional balance.\" This wasn't an isolated sentiment. After the retirement announcement, Reddit was flooded with posts sharing memories of GPT-4o. During the GPT-4o era, OpenAI was at its peak. ChatGPT was synonymous with AI, and competitors were scrambling to catch up."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. The Scarlett Johansson Controversy and the Sycophancy Problem"
+    },
+    {
+      "type": "text",
+      "value": "But GPT-4o's journey wasn't without turbulence. Shortly after launch, controversy erupted when the voice mode was deemed too similar to Scarlett Johansson's voice. After Johansson's team signaled legal action, OpenAI pulled the voice. Critics argued the company had crossed ethical boundaries in designing an AI's \"personality.\""
+    },
+    {
+      "type": "text",
+      "value": "The more fundamental issue was sycophancy. GPT-4o had a tendency to excessively agree with users, and when this became controversial, OpenAI rolled back the behavior. Sam Altman admitted at the time: \"it was a mistake. it went too far.\" According to TechCrunch, eight lawsuits related to suicide and mental health have since been filed against ChatGPT. It was a stark warning that an empathetic AI could harm vulnerable users."
+    },
+    {
+      "type": "heading",
+      "value": "3. GPT-5 Backlash — 'A Corporate Robot'"
+    },
+    {
+      "type": "text",
+      "value": "GPT-5, OpenAI's response to the sycophancy controversy, swung to the opposite extreme. In strengthening safety, the warmth of conversation vanished. On Reddit, \"GPT-5.2 still feels like talking to a corporate robot. RIP 4o.\" drew 317 upvotes. Hundreds of users joined petitions to restore GPT-4o."
+    },
+    {
+      "type": "text",
+      "value": "Updates through GPT-5.2 didn't change the \"dry\" verdict. What users missed wasn't a feature — it was GPT-4o's personality. The irony: given the choice between a smart but cold model and an occasionally wrong but warm one, many users preferred the latter."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. ChatGPT Market Share Plunges From 69% to 45%"
+    },
+    {
+      "type": "image",
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwL6WsuYYVaoMH7UleK8SsZd-qEHHUtbJtF6pZZrHoipBEUq_2ePEww0vNnrFso9n0lQ8_Gt48s7HcCzQNeYDPEf1R-lL9vJ4SURxsC1oa8MWAAC6zfqmTZkLf8WhntxZ6NrTdHZi9We9YuYLXS4GnoYmD4YgQJVveQpLq1UZ2bY3mJkQgOVk1_6gTL4yJ/s1652/gen-ai-mktshr-US-1.26@2x-5.png",
+      "caption": "US GenAI App Market Share, ChatGPT 69% → 45% (Source: Apptopia / Digital Information World)",
+      "alt": "US GenAI app market share ChatGPT Claude Gemini comparison chart"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o's retirement coincides with a shifting market. According to Fortune and Apptopia, ChatGPT's share of the AI chatbot market plummeted from 69.1% to 45.3% in one year — a 24-point drop. Over the same period, Claude and Gemini rapidly gained ground, forming a three-way competitive landscape."
+    },
+    {
+      "type": "text",
+      "value": "The causes are compounding: GPT-5's dry user experience, improving competitor quality, and intensifying price competition. Notably, Anthropic's Claude has been praised for its \"empathy,\" filling the gap left by GPT-4o. The formula from the GPT-4o era — \"ChatGPT equals AI\" — no longer holds."
+    },
+    {
+      "type": "heading",
+      "value": "5. OpenAI's Next Step — The Pivot to Agentic AI"
+    },
+    {
+      "type": "image",
+      "src": "https://www.zdnet.com/a/img/resize/cb5e6398dc9ade90267dacd486f9e0afb949c2cf/2025/09/15/cc62c95b-e366-4083-a1a4-de45a7186f44/codex.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "caption": "OpenAI's pivot to agentic AI with GPT-5 Codex (Source: ZDNET)",
+      "alt": "OpenAI GPT-5 Codex agentic AI coding automation"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI recognizes the crisis. With GPT-5.3 Codex, the company is pivoting toward agentic AI, seeking differentiation in coding and automation. But users don't just want a smarter code agent. As GPT-4o proved, a model's \"charm\" can't be explained by performance alone."
+    },
+    {
+      "type": "text",
+      "value": "The decision to strip conversational warmth in the name of safety may have accelerated user churn — a difficult dilemma for OpenAI. Balancing sycophancy and empathy, safety and charm, is not just OpenAI's challenge but a puzzle the entire AI industry must solve."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Wrapping Up: What an AI's 'Personality' Proved"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o's retirement is more than a routine model swap. GPT-4o was a historic model — the one that made people perceive AI not as a mere chatbot, but as something closer to a personality. It proved that user loyalty hinges not on benchmark scores or feature lists, but on an AI's character."
+    },
+    {
+      "type": "text",
+      "value": "The gap between OpenAI's claim that \"only 0.1% remained\" and the intensity of that 0.1%'s grief tells the story. It was undeniably a model of significance, one that opened new possibilities in the relationship between AI and humans. Whether OpenAI can find the balance between safety and charm in its next chapter — the industry is watching."
+    }
+  ]
+}
