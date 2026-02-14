@@ -1052,7 +1052,9 @@ async function main() {
     const files = fs.readdirSync(ISSUE_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
     issueReportsForHome = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        const data = JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        ensurePublishDate(data, `${ISSUE_REPORTS_DIR_HOME}/${f}`, 'KST');
+        return data;
       } catch (e) {
         return null;
       }
@@ -1068,7 +1070,9 @@ async function main() {
     const files = fs.readdirSync(INSIGHT_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
     insightReportsForHome = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        const data = JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        ensurePublishDate(data, `${INSIGHT_REPORTS_DIR_HOME}/${f}`, 'KST');
+        return data;
       } catch (e) {
         return null;
       }
@@ -1084,7 +1088,9 @@ async function main() {
     const files = fs.readdirSync(HOTPICK_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
     hotpickReportsForHome = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        const data = JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        ensurePublishDate(data, `${HOTPICK_REPORTS_DIR_HOME}/${f}`, 'KST');
+        return data;
       } catch (e) {
         return null;
       }
@@ -1100,7 +1106,9 @@ async function main() {
     const files = fs.readdirSync(RANKING_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
     rankingReportsForHome = files.map(f => {
       try {
-        return JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        const data = JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
+        ensurePublishDate(data, `${RANKING_REPORTS_DIR_HOME}/${f}`, 'KST');
+        return data;
       } catch (e) {
         return null;
       }
