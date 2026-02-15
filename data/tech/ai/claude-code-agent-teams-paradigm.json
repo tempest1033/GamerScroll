@@ -1,0 +1,102 @@
+{
+  "slug": "claude-code-agent-teams-paradigm",
+  "status": "approved",
+  "category": "anthropic",
+  "title": "AI 에이전트 팀: 코딩 AI가 팀을 짜서 협업하는 시대",
+  "titleEn": "AI Agent Teams: When Coding AIs Form Teams and Collaborate",
+  "summary": "AI가 혼자 코딩하던 시대는 끝났다. Claude Code의 Agent Teams 기능은 여러 AI 에이전트가 팀 리더 아래 역할을 분담하고 서로 대화하며 병렬로 작업하는 새로운 패러다임을 제시한다. 16개 에이전트로 C 컴파일러를 만든 실제 사례까지, AI 협업의 현주소를 분석한다.",
+  "summaryEn": "The era of solo AI coding is over. Claude Code's Agent Teams lets multiple AI agents divide roles under a team leader, communicate directly, and work in parallel. From building a C compiler with 16 agents to real-world developer workflows, we analyze the state of AI collaboration.",
+  "keywords": "Agent Teams, Claude Code, AI 에이전트 팀, 멀티 에이전트, Anthropic, Opus 4.6, AI 코딩, 에이전트 협업, C 컴파일러, Nicholas Carlini, 서브에이전트, AI 개발 도구 2026",
+  "keywordsEn": "Agent Teams, Claude Code, multi-agent AI, Anthropic, Opus 4.6, AI coding, agent collaboration, C compiler, Nicholas Carlini, subagent, AI development tools 2026",
+  "content": [
+    { "type": "text", "value": "AI가 코드를 작성하는 건 이제 새삼스러운 일이 아니다. 하지만 AI 여러 대가 팀을 이뤄 서로 대화하면서 하나의 프로젝트를 완성한다면 어떨까. Anthropic이 Claude Code v2.1.32에서 공개한 Agent Teams는 바로 그 가능성을 현실로 보여준다. 여러 Claude Code 인스턴스가 팀 리더 아래 역할을 분담하고, 공유 태스크 리스트로 작업을 조율하며, 팀원끼리 직접 메시지를 주고받는 구조다.\n\n이번 기사에서는 Agent Teams의 구조와 작동 원리를 살펴보고, 실제로 16개 에이전트가 C 컴파일러를 만들어낸 사례, 그리고 경쟁 도구들과의 차이점까지 분석해본다." },
+    { "type": "heading", "value": "1. Agent Teams 아키텍처: AI끼리 팀을 짜는 구조" },
+    { "type": "image", "src": "https://mintcdn.com/claude-code/nsvRFSDNfpSU5nT7/images/subagents-vs-agent-teams-light.png?w=1100&fit=max&auto=format&n=nsvRFSDNfpSU5nT7&q=85&s=923986caa23c0ef2c27d7e45f4dce6d1", "caption": "서브에이전트와 Agent Teams의 아키텍처 비교 (Anthropic 공식 문서)", "alt": "Claude Code Agent Teams 아키텍처 다이어그램 - 서브에이전트와 에이전트 팀 비교" },
+    { "type": "text", "value": "Agent Teams의 핵심은 네 가지 구성 요소에 있다. 먼저 팀 리더(Team Lead)는 메인 Claude Code 세션으로, 팀을 생성하고 팀원을 스폰(spawn)하며 작업을 분배한다. 팀원(Teammates)은 각각 독립적인 Claude Code 인스턴스로 할당된 태스크를 수행한다. 공유 태스크 리스트(Task List)는 pending, in_progress, completed 세 가지 상태로 작업 진행을 추적하며, 메일박스(Mailbox)는 에이전트 간 메시징을 담당한다.\n\n기존 서브에이전트(Subagent)와 결정적으로 다른 점은 통신 구조다. 서브에이전트는 메인 에이전트에게만 결과를 보고할 수 있었다. Agent Teams에서는 팀원끼리 직접 대화(P2P 메시징)가 가능하다. 프론트엔드 담당 에이전트가 백엔드 담당 에이전트에게 \"이 API 응답 형식이 맞아?\"라고 직접 물어볼 수 있다는 뜻이다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "2. 서브에이전트 vs Agent Teams: 언제 어떤 것을 쓸까" },
+    { "type": "text", "value": "Agent Teams가 서브에이전트의 완전한 상위 호환은 아니다. 두 방식은 용도가 다르다.\n\n서브에이전트는 단일 세션 안에서 동작하며 결과만 메인에게 돌려보내면 되는 집중적 작업에 적합하다. 토큰 비용도 낮다. 반면 Agent Teams는 팀원 간 토론과 협업이 필요한 복잡한 작업에 빛을 발한다. 코드 리뷰에서 보안, 성능, 테스트 커버리지를 각각 다른 에이전트가 동시에 점검하거나, 디버깅 시 여러 가설을 에이전트끼리 논쟁하며 검증하는 식이다." },
+    { "type": "table", "caption": "서브에이전트 vs Agent Teams 비교", "headers": ["항목", "서브에이전트", "Agent Teams"], "rows": [
+      ["통신", "메인에게만 보고", "팀원 간 직접 대화"],
+      ["조율", "메인이 전체 관리", "공유 태스크 리스트"],
+      ["컨텍스트", "결과 요약 반환", "독립 컨텍스트 윈도우"],
+      ["적합 용도", "단순 위임, 집중 작업", "토론/협업 필요한 복잡한 작업"],
+      ["토큰 비용", "낮음", "높음 (인스턴스 수만큼)"]
+    ]},
+    { "type": "heading", "value": "3. 실전 사례: 16개 AI가 C 컴파일러를 만들었다" },
+    { "type": "image", "src": "https://cdn.sanity.io/images/4zrzovbb/website/6cc87859f5453e9481278681aa6409856d61153c-2400x1260.png", "caption": "Anthropic 엔지니어링 블로그 - Agent Teams로 C 컴파일러 구축 사례", "alt": "Nicholas Carlini의 Claude Code Agent Teams C 컴파일러 프로젝트 Anthropic 블로그" },
+    { "type": "text", "value": "Agent Teams의 가능성을 가장 극적으로 보여준 건 Anthropic Safeguards 팀 연구원 Nicholas Carlini의 프로젝트다. 그는 16개 에이전트를 동시에 투입해 Rust 기반 C 컴파일러를 처음부터(from scratch) 만들어냈다.\n\n약 2주간 진행된 이 프로젝트에서 약 2,000개의 Claude Code 세션이 실행됐고, API 비용은 약 2만 달러(약 2,900만 원)가 들었다. 결과물은 10만 줄의 코드로, Linux 6.9 커널을 x86, ARM, RISC-V 세 아키텍처에서 컴파일하는 데 성공했다. GCC torture test 통과율은 99%에 달한다.\n\n이 사례가 주목받는 이유는 단순히 \"AI가 코드를 많이 썼다\"가 아니다. 여러 AI가 역할을 나눠 병렬로 작업하고, 서로의 결과물을 통합하며, 충돌 없이 하나의 완성된 소프트웨어를 만들어냈다는 점이 핵심이다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "4. 커스텀 에이전트: 나만의 AI 팀 설계" },
+    { "type": "text", "value": "Agent Teams의 진정한 힘은 커스텀 에이전트에서 나온다. 개발자는 .claude/agents/ 디렉토리에 마크다운 파일로 각 에이전트의 역할, 도구 접근 권한, 사용 모델 등을 정의할 수 있다. 예를 들어 \"보안 리뷰어\"는 코드를 읽기만 하고 수정은 금지, \"프론트엔드 개발자\"는 특정 디렉토리만 수정 가능, \"유틸리티\"는 빌드와 배포만 담당하는 식으로 역할을 분리할 수 있다.\n\nDelegate 모드를 활성화하면 팀 리더가 직접 코딩하지 않고 조율에만 집중하도록 강제할 수도 있다. Plan Approval 기능은 팀원이 작업 전 계획을 세우고 리더의 승인을 받아야만 실행에 들어가도록 제한한다. 이런 가드레일 덕분에 복잡한 프로젝트에서도 통제된 병렬 작업이 가능해진다." },
+    { "type": "heading", "value": "5. 경쟁 도구와의 차별점: AI 코딩 에이전트 비교" },
+    { "type": "text", "value": "AI 코딩 에이전트 시장이 빠르게 달아오르고 있다. Claude Code Agent Teams는 이 경쟁 속에서 어떤 위치를 차지하고 있을까.\n\nDevin은 완전 자율 에이전트를 지향하지만, 사용자가 실시간으로 개입하기 어렵다. OpenAI Codex는 여러 에이전트를 병렬로 실행할 수 있지만, 에이전트 간 직접 통신은 지원하지 않는다. Cursor의 Background Agents 역시 여러 작업을 병렬로 돌릴 수 있지만 에이전트 간 통신 기능이 빠져 있다.\n\nAgent Teams의 핵심 차별점은 두 가지다. 첫째, 에이전트 간 P2P 직접 통신으로 실시간 협업이 가능하다. 둘째, 공유 태스크 리스트와 의존성 관리로 복잡한 워크플로우를 구조적으로 조율할 수 있다. 하지만 토큰 소비가 높아 비용 부담이 크다는 점은 현실적인 진입 장벽이다." },
+    { "type": "table", "caption": "AI 코딩 에이전트 비교", "headers": ["도구", "멀티 에이전트", "에이전트 간 통신", "특징"], "rows": [
+      ["Claude Code Agent Teams", "O", "P2P 직접 대화", "공유 태스크 리스트, 커스텀 역할"],
+      ["Devin", "X (단일)", "해당 없음", "완전 자율, 사용자 개입 어려움"],
+      ["OpenAI Codex", "O (병렬)", "X", "병렬 실행, worktree 격리, 에이전트 간 통신 없음"],
+      ["Cursor Background Agents", "O (병렬)", "X", "병렬 실행 가능, 상호 통신 없음"]
+    ]},
+    { "type": "heading", "value": "6. 커뮤니티 반응: AI 개발팀의 CEO가 된 기분" },
+    { "type": "text", "value": "개발자 커뮤니티의 반응은 흥미와 경계가 공존한다. Reddit에서 185개 이상의 upvote를 받은 관련 게시글에는 \"AI 개발팀의 CEO가 된 기분\"이라는 비유가 등장했다. 실제로 팀 리더에게 자연어로 지시하고, 각 팀원의 진행 상황을 모니터링하며, 필요할 때 개입하는 워크플로우는 팀 매니저의 업무와 흡사하다.\n\n한편 비용에 대한 우려도 크다. 각 팀원이 독립적인 Claude 인스턴스이므로 토큰 소비가 팀원 수에 비례해 증가한다. 커뮤니티에서는 리뷰, 리서치 같은 읽기 중심 작업에서 가장 효과적이라는 공감대가 형성되고 있다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "7. 현재 한계와 발전 방향" },
+    { "type": "text", "value": "Agent Teams는 현재 리서치 프리뷰 상태이며 알려진 제한 사항이 있다. 세션을 재개(resume)하면 기존 팀원이 복원되지 않는다. 세션당 하나의 팀만 운영할 수 있고, 중첩 팀은 불가능하다. 팀원이 자신의 팀을 만드는 것도 허용되지 않는다.\n\nv2.1.32에서 처음 등장한 이후 빠르게 업데이트되고 있다. v2.1.33에서 TeammateIdle과 TaskCompleted 훅이 추가됐고, v2.1.36에서는 Opus 4.6 Fast 모드가 도입돼 응답 속도가 개선됐다. Anthropic이 이 기능을 얼마나 빠르게 정식 출시할지가 향후 관건이 될 것이다." },
+    { "type": "heading", "value": "마치며: AI 협업의 새로운 규칙" },
+    { "type": "text", "value": "Agent Teams는 AI 코딩 도구의 패러다임이 \"더 똑똑한 하나\"에서 \"협업하는 여럿\"으로 전환되고 있음을 보여준다. 16개 AI가 컴파일러를 만들고, 5개 AI가 디버깅을 두고 토론하며, 3개 AI가 코드 리뷰를 동시에 진행하는 세계. 이건 SF가 아니라 지금 터미널에서 일어나고 있는 일이다.\n\n물론 높은 토큰 비용과 실험적 상태라는 제약이 있지만, 방향성만큼은 명확하다. 개발자의 역할은 코드를 직접 작성하는 것에서 AI 팀을 설계하고 조율하는 것으로 이동하고 있다. Agent Teams는 그 미래의 가장 구체적인 프로토타입이다." }
+  ],
+  "contentEn": [
+    { "type": "text", "value": "AI writing code is no longer news. But what if multiple AIs form a team, communicate with each other, and complete a project together? Anthropic's Agent Teams, introduced in Claude Code v2.1.32, turns that possibility into reality. Multiple Claude Code instances divide roles under a team leader, coordinate through a shared task list, and exchange direct messages between teammates.\n\nIn this article, we examine the architecture and mechanics of Agent Teams, the real-world case of 16 agents building a C compiler from scratch, and how it compares to competing tools." },
+    { "type": "heading", "value": "1. Agent Teams Architecture: How AIs Form Teams" },
+    { "type": "image", "src": "https://mintcdn.com/claude-code/nsvRFSDNfpSU5nT7/images/subagents-vs-agent-teams-light.png?w=1100&fit=max&auto=format&n=nsvRFSDNfpSU5nT7&q=85&s=923986caa23c0ef2c27d7e45f4dce6d1", "caption": "Subagent vs Agent Teams architecture comparison (Anthropic official docs)", "alt": "Claude Code Agent Teams architecture diagram comparing subagents and agent teams" },
+    { "type": "text", "value": "Agent Teams consists of four core components. The Team Lead is the main Claude Code session that creates the team, spawns teammates, and distributes work. Teammates are independent Claude Code instances that execute assigned tasks. The shared Task List tracks work through three states: pending, in_progress, and completed. The Mailbox handles inter-agent messaging.\n\nThe critical difference from subagents is the communication structure. Subagents could only report results back to the main agent. In Agent Teams, teammates can communicate directly with each other (P2P messaging). A frontend agent can ask the backend agent, \"Is this API response format correct?\" without going through the lead." },
+    { "type": "ad" },
+    { "type": "heading", "value": "2. Subagents vs Agent Teams: When to Use Which" },
+    { "type": "text", "value": "Agent Teams is not a strict upgrade over subagents. The two approaches serve different purposes.\n\nSubagents run within a single session and are ideal for focused tasks where only the result matters. Token costs are lower. Agent Teams shines when teammates need discussion and collaboration. Multiple agents can simultaneously review security, performance, and test coverage in a code review, or debate competing hypotheses during debugging." },
+    { "type": "table", "caption": "Subagents vs Agent Teams Comparison", "headers": ["Aspect", "Subagents", "Agent Teams"], "rows": [
+      ["Communication", "Report to main only", "Direct peer-to-peer"],
+      ["Coordination", "Main manages everything", "Shared task list"],
+      ["Context", "Results summarized back", "Independent context windows"],
+      ["Best for", "Simple delegation, focused tasks", "Complex work requiring discussion"],
+      ["Token cost", "Lower", "Higher (scales with instances)"]
+    ]},
+    { "type": "heading", "value": "3. Case Study: 16 AIs Built a C Compiler" },
+    { "type": "image", "src": "https://cdn.sanity.io/images/4zrzovbb/website/6cc87859f5453e9481278681aa6409856d61153c-2400x1260.png", "caption": "Anthropic engineering blog - Building a C compiler with Agent Teams", "alt": "Nicholas Carlini Claude Code Agent Teams C compiler project on Anthropic blog" },
+    { "type": "text", "value": "The most dramatic demonstration of Agent Teams' potential came from Anthropic Safeguards team researcher Nicholas Carlini. He deployed 16 agents simultaneously to build a Rust-based C compiler from scratch.\n\nOver approximately two weeks, about 2,000 Claude Code sessions ran, costing roughly $20,000 in API fees. The result was 100,000 lines of code that successfully compiled Linux 6.9 across x86, ARM, and RISC-V architectures. The GCC torture test pass rate reached 99%.\n\nWhat makes this case remarkable isn't simply \"AI wrote a lot of code.\" The key is that multiple AIs divided roles, worked in parallel, integrated each other's outputs, and produced a complete, functional piece of software without conflicts." },
+    { "type": "ad" },
+    { "type": "heading", "value": "4. Custom Agents: Designing Your Own AI Team" },
+    { "type": "text", "value": "The real power of Agent Teams lies in custom agents. Developers can define each agent's role, tool access, and model in markdown files within the .claude/agents/ directory. For example, a \"security reviewer\" can only read code without modification, a \"frontend developer\" can only modify specific directories, and a \"utility\" handles only builds and deployments.\n\nDelegate mode forces the team leader to focus purely on coordination without writing code. Plan Approval requires teammates to draft a plan and receive leader approval before execution. These guardrails enable controlled parallel work even in complex projects." },
+    { "type": "heading", "value": "5. Competitive Landscape: AI Coding Agent Comparison" },
+    { "type": "text", "value": "The AI coding agent market is heating up rapidly. Where does Claude Code Agent Teams stand in this competition?\n\nDevin aims for full autonomy but makes real-time user intervention difficult. OpenAI Codex can run multiple agents in parallel but does not support direct inter-agent communication. Cursor's Background Agents can also run parallel tasks but lack inter-agent communication.\n\nAgent Teams differentiates itself in two ways. First, P2P direct communication enables real-time collaboration between agents. Second, a shared task list with dependency management provides structural coordination for complex workflows. However, the high token consumption presents a real barrier to entry." },
+    { "type": "table", "caption": "AI Coding Agent Comparison", "headers": ["Tool", "Multi-Agent", "Inter-Agent Communication", "Key Feature"], "rows": [
+      ["Claude Code Agent Teams", "Yes", "Direct P2P", "Shared task list, custom roles"],
+      ["Devin", "No (single)", "N/A", "Full autonomy, limited user control"],
+      ["OpenAI Codex", "Yes (parallel)", "No", "Parallel execution, worktree isolation, no inter-agent communication"],
+      ["Cursor Background Agents", "Yes (parallel)", "No", "Parallel execution, no mutual communication"]
+    ]},
+    { "type": "heading", "value": "6. Community Response: 'CEO of an AI Dev Team'" },
+    { "type": "text", "value": "Developer community reaction is a mix of excitement and caution. A Reddit post with over 185 upvotes featured the analogy of feeling like \"CEO of an AI dev team.\" Indeed, the workflow of giving natural language instructions to a team leader, monitoring each teammate's progress, and intervening when needed closely resembles a team manager's daily work.\n\nCost concerns are also significant. Since each teammate is an independent Claude instance, token usage scales proportionally with team size. The community consensus is forming that Agent Teams is most effective for read-heavy tasks like reviews and research." },
+    { "type": "ad" },
+    { "type": "heading", "value": "7. Current Limitations and Future Direction" },
+    { "type": "text", "value": "Agent Teams is currently in research preview with known limitations. Session resumption doesn't restore existing teammates. Only one team per session is allowed, with no nesting. Teammates cannot create their own teams.\n\nSince its introduction in v2.1.32, updates have been rapid. v2.1.33 added TeammateIdle and TaskCompleted hooks, and v2.1.36 introduced Opus 4.6 Fast mode for improved response speed. How quickly Anthropic moves this feature to general availability will be key going forward." },
+    { "type": "heading", "value": "Conclusion: New Rules of AI Collaboration" },
+    { "type": "text", "value": "Agent Teams demonstrates that the AI coding paradigm is shifting from \"one smarter AI\" to \"multiple AIs collaborating.\" A world where 16 AIs build a compiler, 5 AIs debate debugging theories, and 3 AIs conduct code reviews simultaneously. This isn't science fiction. It's happening in terminals right now.\n\nHigh token costs and experimental status remain constraints, but the direction is clear. The developer's role is moving from writing code directly to designing and orchestrating AI teams. Agent Teams is the most concrete prototype of that future." }
+  ],
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/76b5733c669f0dfb9c7aa7fc512a495867cf12e6-2400x1260.png",
+  "date": "2026-02-15T15:00",
+  "sources": [
+    { "name": "Anthropic", "title": "Orchestrate teams of Claude Code sessions", "url": "https://code.claude.com/docs/en/agent-teams" },
+    { "name": "Anthropic", "title": "Building a C compiler with a team of parallel Claudes", "url": "https://www.anthropic.com/engineering/building-c-compiler" },
+    { "name": "Ars Technica", "title": "Sixteen Claude AI agents working together created a new C compiler", "url": "https://arstechnica.com/ai/2026/02/sixteen-claude-ai-agents-working-together-created-a-new-c-compiler/" },
+    { "name": "InfoQ", "title": "Sixteen Claude Agents Built a C Compiler Without Human Code", "url": "https://www.infoq.com/news/2026/02/claude-built-c-compiler/" },
+    { "name": "The Register", "title": "Anthropic's Claude Opus 4.6 spends $20K trying to write a C compiler", "url": "https://www.theregister.com/2026/02/09/claude_opus_46_compiler/" }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/gpt-53-codex-community-reaction",
+    "tech:ai/claude-cowork-saaspocalypse",
+    "issue:opus-4-6-vs-gpt-5-3-codex-same-day-launch"
+  ],
+  "relatedGames": [],
+  "needTranslate": false
+}

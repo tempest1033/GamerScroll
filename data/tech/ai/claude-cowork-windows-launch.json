@@ -1,0 +1,225 @@
+{
+  "slug": "claude-cowork-windows-launch",
+  "status": "approved",
+  "category": "anthropic",
+  "title": "클로드 코워크 윈도우 상륙, AI 데스크톱 에이전트가 70% 시장을 노린다",
+  "titleEn": "Claude Cowork Lands on Windows: AI Desktop Agents Target 70% of the Market",
+  "date": "2026-02-15T12:00",
+  "keywords": "클로드 코워크, Claude Cowork, 윈도우 출시, 앤트로픽, AI 데스크톱 에이전트, 클로드 코드, Claude Code, 비개발자 AI, MCP 커넥터, 마이크로소프트 코파일럿, SaaS 위기, AI 에이전트 2026, 클로드 데스크톱 앱, 사스포칼립스",
+  "keywordsEn": "Claude Cowork, Windows launch, Anthropic, AI desktop agent, Claude Code, non-developer AI, MCP connector, Microsoft Copilot, SaaS disruption, AI agent 2026, Claude desktop app, SaaSpocalypse, enterprise AI, file automation",
+  "summary": "앤트로픽의 AI 에이전트 '클로드 코워크'가 macOS에 이어 윈도우에 상륙했다. 전 세계 데스크톱 70%를 차지하는 윈도우 진출로, 코드를 몰라도 AI가 파일을 관리하고 문서를 작성하는 시대가 본격적으로 열렸다. 마이크로소프트가 경쟁사인 앤트로픽을 내부적으로 채택하는 이례적 상황까지 벌어지고 있다.",
+  "summaryEn": "Anthropic's AI agent Claude Cowork has landed on Windows, targeting 70% of the global desktop market. Non-developers can now automate file management and document creation, while Microsoft paradoxically adopts its competitor internally.",
+  "thumbnail": "https://images.ctfassets.net/jdtwqhzvc2n1/3zZt7h2lLYSWgfFacvlwfj/10356ce36ca2ca349cbb0011f4469485/nuneybits_Vector_art_of_retro_Windows_CRT_computer_Anthropic_or_3d5dbd7c-7959-45de-83c5-134898f3e9e2.webp?w=1000&q=100",
+  "needTranslate": false,
+  "relatedDocs": [
+    "tech:ai/claude-cowork-saaspocalypse",
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/anthropic-b2b-strategy-success"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "VentureBeat",
+      "title": "Anthropic's Claude Cowork finally lands on Windows — and it wants to automate your workday",
+      "url": "https://venturebeat.com/technology/anthropics-claude-cowork-finally-lands-on-windows-and-it-wants-to-automate"
+    },
+    {
+      "name": "Anthropic (Claude Blog)",
+      "title": "Introducing Cowork: Claude Code for the rest of your work",
+      "url": "https://claude.com/blog/cowork-research-preview"
+    },
+    {
+      "name": "The Verge",
+      "title": "Microsoft is encouraging thousands of employees to adopt Claude Code",
+      "url": "https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "'Get Me Out': Traders Dump Software Stocks as AI Fears Erupt",
+      "url": "https://www.bloomberg.com/news/articles/2026-02-03/-get-me-out-traders-dump-software-stocks-as-ai-fears-take-hold"
+    },
+    {
+      "name": "Reuters",
+      "title": "US software stocks slump as AI disruption fears take over",
+      "url": "https://www.reuters.com/business/us-software-stocks-slide-after-sap-servicenow-results-fuel-ai-disruption-fears-2026-01-29/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "AI 에이전트가 드디어 대중의 데스크톱에 상륙했다. 2026년 2월 10일, 앤트로픽은 AI 데스크톱 에이전트 '클로드 코워크(Claude Cowork)'의 윈도우 버전을 정식 출시했다. 1월 12일 macOS 전용으로 시작된 코워크가 한 달 만에 전 세계 데스크톱의 약 70%를 차지하는 윈도우로 확장된 것이다.\n\n코워크는 개발자 전용 코딩 에이전트인 '클로드 코드(Claude Code)'의 에이전틱 기능을 비개발자에게 확장한 제품이다. 코드를 한 줄도 모르는 사람이 AI에게 파일 정리, 문서 작성, 스프레드시트 분석 같은 다단계 작업을 맡길 수 있다. 흥미롭게도 마이크로소프트는 직접 경쟁자인 앤트로픽의 도구를 내부적으로 채택하고 있어, AI 시대의 경쟁 구도가 얼마나 복잡해졌는지를 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 클로드 코워크란 무엇인가"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690515adc54f700a51502c88_og_claude-2-1-prompting.jpg",
+      "caption": "클로드 코워크는 클로드 데스크톱 앱에서 사이드바를 통해 실행할 수 있다",
+      "alt": "클로드 코워크 데스크톱 앱 인터페이스 공식 이미지"
+    },
+    {
+      "type": "text",
+      "value": "클로드 코워크를 한마디로 정의하면 '코드 없는 클로드 코드'다. 사용자가 지정한 폴더에서 파일을 읽고, 수정하고, 새로 만들 수 있다. 영수증 사진을 경비 보고서로 변환하고, 흩어진 메모를 모아 초안을 작성하며, 다운로드 폴더를 자동 정리하는 식이다. 기존 챗봇과 달리 하나의 명령을 받으면 스스로 계획을 세우고 여러 단계를 자율적으로 실행한다.\n\n앤트로픽은 코워크를 \"동료에게 메모를 남기는 것에 가깝다\"고 설명한다. 대화형 챗봇이 아니라, 작업을 맡기면 알아서 처리하는 에이전트라는 뜻이다. 여기에 MCP(Model Context Protocol) 커넥터로 외부 서비스와 연동할 수 있고, 스킬(Skills)과 플러그인으로 문서, 프레젠테이션 생성 능력을 확장할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 윈도우 출시 타임라인과 가격 정책"
+    },
+    {
+      "type": "text",
+      "value": "코워크의 출시는 단계적으로 이뤄졌다. 1월 12일 macOS 리서치 프리뷰로 시작해 Max 구독자(월 100달러)에게 먼저 공개됐다. 1월 16일 Pro 구독자(월 17~20달러)로 확대됐고, 1월 23일에는 Team과 Enterprise 요금제까지 포함됐다. 그리고 2월 10일, 윈도우 버전이 macOS와 '완전한 기능 동등성(full feature parity)'을 갖추고 출시됐다.\n\n현재 코워크는 모든 유료 요금제에서 사용할 수 있다. Pro(월 17~20달러), Max 5x(월 100달러), Max 20x(월 200달러), Team Premium(월 100~125달러/인)이 해당된다. 무료 사용자는 접근이 불가하다. 윈도우 버전에서 추가된 기능으로는 글로벌 지침과 폴더별 지침 설정이 있다. 사용자가 선호하는 톤, 포맷, 역할 배경 등을 설정하면 모든 세션에 자동 적용된다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 클로드 코드와 코워크, 같은 기술 다른 시장"
+    },
+    {
+      "type": "text",
+      "value": "클로드 코드와 클로드 코워크는 같은 앤트로픽 기술 위에 구축됐지만, 타겟 시장이 완전히 다르다. 클로드 코드는 터미널 기반의 개발자 전용 CLI 코딩 에이전트다. 코드 작성, 디버깅, 시스템 아키텍처 설계에 특화됐고, 전 세계 코딩 에이전트 시장에서 독보적인 위치를 차지하고 있다.\n\n반면 코워크는 GUI 기반의 비개발자용 데스크톱 에이전트다. 코드 대신 자연어로 작업을 지시하고, 파일 관리와 문서 작성 같은 사무 업무에 특화됐다. 흥미로운 사실은 코워크가 클로드 코드를 이용해 불과 1주일 반 만에 개발됐다는 점이다. 앤트로픽의 클로드 코드 책임자 보리스 체르니가 이를 직접 공개하며, AI 에이전트의 자기복제적 생산성을 증명했다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 마이크로소프트의 모순적 전략, 경쟁자를 내부 채택"
+    },
+    {
+      "type": "image",
+      "src": "https://www.reuters.com/graphics/SOFTWARE-STOCKS/byvrbwbxgve/chart.png",
+      "caption": "소프트웨어 주식은 S&P 500 대비 큰 폭으로 하락한 반면, 반도체주는 상승했다 (출처: 로이터)",
+      "alt": "2026년 소프트웨어 주식 vs 반도체 주식 vs S&P 500 비교 차트"
+    },
+    {
+      "type": "text",
+      "value": "코워크의 윈도우 상륙은 마이크로소프트와 앤트로픽의 관계를 더욱 복잡하게 만든다. 마이크로소프트는 OpenAI에 130억 달러(약 17조원)를 투자한 파트너이면서, 동시에 앤트로픽에 연간 5억 달러(약 6,500억원)를 지출하고 있다. 더 놀라운 것은 마이크로소프트가 수천 명의 내부 직원에게 클로드 코드 사용을 권장하고 있다는 점이다.\n\n더 버지에 따르면 마이크로소프트의 CoreAI 팀은 클로드 코드를 테스트해왔고, 비즈니스 및 인더스트리 코파일럿 팀에서는 모든 코드와 리포지토리에 클로드 코드 사용을 승인했다. 심지어 마이크로소프트 소프트웨어 엔지니어들은 클로드 코드와 깃허브 코파일럿을 모두 사용하고 두 도구를 비교 평가하도록 요구받고 있다. 자사 제품과 경쟁사 제품을 동시에 쓰라는 셈이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. SaaS 시가총액 2,850억 달러 증발, 윈도우 진출의 파장"
+    },
+    {
+      "type": "text",
+      "value": "코워크를 포함한 앤트로픽의 AI 에이전트 제품군 발표 이후 SaaS 업계는 패닉에 빠졌다. 블룸버그는 코워크와 법률 AI 도구 등 앤트로픽의 연이은 AI 에이전트 공세가 촉발한 소프트웨어 주가 폭락으로 2,850억 달러(약 373조원)의 시가총액이 증발했다고 보도했다. 프로젝트 관리 도구, 문서 작성 도구, 데이터 분석 플랫폼, 워크플로 자동화 소프트웨어 등 AI 에이전트와 기능이 겹치는 기업들이 직격탄을 맞았다.\n\n이제 윈도우 지원까지 추가되면서 위협의 범위가 극적으로 확대됐다. 전 세계 데스크톱의 70%가 윈도우이고, 특히 기업 환경에서 윈도우의 점유율은 압도적이다. macOS는 주로 크리에이터와 개발자 시장에 강하지만, 윈도우는 금융, 법률, 행정, 제조 등 전통적 기업 시장의 핵심이다. 코워크의 윈도우 상륙은 곧 기업 고객 시장 본격 진입을 의미한다."
+    },
+    {
+      "type": "heading",
+      "value": "6. AI 에이전트 보안과 한계"
+    },
+    {
+      "type": "image",
+      "src": "https://miro.medium.com/v2/resize:fit:1200/1*ELyAFsPaRT4_LEjBCU2j1g.png",
+      "caption": "클로드 코드는 2026년 가장 인기 있는 코딩 에이전트로, 코워크와 같은 기술 기반을 공유한다",
+      "alt": "클로드 코드 2026년 코딩 에이전트 시장 점유율과 에이전트 기술 기반"
+    },
+    {
+      "type": "text",
+      "value": "강력한 기능에는 리스크도 따른다. 앤트로픽은 코워크가 사용자가 명시적으로 접근을 허용한 폴더만 볼 수 있다고 강조한다. 내부적으로 가상 머신(VM)을 사용해 보안을 강화했다. 보리스 체르니는 와이어드 인터뷰에서 \"접근 권한을 주지 않은 폴더는 클로드가 물리적으로 볼 수 없다\"고 설명했다.\n\n다만 프롬프트 인젝션(prompt injection) 공격 위험은 여전히 존재한다. 문서나 웹사이트에 숨겨진 악성 지시가 AI 에이전트를 조작할 수 있는 문제다. 윈도우 버전에서는 추가 안전장치로 파일 접근을 사용자 개인 폴더로 제한하고 있다. 일부 개발자들은 이 제한에 불만을 표했지만, 레딧에서는 \"클로드 코드로 자기 시스템을 날린 사람이 얼마나 많은지 보면 현명한 선택\"이라는 반응도 나왔다. 현재 코워크는 여전히 리서치 프리뷰 단계다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: AI 에이전트 시대, 새로운 전선이 열리다"
+    },
+    {
+      "type": "text",
+      "value": "클로드 코워크의 윈도우 출시는 단순한 플랫폼 확장이 아니다. AI 에이전트가 개발자의 터미널에서 벗어나 일반 사무직의 데스크톱으로 진입하는 전환점이다. 소프트웨어 업계가 수십 년간 쌓아온 파일 관리, 작업 자동화, 정보 정리 도구의 가치를 하나의 AI 에이전트가 대체할 수 있다는 가능성이 현실로 다가오고 있다.\n\n마이크로소프트가 경쟁자를 내부 채택하고, 투자자들이 SaaS 기업에서 이탈하는 현상은 시장이 이 변화를 얼마나 심각하게 받아들이고 있는지를 보여준다. 확실한 것은 AI와 함께 일하는 법을 배우는 사람과 그렇지 않은 사람의 격차가 점점 벌어지고 있다는 사실이다. 코워크가 보여주는 미래는 AI가 동료가 되는 세상이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "AI agents have finally landed on the mainstream desktop. On February 10, 2026, Anthropic officially released the Windows version of its AI desktop agent Claude Cowork. Just one month after launching exclusively on macOS on January 12, Cowork has expanded to Windows — which accounts for roughly 70% of the world's desktop computers.\n\nCowork extends the agentic capabilities of Claude Code, a developer-only coding agent, to non-developers. Anyone who has never written a line of code can now delegate multi-step tasks like file organization, document creation, and spreadsheet analysis to AI. Intriguingly, Microsoft has been internally adopting tools from its direct competitor Anthropic, illustrating just how complex the competitive landscape of the AI era has become."
+    },
+    {
+      "type": "heading",
+      "value": "1. What Is Claude Cowork?"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690515adc54f700a51502c88_og_claude-2-1-prompting.jpg",
+      "caption": "Claude Cowork can be launched from the sidebar in the Claude desktop app",
+      "alt": "Claude Cowork desktop app interface official image"
+    },
+    {
+      "type": "text",
+      "value": "In one phrase, Claude Cowork is 'Claude Code without the code.' It can read, edit, and create files in user-designated folders. It converts receipt photos into expense reports, compiles scattered notes into drafts, and auto-organizes download folders. Unlike traditional chatbots, once given a task, it independently plans and executes multiple steps autonomously.\n\nAnthropic describes Cowork as 'less like a back-and-forth and more like leaving messages for a coworker.' It's not a conversational chatbot but an agent that handles tasks on its own. It can also connect to external services through MCP (Model Context Protocol) connectors and extend its capabilities with Skills and plugins for document and presentation creation."
+    },
+    {
+      "type": "heading",
+      "value": "2. Windows Launch Timeline and Pricing"
+    },
+    {
+      "type": "text",
+      "value": "Cowork's rollout was phased. It began as a macOS research preview on January 12, available first to Max subscribers ($100/month). On January 16, it expanded to Pro subscribers ($17-20/month), and on January 23, Team and Enterprise plans were included. On February 10, the Windows version launched with what Anthropic calls 'full feature parity' with macOS.\n\nCowork is currently available on all paid plans: Pro ($17-20/month), Max 5x ($100/month), Max 20x ($200/month), and Team Premium ($100-125/month per seat). Free users cannot access it. The Windows version introduces global and folder-specific instructions, allowing users to set preferred tone, format, and role context that applies across every session."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Claude Code vs Cowork: Same Tech, Different Markets"
+    },
+    {
+      "type": "text",
+      "value": "Claude Code and Claude Cowork are built on the same Anthropic technology but target completely different markets. Claude Code is a terminal-based CLI coding agent for developers, specialized in code writing, debugging, and system architecture design. It holds a dominant position in the global coding agent market.\n\nCowork, on the other hand, is a GUI-based desktop agent for non-developers. It uses natural language instead of code and specializes in office tasks like file management and document creation. Remarkably, Cowork was built using Claude Code itself in just a week and a half, as revealed by Boris Cherny, Anthropic's head of Claude Code — demonstrating AI agents' self-replicating productivity potential."
+    },
+    {
+      "type": "heading",
+      "value": "4. Microsoft's Paradoxical Strategy: Adopting a Competitor Internally"
+    },
+    {
+      "type": "image",
+      "src": "https://www.reuters.com/graphics/SOFTWARE-STOCKS/byvrbwbxgve/chart.png",
+      "caption": "Software stocks plunged against the S&P 500 while semiconductor stocks rose (Source: Reuters)",
+      "alt": "2026 software stocks vs semiconductor stocks vs S&P 500 comparison chart"
+    },
+    {
+      "type": "text",
+      "value": "Cowork's arrival on Windows further complicates the relationship between Microsoft and Anthropic. Microsoft has invested $13 billion in OpenAI as a partner while simultaneously spending approximately $500 million annually on Anthropic. Even more striking, Microsoft is encouraging thousands of internal employees to use Claude Code.\n\nAccording to The Verge, Microsoft's CoreAI team has been testing Claude Code, and the Business and Industry Copilot teams have approved it across all code and repositories. Microsoft software engineers are now expected to use both Claude Code and GitHub Copilot and provide comparative feedback. In essence, they're being asked to use both their own product and a competitor's simultaneously."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. $285 Billion SaaS Market Cap Evaporated — Windows Expansion Amplifies the Impact"
+    },
+    {
+      "type": "text",
+      "value": "The SaaS industry panicked following Anthropic's wave of AI agent product announcements, including Cowork. Bloomberg reported that the software stock crash triggered by Cowork, legal AI tools, and other Anthropic agent releases evaporated $285 billion in market capitalization. Companies whose products overlap with AI agent capabilities — project management tools, writing assistants, data analysis platforms, and workflow automation software — took direct hits.\n\nWith Windows support now added, the scope of the threat has expanded dramatically. Windows accounts for 70% of global desktops, and its share in enterprise environments is overwhelming. While macOS is strong in creative and developer markets, Windows is the backbone of traditional enterprise sectors including finance, legal, administration, and manufacturing. Cowork's Windows launch signals a full-scale entry into the enterprise customer market."
+    },
+    {
+      "type": "heading",
+      "value": "6. AI Agent Security and Limitations"
+    },
+    {
+      "type": "image",
+      "src": "https://miro.medium.com/v2/resize:fit:1200/1*ELyAFsPaRT4_LEjBCU2j1g.png",
+      "caption": "Claude Code is 2026's most popular coding agent, sharing the same technology foundation as Cowork",
+      "alt": "Claude Code 2026 coding agent market share and agent technology foundation"
+    },
+    {
+      "type": "text",
+      "value": "Powerful capabilities come with risks. Anthropic emphasizes that Cowork can only see folders users explicitly grant access to. It uses a virtual machine (VM) internally for enhanced security. Boris Cherny explained to Wired that 'if you don't give it access to a folder, Claude literally cannot see that folder.'\n\nHowever, the risk of prompt injection attacks remains. Malicious instructions hidden in documents or websites can manipulate AI agents. The Windows version adds additional safety constraints by restricting file access to the user's personal folder. Some developers expressed frustration, but as one Reddit user noted: 'Seeing how many people nuked themselves with Claude Code, it's much safer to limit people.' Cowork remains in research preview."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Final Thoughts: A New Front Opens in the AI Agent Era"
+    },
+    {
+      "type": "text",
+      "value": "Claude Cowork's Windows launch is not just a platform expansion. It marks a turning point where AI agents move beyond developer terminals onto the desktops of ordinary office workers. The possibility that a single AI agent could replace the file management, task automation, and information organization tools the software industry spent decades building is becoming reality.\n\nMicrosoft internally adopting a competitor and investors fleeing SaaS companies show how seriously the market is taking this shift. What's certain is that the gap between those who learn to work with AI and those who don't is widening rapidly. The future Cowork envisions is one where AI becomes your coworker."
+    }
+  ]
+}

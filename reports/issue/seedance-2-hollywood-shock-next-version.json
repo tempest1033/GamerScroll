@@ -1,0 +1,255 @@
+{
+  "slug": "seedance-2-hollywood-shock-next-version",
+  "status": "approved",
+  "title": "시댄스 2.0 쇼크, 7만원에 2분짜리 영화를 만든다",
+  "titleEn": "Seedance 2.0 Shock: Make a 2-Minute Film for $50",
+  "date": "2026-02-15T15:00",
+  "thumbnail": "https://cms-image.pandaily.com/Seedance2_0_40f538b588.png",
+  "keywords": "시댄스 2.0, Seedance 2.0, 바이트댄스 AI, AI 영상 생성, 할리우드 AI 반발, SAG-AFTRA, MPA 저작권, DeepSeek 스푸트니크, AI 동영상 제작, 시댄스 2.5 루머, CapCut AI, 틱톡 AI 영상, 중국 AI 쇼크 2026, AI 영화 제작, ByteDance Seedance",
+  "keywordsEn": "Seedance 2.0, ByteDance AI, AI video generation, Hollywood AI backlash, SAG-AFTRA, MPA copyright, DeepSeek Sputnik moment, AI filmmaking, Seedance 2.5 rumor, CapCut AI, TikTok AI video, China AI shock 2026, AI movie production, ByteDance vertical integration",
+  "summary": "DeepSeek에 이어 또 중국발 AI 쇼크. 바이트댄스의 시댄스 2.0이 7만원에 2분짜리 영화를 만들어내며 할리우드를 뒤흔들고 있다. 데드풀 각본가는 '우리는 끝났다'고 했고, 디즈니는 정지 서한을 보냈다. 벌써 다음 버전 루머까지 돌고 있다.",
+  "summaryEn": "Another AI shock from China, following DeepSeek. ByteDance's Seedance 2.0 can produce a 2-minute film for around $50, rattling Hollywood. The Deadpool screenwriter said 'it's likely over for us,' Disney sent a cease-and-desist, and rumors of the next version are already circulating.",
+  "needTranslate": false,
+  "relatedDocs": ["tech:ai/china-ai-video-kling3-seedance2", "tech:ai/dead-internet-theory", "issue:game-ai-paradigm-shift-2026"],
+  "relatedGames": [],
+  "sources": [
+    { "name": "The Guardian", "title": "'It's over for us': release of new AI video generator Seedance 2.0 stuns Hollywood", "url": "https://www.theguardian.com/film/2026/feb/13/new-ai-video-generator-seedance-tom-cruise-brad-pitt" },
+    { "name": "Variety", "title": "Motion Picture Association Denounces 'Massive' AI Infringement by Seedance", "url": "https://variety.com/2026/film/news/motion-picture-association-ai-seedance-bytedance-tom-cruise-1236661753/" },
+    { "name": "TechCrunch", "title": "Hollywood isn't happy about the new Seedance 2.0 video generator", "url": "https://techcrunch.com/2026/02/14/hollywood-isnt-happy-about-the-new-seedance-2-0-video-generator/" },
+    { "name": "Forbes", "title": "ByteDance's Seedance 2.0 Nails Real World Physics And Hyper-Real Outputs", "url": "https://www.forbes.com/sites/ronschmelzer/2026/02/12/bytedances-seedance-20-nails-real-world-physics-and-hyper-real-outputs/" },
+    { "name": "CNBC", "title": "It's been a big — but rocky — week for AI models from China", "url": "https://www.cnbc.com/2026/02/14/new-china-ai-models-alibaba-bytedance-seedance-kuaishou-kling.html" },
+    { "name": "Yahoo Finance", "title": "ByteDance's AI video model goes viral as China looks for second DeepSeek moment", "url": "https://finance.yahoo.com/news/bytedances-ai-video-model-goes-093629155.html" }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "DeepSeek이 텍스트 AI에서 스푸트니크 모먼트를 만들었다면, 이번엔 영상이다. 바이트댄스(틱톡 모회사)의 AI 영상 생성 모델 시댄스 2.0(Seedance 2.0)이 2월 12일 공식 출시되자마자 전 세계를 뒤흔들고 있다. 텍스트 몇 줄이면 실사 수준의 15초 영상이 뚝딱 나오고, 뉴스1에 따르면 7만원이면 2분짜리 영화를 완성할 수 있다.\n\n일론 머스크가 X에서 \"It's happening fast\"라고 코멘트했고, 웨이보에서는 칸예 웨스트와 킴 카다시안이 중국 궁중드라마에 출연하는 AI 영상이 100만 뷰를 찍었다. 할리우드에서는 비명이 터져 나오고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 시댄스 2.0 핵심 기능: 멀티모달 입력과 물리 법칙 이해"
+    },
+    {
+      "type": "image",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/698e1dd6bc9425c0f2d67a1d/ByteDance-Launches-Seedance-2-0/0x0.jpg?format=jpg&width=960",
+      "caption": "바이트댄스의 시댄스 2.0 AI 영상 생성 모델 (Forbes)",
+      "alt": "시댄스 2.0 Seedance 2.0 바이트댄스 AI 영상 생성 모델 데모"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0의 핵심은 Dual-Branch Diffusion Transformer 아키텍처다. 기존 AI 영상 도구들이 텍스트만 입력받던 것과 달리, 시댄스 2.0은 텍스트, 이미지(최대 9장), 비디오(최대 3개), 오디오(최대 3개)를 동시에 입력할 수 있다. '@' 시스템으로 여러 레퍼런스를 조합하는 이 멀티모달 방식은 업계에서 유일하다.\n\n최대 2K 해상도에 15초, 24fps 영상을 생성하며, 네이티브 오디오도 동시에 만들어낸다. 한국어를 포함한 8개 이상 언어의 립싱크를 지원한다. 물이 흐르고, 물건이 떨어지고, 옷감이 날리는 물리 법칙까지 자연스럽게 반영한다. Forbes는 \"현존하는 AI 영상 도구 중 가장 사실적인 물리 시뮬레이션\"이라고 평가했다."
+    },
+    {
+      "type": "text",
+      "value": "단일 프롬프트로 멀티샷 스토리텔링도 가능하다. 한 번 설정한 캐릭터가 장면이 바뀌어도 동일한 외모를 유지하는 아바타 통합 기능은, 단순 클립 생성이 아닌 '영화 제작'의 문을 연 것과 같다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. AI 영상 경쟁: Sora 2, Veo 3.1을 압도하는 가성비"
+    },
+    {
+      "type": "table",
+      "caption": "주요 AI 영상 생성 모델 비교 (2026년 2월)",
+      "headers": ["모델", "최대 길이", "해상도", "네이티브 오디오", "비디오 입력", "10초 비용"],
+      "rows": [
+        ["Seedance 2.0", "15초", "2K+", "O", "3개", "~$0.60"],
+        ["Sora 2", "15초(일반)/25초(Pro)", "1080p", "O", "X", "~$1.00"],
+        ["Veo 3.1", "8초", "1080p", "O", "1-2개", "~$2.50"],
+        ["Kling 3.0", "15초", "1080p", "O", "X", "~$0.50"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "숫자가 말해준다. 시댄스 2.0은 경쟁 모델 대비 더 높은 해상도의 영상을 더 싼 가격에 만들어낸다. OpenAI의 Sora 2보다 40% 저렴하고, Google의 Veo 3.1과 비교하면 4분의 1 수준이다. 비디오 입력을 3개까지 동시에 받는 것은 시댄스 2.0이 유일하다.\n\n무료 플랜도 있다. 일일 60크레딧 이상이 무료로 제공되며, 유료 플랜은 월 18달러(약 2만 5천원)부터 시작한다. 중국에서는 월 69위안(약 1만 3천원)에 쓸 수 있다. 뉴스1은 이 가격 구조를 분석해 '7만원이면 2분짜리 영화를 완성할 수 있다'고 보도했다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 할리우드 반발: '우리는 끝났다'에서 정지 서한까지"
+    },
+    {
+      "type": "image",
+      "src": "https://www.hollywoodreporter.com/wp-content/uploads/2026/02/Screenshot-2026-02-13-at-4.49.40%E2%80%AFPM.jpg?w=1440&h=810&crop=1",
+      "caption": "시댄스 2.0으로 생성된 AI 영상에 할리우드가 거세게 반발하고 있다 (Hollywood Reporter)",
+      "alt": "시댄스 2.0 AI 영상 할리우드 반발 SAG-AFTRA MPA 저작권 침해 논란"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0이 만들어낸 톰 크루즈와 브래드 피트의 격투 영상이 바이럴되자, 할리우드는 즉각 반응했다. 데드풀 시리즈의 각본가 레트 리스(Rhett Reese)는 \"I hate to say it. It's likely over for us(이렇게 말하고 싶지 않지만, 우리는 아마 끝났다)\"라고 썼다. The Guardian은 이 발언을 1면에 실었다.\n\n미국영화협회(MPA)는 시댄스 2.0으로 생성된 영상들에 대해 '대규모 저작권 침해'라고 규탄했다. 미국배우조합(SAG-AFTRA)은 \"이것은 용납할 수 없다(This is unacceptable)\"며 성명을 발표했다. 스파이더맨, 다스 베이더 등 디즈니 캐릭터가 무단으로 사용된 영상이 퍼지자, 디즈니는 바이트댄스에 정지 서한(cease-and-desist)을 발송했다."
+    },
+    {
+      "type": "text",
+      "value": "문제는 이게 단순한 저작권 이슈에 그치지 않는다는 점이다. 시댄스 2.0의 영상 퀄리티가 실사와 구분이 어려운 수준이다 보니, 배우의 초상권, 시나리오 작가의 일자리, 나아가 영화 산업 전체의 존재 가치에 대한 논쟁으로 번지고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 금융시장 충격: 두 번째 DeepSeek 스푸트니크 모먼트"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0 공개와 맞물려 중국 AI 업계 전반이 랠리를 보였다. Zhipu AI는 자체 GLM-5 모델 발표와 함께 30% 가까이 급등했고, 바이트댄스 관련 투자 심리도 전반적으로 달아올랐다. Bloomberg은 2월 9일 데이터를 인용해 중국 AI·미디어 섹터의 투자 낙관론이 확산됐다고 보도했다.\n\n반면 미국 빅테크 주가는 크게 하락하며 상당한 시가총액 감소를 겪었다. Yahoo Finance는 \"DeepSeek에 이은 두 번째 스푸트니크 모먼트\"라는 표현을 사용했다. DeepSeek이 저비용 텍스트 AI로 '미국 AI 우위론'에 균열을 냈다면, 시댄스 2.0은 영상 분야에서 같은 일을 해낸 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "CNBC는 \"중국 AI 모델에게 큰, 그러나 험난한 한 주\"라는 제목으로 시댄스 2.0과 알리바바의 새 모델까지 아우르며 중국 AI의 공격적인 행보를 분석했다. 미·중 AI 패권 경쟁이 텍스트를 넘어 영상으로까지 확대되고 있다는 신호다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 바이트댄스 수직 통합: 생성부터 배포까지 한 손에"
+    },
+    {
+      "type": "image",
+      "src": "https://www.cnet.com/a/img/resize/002d3b0b82bb9f8609ba89137f3c8564fc1d5be9/hub/2026/02/10/89a0168b-1174-4018-a55e-9f40e575de22/bytedance-seedance20.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "caption": "시댄스 2.0은 CapCut과 TikTok으로 이어지는 바이트댄스 수직 통합 전략의 핵심이다 (CNET)",
+      "alt": "바이트댄스 시댄스 2.0 CapCut TikTok 수직 통합 AI 영상 파이프라인"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0을 더 위협적으로 만드는 건 바이트댄스의 수직 통합 전략이다. 시댄스(AI 영상 생성) → CapCut(편집) → TikTok(배포)으로 이어지는 파이프라인은, 현재 AI 영상 업계에서 유일한 완전 수직 통합이다. OpenAI의 Sora 2는 만들기만 하고, Google의 Veo 3.1은 YouTube와 느슨하게 연결되어 있을 뿐이다.\n\n2월 24일 전후로 CapCut과의 통합이 예정되어 있다. 이게 실현되면, 누구나 텍스트만 쳐서 영상을 만들고, 같은 앱에서 편집하고, 버튼 하나로 TikTok에 올리는 게 가능해진다. 콘텐츠 제작의 진입장벽이 사실상 사라지는 것이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. 시댄스 2.5 루머: 4K 출력과 인터랙티브 비디오까지"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0이 출시된 지 불과 며칠인데, 벌써 다음 버전 루머가 돌고 있다. 시댄스 2.5는 2026년 중반 출시가 예상되며, 4K 출력이 가능해질 것으로 알려졌다. 현재 2K가 최대인 시댄스 2.0의 한계를 반년 만에 넘겠다는 것이다.\n\n더 흥미로운 루머도 있다. 실시간 스트리밍 영상 생성, 시청자가 선택지를 고르면 다음 장면이 바뀌는 인터랙티브 비디오, 영상 간에 같은 캐릭터가 유지되는 아바타 통합, 그리고 서드파티 플러그인 에코시스템까지. 이 중 절반만 실현되더라도, AI 영상은 '클립 생성기'에서 '대화형 미디어 플랫폼'으로 진화하게 된다."
+    },
+    {
+      "type": "text",
+      "value": "바이트댄스의 개발 속도를 고려하면, 이 루머들이 허무맹랑하지만은 않다. 시댄스 1.0에서 2.0까지의 발전 폭을 보면, 다음 버전에서 또 한 번의 도약이 나올 가능성은 충분하다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: AI 영상의 게임이 바뀌었다"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0은 단순한 AI 영상 도구가 아니다. DeepSeek이 텍스트 AI의 판도를 뒤집었듯, 시댄스 2.0은 영상 AI의 판도를 뒤집고 있다. 7만원에 2분짜리 영화를 만들 수 있다는 건, 영화 제작의 민주화인 동시에 기존 영상 산업에 대한 직접적인 위협이다.\n\n할리우드의 반발, 금융시장의 요동, 저작권 전쟁, 그리고 벌써 나오는 다음 버전 루머까지. 시댄스 2.0을 둘러싼 모든 것이 하나의 메시지를 전한다. AI 영상의 게임이 바뀌었고, 이 변화는 돌이킬 수 없다는 것이다. 바이트댄스의 수직 통합 전략이 완성되는 순간, 콘텐츠 산업 전체가 새로운 국면에 접어들게 될 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "If DeepSeek created a Sputnik moment in text AI, this time it's video. ByteDance's (TikTok's parent company) AI video generation model Seedance 2.0 was officially launched on February 12 and has been shaking the world ever since. A few lines of text produce photo-realistic 15-second clips, and according to Korean outlet News1, you can finish a 2-minute film for around $50.\n\nElon Musk commented \"It's happening fast\" on X. On Weibo, an AI-generated video of Kanye West and Kim Kardashian starring in a Chinese palace drama hit 1 million views. Hollywood is screaming."
+    },
+    {
+      "type": "heading",
+      "value": "1. Seedance 2.0 Core Features: Multimodal Input and Physics Understanding"
+    },
+    {
+      "type": "image",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/698e1dd6bc9425c0f2d67a1d/ByteDance-Launches-Seedance-2-0/0x0.jpg?format=jpg&width=960",
+      "caption": "ByteDance's Seedance 2.0 AI Video Generation Model (Forbes)",
+      "alt": "Seedance 2.0 ByteDance AI video generation model demo"
+    },
+    {
+      "type": "text",
+      "value": "At the heart of Seedance 2.0 is a Dual-Branch Diffusion Transformer architecture. Unlike existing AI video tools that only accept text input, Seedance 2.0 can simultaneously take in text, images (up to 9), videos (up to 3), and audio files (up to 3). Its '@' system for combining multiple references into a multimodal mix is unique in the industry.\n\nIt generates videos at up to 2K resolution, 15 seconds long at 24fps, with native audio generated simultaneously. It supports lip-sync in 8+ languages including Korean. Physics are rendered naturally — water flows, objects fall, and fabric billows realistically. Forbes called it \"the most realistic physics simulation among current AI video tools.\""
+    },
+    {
+      "type": "text",
+      "value": "Multi-shot storytelling from a single prompt is also possible. The avatar integration feature, which maintains a character's appearance across different scenes, opens the door not just to clip generation but to actual filmmaking."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. The AI Video Race: Crushing Sora 2 and Veo 3.1 on Value"
+    },
+    {
+      "type": "table",
+      "caption": "Major AI Video Generation Model Comparison (February 2026)",
+      "headers": ["Model", "Max Length", "Resolution", "Native Audio", "Video Input", "Cost per 10s"],
+      "rows": [
+        ["Seedance 2.0", "15s", "2K+", "Yes", "3", "~$0.60"],
+        ["Sora 2", "15s (standard) / 25s (Pro)", "1080p", "Yes", "No", "~$1.00"],
+        ["Veo 3.1", "8s", "1080p", "Yes", "1-2", "~$2.50"],
+        ["Kling 3.0", "15s", "1080p", "Yes", "No", "~$0.50"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "The numbers speak for themselves. Seedance 2.0 produces higher-resolution videos at a lower price than its competitors. It's 40% cheaper than OpenAI's Sora 2 and a quarter the cost of Google's Veo 3.1. Seedance 2.0 is the only model that accepts up to 3 video inputs simultaneously.\n\nThere's a free tier too. Over 60 daily credits are provided for free, and paid plans start at $18/month. In China, it's available for 69 RMB/month (~$9.60). Korean outlet News1 analyzed this pricing structure and reported that 'you can complete a 2-minute film for about $50.'"
+    },
+    {
+      "type": "heading",
+      "value": "3. Hollywood Backlash: From 'It's Over for Us' to Cease-and-Desist"
+    },
+    {
+      "type": "image",
+      "src": "https://www.hollywoodreporter.com/wp-content/uploads/2026/02/Screenshot-2026-02-13-at-4.49.40%E2%80%AFPM.jpg?w=1440&h=810&crop=1",
+      "caption": "Hollywood is pushing back hard against AI-generated videos from Seedance 2.0 (Hollywood Reporter)",
+      "alt": "Seedance 2.0 AI video Hollywood backlash SAG-AFTRA MPA copyright infringement controversy"
+    },
+    {
+      "type": "text",
+      "value": "When a Seedance 2.0-generated fight scene between Tom Cruise and Brad Pitt went viral, Hollywood responded immediately. Deadpool screenwriter Rhett Reese wrote: \"I hate to say it. It's likely over for us.\" The Guardian ran the quote on its front page.\n\nThe Motion Picture Association (MPA) condemned Seedance 2.0-generated videos as 'massive copyright infringement.' SAG-AFTRA issued a statement declaring \"This is unacceptable.\" After videos featuring unauthorized use of Disney characters like Spider-Man and Darth Vader spread online, Disney sent ByteDance a cease-and-desist letter."
+    },
+    {
+      "type": "text",
+      "value": "The problem goes beyond simple copyright issues. With Seedance 2.0's video quality nearly indistinguishable from live-action footage, the debate has expanded to actors' likeness rights, screenwriters' job security, and even the fundamental value of the film industry itself."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Financial Market Shock: The Second DeepSeek Sputnik Moment"
+    },
+    {
+      "type": "text",
+      "value": "Coinciding with Seedance 2.0's release, the broader Chinese AI sector rallied. Zhipu AI surged nearly 30% alongside the announcement of its own GLM-5 model, and investor sentiment around ByteDance warmed across the board. Bloomberg cited February 9 data showing growing optimism in China's AI and media sector.\n\nMeanwhile, US Big Tech stocks dropped significantly, suffering substantial market cap losses. Yahoo Finance described it as \"the second Sputnik moment after DeepSeek.\" If DeepSeek cracked the 'American AI supremacy' narrative with low-cost text AI, Seedance 2.0 did the same in the video space."
+    },
+    {
+      "type": "text",
+      "value": "CNBC headlined \"It's been a big — but rocky — week for AI models from China,\" covering Seedance 2.0 alongside Alibaba's new models and analyzing China's aggressive AI push. The US-China AI competition is clearly expanding from text into video."
+    },
+    {
+      "type": "heading",
+      "value": "5. ByteDance's Vertical Integration: Generation to Distribution in One Hand"
+    },
+    {
+      "type": "image",
+      "src": "https://www.cnet.com/a/img/resize/002d3b0b82bb9f8609ba89137f3c8564fc1d5be9/hub/2026/02/10/89a0168b-1174-4018-a55e-9f40e575de22/bytedance-seedance20.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "caption": "Seedance 2.0 is the linchpin of ByteDance's vertical integration strategy connecting CapCut and TikTok (CNET)",
+      "alt": "ByteDance Seedance 2.0 CapCut TikTok vertical integration AI video pipeline"
+    },
+    {
+      "type": "text",
+      "value": "What makes Seedance 2.0 even more threatening is ByteDance's vertical integration strategy. The pipeline from Seedance (AI video generation) to CapCut (editing) to TikTok (distribution) is currently the only fully vertically integrated stack in the AI video industry. OpenAI's Sora 2 only generates, and Google's Veo 3.1 is only loosely connected to YouTube.\n\nCapCut integration is scheduled for around February 24. Once this is realized, anyone can generate a video from text, edit it in the same app, and upload it to TikTok with one tap. The barrier to content creation effectively disappears."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. Seedance 2.5 Rumors: 4K Output and Interactive Video"
+    },
+    {
+      "type": "text",
+      "value": "Seedance 2.0 has only been out for days, and next-version rumors are already swirling. Seedance 2.5 is expected in mid-2026 with 4K output capabilities, breaking through Seedance 2.0's current 2K ceiling within half a year.\n\nEven more intriguing rumors include real-time streaming video generation, interactive video where viewers' choices change the next scene, persistent avatar integration across videos, and a third-party plugin ecosystem. If even half of these materialize, AI video will evolve from a 'clip generator' into an 'interactive media platform.'"
+    },
+    {
+      "type": "text",
+      "value": "Given ByteDance's development velocity, these rumors aren't far-fetched. Looking at the leap from Seedance 1.0 to 2.0, another major jump in the next version is entirely plausible."
+    },
+    {
+      "type": "heading",
+      "value": "Final Thoughts: The AI Video Game Has Changed"
+    },
+    {
+      "type": "text",
+      "value": "Seedance 2.0 is not just another AI video tool. Just as DeepSeek upended the text AI landscape, Seedance 2.0 is upending video AI. Being able to make a 2-minute film for $50 is both a democratization of filmmaking and a direct threat to the existing video industry.\n\nHollywood's backlash, financial market turbulence, copyright wars, and next-version rumors already circulating — everything surrounding Seedance 2.0 sends one message. The AI video game has changed, and there's no going back. The moment ByteDance's vertical integration strategy is complete, the entire content industry will enter a new phase."
+    }
+  ]
+}
