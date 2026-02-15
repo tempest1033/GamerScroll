@@ -1,6 +1,7 @@
 {
   "slug": "seedance-2-hollywood-shock-next-version",
   "status": "approved",
+  "isGlobal": true,
   "title": "시댄스 2.0 쇼크, 7만원에 2분짜리 영화를 만든다",
   "titleEn": "Seedance 2.0 Shock: Make a 2-Minute Film for $50",
   "date": "2026-02-15T15:00",
