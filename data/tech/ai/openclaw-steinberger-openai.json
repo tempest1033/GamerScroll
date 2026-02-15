@@ -1,0 +1,111 @@
+{
+  "slug": "openclaw-steinberger-openai",
+  "status": "approved",
+  "category": "openai",
+  "title": "오픈클로 창시자 피터 스테인버거, OpenAI 합류 — 멀티 에이전트 AI의 미래를 이끈다",
+  "date": "2026-02-16T12:00",
+  "keywords": "Peter Steinberger, OpenAI, OpenClaw, 멀티 에이전트, AI 개인 비서, Sam Altman, PSPDFKit, 바이브 코딩, 에이전틱 엔지니어링, MCP, AI 에이전트, 오픈소스",
+  "keywordsEn": "Peter Steinberger, OpenAI, OpenClaw, multi-agent AI, personal AI assistant, Sam Altman, PSPDFKit, vibe coding, agentic engineering, MCP, AI agent, open source",
+  "summary": "깃허브 역사상 가장 빠르게 18만 스타를 찍은 오픈소스 AI 비서 오픈클로, 그 창시자 피터 스테인버거가 OpenAI에 합류한다. 샘 알트만은 '똑똑한 에이전트들이 서로 협력하는 미래'를 위한 핵심 영입이라고 밝혔다.",
+  "summaryEn": "Peter Steinberger, the creator of OpenClaw — the open-source AI assistant that shattered GitHub records with 180,000+ stars — is joining OpenAI. Sam Altman calls it a key hire to build 'the future of very smart agents interacting with each other.'",
+  "thumbnail": "https://s3.us-west-1.amazonaws.com/redwood-labs/showpage/uploads/images/d339bde4-0c6f-4377-b7ad-e22c9e1752c0.png",
+  "sources": [
+    { "name": "Sam Altman", "title": "Peter Steinberger joining OpenAI announcement", "url": "https://x.com/sama/status/2023150230905159801" },
+    { "name": "Lex Fridman Podcast", "title": "#491 Peter Steinberger: OpenClaw, Vibe Coding, and AI Agents", "url": "https://www.youtube.com/watch?v=YFjfBk8HI5o" },
+    { "name": "OfficeChai", "title": "OpenClaw Creator Peter Steinberger Joins OpenAI, OpenClaw To Continue As Open Source Project", "url": "https://officechai.com/ai/openclaw-creator-peter-steinberger-joins-openai-openclaw-to-continue-as-open-source-project/" },
+    { "name": "Trending Topics EU", "title": "OpenClaw: Peter Steinberger already has offers from Meta and OpenAI on the table", "url": "https://www.trendingtopics.eu/openclaw-peter-steinberger-already-has-offers-from-meta-and-openai-on-the-table/" }
+  ],
+  "relatedDocs": ["tech:ai/moltbot-clawdbot-ai-assistant", "tech:ai/moltbook-ai-social-network", "tech:ai/claude-code-agent-teams-paradigm"],
+  "needTranslate": false,
+  "titleEn": "OpenClaw Creator Peter Steinberger Joins OpenAI to Lead the Multi-Agent AI Future",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Peter Steinberger, the creator of OpenClaw — the open-source personal AI assistant that amassed over 180,000 GitHub stars in record time — is joining OpenAI. Sam Altman announced the hire on February 15, calling Steinberger 'a genius with amazing ideas about the future of very smart agents interacting with each other.' The move is OpenAI's clearest signal yet that multi-agent AI is becoming a core product strategy."
+    },
+    {
+      "type": "heading",
+      "value": "1. OpenClaw: The Weekend Project That Conquered GitHub"
+    },
+    {
+      "type": "image",
+      "src": "https://news.northeastern.edu/wp-content/uploads/2026/02/020326_MM_OpenClaw_004.jpg",
+      "caption": "OpenClaw became the fastest-growing open-source project in GitHub history with 180,000+ stars",
+      "alt": "OpenClaw open-source AI personal assistant project"
+    },
+    {
+      "type": "text",
+      "value": "Steinberger is an Austrian engineer who co-founded PSPDFKit in 2011 and sold it to Insight Partners for roughly 100 million euros in 2021. After three years away, he returned in late 2025 with a weekend side project: an open-source AI assistant that automates emails, calendars, and airline check-ins through WhatsApp and Telegram — all running locally on users' devices.\n\nThe project went through several names — WhatsApp Relay, Clawdbot, Moltbot — before becoming OpenClaw after Anthropic filed a trademark complaint over 'Clawdbot' sounding too much like 'Claude.' The controversy only fueled its rise. By February 2026, OpenClaw had crossed 180,000 GitHub stars, the fastest growth in the platform's history. Steinberger summed up his philosophy on the Lex Fridman Podcast: 'Every app is just a very slow API now.'"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. OpenAI's Play: Codex, Operator, and Now OpenClaw"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/05/GettyImages-2213399157.jpg?w=1024",
+      "caption": "OpenAI is expanding its agent lineup with Codex, Operator, and now OpenClaw",
+      "alt": "OpenAI multi-agent AI strategy Codex Operator OpenClaw"
+    },
+    {
+      "type": "text",
+      "value": "Altman made the strategic vision explicit: 'The future is going to be extremely multi-agent and it's important to us to support open source as part of that.' With Codex handling code, Operator browsing the web, and now OpenClaw managing personal tasks, OpenAI is assembling a suite of specialized agents designed to work together autonomously.\n\nSteinberger's one non-negotiable condition — that OpenClaw remain open source — was accepted. The project will transition to an independent foundation with continued OpenAI support. It's a notable move from a company often criticized for its open-source ambiguity, and it positions OpenAI against Anthropic, Google, and Apple in the rapidly heating agent ecosystem race."
+    },
+    {
+      "type": "heading",
+      "value": "Wrapping Up: The Multi-Agent Future Is No Longer Theoretical"
+    },
+    {
+      "type": "text",
+      "value": "Steinberger's move from indie open-source developer to OpenAI validates the personal AI agent as a strategic category, not a novelty. With OpenClaw preserved as open source and its creator now driving product development inside OpenAI, the multi-agent future Altman has been promising is beginning to take concrete shape. The synergy between OpenClaw's 180,000-strong community and OpenAI's infrastructure could accelerate the agent era faster than anyone expected."
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "깃허브 역사상 가장 빠르게 18만 스타를 찍은 오픈소스 AI 비서, 오픈클로(OpenClaw). 이 프로젝트를 만든 피터 스테인버거(Peter Steinberger)가 OpenAI에 합류한다. 샘 알트만은 2월 15일 직접 이 소식을 알리면서, 스테인버거를 '매우 똑똑한 에이전트들이 서로 상호작용해 사람들에게 정말 유용한 일을 하는 미래에 대한 놀라운 아이디어를 가진 천재'라고 소개했다. OpenAI가 멀티 에이전트 AI에 본격적으로 올인하겠다는 선언이나 다름없다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 오픈클로: 주말 프로젝트에서 깃허브 역사를 쓰기까지"
+    },
+    {
+      "type": "image",
+      "src": "https://news.northeastern.edu/wp-content/uploads/2026/02/020326_MM_OpenClaw_004.jpg",
+      "caption": "오픈클로는 깃허브 역사상 가장 빠르게 18만 스타를 돌파한 오픈소스 AI 비서다",
+      "alt": "오픈클로 OpenClaw 오픈소스 AI 개인 비서 프로젝트"
+    },
+    {
+      "type": "text",
+      "value": "스테인버거는 오스트리아 출신 엔지니어다. 2011년 PDF SDK 회사 PSPDFKit을 공동 창업했고, 투자 한 푼 없이 키워서 2021년 인사이트 파트너스에 약 1억 유로(한화 약 1,500억 원)에 매각했다. 3년간 조용히 지내다가, 2025년 말 주말 사이드 프로젝트 하나로 다시 나타났다. 왓츠앱과 텔레그램으로 이메일, 캘린더, 항공 체크인까지 알아서 처리해주는 오픈소스 AI 비서였고, 데이터를 클라우드에 보내지 않고 내 기기에서 돌아가는 게 핵심이었다.\n\n프로젝트 이름은 왓츠앱 릴레이, 클로드봇, 몰트봇을 거쳐 오픈클로가 됐다. '클로드봇'이라는 이름에 앤트로픽이 자사 AI '클로드'와 비슷하다며 상표 클레임을 걸었는데, 이 소동이 오히려 관심을 폭발시켰다. 2026년 2월 기준 깃허브 18만 스타를 넘기며 역대 가장 빠른 성장을 기록 중이다. 스테인버거는 렉스 프리드먼 팟캐스트에서 이렇게 말했다. '모든 앱은 이제 그냥 엄청 느린 API일 뿐이에요.'"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. OpenAI의 전략: 코덱스, 오퍼레이터, 그리고 오픈클로"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/05/GettyImages-2213399157.jpg?w=1024",
+      "caption": "OpenAI는 코덱스, 오퍼레이터에 이어 오픈클로까지 에이전트 라인업을 확장하고 있다",
+      "alt": "OpenAI 멀티 에이전트 AI 전략 코덱스 오퍼레이터 오픈클로"
+    },
+    {
+      "type": "text",
+      "value": "알트만은 방향을 분명히 밝혔다. '미래는 극도로 멀티 에이전트적이 될 것이고, 그 과정에서 오픈소스를 지원하는 게 우리에게 중요합니다.' 코딩하는 코덱스, 웹을 돌아다니는 오퍼레이터, 그리고 이제 일상을 관리해주는 오픈클로까지. OpenAI는 각자 역할이 다른 전문 에이전트들이 알아서 협력하는 구조를 만들어가고 있다.\n\n스테인버거가 내건 조건은 딱 하나, 오픈클로가 오픈소스로 남는 것이었다. OpenAI는 이를 받아들였고, 프로젝트는 독립 재단으로 넘어가되 OpenAI가 계속 지원하기로 했다. 오픈소스에 대해 늘 애매한 태도를 보여온 OpenAI치고는 꽤 파격적인 결정이다. 앤트로픽, 구글, 애플이 저마다 에이전트 생태계를 키우는 와중에 던진 강력한 한 수이기도 하다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 멀티 에이전트의 미래가 현실이 되다"
+    },
+    {
+      "type": "text",
+      "value": "1인 오픈소스 개발자가 OpenAI에 합류한다는 건, 개인 AI 에이전트가 더 이상 재미있는 실험이 아니라 진짜 비즈니스가 됐다는 뜻이다. 오픈클로는 오픈소스로 그대로 살아남고, 만든 사람은 OpenAI 안에서 제품을 이끌게 됐다. 알트만이 그려온 멀티 에이전트 미래가 드디어 구체적인 모습을 갖추기 시작한 셈이다. 18만 커뮤니티의 힘과 OpenAI의 인프라가 만나면, 에이전트 시대는 생각보다 훨씬 빨리 올 수 있다."
+    }
+  ]
+}

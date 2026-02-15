@@ -628,7 +628,7 @@ cd docs && npx serve -l 3000
 | Item | Rule |
 |------|------|
 | **Intro** | 2-3 sentences (key summary) |
-| **Section count** | 5-10 |
+| **Section count** | 4-7 |
 | **Body** | 2-3 paragraphs/section, 2-4 sentences/paragraph |
 | **Subheadings** | Use heading for each section |
 | **Images** | 1 per section, placed right after heading. **No thumbnail/body duplication**. **Prefer Google Images/News, never Wikipedia** |
@@ -1118,7 +1118,7 @@ grep -l "게임명" data/games.json
 | Item | Rule |
 |------|------|
 | **Intro** | 2-3 sentences (core definition) |
-| **Section count** | 5-10 |
+| **Section count** | 4-7 |
 | **Body** | 2-3 paragraphs/section, 2-4 sentences/paragraph |
 | **Subheadings** | Use heading for each section |
 | **Images** | Every 2-3 sections. 3-4 total. None in intro/conclusion. **No thumbnail/body duplication. Google Images/News preferred, never Wikipedia** |
