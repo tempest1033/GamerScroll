@@ -18,7 +18,8 @@ const REPORTS_DIR = path.join(__dirname, 'reports');
 const EXTRA_ARTICLES = {
   issue: [
     'gpt-5-3-garlic-update-rumor',
-    'chatgpt-vs-gemini-comparison-2026'
+    'chatgpt-vs-gemini-comparison-2026',
+    'seedance-2-hollywood-shock-next-version'
   ],
   wiki: [
     'business/google-genie3-unity-stock-crash'

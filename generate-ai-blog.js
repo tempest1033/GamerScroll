@@ -204,7 +204,8 @@ const EXTRA_ARTICLES = {
   issue: [
     'gpt-5-3-garlic-update-rumor',
     'chatgpt-vs-gemini-comparison-2026',
-    'gemini-3-hallucination-memory-overfitting'
+    'gemini-3-hallucination-memory-overfitting',
+    'seedance-2-hollywood-shock-next-version'
   ],
   // data/wiki/{category}/*.json
   wiki: [
