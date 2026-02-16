@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-15T16:54:11.298Z",
+  "updatedAt": "2026-02-16T17:08:22.263Z",
   "period": "30days",
   "games": [
     {
@@ -15,12 +15,12 @@
       "views": 36
     },
     {
-      "slug": "에르피스",
+      "slug": "명조워더링-웨이브",
       "views": 10
     },
     {
-      "slug": "명조워더링-웨이브",
-      "views": 9
+      "slug": "에르피스",
+      "views": 10
     },
     {
       "slug": "crosshair-x",
@@ -59,6 +59,10 @@
       "views": 2
     },
     {
+      "slug": "마피아42",
+      "views": 2
+    },
+    {
       "slug": "앵커패닉",
       "views": 2
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "limbus-company",
-      "views": 1
-    },
-    {
-      "slug": "소울-스트라이크-qwer-키우기",
       "views": 1
     }
   ]
