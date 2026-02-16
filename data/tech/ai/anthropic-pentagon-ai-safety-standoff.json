@@ -1,7 +1,8 @@
 {
   "slug": "anthropic-pentagon-ai-safety-standoff",
   "status": "approved",
-  "needTranslate": true,
+  "needTranslate": false,
+  "titleEn": "Anthropic vs the Pentagon: The Historic Collision of AI Safety and National Security",
   "category": "anthropic",
   "title": "앤트로픽 vs 펜타곤: AI 안전과 국가안보의 역사적 충돌",
   "date": "2026-02-17T02:00",
@@ -218,6 +219,176 @@
     {
       "type": "text",
       "value": "이 갈등의 본질은 기술의 발전 속도가 제도적 통제를 추월하는 시대의 근본적 딜레마다. 펜타곤은 중국과의 AI 군비 경쟁에서 뒤처질 수 없다고 주장하고, 앤트로픽은 '빠른 배포'가 민주주의 자체를 위협할 수 있다고 경고한다.\n\n주목할 점은, 앤트로픽이 국방 협력 자체를 거부하는 것이 아니라는 것이다. 정보 분석, 물류 최적화, 사이버 방어 등에서는 기꺼이 협력하겠다는 입장이다. 거부하는 것은 오직 두 가지다. 인간의 감독 없이 살상 결정을 내리는 자율 무기, 그리고 자국민을 대상으로 한 대규모 감시. 이 두 가지는 기술적 한계가 아니라 도덕적 한계다.\n\n2018년 구글이 Project Maven에서 철수했을 때, 업계는 '원칙의 승리'라고 평가했다. 하지만 구글은 결국 2025년에 돌아왔다. 앤트로픽이 이 순간을 어떻게 통과하느냐에 따라, AI 안전 원칙이 방산 경제학의 압력 앞에서 실제로 유지될 수 있는지가 판가름 날 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In February 2026, an unprecedented conflict erupted between Silicon Valley and the U.S. Department of Defense. Anthropic is publicly resisting the Pentagon's demands for unrestricted military AI use. With OpenAI, Google, and xAI all having accepted the Pentagon's terms, Anthropic stands alone in defending its 'lines it will not cross.'\n\nThis is not a simple contract dispute. It is a historic moment where the value of AI Safety has collided head-on with the realities of national security. And how Anthropic navigates this moment will determine whether AI safety principles can survive in the face of defense economics."
+    },
+    {
+      "type": "heading",
+      "value": "1. Timeline: From Cooperation to Confrontation"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/ap25028571158714.jpg?c=16x9&q=h_833,w_1480,c_fill",
+      "caption": "The Pentagon, headquarters of the U.S. Department of Defense",
+      "alt": "Aerial view of the Pentagon building, center of U.S. defense AI policy"
+    },
+    {
+      "type": "text",
+      "value": "It began with cooperation. In November 2024, Anthropic signed a three-way partnership with Palantir and AWS, deploying Claude on an IL6-certified classified network. By July 2025, Anthropic, along with OpenAI, Google, and xAI, each secured approximately $200 million in Pentagon contracts. Claude became the first frontier AI model integrated into the Department of Defense's classified networks.\n\nBut cracks appeared quickly. In September 2025, Anthropic restricted AI use in law enforcement activities, sparking its first friction with the White House. From there, the situation escalated rapidly."
+    },
+    {
+      "type": "table",
+      "caption": "Key Timeline of the Anthropic-Pentagon Conflict",
+      "headers": [
+        "Date",
+        "Event"
+      ],
+      "rows": [
+        [
+          "Jul 2025",
+          "Anthropic among 4 AI firms awarded ~$200M Pentagon contracts each"
+        ],
+        [
+          "Sep 2025",
+          "Anthropic restricts law enforcement AI use → first White House friction"
+        ],
+        [
+          "Jan 3, 2026",
+          "Venezuela Maduro capture operation — Claude used via Palantir, 83 killed"
+        ],
+        [
+          "Jan 9, 2026",
+          "Pentagon AI strategy memo — AI deployable for 'all lawful purposes'"
+        ],
+        [
+          "Jan 16, 2026",
+          "Defense Secretary Hegseth publicly criticizes Anthropic"
+        ],
+        [
+          "Jan 26, 2026",
+          "Dario Amodei publishes 38-page essay 'The Adolescence of Technology'"
+        ],
+        [
+          "Jan 29, 2026",
+          "Reuters exclusive — Pentagon-Anthropic standoff officially reported"
+        ],
+        [
+          "Feb 13–14, 2026",
+          "WSJ reveals Claude's use in Maduro operation; Anthropic signals refusal to approve future Palantir use"
+        ],
+        [
+          "Feb 14–15, 2026",
+          "Axios — Pentagon says 'everything's on the table'"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "2. The Venezuela Operation: The Spark That Ignited the Conflict"
+    },
+    {
+      "type": "text",
+      "value": "On January 3, 2026, U.S. forces executed a military operation to capture Venezuelan President Maduro. During the operation, Anthropic's Claude was used through Palantir's platform, and 83 people were killed.\n\nWhen the Wall Street Journal revealed this on February 13, the situation spiraled out of control. Anthropic signaled to Palantir that it would not approve Claude's use in similar operations going forward. The Pentagon viewed this as a direct challenge.\n\nThe core issue was not technical but principled. Anthropic was not rejecting defense cooperation itself — it was drawing clear lines around specific types of use."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. The Pentagon's Ultimatum: 'No War-Fighting, No Deal'"
+    },
+    {
+      "type": "text",
+      "value": "On January 9, 2026, the Pentagon declared through an AI strategy memo that commercial AI could be deployed for 'all lawful purposes.' The memo included the statement: \"The risk of not moving fast enough outweighs the risk of imperfect alignment.\" This was a direct dismissal of the 'alignment' problem — the very issue the AI safety community is most concerned about.\n\nOn January 16, Defense Secretary Pete Hegseth was even more blunt: \"Won't employ AI models that won't allow you to fight wars.\" The remark was aimed squarely at Anthropic.\n\nPentagon officials described Anthropic as the 'most ideological' of the four AI companies. And in an Axios report on February 14, a senior Pentagon official warned: \"Everything's on the table\" — meaning a complete severance of the partnership was not off the table."
+    },
+    {
+      "type": "quote",
+      "value": "\"Our country needs partners willing to help warfighters win any war.\" — Pentagon spokesman Sean Parnell"
+    },
+    {
+      "type": "heading",
+      "value": "4. Anthropic's Two Absolute Red Lines"
+    },
+    {
+      "type": "image",
+      "src": "https://images.axios.com/IjzVAiYUB6aUvkPVocnAjqCp4WE=/0x202:7434x4384/1920x1080/2026/02/15/1771117370041.jpeg",
+      "caption": "Anthropic CEO Dario Amodei at the 2026 World Economic Forum in Davos. Photo: Krisztian Bocsi/Bloomberg via Getty Images",
+      "alt": "Dario Amodei, Anthropic CEO"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic CEO Dario Amodei laid out his company's position through a 38-page essay titled 'The Adolescence of Technology' published on January 26, and a New York Times podcast on February 12. Anthropic does not reject defense cooperation outright, but it has two lines it will absolutely not cross.\n\nThe first is fully autonomous weapons. Amodei warned: \"Constitutional protections rely on the fact that there's a human there who can disobey an illegal order. With fully autonomous weapons, you don't have that protection.\" The argument is that autonomous lethal systems without sufficient human oversight would undermine the fundamental safeguards of democracy.\n\nThe second is mass domestic surveillance. Amodei stated: \"It's not illegal to put cameras in public spaces and record conversations. With AI, you can say 'this person is a member of the opposition party.'\" He pointed to the danger of AI combined with surveillance infrastructure."
+    },
+    {
+      "type": "quote",
+      "value": "\"Except those which would make us more like our autocratic adversaries.\" — Dario Amodei"
+    },
+    {
+      "type": "heading",
+      "value": "5. The Rest of Big Tech: A Spectrum of Silence and Compliance"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic's stance stands out all the more because of how other AI companies have responded.\n\nOpenAI quietly removed its military use ban in January 2024, and by February 2026 integrated ChatGPT into GenAI.mil, used by 3 million DoD personnel. Google, which abandoned military contracts in 2018 after employee backlash over Project Maven, has now integrated Gemini into GenAI.mil as its first model and secured a $200 million contract. xAI (Elon Musk) was the first to accept the 'all lawful purposes' condition.\n\nMeta also opened Llama to the DoD and intelligence agencies starting November 2024. Reports that China had adapted Meta's Llama 13B into a military tool called ChatBIT further highlighted the real-world risks of open-source AI being repurposed for military applications."
+    },
+    {
+      "type": "table",
+      "caption": "AI Companies' Positions on Defense Cooperation",
+      "headers": [
+        "Position",
+        "Companies"
+      ],
+      "rows": [
+        [
+          "Full defense cooperation",
+          "xAI, Anduril, Shield AI, Palantir"
+        ],
+        [
+          "Flexible cooperation",
+          "OpenAI, Google, Meta"
+        ],
+        [
+          "Conditional cooperation + red lines",
+          "Anthropic (the only one)"
+        ]
+      ]
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. Internal Fractures and the Safety Team Exodus"
+    },
+    {
+      "type": "text",
+      "value": "The conflict isn't only external. Inside Anthropic, debates over defense cooperation are intensifying. According to Axios, engineers are divided over how far cooperation should go.\n\nA more alarming signal came from the safety research team. On February 9, 2026, safety research lead Mrinank Sharma resigned, leaving the message: \"The world is in peril.\" For a company that has made AI safety its core identity, the departure of its safety team lead carries significant weight.\n\nOn the same day, Democratic lawmakers sent a formal letter to Defense Secretary Hegseth expressing concerns about the adoption of Grok (xAI). The political sphere had entered the conflict."
+    },
+    {
+      "type": "heading",
+      "value": "7. The $38 Billion Dilemma: Between IPO and Principles"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/67ecbba31246a69e485fdd4b/69777ff27e0e8e04dc416214_og_the-adolescence-of-technology.jpg",
+      "caption": "Dario Amodei's essay 'The Adolescence of Technology'",
+      "alt": "Dario Amodei The Adolescence of Technology essay Anthropic AI safety principles IPO dilemma"
+    },
+    {
+      "type": "text",
+      "value": "The timing is striking. On February 12, 2026, Anthropic closed a $30 billion funding round, reaching a $380 billion valuation. A company preparing for an IPO going head-to-head with the U.S. Department of Defense is unprecedented.\n\nThe Pentagon is reportedly considering designating Anthropic as a 'supply chain risk.' If enacted, this would require all military contractors to sever ties with Anthropic — affecting not just the Palantir partnership but potentially AWS government cloud contracts as well.\n\nBut the Pentagon faces its own dilemma. One Pentagon official admitted that the other AI model companies are \"just behind.\" This means there is no frontier model ready to immediately replace Claude."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Can AI Safety Principles Survive?"
+    },
+    {
+      "type": "text",
+      "value": "At its core, this conflict embodies the fundamental dilemma of an era where the pace of technological advancement outstrips institutional controls. The Pentagon argues it cannot fall behind China in the AI arms race, while Anthropic warns that 'rapid deployment' could threaten democracy itself.\n\nNotably, Anthropic is not rejecting defense cooperation outright. It is willing to collaborate on intelligence analysis, logistics optimization, and cyber defense. What it refuses are only two things: autonomous weapons that make lethal decisions without human oversight, and mass surveillance targeting its own citizens. These are not technical limitations — they are moral ones.\n\nWhen Google withdrew from Project Maven in 2018, the industry hailed it as a 'victory of principles.' But Google ultimately returned in 2025. How Anthropic navigates this moment will determine whether AI safety principles can truly hold up against the pressures of defense economics."
     }
   ],
   "relatedGames": []
