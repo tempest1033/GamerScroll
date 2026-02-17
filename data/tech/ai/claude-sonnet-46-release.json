@@ -1,0 +1,141 @@
+{
+  "slug": "claude-sonnet-46-release",
+  "status": "approved",
+  "category": "anthropic",
+  "title": "클로드 소넷 4.6 출시, 오퍼스급 성능을 소넷 가격에",
+  "titleEn": "Claude Sonnet 4.6 Launches with Opus-Level Performance at Sonnet Pricing",
+  "date": "2026-02-18T07:00",
+  "keywords": "Claude Sonnet 4.6, Anthropic, Claude 4.6, AI 모델 2026, Sonnet 가격, Opus 성능, SWE-bench, 코딩 AI, Claude Code, 1M 토큰, AI 벤치마크, Claude 업데이트",
+  "keywordsEn": "Claude Sonnet 4.6, Anthropic, Claude 4.6, AI model 2026, Sonnet pricing, Opus performance, SWE-bench, coding AI, Claude Code, 1M tokens, AI benchmark, Claude update",
+  "summary": "앤트로픽이 클로드 소넷 4.6을 출시했다. SWE-bench 79.6%로 오퍼스 4.6에 근접한 성능을 보이면서도 출력 가격은 40% 저렴하다. 코딩, 에이전트, 장문맥 추론까지 전방위 업그레이드된 이번 모델이 AI 시장의 가격 대비 성능 기준을 다시 쓰고 있다.",
+  "summaryEn": "Anthropic launched Claude Sonnet 4.6, scoring 79.6% on SWE-bench—nearly matching Opus 4.6—at 40% lower output cost. With across-the-board upgrades in coding, agents, and long-context reasoning, this model is rewriting the cost-performance equation in AI.",
+  "thumbnail": "https://www.anthropic.com/api/opengraph-illustration?name=Node-Head-Constellation&backgroundColor=clay",
+  "needTranslate": false,
+  "relatedDocs": [
+    "tech:ai/claude-code-vs-codex-coding-agent"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Introducing Claude Sonnet 4.6",
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-6"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Anthropic's Sonnet 4.6 matches flagship AI performance at one-fifth the cost",
+      "url": "https://venturebeat.com/technology/anthropics-sonnet-4-6-matches-flagship-ai-performance-at-one-fifth-the-cost"
+    },
+    {
+      "name": "The Verge",
+      "title": "Anthropic's new Sonnet 4.6 model is better at using computers",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/880397/anthropics-new-sonnet-4-6-model-is-better-at-using-computers"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 2월 18일 클로드 소넷 4.6을 공식 출시했다. 이번 모델은 코딩, 에이전트 작업, 장문맥 추론 등 거의 모든 영역에서 전작 소넷 4.5를 크게 앞서며, 최상위 모델인 오퍼스 4.6에 근접한 성능을 소넷 가격으로 제공한다. claude.ai와 클로드 코워크에서 무료 및 프로 사용자의 기본 모델로 즉시 설정됐다.\n\nVentureBeat는 이를 'AI 업계의 지각변동적 재가격 사건'이라고 평했다. 오퍼스급 성능을 훨씬 저렴한 가격에 쓸 수 있게 된 것이 시장에 미치는 영향이 그만큼 크다는 의미다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 소넷 4.6 벤치마크, 오퍼스 4.6과 거의 동급"
+    },
+    {
+      "type": "image",
+      "src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/10b2602771d21378cd6d76628a081c8a76dcf216-2600x2960.png",
+      "caption": "클로드 소넷 4.6 주요 벤치마크 비교표",
+      "alt": "클로드 소넷 4.6과 오퍼스 4.6 및 경쟁 모델 벤치마크 성능 비교 테이블"
+    },
+    {
+      "type": "text",
+      "value": "소넷 4.6은 소프트웨어 엔지니어링 벤치마크 SWE-bench Verified에서 79.6%를 기록했다. 오퍼스 4.6의 80.8%와 불과 1.2%p 차이다. 컴퓨터 사용 능력을 측정하는 OSWorld-Verified에서도 72.5%로, 오퍼스 4.6(72.7%)과 사실상 동등한 수치를 보였다.\n\n더 주목할 점은 일부 벤치마크에서 오퍼스를 앞선다는 것이다. 디자인 품질 평가(GDPval-AA)에서 소넷 4.6은 Elo 1633으로 오퍼스 4.6(1606)을 넘었고, 에이전트 금융 분석에서도 63.3% 대 60.1%로 앞섰다. 단순히 '저렴한 대안'이 아니라, 특정 영역에서는 최상위 모델을 능가하는 실력이다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 코딩 AI 성능, 클로드 코드 사용자 70%가 선호"
+    },
+    {
+      "type": "image",
+      "src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/1206645ef5a618dabce8587b472b21c67a30a0db-3840x1948.png",
+      "caption": "OSWorld 벤치마크에서 소넷 모델의 발전 추이",
+      "alt": "클로드 소넷 모델별 OSWorld 컴퓨터 사용 벤치마크 점수 비교 차트"
+    },
+    {
+      "type": "text",
+      "value": "코딩 분야에서의 개선이 특히 두드러진다. 앤트로픽에 따르면 클로드 코드 사용자의 70%가 기존 소넷 4.5보다 소넷 4.6을 선호했고, 59%는 최상위 모델인 오퍼스 4.5보다도 소넷 4.6을 택했다. 코드 생성뿐 아니라 과도한 엔지니어링 감소, 허위 성공 주장 감소, 환각 감소 등 실무에서 체감할 수 있는 개선이 이뤄졌다.\n\nReplit은 '성능 대비 비용 비율이 놀라운 수준'이라고 평했고, Cursor는 '전반적으로 눈에 띄는 개선'을, GitHub는 '복잡한 코드 수정에서 뛰어난 성능'을 확인했다고 밝혔다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 가격과 학습 데이터, 압도적 가성비"
+    },
+    {
+      "type": "text",
+      "value": "소넷 4.6의 기본 가격은 입력 $3/MTok, 출력 $15/MTok으로 소넷 4.5와 동일하다. 200K 토큰을 초과하는 롱 컨텍스트 사용 시에는 입력 $6, 출력 $22.50으로 올라가지만, 배치 API를 활용하면 입력 $1.50, 출력 $7.50까지 낮출 수 있다. 프롬프트 캐싱 읽기는 $0.30/MTok에 불과하다. 오퍼스 4.6(입력 $5, 출력 $25)과 비교하면 기본 출력 기준 40% 저렴하고, 배치 API 기준으로는 70% 저렴하다.\n\n학습 데이터 컷오프도 눈에 띈다. 소넷 4.6의 학습 데이터 컷오프는 2026년 1월로, 오퍼스 4.6보다 더 최신 데이터로 학습됐다. 1M 토큰 컨텍스트 윈도우(베타)도 지원해 대규모 코드베이스나 긴 문서 처리가 가능하다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 합리적 가격에 넓어진 선택지"
+    },
+    {
+      "type": "text",
+      "value": "클로드 소넷 4.6은 오퍼스에 근접한 성능을 합리적인 가격과 빠른 속도로 제공한다. 특히 클로드 코드의 차기 기능인 에이전트 팀에 투입하거나, 대규모 코드베이스 분석, 복잡한 에이전트 워크플로우 등 다양한 작업에 활용할 수 있어 실질적인 선택지가 넓어졌다. 비용 부담 없이 높은 성능이 필요한 작업에 소넷 4.6을 우선 투입하고, 필요할 때만 오퍼스를 쓰는 식의 유연한 운용이 가능해진 셈이기에, 유저들에게는 환영받는 업데이트가 될 것으로 보인다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic officially launched Claude Sonnet 4.6 on February 18. The model significantly outperforms its predecessor Sonnet 4.5 across nearly every dimension—coding, agentic tasks, and long-context reasoning—while delivering near-Opus 4.6 performance at Sonnet pricing. It's now the default model for Free and Pro users on claude.ai and Claude Cowork.\n\nVentureBeat called it a 'tectonic repricing event in AI.' When you can access Opus-tier capabilities at significantly lower cost, the market implications are hard to overstate."
+    },
+    {
+      "type": "heading",
+      "value": "1. Benchmarks: Nearly Matching Opus 4.6"
+    },
+    {
+      "type": "image",
+      "src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/10b2602771d21378cd6d76628a081c8a76dcf216-2600x2960.png",
+      "caption": "Claude Sonnet 4.6 benchmark comparison table",
+      "alt": "Benchmark performance comparison table for Claude Sonnet 4.6, Opus 4.6, and competing models"
+    },
+    {
+      "type": "text",
+      "value": "Sonnet 4.6 scored 79.6% on SWE-bench Verified, just 1.2 percentage points behind Opus 4.6's 80.8%. On OSWorld-Verified, which measures computer use capabilities, Sonnet 4.6 hit 72.5%—virtually identical to Opus 4.6's 72.7%.\n\nMore notably, Sonnet 4.6 actually surpasses Opus in some areas. In design quality evaluation (GDPval-AA), Sonnet 4.6 reached Elo 1633 versus Opus 4.6's 1606. In agentic financial analysis, it scored 63.3% against 60.1%. This isn't just a 'cheaper alternative'—it genuinely outperforms the flagship in specific domains."
+    },
+    {
+      "type": "heading",
+      "value": "2. Coding Performance: Preferred by 70% of Claude Code Users"
+    },
+    {
+      "type": "image",
+      "src": "https://www-cdn.anthropic.com/images/4zrzovbb/website/1206645ef5a618dabce8587b472b21c67a30a0db-3840x1948.png",
+      "caption": "Sonnet model progression on OSWorld benchmark",
+      "alt": "Chart showing Claude Sonnet models' OSWorld computer use benchmark scores over time"
+    },
+    {
+      "type": "text",
+      "value": "Coding improvements stand out the most. According to Anthropic, 70% of Claude Code users preferred Sonnet 4.6 over the previous Sonnet 4.5, while 59% chose it over the top-tier Opus 4.5. Beyond code generation, practical improvements include reduced over-engineering, fewer false success claims, and lower hallucination rates.\n\nReplit praised its 'remarkable performance-to-cost ratio,' Cursor noted 'noticeable improvements across the board,' and GitHub confirmed 'outstanding performance in complex code modifications.'"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Pricing and Training Data: Unmatched Value"
+    },
+    {
+      "type": "text",
+      "value": "Sonnet 4.6's base pricing is $3/MTok input and $15/MTok output—identical to Sonnet 4.5. For long-context usage beyond 200K tokens, pricing rises to $6 input and $22.50 output, but the Batch API brings it down to just $1.50 input and $7.50 output. Prompt caching reads cost only $0.30/MTok. Compared to Opus 4.6 ($5 input, $25 output), that's 40% cheaper at base output rates and 70% cheaper via Batch API.\n\nThe training data cutoff is also noteworthy. Sonnet 4.6 was trained with data through January 2026—more recent than Opus 4.6. It also supports a 1M-token context window (beta), enabling processing of large codebases and lengthy documents."
+    },
+    {
+      "type": "heading",
+      "value": "In Closing: More Options at a Reasonable Price"
+    },
+    {
+      "type": "text",
+      "value": "Claude Sonnet 4.6 delivers near-Opus performance at a reasonable price with faster speed. It's well-suited for Claude Code's upcoming agent teams feature, large codebase analysis, and complex agentic workflows—broadening the practical options available. The model enables a flexible approach: default to Sonnet 4.6 for cost-efficient high performance, and reserve Opus for when it's truly needed—a welcome update for users across the board."
+    }
+  ]
+}
