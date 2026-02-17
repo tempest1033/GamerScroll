@@ -8190,5 +8190,17 @@
       "link": "https://gall.dcinside.com/board/view/?id=dcbest&no=406103&_dcbest=1&page=1",
       "channel": "싱갤"
     }
-  ]
+  ],
+  "ai": {
+    "type": "error",
+    "error": {
+      "type": "authentication_error",
+      "message": "Invalid OAuth token. The provided token was not found or is malformed."
+    },
+    "request_id": "req_011CYEMDGMX8RCqBgs9m8Edy",
+    "date": "2026-02-18"
+  },
+  "aiGeneratedAt": "2026-02-17T21:27:00.180Z",
+  "stockMap": {},
+  "stockPrices": {}
 }
