@@ -1,49 +1,36 @@
 {
-  "updatedAt": "2026-02-16T00:14:52.352Z",
+  "updatedAt": "2026-02-17T00:59:54.346Z",
   "period": "7days",
   "articles": [
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 393,
+      "views": 397,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 181,
+      "views": 149,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 33,
+      "views": 34,
       "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "issue",
       "slug": "heavenhells-sales-decline-launch",
-      "views": 26,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-opus-46-pricing-controversy",
-      "category": "ai",
       "views": 22,
-      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
       "type": "hotpick",
       "slug": "mewgenics-edmund-mcmillen-14-years",
-      "views": 20,
+      "views": 21,
       "path": "/magazine/hotpick/mewgenics-edmund-mcmillen-14-years/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-day-one-reaction",
-      "views": 20,
-      "path": "/magazine/issue/lineage-classic-day-one-reaction/"
     },
     {
       "type": "tech",
@@ -61,33 +48,40 @@
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
-      "views": 14,
+      "views": 13,
       "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "tech",
       "slug": "claude-cowork-saaspocalypse",
       "category": "ai",
-      "views": 14,
+      "views": 13,
       "path": "/tech/ai/claude-cowork-saaspocalypse/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-opus-46-pricing-controversy",
+      "category": "ai",
+      "views": 12,
+      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 11,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "gpt-5-3-garlic-update-rumor",
+      "views": 11,
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
     },
     {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 10,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 9,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
-    },
-    {
-      "type": "issue",
-      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
-      "views": 8,
-      "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
     },
     {
       "type": "wiki",
@@ -97,24 +91,11 @@
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 7,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
       "type": "tech",
       "slug": "deepmind-update-aletheia-gemini",
       "category": "ai",
       "views": 7,
       "path": "/tech/ai/deepmind-update-aletheia-gemini/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-4o-shutdown-controversy",
-      "category": "ai",
-      "views": 7,
-      "path": "/tech/ai/gpt-4o-shutdown-controversy/"
     },
     {
       "type": "wiki",
@@ -124,19 +105,6 @@
       "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
-      "category": "knowledge",
-      "views": 7,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "issue",
-      "slug": "subculture-newyear-china-wins",
-      "views": 6,
-      "path": "/magazine/issue/subculture-newyear-china-wins/"
-    },
-    {
       "type": "ranking",
       "slug": "endfield-vs-dragonsword-new-year-2026",
       "views": 6,
@@ -144,10 +112,17 @@
     },
     {
       "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
+      "slug": "gpt-4o-shutdown-controversy",
       "category": "ai",
       "views": 6,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
+      "path": "/tech/ai/gpt-4o-shutdown-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "openclaw-steinberger-openai",
+      "category": "ai",
+      "views": 6,
+      "path": "/tech/ai/openclaw-steinberger-openai/"
     },
     {
       "type": "insight",
@@ -157,9 +132,27 @@
     },
     {
       "type": "issue",
+      "slug": "chzzk-lck-naver-viewer-complaints",
+      "views": 5,
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-day-one-reaction",
+      "views": 5,
+      "path": "/magazine/issue/lineage-classic-day-one-reaction/"
+    },
+    {
+      "type": "issue",
       "slug": "lucky-defense-probability-manipulation-scandal",
       "views": 5,
       "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+    },
+    {
+      "type": "issue",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 5,
+      "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
     },
     {
       "type": "tech",
@@ -169,6 +162,13 @@
       "path": "/tech/ai/chatgpt-desktop-app/"
     },
     {
+      "type": "tech",
+      "slug": "claude-code-vs-codex-coding-agent",
+      "category": "ai",
+      "views": 5,
+      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
+    },
+    {
       "type": "issue",
       "slug": "2026-subculture-openworld-games",
       "views": 4,
@@ -176,9 +176,9 @@
     },
     {
       "type": "issue",
-      "slug": "chzzk-lck-naver-viewer-complaints",
+      "slug": "subculture-newyear-china-wins",
       "views": 4,
-      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+      "path": "/magazine/issue/subculture-newyear-china-wins/"
     },
     {
       "type": "tech",
@@ -203,16 +203,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
+      "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 4,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "issue",
-      "slug": "arc-raiders-ddos-attack-jan-2026",
-      "views": 3,
-      "path": "/magazine/issue/arc-raiders-ddos-attack-jan-2026/"
+      "path": "/wiki/knowledge/gacha-system-regulations/"
     },
     {
       "type": "issue",
@@ -248,13 +242,6 @@
     },
     {
       "type": "tech",
-      "slug": "vibe-coding-guide",
-      "category": "vibecoding",
-      "views": 3,
-      "path": "/tech/vibecoding/vibe-coding-guide/"
-    },
-    {
-      "type": "tech",
       "slug": "vibe-coding",
       "category": "vibecoding",
       "views": 3,
@@ -268,15 +255,21 @@
     },
     {
       "type": "issue",
+      "slug": "arc-raiders-ddos-attack-jan-2026",
+      "views": 2,
+      "path": "/magazine/issue/arc-raiders-ddos-attack-jan-2026/"
+    },
+    {
+      "type": "issue",
       "slug": "arknights-endfield-launch-success",
       "views": 2,
       "path": "/magazine/issue/arknights-endfield-launch-success/"
     },
     {
       "type": "issue",
-      "slug": "blue-archive-5th-anniversary-japan",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
-      "path": "/magazine/issue/blue-archive-5th-anniversary-japan/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
@@ -312,6 +305,34 @@
       "path": "/tech/vibecoding/project-md-settings-guide/"
     },
     {
+      "type": "tech",
+      "slug": "vibe-coding-guide",
+      "category": "vibecoding",
+      "views": 2,
+      "path": "/tech/vibecoding/vibe-coding-guide/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-shareholder-returns-low-growth",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/game-shareholder-returns-low-growth/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
       "type": "issue",
       "slug": "ai-basic-act-game-industry-confusion",
       "views": 1,
@@ -319,9 +340,9 @@
     },
     {
       "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
+      "slug": "aion2-midterm-report-card",
       "views": 1,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
+      "path": "/magazine/issue/aion2-midterm-report-card/"
     },
     {
       "type": "issue",
@@ -331,27 +352,9 @@
     },
     {
       "type": "issue",
-      "slug": "gemini-3-hallucination-memory-overfitting",
+      "slug": "game-ai-paradigm-shift-2026",
       "views": 1,
-      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-launch-initial-reaction",
-      "views": 1,
-      "path": "/magazine/issue/heavenhells-launch-initial-reaction/"
-    },
-    {
-      "type": "issue",
-      "slug": "krafton-shareholder-return-1-trillion",
-      "views": 1,
-      "path": "/magazine/issue/krafton-shareholder-return-1-trillion/"
+      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
     },
     {
       "type": "issue",
@@ -382,6 +385,13 @@
       "slug": "nte-gameplay-reveal-before-cbt3",
       "views": 1,
       "path": "/magazine/issue/nte-gameplay-reveal-before-cbt3/"
+    },
+    {
+      "type": "tech",
+      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/anthropic-pentagon-ai-safety-standoff/"
     },
     {
       "type": "tech",
@@ -427,13 +437,6 @@
     },
     {
       "type": "tech",
-      "slug": "musk-openai-lawsuit-escalation",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/musk-openai-lawsuit-escalation/"
-    },
-    {
-      "type": "tech",
       "slug": "nvidia-ai-chip-monopoly-cracking",
       "category": "ai",
       "views": 1,
@@ -466,13 +469,6 @@
       "category": "vibecoding",
       "views": 1,
       "path": "/tech/vibecoding/vibe-coding-version-control-guide/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",

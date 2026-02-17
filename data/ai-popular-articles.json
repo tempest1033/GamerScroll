@@ -1,23 +1,17 @@
 {
-  "updatedAt": "2026-02-16T00:15:29.553Z",
+  "updatedAt": "2026-02-17T01:00:31.729Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 112,
+      "views": 113,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 22,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 19,
+      "views": 18,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -33,16 +27,16 @@
       "path": "/article/openai/openai-chatgpt-growth-100b-funding/"
     },
     {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 15,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
       "category": "general",
       "slug": "nvidia-gpu-launch-halt-ai-priority",
       "views": 11,
       "path": "/article/general/nvidia-gpu-launch-halt-ai-priority/"
-    },
-    {
-      "category": "general",
-      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
-      "views": 9,
-      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
     },
     {
       "category": "general",
@@ -51,9 +45,15 @@
       "path": "/article/general/xai-talent-exodus-grok-crisis/"
     },
     {
+      "category": "general",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 6,
+      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
       "category": "openai",
       "slug": "gpt-4o-shutdown-controversy",
-      "views": 7,
+      "views": 6,
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
@@ -69,12 +69,6 @@
       "path": "/article/anthropic/claude-cowork-windows-launch/"
     },
     {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 3,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
       "category": "google",
       "slug": "gemini-deep-think-hallucination-backlash",
       "views": 3,
@@ -82,9 +76,21 @@
     },
     {
       "category": "anthropic",
+      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "views": 2,
+      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+    },
+    {
+      "category": "anthropic",
       "slug": "claude-code-agent-teams-paradigm",
       "views": 2,
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-cowork-saaspocalypse",
+      "views": 2,
+      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
     },
     {
       "category": "anthropic",
@@ -97,6 +103,12 @@
       "slug": "big3-ipo-2026-openai-anthropic-spacex",
       "views": 2,
       "path": "/article/general/big3-ipo-2026-openai-anthropic-spacex/"
+    },
+    {
+      "category": "general",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 2,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "general",
@@ -142,12 +154,6 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-cowork-saaspocalypse",
-      "views": 1,
-      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
       "views": 1,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
@@ -175,12 +181,6 @@
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 1,
       "path": "/article/general/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 1,
-      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
     }
   ]
 }
