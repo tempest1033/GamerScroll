@@ -1,7 +1,7 @@
 # GamerScroll Project Guide
 
 ## Overview
-Game industry data crawling and daily/weekly report generation site.
+Game industry data crawling and daily report generation site.
 
 | Environment | URL | Repository |
 |-------------|-----|------------|
@@ -65,18 +65,6 @@ node generate-ai-insight.js
 - Duration: ~1-2 min
 - **Requires**: ANTHROPIC_API_KEY
 
-### Weekly Insight
-```bash
-node generate-weekly-insight.js          # Generate last week's report
-node generate-weekly-insight.js --force  # Force regeneration
-```
-- Summarizes last week's daily reports into a weekly report
-- Uses Codex CLI for AI analysis
-- Saves to `reports/weekly/{year}-W{week}.json`
-- Duration: ~5-10 min
-- **Schedule**: Every Monday 00:00 KST
-- **Requires**: Previous week's daily reports
-
 ---
 
 ## File Structure
@@ -85,7 +73,6 @@ node generate-weekly-insight.js --force  # Force regeneration
 /
 ├── generate-html-report.js    # Main entry point
 ├── generate-ai-insight.js     # Daily AI insight entry
-├── generate-weekly-insight.js # Weekly AI insight entry
 │
 ├── data-cache.json            # Crawl cache (git tracked)
 ├── index.html                 # Local generated HTML
@@ -95,16 +82,12 @@ node generate-weekly-insight.js --force  # Force regeneration
 │   ├── styles.css             # Stylesheet
 │   ├── CNAME                  # Custom domain
 │   └── reports/
-│       ├── {date}.json        # Daily insight (deploy copy)
-│       └── weekly/
-│           └── {year}-W{week}.json  # Weekly insight (deploy copy)
+│       └── {date}.json        # Daily insight (deploy copy)
 │
 ├── reports/                   # Insight data
 │   ├── {date}.json            # Daily AI insight + stocks + rankings
-│   ├── issue/
-│   │   └── {slug}.json        # Issue reports (blog-style)
-│   └── weekly/
-│       └── {year}-W{week}.json  # Weekly AI insight
+│   └── issue/
+│       └── {slug}.json        # Issue reports (blog-style)
 │
 ├── history/                   # Crawl snapshots
 │   └── {date}.json            # Daily full crawl data
@@ -128,7 +111,6 @@ node generate-weekly-insight.js --force  # Force regeneration
     ├── insights/
     │   ├── daily.js           # Daily insight analysis (delta calc)
     │   ├── ai-insight.js      # Daily AI insight generation
-    │   └── weekly-ai-insight.js  # Weekly AI insight generation
     │
     └── styles.css             # Source stylesheet
 ```
@@ -349,62 +331,6 @@ node scripts/process-review-queue.js [limit]
 
 ---
 
-## Weekly Insight
-
-### Data Structure (reports/weekly/{year}-W{week}.json)
-
-```json
-{
-  "weekInfo": {
-    "startDate": "2025-11-25",
-    "endDate": "2025-12-01",
-    "weekNumber": 48,
-    "dates": ["2025-11-25", "2025-11-26", "..."]
-  },
-  "generatedAt": "2025-12-02T00:00:00.000Z",
-  "dailyReportCount": 7,
-  "ai": {
-    "date": "2025-11-25 ~ 2025-12-01",
-    "weekNumber": 48,
-    "issues": [
-      { "tag": "모바일", "title": "금주 핫이슈 제목", "desc": "설명 100자" }
-    ],
-    "industryIssues": [
-      { "tag": "넥슨", "title": "업계 이슈 제목", "desc": "업계 동향 설명" }
-    ],
-    "metrics": [
-      { "tag": "매출", "title": "주간 지표 제목", "desc": "지표 설명" }
-    ],
-    "rankings": [
-      { "tag": "급상승", "title": "게임명", "desc": "순위 변동 이유" }
-    ],
-    "community": [
-      { "tag": "게임명", "title": "커뮤니티 핫토픽", "desc": "반응 요약" }
-    ],
-    "streaming": [
-      { "tag": "유튜브", "title": "스트리밍 트렌드", "desc": "트렌드 설명" }
-    ],
-    "stocks": [
-      { "name": "259960-크래프톤", "comment": "주간 주목 이유" }
-    ]
-  }
-}
-```
-
-### Generation Flow
-
-```
-1. Calculate Mon-Sun dates of last week
-2. Load daily reports for each date (reports/{date}.json)
-3. Summarize daily report data
-4. Call Codex CLI (gpt-5.3-codex)
-5. Generate weekly insight JSON (same structure as daily)
-6. Save to reports/weekly/{year}-W{week}.json
-7. Copy to docs/reports/weekly/
-```
-
----
-
 ## Workflows (GitHub Actions)
 
 ### build.yml
@@ -428,16 +354,6 @@ node scripts/process-review-queue.js [limit]
   2. `node generate-ai-insight.js`
   3. Copy reports/ -> docs/reports/
   4. Commit & push
-
-### weekly-insight.yml (Weekly)
-- Trigger: Every Monday 03:00 KST + manual
-- Runner: self-hosted (local Mac)
-- Steps:
-  1. `npm install --production`
-  2. `node generate-weekly-insight.js`
-  3. Copy reports/weekly/ -> docs/reports/weekly/
-  4. Commit & push
-- **Requires**: Previous week's daily reports
 
 ### GamerScroll / AI Scroll Build Separation
 - GamerScroll and AI Scroll (AIScroll blog) use **separate build workflows**
@@ -1318,8 +1234,6 @@ powershell.exe -Command "cd C:\Project\GamerScroll; git push origin main; gh wor
 # Trigger AI insight workflow
 powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run ai-insight.yml"
 
-# Trigger weekly insight workflow
-powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run weekly-insight.yml"
 ```
 
 **GitHub Actions**: https://github.com/tempest1033/GamerScroll/actions

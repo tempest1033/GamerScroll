@@ -2,7 +2,7 @@
 /**
  * AI 인사이트(일간/주간) JSON의 thumbnail을 history 뉴스 썸네일 기준으로 정리합니다.
  *
- * 적용 규칙 (ai-insight.js / weekly-ai-insight.js의 "썸네일 선택 규칙" 반영):
+ * 적용 규칙 (ai-insight.js의 "썸네일 선택 규칙" 반영):
  * - 뉴스 DB(history)에서 '확실히 일치'하는 썸네일이 있으면 우선 적용
  * - '확실히 일치'는 기본적으로 타이틀의 핵심 키워드(상위 2개 토큰)가 뉴스 제목에 모두 포함되는 경우
  * - 느슨한 매칭(2개 이상 토큰 매칭)은 안전 모드에서 '현재 썸네일이 뉴스 도메인이 아닐 때'만 교체
@@ -27,10 +27,8 @@ const PROJECT_ROOT = path.resolve(__dirname, '..'); // GamerScroll/
 const HISTORY_DIR = path.join(PROJECT_ROOT, 'history');
 
 const REPORTS_DIR = path.join(PROJECT_ROOT, 'reports');
-const WEEKLY_REPORTS_DIR = path.join(REPORTS_DIR, 'weekly');
 
 const DOCS_REPORTS_DIR = path.join(PROJECT_ROOT, 'docs', 'reports');
-const DOCS_WEEKLY_REPORTS_DIR = path.join(DOCS_REPORTS_DIR, 'weekly');
 
 const NEWS_SOURCES = ['inven', 'ruliweb', 'gamemeca', 'thisisgame'];
 const NEWS_DOMAINS = new Set([
@@ -185,26 +183,6 @@ function loadHistoryNews(date) {
   }
 }
 
-function toDateUTC(ymd) {
-  return new Date(`${ymd}T00:00:00.000Z`);
-}
-
-function formatDateUTC(d) {
-  return d.toISOString().slice(0, 10);
-}
-
-function iterateDateRange(startDate, endDate) {
-  const start = toDateUTC(startDate);
-  const end = toDateUTC(endDate);
-  const dates = [];
-
-  for (let cur = new Date(start); cur <= end; cur.setUTCDate(cur.getUTCDate() + 1)) {
-    dates.push(formatDateUTC(cur));
-  }
-
-  return dates;
-}
-
 function getAiItemsWithThumbnails(ai, sections) {
   const items = [];
   if (!ai || typeof ai !== 'object') return items;
@@ -339,14 +317,6 @@ function listDailyReportFiles(dir) {
     .sort((a, b) => path.basename(a).localeCompare(path.basename(b)));
 }
 
-function listWeeklyReportFiles(dir) {
-  if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir)
-    .filter(f => /^\d{4}-W\d{2}\.json$/.test(f))
-    .map(f => path.join(dir, f))
-    .sort((a, b) => path.basename(a).localeCompare(path.basename(b)));
-}
-
 function runDaily(dir, label) {
   const files = listDailyReportFiles(dir);
   const results = [];
@@ -357,43 +327,6 @@ function runDaily(dir, label) {
     results.push(applyFixesToFile(filePath, date, {
       newsItems,
       sections: ['issues', 'industryIssues', 'metrics'],
-      label
-    }));
-  }
-
-  return results;
-}
-
-function runWeekly(dir, label) {
-  const files = listWeeklyReportFiles(dir);
-  const results = [];
-
-  for (const filePath of files) {
-    let data;
-    try {
-      data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    } catch (e) {
-      results.push({ label, filePath, date: null, updated: false, error: `JSON 파싱 실패: ${e.message}`, changes: [] });
-      continue;
-    }
-
-    const weekInfo = data.weekInfo || {};
-    const startDate = weekInfo.startDate;
-    const endDate = weekInfo.endDate;
-    if (!startDate || !endDate) {
-      results.push({ label, filePath, date: null, updated: false, error: 'weekInfo.startDate/endDate 없음', changes: [] });
-      continue;
-    }
-
-    const dates = iterateDateRange(startDate, endDate);
-    const newsItems = [];
-    for (const d of dates) {
-      newsItems.push(...loadHistoryNews(d));
-    }
-
-    results.push(applyFixesToFile(filePath, path.basename(filePath), {
-      newsItems,
-      sections: ['issues', 'industryIssues', 'metrics', 'global'],
       label
     }));
   }
@@ -456,12 +389,10 @@ function main() {
 
   // 1) 소스 reports
   results.push(...runDaily(REPORTS_DIR, 'reports'));
-  results.push(...runWeekly(WEEKLY_REPORTS_DIR, 'reports/weekly'));
 
   // 2) 배포 docs/reports (GitHub Pages) - 기본은 제외 (GamerScroll/GAMERSCROLL.md 참고)
   if (includeDocs) {
     results.push(...runDaily(DOCS_REPORTS_DIR, 'docs/reports'));
-    results.push(...runWeekly(DOCS_WEEKLY_REPORTS_DIR, 'docs/reports/weekly'));
   }
 
   const summary = summarize(results);
