@@ -1,36 +1,24 @@
 {
-  "updatedAt": "2026-02-17T01:00:31.729Z",
+  "updatedAt": "2026-02-18T01:02:29.755Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 113,
+      "views": 116,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 18,
+      "views": 17,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "anthropic",
       "slug": "claude-opus-46-pricing-controversy",
-      "views": 16,
+      "views": 11,
       "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-chatgpt-growth-100b-funding",
-      "views": 15,
-      "path": "/article/openai/openai-chatgpt-growth-100b-funding/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 15,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "general",
@@ -45,6 +33,12 @@
       "path": "/article/general/xai-talent-exodus-grok-crisis/"
     },
     {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 8,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
       "category": "general",
       "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
       "views": 6,
@@ -53,14 +47,8 @@
     {
       "category": "openai",
       "slug": "gpt-4o-shutdown-controversy",
-      "views": 6,
-      "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
       "views": 5,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+      "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
       "category": "anthropic",
@@ -69,10 +57,28 @@
       "path": "/article/anthropic/claude-cowork-windows-launch/"
     },
     {
+      "category": "openai",
+      "slug": "openai-chatgpt-growth-100b-funding",
+      "views": 4,
+      "path": "/article/openai/openai-chatgpt-growth-100b-funding/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 4,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
       "category": "google",
       "slug": "gemini-deep-think-hallucination-backlash",
       "views": 3,
       "path": "/article/google/gemini-deep-think-hallucination-backlash/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "project-md-settings-guide",
+      "views": 3,
+      "path": "/article/vibecoding/project-md-settings-guide/"
     },
     {
       "category": "anthropic",
@@ -91,6 +97,12 @@
       "slug": "claude-cowork-saaspocalypse",
       "views": 2,
       "path": "/article/anthropic/claude-cowork-saaspocalypse/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-sonnet-46-release",
+      "views": 2,
+      "path": "/article/anthropic/claude-sonnet-46-release/"
     },
     {
       "category": "anthropic",
@@ -148,21 +160,15 @@
     },
     {
       "category": "vibecoding",
-      "slug": "vibe-coding-guide",
+      "slug": "vibe-coding-workflow-prompt-guide",
       "views": 2,
-      "path": "/article/vibecoding/vibe-coding-guide/"
+      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     },
     {
       "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
       "views": 1,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 1,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "general",
@@ -172,15 +178,9 @@
     },
     {
       "category": "general",
-      "slug": "nvidia-ai-chip-monopoly-cracking",
+      "slug": "grok-420-multi-agent-release",
       "views": 1,
-      "path": "/article/general/nvidia-ai-chip-monopoly-cracking/"
-    },
-    {
-      "category": "general",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 1,
-      "path": "/article/general/seedance-2-hollywood-shock-next-version/"
+      "path": "/article/general/grok-420-multi-agent-release/"
     }
   ]
 }

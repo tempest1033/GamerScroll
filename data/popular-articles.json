@@ -1,30 +1,18 @@
 {
-  "updatedAt": "2026-02-17T00:59:54.346Z",
+  "updatedAt": "2026-02-18T01:01:52.692Z",
   "period": "7days",
   "articles": [
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 397,
+      "views": 400,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 149,
+      "views": 113,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 34,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
-      "views": 22,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
       "type": "hotpick",
@@ -33,55 +21,60 @@
       "path": "/magazine/hotpick/mewgenics-edmund-mcmillen-14-years/"
     },
     {
+      "type": "issue",
+      "slug": "heavenhells-sales-decline-launch",
+      "views": 20,
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 18,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
       "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
-      "views": 20,
+      "views": 15,
       "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 19,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
-      "views": 13,
+      "views": 14,
       "path": "/magazine/issue/dragon-sword-launch-report/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 13,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 11,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "tech",
       "slug": "claude-cowork-saaspocalypse",
       "category": "ai",
-      "views": 13,
-      "path": "/tech/ai/claude-cowork-saaspocalypse/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-opus-46-pricing-controversy",
-      "category": "ai",
-      "views": 12,
-      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
       "views": 11,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+      "path": "/tech/ai/claude-cowork-saaspocalypse/"
     },
     {
       "type": "issue",
       "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 11,
+      "views": 9,
       "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 10,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 8,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "wiki",
@@ -98,24 +91,11 @@
       "path": "/tech/ai/deepmind-update-aletheia-gemini/"
     },
     {
-      "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
-      "category": "knowledge",
-      "views": 7,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
-    },
-    {
-      "type": "ranking",
-      "slug": "endfield-vs-dragonsword-new-year-2026",
-      "views": 6,
-      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
-    },
-    {
       "type": "tech",
-      "slug": "gpt-4o-shutdown-controversy",
+      "slug": "claude-opus-46-pricing-controversy",
       "category": "ai",
       "views": 6,
-      "path": "/tech/ai/gpt-4o-shutdown-controversy/"
+      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
     },
     {
       "type": "tech",
@@ -123,6 +103,13 @@
       "category": "ai",
       "views": 6,
       "path": "/tech/ai/openclaw-steinberger-openai/"
+    },
+    {
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
+      "category": "knowledge",
+      "views": 6,
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
       "type": "insight",
@@ -138,18 +125,6 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-day-one-reaction",
-      "views": 5,
-      "path": "/magazine/issue/lineage-classic-day-one-reaction/"
-    },
-    {
-      "type": "issue",
-      "slug": "lucky-defense-probability-manipulation-scandal",
-      "views": 5,
-      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
-    },
-    {
-      "type": "issue",
       "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
       "views": 5,
       "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
@@ -162,13 +137,6 @@
       "path": "/tech/ai/chatgpt-desktop-app/"
     },
     {
-      "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "category": "ai",
-      "views": 5,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
-    },
-    {
       "type": "issue",
       "slug": "2026-subculture-openworld-games",
       "views": 4,
@@ -176,9 +144,21 @@
     },
     {
       "type": "issue",
-      "slug": "subculture-newyear-china-wins",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 4,
-      "path": "/magazine/issue/subculture-newyear-china-wins/"
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 4,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "lucky-defense-probability-manipulation-scandal",
+      "views": 4,
+      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
     },
     {
       "type": "tech",
@@ -186,6 +166,13 @@
       "category": "ai",
       "views": 4,
       "path": "/tech/ai/applovin-ai-ad-gaming-revenue/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-code-vs-codex-coding-agent",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "tech",
@@ -202,17 +189,10 @@
       "path": "/wiki/business/google-genie3-unity-stock-crash/"
     },
     {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "slug": "arknights-endfield-launch-success",
       "views": 3,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+      "path": "/magazine/issue/arknights-endfield-launch-success/"
     },
     {
       "type": "issue",
@@ -221,17 +201,23 @@
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
-      "type": "ranking",
-      "slug": "steam-january-2026",
+      "type": "issue",
+      "slug": "lineage-classic-day-one-reaction",
       "views": 3,
-      "path": "/magazine/ranking/steam-january-2026/"
+      "path": "/magazine/issue/lineage-classic-day-one-reaction/"
+    },
+    {
+      "type": "issue",
+      "slug": "subculture-newyear-china-wins",
+      "views": 3,
+      "path": "/magazine/issue/subculture-newyear-china-wins/"
     },
     {
       "type": "tech",
-      "slug": "openai-chatgpt-growth-100b-funding",
+      "slug": "gpt-4o-shutdown-controversy",
       "category": "ai",
       "views": 3,
-      "path": "/tech/ai/openai-chatgpt-growth-100b-funding/"
+      "path": "/tech/ai/gpt-4o-shutdown-controversy/"
     },
     {
       "type": "tech",
@@ -261,18 +247,6 @@
     },
     {
       "type": "issue",
-      "slug": "arknights-endfield-launch-success",
-      "views": 2,
-      "path": "/magazine/issue/arknights-endfield-launch-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 2,
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
@@ -282,6 +256,12 @@
       "slug": "seven-deadly-sins-origin-launch-korean-subculture",
       "views": 2,
       "path": "/magazine/issue/seven-deadly-sins-origin-launch-korean-subculture/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-january-2026",
+      "views": 2,
+      "path": "/magazine/ranking/steam-january-2026/"
     },
     {
       "type": "tech",
@@ -296,20 +276,6 @@
       "category": "vibecoding",
       "views": 2,
       "path": "/tech/vibecoding/mcp-guide/"
-    },
-    {
-      "type": "tech",
-      "slug": "project-md-settings-guide",
-      "category": "vibecoding",
-      "views": 2,
-      "path": "/tech/vibecoding/project-md-settings-guide/"
-    },
-    {
-      "type": "tech",
-      "slug": "vibe-coding-guide",
-      "category": "vibecoding",
-      "views": 2,
-      "path": "/tech/vibecoding/vibe-coding-guide/"
     },
     {
       "type": "wiki",
@@ -327,10 +293,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
+      "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/knowledge/gacha-system-regulations/"
     },
     {
       "type": "issue",
@@ -358,6 +324,12 @@
     },
     {
       "type": "issue",
+      "slug": "heavenhells-launch-initial-reaction",
+      "views": 1,
+      "path": "/magazine/issue/heavenhells-launch-initial-reaction/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-refund-exploit-ban",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
@@ -367,6 +339,12 @@
       "slug": "lineage-classic-subscription-return",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-subscription-return/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 1,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
@@ -385,6 +363,12 @@
       "slug": "nte-gameplay-reveal-before-cbt3",
       "views": 1,
       "path": "/magazine/issue/nte-gameplay-reveal-before-cbt3/"
+    },
+    {
+      "type": "ranking",
+      "slug": "endfield-vs-dragonsword-new-year-2026",
+      "views": 1,
+      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
     },
     {
       "type": "tech",
@@ -409,10 +393,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-fennec-release-imminent",
+      "slug": "claude-sonnet-46-release",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/claude-fennec-release-imminent/"
+      "path": "/tech/ai/claude-sonnet-46-release/"
     },
     {
       "type": "tech",
@@ -430,10 +414,10 @@
     },
     {
       "type": "tech",
-      "slug": "gpt-53-codex-community-reaction",
+      "slug": "grok-420-multi-agent-release",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/gpt-53-codex-community-reaction/"
+      "path": "/tech/ai/grok-420-multi-agent-release/"
     },
     {
       "type": "tech",
@@ -457,18 +441,11 @@
       "path": "/tech/normal/firebase-serverless-game-backend/"
     },
     {
-      "type": "tech",
-      "slug": "vibe-coding-basics",
-      "category": "vibecoding",
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
       "views": 1,
-      "path": "/tech/vibecoding/vibe-coding-basics/"
-    },
-    {
-      "type": "tech",
-      "slug": "vibe-coding-version-control-guide",
-      "category": "vibecoding",
-      "views": 1,
-      "path": "/tech/vibecoding/vibe-coding-version-control-guide/"
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "wiki",
