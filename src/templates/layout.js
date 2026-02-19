@@ -2353,6 +2353,7 @@ function wrapWithLayout(content, options = {}) {
     showSearchBar = true,
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
+    articleSection = '',  // article:section OG 메타 (자동 추론 가능)
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     breadcrumbs = null,  // BreadcrumbList JSON-LD
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용)

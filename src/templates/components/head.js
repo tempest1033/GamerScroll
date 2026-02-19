@@ -11,6 +11,7 @@ function generateHead(options = {}) {
     canonical = 'https://gamerscroll.com',
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
+    articleSection = '',  // article:section OG 메타 (카테고리별 다르게 설정)
     breadcrumbs = null,  // BreadcrumbList JSON-LD [{name, url}]
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, image, operatingSystem, applicationCategory, aggregateRating}
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
@@ -122,7 +123,7 @@ function generateHead(options = {}) {
   const articleOgMeta = articleSchema ? [
     articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(articleSchema.datePublished)}">` : '',
     articleSchema.dateModified ? `<meta property="article:modified_time" content="${escapeHtmlAttr(articleSchema.dateModified)}">` : '',
-    `<meta property="article:section" content="게임">`,
+    `<meta property="article:section" content="${escapeHtmlAttr(articleSection || '게임')}">`,
     `<meta property="article:author" content="게이머스크롤">`,
     ...keywordTags.map(tag => `<meta property="article:tag" content="${escapeHtmlAttr(tag)}">`)
   ].filter(Boolean).join('\n  ') : '';
