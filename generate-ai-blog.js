@@ -15,6 +15,9 @@ const crypto = require('crypto');
 const sharp = require('sharp');
 const { PurgeCSS } = require('purgecss');
 
+// 로컬 빌드 시 draft 포함 (CI 환경이 아니거나 --draft/-d 플래그)
+const includeDrafts = !process.env.CI || process.argv.includes('--draft') || process.argv.includes('-d');
+
 // 증분 빌드 캐시
 const buildCache = require('./ai-build-cache');
 
@@ -279,7 +282,7 @@ function loadArticles() {
         const content = fs.readFileSync(path.join(techAiDir, file), 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
         ensurePublishDate(data, path.join(techAiDir, file), 'UTC');
-        if (data.status === 'approved' || data.status === 'published') {
+        if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
           articles.push({ ...data, source: 'tech/ai', sourceFile: file });
           loadedSlugs.add(data.slug);
         }
@@ -298,7 +301,7 @@ function loadArticles() {
         const content = fs.readFileSync(path.join(techVibeCodingDir, file), 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
         ensurePublishDate(data, path.join(techVibeCodingDir, file), 'UTC');
-        if (data.status === 'approved' || data.status === 'published') {
+        if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
           // vibecoding 카테고리 강제 지정
           articles.push({ ...data, category: 'vibecoding', source: 'tech/vibecoding', sourceFile: file });
           loadedSlugs.add(data.slug);
@@ -319,7 +322,7 @@ function loadArticles() {
         const data = JSON.parse(content);
         const isExtra = EXTRA_ARTICLES.issue.includes(data.slug);
         const isGlobal = data.isGlobal === true;
-        const isValid = data.status === 'approved' || data.status === 'published';
+        const isValid = data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft');
 
         if ((isGlobal || isExtra) && isValid && !loadedSlugs.has(data.slug)) {
           articles.push({ ...data, source: 'issue', sourceFile: file });
@@ -338,7 +341,7 @@ function loadArticles() {
       try {
         const content = fs.readFileSync(wikiFile, 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
-        if (data.status === 'approved' || data.status === 'published') {
+        if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
           articles.push({ ...data, source: `wiki/${wikiItem.category}`, sourceFile: `${wikiItem.slug}.json` });
           loadedSlugs.add(data.slug);
         }
@@ -357,7 +360,7 @@ function loadArticles() {
         try {
           const content = fs.readFileSync(hotpickFile, 'utf8').replace(/^\uFEFF/, '');
           const data = JSON.parse(content);
-          if (data.status === 'approved' || data.status === 'published') {
+          if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
             articles.push({ ...data, source: 'hotpick', sourceFile: `${slug}.json` });
             loadedSlugs.add(data.slug);
           }
@@ -369,7 +372,7 @@ function loadArticles() {
   }
 
   // 날짜순 정렬 (최신순)
-  articles.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  articles.sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
 
   return articles;
 }

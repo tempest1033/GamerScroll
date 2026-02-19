@@ -499,7 +499,7 @@ function loadWikiData() {
     }
 
     // 날짜 기준 정렬 (최신순)
-    wikiData[category].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    wikiData[category].sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   return wikiData;
@@ -539,7 +539,7 @@ function loadTechData() {
     }
 
     // 날짜 기준 정렬 (최신순)
-    techData[category].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    techData[category].sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   return techData;
@@ -1060,7 +1060,7 @@ async function main() {
       }
     })
       .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   // 인사이트 리포트 데이터 로드 (홈페이지용, 승인된 것만)
@@ -1078,7 +1078,7 @@ async function main() {
       }
     })
       .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   // 핫픽 리포트 데이터 로드 (홈페이지용, 승인된 것만)
@@ -1096,7 +1096,7 @@ async function main() {
       }
     })
       .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   // 순위 분석 리포트 데이터 로드 (홈페이지용, 승인된 것만)
@@ -1114,7 +1114,7 @@ async function main() {
       }
     })
       .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   // 일간 리포트 개수는 실제 로드 후 계산 (매거진 섹션에서 설정됨)
@@ -1423,7 +1423,7 @@ async function main() {
       }
     })
       .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   // 인사이트 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
@@ -1441,7 +1441,7 @@ async function main() {
       }
     })
       .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   // 핫픽 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
@@ -1459,7 +1459,7 @@ async function main() {
       }
     })
       .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   // 순위 분석 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
@@ -1477,7 +1477,7 @@ async function main() {
       }
     })
       .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
   // 공통 인기글/최신글 리스트 생성 (홈, 매거진, 위키에서 공유)
@@ -1551,16 +1551,16 @@ async function main() {
 
   // === 최신글: 날짜순 카테고리별 10개 ===
   const sidebarLatestAll = [...allSidebarArticles]
-    .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
+    .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99')).slice(0, 10);
   const sidebarLatestMagazine = allSidebarArticles
     .filter(a => ['이슈', '인사이트', '핫픽', '순위 분석'].includes(a.badge))
-    .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
+    .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99')).slice(0, 10);
   const sidebarLatestWiki = allSidebarArticles
     .filter(a => ['히스토리', '지식', '비즈니스'].includes(a.badge))
-    .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
+    .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99')).slice(0, 10);
   const sidebarLatestTech = allSidebarArticles
     .filter(a => ['일반', 'AI', '바이브코딩'].includes(a.badge))
-    .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
+    .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99')).slice(0, 10);
 
   console.log(`  📰 사이드바 인기글: 전체 ${sidebarPopularAll.length}개, 매거진 ${sidebarPopularMagazine.length}개, 위키 ${sidebarPopularWiki.length}개, 테크 ${sidebarPopularTech.length}개`);
   console.log(`  📰 사이드바 최신글: 전체 ${sidebarLatestAll.length}개, 매거진 ${sidebarLatestMagazine.length}개, 위키 ${sidebarLatestWiki.length}개, 테크 ${sidebarLatestTech.length}개`);
