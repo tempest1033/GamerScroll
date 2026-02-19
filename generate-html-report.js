@@ -2561,7 +2561,9 @@ async function main() {
     { loc: `${siteBaseUrl}/wiki/knowledge/`, lastmod: sitemapDate },
     // 테크 (허브 + 카테고리)
     { loc: `${siteBaseUrl}/tech/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/tech/normal/`, lastmod: sitemapDate }
+    { loc: `${siteBaseUrl}/tech/normal/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/tech/ai/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/tech/vibecoding/`, lastmod: sitemapDate }
   ];
 
   // 위키 페이지 자동 스캔
@@ -2708,7 +2710,7 @@ async function main() {
 ${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
-  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 위키 ${wikiPages.length}개 + 매거진 ${magazinePages.length}개 = 총 ${allPages.length}개 URL`);
+  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 위키 ${wikiPages.length}개 + 테크 ${techPages.length}개 + 매거진 ${magazinePages.length}개 = 총 ${allPages.length}개 URL`);
 
   // robots.txt 생성
   const robotsTxt = `# GamerScroll robots.txt

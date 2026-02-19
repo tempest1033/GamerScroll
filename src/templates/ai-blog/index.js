@@ -2138,13 +2138,28 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     ${sidebarLatestDeferScript}
   `;
 
+  // CollectionPage JSON-LD for category pages
+  const categoryJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": categoryLabel,
+    "description": `${categoryLabel} articles on AIScroll`,
+    "url": `${SITE_CONFIG.baseUrl}/article/${categoryId}/`,
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": SITE_CONFIG.name,
+      "url": `${SITE_CONFIG.baseUrl}/`
+    }
+  };
+
   return wrapWithLayout(content, {
     title: `${categoryLabel} - ${SITE_CONFIG.name}`,
     description: `${categoryLabel} articles on AIScroll`,
     keywords: `${categoryLabel}, AI news, ${SITE_CONFIG.keywords}`,
     canonical: `${SITE_CONFIG.baseUrl}/article/${categoryId}/`,
     pageScripts,
-    currentPage: categoryId
+    currentPage: categoryId,
+    jsonLd: categoryJsonLd
   });
 }
 

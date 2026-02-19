@@ -2391,10 +2391,27 @@ function wrapWithLayout(content, options = {}) {
   const shouldLoadApexCharts = loadApexCharts || /ApexCharts/.test(pageScripts || '') || /ApexCharts/.test(content || '');
   const shouldLoadTwitterWidget = loadTwitterWidget || /twitter-tweet/.test(content || '') || /twitter-tweet/.test(pageScripts || '');
 
+  // article:section 자동 추론 (명시적으로 전달되지 않은 경우 canonical URL에서 파생)
+  const resolvedArticleSection = articleSection || (() => {
+    if (!articleSchema) return '';
+    const url = String(canonical || '');
+    if (url.includes('/tech/ai/')) return 'AI';
+    if (url.includes('/tech/vibecoding/')) return '바이브코딩';
+    if (url.includes('/tech/normal/') || url.includes('/tech/')) return '테크';
+    if (url.includes('/wiki/')) return '위키';
+    if (url.includes('/magazine/issue/')) return '이슈';
+    if (url.includes('/magazine/daily/')) return '데일리';
+    if (url.includes('/magazine/insight/')) return '인사이트';
+    if (url.includes('/magazine/hotpick/')) return '핫픽';
+    if (url.includes('/magazine/ranking/')) return '순위 분석';
+    if (url.includes('/magazine/')) return '매거진';
+    return '게임';
+  })();
+
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, noindex, breadcrumbs, softwareSchema, cssFilename, cssFilenames: resolvedCssFiles })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, breadcrumbs, softwareSchema, cssFilename, cssFilenames: resolvedCssFiles })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
