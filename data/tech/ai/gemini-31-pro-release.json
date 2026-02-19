@@ -8,10 +8,15 @@
   "summaryEn": "Google has unveiled Gemini 3.1 Pro, demonstrating dominant reasoning performance with a 77.1% score on ARC-AGI-2 and cutting hallucination rates from 88% to 50%. However, long-context retention and search accuracy remain areas for improvement.",
   "keywords": "제미나이 3.1 프로, Gemini 3.1 Pro, 구글 AI, 추론 벤치마크, 멀티모달 AI, 할루시네이션 개선, ARC-AGI-2, GPQA Diamond, 인공지능 인덱스, AI 모델 비교 2026",
   "keywordsEn": "Gemini 3.1 Pro, Google AI, reasoning benchmark, multimodal AI, hallucination improvement, ARC-AGI-2, GPQA Diamond, Artificial Analysis Intelligence Index, AI model comparison 2026",
-  "date": "",
+  "date": "2026-02-20T04:00",
   "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_pro_meta_dark.width-1300.png",
   "needTranslate": false,
-  "relatedDocs": ["tech:ai/deepmind-update-aletheia-gemini", "tech:ai/gemini-deep-think-hallucination-backlash", "tech:ai/claude-code-vs-codex-coding-agent", "tech:ai/gpt-53-codex-community-reaction"],
+  "relatedDocs": [
+    "tech:ai/deepmind-update-aletheia-gemini",
+    "tech:ai/gemini-deep-think-hallucination-backlash",
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/gpt-53-codex-community-reaction"
+  ],
   "relatedGames": [],
   "sources": [
     {
