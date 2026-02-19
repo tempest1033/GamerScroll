@@ -83,6 +83,14 @@
     flex-wrap: wrap;
     gap: 8px;
   }
+
+  #game .page-container .rank-trend-section {
+    min-height: 200px;
+  }
+
+  #game .page-container .trend-charts {
+    min-height: 180px;
+  }
 }
 
 /* 검색창 내부 홈 아이콘 */

@@ -110,9 +110,7 @@ function generateGamePage(gameData) {
   function generateRankingsSection() {
     const entries = Object.entries(rankings);
     const hasMobileData = entries.length > 0;
-    const hasSteamDataLocal = (hasPcPlatform || !hasMobilePlatform) && steam && (steam.currentPlayers || steam.rank || steam.salesRank);
-
-    if (!hasMobileData && !hasSteamDataLocal) {
+    if (!hasMobileData) {
       return '<div class="game-empty">현재 순위 데이터가 없습니다</div>';
     }
 
@@ -417,37 +415,6 @@ function generateGamePage(gameData) {
       }
 
       html += '</div>'; // realtime-rank-section
-    }
-
-    // 스팀 섹션
-    if (hasSteamDataLocal) {
-      html += `<div class="game-rank-section steam">
-        <div class="game-rank-section-header">
-          <span class="game-rank-section-icon"></span>
-          <span class="game-rank-section-title">Steam</span>
-        </div>
-        <div class="game-steam-inline">`;
-
-      if (steam.currentPlayers) {
-        html += `<div class="game-steam-stat-inline">
-          <span class="game-steam-stat-label">현재 플레이어</span>
-          <span class="game-steam-stat-value">${steam.currentPlayers.toLocaleString()}</span>
-        </div>`;
-      }
-      if (steam.peakPlayers) {
-        html += `<div class="game-steam-stat-inline">
-          <span class="game-steam-stat-label">24h 피크</span>
-          <span class="game-steam-stat-value">${steam.peakPlayers.toLocaleString()}</span>
-        </div>`;
-      }
-      if (steam.rank) {
-        html += `<div class="game-steam-stat-inline">
-          <span class="game-steam-stat-label">동접 순위</span>
-          <span class="game-steam-stat-value">${steam.rank}위</span>
-        </div>`;
-      }
-
-      html += `</div></div>`;
     }
 
     return html;
