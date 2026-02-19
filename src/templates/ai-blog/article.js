@@ -415,9 +415,9 @@ function generateAIBlogArticle(article, data = {}) {
   const nextArticle = currentIndex > 0 ? sortedArticles[currentIndex - 1] : null;
   const navHTML = `
     <div class="trend-detail-nav">
-      ${prevArticle ? `<a href="/article/${prevArticle.category || 'general'}/${prevArticle.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/" class="trend-nav-btn list">목록</a>
-      ${nextArticle ? `<a href="/article/${nextArticle.category || 'general'}/${nextArticle.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+      ${prevArticle ? `<a href="/article/${prevArticle.category || 'general'}/${prevArticle.slug}/" class="trend-nav-btn prev">‹ Previous</a>` : '<span class="trend-nav-btn disabled">‹ Previous</span>'}
+      <a href="/" class="trend-nav-btn list">List</a>
+      ${nextArticle ? `<a href="/article/${nextArticle.category || 'general'}/${nextArticle.slug}/" class="trend-nav-btn next">Next ›</a>` : '<span class="trend-nav-btn disabled">Next ›</span>'}
     </div>
   `;
 
