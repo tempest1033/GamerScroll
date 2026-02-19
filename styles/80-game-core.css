@@ -24,7 +24,7 @@
 }
 
 #game .page-container .trend-charts {
-  padding: 4px 4px;
+  padding: 12px 4px;
   display: flex;
   flex-direction: column;
   min-height: 260px;
@@ -180,7 +180,7 @@
 .page-container.game-page-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-block-gap-lg);
+  gap: var(--space-block-gap);
 }
 
 /* 그리드 간격과 카드 마진 중복 방지 */

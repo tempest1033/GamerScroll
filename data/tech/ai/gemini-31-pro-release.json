@@ -1,0 +1,150 @@
+{
+  "slug": "gemini-31-pro-release",
+  "status": "approved",
+  "category": "google",
+  "title": "제미나이 3.1 프로 출시, 추론과 멀티모달 모두 SOTA급 도약",
+  "titleEn": "Gemini 3.1 Pro Launch: A SOTA-Level Leap in Reasoning and Multimodal AI",
+  "summary": "구글이 제미나이 3.1 프로를 공개했다. ARC-AGI-2에서 77.1%를 기록하며 추론 능력에서 압도적 성능을 보여줬고, 할루시네이션 비율도 88%에서 50%로 대폭 줄었다. 다만 롱 컨텍스트 유지와 검색 정확도에는 여전히 과제가 남아 있다.",
+  "summaryEn": "Google has unveiled Gemini 3.1 Pro, demonstrating dominant reasoning performance with a 77.1% score on ARC-AGI-2 and cutting hallucination rates from 88% to 50%. However, long-context retention and search accuracy remain areas for improvement.",
+  "keywords": "제미나이 3.1 프로, Gemini 3.1 Pro, 구글 AI, 추론 벤치마크, 멀티모달 AI, 할루시네이션 개선, ARC-AGI-2, GPQA Diamond, 인공지능 인덱스, AI 모델 비교 2026",
+  "keywordsEn": "Gemini 3.1 Pro, Google AI, reasoning benchmark, multimodal AI, hallucination improvement, ARC-AGI-2, GPQA Diamond, Artificial Analysis Intelligence Index, AI model comparison 2026",
+  "date": "",
+  "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_pro_meta_dark.width-1300.png",
+  "needTranslate": false,
+  "relatedDocs": ["tech:ai/deepmind-update-aletheia-gemini", "tech:ai/gemini-deep-think-hallucination-backlash", "tech:ai/claude-code-vs-codex-coding-agent", "tech:ai/gpt-53-codex-community-reaction"],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Google Blog",
+      "title": "Gemini 3.1 Pro: Our most capable model yet",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Google launches Gemini 3.1 Pro, retaking AI crown with 2x reasoning",
+      "url": "https://venturebeat.com/technology/google-launches-gemini-3-1-pro-retaking-ai-crown-with-2x-reasoning"
+    },
+    {
+      "name": "Ars Technica",
+      "title": "Google announces Gemini 3.1 Pro, says it's better at complex problem solving",
+      "url": "https://arstechnica.com/google/2026/02/google-announces-gemini-3-1-pro-says-its-better-at-complex-problem-solving/"
+    },
+    {
+      "name": "OfficeChai",
+      "title": "Google Gemini 3.1 Pro takes top spot in Artificial Analysis Intelligence Index",
+      "url": "https://officechai.com/ai/google-gemini-3-1-pro-takes-top-spot-in-artificial-analysis-intelligence-index-at-price-half-that-of-opus-4-6-gpt-5-2/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글이 2월 19일 제미나이 3.1 프로(프리뷰)를 공개했다. 지난해 11월 출시된 제미나이 3 프로를 기반으로 추론, 코딩, 과학 등 거의 모든 벤치마크에서 눈에 띄는 성능 향상을 이뤄냈다. 특히 멀티모달과 추론 벤치마크인 ARC-AGI-2에서 77.1%를 기록하며 전작 대비 두 배 이상의 도약을 보여줬다.\n\n아티피셜 애널리시스 인텔리전스 인덱스 v4.0에서도 57점으로 1위를 차지하며, 클로드 오퍼스 4.6(53점)과 GPT-5.2를 제치고 종합 성능 최상위에 올랐다. 주목할 점은 이 성능을 경쟁 모델 대비 절반 이하의 비용으로 달성했다는 것이다. 구글 AI 스튜디오, 제미나이 CLI, 버텍스 AI에서 공개 프리뷰로 사용할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 벤치마크 성적표, 추론과 코딩에서 압도적 격차"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_3-1-pro__benchmarks.gif",
+      "caption": "제미나이 3.1 프로 주요 벤치마크 성적 비교",
+      "alt": "제미나이 3.1 프로 벤치마크 성적 비교 ARC-AGI-2 GPQA Diamond 코딩 추론"
+    },
+    {
+      "type": "text",
+      "value": "제미나이 3.1 프로의 가장 인상적인 성과는 추론 관련 벤치마크에서 나왔다. 멀티모달과 추론 능력을 측정하는 ARC-AGI-2에서 77.1%를 기록해 클로드 오퍼스 4.6(68.8%), GPT-5.2(52.9%)를 큰 폭으로 앞섰다. 인류의 마지막 시험이라 불리는 Humanity's Last Exam에서도 44.4%로 최고점을 경신했다.\n\n코딩 영역도 마찬가지다. 라이브코드벤치 프로에서 엘로 2887을 기록해 전작(2439) 대비 450점 가까이 뛰었고, 터미널벤치 2.0에서는 68.5%로 역시 1위를 차지했다. SWE-벤치 베리파이드에서는 80.6%로 클로드 오퍼스 4.6(80.8%)과 거의 동률을 이뤘다.\n\n과학 분야의 GPQA 다이아몬드에서도 94.3%를 기록하며 경쟁 모델들을 모두 앞섰다. 젯브레인즈는 이 모델을 두고 \"15% 품질 향상, 더 강하고 빠르며 효율적\"이라 평가했으며, 데이터브릭스는 자사 오피스QA 벤치마크에서 최고 성적이라고 밝혔다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 멀티모달 비전 강점과 할루시네이션 감소"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_deep-think_keyword_heade.width-800.format-webp.webp",
+      "caption": "구글 제미나이 딥 싱크 모드",
+      "alt": "구글 제미나이 3 딥 싱크 확장 사고 멀티모달 AI 모델"
+    },
+    {
+      "type": "text",
+      "value": "제미나이 3.1 프로는 멀티모달 분야에서도 균일한 강점을 보여줬다. MMMU-Pro에서 80.5%를 기록해 GPT-5.2(79.5%), 클로드 오퍼스 4.6(73.9%)을 넘어섰다. 카트휠은 3D 변환 이해도가 대폭 향상됐다고 평가하기도 했다. 이미지와 문서 분석, 비전 기반 코딩 등에서 경쟁사 대비 우위가 뚜렷하다는 것이 커뮤니티의 전반적인 평가다.\n\n더 주목할 부분은 할루시네이션 개선이다. AA-옴니사이언스 테스트에서 할루시네이션 비율이 88%에서 50%로 38%포인트나 줄었다. 구글은 이를 \"더 많이 아는 것이 아니라 모를 때 솔직해진 것\"이라 설명했다. 모르는 것을 아는 척하는 대신 모른다고 인정하는 방향으로 개선된 것이다.\n\n브라우즈컴프(검색 능력) 벤치마크에서도 85.9%를 기록하며 클로드 오퍼스 4.6(84.0%)을 근소하게 앞질렀다. 검색과 추론을 결합한 복합 태스크에서의 능력이 전반적으로 향상된 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 여전한 과제, 롱 컨텍스트와 검색 안정성"
+    },
+    {
+      "type": "text",
+      "value": "벤치마크 성적은 화려하지만 실사용에서는 여전히 아쉬운 부분이 있다. 커뮤니티에서 가장 많이 지적되는 문제는 롱 컨텍스트 유지력이다. 공식적으로 100만 토큰 입력을 지원하지만, 30만 토큰을 넘어서면 성능이 눈에 띄게 저하된다는 피드백이 꾸준히 올라오고 있다. 긴 대화 세션에서 앞부분 맥락을 잊어버리는 현상도 보고된다. 이는 코딩 분야에서 특히 치명적인데, 대규모 코드베이스를 다루는 작업에서는 컨텍스트 메모리 유지가 핵심이기 때문이다.\n\n코딩 도구 생태계 측면에서도 과제가 남아 있다. 벤치마크상 코딩 성능은 최상위권이지만, 실제 개발자 경험을 좌우하는 것은 모델 성능만이 아니다. 오픈AI의 코덱스나 앤트로픽의 클로드 코드처럼 이미 성숙한 코딩 전용 도구와 비교하면, 제미나이 CLI는 아직 초기 단계다. 도구의 완성도와 개발 워크플로우 통합이 뒷받침되지 않으면 벤치마크 우위가 실사용 경쟁력으로 이어지기 어렵다.\n\n검색 기능 역시 완전하지 않다. 브라우즈컴프 벤치마크에서는 높은 점수를 받았지만, 실제 사용 시 최근 정보를 제대로 가져오지 못하는 사례가 여전히 발견된다. 딥 싱크(확장 사고) 모드 없이 사용할 때는 여전히 할루시네이션이 발생한다는 보고도 있다. 일부 사용자들은 세션 안정성 문제와 간헐적으로 \"게으른\" 응답을 내놓는 경향도 지적하고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: SOTA 왕좌 탈환, 그러나 완성은 아직"
+    },
+    {
+      "type": "text",
+      "value": "제미나이 3.1 프로는 분명 현시점 가장 강력한 AI 모델 중 하나다. 추론, 코딩, 과학, 멀티모달 등 주요 벤치마크 10개 카테고리 중 6개에서 1위를 차지했고, 특히 추상 추론과 할루시네이션 감소에서 의미 있는 진전을 보여줬다. 가격 대비 성능까지 고려하면 경쟁력은 더욱 돋보인다.\n\n다만 롱 컨텍스트 유지력과 검색 안정성, 세션 지속성 등 실사용 영역에서의 과제는 여전히 남아 있다. 벤치마크 1위와 실사용 체감 사이의 간극을 얼마나 빠르게 좁히느냐가 정식 출시의 관건이 될 것이다. 클로드 오퍼스 4.6, GPT-5.2와의 3파전 구도 속에서 AI 모델 경쟁이 한층 치열해졌다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 19, Google unveiled Gemini 3.1 Pro (Preview), building on November's Gemini 3 Pro with notable performance gains across nearly every benchmark in reasoning, coding, and science. Most impressively, it scored 77.1% on the multimodal and reasoning benchmark ARC-AGI-2, more than doubling the previous version's result.\n\nIt also claimed the top spot in the Artificial Analysis Intelligence Index v4.0 with 57 points, surpassing Claude Opus 4.6 (53 points) and GPT-5.2. What makes this particularly noteworthy is that Google achieved this at less than half the cost of competing models. The model is available as a public preview on Google AI Studio, Gemini CLI, and Vertex AI."
+    },
+    {
+      "type": "heading",
+      "value": "1. Benchmark Results: A Dominant Lead in Reasoning and Coding"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_3-1-pro__benchmarks.gif",
+      "caption": "Gemini 3.1 Pro key benchmark results comparison",
+      "alt": "Gemini 3.1 Pro benchmark comparison ARC-AGI-2 GPQA Diamond coding reasoning"
+    },
+    {
+      "type": "text",
+      "value": "Gemini 3.1 Pro's most impressive achievements came in reasoning benchmarks. It scored 77.1% on ARC-AGI-2, which measures multimodal and reasoning ability, significantly outperforming Claude Opus 4.6 (68.8%) and GPT-5.2 (52.9%). It also set a new high of 44.4% on Humanity's Last Exam.\n\nCoding performance saw similar gains. It reached an Elo of 2887 on LiveCodeBench Pro, up nearly 450 points from its predecessor (2439), and topped Terminal-Bench 2.0 at 68.5%. On SWE-Bench Verified, it scored 80.6%, virtually tied with Claude Opus 4.6 (80.8%).\n\nIn the science domain, it achieved 94.3% on GPQA Diamond, outperforming all competitors. JetBrains described it as showing \"15% quality improvement, stronger, faster, and more efficient,\" while Databricks reported best-in-class performance on their OfficeQA benchmark."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Multimodal Vision Strengths and Hallucination Reduction"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_deep-think_keyword_heade.width-800.format-webp.webp",
+      "caption": "Google Gemini Deep Think mode",
+      "alt": "Google Gemini 3 Deep Think extended reasoning multimodal AI model"
+    },
+    {
+      "type": "text",
+      "value": "Gemini 3.1 Pro also demonstrated consistent strengths in multimodal capabilities. It scored 80.5% on MMMU-Pro, surpassing GPT-5.2 (79.5%) and Claude Opus 4.6 (73.9%). Cartwheel noted a significant improvement in 3D transformation understanding. The community consensus is that the model holds a clear advantage in image and document analysis, as well as vision-based coding.\n\nPerhaps more noteworthy is the improvement in hallucinations. On the AA-Omniscience test, the hallucination rate dropped from 88% to 50%, a 38 percentage point reduction. Google explained this not as \"knowing more\" but as \"being honest about what it doesn't know.\" Rather than fabricating answers, the model now admits uncertainty.\n\nOn BrowseComp, which measures search and retrieval capabilities, it scored 85.9%, narrowly edging out Claude Opus 4.6 (84.0%). Overall performance on complex tasks combining search and reasoning has seen broad improvement."
+    },
+    {
+      "type": "heading",
+      "value": "3. Remaining Challenges: Long Context and Search Reliability"
+    },
+    {
+      "type": "text",
+      "value": "Despite impressive benchmarks, real-world usage still reveals some shortcomings. The most frequently cited issue in the community is long-context retention. While it officially supports 1 million input tokens, consistent feedback indicates noticeable performance degradation beyond 300,000 tokens. Users also report the model forgetting earlier context in extended conversation sessions. This is particularly critical for coding, where maintaining context memory across large codebases is essential.\n\nThe coding tool ecosystem also presents challenges. While benchmark scores place it at the top tier for coding, what ultimately shapes the developer experience goes beyond raw model performance. Compared to mature coding-specific tools like OpenAI's Codex and Anthropic's Claude Code, Gemini CLI is still in its early stages. Without robust tooling and seamless development workflow integration, benchmark superiority may not translate into real-world competitive advantage.\n\nSearch functionality isn't fully reliable either. Despite high BrowseComp scores, real-world usage still encounters cases where the model fails to retrieve recent information. There are also reports of hallucinations persisting when used without Deep Think (extended reasoning) mode. Some users have also pointed out session stability issues and an occasional tendency to produce \"lazy\" responses."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Reclaiming the SOTA Crown, but Not Yet Complete"
+    },
+    {
+      "type": "text",
+      "value": "Gemini 3.1 Pro is undeniably one of the most powerful AI models available today. It claimed first place in 6 out of 10 major benchmark categories spanning reasoning, coding, science, and multimodal tasks, with particularly meaningful progress in abstract reasoning and hallucination reduction. When factoring in price-to-performance, its competitiveness becomes even more compelling.\n\nHowever, challenges remain in real-world areas including long-context retention, search reliability, and session persistence. How quickly Google can narrow the gap between benchmark supremacy and actual user experience will be crucial for the official release. The three-way race between Claude Opus 4.6, GPT-5.2, and now Gemini 3.1 Pro has made the AI model competition more intense than ever."
+    }
+  ]
+}

@@ -17,7 +17,7 @@
 	      display: grid;
 	      grid-template-columns: 1fr 300px;
 	      gap: var(--space-block-gap);
-	      padding: var(--space-block-y) 0;
+	      padding: 0 0 var(--space-block-y) 0;
 	      align-items: start; /* 두 컬럼 상단 정렬 보장 */
 	    }
 
@@ -1712,14 +1712,14 @@
       .home-container {
         grid-template-columns: 1fr 320px;
         gap: var(--space-block-gap);
-        padding: var(--space-block-y) 0;
+        padding: 0 0 var(--space-block-y) 0;
       }
     }
 
     @media (max-width: 768px) {
       .home-container {
         display: block !important;
-        padding: var(--space-block-y) 0;
+        padding: 0 0 var(--space-block-y) 0;
       }
       .home-container > * {
         margin-bottom: var(--space-block-gap);
