@@ -510,6 +510,13 @@ function generateAIBlogArticle(article, data = {}) {
   // 날짜 ISO 형식 변환
   const dateISO = article.date ? new Date(article.date).toISOString() : new Date().toISOString();
 
+  // 썸네일 절대 URL 변환 (소셜 크롤러용)
+  const absoluteThumbnail = article.thumbnail
+    ? (article.thumbnail.startsWith('http') || article.thumbnail.startsWith('//')
+      ? article.thumbnail
+      : `${SITE_CONFIG.baseUrl}${article.thumbnail}`)
+    : null;
+
   // JSON-LD 구조화 데이터 (Article + BreadcrumbList)
   const jsonLd = [
     {
@@ -517,7 +524,7 @@ function generateAIBlogArticle(article, data = {}) {
       "@type": "Article",
       "headline": article.title,
       "description": article.summary || '',
-      "image": article.thumbnail || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`,
+      "image": absoluteThumbnail || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`,
       "datePublished": dateISO,
       "dateModified": dateISO,
       "author": {
@@ -575,14 +582,27 @@ function generateAIBlogArticle(article, data = {}) {
     tags: keywordTags
   };
 
+  // Title 트리밍: 60자 이내로
+  const suffix = ` - ${SITE_CONFIG.name}`;
+  const fullTitle = `${article.title}${suffix}`;
+  const trimmedTitle = fullTitle.length > 60
+    ? `${article.title.slice(0, 60 - suffix.length - 3)}...${suffix}`
+    : fullTitle;
+
+  // Description 트리밍: 155자 이내로
+  const rawDescription = article.summary || SITE_CONFIG.description;
+  const trimmedDescription = rawDescription.length > 155
+    ? rawDescription.slice(0, 152).replace(/\s+\S*$/, '') + '...'
+    : rawDescription;
+
   return wrapWithLayout(content, {
-    title: `${article.title} - ${SITE_CONFIG.name}`,
-    description: article.summary || SITE_CONFIG.description,
+    title: trimmedTitle,
+    description: trimmedDescription,
     keywords: article.keywords || SITE_CONFIG.keywords,
     canonical: `${SITE_CONFIG.baseUrl}/article/${article.category || 'general'}/${article.slug}/`,
     pageScripts: pageScripts,
     jsonLd: jsonLd,
-    ogImage: article.thumbnail,
+    ogImage: absoluteThumbnail,
     ogType: 'article',
     articleMeta: articleMeta,
     currentPage: article.category || 'general'

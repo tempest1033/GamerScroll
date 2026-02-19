@@ -265,7 +265,7 @@ function generateHead(options = {}) {
   <meta name="keywords" content="${safeKeywords}">
   <meta name="application-name" content="게이머스크롤">
   <meta name="apple-mobile-web-app-title" content="게이머스크롤">
-  <link rel="canonical" href="${safeCanonical}">
+  ${noindex ? '' : `<link rel="canonical" href="${safeCanonical}">`}
   ${alternateLink}
   <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">${
     // WebSite 스키마는 홈페이지에서만 출력 (구글 권장사항)

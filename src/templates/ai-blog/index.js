@@ -732,6 +732,7 @@ function wrapWithLayout(content, options = {}) {
     // Article-specific OG tags
     articleMeta = null,  // { publishedTime, modifiedTime, section, author, tags }
     ogType = 'website',   // 'website' for homepage, 'article' for articles
+    noindex = false,      // true이면 검색엔진 인덱싱 차단
     sidebarCounts = {},  // 모바일 사이드 패널 카테고리 숫자
     cssFilenames = null
   } = options;
@@ -840,7 +841,7 @@ function wrapWithLayout(content, options = {}) {
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="keywords" content="${escapeHtml(keywords)}">
-  <link rel="canonical" href="${canonical}">
+  ${noindex ? '<meta name="robots" content="noindex, follow">' : `<link rel="canonical" href="${canonical}">`}
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="${SITE_CONFIG.favicon}">
@@ -1973,7 +1974,8 @@ function generateSearchPage() {
     description: 'Search articles on AIScroll',
     keywords: SITE_CONFIG.keywords,
     canonical: `${SITE_CONFIG.baseUrl}/search/`,
-    pageScripts: pageScripts
+    pageScripts: pageScripts,
+    noindex: true
   });
 }
 

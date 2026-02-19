@@ -68,7 +68,7 @@ function ensurePublishDate(article, jsonFilePath, timezone) {
   const dd = String(now.getUTCDate()).padStart(2, '0');
   const hh = String(now.getUTCHours()).padStart(2, '0');
   const min = String(now.getUTCMinutes()).padStart(2, '0');
-  article.date = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
+  article.date = `${yyyy}-${mm}-${dd}T${hh}:${min}Z`;
   // JSON 파일에 write back
   try {
     const raw = fs.readFileSync(jsonFilePath, 'utf8').replace(/^\uFEFF/, '');
@@ -1001,7 +1001,6 @@ function generateSEOFiles(articles) {
   // 1. sitemap.xml 생성
   const sitemapPages = [
     { loc: `${SITE_URL}/`, lastmod: today, priority: '1.0' },
-    { loc: `${SITE_URL}/search/`, lastmod: today, priority: '0.5' },
     { loc: `${SITE_URL}/privacy/`, lastmod: today, priority: '0.3' },
     // 카테고리 페이지
     { loc: `${SITE_URL}/article/general/`, lastmod: today, priority: '0.8' },
