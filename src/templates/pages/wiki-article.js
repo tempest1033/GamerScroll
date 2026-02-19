@@ -56,6 +56,15 @@ function parseMarkdownLinks(str) {
 }
 
 /**
+ * 테이블 셀용 인라인 마크다운 변환 (볼드, 코드, 링크)
+ */
+function parseTableCell(str) {
+  return parseMarkdownLinks(str)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
+/**
  * 마크다운 표를 HTML table로 변환
  */
 function parseMarkdownTable(text) {
@@ -250,9 +259,9 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
 
       case 'table':
         if (!block.headers || !block.rows) break;
-        const tableHeaders = block.headers.map(h => `<th>${escapeHtmlAttr(h)}</th>`).join('');
+        const tableHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
         const tableRows = block.rows.map(row =>
-          `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
+          `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
         ).join('');
         result.push(`
           <figure class="blog-figure blog-table">

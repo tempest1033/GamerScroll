@@ -1,0 +1,167 @@
+{
+  "slug": "vibe-coding-agent-guide",
+  "status": "approved",
+  "category": "vibecoding",
+  "title": "바이브 코딩 에이전트 가이드: 서브에이전트, 팀, 커스텀 에이전트까지",
+  "titleEn": "Vibe Coding Agent Guide: Sub-Agents, Teams, and Custom Agents",
+  "date": "2026-02-19",
+  "thumbnail": "https://media.licdn.com/dms/image/v2/D5612AQFmGwUeW-VGUg/article-cover_image-shrink_720_1280/B56ZhM0ztwHMAM-/0/1753635569429?e=2147483647&v=beta&t=DXGVGNxgGGbDsgyxrg0M0Y6o1KXbXCQrbe2MQhBAheo",
+  "keywords": "바이브 코딩 에이전트, 서브에이전트, 에이전트 팀, AGENTS.md, 커스텀 에이전트, Claude Code 에이전트, Codex 에이전트, 멀티에이전트, Task tool",
+  "keywordsEn": "vibe coding agent, sub-agent, agent team, AGENTS.md, custom agent, Claude Code agent, Codex agent, multi-agent, Task tool",
+  "summary": "바이브 코딩에서 에이전트를 활용하는 방법을 다룬다. 서브에이전트의 개념과 사용법, AGENTS.md로 커스텀 에이전트를 정의하는 방법, 에이전트 팀으로 복잡한 작업을 분할하는 방법까지 실전 중심으로 정리했다.",
+  "summaryEn": "This guide covers how to use agents in vibe coding. It explains sub-agent concepts and usage, defining custom agents with AGENTS.md, and splitting complex tasks with agent teams, all with a practical focus.",
+  "sources": [],
+  "relatedGames": [],
+  "relatedDocs": [
+    "vibe-coding-guide",
+    "project-md-settings-guide"
+  ],
+  "toc": true,
+  "content": [
+    {
+      "type": "series",
+      "articles": [
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "바이브 코딩 완전 가이드로 돌아가기",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "바이브 코딩 도구를 쓰다 보면 하나의 AI가 모든 걸 처리하기 어려운 순간이 온다. 코드를 수정하면서 동시에 다른 파일을 탐색해야 하거나, 서버와 클라이언트를 동시에 고쳐야 하거나, 대규모 리팩토링을 하면서 기존 코드를 안전하게 보존해야 할 때가 그렇다.\n\n이럴 때 등장하는 것이 에이전트다. 에이전트는 메인 AI와 별도로 동작하는 특화된 AI 인스턴스로, 독립적인 컨텍스트를 가지고 특정 작업을 수행한다. Claude Code와 Codex 모두 에이전트를 지원하며, 이를 잘 활용하면 복잡한 작업을 훨씬 효율적으로 처리할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "에이전트란 무엇인가"
+    },
+    {
+      "type": "text",
+      "value": "에이전트는 메인 AI와 별개로 동작하는 독립적인 AI 인스턴스다. 메인 AI가 총괄 지휘관이라면, 에이전트는 특정 임무를 맡은 병사에 가깝다.\n\n**에이전트가 필요한 이유:**\n- **컨텍스트 보호**: 메인 대화의 컨텍스트를 오염시키지 않고 별도 작업을 수행할 수 있다. 예를 들어 대규모 코드베이스를 탐색하면 컨텍스트가 빠르게 차는데, 에이전트에게 탐색을 맡기면 메인 컨텍스트는 깨끗하게 유지된다.\n- **병렬 처리**: 여러 에이전트가 동시에 서로 다른 작업을 수행할 수 있다. 한 에이전트가 서버 코드를 수정하는 동안, 다른 에이전트가 클라이언트 코드를 수정하는 식이다.\n- **역할 분리**: 탐색 전용, 코드 수정 전용, 리뷰 전용 등 역할을 나누면 각 에이전트가 자기 역할에 집중할 수 있다.\n\n현재 바이브 코딩 도구에서 에이전트는 크게 두 가지 형태로 제공된다. **서브에이전트**(단방향, 태스크 기반)와 **에이전트 팀**(양방향, 협업 기반)이다."
+    },
+    {
+      "type": "heading",
+      "value": "서브에이전트"
+    },
+    {
+      "type": "text",
+      "value": "서브에이전트는 메인 AI가 특정 작업을 위해 생성하는 일회성 에이전트다. Claude Code에서는 Task 도구를 통해, Codex에서도 유사한 방식으로 동작한다.\n\n**동작 방식:**\n1. 메인 AI가 서브에이전트에게 프롬프트(지시)를 전달\n2. 서브에이전트가 독립적인 컨텍스트에서 작업 수행\n3. 작업이 끝나면 결과를 메인 AI에게 보고\n4. 서브에이전트 종료\n\n핵심은 **단방향** 구조라는 점이다. 메인 → 서브로 지시를 내리고, 서브 → 메인으로 결과를 보고한다. 서브에이전트끼리 직접 대화하거나, 작업 중에 메인에게 질문을 던지는 건 불가능하다.\n\n**빌트인 서브에이전트 타입:**\n- **Explore**: 코드베이스 탐색 전용. 파일 구조 파악, 특정 함수 찾기, 코드 흐름 분석 등에 사용한다. 읽기만 가능하고 수정은 불가능하다.\n- **Plan**: 작업 계획 수립 전용. 구현 방안을 설계하고 단계별 계획을 세운다. 코드를 읽을 수 있지만 수정은 하지 않는다.\n\n```\n# 메인 AI가 서브에이전트를 사용하는 흐름 예시\n\n메인 AI: \"이 프로젝트의 인증 로직이 어디에 있는지 찾아줘\"\n  └─ Explore 서브에이전트 생성\n     ├─ src/ 디렉토리 탐색\n     ├─ auth 관련 파일 검색\n     └─ 결과 보고: \"src/auth/login.ts에 인증 로직이 있습니다\"\n\n메인 AI: 보고 받은 정보를 바탕으로 코드 수정 진행\n```\n\n서브에이전트는 가볍고 빠르다. 컨텍스트를 별도로 관리하므로 메인 대화가 오염되지 않고, 작업이 끝나면 자동으로 정리된다. 단순한 탐색이나 독립적인 작업에 적합하다."
+    },
+    {
+      "type": "heading",
+      "value": "AGENTS.md로 커스텀 에이전트 만들기"
+    },
+    {
+      "type": "text",
+      "value": "빌트인 타입(Explore, Plan) 외에 나만의 에이전트를 정의할 수 있다. AGENTS.md 파일에 에이전트의 이름, 사용할 모델, 허용할 도구, 역할 등을 지정하면 된다.\n\n**파일 위치:**\n- 프로젝트별: `.claude/agents/에이전트이름.md`\n- 글로벌(모든 프로젝트 공통): `~/.claude/agents/에이전트이름.md`\n\n**파일 구조:**\n```yaml\nname: Worker\nmodel: opus\nallowed_tools:\n  - Read\n  - Write\n  - Edit\n  - Glob\n  - Grep\n  - Bash\npermission_mode: default\n\n# Worker\n\n## 역할\n- 코드 및 데이터 수정 전용\n- 커밋, 빌드, 배포는 하지 않음\n\n## 규칙\n- 지시받은 파일만 수정할 것\n- 수정 후 결과를 보고할 것\n```\n\nYAML 프론트매터 부분이 에이전트의 설정이고, 그 아래 마크다운 본문이 에이전트에게 전달되는 시스템 프롬프트다.\n\n**주요 설정 항목:**\n- `name`: 에이전트 이름. Task 도구에서 이 이름으로 호출한다.\n- `model`: 사용할 모델. `opus`, `sonnet`, `haiku` 등. 역할에 따라 적절한 모델을 선택하면 비용을 절약할 수 있다.\n- `allowed_tools`: 이 에이전트가 사용할 수 있는 도구 목록. 예를 들어 탐색 전용 에이전트는 Read, Glob, Grep만 허용하고 Write, Edit는 제외할 수 있다.\n- `permission_mode`: 권한 모드. `default`는 위험한 작업에 확인을 요청하고, `bypassPermissions`는 모든 작업을 자동 승인한다.\n\n**Codex의 경우:**\nCodex에서는 `codex.md` 파일의 `[agents]` 섹션에서 유사하게 에이전트를 정의할 수 있다. 문법은 다르지만 개념은 동일하다.\n\n커스텀 에이전트를 잘 정의하면 반복적인 작업을 표준화할 수 있다. 예를 들어 \"Worker는 코드만 수정하고 절대 커밋하지 않는다\", \"Reviewer는 코드를 읽기만 하고 수정하지 않는다\" 같은 규칙을 에이전트 정의에 넣어두면, 실수로 역할을 벗어나는 상황을 방지할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "에이전트 팀"
+    },
+    {
+      "type": "text",
+      "value": "에이전트 팀은 Claude Code의 실험적 기능으로, 여러 에이전트가 동시에 활동하며 양방향으로 소통하는 멀티에이전트 시스템이다. 서브에이전트의 \"지시 → 보고\" 단방향 구조와 달리, 팀원 에이전트들이 서로 메시지를 주고받으며 협업할 수 있다.\n\n**팀 구조:**\n```\n팀 리드 ─┬─ Explorer     (코드베이스 탐색)\n         ├─ Worker A     (클라이언트 코드 수정)\n         ├─ Worker B     (서버 코드 수정)\n         ├─ Reviewer     (코드 리뷰)\n         └─ Utility      (빌드/커밋/배포)\n```\n\n**핵심 특징:**\n- **양방향 소통**: 팀원끼리 직접 메시지를 주고받을 수 있다. Worker A가 Worker B에게 \"API 응답 형식이 어떻게 되나요?\"라고 직접 물어볼 수 있다.\n- **공유 태스크 리스트**: 전체 팀이 공유하는 작업 목록이 있어, 누가 어떤 작업을 하고 있는지 파악할 수 있다.\n- **메일박스 메시징**: 각 에이전트에게 메시지를 보내면 해당 에이전트의 메일박스에 도착한다.\n- **델리게이트 모드**: 팀 리드가 Shift+Tab으로 전환하는 모드. 리드가 직접 작업하지 않고 팀원에게 위임하는 데 최적화되어 있다.\n\n**팀 리드의 역할:**\n팀 리드는 직접 코드를 수정하거나 파일을 탐색하지 않는다. 대신 작업을 분배하고, 진행 상황을 조율하고, 유저와 소통하는 허브 역할을 한다. 마치 프로젝트 매니저처럼 동작한다.\n\n**팀 워크플로우 예시:**\n```\n1. 유저: \"로그인 기능에 2FA를 추가해줘\"\n2. 리드 → Explorer: \"현재 인증 코드 구조 파악해줘\"\n3. Explorer → 리드: \"src/auth/에 로그인 로직이 있습니다\"\n4. 리드 → Worker A: \"클라이언트에 2FA UI 추가해줘\"\n5. 리드 → Worker B: \"서버에 2FA 검증 로직 추가해줘\"\n6. Worker A ↔ Worker B: \"OTP 검증 API 엔드포인트 이름 뭘로 할까요?\"\n7. Workers → 리드: \"구현 완료했습니다\"\n8. 리드 → 유저: \"2FA 기능 추가 완료. 변경 파일은 ...\"\n```"
+    },
+    {
+      "type": "heading",
+      "value": "서브에이전트 vs 에이전트 팀"
+    },
+    {
+      "type": "text",
+      "value": "두 방식은 용도가 다르다. 어떤 상황에 어떤 방식이 적합한지 비교해보자.\n\n| 항목 | 서브에이전트 | 에이전트 팀 |\n|------|------------|------------|\n| **통신 방식** | 단방향 (메인→서브→보고) | 양방향 (팀원 간 자유 소통) |\n| **생존 기간** | 작업 완료 시 종료 | 세션 동안 지속 |\n| **컨텍스트** | 독립 (메인과 분리) | 독립 (각 팀원 분리) |\n| **비용** | 낮음 (필요할 때만 생성) | 높음 (여러 에이전트 동시 유지) |\n| **설정 복잡도** | 낮음 (프롬프트만 전달) | 높음 (팀 구성, 역할 정의 필요) |\n| **적합한 작업** | 독립적 탐색, 단순 분석 | 복잡한 협업, 다중 파일 동시 수정 |\n| **상태** | 안정 (정식 기능) | 실험적 (베타) |\n\n**서브에이전트를 쓸 때:**\n- 코드베이스를 탐색해서 정보만 가져올 때\n- 독립적인 작업을 병렬로 처리할 때 (서로 의존성이 없는 작업)\n- 메인 컨텍스트를 보호하면서 부가 작업을 할 때\n\n**에이전트 팀을 쓸 때:**\n- 클라이언트 + 서버를 동시에 수정해야 할 때\n- 여러 역할(개발, 리뷰, 배포)이 협업해야 할 때\n- 장기간 여러 작업을 순차적으로 처리해야 할 때"
+    },
+    {
+      "type": "heading",
+      "value": "실전 활용 팁"
+    },
+    {
+      "type": "text",
+      "value": "에이전트를 효과적으로 활용하기 위한 실전 팁을 정리했다.\n\n**서브에이전트 활용 팁:**\n- 프롬프트를 구체적으로 작성하자. \"코드 좀 봐줘\" 대신 \"src/auth/ 디렉토리에서 JWT 토큰 검증 로직을 찾아서 함수명과 파일 경로를 알려줘\"가 훨씬 좋은 결과를 낸다.\n- 탐색 결과가 방대할 때 Explore 서브에이전트를 쓰면 메인 컨텍스트가 오염되지 않는다. 결과 요약만 메인으로 돌아오기 때문이다.\n- 서로 독립적인 탐색 작업은 여러 서브에이전트를 동시에 띄워 병렬로 처리할 수 있다.\n\n**에이전트 팀 활용 팁:**\n- 팀 리드는 직접 일하지 말고 조율에 집중하자. 리드가 직접 파일을 수정하기 시작하면 조율 역할이 약해진다.\n- 같은 파일을 여러 Worker가 동시에 수정하면 충돌이 생긴다. 파일 단위로 작업을 나누거나, 순차적으로 수정하도록 조율해야 한다.\n- Utility 에이전트(빌드/커밋 담당)는 모든 Worker의 작업이 끝난 후에 동작하도록 하자.\n\n**흔한 실수:**\n- **과도한 팀 사용**: 단순한 작업에 팀을 구성하면 오버헤드만 늘어난다. 파일 하나 수정하는 데 팀을 꾸릴 필요는 없다.\n- **너무 큰 태스크**: 서브에이전트에게 \"프로젝트 전체를 리팩토링해줘\" 같은 거대한 태스크를 주면 컨텍스트가 넘치거나 결과가 부실해진다. 작은 단위로 쪼개서 지시하자.\n- **역할 경계 무시**: Worker가 커밋까지 하거나, Reviewer가 코드를 수정하면 혼란이 생긴다. 에이전트별 역할 경계를 명확히 정의하고 지키자.\n- **커스텀 에이전트 모델 낭비**: 탐색이나 단순 작업에 최상위 모델을 쓰면 비용만 늘어난다. Explorer는 Sonnet, Worker는 Opus 같이 역할에 맞는 모델을 배정하자."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "에이전트는 바이브 코딩의 생산성을 한 단계 끌어올리는 핵심 기능이다. 서브에이전트로 컨텍스트를 보호하며 독립 작업을 처리하고, AGENTS.md로 프로젝트에 맞는 커스텀 에이전트를 정의하고, 에이전트 팀으로 복잡한 작업을 분할 협업할 수 있다.\n\n처음에는 서브에이전트부터 시작하는 것을 추천한다. Explore 타입으로 코드 탐색을 위임하는 것만으로도 메인 컨텍스트를 깨끗하게 유지하는 효과를 바로 체감할 수 있다. 익숙해지면 AGENTS.md로 프로젝트에 맞는 에이전트를 정의하고, 필요할 때 에이전트 팀까지 활용하면 된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "series",
+      "articles": [
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "Back to Vibe Coding Complete Guide",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "When using vibe coding tools, there comes a point where a single AI can't handle everything. You might need to modify code while simultaneously exploring other files, fix server and client code at the same time, or preserve existing code safely during a large refactoring.\n\nThis is where agents come in. An agent is a specialized AI instance that operates separately from the main AI, with its own independent context to perform specific tasks. Both Claude Code and Codex support agents, and using them effectively lets you handle complex work much more efficiently."
+    },
+    {
+      "type": "heading",
+      "value": "What Are Agents"
+    },
+    {
+      "type": "text",
+      "value": "An agent is an independent AI instance that operates separately from the main AI. If the main AI is the commanding officer, agents are soldiers assigned to specific missions.\n\n**Why agents are needed:**\n- **Context protection**: Perform separate work without polluting the main conversation's context. For example, exploring a large codebase fills up context quickly, but delegating exploration to an agent keeps the main context clean.\n- **Parallel processing**: Multiple agents can perform different tasks simultaneously. One agent modifies server code while another modifies client code.\n- **Role separation**: Dividing roles into exploration-only, code-modification-only, review-only, etc. lets each agent focus on their specialty.\n\nCurrently, vibe coding tools offer agents in two main forms: **sub-agents** (one-way, task-based) and **agent teams** (two-way, collaboration-based)."
+    },
+    {
+      "type": "heading",
+      "value": "Sub-Agents"
+    },
+    {
+      "type": "text",
+      "value": "Sub-agents are disposable agents that the main AI creates for specific tasks. In Claude Code, they work through the Task tool, and Codex operates similarly.\n\n**How it works:**\n1. Main AI sends a prompt (instruction) to the sub-agent\n2. Sub-agent performs work in an independent context\n3. When finished, reports results back to the main AI\n4. Sub-agent terminates\n\nThe key point is the **one-way** structure. Main → sub sends instructions, sub → main reports results. Sub-agents can't talk to each other directly or ask the main AI questions mid-task.\n\n**Built-in sub-agent types:**\n- **Explore**: Dedicated to codebase exploration. Used for understanding file structure, finding specific functions, analyzing code flow. Read-only—no modifications allowed.\n- **Plan**: Dedicated to planning. Designs implementation approaches and creates step-by-step plans. Can read code but doesn't modify.\n\n```\n# Example of main AI using a sub-agent\n\nMain AI: \"Find where the authentication logic is in this project\"\n  └─ Creates Explore sub-agent\n     ├─ Explores src/ directory\n     ├─ Searches for auth-related files\n     └─ Reports: \"Authentication logic is in src/auth/login.ts\"\n\nMain AI: Proceeds with code modification based on the report\n```\n\nSub-agents are lightweight and fast. They manage context separately so the main conversation stays clean, and they clean up automatically when done. Ideal for simple exploration or independent tasks."
+    },
+    {
+      "type": "heading",
+      "value": "Creating Custom Agents with AGENTS.md"
+    },
+    {
+      "type": "text",
+      "value": "Beyond built-in types (Explore, Plan), you can define your own agents. Specify the agent's name, model, allowed tools, and role in an AGENTS.md file.\n\n**File locations:**\n- Per-project: `.claude/agents/AgentName.md`\n- Global (all projects): `~/.claude/agents/AgentName.md`\n\n**File structure:**\n```yaml\nname: Worker\nmodel: opus\nallowed_tools:\n  - Read\n  - Write\n  - Edit\n  - Glob\n  - Grep\n  - Bash\npermission_mode: default\n\n# Worker\n\n## Role\n- Code and data modification only\n- No commits, builds, or deployments\n\n## Rules\n- Only modify instructed files\n- Report results after modification\n```\n\nThe YAML front matter is the agent's configuration, and the markdown body below is the system prompt delivered to the agent.\n\n**Key settings:**\n- `name`: Agent name. Called by this name from the Task tool.\n- `model`: Model to use. `opus`, `sonnet`, `haiku`, etc. Choosing appropriate models by role saves costs.\n- `allowed_tools`: List of tools this agent can use. For example, an exploration-only agent might allow only Read, Glob, Grep while excluding Write and Edit.\n- `permission_mode`: Permission mode. `default` asks for confirmation on risky operations, `bypassPermissions` auto-approves everything.\n\n**For Codex:**\nCodex allows similar agent definitions in the `[agents]` section of the `codex.md` file. The syntax differs but the concept is the same.\n\nWell-defined custom agents help standardize repetitive workflows. For example, embedding rules like \"Worker only modifies code and never commits\" or \"Reviewer only reads code and never modifies\" in agent definitions prevents accidental role violations."
+    },
+    {
+      "type": "heading",
+      "value": "Agent Teams"
+    },
+    {
+      "type": "text",
+      "value": "Agent teams are an experimental feature in Claude Code—a multi-agent system where multiple agents are active simultaneously and communicate bidirectionally. Unlike the sub-agent's \"instruct → report\" one-way structure, team agents can exchange messages and collaborate with each other.\n\n**Team structure:**\n```\nTeam Lead ─┬─ Explorer     (codebase exploration)\n           ├─ Worker A     (client code modification)\n           ├─ Worker B     (server code modification)\n           ├─ Reviewer     (code review)\n           └─ Utility      (build/commit/deploy)\n```\n\n**Key features:**\n- **Bidirectional communication**: Team members can send messages directly to each other. Worker A can directly ask Worker B \"What's the API response format?\"\n- **Shared task list**: The entire team shares a task list so everyone knows who's working on what.\n- **Mailbox messaging**: Sending a message to an agent delivers it to their mailbox.\n- **Delegate mode**: A mode the team lead toggles with Shift+Tab. Optimized for the lead to delegate work to team members rather than doing it directly.\n\n**Team lead's role:**\nThe team lead doesn't directly modify code or explore files. Instead, they distribute work, coordinate progress, and serve as the hub for communicating with the user—acting like a project manager.\n\n**Team workflow example:**\n```\n1. User: \"Add 2FA to the login feature\"\n2. Lead → Explorer: \"Map out the current auth code structure\"\n3. Explorer → Lead: \"Login logic is in src/auth/\"\n4. Lead → Worker A: \"Add 2FA UI to client\"\n5. Lead → Worker B: \"Add 2FA verification logic to server\"\n6. Worker A ↔ Worker B: \"What should we name the OTP verification API endpoint?\"\n7. Workers → Lead: \"Implementation complete\"\n8. Lead → User: \"2FA feature added. Changed files are ...\"\n```"
+    },
+    {
+      "type": "heading",
+      "value": "Sub-Agents vs Agent Teams"
+    },
+    {
+      "type": "text",
+      "value": "The two approaches serve different purposes. Let's compare which is suitable for what.\n\n| Category | Sub-Agents | Agent Teams |\n|----------|-----------|-------------|\n| **Communication** | One-way (main→sub→report) | Two-way (free communication between members) |\n| **Lifetime** | Terminates on completion | Persists during session |\n| **Context** | Independent (separate from main) | Independent (each member separate) |\n| **Cost** | Low (created only when needed) | High (multiple agents maintained simultaneously) |\n| **Setup complexity** | Low (just pass a prompt) | High (team composition, role definitions needed) |\n| **Suitable tasks** | Independent exploration, simple analysis | Complex collaboration, simultaneous multi-file edits |\n| **Status** | Stable (official feature) | Experimental (beta) |\n\n**Use sub-agents when:**\n- Exploring a codebase to retrieve information only\n- Processing independent tasks in parallel (tasks with no dependencies)\n- Performing auxiliary work while protecting the main context\n\n**Use agent teams when:**\n- Modifying client + server simultaneously\n- Multiple roles (development, review, deployment) need to collaborate\n- Processing multiple tasks sequentially over a long period"
+    },
+    {
+      "type": "heading",
+      "value": "Practical Tips"
+    },
+    {
+      "type": "text",
+      "value": "Here are practical tips for effective agent usage.\n\n**Sub-agent tips:**\n- Write specific prompts. \"Look at the code\" yields far worse results than \"Find the JWT token verification logic in the src/auth/ directory and tell me the function name and file path.\"\n- Use Explore sub-agents when search results would be extensive—this prevents main context pollution since only a summary returns to the main conversation.\n- Independent exploration tasks can be parallelized by spawning multiple sub-agents simultaneously.\n\n**Agent team tips:**\n- The team lead should focus on coordination, not direct work. When the lead starts modifying files directly, the coordination role weakens.\n- Multiple Workers modifying the same file simultaneously causes conflicts. Divide work by file or coordinate sequential modifications.\n- The Utility agent (build/commit handler) should operate only after all Workers finish.\n\n**Common mistakes:**\n- **Excessive team usage**: Setting up a team for simple tasks just adds overhead. You don't need a team to modify a single file.\n- **Tasks too large**: Giving a sub-agent a massive task like \"refactor the entire project\" results in context overflow or poor results. Break it into small units.\n- **Ignoring role boundaries**: If a Worker also commits, or a Reviewer also modifies code, confusion follows. Define and enforce clear role boundaries for each agent.\n- **Model waste on custom agents**: Using top-tier models for exploration or simple tasks just increases costs. Assign appropriate models by role—Sonnet for Explorer, Opus for Worker."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion"
+    },
+    {
+      "type": "text",
+      "value": "Agents are a core feature that takes vibe coding productivity to the next level. Use sub-agents to handle independent tasks while protecting context, define project-specific custom agents with AGENTS.md, and split complex work through agent team collaboration.\n\nWe recommend starting with sub-agents. Just delegating code exploration to the Explore type lets you immediately experience the benefit of keeping your main context clean. Once comfortable, define project-specific agents with AGENTS.md and scale up to agent teams when needed."
+    }
+  ],
+  "needTranslate": false
+}

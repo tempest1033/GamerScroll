@@ -152,7 +152,11 @@
     },
     {
       "type": "text",
-      "value": "업데이트 예정"
+      "value": "에이전트는 AI 코딩 도구 안에서 독립적으로 작업을 수행하는 특화된 AI 인스턴스다. 복잡한 작업을 분할하고, 메인 컨텍스트를 보호하면서 병렬로 처리할 수 있다."
+    },
+    {
+      "type": "series",
+      "articles": [{ "part": 1, "slug": "vibe-coding-agent-guide", "title": "에이전트 가이드: 서브에이전트, 팀, 커스텀 에이전트", "thumbnail": "https://media.licdn.com/dms/image/v2/D5612AQFmGwUeW-VGUg/article-cover_image-shrink_720_1280/B56ZhM0ztwHMAM-/0/1753635569429?e=2147483647&v=beta&t=DXGVGNxgGGbDsgyxrg0M0Y6o1KXbXCQrbe2MQhBAheo" }]
     },
     {
       "type": "heading",
@@ -303,7 +307,11 @@
     },
     {
       "type": "text",
-      "value": "Coming soon"
+      "value": "Agents are specialized AI instances that perform tasks independently within AI coding tools. They help break down complex work, protect the main context, and enable parallel processing."
+    },
+    {
+      "type": "series",
+      "articles": [{ "part": 1, "slug": "vibe-coding-agent-guide", "title": "Agent Guide: Sub-Agents, Teams, and Custom Agents", "thumbnail": "https://media.licdn.com/dms/image/v2/D5612AQFmGwUeW-VGUg/article-cover_image-shrink_720_1280/B56ZhM0ztwHMAM-/0/1753635569429?e=2147483647&v=beta&t=DXGVGNxgGGbDsgyxrg0M0Y6o1KXbXCQrbe2MQhBAheo" }]
     },
     {
       "type": "heading",

@@ -100,9 +100,22 @@ function generateAIBlogArticle(article, data = {}) {
     for (const block of content) {
       switch (block.type) {
         case 'text': {
-          const paragraphs = String(block.value || '').split('\n\n').map(p => {
-            const trimmed = p.trim();
-            const formatted = renderInlineMarkdownLinks(trimmed
+          // 코드 펜스 변환 (```language ... ``` → <pre><code>)
+          const codeBlocks_a = [];
+          const textWithPlaceholders_a = String(block.value || '').replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
+            const escaped = code
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/^(#.*)$/gm, '<span class="code-comment">$1</span>');
+            const placeholder = `__CODE_BLOCK_${codeBlocks_a.length}__`;
+            codeBlocks_a.push(`<figure class="blog-figure blog-code"><pre><code${lang ? ` class="language-${lang}"` : ''}>${escaped}</code></pre></figure>`);
+            return placeholder;
+          });
+          const formatTextFragment_a = (text) => {
+            const t = text.trim();
+            if (!t) return '';
+            const formatted = renderInlineMarkdownLinks(t
               .replace(/`([^`]+)`/g, '<code>$1</code>')
               .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -110,7 +123,24 @@ function generateAIBlogArticle(article, data = {}) {
               .replace(/\n- /g, '\n• ')
               .replace(/\n/g, '<br>')
               .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>'));
-            return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
+            return `<p class="blog-paragraph">${formatted}</p>`;
+          };
+          const paragraphs = textWithPlaceholders_a.split('\n\n').map(p => {
+            const trimmed = p.trim();
+            if (!trimmed) return '';
+            // 코드 블록 placeholder만으로 이루어진 단락
+            const codePlaceholderMatch = trimmed.match(/^__CODE_BLOCK_(\d+)__$/);
+            if (codePlaceholderMatch) return codeBlocks_a[parseInt(codePlaceholderMatch[1])];
+            // 혼합 단락: 텍스트 + 코드 블록 placeholder가 섞인 경우
+            if (/__CODE_BLOCK_\d+__/.test(trimmed)) {
+              const parts = trimmed.split(/(__CODE_BLOCK_\d+__)/);
+              return parts.map(part => {
+                const m = part.match(/^__CODE_BLOCK_(\d+)__$/);
+                if (m) return codeBlocks_a[parseInt(m[1])];
+                return formatTextFragment_a(part);
+              }).filter(x => x).join('');
+            }
+            return formatTextFragment_a(trimmed);
           }).filter(p => p).join('');
           result.push(paragraphs);
           break;
@@ -143,17 +173,21 @@ function generateAIBlogArticle(article, data = {}) {
           result.push(`<ul class="blog-list">${items.map(item => `<li>${item}</li>`).join('')}</ul>`);
           break;
         }
-        case 'table':
+        case 'table': {
           if (!block.headers || !block.rows) break;
+          const fmtCell = (s) => renderInlineMarkdownLinks(String(s || '')
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'));
           result.push(`
             <figure class="blog-figure blog-table">
               ${block.caption ? `<div class="table-title">${escapeHtml(block.caption)}</div>` : ''}
               <table class="wiki-table">
-                <thead><tr>${block.headers.map(h => `<th>${escapeHtml(h)}</th>`).join('')}</tr></thead>
-                <tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>
+                <thead><tr>${block.headers.map(h => `<th>${fmtCell(h)}</th>`).join('')}</tr></thead>
+                <tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${fmtCell(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
               </table>
             </figure>`);
           break;
+        }
         case 'code': {
           if (!block.value) break;
           const lang = block.lang || '';

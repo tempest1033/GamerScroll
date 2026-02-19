@@ -1506,6 +1506,9 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     const escaped = escapeHtmlAttr(str);
     return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
   };
+  const parseTableCell = (str) => parseMarkdownLinks(str)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '이슈 대표 이미지');
 
   // 이슈 중간 광고 (PC/모바일 분기)
@@ -1608,16 +1611,27 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     processedContent.forEach((block) => {
       switch (block.type) {
         case 'text':
-          const paragraphs = block.value.split('\n\n').map(p => {
-            const trimmed = p.trim();
+          // 코드 펜스 변환 (```language ... ``` → <pre><code>)
+          const codeBlocks_r = [];
+          const textWithPlaceholders_r = String(block.value || '').replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
+            const escaped = code
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/^(#.*)$/gm, '<span class="code-comment">$1</span>');
+            const placeholder = `__CODE_BLOCK_${codeBlocks_r.length}__`;
+            codeBlocks_r.push(`<figure class="blog-figure blog-code"><pre><code${lang ? ` class="language-${lang}"` : ''}>${escaped}</code></pre></figure>`);
+            return placeholder;
+          });
+          const formatTextFragment_r = (text) => {
+            const t = text.trim();
+            if (!t) return '';
             // 마크다운 표 처리
-            if (trimmed.startsWith('|') && trimmed.includes('|---')) {
-              const tableHtml = parseMarkdownTable(trimmed);
+            if (t.startsWith('|') && t.includes('|---')) {
+              const tableHtml = parseMarkdownTable(t);
               if (tableHtml) return tableHtml;
             }
-            // 마크다운 볼드 변환: **텍스트** → <strong>텍스트</strong>
-            // 마크다운 리스트 변환: "- " → "• "
-            const formatted = trimmed
+            const formatted = t
               .replace(/`([^`]+)`/g, '<code>$1</code>')
               .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
               .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -1625,7 +1639,24 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
               .replace(/\n- /g, '\n• ')
               .replace(/\n/g, '<br>')
               .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
-            return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
+            return `<p class="blog-paragraph">${formatted}</p>`;
+          };
+          const paragraphs = textWithPlaceholders_r.split('\n\n').map(p => {
+            const trimmed = p.trim();
+            if (!trimmed) return '';
+            // 코드 블록 placeholder만으로 이루어진 단락
+            const codePlaceholderMatch = trimmed.match(/^__CODE_BLOCK_(\d+)__$/);
+            if (codePlaceholderMatch) return codeBlocks_r[parseInt(codePlaceholderMatch[1])];
+            // 혼합 단락: 텍스트 + 코드 블록 placeholder가 섞인 경우
+            if (/__CODE_BLOCK_\d+__/.test(trimmed)) {
+              const parts = trimmed.split(/(__CODE_BLOCK_\d+__)/);
+              return parts.map(part => {
+                const m = part.match(/^__CODE_BLOCK_(\d+)__$/);
+                if (m) return codeBlocks_r[parseInt(m[1])];
+                return formatTextFragment_r(part);
+              }).filter(x => x).join('');
+            }
+            return formatTextFragment_r(trimmed);
           }).filter(p => p).join('');
           result.push(paragraphs);
           break;
@@ -1691,9 +1722,9 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
 
         case 'table':
           if (!block.headers || !block.rows) break;
-          const tblHeaders = block.headers.map(h => `<th>${escapeHtmlAttr(h)}</th>`).join('');
+          const tblHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
           const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
+            `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
             <figure class="blog-figure blog-table">
@@ -2069,6 +2100,9 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     const escaped = escapeHtmlAttr(str);
     return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
   };
+  const parseTableCell = (str) => parseMarkdownLinks(str)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '인사이트 대표 이미지');
 
   // 인사이트 중간 광고 (PC/모바일 분기)
@@ -2237,9 +2271,9 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
 
         case 'table':
           if (!block.headers || !block.rows) break;
-          const tblHeaders = block.headers.map(h => `<th>${escapeHtmlAttr(h)}</th>`).join('');
+          const tblHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
           const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
+            `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
             <figure class="blog-figure blog-table">
@@ -2608,6 +2642,9 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     const escaped = escapeHtmlAttr(str);
     return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
   };
+  const parseTableCell = (str) => parseMarkdownLinks(str)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '핫픽 대표 이미지');
 
   // 핫픽 중간 광고
@@ -2776,9 +2813,9 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
 
         case 'table':
           if (!block.headers || !block.rows) break;
-          const tblHeaders = block.headers.map(h => `<th>${escapeHtmlAttr(h)}</th>`).join('');
+          const tblHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
           const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
+            `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
             <figure class="blog-figure blog-table">
@@ -3157,6 +3194,9 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     const escaped = escapeHtmlAttr(str);
     return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
   };
+  const parseTableCell = (str) => parseMarkdownLinks(str)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '순위 분석 대표 이미지');
 
   // 순위 분석 중간 광고
@@ -3328,11 +3368,11 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               tableHtml += `<caption>${escapeHtmlAttr(block.caption)}</caption>`;
             }
             tableHtml += '<thead><tr>';
-            block.headers.forEach(h => { tableHtml += `<th>${escapeHtmlAttr(h)}</th>`; });
+            block.headers.forEach(h => { tableHtml += `<th>${parseTableCell(h)}</th>`; });
             tableHtml += '</tr></thead><tbody>';
             block.rows.forEach(row => {
               tableHtml += '<tr>';
-              row.forEach(cell => { tableHtml += `<td>${parseMarkdownLinks(cell).replace(/\n/g, '<br>')}</td>`; });
+              row.forEach(cell => { tableHtml += `<td>${parseTableCell(cell).replace(/\n/g, '<br>')}</td>`; });
               tableHtml += '</tr>';
             });
             tableHtml += '</tbody></table></div>';

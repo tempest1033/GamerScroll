@@ -56,6 +56,15 @@ function parseMarkdownLinks(str) {
 }
 
 /**
+ * 테이블 셀용 인라인 마크다운 변환 (볼드, 코드, 링크)
+ */
+function parseTableCell(str) {
+  return parseMarkdownLinks(str)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
+/**
  * 마크다운 표를 HTML table로 변환
  */
 function parseMarkdownTable(text) {
@@ -76,13 +85,16 @@ function parseMarkdownTable(text) {
   const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
   const rows = dataLines.map(line => parseCells(line));
 
+  const fmtCell = (s) => s
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   let html = '<div class="wiki-table-wrapper"><table>';
   html += '<thead><tr>';
-  headers.forEach(h => { html += `<th>${h}</th>`; });
+  headers.forEach(h => { html += `<th>${fmtCell(h)}</th>`; });
   html += '</tr></thead><tbody>';
   rows.forEach(row => {
     html += '<tr>';
-    row.forEach(cell => { html += `<td>${cell}</td>`; });
+    row.forEach(cell => { html += `<td>${fmtCell(cell)}</td>`; });
     html += '</tr>';
   });
   html += '</tbody></table></div>';
@@ -166,14 +178,27 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
   content.forEach((block) => {
     switch (block.type) {
       case 'text':
-        const paragraphs = String(block.value || '').split('\n\n').map(p => {
-          const trimmed = p.trim();
+        // 코드 펜스 변환 (```language ... ``` → <pre><code>)
+        const codeBlocks_t = [];
+        const textWithPlaceholders_t = String(block.value || '').replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
+          const escaped = code
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/^(#.*)$/gm, '<span class="code-comment">$1</span>');
+          const placeholder = `__CODE_BLOCK_${codeBlocks_t.length}__`;
+          codeBlocks_t.push(`<figure class="blog-figure blog-code"><pre><code${lang ? ` class="language-${lang}"` : ''}>${escaped}</code></pre></figure>`);
+          return placeholder;
+        });
+        const formatTextFragment = (text) => {
+          const t = text.trim();
+          if (!t) return '';
           // 마크다운 표 처리
-          if (trimmed.startsWith('|') && trimmed.includes('|---')) {
-            const tableHtml = parseMarkdownTable(trimmed);
+          if (t.startsWith('|') && t.includes('|---')) {
+            const tableHtml = parseMarkdownTable(t);
             if (tableHtml) return tableHtml;
           }
-          const formatted = trimmed
+          const formatted = t
             .replace(/`([^`]+)`/g, '<code>$1</code>')
             .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -182,7 +207,24 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
             .replace(/\n- /g, '\n• ')
             .replace(/\n/g, '<br>')
             .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
-          return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
+          return `<p class="blog-paragraph">${formatted}</p>`;
+        };
+        const paragraphs = textWithPlaceholders_t.split('\n\n').map(p => {
+          const trimmed = p.trim();
+          if (!trimmed) return '';
+          // 코드 블록 placeholder만으로 이루어진 단락
+          const codePlaceholderMatch = trimmed.match(/^__CODE_BLOCK_(\d+)__$/);
+          if (codePlaceholderMatch) return codeBlocks_t[parseInt(codePlaceholderMatch[1])];
+          // 혼합 단락: 텍스트 + 코드 블록 placeholder가 섞인 경우
+          if (/__CODE_BLOCK_\d+__/.test(trimmed)) {
+            const parts = trimmed.split(/(__CODE_BLOCK_\d+__)/);
+            return parts.map(part => {
+              const m = part.match(/^__CODE_BLOCK_(\d+)__$/);
+              if (m) return codeBlocks_t[parseInt(m[1])];
+              return formatTextFragment(part);
+            }).filter(x => x).join('');
+          }
+          return formatTextFragment(trimmed);
         }).filter(p => p).join('');
         result.push(paragraphs);
         break;
@@ -315,9 +357,9 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
 
       case 'table':
         if (!block.headers || !block.rows) break;
-        const tableHeaders = block.headers.map(h => `<th>${escapeHtmlAttr(h)}</th>`).join('');
+        const tableHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
         const tableRows = block.rows.map(row =>
-          `<tr>${row.map(cell => `<td>${parseMarkdownLinks(cell)}</td>`).join('')}</tr>`
+          `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
         ).join('');
         result.push(`
           <figure class="blog-figure blog-table">
