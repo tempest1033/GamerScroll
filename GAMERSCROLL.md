@@ -523,7 +523,7 @@ cd docs && npx serve -l 3000
 | **date** | ISO + time (for same-day sorting). 비워두면(`""`) approved 시 빌드에서 현재 시각 자동 기록 (KST, JSON에 write-back) | `2026-01-20T12:00` 또는 `""` |
 | **title** | Title only, no tags (~~[이슈 포커스]~~ forbidden) | `AI 썼다고 수상 박탈?…` |
 | **keywords** | SEO keywords, comma-separated | `리니지, 엔씨소프트, MMORPG` |
-| **heading** | Numbered, last one "마치며: subtitle" (no number) | `1. 첫 번째`, `마치며: 핵심 메시지` |
+| **heading** | Numbered, last one "마치며: subtitle" (no number). **부제 구분자는 `:` 로 통일** — `—` (em dash) 사용 금지. 예: "마치며: 부제" (O), "마치며 — 부제" (X) | `1. 첫 번째`, `마치며: 핵심 메시지` |
 | **relatedGames** | (Optional) Related game slug array; manual overrides auto-match | `["승리의-여신-니케"]` |
 | **relatedDocs** | (Optional) Unified related docs array (max 4). Prefix: issue, insight, hotpick, ranking, wiki, tech. Slug-only also works (auto-search) | `["issue:게임-AI-논란", "hotpick:ff7-remake"]` |
 | **relatedIssues** | (Optional, legacy) Related issue slug array. Use relatedDocs instead | `["게임-AI-논란-수상박탈"]` |
@@ -936,7 +936,7 @@ for day in range(1, 32):
 | **date** | ISO + time (for same-day sorting). 비워두면(`""`) approved 시 빌드에서 현재 시각 자동 기록 (KST, JSON에 write-back) | `2026-01-20T12:00` 또는 `""` |
 | **title** | Title only, no tags | `Unity 엔진` |
 | **keywords** | SEO keywords, comma-separated | `Unity, 게임 엔진, 크로스플랫폼` |
-| **heading** | Start with keyword, last one "마치며: subtitle" | `Unity 엔진 특징`, `마치며: 핵심 메시지` |
+| **heading** | Start with keyword, last one "마치며: subtitle". **부제 구분자는 `:` 로 통일** — `—` (em dash) 사용 금지 | `Unity 엔진 특징`, `마치며: 핵심 메시지` |
 | **category** | Folder name | `business`, `history`, `knowledge` (wiki) / `normal` (tech) |
 | **sources** | (Optional) Source array, **no Namuwiki** | `[{name, title, url}]` |
 | **relatedDocs** | (Optional, recommended) Unified related docs array | `["wiki:unity-engine", "issue:게임-AI-논란"]` |

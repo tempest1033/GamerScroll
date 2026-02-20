@@ -22,7 +22,8 @@ const EXTRA_ARTICLES = {
     'seedance-2-hollywood-shock-next-version'
   ],
   wiki: [
-    'business/google-genie3-unity-stock-crash'
+    'business/google-genie3-unity-stock-crash',
+    'knowledge/kurzweil-singularity-review-2026'
   ]
 };
 

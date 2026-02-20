@@ -132,7 +132,8 @@ const CATEGORY_FEED_PAGER_OPTIONS = {
   itemSelector: '.home-trend-card',
   pageSize: FEED_PAGE_SIZE,
   hydrateLazyImages: true,
-  mobileAds: false,
+  mobileAds: true,
+  adInterval: 4,
   mobileDomWindowPages: 5
 };
 
@@ -145,6 +146,7 @@ function buildCategoryCardFeedPagerScript(gridSelector, paginationSelector, defe
     pageSize: CATEGORY_FEED_PAGER_OPTIONS.pageSize,
     hydrateLazyImages: CATEGORY_FEED_PAGER_OPTIONS.hydrateLazyImages,
     mobileAds: CATEGORY_FEED_PAGER_OPTIONS.mobileAds,
+    adInterval: CATEGORY_FEED_PAGER_OPTIONS.adInterval,
     mobileDomWindowPages: CATEGORY_FEED_PAGER_OPTIONS.mobileDomWindowPages,
     initialRenderCount: INITIAL_FEED_RENDER_COUNT,
     idleFillFirstPage: true,

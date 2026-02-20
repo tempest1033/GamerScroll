@@ -22,6 +22,21 @@ const gamesJsonPath = path.join(__dirname, '../../../data/games.json');
 // 광고 활성화 여부
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
+// 인아티클 광고 HTML
+const inArticleAdHTML = `<div class="blog-in-article-ad" style="margin:2rem 0;text-align:center;">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="8021405606"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>`;
+
 // 일간 뉴스 썸네일 로컬 경로 헬퍼 (MD5 해시 기반 + 모든 날짜 검색)
 function getLocalDailyThumbnail(date, originalUrl) {
   if (!originalUrl) return '';
@@ -1500,6 +1515,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
       processedContent.push({ type: 'link-group', links: linkGroup });
     }
 
+    let sectionCount = 1;
     processedContent.forEach((block) => {
       switch (block.type) {
         case 'text':
@@ -1604,6 +1620,10 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
           break;
 
         case 'heading':
+          sectionCount++;
+          if (sectionCount % 3 === 0) {
+            result.push(inArticleAdHTML);
+          }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
           break;
 
@@ -2058,6 +2078,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
       processedContent.push({ type: 'link-group', links: linkGroup });
     }
 
+    let sectionCount = 1;
     processedContent.forEach((block) => {
       switch (block.type) {
         case 'text':
@@ -2128,6 +2149,10 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
           break;
 
         case 'heading':
+          sectionCount++;
+          if (sectionCount % 3 === 0) {
+            result.push(inArticleAdHTML);
+          }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
           break;
 
@@ -2575,6 +2600,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
       processedContent.push({ type: 'link-group', links: linkGroup });
     }
 
+    let sectionCount = 1;
     processedContent.forEach((block) => {
       switch (block.type) {
         case 'text':
@@ -2645,6 +2671,10 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
           break;
 
         case 'heading':
+          sectionCount++;
+          if (sectionCount % 3 === 0) {
+            result.push(inArticleAdHTML);
+          }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
           break;
 
@@ -3122,6 +3152,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
       processedContent.push({ type: 'chart-group', charts: chartGroup });
     }
 
+    let sectionCount = 1;
     processedContent.forEach((block) => {
       switch (block.type) {
         case 'text':
@@ -3146,6 +3177,10 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           result.push(paragraphs);
           break;
         case 'heading':
+          sectionCount++;
+          if (sectionCount % 3 === 0) {
+            result.push(inArticleAdHTML);
+          }
           result.push(`<h2 class="blog-heading">${escapeHtmlAttr(block.value)}</h2>`);
           break;
         case 'image':

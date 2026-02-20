@@ -4,7 +4,7 @@
  * - 전체 게임 목록 (초성/알파벳순)
  */
 
-const { wrapWithLayout } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateMobileOnlyMidAdSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
@@ -201,7 +201,7 @@ function generateGamesHubPage(options = {}) {
 
   const content = `
     <section class="section active" id="games">
-      
+      ${generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile001)}
       <div class="page-container" id="top">
         <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
         ${searchResultsSection}

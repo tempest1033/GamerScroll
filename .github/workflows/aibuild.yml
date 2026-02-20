@@ -70,6 +70,19 @@ jobs:
               });
             }
 
+            // data/wiki/*/*.json 체크
+            const wikiExtras = [
+              'business/google-genie3-unity-stock-crash',
+              'knowledge/kurzweil-singularity-review-2026'
+            ];
+            wikiExtras.forEach(p => {
+              const f = path.join('data/wiki', p + '.json');
+              if (fs.existsSync(f)) {
+                const data = JSON.parse(fs.readFileSync(f, 'utf8'));
+                if (data.needTranslate !== false) need = true;
+              }
+            });
+
             console.log(need ? 'true' : 'false');
           ")
           echo "need_translate=$NEED_TRANSLATE" >> $GITHUB_OUTPUT

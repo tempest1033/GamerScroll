@@ -212,7 +212,8 @@ const EXTRA_ARTICLES = {
   ],
   // data/wiki/{category}/*.json
   wiki: [
-    { category: 'business', slug: 'google-genie3-unity-stock-crash' }
+    { category: 'business', slug: 'google-genie3-unity-stock-crash' },
+    { category: 'knowledge', slug: 'kurzweil-singularity-review-2026' }
   ],
   // reports/hotpick/*.json
   hotpick: [

@@ -3,7 +3,7 @@
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
 
-const { wrapWithLayout } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateMobileOnlyMidAdSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
@@ -1191,7 +1191,7 @@ function generateGamePage(gameData) {
 
   const content = `
     <section class="section active" id="game">
-
+      ${generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile001)}
       <div class="page-container game-page-grid">
         <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
         <!-- 게임 히어로 -->

@@ -2,7 +2,7 @@
  * 스팀 순위 페이지 템플릿
  */
 
-const { wrapWithLayout } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateMobileOnlyMidAdSlot } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -47,7 +47,7 @@ function generateSteamPage(data) {
 
   const content = `
     <section class="section active" id="steam">
-      
+      ${generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile001)}
       <div class="page-container">
         <h1 class="visually-hidden">스팀 게임 순위</h1>
         <div class="steam-card home-card">

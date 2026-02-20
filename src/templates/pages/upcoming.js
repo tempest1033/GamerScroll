@@ -2,7 +2,7 @@
  * 출시 게임 페이지 템플릿
  */
 
-const { wrapWithLayout } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateMobileOnlyMidAdSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
@@ -55,7 +55,7 @@ function generateUpcomingPage(data) {
 
   const content = `
     <section class="section active" id="upcoming">
-      
+      ${generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile001)}
       <div class="page-container">
         <h1 class="visually-hidden">출시 게임 - 신작 게임, 출시 예정 게임</h1>
         <div class="upcoming-card home-card">
