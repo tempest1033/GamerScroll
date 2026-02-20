@@ -520,18 +520,7 @@
       margin: 0;
       padding: 12px;
       line-height: 1.4;
-      height: calc(2.8em + 24px);
       box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .home-trend-card-title-text {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      max-height: 2.8em;
     }
 
     @media (max-width: 768px) {
@@ -547,8 +536,6 @@
 
       .home-trend-card-title {
         padding: 12px 14px 14px;
-        height: calc(2.8em + 26px); /* 2줄 고정 */
-        min-height: calc(2.8em + 26px);
       }
     }
 
