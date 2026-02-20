@@ -6,8 +6,22 @@
   "thumbnail": "https://play-lh.googleusercontent.com/qe_F3ls6BqRZCTnSD4GansDVWWQQaBFxT2qeAPzQ9QqWzpQegVax202jMrX6dfVRtj_RzOwbzQeQbJ-krs1dxg=w526-h296-rw",
   "keywords": "모바일 게임 순위, 2026년 1월 매출 순위, 메이플 키우기, 화이트아웃 서바이벌, 라스트 워, 리니지M, 킹샷, 로얄 매치, FC 모바일, 마비노기 모바일, 한국 모바일 게임",
   "summary": "2026년 새해, 방치형 RPG '메이플 키우기'가 iOS와 Android 양대 마켓에서 1위를 차지하며 정상을 지켰다. 서바이벌 장르의 강세가 이어진 가운데, 리니지M이 4위로 MMORPG의 저력을 보여줬다.",
-  "relatedGames": ["메이플-키우기", "wos-화이트아웃-서바이벌", "라스트-워-서바이벌", "리니지m", "킹샷kingshot", "로얄-매치-royal-match", "라스트-z-서바이벌-슈터", "가십하버-합성-스토리-게임", "fc-모바일", "마비노기-모바일"],
-  "relatedDocs": ["steam-january-2026", "subculture-january-2026-kr"],
+  "relatedGames": [
+    "메이플-키우기",
+    "wos-화이트아웃-서바이벌",
+    "라스트-워-서바이벌",
+    "리니지m",
+    "킹샷kingshot",
+    "로얄-매치-royal-match",
+    "라스트-z-서바이벌-슈터",
+    "가십하버-합성-스토리-게임",
+    "fc-모바일",
+    "마비노기-모바일"
+  ],
+  "relatedDocs": [
+    "steam-january-2026",
+    "subculture-january-2026-kr"
+  ],
   "sources": [],
   "content": [
     {
@@ -22,16 +36,66 @@
       "type": "ranking-bar",
       "title": "2026년 1월 모바일 게임 순위",
       "items": [
-        {"rank": 1, "name": "메이플 키우기", "score": 6200, "slug": "메이플-키우기"},
-        {"rank": 2, "name": "WOS: 화이트아웃 서바이벌", "score": 6102, "slug": "wos-화이트아웃-서바이벌"},
-        {"rank": 3, "name": "라스트 워: 서바이벌", "score": 6101, "slug": "라스트-워-서바이벌"},
-        {"rank": 4, "name": "리니지M", "score": 5918, "slug": "리니지m"},
-        {"rank": 5, "name": "킹샷:Kingshot", "score": 5893, "slug": "킹샷kingshot"},
-        {"rank": 6, "name": "로얄 매치", "score": 5703, "slug": "로얄-매치-royal-match"},
-        {"rank": 7, "name": "라스트 Z: 서바이벌 슈터", "score": 5675, "slug": "라스트-z-서바이벌-슈터"},
-        {"rank": 8, "name": "가십하버", "score": 5670, "slug": "가십하버-합성-스토리-게임"},
-        {"rank": 9, "name": "FC 모바일", "score": 5643, "slug": "fc-모바일"},
-        {"rank": 10, "name": "마비노기 모바일", "score": 5542, "slug": "마비노기-모바일"}
+        {
+          "rank": 1,
+          "name": "메이플 키우기",
+          "score": 6200,
+          "slug": "메이플-키우기"
+        },
+        {
+          "rank": 2,
+          "name": "WOS: 화이트아웃 서바이벌",
+          "score": 6102,
+          "slug": "wos-화이트아웃-서바이벌"
+        },
+        {
+          "rank": 3,
+          "name": "라스트 워: 서바이벌",
+          "score": 6101,
+          "slug": "라스트-워-서바이벌"
+        },
+        {
+          "rank": 4,
+          "name": "리니지M",
+          "score": 5918,
+          "slug": "리니지m"
+        },
+        {
+          "rank": 5,
+          "name": "킹샷:Kingshot",
+          "score": 5893,
+          "slug": "킹샷kingshot"
+        },
+        {
+          "rank": 6,
+          "name": "로얄 매치",
+          "score": 5703,
+          "slug": "로얄-매치-royal-match"
+        },
+        {
+          "rank": 7,
+          "name": "라스트 Z: 서바이벌 슈터",
+          "score": 5675,
+          "slug": "라스트-z-서바이벌-슈터"
+        },
+        {
+          "rank": 8,
+          "name": "가십하버",
+          "score": 5670,
+          "slug": "가십하버-합성-스토리-게임"
+        },
+        {
+          "rank": 9,
+          "name": "FC 모바일",
+          "score": 5643,
+          "slug": "fc-모바일"
+        },
+        {
+          "rank": 10,
+          "name": "마비노기 모바일",
+          "score": 5542,
+          "slug": "마비노기-모바일"
+        }
       ]
     },
     {
@@ -54,8 +118,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "마비노기-모바일", "market": "ios", "label": "iOS"},
-        {"slug": "마비노기-모바일", "market": "android", "label": "Android"}
+        {
+          "slug": "마비노기-모바일",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "마비노기-모바일",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -82,16 +154,21 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "fc-모바일", "market": "ios", "label": "iOS"},
-        {"slug": "fc-모바일", "market": "android", "label": "Android"}
+        {
+          "slug": "fc-모바일",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "fc-모바일",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
       "type": "text",
       "value": "EA의 축구 게임 FC 모바일이 9위를 기록했다. **'FC 모바일 26' 대규모 업데이트**와 함께 기념일 이벤트가 진행되며 유저들의 관심을 끌었다. 팬들의 피드백을 반영한 다양한 신규 기능이 추가됐다.\n\niOS **평균 5.5위**, Android **평균 14.5위**를 기록했다. iOS에서는 **최고 2위**에서 최저 18위까지, Android에서는 12위에서 21위까지 움직였다. 업데이트 직후 순위가 급등하고 이후 서서히 하락하는 흐름이 뚜렷했다.\n\n전 세계적으로 **가장 인기 있는 축구 게임 IP**답게 한국에서도 꾸준한 매출을 올리고 있다. 실제 축구 시즌과 연동되는 이벤트, 실시간 선수 데이터 반영 등 라이브 서비스 강점이 장기 운영의 비결이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -113,8 +190,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "가십하버-합성-스토리-게임", "market": "ios", "label": "iOS"},
-        {"slug": "가십하버-합성-스토리-게임", "market": "android", "label": "Android"}
+        {
+          "slug": "가십하버-합성-스토리-게임",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "가십하버-합성-스토리-게임",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -141,8 +226,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "라스트-z-서바이벌-슈터", "market": "ios", "label": "iOS"},
-        {"slug": "라스트-z-서바이벌-슈터", "market": "android", "label": "Android"}
+        {
+          "slug": "라스트-z-서바이벌-슈터",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "라스트-z-서바이벌-슈터",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -169,16 +262,21 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "로얄-매치-royal-match", "market": "ios", "label": "iOS"},
-        {"slug": "로얄-매치-royal-match", "market": "android", "label": "Android"}
+        {
+          "slug": "로얄-매치-royal-match",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "로얄-매치-royal-match",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
       "type": "text",
       "value": "퍼즐 게임의 강자 로얄 매치가 6위에 올랐다. 신규 이벤트 **'Champions Clash'**가 추가됐다. 8명이 참가해 3라운드 1대1 토너먼트로 진행되는 경쟁 모드로, 유저들의 호응을 얻었다.\n\niOS **평균 9.1위**, Android **평균 8.9위**로 **양 플랫폼에서 가장 균형 잡힌 성적**을 보였다. iOS **최고 5위**에서 최저 24위, Android **최고 6위**에서 최저 13위를 기록했다. 퍼즐 게임 특성상 꾸준한 일 매출이 특징이다.\n\n드림게임즈의 로얄 매치는 2021년 출시 이후 **글로벌 퍼즐 게임 시장의 강자**로 자리 잡았다. 캔디 크러시를 위협하는 신흥 강자로, 직관적인 게임플레이와 왕의 성을 꾸미는 메타 요소가 유저들의 지속적인 참여를 이끌어낸다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -200,8 +298,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "킹샷kingshot", "market": "ios", "label": "iOS"},
-        {"slug": "킹샷kingshot", "market": "android", "label": "Android"}
+        {
+          "slug": "킹샷kingshot",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "킹샷kingshot",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -228,8 +334,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "리니지m", "market": "ios", "label": "iOS"},
-        {"slug": "리니지m", "market": "android", "label": "Android"}
+        {
+          "slug": "리니지m",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "리니지m",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -256,16 +370,21 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "라스트-워-서바이벌", "market": "ios", "label": "iOS"},
-        {"slug": "라스트-워-서바이벌", "market": "android", "label": "Android"}
+        {
+          "slug": "라스트-워-서바이벌",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "라스트-워-서바이벌",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
       "type": "text",
       "value": "서바이벌 전략 게임 라스트 워가 3위를 차지했다. **'2026 새해 맞이 특별 이벤트'**를 오픈하며 신년 시즌을 공략했다. 1월 18일에는 **'Frontline Breakthrough'** 이벤트가 진행돼 5개 스테이지 클리어 도전이 펼쳐졌다.\n\niOS **평균 2.8위**, Android **평균 2.4위**를 기록했다. iOS **최고 2위**에서 최저 7위, Android **최고 2위**에서 **최저 3위**까지 움직였다. 특히 Android에서 **2~3위를 오가며 압도적인 안정감**을 보여줬다.\n\n화이트아웃 서바이벌(6,102점)과 **단 1점 차이**로, 서바이벌 장르 내 경쟁이 치열함을 보여준다. 공격적인 광고 마케팅과 간단한 게임플레이로 글로벌 시장에서 빠르게 성장한 타이틀이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -287,8 +406,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "wos-화이트아웃-서바이벌", "market": "ios", "label": "iOS"},
-        {"slug": "wos-화이트아웃-서바이벌", "market": "android", "label": "Android"}
+        {
+          "slug": "wos-화이트아웃-서바이벌",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "wos-화이트아웃-서바이벌",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -315,8 +442,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "메이플-키우기", "market": "ios", "label": "iOS"},
-        {"slug": "메이플-키우기", "market": "android", "label": "Android"}
+        {
+          "slug": "메이플-키우기",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "메이플-키우기",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {

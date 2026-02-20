@@ -10,11 +10,31 @@
   "summaryEn": "With Korean subculture games posting disappointing results from Heaven Hells to Chaos Zero, Netmarble's Seven Deadly Sins: Origin confirms its March 17 launch. Backed by a 55-million-copy IP and UE5 open world, it faces direct competition with Genshin Impact and Wuthering Waves.",
   "thumbnail": "https://sgimage.netmarble.com/images/netmarble/nanaori/20250529/n0561748500055486.jpg",
   "sources": [
-    { "name": "인더스트리뉴스", "title": "넷마블 칠대죄 오리진 3월 17일 PS5·스팀 선공개", "url": "https://www.industrynews.co.kr/news/articleView.html?idxno=78091" },
-    { "name": "PR Newswire", "title": "The Seven Deadly Sins: Origin Confirms Launch Date", "url": "https://www.prnewswire.com/news-releases/the-seven-deadly-sins-origin-confirms-launch-date-play-earlier-march-16-on-playstation5-and-steam-302686076.html" },
-    { "name": "게임플", "title": "서브컬쳐 골드러시는 끝났다", "url": "https://www.gameple.co.kr/news/articleView.html?idxno=214769" },
-    { "name": "게이머스크롤", "title": "헤븐헬즈 매출 추락 분석", "url": "https://gamerscroll.com/magazine/issue/heavenhells-sales-decline-launch/" },
-    { "name": "인벤", "title": "칠대죄 오리진 지스타 시연 호평", "url": "https://www.inven.co.kr/webzine/news/?news=311330" }
+    {
+      "name": "인더스트리뉴스",
+      "title": "넷마블 칠대죄 오리진 3월 17일 PS5·스팀 선공개",
+      "url": "https://www.industrynews.co.kr/news/articleView.html?idxno=78091"
+    },
+    {
+      "name": "PR Newswire",
+      "title": "The Seven Deadly Sins: Origin Confirms Launch Date",
+      "url": "https://www.prnewswire.com/news-releases/the-seven-deadly-sins-origin-confirms-launch-date-play-earlier-march-16-on-playstation5-and-steam-302686076.html"
+    },
+    {
+      "name": "게임플",
+      "title": "서브컬쳐 골드러시는 끝났다",
+      "url": "https://www.gameple.co.kr/news/articleView.html?idxno=214769"
+    },
+    {
+      "name": "게이머스크롤",
+      "title": "헤븐헬즈 매출 추락 분석",
+      "url": "https://gamerscroll.com/magazine/issue/heavenhells-sales-decline-launch/"
+    },
+    {
+      "name": "인벤",
+      "title": "칠대죄 오리진 지스타 시연 호평",
+      "url": "https://www.inven.co.kr/webzine/news/?news=311330"
+    }
   ],
   "relatedDocs": [
     "issue:heavenhells-sales-decline-launch",
@@ -48,9 +68,6 @@
       "value": "한국만의 문제도 아니다. 중국에서도 신월동행이 출시 4개월 만에 본토 서비스를 종료하는 등, 서브컬쳐 시장 전체가 신작에 까다로운 환경이 됐다. 수십억 원을 투자해도 출시 한 달이면 승부가 갈리는 구조다. 게임플은 이를 두고 \"서브컬쳐 골드러시는 끝났다\"고 진단했다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. 서브컬쳐 시장 현황, 기존 강자들이 자리를 안 내준다"
     },
@@ -81,9 +98,6 @@
       "value": "게임의 핵심은 태그 전투와 합기 시스템이다. 다수의 영웅을 실시간으로 교체하며 싸우고, 영웅과 무기 조합에 따라 전략이 달라진다. 콘솔 수준의 오픈월드를 모바일에서도 구현하겠다는 목표를 내걸었다. 넷마블 F&C가 개발을 맡았으며, 넷마블은 2025년 영업이익 3525억 원(전년 대비 +63.5%)으로 실적 턴어라운드에 성공한 상태다. 칠대죄 오리진은 이 흐름을 이어갈 핵심 타이틀로 꼽힌다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. 기대와 우려 — 지스타 호평 vs 넷마블 우려"
     },
@@ -100,9 +114,6 @@
     {
       "type": "text",
       "value": "반면 우려도 적지 않다. 오픈월드 서브컬쳐라는 장르 특성상 원신, 명조와 직접 비교가 불가피하다. 넷마블의 과금 BM에 대한 우려와 과거 서브컬쳐 이력(세나리버스 등)에서 비롯된 엇갈린 평가도 여전하다. 특히 서브컬쳐 커뮤니티에서는 \"게임은 좋은데 넷마블이라서 걱정\"이라는 반응이 반복되고 있다. 가챠 시스템의 밸런스와 초기 콘텐츠 볼륨이 출시 첫 주 평가를 좌우할 핵심 변수다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -137,9 +148,6 @@
       "value": "It's not just a Korean problem. In China, Moonlight Voyage shut down its domestic service just four months after launch. The subculture market has become increasingly tough on new entries — even titles backed by massive budgets see their fate decided within the first month. As Gameple put it: \"The subculture gold rush is over.\""
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. The Subculture Market Today — Incumbents Won't Budge"
     },
@@ -170,9 +178,6 @@
       "value": "The game's core draws are its tag battle and combo systems. Players swap between multiple heroes in real time, with strategy shifting based on hero-weapon combinations. Netmarble aims to deliver a console-quality open world on mobile as well. Developed by Netmarble F&C, the title arrives as Netmarble rides a turnaround year — 2025 operating profit hit 352.5 billion won (+63.5% YoY). Origin is positioned as the flagship title to sustain that momentum."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. Hope and Doubt — G-Star Praise vs Netmarble Skepticism"
     },
@@ -189,9 +194,6 @@
     {
       "type": "text",
       "value": "On the other hand, concerns are real. As an open-world subculture game, direct comparisons with Genshin Impact and Wuthering Waves are inevitable. Concerns over Netmarble's monetization practices and mixed reception of past subculture titles like The Seven Deadly Sins: Grand Cross linger among players. Subculture communities are already echoing a familiar refrain: 'The game looks great, but it's Netmarble.' Gacha balance and initial content volume will be the decisive factors in the crucial first week."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

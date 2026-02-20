@@ -14,49 +14,163 @@
     "tech:ai/claude-code-vs-codex-coding-agent"
   ],
   "sources": [
-    { "name": "WSJ", "title": "The $100 Billion Megadeal Between OpenAI and Nvidia Is on Ice", "url": "https://www.wsj.com/tech/ai/the-100-billion-megadeal-between-openai-and-nvidia-is-on-ice-aa3025e3" },
-    { "name": "Reuters", "title": "Nvidia CEO Huang Denies He Is Unhappy With OpenAI", "url": "https://www.usnews.com/news/top-news/articles/2026-01-31/nvidia-ceo-huang-denies-he-is-unhappy-with-openai-says-huge-investment-planned" },
-    { "name": "Bloomberg", "title": "Nvidia Investment in OpenAI Round 'Nothing Like' $100 Billion", "url": "https://finance.yahoo.com/news/nvidia-investment-openai-round-nothing-125431708.html" }
+    {
+      "name": "WSJ",
+      "title": "The $100 Billion Megadeal Between OpenAI and Nvidia Is on Ice",
+      "url": "https://www.wsj.com/tech/ai/the-100-billion-megadeal-between-openai-and-nvidia-is-on-ice-aa3025e3"
+    },
+    {
+      "name": "Reuters",
+      "title": "Nvidia CEO Huang Denies He Is Unhappy With OpenAI",
+      "url": "https://www.usnews.com/news/top-news/articles/2026-01-31/nvidia-ceo-huang-denies-he-is-unhappy-with-openai-says-huge-investment-planned"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "Nvidia Investment in OpenAI Round 'Nothing Like' $100 Billion",
+      "url": "https://finance.yahoo.com/news/nvidia-investment-openai-round-nothing-125431708.html"
+    }
   ],
   "content": [
-    { "type": "text", "value": "1월 31일 금요일, 월스트리트저널(WSJ)이 충격적인 기사를 내놨다. NVIDIA의 OpenAI 1000억 달러(약 140조원) 투자 계획이 사실상 보류됐다는 내용이었다. 젠슨 황 CEO가 최근 몇 달간 업계 관계자들에게 '투자 합의는 구속력이 없고, 확정된 것도 아니다'라고 강조해왔다는 것이다.\n\n하지만 그로부터 불과 몇 시간 후, 타이베이에서 열린 '1조 달러 만찬'에 참석한 젠슨 황이 직접 기자들 앞에 섰다. 그리고 '넌센스'라는 한마디로 보도 내용을 일축했다." },
-    { "type": "heading", "value": "WSJ 보도, NVIDIA 내부 회의론 폭로" },
-    { "type": "image", "src": "https://s3.amazonaws.com/cms.ipressroom.com/219/files/201910/5dc092aa2cfac24ba40e9c30_NVIDIA-Endeavor-building-logo/NVIDIA-Endeavor-building-logo_thmb.jpg", "caption": "NVIDIA 본사 Endeavor 빌딩", "alt": "NVIDIA 실리콘밸리 본사 Endeavor 빌딩, AI 칩 시장을 장악한 세계 최대 반도체 기업" },
-    { "type": "text", "value": "WSJ에 따르면, NVIDIA 내부에서는 OpenAI에 대한 대규모 투자에 회의적인 시각이 커지고 있었다. 기사는 젠슨 황이 사적인 자리에서 OpenAI의 '사업 접근 방식에 규율이 부족하다'고 비판했다고 전했다. 또한 구글(Alphabet)과 Anthropic 같은 경쟁사들의 추격에 대한 우려도 언급됐다.\n\n2025년 9월 NVIDIA와 OpenAI가 발표한 양해각서(MOU)는 최대 1000억 달러 규모의 투자를 통해 10기가와트급 데이터센터를 구축한다는 내용이었다. 이는 뉴욕시의 피크 전력 수요와 맞먹는 규모다. 하지만 WSJ 보도는 이 계획이 실질적으로 진전되지 않고 있음을 시사했다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "젠슨 황의 즉각 반박, '가장 큰 투자가 될 것'" },
-    { "type": "image", "src": "https://blogs.nvidia.com/wp-content/uploads/2025/01/jensen-ces-2025-keynote-background.jpg", "caption": "CES 키노트에서 발표 중인 젠슨 황 NVIDIA CEO", "alt": "젠슨 황 NVIDIA CEO가 CES에서 AI의 미래에 대해 발표하는 모습" },
-    { "type": "text", "value": "같은 날 타이베이에서 TSMC 등 주요 협력사 CEO들과의 만찬을 주최한 젠슨 황은 기자들 앞에서 단호하게 말했다.\n\n\"OpenAI에 불만이 있다는 건 넌센스입니다. 우리는 OpenAI에 거대한(huge) 투자를 할 겁니다. OpenAI가 하는 일은 놀랍고, 그들은 우리 시대 가장 중요한 기업 중 하나입니다. 저는 Sam과 함께 일하는 게 정말 좋습니다.\"\n\n젠슨 황은 이어 \"Sam이 펀딩 라운드를 마감하고 있고, 우리는 확실히 참여할 것\"이라며 \"아마도 우리가 지금까지 한 투자 중 가장 큰 투자가 될 것\"이라고 덧붙였다." },
-    { "type": "heading", "value": "결정적 한마디, '1000억 달러는 아니다'" },
-    { "type": "image", "src": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sam_Altman_2024.jpg", "caption": "OpenAI CEO Sam Altman", "alt": "Sam Altman OpenAI CEO, 1000억 달러 펀딩 라운드를 주도하고 있다" },
-    { "type": "text", "value": "하지만 젠슨 황의 발언에는 미묘한 뉘앙스가 숨어 있었다. 기자가 '1000억 달러 이상이냐'고 묻자, 그는 이렇게 답했다.\n\n\"아니요, 아니요. 전혀 그 정도는 아닙니다(Nothing like that).\"\n\n구체적인 금액은 Sam Altman이 발표할 몫이라며 공개를 피했지만, '1000억 달러와는 전혀 다르다'는 표현은 많은 것을 시사한다. 원래 발표됐던 1000억 달러 규모의 인프라 투자가 상당히 축소될 가능성을 내비친 셈이다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "Amazon도 최대 500억 달러 투자 협상 중" },
-    { "type": "image", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png", "caption": "Amazon Web Services", "alt": "AWS 로고, Amazon이 OpenAI에 최대 500억 달러 투자를 협상 중" },
-    { "type": "text", "value": "한편 Bloomberg는 Amazon이 OpenAI에 최대 500억 달러를 투자하고 클라우드 컴퓨팅 파워 제공 계약을 확대하는 협상을 진행 중이라고 보도했다. OpenAI는 현재 총 1000억 달러 규모의 펀딩 라운드를 진행 중이며, 성공할 경우 기업가치가 약 8300억 달러에 달할 전망이다.\n\nNVIDIA와 Amazon 외에도 여러 빅테크 기업들이 OpenAI 투자에 관심을 보이고 있다. 하지만 이번 사태는 AI 투자의 열기 속에서도 냉철한 사업적 판단이 작동하고 있음을 보여준다." },
-    { "type": "heading", "value": "마치며: 투자는 하되, 규모는 다시 협상" },
-    { "type": "text", "value": "24시간 사이에 벌어진 이 드라마를 정리하면 이렇다. NVIDIA는 OpenAI에 '확실히' 투자할 것이고, 그것도 '역대 최대 규모'가 될 것이다. 하지만 2025년 9월 발표됐던 1000억 달러 규모의 인프라 투자 계획은 사실상 재협상 중인 것으로 보인다.\n\n젠슨 황의 발언은 OpenAI에 대한 신뢰를 재확인하면서도, 동시에 투자 규모에 대한 기대치를 조정하는 노련한 위기관리였다. AI 시장의 폭발적 성장 속에서도, 세계 최고의 AI 칩 기업조차 '무한정 현금을 쏟아붓는' 전략은 취하지 않겠다는 신호를 보낸 셈이다.\n\n일각에서는 이번 사태가 OpenAI의 업계 내 입지에 미묘한 변화를 예고하는 것 아니냐는 의문도 제기한다. ChatGPT로 AI 시대를 연 OpenAI가 여전히 '가장 중요한 AI 기업'인지, 아니면 구글·Anthropic 등 경쟁자들의 추격 속에 그 위상이 재평가되고 있는지 지켜볼 필요가 있다." }
+    {
+      "type": "text",
+      "value": "1월 31일 금요일, 월스트리트저널(WSJ)이 충격적인 기사를 내놨다. NVIDIA의 OpenAI 1000억 달러(약 140조원) 투자 계획이 사실상 보류됐다는 내용이었다. 젠슨 황 CEO가 최근 몇 달간 업계 관계자들에게 '투자 합의는 구속력이 없고, 확정된 것도 아니다'라고 강조해왔다는 것이다.\n\n하지만 그로부터 불과 몇 시간 후, 타이베이에서 열린 '1조 달러 만찬'에 참석한 젠슨 황이 직접 기자들 앞에 섰다. 그리고 '넌센스'라는 한마디로 보도 내용을 일축했다."
+    },
+    {
+      "type": "heading",
+      "value": "WSJ 보도, NVIDIA 내부 회의론 폭로"
+    },
+    {
+      "type": "image",
+      "src": "https://s3.amazonaws.com/cms.ipressroom.com/219/files/201910/5dc092aa2cfac24ba40e9c30_NVIDIA-Endeavor-building-logo/NVIDIA-Endeavor-building-logo_thmb.jpg",
+      "caption": "NVIDIA 본사 Endeavor 빌딩",
+      "alt": "NVIDIA 실리콘밸리 본사 Endeavor 빌딩, AI 칩 시장을 장악한 세계 최대 반도체 기업"
+    },
+    {
+      "type": "text",
+      "value": "WSJ에 따르면, NVIDIA 내부에서는 OpenAI에 대한 대규모 투자에 회의적인 시각이 커지고 있었다. 기사는 젠슨 황이 사적인 자리에서 OpenAI의 '사업 접근 방식에 규율이 부족하다'고 비판했다고 전했다. 또한 구글(Alphabet)과 Anthropic 같은 경쟁사들의 추격에 대한 우려도 언급됐다.\n\n2025년 9월 NVIDIA와 OpenAI가 발표한 양해각서(MOU)는 최대 1000억 달러 규모의 투자를 통해 10기가와트급 데이터센터를 구축한다는 내용이었다. 이는 뉴욕시의 피크 전력 수요와 맞먹는 규모다. 하지만 WSJ 보도는 이 계획이 실질적으로 진전되지 않고 있음을 시사했다."
+    },
+    {
+      "type": "heading",
+      "value": "젠슨 황의 즉각 반박, '가장 큰 투자가 될 것'"
+    },
+    {
+      "type": "image",
+      "src": "https://blogs.nvidia.com/wp-content/uploads/2025/01/jensen-ces-2025-keynote-background.jpg",
+      "caption": "CES 키노트에서 발표 중인 젠슨 황 NVIDIA CEO",
+      "alt": "젠슨 황 NVIDIA CEO가 CES에서 AI의 미래에 대해 발표하는 모습"
+    },
+    {
+      "type": "text",
+      "value": "같은 날 타이베이에서 TSMC 등 주요 협력사 CEO들과의 만찬을 주최한 젠슨 황은 기자들 앞에서 단호하게 말했다.\n\n\"OpenAI에 불만이 있다는 건 넌센스입니다. 우리는 OpenAI에 거대한(huge) 투자를 할 겁니다. OpenAI가 하는 일은 놀랍고, 그들은 우리 시대 가장 중요한 기업 중 하나입니다. 저는 Sam과 함께 일하는 게 정말 좋습니다.\"\n\n젠슨 황은 이어 \"Sam이 펀딩 라운드를 마감하고 있고, 우리는 확실히 참여할 것\"이라며 \"아마도 우리가 지금까지 한 투자 중 가장 큰 투자가 될 것\"이라고 덧붙였다."
+    },
+    {
+      "type": "heading",
+      "value": "결정적 한마디, '1000억 달러는 아니다'"
+    },
+    {
+      "type": "image",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sam_Altman_2024.jpg",
+      "caption": "OpenAI CEO Sam Altman",
+      "alt": "Sam Altman OpenAI CEO, 1000억 달러 펀딩 라운드를 주도하고 있다"
+    },
+    {
+      "type": "text",
+      "value": "하지만 젠슨 황의 발언에는 미묘한 뉘앙스가 숨어 있었다. 기자가 '1000억 달러 이상이냐'고 묻자, 그는 이렇게 답했다.\n\n\"아니요, 아니요. 전혀 그 정도는 아닙니다(Nothing like that).\"\n\n구체적인 금액은 Sam Altman이 발표할 몫이라며 공개를 피했지만, '1000억 달러와는 전혀 다르다'는 표현은 많은 것을 시사한다. 원래 발표됐던 1000억 달러 규모의 인프라 투자가 상당히 축소될 가능성을 내비친 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "Amazon도 최대 500억 달러 투자 협상 중"
+    },
+    {
+      "type": "image",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png",
+      "caption": "Amazon Web Services",
+      "alt": "AWS 로고, Amazon이 OpenAI에 최대 500억 달러 투자를 협상 중"
+    },
+    {
+      "type": "text",
+      "value": "한편 Bloomberg는 Amazon이 OpenAI에 최대 500억 달러를 투자하고 클라우드 컴퓨팅 파워 제공 계약을 확대하는 협상을 진행 중이라고 보도했다. OpenAI는 현재 총 1000억 달러 규모의 펀딩 라운드를 진행 중이며, 성공할 경우 기업가치가 약 8300억 달러에 달할 전망이다.\n\nNVIDIA와 Amazon 외에도 여러 빅테크 기업들이 OpenAI 투자에 관심을 보이고 있다. 하지만 이번 사태는 AI 투자의 열기 속에서도 냉철한 사업적 판단이 작동하고 있음을 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 투자는 하되, 규모는 다시 협상"
+    },
+    {
+      "type": "text",
+      "value": "24시간 사이에 벌어진 이 드라마를 정리하면 이렇다. NVIDIA는 OpenAI에 '확실히' 투자할 것이고, 그것도 '역대 최대 규모'가 될 것이다. 하지만 2025년 9월 발표됐던 1000억 달러 규모의 인프라 투자 계획은 사실상 재협상 중인 것으로 보인다.\n\n젠슨 황의 발언은 OpenAI에 대한 신뢰를 재확인하면서도, 동시에 투자 규모에 대한 기대치를 조정하는 노련한 위기관리였다. AI 시장의 폭발적 성장 속에서도, 세계 최고의 AI 칩 기업조차 '무한정 현금을 쏟아붓는' 전략은 취하지 않겠다는 신호를 보낸 셈이다.\n\n일각에서는 이번 사태가 OpenAI의 업계 내 입지에 미묘한 변화를 예고하는 것 아니냐는 의문도 제기한다. ChatGPT로 AI 시대를 연 OpenAI가 여전히 '가장 중요한 AI 기업'인지, 아니면 구글·Anthropic 등 경쟁자들의 추격 속에 그 위상이 재평가되고 있는지 지켜볼 필요가 있다."
+    }
   ],
   "titleEn": "NVIDIA-OpenAI $100 Billion Investment: From Withdrawal Rumors to Reaffirmation",
   "summaryEn": "Hours after WSJ reported that NVIDIA's $100 billion investment in OpenAI was 'on ice,' Jensen Huang personally stepped forward to promise 'the largest investment ever.' But he drew a clear line: 'Nothing like $100 billion.' What happened between NVIDIA and OpenAI?",
   "contentEn": [
-    { "type": "text", "value": "On Friday, January 31st, The Wall Street Journal dropped a bombshell. NVIDIA's $100 billion investment plan in OpenAI had effectively been put on hold. CEO Jensen Huang had reportedly been telling industry insiders for months that 'the investment agreement is non-binding and not finalized.'\n\nBut just hours later, Jensen Huang appeared before reporters at a 'trillion-dollar dinner' in Taipei. He dismissed the report with one word: 'Nonsense.'" },
-    { "type": "heading", "value": "WSJ Report Exposes Internal Skepticism at NVIDIA" },
-    { "type": "image", "src": "https://s3.amazonaws.com/cms.ipressroom.com/219/files/201910/5dc092aa2cfac24ba40e9c30_NVIDIA-Endeavor-building-logo/NVIDIA-Endeavor-building-logo_thmb.jpg", "caption": "NVIDIA Endeavor Headquarters", "alt": "NVIDIA Silicon Valley Endeavor headquarters, the world's largest semiconductor company dominating the AI chip market" },
-    { "type": "text", "value": "According to WSJ, skepticism about the massive OpenAI investment had been growing inside NVIDIA. The report claimed Jensen Huang had privately criticized what he described as a 'lack of discipline in OpenAI's business approach.' Concerns about competition from Google (Alphabet) and Anthropic were also mentioned.\n\nThe memorandum of understanding (MOU) announced by NVIDIA and OpenAI in September 2025 outlined investments of up to $100 billion to build data centers capable of 10 gigawatts—equivalent to New York City's peak electricity demand. But the WSJ report suggested this plan had made little real progress." },
-    { "type": "ad" },
-    { "type": "heading", "value": "Jensen Huang's Immediate Rebuttal: 'It Will Be Our Largest Investment'" },
-    { "type": "image", "src": "https://blogs.nvidia.com/wp-content/uploads/2025/01/jensen-ces-2025-keynote-background.jpg", "caption": "Jensen Huang, NVIDIA CEO, presenting at CES keynote", "alt": "Jensen Huang NVIDIA CEO speaking about the future of AI at CES" },
-    { "type": "text", "value": "That same day in Taipei, after hosting a dinner with key partners including TSMC, Jensen Huang spoke firmly to reporters.\n\n\"It's nonsense to say I'm unhappy with OpenAI. We're going to make a huge investment in OpenAI. The work they do is incredible, they're one of the most consequential companies of our time, and I really love working with Sam.\"\n\nHuang added, \"Sam is closing the funding round, and we will absolutely be involved. It will probably be the largest investment we've ever made.\"" },
-    { "type": "heading", "value": "The Critical Words: 'Nothing Like $100 Billion'" },
-    { "type": "image", "src": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sam_Altman_2024.jpg", "caption": "OpenAI CEO Sam Altman", "alt": "Sam Altman OpenAI CEO, leading the $100 billion funding round" },
-    { "type": "text", "value": "However, Jensen Huang's statement contained a subtle nuance. When asked if the investment would exceed $100 billion, he replied:\n\n\"No, no. Nothing like that.\"\n\nWhile he deferred to Sam Altman to announce the specific amount, the phrase 'nothing like $100 billion' speaks volumes. It suggests that the originally announced $100 billion infrastructure investment may be significantly scaled back." },
-    { "type": "ad" },
-    { "type": "heading", "value": "Amazon Also in Talks for Up to $50 Billion Investment" },
-    { "type": "image", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png", "caption": "Amazon Web Services", "alt": "AWS logo, Amazon is negotiating to invest up to $50 billion in OpenAI" },
-    { "type": "text", "value": "Meanwhile, Bloomberg reported that Amazon is in talks to invest up to $50 billion in OpenAI and expand its cloud computing power agreement. OpenAI is currently conducting a $100 billion funding round, which would value the company at approximately $830 billion if successful.\n\nBesides NVIDIA and Amazon, several other Big Tech companies have shown interest in investing in OpenAI. Yet this incident demonstrates that even amid AI investment fever, cool business judgment prevails." },
-    { "type": "heading", "value": "Conclusion: Investing Yes, But Renegotiating the Scale" },
-    { "type": "text", "value": "Here's the summary of the 24-hour drama: NVIDIA will 'absolutely' invest in OpenAI, and it will be their 'largest investment ever.' However, the $100 billion infrastructure investment plan announced in September 2025 appears to be under renegotiation.\n\nJensen Huang's statement was a masterful crisis management move—reaffirming trust in OpenAI while simultaneously adjusting expectations about the investment scale. Even the world's top AI chip company is signaling that it won't pursue a strategy of 'pouring unlimited cash' into AI, despite the market's explosive growth.\n\nSome observers are now questioning whether this signals a subtle shift in OpenAI's standing within the industry. Is OpenAI—the company that ushered in the AI era with ChatGPT—still 'the most consequential AI company,' or is its position being reassessed amid intensifying competition from Google, Anthropic, and others? It's worth watching closely." }
+    {
+      "type": "text",
+      "value": "On Friday, January 31st, The Wall Street Journal dropped a bombshell. NVIDIA's $100 billion investment plan in OpenAI had effectively been put on hold. CEO Jensen Huang had reportedly been telling industry insiders for months that 'the investment agreement is non-binding and not finalized.'\n\nBut just hours later, Jensen Huang appeared before reporters at a 'trillion-dollar dinner' in Taipei. He dismissed the report with one word: 'Nonsense.'"
+    },
+    {
+      "type": "heading",
+      "value": "WSJ Report Exposes Internal Skepticism at NVIDIA"
+    },
+    {
+      "type": "image",
+      "src": "https://s3.amazonaws.com/cms.ipressroom.com/219/files/201910/5dc092aa2cfac24ba40e9c30_NVIDIA-Endeavor-building-logo/NVIDIA-Endeavor-building-logo_thmb.jpg",
+      "caption": "NVIDIA Endeavor Headquarters",
+      "alt": "NVIDIA Silicon Valley Endeavor headquarters, the world's largest semiconductor company dominating the AI chip market"
+    },
+    {
+      "type": "text",
+      "value": "According to WSJ, skepticism about the massive OpenAI investment had been growing inside NVIDIA. The report claimed Jensen Huang had privately criticized what he described as a 'lack of discipline in OpenAI's business approach.' Concerns about competition from Google (Alphabet) and Anthropic were also mentioned.\n\nThe memorandum of understanding (MOU) announced by NVIDIA and OpenAI in September 2025 outlined investments of up to $100 billion to build data centers capable of 10 gigawatts—equivalent to New York City's peak electricity demand. But the WSJ report suggested this plan had made little real progress."
+    },
+    {
+      "type": "heading",
+      "value": "Jensen Huang's Immediate Rebuttal: 'It Will Be Our Largest Investment'"
+    },
+    {
+      "type": "image",
+      "src": "https://blogs.nvidia.com/wp-content/uploads/2025/01/jensen-ces-2025-keynote-background.jpg",
+      "caption": "Jensen Huang, NVIDIA CEO, presenting at CES keynote",
+      "alt": "Jensen Huang NVIDIA CEO speaking about the future of AI at CES"
+    },
+    {
+      "type": "text",
+      "value": "That same day in Taipei, after hosting a dinner with key partners including TSMC, Jensen Huang spoke firmly to reporters.\n\n\"It's nonsense to say I'm unhappy with OpenAI. We're going to make a huge investment in OpenAI. The work they do is incredible, they're one of the most consequential companies of our time, and I really love working with Sam.\"\n\nHuang added, \"Sam is closing the funding round, and we will absolutely be involved. It will probably be the largest investment we've ever made.\""
+    },
+    {
+      "type": "heading",
+      "value": "The Critical Words: 'Nothing Like $100 Billion'"
+    },
+    {
+      "type": "image",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sam_Altman_2024.jpg",
+      "caption": "OpenAI CEO Sam Altman",
+      "alt": "Sam Altman OpenAI CEO, leading the $100 billion funding round"
+    },
+    {
+      "type": "text",
+      "value": "However, Jensen Huang's statement contained a subtle nuance. When asked if the investment would exceed $100 billion, he replied:\n\n\"No, no. Nothing like that.\"\n\nWhile he deferred to Sam Altman to announce the specific amount, the phrase 'nothing like $100 billion' speaks volumes. It suggests that the originally announced $100 billion infrastructure investment may be significantly scaled back."
+    },
+    {
+      "type": "heading",
+      "value": "Amazon Also in Talks for Up to $50 Billion Investment"
+    },
+    {
+      "type": "image",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png",
+      "caption": "Amazon Web Services",
+      "alt": "AWS logo, Amazon is negotiating to invest up to $50 billion in OpenAI"
+    },
+    {
+      "type": "text",
+      "value": "Meanwhile, Bloomberg reported that Amazon is in talks to invest up to $50 billion in OpenAI and expand its cloud computing power agreement. OpenAI is currently conducting a $100 billion funding round, which would value the company at approximately $830 billion if successful.\n\nBesides NVIDIA and Amazon, several other Big Tech companies have shown interest in investing in OpenAI. Yet this incident demonstrates that even amid AI investment fever, cool business judgment prevails."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Investing Yes, But Renegotiating the Scale"
+    },
+    {
+      "type": "text",
+      "value": "Here's the summary of the 24-hour drama: NVIDIA will 'absolutely' invest in OpenAI, and it will be their 'largest investment ever.' However, the $100 billion infrastructure investment plan announced in September 2025 appears to be under renegotiation.\n\nJensen Huang's statement was a masterful crisis management move—reaffirming trust in OpenAI while simultaneously adjusting expectations about the investment scale. Even the world's top AI chip company is signaling that it won't pursue a strategy of 'pouring unlimited cash' into AI, despite the market's explosive growth.\n\nSome observers are now questioning whether this signals a subtle shift in OpenAI's standing within the industry. Is OpenAI—the company that ushered in the AI era with ChatGPT—still 'the most consequential AI company,' or is its position being reassessed amid intensifying competition from Google, Anthropic, and others? It's worth watching closely."
+    }
   ],
   "needTranslate": false
 }

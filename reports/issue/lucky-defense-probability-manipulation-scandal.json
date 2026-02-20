@@ -10,8 +10,15 @@
   "summary": "111%의 인기 모바일 게임 운빨존많겜에서 펫 뽑기 확률 조작 논란이 터졌다. 셔플 로직 오류로 10개월간 모든 유저가 같은 펫만 뽑은 것으로 확인됐다.",
   "summaryEn": "111%'s hit mobile game Lucky Defense is embroiled in a probability manipulation scandal. A shuffle logic bug caused all users to draw the same pets for 10 months.",
   "thumbnail": "https://images.ctfassets.net/vfkpgemp7ek3/6b4Pb0U0I2fatakYTqoVEI/d7c815a42818a47e9e8f236e4b8b019a/Cover_Image.jpg",
-  "relatedIssues": ["lucky-defense-long-run-success", "maple-grow-probability-scandal-2026", "maplestory-idle-full-refund", "nexon-maple-scandal-chief-fired"],
-  "relatedGames": ["운빨존많겜"],
+  "relatedIssues": [
+    "lucky-defense-long-run-success",
+    "maple-grow-probability-scandal-2026",
+    "maplestory-idle-full-refund",
+    "nexon-maple-scandal-chief-fired"
+  ],
+  "relatedGames": [
+    "운빨존많겜"
+  ],
   "sources": [
     {
       "name": "뉴스웨이",
@@ -69,22 +76,37 @@
     },
     {
       "type": "table",
-      "headers": ["등급", "편향된 1위 펫"],
+      "headers": [
+        "등급",
+        "편향된 1위 펫"
+      ],
       "rows": [
-        ["신화", "고래킹"],
-        ["전설", "샐러맨더"],
-        ["영웅", "스티키"],
-        ["희귀", "젤리"],
-        ["일반", "단세포"]
+        [
+          "신화",
+          "고래킹"
+        ],
+        [
+          "전설",
+          "샐러맨더"
+        ],
+        [
+          "영웅",
+          "스티키"
+        ],
+        [
+          "희귀",
+          "젤리"
+        ],
+        [
+          "일반",
+          "단세포"
+        ]
       ],
       "caption": "등급별 가장 많이 뽑힌 펫 (모든 유저 동일)"
     },
     {
       "type": "text",
       "value": "이 패턴은 개인 차이가 아니라 **시스템 자체의 결함**이었다. 유저들은 \"개인 운이 나빴던 게 아니라 시스템이 처음부터 고장나 있었다\"며 분노했다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -113,9 +135,6 @@
     {
       "type": "text",
       "value": "커뮤니티 반응은 폭발적이다. 디시인사이드 운빨존많겜 갤러리에는 아침부터 항의글이 쏟아졌고, 에펨코리아에도 \"모바일게임 확률조작 터짐\"이라는 제목으로 글이 퍼지고 있다.\n\n유저들의 핵심 요구는 세 가지다.\n\n- **현금 환불** — 인게임 재화 보상이 아닌 결제 취소를 요구\n- **콘분위(콘텐츠분쟁조정위원회) 조정 신청** — 실제 신청서 초안이 디시인사이드에 게시됨\n- **전수 조사** — 펫·룬 외에 영웅 모집, 유물, 블롭 피규어 등 모든 확률 시스템 점검 요구\n\n\"10개월간 방치한 건 의도 아니냐\", \"메이플키우기 재현이다\"라는 반응과 함께, 공격력 합연산/곱연산 표기 오류 등 **기존에 은폐됐던 문제들도 함께 공론화**되고 있다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -161,22 +180,37 @@
     },
     {
       "type": "table",
-      "headers": ["Tier", "Most Drawn Pet"],
+      "headers": [
+        "Tier",
+        "Most Drawn Pet"
+      ],
       "rows": [
-        ["Myth", "Whale King"],
-        ["Legend", "Salamander"],
-        ["Hero", "Sticky"],
-        ["Rare", "Jelly"],
-        ["Common", "Amoeba"]
+        [
+          "Myth",
+          "Whale King"
+        ],
+        [
+          "Legend",
+          "Salamander"
+        ],
+        [
+          "Hero",
+          "Sticky"
+        ],
+        [
+          "Rare",
+          "Jelly"
+        ],
+        [
+          "Common",
+          "Amoeba"
+        ]
       ],
       "caption": "Most frequently drawn pet by tier (identical across all users)"
     },
     {
       "type": "text",
       "value": "This wasn't individual bad luck — it was a **systemic defect**. Players were furious: \"It wasn't our luck that was bad, the system was broken from day one.\""
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -205,9 +239,6 @@
     {
       "type": "text",
       "value": "The community response has been explosive. DC Inside's Lucky Defense gallery has been flooded with protest posts since morning, and FM Korea threads titled \"Mobile game probability manipulation just dropped\" are going viral.\n\nPlayers have three core demands:\n\n- **Cash refunds** — not in-game currency, but actual payment reversals\n- **Content Dispute Mediation Committee filing** — draft applications are already circulating on DC Inside\n- **Full system audit** — inspection of all probabilistic systems beyond pets and runes, including hero recruitment, relics, and blob figures\n\nSentiment ranges from \"10 months of neglect must have been intentional\" to \"this is MapleStory Idle all over again,\" with **previously hidden issues like attack stat calculation errors also being exposed.**"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

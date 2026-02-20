@@ -6,39 +6,137 @@
   "thumbnail": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_1920/ncom/en_US/articles/2025/nintendo-switch-2-to-be-released-in-2025/1920x1080_WN_PR01162025",
   "keywords": "게이밍 기기 가격 인상, 스위치2 가격, PS5 가격 인상, Xbox 가격 인상, AI 메모리 수요, 트럼프 관세, DRAM 가격, ROG Ally X, 리전 Go 2, 스팀덱 품절, GPU 가격, PS6 출시 연기",
   "summary": "AI 데이터센터의 메모리 수요 폭증과 트럼프 관세 정책이 맞물리면서 게이밍 기기 전반의 가격이 급등하고 있다. 스위치2부터 PS5, Xbox, 휴대용 PC까지 모든 플랫폼이 영향권에 들었다.",
-  "relatedDocs": ["issue:ddr5-price-surge-gaming-nightmare", "issue:ps6-release-outlook-2027"],
+  "relatedDocs": [
+    "issue:ddr5-price-surge-gaming-nightmare",
+    "issue:ps6-release-outlook-2027"
+  ],
   "sources": [
-    { "name": "Bloomberg", "title": "AI Memory Demand Fuels Global Chip Crisis, Switch 2 RAM Costs Up 41%", "url": "https://www.bloomberg.com/news/articles/2025-04-15/nintendo-switch-2-pricing-complicated-by-ai-memory-chip-demand" },
-    { "name": "Forbes", "title": "Sony raises PS5 price by $50 citing Trump tariffs", "url": "https://www.forbes.com/sites/paultassi/2025/04/10/sony-raises-ps5-price-50-citing-trump-tariffs/" },
-    { "name": "CNBC", "title": "RAM prices expected to surge 50% amid AI boom", "url": "https://www.cnbc.com/2025/02/06/memory-chip-prices-to-rise-sharply-in-2025-amid-ai-demand.html" },
-    { "name": "VideoCardz", "title": "ASUS ROG Ally X price increased by 21% in Japan", "url": "https://videocardz.com/newz/asus-rog-ally-x-21-percent-price-increase-japan" },
-    { "name": "Tom's Hardware", "title": "Steam Deck OLED sold out due to memory shortage", "url": "https://www.tomshardware.com/gaming/steam-deck-oled-sold-out-memory-shortage" }
+    {
+      "name": "Bloomberg",
+      "title": "AI Memory Demand Fuels Global Chip Crisis, Switch 2 RAM Costs Up 41%",
+      "url": "https://www.bloomberg.com/news/articles/2025-04-15/nintendo-switch-2-pricing-complicated-by-ai-memory-chip-demand"
+    },
+    {
+      "name": "Forbes",
+      "title": "Sony raises PS5 price by $50 citing Trump tariffs",
+      "url": "https://www.forbes.com/sites/paultassi/2025/04/10/sony-raises-ps5-price-50-citing-trump-tariffs/"
+    },
+    {
+      "name": "CNBC",
+      "title": "RAM prices expected to surge 50% amid AI boom",
+      "url": "https://www.cnbc.com/2025/02/06/memory-chip-prices-to-rise-sharply-in-2025-amid-ai-demand.html"
+    },
+    {
+      "name": "VideoCardz",
+      "title": "ASUS ROG Ally X price increased by 21% in Japan",
+      "url": "https://videocardz.com/newz/asus-rog-ally-x-21-percent-price-increase-japan"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "Steam Deck OLED sold out due to memory shortage",
+      "url": "https://www.tomshardware.com/gaming/steam-deck-oled-sold-out-memory-shortage"
+    }
   ],
   "content": [
-    { "type": "text", "value": "2026년 들어 게이밍 기기 시장에 전방위적 가격 인상 바람이 불고 있다. 닌텐도 스위치2, 플레이스테이션5, 엑스박스는 물론이고 ROG 앨리 X, 리전 Go 2 같은 휴대용 게이밍 PC까지 예외가 없다. 원인은 크게 두 가지다. AI 데이터센터가 메모리 반도체를 싹쓸이하면서 부품 원가가 치솟았고, 여기에 트럼프 행정부의 관세 정책이 겹치면서 소비자 가격이 이중으로 뛰고 있다." },
-    { "type": "heading", "value": "1. AI가 메모리를 독점하다 — DRAM 가격 41~50% 급등" },
-    { "type": "image", "src": "https://img.trendforce.com/blog/wp-content/uploads/2023/12/08155937/SK-hynix-HBM3E-624x364.jpg", "caption": "SK하이닉스 HBM3E 메모리 모듈", "alt": "SK하이닉스 HBM3E 메모리" },
-    { "type": "text", "value": "블룸버그에 따르면, 닌텐도 스위치2에 탑재되는 램 비용이 1년 새 41% 상승했다. CNBC는 2026년 전체 램 가격이 50% 이상 오를 것으로 전망했다. 원인은 명확하다. 챗GPT, 제미나이, 클로드 등 거대 AI 모델을 운영하는 데이터센터가 HBM(고대역폭 메모리)과 범용 DRAM을 동시에 흡수하고 있기 때문이다.\n\n삼성전자, SK하이닉스, 마이크론 같은 주요 메모리 업체들은 마진이 훨씬 높은 AI용 HBM 생산에 설비를 집중 투입하고 있다. 그 결과 소비자 전자기기에 들어가는 범용 DRAM과 낸드플래시의 공급이 줄어들면서 부품 단가가 급등했다. 게이밍 콘솔과 휴대용 PC는 이 부품들을 대량으로 사용하기 때문에 직격탄을 맞고 있다." },
-    { "type": "heading", "value": "2. 트럼프 관세가 덮친 콘솔 시장 — 69% 인상 경고" },
-    { "type": "image", "src": "https://blog.playstation.com/tachyon/2025/08/66bb079c62bfe244be49d95606e5375f5869870a.jpg?resize=1088%2C612&crop_strategy=smart", "caption": "플레이스테이션5", "alt": "플레이스테이션5 가격 인상" },
-    { "type": "text", "value": "메모리 가격만으로도 힘든데, 2025년 하반기부터 본격화된 트럼프 행정부의 관세 정책이 상황을 악화시켰다. 미국소비자기술협회(CTA)는 비디오 게임 콘솔 카테고리에서 평균 69%의 가격 인상이 불가피하다는 분석을 내놓았다.\n\n실제로 소니는 플레이스테이션5 가격을 50달러 인상했고, 마이크로소프트도 엑스박스 라인업 전반의 가격을 올렸다. 포브스와 CNBC 모두 이 인상의 직접적 원인으로 중국산 부품에 부과된 관세를 지목했다. 게이밍 하드웨어의 핵심 부품 대부분이 중국과 동남아시아에서 생산되기 때문에, 관세의 영향이 공급망 전체를 타고 소비자 가격에 반영되는 구조다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "3. 스위치2, $449 유지할 수 있을까" },
-    { "type": "image", "src": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Hardware/123669-nintendo-switch-2-package-front-2000x2000", "caption": "닌텐도 스위치2 패키지", "alt": "닌텐도 스위치2" },
-    { "type": "text", "value": "닌텐도는 스위치2 가격을 449.99달러로 발표하며 가격 방어에 나섰다. 하지만 블룸버그의 분석에 따르면 램 비용 41% 상승분을 현재 가격에 온전히 흡수하기 어렵다. 닌텐도가 이익률을 줄여서라도 가격을 유지할지, 아니면 출시 후 점진적으로 인상할지가 업계의 관심사다.\n\n전작 스위치가 299달러였던 것을 감안하면 449달러 자체가 이미 상당한 인상이다. 여기에 메모리 가격이 계속 오르면 추가 인상 압력은 더 커질 수밖에 없다. 닌텐도 측은 \"현재 가격을 유지하겠다\"는 입장이지만, 업계에서는 향후 인상 가능성을 배제하지 않고 있다." },
-    { "type": "heading", "value": "4. 휴대용 게이밍 PC도 직격탄 — ROG 앨리 X 21%↑, 리전 Go 2 최대 267만 원" },
-    { "type": "image", "src": "https://xboxwire.thesourcemediaassets.com/sites/2/2025/06/Ally-Hero-cf171ede4ff754c27339.jpg", "caption": "ROG Xbox Ally X", "alt": "ROG Xbox Ally X" },
-    { "type": "text", "value": "콘솔만의 문제가 아니다. 휴대용 게이밍 PC 시장도 가격 인상 도미노에 휘말렸다.\n\n비디오카즈에 따르면, 에이수스 ROG 앨리 X(엑스박스 에디션)는 일본에서 21% 가격이 인상됐다. 레노버의 리전 Go 2는 미국 시장에서 최대 500달러 이상 오를 수 있다는 전망이 나왔는데, PC매그 기준 최고가 모델은 약 267만 원에 달할 수 있다." },
-    { "type": "text", "value": "밸브의 스팀덱 OLED도 상황이 심각하다. 톰스 하드웨어는 메모리 부족으로 인해 스팀덱 OLED가 품절 상태에 빠졌다고 보도했다. 가격 인상 이전에 물량 자체를 확보하지 못하는 상황이다. 메모리 수급 불안이 가격뿐 아니라 제품 가용성까지 위협하고 있는 셈이다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "5. GPU 시장까지 번진 가격 폭등" },
-    { "type": "image", "src": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/50-series/rtx-5090/geforce-rtx-5090-learn-more-og-1200x630.jpg", "caption": "엔비디아 RTX 5090", "alt": "엔비디아 RTX 5090" },
-    { "type": "text", "value": "그래픽 카드 시장도 예외가 아니다. PC매그는 GPU 가격이 다시 급등하고 있다고 보도했다. 엔비디아 CEO 젠슨 황은 한 술 더 떠서 \"6년 전에 출시된 GPU도 가격이 오를 것\"이라고 발언해 충격을 줬다. 테크레이더가 보도한 이 발언은 메모리 원가 상승이 신제품뿐 아니라 구형 재고까지 영향을 미친다는 뜻이다.\n\nGPU 원가에서 메모리가 차지하는 비중이 갈수록 커지고 있다. GDDR7 메모리를 탑재하는 차세대 그래픽 카드는 메모리 비용만으로도 이전 세대 전체 원가에 근접할 수 있다는 분석도 나온다. 관세까지 더해지면 소비자가 체감하는 가격 상승폭은 더욱 클 수밖에 없다." },
-    { "type": "heading", "value": "6. PS6, 2028~2029년으로 출시 연기 가능성" },
-    { "type": "image", "src": "https://variety.com/wp-content/uploads/2024/09/Sony-PlayStation-Pro-5.png", "caption": "플레이스테이션5 프로", "alt": "플레이스테이션5 프로" },
-    { "type": "text", "value": "장기적으로 가장 주목할 부분은 소니 플레이스테이션6의 출시 시점이다. 업계 분석에 따르면, 부품 원가 상승과 관세 불확실성으로 인해 PS6 출시가 당초 예상보다 늦어져 2028년에서 2029년 사이로 밀릴 수 있다는 전망이 나오고 있다.\n\n소니 입장에서는 PS5를 50달러 인상하면서도 판매량 감소를 감수해야 했는데, 차세대 콘솔을 현재 부품 가격으로 설계하면 출시가부터 700달러를 넘길 수 있다. 메모리와 반도체 가격이 안정될 때까지 출시를 미루는 것이 전략적으로 유리할 수 있다는 판단이다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "마치며: 게이머가 감당해야 할 '이중 세금'" },
-    { "type": "text", "value": "AI가 만들어낸 메모리 수요 폭증은 반도체 업체에게는 호황이지만, 게이머에게는 보이지 않는 세금이 됐다. 여기에 관세라는 진짜 세금까지 더해지면서 게이밍 기기의 가격 인상이 전 플랫폼으로 확산되고 있다.\n\nCTA의 69% 인상 경고가 현실이 된다면, 지금 우리가 보는 가격은 아직 시작에 불과할 수 있다. 스위치2의 449달러가 싸게 느껴지는 날이 올지도 모른다. 메모리 공급이 정상화되거나 관세 정책이 완화되기 전까지, 게이밍 하드웨어 시장의 가격 상승 압력은 계속될 전망이다." }
+    {
+      "type": "text",
+      "value": "2026년 들어 게이밍 기기 시장에 전방위적 가격 인상 바람이 불고 있다. 닌텐도 스위치2, 플레이스테이션5, 엑스박스는 물론이고 ROG 앨리 X, 리전 Go 2 같은 휴대용 게이밍 PC까지 예외가 없다. 원인은 크게 두 가지다. AI 데이터센터가 메모리 반도체를 싹쓸이하면서 부품 원가가 치솟았고, 여기에 트럼프 행정부의 관세 정책이 겹치면서 소비자 가격이 이중으로 뛰고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. AI가 메모리를 독점하다 — DRAM 가격 41~50% 급등"
+    },
+    {
+      "type": "image",
+      "src": "https://img.trendforce.com/blog/wp-content/uploads/2023/12/08155937/SK-hynix-HBM3E-624x364.jpg",
+      "caption": "SK하이닉스 HBM3E 메모리 모듈",
+      "alt": "SK하이닉스 HBM3E 메모리"
+    },
+    {
+      "type": "text",
+      "value": "블룸버그에 따르면, 닌텐도 스위치2에 탑재되는 램 비용이 1년 새 41% 상승했다. CNBC는 2026년 전체 램 가격이 50% 이상 오를 것으로 전망했다. 원인은 명확하다. 챗GPT, 제미나이, 클로드 등 거대 AI 모델을 운영하는 데이터센터가 HBM(고대역폭 메모리)과 범용 DRAM을 동시에 흡수하고 있기 때문이다.\n\n삼성전자, SK하이닉스, 마이크론 같은 주요 메모리 업체들은 마진이 훨씬 높은 AI용 HBM 생산에 설비를 집중 투입하고 있다. 그 결과 소비자 전자기기에 들어가는 범용 DRAM과 낸드플래시의 공급이 줄어들면서 부품 단가가 급등했다. 게이밍 콘솔과 휴대용 PC는 이 부품들을 대량으로 사용하기 때문에 직격탄을 맞고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 트럼프 관세가 덮친 콘솔 시장 — 69% 인상 경고"
+    },
+    {
+      "type": "image",
+      "src": "https://blog.playstation.com/tachyon/2025/08/66bb079c62bfe244be49d95606e5375f5869870a.jpg?resize=1088%2C612&crop_strategy=smart",
+      "caption": "플레이스테이션5",
+      "alt": "플레이스테이션5 가격 인상"
+    },
+    {
+      "type": "text",
+      "value": "메모리 가격만으로도 힘든데, 2025년 하반기부터 본격화된 트럼프 행정부의 관세 정책이 상황을 악화시켰다. 미국소비자기술협회(CTA)는 비디오 게임 콘솔 카테고리에서 평균 69%의 가격 인상이 불가피하다는 분석을 내놓았다.\n\n실제로 소니는 플레이스테이션5 가격을 50달러 인상했고, 마이크로소프트도 엑스박스 라인업 전반의 가격을 올렸다. 포브스와 CNBC 모두 이 인상의 직접적 원인으로 중국산 부품에 부과된 관세를 지목했다. 게이밍 하드웨어의 핵심 부품 대부분이 중국과 동남아시아에서 생산되기 때문에, 관세의 영향이 공급망 전체를 타고 소비자 가격에 반영되는 구조다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 스위치2, $449 유지할 수 있을까"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/My%20Nintendo%20Store/EN-US/Nintendo%20Switch%202/Hardware/123669-nintendo-switch-2-package-front-2000x2000",
+      "caption": "닌텐도 스위치2 패키지",
+      "alt": "닌텐도 스위치2"
+    },
+    {
+      "type": "text",
+      "value": "닌텐도는 스위치2 가격을 449.99달러로 발표하며 가격 방어에 나섰다. 하지만 블룸버그의 분석에 따르면 램 비용 41% 상승분을 현재 가격에 온전히 흡수하기 어렵다. 닌텐도가 이익률을 줄여서라도 가격을 유지할지, 아니면 출시 후 점진적으로 인상할지가 업계의 관심사다.\n\n전작 스위치가 299달러였던 것을 감안하면 449달러 자체가 이미 상당한 인상이다. 여기에 메모리 가격이 계속 오르면 추가 인상 압력은 더 커질 수밖에 없다. 닌텐도 측은 \"현재 가격을 유지하겠다\"는 입장이지만, 업계에서는 향후 인상 가능성을 배제하지 않고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 휴대용 게이밍 PC도 직격탄 — ROG 앨리 X 21%↑, 리전 Go 2 최대 267만 원"
+    },
+    {
+      "type": "image",
+      "src": "https://xboxwire.thesourcemediaassets.com/sites/2/2025/06/Ally-Hero-cf171ede4ff754c27339.jpg",
+      "caption": "ROG Xbox Ally X",
+      "alt": "ROG Xbox Ally X"
+    },
+    {
+      "type": "text",
+      "value": "콘솔만의 문제가 아니다. 휴대용 게이밍 PC 시장도 가격 인상 도미노에 휘말렸다.\n\n비디오카즈에 따르면, 에이수스 ROG 앨리 X(엑스박스 에디션)는 일본에서 21% 가격이 인상됐다. 레노버의 리전 Go 2는 미국 시장에서 최대 500달러 이상 오를 수 있다는 전망이 나왔는데, PC매그 기준 최고가 모델은 약 267만 원에 달할 수 있다."
+    },
+    {
+      "type": "text",
+      "value": "밸브의 스팀덱 OLED도 상황이 심각하다. 톰스 하드웨어는 메모리 부족으로 인해 스팀덱 OLED가 품절 상태에 빠졌다고 보도했다. 가격 인상 이전에 물량 자체를 확보하지 못하는 상황이다. 메모리 수급 불안이 가격뿐 아니라 제품 가용성까지 위협하고 있는 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "5. GPU 시장까지 번진 가격 폭등"
+    },
+    {
+      "type": "image",
+      "src": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/50-series/rtx-5090/geforce-rtx-5090-learn-more-og-1200x630.jpg",
+      "caption": "엔비디아 RTX 5090",
+      "alt": "엔비디아 RTX 5090"
+    },
+    {
+      "type": "text",
+      "value": "그래픽 카드 시장도 예외가 아니다. PC매그는 GPU 가격이 다시 급등하고 있다고 보도했다. 엔비디아 CEO 젠슨 황은 한 술 더 떠서 \"6년 전에 출시된 GPU도 가격이 오를 것\"이라고 발언해 충격을 줬다. 테크레이더가 보도한 이 발언은 메모리 원가 상승이 신제품뿐 아니라 구형 재고까지 영향을 미친다는 뜻이다.\n\nGPU 원가에서 메모리가 차지하는 비중이 갈수록 커지고 있다. GDDR7 메모리를 탑재하는 차세대 그래픽 카드는 메모리 비용만으로도 이전 세대 전체 원가에 근접할 수 있다는 분석도 나온다. 관세까지 더해지면 소비자가 체감하는 가격 상승폭은 더욱 클 수밖에 없다."
+    },
+    {
+      "type": "heading",
+      "value": "6. PS6, 2028~2029년으로 출시 연기 가능성"
+    },
+    {
+      "type": "image",
+      "src": "https://variety.com/wp-content/uploads/2024/09/Sony-PlayStation-Pro-5.png",
+      "caption": "플레이스테이션5 프로",
+      "alt": "플레이스테이션5 프로"
+    },
+    {
+      "type": "text",
+      "value": "장기적으로 가장 주목할 부분은 소니 플레이스테이션6의 출시 시점이다. 업계 분석에 따르면, 부품 원가 상승과 관세 불확실성으로 인해 PS6 출시가 당초 예상보다 늦어져 2028년에서 2029년 사이로 밀릴 수 있다는 전망이 나오고 있다.\n\n소니 입장에서는 PS5를 50달러 인상하면서도 판매량 감소를 감수해야 했는데, 차세대 콘솔을 현재 부품 가격으로 설계하면 출시가부터 700달러를 넘길 수 있다. 메모리와 반도체 가격이 안정될 때까지 출시를 미루는 것이 전략적으로 유리할 수 있다는 판단이다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 게이머가 감당해야 할 '이중 세금'"
+    },
+    {
+      "type": "text",
+      "value": "AI가 만들어낸 메모리 수요 폭증은 반도체 업체에게는 호황이지만, 게이머에게는 보이지 않는 세금이 됐다. 여기에 관세라는 진짜 세금까지 더해지면서 게이밍 기기의 가격 인상이 전 플랫폼으로 확산되고 있다.\n\nCTA의 69% 인상 경고가 현실이 된다면, 지금 우리가 보는 가격은 아직 시작에 불과할 수 있다. 스위치2의 449달러가 싸게 느껴지는 날이 올지도 모른다. 메모리 공급이 정상화되거나 관세 정책이 완화되기 전까지, 게이밍 하드웨어 시장의 가격 상승 압력은 계속될 전망이다."
+    }
   ]
 }

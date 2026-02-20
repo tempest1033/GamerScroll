@@ -7,7 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateVerticalAdSlot, generateNativeAdSlot, buildCardFeedPagerScript } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot, buildCardFeedPagerScript } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -18,7 +18,7 @@ const docsDir = path.join(__dirname, '../../../docs');
 const { getLocalReportThumbnail, getLocalReportThumbnailSrcset, getLocalDailyThumbnail, getLocalDailyThumbnailSrcset } = require('../helpers/thumbnail');
 
 // 광고 슬롯
-const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
+const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
 
 // URL 수정 헬퍼 (이미지 프록시, width: 용도별 크기)
 const fixUrl = (url, width = 480) => {
@@ -132,10 +132,8 @@ const CATEGORY_FEED_PAGER_OPTIONS = {
   itemSelector: '.home-trend-card',
   pageSize: FEED_PAGE_SIZE,
   hydrateLazyImages: true,
-  mobileAds: true,
-  adInterval: 3,
-  mobileDomWindowPages: 5,
-  adSlots: ['4840966314', '7467129651', '7865094213', '3028357040']
+  mobileAds: false,
+  mobileDomWindowPages: 5
 };
 
 function buildCategoryCardFeedPagerScript(gridSelector, paginationSelector, deferredDataSelector = '') {
@@ -147,9 +145,7 @@ function buildCategoryCardFeedPagerScript(gridSelector, paginationSelector, defe
     pageSize: CATEGORY_FEED_PAGER_OPTIONS.pageSize,
     hydrateLazyImages: CATEGORY_FEED_PAGER_OPTIONS.hydrateLazyImages,
     mobileAds: CATEGORY_FEED_PAGER_OPTIONS.mobileAds,
-    adInterval: CATEGORY_FEED_PAGER_OPTIONS.adInterval,
     mobileDomWindowPages: CATEGORY_FEED_PAGER_OPTIONS.mobileDomWindowPages,
-    adSlots: CATEGORY_FEED_PAGER_OPTIONS.adSlots,
     initialRenderCount: INITIAL_FEED_RENDER_COUNT,
     idleFillFirstPage: true,
     idleFillDelay: 120,
@@ -395,11 +391,11 @@ function generateTrendsHubPage({
 
   const content = `
     <section class="section active" id="magazine-hub">
-      ${topAds}
       <h1 class="visually-hidden">매거진 - 게임 업계 이슈, 일간/주간 리포트</h1>
 
       <div class="home-container">
         <div class="home-main">
+          ${topAds}
           ${generatePopularSection()}
           ${generateLatestGrid()}
         </div>
@@ -407,7 +403,6 @@ function generateTrendsHubPage({
           <div class="home-sidebar-sticky">
             ${generateSidebarCategories()}
             ${generateSidebarArticles()}
-            ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
           </div>
         </div>
       </div>
@@ -490,12 +485,6 @@ function generateDailyListPage({
         <h3 class="home-trend-card-title">${title}</h3>
       </a>`
       });
-      if ((i + 1) % 3 === 0 && i < dailyReports.length - 1) {
-        cardEntries.push({
-          itemIndex: i,
-          html: generateNativeAdSlot(AD_SLOTS.Article001)
-        });
-      }
     });
     const cards = splitFeedCardsByIndex(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
@@ -566,15 +555,13 @@ function generateDailyListPage({
         <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
       </div>
     </div>
-    ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
   `;
 
   const content = `
     <section class="section active" id="daily-hub">
-      ${topAds}
       <h1 class="visually-hidden">일간 리포트 - 매일 업데이트되는 게임 뉴스</h1>
       <div class="home-container">
-        <div class="home-main">${generateDailyGrid()}</div>
+        <div class="home-main">${topAds}${generateDailyGrid()}</div>
         <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
       </div>
     </section>
@@ -653,12 +640,6 @@ function generateIssueListPage({
         <h3 class="home-trend-card-title">${issue.title}</h3>
       </a>`
       });
-      if ((i + 1) % 3 === 0 && i < issueReports.length - 1) {
-        cardEntries.push({
-          itemIndex: i,
-          html: generateNativeAdSlot(AD_SLOTS.Article001)
-        });
-      }
     });
     const cards = splitFeedCardsByIndex(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
@@ -729,15 +710,13 @@ function generateIssueListPage({
         <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
       </div>
     </div>
-    ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
   `;
 
   const content = `
     <section class="section active" id="issue-hub">
-      ${topAds}
       <h1 class="visually-hidden">리포트 - 게임 업계 핫이슈</h1>
       <div class="home-container">
-        <div class="home-main">${generateIssueGrid()}</div>
+        <div class="home-main">${topAds}${generateIssueGrid()}</div>
         <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
       </div>
     </section>
@@ -816,12 +795,6 @@ function generateInsightListPage({
         <h3 class="home-trend-card-title">${insight.title}</h3>
       </a>`
       });
-      if ((i + 1) % 3 === 0 && i < insightReports.length - 1) {
-        cardEntries.push({
-          itemIndex: i,
-          html: generateNativeAdSlot(AD_SLOTS.Article001)
-        });
-      }
     });
     const cards = splitFeedCardsByIndex(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
@@ -892,15 +865,13 @@ function generateInsightListPage({
         <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
       </div>
     </div>
-    ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
   `;
 
   const content = `
     <section class="section active" id="insight-hub">
-      ${topAds}
       <h1 class="visually-hidden">인사이트 - 게임 시장 트렌드와 분석</h1>
       <div class="home-container">
-        <div class="home-main">${generateInsightGrid()}</div>
+        <div class="home-main">${topAds}${generateInsightGrid()}</div>
         <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
       </div>
     </section>
@@ -976,12 +947,6 @@ function generateHotpickListPage({
         <h3 class="home-trend-card-title">${hotpick.title}</h3>
       </a>`
       });
-      if ((i + 1) % 3 === 0 && i < hotpickReports.length - 1) {
-        cardEntries.push({
-          itemIndex: i,
-          html: generateNativeAdSlot(AD_SLOTS.Article001)
-        });
-      }
     });
     const cards = splitFeedCardsByIndex(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
@@ -1052,15 +1017,13 @@ function generateHotpickListPage({
         <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
       </div>
     </div>
-    ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
   `;
 
   const content = `
     <section class="section active" id="hotpick-hub">
-      ${topAds}
       <h1 class="visually-hidden">핫픽 - 지금 주목할 게임 추천</h1>
       <div class="home-container">
-        <div class="home-main">${generateHotpickGrid()}</div>
+        <div class="home-main">${topAds}${generateHotpickGrid()}</div>
         <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
       </div>
     </section>
@@ -1139,12 +1102,6 @@ function generateRankingListPage({
         <h3 class="home-trend-card-title">${ranking.title}</h3>
       </a>`
       });
-      if ((i + 1) % 3 === 0 && i < rankingReports.length - 1) {
-        cardEntries.push({
-          itemIndex: i,
-          html: generateNativeAdSlot(AD_SLOTS.Article001)
-        });
-      }
     });
     const cards = splitFeedCardsByIndex(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
@@ -1202,11 +1159,11 @@ function generateRankingListPage({
 
   const content = `
     <section class="section active" id="ranking-list-page">
-      ${topAds}
       <h1 class="visually-hidden">순위 분석 - 게임 순위 심층 분석</h1>
 
       <div class="home-container">
         <div class="home-main">
+          ${topAds}
           ${generateRankingGrid()}
         </div>
         <div class="home-sidebar">
@@ -1229,7 +1186,6 @@ function generateRankingListPage({
                 <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
               </div>
             </div>
-            ${generateVerticalAdSlot(AD_SLOTS.PCHome002)}
           </div>
         </div>
       </div>

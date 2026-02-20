@@ -6,8 +6,22 @@
   "thumbnail": "https://static.wikia.nocookie.net/nikke-goddess-of-victory-international/images/2/23/Ark_Guardian_splash_1.jpg/revision/latest",
   "keywords": "서브컬쳐 게임 순위, 2026년 1월 모바일 게임, 니케 신년 이벤트, 스노우 화이트 헤비암즈, 명일방주 엔드필드 출시, 젠레스 존 제로, 명조 워더링 웨이브, 원신, 트릭컬 리바이브, 림버스 컴퍼니",
   "summary": "2026년 새해, 서브컬쳐 게임들이 신년 이벤트로 격돌했다. 니케가 스노우 화이트: 헤비암즈로 정상을 지켰고, 엔드필드가 출시 10일 만에 TOP 10에 진입했다.",
-  "relatedGames": ["승리의-여신-니케", "명조워더링-웨이브", "젠레스-존-제로", "트릭컬-리바이브", "원신공월의-노래", "limbus-company", "명일방주-엔드필드", "명일방주", "우마무스메-프리티-더비", "브라운더스트2-가슴-벅찬-rpg"],
-  "relatedDocs": ["steam-january-2026", "mobile-january-2026-kr"],
+  "relatedGames": [
+    "승리의-여신-니케",
+    "명조워더링-웨이브",
+    "젠레스-존-제로",
+    "트릭컬-리바이브",
+    "원신공월의-노래",
+    "limbus-company",
+    "명일방주-엔드필드",
+    "명일방주",
+    "우마무스메-프리티-더비",
+    "브라운더스트2-가슴-벅찬-rpg"
+  ],
+  "relatedDocs": [
+    "steam-january-2026",
+    "mobile-january-2026-kr"
+  ],
   "sources": [],
   "content": [
     {
@@ -22,16 +36,67 @@
       "type": "ranking-bar",
       "title": "2026년 1월 서브컬쳐 게임 순위",
       "items": [
-        {"rank": 1, "name": "승리의 여신: 니케", "score": 5032, "slug": "승리의-여신-니케"},
-        {"rank": 2, "name": "명조:워더링 웨이브", "score": 4318, "slug": "명조워더링-웨이브"},
-        {"rank": 3, "name": "젠레스 존 제로", "score": 3915, "slug": "젠레스-존-제로"},
-        {"rank": 4, "name": "트릭컬 리바이브", "score": 3565, "slug": "트릭컬-리바이브"},
-        {"rank": 5, "name": "원신", "score": 2540, "slug": "원신공월의-노래"},
-        {"rank": 6, "name": "Limbus Company", "score": 2455, "slug": "limbus-company"},
-        {"rank": 7, "name": "명일방주: 엔드필드", "score": 1619, "slug": "명일방주-엔드필드", "highlight": true},
-        {"rank": 8, "name": "명일방주", "score": 1358, "slug": "명일방주"},
-        {"rank": 9, "name": "우마무스메", "score": 1299, "slug": "우마무스메-프리티-더비"},
-        {"rank": 10, "name": "브라운더스트2", "score": 1159, "slug": "브라운더스트2-가슴-벅찬-rpg"}
+        {
+          "rank": 1,
+          "name": "승리의 여신: 니케",
+          "score": 5032,
+          "slug": "승리의-여신-니케"
+        },
+        {
+          "rank": 2,
+          "name": "명조:워더링 웨이브",
+          "score": 4318,
+          "slug": "명조워더링-웨이브"
+        },
+        {
+          "rank": 3,
+          "name": "젠레스 존 제로",
+          "score": 3915,
+          "slug": "젠레스-존-제로"
+        },
+        {
+          "rank": 4,
+          "name": "트릭컬 리바이브",
+          "score": 3565,
+          "slug": "트릭컬-리바이브"
+        },
+        {
+          "rank": 5,
+          "name": "원신",
+          "score": 2540,
+          "slug": "원신공월의-노래"
+        },
+        {
+          "rank": 6,
+          "name": "Limbus Company",
+          "score": 2455,
+          "slug": "limbus-company"
+        },
+        {
+          "rank": 7,
+          "name": "명일방주: 엔드필드",
+          "score": 1619,
+          "slug": "명일방주-엔드필드",
+          "highlight": true
+        },
+        {
+          "rank": 8,
+          "name": "명일방주",
+          "score": 1358,
+          "slug": "명일방주"
+        },
+        {
+          "rank": 9,
+          "name": "우마무스메",
+          "score": 1299,
+          "slug": "우마무스메-프리티-더비"
+        },
+        {
+          "rank": 10,
+          "name": "브라운더스트2",
+          "score": 1159,
+          "slug": "브라운더스트2-가슴-벅찬-rpg"
+        }
       ]
     },
     {
@@ -54,8 +119,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "브라운더스트2-가슴-벅찬-rpg", "market": "ios", "label": "iOS"},
-        {"slug": "브라운더스트2-가슴-벅찬-rpg", "market": "android", "label": "Android"}
+        {
+          "slug": "브라운더스트2-가슴-벅찬-rpg",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "브라운더스트2-가슴-벅찬-rpg",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -82,8 +155,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "우마무스메-프리티-더비", "market": "ios", "label": "iOS"},
-        {"slug": "우마무스메-프리티-더비", "market": "android", "label": "Android"}
+        {
+          "slug": "우마무스메-프리티-더비",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "우마무스메-프리티-더비",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -110,16 +191,21 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "명일방주", "market": "ios", "label": "iOS"},
-        {"slug": "명일방주", "market": "android", "label": "Android"}
+        {
+          "slug": "명일방주",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "명일방주",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
       "type": "text",
       "value": "명일방주가 한국 서비스 6주년을 맞았다. 1월 23일부터 2월 8일까지 롯데시네마 건대입구점에서 첫 공식 팝업스토어 '겨울의 초대장'을 열었다. 6년간 여정을 담은 전시 공간, 아미야 메딕·골든글로우·루멘·트라고디아를 테마로 한 콜라보 카페, 1월 24일과 31일에는 코스어 촬영 이벤트까지 풍성하게 구성됐다.\n\n엔드필드 글로벌 출시(1월 22일)와 팝업스토어 개장(1월 23일)을 하루 차이로 배치한 건 의도적인 시너지 전략이었다. iOS 최고 12위를 기록하며 원작 팬덤의 저력을 보여줬다. 다만 Android에서는 100위권 밖을 오가며 플랫폼별 격차가 뚜렷했다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -141,8 +227,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "명일방주-엔드필드", "market": "ios", "label": "iOS"},
-        {"slug": "명일방주-엔드필드", "market": "android", "label": "Android"}
+        {
+          "slug": "명일방주-엔드필드",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "명일방주-엔드필드",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -169,8 +263,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "limbus-company", "market": "ios", "label": "iOS"},
-        {"slug": "limbus-company", "market": "android", "label": "Android"}
+        {
+          "slug": "limbus-company",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "limbus-company",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -197,16 +299,21 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "원신공월의-노래", "market": "ios", "label": "iOS"},
-        {"slug": "원신공월의-노래", "market": "android", "label": "Android"}
+        {
+          "slug": "원신공월의-노래",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "원신공월의-노래",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
       "type": "text",
       "value": "1월 14일 6.3 버전 '네 번째 달'이 업데이트됐다. 공월의 노래 마신 임무가 이어지며 '돌아온 공월' 콜롬비나(물 5성), 자백(바위 5성), 일루가(바위 4성)가 추가됐다. 스토리 퀄리티에 대해 '100점 만점에 105점'이라는 호평이 쏟아졌다.\n\n출시 5년차에 접어든 원신이지만 Android 최고 5위를 기록하며 순간 화력은 여전했다. 다만 업데이트 전후로만 순위가 오르고, 20일만 100위권을 유지해 다른 게임 대비 랭킹 유지력이 떨어졌다. 콘텐츠 사이클이 길어진 노장의 숙명이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -228,8 +335,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "트릭컬-리바이브", "market": "ios", "label": "iOS"},
-        {"slug": "트릭컬-리바이브", "market": "android", "label": "Android"}
+        {
+          "slug": "트릭컬-리바이브",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "트릭컬-리바이브",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -256,8 +371,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "젠레스-존-제로", "market": "ios", "label": "iOS"},
-        {"slug": "젠레스-존-제로", "market": "android", "label": "Android"}
+        {
+          "slug": "젠레스-존-제로",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "젠레스-존-제로",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
@@ -284,16 +407,21 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "명조워더링-웨이브", "market": "ios", "label": "iOS"},
-        {"slug": "명조워더링-웨이브", "market": "android", "label": "Android"}
+        {
+          "slug": "명조워더링-웨이브",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "명조워더링-웨이브",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {
       "type": "text",
       "value": "쿠로게임즈의 저력. 12월 25일 크리스마스에 3.0 버전 '별하늘을 보기 위해 태어난 우리들'이 업데이트됐다. 신규 지역 '라하이 로이', 바이크 이동 시스템, 신규 캐릭터 린네가 추가되며 대형 확장팩급 콘텐츠를 선보였다.\n\n1월 15일 후반 업데이트에서는 신규 5성 캐릭터 모니에 픽업이 진행됐고, 이때 매출이 다시 한번 뛰며 iOS 최고 3위를 기록했다. 호요버스의 젠레스와 원신을 모두 제치고 2위에 오른 건 의미 있는 성과다. 출시 초반 최적화 논란을 딛고 꾸준히 유저 피드백에 대응한 결과, '호요버스 킬러'라는 별명이 무색하지 않게 됐다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -315,8 +443,16 @@
       "startDate": "2026-01-01",
       "endDate": "2026-01-31",
       "items": [
-        {"slug": "승리의-여신-니케", "market": "ios", "label": "iOS"},
-        {"slug": "승리의-여신-니케", "market": "android", "label": "Android"}
+        {
+          "slug": "승리의-여신-니케",
+          "market": "ios",
+          "label": "iOS"
+        },
+        {
+          "slug": "승리의-여신-니케",
+          "market": "android",
+          "label": "Android"
+        }
       ]
     },
     {

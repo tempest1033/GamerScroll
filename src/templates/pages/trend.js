@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, AD_SLOTS, generateAdSlot, generateAdPairSlot, generateMidAdPairSlot, generateNativeAdSlot, generateMultiplexAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -337,7 +337,7 @@ const findGameIcon = (text) => {
 };
 
 // PC + 모바일 광고 슬롯
-const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
+const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
 
 // URL 수정 헬퍼 (이미지 프록시, width: 용도별 크기)
 const fixUrl = (url, width = 480) => {
@@ -558,28 +558,6 @@ function renderParsedRelatedDocsHtml(parsedRelatedDocs) {
     </div>
   `;
 }
-
-// 중간 광고 슬롯 생성 (PC + 모바일)
-// 중복 슬롯ID 방지를 위해 호출부에서 PC/Mobile 슬롯을 분리해서 넘겨주세요.
-const midSlotPairs = [
-  { pc: AD_SLOTS.ResponsivePC002, mobile: AD_SLOTS.Mobile002 },
-  { pc: AD_SLOTS.ResponsivePC003, mobile: AD_SLOTS.Mobile003 },
-  { pc: AD_SLOTS.ResponsivePC004, mobile: AD_SLOTS.Mobile004 }
-];
-let midCursor = 0;
-
-function generateMidAdSlot(pcSlotId, mobileSlotId) {
-  const pcSlot = pcSlotId || AD_SLOTS.ResponsivePC002;
-  const mobileSlot = mobileSlotId || AD_SLOTS.Mobile002;
-  return generateMidAdPairSlot(pcSlot, mobileSlot);
-}
-
-// 자동 슬롯 순환 (midSlotPairs 사용)
-const midAd = () => {
-  const pair = midSlotPairs[midCursor % midSlotPairs.length];
-  midCursor += 1;
-  return generateMidAdSlot(pair.pc, pair.mobile);
-};
 
 // 태그 아이콘 매핑
 const tagIcons = {
@@ -964,43 +942,16 @@ function generateTrendPage(data) {
   // summary 객체에서 title과 desc 추출
   const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.issues?.[0]?.title || '게임 브리핑');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
-  // 모바일용 인피드 슬롯
-  const mobileNativeSlots2 = [
-    AD_SLOTS.Article001,
-    AD_SLOTS.Article002,
-    AD_SLOTS.Article003,
-    AD_SLOTS.Article004,
-    AD_SLOTS.Article005
-  ];
-  const localMidSlotPairs = [
-    { pc: AD_SLOTS.ResponsivePC002, mobile: AD_SLOTS.Mobile002 },
-    { pc: AD_SLOTS.ResponsivePC003, mobile: AD_SLOTS.Mobile003 },
-    { pc: AD_SLOTS.ResponsivePC004, mobile: AD_SLOTS.Mobile004 }
-  ];
-  let localMidCursor = 0;
-  const midAd = () => {
-    // 통합 반응형 빌드: PC 슬롯 사용 (CSS 미디어 쿼리로 자동 분기)
-    const idx = localMidCursor % localMidSlotPairs.length;
-    localMidCursor += 1;
-    return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
-  };
-  // 통합 빌드에서는 빈 문자열 반환 (모바일 전용 광고는 CSS로 처리)
-  const midAdMobileOnly = () => '';
-
   const content = `
     <section class="section active" id="insight">
-      
+
       <div class="page-container">
-        ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
         <div class="insight-panel active" id="panel-daily">
-          ${midAdMobileOnly()}
           ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
-          ${midAd()}
           ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
           ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
           ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
-          ${midAd()}
           ${renderStocksCard(stocksData, stockPrices)}
           ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
           ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
@@ -1390,29 +1341,6 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
   // summary 객체에서 title과 desc 추출
   const summaryTitle = typeof aiInsight.summary === 'object' ? aiInsight.summary.title : (aiInsight.issues?.[0]?.title || '게임 브리핑');
   const summaryDesc = typeof aiInsight.summary === 'object' ? aiInsight.summary.desc : aiInsight.summary;
-  // 모바일용 인피드 슬롯
-  const mobileNativeSlots3 = [
-    AD_SLOTS.Article001,
-    AD_SLOTS.Article002,
-    AD_SLOTS.Article003,
-    AD_SLOTS.Article004,
-    AD_SLOTS.Article005
-  ];
-  const localMidSlotPairs = [
-    { pc: AD_SLOTS.ResponsivePC002, mobile: AD_SLOTS.Mobile002 },
-    { pc: AD_SLOTS.ResponsivePC003, mobile: AD_SLOTS.Mobile003 },
-    { pc: AD_SLOTS.ResponsivePC004, mobile: AD_SLOTS.Mobile004 }
-  ];
-  let localMidCursor = 0;
-  const midAd = () => {
-    // 통합 반응형 빌드: PC 슬롯 사용 (CSS 미디어 쿼리로 자동 분기)
-    const idx = localMidCursor % localMidSlotPairs.length;
-    localMidCursor += 1;
-    return generateMidAdSlot(localMidSlotPairs[idx].pc, localMidSlotPairs[idx].mobile);
-  };
-  // 통합 빌드에서는 빈 문자열 반환 (모바일 전용 광고는 CSS로 처리)
-  const midAdMobileOnly = () => '';
-
   // 네비게이션 (이전/목록/다음 리포트) - 하단에만 표시
   const navHtml = `
     <div class="trend-detail-nav">
@@ -1424,23 +1352,16 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
 
   const content = `
     <section class="section active" id="insight">
-      
+
       <div class="page-container">
-        ${topAds}
         <h1 class="visually-hidden">${summaryTitle}</h1>
-        ${midAdMobileOnly()}
         ${renderHotIssuesSection(issues, '<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z"/></svg>')}
-        ${midAd()}
         ${renderIndustrySection('업계 동향', industryIssues, '', '국내 게임사들의 주요 발표와 업계 전반의 움직임을 살펴봅니다.', historyNews)}
-        ${midAdMobileOnly()}
         ${renderMetricsSection('주목할만한 지표', metrics, '오늘 주목할 만한 수치 변화와 시장 지표입니다.')}
-        ${midAdMobileOnly()}
         ${renderCategoryCard('순위 변동', rankingsData, 'weekly-section-rankings', '', true, '앱스토어/플레이스토어 매출 순위에서 주목할 만한 변동이 있었던 게임들입니다.')}
-        ${midAd()}
         ${renderStocksCard(stocksData, stockPrices)}
         ${renderCommunityCards('유저 반응', communityData, '', '디시인사이드, 아카라이브, 인벤 등 주요 게임 커뮤니티에서 화제가 된 이슈들입니다.')}
         ${renderStreamingCards('스트리밍 트렌드', streaming, '', '치지직, 유튜브 등 스트리밍 플랫폼에서의 게임 콘텐츠 동향입니다.')}
-        ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
         ${navHtml}
       </div>
     </section>
@@ -1511,33 +1432,6 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '이슈 대표 이미지');
 
-  // 이슈 중간 광고 (PC/모바일 분기)
-  const ISSUE_REPORT_SLOTS_PC = [
-    AD_SLOTS.ResponsivePC001,
-    AD_SLOTS.ResponsivePC002,
-    AD_SLOTS.ResponsivePC003,
-    AD_SLOTS.ResponsivePC004,
-    AD_SLOTS.ResponsivePC005
-  ];
-  const ISSUE_REPORT_SLOTS_MOBILE = [
-    AD_SLOTS.Article001,
-    AD_SLOTS.Article002,
-    AD_SLOTS.Article003,
-    AD_SLOTS.Article004,
-    AD_SLOTS.Article005
-  ];
-
-  const generateIssueAdSlot = (adIndex = 0) => {
-    // 광고 비활성화 시 빈 문자열 반환
-    if (!ADS_ENABLED) return '';
-
-    // 통합 반응형 빌드: 네이티브 In-feed 광고 사용 (PC/모바일 자동 대응)
-    const slotId = ISSUE_REPORT_SLOTS_MOBILE[adIndex % ISSUE_REPORT_SLOTS_MOBILE.length];
-    return `<div class="blog-ad">
-      ${generateNativeAdSlot(slotId)}
-    </div>`;
-  };
-
   // 마크다운 표를 HTML table로 변환
   const parseMarkdownTable = (text) => {
     const lines = text.trim().split('\n');
@@ -1583,10 +1477,8 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     return found;
   };
 
-  // 본문 렌더링 (섹션 2개당 광고 1개 자동 삽입)
+  // 본문 렌더링
   const renderContent = () => {
-    let adIndex = 0;
-    let sectionCount = 0;
     let imageIndex = 1; // 이미지 인덱스 (로컬 이미지 경로용)
     const result = [];
 
@@ -1712,11 +1604,6 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
           break;
 
         case 'heading':
-          // 섹션 2개마다 heading 앞에 광고 삽입 (첫 heading 제외)
-          sectionCount++;
-          if (sectionCount > 1 && (sectionCount - 1) % 2 === 0) {
-            result.push(generateIssueAdSlot(adIndex++));
-          }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
           break;
 
@@ -2004,10 +1891,9 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     <section class="section active" id="issue">
 
       <article class="page-container issue-container">
-        ${topAds}
-
         <div class="article-layout">
           <div class="article-main">
+            ${topAds}
             <div class="blog-card">
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
@@ -2029,7 +1915,6 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
               ${sourcesHtml}
             </div>
 
-            ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
             ${navHtml}
           </div>
 
@@ -2105,23 +1990,6 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '인사이트 대표 이미지');
 
-  // 인사이트 중간 광고 (PC/모바일 분기)
-  const INSIGHT_REPORT_SLOTS_MOBILE = [
-    AD_SLOTS.Article001,
-    AD_SLOTS.Article002,
-    AD_SLOTS.Article003,
-    AD_SLOTS.Article004,
-    AD_SLOTS.Article005
-  ];
-
-  const generateInsightAdSlot = (adIndex = 0) => {
-    if (!ADS_ENABLED) return '';
-    const slotId = INSIGHT_REPORT_SLOTS_MOBILE[adIndex % INSIGHT_REPORT_SLOTS_MOBILE.length];
-    return `<div class="blog-ad">
-      ${generateNativeAdSlot(slotId)}
-    </div>`;
-  };
-
   // 마크다운 표를 HTML table로 변환
   const parseMarkdownTable = (text) => {
     const lines = text.trim().split('\n');
@@ -2167,10 +2035,8 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     return found;
   };
 
-  // 본문 렌더링 (섹션 2개당 광고 1개 자동 삽입)
+  // 본문 렌더링
   const renderContent = () => {
-    let adIndex = 0;
-    let sectionCount = 0;
     let imageIndex = 1;
     const result = [];
 
@@ -2262,10 +2128,6 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
           break;
 
         case 'heading':
-          sectionCount++;
-          if (sectionCount > 1 && (sectionCount - 1) % 2 === 0) {
-            result.push(generateInsightAdSlot(adIndex++));
-          }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
           break;
 
@@ -2546,10 +2408,9 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     <section class="section active" id="insight">
 
       <article class="page-container issue-container">
-        ${topAds}
-
         <div class="article-layout">
           <div class="article-main">
+            ${topAds}
             <div class="blog-card">
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
@@ -2571,7 +2432,6 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
               ${sourcesHtml}
             </div>
 
-            ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
             ${navHtml}
           </div>
 
@@ -2647,23 +2507,6 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '핫픽 대표 이미지');
 
-  // 핫픽 중간 광고
-  const HOTPICK_REPORT_SLOTS_MOBILE = [
-    AD_SLOTS.Article001,
-    AD_SLOTS.Article002,
-    AD_SLOTS.Article003,
-    AD_SLOTS.Article004,
-    AD_SLOTS.Article005
-  ];
-
-  const generateHotpickAdSlot = (adIndex = 0) => {
-    if (!ADS_ENABLED) return '';
-    const slotId = HOTPICK_REPORT_SLOTS_MOBILE[adIndex % HOTPICK_REPORT_SLOTS_MOBILE.length];
-    return `<div class="blog-ad">
-      ${generateNativeAdSlot(slotId)}
-    </div>`;
-  };
-
   // 마크다운 표를 HTML table로 변환
   const parseMarkdownTable = (text) => {
     const lines = text.trim().split('\n');
@@ -2711,8 +2554,6 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
 
   // 본문 렌더링
   const renderContent = () => {
-    let adIndex = 0;
-    let sectionCount = 0;
     let imageIndex = 1;
     const result = [];
 
@@ -2804,10 +2645,6 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
           break;
 
         case 'heading':
-          sectionCount++;
-          if (sectionCount > 1 && (sectionCount - 1) % 2 === 0) {
-            result.push(generateHotpickAdSlot(adIndex++));
-          }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
           break;
 
@@ -3096,10 +2933,9 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     <section class="section active" id="hotpick">
 
       <article class="page-container issue-container">
-        ${topAds}
-
         <div class="article-layout">
           <div class="article-main">
+            ${topAds}
             <div class="blog-card">
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
@@ -3121,7 +2957,6 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
               ${sourcesHtml}
             </div>
 
-            ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
             ${navHtml}
           </div>
 
@@ -3199,23 +3034,6 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '순위 분석 대표 이미지');
 
-  // 순위 분석 중간 광고
-  const RANKING_REPORT_SLOTS_MOBILE = [
-    AD_SLOTS.Article001,
-    AD_SLOTS.Article002,
-    AD_SLOTS.Article003,
-    AD_SLOTS.Article004,
-    AD_SLOTS.Article005
-  ];
-
-  const generateRankingAdSlot = (adIndex = 0) => {
-    if (!ADS_ENABLED) return '';
-    const slotId = RANKING_REPORT_SLOTS_MOBILE[adIndex % RANKING_REPORT_SLOTS_MOBILE.length];
-    return `<div class="blog-ad">
-      ${generateNativeAdSlot(slotId)}
-    </div>`;
-  };
-
   // 마크다운 표를 HTML table로 변환
   const parseMarkdownTable = (text) => {
     const lines = text.trim().split('\n');
@@ -3263,8 +3081,6 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
 
   // 본문 렌더링
   const renderContent = () => {
-    let adIndex = 0;
-    let sectionCount = 0;
     let imageIndex = 1;
     const result = [];
 
@@ -3330,10 +3146,6 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           result.push(paragraphs);
           break;
         case 'heading':
-          sectionCount++;
-          if (sectionCount > 1 && (sectionCount - 1) % 2 === 0) {
-            result.push(generateRankingAdSlot(adIndex++));
-          }
           result.push(`<h2 class="blog-heading">${escapeHtmlAttr(block.value)}</h2>`);
           break;
         case 'image':
@@ -3425,7 +3237,6 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           }
           break;
         case 'ad':
-          result.push(generateRankingAdSlot(adIndex++));
           break;
         case 'ranking-bar':
           // 커스텀 HTML 가로 막대 차트 + 아이콘
@@ -4140,15 +3951,14 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   const heroImg = thumbnail ? getLocalRankingImagePath(slug, thumbnail, 'thumbnail') : '';
 
   // 상단 광고
-  const topAds = ADS_ENABLED ? `<div class="ad-card">${generateAdPairSlot(AD_SLOTS.PCArticle001, AD_SLOTS.Article001)}</div>` : '';
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
 
   const pageContent = `
     <section class="section active" id="ranking">
       <article class="page-container issue-container">
-        ${topAds}
-
         <div class="article-layout">
           <div class="article-main">
+            ${topAds}
             <div class="blog-card">
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
@@ -4170,7 +3980,6 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               ${sourcesHtml}
             </div>
 
-            ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
             ${navHtml}
           </div>
 

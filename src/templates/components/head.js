@@ -232,7 +232,7 @@ function generateHead(options = {}) {
 	      display: grid;
 	      grid-template-columns: 1fr 300px;
 	      gap: var(--space-block-gap);
-	      padding: var(--space-block-y) 0;
+	      padding: 0 0 var(--space-block-y) 0;
 	    }
 	    .home-main > * { margin-bottom: var(--space-block-gap); }
 	    .home-card { margin-bottom: var(--space-block-gap); }

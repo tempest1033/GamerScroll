@@ -7,14 +7,14 @@
 
 const path = require('path');
 const fs = require('fs');
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateNativeAdSlot, buildCardFeedPagerScript } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot, buildCardFeedPagerScript } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인/경로
 const docsDir = path.join(__dirname, '../../../docs');
 const siteBaseUrl = 'https://gamerscroll.com';
 
 // 광고 슬롯
-const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
+const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
 
 // 날짜 포맷 헬퍼
 const formatDateKr = (dateStr) => {
@@ -159,10 +159,8 @@ const CATEGORY_FEED_PAGER_OPTIONS = {
   itemSelector: '.home-trend-card',
   pageSize: FEED_PAGE_SIZE,
   hydrateLazyImages: true,
-  mobileAds: true,
-  adInterval: 3,
-  mobileDomWindowPages: 5,
-  adSlots: ['4840966314', '7467129651', '7865094213', '3028357040']
+  mobileAds: false,
+  mobileDomWindowPages: 5
 };
 
 function buildCategoryCardFeedPagerScript(gridSelector, paginationSelector, deferredDataSelector = '') {
@@ -174,9 +172,7 @@ function buildCategoryCardFeedPagerScript(gridSelector, paginationSelector, defe
     pageSize: CATEGORY_FEED_PAGER_OPTIONS.pageSize,
     hydrateLazyImages: CATEGORY_FEED_PAGER_OPTIONS.hydrateLazyImages,
     mobileAds: CATEGORY_FEED_PAGER_OPTIONS.mobileAds,
-    adInterval: CATEGORY_FEED_PAGER_OPTIONS.adInterval,
     mobileDomWindowPages: CATEGORY_FEED_PAGER_OPTIONS.mobileDomWindowPages,
-    adSlots: CATEGORY_FEED_PAGER_OPTIONS.adSlots,
     initialRenderCount: INITIAL_FEED_RENDER_COUNT,
     idleFillFirstPage: true,
     idleFillDelay: 120,
@@ -394,10 +390,10 @@ function generateWikiHubPage({
 
   const content = `
     <section class="section active" id="wiki-hub">
-      ${topAds}
       <h1 class="visually-hidden">게임 위키 - 게임 업계 지식백과</h1>
       <div class="home-container">
         <div class="home-main">
+          ${topAds}
           ${generatePopularSection()}
           ${generateWikiGrid()}
         </div>
@@ -493,12 +489,6 @@ function generateWikiCategoryPage({
           <h3 class="home-trend-card-title">${article.title}</h3>
         </a>`
       });
-      if ((i + 1) % 3 === 0 && i < articles.length - 1) {
-        cardEntries.push({
-          itemIndex: i,
-          html: generateNativeAdSlot(AD_SLOTS.Article001)
-        });
-      }
     });
     const cards = splitFeedCardsByIndex(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
@@ -597,10 +587,10 @@ function generateWikiCategoryPage({
 
   const content = `
     <section class="section active" id="wiki-category-page">
-      ${topAds}
       <h1 class="visually-hidden">게임 위키 - ${catName}</h1>
       <div class="home-container">
         <div class="home-main">
+          ${topAds}
           ${generateCategoryGrid()}
         </div>
         <aside class="home-sidebar">

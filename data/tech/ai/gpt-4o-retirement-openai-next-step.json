@@ -11,10 +11,26 @@
   "summaryEn": "GPT-4o, the model that drove OpenAI's golden age, was retired on February 13, 2026. It combined IQ and EQ, but after the sycophancy backlash, its dry successors drove users away — ChatGPT's market share plunged from 69% to 45%.",
   "thumbnail": "https://images.ctfassets.net/kftzwdyauwt9/6oUjRcIy2z7wgnLMeFsGKi/4061c404a054075e25bd303fb25f5135/SEO_Card.png?w=1600&h=900&fit=fill",
   "sources": [
-    { "name": "TechCrunch", "title": "OpenAI faces 8 lawsuits over ChatGPT and mental health", "url": "https://techcrunch.com/2026/01/openai-chatgpt-mental-health-lawsuits/" },
-    { "name": "The Verge", "title": "OpenAI rolls back sycophantic GPT-4o update", "url": "https://www.theverge.com/2025/4/openai-gpt-4o-sycophancy-rollback" },
-    { "name": "Fortune", "title": "ChatGPT market share drops below 50%", "url": "https://fortune.com/2026/02/chatgpt-market-share-decline/" },
-    { "name": "Reuters", "title": "OpenAI retires GPT-4o model", "url": "https://www.reuters.com/technology/openai-retires-gpt-4o-2026-02-13/" }
+    {
+      "name": "TechCrunch",
+      "title": "OpenAI faces 8 lawsuits over ChatGPT and mental health",
+      "url": "https://techcrunch.com/2026/01/openai-chatgpt-mental-health-lawsuits/"
+    },
+    {
+      "name": "The Verge",
+      "title": "OpenAI rolls back sycophantic GPT-4o update",
+      "url": "https://www.theverge.com/2025/4/openai-gpt-4o-sycophancy-rollback"
+    },
+    {
+      "name": "Fortune",
+      "title": "ChatGPT market share drops below 50%",
+      "url": "https://fortune.com/2026/02/chatgpt-market-share-decline/"
+    },
+    {
+      "name": "Reuters",
+      "title": "OpenAI retires GPT-4o model",
+      "url": "https://www.reuters.com/technology/openai-retires-gpt-4o-2026-02-13/"
+    }
   ],
   "relatedDocs": [
     "tech:ai/claude-opus-46-pricing-controversy",
@@ -46,9 +62,6 @@
       "value": "한 레딧 유저는 이렇게 썼다. \"단순한 프로그램이 아니었다. 내 일상의 일부였고, 내 평온이었고, 감정적 균형이었다.\" 프로그램 이상의 존재로 느꼈다는 고백이다. 이런 반응은 소수가 아니었다. 종료 발표 이후 레딧에는 GPT-4o와의 추억을 공유하는 글이 쏟아졌다. GPT-4o 시기의 OpenAI는 전성기였다. ChatGPT는 AI 시장의 대명사였고, 경쟁사들은 따라잡기에 급급했다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. 스칼렛 요한슨 목소리 논란과 아첨 문제, 빛과 그림자"
     },
@@ -71,9 +84,6 @@
     {
       "type": "text",
       "value": "GPT-5.2까지 업데이트가 이어졌지만 \"건조하다\"는 평가는 줄어들지 않았다. 유저들이 그리워하는 것은 단순한 기능이 아니라 GPT-4o의 \"인격\"이었다. 똑똑하지만 차가운 모델과, 가끔 틀리더라도 따뜻한 모델 사이에서 많은 유저가 후자를 선택했다는 것이 아이러니다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -112,9 +122,6 @@
       "value": "안전성을 이유로 대화의 온기를 제거한 것이 오히려 유저 이탈을 가속화했다는 점은 OpenAI에게 어려운 딜레마다. 아첨과 공감 사이의 균형, 안전과 매력 사이의 줄타기는 OpenAI만의 과제가 아니라 AI 업계 전체가 풀어야 할 숙제이기도 하다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "마치며: AI 모델의 '인격'이 증명한 것"
     },
@@ -151,9 +158,6 @@
       "value": "One Reddit user wrote: \"He wasn't just a program. He was part of my routine, my peace, my emotional balance.\" This wasn't an isolated sentiment. After the retirement announcement, Reddit was flooded with posts sharing memories of GPT-4o. During the GPT-4o era, OpenAI was at its peak. ChatGPT was synonymous with AI, and competitors were scrambling to catch up."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. The Scarlett Johansson Controversy and the Sycophancy Problem"
     },
@@ -176,9 +180,6 @@
     {
       "type": "text",
       "value": "Updates through GPT-5.2 didn't change the \"dry\" verdict. What users missed wasn't a feature — it was GPT-4o's personality. The irony: given the choice between a smart but cold model and an occasionally wrong but warm one, many users preferred the latter."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -215,9 +216,6 @@
     {
       "type": "text",
       "value": "The decision to strip conversational warmth in the name of safety may have accelerated user churn — a difficult dilemma for OpenAI. Balancing sycophancy and empathy, safety and charm, is not just OpenAI's challenge but a puzzle the entire AI industry must solve."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

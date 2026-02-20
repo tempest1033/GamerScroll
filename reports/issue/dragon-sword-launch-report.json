@@ -6,14 +6,43 @@
   "thumbnail": "https://mimage.webzen.kr/dragon-sword/brand/share.jpg",
   "keywords": "드래곤소드, 드래곤소드 매출, 웹젠, 명일방주 엔드필드, 모바일 RPG, 액션 RPG, 드래곤소드 리뷰, 드래곤소드 순위, 2026 모바일게임",
   "summary": "웹젠의 신작 드래곤소드가 iOS·구글플레이 양대 마켓 인기 1위를 달성했지만, 매출 순위는 기대에 못 미치고 있다. 동시 출시된 엔드필드와 경쟁 속에서 드래곤소드의 초반 성적표를 분석한다.",
-  "relatedIssues": ["arknights-endfield-launch-success", "endfield-vs-dragonsword-new-year-2026", "2026-subculture-openworld-games"],
-  "relatedGames": ["드래곤소드", "명일방주-엔드필드", "명조워더링-웨이브", "젠레스-존-제로"],
+  "relatedIssues": [
+    "arknights-endfield-launch-success",
+    "endfield-vs-dragonsword-new-year-2026",
+    "2026-subculture-openworld-games"
+  ],
+  "relatedGames": [
+    "드래곤소드",
+    "명일방주-엔드필드",
+    "명조워더링-웨이브",
+    "젠레스-존-제로"
+  ],
   "sources": [
-    { "name": "게임뷰", "title": "드래곤소드 출시 첫날 성과", "url": "https://gamevu.co.kr" },
-    { "name": "아이뉴스24", "title": "웹젠 드래곤소드 출시", "url": "https://www.inews24.com" },
-    { "name": "루리웹", "title": "드래곤소드 유저 반응", "url": "https://bbs.ruliweb.com" },
-    { "name": "App Store", "title": "드래곤소드 앱 정보", "url": "https://apps.apple.com/kr/app/id6499036702" },
-    { "name": "Google Play", "title": "드래곤소드 앱 정보", "url": "https://play.google.com/store/apps/details?id=com.webzen.dragonsword.gl" }
+    {
+      "name": "게임뷰",
+      "title": "드래곤소드 출시 첫날 성과",
+      "url": "https://gamevu.co.kr"
+    },
+    {
+      "name": "아이뉴스24",
+      "title": "웹젠 드래곤소드 출시",
+      "url": "https://www.inews24.com"
+    },
+    {
+      "name": "루리웹",
+      "title": "드래곤소드 유저 반응",
+      "url": "https://bbs.ruliweb.com"
+    },
+    {
+      "name": "App Store",
+      "title": "드래곤소드 앱 정보",
+      "url": "https://apps.apple.com/kr/app/id6499036702"
+    },
+    {
+      "name": "Google Play",
+      "title": "드래곤소드 앱 정보",
+      "url": "https://play.google.com/store/apps/details?id=com.webzen.dragonsword.gl"
+    }
   ],
   "content": [
     {
@@ -61,9 +90,6 @@
       "value": "드래곤소드의 초반 성적에 영향을 준 변수 중 하나는 명일방주: 엔드필드의 동시 출시다. 하이퍼그리프의 기대작 엔드필드는 출시 직후 일본 매출 1위, 한국 매출 3위를 기록하며 글로벌 시장에서 폭발적인 반응을 얻었다.\n\n두 게임 모두 액션 RPG 장르라 타깃층이 겹친다. 유저들 사이에서도 \"둘 다 해보고 있는데 시간이 부족하다\"는 반응이 많다. 제한된 시간과 지갑을 두고 경쟁하는 상황에서, 명일방주라는 글로벌 IP를 등에 업은 엔드필드 쪽으로 관심이 더 쏠리는 분위기다.\n\n물론 타이밍 탓만 할 수는 없다. 치열한 시장에서 살아남으려면 결국 게임 자체의 매력으로 승부해야 한다. 드래곤소드가 어떤 강점과 약점을 가지고 있는지 살펴보자."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. 드래곤소드 호평 포인트, 액션과 그래픽"
     },
@@ -92,9 +118,6 @@
       "value": "반면 아쉬운 점도 있다. 가장 많이 지적되는 부분은 '특색 부족'이다. 동일 장르인 원신, 명조, 젠레스 존 제로 같은 게임과 비교했을 때 드래곤소드만의 특색이 뭔지 모르겠다는 반응도 심심찮게 보인다.\n\nUI/UX 개선이 필요하다는 의견도 있다. 메뉴 구성이 직관적이지 않고 퀘스트 동선이 불편하다는 피드백이다. 일부 유저들은 발열과 배터리 소모도 문제로 꼽는다.\n\n웹젠에 대한 유저들의 불신도 걸림돌이다. 과거 뮤 시리즈 등에서 보여준 운영 행태가 트라우마로 남아있는 유저들이 적지 않다. \"좋은 게임인데 운영이 걱정된다\"는 반응이 많은 이유다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "5. 매출 순위 반등 가능성은?"
     },
@@ -107,9 +130,6 @@
     {
       "type": "text",
       "value": "드래곤소드의 매출 반등 가능성은 향후 업데이트에 달려 있다. 현재 인기 순위가 높다는 건 잠재 유저 풀이 확보됐다는 의미다. 출시 첫 주인 만큼 다음 주까지 추이를 더 지켜볼 필요가 있다.\n\n지속적인 개선과 특색 있는 업데이트가 관건이다. 드래곤소드만의 차별점을 만들어낼 수 있느냐가 장기적인 성패를 가를 수 있다.\n\n엔드필드의 초반 열기가 식은 뒤가 드래곤소드에게는 기회가 될 수 있다. 그 전에 유저 이탈이 발생하지 않도록 빠른 대응이 필요하다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

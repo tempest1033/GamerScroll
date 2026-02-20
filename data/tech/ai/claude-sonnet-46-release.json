@@ -66,9 +66,6 @@
       "value": "코딩 분야에서의 개선이 특히 두드러진다. 앤트로픽에 따르면 클로드 코드 사용자의 70%가 기존 소넷 4.5보다 소넷 4.6을 선호했고, 59%는 최상위 모델인 오퍼스 4.5보다도 소넷 4.6을 택했다. 코드 생성뿐 아니라 과도한 엔지니어링 감소, 허위 성공 주장 감소, 환각 감소 등 실무에서 체감할 수 있는 개선이 이뤄졌다.\n\nReplit은 '성능 대비 비용 비율이 놀라운 수준'이라고 평했고, Cursor는 '전반적으로 눈에 띄는 개선'을, GitHub는 '복잡한 코드 수정에서 뛰어난 성능'을 확인했다고 밝혔다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. 가격과 학습 데이터, 압도적 가성비"
     },
@@ -117,9 +114,6 @@
     {
       "type": "text",
       "value": "Coding improvements stand out the most. According to Anthropic, 70% of Claude Code users preferred Sonnet 4.6 over the previous Sonnet 4.5, while 59% chose it over the top-tier Opus 4.5. Beyond code generation, practical improvements include reduced over-engineering, fewer false success claims, and lower hallucination rates.\n\nReplit praised its 'remarkable performance-to-cost ratio,' Cursor noted 'noticeable improvements across the board,' and GitHub confirmed 'outstanding performance in complex code modifications.'"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

@@ -6,31 +6,100 @@
   "keywords": "이환, NTE, Neverness to Everness, 이환 플레이 영상, 이환 CBT, 이환 출시일, 서브컬쳐 기대작, 어반 오픈월드, Hotta Studio, 퍼펙트월드, 타워 오브 판타지",
   "summary": "2026년 서브컬쳐 최고 기대작 이환(NTE)이 2월 6일 시작되는 글로벌 3차 CBT를 앞두고 12분 분량의 실제 플레이 영상을 공개했다. 2분기 정식 출시가 예상되는 가운데, 어반 오픈월드 RPG의 새로운 기준을 제시할 수 있을지 주목된다.",
   "thumbnail": "https://i.ytimg.com/vi/DfEZDRpbyZo/maxresdefault.jpg",
-  "relatedIssues": ["2026-subculture-openworld-games", "subculture-market-crisis-winner-takes-all"],
+  "relatedIssues": [
+    "2026-subculture-openworld-games",
+    "subculture-market-crisis-winner-takes-all"
+  ],
   "relatedGames": [],
   "sources": [
-    { "name": "이환 공식 유튜브", "title": "이환 | 실제 플레이 영상", "url": "https://www.youtube.com/watch?v=DfEZDRpbyZo" },
-    { "name": "인벤", "title": "또 다른 서브컬처 기대작 '이환', 12월 23일부터 CBT 모집", "url": "https://www.inven.co.kr/webzine/news/?news=312329" },
-    { "name": "이환 공식 사이트", "title": "초자연 어반 판타지: NTE 공식 사이트", "url": "https://nte.perfectworld.com/kr/index.html" },
-    { "name": "Game8", "title": "Neverness To Everness Cross-Platform Co-Ex Beta Opens", "url": "https://game8.co/articles/latest/neverness-to-everness-cross-platform-co-ex-beta-opens-pre-reg-starts-feb-6" }
+    {
+      "name": "이환 공식 유튜브",
+      "title": "이환 | 실제 플레이 영상",
+      "url": "https://www.youtube.com/watch?v=DfEZDRpbyZo"
+    },
+    {
+      "name": "인벤",
+      "title": "또 다른 서브컬처 기대작 '이환', 12월 23일부터 CBT 모집",
+      "url": "https://www.inven.co.kr/webzine/news/?news=312329"
+    },
+    {
+      "name": "이환 공식 사이트",
+      "title": "초자연 어반 판타지: NTE 공식 사이트",
+      "url": "https://nte.perfectworld.com/kr/index.html"
+    },
+    {
+      "name": "Game8",
+      "title": "Neverness To Everness Cross-Platform Co-Ex Beta Opens",
+      "url": "https://game8.co/articles/latest/neverness-to-everness-cross-platform-co-ex-beta-opens-pre-reg-starts-feb-6"
+    }
   ],
   "content": [
-    { "type": "text", "value": "2026년 서브컬쳐 게임 중 가장 뜨거운 관심을 받고 있는 이환(NTE: Neverness to Everness)이 글로벌 3차 CBT를 앞두고 12분 분량의 실제 플레이 영상을 공개했다.\n\n2월 6일부터 21일까지 진행되는 3차 CBT 직전에 공개된 이 영상은 게임의 전투 시스템, 스토리 연출, 도시 탐험 등 핵심 콘텐츠를 담고 있어 유저들의 기대감을 한층 높이고 있다." },
-    { "type": "heading", "value": "1. 타워 오브 판타지 개발사의 새로운 도전" },
-    { "type": "image", "src": "https://i.ytimg.com/vi/DfEZDRpbyZo/maxresdefault.jpg", "caption": "이환 실제 플레이 영상 썸네일", "alt": "이환 NTE 실제 플레이 영상 공개 서브컬쳐 기대작" },
-    { "type": "text", "value": "이환은 퍼펙트월드 게임즈 산하 Hotta Studio가 개발 중인 어반 오픈월드 RPG다. Hotta Studio는 타워 오브 판타지로 글로벌 시장에서 성과를 거둔 바 있으며, 이환은 그 경험을 바탕으로 더 야심찬 프로젝트로 준비되고 있다.\n\n게임의 배경은 '이상(Anomaly)' 현상이 일상화된 가상의 도시 '헤테로 시티'다. 플레이어는 이능력을 가진 캐릭터가 되어 도시 곳곳에서 벌어지는 초자연적 사건들을 해결하게 된다." },
-    { "type": "heading", "value": "2. 12분 플레이 영상, 무엇을 보여줬나" },
-    { "type": "video", "url": "https://www.youtube.com/watch?v=DfEZDRpbyZo", "caption": "이환 공식 실제 플레이 영상 (12분)" },
-    { "type": "text", "value": "이번에 공개된 영상은 단순한 시네마틱이 아닌 실제 게임플레이를 담고 있다. 영상에서는 '사이클론'이라 불리는 VII급 이상 현상과의 조우, 이상 관리국(Bureau of Anomaly Control)에서의 스토리 전개, 그리고 다양한 캐릭터들과의 상호작용이 펼쳐진다.\n\n특히 눈에 띄는 것은 현대 도시를 배경으로 한 세련된 비주얼과 자연스러운 캐릭터 애니메이션이다. 현대 도시와 초자연 현상이 결합된 독특한 분위기를 보여주고 있다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "3. 글로벌 3차 CBT, 2월 6일 시작" },
-    { "type": "image", "src": "https://blog.ko.playstation.com/tachyon/2025/06/eca0009e65abc2c13f2daae40bc0f94b5c23c814.png", "caption": "이환 헤테로 시티 전경", "alt": "이환 NTE 헤테로 시티 배경 현대 도시 오픈월드" },
-    { "type": "text", "value": "이환의 글로벌 3차 CBT '공생 테스트'는 2026년 2월 6일부터 21일까지 약 2주간 진행된다. 사전 다운로드는 2월 4일부터 가능하며, PC와 모바일은 물론 PS5에서도 테스트에 참여할 수 있다.\n\n전작 타워 오브 판타지와 달리, 이환은 PS5를 포함한 모든 플랫폼에서 동시 출시될 예정이라는 점도 주목할 만하다. 크로스 플랫폼 지원으로 더 넓은 유저층을 확보하려는 전략으로 보인다." },
-    { "type": "heading", "value": "4. 2분기 정식 출시 유력" },
-    { "type": "image", "src": "https://nte.perfectworld.com/kr/assets/images/main/kv-4.webp", "caption": "이환 캐릭터 아트워크", "alt": "이환 NTE 캐릭터 서브컬쳐 RPG 기대작 2026" },
-    { "type": "text", "value": "정식 출시일은 아직 공개되지 않았지만, 업계에서는 2026년 2분기(4~6월) 출시를 예상하고 있다. 3차 CBT가 2월 말 종료된 후 피드백 반영과 최종 최적화 기간을 거치면 이 시기가 유력하다.\n\n이환이 주목받는 이유는 단순히 그래픽 때문만이 아니다. 현대 도시에서 펼쳐지는 초자연 세계관과 타워 오브 판타지에서 쌓은 운영 노하우로 서브컬쳐 시장에서 자리 잡을 수 있을지 관심이 모인다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "마치며: CBT로 증명할 시간" },
-    { "type": "text", "value": "이환은 2024년 7월 첫 공개 이후 꾸준히 기대작으로 꼽혀왔다. 이제 3차 CBT를 통해 그 기대에 부응할 수 있는지 증명할 시간이 다가왔다.\n\n2월 6일부터 시작되는 CBT에서 유저들의 반응이 어떨지, 그리고 2분기 예상되는 정식 출시에서 서브컬쳐 시장에 어떤 변화를 가져올지 주목된다." }
+    {
+      "type": "text",
+      "value": "2026년 서브컬쳐 게임 중 가장 뜨거운 관심을 받고 있는 이환(NTE: Neverness to Everness)이 글로벌 3차 CBT를 앞두고 12분 분량의 실제 플레이 영상을 공개했다.\n\n2월 6일부터 21일까지 진행되는 3차 CBT 직전에 공개된 이 영상은 게임의 전투 시스템, 스토리 연출, 도시 탐험 등 핵심 콘텐츠를 담고 있어 유저들의 기대감을 한층 높이고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 타워 오브 판타지 개발사의 새로운 도전"
+    },
+    {
+      "type": "image",
+      "src": "https://i.ytimg.com/vi/DfEZDRpbyZo/maxresdefault.jpg",
+      "caption": "이환 실제 플레이 영상 썸네일",
+      "alt": "이환 NTE 실제 플레이 영상 공개 서브컬쳐 기대작"
+    },
+    {
+      "type": "text",
+      "value": "이환은 퍼펙트월드 게임즈 산하 Hotta Studio가 개발 중인 어반 오픈월드 RPG다. Hotta Studio는 타워 오브 판타지로 글로벌 시장에서 성과를 거둔 바 있으며, 이환은 그 경험을 바탕으로 더 야심찬 프로젝트로 준비되고 있다.\n\n게임의 배경은 '이상(Anomaly)' 현상이 일상화된 가상의 도시 '헤테로 시티'다. 플레이어는 이능력을 가진 캐릭터가 되어 도시 곳곳에서 벌어지는 초자연적 사건들을 해결하게 된다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 12분 플레이 영상, 무엇을 보여줬나"
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=DfEZDRpbyZo",
+      "caption": "이환 공식 실제 플레이 영상 (12분)"
+    },
+    {
+      "type": "text",
+      "value": "이번에 공개된 영상은 단순한 시네마틱이 아닌 실제 게임플레이를 담고 있다. 영상에서는 '사이클론'이라 불리는 VII급 이상 현상과의 조우, 이상 관리국(Bureau of Anomaly Control)에서의 스토리 전개, 그리고 다양한 캐릭터들과의 상호작용이 펼쳐진다.\n\n특히 눈에 띄는 것은 현대 도시를 배경으로 한 세련된 비주얼과 자연스러운 캐릭터 애니메이션이다. 현대 도시와 초자연 현상이 결합된 독특한 분위기를 보여주고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 글로벌 3차 CBT, 2월 6일 시작"
+    },
+    {
+      "type": "image",
+      "src": "https://blog.ko.playstation.com/tachyon/2025/06/eca0009e65abc2c13f2daae40bc0f94b5c23c814.png",
+      "caption": "이환 헤테로 시티 전경",
+      "alt": "이환 NTE 헤테로 시티 배경 현대 도시 오픈월드"
+    },
+    {
+      "type": "text",
+      "value": "이환의 글로벌 3차 CBT '공생 테스트'는 2026년 2월 6일부터 21일까지 약 2주간 진행된다. 사전 다운로드는 2월 4일부터 가능하며, PC와 모바일은 물론 PS5에서도 테스트에 참여할 수 있다.\n\n전작 타워 오브 판타지와 달리, 이환은 PS5를 포함한 모든 플랫폼에서 동시 출시될 예정이라는 점도 주목할 만하다. 크로스 플랫폼 지원으로 더 넓은 유저층을 확보하려는 전략으로 보인다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 2분기 정식 출시 유력"
+    },
+    {
+      "type": "image",
+      "src": "https://nte.perfectworld.com/kr/assets/images/main/kv-4.webp",
+      "caption": "이환 캐릭터 아트워크",
+      "alt": "이환 NTE 캐릭터 서브컬쳐 RPG 기대작 2026"
+    },
+    {
+      "type": "text",
+      "value": "정식 출시일은 아직 공개되지 않았지만, 업계에서는 2026년 2분기(4~6월) 출시를 예상하고 있다. 3차 CBT가 2월 말 종료된 후 피드백 반영과 최종 최적화 기간을 거치면 이 시기가 유력하다.\n\n이환이 주목받는 이유는 단순히 그래픽 때문만이 아니다. 현대 도시에서 펼쳐지는 초자연 세계관과 타워 오브 판타지에서 쌓은 운영 노하우로 서브컬쳐 시장에서 자리 잡을 수 있을지 관심이 모인다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: CBT로 증명할 시간"
+    },
+    {
+      "type": "text",
+      "value": "이환은 2024년 7월 첫 공개 이후 꾸준히 기대작으로 꼽혀왔다. 이제 3차 CBT를 통해 그 기대에 부응할 수 있는지 증명할 시간이 다가왔다.\n\n2월 6일부터 시작되는 CBT에서 유저들의 반응이 어떨지, 그리고 2분기 예상되는 정식 출시에서 서브컬쳐 시장에 어떤 변화를 가져올지 주목된다."
+    }
   ]
 }

@@ -1775,7 +1775,7 @@
       }
 
       /* 모바일 페이지 컨테이너 padding-top 제거 (광고 패딩만 사용) - search-hidden 제외 */
-      body:not(.search-hidden) :is(.page-container, .home-container) {
+      body:not(.search-hidden) .page-container {
         padding-top: 0 !important;
       }
     }

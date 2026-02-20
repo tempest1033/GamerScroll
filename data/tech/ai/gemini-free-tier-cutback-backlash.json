@@ -11,16 +11,53 @@
   "summaryEn": "In February 2026, Google Gemini's usage controversy entered a new phase. While AI Studio's free API quota partially recovered from a 92% slash, paid Tier 1 was cut by 97%. In the Antigravity coding IDE, 'weekly limits' became official policy, locking Pro subscribers for 4-10 days. Real migration has begun.",
   "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_model-blog_meta-dark.width-1300.jpg",
   "sources": [
-    { "name": "9to5Google", "title": "Google changes Gemini 3 Pro free access limits", "url": "https://9to5google.com/2025/11/27/gemini-3-pro-free-limits/" },
-    { "name": "Tom's Guide", "title": "Google and OpenAI are cutting back free AI usage", "url": "https://www.tomsguide.com/ai/google-and-openai-are-cutting-back-free-usage-for-gemini-3-pro-and-sora-2-here-are-the-new-limits" },
-    { "name": "Google AI Forum", "title": "92% free tier quota reduction discussion", "url": "https://discuss.ai.google.dev/t/do-they-really-think-we-wouldnt-notice-a-92-free-tier-quota-nerf/111262" },
-    { "name": "Google AI Forum", "title": "Antigravity quota refresh", "url": "https://discuss.ai.google.dev/t/antigravity-quota-refresh/112317" },
-    { "name": "Google AI for Developers", "title": "Gemini API rate limits", "url": "https://ai.google.dev/gemini-api/docs/rate-limits" },
-    { "name": "Google AI Blog", "title": "New Antigravity rate limits for AI Pro/Ultra subscribers", "url": "https://blog.google/feed/new-antigravity-rate-limits-pro-ultra-subsribers/" },
-    { "name": "TechCrunch", "title": "Google's AI Plus plan rolls out globally", "url": "https://techcrunch.com/2026/01/27/googles-ai-plus-plan-rolls-out-to-all-markets-including-the-u-s/" },
-    { "name": "Android Central", "title": "Google Antigravity rate limits are changing amid demand", "url": "https://www.androidcentral.com/apps-software/ai/google-antigravitys-rate-limits-are-changing-amid-incredible-demand" }
+    {
+      "name": "9to5Google",
+      "title": "Google changes Gemini 3 Pro free access limits",
+      "url": "https://9to5google.com/2025/11/27/gemini-3-pro-free-limits/"
+    },
+    {
+      "name": "Tom's Guide",
+      "title": "Google and OpenAI are cutting back free AI usage",
+      "url": "https://www.tomsguide.com/ai/google-and-openai-are-cutting-back-free-usage-for-gemini-3-pro-and-sora-2-here-are-the-new-limits"
+    },
+    {
+      "name": "Google AI Forum",
+      "title": "92% free tier quota reduction discussion",
+      "url": "https://discuss.ai.google.dev/t/do-they-really-think-we-wouldnt-notice-a-92-free-tier-quota-nerf/111262"
+    },
+    {
+      "name": "Google AI Forum",
+      "title": "Antigravity quota refresh",
+      "url": "https://discuss.ai.google.dev/t/antigravity-quota-refresh/112317"
+    },
+    {
+      "name": "Google AI for Developers",
+      "title": "Gemini API rate limits",
+      "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+    },
+    {
+      "name": "Google AI Blog",
+      "title": "New Antigravity rate limits for AI Pro/Ultra subscribers",
+      "url": "https://blog.google/feed/new-antigravity-rate-limits-pro-ultra-subsribers/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Google's AI Plus plan rolls out globally",
+      "url": "https://techcrunch.com/2026/01/27/googles-ai-plus-plan-rolls-out-to-all-markets-including-the-u-s/"
+    },
+    {
+      "name": "Android Central",
+      "title": "Google Antigravity rate limits are changing amid demand",
+      "url": "https://www.androidcentral.com/apps-software/ai/google-antigravitys-rate-limits-are-changing-amid-incredible-demand"
+    }
   ],
-  "relatedDocs": ["tech:ai/claude-opus-46-pricing-controversy", "tech:ai/deepmind-update-aletheia-gemini", "tech:ai/claude-code-vs-codex-coding-agent", "tech:ai/gpt-4o-shutdown-controversy"],
+  "relatedDocs": [
+    "tech:ai/claude-opus-46-pricing-controversy",
+    "tech:ai/deepmind-update-aletheia-gemini",
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/gpt-4o-shutdown-controversy"
+  ],
   "relatedGames": [],
   "needTranslate": false,
   "content": [
@@ -49,20 +86,47 @@
     {
       "type": "table",
       "caption": "AI Studio API 무료 쿼타 변동 타임라인",
-      "headers": ["모델", "삭감 전 (11월)", "삭감 후 (12월)", "현재 (2월)", "상태"],
+      "headers": [
+        "모델",
+        "삭감 전 (11월)",
+        "삭감 후 (12월)",
+        "현재 (2월)",
+        "상태"
+      ],
       "rows": [
-        ["Flash RPD (일일)", "250회", "20회 (92%↓)", "250회", "복구"],
-        ["Pro RPD (일일)", "500회", "100회 (80%↓)", "100회", "유지"],
-        ["Pro RPM (분당)", "15회", "5회 (67%↓)", "5회", "유지 (축소 상태)"],
-        ["2.5 Pro RPD (일일)", "50회", "0회 (100%↓)", "0회", "제거 유지"]
+        [
+          "Flash RPD (일일)",
+          "250회",
+          "20회 (92%↓)",
+          "250회",
+          "복구"
+        ],
+        [
+          "Pro RPD (일일)",
+          "500회",
+          "100회 (80%↓)",
+          "100회",
+          "유지"
+        ],
+        [
+          "Pro RPM (분당)",
+          "15회",
+          "5회 (67%↓)",
+          "5회",
+          "유지 (축소 상태)"
+        ],
+        [
+          "2.5 Pro RPD (일일)",
+          "50회",
+          "0회 (100%↓)",
+          "0회",
+          "제거 유지"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "2월 현재, Flash의 무료 일일 호출은 250회로 복구됐다. 하지만 Pro의 분당 호출은 5회로 축소된 채 유지되고 있고, 2.5 Pro는 여전히 무료 등급에서 사라진 상태다. 더 심각한 건 유료 등급이다. 유료 첫 단계인 Tier 1의 Pro 일일 호출이 10,000회에서 300회로 **97% 삭감**됐다. 무료 쿼타는 일부 돌려줬지만, 돈을 내는 개발자의 쿼타는 오히려 더 깎인 셈이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -93,21 +157,48 @@
     {
       "type": "table",
       "caption": "Antigravity 2월 최신 잠금 사례",
-      "headers": ["날짜", "구독", "증상", "잠금 기간"],
+      "headers": [
+        "날짜",
+        "구독",
+        "증상",
+        "잠금 기간"
+      ],
       "rows": [
-        ["2/10", "Pro", "사용 중 갑자기 잠금", "4일"],
-        ["2/10", "Pro", "11분 남았다가 자고 일어나니 대기", "5일 12시간"],
-        ["2/6", "Pro", "X(트위터)에서만 주간 한도 공지 발견", "수일 (모니터링 불가)"],
-        ["2/3", "Pro", "2월 첫날 사용 즉시 한도 도달", "26시간"],
-        ["1/22→2/1", "Pro", "1월 22일 잠금, 10일 후 해제", "10일"]
+        [
+          "2/10",
+          "Pro",
+          "사용 중 갑자기 잠금",
+          "4일"
+        ],
+        [
+          "2/10",
+          "Pro",
+          "11분 남았다가 자고 일어나니 대기",
+          "5일 12시간"
+        ],
+        [
+          "2/6",
+          "Pro",
+          "X(트위터)에서만 주간 한도 공지 발견",
+          "수일 (모니터링 불가)"
+        ],
+        [
+          "2/3",
+          "Pro",
+          "2월 첫날 사용 즉시 한도 도달",
+          "26시간"
+        ],
+        [
+          "1/22→2/1",
+          "Pro",
+          "1월 22일 잠금, 10일 후 해제",
+          "10일"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "가장 큰 불만은 주간 한도의 정확한 수치가 공개되지 않았다는 점이다. 한도가 얼마인지, 언제 리셋되는지, 어떤 기준으로 소진되는지 알 수 없다. 2월 6일의 한 사용자 게시글이 상황을 정확히 요약한다. \"X(트위터)에서만 주간 한도를 공지했다. 사용량을 모니터링할 방법이 없다. 러시안 룰렛이다.\""
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -132,9 +223,6 @@
       "value": "투명성의 부재가 핵심이다. 쿼타가 정확히 얼마인지, 언제 리셋되는지, 어떤 기준으로 소진되는지—아무것도 명확하지 않다. 커서(Cursor)나 윈드서프(Windsurf) 같은 경쟁 코딩 IDE는 남은 사용량을 실시간으로 표시한다. 제미나이는 '갑자기 잠기고 나서야' 한도가 있었다는 사실을 알게 되는 구조다. 공식적으로 일 100회를 약속하면서 시간대별 분배로 인해 사용자들이 25회 내외에서 잠기는 현실은 계약 불이행이 아니냐는 법적 지적까지 나오고 있다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. 실제 이탈이 시작됐다"
     },
@@ -151,12 +239,32 @@
     {
       "type": "table",
       "caption": "Antigravity 대안으로 언급되는 서비스 (2월 기준)",
-      "headers": ["서비스", "월 요금", "특징"],
+      "headers": [
+        "서비스",
+        "월 요금",
+        "특징"
+      ],
       "rows": [
-        ["클로드 Pro (Claude Pro)", "$20", "Anthropic, 코딩 에이전트 Claude Code 포함"],
-        ["클로드 Max (Claude Max)", "$100", "사실상 무제한 사용량"],
-        ["커서 (Cursor)", "$20", "VS Code 기반, 사용량 실시간 표시"],
-        ["깃허브 코파일럿 (GitHub Copilot)", "$10", "MS/OpenAI 기반, 최저가"]
+        [
+          "클로드 Pro (Claude Pro)",
+          "$20",
+          "Anthropic, 코딩 에이전트 Claude Code 포함"
+        ],
+        [
+          "클로드 Max (Claude Max)",
+          "$100",
+          "사실상 무제한 사용량"
+        ],
+        [
+          "커서 (Cursor)",
+          "$20",
+          "VS Code 기반, 사용량 실시간 표시"
+        ],
+        [
+          "깃허브 코파일럿 (GitHub Copilot)",
+          "$10",
+          "MS/OpenAI 기반, 최저가"
+        ]
       ]
     },
     {
@@ -180,10 +288,28 @@
     {
       "type": "table",
       "caption": "제미나이 요금 체계 (2026년 2월 기준)",
-      "headers": ["모델", "무료", "AI Plus ($7.99)", "AI Pro ($19.99)", "AI Ultra ($249.99)"],
+      "headers": [
+        "모델",
+        "무료",
+        "AI Plus ($7.99)",
+        "AI Pro ($19.99)",
+        "AI Ultra ($249.99)"
+      ],
       "rows": [
-        ["Pro", "기본 접근 (수시 변동)", "일 30회", "일 100회", "일 500회"],
-        ["씽킹(Thinking)", "기본 접근 (수시 변동)", "일 90회", "일 300회", "일 1,500회"]
+        [
+          "Pro",
+          "기본 접근 (수시 변동)",
+          "일 30회",
+          "일 100회",
+          "일 500회"
+        ],
+        [
+          "씽킹(Thinking)",
+          "기본 접근 (수시 변동)",
+          "일 90회",
+          "일 300회",
+          "일 1,500회"
+        ]
       ]
     },
     {
@@ -221,20 +347,47 @@
     {
       "type": "table",
       "caption": "AI Studio API Free Quota Timeline",
-      "headers": ["Model", "Pre-Cut (Nov)", "Post-Cut (Dec)", "Current (Feb)", "Status"],
+      "headers": [
+        "Model",
+        "Pre-Cut (Nov)",
+        "Post-Cut (Dec)",
+        "Current (Feb)",
+        "Status"
+      ],
       "rows": [
-        ["Flash RPD (Daily)", "250", "20 (92%↓)", "250", "Recovered"],
-        ["Pro RPD (Daily)", "500", "100 (80%↓)", "100", "Maintained"],
-        ["Pro RPM (Per Min)", "15", "5 (67%↓)", "5", "Still reduced"],
-        ["2.5 Pro RPD (Daily)", "50", "0 (100%↓)", "0", "Still removed"]
+        [
+          "Flash RPD (Daily)",
+          "250",
+          "20 (92%↓)",
+          "250",
+          "Recovered"
+        ],
+        [
+          "Pro RPD (Daily)",
+          "500",
+          "100 (80%↓)",
+          "100",
+          "Maintained"
+        ],
+        [
+          "Pro RPM (Per Min)",
+          "15",
+          "5 (67%↓)",
+          "5",
+          "Still reduced"
+        ],
+        [
+          "2.5 Pro RPD (Daily)",
+          "50",
+          "0 (100%↓)",
+          "0",
+          "Still removed"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "As of February, Flash's free daily calls have recovered to 250. But Pro's per-minute rate remains at 5, and 2.5 Pro is still absent from the free tier. More critically, the paid tiers got hit harder. Tier 1 (the first paid tier) saw Pro daily calls slashed from 10,000 to 300 — a **97% cut**. Google gave some free quota back, but paying developers actually got less."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -265,21 +418,48 @@
     {
       "type": "table",
       "caption": "Antigravity February 2026 Lockout Reports",
-      "headers": ["Date", "Plan", "Symptom", "Lockout Duration"],
+      "headers": [
+        "Date",
+        "Plan",
+        "Symptom",
+        "Lockout Duration"
+      ],
       "rows": [
-        ["2/10", "Pro", "Suddenly locked mid-use", "4 days"],
-        ["2/10", "Pro", "11 min remaining, woke up to extended wait", "5 days 12 hours"],
-        ["2/6", "Pro", "Weekly limit announced only on X (Twitter)", "Days (no monitoring available)"],
-        ["2/3", "Pro", "Hit limit immediately on first use in February", "26 hours"],
-        ["1/22→2/1", "Pro", "Locked Jan 22, unlocked after 10 days", "10 days"]
+        [
+          "2/10",
+          "Pro",
+          "Suddenly locked mid-use",
+          "4 days"
+        ],
+        [
+          "2/10",
+          "Pro",
+          "11 min remaining, woke up to extended wait",
+          "5 days 12 hours"
+        ],
+        [
+          "2/6",
+          "Pro",
+          "Weekly limit announced only on X (Twitter)",
+          "Days (no monitoring available)"
+        ],
+        [
+          "2/3",
+          "Pro",
+          "Hit limit immediately on first use in February",
+          "26 hours"
+        ],
+        [
+          "1/22→2/1",
+          "Pro",
+          "Locked Jan 22, unlocked after 10 days",
+          "10 days"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "The biggest frustration is that the exact weekly limit remains undisclosed. How much quota you have, when it resets, what criteria determine consumption — none of it is known. A February 6 post summed it up perfectly: 'They announced weekly limits only on X (Twitter). There's no way to monitor your usage. It's Russian roulette.'"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -304,9 +484,6 @@
       "value": "Transparency is the core issue. How much quota remains, when it resets, what criteria determine consumption — nothing is clear. Competing IDEs like Cursor and Windsurf display remaining usage in real-time. With Gemini, you only discover limits exist when you're suddenly locked out. Promising 100 daily queries while time-slotted distribution causes users to hit limits around 25 has raised questions about breach of contract."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. Real Migration Has Begun"
     },
@@ -323,12 +500,32 @@
     {
       "type": "table",
       "caption": "Services Mentioned as Antigravity Alternatives (February 2026)",
-      "headers": ["Service", "Monthly", "Key Feature"],
+      "headers": [
+        "Service",
+        "Monthly",
+        "Key Feature"
+      ],
       "rows": [
-        ["Claude Pro", "$20", "Anthropic, includes Claude Code agent"],
-        ["Claude Max", "$100", "Virtually unlimited usage"],
-        ["Cursor", "$20", "VS Code-based, real-time usage display"],
-        ["GitHub Copilot", "$10", "MS/OpenAI-based, lowest price"]
+        [
+          "Claude Pro",
+          "$20",
+          "Anthropic, includes Claude Code agent"
+        ],
+        [
+          "Claude Max",
+          "$100",
+          "Virtually unlimited usage"
+        ],
+        [
+          "Cursor",
+          "$20",
+          "VS Code-based, real-time usage display"
+        ],
+        [
+          "GitHub Copilot",
+          "$10",
+          "MS/OpenAI-based, lowest price"
+        ]
       ]
     },
     {
@@ -352,10 +549,28 @@
     {
       "type": "table",
       "caption": "Gemini Pricing Tiers (February 2026)",
-      "headers": ["Model", "Free", "AI Plus ($7.99)", "AI Pro ($19.99)", "AI Ultra ($249.99)"],
+      "headers": [
+        "Model",
+        "Free",
+        "AI Plus ($7.99)",
+        "AI Pro ($19.99)",
+        "AI Ultra ($249.99)"
+      ],
       "rows": [
-        ["Pro", "Basic access (variable)", "30/day", "100/day", "500/day"],
-        ["Thinking", "Basic access (variable)", "90/day", "300/day", "1,500/day"]
+        [
+          "Pro",
+          "Basic access (variable)",
+          "30/day",
+          "100/day",
+          "500/day"
+        ],
+        [
+          "Thinking",
+          "Basic access (variable)",
+          "90/day",
+          "300/day",
+          "1,500/day"
+        ]
       ]
     },
     {

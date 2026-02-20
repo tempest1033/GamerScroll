@@ -8,13 +8,7 @@ const path = require('path');
 const {
   wrapWithLayout,
   AD_SLOTS,
-  generateAdSlot,
-  generateAdPairSlot,
   generateHomeAdPairSlot,
-  generateMobileOnlyMidAdSlot,
-  generateVerticalAdSlot,
-  generateRectangleAdSlot,
-  generateNativeAdSlot,
   buildCardFeedPagerScript
 } = require('../layout');
 
@@ -955,12 +949,11 @@ function generateIndexPage(data) {
   var content = '<section class="home-section active" id="home">' +
     '<h1 class="visually-hidden">게이머스크롤 - 게임 트렌드, 게임 업계 소식, 게임 위키</h1>' +
     '<div class="page-container">' +
-    generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001) +
     '<div class="home-container">' +
     '<div class="home-main">' +
+    generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001) +
     insightCardHtml +
     generateHomePopular() +
-    generateNativeAdSlot(AD_SLOTS.Article001) +
     generateHomeLatest() +
     '</div>' +
     '<div class="home-sidebar">' +
@@ -968,7 +961,6 @@ function generateIndexPage(data) {
     generateSidebarCategories() +
     generateSidebarArticles() +
     '</div>' +
-    generateVerticalAdSlot(AD_SLOTS.PCHome002) +
     '</div>' +
     '</div>' +
     '</div>' +
@@ -1051,10 +1043,8 @@ function generateIndexPage(data) {
     itemSelector: '.home-latest-item',
     pageSize: FEED_PAGE_SIZE,
     hydrateLazyImages: true,
-    mobileAds: true,
-    adInterval: 3,
+    mobileAds: false,
     mobileDomWindowPages: 4,
-    adSlots: ['4840966314', '7467129651', '7865094213', '3028357040'],
     initialRenderCount: INITIAL_FEED_RENDER_COUNT,
     idleFillFirstPage: true,
     idleFillDelay: 120,

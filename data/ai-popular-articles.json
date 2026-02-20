@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T00:57:13.270Z",
+  "updatedAt": "2026-02-20T11:53:08.584Z",
   "period": "7days",
   "articles": [
     {
@@ -21,28 +21,28 @@
       "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
-      "category": "anthropic",
-      "slug": "anthropic-pentagon-ai-safety-standoff",
-      "views": 5,
-      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
-    },
-    {
       "category": "google",
       "slug": "gemini-31-pro-release",
-      "views": 5,
+      "views": 6,
       "path": "/article/google/gemini-31-pro-release/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 5,
+      "views": 6,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 5,
+      "views": 6,
       "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "views": 5,
+      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
     },
     {
       "category": "anthropic",
@@ -124,6 +124,12 @@
     },
     {
       "category": "general",
+      "slug": "dario-sam-india-summit-handshake",
+      "views": 2,
+      "path": "/article/general/dario-sam-india-summit-handshake/"
+    },
+    {
+      "category": "general",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 2,
       "path": "/article/general/mac-mini-m4-best-value-2026/"
@@ -169,12 +175,6 @@
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "general",
-      "slug": "dario-sam-india-summit-handshake",
-      "views": 1,
-      "path": "/article/general/dario-sam-india-summit-handshake/"
     },
     {
       "category": "general",

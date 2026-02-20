@@ -59,9 +59,6 @@
       "value": "머스크와 OpenAI의 악연은 2018년으로 거슬러 올라간다. 2015년 OpenAI 공동창립자였던 그는 이사회에서 CEO 자리를 노렸다. 하지만 다른 공동창립자들은 샘 알트먼을 선택했고, 머스크는 \"Tesla AI와 이해충돌\"을 이유로 이사회를 떠났다.\n\n공식적인 이유는 그랬지만, 업계에서는 CEO 탈락에 대한 불만이 진짜 이유라는 시각이 지배적이다. 이후 머스크는 OpenAI에 대한 비판 수위를 점점 높여갔다.\n\n결정적 계기는 2025년 2월, 머스크가 974억 달러(약 130조 원)를 제시하며 OpenAI 인수를 시도한 사건이다. 알트먼은 \"no thank you\"라는 짧은 트윗으로 거절 의사를 밝혔고, 머스크의 분노는 더욱 깊어졌다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. 소송①: 비영리 약속 위반, 3월 배심 재판"
     },
@@ -94,9 +91,6 @@
       "value": "2026년 1월 22일, 할 레이 주니어 판사는 이 요구를 기각했다. \"소스코드는 소송과 무관하며, 경쟁사에게 민감한 독점 정보를 넘기라고 강요할 수 없다\"는 것이 이유였다. 판사는 또한 \"이 사건은 아직 5개월도 안 됐는데 135건 이상의 기록과 수많은 디스커버리 분쟁이 쌓여 있다\"며 xAI의 과도한 소송 전략에 불쾌감을 드러냈다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. 소송③: 영업비밀 도용 주장도 패소 위기"
     },
@@ -117,9 +111,6 @@
     {
       "type": "text",
       "value": "2026년 2월 3일, 이번에는 OpenAI가 반격에 나섰다. xAI 직원들이 자동 삭제 기능이 있는 메시징 앱을 사용해 증거를 인멸했다는 것이다.\n\nOpenAI는 법원 제출 문서에서 \"증거 파기가 목적이었다\"고 주장하며 \"xAI의 행위로 인해 불공정한 불이익을 받고 있다\"고 호소했다.\n\n한편 xAI는 OpenAI의 전 정렬팀장 얀 라이케(현재 Anthropic 소속)를 증거 제출 대상에 포함시키려 했으나, 법원은 이 역시 기각했다. \"해당 인물은 애플 AI 통합과 무관하며, 관련성이 희박하다\"는 이유였다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -148,9 +139,6 @@
     {
       "type": "text",
       "value": "The bad blood between Musk and OpenAI dates back to 2018. As a co-founder of OpenAI in 2015, Musk sought the CEO position on the board. However, the other co-founders chose Sam Altman, and Musk left the board citing \"conflicts of interest with Tesla AI.\"\n\nThat was the official reason, but industry insiders believe his frustration over losing the CEO position was the real cause. Since then, Musk has steadily escalated his criticism of OpenAI.\n\nThe decisive moment came in February 2025, when Musk attempted to acquire OpenAI with a $97.4 billion offer. Altman declined with a brief tweet: \"no thank you.\" Musk's fury only deepened."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -185,9 +173,6 @@
       "value": "On January 22, 2026, Judge Hal R. Ray Jr. rejected this demand. His reasoning: \"Source code is irrelevant to the lawsuit, and we cannot force a competitor to hand over sensitive proprietary information.\" The judge also expressed frustration, noting that \"this case is less than five months old, yet contains over 135 docket entries and countless discovery disputes.\""
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. Lawsuit #3: Trade Secret Theft Claim Also Facing Defeat"
     },
@@ -208,9 +193,6 @@
     {
       "type": "text",
       "value": "On February 3, 2026, OpenAI went on the offensive. They alleged that xAI employees used messaging apps with auto-delete features to destroy evidence.\n\nIn court filings, OpenAI claimed \"evidence destruction was the intent\" and argued that \"xAI's actions have put OpenAI at an unfair disadvantage.\"\n\nMeanwhile, xAI attempted to include Jan Leike, OpenAI's former Head of Alignment (now at Anthropic), as a document custodian, but the court rejected this as well, stating the individual was \"irrelevant to the Apple AI integration and has minimal connection to the case.\""
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

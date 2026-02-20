@@ -10,51 +10,130 @@
   "summary": "인도 AI 임팩트 서밋에서 모디 총리가 단합 포즈를 요청했지만, 다리오 아모데이와 샘 알트먼은 끝내 서로의 손을 잡지 않았다. 슈퍼볼 광고 전쟁부터 3800억 달러 펀딩까지, AI 업계 최고의 라이벌 관계가 카메라 앞에서 그대로 드러났다.",
   "summaryEn": "When Modi asked for a unity pose at the India AI Impact Summit, Dario Amodei and Sam Altman refused to hold each other's hands. From a Super Bowl ad war to a $380 billion valuation, the fiercest rivalry in AI was on full display.",
   "thumbnail": "https://www.reuters.com/resizer/v2/SENZRZDCJRLORE33E5Z7YXW7AQ.jpg?auth=2d477f38428a59406f863e69197706f9145fdf477877f6885cfe74ab5d0ea1c3&height=628&width=1200&quality=80&smart=true",
-  "relatedDocs": ["tech:ai/anthropic-b2b-strategy-success"],
+  "relatedDocs": [
+    "tech:ai/anthropic-b2b-strategy-success"
+  ],
   "sources": [
-    { "name": "Reuters", "title": "Modi's AI unity pose turns awkward for Altman and Amodei", "url": "https://www.reuters.com/technology/artificial-intelligence/india-ai-summit-modi-altman-amodei-2026-02-19/" },
-    { "name": "CNBC", "title": "OpenAI and Anthropic's rivalry on display as CEOs don't hold hands", "url": "https://www.cnbc.com/2026/02/19/openai-anthropic-rivalry-india-ai-summit.html" },
-    { "name": "CNBC", "title": "Anthropic's Super Bowl ad takes aim at OpenAI's ChatGPT ad plans", "url": "https://www.cnbc.com/2026/02/13/anthropic-open-ai-super-bowl-ads.html" },
-    { "name": "Economic Times", "title": "When AI can't fix egos: Sam Altman and Dario Amodei skip hand-hold at Delhi AI Summit", "url": "https://m.economictimes.com/news/new-updates/when-ai-cant-fix-egos-openais-sam-altman-and-anthropics-dario-amodei-skip-hand-hold-at-delhi-ai-summit/articleshow/128544689.cms" }
+    {
+      "name": "Reuters",
+      "title": "Modi's AI unity pose turns awkward for Altman and Amodei",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/india-ai-summit-modi-altman-amodei-2026-02-19/"
+    },
+    {
+      "name": "CNBC",
+      "title": "OpenAI and Anthropic's rivalry on display as CEOs don't hold hands",
+      "url": "https://www.cnbc.com/2026/02/19/openai-anthropic-rivalry-india-ai-summit.html"
+    },
+    {
+      "name": "CNBC",
+      "title": "Anthropic's Super Bowl ad takes aim at OpenAI's ChatGPT ad plans",
+      "url": "https://www.cnbc.com/2026/02/13/anthropic-open-ai-super-bowl-ads.html"
+    },
+    {
+      "name": "Economic Times",
+      "title": "When AI can't fix egos: Sam Altman and Dario Amodei skip hand-hold at Delhi AI Summit",
+      "url": "https://m.economictimes.com/news/new-updates/when-ai-cant-fix-egos-openais-sam-altman-and-anthropics-dario-amodei-skip-hand-hold-at-delhi-ai-summit/articleshow/128544689.cms"
+    }
   ],
   "content": [
-    { "type": "text", "value": "2026년 2월 19일, 인도 뉴델리 바라트 만다팜. 글로벌 사우스 최초의 AI 정상회의인 인도 AI 임팩트 서밋 개막식에서 역사적인(?) 장면이 연출됐다. 100개국 이상의 대표단이 지켜보는 가운데, 나렌드라 모디 총리가 AI 업계 거물들과 단합 사진을 찍으려 했다.\n\n중앙에 모디 총리, 오른쪽에 순다르 피차이 구글 CEO, 왼쪽에 샘 알트먼 오픈AI CEO. 그리고 알트먼 바로 옆에는 다리오 아모데이 앤트로픽 CEO가 서 있었다. 모디 총리가 양손을 높이 들어올리며 '단합!'을 외치자, 모두가 손을 잡고 올렸다. 모두가... 라고 하기엔 두 사람만 빼고." },
-
-    { "type": "heading", "value": "1. 알트먼과 아모데이, AI 시대의 가장 어색한 단체사진" },
-    { "type": "image", "src": "https://images.forbesindia.com/blog/wp-content/uploads/2026/02/AFP20260219984W8YJv1HighResIndiaTechnologyAiBG-2026-02-14cc5a6b9cb66c30adc00f40ee88dc71.jpg?im=Resize,width=760,aspect=fit,type=normal", "caption": "인도 AI 임팩트 서밋 개막식에서 모디 총리와 글로벌 테크 CEO들", "alt": "인도 AI 임팩트 서밋 2026 개막식 모디 총리 테크 리더 단체사진" },
-    { "type": "text", "value": "ANI가 촬영한 영상을 보면, 모디 총리가 양쪽 CEO들의 손을 잡고 힘차게 들어올린다. 피차이도 웃으며 호응한다. 그런데 알트먼과 아모데이 사이에서는 뭔가 다른 일이 벌어졌다. 두 사람은 서로의 손을 잡는 대신, 각자 주먹을 쥐어 들어올렸다.\n\n이 장면은 순식간에 소셜미디어를 점령했다. 벤처캐피털리스트 시다르스 바티아는 \"AGI는 언제 오냐고? 다리오와 샘이 손 잡는 날\"이라고 트윗했고, 앤드리슨 호로위츠의 저스틴 무어는 \"싫어하는 애랑 조별과제 하게 됐을 때\"라는 캡션을 달았다.\n\n알트먼 본인도 직후 인터뷰에서 솔직하게 털어놨다. \"무슨 일이 벌어지는 건지 모르겠더라고요. 모디 총리가 갑자기 제 손을 잡아서 올렸는데, 우리가 뭘 해야 하는 건지 혼란스러웠습니다.\" 혼란스러웠다기보다는, 특정 누군가와 손 잡는 건 확실히 하고 싶지 않았던 것 같지만." },
-    { "type": "ad" },
-
-    { "type": "heading", "value": "2. 오픈AI 퇴사부터 CEO 제안 거절까지, 뿌리 깊은 라이벌" },
-    { "type": "text", "value": "이 어색함을 이해하려면 두 사람의 역사를 알아야 한다. 다리오 아모데이는 원래 오픈AI의 연구 부사장이었다. GPT-2와 GPT-3 개발의 핵심 인물이었고, 오픈AI 초기의 기술적 방향을 설계한 장본인이다.\n\n하지만 2020~2021년, 오픈AI가 상업적 이익을 안전성보다 우선시하는 방향으로 전환하자, 다리오는 여동생 다니엘라 아모데이와 함께 시니어 연구원 다수를 이끌고 집단 퇴사했다. 그리고 앤트로픽을 창업했다. 전 직장 상사에게 \"당신 방식은 위험하다\"고 말하며 나간 셈이다.\n\n이야기는 여기서 끝나지 않는다. 2023년 11월, 오픈AI 이사회가 알트먼을 해임했을 때, 이사회는 아모데이에게 오픈AI CEO 자리를 제안했다. 아모데이는 거절했다. 며칠 뒤 알트먼이 복귀하면서 이 에피소드는 더욱 유명해졌다. \"내 자리를 차지할 기회가 있었는데 거절한 사람\"이 바로 옆에 서 있는 상황이라면, 손 잡기가 쉬울 리 없다." },
-
-    { "type": "heading", "value": "3. 슈퍼볼 광고 전쟁, 서밋 10일 전 앤트로픽의 직격탄" },
-    { "type": "image", "src": "https://static-www.adweek.com/wp-content/uploads/2026/02/AnthropicSuperBowl2026.png?w=1200", "caption": "앤트로픽의 슈퍼볼 LX 광고 장면", "alt": "앤트로픽 클로드 슈퍼볼 2026 광고 오픈AI 챗GPT 광고 도입 비판" },
-    { "type": "text", "value": "타이밍도 절묘했다. 인도 서밋 불과 10일 전인 2월 9일, 앤트로픽은 슈퍼볼 LX에서 800만 달러 이상을 들여 광고를 집행했다. 내용은 이랬다: 체육관에서 근육남에게 조언을 구하는데, 로봇처럼 딱딱하게 대답하다가 갑자기 깔창 광고를 끼워넣는다. 그리고 펀치라인이 나온다. \"광고가 AI에 들어오고 있습니다. 하지만 클로드에는 안 됩니다.\"\n\n이건 오픈AI를 정면으로 겨냥한 것이었다. 오픈AI가 챗GPT 무료 사용자 대상으로 광고를 도입하겠다고 발표한 직후에 나온 광고였기 때문이다. 알트먼은 즉시 X에서 반격했다. \"명백히 부정직한 광고\"라며, \"앤트로픽은 부유한 사람들에게 비싼 제품을 파는 회사\"라고 쏘아붙였다.\n\n결과적으로 CNBC에 따르면 앤트로픽은 이 광고로 사용자가 11% 증가하는 효과를 봤다. 돈도 벌고 라이벌도 자극한 일석이조의 한 방이었다. 그리고 10일 후 두 사람은 나란히 서서 사진을 찍어야 했다." },
-    { "type": "ad" },
-
-    { "type": "heading", "value": "마치며: AGI보다 어려운 악수" },
-    { "type": "text", "value": "인도 AI 임팩트 서밋은 분명 글로벌 AI 거버넌스의 중요한 이정표다. 100개국 이상이 참여한 글로벌 사우스 최초의 AI 정상회의이고, AI 안전과 포용적 발전을 논의하는 자리였다.\n\n하지만 사람들이 가장 기억할 장면은 아마 정책 논의가 아니라, 두 CEO가 서로 손을 잡지 않은 그 몇 초일 것이다. 앤트로픽의 3800억 달러 밸류에이션, 서밋 직전 마감된 시리즈 G 300억 달러 투자, 그리고 두 회사 모두 추진 중인 IPO까지. 이 라이벌 관계는 점점 더 뜨거워지고 있다.\n\n소셜미디어에서 한 사용자가 남긴 댓글이 이 상황을 완벽하게 요약한다. \"AI가 해결 못하는 것: 자존심.\" AGI 개발보다 이 두 사람의 악수가 더 어려울 수도 있겠다는 생각이 드는 하루다." }
+    {
+      "type": "text",
+      "value": "2026년 2월 19일, 인도 뉴델리 바라트 만다팜. 글로벌 사우스 최초의 AI 정상회의인 인도 AI 임팩트 서밋 개막식에서 역사적인(?) 장면이 연출됐다. 100개국 이상의 대표단이 지켜보는 가운데, 나렌드라 모디 총리가 AI 업계 거물들과 단합 사진을 찍으려 했다.\n\n중앙에 모디 총리, 오른쪽에 순다르 피차이 구글 CEO, 왼쪽에 샘 알트먼 오픈AI CEO. 그리고 알트먼 바로 옆에는 다리오 아모데이 앤트로픽 CEO가 서 있었다. 모디 총리가 양손을 높이 들어올리며 '단합!'을 외치자, 모두가 손을 잡고 올렸다. 모두가... 라고 하기엔 두 사람만 빼고."
+    },
+    {
+      "type": "heading",
+      "value": "1. 알트먼과 아모데이, AI 시대의 가장 어색한 단체사진"
+    },
+    {
+      "type": "image",
+      "src": "https://images.forbesindia.com/blog/wp-content/uploads/2026/02/AFP20260219984W8YJv1HighResIndiaTechnologyAiBG-2026-02-14cc5a6b9cb66c30adc00f40ee88dc71.jpg?im=Resize,width=760,aspect=fit,type=normal",
+      "caption": "인도 AI 임팩트 서밋 개막식에서 모디 총리와 글로벌 테크 CEO들",
+      "alt": "인도 AI 임팩트 서밋 2026 개막식 모디 총리 테크 리더 단체사진"
+    },
+    {
+      "type": "text",
+      "value": "ANI가 촬영한 영상을 보면, 모디 총리가 양쪽 CEO들의 손을 잡고 힘차게 들어올린다. 피차이도 웃으며 호응한다. 그런데 알트먼과 아모데이 사이에서는 뭔가 다른 일이 벌어졌다. 두 사람은 서로의 손을 잡는 대신, 각자 주먹을 쥐어 들어올렸다.\n\n이 장면은 순식간에 소셜미디어를 점령했다. 벤처캐피털리스트 시다르스 바티아는 \"AGI는 언제 오냐고? 다리오와 샘이 손 잡는 날\"이라고 트윗했고, 앤드리슨 호로위츠의 저스틴 무어는 \"싫어하는 애랑 조별과제 하게 됐을 때\"라는 캡션을 달았다.\n\n알트먼 본인도 직후 인터뷰에서 솔직하게 털어놨다. \"무슨 일이 벌어지는 건지 모르겠더라고요. 모디 총리가 갑자기 제 손을 잡아서 올렸는데, 우리가 뭘 해야 하는 건지 혼란스러웠습니다.\" 혼란스러웠다기보다는, 특정 누군가와 손 잡는 건 확실히 하고 싶지 않았던 것 같지만."
+    },
+    {
+      "type": "heading",
+      "value": "2. 오픈AI 퇴사부터 CEO 제안 거절까지, 뿌리 깊은 라이벌"
+    },
+    {
+      "type": "text",
+      "value": "이 어색함을 이해하려면 두 사람의 역사를 알아야 한다. 다리오 아모데이는 원래 오픈AI의 연구 부사장이었다. GPT-2와 GPT-3 개발의 핵심 인물이었고, 오픈AI 초기의 기술적 방향을 설계한 장본인이다.\n\n하지만 2020~2021년, 오픈AI가 상업적 이익을 안전성보다 우선시하는 방향으로 전환하자, 다리오는 여동생 다니엘라 아모데이와 함께 시니어 연구원 다수를 이끌고 집단 퇴사했다. 그리고 앤트로픽을 창업했다. 전 직장 상사에게 \"당신 방식은 위험하다\"고 말하며 나간 셈이다.\n\n이야기는 여기서 끝나지 않는다. 2023년 11월, 오픈AI 이사회가 알트먼을 해임했을 때, 이사회는 아모데이에게 오픈AI CEO 자리를 제안했다. 아모데이는 거절했다. 며칠 뒤 알트먼이 복귀하면서 이 에피소드는 더욱 유명해졌다. \"내 자리를 차지할 기회가 있었는데 거절한 사람\"이 바로 옆에 서 있는 상황이라면, 손 잡기가 쉬울 리 없다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 슈퍼볼 광고 전쟁, 서밋 10일 전 앤트로픽의 직격탄"
+    },
+    {
+      "type": "image",
+      "src": "https://static-www.adweek.com/wp-content/uploads/2026/02/AnthropicSuperBowl2026.png?w=1200",
+      "caption": "앤트로픽의 슈퍼볼 LX 광고 장면",
+      "alt": "앤트로픽 클로드 슈퍼볼 2026 광고 오픈AI 챗GPT 광고 도입 비판"
+    },
+    {
+      "type": "text",
+      "value": "타이밍도 절묘했다. 인도 서밋 불과 10일 전인 2월 9일, 앤트로픽은 슈퍼볼 LX에서 800만 달러 이상을 들여 광고를 집행했다. 내용은 이랬다: 체육관에서 근육남에게 조언을 구하는데, 로봇처럼 딱딱하게 대답하다가 갑자기 깔창 광고를 끼워넣는다. 그리고 펀치라인이 나온다. \"광고가 AI에 들어오고 있습니다. 하지만 클로드에는 안 됩니다.\"\n\n이건 오픈AI를 정면으로 겨냥한 것이었다. 오픈AI가 챗GPT 무료 사용자 대상으로 광고를 도입하겠다고 발표한 직후에 나온 광고였기 때문이다. 알트먼은 즉시 X에서 반격했다. \"명백히 부정직한 광고\"라며, \"앤트로픽은 부유한 사람들에게 비싼 제품을 파는 회사\"라고 쏘아붙였다.\n\n결과적으로 CNBC에 따르면 앤트로픽은 이 광고로 사용자가 11% 증가하는 효과를 봤다. 돈도 벌고 라이벌도 자극한 일석이조의 한 방이었다. 그리고 10일 후 두 사람은 나란히 서서 사진을 찍어야 했다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: AGI보다 어려운 악수"
+    },
+    {
+      "type": "text",
+      "value": "인도 AI 임팩트 서밋은 분명 글로벌 AI 거버넌스의 중요한 이정표다. 100개국 이상이 참여한 글로벌 사우스 최초의 AI 정상회의이고, AI 안전과 포용적 발전을 논의하는 자리였다.\n\n하지만 사람들이 가장 기억할 장면은 아마 정책 논의가 아니라, 두 CEO가 서로 손을 잡지 않은 그 몇 초일 것이다. 앤트로픽의 3800억 달러 밸류에이션, 서밋 직전 마감된 시리즈 G 300억 달러 투자, 그리고 두 회사 모두 추진 중인 IPO까지. 이 라이벌 관계는 점점 더 뜨거워지고 있다.\n\n소셜미디어에서 한 사용자가 남긴 댓글이 이 상황을 완벽하게 요약한다. \"AI가 해결 못하는 것: 자존심.\" AGI 개발보다 이 두 사람의 악수가 더 어려울 수도 있겠다는 생각이 드는 하루다."
+    }
   ],
   "titleEn": "Harder Than AGI — Dario and Sam Stand Side by Side at India AI Summit, But Refuse to Shake Hands",
-  "summaryEn": "When Modi asked for a unity pose at the India AI Impact Summit, Dario Amodei and Sam Altman refused to hold each other's hands. From a Super Bowl ad war to a $380 billion valuation, the fiercest rivalry in AI was on full display.",
   "contentEn": [
-    { "type": "text", "value": "February 19, 2026. Bharat Mandapam, New Delhi, India. At the opening ceremony of the India AI Impact Summit — the first AI summit hosted by the Global South — a historic (questionable adjective) moment unfolded. With delegates from over 100 countries watching, Prime Minister Narendra Modi attempted to take a unity photo with the titans of the AI industry.\n\nModi stood in the center, Google CEO Sundar Pichai to his right, OpenAI CEO Sam Altman to his left. And right next to Altman stood Anthropic CEO Dario Amodei. When Modi raised both hands high and called for unity, everyone clasped hands and lifted them up. Well... everyone except two people." },
-
-    { "type": "heading", "value": "1. Altman and Amodei: The Most Awkward Group Photo in AI History" },
-    { "type": "image", "src": "https://images.forbesindia.com/blog/wp-content/uploads/2026/02/AFP20260219984W8YJv1HighResIndiaTechnologyAiBG-2026-02-14cc5a6b9cb66c30adc00f40ee88dc71.jpg?im=Resize,width=760,aspect=fit,type=normal", "caption": "PM Modi with global tech CEOs at the India AI Impact Summit opening", "alt": "India AI Impact Summit 2026 opening ceremony Modi with tech leaders group photo" },
-    { "type": "text", "value": "In the footage captured by ANI, Modi grabs the hands of the CEOs on either side and raises them high. Pichai smiles and plays along. But between Altman and Amodei, something different happened. Instead of holding each other's hands, both men clenched their fists and raised them independently.\n\nThe moment instantly took over social media. Venture capitalist Siddharth Bhatia tweeted: \"When AGI? The day Dario and Sam hold hands.\" Justine Moore from Andreessen Horowitz captioned it: \"When you're forced to do a group project with your opp.\"\n\nAltman himself was refreshingly honest in a post-ceremony interview. \"I didn't know what was happening. I was sort of confused, like Modi grabbed my hand and put it up, and I just wasn't sure what we were supposed to be doing.\" More like he was very sure there was one particular person he didn't want to hold hands with." },
-    { "type": "ad" },
-
-    { "type": "heading", "value": "2. From OpenAI Exodus to CEO Offer Rejection: A Deep-Rooted Rivalry" },
-    { "type": "text", "value": "To understand this level of awkwardness, you need to know their history. Dario Amodei was OpenAI's Vice President of Research. He was instrumental in developing GPT-2 and GPT-3 and was a key architect of OpenAI's early technical direction.\n\nBut in 2020-2021, as OpenAI pivoted toward prioritizing commercial interests over safety, Dario led a mass exodus alongside his sister Daniela Amodei and several senior researchers. They founded Anthropic. Essentially, he told his former boss \"your approach is dangerous\" and walked out the door.\n\nThe story doesn't end there. In November 2023, when OpenAI's board fired Altman, the board offered Amodei the OpenAI CEO position. He declined. Days later, Altman returned, making this episode even more legendary. Imagine standing next to the person who had the chance to take your job and turned it down. Not exactly a recipe for a comfortable handshake." },
-
-    { "type": "heading", "value": "3. Super Bowl Ad War: Anthropic's Direct Hit, Just 10 Days Before the Summit" },
-    { "type": "image", "src": "https://static-www.adweek.com/wp-content/uploads/2026/02/AnthropicSuperBowl2026.png?w=1200", "caption": "Anthropic's Super Bowl LX advertisement", "alt": "Anthropic Claude Super Bowl 2026 ad criticizing OpenAI ChatGPT ad integration" },
-    { "type": "text", "value": "The timing couldn't have been better — or worse, depending on who you ask. Just 10 days before the India summit, on February 9, Anthropic dropped an $8 million-plus Super Bowl LX ad. The spot showed a gym-goer asking a buff trainer for advice, only to get robotic answers peppered with random shoe insole ads. The punchline: \"Ads are coming to AI. But not to Claude.\"\n\nIt was a direct shot at OpenAI, which had just announced plans to introduce ads to free ChatGPT users. Altman fired back immediately on X, calling it \"clearly dishonest\" and sniping that \"Anthropic serves an expensive product to rich people.\"\n\nAccording to CNBC, Anthropic saw an 11% user increase from the ad campaign. They made money and got under their rival's skin — a two-for-one deal. And then, 10 days later, the two men had to stand side by side for a photo." },
-    { "type": "ad" },
-
-    { "type": "heading", "value": "In Closing: A Handshake Harder Than AGI" },
-    { "type": "text", "value": "The India AI Impact Summit is undeniably an important milestone for global AI governance. It was the first AI summit hosted by the Global South, with over 100 countries participating to discuss AI safety and inclusive development.\n\nBut the moment people will remember most probably isn't any policy discussion — it's those few seconds when two CEOs refused to hold each other's hands. Anthropic's $380 billion valuation, the $30 billion Series G that closed just days before the summit, and both companies pushing toward IPOs. This rivalry is only getting hotter.\n\nOne social media user's comment perfectly sums up the situation: \"When AI can't fix egos.\" It's starting to look like getting these two to shake hands might actually be harder than building AGI." }
+    {
+      "type": "text",
+      "value": "February 19, 2026. Bharat Mandapam, New Delhi, India. At the opening ceremony of the India AI Impact Summit — the first AI summit hosted by the Global South — a historic (questionable adjective) moment unfolded. With delegates from over 100 countries watching, Prime Minister Narendra Modi attempted to take a unity photo with the titans of the AI industry.\n\nModi stood in the center, Google CEO Sundar Pichai to his right, OpenAI CEO Sam Altman to his left. And right next to Altman stood Anthropic CEO Dario Amodei. When Modi raised both hands high and called for unity, everyone clasped hands and lifted them up. Well... everyone except two people."
+    },
+    {
+      "type": "heading",
+      "value": "1. Altman and Amodei: The Most Awkward Group Photo in AI History"
+    },
+    {
+      "type": "image",
+      "src": "https://images.forbesindia.com/blog/wp-content/uploads/2026/02/AFP20260219984W8YJv1HighResIndiaTechnologyAiBG-2026-02-14cc5a6b9cb66c30adc00f40ee88dc71.jpg?im=Resize,width=760,aspect=fit,type=normal",
+      "caption": "PM Modi with global tech CEOs at the India AI Impact Summit opening",
+      "alt": "India AI Impact Summit 2026 opening ceremony Modi with tech leaders group photo"
+    },
+    {
+      "type": "text",
+      "value": "In the footage captured by ANI, Modi grabs the hands of the CEOs on either side and raises them high. Pichai smiles and plays along. But between Altman and Amodei, something different happened. Instead of holding each other's hands, both men clenched their fists and raised them independently.\n\nThe moment instantly took over social media. Venture capitalist Siddharth Bhatia tweeted: \"When AGI? The day Dario and Sam hold hands.\" Justine Moore from Andreessen Horowitz captioned it: \"When you're forced to do a group project with your opp.\"\n\nAltman himself was refreshingly honest in a post-ceremony interview. \"I didn't know what was happening. I was sort of confused, like Modi grabbed my hand and put it up, and I just wasn't sure what we were supposed to be doing.\" More like he was very sure there was one particular person he didn't want to hold hands with."
+    },
+    {
+      "type": "heading",
+      "value": "2. From OpenAI Exodus to CEO Offer Rejection: A Deep-Rooted Rivalry"
+    },
+    {
+      "type": "text",
+      "value": "To understand this level of awkwardness, you need to know their history. Dario Amodei was OpenAI's Vice President of Research. He was instrumental in developing GPT-2 and GPT-3 and was a key architect of OpenAI's early technical direction.\n\nBut in 2020-2021, as OpenAI pivoted toward prioritizing commercial interests over safety, Dario led a mass exodus alongside his sister Daniela Amodei and several senior researchers. They founded Anthropic. Essentially, he told his former boss \"your approach is dangerous\" and walked out the door.\n\nThe story doesn't end there. In November 2023, when OpenAI's board fired Altman, the board offered Amodei the OpenAI CEO position. He declined. Days later, Altman returned, making this episode even more legendary. Imagine standing next to the person who had the chance to take your job and turned it down. Not exactly a recipe for a comfortable handshake."
+    },
+    {
+      "type": "heading",
+      "value": "3. Super Bowl Ad War: Anthropic's Direct Hit, Just 10 Days Before the Summit"
+    },
+    {
+      "type": "image",
+      "src": "https://static-www.adweek.com/wp-content/uploads/2026/02/AnthropicSuperBowl2026.png?w=1200",
+      "caption": "Anthropic's Super Bowl LX advertisement",
+      "alt": "Anthropic Claude Super Bowl 2026 ad criticizing OpenAI ChatGPT ad integration"
+    },
+    {
+      "type": "text",
+      "value": "The timing couldn't have been better — or worse, depending on who you ask. Just 10 days before the India summit, on February 9, Anthropic dropped an $8 million-plus Super Bowl LX ad. The spot showed a gym-goer asking a buff trainer for advice, only to get robotic answers peppered with random shoe insole ads. The punchline: \"Ads are coming to AI. But not to Claude.\"\n\nIt was a direct shot at OpenAI, which had just announced plans to introduce ads to free ChatGPT users. Altman fired back immediately on X, calling it \"clearly dishonest\" and sniping that \"Anthropic serves an expensive product to rich people.\"\n\nAccording to CNBC, Anthropic saw an 11% user increase from the ad campaign. They made money and got under their rival's skin — a two-for-one deal. And then, 10 days later, the two men had to stand side by side for a photo."
+    },
+    {
+      "type": "heading",
+      "value": "In Closing: A Handshake Harder Than AGI"
+    },
+    {
+      "type": "text",
+      "value": "The India AI Impact Summit is undeniably an important milestone for global AI governance. It was the first AI summit hosted by the Global South, with over 100 countries participating to discuss AI safety and inclusive development.\n\nBut the moment people will remember most probably isn't any policy discussion — it's those few seconds when two CEOs refused to hold each other's hands. Anthropic's $380 billion valuation, the $30 billion Series G that closed just days before the summit, and both companies pushing toward IPOs. This rivalry is only getting hotter.\n\nOne social media user's comment perfectly sums up the situation: \"When AI can't fix egos.\" It's starting to look like getting these two to shake hands might actually be harder than building AGI."
+    }
   ]
 }

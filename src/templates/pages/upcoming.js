@@ -2,7 +2,7 @@
  * 출시 게임 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
@@ -18,9 +18,6 @@ const platformLogos = {
 
 function generateUpcomingPage(data) {
   const { upcoming } = data;
-
-  // PC + 모바일 광고 슬롯
-  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   // 출시 예정 게임 섹션 생성
   function generateUpcomingSection(items, platform) {
@@ -60,7 +57,6 @@ function generateUpcomingPage(data) {
     <section class="section active" id="upcoming">
       
       <div class="page-container">
-        ${topAds}
         <h1 class="visually-hidden">출시 게임 - 신작 게임, 출시 예정 게임</h1>
         <div class="upcoming-card home-card">
           <div class="home-card-header">

@@ -11,19 +11,43 @@
   "summary": "바이브 코딩에서 AI와 효과적으로 협업하는 작업 플로우와 프롬프트 작성법을 다룬다. 기본 작업 사이클, Plan Mode 활용법, 좋은 프롬프트의 원칙, 상황별 프롬프트 예시, 이미지 활용법까지 실전 중심으로 정리했다.",
   "summaryEn": "This guide covers effective workflows for collaborating with AI in vibe coding and how to write better prompts. It provides practical guidance on the basic work cycle, Plan Mode usage, principles of good prompts, situation-specific prompt examples, and image utilization.",
   "sources": [
-    { "name": "Claude Code Docs", "title": "Common Workflows - Plan Mode", "url": "https://code.claude.com/docs/en/common-workflows" },
-    { "name": "Claude Code Docs", "title": "Best Practices", "url": "https://code.claude.com/docs/en/best-practices" },
-    { "name": "OpenAI Developers", "title": "Codex CLI Features", "url": "https://developers.openai.com/codex/cli/features/" },
-    { "name": "Armin Ronacher", "title": "What Actually Is Claude Code's Plan Mode?", "url": "https://lucumr.pocoo.org/2025/12/17/what-is-plan-mode/" }
+    {
+      "name": "Claude Code Docs",
+      "title": "Common Workflows - Plan Mode",
+      "url": "https://code.claude.com/docs/en/common-workflows"
+    },
+    {
+      "name": "Claude Code Docs",
+      "title": "Best Practices",
+      "url": "https://code.claude.com/docs/en/best-practices"
+    },
+    {
+      "name": "OpenAI Developers",
+      "title": "Codex CLI Features",
+      "url": "https://developers.openai.com/codex/cli/features/"
+    },
+    {
+      "name": "Armin Ronacher",
+      "title": "What Actually Is Claude Code's Plan Mode?",
+      "url": "https://lucumr.pocoo.org/2025/12/17/what-is-plan-mode/"
+    }
   ],
   "relatedGames": [],
-  "relatedDocs": ["vibe-coding-basics", "project-md-settings-guide"],
+  "relatedDocs": [
+    "vibe-coding-basics",
+    "project-md-settings-guide"
+  ],
   "toc": true,
   "content": [
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "가이드로 돌아가기", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "가이드로 돌아가기",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -53,18 +77,12 @@
       "value": "큰 작업을 한 번에 시키면 AI가 방향을 잘못 잡거나 실수할 확률이 높아진다. 작업을 적절한 크기로 쪼개는 것이 중요하다.\n\n**너무 큰 요청:**\n\"로그인 기능 전체를 만들어줘. UI, API 연동, 에러 처리, 세션 관리까지 한 번에.\"\n\n**적절하게 나눈 요청:**\n1. \"먼저 로그인 UI를 만들어줘\"\n2. (결과 확인 후) \"이제 API 연동을 추가해줘\"\n3. (결과 확인 후) \"에러 처리도 넣어줘\"\n4. (결과 확인 후) \"세션 관리 로직을 추가해줘\"\n\n각 단계에서 결과를 확인하고 넘어가기 때문에 방향이 틀어질 가능성이 줄어든다. AI가 이전 단계의 코드를 보면서 다음 단계를 진행하니 일관성도 유지된다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "프롬프트란?"
     },
     {
       "type": "text",
       "value": "프롬프트는 AI에게 보내는 **지시문**이다. 채팅 창에 입력하는 모든 텍스트가 프롬프트다.\n\n같은 목적이라도 프롬프트를 어떻게 쓰느냐에 따라 AI의 응답 품질이 크게 달라진다. 요리에 비유하면, 프롬프트는 AI에게 주는 레시피 같은 것이다. 재료와 순서를 명확하게 알려줄수록 원하는 결과물에 가까워진다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -228,7 +246,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Guide", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "Back to Guide",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -258,18 +281,12 @@
       "value": "When you ask for a large task all at once, the AI is more likely to go in the wrong direction or make mistakes. Breaking tasks into appropriate sizes is important.\n\n**Request that's too large:**\n\"Build the entire login feature. UI, API integration, error handling, and session management all at once.\"\n\n**Appropriately broken down:**\n1. \"First, create the login UI\"\n2. (After reviewing) \"Now add the API integration\"\n3. (After reviewing) \"Add error handling\"\n4. (After reviewing) \"Add session management logic\"\n\nSince you verify results at each step, the chance of going off track decreases. And because the AI can see the code from previous steps, consistency is maintained."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "What is a Prompt?"
     },
     {
       "type": "text",
       "value": "A prompt is the **instruction you send to AI.** Every text you type in the chat window is a prompt.\n\nEven for the same purpose, the quality of AI's response varies significantly depending on how you write the prompt. Think of it like a recipe — the clearer you specify the ingredients and steps, the closer the result will be to what you want."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

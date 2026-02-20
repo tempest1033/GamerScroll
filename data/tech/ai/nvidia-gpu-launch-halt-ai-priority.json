@@ -61,9 +61,6 @@
       "value": "차세대 RTX 60 시리즈(코드명 Rubin)도 상황이 좋지 않다. Tom's Hardware 보도에 따르면, 원래 2027년으로 예상됐던 RTX 60 시리즈 출시가 2028년으로 밀렸다. 게이머들이 다음 세대 그래픽카드를 손에 쥐려면 최소 2년은 더 기다려야 한다는 뜻이다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. GDDR7 메모리 부족과 AI 칩 우선순위, 핵심 원인 분석"
     },
@@ -94,9 +91,6 @@
       "value": "게이밍 PC 업그레이드를 계획하던 유저들은 난감한 상황에 처했다. 현재 GPU를 쓰자니 성능이 부족하고, 새로 사자니 가격이 감당이 안 된다. 엔비디아가 연례 업데이트 주기를 중단한 이상, '한 세대만 참으면 된다'는 기존의 전략도 통하지 않게 됐다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. 엔비디아는 더 이상 게이밍 회사가 아니다 - 커뮤니티 반응"
     },
@@ -125,9 +119,6 @@
     {
       "type": "text",
       "value": "Intel은 Arc B시리즈로 저가 시장을 공략하고 있다. 아직 고성능 시장에서 엔비디아를 위협하기에는 역부족이지만, 예산이 제한된 게이머들에게는 실질적인 대안이 되고 있다. 다만 드라이버 안정성과 게임 호환성 측면에서 아직 갈 길이 멀다는 평가가 있다.\n\n결국 고성능 GPU 시장에서 엔비디아를 완전히 대체할 수 있는 업체는 아직 없다. 게이머들은 불완전한 대안 사이에서 최선의 선택을 해야 하는 상황이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -171,14 +162,11 @@
     },
     {
       "type": "text",
-      "value": "In early February 2026, major tech outlets broke the news simultaneously, and it was a bombshell. Nvidia had postponed the entire RTX 50 SUPER lineup\u2014the RTX 5070 SUPER, RTX 5070 Ti SUPER, RTX 5080 SUPER, and everything else in the range. This wasn't a minor schedule adjustment. It was effectively a shelving with no confirmed return date.\n\nWhat's even more alarming is that production of the existing RTX 50 series itself is being scaled back. According to NotebookCheck, RTX 50 series production has been temporarily suspended, with no normalization expected until at least Q3 2026. The RTX 5070 Ti had already been at the center of production cut rumors, with ASUS citing GDDR7 memory supply constraints as the reason."
+      "value": "In early February 2026, major tech outlets broke the news simultaneously, and it was a bombshell. Nvidia had postponed the entire RTX 50 SUPER lineup—the RTX 5070 SUPER, RTX 5070 Ti SUPER, RTX 5080 SUPER, and everything else in the range. This wasn't a minor schedule adjustment. It was effectively a shelving with no confirmed return date.\n\nWhat's even more alarming is that production of the existing RTX 50 series itself is being scaled back. According to NotebookCheck, RTX 50 series production has been temporarily suspended, with no normalization expected until at least Q3 2026. The RTX 5070 Ti had already been at the center of production cut rumors, with ASUS citing GDDR7 memory supply constraints as the reason."
     },
     {
       "type": "text",
       "value": "The next-generation RTX 60 series (codenamed Rubin) isn't faring any better. According to Tom's Hardware, the originally expected 2027 launch has slipped to 2028. That means gamers will have to wait at least two more years before they can get their hands on next-gen graphics cards."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -188,11 +176,11 @@
       "type": "image",
       "src": "https://www.nvidia.com/content/dam/en-zz/solutions/data-center/home/data-center-og.jpg",
       "caption": "Nvidia AI data center GPU infrastructure",
-      "alt": "Nvidia AI data center GPU servers \u2013 AI chip priority is driving gaming GPU production cuts"
+      "alt": "Nvidia AI data center GPU servers – AI chip priority is driving gaming GPU production cuts"
     },
     {
       "type": "text",
-      "value": "Two factors are driving this crisis: an acute shortage of GDDR7 memory and Nvidia's strategic pivot to AI.\n\nAs demand for AI server memory has skyrocketed, the entire supply chain for high-performance memory\u2014including GDDR7\u2014is under extreme pressure. Memory manufacturers are pouring their production capacity into HBM (High Bandwidth Memory) for AI data centers, where margins are far higher. GDDR7 destined for gaming GPUs has been deprioritized."
+      "value": "Two factors are driving this crisis: an acute shortage of GDDR7 memory and Nvidia's strategic pivot to AI.\n\nAs demand for AI server memory has skyrocketed, the entire supply chain for high-performance memory—including GDDR7—is under extreme pressure. Memory manufacturers are pouring their production capacity into HBM (High Bandwidth Memory) for AI data centers, where margins are far higher. GDDR7 destined for gaming GPUs has been deprioritized."
     },
     {
       "type": "text",
@@ -200,28 +188,25 @@
     },
     {
       "type": "heading",
-      "value": "3. GPU Prices Are Surging\u2014and Gamers Are Out of Options"
+      "value": "3. GPU Prices Are Surging—and Gamers Are Out of Options"
     },
     {
       "type": "text",
-      "value": "When supply shrinks, prices rise\u2014that's Economics 101. RTX 50 series cards are currently selling for 30% or more above their official MSRPs. As the shortage deepens, premiums on certain models are climbing even higher.\n\nThe problem is that competitors' products are getting more expensive too. AMD has been trending toward price increases of its own. In a high-end GPU market that Nvidia dominates almost entirely, when even the alternatives cost more, gamers are left with nowhere to turn."
+      "value": "When supply shrinks, prices rise—that's Economics 101. RTX 50 series cards are currently selling for 30% or more above their official MSRPs. As the shortage deepens, premiums on certain models are climbing even higher.\n\nThe problem is that competitors' products are getting more expensive too. AMD has been trending toward price increases of its own. In a high-end GPU market that Nvidia dominates almost entirely, when even the alternatives cost more, gamers are left with nowhere to turn."
     },
     {
       "type": "text",
       "value": "Anyone planning a gaming PC upgrade is in a tough spot. Their current GPU feels underpowered, but new cards are priced out of reach. And with Nvidia's annual update cycle broken, the old strategy of \"just wait one generation\" no longer works."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
-      "value": "4. Nvidia Is No Longer a Gaming Company\u2014Community Backlash"
+      "value": "4. Nvidia Is No Longer a Gaming Company—Community Backlash"
     },
     {
       "type": "image",
       "src": "https://siriuspowerpc.com/wp-content/uploads/2023/10/Custom-RGB-Gaming-PC-Is-it-Good-Practical-or-Expensive.webp",
       "caption": "Inside a high-end gaming PC",
-      "alt": "RGB gaming PC build \u2013 GPU price spikes are driving up upgrade costs"
+      "alt": "RGB gaming PC build – GPU price spikes are driving up upgrade costs"
     },
     {
       "type": "text",
@@ -241,10 +226,7 @@
     },
     {
       "type": "text",
-      "value": "Intel is targeting the budget segment with its Arc B-series. While it's nowhere near threatening Nvidia in the high-end space, it's becoming a viable option for budget-conscious gamers. However, driver stability and game compatibility still have a long way to go.\n\nUltimately, no company can fully replace Nvidia in the high-performance GPU market\u2014not yet. Gamers are stuck choosing the best of imperfect alternatives."
-    },
-    {
-      "type": "ad"
+      "value": "Intel is targeting the budget segment with its Arc B-series. While it's nowhere near threatening Nvidia in the high-end space, it's becoming a viable option for budget-conscious gamers. However, driver stability and game compatibility still have a long way to go.\n\nUltimately, no company can fully replace Nvidia in the high-performance GPU market—not yet. Gamers are stuck choosing the best of imperfect alternatives."
     },
     {
       "type": "heading",
@@ -254,7 +236,7 @@
       "type": "image",
       "src": "https://imageio.forbes.com/specials-images/imageserve/6782e1588a6722bca6e4bc11/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
       "caption": "AMD Radeon RX 9070 XT graphics card",
-      "alt": "AMD RX 9070 XT \u2013 emerging as an alternative to Nvidia"
+      "alt": "AMD RX 9070 XT – emerging as an alternative to Nvidia"
     },
     {
       "type": "text",
@@ -262,7 +244,7 @@
     },
     {
       "type": "text",
-      "value": "The exodus to consoles could accelerate as well. The idea that a PS5 or Xbox offers better value for the same money is gaining traction. PC gaming's core appeal\u2014the ultimate performance experience\u2014is being walled off by price, and the entire ecosystem risks contraction."
+      "value": "The exodus to consoles could accelerate as well. The idea that a PS5 or Xbox offers better value for the same money is gaining traction. PC gaming's core appeal—the ultimate performance experience—is being walled off by price, and the entire ecosystem risks contraction."
     },
     {
       "type": "heading",
@@ -274,7 +256,7 @@
     },
     {
       "type": "text",
-      "value": "Realistically, there isn't much gamers can do. They can hope AMD and Intel step up to restore competitive balance, or squeeze as much life as possible out of their current hardware. The only thing that will make Nvidia care about gamers again may be stronger competition\u2014and that can't come soon enough."
+      "value": "Realistically, there isn't much gamers can do. They can hope AMD and Intel step up to restore competitive balance, or squeeze as much life as possible out of their current hardware. The only thing that will make Nvidia care about gamers again may be stronger competition—and that can't come soon enough."
     }
   ]
 }

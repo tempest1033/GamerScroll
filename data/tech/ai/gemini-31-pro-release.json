@@ -60,9 +60,6 @@
       "value": "제미나이 3.1 프로의 가장 인상적인 성과는 추론 관련 벤치마크에서 나왔다. 멀티모달과 추론 능력을 측정하는 ARC-AGI-2에서 77.1%를 기록해 클로드 오퍼스 4.6(68.8%), GPT-5.2(52.9%)를 큰 폭으로 앞섰다. 인류의 마지막 시험이라 불리는 Humanity's Last Exam에서도 44.4%로 최고점을 경신했다.\n\n코딩 영역도 마찬가지다. 라이브코드벤치 프로에서 엘로 2887을 기록해 전작(2439) 대비 450점 가까이 뛰었고, 터미널벤치 2.0에서는 68.5%로 역시 1위를 차지했다. SWE-벤치 베리파이드에서는 80.6%로 클로드 오퍼스 4.6(80.8%)과 거의 동률을 이뤘다.\n\n과학 분야의 GPQA 다이아몬드에서도 94.3%를 기록하며 경쟁 모델들을 모두 앞섰다. 젯브레인즈는 이 모델을 두고 \"15% 품질 향상, 더 강하고 빠르며 효율적\"이라 평가했으며, 데이터브릭스는 자사 오피스QA 벤치마크에서 최고 성적이라고 밝혔다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. 멀티모달 비전 강점과 할루시네이션 감소"
     },
@@ -83,9 +80,6 @@
     {
       "type": "text",
       "value": "벤치마크 성적은 화려하지만 실사용에서는 여전히 아쉬운 부분이 있다. 커뮤니티에서 가장 많이 지적되는 문제는 롱 컨텍스트 유지력이다. 공식적으로 100만 토큰 입력을 지원하지만, 30만 토큰을 넘어서면 성능이 눈에 띄게 저하된다는 피드백이 꾸준히 올라오고 있다. 긴 대화 세션에서 앞부분 맥락을 잊어버리는 현상도 보고된다. 이는 코딩 분야에서 특히 치명적인데, 대규모 코드베이스를 다루는 작업에서는 컨텍스트 메모리 유지가 핵심이기 때문이다.\n\n코딩 도구 생태계 측면에서도 과제가 남아 있다. 벤치마크상 코딩 성능은 최상위권이지만, 실제 개발자 경험을 좌우하는 것은 모델 성능만이 아니다. 오픈AI의 코덱스나 앤트로픽의 클로드 코드처럼 이미 성숙한 코딩 전용 도구와 비교하면, 제미나이 CLI는 아직 초기 단계다. 도구의 완성도와 개발 워크플로우 통합이 뒷받침되지 않으면 벤치마크 우위가 실사용 경쟁력으로 이어지기 어렵다.\n\n검색 기능 역시 완전하지 않다. 브라우즈컴프 벤치마크에서는 높은 점수를 받았지만, 실제 사용 시 최근 정보를 제대로 가져오지 못하는 사례가 여전히 발견된다. 딥 싱크(확장 사고) 모드 없이 사용할 때는 여전히 할루시네이션이 발생한다는 보고도 있다. 일부 사용자들은 세션 안정성 문제와 간헐적으로 \"게으른\" 응답을 내놓는 경향도 지적하고 있다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -116,9 +110,6 @@
       "value": "Gemini 3.1 Pro's most impressive achievements came in reasoning benchmarks. It scored 77.1% on ARC-AGI-2, which measures multimodal and reasoning ability, significantly outperforming Claude Opus 4.6 (68.8%) and GPT-5.2 (52.9%). It also set a new high of 44.4% on Humanity's Last Exam.\n\nCoding performance saw similar gains. It reached an Elo of 2887 on LiveCodeBench Pro, up nearly 450 points from its predecessor (2439), and topped Terminal-Bench 2.0 at 68.5%. On SWE-Bench Verified, it scored 80.6%, virtually tied with Claude Opus 4.6 (80.8%).\n\nIn the science domain, it achieved 94.3% on GPQA Diamond, outperforming all competitors. JetBrains described it as showing \"15% quality improvement, stronger, faster, and more efficient,\" while Databricks reported best-in-class performance on their OfficeQA benchmark."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. Multimodal Vision Strengths and Hallucination Reduction"
     },
@@ -139,9 +130,6 @@
     {
       "type": "text",
       "value": "Despite impressive benchmarks, real-world usage still reveals some shortcomings. The most frequently cited issue in the community is long-context retention. While it officially supports 1 million input tokens, consistent feedback indicates noticeable performance degradation beyond 300,000 tokens. Users also report the model forgetting earlier context in extended conversation sessions. This is particularly critical for coding, where maintaining context memory across large codebases is essential.\n\nThe coding tool ecosystem also presents challenges. While benchmark scores place it at the top tier for coding, what ultimately shapes the developer experience goes beyond raw model performance. Compared to mature coding-specific tools like OpenAI's Codex and Anthropic's Claude Code, Gemini CLI is still in its early stages. Without robust tooling and seamless development workflow integration, benchmark superiority may not translate into real-world competitive advantage.\n\nSearch functionality isn't fully reliable either. Despite high BrowseComp scores, real-world usage still encounters cases where the model fails to retrieve recent information. There are also reports of hallucinations persisting when used without Deep Think (extended reasoning) mode. Some users have also pointed out session stability issues and an occasional tendency to produce \"lazy\" responses."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

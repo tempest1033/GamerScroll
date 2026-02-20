@@ -10,7 +10,9 @@
   "titleEn": "Mac Mini M4: The Unexpected Value King Amid Memory Price Surge",
   "summaryEn": "With DDR5 memory prices skyrocketing globally, Windows PC costs have surged. Meanwhile, the Mac Mini M4 has emerged as an unexpected value champion. Combined with the AI agent boom, it's becoming the go-to machine for developers.",
   "needTranslate": false,
-  "relatedIssues": ["ddr5-price-surge-gaming-nightmare"],
+  "relatedIssues": [
+    "ddr5-price-surge-gaming-nightmare"
+  ],
   "relatedGames": [],
   "sources": [
     {
@@ -66,20 +68,47 @@
     {
       "type": "table",
       "caption": "맥미니 M4 라인업",
-      "headers": ["모델", "CPU", "메모리", "저장공간", "가격"],
+      "headers": [
+        "모델",
+        "CPU",
+        "메모리",
+        "저장공간",
+        "가격"
+      ],
       "rows": [
-        ["M4 기본", "10코어", "16GB", "256GB", "89만원"],
-        ["M4 중급", "10코어", "16GB", "512GB", "119만원"],
-        ["M4 24GB", "10코어", "24GB", "512GB", "149만원"],
-        ["M4 Pro", "12코어", "24GB", "512GB", "209만원"]
+        [
+          "M4 기본",
+          "10코어",
+          "16GB",
+          "256GB",
+          "89만원"
+        ],
+        [
+          "M4 중급",
+          "10코어",
+          "16GB",
+          "512GB",
+          "119만원"
+        ],
+        [
+          "M4 24GB",
+          "10코어",
+          "24GB",
+          "512GB",
+          "149만원"
+        ],
+        [
+          "M4 Pro",
+          "12코어",
+          "24GB",
+          "512GB",
+          "209만원"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "기본 모델이 89만원이다. 16GB 통합 메모리에 10코어 CPU/GPU를 탑재했다. 비슷한 스펙의 윈도우 미니 PC가 메모리 대란으로 100만원대를 넘어선 것과 비교하면, 맥미니가 상대적으로 저렴해진 셈이다.\n\n개발이나 영상 편집 등 고사양 작업이 필요하다면 M4 Pro 모델도 고려할 만하다. 24GB 모델이 209만원으로, 동급 윈도우 워크스테이션 대비 가격 경쟁력이 있다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -150,20 +179,47 @@
     {
       "type": "table",
       "caption": "Mac Mini M4 Lineup",
-      "headers": ["Model", "CPU", "Memory", "Storage", "Price"],
+      "headers": [
+        "Model",
+        "CPU",
+        "Memory",
+        "Storage",
+        "Price"
+      ],
       "rows": [
-        ["M4 Base", "10-core", "16GB", "256GB", "$599 ($499 on sale)"],
-        ["M4 Mid", "10-core", "16GB", "512GB", "$799"],
-        ["M4 24GB", "10-core", "24GB", "512GB", "$999"],
-        ["M4 Pro", "12-core", "24GB", "512GB", "$1,399"]
+        [
+          "M4 Base",
+          "10-core",
+          "16GB",
+          "256GB",
+          "$599 ($499 on sale)"
+        ],
+        [
+          "M4 Mid",
+          "10-core",
+          "16GB",
+          "512GB",
+          "$799"
+        ],
+        [
+          "M4 24GB",
+          "10-core",
+          "24GB",
+          "512GB",
+          "$999"
+        ],
+        [
+          "M4 Pro",
+          "12-core",
+          "24GB",
+          "512GB",
+          "$1,399"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "The base model starts at $599, frequently dropping to $499 during sales. It packs 16GB of unified memory and a 10-core CPU/GPU. Comparable Windows mini PCs have jumped past $700-800 due to the memory crisis, making the Mac Mini look like a bargain.\n\nFor heavier workloads like development or video editing, the M4 Pro at $1,399 offers solid value compared to equivalent Windows workstations."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

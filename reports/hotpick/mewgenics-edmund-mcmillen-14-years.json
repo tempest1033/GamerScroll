@@ -45,7 +45,12 @@
       "url": "https://gameworldobserver.com/mewgenics-sales-launch"
     }
   ],
-  "relatedDocs": ["ranking:steam-january-2026", "hotpick:nioh3-hotpick-soulslike-masterpiece", "issue:roguelike-casual-korea-trend", "issue:metacritic-top-10-games-2025"],
+  "relatedDocs": [
+    "ranking:steam-january-2026",
+    "hotpick:nioh3-hotpick-soulslike-masterpiece",
+    "issue:roguelike-casual-korea-trend",
+    "issue:metacritic-top-10-games-2025"
+  ],
   "relatedGames": [],
   "needTranslate": false,
   "titleEn": "Binding of Isaac Follow-Up Mewgenics Launches After 14 Years with Metacritic 90",
@@ -67,9 +72,6 @@
     {
       "type": "text",
       "value": "뮤제닉스의 개발사는 그 자체로 하나의 드라마다. 2012년 에드먼드 맥밀런과 토미 레페네스가 Team Meat 시절에 처음 공개했다. 2013년 PAX East에서 시연까지 했지만, 게임플레이 방향성 문제로 개발이 중단됐다. 2016년에는 맥밀런이 공식적으로 개발 취소를 선언하면서 뮤제닉스는 '영원히 안 나올 게임' 목록에 올랐다.\n\n전환점은 2018년이었다. 맥밀런이 Team Meat을 떠나면서 뮤제닉스의 권리를 가져왔고, 동료 개발자 타일러 글라이엘과 손잡고 완전히 새로운 방향으로 재개발에 들어갔다. 기존의 액션 기반 구조를 버리고 턴제 전술 RPG로 전면 재설계한 것이다. 2020년 초에 핵심 구조가 확정됐고, 2022년 10월에 스팀 페이지가 공개됐다.\n\n그리고 2026년 2월 10일, $29.99(출시 할인 10% 적용 시 $26.99)라는 가격표를 달고 정식 출시됐다. 음악은 아이작의 번제 시리즈에서 함께한 Ridiculon이 맡았다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -108,9 +110,6 @@
       "value": "판매 기록이 인상적이다. 맥밀런은 출시 직후 \"3시간 만에 개발비 140만 달러를 전액 회수했다\"고 밝혔다. 5.5시간 만에 15만 2천 장, 12시간 만에 25만 장을 돌파했다. 스팀 동시접속 피크는 65,893명으로, 전세계 판매 1위를 기록했다.\n\nPolygon은 뮤제닉스를 \"2026년 첫 번째 진정한 GOTY 후보\"라고 평했다. 14년간의 개발 기간을 생각하면 개발비가 140만 달러(약 19억 원)라는 건 의외로 적은 금액인데, 이는 소규모 팀이 오랜 기간에 걸쳐 작업한 인디 프로젝트의 특성을 보여준다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "5. 한국어 지원 현황, 유저 한글패치와 공식 다국어 지원 예고"
     },
@@ -131,9 +130,6 @@
     {
       "type": "text",
       "value": "맥밀런은 이미 DLC 개발을 확인한 상태다. 아이작의 번제가 지속적인 DLC로 수명을 크게 늘렸던 전례를 생각하면, 뮤제닉스 역시 장기적인 콘텐츠 확장이 예상된다.\n\n콘솔 출시를 위한 퍼블리셔도 물색 중이다. 현재는 Windows(Steam) 전용이지만, Switch 2가 유력한 콘솔 플랫폼으로 거론되고 있다. 추가 언어 지원과 콘솔 확장이 이루어지면 판매량은 더 크게 늘어날 전망이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -162,9 +158,6 @@
     {
       "type": "text",
       "value": "The development history of Mewgenics is a drama in itself. Edmund McMillen and Tommy Refenes first revealed it in 2012 during the Team Meat era. They even demoed it at PAX East 2013, but development stalled over gameplay direction issues. In 2016, McMillen officially cancelled the project, and Mewgenics was filed under 'games that will never come out.'\n\nThe turning point came in 2018. McMillen left Team Meat, took the rights to Mewgenics with him, and partnered with fellow developer Tyler Glaiel for a complete overhaul. They scrapped the original action-based design and rebuilt it as a turn-based tactical RPG. The core structure was locked in by early 2020, and the Steam page went live in October 2022.\n\nOn February 10, 2026, it launched at $29.99 ($26.99 with a 10% launch discount). The soundtrack was composed by Ridiculon, the same team behind The Binding of Isaac's music."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -203,9 +196,6 @@
       "value": "The sales figures speak for themselves. McMillen revealed shortly after launch that the entire $1.4 million development budget was recouped within 3 hours. By 5.5 hours, sales hit 152,000 copies. By 12 hours, they crossed 250,000. Peak concurrent players reached 65,893, making it the #1 game on Steam worldwide.\n\nPolygon declared Mewgenics '2026's first true GOTY candidate.' Considering the 14-year development timeline, the $1.4M budget is surprisingly modest — a testament to the nature of small-team indie development sustained over a long period."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "5. Korean Language Status: Community Patches and Official Multilingual Support Coming"
     },
@@ -226,9 +216,6 @@
     {
       "type": "text",
       "value": "McMillen has already confirmed DLC development. Given how The Binding of Isaac dramatically extended its lifespan through continuous DLC releases, long-term content expansion for Mewgenics seems likely.\n\nA publisher search for console ports is underway. Currently Windows-only on Steam, the Switch 2 is widely cited as the most likely console platform. Once additional language support and console expansion materialize, sales are expected to grow significantly."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

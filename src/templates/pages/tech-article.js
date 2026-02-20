@@ -6,7 +6,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMultiplexAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -22,7 +22,6 @@ try {
 const siteBaseUrl = 'https://gamerscroll.com';
 
 // 광고 슬롯
-const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 // 카테고리 정보
 const categoryInfo = {
   normal: { name: '일반', desc: '개발 도구, 기술 트렌드' },
@@ -657,10 +656,9 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
   const content = `
     <section class="section active" id="tech-article">
       <article class="page-container issue-container">
-        ${topAds}
-
         <div class="article-layout">
           <div class="article-main">
+            ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
             <div class="blog-card">
               <header class="blog-header">
                 <h1 class="blog-title">${article.title}</h1>
@@ -685,7 +683,6 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
               ${sourcesHTML}
             </div>
 
-            ${generateMultiplexAdSlot(AD_SLOTS.Multiflex001)}
             ${navHTML}
           </div>
 

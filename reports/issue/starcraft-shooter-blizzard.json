@@ -6,13 +6,33 @@
   "keywords": "스타크래프트 슈터, 블리자드, 댄 헤이, TPS, 스페이스 마린 2, 블리즈컨 2026, 스타크래프트 고스트, 프로젝트 아레스, 3인칭 슈터, 오픈월드, 시즈 탱크",
   "summary": "블리자드가 스타크래프트 3인칭 슈터를 개발 중이다. 실제 게임플레이를 본 기자가 '스페이스 마린 2급'이라고 평가한 가운데, 블리즈컨 2026에서 공개될 전망이다. 스타크래프트 고스트 이후 세 번째 도전, 이번엔 성공할 수 있을까.",
   "thumbnail": "https://www.gamespot.com/a/uploads/screen_kubrick/1585/15853545/4650638-9464364901-13636.jpg",
-  "relatedIssues": ["arc-raiders-ddos-attack-jan-2026", "diablo2-resurrected-steam-launch", "crimson-desert-trilogy-trailer-2026"],
+  "relatedIssues": [
+    "arc-raiders-ddos-attack-jan-2026",
+    "diablo2-resurrected-steam-launch",
+    "crimson-desert-trilogy-trailer-2026"
+  ],
   "relatedGames": [],
   "sources": [
-    { "name": "VGC", "title": "Blizzard reportedly taps Arc Raiders owner Nexon for second StarCraft shooter", "url": "https://www.videogameschronicle.com/news/blizzard-reportedly-taps-arc-raiders-owner-nexon-for-second-starcraft-shooter/" },
-    { "name": "GameSpot", "title": "Blizzard President Looks To The Future And Admits Not Everything's Going To Hit", "url": "https://www.gamespot.com/articles/blizzard-president-looks-to-the-future-and-admits-not-everythings-going-to-hit/1100-6538190/" },
-    { "name": "Instant Gaming", "title": "The future third-person StarCraft shooter is said to be amazing", "url": "https://news.instant-gaming.com/en/articles/17104-the-future-third-person-starcraft-shooter-is-saido-to-be-amazing" },
-    { "name": "Windows Central", "title": "A new StarCraft game is rumoured to be in the works by Nexon's shooter division", "url": "https://www.windowscentral.com/gaming/a-new-starcraft-game-is-rumoured-to-be-in-the-works-by-nexons-shooter-division-implying-that-the-game-could-be-a-first-or-third-person-shooter" }
+    {
+      "name": "VGC",
+      "title": "Blizzard reportedly taps Arc Raiders owner Nexon for second StarCraft shooter",
+      "url": "https://www.videogameschronicle.com/news/blizzard-reportedly-taps-arc-raiders-owner-nexon-for-second-starcraft-shooter/"
+    },
+    {
+      "name": "GameSpot",
+      "title": "Blizzard President Looks To The Future And Admits Not Everything's Going To Hit",
+      "url": "https://www.gamespot.com/articles/blizzard-president-looks-to-the-future-and-admits-not-everythings-going-to-hit/1100-6538190/"
+    },
+    {
+      "name": "Instant Gaming",
+      "title": "The future third-person StarCraft shooter is said to be amazing",
+      "url": "https://news.instant-gaming.com/en/articles/17104-the-future-third-person-starcraft-shooter-is-saido-to-be-amazing"
+    },
+    {
+      "name": "Windows Central",
+      "title": "A new StarCraft game is rumoured to be in the works by Nexon's shooter division",
+      "url": "https://www.windowscentral.com/gaming/a-new-starcraft-game-is-rumoured-to-be-in-the-works-by-nexons-shooter-division-implying-that-the-game-could-be-a-first-or-third-person-shooter"
+    }
   ],
   "content": [
     {
@@ -32,9 +52,6 @@
       "src": "https://cdn.mos.cms.futurecdn.net/VQN82yM9kscpiFhCZms2oX-1200-80.jpg",
       "alt": "스타크래프트 마린 아트워크",
       "caption": "블리자드가 개발 중인 스타크래프트 슈터의 주인공이 될 테란 마린"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -57,9 +74,6 @@
       "src": "https://i.ytimg.com/vi/4PkFeWVYPq4/maxresdefault.jpg",
       "alt": "블리즈컨 2026 스타크래프트 슈터 발표 예상",
       "caption": "블리즈컨 2026에서 스타크래프트 슈터가 공식 발표될 것이라는 기대가 높아지고 있다"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

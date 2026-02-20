@@ -15,70 +15,192 @@
     "tech:ai/big3-ipo-2026-openai-anthropic-spacex"
   ],
   "sources": [
-    { "name": "CNBC", "title": "xAI co-founder Tony Wu departs Musk's AI startup", "url": "https://www.cnbc.com/2026/02/10/xai-co-founder-tony-wu-departs.html" },
-    { "name": "Reuters", "title": "xAI co-founder Babuschkin departs, quarterly loss hits $1.46B", "url": "https://www.reuters.com/technology/xai-babuschkin-departure-2025/" },
-    { "name": "CNBC", "title": "OpenAI hires xAI's former CFO Mike Liberatore", "url": "https://www.cnbc.com/2025/09/openai-hires-xai-cfo.html" },
-    { "name": "Financial Times", "title": "Elon Musk hit by exodus of senior staff over burnout and politics", "url": "https://www.ft.com/content/musk-exodus-senior-staff-2025" },
-    { "name": "Business Insider", "title": "xAI employee fired after podcast leak", "url": "https://www.businessinsider.com/xai-ghori-podcast-leak-2025" }
+    {
+      "name": "CNBC",
+      "title": "xAI co-founder Tony Wu departs Musk's AI startup",
+      "url": "https://www.cnbc.com/2026/02/10/xai-co-founder-tony-wu-departs.html"
+    },
+    {
+      "name": "Reuters",
+      "title": "xAI co-founder Babuschkin departs, quarterly loss hits $1.46B",
+      "url": "https://www.reuters.com/technology/xai-babuschkin-departure-2025/"
+    },
+    {
+      "name": "CNBC",
+      "title": "OpenAI hires xAI's former CFO Mike Liberatore",
+      "url": "https://www.cnbc.com/2025/09/openai-hires-xai-cfo.html"
+    },
+    {
+      "name": "Financial Times",
+      "title": "Elon Musk hit by exodus of senior staff over burnout and politics",
+      "url": "https://www.ft.com/content/musk-exodus-senior-staff-2025"
+    },
+    {
+      "name": "Business Insider",
+      "title": "xAI employee fired after podcast leak",
+      "url": "https://www.businessinsider.com/xai-ghori-podcast-leak-2025"
+    }
   ],
   "content": [
-    { "type": "text", "value": "xAI 공동창업자 12명 중 5명이 회사를 떠났다. 2026년 2월 10일, 공동창업자 토니 우(Tony Wu)의 퇴사가 확인되면서 xAI의 인재 유출은 새로운 국면을 맞았다. CFO는 3개월 만에 경쟁사 오픈AI로 이적했고, 법무 총괄도 16개월 만에 사직했다.\n\n일론 머스크는 xAI를 챗GPT와 클로드에 맞서는 AI 제국으로 키우겠다는 야심을 품고 있다. Series E에서 200억 달러를 조달하며 기업가치 2,300억 달러를 인정받았고, SpaceX와의 합병으로 합산 1.25조 달러 규모의 거대 기업을 구상 중이다. 하지만 아무리 큰 자본도 그것을 운용할 사람이 없으면 무의미하다." },
-
-    { "type": "heading", "value": "1. 공동창업자 12명 중 5명 이탈, 흔들리는 핵심" },
-    { "type": "text", "value": "xAI의 인재 유출에서 가장 심각한 부분은 공동창업자급 핵심 인력의 이탈이다. 12명의 공동창업자 중 이미 5명이 회사를 떠났다.\n\n가장 먼저 떠난 카일 코식(Kyle Kosic)은 2024년 6월에 퇴사했다. 2025년에는 크리스찬 세게디(Christian Szegedy)가 6월에 자체 AI 스타트업 Morph Labs를 설립하며 떠났고, 8월에는 이고르 바부슈킨(Igor Babuschkin)이 자체 VC를 설립하며 퇴사했다. 2026년 들어서는 그렉 양(Greg Yang)이 1월에 건강 문제(라임병)로 떠났고, 토니 우(Tony Wu)가 2월 10일 가장 최근 퇴사자가 됐다.\n\n공동창업자의 40% 이상이 이탈했다는 것은 단순한 이직률 통계를 넘어서는 문제다. 이들은 xAI의 기술적 방향과 기업 문화를 함께 설계한 사람들이다. 그 핵심이 빠져나간다는 것은 조직의 정체성 자체가 흔들리고 있다는 신호다." },
-
-    { "type": "heading", "value": "2. CFO 102일 만에 오픈AI로, 극한 업무 강도의 실체" },
-    { "type": "image", "src": "https://media.datacenterdynamics.com/media/images/GQbpPFLWIAEBUxe.original.jpg", "caption": "xAI Colossus 슈퍼컴퓨터 데이터센터", "alt": "xAI 멤피스 Colossus 데이터센터 - 월 10억 달러를 소진하는 AI 인프라" },
-    { "type": "text", "value": "xAI의 업무 환경을 가장 적나라하게 보여준 인물은 전 CFO 마이크 리버라토레(Mike Liberatore)다. 그는 링크드인에 \"102일간, 주 7일 출근, 주 120시간 이상 근무\"라고 적었다. 불과 3개월 만에 xAI를 떠나 경쟁사인 오픈AI로 이적한 것이다.\n\n법무 총괄 로버트 킬(Robert Keele)도 16개월 근무 후 \"두 아이를 충분히 보지 못한다\"며 사직했다. xAI 사무실에는 수면 포드와 텐트가 비치되어 있다는 증언도 나온다. 잠을 자러 집에 갈 시간조차 없는 업무 강도라는 뜻이다.\n\n파이낸셜타임스 취재에서 한 익명의 머스크 자문역은 \"머스크 세계의 유일한 상수는 그가 부하 직원을 얼마나 빠르게 소진시키느냐\"라고 말했다. 이사회 내부에서도 '보통 시간과 테슬라 시간이 따로 있다'는 농담이 돌 정도다. 극한의 업무 강도는 머스크의 트레이드마크이지만, AI 업계에서는 이것이 오히려 인재를 밀어내는 역효과를 내고 있다." },
-    { "type": "ad" },
-
-    { "type": "heading", "value": "3. 팟캐스트 기밀 유출부터 500명 해고까지" },
-    { "type": "text", "value": "xAI의 인사 문제는 자발적 퇴사만이 아니다. 술라이만 고리(Sulaiman Ghori)는 팟캐스트에서 xAI 기밀 정보를 유출한 후 퇴사 또는 해고된 것으로 알려졌다. 내부 보안과 기업 문화 모두에 문제가 있음을 시사하는 사건이다.\n\n2025년 9월에는 데이터 어노테이션(주석) 부서 직원 500명 이상이 일괄 해고됐다. Grok 모델의 학습 방식을 전문 튜터 체제로 전환하면서 대규모 구조조정이 이뤄진 것이다. 이 해고는 xAI가 방향을 급격하게 수정하고 있다는 신호로 읽혔다.\n\n이러한 불안정성은 남아있는 직원들에게도 영향을 미친다. 동료가 줄줄이 떠나고, 부서가 통째로 사라지는 환경에서 장기적인 커리어를 설계하기 어렵다. 이직률 50% 이상이라는 추정치는 이 불안의 결과이자 원인이다." },
-
-    { "type": "heading", "value": "4. 연구 방향 갈등과 머스크 정치 활동의 그림자" },
-    { "type": "text", "value": "퇴사 원인은 업무 강도만이 아니다. 여러 전직 직원들은 연구 방향에 대한 근본적인 갈등을 이유로 꼽았다. xAI 내부에서는 상업적 AI 제품(Grok)에 집중해야 한다는 쪽과 기초 연구를 우선해야 한다는 쪽 사이에 긴장이 있었던 것으로 알려졌다. 공동창업자 세게디가 자체 연구 중심 스타트업을 차린 것은 이 갈등의 결과로 볼 수 있다.\n\n머스크의 정치 활동도 이탈을 가속시키는 요인이다. 미국과 유럽에서 극우 세력을 공개 지지하는 그의 행보는 직원들 사이에서 깊은 불편함을 야기한다. 한 전직 테슬라 직원은 파이낸셜타임스에 \"내가 아는 사람 중 정치를 생각하지 않는 사람이 없다. 도덕적 나침반이 떠나라고 한다면, 그 감정은 사라지지 않는다\"고 말했다.\n\nAI 업계의 최고 인재들은 보수만이 아니라 기업의 가치관과 연구 자유도까지 고려한다. 이 점에서 xAI는 오픈AI나 앤트로픽 같은 경쟁사에 비해 불리한 위치에 있다." },
-    { "type": "ad" },
-
-    { "type": "heading", "value": "5. 월 10억 달러 소진, SpaceX 합병으로 돌파구 모색" },
-    { "type": "image", "src": "https://electrek.co/wp-content/uploads/sites/3/2026/02/Tesla-TSLA-SpaceX-xAI-Elon-Musk.jpg?quality=82&strip=all&w=1600", "caption": "SpaceX와 xAI 합병 발표 (Electrek)", "alt": "SpaceX xAI 합병 - 1.25조 달러 규모 머스크 AI 제국 구상" },
-    { "type": "text", "value": "xAI의 재무 구조는 인재 유출의 배경을 설명한다. 로이터 보도에 따르면 2025년 9월 분기에만 14.6억 달러의 손실을 기록했다. 월 약 10억 달러를 소진하지만 매출은 약 1억 달러 수준에 불과하다. Grok 4가 서비스 중이고 Grok-5를 개발하고 있지만, 수익화는 아직 먼 이야기다.\n\n이런 상황에서 머스크는 2026년 2월 2일 SpaceX와 xAI의 합병을 발표했다. 합산 기업가치 약 1.25조 달러에 달하는 초대형 합병이다. xAI 입장에서는 SpaceX의 안정적 현금흐름과 인프라를 확보할 수 있고, SpaceX는 AI 역량을 강화할 수 있다는 논리다.\n\n하지만 합병이 인재 유출 문제를 해결할 수 있을지는 미지수다. 기업가치가 아무리 커져도 일하는 현장의 문화가 바뀌지 않으면 사람은 계속 떠난다. Series E에서 200억 달러를 조달했지만 그 자금이 인재 유지로 이어지지는 않았다." },
-
-    { "type": "heading", "value": "6. AI 인재 전쟁 속 xAI의 미래" },
-    { "type": "image", "src": "https://www.nrdc.org/sites/default/files/styles/social_sharing_1200x630/public/2025-09/xai-colossus-data-center-memphis-16341426-2400.jpg?h=44b879e5&itok=PptJ_XSi", "caption": "xAI 멤피스 데이터센터 항공 사진 (NRDC)", "alt": "xAI Colossus 멤피스 데이터센터 항공뷰 - AI 인재 전쟁과 인프라 투자" },
-    { "type": "text", "value": "xAI의 인재 탈출 러시는 AI 업계 전체의 인재 전쟁과 맞물려 있다. SignalFire의 2025 리포트에 따르면 오픈AI 직원이 앤트로픽으로 이직할 확률은 그 반대의 8배에 달한다. AI 인재 시장은 완전한 매도자 우위 시장이다.\n\n메타가 오픈AI 출신 연구자에게 수년간 2억 달러 이상의 패키지를 제시한 사례가 있을 정도로, 최정상급 AI 인재의 몸값은 천정부지다. xAI에서 나온 인재들도 오픈AI, 자체 스타트업, VC 등 다양한 곳으로 흩어지고 있다. CFO 리버라토레가 바로 오픈AI로 이적한 것이 상징적이다.\n\n머스크는 \"후회되는 퇴사는 극소수\"라고 반박하지만, 공동창업자 5명의 이탈은 결코 '극소수'가 아니다. 이 추세가 계속되면 아무리 큰 자금력과 컴퓨팅 인프라를 갖추더라도, Grok이 챗GPT나 클로드를 따라잡기는 점점 더 어려워질 것이다." },
-
-    { "type": "heading", "value": "마치며: 돈으로 살 수 없는 것" },
-    { "type": "text", "value": "xAI는 자금은 넘치지만 사람이 빠져나가는 역설적 상황에 놓여 있다. 200억 달러를 조달하고 SpaceX와 합병까지 추진하지만, 공동창업자가 줄줄이 떠나는 근본 원인은 해결되지 않고 있다.\n\nAI 경쟁에서 진짜 무기는 GPU도 데이터센터도 아닌 사람이다. 극한의 업무 강도, 연구 방향 갈등, 정치적 논란이라는 삼중고 속에서 xAI가 인재 유출의 악순환을 끊지 못한다면, 머스크의 AI 야망은 자금이 아니라 사람의 부재로 좌초될 수 있다." }
+    {
+      "type": "text",
+      "value": "xAI 공동창업자 12명 중 5명이 회사를 떠났다. 2026년 2월 10일, 공동창업자 토니 우(Tony Wu)의 퇴사가 확인되면서 xAI의 인재 유출은 새로운 국면을 맞았다. CFO는 3개월 만에 경쟁사 오픈AI로 이적했고, 법무 총괄도 16개월 만에 사직했다.\n\n일론 머스크는 xAI를 챗GPT와 클로드에 맞서는 AI 제국으로 키우겠다는 야심을 품고 있다. Series E에서 200억 달러를 조달하며 기업가치 2,300억 달러를 인정받았고, SpaceX와의 합병으로 합산 1.25조 달러 규모의 거대 기업을 구상 중이다. 하지만 아무리 큰 자본도 그것을 운용할 사람이 없으면 무의미하다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 공동창업자 12명 중 5명 이탈, 흔들리는 핵심"
+    },
+    {
+      "type": "text",
+      "value": "xAI의 인재 유출에서 가장 심각한 부분은 공동창업자급 핵심 인력의 이탈이다. 12명의 공동창업자 중 이미 5명이 회사를 떠났다.\n\n가장 먼저 떠난 카일 코식(Kyle Kosic)은 2024년 6월에 퇴사했다. 2025년에는 크리스찬 세게디(Christian Szegedy)가 6월에 자체 AI 스타트업 Morph Labs를 설립하며 떠났고, 8월에는 이고르 바부슈킨(Igor Babuschkin)이 자체 VC를 설립하며 퇴사했다. 2026년 들어서는 그렉 양(Greg Yang)이 1월에 건강 문제(라임병)로 떠났고, 토니 우(Tony Wu)가 2월 10일 가장 최근 퇴사자가 됐다.\n\n공동창업자의 40% 이상이 이탈했다는 것은 단순한 이직률 통계를 넘어서는 문제다. 이들은 xAI의 기술적 방향과 기업 문화를 함께 설계한 사람들이다. 그 핵심이 빠져나간다는 것은 조직의 정체성 자체가 흔들리고 있다는 신호다."
+    },
+    {
+      "type": "heading",
+      "value": "2. CFO 102일 만에 오픈AI로, 극한 업무 강도의 실체"
+    },
+    {
+      "type": "image",
+      "src": "https://media.datacenterdynamics.com/media/images/GQbpPFLWIAEBUxe.original.jpg",
+      "caption": "xAI Colossus 슈퍼컴퓨터 데이터센터",
+      "alt": "xAI 멤피스 Colossus 데이터센터 - 월 10억 달러를 소진하는 AI 인프라"
+    },
+    {
+      "type": "text",
+      "value": "xAI의 업무 환경을 가장 적나라하게 보여준 인물은 전 CFO 마이크 리버라토레(Mike Liberatore)다. 그는 링크드인에 \"102일간, 주 7일 출근, 주 120시간 이상 근무\"라고 적었다. 불과 3개월 만에 xAI를 떠나 경쟁사인 오픈AI로 이적한 것이다.\n\n법무 총괄 로버트 킬(Robert Keele)도 16개월 근무 후 \"두 아이를 충분히 보지 못한다\"며 사직했다. xAI 사무실에는 수면 포드와 텐트가 비치되어 있다는 증언도 나온다. 잠을 자러 집에 갈 시간조차 없는 업무 강도라는 뜻이다.\n\n파이낸셜타임스 취재에서 한 익명의 머스크 자문역은 \"머스크 세계의 유일한 상수는 그가 부하 직원을 얼마나 빠르게 소진시키느냐\"라고 말했다. 이사회 내부에서도 '보통 시간과 테슬라 시간이 따로 있다'는 농담이 돌 정도다. 극한의 업무 강도는 머스크의 트레이드마크이지만, AI 업계에서는 이것이 오히려 인재를 밀어내는 역효과를 내고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 팟캐스트 기밀 유출부터 500명 해고까지"
+    },
+    {
+      "type": "text",
+      "value": "xAI의 인사 문제는 자발적 퇴사만이 아니다. 술라이만 고리(Sulaiman Ghori)는 팟캐스트에서 xAI 기밀 정보를 유출한 후 퇴사 또는 해고된 것으로 알려졌다. 내부 보안과 기업 문화 모두에 문제가 있음을 시사하는 사건이다.\n\n2025년 9월에는 데이터 어노테이션(주석) 부서 직원 500명 이상이 일괄 해고됐다. Grok 모델의 학습 방식을 전문 튜터 체제로 전환하면서 대규모 구조조정이 이뤄진 것이다. 이 해고는 xAI가 방향을 급격하게 수정하고 있다는 신호로 읽혔다.\n\n이러한 불안정성은 남아있는 직원들에게도 영향을 미친다. 동료가 줄줄이 떠나고, 부서가 통째로 사라지는 환경에서 장기적인 커리어를 설계하기 어렵다. 이직률 50% 이상이라는 추정치는 이 불안의 결과이자 원인이다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 연구 방향 갈등과 머스크 정치 활동의 그림자"
+    },
+    {
+      "type": "text",
+      "value": "퇴사 원인은 업무 강도만이 아니다. 여러 전직 직원들은 연구 방향에 대한 근본적인 갈등을 이유로 꼽았다. xAI 내부에서는 상업적 AI 제품(Grok)에 집중해야 한다는 쪽과 기초 연구를 우선해야 한다는 쪽 사이에 긴장이 있었던 것으로 알려졌다. 공동창업자 세게디가 자체 연구 중심 스타트업을 차린 것은 이 갈등의 결과로 볼 수 있다.\n\n머스크의 정치 활동도 이탈을 가속시키는 요인이다. 미국과 유럽에서 극우 세력을 공개 지지하는 그의 행보는 직원들 사이에서 깊은 불편함을 야기한다. 한 전직 테슬라 직원은 파이낸셜타임스에 \"내가 아는 사람 중 정치를 생각하지 않는 사람이 없다. 도덕적 나침반이 떠나라고 한다면, 그 감정은 사라지지 않는다\"고 말했다.\n\nAI 업계의 최고 인재들은 보수만이 아니라 기업의 가치관과 연구 자유도까지 고려한다. 이 점에서 xAI는 오픈AI나 앤트로픽 같은 경쟁사에 비해 불리한 위치에 있다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 월 10억 달러 소진, SpaceX 합병으로 돌파구 모색"
+    },
+    {
+      "type": "image",
+      "src": "https://electrek.co/wp-content/uploads/sites/3/2026/02/Tesla-TSLA-SpaceX-xAI-Elon-Musk.jpg?quality=82&strip=all&w=1600",
+      "caption": "SpaceX와 xAI 합병 발표 (Electrek)",
+      "alt": "SpaceX xAI 합병 - 1.25조 달러 규모 머스크 AI 제국 구상"
+    },
+    {
+      "type": "text",
+      "value": "xAI의 재무 구조는 인재 유출의 배경을 설명한다. 로이터 보도에 따르면 2025년 9월 분기에만 14.6억 달러의 손실을 기록했다. 월 약 10억 달러를 소진하지만 매출은 약 1억 달러 수준에 불과하다. Grok 4가 서비스 중이고 Grok-5를 개발하고 있지만, 수익화는 아직 먼 이야기다.\n\n이런 상황에서 머스크는 2026년 2월 2일 SpaceX와 xAI의 합병을 발표했다. 합산 기업가치 약 1.25조 달러에 달하는 초대형 합병이다. xAI 입장에서는 SpaceX의 안정적 현금흐름과 인프라를 확보할 수 있고, SpaceX는 AI 역량을 강화할 수 있다는 논리다.\n\n하지만 합병이 인재 유출 문제를 해결할 수 있을지는 미지수다. 기업가치가 아무리 커져도 일하는 현장의 문화가 바뀌지 않으면 사람은 계속 떠난다. Series E에서 200억 달러를 조달했지만 그 자금이 인재 유지로 이어지지는 않았다."
+    },
+    {
+      "type": "heading",
+      "value": "6. AI 인재 전쟁 속 xAI의 미래"
+    },
+    {
+      "type": "image",
+      "src": "https://www.nrdc.org/sites/default/files/styles/social_sharing_1200x630/public/2025-09/xai-colossus-data-center-memphis-16341426-2400.jpg?h=44b879e5&itok=PptJ_XSi",
+      "caption": "xAI 멤피스 데이터센터 항공 사진 (NRDC)",
+      "alt": "xAI Colossus 멤피스 데이터센터 항공뷰 - AI 인재 전쟁과 인프라 투자"
+    },
+    {
+      "type": "text",
+      "value": "xAI의 인재 탈출 러시는 AI 업계 전체의 인재 전쟁과 맞물려 있다. SignalFire의 2025 리포트에 따르면 오픈AI 직원이 앤트로픽으로 이직할 확률은 그 반대의 8배에 달한다. AI 인재 시장은 완전한 매도자 우위 시장이다.\n\n메타가 오픈AI 출신 연구자에게 수년간 2억 달러 이상의 패키지를 제시한 사례가 있을 정도로, 최정상급 AI 인재의 몸값은 천정부지다. xAI에서 나온 인재들도 오픈AI, 자체 스타트업, VC 등 다양한 곳으로 흩어지고 있다. CFO 리버라토레가 바로 오픈AI로 이적한 것이 상징적이다.\n\n머스크는 \"후회되는 퇴사는 극소수\"라고 반박하지만, 공동창업자 5명의 이탈은 결코 '극소수'가 아니다. 이 추세가 계속되면 아무리 큰 자금력과 컴퓨팅 인프라를 갖추더라도, Grok이 챗GPT나 클로드를 따라잡기는 점점 더 어려워질 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 돈으로 살 수 없는 것"
+    },
+    {
+      "type": "text",
+      "value": "xAI는 자금은 넘치지만 사람이 빠져나가는 역설적 상황에 놓여 있다. 200억 달러를 조달하고 SpaceX와 합병까지 추진하지만, 공동창업자가 줄줄이 떠나는 근본 원인은 해결되지 않고 있다.\n\nAI 경쟁에서 진짜 무기는 GPU도 데이터센터도 아닌 사람이다. 극한의 업무 강도, 연구 방향 갈등, 정치적 논란이라는 삼중고 속에서 xAI가 인재 유출의 악순환을 끊지 못한다면, 머스크의 AI 야망은 자금이 아니라 사람의 부재로 좌초될 수 있다."
+    }
   ],
   "titleEn": "5 of 12 Co-Founders Gone: The Talent Exodus Threatening Musk's xAI Empire",
   "summaryEn": "Five of xAI's twelve co-founders have already left the company. The CFO defected to OpenAI after just 102 days, and co-founder Tony Wu became the latest departure. Despite burning $1 billion monthly, xAI's core talent keeps walking out the door—can Musk's AI ambitions survive?",
   "contentEn": [
-    { "type": "text", "value": "Five of xAI's twelve co-founders have left the company. On February 10, 2026, co-founder Tony Wu's departure was confirmed, marking a new chapter in xAI's talent crisis. The CFO defected to competitor OpenAI after just three months, and the general counsel resigned after sixteen months.\n\nElon Musk envisions xAI as an AI empire to rival ChatGPT and Claude. The company raised $20 billion in Series E at a $230 billion valuation and is planning a merger with SpaceX to create a combined $1.25 trillion entity. But even the largest war chest is meaningless without the people to deploy it." },
-
-    { "type": "heading", "value": "1. Five of Twelve Co-Founders Gone: The Core Is Shaking" },
-    { "type": "text", "value": "The most alarming aspect of xAI's talent drain is the departure of co-founder-level key personnel. Five of twelve co-founders have already left.\n\nKyle Kosic was the first to depart in June 2024. In 2025, Christian Szegedy left in June to found his own AI startup Morph Labs, followed by Igor Babuschkin in August who departed to establish his own VC firm. In 2026, Greg Yang left in January due to health issues (Lyme disease), and Tony Wu became the most recent departure on February 10.\n\nMore than 40% of co-founders departing goes beyond simple attrition statistics. These are the people who co-designed xAI's technical direction and corporate culture. Their exodus signals that the organization's very identity is being shaken." },
-
-    { "type": "heading", "value": "2. CFO Lasted 102 Days Before Joining OpenAI: The Reality of Extreme Work Culture" },
-    { "type": "image", "src": "https://media.datacenterdynamics.com/media/images/GQbpPFLWIAEBUxe.original.jpg", "caption": "xAI Colossus Supercomputer Data Center", "alt": "xAI Memphis Colossus data center - AI infrastructure burning $1 billion monthly" },
-    { "type": "text", "value": "The figure who most starkly revealed xAI's work environment is former CFO Mike Liberatore. He posted on LinkedIn: \"102 days—7 days per week in the office; 120+ hours per week.\" He left xAI after just three months to join competitor OpenAI.\n\nGeneral counsel Robert Keele also resigned after 16 months, citing that he didn't get to see his \"two toddlers enough.\" Reports indicate that xAI's offices are equipped with sleep pods and tents—testimony to a work intensity that doesn't even allow time to go home to sleep.\n\nIn Financial Times reporting, an anonymous Musk advisor said: \"The one constant in Elon's world is how quickly he burns through deputies. Even the board jokes, there's time and then there's 'Tesla time.' It's a 24/7 campaign-style work ethos.\" Extreme work intensity is Musk's trademark, but in the AI industry, it's producing the opposite effect—pushing talent away." },
-    { "type": "ad" },
-
-    { "type": "heading", "value": "3. From Podcast Leaks to 500 Layoffs" },
-    { "type": "text", "value": "xAI's personnel problems extend beyond voluntary departures. Sulaiman Ghori reportedly left or was fired after leaking xAI confidential information on a podcast—an incident suggesting problems with both internal security and corporate culture.\n\nIn September 2025, over 500 employees in the data annotation department were laid off en masse. The restructuring came as xAI pivoted Grok's training methodology toward a specialist tutor system. The layoffs were read as a signal that xAI was drastically changing course.\n\nThis instability affects remaining employees too. In an environment where colleagues keep leaving and entire departments vanish, it's difficult to plan a long-term career. The estimated 50%+ attrition rate is both a result and a cause of this anxiety." },
-
-    { "type": "heading", "value": "4. Research Direction Conflicts and Musk's Political Shadow" },
-    { "type": "text", "value": "Work intensity isn't the only reason people leave. Multiple former employees cite fundamental disagreements over research direction. Within xAI, tension reportedly existed between those who wanted to focus on commercial AI products (Grok) and those who prioritized fundamental research. Co-founder Szegedy launching his own research-focused startup can be seen as a direct result of this conflict.\n\nMusk's political activities also accelerate departures. His public support of far-right groups in the US and Europe causes deep discomfort among employees. One former Tesla employee told the Financial Times: \"Nobody that I know there isn't thinking about politics. If your moral compass is saying you need to leave, that isn't going to go away.\"\n\nTop AI talent considers not just compensation but corporate values and research freedom. In this regard, xAI sits at a disadvantage compared to competitors like OpenAI and Anthropic." },
-    { "type": "ad" },
-
-    { "type": "heading", "value": "5. Burning $1 Billion Monthly, Seeking Escape Through SpaceX Merger" },
-    { "type": "image", "src": "https://electrek.co/wp-content/uploads/sites/3/2026/02/Tesla-TSLA-SpaceX-xAI-Elon-Musk.jpg?quality=82&strip=all&w=1600", "caption": "SpaceX-xAI Merger Announcement (Electrek)", "alt": "SpaceX xAI merger - Musk's $1.25 trillion AI empire plan" },
-    { "type": "text", "value": "xAI's financial structure explains the backdrop to its talent exodus. According to Reuters, the company recorded $1.46 billion in losses in the September 2025 quarter alone. It burns approximately $1 billion monthly while revenue sits at roughly $100 million. Grok 4 is in service and Grok-5 is under development, but meaningful monetization remains distant.\n\nIn this context, Musk announced the SpaceX-xAI merger on February 2, 2026—a mega-merger creating a combined entity valued at approximately $1.25 trillion. For xAI, the logic is access to SpaceX's stable cash flow and infrastructure; for SpaceX, enhanced AI capabilities.\n\nBut whether the merger can solve the talent drain remains uncertain. No matter how large the valuation grows, people will keep leaving if workplace culture doesn't change. The $20 billion raised in Series E didn't translate into talent retention." },
-
-    { "type": "heading", "value": "6. xAI's Future in the AI Talent War" },
-    { "type": "image", "src": "https://www.nrdc.org/sites/default/files/styles/social_sharing_1200x630/public/2025-09/xai-colossus-data-center-memphis-16341426-2400.jpg?h=44b879e5&itok=PptJ_XSi", "caption": "xAI Memphis Data Center Aerial View (NRDC)", "alt": "xAI Colossus Memphis data center aerial view - AI talent war and infrastructure investment" },
-    { "type": "text", "value": "xAI's talent exodus is intertwined with the broader AI industry talent war. According to SignalFire's 2025 report, OpenAI employees are eight times more likely to leave for Anthropic than vice versa. The AI talent market is firmly a seller's market.\n\nMeta reportedly offered an OpenAI researcher a package exceeding $200 million over several years, illustrating how compensation for top-tier AI talent has reached astronomical levels. Talent leaving xAI is scattering to OpenAI, their own startups, and VC firms. CFO Liberatore's direct move to OpenAI is symbolic.\n\nMusk insists that \"very few regretted departures\" have occurred, but five co-founder departures can hardly be called 'very few.' If this trend continues, no amount of capital or computing infrastructure will help Grok catch up to ChatGPT or Claude." },
-
-    { "type": "heading", "value": "Conclusion: What Money Can't Buy" },
-    { "type": "text", "value": "xAI finds itself in a paradox: overflowing with capital but hemorrhaging people. Despite raising $20 billion and pursuing a SpaceX merger, the root causes driving co-founders away remain unaddressed.\n\nThe real weapon in AI competition isn't GPUs or data centers—it's people. Trapped in a triple bind of extreme work intensity, research direction conflicts, and political controversy, if xAI cannot break its vicious cycle of talent loss, Musk's AI ambitions may founder not on a lack of funding but on a lack of people." }
+    {
+      "type": "text",
+      "value": "Five of xAI's twelve co-founders have left the company. On February 10, 2026, co-founder Tony Wu's departure was confirmed, marking a new chapter in xAI's talent crisis. The CFO defected to competitor OpenAI after just three months, and the general counsel resigned after sixteen months.\n\nElon Musk envisions xAI as an AI empire to rival ChatGPT and Claude. The company raised $20 billion in Series E at a $230 billion valuation and is planning a merger with SpaceX to create a combined $1.25 trillion entity. But even the largest war chest is meaningless without the people to deploy it."
+    },
+    {
+      "type": "heading",
+      "value": "1. Five of Twelve Co-Founders Gone: The Core Is Shaking"
+    },
+    {
+      "type": "text",
+      "value": "The most alarming aspect of xAI's talent drain is the departure of co-founder-level key personnel. Five of twelve co-founders have already left.\n\nKyle Kosic was the first to depart in June 2024. In 2025, Christian Szegedy left in June to found his own AI startup Morph Labs, followed by Igor Babuschkin in August who departed to establish his own VC firm. In 2026, Greg Yang left in January due to health issues (Lyme disease), and Tony Wu became the most recent departure on February 10.\n\nMore than 40% of co-founders departing goes beyond simple attrition statistics. These are the people who co-designed xAI's technical direction and corporate culture. Their exodus signals that the organization's very identity is being shaken."
+    },
+    {
+      "type": "heading",
+      "value": "2. CFO Lasted 102 Days Before Joining OpenAI: The Reality of Extreme Work Culture"
+    },
+    {
+      "type": "image",
+      "src": "https://media.datacenterdynamics.com/media/images/GQbpPFLWIAEBUxe.original.jpg",
+      "caption": "xAI Colossus Supercomputer Data Center",
+      "alt": "xAI Memphis Colossus data center - AI infrastructure burning $1 billion monthly"
+    },
+    {
+      "type": "text",
+      "value": "The figure who most starkly revealed xAI's work environment is former CFO Mike Liberatore. He posted on LinkedIn: \"102 days—7 days per week in the office; 120+ hours per week.\" He left xAI after just three months to join competitor OpenAI.\n\nGeneral counsel Robert Keele also resigned after 16 months, citing that he didn't get to see his \"two toddlers enough.\" Reports indicate that xAI's offices are equipped with sleep pods and tents—testimony to a work intensity that doesn't even allow time to go home to sleep.\n\nIn Financial Times reporting, an anonymous Musk advisor said: \"The one constant in Elon's world is how quickly he burns through deputies. Even the board jokes, there's time and then there's 'Tesla time.' It's a 24/7 campaign-style work ethos.\" Extreme work intensity is Musk's trademark, but in the AI industry, it's producing the opposite effect—pushing talent away."
+    },
+    {
+      "type": "heading",
+      "value": "3. From Podcast Leaks to 500 Layoffs"
+    },
+    {
+      "type": "text",
+      "value": "xAI's personnel problems extend beyond voluntary departures. Sulaiman Ghori reportedly left or was fired after leaking xAI confidential information on a podcast—an incident suggesting problems with both internal security and corporate culture.\n\nIn September 2025, over 500 employees in the data annotation department were laid off en masse. The restructuring came as xAI pivoted Grok's training methodology toward a specialist tutor system. The layoffs were read as a signal that xAI was drastically changing course.\n\nThis instability affects remaining employees too. In an environment where colleagues keep leaving and entire departments vanish, it's difficult to plan a long-term career. The estimated 50%+ attrition rate is both a result and a cause of this anxiety."
+    },
+    {
+      "type": "heading",
+      "value": "4. Research Direction Conflicts and Musk's Political Shadow"
+    },
+    {
+      "type": "text",
+      "value": "Work intensity isn't the only reason people leave. Multiple former employees cite fundamental disagreements over research direction. Within xAI, tension reportedly existed between those who wanted to focus on commercial AI products (Grok) and those who prioritized fundamental research. Co-founder Szegedy launching his own research-focused startup can be seen as a direct result of this conflict.\n\nMusk's political activities also accelerate departures. His public support of far-right groups in the US and Europe causes deep discomfort among employees. One former Tesla employee told the Financial Times: \"Nobody that I know there isn't thinking about politics. If your moral compass is saying you need to leave, that isn't going to go away.\"\n\nTop AI talent considers not just compensation but corporate values and research freedom. In this regard, xAI sits at a disadvantage compared to competitors like OpenAI and Anthropic."
+    },
+    {
+      "type": "heading",
+      "value": "5. Burning $1 Billion Monthly, Seeking Escape Through SpaceX Merger"
+    },
+    {
+      "type": "image",
+      "src": "https://electrek.co/wp-content/uploads/sites/3/2026/02/Tesla-TSLA-SpaceX-xAI-Elon-Musk.jpg?quality=82&strip=all&w=1600",
+      "caption": "SpaceX-xAI Merger Announcement (Electrek)",
+      "alt": "SpaceX xAI merger - Musk's $1.25 trillion AI empire plan"
+    },
+    {
+      "type": "text",
+      "value": "xAI's financial structure explains the backdrop to its talent exodus. According to Reuters, the company recorded $1.46 billion in losses in the September 2025 quarter alone. It burns approximately $1 billion monthly while revenue sits at roughly $100 million. Grok 4 is in service and Grok-5 is under development, but meaningful monetization remains distant.\n\nIn this context, Musk announced the SpaceX-xAI merger on February 2, 2026—a mega-merger creating a combined entity valued at approximately $1.25 trillion. For xAI, the logic is access to SpaceX's stable cash flow and infrastructure; for SpaceX, enhanced AI capabilities.\n\nBut whether the merger can solve the talent drain remains uncertain. No matter how large the valuation grows, people will keep leaving if workplace culture doesn't change. The $20 billion raised in Series E didn't translate into talent retention."
+    },
+    {
+      "type": "heading",
+      "value": "6. xAI's Future in the AI Talent War"
+    },
+    {
+      "type": "image",
+      "src": "https://www.nrdc.org/sites/default/files/styles/social_sharing_1200x630/public/2025-09/xai-colossus-data-center-memphis-16341426-2400.jpg?h=44b879e5&itok=PptJ_XSi",
+      "caption": "xAI Memphis Data Center Aerial View (NRDC)",
+      "alt": "xAI Colossus Memphis data center aerial view - AI talent war and infrastructure investment"
+    },
+    {
+      "type": "text",
+      "value": "xAI's talent exodus is intertwined with the broader AI industry talent war. According to SignalFire's 2025 report, OpenAI employees are eight times more likely to leave for Anthropic than vice versa. The AI talent market is firmly a seller's market.\n\nMeta reportedly offered an OpenAI researcher a package exceeding $200 million over several years, illustrating how compensation for top-tier AI talent has reached astronomical levels. Talent leaving xAI is scattering to OpenAI, their own startups, and VC firms. CFO Liberatore's direct move to OpenAI is symbolic.\n\nMusk insists that \"very few regretted departures\" have occurred, but five co-founder departures can hardly be called 'very few.' If this trend continues, no amount of capital or computing infrastructure will help Grok catch up to ChatGPT or Claude."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: What Money Can't Buy"
+    },
+    {
+      "type": "text",
+      "value": "xAI finds itself in a paradox: overflowing with capital but hemorrhaging people. Despite raising $20 billion and pursuing a SpaceX merger, the root causes driving co-founders away remain unaddressed.\n\nThe real weapon in AI competition isn't GPUs or data centers—it's people. Trapped in a triple bind of extreme work intensity, research direction conflicts, and political controversy, if xAI cannot break its vicious cycle of talent loss, Musk's AI ambitions may founder not on a lack of funding but on a lack of people."
+    }
   ]
 }

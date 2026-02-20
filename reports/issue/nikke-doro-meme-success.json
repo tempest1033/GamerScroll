@@ -6,14 +6,37 @@
   "thumbnail": "https://pics2.gundamboom.kr/web/upload/2025/0716/YasrXEgPW8Lp2ZsXsxocYbUR2kTIDf3FVwiO72k4fnElAhDxO13390200_1752635575.jpg",
   "keywords": "도로롱, 니케, 승리의 여신 니케, 시프트업, 도로시, 2차 창작, 밈 캐릭터, 서브컬쳐, IP 확장, 스텔라 블레이드, 카카오톡 이모티콘",
   "summary": "팬이 만든 밈 캐릭터가 어떻게 카카오톡 이모티콘 전 연령층 1위까지 올라갔을까? 시프트업이 2차 창작 밈의 원본 IP를 사들이고, AAA 콘솔 게임 콜라보에까지 활용한 전략을 분석한다. '도로롱 현상'이 서브컬쳐 IP 확장에 던지는 시사점.",
-  "relatedIssues": ["2026-subculture-openworld-games"],
-  "relatedArticles": ["business/game-ip-licensing", "history/type-moon-fate-origin"],
-  "relatedGames": ["승리의-여신-니케"],
+  "relatedIssues": [
+    "2026-subculture-openworld-games"
+  ],
+  "relatedArticles": [
+    "business/game-ip-licensing",
+    "history/type-moon-fate-origin"
+  ],
+  "relatedGames": [
+    "승리의-여신-니케"
+  ],
   "sources": [
-    { "name": "인벤", "title": "온 세상이 도로롱이다, 시프트업 도로롱 카톡 이모티콘 전 연령층 1위 달성", "url": "https://www.inven.co.kr/webzine/news/?news=312225" },
-    { "name": "플레이포럼", "title": "2차 창작에서 공식 IP까지...25년 최고의 캐릭터 '도로롱'", "url": "https://www.playforum.net/news/articleView.html?idxno=633562" },
-    { "name": "루리웹", "title": "니케, 도로롱 카카오톡 이모티콘 전 연령층 인기 1위 기록", "url": "https://m.ruliweb.com/news/read/219405" },
-    { "name": "시프트업", "title": "보도자료", "url": "https://shiftup.co.kr/news/news.php" }
+    {
+      "name": "인벤",
+      "title": "온 세상이 도로롱이다, 시프트업 도로롱 카톡 이모티콘 전 연령층 1위 달성",
+      "url": "https://www.inven.co.kr/webzine/news/?news=312225"
+    },
+    {
+      "name": "플레이포럼",
+      "title": "2차 창작에서 공식 IP까지...25년 최고의 캐릭터 '도로롱'",
+      "url": "https://www.playforum.net/news/articleView.html?idxno=633562"
+    },
+    {
+      "name": "루리웹",
+      "title": "니케, 도로롱 카카오톡 이모티콘 전 연령층 인기 1위 기록",
+      "url": "https://m.ruliweb.com/news/read/219405"
+    },
+    {
+      "name": "시프트업",
+      "title": "보도자료",
+      "url": "https://shiftup.co.kr/news/news.php"
+    }
   ],
   "content": [
     {
@@ -55,9 +78,6 @@
       "value": "요즘 게임사들은 2차 창작을 막기보다 적극적으로 활용하는 추세다. 팬덤의 창작 에너지가 곧 IP의 생명력이라는 걸 알기 때문이다. 시프트업도 이 흐름에 올라탔는데, 한 발 더 나아갔다.\n\n도로롱의 몸통인 '댕댕라'는 원래 소울워커 팬덤에서 만들어진 밈이었다. 시프트업은 이 원본 디자인의 권리를 사들여 도로롱을 완전한 공식 IP로 만들었다. 단순히 팬 창작을 허용하는 수준이 아니라, 돈을 들여 IP 자체를 확보한 것이다.\n\n이후 만우절 이벤트, 2.5주년 기념 영상, 각종 일러스트에 도로롱이 등장했고, 2025년 8월 29일에는 상표등록까지 출원했다. 밈 캐릭터에 이 정도 투자를 하는 건 흔치 않은 일이다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. 스텔라 블레이드 콜라보: IP 확장의 정점"
     },
@@ -84,9 +104,6 @@
     {
       "type": "text",
       "value": "2025년 12월 16일 출시된 '도로롱의 메리크리스마스' 이모티콘은 12월 17일 집계에서 10대, 20대, 30대, 40대 모든 연령대 인기 1위를 달성했다. 50대 이상에서도 3위를 기록했다. 기존에 출시됐던 '승리의 여신: 니케 도로롱' 이모티콘도 5위로 역주행했다.\n\n같은 날 출시된 도로롱 크리스마스 한정 굿즈는 당일 전량 품절됐다. 서브컬쳐 게임 IP가 대중 영역까지 확장된 대표 사례로 평가받는 이유다.\n\n니케는 출시 이후 GS25(350만 개 판매), 맘스터치, MLB 샌디에이고, 신세계백화점 등 다양한 브랜드와 협업해왔다. 도로롱은 이런 IP 확장 전략의 핵심 자산이 됐다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

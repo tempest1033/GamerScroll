@@ -9,19 +9,67 @@
   "summary": "앤트로픽이 역대 최고 성능의 클로드 오푸스 4.6을 공개했지만, 최고가 구독자조차 사용량 제한에 시달리고, API 사용자와의 기능 격차가 벌어지면서 '돈 내고도 차별받는다'는 불만이 폭발하고 있다. 같은 $200인데 'Unlimited'를 내세우는 OpenAI ChatGPT Pro와의 대비는 더욱 선명하다.",
   "thumbnail": "https://claude.ai/images/claude_ogimage.png",
   "sources": [
-    { "name": "Anthropic", "title": "Introducing Claude Opus 4.6", "url": "https://www.anthropic.com/news/claude-opus-4-6" },
-    { "name": "Anthropic", "title": "Claude Pricing", "url": "https://claude.com/pricing" },
-    { "name": "Anthropic", "title": "API Pricing Documentation", "url": "https://platform.claude.com/docs/en/about-claude/pricing" },
-    { "name": "OpenAI", "title": "ChatGPT Pricing", "url": "https://openai.com/chatgpt/pricing/" },
-    { "name": "OpenAI", "title": "Codex Pricing", "url": "https://developers.openai.com/codex/pricing/" },
-    { "name": "VentureBeat", "title": "Anthropic cracks down on unauthorized Claude usage by third-party harnesses", "url": "https://venturebeat.com/technology/anthropic-cracks-down-on-unauthorized-claude-usage-by-third-party-harnesses" },
-    { "name": "The Register", "title": "Claude devs hit usage limits after holiday bonus ends", "url": "https://www.theregister.com/2026/01/05/claude_devs_usage_limits/" },
-    { "name": "ByteIota", "title": "Anthropic Blocks Claude Max in OpenCode, Devs Cancel $200/Month Plans", "url": "https://byteiota.com/anthropic-blocks-claude-max-in-opencode-devs-cancel-200-month-plans/" },
-    { "name": "TechCrunch", "title": "Anthropic tightens usage limits for Claude Code without telling users", "url": "https://techcrunch.com/2025/07/17/anthropic-tightens-usage-limits-for-claude-code-without-telling-users/" },
-    { "name": "GitHub", "title": "Instantly hitting usage limits with Max subscription (#16157)", "url": "https://github.com/anthropics/claude-code/issues/16157" },
-    { "name": "GitHub", "title": "Non-deterministic quota consumption analysis (#22435)", "url": "https://github.com/anthropics/claude-code/issues/22435" }
+    {
+      "name": "Anthropic",
+      "title": "Introducing Claude Opus 4.6",
+      "url": "https://www.anthropic.com/news/claude-opus-4-6"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Pricing",
+      "url": "https://claude.com/pricing"
+    },
+    {
+      "name": "Anthropic",
+      "title": "API Pricing Documentation",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "name": "OpenAI",
+      "title": "ChatGPT Pricing",
+      "url": "https://openai.com/chatgpt/pricing/"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Codex Pricing",
+      "url": "https://developers.openai.com/codex/pricing/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Anthropic cracks down on unauthorized Claude usage by third-party harnesses",
+      "url": "https://venturebeat.com/technology/anthropic-cracks-down-on-unauthorized-claude-usage-by-third-party-harnesses"
+    },
+    {
+      "name": "The Register",
+      "title": "Claude devs hit usage limits after holiday bonus ends",
+      "url": "https://www.theregister.com/2026/01/05/claude_devs_usage_limits/"
+    },
+    {
+      "name": "ByteIota",
+      "title": "Anthropic Blocks Claude Max in OpenCode, Devs Cancel $200/Month Plans",
+      "url": "https://byteiota.com/anthropic-blocks-claude-max-in-opencode-devs-cancel-200-month-plans/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic tightens usage limits for Claude Code without telling users",
+      "url": "https://techcrunch.com/2025/07/17/anthropic-tightens-usage-limits-for-claude-code-without-telling-users/"
+    },
+    {
+      "name": "GitHub",
+      "title": "Instantly hitting usage limits with Max subscription (#16157)",
+      "url": "https://github.com/anthropics/claude-code/issues/16157"
+    },
+    {
+      "name": "GitHub",
+      "title": "Non-deterministic quota consumption analysis (#22435)",
+      "url": "https://github.com/anthropics/claude-code/issues/22435"
+    }
   ],
-  "relatedDocs": ["tech:ai/anthropic-b2b-strategy-success", "tech:ai/claude-code-vs-codex-coding-agent", "tech:ai/claude-cowork-saaspocalypse"],
+  "relatedDocs": [
+    "tech:ai/anthropic-b2b-strategy-success",
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/claude-cowork-saaspocalypse"
+  ],
   "needTranslate": false,
   "titleEn": "\"$200 and Still Discriminated\": Claude's Never-Ending Pricing Controversy",
   "summaryEn": "Anthropic unveiled its most powerful model, Claude Opus 4.6, but even top-tier $200 subscribers face usage limits while API users enjoy wider access. The contrast with OpenAI's 'Unlimited' ChatGPT Pro is stark.",
@@ -40,21 +88,48 @@
     },
     {
       "type": "table",
-      "headers": ["Model/Mode", "Input (Mtok)", "Output (Mtok)", "Note"],
+      "headers": [
+        "Model/Mode",
+        "Input (Mtok)",
+        "Output (Mtok)",
+        "Note"
+      ],
       "rows": [
-        ["Opus 4/4.1", "$15", "$75", "Previous gen (highest)"],
-        ["Opus 4.5", "$5", "$25", "67% reduction"],
-        ["Opus 4.6 Standard", "$5", "$25", "Price maintained"],
-        ["Opus 4.6 Fast (current)", "$15", "$75", "50% promo (~02.16)"],
-        ["Opus 4.6 Fast (full)", "$30", "$150", "After promo ends"]
+        [
+          "Opus 4/4.1",
+          "$15",
+          "$75",
+          "Previous gen (highest)"
+        ],
+        [
+          "Opus 4.5",
+          "$5",
+          "$25",
+          "67% reduction"
+        ],
+        [
+          "Opus 4.6 Standard",
+          "$5",
+          "$25",
+          "Price maintained"
+        ],
+        [
+          "Opus 4.6 Fast (current)",
+          "$15",
+          "$75",
+          "50% promo (~02.16)"
+        ],
+        [
+          "Opus 4.6 Fast (full)",
+          "$30",
+          "$150",
+          "After promo ends"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "The pricing goodwill built by Opus 4.5's 67% reduction has vanished behind a 'speed' premium. Critics compare it to mobile game monetization—free taste, paid meal."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -66,13 +141,37 @@
     },
     {
       "type": "table",
-      "headers": ["Access Method", "Context Window", "Cost"],
+      "headers": [
+        "Access Method",
+        "Context Window",
+        "Cost"
+      ],
       "rows": [
-        ["API (Tier 4+ org)", "1M tokens (beta)", "Pay-per-use"],
-        ["Claude Code pay-per-use", "1M tokens (beta)", "Pay-per-use"],
-        ["Max 20x subscription", "200K tokens", "$200/mo"],
-        ["Max 5x subscription", "200K tokens", "$100/mo"],
-        ["Pro subscription", "200K tokens", "$20/mo ($17 annual)"]
+        [
+          "API (Tier 4+ org)",
+          "1M tokens (beta)",
+          "Pay-per-use"
+        ],
+        [
+          "Claude Code pay-per-use",
+          "1M tokens (beta)",
+          "Pay-per-use"
+        ],
+        [
+          "Max 20x subscription",
+          "200K tokens",
+          "$200/mo"
+        ],
+        [
+          "Max 5x subscription",
+          "200K tokens",
+          "$100/mo"
+        ],
+        [
+          "Pro subscription",
+          "200K tokens",
+          "$20/mo ($17 annual)"
+        ]
       ]
     },
     {
@@ -108,9 +207,6 @@
       "value": "\"33% of my Max 5-hour usage was consumed in 27 minutes. I was running a single session. This is insane.\" — GitHub Issue #22435 (with mitmproxy data)"
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. Third-Party Blocking and Developer Exodus"
     },
@@ -133,9 +229,6 @@
       "alt": "Super Bowl LX stadium"
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "5. Same $200, Different Worlds: OpenAI Comparison"
     },
@@ -145,15 +238,47 @@
     },
     {
       "type": "table",
-      "headers": ["Comparison", "Claude Max 20x ($200)", "ChatGPT Pro ($200)"],
+      "headers": [
+        "Comparison",
+        "Claude Max 20x ($200)",
+        "ChatGPT Pro ($200)"
+      ],
       "rows": [
-        ["Chat usage", "Unified with Claude Code", "Unlimited* (separate from coding)"],
-        ["Coding tool usage", "Unified with chat", "Codex separate limit (6x + priority)"],
-        ["Top model", "Opus 4.6", "GPT-5.2 Pro (exclusive)"],
-        ["Context window", "200K tokens (1M is API Tier 4 only)", "400K tokens"],
-        ["Third-party tools", "Claude Code only", "GitHub/Slack/Linear integration"],
-        ["Over limit", "Slowdown or buy credits", "Buy additional credits"],
-        ["Mid-tier option", "Max 5x ($100)", "None (Plus $20 → Pro $200)"]
+        [
+          "Chat usage",
+          "Unified with Claude Code",
+          "Unlimited* (separate from coding)"
+        ],
+        [
+          "Coding tool usage",
+          "Unified with chat",
+          "Codex separate limit (6x + priority)"
+        ],
+        [
+          "Top model",
+          "Opus 4.6",
+          "GPT-5.2 Pro (exclusive)"
+        ],
+        [
+          "Context window",
+          "200K tokens (1M is API Tier 4 only)",
+          "400K tokens"
+        ],
+        [
+          "Third-party tools",
+          "Claude Code only",
+          "GitHub/Slack/Linear integration"
+        ],
+        [
+          "Over limit",
+          "Slowdown or buy credits",
+          "Buy additional credits"
+        ],
+        [
+          "Mid-tier option",
+          "Max 5x ($100)",
+          "None (Plus $20 → Pro $200)"
+        ]
       ]
     },
     {
@@ -162,11 +287,31 @@
     },
     {
       "type": "table",
-      "headers": ["Codex Usage (per 5hr)", "Plus ($20/mo)", "Pro ($200/mo)", "Ratio"],
+      "headers": [
+        "Codex Usage (per 5hr)",
+        "Plus ($20/mo)",
+        "Pro ($200/mo)",
+        "Ratio"
+      ],
       "rows": [
-        ["Local tasks", "45-225", "300-1,500", "~6x"],
-        ["Cloud tasks", "10-60", "50-400", "~6x"],
-        ["Code reviews (weekly)", "10-25", "100-250", "~10x"]
+        [
+          "Local tasks",
+          "45-225",
+          "300-1,500",
+          "~6x"
+        ],
+        [
+          "Cloud tasks",
+          "10-60",
+          "50-400",
+          "~6x"
+        ],
+        [
+          "Code reviews (weekly)",
+          "10-25",
+          "100-250",
+          "~10x"
+        ]
       ]
     },
     {
@@ -197,21 +342,48 @@
     },
     {
       "type": "table",
-      "headers": ["모델/모드", "입력 (Mtok)", "출력 (Mtok)", "비고"],
+      "headers": [
+        "모델/모드",
+        "입력 (Mtok)",
+        "출력 (Mtok)",
+        "비고"
+      ],
       "rows": [
-        ["Opus 4/4.1", "$15", "$75", "이전 세대 (최고가)"],
-        ["Opus 4.5", "$5", "$25", "67% 인하"],
-        ["Opus 4.6 표준", "$5", "$25", "가격 동결"],
-        ["Opus 4.6 Fast (현재)", "$15", "$75", "50% 프로모션 (~02.16)"],
-        ["Opus 4.6 Fast (정가)", "$30", "$150", "프로모션 종료 후"]
+        [
+          "Opus 4/4.1",
+          "$15",
+          "$75",
+          "이전 세대 (최고가)"
+        ],
+        [
+          "Opus 4.5",
+          "$5",
+          "$25",
+          "67% 인하"
+        ],
+        [
+          "Opus 4.6 표준",
+          "$5",
+          "$25",
+          "가격 동결"
+        ],
+        [
+          "Opus 4.6 Fast (현재)",
+          "$15",
+          "$75",
+          "50% 프로모션 (~02.16)"
+        ],
+        [
+          "Opus 4.6 Fast (정가)",
+          "$30",
+          "$150",
+          "프로모션 종료 후"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "오푸스 4.5에서 67% 인하하며 쌓은 가격 경쟁력이, '속도' 프리미엄 뒤에 다시 사라졌다. 모바일 게임의 '맛보기 무료, 본편 유료' 과금 전략이 연상된다는 지적도 나온다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -223,13 +395,37 @@
     },
     {
       "type": "table",
-      "headers": ["접근 방식", "컨텍스트 윈도우", "비용"],
+      "headers": [
+        "접근 방식",
+        "컨텍스트 윈도우",
+        "비용"
+      ],
       "rows": [
-        ["API (Tier 4+ 조직)", "100만 토큰 (베타)", "종량제"],
-        ["Claude Code 종량제", "100만 토큰 (베타)", "종량제"],
-        ["Max 20x 구독", "20만 토큰", "$200/월"],
-        ["Max 5x 구독", "20만 토큰", "$100/월"],
-        ["Pro 구독", "20만 토큰", "$20/월 ($17 연간)"]
+        [
+          "API (Tier 4+ 조직)",
+          "100만 토큰 (베타)",
+          "종량제"
+        ],
+        [
+          "Claude Code 종량제",
+          "100만 토큰 (베타)",
+          "종량제"
+        ],
+        [
+          "Max 20x 구독",
+          "20만 토큰",
+          "$200/월"
+        ],
+        [
+          "Max 5x 구독",
+          "20만 토큰",
+          "$100/월"
+        ],
+        [
+          "Pro 구독",
+          "20만 토큰",
+          "$20/월 ($17 연간)"
+        ]
       ]
     },
     {
@@ -265,9 +461,6 @@
       "value": "\"27분 만에 Max 구독 5시간 사용량의 33%가 소진됐다. 세션 하나만 돌리고 있었는데, 이건 말도 안 된다.\" — GitHub Issue #22435 (mitmproxy 데이터 첨부)"
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. 서드파티 차단과 개발자 이탈"
     },
@@ -290,9 +483,6 @@
       "alt": "Super Bowl LX 경기장"
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "5. 같은 $200, 다른 세계: OpenAI와의 대비"
     },
@@ -302,15 +492,47 @@
     },
     {
       "type": "table",
-      "headers": ["비교 항목", "Claude Max 20x ($200)", "ChatGPT Pro ($200)"],
+      "headers": [
+        "비교 항목",
+        "Claude Max 20x ($200)",
+        "ChatGPT Pro ($200)"
+      ],
       "rows": [
-        ["일반 대화 사용량", "Claude Code와 통합 한도", "Unlimited* (코딩과 별도 한도)"],
-        ["코딩 도구 사용량", "일반 대화와 통합 소진", "Codex 별도 한도 (6배 + 우선 처리)"],
-        ["최상위 모델", "Opus 4.6", "GPT-5.2 Pro (독점)"],
-        ["컨텍스트 윈도우", "20만 토큰 (100만은 API Tier 4 전용)", "40만 토큰"],
-        ["서드파티 도구", "자사 Claude Code만 허용", "GitHub·Slack·Linear 공식 통합"],
-        ["한도 초과 시", "속도 저하 또는 크레딧 추가 구매", "크레딧 추가 구매 가능"],
-        ["중간 가격 옵션", "Max 5x ($100)", "없음 (Plus $20 → Pro $200)"]
+        [
+          "일반 대화 사용량",
+          "Claude Code와 통합 한도",
+          "Unlimited* (코딩과 별도 한도)"
+        ],
+        [
+          "코딩 도구 사용량",
+          "일반 대화와 통합 소진",
+          "Codex 별도 한도 (6배 + 우선 처리)"
+        ],
+        [
+          "최상위 모델",
+          "Opus 4.6",
+          "GPT-5.2 Pro (독점)"
+        ],
+        [
+          "컨텍스트 윈도우",
+          "20만 토큰 (100만은 API Tier 4 전용)",
+          "40만 토큰"
+        ],
+        [
+          "서드파티 도구",
+          "자사 Claude Code만 허용",
+          "GitHub·Slack·Linear 공식 통합"
+        ],
+        [
+          "한도 초과 시",
+          "속도 저하 또는 크레딧 추가 구매",
+          "크레딧 추가 구매 가능"
+        ],
+        [
+          "중간 가격 옵션",
+          "Max 5x ($100)",
+          "없음 (Plus $20 → Pro $200)"
+        ]
       ]
     },
     {
@@ -319,11 +541,31 @@
     },
     {
       "type": "table",
-      "headers": ["Codex 사용량 (5시간 기준)", "Plus ($20/월)", "Pro ($200/월)", "배율"],
+      "headers": [
+        "Codex 사용량 (5시간 기준)",
+        "Plus ($20/월)",
+        "Pro ($200/월)",
+        "배율"
+      ],
       "rows": [
-        ["로컬 태스크", "45~225회", "300~1,500회", "약 6배"],
-        ["클라우드 태스크", "10~60회", "50~400회", "약 6배"],
-        ["코드 리뷰 (주간)", "10~25회", "100~250회", "약 10배"]
+        [
+          "로컬 태스크",
+          "45~225회",
+          "300~1,500회",
+          "약 6배"
+        ],
+        [
+          "클라우드 태스크",
+          "10~60회",
+          "50~400회",
+          "약 6배"
+        ],
+        [
+          "코드 리뷰 (주간)",
+          "10~25회",
+          "100~250회",
+          "약 10배"
+        ]
       ]
     },
     {

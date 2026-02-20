@@ -77,9 +77,6 @@
       "value": "시장조사기관 퓨처럼은 \"세라브라스는 엔비디아에 대한 가장 큰 단일 위협\"이라고 평가했다. OpenAI 입장에서 세라브라스 카드는 특정 칩 공급처에 대한 의존도를 낮추고, 추론 비용 절감이라는 실질적 이점을 확보하기 위한 전략적 선택이다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. OpenAI의 칩 다변화 전략, 엔비디아 없이도 가능할까"
     },
@@ -106,9 +103,6 @@
       "value": "구글도 가만히 있지 않다. 최신 TPU v7 '아이언우드'는 구글이 처음으로 '추론 특화'를 전면에 내세운 칩이다. 칩 하나의 FP8 성능이 4,614 TFLOPS에 달하며, 192GB HBM을 탑재했다. 9,216개 칩을 연결한 슈퍼팟은 42.5 엑사플롭스(ExaFLOPS)라는 경이적인 추론 성능을 제공한다.\n\n구글은 AI 인프라에 총 1,850억 달러를 투자하겠다고 선언했다. 자체 TPU로 제미나이를 포함한 모든 AI 서비스를 구동하면서, 엔비디아 의존도를 체계적으로 줄이고 있다. Anthropic도 구글 클라우드의 TPU 100만 개에 대한 접근 계획을 발표해, TPU 생태계가 구글 내부를 넘어 확장되고 있다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. 마이크로소프트 마이아 200과 AWS 트레이니엄3, 빅테크의 자체 칩 경쟁"
     },
@@ -131,9 +125,6 @@
     {
       "type": "text",
       "value": "빅테크 전체가 커스텀 칩으로 이동하려는 움직임은 확실히 감지되고 있다. 하지만 자체 칩 개발은 수년이 걸리는 프로젝트이고, CUDA 생태계를 대체할 소프트웨어 스택을 구축하는 건 칩을 만드는 것 이상으로 어렵다. 단일 고객의 이탈과 업계 전체의 구조적 전환 사이에는 아직 큰 간극이 있다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -174,9 +165,6 @@
       "value": "Market research firm Futurum called Cerebras \"the single biggest threat to NVIDIA.\" For OpenAI, the Cerebras card is a strategic move to reduce dependency on any single chip supplier while securing tangible cost advantages in inference workloads."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. OpenAI's Chip Diversification: Can It Really Work Without NVIDIA?"
     },
@@ -203,9 +191,6 @@
       "value": "Google isn't sitting idle either. Its latest TPU v7, 'Ironwood,' is the first Google chip built specifically for inference. Each chip delivers 4,614 TFLOPS at FP8 and carries 192GB of HBM. A SuperPod linking 9,216 chips produces a staggering 42.5 ExaFLOPS of inference performance.\n\nGoogle has pledged $185 billion in AI infrastructure investment. By powering all its AI services -- including Gemini -- on its own TPUs, Google is systematically reducing its NVIDIA dependency. Anthropic has also announced plans to access one million Google Cloud TPUs, signaling that the TPU ecosystem is expanding well beyond Google's internal use."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. Microsoft's Maia 200 and AWS Trainium3: Big Tech's Custom Chip Arms Race"
     },
@@ -228,9 +213,6 @@
     {
       "type": "text",
       "value": "The momentum across Big Tech toward custom silicon is increasingly hard to ignore. But developing custom chips takes years, and building a software stack to replace CUDA is arguably harder than designing the hardware itself. Between a single customer's defection and an industry-wide structural shift, there remains a significant gap."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

@@ -6,54 +6,156 @@
   "thumbnail": "https://royalezone.com/assets/img/clash-royale-10th-anniversary.webp",
   "keywords": "클래시로얄, Clash Royale, 10주년, 슈퍼셀, Supercell, 모바일 e스포츠, 모바일 게임, 클래시로얄 리그, CRL, 명작, 카드 게임, 타워 디펜스, 클래시로얄 매출, 클래시로얄 유저수",
   "summary": "2016년 1월 출시된 클래시로얄이 10주년을 맞았습니다. 누적 매출 4조원, 6억 6천만 다운로드를 기록한 이 게임이 어떻게 10년간 정상을 유지했는지, 그리고 2025년 보여준 놀라운 부활의 비결을 분석합니다.",
-  "relatedGames": ["클래시-로얄"],
-  "relatedIssues": ["idle-game-era-maple-grow", "roguelike-casual-korea-trend", "heartopia-mobile-animal-crossing-success"],
-  "relatedArticles": ["business/game-business-metrics", "business/app-revenue-ranking-algorithm"],
+  "relatedGames": [
+    "클래시-로얄"
+  ],
+  "relatedIssues": [
+    "idle-game-era-maple-grow",
+    "roguelike-casual-korea-trend",
+    "heartopia-mobile-animal-crossing-success"
+  ],
+  "relatedArticles": [
+    "business/game-business-metrics",
+    "business/app-revenue-ranking-algorithm"
+  ],
   "sources": [
-    { "name": "Udonis Blog", "title": "Clash Royale Player Count, Revenue & Stats [2026]", "url": "https://www.blog.udonis.co/mobile-marketing/mobile-games/clash-royale-player-count" },
-    { "name": "Supercell", "title": "Clash Royale Official Blog", "url": "https://supercell.com/en/games/clashroyale/" },
-    { "name": "Esports Insider", "title": "CRL World Finals 2025 Viewership Record", "url": "https://esportsinsider.com/2025/11/clash-royale-league-crl-world-finals-2025-viewership" },
-    { "name": "FoxData", "title": "클래시로얄의 부활이 알려주는 장기 흥행 게임의 비밀", "url": "https://foxdata.com/kr/blogs/supercells-strategic-rebound-what-clash-royales-revival-reveals-about-building-evergreen-games/" }
+    {
+      "name": "Udonis Blog",
+      "title": "Clash Royale Player Count, Revenue & Stats [2026]",
+      "url": "https://www.blog.udonis.co/mobile-marketing/mobile-games/clash-royale-player-count"
+    },
+    {
+      "name": "Supercell",
+      "title": "Clash Royale Official Blog",
+      "url": "https://supercell.com/en/games/clashroyale/"
+    },
+    {
+      "name": "Esports Insider",
+      "title": "CRL World Finals 2025 Viewership Record",
+      "url": "https://esportsinsider.com/2025/11/clash-royale-league-crl-world-finals-2025-viewership"
+    },
+    {
+      "name": "FoxData",
+      "title": "클래시로얄의 부활이 알려주는 장기 흥행 게임의 비밀",
+      "url": "https://foxdata.com/kr/blogs/supercells-strategic-rebound-what-clash-royales-revival-reveals-about-building-evergreen-games/"
+    }
   ],
   "content": [
-    { "type": "text", "value": "2016년 1월 3일, 슈퍼셀은 캐나다 등 일부 국가에서 클래시로얄을 iOS로 먼저 선보였습니다. 이후 2월 안드로이드, 3월 2일 글로벌 정식 출시를 거쳐 전 세계를 휩쓸었어요. 타워 디펜스와 카드 게임을 결합한 이 독특한 게임은 출시 직후 폭발적인 인기를 끌며 모바일 게임 시장에 새로운 장르를 개척했습니다.\n\n2026년 1월, 클래시로얄은 iOS 기준 10주년을 넘기며 여전히 전 세계 수백만 플레이어의 사랑을 받고 있어요. 누적 매출 33억 달러(약 4조 3천억원), 6억 6천만 다운로드라는 기록은 이 게임이 단순한 유행을 넘어 '명작'의 반열에 올랐음을 증명합니다." },
-    { "type": "link", "url": "/games/클래시-로얄/", "text": "클래시 로얄", "subtext": "실시간 순위 확인하기" },
-
-    { "type": "heading", "value": "1. 클래시로얄의 탄생, 새로운 장르의 개척" },
-    { "type": "image", "src": "https://www.datocms-assets.com/84325/1684403325-web_key-art-boot-camp-featuring-archer-key-art-illustration.jpg?auto=format&fit=crop&fm=jpg&h=1080&q=80&w=1920", "caption": "클래시로얄 공식 키 아트", "alt": "클래시로얄 아처 공식 일러스트 슈퍼셀" },
-    { "type": "text", "value": "클래시로얄은 기존 모바일 게임의 공식을 완전히 뒤집었습니다. 클래시 오브 클랜의 친숙한 캐릭터들을 카드 형태로 재해석하고, 3분이라는 짧은 매치 시간에 실시간 대전을 구현했어요. 타워 디펜스, 카드 수집, PvP가 결합된 이 독특한 게임플레이는 출시 첫 달만에 전 세계 매출 1위를 기록했습니다.\n\n슈퍼셀의 '킬 더 러닝 게임' 철학도 성공에 한몫했어요. 개발 중 수익성이 보장되지 않으면 프로젝트를 과감히 폐기하는 이 문화 덕분에, 클래시로얄은 극도로 정제된 게임으로 탄생할 수 있었습니다. 간결한 UI, 직관적인 조작, 중독성 있는 매치 시스템은 모두 이러한 철학의 결과물이에요." },
-
-    { "type": "heading", "value": "2. 10년간의 여정, 숫자로 보는 클래시로얄" },
-    { "type": "image", "src": "https://cms.udonis.co/wp-content/uploads/2025/03/clash-royale-revenue-1024x248.png", "caption": "클래시로얄 월별 매출 추이", "alt": "클래시로얄 매출 통계 그래프 2024 2025" },
-    { "type": "text", "value": "클래시로얄의 10년 성적표는 인상적입니다. 누적 매출 33억 달러(약 4.3조원), 누적 다운로드 6억 6천만 회를 기록했어요. 2025년 6월 기준 월간 활성 유저는 830만 명, 일간 활성 유저는 320만 명에 달합니다. 평균 세션 시간 14분, D1 리텐션 44%라는 수치도 모바일 게임 중 상위권이에요.\n\n물론 2017년 1억 명 이상의 월간 유저를 기록하던 전성기에 비하면 규모가 줄었습니다. 하지만 출시 10년차 게임이 여전히 800만 명 이상의 월간 유저를 유지하고, 월 3,600만 달러의 매출을 올린다는 것은 놀라운 성과예요. 대부분의 모바일 게임이 2-3년 내에 수명을 다하는 것을 고려하면요." },
-
-    { "type": "ad" },
-
-    { "type": "heading", "value": "3. 2025년의 놀라운 부활" },
-    { "type": "image", "src": "https://cdns3.royaleapi.com/cdn-cgi/image/w=1920,h=1080/static/img/blog/crl-2025/preview/v1-18c0f4d8/crl-2025-info-promo.jpg", "caption": "CRL 2025 프로모션 이미지", "alt": "클래시로얄 리그 CRL 2025 e스포츠 대회" },
-    { "type": "text", "value": "클래시로얄은 2024년 하반기 힘든 시간을 보냈습니다. 2024년 11월 월간 유저가 410만 명까지 떨어지며 역대 최저치를 기록했어요. 그러나 슈퍼셀은 포기하지 않았습니다. 대규모 업데이트와 새로운 이벤트를 통해 2025년 상반기 극적인 반등에 성공했어요.\n\n2025년 6월 월간 유저는 830만 명으로 2024년 11월 대비 2배 이상 증가했고, 월 매출도 1,580만 달러에서 3,600만 달러로 껑충 뛰었습니다. 진화 카드 시스템 확장, 챔피언 순환 주기 개선 등 게임플레이를 다양화하는 업데이트가 주효했다는 평가를 받고 있어요." },
-
-    { "type": "heading", "value": "4. 모바일 e스포츠의 선구자" },
-    { "type": "image", "src": "https://esportsinsider.com/wp-content/uploads/2025/11/Clash_Royale_League_World_Finals_2025.jpg", "caption": "CRL 월드 파이널 2025", "alt": "클래시로얄 리그 월드 파이널 2025 e스포츠 대회 현장" },
-    { "type": "text", "value": "클래시로얄은 모바일 e스포츠라는 개념을 대중화한 게임입니다. 2017년 시작된 클래시로얄 리그(CRL)는 전 세계적으로 수백만 시청자를 끌어모으며 모바일 게임도 e스포츠가 될 수 있음을 증명했어요. 3분이라는 짧은 경기 시간, 직관적인 게임플레이는 시청자들이 경기를 이해하기 쉽게 만들었습니다.\n\n세계 최고의 프로 선수들은 연간 수억 원의 수입을 올리며, 클래시로얄은 단순한 게임을 넘어 하나의 직업 생태계를 만들어냈어요. CRL 2025 월드 파이널은 역대 최고 시청자 수를 기록하며, 10년차 게임의 e스포츠가 여전히 성장하고 있음을 보여주었습니다." },
-
-    { "type": "ad" },
-
-    { "type": "heading", "value": "5. 10주년 기념 투표, 유저와 함께하는 축제" },
-    { "type": "image", "src": "https://cdns3.royaleapi.com/cdn-cgi/image/w=1920,h=1920/static/img/blog/2026-01-season-79/season/v1-dc3c31be/s79-promo-sq-01.jpg", "caption": "2026년 1월 시즌 79 Fire and Ice", "alt": "클래시로얄 2026년 1월 시즌 79 Fire and Ice 프로모션 이미지" },
-    { "type": "text", "value": "슈퍼셀은 10주년을 앞두고 유저 참여형 이벤트를 준비했습니다. 2026년 1월부터 진행 중인 10주년 투표에서는 새로운 카드, 스킨, 게임 모드 등에 대한 유저들의 의견을 수렴하고 있어요. 버서커 카드 등 다양한 후보가 거론되며 커뮤니티의 열띤 토론이 이어지고 있습니다.\n\n이처럼 유저 의견을 적극 반영하는 운영 방식은 슈퍼셀의 장기 흥행 비결 중 하나입니다. 10년간 쌓아온 유저들과의 신뢰 관계가 클래시로얄을 명작으로 만든 핵심 요인이에요." },
-
-    { "type": "heading", "value": "6. 슈퍼셀의 철학, 100년 가는 게임" },
-    { "type": "image", "src": "https://supercell.com/_next/static/media/our_offices_hero.5e45caa8.jpg", "caption": "슈퍼셀 본사 전경", "alt": "슈퍼셀 핀란드 헬싱키 본사 사무실 전경" },
-    { "type": "text", "value": "슈퍼셀 CEO 일카 파나넨(Ilkka Paananen)은 '100년 가는 게임을 만들겠다'는 목표를 공언한 바 있습니다. 클래시로얄의 10년 생존은 이 철학이 허황된 것이 아님을 보여줘요. 슈퍼셀은 단기 수익보다 장기적인 게임 생태계 구축에 집중해왔습니다.\n\n작은 팀 단위의 자율 운영, 과감한 프로젝트 폐기, 유저 중심의 업데이트 등 슈퍼셀만의 독특한 개발 문화가 10년간 사랑받는 게임을 만들어냈어요. 클래시로얄은 이러한 철학의 가장 성공적인 결과물입니다." },
-
-    { "type": "ad" },
-
-    { "type": "heading", "value": "7. 한국 시장에서의 위상" },
-    { "type": "image", "src": "https://i.ytimg.com/vi/_hNxfiXmeAE/maxresdefault.jpg", "caption": "클래시로얄 게임플레이", "alt": "클래시로얄 실시간 대전 게임플레이 화면" },
-    { "type": "text", "value": "한국에서도 클래시로얄은 꾸준한 인기를 유지하고 있습니다. 2026년 1월 기준 매출 순위 7위를 기록하며, 출시 10년차임에도 TOP 10 안에 이름을 올리고 있어요. 한국 유저들은 전체 매출의 약 5%를 차지하며, 아시아 지역 주요 시장 중 하나로 꼽힙니다.\n\n특히 한국의 클래시로얄 유저들은 e스포츠에 대한 관심이 높아, CRL 아시아 대회에서 좋은 성적을 거두는 선수들도 많아요. 10주년을 맞아 한국 특화 이벤트가 진행될지도 기대되는 부분입니다." },
-
-    { "type": "heading", "value": "마치며: 다음 10년을 향해" },
-    { "type": "text", "value": "클래시로얄의 10주년은 단순한 기념일이 아닙니다. 모바일 게임 시장에서 10년간 정상을 유지한다는 것이 얼마나 어려운 일인지를 생각하면, 이는 하나의 업계 이정표예요. 슈퍼셀은 클래시로얄을 통해 모바일 게임의 가능성을 확장했고, 유저들과 함께 성장하는 게임 운영의 모범을 보여주었습니다.\n\n2025년의 극적인 부활은 클래시로얄이 아직 성장 가능성을 가지고 있음을 증명했어요. 10주년 이벤트를 통해 새로운 유저를 유입시키고, 기존 유저들의 충성도를 높인다면 앞으로도 오랫동안 사랑받을 것입니다. 다음 10년, 클래시로얄이 어떤 모습으로 진화할지 기대됩니다." }
+    {
+      "type": "text",
+      "value": "2016년 1월 3일, 슈퍼셀은 캐나다 등 일부 국가에서 클래시로얄을 iOS로 먼저 선보였습니다. 이후 2월 안드로이드, 3월 2일 글로벌 정식 출시를 거쳐 전 세계를 휩쓸었어요. 타워 디펜스와 카드 게임을 결합한 이 독특한 게임은 출시 직후 폭발적인 인기를 끌며 모바일 게임 시장에 새로운 장르를 개척했습니다.\n\n2026년 1월, 클래시로얄은 iOS 기준 10주년을 넘기며 여전히 전 세계 수백만 플레이어의 사랑을 받고 있어요. 누적 매출 33억 달러(약 4조 3천억원), 6억 6천만 다운로드라는 기록은 이 게임이 단순한 유행을 넘어 '명작'의 반열에 올랐음을 증명합니다."
+    },
+    {
+      "type": "link",
+      "url": "/games/클래시-로얄/",
+      "text": "클래시 로얄",
+      "subtext": "실시간 순위 확인하기"
+    },
+    {
+      "type": "heading",
+      "value": "1. 클래시로얄의 탄생, 새로운 장르의 개척"
+    },
+    {
+      "type": "image",
+      "src": "https://www.datocms-assets.com/84325/1684403325-web_key-art-boot-camp-featuring-archer-key-art-illustration.jpg?auto=format&fit=crop&fm=jpg&h=1080&q=80&w=1920",
+      "caption": "클래시로얄 공식 키 아트",
+      "alt": "클래시로얄 아처 공식 일러스트 슈퍼셀"
+    },
+    {
+      "type": "text",
+      "value": "클래시로얄은 기존 모바일 게임의 공식을 완전히 뒤집었습니다. 클래시 오브 클랜의 친숙한 캐릭터들을 카드 형태로 재해석하고, 3분이라는 짧은 매치 시간에 실시간 대전을 구현했어요. 타워 디펜스, 카드 수집, PvP가 결합된 이 독특한 게임플레이는 출시 첫 달만에 전 세계 매출 1위를 기록했습니다.\n\n슈퍼셀의 '킬 더 러닝 게임' 철학도 성공에 한몫했어요. 개발 중 수익성이 보장되지 않으면 프로젝트를 과감히 폐기하는 이 문화 덕분에, 클래시로얄은 극도로 정제된 게임으로 탄생할 수 있었습니다. 간결한 UI, 직관적인 조작, 중독성 있는 매치 시스템은 모두 이러한 철학의 결과물이에요."
+    },
+    {
+      "type": "heading",
+      "value": "2. 10년간의 여정, 숫자로 보는 클래시로얄"
+    },
+    {
+      "type": "image",
+      "src": "https://cms.udonis.co/wp-content/uploads/2025/03/clash-royale-revenue-1024x248.png",
+      "caption": "클래시로얄 월별 매출 추이",
+      "alt": "클래시로얄 매출 통계 그래프 2024 2025"
+    },
+    {
+      "type": "text",
+      "value": "클래시로얄의 10년 성적표는 인상적입니다. 누적 매출 33억 달러(약 4.3조원), 누적 다운로드 6억 6천만 회를 기록했어요. 2025년 6월 기준 월간 활성 유저는 830만 명, 일간 활성 유저는 320만 명에 달합니다. 평균 세션 시간 14분, D1 리텐션 44%라는 수치도 모바일 게임 중 상위권이에요.\n\n물론 2017년 1억 명 이상의 월간 유저를 기록하던 전성기에 비하면 규모가 줄었습니다. 하지만 출시 10년차 게임이 여전히 800만 명 이상의 월간 유저를 유지하고, 월 3,600만 달러의 매출을 올린다는 것은 놀라운 성과예요. 대부분의 모바일 게임이 2-3년 내에 수명을 다하는 것을 고려하면요."
+    },
+    {
+      "type": "heading",
+      "value": "3. 2025년의 놀라운 부활"
+    },
+    {
+      "type": "image",
+      "src": "https://cdns3.royaleapi.com/cdn-cgi/image/w=1920,h=1080/static/img/blog/crl-2025/preview/v1-18c0f4d8/crl-2025-info-promo.jpg",
+      "caption": "CRL 2025 프로모션 이미지",
+      "alt": "클래시로얄 리그 CRL 2025 e스포츠 대회"
+    },
+    {
+      "type": "text",
+      "value": "클래시로얄은 2024년 하반기 힘든 시간을 보냈습니다. 2024년 11월 월간 유저가 410만 명까지 떨어지며 역대 최저치를 기록했어요. 그러나 슈퍼셀은 포기하지 않았습니다. 대규모 업데이트와 새로운 이벤트를 통해 2025년 상반기 극적인 반등에 성공했어요.\n\n2025년 6월 월간 유저는 830만 명으로 2024년 11월 대비 2배 이상 증가했고, 월 매출도 1,580만 달러에서 3,600만 달러로 껑충 뛰었습니다. 진화 카드 시스템 확장, 챔피언 순환 주기 개선 등 게임플레이를 다양화하는 업데이트가 주효했다는 평가를 받고 있어요."
+    },
+    {
+      "type": "heading",
+      "value": "4. 모바일 e스포츠의 선구자"
+    },
+    {
+      "type": "image",
+      "src": "https://esportsinsider.com/wp-content/uploads/2025/11/Clash_Royale_League_World_Finals_2025.jpg",
+      "caption": "CRL 월드 파이널 2025",
+      "alt": "클래시로얄 리그 월드 파이널 2025 e스포츠 대회 현장"
+    },
+    {
+      "type": "text",
+      "value": "클래시로얄은 모바일 e스포츠라는 개념을 대중화한 게임입니다. 2017년 시작된 클래시로얄 리그(CRL)는 전 세계적으로 수백만 시청자를 끌어모으며 모바일 게임도 e스포츠가 될 수 있음을 증명했어요. 3분이라는 짧은 경기 시간, 직관적인 게임플레이는 시청자들이 경기를 이해하기 쉽게 만들었습니다.\n\n세계 최고의 프로 선수들은 연간 수억 원의 수입을 올리며, 클래시로얄은 단순한 게임을 넘어 하나의 직업 생태계를 만들어냈어요. CRL 2025 월드 파이널은 역대 최고 시청자 수를 기록하며, 10년차 게임의 e스포츠가 여전히 성장하고 있음을 보여주었습니다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 10주년 기념 투표, 유저와 함께하는 축제"
+    },
+    {
+      "type": "image",
+      "src": "https://cdns3.royaleapi.com/cdn-cgi/image/w=1920,h=1920/static/img/blog/2026-01-season-79/season/v1-dc3c31be/s79-promo-sq-01.jpg",
+      "caption": "2026년 1월 시즌 79 Fire and Ice",
+      "alt": "클래시로얄 2026년 1월 시즌 79 Fire and Ice 프로모션 이미지"
+    },
+    {
+      "type": "text",
+      "value": "슈퍼셀은 10주년을 앞두고 유저 참여형 이벤트를 준비했습니다. 2026년 1월부터 진행 중인 10주년 투표에서는 새로운 카드, 스킨, 게임 모드 등에 대한 유저들의 의견을 수렴하고 있어요. 버서커 카드 등 다양한 후보가 거론되며 커뮤니티의 열띤 토론이 이어지고 있습니다.\n\n이처럼 유저 의견을 적극 반영하는 운영 방식은 슈퍼셀의 장기 흥행 비결 중 하나입니다. 10년간 쌓아온 유저들과의 신뢰 관계가 클래시로얄을 명작으로 만든 핵심 요인이에요."
+    },
+    {
+      "type": "heading",
+      "value": "6. 슈퍼셀의 철학, 100년 가는 게임"
+    },
+    {
+      "type": "image",
+      "src": "https://supercell.com/_next/static/media/our_offices_hero.5e45caa8.jpg",
+      "caption": "슈퍼셀 본사 전경",
+      "alt": "슈퍼셀 핀란드 헬싱키 본사 사무실 전경"
+    },
+    {
+      "type": "text",
+      "value": "슈퍼셀 CEO 일카 파나넨(Ilkka Paananen)은 '100년 가는 게임을 만들겠다'는 목표를 공언한 바 있습니다. 클래시로얄의 10년 생존은 이 철학이 허황된 것이 아님을 보여줘요. 슈퍼셀은 단기 수익보다 장기적인 게임 생태계 구축에 집중해왔습니다.\n\n작은 팀 단위의 자율 운영, 과감한 프로젝트 폐기, 유저 중심의 업데이트 등 슈퍼셀만의 독특한 개발 문화가 10년간 사랑받는 게임을 만들어냈어요. 클래시로얄은 이러한 철학의 가장 성공적인 결과물입니다."
+    },
+    {
+      "type": "heading",
+      "value": "7. 한국 시장에서의 위상"
+    },
+    {
+      "type": "image",
+      "src": "https://i.ytimg.com/vi/_hNxfiXmeAE/maxresdefault.jpg",
+      "caption": "클래시로얄 게임플레이",
+      "alt": "클래시로얄 실시간 대전 게임플레이 화면"
+    },
+    {
+      "type": "text",
+      "value": "한국에서도 클래시로얄은 꾸준한 인기를 유지하고 있습니다. 2026년 1월 기준 매출 순위 7위를 기록하며, 출시 10년차임에도 TOP 10 안에 이름을 올리고 있어요. 한국 유저들은 전체 매출의 약 5%를 차지하며, 아시아 지역 주요 시장 중 하나로 꼽힙니다.\n\n특히 한국의 클래시로얄 유저들은 e스포츠에 대한 관심이 높아, CRL 아시아 대회에서 좋은 성적을 거두는 선수들도 많아요. 10주년을 맞아 한국 특화 이벤트가 진행될지도 기대되는 부분입니다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 다음 10년을 향해"
+    },
+    {
+      "type": "text",
+      "value": "클래시로얄의 10주년은 단순한 기념일이 아닙니다. 모바일 게임 시장에서 10년간 정상을 유지한다는 것이 얼마나 어려운 일인지를 생각하면, 이는 하나의 업계 이정표예요. 슈퍼셀은 클래시로얄을 통해 모바일 게임의 가능성을 확장했고, 유저들과 함께 성장하는 게임 운영의 모범을 보여주었습니다.\n\n2025년의 극적인 부활은 클래시로얄이 아직 성장 가능성을 가지고 있음을 증명했어요. 10주년 이벤트를 통해 새로운 유저를 유입시키고, 기존 유저들의 충성도를 높인다면 앞으로도 오랫동안 사랑받을 것입니다. 다음 10년, 클래시로얄이 어떤 모습으로 진화할지 기대됩니다."
+    }
   ]
 }

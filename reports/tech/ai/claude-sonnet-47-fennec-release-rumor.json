@@ -11,7 +11,9 @@
     "chatgpt-vs-gemini-comparison-2026",
     "game-ai-paradigm-shift-2026"
   ],
-  "relatedArticles": ["claude-code-vs-codex-coding-agent"],
+  "relatedArticles": [
+    "claude-code-vs-codex-coding-agent"
+  ],
   "relatedGames": [],
   "sources": [
     {
@@ -73,9 +75,6 @@
       "value": "1월 중순, Reddit r/ClaudeAI 커뮤니티에서 화제가 된 사건이 있다. Sam Pullara라는 인물이 \"앤트로픽 내부 모델이 약 10분간 외부에 노출됐다\"고 주장한 것이다.\n\n해당 게시물에 따르면, 이 모델은 소넷 4.7로 추정되며 API 엔드포인트에서 잠깐 접근 가능했다고 한다. 공식 확인은 없고 진위 여부는 불분명하다. 하지만 이 사건 이후 \"소넷 4.7 임박\" 루머가 본격적으로 퍼지기 시작했다. 유튜브에서도 \"Claude Sonnet 4.7 Leaked – Release Next Week?\"라는 분석 영상이 올라오며 관심을 끌었다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. GPT 5.3과의 경쟁 구도"
     },
@@ -96,9 +95,6 @@
     {
       "type": "text",
       "value": "루머들을 종합하면, 앤트로픽이 상당한 성능 향상을 가진 모델을 준비 중인 것으로 보인다. GPT 5.3 \"갈릭\"이나 제미나이 3.0 정식(GA) 버전과 유사한 시점에 출시할 가능성이 높아보인다.\n\n2월 중으로 OpenAI, 구글, 앤트로픽—3사가 다시 한번 맞붙을 가능성이 굉장히 커보인다. 경쟁 심화로 출시 주기가 빠르게 당겨지고 있다. 특히 앤트로픽과 OpenAI가 상장에 대한 논의가 이루어지고 있는 만큼, 경쟁에 뒤쳐지지 않기 위해 양사가 모든 힘을 쏟고 있는 것으로 보인다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

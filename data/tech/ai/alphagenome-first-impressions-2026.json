@@ -86,15 +86,28 @@
     {
       "type": "table",
       "caption": "알파게놈, 어디에 쓸 수 있나",
-      "headers": ["용도", "평가", "설명"],
+      "headers": [
+        "용도",
+        "평가",
+        "설명"
+      ],
       "rows": [
-        ["유전자 스위치 예측", "좋음", "기존 도구 대체 가능"],
-        ["질병 원인 추적 연구", "좋음", "후보 유전자 좁히기에 유용"],
-        ["병원 진단", "아직 어려움", "신뢰도 부족"]
+        [
+          "유전자 스위치 예측",
+          "좋음",
+          "기존 도구 대체 가능"
+        ],
+        [
+          "질병 원인 추적 연구",
+          "좋음",
+          "후보 유전자 좁히기에 유용"
+        ],
+        [
+          "병원 진단",
+          "아직 어려움",
+          "신뢰도 부족"
+        ]
       ]
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -171,15 +184,28 @@
     {
       "type": "table",
       "caption": "What AlphaGenome Can and Can't Do",
-      "headers": ["Use Case", "Rating", "Notes"],
+      "headers": [
+        "Use Case",
+        "Rating",
+        "Notes"
+      ],
       "rows": [
-        ["Gene switch prediction", "Good", "Can replace existing tools"],
-        ["Disease research", "Good", "Useful for narrowing candidates"],
-        ["Clinical diagnosis", "Not ready", "Insufficient reliability"]
+        [
+          "Gene switch prediction",
+          "Good",
+          "Can replace existing tools"
+        ],
+        [
+          "Disease research",
+          "Good",
+          "Useful for narrowing candidates"
+        ],
+        [
+          "Clinical diagnosis",
+          "Not ready",
+          "Insufficient reliability"
+        ]
       ]
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

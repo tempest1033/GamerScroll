@@ -6,16 +6,39 @@
   "thumbnail": "https://wstatic-prod-boc.krafton.com/common/content/news/20260106/BMjJf93G.webp",
   "keywords": "배틀그라운드, PUBG, 배틀로얄, 브랜든 그린, 김창한, 크래프톤",
   "summary": "출시 9년차를 맞은 배틀그라운드는 여전히 세계 최고의 게임 중 하나다. 김창한 대표가 브랜든 그린을 영입해 1년 만에 만든 이 게임이 어떻게 배틀로얄 장르를 정립했는지, 그 역사를 되짚어본다.",
-  "relatedIssues": ["china-gaming-superpower-rise", "game-ai-controversy-award-revoked"],
-  "relatedArticles": ["history/rts-genre-rise-and-fall"],
-  "relatedGames": ["pubg-battlegrounds", "apex-legends",
+  "relatedIssues": [
+    "china-gaming-superpower-rise",
+    "game-ai-controversy-award-revoked"
+  ],
+  "relatedArticles": [
+    "history/rts-genre-rise-and-fall"
+  ],
+  "relatedGames": [
+    "pubg-battlegrounds",
+    "apex-legends",
     "dayz"
   ],
   "sources": [
-    { "name": "한국경제", "title": "잘키운 배그 하나로 또 일냈다…크래프톤 역대 최대실적", "url": "https://www.hankyung.com/article/202504293677g" },
-    { "name": "크래프톤 프레스룸", "title": "PUBG: BATTLEGROUNDS - Erangel Subzero Update 39.1", "url": "https://press.krafton.com/PUBG-BATTLEGROUNDS-INTRODUCES-ERANGEL-SUBZERO-IN-UPDATE-391" },
-    { "name": "인벤", "title": "푸른 눈의 개발자, 블루홀에서 배틀로얄 게임 만드는 이유", "url": "https://www.inven.co.kr/webzine/news/?news=164945" },
-    { "name": "Wikipedia", "title": "PlayerUnknown (Brendan Greene)", "url": "https://en.wikipedia.org/wiki/PlayerUnknown" }
+    {
+      "name": "한국경제",
+      "title": "잘키운 배그 하나로 또 일냈다…크래프톤 역대 최대실적",
+      "url": "https://www.hankyung.com/article/202504293677g"
+    },
+    {
+      "name": "크래프톤 프레스룸",
+      "title": "PUBG: BATTLEGROUNDS - Erangel Subzero Update 39.1",
+      "url": "https://press.krafton.com/PUBG-BATTLEGROUNDS-INTRODUCES-ERANGEL-SUBZERO-IN-UPDATE-391"
+    },
+    {
+      "name": "인벤",
+      "title": "푸른 눈의 개발자, 블루홀에서 배틀로얄 게임 만드는 이유",
+      "url": "https://www.inven.co.kr/webzine/news/?news=164945"
+    },
+    {
+      "name": "Wikipedia",
+      "title": "PlayerUnknown (Brendan Greene)",
+      "url": "https://en.wikipedia.org/wiki/PlayerUnknown"
+    }
   ],
   "content": [
     {
@@ -51,9 +74,6 @@
       "value": "배틀그라운드의 탄생에는 결정적인 만남이 있었다. 2016년 초, 당시 블루홀(현 크래프톤)의 김창한 대표는 한 외국인 개발자에게 메일을 보냈다. 브랜든 그린. 배틀로얄 모드의 창시자로 불리는 인물이었다.\n\n김창한 대표는 10년 넘게 구상해온 배틀로얄 게임 기획서를 그에게 보냈다. 마침 H1Z1과의 계약이 종료된 시점이었던 브랜든 그린은 한국행을 결심했다. 아이디어만 라이센스했던 H1Z1과 달리, 블루홀은 그를 크리에이티브 디렉터로 영입해 게임 개발의 핵심에 세웠다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. 브랜든 그린, 배틀로얄의 아버지"
     },
@@ -82,9 +102,6 @@
       "value": "배틀로얄이라는 개념의 뿌리는 더 깊다. 2000년 개봉한 일본 영화 '배틀로얄'은 고등학생들이 외딴 섬에서 서로를 죽이며 최후의 1인이 될 때까지 싸우는 내용을 담았다. 다카미 코슈의 1999년 동명 소설이 원작이다.\n\n브랜든 그린은 이 영화의 팬이었다. 그는 영화의 핵심 요소인 '고립된 공간', '시간 제한', '최후의 생존자'를 게임 메커니즘으로 번역했다. 줄어드는 안전구역은 영화에서 학생들의 목에 채워진 폭탄 목걸이가 특정 구역에 가면 폭발하는 설정에서 가져온 것이다.\n\n영화 한 편이 뿌린 씨앗이 모드가 되고, 모드가 게임이 되고, 게임이 하나의 장르가 되었다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "5. 1년 만에 세상에 나온 배틀그라운드"
     },
@@ -111,9 +128,6 @@
     {
       "type": "text",
       "value": "출시 9년차, 배틀그라운드는 여전히 진화 중이다. 작년 말 적용된 '에란겔 서브제로' 업데이트 이후 동접은 다시 80만명을 넘겼다. 크래프톤은 언리얼 엔진 5 기반의 그래픽 업그레이드와 UGC 시스템 도입을 예고하며 'PUBG 2.0' 시대를 준비하고 있다.\n\n브랜든 그린은 2021년 크래프톤을 떠나 자신만의 새 프로젝트를 진행 중이다. 하지만 그가 뿌린 씨앗은 여전히 자라고 있다. 배틀그라운드 IP를 기반으로 한 신작들 - 익스트랙션 슈터 '프로젝트 블랙버짓', 콘솔 배틀로얄 '프로젝트 발러' 등이 개발 중이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

@@ -64,9 +64,6 @@
       "value": "2월 5일, OpenAI는 GPT-5.3-Codex를 공식 출시했다. '역대 가장 강력한 자율형 코딩 모델'이라는 수식어가 붙은 이 모델은, 단순한 코드 자동완성을 넘어 복잡한 소프트웨어 개발 작업을 알아서 수행할 수 있는 능력을 갖췄다. 흥미로운 점은 Anthropic이 Claude Opus 4.6을 발표한 바로 그 시간에 맞춰 출시했다는 것으로, 두 회사 간의 치열한 경쟁 구도를 보여준다.\n\n이에 앞서 2월 2일에는 macOS용 Codex 독립 앱도 출시되었다. 기존에는 ChatGPT 화면 안에서만 사용할 수 있었던 코딩 기능을 별도 데스크톱 앱으로 분리한 것이다. 올트먼에 따르면 Codex는 출시 일주일 만에 약 50% 성장했으며, 그는 이를 \"미쳤다(insane)\"고 표현했다. Codex가 Anthropic의 Claude Code 시장 점유율을 빠르게 잠식하고 있다는 분석도 나온다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. ChatGPT 새 Chat 모델, 이번 주 업데이트 확정"
     },
@@ -87,9 +84,6 @@
     {
       "type": "text",
       "value": "OpenAI는 현재 1000억 달러(약 145조 원) 규모의 투자 유치를 마무리하고 있다. 아마존이 500억 달러, 소프트뱅크가 300억 달러를 투자하며, 마이크로소프트와 엔비디아도 참여한다. 이번 투자가 완료되면 OpenAI의 기업가치는 약 8300억 달러에 달할 전망이다. 이는 전 세계 비상장 기업 중 역대 최대 규모다.\n\n올트먼은 2026년 말 기업공개(IPO)를 목표로 하고 있으며, 이번 투자 유치는 그 전 마지막 대규모 자금 조달이 될 것으로 보인다. AI 인프라 구축과 모델 개발에 천문학적 비용이 드는 상황에서, 이 정도 규모의 자금은 경쟁사들과의 격차를 더욱 벌릴 수 있는 무기가 된다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -118,9 +112,6 @@
     {
       "type": "text",
       "value": "최근 OpenAI의 행보에는 Anthropic과의 경쟁이 큰 배경으로 작용하고 있다. Anthropic은 슈퍼볼(미국 프로미식축구 결승전) 광고에서 OpenAI를 조롱하는 듯한 메시지를 내보냈고, 올트먼은 이를 \"기만적\"이라며 강하게 반박했다. GPT-5.3-Codex 역시 Anthropic의 Claude Opus 4.6 발표와 동시에 출시되어, 두 회사가 서로를 강하게 의식하고 있음을 드러냈다.\n\nAI 코딩 도구 시장에서도 Codex와 Claude Code의 직접 대결이 벌어지고 있다. Codex의 급격한 성장세는 Claude Code의 시장 점유율을 위협하고 있으며, 이 경쟁은 AI 코딩 도구의 품질을 빠르게 끌어올리는 효과를 낳고 있다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -200,9 +191,6 @@
       "value": "On February 5, OpenAI officially launched GPT-5.3-Codex. Dubbed \"the most powerful agentic coding model ever,\" it goes beyond simple code autocompletion to autonomously handle complex software development tasks. Notably, it was released at the exact same time Anthropic announced Claude Opus 4.6, underscoring the fierce rivalry between the two companies.\n\nThree days earlier, on February 2, OpenAI had also launched a standalone Codex desktop app for macOS, separating the coding capabilities from the ChatGPT interface into a dedicated application. According to Altman, Codex grew approximately 50% in just one week after launch, which he described as \"insane.\" Analysts note that Codex is rapidly eating into Anthropic's Claude Code market share."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. New ChatGPT Chat Model Confirmed for This Week"
     },
@@ -223,9 +211,6 @@
     {
       "type": "text",
       "value": "OpenAI is currently finalizing a $100 billion funding round. Amazon is investing $50 billion, SoftBank $30 billion, with Microsoft and Nvidia also participating. Once completed, OpenAI's valuation will reach approximately $830 billion, making it the largest private company funding in history.\n\nAltman is targeting an IPO by the end of 2026, and this round is expected to be the last major fundraise before going public. With astronomical costs for AI infrastructure and model development, this level of capital serves as a powerful weapon to widen the gap with competitors."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -254,9 +239,6 @@
     {
       "type": "text",
       "value": "Competition with Anthropic looms large behind OpenAI's recent moves. Anthropic ran a Super Bowl ad that appeared to mock OpenAI, prompting Altman to fire back, calling it \"deceptive.\" GPT-5.3-Codex was also released simultaneously with Anthropic's Claude Opus 4.6 announcement, making clear that both companies are keenly aware of each other.\n\nThe AI coding tools market is seeing a direct showdown between Codex and Claude Code. Codex's explosive growth is threatening Claude Code's market share, and this competition is rapidly driving up the quality of AI coding tools across the board."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

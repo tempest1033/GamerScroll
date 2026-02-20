@@ -13,36 +13,104 @@
     "tech:ai/claude-code-vs-codex-coding-agent"
   ],
   "sources": [
-    { "name": "Reddit", "title": "r/ClaudeAI - Sonnet 4.7 leaks discussion", "url": "https://www.reddit.com/r/ClaudeAI/comments/1povq3i/with_leaks_about_sonnet_47_appearing_what_do_you/" },
-    { "name": "Reddit", "title": "r/ClaudeAI - When is Claude 5 dropping?", "url": "https://www.reddit.com/r/ClaudeAI/comments/1q1xyit/when_do_yall_think_claude_5_is_dropping/" },
-    { "name": "X", "title": "@chetaslua - Fennec internal testing", "url": "https://x.com/chetaslua" },
-    { "name": "Manifold", "title": "Claude Sonnet 4.7 prediction market", "url": "https://manifold.markets/JoshSnider/claude-sonnet-47-released-before-fe" }
+    {
+      "name": "Reddit",
+      "title": "r/ClaudeAI - Sonnet 4.7 leaks discussion",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1povq3i/with_leaks_about_sonnet_47_appearing_what_do_you/"
+    },
+    {
+      "name": "Reddit",
+      "title": "r/ClaudeAI - When is Claude 5 dropping?",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1q1xyit/when_do_yall_think_claude_5_is_dropping/"
+    },
+    {
+      "name": "X",
+      "title": "@chetaslua - Fennec internal testing",
+      "url": "https://x.com/chetaslua"
+    },
+    {
+      "name": "Manifold",
+      "title": "Claude Sonnet 4.7 prediction market",
+      "url": "https://manifold.markets/JoshSnider/claude-sonnet-47-released-before-fe"
+    }
   ],
   "content": [
-    { "type": "text", "value": "지난 기사에서 다뤘던 앤트로픽의 차기 모델 \"페넥(Fennec)\"에 대한 추가 루머가 쏟아지고 있다. X와 Reddit을 중심으로 '이르면 일주일 내 출시'라는 전망이 확산 중이다." },
-    { "type": "heading", "value": "일주일 내 출시?" },
-    { "type": "text", "value": "Manifold 예측 시장에서는 Sonnet 4.7 출시 시점에 대한 베팅이 활발하고, 여러 커뮤니티에서 임박한 출시를 예상하는 목소리가 커지고 있다. Reddit r/ClaudeAI에서는 \"몇 달이 아니라 몇 주 내\"라는 의견도 나왔다.\n\n다만 공식 발표는 없으며, 모두 루머 수준이다. GPT 5.3, 제미나이 3.0과의 경쟁 압박이 출시 일정을 앞당기고 있다는 분석이 지배적이다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "컨텍스트 윈도우 증가?" },
-    { "type": "text", "value": "Reddit에서는 페넥의 컨텍스트 윈도우가 기존보다 더 확장될 수 있다는 루머도 돌고 있다. 현재 일반 사용자 기준 200K인데, 이로 인해 잦은 오토컴팩트와 컨텍스트 유실이 약점으로 지적받아왔다. 컨텍스트 윈도우가 확장된다면 이 문제가 개선되어 장시간 작업에서 훨씬 안정적인 경험을 제공할 수 있을 것이다.\n\n가격은 현재 Sonnet 4.5($3/$15 per MTok)와 Opus 4.5($5/$25) 사이에서 책정될 것이라는 루머가 있다. Opus급 성능을 Sonnet 가격대에 제공한다면 상당한 경쟁력이 될 전망이다." },
-    { "type": "heading", "value": "4.7? 아니면 5.0?" },
-    { "type": "text", "value": "모델명에 대한 루머도 있다. Claude Code v2.1.23에서 Claude 5 관련 코드가 발견됐다는 제보가 Reddit에 올라왔다. 새로운 'max' 레벨이 기존 Claude 3.x, 4.x와 별도로 분리되어 있다는 것이다. Sonnet 4.7이 아니라 아예 Claude 5.0으로 출시될 가능성도 제기되고 있다." },
-    { "type": "heading", "value": "마치며" },
-    { "type": "text", "value": "아직 공식 확인된 것은 없지만, 내부 테스터나 일부 루머에서 지속적으로 빠른 시점 내 출시가 언급되고 있다. Opus 4.5 이상의 성능에 더 저렴한 가격, 컨텍스트 윈도우 증가 가능성까지—상당한 성능 향상이 언급되고 있어 주목할 필요가 있다." }
+    {
+      "type": "text",
+      "value": "지난 기사에서 다뤘던 앤트로픽의 차기 모델 \"페넥(Fennec)\"에 대한 추가 루머가 쏟아지고 있다. X와 Reddit을 중심으로 '이르면 일주일 내 출시'라는 전망이 확산 중이다."
+    },
+    {
+      "type": "heading",
+      "value": "일주일 내 출시?"
+    },
+    {
+      "type": "text",
+      "value": "Manifold 예측 시장에서는 Sonnet 4.7 출시 시점에 대한 베팅이 활발하고, 여러 커뮤니티에서 임박한 출시를 예상하는 목소리가 커지고 있다. Reddit r/ClaudeAI에서는 \"몇 달이 아니라 몇 주 내\"라는 의견도 나왔다.\n\n다만 공식 발표는 없으며, 모두 루머 수준이다. GPT 5.3, 제미나이 3.0과의 경쟁 압박이 출시 일정을 앞당기고 있다는 분석이 지배적이다."
+    },
+    {
+      "type": "heading",
+      "value": "컨텍스트 윈도우 증가?"
+    },
+    {
+      "type": "text",
+      "value": "Reddit에서는 페넥의 컨텍스트 윈도우가 기존보다 더 확장될 수 있다는 루머도 돌고 있다. 현재 일반 사용자 기준 200K인데, 이로 인해 잦은 오토컴팩트와 컨텍스트 유실이 약점으로 지적받아왔다. 컨텍스트 윈도우가 확장된다면 이 문제가 개선되어 장시간 작업에서 훨씬 안정적인 경험을 제공할 수 있을 것이다.\n\n가격은 현재 Sonnet 4.5($3/$15 per MTok)와 Opus 4.5($5/$25) 사이에서 책정될 것이라는 루머가 있다. Opus급 성능을 Sonnet 가격대에 제공한다면 상당한 경쟁력이 될 전망이다."
+    },
+    {
+      "type": "heading",
+      "value": "4.7? 아니면 5.0?"
+    },
+    {
+      "type": "text",
+      "value": "모델명에 대한 루머도 있다. Claude Code v2.1.23에서 Claude 5 관련 코드가 발견됐다는 제보가 Reddit에 올라왔다. 새로운 'max' 레벨이 기존 Claude 3.x, 4.x와 별도로 분리되어 있다는 것이다. Sonnet 4.7이 아니라 아예 Claude 5.0으로 출시될 가능성도 제기되고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "아직 공식 확인된 것은 없지만, 내부 테스터나 일부 루머에서 지속적으로 빠른 시점 내 출시가 언급되고 있다. Opus 4.5 이상의 성능에 더 저렴한 가격, 컨텍스트 윈도우 증가 가능성까지—상당한 성능 향상이 언급되고 있어 주목할 필요가 있다."
+    }
   ],
   "titleEn": "Claude's Next Model Codename \"Fennec\" - Launch Within a Week? Additional Rumors",
   "summaryEn": "Rumors are spreading that Anthropic's next model \"Fennec\" could launch as early as within a week. Context window expansion is also being speculated.",
   "contentEn": [
-    { "type": "text", "value": "Additional rumors about Anthropic's next model \"Fennec,\" which we covered in our previous article, are pouring in. Predictions of a launch 'as early as within a week' are spreading across X and Reddit." },
-    { "type": "heading", "value": "Launch Within a Week?" },
-    { "type": "text", "value": "Prediction markets on Manifold show active betting on Sonnet 4.7's release timing, and voices expecting an imminent launch are growing in various communities. On Reddit r/ClaudeAI, some even suggested \"within weeks, not months.\"\n\nHowever, there's no official announcement, and these are all at the rumor level. The prevailing analysis is that competitive pressure from GPT 5.3 and Gemini 3.0 is accelerating the release schedule." },
-    { "type": "ad" },
-    { "type": "heading", "value": "Context Window Expansion?" },
-    { "type": "text", "value": "Rumors on Reddit suggest Fennec's context window could expand beyond the current capacity. The current limit for general users is 200K, which has been criticized for frequent auto-compaction and context loss. If the context window expands, this could provide a much more stable experience for extended work sessions.\n\nThere are rumors that pricing could fall between current Sonnet 4.5 ($3/$15 per MTok) and Opus 4.5 ($5/$25). If it delivers Opus-level performance at Sonnet pricing, it would be highly competitive." },
-    { "type": "heading", "value": "4.7? Or 5.0?" },
-    { "type": "text", "value": "There are also rumors about the model name. Reports on Reddit suggest Claude 5-related code was found in Claude Code v2.1.23. A new 'max' level appears to be separated from existing Claude 3.x and 4.x models. Some speculate it may launch as Claude 5.0 rather than Sonnet 4.7." },
-    { "type": "heading", "value": "Conclusion" },
-    { "type": "text", "value": "Nothing has been officially confirmed yet, but internal testers and various rumors continue to mention an imminent release. Performance exceeding Opus 4.5 at a lower price, plus potential context window expansion—significant improvements are being mentioned, making this worth watching." }
+    {
+      "type": "text",
+      "value": "Additional rumors about Anthropic's next model \"Fennec,\" which we covered in our previous article, are pouring in. Predictions of a launch 'as early as within a week' are spreading across X and Reddit."
+    },
+    {
+      "type": "heading",
+      "value": "Launch Within a Week?"
+    },
+    {
+      "type": "text",
+      "value": "Prediction markets on Manifold show active betting on Sonnet 4.7's release timing, and voices expecting an imminent launch are growing in various communities. On Reddit r/ClaudeAI, some even suggested \"within weeks, not months.\"\n\nHowever, there's no official announcement, and these are all at the rumor level. The prevailing analysis is that competitive pressure from GPT 5.3 and Gemini 3.0 is accelerating the release schedule."
+    },
+    {
+      "type": "heading",
+      "value": "Context Window Expansion?"
+    },
+    {
+      "type": "text",
+      "value": "Rumors on Reddit suggest Fennec's context window could expand beyond the current capacity. The current limit for general users is 200K, which has been criticized for frequent auto-compaction and context loss. If the context window expands, this could provide a much more stable experience for extended work sessions.\n\nThere are rumors that pricing could fall between current Sonnet 4.5 ($3/$15 per MTok) and Opus 4.5 ($5/$25). If it delivers Opus-level performance at Sonnet pricing, it would be highly competitive."
+    },
+    {
+      "type": "heading",
+      "value": "4.7? Or 5.0?"
+    },
+    {
+      "type": "text",
+      "value": "There are also rumors about the model name. Reports on Reddit suggest Claude 5-related code was found in Claude Code v2.1.23. A new 'max' level appears to be separated from existing Claude 3.x and 4.x models. Some speculate it may launch as Claude 5.0 rather than Sonnet 4.7."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion"
+    },
+    {
+      "type": "text",
+      "value": "Nothing has been officially confirmed yet, but internal testers and various rumors continue to mention an imminent release. Performance exceeding Opus 4.5 at a lower price, plus potential context window expansion—significant improvements are being mentioned, making this worth watching."
+    }
   ],
   "needTranslate": false
 }

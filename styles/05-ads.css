@@ -89,9 +89,10 @@ body.ads-disabled main {
   margin-top: var(--space-block-gap, 16px);
 }
 
-/* 홈페이지: home-container padding 제거 (main margin으로 대체, 중복 방지) */
-/* !important: 30-responsive.css의 !important 규칙보다 우선 적용 */
-body.ads-disabled .home-container {
+/* 광고 비활성화 시 컨테이너 padding 제거 (main margin으로 대체, 중복 방지) */
+body.ads-disabled .page-container,
+body.ads-disabled .home-container,
+body.ads-disabled .article-layout {
   padding-top: 0 !important;
 }
 
@@ -107,6 +108,31 @@ body.ads-disabled .home-container {
 .home-main .ad-card,
 .home-sidebar .ad-card {
   margin-top: 0;
+}
+
+/* 광고를 컨테이너 안으로 이동하면서 소실된 상단 여백 복원 */
+/* !important 필수: 05-ads.css가 10-home-core/shell.css보다 먼저 로드되어 덮어쓰임 */
+/* 모바일: 10-home-core.css의 !important 규칙(specificity 0-2-1)이 padding-top: 0 유지 (정상) */
+
+/* 허브(trends-hub, wiki-hub, tech-hub): .home-container 단독 사용 */
+.home-container {
+  padding-top: var(--space-block-gap, 16px) !important;
+}
+/* 리포트·아티클: .page-container > .article-layout */
+.article-layout {
+  padding-top: var(--space-block-gap, 16px) !important;
+}
+/* 단독 page-container (games-hub, rankings, steam, upcoming 등) */
+/* .home-container나 .article-layout 자식이 있으면 이중 적용 방지 */
+.page-container:not(:has(> .home-container)):not(:has(> .article-layout)) {
+  padding-top: var(--space-block-gap, 16px) !important;
+}
+
+/* home-main / article-main 최상단 ResponsiveHome 광고: 하단 마진만 (카드 간격과 동일) */
+.home-main > .ad-card-responsive-home:first-child,
+.article-main > .ad-card-responsive-home:first-child {
+  margin-top: 0;
+  margin-bottom: var(--space-block-gap, 16px);
 }
 
 /* 모바일 홈: 사이드바 숨김 (PC 전용) */

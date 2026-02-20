@@ -2,7 +2,7 @@
  * 모바일 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout } = require('../layout');
 const { countries } = require('../../crawlers/rankings');
 const { resizeIcon } = require('../../utils/resize-icon');
 
@@ -36,9 +36,6 @@ function generateRankingsPage(data) {
       ? (iosSlugMap[String(appId)] || null)
       : (androidSlugMap[String(appId)] || null);
   }
-
-  // PC + 모바일 광고 슬롯
-  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   // 순위 컬럼 생성
   function generateRankColumn(maxItems = 200) {
@@ -93,7 +90,6 @@ function generateRankingsPage(data) {
     <section class="section active" id="rankings">
       
       <div class="page-container">
-        ${topAds}
         <h1 class="visually-hidden">모바일 게임 순위</h1>
         <div class="rankings-card home-card">
           <div class="home-card-header">

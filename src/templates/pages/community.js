@@ -1,19 +1,16 @@
-﻿/**
+/**
  * 커뮤니티 페이지 템플릿
  * - 4컬럼 그리드 (인벤, 아카라이브, 디시, 루리웹)
  * - 각 패널 2열 (좌5, 우5) + 페이지네이션
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
 
 function generateCommunityPage(data) {
   const { community } = data;
-
-  // PC + 모바일 광고 슬롯
-  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   const sources = [
     { key: 'inven', name: '인벤', title: '인벤 핫이슈', icon: 'https://www.google.com/s2/favicons?domain=inven.co.kr&sz=32', link: 'https://hot.inven.co.kr/', items: community?.inven || [] },
@@ -69,9 +66,8 @@ function generateCommunityPage(data) {
 
   const content = `
     <section class="section active" id="community">
-      
+
       <div class="page-container">
-        ${topAds}
         <h1 class="visually-hidden">커뮤니티 베스트</h1>
         <div class="community-grid">
           ${panelsHtml}

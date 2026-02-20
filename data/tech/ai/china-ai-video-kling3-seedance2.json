@@ -11,11 +11,27 @@
   "summaryEn": "Type a few lines, get a 4K video? China dropped two AI video models in two days. Kuaishou's Kling 3.0 and ByteDance's Seedance 2.0 are already doing things OpenAI's Sora 2 and Google's Veo 3.1 can't, and the AI video market could be in for a shakeup.",
   "thumbnail": "https://www.cined.com/content/uploads/2026/02/Kling-3-featured.jpg",
   "sources": [
-    { "name": "Curious Refuge", "title": "Kling 3.0: The New King of AI Video Generation", "url": "https://www.curiousrefuge.com/blog/kling-3" },
-    { "name": "TechCrunch", "title": "Kuaishou launches Kling 3.0 with native 4K video generation", "url": "https://techcrunch.com/2025/02/05/kuaishou-launches-kling-3-0/" },
-    { "name": "VentureBeat", "title": "ByteDance unveils Seedance 2.0 multimodal video model", "url": "https://venturebeat.com/ai/bytedance-unveils-seedance-2-0/" }
+    {
+      "name": "Curious Refuge",
+      "title": "Kling 3.0: The New King of AI Video Generation",
+      "url": "https://www.curiousrefuge.com/blog/kling-3"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Kuaishou launches Kling 3.0 with native 4K video generation",
+      "url": "https://techcrunch.com/2025/02/05/kuaishou-launches-kling-3-0/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "ByteDance unveils Seedance 2.0 multimodal video model",
+      "url": "https://venturebeat.com/ai/bytedance-unveils-seedance-2-0/"
+    }
   ],
-  "relatedDocs": ["tech:ai/dead-internet-theory", "tech:ai/stargate-ai-crisis-2026", "tech:ai/nvidia-openai-investment-retreat"],
+  "relatedDocs": [
+    "tech:ai/dead-internet-theory",
+    "tech:ai/stargate-ai-crisis-2026",
+    "tech:ai/nvidia-openai-investment-retreat"
+  ],
   "relatedGames": [],
   "needTranslate": false,
   "content": [
@@ -41,9 +57,6 @@
       "value": "기술만 좋은 게 아니라 실제로 돈을 벌고 있다는 게 포인트다. 클링은 이미 사용자 6천만 명, 월간 활성 사용자 1,200만 명을 확보했고, 연 매출이 2.4억 달러(약 3,500억 원)에 달한다. 기업 고객만 3만 곳이 넘는다. AI 영상 리뷰 매체 Curious Refuge는 10점 만점에 8.1점을 주면서 'AI 비디오 생성기의 새로운 왕'이라고 평가했다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. 시댄스 2.0: 사진+영상+음악+텍스트를 한꺼번에 넣는다"
     },
@@ -59,9 +72,6 @@
     {
       "type": "text",
       "value": "캐릭터 고정 기능도 인상적이다. 한 번 설정한 캐릭터가 장면이 바뀌어도 같은 모습을 유지한다. 입 모양에 맞춰 음성을 동기화하고, 배경음과 효과음도 알아서 만들어준다. 물이 흐르거나 물건이 떨어지는 물리 법칙까지 자연스럽게 반영된다.\n\n속도도 놀랍다. 5초짜리 영상을 만드는 데 1분이 안 걸린다. 다른 AI 영상 도구들이 보통 3~5분 걸리는 걸 생각하면 엄청나게 빠른 거다. 해외 레딧에서는 'Sora 2보다 낫다'는 반응이 나왔고, '중국판 Sora 2 모먼트'라는 평가까지 등장했다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -107,9 +117,6 @@
       "value": "What sets Kling apart isn't just the tech, though. It's already making serious money. The platform has 60 million users, 12 million monthly active users, and pulls in $240 million a year in revenue. Over 30,000 businesses are paying customers. AI video review site Curious Refuge gave it an 8.1 out of 10, calling it 'the new king of AI video generators.'"
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. Seedance 2.0: Feed It Photos, Video, Music, and Text All at Once"
     },
@@ -125,9 +132,6 @@
     {
       "type": "text",
       "value": "Character locking is another neat trick. Once you set up a character, they look the same across every scene. The AI auto-syncs lip movements to dialogue, adds ambient sounds, background music, and sound effects. It even simulates physics, so water flows and objects fall naturally.\n\nThe speed is wild. A 5-second video takes less than a minute to generate. Most competitors need 3 to 5 minutes. On Reddit, users are saying it's 'better than Sora 2,' and some are calling it 'China's Sora 2 moment.'"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

@@ -2,16 +2,13 @@
  * 스팀 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
 
 function generateSteamPage(data) {
   const { steam, cacheVersion = '' } = data;
-
-  // PC + 모바일 광고 슬롯
-  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   // 스팀 placeholder SVG
   const steamPlaceholder = '<svg viewBox="0 0 24 24" fill="#66c0f4"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.007l2.862-4.145v-.058c0-2.495 2.03-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.104.004.156 0 1.871-1.52 3.393-3.393 3.393-1.618 0-2.974-1.14-3.305-2.658l-4.6-1.903C1.463 19.63 6.27 24 11.979 24c6.627 0 12-5.373 12-12S18.606 0 11.979 0z"/></svg>';
@@ -52,7 +49,6 @@ function generateSteamPage(data) {
     <section class="section active" id="steam">
       
       <div class="page-container">
-        ${topAds}
         <h1 class="visually-hidden">스팀 게임 순위</h1>
         <div class="steam-card home-card">
           <div class="home-card-header">

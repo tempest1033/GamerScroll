@@ -6,32 +6,106 @@
   "keywords": "붉은사막, Crimson Desert, 펄어비스, Pearl Abyss, 붉은사막 출시일, 2026년 3월, 붉은사막 오픈월드, 붉은사막 트레일러, 클리프, 회색갈기, 검은사막, 게임스컴 2024, PS5, Xbox, Steam",
   "summary": "펄어비스가 붉은사막 3부작 트레일러 시리즈를 시작했다. 2019년 첫 공개 이후 7년, 수차례 연기 끝에 드디어 출시가 두 달 앞으로 다가왔다.",
   "thumbnail": "https://assets-prd.ignimgs.com/2026/01/29/3-3840-bi-1769699732446.jpg",
-  "relatedIssues": ["seven-deadly-sins-origin-delay-2026"],
-  "relatedWiki": ["business/korean-game-stocks-2025"],
-  "relatedGames": ["검은사막-모바일"],
+  "relatedIssues": [
+    "seven-deadly-sins-origin-delay-2026"
+  ],
+  "relatedWiki": [
+    "business/korean-game-stocks-2025"
+  ],
+  "relatedGames": [
+    "검은사막-모바일"
+  ],
   "sources": [
-    { "name": "YouTube", "title": "Features Overview #1: Kliff and the Open World of Pywel", "url": "https://www.youtube.com/watch?v=MfZCV8EySac" },
-    { "name": "IGN", "title": "Crimson Desert Gets 15-Minute Video Showing Off Open World and New Gameplay", "url": "https://www.ign.com/articles/crimson-desert-gets-15-minute-video-showing-off-open-world-and-new-gameplay" },
-    { "name": "펄어비스", "title": "붉은사막 공식 사이트", "url": "https://crimsondesert.pearlabyss.com" }
+    {
+      "name": "YouTube",
+      "title": "Features Overview #1: Kliff and the Open World of Pywel",
+      "url": "https://www.youtube.com/watch?v=MfZCV8EySac"
+    },
+    {
+      "name": "IGN",
+      "title": "Crimson Desert Gets 15-Minute Video Showing Off Open World and New Gameplay",
+      "url": "https://www.ign.com/articles/crimson-desert-gets-15-minute-video-showing-off-open-world-and-new-gameplay"
+    },
+    {
+      "name": "펄어비스",
+      "title": "붉은사막 공식 사이트",
+      "url": "https://crimsondesert.pearlabyss.com"
+    }
   ],
   "content": [
-    { "type": "text", "value": "펄어비스가 붉은사막의 첫 번째 트레일러 영상을 공개했다. 3부작으로 구성된 이번 시리즈는 게임의 핵심 요소를 차례로 소개하며, 첫 편에서는 주인공 클리프와 파이웰 대륙 오픈월드를 다뤘다." },
-    { "type": "heading", "value": "1. 붉은사막 개발 히스토리, 2019년부터 7년" },
-    { "type": "image", "src": "https://i.ytimg.com/vi/MfZCV8EySac/maxresdefault.jpg", "caption": "붉은사막 피처 오버뷰 #1", "alt": "붉은사막 피처 오버뷰 트레일러 썸네일" },
-    { "type": "link", "url": "https://www.youtube.com/@CrimsonDesert", "text": "붉은사막 공식 유튜브", "subtext": "3부작 트레일러 시리즈 보러가기" },
-    { "type": "text", "value": "붉은사막은 2019년 G-STAR에서 처음 공개됐다. 당시 검은사막의 전작으로 소개됐지만 이후 독립 IP로 전환했고, 2024년 게임스컴에서 대규모 게임플레이를 선보이며 글로벌 게이머들의 기대를 한몸에 받았다. 수차례 출시 연기를 거쳐 마침내 붉은사막 출시일이 2026년 3월 19일로 확정됐다.\n\n펄어비스는 검은사막으로 오픈월드 MMORPG의 가능성을 증명한 바 있다. 그 노하우가 집약된 붉은사막은 싱글플레이 중심의 액션 어드벤처로, 장르는 다르지만 기대감은 더욱 크다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "2. 붉은사막 스토리, 클리프와 회색갈기" },
-    { "type": "image", "src": "https://assets-prd.ignimgs.com/2026/01/29/1-3840-bi-1769699732446.jpg", "caption": "회색갈기 용병단의 클리프", "alt": "붉은사막 주인공 클리프 캐릭터 스크린샷" },
-    { "type": "text", "value": "이번 영상의 주인공은 회색갈기 용병단의 클리프다. 숙적 검은곰의 습격으로 동료들이 흩어지고, 클리프는 이들을 다시 모아 잃어버린 것들을 되찾기 위한 여정을 시작한다.\n\n펄어비스는 \"그 길에서 새로운 동맹과 피할 수 없는 적, 정체를 알 수 없는 세력과 마주하게 된다\"고 스토리를 암시했다. 단순한 복수극을 넘어 대륙 전체를 뒤흔드는 거대한 서사가 펼쳐질 것으로 보인다." },
-    { "type": "heading", "value": "3. 붉은사막 오픈월드, 파이웰 대륙" },
-    { "type": "image", "src": "https://assets-prd.ignimgs.com/2026/01/29/2-3840-bi-1769699732446.jpg", "caption": "파이웰 대륙의 광활한 오픈월드", "alt": "붉은사막 파이웰 대륙 오픈월드 풍경 스크린샷" },
-    { "type": "text", "value": "영상에서는 파이웰 대륙의 광활한 오픈월드가 공개됐다. 야생부터 도시, 고대 유적까지 다양한 환경이 등장하며, 탐험·퀘스트·전투로 대륙 곳곳을 누빌 수 있다.\n\n이번 영상은 실제 게임플레이를 캡처한 영상으로, 펄어비스는 그래픽 퀄리티에 대한 자신감을 드러냈다. 검은사막으로 증명한 오픈월드 노하우가 붉은사막에서 어떻게 진화했는지 확인할 수 있는 대목이다." },
-    { "type": "ad" },
-    { "type": "heading", "value": "4. 붉은사막 트레일러 시리즈, 앞으로 2편 더" },
-    { "type": "image", "src": "https://assets-prd.ignimgs.com/2026/01/29/4-3840-bi-1769699732446.jpg", "caption": "3부작 트레일러 시리즈 첫 편", "alt": "붉은사막 트레일러 시리즈 게임플레이 장면" },
-    { "type": "text", "value": "이번 영상은 3부작의 첫 번째 편이다. 붉은사막 출시까지 두 달여, 남은 2편에서 어떤 내용이 공개될지 관심이 모인다.\n\n공개 하루 만에 조회수 5만 회를 넘기며 게이머들의 뜨거운 관심을 확인했다. 출시가 다가올수록 펄어비스의 정보 공개도 빨라질 것으로 예상된다." },
-    { "type": "heading", "value": "마치며: 7년의 기다림, 드디어 끝이 보인다" },
-    { "type": "text", "value": "붉은사막은 PS5, Xbox Series X|S, Steam, Mac, Epic Games Store에서 2026년 3월 19일 동시 출시된다. 2019년 첫 공개 이후 수많은 게이머들이 기다려온 작품인 만큼, 출시일이 다가올수록 기대감도 커지고 있다. 7년간의 기다림이 어떤 결실을 맺을지, 많은 게이머들이 3월을 손꼽아 기다리고 있다." }
+    {
+      "type": "text",
+      "value": "펄어비스가 붉은사막의 첫 번째 트레일러 영상을 공개했다. 3부작으로 구성된 이번 시리즈는 게임의 핵심 요소를 차례로 소개하며, 첫 편에서는 주인공 클리프와 파이웰 대륙 오픈월드를 다뤘다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 붉은사막 개발 히스토리, 2019년부터 7년"
+    },
+    {
+      "type": "image",
+      "src": "https://i.ytimg.com/vi/MfZCV8EySac/maxresdefault.jpg",
+      "caption": "붉은사막 피처 오버뷰 #1",
+      "alt": "붉은사막 피처 오버뷰 트레일러 썸네일"
+    },
+    {
+      "type": "link",
+      "url": "https://www.youtube.com/@CrimsonDesert",
+      "text": "붉은사막 공식 유튜브",
+      "subtext": "3부작 트레일러 시리즈 보러가기"
+    },
+    {
+      "type": "text",
+      "value": "붉은사막은 2019년 G-STAR에서 처음 공개됐다. 당시 검은사막의 전작으로 소개됐지만 이후 독립 IP로 전환했고, 2024년 게임스컴에서 대규모 게임플레이를 선보이며 글로벌 게이머들의 기대를 한몸에 받았다. 수차례 출시 연기를 거쳐 마침내 붉은사막 출시일이 2026년 3월 19일로 확정됐다.\n\n펄어비스는 검은사막으로 오픈월드 MMORPG의 가능성을 증명한 바 있다. 그 노하우가 집약된 붉은사막은 싱글플레이 중심의 액션 어드벤처로, 장르는 다르지만 기대감은 더욱 크다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 붉은사막 스토리, 클리프와 회색갈기"
+    },
+    {
+      "type": "image",
+      "src": "https://assets-prd.ignimgs.com/2026/01/29/1-3840-bi-1769699732446.jpg",
+      "caption": "회색갈기 용병단의 클리프",
+      "alt": "붉은사막 주인공 클리프 캐릭터 스크린샷"
+    },
+    {
+      "type": "text",
+      "value": "이번 영상의 주인공은 회색갈기 용병단의 클리프다. 숙적 검은곰의 습격으로 동료들이 흩어지고, 클리프는 이들을 다시 모아 잃어버린 것들을 되찾기 위한 여정을 시작한다.\n\n펄어비스는 \"그 길에서 새로운 동맹과 피할 수 없는 적, 정체를 알 수 없는 세력과 마주하게 된다\"고 스토리를 암시했다. 단순한 복수극을 넘어 대륙 전체를 뒤흔드는 거대한 서사가 펼쳐질 것으로 보인다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 붉은사막 오픈월드, 파이웰 대륙"
+    },
+    {
+      "type": "image",
+      "src": "https://assets-prd.ignimgs.com/2026/01/29/2-3840-bi-1769699732446.jpg",
+      "caption": "파이웰 대륙의 광활한 오픈월드",
+      "alt": "붉은사막 파이웰 대륙 오픈월드 풍경 스크린샷"
+    },
+    {
+      "type": "text",
+      "value": "영상에서는 파이웰 대륙의 광활한 오픈월드가 공개됐다. 야생부터 도시, 고대 유적까지 다양한 환경이 등장하며, 탐험·퀘스트·전투로 대륙 곳곳을 누빌 수 있다.\n\n이번 영상은 실제 게임플레이를 캡처한 영상으로, 펄어비스는 그래픽 퀄리티에 대한 자신감을 드러냈다. 검은사막으로 증명한 오픈월드 노하우가 붉은사막에서 어떻게 진화했는지 확인할 수 있는 대목이다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 붉은사막 트레일러 시리즈, 앞으로 2편 더"
+    },
+    {
+      "type": "image",
+      "src": "https://assets-prd.ignimgs.com/2026/01/29/4-3840-bi-1769699732446.jpg",
+      "caption": "3부작 트레일러 시리즈 첫 편",
+      "alt": "붉은사막 트레일러 시리즈 게임플레이 장면"
+    },
+    {
+      "type": "text",
+      "value": "이번 영상은 3부작의 첫 번째 편이다. 붉은사막 출시까지 두 달여, 남은 2편에서 어떤 내용이 공개될지 관심이 모인다.\n\n공개 하루 만에 조회수 5만 회를 넘기며 게이머들의 뜨거운 관심을 확인했다. 출시가 다가올수록 펄어비스의 정보 공개도 빨라질 것으로 예상된다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 7년의 기다림, 드디어 끝이 보인다"
+    },
+    {
+      "type": "text",
+      "value": "붉은사막은 PS5, Xbox Series X|S, Steam, Mac, Epic Games Store에서 2026년 3월 19일 동시 출시된다. 2019년 첫 공개 이후 수많은 게이머들이 기다려온 작품인 만큼, 출시일이 다가올수록 기대감도 커지고 있다. 7년간의 기다림이 어떤 결실을 맺을지, 많은 게이머들이 3월을 손꼽아 기다리고 있다."
+    }
   ]
 }

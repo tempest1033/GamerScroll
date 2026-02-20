@@ -3,15 +3,11 @@
  * 메인 페이지와 일관된 home-card 스타일 사용
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot, generateMidAdPairSlot } = require('../layout');
+const { wrapWithLayout } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
-
-// PC + 모바일 광고 슬롯
-const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
-const midAds = generateMidAdPairSlot(AD_SLOTS.ResponsivePC002, AD_SLOTS.Mobile002);
 
 // 공통 차트 설정 (모든 차트가 이 설정을 공유)
 const CHART_CONFIG = {
@@ -1197,7 +1193,6 @@ function generateGamePage(gameData) {
     <section class="section active" id="game">
 
       <div class="page-container game-page-grid">
-        ${topAds}
         <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
         <!-- 게임 히어로 -->
         <div class="home-card game-hero grid-full">
@@ -1262,9 +1257,6 @@ function generateGamePage(gameData) {
           <div class="home-card-body">${generateRankTrendSection()}</div>
         </div>
         ` : ''}
-
-        ${midAds ? `<!-- 중간 광고 (반응형 - 모바일 우선 표시) -->
-        <div class="grid-full mobile-only-ad">${midAds}</div>` : ''}
 
         ${relatedContent.length > 0 ? `
         <!-- 뉴스 (관련 콘텐츠: 이슈/위키/핫픽/인사이트) -->

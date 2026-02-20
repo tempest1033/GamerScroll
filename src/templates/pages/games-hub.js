@@ -4,14 +4,11 @@
  * - 전체 게임 목록 (초성/알파벳순)
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
-
-// PC + 모바일 광고 슬롯
-const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
 /**
  * 초성 추출 함수
@@ -206,7 +203,6 @@ function generateGamesHubPage(options = {}) {
     <section class="section active" id="games">
       
       <div class="page-container" id="top">
-        ${topAds}
         <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
         ${searchResultsSection}
         ${recentGamesSection}

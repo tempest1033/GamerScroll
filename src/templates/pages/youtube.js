@@ -1,17 +1,14 @@
-﻿/**
+/**
  * 영상 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generateAdPairSlot } = require('../layout');
+const { wrapWithLayout } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
 
 function generateYoutubePage(data) {
   const { youtube, chzzk } = data;
-
-  // PC + 모바일 광고 슬롯
-  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   // 유튜브 그리드 생성 (세로형 카드)
   function generateYoutubeGrid(videos) {
@@ -62,9 +59,8 @@ function generateYoutubePage(data) {
 
   const content = `
     <section class="section active" id="youtube">
-      
+
       <div class="page-container">
-        ${topAds}
         <h1 class="visually-hidden">게임 영상 - 유튜브 인기, 치지직 라이브</h1>
 
         <!-- 유튜브 인기 섹션 -->

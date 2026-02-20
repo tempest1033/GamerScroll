@@ -36,9 +36,6 @@
       "value": "**유료 요금제 ($20): 동률**\n\n챗GPT Plus는 GPT-5.2 플래그십 모델을 제공한다. Codex 통합으로 코딩 작업이 강화됐고, 소라2 비디오 생성, GPT Image 1.5 이미지 생성도 포함된다. 40만 토큰 컨텍스트 윈도우와 12만 8천 토큰 출력 용량을 지원한다.\n\n제미나이 Pro(월 19.99달러)는 Gemini 3 Pro 모델과 구글 워크스페이스 연동이 강점이다. Gmail, 드라이브, 캘린더와 자연스럽게 통합되며, NotebookLM 같은 도구도 활용할 수 있다. 가격은 비슷하지만 생태계가 다르니 자신의 작업 환경에 맞는 서비스를 선택해야 한다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "text",
       "value": "**헤비유저 요금제: 챗GPT 승**\n\n챗GPT Pro(월 200달러)는 GPT-5.2 Pro 모델을 제공한다. 현시점 가장 높은 지능을 가진 모델로 널리 알려져 있다. 추상적 추론 벤치마크(ARC-AGI-2)에서 54.2%를 기록하며 경쟁 모델을 크게 앞섰다. 전문 분야 연구, 심도 깊은 분석, 복잡한 추론이 필요한 작업에서 독보적이다.\n\n추가로 우선 처리(Prioritized traffic)가 적용되어 피크 시간대에도 빠른 응답을 받을 수 있다. 추론 강도(reasoning effort)도 xhigh까지 5단계로 조절할 수 있어, 작업 난이도에 따라 사고 깊이를 높일 수 있다. 다만 GPT-5.2 Pro 수준의 심층 사고는 대부분의 일반 사용자에게 필요하지 않을 수 있다.\n\n반면 제미나이 Ultra(월 249.99달러)는 Pro 대비 얻을 수 있는 이점이 거의 없다. 구글 클라우드 스토리지가 추가되지만, 모델 성능 향상은 미미하다. 가성비가 현저히 떨어진다.\n\n각 서비스의 강점과 단점은 아래에서 상세히 다룬다."
     },
@@ -111,9 +108,6 @@
       "value": "**느린 응답 속도**\n\n응답 속도가 제미나이보다 느리다. 같은 질문에 체감상 1.5~2배 더 오래 걸린다. 빠른 피드백이 필요한 작업에서는 답답할 수 있다.\n\n**구글 연동 제한**\n\n구글 생태계와의 연동이 제한적이다. Gmail, 드라이브, 캘린더 등 구글 서비스를 주로 사용하는 사람에게는 불편하다. 이미지 생성에서 나노바나나2에 밀린다. 특히 리얼리즘과 문자 생성에서 격차가 크다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. 제미나이 강점"
     },
@@ -170,9 +164,6 @@
     {
       "type": "text",
       "value": "이미지 생성에서는 제미나이의 나노바나나2가 챗GPT의 GPT Image 1.5를 압도한다.\n\n나노바나나2는 리얼리즘 표현에서 독보적이다. 실사 이미지 생성 품질이 월등히 뛰어나 사진과 구분하기 어려운 수준이다. 특히 이미지 내 문자 생성에서 압도적인 성능을 보여준다. 간판, 포스터, 텍스트가 포함된 이미지 작업에서 큰 차이를 만든다. 드라마틱 조명을 제외한 거의 모든 영역에서 우위를 점한다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "text",
@@ -415,9 +406,6 @@
       "value": "**Paid Tier ($20): Tie**\n\nChatGPT Plus provides the GPT-5.2 flagship model. Codex integration has strengthened coding tasks, and it includes Sora2 video generation and GPT Image 1.5 image generation. It supports a 400,000 token context window and 128,000 token output capacity.\n\nGemini Pro (monthly $19.99) excels with the Gemini 3 Pro model and Google Workspace integration. It integrates naturally with Gmail, Drive, and Calendar, and you can also utilize tools like NotebookLM. Prices are similar but ecosystems differ, so choose the service that fits your work environment."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "text",
       "value": "**Power User Tier: ChatGPT Wins**\n\nChatGPT Pro (monthly $200) provides the GPT-5.2 Pro model. It's widely recognized as the most intelligent model currently available. It scored 54.2% on the abstract reasoning benchmark (ARC-AGI-2), significantly ahead of competing models. It's unmatched for specialized research, in-depth analysis, and complex reasoning tasks.\n\nAdditionally, prioritized traffic is applied so you can get fast responses even during peak hours. Reasoning effort can be adjusted across 5 levels up to xhigh, allowing you to increase thinking depth based on task difficulty. However, the deep thinking level of GPT-5.2 Pro may not be necessary for most general users.\n\nIn contrast, Gemini Ultra (monthly $249.99) offers almost no benefits compared to Pro. It adds Google Cloud storage, but model performance improvements are minimal. The value proposition is significantly poor.\n\nThe strengths and weaknesses of each service are covered in detail below."
     },
@@ -490,9 +478,6 @@
       "value": "**Slow Response Speed**\n\nResponse speed is slower than Gemini. The same question takes noticeably 1.5-2 times longer. This can be frustrating for tasks requiring quick feedback.\n\n**Limited Google Integration**\n\nGoogle ecosystem integration is limited. It's inconvenient for those who primarily use Google services like Gmail, Drive, and Calendar. It falls behind Nanobanana2 in image generation. The gap is particularly large in realism and text generation."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "4. Gemini Strengths"
     },
@@ -549,9 +534,6 @@
     {
       "type": "text",
       "value": "In image generation, Gemini's Nanobanana2 dominates ChatGPT's GPT Image 1.5.\n\nNanobanana2 is unmatched in realism expression. Photorealistic image generation quality is far superior, making it difficult to distinguish from photographs. It shows overwhelming performance especially in text generation within images. This makes a big difference in work involving signs, posters, and text-containing images. It leads in almost all areas except dramatic lighting."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "text",

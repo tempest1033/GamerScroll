@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { buildCardFeedPagerScript, LAYOUT_CORE_ASSET, buildLayoutCoreBundle } = require('../layout');
+const { buildCardFeedPagerScript, LAYOUT_CORE_ASSET, buildLayoutCoreBundle, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 
 // 사이트 설정
 const SITE_CONFIG = {
@@ -555,6 +555,9 @@ function generateAIBlogIndex(data) {
     `;
   }
 
+  // 상단 광고
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+
   // 메인 콘텐츠
   const content = `
     <section class="home-section active" id="home">
@@ -562,6 +565,7 @@ function generateAIBlogIndex(data) {
       <div class="page-container">
         <div class="home-container">
           <div class="home-main">
+            ${topAds}
             ${generatePopularCards()}
             ${generateLatestGrid()}
           </div>
@@ -1833,6 +1837,28 @@ function wrapWithLayout(content, options = {}) {
     }, { passive: true });
   })();
   </script>
+  <script>
+  (function() {
+    var ads = document.querySelectorAll('.adsbygoogle');
+    if (!ads.length) return;
+    function initAdsObserver() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '900px' });
+      ads.forEach(function(ad) { observer.observe(ad); });
+    }
+    if (window.__adsenseReady) {
+      initAdsObserver();
+    } else {
+      window.addEventListener('adsenseReady', initAdsObserver, { once: true });
+    }
+  })();
+  </script>
   ${pageScripts}
   ${shouldLoadTwitterWidget ? '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' : ''}
   <script>
@@ -2075,11 +2101,14 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     </div>
   `;
 
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+
   const content = `
     <section class="home-section active" id="category">
       <div class="page-container">
         <div class="home-container">
           <div class="home-main">
+            ${topAds}
             <div class="home-card">
               <div class="home-card-header">
                 <h1 class="home-card-title">${escapeHtml(categoryLabel)}</h1>

@@ -11,10 +11,26 @@
   "summaryEn": "Google's Gemini 3 Deep Think set new benchmark highs on ARC-AGI-2 and Codeforces, but users remain cold. Three months of hallucination backlash — VICE's 91% rate, Reddit's 'hallucination machine' label — haven't subsided despite Deep Think's arrival.",
   "thumbnail": "https://cdn.aitimes.kr/news/photo/202602/38658_58578_4215.jpg",
   "sources": [
-    { "name": "Google DeepMind", "title": "Accelerating mathematical and scientific discovery with Gemini Deep Think", "url": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/" },
-    { "name": "VICE", "title": "Gemini 3 Flash hallucination rate study", "url": "https://www.vice.com/en/article/google-gemini-hallucination-rate/" },
-    { "name": "The Verge", "title": "Google DeepMind unveils Gemini Deep Think upgrade", "url": "https://www.theverge.com/2026/2/12/google-deepmind-gemini-deep-think-upgrade" },
-    { "name": "TechCrunch", "title": "Google's Gemini 3 Deep Think claims benchmark dominance", "url": "https://techcrunch.com/2026/02/12/google-gemini-3-deep-think-benchmarks/" }
+    {
+      "name": "Google DeepMind",
+      "title": "Accelerating mathematical and scientific discovery with Gemini Deep Think",
+      "url": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/"
+    },
+    {
+      "name": "VICE",
+      "title": "Gemini 3 Flash hallucination rate study",
+      "url": "https://www.vice.com/en/article/google-gemini-hallucination-rate/"
+    },
+    {
+      "name": "The Verge",
+      "title": "Google DeepMind unveils Gemini Deep Think upgrade",
+      "url": "https://www.theverge.com/2026/2/12/google-deepmind-gemini-deep-think-upgrade"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Google's Gemini 3 Deep Think claims benchmark dominance",
+      "url": "https://techcrunch.com/2026/02/12/google-gemini-3-deep-think-benchmarks/"
+    }
   ],
   "relatedDocs": [
     "tech:ai/deepmind-update-aletheia-gemini",
@@ -47,9 +63,6 @@
       "value": "클로드 오푸스 4.6, GPT-5.2와 비교해도 과학과 추론 영역에서는 확실히 앞서는 수치다. 환각 관련 지표인 SimpleQA 72.1%, FACTS Grounding 70.5%로도 1위를 기록했다. 한편 커뮤니티에서는 딥씽크가 내부적으로 Gemini 3.1 Pro를 기반으로 한다는 추측이 퍼지고 있다. 벤치마크 DB에서 'Gemini 3.1 Pro Preview'라는 이름이 포착된 것이 계기였다. 구글은 공식 명칭을 '제미나이 3 딥씽크'로 유지하고 있다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. LessWrong 벤치마크 오염 의심, 출시 직후부터 쌓인 불신 (2025.11.20)"
     },
@@ -72,9 +85,6 @@
     {
       "type": "text",
       "value": "출시 이틀 만에 전문가 커뮤니티와 AI 분석가가 거의 동시에 비판의 포문을 연 셈이다. 벤치마크 숫자를 전면에 내세우지만 실사용 품질은 그에 비례하지 않는다는 지적은, 딥씽크가 발표된 지금도 유효해 보인다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -125,9 +135,6 @@
       "value": "특히 눈에 띄는 것은 '환각의 함정(The Hallucination Trap)'이라는 표현이다. r/GoogleGeminiAI에서는 \"시간만 오래 걸리고 환각은 줄어들지 않는다\"는 비판이 제기됐고, \"클로드를 써봤더니 바로 감동받았다\"는 후기도 36개의 추천을 받았다. 다모앙에서는 \"할루시네이션 때문에 ChatGPT로 돌아왔다\"는 반응이 나왔다. 심지어 제미나이가 Pro 플랜에서 딥씽크를 쓸 수 있다고 답했다가 스스로 환각이었다고 인정한 사례까지 공유됐다. \"딥씽크가 사실은 제미나이 3.1 Pro, 결국 $250 더 받으려는 것\"이라는 냉소도 퍼지고 있다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "마치며: 숫자가 아닌 다른 관점에서의 개선이 필요하다"
     },
@@ -164,9 +171,6 @@
       "value": "Even compared to Claude Opus 4.6 and GPT-5.2, these numbers clearly lead in science and reasoning. Google also claimed first place on hallucination metrics — SimpleQA at 72.1% and FACTS Grounding at 70.5%. Meanwhile, speculation has spread that Deep Think is internally based on Gemini 3.1 Pro, triggered by the name 'Gemini 3.1 Pro Preview' appearing in a benchmark database. Google maintains the official name as 'Gemini 3 Deep Think.'"
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. LessWrong's Benchmark Contamination Concerns: Distrust From Day One (Nov 20, 2025)"
     },
@@ -189,9 +193,6 @@
     {
       "type": "text",
       "value": "Within just two days of launch, both the expert community and an influential AI analyst had opened fire almost simultaneously. The critique — benchmark numbers don't match real-world quality — appears to have lost none of its relevance even now."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -240,9 +241,6 @@
     {
       "type": "text",
       "value": "One particularly telling critique: r/GoogleGeminiAI's 'The Hallucination Trap,' arguing Deep Think simply takes longer without reducing hallucinations. 'I tried Claude and was instantly impressed' drew 36 upvotes. On Damoang, a Korean user shared: 'I came back to ChatGPT because of the hallucination explosions.' Gemini even hallucinated about its own features — claiming Deep Think was available on Pro, then admitting that was itself a hallucination. Cynicism about pricing also spread: 'Deep Think was really Gemini 3.1 Pro — just to charge extra $250.'"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

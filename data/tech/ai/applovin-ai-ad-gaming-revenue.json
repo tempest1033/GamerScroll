@@ -64,9 +64,6 @@
       "value": "앱러빈의 제품 라인업은 크게 세 축으로 나뉜다. 광고주가 유저를 확보하는 AppDiscovery(DSP), 게임 개발사가 광고 수익을 극대화하는 MAX(SSP/미디에이션), 그리고 성과를 측정하는 Adjust(어트리뷰션)다.\n\n이 중 MAX는 10만 개 이상의 앱이 연동된 광고 미디에이션 플랫폼으로, 게임 개발사에게 가장 중요한 도구다. 여러 광고 네트워크의 입찰을 실시간으로 비교해 가장 높은 단가의 광고를 자동 선택한다. 개발사는 복잡한 광고 운영 없이도 수익을 극대화할 수 있다.\n\n앱러빈이 차별화되는 지점은 바로 이 수직 통합이다. 수요(AppDiscovery) + 공급(MAX) + 측정(Adjust)을 하나의 플랫폼에서 모두 제공한다. 광고주와 개발사 양쪽의 데이터가 AXON 엔진으로 흘러들어가면서, 광고 효율은 점점 더 높아지는 선순환 구조가 만들어진다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. 하이브리드 캐주얼, 광고형 수익모델의 새 주류"
     },
@@ -87,9 +84,6 @@
     {
       "type": "text",
       "value": "앱러빈은 2025년 자사 게임 스튜디오를 전부 매각하고 순수 광고 테크 기업으로 전환했다. 이 결정은 업계에서 큰 주목을 받았다.\n\n게임을 직접 만들면 자사 플랫폼의 중립성에 의문이 생긴다. 경쟁 게임사 입장에서는 '내 광고 데이터가 경쟁사의 게임 개발에 활용될 수 있다'는 우려가 있었다. 매각으로 이 갈등을 깔끔하게 해소한 것이다.\n\n동시에 앱러빈은 이커머스 광고로 영역을 확장했다. AXON Ads Manager를 통해 쇼핑 광고까지 AI 최적화를 적용하기 시작했는데, 이는 게임에서 검증된 AI 광고 기술이 다른 산업으로도 확장 가능하다는 것을 보여주는 사례다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -152,9 +146,6 @@
       "value": "AppLovin's product lineup breaks into three pillars: AppDiscovery (DSP) for advertisers to acquire users, MAX (SSP/mediation) for game developers to maximize ad revenue, and Adjust (attribution) for measuring performance.\n\nAmong these, MAX is a mediation platform with over 100,000 connected apps, making it the most critical tool for game developers. It compares bids from multiple ad networks in real time and automatically selects the highest-paying ad. Developers can maximize revenue without complex ad operations.\n\nWhere AppLovin differentiates itself is precisely this vertical integration. Demand (AppDiscovery) + Supply (MAX) + measurement (Adjust) are all provided on a single platform. As data from both advertisers and developers flows into the AXON engine, ad efficiency continuously improves in a virtuous cycle."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. Hybrid Casual: The New Mainstream of Ad-Based Revenue"
     },
@@ -175,9 +166,6 @@
     {
       "type": "text",
       "value": "In 2025, AppLovin sold all its game studios and pivoted to being a pure ad tech company. This decision drew significant attention from the industry.\n\nMaking games in-house raises questions about platform neutrality. Competing game developers worried that 'my ad data could be used for a competitor's game development.' The sale cleanly resolved this conflict.\n\nSimultaneously, AppLovin expanded into e-commerce advertising. Through the AXON Ads Manager, they began applying AI optimization to shopping ads as well, demonstrating that AI advertising technology proven in gaming can extend to other industries."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

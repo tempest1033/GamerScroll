@@ -40,7 +40,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "바이브 코딩 종합 가이드: 툴 비교&설치부터 실전까지", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "바이브 코딩 종합 가이드: 툴 비교&설치부터 실전까지",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -62,25 +67,62 @@
     {
       "type": "table",
       "caption": "Git 주요 명령어",
-      "headers": ["명령어", "하는 일", "게임으로 비유하면"],
+      "headers": [
+        "명령어",
+        "하는 일",
+        "게임으로 비유하면"
+      ],
       "rows": [
-        ["git clone", "원격 저장소를 내 컴퓨터에 복사", "게임 다운로드"],
-        ["git add", "변경한 파일을 커밋 대기열에 추가", "인벤토리에 아이템 담기"],
-        ["git commit", "변경사항을 저장소에 기록", "세이브"],
-        ["git push", "로컬 커밋을 원격 저장소에 업로드", "클라우드 세이브"],
-        ["git pull", "원격 저장소의 최신 변경사항 가져오기", "업데이트 패치"],
-        ["git branch", "독립적인 작업 공간 생성", "새 세이브 슬롯"],
-        ["git merge", "브랜치를 합치기", "세이브 슬롯 합치기"],
-        ["git diff", "변경사항 비교", "변경 로그 확인"],
-        ["git revert", "특정 커밋을 되돌리기", "롤백"]
+        [
+          "git clone",
+          "원격 저장소를 내 컴퓨터에 복사",
+          "게임 다운로드"
+        ],
+        [
+          "git add",
+          "변경한 파일을 커밋 대기열에 추가",
+          "인벤토리에 아이템 담기"
+        ],
+        [
+          "git commit",
+          "변경사항을 저장소에 기록",
+          "세이브"
+        ],
+        [
+          "git push",
+          "로컬 커밋을 원격 저장소에 업로드",
+          "클라우드 세이브"
+        ],
+        [
+          "git pull",
+          "원격 저장소의 최신 변경사항 가져오기",
+          "업데이트 패치"
+        ],
+        [
+          "git branch",
+          "독립적인 작업 공간 생성",
+          "새 세이브 슬롯"
+        ],
+        [
+          "git merge",
+          "브랜치를 합치기",
+          "세이브 슬롯 합치기"
+        ],
+        [
+          "git diff",
+          "변경사항 비교",
+          "변경 로그 확인"
+        ],
+        [
+          "git revert",
+          "특정 커밋을 되돌리기",
+          "롤백"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "바이브 코딩에서 가장 자주 쓰는 건 commit(세이브), push(업로드), pull(동기화), branch(작업 분리) 네 가지다. 각 개념에 대한 더 자세한 설명은 형상관리툴 기사를 참고하자."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -118,7 +160,13 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "version-control-system", "category": "normal", "title": "형상관리툴 - Git, SVN, Perforce 개발 필수 도구", "thumbnail": "https://velog.velcdn.com/images/persestitan/post/5ef6f63a-c279-465d-b65d-97ff39848f6c/image.jpeg" }
+        {
+          "part": 1,
+          "slug": "version-control-system",
+          "category": "normal",
+          "title": "형상관리툴 - Git, SVN, Perforce 개발 필수 도구",
+          "thumbnail": "https://velog.velcdn.com/images/persestitan/post/5ef6f63a-c279-465d-b65d-97ff39848f6c/image.jpeg"
+        }
       ]
     },
     {
@@ -173,18 +221,24 @@
     {
       "type": "table",
       "caption": "클로드 코드 환경별 Git 기능",
-      "headers": ["환경", "Git 관련 주요 기능"],
+      "headers": [
+        "환경",
+        "Git 관련 주요 기능"
+      ],
       "rows": [
-        ["데스크탑 앱", "내장 diff 리뷰, AI가 수정한 내용을 시각적으로 확인 가능"],
-        ["VS Code", "인라인 diff 표시, 에디터 안에서 변경사항 수락/거절"]
+        [
+          "데스크탑 앱",
+          "내장 diff 리뷰, AI가 수정한 내용을 시각적으로 확인 가능"
+        ],
+        [
+          "VS Code",
+          "인라인 diff 표시, 에디터 안에서 변경사항 수락/거절"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "데스크탑 앱은 diff 리뷰에 특화되어 있다. AI가 수정한 내용을 시각적으로 확인할 수 있어, 뭐가 바뀌었는지 한눈에 파악된다.\n\nVS Code에서는 변경사항이 인라인 diff로 표시된다. 에디터 안에서 바로 변경을 수락하거나 거절할 수 있어, 터미널과 에디터를 오갈 필요가 없다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -211,11 +265,35 @@
     {
       "type": "table",
       "caption": "코덱스 승인 모드",
-      "headers": ["모드", "파일 읽기", "파일 수정", "명령 실행", "적합한 상황"],
+      "headers": [
+        "모드",
+        "파일 읽기",
+        "파일 수정",
+        "명령 실행",
+        "적합한 상황"
+      ],
       "rows": [
-        ["Auto (기본)", "자동", "자동", "작업 디렉토리 내 자동", "일상적인 작업, 신뢰하는 프로젝트"],
-        ["Read-only", "자동", "승인 필요", "승인 필요", "코드 분석, 리뷰만 할 때"],
-        ["Full Access", "자동", "자동", "전체 자동", "완전히 신뢰하는 환경에서만"]
+        [
+          "Auto (기본)",
+          "자동",
+          "자동",
+          "작업 디렉토리 내 자동",
+          "일상적인 작업, 신뢰하는 프로젝트"
+        ],
+        [
+          "Read-only",
+          "자동",
+          "승인 필요",
+          "승인 필요",
+          "코드 분석, 리뷰만 할 때"
+        ],
+        [
+          "Full Access",
+          "자동",
+          "자동",
+          "전체 자동",
+          "완전히 신뢰하는 환경에서만"
+        ]
       ]
     },
     {
@@ -243,18 +321,24 @@
     {
       "type": "table",
       "caption": "코덱스 환경별 Git 기능",
-      "headers": ["환경", "Git 관련 주요 기능"],
+      "headers": [
+        "환경",
+        "Git 관련 주요 기능"
+      ],
       "rows": [
-        ["데스크탑 앱", "내장 Review 기능으로 커밋 전 코드 리뷰 가능"],
-        ["VS Code", "슬래시 커맨드(/review 등), 에디터 내 diff 표시"]
+        [
+          "데스크탑 앱",
+          "내장 Review 기능으로 커밋 전 코드 리뷰 가능"
+        ],
+        [
+          "VS Code",
+          "슬래시 커맨드(/review 등), 에디터 내 diff 표시"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "코덱스 데스크탑 앱에서는 Review 기능이 내장되어 있어 커밋 전 코드 리뷰를 바로 수행할 수 있다.\n\nVS Code 확장에서는 슬래시 커맨드(/review 등)로 빠르게 Git 관련 작업을 실행할 수 있다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -273,11 +357,31 @@
     {
       "type": "table",
       "caption": "기본 워크플로우: 저장하고 올리기",
-      "headers": ["단계", "하는 일", "클로드 코드", "코덱스"],
+      "headers": [
+        "단계",
+        "하는 일",
+        "클로드 코드",
+        "코덱스"
+      ],
       "rows": [
-        ["1. 코드 수정", "AI와 함께 코드 작성", "자연어로 요청", "자연어로 요청"],
-        ["2. 커밋", "변경사항 저장 (세이브)", "\"커밋해줘\"", "\"커밋해줘\""],
-        ["3. 푸시", "GitHub에 업로드 (클라우드 세이브)", "\"푸시해줘\"", "\"푸시해줘\""]
+        [
+          "1. 코드 수정",
+          "AI와 함께 코드 작성",
+          "자연어로 요청",
+          "자연어로 요청"
+        ],
+        [
+          "2. 커밋",
+          "변경사항 저장 (세이브)",
+          "\"커밋해줘\"",
+          "\"커밋해줘\""
+        ],
+        [
+          "3. 푸시",
+          "GitHub에 업로드 (클라우드 세이브)",
+          "\"푸시해줘\"",
+          "\"푸시해줘\""
+        ]
       ]
     },
     {
@@ -295,12 +399,32 @@
     {
       "type": "table",
       "caption": "복구 및 동기화",
-      "headers": ["상황", "명령어", "AI 도구에서"],
+      "headers": [
+        "상황",
+        "명령어",
+        "AI 도구에서"
+      ],
       "rows": [
-        ["다른 기기의 최신 코드 가져오기", "git pull", "\"풀 해줘\""],
-        ["마지막 커밋 되돌리기", "git revert HEAD", "\"마지막 커밋 되돌려줘\""],
-        ["특정 커밋으로 돌아가기", "git revert <커밋ID>", "\"3번째 전 커밋으로 되돌려줘\""],
-        ["커밋 안 한 변경사항 버리기", "git checkout -- .", "\"변경사항 전부 취소해줘\""]
+        [
+          "다른 기기의 최신 코드 가져오기",
+          "git pull",
+          "\"풀 해줘\""
+        ],
+        [
+          "마지막 커밋 되돌리기",
+          "git revert HEAD",
+          "\"마지막 커밋 되돌려줘\""
+        ],
+        [
+          "특정 커밋으로 돌아가기",
+          "git revert <커밋ID>",
+          "\"3번째 전 커밋으로 되돌려줘\""
+        ],
+        [
+          "커밋 안 한 변경사항 버리기",
+          "git checkout -- .",
+          "\"변경사항 전부 취소해줘\""
+        ]
       ]
     },
     {
@@ -354,7 +478,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "Vibe Coding Complete Guide: From Tool Comparison & Installation to Practice", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "Vibe Coding Complete Guide: From Tool Comparison & Installation to Practice",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -376,25 +505,62 @@
     {
       "type": "table",
       "caption": "Essential Git Commands",
-      "headers": ["Command", "What It Does", "Gaming Analogy"],
+      "headers": [
+        "Command",
+        "What It Does",
+        "Gaming Analogy"
+      ],
       "rows": [
-        ["git clone", "Copy a remote repository to your computer", "Downloading a game"],
-        ["git add", "Stage changed files for commit", "Adding items to inventory"],
-        ["git commit", "Record changes to the repository", "Save game"],
-        ["git push", "Upload local commits to remote repository", "Cloud save"],
-        ["git pull", "Download latest changes from remote", "Downloading update patch"],
-        ["git branch", "Create an independent workspace", "New save slot"],
-        ["git merge", "Combine branches together", "Merging save slots"],
-        ["git diff", "Compare changes", "Checking change log"],
-        ["git revert", "Undo a specific commit", "Rollback"]
+        [
+          "git clone",
+          "Copy a remote repository to your computer",
+          "Downloading a game"
+        ],
+        [
+          "git add",
+          "Stage changed files for commit",
+          "Adding items to inventory"
+        ],
+        [
+          "git commit",
+          "Record changes to the repository",
+          "Save game"
+        ],
+        [
+          "git push",
+          "Upload local commits to remote repository",
+          "Cloud save"
+        ],
+        [
+          "git pull",
+          "Download latest changes from remote",
+          "Downloading update patch"
+        ],
+        [
+          "git branch",
+          "Create an independent workspace",
+          "New save slot"
+        ],
+        [
+          "git merge",
+          "Combine branches together",
+          "Merging save slots"
+        ],
+        [
+          "git diff",
+          "Compare changes",
+          "Checking change log"
+        ],
+        [
+          "git revert",
+          "Undo a specific commit",
+          "Rollback"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "The four commands you'll use most in vibe coding are commit (save), push (upload), pull (sync), and branch (separate workspaces). For a more detailed explanation of each concept, check out our version control systems article."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -432,7 +598,13 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "version-control-system", "category": "normal", "title": "Version Control Tools - Git, SVN, Perforce Essential Dev Tools", "thumbnail": "https://velog.velcdn.com/images/persestitan/post/5ef6f63a-c279-465d-b65d-97ff39848f6c/image.jpeg" }
+        {
+          "part": 1,
+          "slug": "version-control-system",
+          "category": "normal",
+          "title": "Version Control Tools - Git, SVN, Perforce Essential Dev Tools",
+          "thumbnail": "https://velog.velcdn.com/images/persestitan/post/5ef6f63a-c279-465d-b65d-97ff39848f6c/image.jpeg"
+        }
       ]
     },
     {
@@ -487,18 +659,24 @@
     {
       "type": "table",
       "caption": "Claude Code Git Features by Platform",
-      "headers": ["Platform", "Key Git Features"],
+      "headers": [
+        "Platform",
+        "Key Git Features"
+      ],
       "rows": [
-        ["Desktop App", "Built-in diff review, visually verify AI-made changes"],
-        ["VS Code", "Inline diff display, accept/reject changes in editor"]
+        [
+          "Desktop App",
+          "Built-in diff review, visually verify AI-made changes"
+        ],
+        [
+          "VS Code",
+          "Inline diff display, accept/reject changes in editor"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "The Claude Code desktop app specializes in diff review, letting you visually verify what the AI changed before committing.\n\nIn VS Code, changes appear as inline diffs. You can accept or reject changes right in the editor, eliminating the need to switch between terminal and editor."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -525,11 +703,35 @@
     {
       "type": "table",
       "caption": "Codex Approval Modes",
-      "headers": ["Mode", "File Read", "File Edit", "Command Execution", "Best For"],
+      "headers": [
+        "Mode",
+        "File Read",
+        "File Edit",
+        "Command Execution",
+        "Best For"
+      ],
       "rows": [
-        ["Auto (default)", "Auto", "Auto", "Auto within working dir", "Everyday work, trusted projects"],
-        ["Read-only", "Auto", "Requires approval", "Requires approval", "Code analysis and review only"],
-        ["Full Access", "Auto", "Auto", "Full auto", "Fully trusted environments only"]
+        [
+          "Auto (default)",
+          "Auto",
+          "Auto",
+          "Auto within working dir",
+          "Everyday work, trusted projects"
+        ],
+        [
+          "Read-only",
+          "Auto",
+          "Requires approval",
+          "Requires approval",
+          "Code analysis and review only"
+        ],
+        [
+          "Full Access",
+          "Auto",
+          "Auto",
+          "Full auto",
+          "Fully trusted environments only"
+        ]
       ]
     },
     {
@@ -557,18 +759,24 @@
     {
       "type": "table",
       "caption": "Codex Git Features by Platform",
-      "headers": ["Platform", "Key Git Features"],
+      "headers": [
+        "Platform",
+        "Key Git Features"
+      ],
       "rows": [
-        ["Desktop App", "Built-in Review for pre-commit code review"],
-        ["VS Code", "Slash commands (/review, etc.), in-editor diff display"]
+        [
+          "Desktop App",
+          "Built-in Review for pre-commit code review"
+        ],
+        [
+          "VS Code",
+          "Slash commands (/review, etc.), in-editor diff display"
+        ]
       ]
     },
     {
       "type": "text",
       "value": "The Codex desktop app has a built-in Review feature that lets you check code changes right before committing.\n\nIn the VS Code extension, slash commands (/review, /fork, etc.) provide quick access to Git-related workflows."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -587,11 +795,31 @@
     {
       "type": "table",
       "caption": "Basic Workflow: Save and Upload",
-      "headers": ["Step", "Action", "Claude Code", "Codex"],
+      "headers": [
+        "Step",
+        "Action",
+        "Claude Code",
+        "Codex"
+      ],
       "rows": [
-        ["1. Code", "Write code with AI", "Natural language requests", "Natural language requests"],
-        ["2. Commit", "Save changes (save game)", "\"commit my changes\"", "\"commit my changes\""],
-        ["3. Push", "Upload to GitHub (cloud save)", "\"push\"", "\"push\""]
+        [
+          "1. Code",
+          "Write code with AI",
+          "Natural language requests",
+          "Natural language requests"
+        ],
+        [
+          "2. Commit",
+          "Save changes (save game)",
+          "\"commit my changes\"",
+          "\"commit my changes\""
+        ],
+        [
+          "3. Push",
+          "Upload to GitHub (cloud save)",
+          "\"push\"",
+          "\"push\""
+        ]
       ]
     },
     {
@@ -609,12 +837,32 @@
     {
       "type": "table",
       "caption": "Recovery and Sync",
-      "headers": ["Situation", "Command", "In AI Tools"],
+      "headers": [
+        "Situation",
+        "Command",
+        "In AI Tools"
+      ],
       "rows": [
-        ["Get latest code from another device", "git pull", "\"pull\""],
-        ["Undo the last commit", "git revert HEAD", "\"revert the last commit\""],
-        ["Go back to a specific commit", "git revert <commitID>", "\"revert to 3 commits ago\""],
-        ["Discard all uncommitted changes", "git checkout -- .", "\"discard all changes\""]
+        [
+          "Get latest code from another device",
+          "git pull",
+          "\"pull\""
+        ],
+        [
+          "Undo the last commit",
+          "git revert HEAD",
+          "\"revert the last commit\""
+        ],
+        [
+          "Go back to a specific commit",
+          "git revert <commitID>",
+          "\"revert to 3 commits ago\""
+        ],
+        [
+          "Discard all uncommitted changes",
+          "git checkout -- .",
+          "\"discard all changes\""
+        ]
       ]
     },
     {

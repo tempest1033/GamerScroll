@@ -7,8 +7,12 @@
   "summary": "10주 만에 1,240만 장을 판매한 아크 레이더스가 조직적인 DDoS 공격을 받았다. 같은 개발사의 더 파이널스도 동시에 피해를 입었으며, 게임 업계 전반에 디도스 공격이 급증하는 추세다.",
   "thumbnail": "https://assets-prd.ignimgs.com/2026/01/13/arc-raiders-screenshot-1768288242314.jpg",
   "relatedIssues": [],
-  "relatedWiki": ["business/top-gaming-companies-by-market-cap"],
-  "relatedGames": ["arc-raiders"],
+  "relatedWiki": [
+    "business/top-gaming-companies-by-market-cap"
+  ],
+  "relatedGames": [
+    "arc-raiders"
+  ],
   "sources": [
     {
       "name": "게임메카",
@@ -59,9 +63,6 @@
       "value": "28일 밤 9시경, 엠바크 스튜디오 커뮤니티 매니저가 공식 디스코드에 긴급 공지를 올렸다.\n\n\"아크 레이더스와 더 파이널스 모두 광범위하고 조직적인(extensive, coordinated) DDoS 공격을 받고 있다. 전담팀이 문제 해결을 위해 총력을 기울이고 있으며 상당한 진전이 있지만, 현재도 공격은 계속되고 있다.\"\n\n단순한 서버 과부하가 아니라 의도적인 사이버 공격이었던 것이다. 개발사는 플레이어들에게 \"전리품 손실을 피하려면 당분간 로그인을 자제해달라\"고 당부했다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. 2시간 만의 복구, 그러나..."
     },
@@ -82,9 +83,6 @@
     {
       "type": "text",
       "value": "아크 레이더스만의 문제가 아니다. 같은 달 FF14도 새로운 Savage 레이드 출시 시점에 디도스 공격을 받았다. 대형 업데이트나 신규 콘텐츠 출시 직후를 노리는 패턴이 반복되고 있다.\n\n2025년에는 DDoS 공격이 31 Tbps(테라비트/초)라는 역대 최대 규모를 기록했다. 이전까지는 이론적으로만 가능하다고 여겨졌던 수치다. 공격 기술이 고도화되면서 게임 업계 전반이 새로운 위협에 직면한 상황이다.\n\n특히 아크 레이더스처럼 폭발적인 인기를 얻은 게임은 표적이 되기 쉽다. 동접 96만 명, 10주 만에 1,240만 장 판매라는 기록은 헬다이버스 2보다 빠른 속도다. 그만큼 공격자 입장에서 \"효과\"가 큰 타깃인 셈이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

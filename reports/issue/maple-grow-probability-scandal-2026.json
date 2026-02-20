@@ -6,14 +6,36 @@
   "thumbnail": "https://img.ledesk.co.kr/content/2022/20240104160414_zophceep.png",
   "keywords": "메이플 키우기, 메이플 키우기 확률, 넥슨, 어빌리티 은폐, 잠수함 패치, 보보보 사태, 메이플스토리 확률조작, 환불 사태, 강대현, 김정욱",
   "summary": "넥슨의 메이플 키우기가 출시 이후 최대 위기를 맞았다. 어빌리티 확률 오류를 인지하고도 잠수함 패치로 은폐한 정황이 드러나며 유저 신뢰가 무너졌다. 2021년 메이플스토리 보보보 사태와 닮은 전개에 우려의 목소리가 높다.",
-  "relatedIssues": ["idle-game-era-maple-grow"],
+  "relatedIssues": [
+    "idle-game-era-maple-grow"
+  ],
   "relatedGames": [],
   "sources": [
-    { "name": "뉴시스", "title": "넥슨 경영진 '메이플 키우기' 확률 논란 공식 사과", "url": "https://www.newsis.com/view/NISX20260126_0003490902" },
-    { "name": "디게임", "title": "넥슨 강대현·김정욱 대표, '메이플키우기' 능력치 논란 공식 사과", "url": "https://www.thisisgame.com/articles/413067" },
-    { "name": "이포커스", "title": "출시 이후 최대 위기 맞은 넥슨 '메이플 키우기'", "url": "https://www.e-focus.co.kr/news/articleView.html?idxno=3001989" },
-    { "name": "디지털투데이", "title": "넥슨 '메이플 키우기' 은폐 논란 사과", "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=624112" },
-    { "name": "루리웹", "title": "메이플 키우기 확률 조작 은폐 의혹", "url": "https://m.ruliweb.com/best/board/320108/read/2284054" }
+    {
+      "name": "뉴시스",
+      "title": "넥슨 경영진 '메이플 키우기' 확률 논란 공식 사과",
+      "url": "https://www.newsis.com/view/NISX20260126_0003490902"
+    },
+    {
+      "name": "디게임",
+      "title": "넥슨 강대현·김정욱 대표, '메이플키우기' 능력치 논란 공식 사과",
+      "url": "https://www.thisisgame.com/articles/413067"
+    },
+    {
+      "name": "이포커스",
+      "title": "출시 이후 최대 위기 맞은 넥슨 '메이플 키우기'",
+      "url": "https://www.e-focus.co.kr/news/articleView.html?idxno=3001989"
+    },
+    {
+      "name": "디지털투데이",
+      "title": "넥슨 '메이플 키우기' 은폐 논란 사과",
+      "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=624112"
+    },
+    {
+      "name": "루리웹",
+      "title": "메이플 키우기 확률 조작 은폐 의혹",
+      "url": "https://m.ruliweb.com/best/board/320108/read/2284054"
+    }
   ],
   "content": [
     {
@@ -49,9 +71,6 @@
       "value": "전환점은 12월 2일이었다. 별도 공지 없이 진행된 무중단 패치 이후, 갑자기 최대 수치 옵션이 정상적으로 등장하기 시작했다. 그동안 나오지 않던 옵션이 쏟아지듯 나왔다.\n\n넥슨의 공식 조사 결과, 확률 계산식 설정 단계에서 최대 수치 등장 확률을 '이하'가 아닌 '미만'으로 잘못 입력해 해당 수치가 나올 수 없었던 것으로 드러났다. 11월 6일 출시 직후부터 12월 2일까지 약 한 달간 오류가 지속됐다.\n\n문제는 담당 부서가 12월 2일 오류를 인지했음에도 서비스 초기 신뢰 하락을 우려해 공지 없이 수정했다는 점이다. 이 과정에서 의혹을 제기하는 유저들에게 사실과 다른 답변을 내놓기도 했다. 명백한 '유저 기만'이었다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "3. 보보보 사태의 데자뷔"
     },
@@ -78,9 +97,6 @@
     {
       "type": "text",
       "value": "넥슨 경영진은 지난 25일에야 해당 사실을 파악했다. 강대현·김정욱 넥슨코리아 공동대표는 26일 공식 사과문을 발표하며 '신뢰를 저버린 중대 사안'이라고 규정했다.\n\n두 대표는 \"외부 개발사와 협업하는 구조 특성상 실시간 확률 모니터링 시스템이 적용되지 않아 초기 탐지가 늦어졌다\"고 설명했다. 해당 책임자에 대해서는 해고를 포함한 최고 수준의 징계를 예고했다.\n\n보상안도 발표됐다. 오류 기간 사용한 '명예의 훈장'은 100% 환급, 유료 구매 재화와 '어빌리티 패스' 구매액은 200%에 해당하는 블루 다이아로 지급한다. 전체 유저에게는 명예의 훈장 10만 개, 미라클 큐브 50개 등이 지급된다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

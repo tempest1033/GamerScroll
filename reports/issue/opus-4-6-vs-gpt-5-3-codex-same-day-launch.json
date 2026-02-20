@@ -50,9 +50,6 @@
       "value": "Claude Code added an 'Agent Teams' feature in preview, enabling multiple agents to collaborate in parallel on large-scale tasks like code reviews. Pricing was maintained at $5 per million input tokens and $25 per million output tokens, the same as Opus 4.5."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. GPT-5.3-Codex — The Coding Agent That 'Built Itself'"
     },
@@ -73,9 +70,6 @@
     {
       "type": "text",
       "value": "Versatility beyond coding was also emphasized. It supports presentation creation, spreadsheet analysis, and data processing pipeline construction, showing GPT-5.2-level performance across 44 professional knowledge task evaluations. A 25% speed improvement over its predecessor is also noteworthy."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -110,9 +104,6 @@
     {
       "type": "text",
       "value": "In long-context tasks, Opus 4.6 held a clear advantage. It scored 76% in retrieving key information from 1 million token-scale documents, vastly outperforming Sonnet 4.5's 18.5%. Opus 4.6 supports 1 million token context (beta) and 128K output tokens, while GPT-5.3-Codex opted for context compression to manage long sessions."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -202,9 +193,6 @@
       "value": "클로드 코드에서는 '에이전트 팀' 기능이 프리뷰로 추가되어, 여러 에이전트가 병렬로 협업하며 코드 리뷰 같은 대규모 작업을 처리할 수 있게 됐다. 가격은 백만 토큰당 입력 5달러, 출력 25달러로 오푸스 4.5와 동일하게 유지됐다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "2. GPT 5.3 코덱스 — '스스로를 만든' 코딩 에이전트"
     },
@@ -225,9 +213,6 @@
     {
       "type": "text",
       "value": "코딩을 넘어서는 범용성도 강조됐다. 발표 자료 제작, 스프레드시트 분석, 데이터 처리 파이프라인 구축까지 지원하며, 44개 직종의 실무 지식 업무 평가에서 GPT-5.2 수준의 성능을 보여줬다. 전작 대비 25% 빨라진 속도도 주목할 점이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -262,9 +247,6 @@
     {
       "type": "text",
       "value": "장기 컨텍스트에서는 오푸스 4.6이 확실한 우위를 점했다. 100만 토큰 규모의 문서에서 핵심 정보를 찾아내는 평가에서 76%를 기록해 소넷 4.5의 18.5%를 압도했다. 오푸스 4.6은 100만 토큰 컨텍스트(베타)와 12만 8천 출력 토큰을 지원하는 반면, GPT 5.3 코덱스는 컨텍스트 압축을 통해 긴 세션을 관리하는 방식을 택했다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

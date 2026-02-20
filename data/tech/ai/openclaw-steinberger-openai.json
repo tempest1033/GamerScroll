@@ -10,12 +10,32 @@
   "summaryEn": "Peter Steinberger, the creator of OpenClaw — the open-source AI assistant that shattered GitHub records with 180,000+ stars — is joining OpenAI. Sam Altman calls it a key hire to build 'the future of very smart agents interacting with each other.'",
   "thumbnail": "https://s3.us-west-1.amazonaws.com/redwood-labs/showpage/uploads/images/d339bde4-0c6f-4377-b7ad-e22c9e1752c0.png",
   "sources": [
-    { "name": "Sam Altman", "title": "Peter Steinberger joining OpenAI announcement", "url": "https://x.com/sama/status/2023150230905159801" },
-    { "name": "Lex Fridman Podcast", "title": "#491 Peter Steinberger: OpenClaw, Vibe Coding, and AI Agents", "url": "https://www.youtube.com/watch?v=YFjfBk8HI5o" },
-    { "name": "OfficeChai", "title": "OpenClaw Creator Peter Steinberger Joins OpenAI, OpenClaw To Continue As Open Source Project", "url": "https://officechai.com/ai/openclaw-creator-peter-steinberger-joins-openai-openclaw-to-continue-as-open-source-project/" },
-    { "name": "Trending Topics EU", "title": "OpenClaw: Peter Steinberger already has offers from Meta and OpenAI on the table", "url": "https://www.trendingtopics.eu/openclaw-peter-steinberger-already-has-offers-from-meta-and-openai-on-the-table/" }
+    {
+      "name": "Sam Altman",
+      "title": "Peter Steinberger joining OpenAI announcement",
+      "url": "https://x.com/sama/status/2023150230905159801"
+    },
+    {
+      "name": "Lex Fridman Podcast",
+      "title": "#491 Peter Steinberger: OpenClaw, Vibe Coding, and AI Agents",
+      "url": "https://www.youtube.com/watch?v=YFjfBk8HI5o"
+    },
+    {
+      "name": "OfficeChai",
+      "title": "OpenClaw Creator Peter Steinberger Joins OpenAI, OpenClaw To Continue As Open Source Project",
+      "url": "https://officechai.com/ai/openclaw-creator-peter-steinberger-joins-openai-openclaw-to-continue-as-open-source-project/"
+    },
+    {
+      "name": "Trending Topics EU",
+      "title": "OpenClaw: Peter Steinberger already has offers from Meta and OpenAI on the table",
+      "url": "https://www.trendingtopics.eu/openclaw-peter-steinberger-already-has-offers-from-meta-and-openai-on-the-table/"
+    }
   ],
-  "relatedDocs": ["tech:ai/moltbot-clawdbot-ai-assistant", "tech:ai/moltbook-ai-social-network", "tech:ai/claude-code-agent-teams-paradigm"],
+  "relatedDocs": [
+    "tech:ai/moltbot-clawdbot-ai-assistant",
+    "tech:ai/moltbook-ai-social-network",
+    "tech:ai/claude-code-agent-teams-paradigm"
+  ],
   "needTranslate": false,
   "titleEn": "OpenClaw Creator Peter Steinberger Joins OpenAI to Lead the Multi-Agent AI Future",
   "contentEn": [
@@ -36,9 +56,6 @@
     {
       "type": "text",
       "value": "Steinberger is an Austrian engineer who co-founded PSPDFKit in 2011 and sold it to Insight Partners for roughly 100 million euros in 2021. After three years away, he returned in late 2025 with a weekend side project: an open-source AI assistant that automates emails, calendars, and airline check-ins through WhatsApp and Telegram — all running locally on users' devices.\n\nThe project went through several names — WhatsApp Relay, Clawdbot, Moltbot — before becoming OpenClaw after Anthropic filed a trademark complaint over 'Clawdbot' sounding too much like 'Claude.' The controversy only fueled its rise. By February 2026, OpenClaw had crossed 180,000 GitHub stars, the fastest growth in the platform's history. Steinberger summed up his philosophy on the Lex Fridman Podcast: 'Every app is just a very slow API now.'"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -81,9 +98,6 @@
     {
       "type": "text",
       "value": "스테인버거는 오스트리아 출신 엔지니어다. 2011년 PDF SDK 회사 PSPDFKit을 공동 창업했고, 투자 한 푼 없이 키워서 2021년 인사이트 파트너스에 약 1억 유로(한화 약 1,500억 원)에 매각했다. 3년간 조용히 지내다가, 2025년 말 주말 사이드 프로젝트 하나로 다시 나타났다. 왓츠앱과 텔레그램으로 이메일, 캘린더, 항공 체크인까지 알아서 처리해주는 오픈소스 AI 비서였고, 데이터를 클라우드에 보내지 않고 내 기기에서 돌아가는 게 핵심이었다.\n\n프로젝트 이름은 왓츠앱 릴레이, 클로드봇, 몰트봇을 거쳐 오픈클로가 됐다. '클로드봇'이라는 이름에 앤트로픽이 자사 AI '클로드'와 비슷하다며 상표 클레임을 걸었는데, 이 소동이 오히려 관심을 폭발시켰다. 2026년 2월 기준 깃허브 18만 스타를 넘기며 역대 가장 빠른 성장을 기록 중이다. 스테인버거는 렉스 프리드먼 팟캐스트에서 이렇게 말했다. '모든 앱은 이제 그냥 엄청 느린 API일 뿐이에요.'"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

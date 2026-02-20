@@ -7,7 +7,10 @@
   "keywords": "스팀 순위, 2026년 1월 동시접속자, 카운터 스트라이크 2, 도타 2, PUBG, 아크 레이더스, 봉고캣, 델타 포스, 러스트, 스타듀 밸리, GTA V",
   "summary": "2026년 1월 스팀 동시접속자 순위에서 CS2가 146만 평균 CCU로 부동의 1위를 지켰다. 신작 아크 레이더스가 4위로 화려하게 데뷔했고, 무료 인디게임 봉고캣이 6위에 오르며 이변을 일으켰다.",
   "relatedGames": [],
-  "relatedDocs": ["mobile-january-2026-kr", "subculture-january-2026-kr"],
+  "relatedDocs": [
+    "mobile-january-2026-kr",
+    "subculture-january-2026-kr"
+  ],
   "sources": [],
   "content": [
     {
@@ -23,16 +26,66 @@
       "title": "2026년 1월 스팀 동시접속자 순위",
       "unit": "",
       "items": [
-        {"rank": 1, "name": "카운터 스트라이크 2", "score": 1466816, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg"},
-        {"rank": 2, "name": "도타 2", "score": 740580, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg"},
-        {"rank": 3, "name": "PUBG: BATTLEGROUNDS", "score": 646014, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg"},
-        {"rank": 4, "name": "아크 레이더스", "score": 183012, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1808500/header.jpg"},
-        {"rank": 5, "name": "에이팩스 레전드", "score": 174526, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg"},
-        {"rank": 6, "name": "봉고캣", "score": 151570, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/header.jpg"},
-        {"rank": 7, "name": "러스트", "score": 142872, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg"},
-        {"rank": 8, "name": "델타 포스", "score": 128414, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2507950/header.jpg"},
-        {"rank": 9, "name": "스타듀 밸리", "score": 116263, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg"},
-        {"rank": 10, "name": "GTA V Legacy", "score": 107920, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg"}
+        {
+          "rank": 1,
+          "name": "카운터 스트라이크 2",
+          "score": 1466816,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg"
+        },
+        {
+          "rank": 2,
+          "name": "도타 2",
+          "score": 740580,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg"
+        },
+        {
+          "rank": 3,
+          "name": "PUBG: BATTLEGROUNDS",
+          "score": 646014,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg"
+        },
+        {
+          "rank": 4,
+          "name": "아크 레이더스",
+          "score": 183012,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1808500/header.jpg"
+        },
+        {
+          "rank": 5,
+          "name": "에이팩스 레전드",
+          "score": 174526,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg"
+        },
+        {
+          "rank": 6,
+          "name": "봉고캣",
+          "score": 151570,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/header.jpg"
+        },
+        {
+          "rank": 7,
+          "name": "러스트",
+          "score": 142872,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg"
+        },
+        {
+          "rank": 8,
+          "name": "델타 포스",
+          "score": 128414,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2507950/header.jpg"
+        },
+        {
+          "rank": 9,
+          "name": "스타듀 밸리",
+          "score": 116263,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg"
+        },
+        {
+          "rank": 10,
+          "name": "GTA V Legacy",
+          "score": 107920,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg"
+        }
       ]
     },
     {
@@ -72,9 +125,6 @@
     {
       "type": "text",
       "value": "ConcernedApe의 농장 시뮬레이션 스타듀 밸리가 9위를 기록했다. **1인 개발** 인디게임의 전설로, 2016년 출시 이후 꾸준한 업데이트로 사랑받고 있다.\n\n평균 **11.6만 CCU**, 최고 **13.3만 CCU**, 최저 **9.7만 CCU**를 기록했다. 순위는 9위에서 12위를 오갔다. **1.6 업데이트**의 여파가 아직도 이어지고 있으며, **1.7 업데이트** 소식에 기대감이 높아지는 중.\n\n개발자 ConcernedApe는 차기작 **'Haunted Chocolatier'**를 너무 일찍 발표한 것을 후회한다고 밝히기도 했다. 스타듀 밸리가 워낙 잘 되다 보니 신작 개발에 집중하기 어렵다는 행복한 고민이다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -134,9 +184,6 @@
       "value": "1월의 이변은 단연 **봉고캣**이다. 키보드를 누를 때마다 고양이가 작업표시줄을 두드리는 이 **무료 인디게임**이 당당히 6위에 올랐다.\n\n평균 **15.2만 CCU**, 최고 **17.5만 CCU**, 최저 **12.7만 CCU**를 기록했다. 2025년 3월 출시 이후 **바이럴 히트**를 기록하며 스팀 상위권에 안착했다. 순위는 4위까지 치솟기도 했다.\n\n놀라운 점은 이 게임이 **수익을 전혀 내지 않는다**는 것. 광고도 없고, 인앱결제도 없다. 개발자 Marcel Zurawka는 순수하게 재미를 위해 만들었다고 밝혔다. **'게임이란 무엇인가'**에 대한 철학적 질문을 던지는 현상이다."
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "5위: 에이팩스 레전드"
     },
@@ -192,9 +239,6 @@
     {
       "type": "text",
       "value": "배틀로얄 장르의 원조 PUBG가 **부동의 3위**를 지켰다. 크래프톤의 대표작으로, 2017년 출시 이후 **9년째** 스팀 상위권을 유지하고 있다.\n\n평균 **64.6만 CCU**, 최고 **71.2만 CCU**, 최저 **49.5만 CCU**를 기록했다. **31일 내내 3위**를 유지하며 안정적인 모습을 보였다. 1월에도 1위와 2위 뒤를 굳건히 지켰다.\n\n**Update 39.1**에서는 에란겔에 **겨울 테마**가 적용됐다. 눈 덮인 에란겔에서의 전투가 새로운 재미를 선사했다. 중국과 한국을 중심으로 한 아시아 시장에서 특히 강세를 보이고 있다."
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",

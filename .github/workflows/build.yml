@@ -85,7 +85,7 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
           GA4_SERVICE_ACCOUNT: ${{ secrets.GA4_SERVICE_ACCOUNT }}
-          ADS_ENABLED: 'false'  # 광고 정지 기간 동안 비활성화
+          ADS_ENABLED: 'true'  # 광고 활성화
         run: node generate-html-report.js
 
       - name: Sync and enrich games
@@ -93,7 +93,7 @@ jobs:
 
       - name: Generate game pages
         env:
-          ADS_ENABLED: 'false'  # 광고 정지 기간 동안 비활성화
+          ADS_ENABLED: 'true'  # 광고 활성화
         run: node scripts/generate-game-pages.js
 
       - name: Build AIScroll

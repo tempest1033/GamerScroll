@@ -1,14 +1,8 @@
-﻿/**
+/**
  * 주요 뉴스 페이지 템플릿
  */
 
-const {
-  wrapWithLayout,
-  AD_SLOTS,
-  generateAdPairSlot,
-  generateNativeAdSlot,
-  generateMobileTopAdSlot
-} = require('../layout');
+const { wrapWithLayout } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -30,9 +24,6 @@ function generateNewsPage(data) {
   const { insight } = data;
   const aiInsight = insight?.ai || null;
   const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
-
-  // PC + 모바일 광고 슬롯
-  const topAds = generateAdPairSlot(AD_SLOTS.ResponsivePC001, AD_SLOTS.Mobile001);
 
   // 뉴스 소스 정보
   const newsSources = [
@@ -123,7 +114,6 @@ function generateNewsPage(data) {
     <section class="section active" id="news">
 
       <div class="page-container">
-        ${topAds}
         <h1 class="visually-hidden">게임 뉴스</h1>
         <div class="news-sources-grid">
           ${newsSources.map(source => generateNewsSection(source)).join('')}

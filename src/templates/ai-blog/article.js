@@ -4,6 +4,7 @@
  */
 
 const { wrapWithLayout, SITE_CONFIG, formatDateEn, escapeHtml, getThumbUrl } = require('./index');
+const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 
 /**
  * 이미지 경로 처리 (GamerScroll과 동일 방식)
@@ -424,12 +425,16 @@ function generateAIBlogArticle(article, data = {}) {
   // 사이드바 HTML
   const sidebarHTML = generateSidebarArticles();
 
+  // 상단 광고
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+
   // 메인 콘텐츠 (GamerScroll 스타일 + 사이드바 레이아웃)
   const content = `
     <section class="section active" id="issue">
       <article class="page-container issue-container">
         <div class="article-layout">
           <div class="article-main">
+            ${topAds}
             <div class="blog-card">
               <header class="blog-header">
                 <h1 class="blog-title">${escapeHtml(article.title)}</h1>

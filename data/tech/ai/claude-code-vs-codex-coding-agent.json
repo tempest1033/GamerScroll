@@ -40,7 +40,13 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "category": "vibecoding", "title": "목차로 돌아가기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "category": "vibecoding",
+          "title": "목차로 돌아가기",
+          "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws"
+        }
       ]
     },
     {
@@ -80,9 +86,6 @@
       "value": "클로드 코드가 선두를 달리는 이유는 **에이전트 프레임워크의 완성도** 때문이다. 스킬(Skill), 서브에이전트, 백그라운드 에이전트, MCP(Model Context Protocol) 등 다양한 기능이 유기적으로 연결되어 있다.\n\n- **MCP**: 외부 도구와 연결하는 표준 프로토콜. 유니티 에디터, 데이터베이스, API 등과 직접 통신 가능\n- **서브에이전트**: 복잡한 작업을 여러 전문 에이전트에게 분배. 탐색, 계획, 리뷰 등 역할 분담\n- **백그라운드 에이전트**: 시간이 오래 걸리는 작업을 백그라운드에서 처리\n- **스킬**: 반복 작업을 자동화하는 커스텀 명령어 시스템"
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "코덱스: 맹추격하는 도전자"
     },
@@ -107,9 +110,6 @@
     {
       "type": "text",
       "value": "**약점**\n- **대규모 리팩토링**: 전체 코드베이스를 아우르는 대규모 변경에서 아쉬움\n- **복잡한 알고리즘**: 깊은 추론이 필요한 알고리즘 설계에서 코덱스에 밀림\n- **컨텍스트 관리**: 긴 작업 시 컨텍스트 윈도우 관리가 까다로움\n- **가격**: 사용량 제한이 빡빡해서 높은 요금제를 써야 정상적인 작업이 가능했음. 다만 최근 경쟁 심화로 Opus 4.5 출시 때부터 사용량 제한이 대폭 완화됨"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
@@ -218,9 +218,6 @@
       "value": "The reason Claude Code is leading the pack is **the completeness of its agent framework**. Various features like Skills, sub-agents, background agents, and MCP (Model Context Protocol) are organically connected.\n\n- **MCP**: A standard protocol for connecting with external tools. Can directly communicate with Unity Editor, databases, APIs, etc.\n- **Sub-agents**: Distribute complex tasks to multiple specialized agents. Division of roles like exploration, planning, review, etc.\n- **Background agents**: Handle time-consuming tasks in the background\n- **Skills**: A custom command system for automating repetitive tasks"
     },
     {
-      "type": "ad"
-    },
-    {
       "type": "heading",
       "value": "Codex: The Relentless Challenger"
     },
@@ -245,9 +242,6 @@
     {
       "type": "text",
       "value": "**Weaknesses**\n- **Large-scale refactoring**: Falls short on massive changes spanning the entire codebase\n- **Complex algorithms**: Loses to Codex in algorithm design requiring deep reasoning\n- **Context management**: Context window management becomes tricky during long sessions\n- **Pricing**: Usage limits were tight, forcing users to higher-tier plans for normal work. However, limits have been significantly relaxed since the Opus 4.5 release due to increased competition"
-    },
-    {
-      "type": "ad"
     },
     {
       "type": "heading",
