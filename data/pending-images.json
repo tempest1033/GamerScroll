@@ -258,6 +258,13 @@
       "type": "02.webp",
       "failedAt": "2026-02-13T09:50:44.116Z",
       "error": "source: bad seek to 51558\nsource: bad seek to 51533\nsource: bad seek to 51529\nsource: bad seek to 51527\nheif: Invalid input: Unspecified: Bitstream not supported by this decoder (2.0)"
+    },
+    {
+      "url": "https://www.neilsahota.com/wp-content/uploads/2024/10/superintelligent-ai-asi.jpg",
+      "slug": "kurzweil-singularity-review-2026",
+      "type": "02.webp",
+      "failedAt": "2026-02-20T22:17:12.925Z",
+      "error": "HTTP 403: https://www.neilsahota.com/wp-content/uploads/2024/10/superintelligent-ai-asi.jpg"
     }
   ]
 }
