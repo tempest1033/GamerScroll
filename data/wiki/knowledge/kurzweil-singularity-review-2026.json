@@ -3,14 +3,14 @@
   "status": "approved",
   "category": "general",
   "title": "레이 커즈와일의 '특이점이 온다': 20년 전 예측이 현실이 되고 있다",
-  "titleEn": "",
+  "titleEn": "Ray Kurzweil's 'The Singularity Is Near': Predictions Made 20 Years Ago Are Becoming Reality",
   "date": "2026-02-21T16:00",
   "keywords": "레이 커즈와일, 특이점이 온다, 기술적 특이점, 수확 가속의 법칙, AGI, 2029년 AGI, 2045년 특이점, 마침내 특이점이 시작된다, 나노기술, GNR 혁명, 기하급수적 성장, 미래학",
   "keywordsEn": "Ray Kurzweil, The Singularity Is Near, technological singularity, law of accelerating returns, AGI, 2029 AGI, 2045 singularity, The Singularity Is Nearer, nanotechnology, GNR revolution, exponential growth, futurism",
   "summary": "2005년 레이 커즈와일은 '특이점이 온다'에서 2029년 AGI, 2045년 특이점을 예측했다. 147개 예측 중 86%가 적중한 지금, AI 현실은 그의 예측을 '보수적'으로 보이게 만든다. 20년 후 다시 읽는 서평.",
-  "summaryEn": "",
+  "summaryEn": "In 2005, Ray Kurzweil predicted AGI by 2029 and the Singularity by 2045 in 'The Singularity Is Near.' With 86% of his 147 predictions now confirmed, today's AI reality makes his forecasts look almost conservative. A review revisited 20 years later.",
   "thumbnail": "https://as1.ftcdn.net/jpg/05/81/24/40/1000_F_581244009_uil4KkaKZp70x3zcvWfb4t04Gen8sa38.jpg",
-  "needTranslate": true,
+  "needTranslate": false,
   "sources": [
     {
       "name": "The Wall Street Journal",
@@ -119,5 +119,88 @@
       "value": "레이 커즈와일의 핵심 메시지는 '특이점은 먼 미래의 사건이 아니라, 이미 진행 중인 과정'이라는 것이다. 2005년에 그 말을 들었을 때 대부분은 웃었다. 2026년, 매주 새로운 AI 모델이 인간의 능력을 하나씩 능가해가는 지금, 더 이상 웃는 사람은 없다.\n\n물론 나노봇이 혈관을 순찰하고, 의식을 클라우드에 업로드하는 세계는 아직 오지 않았다. 하지만 레이 커즈와일이 옳았던 것은 구체적 기술이 아니라 변화의 방향과 속도였다. 그리고 그 속도가 옳았다면, 아직 오지 않은 예측들도 시간의 문제일 수 있다. 특이점이 이미 시작됐는지는 모른다. 확실한 것은, 매일 조금씩 더 가까워지고 있다는 사실이다."
     }
   ],
-  "contentEn": []
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In 2005, inventor and futurist Ray Kurzweil published 'The Singularity Is Near,' making the audacious prediction that AI would reach human-level intelligence by 2029, and that a 'technological singularity' — the merging of humans and machines — would arrive by 2045. At the time, most experts dismissed it as closer to science fiction than serious forecasting.\n\nTwenty years later, the book's value shines brighter than ever. Models like GPT-5, Opus 4.6, and Gemini 3 are encroaching on human cognitive domains month by month, and 115 of Kurzweil's 147 predictions (roughly 86%) have been confirmed as accurate. The question is no longer 'will the Singularity come?' but 'how fast is it coming?'"
+    },
+    {
+      "type": "heading",
+      "value": "1. The Law of Accelerating Returns: The Engine of Exponential Growth"
+    },
+    {
+      "type": "image",
+      "src": "https://d3lkc3n5th01x7.cloudfront.net/wp-content/uploads/2024/01/09003433/artificial-general-intelligence-Banner.png",
+      "caption": "AI evolving exponentially — Ray Kurzweil's Law of Accelerating Returns becoming reality",
+      "alt": "Digital art depicting AI technology evolving exponentially toward artificial general intelligence"
+    },
+    {
+      "type": "text",
+      "value": "At the heart of Kurzweil's philosophy is the Law of Accelerating Returns. Technological progress doesn't advance linearly — it grows exponentially, with each innovation accelerating the pace of the next. He demonstrated this by mapping 120 years of computing progress onto a single graph, showing that five generations of technology — from vacuum tubes to transistors, integrated circuits, and microprocessors — all fall along one exponential curve.\n\nAs of 2026, this graph still holds. NVIDIA's GPU performance trajectory tracks Kurzweil's curve with remarkable precision, and AI training costs are dropping by roughly 70% each year. Humans intuitively think in linear terms, which is why we consistently underestimate exponential change. Kurzweil's greatest insight was shattering this 'intuition trap' with mathematics."
+    },
+    {
+      "type": "heading",
+      "value": "2. An 86% Hit Rate: The Remarkable Accuracy of His Predictions"
+    },
+    {
+      "type": "image",
+      "src": "https://www.neilsahota.com/wp-content/uploads/2024/10/superintelligent-ai-asi.jpg",
+      "caption": "The birth of superintelligent AI — a digital brain symbolizing Kurzweil's remarkable foresight in hitting 86% of 147 predictions",
+      "alt": "Glowing digital brain concept art representing superintelligent artificial intelligence"
+    },
+    {
+      "type": "text",
+      "value": "Kurzweil's prediction accuracy stands head and shoulders above other futurists. The ubiquity of smartphones, the spread of wireless networks, the rise of digital music, the growth of e-learning, even the timing of the Soviet Union's collapse — predictions he made from the 1990s onward have come true with striking precision.\n\nIn his 2024 follow-up, 'The Singularity Is Nearer,' he updated his forecasts. The core conclusions remained unchanged: AGI by 2029, the Singularity by 2045. If anything, AI's pace of advancement has been faster than expected, making his 2029 prediction look almost 'conservative.' Peter Diamandis has called Kurzweil 'the most accurate technology predictor,' and the Boston Globe praised the original book as 'startlingly prescient and persuasive.'"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Six Epochs and the GNR Revolution: The Road to Singularity"
+    },
+    {
+      "type": "image",
+      "src": "https://media.licdn.com/dms/image/v2/D4D12AQEJg0Zm8iXMag/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1683451512651?e=2147483647&v=beta&t=4tpt-qEMldJqnWzM8_9dxvANiGKGfD1c2C3AOPb3xHA",
+      "caption": "The fusion of human and AI — a cybernetic vision symbolizing the GNR Revolution's transition to Epoch 5",
+      "alt": "Sci-fi concept art depicting the technological singularity through the fusion of human and artificial intelligence"
+    },
+    {
+      "type": "text",
+      "value": "Kurzweil divides the evolution of the universe into six epochs: Physics and Chemistry (1), Biology (2), Brains (3), Technology (4), The Merger of Technology and Intelligence (5), and The Universe Wakes Up (6). We now stand on the threshold between Epoch 4 and Epoch 5. Driving this transition is the GNR Revolution — Genetics, Nanotechnology, and Robotics/AI.\n\nOf these, AI has been advancing at a pace that has surprised even Kurzweil himself. In 2026, large language models already match or surpass human experts in coding, legal analysis, and medical diagnosis. In genetics, AI-powered tools like AlphaFold and AlphaGenome are cracking fundamental problems in biology. Nanotechnology remains the one area that has yet to live up to Kurzweil's expectations."
+    },
+    {
+      "type": "heading",
+      "value": "4. Unfulfilled Predictions: The Shadows of the Singularity"
+    },
+    {
+      "type": "image",
+      "src": "https://www.salon.com/app/uploads/2023/12/medical_nanorobot_1155265615.jpg",
+      "caption": "Nanorobots in the bloodstream — the last missing piece of the GNR Revolution that Kurzweil predicted but remains unrealized",
+      "alt": "Sci-fi illustration of medical nanorobots operating inside blood vessels"
+    },
+    {
+      "type": "text",
+      "value": "Not all of Kurzweil's predictions have come true, of course. He forecast full autonomous vehicle deployment by the mid-2020s, but as of 2026, adoption remains limited. The vision of nanobots patrolling our bloodstream to cure diseases and connecting our brains to the cloud is still far from reality. 'Longevity escape velocity' — the point where medical advances outpace the rate of aging — also remains unrealized.\n\nCritics are not in short supply either. Systems dynamics expert Theodore Modis argued that 'pure exponential growth does not exist in reality and inevitably converges to an S-curve.' Philosopher John Gray dismissed the Singularity concept as 'a technological variation on apocalyptic myth.' Forbes called Kurzweil's projections on nanobots and life extension 'myopic.' Questions about AI consciousness and subjective experience are areas Kurzweil has not adequately addressed."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. Why You Should Read This Book"
+    },
+    {
+      "type": "text",
+      "value": "At 78, Ray Kurzweil is still working as a principal researcher at Google, takes 80 supplements a day, and has even arranged a cryonic preservation backup plan. He is determined to survive long enough to see his own predictions come true. Perhaps his most memorable quote captures his philosophy best: \"AI won't kill you. But ignoring it might.\"\n\nThe original 'The Singularity Is Near' has been reissued in a 20th anniversary edition, while its sequel 'The Singularity Is Nearer' updates two decades of progress with fresh data. Reading them together lets you see firsthand how what was once 'the future' has become 'the present.' As a framework for understanding an era of exponential change, few starting points are more powerful than this book."
+    },
+    {
+      "type": "heading",
+      "value": "Closing Thoughts: Has the Singularity Already Begun?"
+    },
+    {
+      "type": "text",
+      "value": "Kurzweil's core message is that the Singularity is not a distant future event but an ongoing process. When he said this in 2005, most people laughed. In 2026, as new AI models surpass another human capability each week, nobody is laughing anymore.\n\nGranted, a world where nanobots patrol our bloodstream and consciousness can be uploaded to the cloud has not arrived yet. But what Kurzweil got right was not any specific technology — it was the direction and speed of change. And if he was right about the speed, then the predictions yet to come true may simply be a matter of time. Whether the Singularity has already begun, we cannot say for certain. What is certain is that every day, it draws a little closer."
+    }
+  ]
 }
