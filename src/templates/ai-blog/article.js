@@ -92,11 +92,28 @@ function generateAIBlogArticle(article, data = {}) {
     });
   }
 
+  // 인아티클 광고 HTML
+  const inArticleAdHTML = `
+    <div class="blog-in-article-ad" style="margin:2rem 0;text-align:center;">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"
+           crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+           style="display:block; text-align:center;"
+           data-ad-layout="in-article"
+           data-ad-format="fluid"
+           data-ad-client="ca-pub-9477874183990825"
+           data-ad-slot="8021405606"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>`;
+
   // 본문 렌더링 (GamerScroll 스타일)
   function renderContent(content) {
     if (!content || !Array.isArray(content)) return '';
 
     const result = [];
+    let sectionCount = 1; // 서문 = 섹션1
 
     for (const block of content) {
       switch (block.type) {
@@ -147,6 +164,10 @@ function generateAIBlogArticle(article, data = {}) {
           break;
         }
         case 'heading': {
+          sectionCount++;
+          if (sectionCount % 3 === 0) {
+            result.push(inArticleAdHTML);
+          }
           const headingId = toSlug(block.value);
           result.push(`<h2 id="${headingId}" class="blog-heading">${escapeHtml(block.value)}</h2>`);
           break;
