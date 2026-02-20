@@ -1,7 +1,7 @@
 ﻿/* ========== Game Page ========== */
 #game .page-container {
   min-height: calc(100vh - 250px);
-  padding-top: 0 !important;
+  padding-top: var(--space-block-gap, 16px) !important;
   padding-bottom: var(--space-block-y-xl);
 }
 
