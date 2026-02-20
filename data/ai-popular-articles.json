@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-02-19T01:01:53.204Z",
+  "updatedAt": "2026-02-20T00:57:13.270Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 118,
+      "views": 122,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 14,
+      "views": 15,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -21,28 +21,28 @@
       "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 7,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
-      "category": "general",
-      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
-      "views": 6,
-      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
-    },
-    {
       "category": "anthropic",
       "slug": "anthropic-pentagon-ai-safety-standoff",
       "views": 5,
       "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
     },
     {
+      "category": "google",
+      "slug": "gemini-31-pro-release",
+      "views": 5,
+      "path": "/article/google/gemini-31-pro-release/"
+    },
+    {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
       "views": 5,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 5,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
@@ -55,6 +55,18 @@
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 4,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
+      "category": "general",
+      "slug": "grok-420-multi-agent-release",
+      "views": 4,
+      "path": "/article/general/grok-420-multi-agent-release/"
+    },
+    {
+      "category": "general",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 4,
+      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
     },
     {
       "category": "vibecoding",
@@ -106,21 +118,9 @@
     },
     {
       "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 2,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "general",
       "slug": "claude-code-vs-codex-coding-agent",
       "views": 2,
       "path": "/article/general/claude-code-vs-codex-coding-agent/"
-    },
-    {
-      "category": "general",
-      "slug": "grok-420-multi-agent-release",
-      "views": 2,
-      "path": "/article/general/grok-420-multi-agent-release/"
     },
     {
       "category": "general",
@@ -166,21 +166,21 @@
     },
     {
       "category": "general",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "dario-sam-india-summit-handshake",
+      "views": 1,
+      "path": "/article/general/dario-sam-india-summit-handshake/"
+    },
+    {
+      "category": "general",
       "slug": "moltbook-ai-social-network",
       "views": 1,
       "path": "/article/general/moltbook-ai-social-network/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-ai-chip-monopoly-cracking",
-      "views": 1,
-      "path": "/article/general/nvidia-ai-chip-monopoly-cracking/"
-    },
-    {
-      "category": "general",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 1,
-      "path": "/article/general/seedance-2-hollywood-shock-next-version/"
     }
   ]
 }
