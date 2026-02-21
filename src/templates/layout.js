@@ -92,16 +92,18 @@ const AD_SLOTS = {
   RectanglePC001: '1104244740',
   // 모바일 (300x100, 300x250)
   Mobile001: '5825162341',
-  Mobile002: '4840966314',
-  Mobile003: '7467129651',
-  Mobile004: '7865094213',
-  Mobile005: '3028357040',
-  // 네이티브 In-feed (홈페이지)
-  Article001: '9737299266',
-  Article002: '9737299266',
-  Article003: '9204970318',
-  Article004: '3171890915',
-  Article005: '8232645901',
+  // 인피드 (모바일 스크롤)
+  Infeed001: '6662567459',
+  Infeed002: '9737299266',
+  Infeed003: '9204970318',
+  Infeed004: '3171890915',
+  Infeed005: '8232645901',
+  // 인아티클 (기사 본문)
+  InArticle001: '8021405606',
+  InArticle002: '9566421564',
+  InArticle003: '6077622756',
+  InArticle004: '1648257301',
+  InArticle005: '8253339898',
   // 멀티플렉스
   Multiflex001: '5636974986'
 };
@@ -571,7 +573,7 @@ const lazyCardHydrationScript = `
       var useMobileAds = !!options.mobileAds;
       var adSlots = Array.isArray(options.adSlots) && options.adSlots.length
         ? options.adSlots
-        : ['4840966314', '7467129651', '7865094213', '3028357040'];
+        : ['6662567459', '9737299266', '9204970318', '3171890915', '8232645901'];
       var adInterval = parseInt(options.adInterval, 10) || 3;
       var adNodeSelector = '.ad-card-native, .ad-card-content, .ad-card-mobile-only, .ad-card-multiplex, .ad-card-scroll';
       var deferredDataScript = null;
@@ -925,8 +927,8 @@ const lazyCardHydrationScript = `
           ins.style.margin = '0 auto';
           ins.setAttribute('data-ad-client', 'ca-pub-9477874183990825');
           ins.setAttribute('data-ad-slot', slotId);
-          ins.setAttribute('data-ad-format', 'auto');
-          ins.setAttribute('data-full-width-responsive', 'true');
+          ins.setAttribute('data-ad-format', 'fluid');
+          ins.setAttribute('data-ad-layout-key', '-fb+5w+4e-db+86');
           adWrap.appendChild(ins);
 
           return adWrap;
@@ -2253,7 +2255,7 @@ function buildCardFeedPagerScript(options = {}) {
     prevSelector = '.home-page-prev, .home-prev',
     nextSelector = '.home-page-next, .home-next',
     infoSelector = '.home-page-info, .home-page-index',
-    adSlots = ['4840966314', '7467129651', '7865094213', '3028357040'],
+    adSlots = ['6662567459', '9737299266', '9204970318', '3171890915', '8232645901'],
     initialRenderCount = 15,
     idleFillFirstPage = false,
     idleFillDelay = 120,
@@ -2483,7 +2485,10 @@ function generateMidAdPairSlot(pcSlotId, mobileSlotId) {
   return renderContentAd(pcSlotId);
 }
 
-function generateHomeAdPairSlot(pcSlotId, mobileSlotId) {
+function generateHomeAdPairSlot(pcSlotId, mobileSlotId, options = {}) {
+  if (options.mobileOnly) {
+    return renderMobileOnlyAd(mobileSlotId || pcSlotId);
+  }
   return renderResponsiveHomeAd(pcSlotId);
 }
 

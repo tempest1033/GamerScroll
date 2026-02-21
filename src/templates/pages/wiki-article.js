@@ -177,27 +177,33 @@ const renderToc = (content = []) => {
   `;
 };
 
-// 인아티클 광고 HTML
-const inArticleAdHTML = `
+// 인아티클 광고 슬롯 (5개 순환)
+const IN_ARTICLE_SLOTS = [
+  AD_SLOTS.InArticle001, AD_SLOTS.InArticle002, AD_SLOTS.InArticle003,
+  AD_SLOTS.InArticle004, AD_SLOTS.InArticle005
+];
+function getInArticleAdHTML(adIndex) {
+  const slotId = IN_ARTICLE_SLOTS[adIndex % IN_ARTICLE_SLOTS.length];
+  return `
   <div class="blog-in-article-ad" style="margin:2rem 0;text-align:center;">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"
-         crossorigin="anonymous"></script>
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-layout="in-article"
          data-ad-format="fluid"
          data-ad-client="ca-pub-9477874183990825"
-         data-ad-slot="8021405606"></ins>
+         data-ad-slot="${slotId}"></ins>
     <script>
          (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>`;
+}
 
 const renderContentBlocks = (content = [], category = '', slug = '') => {
   if (!Array.isArray(content) || content.length === 0) return '';
   const result = [];
   let imageIndex = 0;
   let sectionCount = 1; // 서문 = 섹션1
+  let adCount = 0;
 
   content.forEach((block) => {
     switch (block.type) {
@@ -271,7 +277,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
         if (!block.value) break;
         sectionCount++;
         if (sectionCount % 3 === 0) {
-          result.push(inArticleAdHTML);
+          result.push(getInArticleAdHTML(adCount++));
         }
         const headingId = toSlug(block.value);
         result.push(`<h2 id="${headingId}" class="blog-heading">${block.value}</h2>`);

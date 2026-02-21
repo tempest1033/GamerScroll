@@ -1,0 +1,148 @@
+{
+  "slug": "chatgpt-pro-lite-plan-leak",
+  "status": "approved",
+  "category": "openai",
+  "title": "ChatGPT Pro Lite 요금제, 코드에서 발견",
+  "titleEn": "ChatGPT Pro Lite Plan Discovered in Code",
+  "date": "2026-02-21T18:00",
+  "thumbnail": "https://lifehacker.com/imagery/articles/01KF48QB0BCY2BAXR19HG0QPQT/images-2.png",
+  "keywords": "ChatGPT Pro Lite, 오픈AI 요금제, Pro Lite 출시, ChatGPT 중간 요금제, 코드 마이닝, Tibor Blaho, 샘 올트먼 가격 실험, ChatGPT Go, AI 구독 모델",
+  "keywordsEn": "ChatGPT Pro Lite, OpenAI pricing, Pro Lite launch, ChatGPT mid-tier plan, code mining, Tibor Blaho, Sam Altman pricing, ChatGPT Go, AI subscription",
+  "summary": "ChatGPT 웹 앱 코드에서 'Pro Lite' 요금제가 발견됐다. Plus($20)와 Pro($200) 사이를 메울 중간 플랜으로, 올트먼의 1년간 가격 실험이 결실을 맺는 모양새다.",
+  "summaryEn": "A 'Pro Lite' plan has been discovered in ChatGPT's web app code. This mid-tier between Plus ($20) and Pro ($200) appears to be the culmination of Altman's year-long pricing experiments.",
+  "needTranslate": false,
+  "sources": [
+    {
+      "name": "Tibor Blaho (@btibor91)",
+      "title": "ChatGPT Pro Lite plan found in frontend code",
+      "url": "https://x.com/btibor91/status/2024992285591818329"
+    },
+    {
+      "name": "Sam Altman (@sama)",
+      "title": "Pro $200 is a money-losing plan",
+      "url": "https://x.com/sama/status/1876104315296968813"
+    },
+    {
+      "name": "Sam Altman (@sama)",
+      "title": "Credit-based pricing model proposal",
+      "url": "https://x.com/sama/status/1897036361506689206"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "OpenAI's ChatGPT pricing tiers explained",
+      "url": "https://techcrunch.com/2026/02/openai-chatgpt-pricing-tiers/"
+    }
+  ],
+  "relatedDocs": [
+    "openai-compute-investment-600b-cut",
+    "openai-chatgpt-growth-100b-funding"
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월 21일, 업계에서 가장 신뢰받는 코드 마이너 티보르 블라호(@btibor91)가 ChatGPT 웹 앱 프론트엔드 코드에서 'Pro Lite'라는 새 요금제를 발견했다. 좋아요 1만 6천 건을 넘긴 이 포스트는 순식간에 AI 커뮤니티로 퍼졌다. 블라호의 실적은 완벽에 가깝다. Pro, Go, Tasks, Operator 모두 그의 코드 마이닝으로 공식 발표 전 알려졌다."
+    },
+    {
+      "type": "heading",
+      "value": "코드에서 드러난 Pro Lite"
+    },
+    {
+      "type": "text",
+      "value": "블라호가 찾은 것은 ChatGPT 프론트엔드 코드에 새로 추가된 'Pro Lite' 플랜 식별자다. 가격이나 기능은 아직 명시되지 않았지만, 이름 자체가 방향을 알려준다. Pro의 기능을 일부 제공하되 가격을 낮춘 라이트 버전이다. 커뮤니티에서는 $50~$100 사이를 예상하며, 대부분의 추측은 $100 전후에 몰린다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "올트먼의 가격 실험 1년"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/2024-03-01t094436z-1711824661-rc2ne4ajuwgp-rtrmadp-3-openai-musk.JPG?c=16x9&q=h_833,w_1480,c_fill",
+      "alt": "오픈AI CEO 샘 올트먼이 무대에서 발표하는 모습",
+      "caption": "올트먼은 1년 넘게 공개적으로 ChatGPT 가격 체계를 고민해왔다"
+    },
+    {
+      "type": "text",
+      "value": "Pro Lite는 갑자기 나타난 것이 아니다. 2025년 1월 올트먼은 \"Pro $200은 적자\"라고 고백했다. 2월 런던 밋업에서 \"유연한 가격\"을 시사했고, 3월에는 크레딧 기반 가격 모델을 X에 공유했다. 그런데 사용자 반응은 예상과 달랐다. 크레딧 대신 \"$50~$70 중간 티어를 만들라\"는 요구가 쏟아졌다."
+    },
+    {
+      "type": "text",
+      "value": "오픈AI는 이 피드백을 따랐다. 2026년 1월 하단을 메우는 Go($8)가 출시됐고, 한 달 뒤 상단을 메우는 Pro Lite가 코드에서 발견됐다. 무료-Go-Plus-Pro Lite-Pro, 5단계 요금 체계의 마지막 퍼즐이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "예상 가격과 기능"
+    },
+    {
+      "type": "text",
+      "value": "Pro Lite는 Pro의 무제한 접근에는 못 미치지만 Plus의 제한을 크게 완화할 것으로 보인다. 현재 Pro 전용인 GPT-5.2 프로 모델, 128K 컨텍스트 윈도우, 챗GPT 펄스 같은 기능의 제한적 사용이 포함될 가능성이 높다. 경쟁 구도도 압박 요인이다. 앤트로픽 클로드 프로는 $20에 오퍼스 4.6을, 구글 AI 프로는 $19.99에 제미나이 3.1 프로를 제공한다. 같은 $20 구간에서 더 강력한 모델을 쓸 수 있는 상황이기에, 오픈AI로서는 Plus 가격은 유지하고 위에 새 층을 추가하는 것이 현실적인 전략이다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: $20과 $200 사이"
+    },
+    {
+      "type": "text",
+      "value": "블라호의 예측 실적과 올트먼의 1년간 가격 실험을 종합하면, Pro Lite 출시는 거의 확실해 보인다. 어떤 가격에, 어떤 기능으로 나올지가 2026년 상반기 AI 구독 시장의 가장 큰 변수다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 21, 2026, Tibor Blaho (@btibor91) — the most trusted code miner in the AI industry — discovered a new plan called 'Pro Lite' in ChatGPT's web app frontend code. The post racked up over 16,000 likes and spread instantly. Blaho's track record is near-perfect: Pro, Go, Tasks, Operator — all were found in code before their official announcements."
+    },
+    {
+      "type": "heading",
+      "value": "Pro Lite Revealed in Code"
+    },
+    {
+      "type": "text",
+      "value": "What Blaho found was a newly added 'Pro Lite' plan identifier in ChatGPT's frontend code. Pricing and features aren't specified yet, but the name says it all: a lighter version of Pro with some Pro features at a lower price. The community is betting on $50-$100, with most estimates around $100."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Altman's Year of Pricing Experiments"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/2024-03-01t094436z-1711824661-rc2ne4ajuwgp-rtrmadp-3-openai-musk.JPG?c=16x9&q=h_833,w_1480,c_fill",
+      "alt": "OpenAI CEO Sam Altman speaking on stage",
+      "caption": "Altman has been publicly wrestling with ChatGPT pricing for over a year"
+    },
+    {
+      "type": "text",
+      "value": "Pro Lite didn't appear out of nowhere. In January 2025, Altman confessed that \"Pro at $200 is a money-losing plan.\" At a London meetup in February, he hinted at \"flexible pricing.\" In March, he shared a credit-based model on X — but users demanded a \"$50-$70 mid-tier\" instead."
+    },
+    {
+      "type": "text",
+      "value": "OpenAI followed this feedback. In January 2026, Go ($8) launched to fill the bottom gap. One month later, Pro Lite appeared in code to fill the top. The final piece of a five-tier structure — Free, Go, Plus, Pro Lite, Pro — is falling into place."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Expected Price and Features"
+    },
+    {
+      "type": "text",
+      "value": "Pro Lite likely won't match Pro's unlimited access but should significantly relax Plus's limits. Limited access to Pro-exclusive features like the GPT-5.2 Pro model, 128K context window, and ChatGPT Pulse is expected. The competitive landscape adds pressure: Anthropic's Claude Pro offers Opus 4.6 at $20, while Google's AI Pro provides Gemini 3.1 Pro at $19.99. With more powerful models available at the same $20 tier, OpenAI's realistic strategy is to hold Plus at $20 and add a new layer above."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Between $20 and $200"
+    },
+    {
+      "type": "text",
+      "value": "Combining Blaho's prediction record with Altman's year of pricing experiments, a Pro Lite launch looks all but certain. What price and features it arrives with will be the biggest variable in the AI subscription market for the first half of 2026."
+    }
+  ]
+}

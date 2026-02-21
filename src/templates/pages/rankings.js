@@ -2,7 +2,7 @@
  * 모바일 순위 페이지 템플릿
  */
 
-const { wrapWithLayout, AD_SLOTS, generateMobileOnlyMidAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { countries } = require('../../crawlers/rankings');
 const { resizeIcon } = require('../../utils/resize-icon');
 
@@ -88,7 +88,7 @@ function generateRankingsPage(data) {
 
   const content = `
     <section class="section active" id="rankings">
-      ${generateMobileOnlyMidAdSlot(AD_SLOTS.Mobile001)}
+      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { mobileOnly: true })}
       <div class="page-container">
         <h1 class="visually-hidden">모바일 게임 순위</h1>
         <div class="rankings-card home-card">
