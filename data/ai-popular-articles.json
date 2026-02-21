@@ -1,42 +1,30 @@
 {
-  "updatedAt": "2026-02-20T11:53:08.584Z",
+  "updatedAt": "2026-02-21T01:26:25.863Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 122,
+      "views": 47,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 15,
+      "views": 12,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "anthropic",
       "slug": "claude-opus-46-pricing-controversy",
-      "views": 11,
+      "views": 9,
       "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
       "category": "google",
       "slug": "gemini-31-pro-release",
-      "views": 6,
+      "views": 7,
       "path": "/article/google/gemini-31-pro-release/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 6,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 6,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
@@ -64,9 +52,15 @@
     },
     {
       "category": "general",
-      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "slug": "kurzweil-singularity-review-2026",
       "views": 4,
-      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+      "path": "/article/general/kurzweil-singularity-review-2026/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 4,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
@@ -87,10 +81,10 @@
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
-      "category": "openai",
-      "slug": "openai-chatgpt-growth-100b-funding",
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
       "views": 3,
-      "path": "/article/openai/openai-chatgpt-growth-100b-funding/"
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
@@ -100,39 +94,15 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-cowork-saaspocalypse",
-      "views": 2,
-      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-sonnet-46-release",
       "views": 2,
       "path": "/article/anthropic/claude-sonnet-46-release/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "moltbot-clawdbot-ai-assistant",
-      "views": 2,
-      "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
-    },
-    {
-      "category": "general",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "views": 2,
-      "path": "/article/general/claude-code-vs-codex-coding-agent/"
     },
     {
       "category": "general",
       "slug": "dario-sam-india-summit-handshake",
       "views": 2,
       "path": "/article/general/dario-sam-india-summit-handshake/"
-    },
-    {
-      "category": "general",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 2,
-      "path": "/article/general/mac-mini-m4-best-value-2026/"
     },
     {
       "category": "google",
@@ -142,15 +112,15 @@
     },
     {
       "category": "openai",
-      "slug": "chatgpt-desktop-app",
-      "views": 2,
-      "path": "/article/openai/chatgpt-desktop-app/"
-    },
-    {
-      "category": "openai",
       "slug": "gpt-4o-retirement-openai-next-step",
       "views": 2,
       "path": "/article/openai/gpt-4o-retirement-openai-next-step/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-agent-guide",
+      "views": 2,
+      "path": "/article/vibecoding/vibe-coding-agent-guide/"
     },
     {
       "category": "vibecoding",
@@ -160,9 +130,21 @@
     },
     {
       "category": "anthropic",
+      "slug": "claude-cowork-saaspocalypse",
+      "views": 1,
+      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
+    },
+    {
+      "category": "anthropic",
       "slug": "claude-fennec-release-imminent",
       "views": 1,
       "path": "/article/anthropic/claude-fennec-release-imminent/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "moltbot-clawdbot-ai-assistant",
+      "views": 1,
+      "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
     },
     {
       "category": "general",
@@ -178,9 +160,27 @@
     },
     {
       "category": "general",
+      "slug": "claude-code-vs-codex-coding-agent",
+      "views": 1,
+      "path": "/article/general/claude-code-vs-codex-coding-agent/"
+    },
+    {
+      "category": "general",
       "slug": "moltbook-ai-social-network",
       "views": 1,
       "path": "/article/general/moltbook-ai-social-network/"
+    },
+    {
+      "category": "general",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 1,
+      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
+      "category": "general",
+      "slug": "seedance-2-hollywood-shock-next-version",
+      "views": 1,
+      "path": "/article/general/seedance-2-hollywood-shock-next-version/"
     }
   ]
 }
