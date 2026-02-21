@@ -57,6 +57,7 @@ const {
   renderAdCard,
   renderResponsiveTopAd,
   renderResponsiveHomeAd,
+  renderMobileOnlyHomeAd,
   renderSidebarVerticalAd,
   renderSidebarRectangleAd,
   renderMobileOnlyAd,
@@ -924,11 +925,10 @@ const lazyCardHydrationScript = `
           var ins = document.createElement('ins');
           ins.className = 'adsbygoogle';
           ins.style.display = 'block';
-          ins.style.margin = '0 auto';
           ins.setAttribute('data-ad-client', 'ca-pub-9477874183990825');
           ins.setAttribute('data-ad-slot', slotId);
           ins.setAttribute('data-ad-format', 'fluid');
-          ins.setAttribute('data-ad-layout-key', '-fb+5w+4e-db+86');
+          ins.setAttribute('data-ad-layout-key', '-7m+ex-1f-2m+ae');
           adWrap.appendChild(ins);
 
           return adWrap;
@@ -2487,7 +2487,7 @@ function generateMidAdPairSlot(pcSlotId, mobileSlotId) {
 
 function generateHomeAdPairSlot(pcSlotId, mobileSlotId, options = {}) {
   if (options.mobileOnly) {
-    return renderMobileOnlyAd(mobileSlotId || pcSlotId);
+    return renderMobileOnlyHomeAd(mobileSlotId || pcSlotId);
   }
   return renderResponsiveHomeAd(pcSlotId);
 }

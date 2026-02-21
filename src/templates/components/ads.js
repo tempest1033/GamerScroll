@@ -60,6 +60,24 @@ function renderResponsiveHomeAd(slotId) {
 }
 
 /**
+ * 모바일 전용 홈 상단 광고
+ * Mobile: 320x100, Desktop: 숨김
+ */
+function renderMobileOnlyHomeAd(slotId) {
+  if (!ADS_ENABLED || !slotId) return '';
+  const styleId = `ad-home-mo-${++adStyleCounter}`;
+  return `<div class="ad-card ad-card-responsive-home">
+  <style>
+    .${styleId} { display:block; width:320px; height:100px; margin:0 auto; }
+    @media (min-width: 769px) { .${styleId} { display:none; } }
+  </style>
+  <ins class="adsbygoogle ${styleId}"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+</div>`;
+}
+
+/**
  * 사이드바 세로 광고 (PC only)
  * Desktop: 300x600, Mobile/Tablet: 숨김
  */
@@ -209,6 +227,7 @@ module.exports = {
   // 신규 반응형 함수
   renderResponsiveTopAd,
   renderResponsiveHomeAd,
+  renderMobileOnlyHomeAd,
   renderSidebarVerticalAd,
   renderSidebarRectangleAd,
   renderMobileOnlyAd,
