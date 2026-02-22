@@ -1,24 +1,18 @@
 {
-  "updatedAt": "2026-02-21T01:26:25.863Z",
+  "updatedAt": "2026-02-22T00:59:34.795Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 47,
+      "views": 27,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 12,
+      "views": 10,
       "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
-      "views": 9,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
       "category": "google",
@@ -28,9 +22,27 @@
     },
     {
       "category": "anthropic",
+      "slug": "claude-opus-46-pricing-controversy",
+      "views": 6,
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "category": "anthropic",
       "slug": "anthropic-pentagon-ai-safety-standoff",
       "views": 5,
       "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+    },
+    {
+      "category": "general",
+      "slug": "grok-420-multi-agent-release",
+      "views": 5,
+      "path": "/article/general/grok-420-multi-agent-release/"
+    },
+    {
+      "category": "general",
+      "slug": "kurzweil-singularity-review-2026",
+      "views": 5,
+      "path": "/article/general/kurzweil-singularity-review-2026/"
     },
     {
       "category": "anthropic",
@@ -46,45 +58,27 @@
     },
     {
       "category": "general",
-      "slug": "grok-420-multi-agent-release",
-      "views": 4,
-      "path": "/article/general/grok-420-multi-agent-release/"
-    },
-    {
-      "category": "general",
-      "slug": "kurzweil-singularity-review-2026",
-      "views": 4,
-      "path": "/article/general/kurzweil-singularity-review-2026/"
+      "slug": "dario-sam-india-summit-handshake",
+      "views": 3,
+      "path": "/article/general/dario-sam-india-summit-handshake/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 4,
+      "views": 3,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "project-md-settings-guide",
-      "views": 4,
+      "views": 3,
       "path": "/article/vibecoding/project-md-settings-guide/"
     },
     {
-      "category": "google",
-      "slug": "gemini-deep-think-hallucination-backlash",
-      "views": 3,
-      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-4o-shutdown-controversy",
-      "views": 3,
-      "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
       "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
+      "slug": "vibe-coding-workflow-prompt-guide",
       "views": 3,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
+      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     },
     {
       "category": "anthropic",
@@ -99,34 +93,22 @@
       "path": "/article/anthropic/claude-sonnet-46-release/"
     },
     {
-      "category": "general",
-      "slug": "dario-sam-india-summit-handshake",
-      "views": 2,
-      "path": "/article/general/dario-sam-india-summit-handshake/"
-    },
-    {
-      "category": "google",
-      "slug": "alphagenome-first-impressions-2026",
-      "views": 2,
-      "path": "/article/google/alphagenome-first-impressions-2026/"
-    },
-    {
       "category": "openai",
-      "slug": "gpt-4o-retirement-openai-next-step",
+      "slug": "gpt-4o-shutdown-controversy",
       "views": 2,
-      "path": "/article/openai/gpt-4o-retirement-openai-next-step/"
+      "path": "/article/openai/gpt-4o-shutdown-controversy/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 2,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "vibe-coding-agent-guide",
       "views": 2,
       "path": "/article/vibecoding/vibe-coding-agent-guide/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-workflow-prompt-guide",
-      "views": 2,
-      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     },
     {
       "category": "anthropic",
@@ -148,39 +130,57 @@
     },
     {
       "category": "general",
-      "slug": "big3-ipo-2026-openai-anthropic-spacex",
-      "views": 1,
-      "path": "/article/general/big3-ipo-2026-openai-anthropic-spacex/"
-    },
-    {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 1,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "general",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "views": 1,
-      "path": "/article/general/claude-code-vs-codex-coding-agent/"
-    },
-    {
-      "category": "general",
       "slug": "moltbook-ai-social-network",
       "views": 1,
       "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "general",
-      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
-      "views": 1,
-      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
-    },
-    {
-      "category": "general",
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 1,
       "path": "/article/general/seedance-2-hollywood-shock-next-version/"
+    },
+    {
+      "category": "google",
+      "slug": "alphagenome-first-impressions-2026",
+      "views": 1,
+      "path": "/article/google/alphagenome-first-impressions-2026/"
+    },
+    {
+      "category": "openai",
+      "slug": "chatgpt-pro-lite-plan-leak",
+      "views": 1,
+      "path": "/article/openai/chatgpt-pro-lite-plan-leak/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-4o-retirement-openai-next-step",
+      "views": 1,
+      "path": "/article/openai/gpt-4o-retirement-openai-next-step/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-compute-investment-600b-cut",
+      "views": 1,
+      "path": "/article/openai/openai-compute-investment-600b-cut/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-crisis-competition-direction-2026",
+      "views": 1,
+      "path": "/article/openai/openai-crisis-competition-direction-2026/"
+    },
+    {
+      "category": "openai",
+      "slug": "openclaw-steinberger-openai",
+      "views": 1,
+      "path": "/article/openai/openclaw-steinberger-openai/"
+    },
+    {
+      "category": "openai",
+      "slug": "stargate-ai-crisis-2026",
+      "views": 1,
+      "path": "/article/openai/stargate-ai-crisis-2026/"
     }
   ]
 }
