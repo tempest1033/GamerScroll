@@ -1,0 +1,224 @@
+{
+  "slug": "bytedance-seedance-copyright-delay",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "general",
+  "title": "시댄스 2.0 저작권 폭탄: 바이트댄스, 글로벌 출시 무기한 연기",
+  "titleEn": "Seedance 2.0 Copyright Firestorm: ByteDance Delays Global Launch Indefinitely",
+  "date": "2026-02-23T03:30",
+  "keywords": "시댄스, 바이트댄스, AI 영상 생성, 저작권 침해, MPA, 디즈니, 딥페이크, 틱톡, AI 비디오, 할리우드, 시댄스 2.0, 젠잉, 2026",
+  "keywordsEn": "Seedance, ByteDance, AI video generation, copyright infringement, MPA, Disney, deepfake, TikTok, AI video, Hollywood, Seedance 2.0, Jimeng, 2026",
+  "summary": "바이트댄스의 AI 영상 생성 모델 시댄스 2.0이 저작권 침해 논란으로 글로벌 출시를 무기한 연기했다. 디즈니, MPA, SAG-AFTRA 등 할리우드 전체가 반발하는 가운데, AI 생성 콘텐츠의 저작권 문제가 산업 전체의 뜨거운 화두로 떠올랐다.",
+  "summaryEn": "ByteDance delays Seedance 2.0 global launch after Disney, MPA, and Hollywood push back on AI-generated videos infringing copyrighted IP.",
+  "thumbnail": "https://c.files.bbci.co.uk/3969/live/6edeb5a0-0d75-11f1-b1f2-a50c2c5773ab.jpg",
+  "relatedDocs": [
+    "tech:ai/china-ai-video-kling3-seedance2",
+    "tech:ai/openai-crisis-competition-direction-2026",
+    "tech:ai/dead-internet-theory"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "BBC",
+      "title": "What is Seedance - ByteDance's AI video tool",
+      "url": "https://www.bbc.com/news/articles/ckg1dl410q9o"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Hollywood isn't happy about the new Seedance 2.0 video generator",
+      "url": "https://techcrunch.com/2026/02/15/hollywood-isnt-happy-about-the-new-seedance-2-0-video-generator/"
+    },
+    {
+      "name": "Axios",
+      "title": "Disney sends cease-and-desist to ByteDance over Seedance",
+      "url": "https://www.axios.com/2026/02/13/disney-bytedance-seedance"
+    },
+    {
+      "name": "Variety",
+      "title": "MPA Pushes ByteDance to Shut Down Seedance Copyright Violations",
+      "url": "https://variety.com/2026/film/news/motion-picture-association-bytedance-seedance-letter-1236668577/"
+    },
+    {
+      "name": "Hollywood Reporter",
+      "title": "MPA Sends Cease-and-Desist to ByteDance Over Seedance 2.0",
+      "url": "https://www.hollywoodreporter.com/business/business-news/mpa-cease-and-desist-bytedance-seedance-2-0-1236510957/"
+    },
+    {
+      "name": "CNBC",
+      "title": "ByteDance adds safeguards to Seedance after copyright backlash",
+      "url": "https://www.cnbc.com/2026/02/16/bytedance-safegaurds-seedance-ai-copyright-disney-mpa-netflix-paramount-sony-universal.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월, AI 영상 생성 기술이 할리우드와 정면충돌했다. 바이트댄스(ByteDance)가 내놓은 AI 영상 생성 모델 시댄스(Seedance) 2.0이 출시 직후 대규모 저작권 침해 사태를 촉발하면서, 글로벌 API 출시가 무기한 연기되는 초유의 상황이 벌어진 것이다.\n\n스파이더맨이 춤을 추고, 다스 베이더가 요리를 하고, 오징어 게임 속 인형이 노래를 부르는 AI 생성 영상들이 인터넷을 뒤덮었다. 디즈니는 '가상 강도질'이라 불렀고, 미국영화협회(MPA)는 '침해는 기능이지 버그가 아니다'라고 선언했다. AI 생성 콘텐츠의 저작권 문제가 이론에서 현실로 폭발한 순간이다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 시댄스 2.0: 15초 시네마급 영상을 만드는 AI"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0은 틱톡 모회사 바이트댄스가 개발한 AI 영상 생성 모델이다. 텍스트나 이미지를 입력하면 최대 15초 길이의 시네마급 영상을 자동으로 생성한다. 음향과 대사까지 포함할 수 있어, 기존 AI 영상 도구들과는 차원이 다른 결과물을 내놓는다.\n\n2026년 2월 12일 중국 내에서 젠잉(Jimeng) 앱을 통해 먼저 출시되었고, 글로벌 API 출시는 2월 24일로 예정되어 있었다. 업계에서는 시댄스 2.0을 '제2의 딥시크 충격'이라 부르며 중국 AI 기술력을 재평가하기 시작했다. 소규모 제작사들은 14만 달러 수준의 예산으로도 SF나 액션 영상을 만들 수 있다며 환영했다.\n\n그러나 이 기대는 출시 이틀 만에 저작권 침해라는 거대한 벽에 부딪혔다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 저작권 침해 영상 폭발: 할리우드의 악몽"
+    },
+    {
+      "type": "image",
+      "src": "https://ca-times.brightspotcdn.com/dims4/default/852e682/2147483647/strip/true/crop/8219x5479+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fb5%2F52%2Fc39ca95a4df4ad95ce6e10919676%2Fgettyimages-2261545373.jpg",
+      "caption": "할리우드 스튜디오들이 시댄스 2.0의 저작권 침해에 대해 법적 대응을 시사하고 있다",
+      "alt": "할리우드 스튜디오 AI 저작권 침해 대응 바이트댄스 시댄스 2.0 법적 분쟁"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0이 중국에서 출시되자마자 저작권 침해 영상이 폭발적으로 확산됐다. 이용자들은 프롬프트 몇 줄만으로 할리우드 유명 캐릭터들의 영상을 생성했다. 디즈니 캐릭터인 스파이더맨, 그로구(베이비 요다), 다스 베이더가 등장하는 영상부터, 데드풀이 춤추는 영상까지 쏟아져 나왔다.\n\n피해는 디즈니에 그치지 않았다. 넷플릭스의 기묘한 이야기와 오징어 게임, 워너 브라더스의 배트맨과 슈퍼맨 등 주요 스튜디오의 IP가 총망라됐다. 더 심각한 것은 실제 배우와 유명인의 얼굴을 무단으로 사용한 딥페이크 영상이었다. 이전까지 AI 영상 도구의 저작권 문제가 이론적 논쟁에 머물렀다면, 시댄스 2.0은 그것을 압도적인 규모의 현실로 만들어버렸다.\n\n데드풀 영화 시리즈의 각본가 렛 리스(Rhett Reese)는 이 상황을 보고 \"우리는 끝난 것 같다\"고 탄식했다. 크리에이터 커뮤니티 전체에 충격이 퍼져나갔다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 할리우드 총반격: 디즈니부터 MPA까지"
+    },
+    {
+      "type": "image",
+      "src": "https://images.axios.com/_xL0emAf_6YjjZGAPtqnBKR-VkM=/0x0:1920x1080/1920x1080/2025/12/11/1765467090649.jpeg?w=3840",
+      "caption": "디즈니는 바이트댄스에 중단 요구 서한을 보내며 시댄스 2.0을 '가상 강도질'이라 규정했다",
+      "alt": "디즈니 바이트댄스 시댄스 2.0 저작권 침해 중단 요구 cease and desist"
+    },
+    {
+      "type": "text",
+      "value": "할리우드의 반응은 즉각적이고 전방위적이었다. 가장 먼저 움직인 것은 디즈니였다. 출시 다음 날인 2월 13일, 디즈니는 바이트댄스에 중단 요구(cease-and-desist) 서한을 발송하며 시댄스 2.0을 \"디즈니 IP에 대한 가상 강도질(virtual robbery)\"이라 규정했다.\n\n미국영화협회(MPA)도 곧바로 합류했다. MPA는 첫 번째 서한에서 '즉시 침해를 중단하라'고 요구했고, 2월 20일에는 더욱 강경한 2차 서한을 보냈다. 이 서한에서 MPA는 \"저작권 침해는 기능이지 버그가 아니다(Infringement is a feature, not a bug)\"라는 표현을 사용했다. 시댄스 2.0의 학습 데이터 자체가 저작물로 구성되어 있으므로, 침해는 시스템의 본질적 결함이라는 주장이었다.\n\n파라마운트, 소니, 유니버설 등 메이저 스튜디오가 잇달아 반발했고, 배우 노조 SAG-AFTRA도 성명을 내며 공세에 가담했다. 워너 브라더스 역시 자사 IP 보호를 위한 법적 대응을 시사했다. 할리우드가 하나의 목소리로 AI 영상 생성 기술에 맞서는 전례 없는 장면이 연출된 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 일본 정부의 조사 착수: 애니메이션 IP 보호"
+    },
+    {
+      "type": "text",
+      "value": "반발은 할리우드에만 국한되지 않았다. 일본 정부도 시댄스 2.0의 저작권 위반 여부에 대한 공식 조사에 착수했다. 세계 최대의 애니메이션 산업을 보유한 일본으로서는, AI 도구가 자국 애니메이션 스타일을 대량 모방할 수 있다는 점에 민감하게 반응한 것이다.\n\n이는 저작권 분쟁이 영어권을 넘어 글로벌 콘텐츠 산업 전체로 확산되고 있다는 신호였다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 바이트댄스의 대응: 안전장치 강화와 글로벌 출시 연기"
+    },
+    {
+      "type": "image",
+      "src": "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2026-02/260215-bytedance-seedance-ww-1610-cdc93f.jpg",
+      "caption": "바이트댄스는 안전장치 강화를 약속했지만 글로벌 API 출시는 무기한 연기됐다",
+      "alt": "바이트댄스 시댄스 2.0 안전장치 강화 글로벌 출시 무기한 연기 저작권 대응"
+    },
+    {
+      "type": "text",
+      "value": "거세지는 반발에 바이트댄스도 대응에 나섰다. 2월 16일, 바이트댄스는 '지적재산권을 존중하며 안전장치를 강화하겠다'는 공식 입장을 발표했다. 구체적으로는 실제 인물의 얼굴과 음성을 생성하는 기능을 일시적으로 비활성화했다.\n\n그러나 가장 결정적인 조치는 글로벌 API 출시의 무기한 연기였다. 원래 2월 24일로 예정되어 있던 글로벌 출시가 2월 21일 자로 공식 연기됨이 확인됐다. 새로운 출시 일정은 제시되지 않았다.\n\n다만 비판자들은 바이트댄스의 대응이 불충분하다고 지적한다. 실제 인물 딥페이크만 차단했을 뿐, 캐릭터 IP 침해에 대한 근본적 해결책은 제시하지 않았기 때문이다. MPA가 강조한 것처럼, 학습 데이터 자체에 저작물이 포함되어 있다면 특정 프롬프트를 차단하는 것만으로는 문제가 해결되지 않는다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. AI 영상 생성과 저작권: 산업 전체의 과제"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0 사태는 바이트댄스만의 문제가 아니다. OpenAI의 소라(Sora), 구글의 비오(Veo), 런웨이(Runway) 등 모든 AI 영상 생성 도구가 동일한 저작권 리스크를 안고 있다. 시댄스 2.0이 첫 대규모 사례가 된 것은 기술의 품질과 접근성이 임계점을 넘었기 때문이다.\n\n이 사태는 디즈니와 OpenAI의 10억 달러 규모 라이선스 딜과 극명한 대조를 이룬다. 콘텐츠 업계는 AI 자체를 거부하는 것이 아니라, AI가 기존 IP 체계 안에서 작동하도록 강제하려는 것이다. 현재 뉴욕타임스 vs OpenAI 등 AI 학습 데이터 저작권 소송이 진행 중이며, 시댄스 2.0 사태는 이 법적 논쟁에 강력한 연료를 공급하게 될 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 기술의 속도와 법의 속도 사이"
+    },
+    {
+      "type": "text",
+      "value": "시댄스 2.0 사태가 드러낸 본질은 명확하다. AI 기술의 발전 속도가 저작권 법체계의 대응 속도를 완전히 추월했다는 것이다. 15초짜리 영상 하나를 만드는 데 수억 원이 들던 시대에서, 프롬프트 한 줄이면 되는 시대로의 전환은 기존의 모든 규칙을 무력화시킨다.\n\n바이트댄스의 글로벌 출시 연기는 당장의 위기를 봉합하는 조치일 뿐, 근본적 해결은 아니다. 결국 업계가 찾아야 할 답은 기술의 차단이 아니라, 창작자의 권리를 보호하면서 혁신을 수용할 수 있는 새로운 프레임워크다. 시댄스 2.0은 그 프레임워크가 얼마나 시급한지를 세상에 증명했다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In February 2026, AI video generation technology collided head-on with Hollywood. ByteDance's AI video generation model Seedance 2.0 triggered a massive copyright infringement crisis immediately after launch, leading to an unprecedented indefinite delay of its global API release.\n\nAI-generated videos flooded the internet: Spider-Man dancing, Darth Vader cooking, and the doll from Squid Game singing. Disney called it 'virtual robbery,' and the Motion Picture Association (MPA) declared that 'infringement is a feature, not a bug.' The copyright implications of AI-generated content exploded from theory into reality."
+    },
+    {
+      "type": "heading",
+      "value": "1. Seedance 2.0: AI That Creates Cinema-Quality Video in 15 Seconds"
+    },
+    {
+      "type": "text",
+      "value": "Seedance 2.0 is an AI video generation model developed by ByteDance, the parent company of TikTok. Given text or image input, it automatically generates cinema-quality video up to 15 seconds long, complete with sound effects and dialogue — producing results on an entirely different level from existing AI video tools.\n\nIt was first released in China on February 12, 2026, through the Jimeng app, with a global API launch scheduled for February 24. The industry began calling Seedance 2.0 a 'second DeepSeek shock,' reassessing Chinese AI capabilities. Small production companies welcomed the tool, noting that science fiction and action videos could now be produced on budgets as low as $140,000.\n\nBut this excitement crashed into the wall of copyright infringement within just two days of launch."
+    },
+    {
+      "type": "heading",
+      "value": "2. Copyright Infringement Explosion: Hollywood's Nightmare"
+    },
+    {
+      "type": "image",
+      "src": "https://ca-times.brightspotcdn.com/dims4/default/852e682/2147483647/strip/true/crop/8219x5479+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fb5%2F52%2Fc39ca95a4df4ad95ce6e10919676%2Fgettyimages-2261545373.jpg",
+      "caption": "Hollywood studios are signaling legal action against Seedance 2.0 copyright infringement",
+      "alt": "Hollywood studios responding to ByteDance Seedance 2.0 AI copyright infringement legal battle"
+    },
+    {
+      "type": "text",
+      "value": "As soon as Seedance 2.0 launched in China, copyright-infringing videos spread explosively. Users generated videos featuring famous Hollywood characters with just a few lines of prompting. Videos appeared featuring Disney characters like Spider-Man, Grogu (Baby Yoda), and Darth Vader, along with Deadpool dancing.\n\nThe damage extended far beyond Disney. IP from major studios was comprehensively targeted — Netflix's Stranger Things and Squid Game, Warner Bros.' Batman and Superman, and more. Even more alarming were deepfake videos using real actors' and celebrities' faces without authorization. While copyright concerns around AI video tools had remained a theoretical debate, Seedance 2.0 turned them into reality at an overwhelming scale.\n\nDeadpool screenwriter Rhett Reese looked at the situation and lamented: 'I think we're done.' Shock rippled through the entire creator community."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Hollywood Strikes Back: From Disney to the MPA"
+    },
+    {
+      "type": "image",
+      "src": "https://images.axios.com/_xL0emAf_6YjjZGAPtqnBKR-VkM=/0x0:1920x1080/1920x1080/2025/12/11/1765467090649.jpeg?w=3840",
+      "caption": "Disney sent a cease-and-desist letter to ByteDance, calling Seedance 2.0 'virtual robbery'",
+      "alt": "Disney ByteDance Seedance 2.0 copyright infringement cease and desist letter"
+    },
+    {
+      "type": "text",
+      "value": "Hollywood's response was immediate and comprehensive. Disney moved first. On February 13, the day after launch, Disney sent a cease-and-desist letter to ByteDance, characterizing Seedance 2.0 as 'virtual robbery of Disney IP.'\n\nThe Motion Picture Association (MPA) joined immediately. In its first letter, the MPA demanded an 'immediate halt to infringement,' followed by an even stronger second letter on February 20. In this letter, the MPA used the phrase 'Infringement is a feature, not a bug' — arguing that since Seedance 2.0's training data itself consists of copyrighted works, infringement is an inherent systemic flaw.\n\nParamount, Sony, Universal, and other major studios pushed back in succession, and actors' union SAG-AFTRA issued a statement joining the offensive. Warner Bros. also signaled legal action to protect its IP. It was an unprecedented scene: all of Hollywood speaking with one voice against AI video generation technology."
+    },
+    {
+      "type": "heading",
+      "value": "4. Japan Launches Investigation: Protecting Animation IP"
+    },
+    {
+      "type": "text",
+      "value": "The backlash was not limited to Hollywood. The Japanese government launched an official investigation into potential copyright violations by Seedance 2.0. As home to the world's largest animation industry, Japan reacted sensitively to AI tools mass-producing content mimicking Japanese animation styles.\n\nThis signaled that the copyright dispute was expanding beyond English-language entertainment to the entire global content industry."
+    },
+    {
+      "type": "heading",
+      "value": "5. ByteDance's Response: Enhanced Safeguards and Delayed Launch"
+    },
+    {
+      "type": "image",
+      "src": "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2026-02/260215-bytedance-seedance-ww-1610-cdc93f.jpg",
+      "caption": "ByteDance pledged to strengthen safeguards, but the global API launch was postponed indefinitely",
+      "alt": "ByteDance Seedance 2.0 safeguards enhancement global launch indefinite delay copyright response"
+    },
+    {
+      "type": "text",
+      "value": "Facing mounting backlash, ByteDance took action. On February 16, it issued an official statement pledging to 'respect intellectual property rights and strengthen safeguards.' Specifically, it temporarily disabled the ability to generate real people's faces and voices.\n\nBut the most decisive measure was the indefinite postponement of the global API launch. Originally scheduled for February 24, the global launch was officially confirmed delayed as of February 21, with no new timeline provided.\n\nCritics, however, point out that ByteDance's response is insufficient. It only blocked deepfakes of real people, without offering a fundamental solution for character IP infringement. As the MPA emphasized, if the training data itself contains copyrighted works, blocking specific prompts alone will not solve the problem."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. AI Video Generation and Copyright: An Industry-Wide Challenge"
+    },
+    {
+      "type": "text",
+      "value": "The Seedance 2.0 crisis is not ByteDance's problem alone. OpenAI's Sora, Google's Veo, Runway, and every other AI video generation tool carry the same copyright risks. Seedance 2.0 became the first large-scale case because the technology's quality and accessibility had crossed a critical threshold.\n\nThis crisis stands in stark contrast to the reported $1 billion licensing deal between Disney and OpenAI. The content industry is not rejecting AI itself, but forcing AI to operate within the existing IP framework. With landmark cases like The New York Times vs. OpenAI still pending, the Seedance 2.0 crisis will add powerful fuel to these legal battles."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Between the Speed of Technology and the Speed of Law"
+    },
+    {
+      "type": "text",
+      "value": "The essential truth revealed by the Seedance 2.0 crisis is clear: the pace of AI technology has completely outstripped the copyright legal framework's ability to respond. The transition from an era where producing a 15-second video cost hundreds of thousands of dollars to one where a single prompt suffices renders all existing rules obsolete.\n\nByteDance's global launch delay is merely a stopgap measure, not a fundamental solution. AI video generation technology will continue to advance, and the scale and sophistication of copyright infringement will grow alongside it. Ultimately, what the industry must find is not a way to block the technology, but a new framework that protects creators' rights while embracing innovation.\n\nSeedance 2.0 has proven to the world just how urgently that framework is needed."
+    }
+  ]
+}

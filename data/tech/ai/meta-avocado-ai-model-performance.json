@@ -1,0 +1,199 @@
+{
+  "slug": "meta-avocado-ai-model-performance",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "general",
+  "title": "메타 차기 AI모델 아보카도, 내부 테스트 평가 루머",
+  "titleEn": "Meta's Next AI Model Avocado: Rumors of Internal Test Results",
+  "date": "2026-02-23T03:30",
+  "keywords": "메타 아보카도, 메타 AI 모델, 아보카도 모델 성능, 알렉산더 왕 메타, 메타 슈퍼인텔리전스 랩, TBD 랩, 라마 후속 모델, 메타 클로즈드 모델 전환, 프론티어 AI 2026, 라마4 실패, 얀 르쿤 퇴사, 딥시크 라마, AI 자본지출 2026, 메타 AI 조직개편",
+  "keywordsEn": "Meta Avocado, Meta AI Model, Avocado Model Performance, Alexandr Wang Meta, Meta Superintelligence Labs, TBD Lab, Llama Successor, Meta Closed Model Pivot, Frontier AI 2026, Llama 4 Failure, Yann LeCun Departure, DeepSeek Llama, AI CapEx 2026, Meta AI Restructuring",
+  "summary": "메타의 차세대 AI 모델 '아보카도'가 프리트레이닝만으로 기존 SOTA 모델과 경쟁할 수 있는 수준이라는 내부 메모가 유출됐다. 매버릭 대비 10배, 비히모스 대비 100배 효율적이라는 평가까지 나온 가운데, 라마4 실패 후 알렉산더 왕 체제에서 나온 첫 결과물이라 업계의 이목이 집중되고 있다.",
+  "summaryEn": "A leaked Meta memo calls Avocado its most capable pre-trained model yet, rivaling SOTA before post-training. First result under Alexandr Wang after Llama 4.",
+  "thumbnail": "https://media.assettype.com/analyticsinsight%2F2025-12-10%2Ff2i9m0jf%2FMeta%E2%80%99s-Avocado-AI-The-New-Model-Set-to-Rival-ChatGPT-and-Gemini-in-2026.jpg",
+  "relatedDocs": [
+    "tech:ai/openai-crisis-competition-direction-2026",
+    "tech:ai/big3-ipo-2026-openai-anthropic-spacex",
+    "tech:ai/nvidia-ai-chip-monopoly-cracking",
+    "tech:ai/stargate-ai-crisis-2026"
+  ],
+  "sources": [
+    {
+      "name": "The Information",
+      "title": "Meta Memo: New 'Avocado' Model Is Most Capable the Company Has Built",
+      "url": "https://www.theinformation.com/articles/meta-memo-new-avocado-model-capable-date"
+    },
+    {
+      "name": "CNBC",
+      "title": "Meta's 'Avocado' AI strategy and the issues holding it back",
+      "url": "https://www.cnbc.com/2025/12/09/meta-avocado-ai-strategy-issues.html"
+    },
+    {
+      "name": "Reuters",
+      "title": "Meta's new AI team has delivered first key models internally",
+      "url": "https://www.reuters.com/technology/metas-new-ai-team-has-delivered-first-key-models-internally-this-month-cto-says-2026-01-21/"
+    },
+    {
+      "name": "The Decoder",
+      "title": "Meta's internal memo signals AI comeback after rocky year",
+      "url": "https://the-decoder.com/metas-internal-memo-signals-ai-comeback-after-rocky-year/"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "Inside Meta's Pivot From Open Source to Money-Making AI Model",
+      "url": "https://www.bloomberg.com/news/articles/2025-12-10/inside-meta-s-pivot-from-open-source-to-money-making-ai-model"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "메타의 차세대 프론티어 AI 모델 '아보카도(Avocado)'의 성능이 처음으로 구체적으로 알려졌다. 더 인포메이션이 입수한 메타 내부 메모에 따르면, 아보카도는 프리트레이닝만 완료된 상태에서도 기존 오픈소스 모델을 능가하고 포스트트레이닝된 SOTA 모델들과 경쟁 가능한 수준이라고 한다.\n\n이 모델은 라마4의 실망스러운 출시와 조직 대개편을 거친 메타가 새 리더십 하에서 내놓는 첫 본격적인 결과물이다. 업계에서는 메타가 AI 경쟁에서 진정한 반전을 이뤄낼 수 있을지 주목하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 아보카도 모델: 메타 역사상 가장 유능한 사전학습 모델"
+    },
+    {
+      "type": "image",
+      "src": "https://static.digit.in/Meta-avocado-2.png",
+      "caption": "메타의 차세대 AI 모델 아보카도 개요",
+      "alt": "메타 아보카도 AI 모델 소개 이미지"
+    },
+    {
+      "type": "text",
+      "value": "아보카도는 메타 슈퍼인텔리전스 랩(MSL) 산하 TBD 랩에서 개발 중인 차세대 텍스트 기반 프론티어 모델이다. 코드네임에서 알 수 있듯 아직 정식 명칭은 정해지지 않았으며, 함께 개발 중인 '망고(Mango)'는 이미지와 비디오 생성에 특화된 멀티모달 모델이다.\n\nMSL의 프로덕트 매니저 메건 푸(Megan Fu)가 작성한 내부 메모에 따르면, 아보카도는 메타 역사상 '가장 유능한 사전학습 기반 모델'로 평가받고 있다. 특히 주목할 점은 아직 포스트트레이닝이 적용되지 않은 상태임에도 지식, 시각 인식, 다국어 처리 영역에서 포스트트레이닝된 SOTA 모델들과 경쟁할 수 있다는 것이다.\n\n효율성 측면에서도 눈에 띄는 수치가 나왔다. 메모에 따르면 아보카도는 라마4 매버릭(Maverick) 대비 10배, 비히모스(Behemoth) 대비 100배 효율적이라고 한다. CTO 앤드루 보스워스도 다보스 포럼에서 새 모델이 '매우 좋다'고 언급한 바 있다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 라마4 실패가 촉발한 대대적 조직 개편"
+    },
+    {
+      "type": "image",
+      "src": "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/KBRKA4YADZJ6ZAXUSZVHH3CHRI.jpg",
+      "caption": "메타 최고AI책임자로 영입된 알렉산더 왕",
+      "alt": "알렉산더 왕 메타 최고AI책임자 스케일AI CEO"
+    },
+    {
+      "type": "text",
+      "value": "아보카도의 배경을 이해하려면 2025년의 라마4 사태를 짚어야 한다. 메타가 야심차게 내놓은 라마4는 벤치마크 조작 논란에 휩싸이며 큰 타격을 입었다. 내부적으로도 모델 품질에 대한 불만이 팽배했고, 이는 메타 AI 조직의 대대적인 재편으로 이어졌다.\n\n가장 큰 변화는 스케일AI(Scale AI) CEO 알렉산더 왕(Alexandr Wang)의 영입이다. 28세의 나이에 143억 달러 규모의 스케일AI를 이끌던 왕은 메타의 최고AI책임자(Chief AI Officer)로 합류했다. 2025년 6월 메타는 메타 슈퍼인텔리전스 랩(MSL)을 창설하고, 왕을 수장으로 앉히며 기존 4개 부서로 분산돼 있던 AI 조직을 하나로 통합했다.\n\n오랜 기간 메타 AI를 이끌어온 얀 르쿤(Yann LeCun)은 이 과정에서 600명 감원과 함께 퇴사했다. 또한 메타는 오픈AI에서 o3와 GPT-4o 개발에 핵심적으로 기여한 연구원들을 대거 영입했는데, 1억 달러에 달하는 사이닝 보너스를 제안했다는 소문이 돌기도 했다. 이에 대해 샘 올트먼이 직접 반응할 정도로 업계에 큰 파장을 일으켰다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 오픈소스에서 클로즈드로: 메타의 AI 전략 전환"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.builtin.com/cdn-cgi/image/f=auto,fit=cover,w=1200,h=635,q=80/sites/www.builtin.com/files/2025-08/meta-superintelligence-labs.jpg",
+      "caption": "메타 슈퍼인텔리전스 랩(MSL) 조직 출범",
+      "alt": "메타 슈퍼인텔리전스 랩 MSL AI 조직 개편"
+    },
+    {
+      "type": "text",
+      "value": "아보카도가 주목받는 또 다른 이유는 메타의 AI 전략 자체가 근본적으로 바뀌고 있기 때문이다. 기존에 라마 시리즈를 오픈소스로 공개하며 AI 민주화의 기수를 자처했던 메타가 아보카도부터는 독점(클로즈드) 모델로 전환할 가능성이 높다.\n\n이 전환의 직접적 계기 중 하나는 중국의 딥시크(DeepSeek)가 라마 모델을 활용해 빠르게 경쟁 모델을 만들어낸 것이다. 자사가 막대한 비용을 투자해 개발한 모델이 경쟁자의 발판이 되는 상황에 메타 경영진의 불만이 커졌고, 결국 전략 선회로 이어진 것으로 알려져 있다.\n\n메타는 2026년 AI 관련 자본 지출(CapEx)을 1,150억~1,350억 달러로 책정했다. 전년 대비 73% 증가한 이 규모는 메타가 AI에 얼마나 진심인지를 보여준다. 오픈AI, 구글, 앤트로픽과의 직접 경쟁을 위해 모든 것을 쏟아붓겠다는 의지의 표현이다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 프리트레이닝 성능의 의미: 기대와 불확실성"
+    },
+    {
+      "type": "image",
+      "src": "https://contentstatic.techgig.com/photo/122205171.cms",
+      "caption": "메타의 초거대 AI 인프라 투자 계획",
+      "alt": "메타 AI 슈퍼인텔리전스 2026 초거대 인프라 투자"
+    },
+    {
+      "type": "text",
+      "value": "내부 메모의 성능 평가가 인상적이긴 하지만, 몇 가지 맥락을 고려할 필요가 있다. 우선 현재 공개된 수치는 프리트레이닝 단계의 결과다. 프리트레이닝은 대규모 데이터로 모델의 기본 능력을 학습시키는 단계이고, 이후 RLHF 등 포스트트레이닝을 거쳐야 실제 서비스에 배포할 수 있는 모델이 완성된다.\n\n좋은 소식은 프리트레이닝 성능이 뛰어나다면 포스트트레이닝 후 더 큰 도약을 기대할 수 있다는 것이다. 내부 메모도 '포스트트레이닝 전임에도 SOTA 모델과 경쟁 가능'이라는 표현을 썼는데, 이는 최종 모델의 잠재력이 상당하다는 신호로 읽힌다.\n\n다만 이것이 내부 메모라는 점도 감안해야 한다. 새 조직의 첫 성과를 보고하는 문서인 만큼 긍정적 톤이 있을 수 있고, 실제 벤치마크 수치가 공개되지 않은 상태에서 '기존 모델과 경쟁 가능'이라는 표현이 정확히 어떤 수준인지는 아직 알 수 없다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 메타 AI의 진짜 시험대"
+    },
+    {
+      "type": "text",
+      "value": "아보카도는 단순한 신모델 그 이상의 의미를 가진다. 라마4의 실패, 얀 르쿤의 퇴장, 알렉산더 왕의 영입, 오픈소스에서 클로즈드로의 전략 전환까지, 메타 AI가 겪은 격변의 첫 결실이기 때문이다. 2026년 상반기로 예상되는 출시 시점에 아보카도가 내부 메모의 기대에 부응하는 성능을 보여줄 수 있을지가 관건이다.\n\n확실한 것은 메타가 더 이상 오픈소스의 '좋은 형' 역할에 안주하지 않겠다는 점이다. 1,000억 달러가 넘는 투자, 경쟁사 인재 대거 영입, 조직 전면 개편까지, 메타는 오픈AI와 구글, 앤트로픽이 지배하는 프론티어 AI 시장에 정면 도전장을 내밀었다. 아보카도가 그 도전의 첫 시험대가 될 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The performance of Meta's next-generation frontier AI model, codenamed 'Avocado,' has been revealed for the first time in concrete terms. According to an internal Meta memo obtained by The Information, Avocado can already outperform existing open-source models and compete with post-trained SOTA models even at the pre-training stage alone.\n\nThis model is the first major result from Meta's new leadership after the disappointing launch of Llama 4 and a sweeping organizational overhaul. The industry is watching closely to see whether Meta can stage a genuine comeback in the AI race."
+    },
+    {
+      "type": "heading",
+      "value": "1. Avocado: Meta's Most Capable Pre-Trained Model Ever"
+    },
+    {
+      "type": "image",
+      "src": "https://static.digit.in/Meta-avocado-2.png",
+      "caption": "Overview of Meta's next-gen AI model Avocado",
+      "alt": "Meta Avocado AI model introduction image"
+    },
+    {
+      "type": "text",
+      "value": "Avocado is a next-generation text-based frontier model being developed at TBD Lab under Meta Superintelligence Labs (MSL). As the codename suggests, the official name has yet to be decided. Alongside Avocado, Meta is developing 'Mango,' a multimodal model specialized in image and video generation.\n\nAccording to an internal memo written by MSL Product Manager Megan Fu, Avocado is regarded as the 'most capable pre-trained model' in Meta's history. What's particularly noteworthy is that even without post-training, it can compete with post-trained SOTA models in knowledge, visual understanding, and multilingual capabilities.\n\nThe efficiency numbers are equally striking. The memo states that Avocado is 10x more efficient than Llama 4 Maverick and 100x more efficient than Behemoth. CTO Andrew Bosworth also remarked at the Davos Forum that the new model is 'very good.'"
+    },
+    {
+      "type": "heading",
+      "value": "2. The Llama 4 Failure That Triggered a Massive Reorganization"
+    },
+    {
+      "type": "image",
+      "src": "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/KBRKA4YADZJ6ZAXUSZVHH3CHRI.jpg",
+      "caption": "Alexandr Wang, Meta's new Chief AI Officer",
+      "alt": "Alexandr Wang Meta Chief AI Officer formerly Scale AI CEO"
+    },
+    {
+      "type": "text",
+      "value": "To understand Avocado's significance, you need to look at the Llama 4 debacle of 2025. Meta's ambitious Llama 4 was mired in benchmark manipulation controversies, dealing a significant blow to the company's AI credibility. Internal dissatisfaction with model quality was widespread, ultimately leading to a sweeping reorganization of Meta's AI division.\n\nThe most dramatic change was the recruitment of Scale AI CEO Alexandr Wang. At 28, Wang had been leading the $14.3 billion Scale AI when he joined Meta as Chief AI Officer. In June 2025, Meta established Meta Superintelligence Labs (MSL), installed Wang as its head, and consolidated AI operations that had been scattered across four separate divisions.\n\nYann LeCun, who had long led Meta's AI efforts, departed during this process amid layoffs of 600 employees. Meta also aggressively recruited researchers from OpenAI who had made key contributions to o3 and GPT-4o, reportedly offering signing bonuses of up to $100 million. The rumors were significant enough to draw a direct response from Sam Altman, sending shockwaves through the industry."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. From Open Source to Closed: Meta's Strategic Pivot"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.builtin.com/cdn-cgi/image/f=auto,fit=cover,w=1200,h=635,q=80/sites/www.builtin.com/files/2025-08/meta-superintelligence-labs.jpg",
+      "caption": "Launch of Meta Superintelligence Labs (MSL)",
+      "alt": "Meta Superintelligence Labs MSL AI organization restructuring"
+    },
+    {
+      "type": "text",
+      "value": "Another reason Avocado is drawing attention is that Meta's AI strategy itself is undergoing a fundamental shift. The company, which had positioned itself as a champion of AI democratization by open-sourcing its Llama series, is now likely to release Avocado as a proprietary (closed) model.\n\nOne direct catalyst for this pivot was China's DeepSeek leveraging Llama models to rapidly build competitive alternatives. Meta's leadership grew frustrated that models developed with enormous investment were serving as stepping stones for competitors, reportedly accelerating the strategic shift.\n\nMeta has set its 2026 AI-related capital expenditure at $115 billion to $135 billion, a 73% increase over the previous year. This scale of investment signals just how seriously Meta is taking AI. It represents a clear commitment to going all-in on direct competition with OpenAI, Google, and Anthropic."
+    },
+    {
+      "type": "heading",
+      "value": "4. What Pre-Training Performance Means: Promise and Uncertainty"
+    },
+    {
+      "type": "image",
+      "src": "https://contentstatic.techgig.com/photo/122205171.cms",
+      "caption": "Meta's massive AI infrastructure investment plan",
+      "alt": "Meta AI superintelligence 2026 massive infrastructure investment"
+    },
+    {
+      "type": "text",
+      "value": "While the internal memo's performance assessment is impressive, several points of context deserve consideration. First, the figures released so far reflect pre-training stage results. Pre-training is the phase where the model learns fundamental capabilities from massive datasets; subsequent post-training through RLHF and other techniques is required before the model is ready for deployment.\n\nThe encouraging news is that strong pre-training performance suggests even greater potential after post-training. The memo's phrasing that Avocado 'can compete with SOTA models even before post-training' reads as a signal of substantial potential in the final model.\n\nThat said, it's worth noting that this is an internal memo. As a document reporting the first achievements of a new organization, it may carry an optimistic tone. Without publicly disclosed benchmark numbers, it remains unclear exactly what level of performance 'can compete with existing models' truly represents."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Looking Ahead: The Real Test for Meta AI"
+    },
+    {
+      "type": "text",
+      "value": "Avocado represents far more than just another new model. It is the first fruit of the upheaval Meta AI has undergone: the Llama 4 failure, Yann LeCun's departure, Alexandr Wang's arrival, and the strategic pivot from open source to closed. The key question is whether Avocado can deliver on the memo's promises when it launches, expected in the first half of 2026.\n\nWhat is certain is that Meta is no longer content with playing the role of open source's 'good guy.' With over $100 billion in investment, aggressive recruitment of competitor talent, and a complete organizational overhaul, Meta has thrown down a direct challenge to the frontier AI market dominated by OpenAI, Google, and Anthropic. Avocado will be the first test of that challenge."
+    }
+  ]
+}
