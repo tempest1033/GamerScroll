@@ -1,18 +1,12 @@
 {
-  "updatedAt": "2026-02-22T00:59:34.795Z",
+  "updatedAt": "2026-02-23T01:00:08.306Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 27,
+      "views": 18,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 10,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "google",
@@ -22,15 +16,15 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
-      "views": 6,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "category": "anthropic",
       "slug": "anthropic-pentagon-ai-safety-standoff",
       "views": 5,
       "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-opus-46-pricing-controversy",
+      "views": 5,
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
       "category": "general",
@@ -46,15 +40,15 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-cowork-windows-launch",
-      "views": 4,
-      "path": "/article/anthropic/claude-cowork-windows-launch/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 4,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 4,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "general",
@@ -75,28 +69,16 @@
       "path": "/article/vibecoding/project-md-settings-guide/"
     },
     {
-      "category": "vibecoding",
-      "slug": "vibe-coding-workflow-prompt-guide",
-      "views": 3,
-      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
-    },
-    {
       "category": "anthropic",
-      "slug": "claude-code-agent-teams-paradigm",
+      "slug": "claude-cowork-windows-launch",
       "views": 2,
-      "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
+      "path": "/article/anthropic/claude-cowork-windows-launch/"
     },
     {
       "category": "anthropic",
       "slug": "claude-sonnet-46-release",
       "views": 2,
       "path": "/article/anthropic/claude-sonnet-46-release/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-4o-shutdown-controversy",
-      "views": 2,
-      "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
       "category": "vibecoding",
@@ -111,6 +93,12 @@
       "path": "/article/vibecoding/vibe-coding-agent-guide/"
     },
     {
+      "category": "vibecoding",
+      "slug": "vibe-coding-workflow-prompt-guide",
+      "views": 2,
+      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
+    },
+    {
       "category": "anthropic",
       "slug": "claude-cowork-saaspocalypse",
       "views": 1,
@@ -123,22 +111,22 @@
       "path": "/article/anthropic/claude-fennec-release-imminent/"
     },
     {
-      "category": "anthropic",
-      "slug": "moltbot-clawdbot-ai-assistant",
+      "category": "general",
+      "slug": "bytedance-seedance-copyright-delay",
       "views": 1,
-      "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
+      "path": "/article/general/bytedance-seedance-copyright-delay/"
+    },
+    {
+      "category": "general",
+      "slug": "meta-avocado-ai-model-performance",
+      "views": 1,
+      "path": "/article/general/meta-avocado-ai-model-performance/"
     },
     {
       "category": "general",
       "slug": "moltbook-ai-social-network",
       "views": 1,
       "path": "/article/general/moltbook-ai-social-network/"
-    },
-    {
-      "category": "general",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 1,
-      "path": "/article/general/seedance-2-hollywood-shock-next-version/"
     },
     {
       "category": "google",
@@ -154,9 +142,9 @@
     },
     {
       "category": "openai",
-      "slug": "gpt-4o-retirement-openai-next-step",
+      "slug": "gpt-4o-shutdown-controversy",
       "views": 1,
-      "path": "/article/openai/gpt-4o-retirement-openai-next-step/"
+      "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
       "category": "openai",
@@ -181,6 +169,12 @@
       "slug": "stargate-ai-crisis-2026",
       "views": 1,
       "path": "/article/openai/stargate-ai-crisis-2026/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "mcp-guide",
+      "views": 1,
+      "path": "/article/vibecoding/mcp-guide/"
     }
   ]
 }
