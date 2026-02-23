@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-22T20:12:55.277Z",
+  "updatedAt": "2026-02-23T20:32:24.689Z",
   "period": "30days",
   "games": [
     {
@@ -12,14 +12,14 @@
     },
     {
       "slug": "명일방주-엔드필드",
-      "views": 27
-    },
-    {
-      "slug": "명조워더링-웨이브",
-      "views": 13
+      "views": 21
     },
     {
       "slug": "두근두근타운",
+      "views": 11
+    },
+    {
+      "slug": "명조워더링-웨이브",
       "views": 11
     },
     {
@@ -71,11 +71,11 @@
       "views": 2
     },
     {
-      "slug": "팰몬-서바이벌",
-      "views": 2
+      "slug": "limbus-company",
+      "views": 1
     },
     {
-      "slug": "limbus-company",
+      "slug": "그놈은-드래곤",
       "views": 1
     }
   ]
