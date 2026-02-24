@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-02-23T20:32:24.689Z",
+  "updatedAt": "2026-02-24T21:00:17.624Z",
   "period": "30days",
   "games": [
     {
       "slug": "드래곤소드",
-      "views": 90
+      "views": 77
     },
     {
       "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
@@ -67,15 +67,15 @@
       "views": 2
     },
     {
-      "slug": "우마무스메-프리티-더비",
-      "views": 2
-    },
-    {
       "slug": "limbus-company",
       "views": 1
     },
     {
       "slug": "그놈은-드래곤",
+      "views": 1
+    },
+    {
+      "slug": "소울-스트라이크-qwer-키우기",
       "views": 1
     }
   ]
