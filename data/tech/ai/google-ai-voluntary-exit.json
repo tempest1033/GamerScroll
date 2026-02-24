@@ -1,0 +1,217 @@
+{
+  "slug": "google-ai-voluntary-exit",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "google",
+  "title": "구글 자발적 퇴사 패키지: 사상 최고 매출 뒤의 AI 구조조정",
+  "titleEn": "Google's Voluntary Exit Package: The AI Restructuring Behind Record Revenue",
+  "date": "2026-02-24",
+  "keywords": "구글 자발적 퇴사 패키지, 알파벳 매출 4000억 달러, 구글 AI 전환, 제미나이, 빅테크 AI 구조조정, 구글 인력 감축, AI 인재 역설, 순다르 피차이, 필립 쉰들러, 구글 클라우드 성장",
+  "keywordsEn": "Google voluntary exit package, Alphabet $400 billion revenue, Google AI transformation, Gemini, Big Tech AI restructuring, Google workforce reduction, AI talent paradox, Sundar Pichai, Philipp Schindler, Google Cloud growth",
+  "summary": "알파벳이 연간 매출 4,000억 달러를 돌파한 직후, 구글은 AI에 올인하지 않는 직원에게 자발적 퇴사 패키지를 제안했다. 사상 최고 실적의 이면에 숨겨진 빅테크의 AI 구조조정 트렌드를 분석한다.",
+  "summaryEn": "Right after Alphabet surpassed $400 billion in annual revenue, Google offered voluntary exit packages to employees not fully committed to AI. We analyze the Big Tech AI restructuring trend hidden behind record-breaking earnings.",
+  "thumbnail": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STK093_GOOGLE_A-1.jpg?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=2400",
+  "relatedDocs": ["tech:ai/china-ai-distillation-controversy", "tech:ai/xbox-sunset-ai-pivot", "tech:ai/gemini-31-pro-release", "tech:ai/deepmind-update-aletheia-gemini", "tech:ai/nvidia-gpu-launch-halt-ai-priority"],
+  "sources": [
+    {
+      "name": "The Verge",
+      "title": "Google's annual revenue tops $400 billion",
+      "url": "https://www.theverge.com/news/874161/google-400-billion-revenue-q4-2025-earnings"
+    },
+    {
+      "name": "Reuters",
+      "title": "Alphabet says capital spending in 2026 could double",
+      "url": "https://www.reuters.com/business/google-parent-alphabet-forecasts-sharp-surge-2026-capital-spending-2026-02-04/"
+    },
+    {
+      "name": "Forbes",
+      "title": "Alphabet Beats Earnings Expectations",
+      "url": "https://www.forbes.com/sites/tylerroush/2026/02/04/alphabet-beats-earnings-expectations-as-annual-revenue-tops-400-billion-for-first-time/"
+    },
+    {
+      "name": "SF Chronicle",
+      "title": "7,500 Google and YouTube employees offered buyouts",
+      "url": "https://www.sfchronicle.com/tech/article/google-youtube-buyouts-ai-21131780.php"
+    },
+    {
+      "name": "CNBC",
+      "title": "Google cut a third of managers",
+      "url": "https://www.cnbc.com/2025/08/27/google-executive-says-company-has-cut-a-third-of-its-managers.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "알파벳이 창사 이래 처음으로 연간 매출 4,000억 달러를 돌파했다. 구글 클라우드는 전년 대비 48% 성장했고, 제미나이 앱은 월간 활성 사용자 7억 5,000만 명을 기록했다. 그런데 이 사상 최고 실적 발표 직후, 구글은 AI에 전념하지 않는 직원들에게 퇴사 패키지를 건넸다.\n\n숫자만 보면 역대 최고의 성과지만, 그 이면에는 빅테크 전체를 관통하는 냉혹한 메시지가 있다. AI에 올인하거나, 떠나라."
+    },
+    {
+      "type": "heading",
+      "value": "1. 알파벳 사상 최초 연매출 4,000억 달러 돌파"
+    },
+    {
+      "type": "image",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/6983b92d4f0b14d42c461297/Google-Misinformation/0x0.jpg?format=jpg&crop=3792,2133,x0,y0,safe&width=1440",
+      "caption": "알파벳이 사상 최초로 연매출 4,000억 달러를 돌파했다",
+      "alt": "구글 본사 알파벳 연매출 4000억 달러 사상 최고 실적"
+    },
+    {
+      "type": "text",
+      "value": "2025년 알파벳의 연간 매출은 4,030억 달러로, 전년 대비 15% 증가했다. 4분기 순이익만 345억 달러에 달해 전년 동기 대비 30% 뛰었다. 순다르 피차이 CEO는 실적 발표에서 \"AI만큼 나를 크게 꿈꾸게 하는 기술은 없다\"고 말했다.\n\n특히 구글 클라우드의 성장이 눈에 띈다. 연간 런레이트 700억 달러를 넘어섰고, 수주 잔고는 2,400억 달러로 전분기 대비 55% 급증했다. 제미나이 엔터프라이즈는 4개월 만에 유료 시트 800만 개를 확보했다. 피차이는 제미나이의 서빙 비용이 2025년 한 해 동안 78% 절감됐다고 밝혔다.\n\n이 수치들이 말해주는 것은 하나다. 구글의 AI 전환은 이미 막대한 수익을 만들어내고 있으며, 알파벳은 여기에 더 큰 베팅을 준비하고 있다. 2026년 자본 지출 전망은 1,750억~1,850억 달러로, 전년의 거의 두 배에 달한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 자발적 퇴사 패키지: 세 차례의 메시지"
+    },
+    {
+      "type": "image",
+      "src": "https://media.assettype.com/thebridgechronicle/2026-02-18/p51gzdgh/Hero-Image-2026-02-18T134833.595.png?w=1200&h=675&auto=format%2Ccompress&fit=max&enlarge=true",
+      "caption": "순다르 피차이 CEO는 AI를 구글의 최우선 과제로 내세우고 있다",
+      "alt": "순다르 피차이 구글 CEO AI 전략 발표 구글 I/O 2026"
+    },
+    {
+      "type": "text",
+      "value": "구글의 자발적 퇴사 패키지(VEP)는 2025년 6월부터 시작됐다. 첫 번째 패키지는 엔지니어링, 마케팅, 리서치 부서 직원을 대상으로 했고, 사무실 복귀(RTO) 정책과 함께 발표됐다. 두 번째는 2025년 10월, 유튜브 소속 7,500명을 대상으로 한 바이아웃이었다.\n\n가장 최근인 2026년 2월 11일, 세 번째 VEP가 나왔다. 이번에는 글로벌 비즈니스 조직(GBO)의 미국 직원들이 대상이다. 최고사업책임자(CBO) 필립 쉰들러는 내부 메모에서 직원들에게 \"올인\"하고 \"AI를 수용\"할 것을 요구했다. 그리고 \"이 속도가 맞지 않는\" 직원들에게는 퇴사 패키지를 제안했다.\n\n쉰들러의 메시지는 노골적이다. AI 전환에 동참하지 않는다면 구글에 당신의 자리는 없다는 것이다. 구글의 최고제품책임자(CPO)는 이 프로그램을 \"상당히 성공적\"이라 평가했으며, 주요 부서에서 약 5%의 직원이 패키지를 수용한 것으로 알려졌다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 관리자 35% 감축과 조직 슬림화"
+    },
+    {
+      "type": "text",
+      "value": "퇴사 패키지와 함께 구글은 조직 구조 자체를 손보고 있다. 2025년 8월까지 관리자의 35%가 감축됐다. 팀원이 3명 이하인 관리자 직책을 대폭 줄인 결과다. 이는 의사결정 속도를 높이고, AI 중심의 수평적 조직으로 전환하려는 의도로 해석된다.\n\n구글은 분기당 250개 이상의 AI 관련 제품을 출시하고 있다. 제미나이 3 프로는 역대 가장 빠른 채택 속도를 기록했고, 분당 100억 토큰 이상을 처리한다. 구글 안티그래비티라는 AI 에이전트 플랫폼은 주간 활성 사용자 150만 명을 확보했다. 이 속도를 유지하려면 느린 조직은 사치라는 게 구글의 판단이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. AI 인재 역설: 퇴사 패키지와 공격적 채용의 공존"
+    },
+    {
+      "type": "image",
+      "src": "https://cio.eletsonline.com/wp-content/uploads/2024/02/CEO-Sundar-Pichai.jpg",
+      "caption": "구글은 AI 인재 영입에 공격적으로 투자하고 있다",
+      "alt": "순다르 피차이 구글 CEO 제미나이 AI 인재 채용 전략"
+    },
+    {
+      "type": "text",
+      "value": "흥미로운 점은 구글이 한쪽에서 직원을 내보내면서 다른 쪽에서는 AI 인재를 적극적으로 영입하고 있다는 것이다. 구글의 AI 소프트웨어 엔지니어 채용 중 20%가 이른바 '부메랑 직원', 즉 한때 구글을 떠났다가 다시 돌아온 인력이다. 캐릭터AI 인수에만 27억 달러를 지출하기도 했다.\n\n이것은 모순이 아니라 전략이다. 구글이 원하는 것은 단순히 인원 감축이 아니라 인력 구성의 근본적인 전환이다. AI 역량이 없는 직원은 퇴사 패키지를 통해 조직을 떠나고, 그 자리를 AI 전문 인력이 채운다. 인원수가 아니라 인력의 질이 달라지는 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 빅테크 전체로 번지는 AI 구조조정"
+    },
+    {
+      "type": "image",
+      "src": "https://i0.wp.com/www.edwardconard.com/wp-content/uploads/2025/02/30206-big-tech-lines-up-over-300bn-in-ai-spending-for-2025-featured-thumbnail-image.png?fit=1600%2C1322&ssl=1",
+      "caption": "빅테크 기업들의 AI 인프라 투자가 천문학적으로 증가하고 있다",
+      "alt": "빅테크 AI 인프라 투자 규모 구글 마이크로소프트 아마존 메타 자본지출"
+    },
+    {
+      "type": "text",
+      "value": "이런 흐름은 구글만의 이야기가 아니다. 마이크로소프트의 사티아 나델라 CEO는 2025년 12월 직원들에게 \"AI에 헌신하거나 떠나라\"는 최후통첩을 보냈다. 마이크로소프트는 2025년 약 9,000명을 해고했다. 2025년 한 해 동안 테크 업계 전체에서 약 24만 5,000명 이상이 직장을 잃었다.\n\n동시에 AI 인프라 투자는 천문학적으로 불어나고 있다. 알파벳의 2026년 자본 지출 전망이 1,750억~1,850억 달러인 데 이어, 아마존은 2026년 2,000억 달러의 자본 지출을 계획하고 있다. 사람에게 쓰는 돈은 줄이고, 기계에 쓰는 돈은 늘리는 것이다. 이것이 2026년 빅테크의 공통 공식이다.\n\n애플과의 협업도 주목할 만하다. 구글의 제미나이 기술이 애플의 차세대 파운데이션 모델에 활용될 예정이라는 소식은 AI 기술이 경쟁을 넘어 업계 표준이 되어가고 있음을 보여준다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 사상 최고 매출이 보장하지 않는 것"
+    },
+    {
+      "type": "text",
+      "value": "알파벳의 4,000억 달러 매출은 구글의 AI 전환이 재정적으로 성공하고 있다는 증거다. 하지만 사상 최고 실적을 달성한 기업이 직원들에게 \"속도를 따라오지 못하면 떠나라\"고 말하는 현실은, AI 시대의 노동 시장이 얼마나 빠르게 변하고 있는지를 극명하게 보여준다.\n\n구글이 자발적 퇴사 패키지를 통해 보내는 메시지는 단순하다. AI 전환은 선택이 아니라 생존의 문제이며, 이 속도를 따라올 수 있는 사람만이 빅테크에 남을 수 있다는 것이다. 사상 최고 매출이 모든 직원의 미래를 보장하지는 않는 시대가 왔다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Alphabet has surpassed $400 billion in annual revenue for the first time in its history. Google Cloud grew 48% year-over-year, and the Gemini app reached 750 million monthly active users. Yet right after announcing these record-breaking results, Google handed exit packages to employees not fully committed to AI.\n\nThe numbers tell a story of peak performance, but beneath them lies a ruthless message echoing across Big Tech: go all-in on AI, or leave."
+    },
+    {
+      "type": "heading",
+      "value": "1. Alphabet Surpasses $400 Billion in Annual Revenue for the First Time"
+    },
+    {
+      "type": "image",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/6983b92d4f0b14d42c461297/Google-Misinformation/0x0.jpg?format=jpg&crop=3792,2133,x0,y0,safe&width=1440",
+      "caption": "Alphabet surpassed $400 billion in annual revenue for the first time",
+      "alt": "Google headquarters Alphabet record annual revenue $400 billion earnings"
+    },
+    {
+      "type": "text",
+      "value": "Alphabet's annual revenue for 2025 reached $403 billion, up 15% year-over-year. Fourth-quarter net income alone hit $34.5 billion, a 30% jump from the same period last year. CEO Sundar Pichai said during the earnings call, \"No technology has me dreaming bigger than AI.\"\n\nGoogle Cloud's growth stands out in particular. It surpassed a $70 billion annual run rate, with its order backlog surging 55% quarter-over-quarter to $240 billion. Gemini Enterprise secured 8 million paid seats in just four months. Pichai revealed that Gemini's serving costs were reduced by 78% throughout 2025.\n\nThese figures point to one conclusion: Google's AI transformation is already generating massive returns, and Alphabet is preparing an even bigger bet. The 2026 capital expenditure forecast stands at $175-185 billion, nearly double the previous year."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Voluntary Exit Package: Three Rounds of Messaging"
+    },
+    {
+      "type": "image",
+      "src": "https://media.assettype.com/thebridgechronicle/2026-02-18/p51gzdgh/Hero-Image-2026-02-18T134833.595.png?w=1200&h=675&auto=format%2Ccompress&fit=max&enlarge=true",
+      "caption": "CEO Sundar Pichai has positioned AI as Google's top priority",
+      "alt": "Sundar Pichai Google CEO AI strategy announcement Google I/O 2026"
+    },
+    {
+      "type": "text",
+      "value": "Google's Voluntary Exit Package (VEP) program began in June 2025. The first round targeted engineering, marketing, and research employees and was announced alongside a return-to-office (RTO) policy. The second came in October 2025, a buyout offered to 7,500 YouTube employees.\n\nThe most recent, third VEP arrived on February 11, 2026, targeting U.S. employees in the Global Business Organization (GBO). Chief Business Officer Philipp Schindler wrote in an internal memo demanding employees go \"all in\" and \"embrace AI.\" For those \"not enjoying the pace,\" he offered an exit package.\n\nSchindler's message is blunt: if you're not on board with the AI transformation, there's no place for you at Google. Google's Chief People Officer called the program \"quite successful,\" with approximately 5% of employees in key departments accepting the package."
+    },
+    {
+      "type": "heading",
+      "value": "3. 35% Manager Reduction and Organizational Streamlining"
+    },
+    {
+      "type": "text",
+      "value": "Alongside the exit packages, Google has been overhauling its organizational structure. By August 2025, 35% of managers had been cut, primarily by eliminating management positions for teams with three or fewer members. This is interpreted as an effort to accelerate decision-making and transition to a flatter, AI-centric organization.\n\nGoogle is shipping more than 250 AI-related products per quarter. Gemini 3 Pro recorded the fastest adoption rate in company history, processing over 10 billion tokens per minute. Google Antigravity, an AI agent platform, has reached 1.5 million weekly active users. To maintain this velocity, sluggish organizational layers are a luxury Google can no longer afford."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. The AI Talent Paradox: Exit Packages Meet Aggressive Hiring"
+    },
+    {
+      "type": "image",
+      "src": "https://cio.eletsonline.com/wp-content/uploads/2024/02/CEO-Sundar-Pichai.jpg",
+      "caption": "Google is aggressively investing in AI talent acquisition",
+      "alt": "Sundar Pichai Google CEO Gemini AI talent recruitment strategy"
+    },
+    {
+      "type": "text",
+      "value": "What makes this particularly striking is that Google is simultaneously pushing employees out one door while pulling AI talent in through another. Twenty percent of Google's AI software engineering hires are so-called \"boomerang employees\" who had previously left the company. Google also spent $2.7 billion on the Character.AI acquisition.\n\nThis isn't a contradiction; it's a strategy. Google doesn't want headcount reduction. It wants a fundamental transformation of its workforce composition. Employees without AI capabilities exit through voluntary packages, and AI specialists fill their seats. The total number might stay the same, but the quality and focus of the workforce shifts dramatically."
+    },
+    {
+      "type": "heading",
+      "value": "5. AI Restructuring Spreads Across Big Tech"
+    },
+    {
+      "type": "image",
+      "src": "https://i0.wp.com/www.edwardconard.com/wp-content/uploads/2025/02/30206-big-tech-lines-up-over-300bn-in-ai-spending-for-2025-featured-thumbnail-image.png?fit=1600%2C1322&ssl=1",
+      "caption": "Big Tech companies are dramatically increasing AI infrastructure investment",
+      "alt": "Big Tech AI infrastructure spending Google Microsoft Amazon Meta capital expenditure"
+    },
+    {
+      "type": "text",
+      "value": "This trend extends far beyond Google. Microsoft CEO Satya Nadella issued an ultimatum to employees in December 2025: commit to AI or leave. Microsoft laid off approximately 9,000 people in 2025. Across the entire tech industry, roughly 245,000 or more workers lost their jobs that year.\n\nSimultaneously, AI infrastructure investment is ballooning to astronomical levels. Following Alphabet's $175-185 billion CapEx forecast for 2026, Amazon has planned $200 billion in capital expenditure for the same year. Spending on people goes down while spending on machines goes up. This is the common formula of Big Tech in 2026.\n\nThe collaboration with Apple is also noteworthy. News that Google's Gemini technology will be used in Apple's next-generation foundation models suggests that AI technology is becoming an industry standard that transcends competition."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "In Closing: What Record Revenue Doesn't Guarantee"
+    },
+    {
+      "type": "text",
+      "value": "Alphabet's $400 billion revenue is proof that Google's AI transformation is succeeding financially. But the fact that a company posting all-time-high earnings is telling employees to \"leave if you can't keep up\" starkly illustrates how rapidly the labor market is changing in the AI era.\n\nThe message Google sends through its voluntary exit packages is simple: the AI transformation is not a choice but a matter of survival, and only those who can match the pace will remain in Big Tech. The era has arrived where record revenue doesn't guarantee every employee's future."
+    }
+  ],
+  "relatedGames": []
+}

@@ -1,0 +1,149 @@
+{
+  "slug": "gpt-54-leak-model-war",
+  "status": "approved",
+  "category": "openai",
+  "title": "GPT 5.4 유출: OpenAI 직원 실수로 드러난 차기 모델의 존재",
+  "date": "2026-02-24",
+  "keywords": "GPT 5.4, OpenAI, GPT 5.4 유출, 코덱스, GPT 5.3, AI 모델 경쟁, 딥시크 V4, 미중 AI, ChatGPT, GPT 넘버링, AI 릴리스 주기, 증류 방어",
+  "keywordsEn": "GPT 5.4, OpenAI, GPT 5.4 leak, Codex, GPT 5.3, AI model competition, DeepSeek V4, US China AI, ChatGPT, GPT numbering, AI release cadence, distillation defense",
+  "summary": "OpenAI 코덱스 팀 직원의 트위터 실수로 차기 모델 'GPT 5.4'의 존재가 드러났다. Reddit과 ChatGPT 백엔드에서도 추가 증거가 발견되면서 이번 주 출시가 유력해졌다. 딥시크 V4도 같은 주 출시를 앞두고 있어 미중 AI 최신 모델 대결이 예고된다.",
+  "summaryEn": "An OpenAI Codex team member's Twitter slip revealed the existence of 'GPT 5.4.' Additional evidence found on Reddit and ChatGPT's backend makes a release this week highly likely. With DeepSeek V4 also expected the same week, a US-China AI showdown is imminent.",
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-color.jpg?w=1024",
+  "sources": [
+    {
+      "name": "Reuters",
+      "title": "DeepSeek to launch new AI model focused on coding in February",
+      "url": "https://www.reuters.com/technology/deepseek-launch-new-ai-model-focused-coding-february-information-reports-2026-01-09/"
+    },
+    {
+      "name": "PC Guide",
+      "title": "Four GPT-5 model variants just got leaked by Microsoft",
+      "url": "https://www.pcguide.com/news/four-gpt-5-model-variants-just-got-leaked-by-microsoft-ahead-of-openais-livestream-reveal/"
+    },
+    {
+      "name": "i10x",
+      "title": "OpenAI 2026 AI Roadmap: GPT-5, 5.2 & Open Models",
+      "url": "https://i10x.ai/news/openai-2026-ai-roadmap-gpt-5-models"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gpt-53-codex-community-reaction",
+    "tech:ai/china-ai-distillation-controversy",
+    "tech:ai/openai-crisis-competition-direction-2026"
+  ],
+  "needTranslate": false,
+  "titleEn": "GPT 5.4 Leak: OpenAI Employee's Slip Reveals the Next Model",
+  "summaryEn": "An OpenAI Codex team member's Twitter slip revealed the existence of 'GPT 5.4.' Additional evidence found on Reddit and ChatGPT's backend makes a release this week highly likely. With DeepSeek V4 also expected the same week, a US-China AI showdown is imminent.",
+  "content": [
+    {
+      "type": "text",
+      "value": "OpenAI의 차기 모델 GPT 5.4가 직원의 실수로 세상에 알려졌다. 코덱스 팀 소속 직원이 트위터에 'GPT-5.4'라는 넘버링을 게시한 뒤 급히 삭제하고 '5.3 Spark'로 교체했지만, 이미 스크린샷은 캡처된 뒤였다. 이후 레딧과 챗GPT 백엔드에서 추가 증거가 잇따라 발견되면서, GPT 5.4의 존재는 사실상 기정사실이 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT 5.4 유출 경위: 트위터 실수에서 백엔드 증거까지"
+    },
+    {
+      "type": "image",
+      "src": "https://www.pcguide.com/wp-content/uploads/2025/08/Open-AI-GPT-5-compared-to-Llama-4-Scout-and-Cohere-v2.jpg",
+      "caption": "GPT 5 시리즈의 모델 변종들이 유출되면서 차기 버전의 윤곽이 드러나고 있다",
+      "alt": "OpenAI GPT 5.4 모델 변종 유출 AI 성능 비교"
+    },
+    {
+      "type": "text",
+      "value": "유출의 시작은 단순한 실수였다. OpenAI 코덱스 팀 직원이 트위터에 'GPT-5.4'를 언급한 게시물을 올렸다가, 수 분 만에 삭제하고 '5.3 Spark'라는 이름으로 교체했다. 하지만 인터넷은 잊지 않는다. 스크린샷은 순식간에 퍼져나갔다.\n\n결정적 증거는 기술 커뮤니티에서 나왔다. 레딧 사용자들이 OpenAI 공개 API의 /models 엔드포인트에서 'alpha-gpt-5.4'라는 식별자를 발견했다. 챗GPT 웹 백엔드에서도 gpt-5-4, gpt-5-4-instant, gpt-5-4-thinking, gpt-5-4-pro 등 다양한 라우팅 식별자가 확인됐다. 단순한 루머가 아니라 실제 시스템에 등록된 모델이라는 뜻이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. GPT 넘버링 변천사: 2개월 간격 질주"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI의 GPT 5 시리즈는 놀라운 속도로 진화해왔다. 2025년 8월 GPT 5.0을 시작으로, 11월에 5.1, 올해 1월에 5.2, 그리고 2월 5일에 코덱스 전용 5.3이 출시됐다. 약 2~3개월 간격의 빠른 이터레이션이다.\n\n특히 5.3은 코덱스(코딩 에이전트) 전용으로만 출시됐다는 점이 주목할 만하다. 일반 챗GPT 사용자는 5.3을 경험하지 못한 채 곧바로 5.4를 만나게 될 가능성이 높다. 백엔드에서 발견된 gpt-5-4-thinking, gpt-5-4-pro 등의 변종 식별자는 GPT 5.4가 상당한 성능 향상을 수반할 것임을 시사한다. 특히 'thinking' 변종은 강화된 추론 능력을, 'pro' 변종은 전문가용 고성능 모드를 예고하는 것으로 해석된다. 과거 사례를 보면, 모델 라우팅 식별자가 백엔드에 등록된 후 약 1주일 내에 공식 출시되는 패턴이 있었다. 빠르면 2월 26일 출시도 가능하다는 관측이 나오는 이유다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 딥시크 V4와의 동시 대결: 미중 AI 정면승부"
+    },
+    {
+      "type": "image",
+      "src": "https://1000logos.net/wp-content/uploads/2025/01/DeepSeek-Logo.jpg",
+      "caption": "딥시크 V4도 같은 주 출시를 예고하며 GPT 5.4와의 정면 대결이 예고됐다",
+      "alt": "딥시크 로고 DeepSeek V4 GPT 5.4 미중 AI 모델 대결"
+    },
+    {
+      "type": "text",
+      "value": "GPT 5.4 출시가 특히 주목받는 이유는 타이밍에 있다. 딥시크도 같은 주에 차기 모델 V4 출시를 예고했기 때문이다. 딥시크 V4는 코딩 벤치마크에서 클로드와 챗GPT를 능가할 것이라는 전망이 나오면서, 미중 AI 최신 모델의 정면 대결 구도가 형성됐다.\n\n이 같은 빠른 릴리스 주기는 단순히 기술 경쟁만을 의미하지 않는다. 최근 앤트로픽과 OpenAI가 잇따라 폭로한 중국 AI 기업들의 대규모 증류 공격을 고려하면, 빠른 모델 교체 자체가 증류에 대한 방어 전략이기도 하다. 모델이 빠르게 교체되면 증류로 복제한 구 버전의 가치가 급감하기 때문이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 위기의 OpenAI, GPT 5.4가 돌파구가 될 수 있을까"
+    },
+    {
+      "type": "text",
+      "value": "GPT 5.4는 더 이상 비밀이 아니다. 트위터 실수, API 엔드포인트, 백엔드 라우팅까지 삼중 증거가 확보됐고, thinking과 pro 변종까지 준비된 것을 보면 대폭적인 성능 향상이 예상된다.\n\n하지만 OpenAI에게 GPT 5.4는 단순한 신모델 이상의 의미를 갖는다. 중국 AI 기업들의 대규모 증류 공격, 앤트로픽과 구글의 맹추격, 내부 인력 이탈과 조직 갈등까지 겹치면서 OpenAI는 사면초가에 놓여 있다. 이런 상황에서 GPT 5.4는 기술적 우위를 재증명하고 시장의 신뢰를 되찾을 수 있는 핵심 카드다.\n\n같은 주에 출시가 예고된 딥시크 V4와의 정면 대결은 그 시험대가 될 전망이다. 코딩 벤치마크에서 기존 모델들을 능가할 것이라는 딥시크 V4의 자신감 앞에서, GPT 5.4가 확실한 격차를 보여줄 수 있을지 귀추가 주목된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI's next model, GPT 5.4, was revealed to the world through an employee's mistake. A member of the Codex team posted 'GPT-5.4' on Twitter, then quickly deleted it and replaced it with '5.3 Spark,' but screenshots had already been captured. Subsequent discoveries on Reddit and ChatGPT's backend have made GPT 5.4's existence virtually confirmed."
+    },
+    {
+      "type": "heading",
+      "value": "1. How GPT 5.4 Was Leaked: From a Twitter Slip to Backend Evidence"
+    },
+    {
+      "type": "image",
+      "src": "https://www.pcguide.com/wp-content/uploads/2025/08/Open-AI-GPT-5-compared-to-Llama-4-Scout-and-Cohere-v2.jpg",
+      "caption": "GPT 5 series model variants have been leaking, revealing the contours of the next version",
+      "alt": "OpenAI GPT 5.4 model variants leak AI performance comparison"
+    },
+    {
+      "type": "text",
+      "value": "It started with a simple mistake. An OpenAI Codex team member posted a tweet mentioning 'GPT-5.4,' only to delete it within minutes and replace the reference with '5.3 Spark.' But the internet never forgets. Screenshots spread instantly.\n\nThe smoking gun came from the tech community. Reddit users discovered 'alpha-gpt-5.4' in OpenAI's public API /models endpoint. ChatGPT's web backend also revealed routing identifiers including gpt-5-4, gpt-5-4-instant, gpt-5-4-thinking, and gpt-5-4-pro. This wasn't mere rumor; it was a model actually registered in the production system."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. GPT Numbering History: Sprinting at Two-Month Intervals"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's GPT 5 series has evolved at a remarkable pace. Starting with GPT 5.0 in August 2025, followed by 5.1 in November, 5.2 in January 2026, and the Codex-exclusive 5.3 on February 5. That's roughly a two-to-three-month iteration cycle.\n\nNotably, 5.3 was released exclusively for Codex, OpenAI's coding agent. General ChatGPT users never experienced 5.3 and will likely go straight to 5.4. The variant identifiers discovered in the backend, such as gpt-5-4-thinking and gpt-5-4-pro, suggest GPT 5.4 will bring a substantial performance leap. The 'thinking' variant points to enhanced reasoning capabilities, while 'pro' hints at a high-performance expert mode. Historical patterns show that once model routing identifiers appear in the backend, official release typically follows within about a week. Some observers predict a launch as early as February 26."
+    },
+    {
+      "type": "heading",
+      "value": "3. DeepSeek V4 Showdown: A US-China AI Head-to-Head"
+    },
+    {
+      "type": "image",
+      "src": "https://1000logos.net/wp-content/uploads/2025/01/DeepSeek-Logo.jpg",
+      "caption": "DeepSeek V4 is also set to launch the same week, setting up a head-to-head with GPT 5.4",
+      "alt": "DeepSeek logo DeepSeek V4 GPT 5.4 US China AI model showdown"
+    },
+    {
+      "type": "text",
+      "value": "What makes GPT 5.4's timing especially noteworthy is the coincidence. DeepSeek has also announced its next model, V4, for the same week. With projections suggesting DeepSeek V4 could surpass Claude and ChatGPT on coding benchmarks, a head-to-head showdown between the latest US and Chinese AI models is taking shape.\n\nThis rapid release cadence isn't just about technological competition. Considering the massive distillation attacks by Chinese AI firms that Anthropic and OpenAI recently exposed, rapid model replacement itself serves as a defense strategy against distillation. When models are quickly superseded, the value of distilled copies of older versions plummets."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Closing: Can GPT 5.4 Rescue an OpenAI Under Siege?"
+    },
+    {
+      "type": "text",
+      "value": "GPT 5.4 is no longer a secret. Triple evidence from a Twitter slip, API endpoints, and backend routing has been secured, and the thinking and pro variants suggest a major performance upgrade is on the horizon.\n\nBut for OpenAI, GPT 5.4 carries significance far beyond a routine model release. Besieged by massive distillation attacks from Chinese AI firms, fierce competition from Anthropic and Google, and internal talent departures and organizational turmoil, OpenAI finds itself cornered on multiple fronts. In this context, GPT 5.4 is a critical card to reassert technological supremacy and restore market confidence.\n\nThe head-to-head with DeepSeek V4, slated for the same week, will serve as the ultimate proving ground. With DeepSeek V4 projecting it will surpass existing models on coding benchmarks, all eyes are on whether GPT 5.4 can demonstrate a decisive edge."
+    }
+  ]
+}
