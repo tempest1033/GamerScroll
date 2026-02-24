@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-02-23T00:59:32.068Z",
+  "updatedAt": "2026-02-24T00:58:17.056Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 109,
+      "views": 116,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
-      "views": 53,
+      "views": 54,
       "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 33,
+      "views": 31,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -35,26 +35,20 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 16,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
       "slug": "diablo2-resurrected-steam-launch",
-      "views": 14,
+      "views": 12,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 13,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 12,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "t1-lck-cup-shocking-elimination",
-      "views": 11,
+      "views": 12,
       "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
     },
     {
@@ -63,6 +57,12 @@
       "category": "ai",
       "views": 11,
       "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 10,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "ranking",
@@ -81,27 +81,8 @@
       "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
-      "views": 8,
+      "views": 9,
       "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "tech",
-      "slug": "openclaw-steinberger-openai",
-      "category": "ai",
-      "views": 8,
-      "path": "/tech/ai/openclaw-steinberger-openai/"
-    },
-    {
-      "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 7,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 7,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "tech",
@@ -117,16 +98,29 @@
       "path": "/magazine/issue/dragon-sword-webzen-contract-termination/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
+      "type": "issue",
+      "slug": "gpt-5-3-garlic-update-rumor",
       "views": 6,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+    },
+    {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 5,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
       "slug": "lol-aram-mayhem-comeback",
       "views": 5,
       "path": "/magazine/issue/lol-aram-mayhem-comeback/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 5,
+      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "wiki",
@@ -142,10 +136,10 @@
       "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
       "views": 4,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
@@ -160,19 +154,6 @@
       "category": "vibecoding",
       "views": 4,
       "path": "/tech/vibecoding/vibe-coding-agent-guide/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mewgenics-edmund-mcmillen-14-years",
-      "views": 3,
-      "path": "/magazine/hotpick/mewgenics-edmund-mcmillen-14-years/"
     },
     {
       "type": "issue",
@@ -194,6 +175,12 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 3,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 3,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
@@ -207,10 +194,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-cowork-saaspocalypse",
+      "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
       "views": 3,
-      "path": "/tech/ai/claude-cowork-saaspocalypse/"
+      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "tech",
@@ -221,16 +208,42 @@
     },
     {
       "type": "tech",
+      "slug": "meta-avocado-ai-model-performance",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/meta-avocado-ai-model-performance/"
+    },
+    {
+      "type": "tech",
+      "slug": "openai-compute-investment-600b-cut",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/openai-compute-investment-600b-cut/"
+    },
+    {
+      "type": "tech",
       "slug": "openai-crisis-competition-direction-2026",
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/openai-crisis-competition-direction-2026/"
     },
     {
-      "type": "issue",
-      "slug": "game-ai-paradigm-shift-2026",
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
       "views": 2,
-      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mewgenics-edmund-mcmillen-14-years",
+      "views": 2,
+      "path": "/magazine/hotpick/mewgenics-edmund-mcmillen-14-years/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 2,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -253,10 +266,17 @@
     },
     {
       "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
+      "slug": "china-ai-video-kling3-seedance2",
       "category": "ai",
       "views": 2,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
+      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-cowork-saaspocalypse",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/claude-cowork-saaspocalypse/"
     },
     {
       "type": "tech",
@@ -267,17 +287,10 @@
     },
     {
       "type": "tech",
-      "slug": "meta-avocado-ai-model-performance",
+      "slug": "openclaw-steinberger-openai",
       "category": "ai",
       "views": 2,
-      "path": "/tech/ai/meta-avocado-ai-model-performance/"
-    },
-    {
-      "type": "tech",
-      "slug": "openai-compute-investment-600b-cut",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/openai-compute-investment-600b-cut/"
+      "path": "/tech/ai/openclaw-steinberger-openai/"
     },
     {
       "type": "tech",
@@ -328,18 +341,6 @@
       "path": "/magazine/hotpick/slay-the-spire-2-early-access/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "issue",
-      "slug": "ai-basic-act-game-industry-confusion",
-      "views": 1,
-      "path": "/magazine/issue/ai-basic-act-game-industry-confusion/"
-    },
-    {
       "type": "issue",
       "slug": "aion2-midterm-report-card",
       "views": 1,
@@ -359,9 +360,9 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
+      "slug": "game-ai-paradigm-shift-2026",
       "views": 1,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
     },
     {
       "type": "issue",
@@ -371,21 +372,15 @@
     },
     {
       "type": "issue",
-      "slug": "lucky-defense-probability-manipulation-scandal",
-      "views": 1,
-      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
-    },
-    {
-      "type": "issue",
       "slug": "maple-grow-scandal-still-top-revenue",
       "views": 1,
       "path": "/magazine/issue/maple-grow-scandal-still-top-revenue/"
     },
     {
-      "type": "ranking",
-      "slug": "steam-january-2026",
+      "type": "issue",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
       "views": 1,
-      "path": "/magazine/ranking/steam-january-2026/"
+      "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
     },
     {
       "type": "tech",
@@ -393,13 +388,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/anthropic-pentagon-ai-safety-standoff/"
-    },
-    {
-      "type": "tech",
-      "slug": "china-ai-video-kling3-seedance2",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
     },
     {
       "type": "tech",
@@ -442,6 +430,13 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/game-ip-licensing/"
+    },
+    {
+      "type": "wiki",
+      "slug": "google-genie3-unity-stock-crash",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/google-genie3-unity-stock-crash/"
     },
     {
       "type": "wiki",

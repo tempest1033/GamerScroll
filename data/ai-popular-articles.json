@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-02-23T01:00:08.306Z",
+  "updatedAt": "2026-02-24T00:58:52.996Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 18,
+      "views": 16,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
@@ -21,12 +21,6 @@
       "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
-      "views": 5,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
-    },
-    {
       "category": "general",
       "slug": "grok-420-multi-agent-release",
       "views": 5,
@@ -37,6 +31,12 @@
       "slug": "kurzweil-singularity-review-2026",
       "views": 5,
       "path": "/article/general/kurzweil-singularity-review-2026/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-opus-46-pricing-controversy",
+      "views": 4,
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
       "category": "anthropic",
@@ -58,27 +58,27 @@
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 3,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "project-md-settings-guide",
       "views": 3,
       "path": "/article/vibecoding/project-md-settings-guide/"
     },
     {
       "category": "anthropic",
-      "slug": "claude-cowork-windows-launch",
-      "views": 2,
-      "path": "/article/anthropic/claude-cowork-windows-launch/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-sonnet-46-release",
       "views": 2,
       "path": "/article/anthropic/claude-sonnet-46-release/"
+    },
+    {
+      "category": "general",
+      "slug": "meta-avocado-ai-model-performance",
+      "views": 2,
+      "path": "/article/general/meta-avocado-ai-model-performance/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 2,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
@@ -100,27 +100,15 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-cowork-saaspocalypse",
+      "slug": "claude-cowork-windows-launch",
       "views": 1,
-      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-fennec-release-imminent",
-      "views": 1,
-      "path": "/article/anthropic/claude-fennec-release-imminent/"
+      "path": "/article/anthropic/claude-cowork-windows-launch/"
     },
     {
       "category": "general",
       "slug": "bytedance-seedance-copyright-delay",
       "views": 1,
       "path": "/article/general/bytedance-seedance-copyright-delay/"
-    },
-    {
-      "category": "general",
-      "slug": "meta-avocado-ai-model-performance",
-      "views": 1,
-      "path": "/article/general/meta-avocado-ai-model-performance/"
     },
     {
       "category": "general",
@@ -157,12 +145,6 @@
       "slug": "openai-crisis-competition-direction-2026",
       "views": 1,
       "path": "/article/openai/openai-crisis-competition-direction-2026/"
-    },
-    {
-      "category": "openai",
-      "slug": "openclaw-steinberger-openai",
-      "views": 1,
-      "path": "/article/openai/openclaw-steinberger-openai/"
     },
     {
       "category": "openai",
