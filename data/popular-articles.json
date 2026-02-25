@@ -1,54 +1,48 @@
 {
-  "updatedAt": "2026-02-24T00:58:17.056Z",
+  "updatedAt": "2026-02-25T01:03:05.238Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 116,
+      "views": 127,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
-      "views": 54,
+      "views": 53,
       "path": "/magazine/issue/dragon-sword-launch-report/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 31,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
       "slug": "heavenhells-clover-games-restructuring",
-      "views": 29,
+      "views": 30,
       "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 29,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "tech",
       "slug": "gemini-31-pro-release",
       "category": "ai",
-      "views": 18,
+      "views": 19,
       "path": "/tech/ai/gemini-31-pro-release/"
     },
     {
       "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
-      "views": 16,
+      "views": 17,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 12,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "t1-lck-cup-shocking-elimination",
-      "views": 12,
+      "views": 15,
       "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
     },
     {
@@ -59,16 +53,16 @@
       "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 10,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
       "type": "ranking",
       "slug": "lunar-new-year-2026-kr",
       "views": 10,
       "path": "/magazine/ranking/lunar-new-year-2026-kr/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 9,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "tech",
@@ -83,6 +77,12 @@
       "category": "ai",
       "views": 9,
       "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 7,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "tech",
@@ -105,15 +105,16 @@
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 5,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "lol-aram-mayhem-comeback",
       "views": 5,
       "path": "/magazine/issue/lol-aram-mayhem-comeback/"
+    },
+    {
+      "type": "tech",
+      "slug": "openai-crisis-competition-direction-2026",
+      "category": "ai",
+      "views": 5,
+      "path": "/tech/ai/openai-crisis-competition-direction-2026/"
     },
     {
       "type": "wiki",
@@ -136,10 +137,11 @@
       "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
+      "type": "tech",
+      "slug": "chatgpt-desktop-app",
+      "category": "ai",
       "views": 4,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
+      "path": "/tech/ai/chatgpt-desktop-app/"
     },
     {
       "type": "tech",
@@ -150,10 +152,23 @@
     },
     {
       "type": "tech",
+      "slug": "meta-avocado-ai-model-performance",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/meta-avocado-ai-model-performance/"
+    },
+    {
+      "type": "tech",
       "slug": "vibe-coding-agent-guide",
       "category": "vibecoding",
       "views": 4,
       "path": "/tech/vibecoding/vibe-coding-agent-guide/"
+    },
+    {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 3,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -175,22 +190,15 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
+      "slug": "heavenhells-sales-decline-launch",
       "views": 3,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
       "views": 3,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "tech",
-      "slug": "chatgpt-desktop-app",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/chatgpt-desktop-app/"
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
@@ -208,24 +216,17 @@
     },
     {
       "type": "tech",
-      "slug": "meta-avocado-ai-model-performance",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/meta-avocado-ai-model-performance/"
-    },
-    {
-      "type": "tech",
       "slug": "openai-compute-investment-600b-cut",
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/openai-compute-investment-600b-cut/"
     },
     {
-      "type": "tech",
-      "slug": "openai-crisis-competition-direction-2026",
-      "category": "ai",
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
+      "category": "knowledge",
       "views": 3,
-      "path": "/tech/ai/openai-crisis-competition-direction-2026/"
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
       "type": "hotpick",
@@ -244,6 +245,18 @@
       "slug": "heartopia-mobile-animal-crossing-success",
       "views": 2,
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 2,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 2,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
@@ -287,6 +300,13 @@
     },
     {
       "type": "tech",
+      "slug": "gpt-54-leak-model-war",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/gpt-54-leak-model-war/"
+    },
+    {
+      "type": "tech",
       "slug": "openclaw-steinberger-openai",
       "category": "ai",
       "views": 2,
@@ -301,17 +321,10 @@
     },
     {
       "type": "wiki",
-      "slug": "game-shareholder-returns-low-growth",
-      "category": "business",
+      "slug": "korean-esports-history",
+      "category": "history",
       "views": 2,
-      "path": "/wiki/business/game-shareholder-returns-low-growth/"
-    },
-    {
-      "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "wiki",
@@ -341,22 +354,10 @@
       "path": "/magazine/hotpick/slay-the-spire-2-early-access/"
     },
     {
-      "type": "issue",
-      "slug": "aion2-midterm-report-card",
+      "type": "insight",
+      "slug": "2026-game-trends",
       "views": 1,
-      "path": "/magazine/issue/aion2-midterm-report-card/"
-    },
-    {
-      "type": "issue",
-      "slug": "arknights-endfield-launch-success",
-      "views": 1,
-      "path": "/magazine/issue/arknights-endfield-launch-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "chzzk-lck-naver-viewer-complaints",
-      "views": 1,
-      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -366,9 +367,9 @@
     },
     {
       "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
+      "slug": "gemini-3-hallucination-memory-overfitting",
       "views": 1,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "type": "issue",
@@ -384,10 +385,10 @@
     },
     {
       "type": "tech",
-      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "slug": "china-ai-distillation-controversy",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/anthropic-pentagon-ai-safety-standoff/"
+      "path": "/tech/ai/china-ai-distillation-controversy/"
     },
     {
       "type": "tech",
@@ -395,6 +396,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-cowork-windows-launch/"
+    },
+    {
+      "type": "tech",
+      "slug": "google-ai-voluntary-exit",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/google-ai-voluntary-exit/"
     },
     {
       "type": "tech",
@@ -419,6 +427,13 @@
     },
     {
       "type": "tech",
+      "slug": "xbox-sunset-ai-pivot",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/xbox-sunset-ai-pivot/"
+    },
+    {
+      "type": "tech",
       "slug": "agile-jira-confluence-game-dev",
       "category": "normal",
       "views": 1,
@@ -437,13 +452,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/google-genie3-unity-stock-crash/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/platform-fees-comparison/"
     }
   ]
 }

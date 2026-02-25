@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-02-24T00:58:52.996Z",
+  "updatedAt": "2026-02-25T01:03:44.317Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 16,
+      "views": 15,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
@@ -13,12 +13,6 @@
       "slug": "gemini-31-pro-release",
       "views": 7,
       "path": "/article/google/gemini-31-pro-release/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-pentagon-ai-safety-standoff",
-      "views": 5,
-      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
     },
     {
       "category": "general",
@@ -34,12 +28,6 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
-      "views": 4,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 4,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
@@ -51,16 +39,28 @@
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
+      "category": "anthropic",
+      "slug": "claude-opus-46-pricing-controversy",
+      "views": 3,
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
+    },
+    {
       "category": "general",
       "slug": "dario-sam-india-summit-handshake",
       "views": 3,
       "path": "/article/general/dario-sam-india-summit-handshake/"
     },
     {
-      "category": "vibecoding",
-      "slug": "project-md-settings-guide",
+      "category": "general",
+      "slug": "meta-avocado-ai-model-performance",
       "views": 3,
-      "path": "/article/vibecoding/project-md-settings-guide/"
+      "path": "/article/general/meta-avocado-ai-model-performance/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "views": 2,
+      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
     },
     {
       "category": "anthropic",
@@ -69,22 +69,10 @@
       "path": "/article/anthropic/claude-sonnet-46-release/"
     },
     {
-      "category": "general",
-      "slug": "meta-avocado-ai-model-performance",
-      "views": 2,
-      "path": "/article/general/meta-avocado-ai-model-performance/"
-    },
-    {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
       "views": 2,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 2,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
@@ -112,15 +100,27 @@
     },
     {
       "category": "general",
-      "slug": "moltbook-ai-social-network",
+      "slug": "china-ai-distillation-controversy",
       "views": 1,
-      "path": "/article/general/moltbook-ai-social-network/"
+      "path": "/article/general/china-ai-distillation-controversy/"
+    },
+    {
+      "category": "general",
+      "slug": "xbox-sunset-ai-pivot",
+      "views": 1,
+      "path": "/article/general/xbox-sunset-ai-pivot/"
     },
     {
       "category": "google",
       "slug": "alphagenome-first-impressions-2026",
       "views": 1,
       "path": "/article/google/alphagenome-first-impressions-2026/"
+    },
+    {
+      "category": "google",
+      "slug": "google-ai-voluntary-exit",
+      "views": 1,
+      "path": "/article/google/google-ai-voluntary-exit/"
     },
     {
       "category": "openai",
@@ -136,6 +136,18 @@
     },
     {
       "category": "openai",
+      "slug": "gpt-53-codex-community-reaction",
+      "views": 1,
+      "path": "/article/openai/gpt-53-codex-community-reaction/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-54-leak-model-war",
+      "views": 1,
+      "path": "/article/openai/gpt-54-leak-model-war/"
+    },
+    {
+      "category": "openai",
       "slug": "openai-compute-investment-600b-cut",
       "views": 1,
       "path": "/article/openai/openai-compute-investment-600b-cut/"
@@ -147,10 +159,10 @@
       "path": "/article/openai/openai-crisis-competition-direction-2026/"
     },
     {
-      "category": "openai",
-      "slug": "stargate-ai-crisis-2026",
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
       "views": 1,
-      "path": "/article/openai/stargate-ai-crisis-2026/"
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
