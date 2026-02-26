@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-02-25T01:03:44.317Z",
+  "updatedAt": "2026-02-26T00:58:20.316Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 15,
+      "views": 14,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
@@ -13,12 +13,6 @@
       "slug": "gemini-31-pro-release",
       "views": 7,
       "path": "/article/google/gemini-31-pro-release/"
-    },
-    {
-      "category": "general",
-      "slug": "grok-420-multi-agent-release",
-      "views": 5,
-      "path": "/article/general/grok-420-multi-agent-release/"
     },
     {
       "category": "general",
@@ -33,16 +27,16 @@
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
+      "category": "general",
+      "slug": "grok-420-multi-agent-release",
+      "views": 4,
+      "path": "/article/general/grok-420-multi-agent-release/"
+    },
+    {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
       "views": 4,
       "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
-      "views": 3,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
       "category": "general",
@@ -58,21 +52,15 @@
     },
     {
       "category": "anthropic",
-      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "slug": "claude-opus-46-pricing-controversy",
       "views": 2,
-      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-sonnet-46-release",
+      "category": "general",
+      "slug": "xbox-sunset-ai-pivot",
       "views": 2,
-      "path": "/article/anthropic/claude-sonnet-46-release/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 2,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+      "path": "/article/general/xbox-sunset-ai-pivot/"
     },
     {
       "category": "vibecoding",
@@ -85,6 +73,18 @@
       "slug": "vibe-coding-workflow-prompt-guide",
       "views": 2,
       "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-pentagon-ultimatum-rsp-v3",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-pentagon-ultimatum-rsp-v3/"
     },
     {
       "category": "anthropic",
@@ -103,12 +103,6 @@
       "slug": "china-ai-distillation-controversy",
       "views": 1,
       "path": "/article/general/china-ai-distillation-controversy/"
-    },
-    {
-      "category": "general",
-      "slug": "xbox-sunset-ai-pivot",
-      "views": 1,
-      "path": "/article/general/xbox-sunset-ai-pivot/"
     },
     {
       "category": "google",
@@ -157,6 +151,12 @@
       "slug": "openai-crisis-competition-direction-2026",
       "views": 1,
       "path": "/article/openai/openai-crisis-competition-direction-2026/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 1,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",

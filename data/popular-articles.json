@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-25T01:03:05.238Z",
+  "updatedAt": "2026-02-26T00:57:41.059Z",
   "period": "7days",
   "articles": [
     {
@@ -11,7 +11,7 @@
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
-      "views": 53,
+      "views": 52,
       "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
@@ -23,7 +23,7 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 29,
+      "views": 26,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -42,34 +42,28 @@
     {
       "type": "issue",
       "slug": "t1-lck-cup-shocking-elimination",
-      "views": 15,
+      "views": 14,
       "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
     },
     {
       "type": "tech",
       "slug": "chatgpt-pro-lite-plan-leak",
       "category": "ai",
-      "views": 11,
+      "views": 12,
       "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
+    },
+    {
+      "type": "tech",
+      "slug": "gpt-54-leak-model-war",
+      "category": "ai",
+      "views": 11,
+      "path": "/tech/ai/gpt-54-leak-model-war/"
     },
     {
       "type": "ranking",
       "slug": "lunar-new-year-2026-kr",
       "views": 10,
       "path": "/magazine/ranking/lunar-new-year-2026-kr/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 9,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "tech",
-      "slug": "grok-420-multi-agent-release",
-      "category": "ai",
-      "views": 9,
-      "path": "/tech/ai/grok-420-multi-agent-release/"
     },
     {
       "type": "tech",
@@ -79,10 +73,29 @@
       "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 8,
+      "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 7,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
       "type": "issue",
       "slug": "diablo2-resurrected-steam-launch",
       "views": 7,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "gpt-5-3-garlic-update-rumor",
+      "views": 7,
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
     },
     {
       "type": "tech",
@@ -98,16 +111,37 @@
       "path": "/magazine/issue/dragon-sword-webzen-contract-termination/"
     },
     {
-      "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
+      "type": "tech",
+      "slug": "grok-420-multi-agent-release",
+      "category": "ai",
       "views": 6,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+      "path": "/tech/ai/grok-420-multi-agent-release/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-esports-history",
+      "category": "history",
+      "views": 6,
+      "path": "/wiki/history/korean-esports-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 6,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "issue",
       "slug": "lol-aram-mayhem-comeback",
       "views": 5,
       "path": "/magazine/issue/lol-aram-mayhem-comeback/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 5,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
@@ -117,24 +151,10 @@
       "path": "/tech/ai/openai-crisis-competition-direction-2026/"
     },
     {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 5,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
+      "type": "issue",
+      "slug": "heavenhells-sales-decline-launch",
       "views": 4,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
       "type": "tech",
@@ -165,6 +185,12 @@
       "path": "/tech/vibecoding/vibe-coding-agent-guide/"
     },
     {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 3,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
       "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 3,
@@ -184,21 +210,9 @@
     },
     {
       "type": "issue",
-      "slug": "heavenhells-launch-initial-reaction",
+      "slug": "heartopia-mobile-animal-crossing-success",
       "views": 3,
-      "path": "/magazine/issue/heavenhells-launch-initial-reaction/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
-      "views": 3,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "tech",
@@ -242,27 +256,9 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 2,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 2,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 2,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "issue",
@@ -293,38 +289,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-sonnet-46-release",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/claude-sonnet-46-release/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-54-leak-model-war",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/gpt-54-leak-model-war/"
-    },
-    {
-      "type": "tech",
-      "slug": "openclaw-steinberger-openai",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/openclaw-steinberger-openai/"
-    },
-    {
-      "type": "tech",
       "slug": "vibe-coding",
       "category": "vibecoding",
       "views": 2,
       "path": "/tech/vibecoding/vibe-coding/"
-    },
-    {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "wiki",
@@ -355,9 +323,21 @@
     },
     {
       "type": "insight",
-      "slug": "2026-game-trends",
+      "slug": "subculture-market-crisis-winner-takes-all",
       "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
+    },
+    {
+      "type": "issue",
+      "slug": "crimson-desert-sds-origin-march-showdown",
+      "views": 1,
+      "path": "/magazine/issue/crimson-desert-sds-origin-march-showdown/"
+    },
+    {
+      "type": "issue",
+      "slug": "crimson-desert-trilogy-trailer-2026",
+      "views": 1,
+      "path": "/magazine/issue/crimson-desert-trilogy-trailer-2026/"
     },
     {
       "type": "issue",
@@ -373,6 +353,24 @@
     },
     {
       "type": "issue",
+      "slug": "heavenhells-launch-initial-reaction",
+      "views": 1,
+      "path": "/magazine/issue/heavenhells-launch-initial-reaction/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-user-exodus-macro-cash",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+    },
+    {
+      "type": "issue",
       "slug": "maple-grow-scandal-still-top-revenue",
       "views": 1,
       "path": "/magazine/issue/maple-grow-scandal-still-top-revenue/"
@@ -382,6 +380,32 @@
       "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
       "views": 1,
       "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "overwatch-rush-mobile-blizzard-diablo-immortal",
+      "views": 1,
+      "path": "/magazine/issue/overwatch-rush-mobile-blizzard-diablo-immortal/"
+    },
+    {
+      "type": "issue",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "views": 1,
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+    },
+    {
+      "type": "tech",
+      "slug": "ai-bubble-myth-industry-shock-2026",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/ai-bubble-myth-industry-shock-2026/"
+    },
+    {
+      "type": "tech",
+      "slug": "anthropic-pentagon-ultimatum-rsp-v3",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/anthropic-pentagon-ultimatum-rsp-v3/"
     },
     {
       "type": "tech",
@@ -399,6 +423,13 @@
     },
     {
       "type": "tech",
+      "slug": "claude-sonnet-46-release",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-sonnet-46-release/"
+    },
+    {
+      "type": "tech",
       "slug": "google-ai-voluntary-exit",
       "category": "ai",
       "views": 1,
@@ -413,6 +444,13 @@
     },
     {
       "type": "tech",
+      "slug": "gpt-53-codex-community-reaction",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/gpt-53-codex-community-reaction/"
+    },
+    {
+      "type": "tech",
       "slug": "nvidia-openai-investment-retreat",
       "category": "ai",
       "views": 1,
@@ -420,10 +458,10 @@
     },
     {
       "type": "tech",
-      "slug": "xai-talent-exodus-grok-crisis",
+      "slug": "openclaw-steinberger-openai",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/xai-talent-exodus-grok-crisis/"
+      "path": "/tech/ai/openclaw-steinberger-openai/"
     },
     {
       "type": "tech",
