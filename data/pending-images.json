@@ -265,6 +265,13 @@
       "type": "02.webp",
       "failedAt": "2026-02-20T22:17:12.925Z",
       "error": "HTTP 403: https://www.neilsahota.com/wp-content/uploads/2024/10/superintelligent-ai-asi.jpg"
+    },
+    {
+      "url": "https://sht-vod.dn.nexoncdn.co.kr/shpd-comm/News/AR/26022402001178b3ec.jpg",
+      "date": "2026-02-26",
+      "type": "ai.issues",
+      "failedAt": "2026-02-26T05:22:19.024Z",
+      "error": "Timeout"
     }
   ]
 }
