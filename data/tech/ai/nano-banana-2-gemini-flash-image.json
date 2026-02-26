@@ -1,0 +1,222 @@
+{
+  "slug": "nano-banana-2-gemini-flash-image",
+  "status": "approved",
+  "category": "google",
+  "title": "나노 바나나 2 출시, 플래시 기반으로 프로급 성능을 절반 가격에",
+  "titleEn": "Nano Banana 2 Launches: Pro-Level Image Generation at Flash Speed and Price",
+  "date": "2026-02-26T22:00",
+  "keywords": "나노 바나나 2, 제미나이 3.1 플래시, 구글, AI 이미지 생성, 나노 바나나 프로, LMArena, GPT 이미지, 미드저니, 버텍스 AI, AI 아트",
+  "keywordsEn": "Nano Banana 2, Gemini 3.1 Flash, Google, AI image generation, Nano Banana Pro, LMArena, GPT Image, Midjourney, Vertex AI, AI art",
+  "summary": "구글이 제미나이 3.1 플래시 기반의 나노 바나나 2를 출시했다. 나노 바나나 프로에 필적하는 이미지 품질을 훨씬 빠른 속도와 저렴한 가격으로 제공하며, AI 이미지 생성 시장의 판도를 바꿀 게임 체인저로 평가받고 있다.",
+  "summaryEn": "Google has launched Nano Banana 2, powered by Gemini 3.1 Flash. Delivering image quality rivaling Nano Banana Pro at dramatically faster speeds and lower costs, it is being hailed as a game changer poised to reshape the AI image generation market.",
+  "thumbnail": "https://www.chosun.com/resizer/v2/5UWX4SVU4FABJDJQWLMTDINRMU.jpg?auth=bd7f01b2a00d107b7891329dcb06a2cc83f5978a5e1a1ed38ff6425f7b43aac9&width=616",
+  "needTranslate": false,
+  "sources": [
+    {
+      "name": "Reddit r/Bard",
+      "title": "Nano Banana 2 is real! Gemini 3.1 Flash Image just appeared in Vertex AI Catalog",
+      "url": "https://www.reddit.com/r/Bard/comments/1rea45x/nano_banana_2_is_real_gemini_31_flash_image_just/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Google's Nano Banana 2 brings Pro-quality image gen to Flash tier",
+      "url": "https://venturebeat.com/ai/google-nano-banana-2-flash-image-generation/"
+    },
+    {
+      "name": "36kr",
+      "title": "Nano Banana 2 Leak: Everything You Need to Know",
+      "url": "https://eu.36kr.com/en/p/3698665903026057"
+    },
+    {
+      "name": "Computerworld",
+      "title": "Nano Banana 2: Google's Flash-based image model redefines price-performance",
+      "url": "https://www.computerworld.com/article/nano-banana-2-google-flash-image/"
+    },
+    {
+      "name": "36kr",
+      "title": "Google Gemini 3.1 Flash Image Generation Nano Banana 2 analysis",
+      "url": "https://36kr.com/p/nano-banana-2-gemini-flash"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gemini-31-pro-release",
+    "tech:ai/deepmind-update-aletheia-gemini",
+    "tech:ai/gpt-53-codex-community-reaction",
+    "tech:ai/openai-crisis-competition-direction-2026"
+  ],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글이 AI 이미지 생성의 새로운 기준을 제시했다. 제미나이 3.1 플래시 기반의 나노 바나나 2가 출시되며, 프로급 품질을 플래시의 속도와 가격으로 누릴 수 있는 시대가 열렸다. 구글은 2월 26일부터 사용자에게 순차 배포를 시작했다.\n\n나노 바나나 시리즈는 구글의 이미지 생성 모델 중 가장 빠르게 성장한 라인업이다. 첫 번째 나노 바나나가 가능성을 보여줬고, 나노 바나나 프로가 LMArena 2위에 오르며 실력을 증명했다. 이제 나노 바나나 2는 프로에 필적하는 것은 물론, 일부 영역에서는 프로를 능가한다는 평가까지 받으며 그 성능을 대중화하겠다는 선언이다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 나노 바나나 계보: 무명에서 최정상까지"
+    },
+    {
+      "type": "image",
+      "src": "https://images.techeblog.com/wp-content/uploads/2025/08/26151940/nano-banana-google-gemini-2-5-flash-image-770x515.jpg",
+      "caption": "나노 바나나 시리즈는 구글 제미나이의 이미지 생성 능력을 대표하는 브랜드로 자리잡았다",
+      "alt": "구글 제미나이 나노 바나나 AI 이미지 생성 모델 소개 이미지"
+    },
+    {
+      "type": "text",
+      "value": "나노 바나나의 여정은 독특하다. 구글 내부 코드네임에서 시작된 이 이름은 어느새 AI 이미지 생성의 대명사가 됐다. 첫 나노 바나나(제미나이 2.5 플래시 이미지)는 빠른 속도와 준수한 품질로 주목받았고, 이어 등장한 나노 바나나 프로는 LMArena에서 GPT 이미지 1.5 HF(1247점)에 이어 2위(1238점)를 기록하며 최정상급 품질을 인정받았다.\n\n나노 바나나 2의 공식 명칭은 제미나이 3.1 플래시 이미지다. 핵심은 '플래시' 기반이라는 점이다. 프로 모델이 아닌 플래시 모델을 기반으로 하면서도 프로에 필적하고, 일부 영역에서는 프로를 능가하는 품질을 달성했다. 이는 구글이 모델 경량화와 최적화에서 상당한 진전을 이뤘음을 의미한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 플래시 기반의 프로급 성능, 고해상도 이미지 생성"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/imagen-4-meta.original.png",
+      "caption": "제미나이 3.1 플래시를 기반으로 고품질 이미지를 빠르게 생성한다",
+      "alt": "구글 제미나이 플래시 AI 이미지 생성 기술 소개 이미지"
+    },
+    {
+      "type": "text",
+      "value": "나노 바나나 2의 가장 큰 강점은 성능과 효율의 균형이다. 제미나이 3.1 플래시 아키텍처를 기반으로 한다. 유출 정보에 따르면 네이티브 4K 해상도를 지원할 것으로 보이며, 사실이라면 업스케일링이 아닌 처음부터 4K로 생성해 디테일과 선명도에서 차별화될 전망이다.\n\n나노 바나나 프로와 직접 비교하면, 전반적인 품질은 근접하면서 속도는 훨씬 빠르다. 특히 텍스트 렌더링, 복잡한 구도, 사실적 인물 묘사 등 기존에 AI 이미지 생성이 약했던 영역에서는 오히려 프로를 능가한다는 테스터들의 평가도 나오고 있다. 플래시 모델 특유의 경량 구조 덕분에 이미지 생성 시간이 대폭 단축된 것은 물론이다.\n\n버텍스 AI 카탈로그에서 모델이 확인됐고, 아레나(Arena.ai)에서는 'anon-bob-2'라는 익명 모델로 테스트가 진행돼 높은 평가를 받고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3. AI 이미지 생성 가격 혁명: 플래시가 바꾸는 경제학"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/650c3b59079d92475f37b68f/68f7055ba246a855cf2f63d2_webflow-02b0aae722fcf77e38d4605160585d2b-wogduxec.jpeg",
+      "caption": "나노 바나나 2는 API를 통해 개발자와 기업에게 저렴한 이미지 생성 서비스를 제공한다",
+      "alt": "제미나이 플래시 이미지 나노 바나나 API 서비스 소개"
+    },
+    {
+      "type": "text",
+      "value": "가격은 나노 바나나 2의 진짜 무기다. 현재 구글의 프리미엄 이미지 모델이 이미지당 약 0.06달러, GPT 이미지 1.5가 0.167달러에 책정된 상황에서, 플래시 기반 모델은 이보다 더 저렴한 가격대가 예상된다. 프로급 품질을 절반 이하의 비용으로 이용할 수 있다는 뜻이다.\n\n이는 개인 크리에이터부터 대규모 기업 애플리케이션까지 폭넓은 영향을 미친다. 이전에는 비용 때문에 AI 이미지 생성을 제한적으로만 활용했던 서비스들이 본격적으로 도입을 검토할 수 있는 가격대다. 특히 대량 이미지 생성이 필요한 이커머스, 게임, 광고 분야에서 가격 경쟁력은 결정적인 차별점이 된다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. AI 이미지 생성 경쟁 구도: 나노 바나나 2의 위치"
+    },
+    {
+      "type": "image",
+      "src": "https://plugins-media.makeupar.com/smb/blog/post/2025-06-20/1f938316-36ae-48cb-9075-768ac8573dab.jpg",
+      "caption": "제미나이 AI 이미지 생성기는 텍스트 렌더링과 사실적 표현에서 큰 진전을 이뤘다",
+      "alt": "제미나이 AI 이미지 생성기 활용 예시와 기능 소개"
+    },
+    {
+      "type": "text",
+      "value": "AI 이미지 생성 시장은 그 어느 때보다 치열하다. LMArena 기준 GPT 이미지 1.5 HF가 1247점으로 1위, 나노 바나나 프로가 1238점으로 2위를 차지하고 있다. 여기에 미드저니 v7, 플럭스 컨텍스트, 시드림 5.0 등이 각자의 강점으로 시장을 공략 중이다.\n\n나노 바나나 2는 이 경쟁 구도에서 독특한 포지션을 잡는다. 최고 품질 경쟁이 아닌 '최적의 가성비' 경쟁을 선언한 것이다. 프로에 근접하거나 일부 영역에서는 능가하는 품질, 플래시의 속도, 그리고 파격적 가격. 이 세 가지를 동시에 만족시키는 모델은 현재 시장에 없다.\n\n업계의 반응도 뜨겁다. \"프로 수준 품질에 플래시 속도와 가격이면 게임 체인저\"라는 평가가 지배적이다. 특히 API 기반의 대량 생성 시나리오에서 나노 바나나 2의 가성비는 경쟁 모델들이 쉽게 따라올 수 없는 영역이다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 2월 26일 배포 시작: 유저에게 순차 제공"
+    },
+    {
+      "type": "text",
+      "value": "구글은 2월 26일부터 나노 바나나 2의 사용자 배포를 시작했다. 구글 버텍스 AI 카탈로그에서 모델이 확인됐으며, 아레나에서의 블라인드 테스트에서도 이미 높은 선호도를 기록했다. 제미나이 앱과 API 양쪽에서 순차적으로 접근이 열릴 예정이다.\n\n주목할 점은 구글의 배포 전략이다. 나노 바나나 프로를 정상에 세운 뒤, 그 품질을 플래시 계열로 내려 대중화하는 '트리클다운' 전략이다. 최고급 모델로 기술력을 증명하고, 경량 모델로 시장을 장악하는 투 트랙 접근이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 가성비의 시대가 열린다"
+    },
+    {
+      "type": "text",
+      "value": "나노 바나나 2의 출시는 AI 이미지 생성이 새로운 국면에 접어들었음을 보여준다. 더 이상 '최고 품질'만이 경쟁력이 아니다. 충분히 좋은 품질을 얼마나 빠르고 저렴하게 제공하느냐가 승부를 가르는 시대가 됐다.\n\n구글은 나노 바나나 시리즈로 이 방향을 선도하고 있다. 프로급 성능의 민주화, 그것이 나노 바나나 2가 던지는 메시지다. AI 이미지 생성을 일부 프리미엄 사용자의 전유물에서 모든 개발자와 크리에이터의 일상 도구로 바꾸겠다는 선언이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google has set a new standard for AI image generation. With the launch of Nano Banana 2, powered by Gemini 3.1 Flash, pro-level quality is now available at Flash speed and pricing. Google began rolling out the model to users on February 26.\n\nThe Nano Banana series is the fastest-growing lineup among Google's image generation models. The original Nano Banana showed potential, Nano Banana Pro proved its mettle by reaching second place on LMArena, and now Nano Banana 2 goes further -- matching Pro and even surpassing it in certain areas -- while declaring its mission: democratizing pro-level performance."
+    },
+    {
+      "type": "heading",
+      "value": "1. The Nano Banana Lineage: From Obscurity to the Top"
+    },
+    {
+      "type": "image",
+      "src": "https://images.techeblog.com/wp-content/uploads/2025/08/26151940/nano-banana-google-gemini-2-5-flash-image-770x515.jpg",
+      "caption": "The Nano Banana series has become the flagship brand for Google Gemini's image generation capabilities",
+      "alt": "Google Gemini Nano Banana AI image generation model introduction"
+    },
+    {
+      "type": "text",
+      "value": "Nano Banana's journey is remarkable. What started as an internal Google codename has become synonymous with AI image generation. The first Nano Banana (Gemini 2.5 Flash Image) drew attention for its speed and respectable quality. Nano Banana Pro then cemented the brand's reputation by scoring 1,238 on LMArena, just behind GPT Image 1.5 HF at 1,247.\n\nNano Banana 2's official name is Gemini 3.1 Flash Image. The key word is 'Flash.' Despite being based on a Flash model rather than a Pro model, it achieves quality that rivals Pro and, in some areas, even surpasses it. This signals significant advances in Google's model optimization and compression techniques."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Flash-Based Pro Performance with High-Resolution Output"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/imagen-4-meta.original.png",
+      "caption": "Built on Gemini 3.1 Flash, it generates high-quality images at remarkable speed",
+      "alt": "Google Gemini Flash AI image generation technology introduction"
+    },
+    {
+      "type": "text",
+      "value": "Nano Banana 2's greatest strength is its balance of performance and efficiency. Built on the Gemini 3.1 Flash architecture. Leaked information suggests it may support native 4K resolution -- generating at 4K from the start rather than upscaling -- which, if confirmed, would represent a meaningful leap in detail and sharpness.\n\nCompared directly to Nano Banana Pro, overall quality is comparable while speed is dramatically faster. In areas where AI image generation has traditionally struggled -- text rendering, complex compositions, and realistic human portraiture -- testers report that Nano Banana 2 actually outperforms Pro. The lightweight structure inherent to Flash models drastically reduces image generation time as well.\n\nThe model has been spotted in the Vertex AI catalog, and it has been tested on Arena.ai under the anonymous handle 'anon-bob-2,' receiving strong ratings."
+    },
+    {
+      "type": "heading",
+      "value": "3. An AI Image Pricing Revolution: Flash Rewrites the Economics"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/650c3b59079d92475f37b68f/68f7055ba246a855cf2f63d2_webflow-02b0aae722fcf77e38d4605160585d2b-wogduxec.jpeg",
+      "caption": "Nano Banana 2 offers affordable image generation through API access for developers and enterprises",
+      "alt": "Gemini Flash Image Nano Banana API service introduction"
+    },
+    {
+      "type": "text",
+      "value": "Pricing is Nano Banana 2's true weapon. With Google's premium image models currently priced at roughly $0.06 per image and GPT Image 1.5 at $0.167, the Flash-based model is expected to come in even cheaper. That means pro-level quality at less than half the cost.\n\nThe implications stretch from individual creators to large-scale enterprise applications. Services that previously limited their use of AI image generation due to cost can now seriously consider full adoption. In sectors requiring mass image generation -- e-commerce, gaming, advertising -- this price advantage becomes a decisive differentiator."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. The AI Image Generation Competitive Landscape"
+    },
+    {
+      "type": "image",
+      "src": "https://plugins-media.makeupar.com/smb/blog/post/2025-06-20/1f938316-36ae-48cb-9075-768ac8573dab.jpg",
+      "caption": "Gemini's AI image generator has made major strides in text rendering and realistic depictions",
+      "alt": "Gemini AI image generator usage examples and feature overview"
+    },
+    {
+      "type": "text",
+      "value": "The AI image generation market has never been more competitive. On LMArena, GPT Image 1.5 HF leads at 1,247, with Nano Banana Pro at 1,238 in second. Midjourney v7, Flux Kontext, and Seedream 5.0 are all pressing their own advantages.\n\nNano Banana 2 carves out a unique position in this landscape. Rather than competing for the absolute quality crown, it declares a 'best value' war. Quality that matches or even exceeds Pro in certain areas, Flash speed, and aggressive pricing -- no other model currently delivers all three simultaneously.\n\nIndustry reaction has been enthusiastic. The consensus: \"Pro-level quality at Flash speed and price is a game changer.\" Especially for API-based mass generation scenarios, Nano Banana 2's value proposition is in a league competitors will struggle to match."
+    },
+    {
+      "type": "heading",
+      "value": "5. Rollout Begins February 26: Sequential User Access"
+    },
+    {
+      "type": "text",
+      "value": "Google began rolling out Nano Banana 2 to users on February 26. The model has been confirmed in Google's Vertex AI catalog, and blind testing on Arena has already shown strong user preference. Access is expected through both the Gemini app and API.\n\nGoogle's deployment strategy is noteworthy: a 'trickle-down' approach. First, establish Nano Banana Pro at the top to prove technical prowess. Then bring that quality down to the Flash tier for mass adoption. A two-track approach: demonstrate with premium, dominate with efficiency."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "In Closing: The Era of Value Has Arrived"
+    },
+    {
+      "type": "text",
+      "value": "The launch of Nano Banana 2 signals a new phase in AI image generation. The highest quality alone is no longer the sole competitive edge. How quickly and affordably you can deliver 'good enough' quality is what decides the winner.\n\nGoogle is leading this direction with the Nano Banana series. The democratization of pro-level performance -- that is the message Nano Banana 2 delivers. A declaration to transform AI image generation from an exclusive tool for premium users into an everyday instrument for every developer and creator."
+    }
+  ]
+}
