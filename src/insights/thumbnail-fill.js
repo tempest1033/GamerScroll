@@ -23,14 +23,7 @@ const BLOCKED_THUMB_HOSTS = new Set([
   'img.yna.co.kr'
 ]);
 
-const PREFERRED_THUMB_HOSTS = new Set([
-  'static.inven.co.kr',
-  'img.ruliweb.com',
-  'cdn.gamemeca.com',
-  'www.thisisgame.com',
-  'thisisgame.com',
-  'file.thisisgame.com'
-]);
+const PREFERRED_THUMB_HOSTS = new Set([]);
 
 const IMAGE_EXTS = new Set([
   '.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif'
@@ -736,8 +729,8 @@ async function fillInsightThumbnails(ai, options = {}) {
       }
     }
 
-    // 뉴스 데이터 후보를 보조로 추가
-    candidates.push(...buildNewsCandidates(title, newsItems, 8, { gameName, usedUrls }));
+    // 뉴스 데이터 후보 비활성화 — 웹 검색만 사용
+    // candidates.push(...buildNewsCandidates(title, newsItems, 8, { gameName, usedUrls }));
 
     // 이미 사용된 URL 필터링
     const filtered = candidates.filter(cand => !usedUrls.has(normalizeUrl(cand.url)));

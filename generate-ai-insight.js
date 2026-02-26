@@ -289,10 +289,9 @@ async function main() {
   const today = getTodayDate();
 
   console.log('\n🖼️ AI 인사이트 썸네일 보강 중...');
-  const cacheNewsItems = collectNewsItemsFromNewsData(cache.news, 'cache');
-  const historyNewsItems = collectHistoryNewsItems([today, yesterday]);
+  // 뉴스 썸네일 비활성화 — 웹 검색만 사용
   const thumbSummary = await fillInsightThumbnails(aiInsight, {
-    newsItems: [...cacheNewsItems, ...historyNewsItems],
+    newsItems: [],
     dateRange: { start: today, end: today }
   });
   console.log(`  - 썸네일 갱신: ${thumbSummary.updated}개, 유지: ${thumbSummary.kept}개, 실패: ${thumbSummary.failed}개`);
