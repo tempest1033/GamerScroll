@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-02-26T00:58:20.316Z",
+  "updatedAt": "2026-02-27T00:59:29.202Z",
   "period": "7days",
   "articles": [
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 14,
+      "views": 11,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
@@ -21,28 +21,10 @@
       "path": "/article/general/kurzweil-singularity-review-2026/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 4,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
-    },
-    {
       "category": "general",
       "slug": "grok-420-multi-agent-release",
-      "views": 4,
-      "path": "/article/general/grok-420-multi-agent-release/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 4,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "general",
-      "slug": "dario-sam-india-summit-handshake",
       "views": 3,
-      "path": "/article/general/dario-sam-india-summit-handshake/"
+      "path": "/article/general/grok-420-multi-agent-release/"
     },
     {
       "category": "general",
@@ -55,6 +37,12 @@
       "slug": "claude-opus-46-pricing-controversy",
       "views": 2,
       "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "category": "general",
+      "slug": "dario-sam-india-summit-handshake",
+      "views": 2,
+      "path": "/article/general/dario-sam-india-summit-handshake/"
     },
     {
       "category": "general",
@@ -76,9 +64,9 @@
     },
     {
       "category": "anthropic",
-      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "slug": "anthropic-b2b-strategy-success",
       "views": 1,
-      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+      "path": "/article/anthropic/anthropic-b2b-strategy-success/"
     },
     {
       "category": "anthropic",
@@ -88,9 +76,21 @@
     },
     {
       "category": "anthropic",
+      "slug": "anthropic-safety-pledge-pentagon-pressure",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-safety-pledge-pentagon-pressure/"
+    },
+    {
+      "category": "anthropic",
       "slug": "claude-cowork-windows-launch",
       "views": 1,
       "path": "/article/anthropic/claude-cowork-windows-launch/"
+    },
+    {
+      "category": "general",
+      "slug": "ai-bubble-myth-industry-shock-2026",
+      "views": 1,
+      "path": "/article/general/ai-bubble-myth-industry-shock-2026/"
     },
     {
       "category": "general",
@@ -115,6 +115,12 @@
       "slug": "google-ai-voluntary-exit",
       "views": 1,
       "path": "/article/google/google-ai-voluntary-exit/"
+    },
+    {
+      "category": "google",
+      "slug": "nano-banana-2-gemini-flash-image",
+      "views": 1,
+      "path": "/article/google/nano-banana-2-gemini-flash-image/"
     },
     {
       "category": "openai",
@@ -166,9 +172,9 @@
     },
     {
       "category": "vibecoding",
-      "slug": "mcp-guide",
+      "slug": "codex-install-guide-windows",
       "views": 1,
-      "path": "/article/vibecoding/mcp-guide/"
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     }
   ]
 }
