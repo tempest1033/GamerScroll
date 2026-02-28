@@ -102,6 +102,12 @@ ${dataSummary}${rankingsData}${recentInsightsSummary}${metricsBlacklistSummary}
 - 확인되지 않은 정보 작성 금지
 - 되도록이면 한글을 사용 (영문 게임명/회사명은 예외)
 
+## 신선도 규칙 (필수 — 가장 중요):
+- issues, industryIssues는 반드시 최근 48시간 이내 뉴스만 사용
+- 3일 이상 된 뉴스는 절대 사용 금지 — 신선한 뉴스가 부족하면 해당 슬롯을 채우지 말고 개수를 줄일 것
+- issues는 최소 3개 ~ 최대 5개 (신선한 뉴스가 3개뿐이면 3개만 출력)
+- industryIssues는 0~2개 (신선한 업계 뉴스가 없으면 빈 배열 [])
+
 ## 문체 규칙:
 - 친절하게 설명하는 뉴스 큐레이터 스타일
 - 독자에게 알려주는 느낌으로 작성

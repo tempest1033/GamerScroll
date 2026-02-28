@@ -248,6 +248,30 @@ async function main() {
     process.exit(1);
   }
 
+  // 주말/공휴일이면 게임주 섹션 비우기 (전날 장이 안 열림)
+  // 한국 공휴일 (매년 고정 + 변동 공휴일은 연초에 갱신)
+  const KR_HOLIDAYS = [
+    // 2026년
+    '2026-01-01', '2026-01-28', '2026-01-29', '2026-01-30', // 신정, 설날 연휴
+    '2026-03-01', // 삼일절
+    '2026-05-05', '2026-05-24', // 어린이날, 부처님오신날
+    '2026-06-06', // 현충일
+    '2026-08-15', // 광복절
+    '2026-10-03', '2026-10-04', '2026-10-05', '2026-10-09', // 추석 연휴, 한글날
+    '2026-12-25', // 크리스마스
+    // 2027년 (필요 시 추가)
+  ];
+  const todayKST = new Date(new Date().getTime() + (9 * 60 * 60 * 1000));
+  const dayOfWeek = todayKST.getUTCDay(); // 0=일, 6=토
+  const todayStr = todayKST.toISOString().split('T')[0];
+  const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+  const isHoliday = KR_HOLIDAYS.includes(todayStr);
+  if (isWeekend || isHoliday) {
+    const reason = isWeekend ? `주말(${dayOfWeek === 0 ? '일' : '토'}요일)` : `공휴일(${todayStr})`;
+    console.log(`\n📈 ${reason} → 게임주 현황 제외`);
+    aiInsight.stocks = [];
+  }
+
   // AI가 선정한 종목의 주가 데이터 가져오기
   let stockMap = {};
   let stockPrices = {};

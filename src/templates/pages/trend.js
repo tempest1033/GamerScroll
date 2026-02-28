@@ -3190,7 +3190,13 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           if (sectionCount % 3 === 0) {
             result.push(getInArticleAdHTML(adCount++));
           }
-          result.push(`<h2 class="blog-heading">${escapeHtmlAttr(block.value)}</h2>`);
+          // 순위 변동 지표 스타일 적용: (신규), (▲N), (▼N), (-)
+          const headingHtml = escapeHtmlAttr(block.value)
+            .replace(/\(신규\)/g, '<span class="heading-rank-badge heading-rank-new">신규</span>')
+            .replace(/\(▲(\d+)\)/g, '<span class="heading-rank-badge heading-rank-up">▲$1</span>')
+            .replace(/\(▼(\d+)\)/g, '<span class="heading-rank-badge heading-rank-down">▼$1</span>')
+            .replace(/\(-\)/g, '<span class="heading-rank-badge heading-rank-same">-</span>');
+          result.push(`<h2 class="blog-heading">${headingHtml}</h2>`);
           break;
         case 'image':
           const imgUrl = block.src?.startsWith('http')
