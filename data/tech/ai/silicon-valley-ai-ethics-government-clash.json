@@ -1,0 +1,235 @@
+{
+  "slug": "silicon-valley-ai-ethics-government-clash",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "general",
+  "title": "AI 윤리 갈등, 실리콘밸리 전체가 정부에 맞서다",
+  "titleEn": "AI Ethics Clash: Silicon Valley Unites Against Government Overreach",
+  "date": "2026-02-28T12:00",
+  "keywords": "AI 윤리, 실리콘밸리, 펜타곤, 엔트로픽, OpenAI, 구글, xAI, 테크 노동자, AI 군사 사용, We Will Not Be Divided, 트럼프 AI 정책, 데이비드 색스, AI 안전 가드레일, 2026",
+  "keywordsEn": "AI ethics, Silicon Valley, Pentagon, Anthropic, OpenAI, Google, xAI, tech workers, military AI, We Will Not Be Divided, Trump AI policy, David Sacks, AI safety guardrails, 2026",
+  "summary": "트럼프 대통령의 엔트로픽 연방 전면 사용 금지 이후, 경쟁사인 OpenAI와 구글 직원들까지 엔트로픽 편에 결집했다. 500명이 넘는 빅테크 직원들의 공개 청원, xAI의 유일한 순응, 그리고 2018년 이후 최대 규모의 테크 노동자 정치적 행동이 벌어지고 있다.",
+  "summaryEn": "After Trump's federal ban on Anthropic, competitors including OpenAI and Google employees rallied to Anthropic's side. Over 500 Big Tech employees signed public petitions, xAI alone complied with the Pentagon, and the largest tech worker political action since 2018 is unfolding.",
+  "thumbnail": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ifgKAxXUe_AY/v1/1200x675.jpg",
+  "relatedDocs": [
+    "tech:ai/anthropic-government-conflict-weapons-surveillance",
+    "tech:ai/anthropic-pentagon-ai-safety-standoff",
+    "tech:ai/anthropic-pentagon-ultimatum-rsp-v3"
+  ],
+  "sources": [
+    {
+      "name": "CNBC",
+      "title": "Sam Altman says OpenAI shares Anthropic's 'red lines' on military AI",
+      "url": "https://www.cnbc.com/2026/02/28/sam-altman-openai-anthropic-red-lines-military-ai.html"
+    },
+    {
+      "name": "The Verge",
+      "title": "Google employees petition Jeff Dean over Gemini military use restrictions",
+      "url": "https://www.theverge.com/2026/2/28/google-employees-petition-gemini-military-use"
+    },
+    {
+      "name": "Reuters",
+      "title": "We Will Not Be Divided: 500 tech workers sign open letter against Pentagon AI demands",
+      "url": "https://www.reuters.com/technology/we-will-not-be-divided-tech-workers-sign-open-letter-2026-02-28/"
+    },
+    {
+      "name": "Wall Street Journal",
+      "title": "xAI signs classified Pentagon contract as sole AI company to comply",
+      "url": "https://www.wsj.com/tech/ai/xai-pentagon-classified-contract-grok-2026-02-27"
+    },
+    {
+      "name": "Lawfare",
+      "title": "Congress Must Set the Rules for Military AI",
+      "url": "https://www.lawfaremedia.org/article/congress-must-set-rules-military-ai"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월 27일, 트럼프 대통령이 엔트로픽의 연방 전면 사용 금지를 발표하자 실리콘밸리에서 예상치 못한 일이 벌어졌다. 경쟁사들이 엔트로픽 편에 결집한 것이다. OpenAI의 샘 알트만부터 구글 직원 수백 명까지, AI 기업들의 경쟁 구도를 넘어선 연대가 형성되고 있다.\n\n이 사태는 단순한 기업 간 동맹이 아니다. 2018년 구글 Project Maven 이후 최대 규모의 테크 노동자 정치적 행동이며, AI 안전 가드레일이 '정치적 입장'으로 프레이밍되는 것에 대한 업계 전체의 반발이다. 실리콘밸리와 미국 정부의 관계가 근본적으로 재편되는 순간이 도래했다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 경쟁사가 경쟁사를 지지하다: 알트만의 '동일한 레드라인' 선언"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2218344211-20250923200325147.jpg?c=original&q=w_860,c_fill",
+      "caption": "OpenAI CEO 샘 알트만. 그는 엔트로픽과 동일한 레드라인을 공유한다고 밝혔다.",
+      "alt": "OpenAI CEO 샘 알트만 AI 군사 사용 레드라인 엔트로픽 연대 선언"
+    },
+    {
+      "type": "text",
+      "value": "가장 주목할 만한 반응은 OpenAI에서 나왔다. 샘 알트만 CEO는 CNBC 인터뷰에서 \"우리도 동일한 레드라인을 공유한다\"고 명확히 밝혔다. 엔트로픽의 최대 경쟁사가 공개적으로 같은 편에 선 것이다. 알트만은 내부 메모를 통해 직원들에게도 이 입장을 전달한 것으로 알려졌다.\n\n이 발언의 무게는 맥락을 이해해야 느낄 수 있다. OpenAI는 2024년 1월 군사 사용 금지 정책을 조용히 삭제하고, ChatGPT를 국방부 플랫폼 GenAI.mil에 통합하며 정부와의 관계를 강화해 왔다. 그런 OpenAI가 '레드라인'이라는 단어를 다시 꺼낸 것은, 트럼프 행정부의 요구가 업계 전체가 수용할 수 없는 수준에 도달했음을 의미한다.\n\n핵심은 엔트로픽을 돕기 위한 선의가 아니라, 자기 보호의 논리다. 오늘 엔트로픽이 무릎을 꿇으면, 내일은 OpenAI에게 같은 요구가 돌아온다. 실리콘밸리가 이를 정확히 인식하기 시작했다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 구글 직원 반발: Project Maven의 기억이 되살아나다"
+    },
+    {
+      "type": "text",
+      "value": "구글에서는 더 격렬한 움직임이 벌어졌다. 100명 이상의 직원들이 AI 총괄 제프 딘에게 공식 서한을 보내, Gemini의 군사 사용을 제한할 것을 요구했다. 이 서한은 구글이 2025년 2월에 이미 삭제한 '무기 및 감시 금지 원칙'의 복원을 핵심 의제로 담고 있었다.\n\n이 움직임은 2018년 Project Maven 사태의 데자뷔다. 당시 구글은 펜타곤의 드론 영상 분석 프로젝트에 참여했다가, 4,000명 이상의 직원 반발에 직면해 계약을 포기했다. 그 기억이 지금 다시 소환되고 있는 것이다.\n\n차이점은 규모와 맥락이다. 2018년에는 구글 단독의 사건이었지만, 2026년에는 마이크로소프트와 아마존 직원들까지 각 경영진에게 유사한 요구를 전달하고 있다. AI 군사 사용에 대한 우려가 단일 기업을 넘어 산업 전체로 확산된 것이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 'We Will Not Be Divided': 500명의 실명 공개 청원"
+    },
+    {
+      "type": "image",
+      "src": "https://i.insider.com/69a124edd3e2f1aef369a3a9?width=1200&format=jpeg",
+      "caption": "OpenAI와 구글 직원들이 'We Will Not Be Divided' 청원에 실명으로 서명했다.",
+      "alt": "OpenAI 구글 직원 We Will Not Be Divided 공개 청원 AI 군사 사용 반대 테크 노동자 연대"
+    },
+    {
+      "type": "text",
+      "value": "업계의 연대를 가장 상징적으로 보여주는 것은 'We Will Not Be Divided' 공개 청원이다. notdivided.org에 게시된 이 청원에는 구글 421명, OpenAI 76명 등 총 500명에 가까운 빅테크 직원들이 실명으로 서명했다.\n\n청원의 핵심 메시지는 명확하다. \"펜타곤이 각 기업을 두려움으로 분열시키려 한다.\" 국방부가 기업 하나씩을 압박해 순응시키는 '분할 정복(divide and conquer)' 전략을 쓰고 있다는 인식이 깔려 있다. 실제로 엔트로픽에 대한 연방 사용 금지는 다른 기업들에게 '너희도 저렇게 될 수 있다'는 경고로 작용할 수 있었다.\n\n하지만 역효과가 났다. 위협에 위축되기는커녕, 경쟁사 직원들까지 엔트로픽 편으로 결집시키는 결과를 낳았다. 이는 2018년 Project Maven 이후 가장 큰 규모의 테크 노동자 정치적 행동으로 기록되고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "4. xAI, 유일한 순응자: '모든 합법적 용도' 수용"
+    },
+    {
+      "type": "text",
+      "value": "업계의 연대 속에서 유일한 예외가 있다. 일론 머스크의 xAI다. 2월 23일, xAI는 Grok 기밀 시스템 계약을 체결하며 '모든 합법적 용도(all lawful purposes)'에 동의했다. 펜타곤이 요구하는 조건을 전면 수용한 유일한 주요 AI 기업이다.\n\nxAI의 순응은 머스크의 정치적 포지셔닝과 무관하지 않다. 트럼프 행정부의 핵심 지지자이자 정부효율부(DOGE) 수장인 머스크에게, 펜타곤과의 갈등은 있을 수 없는 선택지다. 이 구도는 AI 업계에 새로운 분열선을 만들고 있다. 정부 순응파(xAI)와 원칙 고수파(엔트로픽 + 연대) 사이의 간극이다.\n\n에밀 마이클 전 우버 부사장은 다리오 아모데이를 \"거짓말쟁이\"이자 \"신 콤플렉스\"를 가진 인물이라고 공격하며, 펜타곤 편에 섰다. 그러나 이런 인신공격은 오히려 엔트로픽에 대한 동정론을 강화하는 역효과를 낳았다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 트럼프 AI 정책: 바이든과의 근본적 차이"
+    },
+    {
+      "type": "text",
+      "value": "현재의 갈등을 이해하려면 트럼프 행정부의 AI 정책 기조를 살펴봐야 한다. 바이든 행정부는 행정명령 14110을 통해 AI 안전과 규제를 강조했다. 트럼프는 취임 직후 이 행정명령을 폐기하고, 'Woke AI 방지' 행정명령을 발동하며 정반대 방향으로 전환했다.\n\n트럼프 행정부의 접근법은 세 가지 축으로 요약된다. 첫째, 주정부 수준의 AI 규제를 연방 차원에서 무력화한다. 둘째, AI 안전 가드레일을 '이념적 편향(woke AI)'으로 프레이밍한다. 셋째, 정부가 AI 모델에 무제한으로 접근할 수 있어야 한다고 요구한다.\n\n이 프레이밍은 데이비드 색스 AI/크립토 정책 총괄이 주도하고 있다. 색스는 AI 안전 가드레일을 '좌파적 이념'이라고 규정하며, 가드레일 제거를 탈규제가 아닌 '이념 교정'으로 포장하고 있다. 다만 색스 자신이 AI 기업들에 투자한 이해충돌 의혹이 제기되고 있어, 이 프레이밍의 순수성에 대한 의문도 커지고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. 의회와 시민사회: 초당파적 우려의 목소리"
+    },
+    {
+      "type": "image",
+      "src": "https://thehill.com/wp-content/uploads/sites/2/2023/07/congress_AI_hearing_05162023_AP_.jpg",
+      "caption": "미국 의회 AI 청문회. 의회는 AI 군사 사용의 규칙을 정해야 한다는 목소리가 커지고 있다.",
+      "alt": "미국 의회 AI 청문회 의원 AI 군사 사용 규제 입법 초당파 우려"
+    },
+    {
+      "type": "text",
+      "value": "이 갈등은 실리콘밸리와 행정부 사이의 문제로 한정되지 않는다. 의회와 시민사회에서도 비판의 목소리가 나오고 있다. 4명의 초당파 상원의원이 헤그세스 국방장관에게 공식 서한을 보내, AI 군사 사용의 범위와 한계에 대한 명확한 기준을 요구했다.\n\n진보 성향의 브레넌 센터(Brennan Center)는 수정헌법 4조 관점에서 AI 감시의 위험성을 경고했다. 주목할 것은 보수 성향의 카토 연구소(Cato Institute)까지 펜타곤의 접근법을 비판하고 있다는 점이다. AI 안전에 대한 우려가 정파를 초월한 의제가 되고 있는 것이다.\n\n로포어 블로그 역시 \"의회가 AI 군사 사용의 규칙을 정해야 한다\"는 논조의 분석을 내놓았다. 현재는 행정부가 일방적으로 AI 군사 사용의 범위를 설정하고 있지만, 이 결정이 의회의 입법 없이 이루어지는 것 자체가 민주적 정당성의 문제라는 지적이다."
+    },
+    {
+      "type": "heading",
+      "value": "7. 산업 영향: AI 안전이 '정치적 입장'이 된 세계"
+    },
+    {
+      "type": "text",
+      "value": "이번 사태가 남기는 가장 위험한 선례는, AI 안전 가드레일이 기술적 판단이 아닌 '정치적 입장'으로 분류되기 시작했다는 것이다. 트럼프 대통령은 엔트로픽을 \"좌파 미치광이들(left-wing lunatics)\"이라고 지칭했고, 헤그세스 국방장관은 \"빅테크의 이념적 변덕에 인질이 되지 않겠다\"고 선언했다.\n\n이 프레이밍이 고착되면, AI 기업들의 안전 연구 자체가 정치적 리스크로 변질될 수 있다. 자율 무기에 대한 가드레일을 설정하는 행위가 '반정부적'으로 해석되고, 대규모 감시에 대한 우려를 표명하는 것이 '이념적'이라고 낙인찍히는 환경이 만들어지는 것이다.\n\n실질적인 산업 영향도 크다. 정부 계약은 AI 기업들의 수익 구조에서 점점 더 큰 비중을 차지하고 있다. 엔트로픽의 사례가 보여주듯, 정부 조건을 거부하면 연방 사용 금지라는 극단적 제재를 받을 수 있다. 이 선례는 다른 AI 기업들이 안전 원칙을 유지할 경제적 인센티브를 크게 약화시킨다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 분열이 아닌 연대가 된 실리콘밸리"
+    },
+    {
+      "type": "text",
+      "value": "펜타곤은 엔트로픽을 고립시키려 했지만, 결과는 정반대였다. 위협은 공포가 아닌 결집을 낳았고, 경쟁사들이 경쟁을 넘어 원칙으로 연대하는 전례 없는 장면이 연출되었다. 500명의 실명 서명은 이 연대가 경영진의 전략적 판단만이 아니라, 일선 엔지니어들의 도덕적 확신에 기반하고 있음을 보여준다.\n\n그러나 이 연대가 얼마나 지속될 수 있을지는 미지수다. 정부 계약이라는 경제적 현실, 주주 압력, 그리고 중국과의 AI 경쟁이라는 안보 논리가 결합하면, 원칙은 빠르게 타협의 대상이 될 수 있다. xAI의 순응은 이미 그 가능성을 보여주고 있다.\n\n확실한 것은 하나다. AI 안전에 대한 결정이 더 이상 기술 기업의 내부 문제가 아니라는 것이다. 의회의 입법, 시민사회의 감시, 그리고 무엇보다 이 기술을 만드는 사람들 스스로의 도덕적 판단이 교차하는 지점에서, AI의 미래가 결정되고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 27, 2026, when President Trump announced a full federal ban on Anthropic, something unexpected happened in Silicon Valley. Competitors rallied to Anthropic's side. From OpenAI's Sam Altman to hundreds of Google employees, a solidarity movement has formed that transcends the usual competitive dynamics of the AI industry.\n\nThis is not simply an alliance between companies. It is the largest tech worker political action since Google's Project Maven in 2018, and an industry-wide backlash against the framing of AI safety guardrails as 'political positions.' A moment has arrived that is fundamentally reshaping the relationship between Silicon Valley and the U.S. government."
+    },
+    {
+      "type": "heading",
+      "value": "1. Competitors Supporting Competitors: Altman's 'Same Red Lines' Declaration"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2218344211-20250923200325147.jpg?c=original&q=w_860,c_fill",
+      "caption": "OpenAI CEO Sam Altman declared his company shares Anthropic's red lines on military AI.",
+      "alt": "OpenAI CEO Sam Altman AI military use red lines Anthropic solidarity declaration"
+    },
+    {
+      "type": "text",
+      "value": "The most notable response came from OpenAI. CEO Sam Altman stated clearly on CNBC: \"We share the same red lines.\" Anthropic's biggest competitor had publicly taken its side. Altman reportedly communicated this position to employees through an internal memo as well.\n\nThe weight of this statement becomes clear only with context. OpenAI quietly removed its military use ban in January 2024 and strengthened its relationship with the government by integrating ChatGPT into the Pentagon's GenAI.mil platform. For that same OpenAI to invoke the word 'red lines' again signals that the Trump administration's demands have reached a level the entire industry finds unacceptable.\n\nThe key driver is not goodwill toward Anthropic but self-preservation. If Anthropic kneels today, the same demands will come to OpenAI tomorrow. Silicon Valley has begun to recognize this clearly."
+    },
+    {
+      "type": "heading",
+      "value": "2. Google Employee Revolt: Memories of Project Maven Resurface"
+    },
+    {
+      "type": "text",
+      "value": "The backlash at Google has been even more intense. Over 100 employees sent a formal letter to AI chief Jeff Dean, demanding restrictions on Gemini's military use. The letter's central agenda was restoring the 'weapons and surveillance prohibition principles' that Google had already quietly removed in February 2025.\n\nThis echoes the 2018 Project Maven affair. Back then, Google participated in the Pentagon's drone footage analysis project only to face a revolt from over 4,000 employees, ultimately abandoning the contract. That memory is being resurrected now.\n\nThe difference lies in scale and context. In 2018, it was Google's crisis alone. In 2026, employees at Microsoft and Amazon are also making similar demands to their own executives. Concerns over military AI use have spread beyond a single company to encompass the entire industry."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 'We Will Not Be Divided': 500 People Sign With Their Real Names"
+    },
+    {
+      "type": "image",
+      "src": "https://i.insider.com/69a124edd3e2f1aef369a3a9?width=1200&format=jpeg",
+      "caption": "OpenAI and Google employees signed the 'We Will Not Be Divided' petition with their real names.",
+      "alt": "OpenAI Google employees We Will Not Be Divided open petition opposing Pentagon military AI demands"
+    },
+    {
+      "type": "text",
+      "value": "The most symbolic expression of industry solidarity is the 'We Will Not Be Divided' open petition. Published on notdivided.org, it has been signed by nearly 500 Big Tech employees using their real names, including 421 from Google and 76 from OpenAI.\n\nThe petition's core message is clear: \"The Pentagon is trying to divide each company through fear.\" There is a widespread perception that the Department of Defense is employing a 'divide and conquer' strategy, pressuring companies one by one into compliance. Indeed, the federal ban on Anthropic could have served as a warning to other companies: 'this could happen to you.'\n\nBut it backfired. Instead of cowering before the threat, it rallied competitors' employees to Anthropic's side. This is being recorded as the largest tech worker political action since Project Maven in 2018."
+    },
+    {
+      "type": "heading",
+      "value": "4. xAI, the Sole Compliant: Accepting 'All Lawful Purposes'"
+    },
+    {
+      "type": "text",
+      "value": "Within this industry-wide solidarity, there is exactly one exception: Elon Musk's xAI. On February 23, xAI signed a classified system contract for Grok, agreeing to 'all lawful purposes.' It is the only major AI company to fully accept the Pentagon's terms.\n\nxAI's compliance is inseparable from Musk's political positioning. As a key supporter of the Trump administration and head of the Department of Government Efficiency (DOGE), conflict with the Pentagon is an unthinkable option for Musk. This dynamic is creating a new fault line in the AI industry — a gap between the government-compliant camp (xAI) and the principles-first camp (Anthropic and its allies).\n\nFormer Uber VP Emil Michael attacked Dario Amodei as a 'liar' with a 'God complex,' siding with the Pentagon. However, such personal attacks have had the opposite effect, strengthening sympathy for Anthropic."
+    },
+    {
+      "type": "heading",
+      "value": "5. Trump's AI Policy: A Fundamental Break from Biden"
+    },
+    {
+      "type": "text",
+      "value": "Understanding the current conflict requires examining the Trump administration's AI policy stance. The Biden administration emphasized AI safety and regulation through Executive Order 14110. Trump repealed this order immediately after taking office and pivoted in the opposite direction with a 'Prevent Woke AI' executive order.\n\nThe Trump administration's approach can be summarized along three axes. First, nullifying state-level AI regulations at the federal level. Second, framing AI safety guardrails as 'ideological bias (woke AI).' Third, demanding unlimited government access to AI models.\n\nThis framing is being led by David Sacks, the AI/Crypto policy czar. Sacks defines AI safety guardrails as 'leftist ideology,' packaging their removal not as deregulation but as 'ideological correction.' However, allegations of conflicts of interest stemming from Sacks' own investments in AI companies are raising questions about the purity of this framing."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "6. Congress and Civil Society: Bipartisan Voices of Concern"
+    },
+    {
+      "type": "image",
+      "src": "https://thehill.com/wp-content/uploads/sites/2/2023/07/congress_AI_hearing_05162023_AP_.jpg",
+      "caption": "A U.S. congressional hearing on AI. Calls are growing for Congress to set rules for military AI use.",
+      "alt": "U.S. Congress AI hearing lawmakers military AI regulation bipartisan legislation concerns"
+    },
+    {
+      "type": "text",
+      "value": "This conflict is not limited to Silicon Valley versus the executive branch. Voices of criticism are emerging from Congress and civil society as well. Four bipartisan senators sent a formal letter to Defense Secretary Hegseth, demanding clear standards on the scope and limits of military AI use.\n\nThe liberal-leaning Brennan Center warned about the dangers of AI surveillance from a Fourth Amendment perspective. Notably, even the conservative-leaning Cato Institute has criticized the Pentagon's approach. Concerns about AI safety are becoming a transpartisan issue.\n\nLawfare also published analysis arguing that \"Congress must set the rules for military AI.\" Currently, the executive branch is unilaterally defining the scope of military AI use, and the criticism is that decisions of this magnitude being made without congressional legislation poses a fundamental question of democratic legitimacy."
+    },
+    {
+      "type": "heading",
+      "value": "7. Industry Impact: A World Where AI Safety Becomes 'Political'"
+    },
+    {
+      "type": "text",
+      "value": "The most dangerous precedent this crisis is setting is that AI safety guardrails are beginning to be classified not as technical judgments but as 'political positions.' President Trump referred to Anthropic as 'left-wing lunatics,' and Defense Secretary Hegseth declared he 'won't be held hostage to Big Tech's ideological whims.'\n\nIf this framing solidifies, AI companies' safety research itself could be transformed into a political risk. Setting guardrails on autonomous weapons would be interpreted as 'anti-government,' and expressing concerns about mass surveillance would be branded as 'ideological.'\n\nThe practical industry impact is also significant. Government contracts are claiming an ever-larger share of AI companies' revenue structures. As Anthropic's case demonstrates, refusing government terms can result in the extreme sanction of a federal use ban. This precedent significantly weakens the economic incentives for other AI companies to maintain their safety principles."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Silicon Valley Chose Solidarity Over Division"
+    },
+    {
+      "type": "text",
+      "value": "The Pentagon sought to isolate Anthropic, but the result was the opposite. Threats bred not fear but solidarity, producing an unprecedented scene of competitors uniting on principle rather than competition. The 500 real-name signatures demonstrate that this solidarity is rooted not merely in executives' strategic calculations but in the moral conviction of front-line engineers.\n\nYet how long this solidarity can endure remains uncertain. When the economic realities of government contracts, shareholder pressure, and the national security logic of AI competition with China converge, principles can quickly become subjects of compromise. xAI's compliance already shows that possibility.\n\nOne thing is certain: decisions about AI safety are no longer an internal matter for technology companies. At the intersection of congressional legislation, civil society oversight, and above all the moral judgment of the people who build this technology, the future of AI is being decided."
+    }
+  ],
+  "relatedGames": []
+}

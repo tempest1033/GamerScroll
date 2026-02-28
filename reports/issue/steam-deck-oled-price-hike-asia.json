@@ -1,0 +1,43 @@
+{
+  "slug": "steam-deck-oled-price-hike-asia",
+  "status": "approved",
+  "title": "스팀덱 OLED 가격 인상, 반도체 수급난 속 아시아부터 시작된 충격",
+  "date": "2026-02-28T15:00",
+  "keywords": "스팀덱 OLED 가격 인상, Steam Deck OLED 가격 2026, 스팀덱 가격 변동, 밸브 스팀덱, 코모도 KOMODO, 휴대용 게이밍 PC, 스팀덱 1TB 100만원, RAM 대란 게이밍, 반도체 수급난 게임기, 휴대용 게임기 가격 비교, 스팀덱 품절",
+  "summary": "밸브의 아시아 유통사 코모도가 3월 6일부터 스팀덱 OLED 가격 인상을 발표했다. 한국 1TB 모델 100만원 돌파, 일본 최대 17.7% 인상. 반도체 수급난 속에서 휴대용 게이밍 시장 전체의 가격 상승 신호탄이 될 수 있다.",
+  "thumbnail": "https://cdn.akamai.steamstatic.com/steamdeck/images/video/overview_oled.jpg",
+  "relatedDocs": ["issue:ddr5-price-surge-gaming-nightmare"],
+  "relatedGames": [],
+  "sources": [
+    { "name": "KOMODO", "title": "Steam Deck OLED 가격 변경 안내", "url": "https://komodostation.com/2026/02/27/steam-deck-oled-pricechange/?lang=ko" },
+    { "name": "Dexerto", "title": "Steam Deck OLED gets $100 price increase in Japan amid stock issues", "url": "https://www.dexerto.com/gaming/steam-deck-oled-gets-100-price-increase-in-japan-amid-stock-issues-3326337/" },
+    { "name": "TechPowerUp", "title": "Asian Steam Deck OLED Price Increases Likely Separate From Global RAM Situation", "url": "https://www.techpowerup.com/346846/asian-steam-deck-oled-price-increases-likely-separate-from-global-ram-situation" },
+    { "name": "Tom's Guide", "title": "Steam Deck is getting a $100 price hike in Japan — is the US next?", "url": "https://www.tomsguide.com/gaming/handheld-gaming/steam-deck-is-getting-a-usd100-price-hike-in-japan-is-the-us-next" },
+    { "name": "Steam Deck HQ", "title": "Steam Deck Receiving Price Increase in Asia", "url": "https://steamdeckhq.com/news/steam-deck-price-ncrease-asia-march/" }
+  ],
+  "content": [
+    { "type": "text", "value": "스팀덱 OLED 가격이 결국 올랐다. 밸브의 아시아 유통사 코모도(KOMODO)가 2월 27일 가격 인상을 공식 발표했고, 3월 6일부터 새 가격이 적용된다. 스팀덱이 2022년 출시 이래 처음으로 단행한 명시적 가격 인상이다. 반도체 수급난과 환율 변동이 겹치면서, 휴대용 게이밍 PC 시장 전체에 가격 상승 압력이 가해지고 있다." },
+    { "type": "heading", "value": "1. 스팀덱 OLED 아시아 가격 인상 내역" },
+    { "type": "image", "src": "https://frvr.com/wp-content/uploads/2026/02/steam-deck-price-hike-asia.jpg", "caption": "밸브 아시아 유통사 코모도가 3월 6일부터 스팀덱 OLED 가격 인상을 발표했다", "alt": "스팀덱 OLED 아시아 가격 인상 발표 뉴스" },
+    { "type": "text", "value": "코모도는 물류 비용 증가와 환율 변동성 확대를 공식 인상 사유로 밝혔다. 국가별 인상 폭에는 상당한 차이가 있다. 한국은 512GB 모델이 839,000원에서 898,000원으로(7.0%), 1TB 모델이 989,000원에서 1,048,000원으로(6.0%) 각각 59,000원씩 올랐다. 1TB 모델이 심리적 마지노선인 100만원을 돌파한 것이 핵심이다.\n\n가장 큰 타격을 받은 곳은 일본이다. 512GB OLED가 84,800엔에서 99,800엔으로 17.7%, 1TB OLED가 99,800엔에서 114,800엔으로 15.0% 인상됐다. 장기 엔저가 가격에 직격탄을 날린 셈이다. 대만은 0.5~2.3% 소폭 인상, 홍콩은 변동 없다. 전 지역 평균 인상률은 약 8.1%다. 미국 가격은 512GB 549달러, 1TB 649달러로 변동 없지만, 전 모델 품절 상태가 지속되고 있어 실질적인 구매 자체가 어려운 상황이다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "2. 반도체 수급난과 스팀덱 추가 인상 가능성" },
+    { "type": "image", "src": "https://cdn.mos.cms.futurecdn.net/NSYr6nsP63PRbdJFMNL5pT.jpg", "caption": "AI 데이터센터의 메모리 매점으로 RAM 대란이 가속화되고 있다", "alt": "RAM 대란 RAMageddon 반도체 메모리 수급난 2026" },
+    { "type": "text", "value": "이번 인상의 배경에는 글로벌 반도체 수급난이 있다. AI 데이터센터들이 RAM과 실리콘 웨이퍼를 대규모로 매점하면서 이른바 'RAM 대란(RAMageddon)'이 진행 중이다. LA 타임스는 이를 'RAM 하이퍼인플레이션'으로 표현했고, 마이크론은 2027년까지 심각한 메모리 부족이 계속될 것으로 전망했다.\n\n코모도 측은 이번 인상이 RAM 가격과 무관하다고 선을 그었다. 하지만 16GB LPDDR5 메모리를 탑재한 스팀덱 OLED가 메모리 수급난의 영향권에서 벗어나기는 어렵다. 여기에 2025년 12월 LCD 모델 단종으로 최저 진입 가격이 399달러에서 549달러로 이미 150달러 올랐고, 미국 시장에서도 만성적 품절이 반복되고 있다. 이번이 마지막 인상이 아닐 수 있다는 전망에 무게가 실리는 이유다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "3. 휴대용 게이밍 시장 전망과 흔들리는 가성비" },
+    { "type": "image", "src": "https://cdn.akamai.steamstatic.com/steamdeck/images/oled/oled_hands.png", "caption": "스팀덱 OLED의 가성비 경쟁력이 가격 인상으로 흔들리고 있다", "alt": "스팀덱 OLED 휴대용 게이밍 PC 가성비 경쟁력" },
+    { "type": "table", "caption": "주요 휴대용 게이밍 기기 가격 비교 (2026년 기준)", "headers": ["제품", "가격 (USD)", "비고"], "rows": [
+      ["스팀덱 OLED 512GB", "$549", "밸브, SteamOS"],
+      ["스팀덱 OLED 1TB", "$649", "밸브, SteamOS"],
+      ["레노버 리전 Go S", "$399~500", "SteamOS 탑재"],
+      ["에이수스 ROG 알리 X", "$799", "윈도우"],
+      ["MSI 클로 8 AI+", "$799~899", "윈도우"],
+      ["닌텐도 스위치 2", "$449", "닌텐도 전용"]
+    ] },
+    { "type": "text", "value": "스팀덱의 최대 무기는 가성비였다. 549달러에 OLED 디스플레이와 SteamOS 라이브러리를 제공하며 윈도우 기반 경쟁 제품보다 200~300달러 저렴한 포지셔닝을 유지해왔다. 그러나 레노버 리전 Go S가 399~500달러에 같은 SteamOS를 탑재하고, 닌텐도 스위치 2가 449달러로 발표되면서 경쟁 구도가 빠르게 변하고 있다.\n\n커뮤니티 반응도 갈리고 있다. 한국에서는 1TB 100만원 돌파에 '다른 휴대용 기기를 알아보겠다'는 반응이, 일본에서는 15,000엔 인상 자체에 놀란 반응이 나온다. 글로벌 커뮤니티에서는 '이건 시작일 뿐, 서방 시장도 곧 올 것'이라는 비관적 전망이 지배적이다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "마치며: 가격 인상의 시대, 휴대용 게이밍 시장도 예외 없다" },
+    { "type": "text", "value": "스팀덱 OLED의 첫 가격 인상은 단순한 지역 조정이 아니라, 반도체 수급난이 소비자 제품 가격에 본격적으로 전이되고 있다는 신호다. 물류 비용, 환율, 메모리 대란이 동시에 작용하는 상황에서 경쟁사들도 비슷한 압력을 받고 있어 시장 전반의 가격 인상은 시간문제로 보인다. 스팀덱 구매를 고민 중이라면, 3월 6일 전 가격이 마지막 기회일 수 있다." }
+  ]
+}
