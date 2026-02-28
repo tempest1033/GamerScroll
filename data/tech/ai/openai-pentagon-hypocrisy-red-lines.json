@@ -1,0 +1,241 @@
+{
+  "slug": "openai-pentagon-hypocrisy-red-lines",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "openai",
+  "title": "OpenAI 펜타곤 협력으로 여론 역풍: '같은 레드라인'이라더니",
+  "titleEn": "OpenAI Faces Backlash Over Pentagon Deal: 'Same Red Lines' or Opportunism?",
+  "date": "2026-02-28T18:30",
+  "keywords": "OpenAI 펜타곤, 샘 알트만 군사 계약, OpenAI 위선, 엔트로픽 레드라인, OpenAI safety stack, 군사 AI 정책, AI 기밀 시스템, 테크 노동자 연합, OpenAI 군사 금지 삭제, AI 안전 가드레일, 펜타곤 AI 계약, 2026",
+  "keywordsEn": "OpenAI Pentagon, Sam Altman military contract, OpenAI hypocrisy, Anthropic red lines, OpenAI safety stack, military AI policy, AI classified systems, tech worker coalition, OpenAI military ban removal, AI safety guardrails, Pentagon AI contract, 2026",
+  "summary": "샘 알트만이 '엔트로픽과 같은 레드라인을 공유한다'고 선언한 바로 다음 날, 엔트로픽이 쫓겨난 빈자리에 OpenAI가 펜타곤 기밀 시스템 계약을 추진하고 있다는 사실이 드러났다. 2023년 군사 사용 금지에서 2026년 기밀 계약 협상까지, OpenAI의 변신 과정을 추적한다.",
+  "summaryEn": "The day after Sam Altman declared OpenAI 'shares the same red lines' as Anthropic, it emerged that OpenAI is pursuing a Pentagon classified systems contract to fill the void left by Anthropic's ban. From a military use prohibition in 2023 to classified contract negotiations in 2026, we trace OpenAI's transformation.",
+  "thumbnail": "https://helios-i.mashable.com/imagery/articles/0248dyb8O6wOd4YzgAn6q5X/hero-image.fill.size_1200x900.v1705244228.jpg",
+  "relatedDocs": [
+    "tech:ai/anthropic-government-conflict-weapons-surveillance",
+    "tech:ai/silicon-valley-ai-ethics-government-clash",
+    "tech:ai/openai-110b-record-funding-turning-point"
+  ],
+  "sources": [
+    {
+      "name": "Wall Street Journal",
+      "title": "Altman Says OpenAI Is Working on Pentagon Deal Amid Anthropic Showdown",
+      "url": "https://www.wsj.com/tech/ai/openais-sam-altman-calls-for-de-escalation-in-anthropic-showdown-with-hegseth-03ecbac8"
+    },
+    {
+      "name": "The Intercept",
+      "title": "OpenAI Quietly Deletes Ban on Using ChatGPT for Military and Warfare",
+      "url": "https://theintercept.com/2024/01/12/open-ai-military-ban-chatgpt/"
+    },
+    {
+      "name": "Business Insider",
+      "title": "OpenAI's Altman Opposes Using Defense Production Act on AI Companies",
+      "url": "https://www.businessinsider.com/anthropic-deal-pentagon-openai-sam-altman-dario-amodei-pete-hegseth-2026-2"
+    },
+    {
+      "name": "Futurism",
+      "title": "AI Workers, and Even CEOs, Suddenly Turning Against the Trump Administration",
+      "url": "https://futurism.com/artificial-intelligence/ai-workers-pentagon-anthropic"
+    },
+    {
+      "name": "LessWrong",
+      "title": "Daniel Kokotajlo on OpenAI's Pentagon positioning",
+      "url": "https://www.lesswrong.com/posts/openai-pentagon-positioning-2026"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월 26일, 샘 알트만 OpenAI CEO는 직원들에게 내부 메모를 보내 \"우리는 엔트로픽과 동일한 레드라인을 공유한다\"고 선언했다. 다음 날인 2월 27일, 알트만은 올핸즈 미팅에서 펜타곤과 기밀 시스템 계약 협상을 진행 중이라고 밝혔다. 엔트로픽이 연방 사용 금지를 당한 바로 그 빈자리를 OpenAI가 채우려 하고 있었다.\n\n연대의 선언과 기회의 포착이 24시간 간격으로 벌어진 것이다. 이 모순은 곧바로 업계와 커뮤니티의 집중 포화를 받았다. OpenAI는 정말 엔트로픽과 같은 원칙을 지키고 있는 것인가, 아니면 경쟁사의 퇴장을 자신의 기회로 전환하고 있는 것인가."
+    },
+    {
+      "type": "heading",
+      "value": "1. OpenAI 올핸즈 미팅: 기밀 계약의 실체"
+    },
+    {
+      "type": "image",
+      "src": "https://images.wsj.net/im-85343986?width=1280&size=1.501",
+      "caption": "샘 알트만 OpenAI CEO. 펜타곤과 기밀 시스템 계약 협상 중임을 직접 공개했다.",
+      "alt": "샘 알트만 OpenAI CEO 펜타곤 기밀 시스템 계약 협상 올핸즈 미팅"
+    },
+    {
+      "type": "text",
+      "value": "2월 27일 올핸즈 미팅에서 알트만이 공개한 내용은 구체적이었다. OpenAI는 미국 정부와 기밀 시스템에서의 AI 배치를 협상하고 있으며, 정부가 OpenAI의 'safety stack' 구축을 허용하는 조건으로 합의가 진행 중이라는 것이다. 레드라인을 계약에 포함시키되, 클라우드 기반 배치만 허용하고 드론 등 엣지(edge) 디바이스에는 배치하지 않는다는 조건이었다.\n\n알트만은 해외 감시 문제를 \"가장 어려운 부분(the hardest part)\"이라고 표현했다. 이 발언은 OpenAI가 국내 감시는 거부하되 해외 감시에 대해서는 협상의 여지를 두고 있음을 시사한다. 엔트로픽이 '대규모 감시' 자체를 절대 금지선으로 설정한 것과는 결이 다르다.\n\n핵심은 타이밍이다. 이 협상이 엔트로픽의 연방 사용 금지 직후에 공개되었다는 사실은, OpenAI가 경쟁사의 빈자리를 의식하고 있음을 강하게 시사한다."
+    },
+    {
+      "type": "heading",
+      "value": "2. '같은 레드라인'의 실체: 표면은 비슷하지만 범위는 다르다"
+    },
+    {
+      "type": "text",
+      "value": "알트만의 '동일한 레드라인' 주장은 곧바로 해부되기 시작했다. 전 OpenAI 직원이자 AI 안전 연구자인 다니엘 코코타일로(Daniel Kokotajlo)는 LessWrong에서 \"표면적으로 비슷해 보이지만, 행정부가 엔트로픽 대신 OpenAI를 선택하도록 최적화된 포지셔닝\"이라고 분석했다.\n\n핵심 차이는 '감시'의 정의에 있다. 엔트로픽의 레드라인은 '합법이지만 AI 시대에 부적합한' 감시까지 포함한다. 공공장소 카메라와 AI를 결합해 야당 구성원을 식별하는 행위는 현행법상 불법이 아니지만, 엔트로픽은 이를 명시적으로 거부한다. 반면 OpenAI의 레드라인은 '불법 사용 제외(illegal uses only)'로 범위가 훨씬 좁다.\n\nLessWrong 커뮤니티의 분석가 테인 루테니스(Thane Ruthenis)는 더 날카롭게 지적했다. \"알트만은 다시 한번 아무것도 약속하지 않는 데 성공했다.\" 레드라인이라는 동일한 단어를 사용하면서도, 실질적으로 펜타곤이 수용할 수 있는 수준으로 범위를 축소했다는 비판이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. OpenAI 군사 정책 변천: 금지에서 기밀 계약까지"
+    },
+    {
+      "type": "image",
+      "src": "https://theintercept.com/wp-content/uploads/2024/01/GettyImages-1647522284-openAI-military.jpg?fit=2500%2C1250&w=1200&h=800",
+      "caption": "2024년 1월 The Intercept가 보도한 OpenAI의 군사 사용 금지 조항 삭제.",
+      "alt": "OpenAI 군사 사용 금지 조항 삭제 The Intercept 보도 AI 군사 정책 변경"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI의 군사 정책 변천사를 추적하면, '같은 레드라인' 주장의 신뢰성은 더욱 흔들린다. 2023년까지 OpenAI의 이용약관에는 \"military and warfare(군사 및 전쟁)\" 목적의 사용이 명시적으로 금지되어 있었다. AI 기업으로서는 가장 강력한 수준의 군사 사용 금지였다.\n\n그러나 2024년 1월 10일, The Intercept의 보도로 OpenAI가 이 조항을 조용히 삭제한 사실이 드러났다. 공식 발표도, 블로그 포스트도 없었다. 이용약관 페이지가 업데이트되면서 '군사 및 전쟁' 금지가 사라진 것이다. OpenAI는 \"더 범용적인 표현으로 변경했을 뿐\"이라고 해명했지만, 타이밍은 의미심장했다.\n\n이후 궤적은 가속도가 붙었다. 2025년 7월에는 펜타곤과 2억 달러 규모의 계약을 체결했고, 2026년 2월에는 기밀 시스템 계약 협상까지 진행하고 있다. 3년 만에 '군사 사용 전면 금지'에서 '기밀 시스템 배치 협상'으로 180도 전환한 것이다."
+    },
+    {
+      "type": "table",
+      "caption": "OpenAI 군사 정책 변천 타임라인",
+      "headers": ["시기", "정책"],
+      "rows": [
+        ["~2023", "\"military and warfare\" 명시적 사용 금지"],
+        ["2024.01", "군사 금지 조항 조용히 삭제 (The Intercept 보도)"],
+        ["2025.07", "펜타곤 $200M 계약 체결"],
+        ["2026.02", "기밀 시스템 계약 협상 공개"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "4. 커뮤니티 반응: '뒤늦은 용기인가, 기회주의인가'"
+    },
+    {
+      "type": "text",
+      "value": "온라인 커뮤니티의 반응은 신랄했다. 레딧 r/singularity에서는 \"엔트로픽이 바로 그 안전장치 때문에 금지당했는데, OpenAI가 같은 안전장치를 요구하면서 계약을 따내는 것은 위선의 교과서적 사례\"라는 분석이 큰 호응을 얻었다.\n\nr/ChatGPT에서는 더 직설적이었다. \"뒤늦은 용기? 2위가 퇴장하면 1위가 자리를 차지하는 건 쉬운 일이다.\" OpenAI의 연대 선언이 진심이 아니라 계산된 포지셔닝이라는 시각이 지배적이었다.\n\nr/ChatGPTcomplaints에서는 OpenAI의 군사 정책 변천 타임라인을 정리하며 \"군사 사용 전면 금지에서 기밀 계약 협상까지, 이 기업이 정말 안전을 위해 움직이는 건지 의문\"이라는 논조의 글이 화제가 되었다. 공통적으로 나타나는 정서는 '말과 행동의 괴리'에 대한 불신이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. 테크 노동자 70만 명 연합: 직원들의 다른 목소리"
+    },
+    {
+      "type": "image",
+      "src": "https://futurism.com/wp-content/uploads/2026/02/ai-workers-pentagon-anthropic.jpg?w=1200",
+      "caption": "아마존, 구글, 마이크로소프트, OpenAI 노동자 70만 명 연합이 펜타곤 요구 거부를 촉구했다.",
+      "alt": "테크 노동자 70만 명 연합 빅테크 직원 펜타곤 AI 군사 요구 거부 촉구"
+    },
+    {
+      "type": "text",
+      "value": "경영진의 계산과 별개로, 일선 직원들은 다른 방향으로 움직이고 있다. 아마존, 구글, 마이크로소프트, OpenAI 등 빅테크 기업의 노동자 70만 명으로 구성된 연합이 펜타곤의 무제한 AI 접근 요구를 거부할 것을 촉구하는 성명을 발표했다.\n\n이 연합의 존재는 알트만의 딜레마를 더욱 복잡하게 만든다. 외부적으로는 펜타곤과의 기밀 계약을 추진하면서, 내부적으로는 그 계약에 반대하는 직원들의 집단적 압력에 직면해 있는 것이다. OpenAI 직원 76명이 'We Will Not Be Divided' 청원에 서명한 것도 같은 맥락이다.\n\n2018년 구글 Project Maven 사태가 보여주듯, 테크 기업의 군사 협력은 궁극적으로 인재 유출 리스크와 직결된다. AI 안전을 이유로 OpenAI를 선택한 연구자들이, 그 회사가 기밀 군사 시스템에 AI를 배치하는 것을 어떻게 받아들일지는 미지수다."
+    },
+    {
+      "type": "heading",
+      "value": "6. 알트만의 줄타기: safety stack은 진짜 안전장치인가"
+    },
+    {
+      "type": "text",
+      "value": "알트만이 제시한 'safety stack'은 흥미로운 개념이다. 펜타곤에 AI를 제공하되, 자체적인 안전 계층을 구축해 특정 사용을 차단하겠다는 것이다. 클라우드에만 배치하고 엣지 디바이스에는 제공하지 않는다는 조건도 포함된다.\n\n그러나 비판자들은 이 프레임워크의 한계를 지적한다. 클라우드 기반이라 해도 정보 분석, 표적 식별, 작전 계획 수립 등의 용도로 사용될 수 있다. 드론에 직접 탑재하지 않더라도, 드론 공격의 의사결정을 지원하는 데 사용된다면 실질적 차이가 있는가라는 질문이다.\n\n더 근본적인 문제는 집행력이다. 펜타곤의 기밀 네트워크에 배치된 AI 모델의 실제 사용을 OpenAI가 어떻게 모니터링하고 통제할 수 있는가. 엔트로픽이 Palantir를 통한 클로드 사용을 사후에야 알게 된 것처럼, 기밀 환경에서의 사용 통제는 기술적으로나 제도적으로나 극히 어렵다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 레드라인의 진정한 의미"
+    },
+    {
+      "type": "text",
+      "value": "이 논란이 드러내는 핵심은, '레드라인'이라는 단어가 정의에 따라 전혀 다른 의미를 가질 수 있다는 것이다. 엔트로픽의 레드라인은 '합법이지만 도덕적으로 부적합한 사용'까지 포함하는 넓은 개념이다. OpenAI의 레드라인은 '명백히 불법인 사용만 제외'하는 좁은 개념이다. 같은 단어, 다른 범위다.\n\nOpenAI의 포지셔닝이 순수한 위선인지, 현실적 타협인지는 시각에 따라 다를 수 있다. 분명한 것은 OpenAI가 엔트로픽의 연방 사용 금지라는 상황을 자신의 협상 레버리지로 활용하고 있다는 점이다. 연대를 선언하면서 동시에 그 연대의 대상이 남긴 빈자리를 채우는 행위는, 아무리 좋게 해석해도 모순이다.\n\n70만 테크 노동자의 집단적 목소리와 커뮤니티의 날카로운 비판은, AI 기업들이 더 이상 말로만 원칙을 주장할 수 없는 시대가 왔음을 보여준다. 레드라인은 선언하는 것이 아니라 지키는 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 26, 2026, OpenAI CEO Sam Altman sent an internal memo to employees declaring: \"We share the same red lines as Anthropic.\" The following day, February 27, Altman revealed at an all-hands meeting that OpenAI was negotiating a classified systems contract with the Pentagon. OpenAI was moving to fill the exact vacancy left by Anthropic's federal ban.\n\nA declaration of solidarity and a seizure of opportunity, separated by just 24 hours. This contradiction immediately drew concentrated fire from the industry and online communities. Is OpenAI truly upholding the same principles as Anthropic, or is it converting a competitor's exit into its own opportunity?"
+    },
+    {
+      "type": "heading",
+      "value": "1. The OpenAI All-Hands: What the Classified Deal Really Looks Like"
+    },
+    {
+      "type": "image",
+      "src": "https://images.wsj.net/im-85343986?width=1280&size=1.501",
+      "caption": "OpenAI CEO Sam Altman personally disclosed ongoing classified systems contract negotiations with the Pentagon.",
+      "alt": "Sam Altman OpenAI CEO Pentagon classified system contract negotiation all-hands meeting"
+    },
+    {
+      "type": "text",
+      "value": "What Altman disclosed at the February 27 all-hands meeting was remarkably specific. OpenAI is negotiating AI deployment in classified government systems, with agreement progressing on the condition that the government allows OpenAI to build its own 'safety stack.' The terms include embedding red lines in the contract, permitting only cloud-based deployment while excluding edge devices such as drones.\n\nAltman described the foreign surveillance issue as 'the hardest part.' This statement suggests that while OpenAI rejects domestic surveillance, it is leaving room for negotiation on foreign surveillance. This is a fundamentally different posture from Anthropic's absolute prohibition on 'mass surveillance' itself.\n\nThe timing is the key. The fact that this negotiation was disclosed immediately after Anthropic's federal ban strongly suggests OpenAI is conscious of filling its competitor's vacancy."
+    },
+    {
+      "type": "heading",
+      "value": "2. The Reality of 'Same Red Lines': Similar Surface, Different Scope"
+    },
+    {
+      "type": "text",
+      "value": "Altman's claim of 'identical red lines' was quickly dissected. Daniel Kokotajlo, a former OpenAI employee and AI safety researcher, analyzed on LessWrong that the positioning 'looks similar on the surface but is optimized to make the administration choose OpenAI over Anthropic.'\n\nThe critical difference lies in the definition of 'surveillance.' Anthropic's red lines encompass surveillance that is 'legal but inappropriate in the age of AI.' Combining public space cameras with AI to identify opposition party members is not currently illegal, yet Anthropic explicitly refuses to enable it. OpenAI's red lines, by contrast, are limited to 'illegal uses only' — a much narrower scope.\n\nLessWrong analyst Thane Ruthenis put it more sharply: 'Altman has once again succeeded in committing to nothing.' The criticism is that while using the identical word 'red lines,' OpenAI has effectively narrowed the scope to a level the Pentagon can accept."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. OpenAI's Military Policy Evolution: From Ban to Classified Contract"
+    },
+    {
+      "type": "image",
+      "src": "https://theintercept.com/wp-content/uploads/2024/01/GettyImages-1647522284-openAI-military.jpg?fit=2500%2C1250&w=1200&h=800",
+      "caption": "The Intercept's January 2024 report on OpenAI's quiet deletion of its military use ban.",
+      "alt": "OpenAI military use ban deletion The Intercept report AI military policy change"
+    },
+    {
+      "type": "text",
+      "value": "Tracing OpenAI's military policy history further undermines the credibility of the 'same red lines' claim. Until 2023, OpenAI's terms of service explicitly prohibited use for 'military and warfare' purposes. It was the strongest level of military use prohibition among AI companies.\n\nBut on January 10, 2024, The Intercept reported that OpenAI had quietly deleted this clause. There was no official announcement, no blog post. The terms of service page was simply updated, and the 'military and warfare' prohibition vanished. OpenAI explained it had 'changed to more general language,' but the timing was significant.\n\nThe trajectory has only accelerated since. In July 2025, OpenAI signed a $200 million contract with the Pentagon. By February 2026, it is negotiating classified systems contracts. In three years, it has made a 180-degree turn from 'complete military use ban' to 'classified system deployment negotiations.'"
+    },
+    {
+      "type": "table",
+      "caption": "OpenAI Military Policy Timeline",
+      "headers": ["Period", "Policy"],
+      "rows": [
+        ["~2023", "Explicit ban on \"military and warfare\" use"],
+        ["Jan 2024", "Military ban quietly deleted (reported by The Intercept)"],
+        ["Jul 2025", "$200M Pentagon contract signed"],
+        ["Feb 2026", "Classified systems contract negotiations disclosed"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "4. Community Reaction: 'Belated Courage or Opportunism?'"
+    },
+    {
+      "type": "text",
+      "value": "The online community's response has been scathing. On Reddit's r/singularity, an analysis gained significant traction: 'Anthropic was banned for those exact safety guardrails, and now OpenAI is demanding the same guardrails while landing the contract. This is a textbook case of hypocrisy.'\n\nOn r/ChatGPT, the response was more direct: 'Belated courage? When number two exits, it's easy for number one to take the seat.' The dominant view was that OpenAI's solidarity declaration was not sincere but calculated positioning.\n\nOn r/ChatGPTcomplaints, a post tracing OpenAI's military policy timeline went viral with the conclusion: 'From a complete military ban to classified contract negotiations — is this company really moving for the sake of safety?' The common sentiment across communities is distrust of the gap between words and actions."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. The 700,000 Tech Worker Coalition: A Different Voice From the Ranks"
+    },
+    {
+      "type": "image",
+      "src": "https://futurism.com/wp-content/uploads/2026/02/ai-workers-pentagon-anthropic.jpg?w=1200",
+      "caption": "A coalition of 700,000 workers from Amazon, Google, Microsoft, and OpenAI urged rejection of Pentagon demands.",
+      "alt": "700000 tech worker coalition Big Tech employees urging rejection of Pentagon AI military demands"
+    },
+    {
+      "type": "text",
+      "value": "Separate from executive calculations, front-line employees are moving in a different direction. A coalition of 700,000 workers from Amazon, Google, Microsoft, OpenAI, and other Big Tech companies issued a statement urging the rejection of the Pentagon's demand for unlimited AI access.\n\nThe coalition's existence makes Altman's dilemma even more complex. Externally, he is pursuing a classified contract with the Pentagon; internally, he faces collective pressure from employees who oppose that very contract. The fact that 76 OpenAI employees signed the 'We Will Not Be Divided' petition reflects the same dynamic.\n\nAs Google's 2018 Project Maven affair demonstrated, tech companies' military cooperation ultimately ties directly to talent retention risk. How researchers who chose OpenAI precisely for its AI safety credentials will react to the company deploying AI in classified military systems remains an open question."
+    },
+    {
+      "type": "heading",
+      "value": "6. Altman's Tightrope: Is the Safety Stack a Real Safeguard?"
+    },
+    {
+      "type": "text",
+      "value": "The 'safety stack' concept Altman has proposed is intriguing. The idea is to provide AI to the Pentagon while building proprietary safety layers to block certain uses. The condition of deploying only in the cloud and not on edge devices is also included.\n\nBut critics point to the framework's limitations. Even cloud-based deployment can be used for intelligence analysis, target identification, and operational planning. Even without being directly mounted on drones, if the AI is used to support drone strike decision-making, is there a meaningful difference?\n\nThe more fundamental issue is enforcement. How can OpenAI monitor and control the actual use of an AI model deployed on the Pentagon's classified networks? Just as Anthropic learned of Claude's use through Palantir only after the fact, controlling usage in classified environments is extremely difficult both technically and institutionally."
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: What Red Lines Really Mean"
+    },
+    {
+      "type": "text",
+      "value": "What this controversy reveals at its core is that the word 'red lines' can carry entirely different meanings depending on how they are defined. Anthropic's red lines are a broad concept that encompasses 'uses that are legal but morally inappropriate.' OpenAI's red lines are a narrow concept that 'excludes only clearly illegal uses.' Same word, different scope.\n\nWhether OpenAI's positioning is pure hypocrisy or pragmatic compromise may depend on one's perspective. What is clear is that OpenAI is leveraging Anthropic's federal ban as its own negotiating advantage. Declaring solidarity while simultaneously filling the vacancy left by the subject of that solidarity is, even in the most generous interpretation, contradictory.\n\nThe collective voice of 700,000 tech workers and the sharp criticism from online communities show that an era has arrived where AI companies can no longer claim principles through words alone. Red lines are not about declaring them — they are about keeping them."
+    }
+  ],
+  "relatedGames": []
+}
