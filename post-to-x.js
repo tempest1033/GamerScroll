@@ -15,6 +15,7 @@ const { TwitterApi } = require('twitter-api-v2');
 
 const IMAGE_PATH = './docs/images/x-card-daily.png';
 const REPORTS_DIR = './docs/reports';
+const REPORTS_SRC_DIR = './reports';
 
 const POST_META_PATH = './docs/images/x-post-meta.json';
 
@@ -49,16 +50,35 @@ async function postToX() {
   };
   const today = getKSTDate();
   const yesterday = getKSTDate(-1);
+
+  // ai 필드가 있는 리포트 찾기 (docs/reports → reports 폴백)
   const candidates = [
     `${REPORTS_DIR}/${today}.json`,
-    `${REPORTS_DIR}/${yesterday}.json`
+    `${REPORTS_SRC_DIR}/${today}.json`,
+    `${REPORTS_DIR}/${yesterday}.json`,
+    `${REPORTS_SRC_DIR}/${yesterday}.json`
   ];
 
   let insightPath = null;
   for (const p of candidates) {
     if (fs.existsSync(p)) {
-      insightPath = p;
-      break;
+      try {
+        const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+        if (data.ai?.issues?.length > 0) {
+          insightPath = p;
+          break;
+        }
+      } catch (e) {}
+    }
+  }
+
+  // ai 없으면 파일 존재만으로 폴백 (기존 동작 유지)
+  if (!insightPath) {
+    for (const p of candidates) {
+      if (fs.existsSync(p)) {
+        insightPath = p;
+        break;
+      }
     }
   }
 

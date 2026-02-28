@@ -16,6 +16,7 @@ async function generateXCard() {
 
   // 최신 AI 인사이트 파일 찾기 (KST 기준)
   const reportsDir = './docs/reports';
+  const reportsSrcDir = './reports';
   const getKSTDate = (offset = 0) => {
     const now = new Date();
     const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000) + (offset * 86400000));
@@ -23,16 +24,35 @@ async function generateXCard() {
   };
   const today = getKSTDate();
   const yesterday = getKSTDate(-1);
+
+  // ai 필드가 있는 리포트 찾기 (docs/reports → reports 폴백)
   const candidates = [
     `${reportsDir}/${today}.json`,
-    `${reportsDir}/${yesterday}.json`
+    `${reportsSrcDir}/${today}.json`,
+    `${reportsDir}/${yesterday}.json`,
+    `${reportsSrcDir}/${yesterday}.json`
   ];
 
   let insightPath = null;
   for (const p of candidates) {
     if (fs.existsSync(p)) {
-      insightPath = p;
-      break;
+      try {
+        const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+        if (data.ai?.issues?.length > 0) {
+          insightPath = p;
+          break;
+        }
+      } catch (e) {}
+    }
+  }
+
+  // ai 없으면 파일 존재만으로 폴백 (기존 동작 유지)
+  if (!insightPath) {
+    for (const p of candidates) {
+      if (fs.existsSync(p)) {
+        insightPath = p;
+        break;
+      }
     }
   }
 

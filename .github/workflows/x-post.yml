@@ -37,15 +37,18 @@ jobs:
         run: |
           TODAY=$(TZ=Asia/Seoul date +'%Y-%m-%d')
           REPORT="docs/reports/${TODAY}.json"
-          if [ ! -f "$REPORT" ]; then
-            echo "❌ 오늘자 리포트 없음: $REPORT"
+          REPORT_SRC="reports/${TODAY}.json"
+
+          # docs/reports에서 먼저 확인
+          if [ -f "$REPORT" ] && node -e "const r=JSON.parse(require('fs').readFileSync('$REPORT','utf8')); if(r.ai){process.exit(0)}else{process.exit(1)}"; then
+            echo "✅ 오늘자 AI 인사이트 확인 (docs/reports): $REPORT"
+          elif [ -f "$REPORT_SRC" ] && node -e "const r=JSON.parse(require('fs').readFileSync('$REPORT_SRC','utf8')); if(r.ai){process.exit(0)}else{process.exit(1)}"; then
+            echo "✅ 오늘자 AI 인사이트 확인 (reports): $REPORT_SRC"
+            echo "REPORT_PATH=$REPORT_SRC" >> $GITHUB_ENV
+          else
+            echo "❌ 오늘자 AI 인사이트 없음"
             exit 1
           fi
-          if ! node -e "const r=JSON.parse(require('fs').readFileSync('$REPORT','utf8')); if(!r.ai){process.exit(1)}"; then
-            echo "❌ 오늘자 리포트에 AI 인사이트 없음"
-            exit 1
-          fi
-          echo "✅ 오늘자 AI 인사이트 확인: $REPORT"
 
       - name: Generate X card image
         run: npm run x-card
