@@ -1,19 +1,7 @@
 {
-  "updatedAt": "2026-02-27T00:59:29.202Z",
+  "updatedAt": "2026-02-28T00:52:34.011Z",
   "period": "7days",
   "articles": [
-    {
-      "category": "google",
-      "slug": "deepmind-update-aletheia-gemini",
-      "views": 11,
-      "path": "/article/google/deepmind-update-aletheia-gemini/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-31-pro-release",
-      "views": 7,
-      "path": "/article/google/gemini-31-pro-release/"
-    },
     {
       "category": "general",
       "slug": "kurzweil-singularity-review-2026",
@@ -21,10 +9,16 @@
       "path": "/article/general/kurzweil-singularity-review-2026/"
     },
     {
+      "category": "google",
+      "slug": "deepmind-update-aletheia-gemini",
+      "views": 5,
+      "path": "/article/google/deepmind-update-aletheia-gemini/"
+    },
+    {
       "category": "general",
-      "slug": "grok-420-multi-agent-release",
-      "views": 3,
-      "path": "/article/general/grok-420-multi-agent-release/"
+      "slug": "xbox-sunset-ai-pivot",
+      "views": 4,
+      "path": "/article/general/xbox-sunset-ai-pivot/"
     },
     {
       "category": "general",
@@ -33,22 +27,28 @@
       "path": "/article/general/meta-avocado-ai-model-performance/"
     },
     {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 3,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
       "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 2,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "general",
-      "slug": "dario-sam-india-summit-handshake",
+      "slug": "grok-420-multi-agent-release",
       "views": 2,
-      "path": "/article/general/dario-sam-india-summit-handshake/"
+      "path": "/article/general/grok-420-multi-agent-release/"
     },
     {
-      "category": "general",
-      "slug": "xbox-sunset-ai-pivot",
+      "category": "openai",
+      "slug": "gpt-54-leak-model-war",
       "views": 2,
-      "path": "/article/general/xbox-sunset-ai-pivot/"
+      "path": "/article/openai/gpt-54-leak-model-war/"
     },
     {
       "category": "vibecoding",
@@ -112,6 +112,12 @@
     },
     {
       "category": "google",
+      "slug": "gemini-31-pro-release",
+      "views": 1,
+      "path": "/article/google/gemini-31-pro-release/"
+    },
+    {
+      "category": "google",
       "slug": "google-ai-voluntary-exit",
       "views": 1,
       "path": "/article/google/google-ai-voluntary-exit/"
@@ -130,21 +136,9 @@
     },
     {
       "category": "openai",
-      "slug": "gpt-4o-shutdown-controversy",
-      "views": 1,
-      "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
-      "category": "openai",
       "slug": "gpt-53-codex-community-reaction",
       "views": 1,
       "path": "/article/openai/gpt-53-codex-community-reaction/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-54-leak-model-war",
-      "views": 1,
-      "path": "/article/openai/gpt-54-leak-model-war/"
     },
     {
       "category": "openai",
@@ -157,18 +151,6 @@
       "slug": "openai-crisis-competition-direction-2026",
       "views": 1,
       "path": "/article/openai/openai-crisis-competition-direction-2026/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 1,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 1,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
