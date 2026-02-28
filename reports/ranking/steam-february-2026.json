@@ -1,0 +1,291 @@
+{
+  "slug": "steam-february-2026",
+  "status": "approved",
+  "title": "2026년 2월 스팀 동시접속자 순위",
+  "date": "2026-03-01T13:00",
+  "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/capsule_616x353.jpg",
+  "keywords": "스팀 순위, 2026년 2월 동시접속자, 카운터 스트라이크 2, 도타 2, PUBG, 에이팩스 레전드, 봉고캣, 델타 포스, 러스트, 테라리아, 아크 레이더스, GTA V",
+  "summary": "2026년 2월 스팀 동시접속자 순위에서 CS2가 135만 평균 CCU로 1위를 지켰지만, 1월 대비 11만 감소했다. 테라리아가 1.4.5 업데이트 효과로 8위에 신규 진입했고, 러스트는 Naval Update로 최고 19.7만을 찍었다. 스타듀 밸리가 TOP 10에서 탈락하고 테라리아가 그 자리를 꿰찼다.",
+  "relatedGames": [],
+  "relatedDocs": [
+    "ranking:mobile-february-2026-kr",
+    "ranking:subculture-february-2026-kr",
+    "ranking:steam-january-2026"
+  ],
+  "sources": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월, 스팀 동시접속자 순위는 익숙한 강자들의 소폭 하락과 새로운 도전자의 등장이 공존한 달이었다. **카운터 스트라이크 2**가 평균 **135만 CCU**로 여전히 압도적인 1위를 지켰지만, 1월의 **146만**에서 약 **11만이 빠지며** 하향세를 보였다. 2월이 1월보다 짧은 데다 PGL Cluj-Napoca 대회 시즌과 맞물려 시청자와 플레이어가 분산된 영향으로 보인다.\n\n가장 눈에 띄는 변화는 **테라리아의 8위 진입**이다. 1.4.5 'Bigger and Boulder' 업데이트의 여파가 2월까지 이어지며 최고 **22.7만 동시접속**을 기록했다. 반면 **아크 레이더스**는 1월 4위에서 **9위로 추락**했고, 1월 9위였던 **스타듀 밸리**는 TOP 10 밖으로 밀려났다."
+    },
+    {
+      "type": "note",
+      "value": "집계: 2월 전체 28일 | 기준: 일일 피크 CCU 평균\n플랫폼: Steam | 출처: SteamCharts"
+    },
+    {
+      "type": "ranking-bar",
+      "title": "2026년 2월 스팀 동시접속자 순위",
+      "unit": "",
+      "items": [
+        {
+          "rank": 1,
+          "name": "카운터 스트라이크 2",
+          "score": 1354231,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg"
+        },
+        {
+          "rank": 2,
+          "name": "도타 2",
+          "score": 719885,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg"
+        },
+        {
+          "rank": 3,
+          "name": "PUBG: BATTLEGROUNDS",
+          "score": 527835,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg"
+        },
+        {
+          "rank": 4,
+          "name": "에이팩스 레전드",
+          "score": 153656,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg"
+        },
+        {
+          "rank": 5,
+          "name": "봉고캣",
+          "score": 152545,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/header.jpg"
+        },
+        {
+          "rank": 6,
+          "name": "델타 포스",
+          "score": 140583,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2507950/header.jpg"
+        },
+        {
+          "rank": 7,
+          "name": "러스트",
+          "score": 139961,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg"
+        },
+        {
+          "rank": 8,
+          "name": "테라리아",
+          "score": 120238,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg"
+        },
+        {
+          "rank": 9,
+          "name": "아크 레이더스",
+          "score": 117827,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1808500/header.jpg"
+        },
+        {
+          "rank": 10,
+          "name": "GTA V Legacy",
+          "score": 100412,
+          "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "10위: Grand Theft Auto V Legacy (-)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "Grand Theft Auto V Legacy",
+        "score": 100412,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg",
+        "iosLabel": "최고", "ios": "최고 125,962",
+        "androidLabel": "최저", "android": "최저 81,296"
+      }
+    },
+    {
+      "type": "text",
+      "value": "Rockstar의 GTA V Legacy가 10위로 한 단계 내려왔지만, 여전히 TOP 10 안에 이름을 올렸다. **2013년 출시 이후 13년째** 현역을 지키는 경이로운 장수 타이틀이다. 2월에는 발렌타인 데이 특별 이벤트와 함께 '화염의 말의 해(Year of the Fire Horse)' 축제가 GTA 온라인에서 진행됐다.\n\n평균 **10.0만 CCU**, 최고 **12.6만 CCU**, 최저 **8.1만 CCU**를 기록했다. 1월 평균 **10.8만**에서 소폭 하락했으며, 순위는 9위에서 12위 사이를 오갔다. 타이틀 업데이트 1.72가 2월 11일 적용되며 각종 버그가 수정됐다.\n\n**GTA 6 출시**를 앞두고 GTA V에 대한 관심이 서서히 줄어드는 추세이지만, 매주 갱신되는 GTA 온라인의 위클리 보너스와 무료 차량 배포가 유저 이탈을 막고 있다. 12년 넘게 **누적 2억 장 이상 판매**된 이 게임의 저력은 여전하다."
+    },
+    {
+      "type": "heading",
+      "value": "9위: 아크 레이더스 (▼5)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "아크 레이더스",
+        "score": 117827,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1808500/header.jpg",
+        "iosLabel": "최고", "ios": "최고 219,494",
+        "androidLabel": "최저", "android": "최저 79,736"
+      }
+    },
+    {
+      "type": "text",
+      "value": "1월 **4위로 화려하게 데뷔**했던 아크 레이더스가 2월에는 **9위로 급락**했다. Embark Studios의 협동 추출 슈터는 출시 열기가 식으면서 평균 CCU가 **18.3만에서 11.8만으로** 약 **35% 감소**했다. 신작 효과의 자연스러운 하락이지만 감소폭이 상당하다.\n\n평균 **11.8만 CCU**, 최고 **21.9만 CCU**, 최저 **8.0만 CCU**를 기록했다. 순위 변동폭도 5위에서 11위까지 넓었다. 2월 24일에는 **'Shrouded Sky' 업데이트**(버전 1.17.0)가 적용됐는데, 허리케인이 맵을 휩쓸며 전투 방식을 완전히 바꾸는 새로운 기상 조건이 추가됐다. 바람 방향에 따라 이동 속도가 달라지고, 날아다니는 파편이 쉴드에 피해를 입히는 역동적인 시스템이다.\n\n새로운 ARC 적 유닛인 **코멧(Comet)**과 **파이어플라이(Firefly)**도 등장했다. 코멧은 레이더를 발견하면 추적 후 자폭하는 구형 ARC 기계로, 긴장감을 더한다. 2월 26일 핫픽스에서는 커뮤니티에서 'Shinya Roll'로 불리던 회피 버그도 수정됐다. 콘텐츠 업데이트가 꾸준히 이어지고 있어 장기적인 유저 유지가 관건이다."
+    },
+    {
+      "type": "heading",
+      "value": "8위: 테라리아 (신규)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "테라리아",
+        "score": 120238,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg",
+        "iosLabel": "최고", "ios": "최고 226,559",
+        "androidLabel": "최저", "android": "최저 65,915"
+      }
+    },
+    {
+      "type": "text",
+      "value": "2월의 가장 극적인 **신규 진입**은 테라리아다. Re-Logic의 2D 샌드박스 게임이 1월 TOP 10에 없다가 단숨에 **8위**에 안착했다. 1월 27일 출시된 **1.4.5 'Bigger and Boulder' 업데이트**의 열기가 2월까지 뜨겁게 이어진 결과다. 이 업데이트는 Dead Cells, Palworld와의 크로스오버 콘텐츠, 개편된 제작 인터페이스, 새로운 월드 시드 등을 포함한 대규모 패치였다.\n\n평균 **12.0만 CCU**, 최고 **22.7만 CCU**, 최저 **6.6만 CCU**를 기록했다. 특히 최고 동시접속 **22.7만**은 2020년 5월 이후 약 **6년 만의 최고치**로, 평소 4~5만 수준이던 동접이 **4배 이상 폭증**한 수치다. 다만 최저 **6.6만**으로 떨어지는 시점도 있어 변동폭이 매우 컸다. 순위도 4위에서 15위까지 널뛰기했다.\n\n놀라운 점은 **2011년 출시 후 15년째** 되는 게임이 이 정도의 폭발적인 유저 복귀를 이끌어냈다는 것이다. tModLoader의 1.4.5 지원은 아직 수개월이 걸릴 전망이라 모드 없이도 이만큼의 관심을 끌었다는 게 인상적이다. Re-Logic은 아직 **1.4.5를 완성형으로 보지 않으며**, 추가 수정을 예고하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "7위: 러스트 (-)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "러스트",
+        "score": 139961,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg",
+        "iosLabel": "최고", "ios": "최고 196,705",
+        "androidLabel": "최저", "android": "최저 85,991"
+      }
+    },
+    {
+      "type": "text",
+      "value": "Facepunch Studios의 서바이벌 게임 러스트가 7위를 기록했다. 1월 7위에서 순위를 유지했으며, 평균 CCU도 **14.3만에서 14.0만**으로 거의 변동이 없었다. 2월 5일에 드디어 대규모 **Naval Update**가 정식 적용됐다.\n\n평균 **14.0만 CCU**, 최고 **19.7만 CCU**, 최저 **8.6만 CCU**를 기록했다. Naval Update 직후 접속자가 급증하며 최고 **19.7만**을 찍었지만, 월 후반에는 **8.6만**까지 떨어지며 여전히 **Wipe 주기에 따른 롤러코스터 패턴**을 보였다. 순위도 4위에서 13위까지 크게 오르내렸다.\n\nNaval Update는 러스트 역사상 가장 큰 규모의 업데이트 중 하나다. **모듈식 보트 건조 시스템**이 추가되어 플레이어가 얕은 물에 보트 건조소를 설치하고 자유롭게 수상 전투선을 조립할 수 있게 됐다. 새로운 **딥 씨(Deep Sea) 바이옴**과 열대 섬, 그리고 상시 운영되는 **플로팅 시티(Floating City)** 해상 거점이 등장했다. 2월 5일부터 15일까지는 **Home Brewed 4 트위치 드롭** 이벤트도 진행됐다."
+    },
+    {
+      "type": "heading",
+      "value": "6위: 델타 포스 (▲2)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "델타 포스",
+        "score": 140583,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2507950/header.jpg",
+        "iosLabel": "최고", "ios": "최고 162,739",
+        "androidLabel": "최저", "android": "최저 107,815"
+      }
+    },
+    {
+      "type": "text",
+      "value": "텐센트 산하 **Team Jade**의 무료 FPS 델타 포스가 1월 8위에서 **6위로 두 계단 상승**했다. 2월 3일 시작된 **시즌 8 'Morphosis'**가 상승의 원동력이다. 평균 CCU도 **12.8만에서 14.1만**으로 약 **10% 증가**했다.\n\n평균 **14.1만 CCU**, 최고 **16.3만 CCU**, 최저 **10.8만 CCU**를 기록했다. 순위는 5위에서 9위 사이를 오갔다. Morphosis 시즌에서는 새로운 서포트 오퍼레이터 **블린더(Vlinder)**가 추가됐는데, 치유 나비 드론과 구조 UAV를 활용하는 독특한 플레이 스타일이 특징이다.\n\n새 맵 **'Aftershock'**에서는 건물을 완전히 파괴하고 지진 이벤트를 유발할 수 있는 대규모 도시 전투가 펼쳐진다. 또한 전체 로비가 하나의 이동하는 목표를 두고 싸우는 **플래시포인트(Flashpoint)** 모드와, 보스 역할을 직접 맡을 수 있는 **Fiery Owl Hunt** 모드가 추가됐다. 무료 플레이 모델과 꾸준한 시즌 업데이트가 유저 기반을 확실히 넓히고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "5위: 봉고캣 (▲1)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "봉고캣",
+        "score": 152545,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/header.jpg",
+        "iosLabel": "최고", "ios": "최고 168,735",
+        "androidLabel": "최저", "android": "최저 133,125"
+      }
+    },
+    {
+      "type": "text",
+      "value": "고양이가 작업표시줄을 두드리는 무료 인디게임 봉고캣이 1월 6위에서 **5위로 한 단계 상승**했다. 평균 CCU는 **15.2만에서 15.3만**으로 거의 동일하지만, 다른 게임들의 하락 속에서 자리를 굳건히 지킨 결과다.\n\n평균 **15.3만 CCU**, 최고 **16.9만 CCU**, 최저 **13.3만 CCU**를 기록했다. 주목할 점은 **최고-최저 편차가 3.6만에 불과**하다는 것으로, TOP 10 중 가장 안정적인 수치다. 순위도 4위에서 7위 사이로, 다른 게임들에 비해 변동이 적다.\n\n2월에는 **설날(Lunar New Year) 이벤트**가 진행됐다. 2월 16일부터 3월 1일까지 매일 홍바오(빨간 봉투)를 열어 한정 아이템을 받을 수 있었고, 프리미엄 캘린더 'Lunar New Year Deluxe'도 출시됐다. 2월 21일에는 **Tap Tap Loot과의 크로스 콜라보레이션** 업데이트도 적용되며 스팀 Next Fest를 앞두고 특별 스킨을 배포했다. 수익 모델 없이 콜라보까지 진행하는 기이한 행보가 계속되고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "4위: 에이팩스 레전드 (▲1)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "에이팩스 레전드",
+        "score": 153656,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg",
+        "iosLabel": "최고", "ios": "최고 187,195",
+        "androidLabel": "최저", "android": "최저 112,525"
+      }
+    },
+    {
+      "type": "text",
+      "value": "Respawn의 배틀로얄 FPS 에이팩스 레전드가 1월 5위에서 **4위로 한 단계 상승**했다. 다만 평균 CCU는 **17.5만에서 15.4만**으로 **12% 감소**했다. 순위 상승은 아크 레이더스 등 상위권 게임들의 하락 덕이지, 에이팩스 자체가 성장한 것은 아니다.\n\n평균 **15.4만 CCU**, 최고 **18.7만 CCU**, 최저 **11.3만 CCU**를 기록했다. 순위는 4위에서 8위 사이를 오갔다. 2월 10일 **시즌 28 'Breach'**가 시작되며 기념 이벤트가 3월 10일까지 한 달간 진행 중이다.\n\nBreach 시즌의 핵심은 **하드라이트 메쉬(Hardlight Mesh)** 시스템이다. 건물의 창문을 파괴하고 수리할 수 있는 새로운 메카닉으로, 왓슨과 램파트 같은 컨트롤러 레전드만 창문을 수리할 수 있다. 퓨즈 리워크, 카탈리스트와 블러드하운드 업데이트도 적용됐다. 무기 밸런스에서는 **마크스맨 너프, 샷건 버프** 기조가 이어지며, G7 스카웃이 케어 패키지로 이동하고 마스티프에 듀얼 쉘 홉업이 복귀했다."
+    },
+    {
+      "type": "heading",
+      "value": "3위: PUBG: BATTLEGROUNDS (-)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "PUBG: BATTLEGROUNDS",
+        "score": 527835,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg",
+        "iosLabel": "최고", "ios": "최고 653,346",
+        "androidLabel": "최저", "android": "최저 340,028"
+      }
+    },
+    {
+      "type": "text",
+      "value": "크래프톤의 배틀로얄 원조 PUBG가 **부동의 3위**를 이어갔다. 다만 평균 CCU가 1월 **64.6만에서 52.8만**으로 약 **18% 감소**하며 눈에 띄는 하락을 보였다. 최저치도 **49.5만에서 34.0만**으로 크게 떨어졌는데, 2월 중순 일부 아시아 서버 점검 영향이 있었던 것으로 보인다.\n\n평균 **52.8만 CCU**, 최고 **65.3만 CCU**, 최저 **34.0만 CCU**를 기록했다. 순위는 **28일 내내 3위**를 유지하며 여전히 3위 자리만큼은 흔들리지 않았다. 1월에 이어 2월에도 **업데이트 40.1**의 콘텐츠가 이어졌다.\n\n40.1 업데이트에서는 시크릿 룸에 **올인원 수리 키트, 비상 엄폐 플레어, 재머 팩**이 추가됐고, 맵 곳곳에 **파괴 가능한 가스 탱크**가 배치됐다. 투척물 인벤토리 표시, 분대 상태 인디케이터 개선, 블루존 시각 효과 강화 등 UI 개선도 눈에 띈다. **PUBG Bridge** 웹사이트도 새로 론칭되어 웹 브라우저에서 2D 매치 리플레이를 확인할 수 있게 됐다. 연례 **Spring Fest 2026** 이벤트도 시작되며 프로그레시브 무기 스킨과 새로운 크래프터 패스가 추가됐다."
+    },
+    {
+      "type": "heading",
+      "value": "2위: 도타 2 (-)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "도타 2",
+        "score": 719885,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg",
+        "iosLabel": "최고", "ios": "최고 842,909",
+        "androidLabel": "최저", "android": "최저 616,878"
+      }
+    },
+    {
+      "type": "text",
+      "value": "Valve의 MOBA 도타 2가 **부동의 2위**를 이어갔다. 평균 CCU는 1월 **74.1만에서 72.0만**으로 소폭 하락했지만, 2위 자리는 **28일 내내 한 번도** 내주지 않았다. 2월 초까지 진행된 **Monster Hunter 크로스오버 이벤트**가 마무리되며 접속자가 다소 줄었다.\n\n평균 **72.0만 CCU**, 최고 **84.3만 CCU**, 최저 **61.7만 CCU**를 기록했다. Monster Hunter 이벤트가 2월 6일 종료된 이후에도 **패치 7.40c**의 밸런스 조정이 이어지며 메타 변화가 계속됐다. 클링크즈의 스켈레톤 아처 건물 공격력 버그와 슬라크의 Depth Shroud 이동속도 버그 등이 수정됐다.\n\n12월에 추가된 **127번째 영웅 라르고(Largo)**의 존재감도 여전하다. 기타 히어로 스타일의 리듬 게임 궁극기 'Amphibian Rhapsody'는 도타에서 보기 드문 참신한 메카닉으로, 서포트 포지션에서 높은 픽률을 유지하고 있다. 론 드루이드, 슬라크, 트렌트 프로텍터의 리워크도 메타에 큰 변화를 주고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1위: 카운터 스트라이크 2 (-)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " CCU",
+      "item": {
+        "name": "카운터 스트라이크 2",
+        "score": 1354231,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg",
+        "iosLabel": "최고", "ios": "최고 1,627,561",
+        "androidLabel": "최저", "android": "최저 1,152,661"
+      }
+    },
+    {
+      "type": "text",
+      "value": "**2026년 2월의 왕좌**도 역시 카운터 스트라이크 2가 차지했다. Valve의 전술 FPS가 평균 **135.4만 CCU**로 1위를 지켰지만, 1월의 **146.7만**에서 **11.3만이 감소**하며 하향 추세가 이어졌다. 그래도 2위 도타 2(72만)의 거의 **두 배에 가까운** 압도적인 격차를 유지하고 있다.\n\n평균 **135.4만 CCU**, 최고 **162.8만 CCU**, 최저 **115.3만 CCU**를 기록했다. **28일 내내 단 한 번도 1위를 내주지 않았다**. 순위는 시종일관 1위로, 스팀 생태계에서 CS2의 독보적인 위치가 다시 한번 확인됐다.\n\n2월에는 **PGL Cluj-Napoca 2026** 대회(2/9~2/22)가 열리며 프로 씬이 활발했다. 2월 4일 패치에서는 여러 최적화가 적용됐고, 2월 23일 패치에서는 **Windows 10 + Intel CPU 조합의 성능 문제** 완화, AMD GPU에서의 조준경 시각 오류 수정, 오버패스 맵의 풍선 수정 등이 이루어졌다. 1999년 시작된 프랜차이즈가 **27년째** 스팀 정상을 지키고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며"
+    },
+    {
+      "type": "text",
+      "value": "2026년 2월 스팀 동시접속자 순위는 **전반적인 하락 속의 세대 교체**가 인상적이었다. TOP 3인 CS2, 도타 2, PUBG 모두 1월 대비 접속자가 줄었지만, 순위 자체는 굳건했다. Valve의 양대 산맥이 합산 **207만 CCU**로 여전히 스팀 생태계의 절반 이상을 점유하고 있다.\n\n가장 드라마틱한 변화는 **테라리아의 8위 진입**이다. 15년 된 2D 게임이 1.4.5 업데이트 하나로 **22.7만 동접**을 찍으며 TOP 10에 안착했다. 반면 1월 9위였던 **스타듀 밸리는 TOP 10 밖으로** 밀려났다. 인디 게임 간의 치열한 세대 교체가 이루어진 셈이다.\n\n**아크 레이더스**의 하락도 주목할 만하다. 1월 4위에서 2월 9위로 **다섯 계단 하락**했으며, 평균 CCU가 **35% 감소**했다. 신작의 자연스러운 감소세이긴 하지만, Shrouded Sky 업데이트 등 꾸준한 콘텐츠 투입이 향후 유저 이탈을 막을 수 있을지가 관건이다. 반면 **델타 포스**는 시즌 8 Morphosis 효과로 8위에서 6위로 올라서며 상승세를 보였다. 3월에는 어떤 게임이 새로운 이변을 만들어낼지 기대된다."
+    }
+  ]
+}

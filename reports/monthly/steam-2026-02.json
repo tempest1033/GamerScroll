@@ -1,0 +1,142 @@
+{
+  "period": "2026-02",
+  "platform": "steam",
+  "metric": "ccu",
+  "generatedAt": "2026-02-28T15:29:53.072Z",
+  "totalDays": 28,
+  "excludedAppids": [
+    "431960"
+  ],
+  "rankings": [
+    {
+      "rank": 1,
+      "name": "Counter-Strike 2",
+      "appid": "730",
+      "developer": "Valve",
+      "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_231x87.jpg?t=1749053861",
+      "avgCcu": 1354231,
+      "maxCcu": 1627561,
+      "minCcu": 1152661,
+      "bestRank": 1,
+      "worstRank": 1,
+      "days": 27
+    },
+    {
+      "rank": 2,
+      "name": "Dota 2",
+      "appid": "570",
+      "developer": "Valve",
+      "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/capsule_231x87.jpg?t=1769535998",
+      "avgCcu": 719885,
+      "maxCcu": 842909,
+      "minCcu": 616878,
+      "bestRank": 2,
+      "worstRank": 2,
+      "days": 27
+    },
+    {
+      "rank": 3,
+      "name": "PUBG: BATTLEGROUNDS",
+      "appid": "578080",
+      "developer": "PUBG Corporation",
+      "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/14f42ab797699a9c9f137fda66582d8776da4330/capsule_231x87.jpg?t=1764817633",
+      "avgCcu": 527835,
+      "maxCcu": 653346,
+      "minCcu": 340028,
+      "bestRank": 3,
+      "worstRank": 3,
+      "days": 27
+    },
+    {
+      "rank": 4,
+      "name": "Apex Legends",
+      "appid": "1172470",
+      "developer": "Respawn",
+      "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/b2163cc2e8d366e26d8d463d178d86690d9a402e/capsule_231x87.jpg?t=1770753360",
+      "avgCcu": 153656,
+      "maxCcu": 187195,
+      "minCcu": 112525,
+      "bestRank": 4,
+      "worstRank": 8,
+      "days": 27
+    },
+    {
+      "rank": 5,
+      "name": "Bongo Cat",
+      "appid": "3419430",
+      "developer": "Marcel Zurawka",
+      "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/222e0ed97045042f082d529573a5acd70b69222d/header_alt_assets_1.jpg?t=1771251342",
+      "avgCcu": 152545,
+      "maxCcu": 168735,
+      "minCcu": 133125,
+      "bestRank": 4,
+      "worstRank": 7,
+      "days": 27
+    },
+    {
+      "rank": 6,
+      "name": "Delta Force",
+      "appid": "2507950",
+      "developer": "Team Jade",
+      "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2507950/92df4765702824d990b1f7f3046fc0c11c98aa2c/capsule_231x87_alt_assets_10.jpg?t=1772163665",
+      "avgCcu": 140583,
+      "maxCcu": 162739,
+      "minCcu": 107815,
+      "bestRank": 5,
+      "worstRank": 9,
+      "days": 27
+    },
+    {
+      "rank": 7,
+      "name": "Rust",
+      "appid": "252490",
+      "developer": "Facepunch Studios",
+      "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252490/21aac0b6e20e1ba12f635e7deb730e32a51afbd5/capsule_231x87.jpg?t=1771871433",
+      "avgCcu": 139961,
+      "maxCcu": 196705,
+      "minCcu": 85991,
+      "bestRank": 4,
+      "worstRank": 13,
+      "days": 27
+    },
+    {
+      "rank": 8,
+      "name": "Terraria",
+      "appid": "105600",
+      "developer": "Re-Logic",
+      "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/105600/capsule_231x87.jpg?t=1769844435",
+      "avgCcu": 120238,
+      "maxCcu": 226559,
+      "minCcu": 65915,
+      "bestRank": 4,
+      "worstRank": 15,
+      "days": 27
+    },
+    {
+      "rank": 9,
+      "name": "ARC Raiders",
+      "appid": "1808500",
+      "developer": "Embark Studios",
+      "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1808500/542a243d39bd7ed791359be9e96c82f419b81475/capsule_231x87_alt_assets_3.jpg?t=1772007651",
+      "avgCcu": 117827,
+      "maxCcu": 219494,
+      "minCcu": 79736,
+      "bestRank": 5,
+      "worstRank": 11,
+      "days": 27
+    },
+    {
+      "rank": 10,
+      "name": "Grand Theft Auto V Legacy",
+      "appid": "271590",
+      "developer": "Rockstar North",
+      "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg?t=1765387725",
+      "avgCcu": 100412,
+      "maxCcu": 125962,
+      "minCcu": 81296,
+      "bestRank": 9,
+      "worstRank": 12,
+      "days": 27
+    }
+  ]
+}

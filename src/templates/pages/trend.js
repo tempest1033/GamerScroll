@@ -3467,8 +3467,8 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                 <div class="ranking-card-score">${cardItem.score?.toLocaleString() || ''}${cardUnit}</div>
               </div>
               <div class="ranking-card-stats">
-                ${cardItem.ios ? `<div class="ranking-card-stat stat-ios"><span class="stat-label">iOS</span><span class="stat-value">${cardItem.ios}</span></div>` : ''}
-                ${cardItem.android ? `<div class="ranking-card-stat stat-aos"><span class="stat-label">AOS</span><span class="stat-value">${cardItem.android}</span></div>` : ''}
+                ${cardItem.ios ? `<div class="ranking-card-stat stat-ios"><span class="stat-label">${cardItem.iosLabel || 'iOS'}</span><span class="stat-value">${cardItem.ios}</span></div>` : ''}
+                ${cardItem.android ? `<div class="ranking-card-stat stat-aos"><span class="stat-label">${cardItem.androidLabel || 'AOS'}</span><span class="stat-value">${cardItem.android}</span></div>` : ''}
               </div>
             </div>
           `);

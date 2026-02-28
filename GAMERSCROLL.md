@@ -722,6 +722,57 @@ Actual ranking data is in `history/{date}.json` under `bestRanks`:
 heading → image → text → text
 ```
 
+### Monthly Ranking Report Process
+
+Monthly ranking articles (모바일, 스팀, 서브컬쳐) are produced in 3 steps:
+
+**Step 1: Run analysis scripts**
+```bash
+# Mobile grossing rankings (iOS + Android, Korea)
+node monthly-mobile-analysis.js --month YYYY-MM --country kr
+# Output: reports/monthly/mobile-YYYY-MM-kr.json
+
+# Steam CCU rankings
+node monthly-steam-analysis.js YYYY-MM
+# Output: reports/monthly/steam-YYYY-MM.json
+
+# Steam: exclude non-games (Wallpaper Engine default excluded)
+node monthly-steam-analysis.js YYYY-MM --exclude=431960,2676230
+```
+
+**Step 2: Filter subculture games**
+- `data/subculture-games.json` contains curated subculture game slugs
+- Filter mobile analysis results by this list → subculture TOP 10
+- Games with `minDays < 15` are excluded by default; add manually if notable (e.g., new launch)
+
+```bash
+# Quick verification: filter subculture from mobile results
+node -e '
+const m=require("./reports/monthly/mobile-YYYY-MM-kr.json");
+const s=require("./data/subculture-games.json");
+const set=new Set(s.games.map(g=>g.slug));
+m.rankings.regular.forEach((g,i)=>{
+  if(set.has(g.slug)) console.log((i+1)+"위 | "+g.gameKey+" | "+g.totalPoints+"점");
+});
+'
+```
+
+**Step 3: Write 3 articles (status: draft)**
+
+| Article | Slug Pattern | Source |
+|---------|-------------|--------|
+| 모바일 전체 TOP 10 | `mobile-{month}-kr` | mobile analysis TOP 10 |
+| 스팀 CCU TOP 10 | `steam-{month}` | steam analysis TOP 10 |
+| 서브컬쳐 TOP 10 | `subculture-{month}-kr` | mobile analysis filtered by subculture list |
+
+**Output paths:** `reports/ranking/{slug}.json`
+
+**Key fields from analysis:**
+- `totalPoints` → ranking-bar score
+- `ios.avgRank`, `aos.avgRank` → per-game description
+- `ios.minRank`, `aos.minRank` → "최고 N위"
+- `totalDays` → 출현 일수
+
 ### Monthly Ranking Report Guidelines
 
 For monthly subculture/genre ranking reports:

@@ -8,8 +8,9 @@
   "summary": "2026년 1월 스팀 동시접속자 순위에서 CS2가 146만 평균 CCU로 부동의 1위를 지켰다. 신작 아크 레이더스가 4위로 화려하게 데뷔했고, 무료 인디게임 봉고캣이 6위에 오르며 이변을 일으켰다.",
   "relatedGames": [],
   "relatedDocs": [
-    "mobile-january-2026-kr",
-    "subculture-january-2026-kr"
+    "ranking:mobile-january-2026-kr",
+    "ranking:subculture-january-2026-kr",
+    "ranking:steam-february-2026"
   ],
   "sources": [],
   "content": [
@@ -99,8 +100,8 @@
         "name": "Grand Theft Auto V Legacy",
         "score": 107920,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg",
-        "ios": "최고 124,686",
-        "android": "최저 91,453"
+        "iosLabel": "최고", "ios": "최고 124,686",
+        "androidLabel": "최저", "android": "최저 91,453"
       }
     },
     {
@@ -118,8 +119,8 @@
         "name": "스타듀 밸리",
         "score": 116263,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg",
-        "ios": "최고 133,230",
-        "android": "최저 97,168"
+        "iosLabel": "최고", "ios": "최고 133,230",
+        "androidLabel": "최저", "android": "최저 97,168"
       }
     },
     {
@@ -137,8 +138,8 @@
         "name": "델타 포스",
         "score": 128414,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2507950/header.jpg",
-        "ios": "최고 157,997",
-        "android": "최저 112,624"
+        "iosLabel": "최고", "ios": "최고 157,997",
+        "androidLabel": "최저", "android": "최저 112,624"
       }
     },
     {
@@ -156,8 +157,8 @@
         "name": "러스트",
         "score": 142872,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg",
-        "ios": "최고 206,675",
-        "android": "최저 101,973"
+        "iosLabel": "최고", "ios": "최고 206,675",
+        "androidLabel": "최저", "android": "최저 101,973"
       }
     },
     {
@@ -175,8 +176,8 @@
         "name": "봉고캣",
         "score": 151570,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3419430/header.jpg",
-        "ios": "최고 174,779",
-        "android": "최저 126,547"
+        "iosLabel": "최고", "ios": "최고 174,779",
+        "androidLabel": "최저", "android": "최저 126,547"
       }
     },
     {
@@ -194,8 +195,8 @@
         "name": "에이팩스 레전드",
         "score": 174526,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg",
-        "ios": "최고 202,540",
-        "android": "최저 134,217"
+        "iosLabel": "최고", "ios": "최고 202,540",
+        "androidLabel": "최저", "android": "최저 134,217"
       }
     },
     {
@@ -213,8 +214,8 @@
         "name": "아크 레이더스",
         "score": 183012,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1808500/header.jpg",
-        "ios": "최고 241,582",
-        "android": "최저 127,209"
+        "iosLabel": "최고", "ios": "최고 241,582",
+        "androidLabel": "최저", "android": "최저 127,209"
       }
     },
     {
@@ -232,8 +233,8 @@
         "name": "PUBG: BATTLEGROUNDS",
         "score": 646014,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg",
-        "ios": "최고 712,143",
-        "android": "최저 495,391"
+        "iosLabel": "최고", "ios": "최고 712,143",
+        "androidLabel": "최저", "android": "최저 495,391"
       }
     },
     {
@@ -251,8 +252,8 @@
         "name": "도타 2",
         "score": 740580,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg",
-        "ios": "최고 855,690",
-        "android": "최저 674,754"
+        "iosLabel": "최고", "ios": "최고 855,690",
+        "androidLabel": "최저", "android": "최저 674,754"
       }
     },
     {
@@ -270,8 +271,8 @@
         "name": "카운터 스트라이크 2",
         "score": 1466816,
         "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg",
-        "ios": "최고 1,654,355",
-        "android": "최저 1,320,916"
+        "iosLabel": "최고", "ios": "최고 1,654,355",
+        "androidLabel": "최저", "android": "최저 1,320,916"
       }
     },
     {
