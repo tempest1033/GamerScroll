@@ -272,6 +272,27 @@
       "type": "ai.issues",
       "failedAt": "2026-02-26T05:22:19.024Z",
       "error": "Timeout"
+    },
+    {
+      "url": "https://static.inven.co.kr/column/2026/03/01/news/i1085047947.jpg",
+      "date": "2026-03-02",
+      "type": "ai.issues",
+      "failedAt": "2026-03-01T21:41:47.032Z",
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://channeln.gcdn.netmarble.com/channeln/Upload/716f5ac2-8501-442c-84af-8f460f90759c.jpg",
+      "date": "2026-03-02",
+      "type": "ai.issues",
+      "failedAt": "2026-03-01T21:41:48.186Z",
+      "error": "Timeout"
+    },
+    {
+      "url": "https://channeln.gcdn.netmarble.com/channeln/Upload/01a82434-512b-44d5-b392-db70fd97397c.jpg",
+      "date": "2026-03-02",
+      "type": "ai.issues",
+      "failedAt": "2026-03-01T21:41:49.220Z",
+      "error": "Timeout"
     }
   ]
 }
