@@ -1,36 +1,42 @@
 {
-  "updatedAt": "2026-02-28T00:52:34.011Z",
+  "updatedAt": "2026-03-01T01:05:40.767Z",
   "period": "7days",
   "articles": [
     {
       "category": "general",
-      "slug": "kurzweil-singularity-review-2026",
+      "slug": "meta-avocado-ai-model-performance",
       "views": 5,
-      "path": "/article/general/kurzweil-singularity-review-2026/"
-    },
-    {
-      "category": "google",
-      "slug": "deepmind-update-aletheia-gemini",
-      "views": 5,
-      "path": "/article/google/deepmind-update-aletheia-gemini/"
+      "path": "/article/general/meta-avocado-ai-model-performance/"
     },
     {
       "category": "general",
       "slug": "xbox-sunset-ai-pivot",
-      "views": 4,
+      "views": 5,
       "path": "/article/general/xbox-sunset-ai-pivot/"
-    },
-    {
-      "category": "general",
-      "slug": "meta-avocado-ai-model-performance",
-      "views": 3,
-      "path": "/article/general/meta-avocado-ai-model-performance/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 3,
+      "views": 4,
       "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "google",
+      "slug": "deepmind-update-aletheia-gemini",
+      "views": 3,
+      "path": "/article/google/deepmind-update-aletheia-gemini/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-54-leak-model-war",
+      "views": 3,
+      "path": "/article/openai/gpt-54-leak-model-war/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-workflow-prompt-guide",
+      "views": 3,
+      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     },
     {
       "category": "anthropic",
@@ -43,24 +49,6 @@
       "slug": "grok-420-multi-agent-release",
       "views": 2,
       "path": "/article/general/grok-420-multi-agent-release/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-54-leak-model-war",
-      "views": 2,
-      "path": "/article/openai/gpt-54-leak-model-war/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-agent-guide",
-      "views": 2,
-      "path": "/article/vibecoding/vibe-coding-agent-guide/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-workflow-prompt-guide",
-      "views": 2,
-      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     },
     {
       "category": "anthropic",
@@ -87,6 +75,12 @@
       "path": "/article/anthropic/claude-cowork-windows-launch/"
     },
     {
+      "category": "anthropic",
+      "slug": "claude-opus-46-pricing-controversy",
+      "views": 1,
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
+    },
+    {
       "category": "general",
       "slug": "ai-bubble-myth-industry-shock-2026",
       "views": 1,
@@ -105,16 +99,10 @@
       "path": "/article/general/china-ai-distillation-controversy/"
     },
     {
-      "category": "google",
-      "slug": "alphagenome-first-impressions-2026",
+      "category": "general",
+      "slug": "silicon-valley-ai-ethics-government-clash",
       "views": 1,
-      "path": "/article/google/alphagenome-first-impressions-2026/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-31-pro-release",
-      "views": 1,
-      "path": "/article/google/gemini-31-pro-release/"
+      "path": "/article/general/silicon-valley-ai-ethics-government-clash/"
     },
     {
       "category": "google",
@@ -130,33 +118,33 @@
     },
     {
       "category": "openai",
-      "slug": "chatgpt-pro-lite-plan-leak",
-      "views": 1,
-      "path": "/article/openai/chatgpt-pro-lite-plan-leak/"
-    },
-    {
-      "category": "openai",
       "slug": "gpt-53-codex-community-reaction",
       "views": 1,
       "path": "/article/openai/gpt-53-codex-community-reaction/"
     },
     {
       "category": "openai",
-      "slug": "openai-compute-investment-600b-cut",
+      "slug": "openai-110b-record-funding-turning-point",
       "views": 1,
-      "path": "/article/openai/openai-compute-investment-600b-cut/"
+      "path": "/article/openai/openai-110b-record-funding-turning-point/"
     },
     {
       "category": "openai",
-      "slug": "openai-crisis-competition-direction-2026",
+      "slug": "openai-pentagon-hypocrisy-red-lines",
       "views": 1,
-      "path": "/article/openai/openai-crisis-competition-direction-2026/"
+      "path": "/article/openai/openai-pentagon-hypocrisy-red-lines/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
       "views": 1,
       "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-agent-guide",
+      "views": 1,
+      "path": "/article/vibecoding/vibe-coding-agent-guide/"
     }
   ]
 }
