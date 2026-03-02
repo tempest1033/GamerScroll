@@ -362,6 +362,43 @@ node scripts/process-review-queue.js [limit]
 
 ---
 
+## X (Twitter) 포스팅
+
+3개 워크플로우로 X에 포스팅:
+
+| 워크플로우 | 파일 | 트리거 | 계정 | 용도 |
+|-----------|------|--------|------|------|
+| X Daily Post | x-post.yml | 매일 07:00 KST + 수동 | GamerScroll | TOP3 핫이슈 카드 |
+| X Article Post | x-article-post.yml | 수동 (slug) | GamerScroll | 한국어 기사 카드 |
+| AIScroll Article Post | x-article-post-aiscroll.yml | 수동 (slug) | AIScroll | 영문 기사 카드 |
+
+### 수동 트리거
+```bash
+# TOP3 데일리
+gh workflow run 'X Daily Post'
+
+# 한국어 기사
+gh workflow run 'X Article Post' --field slug=<article-slug>
+
+# 영문 기사 (AIScroll)
+gh workflow run 'AIScroll Article Post' --field slug=<article-slug>
+```
+
+### 카드 템플릿
+- TOP3: `src/templates/x-card-template.js` (1200x628, 다크 미니멀)
+- 한국어 기사: `src/templates/x-article-card-template.js` (이미지 오버레이)
+- 영문 기사: `src/templates/x-article-card-template-en.js` (AIScroll 브랜딩)
+
+### 로컬 테스트
+```bash
+# 카드 이미지 생성
+node generate-x-card.js
+node generate-x-article-card.js <slug>
+node generate-x-article-card.js <slug> --lang en
+```
+
+---
+
 ## Troubleshooting
 
 ### Stock card not showing

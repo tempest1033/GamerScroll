@@ -1,0 +1,61 @@
+name: X Article Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: '기사 slug (예: gacha-item-relief-center)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: x-article-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Generate article card
+        run: npm run x-article-card -- ${{ inputs.slug }}
+
+      - name: Post to X
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        run: npm run x-article-post -- ${{ inputs.slug }}
+
+      - name: Commit card image
+        if: always()
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add docs/images/
+          git diff --staged --quiet || git commit -m "Update article X card $(date +'%Y-%m-%d')"
+          for i in 1 2 3; do
+            git pull origin main --rebase && git push && break
+            echo "Push 실패, 재시도 $i/3..."
+            sleep 5
+          done

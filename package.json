@@ -8,7 +8,13 @@
     "start": "node generate-html-report.js",
     "x-card": "node generate-x-card.js",
     "x-post": "node post-to-x.js",
-    "x-all": "node generate-x-card.js && node post-to-x.js"
+    "x-all": "node generate-x-card.js && node post-to-x.js",
+    "x-article-card": "node generate-x-article-card.js",
+    "x-article-post": "node post-article-to-x.js",
+    "x-article-all": "node generate-x-article-card.js && node post-article-to-x.js",
+    "x-article-card-en": "node generate-x-article-card.js --lang en",
+    "x-article-post-en": "node post-article-to-x.js --lang en",
+    "x-aiscroll-all": "npm run x-article-card-en && npm run x-article-post-en"
   },
   "keywords": [
     "game",

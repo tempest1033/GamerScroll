@@ -17,6 +17,12 @@ const generateXCardHtml = (data) => {
   // 이슈 3개만 사용
   const topIssues = issues.slice(0, 3);
 
+  const numColors = [
+    'rgba(255, 180, 50, 0.85)',
+    'rgba(160, 170, 190, 0.85)',
+    'rgba(180, 120, 80, 0.85)'
+  ];
+
   const issuesHtml = topIssues.map((issue, idx) => {
     const tag = issue.tag || '게임';
     const title = issue.title || '';
@@ -27,7 +33,8 @@ const generateXCardHtml = (data) => {
       <div class="issue">
         <div class="issue-media">
           ${thumbnail ? `<img class="issue-thumb" src="${thumbnail}" alt="${title}" loading="lazy" onerror="this.style.display='none'">` : ''}
-          <span class="issue-num">${idx + 1}</span>
+          <div class="issue-media-overlay"></div>
+          <span class="issue-num" style="background: ${numColors[idx]};">${idx + 1}</span>
           <span class="issue-tag">${tag}</span>
         </div>
         <div class="issue-body">
@@ -49,64 +56,52 @@ const generateXCardHtml = (data) => {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
       width: 1200px;
       height: 628px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 24px;
+      background: #111111;
+      padding: 36px 40px;
+      overflow: hidden;
     }
     .card {
-      background: rgba(255,255,255,0.96);
-      border-radius: 24px;
       width: 100%;
       height: 100%;
-      padding: 24px 28px 20px;
       display: flex;
       flex-direction: column;
-      backdrop-filter: blur(10px);
     }
     .top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 28px;
     }
     .title {
-      font-size: 42px;
-      font-weight: 800;
-      background: linear-gradient(90deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.1;
-    }
-    .logo-svg {
-      height: 30px;
-      width: auto;
-      color: #1e293b;
+      font-size: 38px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: -1px;
     }
     .issues {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       flex: 1;
-      margin-bottom: 16px;
+      min-height: 0;
     }
     .issue {
       flex: 1;
-      border-radius: 18px;
+      border-radius: 14px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      background: #fff;
-      border: 1px solid #e2e8f0;
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
     }
     .issue-media {
       position: relative;
       aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg, #94a3b8 0%, #e2e8f0 100%);
       overflow: hidden;
+      background: #222222;
     }
-    .issue-media::after {
-      content: '';
+    .issue-media-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.4) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 100%);
+      z-index: 2;
     }
     .issue-thumb {
       width: 100%;
@@ -119,48 +114,44 @@ const generateXCardHtml = (data) => {
     .issue-num {
       position: absolute;
       top: 10px;
-      right: 12px;
+      left: 10px;
       font-size: 32px;
-      font-weight: 800;
+      font-weight: 900;
       line-height: 1;
-      color: #fff;
-      background: rgba(15, 23, 42, 0.55);
-      padding: 6px 10px;
-      border-radius: 10px;
-      backdrop-filter: blur(6px);
-      z-index: 2;
+      color: #ffffff;
+      z-index: 3;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
     .issue-tag {
       position: absolute;
-      left: 12px;
-      bottom: 12px;
+      right: 10px;
+      bottom: 10px;
       display: inline-flex;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 8px;
-      color: #fff;
-      z-index: 2;
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(6px);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      color: #cccccc;
+      z-index: 3;
+      background: rgba(255,255,255,0.12);
     }
-    .issue:nth-child(1) .issue-tag { background: rgba(102, 126, 234, 0.9); }
-    .issue:nth-child(2) .issue-tag { background: rgba(118, 75, 162, 0.9); }
-    .issue:nth-child(3) .issue-tag { background: rgba(236, 72, 153, 0.9); }
-    .issue:nth-child(1) .issue-media { background: linear-gradient(135deg, #c7d2fe 0%, #e0e7ff 100%); }
-    .issue:nth-child(2) .issue-media { background: linear-gradient(135deg, #ddd6fe 0%, #ede9fe 100%); }
-    .issue:nth-child(3) .issue-media { background: linear-gradient(135deg, #fbcfe8 0%, #fce7f3 100%); }
     .issue-body {
-      padding: 12px 14px 16px;
+      padding: 14px 16px 18px;
       display: flex;
       flex-direction: column;
       gap: 8px;
       flex: 1;
     }
     .issue-title {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 700;
-      color: #0f172a;
+      color: #ffffff;
       line-height: 1.35;
       margin: 0;
       display: -webkit-box;
@@ -169,41 +160,43 @@ const generateXCardHtml = (data) => {
       overflow: hidden;
     }
     .issue-desc {
-      font-size: 17px;
-      font-weight: 500;
-      color: #334155;
-      line-height: 1.65;
+      font-size: 16px;
+      font-weight: 400;
+      color: #888888;
+      line-height: 1.55;
       margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
     }
     .footer {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding-top: 12px;
-      border-top: 1px solid #e2e8f0;
-      position: relative;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #1e1e1e;
     }
-    .date {
-      background: linear-gradient(90deg, #667eea, #764ba2);
-      padding: 10px 18px;
-      border-radius: 100px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
+    .footer-date {
+      flex: 1;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 500;
+      color: #666666;
     }
-    .brand-name {
-      font-size: 18px;
-      font-weight: 800;
-      color: #94a3b8;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+    .footer-brand {
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #444444;
     }
-    .cta {
-      font-size: 15px;
-      font-weight: 600;
-      color: #764ba2;
+    .footer-url {
+      flex: 1;
+      text-align: right;
+      font-size: 13px;
+      font-weight: 500;
+      color: #444444;
     }
   </style>
 </head>
@@ -211,21 +204,6 @@ const generateXCardHtml = (data) => {
   <div class="card">
     <div class="top-row">
       <h1 class="title">오늘의 핫이슈 TOP 3</h1>
-      <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#667eea" />
-            <stop offset="100%" stop-color="#764ba2" />
-          </linearGradient>
-        </defs>
-        <text x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
-        <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
-        <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
-        <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
-        <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
-        <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
-        <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
-      </svg>
     </div>
 
     <div class="issues">
@@ -233,9 +211,9 @@ const generateXCardHtml = (data) => {
     </div>
 
     <div class="footer">
-      <div class="date">${formattedDate} 데일리 리포트</div>
-      <span class="brand-name">게이머스크롤</span>
-      <span class="cta">gamerscroll.com</span>
+      <span class="footer-date">${formattedDate}</span>
+      <span class="footer-brand">게이머스크롤</span>
+      <span class="footer-url">gamerscroll.com</span>
     </div>
   </div>
 </body>
