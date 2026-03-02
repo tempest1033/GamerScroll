@@ -1,9 +1,7 @@
 name: Generate AI Insight
 
 on:
-  schedule:
-    - cron: '0 21 * * *'  # 하루 1번 (UTC 21:00 → KST 06:00)
-  workflow_dispatch:  # 수동 실행 가능
+  workflow_dispatch:  # 수동 실행만 가능 (자동 트리거 제거)
 
 permissions:
   contents: write

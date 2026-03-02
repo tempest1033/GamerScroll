@@ -1,9 +1,7 @@
 name: X Daily Post
 
 on:
-  schedule:
-    - cron: '0 22 * * *'  # 매일 07:00 KST (22:00 UTC 전날)
-  workflow_dispatch:  # 수동 실행 가능
+  workflow_dispatch:  # 수동 실행만 가능 (일간 리포트 자동 트리거 제거)
 
 permissions:
   contents: write
