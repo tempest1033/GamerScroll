@@ -132,20 +132,18 @@ async function postArticleToX(slug) {
 
   if (lang === 'en') {
     const title = article.titleEn || article.title;
-    const summary = article.summaryEn || article.summary || '';
-    const summaryText = summary.length > 100 ? summary.substring(0, 100) + '...' : summary;
+    const keywords = article.keywordsEn || article.keywords || '';
+    const hashtags = extractHashtags(keywords, 3);
+    const baseHashtags = '#gaming #gamingnews';
+    const allHashtags = hashtags ? `${baseHashtags} ${hashtags}` : baseHashtags;
 
-    tweetText = `${title}\n\n${summaryText}\n\n${articleUrl}\n\n#gaming #gamingnews`;
+    tweetText = `AIScroll Daily Focus\n\n${title}\n\nRead more 👇\n${articleUrl}\n\n${allHashtags}`;
   } else {
-    const summaryText = article.summary && article.summary.length > 100
-      ? article.summary.substring(0, 100) + '...'
-      : (article.summary || '');
-
     const hashtags = extractHashtags(article.keywords, 3);
     const baseHashtags = '#게임 #게임뉴스';
     const allHashtags = hashtags ? `${baseHashtags} ${hashtags}` : baseHashtags;
 
-    tweetText = `게이머스크롤 데일리 포커스\n\n${article.title}\n\n${summaryText}\n\n${articleUrl}\n\n${allHashtags}`;
+    tweetText = `게이머스크롤 데일리 포커스\n\n${article.title}\n\n자세한 내용은 👇\n${articleUrl}\n\n${allHashtags}`;
   }
 
   console.log('트윗 내용:');
