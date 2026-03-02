@@ -1046,7 +1046,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
   // 3. RSS 피드 생성
   const rssItems = enArticles
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 20)
+    .slice(0, 50)
     .map(article => {
       const pubDate = new Date(article.date).toUTCString();
       const link = `${SITE_URL}/article/${article.category}/${article.slug}/`;

@@ -4,7 +4,7 @@ const path = require('path');
 const SITE_URL = 'https://gamerscroll.com';
 const SITE_TITLE = '게이머스크롤';
 const SITE_DESC = '게임 업계 데이터 크롤링 및 일일 리포트';
-const MAX_ITEMS = 30;
+const MAX_ITEMS = 50;
 
 function escapeXml(str) {
   if (!str) return '';

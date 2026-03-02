@@ -2538,32 +2538,32 @@ async function main() {
     return match ? match[0] : sitemapDate;
   };
 
-  // 메인 페이지 URL 목록 (changefreq/priority 제거 - Google이 무시함)
+  // 메인 페이지 URL 목록 (priority: 홈 1.0, 카테고리 0.8, 기사 0.6, 기타 0.4)
   const mainPages = [
     // 홈
-    { loc: `${siteBaseUrl}/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/`, lastmod: sitemapDate, priority: '1.0' },
     // 매거진 (허브 + 목록)
-    { loc: `${siteBaseUrl}/magazine/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/magazine/daily/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/magazine/issue/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/magazine/ranking/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/magazine/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/magazine/daily/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/magazine/issue/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/magazine/ranking/`, lastmod: sitemapDate, priority: '0.8' },
     // 순위/데이터
-    { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/upcoming/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/games/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/upcoming/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/games/`, lastmod: sitemapDate, priority: '0.8' },
     // 위키 (허브 + 카테고리)
-    { loc: `${siteBaseUrl}/wiki/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/wiki/business/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/wiki/history/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/wiki/knowledge/`, lastmod: sitemapDate },
+    { loc: `${siteBaseUrl}/wiki/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/wiki/business/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/wiki/history/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/wiki/knowledge/`, lastmod: sitemapDate, priority: '0.8' },
     // 테크 (허브 + 카테고리)
-    { loc: `${siteBaseUrl}/tech/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/tech/normal/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/tech/ai/`, lastmod: sitemapDate },
-    { loc: `${siteBaseUrl}/tech/vibecoding/`, lastmod: sitemapDate }
+    { loc: `${siteBaseUrl}/tech/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/tech/normal/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/tech/ai/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/tech/vibecoding/`, lastmod: sitemapDate, priority: '0.8' }
   ];
 
   // 위키 페이지 자동 스캔
@@ -2574,7 +2574,8 @@ async function main() {
     const articles = wikiSitemapData[category] || [];
     wikiPages.push(...articles.map(article => ({
       loc: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
-      lastmod: normalizeLastmodDate(article.date)
+      lastmod: normalizeLastmodDate(article.date),
+      priority: '0.6'
     })));
   }
 
@@ -2586,7 +2587,8 @@ async function main() {
     const articles = techSitemapData[category] || [];
     techPages.push(...articles.map(article => ({
       loc: `${siteBaseUrl}/tech/${category}/${article.slug}/`,
-      lastmod: normalizeLastmodDate(article.date)
+      lastmod: normalizeLastmodDate(article.date),
+      priority: '0.6'
     })));
   }
 
@@ -2601,7 +2603,8 @@ async function main() {
         .map(d => d.name);
       magazinePages.push(...dailyFolders.map(slug => ({
         loc: `${siteBaseUrl}/magazine/daily/${slug}/`,
-        lastmod: slug  // 폴더명이 날짜 형식
+        lastmod: slug,  // 폴더명이 날짜 형식
+        priority: '0.4'
       })));
     }
     // 이슈 페이지 (JSON의 date 필드 사용)
@@ -2622,7 +2625,8 @@ async function main() {
         } catch (e) {}
         return {
           loc: `${siteBaseUrl}/magazine/issue/${slug}/`,
-          lastmod: issueDate
+          lastmod: issueDate,
+          priority: '0.6'
         };
       }));
     }
@@ -2644,7 +2648,8 @@ async function main() {
         } catch (e) {}
         return {
           loc: `${siteBaseUrl}/magazine/insight/${slug}/`,
-          lastmod: insightDate
+          lastmod: insightDate,
+          priority: '0.6'
         };
       }));
     }
@@ -2666,7 +2671,8 @@ async function main() {
         } catch (e) {}
         return {
           loc: `${siteBaseUrl}/magazine/hotpick/${slug}/`,
-          lastmod: hotpickDate
+          lastmod: hotpickDate,
+          priority: '0.6'
         };
       }));
     }
@@ -2688,7 +2694,8 @@ async function main() {
         } catch (e) {}
         return {
           loc: `${siteBaseUrl}/magazine/ranking/${slug}/`,
-          lastmod: rankingDate
+          lastmod: rankingDate,
+          priority: '0.6'
         };
       }));
     }
@@ -2701,7 +2708,8 @@ async function main() {
   const sitemapEntries = allPages.map(page => {
     return `  <url>
     <loc>${page.loc}</loc>
-    <lastmod>${page.lastmod || sitemapDate}</lastmod>
+    <lastmod>${page.lastmod || sitemapDate}</lastmod>${page.priority ? `
+    <priority>${page.priority}</priority>` : ''}
   </url>`;
   }).join('\n');
 

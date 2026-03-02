@@ -539,8 +539,21 @@ function generateAIBlogArticle(article, data = {}) {
   };
   const categoryLabel = categoryLabels[article.category] || 'General';
 
-  // 날짜 ISO 형식 변환
-  const dateISO = article.date ? new Date(article.date).toISOString() : new Date().toISOString();
+  // 날짜 ISO 형식 변환 (KST +09:00)
+  const dateISO = (() => {
+    const raw = article.date || '';
+    if (!raw) return new Date().toISOString();
+    const s = String(raw);
+    // 이미 타임존이 있으면 그대로
+    if (/[Zz]$/.test(s) || /[+-]\d{2}:\d{2}$/.test(s)) return s;
+    // YYYY-MM-DD → T00:00:00+09:00
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s + 'T00:00:00+09:00';
+    // YYYY-MM-DDTHH:MM → :00+09:00
+    if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(s)) return s + ':00+09:00';
+    // YYYY-MM-DDTHH:MM:SS → +09:00
+    if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(s)) return s + '+09:00';
+    return s;
+  })();
 
   // 썸네일 절대 URL 변환 (소셜 크롤러용)
   const absoluteThumbnail = article.thumbnail

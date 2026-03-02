@@ -134,7 +134,7 @@ async function postArticleToX(slug) {
     const title = article.titleEn || article.title;
     const keywords = article.keywordsEn || article.keywords || '';
     const hashtags = extractHashtags(keywords, 3);
-    const baseHashtags = '#gaming #gamingnews';
+    const baseHashtags = '#AI #ainews';
     const allHashtags = hashtags ? `${baseHashtags} ${hashtags}` : baseHashtags;
 
     tweetText = `AIScroll Daily Focus\n\n${title}\n\nRead more 👇\n${articleUrl}\n\n${allHashtags}`;

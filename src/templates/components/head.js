@@ -31,6 +31,20 @@ function generateHead(options = {}) {
   const jsonString = (value) => JSON.stringify(value == null ? '' : String(value))
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e');
+  // 날짜 문자열에 KST 타임존 보정 (+09:00)
+  const ensureTimezone = (dateStr) => {
+    if (!dateStr) return dateStr;
+    const s = String(dateStr);
+    // 이미 타임존이 있으면 그대로 반환 (Z, +HH:MM, -HH:MM)
+    if (/[Zz]$/.test(s) || /[+-]\d{2}:\d{2}$/.test(s)) return s;
+    // YYYY-MM-DD 형식 → T00:00:00+09:00 추가
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s + 'T00:00:00+09:00';
+    // YYYY-MM-DDTHH:MM 형식 → :00+09:00 추가
+    if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(s)) return s + ':00+09:00';
+    // YYYY-MM-DDTHH:MM:SS 형식 → +09:00 추가
+    if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(s)) return s + '+09:00';
+    return s;
+  };
 
   const safeTitle = escapeHtmlText(title);
   const safeDescription = escapeHtmlAttr(description);
@@ -121,8 +135,8 @@ function generateHead(options = {}) {
     })();
   </script>` : '';
   const articleOgMeta = articleSchema ? [
-    articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(articleSchema.datePublished)}">` : '',
-    articleSchema.dateModified ? `<meta property="article:modified_time" content="${escapeHtmlAttr(articleSchema.dateModified)}">` : '',
+    articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.datePublished))}">` : '',
+    articleSchema.dateModified ? `<meta property="article:modified_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.dateModified))}">` : '',
     `<meta property="article:section" content="${escapeHtmlAttr(articleSection || '게임')}">`,
     `<meta property="article:author" content="게이머스크롤">`,
     ...keywordTags.map(tag => `<meta property="article:tag" content="${escapeHtmlAttr(tag)}">`)
@@ -136,8 +150,8 @@ function generateHead(options = {}) {
     "@type": "Article",
     "headline": ${jsonString(articleSchema.headline || title)},
     "description": ${jsonString(articleSchema.description || description)},
-    "datePublished": ${jsonString(articleSchema.datePublished)},
-    ${articleSchema.dateModified ? `"dateModified": ${jsonString(articleSchema.dateModified)},` : ''}
+    "datePublished": ${jsonString(ensureTimezone(articleSchema.datePublished))},
+    ${articleSchema.dateModified ? `"dateModified": ${jsonString(ensureTimezone(articleSchema.dateModified))},` : ''}
     "author": {
       "@type": "Organization",
       "name": "게이머스크롤",
@@ -328,27 +342,19 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- preconnect: 핵심 도메인 4개 (LCP 우선) -->
+  <!-- preconnect: LCP 핵심 도메인 (AdSense + 폰트 CDN) -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://wsrv.nl" crossorigin>
-  <!-- dns-prefetch: fallback + 추가 도메인 -->
+  <!-- dns-prefetch: 추가 도메인 -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
-  <link rel="dns-prefetch" href="https://www.gstatic.com">
-  <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
-  <link rel="dns-prefetch" href="https://ep1.adtrafficquality.google">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
   <link rel="dns-prefetch" href="https://wsrv.nl">
-  <link rel="dns-prefetch" href="https://adservice.google.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
   <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
-  <link rel="dns-prefetch" href="https://www.googletagservices.com">
-  <link rel="dns-prefetch" href="https://unpkg.com">
   <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
   <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
-	  <link rel="dns-prefetch" href="https://i.ytimg.com">
-	  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
 	  ${deferredCssInitScript}
 	  ${deferredCssGuardStyle}
 	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->

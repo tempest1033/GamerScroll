@@ -919,10 +919,12 @@ for day in range(1, 32):
 > | `google` | Google, DeepMind, Gemini, Bard, Genie |
 > | `anthropic` | Anthropic, Claude, Constitutional AI |
 >
-> **Source Rules (AIScroll)**
-> - **International media only**: Use WSJ, Bloomberg, Reuters, TechCrunch, The Verge, etc.
-> - No Korean domestic media (Maeil Business, Global Economic, etc.)
+> **Source Rules (AI articles — AIScroll + issue reports with AI topics)**
+> - **AI 기사의 sources에는 한국 매체를 포함하지 않는다. 영문/글로벌 매체만 사용.**
+> - Use WSJ, Bloomberg, Reuters, TechCrunch, The Verge, Tom's Hardware, etc.
+> - No Korean domestic media (MS TODAY, AI타임스, 디지털투데이, 뉴스1, etc.)
 > - Minimum 2-3 international sources recommended
+> - This rule applies to both `data/tech/ai/` articles AND `reports/issue/` articles about AI topics
 >
 > **English Co-writing (AIScroll, recommended)**
 > - Write English version alongside Korean
