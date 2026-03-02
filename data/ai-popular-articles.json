@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-01T01:05:40.767Z",
+  "updatedAt": "2026-03-02T00:59:18.224Z",
   "period": "7days",
   "articles": [
     {
@@ -17,13 +17,13 @@
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 4,
+      "views": 5,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "google",
       "slug": "deepmind-update-aletheia-gemini",
-      "views": 3,
+      "views": 4,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
@@ -33,22 +33,34 @@
       "path": "/article/openai/gpt-54-leak-model-war/"
     },
     {
-      "category": "vibecoding",
-      "slug": "vibe-coding-workflow-prompt-guide",
-      "views": 3,
-      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
-    },
-    {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 2,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
-      "category": "general",
-      "slug": "grok-420-multi-agent-release",
+      "category": "openai",
+      "slug": "openai-110b-record-funding-turning-point",
       "views": 2,
-      "path": "/article/general/grok-420-multi-agent-release/"
+      "path": "/article/openai/openai-110b-record-funding-turning-point/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-pentagon-hypocrisy-red-lines",
+      "views": 2,
+      "path": "/article/openai/openai-pentagon-hypocrisy-red-lines/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 2,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-workflow-prompt-guide",
+      "views": 2,
+      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     },
     {
       "category": "anthropic",
@@ -70,9 +82,15 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-cowork-windows-launch",
+      "slug": "claude-app-store-number-one",
       "views": 1,
-      "path": "/article/anthropic/claude-cowork-windows-launch/"
+      "path": "/article/anthropic/claude-app-store-number-one/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-military-venezuela-iran",
+      "views": 1,
+      "path": "/article/anthropic/claude-military-venezuela-iran/"
     },
     {
       "category": "anthropic",
@@ -100,6 +118,12 @@
     },
     {
       "category": "general",
+      "slug": "grok-420-multi-agent-release",
+      "views": 1,
+      "path": "/article/general/grok-420-multi-agent-release/"
+    },
+    {
+      "category": "general",
       "slug": "silicon-valley-ai-ethics-government-clash",
       "views": 1,
       "path": "/article/general/silicon-valley-ai-ethics-government-clash/"
@@ -118,27 +142,15 @@
     },
     {
       "category": "openai",
+      "slug": "gpt-4o-shutdown-controversy",
+      "views": 1,
+      "path": "/article/openai/gpt-4o-shutdown-controversy/"
+    },
+    {
+      "category": "openai",
       "slug": "gpt-53-codex-community-reaction",
       "views": 1,
       "path": "/article/openai/gpt-53-codex-community-reaction/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-110b-record-funding-turning-point",
-      "views": 1,
-      "path": "/article/openai/openai-110b-record-funding-turning-point/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-pentagon-hypocrisy-red-lines",
-      "views": 1,
-      "path": "/article/openai/openai-pentagon-hypocrisy-red-lines/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 1,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "vibecoding",
