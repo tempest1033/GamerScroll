@@ -911,6 +911,7 @@ for day in range(1, 32):
 > - AIScroll URL: `/article/{category}/{slug}/`
 > - **Required field**: `category` (determines folder)
 > - Category values: `general` | `openai` | `google` | `anthropic`
+> - **AI 관련 기사는 `reports/issue/`가 아닌 `data/tech/ai/`에 작성한다. AIScroll 빌드가 `data/tech/ai/`만 수집하기 때문.**
 >
 > | Category | Target |
 > |----------|--------|

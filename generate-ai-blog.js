@@ -208,7 +208,8 @@ const EXTRA_ARTICLES = {
     'gpt-5-3-garlic-update-rumor',
     'chatgpt-vs-gemini-comparison-2026',
     'gemini-3-hallucination-memory-overfitting',
-    'seedance-2-hollywood-shock-next-version'
+    'seedance-2-hollywood-shock-next-version',
+    'deepseek-v4-launch-march-2026'
   ],
   // data/wiki/{category}/*.json
   wiki: [
