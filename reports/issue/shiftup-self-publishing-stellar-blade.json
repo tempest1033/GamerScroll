@@ -2,12 +2,17 @@
   "slug": "shiftup-self-publishing-stellar-blade",
   "status": "approved",
   "title": "시프트업, 소니 없이 간다: 스텔라 블레이드 스튜디오의 자체 퍼블리싱 선언",
-  "date": "",
+  "date": "2026-03-03T12:30",
   "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3489700/header.jpg",
   "keywords": "시프트업, 자체 퍼블리싱, 스텔라 블레이드, 스텔라 블레이드 2, 소니, 니케, 김형태, Shift Up, PlayStation, 멀티플랫폼, 셀프 퍼블리싱, 승리의 여신 니케, 게임 퍼블리싱",
   "summary": "610만 장 판매의 스텔라 블레이드, 10억 달러 매출의 니케를 보유한 시프트업이 콘솔·PC 자체 퍼블리싱 역량 확대를 공식화했다. 소니의 세컨드 파티에서 독립을 선언한 배경과 스텔라 블레이드 2 전략을 분석한다.",
-  "relatedDocs": ["issue:nikke-doro-meme-success"],
-  "relatedGames": ["스텔라-블레이드", "승리의-여신-니케"],
+  "relatedDocs": [
+    "issue:nikke-doro-meme-success"
+  ],
+  "relatedGames": [
+    "스텔라-블레이드",
+    "승리의-여신-니케"
+  ],
   "sources": [
     {
       "name": "GamesRadar",
