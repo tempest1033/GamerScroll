@@ -1,0 +1,154 @@
+{
+  "slug": "shiftup-self-publishing-stellar-blade",
+  "status": "approved",
+  "title": "시프트업, 소니 없이 간다: 스텔라 블레이드 스튜디오의 자체 퍼블리싱 선언",
+  "date": "",
+  "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3489700/header.jpg",
+  "keywords": "시프트업, 자체 퍼블리싱, 스텔라 블레이드, 스텔라 블레이드 2, 소니, 니케, 김형태, Shift Up, PlayStation, 멀티플랫폼, 셀프 퍼블리싱, 승리의 여신 니케, 게임 퍼블리싱",
+  "summary": "610만 장 판매의 스텔라 블레이드, 10억 달러 매출의 니케를 보유한 시프트업이 콘솔·PC 자체 퍼블리싱 역량 확대를 공식화했다. 소니의 세컨드 파티에서 독립을 선언한 배경과 스텔라 블레이드 2 전략을 분석한다.",
+  "relatedDocs": ["issue:nikke-doro-meme-success"],
+  "relatedGames": ["스텔라-블레이드", "승리의-여신-니케"],
+  "sources": [
+    {
+      "name": "GamesRadar",
+      "title": "Stellar Blade studio will expand its self-publishing capabilities",
+      "url": "https://www.gamesradar.com/games/action/stellar-blade-studio-will-expand-its-self-publishing-capabilities-which-could-include-the-sequel-to-the-ridiculously-popular-action-game/"
+    },
+    {
+      "name": "Insider Gaming",
+      "title": "Stellar Blade Studio Shift Up Expands Self-Publishing Plans",
+      "url": "https://insider-gaming.com/stellar-blade-studio-shift-up-expands-self-publishing-plans/"
+    },
+    {
+      "name": "Automaton Media",
+      "title": "Stellar Blade developer Shift Up looking to strengthen its self-publishing capabilities",
+      "url": "https://automaton-media.com/en/news/stellar-blade-developer-shift-up-looking-to-strengthen-its-self-publishing-capabilities/"
+    },
+    {
+      "name": "Push Square",
+      "title": "Stellar Blade Dev May Cut Sony's Support and Self-Publish the Sequel",
+      "url": "https://www.pushsquare.com/news/2026/03/stellar-blade-dev-may-cut-sonys-support-and-self-publish-the-sequel"
+    },
+    {
+      "name": "Push Square",
+      "title": "Stellar Blade Thrives on PC, 1 Million Copies Sold in 3 Days",
+      "url": "https://www.pushsquare.com/news/2025/06/stellar-blade-thrives-on-pc-1-million-copies-sold-in-3-days"
+    },
+    {
+      "name": "CNBC",
+      "title": "Stellar Blade maker Shift Up IPO",
+      "url": "https://www.cnbc.com/2024/07/11/stellar-blade-maker-shift-up-ipo.html"
+    },
+    {
+      "name": "PocketGamer.biz",
+      "title": "Goddess of Victory: Nikke hits $1bn on mobile",
+      "url": "https://www.pocketgamer.biz/goddess-of-victory-nikke-hits-1bn-on-mobile-during-romantic-valentine-event/"
+    },
+    {
+      "name": "Insider Gaming",
+      "title": "Stellar Blade 2 Multiplatform Shift Up",
+      "url": "https://insider-gaming.com/stellar-blade-2-multiplatform-shift-up/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "시프트업이 자체 퍼블리싱에 본격적으로 나선다. 최근 공개된 채용 공고에서 \"콘솔과 PC에서 자체 개발 타이틀을 지원하기 위한 자체 퍼블리싱 역량 확대\"를 명시하면서, 스텔라 블레이드 후속작부터 소니 없이 직접 퍼블리싱할 가능성이 높아졌다.\n\n610만 장 판매의 스텔라 블레이드, 10억 달러 매출의 니케를 동시에 운영하는 시프트업이 왜 지금 독립을 선택했는지, 그리고 이것이 한국 게임업계에 어떤 의미를 갖는지 살펴본다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 시프트업 자체 퍼블리싱 선언: 채용 공고가 말해주는 것"
+    },
+    {
+      "type": "image",
+      "src": "https://www.gematsu.com/wp-content/uploads/2024/01/Stellar-Blade_2024_01-31-24_001.jpg",
+      "caption": "스텔라 블레이드 - 시프트업의 자체 퍼블리싱 전환을 이끄는 핵심 IP",
+      "alt": "시프트업 스텔라 블레이드 공식 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "시프트업은 최근 커뮤니케이션 매니저, 크리에이티브 리드, 마케팅 매니저 등 퍼블리싱 핵심 직군의 채용 공고를 올렸다. 모든 포지션에 5년 이상의 경력과 자체 퍼블리싱 경험이 필수 요건으로 명시되어 있다는 점이 눈에 띈다.\n\n공고 원문에는 \"콘솔과 PC에서 자체 개발 타이틀을 지원하기 위한 자체 퍼블리싱 역량 확대\"라는 문구가 포함되어 있다. 단순히 마케팅 인력을 보강하는 수준이 아니라, 퍼블리싱 조직 자체를 처음부터 구축하겠다는 의지가 읽힌다."
+    },
+    {
+      "type": "text",
+      "value": "업계에서는 이 움직임이 스텔라 블레이드 2의 자체 퍼블리싱을 겨냥한 것으로 보고 있다. GamesRadar, Insider Gaming, Push Square 등 주요 외신 모두 \"후속작은 소니 퍼블리싱 없이 나올 수 있다\"고 분석했다. 스텔라 블레이드 1편이 소니 퍼블리싱으로 나온 것과는 완전히 다른 그림이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 소니와의 관계 변화: 세컨드 파티에서 독립으로"
+    },
+    {
+      "type": "text",
+      "value": "시프트업과 소니의 관계는 2023년 11월로 거슬러 올라간다. 당시 시프트업은 한국 게임사 최초로 소니의 세컨드 파티 계약을 체결했다. 소니는 스텔라 블레이드에 퍼스트 파티급 마케팅을 지원했다. State of Play 메인 타이틀 배정, PlayStation Blog 독점 인터뷰, 글로벌 TV 광고까지. 한국 개발사가 이 정도의 소니 백업을 받은 건 전례가 없었다.\n\n결과는 대성공이었다. PS5 독점 출시 후 PC 버전까지 합산 610만 장이라는 실적을 거뒀다. 하지만 이제 시프트업은 다른 길을 모색하고 있다. 스텔라 블레이드 2는 Xbox, Switch 2 등 멀티플랫폼 동시 출시를 검토 중이며, 소니 퍼블리싱 없이 자체적으로 출시할 가능성이 높다."
+    },
+    {
+      "type": "text",
+      "value": "다만 이것이 소니와의 완전한 결별을 의미하지는 않을 수 있다. 자체 퍼블리싱으로 전환하되 PlayStation 플랫폼에서의 협업은 유지하는, 이른바 \"파트너십 기반 협업\"으로 관계가 재정립될 가능성이 크다. 소니 입장에서도 610만 장을 판매한 IP를 완전히 놓치고 싶지는 않을 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 스텔라 블레이드 610만 장: 자신감의 근거"
+    },
+    {
+      "type": "image",
+      "src": "https://www.gematsu.com/wp-content/uploads/2025/05/Stellar-Blade-PC_05-15-25.jpg",
+      "caption": "2025년 6월 PC 출시로 새로운 전환점을 맞은 스텔라 블레이드",
+      "alt": "스텔라 블레이드 PC 버전 출시 프로모션 이미지"
+    },
+    {
+      "type": "text",
+      "value": "시프트업이 자체 퍼블리싱을 결심할 수 있었던 배경에는 스텔라 블레이드의 압도적인 성과가 있다. PS5 버전은 출시 2개월 만에 100만 장을 돌파했고, 2025년 6월 출시된 PC 버전은 불과 3일 만에 100만 장을 넘겼다. Sensor Tower 추정에 따르면 총 판매량은 약 610만 장(PS5 370만 + PC 240만)에 달한다.\n\nSteam 동시접속자 수는 192,078명을 기록했는데, 이는 PlayStation Studios 싱글플레이어 PC 게임 중 역대 최고 수치다. 한국 게임대상 7관왕, TGA(The Game Awards) 후보 선정까지, 상업적 성공과 비평적 호평을 동시에 거뒀다."
+    },
+    {
+      "type": "text",
+      "value": "이 정도 실적이면 소니의 마케팅 파워 없이도 후속작을 성공시킬 수 있다는 자신감이 생길 만하다. 이미 글로벌 인지도를 확보한 IP이기 때문에, 퍼블리셔의 마케팅 지원보다 수익 분배의 자율성이 더 중요해진 것이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 니케 10억 달러와 영업이익률 61%: 재정적 기반"
+    },
+    {
+      "type": "text",
+      "value": "자체 퍼블리싱에는 상당한 자본이 필요하다. 마케팅, 유통, QA, 현지화, 커뮤니티 관리까지 모두 자체적으로 감당해야 하기 때문이다. 시프트업에게는 이를 뒷받침할 든든한 재정적 기반이 있다.\n\n승리의 여신: 니케는 2025년 2월 기준 모바일 누적 매출 10억 달러(약 1조 3,000억 원)를 돌파했다. 2025년 시프트업의 연간 실적은 매출 2,942억 원, 영업이익 1,811억 원으로 영업이익률이 61.6%에 달한다. 전년 대비 매출은 31.3%, 순이익은 29.2% 성장했다."
+    },
+    {
+      "type": "text",
+      "value": "2024년 코스피 상장 당시 공모 시가총액은 3조 4,800억 원이었다. 니케가 매달 안정적으로 쏟아내는 현금흐름과 60%를 넘는 영업이익률은 자체 퍼블리싱의 재정적 리스크를 충분히 흡수할 수 있는 수준이다. 돈이 있으니 굳이 수익을 나눌 필요가 없어진 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 스텔라 블레이드 2와 Project Spirits: 차기작 전략"
+    },
+    {
+      "type": "image",
+      "src": "https://nfapi.noobfeed.com/storage/gallery/42632/Stellar-Blade-2.jpg",
+      "caption": "스텔라 블레이드 2 컨셉 아트 - 포스트 아포칼립스 중국 도시가 배경으로 유력하다",
+      "alt": "시프트업 스텔라 블레이드 2 컨셉 아트 차기작"
+    },
+    {
+      "type": "text",
+      "value": "시프트업의 차기작 라인업은 두 갈래로 나뉜다. 스텔라 블레이드 2는 현재 개발이 진행 중이며, 멀티플랫폼 동시 출시와 자체 퍼블리싱이 유력하다. 2027년 출시가 목표로 알려져 있다. PS5 독점이었던 전작과 달리 Xbox, Switch 2까지 동시에 공략한다면 판매량은 더욱 늘어날 수 있다.\n\nProject Spirits는 동양 판타지 RPG로, 언리얼 엔진 5 기반에 Level Infinite(텐센트)가 퍼블리싱을 맡는다. 역시 2027년 출시가 예상된다. 시프트업이 모든 타이틀을 자체 퍼블리싱하는 것이 아니라, 각 타이틀의 성격과 시장에 맞는 최적의 전략을 채택하고 있다는 점이 흥미롭다."
+    },
+    {
+      "type": "text",
+      "value": "이미 글로벌 인지도를 확보한 스텔라 블레이드 IP는 직접, 새로운 IP인 Project Spirits는 텐센트의 글로벌 유통망을 활용하는 투트랙 전략이다. 리스크를 분산하면서도 핵심 IP의 수익성을 극대화하려는 계산이 읽힌다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 시프트업의 다음 한 수"
+    },
+    {
+      "type": "text",
+      "value": "시프트업의 자체 퍼블리싱 선언은 업계의 큰 흐름과 맞닿아 있다. Larian Studios가 발더스 게이트 3를 자체 퍼블리싱으로 2,000만 장 이상 판매한 사례가 보여주듯, 디지털 유통 플랫폼의 발달로 퍼블리셔 의존도는 갈수록 줄어들고 있다.\n\n시프트업이 스텔라 블레이드 2의 자체 퍼블리싱을 성공적으로 해낸다면, 한국 콘솔·PC 게임사들에게도 의미 있는 선례가 될 수 있다. 610만 장의 실적과 61%의 영업이익률이 뒷받침하는 이 도전이 어떤 결과를 만들어낼지 지켜볼 일이다."
+    }
+  ]
+}

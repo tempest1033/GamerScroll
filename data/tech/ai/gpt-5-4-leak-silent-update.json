@@ -1,0 +1,161 @@
+{
+  "slug": "gpt-5-4-leak-silent-update",
+  "category": "openai",
+  "status": "approved",
+  "title": "OpenAI 차기 모델 GPT 5.4 출시 임박, 이미 몰래 적용 중?",
+  "date": "2026-03-03T12:00",
+  "thumbnail": "https://awesomeagents.ai/images/news/gpt-5-4-codex-repo-leak_hu_a0a45cc180a2a523.jpg",
+  "keywords": "GPT 5.4, GPT 5.4 유출, OpenAI, GPT 5.3, ChatGPT 업데이트 2026, GPT 5.2 Pro, 사일런트 업데이트, 샘 알트먼, AI 모델 출시, ChatGPT, GPT 차기 버전",
+  "keywordsEn": "GPT 5.4, GPT 5.4 leak, OpenAI, GPT 5.3, ChatGPT update 2026, GPT 5.2 Pro, silent update, Sam Altman, AI model release, ChatGPT, GPT next version",
+  "summary": "OpenAI의 Codex GitHub 저장소에서 GPT-5.4가 두 차례 유출되며 차기 모델 출시가 임박했음이 드러났다. 한편 일부 AI 커뮤니티에서는 이미 GPT-5.2 Pro의 답변이 달라졌다는 보고가 이어지고 있다.",
+  "relatedDocs": [
+    "tech:ai/gpt-54-leak-model-war",
+    "tech:ai/gpt-53-codex-community-reaction",
+    "tech:ai/openai-crisis-competition-direction-2026"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Awesome Agents AI",
+      "title": "GPT-5.4 Leaked in OpenAI's Codex Repository",
+      "url": "https://awesomeagents.ai/news/gpt-5-4-codex-repo-leak/"
+    },
+    {
+      "name": "Piunika Web",
+      "title": "OpenAI GPT-5.4 accidentally leaked via Codex",
+      "url": "https://piunikaweb.com/2026/03/02/openai-gpt-5-4-accidentally-leaked-codex/"
+    },
+    {
+      "name": "Eonmsk",
+      "title": "Leaks Suggest OpenAI GPT-5.4 Launch Is Imminent",
+      "url": "https://www.eonmsk.com/2026/03/02/leaks-suggests-openai-gpt-5-4-launch-is-imminent/"
+    },
+    {
+      "name": "Geeky Gadgets",
+      "title": "OpenAI GPT-5.4 Leak",
+      "url": "https://www.geeky-gadgets.com/openai-gpt-54-leak/"
+    },
+    {
+      "name": "FelloAI",
+      "title": "GPT-5.2 Is a Monster on Benchmarks. So Why Do Users Hate It?",
+      "url": "https://felloai.com/gpt-5-2-is-a-monster-on-benchmarks-so-why-do-users-hate-it/"
+    },
+    {
+      "name": "TechRadar",
+      "title": "ChatGPT 5.2 branded a step backwards by disappointed early users",
+      "url": "https://www.techradar.com/ai-platforms-assistants/openai/chatgpt-5-2-branded-a-step-backwards-by-disappointed-early-users-heres-why"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Introducing GPT-5.2",
+      "url": "https://openai.com/index/introducing-gpt-5-2/"
+    },
+    {
+      "name": "OpenAI Help Center",
+      "title": "ChatGPT Release Notes",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "OpenAI의 차기 모델 GPT-5.4가 GitHub에서 두 차례나 유출됐다. 풀 해상도 비전, Fast 모드 등 새로운 기능의 윤곽이 드러난 가운데, 직원의 실수로 모델 피커 스크린샷까지 공개되며 출시가 코앞임을 시사했다. 동시에 일부 AI 커뮤니티에서는 GPT-5.2 Pro가 이미 조용히 바뀌고 있다는 보고가 쏟아지고 있다.\n\nOpenAI는 역대 가장 빠른 속도로 모델을 쏟아내고 있지만, 정작 사용자들은 성능 이면의 불만을 터뜨리고 있다. 벤치마크 괴물과 사용자 경험 사이의 간극, 그리고 예고 없이 바뀌는 모델 뒤에 숨은 이야기를 정리했다."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT 5.4 GitHub 유출: 두 번의 실수가 드러낸 것"
+    },
+    {
+      "type": "image",
+      "src": "https://piunikaweb.com/wp-content/uploads/2026/02/gpt-5-4-github-pull-request.webp",
+      "caption": "OpenAI Codex 저장소에서 유출된 GPT-5.4 관련 Pull Request 화면",
+      "alt": "GPT 5.4 유출 GitHub Pull Request 스크린샷 OpenAI Codex 저장소"
+    },
+    {
+      "type": "text",
+      "value": "첫 번째 유출은 2026년 2월 27일 OpenAI의 Codex CLI 저장소에서 발생했다. PR #13050에서 풀 해상도 비전 지원을 추가하는 코드가 올라왔는데, 최소 모델 버전이 (5,4)로 설정되어 있었다. OpenAI 측은 이를 인지한 뒤 5시간 동안 7번의 force push를 통해 해당 커밋 이력을 삭제했지만, 이미 여러 개발자들이 스크린샷을 캡처한 뒤였다.\n\n두 번째 유출은 불과 며칠 뒤인 3월 2일에 발생했다. PR #13212에서 `/fast` 슬래시 커맨드의 설명 문구에 \"GPT-5.4용 Fast 모드 토글\"이라는 문구가 발견됐다. 이 역시 3시간 내에 삭제됐지만, 커뮤니티에서는 이미 증거를 확보한 상태였다."
+    },
+    {
+      "type": "text",
+      "value": "설상가상으로 OpenAI 직원 Tibo가 X(구 트위터)에 모델 피커 UI에 GPT-5.4가 포함된 스크린샷을 실수로 게시했다가 서둘러 삭제하는 사건도 있었다. OpenAI는 이 모든 유출에 대해 공식 코멘트 없이 코드 정리와 게시물 삭제로만 대응했다. 세 번의 개별적인 실수가 모두 같은 방향을 가리키고 있다는 점에서, GPT-5.4의 내부 개발이 상당히 진행된 상태임은 확실해 보인다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. GPT 5.4 유출로 확인된 새 기능들"
+    },
+    {
+      "type": "image",
+      "src": "https://piunikaweb.com/wp-content/uploads/2026/02/gpt-5-4-codex-model-selector.webp",
+      "caption": "Codex 앱 모델 셀렉터에서 포착된 GPT-5.4 옵션",
+      "alt": "GPT 5.4 Codex 모델 셀렉터 UI 스크린샷 OpenAI 유출"
+    },
+    {
+      "type": "text",
+      "value": "유출된 코드에서 가장 주목할 만한 기능은 풀 해상도 비전이다. PNG, JPEG, WebP 이미지를 압축 없이 원본 해상도 그대로 처리할 수 있게 된다. 현재 GPT 모델들은 이미지를 일정 크기로 축소한 뒤 분석하는데, 이 제한이 사라지면 HiDPI 스크린샷 분석, 건축 도면 판독, 의료 영상 해석 등 고해상도가 필수인 작업에서 획기적인 개선이 가능하다.\n\nFast 모드도 확인된 기능이다. `/fast` 슬래시 명령어로 속도 우선 응답을 토글할 수 있는 기능으로, 정밀한 답변보다 빠른 응답이 필요한 상황에서 사용자가 직접 선택할 수 있게 된다. 이는 Anthropic Claude Code의 Fast 모드와 유사한 접근으로, 업계의 트렌드를 반영한 것으로 보인다."
+    },
+    {
+      "type": "text",
+      "value": "아직 확인되지 않은 루머도 있다. 200만 토큰 규모의 컨텍스트 윈도우와 크로스 세션 영구 메모리가 그것이다. 현재 GPT-5.2의 컨텍스트가 256K 토큰인 점을 감안하면 약 8배에 달하는 도약이며, 실현된다면 경쟁사 대비 압도적인 수치가 된다. 다만 이들은 공식 확인 없는 루머인 만큼 주의가 필요하다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 사일런트 업데이트: 커뮤니티가 먼저 감지한 변화"
+    },
+    {
+      "type": "text",
+      "value": "GPT-5.4 유출과 별개로, 일부 AI 커뮤니티에서는 이미 GPT-5.2 Pro의 답변이 달라졌다는 보고가 나오고 있다. 자체 성능 테스트에서 이전보다 높은 점수를 기록했다는 주장과 함께, 답변의 구조나 톤이 미묘하게 변했다는 관찰이 이어지고 있다. OpenAI가 공지 없이 모델을 조용히 개선하고 있다는 의혹이다.\n\n사실 OpenAI의 사일런트 업데이트는 이번이 처음이 아니다. 2025년 9월에는 안전 라우팅 시스템을 공지 없이 도입해 모델이 자동 전환되는 사태가 발생했고, 같은 해 12월에는 모델 라우터를 롤백하는 일이 있었다. 2026년 1월에는 Thinking 시간을 하향 조정하면서 실수로 Extended 모드까지 함께 하향한 뒤, 2월에야 복원한 사례도 있다."
+    },
+    {
+      "type": "text",
+      "value": "이러한 패턴은 OpenAI가 \"대규모 브랜딩 출시\"와 \"조용한 내부 개선\"을 반복적으로 병행하고 있음을 보여준다. 사용자 입장에서는 자신이 사용하는 모델이 언제 어떻게 바뀌었는지 알 수 없다는 점이 신뢰 문제로 이어지고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. GPT 5.2 Pro 벤치마크 성능과 사용자 불만의 괴리"
+    },
+    {
+      "type": "image",
+      "src": "https://felloai.com/wp-content/uploads/2025/12/gpt-5-2-controversial-reception-benchmarks-vs-reality-and-user-hate.jpg",
+      "caption": "GPT-5.2의 벤치마크 성적과 사용자 반응 사이의 괴리를 다룬 분석",
+      "alt": "GPT 5.2 Pro 벤치마크 성능 대 사용자 불만 분석 이미지"
+    },
+    {
+      "type": "text",
+      "value": "GPT-5.2 Pro의 벤치마크 성적은 화려하다. AIME(수학 추론) 100%, ARC-AGI-2(범용 추론) 54.2%, GPQA Diamond(대학원 수준 과학) 93.2% 등 대부분의 벤치마크에서 최고 수준을 기록했다. 수치만 보면 역대 가장 강력한 AI 모델이라 해도 과언이 아니다.\n\n그러나 사용자 반응은 정반대다. \"차갑고 딱딱하다\", \"과도한 검열로 창작 활동이 불가능하다\"는 불만이 폭주했다. 특히 자동 라우팅 시스템으로 인해 같은 질문에도 매번 다른 품질의 응답이 돌아온다는 지적이 뼈아프다. 사용자가 Pro 구독료를 내고도 어떤 모델이 응답하는지 예측할 수 없는 상황이 된 것이다."
+    },
+    {
+      "type": "text",
+      "value": "이 괴리의 배경에는 경쟁 압박이 있다. Google Gemini 출시 이후 ChatGPT 일일 방문자가 감소하기 시작했고, Anthropic의 Claude도 코딩과 창작 분야에서 호평을 받으며 추격해 왔다. OpenAI 내부에서는 이른바 \"Code Red\"가 발동되어 급하게 모델을 출시했고, 결과적으로 UX보다 벤치마크 수치에 집중하게 됐다는 분석이다. 샘 알트먼 CEO 자신도 개발자 타운홀에서 \"우리가 실수했다\"고 인정하며, 기술적 성능에만 과도하게 집중해 사용자 상호작용 품질을 소홀히 했다고 밝혔다."
+    },
+    {
+      "type": "heading",
+      "value": "5. GPT 차기 버전 출시 로드맵: 5.3인가, 5.4인가"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI의 출시 로드맵은 현재 다소 혼란스러운 상태다. 코딩 특화 모델인 GPT-5.3-Codex는 2월 5일에 이미 출시됐지만, 범용 GPT-5.3은 아직 나오지 않았다. 그런데 이번 유출로 GPT-5.4가 내부에서 이미 존재한다는 사실이 확인됐다. 범용 5.3을 건너뛰고 바로 5.4로 넘어갈 가능성도 배제할 수 없는 상황이다.\n\n샘 알트먼이 언급한 \"Q1 2026 내에 GPT-5.2 대비 상당한 성능 향상 모델\"이 5.3인지 5.4인지도 불확실하다. Manifold 예측시장에서는 GPT-5.4가 4월 이전에 출시될 확률을 55%, 6월 이전을 74%로 보고 있어, 시장은 비교적 이른 출시를 예상하고 있다."
+    },
+    {
+      "type": "text",
+      "value": "OpenAI가 LMSYS Chatbot Arena에서 코드네임으로 먼저 테스트하는 패턴도 주목할 만하다. 이전에 zenith, summit이라는 코드네임으로 테스트한 뒤 정식 출시한 전례가 있으며, 최근에는 vortex, zephyr라는 새로운 코드네임이 포착되고 있다. 이것이 5.4의 테스트인지는 아직 확인되지 않았지만, 뭔가가 준비되고 있다는 신호임은 분명하다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: OpenAI의 속도전"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI의 모델 출시 속도는 가속 페달을 밟고 있다. GPT-5(2025년 8월)에서 5.1(11월), 5.2(12월), 5.3 Codex(2026년 2월), 그리고 이제 5.4 유출(3월)까지. 불과 7개월 사이에 네 번의 메이저 업데이트를 거쳤고, 다섯 번째가 코앞에 다가왔다.\n\n문제는 이 속도전이 사용자 경험의 개선으로 이어지고 있는가 하는 점이다. 벤치마크에서는 역대 최고 성적을 찍지만, \"체감 성능\"에서는 오히려 후퇴했다는 평가가 나온다. 경쟁사인 Google Gemini와 Anthropic Claude가 맹추격하는 상황에서 속도전은 불가피하지만, 샘 알트먼 스스로가 인정한 \"우리의 실수\"를 되풀이하지 않으려면 벤치마크 숫자 너머의 사용자 경험에도 귀를 기울여야 할 것이다."
+    }
+  ],
+  "needTranslate": true
+}
