@@ -8,6 +8,8 @@
   "keywords": "GPT 5.4, GPT 5.4 유출, OpenAI, GPT 5.3, ChatGPT 업데이트 2026, GPT 5.2 Pro, 사일런트 업데이트, 샘 알트먼, AI 모델 출시, ChatGPT, GPT 차기 버전",
   "keywordsEn": "GPT 5.4, GPT 5.4 leak, OpenAI, GPT 5.3, ChatGPT update 2026, GPT 5.2 Pro, silent update, Sam Altman, AI model release, ChatGPT, GPT next version",
   "summary": "OpenAI의 Codex GitHub 저장소에서 GPT-5.4가 두 차례 유출되며 차기 모델 출시가 임박했음이 드러났다. 한편 일부 AI 커뮤니티에서는 이미 GPT-5.2 Pro의 답변이 달라졌다는 보고가 이어지고 있다.",
+  "titleEn": "OpenAI's Next Model GPT-5.4 Launch Imminent: Already Being Silently Deployed?",
+  "summaryEn": "GPT-5.4 was leaked twice from OpenAI's Codex GitHub repository, revealing that the next model launch is imminent. Meanwhile, AI communities are reporting that GPT-5.2 Pro's responses have already been quietly changing.",
   "relatedDocs": [
     "tech:ai/gpt-54-leak-model-war",
     "tech:ai/gpt-53-codex-community-reaction",
@@ -157,5 +159,106 @@
       "value": "OpenAI의 모델 출시 속도는 가속 페달을 밟고 있다. GPT-5(2025년 8월)에서 5.1(11월), 5.2(12월), 5.3 Codex(2026년 2월), 그리고 이제 5.4 유출(3월)까지. 불과 7개월 사이에 네 번의 메이저 업데이트를 거쳤고, 다섯 번째가 코앞에 다가왔다.\n\n문제는 이 속도전이 사용자 경험의 개선으로 이어지고 있는가 하는 점이다. 벤치마크에서는 역대 최고 성적을 찍지만, \"체감 성능\"에서는 오히려 후퇴했다는 평가가 나온다. 경쟁사인 Google Gemini와 Anthropic Claude가 맹추격하는 상황에서 속도전은 불가피하지만, 샘 알트먼 스스로가 인정한 \"우리의 실수\"를 되풀이하지 않으려면 벤치마크 숫자 너머의 사용자 경험에도 귀를 기울여야 할 것이다."
     }
   ],
-  "needTranslate": true
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI's next model, GPT-5.4, has been leaked twice on GitHub. As new features like full-resolution vision and Fast mode came to light, an employee's accidental screenshot of the model picker further confirmed that launch is just around the corner. At the same time, AI communities are reporting that GPT-5.2 Pro has already been quietly changing.\n\nOpenAI is shipping models at a record pace, yet users are voicing frustrations beyond raw performance numbers. Here's a look at the gap between benchmark dominance and user experience, and the story behind models that change without notice."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT-5.4 GitHub Leak: What Two Mistakes Revealed"
+    },
+    {
+      "type": "image",
+      "src": "https://piunikaweb.com/wp-content/uploads/2026/02/gpt-5-4-github-pull-request.webp",
+      "caption": "A pull request from OpenAI's Codex repository that leaked GPT-5.4 references",
+      "alt": "GPT 5.4 leak GitHub pull request screenshot from OpenAI Codex repository"
+    },
+    {
+      "type": "text",
+      "value": "The first leak occurred on February 27, 2026 in OpenAI's Codex CLI repository. PR #13050, which added full-resolution vision support, had the minimum model version set to (5,4). OpenAI caught the mistake and force-pushed seven times over five hours to scrub the commit history, but multiple developers had already captured screenshots.\n\nThe second leak came just days later on March 2. PR #13212 contained a description string for a `/fast` slash command reading \"Fast mode toggle for GPT-5.4.\" This too was removed within three hours, but the community had already secured the evidence."
+    },
+    {
+      "type": "text",
+      "value": "To make matters worse, OpenAI employee Tibo accidentally posted a screenshot on X (formerly Twitter) showing GPT-5.4 in the model picker UI before hastily deleting it. OpenAI responded to all these leaks with nothing more than code cleanup and post deletions, offering no official comment. The fact that three separate incidents all point in the same direction makes it clear that GPT-5.4 development is well underway."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. New Features Confirmed by the GPT-5.4 Leak"
+    },
+    {
+      "type": "image",
+      "src": "https://piunikaweb.com/wp-content/uploads/2026/02/gpt-5-4-codex-model-selector.webp",
+      "caption": "GPT-5.4 option spotted in the Codex app model selector",
+      "alt": "GPT 5.4 Codex model selector UI screenshot OpenAI leak"
+    },
+    {
+      "type": "text",
+      "value": "The most notable feature in the leaked code is full-resolution vision. It will allow PNG, JPEG, and WebP images to be processed at their original resolution without compression. Current GPT models downscale images before analysis, and removing this limitation would be a game-changer for tasks requiring high resolution, such as HiDPI screenshot analysis, architectural blueprint reading, and medical imaging.\n\nFast mode was also confirmed. A `/fast` slash command will let users toggle speed-priority responses, allowing them to choose quick answers over detailed ones when the situation calls for it. This mirrors Anthropic Claude Code's Fast mode, reflecting a broader industry trend."
+    },
+    {
+      "type": "text",
+      "value": "Unconfirmed rumors also persist. These include a 2-million-token context window and cross-session persistent memory. Given that GPT-5.2's current context is 256K tokens, this would represent roughly an eightfold leap and would be an overwhelming advantage over competitors if realized. However, these remain unverified rumors and should be treated with caution."
+    },
+    {
+      "type": "heading",
+      "value": "3. Silent Updates: Changes the Community Detected First"
+    },
+    {
+      "type": "text",
+      "value": "Separate from the GPT-5.4 leak, AI communities have been reporting that GPT-5.2 Pro's responses have already changed. Claims of higher scores on independent benchmarks have been accompanied by observations that the model's response structure and tone have subtly shifted. The suspicion is that OpenAI has been quietly improving the model without any announcement.\n\nSilent updates from OpenAI are nothing new. In September 2025, a safety routing system was introduced without notice, causing automatic model switching. In December of the same year, the model router was rolled back. In January 2026, Thinking time was reduced and accidentally dragged Extended mode down with it, a mistake that wasn't corrected until February."
+    },
+    {
+      "type": "text",
+      "value": "This pattern shows that OpenAI has been consistently alternating between \"major branded launches\" and \"quiet internal improvements.\" For users, the inability to know when or how the model they're using has changed is becoming a trust issue."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. The Disconnect Between GPT-5.2 Pro Benchmarks and User Frustration"
+    },
+    {
+      "type": "image",
+      "src": "https://felloai.com/wp-content/uploads/2025/12/gpt-5-2-controversial-reception-benchmarks-vs-reality-and-user-hate.jpg",
+      "caption": "Analysis of the gap between GPT-5.2's benchmark scores and real-world user reception",
+      "alt": "GPT 5.2 Pro benchmark performance versus user dissatisfaction analysis"
+    },
+    {
+      "type": "text",
+      "value": "GPT-5.2 Pro's benchmark numbers are impressive. It scored 100% on AIME (mathematical reasoning), 54.2% on ARC-AGI-2 (general reasoning), and 93.2% on GPQA Diamond (graduate-level science), hitting top marks across most benchmarks. By the numbers alone, it's arguably the most powerful AI model ever released.\n\nUser reception, however, tells a different story. Complaints about the model being \"cold and rigid\" and \"impossible to use for creative work due to excessive censorship\" have been pouring in. The auto-routing system has been a particular pain point, with users noting that the same question yields different quality responses each time. Pro subscribers are paying a premium yet can't predict which model will actually respond."
+    },
+    {
+      "type": "text",
+      "value": "Competitive pressure lies at the heart of this disconnect. After Google Gemini's launch, ChatGPT's daily visitors began declining, while Anthropic's Claude gained acclaim in coding and creative tasks. A reported internal \"Code Red\" at OpenAI led to rushed model releases, resulting in a focus on benchmark numbers over UX. CEO Sam Altman himself acknowledged at a developer town hall that \"we made mistakes,\" admitting the company had focused too heavily on technical performance at the expense of user interaction quality."
+    },
+    {
+      "type": "heading",
+      "value": "5. GPT Release Roadmap: Is It 5.3 or 5.4 Next?"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's release roadmap is currently in a somewhat confusing state. The coding-focused GPT-5.3-Codex shipped on February 5, but a general-purpose GPT-5.3 has yet to materialize. Now the leaks have confirmed that GPT-5.4 already exists internally. The possibility that OpenAI might skip a general-purpose 5.3 entirely and jump straight to 5.4 can't be ruled out.\n\nIt's also unclear whether the \"significantly improved model over GPT-5.2 within Q1 2026\" that Sam Altman mentioned refers to 5.3 or 5.4. On the Manifold prediction market, GPT-5.4 is given a 55% chance of launching before April and 74% before June, suggesting the market expects a relatively early release."
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's pattern of testing under codenames on the LMSYS Chatbot Arena is also worth watching. Previous models were tested under codenames like \"zenith\" and \"summit\" before their official launches, and new codenames \"vortex\" and \"zephyr\" have recently been spotted. Whether these represent GPT-5.4 testing remains unconfirmed, but something is clearly in the pipeline."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Closing Thoughts: OpenAI's Speed Race"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's model release cadence is accelerating. From GPT-5 (August 2025) to 5.1 (November), 5.2 (December), 5.3 Codex (February 2026), and now the 5.4 leak (March), the company has pushed through four major updates in just seven months, with a fifth on the horizon.\n\nThe question is whether this speed race is translating into better user experiences. The models are hitting all-time highs on benchmarks, yet \"perceived performance\" is arguably declining. With Google Gemini and Anthropic Claude closing in, the pace may be unavoidable. But if OpenAI wants to avoid repeating what Sam Altman himself called \"our mistakes,\" it will need to listen beyond the benchmark numbers and pay attention to the user experience."
+    }
+  ],
+  "needTranslate": false
 }
