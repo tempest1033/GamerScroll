@@ -6,6 +6,9 @@
 
 require('dotenv').config();
 const fs = require('fs');
+const path = require('path');
+const { execSync } = require('child_process');
+const os = require('os');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { generateAIInsight } = require('./src/insights/ai-insight');
@@ -345,6 +348,58 @@ async function main() {
 
   fs.writeFileSync(insightJsonFile, JSON.stringify(insight, null, 2), 'utf8');
   console.log(`\n✅ AI 인사이트 저장 완료: ${insightJsonFile}`);
+
+  // === Codex 썸네일 채우기 (optional) ===
+  try {
+    execSync('command -v codex', { stdio: 'ignore' });
+    console.log('\n🖼️ Codex 썸네일 후처리 시작...');
+
+    const codexPrompt = `다음 JSON 파일의 썸네일 URL을 웹 검색으로 정확히 채워주세요.
+파일: ${insightJsonFile}
+
+대상 필드(이외 수정 금지):
+- ai.thumbnail
+- ai.issues[].thumbnail
+- ai.issues[].descThumbnail
+- ai.industryIssues[].thumbnail
+- ai.metrics[].thumbnail
+
+규칙:
+- thumbnail은 반드시 https:// 로 시작하는 절대 URL만 사용(// 금지)
+- 제목/내용과 확실히 일치하는 기사/공식 이미지만 사용하고, 애매하면 null 유지
+- 다른 필드/키 순서/서식은 건드리지 말 것
+- git 명령은 절대 실행하지 말 것`;
+
+    const codexTmpFile = path.join(os.tmpdir(), `codex-prompt-${Date.now()}.txt`);
+    fs.writeFileSync(codexTmpFile, codexPrompt, 'utf8');
+
+    try {
+      execSync(
+        `cat "${codexTmpFile}" | codex exec -m gpt-5.3-codex -c model_reasoning_effort=xhigh -c hide_agent_reasoning=true --dangerously-bypass-approvals-and-sandbox -`,
+        {
+          encoding: 'utf8',
+          timeout: 1800000, // 30분
+          stdio: ['pipe', 'inherit', 'inherit'],
+          env: { ...process.env, CLAUDECODE: '' }
+        }
+      );
+      console.log('✅ Codex 썸네일 후처리 완료');
+    } catch (codexExecErr) {
+      console.warn(`⚠️ Codex 실행 실패 (건너뜀): ${codexExecErr.message?.substring(0, 200)}`);
+    } finally {
+      try { fs.unlinkSync(codexTmpFile); } catch (_) {}
+    }
+  } catch (_) {
+    console.log('\n⚠️ codex CLI가 설치되어 있지 않습니다. 썸네일 후처리를 건너뜁니다.');
+  }
+
+  // === docs/reports/ 복사 ===
+  const docsReportsDir = './docs/reports';
+  if (!fs.existsSync(docsReportsDir)) {
+    fs.mkdirSync(docsReportsDir, { recursive: true });
+  }
+  fs.copyFileSync(insightJsonFile, path.join(docsReportsDir, path.basename(insightJsonFile)));
+  console.log(`📂 docs/reports/ 복사 완료`);
 }
 
 main().catch(console.error);

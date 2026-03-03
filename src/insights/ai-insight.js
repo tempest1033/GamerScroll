@@ -200,7 +200,8 @@ JSON만 출력해. 다른 설명 없이.`;
               encoding: 'utf8',
               maxBuffer: 1024 * 1024,
               timeout: 3600000, // 1시간 타임아웃
-              stdio: ['pipe', 'pipe', 'pipe']
+              stdio: ['pipe', 'pipe', 'pipe'],
+              env: { ...process.env, CLAUDECODE: '' }
             }
           );
         } catch (cliError) {
