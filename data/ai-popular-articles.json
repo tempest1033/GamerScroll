@@ -1,13 +1,7 @@
 {
-  "updatedAt": "2026-03-02T00:59:18.224Z",
+  "updatedAt": "2026-03-03T01:00:37.707Z",
   "period": "7days",
   "articles": [
-    {
-      "category": "general",
-      "slug": "meta-avocado-ai-model-performance",
-      "views": 5,
-      "path": "/article/general/meta-avocado-ai-model-performance/"
-    },
     {
       "category": "general",
       "slug": "xbox-sunset-ai-pivot",
@@ -21,22 +15,34 @@
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
-      "category": "google",
-      "slug": "deepmind-update-aletheia-gemini",
-      "views": 4,
-      "path": "/article/google/deepmind-update-aletheia-gemini/"
-    },
-    {
       "category": "openai",
       "slug": "gpt-54-leak-model-war",
-      "views": 3,
+      "views": 4,
       "path": "/article/openai/gpt-54-leak-model-war/"
+    },
+    {
+      "category": "general",
+      "slug": "meta-avocado-ai-model-performance",
+      "views": 3,
+      "path": "/article/general/meta-avocado-ai-model-performance/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-military-venezuela-iran",
+      "views": 2,
+      "path": "/article/anthropic/claude-military-venezuela-iran/"
     },
     {
       "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 2,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
+      "category": "google",
+      "slug": "deepmind-update-aletheia-gemini",
+      "views": 2,
+      "path": "/article/google/deepmind-update-aletheia-gemini/"
     },
     {
       "category": "openai",
@@ -70,6 +76,12 @@
     },
     {
       "category": "anthropic",
+      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+    },
+    {
+      "category": "anthropic",
       "slug": "anthropic-pentagon-ultimatum-rsp-v3",
       "views": 1,
       "path": "/article/anthropic/anthropic-pentagon-ultimatum-rsp-v3/"
@@ -88,12 +100,6 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-military-venezuela-iran",
-      "views": 1,
-      "path": "/article/anthropic/claude-military-venezuela-iran/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-opus-46-pricing-controversy",
       "views": 1,
       "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
@@ -106,15 +112,21 @@
     },
     {
       "category": "general",
-      "slug": "bytedance-seedance-copyright-delay",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
-      "path": "/article/general/bytedance-seedance-copyright-delay/"
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "general",
       "slug": "china-ai-distillation-controversy",
       "views": 1,
       "path": "/article/general/china-ai-distillation-controversy/"
+    },
+    {
+      "category": "general",
+      "slug": "deepseek-v4-launch-march-2026",
+      "views": 1,
+      "path": "/article/general/deepseek-v4-launch-march-2026/"
     },
     {
       "category": "general",
