@@ -194,6 +194,13 @@ JSON만 출력해. 다른 설명 없이.`;
         }
 
         try {
+          // Claude Code 세션 내 실행 시 관련 환경변수 모두 제거
+          const childEnv = { ...process.env };
+          Object.keys(childEnv).forEach(key => {
+            if (key === 'CLAUDECODE' || key.startsWith('CLAUDE_CODE_')) {
+              delete childEnv[key];
+            }
+          });
           result = execSync(
             `cat "${tmpFile}" | claude -p - --model opus`,
             {
@@ -201,7 +208,7 @@ JSON만 출력해. 다른 설명 없이.`;
               maxBuffer: 1024 * 1024,
               timeout: 3600000, // 1시간 타임아웃
               stdio: ['pipe', 'pipe', 'pipe'],
-              env: { ...process.env, CLAUDECODE: '' }
+              env: childEnv
             }
           );
         } catch (cliError) {

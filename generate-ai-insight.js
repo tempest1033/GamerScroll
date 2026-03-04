@@ -373,6 +373,13 @@ async function main() {
     const codexTmpFile = path.join(os.tmpdir(), `codex-prompt-${Date.now()}.txt`);
     fs.writeFileSync(codexTmpFile, codexPrompt, 'utf8');
 
+    // Claude Code 세션 내 실행 시 관련 환경변수 모두 제거
+    const codexEnv = { ...process.env };
+    Object.keys(codexEnv).forEach(key => {
+      if (key === 'CLAUDECODE' || key.startsWith('CLAUDE_CODE_')) {
+        delete codexEnv[key];
+      }
+    });
     try {
       execSync(
         `cat "${codexTmpFile}" | codex exec -m gpt-5.3-codex -c model_reasoning_effort=xhigh -c hide_agent_reasoning=true --dangerously-bypass-approvals-and-sandbox -`,
@@ -380,7 +387,7 @@ async function main() {
           encoding: 'utf8',
           timeout: 1800000, // 30분
           stdio: ['pipe', 'inherit', 'inherit'],
-          env: { ...process.env, CLAUDECODE: '' }
+          env: codexEnv
         }
       );
       console.log('✅ Codex 썸네일 후처리 완료');
