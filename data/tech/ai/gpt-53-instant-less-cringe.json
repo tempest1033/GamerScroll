@@ -38,10 +38,22 @@
     {
       "type": "table",
       "caption": "GPT-5.3 Instant 환각 감소 수치",
-      "headers": ["측정 항목", "웹 검색 포함", "웹 검색 미포함"],
+      "headers": [
+        "측정 항목",
+        "웹 검색 포함",
+        "웹 검색 미포함"
+      ],
       "rows": [
-        ["고위험 분야 환각률 감소", "26.8%", "19.7%"],
-        ["사용자 보고 오류율 감소", "22.5%", "9.6%"]
+        [
+          "고위험 분야 환각률 감소",
+          "26.8%",
+          "19.7%"
+        ],
+        [
+          "사용자 보고 오류율 감소",
+          "22.5%",
+          "9.6%"
+        ]
       ]
     },
     {
@@ -128,10 +140,22 @@
     {
       "type": "table",
       "caption": "GPT-5.3 Instant Hallucination Reduction",
-      "headers": ["Metric", "With Web Search", "Without Web Search"],
+      "headers": [
+        "Metric",
+        "With Web Search",
+        "Without Web Search"
+      ],
       "rows": [
-        ["High-risk hallucination rate reduction", "26.8%", "19.7%"],
-        ["User-reported error rate reduction", "22.5%", "9.6%"]
+        [
+          "High-risk hallucination rate reduction",
+          "26.8%",
+          "19.7%"
+        ],
+        [
+          "User-reported error rate reduction",
+          "22.5%",
+          "9.6%"
+        ]
       ]
     },
     {
@@ -189,7 +213,7 @@
     }
   ],
   "thumbnail": "https://9to5mac.com/wp-content/uploads/sites/6/2026/02/chatgpt-app-icon-light.jpg?quality=82&strip=all&w=1024",
-  "date": "",
+  "date": "2026-03-04T13:00",
   "sources": [
     {
       "name": "9to5Mac",

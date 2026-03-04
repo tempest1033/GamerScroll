@@ -8,7 +8,7 @@
   "summaryEn": "Google launched Gemini 3.1 Flash-Lite at 1/8 the cost of Pro. It features 363 tokens/sec speed and four adjustable thinking levels, but a roughly 3x price increase over its predecessor raises questions about its 'cheapest model' positioning.",
   "keywords": "제미나이 3.1 플래시 라이트, Gemini Flash-Lite, 구글 AI 저가 모델, AI 가격 비교, Thinking Levels, GPT-5 mini, Claude 4.5 Haiku, 경량 AI 모델, 대량 처리 AI, 멀티모달 AI 비용",
   "keywordsEn": "Gemini 3.1 Flash-Lite, Google AI budget model, AI pricing comparison, Thinking Levels, GPT-5 mini, Claude 4.5 Haiku, lightweight AI model, high-volume AI processing, multimodal AI cost",
-  "date": "",
+  "date": "2026-03-04T13:00",
   "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_flash_Lite_blog_keyword_metacard_d.width-1300.png",
   "needTranslate": false,
   "relatedDocs": [
@@ -95,14 +95,49 @@
     {
       "type": "table",
       "caption": "경량 AI 모델 벤치마크 비교",
-      "headers": ["항목", "Gemini 3.1 Flash-Lite", "GPT-5 mini", "Claude 4.5 Haiku"],
+      "headers": [
+        "항목",
+        "Gemini 3.1 Flash-Lite",
+        "GPT-5 mini",
+        "Claude 4.5 Haiku"
+      ],
       "rows": [
-        ["Arena Elo", "1432", "-", "-"],
-        ["GPQA Diamond", "86.9%", "-", "-"],
-        ["MMMU-Pro", "76.8%", "-", "-"],
-        ["MMMLU", "88.9%", "-", "-"],
-        ["LiveCodeBench", "72.0%", "80.4%", "-"],
-        ["컨텍스트 윈도우", "1M 토큰", "-", "200K 토큰"]
+        [
+          "Arena Elo",
+          "1432",
+          "-",
+          "-"
+        ],
+        [
+          "GPQA Diamond",
+          "86.9%",
+          "-",
+          "-"
+        ],
+        [
+          "MMMU-Pro",
+          "76.8%",
+          "-",
+          "-"
+        ],
+        [
+          "MMMLU",
+          "88.9%",
+          "-",
+          "-"
+        ],
+        [
+          "LiveCodeBench",
+          "72.0%",
+          "80.4%",
+          "-"
+        ],
+        [
+          "컨텍스트 윈도우",
+          "1M 토큰",
+          "-",
+          "200K 토큰"
+        ]
       ]
     },
     {
@@ -167,14 +202,49 @@
     {
       "type": "table",
       "caption": "Lightweight AI Model Benchmark Comparison",
-      "headers": ["Metric", "Gemini 3.1 Flash-Lite", "GPT-5 mini", "Claude 4.5 Haiku"],
+      "headers": [
+        "Metric",
+        "Gemini 3.1 Flash-Lite",
+        "GPT-5 mini",
+        "Claude 4.5 Haiku"
+      ],
       "rows": [
-        ["Arena Elo", "1432", "-", "-"],
-        ["GPQA Diamond", "86.9%", "-", "-"],
-        ["MMMU-Pro", "76.8%", "-", "-"],
-        ["MMMLU", "88.9%", "-", "-"],
-        ["LiveCodeBench", "72.0%", "80.4%", "-"],
-        ["Context Window", "1M tokens", "-", "200K tokens"]
+        [
+          "Arena Elo",
+          "1432",
+          "-",
+          "-"
+        ],
+        [
+          "GPQA Diamond",
+          "86.9%",
+          "-",
+          "-"
+        ],
+        [
+          "MMMU-Pro",
+          "76.8%",
+          "-",
+          "-"
+        ],
+        [
+          "MMMLU",
+          "88.9%",
+          "-",
+          "-"
+        ],
+        [
+          "LiveCodeBench",
+          "72.0%",
+          "80.4%",
+          "-"
+        ],
+        [
+          "Context Window",
+          "1M tokens",
+          "-",
+          "200K tokens"
+        ]
       ]
     },
     {
