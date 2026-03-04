@@ -209,7 +209,8 @@ const EXTRA_ARTICLES = {
     'chatgpt-vs-gemini-comparison-2026',
     'gemini-3-hallucination-memory-overfitting',
     'seedance-2-hollywood-shock-next-version',
-    'deepseek-v4-launch-march-2026'
+    'deepseek-v4-launch-march-2026',
+    'apple-march-2026-macbook-neo-ai'
   ],
   // data/wiki/{category}/*.json
   wiki: [

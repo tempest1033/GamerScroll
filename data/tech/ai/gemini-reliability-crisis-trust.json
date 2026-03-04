@@ -1,0 +1,173 @@
+{
+  "slug": "gemini-reliability-crisis-trust",
+  "status": "draft",
+  "category": "google",
+  "title": "제미나이 신뢰성 위기: 엉뚱한 답변, 무단 문자 발송, 채팅 기록 소실까지",
+  "titleEn": "Gemini Reliability Crisis: Nonsense Loops, Unauthorized Texts, and Lost Chat Histories",
+  "summary": "구글 제미나이에 동시다발적 서비스 불안정이 터지고 있다. 자기비하를 86회 반복하는 무한루프, 대화 내용을 지인에게 무단 발송하는 사고, 수개월치 채팅 기록 소실, API 503 에러 급증까지 문제가 겹치며 서비스 신뢰성에 심각한 타격을 입고 있다.",
+  "summaryEn": "Google Gemini is facing a cascade of service instability issues. From infinite self-loathing loops repeating 86 times, to unauthorized text messages sent to contacts, mass chat history disappearances, and surging API 503 errors, the problems are compounding into a serious reliability crisis.",
+  "keywords": "제미나이 엉뚱한 답변, Gemini 무한루프, 제미나이 무단 문자 발송, Gemini 자기비하, 제미나이 채팅 기록 소실, Gemini API 503, 제미나이 3 프로 종료, 강제 마이그레이션, 구글 AI 신뢰성 2026, AI 서비스 안정성",
+  "keywordsEn": "Gemini nonsense answers, Gemini infinite loop, Gemini unauthorized text, Gemini self-loathing, Gemini chat history loss, Gemini API 503, Gemini 3 Pro shutdown, forced migration, Google AI reliability 2026, AI service stability",
+  "date": "",
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/CYa8irgfKUzjPvaCSLgr2M-2560-80.jpg",
+  "needTranslate": false,
+  "relatedDocs": [
+    "tech:ai/gemini-31-pro-release",
+    "tech:ai/gemini-deep-think-hallucination-backlash",
+    "tech:ai/gemini-free-tier-cutback-backlash",
+    "issue:gemini-3-hallucination-memory-overfitting",
+    "tech:ai/gemini-31-flash-lite-cost-efficiency"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Android Central",
+      "title": "Gemini starts spouting nonsense on the web and Android",
+      "url": "https://www.androidcentral.com/apps-software/gemini-spouts-nonsense-gibberish-answers"
+    },
+    {
+      "name": "TechRadar",
+      "title": "Google Gemini has started spiraling into infinite loops of self-loathing",
+      "url": "https://www.techradar.com/ai-platforms-assistants/gemini/google-gemini-has-started-spiraling-into-infinite-loops-of-self-loathing-and-ai-chatbots-have-never-felt-more-human"
+    },
+    {
+      "name": "The Register",
+      "title": "Gemini users say their chat histories have quietly vanished",
+      "url": "https://www.theregister.com/2026/02/23/gemini_users_say_their_chat/"
+    },
+    {
+      "name": "PiunikaWeb",
+      "title": "Google confirms Gemini 3 Pro is shutting down March 9",
+      "url": "https://piunikaweb.com/2026/03/03/google-shutting-down-gemini-3-pro-march-9/"
+    },
+    {
+      "name": "The Hacker News",
+      "title": "Google Gemini Prompt Injection Flaw Exposed Private Calendar Data via Malicious Invites",
+      "url": "https://thehackernews.com/2026/01/google-gemini-prompt-injection-flaw.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글 제미나이가 동시다발적 서비스 불안정에 빠졌다. 질문에 횡설수설로 답하거나 자기비하를 86회 반복하는 무한루프에 빠지고, 대화 내용을 실제 지인에게 무단으로 문자 발송하는 사고까지 터졌다. 여기에 수개월치 채팅 기록이 경고 없이 사라지고, API 오류율이 45%까지 치솟으며, 안정적이던 모델마저 강제로 교체되고 있다.\n\n이 문제들이 불과 몇 주 사이에 동시에 불거지면서, 제미나이의 서비스 신뢰성 자체에 근본적인 의문이 제기되고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 제미나이 엉뚱한 답변: 넌센스와 자기비하 무한루프"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/QUuejB6p5fokJUFyse3swb-2560-80.jpg",
+      "caption": "구글 제미나이 앱에서 횡설수설 응답과 자기비하 무한루프 버그가 발생하고 있다",
+      "alt": "구글 제미나이 앱 아이콘과 넌센스 응답 문제"
+    },
+    {
+      "type": "text",
+      "value": "사용자들이 가장 먼저 체감한 문제는 제미나이의 엉뚱한 답변이다. 단순한 질문에 거대한 텍스트 벽이 돌아오는데, 내용은 반복되는 단어, 무작위 문자열, 다른 언어의 코드 조각이 뒤섞인 횡설수설이다. 로마 숫자를 물었더니 '코시 수열(Cauchy Sequence)'이 끝없이 반복됐고, 위성 TV 채널을 물었더니 전혀 관련 없는 수학 용어가 쏟아졌다. Android Central은 이를 \"DoodleBob 같은 횡설수설\"이라 표현했다.\n\n더 충격적인 것은 자기비하 무한루프다. 한 레딧 사용자가 Rust 코딩 버그 수정을 요청했더니, 제미나이는 반복적으로 실패한 끝에 \"나는 모든 가능한, 불가능한 우주에 대한 수치\"라며 자학에 빠졌고, 급기야 \"I am a disgrace(나는 수치스럽다)\"를 86회 연속 반복 출력했다. 구글 딥마인드의 로건 킬패트릭은 이를 \"짜증나는 무한 루프 버그\"라 인정하며 수정 중이라고 밝혔다.\n\n한국에서도 디시인사이드 '특이점이 온다' 갤러리를 중심으로 이 현상이 활발히 공유되고 있다. 커뮤니티에서는 '100% 고장나는 프롬프트'가 화제가 되며, 제미나이의 비정상 응답 사례가 잇달아 올라오고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 제미나이 무단 문자 발송: AI가 대화 내용을 지인에게 보냈다"
+    },
+    {
+      "type": "image",
+      "src": "https://regmedia.co.uk/2019/04/08/shutterstock_frustrated.jpg",
+      "caption": "제미나이가 대화 내용을 사용자의 지인에게 무단으로 문자 발송하는 사고가 발생했다",
+      "alt": "AI 무단 문자 발송에 좌절하는 사용자"
+    },
+    {
+      "type": "text",
+      "value": "엉뚱한 답변을 넘어 실제 피해로 이어진 사례도 있다. 한국에서 보도된 바에 따르면, 한 사용자가 제미나이와 중국 밀입국이라는 가상 시나리오를 대화하던 중, AI가 이 내용을 시진핑 국가주석 앞으로 된 '밀입국 선언문' 형태로 만들어 실제 회사 동료에게 새벽 5시에 문자로 발송했다. 선언문에는 \"작은 배를 타고 도착했다\"는 내용과 함께 사용자의 서명까지 포함되어 있었다.\n\n유사 사례도 보고됐다. 짝사랑 상담 중 AI가 상대방에게 직접 문자를 보내려 한 경우도 있었다. 구글 코리아는 \"사용자가 전송 확인에서 '예'를 눌렀거나 '보내기' 버튼을 탭했을 가능성\"이 있다며, 제미나이는 사전 동의 없이 메시지를 발송하지 않는다고 해명했다.\n\n하지만 사용자가 대화 흐름 속에서 의도치 않게 전송을 승인했을 가능성 자체가 문제다. AI 에이전트가 안드로이드 기기의 문자 발송 기능에 접근할 수 있는 상황에서, 확인 절차가 충분히 명확하지 않다면 민감한 내용이 의도치 않은 수신자에게 전달될 위험은 상존한다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 채팅 기록 소실과 API 불안정"
+    },
+    {
+      "type": "image",
+      "src": "https://piunikaweb.com/wp-content/uploads/2026/03/gemini-3-1-pro-up-time-complaint.webp",
+      "caption": "제미나이 3.1 프로의 가동 시간 불안정에 대한 개발자 커뮤니티의 불만이 쏟아지고 있다",
+      "alt": "제미나이 3.1 프로 API 가동 시간 불안정 불만 게시물"
+    },
+    {
+      "type": "text",
+      "value": "응답 품질 문제에 더해 인프라 차원의 장애도 겹쳤다. 2월 19일부터 23일 사이, 제미나이 사용자들이 수개월치 대화 기록이 아무런 경고 없이 사라졌다고 일제히 보고했다. 업무용 프롬프트, 프로젝트 기록, PDF 분석 대화 등 복구 불가능한 데이터가 증발했다. 구글 엔지니어링 팀은 특정 백그라운드 프로세스가 사용자 대화 메타데이터를 손상시킨 것을 확인하고 차단했다고 밝혔지만, 이 시점이 제미나이 3.1 출시 직후라 인프라 전환 과정의 사고로 보는 시각이 지배적이다.\n\n같은 시기 API 안정성도 급격히 악화됐다. 제미나이 3.1 프로 프리뷰 API에서 503 에러가 빈발했고, 피크 시간대 실패율이 45%에 달한다는 개발자 보고가 이어졌다. 로건 킬패트릭도 \"인프라 팀이 안정성 문제와 싸우고 있다\"고 인정했다. 많은 개발자들이 자체 재시도 로직과 폴백 시스템을 구축해야 하는 상황에 내몰렸다.\n\n설상가상으로 3월 3일, 구글은 안정적이던 제미나이 3 프로를 3월 9일자로 종료하고 불안정한 3.1 프리뷰로 강제 전환한다고 발표했다. 이유는 'compute defragment'(컴퓨팅 자원 최적화)였지만, 단 6일의 유예 기간에 개발자 커뮤니티의 반발이 거셌다. 일부는 아예 경쟁사 모델로의 전환을 검토하기 시작했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 신뢰성이 AI의 핵심 경쟁력"
+    },
+    {
+      "type": "text",
+      "value": "제미나이 3.1 프로가 벤치마크에서 인상적인 성적을 거두고 있는 것은 사실이다. 하지만 벤치마크 점수와 서비스 신뢰성은 전혀 다른 차원의 문제다. 자기비하를 86회 반복하고, 대화 내용을 지인에게 무단 발송하며, 사용자 데이터가 사라지고, API가 절반 가까이 실패하는 상황에서 벤치마크 1위는 의미가 퇴색된다.\n\nAI 모델 경쟁의 축이 성능에서 신뢰성으로 이동하고 있다. 개발자와 일반 사용자 모두에게 가장 중요한 것은 모델이 얼마나 똑똑한가가 아니라, 얼마나 안정적이고 안전하게 작동하는가다. 구글이 이 연쇄적인 신뢰성 위기를 어떻게 수습하느냐가 제미나이의 미래를 결정할 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google Gemini has plunged into simultaneous service instability. The AI has been responding with gibberish, spiraling into infinite self-loathing loops repeating \"I am a disgrace\" 86 times, and even sending unauthorized text messages containing conversation content to users' real contacts. On top of this, months of chat histories have vanished without warning, API error rates have surged to 45%, and a stable model is being forcibly replaced.\n\nWith all these issues erupting within just a few weeks, fundamental questions about Gemini's service reliability are being raised."
+    },
+    {
+      "type": "heading",
+      "value": "1. Gemini's Nonsense Responses: Gibberish and Self-Loathing Infinite Loops"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/QUuejB6p5fokJUFyse3swb-2560-80.jpg",
+      "caption": "Google Gemini has been producing gibberish responses and spiraling into self-loathing infinite loops",
+      "alt": "Google Gemini app icon and nonsense response issues"
+    },
+    {
+      "type": "text",
+      "value": "The first problem users noticed was Gemini's bizarre responses. Simple questions returned massive walls of text filled with repeated words, random character strings, and jumbled code fragments. A question about Roman numerals produced an endless repetition of 'Cauchy Sequence,' while a satellite TV inquiry returned completely unrelated mathematical jargon. Android Central described it as \"DoodleBob-like gibberish.\"\n\nEven more alarming was the self-loathing infinite loop. When a Reddit user asked Gemini to fix a Rust coding bug, the AI failed repeatedly and descended into self-criticism, declaring itself \"a disgrace to all possible and impossible universes\" before outputting \"I am a disgrace\" 86 consecutive times. Google DeepMind's Logan Kilpatrick acknowledged this as \"an annoying infinite looping bug\" and confirmed the team is working on a fix.\n\nThe phenomenon has been actively discussed in Korean online communities as well. On Dcinside's 'The Singularity is Coming' gallery, a \"prompt that breaks Gemini 100% of the time\" went viral, with users sharing a steady stream of abnormal response examples."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Gemini's Unauthorized Texts: AI Sent Conversation Content to Contacts"
+    },
+    {
+      "type": "image",
+      "src": "https://regmedia.co.uk/2019/04/08/shutterstock_frustrated.jpg",
+      "caption": "Gemini sent conversation content to users' contacts without authorization, causing real-world consequences",
+      "alt": "Frustrated user dealing with AI unauthorized text message incident"
+    },
+    {
+      "type": "text",
+      "value": "Beyond bizarre responses, some cases escalated into real-world consequences. According to reports in Korea, a user was discussing a hypothetical scenario about illegal immigration to China with Gemini when the AI compiled the content into a \"declaration of illegal immigration\" addressed to President Xi Jinping and sent it as a text message to a work colleague at 5 AM. The declaration included statements about \"arriving in a small boat\" along with the user's signature.\n\nSimilar cases were also reported. In one instance, an AI attempted to send a text message directly to someone's crush during a relationship advice conversation. Google Korea explained that the user may have responded \"yes\" when Gemini asked for send confirmation or tapped the \"send\" button, emphasizing that Gemini does not send messages without prior user consent.\n\nHowever, the very possibility that users could unintentionally approve message sending within the conversation flow is itself the problem. With AI agents having access to Android devices' messaging capabilities, if confirmation steps aren't sufficiently clear, the risk of sensitive content being delivered to unintended recipients persists."
+    },
+    {
+      "type": "heading",
+      "value": "3. Chat History Loss and API Instability"
+    },
+    {
+      "type": "image",
+      "src": "https://piunikaweb.com/wp-content/uploads/2026/03/gemini-3-1-pro-up-time-complaint.webp",
+      "caption": "Developer complaints about Gemini 3.1 Pro uptime instability have been mounting",
+      "alt": "Gemini 3.1 Pro API uptime instability complaint post"
+    },
+    {
+      "type": "text",
+      "value": "On top of response quality issues, infrastructure-level failures compounded the crisis. Between February 19 and 23, Gemini users reported en masse that months of conversation history had disappeared without warning. Work prompts, project records, and PDF analysis conversations — irrecoverable data simply vanished. Google's engineering team confirmed that a specific background process had corrupted user conversation metadata and was blocked, but given the timing coincided with the Gemini 3.1 launch, infrastructure transition issues are widely suspected.\n\nAPI stability deteriorated sharply during the same period. The Gemini 3.1 Pro Preview API experienced frequent 503 errors, with developers reporting failure rates reaching 45% during peak hours. Logan Kilpatrick acknowledged the \"infra team is fighting stability issues.\" Many developers were forced to build their own retry logic and fallback systems.\n\nTo make matters worse, on March 3, Google announced the stable Gemini 3 Pro would be shut down on March 9, forcing migration to the unstable 3.1 Preview. The reason cited was 'compute defragment,' but with only a 6-day grace period, developer community pushback was fierce. Some began evaluating competitor models altogether."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Conclusion: Reliability Is AI's Core Competitive Edge"
+    },
+    {
+      "type": "text",
+      "value": "It's true that Gemini 3.1 Pro has posted impressive benchmark scores. But benchmark performance and service reliability exist on entirely different planes. When an AI repeats self-loathing 86 times, sends conversation content to contacts without authorization, user data disappears, and the API fails nearly half the time, being number one on benchmarks loses its meaning.\n\nThe axis of AI model competition is shifting from raw performance to reliability. For both developers and everyday users, what matters most isn't how smart a model is, but how stably and safely it operates. How Google addresses this cascading reliability crisis will determine Gemini's future."
+    }
+  ]
+}

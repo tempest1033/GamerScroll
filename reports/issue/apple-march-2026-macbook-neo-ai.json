@@ -1,0 +1,200 @@
+{
+  "slug": "apple-march-2026-macbook-neo-ai",
+  "isGlobal": true,
+  "status": "draft",
+  "needTranslate": false,
+  "title": "애플 3월 신제품 7종 공개: MacBook Neo 89만원과 M5 AI 칩이 바꿀 시장 판도",
+  "titleEn": "Apple Unveils 7 New Products in March: $599 MacBook Neo and M5 AI Chip to Reshape the Market",
+  "date": "",
+  "keywords": "애플, MacBook Neo, M5 칩, iPhone 17e, MacBook Air M5, AI 성능, Neural Accelerator, 맥북 네오, 아이폰 칩, 맥북 프로, Apple Intelligence, 2026",
+  "keywordsEn": "Apple, MacBook Neo, M5 chip, iPhone 17e, MacBook Air M5, AI performance, Neural Accelerator, MacBook Pro, Apple Intelligence, on-device AI, 2026",
+  "summary": "애플이 3일간 7개 이상의 신제품을 쏟아냈다. 89만원대 MacBook Neo는 아이폰 칩으로 구동되는 최초의 맥북이고, M5 칩은 AI 연산 성능을 M4 대비 4배 끌어올렸다. 공격적인 가격 정책과 AI 인프라 전략이 핵심이다.",
+  "summaryEn": "Apple unveiled over seven new products in three days. The $599 MacBook Neo is the first Mac powered by an iPhone chip, and the M5 chip quadruples AI compute performance over M4. Aggressive pricing and AI infrastructure strategy are the key takeaways.",
+  "thumbnail": "https://www.apple.com/newsroom/images/2026/03/apple-introduces-the-new-macbook-air-with-m5/article/Apple-MacBook-Air-hero-260303_big.jpg.large.jpg",
+  "relatedDocs": [
+    "issue:gaming-device-price-surge-ai-tariff",
+    "issue:steam-deck-oled-price-hike-asia",
+    "issue:ddr5-price-surge-gaming-nightmare",
+    "issue:ps6-release-outlook-2027"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Apple Newsroom",
+      "title": "Apple Introduces iPhone 17e",
+      "url": "https://www.apple.com/newsroom/2026/03/apple-introduces-iphone-17e/"
+    },
+    {
+      "name": "Apple Newsroom",
+      "title": "Apple Introduces the New MacBook Air with M5",
+      "url": "https://www.apple.com/newsroom/2026/03/apple-introduces-the-new-macbook-air-with-m5/"
+    },
+    {
+      "name": "9to5Mac",
+      "title": "Apple has announced 6 new products so far this week",
+      "url": "https://9to5mac.com/2026/03/03/apple-has-announced-6-new-products-so-far-this-week/"
+    },
+    {
+      "name": "MacRumors",
+      "title": "Apple Accidentally Leaks MacBook Neo",
+      "url": "https://www.macrumors.com/2026/03/03/apple-accidentally-leaks-macbook-neo/"
+    },
+    {
+      "name": "CNBC",
+      "title": "Apple raises MacBook prices as M5 chips signal AI-first strategy",
+      "url": "https://www.cnbc.com/2026/03/03/apple-macbook-prices-m5-ai.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "애플이 3월 첫째 주, 3일 만에 7개 이상의 신제품을 쏟아냈다. 키노트도 없이, 보도자료만으로 진행된 이례적인 대량 발표였다. 그중에서도 가장 큰 화제는 'MacBook Neo'다. 아이폰 칩으로 구동되는 89만원대 맥북이라는, 애플답지 않은 파격이었다.\n\n이번 발표의 키워드는 두 가지로 압축된다. 공격적인 가격 정책과 AI 성능 강화다. 저가 시장을 공략하면서도 AI 인프라를 하드웨어에 깊숙이 심는 전략이, 애플이 그리는 다음 그림의 윤곽을 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "1. MacBook Neo: 아이폰 칩으로 만든 89만원대 맥북"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/apple-introduces-the-new-macbook-air-with-m5/article/Apple-MacBook-Air-13-inch-and-15-inch-260303_big.jpg.large.jpg",
+      "caption": "애플 맥북 라인업 2026년 3월 신제품",
+      "alt": "애플 MacBook Neo 맥북 2026년 3월 신제품 라인업 13인치 15인치"
+    },
+    {
+      "type": "text",
+      "value": "MacBook Neo는 애플 역사상 최초로 아이폰용 칩을 탑재한 맥북이다. M 시리즈가 아닌 A18 또는 A19 Pro 칩이 들어간다. 12.9인치 디스플레이에 다채로운 컬러 옵션을 갖추고, 가격은 89만원대에서 119만원대 사이로 책정됐다.\n\n이 제품의 타깃은 명확하다. 크롬북과 저가 윈도우 노트북 시장이다. 지금까지 애플의 가장 저렴한 노트북이었던 MacBook Air가 179만원인 점을 감안하면, 89만원대는 완전히 다른 소비자층을 겨냥한 가격이다. MacRumors에 따르면 이 제품은 애플 웹사이트에서 실수로 유출되었다가 빠르게 삭제되기도 했다.\n\n아이폰 칩 기반이라는 점에서 성능 한계는 분명하다. 하지만 Apple Intelligence를 포함한 기본적인 AI 기능은 모두 지원하며, 웹 브라우징과 문서 작업, 교육용으로는 충분한 성능을 제공할 것으로 보인다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. MacBook Air M5와 iPhone 17e: 용량은 두 배, 가격은 그대로"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/apple-introduces-iphone-17e/article/Apple-iPhone-17e-family-lineup-260302_big.jpg.large.jpg",
+      "caption": "iPhone 17e 컬러 라인업",
+      "alt": "애플 iPhone 17e 2026 컬러 라인업 A19 칩 256GB"
+    },
+    {
+      "type": "text",
+      "value": "MacBook Air M5는 기본 저장 용량이 512GB로 두 배 늘었고, SSD 속도도 2배 빨라졌다. 그러면서도 가격은 179만원으로 동일하게 유지됐다. 같은 가격에 2배의 용량과 속도를 제공하는 셈이니, 실질적인 가격 인하와 다름없다.\n\niPhone 17e도 비슷한 전략을 따른다. 기본 저장 용량이 256GB로 두 배 늘었고, A19 칩과 C1X 자체 설계 모뎀을 탑재했다. 가격은 99만원으로 유지됐다. iPad Air M4 역시 이번 라인업에 포함되어 함께 발표됐다.\n\n'가격은 그대로, 사양은 업그레이드'라는 공식이 이번 발표의 중간 라인업 전체에 관통하고 있다. 소비자 입장에서는 구매 시점을 늦출 이유가 없는 구성이다."
+    },
+    {
+      "type": "heading",
+      "value": "3. M5 칩의 AI 성능: M4 대비 4배, M1 대비 9.5배"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/article/Apple-M5-Pro-M5-Max-chips-260303_big.jpg.large.jpg",
+      "caption": "M5 Pro 및 M5 Max 칩",
+      "alt": "애플 M5 Pro M5 Max 칩 Neural Accelerator AI 성능 2026"
+    },
+    {
+      "type": "text",
+      "value": "M5 칩의 핵심 변화는 Neural Accelerator다. 애플이 공개한 수치에 따르면, M5의 AI 연산 성능은 M4 대비 4배, M1 대비 9.5배에 달한다. 단순한 벤치마크 개선이 아니라, 온디바이스 AI를 본격적으로 구동하기 위한 아키텍처 차원의 변화다.\n\n애플은 Foundation Models 프레임워크를 통해 개발자들이 기기 내에서 직접 AI 모델을 실행할 수 있는 환경을 구축하고 있다. Privacy Cloud Compute와 결합해, 민감한 데이터는 기기에서 처리하고 복잡한 연산만 클라우드로 보내는 하이브리드 구조를 완성하려는 것이다.\n\nCNBC는 이를 두고 \"애플에게 AI는 기능이 아니라 인프라\"라고 평가했다. ChatGPT나 Gemini처럼 챗봇 서비스를 전면에 내세우는 대신, 하드웨어와 OS 레벨에서 AI를 흡수하는 전략이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. MacBook Pro 가격 인상과 양면 전략"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/apple-introduces-macbook-pro-with-all-new-m5-pro-and-m5-max/article/Apple-MacBook-Pro-M5-Pro-and-M5-Max-Capture-One-260303_big.jpg.large.jpg",
+      "caption": "MacBook Pro M5 Pro로 Capture One 편집 작업 중",
+      "alt": "애플 MacBook Pro M5 Pro M5 Max 2026 프로 노트북 가격 인상"
+    },
+    {
+      "type": "text",
+      "value": "흥미로운 건 MacBook Pro의 움직임이다. Pro 라인업은 기본 저장 용량을 1TB로 올리면서, 가격을 15만~30만원가량 인상했다. 하단에서는 Neo로 시장을 넓히고, 상단에서는 Pro의 프리미엄화를 강화하는 양면 전략이다.\n\n여기에 Studio Display XDR이 489만원대에 새롭게 추가되며 프로슈머 라인업도 보강됐다. 애플은 한쪽에서는 89만원대 맥북을 팔고, 다른 쪽에서는 489만원대 디스플레이를 파는 극단적인 가격 스펙트럼을 구성한 것이다.\n\n9to5Mac은 이번 주에만 6개 이상의 신제품이 발표됐다고 정리하며, \"키노트 없이 이 정도 물량을 쏟아낸 것은 전례가 없다\"고 평가했다. 전통적인 이벤트 중심 발표에서 벗어나, 상시 출시 체제로의 전환을 시사하는 대목이다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 조용한 AI 전략, 하드웨어에 새기다"
+    },
+    {
+      "type": "text",
+      "value": "애플의 이번 3월 발표는 화려한 키노트 대신 제품으로 말했다. MacBook Neo라는 전혀 새로운 카테고리의 창출, M5 칩의 AI 연산 도약, 그리고 중간 라인업의 실질적 가격 인하까지, 세 가지 방향이 하나의 전략으로 수렴한다.\n\n애플의 AI 전략은 OpenAI나 구글처럼 시끄럽지 않다. 하지만 매년 수억 대 팔리는 하드웨어에 Neural Accelerator를 내장하고, Privacy Cloud Compute로 데이터 주권을 지키며, 개발자 프레임워크로 생태계를 확장하는 방식은, 장기적으로 가장 넓은 AI 보급 경로가 될 수 있다. 89만원대 MacBook Neo가 그 시작점이 될지, 시장의 반응이 답을 줄 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Apple unleashed more than seven new products in the first week of March, all within just three days. There was no keynote, no stage, just a barrage of press releases in a highly unusual mass announcement. The biggest talking point was the MacBook Neo, a $599 laptop powered by an iPhone chip, a move that felt distinctly un-Apple.\n\nTwo keywords define this wave of launches: aggressive pricing and AI performance. Apple is simultaneously targeting the budget market while embedding AI infrastructure deep into its hardware, revealing the contours of its next strategic chapter."
+    },
+    {
+      "type": "heading",
+      "value": "1. MacBook Neo: A $599 Mac Built on iPhone Silicon"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/apple-introduces-the-new-macbook-air-with-m5/article/Apple-MacBook-Air-13-inch-and-15-inch-260303_big.jpg.large.jpg",
+      "caption": "Apple MacBook lineup, March 2026 new products",
+      "alt": "Apple MacBook Neo 2026 March new product lineup 13-inch 15-inch"
+    },
+    {
+      "type": "text",
+      "value": "The MacBook Neo is the first Mac in Apple's history to run on an iPhone chip. It uses the A18 or A19 Pro rather than the M-series, features a 12.9-inch display in multiple colors, and is priced between $599 and $799.\n\nThe target market is clear: Chromebooks and budget Windows laptops. Considering that Apple's cheapest notebook until now was the $1,099 MacBook Air, $599 represents an entirely different consumer segment. According to MacRumors, the product was accidentally leaked on Apple's website before being quickly pulled down.\n\nThe iPhone chip basis means obvious performance limitations. But it supports all core Apple Intelligence features, and for web browsing, document work, and education, the performance should be more than adequate."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. MacBook Air M5 and iPhone 17e: Double the Storage, Same Price"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/apple-introduces-iphone-17e/article/Apple-iPhone-17e-family-lineup-260302_big.jpg.large.jpg",
+      "caption": "iPhone 17e color lineup",
+      "alt": "Apple iPhone 17e 2026 color lineup A19 chip 256GB"
+    },
+    {
+      "type": "text",
+      "value": "The MacBook Air M5 doubles its base storage to 512GB with 2x faster SSD speeds, all while maintaining the $1,099 price point. Twice the storage and speed at the same price amounts to a de facto price cut.\n\nThe iPhone 17e follows a similar strategy. Base storage doubles to 256GB, it carries the A19 chip with Apple's custom C1X modem, and the price stays at $599. The iPad Air M4 was also included in this lineup.\n\nThe formula of 'same price, upgraded specs' runs through the entire mid-range lineup. For consumers, there's little reason to wait."
+    },
+    {
+      "type": "heading",
+      "value": "3. M5 Chip AI Performance: 4x Over M4, 9.5x Over M1"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/article/Apple-M5-Pro-M5-Max-chips-260303_big.jpg.large.jpg",
+      "caption": "M5 Pro and M5 Max chips",
+      "alt": "Apple M5 Pro M5 Max chip Neural Accelerator AI performance 2026"
+    },
+    {
+      "type": "text",
+      "value": "The defining change in the M5 chip is the Neural Accelerator. According to Apple's figures, M5's AI compute performance is 4x that of M4 and 9.5x that of M1. This isn't a mere benchmark improvement but an architectural shift designed to run on-device AI at scale.\n\nApple is building an environment where developers can run AI models directly on-device through its Foundation Models framework. Combined with Privacy Cloud Compute, the goal is a hybrid architecture where sensitive data is processed locally while only complex computations are sent to the cloud.\n\nCNBC characterized this as Apple treating AI not as a feature but as infrastructure. Rather than putting a chatbot service front and center like ChatGPT or Gemini, Apple is absorbing AI at the hardware and OS level."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. MacBook Pro Price Hikes and Apple's Two-Front Strategy"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/apple-introduces-macbook-pro-with-all-new-m5-pro-and-m5-max/article/Apple-MacBook-Pro-M5-Pro-and-M5-Max-Capture-One-260303_big.jpg.large.jpg",
+      "caption": "MacBook Pro M5 Pro running Capture One",
+      "alt": "Apple MacBook Pro M5 Pro M5 Max 2026 pro laptop price increase"
+    },
+    {
+      "type": "text",
+      "value": "The MacBook Pro's moves are telling. The Pro lineup upgraded base storage to 1TB while raising prices by $100 to $200. Apple is expanding the market at the low end with the Neo while reinforcing premiumization at the high end with the Pro.\n\nThe new Studio Display XDR at $3,299 further strengthens the prosumer lineup. Apple is now selling $599 laptops on one end and $3,299 displays on the other, creating an extreme price spectrum.\n\n9to5Mac noted that over six new products were announced in a single week, calling it unprecedented to release this volume without a keynote. It suggests a shift from traditional event-driven launches to an always-on release cadence."
+    },
+    {
+      "type": "heading",
+      "value": "In Closing: A Quiet AI Strategy, Etched in Hardware"
+    },
+    {
+      "type": "text",
+      "value": "Apple's March announcements spoke through products rather than a flashy keynote. A brand-new category in the MacBook Neo, an AI compute leap with the M5 chip, and effective price cuts across the mid-range lineup all converge into a single strategy.\n\nApple's AI approach isn't as loud as OpenAI's or Google's. But embedding Neural Accelerators in hundreds of millions of devices sold annually, protecting data sovereignty through Privacy Cloud Compute, and expanding the ecosystem via developer frameworks could become the broadest AI distribution channel in the long run. Whether the $599 MacBook Neo marks the beginning of that journey will be answered by the market."
+    }
+  ]
+}

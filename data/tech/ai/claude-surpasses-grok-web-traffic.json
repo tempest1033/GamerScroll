@@ -1,0 +1,174 @@
+{
+  "slug": "claude-surpasses-grok-web-traffic",
+  "status": "draft",
+  "needTranslate": false,
+  "category": "anthropic",
+  "title": "클로드 웹 트래픽, Grok과 DeepSeek 첫 추월: AI 챗봇 시장 다극화 본격화",
+  "titleEn": "Claude Surpasses Grok and DeepSeek in Web Traffic for the First Time: AI Chatbot Market Enters Multi-Polar Era",
+  "date": "",
+  "keywords": "클로드, 웹 트래픽, Grok, DeepSeek, SimilarWeb, 엔트로픽, ChatGPT, AI 챗봇, 시장 점유율, Claude Code, 엔터프라이즈 AI, 다극화, 일일 방문자, 2026",
+  "keywordsEn": "Claude, web traffic, Grok, DeepSeek, SimilarWeb, Anthropic, ChatGPT, AI chatbot, market share, Claude Code, enterprise AI, multi-polar, daily visitors, 2026",
+  "summary": "SimilarWeb 데이터에 따르면, 엔트로픽의 클로드가 일일 웹 방문자 수에서 처음으로 Grok과 DeepSeek을 추월했다. ChatGPT 독주 시대가 저물고, AI 챗봇 시장이 본격적인 다극 경쟁 체제로 진입하고 있다.",
+  "summaryEn": "According to SimilarWeb data, Anthropic's Claude has surpassed Grok and DeepSeek in daily web visitors for the first time. As ChatGPT's dominance fades, the AI chatbot market is entering a true multi-polar competitive landscape.",
+  "thumbnail": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd4655461-dd0e-429c-b995-5b8fdddb490b_1011x674.png",
+  "relatedDocs": [
+    "tech:ai/claude-app-store-number-one",
+    "tech:ai/anthropic-b2b-strategy-success",
+    "tech:ai/claude-code-agent-teams-paradigm",
+    "tech:ai/claude-outage-demand-surge-pentagon",
+    "tech:ai/xai-talent-exodus-grok-crisis",
+    "tech:ai/grok-420-multi-agent-release"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "OfficeChai",
+      "title": "Claude Goes Past Grok, DeepSeek In Website Visits For The First Time",
+      "url": "https://officechai.com/ai/claude-goes-past-grok-deepseek-in-website-visits-for-the-first-time-following-us-govt-face-off/"
+    },
+    {
+      "name": "Fortune",
+      "title": "ChatGPT's market share is slipping as Google and rivals close the gap",
+      "url": "https://fortune.com/2026/02/05/chatgpt-openai-market-share-app-slip-google-rivals-close-the-gap/"
+    },
+    {
+      "name": "Uncover Alpha",
+      "title": "Anthropic's Claude Code is having its 'ChatGPT' moment",
+      "url": "https://www.uncoveralpha.com/p/anthropics-claude-code-is-having"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Claude rises to No. 1 in the App Store following Pentagon dispute",
+      "url": "https://techcrunch.com/2026/03/01/anthropics-claude-rises-to-no-2-in-the-app-store-following-pentagon-dispute/"
+    },
+    {
+      "name": "FatJoe",
+      "title": "Claude AI Stats February 2026",
+      "url": "https://fatjoe.com/blog/claude-ai-stats/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "SimilarWeb 데이터에 따르면, 2026년 2월 말 엔트로픽(Anthropic)의 클로드(Claude)가 일일 웹 방문자 수에서 처음으로 Grok과 DeepSeek을 추월했다. Claude.ai의 일일 방문자는 약 1,400만 명으로 급등했고, Grok.com과 DeepSeek.com은 각각 900만~1,100만 수준에 머물렀다.\n\nAI 챗봇 시장의 3~5위권 경쟁 구도가 뒤바뀐 것이다. ChatGPT가 여전히 압도적 1위를 유지하고 있지만, 후발주자들 사이의 순위 변동은 시장이 더 이상 고정되지 않았음을 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "1. SimilarWeb 트래픽 데이터: Claude 1,400만 vs Grok 1,100만"
+    },
+    {
+      "type": "image",
+      "src": "https://i0.wp.com/officechai.com/wp-content/uploads/2026/03/image-9.png?fit=700%2C610&ssl=1",
+      "caption": "SimilarWeb 일일 방문자 추이: 2월 말 클로드가 Grok과 DeepSeek을 동시에 추월했다",
+      "alt": "SimilarWeb 일일 방문자 데이터 Claude Grok DeepSeek 웹 트래픽 비교 차트 2026년 2월"
+    },
+    {
+      "type": "text",
+      "value": "SimilarWeb이 추적하는 일일 방문자 데이터에서 Claude.ai의 변화는 극적이다. 1~2월 중순까지 Claude.ai는 하루 400만~700만 방문자 수준이었고, Grok.com과 DeepSeek.com은 각각 900만~1,100만 수준으로 클로드보다 확실히 앞서 있었다.\n\n전환점은 2월 26일 전후였다. 이 시점에서 Claude.ai의 일일 방문자가 약 1,400만으로 급등하며 Grok과 DeepSeek을 동시에 추월했다. 7개월 만에 월간 방문자가 10.3배 성장하여 2025년 12월 기준 월 1억 7,600만 방문을 기록한 성장 곡선이 2월 말에 더욱 가파르게 꺾인 것이다.\n\n다만 이 데이터는 웹 트래픽만 반영하며, 모바일 앱과 API 사용량은 포함되지 않는다. 전체 사용자 규모를 직접 비교하기에는 한계가 있지만, 웹 기반 소비자 관심도의 지표로서 의미 있는 변화다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. AI 챗봇 시장 점유율: ChatGPT 독주의 종말"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.fatjoe.com/wp-content/uploads/2026/02/OpenGraph-10.png",
+      "caption": "2026년 2월 기준 Claude AI 주요 통계 요약",
+      "alt": "Claude AI 통계 2026 시장 점유율 ChatGPT Gemini Grok DeepSeek 챗봇 경쟁"
+    },
+    {
+      "type": "text",
+      "value": "Fortune이 보도한 2026년 1월 기준 SimilarWeb 시장 점유율 데이터는 더 큰 그림을 보여준다. ChatGPT의 점유율은 64.6%로, 12개월 전 86.7%에서 22%포인트나 하락했다. Google의 Gemini가 22%로 2위, xAI의 Grok이 3.5%, DeepSeek이 3.3%, 클로드가 2.1%를 기록했다.\n\n주의할 점은 이 2.1%가 1월 데이터라는 것이다. 2월 말 클로드의 급등분은 아직 반영되지 않았다. 3월 데이터에서는 클로드의 점유율이 유의미하게 상승할 가능성이 높다.\n\nChatGPT의 점유율 하락은 제품력 저하 때문이 아니다. 시장 자체가 다극화되고 있는 것이다. Gemini의 안정적 성장, DeepSeek의 오픈소스 기반 부상, Grok의 X(구 트위터) 연동 전략, 그리고 클로드의 성능 중심 포지셔닝까지, 각 플레이어가 고유한 강점을 기반으로 사용자를 확보하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3. Claude의 성장 동력: 코드에서 엔터프라이즈까지"
+    },
+    {
+      "type": "image",
+      "src": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21f157c5-6b80-47c6-b480-3774aa5b90ac_1306x628.png",
+      "caption": "VS Code 마켓플레이스 AI 코딩 확장 프로그램 일일 설치 추이. Claude Code가 급성장하고 있다",
+      "alt": "Claude Code VS Code 설치 수 증가 AI 코딩 도구 일일 설치 추이 엔트로픽 성장"
+    },
+    {
+      "type": "text",
+      "value": "클로드의 트래픽 급등 배경에는 다층적인 성장 동력이 있다. 가장 두드러진 것은 Claude Code의 폭발적 성장이다. 엔트로픽의 AI 코딩 도구인 Claude Code는 출시 6개월 만에 연간 반복 매출(ARR) 10억 달러를 돌파했고, 2026년 1월 기준으로 20억 달러를 넘어선 것으로 추정된다.\n\n엔터프라이즈 시장에서의 입지도 주목할 만하다. 엔트로픽은 기업용 AI 시장에서 33%의 점유율을 확보하며 OpenAI(25%)와 Google(20%)을 앞서고 있다. 사용자 참여도 측면에서도 클로드는 일일 평균 34.7분으로 경쟁사 대비 가장 높은 수치를 기록하고 있어, 단순 방문이 아닌 깊이 있는 사용이 이뤄지고 있음을 시사한다.\n\n2월 말 앱스토어 1위 달성 당시의 바이럴 효과와 국방부 계약 논란에 따른 반사이익 역시 단기적 트래픽 급등에 기여했다. 하지만 이러한 이벤트성 효과를 떠나, 엔트로픽의 매출이 2025년 초 10억 달러에서 연말 90억 달러로 성장할 것으로 전망되는 점은 구조적 성장세를 반영한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 후발주자의 시대가 열리다"
+    },
+    {
+      "type": "text",
+      "value": "클로드가 Grok과 DeepSeek의 웹 트래픽을 처음 추월한 것은 하나의 이정표이지, 승리 선언이 아니다. ChatGPT는 여전히 시장의 3분의 2를 차지하고 있고, 앱 다운로드와 API 사용량에서도 압도적이다. 하지만 12개월 전 86.7%였던 점유율이 64.6%로 떨어진 추세는 되돌리기 어려워 보인다.\n\nAI 챗봇 시장은 이제 단일 승자의 게임이 아니라, 성능(클로드), 생태계(Gemini), 오픈소스(DeepSeek), 소셜 통합(Grok) 등 각자의 강점을 앞세운 다극 경쟁 체제로 전환되고 있다. 3,500억 달러 기업가치를 인정받은 엔트로픽이 이 구도에서 어디까지 올라갈 수 있을지, 2026년 하반기의 시장 데이터가 답을 줄 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "According to SimilarWeb data, Anthropic's Claude surpassed both Grok and DeepSeek in daily web visitors for the first time in late February 2026. Claude.ai's daily visits surged to approximately 14 million, while Grok.com and DeepSeek.com remained in the 9-11 million range.\n\nThe competitive landscape among the third-to-fifth-place AI chatbots has shifted. While ChatGPT maintains its overwhelming lead, the reshuffling among challengers signals that the market is no longer static."
+    },
+    {
+      "type": "heading",
+      "value": "1. SimilarWeb Traffic Data: Claude 14M vs Grok 11M"
+    },
+    {
+      "type": "image",
+      "src": "https://i0.wp.com/officechai.com/wp-content/uploads/2026/03/image-9.png?fit=700%2C610&ssl=1",
+      "caption": "SimilarWeb daily visitor trends: Claude overtook both Grok and DeepSeek in late February",
+      "alt": "SimilarWeb daily visitor data Claude Grok DeepSeek web traffic comparison chart February 2026"
+    },
+    {
+      "type": "text",
+      "value": "The shift in SimilarWeb's daily visitor data for Claude.ai has been dramatic. Through mid-February, Claude.ai averaged 4-7 million daily visitors, while Grok.com and DeepSeek.com each maintained 9-11 million, comfortably ahead of Claude.\n\nThe turning point came around February 26. Claude.ai's daily visitors surged to approximately 14 million, overtaking both Grok and DeepSeek simultaneously. This acceleration built on an already impressive growth trajectory: monthly visits reached 176.12 million by December 2025, representing 10.3x growth in just seven months.\n\nIt's worth noting that this data reflects web traffic only and doesn't include mobile apps or API usage. While it has limitations as a measure of total user base, it serves as a meaningful indicator of consumer interest."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. AI Chatbot Market Share: The End of ChatGPT's Dominance"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.fatjoe.com/wp-content/uploads/2026/02/OpenGraph-10.png",
+      "caption": "Key Claude AI statistics as of February 2026",
+      "alt": "Claude AI statistics 2026 market share ChatGPT Gemini Grok DeepSeek chatbot competition"
+    },
+    {
+      "type": "text",
+      "value": "Fortune's report on January 2026 SimilarWeb market share data reveals the bigger picture. ChatGPT's share stands at 64.6%, down 22 percentage points from 86.7% twelve months ago. Google's Gemini holds 22% in second place, followed by xAI's Grok at 3.5%, DeepSeek at 3.3%, and Claude at 2.1%.\n\nCrucially, Claude's 2.1% reflects January data. The late-February surge hasn't been captured yet, and March figures are likely to show a meaningful increase in Claude's share.\n\nChatGPT's declining share isn't due to product deterioration. The market itself is becoming multi-polar. Gemini's steady growth, DeepSeek's open-source momentum, Grok's X (formerly Twitter) integration strategy, and Claude's performance-first positioning each carve out distinct user bases."
+    },
+    {
+      "type": "heading",
+      "value": "3. Claude's Growth Drivers: From Code to Enterprise"
+    },
+    {
+      "type": "image",
+      "src": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21f157c5-6b80-47c6-b480-3774aa5b90ac_1306x628.png",
+      "caption": "Daily installs of AI coding extensions in the VS Code Marketplace. Claude Code is surging",
+      "alt": "Claude Code VS Code install growth AI coding tool daily installation trend Anthropic growth"
+    },
+    {
+      "type": "text",
+      "value": "Multiple growth engines underpin Claude's traffic surge. The most prominent is Claude Code's explosive adoption. Anthropic's AI coding tool reached $1 billion in annual recurring revenue just six months after launch, with estimates placing it above $2 billion as of January 2026.\n\nAnthropic's enterprise positioning is equally noteworthy. The company commands 33% of the enterprise AI market, ahead of OpenAI at 25% and Google at 20%. User engagement metrics tell a compelling story as well, with Claude averaging 34.7 minutes per day, the highest among competitors, suggesting deep rather than superficial usage.\n\nThe viral effect of hitting No. 1 on the App Store in late February, along with reflected interest from the Pentagon contract controversy, contributed to the short-term traffic spike. But beyond these event-driven effects, Anthropic's revenue trajectory from $1 billion in early 2025 to an estimated $9 billion by year-end reflects structural growth."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "In Closing: The Era of Challengers Begins"
+    },
+    {
+      "type": "text",
+      "value": "Claude's first-ever overtaking of Grok and DeepSeek in web traffic is a milestone, not a victory declaration. ChatGPT still commands roughly two-thirds of the market and dominates in app downloads and API usage. But the trend from 86.7% to 64.6% market share over twelve months appears difficult to reverse.\n\nThe AI chatbot market is transitioning from a single-winner game to a multi-polar competition where each player leads with distinct strengths: performance (Claude), ecosystem (Gemini), open source (DeepSeek), and social integration (Grok). How far Anthropic, now valued at $350 billion, can climb in this landscape will be answered by the market data of the second half of 2026."
+    }
+  ]
+}
