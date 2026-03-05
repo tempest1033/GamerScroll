@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-04T22:54:46.796Z",
+  "updatedAt": "2026-03-05T23:33:00.546Z",
   "period": "30days",
   "games": [
     {
@@ -8,11 +8,11 @@
     },
     {
       "slug": "드래곤소드",
-      "views": 29
+      "views": 26
     },
     {
       "slug": "명조워더링-웨이브",
-      "views": 13
+      "views": 12
     },
     {
       "slug": "두근두근타운",
@@ -35,10 +35,6 @@
       "views": 6
     },
     {
-      "slug": "명일방주-엔드필드",
-      "views": 6
-    },
-    {
       "slug": "붕괴-스타레일",
       "views": 5
     },
@@ -47,7 +43,7 @@
       "views": 5
     },
     {
-      "slug": "원신공월의-노래",
+      "slug": "명일방주-엔드필드",
       "views": 4
     },
     {
@@ -55,7 +51,15 @@
       "views": 3
     },
     {
+      "slug": "원신공월의-노래",
+      "views": 3
+    },
+    {
       "slug": "66666년만에-환생한-흑마법사-전략-디펜스-rpg",
+      "views": 2
+    },
+    {
+      "slug": "rhythm-doctor",
       "views": 2
     },
     {
@@ -63,11 +67,7 @@
       "views": 1
     },
     {
-      "slug": "limbus-company",
-      "views": 1
-    },
-    {
-      "slug": "rhythm-doctor",
+      "slug": "dx-각성자들",
       "views": 1
     },
     {
