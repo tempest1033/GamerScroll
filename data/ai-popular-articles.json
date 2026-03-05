@@ -1,12 +1,18 @@
 {
-  "updatedAt": "2026-03-04T00:58:10.330Z",
+  "updatedAt": "2026-03-05T01:00:32.836Z",
   "period": "7days",
   "articles": [
     {
       "category": "general",
       "slug": "deepseek-v4-launch-march-2026",
-      "views": 6,
+      "views": 8,
       "path": "/article/general/deepseek-v4-launch-march-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "apple-march-2026-macbook-neo-ai",
+      "views": 7,
+      "path": "/article/general/apple-march-2026-macbook-neo-ai/"
     },
     {
       "category": "vibecoding",
@@ -15,22 +21,28 @@
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
-      "category": "general",
-      "slug": "xbox-sunset-ai-pivot",
-      "views": 4,
-      "path": "/article/general/xbox-sunset-ai-pivot/"
-    },
-    {
       "category": "openai",
       "slug": "gpt-5-4-leak-silent-update",
-      "views": 3,
+      "views": 4,
       "path": "/article/openai/gpt-5-4-leak-silent-update/"
     },
     {
       "category": "openai",
       "slug": "gpt-54-leak-model-war",
-      "views": 3,
+      "views": 4,
       "path": "/article/openai/gpt-54-leak-model-war/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "views": 3,
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
+      "category": "general",
+      "slug": "xbox-sunset-ai-pivot",
+      "views": 3,
+      "path": "/article/general/xbox-sunset-ai-pivot/"
     },
     {
       "category": "anthropic",
@@ -46,9 +58,15 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "slug": "claude-outage-demand-surge-pentagon",
       "views": 2,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+      "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-surpasses-grok-web-traffic",
+      "views": 2,
+      "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
     },
     {
       "category": "general",
@@ -61,6 +79,18 @@
       "slug": "deepmind-update-aletheia-gemini",
       "views": 2,
       "path": "/article/google/deepmind-update-aletheia-gemini/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-31-flash-lite-cost-efficiency",
+      "views": 2,
+      "path": "/article/google/gemini-31-flash-lite-cost-efficiency/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-53-instant-less-cringe",
+      "views": 2,
+      "path": "/article/openai/gpt-53-instant-less-cringe/"
     },
     {
       "category": "openai",
@@ -136,33 +166,21 @@
     },
     {
       "category": "google",
+      "slug": "gemini-deep-think-hallucination-backlash",
+      "views": 1,
+      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-reliability-crisis-trust",
+      "views": 1,
+      "path": "/article/google/gemini-reliability-crisis-trust/"
+    },
+    {
+      "category": "google",
       "slug": "nano-banana-2-gemini-flash-image",
       "views": 1,
       "path": "/article/google/nano-banana-2-gemini-flash-image/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-4o-shutdown-controversy",
-      "views": 1,
-      "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-53-codex-community-reaction",
-      "views": 1,
-      "path": "/article/openai/gpt-53-codex-community-reaction/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-agent-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-agent-guide/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-workflow-prompt-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     }
   ]
 }

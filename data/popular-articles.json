@@ -1,56 +1,49 @@
 {
-  "updatedAt": "2026-03-04T00:57:14.539Z",
+  "updatedAt": "2026-03-05T00:59:33.222Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 78,
+      "views": 86,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 57,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
+      "slug": "mobile-february-2026-kr",
+      "views": 51,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "ranking",
-      "slug": "mobile-february-2026-kr",
+      "slug": "subculture-january-2026-kr",
       "views": 45,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "tech",
       "slug": "gpt-54-leak-model-war",
       "category": "ai",
-      "views": 27,
+      "views": 19,
       "path": "/tech/ai/gpt-54-leak-model-war/"
     },
     {
       "type": "issue",
       "slug": "heavenhells-clover-games-restructuring",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragon-sword-launch-report",
-      "views": 6,
-      "path": "/magazine/issue/dragon-sword-launch-report/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 6,
-      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "issue",
       "slug": "deepseek-v4-launch-march-2026",
       "views": 5,
       "path": "/magazine/issue/deepseek-v4-launch-march-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "dragon-sword-launch-report",
+      "views": 5,
+      "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "issue",
@@ -66,23 +59,29 @@
     },
     {
       "type": "tech",
+      "slug": "grok-420-multi-agent-release",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/grok-420-multi-agent-release/"
+    },
+    {
+      "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
       "views": 4,
       "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 4,
-      "path": "/wiki/history/korean-esports-history/"
-    },
-    {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
       "views": 3,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 3,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -97,11 +96,11 @@
       "path": "/magazine/issue/resident-evil-requiem-metacritic-scores/"
     },
     {
-      "type": "tech",
-      "slug": "grok-420-multi-agent-release",
-      "category": "ai",
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
       "views": 3,
-      "path": "/tech/ai/grok-420-multi-agent-release/"
+      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "hotpick",
@@ -111,33 +110,21 @@
     },
     {
       "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 2,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "insight",
       "slug": "subculture-market-crisis-winner-takes-all",
       "views": 2,
       "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "slug": "apple-march-2026-macbook-neo-ai",
       "views": 2,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+      "path": "/magazine/issue/apple-march-2026-macbook-neo-ai/"
     },
     {
       "type": "issue",
       "slug": "crimson-desert-sds-origin-march-showdown",
       "views": 2,
       "path": "/magazine/issue/crimson-desert-sds-origin-march-showdown/"
-    },
-    {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 2,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -158,10 +145,10 @@
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
+      "type": "issue",
+      "slug": "stoneage-idle-launch-success",
       "views": 2,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
+      "path": "/magazine/issue/stoneage-idle-launch-success/"
     },
     {
       "type": "tech",
@@ -185,11 +172,32 @@
       "path": "/tech/ai/claude-military-venezuela-iran/"
     },
     {
+      "type": "tech",
+      "slug": "openai-110b-record-funding-turning-point",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/openai-110b-record-funding-turning-point/"
+    },
+    {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
+      "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "wiki",
@@ -197,13 +205,6 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "issue",
@@ -219,33 +220,21 @@
     },
     {
       "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "type": "issue",
       "slug": "clash-royale-10th-anniversary-success",
       "views": 1,
       "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
     },
     {
       "type": "issue",
-      "slug": "crimson-desert-trilogy-trailer-2026",
-      "views": 1,
-      "path": "/magazine/issue/crimson-desert-trilogy-trailer-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "gacha-item-relief-center",
       "views": 1,
       "path": "/magazine/issue/gacha-item-relief-center/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 1,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
-      "views": 1,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
       "type": "issue",
@@ -363,10 +352,31 @@
     },
     {
       "type": "tech",
-      "slug": "claude-cowork-saaspocalypse",
+      "slug": "claude-opus-46-pricing-controversy",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/claude-cowork-saaspocalypse/"
+      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "dead-internet-theory",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/dead-internet-theory/"
+    },
+    {
+      "type": "tech",
+      "slug": "deepmind-update-aletheia-gemini",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/deepmind-update-aletheia-gemini/"
+    },
+    {
+      "type": "tech",
+      "slug": "gemini-31-flash-lite-cost-efficiency",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/gemini-31-flash-lite-cost-efficiency/"
     },
     {
       "type": "tech",
@@ -384,10 +394,31 @@
     },
     {
       "type": "tech",
+      "slug": "gemini-free-tier-cutback-backlash",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
+    },
+    {
+      "type": "tech",
+      "slug": "gemini-reliability-crisis-trust",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/gemini-reliability-crisis-trust/"
+    },
+    {
+      "type": "tech",
       "slug": "google-ai-voluntary-exit",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/google-ai-voluntary-exit/"
+    },
+    {
+      "type": "tech",
+      "slug": "gpt-4o-shutdown-controversy",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/gpt-4o-shutdown-controversy/"
     },
     {
       "type": "tech",
@@ -398,17 +429,10 @@
     },
     {
       "type": "tech",
-      "slug": "gpt-53-codex-community-reaction",
+      "slug": "gpt-53-instant-less-cringe",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/gpt-53-codex-community-reaction/"
-    },
-    {
-      "type": "tech",
-      "slug": "meta-avocado-ai-model-performance",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/meta-avocado-ai-model-performance/"
+      "path": "/tech/ai/gpt-53-instant-less-cringe/"
     },
     {
       "type": "tech",
@@ -416,13 +440,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/nano-banana-2-gemini-flash-image/"
-    },
-    {
-      "type": "tech",
-      "slug": "openai-110b-record-funding-turning-point",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/openai-110b-record-funding-turning-point/"
     },
     {
       "type": "tech",
@@ -454,17 +471,17 @@
     },
     {
       "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
+      "slug": "korean-esports-history",
+      "category": "history",
       "views": 1,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
+      "slug": "gukjeon-hanwoori",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }
