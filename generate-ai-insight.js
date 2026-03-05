@@ -373,7 +373,7 @@ async function main() {
     const codexTmpFile = path.join(os.tmpdir(), `codex-prompt-${Date.now()}.txt`);
     fs.writeFileSync(codexTmpFile, codexPrompt, 'utf8');
 
-    // Claude Code 세션 내 실행 시 관련 환경변수 모두 제거
+    // Claude Code 세션 내 실행 시 관련 환경변수 제거
     const codexEnv = { ...process.env };
     Object.keys(codexEnv).forEach(key => {
       if (key === 'CLAUDECODE' || key.startsWith('CLAUDE_CODE_')) {

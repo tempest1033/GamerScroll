@@ -1,0 +1,39 @@
+{
+  "slug": "sol-enchant-pre-registration",
+  "status": "approved",
+  "title": "SOL: enchant 사전등록 시작, 넷마블의 차세대 MMORPG 출격",
+  "date": "2026-03-05",
+  "keywords": "SOL enchant, 솔 인챈트, 솔 인챈트 사전등록, 넷마블 신작 MMORPG 2026, 알트나인, 리니지라이크, 언리얼 엔진 5 모바일, 신권 시스템, SOL enchant 출시일, 넷마블 MMORPG, 모바일 MMORPG 사전등록, 솔 인챈트 보상",
+  "summary": "넷마블과 알트나인이 개발한 차세대 모바일 MMORPG 'SOL: enchant(솔: 인챈트)'가 3월 5일 사전등록을 시작했다. 언리얼 엔진 5 기반의 고품질 그래픽과 독자적인 '신권' 시스템을 앞세운 이 작품의 핵심 정보를 정리했다.",
+  "thumbnail": "https://sgimage.netmarble.com/images/netmarble/sol/20260305/oguc1772668803227.jpg",
+  "relatedDocs": ["issue:lineage-like-genre-decline-paradigm-shift", "issue:crimson-desert-sds-origin-march-showdown", "issue:seven-deadly-sins-origin-launch-korean-subculture", "issue:aion2-midterm-report-card"],
+  "relatedGames": [],
+  "sources": [
+    { "name": "넷마블", "title": "SOL: enchant 공식 브랜드 사이트", "url": "https://sol.netmarble.com/" },
+    { "name": "게임메카", "title": "넷마블 신작 'SOL: 인챈트' 사전등록 시작", "url": "https://www.gamemeca.com/" },
+    { "name": "인벤", "title": "SOL: enchant 지스타 2025 현장 리뷰", "url": "https://www.inven.co.kr/" },
+    { "name": "구글 플레이", "title": "SOL: enchant 사전등록 페이지", "url": "https://play.google.com/" },
+    { "name": "유튜브", "title": "SOL: enchant 공식 유튜브 채널", "url": "https://www.youtube.com/@SOL_enchant" }
+  ],
+  "content": [
+    { "type": "text", "value": "넷마블이 퍼블리싱하고 알트나인이 개발한 모바일 MMORPG 'SOL: enchant(솔: 인챈트)'가 2026년 3월 5일 사전등록을 시작했다. '전지적 MMORPG'를 표방하는 이 작품은 언리얼 엔진 5 기반의 고품질 비주얼과 독자적인 전투 시스템을 내세우며 상반기 출시를 목표로 하고 있다." },
+    { "type": "heading", "value": "1. SOL: enchant 사전등록 개요와 참여 방법" },
+    { "type": "image", "src": "https://sgimage.netmarble.com/images/netmarble/sol/20260219/lokc1771486042410.jpg", "caption": "SOL: enchant 공식 프로모션 이미지", "alt": "SOL enchant 솔 인챈트 넷마블 모바일 MMORPG 공식 프로모션 이미지" },
+    { "type": "text", "value": "SOL: enchant의 사전등록은 공식 브랜드 사이트와 구글 플레이, 앱 스토어를 통해 동시에 진행된다. 사전등록에 참여하면 '무한의 체력 회복제'를 포함한 인게임 특별 보상이 지급될 예정이다.\n\n사전등록은 정식 출시 시점까지 상시 진행되며, 사전등록자 수에 따라 추가 보상이 해금되는 마일스톤 이벤트도 함께 운영될 것으로 보인다. 관심 있는 유저라면 공식 사이트에서 미리 등록해두는 것이 좋다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "2. 알트나인: 리니지M 핵심 개발진이 만든 신생 스튜디오" },
+    { "type": "text", "value": "SOL: enchant를 개발한 알트나인(Alt9)은 리니지M의 핵심 개발진이 주축이 되어 설립한 신생 개발사다. 리니지 시리즈에서 축적한 MMORPG 개발 노하우를 기반으로, 모바일 환경에 최적화된 새로운 경험을 목표로 하고 있다.\n\n넷마블이 퍼블리셔로 참여하면서 대규모 마케팅과 글로벌 서비스 인프라까지 갖추게 됐다. 개발력과 유통력의 결합이 어떤 시너지를 낼 수 있을지 업계의 관심이 집중되고 있다." },
+    { "type": "heading", "value": "3. 언리얼 엔진 5 기반 모바일 그래픽의 새 기준" },
+    { "type": "image", "src": "https://sgimage.netmarble.com/images/netmarble/sol/20260219/ztrs1771486075408.jpg", "caption": "언리얼 엔진 5로 구현된 SOL: enchant의 게임 그래픽", "alt": "SOL enchant 언리얼 엔진 5 UE5 모바일 MMORPG 고품질 그래픽 스크린샷" },
+    { "type": "text", "value": "SOL: enchant는 언리얼 엔진 5를 채택해 모바일 MMORPG 그래픽의 새로운 기준을 제시하겠다는 포부를 밝혔다. 지스타 2025에서 145개의 시연대를 운영하며 첫 공개된 바 있으며, 당시 고품질 비주얼로 현장 반응이 뜨거웠다.\n\n오픈월드 환경에서 드라마틱한 인터랙션을 구현하는 것이 핵심 목표 중 하나다. 모바일 기기의 성능 한계 속에서 UE5의 장점을 어디까지 끌어낼 수 있을지가 관건이 될 전망이다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "4. 신권 시스템: SOL: enchant의 차별화 전략" },
+    { "type": "image", "src": "https://sgimage.netmarble.com/images/netmarble/sol/20260303/vudg1772526445074.jpg", "caption": "SOL: enchant의 전투 장면", "alt": "SOL enchant 솔 인챈트 신권 시스템 전투 장면 MMORPG 액션" },
+    { "type": "text", "value": "SOL: enchant가 내세우는 핵심 시스템은 '신권(神權)'이다. 신의 권능을 빌려 초월적인 능력을 발휘하는 이 시스템은 전투의 흐름 자체를 바꿀 수 있는 역할을 한다.\n\n리니지라이크 장르에서 전투 시스템의 차별화는 게임의 성패를 좌우하는 핵심 요소다. 신권 시스템이 단순한 스킬 강화를 넘어 전략적 선택지를 제공할 수 있다면, 기존 MMORPG와의 차별점을 확보할 수 있을 것으로 기대된다." },
+    { "type": "heading", "value": "5. 2026년 상반기 모바일 MMORPG 시장 전망" },
+    { "type": "text", "value": "SOL: enchant는 2026년 상반기 출시를 목표로 하고 있다. 올해 모바일 MMORPG 시장은 다수의 대작 출시가 예고되어 있어 치열한 경쟁이 예상된다.\n\n넷마블은 SOL: enchant를 통해 MMORPG 라인업을 강화하고 모바일 게임 시장에서의 입지를 더욱 공고히 하려는 전략이다. 리니지M 개발진의 경험과 UE5의 기술력이 결합된 결과물이 시장에서 어떤 평가를 받을지 주목된다." },
+    { "type": "ad" },
+    { "type": "heading", "value": "마치며: 사전등록으로 시작된 SOL: enchant의 여정" },
+    { "type": "text", "value": "SOL: enchant는 리니지M 핵심 개발진의 노하우, 언리얼 엔진 5의 그래픽 기술력, 그리고 넷마블의 퍼블리싱 역량이 합쳐진 기대작이다. 사전등록 시작과 함께 본격적인 마케팅이 펼쳐질 것으로 보이며, 상반기 출시까지 추가 정보 공개가 이어질 전망이다.\n\n공식 브랜드 사이트와 앱 마켓에서 사전등록이 가능하니, 차세대 모바일 MMORPG에 관심 있는 유저라면 미리 등록해두길 권한다." }
+  ]
+}

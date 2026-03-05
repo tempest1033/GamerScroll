@@ -1,0 +1,147 @@
+{
+  "slug": "trump-tencent-gaming-divestiture",
+  "status": "approved",
+  "title": "텐센트 게임 지분 강제매각 검토: 트럼프 행정부의 게임업계 지각변동",
+  "summary": "트럼프 행정부가 텐센트의 에픽게임즈, 라이엇게임즈, 슈퍼셀 등 주요 게임사 지분에 대한 강제매각을 공식 검토 중이다. CFIUS 심사가 진행되는 가운데, 틱톡 선례를 따른 부분매각 시나리오부터 완전 매각까지 다양한 가능성이 제기되고 있으며, 한국 게임사에 대한 파장도 주목받고 있다.",
+  "keywords": "텐센트, 트럼프, 강제매각, 에픽게임즈, 라이엇게임즈, 슈퍼셀, CFIUS, 게임 지분, 미중 갈등, 국가안보, 시프트업, 크래프톤, 넷마블, 2026",
+  "date": "2026-03-05",
+  "thumbnail": "https://www.videogameschronicle.com/files/2020/01/tencent-building-768x470.jpg",
+  "relatedDocs": ["issue:china-gaming-superpower-rise", "issue:gaming-device-price-surge-ai-tariff", "issue:shiftup-self-publishing-stellar-blade", "issue:china-game-license-normalization"],
+  "relatedGames": [],
+  "sources": [
+    { "name": "Kotaku", "title": "Trump May Force Tencent To Sell Its Stakes In Epic, Riot, And Supercell", "url": "https://kotaku.com/tencent-trump-divest-china-epic-riot-supercell-2000675567" },
+    { "name": "Tom's Hardware", "title": "Trump administration weighs forcing Tencent to sell its stakes in Epic Games", "url": "https://www.tomshardware.com/video-games/pc-gaming/trump-administration-weighs-forcing-tencent-to-sell-its-stakes-in-epic-games" },
+    { "name": "VGC", "title": "Trump administration debating whether to allow Tencent to keep its game company investments", "url": "https://www.videogameschronicle.com/news/trump-administration-debating-whether-to-allow-tencent-to-keep-its-game-company-investments/" },
+    { "name": "Game Developer", "title": "Report: Trump administration may pressure Tencent to divest from US studios", "url": "https://www.gamedeveloper.com/business/report-trump-administration-may-pressure-tencent-to-divest-from-us-studios" },
+    { "name": "Financial Times", "title": "Trump weighs forcing Tencent to divest gaming stakes", "url": "https://www.ft.com/content/tencent-gaming-divestiture" }
+  ],
+  "content": [
+    {
+      "type": "heading",
+      "value": "텐센트 게임 지분 강제매각, 미국 정부 공식 검토"
+    },
+    {
+      "type": "text",
+      "value": "2026년 3월 4일, 파이낸셜타임스(FT)의 보도를 시작으로 게임 업계를 뒤흔들 뉴스가 전해졌다. 트럼프 행정부가 중국 텐센트(Tencent)의 미국 게임사 지분에 대한 강제매각을 공식적으로 검토하고 있다는 것이다. 블룸버그, 코타쿠, 게임스팟, VGC 등 주요 매체들이 잇달아 후속 보도를 내면서, 이 소식은 단순한 루머가 아닌 현실적 시나리오로 받아들여지고 있다."
+    },
+    {
+      "type": "text",
+      "value": "텐센트는 세계 최대의 게임 투자기업이다. 리그 오브 레전드의 라이엇게임즈, 포트나이트의 에픽게임즈, 클래시 오브 클랜의 슈퍼셀 등 서구권 대표 게임사에 대규모 지분을 보유하고 있다. 이번 검토가 실제 조치로 이어질 경우, 글로벌 게임 산업의 자본 구조가 근본적으로 재편될 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. CFIUS 심사 착수: 에픽, 라이엇, 슈퍼셀 지분이 표적"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/WnGMmZxhg82MAv8XvSeaod-1920-80.jpg",
+      "caption": "텐센트가 28~40% 지분을 보유한 에픽게임즈의 대표작 포트나이트 (출처: Tom's Hardware)",
+      "alt": "에픽게임즈 포트나이트 캐릭터 이미지 텐센트 지분 보유 게임사"
+    },
+    {
+      "type": "text",
+      "value": "미국 외국인투자심의위원회(CFIUS)가 텐센트의 에픽게임즈, 라이엇게임즈, 슈퍼셀 지분에 대한 공식 검토에 착수한 것으로 알려졌다. CFIUS는 외국 기업의 미국 내 투자가 국가안보에 미치는 영향을 심사하는 기관으로, 틱톡 매각 명령의 배경이 된 것도 바로 이 기관이다."
+    },
+    {
+      "type": "text",
+      "value": "텐센트의 게임사 지분 현황을 보면 그 규모가 어마어마하다. 라이엇게임즈(리그 오브 레전드, 발로란트)와 펀컴(코난 엑자일, 듄: 어웨이크닝)을 완전 소유하고 있으며, 슈퍼셀(클래시 오브 클랜)의 지분 84.3%, 쿠로게임즈의 과반 지분을 보유하고 있다. 에픽게임즈에는 28~40%의 대규모 소수 지분을, 유비소프트에는 5% 지분을 갖고 있으며, 디스코드에도 투자하고 있다."
+    },
+    {
+      "type": "text",
+      "value": "특히 에픽게임즈의 경우, 게임 개발사라는 측면을 넘어 언리얼 엔진이 서방 군사 시뮬레이션에 광범위하게 사용되고 있다는 점이 안보 우려를 키우고 있다. 게임 플랫폼을 통한 미국인의 민감한 개인정보 수집 가능성도 주요 검토 사안으로 거론된다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 정부 내 분열: 매각 강경론 vs 투자 유지론"
+    },
+    {
+      "type": "image",
+      "src": "https://eu-images.contentstack.com/v3/assets/blt740a130ae3c5d529/bltd6e1146a0710ee9c/69a789b728da00ea52c828a5/whitehouseominousfeatured.jpg",
+      "caption": "트럼프 행정부 내에서 텐센트 게임 지분 처리를 두고 강경파와 온건파가 대립 중이다 (출처: Game Developer)",
+      "alt": "백악관 야경 트럼프 행정부 텐센트 게임 지분 강제매각 정책 검토"
+    },
+    {
+      "type": "text",
+      "value": "흥미로운 것은 트럼프 행정부 내에서도 의견이 갈리고 있다는 점이다. 보도에 따르면, 법무부(DOJ)는 텐센트 지분의 완전 매각을 요구하는 강경 입장을 취하고 있다. 중국 기업이 미국의 핵심 기술 인프라에 영향력을 행사하는 것 자체를 용납할 수 없다는 논리다."
+    },
+    {
+      "type": "text",
+      "value": "반면 재무부(Treasury)는 보다 온건한 접근을 주장하고 있다. 텐센트의 투자 자체를 차단하기보다는 데이터 분리 조치를 통해 안보 우려를 해소하면서 투자 관계를 유지할 수 있다는 입장이다. 이는 틱톡에 적용된 모델과 유사한 형태로, 경영권은 유지하되 미국인 데이터 접근을 차단하는 방식이다."
+    },
+    {
+      "type": "text",
+      "value": "2026년 4월로 예정된 트럼프-시진핑 정상회담 전에 결론이 날 가능성이 제기되고 있어, 이 사안이 미중 간 협상 카드로 활용될 수 있다는 분석도 나온다. 2025년 1월 텐센트가 미국 국방부의 '중국 군사기업' 명단에 포함된 것도 이번 검토의 배경으로 작용하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 틱톡 선례: 부분매각과 합작법인 모델"
+    },
+    {
+      "type": "text",
+      "value": "텐센트 게임 지분 문제의 해법을 점치는 데 있어 가장 유력한 참고 사례는 틱톡이다. 틱톡은 미국 내 사업을 분리해 'TikTok USDS Joint Venture LLC'를 설립하고, 미국 투자자 컨소시엄이 과반 지분을 확보하는 방식으로 문제를 해결했다. 바이트댄스가 알고리즘 라이선스를 유지하면서도 미국인 데이터의 관리권은 미국 측으로 이전한 절충안이었다."
+    },
+    {
+      "type": "text",
+      "value": "텐센트에도 유사한 모델이 적용될 수 있다. 예를 들어 에픽게임즈의 경우 텐센트 지분을 미국 투자자에게 부분 매각하되, 기존 투자 관계의 틀은 유지하는 방식이다. 다만 라이엇게임즈처럼 텐센트가 100% 소유한 회사의 경우 상황이 더 복잡해진다. 완전 소유 기업의 강제매각은 전례가 드물며, 수십억 달러 규모의 거래가 필요하다."
+    },
+    {
+      "type": "text",
+      "value": "한편 미 국방부 블랙리스트 기업과의 거래 금지 조치가 2026년 6월 30일부터 시행될 예정이어서, 시간적 압박도 가중되고 있다. 텐센트가 이 명단에 포함되어 있는 만큼, 6월까지 어떤 형태로든 결론이 나야 하는 상황이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 한국 게임업계에 미치는 영향"
+    },
+    {
+      "type": "image",
+      "src": "https://kotaku.com/app/uploads/2026/03/fortnite.jpg",
+      "caption": "텐센트는 에픽게임즈 외에도 시프트업, 크래프톤, 넷마블 등 한국 게임사에 대규모 지분을 보유하고 있다 (출처: Kotaku)",
+      "alt": "텐센트 투자 게임사 포트나이트 한국 게임업계 시프트업 크래프톤 넷마블 지분"
+    },
+    {
+      "type": "text",
+      "value": "이번 사안은 한국 게임업계에도 직접적인 영향을 미칠 수 있다. 텐센트는 시프트업(34.76%), 넷마블(17.52%), 크래프톤(13.71%), 카카오게임즈 등 국내 주요 게임사에도 상당한 지분을 보유하고 있다. 현재까지 미국 측 검토는 에픽, 라이엇, 슈퍼셀 등 미국 및 유럽 게임사에 집중되어 있지만, 조치의 범위가 확대될 경우 한국 게임사도 영향권에 들어갈 수 있다."
+    },
+    {
+      "type": "text",
+      "value": "한국 게임업계는 현재 세부 조치가 발표된 이후에 판단하겠다는 관망 입장을 취하고 있다. 다만 시프트업의 경우 텐센트 지분율이 34%를 넘기 때문에, 만약 미국 시장에서의 사업에 제약이 생길 경우 스텔라 블레이드 등 글로벌 타이틀의 유통 전략에 영향이 있을 수 있다는 우려가 나온다."
+    },
+    {
+      "type": "text",
+      "value": "크래프톤과 넷마블의 경우 텐센트 지분이 소수 지분 수준이어서 직접적인 매각 대상이 될 가능성은 낮지만, 텐센트의 글로벌 게임 투자 전략 자체가 위축될 경우 향후 협력 관계에 변화가 올 수 있다. 텐센트가 그동안 한국 게임사에 제공해온 중국 시장 진출 지원, 공동 개발, 퍼블리싱 협력 등이 영향을 받을 수 있는 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 업계 반응: 침묵 속의 긴장"
+    },
+    {
+      "type": "text",
+      "value": "현재까지 텐센트, 에픽게임즈, 라이엇게임즈 모두 공식 논평을 내놓지 않고 있다. 이는 CFIUS 심사가 진행 중인 상황에서 섣부른 발언이 불리하게 작용할 수 있다는 판단에서 비롯된 것으로 보인다. 업계 관계자들 사이에서는 완전 매각보다는 틱톡식 절충안이 현실적이라는 의견이 우세한 것으로 전해진다."
+    },
+    {
+      "type": "text",
+      "value": "강제매각이 실제로 이뤄질 경우, 그 규모는 수십억 달러에 달할 것으로 추정된다. 라이엇게임즈만 해도 리그 오브 레전드와 발로란트를 합치면 기업가치가 수백억 달러에 달하며, 에픽게임즈의 가치도 수십억 달러 수준으로 평가된다. 이 정도 규모의 거래를 성사시킬 수 있는 매수자를 찾는 것 자체가 큰 과제가 될 것이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 게임 산업의 탈중국화, 현실이 되나"
+    },
+    {
+      "type": "text",
+      "value": "트럼프 행정부의 텐센트 게임 지분 강제매각 검토는 미중 기술 패권 경쟁이 게임 산업에까지 본격적으로 확산되고 있음을 보여준다. 틱톡에 이어 게임 분야에서도 중국 자본의 영향력을 제한하려는 움직임이 구체화되면서, 글로벌 게임 산업의 자본 지형이 근본적으로 바뀔 수 있는 분기점에 서 있다."
+    },
+    {
+      "type": "text",
+      "value": "4월 정상회담 전 결론이 나올 가능성, 6월 국방부 블랙리스트 거래 금지 시행 등 시간적 변수가 촘촘하게 얽혀 있어 향후 수개월이 핵심 분수령이 될 전망이다. 텐센트 투자를 받은 수많은 게임사들과 그 게임을 즐기는 전 세계 플레이어들에게, 이 문제의 귀추가 어떻게 될지 예의주시할 필요가 있다."
+    }
+  ]
+}

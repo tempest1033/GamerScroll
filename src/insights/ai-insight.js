@@ -194,7 +194,7 @@ JSON만 출력해. 다른 설명 없이.`;
         }
 
         try {
-          // Claude Code 세션 내 실행 시 관련 환경변수 모두 제거
+          // Claude Code 세션 내 실행 시 관련 환경변수 제거
           const childEnv = { ...process.env };
           Object.keys(childEnv).forEach(key => {
             if (key === 'CLAUDECODE' || key.startsWith('CLAUDE_CODE_')) {
