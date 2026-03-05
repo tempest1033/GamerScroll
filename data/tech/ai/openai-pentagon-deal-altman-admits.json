@@ -1,0 +1,210 @@
+{
+  "slug": "openai-pentagon-deal-altman-admits",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "openai",
+  "title": "샘 알트만, 펜타곤 계약 시인: '기회주의적이고 엉성했다'",
+  "titleEn": "Sam Altman Admits Pentagon Deal Was 'Opportunistic and Sloppy'",
+  "date": "2026-03-05T12:00",
+  "keywords": "샘 알트만 펜타곤, OpenAI 국방부 계약, 기회주의적 엉성, 펜타곤 AI 감시, 엔트로픽 블랙리스트, OpenAI 군사 계약 수정, AI 자율무기, 샘 알트만 내부 메모, OpenAI 직원 반발, 클로드 앱스토어 1위, AI 국방 계약 2026",
+  "keywordsEn": "Sam Altman Pentagon, OpenAI defense deal, opportunistic and sloppy, Pentagon AI surveillance, Anthropic blacklist, OpenAI military contract amendment, AI autonomous weapons, Sam Altman internal memo, OpenAI employee backlash, Claude App Store number one, AI defense contract 2026",
+  "summary": "엔트로픽이 감시와 자율무기 제한을 요구하다 블랙리스트에 오른 바로 그날, OpenAI가 수시간 만에 펜타곤과 2억 달러 계약을 체결했다. 이후 직원 반발과 여론 역풍에 직면한 샘 알트만은 '기회주의적이고 엉성해 보였다'고 스스로 시인하며 계약 수정에 나섰다.",
+  "summaryEn": "On the same day Anthropic was blacklisted for demanding surveillance and autonomous weapons restrictions, OpenAI signed a $200 million Pentagon deal within hours. Facing employee backlash and public outcry, Sam Altman admitted the move 'looked opportunistic and sloppy' and moved to amend the contract.",
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2236544077.jpg?resize=1200,800",
+  "relatedDocs": [
+    "tech:ai/openai-pentagon-hypocrisy-red-lines",
+    "tech:ai/anthropic-government-conflict-weapons-surveillance",
+    "tech:ai/anthropic-pentagon-ai-safety-standoff",
+    "tech:ai/claude-app-store-number-one"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "CNBC",
+      "title": "OpenAI's Altman admits defense deal 'looked opportunistic and sloppy' amid backlash",
+      "url": "https://www.cnbc.com/2026/03/03/openai-sam-altman-pentagon-deal-amended-surveillance-limits.html"
+    },
+    {
+      "name": "Fortune",
+      "title": "Sam Altman says OpenAI renegotiating 'opportunistic and sloppy' deal with the Pentagon",
+      "url": "https://fortune.com/2026/03/03/sam-altman-openai-pentagon-renegotiating-deal-anthropic/"
+    },
+    {
+      "name": "NBC News",
+      "title": "OpenAI alters deal with Pentagon as critics sound alarm over surveillance",
+      "url": "https://www.nbcnews.com/tech/tech-news/openai-alters-deal-pentagon-critics-sound-alarm-surveillance-rcna261357"
+    },
+    {
+      "name": "Fortune",
+      "title": "OpenAI CEO Sam Altman defends decision to strike Pentagon deal",
+      "url": "https://fortune.com/2026/03/02/openai-ceo-sam-altman-defends-decision-to-strike-pentagon-deal-amid-backlash-against-the-chatgpt-maker-following-anthropic-blacklisting/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "OpenAI's Sam Altman announces Pentagon deal with 'technical safeguards'",
+      "url": "https://techcrunch.com/2026/02/28/openais-sam-altman-announces-pentagon-deal-with-technical-safeguards/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 2월 27일, 트럼프 행정부는 엔트로픽을 '공급망 위험'으로 지정했다. 감시와 자율무기에 대한 제한 조항을 요구했다는 이유였다. 바로 그날, OpenAI는 수시간 만에 약 2억 달러(약 2,900억 원) 규모의 펜타곤 계약을 따냈다. 그리고 일주일도 채 되지 않아, 샘 알트만은 스스로 이 계약이 '기회주의적이고 엉성해 보였다'고 시인해야 했다."
+    },
+    {
+      "type": "heading",
+      "value": "1. OpenAI 펜타곤 계약: 수시간 만의 체결"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2170386424.jpg?w=1024",
+      "caption": "OpenAI",
+      "alt": "OpenAI 펜타곤 국방부 AI 계약 관련"
+    },
+    {
+      "type": "text",
+      "value": "엔트로픽이 쫓겨난 빈자리를 OpenAI가 채우는 데는 불과 몇 시간이 걸렸다. 엔트로픽은 펜타곤과의 협력에서 두 가지 절대 금지선을 내세웠다. AI 시스템의 대규모 감시 활용과 자율무기 개발 참여를 거부한 것이다. 트럼프 행정부는 이를 받아들이지 않았고, 엔트로픽을 공급망에서 배제했다.\n\n알트만은 2월 28일 자신의 블로그를 통해 펜타곤과의 계약 체결 사실을 발표했다. 그는 '기술적 안전장치(technical safeguards)'가 포함된 계약이라고 강조했다. 하지만 구체적인 안전장치의 내용은 공개되지 않았고, 엔트로픽이 거부한 것과 정확히 같은 시점에 계약을 따냈다는 사실은 즉각적인 의문을 불러일으켰다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 알트만의 시인: '성급했고 대외적 인상이 좋지 않다'"
+    },
+    {
+      "type": "text",
+      "value": "반발은 빠르게 확산됐다. OpenAI 내부 직원들은 엔트로픽의 입장을 지지하는 서한에 서명했다. 클로드(Claude)는 앱스토어에서 1위에 올랐다. 샌프란시스코에 위치한 OpenAI 본사 앞에서는 시위대가 모였다. AI 안전을 내세우며 성장해온 기업이, 경쟁사가 안전을 이유로 거부한 계약을 낚아챈 것처럼 보였기 때문이다.\n\n알트만은 3월 2일 공개 게시물에서 처음으로 계약 과정에 문제가 있었음을 인정했다. '확실히 성급했고, 대외적 인상이 좋지 않다(was definitely rushed, and the optics don't look good)'는 표현을 사용했다. 그러나 계약 자체를 후회한다는 말은 하지 않았다. 대신 정부와 기술 기업 간의 좋은 관계가 향후 몇 년간 매우 중요하다고 강조했다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 내부 메모 공개: '기회주의적이고 엉성해 보였다'"
+    },
+    {
+      "type": "image",
+      "src": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-03/260302-openai-anthropic-altman-amodei-retone-7a5aa6.jpg",
+      "caption": "OpenAI의 펜타곤 계약을 둘러싼 논란이 가속화되고 있다",
+      "alt": "샘 알트만과 다리오 아모데이, OpenAI 펜타곤 국방부 AI 계약 논란"
+    },
+    {
+      "type": "text",
+      "value": "결정적 전환점은 3월 3일에 왔다. CNBC가 입수한 알트만의 내부 메모에는 한층 솔직한 표현이 담겨 있었다. '성급하게 처리하지 말았어야 했다(shouldn't have rushed).' 그리고 핵심 문장: '기회주의적이고 엉성해 보였다(looked opportunistic and sloppy).'\n\n이 내부 메모는 공개 발언보다 훨씬 직접적이었다. 알트만은 직원들에게 계약 과정의 문제를 인정하면서도, 국방 분야에서의 AI 협력 자체가 잘못된 것은 아니라는 입장을 유지했다. 문제는 '무엇을' 했는가가 아니라 '어떻게' 했는가라는 것이 그의 논리였다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 계약 수정: 감시 제한 조항 추가"
+    },
+    {
+      "type": "text",
+      "value": "알트만은 시인에 그치지 않고 계약 수정에 나섰다. 수정된 계약에는 구체적인 제한 조항이 추가됐다. 'AI 시스템은 미국 시민에 대한 국내 감시에 의도적으로 사용되어서는 안 된다'는 조항이 명시됐다. NSA 등 국방부 정보기관의 접근을 불허하고, 상업적으로 구매한 개인 데이터를 추적이나 감시, 모니터링 목적으로 사용하는 것도 금지했다.\n\n더 나아가 알트만은 엔트로픽의 블랙리스트 해제를 요청했다. 그러면서 수정된 계약의 동일한 조건을 엔트로픽에도 제안하겠다고 밝혔다. 경쟁사를 밀어내고 차지한 자리에서, 다시 그 경쟁사를 불러들이겠다는 이례적인 제안이었다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 전문가 평가: '상당한 개선'이나 미해결 우려"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/07/GettyImages-2225249178.jpg?w=1024",
+      "caption": "트럼프 행정부는 엔트로픽을 공급망 위험으로 지정하고 OpenAI와 계약을 체결했다",
+      "alt": "트럼프 행정부 펜타곤 AI 계약과 엔트로픽 공급망 위험 지정"
+    },
+    {
+      "type": "text",
+      "value": "전문가들의 평가는 엇갈렸다. AI 정책 분석가 찰리 불록(Charlie Bullock)은 감시 관련 제한에 대해 '상당한 개선'이라고 평가하면서도, 자율무기에 대한 우려가 여전히 해결되지 않았다고 지적했다. 엔트로픽이 내세운 두 가지 금지선 중 하나만 다뤄진 셈이다.\n\n전직 국방부 관리 브래드 카슨(Brad Carson)은 더 냉정했다. '자신들에게 유리할 때만 계약 문구를 공개한다'며 선택적 투명성을 비판했다. 브라이언 맥그레일(Brian McGrail)은 근본적인 문제를 짚었다. '정부는 예외 조항을 일반인이 생각하는 것보다 훨씬 넓게 해석한다.' 즉, 문서에 적힌 제한이 실제 집행에서 어떻게 적용될지는 전혀 다른 문제라는 것이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 속도의 대가"
+    },
+    {
+      "type": "text",
+      "value": "샘 알트만의 펜타곤 계약은 AI 기업의 군사 협력이라는 민감한 문제에서 '속도'가 얼마나 큰 대가를 치를 수 있는지 보여주는 사례가 됐다. 경쟁사가 원칙을 지키다 밀려난 자리를 수시간 만에 차지한 것은, 아무리 좋은 의도가 있었다 해도 기회주의로 읽히기에 충분했다.\n\n알트만은 실수를 인정하고 수정에 나섰다. 하지만 자율무기에 대한 제한은 빠져 있고, 계약 문구의 실제 집행력에 대한 의문도 남아 있다. OpenAI가 내세워온 '안전한 AI'라는 비전과 국방 계약 사이의 긴장은 앞으로도 계속될 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On February 27, 2026, the Trump administration designated Anthropic as a 'supply chain risk' — for demanding restrictions on surveillance and autonomous weapons. That same day, OpenAI secured a Pentagon contract worth approximately $200 million within hours. Less than a week later, Sam Altman had to admit the deal 'looked opportunistic and sloppy.'"
+    },
+    {
+      "type": "heading",
+      "value": "1. The Pentagon Deal: Signed in Hours"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2170386424.jpg?w=1024",
+      "caption": "OpenAI",
+      "alt": "OpenAI Pentagon defense AI contract"
+    },
+    {
+      "type": "text",
+      "value": "It took OpenAI only hours to fill the void left by Anthropic. Anthropic had drawn two absolute red lines in its Pentagon cooperation: it refused to let its AI systems be used for mass surveillance and rejected participation in autonomous weapons development. The Trump administration would not accept these terms and excluded Anthropic from the supply chain.\n\nAltman announced the contract on February 28 through his blog, emphasizing that it included 'technical safeguards.' But the specific details of those safeguards were not disclosed, and the fact that OpenAI had secured the contract at precisely the moment Anthropic was pushed out raised immediate questions."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. Altman's Admission: 'Rushed, and the Optics Don't Look Good'"
+    },
+    {
+      "type": "text",
+      "value": "The backlash spread rapidly. OpenAI employees signed letters supporting Anthropic's position. Claude surged to number one on the App Store. Protesters gathered outside OpenAI's San Francisco headquarters. A company that had built its brand on AI safety appeared to have seized a contract that a competitor refused on safety grounds.\n\nOn March 2, Altman made his first public acknowledgment that the process had been flawed. He wrote that it 'was definitely rushed, and the optics don't look good.' However, he stopped short of expressing regret about the deal itself. Instead, he emphasized that a good relationship between the government and technology companies would be critically important in the years ahead."
+    },
+    {
+      "type": "heading",
+      "value": "3. The Internal Memo: 'Looked Opportunistic and Sloppy'"
+    },
+    {
+      "type": "image",
+      "src": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-03/260302-openai-anthropic-altman-amodei-retone-7a5aa6.jpg",
+      "caption": "The controversy surrounding OpenAI's Pentagon deal continues to escalate",
+      "alt": "Sam Altman and Dario Amodei, OpenAI Pentagon defense AI contract controversy"
+    },
+    {
+      "type": "text",
+      "value": "The decisive turning point came on March 3. An internal memo obtained by CNBC contained far more candid language. 'Shouldn't have rushed,' Altman wrote to employees. And the key sentence: the deal 'looked opportunistic and sloppy.'\n\nThe memo was far more direct than his public statements. While acknowledging the problems in how the contract was handled, Altman maintained that AI cooperation in defense was not inherently wrong. His argument was that the issue was not 'what' was done, but 'how' it was done."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Contract Amendments: Adding Surveillance Restrictions"
+    },
+    {
+      "type": "text",
+      "value": "Altman did not stop at admission — he moved to amend the contract. Specific restriction clauses were added: 'AI systems shall not be intentionally used for domestic surveillance of U.S. citizens.' Access by NSA and other defense intelligence agencies was prohibited, and the use of commercially purchased personal data for tracking, surveillance, or monitoring was banned.\n\nAltman went further, requesting that Anthropic's blacklisting be reversed. He offered to extend the same terms in the amended contract to Anthropic — an unusual proposal to invite back the very competitor that had been pushed out of the seat OpenAI now occupied."
+    },
+    {
+      "type": "heading",
+      "value": "5. Expert Assessment: 'Significant Improvement' but Unresolved Concerns"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/07/GettyImages-2225249178.jpg?w=1024",
+      "caption": "The Trump administration designated Anthropic as a supply chain risk and signed a deal with OpenAI",
+      "alt": "Trump administration Pentagon AI contract with OpenAI and Anthropic supply chain risk designation"
+    },
+    {
+      "type": "text",
+      "value": "Expert assessments were mixed. AI policy analyst Charlie Bullock called the surveillance restrictions a 'significant improvement' but noted that autonomous weapons concerns remained unaddressed — only one of Anthropic's two red lines had been tackled.\n\nFormer Defense Department official Brad Carson was harsher, criticizing selective transparency: 'They only reveal contract language when it serves their interests.' Brian McGrail raised the fundamental issue: 'The government interprets exception clauses far more broadly than the public assumes.' In other words, what is written in the document and how it is actually enforced are entirely different matters."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The Price of Speed"
+    },
+    {
+      "type": "text",
+      "value": "Sam Altman's Pentagon deal has become a case study in how 'speed' can exact a steep price when it comes to the sensitive issue of AI companies' military cooperation. Filling a seat that a competitor vacated by standing on principle — within hours — was enough to read as opportunism, regardless of intent.\n\nAltman acknowledged the mistake and moved to make corrections. But restrictions on autonomous weapons are missing, and questions about the actual enforceability of contract language remain. The tension between OpenAI's vision of 'safe AI' and its defense contracts will continue to play out in the months ahead."
+    }
+  ]
+}
