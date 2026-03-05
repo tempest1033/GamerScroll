@@ -17,7 +17,7 @@
 }
 
 #issue .page-container .ad-card {
-  margin-bottom: 12px;
+  margin-bottom: var(--space-block-gap, 16px);
 }
 
 /* 통합 카드 - 배너+헤더+본문 */
