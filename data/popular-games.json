@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-03-05T23:33:00.546Z",
+  "updatedAt": "2026-03-06T23:47:27.106Z",
   "period": "30days",
   "games": [
     {
       "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
-      "views": 44
+      "views": 32
     },
     {
       "slug": "드래곤소드",
-      "views": 26
+      "views": 25
     },
     {
       "slug": "명조워더링-웨이브",
@@ -31,23 +31,19 @@
       "views": 7
     },
     {
-      "slug": "crosshair-x",
-      "views": 6
-    },
-    {
       "slug": "붕괴-스타레일",
-      "views": 5
+      "views": 6
     },
     {
       "slug": "승리의-여신-니케",
       "views": 5
     },
     {
-      "slug": "명일방주-엔드필드",
-      "views": 4
+      "slug": "마피아42",
+      "views": 3
     },
     {
-      "slug": "마피아42",
+      "slug": "명일방주-엔드필드",
       "views": 3
     },
     {
@@ -59,7 +55,15 @@
       "views": 2
     },
     {
+      "slug": "crosshair-x",
+      "views": 2
+    },
+    {
       "slug": "rhythm-doctor",
+      "views": 2
+    },
+    {
+      "slug": "젠레스-존-제로",
       "views": 2
     },
     {
@@ -72,10 +76,6 @@
     },
     {
       "slug": "그놈은-드래곤",
-      "views": 1
-    },
-    {
-      "slug": "무기미도",
       "views": 1
     }
   ]
