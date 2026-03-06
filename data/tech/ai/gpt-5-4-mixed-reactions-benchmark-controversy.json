@@ -1,0 +1,244 @@
+{
+  "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+  "category": "openai",
+  "status": "approved",
+  "title": "GPT-5.4 출시, 엇갈리는 반응: 컴퓨터 사용은 1등, 코딩은 뒤처졌다",
+  "titleEn": "GPT-5.4 Launches to Mixed Reactions: Leading in Computer Use, Falling Behind in Coding",
+  "date": "",
+  "thumbnail": "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2026/03/GPT-5.4-Thinking.png",
+  "keywords": "GPT-5.4, OpenAI, GPT-5.4 출시, GPT-5.4 벤치마크, SWE-bench 논란, Claude Opus 4.6, Gemini 3.1 Pro, AI 모델 비교 2026, GPT-5.4 컴퓨터 사용, OSWorld, Tool Search, GPT-5.4 Pro, AI 벤치마크 cherry picking, ChatGPT 업데이트",
+  "keywordsEn": "GPT-5.4, OpenAI, GPT-5.4 launch, GPT-5.4 benchmarks, SWE-bench controversy, Claude Opus 4.6, Gemini 3.1 Pro, AI model comparison 2026, GPT-5.4 computer use, OSWorld, Tool Search, GPT-5.4 Pro, AI benchmark cherry picking, ChatGPT update",
+  "summary": "OpenAI가 GPT-5.4를 출시했다. 컴퓨터 사용과 에이전트 분야에서 인간을 초월하는 성과를 보였지만, 핵심 코딩 벤치마크에서는 Claude Opus 4.6에 밀리고 SWE-bench Verified 결과는 공개조차 하지 않았다. 1년 전 압도적 1등이었던 OpenAI, 이제는 어디에 서 있는가.",
+  "summaryEn": "OpenAI launched GPT-5.4 with superhuman computer use capabilities, but falls behind Claude Opus 4.6 in key coding benchmarks and didn't even publish SWE-bench Verified results. Once the undisputed leader, where does OpenAI stand now?",
+  "relatedDocs": [
+    "tech:ai/gpt-5-4-leak-silent-update",
+    "tech:ai/gpt-53-codex-community-reaction",
+    "tech:ai/openai-crisis-competition-direction-2026",
+    "tech:ai/claude-opus-46-pricing-controversy"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "Introducing GPT-5.4",
+      "url": "https://openai.com/index/introducing-gpt-5-4/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "OpenAI launches GPT-5.4 with Pro and Thinking versions",
+      "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/"
+    },
+    {
+      "name": "Gizmodo",
+      "title": "OpenAI in Desperate Need of a Win, Launches GPT-5.4",
+      "url": "https://gizmodo.com/openai-in-desperate-need-of-a-win-launches-gpt-5-4-2000730268"
+    },
+    {
+      "name": "The Decoder",
+      "title": "OpenAI wants to retire the AI coding benchmark that everyone has been competing on",
+      "url": "https://the-decoder.com/openai-wants-to-retire-the-ai-coding-benchmark-that-everyone-has-been-competing-on/"
+    },
+    {
+      "name": "DigitalApplied",
+      "title": "GPT-5.4 vs Opus 4.6 vs Gemini 3.1 Pro: Best Frontier Model",
+      "url": "https://www.digitalapplied.com/blog/gpt-5-4-vs-opus-4-6-vs-gemini-3-1-pro-best-frontier-model"
+    },
+    {
+      "name": "Every.to",
+      "title": "Vibe Check: OpenAI Is Back",
+      "url": "https://every.to/vibe-check/gpt-5-4-openai-is-back"
+    },
+    {
+      "name": "IsItGoodAI",
+      "title": "GPT-5.4 Review",
+      "url": "https://www.isitgoodai.com/blog/openai-gpt-5-4-review"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 3월 5일, OpenAI가 GPT-5.4를 공식 출시했다. 기본 모델, Pro, Thinking 세 가지 버전으로 나뉘며, 네이티브 컴퓨터 사용 기능과 1M 토큰 컨텍스트 윈도우를 탑재한 것이 핵심이다. GPT-5.4는 분명 인상적인 모델이다. 그러나 1년 전처럼 모든 벤치마크를 휩쓸던 시절과는 다르다.\n\nOpenAI는 이번에도 화려한 벤치마크 수치를 내걸었지만, 정작 가장 유명한 코딩 벤치마크인 SWE-bench Verified 결과는 빠져 있었다. 코딩에서는 Claude Opus 4.6에, 추론에서는 Gemini 3.1 Pro에 밀리는 현실. 에이전트와 컴퓨터 사용에서는 확실한 강점을 보이지만, '절대 강자'라는 타이틀은 이미 과거의 것이 되었다."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT-5.4 핵심 기능: 네이티브 컴퓨터 사용과 Tool Search"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/03/5.4-Thinking_Hero-SEO.png",
+      "caption": "GPT-5.4 Thinking 공식 발표 이미지",
+      "alt": "GPT-5.4 Thinking OpenAI 공식 출시 발표 이미지"
+    },
+    {
+      "type": "text",
+      "value": "GPT-5.4의 가장 주목할 만한 신기능은 네이티브 컴퓨터 사용이다. Playwright 기반으로 스크린샷을 읽고, 마우스와 키보드 명령을 실행하며, 여러 애플리케이션을 넘나들며 작업을 자동화할 수 있다. OpenAI는 이를 \"범용 모델 최초의 네이티브 컴퓨터 사용\"이라 소개했다.\n\nOSWorld-Verified 벤치마크에서 GPT-5.4는 75.0%를 기록했다. 인간 성과 기준인 72.4%를 넘어선 수치로, 전작 GPT-5.2의 47.3%에서 대폭 뛰어올랐다. 데스크톱 환경에서 AI가 인간보다 더 정확하게 작업을 수행할 수 있다는 의미다."
+    },
+    {
+      "type": "text",
+      "value": "두 번째 주요 기능은 Tool Search다. 기존에는 모든 도구 정의를 프롬프트에 함께 넣어야 했지만, Tool Search를 통해 필요한 도구만 온디맨드로 로딩할 수 있게 됐다. 이로써 토큰 사용량이 47% 절감됐다. 개발자 입장에서는 비용 절감과 효율성 개선이 동시에 이루어진 셈이다.\n\n그 외에도 1M 토큰 컨텍스트 윈도우(272K 초과 시 2배 과금), 할루시네이션 33% 감소, 전체 응답 오류 18% 감소 등이 개선 포인트로 제시됐다. 전문 업무 벤치마크인 GDPval에서는 83.0%를 기록해 전작의 70.9%를 크게 앞질렀다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. SWE-bench Verified 미공개 논란: 유리한 벤치마크만 골랐나"
+    },
+    {
+      "type": "text",
+      "value": "GPT-5.4 발표에서 가장 논란이 된 부분은 SWE-bench Verified 결과의 부재다. AI 코딩 능력을 측정하는 대표 벤치마크로 모든 주요 AI 기업이 경쟁해온 SWE-bench Verified에서, OpenAI는 GPT-5.4 결과를 아예 공개하지 않았다.\n\n배경이 있다. OpenAI는 2026년 2월 23일, SWE-bench Verified에 대한 평가를 중단하겠다고 선언했다. 자체 감사 결과 조사한 테스트 케이스의 59.4%가 결함이 있는 것으로 드러났다는 이유였다. 또한 학습 데이터 오염 문제도 지적했는데, 모든 프론티어 모델이 원본 인간 작성 버그 수정 코드를 그대로 재현할 수 있었다는 것이다."
+    },
+    {
+      "type": "text",
+      "value": "대신 OpenAI는 Scale AI가 개발한 SWE-bench Pro에서만 결과를 발표했다. 그런데 문제는 성적이다. GPT-5.4의 SWE-bench Pro 점수는 57.7%로, 전작 GPT-5.3-Codex의 56.8%에서 겨우 0.9%p 개선에 불과했다. SWE-bench Verified에서 80.8%를 기록한 Claude Opus 4.6과의 격차는 여전히 뚜렷하다.\n\n비판론자들은 OpenAI가 자사에 불리한 벤치마크를 \"결함이 있다\"며 버리고, 유리한 벤치마크로 옮겨간 전형적인 cherry-picking이라고 지적한다. 물론 SWE-bench Verified의 구조적 문제 자체는 사실이지만, 가장 성적이 좋지 않은 시점에 퇴출을 선언한 타이밍이 의심스럽다는 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 벤치마크 SOTA 경쟁: 모든 분야의 1등은 없다"
+    },
+    {
+      "type": "image",
+      "src": "https://awesomeagents.ai/images/news/gpt-5-4-codex-repo-leak_hu_a0a45cc180a2a523.jpg",
+      "caption": "GPT-5.4를 둘러싼 AI 모델 경쟁 구도",
+      "alt": "GPT-5.4 AI 모델 경쟁 벤치마크 비교 OpenAI Claude Gemini"
+    },
+    {
+      "type": "text",
+      "value": "2026년 3월 현재, AI 벤치마크 지형은 완전히 분산됐다. 어떤 단일 모델도 모든 영역에서 1위를 차지하지 못하고 있다. 코딩 분야에서는 Claude Opus 4.6이 SWE-bench Verified 80.8%로 확실한 1위다. 추론에서는 Gemini 3.1 Pro가 GPQA Diamond 94.3%로 선두를 달리고 있다.\n\nGPT-5.4가 강한 영역은 에이전트와 컴퓨터 사용이다. OSWorld-Verified 75.0%로 인간 수준을 넘어섰고, Toolathlon 에이전트 벤치마크에서도 54.6%로 Claude(44.8%)를 크게 앞섰다. 전문 업무(GDPval 83.0%)에서도 독보적이다."
+    },
+    {
+      "type": "text",
+      "value": "고난이도 추론 벤치마크 ARC-AGI-2에서는 GPT-5.4 Pro가 83.3%로 Gemini 3.1 Pro(77.1%)와 Claude Opus 4.6(75.2%)을 앞섰다. 하지만 이 성적은 가장 비싼 Pro 모델에서만 나온 수치로, 일반 사용자가 접근하기 어렵다.\n\n결론적으로 코딩은 Claude, 추론은 Gemini, 에이전트/컴퓨터 사용은 GPT-5.4라는 삼파전 구도가 형성됐다. \"모든 벤치마크를 지배하는 단일 승자는 없다\"는 것이 현재 AI 업계의 현실이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 1년 전의 압도적 1등, 어디로 갔나"
+    },
+    {
+      "type": "text",
+      "value": "GPT-4o 시절을 기억하는가. 2024년 중반, OpenAI는 거의 모든 벤치마크에서 독보적 1위를 차지하고 있었다. 코딩, 추론, 창작, 도구 사용 어느 분야든 ChatGPT가 기준점이었고, 경쟁사들은 그 뒤를 쫓았다.\n\n그러나 Anthropic이 Claude 3.5 Sonnet을 시작으로 Claude 4, 그리고 Opus 4.6까지 빠르게 진화하며 코딩 분야에서 역전에 성공했다. Google도 Gemini 2.0에서 3.1 Pro까지 추론과 가성비 면에서 맹추격하며 격차를 좁혔다. 2026년 현재, OpenAI는 모든 영역에서 1등을 내줬거나 근소한 차이로 경쟁 중이다."
+    },
+    {
+      "type": "text",
+      "value": "더 심각한 문제는 신뢰도다. OpenAI가 자체 보고하는 벤치마크 수치에 대한 독립적 검증이 부족하다는 지적이 꾸준히 나온다. SWE-bench Verified를 자사에 불리해지자 퇴출시킨 사례, 벤치마크 선택의 편향성 등이 누적되면서, 수치 자체의 신뢰도에 물음표가 붙었다. Gizmodo는 이번 출시를 \"절박하게 승리가 필요한 OpenAI\"라고 표현했다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 코드 레드 이후, 증명하지 못한 왕좌"
+    },
+    {
+      "type": "image",
+      "src": "https://gizmodo.com/app/uploads/2026/02/openai-logo.jpg",
+      "caption": "OpenAI, 코드 레드 이후 줄곧 추격당해 왔다",
+      "alt": "OpenAI 로고 GPT-5.4 출시 AI 경쟁 코드 레드"
+    },
+    {
+      "type": "text",
+      "value": "2023년 말 Google의 Gemini 발표에 촉발된 OpenAI 내부 \"코드 레드\" 이후, OpenAI는 줄곧 추격당해 왔다. GPT-5 시리즈를 5.0에서 5.1, 5.2, 5.3을 거쳐 5.4까지 불과 7개월 만에 쏟아냈지만, 한 번도 모든 분야에서 SOTA를 탈환하지 못했다.\n\nGPT-5.4는 컴퓨터 사용과 에이전트 분야에서 확실한 강점을 보여준다. OSWorld에서 인간을 넘어선 것은 실질적인 성과다. 하지만 핵심 코딩 벤치마크에서 Claude에 뒤처지고, SWE-bench Verified 결과조차 공개하지 않은 것은 약점을 인정한 것이나 다름없다."
+    },
+    {
+      "type": "text",
+      "value": "AI 모델 경쟁은 이제 단일 왕좌를 두고 다투는 게임이 아니다. 코딩, 추론, 에이전트, 전문 업무 각각에서 서로 다른 모델이 앞서는 멀티폴라 시대가 열렸다. OpenAI 앞에 놓인 과제는 분명하다. GPT-5.4의 강점인 에이전트 역량을 살리면서, 코딩과 추론에서도 격차를 좁혀야 한다. 과거의 압도적 1등 자리로 돌아가는 길은, 여전히 험난해 보인다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On March 5, 2026, OpenAI officially launched GPT-5.4. Available in three variants: the base model, Pro, and Thinking, it features native computer use capabilities and a 1M token context window. GPT-5.4 is undeniably impressive. But it's a far cry from a year ago, when OpenAI swept every benchmark in sight.\n\nOpenAI once again showcased dazzling benchmark numbers, yet conspicuously absent was the most prominent coding benchmark: SWE-bench Verified. Outpaced by Claude Opus 4.6 in coding and Gemini 3.1 Pro in reasoning, GPT-5.4 shows clear strengths in agentic and computer use tasks, but the title of 'undisputed champion' is already a relic of the past."
+    },
+    {
+      "type": "heading",
+      "value": "1. GPT-5.4 Key Features: Native Computer Use and Tool Search"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/03/5.4-Thinking_Hero-SEO.png",
+      "caption": "Official GPT-5.4 Thinking announcement image",
+      "alt": "GPT-5.4 Thinking official launch announcement image by OpenAI"
+    },
+    {
+      "type": "text",
+      "value": "The most notable new feature of GPT-5.4 is native computer use. Built on Playwright, it can read screenshots, execute mouse and keyboard commands, and automate tasks across multiple applications. OpenAI describes it as \"the first general-purpose model with native computer use capabilities.\"\n\nOn the OSWorld-Verified benchmark, GPT-5.4 scored 75.0%, surpassing the human performance baseline of 72.4% and a massive leap from GPT-5.2's 47.3%. This means AI can now perform desktop tasks more accurately than humans."
+    },
+    {
+      "type": "text",
+      "value": "The second major feature is Tool Search. Previously, all tool definitions had to be included in the prompt, but Tool Search enables on-demand loading of only the necessary tools, reducing token usage by 47%. For developers, this means simultaneous cost savings and efficiency gains.\n\nAdditional improvements include a 1M token context window (2x pricing above 272K tokens), 33% reduction in hallucinations, and 18% fewer response errors overall. On GDPval, a professional task benchmark, GPT-5.4 scored 83.0%, significantly outperforming the previous model's 70.9%."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. SWE-bench Verified Omission: Cherry-Picking Favorable Benchmarks?"
+    },
+    {
+      "type": "text",
+      "value": "The most controversial aspect of the GPT-5.4 announcement was the absence of SWE-bench Verified results. The benchmark has been the gold standard for measuring AI coding ability, with every major AI company competing on it. Yet OpenAI chose not to publish GPT-5.4's scores.\n\nThere's a backstory. On February 23, 2026, OpenAI declared it would discontinue evaluation on SWE-bench Verified. Their internal audit found that 59.4% of the audited test cases were flawed, rejecting functionally correct submissions. They also flagged training data contamination, noting that all frontier models could reproduce the original human-written bug fixes used as ground truth."
+    },
+    {
+      "type": "text",
+      "value": "Instead, OpenAI only published results on SWE-bench Pro, developed by Scale AI. The problem? The scores are underwhelming. GPT-5.4 scored 57.7% on SWE-bench Pro, a mere 0.9 percentage point improvement over GPT-5.3-Codex's 56.8%. The gap with Claude Opus 4.6, which holds 80.8% on SWE-bench Verified, remains stark.\n\nCritics argue this is textbook cherry-picking: abandoning a benchmark that's unfavorable and migrating to one that tells a better story. While the structural issues with SWE-bench Verified are real, the suspicious timing of announcing its retirement precisely when OpenAI's standings were weakest has not gone unnoticed."
+    },
+    {
+      "type": "heading",
+      "value": "3. The SOTA Race: No Single Winner Across All Benchmarks"
+    },
+    {
+      "type": "image",
+      "src": "https://awesomeagents.ai/images/news/gpt-5-4-codex-repo-leak_hu_a0a45cc180a2a523.jpg",
+      "caption": "The competitive landscape surrounding GPT-5.4",
+      "alt": "GPT-5.4 AI model competition benchmark comparison OpenAI Claude Gemini"
+    },
+    {
+      "type": "text",
+      "value": "As of March 2026, the AI benchmark landscape is completely fragmented. No single model dominates every category. In coding, Claude Opus 4.6 holds a firm lead with 80.8% on SWE-bench Verified. In reasoning, Gemini 3.1 Pro leads with 94.3% on GPQA Diamond.\n\nGPT-5.4's strengths lie in agentic and computer use tasks. It surpassed human performance with 75.0% on OSWorld-Verified and led the Toolathlon agent benchmark at 54.6%, well ahead of Claude at 44.8%. It also excels in professional tasks with 83.0% on GDPval."
+    },
+    {
+      "type": "text",
+      "value": "On the challenging ARC-AGI-2 reasoning benchmark, GPT-5.4 Pro scored 83.3%, ahead of Gemini 3.1 Pro (77.1%) and Claude Opus 4.6 (75.2%). However, this score comes from the most expensive Pro variant, which is inaccessible to most users.\n\nThe bottom line: coding belongs to Claude, reasoning to Gemini, and agentic/computer use to GPT-5.4. A three-way split has emerged. \"No single winner across all benchmarks\" is the current reality of the AI industry."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. The Undisputed Leader of a Year Ago: Where Did It Go?"
+    },
+    {
+      "type": "text",
+      "value": "Remember the GPT-4o era? In mid-2024, OpenAI held the undisputed top spot across virtually every benchmark. Coding, reasoning, creative tasks, tool use: ChatGPT was the reference point, and competitors chased its shadow.\n\nThen Anthropic evolved rapidly, from Claude 3.5 Sonnet through Claude 4 to Opus 4.6, successfully overtaking OpenAI in coding. Google closed the gap with Gemini 2.0 through 3.1 Pro, catching up in reasoning and cost efficiency. As of 2026, OpenAI has either lost the lead or is competing by razor-thin margins in every domain."
+    },
+    {
+      "type": "text",
+      "value": "A deeper problem is credibility. There has been persistent criticism about the lack of independent verification for OpenAI's self-reported benchmark figures. The pattern of retiring SWE-bench Verified when it became unfavorable, combined with apparent benchmark selection bias, has cast doubt on the numbers themselves. Gizmodo described this launch as \"OpenAI in desperate need of a win.\""
+    },
+    {
+      "type": "heading",
+      "value": "Closing Thoughts: After Code Red, an Unproven Throne"
+    },
+    {
+      "type": "image",
+      "src": "https://gizmodo.com/app/uploads/2026/02/openai-logo.jpg",
+      "caption": "OpenAI has been playing catch-up since Code Red",
+      "alt": "OpenAI logo GPT-5.4 launch AI competition Code Red"
+    },
+    {
+      "type": "text",
+      "value": "Since the internal \"Code Red\" triggered by Google's Gemini announcement in late 2023, OpenAI has been in a perpetual state of catch-up. The company shipped GPT-5 series models from 5.0 through 5.1, 5.2, 5.3, and now 5.4 in just seven months, yet never managed to reclaim SOTA across every category.\n\nGPT-5.4 demonstrates genuine strengths in computer use and agentic tasks. Surpassing human performance on OSWorld is a real achievement. But falling behind Claude on core coding benchmarks, and not even publishing SWE-bench Verified results, is tantamount to conceding the weakness."
+    },
+    {
+      "type": "text",
+      "value": "The AI model race is no longer a game fought over a single throne. A multipolar era has arrived, with different models leading in coding, reasoning, agentic tasks, and professional work. The challenge ahead for OpenAI is clear: leverage GPT-5.4's agentic strengths while closing the gap in coding and reasoning. The road back to undisputed number one still looks long and uphill."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "needTranslate": false
+}
