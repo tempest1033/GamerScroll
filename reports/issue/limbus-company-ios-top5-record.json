@@ -2,7 +2,7 @@
   "slug": "limbus-company-ios-top5-record",
   "status": "approved",
   "title": "림버스 컴퍼니, 한국 iOS 매출 5위 돌파: 서브컬처 게임의 새 역사를 쓰다",
-  "date": "",
+  "date": "2026-03-06T14:00",
   "keywords": "림버스 컴퍼니, Limbus Company, 프로젝트문, Project Moon, iOS 매출 순위, 서브컬처 게임, 중소 개발사, 한국 앱스토어, 매출 5위, 발푸르기스의 밤, 원화가 논란, 센서타워, K-게임",
   "summary": "프로젝트문의 림버스 컴퍼니가 2026년 3월 6일 한국 iOS 앱스토어 매출 순위 5위를 기록하며 자체 역대 최고 성적을 갈아치웠다. 직원 58명의 서브컬처 전문 스튜디오가 만든 게임이 전체 매출 TOP 5에 진입한 것은 한국 모바일 게임 시장에서 극히 이례적인 사건이다.",
   "thumbnail": "https://images.ctfassets.net/vfkpgemp7ek3/4qFKZ8oGe8hII0Ozin4nwo/80d205171bca43d65955b8af290bb0d2/Cover_Image.jpg",
@@ -12,7 +12,9 @@
     "issue:arknights-endfield-launch-success",
     "issue:blue-archive-5th-anniversary-japan"
   ],
-  "relatedGames": ["limbus-company"],
+  "relatedGames": [
+    "limbus-company"
+  ],
   "sources": [
     {
       "name": "센서타워",
