@@ -1,0 +1,115 @@
+{
+  "slug": "slay-the-spire-2-early-access-record",
+  "status": "approved",
+  "title": "슬레이 더 스파이어 2, 얼리액세스 첫날 동접 18만 돌파: 로그라이크 역대 최고 기록",
+  "date": "2026-03-06T15:00",
+  "keywords": "슬레이 더 스파이어 2, Slay the Spire 2, 얼리액세스, 동시접속 18만, 로그라이크, 덱빌더, Mega Crit, 스팀 판매 1위, 코옵, Godot 엔진, 인디 게임, 스팀 2026",
+  "summary": "슬레이 더 스파이어 2가 얼리액세스 첫날 스팀 동시접속 약 18만 명을 기록하며 로그라이크 장르 역대 최고치를 세웠다. 스팀 리뷰 97% 압도적 긍정, 글로벌 판매 1위까지 차지한 이 게임이 전작의 공식을 어떻게 확장했는지 짚어본다.",
+  "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/header.jpg",
+  "relatedDocs": [
+    "issue:roguelike-casual-korea-trend",
+    "issue:diablo2-resurrected-steam-launch",
+    "ranking:steam-february-2026"
+  ],
+  "relatedGames": [
+    {"appid": 2868840, "store": "steam"},
+    {"appid": 646570, "store": "steam"}
+  ],
+  "sources": [
+    {
+      "name": "SteamDB",
+      "title": "Slay the Spire 2 - Steam Charts",
+      "url": "https://steamdb.info/app/2868840/charts/"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "Slay the Spire 2 is the #1 seller on Steam today, above Marathon and Resident Evil Requiem",
+      "url": "https://www.pcgamer.com/games/card-games/slay-the-spire-2-is-the-1-seller-on-steam-today-above-marathon-and-resident-evil-requiem/"
+    },
+    {
+      "name": "Digital Trends",
+      "title": "Slay the Spire was nearly flawless, but its sequel could be my perfect game",
+      "url": "https://www.digitaltrends.com/gaming/slay-the-spire-was-nearly-flawless-but-its-sequel-could-be-my-perfect-game/"
+    },
+    {
+      "name": "Vice Gaming",
+      "title": "Slay the Spire 2 Is Proof 'More of the Same' Isn't Always an Insult",
+      "url": "https://www.vice.com/en/article/slay-the-spire-2-is-proof-more-of-the-same-isnt-always-an-insult-also-everyones-upset-over-an-omission/"
+    },
+    {
+      "name": "Steam",
+      "title": "Slay the Spire 2 on Steam",
+      "url": "https://store.steampowered.com/app/2868840/Slay_the_Spire_2/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "슬레이 더 스파이어 2가 2026년 3월 5일(한국시간 3월 6일) 스팀 얼리액세스로 출시됐다. 첫날 동시접속자 수 179,456명을 기록하며 로그라이크 장르 역대 최고 기록을 세웠다. 전작의 피크 동접(57,025명)과 비교하면 약 3배에 달하는 수치다.\n\n스팀 리뷰는 약 6,000개가 쌓이며 97% 압도적 긍정을 기록 중이다. Marathon을 제치고 스팀 글로벌 판매 1위에 올랐다. 덱빌더 로그라이크라는 장르를 정의한 전작이 쌓아올린 신뢰가 얼마나 단단했는지, 숫자가 말해주고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 동접 18만의 의미: 로그라이크 역대 최고"
+    },
+    {
+      "type": "image",
+      "src": "https://www.megacrit.com/images/sts2_key_art_16x9_no_logo_new_hub399507e6f37fdfddf2fec2393bae4e3_11044172_380x380_fit_lanczos_3.png",
+      "caption": "슬레이 더 스파이어 2 키아트",
+      "alt": "슬레이 더 스파이어 2 공식 키아트 로그라이크 덱빌더"
+    },
+    {
+      "type": "text",
+      "value": "스팀 동시접속 179,456명이라는 숫자는 단순히 '많이 팔렸다'는 수준을 넘어선다. 로그라이크 장르에서 이 정도 동접은 전례가 없다. 전작 슬레이 더 스파이어의 역대 최고 동접이 57,025명이었으니, 후속작은 출시 첫날에 그 기록을 약 3배 뛰어넘은 셈이다.\n\n이 수치는 슬레이 더 스파이어가 단순한 인디 히트작을 넘어 하나의 프랜차이즈로 자리잡았음을 보여준다. 개발사 Mega Crit은 X(트위터)에서 \"이 추세라면 3편은 동접 1억 명\"이라는 유머를 던지기도 했다. 농담이지만, 이 작은 인디 스튜디오가 걸어온 길을 생각하면 감회가 남다른 숫자다.\n\nMarathon 같은 대형 타이틀을 제치고 스팀 글로벌 판매 1위를 차지한 것도 인상적이다. AAA 마케팅 없이 게임 자체의 평판과 팬층만으로 이뤄낸 성과다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 무엇이 달라졌나: 캐릭터 5명, 코옵, 신규 메카닉"
+    },
+    {
+      "type": "image",
+      "src": "https://www.megacrit.com/images/steam_screenshot3_new_hu1be3a209e13df141a3808173a61560d0_4553816_380x380_fit_lanczos_3.png",
+      "caption": "슬레이 더 스파이어 2 코옵 멀티플레이 전투 화면",
+      "alt": "슬레이 더 스파이어 2 4인 코옵 전투 스크린샷 덱빌더 카드 게임"
+    },
+    {
+      "type": "text",
+      "value": "슬레이 더 스파이어 2의 세계관은 전작에서 1,000년이 지난 시점이다. 플레이어블 캐릭터는 5명으로 늘었다. 전작의 아이언클래드, 사일런트, 디펙트에 더해 네크로바인더와 리젠트라는 완전히 새로운 캐릭터가 합류했다. 각 캐릭터는 고유한 덱 구축 철학을 가지고 있어, 게임의 리플레이 가치를 크게 높인다.\n\n가장 큰 변화는 최대 4인 코옵 모드의 추가다. 솔로 플레이에 최적화되어 있던 전작의 공식에 멀티플레이를 도입한 것이다. 인챈트먼트와 퀘스트 카드 같은 신규 메카닉도 추가되어 전략적 깊이가 한층 더해졌다. 인챈트먼트는 카드에 영구적인 효과를 부여하고, 퀘스트 카드는 특정 조건 달성 시 강력한 보상을 제공한다.\n\nDigital Trends는 \"전작은 거의 완벽했다. 후속작은 나의 완벽한 게임이다\"라고 평했고, Vice는 \"더 많은 것은 모욕이 아니다\"라는 제목으로 후속작이 전작의 공식을 훼손하지 않으면서 확장에 성공했음을 강조했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Unity에서 Godot로: 엔진 전환의 배경"
+    },
+    {
+      "type": "image",
+      "src": "https://www.megacrit.com/images/steam_screenshot5_new_hu0f17fa1ddfd4d3571b70baf56ddb2f62_3706072_380x380_fit_lanczos_3.png",
+      "caption": "슬레이 더 스파이어 2 게임플레이 스크린샷",
+      "alt": "슬레이 더 스파이어 2 Godot 엔진 게임플레이 카드 전투 화면"
+    },
+    {
+      "type": "text",
+      "value": "기술적으로 가장 눈에 띄는 변화는 게임 엔진을 Unity에서 Godot로 전환한 것이다. 2023년 Unity가 설치당 과금 정책(Runtime Fee)을 발표해 인디 개발자 사이에서 거센 반발을 일으켰을 때, Mega Crit은 Godot 전환을 선언한 대표적인 스튜디오 중 하나였다.\n\n실제로 Godot 기반의 슬레이 더 스파이어 2는 가볍고 안정적인 퍼포먼스를 보여준다. 카드 게임이라는 장르 특성상 극단적인 그래픽 성능이 필요하지는 않지만, 엔진 전환이 게임의 품질에 부정적인 영향을 미치지 않았다는 점은 Godot 생태계에 긍정적인 신호다.\n\n가격은 $24.99(한국 스토어 기준 27,000원)로 책정됐다. Mega Crit은 정식 1.0 출시 시 가격 인상을 예고했기 때문에, 얼리액세스 시점의 구매가 가격적으로 유리하다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 초기 논란과 핫픽스 대응"
+    },
+    {
+      "type": "text",
+      "value": "97% 압도적 긍정이라는 놀라운 유저 평가에도 불구하고, 몇 가지 논란은 존재한다. 전작에서 인기가 높았던 캐릭터 워처가 아직 등장하지 않는다는 점이 팬들 사이에서 아쉬움으로 꼽힌다. 얼리액세스 기간 중 추가될 가능성은 열려 있지만, 확정된 것은 아니다.\n\n코옵 모드에 공개 매칭 시스템이 없다는 점도 지적된다. 현재는 친구 초대로만 멀티플레이가 가능해, 솔로 플레이어가 코옵을 경험하기 어렵다. 일부 기술적 이슈와 밸런스 문제도 보고됐는데, Mega Crit은 출시 직후 핫픽스 v0.98.1을 빠르게 배포하며 적극적으로 대응하고 있다.\n\n콘솔 버전(PS5, Xbox, Switch 2)은 정식 1.0 출시 때 지원할 예정이다. 현재는 PC(스팀) 전용이므로, 콘솔 유저들은 좀 더 기다려야 한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 덱빌더의 제왕, 그 공식은 건재하다"
+    },
+    {
+      "type": "text",
+      "value": "슬레이 더 스파이어 2의 얼리액세스 출시는 인디 게임 역사에서 하나의 이정표가 될 만하다. 동접 18만, 리뷰 97% 긍정, 글로벌 판매 1위라는 삼관왕은 덱빌더 로그라이크라는 장르를 정의한 전작의 유산이 얼마나 강력한지를 증명한다.\n\n아직 얼리액세스인 만큼 콘텐츠 추가와 밸런스 조정이 남아 있지만, 핵심 게임플레이의 완성도는 이미 정식 출시급이라는 평가가 지배적이다. 전작이 덱빌더 로그라이크를 정의했다면, 후속작은 그 공식을 무너뜨리지 않고 자연스럽게 확장해 기대를 뛰어넘었다. Mega Crit이 얼리액세스 기간 동안 어떤 콘텐츠를 더 쌓아올릴지, 그리고 콘솔 출시와 함께 어디까지 성장할지 주목할 만하다."
+    }
+  ]
+}

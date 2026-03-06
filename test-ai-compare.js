@@ -217,14 +217,14 @@ JSON만 출력해.`;
 }
 
 async function runGPT(prompt, tmpFile) {
-  console.log('\n🤖 [GPT] Codex CLI 호출 중 (gpt-5.3-codex)...');
+  console.log('\n🤖 [GPT] Codex CLI 호출 중 (gpt-5.4)...');
   const startTime = Date.now();
 
   fs.writeFileSync(tmpFile, prompt, 'utf8');
 
   try {
     const result = execSync(
-      `cat "${tmpFile}" | codex exec -m gpt-5.3-codex -c model_reasoning_effort=high -c hide_agent_reasoning=true -o /dev/stdout -`,
+      `cat "${tmpFile}" | codex exec -m gpt-5.4 -c model_reasoning_effort=high -c mcp_servers.firecrawl-mcp.enabled=false -c hide_agent_reasoning=true -o /dev/stdout -`,
       { encoding: 'utf8', maxBuffer: 1024 * 1024, timeout: 600000 }
     );
 

@@ -1,0 +1,151 @@
+{
+  "slug": "amodei-apology-claude-app-store-surge",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "anthropic",
+  "title": "아모데이, 유출 메모 사과하며 법적 대응 선언: Claude는 20개국 앱스토어 1위",
+  "titleEn": "Amodei Apologizes for Leaked Memo, Vows Legal Action: Claude Hits No.1 in 20 Countries",
+  "date": "2026-03-06T18:00",
+  "thumbnail": "https://winbuzzer.com/wp-content/uploads/2026/02/Dario-Amodei-Dwarkesh-Podcast-20260214.jpg",
+  "keywords": "아모데이 사과, 엔트로픽, Claude 앱스토어 1위, 공급망 리스크, 펜타곤, QuitGPT, ChatGPT 삭제, 법적 대응, OpenAI, AI 안전, 2026",
+  "keywordsEn": "Amodei apology, Anthropic, Claude app store number one, supply chain risk, Pentagon, QuitGPT, ChatGPT uninstalls, legal action, OpenAI, AI safety, 2026",
+  "summary": "엔트로픽 CEO 다리오 아모데이가 유출된 내부 메모의 '톤'에 대해 사과하면서도 AI 안전 입장은 철회하지 않았다. 한편 Claude는 20개국 앱스토어 1위를 기록하고, 펜타곤의 공급망 리스크 지정에는 법적 대응을 선언했다.",
+  "summaryEn": "Anthropic CEO Dario Amodei apologized for the 'tone' of his leaked internal memo while standing firm on AI safety. Meanwhile, Claude hit No.1 on the App Store in 20 countries, and Amodei vowed to challenge the Pentagon's supply chain risk designation in court.",
+  "relatedDocs": [
+    "tech:ai/anthropic-internal-memo-pentagon-openai"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Axios",
+      "title": "Scoop: Anthropic CEO apologizes for leaked memo criticizing Trump",
+      "url": "https://www.axios.com/2026/03/06/pentagon-anthropic-amodei-apology"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic's Claude rises to No. 1 in the App Store following Pentagon dispute",
+      "url": "https://techcrunch.com/2026/03/01/anthropics-claude-rises-to-no-2-in-the-app-store-following-pentagon-dispute/"
+    },
+    {
+      "name": "CNBC",
+      "title": "Anthropic CEO says 'no choice' but to challenge supply chain risk designation in court",
+      "url": "https://www.cnbc.com/2026/03/05/anthropic-ceo-says-no-choice-but-to-challenge-trump-admins-supply-chain-risk-designation-in-court.html"
+    },
+    {
+      "name": "Fortune",
+      "title": "Anthropic's Claude overtakes ChatGPT in App Store as users boycott over Pentagon contract",
+      "url": "https://fortune.com/2026/03/02/anthropic-claude-dario-amodei-number-one-app-store-openai-chatgpt-sam-altman-department-war/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Employees at Google and OpenAI support Anthropic's Pentagon stand in open letter",
+      "url": "https://techcrunch.com/2026/02/27/employees-at-google-and-openai-support-anthropics-pentagon-stand-in-open-letter/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "전편에서 다룬 다리오 아모데이의 내부 메모 유출 이후, 사태가 빠르게 전개됐다. 아모데이는 3월 6일 메모의 톤에 대해 공식 사과했고, 펜타곤은 엔트로픽을 미국 기업 최초로 공급망 리스크로 지정했으며, 소비자 시장에서는 Claude가 전례 없는 성장세를 보이고 있다. 사과와 반격, 폭발적 성장이 동시에 일어나는 이례적 상황이다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 아모데이 사과: 톤은 사과, 입장은 유지"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2153561878.jpg",
+      "caption": "다리오 아모데이 엔트로픽 CEO가 메모의 톤에 대해 사과했다",
+      "alt": "다리오 아모데이 엔트로픽 CEO 컨퍼런스 사진 메모 사과 AI 안전"
+    },
+    {
+      "type": "text",
+      "value": "아모데이는 \"힘든 날이었고, 글의 톤에 대해 사과한다\"며 \"숙고한 견해가 아니었고 6일 전 작성된 것으로 현재 상황과 맞지 않는다\"고 밝혔다. 하지만 AI 안전에 관한 핵심 입장, 자율 무기와 대량 감시에 AI를 제공하지 않겠다는 레드라인은 철회하지 않았다.\n\n사과의 맥락이 중요하다. 메모가 유출되면서 펜타곤과의 협상이 위기에 처했고, 트럼프 행정부를 자극하는 표현들이 정치적 역풍을 불러왔다. 사과는 톤의 문제를 인정한 것이지, 메시지의 후퇴가 아니다."
+    },
+    {
+      "type": "heading",
+      "value": "2. Claude 20개국 앱스토어 1위: 소비자가 표를 던지다"
+    },
+    {
+      "type": "image",
+      "src": "https://www.ghacks.net/wp-content/uploads/2026/03/gHacks-articles-2026-03-02T122835.477.png",
+      "caption": "Claude가 ChatGPT를 제치고 미국 앱스토어 1위에 올랐다",
+      "alt": "Claude 앱스토어 1위 ChatGPT 추월 AI 챗봇 순위 변동 2026"
+    },
+    {
+      "type": "text",
+      "value": "메모 유출이 역설적으로 엔트로픽에 가장 큰 소비자 성장을 안겨줬다. ChatGPT 삭제 건수가 하루 만에 295% 급증했고, Claude는 미국을 포함해 20개국에서 앱스토어 1위를 차지했다. 매일 100만 명 이상의 신규 가입자가 유입되고 있다.\n\n#QuitGPT 캠페인은 150만 명 이상의 지지자를 모았고, OpenAI 샌프란시스코 본사 앞에서 시위가 벌어지기도 했다. 소비자들이 AI 기업의 윤리적 선택에 '지갑으로 투표'한 셈이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 펜타곤 공급망 리스크 지정과 법적 대응"
+    },
+    {
+      "type": "text",
+      "value": "펜타곤은 엔트로픽을 '공급망 리스크'로 공식 지정했다. 미국 기업이 이 딱지를 받은 것은 사상 최초다. 기존에는 외국 적대국 기업에만 적용되던 조치를 자국 기업에 사용한 것이다.\n\n아모데이는 \"이 조치가 법적으로 타당하다고 보지 않으며, 법정에서 다툴 수밖에 없다\"고 선언했다. 연방법원 소송을 예고한 것이다. 다만 해당 지정은 주로 국방부 직접 계약에 영향을 미치며, 상업 활동 전체를 차단하는 것은 아니라는 분석도 나온다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 업계 연대와 양날의 검"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI와 Google 직원 약 450명 이상이 공개서한 'We Will Not Be Divided'에 서명하며 엔트로픽을 지지했다. 경쟁사 직원들이 라이벌을 공개 지지한 전례 없는 연대다. OpenAI의 샘 올트먼도 내부 메모에서 엔트로픽과 같은 레드라인을 유지하겠다고 밝힌 것으로 알려졌다.\n\n하지만 이 상황은 양날의 검이다. 소비자 시장에서는 역대급 성장을 기록하고 있지만, 정부/방위 분야에서는 2억 달러 이상의 계약 기회를 잃었고, 일부 투자자들은 정치적 리스크를 우려하고 있다. 안전이라는 원칙을 지키는 것과 기업의 성장 사이, 그 균형점을 어디에 둘 것인가가 엔트로픽의 다음 과제다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Since the leaked internal memo covered in our previous article, events have moved fast. Amodei officially apologized for the memo's tone on March 6, the Pentagon designated Anthropic as the first-ever U.S. company labeled a supply chain risk, and Claude is experiencing unprecedented consumer growth. Apology, counterattack, and explosive growth are happening simultaneously."
+    },
+    {
+      "type": "heading",
+      "value": "1. Amodei's Apology: Sorry for the Tone, Not the Stance"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2153561878.jpg",
+      "caption": "Anthropic CEO Dario Amodei apologized for the memo's tone",
+      "alt": "Dario Amodei Anthropic CEO conference photo memo apology AI safety"
+    },
+    {
+      "type": "text",
+      "value": "Amodei said \"it was a difficult day for the company, and I apologize for the tone of the post,\" adding that it \"does not reflect my careful or considered views\" and was \"written six days ago, an out-of-date assessment.\" However, he did not walk back his core position on AI safety: no autonomous weapons, no mass surveillance.\n\nThe context matters. The leak jeopardized Pentagon negotiations, and his sharp language about the Trump administration created political blowback. The apology was about tone, not message."
+    },
+    {
+      "type": "heading",
+      "value": "2. Claude Hits No.1 in 20 Countries: Consumers Cast Their Vote"
+    },
+    {
+      "type": "image",
+      "src": "https://www.ghacks.net/wp-content/uploads/2026/03/gHacks-articles-2026-03-02T122835.477.png",
+      "caption": "Claude overtook ChatGPT to claim the No.1 spot on the U.S. App Store",
+      "alt": "Claude app store number one overtakes ChatGPT AI chatbot ranking 2026"
+    },
+    {
+      "type": "text",
+      "value": "Paradoxically, the memo leak gave Anthropic its biggest consumer growth ever. ChatGPT uninstalls surged 295% in a single day, and Claude claimed the No.1 spot on the App Store in 20 countries including the United States. Over one million new users are signing up daily.\n\nThe #QuitGPT campaign has rallied over 1.5 million supporters, with protests held outside OpenAI's San Francisco headquarters. Consumers are voting with their wallets on the ethical choices of AI companies."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Pentagon Supply Chain Risk Designation and Legal Challenge"
+    },
+    {
+      "type": "text",
+      "value": "The Pentagon officially designated Anthropic as a supply chain risk, effective immediately. It is the first time a U.S. company has ever received this label, a measure previously reserved for foreign adversaries.\n\nAmodei declared that \"we do not believe this action is legally sound, and we see no choice but to challenge it in court,\" signaling a federal lawsuit. However, analysts note the designation primarily affects direct Department of Defense contracts rather than blocking all commercial activity."
+    },
+    {
+      "type": "heading",
+      "value": "4. Industry Solidarity and a Double-Edged Sword"
+    },
+    {
+      "type": "text",
+      "value": "Over 450 employees at OpenAI and Google signed an open letter titled 'We Will Not Be Divided' in support of Anthropic, an unprecedented show of solidarity from rival companies' staff. OpenAI CEO Sam Altman reportedly told employees in an internal memo that the company would maintain the same red lines as Anthropic.\n\nYet this is a double-edged sword. While consumer growth is at historic highs, Anthropic has lost over $200 million in government and defense contract opportunities, and some investors are concerned about political risk. Where to draw the line between holding to principles and sustaining growth is Anthropic's next challenge."
+    }
+  ]
+}

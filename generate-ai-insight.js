@@ -382,7 +382,7 @@ async function main() {
     });
     try {
       execSync(
-        `cat "${codexTmpFile}" | codex exec -m gpt-5.4 -c model_reasoning_effort=xhigh -c hide_agent_reasoning=true --dangerously-bypass-approvals-and-sandbox -`,
+        `cat "${codexTmpFile}" | codex exec -m gpt-5.4 -c model_reasoning_effort=xhigh -c mcp_servers.firecrawl-mcp.enabled=false -c hide_agent_reasoning=true --dangerously-bypass-approvals-and-sandbox -`,
         {
           encoding: 'utf8',
           timeout: 1800000, // 30분

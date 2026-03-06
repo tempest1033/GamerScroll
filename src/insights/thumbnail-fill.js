@@ -602,7 +602,7 @@ function runCodexSelect(prompt, options) {
   fs.writeFileSync(tmpFile, prompt, 'utf8');
 
   try {
-    const baseCmd = `cat "${tmpFile}" | codex exec -m ${model} -c model_reasoning_effort=${reasoning} -c hide_agent_reasoning=true`;
+    const baseCmd = `cat "${tmpFile}" | codex exec -m ${model} -c model_reasoning_effort=${reasoning} -c mcp_servers.firecrawl-mcp.enabled=false -c hide_agent_reasoning=true`;
     const commands = [
       `${baseCmd} --output-last-message -`,
       `${baseCmd} -`
