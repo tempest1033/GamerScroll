@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-06T01:05:02.844Z",
+  "updatedAt": "2026-03-07T00:56:39.033Z",
   "period": "7days",
   "articles": [
     {
@@ -11,26 +11,38 @@
     {
       "category": "general",
       "slug": "deepseek-v4-launch-march-2026",
-      "views": 11,
+      "views": 12,
       "path": "/article/general/deepseek-v4-launch-march-2026/"
     },
     {
       "category": "general",
-      "slug": "apple-march-2026-macbook-neo-ai",
-      "views": 8,
-      "path": "/article/general/apple-march-2026-macbook-neo-ai/"
+      "slug": "moltbook-ai-social-network",
+      "views": 12,
+      "path": "/article/general/moltbook-ai-social-network/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 6,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
+      "category": "general",
+      "slug": "apple-march-2026-macbook-neo-ai",
+      "views": 9,
+      "path": "/article/general/apple-march-2026-macbook-neo-ai/"
     },
     {
       "category": "anthropic",
       "slug": "anthropic-internal-memo-pentagon-openai",
-      "views": 4,
+      "views": 5,
       "path": "/article/anthropic/anthropic-internal-memo-pentagon-openai/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 5,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-outage-demand-surge-pentagon",
+      "views": 4,
+      "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
     },
     {
       "category": "openai",
@@ -39,22 +51,28 @@
       "path": "/article/openai/gpt-5-4-leak-silent-update/"
     },
     {
-      "category": "openai",
-      "slug": "gpt-54-leak-model-war",
-      "views": 4,
-      "path": "/article/openai/gpt-54-leak-model-war/"
+      "category": "anthropic",
+      "slug": "anthropic-government-conflict-weapons-surveillance",
+      "views": 3,
+      "path": "/article/anthropic/anthropic-government-conflict-weapons-surveillance/"
     },
     {
       "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "slug": "claude-military-venezuela-iran",
       "views": 3,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+      "path": "/article/anthropic/claude-military-venezuela-iran/"
     },
     {
-      "category": "general",
-      "slug": "xbox-sunset-ai-pivot",
+      "category": "anthropic",
+      "slug": "claude-surpasses-grok-web-traffic",
       "views": 3,
-      "path": "/article/general/xbox-sunset-ai-pivot/"
+      "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-54-leak-model-war",
+      "views": 3,
+      "path": "/article/openai/gpt-54-leak-model-war/"
     },
     {
       "category": "anthropic",
@@ -64,21 +82,21 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-military-venezuela-iran",
+      "slug": "anthropic-revenue-19b-openai-gap",
       "views": 2,
-      "path": "/article/anthropic/claude-military-venezuela-iran/"
+      "path": "/article/anthropic/anthropic-revenue-19b-openai-gap/"
     },
     {
       "category": "anthropic",
-      "slug": "claude-outage-demand-surge-pentagon",
+      "slug": "claude-app-store-number-one",
       "views": 2,
-      "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
+      "path": "/article/anthropic/claude-app-store-number-one/"
     },
     {
       "category": "anthropic",
-      "slug": "claude-surpasses-grok-web-traffic",
+      "slug": "claude-sonnet-46-release",
       "views": 2,
-      "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
+      "path": "/article/anthropic/claude-sonnet-46-release/"
     },
     {
       "category": "general",
@@ -97,6 +115,12 @@
       "slug": "gemini-reliability-crisis-trust",
       "views": 2,
       "path": "/article/google/gemini-reliability-crisis-trust/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "views": 2,
+      "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
     },
     {
       "category": "openai",
@@ -124,21 +148,21 @@
     },
     {
       "category": "anthropic",
-      "slug": "anthropic-b2b-strategy-success",
+      "slug": "amodei-apology-claude-app-store-surge",
       "views": 1,
-      "path": "/article/anthropic/anthropic-b2b-strategy-success/"
+      "path": "/article/anthropic/amodei-apology-claude-app-store-surge/"
     },
     {
       "category": "anthropic",
-      "slug": "anthropic-revenue-19b-openai-gap",
+      "slug": "anthropic-pentagon-ultimatum-rsp-v3",
       "views": 1,
-      "path": "/article/anthropic/anthropic-revenue-19b-openai-gap/"
+      "path": "/article/anthropic/anthropic-pentagon-ultimatum-rsp-v3/"
     },
     {
       "category": "anthropic",
-      "slug": "claude-app-store-number-one",
+      "slug": "anthropic-safety-pledge-pentagon-pressure",
       "views": 1,
-      "path": "/article/anthropic/claude-app-store-number-one/"
+      "path": "/article/anthropic/anthropic-safety-pledge-pentagon-pressure/"
     },
     {
       "category": "anthropic",
@@ -147,40 +171,16 @@
       "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
+      "category": "anthropic",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "views": 1,
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "general",
-      "slug": "moltbook-ai-social-network",
-      "views": 1,
-      "path": "/article/general/moltbook-ai-social-network/"
-    },
-    {
-      "category": "general",
-      "slug": "silicon-valley-ai-ethics-government-clash",
-      "views": 1,
-      "path": "/article/general/silicon-valley-ai-ethics-government-clash/"
-    },
-    {
-      "category": "google",
-      "slug": "deepmind-update-aletheia-gemini",
-      "views": 1,
-      "path": "/article/google/deepmind-update-aletheia-gemini/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-death-lawsuit-gavalas",
-      "views": 1,
-      "path": "/article/google/gemini-death-lawsuit-gavalas/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-deep-think-hallucination-backlash",
-      "views": 1,
-      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
     }
   ]
 }

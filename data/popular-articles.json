@@ -1,37 +1,31 @@
 {
-  "updatedAt": "2026-03-06T01:04:05.164Z",
+  "updatedAt": "2026-03-07T00:55:39.444Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 97,
+      "views": 102,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "mobile-february-2026-kr",
-      "views": 52,
+      "views": 53,
       "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 41,
+      "views": 40,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "tech",
       "slug": "gpt-54-leak-model-war",
       "category": "ai",
-      "views": 12,
+      "views": 11,
       "path": "/tech/ai/gpt-54-leak-model-war/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-clover-games-restructuring",
-      "views": 7,
-      "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
     },
     {
       "type": "issue",
@@ -41,9 +35,34 @@
     },
     {
       "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 6,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-review-roundup",
+      "views": 5,
+      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
+    },
+    {
+      "type": "issue",
       "slug": "stoneage-idle-launch-success",
       "views": 5,
       "path": "/magazine/issue/stoneage-idle-launch-success/"
+    },
+    {
+      "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
+      "views": 5,
+      "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 4,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -52,23 +71,17 @@
       "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
       "type": "issue",
-      "slug": "pokemon-pokopia-review-roundup",
-      "views": 4,
-      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
-    },
-    {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 3,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "tech",
@@ -85,11 +98,24 @@
       "path": "/tech/ai/claude-military-venezuela-iran/"
     },
     {
+      "type": "tech",
+      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
+    },
+    {
       "type": "wiki",
       "slug": "game-business-metrics",
       "category": "business",
       "views": 3,
       "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 2,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
@@ -111,39 +137,15 @@
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 2,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "geng-lck-cup-championship",
       "views": 2,
       "path": "/magazine/issue/geng-lck-cup-championship/"
     },
     {
       "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
+      "slug": "heavenhells-clover-games-restructuring",
       "views": 2,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 2,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "issue",
-      "slug": "resident-evil-requiem-metacritic-scores",
-      "views": 2,
-      "path": "/magazine/issue/resident-evil-requiem-metacritic-scores/"
+      "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
     },
     {
       "type": "tech",
@@ -161,20 +163,6 @@
     },
     {
       "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
-    },
-    {
-      "type": "tech",
-      "slug": "grok-420-multi-agent-release",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/grok-420-multi-agent-release/"
-    },
-    {
-      "type": "tech",
       "slug": "openai-110b-record-funding-turning-point",
       "category": "ai",
       "views": 2,
@@ -186,13 +174,6 @@
       "category": "history",
       "views": 2,
       "path": "/wiki/history/korean-esports-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
@@ -209,22 +190,10 @@
       "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
       "type": "issue",
       "slug": "2026-subculture-openworld-games",
       "views": 1,
       "path": "/magazine/issue/2026-subculture-openworld-games/"
-    },
-    {
-      "type": "issue",
-      "slug": "blue-archive-5th-anniversary-japan",
-      "views": 1,
-      "path": "/magazine/issue/blue-archive-5th-anniversary-japan/"
     },
     {
       "type": "issue",
@@ -240,6 +209,18 @@
     },
     {
       "type": "issue",
+      "slug": "google-play-fee-cut-epic-settlement",
+      "views": 1,
+      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
+    },
+    {
+      "type": "issue",
+      "slug": "gpt-5-3-garlic-update-rumor",
+      "views": 1,
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-90day-benefit-controversy",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
@@ -252,15 +233,33 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-classic-user-exodus-macro-cash",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-m-classic-cannibalization-crisis",
       "views": 1,
       "path": "/magazine/issue/lineage-m-classic-cannibalization-crisis/"
     },
     {
       "type": "issue",
+      "slug": "resident-evil-requiem-metacritic-scores",
+      "views": 1,
+      "path": "/magazine/issue/resident-evil-requiem-metacritic-scores/"
+    },
+    {
+      "type": "issue",
       "slug": "shiftup-self-publishing-stellar-blade",
       "views": 1,
       "path": "/magazine/issue/shiftup-self-publishing-stellar-blade/"
+    },
+    {
+      "type": "issue",
+      "slug": "slay-the-spire-2-early-access-record",
+      "views": 1,
+      "path": "/magazine/issue/slay-the-spire-2-early-access-record/"
     },
     {
       "type": "issue",
@@ -300,6 +299,13 @@
     },
     {
       "type": "tech",
+      "slug": "amodei-apology-claude-app-store-surge",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/amodei-apology-claude-app-store-surge/"
+    },
+    {
+      "type": "tech",
       "slug": "anthropic-government-conflict-weapons-surveillance",
       "category": "ai",
       "views": 1,
@@ -321,10 +327,31 @@
     },
     {
       "type": "tech",
+      "slug": "claude-code-vs-codex-coding-agent",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
+    },
+    {
+      "type": "tech",
       "slug": "claude-opus-46-pricing-controversy",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-outage-demand-surge-pentagon",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-outage-demand-surge-pentagon/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-surpasses-grok-web-traffic",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-surpasses-grok-web-traffic/"
     },
     {
       "type": "tech",
@@ -377,13 +404,6 @@
     },
     {
       "type": "tech",
-      "slug": "google-ai-voluntary-exit",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/google-ai-voluntary-exit/"
-    },
-    {
-      "type": "tech",
       "slug": "gpt-4o-shutdown-controversy",
       "category": "ai",
       "views": 1,
@@ -405,10 +425,10 @@
     },
     {
       "type": "tech",
-      "slug": "openai-compute-investment-600b-cut",
+      "slug": "grok-420-multi-agent-release",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/openai-compute-investment-600b-cut/"
+      "path": "/tech/ai/grok-420-multi-agent-release/"
     },
     {
       "type": "tech",
@@ -430,6 +450,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/silicon-valley-ai-ethics-government-clash/"
+    },
+    {
+      "type": "tech",
+      "slug": "vibe-coding-guide",
+      "category": "vibecoding",
+      "views": 1,
+      "path": "/tech/vibecoding/vibe-coding-guide/"
     },
     {
       "type": "wiki",
