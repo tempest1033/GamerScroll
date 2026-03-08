@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-07T00:56:39.033Z",
+  "updatedAt": "2026-03-08T01:00:05.613Z",
   "period": "7days",
   "articles": [
     {
@@ -33,12 +33,6 @@
       "path": "/article/anthropic/anthropic-internal-memo-pentagon-openai/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 5,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
       "category": "anthropic",
       "slug": "claude-outage-demand-surge-pentagon",
       "views": 4,
@@ -69,10 +63,10 @@
       "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
     },
     {
-      "category": "openai",
-      "slug": "gpt-54-leak-model-war",
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
       "views": 3,
-      "path": "/article/openai/gpt-54-leak-model-war/"
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "anthropic",
@@ -97,12 +91,6 @@
       "slug": "claude-sonnet-46-release",
       "views": 2,
       "path": "/article/anthropic/claude-sonnet-46-release/"
-    },
-    {
-      "category": "general",
-      "slug": "meta-avocado-ai-model-performance",
-      "views": 2,
-      "path": "/article/general/meta-avocado-ai-model-performance/"
     },
     {
       "category": "google",
@@ -130,21 +118,15 @@
     },
     {
       "category": "openai",
-      "slug": "openai-110b-record-funding-turning-point",
+      "slug": "gpt-54-leak-model-war",
       "views": 2,
-      "path": "/article/openai/openai-110b-record-funding-turning-point/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-pentagon-hypocrisy-red-lines",
-      "views": 2,
-      "path": "/article/openai/openai-pentagon-hypocrisy-red-lines/"
+      "path": "/article/openai/gpt-54-leak-model-war/"
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
+      "slug": "codex-install-guide-mac",
       "views": 2,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
@@ -181,6 +163,24 @@
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "meta-avocado-ai-model-performance",
+      "views": 1,
+      "path": "/article/general/meta-avocado-ai-model-performance/"
+    },
+    {
+      "category": "google",
+      "slug": "deepmind-update-aletheia-gemini",
+      "views": 1,
+      "path": "/article/google/deepmind-update-aletheia-gemini/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-death-lawsuit-gavalas",
+      "views": 1,
+      "path": "/article/google/gemini-death-lawsuit-gavalas/"
     }
   ]
 }

@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-03-07T00:55:39.444Z",
+  "updatedAt": "2026-03-08T00:59:06.388Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 102,
+      "views": 104,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
@@ -17,14 +17,20 @@
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 40,
+      "views": 31,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 17,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "tech",
       "slug": "gpt-54-leak-model-war",
       "category": "ai",
-      "views": 11,
+      "views": 9,
       "path": "/tech/ai/gpt-54-leak-model-war/"
     },
     {
@@ -32,12 +38,6 @@
       "slug": "deepseek-v4-launch-march-2026",
       "views": 6,
       "path": "/magazine/issue/deepseek-v4-launch-march-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 6,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
@@ -52,30 +52,22 @@
       "path": "/magazine/issue/stoneage-idle-launch-success/"
     },
     {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 5,
-      "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 4,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
       "views": 4,
       "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+      "type": "issue",
+      "slug": "arknights-endfield-launch-success",
+      "views": 3,
+      "path": "/magazine/issue/arknights-endfield-launch-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 3,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -105,6 +97,13 @@
       "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
     },
     {
+      "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
       "type": "wiki",
       "slug": "game-business-metrics",
       "category": "business",
@@ -112,22 +111,17 @@
       "path": "/wiki/business/game-business-metrics/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 2,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 2,
       "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
-      "views": 2,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -137,15 +131,21 @@
     },
     {
       "type": "issue",
+      "slug": "blue-archive-5th-anniversary-japan",
+      "views": 2,
+      "path": "/magazine/issue/blue-archive-5th-anniversary-japan/"
+    },
+    {
+      "type": "issue",
       "slug": "geng-lck-cup-championship",
       "views": 2,
       "path": "/magazine/issue/geng-lck-cup-championship/"
     },
     {
       "type": "issue",
-      "slug": "heavenhells-clover-games-restructuring",
+      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 2,
-      "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "tech",
@@ -153,20 +153,6 @@
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/anthropic-internal-memo-pentagon-openai/"
-    },
-    {
-      "type": "tech",
-      "slug": "chatgpt-pro-lite-plan-leak",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
-    },
-    {
-      "type": "tech",
-      "slug": "openai-110b-record-funding-turning-point",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/openai-110b-record-funding-turning-point/"
     },
     {
       "type": "wiki",
@@ -188,6 +174,18 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 1,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "insight",
+      "slug": "subculture-market-crisis-winner-takes-all",
+      "views": 1,
+      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -221,27 +219,15 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
+      "slug": "heavenhells-clover-games-restructuring",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-refund-exploit-ban",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
+      "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
     },
     {
       "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-m-classic-cannibalization-crisis",
-      "views": 1,
-      "path": "/magazine/issue/lineage-m-classic-cannibalization-crisis/"
     },
     {
       "type": "issue",
@@ -269,12 +255,6 @@
     },
     {
       "type": "issue",
-      "slug": "steam-deck-oled-price-hike-asia",
-      "views": 1,
-      "path": "/magazine/issue/steam-deck-oled-price-hike-asia/"
-    },
-    {
-      "type": "issue",
       "slug": "subculture-newyear-china-wins",
       "views": 1,
       "path": "/magazine/issue/subculture-newyear-china-wins/"
@@ -292,12 +272,6 @@
       "path": "/magazine/ranking/steam-february-2026/"
     },
     {
-      "type": "ranking",
-      "slug": "steam-january-2026",
-      "views": 1,
-      "path": "/magazine/ranking/steam-january-2026/"
-    },
-    {
       "type": "tech",
       "slug": "amodei-apology-claude-app-store-surge",
       "category": "ai",
@@ -306,17 +280,17 @@
     },
     {
       "type": "tech",
-      "slug": "anthropic-government-conflict-weapons-surveillance",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/anthropic-government-conflict-weapons-surveillance/"
-    },
-    {
-      "type": "tech",
       "slug": "anthropic-revenue-19b-openai-gap",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/anthropic-revenue-19b-openai-gap/"
+    },
+    {
+      "type": "tech",
+      "slug": "chatgpt-pro-lite-plan-leak",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
     },
     {
       "type": "tech",
@@ -432,24 +406,17 @@
     },
     {
       "type": "tech",
+      "slug": "openai-110b-record-funding-turning-point",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/openai-110b-record-funding-turning-point/"
+    },
+    {
+      "type": "tech",
       "slug": "openai-pentagon-deal-altman-admits",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/openai-pentagon-deal-altman-admits/"
-    },
-    {
-      "type": "tech",
-      "slug": "openai-pentagon-hypocrisy-red-lines",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/openai-pentagon-hypocrisy-red-lines/"
-    },
-    {
-      "type": "tech",
-      "slug": "silicon-valley-ai-ethics-government-clash",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/silicon-valley-ai-ethics-government-clash/"
     },
     {
       "type": "tech",
