@@ -2,12 +2,17 @@
   "slug": "gdc-2026-preview-kojima-xbox",
   "status": "approved",
   "title": "GDC 2026 개막 프리뷰: 코지마 불참 속 차세대 엑스박스부터 GDCA 시상식까지",
-  "date": "",
+  "date": "2026-03-08T18:30",
   "keywords": "GDC 2026, 게임 개발자 컨퍼런스, 히데오 코지마, Xbox Project Helix, 엑스박스, GDCA, 클레어 옵스큐어 엑스페디션 33, 엔비디아 DLSS, 텐센트, 애플, 게임 산업",
   "summary": "GDC 2026이 3월 9일 샌프란시스코에서 개막한다. 코지마 히데오 키노트 불참, 엑스박스 개발자 서밋의 프로젝트 헬릭스 공개, 클레어 옵스큐어 GDCA 8관왕 도전, 패스 45% 인하까지 주요 이슈를 정리했다.",
   "thumbnail": "https://knect365.imgix.net/uploads/54394635415-d66bfac53c-c-5929ea55b3c926d75f0aa9880855488c.jpg",
-  "relatedDocs": ["issue:xbox-project-helix-pc-console"],
-  "relatedGames": ["cyberpunk-2077", "hollow-knight-silksong"],
+  "relatedDocs": [
+    "issue:xbox-project-helix-pc-console"
+  ],
+  "relatedGames": [
+    "cyberpunk-2077",
+    "hollow-knight-silksong"
+  ],
   "sources": [
     {
       "name": "GDC",

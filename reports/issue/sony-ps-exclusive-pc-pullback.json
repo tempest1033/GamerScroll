@@ -2,11 +2,14 @@
   "slug": "sony-ps-exclusive-pc-pullback",
   "status": "approved",
   "title": "소니, 플레이스테이션 싱글플레이어 PC 출시 전면 중단: 6년 만의 독점 회귀",
-  "date": "",
+  "date": "2026-03-08T18:30",
   "keywords": "소니 PC 출시 중단, 플레이스테이션 독점, 고스트 오브 요테이 PC, 사로스 PS5 독점, 소니 전략 전환, 플레이스테이션 PC 포트, 마블 울버린 PC, 블룸버그 소니, 콘솔 독점 전략, PS5 독점 게임, 2026 소니, 마라톤 멀티플랫폼, 소니 엑스박스 전략 비교",
   "summary": "소니가 6년간 이어온 플레이스테이션 대작의 PC 출시 전략을 전면 철회했다. 고스트 오브 요테이, 사로스, 마블 울버린 등 싱글플레이어 대작은 PS5 독점을 유지하고, 마라톤 같은 온라인 게임만 멀티플랫폼으로 남긴다. 엑스박스의 개방 전략과 정반대 행보다.",
   "thumbnail": "https://images.pushsquare.com/a8fc2bb4767fa/1280x720.jpg",
-  "relatedDocs": ["issue:xbox-project-helix-pc-console", "issue:ps6-release-outlook-2027"],
+  "relatedDocs": [
+    "issue:xbox-project-helix-pc-console",
+    "issue:ps6-release-outlook-2027"
+  ],
   "relatedGames": [],
   "sources": [
     {
