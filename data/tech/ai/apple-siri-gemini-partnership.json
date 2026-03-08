@@ -1,0 +1,182 @@
+{
+  "slug": "apple-siri-gemini-partnership",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "google",
+  "title": "애플, 제미나이 기반 새 시리 출시 임박: 연 15억 달러 파트너십의 전모",
+  "titleEn": "Apple's Gemini-Powered Siri Nears Launch: Inside the $1.5B Partnership",
+  "date": "",
+  "thumbnail": "https://www.geeky-gadgets.com/wp-content/uploads/2026/02/Siri-2-1.jpg",
+  "keywords": "애플, 시리, 구글 제미나이, AI 비서, iOS 26.4, 프라이빗 클라우드 컴퓨트, 파트너십, 1조 파라미터, 화면 인식, 멀티스텝, 팀 쿡, 2026",
+  "keywordsEn": "Apple, Siri, Google Gemini, AI assistant, iOS 26.4, Private Cloud Compute, partnership, trillion parameter, on-screen awareness, multi-step, Tim Cook, 2026",
+  "summary": "애플이 구글 제미나이 모델을 기반으로 완전히 재설계된 AI 시리를 iOS 26.4와 함께 출시할 예정이다. 연 15억 달러 규모의 다년 파트너십으로, 1.2조 파라미터 모델이 화면 인식과 멀티스텝 작업을 지원하지만, 일부 기능은 지연 가능성이 보도되고 있다.",
+  "summaryEn": "Apple is set to launch a fully redesigned AI-powered Siri based on Google's Gemini model with iOS 26.4. The multi-year partnership worth $1.5 billion annually features a 1.2 trillion parameter model supporting on-screen awareness and multi-step actions, though some features may face delays.",
+  "relatedDocs": [
+    "tech:ai/gemini-31-pro-release",
+    "tech:ai/deepmind-update-aletheia-gemini"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "MacRumors",
+      "title": "Apple Confirms Google Gemini Will Power Next-Generation Siri This Year",
+      "url": "https://www.macrumors.com/2026/01/12/google-gemini-next-generation-siri/"
+    },
+    {
+      "name": "CNBC",
+      "title": "Apple picks Google's Gemini to run AI-powered Siri coming this year",
+      "url": "https://www.cnbc.com/2026/01/12/apple-google-ai-siri-gemini.html"
+    },
+    {
+      "name": "9to5Mac",
+      "title": "Apple reportedly pushing back Gemini-powered Siri features beyond iOS 26.4",
+      "url": "https://9to5mac.com/2026/02/11/apple-reportedly-pushing-back-gemini-powered-siri-features-beyond-ios-26-4/"
+    },
+    {
+      "name": "MacRumors",
+      "title": "Apple Explains How Gemini-Powered Siri Will Work",
+      "url": "https://www.macrumors.com/2026/01/30/apple-explains-how-gemini-powered-siri-will-work/"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "Apple's iOS 26.4 Siri Update Runs Into Snags in Internal Testing",
+      "url": "https://www.bloomberg.com/news/articles/2026-02-11/apple-s-ios-26-4-siri-update-runs-into-snags-in-internal-testing-ios-26-5-27"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "애플이 시리를 완전히 새롭게 만들고 있다. 자체 AI 모델 대신 구글의 제미나이를 선택했고, 연 15억 달러(약 2조 원)를 지불하는 다년 계약을 체결했다. 오픈AI와 엔트로픽도 검토했지만 최종적으로 구글을 파트너로 선택한 이 결정은, 애플 AI 전략의 가장 큰 전환점이다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 왜 구글 제미나이인가: 선택의 배경"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/nktyk-H9HG4SqkDzpSGrRHfbqOs=/1600x0/article-new/2025/03/iOS-18-Siri-Personal-Context.jpg",
+      "caption": "애플의 차세대 시리는 개인 맥락 이해와 화면 인식 기능을 갖춘다",
+      "alt": "애플 iOS 시리 개인 맥락 이해 화면 인식 AI 비서 2026"
+    },
+    {
+      "type": "text",
+      "value": "애플은 1월 12일 차세대 시리에 구글 제미나이 모델을 채택한다고 공식 발표했다. 이 결정은 오픈AI, 엔트로픽을 포함한 복수의 AI 기업을 검토한 끝에 내려졌다. 애플이 외부 모델에 이 규모의 의존을 결정한 것은 이례적이다.\n\n핵심은 규모와 인프라다. 제미나이 3 프로 기반의 커스텀 모델은 약 1.2조 개의 파라미터를 갖추고 있으며, 기존 애플 인텔리전스에 사용되던 1,500억 파라미터 모델 대비 8배 이상의 성능 향상을 제공한다. 애플은 이를 '화이트 라벨'로 도입해, 사용자에게는 구글 브랜딩 없이 시리로만 보이도록 설계했다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 새로운 시리의 핵심 기능"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/x6HBzZEi3W9rccOrumo3EIUSlEA=/1600x0/article-new/2024/09/Apple-Intelligence-iPhone-16.jpg",
+      "caption": "애플 인텔리전스와 제미나이가 결합해 시리의 능력을 8배 끌어올린다",
+      "alt": "애플 인텔리전스 아이폰 16 AI 기능 제미나이 통합 시리 성능 향상 2026"
+    },
+    {
+      "type": "text",
+      "value": "재설계된 시리는 세 가지 핵심 능력을 갖춘다.\n\n**화면 인식**: 시리가 현재 화면에 표시된 콘텐츠를 읽고 이해한다. 사파리에 레스토랑이 표시되면 이름이나 주소를 복사하지 않아도 예약할 수 있고, 항공편 확인 이메일이 열려 있으면 자동으로 캘린더에 추가하고 출발 알림을 설정한다.\n\n**멀티스텝 작업**: 하나의 자연어 요청으로 최대 10개의 연속 작업을 수행한다. \"뉴욕행 다음 항공편 예약하고, 캘린더에 추가하고, 사라에게 도착 시간 문자 보내\"라는 한 문장이 하나의 워크플로우로 실행된다.\n\n**개인 맥락 이해**: 이메일, 메시지, 캘린더 등의 개인 데이터에 접근해 사용자의 맥락을 파악한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 기술 아키텍처: 프라이빗 클라우드 컴퓨트"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/sKxmnm8NBMNjKYqJoXMkweAw5iY=/400x0/article-new/2024/09/apple-intelligence-black.jpeg?lossy",
+      "caption": "애플 인텔리전스 프레임워크 위에서 제미나이 모델이 동작한다",
+      "alt": "애플 인텔리전스 프레임워크 AI 클라우드 컴퓨팅 제미나이 모델 통합 2026"
+    },
+    {
+      "type": "text",
+      "value": "애플은 프라이버시를 위해 독특한 이중 구조를 채택했다. 온디바이스 모델(30억~70억 파라미터)이 일상적 작업의 약 60%를 처리하고, 복잡한 추론이 필요한 요청은 '딥 인텔리전스 레이어'로 올라간다. 이 레이어에서 1.2조 파라미터의 커스텀 제미나이 모델이 애플의 프라이빗 클라우드 컴퓨트 인프라 위에서 동작한다.\n\n중요한 것은 사용자 데이터가 구글 인프라에 도달하지 않는다는 점이다. 모든 처리는 애플의 자체 서버에서 이루어지며, 구글은 모델 기술만 제공한다. 애플은 이를 통해 성능과 프라이버시를 동시에 확보했다고 설명한다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 향후 전망과 과제"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/OP1HszPucvLXm5Hvoa2TQhHbaEE=/1600x0/article-new/2025/03/Sad-Siri-Feature.jpg",
+      "caption": "내부 테스트에서 발견된 문제로 일부 시리 기능이 지연될 수 있다",
+      "alt": "시리 기능 지연 iOS 26.4 내부 테스트 문제 블룸버그 보도 2026"
+    },
+    {
+      "type": "text",
+      "value": "3월 출시가 목표였지만, 블룸버그는 2월 11일 내부 테스트에서 문제가 발견됐다고 보도했다. 시리가 쿼리 처리 시 오류를 범하거나 응답 속도가 느린 경우가 있으며, 제미나이 기반 기술이 처리 가능한 요청도 챗GPT로 폴백하는 현상이 발견됐다.\n\n이에 따라 일부 기능이 iOS 26.5(5월) 또는 iOS 27(9월)로 연기될 수 있다. 특히 개인 데이터 접근 확장과 단일 명령의 다중 앱 내 동작 기능이 지연 대상으로 거론된다. 다만 애플은 \"재설계된 시리가 2026년 내에 출시될 것\"이라는 입장을 재확인했다.\n\n한편 애플은 이 파트너십이 영구적이지 않을 수 있음을 시사하고 있다. 자체 1조 파라미터 모델을 2027년 목표로 개발 중이며, 제미나이 계약은 일종의 '브릿지 전략'으로 해석된다. WWDC 2026에서 코드명 '캄포스'로 알려진 완전히 새로운 시리 디자인이 공개될 것으로 예상된다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Apple is rebuilding Siri from the ground up. Instead of relying solely on its own AI models, the company chose Google's Gemini and signed a multi-year deal worth approximately $1.5 billion annually. After evaluating OpenAI and Anthropic, Apple's decision to partner with Google represents the biggest pivot in its AI strategy."
+    },
+    {
+      "type": "heading",
+      "value": "1. Why Google Gemini: The Decision"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/nktyk-H9HG4SqkDzpSGrRHfbqOs=/1600x0/article-new/2025/03/iOS-18-Siri-Personal-Context.jpg",
+      "caption": "Apple's next-generation Siri features personal context understanding and on-screen awareness",
+      "alt": "Apple iOS Siri personal context understanding on-screen awareness AI assistant 2026"
+    },
+    {
+      "type": "text",
+      "value": "Apple officially announced on January 12 that it would adopt Google's Gemini model for next-generation Siri. The decision came after evaluating multiple AI companies including OpenAI and Anthropic. It's unusual for Apple to commit to this level of external dependency.\n\nThe key factors were scale and infrastructure. The custom model based on Gemini 3 Pro features approximately 1.2 trillion parameters, representing an eightfold improvement over the 150 billion parameter model previously used for Apple Intelligence. Apple adopted it as a 'white label' solution, designed so users see only Siri without any Google branding."
+    },
+    {
+      "type": "heading",
+      "value": "2. Core Capabilities of the New Siri"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/x6HBzZEi3W9rccOrumo3EIUSlEA=/1600x0/article-new/2024/09/Apple-Intelligence-iPhone-16.jpg",
+      "caption": "Apple Intelligence combined with Gemini delivers an eightfold performance boost for Siri",
+      "alt": "Apple Intelligence iPhone 16 AI features Gemini integration Siri performance boost 2026"
+    },
+    {
+      "type": "text",
+      "value": "The redesigned Siri features three core capabilities.\n\n**On-Screen Awareness**: Siri can read and understand content currently displayed on screen. If a restaurant appears in Safari, it can make a reservation without copying the name or address. If a flight confirmation email is open, it automatically adds it to the calendar and sets departure reminders.\n\n**Multi-Step Actions**: A single natural language request can execute up to 10 sequential actions. \"Book me on the next available flight to New York, add it to my calendar, and text Sarah my arrival time\" runs as a single workflow.\n\n**Personal Context**: Siri accesses personal data from emails, messages, and calendars to understand user context."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Technical Architecture: Private Cloud Compute"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/sKxmnm8NBMNjKYqJoXMkweAw5iY=/400x0/article-new/2024/09/apple-intelligence-black.jpeg?lossy",
+      "caption": "The Gemini model operates within the Apple Intelligence framework",
+      "alt": "Apple Intelligence framework AI cloud computing Gemini model integration 2026"
+    },
+    {
+      "type": "text",
+      "value": "Apple adopted a unique dual-layer architecture for privacy. On-device models (3 to 7 billion parameters) handle roughly 60% of routine tasks, while requests requiring complex reasoning escalate to a 'Deep Intelligence Layer.' This layer runs the custom 1.2 trillion parameter Gemini model on Apple's Private Cloud Compute infrastructure.\n\nCritically, user data never reaches Google's infrastructure. All processing occurs on Apple's own servers, with Google providing only the model technology. Apple says this approach secures both performance and privacy simultaneously."
+    },
+    {
+      "type": "heading",
+      "value": "4. Potential Delays and Future Outlook"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/OP1HszPucvLXm5Hvoa2TQhHbaEE=/1600x0/article-new/2025/03/Sad-Siri-Feature.jpg",
+      "caption": "Testing issues could delay some Siri features beyond iOS 26.4",
+      "alt": "Siri feature delay iOS 26.4 internal testing issues Bloomberg report 2026"
+    },
+    {
+      "type": "text",
+      "value": "While March was the target launch window, Bloomberg reported on February 11 that internal testing had uncovered issues. Siri sometimes makes errors processing queries or responds too slowly, and was found falling back on ChatGPT for information even when the Gemini-powered system was capable of handling the request.\n\nAs a result, some features may be pushed to iOS 26.5 (May) or iOS 27 (September). Expanded personal data access and multi-app actions from single commands are specifically mentioned as potential delays. However, Apple reaffirmed that the redesigned Siri is \"still on track to launch in 2026.\"\n\nMeanwhile, Apple has signaled this partnership may not be permanent. The company is developing its own trillion-parameter model targeting 2027, and the Gemini deal is interpreted as a bridge strategy. A completely new Siri design, codenamed 'Campos,' is expected to be unveiled at WWDC 2026."
+    },
+    {
+      "type": "ad"
+    }
+  ]
+}

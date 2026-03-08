@@ -1,0 +1,114 @@
+{
+  "slug": "xbox-project-helix-pc-console",
+  "status": "approved",
+  "title": "엑스박스 차세대 콘솔 '프로젝트 헬릭스' 공식 발표: PC 게임까지 구동하는 콘솔의 등장",
+  "date": "",
+  "keywords": "엑스박스 프로젝트 헬릭스, 차세대 엑스박스, 프로젝트 헬릭스, 아샤 샤르마, 엑스박스 PC 게임, 스팀 콘솔, AMD Zen 6, RDNA 5, 4K 120fps, GDC 2026, 엑스박스 차세대, 마이크로소프트 콘솔, 엑스박스 시리즈 X 후속, 2027 출시",
+  "summary": "엑스박스 CEO 아샤 샤르마가 차세대 콘솔 '프로젝트 헬릭스'를 공식 발표했다. 엑스박스와 PC 게임을 모두 구동하며 스팀, 에픽, GOG까지 설치 가능한 이 콘솔은 콘솔과 PC의 경계를 완전히 허무는 파격적 행보로, 2027년 하반기 출시가 예상된다.",
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/QKZHxL3RCR8bnCGZd8suXg-960-80.jpg",
+  "relatedDocs": ["issue:ps6-release-outlook-2027", "issue:sony-ps-exclusive-pc-pullback"],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "GamesRadar",
+      "title": "Microsoft announces Xbox 'Project Helix,' our next generation console that will play your Xbox and PC games",
+      "url": "https://www.gamesradar.com/platforms/xbox/microsoft-announces-xbox-project-helix-our-next-generation-console-that-will-play-your-xbox-and-pc-games/"
+    },
+    {
+      "name": "Engadget",
+      "title": "Xbox CEO confirms next-gen 'Project Helix' console will play PC games",
+      "url": "https://www.engadget.com/gaming/xbox/xbox-ceo-confirms-next-gen-project-helix-console-will-play-pc-games-204654357.html"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "Microsoft confirms next-gen Xbox will play PC games — 'Project Helix' teased as more than just a console",
+      "url": "https://www.tomshardware.com/video-games/xbox/microsoft-confirms-next-gen-xbox-will-play-pc-games-project-helix-teased-as-more-than-just-a-console"
+    },
+    {
+      "name": "Windows Central",
+      "title": "Xbox's next console 'Project Helix' codename revealed — CEO Asha Sharma re-affirms new Xbox-PC hybrid is on the way",
+      "url": "https://www.windowscentral.com/gaming/xbox/xboxs-next-console-project-helix-codename-revealed-ceo-asha-sharma-re-affirms-new-xbox-is-on-the-way"
+    },
+    {
+      "name": "Pure Xbox",
+      "title": "Xbox Announces New 'Project Helix' Console, Says It Will Play PC Games",
+      "url": "https://www.purexbox.com/news/2026/03/xbox-announces-new-project-helix-console-says-it-will-play-pc-games"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "마이크로소프트가 콘솔 게임의 판도를 바꿀 카드를 꺼냈다. 3월 5일, 엑스박스 CEO 아샤 샤르마는 차세대 콘솔의 코드명이 '프로젝트 헬릭스'임을 공식 확인하며 \"성능에서 선두를 달리고, 엑스박스와 PC 게임을 모두 플레이할 수 있을 것\"이라고 선언했다. DNA의 이중나선에서 따온 이름처럼, 엑스박스와 PC 생태계를 하나로 엮겠다는 마이크로소프트의 야심이 담긴 프로젝트다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 프로젝트 헬릭스 공식 발표: 콘솔과 PC의 경계가 사라진다"
+    },
+    {
+      "type": "image",
+      "src": "https://images.purexbox.com/e21b732dd25d9/xbox-announces-new-project-helix-console-says-it-will-play-pc-games-and-lead-in-performance.large.jpg",
+      "caption": "엑스박스 프로젝트 헬릭스 공식 발표 로고",
+      "alt": "엑스박스 프로젝트 헬릭스 차세대 콘솔 공식 발표 로고 마이크로소프트"
+    },
+    {
+      "type": "text",
+      "value": "프로젝트 헬릭스의 핵심은 단순한 성능 향상이 아니다. 이 콘솔은 윈도우 데스크톱으로 부팅할 수 있으며, 스팀, 에픽 게임즈 스토어, GOG, 배틀넷 등 PC 게임 스토어를 직접 설치해 이용할 수 있다. 기존 콘솔이 자사 스토어에 묶여 있던 것과 완전히 다른 접근이다.\n\n아샤 샤르마는 \"프로젝트 헬릭스는 성능에서 선두를 달리며, 엑스박스와 PC 게임을 모두 플레이할 수 있다\"고 강조했다. 필 스펜서와 사라 본드의 퇴임 이후 새 리더십 아래 엑스박스가 내놓은 첫 번째 대형 발표라는 점에서, 마이크로소프트 게이밍 사업부의 방향 전환을 상징하는 이정표이기도 하다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. AMD Zen 6 + RDNA 5: 유출된 사양과 성능 전망"
+    },
+    {
+      "type": "image",
+      "src": "https://www.vice.com/wp-content/uploads/sites/2/2026/03/next-gen-xbox-project-helix.jpg?w=1024",
+      "caption": "엑스박스 프로젝트 헬릭스 차세대 콘솔 유출 이미지",
+      "alt": "엑스박스 프로젝트 헬릭스 차세대 콘솔 AMD Zen 6 RDNA 5 하드웨어 사양 유출"
+    },
+    {
+      "type": "text",
+      "value": "마이크로소프트는 아직 공식 사양을 발표하지 않았지만, 유출된 정보에 따르면 프로젝트 헬릭스는 AMD의 차세대 반도체를 탑재한다. Zen 6 CPU 코어와 RDNA 5 GPU를 조합한 세미커스텀 x86 칩으로, TSMC 3nm 공정에서 제조될 것으로 알려졌다. GPU는 최대 68개의 컴퓨트 유닛을 갖추며, 네이티브 4K 해상도에서 120fps 출력을 목표로 한다.\n\n성능 분석에 따르면, 래스터라이제이션 성능은 엑스박스 시리즈 X 대비 약 5~6배, 레이트레이싱 성능은 최대 20배 향상될 것으로 예상된다. 메모리는 48GB GDDR7이 탑재될 것이라는 루머도 있다. 다만 이러한 고성능은 높은 가격으로 이어질 전망이다. 업계 분석가들은 $900~$1,200 사이의 가격대를 예상하고 있어, 역대 가장 비싼 엑스박스가 될 가능성이 높다."
+    },
+    {
+      "type": "heading",
+      "value": "3. GDC 2026에서의 추가 공개와 출시 전망"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/K9D9ZpndgjzzfxgAXRixzA.jpg",
+      "caption": "엑스박스의 PC 스토어 지원 인터페이스 콘셉트",
+      "alt": "엑스박스 프로젝트 헬릭스 PC 게임 스토어 지원 스팀 에픽 게임즈 스토어 인터페이스"
+    },
+    {
+      "type": "text",
+      "value": "샤르마는 3월 9일부터 13일까지 열리는 GDC 2026(게임 개발자 컨퍼런스)에서 파트너사 및 개발 스튜디오들에게 더 많은 정보를 공유할 것이라고 밝혔다. \"첫 GDC에서 이 이야기를 나눌 수 있게 되어 기대된다\"는 그녀의 발언은 상당한 분량의 추가 발표가 준비되어 있음을 시사한다.\n\n출시 시점은 2027년 하반기가 유력하다. AMD CEO 리사 수가 이전에 2027년 출시를 언급한 바 있으며, AMD의 제품 로드맵도 이에 부합한다. 다만 마이크로소프트가 공식적으로 출시일을 확정하지는 않은 상태다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 전략적 의미: 소니와 정반대 행보를 택한 엑스박스"
+    },
+    {
+      "type": "image",
+      "src": "https://gameinformer.com/sites/default/files/styles/body_default/public/2026/03/05/df6eb24e/project-helix-logo.jpg.webp",
+      "caption": "프로젝트 헬릭스 공식 로고: DNA 이중나선에서 착안한 디자인",
+      "alt": "엑스박스 프로젝트 헬릭스 공식 로고 DNA 이중나선 콘솔 PC 통합 마이크로소프트"
+    },
+    {
+      "type": "text",
+      "value": "프로젝트 헬릭스의 발표는 소니의 최근 행보와 극명하게 대비된다. 소니가 싱글플레이어 대작의 PC 출시를 중단하고 PS5 독점으로 회귀하는 사이, 엑스박스는 오히려 PC 생태계를 콘솔 안으로 끌어들이는 선택을 했다. 윈도우 운영체제를 기반으로 모든 PC 게임 스토어를 지원한다는 것은, 사실상 콘솔의 정의를 재정립하겠다는 선언이다.\n\nPC 게이머는 이를 두고 스팀 머신과의 경쟁 구도를 주목했다. 밸브가 거실용 게이밍 PC 시장을 노리는 가운데, 마이크로소프트가 콘솔 형태로 같은 시장에 뛰어드는 셈이다. 다만 $900 이상의 예상 가격은 $499 수준의 기존 콘솔과는 다른 프리미엄 시장을 겨냥하는 것으로, 대중 보급보다는 하이엔드 게이머 공략에 초점이 맞춰져 있다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 콘솔의 미래를 건 마이크로소프트의 도박"
+    },
+    {
+      "type": "text",
+      "value": "프로젝트 헬릭스는 마이크로소프트가 엑스박스 하드웨어에 걸 수 있는 가장 큰 승부수다. 엑스박스와 PC의 생태계를 하나로 합치겠다는 구상은 혁신적이지만, 높은 가격과 기존 콘솔 유저 이탈 리스크라는 양날의 검을 안고 있다. GDC 2026에서 공개될 추가 정보가 시장의 기대와 우려를 어느 쪽으로 기울게 할지, 그리고 소니의 독점 강화 전략과 맞붙었을 때 어떤 결과를 낳을지 주목된다. 2027년 콘솔 전쟁의 판도는 프로젝트 헬릭스가 얼마나 설득력 있는 비전을 보여주느냐에 달려 있다."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "slug": "gdc-2026-preview-kojima-xbox",
+  "status": "approved",
+  "title": "GDC 2026 개막 프리뷰: 코지마 불참 속 차세대 엑스박스부터 GDCA 시상식까지",
+  "date": "",
+  "keywords": "GDC 2026, 게임 개발자 컨퍼런스, 히데오 코지마, Xbox Project Helix, 엑스박스, GDCA, 클레어 옵스큐어 엑스페디션 33, 엔비디아 DLSS, 텐센트, 애플, 게임 산업",
+  "summary": "GDC 2026이 3월 9일 샌프란시스코에서 개막한다. 코지마 히데오 키노트 불참, 엑스박스 개발자 서밋의 프로젝트 헬릭스 공개, 클레어 옵스큐어 GDCA 8관왕 도전, 패스 45% 인하까지 주요 이슈를 정리했다.",
+  "thumbnail": "https://knect365.imgix.net/uploads/54394635415-d66bfac53c-c-5929ea55b3c926d75f0aa9880855488c.jpg",
+  "relatedDocs": ["issue:xbox-project-helix-pc-console"],
+  "relatedGames": ["cyberpunk-2077", "hollow-knight-silksong"],
+  "sources": [
+    {
+      "name": "GDC",
+      "title": "GDC Festival of Gaming 2026: The Industry's Bold New Era Begins",
+      "url": "https://gdconf.com/article/time-to-change-the-game-registration-opens-for-the-2026-gdc-festival-of-gaming/"
+    },
+    {
+      "name": "Kotaku",
+      "title": "Hideo Kojima Mysteriously Pulls Out Of His Big GDC 2026 Speech",
+      "url": "https://kotaku.com/hideo-kojima-gdc-2026-od-physint-2000666420"
+    },
+    {
+      "name": "NVIDIA",
+      "title": "Game Developers Conference (GDC) 2026",
+      "url": "https://www.nvidia.com/en-us/events/gdc/"
+    },
+    {
+      "name": "Game Developer",
+      "title": "Clair Obscur: Expedition 33 and Ghost of Yotei are the lead GDCA 2026 nominees",
+      "url": "https://www.gamedeveloper.com/business/clair-obscur-expedition-33-and-ghost-of-yotei-are-the-lead-gdca-2026-nominees"
+    },
+    {
+      "name": "9to5Mac",
+      "title": "Apple promoting Mac gaming with three presentations at GDC next week",
+      "url": "https://9to5mac.com/2026/03/03/apple-promoting-mac-gaming-with-three-presentations-at-gdc-next-week/"
+    },
+    {
+      "name": "Yahoo Finance",
+      "title": "Tencent Games Showcases Tech Advancements Shaping Future Player Experience at GDC 2026",
+      "url": "https://finance.yahoo.com/news/tencent-games-showcases-tech-advancements-180000775.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "게임 업계 최대 개발자 행사 GDC가 새로운 모습으로 돌아온다. 올해부터 'GDC 페스티벌 오브 게이밍'으로 이름을 바꾼 이 행사는 3월 9일부터 13일까지 샌프란시스코 모스콘 센터에서 열린다. 패스 가격을 전년 대비 45% 인하하고($649), 패스 구조를 단순화해 모든 참석자에게 동등한 콘텐츠 접근권을 부여하는 파격적인 변화를 단행했다. 엑스박스 개발자 서밋 신설, GDCA 시상식, 텐센트 AI 서밋 등 볼거리가 가득한 GDC 2026의 주요 이슈를 미리 살펴본다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 코지마 히데오 불참: 5년 만의 키노트 복귀 무산"
+    },
+    {
+      "type": "image",
+      "src": "https://eu-images.contentstack.com/v3/assets/blt740a130ae3c5d529/blt76480b066e404c82/693063057ed33a8b9e9ae643/hk1019.jpg",
+      "caption": "GDC 2026 키노트 연사로 발표됐던 코지마 히데오가 2월 6일 불참을 선언했다",
+      "alt": "히데오 코지마 코지마 프로덕션 대표 게임 크리에이터 GDC 2026 키노트"
+    },
+    {
+      "type": "text",
+      "value": "GDC 2026의 가장 큰 화제이자 가장 큰 아쉬움은 코지마 히데오의 키노트 불참이다. GDC는 5년 만에 키노트 세션을 부활시키면서 첫 번째 연사로 코지마를 선정했다. '제로에서 다시 시작하기: 독립을 고민하는 크리에이터들에게 보내는 메시지'라는 제목의 키노트는 3월 12일 목요일 오전으로 예정돼 있었다.\n\n그러나 2월 6일, 코지마 프로덕션은 공식 X 계정을 통해 \"히데오 코지마가 올해 GDC 페스티벌 오브 게이밍에 참석할 수 없게 됐다\"고 발표했다. 구체적인 불참 사유는 밝히지 않았으며, 대체 키노트 연사도 아직 발표되지 않았다. 코지마 프로덕션 설립 10주년을 맞아 독립 스튜디오 운영, 프로젝트 개발, 브랜드 구축에 대한 인사이트를 공유할 예정이었기에 업계의 실망이 크다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 엑스박스 개발자 서밋과 프로젝트 헬릭스: 차세대 콘솔의 윤곽"
+    },
+    {
+      "type": "image",
+      "src": "https://knect365.imgix.net/uploads/54401464311-c3a33ebf6b-c-7656e15d970a0d1948538751c24d8e4d.jpg",
+      "caption": "GDC 2026은 통합 콘텐츠 프로그램으로 모든 참석자에게 동등한 접근권을 제공한다",
+      "alt": "GDC 2026 페스티벌 오브 게이밍 통합 콘텐츠 프로그램 소개 이미지"
+    },
+    {
+      "type": "text",
+      "value": "엑스박스는 GDC에서 최초로 '엑스박스 개발자 서밋'을 개최한다. 3월 11일 수요일 하루 동안 진행되는 이 행사에서는 엑스박스 차세대 플랫폼 부사장 제이슨 로널드가 키노트를 맡아 플랫폼의 미래 비전을 공유한다. 차세대 콘솔 프로젝트 헬릭스에 대한 추가 상세 공개가 예상되는데, 이미 공개된 바에 따르면 헬릭스는 엑스박스와 PC 게임을 모두 실행할 수 있는 통합 플랫폼을 지향한다.\n\n주요 세션으로는 '다이렉트X 현황 2026: 다이렉트스토리지와 그 너머'(3/11, 11:30~12:30)와 'PC 게임을 하루 만에 엑스박스에 대응시키는 법' 등이 있다. PC 게임을 엑스박스 생태계로 쉽게 이식할 수 있도록 돕는 세션이 포함된 점에서, 프로젝트 헬릭스의 PC-콘솔 통합 전략이 한층 구체화될 것으로 보인다."
+    },
+    {
+      "type": "heading",
+      "value": "3. GDCA 시상식과 클레어 옵스큐어의 8관왕 도전"
+    },
+    {
+      "type": "image",
+      "src": "https://eu-images.contentstack.com/v3/assets/blt740a130ae3c5d529/blt3e9dfcbae3c7fe6e/6967c127f5e3995d7078e16a/clair_obscur.jpg",
+      "caption": "클레어 옵스큐어: 엑스페디션 33이 GDCA 9개 부문 중 8개에 후보로 올랐다",
+      "alt": "클레어 옵스큐어 엑스페디션 33 메인 캐스트 샌드폴 인터랙티브 턴제 RPG 게임"
+    },
+    {
+      "type": "text",
+      "value": "3월 12일 목요일 저녁 6시 30분에는 제26회 게임 개발자 초이스 어워드(GDCA) 시상식이 열린다. 올해의 주인공은 클레어 옵스큐어: 엑스페디션 33이다. 샌드폴 인터랙티브의 데뷔작인 이 턴제 RPG는 9개 부문 중 8개에 후보로 올라 압도적인 존재감을 보여주고 있다. 베스트 오디오, 베스트 데뷔, 베스트 디자인, 혁신상, 베스트 내러티브, 베스트 테크놀로지, 베스트 비주얼 아트, 그리고 올해의 게임까지.\n\n경쟁작으로는 고스트 오브 요테이(5개 후보), 할로우 나이트: 실크송, 블루 프린스, 동키콩 바난자, 스플릿 픽션 등이 올해의 게임 후보에 이름을 올렸다. 이미 더 게임 어워드 2025와 DICE 어워드 2026에서 잇따라 수상하며 시상식 시즌을 휩쓴 클레어 옵스큐어가 GDCA에서도 대세를 이어갈지 주목된다. 시상식은 GDC 패스 소지자 전원에게 개방되며, GDC 공식 트위치 채널에서 무료 스트리밍된다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 텐센트 AI 서밋부터 애플 3세션까지: 테크 기업 총출동"
+    },
+    {
+      "type": "image",
+      "src": "https://static.invenglobal.com/upload/image/2026/03/06/i1772827870788779.jpeg",
+      "caption": "텐센트 게임즈가 GDC 2026에서 20개 이상의 세션과 AI 기술 쇼케이스를 선보인다",
+      "alt": "텐센트 게임즈 GDC 2026 AI 개발 도구 기술 세션 쇼케이스"
+    },
+    {
+      "type": "text",
+      "value": "GDC 2026은 게임 개발 기술의 최전선을 보여주는 자리이기도 하다. 텐센트 게임즈는 20개 이상의 세션과 기술 쇼케이스를 준비했다. 3월 9일 개발자 서밋에서 마케팅, 대규모 슈터 성능 최적화, 크로스 플랫폼 오디오를 다루고, 3월 10일 AI 서밋에서는 멀티 에이전트 씬 레이아웃, 로직 기반 게임플레이 시스템 등 실제 프로덕션에 적용된 AI 도구들을 공개한다.\n\n엔비디아는 3월 12일 '2026년과 그 너머의 실시간 패스 트레이싱' 세션에서 셰이더 실행 재배열, RTX 메가 지오메트리, DLSS, RTX 뉴럴 셰이딩 등 차세대 그래픽 기술을 소개한다. 애플도 3개 세션으로 참전한다. 특히 CD 프로젝트 레드와 공동으로 진행하는 '사이버펑크 2077 맥 이식기' 세션(3/11)이 눈길을 끈다. 맥 게이밍 전략을 본격화하려는 애플의 행보가 GDC에서 구체화된다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 변화의 한가운데 선 게임 산업"
+    },
+    {
+      "type": "text",
+      "value": "GDC 2026은 단순한 연례 행사가 아니다. 이름부터 구조까지 뜯어고친 이번 행사는 게임 산업의 현재와 미래를 동시에 보여주는 무대다. 패스 가격 45% 인하와 동등한 콘텐츠 접근이라는 변화는 점점 커지는 인디 개발자 커뮤니티를 포용하려는 시도이며, 엑스박스 개발자 서밋 신설과 텐센트 AI 서밋은 플랫폼과 기술의 진화를 직접 체감할 기회다.\n\n코지마의 불참은 아쉽지만, 롭 파르도의 키노트, 아론 켈러의 오버워치 세션, 그리고 클레어 옵스큐어 개발팀의 다수 발표가 그 빈자리를 채운다. 14개 트랙에 걸친 세션들이 게임 디자인부터 프로그래밍, 비즈니스, 내러티브, VR/AR까지 전 분야를 아우른다. 3월 9일부터 13일까지, 게임 산업의 다음 챕터가 모스콘 센터에서 열린다."
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "slug": "softbank-40b-openai-loan",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "openai",
+  "title": "소프트뱅크, 오픈AI 지분 확대 위해 역대 최대 400억 달러 대출 추진",
+  "titleEn": "SoftBank Seeks Record $40 Billion Loan to Expand OpenAI Stake",
+  "date": "",
+  "thumbnail": "https://s.yimg.com/ny/api/res/1.2/.rsi_zIYZZ8DyrXc7m2sXQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTI0MDA7aD0xNjAw/https://media.zenfs.com/en/bloomberg_holding_pen_162/b40c0fd1dc94ab7a1851e1f754ecfba8",
+  "keywords": "소프트뱅크, 오픈AI, 400억 달러, 대출, 손정의, JP모건, 브릿지론, AI 투자, 기업가치, 730억 달러, S&P, 신용등급, 2026",
+  "keywordsEn": "SoftBank, OpenAI, 40 billion dollar loan, Masayoshi Son, JPMorgan, bridge loan, AI investment, valuation, 730 billion, S&P credit outlook, 2026",
+  "summary": "소프트뱅크가 오픈AI 지분 확대를 위해 최대 400억 달러(약 58조 원) 규모의 역대 최대 달러 대출을 추진 중이다. JP모건 등 4개 은행이 12개월 브릿지론을 인수하지만, S&P는 유동성 리스크를 경고하며 신용 전망을 하향 조정했다.",
+  "summaryEn": "SoftBank is seeking a record dollar-denominated loan of up to $40 billion to expand its OpenAI stake. Four banks including JPMorgan are underwriting the facility, while S&P has lowered SoftBank's credit outlook.",
+  "relatedDocs": [
+    "tech:ai/openai-110b-record-funding-turning-point",
+    "tech:ai/nvidia-openai-investment-retreat"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Bloomberg",
+      "title": "SoftBank Seeks Record Loan of Up to $40 Billion for OpenAI Stake",
+      "url": "https://www.bloomberg.com/news/articles/2026-03-06/softbank-seeks-record-loan-of-up-to-40-billion-for-openai-stake"
+    },
+    {
+      "name": "TechStartups",
+      "title": "SoftBank seeks $40B loan to fund massive OpenAI bet after ChatGPT maker hits $730B valuation",
+      "url": "https://techstartups.com/2026/03/06/softbank-seeks-40b-loan-to-fund-massive-openai-bet-after-chatgpt-maker-hits-730b-valuation/"
+    },
+    {
+      "name": "Japan Times",
+      "title": "SoftBank seeks record loan of up to $40 billion for OpenAI stake",
+      "url": "https://www.japantimes.co.jp/business/2026/03/06/companies/softbank-openai-record-loan/"
+    },
+    {
+      "name": "CNBC",
+      "title": "SoftBank books $4.2 billion gain on OpenAI bet, boosting its Vision Fund",
+      "url": "https://www.cnbc.com/2026/02/12/softbank-vision-fund-openai.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "소프트뱅크 그룹이 오픈AI 지분을 확대하기 위해 최대 400억 달러(약 58조 원) 규모의 대출을 추진하고 있다. 실현되면 달러 표시 단일 대출로는 역대 최대 규모다. 손정의 회장의 AI에 대한 '올인' 전략이 한계를 모르고 가속하고 있지만, 신용평가사는 경고등을 켰다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 400억 달러 브릿지론: 역대 최대 규모"
+    },
+    {
+      "type": "image",
+      "src": "https://www.kaohooninternational.com/wp-content/uploads/2026/03/Softbank-OpenAI_2026-03-06_news.jpg",
+      "caption": "소프트뱅크가 오픈AI 지분 확대를 위해 역대 최대 달러 대출을 추진 중이다",
+      "alt": "소프트뱅크 오픈AI 투자 400억 달러 대출 뉴스 2026"
+    },
+    {
+      "type": "text",
+      "value": "블룸버그에 따르면, 소프트뱅크는 12개월 만기의 브릿지론으로 최대 400억 달러를 조달할 계획이다. JP모건 체이스를 포함한 4개 대형 은행이 이 대출을 인수한다. 대출금은 대부분 오픈AI 지분 확대에 투입될 예정이다.\n\n소프트뱅크는 이미 2025년 말 기준 오픈AI 지분 약 11%를 보유하고 있었다. 2026년 2월 27일에는 비전펀드 2를 통해 300억 달러의 추가 투자 계약을 체결했으며, 이로써 누적 투자액은 646억 달러, 지분율은 약 13%에 달할 전망이다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 오픈AI 1,100억 달러 펀딩: AI 역사상 최대"
+    },
+    {
+      "type": "image",
+      "src": "https://www.techzine.eu/wp-content/uploads/2024/10/SoftBank-CEO.jpg",
+      "caption": "손정의 소프트뱅크 CEO는 AI에 전례 없는 올인 전략을 펼치고 있다",
+      "alt": "손정의 소프트뱅크 CEO AI 투자 올인 전략 오픈AI 비전펀드 2026"
+    },
+    {
+      "type": "text",
+      "value": "이번 대출은 2월 27일 마감된 오픈AI의 1,100억 달러 메가 펀딩 라운드와 직결된다. 이 라운드에는 아마존이 500억 달러, 소프트뱅크와 엔비디아가 각각 300억 달러를 투자했다. 이로써 오픈AI의 기업가치는 사전가치 기준 7,300억 달러(투자금 포함 시 8,400억 달러)를 기록했다.\n\n아마존의 500억 달러 중 초기 투입은 150억 달러이며, 나머지 350억 달러는 특정 조건 충족 시 순차 투입된다. 오픈AI는 엔비디아의 베라 루빈 시스템에서 3GW의 추론 용량과 2GW의 학습 용량을 확보하는 인프라 계약도 동시에 체결했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. S&P 신용 전망 하향: 리스크 경고"
+    },
+    {
+      "type": "image",
+      "src": "https://s.yimg.com/ny/api/res/1.2/wDGx2E.rlRfzXby1DnYAXw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTIwNDg7aD0zMDcy/https://media.zenfs.com/en/moby_896/b9bd01b99511e3f35c7bca6274025624",
+      "caption": "소프트뱅크는 오픈AI에 모든 것을 걸고 있다는 분석이 나온다",
+      "alt": "소프트뱅크 오픈AI 올인 투자 리스크 분석 S&P 신용등급 전망 하향 2026"
+    },
+    {
+      "type": "text",
+      "value": "소프트뱅크의 공격적 베팅에 신용평가사도 우려를 표했다. S&P는 소프트뱅크의 신용 전망을 하향 조정하며, 오픈AI 투자가 회사의 유동성과 자산 건전성을 악화시킬 수 있다고 경고했다.\n\n소프트뱅크는 이 대출을 위해 엔비디아 지분을 포함한 자산을 매각해왔다. 단일 기업에 대한 누적 646억 달러 이상의 집중 투자는 전례가 없는 수준이다. 12개월 만기 브릿지론 특성상, 만기 시점에 장기 자금으로 차환하거나 자산 매각으로 상환해야 하는 부담도 존재한다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 승부수인가, 도박인가"
+    },
+    {
+      "type": "image",
+      "src": "https://www.kaohooninternational.com/wp-content/uploads/2024/11/Softbank_2024-11-13.jpg",
+      "caption": "소프트뱅크는 2월 기준 오픈AI 투자에서 42억 달러의 평가이익을 기록했다",
+      "alt": "소프트뱅크 로고 AI 투자 비전펀드 오픈AI 평가이익 2026"
+    },
+    {
+      "type": "text",
+      "value": "소프트뱅크는 2월 실적에서 오픈AI 투자를 통해 42억 달러의 평가이익을 기록하며 비전펀드 실적을 끌어올렸다. 하지만 블룸버그 칼럼니스트들은 \"손정의와 올트먼이 지나치게 큰 꿈을 꾸고 있다\"고 비판하기도 했다.\n\n현재 협상은 진행 중이며 세부 사항은 변경될 수 있다. JP모건과 소프트뱅크 대변인 모두 논평을 거부했다. 단일 기업에 대한 이 규모의 레버리지 투자가 성공할지, 아니면 소프트뱅크의 위워크 사태를 반복할지, AI 산업의 방향이 그 답을 결정할 것이다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "SoftBank Group is seeking a loan of up to $40 billion to expand its stake in OpenAI. If realized, it would be the largest-ever single borrowing denominated solely in dollars. Masayoshi Son's all-in strategy on AI continues to accelerate without apparent limits, but credit rating agencies have raised warning flags."
+    },
+    {
+      "type": "heading",
+      "value": "1. $40 Billion Bridge Loan: Record-Breaking Scale"
+    },
+    {
+      "type": "image",
+      "src": "https://www.kaohooninternational.com/wp-content/uploads/2026/03/Softbank-OpenAI_2026-03-06_news.jpg",
+      "caption": "SoftBank is pursuing its largest-ever dollar-denominated loan to expand its OpenAI stake",
+      "alt": "SoftBank OpenAI investment 40 billion dollar loan news 2026"
+    },
+    {
+      "type": "text",
+      "value": "According to Bloomberg, SoftBank plans to raise up to $40 billion through a bridge loan with an approximately 12-month tenor. Four major banks, including JPMorgan Chase, are underwriting the facility. The loan proceeds will mostly be used to expand SoftBank's stake in OpenAI.\n\nSoftBank already held about 11% of OpenAI as of the end of 2025. On February 27, 2026, the company signed a definitive agreement to invest an additional $30 billion through Vision Fund 2, bringing its cumulative investment to $64.6 billion and its ownership stake to approximately 13%."
+    },
+    {
+      "type": "heading",
+      "value": "2. OpenAI's $110 Billion Funding: The Largest in AI History"
+    },
+    {
+      "type": "image",
+      "src": "https://www.techzine.eu/wp-content/uploads/2024/10/SoftBank-CEO.jpg",
+      "caption": "SoftBank CEO Masayoshi Son is pursuing an unprecedented all-in strategy on AI",
+      "alt": "Masayoshi Son SoftBank CEO AI investment all-in strategy OpenAI Vision Fund 2026"
+    },
+    {
+      "type": "text",
+      "value": "This loan is directly tied to OpenAI's $110 billion mega funding round that closed on February 27. Amazon invested $50 billion, while SoftBank and NVIDIA each contributed $30 billion. This values OpenAI at $730 billion pre-money ($840 billion including the new capital).\n\nOf Amazon's $50 billion commitment, the initial tranche is $15 billion, with the remaining $35 billion to be deployed as certain conditions are met. OpenAI also secured infrastructure deals for 3 GW of dedicated inference capacity and 2 GW of training capacity on NVIDIA's Vera Rubin systems."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. S&P Credit Outlook Downgrade: Risk Warning"
+    },
+    {
+      "type": "image",
+      "src": "https://s.yimg.com/ny/api/res/1.2/wDGx2E.rlRfzXby1DnYAXw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTIwNDg7aD0zMDcy/https://media.zenfs.com/en/moby_896/b9bd01b99511e3f35c7bca6274025624",
+      "caption": "Analysts say SoftBank is putting all its eggs in the OpenAI basket",
+      "alt": "SoftBank OpenAI all-in investment risk analysis S&P credit outlook downgrade 2026"
+    },
+    {
+      "type": "text",
+      "value": "SoftBank's aggressive betting has drawn concern from credit rating agencies. S&P lowered SoftBank's credit outlook, warning that its OpenAI investments could hurt the company's liquidity and the credit quality of its assets.\n\nSoftBank has been unloading assets including its NVIDIA stake to bankroll the growing bet. A cumulative investment exceeding $64.6 billion in a single company is unprecedented in scale. The 12-month bridge loan structure also creates rollover risk, requiring either refinancing into long-term debt or asset sales at maturity."
+    },
+    {
+      "type": "heading",
+      "value": "4. Son's AI All-In: Bold Bet or Reckless Gamble?"
+    },
+    {
+      "type": "image",
+      "src": "https://www.kaohooninternational.com/wp-content/uploads/2024/11/Softbank_2024-11-13.jpg",
+      "caption": "SoftBank booked a $4.2 billion gain on its OpenAI investment as of February",
+      "alt": "SoftBank logo AI investment Vision Fund OpenAI valuation gain 2026"
+    },
+    {
+      "type": "text",
+      "value": "SoftBank reported a $4.2 billion valuation gain from its OpenAI investment in its February earnings, boosting Vision Fund performance. However, Bloomberg columnists have criticized that \"Son and Altman are dreaming too much.\"\n\nNegotiations are ongoing and details could change. Spokespeople for both JPMorgan and SoftBank declined to comment. Whether this scale of leveraged investment in a single company will pay off, or whether it will echo SoftBank's WeWork debacle, will ultimately be determined by the trajectory of the AI industry."
+    },
+    {
+      "type": "ad"
+    }
+  ]
+}

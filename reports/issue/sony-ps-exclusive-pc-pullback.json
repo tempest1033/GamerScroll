@@ -1,0 +1,100 @@
+{
+  "slug": "sony-ps-exclusive-pc-pullback",
+  "status": "approved",
+  "title": "소니, 플레이스테이션 싱글플레이어 PC 출시 전면 중단: 6년 만의 독점 회귀",
+  "date": "",
+  "keywords": "소니 PC 출시 중단, 플레이스테이션 독점, 고스트 오브 요테이 PC, 사로스 PS5 독점, 소니 전략 전환, 플레이스테이션 PC 포트, 마블 울버린 PC, 블룸버그 소니, 콘솔 독점 전략, PS5 독점 게임, 2026 소니, 마라톤 멀티플랫폼, 소니 엑스박스 전략 비교",
+  "summary": "소니가 6년간 이어온 플레이스테이션 대작의 PC 출시 전략을 전면 철회했다. 고스트 오브 요테이, 사로스, 마블 울버린 등 싱글플레이어 대작은 PS5 독점을 유지하고, 마라톤 같은 온라인 게임만 멀티플랫폼으로 남긴다. 엑스박스의 개방 전략과 정반대 행보다.",
+  "thumbnail": "https://images.pushsquare.com/a8fc2bb4767fa/1280x720.jpg",
+  "relatedDocs": ["issue:xbox-project-helix-pc-console", "issue:ps6-release-outlook-2027"],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Bloomberg",
+      "title": "Sony Pulls Back From PlayStation Games on PC",
+      "url": "https://www.bloomberg.com/news/articles/2026-03-04/sony-pulls-back-from-playstation-games-on-pc"
+    },
+    {
+      "name": "Push Square",
+      "title": "Sony Returns to PlayStation Exclusivity and Stops Single Player PC Ports, New Report Says",
+      "url": "https://www.pushsquare.com/news/2026/03/sony-returns-to-playstation-exclusivity-and-stops-single-player-pc-ports-new-report-says"
+    },
+    {
+      "name": "ComicBook",
+      "title": "Sony's Decision to Not Release PlayStation Exclusives on PC Anymore Makes a Lot of Sense",
+      "url": "https://comicbook.com/gaming/feature/sonys-decision-to-not-release-playstation-exclusives-on-pc-anymore-makes-a-lot-of-sense/"
+    },
+    {
+      "name": "Kotaku",
+      "title": "Ghost Of Yotei Won't Come To Steam As Sony Pulls Plug On PC",
+      "url": "https://kotaku.com/ghost-yotei-saros-steam-pc-ps5-exclusive-2000675831"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "Kiss goodbye to Ghost of Yotei on PC: Sony is U-turning on its PC strategy",
+      "url": "https://www.pcgamer.com/gaming-industry/kiss-goodbye-to-ghost-of-yotei-on-pc-sony-is-u-turning-on-its-lets-put-our-games-on-pc-strategy-and-bunkering-back-down-with-console-exclusives-says-bloomberg/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "소니가 6년간 이어온 플레이스테이션 PC 출시 전략을 전면 철회했다. 블룸버그의 제이슨 슈라이어가 3월 4일 보도한 바에 따르면, 소니는 최근 몇 주 사이에 자사 싱글플레이어 대작의 PC 포트를 전면 중단하기로 결정했다. 고스트 오브 요테이, 사로스, 마블 울버린 등 기대작이 줄줄이 PS5 독점으로 묶이며, 콘솔 독점의 시대가 다시 열리고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 플레이스테이션 PC 포트 전면 중단: 무엇이 바뀌나"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/MZWAB9uWVcZhdATrWtyH9Z-1920-80.jpg",
+      "caption": "고스트 오브 요테이: PC 포트가 취소된 대표적 타이틀",
+      "alt": "고스트 오브 요테이 PS5 독점 게임 PC 포트 취소 서커 펀치 스크린샷"
+    },
+    {
+      "type": "text",
+      "value": "이번 전략 전환의 핵심은 명확하다. 싱글플레이어 대작은 PS5 독점, 온라인 멀티플레이어 게임은 멀티플랫폼이다. 고스트 오브 요테이는 PC 포트가 \"상당히 진행된 상태\"였음에도 불구하고 전면 취소됐다. 하우스마크의 신작 사로스, 그리고 2026년 9월 출시 예정인 마블 울버린도 PC 출시 계획이 사라졌다. 너티 독의 인터갤럭틱: 더 헤레틱 프로핏 역시 콘솔 독점으로 확정됐다.\n\n반면 마라톤, 마블 토콘: 파이팅 소울즈 같은 온라인 중심 게임은 PC와 엑스박스를 포함한 멀티플랫폼 출시를 유지한다. 라이브 서비스 게임은 대규모 플레이어 풀이 필수적이기 때문이다. 헬다이버스 2의 성공이 보여준 것처럼, 이 장르에서는 크로스플랫폼이 생존 조건이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. 소니가 PC 출시를 포기한 이유: 매출 부진과 브랜드 우려"
+    },
+    {
+      "type": "image",
+      "src": "https://fwmedia.fandomwire.com/wp-content/uploads/2026/03/07011811/ghost-of-yotei-pc-extremely-far-along.jpg",
+      "caption": "고스트 오브 요테이 PC 포트는 상당히 진행된 상태에서 취소됐다",
+      "alt": "고스트 오브 요테이 PC 포트 취소 PS5 독점 서커 펀치 소니 전략 전환"
+    },
+    {
+      "type": "text",
+      "value": "소니의 전략 전환에는 복합적인 이유가 있다. 첫째, PC 포트의 매출이 기대에 못 미쳤다. 리터널은 PS5 출시 2년 후 스팀에 출시됐지만, 콘솔 판매 잠식 대비 PC 수익이 충분하지 않았다는 평가다. 일관성 없는 출시 간격(12개월에서 5년까지 들쭉날쭉)도 PC 유저 기반을 안정적으로 확보하지 못한 원인이 됐다.\n\n둘째, 내부에서 PC 출시가 플레이스테이션 브랜드를 희석시킨다는 우려가 커졌다. \"기다리면 PC로 나온다\"는 인식이 퍼지면 PS5 하드웨어 구매 동기가 약해지고, 이는 차세대 콘솔(PS6) 출시에도 부정적 영향을 미칠 수 있다. 플레이스테이션의 '필수 하드웨어' 이미지를 지키는 것이 장기적으로 더 중요하다는 판단이다."
+    },
+    {
+      "type": "heading",
+      "value": "3. 엑스박스 프로젝트 헬릭스와의 정반대 전략: 콘솔 전쟁의 새로운 국면"
+    },
+    {
+      "type": "image",
+      "src": "https://images.pushsquare.com/e885031b341c7/playstation.large.jpg",
+      "caption": "소니는 플레이스테이션 독점 강화로 방향을 전환했다",
+      "alt": "PS5 콘솔 독점 전략 소니 플레이스테이션 브랜드"
+    },
+    {
+      "type": "text",
+      "value": "흥미로운 점은 소니의 발표가 엑스박스의 프로젝트 헬릭스 공개와 거의 동시에 이뤄졌다는 것이다. 엑스박스가 스팀과 에픽을 포함한 모든 PC 스토어를 콘솔에서 지원하겠다고 선언한 반면, 소니는 PC에서의 철수를 택했다. 완전히 반대 방향의 전략이다.\n\n블룸버그에 따르면, 엑스박스의 차세대 콘솔이 멀티 스토어프런트를 지원한다는 루머가 소니 경영진을 자극했다. 자사의 플래그십 타이틀이 엑스박스 브랜드 하드웨어에서 구동될 수 있다는 가능성이 PC 출시 중단 결정을 가속화한 것으로 보인다. 결국 소니는 \"콘텐츠 독점으로 하드웨어를 팔겠다\"는 전통적 콘솔 비즈니스 모델로 회귀한 셈이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: PC 게이머에게 남은 선택지"
+    },
+    {
+      "type": "text",
+      "value": "소니의 전략 전환은 PC 게이머에게 분명한 메시지를 던진다. 플레이스테이션 싱글플레이어 대작을 즐기려면 PS5(또는 차세대 콘솔)를 사야 한다. 데스 스트랜딩 2처럼 서드파티 개발사의 타이틀이나, 케나: 스카즈 오브 코스모라 같은 인디 협업작은 여전히 PC로 나올 수 있지만, 자체 스튜디오의 AAA 싱글플레이어는 콘솔 울타리 안에 머물 전망이다.\n\n다만 이 전략이 영원히 지속될지는 미지수다. 블룸버그 보도에서도 \"이 결정은 향후 변경될 수 있다\"는 내부 관계자의 언급이 있었다. PC 시장의 성장세와 차세대 콘솔의 판매 실적에 따라 소니의 입장이 다시 바뀔 가능성은 열려 있다. 확실한 것은, 2026년 콘솔 시장이 엑스박스의 개방과 소니의 독점이라는 극단적 양극화를 향해 달려가고 있다는 사실이다."
+    }
+  ]
+}
