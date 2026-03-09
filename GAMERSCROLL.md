@@ -55,15 +55,85 @@ cd docs && npx serve -l 3001
 | **GitHub Actions** | Automatic (build.yml) |
 | **Local** | Manual copy required |
 
-### Daily AI Insight
-```bash
-node generate-ai-insight.js
+### Daily AI Insight (Agent Team Workflow)
+
+스크립트(`generate-ai-insight.js`) 대신 **에이전트 팀이 수동으로 생성**합니다.
+트리거: 사용자가 "데일리 인사이트 생성" 요청 시 실행.
+
+#### 워크플로우
 ```
-- Calls Claude API for AI analysis
-- Collects game stock data
-- Saves to `reports/{date}.json`
-- Duration: ~1-2 min
-- **Requires**: ANTHROPIC_API_KEY
+Lead ─┬─ 1. Explorer           : data-cache.json + 최근 7일 리포트 읽기
+      │                          → 순위 변동 분석 + 블랙리스트 수집
+      │
+      ├─ 2. WebSearcher x 3-4   : 오늘자(48h 이내) 뉴스 병렬 검색
+      │   ├─ WS-A: 게임 이슈 (출시/업데이트/이벤트/논란)
+      │   ├─ WS-B: 업계 뉴스 (기업/정책/투자/인사)
+      │   ├─ WS-C: 커뮤니티 반응 + 스트리밍 트렌드
+      │   └─ WS-D: 게임주 이슈
+      │
+      ├─ 3. Worker-Insight       : 수집 데이터 전부 전달받아 AI 인사이트 JSON 생성
+      │   (포맷 규칙 + 크롤 데이터 요약 + 뉴스 검색 결과 + 블랙리스트 일괄 전달)
+      │
+      ├─ 4. WebSearcher-FactCheck: 생성된 항목별 날짜/수치/사실 검증
+      │
+      ├─ 5. WebSearcher-Thumbnail: 각 이슈별 썸네일 이미지 URL 검색
+      │
+      ├─ 6. Worker-Write         : 팩트체크 수정 + 썸네일 반영 → reports/{date}.json 병합
+      │
+      └─ 7. Utility              : 퀵빌드 → (요청 시) 커밋/푸시
+```
+
+#### 핵심 원칙
+- **Lead는 조율만**: 콘텐츠 생성/편집은 반드시 Worker에게 위임
+- **Worker에게 원샷 전달**: 포맷 규칙 + 데이터 + 블랙리스트를 한 번에 전달 (기사 작성과 동일)
+- **48시간 규칙**: issues, industryIssues는 보도일 기준 48시간 이내 뉴스만 사용
+- **썸네일 필수**: 기사 작성처럼 WebSearcher가 각 항목별 실제 이미지 URL 검색
+- **팩트체크 내장**: 생성 직후 WebSearcher가 날짜/수치/정확도 검증
+
+#### AI 인사이트 JSON 포맷
+```json
+{
+  "date": "YYYY-MM-DD",
+  "summary": "오늘의 핵심 요약 300자 이내",
+  "issues": [
+    { "tag": "모바일|PC|콘솔|글로벌|...", "title": "40자", "desc": "200자", "thumbnail": "URL" }
+  ],
+  "industryIssues": [
+    { "tag": "회사명|정책|시장", "title": "40자", "desc": "200자", "thumbnail": "URL" }
+  ],
+  "metrics": [
+    { "tag": "매출|인기|동접", "gameName": "게임명", "title": "40자", "desc": "200자", "thumbnail": "URL" }
+  ],
+  "rankings": [
+    { "tag": "급상승|급하락|신규진입", "title": "게임명", "prevRank": N, "rank": N, "change": N, "platform": "iOS|Android", "desc": "200자" }
+  ],
+  "community": [
+    { "tag": "게임명", "title": "40자", "desc": "200자" }
+  ],
+  "streaming": [
+    { "tag": "치지직|유튜브", "title": "40자", "desc": "200자" }
+  ],
+  "stocks": [
+    { "name": "회사명", "comment": "50자" }
+  ]
+}
+```
+
+#### 섹션별 개수
+| 섹션 | 개수 | 비고 |
+|------|------|------|
+| issues | 3~5 | 태그 중복 금지, 48h 이내 뉴스만 |
+| industryIssues | 0~2 | 없으면 빈 배열, 필러 금지 |
+| metrics | 2 | 최소 1개는 모바일 순위 |
+| rankings | 4 | 순위 변동 데이터에서만 선정 |
+| community | 4 | 특정 게임 유저 반응 |
+| streaming | 2 | 치지직/유튜브만 (트위치 종료) |
+| stocks | 2 | 주말/공휴일은 빈 배열 |
+
+#### 문체 규칙
+- 뉴스 큐레이터 스타일: "출시됐어요", "발표했는데요", "주목받고 있어요"
+- 구체적 게임명/회사명 주어 필수 (추상적 표현 금지)
+- 블랙리스트 게임 절대 재사용 금지 (최근 7일)
 
 ---
 
@@ -346,14 +416,10 @@ node scripts/process-review-queue.js [limit]
   6. Copy to docs/
   7. Commit & push (GamerScroll)
 
-### ai-insight.yml (Daily)
-- Trigger: Every 12 hours (KST 06:00, 18:00) + manual
-- Runner: self-hosted (local Mac)
-- Steps:
-  1. `npm install --production`
-  2. `node generate-ai-insight.js`
-  3. Copy reports/ -> docs/reports/
-  4. Commit & push
+### ai-insight.yml (삭제됨)
+- 기존: self-hosted runner에서 `generate-ai-insight.js` 자동 실행
+- **폐지 사유**: self-hosted runner 불안정 + `claude -p` 중첩 세션 문제
+- **대체**: Agent Team 수동 워크플로우 (위 "Daily AI Insight" 섹션 참고)
 
 ### GamerScroll / AI Scroll Build Separation
 - GamerScroll and AI Scroll (AIScroll blog) use **separate build workflows**
@@ -1272,10 +1338,10 @@ Image download fails → add to pending-images.json
 
 ## Important Notes
 
-1. **Workflow timing**: build (30 min) must run after ai-insight (12 hr) for stock cards to display
-2. **Weekends/holidays**: Stock data uses last trading day
+1. **AI Insight**: Agent Team 수동 워크플로우로 생성 (스크립트/GitHub Actions 미사용)
+2. **Weekends/holidays**: Stock data uses last trading day, stocks 배열 비우기
 3. **Cache dependency**: Quick mode requires data-cache.json
-4. **API cost**: AI insight calls Claude API (self-hosted runner)
+4. **48h rule**: issues/industryIssues는 보도일 기준 48시간 이내 뉴스만 사용
 5. **EUC-KR**: Naver Finance uses EUC-KR encoding
 
 ---
@@ -1321,9 +1387,6 @@ powershell.exe -Command "cd C:\Project\GamerScroll; git pull --rebase origin mai
 
 # 3. Push & trigger build
 powershell.exe -Command "cd C:\Project\GamerScroll; git push origin main; gh workflow run build.yml"
-
-# Trigger AI insight workflow
-powershell.exe -Command "cd C:\Project\GamerScroll; gh workflow run ai-insight.yml"
 
 ```
 
