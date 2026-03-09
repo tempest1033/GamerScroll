@@ -1,0 +1,211 @@
+{
+  "slug": "openai-omni-model-rumor-march-2026",
+  "status": "approved",
+  "category": "openai",
+  "title": "GPT-5o?: OpenAI, 차세대 멀티모달 옴니 모델 개발 루머",
+  "titleEn": "GPT-5o?: OpenAI Rumored to Be Developing Next-Gen Multimodal Omni Model",
+  "date": "2026-03-09T12:00",
+  "keywords": "GPT-5o, OpenAI 옴니 모델, 멀티모달 AI, GPT-4o, GPT-5.4, OpenAI 루머, legit_api, Brandon McKinzie, Houda Nait El Barj, AI 오디오 모델, OpenAI 차기 모델, 완전 멀티모달",
+  "keywordsEn": "GPT-5o, OpenAI omni model, multimodal AI, GPT-4o, GPT-5.4, OpenAI rumor, legit_api, Brandon McKinzie, Houda Nait El Barj, AI audio model, OpenAI next model, fully multimodal",
+  "summary": "OpenAI가 텍스트, 이미지, 비디오, 오디오를 모두 입출력할 수 있는 '완전한 옴니 모델'을 개발 중이라는 루머가 등장했다. API 모니터링 전문가 legit_api의 제보에 OpenAI 직원 두 명이 반응하면서 신빙성이 높아지고 있다.",
+  "summaryEn": "Rumors have emerged that OpenAI is developing a 'truly omni model' capable of inputting and outputting text, images, video, and audio. The claim gains credibility as two OpenAI employees have engaged with the leak from API monitoring expert legit_api.",
+  "thumbnail": "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2026/03/GPT-5.4-Thinking.png",
+  "sources": [
+    {
+      "name": "X (legit_api)",
+      "title": "OpenAI is developing a new Omni model",
+      "url": "https://x.com/legit_api"
+    },
+    {
+      "name": "X (Brandon McKinzie)",
+      "title": "Brandon McKinzie - OpenAI Member of Technical Staff",
+      "url": "https://x.com/mckbrando"
+    },
+    {
+      "name": "X (Houda Nait El Barj)",
+      "title": "Houda Nait El Barj - OpenAI Research Lead",
+      "url": "https://x.com/Houda_nait"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Introducing GPT-5.4",
+      "url": "https://openai.com/index/introducing-gpt-5-4/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "OpenAI launches GPT-5.4 with Pro and Thinking versions",
+      "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/"
+    },
+    {
+      "name": "SiliconANGLE",
+      "title": "Report: OpenAI plans to launch new audio model in first quarter",
+      "url": "https://siliconangle.com/2026/01/01/report-openai-plans-launch-new-audio-model-first-quarter/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gpt-5-4-mixed-reactions-benchmark-controversy",
+    "tech:ai/gpt-5-4-leak-silent-update",
+    "tech:ai/gpt-54-leak-model-war",
+    "tech:ai/gpt-4o-retirement-openai-next-step"
+  ],
+  "relatedGames": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "GPT-5.4 출시로부터 나흘 만에, OpenAI의 다음 행보를 암시하는 루머가 등장했다. API 엔드포인트와 웹앱 코드 모니터링으로 유명한 X 인증 계정 @legit_api가 \"OpenAI가 새로운 옴니 모델을 개발 중\"이라고 밝혔고, 이 스레드에 OpenAI 직원 두 명이 반응하면서 단순한 추측이 아닌 실질적 정보로 받아들여지고 있다. GPT-4o가 \"옴니\"를 표방했지만 끝내 실현하지 못했던 완전한 멀티모달 입출력이 드디어 다가오고 있는 것일까."
+    },
+    {
+      "type": "heading",
+      "value": "1. 루머의 출처: legit_api는 누구인가"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-color.jpg?w=1024",
+      "caption": "OpenAI가 GPT-4o 이후 2년 만에 진정한 옴니 모델 개발에 나섰다는 루머가 확산 중이다",
+      "alt": "OpenAI 로고 GPT-5o 옴니 모델 개발 루머"
+    },
+    {
+      "type": "text",
+      "value": "이번 루머의 원천은 @legit_api(Legit)라는 X 인증 계정이다. OpenAI 내부자가 아닌, API 엔드포인트와 웹앱 코드를 모니터링하는 외부 전문가다. 이 계정은 GPT-5.4 출시 전 API 엔드포인트에 즉시 접속을 시도해 모델 존재를 확인한 것으로 AI 커뮤니티에서 잘 알려져 있다.\n\nlegit_api가 공개한 핵심 내용은 다음과 같다. OpenAI가 새로운 옴니 모델을 개발 중이며, 이 모델은 완전한 멀티모달이다. 입력으로 텍스트, 이미지, 비디오, 오디오를 모두 받을 수 있고, 출력 역시 이들의 조합이 될 것으로 추정된다. legit_api는 이를 \"원래 GPT-4o가 되어야 했지만 실현되지 못한 것\"이라고 표현했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. OpenAI 직원들의 반응이 신빙성을 높이다"
+    },
+    {
+      "type": "text",
+      "value": "루머의 신빙성을 결정적으로 높인 것은 OpenAI 직원 두 명의 반응이다.\n\n첫 번째는 브랜든 맥킨지(@mckbrando)다. OpenAI의 기술 스태프 멤버로, o1과 o3 모델의 핵심 기여자이자 o3 및 o4-mini에서 이미지를 활용한 추론 기능인 \"Thinking with Images\"를 개발한 인물이다. 애플 출신 멀티모달 전문가로 MM1 모델 개발에도 참여했다. 맥킨지는 최근 \"이것은 시작에 불과합니다. 팀은 이미 차세대 모델 작업에 한창입니다\"라고 밝혔으며, 해당 옴니 모델 스레드에도 참여했다.\n\n두 번째는 후다 나잇 엘 바르즈(@Houda_nait)다. OpenAI의 리서치 리드로 \"신흥 AI 시스템의 경험 연구\" 분야를 이끌고 있다. 조니 아이브의 러브프롬 하드웨어 프로젝트와 오퍼레이터 개발에도 참여한 인물이다. 스탠퍼드 경제학 박사인 그녀는 해당 스레드에 \"곧 출시됩니다!!\"라는 답글을 남겼다. 내부 로드맵을 인지하고 있음을 강하게 시사하는 발언이다."
+    },
+    {
+      "type": "heading",
+      "value": "3. GPT-4o의 미완성 약속, 2년 만의 재도전"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2026/03/GPT-5.4-Thinking.png",
+      "caption": "GPT-5.4까지도 텍스트 출력에 머물렀던 OpenAI가 진정한 멀티모달 출력을 준비 중이다",
+      "alt": "GPT-5.4 Thinking 모드 OpenAI 멀티모달 옴니 모델 개발"
+    },
+    {
+      "type": "text",
+      "value": "이번 루머를 이해하려면 GPT-4o의 역사를 되짚어야 한다. 2024년 출시된 GPT-4o는 이름의 \"o\"가 \"omni(옴니)\"를 뜻했다. 텍스트, 이미지, 오디오를 넘나드는 진정한 멀티모달 모델을 표방했지만, 실제로는 완전한 멀티모달 입출력을 달성하지 못했다. 이미지와 오디오 출력은 제한적이었고, 비디오 입출력은 아예 지원되지 않았다.\n\n이후 GPT-5 시리즈(5.0, 5.1, 5.2, 5.3, 5.4)가 빠르게 이터레이션되었지만 상황은 크게 달라지지 않았다. 불과 나흘 전 출시된 GPT-5.4조차 텍스트와 이미지 입력은 받지만 출력은 텍스트뿐이다. 100만 토큰이라는 거대한 컨텍스트 윈도우와 강력한 추론 능력을 갖추었지만, 네이티브 오디오 출력이나 비디오 처리 능력은 여전히 부재한다."
+    },
+    {
+      "type": "text",
+      "value": "즉, GPT-4o가 \"옴니\"를 내세운 이후 2년이 지났지만, OpenAI는 아직 모든 모달리티를 자유롭게 입출력하는 모델을 내놓지 못한 것이다. 이번 루머가 사실이라면, 이는 2년간 미뤄져온 약속의 이행이 될 수 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 새 오디오 모델 보도와의 연결고리"
+    },
+    {
+      "type": "text",
+      "value": "이번 옴니 모델 루머는 독립적으로 존재하지 않는다. 2026년 1월 실리콘앵글은 OpenAI가 1분기 내에 새로운 오디오 모델 아키텍처를 출시할 계획이라고 보도했다. 이 보도와 옴니 모델 루머를 결합하면, OpenAI가 텍스트 중심의 GPT 5 시리즈와 별도로 멀티모달 전용 모델 라인을 준비하고 있을 가능성이 보인다.\n\n맥킨지의 이력도 이를 뒷받침한다. 그는 애플에서 MM1이라는 멀티모달 대규모 언어 모델을 개발한 뒤 OpenAI로 이직했고, o3와 o4-mini에서 이미지 추론 기능을 구현했다. 텍스트, 이미지, 오디오, 비디오를 하나의 모델에서 처리하는 것은 그의 전문 분야와 정확히 일치한다."
+    },
+    {
+      "type": "heading",
+      "value": "5. 커뮤니티 반응과 확산 범위"
+    },
+    {
+      "type": "text",
+      "value": "현재 이 루머의 확산 범위는 제한적이다. X에서 legit_api의 원본 트윗은 약 1만 9천 조회를 기록했고, AI 커뮤니티를 중심으로 반응이 이어지고 있다. 한국에서는 디시인사이드 특이점 갤러리에서 3,600여 조회, 추천 26개, 댓글 29개를 기록하며 관심을 끌었다. 다만 레딧이나 주요 테크 매체에서는 아직 본격적으로 다뤄지지 않고 있어, 초기 단계의 루머라고 할 수 있다.\n\n커뮤니티의 반응은 기대와 회의가 뒤섞여 있다. GPT-4o의 선례가 있기에 \"진짜 완전한 멀티모달이 나올 때까지는 믿을 수 없다\"는 의견이 있는 반면, OpenAI 직원들의 직접적인 반응을 근거로 \"이번에는 다를 수 있다\"는 기대감도 존재한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 옴니의 약속은 이번에 실현될 수 있을까"
+    },
+    {
+      "type": "text",
+      "value": "현재까지 확인된 사실을 정리하면 이렇다. 신뢰할 만한 API 모니터링 전문가가 옴니 모델 개발을 제보했고, 멀티모달 전문가인 OpenAI 직원이 스레드에 참여했으며, 리서치 리드가 \"곧 출시\"라고 답했다. 별도의 새 오디오 모델 아키텍처 보도도 같은 방향을 가리키고 있다.\n\n다만 이 모든 것은 아직 공식 발표가 아닌 루머와 정황 증거의 조합이다. 출시 시기, 모델명(GPT-5o인지 별도 브랜드인지), 구체적인 기능 범위는 전혀 확인되지 않았다. GPT-4o가 2년 전 약속한 완전한 멀티모달 입출력이 이번에야 실현될 수 있을지, OpenAI의 다음 행보를 주시할 필요가 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Just four days after the GPT-5.4 launch, a rumor hinting at OpenAI's next move has surfaced. @legit_api, a verified X account known for monitoring API endpoints and web app code, posted that \"OpenAI is developing a new Omni model.\" Two OpenAI employees then engaged with the thread, lending the claim more weight than mere speculation. Could the fully multimodal input-output experience that GPT-4o promised but never delivered finally be on the horizon?"
+    },
+    {
+      "type": "heading",
+      "value": "1. The Source: Who Is legit_api?"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-color.jpg?w=1024",
+      "caption": "Rumors are spreading that OpenAI is developing a truly omni model for the first time in two years since GPT-4o",
+      "alt": "OpenAI logo GPT-5o omni model development rumor"
+    },
+    {
+      "type": "text",
+      "value": "The rumor originates from @legit_api (Legit), a verified X account. Not an OpenAI insider, but an external specialist who monitors API endpoints and web app code. The account gained recognition in the AI community for immediately attempting to access API endpoints ahead of the GPT-5.4 launch to confirm the model's existence.\n\nThe key claims from legit_api are as follows: OpenAI is developing a new omni model that is fully multimodal. It can accept text, images, video, and audio as input, with output presumably being any combination of the above. legit_api described it as \"what the original GPT-4o was supposed to be, but never was.\""
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2. OpenAI Employee Reactions Boost Credibility"
+    },
+    {
+      "type": "text",
+      "value": "What decisively elevated the rumor's credibility was the reaction of two OpenAI employees.\n\nThe first is Brandon McKinzie (@mckbrando), a Member of Technical Staff at OpenAI. He's a key contributor to the o1 and o3 models and the developer of \"Thinking with Images,\" the image reasoning capability in o3 and o4-mini. A multimodal specialist who came from Apple where he worked on the MM1 model, McKinzie recently stated that \"This is just the beginning. The team is already hard at work on the next generation of models\" and engaged with the omni model thread.\n\nThe second is Houda Nait El Barj (@Houda_nait), a Research Lead at OpenAI who heads \"Experience Research on Emerging AI Systems.\" She has been involved in the Jony Ive/LoveFrom hardware project and Operator development. A Stanford economics Ph.D., she replied to the thread with \"Coming soon!!\" — a statement that strongly suggests awareness of an internal roadmap."
+    },
+    {
+      "type": "heading",
+      "value": "3. GPT-4o's Unfulfilled Promise: A Second Attempt After Two Years"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2026/03/GPT-5.4-Thinking.png",
+      "caption": "Even GPT-5.4 remains limited to text output, but OpenAI appears to be preparing true multimodal output",
+      "alt": "GPT-5.4 Thinking mode OpenAI multimodal omni model development"
+    },
+    {
+      "type": "text",
+      "value": "Understanding this rumor requires revisiting GPT-4o's history. Launched in 2024, the \"o\" in GPT-4o stood for \"omni.\" It was marketed as a truly multimodal model spanning text, images, and audio, but in practice fell short of full multimodal input-output. Image and audio output were limited, and video input-output wasn't supported at all.\n\nThe subsequent GPT-5 series (5.0, 5.1, 5.2, 5.3, 5.4) iterated rapidly but the situation hasn't fundamentally changed. Even GPT-5.4, launched just four days ago, accepts text and image inputs but only outputs text. Despite its massive 1-million-token context window and powerful reasoning capabilities, native audio output and video processing remain absent."
+    },
+    {
+      "type": "text",
+      "value": "In other words, two years have passed since GPT-4o branded itself as \"omni,\" yet OpenAI has still not delivered a model that freely handles input and output across all modalities. If this rumor proves true, it could represent the fulfillment of a promise deferred for two years."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. The Connection to New Audio Model Reports"
+    },
+    {
+      "type": "text",
+      "value": "This omni model rumor doesn't exist in isolation. In January 2026, SiliconANGLE reported that OpenAI planned to launch a new audio model architecture within Q1. Combining this report with the omni model rumor suggests OpenAI may be preparing a dedicated multimodal model line separate from the text-centric GPT-5 series.\n\nMcKinzie's background supports this interpretation. He developed MM1, a multimodal large language model at Apple, before joining OpenAI, where he implemented image reasoning capabilities in o3 and o4-mini. Processing text, images, audio, and video within a single model aligns precisely with his area of expertise."
+    },
+    {
+      "type": "heading",
+      "value": "5. Community Reaction and Spread"
+    },
+    {
+      "type": "text",
+      "value": "The rumor's spread is currently limited. On X, legit_api's original tweet has garnered approximately 19,300 views, with reactions primarily from the AI community. In Korea, it attracted attention on DC Inside's Singularity Gallery with roughly 3,600 views, 26 upvotes, and 29 comments. However, it hasn't been picked up by Reddit or major tech outlets yet, placing it firmly in the early-stage rumor category.\n\nCommunity sentiment is a mix of excitement and skepticism. Given GPT-4o's precedent, some argue they \"won't believe it until full multimodal is actually delivered,\" while others point to the direct engagement from OpenAI employees as grounds for optimism that \"this time might be different.\""
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Closing: Will the Omni Promise Be Fulfilled This Time?"
+    },
+    {
+      "type": "text",
+      "value": "Here's what we know so far: a credible API monitoring expert reported the omni model's development, a multimodal specialist at OpenAI engaged with the thread, and a Research Lead responded with \"coming soon.\" Separate reporting about a new audio model architecture points in the same direction.\n\nHowever, all of this remains a combination of rumors and circumstantial evidence rather than an official announcement. The release timeline, model name (whether it will be GPT-5o or a separate brand), and specific feature scope are entirely unconfirmed. Whether the fully multimodal input-output that GPT-4o promised two years ago will finally be realized this time remains to be seen. OpenAI's next move deserves close attention."
+    }
+  ]
+}
