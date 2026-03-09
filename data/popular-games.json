@@ -1,26 +1,26 @@
 {
-  "updatedAt": "2026-03-08T00:59:05.884Z",
+  "updatedAt": "2026-03-09T00:59:53.344Z",
   "period": "30days",
   "games": [
-    {
-      "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
-      "views": 25
-    },
     {
       "slug": "드래곤소드",
       "views": 23
     },
     {
-      "slug": "명조워더링-웨이브",
-      "views": 12
+      "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
+      "views": 16
     },
     {
       "slug": "두근두근타운",
       "views": 10
     },
     {
-      "slug": "에르피스",
+      "slug": "명조워더링-웨이브",
       "views": 10
+    },
+    {
+      "slug": "에르피스",
+      "views": 9
     },
     {
       "slug": "메이플-키우기",
@@ -55,10 +55,6 @@
       "views": 2
     },
     {
-      "slug": "crosshair-x",
-      "views": 2
-    },
-    {
       "slug": "rhythm-doctor",
       "views": 2
     },
@@ -71,11 +67,15 @@
       "views": 1
     },
     {
-      "slug": "dx-각성자들",
+      "slug": "aion2",
       "views": 1
     },
     {
-      "slug": "그놈은-드래곤",
+      "slug": "crosshair-x",
+      "views": 1
+    },
+    {
+      "slug": "dx-각성자들",
       "views": 1
     }
   ]

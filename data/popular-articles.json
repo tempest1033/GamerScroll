@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-03-08T00:59:06.388Z",
+  "updatedAt": "2026-03-09T00:59:53.870Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 104,
+      "views": 100,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 53,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "slug": "subculture-january-2026-kr",
+      "views": 26,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 31,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
+      "slug": "mobile-february-2026-kr",
+      "views": 25,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "issue",
@@ -30,8 +30,15 @@
       "type": "tech",
       "slug": "gpt-54-leak-model-war",
       "category": "ai",
-      "views": 9,
+      "views": 8,
       "path": "/tech/ai/gpt-54-leak-model-war/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 7,
+      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "issue",
@@ -50,6 +57,19 @@
       "slug": "stoneage-idle-launch-success",
       "views": 5,
       "path": "/magazine/issue/stoneage-idle-launch-success/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-esports-history",
+      "category": "history",
+      "views": 5,
+      "path": "/wiki/history/korean-esports-history/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 4,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -105,13 +125,6 @@
     },
     {
       "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
-      "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 3,
@@ -156,13 +169,6 @@
     },
     {
       "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/korean-esports-history/"
-    },
-    {
-      "type": "wiki",
       "slug": "excel-formulas-for-game-balance",
       "category": "knowledge",
       "views": 2,
@@ -174,12 +180,6 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 1,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
@@ -207,6 +207,12 @@
     },
     {
       "type": "issue",
+      "slug": "gdc-2026-preview-kojima-xbox",
+      "views": 1,
+      "path": "/magazine/issue/gdc-2026-preview-kojima-xbox/"
+    },
+    {
+      "type": "issue",
       "slug": "google-play-fee-cut-epic-settlement",
       "views": 1,
       "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
@@ -231,12 +237,6 @@
     },
     {
       "type": "issue",
-      "slug": "resident-evil-requiem-metacritic-scores",
-      "views": 1,
-      "path": "/magazine/issue/resident-evil-requiem-metacritic-scores/"
-    },
-    {
-      "type": "issue",
       "slug": "shiftup-self-publishing-stellar-blade",
       "views": 1,
       "path": "/magazine/issue/shiftup-self-publishing-stellar-blade/"
@@ -255,6 +255,12 @@
     },
     {
       "type": "issue",
+      "slug": "sony-ps-exclusive-pc-pullback",
+      "views": 1,
+      "path": "/magazine/issue/sony-ps-exclusive-pc-pullback/"
+    },
+    {
+      "type": "issue",
       "slug": "subculture-newyear-china-wins",
       "views": 1,
       "path": "/magazine/issue/subculture-newyear-china-wins/"
@@ -266,10 +272,10 @@
       "path": "/magazine/issue/trump-tencent-gaming-divestiture/"
     },
     {
-      "type": "ranking",
-      "slug": "steam-february-2026",
+      "type": "issue",
+      "slug": "xbox-game-pass-march-2026",
       "views": 1,
-      "path": "/magazine/ranking/steam-february-2026/"
+      "path": "/magazine/issue/xbox-game-pass-march-2026/"
     },
     {
       "type": "tech",
@@ -284,6 +290,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/anthropic-revenue-19b-openai-gap/"
+    },
+    {
+      "type": "tech",
+      "slug": "apple-siri-gemini-partnership",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/apple-siri-gemini-partnership/"
     },
     {
       "type": "tech",
@@ -357,13 +370,6 @@
     },
     {
       "type": "tech",
-      "slug": "gemini-deep-think-hallucination-backlash",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gemini-deep-think-hallucination-backlash/"
-    },
-    {
-      "type": "tech",
       "slug": "gemini-free-tier-cutback-backlash",
       "category": "ai",
       "views": 1,
@@ -417,6 +423,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/openai-pentagon-deal-altman-admits/"
+    },
+    {
+      "type": "tech",
+      "slug": "softbank-40b-openai-loan",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/softbank-40b-openai-loan/"
     },
     {
       "type": "tech",

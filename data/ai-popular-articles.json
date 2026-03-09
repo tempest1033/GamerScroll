@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-08T01:00:05.613Z",
+  "updatedAt": "2026-03-09T01:00:51.701Z",
   "period": "7days",
   "articles": [
     {
@@ -10,15 +10,15 @@
     },
     {
       "category": "general",
-      "slug": "deepseek-v4-launch-march-2026",
-      "views": 12,
-      "path": "/article/general/deepseek-v4-launch-march-2026/"
+      "slug": "moltbook-ai-social-network",
+      "views": 14,
+      "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "general",
-      "slug": "moltbook-ai-social-network",
+      "slug": "deepseek-v4-launch-march-2026",
       "views": 12,
-      "path": "/article/general/moltbook-ai-social-network/"
+      "path": "/article/general/deepseek-v4-launch-march-2026/"
     },
     {
       "category": "general",
@@ -52,6 +52,12 @@
     },
     {
       "category": "anthropic",
+      "slug": "anthropic-pentagon-ai-safety-standoff",
+      "views": 3,
+      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+    },
+    {
+      "category": "anthropic",
       "slug": "claude-military-venezuela-iran",
       "views": 3,
       "path": "/article/anthropic/claude-military-venezuela-iran/"
@@ -63,16 +69,10 @@
       "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
+      "category": "openai",
+      "slug": "gpt-53-instant-less-cringe",
       "views": 3,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-pentagon-ai-safety-standoff",
-      "views": 2,
-      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
+      "path": "/article/openai/gpt-53-instant-less-cringe/"
     },
     {
       "category": "anthropic",
@@ -112,12 +112,6 @@
     },
     {
       "category": "openai",
-      "slug": "gpt-53-instant-less-cringe",
-      "views": 2,
-      "path": "/article/openai/gpt-53-instant-less-cringe/"
-    },
-    {
-      "category": "openai",
       "slug": "gpt-54-leak-model-war",
       "views": 2,
       "path": "/article/openai/gpt-54-leak-model-war/"
@@ -127,6 +121,18 @@
       "slug": "codex-install-guide-mac",
       "views": 2,
       "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 2,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-guide",
+      "views": 2,
+      "path": "/article/vibecoding/vibe-coding-guide/"
     },
     {
       "category": "anthropic",
@@ -166,21 +172,15 @@
     },
     {
       "category": "general",
-      "slug": "meta-avocado-ai-model-performance",
+      "slug": "xbox-sunset-ai-pivot",
       "views": 1,
-      "path": "/article/general/meta-avocado-ai-model-performance/"
+      "path": "/article/general/xbox-sunset-ai-pivot/"
     },
     {
       "category": "google",
-      "slug": "deepmind-update-aletheia-gemini",
+      "slug": "apple-siri-gemini-partnership",
       "views": 1,
-      "path": "/article/google/deepmind-update-aletheia-gemini/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-death-lawsuit-gavalas",
-      "views": 1,
-      "path": "/article/google/gemini-death-lawsuit-gavalas/"
+      "path": "/article/google/apple-siri-gemini-partnership/"
     }
   ]
 }
