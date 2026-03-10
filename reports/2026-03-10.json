@@ -7285,5 +7285,153 @@
       "link": "https://gall.dcinside.com/board/view/?id=dcbest&no=411562&_dcbest=1&page=1",
       "channel": "특갤"
     }
-  ]
+  ],
+  "ai": {
+    "date": "2026-03-10",
+    "summary": "코스피가 미국-이란 긴장 속 유가 급등 여파로 -7.24% 폭락하며 게임주도 동반 하락한 가운데, Resident Evil Requiem이 5일 만에 500만 장을 돌파하며 스팀 동접 34만을 기록했습니다. 붉은사막 출시가 9일 앞으로 다가오고, GDC 2026이 개막하며, Google Play 수수료 인하와 Xbox 차세대 콘솔 발표 등 업계 전반에 굵직한 뉴스가 쏟아지고 있습니다.",
+    "issues": [
+      {
+        "tag": "PC",
+        "title": "Resident Evil Requiem, 5일 만에 500만 장 돌파",
+        "desc": "캡콤의 신작 Resident Evil Requiem이 출시 첫 주 만에 500만 장 판매를 기록하며 시리즈 최고 속도 판매를 달성했습니다. 스팀 동접 34만, 유저 리뷰 96% 긍정으로 올해 최고의 싱글플레이 타이틀로 자리잡고 있습니다.",
+        "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3764200/ce5437442768e38eb575f205ab9397d0264017b0/header.jpg?t=1772587704"
+      },
+      {
+        "tag": "console",
+        "title": "붉은사막, 3월 19일 글로벌 출시 D-9 카운트다운",
+        "desc": "펄어비스의 붉은사막이 3월 19~20일 글로벌 출시를 앞두고 있습니다. 스팀 사전판매 상위권에 진입한 가운데, 조작 난이도와 콘솔판에 대한 논란도 있지만 해외 커뮤니티에서는 기대감이 폭발하고 있습니다.",
+        "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3321460/abd7dbdeaede8b6c9a6d40bf116ff2b883f2dd45/header.jpg?t=1770115850"
+      },
+      {
+        "tag": "mobile",
+        "title": "eFootball 카니발 캠페인, iOS 51위에서 17위로 급상승",
+        "desc": "eFootball이 카니발 캠페인과 무료 네이마르 이벤트를 진행하며 iOS 매출 51위에서 17위로 34단계 급상승했습니다. 축구 시즌과 맞물린 공격적인 프로모션이 효과를 보고 있습니다.",
+        "thumbnail": "https://lblog.fp.guinfra.com/file/6978d4ebf10e17a2689a691fv7TXICcC03"
+      },
+      {
+        "tag": "global",
+        "title": "ARC Raiders Flashpoint 업데이트, 스팀 동접 4위 진입",
+        "desc": "Embark Studios의 ARC Raiders가 스팀 동접 순위 4위에 진입하며 3월 말 예정된 대규모 Flashpoint 업데이트에 대한 기대감을 높이고 있습니다. F2P 출시 이후 꾸준히 유저층을 넓혀가고 있으며, 익스트랙션 슈터 시장에서의 존재감을 확인시켰습니다.",
+        "thumbnail": "https://sht-vod.dn.nexoncdn.co.kr/shpd-comm/Media/AR/128_media_src.png"
+      },
+      {
+        "tag": "mobile",
+        "title": "러브앤딥스페이스 2주년 대규모 업데이트, 하우징 시스템 추가",
+        "desc": "러브앤딥스페이스가 지난해 12월 출시된 5.0 대규모 업데이트(2주년)의 하우징 시스템 효과가 지속되고 있습니다. iOS 매출이 134위에서 61위로 73단계 급상승하며 강력한 복귀 효과를 보여주고 있습니다.",
+        "thumbnail": "https://assets.infoldgames.com/resources/cdn/20251230/ade40ded471acd21.jpg"
+      }
+    ],
+    "industryIssues": [
+      {
+        "tag": "company",
+        "title": "Xbox 차세대 콘솔 Project Helix 공식 발표",
+        "desc": "Xbox가 차세대 콘솔 Project Helix를 공식 발표했습니다. AMD Zen6+RDNA5 아키텍처를 채택하며 가격은 900~1400달러 범위로, 하이엔드 PC급 성능을 콘솔에 담겠다는 전략입니다.",
+        "thumbnail": "https://cdn.dlcompare.com/others_jpg/upload/news/image/en-microsoft-says-next-gen-xbox-b0b3e8ba-image-b0b3e8a4.jpg.webp"
+      },
+      {
+        "tag": "policy",
+        "title": "Google Play 수수료 30%에서 20%로 인하, Epic 합의",
+        "desc": "Google이 Epic Games와의 합의를 통해 Play Store 수수료를 30%에서 20%로 인하합니다. 한국에는 12월부터 적용되며, 넷마블 등 모바일 게임사들이 직접적인 수혜를 받을 것으로 전망됩니다.",
+        "thumbnail": "https://techcrunch.com/wp-content/uploads/2026/03/android-GettyImages-458108827.jpg"
+      }
+    ],
+    "metrics": [
+      {
+        "tag": "popularity",
+        "gameName": "Resident Evil Requiem",
+        "title": "RE Requiem 스팀 동접 34만, 리뷰 96% 긍정",
+        "desc": "Resident Evil Requiem이 스팀 동접 34만 4천 명을 기록하며 올해 싱글플레이 게임 최고 동접을 달성했습니다. 유저 리뷰 96% 긍정적으로 시리즈 역대 최고 평가를 받고 있습니다.",
+        "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3764200/ce5437442768e38eb575f205ab9397d0264017b0/header.jpg?t=1772587704"
+      },
+      {
+        "tag": "revenue",
+        "gameName": "eFootball",
+        "title": "eFootball iOS 매출 34단계 상승, 모바일 축구 선두 굳히기",
+        "desc": "eFootball이 카니발 캠페인 효과로 iOS 매출 51위에서 17위로 34단계 상승하며 모바일 축구 게임 매출 1위 자리를 굳히고 있습니다. 네이마르 무료 지급 이벤트가 신규 유입에 크게 기여했습니다.",
+        "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1665460/0fb7eebc292768714f2b3be666d59b59a11b0031/header.jpg?t=1772677104"
+      }
+    ],
+    "rankings": [
+      {
+        "tag": "surge",
+        "title": "러브앤딥스페이스",
+        "prevRank": 134,
+        "rank": 61,
+        "change": 73,
+        "platform": "iOS",
+        "desc": "2주년 5.0 대규모 업데이트와 하우징 시스템 도입 효과로 iOS 매출이 134위에서 61위로 73단계 급상승했습니다. 오토메 장르에서 보기 드문 강력한 복귀세입니다."
+      },
+      {
+        "tag": "surge",
+        "title": "Marvel Rivals",
+        "prevRank": 45,
+        "rank": 13,
+        "change": 32,
+        "platform": "Steam",
+        "desc": "Chrono-Rush 이벤트 복귀와 신규 코스튬 업데이트 효과로 스팀 동접이 45위에서 13위로 32단계 급상승했습니다. 히어로 슈터 장르에서의 입지를 다시 확인했습니다."
+      },
+      {
+        "tag": "new",
+        "title": "ARC Raiders",
+        "prevRank": 0,
+        "rank": 4,
+        "change": 0,
+        "platform": "Steam",
+        "desc": "Flashpoint 대규모 업데이트와 함께 스팀 동접 4위로 신규 진입했습니다. 무료 전환 이후 유저 기반이 크게 확대되며 익스트랙션 슈터 시장에서 다크호스로 떠올랐습니다."
+      },
+      {
+        "tag": "drop",
+        "title": "ELDEN RING NIGHTREIGN",
+        "prevRank": 40,
+        "rank": 100,
+        "change": -60,
+        "platform": "Steam",
+        "desc": "스팀 동접이 40위에서 100위로 60단계 하락했습니다. 다만 3월 내 DLC 출시가 확인된 만큼 일시적인 관심 저하로 보이며, DLC 출시 시 반등이 예상됩니다."
+      }
+    ],
+    "community": [
+      {
+        "tag": "Resident Evil Requiem",
+        "title": "RE Requiem Grace vs Leon 선호 논쟁 뜨겁게 달아올라",
+        "desc": "500만 장 돌파 화제 속에서 커뮤니티에서는 주인공 Grace와 레전드 캐릭터 Leon 중 누가 더 매력적인지를 놓고 열띤 토론이 벌어지고 있습니다. 96% 긍정 리뷰와 함께 팬덤이 빠르게 형성되고 있습니다."
+      },
+      {
+        "tag": "붉은사막",
+        "title": "붉은사막 D-9, 조작 난이도 논란 속 해외 기대감 폭발",
+        "desc": "출시 9일 앞으로 다가온 붉은사막에 대해 국내에서는 조작 난이도와 콘솔판 최적화 우려가 나오고 있지만, 해외 커뮤니티에서는 AAA급 오픈월드에 대한 기대감이 최고조에 달하고 있습니다."
+      },
+      {
+        "tag": "던전 스토커즈",
+        "title": "던전 스토커즈 서비스 종료 발표, 익스트랙션 장르 한계론 대두",
+        "desc": "던전 스토커즈가 흥행 부진으로 6월 9일 서비스 종료를 발표하며, 커뮤니티에서는 익스트랙션 장르 자체의 한국 시장 적합성에 대한 논의가 활발히 이뤄지고 있습니다."
+      },
+      {
+        "tag": "뱀피르",
+        "title": "뱀피르 신규 클래스 아카샤 공개, 글로벌 확장 기대",
+        "desc": "뱀피르가 3월 11일 신규 클래스 아카샤와 함께 중화권 글로벌 오픈을 예고하며 유저들의 관심을 모으고 있습니다. 새로운 플레이스타일과 해외 시장 진출에 대한 기대가 높아지고 있습니다."
+      }
+    ],
+    "streaming": [
+      {
+        "tag": "chzzk",
+        "title": "치지직, LCK 시청자 수로 SOOP 압도하며 게임 스트리밍 1위",
+        "desc": "치지직이 LCK 중계 시청자 수에서 SOOP을 압도하며 누적 시청 510억분(+28%)을 돌파했습니다. 게임 스트리밍 플랫폼 1위 자리를 확고히 다지고 있습니다."
+      },
+      {
+        "tag": "youtube",
+        "title": "GDC 2026 세션 유튜브 라이브, 게이머 관심 집중",
+        "desc": "GDC 2026이 Festival of Gaming으로 리브랜딩하며 개막한 가운데, 주요 세션들이 유튜브로 실시간 스트리밍되며 게이머들의 관심이 집중되고 있습니다."
+      }
+    ],
+    "stocks": [
+      {
+        "name": "넷마블",
+        "comment": "Google Play 수수료 인하 최대 수혜주, +12% 급등, 목표가 85,000원 상향"
+      },
+      {
+        "name": "코스피 게임섹터",
+        "comment": "미국-이란 긴장 → 유가 35%+ 폭등 → 코스피 -7.24%, 게임주 동반 급락"
+      }
+    ]
+  }
 }
