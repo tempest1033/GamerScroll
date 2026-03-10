@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-09T00:59:53.344Z",
+  "updatedAt": "2026-03-10T02:12:53.847Z",
   "period": "30days",
   "games": [
     {
@@ -20,7 +20,7 @@
     },
     {
       "slug": "에르피스",
-      "views": 9
+      "views": 8
     },
     {
       "slug": "메이플-키우기",
@@ -55,6 +55,10 @@
       "views": 2
     },
     {
+      "slug": "aion2",
+      "views": 2
+    },
+    {
       "slug": "rhythm-doctor",
       "views": 2
     },
@@ -64,10 +68,6 @@
     },
     {
       "slug": "agreeee",
-      "views": 1
-    },
-    {
-      "slug": "aion2",
       "views": 1
     },
     {
