@@ -1,24 +1,18 @@
 {
-  "updatedAt": "2026-03-09T00:59:53.870Z",
+  "updatedAt": "2026-03-10T00:55:00.194Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 100,
+      "views": 61,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 26,
+      "views": 20,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 25,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "issue",
@@ -27,11 +21,17 @@
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
-      "type": "tech",
-      "slug": "gpt-54-leak-model-war",
-      "category": "ai",
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 11,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-esports-history",
+      "category": "history",
       "views": 8,
-      "path": "/tech/ai/gpt-54-leak-model-war/"
+      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "wiki",
@@ -41,16 +41,23 @@
       "path": "/wiki/business/game-business-metrics/"
     },
     {
-      "type": "issue",
-      "slug": "deepseek-v4-launch-march-2026",
+      "type": "tech",
+      "slug": "gpt-54-leak-model-war",
+      "category": "ai",
       "views": 6,
-      "path": "/magazine/issue/deepseek-v4-launch-march-2026/"
+      "path": "/tech/ai/gpt-54-leak-model-war/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 5,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
-      "slug": "pokemon-pokopia-review-roundup",
+      "slug": "deepseek-v4-launch-march-2026",
       "views": 5,
-      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
+      "path": "/magazine/issue/deepseek-v4-launch-march-2026/"
     },
     {
       "type": "issue",
@@ -59,23 +66,22 @@
       "path": "/magazine/issue/stoneage-idle-launch-success/"
     },
     {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 5,
-      "path": "/wiki/history/korean-esports-history/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
       "views": 4,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
-      "slug": "dragon-sword-launch-report",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 4,
-      "path": "/magazine/issue/dragon-sword-launch-report/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-review-roundup",
+      "views": 4,
+      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
     },
     {
       "type": "issue",
@@ -85,15 +91,15 @@
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
+      "slug": "dragon-sword-launch-report",
       "views": 3,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+      "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
+      "slug": "xbox-game-pass-march-2026",
       "views": 3,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/issue/xbox-game-pass-march-2026/"
     },
     {
       "type": "tech",
@@ -104,24 +110,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-military-venezuela-iran",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/claude-military-venezuela-iran/"
-    },
-    {
-      "type": "tech",
       "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
-    },
-    {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "wiki",
@@ -150,9 +142,9 @@
     },
     {
       "type": "issue",
-      "slug": "geng-lck-cup-championship",
+      "slug": "crimson-desert-preview-march-2026",
       "views": 2,
-      "path": "/magazine/issue/geng-lck-cup-championship/"
+      "path": "/magazine/issue/crimson-desert-preview-march-2026/"
     },
     {
       "type": "issue",
@@ -161,11 +153,38 @@
       "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
+      "type": "issue",
+      "slug": "slay-the-spire-2-early-access-record",
+      "views": 2,
+      "path": "/magazine/issue/slay-the-spire-2-early-access-record/"
+    },
+    {
       "type": "tech",
       "slug": "anthropic-internal-memo-pentagon-openai",
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/anthropic-internal-memo-pentagon-openai/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-code-vs-codex-coding-agent",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
+    },
+    {
+      "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "tech",
+      "slug": "codex-install-guide-windows",
+      "category": "vibecoding",
+      "views": 2,
+      "path": "/tech/vibecoding/codex-install-guide-windows/"
     },
     {
       "type": "wiki",
@@ -182,6 +201,12 @@
       "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
       "type": "insight",
       "slug": "subculture-market-crisis-winner-takes-all",
       "views": 1,
@@ -192,18 +217,6 @@
       "slug": "2026-subculture-openworld-games",
       "views": 1,
       "path": "/magazine/issue/2026-subculture-openworld-games/"
-    },
-    {
-      "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
-      "views": 1,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "gacha-item-relief-center",
-      "views": 1,
-      "path": "/magazine/issue/gacha-item-relief-center/"
     },
     {
       "type": "issue",
@@ -243,12 +256,6 @@
     },
     {
       "type": "issue",
-      "slug": "slay-the-spire-2-early-access-record",
-      "views": 1,
-      "path": "/magazine/issue/slay-the-spire-2-early-access-record/"
-    },
-    {
-      "type": "issue",
       "slug": "sol-enchant-pre-registration",
       "views": 1,
       "path": "/magazine/issue/sol-enchant-pre-registration/"
@@ -273,9 +280,9 @@
     },
     {
       "type": "issue",
-      "slug": "xbox-game-pass-march-2026",
+      "slug": "xbox-project-helix-pc-console",
       "views": 1,
-      "path": "/magazine/issue/xbox-game-pass-march-2026/"
+      "path": "/magazine/issue/xbox-project-helix-pc-console/"
     },
     {
       "type": "tech",
@@ -307,17 +314,17 @@
     },
     {
       "type": "tech",
-      "slug": "claude-app-store-number-one",
+      "slug": "claude-cowork-saaspocalypse",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/claude-app-store-number-one/"
+      "path": "/tech/ai/claude-cowork-saaspocalypse/"
     },
     {
       "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
+      "slug": "claude-military-venezuela-iran",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
+      "path": "/tech/ai/claude-military-venezuela-iran/"
     },
     {
       "type": "tech",
@@ -419,6 +426,13 @@
     },
     {
       "type": "tech",
+      "slug": "openai-omni-model-rumor-march-2026",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/openai-omni-model-rumor-march-2026/"
+    },
+    {
+      "type": "tech",
       "slug": "openai-pentagon-deal-altman-admits",
       "category": "ai",
       "views": 1,
@@ -430,6 +444,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/softbank-40b-openai-loan/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-code-install-guide-mac",
+      "category": "vibecoding",
+      "views": 1,
+      "path": "/tech/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "type": "tech",
