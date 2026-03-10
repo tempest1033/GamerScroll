@@ -1336,12 +1336,37 @@ Image download fails → add to pending-images.json
 
 ---
 
+## Technical References
+
+### iOS Rankings API
+- Apple viewTop API: up to 200 items, RSS fallback (100 items)
+- Source: `src/crawlers/ios-top-charts.js`
+- Store fronts: kr=143466, jp=143462, us=143441, cn=143465, tw=143470
+
+### Icon Resize
+- `src/utils/resize-icon.js`
+- iOS: `/100x100bb.jpg`, Android: `=s100`, Steam: not supported
+
+### Template Literal Regex (Critical)
+Double-escape backslashes inside JS template literals:
+`\\/` → `\/`, `\\d` → `\d`, `\\.` → `\.`
+Files: rankings.js, games-hub.js, upcoming.js
+
+### Monthly Ranking Extras
+- relatedDocs format: `"ranking:slug"` prefix (explicit prefix preferred over auto-search)
+- Cross-reference: same month other categories + same category prev/next month
+- ranking-card custom labels: `iosLabel`/`androidLabel` fields (Steam uses fixed labels)
+- Subculture filter: `data/subculture-games.json` (manual curation)
+- Analysis scripts: `monthly-mobile-analysis.js` (minDays:15), `monthly-steam-analysis.js`
+
+---
+
 ## Important Notes
 
-1. **AI Insight**: Agent Team 수동 워크플로우로 생성 (스크립트/GitHub Actions 미사용)
-2. **Weekends/holidays**: Stock data uses last trading day, stocks 배열 비우기
+1. **AI Insight**: Agent Team manual workflow (no script/GitHub Actions)
+2. **Weekends/holidays**: Stock data uses last trading day, empty stocks array
 3. **Cache dependency**: Quick mode requires data-cache.json
-4. **48h rule**: issues/industryIssues는 보도일 기준 48시간 이내 뉴스만 사용
+4. **48h rule**: issues/industryIssues must use news within 48 hours of publication
 5. **EUC-KR**: Naver Finance uses EUC-KR encoding
 
 ---
