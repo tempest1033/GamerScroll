@@ -1,18 +1,12 @@
 {
-  "updatedAt": "2026-03-10T00:55:00.194Z",
+  "updatedAt": "2026-03-11T00:45:05.612Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 61,
+      "views": 31,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 20,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "issue",
@@ -22,30 +16,22 @@
     },
     {
       "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 11,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "slug": "subculture-january-2026-kr",
+      "views": 14,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "korean-esports-history",
       "category": "history",
-      "views": 8,
+      "views": 10,
       "path": "/wiki/history/korean-esports-history/"
     },
     {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 7,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-54-leak-model-war",
-      "category": "ai",
-      "views": 6,
-      "path": "/tech/ai/gpt-54-leak-model-war/"
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 8,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "hotpick",
@@ -55,9 +41,9 @@
     },
     {
       "type": "issue",
-      "slug": "deepseek-v4-launch-march-2026",
+      "slug": "diablo2-resurrected-steam-launch",
       "views": 5,
-      "path": "/magazine/issue/deepseek-v4-launch-march-2026/"
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -67,21 +53,35 @@
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 4,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 4,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
-      "slug": "pokemon-pokopia-review-roundup",
+      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 4,
-      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "gpt-54-leak-model-war",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/gpt-54-leak-model-war/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 4,
+      "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 3,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -91,22 +91,21 @@
     },
     {
       "type": "issue",
-      "slug": "dragon-sword-launch-report",
+      "slug": "google-play-fee-cut-epic-settlement",
       "views": 3,
-      "path": "/magazine/issue/dragon-sword-launch-report/"
+      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-global-sold-out",
+      "views": 3,
+      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
     },
     {
       "type": "issue",
       "slug": "xbox-game-pass-march-2026",
       "views": 3,
       "path": "/magazine/issue/xbox-game-pass-march-2026/"
-    },
-    {
-      "type": "tech",
-      "slug": "china-ai-distillation-controversy",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/china-ai-distillation-controversy/"
     },
     {
       "type": "tech",
@@ -121,12 +120,6 @@
       "category": "knowledge",
       "views": 3,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 2,
-      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -148,9 +141,9 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
+      "slug": "dragon-sword-launch-report",
       "views": 2,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "issue",
@@ -167,6 +160,13 @@
     },
     {
       "type": "tech",
+      "slug": "china-ai-distillation-controversy",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/china-ai-distillation-controversy/"
+    },
+    {
+      "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
       "views": 2,
@@ -178,6 +178,13 @@
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "tech",
+      "slug": "openai-omni-model-rumor-march-2026",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/openai-omni-model-rumor-march-2026/"
     },
     {
       "type": "tech",
@@ -207,28 +214,16 @@
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
-      "views": 1,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
-    },
-    {
       "type": "issue",
-      "slug": "2026-subculture-openworld-games",
+      "slug": "deepseek-v4-launch-march-2026",
       "views": 1,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
+      "path": "/magazine/issue/deepseek-v4-launch-march-2026/"
     },
     {
       "type": "issue",
       "slug": "gdc-2026-preview-kojima-xbox",
       "views": 1,
       "path": "/magazine/issue/gdc-2026-preview-kojima-xbox/"
-    },
-    {
-      "type": "issue",
-      "slug": "google-play-fee-cut-epic-settlement",
-      "views": 1,
-      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
     },
     {
       "type": "issue",
@@ -244,15 +239,9 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
+      "slug": "pokemon-pokopia-review-roundup",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "issue",
-      "slug": "shiftup-self-publishing-stellar-blade",
-      "views": 1,
-      "path": "/magazine/issue/shiftup-self-publishing-stellar-blade/"
+      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
     },
     {
       "type": "issue",
@@ -265,12 +254,6 @@
       "slug": "sony-ps-exclusive-pc-pullback",
       "views": 1,
       "path": "/magazine/issue/sony-ps-exclusive-pc-pullback/"
-    },
-    {
-      "type": "issue",
-      "slug": "subculture-newyear-china-wins",
-      "views": 1,
-      "path": "/magazine/issue/subculture-newyear-china-wins/"
     },
     {
       "type": "issue",
@@ -398,13 +381,6 @@
     },
     {
       "type": "tech",
-      "slug": "gpt-5-4-leak-silent-update",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gpt-5-4-leak-silent-update/"
-    },
-    {
-      "type": "tech",
       "slug": "gpt-53-instant-less-cringe",
       "category": "ai",
       "views": 1,
@@ -423,13 +399,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/openai-110b-record-funding-turning-point/"
-    },
-    {
-      "type": "tech",
-      "slug": "openai-omni-model-rumor-march-2026",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/openai-omni-model-rumor-march-2026/"
     },
     {
       "type": "tech",
@@ -461,10 +430,24 @@
     },
     {
       "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }

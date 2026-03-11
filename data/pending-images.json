@@ -300,6 +300,13 @@
       "type": "ai.issues",
       "failedAt": "2026-03-10T02:11:40.443Z",
       "error": "Timeout"
+    },
+    {
+      "url": "https://static.inven.co.kr/column/2026/03/03/news/i1243265426.jpg",
+      "date": "2026-03-11",
+      "type": "ai.metrics",
+      "failedAt": "2026-03-11T00:44:02.807Z",
+      "error": "socket hang up"
     }
   ]
 }
