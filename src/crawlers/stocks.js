@@ -120,8 +120,8 @@ async function fetchStockPrice(axios, cheerio, code) {
       }
     });
 
-    // 첫 번째 행(최신 종가) 반환
-    return dataRows[0] || null;
+    // 전일 확정 종가 우선, 없으면 최신 행 fallback
+    return dataRows[1] || dataRows[0] || null;
   } catch (error) {
     console.error(`  - ${code} 주가 조회 실패:`, error.message);
     return null;

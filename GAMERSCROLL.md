@@ -80,7 +80,9 @@ Lead ─┬─ 1. Explorer           : data-cache.json + 최근 7일 리포트 �
       │
       ├─ 6. Worker-Write         : 팩트체크 수정 + 썸네일 반영 → reports/{date}.json 병합
       │
-      └─ 7. Utility              : 퀵빌드 → (요청 시) 커밋/푸시
+      ├─ 7. Utility-StockFetch   : fetchStockPrices() 실행 → stockMap + stockPrices JSON에 추가
+      │
+      └─ 8. Utility              : 퀵빌드 → (요청 시) 커밋/푸시
 ```
 
 #### 핵심 원칙
@@ -89,6 +91,7 @@ Lead ─┬─ 1. Explorer           : data-cache.json + 최근 7일 리포트 �
 - **48시간 규칙**: issues, industryIssues는 보도일 기준 48시간 이내 뉴스만 사용
 - **썸네일 필수**: 기사 작성처럼 WebSearcher가 각 항목별 실제 이미지 URL 검색
 - **팩트체크 내장**: 생성 직후 WebSearcher가 날짜/수치/정확도 검증
+- **주가 데이터 필수**: Worker-Write 완료 후 Utility가 `fetchStockPrices()` (src/crawlers/stocks.js) 실행하여 stockMap + stockPrices를 report JSON에 추가. 이 단계 누락 시 게임주 종가/등락률이 표시되지 않음
 
 #### AI 인사이트 JSON 포맷
 ```json
@@ -129,6 +132,26 @@ Lead ─┬─ 1. Explorer           : data-cache.json + 최근 7일 리포트 �
 | community | 4 | 특정 게임 유저 반응 |
 | streaming | 2 | 치지직/유튜브만 (트위치 종료) |
 | stocks | 2 | 주말/공휴일은 빈 배열 |
+
+#### 주가 데이터 Fetch (Utility 실행)
+Worker-Write 완료 후 Utility가 아래 스크립트 실행:
+```bash
+cd {PROJECT_ROOT}/GamerScroll && node -e "
+const axios = require('axios');
+const cheerio = require('cheerio');
+const fs = require('fs');
+const { fetchStockPrices } = require('./src/crawlers/stocks');
+(async () => {
+  const report = JSON.parse(fs.readFileSync('./reports/{date}.json', 'utf8'));
+  const { stockMap, pricesMap } = await fetchStockPrices(axios, cheerio, report.ai.stocks);
+  report.stockMap = stockMap;
+  report.stockPrices = pricesMap;
+  fs.writeFileSync('./reports/{date}.json', JSON.stringify(report, null, 2), 'utf8');
+})();
+"
+```
+- `{date}`: 오늘 날짜 (YYYY-MM-DD)
+- 네이버 증권 게임/엔터테인먼트 업종 전체 종목 + AI 선정 종목의 종가/등락률 크롤
 
 #### 문체 규칙
 - 뉴스 큐레이터 스타일: "출시됐어요", "발표했는데요", "주목받고 있어요"
