@@ -307,6 +307,13 @@
       "type": "ai.metrics",
       "failedAt": "2026-03-11T00:44:02.807Z",
       "error": "socket hang up"
+    },
+    {
+      "url": "https://insider-gaming.com/wp-content/uploads/2025/10/electronic-arts-sale.jpeg",
+      "date": "2026-03-12",
+      "type": "ai.industryIssues",
+      "failedAt": "2026-03-12T01:39:55.453Z",
+      "error": "HTTP 403"
     }
   ]
 }
