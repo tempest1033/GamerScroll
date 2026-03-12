@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-03-11T00:45:05.612Z",
+  "updatedAt": "2026-03-12T00:51:59.522Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 31,
+      "views": 21,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
@@ -17,65 +17,46 @@
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 14,
+      "views": 15,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "korean-esports-history",
       "category": "history",
-      "views": 10,
+      "views": 9,
       "path": "/wiki/history/korean-esports-history/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 8,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 5,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 5,
+      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 5,
+      "views": 4,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
       "slug": "diablo2-resurrected-steam-launch",
-      "views": 5,
+      "views": 4,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "stoneage-idle-launch-success",
-      "views": 5,
-      "path": "/magazine/issue/stoneage-idle-launch-success/"
     },
     {
       "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 4,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 4,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-54-leak-model-war",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/gpt-54-leak-model-war/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "insight",
@@ -103,9 +84,27 @@
     },
     {
       "type": "issue",
+      "slug": "sol-enchant-pre-registration",
+      "views": 3,
+      "path": "/magazine/issue/sol-enchant-pre-registration/"
+    },
+    {
+      "type": "issue",
+      "slug": "stoneage-idle-launch-success",
+      "views": 3,
+      "path": "/magazine/issue/stoneage-idle-launch-success/"
+    },
+    {
+      "type": "issue",
       "slug": "xbox-game-pass-march-2026",
       "views": 3,
       "path": "/magazine/issue/xbox-game-pass-march-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 3,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -115,17 +114,11 @@
       "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
     },
     {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
+      "type": "tech",
+      "slug": "gpt-54-leak-model-war",
+      "category": "ai",
       "views": 3,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "issue",
-      "slug": "apple-march-2026-macbook-neo-ai",
-      "views": 2,
-      "path": "/magazine/issue/apple-march-2026-macbook-neo-ai/"
+      "path": "/tech/ai/gpt-54-leak-model-war/"
     },
     {
       "type": "issue",
@@ -138,12 +131,6 @@
       "slug": "crimson-desert-preview-march-2026",
       "views": 2,
       "path": "/magazine/issue/crimson-desert-preview-march-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragon-sword-launch-report",
-      "views": 2,
-      "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "issue",
@@ -174,6 +161,13 @@
     },
     {
       "type": "tech",
+      "slug": "gpt-54-one-week-review",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/gpt-54-one-week-review/"
+    },
+    {
+      "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
       "views": 2,
@@ -195,10 +189,17 @@
     },
     {
       "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
+      "slug": "game-ip-licensing",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/game-ip-licensing/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
@@ -208,10 +209,23 @@
       "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "apple-march-2026-macbook-neo-ai",
+      "views": 1,
+      "path": "/magazine/issue/apple-march-2026-macbook-neo-ai/"
     },
     {
       "type": "issue",
@@ -221,15 +235,15 @@
     },
     {
       "type": "issue",
-      "slug": "gdc-2026-preview-kojima-xbox",
+      "slug": "dragon-sword-launch-report",
       "views": 1,
-      "path": "/magazine/issue/gdc-2026-preview-kojima-xbox/"
+      "path": "/magazine/issue/dragon-sword-launch-report/"
     },
     {
       "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
+      "slug": "gdc-2026-preview-kojima-xbox",
       "views": 1,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+      "path": "/magazine/issue/gdc-2026-preview-kojima-xbox/"
     },
     {
       "type": "issue",
@@ -242,12 +256,6 @@
       "slug": "pokemon-pokopia-review-roundup",
       "views": 1,
       "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
-    },
-    {
-      "type": "issue",
-      "slug": "sol-enchant-pre-registration",
-      "views": 1,
-      "path": "/magazine/issue/sol-enchant-pre-registration/"
     },
     {
       "type": "issue",
@@ -266,6 +274,13 @@
       "slug": "xbox-project-helix-pc-console",
       "views": 1,
       "path": "/magazine/issue/xbox-project-helix-pc-console/"
+    },
+    {
+      "type": "tech",
+      "slug": "ai-model-intentional-performance-degradation",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/ai-model-intentional-performance-degradation/"
     },
     {
       "type": "tech",
@@ -311,94 +326,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-opus-46-pricing-controversy",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-outage-demand-surge-pentagon",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-outage-demand-surge-pentagon/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-surpasses-grok-web-traffic",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-surpasses-grok-web-traffic/"
-    },
-    {
-      "type": "tech",
-      "slug": "dead-internet-theory",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/dead-internet-theory/"
-    },
-    {
-      "type": "tech",
-      "slug": "deepmind-update-aletheia-gemini",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/deepmind-update-aletheia-gemini/"
-    },
-    {
-      "type": "tech",
-      "slug": "gemini-31-flash-lite-cost-efficiency",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gemini-31-flash-lite-cost-efficiency/"
-    },
-    {
-      "type": "tech",
       "slug": "gemini-death-lawsuit-gavalas",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/gemini-death-lawsuit-gavalas/"
-    },
-    {
-      "type": "tech",
-      "slug": "gemini-free-tier-cutback-backlash",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
-    },
-    {
-      "type": "tech",
-      "slug": "gemini-reliability-crisis-trust",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gemini-reliability-crisis-trust/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-4o-shutdown-controversy",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gpt-4o-shutdown-controversy/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-53-instant-less-cringe",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gpt-53-instant-less-cringe/"
-    },
-    {
-      "type": "tech",
-      "slug": "grok-420-multi-agent-release",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/grok-420-multi-agent-release/"
-    },
-    {
-      "type": "tech",
-      "slug": "openai-110b-record-funding-turning-point",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/openai-110b-record-funding-turning-point/"
     },
     {
       "type": "tech",
@@ -434,20 +365,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }

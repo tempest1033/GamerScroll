@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-11T00:46:03.909Z",
+  "updatedAt": "2026-03-12T00:52:58.521Z",
   "period": "7days",
   "articles": [
     {
@@ -17,14 +17,8 @@
     {
       "category": "general",
       "slug": "apple-march-2026-macbook-neo-ai",
-      "views": 9,
-      "path": "/article/general/apple-march-2026-macbook-neo-ai/"
-    },
-    {
-      "category": "general",
-      "slug": "deepseek-v4-launch-march-2026",
       "views": 7,
-      "path": "/article/general/deepseek-v4-launch-march-2026/"
+      "path": "/article/general/apple-march-2026-macbook-neo-ai/"
     },
     {
       "category": "anthropic",
@@ -33,16 +27,10 @@
       "path": "/article/anthropic/anthropic-internal-memo-pentagon-openai/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-outage-demand-surge-pentagon",
+      "category": "general",
+      "slug": "deepseek-v4-launch-march-2026",
       "views": 4,
-      "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-53-instant-less-cringe",
-      "views": 4,
-      "path": "/article/openai/gpt-53-instant-less-cringe/"
+      "path": "/article/general/deepseek-v4-launch-march-2026/"
     },
     {
       "category": "anthropic",
@@ -51,10 +39,10 @@
       "path": "/article/anthropic/anthropic-government-conflict-weapons-surveillance/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-surpasses-grok-web-traffic",
+      "category": "openai",
+      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
       "views": 3,
-      "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
+      "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
     },
     {
       "category": "anthropic",
@@ -64,27 +52,33 @@
     },
     {
       "category": "anthropic",
+      "slug": "claude-outage-demand-surge-pentagon",
+      "views": 2,
+      "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
+    },
+    {
+      "category": "anthropic",
       "slug": "claude-sonnet-46-release",
       "views": 2,
       "path": "/article/anthropic/claude-sonnet-46-release/"
     },
     {
-      "category": "google",
-      "slug": "gemini-31-flash-lite-cost-efficiency",
+      "category": "anthropic",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 2,
-      "path": "/article/google/gemini-31-flash-lite-cost-efficiency/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-reliability-crisis-trust",
-      "views": 2,
-      "path": "/article/google/gemini-reliability-crisis-trust/"
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "openai",
-      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "slug": "gpt-53-instant-less-cringe",
       "views": 2,
-      "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
+      "path": "/article/openai/gpt-53-instant-less-cringe/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-54-one-week-review",
+      "views": 2,
+      "path": "/article/openai/gpt-54-one-week-review/"
     },
     {
       "category": "vibecoding",
@@ -148,9 +142,9 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "slug": "claude-surpasses-grok-web-traffic",
       "views": 1,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+      "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
     },
     {
       "category": "general",
@@ -177,10 +171,16 @@
       "path": "/article/google/gemini-death-lawsuit-gavalas/"
     },
     {
-      "category": "google",
-      "slug": "gemini-deep-think-hallucination-backlash",
+      "category": "openai",
+      "slug": "openai-compute-investment-600b-cut",
       "views": 1,
-      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
+      "path": "/article/openai/openai-compute-investment-600b-cut/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-omni-model-rumor-march-2026",
+      "views": 1,
+      "path": "/article/openai/openai-omni-model-rumor-march-2026/"
     }
   ]
 }
