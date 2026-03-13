@@ -1,0 +1,157 @@
+{
+  "slug": "xai-exodus-grok-crisis",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "general",
+  "title": "xAI 공동 창립자 12명 중 7명 퇴사, 내부 폭로와 벤치마크 논란으로 드러난 그록의 위기",
+  "titleEn": "Half of xAI's Co-Founders Have Left as Internal Exposures Reveal Grok's Crisis",
+  "date": "2026-03-13T10:00",
+  "keywords": "xAI 집단 퇴사, 그록 위기, 일론 머스크 xAI, 드 크레이커 폭로, 그록 벤치마크 격차, xAI 스페이스X 합병, 커서 영입",
+  "keywordsEn": "xAI exodus, Grok crisis, Elon Musk xAI, De Kraker whistleblower, Grok benchmark gap, xAI SpaceX merger, Cursor recruitment",
+  "summary": "xAI 공동 창립자 12명 중 7명이 퇴사하고, 전직 엔지니어 드 크레이커의 내부 폭로가 이어지고 있다. 그록은 자체 벤치마크와 독립 테스트 간 큰 격차를 보이며, 스페이스X 합병과 커서 인재 영입으로 반전을 노리고 있다.",
+  "summaryEn": "Seven of xAI's 12 co-founders have departed, and former engineer De Kraker's internal revelations continue. Grok shows a significant gap between self-reported benchmarks and independent tests, while xAI seeks a turnaround through the SpaceX merger and Cursor talent recruitment.",
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2025/07/GettyImages-2199701496.jpg?w=1024",
+  "relatedDocs": [
+    "tech:ai/meta-avocado-delay"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Windows Central",
+      "title": "Elon Musk says it's 'weird' that an xAI engineer was forced to resign",
+      "url": "https://www.windowscentral.com/software-apps/elon-musk-its-weird-that-an-xai-engineer-was-forced-to-resign-referenced-grok-3"
+    },
+    {
+      "name": "Fortune",
+      "title": "X-odus: Half of xAI's founding team has left",
+      "url": "https://fortune.com/2026/02/11/half-of-xai-founding-team-has-left-elon-musks-ai-company-potentially-complicating-his-plans-for-a-blockbuster-spacex-ipo/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Among the worst we've seen: report slams xAI's Grok over child safety failures",
+      "url": "https://techcrunch.com/2026/01/27/among-the-worst-weve-seen-report-slams-xais-grok-over-child-safety-failures/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Elon Musk suggests spate of xAI exits have been push, not pull",
+      "url": "https://techcrunch.com/2026/02/13/elon-musk-suggests-spate-of-xai-exits-have-been-push-not-pull/"
+    },
+    {
+      "name": "The Information",
+      "title": "XAI Hires Two Senior Leaders From Cursor to Catch Up on Coding",
+      "url": "https://www.theinformation.com/articles/xai-hires-two-senior-leaders-cursor-catch-coding"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "xAI가 안팎으로 흔들리고 있다. 공동 창립자 12명 중 7명이 퇴사했고, 전직 엔지니어 벤저민 드 크레이커(Benjamin De Kraker)의 내부 폭로가 계속되면서 조직 문화의 민낯이 드러나고 있다. 그록(Grok)은 자체 보고 벤치마크와 독립 테스트 사이에 큰 격차를 보이며 실력 논란에 휩싸였고, 아동 안전 분야에서는 '최악' 등급을 받았다.\n\n일론 머스크(Elon Musk)는 스페이스X(SpaceX) 합병과 커서(Cursor) 인재 영입으로 반전을 노리고 있지만, 인재 유출과 신뢰 하락이라는 근본적 문제를 해결할 수 있을지는 미지수다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 드 크레이커 폭로: 수평적 조직의 이면"
+    },
+    {
+      "type": "text",
+      "value": "사건의 시작은 2025년 2월로 거슬러 올라간다. xAI 엔지니어였던 드 크레이커는 그록 개선을 위한 피드백을 X에 올렸다가 '다시는 그런 짓 하지 마라'는 질책을 받았다. 이후 그록 3의 코딩 벤치마크 순위를 포스트했더니 삭제 요구를 받았고, 결국 퇴사를 선택했다.\n\n2026년 3월에는 추가 폭로가 이어졌다. 드 크레이커에 따르면 xAI에는 중간 관리자가 넘쳐나고 사내 정치가 만연해 있다고 한다. 수평적 조직을 표방하는 xAI의 이미지와는 정반대다. 언론의 자유를 내세우는 X 플랫폼을 운영하면서 정작 자사 직원의 의견은 탄압한다는 아이러니도 지적됐다.\n\n머스크는 이 폭로에 대해 X에서 'That's weird(이상하네)'라고만 반응했다. 구체적인 해명이나 조치는 없었다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 공동 창립자 절반 이탈"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/HtYdoTAdEP5oCFRAmU5tZn-2560-80.jpg",
+      "caption": "xAI 공동 창립자 12명 중 7명이 퇴사하며 조직 안정성에 의문이 제기되고 있다",
+      "alt": "일론 머스크와 xAI"
+    },
+    {
+      "type": "text",
+      "value": "드 크레이커의 사례는 빙산의 일각에 불과하다. 포춘(Fortune) 보도에 따르면 xAI 공동 창립자 12명 중 7명, 58%가 이미 회사를 떠났다. 크리스티안 세게디(Christian Szegedy), 이고르 바부시킨(Igor Babuschkin), 토니 우(Tony Wu), 지미 바(Jimmy Ba), 토비 폴렌(Toby Pohlen), 그렉 양(Greg Yang) 등 핵심 인력이 줄줄이 빠져나갔다.\n\n퇴사 원인은 복합적이다. AI 안전을 경시하는 문화, 극단적 과로, 잦은 우선순위 변경이 주요 요인으로 꼽힌다. 그렉 양은 건강 문제를 이유로 떠나면서 '면역 체계가 약해졌다'고 밝혔다. 드 크레이커는 이를 '누가 더 피곤한가 경쟁하는 문화의 대가'라고 표현했다.\n\n시니어급 인재 유출도 심각하다. 카일 코식(Kyle Kosic) 등은 오픈AI(OpenAI)로 이직했다. 머스크는 이 대규모 이탈을 '조직의 자연스러운 진화'로 프레이밍하며 위기를 축소하려 했지만, 업계에서는 납득하기 어렵다는 반응이 지배적이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 그록, 벤치마크 이면의 현실"
+    },
+    {
+      "type": "image",
+      "src": "https://mspoweruser.com/wp-content/uploads/2024/05/grok_ai-min.png",
+      "caption": "그록은 벤치마크 자체 보고와 독립 테스트 간 큰 격차를 보이고 있다",
+      "alt": "그록 AI 로고"
+    },
+    {
+      "type": "text",
+      "value": "인력 문제와 별개로, 그록의 실제 성능에도 의문이 제기되고 있다. 코딩 벤치마크 SWE-bench에서 xAI는 72~75%를 자체 보고했지만, 독립 테스트 기관 vals.ai의 검증 결과는 58.6%에 불과했다. 클로드 오퍼스 4.6(Claude Opus 4.6)이 79.20%로 1위를 차지한 것과 비교하면 격차가 뚜렷하다.\n\nChatbot Arena에서는 그록 4.1이 Elo 1483으로 1위를 기록하며 대화 품질에서는 선전하고 있다. 하지만 이것만으로는 부족하다. 커먼 센스 미디어(Common Sense Media)는 그록의 아동 안전 등급을 '최악'으로 평가했고, 캘리포니아 법무장관은 중지명령까지 내렸다. 환각 비율이 높고 X 기반 소스의 신뢰도 문제도 반복적으로 지적되고 있다.\n\n미국 시장 점유율은 17.8%까지 성장했지만, 이는 X 플랫폼 번들링 효과가 크다. 유료 사용자 전환율이나 기업 고객 확보 면에서는 여전히 오픈AI와 엔트로픽(Anthropic)에 크게 뒤처져 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. 전략 전환: 스페이스X 합병과 커서 영입"
+    },
+    {
+      "type": "text",
+      "value": "머스크는 이 위기를 돌파하기 위해 대담한 전략을 꺼내 들었다. 2026년 2월 스페이스X가 xAI를 인수하면서 합산 기업 가치가 1.25조 달러에 달하는 거대 조직이 탄생했다. 로켓 기술과 AI의 결합이라는 머스크의 비전이 본격적으로 구체화된 셈이다.\n\n코딩 AI 경쟁력 만회를 위한 인재 영입도 이어지고 있다. 2026년 3월 xAI는 커서의 시니어 리더 2명, 앤드류 밀리치(Andrew Milich)와 제이슨 긴스버그(Jason Ginsberg)를 영입했다. 코딩 특화 AI 분야에서 커서가 쌓아온 노하우를 흡수하겠다는 의도다.\n\n한편 술레이만 고리(Sulaiman Ghori)가 팟캐스트에서 흥미로운 내부 사정을 폭로했다. xAI에서는 AI 에이전트 20개로 핵심 API를 재구축하고 있으며, 직원이 AI 가상 직원을 실제 팀원으로 착각한 일화까지 있었다고 한다. AI 회사다운 실험이긴 하지만, 인간 인재의 대규모 이탈과 겹치면서 묘한 그림이 그려지고 있다.\n\n결국 xAI의 향후 행보는 인재 유출과 인재 영입의 줄다리기에 달려 있다. 스페이스X의 자원과 커서 출신 인력이 조직을 안정시킬 수 있을지, 아니면 핵심 인력의 이탈이 계속될지가 xAI의 미래를 결정지을 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "xAI is under pressure from all sides. Seven of its 12 co-founders have departed, and former engineer Benjamin De Kraker's ongoing internal revelations are exposing the reality of its organizational culture. Grok shows a significant gap between self-reported benchmarks and independent tests, and received the worst rating for child safety.\n\nElon Musk is banking on the SpaceX merger and Cursor talent recruitment for a turnaround, but whether these moves can address the fundamental issues of talent exodus and eroding trust remains to be seen."
+    },
+    {
+      "type": "heading",
+      "value": "1. De Kraker's Revelations: The Reality Behind the Flat Organization"
+    },
+    {
+      "type": "text",
+      "value": "The story traces back to February 2025. De Kraker, then an xAI engineer, posted feedback on X about improving Grok, only to be told 'never do that again.' When he later posted about Grok 3's coding benchmark rankings, he was ordered to delete it, and ultimately chose to resign.\n\nAdditional revelations followed in March 2026. According to De Kraker, xAI is rife with middle managers and office politics, a far cry from the flat organizational structure it claims to embody. The irony of a company operating X, a platform championing free speech, while suppressing its own employees' voices was also highlighted.\n\nMusk responded to these revelations with a simple 'That's weird' on X. No substantive explanation or action followed."
+    },
+    {
+      "type": "heading",
+      "value": "2. Half the Co-Founders Gone"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/HtYdoTAdEP5oCFRAmU5tZn-2560-80.jpg",
+      "caption": "Seven of xAI's 12 co-founders have departed, raising questions about organizational stability",
+      "alt": "Elon Musk and xAI"
+    },
+    {
+      "type": "text",
+      "value": "De Kraker's case is just the tip of the iceberg. According to Fortune, 7 of xAI's 12 co-founders, 58%, have already left the company. Key departures include Christian Szegedy, Igor Babuschkin, Tony Wu, Jimmy Ba, Toby Pohlen, and Greg Yang.\n\nThe reasons for leaving are multifaceted: a culture that dismisses AI safety, extreme overwork, and frequent priority shifts. Greg Yang cited health issues, stating his 'immune system was weakened.' De Kraker described it as 'the cost of a culture that competes over who is more exhausted.'\n\nSenior talent attrition is also severe. Kyle Kosic and others have moved to OpenAI. Musk attempted to frame the mass departure as 'natural organizational evolution,' but industry observers remain largely unconvinced."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. Grok: The Reality Behind the Benchmarks"
+    },
+    {
+      "type": "image",
+      "src": "https://mspoweruser.com/wp-content/uploads/2024/05/grok_ai-min.png",
+      "caption": "Grok shows a significant gap between self-reported benchmarks and independent test results",
+      "alt": "Grok AI logo"
+    },
+    {
+      "type": "text",
+      "value": "Beyond personnel issues, Grok's actual performance is also being questioned. On the SWE-bench coding benchmark, xAI self-reported 72-75%, but independent testing by vals.ai yielded just 58.6%. Claude Opus 4.6 leads at 79.20%, making the gap clear.\n\nGrok 4.1 did perform well on Chatbot Arena with an Elo rating of 1483, ranking first in conversational quality. However, this alone isn't enough. Common Sense Media rated Grok's child safety as 'among the worst,' and the California Attorney General issued a cease-and-desist order. High hallucination rates and reliability issues with X-based sources have been repeatedly flagged.\n\nU.S. market share has grown to 17.8%, but this is largely attributed to X platform bundling. In terms of paid user conversion and enterprise customer acquisition, Grok still significantly trails OpenAI and Anthropic."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4. Strategic Pivot: SpaceX Merger and Cursor Recruitment"
+    },
+    {
+      "type": "text",
+      "value": "Musk has deployed a bold strategy to break through this crisis. In February 2026, SpaceX acquired xAI, creating a combined entity valued at $1.25 trillion. Musk's vision of merging rocket technology with AI is now taking concrete shape.\n\nTalent recruitment to shore up coding AI competitiveness has followed. In March 2026, xAI hired two senior leaders from Cursor: Andrew Milich and Jason Ginsberg. The intent is to absorb the coding-focused AI expertise that Cursor has built.\n\nMeanwhile, Sulaiman Ghori revealed an intriguing detail on a podcast: xAI is rebuilding core APIs using 20 AI agents, and there was even an incident where an employee mistook an AI virtual employee for a real team member. While fitting for an AI company, juxtaposed with the mass human talent exodus, it paints a peculiar picture.\n\nUltimately, xAI's future hinges on the tug-of-war between talent departure and talent acquisition. Whether SpaceX's resources and Cursor alumni can stabilize the organization, or whether the core talent drain continues, will determine xAI's trajectory."
+    }
+  ]
+}
