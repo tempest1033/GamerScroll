@@ -1,0 +1,169 @@
+{
+  "slug": "meta-avocado-delay",
+  "status": "draft",
+  "needTranslate": false,
+  "category": "general",
+  "title": "메타 차세대 AI 모델 아보카도, 성능 테스트 난항으로 출시 5월 이후로 연기",
+  "titleEn": "Meta's Next-Gen AI Model Avocado Delayed to May Over Performance Testing Issues",
+  "date": "2026-03-13T09:00",
+  "keywords": "메타 아보카도, 아보카도 출시 연기, 메타 AI 모델, 알렉산더 왕, 메타 폐쇄형 AI 전환, 메타 주가 하락, 프론티어 AI 경쟁 2026",
+  "keywordsEn": "Meta Avocado, Avocado AI delay, Meta AI model, Alexandr Wang, Meta closed AI pivot, Meta stock drop, frontier AI competition 2026",
+  "summary": "메타의 차세대 폐쇄형 AI 모델 '아보카도'가 성능 테스트 난항으로 3월에서 5월 이후로 출시가 연기됐다. 알렉산더 왕 체제의 내부 갈등과 오픈소스 전략 포기, 보도 직후 주가 2.55% 하락까지 메타 AI의 야심에 제동이 걸렸다.",
+  "summaryEn": "The New York Times reported on March 12 that Meta's next-gen closed-source AI model 'Avocado' has been delayed from Q1 to May or later due to performance testing difficulties. Internal tensions under new CAIO Alexandr Wang, the pivot from open-source Llama to closed models, and a 2.55% stock drop paint a challenging picture for Meta's AI ambitions.",
+  "thumbnail": "https://image.zdnet.co.kr/2026/02/10/ai83c6669059f774aca6439baa0db5a5e0.jpg",
+  "relatedDocs": [
+    "tech:ai/meta-avocado-ai-model-performance",
+    "tech:ai/openai-crisis-competition-direction-2026",
+    "tech:ai/nvidia-ai-chip-monopoly-cracking"
+  ],
+  "sources": [
+    {
+      "name": "Reuters / MarketScreener",
+      "title": "Meta delays rollout of new AI model, NYT reports",
+      "url": "https://www.marketscreener.com/news/meta-delays-rollout-of-new-ai-model-nyt-reports-ce7e5fd2dc8bf226"
+    },
+    {
+      "name": "TechBuzz",
+      "title": "Meta's Avocado AI Model Delayed as Internal Tensions Rise",
+      "url": "https://www.techbuzz.ai/articles/meta-s-avocado-ai-model-delayed-as-internal-tensions-rise"
+    },
+    {
+      "name": "Yahoo Finance",
+      "title": "Meta delays rollout of AI model",
+      "url": "https://ca.finance.yahoo.com/news/meta-delays-rollout-ai-model-235700325.html"
+    },
+    {
+      "name": "eWeek",
+      "title": "Meta's New Avocado Model",
+      "url": "https://www.eweek.com/news/meta-new-avocado-model/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "뉴욕타임스가 3월 12일 보도한 바에 따르면, 메타의 차세대 AI 모델 '아보카도(Avocado)'의 출시가 당초 2026년 1분기(3월)에서 5월 이후로 연기됐다. 훈련 과정의 성능 테스트에서 어려움을 겪고 있다는 것이 핵심 이유다. 보도 직후 메타 주가는 2.55% 하락하며 시장도 즉각 반응했다.\n\n아보카도는 메타가 기존 라마(Llama) 시리즈의 오픈소스 전략을 버리고 폐쇄형(클로즈드)으로 전환한 첫 번째 프론티어 모델이다. 코딩과 추론에 특화된 텍스트 기반 LLM으로, 오픈AI의 GPT-5, 구글의 제미나이 3, 엔트로픽과 직접 경쟁하겠다는 메타의 야심이 담겨 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 무엇이 연기됐나: 뉴욕타임스 보도 핵심 정리"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.zonebourse.com/static/resize/768/432//images/reuters/2025-06/2025-06-02T113640Z_1_LYNXNPEL510IX_RTROPTP_4_META-PLATFORMS-MESSAGING-WHATSAPP.JPG",
+      "caption": "메타의 차세대 AI 전략이 난관에 부딪혔다",
+      "alt": "메타 AI 로고 이미지"
+    },
+    {
+      "type": "text",
+      "value": "뉴욕타임스 보도의 핵심은 간단하다. 아보카도가 훈련 관련 성능 테스트에서 어려움을 겪으면서 원래 3월로 잡혀 있던 출시 일정이 5월 이후로 밀렸다는 것이다.\n\n아보카도는 메타 슈퍼인텔리전스 랩(MSL) 산하에서 개발 중인 코딩+추론 특화 LLM이다. 함께 개발 중인 '망고(Mango)'는 이미지와 영상 생성에 특화된 별도의 모델이다. 두 모델 모두 라마 시리즈와 달리 폐쇄형으로 출시될 예정이다.\n\n메타 측은 보도에 대해 '모델 훈련 노력은 계획대로 진행 중이며, 의미 있는 일정 변경은 없다'고 공식 반박했다. 하지만 시장은 이 해명을 그대로 받아들이지 않았고, 보도 당일 주가는 2.55% 하락했다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 알렉산더 왕과 메타 AI의 내부 갈등"
+    },
+    {
+      "type": "image",
+      "src": "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/KBRKA4YADZJ6ZAXUSZVHH3CHRI.jpg",
+      "caption": "메타 최고AI책임자로 영입된 알렉산더 왕 (전 스케일AI CEO)",
+      "alt": "알렉산더 왕 메타 최고AI책임자"
+    },
+    {
+      "type": "text",
+      "value": "아보카도 연기의 배경에는 기술적 어려움만 있는 게 아니다. 신임 최고AI책임자(CAIO) 알렉산더 왕과 기존 메타 문화 사이의 충돌도 보도의 주요 내용이다.\n\n알렉산더 왕은 스케일AI(Scale AI) CEO 출신으로, 저커버그가 143억 달러를 투입해 영입한 인물이다. 2025년 메타 슈퍼인텔리전스 랩(MSL) 창설과 함께 AI 조직 전체를 총괄하게 됐지만, 이 과정이 순탄하지만은 않았다.\n\nMSL 출범 이후 600명이 감원됐고, 오랜 기간 메타 AI의 상징이었던 수석 AI 과학자 얀 르쿤(Yann LeCun)도 퇴사했다. 외부에서 영입된 리더가 대규모 구조조정과 함께 기존 문화를 바꾸려 하면서 내부 마찰이 불가피했던 것으로 보인다. 이런 조직적 불안정이 아보카도 개발 일정에도 영향을 미쳤다는 분석이 나오고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 오픈소스에서 폐쇄형으로: 전략 전환의 이유"
+    },
+    {
+      "type": "text",
+      "value": "아보카도가 주목받는 가장 큰 이유 중 하나는 메타의 AI 전략 자체가 근본적으로 바뀌고 있기 때문이다. 라마 시리즈를 오픈소스로 공개하며 'AI 민주화의 기수'를 자처했던 메타가, 아보카도부터는 독점 모델로 전환한다.\n\n직접적인 계기는 중국의 딥시크(DeepSeek)다. 딥시크가 메타의 라마 아키텍처를 활용해 빠르게 경쟁 모델을 만들어내자, 막대한 비용을 들여 만든 모델이 경쟁자의 발판이 되는 상황에 메타 경영진의 불만이 폭발했다.\n\n2025년 4월 출시된 라마 4가 기대 이하의 반응을 얻은 것도 전략 전환을 가속화한 요인이다. 오픈소스로 업계 생태계를 주도하겠다는 전략이 실질적 경쟁 우위로 이어지지 못하자, 결국 오픈AI나 구글처럼 폐쇄형 모델로 직접 수익을 추구하는 방향으로 선회한 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 경쟁 구도와 시장 반응"
+    },
+    {
+      "type": "text",
+      "value": "아보카도의 연기는 메타만의 문제가 아니라, 현재 AI 업계 전체의 치열한 경쟁 구도를 보여주는 사례이기도 하다. 오픈AI는 GPT-5를, 구글은 제미나이 3를, 엔트로픽은 차세대 클로드를 준비하고 있는 상황에서, 메타의 첫 폐쇄형 모델이 출시 전부터 삐걱거리고 있다.\n\n시장의 반응은 냉정했다. 뉴욕타임스 보도 직후 메타 주가는 2.55% 하락했다. 메타가 2026년 AI 관련 자본 지출(CapEx)을 1,150억~1,350억 달러로 책정하며 전년 대비 73%나 늘린 상황에서, 첫 결과물의 지연은 투자자들에게 불안 신호로 읽힌 것이다.\n\n물론 2월에 유출된 내부 메모에서 아보카도가 '메타 역사상 가장 유능한 사전학습 모델'이라는 평가를 받은 만큼, 모델 자체의 잠재력까지 부정하기는 이르다. 문제는 그 잠재력을 언제, 어떤 형태로 시장에 증명할 수 있느냐다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 메타 AI의 전환점"
+    },
+    {
+      "type": "text",
+      "value": "아보카도의 출시 연기는 단순한 일정 지연 이상의 의미를 담고 있다. 라마의 오픈소스 전략을 포기하고, 신임 리더 아래 조직을 대대적으로 개편하며, 1,000억 달러가 넘는 투자를 감행한 메타 AI의 첫 시험대가 흔들리고 있는 것이다.\n\n5월 이후 아보카도가 실제로 출시됐을 때, 내부 메모에서 말한 '프리트레이닝만으로 SOTA급'이라는 평가를 시장에서도 확인할 수 있을지가 관건이다. 오픈AI, 구글, 엔트로픽이 빠르게 달리는 동안 메타가 얼마나 빨리 따라잡을 수 있을지, 아보카도의 최종 성적표가 그 답을 알려줄 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "According to a New York Times report on March 12, Meta's next-generation AI model 'Avocado' has been delayed from its original Q1 2026 (March) target to May or later. The core issue is difficulties encountered during performance testing in training. Meta's stock dropped 2.55% immediately after the report, reflecting swift market reaction.\n\nAvocado is Meta's first frontier model built under a closed-source strategy, abandoning the open-source approach of its Llama series. As a text-based LLM specializing in coding and reasoning, it carries Meta's ambitions to compete directly with OpenAI's GPT-5, Google's Gemini 3, and Anthropic."
+    },
+    {
+      "type": "heading",
+      "value": "1. What's Been Delayed: Key Takeaways from the NYT Report"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.zonebourse.com/static/resize/768/432//images/reuters/2025-06/2025-06-02T113640Z_1_LYNXNPEL510IX_RTROPTP_4_META-PLATFORMS-MESSAGING-WHATSAPP.JPG",
+      "caption": "Meta's next-gen AI strategy hits a roadblock",
+      "alt": "Meta AI logo image"
+    },
+    {
+      "type": "text",
+      "value": "The NYT report is straightforward: Avocado has run into difficulties with performance testing during training, pushing its launch timeline from the original March target to May or beyond.\n\nAvocado is a coding and reasoning-focused LLM being developed under Meta Superintelligence Labs (MSL). A companion model called 'Mango' specializes in image and video generation. Both models are set to launch as closed-source, unlike the Llama series.\n\nMeta officially pushed back on the report, stating that 'model training efforts are on track and there are no meaningful schedule changes.' However, the market didn't buy the explanation: shares dropped 2.55% on the day of the report."
+    },
+    {
+      "type": "heading",
+      "value": "2. Alexandr Wang and Internal Tensions at Meta AI"
+    },
+    {
+      "type": "image",
+      "src": "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/KBRKA4YADZJ6ZAXUSZVHH3CHRI.jpg",
+      "caption": "Alexandr Wang, recruited as Meta's CAIO (formerly Scale AI CEO)",
+      "alt": "Alexandr Wang, Meta Chief AI Officer"
+    },
+    {
+      "type": "text",
+      "value": "The delay isn't just about technical hurdles. The NYT report also highlights friction between new CAIO Alexandr Wang and Meta's existing culture.\n\nWang, formerly CEO of Scale AI, was recruited by Zuckerberg in a deal reportedly worth $14.3 billion. He took charge of Meta's entire AI organization with the creation of Meta Superintelligence Labs (MSL) in 2025, but the transition hasn't been smooth.\n\nSince MSL's launch, 600 employees were laid off, and Yann LeCun, long the face of Meta AI as chief AI scientist, departed. An externally recruited leader restructuring at scale while reshaping company culture inevitably created internal friction. Analysts suggest this organizational instability has contributed to delays in Avocado's development timeline."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. From Open Source to Closed: Why the Strategic Pivot"
+    },
+    {
+      "type": "text",
+      "value": "One of the biggest reasons Avocado commands attention is that Meta's AI strategy itself is undergoing a fundamental shift. The company that championed 'AI democratization' by open-sourcing its Llama series is now going proprietary starting with Avocado.\n\nThe direct catalyst was China's DeepSeek. When DeepSeek leveraged Meta's Llama architecture to rapidly build competitive models, Meta's leadership grew frustrated that their massive R&D investments were effectively subsidizing competitors.\n\nThe underwhelming reception of Llama 4, launched in April 2025, further accelerated the pivot. When the open-source strategy failed to translate into competitive advantage, Meta shifted toward the closed-model, direct-monetization approach of OpenAI and Google."
+    },
+    {
+      "type": "heading",
+      "value": "4. Competitive Landscape and Market Reaction"
+    },
+    {
+      "type": "text",
+      "value": "Avocado's delay isn't just Meta's problem: it illustrates the intensity of competition across the entire AI industry. OpenAI is preparing GPT-5, Google is working on Gemini 3, and Anthropic has its next-generation Claude in the pipeline, while Meta's first closed-source model stumbles before launch.\n\nThe market response was harsh. Meta stock fell 2.55% immediately following the NYT report. With Meta having committed $115–135 billion in 2026 AI capital expenditure, a 73% increase year-over-year — a delay in the first deliverable reads as a warning signal to investors.\n\nThat said, a leaked internal memo from February praised Avocado as 'the most capable pre-trained model in Meta's history,' so it's premature to write off the model's potential entirely. The question is when and how that potential can be proven to the market."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Looking Ahead: Turning Point or Stumbling Block for Meta AI"
+    },
+    {
+      "type": "text",
+      "value": "Avocado's delay carries significance beyond a simple schedule slip. Meta's first real test under its new paradigm, abandoning Llama's open-source strategy, overhauling the organization under new leadership, and committing over $100 billion in investment, is showing cracks.\n\nThe key question is whether Avocado, when it finally launches after May, can validate the internal memo's claim of 'SOTA-level performance from pre-training alone.' With OpenAI, Google, and Anthropic racing ahead, how quickly Meta can close the gap remains to be seen. Avocado's final report card will provide the answer."
+    }
+  ]
+}
