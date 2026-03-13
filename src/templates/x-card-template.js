@@ -165,10 +165,6 @@ const generateXCardHtml = (data) => {
       color: #888888;
       line-height: 1.55;
       margin: 0;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
     .footer {
       display: flex;
