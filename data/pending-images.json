@@ -314,6 +314,20 @@
       "type": "ai.industryIssues",
       "failedAt": "2026-03-12T01:39:55.453Z",
       "error": "HTTP 403"
+    },
+    {
+      "url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/64dd404e58dcf6e2eee5e6a1e9df3bd6dfeac29f-1920x1080.jpg",
+      "slug": "lol-first-stand-2026",
+      "type": "01.webp",
+      "failedAt": "2026-03-13T02:07:01.358Z",
+      "error": "HTTP 404: https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/64dd404e58dcf6e2eee5e6a1e9df3bd6dfeac29f-1920x1080.jpg"
+    },
+    {
+      "url": "https://esportsinsider.com/wp-content/uploads/2025/02/kiin-geng-lck-cup.jpeg",
+      "slug": "lol-first-stand-2026",
+      "type": "03.webp",
+      "failedAt": "2026-03-13T02:07:02.627Z",
+      "error": "HTTP 404: https://esportsinsider.com/wp-content/uploads/2025/02/kiin-geng-lck-cup.jpeg"
     }
   ]
 }
