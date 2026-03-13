@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-03-12T00:52:58.521Z",
+  "updatedAt": "2026-03-13T00:59:00.496Z",
   "period": "7days",
   "articles": [
     {
       "category": "general",
       "slug": "moltbook-ai-social-network",
-      "views": 18,
+      "views": 20,
       "path": "/article/general/moltbook-ai-social-network/"
     },
     {
@@ -13,24 +13,6 @@
       "slug": "gemini-3-hallucination-memory-overfitting",
       "views": 16,
       "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
-    },
-    {
-      "category": "general",
-      "slug": "apple-march-2026-macbook-neo-ai",
-      "views": 7,
-      "path": "/article/general/apple-march-2026-macbook-neo-ai/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-internal-memo-pentagon-openai",
-      "views": 5,
-      "path": "/article/anthropic/anthropic-internal-memo-pentagon-openai/"
-    },
-    {
-      "category": "general",
-      "slug": "deepseek-v4-launch-march-2026",
-      "views": 4,
-      "path": "/article/general/deepseek-v4-launch-march-2026/"
     },
     {
       "category": "anthropic",
@@ -46,12 +28,6 @@
     },
     {
       "category": "anthropic",
-      "slug": "anthropic-revenue-19b-openai-gap",
-      "views": 2,
-      "path": "/article/anthropic/anthropic-revenue-19b-openai-gap/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-outage-demand-surge-pentagon",
       "views": 2,
       "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
@@ -63,10 +39,10 @@
       "path": "/article/anthropic/claude-sonnet-46-release/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "category": "general",
+      "slug": "deepseek-v4-launch-march-2026",
       "views": 2,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+      "path": "/article/general/deepseek-v4-launch-march-2026/"
     },
     {
       "category": "openai",
@@ -106,6 +82,12 @@
     },
     {
       "category": "anthropic",
+      "slug": "anthropic-internal-memo-pentagon-openai",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-internal-memo-pentagon-openai/"
+    },
+    {
+      "category": "anthropic",
       "slug": "anthropic-pentagon-ai-safety-standoff",
       "views": 1,
       "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
@@ -115,6 +97,12 @@
       "slug": "anthropic-pentagon-ultimatum-rsp-v3",
       "views": 1,
       "path": "/article/anthropic/anthropic-pentagon-ultimatum-rsp-v3/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-revenue-19b-openai-gap",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-revenue-19b-openai-gap/"
     },
     {
       "category": "anthropic",
@@ -142,6 +130,12 @@
     },
     {
       "category": "anthropic",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "views": 1,
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
+      "category": "anthropic",
       "slug": "claude-surpasses-grok-web-traffic",
       "views": 1,
       "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
@@ -166,9 +160,9 @@
     },
     {
       "category": "google",
-      "slug": "gemini-death-lawsuit-gavalas",
+      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
       "views": 1,
-      "path": "/article/google/gemini-death-lawsuit-gavalas/"
+      "path": "/article/google/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
       "category": "openai",
@@ -181,6 +175,12 @@
       "slug": "openai-omni-model-rumor-march-2026",
       "views": 1,
       "path": "/article/openai/openai-omni-model-rumor-march-2026/"
+    },
+    {
+      "category": "openai",
+      "slug": "softbank-40b-openai-loan",
+      "views": 1,
+      "path": "/article/openai/softbank-40b-openai-loan/"
     }
   ]
 }

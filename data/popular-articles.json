@@ -1,13 +1,7 @@
 {
-  "updatedAt": "2026-03-12T00:51:59.522Z",
+  "updatedAt": "2026-03-13T00:58:01.503Z",
   "period": "7days",
   "articles": [
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 21,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
     {
       "type": "issue",
       "slug": "limbus-company-ios-top5-record",
@@ -19,6 +13,12 @@
       "slug": "subculture-january-2026-kr",
       "views": 15,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 14,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "wiki",
@@ -48,27 +48,28 @@
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 4,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 4,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 3,
-      "path": "/magazine/insight/2026-game-trends/"
+      "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "issue",
       "slug": "arknights-endfield-launch-success",
       "views": 3,
       "path": "/magazine/issue/arknights-endfield-launch-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 3,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -90,21 +91,9 @@
     },
     {
       "type": "issue",
-      "slug": "stoneage-idle-launch-success",
-      "views": 3,
-      "path": "/magazine/issue/stoneage-idle-launch-success/"
-    },
-    {
-      "type": "issue",
       "slug": "xbox-game-pass-march-2026",
       "views": 3,
       "path": "/magazine/issue/xbox-game-pass-march-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -114,11 +103,11 @@
       "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
     },
     {
-      "type": "tech",
-      "slug": "gpt-54-leak-model-war",
-      "category": "ai",
+      "type": "wiki",
+      "slug": "game-ip-licensing",
+      "category": "business",
       "views": 3,
-      "path": "/tech/ai/gpt-54-leak-model-war/"
+      "path": "/wiki/business/game-ip-licensing/"
     },
     {
       "type": "issue",
@@ -139,18 +128,10 @@
       "path": "/magazine/issue/slay-the-spire-2-early-access-record/"
     },
     {
-      "type": "tech",
-      "slug": "anthropic-internal-memo-pentagon-openai",
-      "category": "ai",
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
       "views": 2,
-      "path": "/tech/ai/anthropic-internal-memo-pentagon-openai/"
-    },
-    {
-      "type": "tech",
-      "slug": "china-ai-distillation-controversy",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/china-ai-distillation-controversy/"
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -161,17 +142,24 @@
     },
     {
       "type": "tech",
+      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
+    },
+    {
+      "type": "tech",
+      "slug": "gpt-54-leak-model-war",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/gpt-54-leak-model-war/"
+    },
+    {
+      "type": "tech",
       "slug": "gpt-54-one-week-review",
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/gpt-54-one-week-review/"
-    },
-    {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "tech",
@@ -189,24 +177,10 @@
     },
     {
       "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
-      "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",
@@ -222,34 +196,34 @@
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "issue",
-      "slug": "apple-march-2026-macbook-neo-ai",
+      "type": "insight",
+      "slug": "2026-game-trends",
       "views": 1,
-      "path": "/magazine/issue/apple-march-2026-macbook-neo-ai/"
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
-      "slug": "deepseek-v4-launch-march-2026",
+      "slug": "ea-battlefield6-layoffs-despite-record-sales",
       "views": 1,
-      "path": "/magazine/issue/deepseek-v4-launch-march-2026/"
+      "path": "/magazine/issue/ea-battlefield6-layoffs-despite-record-sales/"
     },
     {
       "type": "issue",
-      "slug": "dragon-sword-launch-report",
+      "slug": "game-ai-controversy-award-revoked",
       "views": 1,
-      "path": "/magazine/issue/dragon-sword-launch-report/"
+      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
+    },
+    {
+      "type": "issue",
+      "slug": "game-ai-paradigm-shift-2026",
+      "views": 1,
+      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
     },
     {
       "type": "issue",
       "slug": "gdc-2026-preview-kojima-xbox",
       "views": 1,
       "path": "/magazine/issue/gdc-2026-preview-kojima-xbox/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-clover-games-restructuring",
-      "views": 1,
-      "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
     },
     {
       "type": "issue",
@@ -262,12 +236,6 @@
       "slug": "sony-ps-exclusive-pc-pullback",
       "views": 1,
       "path": "/magazine/issue/sony-ps-exclusive-pc-pullback/"
-    },
-    {
-      "type": "issue",
-      "slug": "trump-tencent-gaming-divestiture",
-      "views": 1,
-      "path": "/magazine/issue/trump-tencent-gaming-divestiture/"
     },
     {
       "type": "issue",
@@ -291,13 +259,6 @@
     },
     {
       "type": "tech",
-      "slug": "anthropic-revenue-19b-openai-gap",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/anthropic-revenue-19b-openai-gap/"
-    },
-    {
-      "type": "tech",
       "slug": "apple-siri-gemini-partnership",
       "category": "ai",
       "views": 1,
@@ -305,10 +266,10 @@
     },
     {
       "type": "tech",
-      "slug": "chatgpt-pro-lite-plan-leak",
+      "slug": "china-ai-distillation-controversy",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
+      "path": "/tech/ai/china-ai-distillation-controversy/"
     },
     {
       "type": "tech",
@@ -316,27 +277,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-cowork-saaspocalypse/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-military-venezuela-iran",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-military-venezuela-iran/"
-    },
-    {
-      "type": "tech",
-      "slug": "gemini-death-lawsuit-gavalas",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gemini-death-lawsuit-gavalas/"
-    },
-    {
-      "type": "tech",
-      "slug": "openai-pentagon-deal-altman-admits",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/openai-pentagon-deal-altman-admits/"
     },
     {
       "type": "tech",
@@ -365,6 +305,13 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-history/"
     }
   ]
 }
