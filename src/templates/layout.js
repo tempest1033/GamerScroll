@@ -2372,7 +2372,8 @@ function wrapWithLayout(content, options = {}) {
     sidebarArticles = {},  // 모바일 사이드 패널 인기/최신 글 { popular: [], latest: [] }
     bodyClass = '',  // 추가 body 클래스 (예: 'category-detail')
     loadApexCharts = false,
-    loadTwitterWidget = false
+    loadTwitterWidget = false,
+    ogImage = ''
   } = options;
 
   // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
@@ -2419,7 +2420,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, breadcrumbs, softwareSchema, cssFilename, cssFilenames: resolvedCssFiles })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>

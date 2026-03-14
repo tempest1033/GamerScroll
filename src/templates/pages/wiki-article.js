@@ -724,7 +724,8 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
       { name: catInfo.name, url: `${siteBaseUrl}/wiki/${category}/` },
       { name: article.title, url: `${siteBaseUrl}/wiki/${category}/${article.slug}/` }
     ],
-    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles },
+    ogImage: schemaImage
   });
 }
 

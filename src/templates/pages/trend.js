@@ -2007,7 +2007,8 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
       { name: title, url: `${siteBaseUrl}/magazine/issue/${slug}/` }
     ],
-    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles },
+    ogImage: schemaImage
   });
 }
 
@@ -2542,7 +2543,8 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
       { name: title, url: `${siteBaseUrl}/magazine/insight/${slug}/` }
     ],
-    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles },
+    ogImage: schemaImage
   });
 }
 
@@ -3085,7 +3087,8 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
       { name: title, url: `${siteBaseUrl}/magazine/hotpick/${slug}/` }
     ],
-    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles },
+    ogImage: schemaImage
   });
 }
 
@@ -4132,7 +4135,8 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
       { name: title, url: `${siteBaseUrl}/magazine/ranking/${slug}/` }
     ],
-    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles }
+    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles },
+    ogImage: schemaImage
   });
 }
 
