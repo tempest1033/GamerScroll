@@ -1,0 +1,269 @@
+{
+  "slug": "antigravity-usage-rollback-gemini-partial-revert",
+  "status": "approved",
+  "category": "google",
+  "title": "안티그래비티, 유저 반발에 사용량 제한 정책 일부 롤백: 제미나이만 복원, 클로드는 제외",
+  "date": "2026-03-14T13:00",
+  "keywords": "안티그래비티, 사용량 제한 롤백, 제미나이, 클로드, AI 크레딧, 7일 락아웃, 오픈클로",
+  "keywordsEn": "Antigravity, usage limit rollback, Gemini, Claude, AI credits, 7-day lockout, OpenClaw",
+  "summary": "구글 안티그래비티가 AI 크레딧 시스템 전환 후 Pro 구독자 대규모 7일 락아웃 사태가 발생하자 유저 반발에 사용량 제한 정책을 일부 롤백했다. 제미나이 모델은 5시간 리프레시가 복원됐지만 클로드 모델은 주간 리셋이 유지되면서 모델 간 차별 논란이 계속되고 있다.",
+  "thumbnail": "https://piunikaweb.com/wp-content/uploads/2026/01/google-antigravity-logo-featured.webp",
+  "sources": [
+    {
+      "name": "X (Twitter)",
+      "title": "Antigravity just reverted back to 5 hour reset for Gemini models",
+      "url": "https://x.com/HarshithLucky3/status/2032335857009770941"
+    },
+    {
+      "name": "The Register",
+      "title": "Users protest as Google Antigravity price floats upward",
+      "url": "https://www.theregister.com/2026/03/12/users_protest_as_google_antigravity/"
+    },
+    {
+      "name": "DevClass",
+      "title": "Users protest as Google Antigravity price floats upward",
+      "url": "https://www.devclass.com/ai-ml/2026/03/13/users-protest-as-google-antigravity-price-floats-upward/5209219"
+    },
+    {
+      "name": "PiunikaWeb",
+      "title": "Google Antigravity Pro weekly limits multi-day quota lockouts",
+      "url": "https://piunikaweb.com/2026/03/12/google-antigravity-pro-weekly-limits-multi-day-quota-lockouts/"
+    },
+    {
+      "name": "Google AI Developer Forum",
+      "title": "CRITICAL BUG: AI Credits update broke Baseline Quotas",
+      "url": "https://discuss.ai.google.dev/t/critical-bug-the-new-ai-credits-update-completely-broke-baseline-quotas-instant-7-day-lockout/131674"
+    },
+    {
+      "name": "Hacker News",
+      "title": "Gemini Pro Plan Quota Reductions",
+      "url": "https://news.ycombinator.com/item?id=47352680"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/google-ai-pro-antigravity-rate-limit-crisis",
+    "tech:ai/claude-opus-46-pricing-controversy",
+    "tech:ai/gemini-free-tier-cutback-backlash"
+  ],
+  "needTranslate": false,
+  "titleEn": "Antigravity Partially Rolls Back Usage Limits After User Backlash: Gemini Restored, Claude Left Out",
+  "summaryEn": "Google's Antigravity partially rolled back its usage limit policies after Pro subscribers faced mass 7-day lockouts triggered by the AI credits transition. Gemini models had their 5-hour refresh restored, but Claude models remain on weekly resets, fueling ongoing model discrimination complaints.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google's AI coding tool Antigravity is facing its worst trust crisis yet. On March 12, the platform switched to a new AI credits system and retroactively applied baseline quotas, instantly locking Pro subscribers out for up to 7 days. The next day, Google partially rolled back the changes, restoring 5-hour refresh cycles for Gemini models. But Claude models, Sonnet and Opus, remain on weekly resets. The selective rollback has turned frustration into outrage."
+    },
+    {
+      "type": "heading",
+      "value": "1. AI Credits Transition: From Bad to Catastrophic"
+    },
+    {
+      "type": "image",
+      "src": "https://regmedia.co.uk/2026/03/12/shutterstock_2527243453.jpg",
+      "caption": "Antigravity Pro subscribers found themselves locked out for up to 7 days after the credits transition.",
+      "alt": "Google Antigravity AI credits system transition controversy illustration"
+    },
+    {
+      "type": "text",
+      "value": "When Antigravity launched in December 2025, Google promised Pro and Ultra subscribers generous rate limits with 5-hour refresh cycles. That promise began eroding in January 2026 when weekly limits were quietly introduced, effectively shrinking usable quotas.\n\nThe March 12 update made things dramatically worse. Google converted the system to AI credits and retroactively applied baseline quotas to existing usage. Pro plan weekly tokens reportedly dropped from 300 million to just 9 million, a 97% reduction. Users who had been working within what they believed were normal limits suddenly found their accounts locked for 7 days."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Date",
+        "Event"
+      ],
+      "rows": [
+        [
+          "Dec 5, 2025",
+          "Google announces Pro/Ultra with high rate limits (5-hour refresh)"
+        ],
+        [
+          "Jan 2026",
+          "Weekly limits introduced, effective quota shrinks"
+        ],
+        [
+          "Feb 12-14",
+          "OpenClaw mass account suspensions"
+        ],
+        [
+          "Mar 2",
+          "Suspended accounts begin restoration"
+        ],
+        [
+          "Mar 12",
+          "AI credits transition + retroactive baseline quotas → mass 7-day lockouts"
+        ],
+        [
+          "Mar 13",
+          "Gemini models: 5-hour refresh restored. Claude models: weekly reset remains"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "2. Partial Rollback: Gemini Restored, Claude Left Behind"
+    },
+    {
+      "type": "text",
+      "value": "On March 13, Google responded to the backlash by restoring 5-hour refresh cycles for Gemini 3.1 Pro. The change was confirmed by users on X, with one tweet documenting the revert gathering over 1,274 likes, 60 retweets, and 186 comments.\n\nBut the rollback was selective. Claude models, Sonnet and Opus, available through Antigravity's multi-model offering, remain on weekly resets. Pro subscribers paying $20/month for access to Claude through Antigravity now face a fundamentally different experience depending on which model they use. Gemini users get their quota refreshed every 5 hours; Claude users wait a full week."
+    },
+    {
+      "type": "text",
+      "value": "The disparity raises an uncomfortable question: is Google using its platform control to disadvantage competing models? While the company hasn't publicly explained the differential treatment, the optics are damaging. Users who chose Antigravity specifically for Claude access feel they're being punished for not using Google's own models."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. OpenClaw Shadow: A Pattern of Trust Erosion"
+    },
+    {
+      "type": "text",
+      "value": "The credits crisis didn't happen in a vacuum. Just weeks earlier, in February, Antigravity mass-suspended accounts flagged for using OpenClaw, a third-party interface. Even Ultra subscribers paying $250/month weren't spared. Google began restoring accounts on March 2, but the damage to trust was done.\n\nThe pattern is now unmistakable: generous launch terms followed by quiet reductions, then sudden enforcement actions. From the December launch promises to January's weekly limits, February's OpenClaw bans, and March's credits fiasco, each month has brought a new reason for subscribers to question their investment."
+    },
+    {
+      "type": "heading",
+      "value": "4. Community Reaction: Boycotts and Censorship Claims"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/G1_Plans.max-1440x810.jpg",
+      "caption": "Google's original Antigravity plan comparison. Critics say the actual experience no longer matches these promises.",
+      "alt": "Google Antigravity subscription plan comparison pricing page"
+    },
+    {
+      "type": "text",
+      "value": "The Google AI Developer Forum lit up with bug reports, including one titled 'CRITICAL BUG: The new AI Credits update completely broke Baseline Quotas — Instant 7-day lockout.' On Hacker News, the thread 'Gemini Pro Plan Quota Reductions' drew hundreds of comments comparing the situation to bait-and-switch tactics.\n\nSome users reported that negative comments on Google's official announcements were being deleted, adding censorship allegations to the growing list of grievances. Calls for boycotts and migration to alternatives like Cursor, Windsurf, and direct API access have intensified."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. AI Coding Tool Market: Trust as Competitive Advantage"
+    },
+    {
+      "type": "text",
+      "value": "The Antigravity crisis highlights a broader tension in the AI coding tool market. As these tools become essential to developer workflows, pricing stability and transparent policies matter as much as raw model performance. Competitors are taking note.\n\nCursor and Windsurf offer relatively predictable pricing structures. Anthropic's Claude Code, despite its own usage limit controversies, maintains consistent per-model pricing through direct API access. The irony is stark: developers who chose Antigravity for its multi-model flexibility are now discovering that platform intermediaries can introduce unpredictable constraints that wouldn't exist with direct model access."
+    },
+    {
+      "type": "heading",
+      "value": "Final Thoughts: The Cost of Broken Promises"
+    },
+    {
+      "type": "text",
+      "value": "Google's partial rollback acknowledges the severity of the problem but doesn't solve it. Restoring Gemini's 5-hour refresh while leaving Claude on weekly limits creates a two-tier system within the same subscription. The message, intentional or not, is clear: use our models or accept worse terms.\n\nFor developers who've built workflows around Antigravity's Claude access, the options are uncomfortable: accept the degraded experience, migrate to direct API access at potentially higher cost, or switch platforms entirely. Three months of escalating incidents, from quiet limit reductions to mass bans to retroactive quota changes, have established a pattern that makes each new 'fix' harder to trust."
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글의 AI 코딩 도구 안티그래비티가 최악의 신뢰 위기를 맞고 있다. 3월 12일, 새로운 AI 크레딧 시스템으로 전환하면서 기존 사용량에 소급 적용한 기본 쿼터가 Pro 구독자들을 최대 7일간 락아웃시켰다. 다음 날 구글은 제미나이 모델에 한해 5시간 리프레시를 복원하는 부분 롤백을 실시했다. 그러나 클로드의 소넷과 오퍼스 모델은 여전히 주간 리셋이 유지되면서, 선별적 롤백에 대한 분노가 확산되고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1. AI 크레딧 전환: 나쁜 상황에서 재앙으로"
+    },
+    {
+      "type": "image",
+      "src": "https://regmedia.co.uk/2026/03/12/shutterstock_2527243453.jpg",
+      "caption": "안티그래비티 Pro 구독자들이 크레딧 전환 후 최대 7일간 서비스를 이용하지 못하는 사태가 발생했다.",
+      "alt": "구글 안티그래비티 AI 크레딧 시스템 전환 논란 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "2025년 12월 안티그래비티 출시 당시, 구글은 Pro와 Ultra 구독자에게 5시간 리프레시 주기의 넉넉한 사용량 한도를 약속했다. 그 약속은 2026년 1월 주간 한도가 조용히 도입되면서 무너지기 시작했다.\n\n3월 12일 업데이트는 상황을 극적으로 악화시켰다. 구글은 시스템을 AI 크레딧으로 전환하면서 기존 사용량에 소급하여 기본 쿼터를 적용했다. Pro 플랜($20/월)의 주간 토큰이 3억에서 900만으로, 무려 97% 축소된 것으로 보고됐다. 정상적인 범위 안에서 사용하고 있다고 믿었던 사용자들이 하루아침에 7일 락아웃에 걸렸다."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "날짜",
+        "사건"
+      ],
+      "rows": [
+        [
+          "2025-12-05",
+          "구글, Pro/Ultra에 높은 사용량 한도(5시간 리프레시) 발표"
+        ],
+        [
+          "2026년 1월",
+          "주간 한도 도입, 실질 사용량 축소 시작"
+        ],
+        [
+          "2026-02-12~14",
+          "오픈클로 사용자 대규모 계정 정지"
+        ],
+        [
+          "2026-03-02",
+          "정지 계정 복원 시작"
+        ],
+        [
+          "2026-03-12",
+          "AI 크레딧 전환 + 기본 쿼터 소급 적용 → 대규모 7일 락아웃"
+        ],
+        [
+          "2026-03-13",
+          "제미나이 모델 5시간 리프레시 복원. 클로드 모델은 주간 유지"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "2. 부분 롤백: 제미나이는 복원, 클로드는 방치"
+    },
+    {
+      "type": "text",
+      "value": "3월 13일, 구글은 반발에 대응해 제미나이 3.1 Pro의 5시간 리프레시 주기를 복원했다. X(구 트위터)에서 한 사용자가 복원을 확인하는 트윗을 올렸고, 좋아요 1,274개, 리트윗 60개, 댓글 186개가 달리며 관심이 집중됐다.\n\n그러나 롤백은 선별적이었다. 안티그래비티의 멀티모델 서비스를 통해 제공되는 클로드 모델, 소넷과 오퍼스는 여전히 주간 리셋이 적용된다. 월 $20을 내고 안티그래비티를 통해 클로드를 사용하는 Pro 구독자들은 모델에 따라 근본적으로 다른 경험을 하게 됐다. 제미나이 사용자는 5시간마다 쿼터가 새로 채워지고, 클로드 사용자는 일주일을 기다려야 한다."
+    },
+    {
+      "type": "text",
+      "value": "이 차별은 불편한 질문을 던진다. 구글이 플랫폼 통제력을 이용해 경쟁 모델을 불리하게 만들고 있는 것은 아닌가? 구글이 차별적 대우에 대해 공식적으로 설명한 바는 없지만, 외부에서 보이는 모양새는 좋지 않다. 클로드 접근성 때문에 안티그래비티를 선택한 사용자들은 구글 자사 모델을 쓰지 않는 대가를 치르고 있다고 느낀다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 오픈클로 사태의 그림자: 반복되는 신뢰 훼손"
+    },
+    {
+      "type": "text",
+      "value": "크레딧 위기는 진공 상태에서 발생한 것이 아니다. 불과 몇 주 전인 2월, 안티그래비티는 서드파티 인터페이스 오픈클로를 사용한 계정을 대규모로 정지시켰다. 월 $250의 Ultra 구독자도 예외 없이 정지됐다. 구글은 3월 2일부터 계정 복원을 시작했지만, 신뢰 손상은 이미 돌이킬 수 없었다.\n\n패턴은 이제 명확하다. 출시 때 넉넉한 조건을 내세운 뒤, 조용히 줄이고, 갑작스러운 제재를 가하는 것이다. 12월 출시 약속에서 1월의 주간 한도, 2월의 오픈클로 밴, 3월의 크레딧 전환까지, 매달 구독자들이 자신의 투자를 의심하게 만드는 새로운 사건이 터지고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "4. 커뮤니티 반응: 보이콧과 댓글 삭제 의혹"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/G1_Plans.max-1440x810.jpg",
+      "caption": "구글의 안티그래비티 요금제 비교. 비판론자들은 실제 사용 경험이 이 약속과 더 이상 일치하지 않는다고 지적한다.",
+      "alt": "구글 안티그래비티 구독 요금제 비교 가격표"
+    },
+    {
+      "type": "text",
+      "value": "구글 AI 개발자 포럼에는 버그 리포트가 쏟아졌다. 'CRITICAL BUG: AI 크레딧 업데이트가 기본 쿼터를 완전히 망가뜨렸다 — 즉시 7일 락아웃'이라는 제목의 게시물이 대표적이다. Hacker News에서는 '제미나이 Pro 플랜 쿼터 축소' 스레드에 수백 개의 댓글이 달리며, '미끼 상술(bait-and-switch)'이라는 비판이 쏟아졌다.\n\n일부 사용자들은 구글 공식 발표 게시물에서 부정적 댓글이 삭제되고 있다고 보고하면서, 검열 의혹까지 불거졌다. 커서, 윈드서프, 직접 API 접근 등 대안으로의 이전 요구가 거세지고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. AI 코딩 도구 시장: 신뢰가 경쟁력이 되는 시대"
+    },
+    {
+      "type": "text",
+      "value": "안티그래비티 사태는 AI 코딩 도구 시장의 구조적 긴장을 드러낸다. 이 도구들이 개발자 워크플로우에 필수가 되면서, 가격 안정성과 정책 투명성이 모델 성능 못지않게 중요해졌다. 경쟁사들도 주목하고 있다.\n\n커서와 윈드서프는 비교적 예측 가능한 가격 구조를 제공한다. 앤트로픽의 Claude Code도 자체적인 사용량 제한 논란이 있지만, 직접 API 접근을 통해 일관된 모델별 가격을 유지한다. 아이러니하게도, 멀티모델 유연성을 이유로 안티그래비티를 선택한 개발자들이 이제 플랫폼 중개자가 만들어내는 예측 불가능한 제약을 발견하고 있다. 모델에 직접 접근했다면 존재하지 않았을 제약이다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 깨진 약속의 대가"
+    },
+    {
+      "type": "text",
+      "value": "구글의 부분 롤백은 문제의 심각성을 인정하는 것이지만, 해결은 아니다. 제미나이의 5시간 리프레시를 복원하면서 클로드는 주간 한도에 묶어두는 것은 같은 구독 내에서 2등급 시스템을 만들어낸다. 의도적이든 아니든, 메시지는 명확하다. 우리 모델을 쓰거나, 더 나쁜 조건을 감수하라.\n\n안티그래비티의 클로드 접근성을 중심으로 워크플로우를 구축한 개발자들에게 선택지는 불편하다. 저하된 경험을 수용하거나, 잠재적으로 더 비싼 직접 API 접근으로 이전하거나, 아예 플랫폼을 바꾸는 것이다. 조용한 한도 축소에서 대규모 밴, 소급 적용 쿼터 변경까지 3개월간 이어진 사건들이 확립한 패턴은, 이후의 모든 '수정'을 더 의심하게 만든다."
+    }
+  ]
+}

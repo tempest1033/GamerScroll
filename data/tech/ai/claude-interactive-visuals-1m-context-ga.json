@@ -1,0 +1,249 @@
+{
+  "slug": "claude-interactive-visuals-1m-context-ga",
+  "status": "approved",
+  "category": "anthropic",
+  "title": "클로드, 대화 속 인터랙티브 시각화 자동 생성 기능 출시: 100만 토큰 컨텍스트도 기본 제공",
+  "date": "2026-03-14T12:00",
+  "keywords": "클로드 시각화, 인터랙티브 차트, 100만 토큰 컨텍스트, 앤트로픽, Claude Code, 오퍼스 4.6",
+  "keywordsEn": "Claude Interactive Visuals, 1M context window, Anthropic, Claude Code, Opus 4.6, Visual Responses",
+  "summary": "앤트로픽이 이틀 연속 대형 업데이트를 발표했다. 3월 12일 대화 속 인터랙티브 차트와 다이어그램을 자동 생성하는 '시각적 응답(Visual Responses)' 기능, 3월 13일에는 100만 토큰 컨텍스트 윈도우의 정식 출시(GA)를 공개하며 AI 어시스턴트의 새로운 기준을 제시하고 있다.",
+  "thumbnail": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b22b22945a05d9ad88c9d4_og_claude-builds-visuals.jpg",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Claude builds interactive visuals right in your conversation",
+      "url": "https://claude.com/blog/claude-builds-visuals"
+    },
+    {
+      "name": "Anthropic",
+      "title": "1M context is now generally available",
+      "url": "https://claude.com/blog/1m-context-ga"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Introducing Claude Opus 4.6",
+      "url": "https://www.anthropic.com/news/claude-opus-4-6"
+    },
+    {
+      "name": "9to5Google",
+      "title": "Claude added immersive visuals to chats",
+      "url": "https://9to5google.com/2026/03/12/claude-adds-immersive-visuals/"
+    },
+    {
+      "name": "Dataconomy",
+      "title": "Claude Now Generates Charts And Diagrams To Explain Complex Data",
+      "url": "https://dataconomy.com/2026/03/13/claude-now-generates-charts-and-diagrams-to-explain-complex-data/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Code Changelog",
+      "url": "https://code.claude.com/docs/en/changelog"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-opus-46-pricing-controversy",
+    "tech:ai/claude-code-agent-teams-paradigm",
+    "tech:ai/claude-code-vs-codex-coding-agent"
+  ],
+  "needTranslate": false,
+  "titleEn": "Claude Launches Auto-Generated Interactive Visuals in Chat: 1M Token Context Now Standard",
+  "summaryEn": "Anthropic delivered back-to-back major updates: interactive Visual Responses that auto-generate charts and diagrams inline on March 12, followed by the general availability of 1M token context at standard pricing on March 13, setting a new bar for AI assistants.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic dropped two major announcements in as many days. On March 12, Claude gained the ability to generate interactive charts and diagrams directly inside conversations. The very next day, the company made its 1M token context window generally available at standard pricing, no premium tier required. Together, the updates represent a significant leap in what an AI assistant can do out of the box."
+    },
+    {
+      "type": "heading",
+      "value": "1. Interactive Visual Responses: Charts Born in Conversation"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b1048a4e146f048af72e00_Claude-Blog-Inline-Visualization.gif",
+      "caption": "Claude generating an interactive chart directly in the conversation flow.",
+      "alt": "Claude interactive inline visualization demo showing chart generation in conversation"
+    },
+    {
+      "type": "text",
+      "value": "The new 'Visual Responses' feature lets Claude automatically generate interactive charts, idea maps, structural diagrams, periodic tables, compound interest curves, timelines, and more, all rendered inline within the conversation. Unlike image generation, these visuals are built with HTML and SVG, making them clickable and interactive.\n\nClaude decides when a visual would be helpful and generates one automatically, though users can also request them directly. The feature launched in beta on March 12 and is enabled by default for all users, including the free tier."
+    },
+    {
+      "type": "heading",
+      "value": "2. Visual Responses vs. Artifacts: What's Different?"
+    },
+    {
+      "type": "text",
+      "value": "Claude already had Artifacts, its side-panel tool for generating standalone code, documents, and interactive components. Visual Responses serve a fundamentally different purpose. Artifacts are persistent, live in a separate panel, and are designed for reusable outputs. Visual Responses are ephemeral, appear inline, and blend naturally into the conversation flow.\n\nThink of Artifacts as a workbench for building things, and Visual Responses as illustrations that make explanations clearer. When you ask Claude to explain compound interest, it might render an interactive curve right in its reply. When you ask it to build a React component, that still goes to Artifacts."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 1M Context GA: Standard Pricing, No Beta Header"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b1fc1487a93a1dd7c2a174_Claude-Blog-InlineVisuals-2.png",
+      "caption": "Anthropic announced 1M context at standard pricing across all models.",
+      "alt": "Claude 1M context window general availability announcement visual"
+    },
+    {
+      "type": "text",
+      "value": "On March 13, Anthropic made 1M context generally available. The key breakthrough is pricing: Opus 4.6 at $5/$25 per million tokens, Sonnet 4.6 at $3/$15, whether the request uses 9K tokens or 900K. No premium surcharge, no beta header required. Requests exceeding 200K tokens are handled automatically."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Model",
+        "Input (Mtok)",
+        "Output (Mtok)",
+        "Context"
+      ],
+      "rows": [
+        [
+          "Opus 4.6",
+          "$5",
+          "$25",
+          "1M tokens"
+        ],
+        [
+          "Sonnet 4.6",
+          "$3",
+          "$15",
+          "1M tokens"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Media processing has also expanded significantly: up to 600 images or PDFs per request, up from the previous limit of 100. On benchmarks, the results are decisive. On MRCR v2 (a long-context retrieval benchmark), Claude scores 78.3%, the highest among frontier models. On the 8-needle 1M test, Opus 4.6 hits 76% compared to Sonnet 4.5's 18.5%."
+    },
+    {
+      "type": "heading",
+      "value": "4. Claude Code Integration: 1M Context as Default"
+    },
+    {
+      "type": "text",
+      "value": "Claude Code v2.1.75 now uses 1M context by default for Max, Team, and Enterprise plans. For developers, this means Claude Code can process entire codebases, lengthy documentation sets, and complex multi-file projects without running into context limits that previously forced workarounds.\n\nOn SWE-bench Verified, the gold standard for coding agent evaluation, Opus 4.6 with Thinking scores 79.20%, claiming the top spot. The combination of massive context and benchmark-leading coding performance positions Claude Code as a serious contender in the AI-assisted development space."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. Competitive Context: The Visualization Arms Race"
+    },
+    {
+      "type": "text",
+      "value": "Claude's Visual Responses arrive amid growing competition. OpenAI's ChatGPT has rolled out similar inline visualization capabilities, and Google's Gemini continues to push boundaries with its own multimodal features. The race to make AI assistants more visually expressive is accelerating across the industry.\n\nHowever, Anthropic's 1M context pricing creates a different kind of competitive pressure. On the API side, the same per-token rate applies whether a request uses 9K or 900K tokens, with no surcharge for extended context. In Claude Code, 1M context is the default for Max ($100-$200/month), Team, and Enterprise plans, though Pro subscribers are not included. It's effectively a premium-tier default rather than a universal feature, but the absence of per-token surcharges at the API level represents a clear pricing advantage over competitors."
+    },
+    {
+      "type": "heading",
+      "value": "Final Thoughts: Setting a New Baseline"
+    },
+    {
+      "type": "text",
+      "value": "These two updates, delivered in rapid succession, signal Anthropic's intent to redefine what 'standard' means for AI assistants. Interactive visuals make Claude's responses richer without requiring users to learn new tools. 1M context with no API surcharge significantly lowers friction when working with large codebases and document sets.\n\nThe desktop-only limitation for Visual Responses and the beta label suggest there's more polish to come. But the direction is clear: Anthropic is betting that the next wave of AI adoption depends on making powerful capabilities feel effortless and accessible by default."
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 이틀 연속으로 대형 업데이트를 쏟아냈다. 3월 12일, 클로드가 대화 중에 인터랙티브 차트와 다이어그램을 직접 생성하는 '시각적 응답(Visual Responses)' 기능을 공개했다. 바로 다음 날인 3월 13일에는 100만 토큰 컨텍스트 윈도우를 표준 가격 그대로 정식 출시(GA)했다. 두 업데이트를 합치면, AI 어시스턴트가 '기본으로 할 수 있는 것'의 기준이 한 단계 올라간 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "1. 인터랙티브 시각적 응답: 대화 속에서 태어나는 차트"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b1048a4e146f048af72e00_Claude-Blog-Inline-Visualization.gif",
+      "caption": "클로드가 대화 흐름 안에서 인터랙티브 차트를 직접 생성하는 모습.",
+      "alt": "클로드 인터랙티브 인라인 시각화 데모 차트 생성 화면"
+    },
+    {
+      "type": "text",
+      "value": "새로운 '시각적 응답' 기능은 클로드가 대화 중 인터랙티브 차트, 아이디어 맵, 구조 다이어그램, 주기율표, 복리 이자 곡선, 타임라인 등을 인라인으로 자동 생성한다. 이미지 생성과 달리 HTML과 SVG 기반이라 클릭하고 조작할 수 있는 인터랙티브 요소다.\n\n클로드가 시각화가 도움이 될 것으로 판단하면 자동으로 생성하며, 사용자가 직접 요청할 수도 있다. 3월 12일 베타로 출시됐으며 무료 플랜 포함 모든 사용자에게 기본 활성화된 상태다."
+    },
+    {
+      "type": "heading",
+      "value": "2. 시각적 응답 vs. Artifacts: 무엇이 다른가"
+    },
+    {
+      "type": "text",
+      "value": "클로드에는 이미 아티팩트라는 사이드 패널 도구가 있다. 독립적인 코드, 문서, 인터랙티브 컴포넌트를 만들어주는 기능이다. 시각적 응답은 근본적으로 다른 목적을 가진다. 아티팩트는 영구적이고 별도 패널에 존재하며 재사용 가능한 산출물을 위한 것이다. 시각적 응답은 임시적이고 대화 흐름에 자연스럽게 녹아든다.\n\n아티팩트를 '작업대'라고 생각하면, 시각적 응답은 '설명을 돕는 삽화'에 가깝다. 복리 이자를 설명해달라고 하면 답변 안에 인터랙티브 곡선이 바로 나타난다. React 컴포넌트를 만들어달라고 하면 그건 여전히 아티팩트로 간다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3. 100만 토큰 컨텍스트 GA: 표준 가격, 베타 헤더 불필요"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b1fc1487a93a1dd7c2a174_Claude-Blog-InlineVisuals-2.png",
+      "caption": "앤트로픽이 모든 모델에서 100만 토큰 컨텍스트를 표준 가격으로 제공한다고 발표했다.",
+      "alt": "클로드 100만 토큰 컨텍스트 윈도우 정식 출시 발표 이미지"
+    },
+    {
+      "type": "text",
+      "value": "3월 13일, 앤트로픽은 100만(1M) 토큰 컨텍스트를 정식 출시(GA)했다. 핵심은 가격이다. 오퍼스 4.6이 백만 토큰당 입력 $5/출력 $25, 소넷 4.6이 $3/$15인데, 9K 토큰을 보내든 900K 토큰을 보내든 동일한 단가가 적용된다. 프리미엄 추가 요금 없이, 베타 헤더도 필요 없다. 200K 토큰을 초과하는 요청은 자동으로 처리된다."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "모델",
+        "입력 (Mtok)",
+        "출력 (Mtok)",
+        "컨텍스트"
+      ],
+      "rows": [
+        [
+          "Opus 4.6",
+          "$5",
+          "$25",
+          "100만 토큰"
+        ],
+        [
+          "Sonnet 4.6",
+          "$3",
+          "$15",
+          "100만 토큰"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "미디어 처리 용량도 크게 확대됐다. 요청당 이미지/PDF를 최대 600개까지 처리할 수 있으며, 이전 제한인 100개에서 6배 늘어났다. 벤치마크 결과도 인상적이다. 장문 컨텍스트 검색 벤치마크인 MRCR v2에서 클로드는 78.3%로 프론티어 모델 중 최고 점수를 기록했다. 8-needle 100만 토큰 테스트에서는 오퍼스 4.6이 76%로, 소넷 4.5의 18.5%를 압도했다."
+    },
+    {
+      "type": "heading",
+      "value": "4. Claude Code 통합: 100만 토큰이 기본값"
+    },
+    {
+      "type": "text",
+      "value": "Claude Code v2.1.75부터 Max, Team, Enterprise 플랜에서 100만 토큰 컨텍스트가 기본값이 됐다. 개발자에게 이는 전체 코드베이스, 방대한 문서 세트, 복잡한 멀티파일 프로젝트를 컨텍스트 제한 걱정 없이 처리할 수 있다는 의미다.\n\n코딩 에이전트 평가의 기준인 SWE-bench Verified에서 오퍼스 4.6(Thinking 모드)은 79.20%로 1위를 차지했다. 방대한 컨텍스트와 벤치마크 최고 수준의 코딩 성능이 결합되면서, Claude Code는 AI 기반 개발 도구 분야에서 강력한 경쟁력을 갖추게 됐다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "5. 경쟁 구도: 시각화 군비 경쟁의 시작"
+    },
+    {
+      "type": "text",
+      "value": "클로드의 시각적 응답 기능은 치열한 경쟁 속에서 등장했다. OpenAI의 ChatGPT도 유사한 인라인 시각화 기능을 출시했고, 구글의 제미나이도 자체 멀티모달 기능을 계속 확장하고 있다. AI 어시스턴트를 시각적으로 더 풍부하게 만들려는 경쟁이 업계 전반에서 가속화되고 있다.\n\n다만 앤트로픽의 100만 토큰 가격 정책은 다른 종류의 경쟁 압력을 만들어낸다. API에서는 9K 토큰이든 900K 토큰이든 동일한 표준 단가가 적용되며 추가 요금이 없다. Claude Code에서는 Max($100~$200/월), Team, Enterprise 플랜에서 기본값으로 제공되지만, Pro 플랜은 지원 대상이 아니다. 사실상 프리미엄 구독 티어에서의 기본 제공이지만, API 레벨에서 토큰당 추가 비용 없이 100만 토큰을 처리할 수 있다는 점은 경쟁사 대비 명확한 가격 우위다."
+    },
+    {
+      "type": "heading",
+      "value": "마치며: 새로운 기본값의 탄생"
+    },
+    {
+      "type": "text",
+      "value": "이틀 연속 쏟아진 두 업데이트는 앤트로픽이 AI 어시스턴트의 '기본값'을 재정의하려는 의도를 보여준다. 인터랙티브 시각화는 사용자가 새로운 도구를 배울 필요 없이 클로드의 응답을 더 풍부하게 만든다. API 추가 요금 없는 100만 토큰 컨텍스트는 대규모 코드베이스나 문서 작업에서 주요 마찰 지점을 크게 낮춘다.\n\n시각적 응답이 데스크톱 전용이라는 제한과 베타 라벨은 아직 다듬을 부분이 남아있음을 시사한다. 그러나 방향은 명확하다. 앤트로픽은 AI 채택의 다음 물결이 강력한 기능을 '힘들이지 않고 기본으로 쓸 수 있게' 만드는 데 달려 있다고 판단하고 있다."
+    }
+  ]
+}
