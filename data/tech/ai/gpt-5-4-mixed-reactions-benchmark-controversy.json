@@ -61,7 +61,7 @@
     },
     {
       "type": "heading",
-      "value": "1. GPT-5.4 핵심 기능: 네이티브 컴퓨터 사용과 Tool Search"
+      "value": "GPT-5.4 핵심 기능: 네이티브 컴퓨터 사용과 Tool Search"
     },
     {
       "type": "image",
@@ -82,7 +82,7 @@
     },
     {
       "type": "heading",
-      "value": "2. SWE-bench Verified 미공개 논란: 유리한 벤치마크만 골랐나"
+      "value": "SWE-bench Verified 미공개 논란: 유리한 벤치마크만 골랐나"
     },
     {
       "type": "text",
@@ -94,7 +94,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 벤치마크 SOTA 경쟁: 모든 분야의 1등은 없다"
+      "value": "벤치마크 SOTA 경쟁: 모든 분야의 1등은 없다"
     },
     {
       "type": "image",
@@ -115,7 +115,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 1년 전의 압도적 1등, 어디로 갔나"
+      "value": "1년 전의 압도적 1등, 어디로 갔나"
     },
     {
       "type": "text",
@@ -127,7 +127,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: 코드 레드 이후, 증명하지 못한 왕좌"
+      "value": "코드 레드 이후, 증명하지 못한 왕좌"
     },
     {
       "type": "image",
@@ -154,7 +154,7 @@
     },
     {
       "type": "heading",
-      "value": "1. GPT-5.4 Key Features: Native Computer Use and Tool Search"
+      "value": "GPT-5.4 Key Features: Native Computer Use and Tool Search"
     },
     {
       "type": "image",
@@ -175,7 +175,7 @@
     },
     {
       "type": "heading",
-      "value": "2. SWE-bench Verified Omission: Cherry-Picking Favorable Benchmarks?"
+      "value": "SWE-bench Verified Omission: Cherry-Picking Favorable Benchmarks?"
     },
     {
       "type": "text",
@@ -187,7 +187,7 @@
     },
     {
       "type": "heading",
-      "value": "3. The SOTA Race: No Single Winner Across All Benchmarks"
+      "value": "The SOTA Race: No Single Winner Across All Benchmarks"
     },
     {
       "type": "image",
@@ -208,7 +208,7 @@
     },
     {
       "type": "heading",
-      "value": "4. The Undisputed Leader of a Year Ago: Where Did It Go?"
+      "value": "The Undisputed Leader of a Year Ago: Where Did It Go?"
     },
     {
       "type": "text",
@@ -220,7 +220,7 @@
     },
     {
       "type": "heading",
-      "value": "Closing Thoughts: After Code Red, an Unproven Throne"
+      "value": "After Code Red, an Unproven Throne"
     },
     {
       "type": "image",

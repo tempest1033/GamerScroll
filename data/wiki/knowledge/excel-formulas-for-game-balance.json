@@ -22,7 +22,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 참조 기초: 절대참조와 상대참조"
+      "value": "참조 기초: 절대참조와 상대참조"
     },
     {
       "type": "text",
@@ -38,7 +38,7 @@
     },
     {
       "type": "heading",
-      "value": "2. 이름 정의: 계수와 테이블 관리"
+      "value": "이름 정의: 계수와 테이블 관리"
     },
     {
       "type": "text",
@@ -50,7 +50,7 @@
     },
     {
       "type": "heading",
-      "value": "3. VLOOKUP: 테이블 참조의 기본"
+      "value": "VLOOKUP: 테이블 참조의 기본"
     },
     {
       "type": "text",
@@ -70,7 +70,7 @@
     },
     {
       "type": "heading",
-      "value": "4. INDEX + MATCH: VLOOKUP의 한계 극복"
+      "value": "INDEX + MATCH: VLOOKUP의 한계 극복"
     },
     {
       "type": "text",
@@ -90,7 +90,7 @@
     },
     {
       "type": "heading",
-      "value": "5. VLOOKUP + MATCH: 동적 열 참조"
+      "value": "VLOOKUP + MATCH: 동적 열 참조"
     },
     {
       "type": "text",
@@ -102,7 +102,7 @@
     },
     {
       "type": "heading",
-      "value": "6. IF / IFERROR: 조건 분기와 에러 처리"
+      "value": "IF / IFERROR: 조건 분기와 에러 처리"
     },
     {
       "type": "text",
@@ -118,7 +118,7 @@
     },
     {
       "type": "heading",
-      "value": "7. SUMIF / COUNTIF: 조건부 집계"
+      "value": "SUMIF / COUNTIF: 조건부 집계"
     },
     {
       "type": "text",
@@ -134,7 +134,7 @@
     },
     {
       "type": "heading",
-      "value": "8. SUMPRODUCT: 다중 조건 집계 + 곱하기 패턴"
+      "value": "SUMPRODUCT: 다중 조건 집계 + 곱하기 패턴"
     },
     {
       "type": "text",
@@ -150,7 +150,7 @@
     },
     {
       "type": "heading",
-      "value": "9. ROUND 함수들: 수치 정리"
+      "value": "ROUND 함수들: 수치 정리"
     },
     {
       "type": "text",
@@ -166,7 +166,7 @@
     },
     {
       "type": "heading",
-      "value": "10. MIN / MAX: 스탯 캡핑"
+      "value": "MIN / MAX: 스탯 캡핑"
     },
     {
       "type": "text",
@@ -182,7 +182,7 @@
     },
     {
       "type": "heading",
-      "value": "11. POWER / LOG: 성장 곡선 설계"
+      "value": "POWER / LOG: 성장 곡선 설계"
     },
     {
       "type": "text",
@@ -198,7 +198,7 @@
     },
     {
       "type": "heading",
-      "value": "12. MOD: 레벨 구간, 사이클 계산"
+      "value": "MOD: 레벨 구간, 사이클 계산"
     },
     {
       "type": "text",
@@ -214,7 +214,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며"
+      "value": "수식은 기획 의도를 수치로 표현하는 수단"
     },
     {
       "type": "text",

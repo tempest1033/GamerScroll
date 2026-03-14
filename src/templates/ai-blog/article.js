@@ -3,6 +3,7 @@
  * GamerScroll tech-article.js 스타일 적용
  */
 
+const fs = require('fs');
 const { wrapWithLayout, SITE_CONFIG, formatDateEn, escapeHtml, getThumbUrl } = require('./index');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 
@@ -466,13 +467,27 @@ function generateAIBlogArticle(article, data = {}) {
               <header class="blog-header">
                 <h1 class="blog-title">${escapeHtml(article.title)}</h1>
                 <div class="blog-meta">
-                  <time class="blog-date">${formatDateEn(article.date)}</time>
+                  ${(() => {
+                    let dispModified = null;
+                    if (article._jsonFilePath) {
+                      try {
+                        const mt = fs.statSync(article._jsonFilePath).mtime;
+                        const kst = new Date(mt.getTime() + 9 * 60 * 60 * 1000);
+                        dispModified = kst.toISOString().slice(0, 10);
+                      } catch (e) { /* ignore */ }
+                    }
+                    const pubDate = (article.date || '').slice(0, 10);
+                    if (dispModified && dispModified !== pubDate) {
+                      return `<time class="blog-date">Published: ${formatDateEn(article.date)}</time><time class="blog-date">Updated: ${formatDateEn(dispModified)}</time>`;
+                    }
+                    return `<time class="blog-date">${formatDateEn(article.date)}</time>`;
+                  })()}
                 </div>
               </header>
 
               ${article.thumbnail ? `
               <figure class="blog-figure">
-                <img src="${getThumbUrl(article.thumbnail, 1200)}" class="blog-image" alt="${escapeHtml(article.title)}" loading="lazy" fetchpriority="auto">
+                <img src="${getThumbUrl(article.thumbnail, 1200)}" class="blog-image" alt="${escapeHtml(article.title)}" loading="eager" fetchpriority="high">
               </figure>
               ` : ''}
 
@@ -555,6 +570,17 @@ function generateAIBlogArticle(article, data = {}) {
     return s;
   })();
 
+  // dateModified: JSON 파일의 파일 시스템 수정 시간(mtime) 사용
+  const dateModifiedISO = (() => {
+    if (!article._jsonFilePath) return dateISO;
+    try {
+      const mtime = fs.statSync(article._jsonFilePath).mtime;
+      // KST(+09:00) 기준 ISO 8601 변환
+      const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
+      return kst.toISOString().replace('Z', '+09:00').replace(/\.\d{3}/, '');
+    } catch (e) { return dateISO; }
+  })();
+
   // 썸네일 절대 URL 변환 (소셜 크롤러용)
   const absoluteThumbnail = article.thumbnail
     ? (article.thumbnail.startsWith('http') || article.thumbnail.startsWith('//')
@@ -571,7 +597,7 @@ function generateAIBlogArticle(article, data = {}) {
       "description": article.summary || '',
       "image": absoluteThumbnail || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`,
       "datePublished": dateISO,
-      "dateModified": dateISO,
+      "dateModified": dateModifiedISO,
       "author": {
         "@type": "Organization",
         "name": SITE_CONFIG.name,
@@ -622,7 +648,7 @@ function generateAIBlogArticle(article, data = {}) {
     : [];
   const articleMeta = {
     publishedTime: dateISO,
-    modifiedTime: dateISO,
+    modifiedTime: dateModifiedISO,
     section: categoryLabel,
     tags: keywordTags
   };

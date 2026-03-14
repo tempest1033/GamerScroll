@@ -12,8 +12,14 @@
     "ranking:steam-february-2026"
   ],
   "relatedGames": [
-    {"appid": 2868840, "store": "steam"},
-    {"appid": 646570, "store": "steam"}
+    {
+      "appid": 2868840,
+      "store": "steam"
+    },
+    {
+      "appid": 646570,
+      "store": "steam"
+    }
   ],
   "sources": [
     {
@@ -49,7 +55,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 동접 18만의 의미: 로그라이크 역대 최고"
+      "value": "동접 18만의 의미: 로그라이크 역대 최고"
     },
     {
       "type": "image",
@@ -63,7 +69,7 @@
     },
     {
       "type": "heading",
-      "value": "2. 무엇이 달라졌나: 캐릭터 5명, 코옵, 신규 메카닉"
+      "value": "무엇이 달라졌나: 캐릭터 5명, 코옵, 신규 메카닉"
     },
     {
       "type": "image",
@@ -80,7 +86,7 @@
     },
     {
       "type": "heading",
-      "value": "3. Unity에서 Godot로: 엔진 전환의 배경"
+      "value": "Unity에서 Godot로: 엔진 전환의 배경"
     },
     {
       "type": "image",
@@ -94,7 +100,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 초기 논란과 핫픽스 대응"
+      "value": "초기 논란과 핫픽스 대응"
     },
     {
       "type": "text",
@@ -105,7 +111,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: 덱빌더의 제왕, 그 공식은 건재하다"
+      "value": "덱빌더 로그라이크의 기준을 다시 쓴 Mega Crit"
     },
     {
       "type": "text",

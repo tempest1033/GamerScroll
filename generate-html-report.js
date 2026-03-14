@@ -143,7 +143,14 @@ function rewriteDocsStylesheetLinks(docsDir) {
     const relPath = path.relative(docsDir, filePath);
     const cssFiles = getCssBundlesForDocPath(relPath);
     const cssLinks = cssFiles.map((href) => `  <link rel="stylesheet" href="${href}">`).join('\n');
-    const replacedHtml = html.replace(styleLinksBlockRe, `${cssLinks}\n`);
+    // noscript 안의 stylesheet 링크는 교체하지 않음 (이중 로딩 방지)
+    const replacedHtml = html.replace(styleLinksBlockRe, (match, offset) => {
+      const before = html.slice(Math.max(0, offset - 200), offset);
+      const openCount = (before.match(/<noscript>/gi) || []).length;
+      const closeCount = (before.match(/<\/noscript>/gi) || []).length;
+      if (openCount > closeCount) return match; // noscript 안이면 원본 유지
+      return `${cssLinks}\n`;
+    });
 
     if (replacedHtml !== html) {
       fs.writeFileSync(filePath, replacedHtml, 'utf8');
@@ -490,7 +497,8 @@ function loadWikiData() {
           const slug = article.slug || file.replace('.json', '');
           wikiData[category].push({
             ...article,
-            slug
+            slug,
+            _jsonFilePath: `${categoryDir}/${file}`
           });
         }
       } catch (e) {
@@ -530,7 +538,8 @@ function loadTechData() {
           const slug = article.slug || file.replace('.json', '');
           techData[category].push({
             ...article,
-            slug
+            slug,
+            _jsonFilePath: `${categoryDir}/${file}`
           });
         }
       } catch (e) {
@@ -1386,7 +1395,8 @@ async function main() {
             date: fileDate,
             summary: content.ai.summary || '',
             issues: content.ai.issues || [],
-            insight: content
+            insight: content,
+            _jsonFilePath: filePath
           });
         }
       } catch (e) {
@@ -1417,6 +1427,7 @@ async function main() {
       try {
         const data = JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
         ensurePublishDate(data, `${ISSUE_REPORTS_DIR}/${f}`, 'KST');
+        data._jsonFilePath = `${ISSUE_REPORTS_DIR}/${f}`;
         return data;
       } catch (e) {
         return null;
@@ -1435,6 +1446,7 @@ async function main() {
       try {
         const data = JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
         ensurePublishDate(data, `${INSIGHT_REPORTS_DIR}/${f}`, 'KST');
+        data._jsonFilePath = `${INSIGHT_REPORTS_DIR}/${f}`;
         return data;
       } catch (e) {
         return null;
@@ -1453,6 +1465,7 @@ async function main() {
       try {
         const data = JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
         ensurePublishDate(data, `${HOTPICK_REPORTS_DIR}/${f}`, 'KST');
+        data._jsonFilePath = `${HOTPICK_REPORTS_DIR}/${f}`;
         return data;
       } catch (e) {
         return null;
@@ -1471,6 +1484,7 @@ async function main() {
       try {
         const data = JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
         ensurePublishDate(data, `${RANKING_REPORTS_DIR}/${f}`, 'KST');
+        data._jsonFilePath = `${RANKING_REPORTS_DIR}/${f}`;
         return data;
       } catch (e) {
         return null;
@@ -1786,7 +1800,8 @@ async function main() {
         insight: report.insight,
         slug: report.slug,
         nav,
-        historyNews
+        historyNews,
+        _jsonFilePath: report._jsonFilePath
       });
       fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
     } catch (err) {

@@ -64,7 +64,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 포코피아는 어떤 게임인가"
+      "value": "포코피아는 어떤 게임인가"
     },
     {
       "type": "image",
@@ -78,21 +78,61 @@
     },
     {
       "type": "heading",
-      "value": "2. 해외 주요 매체 리뷰 총정리"
+      "value": "해외 주요 매체 리뷰 총정리"
     },
     {
       "type": "table",
-      "headers": ["매체", "점수", "요약"],
+      "headers": [
+        "매체",
+        "점수",
+        "요약"
+      ],
       "rows": [
-        ["VGC", "5/5 (만점)", "장르 챔피언들의 장점을 모은 훌륭한 생활 시뮬레이션"],
-        ["IGN", "9/10", "포켓몬 팬과 코지 게임 팬 모두를 만족시키는 작품"],
-        ["GameSpot", "9/10", "몰랐던 포켓몬 30주년 선물"],
-        ["GamesRadar+", "4.5/5", "꿈의 낙원을 몬스터 친구들과 함께 짓는 새로운 코지 중독"],
-        ["TheSixthAxis", "9/10", "기대했던 것만큼 편안하고 매력적인 세계 재건"],
-        ["Nintendo Life", "8/10", "오랜만에 가장 신선한 포켓몬 경험, 매력과 콘텐츠가 넘쳐남"],
-        ["Game Informer", "9/10", "스핀오프의 한계를 넘어선 완성도"],
-        ["Eurogamer", "4/5", "포켓몬 IP의 새로운 활용 가능성을 보여준 실험작"],
-        ["Spaziogames", "9/10", "여러 장르를 성공적으로 혼합한 강한 정체성의 타이틀"]
+        [
+          "VGC",
+          "5/5 (만점)",
+          "장르 챔피언들의 장점을 모은 훌륭한 생활 시뮬레이션"
+        ],
+        [
+          "IGN",
+          "9/10",
+          "포켓몬 팬과 코지 게임 팬 모두를 만족시키는 작품"
+        ],
+        [
+          "GameSpot",
+          "9/10",
+          "몰랐던 포켓몬 30주년 선물"
+        ],
+        [
+          "GamesRadar+",
+          "4.5/5",
+          "꿈의 낙원을 몬스터 친구들과 함께 짓는 새로운 코지 중독"
+        ],
+        [
+          "TheSixthAxis",
+          "9/10",
+          "기대했던 것만큼 편안하고 매력적인 세계 재건"
+        ],
+        [
+          "Nintendo Life",
+          "8/10",
+          "오랜만에 가장 신선한 포켓몬 경험, 매력과 콘텐츠가 넘쳐남"
+        ],
+        [
+          "Game Informer",
+          "9/10",
+          "스핀오프의 한계를 넘어선 완성도"
+        ],
+        [
+          "Eurogamer",
+          "4/5",
+          "포켓몬 IP의 새로운 활용 가능성을 보여준 실험작"
+        ],
+        [
+          "Spaziogames",
+          "9/10",
+          "여러 장르를 성공적으로 혼합한 강한 정체성의 타이틀"
+        ]
       ],
       "caption": "포켓몬 포코피아 주요 매체 리뷰 점수 (메타크리틱 90 / 오픈크리틱 93)"
     },
@@ -105,7 +145,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 시리즈 역대 최고점의 의미"
+      "value": "시리즈 역대 최고점의 의미"
     },
     {
       "type": "text",
@@ -113,7 +153,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 동물의 숲, 마인크래프트, 드퀘빌더즈와의 비교"
+      "value": "동물의 숲, 마인크래프트, 드퀘빌더즈와의 비교"
     },
     {
       "type": "image",
@@ -130,7 +170,7 @@
     },
     {
       "type": "heading",
-      "value": "5. 스위치 2 론칭의 핵심 타이틀"
+      "value": "스위치 2 론칭의 핵심 타이틀"
     },
     {
       "type": "text",
@@ -144,7 +184,7 @@
     },
     {
       "type": "heading",
-      "value": "1. What Is Pokopia?"
+      "value": "What Is Pokopia?"
     },
     {
       "type": "image",
@@ -158,21 +198,61 @@
     },
     {
       "type": "heading",
-      "value": "2. Review Scores Roundup"
+      "value": "Review Scores Roundup"
     },
     {
       "type": "table",
-      "headers": ["Outlet", "Score", "Summary"],
+      "headers": [
+        "Outlet",
+        "Score",
+        "Summary"
+      ],
       "rows": [
-        ["VGC", "5/5 (Perfect)", "An excellent life sim taking the best bits from genre champions"],
-        ["IGN", "9/10", "Satisfies both Pokemon fans and cozy game enthusiasts"],
-        ["GameSpot", "9/10", "The Pokemon anniversary gift I didn't know I wanted"],
-        ["GamesRadar+", "4.5/5", "A new cozy obsession building dream paradise with monster pals"],
-        ["TheSixthAxis", "9/10", "Almost exactly as cozy as we hoped, charming world rebuilding"],
-        ["Nintendo Life", "8/10", "The freshest Pokemon experience in a long time, bursting with charm"],
-        ["Game Informer", "9/10", "Transcends the boundaries of a typical spinoff"],
-        ["Eurogamer", "4/5", "A successful experiment showcasing new possibilities for the IP"],
-        ["Spaziogames", "9/10", "A bold genre-blending experiment with very strong identity"]
+        [
+          "VGC",
+          "5/5 (Perfect)",
+          "An excellent life sim taking the best bits from genre champions"
+        ],
+        [
+          "IGN",
+          "9/10",
+          "Satisfies both Pokemon fans and cozy game enthusiasts"
+        ],
+        [
+          "GameSpot",
+          "9/10",
+          "The Pokemon anniversary gift I didn't know I wanted"
+        ],
+        [
+          "GamesRadar+",
+          "4.5/5",
+          "A new cozy obsession building dream paradise with monster pals"
+        ],
+        [
+          "TheSixthAxis",
+          "9/10",
+          "Almost exactly as cozy as we hoped, charming world rebuilding"
+        ],
+        [
+          "Nintendo Life",
+          "8/10",
+          "The freshest Pokemon experience in a long time, bursting with charm"
+        ],
+        [
+          "Game Informer",
+          "9/10",
+          "Transcends the boundaries of a typical spinoff"
+        ],
+        [
+          "Eurogamer",
+          "4/5",
+          "A successful experiment showcasing new possibilities for the IP"
+        ],
+        [
+          "Spaziogames",
+          "9/10",
+          "A bold genre-blending experiment with very strong identity"
+        ]
       ],
       "caption": "Pokemon Pokopia review scores (Metacritic 90 / OpenCritic 93)"
     },
@@ -185,7 +265,7 @@
     },
     {
       "type": "heading",
-      "value": "3. The Significance of a Series Record"
+      "value": "The Significance of a Series Record"
     },
     {
       "type": "text",
@@ -193,7 +273,7 @@
     },
     {
       "type": "heading",
-      "value": "4. Comparisons to Animal Crossing, Minecraft, and DQ Builders"
+      "value": "Comparisons to Animal Crossing, Minecraft, and DQ Builders"
     },
     {
       "type": "image",
@@ -210,7 +290,7 @@
     },
     {
       "type": "heading",
-      "value": "5. The Definitive Switch 2 Launch Title"
+      "value": "The Definitive Switch 2 Launch Title"
     },
     {
       "type": "text",

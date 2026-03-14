@@ -36,7 +36,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 형상관리 기본 기능"
+      "value": "형상관리 기본 기능"
     },
     {
       "type": "image",
@@ -104,7 +104,7 @@
     },
     {
       "type": "heading",
-      "value": "2. Git - 프로그래머의 표준이 된 분산형 버전 관리"
+      "value": "Git, 프로그래머의 표준이 된 분산형 버전 관리"
     },
     {
       "type": "image",
@@ -118,7 +118,7 @@
     },
     {
       "type": "heading",
-      "value": "3. SVN - 중앙집중형의 원조"
+      "value": "SVN, 중앙집중형의 원조"
     },
     {
       "type": "image",
@@ -132,7 +132,7 @@
     },
     {
       "type": "heading",
-      "value": "4. Perforce - AAA 게임 스튜디오의 선택"
+      "value": "Perforce, AAA 게임 스튜디오의 선택"
     },
     {
       "type": "image",
@@ -146,7 +146,7 @@
     },
     {
       "type": "heading",
-      "value": "5. 직군별 도구 선택 트렌드"
+      "value": "직군별 도구 선택 트렌드"
     },
     {
       "type": "image",
@@ -160,7 +160,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며"
+      "value": "형상관리 도구의 공존과 진화"
     },
     {
       "type": "text",

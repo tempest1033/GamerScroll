@@ -46,7 +46,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 갈릭(Garlic)이란?"
+      "value": "갈릭(Garlic)이란?"
     },
     {
       "type": "image",
@@ -60,11 +60,11 @@
     },
     {
       "type": "heading",
-      "value": "2. 주요 루머 정리"
+      "value": "주요 루머 정리"
     },
     {
       "type": "heading",
-      "value": "2-1. 더 빠른 추론 속도"
+      "value": "더 빠른 추론 속도"
     },
     {
       "type": "text",
@@ -72,7 +72,7 @@
     },
     {
       "type": "heading",
-      "value": "2-2. 고밀도 사전훈련 기법(EPTE)"
+      "value": "고밀도 사전훈련 기법(EPTE)"
     },
     {
       "type": "text",
@@ -80,7 +80,7 @@
     },
     {
       "type": "heading",
-      "value": "2-3. 완전히 새로운 사전학습 풀"
+      "value": "완전히 새로운 사전학습 풀"
     },
     {
       "type": "text",
@@ -88,7 +88,7 @@
     },
     {
       "type": "heading",
-      "value": "2-4. IMO 금메달 추론 모델"
+      "value": "IMO 금메달 추론 모델"
     },
     {
       "type": "text",
@@ -96,7 +96,7 @@
     },
     {
       "type": "heading",
-      "value": "2-5. 이미지 생성 개선"
+      "value": "이미지 생성 개선"
     },
     {
       "type": "text",
@@ -104,7 +104,7 @@
     },
     {
       "type": "heading",
-      "value": "2-6. 언어 능력 향상"
+      "value": "언어 능력 향상"
     },
     {
       "type": "text",
@@ -112,7 +112,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 세레브라스 파트너십"
+      "value": "세레브라스 파트너십"
     },
     {
       "type": "image",
@@ -126,7 +126,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 출시일 예측"
+      "value": "출시일 예측"
     },
     {
       "type": "text",
@@ -159,7 +159,7 @@
     },
     {
       "type": "heading",
-      "value": "5. 샘 알트만이 말하는 방향성"
+      "value": "샘 알트만이 말하는 방향성"
     },
     {
       "type": "image",
@@ -173,7 +173,7 @@
     },
     {
       "type": "heading",
-      "value": "6. 경쟁 구도: 2026년 AI 시장"
+      "value": "경쟁 구도: 2026년 AI 시장"
     },
     {
       "type": "image",
@@ -195,7 +195,7 @@
     },
     {
       "type": "heading",
-      "value": "1. What is Garlic?"
+      "value": "What is Garlic?"
     },
     {
       "type": "image",
@@ -209,11 +209,11 @@
     },
     {
       "type": "heading",
-      "value": "2. Key Rumor Summary"
+      "value": "Key Rumor Summary"
     },
     {
       "type": "heading",
-      "value": "2-1. Faster Reasoning Speed"
+      "value": "Faster Reasoning Speed"
     },
     {
       "type": "text",
@@ -221,7 +221,7 @@
     },
     {
       "type": "heading",
-      "value": "2-2. High-Density Pre-Training Technique (EPTE)"
+      "value": "High-Density Pre-Training Technique (EPTE)"
     },
     {
       "type": "text",
@@ -229,7 +229,7 @@
     },
     {
       "type": "heading",
-      "value": "2-3. Completely New Pre-Training Pool"
+      "value": "Completely New Pre-Training Pool"
     },
     {
       "type": "text",
@@ -237,7 +237,7 @@
     },
     {
       "type": "heading",
-      "value": "2-4. IMO Gold Medal Reasoning Model"
+      "value": "IMO Gold Medal Reasoning Model"
     },
     {
       "type": "text",
@@ -245,7 +245,7 @@
     },
     {
       "type": "heading",
-      "value": "2-5. Image Generation Improvements"
+      "value": "Image Generation Improvements"
     },
     {
       "type": "text",
@@ -253,7 +253,7 @@
     },
     {
       "type": "heading",
-      "value": "2-6. Language Capability Enhancement"
+      "value": "Language Capability Enhancement"
     },
     {
       "type": "text",
@@ -261,7 +261,7 @@
     },
     {
       "type": "heading",
-      "value": "3. Cerebras Partnership"
+      "value": "Cerebras Partnership"
     },
     {
       "type": "image",
@@ -275,7 +275,7 @@
     },
     {
       "type": "heading",
-      "value": "4. Release Date Prediction"
+      "value": "Release Date Prediction"
     },
     {
       "type": "text",
@@ -308,7 +308,7 @@
     },
     {
       "type": "heading",
-      "value": "5. Sam Altman's Direction"
+      "value": "Sam Altman's Direction"
     },
     {
       "type": "image",
@@ -322,7 +322,7 @@
     },
     {
       "type": "heading",
-      "value": "6. Competitive Landscape: The 2026 AI Market"
+      "value": "Competitive Landscape: The 2026 AI Market"
     },
     {
       "type": "image",

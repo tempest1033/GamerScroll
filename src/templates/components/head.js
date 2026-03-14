@@ -47,7 +47,15 @@ function generateHead(options = {}) {
   };
 
   const safeTitle = escapeHtmlText(title);
-  const safeDescription = escapeHtmlAttr(description);
+  // <title> 태그용: 사이트명이 없으면 "| 게이머스크롤" 추가 (og:title은 원본 유지)
+  const SITE_SUFFIX = ' | 게이머스크롤';
+  const needsSuffix = !/게이머스크롤/.test(title);
+  const pageTitleText = needsSuffix ? escapeHtmlText(title + SITE_SUFFIX) : safeTitle;
+  // Description 155자 제한
+  const trimmedDescription = description.length > 155
+    ? description.slice(0, 152).replace(/\s+\S*$/, '') + '...'
+    : description;
+  const safeDescription = escapeHtmlAttr(trimmedDescription);
   const safeKeywords = escapeHtmlAttr(keywords || '');
   const keywordTags = articleSchema && keywords
     ? String(keywords).split(',').map(tag => normalizeMeta(tag)).filter(Boolean).slice(0, 6)
@@ -217,7 +225,8 @@ function generateHead(options = {}) {
   return `
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
-	  <meta name="robots" content="noindex, follow">` : ''}
+	  <meta name="robots" content="noindex, follow">` : `
+	  <meta name="robots" content="max-image-preview:large">`}
 	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
 	  <style>
 	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
@@ -273,7 +282,7 @@ function generateHead(options = {}) {
 	      document.head.appendChild(s);
 	    })();
 	  </script>
-		  <title>${safeTitle}</title>
+		  <title>${pageTitleText}</title>
   <!-- SEO -->
   <meta name="description" content="${safeDescription}">
   <meta name="keywords" content="${safeKeywords}">
@@ -319,7 +328,9 @@ function generateHead(options = {}) {
   <meta property="og:type" content="${articleSchema ? 'article' : 'website'}">
   <meta property="og:title" content="${safeTitle}">
   <meta property="og:description" content="${safeDescription}">
-  <meta property="og:image" content="${resolvedOgImage}">
+  <meta property="og:image" content="${resolvedOgImage}">${ogImage ? `
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">` : ''}
   <meta property="og:image:alt" content="${safeImageAlt}">
   <meta property="og:url" content="${safeCanonical}">
   <meta property="og:site_name" content="게이머스크롤">
@@ -342,8 +353,10 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- preconnect: LCP 핵심 도메인 (AdSense + 폰트 CDN) -->
+  <!-- preconnect: LCP 핵심 도메인 (AdSense + 광고 서빙 + 폰트 CDN) -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <!-- dns-prefetch: 추가 도메인 -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">

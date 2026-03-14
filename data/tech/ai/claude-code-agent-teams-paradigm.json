@@ -15,7 +15,7 @@
     },
     {
       "type": "heading",
-      "value": "1. Agent Teams 아키텍처: AI끼리 팀을 짜는 구조"
+      "value": "Agent Teams 아키텍처: AI끼리 팀을 짜는 구조"
     },
     {
       "type": "image",
@@ -29,7 +29,7 @@
     },
     {
       "type": "heading",
-      "value": "2. 서브에이전트 vs Agent Teams: 언제 어떤 것을 쓸까"
+      "value": "서브에이전트 vs Agent Teams: 언제 어떤 것을 쓸까"
     },
     {
       "type": "text",
@@ -73,7 +73,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 실전 사례: 16개 AI가 C 컴파일러를 만들었다"
+      "value": "실전 사례: 16개 AI가 C 컴파일러를 만들었다"
     },
     {
       "type": "image",
@@ -87,7 +87,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 커스텀 에이전트: 나만의 AI 팀 설계"
+      "value": "커스텀 에이전트: 나만의 AI 팀 설계"
     },
     {
       "type": "text",
@@ -95,7 +95,7 @@
     },
     {
       "type": "heading",
-      "value": "5. 경쟁 도구와의 차별점: AI 코딩 에이전트 비교"
+      "value": "경쟁 도구와의 차별점: AI 코딩 에이전트 비교"
     },
     {
       "type": "text",
@@ -139,7 +139,7 @@
     },
     {
       "type": "heading",
-      "value": "6. 커뮤니티 반응: AI 개발팀의 CEO가 된 기분"
+      "value": "커뮤니티 반응: AI 개발팀의 CEO가 된 기분"
     },
     {
       "type": "text",
@@ -147,7 +147,7 @@
     },
     {
       "type": "heading",
-      "value": "7. 현재 한계와 발전 방향"
+      "value": "현재 한계와 발전 방향"
     },
     {
       "type": "text",
@@ -155,7 +155,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: AI 협업의 새로운 규칙"
+      "value": "터미널에서 시작된 AI 팀워크의 시대"
     },
     {
       "type": "text",
@@ -169,7 +169,7 @@
     },
     {
       "type": "heading",
-      "value": "1. Agent Teams Architecture: How AIs Form Teams"
+      "value": "Agent Teams Architecture: How AIs Form Teams"
     },
     {
       "type": "image",
@@ -183,7 +183,7 @@
     },
     {
       "type": "heading",
-      "value": "2. Subagents vs Agent Teams: When to Use Which"
+      "value": "Subagents vs Agent Teams: When to Use Which"
     },
     {
       "type": "text",
@@ -227,7 +227,7 @@
     },
     {
       "type": "heading",
-      "value": "3. Case Study: 16 AIs Built a C Compiler"
+      "value": "Case Study: 16 AIs Built a C Compiler"
     },
     {
       "type": "image",
@@ -241,7 +241,7 @@
     },
     {
       "type": "heading",
-      "value": "4. Custom Agents: Designing Your Own AI Team"
+      "value": "Custom Agents: Designing Your Own AI Team"
     },
     {
       "type": "text",
@@ -249,7 +249,7 @@
     },
     {
       "type": "heading",
-      "value": "5. Competitive Landscape: AI Coding Agent Comparison"
+      "value": "Competitive Landscape: AI Coding Agent Comparison"
     },
     {
       "type": "text",
@@ -293,7 +293,7 @@
     },
     {
       "type": "heading",
-      "value": "6. Community Response: 'CEO of an AI Dev Team'"
+      "value": "Community Response: 'CEO of an AI Dev Team'"
     },
     {
       "type": "text",
@@ -301,7 +301,7 @@
     },
     {
       "type": "heading",
-      "value": "7. Current Limitations and Future Direction"
+      "value": "Current Limitations and Future Direction"
     },
     {
       "type": "text",
@@ -309,7 +309,7 @@
     },
     {
       "type": "heading",
-      "value": "Conclusion: New Rules of AI Collaboration"
+      "value": "The Age of AI Teamwork, Born in the Terminal"
     },
     {
       "type": "text",

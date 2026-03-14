@@ -433,12 +433,29 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
   const catInfo = categoryInfo[category] || { name: category, desc: '' };
 
   const keywordText = typeof article.keywords === 'string' ? article.keywords : '';
+
+  // 화면 표시용 dateModified (YYYY-MM-DD)
+  let displayDateModified = null;
+  if (article._jsonFilePath) {
+    try {
+      const mtime = fs.statSync(article._jsonFilePath).mtime;
+      const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
+      displayDateModified = kst.toISOString().slice(0, 10);
+    } catch (e) { /* ignore */ }
+  }
+
   const metaParts = [];
   if (catInfo.name) {
     metaParts.push(`<span class="blog-date">${catInfo.name}</span>`);
   }
   if (article.date) {
-    metaParts.push(`<time class="blog-date">${formatDateKorean(article.date)}</time>`);
+    const pubDate = article.date.slice(0, 10);
+    if (displayDateModified && displayDateModified !== pubDate) {
+      metaParts.push(`<time class="blog-date">${formatDateKorean(pubDate)} 발행</time>`);
+      metaParts.push(`<time class="blog-date">${formatDateKorean(displayDateModified)} 최종 수정</time>`);
+    } else {
+      metaParts.push(`<time class="blog-date">${formatDateKorean(article.date)}</time>`);
+    }
   }
   const metaHtml = metaParts.length > 0 ? `<div class="blog-meta">${metaParts.join('')}</div>` : '';
 
@@ -694,7 +711,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
 
               ${article.thumbnail ? `
               <figure class="blog-figure">
-                <img src="${getLocalTechImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="${article.title}" loading="lazy" fetchpriority="auto">
+                <img src="${getLocalTechImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="${article.title}" loading="eager" fetchpriority="high">
               </figure>
               ` : ''}
 
@@ -736,11 +753,22 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
     ? (thumbnailPath.startsWith('/') ? `${siteBaseUrl}${thumbnailPath}` : thumbnailPath)
     : null;
 
+  // dateModified: JSON 파일의 파일 시스템 수정 시간(mtime) 사용
+  let dateModifiedValue = article.date;
+  if (article._jsonFilePath) {
+    try {
+      const mtime = fs.statSync(article._jsonFilePath).mtime;
+      // KST(+09:00) 기준 ISO 8601 변환
+      const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
+      dateModifiedValue = kst.toISOString().replace('Z', '+09:00').replace(/\.\d{3}/, '');
+    } catch (e) { /* fallback to article.date */ }
+  }
+
   const articleSchema = {
     headline: article.title,
     description: descriptionText,
     datePublished: article.date,
-    dateModified: article.date,
+    dateModified: dateModifiedValue,
     image: schemaImage
   };
 

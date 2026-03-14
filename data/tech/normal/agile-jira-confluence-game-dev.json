@@ -41,7 +41,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 애자일 방법론이란"
+      "value": "애자일 방법론이란"
     },
     {
       "type": "image",
@@ -55,7 +55,7 @@
     },
     {
       "type": "heading",
-      "value": "2. 스크럼과 칸반, 두 가지 실천 방법"
+      "value": "스크럼과 칸반, 두 가지 실천 방법"
     },
     {
       "type": "image",
@@ -69,7 +69,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 지라(Jira), 작업 관리의 중심"
+      "value": "지라(Jira), 작업 관리의 중심"
     },
     {
       "type": "image",
@@ -83,7 +83,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 컨플루언스(Confluence), 지식 공유의 허브"
+      "value": "컨플루언스(Confluence), 지식 공유의 허브"
     },
     {
       "type": "image",
@@ -97,7 +97,7 @@
     },
     {
       "type": "heading",
-      "value": "5. 지라와 컨플루언스의 연동"
+      "value": "지라와 컨플루언스의 연동"
     },
     {
       "type": "image",
@@ -111,7 +111,7 @@
     },
     {
       "type": "heading",
-      "value": "6. 게임 개발 현장에서의 도입 현황"
+      "value": "게임 개발 현장에서의 도입 현황"
     },
     {
       "type": "text",
@@ -119,7 +119,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: 도구보다 문화가 먼저"
+      "value": "애자일 도입, 도구보다 문화가 먼저다"
     },
     {
       "type": "text",

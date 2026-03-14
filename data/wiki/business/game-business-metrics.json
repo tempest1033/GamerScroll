@@ -41,7 +41,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 유저 지표: DAU, WAU, MAU"
+      "value": "유저 지표: DAU, WAU, MAU"
     },
     {
       "type": "image",
@@ -55,7 +55,7 @@
     },
     {
       "type": "heading",
-      "value": "2. 매출 지표: ARPU, ARPPU, LTV"
+      "value": "매출 지표: ARPU, ARPPU, LTV"
     },
     {
       "type": "image",
@@ -77,7 +77,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 잔존율 지표: D1, D7, D30 Retention"
+      "value": "잔존율 지표: D1, D7, D30 Retention"
     },
     {
       "type": "image",
@@ -131,7 +131,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 마케팅 지표: CAC, CPI, ROAS"
+      "value": "마케팅 지표: CAC, CPI, ROAS"
     },
     {
       "type": "image",
@@ -149,7 +149,7 @@
     },
     {
       "type": "heading",
-      "value": "5. 수익화 지표: PUR"
+      "value": "수익화 지표: PUR"
     },
     {
       "type": "image",
@@ -197,7 +197,7 @@
     },
     {
       "type": "heading",
-      "value": "6. 실제 활용: 손익 분기 계산"
+      "value": "실제 활용: 손익 분기 계산"
     },
     {
       "type": "image",
@@ -215,7 +215,7 @@
     },
     {
       "type": "heading",
-      "value": "7. 실제 활용: 모객단가의 왜곡"
+      "value": "실제 활용: 모객단가의 왜곡"
     },
     {
       "type": "image",
@@ -233,7 +233,7 @@
     },
     {
       "type": "heading",
-      "value": "8. 국가별·플랫폼별 지표 차이"
+      "value": "국가별·플랫폼별 지표 차이"
     },
     {
       "type": "image",
@@ -293,7 +293,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: 지표는 도구일 뿐"
+      "value": "숫자 너머의 맥락을 읽어라"
     },
     {
       "type": "text",

@@ -37,7 +37,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 그록 4.20 멀티에이전트 시스템, 4개 에이전트 협업 구조"
+      "value": "그록 4.20 멀티에이전트 시스템, 4개 에이전트 협업 구조"
     },
     {
       "type": "text",
@@ -45,7 +45,7 @@
     },
     {
       "type": "heading",
-      "value": "2. 벤치마크 부재, 성능 향상의 증거가 없다"
+      "value": "벤치마크 부재, 성능 향상의 증거가 없다"
     },
     {
       "type": "image",
@@ -59,7 +59,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 슈퍼그록 구독과 200만 토큰 컨텍스트"
+      "value": "슈퍼그록 구독과 200만 토큰 컨텍스트"
     },
     {
       "type": "image",
@@ -73,7 +73,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: 아키텍처 혁신만으로는 부족하다"
+      "value": "아키텍처 혁신만으로는 부족하다"
     },
     {
       "type": "text",
@@ -88,7 +88,7 @@
     },
     {
       "type": "heading",
-      "value": "1. Grok 4.20's Multi-Agent System: Four Agents Working Together"
+      "value": "Grok 4.20's Multi-Agent System: Four Agents Working Together"
     },
     {
       "type": "text",
@@ -96,7 +96,7 @@
     },
     {
       "type": "heading",
-      "value": "2. No Benchmarks, No Evidence of Improvement"
+      "value": "No Benchmarks, No Evidence of Improvement"
     },
     {
       "type": "image",
@@ -110,7 +110,7 @@
     },
     {
       "type": "heading",
-      "value": "3. SuperGrok Subscription and 2 Million Token Context"
+      "value": "SuperGrok Subscription and 2 Million Token Context"
     },
     {
       "type": "image",
@@ -124,7 +124,7 @@
     },
     {
       "type": "heading",
-      "value": "The Bottom Line: Architecture Alone Isn't Enough"
+      "value": "Architecture Alone Isn't Enough"
     },
     {
       "type": "text",

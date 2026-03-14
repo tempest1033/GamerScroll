@@ -286,7 +286,7 @@ function loadArticles() {
         const data = JSON.parse(content);
         ensurePublishDate(data, path.join(techAiDir, file), 'UTC');
         if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
-          articles.push({ ...data, source: 'tech/ai', sourceFile: file });
+          articles.push({ ...data, source: 'tech/ai', sourceFile: file, _jsonFilePath: path.join(techAiDir, file) });
           loadedSlugs.add(data.slug);
         }
       } catch (e) {
@@ -306,7 +306,7 @@ function loadArticles() {
         ensurePublishDate(data, path.join(techVibeCodingDir, file), 'UTC');
         if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
           // vibecoding 카테고리 강제 지정
-          articles.push({ ...data, category: 'vibecoding', source: 'tech/vibecoding', sourceFile: file });
+          articles.push({ ...data, category: 'vibecoding', source: 'tech/vibecoding', sourceFile: file, _jsonFilePath: path.join(techVibeCodingDir, file) });
           loadedSlugs.add(data.slug);
         }
       } catch (e) {
@@ -328,7 +328,7 @@ function loadArticles() {
         const isValid = data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft');
 
         if ((isGlobal || isExtra) && isValid && !loadedSlugs.has(data.slug)) {
-          articles.push({ ...data, source: 'issue', sourceFile: file });
+          articles.push({ ...data, source: 'issue', sourceFile: file, _jsonFilePath: path.join(issueDir, file) });
           loadedSlugs.add(data.slug);
         }
       } catch (e) {
@@ -345,7 +345,7 @@ function loadArticles() {
         const content = fs.readFileSync(wikiFile, 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
         if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
-          articles.push({ ...data, source: `wiki/${wikiItem.category}`, sourceFile: `${wikiItem.slug}.json` });
+          articles.push({ ...data, source: `wiki/${wikiItem.category}`, sourceFile: `${wikiItem.slug}.json`, _jsonFilePath: wikiFile });
           loadedSlugs.add(data.slug);
         }
       } catch (e) {
@@ -364,7 +364,7 @@ function loadArticles() {
           const content = fs.readFileSync(hotpickFile, 'utf8').replace(/^\uFEFF/, '');
           const data = JSON.parse(content);
           if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
-            articles.push({ ...data, source: 'hotpick', sourceFile: `${slug}.json` });
+            articles.push({ ...data, source: 'hotpick', sourceFile: `${slug}.json`, _jsonFilePath: hotpickFile });
             loadedSlugs.add(data.slug);
           }
         } catch (e) {
@@ -596,11 +596,14 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     content: a.contentEn || a.content,
     thumbnail: resolveArticleThumbnail(a),
     date: a.date,
-    keywords: a.keywordsEn || a.keywords,
+    keywords: a.keywordsEn && a.keywords
+      ? `${a.keywords}, ${a.keywordsEn}`
+      : (a.keywordsEn || a.keywords),
     sources: a.sources,
     relatedArticles: a.relatedArticles,
     relatedDocs: a.relatedDocs,
-    toc: a.toc
+    toc: a.toc,
+    _jsonFilePath: a._jsonFilePath
   }));
 
   // 인기 글 (GA4 데이터 기반, 없으면 최신순)

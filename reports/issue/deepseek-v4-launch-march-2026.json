@@ -65,13 +65,37 @@
     {
       "type": "table",
       "caption": "주요 AI 모델 인풋 토큰 가격 비교 (100만 토큰 기준)",
-      "headers": ["모델", "인풋 가격", "비고"],
+      "headers": [
+        "모델",
+        "인풋 가격",
+        "비고"
+      ],
       "rows": [
-        ["DeepSeek V4 (예상)", "~$0.28", "MoE 1T / 활성 32B"],
-        ["GPT-5.2 (OpenAI)", "$1.75", "최신 프론티어"],
-        ["Claude Opus 4.6 (Anthropic)", "$5.00", "표준 200K 컨텍스트 기준"],
-        ["Gemini 3.1 Pro (Google)", "$2.00", "200K 이하 컨텍스트 기준"],
-        ["DeepSeek V3 (현행)", "~$0.27", "MoE 671B / 활성 37B"]
+        [
+          "DeepSeek V4 (예상)",
+          "~$0.28",
+          "MoE 1T / 활성 32B"
+        ],
+        [
+          "GPT-5.2 (OpenAI)",
+          "$1.75",
+          "최신 프론티어"
+        ],
+        [
+          "Claude Opus 4.6 (Anthropic)",
+          "$5.00",
+          "표준 200K 컨텍스트 기준"
+        ],
+        [
+          "Gemini 3.1 Pro (Google)",
+          "$2.00",
+          "200K 이하 컨텍스트 기준"
+        ],
+        [
+          "DeepSeek V3 (현행)",
+          "~$0.27",
+          "MoE 671B / 활성 37B"
+        ]
       ]
     },
     {
@@ -105,7 +129,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: AI 패권 경쟁의 새로운 국면"
+      "value": "AI 패권 경쟁의 새로운 국면"
     },
     {
       "type": "text",
@@ -177,13 +201,37 @@
     {
       "type": "table",
       "caption": "Major AI Model Input Token Price Comparison (per 1M tokens)",
-      "headers": ["Model", "Input Price", "Notes"],
+      "headers": [
+        "Model",
+        "Input Price",
+        "Notes"
+      ],
       "rows": [
-        ["DeepSeek V4 (est.)", "~$0.28", "MoE 1T / 32B active"],
-        ["GPT-5.2 (OpenAI)", "$1.75", "Latest frontier"],
-        ["Claude Opus 4.6 (Anthropic)", "$5.00", "Standard 200K context"],
-        ["Gemini 3.1 Pro (Google)", "$2.00", "Under 200K context"],
-        ["DeepSeek V3 (current)", "~$0.27", "MoE 671B / 37B active"]
+        [
+          "DeepSeek V4 (est.)",
+          "~$0.28",
+          "MoE 1T / 32B active"
+        ],
+        [
+          "GPT-5.2 (OpenAI)",
+          "$1.75",
+          "Latest frontier"
+        ],
+        [
+          "Claude Opus 4.6 (Anthropic)",
+          "$5.00",
+          "Standard 200K context"
+        ],
+        [
+          "Gemini 3.1 Pro (Google)",
+          "$2.00",
+          "Under 200K context"
+        ],
+        [
+          "DeepSeek V3 (current)",
+          "~$0.27",
+          "MoE 671B / 37B active"
+        ]
       ]
     },
     {
@@ -217,7 +265,7 @@
     },
     {
       "type": "heading",
-      "value": "Conclusion: A New Phase in AI Hegemony"
+      "value": "A New Phase in AI Hegemony"
     },
     {
       "type": "text",

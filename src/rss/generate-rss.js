@@ -164,6 +164,37 @@ function getWikiArticles(wikiDir) {
   return items;
 }
 
+function getTechArticles(techDir) {
+  if (!fs.existsSync(techDir)) return [];
+
+  const items = [];
+  const subcategories = fs.readdirSync(techDir).filter(f =>
+    fs.statSync(path.join(techDir, f)).isDirectory()
+  );
+
+  for (const subcategory of subcategories) {
+    const subcategoryDir = path.join(techDir, subcategory);
+    const files = fs.readdirSync(subcategoryDir).filter(f => f.endsWith('.json'));
+
+    for (const file of files) {
+      const data = readJsonFile(path.join(subcategoryDir, file));
+      if (!data || data.status !== 'approved') continue;
+
+      items.push({
+        type: 'tech',
+        title: data.title,
+        link: `${SITE_URL}/tech/${subcategory}/${data.slug}/`,
+        description: data.summary || '',
+        date: new Date(data.date),
+        thumbnail: data.thumbnail || '',
+        category: '테크'
+      });
+    }
+  }
+
+  return items;
+}
+
 function generateRSS(reportsDir, outputPath) {
   console.log('=== RSS 피드 생성 시작 ===\n');
 
@@ -177,14 +208,19 @@ function generateRSS(reportsDir, outputPath) {
   const wikiDir = path.join(reportsDir, '../data/wiki');
   const wikiItems = getWikiArticles(wikiDir);
 
+  // 테크 아티클 수집
+  const techDir = path.join(reportsDir, '../data/tech');
+  const techItems = getTechArticles(techDir);
+
   console.log(`이슈 리포트: ${issueItems.length}개`);
   console.log(`핫픽 리포트: ${hotpickItems.length}개`);
   console.log(`순위 분석: ${rankingItems.length}개`);
   console.log(`일간 리포트: ${dailyItems.length}개`);
   console.log(`위키 아티클: ${wikiItems.length}개`);
+  console.log(`테크 아티클: ${techItems.length}개`);
 
   // 합치고 날짜순 정렬
-  const allItems = [...issueItems, ...hotpickItems, ...rankingItems, ...dailyItems, ...wikiItems]
+  const allItems = [...issueItems, ...hotpickItems, ...rankingItems, ...dailyItems, ...wikiItems, ...techItems]
     .sort((a, b) => b.date - a.date)
     .slice(0, MAX_ITEMS);
 

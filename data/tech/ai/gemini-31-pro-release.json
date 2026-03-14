@@ -47,7 +47,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 벤치마크 성적표, 추론과 코딩에서 압도적 격차"
+      "value": "벤치마크 성적표, 추론과 코딩에서 압도적 격차"
     },
     {
       "type": "image",
@@ -61,7 +61,7 @@
     },
     {
       "type": "heading",
-      "value": "2. 멀티모달 비전 강점과 할루시네이션 감소"
+      "value": "멀티모달 비전 강점과 할루시네이션 감소"
     },
     {
       "type": "image",
@@ -75,7 +75,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 여전한 과제, 롱 컨텍스트와 검색 안정성"
+      "value": "여전한 과제, 롱 컨텍스트와 검색 안정성"
     },
     {
       "type": "text",
@@ -83,7 +83,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: SOTA 왕좌 탈환, 그러나 완성은 아직"
+      "value": "SOTA 왕좌 탈환, 그러나 완성은 아직"
     },
     {
       "type": "text",
@@ -97,7 +97,7 @@
     },
     {
       "type": "heading",
-      "value": "1. Benchmark Results: A Dominant Lead in Reasoning and Coding"
+      "value": "Benchmark Results: A Dominant Lead in Reasoning and Coding"
     },
     {
       "type": "image",
@@ -111,7 +111,7 @@
     },
     {
       "type": "heading",
-      "value": "2. Multimodal Vision Strengths and Hallucination Reduction"
+      "value": "Multimodal Vision Strengths and Hallucination Reduction"
     },
     {
       "type": "image",
@@ -125,7 +125,7 @@
     },
     {
       "type": "heading",
-      "value": "3. Remaining Challenges: Long Context and Search Reliability"
+      "value": "Remaining Challenges: Long Context and Search Reliability"
     },
     {
       "type": "text",
@@ -133,7 +133,7 @@
     },
     {
       "type": "heading",
-      "value": "Conclusion: Reclaiming the SOTA Crown, but Not Yet Complete"
+      "value": "Reclaiming the SOTA Crown, but Not Yet Complete"
     },
     {
       "type": "text",

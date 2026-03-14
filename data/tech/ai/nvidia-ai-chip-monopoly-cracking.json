@@ -60,7 +60,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 세라브라스-OpenAI 동맹, 엔비디아 독점을 흔들 수 있을까"
+      "value": "세라브라스-OpenAI 동맹, 엔비디아 독점을 흔들 수 있을까"
     },
     {
       "type": "image",
@@ -78,7 +78,7 @@
     },
     {
       "type": "heading",
-      "value": "2. OpenAI의 칩 다변화 전략, 엔비디아 없이도 가능할까"
+      "value": "OpenAI의 칩 다변화 전략, 엔비디아 없이도 가능할까"
     },
     {
       "type": "text",
@@ -90,7 +90,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 구글 아이언우드 TPU, 추론 시장의 판도를 바꿀까"
+      "value": "구글 아이언우드 TPU, 추론 시장의 판도를 바꿀까"
     },
     {
       "type": "image",
@@ -104,7 +104,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 마이크로소프트 마이아 200과 AWS 트레이니엄3, 빅테크의 자체 칩 경쟁"
+      "value": "마이크로소프트 마이아 200과 AWS 트레이니엄3, 빅테크의 자체 칩 경쟁"
     },
     {
       "type": "text",
@@ -116,7 +116,7 @@
     },
     {
       "type": "heading",
-      "value": "5. 엔비디아 독점적 지위, 무너지나?"
+      "value": "엔비디아 독점적 지위, 무너지나?"
     },
     {
       "type": "text",
@@ -128,7 +128,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: 엔비디아의 위기인가? 단순한 해프닝인가?"
+      "value": "독점의 끝인가, 새로운 공존의 시작인가"
     },
     {
       "type": "image",
@@ -148,7 +148,7 @@
     },
     {
       "type": "heading",
-      "value": "1. The Cerebras-OpenAI Alliance: Can It Shake NVIDIA's Grip?"
+      "value": "The Cerebras-OpenAI Alliance: Can It Shake NVIDIA's Grip?"
     },
     {
       "type": "image",
@@ -166,7 +166,7 @@
     },
     {
       "type": "heading",
-      "value": "2. OpenAI's Chip Diversification: Can It Really Work Without NVIDIA?"
+      "value": "OpenAI's Chip Diversification: Can It Really Work Without NVIDIA?"
     },
     {
       "type": "text",
@@ -178,7 +178,7 @@
     },
     {
       "type": "heading",
-      "value": "3. Google's Ironwood TPU: Can It Reshape the Inference Market?"
+      "value": "Google's Ironwood TPU: Can It Reshape the Inference Market?"
     },
     {
       "type": "image",
@@ -192,7 +192,7 @@
     },
     {
       "type": "heading",
-      "value": "4. Microsoft's Maia 200 and AWS Trainium3: Big Tech's Custom Chip Arms Race"
+      "value": "Microsoft's Maia 200 and AWS Trainium3: Big Tech's Custom Chip Arms Race"
     },
     {
       "type": "text",
@@ -204,7 +204,7 @@
     },
     {
       "type": "heading",
-      "value": "5. NVIDIA's Dominance: Is It Crumbling?"
+      "value": "NVIDIA's Dominance: Is It Crumbling?"
     },
     {
       "type": "text",
@@ -216,7 +216,7 @@
     },
     {
       "type": "heading",
-      "value": "Conclusion: A Real Crisis for NVIDIA, or Just a Blip?"
+      "value": "The End of Monopoly, or the Beginning of a New Coexistence?"
     },
     {
       "type": "image",

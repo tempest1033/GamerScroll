@@ -1820,33 +1820,39 @@ const fontAndEmojiScript = `
 })();
 </script>`;
 
-// 광고 초기화 - Intersection Observer 방식 (PC/모바일 통합: 900px)
-// AdSense 로드 완료 이벤트 수신 후 Observer 시작
+// 광고 초기화 - ATF(첫 번째) 즉시 push + 나머지 Intersection Observer (900px)
+// AdSense 로드 완료 이벤트 수신 후 시작
 const adLazyLoadScript = `
 <script>
 (function() {
   var ads = document.querySelectorAll('.adsbygoogle');
   if (!ads.length) return;
 
-  function initAdsObserver() {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '900px' });
+  function initAds() {
+    // ATF(첫 번째) 광고: 즉시 push
+    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
 
-    ads.forEach(function(ad) { observer.observe(ad); });
+    // 나머지 광고: IntersectionObserver로 lazy load
+    if (ads.length > 1) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '900px' });
+
+      for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
+    }
   }
 
   // AdSense 이미 로드됨 → 즉시 시작
   if (window.__adsenseReady) {
-    initAdsObserver();
+    initAds();
   } else {
     // AdSense 로드 완료 이벤트 대기
-    window.addEventListener('adsenseReady', initAdsObserver, { once: true });
+    window.addEventListener('adsenseReady', initAds, { once: true });
   }
 })();
 </script>`;

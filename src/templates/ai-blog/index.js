@@ -808,6 +808,11 @@ function wrapWithLayout(content, options = {}) {
   if (deferredCssFiles.length > 0) htmlClassNames.push('deferred-css-pending');
   const htmlClassAttr = escapeHtml(htmlClassNames.join(' '));
 
+  // Description 155자 제한 (모든 페이지 공통 적용)
+  const safeDescription = description.length > 155
+    ? description.slice(0, 152).replace(/\s+\S*$/, '') + '...'
+    : description;
+
   const ogImageUrl = ogImage || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`;
   const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
 
@@ -843,9 +848,10 @@ function wrapWithLayout(content, options = {}) {
     })();
   </script>
   <title>${escapeHtml(title)}</title>
-  <meta name="description" content="${escapeHtml(description)}">
+  <meta name="description" content="${escapeHtml(safeDescription)}">
   <meta name="keywords" content="${escapeHtml(keywords)}">
-  ${noindex ? '<meta name="robots" content="noindex, follow">' : `<link rel="canonical" href="${canonical}">`}
+  ${noindex ? '<meta name="robots" content="noindex, follow">' : `<meta name="robots" content="max-image-preview:large">
+  <link rel="canonical" href="${canonical}">`}
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="${SITE_CONFIG.favicon}">
@@ -860,10 +866,12 @@ function wrapWithLayout(content, options = {}) {
 
   <!-- Open Graph -->
   <meta property="og:title" content="${escapeHtml(title)}">
-  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:description" content="${escapeHtml(safeDescription)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:type" content="${ogType}">
   <meta property="og:image" content="${ogImageUrl}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${escapeHtml(title)}">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="${SITE_CONFIG.name}">${articleOgTags}
@@ -873,7 +881,7 @@ function wrapWithLayout(content, options = {}) {
   <meta name="twitter:site" content="@aiscroll_io">
   <meta name="twitter:creator" content="@aiscroll_io">
   <meta name="twitter:title" content="${escapeHtml(title)}">
-  <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:description" content="${escapeHtml(safeDescription)}">
   <meta name="twitter:image" content="${ogImageUrl}">
   <meta name="twitter:image:alt" content="${escapeHtml(title)}">
 
@@ -882,12 +890,16 @@ function wrapWithLayout(content, options = {}) {
 
   <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>
   <link rel="preconnect" href="https://wsrv.nl" crossorigin>
   <!-- dns-prefetch: fallback -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
   <link rel="dns-prefetch" href="https://www.gstatic.com">
   <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
   <link rel="dns-prefetch" href="https://wsrv.nl">${jsonLdScript}
@@ -1837,21 +1849,26 @@ function wrapWithLayout(content, options = {}) {
   (function() {
     var ads = document.querySelectorAll('.adsbygoogle');
     if (!ads.length) return;
-    function initAdsObserver() {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '900px' });
-      ads.forEach(function(ad) { observer.observe(ad); });
+    function initAds() {
+      // ATF(첫 번째) 광고: 즉시 push
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+      // 나머지 광고: IntersectionObserver로 lazy load
+      if (ads.length > 1) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '900px' });
+        for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
+      }
     }
     if (window.__adsenseReady) {
-      initAdsObserver();
+      initAds();
     } else {
-      window.addEventListener('adsenseReady', initAdsObserver, { once: true });
+      window.addEventListener('adsenseReady', initAds, { once: true });
     }
   })();
   </script>

@@ -19,6 +19,16 @@ const historyDir = path.join(__dirname, '../../../history');
 // games.json 경로
 const gamesJsonPath = path.join(__dirname, '../../../data/games.json');
 
+// JSON 파일의 mtime을 KST ISO 8601 형식으로 반환
+function getFileMtimeKST(filePath, fallback) {
+  if (!filePath) return fallback;
+  try {
+    const mtime = fs.statSync(filePath).mtime;
+    const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
+    return kst.toISOString().replace('Z', '+09:00').replace(/\.\d{3}/, '');
+  } catch (e) { return fallback; }
+}
+
 // 광고 활성화 여부
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
@@ -999,7 +1009,7 @@ function generateTrendPage(data) {
  * @param {string} params.slug - URL slug (예: 2025-12-09)
  * @param {Object} params.nav - 이전/다음 리포트 정보 (optional)
  */
-function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) {
+function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [], _jsonFilePath = null }) {
   const aiInsight = insight?.ai || null;
 
   // 썸네일 매칭 헬퍼 (issue.thumbnail 우선, 없으면 historyNews에서 키워드 매칭)
@@ -1399,7 +1409,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [] }) 
     headline: summaryTitle,
     description: descriptionText,
     datePublished: aiInsight.date || slug,
-    dateModified: insight?.aiGeneratedAt?.split('T')[0] || aiInsight.date || slug,
+    dateModified: getFileMtimeKST(_jsonFilePath, insight?.aiGeneratedAt?.split('T')[0] || aiInsight.date || slug),
     image: insight?.ai?.thumbnail || null
   };
 
@@ -1438,6 +1448,15 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  // 화면 표시용 dateModified (YYYY-MM-DD)
+  const _displayDateModified = (() => {
+    if (!post._jsonFilePath) return null;
+    try {
+      const _mt = fs.statSync(post._jsonFilePath).mtime;
+      const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
+      return _kst.toISOString().slice(0, 10);
+    } catch (e) { return null; }
+  })();
   const escapeHtmlAttr = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -1924,12 +1943,15 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
-                  <time class="blog-date">${formatDateKorean(date)}</time>
+                  ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
+                    ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
+                    : `<time class="blog-date">${formatDateKorean(date)}</time>`
+                  }
                 </div>
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="lazy" fetchpriority="auto">
+                  <img class="blog-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -1969,7 +1991,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     headline: title,
     description: summary || title,
     datePublished: date,
-    dateModified: date,
+    dateModified: getFileMtimeKST(post._jsonFilePath, date),
     image: schemaImage
   };
 
@@ -2002,6 +2024,15 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  // 화면 표시용 dateModified (YYYY-MM-DD)
+  const _displayDateModified = (() => {
+    if (!post._jsonFilePath) return null;
+    try {
+      const _mt = fs.statSync(post._jsonFilePath).mtime;
+      const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
+      return _kst.toISOString().slice(0, 10);
+    } catch (e) { return null; }
+  })();
   const escapeHtmlAttr = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -2447,12 +2478,15 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
-                  <time class="blog-date">${formatDateKorean(date)}</time>
+                  ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
+                    ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
+                    : `<time class="blog-date">${formatDateKorean(date)}</time>`
+                  }
                 </div>
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="lazy" fetchpriority="auto">
+                  <img class="blog-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -2492,7 +2526,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     headline: title,
     description: summary || title,
     datePublished: date,
-    dateModified: date,
+    dateModified: getFileMtimeKST(post._jsonFilePath, date),
     image: schemaImage
   };
 
@@ -2525,6 +2559,15 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  // 화면 표시용 dateModified (YYYY-MM-DD)
+  const _displayDateModified = (() => {
+    if (!post._jsonFilePath) return null;
+    try {
+      const _mt = fs.statSync(post._jsonFilePath).mtime;
+      const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
+      return _kst.toISOString().slice(0, 10);
+    } catch (e) { return null; }
+  })();
   const escapeHtmlAttr = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -2978,12 +3021,15 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
-                  <time class="blog-date">${formatDateKorean(date)}</time>
+                  ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
+                    ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
+                    : `<time class="blog-date">${formatDateKorean(date)}</time>`
+                  }
                 </div>
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalHotpickImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="lazy" fetchpriority="auto">
+                  <img class="blog-image" src="${getLocalHotpickImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -3023,7 +3069,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     headline: title,
     description: summary || title,
     datePublished: date,
-    dateModified: date,
+    dateModified: getFileMtimeKST(post._jsonFilePath, date),
     image: schemaImage
   };
 
@@ -3058,6 +3104,15 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  // 화면 표시용 dateModified (YYYY-MM-DD)
+  const _displayDateModified = (() => {
+    if (!post._jsonFilePath) return null;
+    try {
+      const _mt = fs.statSync(post._jsonFilePath).mtime;
+      const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
+      return _kst.toISOString().slice(0, 10);
+    } catch (e) { return null; }
+  })();
   const escapeHtmlAttr = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -4013,12 +4068,15 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
-                  <time class="blog-date">${formatDateKorean(date)}</time>
+                  ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
+                    ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
+                    : `<time class="blog-date">${formatDateKorean(date)}</time>`
+                  }
                 </div>
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${heroImg}" alt="${heroAlt}" loading="lazy" fetchpriority="auto">
+                  <img class="blog-image" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -4058,7 +4116,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     headline: title,
     description: summary || title,
     datePublished: date,
-    dateModified: date,
+    dateModified: getFileMtimeKST(post._jsonFilePath, date),
     image: schemaImage
   };
 

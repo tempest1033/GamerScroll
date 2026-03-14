@@ -41,7 +41,7 @@
     },
     {
       "type": "heading",
-      "value": "1. 시리즈와 데이터프레임, 두 가지 핵심 구조"
+      "value": "시리즈와 데이터프레임, 두 가지 핵심 구조"
     },
     {
       "type": "image",
@@ -55,7 +55,7 @@
     },
     {
       "type": "heading",
-      "value": "2. 데이터 불러오기와 전처리"
+      "value": "데이터 불러오기와 전처리"
     },
     {
       "type": "image",
@@ -69,7 +69,7 @@
     },
     {
       "type": "heading",
-      "value": "3. 집계와 그룹화, 분석의 핵심"
+      "value": "집계와 그룹화, 분석의 핵심"
     },
     {
       "type": "image",
@@ -83,7 +83,7 @@
     },
     {
       "type": "heading",
-      "value": "4. 판다스 vs SQL, 언제 무엇을 쓸까"
+      "value": "판다스 vs SQL, 언제 무엇을 쓸까"
     },
     {
       "type": "image",
@@ -97,7 +97,7 @@
     },
     {
       "type": "heading",
-      "value": "5. 시각화 연동"
+      "value": "시각화 연동"
     },
     {
       "type": "image",
@@ -111,7 +111,7 @@
     },
     {
       "type": "heading",
-      "value": "6. 게임 업계 활용 사례"
+      "value": "게임 업계 활용 사례"
     },
     {
       "type": "text",
@@ -119,7 +119,7 @@
     },
     {
       "type": "heading",
-      "value": "마치며: 데이터 분석 역량의 시작점"
+      "value": "게임 데이터 분석의 진입장벽을 낮추다"
     },
     {
       "type": "text",
