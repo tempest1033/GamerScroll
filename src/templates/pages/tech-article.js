@@ -184,9 +184,6 @@ function getInArticleAdHTML(adIndex) {
          data-ad-format="fluid"
          data-ad-client="ca-pub-9477874183990825"
          data-ad-slot="${slotId}"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
   </div>`;
 }
 
@@ -259,7 +256,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
         const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
         result.push(`
           <figure class="blog-figure">
-            <img class="blog-image" src="${imgSrc}" alt="${altText}" loading="lazy" data-img-fallback="parent-hide">
+            <img class="blog-image" src="${imgSrc}" alt="${altText}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
             ${caption}
           </figure>
         `);

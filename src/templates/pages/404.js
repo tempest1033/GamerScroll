@@ -1,7 +1,7 @@
 ﻿/**
  * 404 페이지 템플릿
- * - /games/xxx/ 패턴: 최근 본 게임에서 삭제 후 /games/로 리디렉션
- * - 그 외: 홈페이지로 리디렉션
+ * - 404 안내 UI 표시 (리다이렉트 없음)
+ * - "홈으로" / "게임 DB" 링크 제공
  */
 
 const { wrapWithLayout } = require('../layout');
@@ -26,41 +26,11 @@ function generate404Page() {
     </div>
   `;
 
-  const redirectScript = `
-<script>
-(function() {
-  var RECENT_KEY = 'gamerscroll_recent_searches';
-  var path = location.pathname;
-
-  // /games/xxx/ 패턴 확인
-  var gameMatch = path.match(/^\\/games\\/([^\\/]+)\\/?$/);
-
-  if (gameMatch) {
-    // 게임 페이지 404 → 최근 본 게임에서 삭제 후 /games/로 이동
-    var slug = gameMatch[1];
-    try {
-      var recent = JSON.parse(localStorage.getItem(RECENT_KEY)) || [];
-      var filtered = recent.filter(function(g) { return g.slug !== slug; });
-      if (filtered.length !== recent.length) {
-        localStorage.setItem(RECENT_KEY, JSON.stringify(filtered));
-      }
-    } catch (e) {}
-
-    location.replace('/games/');
-  } else {
-    // 그 외 404 → 홈으로 이동
-    location.replace('/');
-  }
-})();
-</script>
-  `;
-
   return wrapWithLayout(content, {
     title: '페이지를 찾을 수 없습니다 | 게이머스크롤',
     description: '요청하신 페이지가 존재하지 않습니다.',
     currentPage: '',
     showSearchBar: true,
-    pageScripts: redirectScript,
     noindex: true
   });
 }

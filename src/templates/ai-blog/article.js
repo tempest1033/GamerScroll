@@ -108,9 +108,6 @@ function generateAIBlogArticle(article, data = {}) {
            data-ad-format="fluid"
            data-ad-client="ca-pub-9477874183990825"
            data-ad-slot="${slotId}"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
     </div>`;
   }
 
@@ -189,7 +186,7 @@ function generateAIBlogArticle(article, data = {}) {
           const caption = block.caption ? `<figcaption class="blog-caption">${escapeHtml(block.caption)}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${altText}" loading="lazy" onerror="this.parentElement.style.display='none'">
+              <img class="blog-image" src="${imgSrc}" alt="${altText}" width="1200" height="675" loading="lazy" onerror="this.parentElement.style.display='none'">
               ${caption}
             </figure>`);
           break;

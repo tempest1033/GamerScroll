@@ -46,9 +46,6 @@ function getInArticleAdHTML(adIndex) {
      data-ad-format="fluid"
      data-ad-client="ca-pub-9477874183990825"
      data-ad-slot="${slotId}"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 </div>`;
 }
 
@@ -1602,7 +1599,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);
@@ -2150,7 +2147,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);
@@ -2689,7 +2686,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);
@@ -3273,7 +3270,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           const imgCaption = block.caption ? `<figcaption class="blog-caption">${parseMarkdownLinks(block.caption)}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgUrl}" alt="${escapeHtmlAttr(block.alt || block.caption || title)}" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgUrl}" alt="${escapeHtmlAttr(block.alt || block.caption || title)}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
               ${imgCaption}
             </figure>
           `);
