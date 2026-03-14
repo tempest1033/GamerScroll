@@ -328,6 +328,13 @@
       "type": "03.webp",
       "failedAt": "2026-03-13T02:07:02.627Z",
       "error": "HTTP 404: https://esportsinsider.com/wp-content/uploads/2025/02/kiin-geng-lck-cup.jpeg"
+    },
+    {
+      "url": "https://cdn.mos.cms.futurecdn.net/JxLSnKdj7R9p7Wd6FH4DhP-1200-80.jpg",
+      "date": "2026-03-14",
+      "type": "ai.issues",
+      "failedAt": "2026-03-14T05:45:42.512Z",
+      "error": "HTTP 404"
     }
   ]
 }
