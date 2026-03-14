@@ -1448,6 +1448,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
   const _displayDateModified = (() => {
     if (!post._jsonFilePath) return null;
@@ -1943,6 +1944,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
+                  <span class="blog-editor">${editorName}</span>
                   ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
                     ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
                     : `<time class="blog-date">${formatDateKorean(date)}</time>`
@@ -1992,7 +1994,8 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     description: summary || title,
     datePublished: date,
     dateModified: getFileMtimeKST(post._jsonFilePath, date),
-    image: schemaImage
+    image: schemaImage,
+    author: editorName
   };
 
   return wrapWithLayout(pageContent, {
@@ -2025,6 +2028,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
   const _displayDateModified = (() => {
     if (!post._jsonFilePath) return null;
@@ -2479,6 +2483,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
+                  <span class="blog-editor">${editorName}</span>
                   ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
                     ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
                     : `<time class="blog-date">${formatDateKorean(date)}</time>`
@@ -2528,7 +2533,8 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     description: summary || title,
     datePublished: date,
     dateModified: getFileMtimeKST(post._jsonFilePath, date),
-    image: schemaImage
+    image: schemaImage,
+    author: editorName
   };
 
   return wrapWithLayout(pageContent, {
@@ -2561,6 +2567,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
   const _displayDateModified = (() => {
     if (!post._jsonFilePath) return null;
@@ -3023,6 +3030,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
+                  <span class="blog-editor">${editorName}</span>
                   ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
                     ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
                     : `<time class="blog-date">${formatDateKorean(date)}</time>`
@@ -3072,7 +3080,8 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     description: summary || title,
     datePublished: date,
     dateModified: getFileMtimeKST(post._jsonFilePath, date),
-    image: schemaImage
+    image: schemaImage,
+    author: editorName
   };
 
   return wrapWithLayout(pageContent, {
@@ -3107,6 +3116,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
   const _displayDateModified = (() => {
     if (!post._jsonFilePath) return null;
@@ -4071,6 +4081,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
+                  <span class="blog-editor">${editorName}</span>
                   ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
                     ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
                     : `<time class="blog-date">${formatDateKorean(date)}</time>`
@@ -4120,7 +4131,8 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     description: summary || title,
     datePublished: date,
     dateModified: getFileMtimeKST(post._jsonFilePath, date),
-    image: schemaImage
+    image: schemaImage,
+    author: editorName
   };
 
   return wrapWithLayout(pageContent, {

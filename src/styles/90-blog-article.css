@@ -70,6 +70,12 @@
   border-bottom: 1px solid var(--border);
 }
 
+.blog-editor {
+  font-size: var(--font-meta-size);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 .blog-date {
   font-size: var(--font-meta-size);
   color: var(--text-muted);

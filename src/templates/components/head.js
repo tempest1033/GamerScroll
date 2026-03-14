@@ -161,9 +161,8 @@ function generateHead(options = {}) {
     "datePublished": ${jsonString(ensureTimezone(articleSchema.datePublished))},
     ${articleSchema.dateModified ? `"dateModified": ${jsonString(ensureTimezone(articleSchema.dateModified))},` : ''}
     "author": {
-      "@type": "Organization",
-      "name": "게이머스크롤",
-      "url": "https://gamerscroll.com/"
+      "@type": "Person",
+      "name": ${jsonString(articleSchema.author || 'Editor J')}
     },
     "publisher": {
       "@type": "Organization",

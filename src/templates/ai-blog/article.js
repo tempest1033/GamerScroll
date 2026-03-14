@@ -467,6 +467,7 @@ function generateAIBlogArticle(article, data = {}) {
               <header class="blog-header">
                 <h1 class="blog-title">${escapeHtml(article.title)}</h1>
                 <div class="blog-meta">
+                  <span class="blog-editor">${article.editor || 'Editor J'}</span>
                   ${(() => {
                     let dispModified = null;
                     if (article._jsonFilePath) {
@@ -599,9 +600,8 @@ function generateAIBlogArticle(article, data = {}) {
       "datePublished": dateISO,
       "dateModified": dateModifiedISO,
       "author": {
-        "@type": "Organization",
-        "name": SITE_CONFIG.name,
-        "url": SITE_CONFIG.baseUrl
+        "@type": "Person",
+        "name": article.editor || 'Editor J'
       },
       "publisher": {
         "@type": "Organization",

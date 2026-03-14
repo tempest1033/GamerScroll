@@ -444,7 +444,9 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
     } catch (e) { /* ignore */ }
   }
 
+  const editorName = article.editor || 'Editor J';
   const metaParts = [];
+  metaParts.push(`<span class="blog-editor">${editorName}</span>`);
   if (catInfo.name) {
     metaParts.push(`<span class="blog-date">${catInfo.name}</span>`);
   }
@@ -769,7 +771,8 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
     description: descriptionText,
     datePublished: article.date,
     dateModified: dateModifiedValue,
-    image: schemaImage
+    image: schemaImage,
+    author: editorName
   };
 
   return wrapWithLayout(content, {
