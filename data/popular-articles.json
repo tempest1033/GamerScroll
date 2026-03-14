@@ -1,31 +1,38 @@
 {
-  "updatedAt": "2026-03-13T00:58:01.503Z",
+  "updatedAt": "2026-03-14T00:57:29.312Z",
   "period": "7days",
   "articles": [
     {
-      "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 17,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 15,
+      "views": 14,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 14,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 12,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "wiki",
       "slug": "korean-esports-history",
       "category": "history",
-      "views": 9,
+      "views": 8,
       "path": "/wiki/history/korean-esports-history/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 7,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 6,
+      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "issue",
@@ -34,30 +41,10 @@
       "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 5,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
       "views": 4,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 4,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "issue",
@@ -70,12 +57,6 @@
       "slug": "diablo2-resurrected-steam-launch",
       "views": 3,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "google-play-fee-cut-epic-settlement",
-      "views": 3,
-      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
     },
     {
       "type": "issue",
@@ -97,10 +78,10 @@
     },
     {
       "type": "tech",
-      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "slug": "moltbook-ai-social-network",
       "category": "ai",
       "views": 3,
-      "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
+      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "wiki",
@@ -123,15 +104,15 @@
     },
     {
       "type": "issue",
-      "slug": "slay-the-spire-2-early-access-record",
+      "slug": "google-play-fee-cut-epic-settlement",
       "views": 2,
-      "path": "/magazine/issue/slay-the-spire-2-early-access-record/"
+      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "tech",
@@ -146,6 +127,13 @@
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
+    },
+    {
+      "type": "tech",
+      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
     },
     {
       "type": "tech",
@@ -174,13 +162,6 @@
       "category": "vibecoding",
       "views": 2,
       "path": "/tech/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
@@ -227,9 +208,21 @@
     },
     {
       "type": "issue",
-      "slug": "pokemon-pokopia-review-roundup",
+      "slug": "lol-first-stand-2026",
       "views": 1,
-      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
+      "path": "/magazine/issue/lol-first-stand-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "silksong-sea-of-sorrow",
+      "views": 1,
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
+    },
+    {
+      "type": "issue",
+      "slug": "slay-the-spire-2-early-access-record",
+      "views": 1,
+      "path": "/magazine/issue/slay-the-spire-2-early-access-record/"
     },
     {
       "type": "issue",
@@ -244,18 +237,17 @@
       "path": "/magazine/issue/xbox-project-helix-pc-console/"
     },
     {
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
       "type": "tech",
       "slug": "ai-model-intentional-performance-degradation",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/ai-model-intentional-performance-degradation/"
-    },
-    {
-      "type": "tech",
-      "slug": "amodei-apology-claude-app-store-surge",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/amodei-apology-claude-app-store-surge/"
     },
     {
       "type": "tech",
@@ -266,10 +258,10 @@
     },
     {
       "type": "tech",
-      "slug": "china-ai-distillation-controversy",
+      "slug": "chatgpt-pro-lite-plan-leak",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/china-ai-distillation-controversy/"
+      "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
     },
     {
       "type": "tech",
@@ -280,10 +272,24 @@
     },
     {
       "type": "tech",
+      "slug": "meta-avocado-delay",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/meta-avocado-delay/"
+    },
+    {
+      "type": "tech",
       "slug": "softbank-40b-openai-loan",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/softbank-40b-openai-loan/"
+    },
+    {
+      "type": "tech",
+      "slug": "xai-exodus-grok-crisis",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/xai-exodus-grok-crisis/"
     },
     {
       "type": "tech",
@@ -293,25 +299,11 @@
       "path": "/tech/vibecoding/claude-code-install-guide-mac/"
     },
     {
-      "type": "tech",
-      "slug": "vibe-coding-guide",
-      "category": "vibecoding",
-      "views": 1,
-      "path": "/tech/vibecoding/vibe-coding-guide/"
-    },
-    {
       "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
       "views": 1,
       "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
     }
   ]
 }

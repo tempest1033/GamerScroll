@@ -1,48 +1,24 @@
 {
-  "updatedAt": "2026-03-13T00:59:00.496Z",
+  "updatedAt": "2026-03-14T00:58:27.457Z",
   "period": "7days",
   "articles": [
     {
       "category": "general",
       "slug": "moltbook-ai-social-network",
-      "views": 20,
+      "views": 9,
       "path": "/article/general/moltbook-ai-social-network/"
     },
     {
-      "category": "google",
-      "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 16,
-      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-government-conflict-weapons-surveillance",
-      "views": 3,
-      "path": "/article/anthropic/anthropic-government-conflict-weapons-surveillance/"
+      "category": "general",
+      "slug": "grok-420-multi-agent-release",
+      "views": 2,
+      "path": "/article/general/grok-420-multi-agent-release/"
     },
     {
       "category": "openai",
       "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
-      "views": 3,
+      "views": 2,
       "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-outage-demand-surge-pentagon",
-      "views": 2,
-      "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-sonnet-46-release",
-      "views": 2,
-      "path": "/article/anthropic/claude-sonnet-46-release/"
-    },
-    {
-      "category": "general",
-      "slug": "deepseek-v4-launch-march-2026",
-      "views": 2,
-      "path": "/article/general/deepseek-v4-launch-march-2026/"
     },
     {
       "category": "openai",
@@ -58,12 +34,6 @@
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 2,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "vibe-coding-guide",
       "views": 2,
       "path": "/article/vibecoding/vibe-coding-guide/"
@@ -76,51 +46,9 @@
     },
     {
       "category": "anthropic",
-      "slug": "amodei-apology-claude-app-store-surge",
-      "views": 1,
-      "path": "/article/anthropic/amodei-apology-claude-app-store-surge/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-internal-memo-pentagon-openai",
-      "views": 1,
-      "path": "/article/anthropic/anthropic-internal-memo-pentagon-openai/"
-    },
-    {
-      "category": "anthropic",
       "slug": "anthropic-pentagon-ai-safety-standoff",
       "views": 1,
       "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-pentagon-ultimatum-rsp-v3",
-      "views": 1,
-      "path": "/article/anthropic/anthropic-pentagon-ultimatum-rsp-v3/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-revenue-19b-openai-gap",
-      "views": 1,
-      "path": "/article/anthropic/anthropic-revenue-19b-openai-gap/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-safety-pledge-pentagon-pressure",
-      "views": 1,
-      "path": "/article/anthropic/anthropic-safety-pledge-pentagon-pressure/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-app-store-number-one",
-      "views": 1,
-      "path": "/article/anthropic/claude-app-store-number-one/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-military-venezuela-iran",
-      "views": 1,
-      "path": "/article/anthropic/claude-military-venezuela-iran/"
     },
     {
       "category": "anthropic",
@@ -135,16 +63,22 @@
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-surpasses-grok-web-traffic",
-      "views": 1,
-      "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
-    },
-    {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "meta-avocado-delay",
+      "views": 1,
+      "path": "/article/general/meta-avocado-delay/"
+    },
+    {
+      "category": "general",
+      "slug": "xai-exodus-grok-crisis",
+      "views": 1,
+      "path": "/article/general/xai-exodus-grok-crisis/"
     },
     {
       "category": "general",
@@ -157,6 +91,12 @@
       "slug": "apple-siri-gemini-partnership",
       "views": 1,
       "path": "/article/google/apple-siri-gemini-partnership/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 1,
+      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "category": "google",
@@ -181,6 +121,36 @@
       "slug": "softbank-40b-openai-loan",
       "views": 1,
       "path": "/article/openai/softbank-40b-openai-loan/"
+    },
+    {
+      "category": "openai",
+      "slug": "stargate-ai-crisis-2026",
+      "views": 1,
+      "path": "/article/openai/stargate-ai-crisis-2026/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 1,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "project-md-settings-guide",
+      "views": 1,
+      "path": "/article/vibecoding/project-md-settings-guide/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-version-control-guide",
+      "views": 1,
+      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding",
+      "views": 1,
+      "path": "/article/vibecoding/vibe-coding/"
     }
   ]
 }
