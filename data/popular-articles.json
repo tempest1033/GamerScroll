@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-03-14T00:57:29.312Z",
+  "updatedAt": "2026-03-15T01:07:13.306Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 14,
+      "views": 18,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
-      "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 12,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 11,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "wiki",
@@ -22,10 +22,10 @@
       "path": "/wiki/history/korean-esports-history/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 7,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 6,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "wiki",
@@ -35,12 +35,6 @@
       "path": "/wiki/business/game-business-metrics/"
     },
     {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 5,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
-    },
-    {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
       "views": 4,
@@ -48,9 +42,22 @@
     },
     {
       "type": "issue",
-      "slug": "arknights-endfield-launch-success",
-      "views": 3,
-      "path": "/magazine/issue/arknights-endfield-launch-success/"
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 4,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-3060-samsung-8nm-revival",
+      "views": 4,
+      "path": "/magazine/issue/nvidia-rtx-3060-samsung-8nm-revival/"
+    },
+    {
+      "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "issue",
@@ -77,24 +84,11 @@
       "path": "/magazine/issue/xbox-game-pass-march-2026/"
     },
     {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
       "type": "wiki",
       "slug": "game-ip-licensing",
       "category": "business",
       "views": 3,
       "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
-      "type": "issue",
-      "slug": "blue-archive-5th-anniversary-japan",
-      "views": 2,
-      "path": "/magazine/issue/blue-archive-5th-anniversary-japan/"
     },
     {
       "type": "issue",
@@ -115,6 +109,25 @@
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
+      "type": "issue",
+      "slug": "silksong-sea-of-sorrow",
+      "views": 2,
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
@@ -130,24 +143,17 @@
     },
     {
       "type": "tech",
-      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-54-leak-model-war",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/gpt-54-leak-model-war/"
-    },
-    {
-      "type": "tech",
       "slug": "gpt-54-one-week-review",
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/gpt-54-one-week-review/"
+    },
+    {
+      "type": "tech",
+      "slug": "meta-avocado-delay",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/meta-avocado-delay/"
     },
     {
       "type": "tech",
@@ -162,6 +168,13 @@
       "category": "vibecoding",
       "views": 2,
       "path": "/tech/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -181,6 +194,18 @@
       "slug": "2026-game-trends",
       "views": 1,
       "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
+      "views": 1,
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "arknights-endfield-launch-success",
+      "views": 1,
+      "path": "/magazine/issue/arknights-endfield-launch-success/"
     },
     {
       "type": "issue",
@@ -211,12 +236,6 @@
       "slug": "lol-first-stand-2026",
       "views": 1,
       "path": "/magazine/issue/lol-first-stand-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
-      "views": 1,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "issue",
@@ -272,10 +291,10 @@
     },
     {
       "type": "tech",
-      "slug": "meta-avocado-delay",
+      "slug": "claude-interactive-visuals-1m-context-ga",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/meta-avocado-delay/"
+      "path": "/tech/ai/claude-interactive-visuals-1m-context-ga/"
     },
     {
       "type": "tech",
@@ -297,13 +316,6 @@
       "category": "vibecoding",
       "views": 1,
       "path": "/tech/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/platform-fees-comparison/"
     }
   ]
 }
