@@ -2,12 +2,12 @@
   "slug": "karpathy-ai-job-exposure-score",
   "status": "approved",
   "category": "general",
-  "title": "안드레이 카파시, 342개 직업 AI 대체 점수 발표",
+  "title": "안드레 카파시, 342개 직업 AI 대체 점수 발표",
   "date": "2026-03-15",
-  "thumbnail": "https://img.36krcdn.com/hsossms/20251227/v2_53220e6c365b474bb2cffd57e32a1151@000000@ai_oswg482092oswg1536oswg722_img_000~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
-  "keywords": "안드레이 카파시, AI 노출 점수, AI 직업 위험, karpathy jobs, 의무기록 속기사, AI 자동화, 화이트칼라 위험",
+  "thumbnail": "https://raw.githubusercontent.com/karpathy/jobs/master/jobs.png",
+  "keywords": "안드레 카파시, AI 노출 점수, AI 직업 위험, karpathy jobs, 의무기록 속기사, AI 자동화, 화이트칼라 위험",
   "keywordsEn": "Andrej Karpathy, AI exposure score, AI job risk, karpathy jobs, medical transcriptionist, AI automation, white-collar risk",
-  "summary": "안드레이 카파시(Andrej Karpathy)가 미국 노동통계청(BLS) 데이터를 기반으로 342개 직업의 AI 노출 점수를 산출했다. 전체 평균은 10점 만점에 5.3점. 의무기록 속기사가 만점을 받은 반면, 지붕 수리공은 거의 0점이다. 디지털로 완결되는 고임금 직업일수록 AI에 더 많이 노출된다는 역설이 드러났다.",
+  "summary": "안드레 카파시(Andrej Karpathy)가 미국 노동통계청(BLS) 데이터를 기반으로 342개 직업의 AI 노출 점수를 산출했다. 전체 평균은 10점 만점에 5.3점. 의무기록 속기사가 만점을 받은 반면, 지붕 수리공은 거의 0점이다. 디지털로 완결되는 고임금 직업일수록 AI에 더 많이 노출된다는 역설이 드러났다.",
   "sources": [
     {
       "name": "Andrej Karpathy",
@@ -30,13 +30,17 @@
       "url": "https://eu.36kr.com/en/p/3613263277868036"
     }
   ],
-  "relatedDocs": [],
+  "relatedDocs": [
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/ai-bubble-myth-industry-shock-2026"
+  ],
   "relatedGames": [],
   "needTranslate": false,
   "content": [
     {
       "type": "text",
-      "value": "안드레이 카파시(Andrej Karpathy)가 또 하나의 오픈소스 프로젝트를 공개했다. 이번에는 AI가 아니라 AI에 의해 영향받는 직업을 분석한 것이다. 미국 노동통계청(BLS)의 직업 데이터베이스에서 342개 직업을 추출하고, 각 직업이 AI에 얼마나 노출되어 있는지를 0~10 점수로 산출했다. 결과는 karpathy.ai/jobs에서 인터랙티브 트리맵으로 확인할 수 있다.\n\n전체 평균은 5.3점. 10점 만점 기준이니 과반수 이상의 직업이 AI의 영향권 안에 들어와 있다는 뜻이다. 카파시는 각 직업의 업무 내용을 제미나이 플래시(Gemini Flash)로 분석한 뒤, 해당 업무가 현재 AI 기술로 자동화 가능한 정도를 점수화했다."
+      "value": "안드레 카파시(Andrej Karpathy)가 또 하나의 오픈소스 프로젝트를 공개했다. 이번에는 AI가 아니라 AI에 의해 영향받는 직업을 분석한 것이다. 미국 노동통계청(BLS)의 직업 데이터베이스에서 342개 직업을 추출하고, 각 직업이 AI에 얼마나 노출되어 있는지를 0~10 점수로 산출했다. 결과는 karpathy.ai/jobs에서 인터랙티브 트리맵으로 확인할 수 있다.\n\n전체 평균은 5.3점. 10점 만점 기준이니 과반수 이상의 직업이 AI의 영향권 안에 들어와 있다는 뜻이다. 카파시는 각 직업의 업무 내용을 제미나이 플래시(Gemini Flash)로 분석한 뒤, 해당 업무가 현재 AI 기술로 자동화 가능한 정도를 점수화했다."
     },
     {
       "type": "heading",
