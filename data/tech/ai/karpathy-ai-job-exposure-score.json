@@ -1,0 +1,104 @@
+{
+  "slug": "karpathy-ai-job-exposure-score",
+  "status": "approved",
+  "category": "general",
+  "title": "안드레이 카파시, 342개 직업 AI 대체 점수 발표",
+  "date": "2026-03-15",
+  "thumbnail": "https://img.36krcdn.com/hsossms/20251227/v2_53220e6c365b474bb2cffd57e32a1151@000000@ai_oswg482092oswg1536oswg722_img_000~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
+  "keywords": "안드레이 카파시, AI 노출 점수, AI 직업 위험, karpathy jobs, 의무기록 속기사, AI 자동화, 화이트칼라 위험",
+  "keywordsEn": "Andrej Karpathy, AI exposure score, AI job risk, karpathy jobs, medical transcriptionist, AI automation, white-collar risk",
+  "summary": "안드레이 카파시(Andrej Karpathy)가 미국 노동통계청(BLS) 데이터를 기반으로 342개 직업의 AI 노출 점수를 산출했다. 전체 평균은 10점 만점에 5.3점. 의무기록 속기사가 만점을 받은 반면, 지붕 수리공은 거의 0점이다. 디지털로 완결되는 고임금 직업일수록 AI에 더 많이 노출된다는 역설이 드러났다.",
+  "sources": [
+    {
+      "name": "Andrej Karpathy",
+      "title": "karpathy/jobs - GitHub",
+      "url": "https://github.com/karpathy/jobs"
+    },
+    {
+      "name": "Andrej Karpathy",
+      "title": "AI Exposure by Occupation - Interactive Visualization",
+      "url": "https://karpathy.ai/jobs"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Andrej Karpathy's new open-source autoresearch lets you run hundreds of AI",
+      "url": "https://venturebeat.com/technology/andrej-karpathys-new-open-source-autoresearch-lets-you-run-hundreds-of-ai"
+    },
+    {
+      "name": "36Kr",
+      "title": "Karpathy Rates 342 U.S. Jobs by AI Exposure",
+      "url": "https://eu.36kr.com/en/p/3613263277868036"
+    }
+  ],
+  "relatedDocs": [],
+  "relatedGames": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "안드레이 카파시(Andrej Karpathy)가 또 하나의 오픈소스 프로젝트를 공개했다. 이번에는 AI가 아니라 AI에 의해 영향받는 직업을 분석한 것이다. 미국 노동통계청(BLS)의 직업 데이터베이스에서 342개 직업을 추출하고, 각 직업이 AI에 얼마나 노출되어 있는지를 0~10 점수로 산출했다. 결과는 karpathy.ai/jobs에서 인터랙티브 트리맵으로 확인할 수 있다.\n\n전체 평균은 5.3점. 10점 만점 기준이니 과반수 이상의 직업이 AI의 영향권 안에 들어와 있다는 뜻이다. 카파시는 각 직업의 업무 내용을 제미나이 플래시(Gemini Flash)로 분석한 뒤, 해당 업무가 현재 AI 기술로 자동화 가능한 정도를 점수화했다."
+    },
+    {
+      "type": "heading",
+      "value": "만점은 의무기록 속기사, 0점은 지붕 위의 노동자들"
+    },
+    {
+      "type": "text",
+      "value": "AI 노출 점수 10점 만점을 받은 직업은 의무기록 속기사(Medical Transcriptionist)다. 음성을 듣고 텍스트로 변환하는 업무는 이미 AI가 인간보다 빠르고 정확하게 처리할 수 있다. 사실상 AI가 가장 먼저 대체할 수 있는 직업이라는 평가다.\n\n8~9점대에는 익숙한 이름들이 줄줄이 올라 있다. 소프트웨어 개발자, 법률 보조원, 데이터 분석가, 편집자. 모두 텍스트와 코드를 다루는 디지털 직업이다. 반대편 끝에는 지붕 수리공과 건설 노동자가 0~1점으로 자리 잡고 있다. 물리적 공간에서 몸을 써야 하는 일은 AI가 쉽게 침범하지 못한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "간호사 4점, 소프트웨어 개발자 9점이라는 의외의 격차"
+    },
+    {
+      "type": "text",
+      "value": "흥미로운 건 같은 고숙련 직업군 내에서도 점수 차이가 크다는 점이다. 간호사와 의사는 4~5점대에 머물러 있다. 환자를 직접 만지고, 현장에서 판단을 내려야 하는 물리적 업무가 방패 역할을 하는 셈이다. 하지만 소프트웨어 개발자는 9점이다. 코드 작성, 디버깅, 리뷰까지 업무의 대부분이 디지털 환경에서 완결되기 때문이다.\n\n결국 패턴은 명확하다. 업무가 디지털로 완결될수록 AI 노출이 높고, 물리적 상호작용이 필수인 직업일수록 낮다. 그리고 이 패턴은 불편한 진실 하나를 드러낸다. 고임금 화이트칼라 직업일수록 AI 노출이 높은 경향이 있다는 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "'뒤처진 느낌'이라던 카파시, 일주일 만에 프로젝트 2개를 쏟아내다"
+    },
+    {
+      "type": "text",
+      "value": "이 프로젝트가 더 주목받는 이유는 맥락에 있다. 카파시는 3월 6일 autoresearch라는 오픈소스 프로젝트를 공개해 AI 연구 자동화의 가능성을 보여줬고, 그 직전에는 X(구 트위터)에 '뒤처진 느낌(feeling behind)'이라는 포스트를 올려 1,400만 조회를 기록했다. AI 분야의 최전선에 있는 인물조차 속도에 압도당한다는 고백이 큰 반향을 일으킨 것이다.\n\n일주일도 안 되어 autoresearch에 이어 jobs 프로젝트까지, 카파시는 자신이 느낀 '뒤처짐'을 생산성으로 전환하고 있다. jobs 프로젝트의 전체 소스코드와 데이터는 깃허브(GitHub)에 공개되어 있어, 누구나 점수 산출 방법론을 검증하거나 자신의 직업을 분석해볼 수 있다."
+    }
+  ],
+  "titleEn": "Andrej Karpathy Releases AI Replacement Scores for 342 Jobs",
+  "summaryEn": "Andrej Karpathy analyzed 342 U.S. occupations from BLS data and assigned each an AI exposure score from 0 to 10. The overall average is 5.3. Medical transcriptionists scored a perfect 10, while roofers scored near zero. The data reveals a paradox: the higher-paying and more digital the job, the greater its AI exposure.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Andrej Karpathy has released yet another open-source project. This time it's not about AI itself, but about the jobs AI is poised to affect. He pulled 342 occupations from the U.S. Bureau of Labor Statistics (BLS) database and scored each on a 0-to-10 scale of AI exposure. The results are available as an interactive treemap at karpathy.ai/jobs.\n\nThe overall average is 5.3 out of 10, meaning more than half of all occupations fall within AI's sphere of influence. Karpathy used Gemini Flash to analyze the task descriptions of each occupation, then quantified how automatable those tasks are with current AI technology."
+    },
+    {
+      "type": "heading",
+      "value": "Perfect 10 for Transcriptionists, Near Zero for Workers on Rooftops"
+    },
+    {
+      "type": "text",
+      "value": "The occupation that scored a perfect 10 is medical transcriptionist. The job of converting speech to text is something AI can already do faster and more accurately than humans. It's widely considered the occupation most immediately replaceable by AI.\n\nThe 8-9 range is filled with familiar titles: software developers, paralegals, data analysts, and editors. All digital-first occupations dealing in text and code. At the opposite end, roofers and construction laborers sit at 0-1. Work that requires physical presence and manual labor in real-world spaces remains largely beyond AI's reach."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Nurses at 4, Software Developers at 9: An Unexpected Gap"
+    },
+    {
+      "type": "text",
+      "value": "What's striking is the wide variance even among highly skilled professions. Nurses and physicians hover around 4-5. Their physical tasks, hands-on patient interaction, and on-the-spot clinical judgment serve as a shield against automation. Software developers, however, score 9. Code writing, debugging, and review all happen entirely within digital environments.\n\nThe pattern is clear: the more digitally self-contained the work, the higher the AI exposure; the more physical interaction is required, the lower. And this pattern surfaces an uncomfortable truth: higher-paying white-collar jobs tend to have greater AI exposure."
+    },
+    {
+      "type": "heading",
+      "value": "From 'Feeling Behind' to Two Projects in a Week"
+    },
+    {
+      "type": "text",
+      "value": "This project carries extra weight because of its context. On March 6, Karpathy released autoresearch, an open-source project demonstrating the potential for automated AI research. Just before that, he posted on X (formerly Twitter) about 'feeling behind,' a post that garnered 14 million views. Even someone at the forefront of AI confessing to being overwhelmed by the pace struck a deep chord.\n\nIn less than a week, Karpathy followed autoresearch with the jobs project, channeling his sense of falling behind into raw productivity. The full source code and data are available on GitHub, so anyone can audit the scoring methodology or analyze their own occupation."
+    }
+  ]
+}
