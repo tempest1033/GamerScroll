@@ -4,10 +4,10 @@
   "category": "general",
   "title": "안드레 카파시, 342개 직업 AI 대체 점수 발표",
   "date": "2026-03-15",
-  "thumbnail": "https://raw.githubusercontent.com/karpathy/jobs/master/jobs.png",
+  "thumbnail": "https://hbr.org/resources/images/article_assets/2026/03/Mar26_04_1369205647.jpg",
   "keywords": "안드레 카파시, AI 노출 점수, AI 직업 위험, karpathy jobs, 의무기록 속기사, AI 자동화, 화이트칼라 위험",
   "keywordsEn": "Andrej Karpathy, AI exposure score, AI job risk, karpathy jobs, medical transcriptionist, AI automation, white-collar risk",
-  "summary": "안드레 카파시(Andrej Karpathy)가 미국 노동통계청(BLS) 데이터를 기반으로 342개 직업의 AI 노출 점수를 산출했다. 전체 평균은 10점 만점에 5.3점. 의무기록 속기사가 만점을 받은 반면, 지붕 수리공은 거의 0점이다. 디지털로 완결되는 고임금 직업일수록 AI에 더 많이 노출된다는 역설이 드러났다.",
+  "summary": "안드레 카파시가 미국 342개 직업의 AI 노출 점수를 산출했다. 0~10점 척도에서 평균 5.3점, 실제 분포는 1~9점. 의무기록 속기사가 최고 9점, 건설 노동자는 최저 1점이다. 고임금 디지털 직업일수록 AI 노출이 높다는 역설이 드러났다.",
   "sources": [
     {
       "name": "Andrej Karpathy",
@@ -40,15 +40,55 @@
   "content": [
     {
       "type": "text",
-      "value": "안드레 카파시(Andrej Karpathy)가 또 하나의 오픈소스 프로젝트를 공개했다. 이번에는 AI가 아니라 AI에 의해 영향받는 직업을 분석한 것이다. 미국 노동통계청(BLS)의 직업 데이터베이스에서 342개 직업을 추출하고, 각 직업이 AI에 얼마나 노출되어 있는지를 0~10 점수로 산출했다. 결과는 karpathy.ai/jobs에서 인터랙티브 트리맵으로 확인할 수 있다.\n\n전체 평균은 5.3점. 10점 만점 기준이니 과반수 이상의 직업이 AI의 영향권 안에 들어와 있다는 뜻이다. 카파시는 각 직업의 업무 내용을 제미나이 플래시(Gemini Flash)로 분석한 뒤, 해당 업무가 현재 AI 기술로 자동화 가능한 정도를 점수화했다."
+      "value": "안드레 카파시(Andrej Karpathy)가 또 하나의 오픈소스 프로젝트를 공개했다. 이번에는 AI가 아니라 AI에 의해 영향받는 직업을 분석한 것이다. 미국 노동통계청(BLS)의 직업 데이터베이스에서 342개 직업을 추출하고, 각 직업이 AI에 얼마나 노출되어 있는지를 0~10 점수로 산출했다. 결과는 karpathy.ai/jobs에서 인터랙티브 트리맵으로 확인할 수 있다.\n\n전체 평균은 5.3점이다. 0~10점 척도에서 과반을 넘기니 대다수 직업이 AI의 영향권 안에 들어와 있다는 뜻이다. 실제 분포는 1~9점에 걸쳐 있어 완전 면역(0점)이나 완전 대체(10점)에 해당하는 직업은 없었다. 카파시는 각 직업의 업무 내용을 제미나이 플래시(Gemini Flash)로 분석한 뒤, 해당 업무가 현재 AI 기술로 자동화 가능한 정도를 점수화했다."
+    },
+    {
+      "type": "image",
+      "src": "https://raw.githubusercontent.com/karpathy/jobs/master/jobs.png",
+      "caption": "카파시가 공개한 AI 노출 점수 트리맵. 색이 진할수록 AI 노출이 높다",
+      "alt": "안드레 카파시 AI 노출 점수 트리맵 342개 직업 시각화 karpathy jobs"
     },
     {
       "type": "heading",
-      "value": "만점은 의무기록 속기사, 0점은 지붕 위의 노동자들"
+      "value": "최고 9점은 의무기록 속기사, 1점은 현장의 노동자들"
     },
     {
       "type": "text",
-      "value": "AI 노출 점수 10점 만점을 받은 직업은 의무기록 속기사(Medical Transcriptionist)다. 음성을 듣고 텍스트로 변환하는 업무는 이미 AI가 인간보다 빠르고 정확하게 처리할 수 있다. 사실상 AI가 가장 먼저 대체할 수 있는 직업이라는 평가다.\n\n8~9점대에는 익숙한 이름들이 줄줄이 올라 있다. 소프트웨어 개발자, 법률 보조원, 데이터 분석가, 편집자. 모두 텍스트와 코드를 다루는 디지털 직업이다. 반대편 끝에는 지붕 수리공과 건설 노동자가 0~1점으로 자리 잡고 있다. 물리적 공간에서 몸을 써야 하는 일은 AI가 쉽게 침범하지 못한다."
+      "value": "0~10점 척도에서 최고 9점을 받은 직업은 의무기록 속기사(Medical Transcriptionist)다. 음성을 듣고 텍스트로 변환하는 업무는 이미 AI가 인간보다 빠르고 정확하게 처리할 수 있다. 사실상 AI가 가장 먼저 대체할 수 있는 직업이라는 평가다.\n\n같은 9점대에는 익숙한 이름들이 줄줄이 올라 있다. 소프트웨어 개발자, 법률 보조원, 데이터 분석가, 편집자. 모두 텍스트와 코드를 다루는 디지털 직업이다. 반대편 끝에는 운동선수와 건설 노동자가 최저 1점으로 자리 잡고 있다. 물리적 공간에서 몸을 써야 하는 일은 AI가 쉽게 침범하지 못한다."
+    },
+    {
+      "type": "table",
+      "caption": "AI 대체 위험 TOP 10 (높은 점수)",
+      "headers": ["순위", "직업", "점수"],
+      "rows": [
+        ["1", "의무기록 속기사", "9"],
+        ["2", "소프트웨어 개발자", "9"],
+        ["3", "데이터 과학자", "9"],
+        ["4", "편집자", "9"],
+        ["5", "경제학자", "9"],
+        ["6", "금융 분석가", "9"],
+        ["7", "컴퓨터 프로그래머", "9"],
+        ["8", "데이터베이스 관리자", "9"],
+        ["9", "회계 사무원", "9"],
+        ["10", "고객 서비스 담당자", "9"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "AI 안전 TOP 10 (낮은 점수)",
+      "headers": ["순위", "직업", "점수"],
+      "rows": [
+        ["1", "운동선수", "1"],
+        ["2", "건설 노동자", "1"],
+        ["3", "건식 벽체 설치공", "1"],
+        ["4", "동물 돌봄 종사자", "2"],
+        ["5", "자동차 차체 수리공", "2"],
+        ["6", "제빵사", "2"],
+        ["7", "이발사·미용사", "2"],
+        ["8", "바텐더", "2"],
+        ["9", "정육사", "2"],
+        ["10", "보육 종사자", "2"]
+      ]
     },
     {
       "type": "ad"
@@ -71,19 +111,59 @@
     }
   ],
   "titleEn": "Andrej Karpathy Releases AI Replacement Scores for 342 Jobs",
-  "summaryEn": "Andrej Karpathy analyzed 342 U.S. occupations from BLS data and assigned each an AI exposure score from 0 to 10. The overall average is 5.3. Medical transcriptionists scored a perfect 10, while roofers scored near zero. The data reveals a paradox: the higher-paying and more digital the job, the greater its AI exposure.",
+  "summaryEn": "Andrej Karpathy analyzed 342 U.S. occupations from BLS data and assigned each an AI exposure score on a 0-to-10 scale. The overall average is 5.3, with actual scores ranging from 1 to 9. Medical transcriptionists topped at 9, while athletes and construction laborers scored the lowest at 1. The data reveals a paradox: the higher-paying and more digital the job, the greater its AI exposure.",
   "contentEn": [
     {
       "type": "text",
-      "value": "Andrej Karpathy has released yet another open-source project. This time it's not about AI itself, but about the jobs AI is poised to affect. He pulled 342 occupations from the U.S. Bureau of Labor Statistics (BLS) database and scored each on a 0-to-10 scale of AI exposure. The results are available as an interactive treemap at karpathy.ai/jobs.\n\nThe overall average is 5.3 out of 10, meaning more than half of all occupations fall within AI's sphere of influence. Karpathy used Gemini Flash to analyze the task descriptions of each occupation, then quantified how automatable those tasks are with current AI technology."
+      "value": "Andrej Karpathy has released yet another open-source project. This time it's not about AI itself, but about the jobs AI is poised to affect. He pulled 342 occupations from the U.S. Bureau of Labor Statistics (BLS) database and scored each on a 0-to-10 scale of AI exposure. The results are available as an interactive treemap at karpathy.ai/jobs.\n\nThe overall average is 5.3 on a 0-to-10 scale, meaning more than half of all occupations fall within AI's sphere of influence. Notably, actual scores ranged from 1 to 9, with no occupation hitting a perfect 0 or 10. Karpathy used Gemini Flash to analyze the task descriptions of each occupation, then quantified how automatable those tasks are with current AI technology."
+    },
+    {
+      "type": "image",
+      "src": "https://raw.githubusercontent.com/karpathy/jobs/master/jobs.png",
+      "caption": "Karpathy's AI exposure treemap. Darker colors indicate higher AI exposure",
+      "alt": "Andrej Karpathy AI exposure score treemap 342 occupations visualization karpathy jobs"
     },
     {
       "type": "heading",
-      "value": "Perfect 10 for Transcriptionists, Near Zero for Workers on Rooftops"
+      "value": "A Top Score of 9 for Transcriptionists, Just 1 for Workers in the Field"
     },
     {
       "type": "text",
-      "value": "The occupation that scored a perfect 10 is medical transcriptionist. The job of converting speech to text is something AI can already do faster and more accurately than humans. It's widely considered the occupation most immediately replaceable by AI.\n\nThe 8-9 range is filled with familiar titles: software developers, paralegals, data analysts, and editors. All digital-first occupations dealing in text and code. At the opposite end, roofers and construction laborers sit at 0-1. Work that requires physical presence and manual labor in real-world spaces remains largely beyond AI's reach."
+      "value": "On the 0-to-10 scale, the occupation that topped the chart at 9 is medical transcriptionist. The job of converting speech to text is something AI can already do faster and more accurately than humans. It's widely considered the occupation most immediately replaceable by AI.\n\nSharing that top score of 9 are familiar titles: software developers, paralegals, data analysts, and editors. All digital-first occupations dealing in text and code. At the opposite end, athletes and construction laborers sit at the lowest score of 1. Work that requires physical presence and manual labor in real-world spaces remains largely beyond AI's reach."
+    },
+    {
+      "type": "table",
+      "caption": "Top 10 Most Exposed to AI (Highest Scores)",
+      "headers": ["Rank", "Occupation", "Score"],
+      "rows": [
+        ["1", "Medical Transcriptionist", "9"],
+        ["2", "Software Developer", "9"],
+        ["3", "Data Scientist", "9"],
+        ["4", "Editor", "9"],
+        ["5", "Economist", "9"],
+        ["6", "Financial Analyst", "9"],
+        ["7", "Computer Programmer", "9"],
+        ["8", "Database Administrator", "9"],
+        ["9", "Bookkeeping/Accounting Clerk", "9"],
+        ["10", "Customer Service Representative", "9"]
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Top 10 Safest from AI (Lowest Scores)",
+      "headers": ["Rank", "Occupation", "Score"],
+      "rows": [
+        ["1", "Athlete", "1"],
+        ["2", "Construction Laborer", "1"],
+        ["3", "Drywall Installer", "1"],
+        ["4", "Animal Care Worker", "2"],
+        ["5", "Auto Body Repairer", "2"],
+        ["6", "Baker", "2"],
+        ["7", "Barber/Hairstylist", "2"],
+        ["8", "Bartender", "2"],
+        ["9", "Butcher", "2"],
+        ["10", "Childcare Worker", "2"]
+      ]
     },
     {
       "type": "ad"
