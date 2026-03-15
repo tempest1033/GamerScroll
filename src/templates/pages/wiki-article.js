@@ -369,7 +369,10 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
     try {
       const mtime = fs.statSync(article._jsonFilePath).mtime;
       const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
-      displayDateModified = kst.toISOString().slice(0, 10);
+      const y = kst.getUTCFullYear();
+      const m = String(kst.getUTCMonth() + 1).padStart(2, '0');
+      const d = String(kst.getUTCDate()).padStart(2, '0');
+      displayDateModified = `${y}-${m}-${d}`;
     } catch (e) { /* ignore */ }
   }
 

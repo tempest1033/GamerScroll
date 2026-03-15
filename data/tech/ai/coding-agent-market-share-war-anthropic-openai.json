@@ -1,0 +1,245 @@
+{
+  "slug": "coding-agent-market-share-war-anthropic-openai",
+  "status": "approved",
+  "category": "general",
+  "title": "앤트로픽과 오픈AI가 동시에 '2배'를 외친 이유",
+  "date": "2026-03-15T11:30",
+  "thumbnail": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690513f6848cacde4111043c_og_max-plan.jpg",
+  "keywords": "코딩 에이전트 점유율, 클로드 코드, 코덱스, 앤트로픽, 오픈AI, 사용량 2배 프로모션, AI 코딩 도구 경쟁 2026",
+  "keywordsEn": "coding agent market share, Claude Code, Codex, Anthropic, OpenAI, 2x usage promotion, AI coding tool competition 2026",
+  "summary": "앤트로픽의 '오프피크 2배 사용량'과 오픈AI의 '코덱스 2배 제한'이 3월 13일부터 27일까지 동시에 진행 중이다. 두 회사가 같은 시기에 '2배' 프로모션을 내건 건 우연이 아니다. 코딩 에이전트 시장 점유율을 둘러싼 치열한 경쟁과 7개 주요 플레이어의 판도를 분석한다.",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Claude March 2026 Usage Promotion",
+      "url": "https://support.claude.com/en/articles/14063676-claude-march-2026-usage-promotion"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Introducing the Codex App",
+      "url": "https://openai.com/index/introducing-the-codex-app/"
+    },
+    {
+      "name": "Lush Binary",
+      "title": "AI Coding Agents Comparison 2026",
+      "url": "https://lushbinary.com/blog/ai-coding-agents-comparison-cursor-windsurf-claude-copilot-kiro-2026/"
+    },
+    {
+      "name": "Fortune",
+      "title": "OpenAI's Codex and Anthropic's Claude Spark Coding Revolution",
+      "url": "https://fortune.com/2026/02/13/openais-codex-and-anthropics-claude-spark-coding-revolution-as-developers-say-theyve-abandoned-traditional-programming/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "2026 Agentic Coding Trends Report",
+      "url": "https://resources.anthropic.com/2026-agentic-coding-trends-report"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/claude-interactive-visuals-1m-context-ga",
+    "tech:ai/claude-opus-46-pricing-controversy"
+  ],
+  "relatedGames": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "코딩 에이전트 시장 점유율 전쟁이 본격화되고 있다. 앤트로픽(Anthropic)과 오픈AI(OpenAI)가 사실상 같은 시기에 '사용량 2배' 프로모션을 동시에 진행 중이다. 앤트로픽은 3월 13일부터 27일까지 오프피크 시간대 사용량 2배를, 오픈AI는 2월 2일부터 4월 2일까지 코덱스(Codex) 사용 제한 2배를 제공하고 있다.\n\n3월 13일부터 27일까지 2주간은 두 프로모션이 정확히 겹치는 기간이다. 양사가 동시에 '2배'라는 같은 숫자를 내건 건 우연이 아니다. 코딩 에이전트 시장의 점유율을 두고 벌어지는 치열한 경쟁의 단면이다."
+    },
+    {
+      "type": "heading",
+      "value": "GPU 남으면 더 쓰세요, 앤트로픽의 해피아워"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png",
+      "caption": "앤트로픽은 클로드 전 제품에 걸쳐 오프피크 2배 사용량을 제공한다",
+      "alt": "앤트로픽 Anthropic 클로드 코드 Claude Code 로고 AI 코딩 에이전트"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽의 프로모션은 3월 13일부터 27일까지 2주간 진행된다. 핵심은 '오프피크 시간대'에 한해 5시간 기준 사용량을 2배로 늘려주는 것이다. 오프피크 시간대는 미국 동부 기준 오전 8시~오후 2시를 제외한 나머지 시간이다. 즉 미국 외 지역 사용자들에게는 업무 시간대 대부분이 오프피크에 해당해 사실상 하루 종일 2배 혜택을 받을 수 있다.\n\n적용 범위가 넓다는 것도 특징이다. 클로드 웹, 데스크톱 앱, 모바일, 클로드 코드(Claude Code), 엑셀, 파워포인트까지 클로드의 거의 모든 제품에 적용된다. 별도의 가입이나 신청 없이 자동으로 적용되며, 무료(Free), 프로(Pro), 맥스(Max), 팀(Team) 등 모든 요금제가 대상이다."
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽은 이 프로모션을 '레스토랑 해피아워'에 비유했다. 피크 시간대에 몰리는 수요를 비피크 시간대로 분산시키는 전략이다. 동시에 이번 프로모션과 함께 100만 토큰 컨텍스트 윈도우의 정식 출시(GA)도 발표했다. 오퍼스 4.6(Opus 4.6)과 소네 4.6(Sonnet 4.6) 모두 추가 비용 없이 100만 토큰을 사용할 수 있게 됐다. 사용량도 2배, 컨텍스트도 5배(기존 20만)로 늘어난 셈이니, 사용자 입장에서는 상당한 혜택이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "오픈AI는 2개월간 24시간 풀가동으로 맞불을 놓다"
+    },
+    {
+      "type": "image",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1200px-OpenAI_Logo.svg.png",
+      "caption": "오픈AI는 코덱스에 한해 시간 제한 없이 24시간 2배 사용량을 제공한다",
+      "alt": "오픈AI OpenAI 로고 코덱스 Codex 코딩 에이전트 GPT-5.4"
+    },
+    {
+      "type": "text",
+      "value": "오픈AI의 프로모션은 규모와 기간 면에서 더 공격적이다. 2월 2일부터 4월 2일까지 무려 2개월간 진행되며, 오프피크 같은 시간 제한이 없다. 24시간 내내 코덱스의 5시간 기준 사용 제한과 7일 기준 최대 사용량이 모두 2배로 늘어난다. 오픈AI의 관리자 etraut-openai가 깃허브(GitHub)에서 직접 5시간과 7일 윈도우 모두 2배라고 확인한 바 있다.\n\n다만 적용 범위는 코덱스에만 한정된다. 챗GPT(ChatGPT)나 다른 오픈AI 제품은 해당되지 않는다. 유료 플랜(Plus, Pro, Business, Enterprise, Edu) 사용자가 대상이며, 무료(Free)와 Go 사용자에게는 1개월 무료 코덱스 접근권이 제공된다."
+    },
+    {
+      "type": "text",
+      "value": "오픈AI는 프로모션과 함께 코덱스 생태계를 빠르게 확장하고 있다. 2월 13일에는 크레딧 시스템을 도입해 제한에 도달한 후에도 크레딧을 구매하면 계속 사용할 수 있게 했다. 3월 4일에는 윈도우 네이티브 앱을 출시해 50만 명 이상의 대기자 명단을 소화했고, 3월 5일에는 GPT-5.4를 탑재해 네이티브 컴퓨터 유즈(Computer Use), 100만 토큰 컨텍스트, 오류 33% 감소, 토큰 소비 47% 절감이라는 대폭 업그레이드를 이뤘다.\n\n특히 3월 6일 출시한 코덱스 시큐리티(Codex Security)는 리서치 프리뷰 단계에서 이미 120만 건의 커밋을 스캔해 792건의 치명적, 10,561건의 고위험 취약점을 발견했다. 3월 7일에는 코덱스 포 오픈소스(Codex for Open Source) 프로그램으로 스타 1,000개 이상 프로젝트의 메인테이너에게 6개월간 챗GPT 프로를 무료 제공하겠다고 발표했다."
+    },
+    {
+      "type": "heading",
+      "value": "같은 '2배'인데 왜 이렇게 다를까"
+    },
+    {
+      "type": "comparison_table",
+      "headers": ["항목", "클로드 2배", "코덱스 2배"],
+      "rows": [
+        ["공식 명칭", "Off-peak 2x usage", "2x Codex rate limits"],
+        ["기간", "3/13~3/27 (2주)", "2/2~4/2 (2개월)"],
+        ["적용 시간", "오프피크 시간대만 (미국 동부 오전 8시~오후 2시 제외)", "24시간 전 시간대"],
+        ["2배 대상", "5시간 기준 사용량", "5시간 + 7일 최대 사용량"],
+        ["적용 범위", "클로드 전 제품 (웹, 데스크톱, 모바일, 코드, 엑셀)", "코덱스 전용 (코딩 에이전트)"],
+        ["대상 요금제", "Free / Pro / Max / Team", "Plus / Pro / Business / Enterprise / Edu + Free/Go 체험"],
+        ["겹치는 기간", "3/13~3/27, 양사 프로모션 동시 진행", "3/13~3/27, 양사 프로모션 동시 진행"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "표면적으로 두 프로모션은 비슷해 보이지만, 전략적 의도는 다르다. 앤트로픽은 클로드 전체 생태계에 걸친 '범용 프로모션'으로 사용자 습관을 바꾸려 하고, 오픈AI는 코딩 에이전트 한 분야에 올인하는 '집중 공세'를 펼치고 있다. 앤트로픽이 기간은 짧지만 범위가 넓다면, 오픈AI는 범위는 좁지만 기간이 길고 시간 제한이 없다.\n\n다만 일부 사용자들은 오픈AI 프로모션의 실효성에 의문을 제기하고 있다. 깃허브 이슈 #11785에서는 2배 혜택이 일관되게 적용되지 않는다는 불만이 접수되기도 했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "7강 구도, 클로드 코드부터 키로까지 전원 참전"
+    },
+    {
+      "type": "image",
+      "src": "https://blog.logrocket.com/wp-content/uploads/2025/07/ai_dev_tool_power_rankings_july_2025_web.png",
+      "caption": "AI 코딩 에이전트 시장은 7개 주요 플레이어가 점유율을 놓고 치열하게 경쟁 중이다",
+      "alt": "AI 코딩 에이전트 시장 점유율 경쟁 2026 개발자 도구 파워 랭킹 클로드 코드 코덱스 커서"
+    },
+    {
+      "type": "text",
+      "value": "2026년 3월 현재, 코딩 에이전트 시장에는 7개의 주요 플레이어가 점유율을 놓고 경쟁 중이다. 현재 선두는 클로드 코드(Claude Code)다. 앤트로픽의 에이전틱 코딩 트렌드 리포트에 따르면, 개발자의 63%가 클로드 코드를 사용하고 있으며 이는 2025년 5월의 4%에서 폭발적으로 성장한 수치다. 만족도 1위(46%), VS 코드(VS Code) 확장 프로그램 설치 수 520만 건으로 시장을 주도하고 있다.\n\n오픈AI 코덱스는 GPT-5.4를 탑재하고 출시 직후 커서(Cursor) 사용량의 60%에 즉시 도달할 만큼 빠른 성장세를 보이고 있다. VS 코드 확장 프로그램 설치 수도 490만 건에 달한다."
+    },
+    {
+      "type": "text",
+      "value": "커서(Cursor)는 백그라운드 에이전트(Background Agents)와 오토메이션(Automations) 기능으로 차별화하고 있으며, 젯브레인즈(JetBrains) ACP 통합도 추진 중이다. 윈드서프(Windsurf)는 코그니션(Cognition, 데빈(Devin)의 개발사)이 2억 5천만 달러에 인수하면서 102억 달러 기업가치를 기록했고, 아레나 모드(Arena Mode) 등 독자적 기능을 갖추고 있다.\n\n깃허브 코파일럿(GitHub Copilot)은 에이전트 모드와 자율 PR 생성 기능인 코딩 에이전트를 갖추고 있으며, 월 10달러로 가장 저렴한 가격이 강점이다. 구글(Google)의 안티그래비티(Antigravity)는 에이전트 퍼스트 IDE를 표방하며 제미나이 3 프로(Gemini 3 Pro)를 기반으로 무료 퍼블릭 프리뷰를 진행 중이다. AWS의 키로(Kiro)는 스펙 기반 개발 방식과 베드록(Bedrock) 네이티브 통합으로 차별화를 시도하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "526억 달러짜리 파이, 누가 가장 큰 조각을 가져갈까"
+    },
+    {
+      "type": "text",
+      "value": "코딩 에이전트 시장은 폭발적으로 성장하고 있다. 시장 조사 기관에 따르면 코딩 에이전트 부문은 2025년 78.4억 달러에서 2030년 526.2억 달러로, 연평균 46.3%의 성장률이 예상된다. 더 넓은 에이전틱 AI 시장 전체로 보면 2026년 91.4억 달러에서 2034년 1,390억 달러로 연평균 40.5% 성장이 전망된다.\n\n개발자 채택률도 급증하고 있다. 현재 개발자의 95%가 매주 AI를 사용하고, 75%는 업무의 절반 이상에 AI를 활용하며, 55%가 정기적으로 AI 에이전트를 사용한다. 가트너(Gartner)는 2026년 말까지 신규 코드의 60%가 AI에 의해 생성될 것으로 예측했다."
+    },
+    {
+      "type": "text",
+      "value": "이런 시장 환경에서 '2배 프로모션'은 단순한 할인 행사가 아니다. 코딩 에이전트는 사용할수록 사용자의 워크플로우에 깊이 편입되는 도구다. 한 번 특정 에이전트에 익숙해진 개발자는 쉽게 다른 도구로 옮기지 않는다. 앤트로픽과 오픈AI 모두 이 '락인(lock-in)' 효과를 잘 알고 있기에, 초기 사용량 확보가 시장 점유율 확보로 직결된다는 판단하에 공격적인 프로모션을 벌이고 있는 것이다."
+    }
+  ],
+  "titleEn": "Why Anthropic and OpenAI Both Shouted '2x' at the Same Time",
+  "summaryEn": "Anthropic's 'off-peak 2x usage' and OpenAI's '2x Codex rate limits' are running simultaneously from March 13-27. Both companies offering '2x' promotions at the same time is no coincidence. We analyze the fierce market share battle in the coding agent space and the landscape of 7 major players.",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The battle for coding agent market share is heating up. Anthropic and OpenAI are running '2x usage' promotions at virtually the same time. Anthropic offers double usage during off-peak hours from March 13 to 27, while OpenAI provides doubled Codex rate limits from February 2 to April 2.\n\nThe two-week window from March 13 to 27 is when both promotions overlap precisely. Both companies putting forward the same '2x' number simultaneously is no coincidence. It's a reflection of the fierce competition for market share in the coding agent space."
+    },
+    {
+      "type": "heading",
+      "value": "Spare GPUs? Use More, Says Anthropic's Happy Hour"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png",
+      "caption": "Anthropic offers 2x usage across all Claude products during off-peak hours",
+      "alt": "Anthropic Claude Code logo AI coding agent"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic's promotion runs for two weeks from March 13 to 27. The key is doubling the 5-hour usage limit during 'off-peak hours' only. Off-peak hours are defined as everything outside 8AM-2PM US Eastern time. For users outside the US, this effectively means doubled benefits throughout most working hours.\n\nThe scope is notably broad. It applies to Claude web, desktop app, mobile, Claude Code, Excel, and PowerPoint, covering virtually all Claude products. No signup or application is needed. It's automatic across all plans: Free, Pro, Max, and Team."
+    },
+    {
+      "type": "text",
+      "value": "Anthropic has likened this promotion to a 'restaurant happy hour,' a strategy to redistribute peak-hour demand to off-peak hours. Alongside this promotion, they also announced the general availability of the 1 million token context window. Both Opus 4.6 and Sonnet 4.6 can now use 1M tokens at no additional cost. With usage doubled and context quintupled (from 200K), it's a significant value proposition for users."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "OpenAI Fires Back With Two Months of 24/7 Full Throttle"
+    },
+    {
+      "type": "image",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1200px-OpenAI_Logo.svg.png",
+      "caption": "OpenAI offers 24/7 doubled rate limits exclusively for Codex",
+      "alt": "OpenAI logo Codex coding agent GPT-5.4"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's promotion is more aggressive in both scale and duration. Running for a full two months from February 2 to April 2, it has no time restrictions like off-peak hours. The 5-hour rate limit and 7-day maximum usage for Codex are both doubled around the clock. OpenAI maintainer etraut-openai confirmed on GitHub that both the 5-hour and 7-day windows are doubled.\n\nHowever, the scope is limited to Codex only. ChatGPT and other OpenAI products are not included. Paid plan users (Plus, Pro, Business, Enterprise, Edu) are the main targets, while Free and Go users receive one month of free Codex access."
+    },
+    {
+      "type": "text",
+      "value": "OpenAI has been rapidly expanding the Codex ecosystem alongside the promotion. On February 13, they introduced a credit system allowing users to purchase credits and continue after hitting limits. March 4 saw the Windows native app launch, clearing a waitlist of over 500,000. On March 5, GPT-5.4 was integrated, bringing native Computer Use, 1M token context, 33% fewer errors, and 47% less token consumption.\n\nNotably, Codex Security launched on March 6 and in its research preview phase has already scanned 1.2 million commits, discovering 792 critical and 10,561 high-risk vulnerabilities. On March 7, the Codex for Open Source program was announced, offering 6 months of free ChatGPT Pro to maintainers of projects with 1,000+ stars."
+    },
+    {
+      "type": "heading",
+      "value": "Same '2x' Label, Wildly Different Playbooks"
+    },
+    {
+      "type": "comparison_table",
+      "headers": ["Category", "Claude 2x", "Codex 2x"],
+      "rows": [
+        ["Official name", "Off-peak 2x usage", "2x Codex rate limits"],
+        ["Period", "3/13-3/27 (2 weeks)", "2/2-4/2 (2 months)"],
+        ["Hours", "Off-peak only (outside 8AM-2PM ET)", "24/7 all day"],
+        ["What doubles", "5-hour usage limit", "5-hour + 7-day max usage"],
+        ["Scope", "All Claude (web, desktop, mobile, Code, Excel)", "Codex only (coding agent)"],
+        ["Target plans", "Free / Pro / Max / Team", "Plus / Pro / Business / Enterprise / Edu + Free/Go trial"],
+        ["Overlap period", "3/13-3/27 both running simultaneously", "3/13-3/27 both running simultaneously"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "On the surface, both promotions look similar, but their strategic intent differs. Anthropic is running a 'universal promotion' across Claude's entire ecosystem to reshape user habits, while OpenAI is going all-in on the coding agent vertical with a 'focused offensive.' Anthropic's approach is shorter but broader; OpenAI's is narrower but longer with no time restrictions.\n\nSome users have questioned the effectiveness of OpenAI's promotion. GitHub issue #11785 includes complaints about the 2x benefit not being consistently applied."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Seven Contenders, From Claude Code to Kiro, All In"
+    },
+    {
+      "type": "image",
+      "src": "https://blog.logrocket.com/wp-content/uploads/2025/07/ai_dev_tool_power_rankings_july_2025_web.png",
+      "caption": "Seven major players are competing fiercely for market share in the AI coding agent space",
+      "alt": "AI coding agent market share competition 2026 developer tool power rankings Claude Code Codex Cursor"
+    },
+    {
+      "type": "text",
+      "value": "As of March 2026, seven major players are competing for market share in the coding agent space. Claude Code currently leads. According to Anthropic's Agentic Coding Trends Report, 63% of developers use Claude Code, an explosive jump from 4% in May 2025. It leads in satisfaction (46%) and VS Code extension installations at 5.2 million.\n\nOpenAI's Codex, powered by GPT-5.4, reached 60% of Cursor's usage immediately after launch, showing rapid growth. Its VS Code extension has also hit 4.9 million installations."
+    },
+    {
+      "type": "text",
+      "value": "Cursor differentiates with Background Agents and Automations features, along with JetBrains ACP integration. Windsurf was acquired by Cognition (Devin's developer) for $250M, reaching a $10.2B valuation with unique features like Arena Mode.\n\nGitHub Copilot offers Agent Mode and an autonomous Coding Agent for PR creation, with a competitive $10/month price point. Google's Antigravity positions itself as an agent-first IDE based on Gemini 3 Pro, currently in free public preview. AWS's Kiro takes a spec-driven development approach with native Bedrock integration."
+    },
+    {
+      "type": "heading",
+      "value": "A $52 Billion Pie, and Everyone Wants the Biggest Slice"
+    },
+    {
+      "type": "text",
+      "value": "The coding agent market is growing explosively. According to market research, the coding agent segment is projected to grow from $7.84B in 2025 to $52.62B by 2030, at a CAGR of 46.3%. The broader agentic AI market is expected to grow from $9.14B in 2026 to $139B by 2034, at a CAGR of 40.5%.\n\nDeveloper adoption is surging. Currently, 95% of developers use AI weekly, 75% use it for more than half their work, and 55% regularly use AI agents. Gartner predicts that 60% of new code will be AI-generated by the end of 2026."
+    },
+    {
+      "type": "text",
+      "value": "In this market environment, the '2x promotions' are far more than simple discount events. Coding agents are tools that become more deeply integrated into a user's workflow the more they're used. Developers who get comfortable with a particular agent rarely switch. Both Anthropic and OpenAI understand this 'lock-in' effect well, which is why aggressive promotions are being deployed under the logic that securing early usage directly translates to market share."
+    }
+  ]
+}

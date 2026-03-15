@@ -1452,7 +1452,10 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     try {
       const _mt = fs.statSync(post._jsonFilePath).mtime;
       const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
-      return _kst.toISOString().slice(0, 10);
+      const _y = _kst.getUTCFullYear();
+      const _m = String(_kst.getUTCMonth() + 1).padStart(2, '0');
+      const _d = String(_kst.getUTCDate()).padStart(2, '0');
+      return `${_y}-${_m}-${_d}`;
     } catch (e) { return null; }
   })();
   const escapeHtmlAttr = (value) => String(value ?? '')
@@ -2032,7 +2035,10 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     try {
       const _mt = fs.statSync(post._jsonFilePath).mtime;
       const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
-      return _kst.toISOString().slice(0, 10);
+      const _y = _kst.getUTCFullYear();
+      const _m = String(_kst.getUTCMonth() + 1).padStart(2, '0');
+      const _d = String(_kst.getUTCDate()).padStart(2, '0');
+      return `${_y}-${_m}-${_d}`;
     } catch (e) { return null; }
   })();
   const escapeHtmlAttr = (value) => String(value ?? '')
@@ -2571,7 +2577,10 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     try {
       const _mt = fs.statSync(post._jsonFilePath).mtime;
       const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
-      return _kst.toISOString().slice(0, 10);
+      const _y = _kst.getUTCFullYear();
+      const _m = String(_kst.getUTCMonth() + 1).padStart(2, '0');
+      const _d = String(_kst.getUTCDate()).padStart(2, '0');
+      return `${_y}-${_m}-${_d}`;
     } catch (e) { return null; }
   })();
   const escapeHtmlAttr = (value) => String(value ?? '')
@@ -3120,7 +3129,10 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     try {
       const _mt = fs.statSync(post._jsonFilePath).mtime;
       const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
-      return _kst.toISOString().slice(0, 10);
+      const _y = _kst.getUTCFullYear();
+      const _m = String(_kst.getUTCMonth() + 1).padStart(2, '0');
+      const _d = String(_kst.getUTCDate()).padStart(2, '0');
+      return `${_y}-${_m}-${_d}`;
     } catch (e) { return null; }
   })();
   const escapeHtmlAttr = (value) => String(value ?? '')
