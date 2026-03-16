@@ -2496,7 +2496,7 @@ function generateHomeAdPairSlot(pcSlotId, mobileSlotId, options = {}) {
   if (options.mobileOnly) {
     return renderMobileOnlyHomeAd(mobileSlotId || pcSlotId);
   }
-  return renderResponsiveHomeAd(pcSlotId, mobileSlotId || pcSlotId);
+  return renderResponsiveHomeAd(pcSlotId);
 }
 
 // 모바일 전용 중간 광고 (PC에서는 CSS로 숨김)
