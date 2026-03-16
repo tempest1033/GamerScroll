@@ -1829,11 +1829,14 @@ const adLazyLoadScript = `
   if (!ads.length) return;
 
   function initAds() {
-    // ATF(첫 번째) 광고: 즉시 push
+    // ATF: 상단 광고 PC+모바일 ins 2개 즉시 push
     try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    if (ads.length > 1) {
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    }
 
     // 나머지 광고: IntersectionObserver로 lazy load
-    if (ads.length > 1) {
+    if (ads.length > 2) {
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -1843,7 +1846,7 @@ const adLazyLoadScript = `
         });
       }, { rootMargin: '900px' });
 
-      for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
+      for (var i = 2; i < ads.length; i++) { observer.observe(ads[i]); }
     }
   }
 
@@ -2496,7 +2499,7 @@ function generateHomeAdPairSlot(pcSlotId, mobileSlotId, options = {}) {
   if (options.mobileOnly) {
     return renderMobileOnlyHomeAd(mobileSlotId || pcSlotId);
   }
-  return renderResponsiveHomeAd(pcSlotId);
+  return renderResponsiveHomeAd(pcSlotId, mobileSlotId || pcSlotId);
 }
 
 // 모바일 전용 중간 광고 (PC에서는 CSS로 숨김)

@@ -101,11 +101,11 @@ function generateAIBlogArticle(article, data = {}) {
   function getInArticleAdHTML(adIndex) {
     const slotId = IN_ARTICLE_SLOTS[adIndex % IN_ARTICLE_SLOTS.length];
     return `
-    <div class="blog-in-article-ad" style="margin:2rem 0;text-align:center;">
+    <div class="blog-in-article-ad">
       <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-layout="in-article"
+           style="display:block"
            data-ad-format="fluid"
+           data-ad-layout-key="-7m+ex-1f-2m+ae"
            data-ad-client="ca-pub-9477874183990825"
            data-ad-slot="${slotId}"></ins>
     </div>`;

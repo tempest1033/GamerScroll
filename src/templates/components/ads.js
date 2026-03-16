@@ -43,19 +43,30 @@ function renderResponsiveTopAd(slotId) {
 
 /**
  * 반응형 홈 상단 광고
- * Mobile: 320x100, Desktop: 728x90
+ * PC: 728x90 (pcSlotId), Mobile: 320x100 (mobileSlotId)
+ * CSS media query로 슬롯 분리 표시
  */
-function renderResponsiveHomeAd(slotId) {
-  if (!ADS_ENABLED || !slotId) return '';
-  const styleId = `ad-home-${++adStyleCounter}`;
+function renderResponsiveHomeAd(pcSlotId, mobileSlotId) {
+  if (!ADS_ENABLED || !pcSlotId) return '';
+  const pcStyleId = `ad-home-pc-${++adStyleCounter}`;
+  const moStyleId = `ad-home-mo-${++adStyleCounter}`;
   return `<div class="ad-card ad-card-responsive-home">
   <style>
-    .${styleId} { display:block; width:320px; height:100px; margin:0 auto; }
-    @media (min-width: 769px) { .${styleId} { width:728px; height:90px; } }
+    .${pcStyleId} { display:none; }
+    .${moStyleId} { display:inline-block; width:320px; height:100px; margin:0 auto; }
+    @media (min-width: 769px) {
+      .${pcStyleId} { display:inline-block; width:728px; height:90px; margin:0 auto; }
+      .${moStyleId} { display:none; }
+    }
   </style>
-  <ins class="adsbygoogle ${styleId}"
+  <ins class="adsbygoogle ${pcStyleId}"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${pcSlotId}"
+       data-full-width-responsive="false"></ins>
+  <ins class="adsbygoogle ${moStyleId}"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${mobileSlotId || pcSlotId}"
+       data-full-width-responsive="false"></ins>
 </div>`;
 }
 
