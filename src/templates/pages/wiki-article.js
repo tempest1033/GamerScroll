@@ -273,7 +273,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
       case 'heading':
         if (!block.value) break;
         sectionCount++;
-        if (sectionCount % 3 === 0) {
+        if (sectionCount % 2 === 0) {
           result.push(getInArticleAdHTML(adCount++));
         }
         const headingId = toSlug(block.value);

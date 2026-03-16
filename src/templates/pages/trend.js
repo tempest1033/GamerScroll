@@ -1647,7 +1647,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
 
         case 'heading':
           sectionCount++;
-          if (sectionCount % 3 === 0) {
+          if (sectionCount % 2 === 0) {
             result.push(getInArticleAdHTML(adCount++));
           }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
@@ -2196,7 +2196,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
 
         case 'heading':
           sectionCount++;
-          if (sectionCount % 3 === 0) {
+          if (sectionCount % 2 === 0) {
             result.push(getInArticleAdHTML(adCount++));
           }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
@@ -2738,7 +2738,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
 
         case 'heading':
           sectionCount++;
-          if (sectionCount % 3 === 0) {
+          if (sectionCount % 2 === 0) {
             result.push(getInArticleAdHTML(adCount++));
           }
           result.push(`<h2 class="blog-heading">${block.value}</h2>`);
@@ -3264,7 +3264,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           break;
         case 'heading':
           sectionCount++;
-          if (sectionCount % 3 === 0) {
+          if (sectionCount % 2 === 0) {
             result.push(getInArticleAdHTML(adCount++));
           }
           // 순위 변동 지표 스타일 적용: (신규), (▲N), (▼N), (-)
