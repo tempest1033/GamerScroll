@@ -1850,13 +1850,10 @@ function wrapWithLayout(content, options = {}) {
     var ads = document.querySelectorAll('.adsbygoogle');
     if (!ads.length) return;
     function initAds() {
-      // ATF: 상단 광고 PC+모바일 ins 2개 즉시 push
+      // ATF(첫 번째) 광고: 즉시 push
       try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-      if (ads.length > 1) {
-        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-      }
       // 나머지 광고: IntersectionObserver로 lazy load
-      if (ads.length > 2) {
+      if (ads.length > 1) {
         var observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
@@ -1865,7 +1862,7 @@ function wrapWithLayout(content, options = {}) {
             }
           });
         }, { rootMargin: '900px' });
-        for (var i = 2; i < ads.length; i++) { observer.observe(ads[i]); }
+        for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
       }
     }
     if (window.__adsenseReady) {
