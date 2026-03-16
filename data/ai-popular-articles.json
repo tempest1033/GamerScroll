@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-03-15T01:08:11.692Z",
+  "updatedAt": "2026-03-16T01:08:37.684Z",
   "period": "7days",
   "articles": [
+    {
+      "category": "general",
+      "slug": "karpathy-ai-job-exposure-score",
+      "views": 16,
+      "path": "/article/general/karpathy-ai-job-exposure-score/"
+    },
     {
       "category": "general",
       "slug": "moltbook-ai-social-network",
@@ -46,21 +52,9 @@
     },
     {
       "category": "anthropic",
-      "slug": "anthropic-pentagon-ai-safety-standoff",
-      "views": 1,
-      "path": "/article/anthropic/anthropic-pentagon-ai-safety-standoff/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-interactive-visuals-1m-context-ga",
       "views": 1,
       "path": "/article/anthropic/claude-interactive-visuals-1m-context-ga/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
-      "views": 1,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
       "category": "anthropic",
@@ -73,6 +67,12 @@
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "views": 1,
+      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
     },
     {
       "category": "general",
@@ -91,12 +91,6 @@
       "slug": "xbox-sunset-ai-pivot",
       "views": 1,
       "path": "/article/general/xbox-sunset-ai-pivot/"
-    },
-    {
-      "category": "google",
-      "slug": "apple-siri-gemini-partnership",
-      "views": 1,
-      "path": "/article/google/apple-siri-gemini-partnership/"
     },
     {
       "category": "google",
@@ -124,12 +118,6 @@
     },
     {
       "category": "openai",
-      "slug": "softbank-40b-openai-loan",
-      "views": 1,
-      "path": "/article/openai/softbank-40b-openai-loan/"
-    },
-    {
-      "category": "openai",
       "slug": "stargate-ai-crisis-2026",
       "views": 1,
       "path": "/article/openai/stargate-ai-crisis-2026/"
@@ -139,12 +127,6 @@
       "slug": "project-md-settings-guide",
       "views": 1,
       "path": "/article/vibecoding/project-md-settings-guide/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-guide/"
     },
     {
       "category": "vibecoding",
