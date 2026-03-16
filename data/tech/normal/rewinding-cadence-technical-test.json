@@ -1,0 +1,258 @@
+{
+  "slug": "rewinding-cadence-technical-test",
+  "status": "approved",
+  "title": "타임루프와 D20 주사위가 만난 오픈월드, 리와인딩 케이던스 테크니컬 테스트 모집 중",
+  "titleEn": "Time Loop Meets D20 Dice in Open World: Rewinding Cadence Technical Test Now Recruiting",
+  "summary": "텐센트 자회사 사로아시스 스튜디오가 개발 중인 오픈월드 액션 RPG 리와인딩 케이던스가 PC 테크니컬 테스트 모집을 시작했다. 타임루프와 D20 주사위 시스템을 결합한 독특한 게임 플레이로 가챠 게임 시장의 판도를 바꿀 수 있을지 관심이 집중되고 있다.",
+  "summaryEn": "Rewinding Cadence, an open-world action RPG developed by Tencent subsidiary Saroasis Studios, has begun recruiting for its PC technical test. Combining time-loop mechanics with a D20 dice system, the game is drawing attention as a potential game-changer in the gacha market.",
+  "keywords": "리와인딩 케이던스, 归环, 텐센트, 사로아시스, 가챠, 오픈월드, 타임루프, D20, 테크니컬 테스트, 원신, 액션 RPG",
+  "keywordsEn": "Rewinding Cadence, Gui Huan, Tencent, Saroasis Studios, gacha, open world, time loop, D20, technical test, Genshin Impact, action RPG",
+  "date": "2026-03-16T12:00",
+  "thumbnail": "https://www.enduins.com/wp-content/uploads/2025/06/rewinding-cadence.jpg",
+  "sources": [
+    {
+      "name": "Gacha Go!",
+      "title": "Rewinding Cadence (Gui Huan) Announces PC Technical Test — How to Join",
+      "url": "https://gachago.com/en/news/rewinding-cadence-gui-huan-announces-pc-technical-test-how-to-join"
+    },
+    {
+      "name": "GuruGamer",
+      "title": "Rewinding Cadence — A New Challenger to Genshin's Throne",
+      "url": "https://gurugamer.com/mobile-games/rewinding-cadence-a-new-challenger-to-genshins-throne-24930"
+    },
+    {
+      "name": "Enduins",
+      "title": "Rewinding Cadence Unveiled: 8-Min Gameplay Trailer Shows Time-Loop ARPG Ambition",
+      "url": "https://www.enduins.com/news/rewinding-cadence-unveiled-8-min-gameplay-trailer-shows-time-loop-arpg-ambition"
+    },
+    {
+      "name": "MuMu Player",
+      "title": "Rewinding Cadence Release Date & Key Details",
+      "url": "https://www.mumuplayer.com/blog/rewinding-cadence-release-date.html"
+    },
+    {
+      "name": "归环 Official",
+      "title": "归环 공식 사이트",
+      "url": "https://gh.sarosgame.com/"
+    }
+  ],
+  "relatedDocs": ["tech:normal/nakwon-last-paradise-cbt"],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "텐센트 자회사 **사로아시스 스튜디오**가 개발 중인 오픈월드 액션 RPG **리와인딩 케이던스(중국명: 归环)**가 PC 테크니컬 테스트 모집을 시작하며 글로벌 게이머들의 이목을 사로잡고 있다. 타임루프 서사, D20 주사위 시스템, 정령 듀오 전투까지 기존 가챠 게임과는 확연히 다른 방향성을 보여주는 이 작품이 원신의 왕좌에 도전할 수 있을지 기대가 뜨겁다."
+    },
+    {
+      "type": "heading",
+      "value": "42일을 되감는 회귀자의 여정"
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=aus04uQOpPk"
+    },
+    {
+      "type": "text",
+      "value": "리와인딩 케이던스의 세계관은 슈타인즈 게이트와 젤다의 전설: 마죠라의 가면을 떠올리게 한다. 플레이어는 **'회귀자'**로서 세계 멸망 42일 전으로 시간을 되감아 진실을 밝히고 운명을 바꿔야 한다. 신비로운 정령 '추'와 계약을 맺으면서 시간 되감기 능력을 얻게 되는데, 이 타임루프 구조가 게임의 모든 시스템과 유기적으로 맞물린다."
+    },
+    {
+      "type": "text",
+      "value": "선택에 따라 세계가 달라지는 분기형 스토리라인도 핵심이다. 대화 선택지가 단순한 텍스트 변화에 그치지 않고, GTA 시리즈처럼 NPC들이 플레이어의 행동에 실시간으로 반응하며 세계 상태 자체가 변화한다. 범죄를 저지르면 수배 시스템이 작동하고, 특정 선택은 이후 루프에서의 전개를 완전히 바꿔놓는다."
+    },
+    {
+      "type": "heading",
+      "value": "D&D에서 빌려온 운명의 주사위"
+    },
+    {
+      "type": "quote",
+      "value": "\"원신이나 명조와는 완전히 다른 좋은 게임 유형이다. 정상에 올라갈 것이다.\" — 탭탭 유저 리뷰"
+    },
+    {
+      "type": "text",
+      "value": "가장 독특한 시스템은 **D20 주사위 메커닉**이다. 던전 앤 드래곤 스타일의 20면체 주사위를 굴려 운명의 분기가 결정되며, 캐릭터의 스탯에 따라 같은 주사위 결과도 다르게 적용된다. 전투와 탐색, 대화 모두에서 주사위가 개입하기 때문에 매 루프마다 다른 경험이 펼쳐진다."
+    },
+    {
+      "type": "text",
+      "value": "전투 시스템도 차별화에 성공했다. **정령 듀오 전투** 방식으로, 각 캐릭터가 고유한 정령 동반자와 함께 싸운다. 주인공은 엘프 소녀와 팀을 이루고, 다른 캐릭터들은 각각 동물형 정령과 짝을 이뤄 전투한다. 8분짜리 게임플레이 트레일러에서 공개된 보스전 애니메이션은 이미 커뮤니티에서 높은 평가를 받았다."
+    },
+    {
+      "type": "heading",
+      "value": "PC 테크니컬 테스트, 어떻게 참여하나"
+    },
+    {
+      "type": "image",
+      "src": "https://r.res.easebar.com/pic/20250617/75f7db3f-366e-4836-b496-46d012b61f1c.png",
+      "caption": "리와인딩 케이던스의 탐색 시스템. 글라이딩과 탈것을 활용한 오픈월드 이동이 가능하다",
+      "alt": "리와인딩 케이던스 오픈월드 탐색"
+    },
+    {
+      "type": "text",
+      "value": "현재 진행 중인 테크니컬 테스트는 **PC(윈도우) 전용** 소규모 비공개 테스트다. 핵심 정보를 정리하면 다음과 같다."
+    },
+    {
+      "type": "table",
+      "headers": ["항목", "내용"],
+      "rows": [
+        ["테스트 플랫폼", "PC (윈도우) 전용"],
+        ["테스트 유형", "소규모 비공개 테크니컬 테스트 (NDA 필수)"],
+        ["모집 시작", "2026년 2월 26일"],
+        ["모집 마감", "2026년 3월 27일"],
+        ["참여 방법", "탭탭 공식 페이지 또는 MUR 설문 참여"],
+        ["데이터", "테스트 종료 후 전체 삭제, 과금 없음"],
+        ["보상", "테스트 보증 패스, VIVO 스마트폰, 게이밍 주변기기, 한정 아트 프린트"]
+      ],
+      "caption": "리와인딩 케이던스 PC 테크니컬 테스트 개요"
+    },
+    {
+      "type": "text",
+      "value": "참여를 원한다면 탭탭 공식 페이지에서 사전등록 후 MUR 설문을 통해 포인트를 획득하면 테스트 접근 권한을 받을 수 있다. 테스트 보상도 상당히 파격적인데, VIVO 스마트폰과 게이밍 주변기기는 물론 한정판 아트 프린트까지 제공된다."
+    },
+    {
+      "type": "heading",
+      "value": "원신의 왕좌를 노리는 새로운 도전자"
+    },
+    {
+      "type": "quote",
+      "value": "\"가장 기대되는 신작 가챠 게임 중 하나다.\" — 바이트스틱스"
+    },
+    {
+      "type": "text",
+      "value": "리와인딩 케이던스가 주목받는 이유는 단순히 새 게임이어서가 아니다. 오픈월드 가챠 장르에서 원신이 세운 공식을 정면으로 뒤집으려 하기 때문이다. 타임루프와 D20 시스템의 조합은 기존 어떤 가챠 게임에서도 시도하지 않은 방향성이다."
+    },
+    {
+      "type": "text",
+      "value": "개발사의 배경도 무시할 수 없다. 사로아시스 스튜디오는 텐센트 산하 스튜디오로, 대규모 투자와 장기 운영 역량을 갖추고 있다. 중국어, 일본어, 영어 음성을 동시에 지원한다는 점은 글로벌 출시를 염두에 둔 전략으로 읽힌다."
+    },
+    {
+      "type": "text",
+      "value": "물론 우려의 목소리도 있다. 타임루프와 주사위 시스템이라는 참신한 콘셉트가 수십, 수백 시간의 플레이 타임 동안 깊이를 유지할 수 있을지는 실제 테스트를 거쳐봐야 알 수 있다. 하지만 8분 분량의 게임플레이 트레일러가 보여준 전투, 탐색, 스토리 시스템의 완성도는 기대할 만한 수준이었다."
+    },
+    {
+      "type": "heading",
+      "value": "핸드 드로잉 2D 아트가 만드는 세계"
+    },
+    {
+      "type": "image",
+      "src": "https://r.res.easebar.com/pic/20250617/6865718d-b909-4640-9d52-244281e544ef.png",
+      "caption": "리와인딩 케이던스의 핸드 드로잉 2D 아트 스타일. 3D 셀 셰이딩 대신 수작업 느낌의 그래픽을 채택했다",
+      "alt": "리와인딩 케이던스 핸드 드로잉 2D 아트 스타일 그래픽"
+    },
+    {
+      "type": "text",
+      "value": "그래픽도 차별화 포인트다. 대부분의 오픈월드 가챠 게임이 3D 셀 셰이딩을 채택하는 반면, 리와인딩 케이던스는 **핸드 드로잉 애니메이션 스타일의 2D 그래픽**을 밀고 있다. 글라이딩과 탈것(마운트) 시스템을 갖춘 오픈월드 탐색도 가능하며, 환경과의 상호작용도 풍부하게 구현되어 있다."
+    },
+    {
+      "type": "text",
+      "value": "현재 PC, 안드로이드, iOS 멀티 플랫폼을 목표로 개발이 진행 중이며, 중국 안드로이드 사전등록이 이미 시작되었다. 정식 출시일은 아직 발표되지 않았지만, 이번 PC 테크니컬 테스트의 피드백이 향후 일정에 큰 영향을 미칠 것으로 보인다. 오픈월드 가챠 시장에 새로운 바람을 불어넣을 수 있을지, 테스트 결과가 기대된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "**Rewinding Cadence** (Chinese: 归环), an open-world action RPG developed by Tencent subsidiary **Saroasis Studios**, has begun recruiting for its PC technical test, capturing the attention of gamers worldwide. With its time-loop narrative, D20 dice system, and spirit duo combat, this title takes a dramatically different approach from existing gacha games — raising the question of whether it can challenge Genshin Impact's throne."
+    },
+    {
+      "type": "heading",
+      "value": "The Journey of a Returner Rewinding 42 Days"
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=aus04uQOpPk"
+    },
+    {
+      "type": "text",
+      "value": "Rewinding Cadence's world-building evokes Steins;Gate and The Legend of Zelda: Majora's Mask. Players take the role of a **Returner** who must rewind time to 42 days before the world's destruction, uncovering the truth and changing fate. By forming a contract with a mysterious spirit called Chu, players gain the ability to rewind time — and this time-loop structure is organically intertwined with every game system."
+    },
+    {
+      "type": "text",
+      "value": "Branching storylines driven by player choices are central to the experience. Dialogue options don't just change text — like the GTA series, NPCs react to player actions in real-time, and the world state itself transforms. Committing crimes triggers a wanted system, and certain choices completely alter how subsequent loops unfold."
+    },
+    {
+      "type": "heading",
+      "value": "Fate's Dice, Borrowed from D&D"
+    },
+    {
+      "type": "quote",
+      "value": "\"A completely different good game type from Genshin or Wuthering Waves. It will climb to the top.\" — TapTap user review"
+    },
+    {
+      "type": "text",
+      "value": "The most distinctive system is the **D20 dice mechanic**. D&D-style 20-sided dice rolls determine fate branches, and the same dice result applies differently based on character stats. Since dice intervene in combat, exploration, and dialogue alike, every loop delivers a different experience."
+    },
+    {
+      "type": "text",
+      "value": "The combat system also succeeds in standing out. Using a **spirit duo combat** approach, each character fights alongside a unique spirit companion. The protagonist teams up with an elf girl, while other characters are paired with animal-type spirits. The boss fight animations revealed in the 8-minute gameplay trailer have already earned high praise from the community."
+    },
+    {
+      "type": "heading",
+      "value": "PC Technical Test: How to Join"
+    },
+    {
+      "type": "image",
+      "src": "https://r.res.easebar.com/pic/20250617/75f7db3f-366e-4836-b496-46d012b61f1c.png",
+      "caption": "Rewinding Cadence's exploration system featuring gliding and mount-based open-world traversal",
+      "alt": "Rewinding Cadence open world exploration"
+    },
+    {
+      "type": "text",
+      "value": "The current technical test is a **PC (Windows) only** small-scale confidential test. Here's a summary of the key details."
+    },
+    {
+      "type": "table",
+      "headers": ["Item", "Details"],
+      "rows": [
+        ["Test Platform", "PC (Windows) only"],
+        ["Test Type", "Small-scale confidential technical test (NDA required)"],
+        ["Recruitment Start", "February 26, 2026"],
+        ["Recruitment Deadline", "March 27, 2026"],
+        ["How to Join", "TapTap official page or MUR survey participation"],
+        ["Data", "Full wipe after test, no monetization"],
+        ["Rewards", "Test guarantee pass, VIVO smartphone, gaming peripherals, limited art prints"]
+      ],
+      "caption": "Rewinding Cadence PC Technical Test Overview"
+    },
+    {
+      "type": "text",
+      "value": "To participate, pre-register on the TapTap official page and complete the MUR survey to earn points for test access. The test rewards are quite generous — including a VIVO smartphone, gaming peripherals, and limited-edition art prints."
+    },
+    {
+      "type": "heading",
+      "value": "A New Challenger to Genshin's Throne"
+    },
+    {
+      "type": "quote",
+      "value": "\"One of the most anticipated new gacha games.\" — ByteStix"
+    },
+    {
+      "type": "text",
+      "value": "Rewinding Cadence is drawing attention not simply because it's new, but because it's attempting to upend the formula Genshin Impact established in the open-world gacha genre. The combination of time loops and the D20 system represents a direction no existing gacha game has attempted."
+    },
+    {
+      "type": "text",
+      "value": "The developer's backing is also significant. As a Tencent subsidiary, Saroasis Studios has access to large-scale investment and long-term operational capabilities. Simultaneous Chinese, Japanese, and English voice support signals a strategy clearly aimed at a global launch."
+    },
+    {
+      "type": "text",
+      "value": "Of course, concerns exist. Whether the novel concepts of time loops and dice systems can maintain depth across dozens or hundreds of hours of playtime remains to be seen through actual testing. However, the polish displayed in the 8-minute gameplay trailer across combat, exploration, and story systems was certainly promising."
+    },
+    {
+      "type": "heading",
+      "value": "A World Crafted in Hand-Drawn 2D Art"
+    },
+    {
+      "type": "image",
+      "src": "https://r.res.easebar.com/pic/20250617/6865718d-b909-4640-9d52-244281e544ef.png",
+      "caption": "Rewinding Cadence's hand-drawn 2D art style — a deliberate departure from 3D cel-shading",
+      "alt": "Rewinding Cadence hand-drawn 2D art style graphics"
+    },
+    {
+      "type": "text",
+      "value": "The graphics are another differentiating factor. While most open-world gacha games adopt 3D cel-shading, Rewinding Cadence pushes **hand-drawn animation-style 2D graphics**. Open-world exploration with gliding and mount systems is available, along with rich environmental interactions."
+    },
+    {
+      "type": "text",
+      "value": "Currently in development targeting PC, Android, and iOS multi-platform release, Chinese Android pre-registration has already begun. While no official launch date has been announced, feedback from this PC technical test is expected to significantly influence the timeline. Whether Rewinding Cadence can breathe new life into the open-world gacha market remains to be seen — and test results are eagerly awaited."
+    }
+  ],
+  "needTranslate": false
+}

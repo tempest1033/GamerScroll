@@ -1,0 +1,320 @@
+{
+  "slug": "nakwon-last-paradise-cbt",
+  "status": "approved",
+  "title": "서울 종로에 좀비가 들끓는다, 낙원 CBT가 증명한 K-좀비 익스트랙션의 가능성",
+  "titleEn": "Zombies Overrun Seoul Jongno: What NAKWON's CBT Proved About K-Zombie Extraction",
+  "summary": "넥슨의 3인칭 PvPvE 좀비 익스트랙션 '낙원: 라스트 파라다이스'가 2차 글로벌 클로즈드 알파 테스트를 마쳤다. 동시접속 16,000명을 돌파하며 전작 대비 3배 성장했지만, 최적화와 UI 문제로 호불호가 갈리고 있다.",
+  "summaryEn": "Nexon's third-person PvPvE zombie extraction game NAKWON: LAST PARADISE concluded its 2nd Global Closed Alpha Test. Concurrent players surpassed 16,000 — triple the previous test — but optimization and UI issues left players divided.",
+  "keywords": "낙원, 라스트 파라다이스, 익스트랙션, 좀비, 넥슨, CBT, 민트로켓, K-좀비, 종로, 서바이벌, PvPvE, 스팀",
+  "keywordsEn": "NAKWON, Last Paradise, extraction, zombie, Nexon, CBT, Mintrocket, K-zombie, Jongno, survival, PvPvE, Steam",
+  "date": "2026-03-16T12:00",
+  "thumbnail": "https://cdn.gamemeca.com/gmdata/0001/772/648/gm359307_pjh260313-1.webp",
+  "sources": [
+    {
+      "name": "게임메카",
+      "title": "낙원: 라스트 파라다이스 CBT 평가",
+      "url": "https://www.gamemeca.com/view.php?gid=1772648"
+    },
+    {
+      "name": "ZDNet Korea",
+      "title": "넥슨 신작 낙원 비공개 테스트 개시",
+      "url": "https://zdnet.co.kr/view/?no=20260311101818"
+    },
+    {
+      "name": "글로벌이코노믹",
+      "title": "넥슨 차기작 낙원 2차 테스트, 확 달라진 점 세 가지",
+      "url": "https://www.g-enews.com/article/ICT/2026/03/202603090921079056c5fa75ef86_1"
+    },
+    {
+      "name": "인벤",
+      "title": "K-좀비 등판, 낙원: 라스트 파라다이스 알파 테스트 돌입",
+      "url": "https://www.inven.co.kr/webzine/news/?news=314283"
+    },
+    {
+      "name": "에펨코리아",
+      "title": "낙원 CBT 커뮤니티 반응 종합",
+      "url": "https://www.fmkorea.com/best/9589962930"
+    }
+  ],
+  "relatedDocs": ["tech:normal/rewinding-cadence-technical-test"],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "넥슨의 3인칭 PvPvE 좀비 익스트랙션 게임 **낙원: 라스트 파라다이스**가 5일간의 2차 글로벌 클로즈드 알파 테스트를 마쳤다. 3월 12일부터 16일까지 진행된 이번 테스트에서 동시접속자 수는 **16,000명**을 돌파했고, 2023년 11월 프리알파 때의 5,600명 대비 약 **3배** 성장했다. 숫자만 보면 성공적이지만, 커뮤니티 반응은 \"나쁘지 않지만 대작이라 부르기엔 아직\"이라는 미묘한 온도차를 보이고 있다."
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=FT8-KpV80RA"
+    },
+    {
+      "type": "quote",
+      "value": "나쁜 게임은 아닌데 대작이라고 부르기도 어렵다. 잠재력은 보이는데 다듬어야 할 게 많다",
+      "cite": "CBT 참여자 종합 반응"
+    },
+    {
+      "type": "heading",
+      "value": "민트로켓에서 넥슨 빅게임으로, 개발 주체가 바뀌었다"
+    },
+    {
+      "type": "text",
+      "value": "낙원의 역사를 이해하려면 개발 주체 변경부터 짚어야 한다. 원래 이 게임은 **데이브 더 다이버**로 이름을 날린 **민트로켓**이 개발하고 있었다. 그런데 2024년 4월, 넥슨은 개발 주체를 **빅게임 프로젝트 본부**로 이관한다고 발표했다. 소규모 인디 팀의 역량으로는 대규모 온라인 서비스를 감당하기 어렵다는 판단이었다."
+    },
+    {
+      "type": "text",
+      "value": "프리알파에서 2차 테스트까지 **2년 5개월**이 걸린 셈인데, 그 사이에 게임의 골격이 상당 부분 바뀌었다. 전투 시스템이 전면 개편되었고, 맵이 확장되었으며, 비전투 콘텐츠가 대폭 추가되었다. 단순히 \"업데이트\"라고 부르기엔 체감 변화가 크다."
+    },
+    {
+      "type": "heading",
+      "value": "60종 근접무기와 라스트 스탠드, 전투가 완전히 달라졌다"
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=pzLwWXWDHHs"
+    },
+    {
+      "type": "text",
+      "value": "이번 테스트에서 가장 눈에 띄는 변화는 전투 시스템이다. **60종 이상의 근접무기**와 **7종의 원거리 무기**가 추가되었고, 각 무기마다 고유한 연속 공격과 은밀 공격 모션을 갖추고 있다. 소방도끼, 건설용 해머, 즉석 샷건, 권총 등 포스트 아포칼립스 세계관에 맞는 무기 구성이 인상적이다."
+    },
+    {
+      "type": "text",
+      "value": "특히 주목할 시스템은 **라스트 스탠드**다. 체력이 0이 되어도 즉사하지 않고, 마지막으로 탈출을 시도할 기회가 주어진다. 타르코프 같은 익스트랙션 장르에서 즉사의 좌절감은 이탈의 가장 큰 원인인데, 낙원은 이 문제에 나름의 해법을 제시한 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "종로 북부가 열렸다, 4가지 날씨가 분위기를 바꾼다"
+    },
+    {
+      "type": "quote",
+      "value": "\"종로 거리를 걷다가 익숙한 간판이 눈에 들어올 때의 몰입감은 다른 좀비 게임에서 느낄 수 없는 것이다\""
+    },
+    {
+      "type": "text",
+      "value": "맵 측면에서는 **종로 북부 지역**이 새로 추가되었다. 기존 남부 지역과 합쳐 서울 종로의 스케일이 한층 커졌다. 야간, 비, 새벽, 초저녁 등 **4가지 날씨 환경**이 도입되어 같은 맵이라도 분위기가 완전히 달라진다."
+    },
+    {
+      "type": "text",
+      "value": "플레이어들이 공통적으로 칭찬한 부분은 **서울 재현도**다. 종로의 골목길, 간판, 건물 구조가 높은 충실도로 구현되어 있어 한국 플레이어들에게 특별한 몰입감을 제공한다. 유리를 깨서 진입하거나, 파쿠르로 건물을 오르거나, 로프를 타고 이동하는 등 오브젝트 활용의 전략성도 호평을 받았다."
+    },
+    {
+      "type": "heading",
+      "value": "6종 특수 좀비와 35개 스킬, 콘텐츠 볼륨의 도약"
+    },
+    {
+      "type": "text",
+      "value": "좀비 종류도 다양해졌다. **러너, 부처, 아머드, 폴리스맨, 개더러, 스크리머** 등 6종의 특수 좀비가 추가되어 전투 상황의 변수가 늘었다. 각각 다른 행동 패턴을 가지고 있어 상황에 따라 전략을 바꿔야 한다."
+    },
+    {
+      "type": "table",
+      "headers": ["콘텐츠", "프리알파 (2023)", "2차 알파 (2026)"],
+      "rows": [
+        ["근접무기", "제한적", "60종 이상"],
+        ["원거리무기", "소수", "7종"],
+        ["스킬", "미구현", "35개 (능동/수동)"],
+        ["가구/하우징", "미구현", "70종 이상"],
+        ["퀘스트", "소수", "160개 이상"],
+        ["특수 좀비", "기본 좀비 위주", "6종 특수 타입"],
+        ["동시접속", "5,600명", "16,000명 이상"]
+      ],
+      "caption": "프리알파 대비 2차 알파 테스트 콘텐츠 비교"
+    },
+    {
+      "type": "text",
+      "value": "비전투 콘텐츠도 대폭 확충되었다. **35개의 스킬 트레잇**, **70종 이상의 가구**를 활용한 하우징 시스템, **160개 이상의 퀘스트**가 추가되어 전투 외의 플레이 루프가 마련되었다. 하우징 시스템은 단순한 꾸미기가 아니라 생존 거점으로서의 기능을 갖추고 있어, 낮에는 쉘터를 관리하고 밤에는 탐험을 나가는 순환 구조를 만들어낸다."
+    },
+    {
+      "type": "heading",
+      "value": "냄비 갑옷과 주차 표지판 방패, K-좀비의 독창성"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2582960/484dd9c552e25444247967a705623a3d6db5d9ae/header_alt_assets_0.jpg",
+      "caption": "낙원: 라스트 파라다이스 스팀 메인 이미지. 서울 종로를 배경으로 한 포스트 아포칼립스 세계",
+      "alt": "낙원 라스트 파라다이스 스팀 메인 이미지"
+    },
+    {
+      "type": "text",
+      "value": "낙원이 다른 좀비 게임과 차별화되는 지점은 **K-좀비** 정체성이다. 하회탈을 쓴 적, 냄비로 만든 갑옷, 주차 표지판을 방패로 쓰는 생존자 등 한국적 소재가 게임 전반에 녹아 있다. 단순히 배경만 서울인 게 아니라, 아이템과 적 디자인까지 토착적 색채를 입힌 점이 해외 유저들에게도 신선하게 다가갔다는 반응이 많다."
+    },
+    {
+      "type": "text",
+      "value": "TPS(3인칭 슈터) 시점도 전략적 선택이다. 익스트랙션 장르의 대표작인 타르코프가 FPS 기반인 데 반해, 낙원은 3인칭 시점을 채택해 시야각이 넓고 공간 파악이 쉽다. 이 때문에 익스트랙션 장르 초보자도 비교적 쉽게 접근할 수 있다는 평가다."
+    },
+    {
+      "type": "heading",
+      "value": "\"나쁘지 않지만 대작은 아직\", 갈리는 평가"
+    },
+    {
+      "type": "text",
+      "value": "긍정적 반응만 있는 건 아니다. 커뮤니티에서 가장 많이 지적된 문제는 **프레임 최적화**다. 특히 좀비가 밀집한 구간에서 프레임 드랍이 심하다는 보고가 잇따랐다. **UI/UX**도 불편하다는 의견이 많았는데, 하우징 단축키, 상점 설명, 필터링 기능 부재 등이 대표적이다."
+    },
+    {
+      "type": "text",
+      "value": "TPS 시점에서 **근접 전투 거리감**이 애매하다는 지적도 있다. FPS에서는 크로스헤어로 거리를 직관적으로 판단할 수 있지만, TPS 근접전에서는 캐릭터와 적 사이의 실제 거리를 가늠하기 어려운 경우가 있다. 남부 맵의 **레벨 디자인**이 길게 느껴지고, 고렙 구간에서 진행이 느려진다는 의견도 제기되었다."
+    },
+    {
+      "type": "heading",
+      "value": "익스트랙션 장르의 위기 속 넥슨의 승부수"
+    },
+    {
+      "type": "text",
+      "value": "낙원이 놓인 시장 환경은 녹록지 않다. 익스트랙션 장르는 최근 진입 장벽과 이탈률 문제로 고전하고 있다. 던전 스토커즈 등 후발 주자가 서비스를 종료하는 사례도 나오고 있어, 장르 자체의 지속 가능성에 의문을 제기하는 목소리도 있다."
+    },
+    {
+      "type": "text",
+      "value": "반면 긍정적 신호도 있다. 넥슨의 또 다른 익스트랙션 게임 **아크 레이더스**가 누적 판매 1,400만 장, 서구 매출 **364% 성장**을 기록하며 장르의 가능성을 증명했다. 낙원은 K-좀비와 서울이라는 독자적 세계관으로 아크 레이더스와의 차별화를 노리고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "3년 전과 확실히 다르다, 남은 숙제는 최적화"
+    },
+    {
+      "type": "text",
+      "value": "2차 알파 테스트의 결론은 명확하다. 3년 전 프리알파와 비교하면 **타격감, 콘텐츠 볼륨, 세계관 완성도** 모두 눈에 띄게 향상되었다. 동시접속 3배 증가라는 수치가 이를 뒷받침한다. 하지만 최적화, UI/UX, 근접전 거리감 등 해결해야 할 과제도 뚜렷하다."
+    },
+    {
+      "type": "text",
+      "value": "익스트랙션 장르의 침체기에 K-좀비라는 카드로 돌파구를 찾을 수 있을지, 넥슨 빅게임 본부의 다음 행보에 관심이 쏠린다. 정식 출시 일정은 아직 공개되지 않았지만, 이번 테스트가 방향성을 잡는 중요한 분기점이 된 것은 분명하다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Nexon's third-person PvPvE zombie extraction game **NAKWON: LAST PARADISE** has concluded its five-day 2nd Global Closed Alpha Test. Running from March 12 to 16, concurrent players surpassed **16,000** — roughly **triple** the 5,600 seen during the November 2023 Pre-Alpha. The numbers look promising, but community sentiment is more nuanced: \"Not a bad game, but hard to call it a great one just yet.\""
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=FT8-KpV80RA"
+    },
+    {
+      "type": "quote",
+      "value": "It's not a bad game, but it's hard to call it a great one either. The potential is there, but there's a lot of polishing to do.",
+      "cite": "Consolidated CBT participant feedback"
+    },
+    {
+      "type": "heading",
+      "value": "From Mintrocket to Nexon Big Game: A Change in Leadership"
+    },
+    {
+      "type": "text",
+      "value": "Understanding NAKWON requires knowing its development history. The game was originally built by **Mintrocket**, the team behind the hit indie title **Dave the Diver**. In April 2024, however, Nexon transferred development to its **Big Game Project HQ**, reasoning that a small indie team couldn't sustain a large-scale online service."
+    },
+    {
+      "type": "text",
+      "value": "It took **two years and five months** between the Pre-Alpha and this second test, during which the game's core systems underwent substantial changes. The combat system was overhauled, the map expanded, and non-combat content was significantly added. Calling it a simple \"update\" understates the transformation."
+    },
+    {
+      "type": "heading",
+      "value": "60+ Melee Weapons and Last Stand: Combat Reinvented"
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=pzLwWXWDHHs"
+    },
+    {
+      "type": "text",
+      "value": "The most striking change in this test is the combat system. Over **60 melee weapons** and **7 ranged weapons** have been added, each with unique combo and stealth attack animations. Fire axes, construction hammers, makeshift shotguns, and pistols — the arsenal fits the post-apocalyptic setting convincingly."
+    },
+    {
+      "type": "text",
+      "value": "The standout feature is the **Last Stand** system. Instead of dying instantly at zero HP, players get one final chance to attempt an escape. In a genre where instant death is the leading cause of player frustration and churn, NAKWON offers a meaningful answer to that problem."
+    },
+    {
+      "type": "heading",
+      "value": "Northern Jongno Opens Up with Four Weather Conditions"
+    },
+    {
+      "type": "quote",
+      "value": "\"The immersion when you spot a familiar street sign while walking through Jongno is something no other zombie game can offer.\""
+    },
+    {
+      "type": "text",
+      "value": "The map now includes a **Northern Jongno** area, expanding Seoul's Jongno district considerably. Four weather conditions — night, rain, dawn, and early evening — have been introduced, making the same map feel entirely different depending on conditions."
+    },
+    {
+      "type": "text",
+      "value": "Players consistently praised the **fidelity of Seoul's recreation**. Jongno's alleyways, signage, and building layouts are rendered with impressive accuracy, providing a uniquely immersive experience for Korean players. Strategic environmental interactions — breaking glass to enter buildings, parkour across rooftops, rope traversal — also received positive feedback."
+    },
+    {
+      "type": "heading",
+      "value": "Six Special Zombie Types and 35 Skills: A Content Leap"
+    },
+    {
+      "type": "text",
+      "value": "The zombie roster has expanded with six special types: **Runner, Butcher, Armored, Policeman, Gatherer, and Screamer**. Each has distinct behavior patterns, forcing players to adapt their strategies based on the situation."
+    },
+    {
+      "type": "table",
+      "headers": ["Content", "Pre-Alpha (2023)", "2nd Alpha (2026)"],
+      "rows": [
+        ["Melee Weapons", "Limited", "60+"],
+        ["Ranged Weapons", "Few", "7"],
+        ["Skills", "Not implemented", "35 (active/passive)"],
+        ["Furniture/Housing", "Not implemented", "70+"],
+        ["Quests", "Few", "160+"],
+        ["Special Zombies", "Basic types only", "6 special types"],
+        ["Concurrent Players", "5,600", "16,000+"]
+      ],
+      "caption": "Content comparison: Pre-Alpha vs 2nd Alpha Test"
+    },
+    {
+      "type": "text",
+      "value": "Non-combat content has been substantially expanded. **35 skill traits**, a housing system with **70+ furniture items**, and **160+ quests** create gameplay loops beyond combat. The housing system functions as a survival base rather than mere decoration, establishing a day-night cycle where players manage their shelter during the day and venture out to explore at night."
+    },
+    {
+      "type": "heading",
+      "value": "Pot Armor and Parking Sign Shields: K-Zombie Originality"
+    },
+    {
+      "type": "image",
+      "src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2582960/484dd9c552e25444247967a705623a3d6db5d9ae/header_alt_assets_0.jpg",
+      "caption": "NAKWON: LAST PARADISE Steam header image. A post-apocalyptic world set in Seoul's Jongno district",
+      "alt": "NAKWON Last Paradise Steam header image"
+    },
+    {
+      "type": "text",
+      "value": "What sets NAKWON apart from other zombie games is its **K-zombie identity**. Enemies wearing traditional Hahoe masks, pot-fashioned armor, survivors using parking signs as shields — Korean cultural elements permeate the entire game. It's not just Seoul as a backdrop; items and enemy designs carry distinctly local flavor, which international players have found refreshing."
+    },
+    {
+      "type": "text",
+      "value": "The TPS (third-person shooter) perspective is also a strategic choice. While Tarkov, the genre's flagship title, uses FPS, NAKWON's third-person view provides a wider field of vision and easier spatial awareness. This makes the extraction genre more accessible to newcomers."
+    },
+    {
+      "type": "heading",
+      "value": "\"Not Bad, But Not Great Yet\": Divided Opinions"
+    },
+    {
+      "type": "text",
+      "value": "The feedback isn't all positive. The most frequently cited issue is **frame rate optimization**, particularly in areas with dense zombie populations. **UI/UX** complaints were also common — housing shortcuts, shop descriptions, and lack of filtering options were the main pain points."
+    },
+    {
+      "type": "text",
+      "value": "The **melee combat distance** in TPS perspective was another concern. While FPS crosshairs provide intuitive range feedback, gauging actual distance between character and enemy in third-person melee combat proved awkward. The southern map's **level design** was criticized for feeling drawn-out, with progression slowing noticeably in higher-level zones."
+    },
+    {
+      "type": "heading",
+      "value": "Nexon's Bet During the Extraction Genre Downturn"
+    },
+    {
+      "type": "text",
+      "value": "NAKWON enters a challenging market. The extraction genre has been struggling with high entry barriers and player retention issues. Titles like Dungeon Stalkers have shut down, raising questions about the genre's sustainability."
+    },
+    {
+      "type": "text",
+      "value": "Yet positive signals exist. Nexon's other extraction title **ARC Raiders** achieved 14 million cumulative sales and **364% Western revenue growth**, proving genre viability. NAKWON aims to differentiate itself from ARC Raiders through its K-zombie identity and Seoul setting."
+    },
+    {
+      "type": "heading",
+      "value": "Clearly Different from Three Years Ago — Optimization Remains the Challenge"
+    },
+    {
+      "type": "text",
+      "value": "The 2nd Alpha Test's verdict is clear. Compared to the Pre-Alpha three years ago, **hit feedback, content volume, and world-building** have all improved visibly. The threefold increase in concurrent players backs this up. But optimization, UI/UX, and melee combat feel remain obvious challenges."
+    },
+    {
+      "type": "text",
+      "value": "Whether NAKWON can break through the extraction genre's downturn with its K-zombie card remains to be seen. No official launch date has been announced, but this test clearly served as a crucial turning point for the game's direction."
+    }
+  ],
+  "needTranslate": false
+}

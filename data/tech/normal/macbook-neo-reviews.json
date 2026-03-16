@@ -1,0 +1,282 @@
+{
+  "slug": "macbook-neo-reviews",
+  "status": "approved",
+  "title": "599달러에 이 성능? 맥북 네오가 윈도우 진영을 뒤흔든 이유",
+  "titleEn": "At $599, This Good? Why MacBook Neo Is Shaking Up the Windows Camp",
+  "summary": "애플이 599달러에 출시한 맥북 네오가 해외 리뷰어들의 극찬을 받고 있다. 긱벤치 싱글코어 3,461점, 16시간 배터리, 수리 용이성까지 갖추며 윈도우 PC 진영에 충격파를 던졌다.",
+  "summaryEn": "Apple's $599 MacBook Neo is receiving rave reviews from critics worldwide. With a Geekbench single-core score of 3,461, 16-hour battery life, and improved repairability, it's sending shockwaves through the Windows PC market.",
+  "keywords": "맥북 네오, 애플, A18 Pro, 599달러, 예산 노트북, 긱벤치, 리퀴드 레티나, 수리 용이성, 아이픽스잇, 맥북 에어, 에이수스, 윈도우 PC",
+  "keywordsEn": "MacBook Neo, Apple, A18 Pro, budget laptop, Geekbench, Liquid Retina, repairability, iFixit, MacBook Air, ASUS, Windows PC",
+  "date": "2026-03-16T12:00",
+  "thumbnail": "https://www.apple.com/newsroom/images/2026/03/say-hello-to-macbook-neo/article/Apple-MacBook-Neo-color-lineup-260304_big.jpg.large.jpg",
+  "sources": [
+    {
+      "name": "Apple Newsroom",
+      "title": "Say Hello to MacBook Neo",
+      "url": "https://www.apple.com/newsroom/2026/03/say-hello-to-macbook-neo/"
+    },
+    {
+      "name": "9to5Mac",
+      "title": "MacBook Neo Review",
+      "url": "https://9to5mac.com/2026/03/10/macbook-neo-review/"
+    },
+    {
+      "name": "Fortune",
+      "title": "Apple MacBook Neo: ASUS CFO Nick Wu's Reaction",
+      "url": "https://fortune.com/2026/03/12/apple-macbook-neo-personal-computer-pc-asus-cfo-nick-wu-csuite-big-tech/"
+    },
+    {
+      "name": "iFixit",
+      "title": "MacBook Neo Is the Most Repairable MacBook in 14 Years",
+      "url": "https://www.ifixit.com/News/116152/macbook-neo-is-the-most-repairable-macbook-in-14-years"
+    },
+    {
+      "name": "Tom's Guide",
+      "title": "Apple MacBook Neo Review",
+      "url": "https://www.tomsguide.com/computing/macbooks/apple-macbook-neo-review"
+    }
+  ],
+  "relatedDocs": ["tech:normal/intel-core-ultra-200s-plus"],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "애플이 3월 11일 출시한 **맥북 네오**가 해외 리뷰어들 사이에서 폭발적인 호평을 얻고 있다. 599달러(한국 99만 원)라는 가격에 A18 프로 칩, 13인치 리퀴드 레티나 디스플레이, 최대 16시간 배터리를 탑재했다. 엔가젯은 \"600달러짜리 윈도우 PC를 전부 망신시키는 제품\"이라 평했고, 톰스 가이드는 \"역대 최고의 예산 노트북\"이라는 타이틀을 붙였다."
+    },
+    {
+      "type": "heading",
+      "value": "A18 프로가 이 가격에?"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/say-hello-to-macbook-neo/article/Apple-MacBook-Neo-Liquid-Retina-display-260304_big.jpg.large.jpg",
+      "caption": "맥북 네오의 13인치 리퀴드 레티나 디스플레이는 2408x1506 해상도, 500니트 밝기를 제공한다",
+      "alt": "맥북 네오 리퀴드 레티나 디스플레이"
+    },
+    {
+      "type": "text",
+      "value": "맥북 네오의 심장은 **A18 프로** 칩이다. 6코어 CPU와 5코어 GPU를 갖추고 있으며, 통합 메모리 8GB와 256GB SSD를 기본으로 제공한다. 아이폰 16 프로에 들어가던 바로 그 칩이 노트북에 탑재된 셈이다.\n\n벤치마크 결과가 인상적이다. 긱벤치 6 싱글코어 점수는 **3,461점**으로, M1 대비 49% 향상되었고 M3, M4에 근접하는 수치다. 멀티코어는 8,668점으로 M1과 비슷한 수준이다. 메탈 GPU 점수는 31,286점을 기록했다."
+    },
+    {
+      "type": "table",
+      "headers": ["항목", "맥북 네오 ($599)", "맥북 에어 M5 ($1,099)"],
+      "rows": [
+        ["프로세서", "A18 프로", "M5"],
+        ["메모리", "8GB", "16GB"],
+        ["저장 공간", "256GB SSD", "512GB SSD"],
+        ["싱글코어 비교", "기준", "약 20% 빠름"],
+        ["멀티코어 비교", "기준", "약 80% 빠름"]
+      ],
+      "caption": "맥북 네오와 맥북 에어 M5 비교"
+    },
+    {
+      "type": "text",
+      "value": "500달러 차이를 감안하면 네오의 가성비가 돋보인다. 싱글코어 기준으로 에어 M5 대비 약 20%만 뒤처지는데, 가격은 거의 절반이다. 웹 브라우징, 문서 작업, 가벼운 영상 편집 정도라면 네오로 충분하다는 평이 주를 이룬다."
+    },
+    {
+      "type": "heading",
+      "value": "해외 매체 리뷰 총정리"
+    },
+    {
+      "type": "quote",
+      "value": "\"600달러짜리 윈도우 PC를 전부 망신시키는 제품\" — 엔가젯"
+    },
+    {
+      "type": "text",
+      "value": "출시 직후 쏟아진 리뷰의 논조는 한결같다. 이 가격대에서 맥북 네오를 이길 수 있는 윈도우 노트북은 없다는 것이다.\n\n**톰스 가이드**는 \"역대 최고의 예산 노트북\"이라 선언했고, **기즈모도**는 \"경쟁 상대가 없는 예산 노트북\"이라 평했다. **노트북체크**는 \"놀라울 정도로 훌륭하다\"면서도 8GB 메모리를 유일한 아쉬운 점으로 꼽았다."
+    },
+    {
+      "type": "text",
+      "value": "특히 주목할 만한 반응은 **아이픽스잇**에서 나왔다. 맥북 네오에 **10점 만점에 6점**의 수리 용이성 점수를 부여하며 \"14년 만에 가장 수리하기 쉬운 맥북\"이라고 평가했다. 애플 제품치고는 이례적으로 높은 점수다. 배터리 교체가 간편해졌고, 내부 구조가 이전 모델보다 정비 친화적으로 설계되었다."
+    },
+    {
+      "type": "heading",
+      "value": "블러시, 인디고, 시트러스: 4가지 컬러와 디자인"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/say-hello-to-macbook-neo/article/Apple-MacBook-Neo-keyboard-and-trackpad-260304_big.jpg.large.jpg",
+      "caption": "맥북 네오의 키보드와 트랙패드. 백라이트가 없는 점이 가장 논란이 된 부분이다",
+      "alt": "맥북 네오 키보드와 트랙패드"
+    },
+    {
+      "type": "text",
+      "value": "맥북 네오는 **블러시, 인디고, 실버, 시트러스** 4가지 색상으로 출시되었다. 기존 맥북 라인업에서 볼 수 없던 화사한 색감이 특징이다.\n\n포트 구성은 좌측 USB-C(USB 3), 우측 USB-C(USB 2), 그리고 3.5mm 헤드폰 잭이다. 외부 디스플레이 연결은 좌측 USB 3 포트에서만 가능하다는 점은 기억해 둘 필요가 있다."
+    },
+    {
+      "type": "heading",
+      "value": "아쉬운 점도 분명하다"
+    },
+    {
+      "type": "text",
+      "value": "599달러에 맞추기 위해 빠진 것들이 있다. 가장 논란이 된 부분은 **키보드 백라이트 미탑재**다. 맥북 역사상 16년 만에 처음으로 백라이트가 빠졌다. 어두운 환경에서 자주 작업하는 사용자에게는 불편할 수 있다.\n\n그 외 타협점은 다음과 같다:"
+    },
+    {
+      "type": "table",
+      "headers": ["빠진 기능", "영향"],
+      "rows": [
+        ["키보드 백라이트", "어두운 환경에서 타이핑 불편"],
+        ["트루톤", "주변 조명에 따른 자동 색온도 조절 불가"],
+        ["포스터치 트랙패드", "압력 감지 기능 없음"],
+        ["맥세이프", "자석식 충전 불가, USB-C 충전만 지원"],
+        ["메모리/저장 업그레이드", "8GB/256GB 고정, 추후 확장 불가"]
+      ],
+      "caption": "맥북 네오에서 제외된 기능 목록"
+    },
+    {
+      "type": "text",
+      "value": "8GB 통합 메모리와 256GB SSD가 납땜 방식으로 고정되어 있어 업그레이드가 불가능하다는 점도 장기 사용 관점에서 고민 요소다. 노트북체크는 이 부분을 \"유일한 큰 단점\"이라고 지적했다."
+    },
+    {
+      "type": "heading",
+      "value": "윈도우 PC 진영에 떨어진 충격파"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/say-hello-to-macbook-neo/article/Apple-MacBook-Neo-ports-260304_big.jpg.large.jpg",
+      "caption": "맥북 네오의 포트 구성. USB-C 2개와 헤드폰 잭으로 구성되어 있다",
+      "alt": "맥북 네오 포트"
+    },
+    {
+      "type": "quote",
+      "value": "\"599달러는 전체 시장에 충격이다.\" — 에이수스 CFO 닉 우"
+    },
+    {
+      "type": "text",
+      "value": "맥북 네오가 업계에 던진 충격은 리뷰 점수보다 경쟁사 반응에서 더 극명하게 드러난다. 에이수스의 CFO **닉 우**는 공개적으로 \"599달러라는 가격이 전체 시장에 충격\"이라고 인정했다. 마이크로소프트, 인텔, AMD까지 대응을 논의 중이라는 소식도 전해졌다.\n\n**블룸버그**는 맥북 네오를 \"윈도우 PC 시장에 대한 가장 큰 가치 위협\"이라고 분석했다. 실제로 600달러 이하 가격대에서 맥북 네오에 대응할 수 있는 윈도우 제품을 찾기가 쉽지 않다."
+    },
+    {
+      "type": "text",
+      "value": "경쟁사들의 대응이 더 어려운 이유가 있다. 현재 DRAM 가격이 **100% 이상 급등**한 상황이라, 메모리를 늘린 저가 제품을 출시하는 것 자체가 원가 부담으로 이어진다. 애플은 자체 칩과 통합 메모리 아키텍처 덕분에 이 영향을 상대적으로 덜 받는다.\n\n교육 시장에서는 499달러라는 더 파격적인 가격으로 제공되어, 크롬북이 지배하던 학교 시장까지 위협할 수 있다는 전망도 나온다."
+    },
+    {
+      "type": "heading",
+      "value": "누구를 위한 노트북인가"
+    },
+    {
+      "type": "text",
+      "value": "맥북 네오는 명확한 타겟이 있다. 합리적인 가격에 맥OS 생태계를 경험하고 싶은 학생, 기본적인 업무와 콘텐츠 소비가 주 용도인 사용자, 그리고 첫 맥북을 고려하는 윈도우 사용자다.\n\n반대로 영상 편집이나 개발 환경처럼 메모리가 중요한 작업을 주로 한다면 맥북 에어 M5 이상을 권장한다. 8GB 메모리는 2026년 기준으로 넉넉하다고 보기 어렵다. 특히 여러 앱을 동시에 띄워놓고 작업하는 패턴이라면 한계가 올 수 있다.\n\n그럼에도 599달러에 이 완성도라면, 맥북 네오는 노트북 시장의 가격 기준 자체를 다시 쓰고 있다. 윈도우 진영이 어떤 카드로 대응할지가 올해 하반기 PC 시장의 핵심 변수가 될 전망이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Apple's **MacBook Neo**, released on March 11, is earning rave reviews from critics worldwide. At $599 (990,000 KRW in Korea), it packs an A18 Pro chip, a 13-inch Liquid Retina display, and up to 16 hours of battery life. Engadget declared it \"puts every $600 Windows PC to shame,\" while Tom's Guide crowned it the \"best budget laptop ever.\""
+    },
+    {
+      "type": "heading",
+      "value": "A18 Pro at This Price?"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/say-hello-to-macbook-neo/article/Apple-MacBook-Neo-Liquid-Retina-display-260304_big.jpg.large.jpg",
+      "caption": "The MacBook Neo's 13-inch Liquid Retina display delivers 2408x1506 resolution at 500 nits brightness",
+      "alt": "MacBook Neo Liquid Retina Display"
+    },
+    {
+      "type": "text",
+      "value": "At the heart of the MacBook Neo is the **A18 Pro** chip, featuring a 6-core CPU and 5-core GPU, paired with 8GB unified memory and 256GB SSD. It's the same chip found in the iPhone 16 Pro, now in a laptop.\n\nBenchmark results are impressive. Geekbench 6 single-core scores hit **3,461 points** — 49% higher than M1 and approaching M3/M4 territory. Multi-core reaches 8,668 points, comparable to M1. The Metal GPU score lands at 31,286."
+    },
+    {
+      "type": "table",
+      "headers": ["Spec", "MacBook Neo ($599)", "MacBook Air M5 ($1,099)"],
+      "rows": [
+        ["Processor", "A18 Pro", "M5"],
+        ["Memory", "8GB", "16GB"],
+        ["Storage", "256GB SSD", "512GB SSD"],
+        ["Single-core comparison", "Baseline", "~20% faster"],
+        ["Multi-core comparison", "Baseline", "~80% faster"]
+      ],
+      "caption": "MacBook Neo vs MacBook Air M5 comparison"
+    },
+    {
+      "type": "text",
+      "value": "Considering the $500 price gap, the Neo's value proposition stands out. It trails the Air M5 by only about 20% in single-core performance at nearly half the price. For web browsing, document work, and light video editing, reviewers agree the Neo is more than sufficient."
+    },
+    {
+      "type": "heading",
+      "value": "What the Critics Are Saying"
+    },
+    {
+      "type": "quote",
+      "value": "\"Apple puts every $600 Windows PC to shame.\" — Engadget"
+    },
+    {
+      "type": "text",
+      "value": "Reviews published after launch share a unanimous verdict: no Windows laptop can beat the MacBook Neo at this price point.\n\n**Tom's Guide** declared it the \"best budget laptop ever.\" **Gizmodo** said \"no other budget laptop can compete.\" **NotebookCheck** called it \"surprisingly good\" while noting the 8GB RAM as its one major downside."
+    },
+    {
+      "type": "text",
+      "value": "A particularly notable review came from **iFixit**, which awarded the MacBook Neo a repairability score of **6 out of 10** — calling it \"the most repairable MacBook in 14 years.\" That's an unusually high score for an Apple product. Battery replacement has been simplified, and the internal layout is more service-friendly than previous models."
+    },
+    {
+      "type": "heading",
+      "value": "Blush, Indigo, Citrus: Four Colors and Design"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/say-hello-to-macbook-neo/article/Apple-MacBook-Neo-keyboard-and-trackpad-260304_big.jpg.large.jpg",
+      "caption": "The MacBook Neo keyboard and trackpad. The lack of backlit keys has been the most controversial aspect",
+      "alt": "MacBook Neo keyboard and trackpad"
+    },
+    {
+      "type": "text",
+      "value": "The MacBook Neo comes in four colors: **Blush, Indigo, Silver, and Citrus** — vibrant options not previously seen in the MacBook lineup.\n\nPort configuration includes USB-C (USB 3) on the left, USB-C (USB 2) on the right, and a 3.5mm headphone jack. External display connectivity is limited to the left USB 3 port only."
+    },
+    {
+      "type": "heading",
+      "value": "The Trade-offs Are Real"
+    },
+    {
+      "type": "text",
+      "value": "To hit the $599 price point, Apple made deliberate cuts. The most controversial: **no keyboard backlight** — a first for MacBooks in 16 years. For users who frequently work in low-light conditions, this could be a dealbreaker.\n\nOther compromises include:"
+    },
+    {
+      "type": "table",
+      "headers": ["Missing Feature", "Impact"],
+      "rows": [
+        ["Keyboard backlight", "Difficult typing in dark environments"],
+        ["True Tone", "No automatic color temperature adjustment"],
+        ["Force Touch trackpad", "No pressure-sensitive input"],
+        ["MagSafe", "No magnetic charging, USB-C only"],
+        ["Memory/storage upgrade", "Fixed at 8GB/256GB, no future expansion"]
+      ],
+      "caption": "Features omitted from the MacBook Neo"
+    },
+    {
+      "type": "text",
+      "value": "The soldered 8GB unified memory and 256GB SSD with no upgrade path is a long-term concern. NotebookCheck specifically flagged this as \"the one big downside.\""
+    },
+    {
+      "type": "heading",
+      "value": "Shockwaves Through the Windows PC Market"
+    },
+    {
+      "type": "image",
+      "src": "https://www.apple.com/newsroom/images/2026/03/say-hello-to-macbook-neo/article/Apple-MacBook-Neo-ports-260304_big.jpg.large.jpg",
+      "caption": "The MacBook Neo's port selection: two USB-C ports and a headphone jack",
+      "alt": "MacBook Neo ports"
+    },
+    {
+      "type": "quote",
+      "value": "\"$599 is a shock to the entire market.\" — ASUS CFO Nick Wu"
+    },
+    {
+      "type": "text",
+      "value": "The MacBook Neo's industry impact is perhaps best measured not by review scores but by competitor reactions. ASUS CFO **Nick Wu** publicly admitted that the $599 price point is \"a shock to the entire market.\" Reports indicate Microsoft, Intel, and AMD are all discussing potential responses.\n\n**Bloomberg** analyzed the MacBook Neo as \"the biggest value threat to the Windows PC market.\" Finding a Windows laptop that can match the Neo's offering under $600 is genuinely difficult."
+    },
+    {
+      "type": "text",
+      "value": "The competitive challenge is compounded by current market conditions. DRAM prices have surged over **100%**, making it costly for competitors to release affordable machines with adequate memory. Apple's custom silicon and unified memory architecture partially insulate it from these pressures.\n\nIn the education market, the Neo is available at an even more aggressive $499, potentially threatening Chromebook dominance in schools."
+    },
+    {
+      "type": "heading",
+      "value": "Who Is This Laptop For?"
+    },
+    {
+      "type": "text",
+      "value": "The MacBook Neo has a clear target audience: students wanting affordable access to the macOS ecosystem, users whose primary needs are basic productivity and content consumption, and Windows users considering their first Mac.\n\nConversely, those doing video editing or development work that demands more memory should look at the MacBook Air M5 or above. 8GB is a stretch for 2026 standards, especially for multi-app workflows.\n\nStill, at $599 with this level of polish, the MacBook Neo is effectively rewriting the pricing benchmark for laptops. How the Windows camp responds will be one of the defining narratives in the PC market's second half of 2026."
+    }
+  ],
+  "needTranslate": false
+}

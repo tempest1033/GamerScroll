@@ -1,0 +1,111 @@
+{
+  "slug": "intel-core-ultra-200s-plus",
+  "status": "approved",
+  "title": "100달러 깎고 코어 늘렸다, 인텔 애로우 레이크 리프레시의 승부수",
+  "date": "2026-03-16T12:00",
+  "thumbnail": "https://newsroom.intel.com/wp-content/uploads/2026/03/intel-core-ultra-march11-launch-1.jpg",
+  "keywords": "인텔, Core Ultra, 200S Plus, 애로우 레이크, 게이밍 CPU, Core Ultra 7 270K Plus, Core Ultra 5 250K Plus, DDR5, 데스크톱 프로세서",
+  "summary": "인텔이 3월 26일 출시하는 Core Ultra 200S Plus 시리즈는 E코어 추가, DDR5 7200 지원, 최대 100달러 가격 인하로 AMD와의 데스크톱 경쟁에 본격 나선다. 애로우 레이크 리프레시로 게이밍 성능 15% 향상을 내세운다.",
+  "sources": [
+    {
+      "name": "Intel Newsroom",
+      "title": "Intel Announces New Intel Core Ultra 200S Plus Series Desktop Processors",
+      "url": "https://newsroom.intel.com/client-computing/intel-announces-new-intel-core-ultra-200s-plus-series-desktop-processors"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "Intel Claims Arrow Lake Refresh CPUs Deliver 15% Higher Gaming Performance",
+      "url": "https://www.tomshardware.com/pc-components/cpus/intel-claims-arrow-lake-refresh-cpus-deliver-15-percent-higher-gaming-performance-and-multi-threaded-boost-core-ultra-7-270k-and-core-ultra-5-250k-come-with-more-cores-faster-memory-and-a-price-cut"
+    },
+    {
+      "name": "Neowin",
+      "title": "Intel New Core Ultra 270K Plus & 250K Plus Demolish AMD Ryzen CPUs",
+      "url": "https://www.neowin.net/news/intel-new-core-ultra-270k-plus--250k-plus-demolish-amd-ryzen-cpus-on-windows-11-25h2/"
+    },
+    {
+      "name": "Digital Trends",
+      "title": "Intel Reveals Core Ultra 200S Plus Duo As Its Fastest Desktop Gaming Processors Ever",
+      "url": "https://www.digitaltrends.com/computing/intel-reveals-core-ultra-200s-plus-duo-as-its-fastest-desktop-gaming-processors-ever/"
+    },
+    {
+      "name": "WCCFTech",
+      "title": "Intel Core Ultra 7 270K Plus $299 & 5 250K Plus $199",
+      "url": "https://wccftech.com/intel-core-ultra-7-270k-plus-299-5-250k-plus-199-more-e-cores-1ghz-d2d-bump-4-rank-cudimm/"
+    }
+  ],
+  "relatedGames": [],
+  "relatedDocs": ["tech:normal/macbook-neo-reviews"],
+  "content": [
+    {
+      "type": "text",
+      "value": "인텔이 데스크톱 게이밍 CPU 시장에서 반격의 카드를 꺼냈다. 3월 26일 출시 예정인 **Core Ultra 200S Plus 시리즈**는 전작 대비 E코어를 늘리고, 메모리 지원을 대폭 강화하면서도 가격은 최대 100달러 가까이 낮췄다. AMD 라이젠 9000 시리즈가 효율성과 게이밍 모두에서 강세를 보이는 가운데, 인텔의 애로우 레이크 리프레시가 판세를 뒤집을 수 있을지 관심이 집중된다."
+    },
+    {
+      "type": "heading",
+      "value": "두 모델, 확 달라진 가격표"
+    },
+    {
+      "type": "table",
+      "headers": ["항목", "Core Ultra 7 270K Plus", "Core Ultra 5 250K Plus"],
+      "rows": [
+        ["가격", "$299", "$199"],
+        ["코어 구성", "24코어 (8P + 16E)", "18코어 (6P + 12E)"],
+        ["스레드", "24스레드", "18스레드"],
+        ["P코어 부스트", "최대 5.5GHz", "-"],
+        ["P코어 베이스", "4.1GHz", "4.4GHz"],
+        ["E코어 베이스", "3.4GHz", "3.7GHz"],
+        ["스마트 캐시", "-", "30MB (+6MB)"],
+        ["TDP", "125W", "-"]
+      ],
+      "caption": "Core Ultra 200S Plus 시리즈 주요 스펙 비교"
+    },
+    {
+      "type": "text",
+      "value": "플래그십 **Core Ultra 7 270K Plus**는 299달러로 책정되었다. 전작 265K 대비 E코어가 4개 추가되어 총 24코어(8P + 16E) 구성이며, P코어는 최대 5.5GHz 부스트를 지원한다. TDP는 125W로 동일하다.\n\n메인스트림 라인업 **Core Ultra 5 250K Plus**는 199달러다. 18코어(6P + 12E) 구성에 스마트 캐시가 30MB로 전작 245K 대비 6MB 늘었다. 200달러 미만 가격대에서 상당한 멀티스레드 성능을 제공하겠다는 전략이다."
+    },
+    {
+      "type": "heading",
+      "value": "눈에 보이지 않는 곳에서 바뀐 것들"
+    },
+    {
+      "type": "text",
+      "value": "코어 수만 늘어난 게 아니다. 이번 리프레시의 핵심 개선점은 칩 내부 연결 속도와 메모리 지원 확대에 있다.\n\n**D2D(Die-to-Die) 주파수가 900MHz 상승**했다. CPU와 메모리 컨트롤러를 잇는 내부 연결 속도가 빨라졌다는 뜻으로, 메모리 접근 지연시간이 줄어든다. 게이밍과 콘텐츠 제작 모두에 영향을 미치는 구조적 개선이다.\n\n**DDR5 7200 MT/s**를 공식 지원한다. 전작의 6400 MT/s에서 크게 올랐다. 여기에 4랭크(4-Rank) CUDIMM 초기 지원까지 추가되어, 모듈당 최대 128GB까지 장착할 수 있다. 대용량 메모리가 필요한 콘텐츠 크리에이터에게 반가운 소식이다."
+    },
+    {
+      "type": "text",
+      "value": "인텔은 바이너리 최적화 도구를 함께 공개했다. 바이너리 변환 레이어를 통해 기존 게임의 IPC를 끌어올리는 소프트웨어적 접근이다."
+    },
+    {
+      "type": "heading",
+      "value": "15% 게이밍 성능 향상, 숫자 뒤의 진실"
+    },
+    {
+      "type": "text",
+      "value": "인텔은 38개 게임 1080p 기준으로 전작 대비 **평균 15% 게이밍 성능 향상**을 주장한다. 타이틀별 편차는 크다.\n\n**섀도우 오브 더 툼 레이더**에서는 전작 대비 +39%라는 인상적인 수치를 보여줬다. 반면 **어쌔신 크리드 섀도우**에서는 +4%에 그쳤다. 게임 엔진과 최적화 상태에 따라 체감 차이가 클 수 있다는 뜻이다.\n\nAMD와의 비교에서 인텔은 라이젠 9600X 대비 멀티스레드 최대 103%, 라이젠 9700X 대비 최대 92% 우위를 주장한다. 콘텐츠 제작에서는 경쟁사 대비 최대 2배 성능이라는 수치도 내놨다. 다만 이 수치들은 **인텔 자체 벤치마크** 결과이므로, 3월 26일 출시 이후 독립 리뷰어들의 검증이 필요하다."
+    },
+    {
+      "type": "heading",
+      "value": "AMD는 여전히 게이밍 왕좌를 지키고 있나"
+    },
+    {
+      "type": "text",
+      "value": "솔직히 말하면, **라이젠 9800X3D**가 쥐고 있는 게이밍 1위 자리를 인텔이 바로 빼앗기는 어려워 보인다. AMD의 3D V-캐시 기술은 게이밍에 특화된 대용량 캐시를 제공하며, 이 부분에서 여전히 구조적 우위를 갖고 있다.\n\n전력 효율에서도 AMD가 앞선다. 라이젠 9000 시리즈는 65W~170W 범위인 반면, 인텔 Core Ultra 200S Plus는 125W~250W 수준이다. 같은 성능이라면 전기 요금과 발열 면에서 AMD 쪽이 유리하다.\n\n그러나 인텔의 **가격 인하**는 의미 있는 변수다. 270K Plus가 299달러, 250K Plus가 199달러라면 가성비 측면에서는 확실히 매력적이다. 멀티스레드 성능이 중요한 작업 환경이라면 인텔이 더 나은 선택이 될 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "800시리즈 메인보드, 그대로 쓸 수 있다"
+    },
+    {
+      "type": "text",
+      "value": "기존 800시리즈 칩셋 메인보드와 **완전한 하위 호환성**을 유지한다. 바이오스 업데이트만으로 새 프로세서를 장착할 수 있어, 현재 애로우 레이크 플랫폼 사용자라면 메인보드를 교체하지 않아도 된다. 업그레이드 비용을 크게 줄일 수 있는 부분이다."
+    },
+    {
+      "type": "heading",
+      "value": "3월 26일, 숫자가 말해줄 것"
+    },
+    {
+      "type": "text",
+      "value": "인텔 Core Ultra 200S Plus는 코어 추가, 메모리 대역폭 확대, 공격적인 가격 정책으로 무장했다. 인텔 자체 벤치마크 수치는 분명 인상적이지만, 실제 성능은 독립 리뷰가 나와봐야 판단할 수 있다.\n\n확실한 건 **가격 경쟁력**이다. 299달러에 24코어 프로세서를 구매할 수 있다는 건 1년 전만 해도 상상하기 어려웠다. 3월 26일 출시 이후 벤치마크 결과에 따라, 데스크톱 CPU 시장의 판도가 다시 한번 요동칠 수 있다."
+    }
+  ]
+}
