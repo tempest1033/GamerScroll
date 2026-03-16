@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-15T05:48:57.254Z",
+  "updatedAt": "2026-03-16T06:01:20.689Z",
   "period": "30days",
   "games": [
     {
@@ -27,11 +27,11 @@
       "views": 6
     },
     {
-      "slug": "승리의-여신-니케",
-      "views": 5
+      "slug": "aion2",
+      "views": 4
     },
     {
-      "slug": "aion2",
+      "slug": "승리의-여신-니케",
       "views": 4
     },
     {
@@ -51,6 +51,10 @@
       "views": 2
     },
     {
+      "slug": "dx-각성자들",
+      "views": 2
+    },
+    {
       "slug": "rhythm-doctor",
       "views": 2
     },
@@ -64,10 +68,6 @@
     },
     {
       "slug": "agreeee",
-      "views": 1
-    },
-    {
-      "slug": "dx-각성자들",
       "views": 1
     },
     {
