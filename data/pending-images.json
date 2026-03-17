@@ -335,6 +335,13 @@
       "type": "ai.issues",
       "failedAt": "2026-03-14T05:45:42.512Z",
       "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.marktechpost.com/wp-content/uploads/2026/03/blog-banner23-50.png",
+      "slug": "mistral-small4-unified-moe",
+      "type": "01.webp",
+      "failedAt": "2026-03-17T02:01:43.673Z",
+      "error": "HTTP 403: https://www.marktechpost.com/wp-content/uploads/2026/03/blog-banner23-50.png"
     }
   ]
 }
