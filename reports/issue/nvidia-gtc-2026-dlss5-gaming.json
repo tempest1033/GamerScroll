@@ -1,0 +1,135 @@
+{
+  "slug": "nvidia-gtc-2026-dlss5-gaming",
+  "status": "approved",
+  "title": "DLSS 5부터 ARM 노트북까지, 엔비디아 GTC 2026이 바꿀 게이밍의 미래",
+  "date": "2026-03-17T09:00",
+  "keywords": "엔비디아 GTC 2026, DLSS 5, 뉴럴 렌더링, 아이온2 DLSS, 베라 루빈, N1X ARM 게이밍 노트북, 지포스 나우 90fps, RTX 메가 지오메트리, 젠슨 황, SK하이닉스 HBM4",
+  "summary": "엔비디아 GTC 2026에서 DLSS 5, 베라 루빈 아키텍처, ARM 게이밍 노트북 칩 등이 공개됐다. 엔씨소프트 아이온2가 한국 게임사 최초로 DLSS 5 파트너에 선정되었으며, 지포스 나우 90fps 스트리밍과 DLSS 4.5 다이내믹 MFG도 발표됐다.",
+  "thumbnail": "https://hothardware.com/contentimages/NewsItem/70093/content/16x9_2133x1200_highres-dlss-5.jpg",
+  "relatedDocs": [
+    "issue:xbox-project-helix-pc-console",
+    "tech:ai/nvidia-groq3-lpu-inference-revolution",
+    "tech:ai/nvidia-nemoclaw-agentic-ai-platform",
+    "tech:ai/nvidia-feynman-architecture-2028"
+  ],
+  "relatedGames": [
+    "aion-2"
+  ],
+  "sources": [
+    {
+      "name": "NVIDIA Newsroom",
+      "title": "NVIDIA DLSS 5 Delivers AI-Powered Breakthrough in Visual Fidelity for Games",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-dlss-5-delivers-ai-powered-breakthrough-in-visual-fidelity-for-games"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "Nvidia GTC 2026 Keynote Live Blog — Jensen Huang",
+      "url": "https://www.tomshardware.com/news/live/nvidia-gtc-2026-keynote-live-blog-jensen-huang"
+    },
+    {
+      "name": "Tom's Guide",
+      "title": "Nvidia just announced DLSS 5 and it's reinventing computer graphics once again",
+      "url": "https://www.tomsguide.com/computing/hardware/nvidia-just-announced-dlss-5-and-its-reinventing-computer-graphics-once-again"
+    },
+    {
+      "name": "CNBC",
+      "title": "Nvidia GTC 2026 CEO Jensen Huang Keynote — Blackwell, Vera Rubin",
+      "url": "https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "Nvidia GTC 2026 Keynote Live",
+      "url": "https://www.pcgamer.com/hardware/live/news/nvidia-gtc-2026-keynote-live/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "엔비디아가 게이머들에게 다시 한번 충격파를 던졌다. 3월 16일 열린 GTC 2026 키노트에서 젠슨 황 CEO는 실시간 뉴럴 렌더링 기술인 DLSS 5를 공개하며 \"이것은 그래픽의 GPT 모먼트\"라고 선언했다. 차세대 GPU 아키텍처 '베라 루빈'과 ARM 기반 게이밍 노트북 칩 N1X까지 쏟아진 발표 속에서, 아이온2의 엔씨소프트가 한국 게임사 최초로 DLSS 5 파트너에 이름을 올렸다."
+    },
+    {
+      "type": "heading",
+      "value": "DLSS 5, 실시간 뉴럴 렌더링으로 그래픽의 패러다임이 바뀐다"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202603/nvidia-dlss-5.jpeg",
+      "caption": "엔비디아 DLSS 5 공식 발표 이미지",
+      "alt": "엔비디아 DLSS 5 실시간 뉴럴 렌더링 기술 공식 발표 GTC 2026"
+    },
+    {
+      "type": "quote",
+      "value": "\"DLSS 5는 그래픽의 GPT 모먼트입니다. 우리는 지금 컴퓨터 그래픽을 AI로 완전히 재발명하고 있습니다.\" — 젠슨 황, 엔비디아 CEO"
+    },
+    {
+      "type": "text",
+      "value": "DLSS 5는 기존의 업스케일링 기술을 넘어, AI가 장면 전체를 이해하고 렌더링하는 '뉴럴 렌더링 모델'이다. 레이트레이싱이 빛의 물리적 경로를 추적했다면, DLSS 5의 뉴럴 렌더링은 글로벌 일루미네이션, 서브서피스 스캐터링, 패브릭 광택 등을 AI 모델이 직접 생성한다. 최대 4K 해상도에서 실시간 구동이 가능하며, 2026년 가을 출시가 예정되어 있다.\n\n엔비디아의 브라이언 카탄차로 연구 부사장은 \"최소 10년 만에 가장 중요한 그래픽 렌더링 업데이트\"라고 평가했다. GTC 키노트 데모는 RTX 5090 2장으로 시연되었으나, 정식 출시 시에는 단일 GPU로 구동 가능할 전망이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "아이온2부터 엘더스크롤까지, 15종의 게임이 DLSS 5를 품는다"
+    },
+    {
+      "type": "text",
+      "value": "DLSS 5 지원 게임으로 15종이 발표됐다. 어쌔신 크리드 섀도우즈, 호그와트 레거시, 스타필드, 엘더스크롤 IV: 오블리비언 리마스터드, 레지던트 이블 레퀴엠, 델타 포스, 팬텀 블레이드 제로, 나라카: 블레이드포인트 등 대작들이 포진해 있다.\n\n파트너 퍼블리셔에는 베데스다, 캡콤, 유비소프트, 워너 브라더스, 텐센트, 넷이즈, 엔씨소프트, S-GAME, 호타 스튜디오 등이 이름을 올렸다."
+    },
+    {
+      "type": "text",
+      "value": "특히 주목할 점은 **엔씨소프트의 아이온2가 한국 게임사 최초로 DLSS 5 파트너에 선정**됐다는 사실이다. 글로벌 AAA 타이틀들과 어깨를 나란히 한 것으로, 엔씨소프트가 차세대 그래픽 기술 도입에서 선도적 위치를 확보했음을 보여준다. 그 외에도 블랙 스테이트, 신더 시티, 저스티스, NTE, 씨 오브 렘넌츠, 웨어 윈즈 밋 등이 목록에 포함됐다."
+    },
+    {
+      "type": "heading",
+      "value": "3,360억 트랜지스터의 괴물, 베라 루빈 아키텍처"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/ZBWj6tRadxQxsmjUTh5tnX.jpg",
+      "caption": "젠슨 황 CEO가 GTC 2026 키노트에서 차세대 아키텍처를 발표하고 있다",
+      "alt": "젠슨 황 엔비디아 CEO GTC 2026 키노트 베라 루빈 아키텍처 발표"
+    },
+    {
+      "type": "text",
+      "value": "DLSS 5의 무대 뒤에는 차세대 아키텍처 '베라 루빈'이 있다. ARM 기반 CPU와 루빈 GPU를 결합한 이 아키텍처는 TSMC 3nm 공정으로 제조되며, 3,360억 개의 트랜지스터를 탑재한다. HBM4 288GB 메모리와 22 TB/s 대역폭, 50 PFLOPS 추론 성능은 현재의 블랙웰 대비 5배에 달하는 수치다.\n\n2026년 말 샘플 출하를 시작해 2027년 본격 양산에 돌입할 예정이다. 젠슨 황은 후속 아키텍처인 '파인만'도 언급하며 2028년 로드맵까지 공개했다. 게이머 입장에서 베라 루빈은 곧 차세대 RTX GPU의 핵심 기반이 될 기술이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "인텔, AMD를 넘어서? ARM 게이밍 노트북의 도전장"
+    },
+    {
+      "type": "text",
+      "value": "GTC에서는 게이밍 노트북 시장을 뒤흔들 카드도 공개됐다. 엔비디아와 미디어텍이 공동 개발한 N1/N1X 칩은 ARM 아키텍처 기반으로, RTX 5070급 통합 GPU와 최대 20개의 CPU 코어를 탑재한다. 델, 레노버 등 주요 제조사가 2026년 상반기 출시를 예고했다.\n\n이는 인텔과 AMD가 장악해온 x86 게이밍 노트북 시장에 ARM 진영이 본격적으로 도전장을 내민 것이다. 애플 실리콘이 맥북에서 증명한 전력 효율과 성능의 균형을 윈도우 게이밍 노트북에서도 실현하겠다는 전략으로, 게이밍 노트북의 판도가 크게 바뀔 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "지포스 나우 90fps, 그리고 위쳐 4의 깜짝 데모"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/EEgdkNTWm8w2N9DjpmJQiX.png",
+      "caption": "위쳐 4 RTX 메가 지오메트리 폴리지 기술 데모",
+      "alt": "위쳐 4 RTX 메가 지오메트리 폴리지 기술 데모 GTC 2026"
+    },
+    {
+      "type": "text",
+      "value": "클라우드 게이밍 서비스 지포스 나우도 대폭 강화된다. 3월 29일부터 90fps 스트리밍이 지원되며, 기존 60fps 대비 체감 반응 속도가 눈에 띄게 개선된다.\n\nGTC 키노트에서는 위쳐 4의 RTX 메가 지오메트리 기술 데모도 공개됐다. 수풀과 나뭇잎을 실시간으로 메가 폴리곤 수준으로 렌더링하는 기술로, 오픈월드 게임의 시각적 몰입감이 한 단계 올라갈 전망이다. 앨런 웨이크 2에서는 메가 지오메트리 적용 시 FPS가 5~20% 향상되는 결과도 시연됐다.\n\nDLSS 4.5 다이내믹 MFG는 3월 31일 출시되며, 20개의 신규 게임이 지원 대상에 추가된다."
+    },
+    {
+      "type": "heading",
+      "value": "SK하이닉스 주가 급등, 한국 반도체 생태계에 불어온 GTC 효과"
+    },
+    {
+      "type": "text",
+      "value": "GTC 2026의 파급력은 게임 업계를 넘어 한국 증시에도 직접적으로 나타났다. 베라 루빈 아키텍처에 HBM4가 핵심 부품으로 채택되면서, SK하이닉스 주가는 7.03% 급등했고 삼성전자도 2.83% 상승했다. SK 최태원 회장이 GTC 현장을 직접 방문해 젠슨 황과 회동한 것도 화제가 됐다.\n\n한국 기업의 GTC 참여 규모가 '역대급'이라는 평가가 나오는 가운데, 엔씨소프트의 아이온2 DLSS 5 파트너 선정은 반도체뿐 아니라 게임 소프트웨어 영역에서도 한국이 엔비디아 생태계의 핵심 파트너로 자리매김하고 있음을 보여준다."
+    },
+    {
+      "type": "text",
+      "value": "GTC 2026은 단순한 기술 발표회가 아니었다. 게이머에게는 DLSS 5와 메가 지오메트리로 대표되는 차세대 비주얼의 예고편이었고, 노트북 게이머에게는 ARM 칩의 가능성을 확인하는 자리였다. 2026년 가을 DLSS 5 정식 출시와 함께 게이밍 그래픽의 새로운 장이 열릴 것으로 기대된다."
+    }
+  ]
+}

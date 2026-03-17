@@ -1,0 +1,316 @@
+{
+  "slug": "nvidia-feynman-architecture-2028",
+  "status": "approved",
+  "category": "general",
+  "title": "무어의 법칙을 넘어선 황의 법칙 — 파인만 아키텍처가 여는 빛의 시대",
+  "titleEn": "Huang's Law Beyond Moore's Law — The Feynman Architecture Ushers in the Age of Light",
+  "summary": "엔비디아가 GTC 2026 키노트에서 2028년 출시 예정인 파인만 아키텍처를 공개했다. 실리콘 포토닉스로 데이터 전송을 빛으로 전환하고, 블랙웰 대비 14배 성능 향상을 약속하며, AI 인프라의 근본적 병목이었던 전력과 대역폭 문제를 돌파하겠다는 선언이다.",
+  "summaryEn": "NVIDIA unveiled the Feynman architecture at GTC 2026, slated for 2028. Leveraging silicon photonics to replace copper with light, promising 14x performance over Blackwell, Feynman declares the end of the fundamental power and bandwidth bottlenecks that have constrained AI infrastructure.",
+  "keywords": "엔비디아 파인만, 황의 법칙, 실리콘 포토닉스, GTC 2026, 젠슨 황, 블랙웰, 베라 루빈, TSMC A16, AI 인프라",
+  "keywordsEn": "NVIDIA Feynman, Huang's Law, silicon photonics, GTC 2026, Jensen Huang, Blackwell, Vera Rubin, TSMC A16, AI infrastructure",
+  "content": [
+    {
+      "type": "text",
+      "value": "젠슨 황은 늘 무대 위에서 로드맵을 한 장 더 넘긴다. GTC 2026 키노트도 예외가 아니었다. 블랙웰 울트라 출하, 베라 루빈 양산 일정 확정, 그리고 마지막 슬라이드에 등장한 이름 하나. 파인만. 업계에서는 젠슨 황이 매년 GTC마다 전 세대 대비 2배 이상의 성능 도약을 발표하는 패턴을 '황의 법칙'이라 부른다. 18~24개월 주기로 트랜지스터 집적도가 2배가 되는 무어의 법칙보다 빠른 속도다. 2028년에 도착할 파인만은 그 법칙의 가장 극적인 장(章)이 될 수 있다. 데이터를 전기가 아닌 빛으로 옮기겠다는 선언이다. 구리 배선의 물리적 한계를 인정하고, 광(光) 인터커넥트로 넘어가겠다는 것. 반도체 역사에서 전송 매체 자체를 바꾸는 전환은 흔치 않다."
+    },
+    {
+      "type": "heading",
+      "value": "블랙웰에서 파인만까지, 2년 단위로 찍는 이정표"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/20252/67d9257a3d6332a71fff3d56_silicon-photonics-networking/silicon-photonics-networking_mid.jpg",
+      "caption": "구리 대신 빛으로 데이터를 전송하는 실리콘 포토닉스 칩",
+      "alt": "엔비디아 실리콘 포토닉스 칩 모듈"
+    },
+    {
+      "type": "quote",
+      "value": "\"우리는 1년 주기로 새로운 AI 인프라를 내놓는다. 무어의 법칙보다 빠른 황의 법칙이다.\" — 젠슨 황, GTC 2026"
+    },
+    {
+      "type": "text",
+      "value": "엔비디아의 GPU 로드맵은 이제 시계처럼 돌아간다. 현재 데이터센터를 지배하는 블랙웰, 2026년 말에서 2027년에 걸쳐 양산에 들어갈 베라 루빈, 그리고 2028년에 도착할 파인만. 각 아키텍처 이름은 물리학과 천문학의 거인에게서 빌려왔다. 리처드 파인만은 양자전기역학의 창시자이자 노벨 물리학상 수상자다. 이름만으로도 엔비디아가 이 아키텍처에 거는 무게감이 드러난다."
+    },
+    {
+      "type": "table",
+      "caption": "엔비디아 데이터센터 GPU 로드맵",
+      "headers": ["아키텍처", "공정", "출시 시기", "핵심 특징"],
+      "rows": [
+        ["블랙웰", "TSMC 3nm", "2024~현재", "현 세대 AI 추론/학습 표준"],
+        ["베라 루빈", "차세대 공정", "2026말~2027", "HBM4 통합, 차세대 NVLink"],
+        ["파인만", "TSMC A16", "2028", "실리콘 포토닉스, 블랙웰 대비 14배 성능"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "빛이 구리를 대체하는 순간"
+    },
+    {
+      "type": "image",
+      "src": "https://image.nextplatform.com/121511.webp?imageId=121511&width=960&height=648&format=jpg",
+      "caption": "블랙웰에서 파인만까지, 기가와트급 AI 팩토리를 향한 로드맵",
+      "alt": "엔비디아 GPU 로드맵 2025-2028"
+    },
+    {
+      "type": "text",
+      "value": "파인만 아키텍처의 핵심은 실리콘 포토닉스다. 현재 칩 사이, 보드 사이, 랙 사이의 데이터 전송은 모두 구리 배선을 통한 전기 신호에 의존한다. 문제는 구리가 물리적 한계에 도달했다는 것이다. 대역폭을 올리려면 선을 더 많이 깔아야 하고, 선이 늘어나면 발열과 전력 소비가 폭증한다. AI 모델의 크기가 기하급수적으로 커지는 상황에서, 데이터를 옮기는 데 쓰는 에너지가 연산 자체보다 많아지는 역설이 발생하고 있다."
+    },
+    {
+      "type": "text",
+      "value": "실리콘 포토닉스는 전기 신호 대신 광신호를 사용한다. 빛은 구리보다 대역폭이 압도적으로 넓고, 전송 거리에 따른 손실이 극히 적으며, 발열이 거의 없다. 엔비디아가 파인만에 실리콘 포토닉스를 탑재한다는 것은, 데이터센터 내부의 인터커넥트를 근본적으로 재설계하겠다는 뜻이다. 업계 최초로 상용 AI 칩에 광 인터커넥트를 적용하는 시도다."
+    },
+    {
+      "type": "quote",
+      "value": "구리 배선의 한계는 더 이상 공학적 문제가 아니라 물리적 벽이다. 실리콘 포토닉스는 그 벽을 우회하는 것이 아니라, 벽 자체를 없앤다."
+    },
+    {
+      "type": "heading",
+      "value": "TSMC A16 공정이 여는 앙스트롬 시대"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2025/10/From-Groundbreaking-to-Game-changing_-NVIDIA-Blackwell-Volume-Production-Celebration-at-TSMC-Arizona-1-2-screenshot-728x410.png",
+      "caption": "TSMC 팹에서 제조 중인 엔비디아 블랙웰 웨이퍼",
+      "alt": "TSMC 애리조나 팹의 블랙웰 웨이퍼"
+    },
+    {
+      "type": "text",
+      "value": "파인만은 TSMC의 A16 공정으로 제조된다. 현재 블랙웰이 사용하는 3나노미터(nm) 공정에서 앙스트롬(Å) 단위로의 도약이다. 1 앙스트롬은 0.1 나노미터. 트랜지스터 크기가 원자 몇 개 수준에 근접한다는 의미다. TSMC A16은 백사이드 전력 공급 기술을 적용해 트랜지스터 밀도를 극한까지 끌어올리면서도 전력 효율을 유지한다."
+    },
+    {
+      "type": "text",
+      "value": "나노미터에서 앙스트롬으로의 전환은 단순한 숫자 변화가 아니다. 공정 미세화가 물리적 한계에 가까워지면서, 전통적인 방식으로는 더 이상 성능을 올리기 어려워졌다. TSMC A16은 트랜지스터를 더 작게 만드는 것과 동시에, 전력을 뒤에서 공급하는 새로운 구조로 이 난제를 돌파한다. 파인만이 블랙웰 대비 14배 성능을 약속할 수 있는 물리적 기반이 바로 여기에 있다."
+    },
+    {
+      "type": "heading",
+      "value": "14배 성능의 비밀은 칩 하나가 아니다"
+    },
+    {
+      "type": "text",
+      "value": "블랙웰 대비 14배라는 수치가 GPU 한 장의 성능 비교는 아니다. 엔비디아는 파인만 세대에서 시스템 전체를 새로 설계한다. 새로운 GPU에 LPU(LP40), CPU(Rosa), 네트워크 칩(BlueField-5)을 통합하고, 이를 Kyber 랙 아키텍처로 묶는다. Kyber는 구리와 CPO(Co-Packaged Optics) 하이브리드 방식으로 스케일업과 스케일아웃을 동시에 달성한다."
+    },
+    {
+      "type": "table",
+      "caption": "파인만 세대 시스템 구성 요소",
+      "headers": ["구성 요소", "역할", "세대 변화"],
+      "rows": [
+        ["GPU (파인만)", "AI 연산 핵심", "실리콘 포토닉스 + A16 공정"],
+        ["LPU (LP40)", "저전력 추론 가속", "추론 전용 프로세서 진화"],
+        ["CPU (Rosa)", "호스트 프로세서", "GPU-CPU 통합 최적화"],
+        ["BlueField-5", "데이터 처리 유닛(DPU)", "네트워크 오프로드 강화"],
+        ["Kyber 랙", "시스템 아키텍처", "구리/CPO 하이브리드 인터커넥트"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "핵심은 칩 하나의 성능이 아니라, 칩과 칩 사이의 연결이다. 아무리 빠른 GPU를 만들어도 데이터 전송이 병목이면 전체 시스템 성능은 정체된다. 파인만이 실리콘 포토닉스와 Kyber 아키텍처를 동시에 도입하는 이유가 여기에 있다. 연산 성능과 전송 성능을 함께 끌어올려야 14배라는 숫자가 현실이 된다."
+    },
+    {
+      "type": "heading",
+      "value": "전력이라는 보이지 않는 벽"
+    },
+    {
+      "type": "text",
+      "value": "AI 인프라 확장의 최대 병목은 GPU 수가 아니다. 전력이다. 대규모 언어 모델 하나를 학습하는 데 소규모 도시 하나가 쓰는 전력이 소모된다. 모델은 계속 커지고, 에이전틱 AI의 부상으로 추론 수요까지 폭증하고 있다. 데이터센터 사업자들은 이미 전력 확보 전쟁에 돌입한 상태다."
+    },
+    {
+      "type": "text",
+      "value": "파인만의 실리콘 포토닉스는 이 전력 문제의 핵심을 관통한다. 광 인터커넥트는 구리 대비 데이터 전송 시 에너지 소비를 대폭 줄인다. 같은 양의 데이터를 옮기면서 전력은 적게 쓰고, 발열도 적다. 파워 월(Power Wall)이라 불리는 전력 한계를 물리적 수준에서 돌파하는 것이다. 2028년에 이 기술이 상용화되면, 같은 전력으로 더 많은 AI 연산을 수행할 수 있게 된다. AI 서비스의 비용 구조 자체가 달라질 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "경쟁자들의 시계는 같은 속도로 돌아가지 않는다"
+    },
+    {
+      "type": "text",
+      "value": "엔비디아가 2028년 로드맵을 지금 공개하는 것 자체가 메시지다. AMD는 MI400 시리즈로 AI 가속기 시장 점유율 확대를 노리고 있고, 인텔은 가우디 시리즈로 AI 학습 시장 진입을 시도 중이다. 하지만 두 회사 모두 2028년 로드맵을 구체적으로 공개하지 못한 상태다. 엔비디아의 2년 선행 로드맵 공개는 고객사와 투자자에게 보내는 확실한 신호다."
+    },
+    {
+      "type": "text",
+      "value": "메모리 업계도 대비가 필요하다. 현재 AI 가속기의 핵심 부품인 HBM(High Bandwidth Memory) 시장을 SK하이닉스와 삼성전자가 양분하고 있지만, 실리콘 포토닉스 시대에는 메모리와 프로세서 간 인터페이스가 근본적으로 달라진다. 광 인터커넥트에 최적화된 새로운 메모리 기술이 요구될 수 있다. 파인만은 칩 제조사뿐 아니라 메모리 공급망 전체에 파장을 일으킬 전환점이다."
+    },
+    {
+      "type": "heading",
+      "value": "2028년이 바꿀 것들"
+    },
+    {
+      "type": "text",
+      "value": "파인만이 약속대로 실현되면, AI 인프라의 경제학이 달라진다. 전력 효율이 올라가면 데이터센터 운영 비용이 줄고, 그 절감분은 AI 서비스 가격에 반영된다. 현재 대형 언어 모델의 API 호출 비용이 비싸서 사용하지 못하는 중소기업과 스타트업에게 새로운 기회가 열린다. 에이전틱 AI가 에이전트 수천 개를 동시에 돌리는 시대에, 비용과 전력의 벽이 낮아지는 것은 단순한 기술 개선이 아니라 시장 구조의 변화다."
+    },
+    {
+      "type": "text",
+      "value": "물론 2년 뒤의 로드맵에는 불확실성이 따른다. 실리콘 포토닉스의 대량 양산은 아직 검증되지 않았고, TSMC A16 공정의 수율도 변수다. 하지만 엔비디아가 GTC 무대에서 구체적인 아키텍처명과 기술 스택을 공개했다는 것은, 내부적으로는 이미 설계가 상당히 진행됐다는 신호다. 구리의 시대가 저물고 빛의 시대가 오고 있다. 파인만이 그 전환의 첫 번째 상용 칩이 될 수 있을지, 2028년의 GTC가 답을 줄 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Jensen Huang always flips one more slide on stage. GTC 2026 was no exception. Blackwell Ultra shipping, Vera Rubin mass production confirmed, and then one name on the final slide: Feynman. The industry calls it Huang's Law — at every GTC, Huang unveils architectures that more than double the performance of their predecessors, outpacing the 18-to-24-month doubling cycle of Moore's Law. Feynman, arriving in 2028, may be the most dramatic chapter of that law yet. It is a declaration that data will travel on light, not electricity. An acknowledgment of copper wiring's physical limits and a leap to optical interconnects. In semiconductor history, changing the transmission medium itself is a rare event."
+    },
+    {
+      "type": "heading",
+      "value": "From Blackwell to Feynman: Milestones Every Two Years"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/20252/67d9257a3d6332a71fff3d56_silicon-photonics-networking/silicon-photonics-networking_mid.jpg",
+      "caption": "Silicon photonics chip that transmits data with light instead of copper",
+      "alt": "NVIDIA silicon photonics chip module"
+    },
+    {
+      "type": "quote",
+      "value": "\"We deliver new AI infrastructure on a one-year cadence. Huang's Law — faster than Moore's Law.\" — Jensen Huang, GTC 2026"
+    },
+    {
+      "type": "text",
+      "value": "NVIDIA's GPU roadmap now runs like clockwork. Blackwell dominates current data centers; Vera Rubin enters mass production from late 2026 through 2027; Feynman arrives in 2028. Each architecture borrows its name from giants of physics and astronomy. Richard Feynman was the father of quantum electrodynamics and a Nobel laureate. The name alone reveals the weight NVIDIA places on this architecture."
+    },
+    {
+      "type": "table",
+      "caption": "NVIDIA Data Center GPU Roadmap",
+      "headers": ["Architecture", "Process", "Timeline", "Key Feature"],
+      "rows": [
+        ["Blackwell", "TSMC 3nm", "2024–present", "Current-gen AI training/inference standard"],
+        ["Vera Rubin", "Next-gen process", "Late 2026–2027", "HBM4 integration, next-gen NVLink"],
+        ["Feynman", "TSMC A16", "2028", "Silicon photonics, 14x over Blackwell"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "The Moment Light Replaces Copper"
+    },
+    {
+      "type": "image",
+      "src": "https://image.nextplatform.com/121511.webp?imageId=121511&width=960&height=648&format=jpg",
+      "caption": "Roadmap from Blackwell to Feynman toward gigawatt-scale AI factories",
+      "alt": "NVIDIA GPU roadmap 2025-2028"
+    },
+    {
+      "type": "text",
+      "value": "The core of Feynman is silicon photonics. Today, data transfer between chips, boards, and racks relies entirely on electrical signals through copper wiring. The problem is that copper has hit its physical limits. Increasing bandwidth means adding more wires, and more wires mean exploding heat and power consumption. As AI models grow exponentially, a paradox has emerged: the energy spent moving data exceeds the energy spent computing."
+    },
+    {
+      "type": "text",
+      "value": "Silicon photonics uses optical signals instead of electrical ones. Light offers overwhelmingly greater bandwidth than copper, suffers minimal loss over distance, and generates virtually no heat. NVIDIA embedding silicon photonics in Feynman means fundamentally redesigning interconnects inside data centers. It is the first attempt to apply optical interconnects to a commercial AI chip."
+    },
+    {
+      "type": "quote",
+      "value": "Copper wiring's limits are no longer an engineering problem — they are a physical wall. Silicon photonics does not bypass that wall; it removes it entirely."
+    },
+    {
+      "type": "heading",
+      "value": "TSMC A16 and the Dawn of the Angstrom Era"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2025/10/From-Groundbreaking-to-Game-changing_-NVIDIA-Blackwell-Volume-Production-Celebration-at-TSMC-Arizona-1-2-screenshot-728x410.png",
+      "caption": "NVIDIA Blackwell wafer in production at TSMC fab",
+      "alt": "Blackwell wafer at TSMC Arizona fab"
+    },
+    {
+      "type": "text",
+      "value": "Feynman will be fabricated on TSMC's A16 process — a leap from Blackwell's 3-nanometer process to angstrom scale. One angstrom equals 0.1 nanometers, meaning transistor sizes approach the scale of a few atoms. TSMC A16 applies backside power delivery technology to push transistor density to its limits while maintaining power efficiency."
+    },
+    {
+      "type": "text",
+      "value": "The nanometer-to-angstrom transition is more than a number change. As process shrinks approach physical limits, traditional methods can no longer improve performance. TSMC A16 tackles this challenge with a new structure that delivers power from the backside while making transistors smaller. This is the physical foundation that allows Feynman to promise 14x performance over Blackwell."
+    },
+    {
+      "type": "heading",
+      "value": "The Secret to 14x Performance Is Not a Single Chip"
+    },
+    {
+      "type": "text",
+      "value": "The 14x figure over Blackwell is not a chip-to-chip comparison. NVIDIA is redesigning the entire system for the Feynman generation. A new GPU integrates with the LPU (LP40), CPU (Rosa), and network chip (BlueField-5), bound together by the Kyber rack architecture. Kyber achieves both scale-up and scale-out through a copper/CPO (Co-Packaged Optics) hybrid approach."
+    },
+    {
+      "type": "table",
+      "caption": "Feynman Generation System Components",
+      "headers": ["Component", "Role", "Generational Change"],
+      "rows": [
+        ["GPU (Feynman)", "Core AI compute", "Silicon photonics + A16 process"],
+        ["LPU (LP40)", "Low-power inference acceleration", "Evolved inference-dedicated processor"],
+        ["CPU (Rosa)", "Host processor", "GPU-CPU integration optimized"],
+        ["BlueField-5", "Data Processing Unit (DPU)", "Enhanced network offload"],
+        ["Kyber Rack", "System architecture", "Copper/CPO hybrid interconnect"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "The key is not single-chip performance but the connections between chips. No matter how fast a GPU gets, system performance stalls if data transfer is the bottleneck. This is why Feynman introduces silicon photonics and the Kyber architecture simultaneously — computational and transfer performance must rise together for 14x to become reality."
+    },
+    {
+      "type": "heading",
+      "value": "The Invisible Wall Called Power"
+    },
+    {
+      "type": "text",
+      "value": "The biggest bottleneck for scaling AI infrastructure is not GPU count — it is power. Training a single large language model consumes as much electricity as a small city. Models keep growing, and the rise of agentic AI is causing inference demand to explode. Data center operators have already entered a war for power procurement."
+    },
+    {
+      "type": "text",
+      "value": "Feynman's silicon photonics strikes at the heart of this power problem. Optical interconnects dramatically reduce energy consumption for data transfer compared to copper — moving the same data with less power and less heat. It breaks through the Power Wall at a physical level. If commercialized in 2028, the same power budget will handle far more AI computation, potentially transforming the cost structure of AI services."
+    },
+    {
+      "type": "heading",
+      "value": "Competitors' Clocks Don't Tick at the Same Speed"
+    },
+    {
+      "type": "text",
+      "value": "NVIDIA revealing its 2028 roadmap now is a message in itself. AMD is targeting AI accelerator market share expansion with its MI400 series, and Intel is attempting to enter the AI training market with its Gaudi series. But neither company has disclosed concrete 2028 roadmaps. NVIDIA's two-year advance roadmap is a clear signal to customers and investors."
+    },
+    {
+      "type": "text",
+      "value": "The memory industry also needs to prepare. SK hynix and Samsung currently split the HBM (High Bandwidth Memory) market — a critical AI accelerator component — but the silicon photonics era fundamentally changes the interface between memory and processors. New memory technologies optimized for optical interconnects may be required. Feynman is a turning point that will send ripples through the entire memory supply chain, not just chip manufacturers."
+    },
+    {
+      "type": "heading",
+      "value": "What 2028 Will Change"
+    },
+    {
+      "type": "text",
+      "value": "If Feynman delivers on its promises, the economics of AI infrastructure will shift. Better power efficiency lowers data center operating costs, and those savings will be reflected in AI service pricing. New opportunities open for SMBs and startups currently priced out of large language model API calls. In an era where agentic AI runs thousands of agents simultaneously, lower cost and power barriers are not mere technical improvements — they are structural market changes."
+    },
+    {
+      "type": "text",
+      "value": "Of course, a roadmap two years out carries uncertainty. Mass production of silicon photonics is unproven, and TSMC A16 yield is a variable. But NVIDIA disclosing a specific architecture name and technology stack on the GTC stage signals that internal design is well advanced. The age of copper is fading, and the age of light is coming. Whether Feynman becomes the first commercial chip of that transition — GTC 2028 will have the answer."
+    }
+  ],
+  "thumbnail": "https://mashdigi.com/wp-content/uploads/GTC-2026-Feynman.jpg",
+  "date": "2026-03-17T16:00",
+  "sources": [
+    {
+      "name": "NVIDIA Blog",
+      "title": "GTC 2026 News: NVIDIA Keynote Announcements",
+      "url": "https://blogs.nvidia.com/blog/gtc-2026-news/"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "NVIDIA GTC 2026 Keynote Live Blog",
+      "url": "https://www.tomshardware.com/news/live/nvidia-gtc-2026-keynote-live-blog-jensen-huang"
+    },
+    {
+      "name": "CNBC",
+      "title": "NVIDIA GTC 2026: CEO Jensen Huang Keynote",
+      "url": "https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html"
+    },
+    {
+      "name": "Market Minute",
+      "title": "NVIDIA GTC 2026: The Dawn of the Feynman Era",
+      "url": "https://markets.financialcontent.com/stocks/article/marketminute-2026-3-16-nvidia-gtc-2026-the-dawn-of-the-feynman-era-and-the-rise-of-agentic-ai"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "NVIDIA GTC 2026 Keynote Live",
+      "url": "https://www.pcgamer.com/hardware/live/news/nvidia-gtc-2026-keynote-live/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/nvidia-nemoclaw-agentic-ai-platform",
+    "tech:ai/nvidia-ai-chip-monopoly-cracking",
+    "tech:ai/nvidia-gpu-launch-halt-ai-priority",
+    "tech:ai/nvidia-groq3-lpu-inference-revolution"
+  ],
+  "relatedGames": [],
+  "needTranslate": false
+}

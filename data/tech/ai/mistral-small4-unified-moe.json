@@ -1,0 +1,294 @@
+{
+  "slug": "mistral-small4-unified-moe",
+  "status": "approved",
+  "category": "general",
+  "title": "추론, 시각, 코드를 한 몸에 담다: 미스트랄 Small 4의 119B 통합 실험",
+  "titleEn": "Reasoning, Vision, and Code in One Body: Mistral Small 4's 119B Unified Experiment",
+  "date": "2026-03-17T10:00",
+  "thumbnail": "https://mistral.ai/img/mistral-cover.png",
+  "keywords": "미스트랄 AI, 미스트랄 Small 4, MoE, 오픈소스, 추론, 멀티모달, 코딩 에이전트, Devstral 2, 엔비디아, Nemotron",
+  "keywordsEn": "Mistral AI, Mistral Small 4, MoE, open source, reasoning, multimodal, coding agent, Devstral 2, NVIDIA, Nemotron",
+  "summary": "미스트랄 AI가 질문 답변, 이미지 분석, 코드 작성을 한 모델로 해결하는 미스트랄 Small 4를 무료 공개했다. 거대한 모델이지만 필요한 부분만 골라 쓰는 구조라 가볍고 빠르다. 함께 공개된 코딩 전문 모델은 기존 유료 서비스를 7분의 1 비용으로 대체할 수 있다.",
+  "summaryEn": "Mistral AI has released Mistral Small 4 for free, a single model that handles Q&A, image analysis, and code writing. Despite its massive size, it runs fast by activating only the parts it needs. The simultaneously released coding model can replace existing paid services at one-seventh the cost.",
+  "sources": [
+    {
+      "name": "Mistral AI",
+      "title": "Mistral Small 4",
+      "url": "https://mistral.ai/news/mistral-small-4"
+    },
+    {
+      "name": "Mistral AI",
+      "title": "Devstral 2 and Vibe CLI",
+      "url": "https://mistral.ai/news/devstral-2-vibe-cli"
+    },
+    {
+      "name": "MarkTechPost",
+      "title": "Mistral AI Releases Mistral Small 4: A 119B Parameter MoE Model",
+      "url": "https://www.marktechpost.com/2026/03/16/mistral-ai-releases-mistral-small-4-a-119b-parameter-moe-model-that-unifies-instruct-reasoning-and-multimodal-workloads/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Mistral launches powerful Devstral 2 coding model, including open source",
+      "url": "https://venturebeat.com/ai/mistral-launches-powerful-devstral-2-coding-model-including-open-source"
+    },
+    {
+      "name": "Simon Willison",
+      "title": "Mistral Small 4",
+      "url": "https://simonwillison.net/2026/Mar/16/mistral-small-4/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/nvidia-nemoclaw-agentic-ai-platform"
+  ],
+  "relatedGames": [],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "AI 모델 시장에서 효율 중심 전략을 밀어온 미스트랄 AI가 이번에는 판 자체를 바꿨다. 2026년 3월 16일 공개된 미스트랄 Small 4는 논리적 사고를 담당하던 마지스트랄, 이미지를 분석하던 픽스트랄, 코드를 짜던 Devstral을 하나로 합친 모델이다. 총 1,190억 개의 학습된 지식 조각을 품고 있지만, 한 번에 전부 쓰지 않는다. 128명의 전문가 중 질문에 가장 적합한 4명만 골라서 답하는 구조다. 덕분에 실제로 작동하는 부분은 60억 개 수준으로, 거대한 몸집에 비해 놀라울 정도로 가볍고 빠르다."
+    },
+    {
+      "type": "quote",
+      "value": "하나의 모델로 추론하고, 보고, 코드를 짠다. 세 개를 따로 돌릴 이유가 사라졌다."
+    },
+    {
+      "type": "text",
+      "value": "기존에는 용도별로 모델을 골라 써야 했다. 어려운 논리 문제에는 마지스트랄, 이미지 분석에는 픽스트랄, 코드 생성에는 Devstral. 미스트랄 Small 4는 이 세 가지를 하나로 합쳤다. 추론 강도 설정을 조절하면 생각의 깊이가 달라진다. 간단한 질문에는 가볍게 답하고, 복잡한 수학 문제에는 깊이 생각한다. 하나의 모델로 모든 작업을 처리하겠다는 설계 철학이다."
+    },
+    {
+      "type": "heading",
+      "value": "128개 전문가 중 4개만 깨운다"
+    },
+    {
+      "type": "image",
+      "src": "https://www.marktechpost.com/wp-content/uploads/2026/03/blog-banner23-50.png",
+      "alt": "미스트랄 Small 4 MoE 모델 구조",
+      "caption": "119B 파라미터 MoE 구조의 미스트랄 Small 4"
+    },
+    {
+      "type": "text",
+      "value": "미스트랄 Small 4의 핵심은 '필요한 전문가만 골라 쓰는 구조'다. 1,190억 개의 지식을 128개 전문가 그룹으로 나눠 놓고, 질문이 들어오면 가장 잘 아는 전문가 4명만 불러서 답하게 한다. 실제로 한 번에 작동하는 부분은 약 60억 개에 불과하다. 모든 지식을 매번 다 꺼내 쓰는 일반 모델보다 연산량이 훨씬 적다."
+    },
+    {
+      "type": "text",
+      "value": "한 번에 처리할 수 있는 텍스트 양도 파격적이다. 약 25만 토큰, 일반 소설 한 권 분량을 한 세션에서 읽고 분석할 수 있다. 미스트랄 AI에 따르면 전작 미스트랄 Small 3보다 응답 속도는 40% 빨라졌고, 같은 시간에 처리하는 양은 3배 늘었다. 같은 컴퓨터에서 더 빠르게, 더 많이 처리하는 구조다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "벤치마크가 말하는 것, 그리고 말하지 않는 것"
+    },
+    {
+      "type": "text",
+      "value": "미스트랄 AI가 공개한 성능 평가 결과는 인상적이다. 수학 추론 시험에서 비슷한 크기의 경쟁 모델보다 높은 점수를 받으면서도, 답변에 쓰는 글자 수는 20% 적었다. 코딩 능력 평가에서도 비슷한 결과가 나왔다. 같은 답을 더 적은 자원으로 내놓는다는 뜻이다. 빠르고 정확하면서 비용도 적게 드는 모델을 만들겠다는 것이 미스트랄 AI의 목표다."
+    },
+    {
+      "type": "table",
+      "caption": "미스트랄 Small 4 주요 사양",
+      "headers": ["항목", "수치"],
+      "rows": [
+        ["전체 지식 규모", "1,190억 개"],
+        ["전문가 수", "128개"],
+        ["한 번에 쓰는 전문가", "4개 (약 60억 개)"],
+        ["한 번에 읽는 텍스트", "약 25만 토큰 (소설 1권 분량)"],
+        ["라이선스", "아파치 2.0 (무료, 상업용 가능)"],
+        ["응답 속도", "전작 대비 40% 빨라짐"],
+        ["처리량", "전작 대비 3배 증가"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "다만 회사가 직접 발표한 성적표는 늘 걸러 들어야 한다. 외부 전문가들의 독립 검증이 나오기 전까지는 숫자보다 설계 방향에 주목할 필요가 있다. 기술 블로거 사이먼 윌리슨은 직접 써본 후기에서, 여러 모델을 왔다 갔다 할 필요 없이 하나로 모든 작업을 처리할 수 있다는 편의성에 높은 점수를 줬다."
+    },
+    {
+      "type": "heading",
+      "value": "누구나 가져다 쓸 수 있는 아파치 2.0 라이선스"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.apidog.com/blog-next/2025/12/image-115.png",
+      "alt": "SWE-Bench 오픈소스 vs 유료 모델 비교",
+      "caption": "Devstral 2가 오픈소스 모델 중 최고 성능을 기록했다"
+    },
+    {
+      "type": "text",
+      "value": "미스트랄 Small 4는 아파치 2.0 라이선스, 즉 누구나 무료로 쓸 수 있는 완전한 오픈소스로 공개됐다. 회사든 개인이든 자유롭게 내려받아 수정하고 자기 서비스에 넣을 수 있다. AI 모델 공유 플랫폼 허깅 페이스에서 바로 다운로드할 수 있고, 개인 컴퓨터나 자체 서버에서 직접 돌리는 것도 가능하다. 엔비디아와 협력해 모델을 압축한 경량 버전도 동시에 출시했다. 압축 버전은 더 빠르게 작동하면서 메모리를 적게 쓴다."
+    },
+    {
+      "type": "text",
+      "value": "미스트랄 AI는 처음부터 아파치 2.0 라이선스를 고수해왔다. 메타의 라마 시리즈는 사용에 일부 제한이 있고, 구글 젬마는 연구 목적에 가깝다. 미스트랄은 상업적 사용을 포함한 모든 용도에 제한을 두지 않는다. 클로드, GPT 같은 유료 API 서비스와 달리, 기업이 자기 서버에 올려서 쓸 수 있다는 점이 차별점이다."
+    },
+    {
+      "type": "heading",
+      "value": "Devstral 2, 성능보다 가격으로 승부한다"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.apidog.com/blog-next/2025/12/image-119.png",
+      "alt": "Devstral 2와 미스트랄 Vibe CLI",
+      "caption": "터미널에서 바로 쓸 수 있는 AI 코딩 도우미 Vibe CLI"
+    },
+    {
+      "type": "text",
+      "value": "미스트랄 Small 4와 동시에 발표된 Devstral 2는 코드 작성에 특화된 모델이다. 1,230억 개의 지식을 담고 있으며, 실제 소프트웨어 버그를 고치는 시험에서 72.2%의 성공률을 기록했다. 최상위 유료 모델들이 80% 이상을 기록하는 것에 비하면 성능 자체가 압도적이지는 않다. 하지만 미스트랄 AI가 강조하는 건 가격이다. 앤트로픽의 클로드 소넷 대비 7분의 1 비용으로 비슷한 수준의 결과를 낸다는 것이 핵심 셀링 포인트다."
+    },
+    {
+      "type": "text",
+      "value": "Devstral Small 2도 함께 나왔다. 240억 개 규모의 경량 버전으로, 개인 컴퓨터의 그래픽카드만으로도 돌릴 수 있다. 비싼 클라우드 서버 없이도 AI 코딩 도우미를 쓸 수 있다는 점에서 개인 개발자와 소규모 팀을 겨냥한다."
+    },
+    {
+      "type": "quote",
+      "value": "성능은 최상위권에 미치지 못하지만, 7분의 1 가격이라면 이야기가 달라진다. Devstral 2의 승부수는 가성비다."
+    },
+    {
+      "type": "text",
+      "value": "같이 공개된 바이브 CLI는 터미널(명령창)에서 바로 쓸 수 있는 AI 코딩 도우미다. 별도의 개발 도구 설치 없이 명령어 한 줄로 코드를 생성하고 수정한다. 앤트로픽의 클로드 코드, 오픈AI의 코덱스 CLI와 직접 경쟁하는 도구인데, 무료 오픈소스 모델을 기반으로 한다는 점이 다르다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "엔비디아 Nemotron 연합과 오픈 프론티어의 선언"
+    },
+    {
+      "type": "text",
+      "value": "미스트랄 AI는 엔비디아가 이끄는 네모트론 연합의 창립 멤버이기도 하다. 8개 AI 연구소가 힘을 합쳐 최고 수준의 무료 공개 모델을 함께 만드는 프로젝트다. 엔비디아의 초고성능 AI 컴퓨터를 공유하며, 유료 모델만 차지하던 최전선 성능을 무료 모델로 끌어올리겠다는 목표를 내걸었다."
+    },
+    {
+      "type": "text",
+      "value": "이 연합의 의미는 단순한 협력을 넘어선다. 오픈AI, 앤트로픽, 구글이 유료 모델로 시장을 지배하는 상황에서, 세계 최대 AI 칩 제조사 엔비디아가 무료 공개 진영의 결집을 이끄는 셈이다. 미스트랄 Small 4는 그 첫 번째 성과물 중 하나로 읽힌다."
+    },
+    {
+      "type": "text",
+      "value": "미스트랄 Small 4가 실전에서 어떤 성능을 보여줄지는 아직 미지수다. 시험 점수와 실전은 다르고, 개발자 커뮤니티의 검증이 쌓여야 진짜 실력이 드러난다. 분명한 건, 사고력과 시각과 코드 작성을 한 몸에 담은 무료 모델이 등장했다는 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Mistral AI, which has championed an efficiency-first strategy in the AI model market, has now changed the game entirely. Released on March 16, 2026, Mistral Small 4 merges three previously separate models into one: Magistral for logical reasoning, Pixtral for image analysis, and Devstral for code writing. It holds 119 billion learned knowledge units in total, but doesn't use them all at once. Out of 128 specialists, only the 4 best suited for each question are called upon. As a result, just about 6 billion units are active at any time — making it remarkably light and fast for its enormous size."
+    },
+    {
+      "type": "quote",
+      "value": "One model that reasons, sees, and codes. There's no longer a reason to run three separate ones."
+    },
+    {
+      "type": "text",
+      "value": "Previously, users had to pick different models for different tasks: Magistral for hard logic problems, Pixtral for image analysis, Devstral for code generation. Mistral Small 4 combines all three into one. A reasoning effort setting lets users control how deeply it thinks — light answers for simple questions, deep analysis for complex math. The design philosophy: handle everything with a single model."
+    },
+    {
+      "type": "heading",
+      "value": "Waking Only 4 of 128 Experts"
+    },
+    {
+      "type": "image",
+      "src": "https://www.marktechpost.com/wp-content/uploads/2026/03/blog-banner23-50.png",
+      "alt": "Mistral Small 4 MoE model architecture",
+      "caption": "Mistral Small 4 with 119B parameter MoE architecture"
+    },
+    {
+      "type": "text",
+      "value": "The core of Mistral Small 4 is its 'pick only the experts you need' structure. Its 119 billion knowledge units are divided into 128 specialist groups, and when a question arrives, only the 4 best-suited specialists are summoned. Only about 6 billion units are active at any given time. This uses far less computing power than conventional models that tap into all their knowledge for every query."
+    },
+    {
+      "type": "text",
+      "value": "The amount of text it can process at once is also remarkable — about 250,000 tokens, roughly the length of a full novel, in a single session. According to Mistral AI, response speed improved 40% over its predecessor Mistral Small 3, and the volume it can handle tripled. Faster and more productive on the same hardware."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "What the Benchmarks Say — and What They Don't"
+    },
+    {
+      "type": "text",
+      "value": "The performance test results Mistral AI released are impressive. On math reasoning tests, it outscored similarly sized competing models while using 20% fewer words in its answers. Coding ability tests showed similar results. In other words, it delivers the same answers with fewer resources. Building a model that's fast, accurate, and cheap to run is Mistral AI's stated goal."
+    },
+    {
+      "type": "table",
+      "caption": "Mistral Small 4 Key Specifications",
+      "headers": ["Metric", "Value"],
+      "rows": [
+        ["Total knowledge scale", "119 billion"],
+        ["Number of specialists", "128"],
+        ["Active at a time", "4 (~6 billion)"],
+        ["Text capacity per session", "~250K tokens (one novel)"],
+        ["License", "Apache 2.0 (free, commercial OK)"],
+        ["Response speed", "40% faster than predecessor"],
+        ["Processing volume", "3x more than predecessor"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "That said, a company's own report card should always be taken with a grain of salt. Until independent experts verify these claims, the design direction matters more than the numbers. Tech blogger Simon Willison shared his hands-on review, giving high marks to the convenience of handling all tasks with one model instead of switching between several."
+    },
+    {
+      "type": "heading",
+      "value": "Available to Anyone Under Apache 2.0"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.apidog.com/blog-next/2025/12/image-115.png",
+      "alt": "SWE-Bench open-weight vs proprietary model comparison",
+      "caption": "Devstral 2 achieves top performance among open-weight models"
+    },
+    {
+      "type": "text",
+      "value": "Mistral Small 4 is released under the Apache 2.0 license — meaning anyone can use it for free with no strings attached. Companies and individuals alike can download, modify, and embed it in their own services. It's available on Hugging Face, the popular AI model sharing platform, and can run on personal computers or private servers. A compressed lightweight version was also released in partnership with NVIDIA, running even faster while using less memory."
+    },
+    {
+      "type": "text",
+      "value": "Mistral AI has adhered to Apache 2.0 licensing from the start. Meta's Llama series comes with some usage restrictions, and Google Gemma leans toward research purposes. Mistral places no restrictions on any use, including commercial. Unlike paid API services such as Claude and GPT, companies can host it on their own servers — that's the differentiator."
+    },
+    {
+      "type": "heading",
+      "value": "Devstral 2 Competes on Price, Not Performance"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.apidog.com/blog-next/2025/12/image-119.png",
+      "alt": "Devstral 2 and Mistral Vibe CLI",
+      "caption": "Vibe CLI, an AI coding assistant available directly in the terminal"
+    },
+    {
+      "type": "text",
+      "value": "Announced alongside Mistral Small 4, Devstral 2 is a model specialized in writing code. Holding 123 billion knowledge units, it scored a 72.2% success rate on a real-world software bug-fixing test. Top-tier paid models score above 80%, so the performance itself isn't dominant. But the pitch is price: Mistral AI emphasizes that it delivers comparable results to Anthropic's Claude Sonnet at one-seventh the cost."
+    },
+    {
+      "type": "text",
+      "value": "Devstral Small 2 also arrived — a lightweight 24-billion-unit version that runs on a personal computer's graphics card. It targets individual developers and small teams who want an AI coding assistant without paying for expensive cloud servers."
+    },
+    {
+      "type": "quote",
+      "value": "The performance doesn't top the leaderboard, but at one-seventh the price, the equation changes. Devstral 2's bet is on value for money."
+    },
+    {
+      "type": "text",
+      "value": "Also released was Vibe CLI, an AI coding assistant that works directly in the terminal (command prompt). It generates and modifies code with a single command, no separate development tool required. It competes directly with Anthropic's Claude Code and OpenAI's Codex CLI, with the key difference being its free, open-source foundation."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "NVIDIA's Nemotron Coalition and the Open Frontier Declaration"
+    },
+    {
+      "type": "text",
+      "value": "Mistral AI is also a founding member of NVIDIA's Nemotron Coalition. Eight AI research labs have joined forces to build top-tier free models together, sharing NVIDIA's supercomputers for training. Their goal: bring free models up to the performance level that only paid models have reached until now."
+    },
+    {
+      "type": "text",
+      "value": "The coalition's significance goes beyond a simple partnership. In a market dominated by paid models from OpenAI, Anthropic, and Google, the world's largest AI chip maker NVIDIA is rallying the free model camp. Mistral Small 4 reads as one of the first fruits of this alliance."
+    },
+    {
+      "type": "text",
+      "value": "How Mistral Small 4 performs in practice remains to be seen. Test scores and real-world use are different, and true capability only reveals itself as the developer community runs its own tests. What is clear: a free model that combines reasoning, vision, and code writing in one package has arrived."
+    }
+  ]
+}

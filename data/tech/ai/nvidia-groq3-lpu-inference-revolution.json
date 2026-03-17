@@ -1,0 +1,264 @@
+{
+  "slug": "nvidia-groq3-lpu-inference-revolution",
+  "status": "approved",
+  "category": "general",
+  "title": "엔비디아, 200억 달러짜리 추론 칩 Groq 3 LPU 공개하다",
+  "titleEn": "NVIDIA Unveils Groq 3 LPU: The $20 Billion Inference Chip That Redefines AI Computing",
+  "date": "2026-03-17T12:00",
+  "keywords": "엔비디아 Groq 3 LPU, 엔비디아 그록 인수, GTC 2026, 추론 전용 칩, SRAM 기반 AI 칩, GPU 대 LPU, AI 컴퓨팅 이원화, 젠슨 황 멜라녹스 모먼트, Groq LPX 랙, AI 추론 혁명",
+  "keywordsEn": "NVIDIA Groq 3 LPU, NVIDIA Groq acquisition, GTC 2026, inference-only chip, SRAM-based AI chip, GPU vs LPU, AI computing bifurcation, Jensen Huang Mellanox moment, Groq LPX rack, AI inference revolution",
+  "summary": "엔비디아가 200억 달러에 인수한 그록의 추론 전용 칩 Groq 3 LPU가 GTC 2026에서 공개됐다. SRAM 기반으로 GPU 대비 7배 대역폭, 35배 전력 효율을 달성한 이 칩은 GPU는 학습, LPU는 추론이라는 AI 컴퓨팅 이원화 시대의 개막을 알린다.",
+  "summaryEn": "NVIDIA unveiled the Groq 3 LPU at GTC 2026, the inference-only chip from its $20 billion Groq acquisition. With SRAM-based architecture delivering 7x bandwidth and 35x power efficiency over GPUs, this chip signals the dawn of a bifurcated AI computing era: GPUs for training, LPUs for inference.",
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/ZSRAjR2VZeXVQUxEBWG2ki-1200-80.jpg",
+  "relatedDocs": [
+    "tech:ai/nvidia-ai-chip-monopoly-cracking",
+    "tech:ai/nvidia-gpu-launch-halt-ai-priority",
+    "tech:ai/nvidia-feynman-architecture-2028",
+    "tech:ai/nvidia-nemoclaw-agentic-ai-platform"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Tom's Hardware",
+      "title": "Nvidia Groq 3 LPU and Groq LPX racks join Rubin platform at GTC",
+      "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-groq-3-lpu-and-groq-lpx-racks-join-rubin-platform-at-gtc-sram-packed-accelerator-boosts-every-layer-of-the-ai-model-on-every-token"
+    },
+    {
+      "name": "CNBC",
+      "title": "A closer look at Nvidia's $20 billion bet on tech for a new AI chip",
+      "url": "https://www.cnbc.com/2026/03/13/a-closer-look-at-nvidias-20-billion-bet-on-tech-for-a-new-ai-chip.html"
+    },
+    {
+      "name": "SiliconANGLE",
+      "title": "NVIDIA GTC 2026: Jensen Huang's Groq Mellanox Moment",
+      "url": "https://siliconangle.com/2026/03/16/nvidia-gtc-2026-jensen-huangs-groq-mellanox-moment-inference-land-grab/"
+    },
+    {
+      "name": "IEEE Spectrum",
+      "title": "NVIDIA Groq 3",
+      "url": "https://spectrum.ieee.org/nvidia-groq-3"
+    },
+    {
+      "name": "NVIDIA Blog",
+      "title": "GTC 2026 News",
+      "url": "https://blogs.nvidia.com/blog/gtc-2026-news/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "2025년 12월, 엔비디아가 추론 전용 칩 스타트업 그록를 200억 달러에 인수했다. 2019년 네트워킹 기업 멜라녹스를 69억 달러에 사들였을 때, 업계는 의아해했다. 하지만 멜라녹스 기술은 데이터센터 연결의 핵심이 되어 엔비디아의 AI 지배력을 완성하는 마지막 퍼즐이 됐다. 젠슨 황이 이번 인수를 '멜라녹스 모먼트'라고 부른 이유가 여기에 있다. 그리고 GTC 2026 키노트에서 그 결과물, Groq 3 LPU가 처음으로 세상에 모습을 드러냈다."
+    },
+    {
+      "type": "heading",
+      "value": "SRAM이 HBM을 대체한다면"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/LPX-Rack.webp",
+      "caption": "256개 LPU가 탑재된 그록 LPX 서버 랙",
+      "alt": "그록 LPX 서버 랙"
+    },
+    {
+      "type": "text",
+      "value": "Groq 3 LPU의 핵심은 메모리 아키텍처에 있다. 기존 GPU가 HBM(고대역폭 메모리)에 의존하는 것과 달리, Groq 3는 칩 내부에 SRAM을 집적하는 방식을 택했다. 칩 하나에 500MB의 SRAM이 탑재되며, 8비트 기준 1.2 페타플롭스의 추론 성능을 제공한다."
+    },
+    {
+      "type": "text",
+      "value": "여기서 진짜 차이가 드러나는 건 대역폭이다. Groq 3의 SRAM 대역폭은 150 TB/s. 엔비디아의 차세대 GPU인 베라 루빈에 탑재되는 HBM의 대역폭이 22 TB/s인 점을 고려하면, 약 7배에 달하는 수치다. 추론 워크로드에서 메모리 대역폭은 곧 속도다. 데이터를 얼마나 빠르게 읽고 쓸 수 있느냐가 토큰 생성 속도를 결정하기 때문이다."
+    },
+    {
+      "type": "quote",
+      "value": "\"낮은 지연시간과 높은 처리량은 서로의 적이다. 그래서 우리는 둘을 위한 별도의 머신이 필요하다.\" — 젠슨 황, GTC 2026 키노트"
+    },
+    {
+      "type": "heading",
+      "value": "256개의 LPU가 하나의 랙에 들어간다"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/Groq-3-Architecture.webp",
+      "caption": "500MB SRAM과 150 TB/s 대역폭을 갖춘 그록 3 칩 구조",
+      "alt": "그록 3 LPU 칩 내부 아키텍처"
+    },
+    {
+      "type": "text",
+      "value": "단일 칩의 성능도 인상적이지만, Groq 3의 진가는 랙 단위에서 나타난다. Groq 3 LPX 랙은 256개의 LPU를 하나의 랙에 집적한다. 총 128GB SRAM, 40 PB/s의 내부 대역폭을 제공하는 이 시스템은 GTC 2026에서 베라 루빈 랙과 나란히 배치됐다."
+    },
+    {
+      "type": "table",
+      "headers": ["항목", "Groq 3 LPU", "베라 루빈 GPU"],
+      "rows": [
+        ["메모리 종류", "SRAM", "HBM"],
+        ["칩당 메모리", "500MB", "수십 GB"],
+        ["메모리 대역폭", "150 TB/s", "22 TB/s"],
+        ["최적화 대상", "추론(낮은 지연시간)", "학습(높은 처리량)"],
+        ["토큰/와트 효율", "GPU 대비 35배", "기준"]
+      ],
+      "caption": "Groq 3 LPU와 베라 루빈 GPU의 주요 스펙 비교"
+    },
+    {
+      "type": "text",
+      "value": "엔비디아가 자사의 최신 GPU와 LPU를 같은 무대에 올려놓은 건 의미심장하다. 학습과 추론이라는 두 가지 AI 워크로드를 단일 아키텍처로 해결하는 시대가 끝나가고 있음을 스스로 선언한 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "학습은 GPU, 추론은 LPU: 이원화의 논리"
+    },
+    {
+      "type": "text",
+      "value": "왜 GPU만으로는 안 되는 걸까. AI 학습은 방대한 데이터셋을 반복적으로 처리하며 모델의 가중치를 조정하는 작업이다. 여기서는 높은 처리량이 핵심이다. 수십 TB 규모의 파라미터를 병렬로 연산해야 하므로 대용량 HBM과 강력한 연산 유닛이 필수적이다."
+    },
+    {
+      "type": "text",
+      "value": "반면 추론은 학습된 모델을 사용해 실시간으로 응답을 생성하는 작업이다. 챗봇이 답변을 만들거나, 코딩 에이전트가 코드를 생성하거나, 게임 내 AI NPC가 대사를 출력하는 모든 순간이 추론이다. 여기서 중요한 건 처리량이 아니라 지연시간이다. 사용자는 1초라도 빠른 응답을 원한다. 이 두 가지 요구는 근본적으로 충돌한다. 젠슨 황이 '추론 인플렉션이 도래했다'고 선언한 배경이다."
+    },
+    {
+      "type": "text",
+      "value": "SRAM은 이 문제에 대한 하드웨어적 해답이다. HBM보다 칩에 가깝게 위치하기 때문에 접근 지연이 극적으로 낮다. 대신 용량이 작고 비용이 높다는 단점이 있지만, 추론 워크로드는 학습만큼 대용량 메모리를 필요로 하지 않는다. Groq 3가 SRAM에 올인한 건 추론이라는 특정 문제에 최적화된 설계를 선택한 결과다."
+    },
+    {
+      "type": "heading",
+      "value": "실시간 AI 서비스가 체감하게 될 변화"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/LPX02-Groq3LPX_Compute_Tray.webp",
+      "caption": "8개 LPU와 BlueField-4 DPU가 탑재된 컴퓨트 트레이",
+      "alt": "그록 LPX 컴퓨트 트레이"
+    },
+    {
+      "type": "text",
+      "value": "Groq 3 LPU의 토큰/와트 효율은 베라 루빈 GPU 대비 35배에 달한다고 엔비디아는 밝혔다. 이 수치가 실제 프로덕션 환경에서 그대로 재현될지는 지켜봐야 하지만, 방향성은 분명하다. 같은 전력으로 훨씬 더 많은 추론 요청을 처리할 수 있다는 뜻이다."
+    },
+    {
+      "type": "text",
+      "value": "이것이 실제 서비스에 미치는 영향은 광범위하다. AI 챗봇의 응답 속도가 빨라지고, 코딩 에이전트의 코드 생성이 즉각적으로 이뤄지며, AI 기반 검색의 결과 반환 시간이 단축된다. 게이밍 영역에서는 AI NPC의 실시간 대화 생성, 게임 내 추론 기반 콘텐츠 생성, 클라우드 게이밍의 반응 속도 개선 등이 기대된다. 추론 지연이 줄어들수록 AI는 '기다리는 도구'에서 '즉각 반응하는 동반자'에 가까워진다."
+    },
+    {
+      "type": "heading",
+      "value": "엔비디아는 왜 자기 자신을 파괴하는가"
+    },
+    {
+      "type": "text",
+      "value": "흥미로운 건 엔비디아가 스스로 GPU의 한계를 인정하고 대안을 제시했다는 점이다. 그동안 엔비디아의 전략은 GPU라는 단일 아키텍처로 학습과 추론을 모두 지배하는 것이었다. 그런데 이제 추론에는 별도의 칩이 필요하다고 선언한 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "하지만 이것은 파괴가 아니라 확장이다. 추론 시장은 학습 시장보다 빠르게 성장하고 있다. AI 서비스가 확산될수록 학습은 한 번이지만 추론은 매 순간 발생한다. 엔비디아가 GPU만 고집했다면 구글, 마이크로소프트, 그록 같은 기업들이 추론 시장을 잠식했을 것이다. 200억 달러를 들여 그록을 인수한 건, 추론 시장까지 선점하겠다는 공격적 방어 전략이다."
+    },
+    {
+      "type": "text",
+      "value": "멜라녹스 인수가 데이터센터 네트워킹이라는 빠진 퍼즐을 채웠듯, 그록 인수는 추론이라는 빠진 퍼즐을 채운다. 엔비디아는 이제 학습부터 추론까지, AI 컴퓨팅의 전체 스택을 소유한 유일한 기업이 됐다. GPU와 LPU 양날의 검을 모두 쥔 엔비디아가 AI 컴퓨팅의 새로운 질서를 어떻게 정의할지, AI 반도체 역사에서 2026년 3월은 하나의 분기점으로 기록될 가능성이 크다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In December 2025, NVIDIA acquired inference chip startup Groq for $20 billion. When the company bought networking firm Mellanox for $6.9 billion in 2019, the industry was puzzled. But Mellanox's technology became the backbone of data center connectivity, completing the final puzzle piece of NVIDIA's AI dominance. That's why Jensen Huang called this latest acquisition a 'Mellanox Moment.' And at the GTC 2026 keynote, the result of that bet -- the Groq 3 LPU -- was unveiled for the first time."
+    },
+    {
+      "type": "heading",
+      "value": "What If SRAM Replaces HBM?"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/LPX-Rack.webp",
+      "caption": "Groq LPX server rack with 256 LPUs",
+      "alt": "Groq LPX server rack"
+    },
+    {
+      "type": "text",
+      "value": "At the heart of the Groq 3 LPU is its memory architecture. Unlike traditional GPUs that rely on HBM (High Bandwidth Memory), Groq 3 integrates SRAM directly into the chip. Each chip packs 500MB of SRAM and delivers 1.2 petaflops of inference performance at 8-bit precision."
+    },
+    {
+      "type": "text",
+      "value": "The real difference shows up in bandwidth. Groq 3's SRAM bandwidth reaches 150 TB/s. Considering that the HBM in NVIDIA's next-generation Vera Rubin GPU delivers 22 TB/s, that's roughly a 7x advantage. In inference workloads, memory bandwidth equals speed -- how fast you can read and write data directly determines token generation speed."
+    },
+    {
+      "type": "quote",
+      "value": "\"Low latency and high throughput are enemies of each other. That's why we need separate machines for both.\" -- Jensen Huang, GTC 2026 Keynote"
+    },
+    {
+      "type": "heading",
+      "value": "256 LPUs in a Single Rack"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/Groq-3-Architecture.webp",
+      "caption": "Groq 3 chip architecture with 500MB SRAM and 150 TB/s bandwidth",
+      "alt": "Groq 3 LPU chip internal architecture"
+    },
+    {
+      "type": "text",
+      "value": "While single-chip performance is impressive, the Groq 3's true potential emerges at rack scale. The Groq 3 LPX rack integrates 256 LPUs into a single rack, delivering 128GB of total SRAM and 40 PB/s of internal bandwidth. At GTC 2026, this system was displayed alongside the Vera Rubin rack."
+    },
+    {
+      "type": "table",
+      "headers": ["Specification", "Groq 3 LPU", "Vera Rubin GPU"],
+      "rows": [
+        ["Memory Type", "SRAM", "HBM"],
+        ["Per-Chip Memory", "500MB", "Tens of GB"],
+        ["Memory Bandwidth", "150 TB/s", "22 TB/s"],
+        ["Optimized For", "Inference (low latency)", "Training (high throughput)"],
+        ["Token/Watt Efficiency", "35x over GPU", "Baseline"]
+      ],
+      "caption": "Key spec comparison between Groq 3 LPU and Vera Rubin GPU"
+    },
+    {
+      "type": "text",
+      "value": "NVIDIA placing its latest GPU and LPU on the same stage is deeply significant. It's effectively a self-declaration that the era of solving both AI workloads -- training and inference -- with a single architecture is coming to an end."
+    },
+    {
+      "type": "heading",
+      "value": "GPUs for Training, LPUs for Inference: The Logic of Bifurcation"
+    },
+    {
+      "type": "text",
+      "value": "Why can't GPUs handle everything? AI training involves repeatedly processing massive datasets to adjust model weights. High throughput is the key here -- parallel computation across tens of terabytes of parameters demands large-capacity HBM and powerful compute units."
+    },
+    {
+      "type": "text",
+      "value": "Inference, on the other hand, uses trained models to generate responses in real time. Every moment a chatbot crafts an answer, a coding agent generates code, or an AI NPC delivers dialogue in a game -- that's inference. What matters here isn't throughput but latency. Users want responses as fast as possible. These two demands are fundamentally at odds. That's the backdrop to Jensen Huang's declaration that 'the inference inflection has arrived.'"
+    },
+    {
+      "type": "text",
+      "value": "SRAM is the hardware answer to this problem. Positioned closer to the chip than HBM, it offers dramatically lower access latency. The trade-off is smaller capacity and higher cost -- but inference workloads don't need as much memory as training. Groq 3's all-in bet on SRAM is the result of choosing a design optimized for a specific problem: inference."
+    },
+    {
+      "type": "heading",
+      "value": "The Changes Real-Time AI Services Will Feel"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/LPX02-Groq3LPX_Compute_Tray.webp",
+      "caption": "Compute tray with 8 LPUs and BlueField-4 DPU",
+      "alt": "Groq LPX compute tray"
+    },
+    {
+      "type": "text",
+      "value": "NVIDIA claims the Groq 3 LPU achieves 35x the token-per-watt efficiency of the Vera Rubin GPU. Whether this number holds up in actual production environments remains to be seen, but the direction is clear: far more inference requests can be processed with the same power budget."
+    },
+    {
+      "type": "text",
+      "value": "The real-world impact is broad. AI chatbot response times speed up. Coding agents generate code near-instantly. AI-powered search returns results faster. In gaming, this enables real-time AI NPC dialogue generation, inference-based in-game content creation, and improved cloud gaming responsiveness. As inference latency shrinks, AI evolves from 'a tool you wait for' to 'an instant companion.'"
+    },
+    {
+      "type": "heading",
+      "value": "Why NVIDIA Is Disrupting Itself"
+    },
+    {
+      "type": "text",
+      "value": "What's fascinating is that NVIDIA itself acknowledged the limitations of GPUs and presented an alternative. Until now, NVIDIA's strategy was to dominate both training and inference with a single GPU architecture. Now it's effectively declaring that inference needs its own dedicated chip."
+    },
+    {
+      "type": "text",
+      "value": "But this isn't destruction -- it's expansion. The inference market is growing faster than training. As AI services proliferate, training happens once but inference occurs every moment. Had NVIDIA clung to GPUs alone, companies like Google, Microsoft, and the original Groq would have carved out the inference market. Spending $20 billion to acquire Groq was an aggressive defensive strategy to preempt the inference market as well."
+    },
+    {
+      "type": "text",
+      "value": "Just as the Mellanox acquisition filled the missing puzzle piece of data center networking, the Groq acquisition fills the missing piece of inference. NVIDIA is now the only company that owns the full AI computing stack from training to inference. With both GPU and LPU blades in hand, how NVIDIA defines the new order of AI computing will be closely watched -- and March 2026 may well be recorded as a turning point in the history of AI semiconductors."
+    }
+  ],
+  "needTranslate": false
+}

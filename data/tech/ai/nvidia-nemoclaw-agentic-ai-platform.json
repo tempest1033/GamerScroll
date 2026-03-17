@@ -1,0 +1,271 @@
+{
+  "slug": "nvidia-nemoclaw-agentic-ai-platform",
+  "status": "approved",
+  "category": "general",
+  "title": "엔비디아, 에이전틱 AI의 리눅스 NemoClaw 발표",
+  "titleEn": "NVIDIA Announces NemoClaw, the Linux of Agentic AI",
+  "summary": "엔비디아가 GTC 2026에서 OpenClaw와 NemoClaw를 공개하며 에이전틱 AI 시대의 운영체제를 선언했다. 오픈소스 플랫폼과 엔터프라이즈 보안 레이어, DGX Spark 하드웨어, Nemotron Coalition까지 아우르는 전방위 전략을 분석한다.",
+  "summaryEn": "NVIDIA unveiled OpenClaw and NemoClaw at GTC 2026, declaring the operating system for the agentic AI era. We analyze the full-spectrum strategy spanning an open-source platform, enterprise security layer, DGX Spark hardware, and the Nemotron Coalition.",
+  "keywords": "NemoClaw, OpenClaw, 엔비디아, 에이전틱 AI, GTC 2026, 젠슨 황, DGX Spark, Nemotron, AI 에이전트, 오픈소스 AI, AI 플랫폼",
+  "keywordsEn": "NemoClaw, OpenClaw, NVIDIA, agentic AI, GTC 2026, Jensen Huang, DGX Spark, Nemotron, AI agent, open source AI, AI platform",
+  "content": [
+    {
+      "type": "text",
+      "value": "\"이것은 역사상 가장 인기 있는 오픈소스 프로젝트가 될 것이다.\" GTC 2026 키노트에서 젠슨 황이 OpenClaw를 소개하며 던진 말이다. HTML만큼, 리눅스만큼 큰 전환점이라는 선언. 과장처럼 들리지만, 엔비디아가 공개한 OpenClaw와 NemoClaw의 구조를 들여다보면 그 자신감의 근거가 보인다. 파일 시스템을 탐색하고, 소프트웨어 도구를 사용하고, 다단계 워크플로우를 실행하는 AI 에이전트를 위한 운영체제. 엔비디아는 GPU를 넘어 AI 에이전트 시대의 인프라를 장악하려 한다."
+    },
+    {
+      "type": "heading",
+      "value": "\"에이전틱 컴퓨터의 오픈소스 운영체제\""
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202510/68ec75df3d6332c6f26180d4_workstation-dgx-spark/workstation-dgx-spark_mid.png",
+      "caption": "개인용 AI 슈퍼컴퓨터 DGX Spark",
+      "alt": "DGX Spark 데스크톱 AI 슈퍼컴퓨터"
+    },
+    {
+      "type": "text",
+      "value": "OpenClaw는 AI 에이전트가 컴퓨터를 조작할 수 있게 해주는 오픈소스 프레임워크다. 단순히 텍스트를 생성하는 수준이 아니다. 에이전트가 파일 시스템을 탐색하고, 터미널 명령을 실행하고, API를 호출하며, 여러 단계에 걸친 복잡한 워크플로우를 자율적으로 수행한다. 젠슨 황은 이를 \"에이전틱 컴퓨터의 오픈소스 운영체제\"라 정의했다."
+    },
+    {
+      "type": "quote",
+      "value": "\"모든 기업이 OpenClaw 전략을 가져야 한다. 이것이 새로운 컴퓨터다.\" — 젠슨 황, GTC 2026"
+    },
+    {
+      "type": "text",
+      "value": "핵심은 접근성이다. 오픈소스로 공개된 OpenClaw는 누구나 가져다 쓸 수 있다. 리눅스가 서버 운영체제의 표준이 된 것처럼, OpenClaw가 AI 에이전트 플랫폼의 사실상 표준이 되겠다는 것이 엔비디아의 전략이다. 추론 토큰이 폭발적으로 증가하는 시대, 에이전트가 에이전트를 스폰하는 시대에 그 토대가 되려는 움직임이다."
+    },
+    {
+      "type": "heading",
+      "value": "NemoClaw가 해결하는 엔터프라이즈의 가장 큰 불안"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/Copy-of-genai-social-nemotron-3-4643900-1920x1080-1.webp",
+      "caption": "NemoClaw 기반 AI 추론 파이프라인 구조",
+      "alt": "엔비디아 AI 추론 파이프라인"
+    },
+    {
+      "type": "text",
+      "value": "오픈소스 에이전트 프레임워크의 가장 큰 문제는 보안이다. AI 에이전트에게 파일 시스템 접근과 코드 실행 권한을 주는 순간, 기업 데이터 유출과 악의적 명령 실행의 위험이 생긴다. NemoClaw는 바로 이 지점을 겨냥한 엔터프라이즈 보안 레이어다."
+    },
+    {
+      "type": "table",
+      "caption": "NemoClaw 핵심 보안 구성 요소",
+      "headers": ["구성 요소", "기능", "효과"],
+      "rows": [
+        ["OpenShell", "프로세스 수준 격리, 최소 권한 접근 제어", "에이전트의 행동 범위를 엄격히 제한"],
+        ["Privacy Router", "추론 실행 위치 결정 (로컬 vs 클라우드)", "민감 데이터의 외부 유출 차단"],
+        ["Nemotron 통합", "엔비디아 자체 언어 모델 연동", "외부 API 의존도 감소"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "OpenShell은 각 에이전트를 프로세스 수준에서 격리하고 최소 권한 원칙을 적용한다. 에이전트가 필요한 파일에만 접근하고, 허용된 명령만 실행하도록 강제하는 샌드박스다. Privacy Router는 추론 요청을 로컬에서 처리할지 클라우드로 보낼지를 자동 판단한다. 의료 기록이나 금융 데이터 같은 민감 정보는 로컬에서 처리하고, 일반적인 추론은 클라우드의 더 큰 모델을 활용하는 식이다."
+    },
+    {
+      "type": "text",
+      "value": "주목할 점은 NemoClaw가 하드웨어 비종속적이라는 것이다. 엔비디아 GPU가 없어도 실행할 수 있다. 이는 GPU 판매에 의존하지 않고 소프트웨어 생태계 자체를 장악하겠다는 의지로 읽힌다. 물론 엔비디아 하드웨어에서 최적화된 성능을 제공하겠지만, 진입 장벽을 낮춰 생태계를 키우는 전략을 택한 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "DGX Spark: 책상 위에 올라온 AI 슈퍼컴퓨터"
+    },
+    {
+      "type": "text",
+      "value": "NemoClaw의 비전이 완성되려면 로컬에서 대규모 모델을 돌릴 수 있는 하드웨어가 필요하다. 엔비디아는 GTC에서 이 퍼즐의 마지막 조각도 함께 공개했다. DGX Spark는 4,699달러짜리 개인용 AI 슈퍼컴퓨터다. 128GB 통합 메모리를 탑재해 1,000억 파라미터급 모델을 로컬에서 실행할 수 있다."
+    },
+    {
+      "type": "text",
+      "value": "DGX Spark에 NemoClaw를 올리면 로컬 AI 에이전트 개발 환경이 완성된다. Privacy Router가 민감 데이터를 로컬 Nemotron 모델로 처리하고, 복잡한 추론만 클라우드로 보내는 하이브리드 구조가 가능해진다. 더 큰 규모가 필요한 기업을 위해 DGX Station도 준비돼 있다. 784GB 메모리로 1조 파라미터급 모델까지 감당한다."
+    },
+    {
+      "type": "table",
+      "caption": "DGX 라인업 비교",
+      "headers": ["모델", "메모리", "가격", "지원 규모"],
+      "rows": [
+        ["DGX Spark", "128GB 통합", "$4,699", "1,000억 파라미터"],
+        ["DGX Station", "784GB", "미공개", "1조 파라미터"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "엔비디아, Nemotron 연합으로 오픈 모델 진영 결집"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/image3-3.webp",
+      "caption": "Nemotron Coalition의 기반이 되는 하이브리드 모델 아키텍처",
+      "alt": "Nemotron 하이브리드 아키텍처"
+    },
+    {
+      "type": "text",
+      "value": "엔비디아의 전략은 하드웨어와 소프트웨어에서 끝나지 않는다. Nemotron Coalition은 8개 AI 연구소가 참여하는 오픈 프론티어 모델 연합이다. 퍼플렉시티, 블랙 포레스트 랩스, 커서, 랭체인, 미스트랄 AI 등이 이름을 올렸다. 엔비디아 DGX 클라우드에서 공동으로 모델을 학습하고, 결과물을 오픈소스로 공개하는 구조다."
+    },
+    {
+      "type": "text",
+      "value": "이 연합의 의미는 단순한 기술 협력을 넘어선다. 엔비디아가 제공하는 것은 DGX 클라우드의 컴퓨팅 자원이고, 참여 연구소들은 각자의 전문 분야에서 모델을 발전시킨다. 랭체인은 에이전트 오케스트레이션, 커서는 코딩 에이전트, 퍼플렉시티는 검색 추론에 강점이 있다. 이들이 Nemotron 기반 모델을 각자의 영역에서 최적화하면, NemoClaw 생태계 전체의 경쟁력이 올라간다. OpenClaw가 리눅스라면, Nemotron Coalition은 리눅스 재단에 해당하는 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "GPU 회사에서 AI 플랫폼 기업으로"
+    },
+    {
+      "type": "text",
+      "value": "NemoClaw와 OpenClaw의 출시는 엔비디아의 정체성 전환을 상징한다. GPU를 파는 반도체 기업에서 AI 에이전트 시대의 플랫폼을 정의하는 기업으로. 오픈소스 프레임워크로 생태계를 확산시키고, 엔터프라이즈 보안 레이어로 수익을 창출하며, 하드웨어와 모델 연합으로 생태계를 공고히 하는 삼중 구조다."
+    },
+    {
+      "type": "text",
+      "value": "리눅스가 그랬듯, 진짜 승부는 기술 자체가 아니라 생태계에서 갈린다. 엔비디아가 에이전틱 AI의 운영체제를 장악할 수 있을지는 OpenClaw를 얼마나 많은 개발자가 채택하느냐에 달려 있다. 분명한 것은, 에이전트가 에이전트를 스폰하고 도구를 자율적으로 사용하는 시대가 이미 시작됐다는 점이다. 엔비디아는 그 시대의 토대를 깔겠다고 선언한 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "\"This will be the most popular open-source project in history.\" That was Jensen Huang's declaration when introducing OpenClaw at GTC 2026. A turning point as big as HTML, as big as Linux. It sounds like hyperbole, but examining the architecture of OpenClaw and NemoClaw reveals the basis for that confidence. An operating system for AI agents that navigate file systems, use software tools, and execute multi-step workflows. NVIDIA is moving beyond GPUs to seize the infrastructure of the agentic AI era."
+    },
+    {
+      "type": "heading",
+      "value": "\"The Open-Source OS for Agentic Computing\""
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202510/68ec75df3d6332c6f26180d4_workstation-dgx-spark/workstation-dgx-spark_mid.png",
+      "caption": "DGX Spark personal AI supercomputer",
+      "alt": "DGX Spark desktop AI supercomputer"
+    },
+    {
+      "type": "text",
+      "value": "OpenClaw is an open-source framework that enables AI agents to operate computers. This goes far beyond generating text. Agents navigate file systems, execute terminal commands, call APIs, and autonomously carry out complex multi-step workflows. Jensen Huang defined it as \"the open-source operating system for agentic computing.\""
+    },
+    {
+      "type": "quote",
+      "value": "\"Every company needs an OpenClaw strategy. This is the new computer.\" — Jensen Huang, GTC 2026"
+    },
+    {
+      "type": "text",
+      "value": "The key is accessibility. Released as open source, anyone can use OpenClaw. Just as Linux became the de facto standard for server operating systems, NVIDIA's strategy is for OpenClaw to become the de facto standard for AI agent platforms. In an era of exploding inference tokens, where agents spawn agents, NVIDIA aims to be the foundation."
+    },
+    {
+      "type": "heading",
+      "value": "NemoClaw Addresses Enterprise's Biggest Anxiety"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/Copy-of-genai-social-nemotron-3-4643900-1920x1080-1.webp",
+      "caption": "NemoClaw-based AI inference pipeline architecture",
+      "alt": "NVIDIA AI inference pipeline"
+    },
+    {
+      "type": "text",
+      "value": "The biggest problem with open-source agent frameworks is security. The moment you give an AI agent file system access and code execution privileges, you create risks of corporate data leaks and malicious command execution. NemoClaw is the enterprise security layer targeting precisely this concern."
+    },
+    {
+      "type": "table",
+      "caption": "NemoClaw Core Security Components",
+      "headers": ["Component", "Function", "Effect"],
+      "rows": [
+        ["OpenShell", "Process-level isolation, least-privilege access control", "Strictly limits agent behavior scope"],
+        ["Privacy Router", "Determines inference execution location (local vs cloud)", "Prevents sensitive data from leaving the organization"],
+        ["Nemotron Integration", "Native NVIDIA language model integration", "Reduces external API dependency"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "OpenShell isolates each agent at the process level and applies the principle of least privilege. It's a sandbox that forces agents to access only necessary files and execute only permitted commands. Privacy Router automatically determines whether to process inference requests locally or send them to the cloud. Sensitive information like medical records or financial data stays local, while general inference leverages larger cloud models."
+    },
+    {
+      "type": "text",
+      "value": "Notably, NemoClaw is hardware-agnostic — it runs without NVIDIA GPUs. This reads as a commitment to dominating the software ecosystem rather than relying solely on GPU sales. While optimized performance on NVIDIA hardware is expected, lowering the entry barrier to grow the ecosystem is the chosen strategy."
+    },
+    {
+      "type": "heading",
+      "value": "DGX Spark: An AI Supercomputer on Your Desk"
+    },
+    {
+      "type": "text",
+      "value": "Completing NemoClaw's vision requires hardware capable of running large models locally. NVIDIA unveiled the final puzzle piece at GTC. DGX Spark is a $4,699 personal AI supercomputer with 128GB of unified memory, capable of running 100-billion-parameter models locally."
+    },
+    {
+      "type": "text",
+      "value": "Running NemoClaw on DGX Spark creates a complete local AI agent development environment. Privacy Router processes sensitive data through local Nemotron models while routing complex inference to the cloud — a hybrid architecture. For enterprises needing more scale, DGX Station stands ready with 784GB of memory handling up to trillion-parameter models."
+    },
+    {
+      "type": "table",
+      "caption": "DGX Lineup Comparison",
+      "headers": ["Model", "Memory", "Price", "Scale"],
+      "rows": [
+        ["DGX Spark", "128GB unified", "$4,699", "100B parameters"],
+        ["DGX Station", "784GB", "TBA", "1T parameters"]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "NVIDIA Rallies Open Model Alliance Through Nemotron Coalition"
+    },
+    {
+      "type": "image",
+      "src": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/03/image3-3.webp",
+      "caption": "Hybrid model architecture underlying the Nemotron Coalition",
+      "alt": "Nemotron hybrid architecture"
+    },
+    {
+      "type": "text",
+      "value": "NVIDIA's strategy doesn't end with hardware and software. The Nemotron Coalition is an open frontier model alliance of eight AI research labs. Perplexity, Black Forest Labs, Cursor, LangChain, and Mistral AI are among the participants. They jointly train models on NVIDIA's DGX Cloud and release the results as open source."
+    },
+    {
+      "type": "text",
+      "value": "The alliance's significance extends beyond technical collaboration. NVIDIA provides DGX Cloud computing resources, while participating labs advance models in their respective specialties. LangChain excels in agent orchestration, Cursor in coding agents, and Perplexity in search reasoning. As they optimize Nemotron-based models for their domains, the entire NemoClaw ecosystem's competitiveness rises. If OpenClaw is Linux, the Nemotron Coalition is its Linux Foundation."
+    },
+    {
+      "type": "heading",
+      "value": "From GPU Company to AI Platform Enterprise"
+    },
+    {
+      "type": "text",
+      "value": "The launch of NemoClaw and OpenClaw symbolizes NVIDIA's identity transformation — from a semiconductor company selling GPUs to an enterprise defining the platform for the agentic AI era. A triple structure: open-source framework to spread the ecosystem, enterprise security layer to generate revenue, and hardware plus model coalition to solidify the ecosystem."
+    },
+    {
+      "type": "text",
+      "value": "As with Linux, the real battle is won not by the technology itself but by the ecosystem. Whether NVIDIA can capture the operating system of agentic AI depends on how many developers adopt OpenClaw. What's clear is that the era where agents spawn agents and autonomously use tools has already begun. NVIDIA has declared its intention to lay the foundation for that era."
+    }
+  ],
+  "thumbnail": "https://ml.globenewswire.com/Resource/Download/a5584c5a-a14c-4bfb-b3c6-e9f8a5b2eae1?size=3",
+  "date": "2026-03-17T14:00",
+  "sources": [
+    {
+      "name": "TechCrunch",
+      "title": "Nvidia's version of OpenClaw could solve its biggest problem: security",
+      "url": "https://techcrunch.com/2026/03/16/nvidias-version-of-openclaw-could-solve-its-biggest-problem-security/"
+    },
+    {
+      "name": "CNBC",
+      "title": "Nvidia open-sources AI agent platform NemoClaw with agentic tools",
+      "url": "https://www.cnbc.com/2026/03/10/nvidia-open-source-ai-agent-platform-nemoclaw-wired-agentic-tools-openclaw-clawdbot-moltbot.html"
+    },
+    {
+      "name": "SiliconANGLE",
+      "title": "Nvidia launches NemoClaw agent toolkit to enhance AI agents",
+      "url": "https://siliconangle.com/2026/03/16/nvidia-launches-nemoclaw-agent-toolkit-enhance-ai-agents/"
+    },
+    {
+      "name": "NVIDIA Newsroom",
+      "title": "NVIDIA Announces DGX Spark and DGX Station Personal AI Computers",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-dgx-spark-and-dgx-station-personal-ai-computers"
+    },
+    {
+      "name": "CNN",
+      "title": "Nvidia Jensen Huang AI agents",
+      "url": "https://www.cnn.com/2026/03/16/tech/nvidia-jensen-huang-ai-agents"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/nvidia-ai-chip-monopoly-cracking",
+    "tech:ai/nvidia-gpu-launch-halt-ai-priority",
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/nvidia-groq3-lpu-inference-revolution",
+    "tech:ai/mistral-small4-unified-moe"
+  ],
+  "relatedGames": [],
+  "needTranslate": false
+}
