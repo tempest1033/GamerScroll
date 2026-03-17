@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-16T06:01:20.689Z",
+  "updatedAt": "2026-03-17T06:36:26.533Z",
   "period": "30days",
   "games": [
     {
@@ -71,11 +71,11 @@
       "views": 1
     },
     {
-      "slug": "그놈은-드래곤",
+      "slug": "counter-strike-2",
       "views": 1
     },
     {
-      "slug": "드래곤-둥지-수집-육성",
+      "slug": "그놈은-드래곤",
       "views": 1
     }
   ]
