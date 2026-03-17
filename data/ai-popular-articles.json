@@ -1,24 +1,36 @@
 {
-  "updatedAt": "2026-03-16T01:08:37.684Z",
+  "updatedAt": "2026-03-17T01:00:51.998Z",
   "period": "7days",
   "articles": [
     {
       "category": "general",
       "slug": "karpathy-ai-job-exposure-score",
-      "views": 16,
+      "views": 26,
       "path": "/article/general/karpathy-ai-job-exposure-score/"
     },
     {
       "category": "general",
       "slug": "moltbook-ai-social-network",
-      "views": 9,
+      "views": 7,
       "path": "/article/general/moltbook-ai-social-network/"
+    },
+    {
+      "category": "general",
+      "slug": "lecun-ami-labs-llm-debate",
+      "views": 3,
+      "path": "/article/general/lecun-ami-labs-llm-debate/"
     },
     {
       "category": "google",
       "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "views": 3,
       "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
+      "category": "general",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "views": 2,
+      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
     },
     {
       "category": "general",
@@ -31,12 +43,6 @@
       "slug": "google-ai-pro-antigravity-rate-limit-crisis",
       "views": 2,
       "path": "/article/google/google-ai-pro-antigravity-rate-limit-crisis/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-53-instant-less-cringe",
-      "views": 2,
-      "path": "/article/openai/gpt-53-instant-less-cringe/"
     },
     {
       "category": "openai",
@@ -64,33 +70,21 @@
     },
     {
       "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 1,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "general",
-      "slug": "coding-agent-market-share-war-anthropic-openai",
-      "views": 1,
-      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
-    },
-    {
-      "category": "general",
       "slug": "meta-avocado-delay",
       "views": 1,
       "path": "/article/general/meta-avocado-delay/"
     },
     {
       "category": "general",
-      "slug": "xai-exodus-grok-crisis",
+      "slug": "seedance-2-global-launch-suspended",
       "views": 1,
-      "path": "/article/general/xai-exodus-grok-crisis/"
+      "path": "/article/general/seedance-2-global-launch-suspended/"
     },
     {
       "category": "general",
-      "slug": "xbox-sunset-ai-pivot",
+      "slug": "xai-exodus-grok-crisis",
       "views": 1,
-      "path": "/article/general/xbox-sunset-ai-pivot/"
+      "path": "/article/general/xai-exodus-grok-crisis/"
     },
     {
       "category": "google",
@@ -106,27 +100,21 @@
     },
     {
       "category": "openai",
+      "slug": "gpt-53-instant-less-cringe",
+      "views": 1,
+      "path": "/article/openai/gpt-53-instant-less-cringe/"
+    },
+    {
+      "category": "openai",
       "slug": "openai-compute-investment-600b-cut",
       "views": 1,
       "path": "/article/openai/openai-compute-investment-600b-cut/"
     },
     {
       "category": "openai",
-      "slug": "openai-omni-model-rumor-march-2026",
-      "views": 1,
-      "path": "/article/openai/openai-omni-model-rumor-march-2026/"
-    },
-    {
-      "category": "openai",
       "slug": "stargate-ai-crisis-2026",
       "views": 1,
       "path": "/article/openai/stargate-ai-crisis-2026/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "project-md-settings-guide",
-      "views": 1,
-      "path": "/article/vibecoding/project-md-settings-guide/"
     },
     {
       "category": "vibecoding",

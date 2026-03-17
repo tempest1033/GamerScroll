@@ -1,39 +1,38 @@
 {
-  "updatedAt": "2026-03-16T01:07:36.167Z",
+  "updatedAt": "2026-03-17T00:59:54.259Z",
   "period": "7days",
   "articles": [
     {
       "type": "tech",
       "slug": "karpathy-ai-job-exposure-score",
       "category": "ai",
-      "views": 20,
+      "views": 26,
       "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 19,
+      "views": 21,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 11,
+      "views": 13,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 6,
-      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
-      "views": 5,
+      "views": 6,
       "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "issue",
+      "slug": "azur-promilia-comicworld-cbt-korea",
+      "views": 4,
+      "path": "/magazine/issue/azur-promilia-comicworld-cbt-korea/"
     },
     {
       "type": "issue",
@@ -42,11 +41,23 @@
       "path": "/magazine/issue/nvidia-rtx-3060-samsung-8nm-revival/"
     },
     {
+      "type": "issue",
+      "slug": "sol-enchant-pre-registration",
+      "views": 4,
+      "path": "/magazine/issue/sol-enchant-pre-registration/"
+    },
+    {
       "type": "tech",
       "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "category": "ai",
       "views": 4,
       "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 3,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
@@ -61,10 +72,25 @@
       "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
     },
     {
-      "type": "issue",
-      "slug": "sol-enchant-pre-registration",
+      "type": "tech",
+      "slug": "bytedance-seedance-copyright-delay",
+      "category": "ai",
       "views": 3,
-      "path": "/magazine/issue/sol-enchant-pre-registration/"
+      "path": "/tech/ai/bytedance-seedance-copyright-delay/"
+    },
+    {
+      "type": "tech",
+      "slug": "lecun-ami-labs-llm-debate",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/lecun-ami-labs-llm-debate/"
+    },
+    {
+      "type": "tech",
+      "slug": "intel-core-ultra-200s-plus",
+      "category": "normal",
+      "views": 3,
+      "path": "/tech/normal/intel-core-ultra-200s-plus/"
     },
     {
       "type": "wiki",
@@ -81,22 +107,11 @@
       "path": "/wiki/business/platform-fees-comparison/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 2,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "issue",
-      "slug": "azur-promilia-comicworld-cbt-korea",
-      "views": 2,
-      "path": "/magazine/issue/azur-promilia-comicworld-cbt-korea/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-preview-march-2026",
-      "views": 2,
-      "path": "/magazine/issue/crimson-desert-preview-march-2026/"
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "issue",
@@ -112,12 +127,6 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
       "slug": "limbus-company-ios-top5-record",
       "views": 2,
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
@@ -129,16 +138,17 @@
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
-      "type": "issue",
-      "slug": "xbox-game-pass-march-2026",
-      "views": 2,
-      "path": "/magazine/issue/xbox-game-pass-march-2026/"
-    },
-    {
       "type": "ranking",
       "slug": "mobile-january-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
     },
     {
       "type": "tech",
@@ -163,17 +173,17 @@
     },
     {
       "type": "tech",
-      "slug": "openai-omni-model-rumor-march-2026",
+      "slug": "seedance-2-global-launch-suspended",
       "category": "ai",
       "views": 2,
-      "path": "/tech/ai/openai-omni-model-rumor-march-2026/"
+      "path": "/tech/ai/seedance-2-global-launch-suspended/"
     },
     {
       "type": "tech",
-      "slug": "codex-install-guide-windows",
-      "category": "vibecoding",
+      "slug": "macbook-neo-reviews",
+      "category": "normal",
       "views": 2,
-      "path": "/tech/vibecoding/codex-install-guide-windows/"
+      "path": "/tech/normal/macbook-neo-reviews/"
     },
     {
       "type": "wiki",
@@ -184,10 +194,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gukjeon-hanwoori",
+      "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "hotpick",
@@ -196,10 +206,10 @@
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
+      "type": "insight",
+      "slug": "2026-game-trends",
       "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -239,15 +249,9 @@
     },
     {
       "type": "issue",
-      "slug": "slay-the-spire-2-early-access-record",
+      "slug": "seven-deadly-sins-origin-delay-2026",
       "views": 1,
-      "path": "/magazine/issue/slay-the-spire-2-early-access-record/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
     },
     {
       "type": "tech",
@@ -265,31 +269,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-cowork-saaspocalypse",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-cowork-saaspocalypse/"
-    },
-    {
-      "type": "tech",
       "slug": "claude-interactive-visuals-1m-context-ga",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-interactive-visuals-1m-context-ga/"
-    },
-    {
-      "type": "tech",
-      "slug": "coding-agent-market-share-war-anthropic-openai",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
     },
     {
       "type": "tech",
@@ -300,10 +283,31 @@
     },
     {
       "type": "tech",
-      "slug": "claude-code-install-guide-mac",
+      "slug": "nakwon-last-paradise-cbt",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/nakwon-last-paradise-cbt/"
+    },
+    {
+      "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
+      "type": "tech",
+      "slug": "vibe-coding-workflow-prompt-guide",
       "category": "vibecoding",
       "views": 1,
-      "path": "/tech/vibecoding/claude-code-install-guide-mac/"
+      "path": "/tech/vibecoding/vibe-coding-workflow-prompt-guide/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-esports-history",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/korean-esports-history/"
     }
   ]
 }
