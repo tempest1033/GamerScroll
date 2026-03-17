@@ -1,0 +1,172 @@
+{
+  "slug": "seven-deadly-sins-origin-steam-early-reviews",
+  "status": "approved",
+  "title": "일곱 개의 대죄 오리진 출시, 스팀에서 '복합적' 출발 — 첫날 유저 반응 정리",
+  "date": "2026-03-17",
+  "category": "game",
+  "keywords": "칠대죄 오리진, 칠대죄 오리진 스팀, 칠대죄 오리진 평가, 넷마블, 스팀 복합적, 칠대죄 오리진 리뷰, UE5, 오픈월드 가챠, 무기뽑기 삭제",
+  "summary": "넷마블의 칠대죄 오리진이 스팀 얼리 액세스 첫날 2,300여 건의 리뷰를 받으며 '복합적(51%)' 평가를 기록했다. 화려한 UE5 그래픽과 무기뽑기 삭제에 환호하는 목소리와, PC 기술 버그·모바일식 UI에 실망하는 목소리가 팽팽히 맞서고 있다.",
+  "thumbnail": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3679080/86b4734355e3e43b8323426e69d127ce79bab888/header.jpg?t=1773678654",
+  "sources": [
+    {
+      "name": "Steam",
+      "title": "The Seven Deadly Sins: Origin Store Page",
+      "url": "https://store.steampowered.com/app/3679080/The_Seven_Deadly_Sins_Origin/"
+    },
+    {
+      "name": "Steam Community",
+      "title": "The Seven Deadly Sins: Origin Reviews",
+      "url": "https://steamcommunity.com/app/3679080/reviews/"
+    },
+    {
+      "name": "ResetEra",
+      "title": "The Seven Deadly Sins: Origin Now Live Discussion",
+      "url": "https://www.resetera.com/threads/the-seven-deadly-sins-origin-now-live-on-pc-and-ps5-mobile-and-grand-release-23rd-march-gacha-with-almost-full-co-op-netmarble.1464208/"
+    },
+    {
+      "name": "인벤",
+      "title": "칠대죄 오리진 무기뽑기 삭제 확정",
+      "url": "https://www.inven.co.kr/webzine/news/?news=314373"
+    },
+    {
+      "name": "Official Site",
+      "title": "The Seven Deadly Sins: Origin",
+      "url": "https://7origin.netmarble.com/en"
+    }
+  ],
+  "relatedDocs": [
+    "issue:seven-deadly-sins-origin-launch-korean-subculture",
+    "issue:seven-deadly-sins-origin-delay-2026",
+    "issue:crimson-desert-sds-origin-march-showdown"
+  ],
+  "relatedGames": [
+    "원신공월의-노래",
+    "명조워더링-웨이브"
+  ],
+  "needTranslate": false,
+  "content": [
+    {
+      "type": "text",
+      "value": "넷마블의 칠대죄 오리진(The Seven Deadly Sins: Origin)이 3월 16일 PC·PS5 얼리 액세스로 출시됐다. 하루 만에 스팀 리뷰 2,318건이 쌓였고, 종합 평가는 '복합적(Mixed)' — 긍정률 51%다. 절반은 환호하고 절반은 고개를 젓고 있다. UE5로 구현한 30km 오픈월드에 5,500만 부 IP를 얹은 이 대작에 유저들이 남긴 첫날 반응을 정리했다."
+    },
+    {
+      "type": "video",
+      "src": "https://youtu.be/D4I3iia76NA"
+    },
+    {
+      "type": "heading",
+      "value": "비주얼과 시스템 개선에 호평"
+    },
+    {
+      "type": "image",
+      "src": "https://sgimage.netmarble.com/images/netmarble/nanaori/20260224/6idc1771914045741.jpg",
+      "caption": "칠대죄 오리진 공식 메인 포스터 (출처: 넷마블)",
+      "alt": "칠대죄 오리진 공식 메인 포스터"
+    },
+    {
+      "type": "quote",
+      "value": "\"보기에도 좋고 성능도 잘 나온다. 무료로 할 수 있는 콘텐츠가 끝이 없어 보인다.\" — Michelle (4.3시간 플레이)"
+    },
+    {
+      "type": "text",
+      "value": "긍정 리뷰 1,195건이 공통으로 꼽는 강점은 그래픽이다. UE5 기반 애니메이션 컷신과 원작 성우진의 일본어 보이스가 팬심을 자극한다. F2P 게임치고 시각적 완성도가 높다는 평가가 이어지고 있다."
+    },
+    {
+      "type": "quote",
+      "value": "\"전투가 빠르고 부드럽다. 팀원을 자유롭게 교체하면서 싸울 수 있다.\" — Bandit (4.0시간 플레이)"
+    },
+    {
+      "type": "text",
+      "value": "전투 시스템에 대한 호평도 눈에 띈다. 실시간으로 영웅을 교체하며 콤보를 이어가는 태그 전투 방식이 속도감 있다는 반응이다. CBT 이후 무기 가챠를 완전히 삭제한 점도 유저 신뢰를 높이는 데 한몫했다."
+    },
+    {
+      "type": "quote",
+      "value": "\"트레일러에서 보여준 것을 그대로 한다. 추가 과금 요소는 전부 선택 사항이다.\" — 스팀 리뷰어 (1.3시간 플레이)"
+    },
+    {
+      "type": "quote",
+      "value": "\"무기 뽑기가 없어진 게 크다. CBT 피드백을 실제로 반영한 건 넷마블답지 않게 좋은 변화.\" — Bandit (4.0시간 플레이)"
+    },
+    {
+      "type": "text",
+      "value": "낚시, 요리, 채광, 제작 등 생활 콘텐츠 볼륨도 호평 대상이다. 초기 콘텐츠 양에 만족하는 유저가 적지 않고, 크로스플랫폼 4인 협동 플레이까지 지원하는 점도 플러스 요인으로 꼽힌다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "기술 버그와 모바일 UI에 불만 집중"
+    },
+    {
+      "type": "quote",
+      "value": "\"키 설정을 바꾸면 게임이 망가진다. 튜토리얼에서 ESC를 누르면 소프트 락이 걸린다.\" — Death of Doggy Poo Lives (0.3시간 플레이)"
+    },
+    {
+      "type": "text",
+      "value": "부정 리뷰 1,123건에서 가장 많이 지적된 건 PC 기술 버그다. 키 리바인드 시 게임 멈춤, 튜토리얼 소프트 락, 로딩 프리즈 등 PC 고유 결함이 쏟아지고 있다. 0.3시간 만에 환불 리뷰를 남긴 유저가 있을 정도로, 첫인상에서 크게 걸려 넘어진 사례도 적지 않다."
+    },
+    {
+      "type": "quote",
+      "value": "\"이동과 전투가 비슷한 가챠 게임들에 비해 투박하게 느껴진다. 스토리도 지금까지는 별로 끌리지 않는다.\" — Tora (5.8시간 플레이)"
+    },
+    {
+      "type": "quote",
+      "value": "\"메뉴가 완전히 모바일 기준으로 설계되어 있다. PC에서 조작하면 어색함이 심하다.\" — Tora (5.8시간 플레이)"
+    },
+    {
+      "type": "text",
+      "value": "버그 외에 게임 자체에 대한 비판도 있다. 전투 타격감이 원신이나 명조 같은 경쟁작에 비해 부족하다는 지적이 나오고, 모바일 중심으로 설계된 UI가 PC에서 어색하다는 불만도 반복된다."
+    },
+    {
+      "type": "quote",
+      "value": "\"영어 음성이 없고 일본어만 지원된다. 무료 뽑기 횟수도 너무 적어서 캐릭터를 얻기가 힘들다.\" — 스팀 리뷰어"
+    },
+    {
+      "type": "text",
+      "value": "넷마블의 과금 전적에 대한 불신도 빠지지 않는다. \"게임 자체는 괜찮아 보이지만, 넷마블의 과금 역사를 생각하면 장기적으로 걱정된다\"는 톤의 리뷰가 다수 눈에 띈다."
+    },
+    {
+      "type": "heading",
+      "value": "국내외 커뮤니티도 의견 분분"
+    },
+    {
+      "type": "image",
+      "src": "https://sgimage.netmarble.com/images/netmarble/nanaori/20250529/aohd1748500047669.jpg",
+      "caption": "칠대죄 오리진 공식 이미지 (출처: 넷마블)",
+      "alt": "칠대죄 오리진 공식 이미지"
+    },
+    {
+      "type": "quote",
+      "value": "\"게임은 괜찮아 보이는데, 넷마블이라서 걱정이다\" — 해외 커뮤니티 반복 의견"
+    },
+    {
+      "type": "text",
+      "value": "레딧과 리셋에라에서는 PC 기술 문제가 가장 뜨거운 화제다. \"출시일 버그야 패치하면 되지만, 첫인상이 중요한 스팀에서 복합적 딱지가 붙은 건 뼈아프다\"는 분석이 나온다. 반면 무기 가챠 삭제에 대해서는 \"넷마블이 유저 피드백을 실제로 반영했다\"며 긍정적으로 보는 반응도 많다."
+    },
+    {
+      "type": "text",
+      "value": "국내 커뮤니티(아카라이브, 루리웹)에서는 BM(비즈니스 모델) 체감이 저렴하다는 의견과, 액션·타격감이 경쟁작에 못 미친다는 의견이 엇갈린다. 스팀 덱에서 구동이 양호하다는 보고도 나와, 휴대용 기기 유저에게는 반가운 소식이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "넷마블의 대응과 패치 계획"
+    },
+    {
+      "type": "text",
+      "value": "넷마블은 버전 1.0 알려진 이슈 목록을 이미 공개하며 빠른 대응 의지를 내비쳤다. 무기 가챠 삭제가 CBT 피드백 반영의 결과였듯, 출시 초기 기술 문제에 대한 패치도 모바일 그랜드 론칭(3월 23일) 전에 진행할 계획이다. 스팀 초기 평가는 한번 굳어지면 뒤집기 어려운 만큼, 남은 일주일간의 대응 속도가 관건이다."
+    },
+    {
+      "type": "heading",
+      "value": "3월 23일 그랜드 론칭이 분수령"
+    },
+    {
+      "type": "text",
+      "value": "긍정률 51%. 부정 리뷰조차 대부분 \"좋은 게임이 될 수 있지만 지금은 아니다\"라는 톤이다. 그래픽, 성우, 무기 가챠 삭제, 생활 콘텐츠 등 호평 요소는 뚜렷하고, 발목을 잡은 건 PC 최적화와 기술 안정성이라는 가장 기본적인 영역이다. 3월 23일 그랜드 론칭까지 넷마블이 얼마나 빠르게 패치를 내놓느냐에 따라, 이 51%는 어느 쪽으로든 기울 수 있을 것으로 보인다."
+    }
+  ],
+  "contentEn": []
+}
