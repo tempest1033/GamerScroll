@@ -342,6 +342,20 @@
       "type": "01.webp",
       "failedAt": "2026-03-17T02:01:43.673Z",
       "error": "HTTP 403: https://www.marktechpost.com/wp-content/uploads/2026/03/blog-banner23-50.png"
+    },
+    {
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4261320/ss_fe42cfe3a0e8d14dbc9d8a0bdfdca27b8d21db1c.600x338.jpg?t=1773656269",
+      "slug": "specialforce-remaster-ue5-launch-delay",
+      "type": "01.webp",
+      "failedAt": "2026-03-18T04:32:41.985Z",
+      "error": "HTTP 404: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4261320/ss_fe42cfe3a0e8d14dbc9d8a0bdfdca27b8d21db1c.600x338.jpg?t=1773656269"
+    },
+    {
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4261320/ss_d0fb3b0e08c19edf3c1a3ac1b8c1ab9e0ea89d08.600x338.jpg?t=1773656269",
+      "slug": "specialforce-remaster-ue5-launch-delay",
+      "type": "03.webp",
+      "failedAt": "2026-03-18T04:32:49.854Z",
+      "error": "HTTP 404: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4261320/ss_d0fb3b0e08c19edf3c1a3ac1b8c1ab9e0ea89d08.600x338.jpg?t=1773656269"
     }
   ]
 }
