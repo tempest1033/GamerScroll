@@ -609,7 +609,7 @@ cd docs && npx serve -l 3000
 | Item | Check | Description |
 |------|:-----:|-------------|
 | **Date format** | - | `YYYY-MM-DDTHH:MM`, **rounded to 30-min intervals** (e.g., 01:00, 01:30). 비워두면(`""`) status가 approved일 때 빌드 시 자동 기록 (KST) |
-| **Images** | - | Place every 2-3 sections. 3-4 images total. None in intro/conclusion. Check for broken images |
+| **Images** | - | Place every 2-3 sections. 3-4 images total. None in opening/closing sections. Check for broken images |
 | **Image alt** | - | Required for all images (keyword-rich description) |
 | **Body structure** | - | 2-3 paragraphs per section, 2-4 sentences each, separated by `\n\n` |
 | **Sources** | - | Minimum 4-5. **Never use Namuwiki** |
@@ -636,7 +636,7 @@ cd docs && npx serve -l 3000
     { "type": "image", "src": "imageURL", "caption": "caption", "alt": "keyword description" },
     { "type": "text", "value": "body paragraph" },
     { "type": "ad" },
-    { "type": "heading", "value": "마치며" },
+    { "type": "heading", "value": "소형 모델 전쟁의 새 국면" },
     { "type": "text", "value": "conclusion paragraph" }
   ]
 }
@@ -649,7 +649,7 @@ cd docs && npx serve -l 3000
 | **date** | ISO + time (for same-day sorting). 비워두면(`""`) approved 시 빌드에서 현재 시각 자동 기록 (KST, JSON에 write-back) | `2026-01-20T12:00` 또는 `""` |
 | **title** | Title only, no tags (~~[이슈 포커스]~~ forbidden) | `AI 썼다고 수상 박탈?…` |
 | **keywords** | SEO keywords, comma-separated | `리니지, 엔씨소프트, MMORPG` |
-| **heading** | Numbered, last one "마치며: subtitle" (no number). **부제 구분자는 `:` 로 통일** — `—` (em dash) 사용 금지. 예: "마치며: 부제" (O), "마치며 — 부제" (X) | `1. 첫 번째`, `마치며: 핵심 메시지` |
+| **heading** | Numbered, last heading: unique closing title (NEVER use "마치며", "마무리"). **부제 구분자는 `:` 로 통일** — `—` (em dash) 사용 금지 | `1. 첫 번째`, `증명하지 못한 왕좌` |
 | **relatedGames** | (Optional) Related game slug array; manual overrides auto-match | `["승리의-여신-니케"]` |
 | **relatedDocs** | (Optional) Unified related docs array (max 4). Prefix: issue, insight, hotpick, ranking, wiki, tech. Slug-only also works (auto-search) | `["issue:게임-AI-논란", "hotpick:ff7-remake"]` |
 | **relatedIssues** | (Optional, legacy) Related issue slug array. Use relatedDocs instead | `["게임-AI-논란-수상박탈"]` |
@@ -669,7 +669,7 @@ cd docs && npx serve -l 3000
 ### Writing Style Rules
 | Item | Rule |
 |------|------|
-| **Intro** | 2-3 sentences (key summary) |
+| **Opening paragraph** | 2-3 sentences (key summary), no heading |
 | **Section count** | 4-7 |
 | **Body** | 2-3 paragraphs/section, 2-4 sentences/paragraph |
 | **Subheadings** | Use heading for each section |
@@ -713,7 +713,7 @@ cd docs && npx serve -l 3000
 - Include core keywords
 - Include click-inducing phrasing
 
-#### First Paragraph (Intro)
+#### First Paragraph (Opening / Lead)
 - **Include core keyword in first 3 sentences** naturally
 - Pattern: problem statement -> key info -> value of this article
 
@@ -795,7 +795,7 @@ npm run build -- -q   # Quick build auto-generates pages
   "relatedGames": ["게임A-slug", "게임B-slug"],
   "sources": [],
   "content": [
-    { "type": "text", "value": "intro paragraph" },
+    { "type": "text", "value": "opening paragraph" },
     { "type": "link", "url": "/games/게임A/", "text": "게임A", "subtext": "실시간 순위 확인하기" },
     { "type": "heading", "value": "1. 매출 순위: 분석 제목" },
     { "type": "chart", "games": ["게임A", "게임B"], "category": "grossing", "market": "ios", "startDate": "2026-01-22", "endDate": "2026-01-28", "title": "iOS 매출 순위 비교" },
@@ -909,9 +909,9 @@ For monthly subculture/genre ranking reports:
 
 **2. Structure**
 ```
-Intro (text) → ranking chart (ranking-bar) → individual game analysis (10th→1st reverse order)
+Opening text → ranking chart (ranking-bar) → individual game analysis (10th→1st reverse order)
 ```
-- No "TOP 10 순위" heading; chart directly below intro
+- No "TOP 10 순위" heading; chart directly below opening text
 - Per game: heading -> ranking-card -> ranking-compare -> text
 
 **3. Ranking Data Verification (Required)**
@@ -976,7 +976,7 @@ for day in range(1, 32):
 | **bestRanks verified** | - | Verify wording against actual ranking data |
 | **Chart dates** | - | startDate/endDate match analysis period |
 | **Image captions** | - | Match section topic |
-| **Game links** | - | Add link blocks for compared games in intro |
+| **Game links** | - | Add link blocks for compared games in opening paragraph |
 | **Quick build check** | - | Verify chart rendering, image loading |
 
 ---
@@ -1078,7 +1078,7 @@ for day in range(1, 32):
 | Item | Check | Description |
 |------|:-----:|-------------|
 | **Date format** | - | `YYYY-MM-DDTHH:MM`, **rounded to 30-min intervals**. 비워두면(`""`) status가 approved일 때 빌드 시 자동 기록 (KST) |
-| **Images** | - | Every 2-3 sections. 3-4 total. None in intro/conclusion. Check for broken images |
+| **Images** | - | Every 2-3 sections. 3-4 total. None in opening/closing sections. Check for broken images |
 | **Image alt** | - | Required for all images (keyword-rich description) |
 | **Sources** | - | Minimum 4-5. **Never use Namuwiki** |
 | **Related docs** | - | Link via relatedDocs (e.g., `wiki:slug`, `tech:cat/slug`, `issue:slug`) |
@@ -1103,7 +1103,7 @@ for day in range(1, 32):
     { "type": "image", "src": "imageURL", "caption": "caption", "alt": "keyword description" },
     { "type": "text", "value": "body paragraph" },
     { "type": "quote", "value": "quote" },
-    { "type": "heading", "value": "마치며" },
+    { "type": "heading", "value": "AI가 사무실 밖으로 나가는 첫 걸음" },
     { "type": "text", "value": "closing paragraph" }
   ]
 }
@@ -1116,7 +1116,7 @@ for day in range(1, 32):
 | **date** | ISO + time (for same-day sorting). 비워두면(`""`) approved 시 빌드에서 현재 시각 자동 기록 (KST, JSON에 write-back) | `2026-01-20T12:00` 또는 `""` |
 | **title** | Title only, no tags | `Unity 엔진` |
 | **keywords** | SEO keywords, comma-separated | `Unity, 게임 엔진, 크로스플랫폼` |
-| **heading** | Start with keyword, last one "마치며: subtitle". **부제 구분자는 `:` 로 통일** — `—` (em dash) 사용 금지 | `Unity 엔진 특징`, `마치며: 핵심 메시지` |
+| **heading** | Start with keyword, last heading: unique closing title (NEVER use "마치며", "마무리"). **부제 구분자는 `:` 로 통일** — `—` (em dash) 사용 금지 | `Unity 엔진 특징`, `게임 엔진의 미래` |
 | **category** | Folder name | `business`, `history`, `knowledge` (wiki) / `normal` (tech) |
 | **sources** | (Optional) Source array, **no Namuwiki** | `[{name, title, url}]` |
 | **relatedDocs** | (Optional, recommended) Unified related docs array | `["wiki:unity-engine", "issue:게임-AI-논란"]` |
@@ -1213,11 +1213,11 @@ grep -l "게임명" data/games.json
 ### Writing Style Rules
 | Item | Rule |
 |------|------|
-| **Intro** | 2-3 sentences (core definition) |
+| **Opening paragraph** | 2-3 sentences (core definition), no heading |
 | **Section count** | 4-7 |
 | **Body** | 2-3 paragraphs/section, 2-4 sentences/paragraph |
 | **Subheadings** | Use heading for each section |
-| **Images** | Every 2-3 sections. 3-4 total. None in intro/conclusion. **No thumbnail/body duplication. Google Images/News preferred, never Wikipedia** |
+| **Images** | Every 2-3 sections. 3-4 total. None in opening/closing sections. **No thumbnail/body duplication. Google Images/News preferred, never Wikipedia** |
 | **Image height** | Hero (thumbnail): desktop 280px / mobile 200px. Body images: 800px |
 | **Tone** | Explanatory, concise, and direct |
 | **Output language** | Korean (한국어) |
@@ -1272,11 +1272,11 @@ grep -l "게임명" data/games.json
 
 ### Content Structure Pattern
 ```
-text (intro) → heading → image → text → heading → image → text → ... → heading (마치며) → text
+text (opening) → heading → image → text → heading → image → text → ... → heading (unique closing title) → text
 ```
-- **Intro**: Start with text, no heading (3-4 sentences)
+- **Opening**: Start with text, no heading (3-4 sentences)
 - **Body sections**: heading -> image -> text order
-- **Final section**: "마치며" heading -> text (no image needed)
+- **Final section**: unique article-specific closing heading -> text (no image needed)
 
 ### Build
 ```bash
@@ -1292,7 +1292,7 @@ npm run build -- -q   # Quick build auto-generates pages
 | **Summary** | - | 120-150 chars, core keyword + click trigger |
 | **Keywords** | - | 8-12, main + long-tail mix, **diversified variants** |
 | **First paragraph** | - | Core keyword naturally in first 3 sentences |
-| **Subheadings** | - | Related keywords naturally, last one "마치며" |
+| **Subheadings** | - | Related keywords naturally, last one: unique closing heading |
 | **Body keywords** | - | 4-6 natural occurrences throughout |
 | **Image alt** | - | All images have keyword-rich descriptions |
 | **Sources** | - | 2+ credible sources |
