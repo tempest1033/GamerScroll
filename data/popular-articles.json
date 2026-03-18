@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-03-17T00:59:54.259Z",
+  "updatedAt": "2026-03-18T01:03:11.213Z",
   "period": "7days",
   "articles": [
     {
       "type": "tech",
       "slug": "karpathy-ai-job-exposure-score",
       "category": "ai",
-      "views": 26,
+      "views": 27,
       "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 21,
+      "views": 22,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 13,
+      "views": 11,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
@@ -27,6 +27,13 @@
       "category": "ai",
       "views": 6,
       "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "tech",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
+      "views": 5,
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "issue",
@@ -47,13 +54,6 @@
       "path": "/magazine/issue/sol-enchant-pre-registration/"
     },
     {
-      "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
       "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 3,
@@ -67,9 +67,9 @@
     },
     {
       "type": "issue",
-      "slug": "pokemon-pokopia-global-sold-out",
+      "slug": "silksong-sea-of-sorrow",
       "views": 3,
-      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "tech",
@@ -80,10 +80,24 @@
     },
     {
       "type": "tech",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
+    },
+    {
+      "type": "tech",
       "slug": "lecun-ami-labs-llm-debate",
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/lecun-ami-labs-llm-debate/"
+    },
+    {
+      "type": "tech",
+      "slug": "nvidia-groq3-lpu-inference-revolution",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "type": "tech",
@@ -100,55 +114,16 @@
       "path": "/wiki/business/game-ip-licensing/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 2,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "google-play-fee-cut-epic-settlement",
-      "views": 2,
-      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
-    },
-    {
       "type": "issue",
       "slug": "limbus-company-ios-top5-record",
       "views": 2,
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
-      "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
-      "views": 2,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
-    },
-    {
       "type": "ranking",
       "slug": "mobile-january-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "coding-agent-market-share-war-anthropic-openai",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
     },
     {
       "type": "tech",
@@ -186,11 +161,25 @@
       "path": "/tech/normal/macbook-neo-reviews/"
     },
     {
+      "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 2,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
       "type": "wiki",
       "slug": "game-business-metrics",
       "category": "business",
       "views": 2,
       "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -200,10 +189,11 @@
       "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 1,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "insight",
@@ -216,6 +206,12 @@
       "slug": "2026-subculture-openworld-games",
       "views": 1,
       "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 1,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -249,16 +245,27 @@
     },
     {
       "type": "issue",
+      "slug": "nvidia-gtc-2026-dlss5-gaming",
+      "views": 1,
+      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
+    },
+    {
+      "type": "issue",
       "slug": "seven-deadly-sins-origin-delay-2026",
       "views": 1,
       "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
     },
     {
-      "type": "tech",
-      "slug": "ai-model-intentional-performance-degradation",
-      "category": "ai",
+      "type": "issue",
+      "slug": "seven-deadly-sins-origin-steam-early-reviews",
       "views": 1,
-      "path": "/tech/ai/ai-model-intentional-performance-degradation/"
+      "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -276,6 +283,27 @@
     },
     {
       "type": "tech",
+      "slug": "nvidia-feynman-architecture-2028",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/nvidia-feynman-architecture-2028/"
+    },
+    {
+      "type": "tech",
+      "slug": "nvidia-gpu-launch-halt-ai-priority",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/nvidia-gpu-launch-halt-ai-priority/"
+    },
+    {
+      "type": "tech",
+      "slug": "nvidia-nemoclaw-agentic-ai-platform",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/nvidia-nemoclaw-agentic-ai-platform/"
+    },
+    {
+      "type": "tech",
       "slug": "xai-exodus-grok-crisis",
       "category": "ai",
       "views": 1,
@@ -290,24 +318,10 @@
     },
     {
       "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
-    },
-    {
-      "type": "tech",
       "slug": "vibe-coding-workflow-prompt-guide",
       "category": "vibecoding",
       "views": 1,
       "path": "/tech/vibecoding/vibe-coding-workflow-prompt-guide/"
-    },
-    {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/korean-esports-history/"
     }
   ]
 }
