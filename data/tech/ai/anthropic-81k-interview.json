@@ -1,0 +1,212 @@
+{
+  "slug": "anthropic-81k-interview",
+  "status": "approved",
+  "category": "anthropic",
+  "title": "앤트로픽이 81,000명에게 물었다, AI에게 뭘 바라나요?",
+  "titleEn": "What 81,000 People Want from AI: Anthropic's Largest Qualitative Survey",
+  "summary": "앤트로픽이 159개국 80,508명을 대상으로 역대 최대 규모의 AI 정성 조사를 실시했다. 직업적 탁월함부터 창작 표현까지 9가지 비전이 도출됐고, 가장 큰 우려는 환각과 일자리 문제였다. 희망과 우려가 진영이 아닌 개인 안에서 공존한다는 발견이 인상적이다.",
+  "summaryEn": "Anthropic conducted the largest-ever qualitative AI survey, interviewing 80,508 people across 159 countries in 70 languages. Nine visions emerged from professional excellence to creative expression, with hallucination and job displacement as top concerns. The key insight: hope and worry coexist within individuals, not opposing camps.",
+  "keywords": "앤트로픽, AI 인터뷰, 81000명, Claude, AI 우려, 환각, 일자리, AI 비전, 정성 조사, Saffron Huang, 글로벌 AI 여론, AI 신뢰성",
+  "keywordsEn": "Anthropic, AI interview, 81000 people, Claude, AI concerns, hallucination, jobs, AI vision, qualitative survey, Saffron Huang, global AI sentiment, AI reliability",
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽(Anthropic)이 159개국 80,508명을 대상으로 역대 최대 규모의 AI 정성 조사를 실시했다. 2025년 12월 1주간 Claude.ai 사용자들에게 'Anthropic Interviewer'라는 Claude 기반 대화형 인터뷰 도구를 활용해 진행한 이 조사는, 70개 언어로 수집된 가장 다국어적인 AI 여론 조사이기도 하다."
+    },
+    {
+      "type": "image",
+      "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-weltkarte-2.webp",
+      "caption": "159개국에서 참여한 응답자 분포. 저/중소득 국가의 참여율이 높았다는 점이 기존 AI 설문과 차별화된다.",
+      "alt": "앤트로픽 81,000명 AI 인터뷰 글로벌 참여 분포 세계지도"
+    },
+    {
+      "type": "quote",
+      "value": "\"희망과 우려는 진영이 아닌 개인 안에서 긴장으로 공존한다.\" - 앤트로픽 연구팀"
+    },
+    {
+      "type": "heading",
+      "value": "역대 최대 규모, AI에 대한 솔직한 목소리"
+    },
+    {
+      "type": "text",
+      "value": "리드 저자 Saffron Huang이 이끈 이번 조사의 특징은 규모만이 아닌, 방법론에 있다. 기존 AI 설문조사가 선택지를 고르는 정량 방식이었다면, 이번엔 AI가 직접 대화를 이끌며 응답자의 맥락과 감정까지 파악하는 정성적 접근을 택한 것이다.\n\n앤트로픽 내부에서도 \"이렇게 솔직하고 사려 깊은 답변이 올 줄 몰랐다\"는 반응이 나왔다. 9년간 오진받던 환자가 Claude로 정확한 진단을 받은 사례부터, AI 때문에 해고당한 경험까지 다양한 목소리가 쏟아진 상황."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "사람들이 AI에게 원하는 9가지 비전"
+    },
+    {
+      "type": "text",
+      "value": "응답을 분석한 결과, 사람들이 AI에게 바라는 비전은 크게 9가지로 분류됐다. 가장 높은 비중을 차지한 건 직업적 탁월함(18.8%)이었고, 개인적 변화(13.7%)와 일상 관리(13.5%)가 뒤를 이었다. 시간적 자유(11.1%), 경제적 독립(9.7%), 사회적 변혁(9.4%)이 그 뒤를 잇는 구조."
+    },
+    {
+      "type": "image",
+      "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-hoffnung-4.webp",
+      "caption": "AI에 대한 9가지 비전과 비중. 직업적 탁월함이 18.8%로 가장 높았다.",
+      "alt": "앤트로픽 조사 결과 AI에 대한 9가지 비전 차트"
+    },
+    {
+      "type": "text",
+      "value": "| 순위 | 비전 | 비중 |\n|------|------|------|\n| 1 | 직업적 탁월함 | 18.8% |\n| 2 | 개인적 변화 | 13.7% |\n| 3 | 일상 관리 | 13.5% |\n| 4 | 시간적 자유 | 11.1% |\n| 5 | 경제적 독립 | 9.7% |\n| 6 | 사회적 변혁 | 9.4% |\n| 7 | 창업 | 8.7% |\n| 8 | 학습과 성장 | 8.4% |\n| 9 | 창작 표현 | 5.6% |"
+    },
+    {
+      "type": "text",
+      "value": "창업(8.7%), 학습과 성장(8.4%), 창작 표현(5.6%)이 나머지를 채웠다. 주목할 점은 응답자의 81%가 \"AI가 자신의 비전 실현에 도움이 된다\"고 답한 것이다. 구체적으로는 생산성 향상(32.0%)이 가장 많았고, 기대 미충족(18.9%), 인지적 파트너십(17.2%) 순이었다."
+    },
+    {
+      "type": "heading",
+      "value": "가장 큰 우려는 환각과 일자리"
+    },
+    {
+      "type": "image",
+      "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-fehler-3.webp",
+      "caption": "AI에 대한 주요 우려 사항. 신뢰성/환각 문제가 26.7%로 압도적 1위를 차지했다.",
+      "alt": "앤트로픽 조사 결과 AI 우려 사항 차트"
+    },
+    {
+      "type": "text",
+      "value": "| 순위 | 우려 | 비중 |\n|------|------|------|\n| 1 | 신뢰성/환각 | 26.7% |\n| 2 | 고용과 경제 | 22.3% |\n| 3 | 자율성과 주체성 | 21.9% |\n| 4 | 인지적 위축 | 16.3% |\n| 5 | 거버넌스 | 14.7% |\n| 6 | 허위정보 | 13.6% |\n| 7 | 감시/프라이버시 | 13.1% |\n| 8 | 악의적 사용 | 13.0% |\n| 9 | 의미와 창작 | 11.7% |"
+    },
+    {
+      "type": "text",
+      "value": "다중 응답으로 집계된 우려 사항에서는 신뢰성과 환각 문제가 26.7%로 압도적 1위다. 고용과 경제(22.3%), 자율성과 주체성(21.9%)이 그 뒤를 이었다. 인지적 위축(16.3%), 거버넌스(14.7%), 허위정보(13.6%), 감시와 프라이버시(13.1%), 악의적 사용(13.0%), 의미와 창작(11.7%)까지가 전체 그림이다.\n\n의외였던 건 실존적 AI 위험이 6.7%에 그쳤다는 점. AI 종말론이 미디어에서 큰 비중을 차지하는 것과 달리, 실제 사용자들은 훨씬 구체적이고 일상적인 문제에 집중하고 있다는 뜻."
+    },
+    {
+      "type": "heading",
+      "value": "낙관과 비관은 같은 사람 안에 있다"
+    },
+    {
+      "type": "text",
+      "value": "이번 조사의 가장 핵심적인 발견은 희망과 우려가 대립하는 진영이 아니라 한 개인 안에서 동시에 존재한다는 것이다. AI로 업무 효율이 크게 올랐다고 말하면서도, 같은 사람이 일자리 불안을 걱정하는 식이다.\n\n이 발견이 중요한 이유는 AI 정책 논의의 프레임 자체를 바꿀 수 있기 때문. '찬성파 vs 반대파'라는 이분법이 현실을 제대로 반영하지 못한다는 근거가 8만 명 규모의 데이터로 확인된 셈."
+    },
+    {
+      "type": "heading",
+      "value": "브라질이 가장 낙관적, 독일은 가장 신중"
+    },
+    {
+      "type": "text",
+      "value": "전체 응답자의 67%가 AI에 대해 긍정적 감성을 보였다. 흥미로운 건 지역별 온도 차이인데, 저소득 및 중소득 국가가 부유한 국가보다 더 낙관적이었다는 점이다. 브라질(71%)과 인도(70%)가 가장 높은 긍정률을 보였고, 미국(66%)과 독일(64%)은 상대적으로 신중한 태도.\n\nAI가 이미 생활 깊숙이 들어온 선진국에서는 부작용을 체감한 경험이 반영된 반면, 개발도상국에서는 AI가 가져올 기회에 대한 기대가 더 크게 작용한 것으로 분석된다. 8만 명의 목소리가 말해주는 건 결국 하나, AI 시대의 합의는 단순한 찬반이 아니라 복잡한 공존에서 시작된다는 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic has conducted the largest-ever qualitative AI survey, interviewing 80,508 people across 159 countries in 70 languages. Conducted over one week in December 2025 through the 'Anthropic Interviewer' — a Claude-based conversational interview tool deployed to Claude.ai users — it stands as the most multilingual AI opinion study to date."
+    },
+    {
+      "type": "image",
+      "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-weltkarte-2.webp",
+      "caption": "Global distribution of respondents across 159 countries. High participation from lower and middle-income nations distinguishes this survey from prior AI polls.",
+      "alt": "Anthropic 81,000 AI interview global participation distribution world map"
+    },
+    {
+      "type": "quote",
+      "value": "\"Hope and concern coexist as tension within individuals, not between opposing camps.\" — Anthropic Research Team"
+    },
+    {
+      "type": "heading",
+      "value": "The Largest-Ever Candid Conversation About AI"
+    },
+    {
+      "type": "text",
+      "value": "Led by Saffron Huang, the survey's distinction goes beyond scale. While previous AI surveys relied on quantitative multiple-choice formats, this one took a qualitative approach — with AI leading conversations that captured respondents' context and emotions.\n\nEven internally, Anthropic was surprised: \"We didn't expect such honest and thoughtful responses.\" Stories ranged from a patient correctly diagnosed by Claude after nine years of misdiagnosis, to individuals reporting job losses caused by AI."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Nine Visions People Have for AI"
+    },
+    {
+      "type": "text",
+      "value": "Analysis of responses revealed nine distinct visions for AI. Professional excellence topped the list at 18.8%, followed by personal transformation (13.7%) and daily management (13.5%). Time freedom (11.1%), economic independence (9.7%), and societal transformation (9.4%) rounded out the top six."
+    },
+    {
+      "type": "image",
+      "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-hoffnung-4.webp",
+      "caption": "The nine visions people have for AI and their proportions. Professional excellence leads at 18.8%.",
+      "alt": "Anthropic survey results showing nine AI visions chart"
+    },
+    {
+      "type": "text",
+      "value": "| Rank | Vision | Share |\n|------|--------|-------|\n| 1 | Professional Excellence | 18.8% |\n| 2 | Personal Transformation | 13.7% |\n| 3 | Daily Management | 13.5% |\n| 4 | Time Freedom | 11.1% |\n| 5 | Economic Independence | 9.7% |\n| 6 | Societal Transformation | 9.4% |\n| 7 | Entrepreneurship | 8.7% |\n| 8 | Learning & Growth | 8.4% |\n| 9 | Creative Expression | 5.6% |"
+    },
+    {
+      "type": "text",
+      "value": "Entrepreneurship (8.7%), learning and growth (8.4%), and creative expression (5.6%) filled out the rest. Notably, 81% of respondents said AI was already helping realize their vision — with productivity gains (32.0%) being the most cited benefit, followed by unmet expectations (18.9%) and cognitive partnership (17.2%)."
+    },
+    {
+      "type": "heading",
+      "value": "Top Concerns: Hallucination and Jobs"
+    },
+    {
+      "type": "image",
+      "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-fehler-3.webp",
+      "caption": "Key AI concerns. Reliability and hallucination dominated at 26.7%.",
+      "alt": "Anthropic survey results showing AI concerns chart"
+    },
+    {
+      "type": "text",
+      "value": "| Rank | Concern | Share |\n|------|---------|-------|\n| 1 | Reliability/Hallucination | 26.7% |\n| 2 | Employment & Economy | 22.3% |\n| 3 | Autonomy & Agency | 21.9% |\n| 4 | Cognitive Atrophy | 16.3% |\n| 5 | Governance | 14.7% |\n| 6 | Misinformation | 13.6% |\n| 7 | Surveillance/Privacy | 13.1% |\n| 8 | Malicious Use | 13.0% |\n| 9 | Meaning & Creativity | 11.7% |"
+    },
+    {
+      "type": "text",
+      "value": "In the multi-select concerns section, reliability and hallucination led overwhelmingly at 26.7%. Employment and economy (22.3%) and autonomy and agency (21.9%) followed. The full picture includes cognitive atrophy (16.3%), governance (14.7%), misinformation (13.6%), surveillance and privacy (13.1%), malicious use (13.0%), and meaning and creativity (11.7%).\n\nSurprisingly, existential AI risk came in at just 6.7%. Despite its outsized presence in media narratives, actual users are far more concerned about concrete, everyday problems."
+    },
+    {
+      "type": "heading",
+      "value": "Optimism and Pessimism Live in the Same Person"
+    },
+    {
+      "type": "text",
+      "value": "The survey's most critical finding is that hope and concern don't belong to opposing camps — they coexist within the same individual. Someone who reports dramatically improved work efficiency may simultaneously express anxiety about job security.\n\nThis matters because it challenges the framing of AI policy debates. The binary of 'pro-AI vs. anti-AI' fails to reflect reality — and now that claim is backed by data from 80,000 people."
+    },
+    {
+      "type": "heading",
+      "value": "Brazil Most Optimistic, Germany Most Cautious"
+    },
+    {
+      "type": "text",
+      "value": "Overall, 67% of respondents expressed positive sentiment toward AI. The regional breakdown reveals a striking pattern: lower and middle-income countries were more optimistic than wealthier nations. Brazil (71%) and India (70%) showed the highest positivity, while the US (66%) and Germany (64%) were comparatively cautious.\n\nIn developed nations where AI has already permeated daily life, firsthand experience with side effects appears to temper enthusiasm. In developing nations, anticipation of AI's opportunities outweighs concern. What 81,000 voices ultimately tell us is this: consensus in the AI era begins not with simple for-or-against, but with navigating complex coexistence."
+    }
+  ],
+  "thumbnail": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-1600.webp",
+  "date": "2026-03-19",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "What 81,000 People Want from AI",
+      "url": "https://www.anthropic.com/81k-interviews"
+    },
+    {
+      "name": "TradersUnion",
+      "title": "Anthropic AI Survey: What 81,000 Claude Users Revealed",
+      "url": "https://tradersunion.com/news/billionaires/show/1730895-anthropic-ai-survey-claude/"
+    },
+    {
+      "name": "Medium (Kotrotsos)",
+      "title": "Anthropic Just Published Honest Data Nobody in AI Wants to See",
+      "url": "https://kotrotsos.medium.com/anthropic-just-published-honest-data-nobody-in-ai-wants-to-see-981f2591d0a9"
+    },
+    {
+      "name": "Superhuman AI",
+      "title": "OpenAI and Anthropic Reveal How People Actually Use AI",
+      "url": "https://www.superhuman.ai/p/openai-and-anthropic-reveal-how-people-actually-use-ai"
+    },
+    {
+      "name": "Anthropic Features",
+      "title": "81K Interviews Feature Page",
+      "url": "https://www.anthropic.com/features/81k-interviews"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-revenue-19b-openai-gap",
+    "tech:ai/claude-code-agent-teams-paradigm"
+  ],
+  "relatedGames": [],
+  "needTranslate": false
+}
