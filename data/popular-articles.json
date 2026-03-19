@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-03-18T01:03:11.213Z",
+  "updatedAt": "2026-03-19T01:02:52.034Z",
   "period": "7days",
   "articles": [
     {
       "type": "tech",
       "slug": "karpathy-ai-job-exposure-score",
       "category": "ai",
-      "views": 27,
+      "views": 29,
       "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
@@ -18,7 +18,7 @@
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 11,
+      "views": 9,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
@@ -27,6 +27,12 @@
       "category": "ai",
       "views": 6,
       "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "issue",
+      "slug": "seven-deadly-sins-origin-delay-2026",
+      "views": 5,
+      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
     },
     {
       "type": "tech",
@@ -48,10 +54,11 @@
       "path": "/magazine/issue/nvidia-rtx-3060-samsung-8nm-revival/"
     },
     {
-      "type": "issue",
-      "slug": "sol-enchant-pre-registration",
+      "type": "tech",
+      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
+      "category": "ai",
       "views": 4,
-      "path": "/magazine/issue/sol-enchant-pre-registration/"
+      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
       "type": "issue",
@@ -61,15 +68,15 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 3,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
-    },
-    {
-      "type": "issue",
       "slug": "silksong-sea-of-sorrow",
       "views": 3,
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
+    },
+    {
+      "type": "issue",
+      "slug": "sol-enchant-pre-registration",
+      "views": 3,
+      "path": "/magazine/issue/sol-enchant-pre-registration/"
     },
     {
       "type": "tech",
@@ -84,6 +91,13 @@
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
+    },
+    {
+      "type": "tech",
+      "slug": "gpt-54-mini-nano-small-model-launch",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/gpt-54-mini-nano-small-model-launch/"
     },
     {
       "type": "tech",
@@ -107,17 +121,16 @@
       "path": "/tech/normal/intel-core-ultra-200s-plus/"
     },
     {
-      "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
       "type": "issue",
       "slug": "limbus-company-ios-top5-record",
       "views": 2,
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "specialforce-remaster-ue5-launch-delay",
+      "views": 2,
+      "path": "/magazine/issue/specialforce-remaster-ue5-launch-delay/"
     },
     {
       "type": "ranking",
@@ -127,17 +140,10 @@
     },
     {
       "type": "tech",
-      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
+      "slug": "claude-dispatch-cowork-remote-control",
       "category": "ai",
       "views": 2,
-      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-54-one-week-review",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/gpt-54-one-week-review/"
+      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
     },
     {
       "type": "tech",
@@ -169,13 +175,6 @@
     },
     {
       "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
-      "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
       "views": 2,
@@ -189,11 +188,10 @@
       "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "insight",
@@ -215,6 +213,12 @@
     },
     {
       "type": "issue",
+      "slug": "dragon-sword-launch-report",
+      "views": 1,
+      "path": "/magazine/issue/dragon-sword-launch-report/"
+    },
+    {
+      "type": "issue",
       "slug": "ea-battlefield6-layoffs-despite-record-sales",
       "views": 1,
       "path": "/magazine/issue/ea-battlefield6-layoffs-despite-record-sales/"
@@ -233,6 +237,12 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
@@ -245,15 +255,15 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-gtc-2026-dlss5-gaming",
+      "slug": "nexon-maple-scandal-chief-fired",
       "views": 1,
-      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
+      "path": "/magazine/issue/nexon-maple-scandal-chief-fired/"
     },
     {
       "type": "issue",
-      "slug": "seven-deadly-sins-origin-delay-2026",
+      "slug": "nvidia-gtc-2026-dlss5-gaming",
       "views": 1,
-      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
+      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
     },
     {
       "type": "issue",
@@ -283,6 +293,27 @@
     },
     {
       "type": "tech",
+      "slug": "claude-military-venezuela-iran",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-military-venezuela-iran/"
+    },
+    {
+      "type": "tech",
+      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "mistral-small4-unified-moe",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/mistral-small4-unified-moe/"
+    },
+    {
+      "type": "tech",
       "slug": "nvidia-feynman-architecture-2028",
       "category": "ai",
       "views": 1,
@@ -304,6 +335,13 @@
     },
     {
       "type": "tech",
+      "slug": "openai-side-quests-pivot-coding-enterprise",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/openai-side-quests-pivot-coding-enterprise/"
+    },
+    {
+      "type": "tech",
       "slug": "xai-exodus-grok-crisis",
       "category": "ai",
       "views": 1,
@@ -322,6 +360,20 @@
       "category": "vibecoding",
       "views": 1,
       "path": "/tech/vibecoding/vibe-coding-workflow-prompt-guide/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }
