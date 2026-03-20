@@ -1,0 +1,209 @@
+{
+  "slug": "nvidia-dlss5-controversy",
+  "status": "approved",
+  "title": "AI가 게임의 얼굴을 바꾼다? DLSS 5를 둘러싼 거센 반발",
+  "titleEn": "DLSS 5 Sparks Backlash: Jensen Huang Says Gamers Are 'Completely Wrong'",
+  "date": "2026-03-20T12:00",
+  "thumbnail": "https://iprsoftwaremedia.com/219/files/202603/69b7561c3d6332c06474de08_nvidia-dlss-5/nvidia-dlss-5_mid.jpg",
+  "keywords": "엔비디아, DLSS 5, 뉴럴 렌더링, GTC 2026, 젠슨 황, 아트 디렉션, AI 렌더링, 게임 그래픽",
+  "keywordsEn": "Nvidia, DLSS 5, neural rendering, GTC 2026, Jensen Huang, art direction, AI rendering, game graphics",
+  "summary": "엔비디아가 GTC 2026에서 공개한 DLSS 5가 게이머와 개발자 모두의 거센 반발에 직면했다. AI 뉴럴 렌더링이 게임의 아트 디렉션을 훼손한다는 비판에 젠슨 황 CEO는 '게이머들이 완전히 틀렸다'고 반박하며 논란이 확산되고 있다.",
+  "summaryEn": "Nvidia's DLSS 5, unveiled at GTC 2026, faces fierce backlash from gamers and developers who say AI neural rendering overrides game art direction. CEO Jensen Huang's dismissal that gamers are 'completely wrong' has only fueled the controversy.",
+  "sources": [
+    {
+      "name": "Tom's Hardware",
+      "title": "Jensen Huang Says Gamers Are 'Completely Wrong' About DLSS 5",
+      "url": "https://www.tomshardware.com/pc-components/gpus/jensen-huang-says-gamers-are-completely-wrong-about-dlss-5-nvidia-ceo-responds-to-dlss-5-backlash"
+    },
+    {
+      "name": "Kotaku",
+      "title": "We Spoke to Game Devs and All of Them Hate DLSS 5",
+      "url": "https://kotaku.com/we-spoke-to-game-devs-and-all-of-them-hate-dlss-5-what-the-f-nvidia-2000680059"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "DLSS 5 Clearly Overwrites Game Characters With AI Beauty Standards",
+      "url": "https://www.pcgamer.com/software/ai/dlss-5-clearly-overwrites-game-characters-with-ai-beauty-standards-but-nvidia-says-devs-have-artistic-control/"
+    },
+    {
+      "name": "Inven",
+      "title": "DLSS 5 논란 관련 보도",
+      "url": "https://www.inven.co.kr/webzine/news/?news=314461"
+    },
+    {
+      "name": "게임메카",
+      "title": "DLSS 5 논란 관련 보도",
+      "url": "https://www.gamemeca.com/view.php?gid=1772773"
+    }
+  ],
+  "relatedGames": [],
+  "relatedDocs": [
+    "tech:normal/game-engine",
+    "tech:normal/intel-core-ultra-200s-plus"
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "엔비디아가 GTC 2026에서 야심차게 공개한 **DLSS 5**가 예상치 못한 역풍을 맞았다. AI 기반 실시간 뉴럴 렌더링이라는 기술적 도약을 내세웠지만, 게이머와 개발자 모두가 '게임의 고유한 아트 디렉션을 AI가 멋대로 덮어쓴다'며 강하게 반발하고 있다. 젠슨 황 CEO가 직접 나서 '게이머들이 완전히 틀렸다'고 반박하면서 논란은 더욱 확산되는 양상이다."
+    },
+    {
+      "type": "heading",
+      "value": "뉴럴 렌더링, DLSS의 패러다임 전환"
+    },
+    {
+      "type": "text",
+      "value": "DLSS 5는 기존 업스케일링 중심이던 DLSS 시리즈에서 한 단계 더 나아간다. 핵심은 **실시간 뉴럴 렌더링 모델**의 도입이다. 단순히 저해상도 이미지를 고해상도로 복원하는 수준을 넘어, AI가 피부, 머리카락, 직물 등 복잡한 재질을 실시간으로 재구성한다.\n\n엔비디아는 엔씨소프트의 아이온2와 신더시티(Syndercity)가 선제 적용될 것이라고 발표했다. 베데스다, 캡콤, 텐센트, 유비소프트 등 대형 퍼블리셔들도 지원 의사를 밝혔으며, 2026년 가을 정식 출시를 목표로 하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "개발자가 만든 얼굴, AI가 바꿔버린다"
+    },
+    {
+      "type": "image",
+      "src": "https://kotaku.com/app/uploads/2026/03/dlss5offon-1200x675.jpg",
+      "alt": "DLSS 5 적용 전후 비교 스크린샷",
+      "caption": ""
+    },
+    {
+      "type": "text",
+      "value": "문제는 DLSS 5의 뉴럴 렌더링이 게임 캐릭터의 외형을 상당 부분 변형한다는 점이다. AI 모델이 피부 질감, 머리카락 표현, 조명 반사 등을 '더 사실적으로' 재구성하는 과정에서, **개발자가 의도한 아트 디렉션과 전혀 다른 결과물**이 나온다는 비판이 쏟아졌다.\n\n특히 캐릭터의 외모가 일종의 'AI 미의 기준'으로 획일화된다는 지적이 핵심이다. 스타일라이즈드 아트, 셀 셰이딩, 의도적으로 거친 질감 등 게임마다 고유한 비주얼 정체성이 AI 필터를 거치면서 사라질 수 있다는 우려가 크다."
+    },
+    {
+      "type": "heading",
+      "value": "\"아트 디렉션이 전혀 필요 없을 때 적합한 기술\""
+    },
+    {
+      "type": "quote",
+      "value": "\"아트 디렉션이 전혀 필요 없을 때 적합한 기술이다.\"",
+      "source": "Mike Bithell, Thomas Was Alone 개발자"
+    },
+    {
+      "type": "text",
+      "value": "인디 게임 'Thomas Was Alone'의 개발자 Mike Bithell은 DLSS 5에 대해 신랄한 평가를 내놓았다. 게임의 시각적 정체성을 만드는 것이 아트 디렉션의 본질인데, AI가 그것을 무시하고 덮어쓴다면 기술의 존재 의의 자체가 모순이라는 지적이다.\n\n코타쿠(Kotaku)는 복수의 게임 개발자를 취재한 결과 **\"인터뷰한 개발자 전원이 DLSS 5를 싫어한다\"**고 보도했다. 대형 스튜디오 소속 개발자들조차 익명을 조건으로 부정적인 의견을 밝혔다는 점에서, 업계 전반의 불만이 상당한 수준임을 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "젠슨 황의 정면 반박, 불에 기름을 붓다"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/Yetq29hR6VJ2vPWAyakzWU-2560-80.jpg",
+      "alt": "DLSS 5 뉴럴 렌더링 기술 시연",
+      "caption": ""
+    },
+    {
+      "type": "quote",
+      "value": "\"They're completely wrong.\"",
+      "source": "젠슨 황, 엔비디아 CEO"
+    },
+    {
+      "type": "text",
+      "value": "논란이 커지자 젠슨 황 CEO가 직접 대응에 나섰다. 그는 DLSS 5에 대한 게이머들의 반발에 대해 **\"그들은 완전히 틀렸다(They're completely wrong)\"**고 단언했다. 기술에 대한 이해 부족에서 비롯된 오해라는 것이 그의 입장이다.\n\n엔비디아 측은 DLSS 5가 개발자에게 충분한 아티스틱 컨트롤을 제공한다고 주장했다. AI 렌더링의 강도를 조절하거나 특정 요소에만 선택적으로 적용할 수 있어, 아트 디렉션이 훼손되지 않는다는 설명이다.\n\n그러나 이 반박은 오히려 역효과를 냈다. 실제 데모 영상에서 캐릭터 외형이 눈에 띄게 변한 것을 직접 확인한 커뮤니티에서는 '눈으로 보이는 것도 부정하냐'는 반응이 지배적이었다. CEO의 강경한 발언이 유저 감정을 자극하면서 논란은 기술적 토론을 넘어 감정적 대립으로 번지고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "지지와 비판 사이, 엇갈리는 업계 반응"
+    },
+    {
+      "type": "text",
+      "value": "업계의 반응은 양분되어 있다. 엔씨소프트, 베데스다, 캡콤, 텐센트, 유비소프트 등은 DLSS 5 적용을 공식 발표했다. 사실적인 그래픽을 지향하는 AAA 타이틀에서는 뉴럴 렌더링의 품질 향상이 매력적일 수 있다.\n\n반면 아트 스타일이 게임의 핵심 정체성인 인디 게임이나 스타일라이즈드 타이틀 진영에서는 거부감이 강하다. AI가 '더 사실적으로' 바꾸는 것 자체가 그들에게는 아트 파괴와 다름없기 때문이다. 결국 **사실주의 그래픽과 스타일라이즈드 아트 사이의 근본적인 시각 차이**가 이번 논란의 밑바탕에 깔려 있다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 렌더링 시대, 선택권은 누가 쥐어야 하나"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2026/03/how-nvidia-dlss-5-works-scaled.jpg",
+      "alt": "DLSS 5 뉴럴 렌더링 작동 원리 다이어그램",
+      "caption": ""
+    },
+    {
+      "type": "text",
+      "value": "DLSS 5 논란은 단순한 기술 호불호를 넘어, AI 시대 게임 비주얼의 주도권이 누구에게 있어야 하는가라는 근본적인 질문을 던진다. 개발자가 수개월에 걸쳐 구축한 시각적 정체성을 AI가 실시간으로 변형하는 것이 '향상'인지 '훼손'인지는 관점에 따라 갈린다.\n\n엔비디아가 약속한 아티스틱 컨트롤이 실제로 얼마나 정밀하게 작동하는지는 2026년 가을 정식 출시 때까지 지켜볼 필요가 있다. 개발자들이 AI 렌더링의 강도와 범위를 세밀하게 제어할 수 있다면 우려는 줄어들 것이고, 그렇지 못하다면 논란은 더욱 거세질 것이다. 확실한 것은 하나다. 게이머와 개발자의 목소리를 '틀렸다'고 일축하는 것은 어떤 기술 기업에게도 현명한 전략이 아니라는 점이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Nvidia's **DLSS 5**, ambitiously unveiled at GTC 2026, has met unexpected headwinds. Despite touting the technological leap of real-time AI neural rendering, both gamers and developers are pushing back hard, arguing that AI is arbitrarily overwriting games' unique art direction. The controversy has only intensified after CEO Jensen Huang personally stepped in to declare that gamers are 'completely wrong.'"
+    },
+    {
+      "type": "heading",
+      "value": "Neural Rendering: A Paradigm Shift for DLSS"
+    },
+    {
+      "type": "text",
+      "value": "DLSS 5 goes a step beyond the upscaling-focused approach of previous DLSS iterations. At its core is the introduction of a **real-time neural rendering model**. Rather than simply reconstructing low-resolution images at higher resolution, the AI reconstructs complex materials like skin, hair, and fabric in real time.\n\nNvidia announced that NCSoft's Aion 2 and Syndercity will be among the first titles to adopt the technology. Major publishers including Bethesda, Capcom, Tencent, and Ubisoft have also expressed support, with a full launch targeted for fall 2026."
+    },
+    {
+      "type": "heading",
+      "value": "Faces Made by Developers, Rewritten by AI"
+    },
+    {
+      "type": "image",
+      "src": "https://kotaku.com/app/uploads/2026/03/dlss5offon-1200x675.jpg",
+      "alt": "DLSS 5 before and after comparison screenshot",
+      "caption": ""
+    },
+    {
+      "type": "text",
+      "value": "The problem is that DLSS 5's neural rendering significantly alters the appearance of game characters. As the AI model reconstructs skin textures, hair rendering, and lighting reflections to be 'more realistic,' critics say the results are **completely different from what developers intended**.\n\nThe key concern is that character appearances are being homogenized to a kind of 'AI beauty standard.' Stylized art, cel shading, intentionally rough textures—the unique visual identities that define each game—risk being erased once they pass through the AI filter."
+    },
+    {
+      "type": "heading",
+      "value": "\"A Technology for When Art Direction Is Completely Unnecessary\""
+    },
+    {
+      "type": "quote",
+      "value": "\"It's a technology for when art direction is completely unnecessary.\"",
+      "source": "Mike Bithell, developer of Thomas Was Alone"
+    },
+    {
+      "type": "text",
+      "value": "Mike Bithell, developer of indie game Thomas Was Alone, delivered a scathing assessment of DLSS 5. The essence of art direction is creating a game's visual identity—if AI ignores and overwrites that, the technology's very existence becomes a contradiction.\n\nKotaku reported that after interviewing multiple game developers, **\"every single developer we spoke to hates DLSS 5.\"** Even developers at major studios expressed negative opinions on condition of anonymity, suggesting that industry-wide dissatisfaction runs deep."
+    },
+    {
+      "type": "heading",
+      "value": "Jensen Huang's Defiant Response Adds Fuel to the Fire"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/Yetq29hR6VJ2vPWAyakzWU-2560-80.jpg",
+      "alt": "DLSS 5 neural rendering technology demonstration",
+      "caption": ""
+    },
+    {
+      "type": "quote",
+      "value": "\"They're completely wrong.\"",
+      "source": "Jensen Huang, Nvidia CEO"
+    },
+    {
+      "type": "text",
+      "value": "As the controversy grew, CEO Jensen Huang personally stepped in. He flatly stated that gamers' backlash against DLSS 5 was because **\"they're completely wrong\"**—a misunderstanding rooted in a lack of understanding of the technology.\n\nNvidia maintained that DLSS 5 provides developers with sufficient artistic control, allowing them to adjust the intensity of AI rendering or selectively apply it to specific elements, ensuring art direction remains intact.\n\nHowever, this rebuttal backfired. Communities that had seen character appearances visibly change in demo footage responded with 'are you denying what we can see with our own eyes?' The CEO's hardline stance antagonized user sentiment, pushing the debate beyond technical discussion into emotional confrontation."
+    },
+    {
+      "type": "heading",
+      "value": "Between Support and Criticism: A Divided Industry"
+    },
+    {
+      "type": "text",
+      "value": "Industry reactions are split. NCSoft, Bethesda, Capcom, Tencent, and Ubisoft have officially announced DLSS 5 adoption. For AAA titles aiming for photorealistic graphics, neural rendering's quality improvements can be compelling.\n\nOn the other hand, indie games and stylized titles where art style is core to the game's identity face strong resistance. For them, AI making things 'more realistic' is tantamount to destroying their art. Ultimately, **the fundamental gap between photorealistic and stylized art philosophies** lies at the heart of this controversy."
+    },
+    {
+      "type": "heading",
+      "value": "Who Should Hold the Reins in the AI Rendering Era?"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2026/03/how-nvidia-dlss-5-works-scaled.jpg",
+      "alt": "DLSS 5 뉴럴 렌더링 작동 원리 다이어그램",
+      "caption": ""
+    },
+    {
+      "type": "text",
+      "value": "The DLSS 5 controversy goes beyond simple technology preferences to pose a fundamental question: who should control game visuals in the AI era? Whether AI transforming visual identities that developers spent months building constitutes 'enhancement' or 'degradation' depends on one's perspective.\n\nHow precisely Nvidia's promised artistic controls actually work remains to be seen until the full launch in fall 2026. If developers can finely control the intensity and scope of AI rendering, concerns will ease; if not, the controversy will only intensify. One thing is certain: dismissing the voices of gamers and developers as 'wrong' is not a wise strategy for any technology company."
+    }
+  ],
+  "needTranslate": true
+}

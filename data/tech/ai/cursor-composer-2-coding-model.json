@@ -1,0 +1,196 @@
+{
+  "slug": "cursor-composer-2-coding-model",
+  "status": "approved",
+  "category": "ai-tools",
+  "title": "커서, 자체 프론티어 코딩 모델 Composer 2 공개 - Claude Opus 4.6 넘고 가격은 10분의 1",
+  "titleEn": "Cursor Unveils Composer 2: A Frontier Coding Model That Rivals Claude Opus 4.6 at One-Tenth the Price",
+  "summary": "AI 코딩 에디터 커서(Cursor)가 자체 개발한 프론티어급 코딩 모델 Composer 2를 공개했다. CursorBench에서 Claude Opus 4.6을 능가하면서도 입력 토큰 가격은 10분의 1에 불과하다. DAU 100만 돌파와 ARR 20억 달러를 기록 중인 커서의 수직 통합 전략이 AI 코딩 도구 시장의 판도를 흔들고 있다.",
+  "summaryEn": "AI coding editor Cursor has unveiled Composer 2, a frontier-class coding model developed in-house. It outperforms Claude Opus 4.6 on CursorBench while costing just one-tenth the price per input token. With over 1 million DAU and $2 billion ARR, Cursor's vertical integration strategy is reshaping the AI coding tool market.",
+  "keywords": "커서, Composer 2, AI 코딩, Claude Opus 4.6, GPT-5.4, 벤치마크, CursorBench, SWE-bench, 코딩 모델, 애니스피어, Aman Sanger, AI 에디터",
+  "keywordsEn": "Cursor, Composer 2, AI coding, Claude Opus 4.6, GPT-5.4, benchmark, CursorBench, SWE-bench, coding model, Anysphere, Aman Sanger, AI editor",
+  "content": [
+    {
+      "type": "text",
+      "value": "AI 코딩 에디터 커서(Cursor)를 만드는 애니스피어(Anysphere)가 자체 프론티어급 코딩 모델 'Composer 2'를 공개했다. 코드 전용으로 특화된 이 모델은 일부 벤치마크에서 앤트로픽의 Claude Opus 4.6을 넘어서면서도, 가격은 10분의 1에 불과하다. API 제공업체에 의존하던 AI 코딩 도구가 자체 모델로 정면 승부를 걸기 시작한 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "프론티어 모델과 맞붙은 코드 전용 AI"
+    },
+    {
+      "type": "quote",
+      "value": "\"Composer 2는 세금 처리나 시 작성은 못 한다. 오직 코드만 안다.\" — Aman Sanger, 커서 공동창업자"
+    },
+    {
+      "type": "text",
+      "value": "Composer 2의 핵심 전략은 범용성을 버리고 코딩에 올인한 것이다. 지속적 사전학습(continual pretraining)과 장기 코딩 강화학습(long-horizon coding RL)을 결합해, 수백 개의 순차적 액션을 처리하는 에이전트 코딩에 최적화했다.\n\n결과는 벤치마크로 증명된다."
+    },
+    {
+      "type": "text",
+      "value": "| 벤치마크 | Composer 2 | Claude Opus 4.6 | GPT-5.4 Thinking |\n|----------|-----------|-----------------|------------------|\n| CursorBench | **61.3** | 58.2 | 63.9 |\n| Terminal-Bench 2.0 | **61.7** | 58.0 | 75.1 |\n| SWE-bench Multilingual | 73.7 | **77.8** | N/A |"
+    },
+    {
+      "type": "text",
+      "value": "커서가 자체 제작한 CursorBench에서 Composer 2는 61.3으로 Claude Opus 4.6(58.2)을 3.1포인트 앞섰다. Terminal-Bench 2.0에서도 61.7 대 58.0으로 우위를 보였다. 다만 SWE-bench Multilingual에서는 73.7로 Claude Opus 4.6(77.8)에 뒤처졌고, GPT-5.4 Thinking에는 Terminal-Bench에서 상당한 격차(61.7 vs 75.1)를 보였다.\n\n프론티어 범용 모델들을 전면적으로 압도한 것은 아니지만, 코드 전용 모델이 범용 모델과 대등하게 경쟁할 수 있다는 것 자체가 의미 있는 성과다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "가격 파괴가 진짜 무기다"
+    },
+    {
+      "type": "image",
+      "src": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/og/blog-introducing-composer-2-anim-20260318-110449-optim.gif",
+      "alt": "커서 Composer 2 코딩 에이전트 인터페이스",
+      "caption": ""
+    },
+    {
+      "type": "text",
+      "value": "벤치마크보다 더 충격적인 건 가격이다."
+    },
+    {
+      "type": "text",
+      "value": "| 모델 | 입력(백만 토큰당) | 출력(백만 토큰당) |\n|------|-------------------|-------------------|\n| Composer 2 | **$0.50** | **$2.50** |\n| Claude Opus 4.6 | $5.00 | $25.00 |\n| GPT-5.4 | $2.50 | $15.00 |"
+    },
+    {
+      "type": "text",
+      "value": "Composer 2의 입력 토큰 가격은 Claude Opus 4.6의 10분의 1, GPT-5.4의 5분의 1이다. 출력 토큰도 마찬가지로 압도적인 가격 차이를 보인다. 비슷한 성능을 훨씬 저렴하게 제공할 수 있다는 건, AI 코딩 도구 시장의 경제 구조 자체를 뒤흔들 수 있는 변수다.\n\n이 가격 전략의 배경에는 현실적인 계산이 있다. 앤트로픽의 Claude Code는 파워 유저 기준 월 약 5,000달러의 컴퓨팅 비용이 발생하지만, 사용자에게는 200달러만 청구한다. 커서는 자체 모델로 이런 역마진 구조를 근본적으로 회피하겠다는 전략이다."
+    },
+    {
+      "type": "heading",
+      "value": "DAU 100만, ARR 20억 달러의 성장 궤적"
+    },
+    {
+      "type": "text",
+      "value": "커서의 성장세도 무시할 수 없다. 일간 활성 사용자(DAU) 100만 명 이상, 기업 고객 5만 곳, 연간 반복 매출(ARR) 20억 달러를 달성했다. 기업 가치는 약 500억 달러로 평가받고 있다.\n\n이런 규모의 사용자 기반은 곧 학습 데이터의 질과 양으로 직결된다. 실제 개발자들이 매일 생산하는 코드와 피드백이 모델 개선의 연료가 되는 플라이휠 구조가 작동하고 있는 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "에디터를 넘어 플랫폼으로 — 커서의 확장 전략"
+    },
+    {
+      "type": "image",
+      "src": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/composer-speed-cost-r12.png",
+      "alt": "Composer 2와 경쟁 모델 간 속도 및 비용 효율성 비교 차트",
+      "caption": ""
+    },
+    {
+      "type": "text",
+      "value": "Composer 2와 함께 커서는 여러 신규 기능도 발표했다. JetBrains IDE 지원을 시작해 VS Code 기반을 넘어 개발자 생태계 확장에 나섰다. Automations는 Slack, Linear, GitHub 등의 이벤트를 트리거로 에이전트가 자동으로 코딩 작업을 수행하는 기능이다. 새로운 인터페이스 Cursor Glass도 공개됐다.\n\n단순한 코드 에디터에서 AI 코딩 플랫폼으로의 전환을 본격화한 것이다. 자체 모델, 자체 에디터, 자체 자동화 파이프라인이라는 수직 통합 구조가 커서의 핵심 경쟁력으로 자리잡고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 코딩 도구 시장, 삼파전으로 재편되나"
+    },
+    {
+      "type": "text",
+      "value": "지금까지 AI 코딩 도구 시장은 모델 제공자(앤트로픽, 오픈AI)와 도구 제공자(커서, GitHub Copilot 등)로 역할이 분리되어 있었다. 커서가 자체 모델을 내놓으면서 이 구도가 흔들리기 시작했다.\n\n앤트로픽은 Claude Code로 직접 코딩 에이전트 시장에 진입했고, 오픈AI도 Codex CLI를 운영하고 있다. 여기에 커서가 모델까지 자체 개발하면서, 모델-도구-플랫폼을 모두 갖춘 수직 통합 경쟁이 본격화됐다. 개발자들에게는 선택지가 넓어졌지만, 어떤 생태계에 올라타느냐가 점점 더 중요한 결정이 되고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anysphere, the company behind AI coding editor Cursor, has unveiled 'Composer 2,' a frontier-class coding model built in-house. This code-only model surpasses Anthropic's Claude Opus 4.6 on select benchmarks while costing just one-tenth the price. An AI coding tool that once relied entirely on API providers is now going head-to-head with its own model."
+    },
+    {
+      "type": "heading",
+      "value": "A Code-Only AI That Takes On Frontier Models"
+    },
+    {
+      "type": "quote",
+      "value": "\"Composer 2 can't do your taxes or write poetry. It only knows code.\" — Aman Sanger, Cursor co-founder"
+    },
+    {
+      "type": "text",
+      "value": "Composer 2's core strategy is abandoning generality to go all-in on coding. It combines continual pretraining with long-horizon coding reinforcement learning, optimized for agentic coding workflows that handle hundreds of sequential actions.\n\nThe results speak through benchmarks."
+    },
+    {
+      "type": "text",
+      "value": "| Benchmark | Composer 2 | Claude Opus 4.6 | GPT-5.4 Thinking |\n|-----------|-----------|-----------------|------------------|\n| CursorBench | **61.3** | 58.2 | 63.9 |\n| Terminal-Bench 2.0 | **61.7** | 58.0 | 75.1 |\n| SWE-bench Multilingual | 73.7 | **77.8** | N/A |"
+    },
+    {
+      "type": "text",
+      "value": "On CursorBench, Cursor's proprietary benchmark, Composer 2 scored 61.3 — beating Claude Opus 4.6's 58.2 by 3.1 points. It also led on Terminal-Bench 2.0 with 61.7 versus 58.0. However, it trailed Claude Opus 4.6 on SWE-bench Multilingual (73.7 vs 77.8) and showed a significant gap against GPT-5.4 Thinking on Terminal-Bench (61.7 vs 75.1).\n\nComposer 2 doesn't categorically dominate frontier general-purpose models, but the fact that a code-only model can compete at this level is a significant achievement in itself."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The Real Weapon Is Price Disruption"
+    },
+    {
+      "type": "text",
+      "value": "More striking than the benchmarks is the pricing."
+    },
+    {
+      "type": "text",
+      "value": "| Model | Input (per million tokens) | Output (per million tokens) |\n|-------|---------------------------|-----------------------------|\n| Composer 2 | **$0.50** | **$2.50** |\n| Claude Opus 4.6 | $5.00 | $25.00 |\n| GPT-5.4 | $2.50 | $15.00 |"
+    },
+    {
+      "type": "text",
+      "value": "Composer 2's input token price is one-tenth of Claude Opus 4.6 and one-fifth of GPT-5.4. Output tokens show similarly dramatic differences. Delivering comparable performance at drastically lower cost could fundamentally reshape the economics of the AI coding tool market.\n\nBehind this pricing strategy lies a practical calculation. Anthropic's Claude Code costs approximately $5,000 per month in compute for power users, while charging them only $200. Cursor aims to structurally avoid this negative-margin model through its own in-house solution."
+    },
+    {
+      "type": "heading",
+      "value": "1 Million DAU, $2 Billion ARR Growth Trajectory"
+    },
+    {
+      "type": "text",
+      "value": "Cursor's growth metrics are equally compelling. It has surpassed 1 million daily active users, serves 50,000 enterprise customers, and achieved $2 billion in annual recurring revenue. The company is valued at approximately $50 billion.\n\nA user base of this scale directly translates into training data quality and volume. The code and feedback generated daily by real developers fuel a flywheel of model improvement."
+    },
+    {
+      "type": "heading",
+      "value": "Beyond the Editor — Cursor's Platform Expansion"
+    },
+    {
+      "type": "text",
+      "value": "Alongside Composer 2, Cursor announced several new features. JetBrains IDE support extends the developer ecosystem beyond VS Code. Automations uses events from Slack, Linear, and GitHub as triggers for agents to automatically execute coding tasks. A new interface called Cursor Glass was also revealed.\n\nThis marks a definitive transition from a simple code editor to a full AI coding platform. Vertical integration — an in-house model, proprietary editor, and automated pipeline — is becoming Cursor's core competitive advantage."
+    },
+    {
+      "type": "heading",
+      "value": "AI Coding Tool Market Becomes a Three-Way Race"
+    },
+    {
+      "type": "text",
+      "value": "Until now, the AI coding tool market maintained a clean separation between model providers (Anthropic, OpenAI) and tool providers (Cursor, GitHub Copilot). With Cursor building its own model, this structure is beginning to shift.\n\nAnthropic entered the coding agent market directly with Claude Code, and OpenAI operates Codex CLI. Now with Cursor developing its own model, a vertically integrated competition spanning models, tools, and platforms has begun in earnest. For developers, the options are expanding — but choosing which ecosystem to bet on is becoming an increasingly consequential decision."
+    }
+  ],
+  "thumbnail": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/composer-2-scatter-r4.png",
+  "date": "2026-03-20",
+  "sources": [
+    {
+      "name": "Cursor",
+      "title": "Composer 2",
+      "url": "https://cursor.com/blog/composer-2"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Cursor's new coding model Composer 2 beats Claude Opus 4.6",
+      "url": "https://venturebeat.com/technology/cursors-new-coding-model-composer-2-is-here-it-beats-claude-opus-4-6-but"
+    },
+    {
+      "name": "The New Stack",
+      "title": "Cursor's Composer 2 Beats Opus 4.6 on Coding Benchmarks at a Fraction of the Price",
+      "url": "https://thenewstack.io/cursors-composer-2-beats-opus-46-on-coding-benchmarks-at-a-fraction-of-the-price/"
+    },
+    {
+      "name": "The Decoder",
+      "title": "Cursor takes on OpenAI and Anthropic with Composer 2",
+      "url": "https://the-decoder.com/cursor-takes-on-openai-and-anthropic-with-composer-2-a-code-only-model-built-to-match-rivals-at-a-fraction-of-the-cost/"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "AI Coding Startup Cursor Plans New Model to Rival Anthropic, OpenAI",
+      "url": "https://www.bloomberg.com/news/articles/2026-03-19/ai-coding-startup-cursor-plans-new-model-to-rival-anthropic-openai"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/openai-astral-acquisition",
+    "tech:ai/openai-side-quests-pivot-coding-enterprise"
+  ],
+  "relatedGames": [],
+  "needTranslate": false
+}
