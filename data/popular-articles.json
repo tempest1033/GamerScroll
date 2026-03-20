@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T01:02:52.034Z",
+  "updatedAt": "2026-03-20T00:59:42.964Z",
   "period": "7days",
   "articles": [
     {
@@ -12,8 +12,14 @@
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 22,
+      "views": 21,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "issue",
+      "slug": "specialforce-remaster-ue5-launch-delay",
+      "views": 17,
+      "path": "/magazine/issue/specialforce-remaster-ue5-launch-delay/"
     },
     {
       "type": "ranking",
@@ -23,10 +29,10 @@
     },
     {
       "type": "tech",
-      "slug": "moltbook-ai-social-network",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "category": "ai",
       "views": 6,
-      "path": "/tech/ai/moltbook-ai-social-network/"
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "issue",
@@ -36,10 +42,10 @@
     },
     {
       "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "slug": "moltbook-ai-social-network",
       "category": "ai",
       "views": 5,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "issue",
@@ -49,22 +55,15 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-rtx-3060-samsung-8nm-revival",
+      "slug": "crimson-desert-metacritic-stock-crash",
       "views": 4,
-      "path": "/magazine/issue/nvidia-rtx-3060-samsung-8nm-revival/"
-    },
-    {
-      "type": "tech",
-      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
+      "path": "/magazine/issue/crimson-desert-metacritic-stock-crash/"
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 3,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "slug": "nvidia-rtx-3060-samsung-8nm-revival",
+      "views": 4,
+      "path": "/magazine/issue/nvidia-rtx-3060-samsung-8nm-revival/"
     },
     {
       "type": "issue",
@@ -73,17 +72,18 @@
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
-      "type": "issue",
-      "slug": "sol-enchant-pre-registration",
-      "views": 3,
-      "path": "/magazine/issue/sol-enchant-pre-registration/"
-    },
-    {
       "type": "tech",
       "slug": "bytedance-seedance-copyright-delay",
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/bytedance-seedance-copyright-delay/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-dispatch-cowork-remote-control",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
     },
     {
       "type": "tech",
@@ -122,15 +122,15 @@
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
-      "slug": "specialforce-remaster-ue5-launch-delay",
+      "slug": "limbus-company-ios-top5-record",
       "views": 2,
-      "path": "/magazine/issue/specialforce-remaster-ue5-launch-delay/"
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "ranking",
@@ -140,10 +140,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-dispatch-cowork-remote-control",
+      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
       "category": "ai",
       "views": 2,
-      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
+      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
       "type": "tech",
@@ -207,6 +207,12 @@
     },
     {
       "type": "issue",
+      "slug": "death-stranding-2-pc-launch",
+      "views": 1,
+      "path": "/magazine/issue/death-stranding-2-pc-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "diablo2-resurrected-steam-launch",
       "views": 1,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
@@ -216,12 +222,6 @@
       "slug": "dragon-sword-launch-report",
       "views": 1,
       "path": "/magazine/issue/dragon-sword-launch-report/"
-    },
-    {
-      "type": "issue",
-      "slug": "ea-battlefield6-layoffs-despite-record-sales",
-      "views": 1,
-      "path": "/magazine/issue/ea-battlefield6-layoffs-despite-record-sales/"
     },
     {
       "type": "issue",
@@ -272,10 +272,23 @@
       "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
+      "type": "issue",
+      "slug": "sol-enchant-pre-registration",
+      "views": 1,
+      "path": "/magazine/issue/sol-enchant-pre-registration/"
+    },
+    {
       "type": "ranking",
       "slug": "mobile-february-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "anthropic-81k-interview",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/anthropic-81k-interview/"
     },
     {
       "type": "tech",
