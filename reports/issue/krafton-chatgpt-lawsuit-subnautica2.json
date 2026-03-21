@@ -1,0 +1,139 @@
+{
+  "slug": "krafton-chatgpt-lawsuit-subnautica2",
+  "status": "approved",
+  "title": "크래프톤 CEO가 챗GPT로 짠 성과급 회피 작전, 미국 법원에서 뒤집히다",
+  "date": "2026-03-21T12:00",
+  "keywords": "크래프톤, 서브노티카2, 챗GPT, 언노운 월즈, 테드 길, 델라웨어 법원, 성과급, 부당해고",
+  "summary": "크래프톤 CEO 김창한이 챗GPT를 활용해 서브노티카 2 개발사 언노운 월즈 경영진을 해고하고 2억5천만 달러 성과급 지급을 회피하려 했으나, 미국 델라웨어 법원이 부당해고로 판결하고 CEO 복직 및 성과급 기한 연장을 명령했다.",
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/k9eQigmxWQRCqoP5q9Uqi7-1200-80.jpg",
+  "relatedDocs": [
+    "issue:krafton-shareholder-return-1-trillion",
+    "issue:game-ai-paradigm-shift-2026"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "title": "Subnautica 2 publisher's CEO used ChatGPT in failed bid to avoid paying US$250m bonus",
+      "url": "https://www.theguardian.com/technology/2026/mar/18/subnautica-2-publisher-krafton-ceo-reinstated-ai-chatgpt-failed-bid-avoid-paying-bonus"
+    },
+    {
+      "name": "Reuters",
+      "title": "US court rules against S.Korean gaming company on its AI-hatched takeover plan",
+      "url": "https://www.reuters.com/legal/litigation/us-court-rules-against-s-korean-gaming-company-its-ai-hatched-takeover-plan-2026-03-16/"
+    },
+    {
+      "name": "IGN",
+      "title": "Judge Slams Subnautica 2 Publisher Krafton, Orders Company Reinstate Boss",
+      "url": "https://www.ign.com/articles/judge-slams-subnautica-2-publisher-krafton-in-victory-for-fired-workers-orders-company-reinstate-boss-and-extend-250-million-bonus"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "Judge orders Krafton to restore fired Unknown Worlds CEO",
+      "url": "https://www.pcgamer.com/games/in-a-wild-turn-for-the-subnautica-2-lawsuit-a-judge-orders-krafton-to-restore-fired-unknown-worlds-ceo-and-gives-them-9-more-months-to-earn-usd250-million-bonus/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "한국 게임 대기업 크래프톤이 AI 챗봇 챗GPT의 조언을 받아 자회사 경영진을 해고한 사건이 미국 법정에서 완전히 뒤집혔다. 델라웨어 형평법원은 크래프톤의 행위가 부당해고에 해당한다고 판결하며, 해고된 CEO의 복직과 성과급 달성 기한 연장을 명령했다. 챗GPT를 경영 전략 도구로 활용한 것이 법적 증거로 채택된 이례적인 사건이다."
+    },
+    {
+      "type": "heading",
+      "value": "5억 달러 인수, 그리고 2억5천만 달러의 약속"
+    },
+    {
+      "type": "text",
+      "value": "사건의 뿌리는 2021년으로 거슬러 올라간다. 크래프톤은 서브노티카 시리즈로 유명한 언노운 월즈 엔터테인먼트를 5억 달러(약 7,300억 원)에 인수했다. 인수 계약에는 스튜디오의 독립성 보장 조항이 포함됐다. 경영진인 공동 창업자 찰리 클리블랜드, 맥스 맥과이어, 그리고 CEO 테드 길이 운영 통제권을 유지하며, 정당한 사유 없이는 해임할 수 없다는 내용이었다."
+    },
+    {
+      "type": "text",
+      "value": "여기에 더해 크래프톤은 언노운 월즈가 특정 목표를 달성할 경우 최대 2억5천만 달러(약 3,650억 원)의 성과급(어닝아웃)을 지급하기로 합의했다. 서브노티카 2의 개발이 본격화되면서 내부 전망은 이 성과급 지급 조건이 충족될 가능성이 높다는 쪽으로 기울었다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "\"나쁜 거래\"라고 느낀 크래프톤 CEO"
+    },
+    {
+      "type": "text",
+      "value": "델라웨어 형평법원 로리 윌 부총괄판사의 판결문에 따르면, 크래프톤 CEO 김창한은 이 인수 계약이 \"나쁜 거래\"였다고 느꼈고, 자신이 \"이용당했다\"고 생각했다. 성과급 지급이 현실화될 조짐이 보이자 그는 이를 회피할 방법을 찾기 시작했다."
+    },
+    {
+      "type": "text",
+      "value": "크래프톤 법무팀은 경영진을 '정당한 사유로 해임'하더라도 성과급은 여전히 지급해야 하며, 이런 행동은 \"소송과 평판 리스크\"에 노출될 것이라고 경고했다. 하지만 김창한 CEO는 다른 길을 택했다."
+    },
+    {
+      "type": "heading",
+      "value": "챗GPT에게 물었다, 어떻게 해야 하냐고"
+    },
+    {
+      "type": "image",
+      "src": "https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-129628842/129628842.jpg",
+      "caption": "서브노티카 2 개발을 둘러싼 크래프톤과 언노운 월즈의 갈등이 법정까지 이어졌다.",
+      "alt": "서브노티카 2와 크래프톤 언노운 월즈 소송 관련 이미지"
+    },
+    {
+      "type": "text",
+      "value": "판결문이 공개한 가장 충격적인 대목은 김창한 CEO가 챗GPT에 성과급 회피 전략을 물었다는 사실이다. 챗GPT는 처음에 성과급을 취소하는 것은 \"어렵다\"고 답변했지만, 이후 대화가 이어지면서 내부 태스크포스 구성을 제안했다."
+    },
+    {
+      "type": "text",
+      "value": "김창한 CEO는 챗GPT의 제안에 따라 '프로젝트 X'라는 내부 태스크포스를 결성했다. 판결문에 따르면, 이 태스크포스의 임무는 성과급에 대해 '협상'하거나, 아니면 언노운 월즈를 '인수'하는 것이었다. 팬 신뢰 확보를 위한 커뮤니케이션 전략, 서브노티카 2의 퍼블리싱 권리 확보, 법적 방어를 위한 체계적 자료 준비 등 구체적인 행동 방침까지 챗GPT가 제시했다."
+    },
+    {
+      "type": "quote",
+      "value": "\"이후 한 달간 크래프톤은 챗GPT의 권고사항 대부분을 따랐다.\" - 로리 윌 부총괄판사, 판결문"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "경영진 해고와 즉각적인 법정 공방"
+    },
+    {
+      "type": "text",
+      "value": "경영진에게 성과급 재협상을 요구했지만 거부당하자, 크래프톤은 최종 카드를 꺼냈다. 테드 길 CEO를 비롯한 언노운 월즈 경영진을 해임한 것이다. 해임 사유로는 경영진이 스튜디오에 투입하는 시간이 줄었다는 점을 내세웠다. 하지만 로리 윌 판사는 이 주장을 받아들이지 않았다."
+    },
+    {
+      "type": "text",
+      "value": "해고된 경영진은 즉각 크래프톤을 상대로 소송을 제기했고, 델라웨어 형평법원은 경영진 측의 손을 들어줬다. 법원은 테드 길의 CEO 복직을 명령했을 뿐 아니라, 해고로 인해 중단된 성과급 달성 기한을 9개월 연장하라는 결정까지 내렸다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 대화 기록이 결정적 증거가 된 전례"
+    },
+    {
+      "type": "text",
+      "value": "이 사건이 게임 업계를 넘어 주목받는 이유는 AI 챗봇과의 대화가 법적 증거로 활용됐기 때문이다. 기업 경영진이 챗GPT와 나눈 전략 상담 내용이 법원 판결의 핵심 근거로 채택된 것은 극히 이례적이다. 판결문에는 김창한 CEO가 챗GPT 기록 중 \"불리한 내용\"을 삭제하라고 지시한 정황까지 언급돼 있어, 사건의 심각성을 더했다."
+    },
+    {
+      "type": "image",
+      "src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1962700/ss_00c2b6b9b8cbc8be385a9853a0b1d98f68568f4e.1920x1080.jpg?t=1772446413",
+      "caption": "서브노티카 2는 소송 진행 중에도 얼리 엑세스 출시를 준비하고 있다.",
+      "alt": "서브노티카 2 스팀 공식 스크린샷"
+    },
+    {
+      "type": "text",
+      "value": "법률 전문가들은 이번 판결이 기업들의 AI 활용에 경종을 울릴 수 있다고 평가한다. AI와의 대화 기록도 이메일이나 내부 문서와 동일한 법적 증거 가치를 지닌다는 점이 확인됐기 때문이다. 특히 증거 인멸 시도가 포착될 경우 법원의 판단에 더욱 부정적인 영향을 미칠 수 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "서브노티카 2의 운명은 어디로"
+    },
+    {
+      "type": "text",
+      "value": "크래프톤은 판결에 불복하며 추가 법적 대응을 검토하겠다는 입장을 밝혔다. 동시에 서브노티카 2의 얼리 엑세스 출시를 위해 \"끊임없이 노력하고 있다\"고 성명을 냈다. 하지만 개발 현장의 혼란은 불가피해 보인다. 경영진이 해고됐다가 복직하는 과정에서 개발 일정과 팀 사기에 상당한 타격이 있었을 것이기 때문이다."
+    },
+    {
+      "type": "text",
+      "value": "이번 사건은 여러 측면에서 게임 업계에 시사점을 던진다. 대형 퍼블리셔가 자회사를 인수한 뒤 약속한 독립성과 성과급을 어떻게 이행하는지, AI 도구를 경영 의사결정에 활용할 때 어떤 법적 리스크가 따르는지, 그리고 법원이 AI 생성 전략을 어떤 기준으로 판단하는지에 대한 선례가 만들어지고 있다. 소송은 아직 진행 중이며, 최종 결론이 어떻게 날지 업계 전체가 주시하고 있다."
+    }
+  ]
+}

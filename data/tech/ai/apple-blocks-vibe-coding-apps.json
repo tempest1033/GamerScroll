@@ -1,0 +1,202 @@
+{
+  "slug": "apple-blocks-vibe-coding-apps",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "vibecoding",
+  "title": "애플, 레플릿과 바이브코드 등 바이브 코딩 앱 업데이트 차단하며 앱스토어 규칙 강화",
+  "titleEn": "Apple Blocks Vibe Coding App Updates, Enforcing Stricter App Store Rules",
+  "date": "2026-03-21T12:00",
+  "thumbnail": "https://images.macrumors.com/t/fvnq7lgIjn-BQ5WsIW1FtaA-BEg=/2250x/article-new/2022/01/iOS-App-Store-General-Feature-Black.jpg",
+  "keywords": "애플 바이브코딩, 앱스토어 가이드라인, 레플릿, 바이브코드, AI 코딩 앱, 앱 심사 지연, 코드 실행 제한",
+  "keywordsEn": "Apple vibe coding, App Store guidelines, Replit, Vibecode, AI coding apps, app review delays, code execution restriction",
+  "summary": "애플이 레플릿과 바이브코드 등 바이브 코딩 앱의 앱스토어 업데이트를 차단했다. 가이드라인 2.5.2 위반을 이유로 들었으며, AI가 생성한 앱 프리뷰 기능이 핵심 쟁점이다. 바이브 코딩 앱 제출 급증으로 심사 지연도 발생하고 있다.",
+  "summaryEn": "Apple has blocked App Store updates for vibe coding apps including Replit and Vibecode, citing guideline 2.5.2 violations. The AI-generated app preview feature is the core issue, while a surge in vibe coding app submissions is also causing review delays.",
+  "sources": [
+    {
+      "name": "MacRumors",
+      "title": "Apple Quietly Blocks Updates for Popular 'Vibe Coding' Apps",
+      "url": "https://www.macrumors.com/2026/03/18/apple-blocks-updates-for-vibe-coding-apps/"
+    },
+    {
+      "name": "The Information",
+      "title": "Apple Cracks Down on Vibe Coding Apps",
+      "url": "https://www.theinformation.com/articles/apple-cracks-vibe-coding-apps"
+    },
+    {
+      "name": "AppleInsider",
+      "title": "Bad vibes: Apple blocks updates for some AI coding apps in the App Store",
+      "url": "https://appleinsider.com/articles/26/03/18/bad-vibes-apple-blocks-updates-for-some-ai-coding-apps-in-the-app-store"
+    },
+    {
+      "name": "MLQ.ai",
+      "title": "Apple Blocks Updates for AI Vibe Coding Apps in App Store",
+      "url": "https://mlq.ai/news/apple-blocks-updates-for-ai-vibe-coding-apps-in-app-store/"
+    }
+  ],
+  "relatedDocs": [
+    "issue:apple-march-2026-macbook-neo-ai"
+  ],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "애플이 레플릿(Replit)과 바이브코드(Vibecode) 등 인기 바이브 코딩 앱의 앱스토어 업데이트를 조용히 차단했다. 앱스토어 심사 가이드라인 2.5.2 위반을 근거로 들었으며, 앱 내부에서 AI가 생성한 코드를 실행하고 프리뷰하는 기능이 핵심 문제로 지목됐다. 비개발자도 자연어 프롬프트로 앱을 만들 수 있게 해주는 이 도구들이 폭발적으로 성장하면서, 애플의 앱 생태계 통제력과 정면으로 충돌하는 양상이다."
+    },
+    {
+      "type": "heading",
+      "value": "가이드라인 2.5.2가 겨냥한 것"
+    },
+    {
+      "type": "text",
+      "value": "애플이 인용한 앱스토어 심사 가이드라인 2.5.2는 앱이 자체 번들 내에서 독립적으로 작동해야 하며, 앱의 기능을 변경하는 코드를 다운로드하거나 설치, 실행해서는 안 된다고 규정하고 있다. 바이브 코딩 앱들은 사용자의 자연어 프롬프트에 따라 AI가 코드를 생성하고, 이를 앱 내부의 웹뷰에서 즉시 실행하여 보여준다. 애플의 시각에서 이는 심사를 거치지 않은 코드가 앱 내부에서 실행되는 것이나 마찬가지다."
+    },
+    {
+      "type": "quote",
+      "value": "앱은 자체 번들 내에서 독립적으로 작동해야 하며, 앱의 기능을 추가하거나 변경하는 코드를 다운로드, 설치 또는 실행할 수 없다. - 앱스토어 심사 가이드라인 2.5.2"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "레플릿과 바이브코드, 어떤 타협을 요구받았나"
+    },
+    {
+      "type": "text",
+      "value": "더 인포메이션의 보도에 따르면, 애플은 각 앱에 서로 다른 수정 방안을 제시했다. 레플릿에는 AI가 생성한 앱 프리뷰를 앱 내부 웹뷰 대신 외부 브라우저에서 열도록 변경할 것을 요구했다. 바이브코드에는 더 강경한 조건이 붙었는데, 애플 기기용 소프트웨어를 생성하는 기능 자체를 제거해야 한다는 것이다.\n\n두 회사 모두 공식적인 입장을 밝히지 않았지만, 사안에 정통한 관계자에 따르면 양측 모두 수정안을 수용하는 방향으로 협의가 진행 중이다. 다만 이러한 타협은 바이브 코딩 앱의 핵심 사용 경험을 훼손할 수 있다는 우려가 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1위에서 3위로 밀려난 레플릿"
+    },
+    {
+      "type": "text",
+      "value": "업데이트 차단의 영향은 이미 수치로 나타나고 있다. 레플릿의 iOS 앱은 올해 1월 마지막 업데이트 이후 애플 무료 개발자 도구 순위에서 1위에서 3위로 하락했다. 레플릿 측은 이 하락의 원인 중 하나로 업데이트를 배포할 수 없는 상황을 지목했다. 신기능 추가나 버그 수정 없이 수개월을 버텨야 하는 것은 앱의 경쟁력에 직접적인 타격이다."
+    },
+    {
+      "type": "image",
+      "src": "https://mlqpdf.s3.amazonaws.com/news_images/apple-vibe-code-apps.png",
+      "caption": "바이브 코딩 앱들의 앱스토어 업데이트가 차단되면서 개발자들의 대응이 주목받고 있다",
+      "alt": "애플 앱스토어 바이브 코딩 앱 업데이트 차단 레플릿 바이브코드"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "바이브 코딩 앱 홍수가 만든 심사 병목"
+    },
+    {
+      "type": "text",
+      "value": "문제는 특정 앱의 가이드라인 위반에 그치지 않는다. 바이브 코딩 도구의 대중화로 비개발자들이 쏟아내는 앱 제출 건수가 급격히 증가하면서, 앱스토어 심사 과정 전반에 지연이 발생하고 있다. 자연어 프롬프트 몇 줄로 앱을 만들 수 있게 되면서 제출 문턱이 크게 낮아진 결과다.\n\n이는 심사 품질에도 영향을 미칠 수 있다. AI가 생성한 코드는 보안 취약점이나 프라이버시 문제를 내포할 가능성이 있으며, 기존 심사 프로세스가 이를 충분히 걸러낼 수 있는지에 대한 의문도 제기되고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "Xcode는 허용하면서 서드파티는 차단하는 이중 잣대?"
+    },
+    {
+      "type": "text",
+      "value": "흥미로운 점은 애플이 자사 개발 환경인 Xcode에서는 AI 에이전트를 통한 바이브 코딩을 적극 지원하고 있다는 것이다. 2026년 2월 업데이트된 Xcode는 AI 에이전트 접근성을 대폭 강화해, 코딩 경험이 없는 사용자도 몇 분 만에 간단한 앱을 만들 수 있게 했다. 다만 Xcode로 만든 앱은 기존 앱스토어 심사 과정을 그대로 거친다는 차이가 있다.\n\n애플 대변인은 이번 조치가 바이브 코딩 앱을 특정해서 겨냥한 것이 아니라고 밝혔다. 혁신을 장려하면서도 사용자 안전을 보장하기 위한 기존 규칙의 적용일 뿐이라는 입장이다. 하지만 업계 일각에서는 애플이 개발자들을 자사 도구인 Xcode로 유도하려는 의도가 깔려 있다는 시각도 존재한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "30% 수수료와 생태계 통제라는 본질"
+    },
+    {
+      "type": "text",
+      "value": "보다 근본적인 동인은 애플의 수익 구조와 맞닿아 있다. 바이브 코딩 앱으로 만들어진 소프트웨어가 웹앱 형태로 앱스토어를 우회하면, 애플은 30% 앱스토어 수수료를 받을 수 없다. EU 서드파티 앱스토어 규제와의 오랜 분쟁에서 보듯, 애플은 자사 앱 생태계의 수익 구조를 보호하는 데 강한 의지를 보여왔다.\n\n동시에 보안과 품질 관리라는 명분도 무시할 수 없다. 앱스토어 심사를 거치지 않은 코드가 사용자 기기에서 실행될 경우, 악성 코드나 프라이버시 침해의 위험이 있다. 애플이 주장하는 '통제된 생태계'의 핵심 가치와 직결되는 문제다."
+    },
+    {
+      "type": "heading",
+      "value": "바이브 코딩의 미래는 브라우저로 향하는가"
+    },
+    {
+      "type": "text",
+      "value": "이번 사태는 바이브 코딩 생태계의 방향에 중요한 전환점이 될 수 있다. 앱 내부 프리뷰가 제한되면, 개발자들은 웹 기반이나 데스크톱 환경으로 무게 중심을 옮길 가능성이 크다. iOS 앱에 대한 의존도는 자연스럽게 줄어들 것이다.\n\n버셀(Vercel)의 v0 같은 유사 서비스나, 캔바(Canva)처럼 AI를 활용해 콘텐츠를 생성하는 앱들도 향후 같은 규제의 대상이 될 수 있다. AI 코딩 도구가 진화할수록 애플은 가이드라인을 더 정교하게 다듬어야 할 것이며, 그 과정에서 혁신 촉진과 플랫폼 통제 사이의 줄다리기는 계속될 전망이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Apple has quietly blocked popular vibe coding apps such as Replit and Vibecode from releasing App Store updates. Citing a violation of App Store Review Guideline 2.5.2, Apple zeroed in on features that execute AI-generated code and display app previews within the app itself. As these tools, which let non-developers build apps through natural language prompts, have grown explosively, they are now in a direct collision with Apple's control over its app ecosystem."
+    },
+    {
+      "type": "heading",
+      "value": "What Guideline 2.5.2 Targets"
+    },
+    {
+      "type": "text",
+      "value": "Apple's cited App Store Review Guideline 2.5.2 stipulates that apps must be self-contained within their bundles and may not download, install, or execute code that introduces or changes the app's features or functionality. Vibe coding apps generate code from users' natural language prompts and instantly render it within an in-app web view. From Apple's perspective, this amounts to unreviewed code running inside an approved app."
+    },
+    {
+      "type": "quote",
+      "value": "Apps should be self-contained in their bundles and may not download, install, or execute code which introduces or changes features or functionality of the app. - App Store Review Guideline 2.5.2"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "What Replit and Vibecode Were Asked to Change"
+    },
+    {
+      "type": "text",
+      "value": "According to The Information, Apple proposed different remedies for each app. Replit was told to open AI-generated app previews in an external browser rather than an in-app web view. Vibecode faced a stricter demand: remove the ability to generate software specifically for Apple devices altogether.\n\nNeither company has commented publicly, but sources familiar with the matter say both are negotiating toward accepting the modifications. However, concerns remain that these compromises could undermine the core user experience that makes vibe coding apps appealing in the first place."
+    },
+    {
+      "type": "heading",
+      "value": "Replit Slides from First to Third"
+    },
+    {
+      "type": "text",
+      "value": "The impact of the blocked updates is already showing up in the numbers. Replit's iOS app has dropped from first to third place in Apple's free developer tools rankings since its last update in January. The company attributes the decline in part to its inability to release updates. Going months without new features or bug fixes is a direct blow to any app's competitive standing."
+    },
+    {
+      "type": "image",
+      "src": "https://mlqpdf.s3.amazonaws.com/news_images/apple-vibe-code-apps.png",
+      "caption": "Vibe coding apps face App Store update blocks, drawing attention to developer responses",
+      "alt": "Apple App Store vibe coding app update block Replit Vibecode"
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "A Flood of Vibe-Coded Submissions Strains the Review Process"
+    },
+    {
+      "type": "text",
+      "value": "The issue extends beyond individual guideline violations. The democratization of vibe coding tools has triggered a sharp increase in app submissions from non-developers, creating bottlenecks across the entire App Store review process. When a few lines of natural language can produce a submittable app, the barrier to entry drops dramatically.\n\nThis also raises quality and safety concerns. AI-generated code can harbor security vulnerabilities or privacy issues, and questions are mounting about whether the existing review process is equipped to catch them all."
+    },
+    {
+      "type": "heading",
+      "value": "Xcode Gets a Pass While Third Parties Get Blocked"
+    },
+    {
+      "type": "text",
+      "value": "An interesting wrinkle is that Apple actively supports vibe coding through AI agents in its own development environment, Xcode. A February 2026 update significantly enhanced Xcode's AI agent accessibility, enabling users with no coding experience to build simple apps in minutes. The key difference is that apps built in Xcode still go through the standard App Store review process.\n\nAn Apple spokesperson stated that the enforcement is not specifically targeted at vibe coding apps, calling it a consistent application of existing rules to encourage innovation while preserving user safety. However, some in the industry see an underlying intent to steer developers toward Apple's own toolchain."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The 30% Commission and Ecosystem Control at the Core"
+    },
+    {
+      "type": "text",
+      "value": "A more fundamental driver is Apple's revenue structure. When software created through vibe coding apps operates as web apps that bypass the App Store, Apple loses its 30% commission. As its long-running battle with EU regulators over third-party app stores has shown, Apple has a strong will to protect the revenue model of its app ecosystem.\n\nAt the same time, the case for security and quality control is not trivial. Code running on user devices without App Store review carries risks of malicious code and privacy breaches. This is directly tied to the core value proposition of Apple's 'controlled ecosystem.'"
+    },
+    {
+      "type": "heading",
+      "value": "Is the Future of Vibe Coding Headed to the Browser?"
+    },
+    {
+      "type": "text",
+      "value": "This episode could mark a turning point for the vibe coding ecosystem. If in-app previews are restricted, developers are likely to shift toward web-based or desktop environments, naturally reducing reliance on iOS apps.\n\nSimilar services like Vercel's v0, or apps like Canva that use AI to generate content, could face the same regulatory scrutiny down the line. As AI coding tools continue to evolve, Apple will need to refine its guidelines with greater precision, and the tug-of-war between promoting innovation and maintaining platform control will continue."
+    }
+  ]
+}

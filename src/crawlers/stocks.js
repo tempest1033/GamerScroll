@@ -100,8 +100,8 @@ async function fetchStockPrice(axios, cheerio, code) {
           // span.tah 에서 숫자만 추출 (예: "7,000")
           const changeNumText = changeCell.find('span.tah').text().trim().replace(/,/g, '');
           let change = parseInt(changeNumText, 10) || 0;
-          // em.bu_pdn 클래스가 있으면 하락 (음수)
-          if (changeCell.find('em.bu_pdn').length > 0) {
+          // em.bu_pdn (하락) 또는 em.bu_pdn2 (하한가) 클래스면 음수
+          if (changeCell.find('em.bu_pdn, em.bu_pdn2').length > 0) {
             change = -change;
           }
 
@@ -120,8 +120,8 @@ async function fetchStockPrice(axios, cheerio, code) {
       }
     });
 
-    // 전일 확정 종가 우선, 없으면 최신 행 fallback
-    return dataRows[1] || dataRows[0] || null;
+    // 최신 확정 종가 반환 (첫 번째 행이 가장 최근 거래일)
+    return dataRows[0] || null;
   } catch (error) {
     console.error(`  - ${code} 주가 조회 실패:`, error.message);
     return null;
