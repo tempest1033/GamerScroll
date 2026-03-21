@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-20T01:00:42.615Z",
+  "updatedAt": "2026-03-21T00:57:02.840Z",
   "period": "7days",
   "articles": [
     {
@@ -7,6 +7,12 @@
       "slug": "karpathy-ai-job-exposure-score",
       "views": 27,
       "path": "/article/general/karpathy-ai-job-exposure-score/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 6,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "general",
@@ -33,16 +39,16 @@
       "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
+      "category": "ai-tools",
+      "slug": "cursor-composer-2-coding-model",
+      "views": 2,
+      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
+    },
+    {
       "category": "general",
       "slug": "coding-agent-market-share-war-anthropic-openai",
       "views": 2,
       "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
-    },
-    {
-      "category": "general",
-      "slug": "grok-420-multi-agent-release",
-      "views": 2,
-      "path": "/article/general/grok-420-multi-agent-release/"
     },
     {
       "category": "general",
@@ -76,12 +82,6 @@
     },
     {
       "category": "general",
-      "slug": "meta-avocado-delay",
-      "views": 1,
-      "path": "/article/general/meta-avocado-delay/"
-    },
-    {
-      "category": "general",
       "slug": "mistral-small4-unified-moe",
       "views": 1,
       "path": "/article/general/mistral-small4-unified-moe/"
@@ -111,18 +111,6 @@
       "path": "/article/general/seedance-2-global-launch-suspended/"
     },
     {
-      "category": "general",
-      "slug": "xai-exodus-grok-crisis",
-      "views": 1,
-      "path": "/article/general/xai-exodus-grok-crisis/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 1,
-      "path": "/article/google/gemini-3-hallucination-memory-overfitting/"
-    },
-    {
       "category": "google",
       "slug": "google-ai-pro-antigravity-rate-limit-crisis",
       "views": 1,
@@ -142,15 +130,15 @@
     },
     {
       "category": "openai",
-      "slug": "stargate-ai-crisis-2026",
+      "slug": "openai-astral-acquisition",
       "views": 1,
-      "path": "/article/openai/stargate-ai-crisis-2026/"
+      "path": "/article/openai/openai-astral-acquisition/"
     },
     {
       "category": "vibecoding",
-      "slug": "vibe-coding",
+      "slug": "codex-install-guide-mac",
       "views": 1,
-      "path": "/article/vibecoding/vibe-coding/"
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     }
   ]
 }

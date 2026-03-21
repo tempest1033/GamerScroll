@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-20T00:59:42.964Z",
+  "updatedAt": "2026-03-21T00:56:03.964Z",
   "period": "7days",
   "articles": [
     {
@@ -10,28 +10,35 @@
       "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 21,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
       "type": "issue",
       "slug": "specialforce-remaster-ue5-launch-delay",
-      "views": 17,
+      "views": 18,
       "path": "/magazine/issue/specialforce-remaster-ue5-launch-delay/"
     },
     {
       "type": "ranking",
+      "slug": "subculture-january-2026-kr",
+      "views": 16,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 9,
+      "views": 8,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "nvidia-groq3-lpu-inference-revolution",
+      "category": "ai",
+      "views": 8,
+      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "type": "tech",
       "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "category": "ai",
-      "views": 6,
+      "views": 7,
       "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
@@ -66,10 +73,31 @@
       "path": "/magazine/issue/nvidia-rtx-3060-samsung-8nm-revival/"
     },
     {
+      "type": "tech",
+      "slug": "claude-dispatch-cowork-remote-control",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
+    },
+    {
+      "type": "tech",
+      "slug": "gpt-54-mini-nano-small-model-launch",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/gpt-54-mini-nano-small-model-launch/"
+    },
+    {
+      "type": "tech",
+      "slug": "nvidia-dlss5-controversy",
+      "category": "normal",
+      "views": 4,
+      "path": "/tech/normal/nvidia-dlss5-controversy/"
+    },
+    {
       "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 3,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "tech",
@@ -80,13 +108,6 @@
     },
     {
       "type": "tech",
-      "slug": "claude-dispatch-cowork-remote-control",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
-    },
-    {
-      "type": "tech",
       "slug": "coding-agent-market-share-war-anthropic-openai",
       "category": "ai",
       "views": 3,
@@ -94,10 +115,10 @@
     },
     {
       "type": "tech",
-      "slug": "gpt-54-mini-nano-small-model-launch",
+      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
       "category": "ai",
       "views": 3,
-      "path": "/tech/ai/gpt-54-mini-nano-small-model-launch/"
+      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
       "type": "tech",
@@ -108,29 +129,29 @@
     },
     {
       "type": "tech",
-      "slug": "nvidia-groq3-lpu-inference-revolution",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
-    },
-    {
-      "type": "tech",
       "slug": "intel-core-ultra-200s-plus",
       "category": "normal",
       "views": 3,
       "path": "/tech/normal/intel-core-ultra-200s-plus/"
     },
     {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 3,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "issue",
       "slug": "limbus-company-ios-top5-record",
       "views": 2,
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "silksong-sea-of-sorrow",
+      "views": 2,
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "ranking",
@@ -140,17 +161,10 @@
     },
     {
       "type": "tech",
-      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
+      "slug": "openai-astral-acquisition",
       "category": "ai",
       "views": 2,
-      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
-    },
-    {
-      "type": "tech",
-      "slug": "meta-avocado-delay",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/meta-avocado-delay/"
+      "path": "/tech/ai/openai-astral-acquisition/"
     },
     {
       "type": "tech",
@@ -172,13 +186,6 @@
       "category": "normal",
       "views": 2,
       "path": "/tech/normal/rewinding-cadence-technical-test/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -207,33 +214,27 @@
     },
     {
       "type": "issue",
+      "slug": "arknights-endfield-launch-success",
+      "views": 1,
+      "path": "/magazine/issue/arknights-endfield-launch-success/"
+    },
+    {
+      "type": "issue",
       "slug": "death-stranding-2-pc-launch",
       "views": 1,
       "path": "/magazine/issue/death-stranding-2-pc-launch/"
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
+      "slug": "dragon-sword-full-refund-server-shutdown",
       "views": 1,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+      "path": "/magazine/issue/dragon-sword-full-refund-server-shutdown/"
     },
     {
       "type": "issue",
       "slug": "dragon-sword-launch-report",
       "views": 1,
       "path": "/magazine/issue/dragon-sword-launch-report/"
-    },
-    {
-      "type": "issue",
-      "slug": "game-ai-controversy-award-revoked",
-      "views": 1,
-      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
-    },
-    {
-      "type": "issue",
-      "slug": "game-ai-paradigm-shift-2026",
-      "views": 1,
-      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
     },
     {
       "type": "issue",
@@ -249,9 +250,9 @@
     },
     {
       "type": "issue",
-      "slug": "lol-first-stand-2026",
+      "slug": "mongil-star-dive-global-launch",
       "views": 1,
-      "path": "/magazine/issue/lol-first-stand-2026/"
+      "path": "/magazine/issue/mongil-star-dive-global-launch/"
     },
     {
       "type": "issue",
@@ -264,6 +265,12 @@
       "slug": "nvidia-gtc-2026-dlss5-gaming",
       "views": 1,
       "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
+    },
+    {
+      "type": "issue",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "views": 1,
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "issue",
@@ -292,13 +299,6 @@
     },
     {
       "type": "tech",
-      "slug": "chatgpt-pro-lite-plan-leak",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
-    },
-    {
-      "type": "tech",
       "slug": "claude-interactive-visuals-1m-context-ga",
       "category": "ai",
       "views": 1,
@@ -310,6 +310,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-military-venezuela-iran/"
+    },
+    {
+      "type": "tech",
+      "slug": "cursor-composer-2-coding-model",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/cursor-composer-2-coding-model/"
     },
     {
       "type": "tech",
@@ -355,13 +362,6 @@
     },
     {
       "type": "tech",
-      "slug": "xai-exodus-grok-crisis",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/xai-exodus-grok-crisis/"
-    },
-    {
-      "type": "tech",
       "slug": "nakwon-last-paradise-cbt",
       "category": "normal",
       "views": 1,
@@ -373,13 +373,6 @@
       "category": "vibecoding",
       "views": 1,
       "path": "/tech/vibecoding/vibe-coding-workflow-prompt-guide/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "wiki",
