@@ -356,6 +356,13 @@
       "type": "03.webp",
       "failedAt": "2026-03-18T04:32:49.854Z",
       "error": "HTTP 404: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4261320/ss_d0fb3b0e08c19edf3c1a3ac1b8c1ab9e0ea89d08.600x338.jpg?t=1773656269"
+    },
+    {
+      "url": "https://www.supermicro.com/sites/default/files/content_resources/static_resources/press-images/DCBBS-product.png",
+      "slug": "supermicro-ai-chip-china-smuggling",
+      "type": "01.webp",
+      "failedAt": "2026-03-21T10:28:22.748Z",
+      "error": "HTTP 403: https://www.supermicro.com/sites/default/files/content_resources/static_resources/press-images/DCBBS-product.png"
     }
   ]
 }
