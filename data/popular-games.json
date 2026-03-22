@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-03-21T08:17:40.477Z",
+  "updatedAt": "2026-03-22T08:19:34.462Z",
   "period": "30days",
   "games": [
     {
       "slug": "드래곤소드",
-      "views": 12
+      "views": 11
     },
     {
       "slug": "두근두근타운",
-      "views": 9
+      "views": 8
     },
     {
       "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
@@ -16,7 +16,7 @@
     },
     {
       "slug": "aion2",
-      "views": 6
+      "views": 7
     },
     {
       "slug": "메이플-키우기",
@@ -31,19 +31,19 @@
       "views": 4
     },
     {
-      "slug": "카오스-제로-나이트메어",
-      "views": 4
-    },
-    {
-      "slug": "명일방주-엔드필드",
-      "views": 3
-    },
-    {
       "slug": "붕괴-스타레일",
       "views": 3
     },
     {
+      "slug": "카오스-제로-나이트메어",
+      "views": 3
+    },
+    {
       "slug": "66666년만에-환생한-흑마법사-전략-디펜스-rpg",
+      "views": 2
+    },
+    {
+      "slug": "counter-strike-2",
       "views": 2
     },
     {
@@ -55,6 +55,10 @@
       "views": 2
     },
     {
+      "slug": "명일방주-엔드필드",
+      "views": 2
+    },
+    {
       "slug": "원신공월의-노래",
       "views": 2
     },
@@ -63,15 +67,11 @@
       "views": 1
     },
     {
-      "slug": "counter-strike-2",
+      "slug": "baldurs-gate-3",
       "views": 1
     },
     {
       "slug": "궁수의-전설2",
-      "views": 1
-    },
-    {
-      "slug": "그놈은-드래곤",
       "views": 1
     },
     {
