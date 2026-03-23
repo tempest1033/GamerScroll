@@ -1,25 +1,25 @@
 {
-  "updatedAt": "2026-03-22T01:02:34.387Z",
+  "updatedAt": "2026-03-23T01:03:52.044Z",
   "period": "7days",
   "articles": [
     {
-      "type": "tech",
-      "slug": "karpathy-ai-job-exposure-score",
-      "category": "ai",
-      "views": 29,
-      "path": "/tech/ai/karpathy-ai-job-exposure-score/"
-    },
-    {
       "type": "issue",
       "slug": "specialforce-remaster-ue5-launch-delay",
-      "views": 18,
+      "views": 19,
       "path": "/magazine/issue/specialforce-remaster-ue5-launch-delay/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 16,
+      "views": 15,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "karpathy-ai-job-exposure-score",
+      "category": "ai",
+      "views": 10,
+      "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
       "type": "tech",
@@ -29,16 +29,16 @@
       "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 7,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
       "type": "issue",
       "slug": "seven-deadly-sins-origin-steam-early-reviews",
       "views": 6,
       "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 6,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "issue",
@@ -48,16 +48,10 @@
     },
     {
       "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "slug": "claude-dispatch-cowork-remote-control",
       "category": "ai",
       "views": 5,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "type": "issue",
-      "slug": "azur-promilia-comicworld-cbt-korea",
-      "views": 4,
-      "path": "/magazine/issue/azur-promilia-comicworld-cbt-korea/"
+      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
     },
     {
       "type": "issue",
@@ -67,10 +61,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-dispatch-cowork-remote-control",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "category": "ai",
       "views": 4,
-      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "tech",
@@ -115,13 +109,6 @@
     },
     {
       "type": "tech",
-      "slug": "coding-agent-market-share-war-anthropic-openai",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
-    },
-    {
-      "type": "tech",
       "slug": "google-ai-pro-antigravity-rate-limit-crisis",
       "category": "ai",
       "views": 3,
@@ -135,13 +122,6 @@
       "path": "/tech/normal/intel-core-ultra-200s-plus/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 2,
@@ -149,9 +129,29 @@
     },
     {
       "type": "issue",
+      "slug": "azur-promilia-comicworld-cbt-korea",
+      "views": 2,
+      "path": "/magazine/issue/azur-promilia-comicworld-cbt-korea/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 2,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+    },
+    {
+      "type": "tech",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
+    },
+    {
+      "type": "tech",
+      "slug": "crimson-desert-ai-art-controversy",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/crimson-desert-ai-art-controversy/"
     },
     {
       "type": "tech",
@@ -190,6 +190,12 @@
     },
     {
       "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 1,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
@@ -205,6 +211,12 @@
       "slug": "death-stranding-2-pc-launch",
       "views": 1,
       "path": "/magazine/issue/death-stranding-2-pc-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 1,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -354,6 +366,13 @@
       "category": "vibecoding",
       "views": 1,
       "path": "/tech/vibecoding/vibe-coding-workflow-prompt-guide/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",

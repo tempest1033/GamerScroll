@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-03-22T01:03:31.554Z",
+  "updatedAt": "2026-03-23T01:04:49.242Z",
   "period": "7days",
   "articles": [
     {
       "category": "general",
       "slug": "karpathy-ai-job-exposure-score",
-      "views": 27,
+      "views": 22,
       "path": "/article/general/karpathy-ai-job-exposure-score/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 10,
+      "views": 14,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -46,21 +46,9 @@
     },
     {
       "category": "general",
-      "slug": "coding-agent-market-share-war-anthropic-openai",
-      "views": 2,
-      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
-    },
-    {
-      "category": "general",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 2,
       "path": "/article/general/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "category": "google",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "views": 2,
-      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "category": "anthropic",
@@ -69,10 +57,22 @@
       "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
+      "category": "anthropic",
+      "slug": "claude-opus-46-pricing-controversy",
+      "views": 1,
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
+    },
+    {
       "category": "general",
       "slug": "applovin-ai-ad-gaming-revenue",
       "views": 1,
       "path": "/article/general/applovin-ai-ad-gaming-revenue/"
+    },
+    {
+      "category": "general",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "views": 1,
+      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
     },
     {
       "category": "general",
@@ -97,12 +97,6 @@
       "slug": "seedance-2-global-launch-suspended",
       "views": 1,
       "path": "/article/general/seedance-2-global-launch-suspended/"
-    },
-    {
-      "category": "google",
-      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
-      "views": 1,
-      "path": "/article/google/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
       "category": "openai",
