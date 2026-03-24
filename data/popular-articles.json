@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-23T01:03:52.044Z",
+  "updatedAt": "2026-03-24T00:57:23.206Z",
   "period": "7days",
   "articles": [
     {
@@ -11,15 +11,8 @@
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 15,
+      "views": 11,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "karpathy-ai-job-exposure-score",
-      "category": "ai",
-      "views": 10,
-      "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
       "type": "tech",
@@ -29,22 +22,16 @@
       "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 7,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
       "type": "issue",
       "slug": "seven-deadly-sins-origin-steam-early-reviews",
       "views": 6,
       "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
-      "type": "issue",
-      "slug": "seven-deadly-sins-origin-delay-2026",
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
       "views": 5,
-      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -60,11 +47,17 @@
       "path": "/magazine/issue/crimson-desert-metacritic-stock-crash/"
     },
     {
+      "type": "issue",
+      "slug": "seven-deadly-sins-origin-delay-2026",
+      "views": 4,
+      "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
+    },
+    {
       "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "slug": "crimson-desert-ai-art-controversy",
       "category": "ai",
       "views": 4,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+      "path": "/tech/ai/crimson-desert-ai-art-controversy/"
     },
     {
       "type": "tech",
@@ -72,13 +65,6 @@
       "category": "ai",
       "views": 4,
       "path": "/tech/ai/gpt-54-mini-nano-small-model-launch/"
-    },
-    {
-      "type": "tech",
-      "slug": "lecun-ami-labs-llm-debate",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/lecun-ami-labs-llm-debate/"
     },
     {
       "type": "tech",
@@ -95,17 +81,11 @@
       "path": "/tech/normal/nvidia-dlss5-controversy/"
     },
     {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 3,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
       "type": "tech",
-      "slug": "bytedance-seedance-copyright-delay",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "category": "ai",
       "views": 3,
-      "path": "/tech/ai/bytedance-seedance-copyright-delay/"
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "tech",
@@ -116,10 +96,10 @@
     },
     {
       "type": "tech",
-      "slug": "intel-core-ultra-200s-plus",
-      "category": "normal",
+      "slug": "karpathy-ai-job-exposure-score",
+      "category": "ai",
       "views": 3,
-      "path": "/tech/normal/intel-core-ultra-200s-plus/"
+      "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
       "type": "insight",
@@ -129,29 +109,9 @@
     },
     {
       "type": "issue",
-      "slug": "azur-promilia-comicworld-cbt-korea",
+      "slug": "nvidia-gtc-2026-dlss5-gaming",
       "views": 2,
-      "path": "/magazine/issue/azur-promilia-comicworld-cbt-korea/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 2,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "tech",
-      "slug": "coding-agent-market-share-war-anthropic-openai",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
-    },
-    {
-      "type": "tech",
-      "slug": "crimson-desert-ai-art-controversy",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/crimson-desert-ai-art-controversy/"
+      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
     },
     {
       "type": "tech",
@@ -159,34 +119,6 @@
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/openai-astral-acquisition/"
-    },
-    {
-      "type": "tech",
-      "slug": "seedance-2-global-launch-suspended",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/seedance-2-global-launch-suspended/"
-    },
-    {
-      "type": "tech",
-      "slug": "macbook-neo-reviews",
-      "category": "normal",
-      "views": 2,
-      "path": "/tech/normal/macbook-neo-reviews/"
-    },
-    {
-      "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
-      "category": "normal",
-      "views": 2,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "hotpick",
@@ -202,9 +134,21 @@
     },
     {
       "type": "issue",
+      "slug": "2026-subculture-openworld-games",
+      "views": 1,
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
       "slug": "arknights-endfield-launch-success",
       "views": 1,
       "path": "/magazine/issue/arknights-endfield-launch-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "chzzk-lck-naver-viewer-complaints",
+      "views": 1,
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
     },
     {
       "type": "issue",
@@ -232,6 +176,12 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
       "slug": "krafton-chatgpt-lawsuit-subnautica2",
       "views": 1,
       "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
@@ -244,6 +194,12 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-classic-user-exodus-macro-cash",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+    },
+    {
+      "type": "issue",
       "slug": "mongil-star-dive-global-launch",
       "views": 1,
       "path": "/magazine/issue/mongil-star-dive-global-launch/"
@@ -253,12 +209,6 @@
       "slug": "nexon-maple-scandal-chief-fired",
       "views": 1,
       "path": "/magazine/issue/nexon-maple-scandal-chief-fired/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-gtc-2026-dlss5-gaming",
-      "views": 1,
-      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
     },
     {
       "type": "issue",
@@ -306,6 +256,13 @@
     },
     {
       "type": "tech",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/coding-agent-market-share-war-anthropic-openai/"
+    },
+    {
+      "type": "tech",
       "slug": "cursor-composer-2-coding-model",
       "category": "ai",
       "views": 1,
@@ -317,6 +274,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/gpt-5-4-mixed-reactions-benchmark-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "lecun-ami-labs-llm-debate",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/lecun-ami-labs-llm-debate/"
     },
     {
       "type": "tech",
@@ -348,6 +312,13 @@
     },
     {
       "type": "tech",
+      "slug": "openai-8000-anthropic-rivalry",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/openai-8000-anthropic-rivalry/"
+    },
+    {
+      "type": "tech",
       "slug": "openai-side-quests-pivot-coding-enterprise",
       "category": "ai",
       "views": 1,
@@ -355,17 +326,17 @@
     },
     {
       "type": "tech",
-      "slug": "nakwon-last-paradise-cbt",
-      "category": "normal",
+      "slug": "supermicro-ai-chip-china-smuggling",
+      "category": "ai",
       "views": 1,
-      "path": "/tech/normal/nakwon-last-paradise-cbt/"
+      "path": "/tech/ai/supermicro-ai-chip-china-smuggling/"
     },
     {
       "type": "tech",
-      "slug": "vibe-coding-workflow-prompt-guide",
-      "category": "vibecoding",
+      "slug": "macbook-neo-reviews",
+      "category": "normal",
       "views": 1,
-      "path": "/tech/vibecoding/vibe-coding-workflow-prompt-guide/"
+      "path": "/tech/normal/macbook-neo-reviews/"
     },
     {
       "type": "wiki",
@@ -376,10 +347,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gukjeon-hanwoori",
+      "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+      "path": "/wiki/knowledge/gacha-system-history/"
     }
   ]
 }
