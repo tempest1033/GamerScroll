@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-03-24T00:58:23.020Z",
+  "updatedAt": "2026-03-25T01:03:04.229Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 15,
+      "views": 22,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "general",
-      "slug": "nvidia-nemoclaw-agentic-ai-platform",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 4,
-      "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "openai",
@@ -34,15 +34,9 @@
     },
     {
       "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "slug": "nvidia-nemoclaw-agentic-ai-platform",
       "views": 3,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "general",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 2,
-      "path": "/article/general/mac-mini-m4-best-value-2026/"
+      "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
     },
     {
       "category": "anthropic",
@@ -51,16 +45,16 @@
       "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
-      "category": "general",
-      "slug": "applovin-ai-ad-gaming-revenue",
+      "category": "anthropic",
+      "slug": "claude-outage-demand-surge-pentagon",
       "views": 1,
-      "path": "/article/general/applovin-ai-ad-gaming-revenue/"
+      "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
     },
     {
       "category": "general",
-      "slug": "karpathy-ai-job-exposure-score",
+      "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
-      "path": "/article/general/karpathy-ai-job-exposure-score/"
+      "path": "/article/general/mac-mini-m4-best-value-2026/"
     },
     {
       "category": "general",
@@ -70,15 +64,9 @@
     },
     {
       "category": "general",
-      "slug": "nvidia-feynman-architecture-2028",
+      "slug": "moltbook-ai-social-network",
       "views": 1,
-      "path": "/article/general/nvidia-feynman-architecture-2028/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-groq3-lpu-inference-revolution",
-      "views": 1,
-      "path": "/article/general/nvidia-groq3-lpu-inference-revolution/"
+      "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "openai",

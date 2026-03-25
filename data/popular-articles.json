@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-24T00:57:23.206Z",
+  "updatedAt": "2026-03-25T01:02:03.026Z",
   "period": "7days",
   "articles": [
     {
@@ -11,27 +11,14 @@
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 11,
+      "views": 9,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "nvidia-groq3-lpu-inference-revolution",
-      "category": "ai",
-      "views": 8,
-      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "type": "issue",
       "slug": "seven-deadly-sins-origin-steam-early-reviews",
-      "views": 6,
-      "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
       "views": 5,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
+      "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
       "type": "tech",
@@ -39,6 +26,20 @@
       "category": "ai",
       "views": 5,
       "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
+    },
+    {
+      "type": "tech",
+      "slug": "karpathy-ai-job-exposure-score",
+      "category": "ai",
+      "views": 5,
+      "path": "/tech/ai/karpathy-ai-job-exposure-score/"
+    },
+    {
+      "type": "tech",
+      "slug": "nvidia-groq3-lpu-inference-revolution",
+      "category": "ai",
+      "views": 5,
+      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "type": "issue",
@@ -51,6 +52,12 @@
       "slug": "seven-deadly-sins-origin-delay-2026",
       "views": 4,
       "path": "/magazine/issue/seven-deadly-sins-origin-delay-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -68,24 +75,16 @@
     },
     {
       "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "tech",
       "slug": "nvidia-dlss5-controversy",
       "category": "normal",
       "views": 4,
       "path": "/tech/normal/nvidia-dlss5-controversy/"
     },
     {
-      "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "category": "ai",
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
       "views": 3,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "tech",
@@ -96,10 +95,10 @@
     },
     {
       "type": "tech",
-      "slug": "karpathy-ai-job-exposure-score",
+      "slug": "moltbook-ai-social-network",
       "category": "ai",
       "views": 3,
-      "path": "/tech/ai/karpathy-ai-job-exposure-score/"
+      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "insight",
@@ -108,10 +107,11 @@
       "path": "/magazine/insight/2026-game-trends/"
     },
     {
-      "type": "issue",
-      "slug": "nvidia-gtc-2026-dlss5-gaming",
+      "type": "tech",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
       "views": 2,
-      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "tech",
@@ -131,12 +131,6 @@
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "2026-subculture-openworld-games",
-      "views": 1,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -182,6 +176,12 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "issue",
       "slug": "krafton-chatgpt-lawsuit-subnautica2",
       "views": 1,
       "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
@@ -212,6 +212,12 @@
     },
     {
       "type": "issue",
+      "slug": "nvidia-gtc-2026-dlss5-gaming",
+      "views": 1,
+      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
+    },
+    {
+      "type": "issue",
       "slug": "ps-plus-march-2026-best-lineup",
       "views": 1,
       "path": "/magazine/issue/ps-plus-march-2026-best-lineup/"
@@ -221,24 +227,6 @@
       "slug": "rotk8-remake-pk-mixed-launch",
       "views": 1,
       "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
-      "views": 1,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
-    },
-    {
-      "type": "issue",
-      "slug": "sol-enchant-pre-registration",
-      "views": 1,
-      "path": "/magazine/issue/sol-enchant-pre-registration/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -284,34 +272,6 @@
     },
     {
       "type": "tech",
-      "slug": "mistral-small4-unified-moe",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/mistral-small4-unified-moe/"
-    },
-    {
-      "type": "tech",
-      "slug": "nvidia-feynman-architecture-2028",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/nvidia-feynman-architecture-2028/"
-    },
-    {
-      "type": "tech",
-      "slug": "nvidia-gpu-launch-halt-ai-priority",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/nvidia-gpu-launch-halt-ai-priority/"
-    },
-    {
-      "type": "tech",
-      "slug": "nvidia-nemoclaw-agentic-ai-platform",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/nvidia-nemoclaw-agentic-ai-platform/"
-    },
-    {
-      "type": "tech",
       "slug": "openai-8000-anthropic-rivalry",
       "category": "ai",
       "views": 1,
@@ -332,18 +292,18 @@
       "path": "/tech/ai/supermicro-ai-chip-china-smuggling/"
     },
     {
-      "type": "tech",
-      "slug": "macbook-neo-reviews",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/macbook-neo-reviews/"
-    },
-    {
       "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
       "views": 1,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
       "type": "wiki",
