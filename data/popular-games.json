@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-24T09:43:05.987Z",
+  "updatedAt": "2026-03-25T10:36:43.327Z",
   "period": "30days",
   "games": [
     {
@@ -8,10 +8,6 @@
     },
     {
       "slug": "두근두근타운",
-      "views": 3
-    },
-    {
-      "slug": "드래곤소드",
       "views": 3
     },
     {
@@ -36,6 +32,10 @@
     },
     {
       "slug": "rhythm-doctor",
+      "views": 2
+    },
+    {
+      "slug": "드래곤소드",
       "views": 2
     },
     {
