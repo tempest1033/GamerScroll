@@ -1,24 +1,12 @@
 {
-  "updatedAt": "2026-03-25T01:03:04.229Z",
+  "updatedAt": "2026-03-26T01:07:40.773Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 22,
+      "views": 33,
       "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 4,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-side-quests-pivot-coding-enterprise",
-      "views": 4,
-      "path": "/article/openai/openai-side-quests-pivot-coding-enterprise/"
     },
     {
       "category": "ai-tools",
@@ -34,9 +22,15 @@
     },
     {
       "category": "general",
-      "slug": "nvidia-nemoclaw-agentic-ai-platform",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 3,
-      "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 2,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
@@ -52,9 +46,9 @@
     },
     {
       "category": "general",
-      "slug": "mac-mini-m4-best-value-2026",
+      "slug": "lecun-ami-labs-llm-debate",
       "views": 1,
-      "path": "/article/general/mac-mini-m4-best-value-2026/"
+      "path": "/article/general/lecun-ami-labs-llm-debate/"
     },
     {
       "category": "general",
@@ -69,28 +63,22 @@
       "path": "/article/general/moltbook-ai-social-network/"
     },
     {
-      "category": "openai",
-      "slug": "chatgpt-pro-lite-plan-leak",
+      "category": "general",
+      "slug": "nvidia-nemoclaw-agentic-ai-platform",
       "views": 1,
-      "path": "/article/openai/chatgpt-pro-lite-plan-leak/"
+      "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
     },
     {
       "category": "openai",
-      "slug": "gpt-54-mini-nano-small-model-launch",
+      "slug": "gpt-4o-shutdown-controversy",
       "views": 1,
-      "path": "/article/openai/gpt-54-mini-nano-small-model-launch/"
+      "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
       "category": "openai",
       "slug": "openai-astral-acquisition",
       "views": 1,
       "path": "/article/openai/openai-astral-acquisition/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 1,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
     }
   ]
 }
