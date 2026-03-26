@@ -1,14 +1,10 @@
 {
-  "updatedAt": "2026-03-25T10:36:43.327Z",
+  "updatedAt": "2026-03-26T10:41:09.545Z",
   "period": "30days",
   "games": [
     {
       "slug": "aion2",
       "views": 10
-    },
-    {
-      "slug": "두근두근타운",
-      "views": 3
     },
     {
       "slug": "명조워더링-웨이브",
@@ -32,6 +28,10 @@
     },
     {
       "slug": "rhythm-doctor",
+      "views": 2
+    },
+    {
+      "slug": "두근두근타운",
       "views": 2
     },
     {
