@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-03-26T01:07:40.773Z",
+  "updatedAt": "2026-03-27T01:08:27.304Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 33,
+      "views": 38,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -15,16 +15,16 @@
       "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
-      "category": "anthropic",
-      "slug": "anthropic-81k-interview",
-      "views": 3,
-      "path": "/article/anthropic/anthropic-81k-interview/"
-    },
-    {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 3,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-81k-interview",
+      "views": 2,
+      "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
       "category": "vibecoding",
@@ -43,6 +43,12 @@
       "slug": "claude-outage-demand-surge-pentagon",
       "views": 1,
       "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
+    },
+    {
+      "category": "general",
+      "slug": "karpathy-ai-job-exposure-score",
+      "views": 1,
+      "path": "/article/general/karpathy-ai-job-exposure-score/"
     },
     {
       "category": "general",
@@ -79,6 +85,12 @@
       "slug": "openai-astral-acquisition",
       "views": 1,
       "path": "/article/openai/openai-astral-acquisition/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-omni-model-rumor-march-2026",
+      "views": 1,
+      "path": "/article/openai/openai-omni-model-rumor-march-2026/"
     }
   ]
 }
