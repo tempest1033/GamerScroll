@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-27T11:34:04.760Z",
+  "updatedAt": "2026-03-28T11:48:29.238Z",
   "period": "30days",
   "games": [
     {
@@ -43,20 +43,8 @@
       "views": 2
     },
     {
-      "slug": "붕괴-스타레일",
-      "views": 2
-    },
-    {
       "slug": "원신공월의-노래",
       "views": 2
-    },
-    {
-      "slug": "헤븐헬즈-미소녀-팀-전술-rpg",
-      "views": 2
-    },
-    {
-      "slug": "agreeee",
-      "views": 1
     },
     {
       "slug": "baldurs-gate-3",
@@ -76,6 +64,18 @@
     },
     {
       "slug": "명일방주-엔드필드",
+      "views": 1
+    },
+    {
+      "slug": "붕괴-스타레일",
+      "views": 1
+    },
+    {
+      "slug": "삼국지-왕전",
+      "views": 1
+    },
+    {
+      "slug": "어비스디아",
       "views": 1
     }
   ]
