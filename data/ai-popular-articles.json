@@ -1,23 +1,17 @@
 {
-  "updatedAt": "2026-03-27T01:08:27.304Z",
+  "updatedAt": "2026-03-28T01:01:32.048Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 38,
+      "views": 40,
       "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "ai-tools",
-      "slug": "cursor-composer-2-coding-model",
-      "views": 3,
-      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 3,
+      "views": 6,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
@@ -31,6 +25,12 @@
       "slug": "codex-install-guide-mac",
       "views": 2,
       "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "ai-tools",
+      "slug": "cursor-composer-2-coding-model",
+      "views": 1,
+      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
       "category": "anthropic",
@@ -75,16 +75,16 @@
       "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
     },
     {
+      "category": "google",
+      "slug": "gemini-deep-think-hallucination-backlash",
+      "views": 1,
+      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
+    },
+    {
       "category": "openai",
       "slug": "gpt-4o-shutdown-controversy",
       "views": 1,
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-astral-acquisition",
-      "views": 1,
-      "path": "/article/openai/openai-astral-acquisition/"
     },
     {
       "category": "openai",

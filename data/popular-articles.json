@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-27T01:07:28.709Z",
+  "updatedAt": "2026-03-28T01:00:29.125Z",
   "period": "7days",
   "articles": [
     {
@@ -15,23 +15,16 @@
       "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
-      "type": "tech",
-      "slug": "nvidia-groq3-lpu-inference-revolution",
-      "category": "ai",
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
       "views": 5,
-      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 4,
       "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 4,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -42,10 +35,10 @@
     },
     {
       "type": "tech",
-      "slug": "nvidia-dlss5-controversy",
-      "category": "normal",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
       "views": 4,
-      "path": "/tech/normal/nvidia-dlss5-controversy/"
+      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "issue",
@@ -61,11 +54,16 @@
       "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/moltbook-ai-social-network/"
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 2,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "google-play-fee-cut-epic-settlement",
+      "views": 2,
+      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
     },
     {
       "type": "issue",
@@ -86,36 +84,22 @@
       "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
-      "type": "tech",
-      "slug": "claude-dispatch-cowork-remote-control",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
-    },
-    {
-      "type": "tech",
-      "slug": "openai-astral-acquisition",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/openai-astral-acquisition/"
-    },
-    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 1,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
       "type": "issue",
       "slug": "ai-basic-act-game-industry-confusion",
       "views": 1,
       "path": "/magazine/issue/ai-basic-act-game-industry-confusion/"
-    },
-    {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 1,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -137,12 +121,6 @@
     },
     {
       "type": "issue",
-      "slug": "dragon-sword-full-refund-server-shutdown",
-      "views": 1,
-      "path": "/magazine/issue/dragon-sword-full-refund-server-shutdown/"
-    },
-    {
-      "type": "issue",
       "slug": "gpt-5-3-garlic-update-rumor",
       "views": 1,
       "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
@@ -155,15 +133,21 @@
     },
     {
       "type": "issue",
-      "slug": "krafton-chatgpt-lawsuit-subnautica2",
+      "slug": "heavenhells-clover-games-restructuring",
       "views": 1,
-      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
+      "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
     },
     {
       "type": "issue",
-      "slug": "mongil-star-dive-global-launch",
+      "slug": "heavenhells-sales-decline-launch",
       "views": 1,
-      "path": "/magazine/issue/mongil-star-dive-global-launch/"
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "krafton-chatgpt-lawsuit-subnautica2",
+      "views": 1,
+      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
     },
     {
       "type": "issue",
@@ -185,17 +169,10 @@
     },
     {
       "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "slug": "claude-dispatch-cowork-remote-control",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "type": "tech",
-      "slug": "cursor-composer-2-coding-model",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/cursor-composer-2-coding-model/"
+      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
     },
     {
       "type": "tech",
@@ -203,13 +180,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
-    },
-    {
-      "type": "tech",
-      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
       "type": "tech",
@@ -273,6 +243,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }
