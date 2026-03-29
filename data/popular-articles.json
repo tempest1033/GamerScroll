@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-03-28T01:00:29.125Z",
+  "updatedAt": "2026-03-29T01:08:38.743Z",
   "period": "7days",
   "articles": [
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 8,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
@@ -9,22 +15,11 @@
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
-      "type": "issue",
-      "slug": "seven-deadly-sins-origin-steam-early-reviews",
-      "views": 6,
-      "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
+      "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
       "views": 5,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 4,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "tech",
@@ -34,11 +29,10 @@
       "path": "/tech/ai/crimson-desert-ai-art-controversy/"
     },
     {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/moltbook-ai-social-network/"
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 3,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -47,17 +41,17 @@
       "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 3,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
       "type": "tech",
       "slug": "karpathy-ai-job-exposure-score",
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/karpathy-ai-job-exposure-score/"
-    },
-    {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 2,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -73,15 +67,22 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
+      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 2,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
       "views": 2,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "hotpick",
@@ -145,9 +146,9 @@
     },
     {
       "type": "issue",
-      "slug": "krafton-chatgpt-lawsuit-subnautica2",
+      "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 1,
-      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
       "type": "issue",
@@ -157,9 +158,15 @@
     },
     {
       "type": "issue",
-      "slug": "ps-plus-march-2026-best-lineup",
+      "slug": "rotk8-remake-pk-mixed-launch",
       "views": 1,
-      "path": "/magazine/issue/ps-plus-march-2026-best-lineup/"
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "seven-deadly-sins-origin-steam-early-reviews",
+      "views": 1,
+      "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
       "type": "issue",
@@ -180,20 +187,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt-54-mini-nano-small-model-launch",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gpt-54-mini-nano-small-model-launch/"
-    },
-    {
-      "type": "tech",
-      "slug": "lecun-ami-labs-llm-debate",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/lecun-ami-labs-llm-debate/"
     },
     {
       "type": "tech",
@@ -218,24 +211,17 @@
     },
     {
       "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
       "slug": "excel-formulas-for-game-balance",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "wiki",
