@@ -1,32 +1,25 @@
 {
-  "updatedAt": "2026-03-29T01:08:38.743Z",
+  "updatedAt": "2026-03-30T01:10:23.816Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 8,
+      "views": 6,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 8,
+      "views": 6,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
-      "views": 5,
-      "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "tech",
-      "slug": "crimson-desert-ai-art-controversy",
-      "category": "ai",
       "views": 4,
-      "path": "/tech/ai/crimson-desert-ai-art-controversy/"
+      "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
       "type": "insight",
@@ -54,6 +47,12 @@
       "path": "/tech/ai/karpathy-ai-job-exposure-score/"
     },
     {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 2,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
       "type": "issue",
       "slug": "google-play-fee-cut-epic-settlement",
       "views": 2,
@@ -72,10 +71,30 @@
       "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
+      "type": "issue",
+      "slug": "lineage-classic-user-exodus-macro-cash",
+      "views": 2,
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+    },
+    {
       "type": "ranking",
       "slug": "mobile-february-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "crimson-desert-ai-art-controversy",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/crimson-desert-ai-art-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "nvidia-groq3-lpu-inference-revolution",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "type": "wiki",
@@ -83,18 +102,6 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 1,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "issue",
@@ -146,9 +153,15 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
+      "slug": "lineage-classic-pc-launch-feb7",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+      "path": "/magazine/issue/lineage-classic-pc-launch-feb7/"
+    },
+    {
+      "type": "issue",
+      "slug": "metacritic-top-10-games-2025",
+      "views": 1,
+      "path": "/magazine/issue/metacritic-top-10-games-2025/"
     },
     {
       "type": "issue",
@@ -173,13 +186,6 @@
       "slug": "specialforce-remaster-ue5-launch-delay",
       "views": 1,
       "path": "/magazine/issue/specialforce-remaster-ue5-launch-delay/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-dispatch-cowork-remote-control",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-dispatch-cowork-remote-control/"
     },
     {
       "type": "tech",

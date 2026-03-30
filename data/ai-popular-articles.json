@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-03-29T01:09:38.307Z",
+  "updatedAt": "2026-03-30T01:11:23.456Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 38,
+      "views": 35,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 5,
+      "views": 4,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
@@ -21,6 +21,12 @@
       "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
+      "category": "general",
+      "slug": "karpathy-ai-job-exposure-score",
+      "views": 2,
+      "path": "/article/general/karpathy-ai-job-exposure-score/"
+    },
+    {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
       "views": 2,
@@ -28,21 +34,9 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
-      "views": 1,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-outage-demand-surge-pentagon",
       "views": 1,
       "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
-    },
-    {
-      "category": "general",
-      "slug": "karpathy-ai-job-exposure-score",
-      "views": 1,
-      "path": "/article/general/karpathy-ai-job-exposure-score/"
     },
     {
       "category": "general",
