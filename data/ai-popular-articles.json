@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-30T01:11:23.456Z",
+  "updatedAt": "2026-03-31T01:09:32.342Z",
   "period": "7days",
   "articles": [
     {
@@ -9,9 +9,15 @@
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 6,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 4,
+      "views": 5,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
@@ -21,22 +27,28 @@
       "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
+      "category": "anthropic",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "views": 2,
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
       "category": "general",
       "slug": "karpathy-ai-job-exposure-score",
       "views": 2,
       "path": "/article/general/karpathy-ai-job-exposure-score/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 2,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
       "category": "anthropic",
       "slug": "claude-outage-demand-surge-pentagon",
       "views": 1,
       "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
+    },
+    {
+      "category": "general",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "views": 1,
+      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
     },
     {
       "category": "general",
