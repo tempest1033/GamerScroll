@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-03-31T01:08:34.085Z",
+  "updatedAt": "2026-04-01T01:14:39.514Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 9,
+      "views": 8,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -22,29 +22,28 @@
       "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 3,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
       "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 3,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
-      "type": "tech",
-      "slug": "karpathy-ai-job-exposure-score",
-      "category": "ai",
+      "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 3,
-      "path": "/tech/ai/karpathy-ai-job-exposure-score/"
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 2,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 2,
-      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -57,12 +56,6 @@
       "slug": "heartopia-mobile-animal-crossing-success",
       "views": 2,
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 2,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "issue",
@@ -89,12 +82,6 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "issue",
-      "slug": "2026-subculture-openworld-games",
-      "views": 1,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -170,6 +157,13 @@
     },
     {
       "type": "tech",
+      "slug": "bytedance-seedance-copyright-delay",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/bytedance-seedance-copyright-delay/"
+    },
+    {
+      "type": "tech",
       "slug": "claude-cowork-windows-launch",
       "category": "ai",
       "views": 1,
@@ -183,6 +177,20 @@
       "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
     },
     {
+      "type": "tech",
+      "slug": "karpathy-ai-job-exposure-score",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/karpathy-ai-job-exposure-score/"
+    },
+    {
+      "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
       "type": "wiki",
       "slug": "game-business-metrics",
       "category": "business",
@@ -191,24 +199,10 @@
     },
     {
       "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",

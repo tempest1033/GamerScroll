@@ -1,30 +1,24 @@
 {
-  "updatedAt": "2026-03-31T01:09:32.342Z",
+  "updatedAt": "2026-04-01T01:15:38.833Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 35,
+      "views": 32,
       "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 6,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 5,
+      "views": 9,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
-      "category": "anthropic",
-      "slug": "anthropic-81k-interview",
-      "views": 2,
-      "path": "/article/anthropic/anthropic-81k-interview/"
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 9,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
@@ -37,6 +31,18 @@
       "slug": "karpathy-ai-job-exposure-score",
       "views": 2,
       "path": "/article/general/karpathy-ai-job-exposure-score/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-4o-shutdown-controversy",
+      "views": 2,
+      "path": "/article/openai/gpt-4o-shutdown-controversy/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-81k-interview",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
       "category": "anthropic",
@@ -58,18 +64,6 @@
     },
     {
       "category": "general",
-      "slug": "mistral-small4-unified-moe",
-      "views": 1,
-      "path": "/article/general/mistral-small4-unified-moe/"
-    },
-    {
-      "category": "general",
-      "slug": "moltbook-ai-social-network",
-      "views": 1,
-      "path": "/article/general/moltbook-ai-social-network/"
-    },
-    {
-      "category": "general",
       "slug": "nvidia-nemoclaw-agentic-ai-platform",
       "views": 1,
       "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
@@ -79,12 +73,6 @@
       "slug": "gemini-deep-think-hallucination-backlash",
       "views": 1,
       "path": "/article/google/gemini-deep-think-hallucination-backlash/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-4o-shutdown-controversy",
-      "views": 1,
-      "path": "/article/openai/gpt-4o-shutdown-controversy/"
     },
     {
       "category": "openai",
