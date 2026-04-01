@@ -363,6 +363,13 @@
       "type": "01.webp",
       "failedAt": "2026-03-21T10:28:22.748Z",
       "error": "HTTP 403: https://www.supermicro.com/sites/default/files/content_resources/static_resources/press-images/DCBBS-product.png"
+    },
+    {
+      "url": "https://www.thisisgame.com/_next/image?url=https%3A%2F%2Ffile.thisisgame.com%2Fnext-upload%2Fcmce6sqlv0000sk01l1lf63uu%2F2026%2F04%2F01%2F1639106402445198499_de93b759-e94e-465a-9f5e-cbe8c4a81e23_90908012.jpg&w=1920&q=75",
+      "date": "2026-04-02",
+      "type": "news",
+      "failedAt": "2026-04-01T16:42:16.642Z",
+      "error": "HTTP 403"
     }
   ]
 }
