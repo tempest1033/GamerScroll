@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-04-01T01:14:39.514Z",
+  "updatedAt": "2026-04-02T01:05:41.449Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
@@ -53,12 +53,6 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 2,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
@@ -91,12 +85,6 @@
     },
     {
       "type": "issue",
-      "slug": "devsisters-devnow-2026",
-      "views": 1,
-      "path": "/magazine/issue/devsisters-devnow-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "gpt-5-3-garlic-update-rumor",
       "views": 1,
       "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
@@ -106,6 +94,12 @@
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 1,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -145,15 +139,15 @@
     },
     {
       "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 1,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "seven-deadly-sins-origin-steam-early-reviews",
       "views": 1,
       "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-february-2026",
+      "views": 1,
+      "path": "/magazine/ranking/steam-february-2026/"
     },
     {
       "type": "tech",
@@ -168,13 +162,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-cowork-windows-launch/"
-    },
-    {
-      "type": "tech",
-      "slug": "gemini-free-tier-cutback-backlash",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
     },
     {
       "type": "tech",
