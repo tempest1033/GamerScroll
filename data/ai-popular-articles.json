@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-02T01:06:37.952Z",
+  "updatedAt": "2026-04-03T01:08:14.168Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 22,
+      "views": 18,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -27,10 +27,10 @@
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
-      "category": "general",
-      "slug": "karpathy-ai-job-exposure-score",
+      "category": "google",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "views": 2,
-      "path": "/article/general/karpathy-ai-job-exposure-score/"
+      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "category": "anthropic",
@@ -52,6 +52,12 @@
     },
     {
       "category": "general",
+      "slug": "karpathy-ai-job-exposure-score",
+      "views": 1,
+      "path": "/article/general/karpathy-ai-job-exposure-score/"
+    },
+    {
+      "category": "general",
       "slug": "moltbook-ai-social-network",
       "views": 1,
       "path": "/article/general/moltbook-ai-social-network/"
@@ -61,12 +67,6 @@
       "slug": "nvidia-groq3-lpu-inference-revolution",
       "views": 1,
       "path": "/article/general/nvidia-groq3-lpu-inference-revolution/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-nemoclaw-agentic-ai-platform",
-      "views": 1,
-      "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
     },
     {
       "category": "google",
@@ -85,12 +85,6 @@
       "slug": "gpt-4o-shutdown-controversy",
       "views": 1,
       "path": "/article/openai/gpt-4o-shutdown-controversy/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-omni-model-rumor-march-2026",
-      "views": 1,
-      "path": "/article/openai/openai-omni-model-rumor-march-2026/"
     }
   ]
 }
