@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-02T15:33:43.814Z",
+  "updatedAt": "2026-04-03T16:26:36.507Z",
   "period": "30days",
   "games": [
     {
@@ -19,18 +19,6 @@
       "views": 2
     },
     {
-      "slug": "rhythm-doctor",
-      "views": 2
-    },
-    {
-      "slug": "두근두근타운",
-      "views": 2
-    },
-    {
-      "slug": "메이플-키우기",
-      "views": 2
-    },
-    {
       "slug": "원신공월의-노래",
       "views": 2
     },
@@ -43,11 +31,19 @@
       "views": 1
     },
     {
+      "slug": "rhythm-doctor",
+      "views": 1
+    },
+    {
       "slug": "궁수의-전설2",
       "views": 1
     },
     {
       "slug": "냥코-대전쟁",
+      "views": 1
+    },
+    {
+      "slug": "두근두근타운",
       "views": 1
     },
     {
@@ -76,6 +72,10 @@
     },
     {
       "slug": "일곱-개의-대죄-grand-cross",
+      "views": 1
+    },
+    {
+      "slug": "젠레스-존-제로",
       "views": 1
     }
   ]
