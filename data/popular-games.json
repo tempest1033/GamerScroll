@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-03T16:26:36.507Z",
+  "updatedAt": "2026-04-04T16:59:50.395Z",
   "period": "30days",
   "games": [
     {
@@ -15,10 +15,6 @@
       "views": 2
     },
     {
-      "slug": "dx-각성자들",
-      "views": 2
-    },
-    {
       "slug": "원신공월의-노래",
       "views": 2
     },
@@ -31,7 +27,7 @@
       "views": 1
     },
     {
-      "slug": "rhythm-doctor",
+      "slug": "dx-각성자들",
       "views": 1
     },
     {
@@ -67,15 +63,19 @@
       "views": 1
     },
     {
-      "slug": "위키드-디펜스",
-      "views": 1
-    },
-    {
       "slug": "일곱-개의-대죄-grand-cross",
       "views": 1
     },
     {
       "slug": "젠레스-존-제로",
+      "views": 1
+    },
+    {
+      "slug": "창세기전-키우기",
+      "views": 1
+    },
+    {
+      "slug": "쿠키런",
       "views": 1
     }
   ]
