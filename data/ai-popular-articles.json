@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-04-03T01:08:14.168Z",
+  "updatedAt": "2026-04-04T01:03:11.756Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 18,
+      "views": 11,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 12,
+      "views": 10,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 8,
+      "views": 9,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -73,12 +73,6 @@
       "slug": "apple-siri-gemini-partnership",
       "views": 1,
       "path": "/article/google/apple-siri-gemini-partnership/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-deep-think-hallucination-backlash",
-      "views": 1,
-      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
     },
     {
       "category": "openai",

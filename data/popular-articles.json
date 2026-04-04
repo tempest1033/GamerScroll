@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-04-03T01:07:09.398Z",
+  "updatedAt": "2026-04-04T01:02:11.298Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 10,
+      "views": 11,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 6,
+      "views": 5,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 3,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 4,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -28,29 +28,16 @@
     },
     {
       "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "tech",
       "slug": "nvidia-groq3-lpu-inference-revolution",
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 2,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
       "type": "issue",
-      "slug": "google-play-fee-cut-epic-settlement",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 2,
-      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "ranking",
@@ -60,16 +47,37 @@
     },
     {
       "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "tech",
       "slug": "rewinding-cadence-technical-test",
       "category": "normal",
       "views": 2,
       "path": "/tech/normal/rewinding-cadence-technical-test/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "issue",
@@ -85,21 +93,9 @@
     },
     {
       "type": "issue",
-      "slug": "heavenhells-clover-games-restructuring",
-      "views": 1,
-      "path": "/magazine/issue/heavenhells-clover-games-restructuring/"
-    },
-    {
-      "type": "issue",
       "slug": "heavenhells-launch-initial-reaction",
       "views": 1,
       "path": "/magazine/issue/heavenhells-launch-initial-reaction/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
-      "views": 1,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
       "type": "issue",
@@ -124,12 +120,6 @@
       "slug": "neverness-to-everness-launch-date",
       "views": 1,
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
-    },
-    {
-      "type": "issue",
-      "slug": "seven-deadly-sins-origin-steam-early-reviews",
-      "views": 1,
-      "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
       "type": "ranking",
@@ -166,6 +156,13 @@
     },
     {
       "type": "wiki",
+      "slug": "publisher-developer-relationship",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/publisher-developer-relationship/"
+    },
+    {
+      "type": "wiki",
       "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 1,
@@ -177,20 +174,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }
