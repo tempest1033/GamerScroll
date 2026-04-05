@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-04-04T01:03:11.756Z",
+  "updatedAt": "2026-04-05T01:11:09.575Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 11,
+      "views": 12,
       "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 10,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 9,
+      "views": 10,
       "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "general",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 9,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "anthropic",
@@ -37,6 +37,12 @@
       "slug": "anthropic-81k-interview",
       "views": 1,
       "path": "/article/anthropic/anthropic-81k-interview/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-code-agent-teams-paradigm",
+      "views": 1,
+      "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
       "category": "anthropic",
