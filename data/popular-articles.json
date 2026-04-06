@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-05T01:10:10.828Z",
+  "updatedAt": "2026-04-06T01:10:06.285Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 12,
+      "views": 10,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -17,21 +17,8 @@
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "nvidia-groq3-lpu-inference-revolution",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 2,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -56,9 +43,9 @@
     },
     {
       "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
+      "slug": "gpt-pro-kakao-hot-deal",
       "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -80,6 +67,12 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-pc-launch-feb7",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-pc-launch-feb7/"
@@ -89,12 +82,6 @@
       "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "issue",
-      "slug": "metacritic-top-10-games-2025",
-      "views": 1,
-      "path": "/magazine/issue/metacritic-top-10-games-2025/"
     },
     {
       "type": "issue",
@@ -147,6 +134,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "tech",
+      "slug": "nvidia-groq3-lpu-inference-revolution",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "type": "wiki",
