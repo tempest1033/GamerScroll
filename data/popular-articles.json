@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-06T01:10:06.285Z",
+  "updatedAt": "2026-04-07T01:08:46.169Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 10,
+      "views": 8,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -17,7 +17,7 @@
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 2,
+      "views": 4,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
@@ -48,6 +48,12 @@
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
+      "type": "hotpick",
+      "slug": "switch-2-buying-guide-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
+    },
+    {
       "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
@@ -61,6 +67,12 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
       "slug": "heavenhells-launch-initial-reaction",
       "views": 1,
       "path": "/magazine/issue/heavenhells-launch-initial-reaction/"
@@ -70,24 +82,6 @@
       "slug": "lineage-classic-90day-benefit-controversy",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-pc-launch-feb7",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-pc-launch-feb7/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
-      "views": 1,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "issue",
@@ -113,13 +107,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/bytedance-seedance-copyright-delay/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-cowork-windows-launch",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-cowork-windows-launch/"
     },
     {
       "type": "tech",
