@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-04-07T17:47:11.838Z",
+  "updatedAt": "2026-04-08T17:57:43.479Z",
   "period": "30days",
   "games": [
     {
       "slug": "aion2",
-      "views": 9
+      "views": 8
     },
     {
       "slug": "좀비고등학교",
@@ -28,6 +28,10 @@
     },
     {
       "slug": "dx-각성자들",
+      "views": 1
+    },
+    {
+      "slug": "hades",
       "views": 1
     },
     {
