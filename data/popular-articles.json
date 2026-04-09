@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-04-08T01:46:02.781Z",
+  "updatedAt": "2026-04-09T01:04:41.756Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 10,
+      "views": 12,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 5,
-      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 4,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "wiki",
@@ -26,6 +26,18 @@
       "category": "business",
       "views": 4,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 2,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "views": 2,
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "wiki",
@@ -63,18 +75,6 @@
       "slug": "china-game-license-normalization",
       "views": 1,
       "path": "/magazine/issue/china-game-license-normalization/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 1,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "ranking",
@@ -129,6 +129,20 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/publisher-developer-relationship/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/pd-vs-director/"
     }
   ]
 }
