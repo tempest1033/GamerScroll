@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-09T01:04:41.756Z",
+  "updatedAt": "2026-04-10T01:24:18.299Z",
   "period": "7days",
   "articles": [
     {
@@ -28,6 +28,12 @@
       "path": "/wiki/business/platform-fees-comparison/"
     },
     {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 2,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
       "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
@@ -38,19 +44,6 @@
       "slug": "rotk8-remake-pk-mixed-launch",
       "views": 2,
       "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 1,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "hotpick",
@@ -66,27 +59,9 @@
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "slug": "clash-royale-10th-anniversary-success",
       "views": 1,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-game-license-normalization",
-      "views": 1,
-      "path": "/magazine/issue/china-game-license-normalization/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "steam-february-2026",
-      "views": 1,
-      "path": "/magazine/ranking/steam-february-2026/"
+      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
     },
     {
       "type": "tech",
@@ -97,10 +72,17 @@
     },
     {
       "type": "tech",
-      "slug": "gpt-54-mini-nano-small-model-launch",
+      "slug": "crimson-desert-ai-art-controversy",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/gpt-54-mini-nano-small-model-launch/"
+      "path": "/tech/ai/crimson-desert-ai-art-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "cursor-composer-2-coding-model",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/cursor-composer-2-coding-model/"
     },
     {
       "type": "tech",
@@ -111,17 +93,17 @@
     },
     {
       "type": "tech",
+      "slug": "2d-animation-tech",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/2d-animation-tech/"
+    },
+    {
+      "type": "tech",
       "slug": "game-engine",
       "category": "normal",
       "views": 1,
       "path": "/tech/normal/game-engine/"
-    },
-    {
-      "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
     },
     {
       "type": "wiki",
@@ -129,6 +111,13 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/publisher-developer-relationship/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",

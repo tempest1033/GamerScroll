@@ -1,30 +1,30 @@
 {
-  "updatedAt": "2026-04-09T01:05:43.606Z",
+  "updatedAt": "2026-04-10T01:25:15.802Z",
   "period": "7days",
   "articles": [
     {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 6,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 6,
+      "views": 5,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 4,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
+      "slug": "claude-code-install-guide-mac",
+      "views": 5,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
       "views": 3,
       "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
-      "category": "google",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "views": 2,
-      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "category": "anthropic",
@@ -34,39 +34,21 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-opus-46-pricing-controversy",
-      "views": 1,
-      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 1,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "general",
-      "slug": "nvidia-groq3-lpu-inference-revolution",
+      "slug": "applovin-ai-ad-gaming-revenue",
       "views": 1,
-      "path": "/article/general/nvidia-groq3-lpu-inference-revolution/"
-    },
-    {
-      "category": "google",
-      "slug": "apple-siri-gemini-partnership",
-      "views": 1,
-      "path": "/article/google/apple-siri-gemini-partnership/"
+      "path": "/article/general/applovin-ai-ad-gaming-revenue/"
     },
     {
       "category": "google",
       "slug": "gemini-deep-think-hallucination-backlash",
       "views": 1,
       "path": "/article/google/gemini-deep-think-hallucination-backlash/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 1,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
