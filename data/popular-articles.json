@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-10T01:24:18.299Z",
+  "updatedAt": "2026-04-11T01:12:12.116Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 12,
+      "views": 14,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -15,17 +15,10 @@
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 4,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/platform-fees-comparison/"
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 3,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "hotpick",
@@ -35,15 +28,28 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
+      "slug": "clash-royale-10th-anniversary-success",
       "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
     },
     {
       "type": "issue",
       "slug": "rotk8-remake-pk-mixed-launch",
       "views": 2,
       "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "hotpick",
@@ -58,10 +64,22 @@
       "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
     },
     {
-      "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
+      "type": "insight",
+      "slug": "2026-game-trends",
       "views": 1,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "issue",
+      "slug": "death-stranding-2-pc-launch",
+      "views": 1,
+      "path": "/magazine/issue/death-stranding-2-pc-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-review-roundup",
+      "views": 1,
+      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
     },
     {
       "type": "tech",
@@ -104,13 +122,6 @@
       "category": "normal",
       "views": 1,
       "path": "/tech/normal/game-engine/"
-    },
-    {
-      "type": "wiki",
-      "slug": "publisher-developer-relationship",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/publisher-developer-relationship/"
     },
     {
       "type": "wiki",

@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-10T01:25:15.802Z",
+  "updatedAt": "2026-04-11T01:13:12.558Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 6,
+      "views": 9,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -23,7 +23,7 @@
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 3,
+      "views": 2,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -49,6 +49,18 @@
       "slug": "gemini-deep-think-hallucination-backlash",
       "views": 1,
       "path": "/article/google/gemini-deep-think-hallucination-backlash/"
+    },
+    {
+      "category": "openai",
+      "slug": "chatgpt-desktop-app",
+      "views": 1,
+      "path": "/article/openai/chatgpt-desktop-app/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 1,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "vibecoding",
