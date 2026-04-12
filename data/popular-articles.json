@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-11T01:12:12.116Z",
+  "updatedAt": "2026-04-12T01:14:35.562Z",
   "period": "7days",
   "articles": [
     {
@@ -31,12 +31,6 @@
       "slug": "clash-royale-10th-anniversary-success",
       "views": 2,
       "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 2,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "wiki",
@@ -80,6 +74,19 @@
       "slug": "pokemon-pokopia-review-roundup",
       "views": 1,
       "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
+    },
+    {
+      "type": "issue",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "views": 1,
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+    },
+    {
+      "type": "tech",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "tech",
