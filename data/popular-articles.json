@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-04-12T01:14:35.562Z",
+  "updatedAt": "2026-04-13T01:16:42.689Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 14,
+      "views": 15,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 6,
+      "views": 5,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
@@ -19,12 +19,6 @@
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 3,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 2,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -38,6 +32,12 @@
       "category": "business",
       "views": 2,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 1,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "hotpick",
