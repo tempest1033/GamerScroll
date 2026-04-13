@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-12T19:59:39.738Z",
+  "updatedAt": "2026-04-13T20:00:38.255Z",
   "period": "30days",
   "games": [
     {
@@ -16,6 +16,14 @@
     },
     {
       "slug": "heartopia",
+      "views": 2
+    },
+    {
+      "slug": "wos-화이트아웃-서바이벌",
+      "views": 2
+    },
+    {
+      "slug": "원신공월의-노래",
       "views": 2
     },
     {
@@ -47,6 +55,10 @@
       "views": 1
     },
     {
+      "slug": "라스트-워-서바이벌",
+      "views": 1
+    },
+    {
       "slug": "삼국지-왕전",
       "views": 1
     },
@@ -60,6 +72,10 @@
     },
     {
       "slug": "쿠키런",
+      "views": 1
+    },
+    {
+      "slug": "킹샷kingshot",
       "views": 1
     }
   ]
