@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-04-13T01:17:42.357Z",
+  "updatedAt": "2026-04-14T01:16:29.050Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 7,
+      "views": 8,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 5,
+      "views": 6,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
@@ -19,6 +19,12 @@
       "slug": "claude-code-install-guide-mac",
       "views": 5,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "general",
+      "slug": "applovin-ai-ad-gaming-revenue",
+      "views": 2,
+      "path": "/article/general/applovin-ai-ad-gaming-revenue/"
     },
     {
       "category": "vibecoding",
@@ -31,18 +37,6 @@
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 1,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
-    },
-    {
-      "category": "general",
-      "slug": "applovin-ai-ad-gaming-revenue",
-      "views": 1,
-      "path": "/article/general/applovin-ai-ad-gaming-revenue/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-deep-think-hallucination-backlash",
-      "views": 1,
-      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
     },
     {
       "category": "openai",
