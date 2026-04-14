@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-13T20:00:38.255Z",
+  "updatedAt": "2026-04-14T20:46:47.931Z",
   "period": "30days",
   "games": [
     {
@@ -23,10 +23,6 @@
       "views": 2
     },
     {
-      "slug": "원신공월의-노래",
-      "views": 2
-    },
-    {
       "slug": "baldurs-gate-3",
       "views": 1
     },
@@ -40,6 +36,10 @@
     },
     {
       "slug": "hades",
+      "views": 1
+    },
+    {
+      "slug": "roblox",
       "views": 1
     },
     {
@@ -59,11 +59,11 @@
       "views": 1
     },
     {
-      "slug": "삼국지-왕전",
+      "slug": "엘트릭스",
       "views": 1
     },
     {
-      "slug": "엘트릭스",
+      "slug": "원신공월의-노래",
       "views": 1
     },
     {
