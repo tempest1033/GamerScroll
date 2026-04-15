@@ -1,18 +1,12 @@
 {
-  "updatedAt": "2026-04-14T01:15:29.174Z",
+  "updatedAt": "2026-04-15T01:12:52.096Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 15,
+      "views": 12,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "issue",
@@ -27,18 +21,17 @@
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
       "type": "tech",
       "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -58,18 +51,6 @@
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mewgenics-edmund-mcmillen-14-years",
-      "views": 1,
-      "path": "/magazine/hotpick/mewgenics-edmund-mcmillen-14-years/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -97,10 +78,10 @@
     },
     {
       "type": "tech",
-      "slug": "chatgpt-pro-lite-plan-leak",
+      "slug": "anthropic-b2b-strategy-success",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/chatgpt-pro-lite-plan-leak/"
+      "path": "/tech/ai/anthropic-b2b-strategy-success/"
     },
     {
       "type": "tech",
@@ -138,13 +119,6 @@
       "path": "/tech/normal/2d-animation-tech/"
     },
     {
-      "type": "tech",
-      "slug": "game-engine",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/game-engine/"
-    },
-    {
       "type": "wiki",
       "slug": "korean-game-stocks-2025",
       "category": "business",
@@ -164,13 +138,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/pd-vs-director/"
     }
   ]
 }
