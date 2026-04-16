@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-15T21:12:09.156Z",
+  "updatedAt": "2026-04-16T21:33:37.109Z",
   "period": "30days",
   "games": [
     {
@@ -19,8 +19,16 @@
       "views": 2
     },
     {
+      "slug": "isekai-gate",
+      "views": 2
+    },
+    {
       "slug": "wos-화이트아웃-서바이벌",
       "views": 2
+    },
+    {
+      "slug": "66666년만에-환생한-흑마법사-전략-디펜스-rpg",
+      "views": 1
     },
     {
       "slug": "baldurs-gate-3",
@@ -43,7 +51,15 @@
       "views": 1
     },
     {
+      "slug": "갤럭시-디펜스-galaxy-defense",
+      "views": 1
+    },
+    {
       "slug": "궁수의-전설2",
+      "views": 1
+    },
+    {
+      "slug": "냥냥-시노비-미소녀-닌자-디펜스",
       "views": 1
     },
     {
@@ -60,22 +76,6 @@
     },
     {
       "slug": "붕괴3rd",
-      "views": 1
-    },
-    {
-      "slug": "엘트릭스",
-      "views": 1
-    },
-    {
-      "slug": "원신공월의-노래",
-      "views": 1
-    },
-    {
-      "slug": "일곱-개의-대죄-grand-cross",
-      "views": 1
-    },
-    {
-      "slug": "쿠키런",
       "views": 1
     }
   ]
