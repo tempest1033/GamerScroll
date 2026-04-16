@@ -1,30 +1,24 @@
 {
-  "updatedAt": "2026-04-15T01:12:52.096Z",
+  "updatedAt": "2026-04-16T00:05:07.900Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 12,
+      "views": 13,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 3,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
       "slug": "clash-royale-10th-anniversary-success",
       "views": 2,
       "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -65,16 +59,16 @@
       "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
     },
     {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 1,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
-    },
-    {
       "type": "ranking",
       "slug": "mobile-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -89,6 +83,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "type": "tech",
@@ -131,13 +132,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }
