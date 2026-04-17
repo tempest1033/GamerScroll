@@ -1,12 +1,18 @@
 {
-  "updatedAt": "2026-04-16T00:06:08.735Z",
+  "updatedAt": "2026-04-17T00:03:09.432Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 10,
+      "views": 8,
       "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 7,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "vibecoding",
@@ -16,21 +22,9 @@
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 5,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "codex-install-guide-mac",
       "views": 3,
       "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 2,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "anthropic",
@@ -45,6 +39,12 @@
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
+      "category": "anthropic",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "views": 1,
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
       "category": "general",
       "slug": "applovin-ai-ad-gaming-revenue",
       "views": 1,
@@ -52,9 +52,21 @@
     },
     {
       "category": "general",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "general",
       "slug": "coding-agent-market-share-war-anthropic-openai",
       "views": 1,
       "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
+    },
+    {
+      "category": "general",
+      "slug": "moltbook-ai-social-network",
+      "views": 1,
+      "path": "/article/general/moltbook-ai-social-network/"
     },
     {
       "category": "openai",

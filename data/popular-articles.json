@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-04-16T00:05:07.900Z",
+  "updatedAt": "2026-04-17T00:02:22.069Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 13,
+      "views": 11,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 3,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "slug": "krafton-chatgpt-lawsuit-subnautica2",
+      "views": 4,
+      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
     },
     {
       "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "tech",
@@ -36,27 +36,21 @@
     },
     {
       "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 1,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "issue",
-      "slug": "death-stranding-2-pc-launch",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
-      "path": "/magazine/issue/death-stranding-2-pc-launch/"
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
-      "slug": "pokemon-pokopia-review-roundup",
+      "slug": "gpt-5-3-garlic-update-rumor",
       "views": 1,
-      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
     },
     {
       "type": "ranking",
@@ -93,24 +87,10 @@
     },
     {
       "type": "tech",
-      "slug": "crimson-desert-ai-art-controversy",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/crimson-desert-ai-art-controversy/"
-    },
-    {
-      "type": "tech",
       "slug": "cursor-composer-2-coding-model",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/cursor-composer-2-coding-model/"
-    },
-    {
-      "type": "tech",
-      "slug": "nvidia-groq3-lpu-inference-revolution",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "type": "tech",
@@ -125,13 +105,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/korean-game-stocks-2025/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     }
   ]
 }
