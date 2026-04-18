@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-04-17T22:06:32.642Z",
+  "updatedAt": "2026-04-18T22:21:39.311Z",
   "period": "30days",
   "games": [
     {
-      "slug": "aion2",
-      "views": 6
-    },
-    {
       "slug": "좀비고등학교",
       "views": 5
+    },
+    {
+      "slug": "aion2",
+      "views": 4
     },
     {
       "slug": "dragon-ball-z-폭렬격전",
