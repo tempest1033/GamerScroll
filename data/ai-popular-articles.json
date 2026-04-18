@@ -1,30 +1,30 @@
 {
-  "updatedAt": "2026-04-17T00:03:09.432Z",
+  "updatedAt": "2026-04-18T00:01:36.285Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 8,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
-      "views": 7,
+      "views": 6,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 5,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+      "slug": "codex-install-guide-mac",
+      "views": 6,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 3,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
+      "slug": "codex-install-guide-windows",
+      "views": 5,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 2,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "anthropic",
@@ -37,6 +37,12 @@
       "slug": "claude-code-agent-teams-paradigm",
       "views": 1,
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-cowork-saaspocalypse",
+      "views": 1,
+      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
     },
     {
       "category": "anthropic",
@@ -67,12 +73,6 @@
       "slug": "moltbook-ai-social-network",
       "views": 1,
       "path": "/article/general/moltbook-ai-social-network/"
-    },
-    {
-      "category": "openai",
-      "slug": "chatgpt-desktop-app",
-      "views": 1,
-      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "openai",
