@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-04-18T00:01:36.285Z",
+  "updatedAt": "2026-04-19T01:18:33.254Z",
   "period": "7days",
   "articles": [
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 7,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
@@ -10,14 +16,8 @@
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 6,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 5,
+      "views": 6,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
