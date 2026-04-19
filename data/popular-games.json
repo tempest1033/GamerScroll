@@ -1,7 +1,11 @@
 {
-  "updatedAt": "2026-04-18T22:21:39.311Z",
+  "updatedAt": "2026-04-19T22:22:45.999Z",
   "period": "30days",
   "games": [
+    {
+      "slug": "wos-화이트아웃-서바이벌",
+      "views": 5
+    },
     {
       "slug": "좀비고등학교",
       "views": 5
@@ -23,7 +27,15 @@
       "views": 2
     },
     {
-      "slug": "wos-화이트아웃-서바이벌",
+      "slug": "roblox",
+      "views": 2
+    },
+    {
+      "slug": "냥코-대전쟁",
+      "views": 2
+    },
+    {
+      "slug": "메이플-키우기",
       "views": 2
     },
     {
@@ -51,23 +63,11 @@
       "views": 1
     },
     {
-      "slug": "roblox",
-      "views": 1
-    },
-    {
       "slug": "갤럭시-디펜스-galaxy-defense",
       "views": 1
     },
     {
       "slug": "냥냥-시노비-미소녀-닌자-디펜스",
-      "views": 1
-    },
-    {
-      "slug": "냥코-대전쟁",
-      "views": 1
-    },
-    {
-      "slug": "두근두근타운",
       "views": 1
     },
     {
