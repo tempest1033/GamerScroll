@@ -1,7 +1,11 @@
 {
-  "updatedAt": "2026-04-19T22:22:45.999Z",
+  "updatedAt": "2026-04-20T22:32:53.657Z",
   "period": "30days",
   "games": [
+    {
+      "slug": "aion2",
+      "views": 5
+    },
     {
       "slug": "wos-화이트아웃-서바이벌",
       "views": 5
@@ -11,8 +15,8 @@
       "views": 5
     },
     {
-      "slug": "aion2",
-      "views": 4
+      "slug": "초격력-별의-분노",
+      "views": 5
     },
     {
       "slug": "dragon-ball-z-폭렬격전",
@@ -47,15 +51,7 @@
       "views": 1
     },
     {
-      "slug": "baldurs-gate-3",
-      "views": 1
-    },
-    {
       "slug": "ball-x-pit",
-      "views": 1
-    },
-    {
-      "slug": "counter-strike-2",
       "views": 1
     },
     {
@@ -72,6 +68,10 @@
     },
     {
       "slug": "라스트-워-서바이벌",
+      "views": 1
+    },
+    {
+      "slug": "마비노기-모바일",
       "views": 1
     },
     {
