@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-19T01:17:33.031Z",
+  "updatedAt": "2026-04-20T01:16:50.741Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -13,6 +13,12 @@
       "slug": "krafton-chatgpt-lawsuit-subnautica2",
       "views": 4,
       "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 2,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -25,6 +31,12 @@
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-user-exodus-macro-cash",
+      "views": 2,
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
       "type": "wiki",
@@ -53,9 +65,9 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
+      "slug": "maple-grow-scandal-still-top-revenue",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+      "path": "/magazine/issue/maple-grow-scandal-still-top-revenue/"
     },
     {
       "type": "issue",
@@ -104,11 +116,25 @@
       "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
     },
     {
+      "type": "tech",
+      "slug": "codex-install-guide-mac",
+      "category": "vibecoding",
+      "views": 1,
+      "path": "/tech/vibecoding/codex-install-guide-mac/"
+    },
+    {
       "type": "wiki",
       "slug": "korean-game-stocks-2025",
       "category": "business",
       "views": 1,
       "path": "/wiki/business/korean-game-stocks-2025/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/platform-fees-comparison/"
     }
   ]
 }
