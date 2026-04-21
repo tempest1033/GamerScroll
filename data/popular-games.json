@@ -1,11 +1,7 @@
 {
-  "updatedAt": "2026-04-20T22:32:53.657Z",
+  "updatedAt": "2026-04-21T23:05:35.918Z",
   "period": "30days",
   "games": [
-    {
-      "slug": "aion2",
-      "views": 5
-    },
     {
       "slug": "wos-화이트아웃-서바이벌",
       "views": 5
@@ -17,6 +13,10 @@
     {
       "slug": "초격력-별의-분노",
       "views": 5
+    },
+    {
+      "slug": "aion2",
+      "views": 4
     },
     {
       "slug": "dragon-ball-z-폭렬격전",
