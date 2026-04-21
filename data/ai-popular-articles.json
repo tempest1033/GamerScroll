@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-04-20T01:17:50.494Z",
+  "updatedAt": "2026-04-21T01:16:10.822Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 8,
+      "views": 10,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 7,
+      "views": 8,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -23,8 +23,14 @@
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 3,
+      "views": 4,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "openai",
+      "slug": "chatgpt-desktop-app",
+      "views": 2,
+      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "anthropic",
@@ -52,18 +58,6 @@
     },
     {
       "category": "general",
-      "slug": "applovin-ai-ad-gaming-revenue",
-      "views": 1,
-      "path": "/article/general/applovin-ai-ad-gaming-revenue/"
-    },
-    {
-      "category": "general",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 1,
-      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "category": "general",
       "slug": "coding-agent-market-share-war-anthropic-openai",
       "views": 1,
       "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
@@ -85,6 +79,12 @@
       "slug": "gpt-53-codex-community-reaction",
       "views": 1,
       "path": "/article/openai/gpt-53-codex-community-reaction/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-workflow-prompt-guide",
+      "views": 1,
+      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     }
   ]
 }

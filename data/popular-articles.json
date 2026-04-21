@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-20T01:16:50.741Z",
+  "updatedAt": "2026-04-21T01:15:07.672Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 9,
+      "views": 12,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -13,6 +13,12 @@
       "slug": "krafton-chatgpt-lawsuit-subnautica2",
       "views": 4,
       "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "insight",
@@ -40,16 +46,22 @@
     },
     {
       "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
-      "category": "knowledge",
+      "slug": "type-moon-fate-origin",
+      "category": "history",
       "views": 2,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
+      "path": "/wiki/history/type-moon-fate-origin/"
     },
     {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 1,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "issue",
@@ -59,9 +71,27 @@
     },
     {
       "type": "issue",
+      "slug": "china-game-license-normalization",
+      "views": 1,
+      "path": "/magazine/issue/china-game-license-normalization/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 1,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "gpt-5-3-garlic-update-rumor",
       "views": 1,
       "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "issue",
@@ -77,36 +107,9 @@
     },
     {
       "type": "ranking",
-      "slug": "mobile-january-2026-kr",
+      "slug": "mobile-february-2026-kr",
       "views": 1,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "anthropic-b2b-strategy-success",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/anthropic-b2b-strategy-success/"
-    },
-    {
-      "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-opus-46-pricing-controversy",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -124,17 +127,17 @@
     },
     {
       "type": "wiki",
-      "slug": "korean-game-stocks-2025",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/korean-game-stocks-2025/"
-    },
-    {
-      "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
       "views": 1,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     }
   ]
 }
