@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-21T23:05:35.918Z",
+  "updatedAt": "2026-04-22T23:37:30.318Z",
   "period": "30days",
   "games": [
     {
@@ -13,10 +13,6 @@
     {
       "slug": "초격력-별의-분노",
       "views": 5
-    },
-    {
-      "slug": "aion2",
-      "views": 4
     },
     {
       "slug": "dragon-ball-z-폭렬격전",
@@ -48,6 +44,10 @@
     },
     {
       "slug": "66666년만에-환생한-흑마법사-전략-디펜스-rpg",
+      "views": 1
+    },
+    {
+      "slug": "aion2",
       "views": 1
     },
     {
