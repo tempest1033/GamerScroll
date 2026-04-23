@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-22T01:21:17.880Z",
+  "updatedAt": "2026-04-23T01:19:07.555Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 12,
+      "views": 13,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -16,27 +16,27 @@
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 4,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
       "views": 3,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 3,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+    },
+    {
+      "category": "google",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "views": 2,
+      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "category": "openai",
       "slug": "chatgpt-desktop-app",
       "views": 2,
       "path": "/article/openai/chatgpt-desktop-app/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-81k-interview",
-      "views": 1,
-      "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
       "category": "anthropic",
@@ -67,12 +67,6 @@
       "slug": "xai-exodus-grok-crisis",
       "views": 1,
       "path": "/article/general/xai-exodus-grok-crisis/"
-    },
-    {
-      "category": "google",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "views": 1,
-      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "category": "openai",

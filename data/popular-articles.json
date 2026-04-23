@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-22T01:20:18.543Z",
+  "updatedAt": "2026-04-23T01:18:08.066Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 16,
+      "views": 15,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -33,12 +33,6 @@
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 3,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
       "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
@@ -50,6 +44,24 @@
       "slug": "2026-subculture-openworld-games",
       "views": 2,
       "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 2,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "neverness-to-everness-launch-date",
+      "views": 2,
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "wiki",
@@ -108,28 +120,15 @@
     },
     {
       "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
-      "views": 1,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
-    },
-    {
-      "type": "issue",
       "slug": "seven-deadly-sins-origin-steam-early-reviews",
       "views": 1,
       "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
       "type": "ranking",
-      "slug": "mobile-february-2026-kr",
+      "slug": "mobile-january-2026-kr",
       "views": 1,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
