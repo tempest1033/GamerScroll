@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-23T01:19:07.555Z",
+  "updatedAt": "2026-04-24T01:18:41.323Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 13,
+      "views": 16,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -17,14 +17,8 @@
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 3,
+      "views": 4,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 3,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "google",
@@ -40,27 +34,9 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-cowork-saaspocalypse",
+      "slug": "claude-dispatch-cowork-remote-control",
       "views": 1,
-      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 1,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
-    },
-    {
-      "category": "general",
-      "slug": "coding-agent-market-share-war-anthropic-openai",
-      "views": 1,
-      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
-    },
-    {
-      "category": "general",
-      "slug": "moltbook-ai-social-network",
-      "views": 1,
-      "path": "/article/general/moltbook-ai-social-network/"
+      "path": "/article/anthropic/claude-dispatch-cowork-remote-control/"
     },
     {
       "category": "general",
@@ -73,6 +49,18 @@
       "slug": "openai-omni-model-rumor-march-2026",
       "views": 1,
       "path": "/article/openai/openai-omni-model-rumor-march-2026/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 1,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-version-control-guide",
+      "views": 1,
+      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
     },
     {
       "category": "vibecoding",

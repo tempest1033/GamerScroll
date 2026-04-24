@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-04-23T01:18:08.066Z",
+  "updatedAt": "2026-04-24T01:17:40.282Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 15,
+      "views": 14,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "insight",
       "slug": "2026-game-trends",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/insight/2026-game-trends/"
     },
     {
-      "type": "issue",
-      "slug": "krafton-chatgpt-lawsuit-subnautica2",
-      "views": 4,
-      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 5,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "issue",
@@ -36,7 +36,7 @@
       "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
-      "views": 3,
+      "views": 4,
       "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
@@ -56,12 +56,6 @@
       "slug": "neverness-to-everness-launch-date",
       "views": 2,
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "wiki",
@@ -84,12 +78,6 @@
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 1,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "china-game-license-normalization",
       "views": 1,
       "path": "/magazine/issue/china-game-license-normalization/"
@@ -99,12 +87,6 @@
       "slug": "diablo2-resurrected-steam-launch",
       "views": 1,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 1,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
     },
     {
       "type": "issue",
@@ -125,10 +107,23 @@
       "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
+      "type": "issue",
+      "slug": "starcraft-shooter-blizzard",
+      "views": 1,
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+    },
+    {
       "type": "ranking",
       "slug": "mobile-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "type": "tech",
