@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-04-25T00:00:35.931Z",
+  "updatedAt": "2026-04-26T00:00:30.850Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 18,
+      "views": 17,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "insight",
       "slug": "2026-game-trends",
-      "views": 7,
+      "views": 8,
       "path": "/magazine/insight/2026-game-trends/"
     },
     {
@@ -23,8 +23,14 @@
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-user-exodus-macro-cash",
+      "views": 5,
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
       "type": "tech",
@@ -32,18 +38,6 @@
       "category": "ai",
       "views": 4,
       "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 3,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
@@ -108,15 +102,27 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
       "slug": "maple-grow-scandal-still-top-revenue",
       "views": 1,
       "path": "/magazine/issue/maple-grow-scandal-still-top-revenue/"
     },
     {
       "type": "issue",
-      "slug": "seven-deadly-sins-origin-steam-early-reviews",
+      "slug": "nexon-maple-scandal-chief-fired",
       "views": 1,
-      "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
+      "path": "/magazine/issue/nexon-maple-scandal-chief-fired/"
+    },
+    {
+      "type": "issue",
+      "slug": "pubg-battlegrounds-birth-history",
+      "views": 1,
+      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
     },
     {
       "type": "issue",
@@ -146,6 +152,13 @@
     },
     {
       "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
+      "type": "tech",
       "slug": "codex-install-guide-mac",
       "category": "vibecoding",
       "views": 1,
@@ -171,6 +184,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     }
   ]
 }

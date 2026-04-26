@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-04-25T00:01:36.789Z",
+  "updatedAt": "2026-04-26T00:01:34.952Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 17,
+      "views": 15,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 8,
+      "views": 7,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 3,
+      "views": 5,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
@@ -31,6 +31,12 @@
       "slug": "chatgpt-desktop-app",
       "views": 2,
       "path": "/article/openai/chatgpt-desktop-app/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 2,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "anthropic",
@@ -55,12 +61,6 @@
       "slug": "openai-omni-model-rumor-march-2026",
       "views": 1,
       "path": "/article/openai/openai-omni-model-rumor-march-2026/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 1,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "vibecoding",
