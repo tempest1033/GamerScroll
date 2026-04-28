@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-04-27T02:44:23.217Z",
+  "updatedAt": "2026-04-28T04:51:29.193Z",
   "period": "30days",
   "games": [
     {
       "slug": "초격력-별의-분노",
-      "views": 11
+      "views": 12
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
@@ -13,6 +13,10 @@
     {
       "slug": "좀비고등학교",
       "views": 5
+    },
+    {
+      "slug": "메이플-키우기",
+      "views": 3
     },
     {
       "slug": "dragon-ball-z-폭렬격전",
@@ -28,10 +32,6 @@
     },
     {
       "slug": "roblox",
-      "views": 2
-    },
-    {
-      "slug": "메이플-키우기",
       "views": 2
     },
     {
