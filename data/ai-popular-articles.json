@@ -1,42 +1,36 @@
 {
-  "updatedAt": "2026-04-27T00:02:04.522Z",
+  "updatedAt": "2026-04-28T01:29:24.873Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 16,
+      "views": 18,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 7,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 4,
+      "views": 5,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
-      "views": 3,
+      "views": 4,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 4,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "google",
       "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "views": 2,
       "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "category": "openai",
-      "slug": "chatgpt-desktop-app",
-      "views": 2,
-      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "anthropic",
@@ -58,9 +52,21 @@
     },
     {
       "category": "general",
-      "slug": "xai-exodus-grok-crisis",
+      "slug": "lecun-ami-labs-llm-debate",
       "views": 1,
-      "path": "/article/general/xai-exodus-grok-crisis/"
+      "path": "/article/general/lecun-ami-labs-llm-debate/"
+    },
+    {
+      "category": "general",
+      "slug": "mistral-small4-unified-moe",
+      "views": 1,
+      "path": "/article/general/mistral-small4-unified-moe/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-astral-acquisition",
+      "views": 1,
+      "path": "/article/openai/openai-astral-acquisition/"
     },
     {
       "category": "openai",
@@ -79,12 +85,6 @@
       "slug": "vibe-coding-version-control-guide",
       "views": 1,
       "path": "/article/vibecoding/vibe-coding-version-control-guide/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-workflow-prompt-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     }
   ]
 }

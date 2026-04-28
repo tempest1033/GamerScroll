@@ -1,30 +1,30 @@
 {
-  "updatedAt": "2026-04-27T00:01:04.745Z",
+  "updatedAt": "2026-04-28T01:28:23.135Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 16,
+      "views": 14,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "insight",
       "slug": "2026-game-trends",
-      "views": 9,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
       "views": 7,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "ranking",
       "slug": "mobile-february-2026-kr",
       "views": 6,
       "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 5,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "issue",
@@ -59,9 +59,9 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "wiki",
@@ -71,22 +71,10 @@
       "path": "/wiki/history/type-moon-fate-origin/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
       "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-game-license-normalization",
-      "views": 1,
-      "path": "/magazine/issue/china-game-license-normalization/"
     },
     {
       "type": "issue",
@@ -96,15 +84,15 @@
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
+      "slug": "dragon-quest-7-reimagined-metacritic",
       "views": 1,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+      "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
+      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "issue",
@@ -117,6 +105,12 @@
       "slug": "pubg-battlegrounds-birth-history",
       "views": 1,
       "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
+    },
+    {
+      "type": "issue",
+      "slug": "sol-enchant-pre-registration",
+      "views": 1,
+      "path": "/magazine/issue/sol-enchant-pre-registration/"
     },
     {
       "type": "issue",
@@ -153,6 +147,13 @@
     },
     {
       "type": "tech",
+      "slug": "dario-sam-india-summit-handshake",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/dario-sam-india-summit-handshake/"
+    },
+    {
+      "type": "tech",
       "slug": "rewinding-cadence-technical-test",
       "category": "normal",
       "views": 1,
@@ -164,13 +165,6 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/korean-esports-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
