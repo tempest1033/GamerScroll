@@ -1,18 +1,24 @@
 {
-  "updatedAt": "2026-04-28T01:29:24.873Z",
+  "updatedAt": "2026-04-29T01:32:16.196Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 18,
+      "views": 16,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 5,
+      "views": 6,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 5,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "vibecoding",
@@ -21,16 +27,16 @@
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 4,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
       "category": "google",
       "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "views": 2,
       "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-version-control-guide",
+      "views": 2,
+      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
     },
     {
       "category": "anthropic",
@@ -79,12 +85,6 @@
       "slug": "project-md-settings-guide",
       "views": 1,
       "path": "/article/vibecoding/project-md-settings-guide/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-version-control-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
     }
   ]
 }
