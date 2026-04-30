@@ -1,36 +1,36 @@
 {
-  "updatedAt": "2026-04-29T01:32:16.196Z",
+  "updatedAt": "2026-04-30T01:30:30.382Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 16,
+      "views": 17,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 6,
+      "views": 8,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 5,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
-      "views": 4,
+      "views": 6,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
-      "category": "google",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "views": 2,
-      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 6,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-code-agent-teams-paradigm",
+      "views": 3,
+      "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
       "category": "vibecoding",
@@ -40,15 +40,15 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-code-agent-teams-paradigm",
-      "views": 1,
-      "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
-    },
-    {
-      "category": "anthropic",
       "slug": "claude-dispatch-cowork-remote-control",
       "views": 1,
       "path": "/article/anthropic/claude-dispatch-cowork-remote-control/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "views": 1,
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "general",
@@ -73,12 +73,6 @@
       "slug": "openai-astral-acquisition",
       "views": 1,
       "path": "/article/openai/openai-astral-acquisition/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-omni-model-rumor-march-2026",
-      "views": 1,
-      "path": "/article/openai/openai-omni-model-rumor-march-2026/"
     },
     {
       "category": "vibecoding",

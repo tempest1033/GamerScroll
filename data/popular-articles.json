@@ -1,42 +1,42 @@
 {
-  "updatedAt": "2026-04-29T01:31:14.505Z",
+  "updatedAt": "2026-04-30T01:29:29.681Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 12,
+      "views": 13,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 6,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
-      "views": 4,
+      "views": 5,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
-      "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 4,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 5,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "insight",
       "slug": "2026-game-trends",
-      "views": 3,
+      "views": 4,
       "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-user-exodus-macro-cash",
+      "views": 3,
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
       "type": "issue",
@@ -45,10 +45,29 @@
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
+      "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 3,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 2,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
       "type": "issue",
       "slug": "2026-subculture-openworld-games",
       "views": 2,
       "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "dragon-quest-7-reimagined-metacritic",
+      "views": 2,
+      "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
     },
     {
       "type": "tech",
@@ -56,12 +75,6 @@
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "issue",
@@ -74,12 +87,6 @@
       "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 1,
       "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragon-quest-7-reimagined-metacritic",
-      "views": 1,
-      "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
     },
     {
       "type": "issue",
@@ -118,10 +125,10 @@
       "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
+      "type": "issue",
+      "slug": "xbox-project-helix-pc-console",
       "views": 1,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
+      "path": "/magazine/issue/xbox-project-helix-pc-console/"
     },
     {
       "type": "tech",
@@ -146,17 +153,17 @@
     },
     {
       "type": "tech",
+      "slug": "microsoft-copilot-windows-ai-fatigue",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/microsoft-copilot-windows-ai-fatigue/"
+    },
+    {
+      "type": "tech",
       "slug": "moltbook-ai-social-network",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
     },
     {
       "type": "tech",
@@ -171,6 +178,13 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/korean-esports-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
