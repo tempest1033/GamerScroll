@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-30T01:29:29.681Z",
+  "updatedAt": "2026-05-01T01:32:40.140Z",
   "period": "7days",
   "articles": [
     {
@@ -11,20 +11,27 @@
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-code-vs-codex-coding-agent",
+      "category": "ai",
+      "views": 7,
+      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
+      "type": "issue",
+      "slug": "neverness-to-everness-launch-date",
       "views": 5,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "insight",
@@ -35,14 +42,14 @@
     {
       "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 3,
+      "views": 4,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
-      "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
       "views": 3,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -71,10 +78,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "category": "ai",
+      "slug": "codex-install-guide-windows",
+      "category": "vibecoding",
       "views": 2,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
+      "path": "/tech/vibecoding/codex-install-guide-windows/"
     },
     {
       "type": "issue",
@@ -96,15 +103,21 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
+      "slug": "heartopia-mobile-animal-crossing-success",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
       "slug": "nexon-maple-scandal-chief-fired",
       "views": 1,
       "path": "/magazine/issue/nexon-maple-scandal-chief-fired/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-global-sold-out",
+      "views": 1,
+      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
     },
     {
       "type": "issue",
@@ -120,15 +133,15 @@
     },
     {
       "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
-      "views": 1,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
-    },
-    {
-      "type": "issue",
       "slug": "xbox-project-helix-pc-console",
       "views": 1,
       "path": "/magazine/issue/xbox-project-helix-pc-console/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
@@ -139,10 +152,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "slug": "claude-cowork-saaspocalypse",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
+      "path": "/tech/ai/claude-cowork-saaspocalypse/"
     },
     {
       "type": "tech",
@@ -167,10 +180,10 @@
     },
     {
       "type": "tech",
-      "slug": "codex-install-guide-windows",
-      "category": "vibecoding",
+      "slug": "2d-animation-tech",
+      "category": "normal",
       "views": 1,
-      "path": "/tech/vibecoding/codex-install-guide-windows/"
+      "path": "/tech/normal/2d-animation-tech/"
     },
     {
       "type": "wiki",

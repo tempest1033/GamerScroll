@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-04-30T01:30:30.382Z",
+  "updatedAt": "2026-05-01T01:33:42.089Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 17,
+      "views": 19,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -16,15 +16,15 @@
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 6,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "codex-install-guide-windows",
       "views": 6,
       "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 5,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "anthropic",
@@ -34,15 +34,15 @@
     },
     {
       "category": "vibecoding",
-      "slug": "vibe-coding-version-control-guide",
+      "slug": "project-md-settings-guide",
       "views": 2,
-      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
+      "path": "/article/vibecoding/project-md-settings-guide/"
     },
     {
       "category": "anthropic",
-      "slug": "claude-dispatch-cowork-remote-control",
+      "slug": "anthropic-81k-interview",
       "views": 1,
-      "path": "/article/anthropic/claude-dispatch-cowork-remote-control/"
+      "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
       "category": "anthropic",
@@ -55,6 +55,12 @@
       "slug": "deepseek-v4-launch-march-2026",
       "views": 1,
       "path": "/article/general/deepseek-v4-launch-march-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "karpathy-ai-job-exposure-score",
+      "views": 1,
+      "path": "/article/general/karpathy-ai-job-exposure-score/"
     },
     {
       "category": "general",
@@ -76,9 +82,9 @@
     },
     {
       "category": "vibecoding",
-      "slug": "project-md-settings-guide",
+      "slug": "vibe-coding-version-control-guide",
       "views": 1,
-      "path": "/article/vibecoding/project-md-settings-guide/"
+      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
     }
   ]
 }
