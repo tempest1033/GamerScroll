@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-01T01:33:42.089Z",
+  "updatedAt": "2026-05-02T01:23:58.718Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 19,
+      "views": 20,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -16,33 +16,33 @@
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 6,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
+      "slug": "claude-code-install-guide-windows",
+      "views": 4,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 5,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+      "slug": "codex-install-guide-windows",
+      "views": 4,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "anthropic",
       "slug": "claude-code-agent-teams-paradigm",
-      "views": 3,
-      "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "project-md-settings-guide",
       "views": 2,
-      "path": "/article/vibecoding/project-md-settings-guide/"
+      "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
       "category": "anthropic",
       "slug": "anthropic-81k-interview",
       "views": 1,
       "path": "/article/anthropic/anthropic-81k-interview/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-dispatch-cowork-remote-control",
+      "views": 1,
+      "path": "/article/anthropic/claude-dispatch-cowork-remote-control/"
     },
     {
       "category": "anthropic",
@@ -70,15 +70,33 @@
     },
     {
       "category": "general",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/article/general/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "category": "general",
       "slug": "mistral-small4-unified-moe",
       "views": 1,
       "path": "/article/general/mistral-small4-unified-moe/"
+    },
+    {
+      "category": "general",
+      "slug": "xai-talent-exodus-grok-crisis",
+      "views": 1,
+      "path": "/article/general/xai-talent-exodus-grok-crisis/"
     },
     {
       "category": "openai",
       "slug": "openai-astral-acquisition",
       "views": 1,
       "path": "/article/openai/openai-astral-acquisition/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "project-md-settings-guide",
+      "views": 1,
+      "path": "/article/vibecoding/project-md-settings-guide/"
     },
     {
       "category": "vibecoding",
