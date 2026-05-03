@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-02T01:22:57.928Z",
+  "updatedAt": "2026-05-03T00:05:44.596Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 17,
+      "views": 12,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -22,35 +22,35 @@
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 6,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 5,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 5,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 3,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
       "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 4,
+      "views": 3,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
       "type": "tech",
       "slug": "rewinding-cadence-technical-test",
       "category": "normal",
-      "views": 4,
+      "views": 3,
       "path": "/tech/normal/rewinding-cadence-technical-test/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 2,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "insight",
@@ -84,6 +84,19 @@
       "path": "/tech/vibecoding/codex-install-guide-windows/"
     },
     {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 1,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
       "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 1,
@@ -103,21 +116,15 @@
     },
     {
       "type": "issue",
-      "slug": "nexon-maple-scandal-chief-fired",
-      "views": 1,
-      "path": "/magazine/issue/nexon-maple-scandal-chief-fired/"
-    },
-    {
-      "type": "issue",
       "slug": "pokemon-pokopia-global-sold-out",
       "views": 1,
       "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
     },
     {
       "type": "issue",
-      "slug": "pubg-battlegrounds-birth-history",
+      "slug": "resident-evil-requiem-metacritic-scores",
       "views": 1,
-      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
+      "path": "/magazine/issue/resident-evil-requiem-metacritic-scores/"
     },
     {
       "type": "issue",
@@ -174,24 +181,17 @@
     },
     {
       "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }
