@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-05-02T06:55:19.794Z",
+  "updatedAt": "2026-05-03T08:30:02.209Z",
   "period": "30days",
   "games": [
     {
       "slug": "초격력-별의-분노",
-      "views": 12
+      "views": 13
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
@@ -51,10 +51,6 @@
       "views": 1
     },
     {
-      "slug": "ball-x-pit",
-      "views": 1
-    },
-    {
       "slug": "hades",
       "views": 1
     },
@@ -76,6 +72,10 @@
     },
     {
       "slug": "마비노기-모바일",
+      "views": 1
+    },
+    {
+      "slug": "명조워더링-웨이브",
       "views": 1
     }
   ]
