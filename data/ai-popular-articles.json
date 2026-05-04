@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-05-03T00:06:46.029Z",
+  "updatedAt": "2026-05-04T00:10:07.425Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 21,
+      "views": 20,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 7,
+      "views": 8,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
@@ -21,16 +21,22 @@
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
+      "category": "anthropic",
+      "slug": "claude-code-agent-teams-paradigm",
+      "views": 3,
+      "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
+    },
+    {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 4,
+      "views": 3,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-code-agent-teams-paradigm",
-      "views": 2,
-      "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
+      "category": "ai-tools",
+      "slug": "cursor-composer-2-coding-model",
+      "views": 1,
+      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
       "category": "anthropic",
@@ -52,9 +58,9 @@
     },
     {
       "category": "general",
-      "slug": "deepseek-v4-launch-march-2026",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
-      "path": "/article/general/deepseek-v4-launch-march-2026/"
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "category": "general",
@@ -79,6 +85,12 @@
       "slug": "mistral-small4-unified-moe",
       "views": 1,
       "path": "/article/general/mistral-small4-unified-moe/"
+    },
+    {
+      "category": "general",
+      "slug": "nvidia-groq3-lpu-inference-revolution",
+      "views": 1,
+      "path": "/article/general/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "category": "general",
