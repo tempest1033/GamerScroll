@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-05-04T00:10:07.425Z",
+  "updatedAt": "2026-05-05T01:26:58.032Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 20,
+      "views": 15,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 8,
+      "views": 6,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
@@ -82,12 +82,6 @@
     },
     {
       "category": "general",
-      "slug": "mistral-small4-unified-moe",
-      "views": 1,
-      "path": "/article/general/mistral-small4-unified-moe/"
-    },
-    {
-      "category": "general",
       "slug": "nvidia-groq3-lpu-inference-revolution",
       "views": 1,
       "path": "/article/general/nvidia-groq3-lpu-inference-revolution/"
@@ -97,6 +91,12 @@
       "slug": "xai-talent-exodus-grok-crisis",
       "views": 1,
       "path": "/article/general/xai-talent-exodus-grok-crisis/"
+    },
+    {
+      "category": "openai",
+      "slug": "chatgpt-desktop-app",
+      "views": 1,
+      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "openai",

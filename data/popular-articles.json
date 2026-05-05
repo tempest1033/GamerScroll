@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-04T00:09:04.507Z",
+  "updatedAt": "2026-05-05T01:25:54.957Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 13,
+      "views": 16,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -22,16 +22,16 @@
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 4,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
       "views": 4,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 3,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -48,21 +48,9 @@
     },
     {
       "type": "issue",
-      "slug": "dragon-quest-7-reimagined-metacritic",
-      "views": 2,
-      "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 2,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -92,9 +80,15 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
+      "slug": "dragon-quest-7-reimagined-metacritic",
       "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
+    },
+    {
+      "type": "issue",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 1,
+      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "type": "issue",
@@ -134,15 +128,15 @@
     },
     {
       "type": "issue",
-      "slug": "sol-enchant-pre-registration",
-      "views": 1,
-      "path": "/magazine/issue/sol-enchant-pre-registration/"
-    },
-    {
-      "type": "issue",
       "slug": "xbox-project-helix-pc-console",
       "views": 1,
       "path": "/magazine/issue/xbox-project-helix-pc-console/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "ranking",
