@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-04T09:37:14.437Z",
+  "updatedAt": "2026-05-05T10:59:00.942Z",
   "period": "30days",
   "games": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "slug": "메이플-키우기",
-      "views": 5
+      "views": 6
     },
     {
       "slug": "dragon-ball-z-폭렬격전",
@@ -55,6 +55,10 @@
       "views": 1
     },
     {
+      "slug": "idol-company",
+      "views": 1
+    },
+    {
       "slug": "갤럭시-디펜스-galaxy-defense",
       "views": 1
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "마비노기-모바일",
-      "views": 1
-    },
-    {
-      "slug": "명조워더링-웨이브",
       "views": 1
     }
   ]
