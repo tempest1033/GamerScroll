@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-05-05T10:59:00.942Z",
+  "updatedAt": "2026-05-06T11:42:53.943Z",
   "period": "30days",
   "games": [
     {
       "slug": "초격력-별의-분노",
-      "views": 13
+      "views": 14
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
@@ -19,7 +19,7 @@
       "views": 2
     },
     {
-      "slug": "heartopia",
+      "slug": "identity-v-제5인격",
       "views": 2
     },
     {
@@ -71,11 +71,11 @@
       "views": 1
     },
     {
-      "slug": "라스트-워-서바이벌",
+      "slug": "라스트-어사일럼-페스트",
       "views": 1
     },
     {
-      "slug": "마비노기-모바일",
+      "slug": "라스트-워-서바이벌",
       "views": 1
     }
   ]
