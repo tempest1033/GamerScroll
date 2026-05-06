@@ -377,6 +377,13 @@
       "type": "news",
       "failedAt": "2026-04-05T15:52:04.963Z",
       "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.inven.co.kr//static.inven.co.kr/column/2026/05/06/news/thumb/s1715702230.jpg",
+      "date": "2026-05-07",
+      "type": "news",
+      "failedAt": "2026-05-06T17:19:17.261Z",
+      "error": "HTTP 404"
     }
   ]
 }
