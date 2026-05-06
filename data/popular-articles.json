@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-05-05T01:25:54.957Z",
+  "updatedAt": "2026-05-06T01:23:58.264Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 16,
+      "views": 17,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 10,
+      "views": 14,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
@@ -22,16 +22,23 @@
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 4,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 4,
+      "views": 5,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 4,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 3,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -40,11 +47,10 @@
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
-      "category": "normal",
-      "views": 3,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 2,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -54,10 +60,10 @@
     },
     {
       "type": "tech",
-      "slug": "codex-install-guide-windows",
-      "category": "vibecoding",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
       "views": 2,
-      "path": "/tech/vibecoding/codex-install-guide-windows/"
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "wiki",
@@ -67,16 +73,28 @@
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 1,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 1,
       "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "chzzk-lck-naver-viewer-complaints",
+      "views": 1,
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
+      "slug": "clash-royale-10th-anniversary-success",
+      "views": 1,
+      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
     },
     {
       "type": "issue",
@@ -89,6 +107,12 @@
       "slug": "gemini-3-hallucination-memory-overfitting",
       "views": 1,
       "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
@@ -153,13 +177,6 @@
     },
     {
       "type": "tech",
-      "slug": "dario-sam-india-summit-handshake",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/dario-sam-india-summit-handshake/"
-    },
-    {
-      "type": "tech",
       "slug": "grok-420-multi-agent-release",
       "category": "ai",
       "views": 1,
@@ -174,10 +191,38 @@
     },
     {
       "type": "tech",
+      "slug": "nvidia-ai-chip-monopoly-cracking",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/nvidia-ai-chip-monopoly-cracking/"
+    },
+    {
+      "type": "tech",
       "slug": "2d-animation-tech",
       "category": "normal",
       "views": 1,
       "path": "/tech/normal/2d-animation-tech/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-code-install-guide-windows",
+      "category": "vibecoding",
+      "views": 1,
+      "path": "/tech/vibecoding/claude-code-install-guide-windows/"
+    },
+    {
+      "type": "tech",
+      "slug": "codex-install-guide-windows",
+      "category": "vibecoding",
+      "views": 1,
+      "path": "/tech/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -192,6 +237,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     }
   ]
 }

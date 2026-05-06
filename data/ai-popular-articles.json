@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-05T01:26:58.032Z",
+  "updatedAt": "2026-05-06T01:24:59.933Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 15,
+      "views": 17,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -15,21 +15,21 @@
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 4,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
-    },
-    {
       "category": "anthropic",
       "slug": "claude-code-agent-teams-paradigm",
-      "views": 3,
+      "views": 5,
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
       "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 5,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 3,
+      "views": 4,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
@@ -49,12 +49,6 @@
       "slug": "claude-dispatch-cowork-remote-control",
       "views": 1,
       "path": "/article/anthropic/claude-dispatch-cowork-remote-control/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 1,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "category": "general",
@@ -99,22 +93,10 @@
       "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
-      "category": "openai",
-      "slug": "openai-astral-acquisition",
-      "views": 1,
-      "path": "/article/openai/openai-astral-acquisition/"
-    },
-    {
       "category": "vibecoding",
       "slug": "project-md-settings-guide",
       "views": 1,
       "path": "/article/vibecoding/project-md-settings-guide/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-version-control-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
     }
   ]
 }
