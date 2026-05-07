@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-06T01:24:59.933Z",
+  "updatedAt": "2026-05-07T01:30:05.700Z",
   "period": "7days",
   "articles": [
     {
@@ -17,13 +17,13 @@
     {
       "category": "anthropic",
       "slug": "claude-code-agent-teams-paradigm",
-      "views": 5,
+      "views": 4,
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
-      "views": 5,
+      "views": 4,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
@@ -91,6 +91,12 @@
       "slug": "chatgpt-desktop-app",
       "views": 1,
       "path": "/article/openai/chatgpt-desktop-app/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-53-instant-less-cringe",
+      "views": 1,
+      "path": "/article/openai/gpt-53-instant-less-cringe/"
     },
     {
       "category": "vibecoding",
