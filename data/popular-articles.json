@@ -1,37 +1,37 @@
 {
-  "updatedAt": "2026-05-07T01:29:02.684Z",
+  "updatedAt": "2026-05-08T01:32:16.799Z",
   "period": "7days",
   "articles": [
+    {
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
+      "views": 19,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 18,
+      "views": 16,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 17,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
-      "views": 5,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 5,
+      "views": 4,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
+      "slug": "gpt-pro-kakao-hot-deal",
       "views": 3,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "neverness-to-everness-launch-date",
+      "views": 3,
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "wiki",
@@ -42,15 +42,33 @@
     },
     {
       "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 2,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 2,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 2,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "issue",
+      "slug": "chzzk-lck-naver-viewer-complaints",
+      "views": 2,
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
+      "slug": "google-play-fee-cut-epic-settlement",
+      "views": 2,
+      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
+    },
+    {
+      "type": "issue",
+      "slug": "krafton-chatgpt-lawsuit-subnautica2",
+      "views": 2,
+      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
     },
     {
       "type": "tech",
@@ -58,6 +76,13 @@
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
+      "type": "tech",
+      "slug": "china-ai-video-kling3-seedance2",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
     },
     {
       "type": "tech",
@@ -74,6 +99,12 @@
       "path": "/wiki/business/platform-fees-comparison/"
     },
     {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 1,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
       "type": "issue",
       "slug": "2026-subculture-openworld-games",
       "views": 1,
@@ -84,12 +115,6 @@
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "chzzk-lck-naver-viewer-complaints",
-      "views": 1,
-      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
     },
     {
       "type": "issue",
@@ -111,21 +136,9 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
+      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 1,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "krafton-chatgpt-lawsuit-subnautica2",
-      "views": 1,
-      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "issue",
@@ -147,21 +160,9 @@
     },
     {
       "type": "issue",
-      "slug": "pokemon-pokopia-global-sold-out",
-      "views": 1,
-      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
-    },
-    {
-      "type": "issue",
       "slug": "resident-evil-requiem-metacritic-scores",
       "views": 1,
       "path": "/magazine/issue/resident-evil-requiem-metacritic-scores/"
-    },
-    {
-      "type": "issue",
-      "slug": "xbox-project-helix-pc-console",
-      "views": 1,
-      "path": "/magazine/issue/xbox-project-helix-pc-console/"
     },
     {
       "type": "ranking",
@@ -171,10 +172,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-cowork-saaspocalypse",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/claude-cowork-saaspocalypse/"
+      "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "type": "tech",
@@ -185,10 +186,24 @@
     },
     {
       "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "tech",
       "slug": "nvidia-ai-chip-monopoly-cracking",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/nvidia-ai-chip-monopoly-cracking/"
+    },
+    {
+      "type": "tech",
+      "slug": "openclaw-steinberger-openai",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/openclaw-steinberger-openai/"
     },
     {
       "type": "tech",
@@ -205,13 +220,6 @@
       "path": "/tech/vibecoding/claude-code-install-guide-windows/"
     },
     {
-      "type": "tech",
-      "slug": "codex-install-guide-windows",
-      "category": "vibecoding",
-      "views": 1,
-      "path": "/tech/vibecoding/codex-install-guide-windows/"
-    },
-    {
       "type": "wiki",
       "slug": "black-and-white-demis-hassabis",
       "category": "history",
@@ -224,13 +232,6 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/pillar-of-fire-cresents/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
