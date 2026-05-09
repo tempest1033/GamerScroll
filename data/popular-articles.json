@@ -1,25 +1,26 @@
 {
-  "updatedAt": "2026-05-08T01:32:16.799Z",
+  "updatedAt": "2026-05-09T01:29:33.123Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 19,
+      "views": 16,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 16,
+      "views": 14,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
       "views": 4,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
@@ -28,17 +29,10 @@
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
-      "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
       "views": 3,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "hotpick",
@@ -54,9 +48,21 @@
     },
     {
       "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 2,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "type": "issue",
       "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 2,
       "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 2,
+      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "type": "issue",
@@ -86,6 +92,20 @@
     },
     {
       "type": "tech",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
+      "type": "tech",
+      "slug": "moltbook-ai-social-network",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/moltbook-ai-social-network/"
+    },
+    {
+      "type": "tech",
       "slug": "rewinding-cadence-technical-test",
       "category": "normal",
       "views": 2,
@@ -112,21 +132,9 @@
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 1,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "clash-royale-10th-anniversary-success",
       "views": 1,
       "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 1,
-      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "type": "issue",
@@ -148,9 +156,9 @@
     },
     {
       "type": "issue",
-      "slug": "lucky-defense-probability-manipulation-scandal",
+      "slug": "neverness-to-everness-launch-date",
       "views": 1,
-      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "issue",
@@ -172,24 +180,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "slug": "apple-blocks-vibe-coding-apps",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
-    },
-    {
-      "type": "tech",
-      "slug": "grok-420-multi-agent-release",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/grok-420-multi-agent-release/"
-    },
-    {
-      "type": "tech",
-      "slug": "moltbook-ai-social-network",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/moltbook-ai-social-network/"
+      "path": "/tech/ai/apple-blocks-vibe-coding-apps/"
     },
     {
       "type": "tech",
@@ -204,13 +198,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/openclaw-steinberger-openai/"
-    },
-    {
-      "type": "tech",
-      "slug": "2d-animation-tech",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/2d-animation-tech/"
     },
     {
       "type": "tech",
