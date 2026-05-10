@@ -1,19 +1,26 @@
 {
-  "updatedAt": "2026-05-09T01:29:33.123Z",
+  "updatedAt": "2026-05-10T00:10:01.241Z",
   "period": "7days",
   "articles": [
-    {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 16,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 14,
+      "views": 16,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
+      "views": 15,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "wiki",
@@ -23,10 +30,10 @@
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
+      "type": "insight",
+      "slug": "2026-game-trends",
       "views": 3,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "ranking",
@@ -36,15 +43,15 @@
     },
     {
       "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 2,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 2,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 2,
-      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -78,13 +85,6 @@
     },
     {
       "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "type": "tech",
       "slug": "china-ai-video-kling3-seedance2",
       "category": "ai",
       "views": 2,
@@ -103,13 +103,6 @@
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/moltbook-ai-social-network/"
-    },
-    {
-      "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
-      "category": "normal",
-      "views": 2,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
     },
     {
       "type": "wiki",
@@ -173,10 +166,10 @@
       "path": "/magazine/issue/resident-evil-requiem-metacritic-scores/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
+      "type": "issue",
+      "slug": "t1-lck-cup-shocking-elimination",
       "views": 1,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
     },
     {
       "type": "tech",
@@ -201,6 +194,13 @@
     },
     {
       "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
+      "type": "tech",
       "slug": "claude-code-install-guide-windows",
       "category": "vibecoding",
       "views": 1,
@@ -219,6 +219,13 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/pillar-of-fire-cresents/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",

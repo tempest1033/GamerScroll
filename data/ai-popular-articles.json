@@ -1,30 +1,30 @@
 {
-  "updatedAt": "2026-05-09T01:30:34.585Z",
+  "updatedAt": "2026-05-10T00:11:02.565Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 14,
+      "views": 13,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
       "slug": "claude-code-agent-teams-paradigm",
-      "views": 5,
+      "views": 6,
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 5,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
       "views": 5,
       "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 4,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
@@ -63,6 +63,12 @@
       "path": "/article/general/nvidia-groq3-lpu-inference-revolution/"
     },
     {
+      "category": "general",
+      "slug": "nvidia-nemoclaw-agentic-ai-platform",
+      "views": 1,
+      "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
+    },
+    {
       "category": "openai",
       "slug": "chatgpt-desktop-app",
       "views": 1,
@@ -73,6 +79,12 @@
       "slug": "gpt-53-instant-less-cringe",
       "views": 1,
       "path": "/article/openai/gpt-53-instant-less-cringe/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "apple-blocks-vibe-coding-apps",
+      "views": 1,
+      "path": "/article/vibecoding/apple-blocks-vibe-coding-apps/"
     }
   ]
 }
