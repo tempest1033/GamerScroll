@@ -1,19 +1,38 @@
 {
-  "updatedAt": "2026-05-10T00:10:01.241Z",
+  "updatedAt": "2026-05-11T01:49:15.818Z",
   "period": "7days",
   "articles": [
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 16,
+      "views": 17,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 15,
+      "views": 16,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 5,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 4,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -24,22 +43,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
+      "slug": "platform-fees-comparison",
+      "category": "business",
       "views": 3,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "hotpick",
@@ -105,13 +112,6 @@
       "path": "/tech/ai/moltbook-ai-social-network/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 1,
@@ -143,27 +143,9 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 1,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "issue",
       "slug": "neverness-to-everness-launch-date",
       "views": 1,
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
-    },
-    {
-      "type": "issue",
-      "slug": "nte-gameplay-reveal-before-cbt3",
-      "views": 1,
-      "path": "/magazine/issue/nte-gameplay-reveal-before-cbt3/"
-    },
-    {
-      "type": "issue",
-      "slug": "resident-evil-requiem-metacritic-scores",
-      "views": 1,
-      "path": "/magazine/issue/resident-evil-requiem-metacritic-scores/"
     },
     {
       "type": "issue",
@@ -172,11 +154,24 @@
       "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
     },
     {
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
       "type": "tech",
       "slug": "apple-blocks-vibe-coding-apps",
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/apple-blocks-vibe-coding-apps/"
+    },
+    {
+      "type": "tech",
+      "slug": "big3-ipo-2026-openai-anthropic-spacex",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/big3-ipo-2026-openai-anthropic-spacex/"
     },
     {
       "type": "tech",
@@ -205,13 +200,6 @@
       "category": "vibecoding",
       "views": 1,
       "path": "/tech/vibecoding/claude-code-install-guide-windows/"
-    },
-    {
-      "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "wiki",
