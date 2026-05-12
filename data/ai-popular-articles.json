@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-11T01:50:21.563Z",
+  "updatedAt": "2026-05-12T01:32:29.251Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 15,
+      "views": 16,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -17,19 +17,19 @@
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 5,
+      "views": 6,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-mac",
-      "views": 4,
+      "views": 3,
       "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
-      "views": 4,
+      "views": 3,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
@@ -46,21 +46,9 @@
     },
     {
       "category": "general",
-      "slug": "lecun-ami-labs-llm-debate",
-      "views": 1,
-      "path": "/article/general/lecun-ami-labs-llm-debate/"
-    },
-    {
-      "category": "general",
       "slug": "nvidia-nemoclaw-agentic-ai-platform",
       "views": 1,
       "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
-    },
-    {
-      "category": "openai",
-      "slug": "chatgpt-desktop-app",
-      "views": 1,
-      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "openai",
