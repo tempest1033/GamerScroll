@@ -832,21 +832,9 @@ function wrapWithLayout(content, options = {}) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- AdSense -->
-  <script>
-    (function() {
-      var s = document.createElement('script');
-      s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825';
-      s.async = true;
-      s.crossOrigin = 'anonymous';
-      s.fetchPriority = 'high';
-      s.onload = function() {
-        window.__adsenseReady = true;
-        window.dispatchEvent(new Event('adsenseReady'));
-      };
-      document.head.appendChild(s);
-    })();
-  </script>
+  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(safeDescription)}">
   <meta name="keywords" content="${escapeHtml(keywords)}">
