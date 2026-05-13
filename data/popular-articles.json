@@ -1,33 +1,39 @@
 {
-  "updatedAt": "2026-05-12T01:31:29.155Z",
+  "updatedAt": "2026-05-13T01:49:50.858Z",
   "period": "7days",
   "articles": [
-    {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 20,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 18,
+      "views": 21,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
-      "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "category": "ai",
-      "views": 5,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
+      "views": 18,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 5,
+      "views": 7,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "issue",
+      "slug": "t1-lck-cup-shocking-elimination",
+      "views": 6,
+      "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
+    },
+    {
+      "type": "tech",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
+      "views": 6,
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "insight",
@@ -38,15 +44,15 @@
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 3,
+      "views": 4,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
+      "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
       "views": 3,
-      "path": "/wiki/business/platform-fees-comparison/"
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
     },
     {
       "type": "hotpick",
@@ -62,12 +68,6 @@
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 2,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "google-play-fee-cut-epic-settlement",
       "views": 2,
       "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
@@ -80,9 +80,9 @@
     },
     {
       "type": "issue",
-      "slug": "t1-lck-cup-shocking-elimination",
+      "slug": "xbox-project-helix-pc-console",
       "views": 2,
-      "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
+      "path": "/magazine/issue/xbox-project-helix-pc-console/"
     },
     {
       "type": "ranking",
@@ -106,6 +106,13 @@
     },
     {
       "type": "tech",
+      "slug": "claude-opus-46-pricing-controversy",
+      "category": "ai",
+      "views": 2,
+      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "type": "tech",
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "category": "ai",
       "views": 2,
@@ -120,16 +127,29 @@
     },
     {
       "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
+      "slug": "gantt-chart",
       "category": "normal",
       "views": 2,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
+      "path": "/tech/normal/gantt-chart/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "issue",
       "slug": "2026-subculture-openworld-games",
       "views": 1,
       "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -168,12 +188,6 @@
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
     },
     {
-      "type": "issue",
-      "slug": "xbox-project-helix-pc-console",
-      "views": 1,
-      "path": "/magazine/issue/xbox-project-helix-pc-console/"
-    },
-    {
       "type": "tech",
       "slug": "apple-blocks-vibe-coding-apps",
       "category": "ai",
@@ -182,17 +196,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-opus-46-pricing-controversy",
+      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
       "category": "ai",
       "views": 1,
-      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "type": "tech",
-      "slug": "nvidia-ai-chip-monopoly-cracking",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/nvidia-ai-chip-monopoly-cracking/"
+      "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
       "type": "tech",
@@ -200,6 +207,20 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/openclaw-steinberger-openai/"
+    },
+    {
+      "type": "tech",
+      "slug": "2d-animation-tech",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/2d-animation-tech/"
+    },
+    {
+      "type": "tech",
+      "slug": "agile-jira-confluence-game-dev",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/agile-jira-confluence-game-dev/"
     },
     {
       "type": "tech",
@@ -221,13 +242,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "wiki",
