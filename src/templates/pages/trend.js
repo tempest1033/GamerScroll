@@ -19,14 +19,16 @@ const historyDir = path.join(__dirname, '../../../history');
 // games.json 경로
 const gamesJsonPath = path.join(__dirname, '../../../data/games.json');
 
-// JSON 파일의 mtime을 KST ISO 8601 형식으로 반환
-function getFileMtimeKST(filePath, fallback) {
-  if (!filePath) return fallback;
-  try {
-    const mtime = fs.statSync(filePath).mtime;
-    const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
-    return kst.toISOString().replace('Z', '+09:00').replace(/\.\d{3}/, '');
-  } catch (e) { return fallback; }
+// JSON modifiedAt 값을 KST ISO 8601로 정규화. 없으면 null 반환(스키마에서 제외됨).
+function resolveModifiedKST(rawModified) {
+  if (!rawModified) return null;
+  const s = String(rawModified).trim();
+  if (!s) return null;
+  if (/[Zz]$/.test(s) || /[+-]\d{2}:\d{2}$/.test(s)) return s;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s + 'T00:00:00+09:00';
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(s)) return s + ':00+09:00';
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(s)) return s + '+09:00';
+  return s;
 }
 
 // 광고 활성화 여부
@@ -1408,7 +1410,7 @@ function generateDailyDetailPage({ insight, slug, nav = {}, historyNews = [], _j
     headline: summaryTitle,
     description: descriptionText,
     datePublished: aiInsight.date || slug,
-    dateModified: getFileMtimeKST(_jsonFilePath, insight?.aiGeneratedAt?.split('T')[0] || aiInsight.date || slug),
+    dateModified: resolveModifiedKST(insight?.modifiedAt || aiInsight?.modifiedAt),
     image: insight?.ai?.thumbnail || null
   };
 
@@ -1449,17 +1451,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
   const { slug, title, date, thumbnail, summary, content = [] } = post;
   const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
-  const _displayDateModified = (() => {
-    if (!post._jsonFilePath) return null;
-    try {
-      const _mt = fs.statSync(post._jsonFilePath).mtime;
-      const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
-      const _y = _kst.getUTCFullYear();
-      const _m = String(_kst.getUTCMonth() + 1).padStart(2, '0');
-      const _d = String(_kst.getUTCDate()).padStart(2, '0');
-      return `${_y}-${_m}-${_d}`;
-    } catch (e) { return null; }
-  })();
+  const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
   const escapeHtmlAttr = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -1995,7 +1987,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     headline: title,
     description: summary || title,
     datePublished: date,
-    dateModified: getFileMtimeKST(post._jsonFilePath, date),
+    dateModified: resolveModifiedKST(post.modifiedAt),
     image: schemaImage,
     author: editorName
   };
@@ -2032,17 +2024,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
   const { slug, title, date, thumbnail, summary, content = [] } = post;
   const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
-  const _displayDateModified = (() => {
-    if (!post._jsonFilePath) return null;
-    try {
-      const _mt = fs.statSync(post._jsonFilePath).mtime;
-      const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
-      const _y = _kst.getUTCFullYear();
-      const _m = String(_kst.getUTCMonth() + 1).padStart(2, '0');
-      const _d = String(_kst.getUTCDate()).padStart(2, '0');
-      return `${_y}-${_m}-${_d}`;
-    } catch (e) { return null; }
-  })();
+  const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
   const escapeHtmlAttr = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -2537,7 +2519,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     headline: title,
     description: summary || title,
     datePublished: date,
-    dateModified: getFileMtimeKST(post._jsonFilePath, date),
+    dateModified: resolveModifiedKST(post.modifiedAt),
     image: schemaImage,
     author: editorName
   };
@@ -2574,17 +2556,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
   const { slug, title, date, thumbnail, summary, content = [] } = post;
   const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
-  const _displayDateModified = (() => {
-    if (!post._jsonFilePath) return null;
-    try {
-      const _mt = fs.statSync(post._jsonFilePath).mtime;
-      const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
-      const _y = _kst.getUTCFullYear();
-      const _m = String(_kst.getUTCMonth() + 1).padStart(2, '0');
-      const _d = String(_kst.getUTCDate()).padStart(2, '0');
-      return `${_y}-${_m}-${_d}`;
-    } catch (e) { return null; }
-  })();
+  const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
   const escapeHtmlAttr = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -3087,7 +3059,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     headline: title,
     description: summary || title,
     datePublished: date,
-    dateModified: getFileMtimeKST(post._jsonFilePath, date),
+    dateModified: resolveModifiedKST(post.modifiedAt),
     image: schemaImage,
     author: editorName
   };
@@ -3126,17 +3098,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   const { slug, title, date, thumbnail, summary, content = [] } = post;
   const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
-  const _displayDateModified = (() => {
-    if (!post._jsonFilePath) return null;
-    try {
-      const _mt = fs.statSync(post._jsonFilePath).mtime;
-      const _kst = new Date(_mt.getTime() + 9 * 60 * 60 * 1000);
-      const _y = _kst.getUTCFullYear();
-      const _m = String(_kst.getUTCMonth() + 1).padStart(2, '0');
-      const _d = String(_kst.getUTCDate()).padStart(2, '0');
-      return `${_y}-${_m}-${_d}`;
-    } catch (e) { return null; }
-  })();
+  const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
   const escapeHtmlAttr = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -3988,7 +3950,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     headline: title,
     description: summary || title,
     datePublished: date,
-    dateModified: getFileMtimeKST(post._jsonFilePath, date),
+    dateModified: resolveModifiedKST(post.modifiedAt),
     image: schemaImage,
     author: editorName
   };

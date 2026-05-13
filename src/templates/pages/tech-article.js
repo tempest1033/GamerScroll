@@ -443,18 +443,8 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
 
   const keywordText = typeof article.keywords === 'string' ? article.keywords : '';
 
-  // 화면 표시용 dateModified (YYYY-MM-DD)
-  let displayDateModified = null;
-  if (article._jsonFilePath) {
-    try {
-      const mtime = fs.statSync(article._jsonFilePath).mtime;
-      const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
-      const y = kst.getUTCFullYear();
-      const m = String(kst.getUTCMonth() + 1).padStart(2, '0');
-      const d = String(kst.getUTCDate()).padStart(2, '0');
-      displayDateModified = `${y}-${m}-${d}`;
-    } catch (e) { /* ignore */ }
-  }
+  // 화면 표시용 dateModified (YYYY-MM-DD): JSON 내부 modifiedAt 우선
+  const displayDateModified = article.modifiedAt ? String(article.modifiedAt).slice(0, 10) : null;
 
   const editorName = article.editor || 'Editor J';
   const metaParts = [];
@@ -767,16 +757,8 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
     ? (thumbnailPath.startsWith('/') ? `${siteBaseUrl}${thumbnailPath}` : thumbnailPath)
     : null;
 
-  // dateModified: JSON 파일의 파일 시스템 수정 시간(mtime) 사용
-  let dateModifiedValue = article.date;
-  if (article._jsonFilePath) {
-    try {
-      const mtime = fs.statSync(article._jsonFilePath).mtime;
-      // KST(+09:00) 기준 ISO 8601 변환
-      const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
-      dateModifiedValue = kst.toISOString().replace('Z', '+09:00').replace(/\.\d{3}/, '');
-    } catch (e) { /* fallback to article.date */ }
-  }
+  // dateModified: JSON 내부 modifiedAt만 사용 (없으면 null → 스키마 제외)
+  const dateModifiedValue = article.modifiedAt || null;
 
   const articleSchema = {
     headline: article.title,

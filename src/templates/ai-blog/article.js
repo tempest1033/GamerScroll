@@ -487,14 +487,7 @@ function generateAIBlogArticle(article, data = {}) {
                 <div class="blog-meta">
                   <span class="blog-editor">${article.editor || 'Editor J'}</span>
                   ${(() => {
-                    let dispModified = null;
-                    if (article._jsonFilePath) {
-                      try {
-                        const mt = fs.statSync(article._jsonFilePath).mtime;
-                        const kst = new Date(mt.getTime() + 9 * 60 * 60 * 1000);
-                        dispModified = kst.toISOString().slice(0, 10);
-                      } catch (e) { /* ignore */ }
-                    }
+                    const dispModified = article.modifiedAt ? String(article.modifiedAt).slice(0, 10) : null;
                     const pubDate = (article.date || '').slice(0, 10);
                     if (dispModified && dispModified !== pubDate) {
                       return `<time class="blog-date">Published: ${formatDateEn(article.date)}</time><time class="blog-date">Updated: ${formatDateEn(dispModified)}</time>`;
@@ -589,15 +582,17 @@ function generateAIBlogArticle(article, data = {}) {
     return s;
   })();
 
-  // dateModified: JSON 파일의 파일 시스템 수정 시간(mtime) 사용
+  // dateModified: JSON 내부 modifiedAt만 사용 (없으면 null 반환 → 스키마 제외)
   const dateModifiedISO = (() => {
-    if (!article._jsonFilePath) return dateISO;
-    try {
-      const mtime = fs.statSync(article._jsonFilePath).mtime;
-      // KST(+09:00) 기준 ISO 8601 변환
-      const kst = new Date(mtime.getTime() + 9 * 60 * 60 * 1000);
-      return kst.toISOString().replace('Z', '+09:00').replace(/\.\d{3}/, '');
-    } catch (e) { return dateISO; }
+    const raw = article.modifiedAt;
+    if (!raw) return null;
+    const s = String(raw).trim();
+    if (!s) return null;
+    if (/[Zz]$/.test(s) || /[+-]\d{2}:\d{2}$/.test(s)) return s;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s + 'T00:00:00+09:00';
+    if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(s)) return s + ':00+09:00';
+    if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(s)) return s + '+09:00';
+    return s;
   })();
 
   // 썸네일 절대 URL 변환 (소셜 크롤러용)
