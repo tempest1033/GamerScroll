@@ -5,8 +5,6 @@
  * 1. data/tech/ai/*.json 로드
  * 2. reports/issue/*.json에서 isGlobal: true 로드
  * 3. 영문 HTML 생성
- *
- * 번역은 translate-ai-blog.js로 분리됨
  */
 
 const fs = require('fs');

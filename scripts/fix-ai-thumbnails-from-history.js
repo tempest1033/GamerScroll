@@ -390,7 +390,7 @@ function main() {
   // 1) 소스 reports
   results.push(...runDaily(REPORTS_DIR, 'reports'));
 
-  // 2) 배포 docs/reports (GitHub Pages) - 기본은 제외 (GamerScroll/GAMERSCROLL.md 참고)
+  // 2) 배포 docs/reports (GitHub Pages) - 기본은 제외
   if (includeDocs) {
     results.push(...runDaily(DOCS_REPORTS_DIR, 'docs/reports'));
   }
