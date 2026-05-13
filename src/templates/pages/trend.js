@@ -129,6 +129,8 @@ function getLocalDailyThumbnailFromWeek(dates, originalUrl) {
   return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=480&output=webp`;
 }
 
+const { renderRankingBlock } = require('../helpers/ranking-blocks');
+
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
 try {
@@ -3292,7 +3294,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           result.push(`<blockquote class="blog-quote">${parseMarkdownLinks(block.value)}</blockquote>`);
           break;
         case 'note':
-          result.push(`<div class="blog-note">${block.value.replace(/\n/g, '<br>')}</div>`);
+          result.push(renderRankingBlock(block, { gamesMap, escapeHtmlAttr }));
           break;
         case 'list':
           if (Array.isArray(block.items)) {
@@ -3320,12 +3322,11 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           break;
         case 'chart':
           // 단일 차트 블록 (그룹화되지 않은 경우)
-          result.push(generateComparisonChart(block));
+          result.push(renderRankingBlock(block, { gamesMap, escapeHtmlAttr }));
           break;
         case 'chart-group':
           // 연속 차트 블록 그룹 - 2열 그리드로 배치
-          const chartItems = block.charts.map(chart => generateComparisonChart(chart)).join('');
-          result.push(`<div class="blog-charts-grid">${chartItems}</div>`);
+          result.push(renderRankingBlock(block, { gamesMap, escapeHtmlAttr }));
           break;
         case 'link-group':
           const linkItems = block.links.map(link => {
@@ -3366,52 +3367,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
         case 'ad':
           break;
         case 'ranking-bar':
-          // 커스텀 HTML 가로 막대 차트 + 아이콘
-          const barChartId = `ranking-bar-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`;
-          const barItems = block.items || [];
-
-          // 아이콘 가져오기 (item.icon/img fallback 지원)
-          const barIcons = barItems.map(item => {
-            const gameData = gamesMap[item.name] || Object.values(gamesMap).find(g => g.slug === item.slug);
-            return item.icon || item.img || gameData?.icon || '';
-          });
-
-          const barScores = barItems.map(item => item.score);
-          const barMaxScore = Math.max(...barScores);
-
-          const getBarColor = (item, idx) => {
-            if (item.rank === 1 || idx === 0) return '#FFD700';
-            if (item.rank === 2 || idx === 1) return '#C0C0C0';
-            if (item.rank === 3 || idx === 2) return '#CD7F32';
-            if (item.highlight) return '#FF6B6B';
-            return '#4ECDC4';
-          };
-
-          const barRowsHtml = barItems.map((item, idx) => {
-            const pct = (item.score / barMaxScore) * 100;
-            const color = getBarColor(item, idx);
-            const icon = barIcons[idx];
-            const isLast = idx === barItems.length - 1;
-            return `
-              <div class="ranking-bar-row" style="display:flex; align-items:center; ${isLast ? '' : 'margin-bottom:8px;'} gap:10px;">
-                <img src="${icon}" alt="${escapeHtmlAttr(item.name)}" title="${escapeHtmlAttr(item.name)}" style="width:36px; height:36px; border-radius:8px; object-fit:cover; flex-shrink:0;">
-                <div class="ranking-bar-track" style="flex:1; height:32px; background:var(--hover-bg); border-radius:6px; position:relative;">
-                  <div class="ranking-bar-fill" style="width:${pct}%; height:100%; background:${color}; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px;">
-                    <span style="font-size:12px; font-weight:600; color:#333;">${item.score.toLocaleString()}${block.unit !== undefined ? block.unit : '점'}</span>
-                  </div>
-                </div>
-              </div>
-            `;
-          }).join('');
-
-          result.push(`
-            <div class="ranking-chart-wrapper" style="padding: 20px 24px;">
-              ${block.title ? `<h4 class="ranking-chart-title" style="margin-bottom:16px;">${escapeHtmlAttr(block.title)}</h4>` : ''}
-              <div id="${barChartId}" class="ranking-bar-chart">
-                ${barRowsHtml}
-              </div>
-            </div>
-          `);
+          result.push(renderRankingBlock(block, { gamesMap, escapeHtmlAttr }));
           break;
 
         case 'ranking-line':
@@ -3532,29 +3488,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           break;
 
         case 'ranking-card':
-          // 게임 상세 카드
-          const cardItem = block.item || block;
-          let cardIcon = cardItem.icon || cardItem.img || '';
-          if (!cardIcon && cardItem.slug) {
-            for (const [name, game] of Object.entries(gamesMap)) {
-              if (game.slug === cardItem.slug && game.icon) { cardIcon = game.icon; break; }
-            }
-          }
-          const cardUnit = cardItem.unit || block.unit || '점';
-
-          result.push(`
-            <div class="ranking-card ${cardItem.highlight ? 'ranking-card-highlight' : ''}">
-              <img class="ranking-card-icon" src="${cardIcon}" alt="${escapeHtmlAttr(cardItem.name || '')}" loading="lazy">
-              <div class="ranking-card-info">
-                <div class="ranking-card-name">${escapeHtmlAttr(cardItem.name || '')}</div>
-                <div class="ranking-card-score">${cardItem.score?.toLocaleString() || ''}${cardUnit}</div>
-              </div>
-              <div class="ranking-card-stats">
-                ${cardItem.ios ? `<div class="ranking-card-stat stat-ios"><span class="stat-label">${cardItem.iosLabel || 'iOS'}</span><span class="stat-value">${cardItem.ios}</span></div>` : ''}
-                ${cardItem.android ? `<div class="ranking-card-stat stat-aos"><span class="stat-label">${cardItem.androidLabel || 'AOS'}</span><span class="stat-value">${cardItem.android}</span></div>` : ''}
-              </div>
-            </div>
-          `);
+          result.push(renderRankingBlock(block, { gamesMap, escapeHtmlAttr }));
           break;
 
         case 'ranking-donut':
@@ -3688,92 +3622,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           break;
 
         case 'ranking-compare':
-          // 2개 게임 비교 차트 (iOS vs Android 또는 게임 vs 게임)
-          const compChartId = `ranking-compare-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`;
-          const compItems = block.items || [];
-          const compStart = block.startDate || '';
-          const compEnd = block.endDate || '';
-          const compColors = ['#007AFF', '#3DDC84', '#45B7D1', '#96CEB4']; // iOS 파랑, Android 초록
-
-          // 전체 날짜 범위 생성
-          const compAllDates = [];
-          if (compStart && compEnd) {
-            const s = new Date(compStart);
-            const e = new Date(compEnd);
-            for (let d = new Date(s); d <= e; d.setDate(d.getDate() + 1)) {
-              compAllDates.push(d.toISOString().slice(0, 10));
-            }
-          }
-
-          const compSeries = [];
-          const compLabels = compAllDates.map(d => d.slice(5).replace('-', '/'));
-
-          compItems.forEach((item, idx) => {
-            const slug = item.slug || item.game;
-            const market = item.market || 'ios';
-            const category = item.category || 'grossing';
-            let itemName = item.label || slug;
-
-            // 게임 이름 찾기
-            for (const [name, game] of Object.entries(gamesMap)) {
-              if (game.slug === slug) {
-                itemName = item.label || (name.length > 15 ? name.substring(0, 15) + '...' : name);
-                break;
-              }
-            }
-
-            // loadGameRankHistory로 데이터 로드
-            const compHistory = loadGameRankHistory(slug, compStart, compEnd, category, market);
-            const histMap = {};
-            compHistory.forEach(h => { if (h.kr) histMap[h.date] = h.kr; });
-
-            // 전체 날짜에 맞춰 데이터 배열 생성 (없거나 200위 밖이면 null)
-            const itemData = compAllDates.map(d => {
-              const rank = histMap[d];
-              return (rank && rank <= 200) ? rank : null;
-            });
-
-            if (itemData.some(v => v !== null)) {
-              compSeries.push({ name: itemName, data: itemData });
-            }
-          });
-
-          if (compSeries.length > 0) {
-            result.push(`
-              <div class="ranking-chart-wrapper">
-                ${block.title ? `<h4 class="ranking-chart-title">${escapeHtmlAttr(block.title)}</h4>` : ''}
-                <div id="${compChartId}" class="ranking-chart"></div>
-                <script>
-                  (function() {
-                    function init() {
-                      if (typeof ApexCharts === 'undefined') { setTimeout(init, 100); return; }
-                      var el = document.getElementById('${compChartId}');
-                      if (!el || el.dataset.rendered) return;
-                      el.dataset.rendered = 'true';
-                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                      var labelColor = isDark ? '#adb5bd' : '#666';
-                      var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
-                      new ApexCharts(el, {
-                        series: ${JSON.stringify(compSeries)},
-                        chart: { type: 'line', height: 320, toolbar: { show: false }, fontFamily: 'Pretendard Variable, sans-serif', zoom: { enabled: false }, foreColor: labelColor },
-                        colors: ${JSON.stringify(compColors.slice(0, compSeries.length))},
-                        stroke: { width: 3, curve: 'straight' },
-                        markers: { size: 4, hover: { size: 6 } },
-                        xaxis: { categories: ${JSON.stringify(compLabels)}, labels: { rotate: -45, style: { fontSize: '10px', colors: labelColor } }, tickAmount: Math.min(10, ${compLabels.length}) },
-                        yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '위'; } } },
-                        legend: { position: 'top', horizontalAlign: 'center', fontSize: '13px', labels: { colors: labelColor } },
-                        tooltip: { y: { formatter: function(v) { return v ? v + '위' : '데이터 없음'; } } },
-                        grid: { borderColor: gridColor, strokeDashArray: 4 },
-                        forecastDataPoints: { count: 0, fillOpacity: 0.5 }
-                      }).render();
-                    }
-                    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-                    else init();
-                  })();
-                </script>
-              </div>
-            `);
-          }
+          result.push(renderRankingBlock(block, { gamesMap, escapeHtmlAttr }));
           break;
 
         case 'ranking-heatmap':

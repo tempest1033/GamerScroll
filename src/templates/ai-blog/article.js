@@ -4,8 +4,19 @@
  */
 
 const fs = require('fs');
+const path = require('path');
 const { wrapWithLayout, SITE_CONFIG, formatDateEn, escapeHtml, getThumbUrl } = require('./index');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
+const { renderRankingBlock } = require('../helpers/ranking-blocks');
+
+// games.json 로드 (ranking 블록 아이콘용)
+let gamesMap = {};
+try {
+  const gamesPath = path.join(__dirname, '../../../data/games.json');
+  if (fs.existsSync(gamesPath)) {
+    gamesMap = (JSON.parse(fs.readFileSync(gamesPath, 'utf8').replace(/^﻿/, '')).games) || {};
+  }
+} catch (e) {}
 
 /**
  * 이미지 경로 처리 (GamerScroll과 동일 방식)
@@ -179,6 +190,16 @@ function generateAIBlogArticle(article, data = {}) {
         case 'subheading':
           result.push(`<h3 class="blog-subheading">${escapeHtml(block.value)}</h3>`);
           break;
+        case 'note':
+        case 'chart':
+        case 'chart-group':
+        case 'ranking-bar':
+        case 'ranking-card':
+        case 'ranking-compare': {
+          const __rankingHtml = renderRankingBlock(block, { gamesMap, escapeHtmlAttr: escapeHtml });
+          if (__rankingHtml) result.push(__rankingHtml);
+          break;
+        }
         case 'image': {
           if (!block.src) break;
           const imgSrc = getImageSrc(block.src);

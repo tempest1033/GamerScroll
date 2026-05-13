@@ -262,6 +262,18 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
         `);
         break;
 
+      case 'note':
+      case 'chart':
+      case 'chart-group':
+      case 'ranking-bar':
+      case 'ranking-card':
+      case 'ranking-compare': {
+        const { renderRankingBlock } = require('../helpers/ranking-blocks');
+        const __rankingHtml = renderRankingBlock(block, { gamesMap, escapeHtmlAttr });
+        if (__rankingHtml) result.push(__rankingHtml);
+        break;
+      }
+
       case 'quote':
         if (!block.value) break;
         result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
