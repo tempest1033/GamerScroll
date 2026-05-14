@@ -2,7 +2,7 @@
   "slug": "pearl-abyss-q1-3285b-rebound",
   "status": "approved",
   "title": "매출 3,285억, 펄어비스의 화려한 반등: 붉은사막 연말 950만장이 보인다",
-  "date": "",
+  "date": "2026-05-14T17:00",
   "thumbnail": "https://pressreleases.triplepointpr.com/wp-content/uploads/Crimson-Desert_Official-Launch-Trailer_Key-Art-scaled.jpg",
   "keywords": "펄어비스 1분기 실적, 붉은사막 매출, 분기 영업이익 2121억, NH투자증권 목표주가, 붉은사막 950만장, 검은사막 매출, 콘솔 PC 비중, 펄어비스 주가",
   "summary": "펄어비스가 2026년 1분기 매출 3,285억 원, 영업이익 2,121억 원으로 분기 최고 실적을 갈아치웠다. 붉은사막이 단독으로 2,665억 원을 끌어올렸고, NH투자증권은 연말 950만 장 판매를 전망했다.",
@@ -33,7 +33,10 @@
       "url": "https://game.donga.com/122548/"
     }
   ],
-  "relatedGames": ["crimson-desert", "black-desert"],
+  "relatedGames": [
+    "crimson-desert",
+    "black-desert"
+  ],
   "relatedDocs": [
     "issue:crimson-desert-metacritic-stock-crash",
     "issue:crimson-desert-preview-march-2026",
