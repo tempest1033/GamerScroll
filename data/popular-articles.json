@@ -1,26 +1,32 @@
 {
-  "updatedAt": "2026-05-13T01:49:50.858Z",
+  "updatedAt": "2026-05-14T01:52:25.981Z",
   "period": "7days",
   "articles": [
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 21,
+      "views": 23,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 18,
+      "views": 19,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 7,
+      "views": 10,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 6,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -32,14 +38,8 @@
       "type": "tech",
       "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "category": "ai",
-      "views": 6,
+      "views": 5,
       "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 4,
-      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "ranking",
@@ -48,35 +48,29 @@
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
-      "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
-      "category": "normal",
+      "type": "issue",
+      "slug": "neverness-to-everness-launch-date",
       "views": 3,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 2,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+      "type": "tech",
+      "slug": "china-ai-video-kling3-seedance2",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 2,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
       "slug": "google-play-fee-cut-epic-settlement",
       "views": 2,
       "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
-    },
-    {
-      "type": "issue",
-      "slug": "krafton-chatgpt-lawsuit-subnautica2",
-      "views": 2,
-      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
     },
     {
       "type": "issue",
@@ -96,13 +90,6 @@
       "category": "ai",
       "views": 2,
       "path": "/tech/ai/big3-ipo-2026-openai-anthropic-spacex/"
-    },
-    {
-      "type": "tech",
-      "slug": "china-ai-video-kling3-seedance2",
-      "category": "ai",
-      "views": 2,
-      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
     },
     {
       "type": "tech",
@@ -133,11 +120,43 @@
       "path": "/tech/normal/gantt-chart/"
     },
     {
+      "type": "tech",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 2,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
       "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
       "views": 2,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 1,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "switch-2-buying-guide-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
     },
     {
       "type": "issue",
@@ -147,9 +166,9 @@
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "slug": "china-game-license-normalization",
       "views": 1,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+      "path": "/magazine/issue/china-game-license-normalization/"
     },
     {
       "type": "issue",
@@ -159,27 +178,21 @@
     },
     {
       "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
-      "views": 1,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
-    },
-    {
-      "type": "issue",
       "slug": "gemini-3-hallucination-memory-overfitting",
       "views": 1,
       "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
+      "slug": "krafton-chatgpt-lawsuit-subnautica2",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/issue/krafton-chatgpt-lawsuit-subnautica2/"
     },
     {
       "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
+      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 1,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "issue",
@@ -200,6 +213,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/google-ai-pro-antigravity-rate-limit-crisis/"
+    },
+    {
+      "type": "tech",
+      "slug": "openai-crisis-competition-direction-2026",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/openai-crisis-competition-direction-2026/"
     },
     {
       "type": "tech",
@@ -231,17 +251,10 @@
     },
     {
       "type": "wiki",
-      "slug": "pillar-of-fire-cresents",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/pillar-of-fire-cresents/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
+      "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",

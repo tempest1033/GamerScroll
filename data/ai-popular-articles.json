@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-13T01:50:53.362Z",
+  "updatedAt": "2026-05-14T01:53:29.724Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 17,
+      "views": 16,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -28,12 +28,6 @@
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 2,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
       "slug": "claude-code-install-guide-windows",
       "views": 2,
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
@@ -46,9 +40,39 @@
     },
     {
       "category": "anthropic",
+      "slug": "claude-sonnet-47-fennec-release-rumor",
+      "views": 1,
+      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
+      "category": "anthropic",
       "slug": "moltbot-clawdbot-ai-assistant",
       "views": 1,
       "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
+    },
+    {
+      "category": "general",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "microsoft-copilot-windows-ai-fatigue",
+      "views": 1,
+      "path": "/article/general/microsoft-copilot-windows-ai-fatigue/"
+    },
+    {
+      "category": "general",
+      "slug": "nvidia-gpu-launch-halt-ai-priority",
+      "views": 1,
+      "path": "/article/general/nvidia-gpu-launch-halt-ai-priority/"
+    },
+    {
+      "category": "general",
+      "slug": "nvidia-groq3-lpu-inference-revolution",
+      "views": 1,
+      "path": "/article/general/nvidia-groq3-lpu-inference-revolution/"
     },
     {
       "category": "general",
@@ -57,10 +81,10 @@
       "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
     },
     {
-      "category": "openai",
-      "slug": "gpt-53-instant-less-cringe",
+      "category": "general",
+      "slug": "supermicro-ai-chip-china-smuggling",
       "views": 1,
-      "path": "/article/openai/gpt-53-instant-less-cringe/"
+      "path": "/article/general/supermicro-ai-chip-china-smuggling/"
     },
     {
       "category": "vibecoding",
