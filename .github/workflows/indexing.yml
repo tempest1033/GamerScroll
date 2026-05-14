@@ -1,0 +1,46 @@
+name: Google Indexing API
+
+# Submit newly approved article URLs to the Google Indexing API after every
+# push to main. The script inspects the diff between HEAD~1 and HEAD; only
+# JSON files under the article roots whose `status` is `approved` are sent.
+# Manual dispatch is supported with a custom diff range or explicit URL list.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/tech/ai/**.json'
+      - 'data/tech/vibecoding/**.json'
+      - 'data/tech/normal/**.json'
+      - 'data/wiki/**.json'
+      - 'reports/issue/**.json'
+      - 'reports/hotpick/**.json'
+      - 'reports/insight/**.json'
+      - 'reports/ranking/**.json'
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Newline-separated URLs to submit (overrides diff detection)'
+        required: false
+        type: string
+      diff_range:
+        description: 'git diff range to scan (default HEAD~1..HEAD)'
+        required: false
+        type: string
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Submit URLs to Google Indexing API
+        env:
+          GOOGLE_INDEXING_SA_KEY: ${{ secrets.GOOGLE_INDEXING_SA_KEY }}
+          INDEXING_URLS: ${{ inputs.urls }}
+          INDEXING_DIFF_RANGE: ${{ inputs.diff_range }}
+        run: node scripts/submit-indexing.mjs
