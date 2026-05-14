@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-13T18:23:01.265Z",
+  "updatedAt": "2026-05-14T19:15:32.967Z",
   "period": "30days",
   "games": [
     {
@@ -43,10 +43,6 @@
       "views": 2
     },
     {
-      "slug": "roblox",
-      "views": 2
-    },
-    {
       "slug": "가십하버-합성-스토리-게임",
       "views": 2
     },
@@ -76,6 +72,10 @@
     },
     {
       "slug": "킹샷kingshot",
+      "views": 2
+    },
+    {
+      "slug": "포켓몬-카드-게임-pocket",
       "views": 2
     }
   ]
