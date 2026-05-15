@@ -323,9 +323,6 @@ function generateTechHubPage({
   function generateSidebar() {
     const counts = sidebarCounts;
 
-    const regularCategories = [
-    ];
-
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
@@ -360,10 +357,6 @@ function generateTechHubPage({
 
     return `
       <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
-        </div>
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
@@ -515,9 +508,6 @@ function generateTechCategoryPage({
   function generateSidebar() {
     const counts = sidebarCounts;
 
-    const regularCategories = [
-    ];
-
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
@@ -552,10 +542,6 @@ function generateTechCategoryPage({
 
     return `
       <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
-        </div>
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">${renderItems(issueCategories)}</div>

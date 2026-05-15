@@ -532,7 +532,7 @@ function generateIndexPage(data) {
     `;
   }
 
-  // 사이드바: 카테고리 메뉴 (정기 매거진 + 리포트 + 위키 + 테크 그룹) - 링크 연결
+  // 사이드바: 카테고리 메뉴 (리포트 + 위키 + 테크 그룹) - 링크 연결
   function generateSidebarCategories() {
     // 카테고리별 글 개수 계산
     const counts = {
@@ -547,10 +547,6 @@ function generateIndexPage(data) {
       ai: (techData.ai || []).length,
       vibecoding: (techData.vibecoding || []).length
     };
-
-    // 정기 매거진 카테고리
-    const regularCategories = [
-    ];
 
     // 리포트 카테고리
     const issueCategories = [
@@ -582,10 +578,6 @@ function generateIndexPage(data) {
 
     return `
       <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
-        </div>
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
