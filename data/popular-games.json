@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-14T19:15:32.967Z",
+  "updatedAt": "2026-05-15T20:19:20.533Z",
   "period": "30days",
   "games": [
     {
@@ -29,10 +29,6 @@
     {
       "slug": "테이스티-트레블-합성-게임",
       "views": 3
-    },
-    {
-      "slug": "dragon-ball-z-폭렬격전",
-      "views": 2
     },
     {
       "slug": "identity-v-제5인격",
@@ -77,6 +73,10 @@
     {
       "slug": "포켓몬-카드-게임-pocket",
       "views": 2
+    },
+    {
+      "slug": "66666년만에-환생한-흑마법사-전략-디펜스-rpg",
+      "views": 1
     }
   ]
 }
