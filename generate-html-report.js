@@ -2609,3 +2609,5 @@ self.addEventListener('fetch', (event) => {
   console.log(`\n✅ 완료! (docs/ 통합 반응형 빌드 + sitemap 갱신)`);
 
 }
+
+main().catch(console.error);
