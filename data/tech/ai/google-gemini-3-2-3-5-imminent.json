@@ -1,0 +1,191 @@
+{
+  "slug": "google-gemini-3-2-3-5-imminent",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "google",
+  "title": "구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점",
+  "titleEn": "Google's Next Gemini Looks Imminent — 3.2 or 3.5?",
+  "date": "",
+  "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IO26_SVD_16x9_v012.max-1440x810.png",
+  "keywords": "제미나이 차기 모델, Gemini 3.2, Gemini 3.5, Google I/O 2026, 순다르 피차이 키노트, 토마스 쿠리언 발언, 나노바나나 2, Gemini 3.1 Pro, AI 스튜디오 노출, 제미나이 반등",
+  "keywordsEn": "Gemini next model, Gemini 3.2, Gemini 3.5, Google I/O 2026, Sundar Pichai keynote, Thomas Kurian remarks, Nano Banana 2, Gemini 3.1 Pro, AI Studio leak, Gemini comeback",
+  "summary": "구글 I/O 2026 키노트가 5월 19일로 다가오면서 제미나이 차기 모델 출시 정황이 빠르게 쌓이고 있다. 3.1 Pro 이후 석 달 공백, 구글 클라우드 CEO의 '곧 새 제미나이' 발언, AI 스튜디오 A/B 테스트 일시 노출, 일부 콘솔에 잠깐 등장한 '3.5 Pro' 옵션까지. 최근 클로드와 GPT-5에 화제성을 내준 제미나이가 이번 무대에서 반등할지 주목된다.",
+  "summaryEn": "With Google I/O 2026's keynote landing May 19, the next Gemini model looks imminent. The stacking signals: a three-month gap since 3.1 Pro, Google Cloud CEO's 'very, very soon' remark, brief A/B exposures in AI Studio, and a 'Gemini 3.5 Pro' option that flashed in some consoles. After ceding narrative ground to Claude and GPT-5, Gemini's comeback window is on the I/O stage.",
+  "sources": [
+    {
+      "name": "Google Blog",
+      "title": "Gemini 3.1 Pro: A smarter model for your most complex tasks",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+    },
+    {
+      "name": "Google Blog",
+      "title": "Save the date! Google I/O 2026 is May 19-20.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/io-2026-save-the-date/"
+    },
+    {
+      "name": "Google Blog",
+      "title": "Nano Banana 2: Combining Pro capabilities with lightning-fast speed",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/"
+    },
+    {
+      "name": "Nokia Power User",
+      "title": "Google hints Gemini 3.5 or Gemini 4 launch soon",
+      "url": "https://nokiapoweruser.com/new-gemini-model-coming-very-very-soon-is-google-preparing-gemini-3-5-or-gemini-4/"
+    },
+    {
+      "name": "Reddit r/google_antigravity",
+      "title": "Gemini set to 3.5 Pro in settings, but the response says it's 2.5 Pro",
+      "url": "https://www.reddit.com/r/google_antigravity/comments/1rpr10y/gemini_set_to_35_pro_in_settings_but_the_response/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gemini-31-pro-release",
+    "tech:ai/gemini-31-flash-lite-cost-efficiency",
+    "tech:ai/antigravity-usage-rollback-gemini-partial-revert",
+    "tech:ai/deepmind-update-aletheia-gemini"
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글 I/O 2026 키노트까지 나흘 남았다. 5월 19일 마운틴뷰 Shoreline Amphitheatre에서 순다르 피차이가 무대에 오르고, 그 자리에서 제미나이의 다음 모델이 공개될 가능성이 점점 커지고 있다. 2월에 나온 3.1 Pro 이후 석 달이 지났고, 그 사이에 구글 클라우드 CEO의 '곧 새 제미나이' 발언, AI 스튜디오의 일시적 모델 노출, 일부 콘솔에 잠깐 떴다가 사라진 '3.5 Pro' 옵션까지 정황이 줄줄이 쌓였다. 다만 그게 3.2일지 3.5일지는 아직 누구도 단언하지 못한다. 최근 클로드와 GPT-5 시리즈에 화제성을 내준 제미나이가 이번 무대에서 반등할 수 있을지가 관전 포인트다."
+    },
+    {
+      "type": "heading",
+      "value": "3.1 Pro 이후 석 달, 다음 차례가 늦어졌다"
+    },
+    {
+      "type": "text",
+      "value": "구글이 제미나이 3 Pro를 공개한 건 2025년 11월 18일이었다. 그로부터 정확히 석 달 만인 2026년 2월 19일에 제미나이 3.1 Pro가 나왔다. ARC-AGI-2 77.1%, SWE-Bench 80.6%, 100만 토큰 입력 가격 2달러로 새 기록을 세웠고, Terminal-Bench 2.0에서도 68.5%를 찍었다. 직후 2월 26일에는 이미지 모델 나노바나나 2(제미나이 3.1 Flash Image)가, 3월 3일에는 플래시 라이트가 라인업에 합류했다.\n\n여기까지가 공식 출시 로그다. 그 뒤로 두 달 반이 지났는데, Pro급 메이저 업데이트는 비어 있다. 3 Pro에서 3.1 Pro로 넘어간 텀이 석 달이었다는 것과 비교하면, 다음 Pro급 차례는 이미 지났어야 할 시점이다. 빈자리가 길어질수록 'I/O에서 한 번에 푼다'는 시나리오가 자연스러워진다."
+    },
+    {
+      "type": "heading",
+      "value": "3.2일까, 3.5일까"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_pro_meta_dark.width-1300.png",
+      "caption": "구글 제미나이 3.1 Pro 발표 키 비주얼",
+      "alt": "Google Gemini 3.1 Pro 공식 발표 이미지"
+    },
+    {
+      "type": "text",
+      "value": "버전 숫자가 무엇이 될지는 정황도 갈린다. 구글의 케이던스로 보면 3.1 → 3.2가 자연스럽다. 마이너 버전 점프로 ARC-AGI와 코딩 벤치 점수를 한 단계 더 끌어올리는 안정적 업그레이드 그림이다.\n\n반대편에는 '3.5 또는 그 이상'을 가리키는 정황이 있다. 1월 말 r/google_antigravity에 올라온 보고에 따르면 일부 사용자에게 구글 안티그래비티 설정 화면에 'Gemini 3.5 Pro' 옵션이 잠깐 노출됐다가 사라졌다. 실제 응답은 2.5 Pro 수준이었다는 점에서 정식 노출이라기보다 UI 사고에 가까웠지만, 내부 식별자 자체는 분명히 존재했다는 점을 시사한다. 한 공개 예측 시장에서는 '7월 31일까지 제미나이 3.5가 공개될 확률'을 74%로 잡고 있다. 이런 분포가 I/O 2026이라는 단일 이벤트 앞에 한꺼번에 모인 적이 없다."
+    },
+    {
+      "type": "heading",
+      "value": "이미지 모델도 차기작이 거론된다"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/NB2_SS.width-1300.png",
+      "caption": "구글 나노바나나 2 (제미나이 3.1 Flash Image) 공식 이미지",
+      "alt": "Google Nano Banana 2 (Gemini 3.1 Flash Image) 출시 이미지"
+    },
+    {
+      "type": "text",
+      "value": "주목할 흐름이 또 하나 있다. 텍스트 모델만 차기작이 거론되는 게 아니다. 구글이 2월 26일 공개한 나노바나나 2는 사실상 제미나이 3.1 Flash Image의 다른 이름이고, 공개 직후 LM아레나에서 SOTA 대비 +84점이라는 기록적 격차로 1위에 올랐다.\n\n그래도 일부 X와 레딧 게시글은 '나노바나나 Pro'나 '나노바나나 3' 같은 차세대 이미지 모델이 동반 발표될 가능성을 점치고 있다. 텍스트와 이미지 라인업이 한 자리에서 함께 갱신되는 시나리오인데, 구글이 'Gemini 3 Pro Image' 페이지를 별도로 운영하고 있다는 점도 이런 동시 발표 가능성에 무게를 더한다."
+    },
+    {
+      "type": "heading",
+      "value": "구글이 흘린 단서들"
+    },
+    {
+      "type": "text",
+      "value": "가장 노골적인 단서는 구글 클라우드 CEO 토마스 쿠리언이 직접 던졌다. 노키아 파워유저 보도에 따르면 쿠리언은 최근 한 자리에서 새 제미나이가 '아주, 아주 곧(very, very soon)' 온다는 표현을 썼다. CEO급 발언으로는 이례적으로 단정적인 톤이고, I/O까지 일정이 비어 있다는 점을 감안하면 시점도 자연스럽게 좁혀진다.\n\n내부 인터페이스 쪽에서도 신호가 잡혔다. 한 커뮤니티 게시글에서는 제미나이 모델 카드에서 더 이상 'new' 마크가 보이지 않는다는 보고가 올라왔는데, 신규 발표를 앞두고 기존 모델의 신규 표시를 정리하는 건 구글이 과거 메이저 출시 직전에 보였던 익숙한 사전 작업이다. AI 스튜디오에서는 A/B 테스트 명목으로 외부 사용자에게 내부 체크포인트가 일시적으로 노출됐다는 보고가 1월 말부터 여러 차례 올라왔다. 한 사용자는 단 한 번의 프롬프트로 3,000줄 가까운 코드와 작동하는 게임보이 에뮬레이터를 받아냈다고 적었다. 정황 하나하나만 보면 결정타는 아니지만, 한 방향을 가리킨다는 점에서 무게가 다르다."
+    },
+    {
+      "type": "heading",
+      "value": "무대는 5월 19일 I/O 키노트"
+    },
+    {
+      "type": "text",
+      "value": "구글은 이미 I/O 2026 일정을 못 박았다. 5월 19일과 20일 양일, 장소는 마운틴뷰의 Shoreline Amphitheatre, 오프닝 키노트는 19일 오전 10시(PT)에 순다르 피차이가 직접 무대에 오른다. 구글이 직전 두 번의 I/O를 제미나이 시리즈의 가장 큰 단일 무대로 사용해왔다는 점을 감안하면, 비어 있는 Pro급 자리를 이번 무대에서 채울 가능성이 가장 높다.\n\nI/O는 키노트 한 번으로 끝나는 행사가 아니다. 키노트 뒤에는 개발자 세션, 모델 카드 업데이트, 가격표 공개, API 롤아웃이 순서대로 이어진다. 차기 모델이 '예고편 → 정식 출시'로 단계를 나눌 가능성도 있고, 키노트에 미리보기로 등장한 뒤 며칠 안에 일반 사용자에게 풀리는 시나리오도 있다."
+    },
+    {
+      "type": "heading",
+      "value": "클로드·GPT에 밀린 제미나이, I/O가 반등 분기점이 될까"
+    },
+    {
+      "type": "image",
+      "src": "https://nokiapoweruser.com/wp-content/uploads/2026/04/Gemini-Personal-Intelligence-on-Pixel-A-Glimpse-of-Googles-AI-Future.jpeg",
+      "caption": "픽셀에 통합된 제미나이",
+      "alt": "Pixel 기기에서 동작하는 Google Gemini 개인 지능 기능"
+    },
+    {
+      "type": "text",
+      "value": "점유율 데이터 자체만 보면 제미나이가 일방적으로 밀리고 있는 건 아니다. 한 시장 분석 데이터에 따르면 2026년 2월 챗GPT의 글로벌 AI 웹 트래픽 점유율은 61.7%로 1년 전 75.7%에서 14%포인트 가까이 내려왔고, 모바일 앱 점유율은 45.3%까지 떨어졌다. 그 자리는 제미나이와 클로드가 나눠 가져갔다.\n\n다만 화제성에서는 다른 그림이 그려진다. 신규 엔터프라이즈 코딩 계약의 70% 가까이를 클로드가 가져간다는 보도가 이어졌고, 챗GPT는 5.x 시리즈로 매번 무대를 만드는 데 익숙하다. 그 사이에서 제미나이는 한동안 자기 차례를 만들지 못했다. I/O 키노트에서 차기 Pro 모델이 한 번 더 벤치 1위 자리를 끊어준다면, 점유율 데이터가 이미 가리키는 흐름에 화제성이라는 마지막 조각이 붙는다.\n\n이번 주말 무대에 무엇이 올라올지, 제미나이 사용자도 라이벌 진영도 같은 화면을 보고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google I/O 2026's keynote is four days out. On May 19, Sundar Pichai takes the stage at Mountain View's Shoreline Amphitheatre, and the next Gemini model is increasingly likely to launch there. February's Gemini 3.1 Pro is three months old now, and the gap has filled in with circumstantial signals: Google Cloud's CEO hinting a new Gemini is 'very, very soon,' temporary model exposures in AI Studio, even a brief 'Gemini 3.5 Pro' option flashed in some consoles. Whether it lands as 3.2 or 3.5, nobody is calling. The watch question is whether Gemini — which has lost narrative ground to Claude and GPT-5 lately — can use the I/O stage to swing momentum back."
+    },
+    {
+      "type": "heading",
+      "value": "Three Months After 3.1 Pro, the Next Beat Is Late"
+    },
+    {
+      "type": "text",
+      "value": "Google released Gemini 3 Pro on November 18, 2025. Exactly three months later, on February 19, 2026, came Gemini 3.1 Pro — 77.1% on ARC-AGI-2, 80.6% on SWE-Bench, $2 per million input tokens, and 68.5% on Terminal-Bench 2.0. Image model Nano Banana 2 (Gemini 3.1 Flash Image) followed on February 26, and Flash-Lite landed on March 3.\n\nThat is the public release log. Two and a half months have passed since, with no Pro-tier major update on the board. Given the three-month gap between 3 Pro and 3.1 Pro, the next Pro-tier release is already past due. The longer the gap stretches, the more natural a 'drop it all at I/O' scenario looks."
+    },
+    {
+      "type": "heading",
+      "value": "3.2 or 3.5?"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_pro_meta_dark.width-1300.png",
+      "caption": "Google Gemini 3.1 Pro launch key art",
+      "alt": "Google Gemini 3.1 Pro official launch visual"
+    },
+    {
+      "type": "text",
+      "value": "Which number it ships under is also unclear. By Google's cadence, 3.1 → 3.2 is the easy bet — a minor jump that nudges ARC-AGI and coding benchmarks another step. The conservative upgrade path.\n\nBut signals also point at 3.5 or higher. A late-January r/google_antigravity report described a small group of users seeing a 'Gemini 3.5 Pro' option appear briefly in Google Antigravity's settings before disappearing. The actual responses were at the level of 2.5 Pro, which made the exposure look more like a UI bug than a soft launch — but the internal identifier clearly existed. An open prediction market currently puts the probability of Gemini 3.5 shipping by July 31 at 74%. That density of signal has rarely converged on a single I/O event the way it has now."
+    },
+    {
+      "type": "heading",
+      "value": "Next Image Model Is in Play Too"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/NB2_SS.width-1300.png",
+      "caption": "Google Nano Banana 2 (Gemini 3.1 Flash Image) — released February 26, 2026",
+      "alt": "Google Nano Banana 2 / Gemini 3.1 Flash Image launch visual"
+    },
+    {
+      "type": "text",
+      "value": "Another thread runs alongside the text-model question. The next-version chatter isn't text-only. Google's Nano Banana 2, released February 26, is essentially Gemini 3.1 Flash Image under another name, and right after launch it took #1 on LMArena with a record +84-point lead over the previous SOTA.\n\nEven so, multiple X and Reddit posts have been floating a 'Nano Banana Pro' successor or a 'Nano Banana 3' announced alongside the next text model. A scenario where text and image lines refresh at the same event. Google's choice to maintain a separate 'Gemini 3 Pro Image' page only feeds that simultaneous-launch reading."
+    },
+    {
+      "type": "heading",
+      "value": "The Clues Google Has Been Leaving"
+    },
+    {
+      "type": "text",
+      "value": "The most direct signal came from Google Cloud CEO Thomas Kurian himself. Per Nokia Power User, Kurian recently said a new Gemini version was coming 'very, very soon.' That kind of tone, at CEO level, is unusually unhedged — and given the empty schedule up to I/O, the timing narrows itself.\n\nThe internal interfaces have been leaking, too. A community post noted that Gemini model cards have stopped carrying a 'new' marker — a familiar Google housekeeping pattern right before a major release. AI Studio has also been the source of repeated reports, since late January, of internal checkpoints briefly appearing to outside users under A/B test labels. One user described receiving close to 3,000 lines of code and a working Game Boy emulator from a single prompt. Each data point is not a kill shot, but they all point one direction."
+    },
+    {
+      "type": "heading",
+      "value": "The Stage Is the May 19 I/O Keynote"
+    },
+    {
+      "type": "text",
+      "value": "Google has already fixed the I/O 2026 calendar. Two days, May 19 and 20, at the Shoreline Amphitheatre in Mountain View, with Sundar Pichai opening the keynote at 10:00 AM PT on the 19th. Given that Google has used the past two I/Os as the biggest single stage for the Gemini line, the empty Pro-tier slot is most likely to be filled at this one.\n\nI/O isn't a single-keynote event. The keynote is followed by developer sessions, model card updates, pricing reveals, and API rollouts in sequence. The next model could split into a 'preview at I/O → ships later' arc, or land as a keynote teaser that opens to general users within days."
+    },
+    {
+      "type": "heading",
+      "value": "Behind Claude and GPT in Narrative — Can I/O Be the Pivot?"
+    },
+    {
+      "type": "image",
+      "src": "https://nokiapoweruser.com/wp-content/uploads/2026/04/Gemini-Personal-Intelligence-on-Pixel-A-Glimpse-of-Googles-AI-Future.jpeg",
+      "caption": "Gemini personal intelligence integrated into Pixel",
+      "alt": "Gemini personal intelligence running on a Google Pixel device"
+    },
+    {
+      "type": "text",
+      "value": "By the share data alone, Gemini isn't actually being beaten one-sidedly. A market analysis showed ChatGPT at 61.7% of global AI web traffic in February 2026, down close to 14 points from 75.7% a year earlier, while its mobile app share slipped to 45.3%. The gap was picked up by Gemini and Claude.\n\nThe narrative side draws a different picture. Claude has reportedly been winning close to 70% of new enterprise coding contracts, and ChatGPT is well-practiced at staging a moment with every 5.x revision. In that interval Gemini went a stretch without a turn of its own. If a next-tier Pro model takes another bench-leading slot at the I/O keynote, the missing piece — narrative — finally clicks onto a share trend the data already shows.\n\nWhat actually lands on stage this weekend is what Gemini users and the rival camps are now watching the same screen for."
+    }
+  ]
+}
