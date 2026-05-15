@@ -131,10 +131,9 @@
 .gm-type-industry { background: rgba(20, 184, 166, 0.15); color: #14b8a6; }
 .gm-type-global { background: rgba(99, 102, 241, 0.15); color: #6366f1; }
 .gm-type-release { background: rgba(249, 115, 22, 0.15); color: #f97316; }
-/* 트렌드 리포트 허브 - AM/PM/주간/일간 타입 */
+/* 트렌드 리포트 허브 - AM/PM 타입 */
 .gm-type-am { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
 .gm-type-pm { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
-.gm-type-daily { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
 
 /* 트렌드 허브 링크 아이템 스타일 (a 태그용) */
 a.gm-item {

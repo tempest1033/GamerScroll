@@ -1,14 +1,11 @@
 {
   "name": "gamerscroll",
   "version": "1.0.0",
-  "description": "Game news and rankings crawler for GAMERSCROLL daily report",
+  "description": "Game data and article site",
   "main": "generate-html-report.js",
   "scripts": {
     "build": "node generate-html-report.js",
     "start": "node generate-html-report.js",
-    "x-card": "node generate-x-card.js",
-    "x-post": "node post-to-x.js",
-    "x-all": "node generate-x-card.js && node post-to-x.js",
     "x-article-card": "node generate-x-article-card.js",
     "x-article-post": "node post-article-to-x.js",
     "x-article-all": "node generate-x-article-card.js && node post-article-to-x.js",

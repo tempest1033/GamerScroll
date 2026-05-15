@@ -547,12 +547,6 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
     return `
       <div class="home-card" id="sidebar-categories">
         <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
-          <div class="sidebar-category-list">
-            <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간 (${magazineCounts.daily || 0})</span></a>
-          </div>
-        </div>
-        <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">
             <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (${reportCounts.issue || 0})</span></a>

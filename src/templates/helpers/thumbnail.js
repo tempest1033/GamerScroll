@@ -1,12 +1,10 @@
 /**
  * 썸네일 로컬 경로 헬퍼 (공통 모듈)
  * - 이슈/핫픽/인사이트 리포트 썸네일
- * - 일간 뉴스 썸네일
  */
 
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
 
 // docs 폴더 경로 (이미지 로컬 확인용)
 const docsDir = path.join(__dirname, '../../../docs');
@@ -50,41 +48,7 @@ function getLocalReportThumbnailSrcset(type, slug, originalUrl) {
   };
 }
 
-// 일간 뉴스 썸네일 로컬 경로 헬퍼 (날짜 + URL 해시 기반)
-function getLocalDailyThumbnail(date, originalUrl, width = 480) {
-  if (!originalUrl) return '';
-  let url = originalUrl;
-  if (url.startsWith('//')) url = 'https:' + url;
-
-  if (!date || !url.startsWith('http')) {
-    return url.startsWith('http') ? `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp` : url;
-  }
-
-  const hash = crypto.createHash('md5').update(url).digest('hex').substring(0, 8);
-  const localPath = `/assets/images/daily/${date}/${hash}.webp`;
-  const fullPath = path.join(docsDir, 'assets/images/daily', date, `${hash}.webp`);
-
-  if (fs.existsSync(fullPath)) {
-    return localPath;
-  }
-  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&output=webp`;
-}
-
-function getLocalDailyThumbnailSrcset(date, originalUrl) {
-  const xsUrl = getLocalDailyThumbnail(date, originalUrl, 200);
-  const smUrl = getLocalDailyThumbnail(date, originalUrl, 480);
-  if (!smUrl) return { src: '', srcset: '' };
-  if (xsUrl === smUrl) return { src: smUrl, srcset: '' };
-  return {
-    src: smUrl,
-    srcset: `${xsUrl} 200w, ${smUrl} 480w`,
-    sizes: '(max-width: 768px) 133px, 253px'
-  };
-}
-
 module.exports = {
   getLocalReportThumbnail,
   getLocalReportThumbnailSrcset,
-  getLocalDailyThumbnail,
-  getLocalDailyThumbnailSrcset,
 };

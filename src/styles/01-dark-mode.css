@@ -188,9 +188,6 @@
 
   /* 다크모드 - 모든 본문/설명 텍스트 회색 계열 */
   .home-insight-desc,
-  .daily-community-desc,
-  .daily-streaming-desc,
-  .daily-industry-desc,
   .insight-item-desc,
   .report-section-desc,
   .stock-comment,
@@ -200,9 +197,6 @@
 
   /* 다크모드 - 모든 제목 텍스트 순백색 */
   .home-insight-title,
-  .daily-community-title,
-  .daily-streaming-title,
-  .daily-industry-title,
   .insight-item-title,
   .report-section-title,
   .stock-name,

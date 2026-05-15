@@ -2082,7 +2082,6 @@ function generateDefaultSidebarContent(counts = {}, articles = {}) {
       <div class="sidebar-category-group">
         <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
         <div class="sidebar-category-list">
-          <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간${c('daily')}</span></a>
         </div>
       </div>
       <div class="sidebar-category-group">
@@ -2342,8 +2341,8 @@ const coreReadyBootstrapScript = `
 function wrapWithLayout(content, options = {}) {
   const {
     currentPage = 'home',
-    title = '게이머스크롤 | 데일리 게임 인사이트',
-    description = '데일리 게임 인사이트 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
+    title = '게이머스크롤 | 게임 데이터 & 아티클',
+    description = '게임 데이터 & 아티클 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
     keywords,
     canonical = 'https://gamerscroll.com',
     pageScripts = '',
@@ -2398,7 +2397,6 @@ function wrapWithLayout(content, options = {}) {
     if (url.includes('/tech/normal/') || url.includes('/tech/')) return '테크';
     if (url.includes('/wiki/')) return '위키';
     if (url.includes('/magazine/issue/')) return '이슈';
-    if (url.includes('/magazine/daily/')) return '데일리';
     if (url.includes('/magazine/insight/')) return '인사이트';
     if (url.includes('/magazine/hotpick/')) return '핫픽';
     if (url.includes('/magazine/ranking/')) return '순위 분석';

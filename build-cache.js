@@ -63,7 +63,6 @@ function createEmptyCache() {
     insights: {},   // slug -> hash
     hotpicks: {},   // slug -> hash
     rankings: {},   // slug -> hash
-    daily: {},      // date -> hash
     weekly: {}      // weekId -> hash
   };
 }

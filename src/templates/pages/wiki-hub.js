@@ -188,8 +188,6 @@ function buildCategoryCardFeedPagerScript(gridSelector, paginationSelector, defe
 function generateWikiHubPage({
   wikiData = {},
   techData = {},
-  dailyReportsCount = 0,
-
   issueReportsCount = 0,
   insightReportsCount = 0,
   hotpickReportsCount = 0,
@@ -201,8 +199,6 @@ function generateWikiHubPage({
   const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
-    daily: dailyReportsCount,
-
     issue: issueReportsCount,
     insight: insightReportsCount,
     hotpick: hotpickReportsCount,
@@ -319,10 +315,6 @@ function generateWikiHubPage({
   function generateSidebar() {
     const counts = sidebarCounts;
 
-    const regularCategories = [
-      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily }
-    ];
-
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
@@ -357,10 +349,6 @@ function generateWikiHubPage({
 
     return `
       <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
-        </div>
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
@@ -433,8 +421,6 @@ function generateWikiCategoryPage({
   category,
   wikiData = {},
   techData = {},
-  dailyReportsCount = 0,
-
   issueReportsCount = 0,
   insightReportsCount = 0,
   hotpickReportsCount = 0,
@@ -446,8 +432,6 @@ function generateWikiCategoryPage({
   const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
-    daily: dailyReportsCount,
-
     issue: issueReportsCount,
     insight: insightReportsCount,
     hotpick: hotpickReportsCount,
@@ -516,10 +500,6 @@ function generateWikiCategoryPage({
   function generateSidebar() {
     const counts = sidebarCounts;
 
-    const regularCategories = [
-      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily }
-    ];
-
     const issueCategories = [
       { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
       { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
@@ -554,10 +534,6 @@ function generateWikiCategoryPage({
 
     return `
       <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(regularCategories)}</div>
-        </div>
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">${renderItems(issueCategories)}</div>

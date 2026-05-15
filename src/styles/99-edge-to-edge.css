@@ -1,4 +1,4 @@
-﻿/* ===== 인기 섹션 숨김 - 모바일만 ===== */
+/* ===== 인기 섹션 숨김 - 모바일만 ===== */
 @media (max-width: 768px) {
   #home-popular,
   #magazine-popular,
@@ -96,7 +96,6 @@
   #magazine-popular > .home-card-header,
   #tech-popular > .home-card-header,
   #tech-all > .home-card-header,
-  #daily-list > .home-card-header,
   #issue-list > .home-card-header,
   #magazine-latest > .home-card-header {
     display: none !important;
@@ -162,7 +161,7 @@
     border-radius: 0 !important;
   }
 
-  /* 일간 이미지 둥근 모서리 */
+  /* 이미지 둥근 모서리 */
   .industry-thumb,
   .metric-thumb {
     border-radius: 8px !important;

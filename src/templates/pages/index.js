@@ -94,14 +94,13 @@ function getLocalTechThumbSrcset(category, slug, originalUrl) {
   };
 }
 
-const { getLocalReportThumbnail, getLocalReportThumbnailSrcset, getLocalDailyThumbnail, getLocalDailyThumbnailSrcset } = require('../helpers/thumbnail');
+const { getLocalReportThumbnail, getLocalReportThumbnailSrcset } = require('../helpers/thumbnail');
 
 function generateIndexPage(data) {
-  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, dailyReportsCount = 0, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
+  const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
-    daily: dailyReportsCount,
     issue: issueReports.length,
     insight: insightReports.length,
     hotpick: hotpickReports.length,
@@ -164,8 +163,8 @@ function generateIndexPage(data) {
       : LAZY_IMAGE_LOADING_ATTRS;
     return `${loadingAttrs} ${POPULAR_IMAGE_DIMENSION_ATTRS}`;
   };
-  // 홈 상단 "정기" 카드(일간/주간) 2개를 모두 초기 요청 대상으로 유지
-  const pickLcpImageAttrs = createLcpImageAttrPicker(2);
+  // 홈 상단 카드 LCP 처리
+  const pickLcpImageAttrs = createLcpImageAttrPicker(1);
   const extractSeoLinkFromCardHtml = (html) => {
     if (!html || typeof html !== 'string') return null;
     const hrefMatch = html.match(/<a[^>]*href="([^"]+)"/i);
@@ -198,8 +197,6 @@ function generateIndexPage(data) {
     return JSON.stringify(cards).replace(/</g, '\\u003c');
   };
 
-  const dailyInsightThumbData = getLocalDailyThumbnailSrcset(insightFileDate, aiInsight?.issues?.[0]?.thumbnail);
-
   // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
   const formatDateKr = (dateStr) => {
     if (!dateStr) return '';
@@ -207,42 +204,6 @@ function generateIndexPage(data) {
     if (!match) return dateStr;
     return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
   };
-
-  // 홈 트렌드 (일간 카드 - 가로형)
-  function generateHomeInsight() {
-
-    // 일간 데이터 (링크는 파일명 기준, 뱃지는 AI 응답 기준)
-    const dailyHeadline = aiInsight?.issues?.[0]?.title || '일간';
-    const dailySummary = typeof aiInsight?.summary === 'object' ? aiInsight.summary.desc : (aiInsight?.summary || '');
-    const dailySlug = insightFileDate || '';
-    const dailyLink = dailySlug ? `/magazine/daily/${dailySlug}/` : '/magazine/';
-    const dailyBadgeText = insightFileDate ? `${formatDateKr(insightFileDate)} 일간` : '일간';
-
-    // 썸네일 (없으면 CSS gradient 배경만 보임) - fixUrl로 프록시 처리
-    const dailyThumbnail = dailyInsightThumbData?.src || '';
-    const dailyImgAttrs = dailyInsightThumbData?.srcset
-      ? `src="${dailyInsightThumbData.src}" srcset="${dailyInsightThumbData.srcset}" sizes="${dailyInsightThumbData.sizes}"`
-      : (dailyInsightThumbData?.src ? `src="${dailyInsightThumbData.src}"` : '');
-
-    if (!dailyHeadline) {
-      return '<div class="home-empty">매거진을 불러올 수 없습니다</div>';
-    }
-
-    // 가로형 카드 (인기 카드 스타일 재활용)
-    return `
-      <div class="home-popular-list">
-        <a href="${dailyLink}" class="home-popular-card">
-          <div class="home-popular-thumb">
-            ${dailyThumbnail ? `<img ${dailyImgAttrs} alt="${escapeHtmlAttr(dailyHeadline)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag">${dailyBadgeText}</span>
-          </div>
-          <div class="home-popular-info">
-            <h3 class="home-popular-title">${dailyHeadline}</h3>
-            ${dailySummary ? `<p class="home-popular-summary">${dailySummary}</p>` : ''}
-          </div>
-        </a>
-      </div>`;
-  }
 
   // 홈 인기 기사 (가로형 3개 - eyesmag 스타일)
   function generateHomePopular() {
@@ -575,7 +536,6 @@ function generateIndexPage(data) {
   function generateSidebarCategories() {
     // 카테고리별 글 개수 계산
     const counts = {
-      daily: dailyReportsCount,
       issue: issueReports.length,
       insight: insightReports.length,
       hotpick: hotpickReports.length,
@@ -590,7 +550,6 @@ function generateIndexPage(data) {
 
     // 정기 매거진 카테고리
     const regularCategories = [
-      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily }
     ];
 
     // 리포트 카테고리

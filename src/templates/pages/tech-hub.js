@@ -196,8 +196,6 @@ function buildCategoryCardFeedPagerScript(gridSelector, paginationSelector, defe
 function generateTechHubPage({
   techData = {},
   wikiData = {},
-  dailyReportsCount = 0,
-
   issueReportsCount = 0,
   insightReportsCount = 0,
   hotpickReportsCount = 0,
@@ -209,8 +207,6 @@ function generateTechHubPage({
   const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
-    daily: dailyReportsCount,
-
     issue: issueReportsCount,
     insight: insightReportsCount,
     hotpick: hotpickReportsCount,
@@ -328,7 +324,6 @@ function generateTechHubPage({
     const counts = sidebarCounts;
 
     const regularCategories = [
-      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily }
     ];
 
     const issueCategories = [
@@ -441,8 +436,6 @@ function generateTechCategoryPage({
   category,
   techData = {},
   wikiData = {},
-  dailyReportsCount = 0,
-
   issueReportsCount = 0,
   insightReportsCount = 0,
   hotpickReportsCount = 0,
@@ -454,8 +447,6 @@ function generateTechCategoryPage({
   const pickLcpImageAttrs = createLcpImageAttrPicker();
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
   const sidebarCounts = {
-    daily: dailyReportsCount,
-
     issue: issueReportsCount,
     insight: insightReportsCount,
     hotpick: hotpickReportsCount,
@@ -525,7 +516,6 @@ function generateTechCategoryPage({
     const counts = sidebarCounts;
 
     const regularCategories = [
-      { id: 'daily', name: '일간', link: '/magazine/daily/', count: counts.daily }
     ];
 
     const issueCategories = [

@@ -23,8 +23,6 @@ function generateNewsPage(data) {
   const { news } = data;
   const { insight } = data;
   const aiInsight = insight?.ai || null;
-  const dailyThumbnail = fixUrl(aiInsight?.thumbnail) || '';
-
   // 뉴스 소스 정보
   const newsSources = [
     { key: 'thisisgame', name: '디스이즈게임', domain: 'thisisgame.com', url: 'https://www.thisisgame.com/webzine/news/nboard/4/' },

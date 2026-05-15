@@ -582,8 +582,8 @@ const {
 
 // 페이지별 템플릿 import
 const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateTrendPage, generateDailyDetailPage, generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage } = require('./src/templates/pages/trend');
-const { generateTrendsHubPage, generateDailyListPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage, generateRankingListPage } = require('./src/templates/pages/trends-hub');
+const { generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage } = require('./src/templates/pages/trend');
+const { generateTrendsHubPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage, generateRankingListPage } = require('./src/templates/pages/trends-hub');
 // 뉴스/커뮤니티/영상 페이지 제거됨 (크롤링 데이터는 유지)
 const { generateRankingsPage } = require('./src/templates/pages/rankings');
 const { generateSteamPage } = require('./src/templates/pages/steam');
@@ -605,18 +605,6 @@ const {
   LAYOUT_RUNTIME_ASSET
 } = require('./src/templates/layout');
 const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles, shouldFetchPopularArticles } = require('./src/crawlers/analytics');
-
-// 데일리 인사이트 import
-const {
-  generateDailyInsight,
-  generateInsightHTML,
-  loadHistory,
-  getTodayDate,
-  getYesterdayDate
-} = require('./src/insights/daily');
-
-// AI 인사이트 import
-const { generateAIInsight } = require('./src/insights/ai-insight');
 
 function stripBom(text) {
   if (!text) return '';
@@ -698,84 +686,6 @@ function minifyCss(css) {
     .trim();
 }
 
-/**
- * 인사이트 JSON 파일 경로 찾기 (날짜 검증 포함)
- * @param {string} today - YYYY-MM-DD 형식 날짜
- * @returns {string|null} 존재하는 파일 경로 또는 null
- */
-function findInsightJsonFile(today) {
-  if (!fs.existsSync(REPORTS_DIR)) {
-    console.log('⚠️ reports 디렉토리 없음');
-    return null;
-  }
-
-  // 모든 일간 리포트 파일을 최신순으로 정렬
-  const allFiles = fs.readdirSync(REPORTS_DIR)
-    .filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
-    .sort()
-    .reverse();
-
-  for (const file of allFiles) {
-    const filePath = `${REPORTS_DIR}/${file}`;
-
-    // 파일 내용의 AI 날짜가 파일명 날짜와 일치하는지 검증
-    try {
-      const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      const fileDate = file.replace('.json', '');
-      const aiDate = String(content.ai?.date || '').trim();
-
-      // AI 인사이트가 없는 파일은 폴백 대상으로 사용하지 않음
-      if (!content.ai || !aiDate) {
-        continue;
-      }
-
-      if (aiDate && fileDate !== aiDate) {
-        console.log(`⚠️ 날짜 불일치로 스킵: ${file} (파일: ${fileDate}, AI: ${aiDate})`);
-        continue;
-      }
-
-      // 유효한 파일 발견
-      if (fileDate !== today) {
-        console.log(`📂 오늘 인사이트 없음 → 폴백: ${file}`);
-      }
-      return filePath;
-    } catch (e) {
-      console.log(`⚠️ 파일 검증 실패: ${file} - ${e.message}`);
-      continue;
-    }
-  }
-
-  console.log('⚠️ 사용 가능한 인사이트 파일 없음');
-  return null;
-}
-
-/**
- * JSON 파일에서 AI 인사이트 데이터 로드하여 insight 객체에 병합
- * @param {string} filePath - JSON 파일 경로
- * @param {object} insight - 병합 대상 insight 객체
- * @param {boolean} includeStock - 주가 데이터 포함 여부
- * @returns {boolean} 성공 여부
- */
-function loadAIInsightFromFile(filePath, insight, includeStock = true) {
-  if (!filePath || !fs.existsSync(filePath)) return false;
-
-  try {
-    const saved = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    if (saved.ai) {
-      insight.ai = saved.ai;
-      insight.aiGeneratedAt = saved.aiGeneratedAt;
-      if (includeStock) {
-        insight.stockMap = saved.stockMap || {};
-        insight.stockPrices = saved.stockPrices || {};
-      }
-      return true;
-    }
-  } catch (e) {
-    console.log(`⚠️ AI 인사이트 파싱 실패: ${e.message}`);
-  }
-  return false;
-}
-
 // PurgeCSS 동적 클래스 safelist (런타임 JS에서 classList.add/toggle/className으로 추가되는 클래스)
 const PURGECSS_SAFELIST = {
   standard: [
@@ -854,8 +764,8 @@ async function main() {
   const currentHour = kstNow.getUTCHours();
 
   // 오늘 히스토리 파일 존재 여부로 크롤링 필요 판단
-  const todayDate = getTodayDate();
-  const todayHistoryFile = `${HISTORY_DIR}/${todayDate}.json`;
+  const _kstToday = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+  const todayHistoryFile = `${HISTORY_DIR}/${_kstToday}.json`;
   const needsCrawling = !fs.existsSync(todayHistoryFile);
 
   if (isQuickMode) {
@@ -923,15 +833,6 @@ async function main() {
     const cache = { timestamp: new Date().toISOString(), news, community, rankings, steam, youtube, chzzk, upcoming };
     fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf8');
     console.log('\n💾 캐시 저장 완료');
-
-    // 일간 히스토리 저장 (매 크롤링마다 최신 데이터로 업데이트)
-    if (!fs.existsSync(HISTORY_DIR)) {
-      fs.mkdirSync(HISTORY_DIR, { recursive: true });
-    }
-    const todayDate = getTodayDate();
-    const historyFile = `${HISTORY_DIR}/${todayDate}.json`;
-    fs.writeFileSync(historyFile, JSON.stringify(cache, null, 2), 'utf8');
-    console.log(`📁 일간 스냅샷 저장: ${historyFile}`);
 
     // 30분마다 CSV 스냅샷 저장
     const now = new Date();
@@ -1034,23 +935,6 @@ async function main() {
 
   console.log('\n📄 GAMERSCROLL 일일 보고서 생성 중...');
 
-  // 인사이트 데이터 생성
-  const todayData = { news, community, rankings, steam, youtube, chzzk, upcoming };
-  const yesterdayData = loadHistory(getYesterdayDate());
-  const insight = generateDailyInsight(todayData, yesterdayData);
-
-  // AI 인사이트 로드 (별도 스크립트로 생성됨)
-  const today = getTodayDate();
-  const insightJsonFile = findInsightJsonFile(today);
-  if (loadAIInsightFromFile(insightJsonFile, insight)) {
-    console.log(`📂 AI 인사이트 로드 완료 (${insightJsonFile.split('/').pop()})`);
-    // 파일명에서 날짜 추출하여 저장 (링크 생성용)
-    const fileMatch = insightJsonFile.match(/(\d{4}-\d{2}-\d{2})\.json$/);
-    if (fileMatch) {
-      insight.insightDate = fileMatch[1];
-    }
-  }
-
   // HTML 생성
   console.log('\n📄 GAMERSCROLL 일일 보고서 생성 중...');
 
@@ -1126,15 +1010,11 @@ async function main() {
       .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
-  // 일간 리포트 개수는 실제 로드 후 계산 (매거진 섹션에서 설정됨)
-  // 임시로 0으로 설정, 나중에 업데이트됨
-  let dailyReportsCount = 0;
-
   const issueReportsCount = issueReportsForHome.length;
   const insightReportsCount = insightReportsForHome.length;
   const hotpickReportsCount = hotpickReportsForHome.length;
   const rankingReportsCount = rankingReportsForHome.length;
-  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, insight, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, rankingReports: rankingReportsForHome, dailyReportsCount, issueReportsCount, insightReportsCount, hotpickReportsCount, rankingReportsCount };
+  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, rankingReports: rankingReportsForHome, issueReportsCount, insightReportsCount, hotpickReportsCount, rankingReportsCount };
 
   // games.json 로드 (게임 허브용)
   let gamesData = {};
@@ -1230,7 +1110,6 @@ async function main() {
 
   // 글로벌 사이드바 카운트 초기 설정 (위키/테크만, 매거진 counts는 나중에 업데이트)
   setGlobalSidebarCounts({
-    daily: 0,
     issue: 0,
     insight: 0,
     hotpick: 0,
@@ -1274,13 +1153,11 @@ async function main() {
   const steamCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.steam || {})).digest('hex').slice(0, 8);
 
   const pages = [
-    // index.html은 매거진 생성 후 별도로 생성 (dailyReportsCount 정확한 값 필요)
     { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData, cacheVersion: rankingsCacheVersion }) },
     { filename: 'steam.html', generator: (d) => generateSteamPage({ ...d, cacheVersion: steamCacheVersion }) },
     { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [], searchIndexVersion }) },
-    // wiki/index.html은 위키 섹션에서 생성 (dailyReportsCount 정확한 값 필요)
-    { filename: '404.html', generator: generate404Page }
+      { filename: '404.html', generator: generate404Page }
   ];
 
   for (const page of pages) {
@@ -1367,50 +1244,6 @@ async function main() {
   // 트렌드 리포트 페이지 생성 (목록 + 상세)
   // ============================================
   console.log('\n📊 트렌드 리포트 페이지 생성 중...');
-
-  // 1. 일간 리포트 JSON 스캔
-  const dailyReports = [];
-  if (fs.existsSync(REPORTS_DIR)) {
-    const files = fs.readdirSync(REPORTS_DIR);
-    const dailyJsonFiles = files.filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f));
-
-    for (const file of dailyJsonFiles) {
-      try {
-        const filePath = `${REPORTS_DIR}/${file}`;
-        const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        if (content.ai) {
-          const slug = file.replace('.json', '');
-          const dateMatch = slug.match(/^(\d{4}-\d{2}-\d{2})/);
-          const fileDate = dateMatch ? dateMatch[1] : slug;
-          const aiDate = String(content.ai?.date || '').trim();
-
-          // 파일 날짜와 AI 인사이트 날짜가 불일치하면 스킵
-          if (aiDate && fileDate !== aiDate) {
-            console.warn(`  ⚠️ 날짜 불일치로 스킵: ${file} (파일: ${fileDate}, AI: ${aiDate})`);
-            continue;
-          }
-
-          dailyReports.push({
-            slug,
-            date: fileDate,
-            summary: content.ai.summary || '',
-            issues: content.ai.issues || [],
-            insight: content,
-            _jsonFilePath: filePath
-          });
-        }
-      } catch (e) {
-        console.warn(`  ⚠️ 일간 리포트 로드 실패: ${file}`);
-      }
-    }
-    // 날짜 내림차순 정렬
-    dailyReports.sort((a, b) => b.slug.localeCompare(a.slug));
-  }
-
-  console.log(`  📅 일간 리포트: ${dailyReports.length}개`);
-
-  // 실제 로드된 개수로 업데이트 (홈 사이드바용)
-  dailyReportsCount = dailyReports.length;
 
   // 3. 목록 페이지 생성 (magazine/index.html)
   const magazineDir = './magazine';
@@ -1581,11 +1414,6 @@ async function main() {
 
   try {
     const hubHtml = generateTrendsHubPage({
-      dailyReports: dailyReports.map(r => ({
-        date: r.date,
-        summary: r.summary,
-        issues: r.issues
-      })),
       issueReports: issueReports.map(p => ({
         slug: p.slug,
         title: p.title,
@@ -1617,7 +1445,6 @@ async function main() {
       news: news,
       wikiData: loadWikiData(),
       techData: loadTechData(),
-      dailyReportsCount: dailyReports.length,
       sidebarPopularArticles: sidebarPopularMagazine,
       sidebarLatestArticles: sidebarLatestMagazine
     });
@@ -1627,13 +1454,8 @@ async function main() {
     console.error(`  ❌ magazine/index.html: ${err.message}`);
   }
 
-  // 4. 카테고리 목록 페이지 생성 (daily/index.html, issue/index.html)
+  // 4. 카테고리 목록 페이지 생성 (issue/index.html 등)
   const categoryPageData = {
-    dailyReports: dailyReports.map(r => ({
-      date: r.date,
-      summary: r.summary,
-      issues: r.issues
-    })),
     issueReports: issueReports.map(p => ({
       slug: p.slug,
       title: p.title,
@@ -1664,23 +1486,9 @@ async function main() {
     })),
     wikiData: loadWikiData(),
     techData: loadTechData(),
-    dailyReportsCount: dailyReports.length,
     sidebarPopularArticles: sidebarPopularMagazine,
     sidebarLatestArticles: sidebarLatestMagazine
   };
-
-  // Daily 목록 페이지
-  const dailyDir = `${magazineDir}/daily`;
-  if (!fs.existsSync(dailyDir)) {
-    fs.mkdirSync(dailyDir, { recursive: true });
-  }
-  try {
-    const dailyListHtml = generateDailyListPage(categoryPageData);
-    fs.writeFileSync(`${dailyDir}/index.html`, dailyListHtml, 'utf8');
-    console.log(`  ✅ magazine/daily/index.html`);
-  } catch (err) {
-    console.error(`  ❌ magazine/daily/index.html: ${err.message}`);
-  }
 
   // Issue 목록 페이지
   const issueDir = `${magazineDir}/issue`;
@@ -1736,7 +1544,6 @@ async function main() {
 
   // 글로벌 사이드바 카운트 설정 (상세 페이지 생성 전 필요)
   setGlobalSidebarCounts({
-    daily: dailyReportsCount,
     issue: issueReports.length,
     insight: insightReports.length,
     hotpick: hotpickReports.length,
@@ -1748,67 +1555,6 @@ async function main() {
     ai: (homeTechData?.ai || []).length,
     vibecoding: (homeTechData?.vibecoding || []).length
   });
-
-  // 6. 일간 상세 페이지 생성 (magazine/daily/{slug}/index.html)
-  // 기존에 남아있는 불필요한 일간 페이지 정리 (현재 dailyReports 목록에 없는 폴더 제거)
-  try {
-    const expectedDailySlugs = new Set(dailyReports.map(r => r.slug));
-    const existingDailyDirs = fs.readdirSync(dailyDir, { withFileTypes: true })
-      .filter(d => d.isDirectory())
-      .map(d => d.name);
-    for (const dirName of existingDailyDirs) {
-      if (!expectedDailySlugs.has(dirName)) {
-        fs.rmSync(`${dailyDir}/${dirName}`, { recursive: true, force: true });
-      }
-    }
-  } catch (e) {
-    // 정리 실패 시에도 생성은 계속 진행
-  }
-
-  for (let i = 0; i < dailyReports.length; i++) {
-    const report = dailyReports[i];
-    const pageDir = `${dailyDir}/${report.slug}`;
-    if (!fs.existsSync(pageDir)) {
-      fs.mkdirSync(pageDir, { recursive: true });
-    }
-
-    try {
-      const nav = {
-        prev: dailyReports[i + 1]?.slug || null,
-        next: dailyReports[i - 1]?.slug || null
-      };
-
-      // history 뉴스 데이터 로드 (썸네일 매칭 fallback용)
-      const historyFile = `${HISTORY_DIR}/${report.slug}.json`;
-      let historyNews = [];
-      if (fs.existsSync(historyFile)) {
-        try {
-          const historyData = JSON.parse(fs.readFileSync(historyFile, 'utf8'));
-          // 모든 뉴스 소스에서 썸네일 있는 것만 수집
-          historyNews = [
-            ...(historyData.news?.inven || []),
-            ...(historyData.news?.ruliweb || []),
-            ...(historyData.news?.gamemeca || []),
-            ...(historyData.news?.thisisgame || [])
-          ].filter(n => n.thumbnail && n.title);
-        } catch (e) {
-          // 로드 실패 시 빈 배열
-        }
-      }
-
-      const html = generateDailyDetailPage({
-        insight: report.insight,
-        slug: report.slug,
-        nav,
-        historyNews,
-        _jsonFilePath: report._jsonFilePath
-      });
-      fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
-    } catch (err) {
-      console.error(`  ❌ magazine/daily/${report.slug}: ${err.message}`);
-    }
-  }
-  console.log(`  ✅ 일간 상세 페이지 ${dailyReports.length}개 생성`);
 
   // 7. 이슈 리포트 페이지 생성 (magazine/issue/{slug}/index.html)
   const wikiDataForIssue = loadWikiData(); // 이슈 리포트에서 관련 위키 참조용
@@ -1824,7 +1570,6 @@ async function main() {
     vibecoding: (techDataForIssue.vibecoding || []).length
   };
   const magazineCounts = {
-    daily: dailyReportsCount,
     issue: issueReports.length,
     insight: insightReports.length,
     hotpick: hotpickReports.length,
@@ -1976,7 +1721,6 @@ async function main() {
 
   // 글로벌 사이드바 카운트 설정 (모든 페이지에서 사용)
   setGlobalSidebarCounts({
-    daily: dailyReportsCount,
     issue: issueReports.length,
     insight: insightReports.length,
     hotpick: hotpickReports.length,
@@ -2007,7 +1751,7 @@ async function main() {
 
   // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
   try {
-    const homeData = { ...data, dailyReportsCount, issueReportsCount: issueReports.length, insightReports, hotpickReports, rankingReports };
+    const homeData = { ...data, issueReportsCount: issueReports.length, insightReports, hotpickReports, rankingReports };
     const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, techData: homeTechData, sidebarPopularArticles: sidebarPopularAll, sidebarLatestArticles: sidebarLatestAll });
     fs.writeFileSync('./index.html', indexHtml, 'utf8');
     console.log(`  ✅ index.html`);
@@ -2025,7 +1769,6 @@ async function main() {
   const wikiCategoryData = {
     wikiData,
     techData,
-    dailyReportsCount: dailyReports.length,
     issueReportsCount: issueReports.length,
     insightReportsCount: insightReports.length,
     hotpickReportsCount: hotpickReports.length,
@@ -2111,7 +1854,6 @@ async function main() {
             ranking: rankingReports.length
           },
           magazineCounts: {
-            daily: dailyReports.length
           },
           sidebarPopularArticles: sidebarPopularWiki,
           sidebarLatestArticles: sidebarLatestWiki
@@ -2133,7 +1875,6 @@ async function main() {
   const techCategoryData = {
     techData,
     wikiData,
-    dailyReportsCount: dailyReports.length,
     issueReportsCount: issueReports.length,
     insightReportsCount: insightReports.length,
     hotpickReportsCount: hotpickReports.length,
@@ -2222,7 +1963,6 @@ async function main() {
             ranking: rankingReports.length
           },
           magazineCounts: {
-            daily: dailyReports.length
           },
           sidebarPopularArticles: sidebarPopularTech,
           sidebarLatestArticles: sidebarLatestTech
@@ -2418,7 +2158,7 @@ async function main() {
     console.log('  ✅ games/index.html → docs/games/index.html');
   }
 
-  // magazine 폴더 복사 (일간/주간 페이지)
+  // magazine 폴더 복사
   const srcBriefingDir = './magazine';
   const destBriefingDir = `${DOCS_DIR}/magazine`;
   if (fs.existsSync(srcBriefingDir)) {
@@ -2559,7 +2299,6 @@ async function main() {
     { loc: `${siteBaseUrl}/`, lastmod: sitemapDate, priority: '1.0' },
     // 매거진 (허브 + 목록)
     { loc: `${siteBaseUrl}/magazine/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/magazine/daily/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/magazine/issue/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate, priority: '0.8' },
@@ -2610,18 +2349,6 @@ async function main() {
   // 브리핑 페이지 자동 스캔
   let magazinePages = [];
   if (fs.existsSync(destBriefingDir)) {
-    // 일간 (폴더명이 날짜: 2026-01-19)
-    const dailyBriefingDir = `${destBriefingDir}/daily`;
-    if (fs.existsSync(dailyBriefingDir)) {
-      const dailyFolders = fs.readdirSync(dailyBriefingDir, { withFileTypes: true })
-        .filter(d => d.isDirectory())
-        .map(d => d.name);
-      magazinePages.push(...dailyFolders.map(slug => ({
-        loc: `${siteBaseUrl}/magazine/daily/${slug}/`,
-        lastmod: slug,  // 폴더명이 날짜 형식
-        priority: '0.4'
-      })));
-    }
     // 이슈 페이지 (JSON의 date 필드 사용)
     const issueBriefingDir = `${destBriefingDir}/issue`;
     if (fs.existsSync(issueBriefingDir)) {
@@ -2881,43 +2608,4 @@ self.addEventListener('fetch', (event) => {
 
   console.log(`\n✅ 완료! (docs/ 통합 반응형 빌드 + sitemap 갱신)`);
 
-  // 데일리 인사이트 생성 (하루에 한 번)
-  if (!fs.existsSync(REPORTS_DIR)) {
-    fs.mkdirSync(REPORTS_DIR, { recursive: true });
-  }
-
-  const reportFile = `${REPORTS_DIR}/${today}.html`;
-
-  // 오늘 리포트가 없으면 생성
-  if (!fs.existsSync(reportFile)) {
-    console.log('\n📊 데일리 인사이트 생성 중...');
-
-    const todayData = { news, community, rankings, steam, youtube, chzzk, upcoming };
-    const yesterdayData = loadHistory(getYesterdayDate());
-
-    const insight = generateDailyInsight(todayData, yesterdayData);
-
-    // AI 인사이트 로드 (별도 스크립트로 생성됨)
-    const savedJsonFile = findInsightJsonFile(today);
-    loadAIInsightFromFile(savedJsonFile, insight, false);
-
-    const insightHTML = generateInsightHTML(insight);
-    fs.writeFileSync(reportFile, insightHTML, 'utf8');
-    console.log(`📈 데일리 인사이트 저장: ${reportFile}`);
-
-    // 인사이트 JSON도 저장 - 기존 AI 데이터 보존
-    const outputJsonFile = `${REPORTS_DIR}/${today}.json`;
-    loadAIInsightFromFile(outputJsonFile, insight);
-    // 폴백 AI(다른 날짜)가 섞여 있으면 JSON에는 저장하지 않음 (날짜 불일치 경고/스킵 방지)
-    const outputAiDate = String(insight.ai?.date || '').trim();
-    if (outputAiDate && outputAiDate !== today) {
-      delete insight.ai;
-      delete insight.aiGeneratedAt;
-      delete insight.stockMap;
-      delete insight.stockPrices;
-    }
-    fs.writeFileSync(outputJsonFile, JSON.stringify(insight, null, 2), 'utf8');
-  }
 }
-
-main().catch(console.error);

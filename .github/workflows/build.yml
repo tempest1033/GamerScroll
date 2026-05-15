@@ -76,9 +76,6 @@ jobs:
       - name: Download all images (wiki, tech, issue, insight, hotpick)
         run: node scripts/download-images.js
 
-      - name: Download daily report images
-        run: node scripts/download-daily-images.js
-
 
       - name: Generate report
         env:
@@ -106,7 +103,6 @@ jobs:
       - name: Move report to docs
         run: |
           mkdir -p docs
-          mkdir -p docs/reports
           # MPA 모드: 폴더 구조로 복사 (clean URLs)
           cp index.html docs/index.html
           # 각 페이지를 폴더/index.html로
@@ -130,17 +126,6 @@ jobs:
           # 네이버 사이트 인증 파일 복사
           cp naver7c3fb9852973561ab46756977b2f398e.html docs/naver7c3fb9852973561ab46756977b2f398e.html 2>/dev/null || true
           # CNAME 제거됨 - Cloudflare Pages 사용 (GitHub Pages 비활성화)
-          # 데일리 인사이트 리포트 복사 (JSON + HTML)
-          if [ -d "reports" ]; then
-            JSON_COUNT=$(ls reports/*.json 2>/dev/null | wc -l)
-            HTML_COUNT=$(ls reports/*.html 2>/dev/null | wc -l)
-            cp -r reports/*.json docs/reports/ 2>/dev/null || echo "⚠️ reports/*.json 복사 실패 또는 파일 없음"
-            cp -r reports/*.html docs/reports/ 2>/dev/null || echo "⚠️ reports/*.html 복사 실패 또는 파일 없음"
-            echo "📂 reports/ 복사: JSON ${JSON_COUNT}개, HTML ${HTML_COUNT}개"
-          else
-            echo "⚠️ reports/ 폴더 없음"
-          fi
-
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions"
