@@ -51,7 +51,7 @@ const escapeHtmlAttr = (value) => String(value ?? '')
  */
 function parseMarkdownLinks(str) {
   const escaped = escapeHtmlAttr(str);
-  return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+  return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 }
 
 /**

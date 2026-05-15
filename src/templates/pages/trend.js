@@ -560,7 +560,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     .replace(/>/g, '&gt;');
   const parseMarkdownLinks = (str) => {
     const escaped = escapeHtmlAttr(str);
-    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   };
   const parseTableCell = (str) => parseMarkdownLinks(str)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -915,7 +915,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
       <div class="blog-sources-title">정보 출처</div>
       <ul class="blog-sources-list">
         ${sources.map(s => `
-          <li><a href="${s.url}" target="_blank" rel="nofollow noopener">${s.name} - ${s.title}</a></li>
+          <li><a href="${s.url}" target="_blank" rel="noopener">${s.name} - ${s.title}</a></li>
         `).join('')}
       </ul>
     </div>
@@ -1127,7 +1127,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     .replace(/>/g, '&gt;');
   const parseMarkdownLinks = (str) => {
     const escaped = escapeHtmlAttr(str);
-    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   };
   const parseTableCell = (str) => parseMarkdownLinks(str)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -1441,7 +1441,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
       <div class="blog-sources-title">정보 출처</div>
       <ul class="blog-sources-list">
         ${sources.map(s => `
-          <li><a href="${s.url}" target="_blank" rel="nofollow noopener">${s.name} - ${s.title}</a></li>
+          <li><a href="${s.url}" target="_blank" rel="noopener">${s.name} - ${s.title}</a></li>
         `).join('')}
       </ul>
     </div>
@@ -1653,7 +1653,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     .replace(/>/g, '&gt;');
   const parseMarkdownLinks = (str) => {
     const escaped = escapeHtmlAttr(str);
-    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   };
   const parseTableCell = (str) => parseMarkdownLinks(str)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -1975,7 +1975,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
       <div class="blog-sources-title">정보 출처</div>
       <ul class="blog-sources-list">
         ${sources.map(s => `
-          <li><a href="${s.url}" target="_blank" rel="nofollow noopener">${s.name} - ${s.title}</a></li>
+          <li><a href="${s.url}" target="_blank" rel="noopener">${s.name} - ${s.title}</a></li>
         `).join('')}
       </ul>
     </div>
@@ -2189,7 +2189,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     .replace(/>/g, '&gt;');
   const parseMarkdownLinks = (str) => {
     const escaped = escapeHtmlAttr(str);
-    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   };
   const parseTableCell = (str) => parseMarkdownLinks(str)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -2771,7 +2771,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
       <div class="blog-sources-title">정보 출처</div>
       <ul class="blog-sources-list">
         ${post.sources.map(src => `
-          <li><a href="${src.url}" target="_blank" rel="nofollow noopener">${src.title || src.name}</a></li>
+          <li><a href="${src.url}" target="_blank" rel="noopener">${src.title || src.name}</a></li>
         `).join('')}
       </ul>
     </div>

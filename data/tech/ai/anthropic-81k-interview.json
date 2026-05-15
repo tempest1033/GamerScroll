@@ -4,8 +4,8 @@
   "category": "anthropic",
   "title": "앤트로픽이 81,000명에게 물었다, AI에게 뭘 바라나요?",
   "titleEn": "What 81,000 People Want from AI: Anthropic's Largest Qualitative Survey",
-  "summary": "앤트로픽이 159개국 80,508명을 대상으로 역대 최대 규모의 AI 정성 조사를 실시했다. 직업적 탁월함부터 창작 표현까지 9가지 비전이 도출됐고, 가장 큰 우려는 환각과 일자리 문제였다. 희망과 우려가 진영이 아닌 개인 안에서 공존한다는 발견이 인상적이다.",
-  "summaryEn": "Anthropic conducted the largest-ever qualitative AI survey, interviewing 80,508 people across 159 countries in 70 languages. Nine visions emerged from professional excellence to creative expression, with hallucination and job displacement as top concerns. The key insight: hope and worry coexist within individuals, not opposing camps.",
+  "summary": "앤트로픽이 Claude 기반 인터뷰 도구로 159개국 80,508명을 대상으로 역대 최대 규모의 AI 정성 조사를 실시했다. 직업적 탁월함부터 창작 표현까지 9가지 비전이 도출됐고, 가장 큰 우려는 Claude 환각과 일자리 문제였다.",
+  "summaryEn": "Anthropic conducted the largest-ever qualitative AI survey using a Claude-based interviewer, reaching 80,508 people across 159 countries in 70 languages. Nine visions emerged from professional excellence to creative expression, with Claude hallucination and job displacement as top concerns.",
   "keywords": "앤트로픽, AI 인터뷰, 81000명, Claude, AI 우려, 환각, 일자리, AI 비전, 정성 조사, Saffron Huang, 글로벌 AI 여론, AI 신뢰성",
   "keywordsEn": "Anthropic, AI interview, 81000 people, Claude, AI concerns, hallucination, jobs, AI vision, qualitative survey, Saffron Huang, global AI sentiment, AI reliability",
   "content": [
@@ -17,7 +17,7 @@
       "type": "image",
       "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-weltkarte-2.webp",
       "caption": "159개국에서 참여한 응답자 분포. 저/중소득 국가의 참여율이 높았다는 점이 기존 AI 설문과 차별화된다.",
-      "alt": "앤트로픽 81,000명 AI 인터뷰 글로벌 참여 분포 세계지도"
+      "alt": "앤트로픽 Claude 81,000명 AI 인터뷰 글로벌 참여 분포 세계지도"
     },
     {
       "type": "quote",
@@ -46,7 +46,7 @@
       "type": "image",
       "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-hoffnung-4.webp",
       "caption": "AI에 대한 9가지 비전과 비중. 직업적 탁월함이 18.8%로 가장 높았다.",
-      "alt": "앤트로픽 조사 결과 AI에 대한 9가지 비전 차트"
+      "alt": "앤트로픽 Claude 조사 결과 AI에 대한 9가지 비전 차트"
     },
     {
       "type": "text",
@@ -64,7 +64,7 @@
       "type": "image",
       "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-fehler-3.webp",
       "caption": "AI에 대한 주요 우려 사항. 신뢰성/환각 문제가 26.7%로 압도적 1위를 차지했다.",
-      "alt": "앤트로픽 조사 결과 AI 우려 사항 차트"
+      "alt": "앤트로픽 Claude 조사 결과 AI 우려 사항 차트"
     },
     {
       "type": "text",
@@ -100,7 +100,7 @@
       "type": "image",
       "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-weltkarte-2.webp",
       "caption": "Global distribution of respondents across 159 countries. High participation from lower and middle-income nations distinguishes this survey from prior AI polls.",
-      "alt": "Anthropic 81,000 AI interview global participation distribution world map"
+      "alt": "Anthropic Claude 81,000 AI interview global participation distribution world map"
     },
     {
       "type": "quote",
@@ -129,7 +129,7 @@
       "type": "image",
       "src": "https://www.all-ai.de/images/2-news/3-26/anthropic-ki-studie-hoffnung-4.webp",
       "caption": "The nine visions people have for AI and their proportions. Professional excellence leads at 18.8%.",
-      "alt": "Anthropic survey results showing nine AI visions chart"
+      "alt": "Anthropic Claude survey results showing nine AI visions chart"
     },
     {
       "type": "text",

@@ -6,6 +6,15 @@
     background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
   }
 
+  /* iOS/AOS stat-label: light-mode dark colors (#0050B3 / #1F8F4D) lose
+     contrast on dark bg. Restore brighter platform colors for dark mode. */
+  .ranking-card-stat.stat-ios .stat-label {
+    color: #4DA6FF;
+  }
+  .ranking-card-stat.stat-aos .stat-label {
+    color: #5EE69D;
+  }
+
   /* === Dark Mode Variables === */
   :root {
     /* Primary Colors - 게이밍 느낌 오렌지 계열 */

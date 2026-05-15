@@ -19,3 +19,6 @@ tmp_*.json
 
 # 인증 정보 (절대 커밋 금지)
 credentials/
+
+# 참고용 외부 코드 (yoastseo source 등 — local-only reference)
+ref/

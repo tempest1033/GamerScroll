@@ -84,6 +84,19 @@ const AI_CSS_BUNDLES = [
   { entry: path.join(STYLES_SRC, 'bundle-article.css'), output: 'styles-article.css', required: true }
 ];
 
+function removeStaleDocsFiles() {
+  const staleFiles = [
+    'styles.css'
+  ];
+  staleFiles.forEach((file) => {
+    const filePath = path.join(DOCS_DIR, file);
+    if (fs.existsSync(filePath)) {
+      fs.rmSync(filePath, { force: true });
+      console.log(`  stale 파일 제거: ${file}`);
+    }
+  });
+}
+
 function externalizeDeferredJsonPayloads() {
   ensureDir(path.join(DOCS_DIR, 'assets'));
   if (fs.existsSync(FEED_ASSETS_DIR)) {
@@ -594,9 +607,7 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     content: a.contentEn || a.content,
     thumbnail: resolveArticleThumbnail(a),
     date: a.date,
-    keywords: a.keywordsEn && a.keywords
-      ? `${a.keywords}, ${a.keywordsEn}`
-      : (a.keywordsEn || a.keywords),
+    keywords: a.keywordsEn || a.keywords,
     sources: a.sources,
     relatedArticles: a.relatedArticles,
     relatedDocs: a.relatedDocs,
@@ -832,16 +843,22 @@ const PURGECSS_SAFELIST = {
 };
 
 // PurgeCSS: ai-docs/ 내 CSS 번들에서 미사용 CSS 제거
+function toPurgeGlobPath(filePath) {
+  return filePath.split(path.sep).join('/');
+}
+
 async function purgeCssInDocs(docsDir) {
   const bundles = [
     {
-      css: `${docsDir}/styles-core.css`,
-      content: [`${docsDir}/**/*.html`],
+      css: path.join(docsDir, 'styles-core.css'),
+      purgeCss: toPurgeGlobPath(path.join(docsDir, 'styles-core.css')),
+      content: [toPurgeGlobPath(path.join(docsDir, '**', '*.html'))],
       label: 'styles-core.css',
     },
     {
-      css: `${docsDir}/styles-article.css`,
-      content: [`${docsDir}/article/**/*.html`],
+      css: path.join(docsDir, 'styles-article.css'),
+      purgeCss: toPurgeGlobPath(path.join(docsDir, 'styles-article.css')),
+      content: [toPurgeGlobPath(path.join(docsDir, 'article', '**', '*.html'))],
       label: 'styles-article.css',
     },
   ];
@@ -855,7 +872,7 @@ async function purgeCssInDocs(docsDir) {
     try {
       const result = await new PurgeCSS().purge({
         content: bundle.content,
-        css: [bundle.css],
+        css: [bundle.purgeCss],
         safelist: PURGECSS_SAFELIST,
         fontFace: true,
         keyframes: true,
@@ -966,6 +983,7 @@ async function main() {
   // 3. 스타일 복사
   console.log('\n3. 스타일 복사 중...');
   copyStyles();
+  removeStaleDocsFiles();
 
   // 4. 에셋 복사
   console.log('\n4. 에셋 복사 중...');
@@ -1107,12 +1125,10 @@ const RUNTIME_CACHE = CACHE_NAME + '-runtime';
 const PRECACHE_URLS = [
   '/',
   '/styles-core.css',
-  '/styles-article.css',
   '/manifest.json',
   '/icon-192.png',
   '/icon-512.png',
-  '/assets/layout-core.js',
-  '/articles-search.json'
+  '/assets/layout-core.js'
 ];
 const STATIC_EXT_RE = /\\.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf|json)$/i;
 

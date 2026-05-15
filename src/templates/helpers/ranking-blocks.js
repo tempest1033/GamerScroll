@@ -176,7 +176,7 @@ function generateComparisonChart(chartBlock, ctx) {
 
   return `
     <div class="ranking-chart-wrapper">
-      <h4 class="ranking-chart-title">${String(chartTitle).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')}</h4>
+      <h3 class="ranking-chart-title">${String(chartTitle).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')}</h3>
       <div id="${chartId}" class="ranking-chart"></div>
       <script>
         (function() {
@@ -259,7 +259,7 @@ function renderRankingBar(block, ctx) {
 
   return `
     <div class="ranking-chart-wrapper" style="padding: 20px 24px;">
-      ${block.title ? `<h4 class="ranking-chart-title" style="margin-bottom:16px;">${escapeHtmlAttr(block.title)}</h4>` : ''}
+      ${block.title ? `<h3 class="ranking-chart-title" style="margin-bottom:16px;">${escapeHtmlAttr(block.title)}</h3>` : ''}
       <div id="${barChartId}" class="ranking-bar-chart">
         ${barRowsHtml}
       </div>
@@ -346,7 +346,7 @@ function renderRankingCompare(block, ctx) {
 
   return `
     <div class="ranking-chart-wrapper">
-      ${block.title ? `<h4 class="ranking-chart-title">${escapeHtmlAttr(block.title)}</h4>` : ''}
+      ${block.title ? `<h3 class="ranking-chart-title">${escapeHtmlAttr(block.title)}</h3>` : ''}
       <div id="${compChartId}" class="ranking-chart"></div>
       <script>
         (function() {
