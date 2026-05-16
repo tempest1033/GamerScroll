@@ -31,7 +31,7 @@ function renderResponsiveTopAd(slotId) {
   const styleId = `ad-top-${++adStyleCounter}`;
   return `<div class="ad-card ad-card-responsive-top">
   <style>
-    .${styleId} { display:block; width:320px; height:100px; margin:0 auto; }
+    .${styleId} { display:block; width:320px; height:100px; min-height:100px; margin:0 auto; }
     @media (min-width: 769px) { .${styleId} { width:728px; height:90px; } }
     @media (min-width: 1024px) { .${styleId} { width:970px; height:90px; } }
   </style>
@@ -50,7 +50,7 @@ function renderResponsiveHomeAd(slotId) {
   const styleId = `ad-home-${++adStyleCounter}`;
   return `<div class="ad-card ad-card-responsive-home">
   <style>
-    .${styleId} { display:block; width:320px; height:100px; margin:0 auto; }
+    .${styleId} { display:block; width:320px; height:100px; min-height:100px; margin:0 auto; }
     @media (min-width: 769px) { .${styleId} { width:728px; height:90px; } }
   </style>
   <ins class="adsbygoogle ${styleId}"
@@ -68,7 +68,7 @@ function renderMobileOnlyHomeAd(slotId) {
   const styleId = `ad-home-mo-${++adStyleCounter}`;
   return `<div class="ad-card ad-card-responsive-home">
   <style>
-    .${styleId} { display:block; width:320px; height:100px; margin:0 auto; }
+    .${styleId} { display:block; width:320px; height:100px; min-height:100px; margin:0 auto; }
     @media (min-width: 769px) { .${styleId} { display:none; } }
   </style>
   <ins class="adsbygoogle ${styleId}"
