@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-15T20:19:20.533Z",
+  "updatedAt": "2026-05-16T20:37:43.525Z",
   "period": "30days",
   "games": [
     {
@@ -32,10 +32,6 @@
     },
     {
       "slug": "identity-v-제5인격",
-      "views": 2
-    },
-    {
-      "slug": "isekai-gate",
       "views": 2
     },
     {
@@ -75,7 +71,11 @@
       "views": 2
     },
     {
-      "slug": "66666년만에-환생한-흑마법사-전략-디펜스-rpg",
+      "slug": "aion2",
+      "views": 1
+    },
+    {
+      "slug": "idol-company",
       "views": 1
     }
   ]
