@@ -1,24 +1,48 @@
 {
-  "updatedAt": "2026-05-15T01:24:33.746Z",
+  "updatedAt": "2026-05-16T01:31:51.200Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 14,
+      "views": 13,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
       "slug": "claude-code-agent-teams-paradigm",
-      "views": 5,
+      "views": 6,
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 3,
+      "views": 4,
       "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-agent-guide",
+      "views": 4,
+      "path": "/article/vibecoding/vibe-coding-agent-guide/"
+    },
+    {
+      "category": "ai-tools",
+      "slug": "cursor-composer-2-coding-model",
+      "views": 3,
+      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
+    },
+    {
+      "category": "general",
+      "slug": "lecun-ami-labs-llm-debate",
+      "views": 3,
+      "path": "/article/general/lecun-ami-labs-llm-debate/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 3,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
       "category": "general",
@@ -39,16 +63,22 @@
       "path": "/article/vibecoding/apple-blocks-vibe-coding-apps/"
     },
     {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 2,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+      "category": "anthropic",
+      "slug": "anthropic-81k-interview",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
-      "category": "ai-tools",
-      "slug": "cursor-composer-2-coding-model",
+      "category": "anthropic",
+      "slug": "claude-cowork-saaspocalypse",
       "views": 1,
-      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
+      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-dispatch-cowork-remote-control",
+      "views": 1,
+      "path": "/article/anthropic/claude-dispatch-cowork-remote-control/"
     },
     {
       "category": "anthropic",
@@ -76,9 +106,15 @@
     },
     {
       "category": "general",
-      "slug": "lecun-ami-labs-llm-debate",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
       "views": 1,
-      "path": "/article/general/lecun-ami-labs-llm-debate/"
+      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
+    },
+    {
+      "category": "general",
+      "slug": "karpathy-ai-job-exposure-score",
+      "views": 1,
+      "path": "/article/general/karpathy-ai-job-exposure-score/"
     },
     {
       "category": "general",
@@ -117,10 +153,22 @@
       "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
     },
     {
+      "category": "general",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 1,
+      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
       "category": "openai",
       "slug": "altman-musk-openai-trial-mudslinging",
       "views": 1,
       "path": "/article/openai/altman-musk-openai-trial-mudslinging/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-side-quests-pivot-coding-enterprise",
+      "views": 1,
+      "path": "/article/openai/openai-side-quests-pivot-coding-enterprise/"
     },
     {
       "category": "vibecoding",
