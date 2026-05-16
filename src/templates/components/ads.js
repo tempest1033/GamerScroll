@@ -22,6 +22,10 @@ const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
 // 고유 ID 생성용 카운터
 let adStyleCounter = 0;
 
+function renderEagerAdPushScript() {
+  return `<script>(function(){var s=document.currentScript;var i=s&&s.previousElementSibling;if(!i||!i.classList||!i.classList.contains('adsbygoogle'))return;if(window.getComputedStyle&&getComputedStyle(i).display==='none')return;if(i.getAttribute('data-gs-ad-pushed')==='1')return;i.setAttribute('data-gs-ad-pushed','1');try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){i.removeAttribute('data-gs-ad-pushed');}})();</script>`;
+}
+
 /**
  * 반응형 상단 광고
  * Mobile: 320x100, Tablet: 728x90, Desktop: 970x90
@@ -38,6 +42,7 @@ function renderResponsiveTopAd(slotId) {
   <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  ${renderEagerAdPushScript()}
 </div>`;
 }
 
@@ -56,6 +61,7 @@ function renderResponsiveHomeAd(slotId) {
   <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  ${renderEagerAdPushScript()}
 </div>`;
 }
 
@@ -74,6 +80,7 @@ function renderMobileOnlyHomeAd(slotId) {
   <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  ${renderEagerAdPushScript()}
 </div>`;
 }
 

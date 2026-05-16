@@ -1827,15 +1827,29 @@ const adLazyLoadScript = `
   var ads = document.querySelectorAll('.adsbygoogle');
   if (!ads.length) return;
 
-  // ATF ad: push immediately (no script-onload wait).
-  try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+  function isHiddenAd(ad) {
+    return window.getComputedStyle && getComputedStyle(ad).display === 'none';
+  }
+
+  function pushAd(ad) {
+    if (!ad || ad.getAttribute('data-gs-ad-pushed') === '1' || isHiddenAd(ad)) return;
+    ad.setAttribute('data-gs-ad-pushed', '1');
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      ad.removeAttribute('data-gs-ad-pushed');
+    }
+  }
+
+  // ATF ad fallback: eager ad slots may already have pushed next to the <ins>.
+  pushAd(ads[0]);
 
   // BTF ads: IntersectionObserver lazy load.
   if (ads.length > 1) {
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+          pushAd(entry.target);
           observer.unobserve(entry.target);
         }
       });

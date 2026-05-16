@@ -1837,13 +1837,25 @@ function wrapWithLayout(content, options = {}) {
   (function() {
     var ads = document.querySelectorAll('.adsbygoogle');
     if (!ads.length) return;
+    function isHiddenAd(ad) {
+      return window.getComputedStyle && getComputedStyle(ad).display === 'none';
+    }
+    function pushAd(ad) {
+      if (!ad || ad.getAttribute('data-gs-ad-pushed') === '1' || isHiddenAd(ad)) return;
+      ad.setAttribute('data-gs-ad-pushed', '1');
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        ad.removeAttribute('data-gs-ad-pushed');
+      }
+    }
     // AdSense queue is the standard mechanism: push() before script load is auto-processed on arrival.
-    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    pushAd(ads[0]);
     if (ads.length > 1) {
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+            pushAd(entry.target);
             observer.unobserve(entry.target);
           }
         });
