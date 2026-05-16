@@ -8,6 +8,7 @@
     "start": "node generate-html-report.js",
     "x-article-card": "node generate-x-article-card.js",
     "x-article-post": "node post-article-to-x.js",
+    "x-search": "node search-x.js",
     "x-article-all": "node generate-x-article-card.js && node post-article-to-x.js",
     "x-article-card-en": "node generate-x-article-card.js --lang en",
     "x-article-post-en": "node post-article-to-x.js --lang en",
