@@ -68,6 +68,28 @@
   position: relative;
 }
 
+/* Responsive top/home ad cards: center smaller creatives both axes */
+.ad-card-responsive-home,
+.ad-card-responsive-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+@media (min-width: 769px) {
+  .ad-card-responsive-home,
+  .ad-card-responsive-top {
+    min-height: 90px;
+  }
+}
+
+/* AdSense iframe child: vertical-align middle for shorter creatives */
+.ad-card-responsive-home > ins.adsbygoogle > iframe,
+.ad-card-responsive-top > ins.adsbygoogle > iframe {
+  vertical-align: middle;
+}
+
 
 /* ===== 광고 여백 ===== */
 /* 부모 컨테이너(home-main, home-sidebar, page-container)가 margin-bottom으로 간격 관리 */
