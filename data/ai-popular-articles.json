@@ -1,36 +1,30 @@
 {
-  "updatedAt": "2026-05-16T01:31:51.200Z",
+  "updatedAt": "2026-05-17T01:48:41.893Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 13,
+      "views": 11,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "anthropic",
       "slug": "claude-code-agent-teams-paradigm",
-      "views": 6,
+      "views": 5,
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
+      "category": "ai-tools",
+      "slug": "cursor-composer-2-coding-model",
       "views": 4,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
+      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
       "category": "vibecoding",
       "slug": "vibe-coding-agent-guide",
       "views": 4,
       "path": "/article/vibecoding/vibe-coding-agent-guide/"
-    },
-    {
-      "category": "ai-tools",
-      "slug": "cursor-composer-2-coding-model",
-      "views": 3,
-      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
       "category": "general",
@@ -45,10 +39,22 @@
       "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 3,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
+    },
+    {
       "category": "general",
       "slug": "supermicro-ai-chip-china-smuggling",
       "views": 2,
       "path": "/article/general/supermicro-ai-chip-china-smuggling/"
+    },
+    {
+      "category": "google",
+      "slug": "google-gemini-3-2-3-5-imminent",
+      "views": 2,
+      "path": "/article/google/google-gemini-3-2-3-5-imminent/"
     },
     {
       "category": "openai",
@@ -58,9 +64,9 @@
     },
     {
       "category": "vibecoding",
-      "slug": "apple-blocks-vibe-coding-apps",
+      "slug": "claude-code-install-guide-mac",
       "views": 2,
-      "path": "/article/vibecoding/apple-blocks-vibe-coding-apps/"
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
       "category": "anthropic",
@@ -85,12 +91,6 @@
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 1,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "moltbot-clawdbot-ai-assistant",
-      "views": 1,
-      "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
     },
     {
       "category": "general",
@@ -148,15 +148,15 @@
     },
     {
       "category": "general",
-      "slug": "nvidia-nemoclaw-agentic-ai-platform",
-      "views": 1,
-      "path": "/article/general/nvidia-nemoclaw-agentic-ai-platform/"
-    },
-    {
-      "category": "general",
       "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
       "views": 1,
       "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
+      "category": "general",
+      "slug": "seedance-2-hollywood-shock-next-version",
+      "views": 1,
+      "path": "/article/general/seedance-2-hollywood-shock-next-version/"
     },
     {
       "category": "openai",
@@ -166,15 +166,21 @@
     },
     {
       "category": "openai",
+      "slug": "openai-8000-anthropic-rivalry",
+      "views": 1,
+      "path": "/article/openai/openai-8000-anthropic-rivalry/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-astral-acquisition",
+      "views": 1,
+      "path": "/article/openai/openai-astral-acquisition/"
+    },
+    {
+      "category": "openai",
       "slug": "openai-side-quests-pivot-coding-enterprise",
       "views": 1,
       "path": "/article/openai/openai-side-quests-pivot-coding-enterprise/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-guide/"
     }
   ]
 }
