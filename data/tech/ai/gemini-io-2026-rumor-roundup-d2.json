@@ -1,0 +1,175 @@
+{
+  "slug": "gemini-io-2026-rumor-roundup-d2",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "google",
+  "title": "공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino",
+  "titleEn": "Gemini Pre-I/O Rumor Roundup: Spark, Omni, Cappuccino Two Days Out",
+  "date": "",
+  "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IO26_SVD_16x9_v012.max-1440x810.png",
+  "keywords": "스파크 에이전트, 옴니 영상 모델, 카푸치노 코드네임, 차세대 제미나이, I/O 2026 키노트, 구글 사전 정보, 제미나이 루머 총정리",
+  "keywordsEn": "Spark agent, Omni video model, Cappuccino codename, Next-gen Gemini, I/O 2026 keynote, Google pre-I/O leak, Gemini rumor roundup",
+  "summary": "구글 I/O 2026 키노트가 이틀 앞으로 다가왔다. 5월 19일을 두고 흩어져 있던 제미나이 루머가 세 줄기로 좁혀졌다 — 24시간 백그라운드 에이전트 스파크(Spark), 영상 모델 옴니(Omni), 차세대 LLM 카푸치노(Cappuccino). X에서는 몇 시간 만에 79만 조회를 찍은 옴니 첫 데모 영상과 '제미나이 3.2의 이름이 3.5로 바뀌었다'는 사전 정보가 나란히 돌고 있다. 어디까지 무대에 오르고 어디가 묻히는지, D-2 시점 기준으로 끊어 정리했다.",
+  "summaryEn": "Two days out from Google I/O 2026, the scattered Gemini leaks have collapsed into three threads: a 24/7 background agent codenamed Spark, a video model called Omni, and a next-gen LLM checkpoint dubbed Cappuccino. X is circulating an Omni demo that pulled 790,000 views within hours alongside a 'Gemini 3.2 was renamed to 3.5' claim. Here is which leak likely takes the stage on May 19 and which one stays in the rumor pile.",
+  "sources": [
+    {
+      "name": "9to5Google",
+      "title": "Gemini Spark insight — leaked agent inside Google app v17.23",
+      "url": "https://9to5google.com/2026/05/14/gemini-spark-insight/"
+    },
+    {
+      "name": "Gadgets360",
+      "title": "Google Gemini Omni video model in testing ahead of I/O",
+      "url": "https://www.gadgets360.com/ai/news/google-gemini-omni-video-model-testing-report-ai-11482463"
+    },
+    {
+      "name": "Knightli",
+      "title": "Gemini 3.5 Pro Cappuccino & Spark leak — what is coming at I/O 2026",
+      "url": "https://www.knightli.com/en/2026/05/17/gemini-35-pro-cappuccino-spark-leak/"
+    },
+    {
+      "name": "Google Blog",
+      "title": "Save the date! Google I/O 2026 is May 19-20",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/io-2026-save-the-date/"
+    },
+    {
+      "name": "X (Pre-I/O leak roundup, 163 likes / 7.2k impressions)",
+      "title": "Rumoured for I/O — Spark, Omni, Veo upgrade, Gemini 3.5",
+      "url": "https://x.com/i/status/2055747378314182991"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/google-gemini-3-2-3-5-imminent",
+    "tech:ai/gemini-31-pro-release",
+    "tech:ai/nano-banana-2-gemini-flash-image",
+    "tech:ai/antigravity-usage-rollback-gemini-partial-revert"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글 I/O 2026 키노트까지 이틀 남았다. 5월 19일 오전 10시(PT), 마운틴뷰 쇼어라인 앰피시어터에서 순다르 피차이가 무대에 오른다. 이번 주말에 어떤 제미나이 모델이 나올지를 두고 그동안 추측이 분분했지만, 지난 한 주 사이에 후보가 빠르게 추려졌다. 9to5Google, Gadgets360, Knightli가 차례로 사전 정보를 풀었다. X에서는 한 사용자가 정리한 '스파크·옴니·Veo·3.5' 묶음이 노출 7,200회를 넘으며 D-2 시점의 표준 시나리오로 자리잡았다. 결국 살아남은 줄기는 셋이다. 24시간 백그라운드 에이전트 [스파크](https://9to5google.com/2026/05/14/gemini-spark-insight/), 영상 모델 옴니, 그리고 차세대 LLM 체크포인트 카푸치노."
+    },
+    {
+      "type": "heading",
+      "value": "스파크 — Gmail까지 들여다보는 24시간 에이전트"
+    },
+    {
+      "type": "image",
+      "src": "https://nokiapoweruser.com/wp-content/uploads/2026/04/Gemini-Personal-Intelligence-on-Pixel-A-Glimpse-of-Googles-AI-Future.jpeg",
+      "caption": "픽셀에 통합된 제미나이",
+      "alt": "Google Pixel 기기에서 동작하는 제미나이 개인 지능 기능"
+    },
+    {
+      "type": "text",
+      "value": "9to5Google이 5월 14일 보도한 스파크는 챗봇이 아니다. 구글 앱 v17.23 바이너리 안에 숨어 있는 별도 에이전트다. 사용자가 직접 프롬프트를 입력하지 않아도 백그라운드에서 계속 돌면서 Gmail과 Calendar, 열린 탭, 앱 사이를 오가며 맥락을 묶어둔다는 게 핵심이다.\n\n5월 16일 X에 올라온 한 정리 글이 핵심을 한 줄에 요약했다 — 'Gmail을 읽고, 태스크를 지켜보고, Calendar를 체크하고, 백그라운드에서 액션까지 실행한다.' 노출 1,682회에 좋아요 13개. 짧은 글치고 꽤 퍼진 편이다.\n\n같은 흐름에서 또 다른 사용자는 '제미나이 스파크 = 레미(Remy)'라는 내부 코드네임도 흘렸고, Skills 시스템과 태스크 스케줄러가 별도 컴포넌트로 분리돼 있다는 코드 분석 글까지 따라붙었다."
+    },
+    {
+      "type": "heading",
+      "value": "옴니 — 한나절 만에 79만 조회, 영상의 '나노바나나 모먼트'"
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/i/status/2054485555182760300",
+      "caption": "옴니 첫 데모를 띄운 X 게시글 — 노출 161만, 좋아요 152가 단 며칠 만에 붙었다"
+    },
+    {
+      "type": "text",
+      "value": "두 번째 줄기는 영상 모델 옴니다. Gadgets360에 따르면 제미나이 기반의 통합 영상 생성·편집·리믹스 모델로, I/O 2026 직전 사내 테스트 단계에 들어갔다. Veo와는 별개 라인이지만 영상 스택은 공유하는 구조다.\n\n루머의 온도를 단번에 끌어올린 건 5월 17일 새벽 X에 풀린 첫 데모 클립이었다. 네덜란드어로 올라온 한 게시글은 이렇게 적었다 — '오늘 옴니 첫 데모가 풀렸다. 몇 시간 만에 X에서 792k 조회. 영상 안에 들어가는 글자가 멀쩡하게 나온다. 이미지에서 나노바나나가 그 자리였다면, 영상에서는 이 모델이 그 자리다.' 조회수가 붙는 속도만 봐도 반응이 심상치 않다는 얘기다. 다른 댓글은 'Veo 4는 아닌 듯, 9초짜리 길이만 봐도 다른 라인'이라며 두 모델이 별도임을 짚었다. 런웨이 쪽도 눈치가 빨랐다. TechCrunch와의 인터뷰에서 선제 방어 발언을 내놨는데, 53억 달러 밸류에이션이 영상 AI 주도권에 얽혀 있는 회사로서는 나올 말이 나온 수순이었다."
+    },
+    {
+      "type": "heading",
+      "value": "카푸치노 — '3.2가 3.5가 됐다'는 이름 변경 루머와 게임 빌드 데모"
+    },
+    {
+      "type": "text",
+      "value": "세 번째 줄기가 가장 시끄럽다. 5월 15일의 한 X 게시글은 이렇게 적었다 — '구글이 제미나이 3.2의 이름을 3.5로 바꿨다. 유출된 체크포인트 카푸치노는 이미 작동하는 게임을 처음부터 통째로 빌드하고 있다.' 같은 날 Knightli도 후속 보도를 내놨고, 카푸치노가 미공개 제미나이 3.5 Pro의 코드네임이라는 윤곽이 잡혔다.\n\n3.2냐 3.5냐는 [지난주 정리](/tech/ai/google-gemini-3-2-3-5-imminent/)에서도 핵심 쟁점이었다. 이번 주에 달라진 건 코드네임이 붙으면서 3.5 쪽으로 무게추가 기울었다는 점이다. AI Studio A/B 노출 보고, Antigravity 설정에 잠깐 떴던 'Gemini 3.5 Pro' 옵션, 그리고 카푸치노라는 코드네임 하나. 세 갈래가 같은 방향으로 수렴하고 있다는 얘기다. 다만 '게임을 통째로 빌드한다'는 대목은 글로만 적혀 있을 뿐 시연 영상이 같이 풀린 건 아니다. 키노트 라이브 시연이 나오기 전까지는 한 단계 낮춰서 보는 게 맞다."
+    },
+    {
+      "type": "heading",
+      "value": "Veo 업그레이드·구글북(Googlebook)·XR 글래스 — 그 외에도 거론되는 신호들"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/0098-ARVR-XR-Blog-Header-2096x1182-v2.width-1300.png",
+      "caption": "구글이 공개한 안드로이드 XR 헤더 비주얼",
+      "alt": "Google Android XR 관련 공식 블로그 헤더 이미지 — VR·AR·스마트 글래스 콘셉"
+    },
+    {
+      "type": "text",
+      "value": "그 외에도 함께 거론되는 후보가 셋 더 있다. Veo는 영상 라인의 기존 핵심 모델이다. 옴니가 그 역할을 어디까지 흡수하고 어디서부터 Veo 4로 갈리는지가 이번 키노트의 숨은 관전 포인트다. '구글북'이라 불리는 AI 노트북 라인업도 같이 이름이 오르내리고 있다. 5월 17일의 한 X 게시글은 이렇게 정리했다 — 'I/O 2026은 실행 가능한 AI에 초점. 구글북 AI 노트북과 제미나이 크로스앱 통합은 확정, 그 위에 3.5 Pro·스파크·Veo·옴니 루머가 얹힌다.'\n\nXR 글래스도 잠깐 얼굴을 비춘다. 한 다국어 뉴스 정리 글에서 '에이전틱 안드로이드 AI, 새 음성 모델 7종, 옴니 영상 생성, XR 스마트 글래스'가 한 줄에 묶였는데, 글래스 쪽 신호는 가장 옅다. 데모도 없고 관련 코드 분석도 없다. 무대 한구석에 잠깐 비치기만 해도 성공이라는 게 지금 시점의 현실적 기대치다."
+    },
+    {
+      "type": "heading",
+      "value": "무대에 오를 셋과 묻힐 셋 — D-Day 체크리스트"
+    },
+    {
+      "type": "text",
+      "value": "이틀 뒤 키노트에서 가려질 질문은 셋이다. 첫째, 스파크가 별도 제품으로 발표되느냐, 아니면 제미나이 앱 안의 새 모드로 흡수되느냐. 둘째, 옴니가 키노트 현장에서 라이브 시연으로 공개되느냐, 아니면 별도 블로그 글로만 조용히 풀리느냐. 셋째, 차세대 텍스트 모델이 '제미나이 3.5 Pro'라는 이름을 달고 무대에 오르느냐, 아니면 3.2로 발표되면서 이름 변경 루머가 헛소문으로 남느냐.\n\n반대편은 윤곽이 비교적 또렷하다. Veo 업그레이드는 거의 확정 수순이고, 구글북은 발표 자체보다 폼팩터와 가격이 관건이다. XR 글래스는 이번 무대에서 빠질 가능성이 가장 크다. 정황만 남긴 채 'I/O 2027'로 밀리는 그림이다. 그래도 루머가 세 줄기로 압축됐다는 사실 자체가 이번 키노트의 긴장도를 끌어올린다. 그만큼 같은 화면을 같이 지켜볼 사람이 많아졌다는 얘기다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Two days out from the Google I/O 2026 keynote. May 19, 10:00 AM PT, Sundar Pichai opens at Mountain View's Shoreline Amphitheatre, and what exactly drops there has been a moving target for weeks. The candidate set narrowed fast over the past week. 9to5Google, Gadgets360, and Knightli each peeled off a separate signal, and on X a single user's 'Spark / Omni / Veo / 3.5' roundup pulled 7,200 impressions on its own — effectively the consensus D-2 scenario now. The surviving leaks are three: a 24/7 background agent codenamed [Spark](https://9to5google.com/2026/05/14/gemini-spark-insight/), a video model called Omni, and a next-gen LLM checkpoint dubbed Cappuccino."
+    },
+    {
+      "type": "heading",
+      "value": "Spark — A 24/7 Agent That Reads Your Gmail"
+    },
+    {
+      "type": "image",
+      "src": "https://nokiapoweruser.com/wp-content/uploads/2026/04/Gemini-Personal-Intelligence-on-Pixel-A-Glimpse-of-Googles-AI-Future.jpeg",
+      "caption": "Gemini integrated into Pixel",
+      "alt": "Gemini personal intelligence running on a Google Pixel device"
+    },
+    {
+      "type": "text",
+      "value": "9to5Google's May 14 report describes Spark as something other than a chatbot. It is a separate agent hidden inside the Google app v17.23 binary, engineered to run in the background without a prompt, stitching context across Gmail, Calendar, open tabs, and apps.\n\nA May 16 X thread put it bluntly — 'reads your Gmail, watches your tasks, checks your calendar, can take actions in the background' — and pulled 1,682 impressions and 13 likes. Another user in the same wave dropped a second handle: 'Gemini Spark = Remy,' an internal codename. Code leaks point to a Skills system and a task scheduler as distinct components of the same agent."
+    },
+    {
+      "type": "heading",
+      "value": "Omni — 790K Views in Half a Day, the Video 'Nano Banana Moment'"
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/i/status/2054485555182760300",
+      "caption": "The X post that surfaced the first Omni demo — 1.6M impressions and 152 likes in a couple of days"
+    },
+    {
+      "type": "text",
+      "value": "Thread two is the video model, Omni. Gadgets360 reports it as a unified Gemini-based video generation, editing, and remix model under internal testing ahead of I/O 2026. Separate line from Veo, but sharing the video stack.\n\nThe scale of the signal showed in the first demo clip that leaked on X early May 17. A Dutch-language post wrote: 'The first demo of Omni leaked today. 792k views on X in a few hours. The text inside the video is just correct — no garbled letters. For images Nano Banana did this. For video, this is it.' Another comment pushed back gently — 'Not Veo 4. The 9-second length alone tells you it's a different line.' Runway, whose $5.3 billion valuation rides on owning AI video, had already given a pre-emptive interview to TechCrunch — the timing reads less like a coincidence and more like a defense against I/O Monday."
+    },
+    {
+      "type": "heading",
+      "value": "Cappuccino — Rename Rumor and the Game-Build Claim"
+    },
+    {
+      "type": "text",
+      "value": "Thread three is the loudest. A May 15 X post claimed: 'Google renamed Gemini 3.2 to 3.5. Leaked checkpoint Cappuccino is already building full playable games from scratch.' Same day, Knightli.com followed up framing Cappuccino as the internal codename for an unreleased Gemini 3.5 Pro.\n\n3.2 versus 3.5 was already the central question of [last week's roundup](/article/google/google-gemini-3-2-3-5-imminent/). What changed this week is a codename attaching itself to the higher-number side. The AI Studio A/B exposures, the brief 'Gemini 3.5 Pro' option in Antigravity settings, and now the single identifier Cappuccino — three traces in the same direction. The 'builds full playable games' line came as text description without an accompanying demo video, though, so until a live walkthrough lands on stage it is one notch softer than the other two threads."
+    },
+    {
+      "type": "heading",
+      "value": "Veo Upgrade, Googlebook, XR Glasses — Adjacent Signals"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/0098-ARVR-XR-Blog-Header-2096x1182-v2.width-1300.png",
+      "caption": "Google's Android XR header visual",
+      "alt": "Official Google blog header image for Android XR — VR / AR / smart glasses concept"
+    },
+    {
+      "type": "text",
+      "value": "If those three are the main stage, three more sit in the wings. Veo is the established video axis — the I/O question is how much Omni absorbs and where Veo 4 picks up the rest. The 'Googlebook' AI laptop family is in the same orbit. A May 17 X post summarized: 'I/O 2026 targets actionable AI. Confirmed: Googlebook AI laptops and cross-app Gemini integration. Rumored: Gemini 3.5 Pro, Spark, Veo upgrade, Omni.'\n\nXR glasses surface briefly. One multilingual news roundup grouped 'agentic Android AI, seven new voice models, Omni video generation, XR smart glasses' in a single line. The glasses signal is the thinnest of the bunch — no demo, no code leak. A brief cameo on stage would already count as success at this point."
+    },
+    {
+      "type": "heading",
+      "value": "What Takes the Stage, What Stays in the Rumor Pile"
+    },
+    {
+      "type": "text",
+      "value": "The D-Day checklist is short. First, does Spark ship as its own surface, or get folded into the Gemini app as a new mode? Second, does Omni get a live keynote demo, or does it land via a blog post without one? Third, does the next-gen text model arrive as Gemini 3.5 Pro on stage, or does it drop to 3.2 and turn the rename rumor into a dead lead?\n\nOn the adjacent side, the Veo upgrade is close to a lock; Googlebook's interesting question is form factor and pricing, not whether it gets announced. The XR glasses are the most likely to slip out of this keynote entirely and get pushed to I/O 2027. That the rumor pile has narrowed to three core threads two days out is itself the story: the audience the keynote can land on has gotten that much wider."
+    }
+  ]
+}

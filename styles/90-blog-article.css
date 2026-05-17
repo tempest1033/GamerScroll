@@ -1,8 +1,8 @@
-﻿/* ========================================
-   블로그 심층 리포트 - 일간리포트 스타일 통일
+/* ========================================
+   블로그 심층 리포트
    ======================================== */
 
-/* 컨테이너 - 일간리포트와 동일한 스타일 적용 */
+/* 컨테이너 */
 #issue .page-container {
   max-width: 1076px;
   margin: 0 auto;
@@ -1525,12 +1525,12 @@
   font-weight: 600;
 }
 
-/* iOS/AOS 색상 구분 */
+/* iOS/AOS 색상 구분 (WCAG AA 4.5:1 contrast on white) */
 .ranking-card-stat.stat-ios .stat-label {
-  color: #007AFF;
+  color: #0050B3;
 }
 .ranking-card-stat.stat-aos .stat-label {
-  color: #3DDC84;
+  color: #1F8F4D;
 }
 
 /* 요약 통계 */
