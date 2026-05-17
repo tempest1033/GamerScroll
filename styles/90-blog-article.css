@@ -125,12 +125,21 @@
   padding: 24px;
 }
 
-/* 본문 내 링크 */
+/* 본문 내 링크 — WCAG AA (light #2563eb / dark #ff6b35) */
 .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
-  color: #60a5fa;
-  text-decoration: none;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-weight: var(--font-tab-weight);
   transition: color 0.2s;
+}
+
+/* a11y: trend-nav contrast (WCAG AA, site-wide) */
+.trend-nav-btn {
+  color: var(--text-primary);
+}
+.trend-nav-btn.disabled {
+  opacity: 0.55;
 }
 
 .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):hover {
