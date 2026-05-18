@@ -28,39 +28,36 @@ function renderEagerAdPushScript() {
 
 /**
  * 반응형 상단 광고
- * Mobile: 320x100, Tablet: 728x90, Desktop: 970x90
+ * AdSense auto-sizing: 컴테이너 폭에 맞는 표준 사이즈 자동 매칭
+ * (CLS 방지는 .ad-card-responsive-top { min-height } 에서 보장)
  */
 function renderResponsiveTopAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
-  const styleId = `ad-top-${++adStyleCounter}`;
   return `<div class="ad-card ad-card-responsive-top">
-  <style>
-    .${styleId} { display:block; width:320px; height:100px; min-height:100px; margin:0 auto; }
-    @media (min-width: 769px) { .${styleId} { width:728px; height:90px; } }
-    @media (min-width: 1024px) { .${styleId} { width:970px; height:90px; } }
-  </style>
-  <ins class="adsbygoogle ${styleId}"
+  <ins class="adsbygoogle"
+       style="display:block"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
 }
 
 /**
  * 반응형 홈 상단 광고
- * Mobile: 320x100, Desktop: 728x90
+ * AdSense auto-sizing: 컴테이너 폭에 맞는 표준 사이즈 자동 매칭
+ * (CLS 방지는 .ad-card-responsive-home { min-height } 에서 보장)
  */
 function renderResponsiveHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
-  const styleId = `ad-home-${++adStyleCounter}`;
   return `<div class="ad-card ad-card-responsive-home">
-  <style>
-    .${styleId} { display:block; width:320px; height:100px; min-height:100px; margin:0 auto; }
-    @media (min-width: 769px) { .${styleId} { width:728px; height:90px; } }
-  </style>
-  <ins class="adsbygoogle ${styleId}"
+  <ins class="adsbygoogle"
+       style="display:block"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
 }
