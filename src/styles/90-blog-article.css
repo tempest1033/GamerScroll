@@ -4,7 +4,7 @@
 
 /* 컨테이너 */
 #issue .page-container {
-  max-width: 1080px;
+  max-width: 1076px;
   margin: 0 auto;
   padding: 0 0 var(--space-block-y) 0;
   display: block;

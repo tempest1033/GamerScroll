@@ -911,7 +911,7 @@ function wrapWithLayout(content, options = {}) {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1080px;
+      max-width: 1076px;
       margin: 0 auto;
       padding: 0 20px;
     }

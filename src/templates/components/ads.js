@@ -64,7 +64,7 @@ function renderResponsiveHomeAd(slotId) {
 
 /**
  * PC 전용 홈/상단 광고
- * Desktop: 728x90 fixed slot, Mobile: 숨김
+ * Desktop: full-width responsive slot, Mobile: 숨김
  */
 function renderDesktopOnlyHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
@@ -74,13 +74,15 @@ function renderDesktopOnlyHomeAd(slotId) {
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
-      .${cardClass} { display:flex !important; max-width:100%; min-height:90px; overflow:hidden; align-items:center; justify-content:center; }
-      .${styleId} { display:inline-block !important; width:728px; height:90px; min-height:90px; margin:0 auto; }
+      .${cardClass} { display:flex !important; width:100%; max-width:100%; min-height:90px; overflow:hidden; align-items:center; justify-content:center; }
+      .${styleId} { display:block !important; width:100%; min-height:90px; margin:0 auto; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
 }
@@ -95,9 +97,10 @@ function renderMobileOnlyHomeAd(slotId) {
   const cardClass = `${styleId}-card`;
   return `<div class="ad-card ad-card-responsive-home ${cardClass}">
   <style>
-    .${styleId} { display:block; width:320px; height:100px; min-height:100px; margin:0 auto; }
+    .${cardClass} { display:flex !important; height:100px; min-height:100px; max-height:100px; align-items:center; justify-content:center; overflow:hidden; }
+    .${styleId} { display:block !important; width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
     @media (min-width: 769px) {
-      .${cardClass}, .${styleId} { display:none !important; }
+      .${cardClass}, .${styleId} { display:none !important; height:0 !important; min-height:0 !important; max-height:0 !important; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"

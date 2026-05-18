@@ -16,7 +16,7 @@
     }
 
     .header-inner {
-      max-width: 1080px;
+      max-width: 1076px;
       margin: 0 auto;
       padding: 0 16px;
       display: flex;
@@ -137,7 +137,7 @@
     }
 
     .nav-inner {
-      max-width: 1080px;
+      max-width: 1076px;
       margin: 0 auto;
       padding: 0 var(--space-page-x);
       display: flex;
@@ -304,9 +304,9 @@
 	      min-height: calc(100vh - 180px) !important;
 	    }
 
-    /* Site Container (PC: 1080px) */
+    /* Site Container (PC: 1076px) */
     :is(.site-container, .container) {
-      max-width: 1080px;
+      max-width: 1076px;
       flex: 1 0 auto !important;
       margin: 0 auto;
       padding: 0 var(--space-page-x) 60px;
