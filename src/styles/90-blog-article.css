@@ -127,14 +127,23 @@
 
 /* 본문 내 링크 */
 .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
-  color: #60a5fa;
+  color: #2563eb;
   text-decoration: none;
   font-weight: var(--font-tab-weight);
   transition: color 0.2s;
 }
 
 .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):hover {
-  color: #34d399;
+  color: #059669;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
+    color: #60a5fa;
+  }
+  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):hover {
+    color: #34d399;
+  }
 }
 
 /* 본문 단락 */
@@ -961,7 +970,7 @@
 
 
 .trend-nav-btn.disabled {
-  opacity: 0.4;
+  opacity: 0.7;
   cursor: not-allowed;
   pointer-events: none;
 }
