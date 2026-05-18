@@ -35,7 +35,7 @@ function renderResponsiveTopAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
   return `<div class="ad-card ad-card-responsive-top">
   <ins class="adsbygoogle"
-       style="display:block"
+       style="display:block;width:100%"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="auto"
@@ -53,7 +53,7 @@ function renderResponsiveHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
   return `<div class="ad-card ad-card-responsive-home">
   <ins class="adsbygoogle"
-       style="display:block"
+       style="display:block;width:100%"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
        data-ad-format="auto"
