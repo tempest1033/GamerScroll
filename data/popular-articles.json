@@ -1,38 +1,51 @@
 {
-  "updatedAt": "2026-05-17T01:47:33.887Z",
+  "updatedAt": "2026-05-18T01:56:56.853Z",
   "period": "7days",
   "articles": [
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 25,
+      "views": 23,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 17,
+      "views": 16,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 14,
+      "views": 15,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
+      "type": "hotpick",
+      "slug": "switch-2-buying-guide-2026",
+      "views": 6,
+      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
+    },
+    {
+      "type": "tech",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
+      "views": 6,
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 5,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -41,29 +54,16 @@
       "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
     },
     {
-      "type": "hotpick",
-      "slug": "switch-2-buying-guide-2026",
-      "views": 4,
-      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 4,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-april-2026-kr",
-      "views": 4,
+      "views": 5,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
-      "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 3,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -76,12 +76,6 @@
       "slug": "neverness-to-everness-launch-date",
       "views": 3,
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
@@ -105,13 +99,6 @@
       "path": "/tech/ai/nvidia-ai-chip-monopoly-cracking/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
       "type": "issue",
       "slug": "lineage-classic-refund-exploit-ban",
       "views": 2,
@@ -122,6 +109,12 @@
       "slug": "xbox-project-helix-pc-console",
       "views": 2,
       "path": "/magazine/issue/xbox-project-helix-pc-console/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
@@ -167,10 +160,10 @@
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
+      "slug": "platform-fees-comparison",
+      "category": "business",
       "views": 2,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "hotpick",
@@ -192,6 +185,12 @@
     },
     {
       "type": "issue",
+      "slug": "devsisters-q1-loss-voluntary-retirement",
+      "views": 1,
+      "path": "/magazine/issue/devsisters-q1-loss-voluntary-retirement/"
+    },
+    {
+      "type": "issue",
       "slug": "lck-cup-baron-wins-hle-eliminated",
       "views": 1,
       "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
@@ -204,15 +203,34 @@
     },
     {
       "type": "issue",
+      "slug": "mongil-star-dive-global-launch",
+      "views": 1,
+      "path": "/magazine/issue/mongil-star-dive-global-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 1,
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
     },
     {
       "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "steam-february-2026",
       "views": 1,
       "path": "/magazine/ranking/steam-february-2026/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-sonnet-46-release",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-sonnet-46-release/"
     },
     {
       "type": "tech",
@@ -276,6 +294,13 @@
       "category": "vibecoding",
       "views": 1,
       "path": "/tech/vibecoding/vibe-coding-workflow-prompt-guide/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",

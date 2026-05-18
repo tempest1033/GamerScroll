@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-17T01:48:41.893Z",
+  "updatedAt": "2026-05-18T01:58:06.221Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 11,
+      "views": 10,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -15,16 +15,16 @@
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
-      "category": "ai-tools",
-      "slug": "cursor-composer-2-coding-model",
-      "views": 4,
-      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
-    },
-    {
       "category": "vibecoding",
       "slug": "vibe-coding-agent-guide",
       "views": 4,
       "path": "/article/vibecoding/vibe-coding-agent-guide/"
+    },
+    {
+      "category": "ai-tools",
+      "slug": "cursor-composer-2-coding-model",
+      "views": 3,
+      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
       "category": "general",
@@ -49,6 +49,12 @@
       "slug": "supermicro-ai-chip-china-smuggling",
       "views": 2,
       "path": "/article/general/supermicro-ai-chip-china-smuggling/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-io-2026-rumor-roundup-d2",
+      "views": 2,
+      "path": "/article/google/gemini-io-2026-rumor-roundup-d2/"
     },
     {
       "category": "google",
@@ -166,21 +172,15 @@
     },
     {
       "category": "openai",
+      "slug": "gpt-53-instant-less-cringe",
+      "views": 1,
+      "path": "/article/openai/gpt-53-instant-less-cringe/"
+    },
+    {
+      "category": "openai",
       "slug": "openai-8000-anthropic-rivalry",
       "views": 1,
       "path": "/article/openai/openai-8000-anthropic-rivalry/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-astral-acquisition",
-      "views": 1,
-      "path": "/article/openai/openai-astral-acquisition/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-side-quests-pivot-coding-enterprise",
-      "views": 1,
-      "path": "/article/openai/openai-side-quests-pivot-coding-enterprise/"
     }
   ]
 }
