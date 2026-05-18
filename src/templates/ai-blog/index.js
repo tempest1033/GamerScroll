@@ -1915,7 +1915,7 @@ function wrapWithLayout(content, options = {}) {
     for (var a = 0; a < ads.length; a++) { observeAdVisualSize(ads[a]); }
     pushAd(ads[0]);
     if (ads.length > 1) {
-      var btfRootMargin = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? '2400px' : '900px';
+      var btfRootMargin = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? '5200px' : '1800px';
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {

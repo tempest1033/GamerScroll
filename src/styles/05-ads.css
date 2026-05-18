@@ -81,7 +81,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
   min-height: 100px;
 }
 
@@ -96,11 +95,22 @@
 .ad-card-responsive-home > ins.adsbygoogle > iframe,
 .ad-card-responsive-top > ins.adsbygoogle > iframe {
   vertical-align: middle;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .ad-card-responsive-home.gs-ad-compact,
 .ad-card-responsive-top.gs-ad-compact {
   align-items: flex-start;
+}
+
+@media (min-width: 1200px) {
+  .article-main > .ad-card-responsive-home:first-child,
+  .article-main > .ad-card-responsive-top:first-child,
+  .home-main > .ad-card-responsive-home:first-child,
+  .home-main > .ad-card-responsive-top:first-child {
+    min-width: 728px;
+  }
 }
 
 .article-main .ad-card-responsive-home,
