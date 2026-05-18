@@ -201,7 +201,7 @@ function generateGamesHubPage(options = {}) {
 
   const content = `
     <section class="section active" id="games">
-      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { mobileOnly: true })}
+      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container" id="top">
         <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
         ${searchResultsSection}

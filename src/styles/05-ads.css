@@ -90,6 +90,19 @@
   vertical-align: middle;
 }
 
+.article-main .ad-card-responsive-home,
+.article-main .ad-card-responsive-top {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.article-main .ad-card-responsive-home > ins.adsbygoogle,
+.article-main .ad-card-responsive-top > ins.adsbygoogle,
+.article-main .ad-card-responsive-home > ins.adsbygoogle > iframe,
+.article-main .ad-card-responsive-top > ins.adsbygoogle > iframe {
+  max-width: 100%;
+}
+
 
 /* ===== 광고 여백 ===== */
 /* 부모 컨테이너(home-main, home-sidebar, page-container)가 margin-bottom으로 간격 관리 */
@@ -166,7 +179,13 @@ body.ads-disabled .article-layout {
 
 /* ===== Unfilled 광고 처리 ===== */
 
-/* 상단 광고 (top): unfilled 시 기존 카드 스타일 유지 + 무채색 파비콘 */
+/* 상단 광고: unfilled 시 빈 배너를 남기지 않음 */
+.ad-card-responsive-home:has(ins[data-ad-status="unfilled"]),
+.ad-card-responsive-top:has(ins[data-ad-status="unfilled"]) {
+  display: none !important;
+}
+
+/* Legacy top ad classes */
 .ad-card-pc:has(ins[data-ad-status="unfilled"]),
 .ad-card-pc-home:has(ins[data-ad-status="unfilled"]),
 .ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) {

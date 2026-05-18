@@ -57,6 +57,7 @@ const {
   renderAdCard,
   renderResponsiveTopAd,
   renderResponsiveHomeAd,
+  renderHomeAdPair,
   renderMobileOnlyHomeAd,
   renderSidebarVerticalAd,
   renderSidebarRectangleAd,
@@ -2492,7 +2493,7 @@ function generateHomeAdPairSlot(pcSlotId, mobileSlotId, options = {}) {
   if (options.mobileOnly) {
     return renderMobileOnlyHomeAd(mobileSlotId || pcSlotId);
   }
-  return renderResponsiveHomeAd(pcSlotId);
+  return renderHomeAdPair(pcSlotId, mobileSlotId);
 }
 
 // 모바일 전용 중간 광고 (PC에서는 CSS로 숨김)

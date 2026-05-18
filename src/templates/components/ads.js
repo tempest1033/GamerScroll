@@ -63,22 +63,62 @@ function renderResponsiveHomeAd(slotId) {
 }
 
 /**
+ * PC 전용 홈/상단 광고
+ * Desktop: AdSense auto-sizing, Mobile: 숨김
+ */
+function renderDesktopOnlyHomeAd(slotId) {
+  if (!ADS_ENABLED || !slotId) return '';
+  const styleId = `ad-home-pc-${++adStyleCounter}`;
+  const cardClass = `${styleId}-card`;
+  return `<div class="ad-card ad-card-responsive-home ${cardClass}">
+  <style>
+    .${cardClass}, .${styleId} { display:none !important; }
+    @media (min-width: 769px) {
+      .${cardClass} { display:flex !important; max-width:100%; overflow:hidden; }
+      .${styleId} { display:block !important; width:100%; max-width:100%; }
+    }
+  </style>
+  <ins class="adsbygoogle ${styleId}"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  ${renderEagerAdPushScript()}
+</div>`;
+}
+
+/**
  * 모바일 전용 홈 상단 광고
  * Mobile: 320x100, Desktop: 숨김
  */
 function renderMobileOnlyHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
   const styleId = `ad-home-mo-${++adStyleCounter}`;
-  return `<div class="ad-card ad-card-responsive-home">
+  const cardClass = `${styleId}-card`;
+  return `<div class="ad-card ad-card-responsive-home ${cardClass}">
   <style>
     .${styleId} { display:block; width:320px; height:100px; min-height:100px; margin:0 auto; }
-    @media (min-width: 769px) { .${styleId} { display:none; } }
+    @media (min-width: 769px) {
+      .${cardClass}, .${styleId} { display:none !important; }
+    }
   </style>
   <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
+}
+
+/**
+ * 홈/상단 광고 페어
+ * PC는 auto-responsive, 모바일은 320x100 고정 슬롯으로 분리
+ */
+function renderHomeAdPair(pcSlotId, mobileSlotId) {
+  if (!ADS_ENABLED) return '';
+  return [
+    renderDesktopOnlyHomeAd(pcSlotId),
+    renderMobileOnlyHomeAd(mobileSlotId || pcSlotId)
+  ].filter(Boolean).join('\n');
 }
 
 /**
@@ -231,7 +271,9 @@ module.exports = {
   // 신규 반응형 함수
   renderResponsiveTopAd,
   renderResponsiveHomeAd,
+  renderDesktopOnlyHomeAd,
   renderMobileOnlyHomeAd,
+  renderHomeAdPair,
   renderSidebarVerticalAd,
   renderSidebarRectangleAd,
   renderMobileOnlyAd,

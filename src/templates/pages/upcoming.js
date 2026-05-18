@@ -55,7 +55,7 @@ function generateUpcomingPage(data) {
 
   const content = `
     <section class="section active" id="upcoming">
-      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { mobileOnly: true })}
+      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container">
         <h1 class="visually-hidden">출시 게임 - 신작 게임, 출시 예정 게임</h1>
         <div class="upcoming-card home-card">

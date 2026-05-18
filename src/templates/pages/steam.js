@@ -47,7 +47,7 @@ function generateSteamPage(data) {
 
   const content = `
     <section class="section active" id="steam">
-      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { mobileOnly: true })}
+      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container">
         <h1 class="visually-hidden">스팀 게임 순위</h1>
         <div class="steam-card home-card">

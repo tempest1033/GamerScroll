@@ -1191,7 +1191,7 @@ function generateGamePage(gameData) {
 
   const content = `
     <section class="section active" id="game">
-      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { mobileOnly: true })}
+      ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container game-page-grid">
         <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
         <!-- 게임 히어로 -->
