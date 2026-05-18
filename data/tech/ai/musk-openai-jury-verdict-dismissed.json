@@ -1,0 +1,97 @@
+{
+  "slug": "musk-openai-jury-verdict-dismissed",
+  "category": "openai",
+  "status": "approved",
+  "date": "",
+  "title": "머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산",
+  "titleEn": "Musk Loses $150B OpenAI Lawsuit as Jury Rules It Was Filed Too Late",
+  "summary": "일론 머스크가 OpenAI를 상대로 낸 1,500억 달러 규모의 소송이 5월 18일 미국 캘리포니아 북부 연방법원 배심원단의 만장일치 기각으로 막을 내렸다. 자선신탁 위반, 부당이득, 마이크로소프트 방조 등 남은 세 갈래 청구 모두 공소시효가 지났다는 결론이다. 이본 곤잘레스 로저스 판사는 그 자리에서 평결을 확정했다. 시비조차 가리지 못하고 사건이 닫혔지만, 3주간 이어진 재판에서 샘 알트만, 그렉 브록먼, 일리야 수츠케버의 증언이 끌어낸 OpenAI 내부 사정은 고스란히 법원 기록에 남았다.",
+  "summaryEn": "On May 18, a unanimous jury in the U.S. District Court for the Northern District of California rejected Elon Musk's $150 billion lawsuit against OpenAI, ruling that all three remaining claims (breach of charitable trust, unjust enrichment, and Microsoft aiding and abetting) were filed past the statute of limitations. Judge Yvonne Gonzalez Rogers confirmed the verdict from the bench. The case closed without ever reaching the merits, but the three-week trial put Sutskever, Brockman, and Altman testimony on the public record.",
+  "keywords": "머스크 OpenAI 소송, 공소시효, 샘 알트만, 자선신탁, 영리법인 전환, 곤잘레스 로저스, 부당이득, 마이크로소프트 방조, 일리야 수츠케버, AI 권력 구도",
+  "keywordsEn": "Musk OpenAI lawsuit, statute of limitations, Sam Altman, charitable trust, for-profit conversion, Gonzalez Rogers, unjust enrichment, Microsoft aiding, Ilya Sutskever, AI power map",
+  "needTranslate": false,
+  "thumbnail": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ivKsFPmNMjrY/v0/-1x-1.webp",
+  "sources": [
+    {"name": "Axios", "title": "Musk loses landmark AI trial against OpenAI and Sam Altman", "url": "https://www.axios.com/2026/05/18/musk-loses-ai-trial-openai-altman"},
+    {"name": "TechCrunch", "title": "What the jury will actually decide in the case of Elon Musk vs Sam Altman", "url": "https://techcrunch.com/2026/05/14/what-the-jury-will-actually-decide-in-the-case-of-elon-musk-vs-sam-altman/"},
+    {"name": "Investing.com", "title": "Elon Musk's court battle against OpenAI enters homestretch", "url": "https://www.investing.com/news/stock-market-news/elon-musks-court-battle-against-openai-enters-homestretch-4689201"},
+    {"name": "Investing.com", "title": "US judge dismisses Musk's fraud claims in OpenAI case, plans to proceed to trial", "url": "https://www.investing.com/news/stock-market-news/us-judge-dismisses-musks-fraud-claims-in-openai-case-plans-to-proceed-to-trial-4637230"},
+    {"name": "Investing.com", "title": "Musk lawsuit over OpenAI for-profit conversion can head to trial, US judge says", "url": "https://www.investing.com/news/stock-market-news/musk-lawsuit-over-openai-forprofit-conversion-can-head-to-trial-us-judge-says-4436022"}
+  ],
+  "relatedDocs": [
+    "tech:ai/altman-musk-openai-trial-mudslinging",
+    "tech:ai/musk-openai-lawsuit-escalation",
+    "tech:ai/openai-pentagon-deal-altman-admits",
+    "tech:ai/openai-side-quests-pivot-coding-enterprise"
+  ],
+  "relatedArticles": ["altman-musk-openai-trial-mudslinging", "musk-openai-lawsuit-escalation"],
+  "relatedGames": [],
+  "content": [
+    {"type": "text", "value": "일론 머스크가 OpenAI와 샘 알트만 CEO를 상대로 제기한 1,500억 달러 규모의 소송이 5월 18일 미국 캘리포니아 북부 연방법원 배심원단의 만장일치 기각으로 끝났다. 이본 곤잘레스 로저스(Yvonne Gonzalez Rogers) 판사는 그 자리에서 평결을 확정했다. 누구 주장이 맞는지 본안을 따져보기도 전에, 너무 늦게 소송을 걸었다는 판단이 앞선 결과다."},
+
+    {"type": "heading", "value": "만장일치 평결: 청구 자체가 시한을 넘겼다"},
+    {"type": "text", "value": "배심원단이 들여다본 것은 사실관계가 아니라 시계였다. 자선신탁 위반과 부당이득, 마이크로소프트 방조 등 세 갈래 청구가 모두 공소시효(statute of limitations) 안에 제소됐는지부터 따졌고, 돌아온 답은 만장일치 기각이었다. 머스크가 OpenAI의 영리법인 전환 사실을 알았어야 할 시점이 청구별 시한보다 앞선다고 결론 내린 셈이다."},
+    {"type": "text", "value": "수천 장의 증거가 아니라 평결 한 줄에 1,500억 달러가 날아갔다. 애초 머스크 측은 알트만 해임과 손해배상을 동시에 요구하며 알트만과 그렉 브록먼(Greg Brockman) 사장, 마이크로소프트를 피고로 묶었다. 하지만 판사가 평결 직후 이를 그대로 수용하겠다고 못 박으면서 사건은 사실상 막을 내렸다. [Axios 속보](https://www.axios.com/2026/05/18/musk-loses-ai-trial-openai-altman)가 짚었듯 판사가 직접 번복하지 않는 한 머스크가 쥘 수 있는 카드는 없다."},
+
+    {"type": "image", "src": "https://images.wral.com/d8bd8d5c-ec31-52b1-b09c-7769465fc3cb?f=jpg&h=675&w=1200", "caption": "샘 알트만 OpenAI CEO와 그렉 브록먼 사장이 오클랜드 연방법원에 도착하는 모습", "alt": "알트만과 브록먼이 오클랜드 연방법원에 도착"},
+
+    {"type": "heading", "value": "공소시효가 가른 1,500억 달러, 세 개의 날짜"},
+    {"type": "text", "value": "머스크를 빈손으로 돌려세운 건 결국 세 개의 날짜였다. [테크크런치](https://techcrunch.com/2026/05/14/what-the-jury-will-actually-decide-in-the-case-of-elon-musk-vs-sam-altman/)가 재판 직전 정리한 시한이 그대로 기준선 역할을 했다."},
+    {"type": "text", "value": "자선신탁 위반 청구는 2021년 8월 5일, 부당이득 청구는 2022년 8월 5일, 마이크로소프트 방조 청구는 2021년 11월 14일이 마지노선이었다. 머스크가 이 날짜들을 넘긴 뒤에야 비로소 손해를 인지했다고 인정받아야 청구가 성립하는 구조였다. 그러나 배심원단의 판단은 정반대였다."},
+    {"type": "text", "value": "결과적으로 자선신탁 의무가 실제로 깨졌는지, 알트만과 브록먼이 부당한 이득을 챙겼는지, 마이크로소프트가 이를 알면서 도왔는지는 법정에서 제대로 다뤄보지도 못했다. 시간이라는 절차적 항변 하나에 본안 전체가 가로막힌 모양새다."},
+
+    {"type": "video", "url": "https://x.com/i/status/2056428078142996645", "caption": "평결 직후 X(트위터)에서 가장 빠르게 확산된 로이터 통신의 속보"},
+
+    {"type": "heading", "value": "4월 사기 청구 기각 이후 자선신탁 카드만 남았다"},
+    {"type": "text", "value": "본안 문턱을 넘지 못한 것은 이번이 처음은 아니다. 앞서 4월 24일 곤잘레스 로저스 판사가 머스크의 사기 청구를 [먼저 기각](https://www.investing.com/news/stock-market-news/us-judge-dismisses-musks-fraud-claims-in-openai-case-plans-to-proceed-to-trial-4637230)하면서, 남은 세 갈래만 5월 재판으로 넘어왔다."},
+    {"type": "text", "value": "살아남았던 세 갈래가 바로 자선신탁 위반과 부당이득, 마이크로소프트 방조다. 1월 재판 회부가 결정될 때만 해도 머스크 측은 OpenAI가 자선 명목으로 출발해 영리 기업으로 변질됐다는 본안 공방을 정조준했다. 하지만 4월 사기 청구가 떨어져 나가면서 전선이 좁아졌고, 결국 언제 알았느냐를 따지는 시계 싸움으로 번진 양상이다."},
+    {"type": "text", "value": "결국 5월 평결에서 남은 카드마저 동일한 공소시효 항변에 묶여 한꺼번에 휴지조각이 됐다. 1,500억 달러짜리 시시비비를 가릴 통로 자체가 닫혀버린 거다."},
+
+    {"type": "image", "src": "https://staticprintenglish.theprint.in/wp-content/uploads/2026/04/Elon_822-696x507.jpg", "caption": "일론 머스크", "alt": "일론 머스크"},
+
+    {"type": "heading", "value": "수츠케버와 브록먼, 법정에서 드러난 OpenAI 내부"},
+    {"type": "text", "value": "통로가 닫혔다고 해서 법정에서 오간 말들까지 지워진 건 아니다. 3주에 걸친 재판 동안 OpenAI 핵심 인사들이 차례로 증언대에 섰고, 베일에 싸여 있던 내부 사정이 적지 않게 풀려나왔다."},
+    {"type": "text", "value": "전 수석과학자 일리야 수츠케버(Ilya Sutskever)는 샘 알트만이 일관되게 거짓말을 해왔다는 패턴을 입증할 증거를 모았다고 증언했다. 그렉 브록먼 사장이 쥔 OpenAI 지분 평가액이 약 300억 달러라는 사실이 법정에서 확인됐고, 마이크로소프트 측 임원은 OpenAI 파트너십에 1,000억 달러 이상을 부어 넣었다고 진술했다."},
+    {"type": "text", "value": "머스크 측은 초기 자금 3,800만 달러를 대고도 마이크로소프트의 거대 투자 논의에서 철저히 배제됐다는 점을 거듭 파고들었다. 반면 OpenAI 측은 영리 구조 덕분에 회사가 더 단단해졌다고 맞불을 놨고, 머스크 역시 xAI를 통해 OpenAI 인수를 시도하지 않았냐며 역공을 폈다. 평결로 본안은 가로막혔지만, 양측이 쏟아낸 진술은 고스란히 기록에 올랐다."},
+
+    {"type": "heading", "value": "평결이 흔들지 못한 것 — AI 권력 구도는 그대로다"},
+    {"type": "text", "value": "기록은 남았지만 시장 판도는 털끝 하나 건드리지 못했다. 평결 직후 [인베스팅닷컴](https://www.investing.com/news/stock-market-news/elon-musks-court-battle-against-openai-enters-homestretch-4689201)이 짚었듯, 이번 소송은 AI 산업의 권력 구도를 뒤흔들 마지막 대형 변수로 꼽혔다."},
+    {"type": "text", "value": "샘 알트만 해임도, 마이크로소프트의 투자금 회수도, 영리법인 전환 무효화도 어느 것 하나 실현되지 않은 채 막이 내렸다. 머스크가 xAI를 이끌고 OpenAI와 정면 승부를 벌이는 구도 역시 그대로다. [앞선 재판 진행기](/tech/ai/altman-musk-openai-trial-mudslinging/)에서 짚었던 치열한 진흙탕 공방도 결국 공소시효라는 절차적 장벽 앞에 허무하게 끝을 맺었다."},
+    {"type": "image", "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i3rKFDVxvTMc/v0/1200x-1.jpg", "caption": "샘 알트만 OpenAI CEO", "alt": "샘 알트만 OpenAI CEO"},
+    {"type": "text", "value": "머스크 측이 항소나 별도 청구로 반격을 꾀할 여지는 남아 있다. 하지만 자선신탁과 부당이득이라는 같은 뼈대를 들고 나온다면, 공소시효 만료라는 항변을 다시 뚫어내야 한다. 결국 본안 공방으로 진입할 새로운 우회로를 뚫는 일이 머스크 진영에 남겨진 가장 껄끄러운 숙제다."}
+  ],
+  "contentEn": [
+    {"type": "text", "value": "A unanimous jury in the U.S. District Court for the Northern District of California rejected Elon Musk's $150 billion lawsuit against OpenAI and CEO Sam Altman on May 18, ruling every remaining claim was filed too late. Judge Yvonne Gonzalez Rogers confirmed the verdict from the bench. Before the jury could weigh whether Musk's allegations were right or wrong, it concluded he had simply sued too late."},
+
+    {"type": "heading", "value": "Unanimous Verdict: The Clock Decided It All"},
+    {"type": "text", "value": "What the jury weighed wasn't substance — it was time. Three remaining counts (breach of charitable trust, unjust enrichment, and Microsoft aiding and abetting) all hinged on a single question: had Musk filed inside the statute of limitations? Twelve jurors agreed he had not, finding he should have known about OpenAI's for-profit pivot well before each per-claim cutoff."},
+    {"type": "text", "value": "A single procedural finding erased $150 billion in damages. Musk had sought Altman's removal as CEO alongside the monetary award; Altman, President Greg Brockman, and Microsoft were all named defendants. With the judge accepting the verdict on the spot, the case is effectively closed. Per [Axios](https://www.axios.com/2026/05/18/musk-loses-ai-trial-openai-altman), absent a judicial reversal, Musk walks away empty-handed."},
+
+    {"type": "image", "src": "https://images.wral.com/d8bd8d5c-ec31-52b1-b09c-7769465fc3cb?f=jpg&h=675&w=1200", "caption": "OpenAI CEO Sam Altman and President Greg Brockman arriving at the Oakland federal courthouse", "alt": "Altman and Brockman arriving at Oakland federal court"},
+
+    {"type": "heading", "value": "Statute of Limitations: Three Dates That Decided $150 Billion"},
+    {"type": "text", "value": "If timing was the question, the exact cutoffs were everything. [TechCrunch](https://techcrunch.com/2026/05/14/what-the-jury-will-actually-decide-in-the-case-of-elon-musk-vs-sam-altman/) had laid them out before trial, and they held as the benchmark."},
+    {"type": "text", "value": "The charitable-trust claim turned on August 5, 2021. Unjust enrichment had to clear August 5, 2022. The Microsoft aiding-and-abetting claim was pegged to November 14, 2021. For each, Musk's harm had to be recognized only after the corresponding date for the claim to survive. The jury found the opposite."},
+    {"type": "text", "value": "As a result, whether the charitable obligation was actually breached, whether Altman and Brockman truly enriched themselves, and whether Microsoft knowingly assisted — none of those merits questions ever received a verdict. A one-line timing defense blocked the entire substance of the case."},
+
+    {"type": "video", "url": "https://x.com/i/status/2056428078142996645", "caption": "The Reuters-sourced flash that spread fastest right after the verdict — 'U.S. jury finds OpenAI and Altman not liable to Musk'"},
+
+    {"type": "heading", "value": "After April's Fraud Dismissal, Three Cards Remained"},
+    {"type": "text", "value": "Falling short of the merits wasn't new in this case. On April 24, Judge Gonzalez Rogers had already [dismissed Musk's fraud claims](https://www.investing.com/news/stock-market-news/us-judge-dismisses-musks-fraud-claims-in-openai-case-plans-to-proceed-to-trial-4637230), leaving three counts for the May trial."},
+    {"type": "text", "value": "Those three were the charitable-trust, unjust-enrichment, and Microsoft aiding-and-abetting claims. When the case was cleared for trial in January, Musk's team had hoped to fight on the merits — that OpenAI \"started as a charity and became a profit machine.\" Once fraud fell away in April, the proof burden narrowed and the timing fight came into sharper focus."},
+    {"type": "text", "value": "In May, all three remaining cards collapsed under the same limitations defense in a single stroke. The path to the merits closed."},
+
+    {"type": "image", "src": "https://staticprintenglish.theprint.in/wp-content/uploads/2026/04/Elon_822-696x507.jpg", "caption": "Elon Musk", "alt": "Elon Musk"},
+
+    {"type": "heading", "value": "Sutskever and Brockman: What the Trial Exposed"},
+    {"type": "text", "value": "Closing the path didn't erase what the trial put on the record. Across three weeks, OpenAI insiders took the stand, and details that had stayed inside the company came out in open court."},
+    {"type": "text", "value": "Former Chief Scientist Ilya Sutskever testified that he had gathered evidence showing a consistent pattern of Altman lying. Greg Brockman's OpenAI stake was confirmed in court at roughly $30 billion. A Microsoft executive stated the company has poured more than $100 billion into the OpenAI partnership."},
+    {"type": "text", "value": "Musk's side repeatedly emphasized that, after donating $38 million early on, he was cut out of conversations around Microsoft's massive investment. OpenAI countered that the for-profit structure had strengthened the company, and pointed to Musk's own xAI bid to acquire OpenAI as undercutting his current claims. Blocked from the merits or not, those statements are now part of the public record."},
+
+    {"type": "heading", "value": "What the Verdict Didn't Touch — The Power Map Holds"},
+    {"type": "text", "value": "The record stays; the market structure didn't move. As [Investing.com](https://www.investing.com/news/stock-market-news/elon-musks-court-battle-against-openai-enters-homestretch-4689201) noted heading into the verdict, this case was the last real variable that could redraw AI's power map."},
+    {"type": "text", "value": "No Altman removal. No Microsoft pullback. No reversal of the for-profit conversion. None of it materialized before the case closed. Musk running xAI head-to-head with OpenAI is exactly where things stand. The [earlier trial coverage](/article/openai/altman-musk-openai-trial-mudslinging/) ended in the same mud-fight territory, only to be wrapped up on a one-line timing defense."},
+    {"type": "image", "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i3rKFDVxvTMc/v0/1200x-1.jpg", "caption": "Sam Altman, OpenAI CEO", "alt": "Sam Altman, OpenAI CEO"},
+    {"type": "text", "value": "Whether Musk's camp tries an appeal or files a fresh complaint is open. Either path means breaking through the same limitations wall on the same charitable-trust and unjust-enrichment theories. Cutting open a route back to the merits is the first task left on Musk's side after this verdict."}
+  ]
+}
