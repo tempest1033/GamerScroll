@@ -690,6 +690,16 @@
   margin: 24px 0;
   max-width: 100%;
   overflow: hidden;
+  text-align: center;
+}
+
+.blog-in-article-ad > ins.adsbygoogle,
+.blog-in-article-ad > ins.adsbygoogle > iframe {
+  max-width: 100%;
+}
+
+.blog-in-article-ad.gs-ad-compact {
+  margin-bottom: 16px;
 }
 
 .blog-in-article-ad:has(ins[data-ad-status="unfilled"]) {

@@ -551,7 +551,8 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
 }
 
 async function main() {
-  const dateStr = process.argv[2] || new Date().toISOString().split('T')[0];
+  const kstToday = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().split('T')[0];
+  const dateStr = process.argv[2] || kstToday;
   const overrideFile = process.argv[3]; // 테스트 입력 파일 (옵션)
 
   console.log('=== 통합 게임 동기화 시작 ===');

@@ -369,6 +369,32 @@ function updateHistoryBestRanks(date, bestRanks) {
   }
 }
 
+// 일간 히스토리 파일 저장 (게임 상세 페이지의 순위 히스토리 소스)
+function saveDailyHistorySnapshot(date, cache) {
+  if (!fs.existsSync(HISTORY_DIR)) {
+    fs.mkdirSync(HISTORY_DIR, { recursive: true });
+  }
+
+  const historyFile = `${HISTORY_DIR}/${date}.json`;
+  let existing = null;
+
+  if (fs.existsSync(historyFile)) {
+    try {
+      existing = JSON.parse(fs.readFileSync(historyFile, 'utf8'));
+    } catch (e) {
+      existing = null;
+    }
+  }
+
+  const data = { ...cache };
+  if (existing?.bestRanks && !data.bestRanks) {
+    data.bestRanks = existing.bestRanks;
+  }
+
+  fs.writeFileSync(historyFile, JSON.stringify(data, null, 2), 'utf8');
+  console.log(`📁 일간 히스토리 저장: ${historyFile}`);
+}
+
 // CSV 스냅샷에서 일 최고순위 기반 rankings 배열 생성
 function getBestRankingsFromCSV(date, country, platform) {
   const rankingsDir = `${SNAPSHOTS_DIR}/rankings`;
@@ -841,6 +867,9 @@ async function main() {
     const hours = String(kst.getUTCHours()).padStart(2, '0');
     const minutes = String(Math.floor(kst.getUTCMinutes() / 30) * 30).padStart(2, '0');
     const snapshotTime = `${hours}:${minutes}`;
+
+    // 게임 상세 페이지의 일/주/월 순위 히스토리는 history/*.json을 사용한다.
+    saveDailyHistorySnapshot(snapshotDate, cache);
 
     // CSV 헤더
     const csvHeader = 'time,rank,id,title\n';

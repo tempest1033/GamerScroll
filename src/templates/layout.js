@@ -1840,8 +1840,84 @@ const adLazyLoadScript = `
     return window.getComputedStyle && getComputedStyle(ad).display === 'none';
   }
 
+  function getAdVisualWrapper(ad) {
+    return ad && ad.closest
+      ? ad.closest('.ad-card-responsive-home, .ad-card-responsive-top, .blog-in-article-ad')
+      : null;
+  }
+
+  function normalizeAdVisualSize(ad) {
+    var wrap = getAdVisualWrapper(ad);
+    if (!wrap) return;
+
+    var iframe = ad.querySelector && ad.querySelector('iframe');
+    if (!iframe) return;
+
+    var iframeHeight = Math.round(iframe.getBoundingClientRect().height || iframe.offsetHeight || 0);
+    if (!iframeHeight) return;
+
+    var isTopAd = wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
+    var minHeight = isTopAd
+      ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 100 : 90)
+      : 0;
+    var targetHeight = Math.max(iframeHeight, minHeight);
+    var adHeight = Math.round(ad.getBoundingClientRect().height || ad.offsetHeight || 0);
+    var wrapHeight = Math.round(wrap.getBoundingClientRect().height || wrap.offsetHeight || 0);
+    var hasExtraSpace = (adHeight - targetHeight > 24) || (wrapHeight - targetHeight > 24);
+    var isShortTopAd = isTopAd && iframeHeight < minHeight;
+
+    if (!hasExtraSpace && !isShortTopAd) return;
+
+    wrap.classList.add('gs-ad-compact');
+    wrap.style.height = targetHeight + 'px';
+    wrap.style.minHeight = targetHeight + 'px';
+    ad.style.height = targetHeight + 'px';
+    ad.style.minHeight = targetHeight + 'px';
+
+    if (isShortTopAd) {
+      iframe.style.minHeight = minHeight + 'px';
+    }
+  }
+
+  function observeAdVisualSize(ad) {
+    if (!ad || ad.getAttribute('data-gs-size-observed') === '1') return;
+    ad.setAttribute('data-gs-size-observed', '1');
+
+    var scheduled = false;
+    function schedule() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(function() {
+        scheduled = false;
+        normalizeAdVisualSize(ad);
+      });
+    }
+
+    ad.addEventListener('load', schedule, true);
+    if (window.MutationObserver) {
+      var mutationObserver = new MutationObserver(schedule);
+      mutationObserver.observe(ad, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        attributeFilter: ['style', 'data-ad-status']
+      });
+    }
+    if (window.ResizeObserver) {
+      var resizeObserver = new ResizeObserver(schedule);
+      resizeObserver.observe(ad);
+      var wrap = getAdVisualWrapper(ad);
+      if (wrap) resizeObserver.observe(wrap);
+    }
+
+    schedule();
+    setTimeout(schedule, 600);
+    setTimeout(schedule, 1800);
+  }
+
   function pushAd(ad) {
     if (!ad || ad.getAttribute('data-gs-ad-pushed') === '1' || isHiddenAd(ad)) return;
+    observeAdVisualSize(ad);
     ad.setAttribute('data-gs-ad-pushed', '1');
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -1849,6 +1925,8 @@ const adLazyLoadScript = `
       ad.removeAttribute('data-gs-ad-pushed');
     }
   }
+
+  for (var a = 0; a < ads.length; a++) { observeAdVisualSize(ads[a]); }
 
   // ATF ad fallback: eager ad slots may already have pushed next to the <ins>.
   pushAd(ads[0]);

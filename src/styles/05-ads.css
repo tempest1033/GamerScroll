@@ -81,6 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #fff;
   min-height: 100px;
 }
 
@@ -95,6 +96,11 @@
 .ad-card-responsive-home > ins.adsbygoogle > iframe,
 .ad-card-responsive-top > ins.adsbygoogle > iframe {
   vertical-align: middle;
+}
+
+.ad-card-responsive-home.gs-ad-compact,
+.ad-card-responsive-top.gs-ad-compact {
+  align-items: flex-start;
 }
 
 .article-main .ad-card-responsive-home,
