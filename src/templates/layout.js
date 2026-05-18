@@ -1928,6 +1928,14 @@ const adLazyLoadScript = `
 
   for (var a = 0; a < ads.length; a++) { observeAdVisualSize(ads[a]); }
 
+  var shouldPushAllAdsNow = !!document.querySelector('.article-layout .article-main');
+  if (shouldPushAllAdsNow) {
+    for (var eagerIndex = 0; eagerIndex < ads.length; eagerIndex++) {
+      pushAd(ads[eagerIndex]);
+    }
+    return;
+  }
+
   // ATF ad fallback: eager ad slots may already have pushed next to the <ins>.
   pushAd(ads[0]);
 

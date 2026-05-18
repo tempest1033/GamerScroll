@@ -1913,6 +1913,13 @@ function wrapWithLayout(content, options = {}) {
     }
     // AdSense queue is the standard mechanism: push() before script load is auto-processed on arrival.
     for (var a = 0; a < ads.length; a++) { observeAdVisualSize(ads[a]); }
+    var shouldPushAllAdsNow = !!document.querySelector('.article-layout .article-main');
+    if (shouldPushAllAdsNow) {
+      for (var eagerIndex = 0; eagerIndex < ads.length; eagerIndex++) {
+        pushAd(ads[eagerIndex]);
+      }
+      return;
+    }
     pushAd(ads[0]);
     if (ads.length > 1) {
       var btfRootMargin = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? '5200px' : '1800px';
