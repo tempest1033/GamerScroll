@@ -226,6 +226,11 @@ function generateHead(options = {}) {
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
 	  <meta name="robots" content="noindex, follow">` : `
 	  <meta name="robots" content="max-image-preview:large">`}
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
 	  <style>
 	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
@@ -340,12 +345,7 @@ function generateHead(options = {}) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- preconnect: LCP 핵심 도메인 (AdSense + 광고 서빙 + 폰트 CDN) -->
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <!-- dns-prefetch: 추가 도메인 -->
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://www.gstatic.com">
