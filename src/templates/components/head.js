@@ -237,20 +237,20 @@ function generateHead(options = {}) {
 	    body { margin: 0; }
 	    .home-trend-card-image { background: transparent !important; }
 	    :is(.site-container, .container) {
-	      max-width: 1076px;
+	      max-width: 1080px;
 	      margin: 0 auto;
 	      padding-left: var(--space-page-x);
 	      padding-right: var(--space-page-x);
 	      box-sizing: border-box;
 	    }
 	    .header-inner {
-	      max-width: 1076px;
+	      max-width: 1080px;
 	      margin: 0 auto;
 	      padding: 0 16px;
 	      box-sizing: border-box;
 	    }
 	    .nav-inner {
-	      max-width: 1076px;
+	      max-width: 1080px;
 	      margin: 0 auto;
 	      padding: 0 var(--space-page-x);
 	      box-sizing: border-box;
