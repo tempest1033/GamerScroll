@@ -988,12 +988,20 @@ const lazyCardHydrationScript = `
             var adOrder = Math.floor((globalCardIndex + 1) / adInterval);
             var slotId = adSlots[(adOrder - 1) % adSlots.length];
             var adEl = createScrollAdElement(globalCardIndex, slotId);
+            var adIns = adEl.querySelector('.adsbygoogle');
             anchor.insertAdjacentElement('afterend', adEl);
             renderedScrollAds.set(globalCardIndex, adEl);
 
+            if (!adIns) {
+              removeTrackedScrollAd(globalCardIndex);
+              continue;
+            }
+
+            adIns.setAttribute('data-gs-ad-pushed', '1');
             try {
               (window.adsbygoogle = window.adsbygoogle || []).push({});
             } catch (e) {
+              adIns.removeAttribute('data-gs-ad-pushed');
               removeTrackedScrollAd(globalCardIndex);
             }
           }
@@ -1079,7 +1087,7 @@ const lazyCardHydrationScript = `
           }
           observer = new IntersectionObserver(function(entries) {
             if (entries[0] && entries[0].isIntersecting) loadMoreMobile();
-          }, { rootMargin: '200px' });
+          }, { rootMargin: '1200px' });
           observer.observe(lastVisible);
         }
 
@@ -1847,6 +1855,7 @@ const adLazyLoadScript = `
 
   // BTF ads: IntersectionObserver lazy load.
   if (ads.length > 1) {
+    var btfRootMargin = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? '1800px' : '900px';
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -1854,7 +1863,7 @@ const adLazyLoadScript = `
           observer.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '900px' });
+    }, { rootMargin: btfRootMargin });
 
     for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
   }

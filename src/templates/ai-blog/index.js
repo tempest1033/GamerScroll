@@ -1852,6 +1852,7 @@ function wrapWithLayout(content, options = {}) {
     // AdSense queue is the standard mechanism: push() before script load is auto-processed on arrival.
     pushAd(ads[0]);
     if (ads.length > 1) {
+      var btfRootMargin = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? '1800px' : '900px';
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -1859,7 +1860,7 @@ function wrapWithLayout(content, options = {}) {
             observer.unobserve(entry.target);
           }
         });
-      }, { rootMargin: '900px' });
+      }, { rootMargin: btfRootMargin });
       for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
     }
   })();

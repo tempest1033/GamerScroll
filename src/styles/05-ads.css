@@ -66,6 +66,13 @@
   box-shadow: inset 0 0 0 1px var(--border);
   touch-action: pan-x pan-y;
   position: relative;
+  overflow: hidden;
+}
+
+.ad-card > ins.adsbygoogle,
+.ad-card > ins.adsbygoogle > iframe {
+  border-radius: inherit;
+  max-width: 100%;
 }
 
 /* Responsive top/home ad cards: center smaller creatives both axes */
@@ -211,6 +218,7 @@ body.ads-disabled .article-layout {
 
 /* 중간/사이드바/네이티브 광고: unfilled 시 카드까지 숨김 */
 .ad-card-mobile-mid:has(ins[data-ad-status="unfilled"]),
+.ad-card-scroll:has(ins[data-ad-status="unfilled"]),
 .ad-card-vertical:has(ins[data-ad-status="unfilled"]),
 .ad-card-rectangle:has(ins[data-ad-status="unfilled"]),
 .ad-card-native:has(ins[data-ad-status="unfilled"]) {
