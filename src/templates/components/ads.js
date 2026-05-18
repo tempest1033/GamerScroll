@@ -64,7 +64,7 @@ function renderResponsiveHomeAd(slotId) {
 
 /**
  * PC 전용 홈/상단 광고
- * Desktop: AdSense auto-sizing, Mobile: 숨김
+ * Desktop: 728x90 fixed slot, Mobile: 숨김
  */
 function renderDesktopOnlyHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
@@ -74,15 +74,13 @@ function renderDesktopOnlyHomeAd(slotId) {
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
-      .${cardClass} { display:flex !important; max-width:100%; overflow:hidden; }
-      .${styleId} { display:block !important; width:100%; max-width:100%; }
+      .${cardClass} { display:flex !important; max-width:100%; min-height:90px; overflow:hidden; align-items:center; justify-content:center; }
+      .${styleId} { display:inline-block !important; width:728px; height:90px; min-height:90px; margin:0 auto; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+       data-ad-slot="${slotId}"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
 }

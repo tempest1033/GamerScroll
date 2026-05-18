@@ -2489,8 +2489,7 @@ function generateRectangleAdSlot(slotId) {
 
 // 상단 광고용 (반응형 - PC/모바일 자동 분기)
 function generateAdPairSlot(pcSlotId, mobileSlotId) {
-  // 반응형: CSS 미디어 쿼리로 PC/모바일 크기 자동 분기
-  return renderResponsiveTopAd(pcSlotId);
+  return renderHomeAdPair(pcSlotId, mobileSlotId);
 }
 
 // 중간 광고용 (반응형)
