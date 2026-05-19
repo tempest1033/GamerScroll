@@ -1,0 +1,108 @@
+{
+  "slug": "sony-pc-exit-hulst-confirmation",
+  "status": "approved",
+  "title": "소니 \"싱글 플레이는 PS5에만\"…6년 PC 동시발매 막 내린다",
+  "date": "",
+  "keywords": "PC 동시발매, PS5 단독, 라이브서비스, 마블 울버린, 헬다이버스 2, 싱글플레이어",
+  "summary": "소니 인터랙티브 엔터테인먼트가 1인칭 서사 중심 대작의 PC 동시발매 노선에 사실상 마침표를 찍었다. 5월 18일 사내 타운홀을 통해 내부 확정된 이번 결정으로 고스트 오브 요테이·사로스·마블 울버린·인터갤럭틱·갓 오브 워 트릴로지 리메이크 등 핵심 라인업은 PS5 단독 타이틀로 묶인다. 반면 마라톤과 마블 토콘 같은 라이브서비스 기반 멀티플레이어 타이틀은 PC 시장에 계속 남겨둔다는 방침이다. 호라이즌 제로 던부터 헬다이버스 2까지 6년간 이어진 소니의 PC 확장 실험이 사실상 종착점에 닿은 셈이다.",
+  "thumbnail": "https://image.api.playstation.com/vulcan/ap/rnd/202510/0721/e54995d925972b21f0092d0f27a4884f2c883c439514dede.png",
+  "relatedDocs": [
+    "issue:sony-ps-exclusive-pc-pullback",
+    "issue:xbox-project-helix-pc-console",
+    "issue:death-stranding-2-pc-launch",
+    "issue:xbox-game-pass-march-2026"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Gematsu",
+      "title": "Sony Interactive Entertainment to no longer release single-player games on PC",
+      "url": "https://www.gematsu.com/2026/05/sony-interactive-entertainment-to-no-longer-release-single-player-games-on-pc"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "Sony Pulls Back From PlayStation Games on PC",
+      "url": "https://www.bloomberg.com/news/articles/2026-03-04/sony-pulls-back-from-playstation-games-on-pc"
+    },
+    {
+      "name": "Sony IR",
+      "title": "FY24 Q3 Earnings Supplementary Information",
+      "url": "https://www.sony.com/SonyInfo/IR/library/presen/er/pdf/25q3_supplement.pdf"
+    },
+    {
+      "name": "Sony IR",
+      "title": "FY23 Q4 Earnings Conference Speech",
+      "url": "https://www.sony.com/en/SonyInfo/IR/library/presen/er/pdf/23q4_sonyspeech.pdf"
+    },
+    {
+      "name": "TechSpot",
+      "title": "Sony's PC ports are \"almost like printing money,\" says former PlayStation boss",
+      "url": "https://www.techspot.com/news/106863-sony-printing-money-releasing-playstation-games-pc-former.html"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "소니 인터랙티브 엔터테인먼트가 1인칭 서사 중심 대작의 PC 동시발매 노선에 마침표를 찍었다. 5월 18일 열린 사내 타운홀에서 스튜디오 비즈니스 그룹 CEO 허먼 헐스트가 해당 방침을 직접 못 박았다. 이 소식을 [블룸버그 제이슨 슈라이어](https://www.gematsu.com/2026/05/sony-interactive-entertainment-to-no-longer-release-single-player-games-on-pc)가 같은 날 단독 보도했다. 지난 3월 4일 이 매체가 앞서 흘렸던 [사전 보도](/magazine/issue/sony-ps-exclusive-pc-pullback/)가 두 달 반 만에 회사 공식 행보로 굳어진 셈이다.\n\n이번 결정으로 묶이는 핵심 라인업은 다섯 작품이다. 고스트 오브 요테이, 사로스, 마블 울버린이 먼저 자리잡는다. 그 뒤로 인터갤럭틱: 더 헤레틱 프로핏과 갓 오브 워 트릴로지 리메이크까지 모두 PS5 단독으로 들어간다. 반대로 번지의 마라톤, 마블 토콘: 파이팅 소울즈처럼 라이브서비스 성격이 강한 작품은 기존대로 PC 플랫폼에 남는다. 핵심 싱글플레이어 자산은 콘솔 안에 가두고 멀티플레이어 생태계만 외부로 풀어두는 철저한 이원화 전술이다. 6년 전 소니가 시작했던 전방위 PC 동시발매 실험이 사실상 종료 수순을 밟고 있다는 거다."
+    },
+    {
+      "type": "heading",
+      "value": "6년 PC 실험이 남긴 성적표"
+    },
+    {
+      "type": "image",
+      "src": "https://blog.playstation.com/tachyon/2020/08/HZN_ZDCE_Storefront_2560x1440.jpg",
+      "caption": "2020년 8월 스팀에 풀린 호라이즌 제로 던 컴플리트 에디션 키 아트",
+      "alt": "호라이즌 제로 던 컴플리트 에디션 스팀 출시 키 아트 에일로이"
+    },
+    {
+      "type": "text",
+      "value": "그 6년의 성적표 자체는 시장의 예상을 훌쩍 뛰어넘는 수준이었다. 출발선은 2020년 8월 스팀에 풀린 호라이즌 제로 던 컴플리트 에디션이다. PS4 단독으로 1,000만 장 언저리에 머물던 이 타이틀은 PC 합류 직후인 2021년 11월 누적 2,000만 장 고지를 돌파했다. PC 플랫폼이 죽어가는 타이틀의 심폐소생술을 넘어 실질적인 매출 파이를 단숨에 두 배로 불려준 셈이다.\n\n이어 2022년 스팀에 올라간 갓 오브 워(2018)와 마블 스파이더맨 리마스터드 역시 비슷한 궤적을 그렸다. 갓 오브 워는 같은 해 11월 누적 2,300만 장을 찍었다. 스파이더맨 시리즈는 2024년 2월 기준 PC 매출을 합산해 5,000만 장 누적이 회사 IR 자료에 잡혔다. 콘솔 출시 후 1~3년이 지난 대작을 PC로 넘겨 단기 수익을 극대화하는 패턴이 완전히 자리를 잡은 시기다.\n\n이 기세는 2024년 2월 8일 PS5와 스팀에 동시 출격한 [헬다이버스 2](https://www.sony.com/en/SonyInfo/IR/library/presen/er/pdf/23q4_sonyspeech.pdf)에서 정점을 찍었다. 출시 12주 만에 1,200만 장이 팔려나가며 기네스가 PS 역대 최단기 판매 기록으로 등재하기도 했다. 소니 수뇌부조차 공식 석상에서 'biggest PC hit'으로 치켜세웠을 정도다. PC 동시 공략이 전체 볼륨을 키운다는 가설이 완벽하게 증명된 순간이다."
+    },
+    {
+      "type": "heading",
+      "value": "돈을 찍어내는 기계라는 착시"
+    },
+    {
+      "type": "text",
+      "value": "실제로 이 화려한 지표를 두고 내부에서도 환호가 적지 않았다. 슈헤이 요시다 전 소니 인터랙티브 엔터테인먼트 사장은 지난해 PC 포팅 사업을 가리켜 '거의 돈을 찍어내는 수준'이라고 표현했다. 영어 원문으로는 'almost like printing money'였다. 호라이즌과 갓 오브 워, 스파이더맨이 쌓아 올린 합산 실적에 헬다이버스 2의 메가 히트가 더해진 결과물이다.\n\n하지만 경영진이 테이블 위에서 두드린 장기 계산기는 완전히 다른 방향을 가리켰다. 핵심은 생태계 락인(Lock-in) 효과의 상실이다. 콘솔 구매자는 기기 한 대로 끝나지 않는다. PS 플러스 구독, 디지털 스토어 30% 수수료, 시즌 패스 결제까지 꼬리에 꼬리를 무는 장기 수익을 회사에 안긴다. 단발성 PC 타이틀 판매 실적이 아무리 화려해도, 이 거대한 생애주기가치를 깎아먹으면서까지 밀어붙일 사업은 아니라는 게 최종 진단이다. 헐스트의 이번 사내 발언은 당장의 현금 채굴기보다 뼈대인 하드웨어 독점력을 다시 세우겠다는 선언에 가깝다."
+    },
+    {
+      "type": "heading",
+      "value": "라이브서비스만 따로 떼어낸 이유"
+    },
+    {
+      "type": "image",
+      "src": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0318/907b7f6fc01a1f3f94b0226d8597d4a891ea1b44b28223b4.jpg",
+      "caption": "헬다이버스 2 PS5 스토어 공식 키 아트",
+      "alt": "헬다이버스 2 PS5 스팀 동시발매 라이브서비스 슈터 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "결국 뼈대만 남긴 채 빗장을 걸어 잠그는 형국이지만, 라이브서비스 라인업만은 예외로 남겨뒀다. 번지가 개발 중인 마라톤이나 마블 토콘: 파이팅 소울즈는 기존 계획대로 PC 플랫폼에 고스란히 열어둔다. 막대한 서버 유지비가 투입되는 라이브서비스 타이틀은 초기 동시접속자 풀 확보가 곧 생존과 직결되기 때문이다. 유저층이 얇아져 매칭 시간이 늘어나는 순간 돌이킬 수 없는 이탈이 시작된다는 점을 소니 내부에서도 명확히 인지하고 있는 모양이다. 앞서 헬다이버스 2가 단 두 달 만에 1,200만 장 고지를 밟을 수 있었던 핵심 동력 역시 PC 동시발매를 통한 저변 확대였다.\n\n반면 한번 팔고 나면 추가 과금 유도가 제한적인 1인칭 싱글플레이어 대작은 정반대 체급표를 받는다. 굳이 PC로도 나오는 게임을 위해 비싼 거치형 콘솔을 따로 구매할 동기가 옅어지는 부작용이 훨씬 컸던 거다. 허먼 헐스트가 사내 무대에서 그어둔 선명한 경계선이 바로 여기다. 사람을 모아야 사는 멀티플레이는 풀고, 플랫폼을 지탱하는 서사 대작은 철저히 PS5 단독으로 콘솔 안에 가둔다."
+    },
+    {
+      "type": "heading",
+      "value": "Play Anywhere로 갈라선 엑스박스"
+    },
+    {
+      "type": "text",
+      "value": "이렇게 소니가 문을 걸어 잠그는 사이, 마이크로소프트는 정반대 차선에서 액셀러레이터를 밟고 있다. 엑스박스는 2026년에 접어들며 'Play Anywhere' 라벨 적용 범위를 공격적으로 넓혔다. PC와 클라우드는 물론이고 일부 핵심 타이틀은 아예 경쟁 기기인 PS나 스팀 진영까지 밀어 넣는 중이다. 급기야 지난 4월 23일 'We Are Xbox' 무대에서는 폭탄선언까지 나왔다. 플랫폼을 넘어 사용자가 바라보는 모든 화면을 직접 따라가겠다는 메시지였다.\n\n콘솔 시장을 양분한 두 거인이 한 분기 만에 완전히 엇갈린 이정표를 세운 모양새다. 소니는 킬러 타이틀을 무기 삼아 흔들리는 하드웨어 매력도를 강제로 끌어올리는 쪽에 무게를 실었다. 반면 엑스박스는 기기 의존도를 낮추고 자사 IP를 전 세계 모든 스크린에 뿌리겠다는 Play Anywhere 기조를 굳히고 있다. 같은 시기 PC 게이머가 두 플랫폼 홀더로부터 건네받는 메시지의 결이 이토록 극명하게 갈린 적도 드물다."
+    },
+    {
+      "type": "heading",
+      "value": "사로스와 울버린이 증명할 시간"
+    },
+    {
+      "type": "image",
+      "src": "https://image.api.playstation.com/vulcan/ap/rnd/202509/2318/78549217df5077bea107700e077d04be6a9a4b0dfbcd821a.png",
+      "caption": "하우스마크 신작 사로스 PS5 단독 출시 키 아트",
+      "alt": "하우스마크 사로스 PS5 단독 출시 키 아트 1인칭 액션 주인공 아준 데브라지"
+    },
+    {
+      "type": "text",
+      "value": "이 엇갈린 전술의 실효성을 입증할 첫 번째 심판대는 사로스와 마블 울버린이 쥐고 있다. 하우스마크가 깎아낸 신작 1인칭 액션 사로스가 첫 카드다. 2026년 9월 인섬니악 헤드라이너로 낙점된 마블 울버린도 PC 출시 카드를 버리고 PS5 외길을 걷는다.\n\n특히 스파이더맨 시리즈로 PC 시장의 폭발력을 가장 뼈저리게 체감했던 인섬니악의 어깨가 무겁다. PC 동시발매 라벨을 떼어낸 채 온전히 콘솔 유저들의 지갑만으로 그 거대한 매출 눈높이를 맞춰내야 하기 때문이다. 추가 PC 판매량을 포기하는 대신 얻어낸 하드웨어 락인 효과가 과연 소니 경영진의 장부대로 돌아갈지가 관건이다. 그 실마리는 두 타이틀의 출시 12개월 누적 판매량에 달려 있다. 다가올 다음 분기 IR 리포트가 이 거대한 도박의 첫 채점표로 기록될 전망이다."
+    }
+  ]
+}

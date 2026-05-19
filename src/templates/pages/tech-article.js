@@ -7,6 +7,7 @@
 const path = require('path');
 const fs = require('fs');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
+const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -63,42 +64,8 @@ function parseTableCell(str) {
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 }
 
-/**
- * 마크다운 표를 HTML table로 변환
- */
-function parseMarkdownTable(text) {
-  const lines = text.trim().split('\n');
-  if (lines.length < 2) return null;
-  if (!lines[0].trim().startsWith('|')) return null;
-  const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
-  if (separatorIndex < 1) return null;
-
-  function parseCells(line) {
-    const cells = line.split('|');
-    if (cells.length > 0 && cells[0].trim() === '') cells.shift();
-    if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
-    return cells.map(cell => cell.trim());
-  }
-
-  const headers = parseCells(lines[0]);
-  const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
-  const rows = dataLines.map(line => parseCells(line));
-
-  const fmtCell = (s) => s
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  let html = '<div class="wiki-table-wrapper"><table>';
-  html += '<thead><tr>';
-  headers.forEach(h => { html += `<th>${fmtCell(h)}</th>`; });
-  html += '</tr></thead><tbody>';
-  rows.forEach(row => {
-    html += '<tr>';
-    row.forEach(cell => { html += `<td>${fmtCell(cell)}</td>`; });
-    html += '</tr>';
-  });
-  html += '</tbody></table></div>';
-  return html;
-}
+// 마크다운 표 변환은 공통 helper(content-text)로 위임
+const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'wiki-table-wrapper' });
 
 // 한글/영문 텍스트를 URL-friendly slug로 변환
 const toSlug = (text) => {
@@ -196,57 +163,10 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
 
   content.forEach((block) => {
     switch (block.type) {
-      case 'text':
-        // 코드 펜스 변환 (```language ... ``` → <pre><code>)
-        const codeBlocks_t = [];
-        const textWithPlaceholders_t = String(block.value || '').replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
-          const escaped = code
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/^(#.*)$/gm, '<span class="code-comment">$1</span>');
-          const placeholder = `__CODE_BLOCK_${codeBlocks_t.length}__`;
-          codeBlocks_t.push(`<figure class="blog-figure blog-code"><pre><code${lang ? ` class="language-${lang}"` : ''}>${escaped}</code></pre></figure>`);
-          return placeholder;
-        });
-        const formatTextFragment = (text) => {
-          const t = text.trim();
-          if (!t) return '';
-          // 마크다운 표 처리
-          if (t.startsWith('|') && t.includes('|---')) {
-            const tableHtml = parseMarkdownTable(t);
-            if (tableHtml) return tableHtml;
-          }
-          const formatted = t
-            .replace(/`([^`]+)`/g, '<code>$1</code>')
-            .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
-            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-            .replace(/^- /gm, '• ')
-            .replace(/\n- /g, '\n• ')
-            .replace(/\n/g, '<br>')
-            .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
-          return `<p class="blog-paragraph">${formatted}</p>`;
-        };
-        const paragraphs = textWithPlaceholders_t.split('\n\n').map(p => {
-          const trimmed = p.trim();
-          if (!trimmed) return '';
-          // 코드 블록 placeholder만으로 이루어진 단락
-          const codePlaceholderMatch = trimmed.match(/^__CODE_BLOCK_(\d+)__$/);
-          if (codePlaceholderMatch) return codeBlocks_t[parseInt(codePlaceholderMatch[1])];
-          // 혼합 단락: 텍스트 + 코드 블록 placeholder가 섞인 경우
-          if (/__CODE_BLOCK_\d+__/.test(trimmed)) {
-            const parts = trimmed.split(/(__CODE_BLOCK_\d+__)/);
-            return parts.map(part => {
-              const m = part.match(/^__CODE_BLOCK_(\d+)__$/);
-              if (m) return codeBlocks_t[parseInt(m[1])];
-              return formatTextFragment(part);
-            }).filter(x => x).join('');
-          }
-          return formatTextFragment(trimmed);
-        }).filter(p => p).join('');
-        result.push(paragraphs);
+      case 'text': {
+        result.push(renderTextBlock(block.value, { tableClass: 'wiki-table-wrapper' }));
         break;
+      }
 
       case 'image':
         if (!block.src) break;

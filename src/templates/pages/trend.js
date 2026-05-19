@@ -6,6 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
+const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -567,37 +568,8 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '이슈 대표 이미지');
 
-  // 마크다운 표를 HTML table로 변환
-  const parseMarkdownTable = (text) => {
-    const lines = text.trim().split('\n');
-    if (lines.length < 2) return null;
-    if (!lines[0].trim().startsWith('|')) return null;
-    const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
-    if (separatorIndex < 1) return null;
-
-    const parseCells = (line) => {
-      const cells = line.split('|');
-      if (cells.length > 0 && cells[0].trim() === '') cells.shift();
-      if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
-      return cells.map(cell => cell.trim());
-    };
-
-    const headers = parseCells(lines[0]);
-    const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
-    const rows = dataLines.map(line => parseCells(line));
-
-    let html = '<div class="blog-table-wrapper"><table>';
-    html += '<thead><tr>';
-    headers.forEach(h => { html += `<th>${h}</th>`; });
-    html += '</tr></thead><tbody>';
-    rows.forEach(row => {
-      html += '<tr>';
-      row.forEach(cell => { html += `<td>${cell}</td>`; });
-      html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    return html;
-  };
+  // 마크다운 표 변환은 공통 helper(content-text)로 위임
+  const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'blog-table-wrapper' });
 
   // 관련 게임 찾기
   const findRelatedGames = (text, limit = 4) => {
@@ -639,56 +611,10 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     let adCount = 0;
     processedContent.forEach((block) => {
       switch (block.type) {
-        case 'text':
-          // 코드 펜스 변환 (```language ... ``` → <pre><code>)
-          const codeBlocks_r = [];
-          const textWithPlaceholders_r = String(block.value || '').replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
-            const escaped = code
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/^(#.*)$/gm, '<span class="code-comment">$1</span>');
-            const placeholder = `__CODE_BLOCK_${codeBlocks_r.length}__`;
-            codeBlocks_r.push(`<figure class="blog-figure blog-code"><pre><code${lang ? ` class="language-${lang}"` : ''}>${escaped}</code></pre></figure>`);
-            return placeholder;
-          });
-          const formatTextFragment_r = (text) => {
-            const t = text.trim();
-            if (!t) return '';
-            // 마크다운 표 처리
-            if (t.startsWith('|') && t.includes('|---')) {
-              const tableHtml = parseMarkdownTable(t);
-              if (tableHtml) return tableHtml;
-            }
-            const formatted = t
-              .replace(/`([^`]+)`/g, '<code>$1</code>')
-              .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
-              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-              .replace(/^- /gm, '• ')
-              .replace(/\n- /g, '\n• ')
-              .replace(/\n/g, '<br>')
-              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
-            return `<p class="blog-paragraph">${formatted}</p>`;
-          };
-          const paragraphs = textWithPlaceholders_r.split('\n\n').map(p => {
-            const trimmed = p.trim();
-            if (!trimmed) return '';
-            // 코드 블록 placeholder만으로 이루어진 단락
-            const codePlaceholderMatch = trimmed.match(/^__CODE_BLOCK_(\d+)__$/);
-            if (codePlaceholderMatch) return codeBlocks_r[parseInt(codePlaceholderMatch[1])];
-            // 혼합 단락: 텍스트 + 코드 블록 placeholder가 섞인 경우
-            if (/__CODE_BLOCK_\d+__/.test(trimmed)) {
-              const parts = trimmed.split(/(__CODE_BLOCK_\d+__)/);
-              return parts.map(part => {
-                const m = part.match(/^__CODE_BLOCK_(\d+)__$/);
-                if (m) return codeBlocks_r[parseInt(m[1])];
-                return formatTextFragment_r(part);
-              }).filter(x => x).join('');
-            }
-            return formatTextFragment_r(trimmed);
-          }).filter(p => p).join('');
-          result.push(paragraphs);
+        case 'text': {
+          result.push(renderTextBlock(block.value, { tableClass: 'blog-table-wrapper' }));
           break;
+        }
 
         case 'image':
           // 로컬 이미지 우선, 없으면 외부 URL
@@ -1134,37 +1060,8 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '인사이트 대표 이미지');
 
-  // 마크다운 표를 HTML table로 변환
-  const parseMarkdownTable = (text) => {
-    const lines = text.trim().split('\n');
-    if (lines.length < 2) return null;
-    if (!lines[0].trim().startsWith('|')) return null;
-    const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
-    if (separatorIndex < 1) return null;
-
-    const parseCells = (line) => {
-      const cells = line.split('|');
-      if (cells.length > 0 && cells[0].trim() === '') cells.shift();
-      if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
-      return cells.map(cell => cell.trim());
-    };
-
-    const headers = parseCells(lines[0]);
-    const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
-    const rows = dataLines.map(line => parseCells(line));
-
-    let html = '<div class="blog-table-wrapper"><table>';
-    html += '<thead><tr>';
-    headers.forEach(h => { html += `<th>${h}</th>`; });
-    html += '</tr></thead><tbody>';
-    rows.forEach(row => {
-      html += '<tr>';
-      row.forEach(cell => { html += `<td>${cell}</td>`; });
-      html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    return html;
-  };
+  // 마크다운 표 변환은 공통 helper(content-text)로 위임
+  const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'blog-table-wrapper' });
 
   // 관련 게임 찾기
   const findRelatedGames = (text, limit = 4) => {
@@ -1206,25 +1103,10 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
     let adCount = 0;
     processedContent.forEach((block) => {
       switch (block.type) {
-        case 'text':
-          const paragraphs = block.value.split('\n\n').map(p => {
-            const trimmed = p.trim();
-            if (trimmed.startsWith('|') && trimmed.includes('|---')) {
-              const tableHtml = parseMarkdownTable(trimmed);
-              if (tableHtml) return tableHtml;
-            }
-            const formatted = trimmed
-              .replace(/`([^`]+)`/g, '<code>$1</code>')
-              .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
-              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-              .replace(/^- /gm, '• ')
-              .replace(/\n- /g, '\n• ')
-              .replace(/\n/g, '<br>')
-              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
-            return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
-          }).filter(p => p).join('');
-          result.push(paragraphs);
+        case 'text': {
+          result.push(renderTextBlock(block.value, { tableClass: 'blog-table-wrapper' }));
           break;
+        }
 
         case 'image':
           const imgSrc = getLocalInsightImagePath(slug, block.src, 'content', imageIndex);
@@ -1660,37 +1542,8 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '핫픽 대표 이미지');
 
-  // 마크다운 표를 HTML table로 변환
-  const parseMarkdownTable = (text) => {
-    const lines = text.trim().split('\n');
-    if (lines.length < 2) return null;
-    if (!lines[0].trim().startsWith('|')) return null;
-    const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
-    if (separatorIndex < 1) return null;
-
-    const parseCells = (line) => {
-      const cells = line.split('|');
-      if (cells.length > 0 && cells[0].trim() === '') cells.shift();
-      if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
-      return cells.map(cell => cell.trim());
-    };
-
-    const headers = parseCells(lines[0]);
-    const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
-    const rows = dataLines.map(line => parseCells(line));
-
-    let html = '<div class="blog-table-wrapper"><table>';
-    html += '<thead><tr>';
-    headers.forEach(h => { html += `<th>${h}</th>`; });
-    html += '</tr></thead><tbody>';
-    rows.forEach(row => {
-      html += '<tr>';
-      row.forEach(cell => { html += `<td>${cell}</td>`; });
-      html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    return html;
-  };
+  // 마크다운 표 변환은 공통 helper(content-text)로 위임
+  const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'blog-table-wrapper' });
 
   // 관련 게임 찾기
   const findRelatedGames = (text, limit = 4) => {
@@ -1732,25 +1585,10 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
     let adCount = 0;
     processedContent.forEach((block) => {
       switch (block.type) {
-        case 'text':
-          const paragraphs = block.value.split('\n\n').map(p => {
-            const trimmed = p.trim();
-            if (trimmed.startsWith('|') && trimmed.includes('|---')) {
-              const tableHtml = parseMarkdownTable(trimmed);
-              if (tableHtml) return tableHtml;
-            }
-            const formatted = trimmed
-              .replace(/`([^`]+)`/g, '<code>$1</code>')
-              .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
-              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-              .replace(/^- /gm, '• ')
-              .replace(/\n- /g, '\n• ')
-              .replace(/\n/g, '<br>')
-              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
-            return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
-          }).filter(p => p).join('');
-          result.push(paragraphs);
+        case 'text': {
+          result.push(renderTextBlock(block.value, { tableClass: 'blog-table-wrapper' }));
           break;
+        }
 
         case 'image':
           const imgSrc = getLocalHotpickImagePath(slug, block.src, 'content', imageIndex);
@@ -2196,37 +2034,8 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '순위 분석 대표 이미지');
 
-  // 마크다운 표를 HTML table로 변환
-  const parseMarkdownTable = (text) => {
-    const lines = text.trim().split('\n');
-    if (lines.length < 2) return null;
-    if (!lines[0].trim().startsWith('|')) return null;
-    const separatorIndex = lines.findIndex(line => /^\|[\s\-:|]+\|$/.test(line.trim()));
-    if (separatorIndex < 1) return null;
-
-    const parseCells = (line) => {
-      const cells = line.split('|');
-      if (cells.length > 0 && cells[0].trim() === '') cells.shift();
-      if (cells.length > 0 && cells[cells.length - 1].trim() === '') cells.pop();
-      return cells.map(cell => cell.trim());
-    };
-
-    const headers = parseCells(lines[0]);
-    const dataLines = lines.slice(separatorIndex + 1).filter(line => line.trim().startsWith('|'));
-    const rows = dataLines.map(line => parseCells(line));
-
-    let html = '<div class="blog-table-wrapper"><table>';
-    html += '<thead><tr>';
-    headers.forEach(h => { html += `<th>${h}</th>`; });
-    html += '</tr></thead><tbody>';
-    rows.forEach(row => {
-      html += '<tr>';
-      row.forEach(cell => { html += `<td>${cell}</td>`; });
-      html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    return html;
-  };
+  // 마크다운 표 변환은 공통 helper(content-text)로 위임
+  const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'blog-table-wrapper' });
 
   // 관련 게임 찾기
   const findRelatedGames = (text, limit = 4) => {
@@ -2288,27 +2097,10 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     let adCount = 0;
     processedContent.forEach((block) => {
       switch (block.type) {
-        case 'text':
-          const paragraphs = block.value.split('\n\n').map(p => {
-            const trimmed = p.trim();
-            if (trimmed.startsWith('|') && trimmed.includes('|---')) {
-              const tableHtml = parseMarkdownTable(trimmed);
-              if (tableHtml) return tableHtml;
-            }
-            // 마크다운 볼드 변환: **텍스트** → <strong>텍스트</strong>
-            // 마크다운 리스트 변환: "- " → "• "
-            const formatted = trimmed
-              .replace(/`([^`]+)`/g, '<code>$1</code>')
-              .replace(/\*\*([^*]+:)\*\*/g, '<strong class="subheading">$1</strong>')
-              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-              .replace(/^- /gm, '• ')
-              .replace(/\n- /g, '\n• ')
-              .replace(/\n/g, '<br>')
-              .replace(/class="subheading">([^<]+)<\/strong><br>/g, 'class="subheading">$1</strong>');
-            return trimmed ? `<p class="blog-paragraph">${formatted}</p>` : '';
-          }).filter(p => p).join('');
-          result.push(paragraphs);
+        case 'text': {
+          result.push(renderTextBlock(block.value, { tableClass: 'blog-table-wrapper' }));
           break;
+        }
         case 'heading':
           sectionCount++;
           if (sectionCount % 2 === 0) {
