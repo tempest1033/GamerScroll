@@ -838,7 +838,7 @@ const PURGECSS_SAFELIST = {
     'ads-disabled', 'deferred-css-pending', 'realtime',
     'search-hidden', 'is-open', 'is-hidden',
   ],
-  deep: [/^search-/, /^is-/, /^has-/],
+  deep: [/^search-/, /^is-/, /^has-/, /^ad-/],
   greedy: [],
 };
 

@@ -91,6 +91,21 @@
   }
 }
 
+/* 모바일 in-feed (300x250) reserve: home-main / article-main 자식인 경우 */
+@media (max-width: 768px) {
+  .home-main > .ad-card-responsive-home,
+  .home-main > .ad-card-responsive-top,
+  .article-main > .ad-card-responsive-home,
+  .article-main > .ad-card-responsive-top {
+    min-height: 250px;
+  }
+}
+
+/* AIScroll BTF in-article 광고 reserve (300x250) */
+.blog-in-article-ad {
+  min-height: 250px;
+}
+
 /* AdSense iframe child: vertical-align middle for shorter creatives */
 .ad-card-responsive-home > ins.adsbygoogle > iframe,
 .ad-card-responsive-top > ins.adsbygoogle > iframe {
