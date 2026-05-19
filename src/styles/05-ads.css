@@ -6,8 +6,27 @@
 
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
-  width: 100%;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  height: 100px;
   min-height: 100px;
+  max-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc((100% - 320px) / 2);
+  margin-right: calc((100% - 320px) / 2);
+}
+
+.ad-card-mobile-top > ins.adsbygoogle,
+.ad-card-mobile-top > ins.adsbygoogle > iframe {
+  width: 320px !important;
+  min-width: 320px !important;
+  max-width: 320px !important;
+  height: 100px !important;
+  min-height: 100px !important;
+  max-height: 100px !important;
 }
 
 /* 모바일 중간 광고 (300x250) */
@@ -196,7 +215,9 @@ body.ads-disabled .article-layout {
 
 /* home-main / article-main 최상단 ResponsiveHome 광고: 하단 마진만 (카드 간격과 동일) */
 .home-main > .ad-card-responsive-home:first-child,
-.article-main > .ad-card-responsive-home:first-child {
+.home-main > .ad-card-mobile-top:first-child,
+.article-main > .ad-card-responsive-home:first-child,
+.article-main > .ad-card-mobile-top:first-child {
   margin-top: 0;
   margin-bottom: var(--space-block-gap, 16px);
 }

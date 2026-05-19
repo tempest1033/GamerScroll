@@ -835,6 +835,10 @@ function wrapWithLayout(content, options = {}) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->${ADS_ENABLED ? `
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}
   <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->${ADS_ENABLED ? `
   <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
   <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}
@@ -879,10 +883,7 @@ function wrapWithLayout(content, options = {}) {
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="${SITE_CONFIG.name} RSS Feed" href="${SITE_CONFIG.baseUrl}/rss.xml">
 
-  <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->${ADS_ENABLED ? `
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}
+  <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>

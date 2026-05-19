@@ -95,15 +95,16 @@ function renderMobileOnlyHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
   const styleId = `ad-home-mo-${++adStyleCounter}`;
   const cardClass = `${styleId}-card`;
-  return `<div class="ad-card ad-card-responsive-home ${cardClass}">
+  return `<div class="ad-card ad-card-mobile-top ${cardClass}">
   <style>
-    .${cardClass} { display:flex !important; height:100px; min-height:100px; max-height:100px; align-items:center; justify-content:center; overflow:hidden; }
-    .${styleId} { display:block !important; width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .${cardClass} { display:flex !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin-left:calc((100% - 320px) / 2) !important; margin-right:calc((100% - 320px) / 2) !important; align-items:center; justify-content:center; overflow:hidden; }
+    .${styleId} { display:inline-block !important; width:320px !important; height:100px !important; min-width:320px !important; min-height:100px !important; max-width:320px !important; max-height:100px !important; margin:0 auto; }
     @media (min-width: 769px) {
-      .${cardClass}, .${styleId} { display:none !important; height:0 !important; min-height:0 !important; max-height:0 !important; }
+      .${cardClass}, .${styleId} { display:none !important; width:0 !important; min-width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
+       style="display:inline-block;width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   ${renderEagerAdPushScript()}
