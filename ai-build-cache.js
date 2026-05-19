@@ -85,19 +85,31 @@ function computeSourceCssHash() {
 }
 
 /**
- * src/templates/ai-blog 폴더의 JS 파일들 해시 계산
+ * src/templates 폴더의 JS 파일들 해시 계산 (재귀)
+ * AIScroll도 공통 광고/레이아웃 템플릿을 공유하므로 전체 템플릿 변경을 감지한다.
  */
 function computeTemplateJsHash() {
-  const templatesDir = './src/templates/ai-blog';
+  const templatesDir = './src/templates';
   if (!fs.existsSync(templatesDir)) return null;
 
   const hashes = [];
-  const files = fs.readdirSync(templatesDir).filter(f => f.endsWith('.js')).sort();
-  for (const file of files) {
-    const content = fs.readFileSync(path.join(templatesDir, file), 'utf8');
-    hashes.push(`${file}:${computeHash(content)}`);
+
+  function scanDir(dir) {
+    const items = fs.readdirSync(dir);
+    for (const item of items) {
+      const fullPath = path.join(dir, item);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory()) {
+        scanDir(fullPath);
+      } else if (item.endsWith('.js')) {
+        const content = fs.readFileSync(fullPath, 'utf8');
+        hashes.push(`${fullPath}:${computeHash(content)}`);
+      }
+    }
   }
-  return computeHash(hashes.join('|'));
+
+  scanDir(templatesDir);
+  return computeHash(hashes.sort().join('|'));
 }
 
 /**
