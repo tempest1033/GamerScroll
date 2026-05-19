@@ -1948,20 +1948,8 @@ function wrapWithLayout(content, options = {}) {
     }
     pushAd(ads[0]);
     if (ads.length > 1) {
-      if (!('IntersectionObserver' in window)) {
-        for (var j = 1; j < ads.length; j++) { pushAd(ads[j]); }
-        return;
-      }
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            pushAd(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '2400px' });
-      for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
-      __gsAdCleanup.push(function() { try { observer.disconnect(); } catch (e) {} });
+      // BTF 광고도 즉시 push — AdSense fetch 시간을 충분히 확보해서 사용자 스크롤 도달 시 채워져 있도록.
+      for (var j = 1; j < ads.length; j++) { pushAd(ads[j]); }
     }
   })();
   </script>

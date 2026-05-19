@@ -795,7 +795,7 @@ const lazyCardHydrationScript = `
         var mobileLoadAheadPx = 1200;
         var mobileItemObserverMargin = '2400px 0px';
         var scrollAdObserverMargin = '3000px 0px';
-        var eagerScrollAdPushLimit = 2;
+        var eagerScrollAdPushLimit = 99;
         var eagerScrollAdPushCount = 0;
         // Phase B: cleanup registry — observers/listeners released on pagehide.
         var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
@@ -2031,23 +2031,9 @@ const adLazyLoadScript = `
   // ATF ad fallback: eager ad slots may already have pushed next to the <ins>.
   pushAd(ads[0]);
 
-  // BTF ads: IntersectionObserver lazy load (with no-IO fallback).
+  // BTF ads: immediate push so AdSense has full fetch budget before viewport reaches the slot.
   if (ads.length > 1) {
-    if (!('IntersectionObserver' in window)) {
-      for (var j = 1; j < ads.length; j++) { pushAd(ads[j]); }
-      return;
-    }
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          pushAd(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '2400px' });
-
-    for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
-    __gsAdCleanup.push(function() { try { observer.disconnect(); } catch (e) {} });
+    for (var j = 1; j < ads.length; j++) { pushAd(ads[j]); }
   }
 })();
 </script>`;
