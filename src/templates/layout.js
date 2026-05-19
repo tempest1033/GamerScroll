@@ -973,7 +973,7 @@ const lazyCardHydrationScript = `
           adWrap.id = adId;
           adWrap.style.margin = '16px 0';
           adWrap.style.padding = '12px 0';
-          adWrap.style.minHeight = '308px';
+          adWrap.style.setProperty('min-height', '308px', 'important');
           adWrap.style.boxSizing = 'border-box';
           adWrap.style.borderTop = '1px solid var(--border)';
           adWrap.style.borderBottom = '1px solid var(--border)';
@@ -981,7 +981,7 @@ const lazyCardHydrationScript = `
           var ins = document.createElement('ins');
           ins.className = 'adsbygoogle';
           ins.style.display = 'block';
-          ins.style.minHeight = '284px';
+          ins.style.setProperty('min-height', '284px', 'important');
           ins.setAttribute('data-ad-client', 'ca-pub-9477874183990825');
           ins.setAttribute('data-ad-slot', slotId);
           ins.setAttribute('data-ad-format', 'fluid');

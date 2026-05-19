@@ -15,7 +15,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
 }
 
@@ -70,11 +71,11 @@
 /* 모바일 스크롤 In-feed 광고: iframe 도착 전에도 실제 채움 높이를 reserve */
 .ad-card-scroll {
   width: 100%;
-  min-height: 308px;
+  min-height: 308px !important;
 }
 
 .ad-card-scroll > ins.adsbygoogle {
-  min-height: 284px;
+  min-height: 284px !important;
 }
 
 /* Multiplex 광고 (자동 반응형) */
@@ -232,6 +233,14 @@ body.ads-disabled .article-layout {
   margin-bottom: var(--space-block-gap, 16px);
 }
 
+@media (max-width: 768px) {
+  .home-main > .ad-card-mobile-top,
+  .article-main > .ad-card-mobile-top {
+    margin-top: 0 !important;
+    margin-bottom: var(--space-block-gap, 16px) !important;
+  }
+}
+
 /* 모바일 홈: 사이드바 숨김 (PC 전용) */
 @media (max-width: 768px) {
   .home-sidebar {
@@ -277,7 +286,8 @@ body.ads-disabled .article-layout {
 .ad-card-vertical:has(ins[data-ad-status="unfilled"]),
 .ad-card-rectangle:has(ins[data-ad-status="unfilled"]),
 .ad-card-native:has(ins[data-ad-status="unfilled"]) {
-  display: none;
+  display: none !important;
+  min-height: 0 !important;
 }
 
 /* 빈 광고 컨테이너 숨김 (Grid 레이아웃에서 gap 영향 방지) */

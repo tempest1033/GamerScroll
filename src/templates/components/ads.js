@@ -97,7 +97,7 @@ function renderMobileOnlyHomeAd(slotId) {
   const cardClass = `${styleId}-card`;
   return `<div class="ad-card ad-card-mobile-top ${cardClass}">
   <style>
-    .${cardClass} { display:flex !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin:0 auto !important; overflow:hidden; }
+    .${cardClass} { display:flex !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
     .${styleId} { display:inline-block !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
     @media (min-width: 769px) {
       .${cardClass}, .${styleId} { display:none !important; width:0 !important; min-width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
