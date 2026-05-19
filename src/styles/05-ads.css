@@ -236,8 +236,24 @@ body.ads-disabled .article-layout {
 @media (max-width: 768px) {
   .home-main > .ad-card-mobile-top,
   .article-main > .ad-card-mobile-top {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
     margin-top: 0 !important;
     margin-bottom: var(--space-block-gap, 16px) !important;
+  }
+
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle,
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle > iframe {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
   }
 }
 

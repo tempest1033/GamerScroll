@@ -856,8 +856,8 @@ const lazyCardHydrationScript = `
         function startScrollAdEmptyTimers(ins) {
           if (!ins || !(ins.dataset) || ins.dataset.gsAdEmptyTimer === '1') return;
           ins.dataset.gsAdEmptyTimer = '1';
-          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-near-18s'); }, 18000);
-          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-near-36s'); }, 36000);
+          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-near-12s'); }, 12000);
+          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-near-24s'); }, 24000);
         }
         function watchScrollAdEmpty(ins) {
           if (!ins || (ins.dataset && ins.dataset.gsAdEmptyWatch === '1')) return;
@@ -877,7 +877,7 @@ const lazyCardHydrationScript = `
               emptyTimerObserver.disconnect();
               startScrollAdEmptyTimers(ins);
             }, { rootMargin: '3600px 0px' });
-            emptyTimerObserver.observe(ins);
+            emptyTimerObserver.observe((ins.closest && ins.closest('.ad-card-scroll')) || ins);
             __gsAdCleanup.push(function() { try { emptyTimerObserver.disconnect(); } catch (e) {} });
           } else {
             setTimeout(function() { startScrollAdEmptyTimers(ins); }, 20000);
@@ -2018,7 +2018,7 @@ const adLazyLoadScript = `
 
   function getAdVisualWrapper(ad) {
     return ad && ad.closest
-      ? ad.closest('.ad-card-responsive-home, .ad-card-responsive-top, .blog-in-article-ad')
+      ? ad.closest('.ad-card-responsive-home, .ad-card-responsive-top, .ad-card-mobile-top, .blog-in-article-ad')
       : null;
   }
 
@@ -2038,6 +2038,8 @@ const adLazyLoadScript = `
     if (!wrap || ad.getAttribute('data-gs-ad-empty') === '1') return;
     ad.setAttribute('data-gs-ad-empty', '1');
     if (reason) ad.setAttribute('data-gs-ad-empty-reason', reason);
+    wrap.setAttribute('data-gs-ad-empty', '1');
+    if (reason) wrap.setAttribute('data-gs-ad-empty-reason', reason);
     wrap.classList.add('gs-ad-empty');
     wrap.style.setProperty('display', 'none', 'important');
     wrap.style.setProperty('min-height', '0', 'important');
@@ -2105,7 +2107,8 @@ const adLazyLoadScript = `
     var iframeHeight = Math.round(iframe.getBoundingClientRect().height || iframe.offsetHeight || 0);
     if (!iframeHeight) return;
 
-    var isTopAd = wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
+    var isMobileTopAd = wrap.classList.contains('ad-card-mobile-top');
+    var isTopAd = isMobileTopAd || wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
     var minHeight = isTopAd
       ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 100 : 90)
       : 0;
@@ -2125,6 +2128,26 @@ const adLazyLoadScript = `
 
     if (isShortTopAd) {
       iframe.style.minHeight = minHeight + 'px';
+    }
+    if (isMobileTopAd) {
+      wrap.style.setProperty('width', '320px', 'important');
+      wrap.style.setProperty('min-width', '320px', 'important');
+      wrap.style.setProperty('max-width', '320px', 'important');
+      wrap.style.setProperty('height', '100px', 'important');
+      wrap.style.setProperty('min-height', '100px', 'important');
+      wrap.style.setProperty('max-height', '100px', 'important');
+      ad.style.setProperty('width', '320px', 'important');
+      ad.style.setProperty('min-width', '320px', 'important');
+      ad.style.setProperty('max-width', '320px', 'important');
+      ad.style.setProperty('height', '100px', 'important');
+      ad.style.setProperty('min-height', '100px', 'important');
+      ad.style.setProperty('max-height', '100px', 'important');
+      iframe.style.setProperty('width', '320px', 'important');
+      iframe.style.setProperty('min-width', '320px', 'important');
+      iframe.style.setProperty('max-width', '320px', 'important');
+      iframe.style.setProperty('height', '100px', 'important');
+      iframe.style.setProperty('min-height', '100px', 'important');
+      iframe.style.setProperty('max-height', '100px', 'important');
     }
   }
 

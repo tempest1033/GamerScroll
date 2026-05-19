@@ -1865,7 +1865,7 @@ function wrapWithLayout(content, options = {}) {
     }
     function getAdVisualWrapper(ad) {
       return ad && ad.closest
-        ? ad.closest('.ad-card-responsive-home, .ad-card-responsive-top, .blog-in-article-ad')
+        ? ad.closest('.ad-card-responsive-home, .ad-card-responsive-top, .ad-card-mobile-top, .blog-in-article-ad')
         : null;
     }
     function getAdCollapseWrapper(ad) {
@@ -1882,6 +1882,8 @@ function wrapWithLayout(content, options = {}) {
       if (!wrap || ad.getAttribute('data-gs-ad-empty') === '1') return;
       ad.setAttribute('data-gs-ad-empty', '1');
       if (reason) ad.setAttribute('data-gs-ad-empty-reason', reason);
+      wrap.setAttribute('data-gs-ad-empty', '1');
+      if (reason) wrap.setAttribute('data-gs-ad-empty-reason', reason);
       wrap.classList.add('gs-ad-empty');
       wrap.style.setProperty('display', 'none', 'important');
       wrap.style.setProperty('min-height', '0', 'important');
@@ -1943,7 +1945,8 @@ function wrapWithLayout(content, options = {}) {
       if (!iframe) return;
       var iframeHeight = Math.round(iframe.getBoundingClientRect().height || iframe.offsetHeight || 0);
       if (!iframeHeight) return;
-      var isTopAd = wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
+      var isMobileTopAd = wrap.classList.contains('ad-card-mobile-top');
+      var isTopAd = isMobileTopAd || wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
       var minHeight = isTopAd
         ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 100 : 90)
         : 0;
@@ -1959,6 +1962,26 @@ function wrapWithLayout(content, options = {}) {
       ad.style.height = targetHeight + 'px';
       ad.style.minHeight = targetHeight + 'px';
       if (isShortTopAd) iframe.style.minHeight = minHeight + 'px';
+      if (isMobileTopAd) {
+        wrap.style.setProperty('width', '320px', 'important');
+        wrap.style.setProperty('min-width', '320px', 'important');
+        wrap.style.setProperty('max-width', '320px', 'important');
+        wrap.style.setProperty('height', '100px', 'important');
+        wrap.style.setProperty('min-height', '100px', 'important');
+        wrap.style.setProperty('max-height', '100px', 'important');
+        ad.style.setProperty('width', '320px', 'important');
+        ad.style.setProperty('min-width', '320px', 'important');
+        ad.style.setProperty('max-width', '320px', 'important');
+        ad.style.setProperty('height', '100px', 'important');
+        ad.style.setProperty('min-height', '100px', 'important');
+        ad.style.setProperty('max-height', '100px', 'important');
+        iframe.style.setProperty('width', '320px', 'important');
+        iframe.style.setProperty('min-width', '320px', 'important');
+        iframe.style.setProperty('max-width', '320px', 'important');
+        iframe.style.setProperty('height', '100px', 'important');
+        iframe.style.setProperty('min-height', '100px', 'important');
+        iframe.style.setProperty('max-height', '100px', 'important');
+      }
     }
     function observeAdVisualSize(ad) {
       if (!ad || ad.getAttribute('data-gs-size-observed') === '1') return;
