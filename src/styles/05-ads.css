@@ -7,13 +7,13 @@
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
   width: 100%;
-  height: 200px;
+  min-height: 100px;
 }
 
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
-  min-height: 200px;
+  min-height: 250px;
 }
 
 /* PC 홈 상단 광고 (728x90) */
