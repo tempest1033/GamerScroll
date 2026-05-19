@@ -1837,7 +1837,27 @@ const adLazyLoadScript = `
   if (!ads.length) return;
 
   function isHiddenAd(ad) {
-    return window.getComputedStyle && getComputedStyle(ad).display === 'none';
+    if (!ad) return true;
+    var node = ad;
+    while (node && node !== document.body) {
+      if (node.offsetParent === null) return true;
+      var cs = window.getComputedStyle ? getComputedStyle(node) : null;
+      if (cs && cs.display === 'none') return true;
+      node = node.parentElement;
+    }
+    return false;
+  }
+
+  // Phase B: cleanup registry — observers/listeners released on pagehide.
+  var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
+  if (!window.__gsAdCleanupBound) {
+    window.__gsAdCleanupBound = true;
+    window.addEventListener('pagehide', function() {
+      while (__gsAdCleanup.length) {
+        var fn = __gsAdCleanup.shift();
+        try { if (typeof fn === 'function') fn(); } catch (e) {}
+      }
+    });
   }
 
   function getAdVisualWrapper(ad) {
@@ -1916,7 +1936,10 @@ const adLazyLoadScript = `
   }
 
   function pushAd(ad) {
-    if (!ad || ad.getAttribute('data-gs-ad-pushed') === '1' || isHiddenAd(ad)) return;
+    if (!ad) return;
+    if (document.body.classList.contains('ads-disabled')) return;
+    if (ad.getAttribute('data-gs-ad-pushed') === '1') return;
+    if (isHiddenAd(ad)) return;
     observeAdVisualSize(ad);
     ad.setAttribute('data-gs-ad-pushed', '1');
     try {
@@ -1939,9 +1962,12 @@ const adLazyLoadScript = `
   // ATF ad fallback: eager ad slots may already have pushed next to the <ins>.
   pushAd(ads[0]);
 
-  // BTF ads: IntersectionObserver lazy load.
+  // BTF ads: IntersectionObserver lazy load (with no-IO fallback).
   if (ads.length > 1) {
-    var btfRootMargin = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? '5200px' : '1800px';
+    if (!('IntersectionObserver' in window)) {
+      for (var j = 1; j < ads.length; j++) { pushAd(ads[j]); }
+      return;
+    }
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -1949,9 +1975,10 @@ const adLazyLoadScript = `
           observer.unobserve(entry.target);
         }
       });
-    }, { rootMargin: btfRootMargin });
+    }, { rootMargin: '1200px' });
 
     for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
+    __gsAdCleanup.push(function() { try { observer.disconnect(); } catch (e) {} });
   }
 })();
 </script>`;

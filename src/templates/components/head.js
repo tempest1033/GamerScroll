@@ -3,6 +3,9 @@
  * SEO 메타, 스타일, 폰트, Firebase Analytics 등
  */
 
+// 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
+const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
+
 function generateHead(options = {}) {
   const {
     title = '게이머스크롤 | 데일리 게임 인사이트',
@@ -226,10 +229,10 @@ function generateHead(options = {}) {
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
 	  <meta name="robots" content="noindex, follow">` : `
 	  <meta name="robots" content="max-image-preview:large">`}
-	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->${ADS_ENABLED ? `
 	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}
 	  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
 	  <style>
@@ -271,9 +274,9 @@ function generateHead(options = {}) {
 	      .home-main > *, .home-card { margin-bottom: 0; }
 	    }
 	  </style>
-	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->${ADS_ENABLED ? `
 	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
-	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}
 		  <title>${pageTitleText}</title>
   <!-- SEO -->
   <meta name="description" content="${safeDescription}">

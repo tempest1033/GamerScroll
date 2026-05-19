@@ -8,6 +8,9 @@ const path = require('path');
 const crypto = require('crypto');
 const { buildCardFeedPagerScript, LAYOUT_CORE_ASSET, buildLayoutCoreBundle, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 
+// 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
+const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
+
 // 사이트 설정
 const SITE_CONFIG = {
   name: 'AIScroll',
@@ -832,9 +835,9 @@ function wrapWithLayout(content, options = {}) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->${ADS_ENABLED ? `
   <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
-  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(safeDescription)}">
   <meta name="keywords" content="${escapeHtml(keywords)}">
@@ -876,18 +879,18 @@ function wrapWithLayout(content, options = {}) {
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="${SITE_CONFIG.name} RSS Feed" href="${SITE_CONFIG.baseUrl}/rss.xml">
 
-  <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->
+  <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->${ADS_ENABLED ? `
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://ep1.adtrafficquality.google" crossorigin>
   <link rel="preconnect" href="https://wsrv.nl" crossorigin>
-  <!-- dns-prefetch: fallback -->
+  <!-- dns-prefetch: fallback -->${ADS_ENABLED ? `
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
-  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">` : ''}
   <link rel="dns-prefetch" href="https://www.gstatic.com">
   <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
   <link rel="dns-prefetch" href="https://wsrv.nl">${jsonLdScript}
@@ -1741,7 +1744,7 @@ function wrapWithLayout(content, options = {}) {
       const t = e.target;
       if (
         t && t.closest &&
-        t.closest('.nav, .nav-inner, .search-dropdown, .search-container, .mobile-side-panel, .mobile-side-overlay, .mobile-fab, #mobileSidePanel, #mobileSideOverlay, #mobileFab, input, textarea')
+        t.closest('.nav, .nav-inner, .search-dropdown, .search-container, .mobile-side-panel, .mobile-side-overlay, .mobile-fab, #mobileSidePanel, #mobileSideOverlay, #mobileFab, .ad-card, .adsbygoogle, input, textarea')
       ) return;
 
       mainEl = document.querySelector('main.site-container');
@@ -1838,7 +1841,26 @@ function wrapWithLayout(content, options = {}) {
     var ads = document.querySelectorAll('.adsbygoogle');
     if (!ads.length) return;
     function isHiddenAd(ad) {
-      return window.getComputedStyle && getComputedStyle(ad).display === 'none';
+      if (!ad) return true;
+      var node = ad;
+      while (node && node !== document.body) {
+        if (node.offsetParent === null) return true;
+        var cs = window.getComputedStyle ? getComputedStyle(node) : null;
+        if (cs && cs.display === 'none') return true;
+        node = node.parentElement;
+      }
+      return false;
+    }
+    // Phase B: cleanup registry — observers/listeners released on pagehide.
+    var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
+    if (!window.__gsAdCleanupBound) {
+      window.__gsAdCleanupBound = true;
+      window.addEventListener('pagehide', function() {
+        while (__gsAdCleanup.length) {
+          var fn = __gsAdCleanup.shift();
+          try { if (typeof fn === 'function') fn(); } catch (e) {}
+        }
+      });
     }
     function getAdVisualWrapper(ad) {
       return ad && ad.closest
@@ -1902,7 +1924,10 @@ function wrapWithLayout(content, options = {}) {
       setTimeout(schedule, 1800);
     }
     function pushAd(ad) {
-      if (!ad || ad.getAttribute('data-gs-ad-pushed') === '1' || isHiddenAd(ad)) return;
+      if (!ad) return;
+      if (document.body.classList.contains('ads-disabled')) return;
+      if (ad.getAttribute('data-gs-ad-pushed') === '1') return;
+      if (isHiddenAd(ad)) return;
       observeAdVisualSize(ad);
       ad.setAttribute('data-gs-ad-pushed', '1');
       try {
@@ -1922,7 +1947,10 @@ function wrapWithLayout(content, options = {}) {
     }
     pushAd(ads[0]);
     if (ads.length > 1) {
-      var btfRootMargin = (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? '5200px' : '1800px';
+      if (!('IntersectionObserver' in window)) {
+        for (var j = 1; j < ads.length; j++) { pushAd(ads[j]); }
+        return;
+      }
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -1930,8 +1958,9 @@ function wrapWithLayout(content, options = {}) {
             observer.unobserve(entry.target);
           }
         });
-      }, { rootMargin: btfRootMargin });
+      }, { rootMargin: '1200px' });
       for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
+      __gsAdCleanup.push(function() { try { observer.disconnect(); } catch (e) {} });
     }
   })();
   </script>
