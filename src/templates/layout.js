@@ -816,6 +816,9 @@ const lazyCardHydrationScript = `
           var rect = iframe.getBoundingClientRect ? iframe.getBoundingClientRect() : null;
           return Math.round((rect && rect.height) || iframe.offsetHeight || 0);
         }
+        function isAdSenseServingReady() {
+          return !!(window.adsbygoogle && window.adsbygoogle.loaded);
+        }
         function markScrollAdEmpty(ins, reason) {
           var wrap = ins && ins.closest ? ins.closest('.ad-card-scroll') : null;
           if (!wrap || (ins.dataset && ins.dataset.gsAdEmpty === '1')) return;
@@ -837,6 +840,7 @@ const lazyCardHydrationScript = `
             markScrollAdEmpty(ins, reason || 'unfilled');
             return true;
           }
+          if (isAdSenseServingReady()) return false;
           if (!collapseMode) return false;
           var frameHeight = getScrollAdFrameHeight(ins);
           if (frameHeight <= 1 || collapseMode === true) {
@@ -856,8 +860,8 @@ const lazyCardHydrationScript = `
         function startScrollAdEmptyTimers(ins) {
           if (!ins || !(ins.dataset) || ins.dataset.gsAdEmptyTimer === '1') return;
           ins.dataset.gsAdEmptyTimer = '1';
-          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-near-12s'); }, 12000);
-          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-near-24s'); }, 24000);
+          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-near-30s'); }, 30000);
+          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-near-60s'); }, 60000);
         }
         function watchScrollAdEmpty(ins) {
           if (!ins || (ins.dataset && ins.dataset.gsAdEmptyWatch === '1')) return;
@@ -2033,6 +2037,10 @@ const adLazyLoadScript = `
     return Math.round((rect && rect.height) || iframe.offsetHeight || 0);
   }
 
+  function isAdSenseServingReady() {
+    return !!(window.adsbygoogle && window.adsbygoogle.loaded);
+  }
+
   function markAdEmpty(ad, reason) {
     var wrap = getAdCollapseWrapper(ad);
     if (!wrap || ad.getAttribute('data-gs-ad-empty') === '1') return;
@@ -2056,6 +2064,8 @@ const adLazyLoadScript = `
       markAdEmpty(ad, reason || 'unfilled');
       return true;
     }
+
+    if (isAdSenseServingReady()) return false;
     if (!collapseMode) return false;
     var frameHeight = getAdFrameHeight(ad);
     if (frameHeight <= 1 || collapseMode === true) {
@@ -2078,8 +2088,8 @@ const adLazyLoadScript = `
     function startTimers() {
       if (ad.getAttribute('data-gs-ad-empty-timer') === '1') return;
       ad.setAttribute('data-gs-ad-empty-timer', '1');
-      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-near-12s'); }, 12000);
-      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-near-24s'); }, 24000);
+      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-near-30s'); }, 30000);
+      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-near-60s'); }, 60000);
     }
     if (isNearViewport()) {
       startTimers();
