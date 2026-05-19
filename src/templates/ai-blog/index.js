@@ -1959,7 +1959,7 @@ function wrapWithLayout(content, options = {}) {
             observer.unobserve(entry.target);
           }
         });
-      }, { rootMargin: '1200px' });
+      }, { rootMargin: '2400px' });
       for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
       __gsAdCleanup.push(function() { try { observer.disconnect(); } catch (e) {} });
     }

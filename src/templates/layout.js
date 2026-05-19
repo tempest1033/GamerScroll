@@ -792,6 +792,11 @@ const lazyCardHydrationScript = `
         var noIoFallbackBound = false;
         var maxDomCards = enableMobileDomWindowing ? maxMobileDomItems : 0;
         var renderedScrollAds = new Map();
+        var mobileLoadAheadPx = 1200;
+        var mobileItemObserverMargin = '2400px 0px';
+        var scrollAdObserverMargin = '3000px 0px';
+        var eagerScrollAdPushLimit = 2;
+        var eagerScrollAdPushCount = 0;
         // Phase B: cleanup registry — observers/listeners released on pagehide.
         var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
         if (!window.__gsAdCleanupBound) {
@@ -829,7 +834,7 @@ const lazyCardHydrationScript = `
               scrollAdObserver.unobserve(ins);
               pushScrollAdGuarded(ins);
             });
-          }, { rootMargin: '1500px' });
+          }, { rootMargin: scrollAdObserverMargin });
           __gsAdCleanup.push(function() {
             try { if (scrollAdObserver) scrollAdObserver.disconnect(); } catch (e) {}
             scrollAdObserver = null;
@@ -1040,10 +1045,14 @@ const lazyCardHydrationScript = `
             renderedScrollAds.set(globalCardIndex, adEl);
 
             var insEl = adEl.querySelector ? adEl.querySelector('ins.adsbygoogle') : null;
+            if (insEl && eagerScrollAdPushCount < eagerScrollAdPushLimit) {
+              pushScrollAdGuarded(insEl);
+              if (insEl.dataset && insEl.dataset.gsAdPushed === '1') eagerScrollAdPushCount += 1;
+            }
             var io = ensureScrollAdObserver();
-            if (io && insEl) {
+            if (io && insEl && !(insEl.dataset && insEl.dataset.gsAdPushed === '1')) {
               io.observe(insEl);
-            } else if (insEl) {
+            } else if (insEl && !(insEl.dataset && insEl.dataset.gsAdPushed === '1')) {
               pushScrollAdGuarded(insEl);
             }
           }
@@ -1074,7 +1083,7 @@ const lazyCardHydrationScript = `
           if (!lastVisible || typeof lastVisible.getBoundingClientRect !== 'function') return false;
           var rect = lastVisible.getBoundingClientRect();
           var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-          return rect.top <= viewportHeight + 220;
+          return rect.top <= viewportHeight + mobileLoadAheadPx;
         }
 
         function runFallbackCheck() {
@@ -1133,7 +1142,7 @@ const lazyCardHydrationScript = `
                   var scrollY = window.scrollY || window.pageYOffset || 0;
                   var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
                   var docH = document.documentElement.scrollHeight || 0;
-                  if (scrollY + viewportH >= docH - 600) loadMoreMobile();
+                  if (scrollY + viewportH >= docH - mobileLoadAheadPx) loadMoreMobile();
                 });
               };
               window.addEventListener('scroll', noIoScrollHandler, { passive: true });
@@ -1146,7 +1155,7 @@ const lazyCardHydrationScript = `
           }
           observer = new IntersectionObserver(function(entries) {
             if (entries[0] && entries[0].isIntersecting) loadMoreMobile();
-          }, { rootMargin: '1200px' });
+          }, { rootMargin: mobileItemObserverMargin });
           observer.observe(lastVisible);
           __gsAdCleanup.push(function() { try { if (observer) observer.disconnect(); } catch (e) {} });
         }
@@ -2035,7 +2044,7 @@ const adLazyLoadScript = `
           observer.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '1200px' });
+    }, { rootMargin: '2400px' });
 
     for (var i = 1; i < ads.length; i++) { observer.observe(ads[i]); }
     __gsAdCleanup.push(function() { try { observer.disconnect(); } catch (e) {} });
