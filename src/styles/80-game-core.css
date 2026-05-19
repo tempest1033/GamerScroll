@@ -287,11 +287,11 @@
 }
 
 .game-rank-change.up {
-  color: #22c55e;
+  color: var(--rank-green);
 }
 
 .game-rank-change.down {
-  color: #ef4444;
+  color: var(--rank-red);
 }
 
 /* 실시간 순위 - 비활성 버튼 스타일 */
