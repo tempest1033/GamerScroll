@@ -91,15 +91,8 @@
   }
 }
 
-/* 모바일 in-feed (300x250) reserve: home-main / article-main 자식인 경우 */
-@media (max-width: 768px) {
-  .home-main > .ad-card-responsive-home,
-  .home-main > .ad-card-responsive-top,
-  .article-main > .ad-card-responsive-home,
-  .article-main > .ad-card-responsive-top {
-    min-height: 250px;
-  }
-}
+/* 모바일 상단 광고는 320x100 슬롯 사이즈 그대로 reserve (base 100px 상속).
+   in-article BTF 광고는 아래 .blog-in-article-ad 규칙이 더 높은 reserve를 제공함. */
 
 /* AIScroll BTF in-article 광고 reserve (300x250) */
 .blog-in-article-ad {
