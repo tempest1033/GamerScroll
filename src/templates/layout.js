@@ -2071,13 +2071,13 @@ const adLazyLoadScript = `
       if (!wrap || typeof wrap.getBoundingClientRect !== 'function') return true;
       var rect = wrap.getBoundingClientRect();
       var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-      return rect.top <= viewportHeight + 2400 && rect.bottom >= -1200;
+      return rect.top <= viewportHeight + 700 && rect.bottom >= -400;
     }
     function startTimers() {
       if (ad.getAttribute('data-gs-ad-empty-timer') === '1') return;
       ad.setAttribute('data-gs-ad-empty-timer', '1');
-      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-near-18s'); }, 18000);
-      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-near-36s'); }, 36000);
+      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-near-12s'); }, 12000);
+      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-near-24s'); }, 24000);
     }
     if (isNearViewport()) {
       startTimers();
@@ -2086,7 +2086,7 @@ const adLazyLoadScript = `
         if (!entries[0] || !entries[0].isIntersecting) return;
         emptyTimerObserver.disconnect();
         startTimers();
-      }, { rootMargin: '2400px 0px' });
+      }, { rootMargin: '700px 0px' });
       emptyTimerObserver.observe(getAdCollapseWrapper(ad));
       __gsAdCleanup.push(function() { try { emptyTimerObserver.disconnect(); } catch (e) {} });
     } else {
@@ -2190,7 +2190,7 @@ const adLazyLoadScript = `
       var articleAd = ads[eagerIndex];
       if (getAdCollapseWrapper(articleAd)) {
         inArticlePushCount += 1;
-        if (inArticlePushCount > 2) {
+        if (inArticlePushCount > 1) {
           deferredArticleAds.push(articleAd);
           continue;
         }
@@ -2209,7 +2209,7 @@ const adLazyLoadScript = `
             pushAd(entry.target);
             articleAdObserver.unobserve(entry.target);
           });
-        }, { rootMargin: '2200px 0px' });
+        }, { rootMargin: '1600px 0px' });
         for (var observeIndex = 0; observeIndex < deferredArticleAds.length; observeIndex++) {
           articleAdObserver.observe(deferredArticleAds[observeIndex]);
         }
