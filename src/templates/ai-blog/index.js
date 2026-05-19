@@ -1908,8 +1908,32 @@ function wrapWithLayout(content, options = {}) {
     function scheduleAdEmptyWatch(ad) {
       if (!ad || !getAdCollapseWrapper(ad) || ad.getAttribute('data-gs-ad-empty-watch') === '1') return;
       ad.setAttribute('data-gs-ad-empty-watch', '1');
-      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-14s'); }, 14000);
-      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-28s'); }, 28000);
+      function isNearViewport() {
+        var wrap = getAdCollapseWrapper(ad) || ad;
+        if (!wrap || typeof wrap.getBoundingClientRect !== 'function') return true;
+        var rect = wrap.getBoundingClientRect();
+        var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+        return rect.top <= viewportHeight + 2400 && rect.bottom >= -1200;
+      }
+      function startTimers() {
+        if (ad.getAttribute('data-gs-ad-empty-timer') === '1') return;
+        ad.setAttribute('data-gs-ad-empty-timer', '1');
+        setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-near-18s'); }, 18000);
+        setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-near-36s'); }, 36000);
+      }
+      if (isNearViewport()) {
+        startTimers();
+      } else if ('IntersectionObserver' in window) {
+        var emptyTimerObserver = new IntersectionObserver(function(entries) {
+          if (!entries[0] || !entries[0].isIntersecting) return;
+          emptyTimerObserver.disconnect();
+          startTimers();
+        }, { rootMargin: '2400px 0px' });
+        emptyTimerObserver.observe(getAdCollapseWrapper(ad));
+        __gsAdCleanup.push(function() { try { emptyTimerObserver.disconnect(); } catch (e) {} });
+      } else {
+        setTimeout(startTimers, 20000);
+      }
     }
     function normalizeAdVisualSize(ad) {
       if (maybeMarkAdEmpty(ad, false, 'status')) return;
@@ -1987,8 +2011,37 @@ function wrapWithLayout(content, options = {}) {
     for (var a = 0; a < ads.length; a++) { observeAdVisualSize(ads[a]); }
     var shouldPushAllAdsNow = !!document.querySelector('.article-layout .article-main');
     if (shouldPushAllAdsNow) {
+      var deferredArticleAds = [];
+      var inArticlePushCount = 0;
       for (var eagerIndex = 0; eagerIndex < ads.length; eagerIndex++) {
-        pushAd(ads[eagerIndex]);
+        var articleAd = ads[eagerIndex];
+        if (getAdCollapseWrapper(articleAd)) {
+          inArticlePushCount += 1;
+          if (inArticlePushCount > 2) {
+            deferredArticleAds.push(articleAd);
+            continue;
+          }
+        }
+        pushAd(articleAd);
+      }
+      if (deferredArticleAds.length) {
+        if (!('IntersectionObserver' in window)) {
+          for (var deferredIndex = 0; deferredIndex < deferredArticleAds.length; deferredIndex++) {
+            pushAd(deferredArticleAds[deferredIndex]);
+          }
+        } else {
+          var articleAdObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (!entry.isIntersecting) return;
+              pushAd(entry.target);
+              articleAdObserver.unobserve(entry.target);
+            });
+          }, { rootMargin: '2200px 0px' });
+          for (var observeIndex = 0; observeIndex < deferredArticleAds.length; observeIndex++) {
+            articleAdObserver.observe(deferredArticleAds[observeIndex]);
+          }
+          __gsAdCleanup.push(function() { try { articleAdObserver.disconnect(); } catch (e) {} });
+        }
       }
       return;
     }

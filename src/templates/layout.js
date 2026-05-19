@@ -793,6 +793,8 @@ const lazyCardHydrationScript = `
         var maxDomCards = enableMobileDomWindowing ? maxMobileDomItems : 0;
         var renderedScrollAds = new Map();
         var mobileLoadAheadPx = 3600;
+        var mobileInitialPages = parseInt(options.mobileInitialPages, 10) || 3;
+        var mobileLoadBatchPages = parseInt(options.mobileLoadBatchPages, 10) || 2;
         var mobileItemObserverMargin = '5200px 0px';
         var scrollAdObserverMargin = '8000px 0px';
         var eagerScrollAdPushLimit = 99;
@@ -843,6 +845,20 @@ const lazyCardHydrationScript = `
           }
           return false;
         }
+        function isScrollAdNearViewport(ins) {
+          var wrap = ins && ins.closest ? ins.closest('.ad-card-scroll') : null;
+          var node = wrap || ins;
+          if (!node || typeof node.getBoundingClientRect !== 'function') return true;
+          var rect = node.getBoundingClientRect();
+          var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+          return rect.top <= viewportHeight + 3600 && rect.bottom >= -1200;
+        }
+        function startScrollAdEmptyTimers(ins) {
+          if (!ins || !(ins.dataset) || ins.dataset.gsAdEmptyTimer === '1') return;
+          ins.dataset.gsAdEmptyTimer = '1';
+          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-near-18s'); }, 18000);
+          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-near-36s'); }, 36000);
+        }
         function watchScrollAdEmpty(ins) {
           if (!ins || (ins.dataset && ins.dataset.gsAdEmptyWatch === '1')) return;
           if (ins.dataset) ins.dataset.gsAdEmptyWatch = '1';
@@ -853,8 +869,19 @@ const lazyCardHydrationScript = `
             emptyObserver.observe(ins, { attributes: true, childList: true, subtree: true, attributeFilter: ['data-ad-status', 'style'] });
             __gsAdCleanup.push(function() { try { emptyObserver.disconnect(); } catch (e) {} });
           }
-          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-14s'); }, 14000);
-          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-28s'); }, 28000);
+          if (isScrollAdNearViewport(ins)) {
+            startScrollAdEmptyTimers(ins);
+          } else if ('IntersectionObserver' in window) {
+            var emptyTimerObserver = new IntersectionObserver(function(entries) {
+              if (!entries[0] || !entries[0].isIntersecting) return;
+              emptyTimerObserver.disconnect();
+              startScrollAdEmptyTimers(ins);
+            }, { rootMargin: '3600px 0px' });
+            emptyTimerObserver.observe(ins);
+            __gsAdCleanup.push(function() { try { emptyTimerObserver.disconnect(); } catch (e) {} });
+          } else {
+            setTimeout(function() { startScrollAdEmptyTimers(ins); }, 20000);
+          }
         }
         function pushScrollAdGuarded(ins) {
           if (!ins) return;
@@ -1110,12 +1137,19 @@ const lazyCardHydrationScript = `
           }
         }
 
+        function getMobileInitialTargetCount() {
+          var targetCount = Math.max(initialRenderCount, pageSize * mobileInitialPages);
+          if (maxDomCards) targetCount = Math.min(targetCount, maxDomCards);
+          return Math.min(targetCount, totalItemCount);
+        }
+
         function loadMoreMobile() {
           if (visibleCount >= totalItemCount) {
             unbindFallbackListeners();
             return;
           }
-          var nextVisible = Math.min(visibleCount + pageSize, totalItemCount);
+          var nextVisible = Math.min(visibleCount + (pageSize * mobileLoadBatchPages), totalItemCount);
+          if (maxDomCards) nextVisible = Math.min(nextVisible, prunedCardCount + maxDomCards);
           consumeDeferredUntil(nextVisible);
           visibleCount = Math.min(nextVisible, getLoadedCardCount());
           showItemsMobile();
@@ -1212,6 +1246,7 @@ const lazyCardHydrationScript = `
           __gsAdCleanup.push(function() { try { if (observer) observer.disconnect(); } catch (e) {} });
         }
 
+        visibleCount = getMobileInitialTargetCount();
         consumeDeferredUntil(visibleCount);
         visibleCount = Math.min(visibleCount, getLoadedCardCount());
         showItemsMobile();
@@ -2031,8 +2066,32 @@ const adLazyLoadScript = `
   function scheduleAdEmptyWatch(ad) {
     if (!ad || !getAdCollapseWrapper(ad) || ad.getAttribute('data-gs-ad-empty-watch') === '1') return;
     ad.setAttribute('data-gs-ad-empty-watch', '1');
-    setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-14s'); }, 14000);
-    setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-28s'); }, 28000);
+    function isNearViewport() {
+      var wrap = getAdCollapseWrapper(ad) || ad;
+      if (!wrap || typeof wrap.getBoundingClientRect !== 'function') return true;
+      var rect = wrap.getBoundingClientRect();
+      var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+      return rect.top <= viewportHeight + 2400 && rect.bottom >= -1200;
+    }
+    function startTimers() {
+      if (ad.getAttribute('data-gs-ad-empty-timer') === '1') return;
+      ad.setAttribute('data-gs-ad-empty-timer', '1');
+      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-near-18s'); }, 18000);
+      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-near-36s'); }, 36000);
+    }
+    if (isNearViewport()) {
+      startTimers();
+    } else if ('IntersectionObserver' in window) {
+      var emptyTimerObserver = new IntersectionObserver(function(entries) {
+        if (!entries[0] || !entries[0].isIntersecting) return;
+        emptyTimerObserver.disconnect();
+        startTimers();
+      }, { rootMargin: '2400px 0px' });
+      emptyTimerObserver.observe(getAdCollapseWrapper(ad));
+      __gsAdCleanup.push(function() { try { emptyTimerObserver.disconnect(); } catch (e) {} });
+    } else {
+      setTimeout(startTimers, 20000);
+    }
   }
 
   function normalizeAdVisualSize(ad) {
@@ -2125,8 +2184,37 @@ const adLazyLoadScript = `
 
   var shouldPushAllAdsNow = !!document.querySelector('.article-layout .article-main');
   if (shouldPushAllAdsNow) {
+    var deferredArticleAds = [];
+    var inArticlePushCount = 0;
     for (var eagerIndex = 0; eagerIndex < ads.length; eagerIndex++) {
-      pushAd(ads[eagerIndex]);
+      var articleAd = ads[eagerIndex];
+      if (getAdCollapseWrapper(articleAd)) {
+        inArticlePushCount += 1;
+        if (inArticlePushCount > 2) {
+          deferredArticleAds.push(articleAd);
+          continue;
+        }
+      }
+      pushAd(articleAd);
+    }
+    if (deferredArticleAds.length) {
+      if (!('IntersectionObserver' in window)) {
+        for (var deferredIndex = 0; deferredIndex < deferredArticleAds.length; deferredIndex++) {
+          pushAd(deferredArticleAds[deferredIndex]);
+        }
+      } else {
+        var articleAdObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            pushAd(entry.target);
+            articleAdObserver.unobserve(entry.target);
+          });
+        }, { rootMargin: '2200px 0px' });
+        for (var observeIndex = 0; observeIndex < deferredArticleAds.length; observeIndex++) {
+          articleAdObserver.observe(deferredArticleAds[observeIndex]);
+        }
+        __gsAdCleanup.push(function() { try { articleAdObserver.disconnect(); } catch (e) {} });
+      }
     }
     return;
   }

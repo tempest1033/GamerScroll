@@ -136,10 +136,9 @@ function getLocalTechImagePath(category, slug, originalUrl, imageType) {
   return `https://wsrv.nl/?url=${encodeURIComponent(originalUrl)}&w=${width}&output=webp`;
 }
 
-// 인아티클 광고 슬롯 (5개 순환)
+// 인아티클 광고 슬롯: fill이 안정적인 1~2번 슬롯만 순환
 const IN_ARTICLE_SLOTS = [
-  AD_SLOTS.InArticle001, AD_SLOTS.InArticle002, AD_SLOTS.InArticle003,
-  AD_SLOTS.InArticle004, AD_SLOTS.InArticle005
+  AD_SLOTS.InArticle001, AD_SLOTS.InArticle002
 ];
 function getInArticleAdHTML(adIndex) {
   const slotId = IN_ARTICLE_SLOTS[adIndex % IN_ARTICLE_SLOTS.length];
