@@ -4,30 +4,18 @@
 
 /* ===== 광고 컨테이너 크기 ===== */
 
-/* 모바일 상단 광고 (320x100) */
+/* 모바일 상단 광고 (320x100) — 좋은 viewport overflow 방지 + AdSense 시안 문제 완화 */
 .ad-card-mobile-top {
-  width: 320px;
-  min-width: 320px;
+  width: 100%;
   max-width: 320px;
-  height: 100px;
   min-height: 100px;
-  max-height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: calc((100% - 320px) / 2);
-  margin-right: calc((100% - 320px) / 2);
+  margin: 0 auto;
 }
 
-.ad-card-mobile-top > ins.adsbygoogle,
-.ad-card-mobile-top > ins.adsbygoogle > iframe {
-  width: 320px !important;
-  min-width: 320px !important;
-  max-width: 320px !important;
-  height: 100px !important;
-  min-height: 100px !important;
-  max-height: 100px !important;
-}
+/* iframe 강제 lock 은 AdSense 의 반환 사이즈와 충돌 가능 — 제거. */
 
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
