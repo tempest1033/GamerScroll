@@ -1,11 +1,17 @@
 {
-  "updatedAt": "2026-05-18T01:58:06.221Z",
+  "updatedAt": "2026-05-19T01:57:27.390Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
+      "slug": "vibe-coding-agent-guide",
+      "views": 8,
+      "path": "/article/vibecoding/vibe-coding-agent-guide/"
+    },
+    {
+      "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 10,
+      "views": 7,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
@@ -15,10 +21,28 @@
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
-      "category": "vibecoding",
-      "slug": "vibe-coding-agent-guide",
+      "category": "google",
+      "slug": "gemini-io-2026-rumor-roundup-d2",
+      "views": 5,
+      "path": "/article/google/gemini-io-2026-rumor-roundup-d2/"
+    },
+    {
+      "category": "general",
+      "slug": "lecun-ami-labs-llm-debate",
       "views": 4,
-      "path": "/article/vibecoding/vibe-coding-agent-guide/"
+      "path": "/article/general/lecun-ami-labs-llm-debate/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-windows",
+      "views": 4,
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-windows",
+      "views": 4,
+      "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
       "category": "ai-tools",
@@ -27,22 +51,40 @@
       "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
-      "category": "general",
-      "slug": "lecun-ami-labs-llm-debate",
+      "category": "google",
+      "slug": "google-gemini-3-2-3-5-imminent",
       "views": 3,
-      "path": "/article/general/lecun-ami-labs-llm-debate/"
+      "path": "/article/google/google-gemini-3-2-3-5-imminent/"
+    },
+    {
+      "category": "openai",
+      "slug": "altman-musk-openai-trial-mudslinging",
+      "views": 3,
+      "path": "/article/openai/altman-musk-openai-trial-mudslinging/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "views": 3,
+      "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
+      "slug": "claude-code-install-guide-mac",
       "views": 3,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 3,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
+      "category": "anthropic",
+      "slug": "anthropic-81k-interview",
+      "views": 2,
+      "path": "/article/anthropic/anthropic-81k-interview/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-dispatch-cowork-remote-control",
+      "views": 2,
+      "path": "/article/anthropic/claude-dispatch-cowork-remote-control/"
     },
     {
       "category": "general",
@@ -51,34 +93,10 @@
       "path": "/article/general/supermicro-ai-chip-china-smuggling/"
     },
     {
-      "category": "google",
-      "slug": "gemini-io-2026-rumor-roundup-d2",
-      "views": 2,
-      "path": "/article/google/gemini-io-2026-rumor-roundup-d2/"
-    },
-    {
-      "category": "google",
-      "slug": "google-gemini-3-2-3-5-imminent",
-      "views": 2,
-      "path": "/article/google/google-gemini-3-2-3-5-imminent/"
-    },
-    {
       "category": "openai",
-      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "slug": "openai-8000-anthropic-rivalry",
       "views": 2,
-      "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 2,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-81k-interview",
-      "views": 1,
-      "path": "/article/anthropic/anthropic-81k-interview/"
+      "path": "/article/openai/openai-8000-anthropic-rivalry/"
     },
     {
       "category": "anthropic",
@@ -88,9 +106,9 @@
     },
     {
       "category": "anthropic",
-      "slug": "claude-dispatch-cowork-remote-control",
+      "slug": "claude-opus-46-pricing-controversy",
       "views": 1,
-      "path": "/article/anthropic/claude-dispatch-cowork-remote-control/"
+      "path": "/article/anthropic/claude-opus-46-pricing-controversy/"
     },
     {
       "category": "anthropic",
@@ -118,9 +136,27 @@
     },
     {
       "category": "general",
+      "slug": "crimson-desert-ai-art-controversy",
+      "views": 1,
+      "path": "/article/general/crimson-desert-ai-art-controversy/"
+    },
+    {
+      "category": "general",
+      "slug": "dario-sam-india-summit-handshake",
+      "views": 1,
+      "path": "/article/general/dario-sam-india-summit-handshake/"
+    },
+    {
+      "category": "general",
       "slug": "karpathy-ai-job-exposure-score",
       "views": 1,
       "path": "/article/general/karpathy-ai-job-exposure-score/"
+    },
+    {
+      "category": "general",
+      "slug": "kurzweil-singularity-review-2026",
+      "views": 1,
+      "path": "/article/general/kurzweil-singularity-review-2026/"
     },
     {
       "category": "general",
@@ -145,42 +181,6 @@
       "slug": "nvidia-gpu-launch-halt-ai-priority",
       "views": 1,
       "path": "/article/general/nvidia-gpu-launch-halt-ai-priority/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-groq3-lpu-inference-revolution",
-      "views": 1,
-      "path": "/article/general/nvidia-groq3-lpu-inference-revolution/"
-    },
-    {
-      "category": "general",
-      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
-      "views": 1,
-      "path": "/article/general/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
-    },
-    {
-      "category": "general",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 1,
-      "path": "/article/general/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "category": "openai",
-      "slug": "altman-musk-openai-trial-mudslinging",
-      "views": 1,
-      "path": "/article/openai/altman-musk-openai-trial-mudslinging/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-53-instant-less-cringe",
-      "views": 1,
-      "path": "/article/openai/gpt-53-instant-less-cringe/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-8000-anthropic-rivalry",
-      "views": 1,
-      "path": "/article/openai/openai-8000-anthropic-rivalry/"
     }
   ]
 }
