@@ -2041,6 +2041,28 @@ const adLazyLoadScript = `
     return !!(window.adsbygoogle && window.adsbygoogle.loaded);
   }
 
+  function retryPendingAd(ad, reason) {
+    if (!ad || !isAdSenseServingReady()) return false;
+    if (ad.getAttribute('data-ad-status') || ad.getAttribute('data-adsbygoogle-status')) return false;
+    if (getAdFrameHeight(ad) > 1) return false;
+    if (isHiddenAd(ad)) return false;
+    var retryCount = parseInt(ad.getAttribute('data-gs-ad-retry-count') || '0', 10);
+    if (retryCount >= 2) return false;
+    var nextRetryCount = retryCount + 1;
+    ad.setAttribute('data-gs-ad-retry-count', String(nextRetryCount));
+    if (reason) ad.setAttribute('data-gs-ad-retry-reason', reason);
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      setTimeout(function() {
+        maybeMarkAdEmpty(ad, true, 'empty-after-retry-' + nextRetryCount);
+      }, 12000);
+      return true;
+    } catch (e) {
+      ad.setAttribute('data-gs-ad-retry-error', '1');
+      return false;
+    }
+  }
+
   function markAdEmpty(ad, reason) {
     var wrap = getAdCollapseWrapper(ad);
     if (!wrap || ad.getAttribute('data-gs-ad-empty') === '1') return;
@@ -2065,9 +2087,14 @@ const adLazyLoadScript = `
       return true;
     }
 
-    if (isAdSenseServingReady()) return false;
-    if (!collapseMode) return false;
     var frameHeight = getAdFrameHeight(ad);
+    if (isAdSenseServingReady()) {
+      if (!collapseMode || frameHeight > 1) return false;
+      if (retryPendingAd(ad, reason || 'pending-no-frame')) return false;
+      markAdEmpty(ad, reason || 'empty-no-frame');
+      return true;
+    }
+    if (!collapseMode) return false;
     if (frameHeight <= 1 || collapseMode === true) {
       markAdEmpty(ad, reason || 'empty-timeout');
       return true;
