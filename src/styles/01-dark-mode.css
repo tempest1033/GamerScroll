@@ -99,6 +99,34 @@
     --section-icon-bg: rgba(255, 107, 53, 0.15);
     --section-accent-bg: rgba(255, 255, 255, 0.05);
     --section-border: rgba(255, 255, 255, 0.1);
+
+    /* === Modal Colors (Phase C 보존형 토큰화 - 동일 값 유지) === */
+    --modal-bg: #1a1a1a;
+    --modal-text: #ddd;
+    --modal-title: #fff;
+    --modal-section-title: #aaa;
+    --modal-close: #888;
+    --modal-close-hover: #fff;
+    --modal-effective-date: #666;
+
+    /* === Stat Colors === */
+    --stat-ios-color: #4fc3f7;
+    --stat-aos-color: #ffb74d;
+    --stat-success: #81c784;
+
+    /* === Badge Colors === */
+    --badge-danger: #f87171;
+    --badge-success: #4ade80;
+    --badge-warning: #fbbf24;
+    --badge-info: #38bdf8;
+
+    /* === Rank Badge Colors === */
+    --rank-purple: #8b5cf6;
+    --rank-green: #22c55e;
+    --rank-red: #ef4444;
+
+    /* === Link Hover === */
+    --link-hover-accent: #34d399;
   }
 
   /* 다크모드 메인탭 - 흰색 톤 */

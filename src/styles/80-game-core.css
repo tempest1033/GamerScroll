@@ -165,15 +165,15 @@
 
 /* Steam 스탯 색상 */
 .stat-ccu .game-hero-stat-value {
-  color: #4fc3f7;
+  color: var(--stat-ios-color);
 }
 
 .stat-sales .game-hero-stat-value {
-  color: #ffb74d;
+  color: var(--stat-aos-color);
 }
 
 .stat-players .game-hero-stat-value {
-  color: #81c784;
+  color: var(--stat-success);
 }
 
 /* 게임 페이지 그리드 (PC 2컬럼, 모바일 1컬럼) */
