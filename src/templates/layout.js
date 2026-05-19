@@ -784,10 +784,58 @@ const lazyCardHydrationScript = `
         pagination.style.display = 'none';
         var visibleCount = Math.min(initialRenderCount, totalItemCount);
         var observer = null;
+        var scrollAdObserver = null;
         var fallbackTicking = false;
         var fallbackBound = false;
+        var fallbackTicking2 = false;
+        var fallbackThrottleAt = 0;
+        var noIoFallbackBound = false;
         var maxDomCards = enableMobileDomWindowing ? maxMobileDomItems : 0;
         var renderedScrollAds = new Map();
+        // Phase B: cleanup registry — observers/listeners released on pagehide.
+        var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
+        if (!window.__gsAdCleanupBound) {
+          window.__gsAdCleanupBound = true;
+          window.addEventListener('pagehide', function() {
+            while (__gsAdCleanup.length) {
+              var fn = __gsAdCleanup.shift();
+              try { if (typeof fn === 'function') fn(); } catch (e) {}
+            }
+          });
+        }
+        function pushScrollAdGuarded(ins) {
+          if (!ins) return;
+          if (document.body.classList.contains('ads-disabled')) return;
+          if (ins.dataset && ins.dataset.gsAdPushed === '1') return;
+          var node = ins;
+          while (node && node !== document.body) {
+            if (node.offsetParent === null) return;
+            var cs = window.getComputedStyle ? getComputedStyle(node) : null;
+            if (cs && cs.display === 'none') return;
+            node = node.parentElement;
+          }
+          try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+            if (ins.dataset) ins.dataset.gsAdPushed = '1';
+          } catch (e) {}
+        }
+        function ensureScrollAdObserver() {
+          if (scrollAdObserver) return scrollAdObserver;
+          if (!('IntersectionObserver' in window)) return null;
+          scrollAdObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (!entry.isIntersecting) return;
+              var ins = entry.target;
+              scrollAdObserver.unobserve(ins);
+              pushScrollAdGuarded(ins);
+            });
+          }, { rootMargin: '600px' });
+          __gsAdCleanup.push(function() {
+            try { if (scrollAdObserver) scrollAdObserver.disconnect(); } catch (e) {}
+            scrollAdObserver = null;
+          });
+          return scrollAdObserver;
+        }
         rerenderAfterDeferredDataLoaded = function() {
           consumeDeferredUntil(visibleCount);
           visibleCount = Math.min(visibleCount, getLoadedCardCount());
@@ -988,21 +1036,15 @@ const lazyCardHydrationScript = `
             var adOrder = Math.floor((globalCardIndex + 1) / adInterval);
             var slotId = adSlots[(adOrder - 1) % adSlots.length];
             var adEl = createScrollAdElement(globalCardIndex, slotId);
-            var adIns = adEl.querySelector('.adsbygoogle');
             anchor.insertAdjacentElement('afterend', adEl);
             renderedScrollAds.set(globalCardIndex, adEl);
 
-            if (!adIns) {
-              removeTrackedScrollAd(globalCardIndex);
-              continue;
-            }
-
-            adIns.setAttribute('data-gs-ad-pushed', '1');
-            try {
-              (window.adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-              adIns.removeAttribute('data-gs-ad-pushed');
-              removeTrackedScrollAd(globalCardIndex);
+            var insEl = adEl.querySelector ? adEl.querySelector('ins.adsbygoogle') : null;
+            var io = ensureScrollAdObserver();
+            if (io && insEl) {
+              io.observe(insEl);
+            } else if (insEl) {
+              pushScrollAdGuarded(insEl);
             }
           }
         }
@@ -1053,6 +1095,7 @@ const lazyCardHydrationScript = `
           fallbackBound = true;
           window.addEventListener('scroll', runFallbackCheck, { passive: true });
           window.addEventListener('resize', runFallbackCheck);
+          __gsAdCleanup.push(function() { try { unbindFallbackListeners(); } catch (e) {} });
         }
 
         function unbindFallbackListeners() {
@@ -1076,19 +1119,36 @@ const lazyCardHydrationScript = `
             return;
           }
           if (!('IntersectionObserver' in window)) {
-            consumeDeferredUntil(totalItemCount);
-            visibleCount = Math.min(totalItemCount, getLoadedCardCount());
-            showItemsMobile();
-            pruneTopCardsIfNeeded();
-            showItemsMobile();
-            syncMobileAds();
-            unbindFallbackListeners();
+            // Phase B: no-IO fallback — passive scroll + rAF, 200ms throttle, calls loadMoreMobile near bottom.
+            if (!noIoFallbackBound) {
+              noIoFallbackBound = true;
+              var noIoScrollHandler = function() {
+                if (fallbackTicking2) return;
+                var now = Date.now();
+                if (now - fallbackThrottleAt < 200) return;
+                fallbackThrottleAt = now;
+                fallbackTicking2 = true;
+                requestAnimationFrame(function() {
+                  fallbackTicking2 = false;
+                  var scrollY = window.scrollY || window.pageYOffset || 0;
+                  var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
+                  var docH = document.documentElement.scrollHeight || 0;
+                  if (scrollY + viewportH >= docH - 600) loadMoreMobile();
+                });
+              };
+              window.addEventListener('scroll', noIoScrollHandler, { passive: true });
+              __gsAdCleanup.push(function() {
+                try { window.removeEventListener('scroll', noIoScrollHandler); } catch (e) {}
+                noIoFallbackBound = false;
+              });
+            }
             return;
           }
           observer = new IntersectionObserver(function(entries) {
             if (entries[0] && entries[0].isIntersecting) loadMoreMobile();
           }, { rootMargin: '1200px' });
           observer.observe(lastVisible);
+          __gsAdCleanup.push(function() { try { if (observer) observer.disconnect(); } catch (e) {} });
         }
 
         consumeDeferredUntil(visibleCount);
