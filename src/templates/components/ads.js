@@ -107,7 +107,6 @@ function renderMobileOnlyHomeAd(slotId) {
        style="display:block;width:320px;height:100px;min-height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"
-       data-ad-format="horizontal"
        data-full-width-responsive="false"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
