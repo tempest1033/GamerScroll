@@ -2206,12 +2206,15 @@ const adLazyLoadScript = `
         var articleAdObserver = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (!entry.isIntersecting) return;
-            pushAd(entry.target);
+            var targetAd = entry.target && entry.target.querySelector
+              ? entry.target.querySelector('ins.adsbygoogle')
+              : entry.target;
+            pushAd(targetAd);
             articleAdObserver.unobserve(entry.target);
           });
         }, { rootMargin: '1600px 0px' });
         for (var observeIndex = 0; observeIndex < deferredArticleAds.length; observeIndex++) {
-          articleAdObserver.observe(deferredArticleAds[observeIndex]);
+          articleAdObserver.observe(getAdCollapseWrapper(deferredArticleAds[observeIndex]) || deferredArticleAds[observeIndex]);
         }
         __gsAdCleanup.push(function() { try { articleAdObserver.disconnect(); } catch (e) {} });
       }
