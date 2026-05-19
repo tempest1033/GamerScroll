@@ -829,7 +829,7 @@ const lazyCardHydrationScript = `
               scrollAdObserver.unobserve(ins);
               pushScrollAdGuarded(ins);
             });
-          }, { rootMargin: '600px' });
+          }, { rootMargin: '1500px' });
           __gsAdCleanup.push(function() {
             try { if (scrollAdObserver) scrollAdObserver.disconnect(); } catch (e) {}
             scrollAdObserver = null;
