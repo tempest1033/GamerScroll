@@ -2073,7 +2073,7 @@ const adLazyLoadScript = `
       if (!wrap || typeof wrap.getBoundingClientRect !== 'function') return true;
       var rect = wrap.getBoundingClientRect();
       var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-      return rect.top <= viewportHeight + 700 && rect.bottom >= -400;
+      return rect.top <= viewportHeight + 3600 && rect.bottom >= -1200;
     }
     function startTimers() {
       if (ad.getAttribute('data-gs-ad-empty-timer') === '1') return;
@@ -2088,7 +2088,7 @@ const adLazyLoadScript = `
         if (!entries[0] || !entries[0].isIntersecting) return;
         emptyTimerObserver.disconnect();
         startTimers();
-      }, { rootMargin: '700px 0px' });
+      }, { rootMargin: '3600px 0px' });
       emptyTimerObserver.observe(getAdCollapseWrapper(ad));
       __gsAdCleanup.push(function() { try { emptyTimerObserver.disconnect(); } catch (e) {} });
     } else {
@@ -2207,40 +2207,8 @@ const adLazyLoadScript = `
 
   var shouldPushAllAdsNow = !!document.querySelector('.article-layout .article-main');
   if (shouldPushAllAdsNow) {
-    var deferredArticleAds = [];
-    var inArticlePushCount = 0;
     for (var eagerIndex = 0; eagerIndex < ads.length; eagerIndex++) {
-      var articleAd = ads[eagerIndex];
-      if (getAdCollapseWrapper(articleAd)) {
-        inArticlePushCount += 1;
-        if (inArticlePushCount > 1) {
-          deferredArticleAds.push(articleAd);
-          continue;
-        }
-      }
-      pushAd(articleAd);
-    }
-    if (deferredArticleAds.length) {
-      if (!('IntersectionObserver' in window)) {
-        for (var deferredIndex = 0; deferredIndex < deferredArticleAds.length; deferredIndex++) {
-          pushAd(deferredArticleAds[deferredIndex]);
-        }
-      } else {
-        var articleAdObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (!entry.isIntersecting) return;
-            var targetAd = entry.target && entry.target.querySelector
-              ? entry.target.querySelector('ins.adsbygoogle')
-              : entry.target;
-            pushAd(targetAd);
-            articleAdObserver.unobserve(entry.target);
-          });
-        }, { rootMargin: '1600px 0px' });
-        for (var observeIndex = 0; observeIndex < deferredArticleAds.length; observeIndex++) {
-          articleAdObserver.observe(getAdCollapseWrapper(deferredArticleAds[observeIndex]) || deferredArticleAds[observeIndex]);
-        }
-        __gsAdCleanup.push(function() { try { articleAdObserver.disconnect(); } catch (e) {} });
-      }
+      pushAd(ads[eagerIndex]);
     }
     return;
   }

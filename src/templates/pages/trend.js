@@ -35,14 +35,13 @@ function resolveModifiedKST(rawModified) {
 // 광고 활성화 여부
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
-// 인아티클 광고 슬롯: fill이 안정적인 1~2번 슬롯만 순환
+// Article body ads keep the dedicated in-article slots; handling matches feed scroll ads.
 const IN_ARTICLE_SLOTS = [
   AD_SLOTS.InArticle001, AD_SLOTS.InArticle002
 ];
 function getInArticleAdHTML(adIndex) {
   const slotId = IN_ARTICLE_SLOTS[adIndex % IN_ARTICLE_SLOTS.length];
-  const mobileLateClass = adIndex >= 2 ? ' blog-in-article-ad-mobile-late' : '';
-  return `<div class="blog-in-article-ad${mobileLateClass}" data-ad-index="${adIndex + 1}">
+  return `<div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="${adIndex + 1}">
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-format="fluid"
