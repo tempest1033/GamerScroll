@@ -41,7 +41,8 @@ const IN_ARTICLE_SLOTS = [
 ];
 function getInArticleAdHTML(adIndex) {
   const slotId = IN_ARTICLE_SLOTS[adIndex % IN_ARTICLE_SLOTS.length];
-  return `<div class="blog-in-article-ad">
+  const mobileLateClass = adIndex >= 2 ? ' blog-in-article-ad-mobile-late' : '';
+  return `<div class="blog-in-article-ad${mobileLateClass}" data-ad-index="${adIndex + 1}">
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-format="fluid"

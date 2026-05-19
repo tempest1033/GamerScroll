@@ -695,6 +695,15 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .blog-in-article-ad-mobile-late {
+    display: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+  }
+}
+
 .blog-in-article-ad > ins.adsbygoogle,
 .blog-in-article-ad > ins.adsbygoogle > iframe {
   max-width: 100%;
