@@ -21,13 +21,21 @@
 }
 
 .ad-card-mobile-top > ins.adsbygoogle,
-.ad-card-mobile-top > ins.adsbygoogle > iframe {
+.ad-card-mobile-top > ins.adsbygoogle > div,
+.ad-card-mobile-top > ins.adsbygoogle > iframe,
+.ad-card-mobile-top > ins.adsbygoogle iframe,
+.ad-card-mobile-top iframe {
   width: 320px !important;
   min-width: 320px !important;
   max-width: 320px !important;
   height: 100px !important;
   min-height: 100px !important;
   max-height: 100px !important;
+}
+
+.ad-card-mobile-top > ins.adsbygoogle > div {
+  display: block !important;
+  overflow: hidden !important;
 }
 
 /* 모바일 중간 광고 (300x250) */
@@ -247,7 +255,10 @@ body.ads-disabled .article-layout {
   }
 
   .article-main > .ad-card-mobile-top > ins.adsbygoogle,
-  .article-main > .ad-card-mobile-top > ins.adsbygoogle > iframe {
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle > div,
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle > iframe,
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle iframe,
+  .article-main > .ad-card-mobile-top iframe {
     width: 320px !important;
     min-width: 320px !important;
     max-width: 320px !important;

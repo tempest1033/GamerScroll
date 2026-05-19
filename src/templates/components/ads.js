@@ -98,9 +98,10 @@ function renderMobileOnlyHomeAd(slotId) {
   return `<div class="ad-card ad-card-mobile-top ${cardClass}">
   <style>
     .${cardClass} { display:flex !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
-    .${styleId} { display:block !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .${styleId}, .${cardClass} > .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:block !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .${cardClass} > .${styleId} > div { overflow:hidden !important; }
     @media (min-width: 769px) {
-      .${cardClass}, .${styleId} { display:none !important; width:0 !important; min-width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+      .${cardClass}, .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:none !important; width:0 !important; min-width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
