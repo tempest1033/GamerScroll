@@ -1868,7 +1868,51 @@ function wrapWithLayout(content, options = {}) {
         ? ad.closest('.ad-card-responsive-home, .ad-card-responsive-top, .blog-in-article-ad')
         : null;
     }
+    function getAdCollapseWrapper(ad) {
+      return ad && ad.closest ? ad.closest('.blog-in-article-ad') : null;
+    }
+    function getAdFrameHeight(ad) {
+      var iframe = ad && ad.querySelector && ad.querySelector('iframe');
+      if (!iframe) return 0;
+      var rect = iframe.getBoundingClientRect ? iframe.getBoundingClientRect() : null;
+      return Math.round((rect && rect.height) || iframe.offsetHeight || 0);
+    }
+    function markAdEmpty(ad, reason) {
+      var wrap = getAdCollapseWrapper(ad);
+      if (!wrap || ad.getAttribute('data-gs-ad-empty') === '1') return;
+      ad.setAttribute('data-gs-ad-empty', '1');
+      if (reason) ad.setAttribute('data-gs-ad-empty-reason', reason);
+      wrap.classList.add('gs-ad-empty');
+      wrap.style.setProperty('display', 'none', 'important');
+      wrap.style.setProperty('min-height', '0', 'important');
+      wrap.style.setProperty('height', '0', 'important');
+      wrap.style.setProperty('margin', '0', 'important');
+    }
+    function maybeMarkAdEmpty(ad, collapseMode, reason) {
+      if (!ad || !getAdCollapseWrapper(ad)) return false;
+      if (ad.getAttribute('data-gs-ad-pushed') !== '1') return false;
+      var status = ad.getAttribute('data-ad-status') || '';
+      if (status === 'filled') return false;
+      if (status === 'unfilled') {
+        markAdEmpty(ad, reason || 'unfilled');
+        return true;
+      }
+      if (!collapseMode) return false;
+      var frameHeight = getAdFrameHeight(ad);
+      if (frameHeight <= 1 || collapseMode === true) {
+        markAdEmpty(ad, reason || 'empty-timeout');
+        return true;
+      }
+      return false;
+    }
+    function scheduleAdEmptyWatch(ad) {
+      if (!ad || !getAdCollapseWrapper(ad) || ad.getAttribute('data-gs-ad-empty-watch') === '1') return;
+      ad.setAttribute('data-gs-ad-empty-watch', '1');
+      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-14s'); }, 14000);
+      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-28s'); }, 28000);
+    }
     function normalizeAdVisualSize(ad) {
+      if (maybeMarkAdEmpty(ad, false, 'status')) return;
       var wrap = getAdVisualWrapper(ad);
       if (!wrap) return;
       var iframe = ad.querySelector && ad.querySelector('iframe');
@@ -1901,6 +1945,7 @@ function wrapWithLayout(content, options = {}) {
         scheduled = true;
         requestAnimationFrame(function() {
           scheduled = false;
+          if (maybeMarkAdEmpty(ad, false, 'mutation')) return;
           normalizeAdVisualSize(ad);
         });
       }
@@ -1923,6 +1968,7 @@ function wrapWithLayout(content, options = {}) {
       schedule();
       setTimeout(schedule, 600);
       setTimeout(schedule, 1800);
+      scheduleAdEmptyWatch(ad);
     }
     function pushAd(ad) {
       if (!ad) return;

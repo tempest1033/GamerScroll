@@ -704,8 +704,13 @@
   margin-bottom: 16px;
 }
 
-.blog-in-article-ad:has(ins[data-ad-status="unfilled"]) {
-  display: none;
+.blog-in-article-ad:has(ins[data-ad-status="unfilled"]),
+.blog-in-article-ad:has(ins[data-gs-ad-empty="1"]),
+.blog-in-article-ad.gs-ad-empty {
+  display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
 }
 
 /* 관련 게임 섹션 - 카드 내부 */

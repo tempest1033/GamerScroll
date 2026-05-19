@@ -792,9 +792,9 @@ const lazyCardHydrationScript = `
         var noIoFallbackBound = false;
         var maxDomCards = enableMobileDomWindowing ? maxMobileDomItems : 0;
         var renderedScrollAds = new Map();
-        var mobileLoadAheadPx = 1200;
-        var mobileItemObserverMargin = '2400px 0px';
-        var scrollAdObserverMargin = '3000px 0px';
+        var mobileLoadAheadPx = 3600;
+        var mobileItemObserverMargin = '5200px 0px';
+        var scrollAdObserverMargin = '8000px 0px';
         var eagerScrollAdPushLimit = 99;
         var eagerScrollAdPushCount = 0;
         // Phase B: cleanup registry — observers/listeners released on pagehide.
@@ -807,6 +807,54 @@ const lazyCardHydrationScript = `
               try { if (typeof fn === 'function') fn(); } catch (e) {}
             }
           });
+        }
+        function getScrollAdFrameHeight(ins) {
+          var iframe = ins && ins.querySelector ? ins.querySelector('iframe') : null;
+          if (!iframe) return 0;
+          var rect = iframe.getBoundingClientRect ? iframe.getBoundingClientRect() : null;
+          return Math.round((rect && rect.height) || iframe.offsetHeight || 0);
+        }
+        function markScrollAdEmpty(ins, reason) {
+          var wrap = ins && ins.closest ? ins.closest('.ad-card-scroll') : null;
+          if (!wrap || (ins.dataset && ins.dataset.gsAdEmpty === '1')) return;
+          if (ins.dataset) {
+            ins.dataset.gsAdEmpty = '1';
+            if (reason) ins.dataset.gsAdEmptyReason = reason;
+          }
+          wrap.classList.add('gs-ad-empty');
+          wrap.style.setProperty('display', 'none', 'important');
+          wrap.style.setProperty('min-height', '0', 'important');
+          wrap.style.setProperty('height', '0', 'important');
+          wrap.style.setProperty('margin', '0', 'important');
+        }
+        function maybeCollapseScrollAd(ins, collapseMode, reason) {
+          if (!ins || !(ins.dataset && ins.dataset.gsAdPushed === '1')) return false;
+          var status = ins.getAttribute('data-ad-status') || '';
+          if (status === 'filled') return false;
+          if (status === 'unfilled') {
+            markScrollAdEmpty(ins, reason || 'unfilled');
+            return true;
+          }
+          if (!collapseMode) return false;
+          var frameHeight = getScrollAdFrameHeight(ins);
+          if (frameHeight <= 1 || collapseMode === true) {
+            markScrollAdEmpty(ins, reason || 'empty-timeout');
+            return true;
+          }
+          return false;
+        }
+        function watchScrollAdEmpty(ins) {
+          if (!ins || (ins.dataset && ins.dataset.gsAdEmptyWatch === '1')) return;
+          if (ins.dataset) ins.dataset.gsAdEmptyWatch = '1';
+          if (window.MutationObserver) {
+            var emptyObserver = new MutationObserver(function() {
+              maybeCollapseScrollAd(ins, false, 'status');
+            });
+            emptyObserver.observe(ins, { attributes: true, childList: true, subtree: true, attributeFilter: ['data-ad-status', 'style'] });
+            __gsAdCleanup.push(function() { try { emptyObserver.disconnect(); } catch (e) {} });
+          }
+          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-14s'); }, 14000);
+          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-28s'); }, 28000);
         }
         function pushScrollAdGuarded(ins) {
           if (!ins) return;
@@ -822,6 +870,7 @@ const lazyCardHydrationScript = `
           try {
             (window.adsbygoogle = window.adsbygoogle || []).push({});
             if (ins.dataset) ins.dataset.gsAdPushed = '1';
+            watchScrollAdEmpty(ins);
           } catch (e) {}
         }
         function ensureScrollAdObserver() {
@@ -1938,7 +1987,56 @@ const adLazyLoadScript = `
       : null;
   }
 
+  function getAdCollapseWrapper(ad) {
+    return ad && ad.closest ? ad.closest('.blog-in-article-ad') : null;
+  }
+
+  function getAdFrameHeight(ad) {
+    var iframe = ad && ad.querySelector && ad.querySelector('iframe');
+    if (!iframe) return 0;
+    var rect = iframe.getBoundingClientRect ? iframe.getBoundingClientRect() : null;
+    return Math.round((rect && rect.height) || iframe.offsetHeight || 0);
+  }
+
+  function markAdEmpty(ad, reason) {
+    var wrap = getAdCollapseWrapper(ad);
+    if (!wrap || ad.getAttribute('data-gs-ad-empty') === '1') return;
+    ad.setAttribute('data-gs-ad-empty', '1');
+    if (reason) ad.setAttribute('data-gs-ad-empty-reason', reason);
+    wrap.classList.add('gs-ad-empty');
+    wrap.style.setProperty('display', 'none', 'important');
+    wrap.style.setProperty('min-height', '0', 'important');
+    wrap.style.setProperty('height', '0', 'important');
+    wrap.style.setProperty('margin', '0', 'important');
+  }
+
+  function maybeMarkAdEmpty(ad, collapseMode, reason) {
+    if (!ad || !getAdCollapseWrapper(ad)) return false;
+    if (ad.getAttribute('data-gs-ad-pushed') !== '1') return false;
+    var status = ad.getAttribute('data-ad-status') || '';
+    if (status === 'filled') return false;
+    if (status === 'unfilled') {
+      markAdEmpty(ad, reason || 'unfilled');
+      return true;
+    }
+    if (!collapseMode) return false;
+    var frameHeight = getAdFrameHeight(ad);
+    if (frameHeight <= 1 || collapseMode === true) {
+      markAdEmpty(ad, reason || 'empty-timeout');
+      return true;
+    }
+    return false;
+  }
+
+  function scheduleAdEmptyWatch(ad) {
+    if (!ad || !getAdCollapseWrapper(ad) || ad.getAttribute('data-gs-ad-empty-watch') === '1') return;
+    ad.setAttribute('data-gs-ad-empty-watch', '1');
+    setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-14s'); }, 14000);
+    setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-28s'); }, 28000);
+  }
+
   function normalizeAdVisualSize(ad) {
+    if (maybeMarkAdEmpty(ad, false, 'status')) return;
     var wrap = getAdVisualWrapper(ad);
     if (!wrap) return;
 
@@ -1981,6 +2079,7 @@ const adLazyLoadScript = `
       scheduled = true;
       requestAnimationFrame(function() {
         scheduled = false;
+        if (maybeMarkAdEmpty(ad, false, 'mutation')) return;
         normalizeAdVisualSize(ad);
       });
     }
@@ -2005,6 +2104,7 @@ const adLazyLoadScript = `
     schedule();
     setTimeout(schedule, 600);
     setTimeout(schedule, 1800);
+    scheduleAdEmptyWatch(ad);
   }
 
   function pushAd(ad) {

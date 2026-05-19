@@ -283,11 +283,15 @@ body.ads-disabled .article-layout {
 /* 중간/사이드바/네이티브 광고: unfilled 시 카드까지 숨김 */
 .ad-card-mobile-mid:has(ins[data-ad-status="unfilled"]),
 .ad-card-scroll:has(ins[data-ad-status="unfilled"]),
+.ad-card-scroll:has(ins[data-gs-ad-empty="1"]),
+.ad-card-scroll.gs-ad-empty,
 .ad-card-vertical:has(ins[data-ad-status="unfilled"]),
 .ad-card-rectangle:has(ins[data-ad-status="unfilled"]),
 .ad-card-native:has(ins[data-ad-status="unfilled"]) {
   display: none !important;
   min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
 }
 
 /* 빈 광고 컨테이너 숨김 (Grid 레이아웃에서 gap 영향 방지) */
