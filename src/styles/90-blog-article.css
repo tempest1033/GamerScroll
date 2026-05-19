@@ -3,20 +3,20 @@
    ======================================== */
 
 /* 컨테이너 */
-#issue .page-container {
+:is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container {
   max-width: 1076px;
   margin: 0 auto;
   padding: 0 0 var(--space-block-y) 0;
   display: block;
 }
-#issue .page-container > * {
+:is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container > * {
   margin-bottom: var(--space-block-y);
 }
-#issue .page-container > *:last-child {
+:is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container > *:last-child {
   margin-bottom: 0;
 }
 
-#issue .page-container .ad-card {
+:is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container .ad-card {
   margin-bottom: var(--space-block-gap, 16px);
 }
 
@@ -565,6 +565,8 @@
   margin: 24px 0;
   width: fit-content;
   max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 768px) {
@@ -973,8 +975,6 @@
   background: var(--hover-bg);
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  min-width: 120px;
-  text-align: center;
   min-width: 80px;
   text-align: center;
 }
@@ -1666,6 +1666,7 @@
   .ranking-card-stats {
     width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-top: 12px;
   }
 

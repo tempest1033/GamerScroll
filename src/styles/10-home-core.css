@@ -731,6 +731,7 @@
       .home-latest-grid {
         grid-template-columns: 1fr;
         padding: 12px;
+        min-height: auto;
       }
     }
 
