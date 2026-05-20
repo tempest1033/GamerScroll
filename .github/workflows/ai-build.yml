@@ -10,6 +10,8 @@ on:
       - 'reports/hotpick/**'
       - 'generate-ai-blog.js'
       - 'src/templates/ai-blog/**'
+      - 'src/templates/layout/**'
+      - 'src/ai-blog/**'
       - 'src/styles/**'
       - 'src/build/**'
       - 'ai-build-cache.js'

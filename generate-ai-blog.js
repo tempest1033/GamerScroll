@@ -1003,14 +1003,12 @@ function generateSEOFiles(articles) {
   }));
 
   // 1. sitemap.xml — en/ko URL + hreflang alternates
+  // 카테고리 인덱스는 실제 article category set에서 동적으로 생성 (ai-tools 같은 신규 카테고리 누락 방지)
+  const activeCategories = new Set(enArticles.map(a => a.category || 'general'));
   const baseSitemapPaths = [
     { path: '/', priority: '1.0' },
     { path: '/privacy/', priority: '0.3' },
-    { path: '/article/general/', priority: '0.8' },
-    { path: '/article/openai/', priority: '0.8' },
-    { path: '/article/google/', priority: '0.8' },
-    { path: '/article/anthropic/', priority: '0.8' },
-    { path: '/article/vibecoding/', priority: '0.8' }
+    ...[...activeCategories].sort().map(cat => ({ path: `/article/${cat}/`, priority: '0.8' }))
   ];
 
   function makeAlternates(p) {
