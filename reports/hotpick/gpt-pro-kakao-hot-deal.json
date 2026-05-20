@@ -7,7 +7,12 @@
   "keywords": "GPT Pro, ChatGPT Pro, 카카오, 카카오 선물하기, ChatGPT for Kakao, GPT Pro 할인, GPT Pro 특가, OpenAI, AI 구독, GPT 이용권",
   "summary": "월 200달러짜리 GPT Pro 플랜을 카카오 선물하기에서 29,000원에 구매할 수 있다. 인당 최대 5개까지 구매 가능하며, 기존 ChatGPT 계정에 연동하면 모든 기능을 동일하게 사용할 수 있다.",
   "relatedIssues": [],
-  "relatedDocs": ["tech:ai/chatgpt-desktop-app", "issue:chatgpt-vs-gemini-comparison-2026", "issue:opus-4-6-vs-gpt-5-3-codex-same-day-launch", "issue:gpt-5-3-garlic-update-rumor"],
+  "relatedDocs": [
+    "tech:ai/chatgpt-desktop-app",
+    "issue:chatgpt-vs-gemini-comparison-2026",
+    "issue:opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+    "issue:gpt-5-3-garlic-update-rumor"
+  ],
   "relatedGames": [],
   "sources": [
     {
@@ -92,5 +97,6 @@
       "type": "text",
       "value": "월 29만 원짜리 GPT Pro를 29,000원에 사용할 수 있는 기회는 흔치 않다. 정가 대비 약 90% 할인된 가격이며, 최대 5개까지 구매할 수 있어 장기간 활용도 가능하다. 이 딜이 추후 연장될지는 알 수 없고, 빨리 구매할수록 유효기간 내에 더 많은 이용권을 등록할 수 있다. ChatGPT를 자주 사용하거나 Pro 플랜이 궁금했던 사용자라면 지금 바로 확인해보길 추천한다."
     }
-  ]
+  ],
+  "site": "gamerscroll"
 }
