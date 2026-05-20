@@ -46,7 +46,6 @@
   ],
   "needTranslate": false,
   "titleEn": "AI Distillation Controversy: Did China Really 'Steal' American AI?",
-  "summaryEn": "Anthropic and OpenAI have exposed massive 'distillation attacks' by Chinese AI firms. Over 20,000 fraudulent accounts, 16 million data exchanges, and export-banned chips in use. The AI supremacy race is escalating from a technology dispute into a national security crisis.",
   "content": [
     {
       "type": "text",
@@ -202,5 +201,6 @@
       "type": "text",
       "value": "The AI distillation controversy has become the front line of the U.S.-China technology supremacy competition, transcending a mere technical dispute. One side invests hundreds of billions of dollars developing foundation models while the other effectively free-rides on those achievements. Yet in an AI industry where the boundaries of 'fair use' remain ambiguous, distinguishing true innovators from imitators is far from simple.\n\nWhat is certain is that this controversy is changing the rules of the game. Detection system upgrades, export control overhauls, and new intellectual property frameworks are all being advanced simultaneously. How the industry strikes a balance between tech supremacy and ethics will determine the trajectory of AI development for years to come."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

@@ -34,7 +34,6 @@
   ],
   "needTranslate": false,
   "titleEn": "GPT 5.4 Leak: OpenAI Employee's Slip Reveals the Next Model",
-  "summaryEn": "An OpenAI Codex team member's Twitter slip revealed the existence of 'GPT 5.4.' Additional evidence found on Reddit and ChatGPT's backend makes a release this week highly likely. With DeepSeek V4 also expected the same week, a US-China AI showdown is imminent.",
   "content": [
     {
       "type": "text",
@@ -146,5 +145,6 @@
       "type": "text",
       "value": "GPT 5.4 is no longer a secret. Triple evidence from a Twitter slip, API endpoints, and backend routing has been secured, and the thinking and pro variants suggest a major performance upgrade is on the horizon.\n\nBut for OpenAI, GPT 5.4 carries significance far beyond a routine model release. Besieged by massive distillation attacks from Chinese AI firms, fierce competition from Anthropic and Google, and internal talent departures and organizational turmoil, OpenAI finds itself cornered on multiple fronts. In this context, GPT 5.4 is a critical card to reassert technological supremacy and restore market confidence.\n\nThe head-to-head with DeepSeek V4, slated for the same week, will serve as the ultimate proving ground. With DeepSeek V4 projecting it will surpass existing models on coding benchmarks, all eyes are on whether GPT 5.4 can demonstrate a decisive edge."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

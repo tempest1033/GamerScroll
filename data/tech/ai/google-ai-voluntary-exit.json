@@ -11,7 +11,13 @@
   "summary": "알파벳이 연간 매출 4,000억 달러를 돌파한 직후, 구글은 AI에 올인하지 않는 직원에게 자발적 퇴사 패키지를 제안했다. 사상 최고 실적의 이면에 숨겨진 빅테크의 AI 구조조정 트렌드를 분석한다.",
   "summaryEn": "Right after Alphabet surpassed $400 billion in annual revenue, Google offered voluntary exit packages to employees not fully committed to AI. We analyze the Big Tech AI restructuring trend hidden behind record-breaking earnings.",
   "thumbnail": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STK093_GOOGLE_A-1.jpg?quality=90&strip=all&crop=0%2C0%2C100%2C100&w=2400",
-  "relatedDocs": ["tech:ai/china-ai-distillation-controversy", "tech:ai/xbox-sunset-ai-pivot", "tech:ai/gemini-31-pro-release", "tech:ai/deepmind-update-aletheia-gemini", "tech:ai/nvidia-gpu-launch-halt-ai-priority"],
+  "relatedDocs": [
+    "tech:ai/china-ai-distillation-controversy",
+    "tech:ai/xbox-sunset-ai-pivot",
+    "tech:ai/gemini-31-pro-release",
+    "tech:ai/deepmind-update-aletheia-gemini",
+    "tech:ai/nvidia-gpu-launch-halt-ai-priority"
+  ],
   "sources": [
     {
       "name": "The Verge",
@@ -213,5 +219,6 @@
       "value": "Alphabet's $400 billion revenue is proof that Google's AI transformation is succeeding financially. But the fact that a company posting all-time-high earnings is telling employees to \"leave if you can't keep up\" starkly illustrates how rapidly the labor market is changing in the AI era.\n\nThe message Google sends through its voluntary exit packages is simple: the AI transformation is not a choice but a matter of survival, and only those who can match the pace will remain in Big Tech. The era has arrived where record revenue doesn't guarantee every employee's future."
     }
   ],
-  "relatedGames": []
+  "relatedGames": [],
+  "site": "aiscroll"
 }

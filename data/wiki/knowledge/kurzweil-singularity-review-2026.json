@@ -33,7 +33,12 @@
       "url": "https://www.forbes.com/sites/technology/kurzweil-singularity-2026-assessment/"
     }
   ],
-  "relatedDocs": ["tech:ai/alphagenome-first-impressions-2026", "tech:ai/nvidia-gpu-launch-halt-ai-priority", "tech:ai/stargate-ai-crisis-2026", "tech:ai/big3-ipo-2026-openai-anthropic-spacex"],
+  "relatedDocs": [
+    "tech:ai/alphagenome-first-impressions-2026",
+    "tech:ai/nvidia-gpu-launch-halt-ai-priority",
+    "tech:ai/stargate-ai-crisis-2026",
+    "tech:ai/big3-ipo-2026-openai-anthropic-spacex"
+  ],
   "relatedGames": [],
   "content": [
     {
@@ -202,5 +207,6 @@
       "type": "text",
       "value": "Kurzweil's core message is that the Singularity is not a distant future event but an ongoing process. When he said this in 2005, most people laughed. In 2026, as new AI models surpass another human capability each week, nobody is laughing anymore.\n\nGranted, a world where nanobots patrol our bloodstream and consciousness can be uploaded to the cloud has not arrived yet. But what Kurzweil got right was not any specific technology — it was the direction and speed of change. And if he was right about the speed, then the predictions yet to come true may simply be a matter of time. Whether the Singularity has already begun, we cannot say for certain. What is certain is that every day, it draws a little closer."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

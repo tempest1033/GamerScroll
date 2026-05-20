@@ -12,12 +12,26 @@
   "summaryEn": "Elon Musk announced the merger of SpaceX and xAI. The rocket company absorbing an AI firm creates a $1.25 trillion giant. Musk revealed plans for orbital data centers, claiming 'space will become the cheapest way to generate AI compute.'",
   "thumbnail": "https://cdn.mos.cms.futurecdn.net/6dEQD8kozATFYG4cKoXfGk.jpg",
   "relatedIssues": [],
-  "relatedArticles": ["big3-ipo-2026-openai-anthropic-spacex"],
+  "relatedArticles": [
+    "big3-ipo-2026-openai-anthropic-spacex"
+  ],
   "relatedGames": [],
   "sources": [
-    { "name": "CNBC", "title": "Elon Musk's SpaceX acquiring AI startup xAI ahead of potential IPO", "url": "https://www.cnbc.com/2026/02/02/elon-musk-spacex-xai-ipo.html" },
-    { "name": "BBC", "title": "Musk's SpaceX and xAI merge to make world's most valuable private company", "url": "https://www.bbc.com/news/articles/cq6vnrye06po" },
-    { "name": "The Guardian", "title": "Elon Musk's xAI announces it has raised $20bn", "url": "https://www.theguardian.com/technology/2026/jan/06/elon-musk-xai-investment-grok-backlash" }
+    {
+      "name": "CNBC",
+      "title": "Elon Musk's SpaceX acquiring AI startup xAI ahead of potential IPO",
+      "url": "https://www.cnbc.com/2026/02/02/elon-musk-spacex-xai-ipo.html"
+    },
+    {
+      "name": "BBC",
+      "title": "Musk's SpaceX and xAI merge to make world's most valuable private company",
+      "url": "https://www.bbc.com/news/articles/cq6vnrye06po"
+    },
+    {
+      "name": "The Guardian",
+      "title": "Elon Musk's xAI announces it has raised $20bn",
+      "url": "https://www.theguardian.com/technology/2026/jan/06/elon-musk-xai-investment-grok-backlash"
+    }
   ],
   "content": [
     {
@@ -118,5 +132,6 @@
       "type": "text",
       "value": "Alphabet (Google)-DeepMind, Anthropic, OpenAI, and xAI. These are commonly called the 'AI Big 4.' Alphabet is already public, while the other three are preparing for 2026 IPOs. With this merger bringing xAI to market through SpaceX, an era begins where all AI Big 4 will be traded on public markets."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

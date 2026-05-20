@@ -254,5 +254,6 @@
       "value": "The most striking line from Shumer's review: \"It's so capable that I sometimes don't know what to do with myself while it's running. That's a weird problem to have.\" GPT-5.3 Codex isn't perfect — there's no API, and cybersecurity concerns loom large. But the leap from 5.2 to 5.3 isn't just a performance upgrade. It establishes a new benchmark for coding agent autonomy. The age of AI you can start and walk away from has arrived."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

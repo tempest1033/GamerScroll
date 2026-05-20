@@ -92,15 +92,47 @@
     },
     {
       "type": "comparison_table",
-      "headers": ["항목", "클로드 2배", "코덱스 2배"],
+      "headers": [
+        "항목",
+        "클로드 2배",
+        "코덱스 2배"
+      ],
       "rows": [
-        ["공식 명칭", "Off-peak 2x usage", "2x Codex rate limits"],
-        ["기간", "3/13~3/27 (2주)", "2/2~4/2 (2개월)"],
-        ["적용 시간", "오프피크 시간대만 (미국 동부 오전 8시~오후 2시 제외)", "24시간 전 시간대"],
-        ["2배 대상", "5시간 기준 사용량", "5시간 + 7일 최대 사용량"],
-        ["적용 범위", "클로드 전 제품 (웹, 데스크톱, 모바일, 코드, 엑셀)", "코덱스 전용 (코딩 에이전트)"],
-        ["대상 요금제", "Free / Pro / Max / Team", "Plus / Pro / Business / Enterprise / Edu + Free/Go 체험"],
-        ["겹치는 기간", "3/13~3/27, 양사 프로모션 동시 진행", "3/13~3/27, 양사 프로모션 동시 진행"]
+        [
+          "공식 명칭",
+          "Off-peak 2x usage",
+          "2x Codex rate limits"
+        ],
+        [
+          "기간",
+          "3/13~3/27 (2주)",
+          "2/2~4/2 (2개월)"
+        ],
+        [
+          "적용 시간",
+          "오프피크 시간대만 (미국 동부 오전 8시~오후 2시 제외)",
+          "24시간 전 시간대"
+        ],
+        [
+          "2배 대상",
+          "5시간 기준 사용량",
+          "5시간 + 7일 최대 사용량"
+        ],
+        [
+          "적용 범위",
+          "클로드 전 제품 (웹, 데스크톱, 모바일, 코드, 엑셀)",
+          "코덱스 전용 (코딩 에이전트)"
+        ],
+        [
+          "대상 요금제",
+          "Free / Pro / Max / Team",
+          "Plus / Pro / Business / Enterprise / Edu + Free/Go 체험"
+        ],
+        [
+          "겹치는 기간",
+          "3/13~3/27, 양사 프로모션 동시 진행",
+          "3/13~3/27, 양사 프로모션 동시 진행"
+        ]
       ]
     },
     {
@@ -193,15 +225,47 @@
     },
     {
       "type": "comparison_table",
-      "headers": ["Category", "Claude 2x", "Codex 2x"],
+      "headers": [
+        "Category",
+        "Claude 2x",
+        "Codex 2x"
+      ],
       "rows": [
-        ["Official name", "Off-peak 2x usage", "2x Codex rate limits"],
-        ["Period", "3/13-3/27 (2 weeks)", "2/2-4/2 (2 months)"],
-        ["Hours", "Off-peak only (outside 8AM-2PM ET)", "24/7 all day"],
-        ["What doubles", "5-hour usage limit", "5-hour + 7-day max usage"],
-        ["Scope", "All Claude (web, desktop, mobile, Code, Excel)", "Codex only (coding agent)"],
-        ["Target plans", "Free / Pro / Max / Team", "Plus / Pro / Business / Enterprise / Edu + Free/Go trial"],
-        ["Overlap period", "3/13-3/27 both running simultaneously", "3/13-3/27 both running simultaneously"]
+        [
+          "Official name",
+          "Off-peak 2x usage",
+          "2x Codex rate limits"
+        ],
+        [
+          "Period",
+          "3/13-3/27 (2 weeks)",
+          "2/2-4/2 (2 months)"
+        ],
+        [
+          "Hours",
+          "Off-peak only (outside 8AM-2PM ET)",
+          "24/7 all day"
+        ],
+        [
+          "What doubles",
+          "5-hour usage limit",
+          "5-hour + 7-day max usage"
+        ],
+        [
+          "Scope",
+          "All Claude (web, desktop, mobile, Code, Excel)",
+          "Codex only (coding agent)"
+        ],
+        [
+          "Target plans",
+          "Free / Pro / Max / Team",
+          "Plus / Pro / Business / Enterprise / Edu + Free/Go trial"
+        ],
+        [
+          "Overlap period",
+          "3/13-3/27 both running simultaneously",
+          "3/13-3/27 both running simultaneously"
+        ]
       ]
     },
     {
@@ -241,5 +305,6 @@
       "type": "text",
       "value": "In this market environment, the '2x promotions' are far more than simple discount events. Coding agents are tools that become more deeply integrated into a user's workflow the more they're used. Developers who get comfortable with a particular agent rarely switch. Both Anthropic and OpenAI understand this 'lock-in' effect well, which is why aggressive promotions are being deployed under the logic that securing early usage directly translates to market share."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

@@ -88,15 +88,39 @@
     {
       "type": "table",
       "caption": "미스트랄 Small 4 주요 사양",
-      "headers": ["항목", "수치"],
+      "headers": [
+        "항목",
+        "수치"
+      ],
       "rows": [
-        ["전체 지식 규모", "1,190억 개"],
-        ["전문가 수", "128개"],
-        ["한 번에 쓰는 전문가", "4개 (약 60억 개)"],
-        ["한 번에 읽는 텍스트", "약 25만 토큰 (소설 1권 분량)"],
-        ["라이선스", "아파치 2.0 (무료, 상업용 가능)"],
-        ["응답 속도", "전작 대비 40% 빨라짐"],
-        ["처리량", "전작 대비 3배 증가"]
+        [
+          "전체 지식 규모",
+          "1,190억 개"
+        ],
+        [
+          "전문가 수",
+          "128개"
+        ],
+        [
+          "한 번에 쓰는 전문가",
+          "4개 (약 60억 개)"
+        ],
+        [
+          "한 번에 읽는 텍스트",
+          "약 25만 토큰 (소설 1권 분량)"
+        ],
+        [
+          "라이선스",
+          "아파치 2.0 (무료, 상업용 가능)"
+        ],
+        [
+          "응답 속도",
+          "전작 대비 40% 빨라짐"
+        ],
+        [
+          "처리량",
+          "전작 대비 3배 증가"
+        ]
       ]
     },
     {
@@ -212,15 +236,39 @@
     {
       "type": "table",
       "caption": "Mistral Small 4 Key Specifications",
-      "headers": ["Metric", "Value"],
+      "headers": [
+        "Metric",
+        "Value"
+      ],
       "rows": [
-        ["Total knowledge scale", "119 billion"],
-        ["Number of specialists", "128"],
-        ["Active at a time", "4 (~6 billion)"],
-        ["Text capacity per session", "~250K tokens (one novel)"],
-        ["License", "Apache 2.0 (free, commercial OK)"],
-        ["Response speed", "40% faster than predecessor"],
-        ["Processing volume", "3x more than predecessor"]
+        [
+          "Total knowledge scale",
+          "119 billion"
+        ],
+        [
+          "Number of specialists",
+          "128"
+        ],
+        [
+          "Active at a time",
+          "4 (~6 billion)"
+        ],
+        [
+          "Text capacity per session",
+          "~250K tokens (one novel)"
+        ],
+        [
+          "License",
+          "Apache 2.0 (free, commercial OK)"
+        ],
+        [
+          "Response speed",
+          "40% faster than predecessor"
+        ],
+        [
+          "Processing volume",
+          "3x more than predecessor"
+        ]
       ]
     },
     {
@@ -290,5 +338,6 @@
       "type": "text",
       "value": "How Mistral Small 4 performs in practice remains to be seen. Test scores and real-world use are different, and true capability only reveals itself as the developer community runs its own tests. What is clear: a free model that combines reasoning, vision, and code writing in one package has arrived."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

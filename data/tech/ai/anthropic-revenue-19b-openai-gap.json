@@ -73,11 +73,31 @@
     },
     {
       "type": "table",
-      "headers": ["시점", "엔트로픽 ARR", "OpenAI ARR", "격차"],
+      "headers": [
+        "시점",
+        "엔트로픽 ARR",
+        "OpenAI ARR",
+        "격차"
+      ],
       "rows": [
-        ["2024년 12월", "$1B", "$6B", "$5B"],
-        ["2025년 12월", "$9B", "$20B+", "~$11B"],
-        ["2026년 3월", "$19B", "~$20B", "~$1B"]
+        [
+          "2024년 12월",
+          "$1B",
+          "$6B",
+          "$5B"
+        ],
+        [
+          "2025년 12월",
+          "$9B",
+          "$20B+",
+          "~$11B"
+        ],
+        [
+          "2026년 3월",
+          "$19B",
+          "~$20B",
+          "~$1B"
+        ]
       ],
       "caption": "엔트로픽과 OpenAI ARR 추이 비교"
     },
@@ -161,11 +181,31 @@
     },
     {
       "type": "table",
-      "headers": ["Date", "Anthropic ARR", "OpenAI ARR", "Gap"],
+      "headers": [
+        "Date",
+        "Anthropic ARR",
+        "OpenAI ARR",
+        "Gap"
+      ],
       "rows": [
-        ["Dec 2024", "$1B", "$6B", "$5B"],
-        ["Dec 2025", "$9B", "$20B+", "~$11B"],
-        ["Mar 2026", "$19B", "~$20B", "~$1B"]
+        [
+          "Dec 2024",
+          "$1B",
+          "$6B",
+          "$5B"
+        ],
+        [
+          "Dec 2025",
+          "$9B",
+          "$20B+",
+          "~$11B"
+        ],
+        [
+          "Mar 2026",
+          "$19B",
+          "~$20B",
+          "~$1B"
+        ]
       ],
       "caption": "Anthropic vs OpenAI ARR comparison over time"
     },
@@ -220,5 +260,6 @@
       "value": "Nineteen-fold growth in 14 months. Anthropic's ARR trajectory encapsulates the AI industry's explosive growth in a single data point. Narrowing the gap with OpenAI to $1B is symbolic, but the real race starts now.\n\nWhether Epoch AI's predicted August 2026 overtake scenario materializes depends on both companies' product competitiveness, enterprise customer acquisition speed, and the regulatory environment. What is certain is that the AI market is no longer OpenAI's stage alone. Anthropic's pursuit is once again proving the market's fundamental principle: competition accelerates innovation."
     }
   ],
-  "relatedGames": []
+  "relatedGames": [],
+  "site": "aiscroll"
 }

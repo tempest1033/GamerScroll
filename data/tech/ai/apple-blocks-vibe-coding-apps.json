@@ -198,5 +198,6 @@
       "type": "text",
       "value": "This episode could mark a turning point for the vibe coding ecosystem. If in-app previews are restricted, developers are likely to shift toward web-based or desktop environments, naturally reducing reliance on iOS apps.\n\nSimilar services like Vercel's v0, or apps like Canva that use AI to generate content, could face the same regulatory scrutiny down the line. As AI coding tools continue to evolve, Apple will need to refine its guidelines with greater precision, and the tug-of-war between promoting innovation and maintaining platform control will continue."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

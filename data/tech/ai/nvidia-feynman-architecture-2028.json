@@ -34,11 +34,31 @@
     {
       "type": "table",
       "caption": "엔비디아 데이터센터 GPU 로드맵",
-      "headers": ["아키텍처", "공정", "출시 시기", "핵심 특징"],
+      "headers": [
+        "아키텍처",
+        "공정",
+        "출시 시기",
+        "핵심 특징"
+      ],
       "rows": [
-        ["블랙웰", "TSMC 3nm", "2024~현재", "현 세대 AI 추론/학습 표준"],
-        ["베라 루빈", "차세대 공정", "2026말~2027", "HBM4 통합, 차세대 NVLink"],
-        ["파인만", "TSMC A16", "2028", "실리콘 포토닉스, 블랙웰 대비 14배 성능"]
+        [
+          "블랙웰",
+          "TSMC 3nm",
+          "2024~현재",
+          "현 세대 AI 추론/학습 표준"
+        ],
+        [
+          "베라 루빈",
+          "차세대 공정",
+          "2026말~2027",
+          "HBM4 통합, 차세대 NVLink"
+        ],
+        [
+          "파인만",
+          "TSMC A16",
+          "2028",
+          "실리콘 포토닉스, 블랙웰 대비 14배 성능"
+        ]
       ]
     },
     {
@@ -92,13 +112,37 @@
     {
       "type": "table",
       "caption": "파인만 세대 시스템 구성 요소",
-      "headers": ["구성 요소", "역할", "세대 변화"],
+      "headers": [
+        "구성 요소",
+        "역할",
+        "세대 변화"
+      ],
       "rows": [
-        ["GPU (파인만)", "AI 연산 핵심", "실리콘 포토닉스 + A16 공정"],
-        ["LPU (LP40)", "저전력 추론 가속", "추론 전용 프로세서 진화"],
-        ["CPU (Rosa)", "호스트 프로세서", "GPU-CPU 통합 최적화"],
-        ["BlueField-5", "데이터 처리 유닛(DPU)", "네트워크 오프로드 강화"],
-        ["Kyber 랙", "시스템 아키텍처", "구리/CPO 하이브리드 인터커넥트"]
+        [
+          "GPU (파인만)",
+          "AI 연산 핵심",
+          "실리콘 포토닉스 + A16 공정"
+        ],
+        [
+          "LPU (LP40)",
+          "저전력 추론 가속",
+          "추론 전용 프로세서 진화"
+        ],
+        [
+          "CPU (Rosa)",
+          "호스트 프로세서",
+          "GPU-CPU 통합 최적화"
+        ],
+        [
+          "BlueField-5",
+          "데이터 처리 유닛(DPU)",
+          "네트워크 오프로드 강화"
+        ],
+        [
+          "Kyber 랙",
+          "시스템 아키텍처",
+          "구리/CPO 하이브리드 인터커넥트"
+        ]
       ]
     },
     {
@@ -168,11 +212,31 @@
     {
       "type": "table",
       "caption": "NVIDIA Data Center GPU Roadmap",
-      "headers": ["Architecture", "Process", "Timeline", "Key Feature"],
+      "headers": [
+        "Architecture",
+        "Process",
+        "Timeline",
+        "Key Feature"
+      ],
       "rows": [
-        ["Blackwell", "TSMC 3nm", "2024–present", "Current-gen AI training/inference standard"],
-        ["Vera Rubin", "Next-gen process", "Late 2026–2027", "HBM4 integration, next-gen NVLink"],
-        ["Feynman", "TSMC A16", "2028", "Silicon photonics, 14x over Blackwell"]
+        [
+          "Blackwell",
+          "TSMC 3nm",
+          "2024–present",
+          "Current-gen AI training/inference standard"
+        ],
+        [
+          "Vera Rubin",
+          "Next-gen process",
+          "Late 2026–2027",
+          "HBM4 integration, next-gen NVLink"
+        ],
+        [
+          "Feynman",
+          "TSMC A16",
+          "2028",
+          "Silicon photonics, 14x over Blackwell"
+        ]
       ]
     },
     {
@@ -226,13 +290,37 @@
     {
       "type": "table",
       "caption": "Feynman Generation System Components",
-      "headers": ["Component", "Role", "Generational Change"],
+      "headers": [
+        "Component",
+        "Role",
+        "Generational Change"
+      ],
       "rows": [
-        ["GPU (Feynman)", "Core AI compute", "Silicon photonics + A16 process"],
-        ["LPU (LP40)", "Low-power inference acceleration", "Evolved inference-dedicated processor"],
-        ["CPU (Rosa)", "Host processor", "GPU-CPU integration optimized"],
-        ["BlueField-5", "Data Processing Unit (DPU)", "Enhanced network offload"],
-        ["Kyber Rack", "System architecture", "Copper/CPO hybrid interconnect"]
+        [
+          "GPU (Feynman)",
+          "Core AI compute",
+          "Silicon photonics + A16 process"
+        ],
+        [
+          "LPU (LP40)",
+          "Low-power inference acceleration",
+          "Evolved inference-dedicated processor"
+        ],
+        [
+          "CPU (Rosa)",
+          "Host processor",
+          "GPU-CPU integration optimized"
+        ],
+        [
+          "BlueField-5",
+          "Data Processing Unit (DPU)",
+          "Enhanced network offload"
+        ],
+        [
+          "Kyber Rack",
+          "System architecture",
+          "Copper/CPO hybrid interconnect"
+        ]
       ]
     },
     {
@@ -312,5 +400,6 @@
     "tech:ai/nvidia-groq3-lpu-inference-revolution"
   ],
   "relatedGames": [],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

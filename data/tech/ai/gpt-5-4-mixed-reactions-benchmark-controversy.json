@@ -240,5 +240,6 @@
       "type": "ad"
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

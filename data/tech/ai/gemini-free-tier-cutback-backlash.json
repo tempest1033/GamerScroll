@@ -581,5 +581,6 @@
       "type": "text",
       "value": "The essence of the subscription economy is simple: 'Pay this much each month, use this much.' Users open their wallets trusting that promise.\n\nGemini broke its own promise. The pricing table says '100/day' but time-slotted distribution locks you around 25. 'Weekly limits' were imposed with no specific numbers, announced only via X (Twitter). Pro subscribers paying $20 get locked for 4 days, entire offices get shut out, and the only response is 'investigating.' Few users will keep paying for a service where the promised numbers don't match reality.\n\nChatGPT, Claude, Cursor, GitHub Copilot — alternatives abound. In the AI race, technology is a necessary condition, not a sufficient one. Users don't leave because the model isn't good enough — they leave because they've lost confidence that 'tomorrow will work the same as today.' The numbers on a pricing table are the minimum unit of trust — and that's the lesson Google needs to relearn with Gemini."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

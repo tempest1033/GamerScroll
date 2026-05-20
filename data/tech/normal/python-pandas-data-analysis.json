@@ -129,5 +129,6 @@
   "relatedDocs": [
     "tech:normal/agile-jira-confluence-game-dev",
     "wiki:business/game-business-metrics"
-  ]
+  ],
+  "site": "gamerscroll"
 }

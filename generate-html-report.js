@@ -539,45 +539,11 @@ function loadWikiData() {
   return wikiData;
 }
 
-// 테크 데이터 로드 함수
+// 테크 데이터 로드 함수 (Stage 3: GamerScroll에서 tech 제거)
 const TECH_DIR = './data/tech';
 function loadTechData() {
-  const categories = ['normal', 'ai', 'vibecoding'];
-  const techData = {};
-
-  for (const category of categories) {
-    const categoryDir = `${TECH_DIR}/${category}`;
-    techData[category] = [];
-
-    if (!fs.existsSync(categoryDir)) continue;
-
-    const files = fs.readdirSync(categoryDir).filter(f => f.endsWith('.json'));
-    for (const file of files) {
-      try {
-        const raw = fs.readFileSync(`${categoryDir}/${file}`, 'utf8').replace(/^\uFEFF/, '');
-        const article = JSON.parse(raw);
-        ensurePublishDate(article, `${categoryDir}/${file}`, 'KST');
-        const status = article.status || '';
-        const isApproved = status === 'approved' || status === 'published';
-        const isDraft = status === 'draft';
-        if (isApproved || (includeDrafts && isDraft)) {
-          const slug = article.slug || file.replace('.json', '');
-          techData[category].push({
-            ...article,
-            slug,
-            _jsonFilePath: `${categoryDir}/${file}`
-          });
-        }
-      } catch (e) {
-        console.warn(`  ⚠️ 테크 파일 로드 실패: ${categoryDir}/${file}`);
-      }
-    }
-
-    // 날짜 기준 정렬 (최신순)
-    techData[category].sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  return techData;
+  // Disabled in Stage 3 — tech 콘텐츠는 AIScroll로 이관됨.
+  return { normal: [], ai: [], vibecoding: [] };  return techData;
 }
 
 // 퀵 모드가 아닐 때만 무거운 모듈 로드
@@ -981,7 +947,7 @@ async function main() {
         return null;
       }
     })
-      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
+      .filter(p => p && p.site !== 'aiscroll' && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
       .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
@@ -1295,7 +1261,7 @@ async function main() {
         return null;
       }
     })
-      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
+      .filter(p => p && p.site !== 'aiscroll' && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
       .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
   }
 
@@ -1899,7 +1865,7 @@ async function main() {
 
   // ========== 테크 페이지 빌드 ==========
   console.log('\n📱 테크 페이지 빌드...');
-  const techCategories = ['normal', 'ai', 'vibecoding'];
+  const techCategories = []; // Stage 3: tech 카테고리 제거
 
   const techCategoryData = {
     techData,
@@ -1915,8 +1881,8 @@ async function main() {
     sidebarLatestArticles: sidebarLatestTech
   };
 
-  // tech/index.html 생성
-  try {
+  // tech/index.html 생성 (Stage 3: techCategories 비어있으면 skip)
+  if (techCategories.length > 0) try {
     const techDir = './tech';
     if (!fs.existsSync(techDir)) {
       fs.mkdirSync(techDir, { recursive: true });
@@ -2342,11 +2308,7 @@ async function main() {
     { loc: `${siteBaseUrl}/wiki/business/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/wiki/history/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/wiki/knowledge/`, lastmod: sitemapDate, priority: '0.8' },
-    // 테크 (허브 + 카테고리)
-    { loc: `${siteBaseUrl}/tech/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/tech/normal/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/tech/ai/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/tech/vibecoding/`, lastmod: sitemapDate, priority: '0.8' }
+    // 테크 카테고리는 AIScroll로 이관됨 (Stage 3)
   ];
 
   // 위키 페이지 자동 스캔

@@ -231,5 +231,6 @@
       "value": "The core of this controversy is the scope of tech companies' authority. OpenAI has the right to create and discontinue products. But if that product has become deeply embedded in users' emotional lives, can they unilaterally cut it off? Users weren't forced to form relationships with GPT-4o. But OpenAI also designed the product in a way that enabled such relationships.\n\nSam Altman acknowledged 'we've learned that some users develop attachments to specific models.' But in the same sentence, he described GPT-4o as something users 'relied on for their workflow.' To users who lost a friend, 'workflow'? This may be evidence that OpenAI still doesn't properly understand this situation."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

@@ -130,5 +130,6 @@
       "type": "text",
       "value": "Grok 4.20's multi-agent architecture represents a novel approach to AI model design. The concept of four specialized agents collaborating is genuinely interesting and potentially promising in the long run.\n\nBut the immediate results fall short of expectations. Claiming 'innovative architecture' without official benchmarks lacks persuasive power. While GPT-5, Claude Opus, and Gemini continue delivering visible performance improvements, Grok 4.20 leaves the impression of a good idea that's yet to be proven. For the multi-agent weapon to demonstrate real firepower, it's time to show the numbers."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

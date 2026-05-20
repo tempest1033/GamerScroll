@@ -5,7 +5,11 @@
   "category": "google",
   "title": "제미나이 요금제 개편: 겉만 할인, 실제로는 사용 한도 축소",
   "titleEn": "Gemini's Pricing Overhaul: A Discount on Paper, a Downgrade in Practice",
+<<<<<<< HEAD
   "date": "2026-05-20T18:30",
+=======
+  "date": "2026-05-20T10:00Z",
+>>>>>>> 14349737faed (2026-05-20 19:18 site 필드 invariant + AIScroll 듀얼 빌드(ko/en) + GamerScroll tech 제거)
   "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/I_O_Subs_social_share_image_1.width-1300.png",
   "keywords": "제미나이 요금제, AI 프로, AI 울트라, 연산량 기반, 주간 한도, 다운그레이드, 가입자",
   "keywordsEn": "Gemini pricing, AI Pro, AI Ultra, compute-based, weekly limit, downgrade, subscriber",

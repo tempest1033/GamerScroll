@@ -18,7 +18,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "가이드로 돌아가기", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "가이드로 돌아가기",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -106,7 +111,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Guide", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "Back to Guide",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -190,5 +200,6 @@
       "value": "We've covered the basic concepts and settings of vibe coding tools. Once you learn usage management, permission settings, web search, model selection, session concepts, and context/compact, you can quickly adapt to any tool whether it's Claude Code or Codex. Next, learn about project-specific settings (CLAUDE.md, codex.md)."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

@@ -42,7 +42,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "가이드로 돌아가기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "가이드로 돌아가기",
+          "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws"
+        }
       ]
     },
     {
@@ -115,7 +120,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Guide", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "Back to Guide",
+          "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws"
+        }
       ]
     },
     {
@@ -181,5 +191,6 @@
       "value": "The key to vibe coding is \"just starting.\" You don't need to understand everything perfectly before beginning. Just ask AI and solve things one by one.\n\nOf course, it's not perfect yet. AI-generated code may have hidden bugs or security vulnerabilities. Complex business logic and large-scale systems still need review by professional developers. \"It works, but I don't know why it works\" is a common situation.\n\nNevertheless, vibe coding is advancing rapidly. Asking your AI is the way to start vibe coding."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

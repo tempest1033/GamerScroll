@@ -12,12 +12,30 @@
   "summary": "MCP(Model Context Protocol)는 AI 코딩 에이전트가 데이터베이스, 웹 크롤러, 메신저 등 외부 도구와 소통하는 표준 프로토콜이다. MCP의 개념부터 생태계 현황, 주요 서버, 설정 방법, 실전 활용까지 바이브코딩에서 MCP를 활용하는 방법을 안내한다.",
   "summaryEn": "MCP (Model Context Protocol) is a standard protocol that enables AI coding agents to communicate with external tools like databases, web crawlers, and messaging platforms. This guide covers everything from MCP concepts and ecosystem to setup methods and practical usage in vibe coding.",
   "sources": [
-    { "title": "Introducing the Model Context Protocol", "url": "https://www.anthropic.com/news/model-context-protocol" },
-    { "title": "MCP 1st Anniversary", "url": "https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/" },
-    { "title": "Agentic AI Foundation 설립", "url": "https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" },
-    { "title": "a16z - A Deep Dive into MCP", "url": "https://a16z.com/a-deep-dive-into-mcp-and-the-future-of-ai-tooling/" },
-    { "title": "MCP 공식 사이트", "url": "https://modelcontextprotocol.io/" },
-    { "title": "Claude Code MCP 문서", "url": "https://code.claude.com/docs/en/mcp" }
+    {
+      "title": "Introducing the Model Context Protocol",
+      "url": "https://www.anthropic.com/news/model-context-protocol"
+    },
+    {
+      "title": "MCP 1st Anniversary",
+      "url": "https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/"
+    },
+    {
+      "title": "Agentic AI Foundation 설립",
+      "url": "https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation"
+    },
+    {
+      "title": "a16z - A Deep Dive into MCP",
+      "url": "https://a16z.com/a-deep-dive-into-mcp-and-the-future-of-ai-tooling/"
+    },
+    {
+      "title": "MCP 공식 사이트",
+      "url": "https://modelcontextprotocol.io/"
+    },
+    {
+      "title": "Claude Code MCP 문서",
+      "url": "https://code.claude.com/docs/en/mcp"
+    }
   ],
   "relatedGames": [],
   "relatedDocs": [],
@@ -26,7 +44,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "가이드로 돌아가기", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "가이드로 돌아가기",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -71,15 +94,47 @@
     },
     {
       "type": "table",
-      "headers": ["MCP 서버", "기능", "활용 예시"],
+      "headers": [
+        "MCP 서버",
+        "기능",
+        "활용 예시"
+      ],
       "rows": [
-        ["Slack", "메시지 전송/조회", "팀 알림, 채널 메시지 읽기"],
-        ["Notion", "문서 읽기/쓰기", "기획서 참조, 문서 자동 생성"],
-        ["Supabase", "DB 스키마/데이터 조회", "테이블 구조 파악, 쿼리 실행"],
-        ["Firecrawl", "웹 크롤링/스크래핑", "웹 자료 수집, 콘텐츠 추출"],
-        ["Playwright", "브라우저 자동화/테스트", "E2E 테스트, 스크린샷 캡처"],
-        ["Blender", "3D 모델링 조작", "3D 씬 생성, 모델 수정"],
-        ["PostgreSQL", "SQL 쿼리 실행", "DB 직접 조회, 스키마 분석"]
+        [
+          "Slack",
+          "메시지 전송/조회",
+          "팀 알림, 채널 메시지 읽기"
+        ],
+        [
+          "Notion",
+          "문서 읽기/쓰기",
+          "기획서 참조, 문서 자동 생성"
+        ],
+        [
+          "Supabase",
+          "DB 스키마/데이터 조회",
+          "테이블 구조 파악, 쿼리 실행"
+        ],
+        [
+          "Firecrawl",
+          "웹 크롤링/스크래핑",
+          "웹 자료 수집, 콘텐츠 추출"
+        ],
+        [
+          "Playwright",
+          "브라우저 자동화/테스트",
+          "E2E 테스트, 스크린샷 캡처"
+        ],
+        [
+          "Blender",
+          "3D 모델링 조작",
+          "3D 씬 생성, 모델 수정"
+        ],
+        [
+          "PostgreSQL",
+          "SQL 쿼리 실행",
+          "DB 직접 조회, 스키마 분석"
+        ]
       ],
       "caption": "자주 사용되는 MCP 서버"
     },
@@ -165,7 +220,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Guide", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "Back to Guide",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -210,15 +270,47 @@
     },
     {
       "type": "table",
-      "headers": ["MCP Server", "Function", "Use Case"],
+      "headers": [
+        "MCP Server",
+        "Function",
+        "Use Case"
+      ],
       "rows": [
-        ["Slack", "Send/read messages", "Team notifications, channel messages"],
-        ["Notion", "Read/write documents", "Reference specs, auto-generate docs"],
-        ["Supabase", "DB schema/data queries", "Table structure analysis, query execution"],
-        ["Firecrawl", "Web crawling/scraping", "Data collection, content extraction"],
-        ["Playwright", "Browser automation/testing", "E2E testing, screenshot capture"],
-        ["Blender", "3D modeling operations", "3D scene creation, model editing"],
-        ["PostgreSQL", "SQL query execution", "Direct DB queries, schema analysis"]
+        [
+          "Slack",
+          "Send/read messages",
+          "Team notifications, channel messages"
+        ],
+        [
+          "Notion",
+          "Read/write documents",
+          "Reference specs, auto-generate docs"
+        ],
+        [
+          "Supabase",
+          "DB schema/data queries",
+          "Table structure analysis, query execution"
+        ],
+        [
+          "Firecrawl",
+          "Web crawling/scraping",
+          "Data collection, content extraction"
+        ],
+        [
+          "Playwright",
+          "Browser automation/testing",
+          "E2E testing, screenshot capture"
+        ],
+        [
+          "Blender",
+          "3D modeling operations",
+          "3D scene creation, model editing"
+        ],
+        [
+          "PostgreSQL",
+          "SQL query execution",
+          "Direct DB queries, schema analysis"
+        ]
       ],
       "caption": "Frequently used MCP servers"
     },
@@ -299,5 +391,6 @@
       "type": "text",
       "value": "MCP is the key infrastructure that evolves vibe coding from simple \"code autocomplete\" to \"autonomous agents.\" AI doesn't just write code—it can query databases, crawl the web, and send notifications through messaging platforms. As an industry standard adopted by Anthropic, OpenAI, Google, and Microsoft, learning MCP means you can leverage it with any AI tool.\n\nIf you haven't tried MCP yet, we recommend starting by connecting just one server you need most. Starting with versatile servers like Firecrawl or Notion will let you immediately experience the value MCP brings."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

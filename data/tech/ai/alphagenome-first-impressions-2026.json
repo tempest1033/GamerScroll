@@ -229,5 +229,6 @@
       "type": "text",
       "value": "AlphaGenome isn't perfect. Limited analysis range, API-only access, no clinical use—real constraints exist.\n\nBut among tools for reading DNA's uncharted regions, it's currently the best. And this is version 1.0. It will only get better.\n\nIs it AlphaFold 2.0? Not yet. But every revolution has to start somewhere."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

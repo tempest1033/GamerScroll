@@ -87,13 +87,37 @@
     },
     {
       "type": "table",
-      "headers": ["항목", "Groq 3 LPU", "베라 루빈 GPU"],
+      "headers": [
+        "항목",
+        "Groq 3 LPU",
+        "베라 루빈 GPU"
+      ],
       "rows": [
-        ["메모리 종류", "SRAM", "HBM"],
-        ["칩당 메모리", "500MB", "수십 GB"],
-        ["메모리 대역폭", "150 TB/s", "22 TB/s"],
-        ["최적화 대상", "추론(낮은 지연시간)", "학습(높은 처리량)"],
-        ["토큰/와트 효율", "GPU 대비 35배", "기준"]
+        [
+          "메모리 종류",
+          "SRAM",
+          "HBM"
+        ],
+        [
+          "칩당 메모리",
+          "500MB",
+          "수십 GB"
+        ],
+        [
+          "메모리 대역폭",
+          "150 TB/s",
+          "22 TB/s"
+        ],
+        [
+          "최적화 대상",
+          "추론(낮은 지연시간)",
+          "학습(높은 처리량)"
+        ],
+        [
+          "토큰/와트 효율",
+          "GPU 대비 35배",
+          "기준"
+        ]
       ],
       "caption": "Groq 3 LPU와 베라 루빈 GPU의 주요 스펙 비교"
     },
@@ -195,13 +219,37 @@
     },
     {
       "type": "table",
-      "headers": ["Specification", "Groq 3 LPU", "Vera Rubin GPU"],
+      "headers": [
+        "Specification",
+        "Groq 3 LPU",
+        "Vera Rubin GPU"
+      ],
       "rows": [
-        ["Memory Type", "SRAM", "HBM"],
-        ["Per-Chip Memory", "500MB", "Tens of GB"],
-        ["Memory Bandwidth", "150 TB/s", "22 TB/s"],
-        ["Optimized For", "Inference (low latency)", "Training (high throughput)"],
-        ["Token/Watt Efficiency", "35x over GPU", "Baseline"]
+        [
+          "Memory Type",
+          "SRAM",
+          "HBM"
+        ],
+        [
+          "Per-Chip Memory",
+          "500MB",
+          "Tens of GB"
+        ],
+        [
+          "Memory Bandwidth",
+          "150 TB/s",
+          "22 TB/s"
+        ],
+        [
+          "Optimized For",
+          "Inference (low latency)",
+          "Training (high throughput)"
+        ],
+        [
+          "Token/Watt Efficiency",
+          "35x over GPU",
+          "Baseline"
+        ]
       ],
       "caption": "Key spec comparison between Groq 3 LPU and Vera Rubin GPU"
     },
@@ -260,5 +308,6 @@
       "value": "Just as the Mellanox acquisition filled the missing puzzle piece of data center networking, the Groq acquisition fills the missing piece of inference. NVIDIA is now the only company that owns the full AI computing stack from training to inference. With both GPU and LPU blades in hand, how NVIDIA defines the new order of AI computing will be closely watched -- and March 2026 may well be recorded as a turning point in the history of AI semiconductors."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

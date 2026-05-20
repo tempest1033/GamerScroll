@@ -131,5 +131,6 @@
       "type": "text",
       "value": "Claude Sonnet 4.6 delivers near-Opus performance at a reasonable price with faster speed. It's well-suited for Claude Code's upcoming agent teams feature, large codebase analysis, and complex agentic workflows—broadening the practical options available. The model enables a flexible approach: default to Sonnet 4.6 for cost-efficient high performance, and reserve Opus for when it's truly needed—a welcome update for users across the board."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

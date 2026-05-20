@@ -59,35 +59,123 @@
     {
       "type": "table",
       "caption": "AI 대체 위험 TOP 10 (높은 점수)",
-      "headers": ["순위", "직업", "점수"],
+      "headers": [
+        "순위",
+        "직업",
+        "점수"
+      ],
       "rows": [
-        ["1", "의무기록 속기사", "9"],
-        ["2", "소프트웨어 개발자", "9"],
-        ["3", "데이터 과학자", "9"],
-        ["4", "편집자", "9"],
-        ["5", "경제학자", "9"],
-        ["6", "금융 분석가", "9"],
-        ["7", "컴퓨터 프로그래머", "9"],
-        ["8", "데이터베이스 관리자", "9"],
-        ["9", "회계 사무원", "9"],
-        ["10", "고객 서비스 담당자", "9"]
+        [
+          "1",
+          "의무기록 속기사",
+          "9"
+        ],
+        [
+          "2",
+          "소프트웨어 개발자",
+          "9"
+        ],
+        [
+          "3",
+          "데이터 과학자",
+          "9"
+        ],
+        [
+          "4",
+          "편집자",
+          "9"
+        ],
+        [
+          "5",
+          "경제학자",
+          "9"
+        ],
+        [
+          "6",
+          "금융 분석가",
+          "9"
+        ],
+        [
+          "7",
+          "컴퓨터 프로그래머",
+          "9"
+        ],
+        [
+          "8",
+          "데이터베이스 관리자",
+          "9"
+        ],
+        [
+          "9",
+          "회계 사무원",
+          "9"
+        ],
+        [
+          "10",
+          "고객 서비스 담당자",
+          "9"
+        ]
       ]
     },
     {
       "type": "table",
       "caption": "AI 안전 TOP 10 (낮은 점수)",
-      "headers": ["순위", "직업", "점수"],
+      "headers": [
+        "순위",
+        "직업",
+        "점수"
+      ],
       "rows": [
-        ["1", "운동선수", "1"],
-        ["2", "건설 노동자", "1"],
-        ["3", "건식 벽체 설치공", "1"],
-        ["4", "동물 돌봄 종사자", "2"],
-        ["5", "자동차 차체 수리공", "2"],
-        ["6", "제빵사", "2"],
-        ["7", "이발사·미용사", "2"],
-        ["8", "바텐더", "2"],
-        ["9", "정육사", "2"],
-        ["10", "보육 종사자", "2"]
+        [
+          "1",
+          "운동선수",
+          "1"
+        ],
+        [
+          "2",
+          "건설 노동자",
+          "1"
+        ],
+        [
+          "3",
+          "건식 벽체 설치공",
+          "1"
+        ],
+        [
+          "4",
+          "동물 돌봄 종사자",
+          "2"
+        ],
+        [
+          "5",
+          "자동차 차체 수리공",
+          "2"
+        ],
+        [
+          "6",
+          "제빵사",
+          "2"
+        ],
+        [
+          "7",
+          "이발사·미용사",
+          "2"
+        ],
+        [
+          "8",
+          "바텐더",
+          "2"
+        ],
+        [
+          "9",
+          "정육사",
+          "2"
+        ],
+        [
+          "10",
+          "보육 종사자",
+          "2"
+        ]
       ]
     },
     {
@@ -134,35 +222,123 @@
     {
       "type": "table",
       "caption": "Top 10 Most Exposed to AI (Highest Scores)",
-      "headers": ["Rank", "Occupation", "Score"],
+      "headers": [
+        "Rank",
+        "Occupation",
+        "Score"
+      ],
       "rows": [
-        ["1", "Medical Transcriptionist", "9"],
-        ["2", "Software Developer", "9"],
-        ["3", "Data Scientist", "9"],
-        ["4", "Editor", "9"],
-        ["5", "Economist", "9"],
-        ["6", "Financial Analyst", "9"],
-        ["7", "Computer Programmer", "9"],
-        ["8", "Database Administrator", "9"],
-        ["9", "Bookkeeping/Accounting Clerk", "9"],
-        ["10", "Customer Service Representative", "9"]
+        [
+          "1",
+          "Medical Transcriptionist",
+          "9"
+        ],
+        [
+          "2",
+          "Software Developer",
+          "9"
+        ],
+        [
+          "3",
+          "Data Scientist",
+          "9"
+        ],
+        [
+          "4",
+          "Editor",
+          "9"
+        ],
+        [
+          "5",
+          "Economist",
+          "9"
+        ],
+        [
+          "6",
+          "Financial Analyst",
+          "9"
+        ],
+        [
+          "7",
+          "Computer Programmer",
+          "9"
+        ],
+        [
+          "8",
+          "Database Administrator",
+          "9"
+        ],
+        [
+          "9",
+          "Bookkeeping/Accounting Clerk",
+          "9"
+        ],
+        [
+          "10",
+          "Customer Service Representative",
+          "9"
+        ]
       ]
     },
     {
       "type": "table",
       "caption": "Top 10 Safest from AI (Lowest Scores)",
-      "headers": ["Rank", "Occupation", "Score"],
+      "headers": [
+        "Rank",
+        "Occupation",
+        "Score"
+      ],
       "rows": [
-        ["1", "Athlete", "1"],
-        ["2", "Construction Laborer", "1"],
-        ["3", "Drywall Installer", "1"],
-        ["4", "Animal Care Worker", "2"],
-        ["5", "Auto Body Repairer", "2"],
-        ["6", "Baker", "2"],
-        ["7", "Barber/Hairstylist", "2"],
-        ["8", "Bartender", "2"],
-        ["9", "Butcher", "2"],
-        ["10", "Childcare Worker", "2"]
+        [
+          "1",
+          "Athlete",
+          "1"
+        ],
+        [
+          "2",
+          "Construction Laborer",
+          "1"
+        ],
+        [
+          "3",
+          "Drywall Installer",
+          "1"
+        ],
+        [
+          "4",
+          "Animal Care Worker",
+          "2"
+        ],
+        [
+          "5",
+          "Auto Body Repairer",
+          "2"
+        ],
+        [
+          "6",
+          "Baker",
+          "2"
+        ],
+        [
+          "7",
+          "Barber/Hairstylist",
+          "2"
+        ],
+        [
+          "8",
+          "Bartender",
+          "2"
+        ],
+        [
+          "9",
+          "Butcher",
+          "2"
+        ],
+        [
+          "10",
+          "Childcare Worker",
+          "2"
+        ]
       ]
     },
     {
@@ -184,5 +360,6 @@
       "type": "text",
       "value": "This project carries extra weight because of its context. On March 6, Karpathy released autoresearch, an open-source project demonstrating the potential for automated AI research. Just before that, he posted on X (formerly Twitter) about 'feeling behind,' a post that garnered 14 million views. Even someone at the forefront of AI confessing to being overwhelmed by the pace struck a deep chord.\n\nIn less than a week, Karpathy followed autoresearch with the jobs project, channeling his sense of falling behind into raw productivity. The full source code and data are available on GitHub, so anyone can audit the scoring methodology or analyze their own occupation."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

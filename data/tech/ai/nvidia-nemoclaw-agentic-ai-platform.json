@@ -52,11 +52,27 @@
     {
       "type": "table",
       "caption": "NemoClaw 핵심 보안 구성 요소",
-      "headers": ["구성 요소", "기능", "효과"],
+      "headers": [
+        "구성 요소",
+        "기능",
+        "효과"
+      ],
       "rows": [
-        ["OpenShell", "프로세스 수준 격리, 최소 권한 접근 제어", "에이전트의 행동 범위를 엄격히 제한"],
-        ["Privacy Router", "추론 실행 위치 결정 (로컬 vs 클라우드)", "민감 데이터의 외부 유출 차단"],
-        ["Nemotron 통합", "엔비디아 자체 언어 모델 연동", "외부 API 의존도 감소"]
+        [
+          "OpenShell",
+          "프로세스 수준 격리, 최소 권한 접근 제어",
+          "에이전트의 행동 범위를 엄격히 제한"
+        ],
+        [
+          "Privacy Router",
+          "추론 실행 위치 결정 (로컬 vs 클라우드)",
+          "민감 데이터의 외부 유출 차단"
+        ],
+        [
+          "Nemotron 통합",
+          "엔비디아 자체 언어 모델 연동",
+          "외부 API 의존도 감소"
+        ]
       ]
     },
     {
@@ -82,10 +98,25 @@
     {
       "type": "table",
       "caption": "DGX 라인업 비교",
-      "headers": ["모델", "메모리", "가격", "지원 규모"],
+      "headers": [
+        "모델",
+        "메모리",
+        "가격",
+        "지원 규모"
+      ],
       "rows": [
-        ["DGX Spark", "128GB 통합", "$4,699", "1,000억 파라미터"],
-        ["DGX Station", "784GB", "미공개", "1조 파라미터"]
+        [
+          "DGX Spark",
+          "128GB 통합",
+          "$4,699",
+          "1,000억 파라미터"
+        ],
+        [
+          "DGX Station",
+          "784GB",
+          "미공개",
+          "1조 파라미터"
+        ]
       ]
     },
     {
@@ -163,11 +194,27 @@
     {
       "type": "table",
       "caption": "NemoClaw Core Security Components",
-      "headers": ["Component", "Function", "Effect"],
+      "headers": [
+        "Component",
+        "Function",
+        "Effect"
+      ],
       "rows": [
-        ["OpenShell", "Process-level isolation, least-privilege access control", "Strictly limits agent behavior scope"],
-        ["Privacy Router", "Determines inference execution location (local vs cloud)", "Prevents sensitive data from leaving the organization"],
-        ["Nemotron Integration", "Native NVIDIA language model integration", "Reduces external API dependency"]
+        [
+          "OpenShell",
+          "Process-level isolation, least-privilege access control",
+          "Strictly limits agent behavior scope"
+        ],
+        [
+          "Privacy Router",
+          "Determines inference execution location (local vs cloud)",
+          "Prevents sensitive data from leaving the organization"
+        ],
+        [
+          "Nemotron Integration",
+          "Native NVIDIA language model integration",
+          "Reduces external API dependency"
+        ]
       ]
     },
     {
@@ -193,10 +240,25 @@
     {
       "type": "table",
       "caption": "DGX Lineup Comparison",
-      "headers": ["Model", "Memory", "Price", "Scale"],
+      "headers": [
+        "Model",
+        "Memory",
+        "Price",
+        "Scale"
+      ],
       "rows": [
-        ["DGX Spark", "128GB unified", "$4,699", "100B parameters"],
-        ["DGX Station", "784GB", "TBA", "1T parameters"]
+        [
+          "DGX Spark",
+          "128GB unified",
+          "$4,699",
+          "100B parameters"
+        ],
+        [
+          "DGX Station",
+          "784GB",
+          "TBA",
+          "1T parameters"
+        ]
       ]
     },
     {
@@ -267,5 +329,6 @@
     "tech:ai/mistral-small4-unified-moe"
   ],
   "relatedGames": [],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

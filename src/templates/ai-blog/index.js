@@ -22,6 +22,30 @@ const SITE_CONFIG = {
   ogImage: '/og-image.png'
 };
 
+// i18n labels
+const I18N = {
+  en: {
+    popular: 'Popular', latest: 'Latest', search: 'Search',
+    searchPlaceholder: 'Search articles...',
+    privacy: 'Privacy Policy', categories: 'Categories',
+    readMore: 'Read more', publishedAt: 'Published',
+    noResults: 'No results', sources: 'Sources', related: 'Related Articles',
+    copyright: '© 2026 AIScroll. All rights reserved.',
+    categoryLabels: { general: 'General', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: 'Coding' }
+  },
+  ko: {
+    popular: '인기', latest: '최신', search: '검색',
+    searchPlaceholder: '기사 검색...',
+    privacy: '개인정보처리방침', categories: '카테고리',
+    readMore: '더 보기', publishedAt: '게시일',
+    noResults: '검색 결과 없음', sources: '출처', related: '관련 기사',
+    copyright: '© 2026 AIScroll. 모든 권리 보유.',
+    categoryLabels: { general: '일반', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: '바이브코딩' }
+  }
+};
+
+function langPrefixOf(lang) { return lang === 'ko' ? '/ko' : ''; }
+
 // AIScroll 헤더 (로고 + 검색창 - PC용)
 function generateHeader() {
   return `
@@ -270,6 +294,13 @@ function formatDateEn(dateStr) {
   if (!dateStr) return '';
   const date = new Date(dateStr);
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+function formatDateKo(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return '';
+  return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
 }
 
 // HTML 이스케이프
@@ -655,13 +686,17 @@ function generateAIBlogIndex(data) {
     }
   };
 
+  const _lang = data.lang === 'ko' ? 'ko' : 'en';
+  const _langPrefix = _lang === 'ko' ? '/ko' : '';
   return wrapWithLayout(content, {
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
     keywords: SITE_CONFIG.keywords,
-    canonical: SITE_CONFIG.baseUrl + '/',
+    canonical: SITE_CONFIG.baseUrl + _langPrefix + '/',
     pageScripts: pageScripts,
-    jsonLd: websiteJsonLd
+    jsonLd: websiteJsonLd,
+    lang: _lang,
+    alternates: data.alternates || null
   });
 }
 
@@ -741,8 +776,17 @@ function wrapWithLayout(content, options = {}) {
     ogType = 'website',   // 'website' for homepage, 'article' for articles
     noindex = false,      // true이면 검색엔진 인덱싱 차단
     sidebarCounts = {},  // 모바일 사이드 패널 카테고리 숫자
-    cssFilenames = null
+    cssFilenames = null,
+    lang = 'en',
+    alternates = null
   } = options;
+  const isKo = lang === 'ko';
+  const ogLocale = isKo ? 'ko_KR' : 'en_US';
+  const rssHref = isKo ? `${SITE_CONFIG.baseUrl}/ko/rss.xml` : `${SITE_CONFIG.baseUrl}/rss.xml`;
+  const hreflangLinks = alternates ? `
+  <link rel="alternate" hreflang="en" href="${alternates.en}">
+  <link rel="alternate" hreflang="ko" href="${alternates.ko}">
+  <link rel="alternate" hreflang="x-default" href="${alternates.en}">` : '';
 
   // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
   const effectiveCounts = Object.keys(sidebarCounts).length > 0 ? sidebarCounts : globalSidebarCounts;
@@ -831,7 +875,7 @@ function wrapWithLayout(content, options = {}) {
   ${articleTagsMeta}` : '';
 
   return `<!DOCTYPE html>
-<html lang="en" class="${htmlClassAttr}">
+<html lang="${lang}" class="${htmlClassAttr}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -868,7 +912,7 @@ function wrapWithLayout(content, options = {}) {
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${escapeHtml(title)}">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="${ogLocale}">
   <meta property="og:site_name" content="${SITE_CONFIG.name}">${articleOgTags}
 
   <!-- Twitter -->
@@ -881,7 +925,7 @@ function wrapWithLayout(content, options = {}) {
   <meta name="twitter:image:alt" content="${escapeHtml(title)}">
 
   <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="${SITE_CONFIG.name} RSS Feed" href="${SITE_CONFIG.baseUrl}/rss.xml">
+  <link rel="alternate" type="application/rss+xml" title="${SITE_CONFIG.name} RSS Feed" href="${rssHref}">${hreflangLinks}
 
   <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
@@ -2098,7 +2142,7 @@ function wrapWithLayout(content, options = {}) {
 /**
  * 검색 결과 페이지 생성
  */
-function generateSearchPage() {
+function generateSearchPage(lang = 'en') {
   const content = `
     <section class="home-section active" id="search">
       <div class="page-container issue-container">
@@ -2213,20 +2257,23 @@ function generateSearchPage() {
     })();
   </script>`;
 
+  const _langPrefix = lang === 'ko' ? '/ko' : '';
   return wrapWithLayout(content, {
     title: `Search - ${SITE_CONFIG.name}`,
     description: 'Search articles on AIScroll',
     keywords: SITE_CONFIG.keywords,
-    canonical: `${SITE_CONFIG.baseUrl}/search/`,
+    canonical: `${SITE_CONFIG.baseUrl}${_langPrefix}/search/`,
     pageScripts: pageScripts,
-    noindex: true
+    noindex: true,
+    lang,
+    alternates: { en: `${SITE_CONFIG.baseUrl}/search/`, ko: `${SITE_CONFIG.baseUrl}/ko/search/` }
   });
 }
 
 /**
  * 카테고리 페이지 생성
  */
-function generateCategoryPage(categoryId, categoryLabel, articles, popularArticles = [], latestArticles = []) {
+function generateCategoryPage(categoryId, categoryLabel, articles, popularArticles = [], latestArticles = [], lang = 'en') {
   const categoryArticles = articles.filter(a => a.category === categoryId);
   const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
   const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
@@ -2401,14 +2448,17 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     }
   };
 
+  const _langPrefix = lang === 'ko' ? '/ko' : '';
   return wrapWithLayout(content, {
     title: `${categoryLabel} - ${SITE_CONFIG.name}`,
     description: `${categoryLabel} articles on AIScroll`,
     keywords: `${categoryLabel}, AI news, ${SITE_CONFIG.keywords}`,
-    canonical: `${SITE_CONFIG.baseUrl}/article/${categoryId}/`,
+    canonical: `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,
     pageScripts,
     currentPage: categoryId,
-    jsonLd: categoryJsonLd
+    jsonLd: categoryJsonLd,
+    lang,
+    alternates: { en: `${SITE_CONFIG.baseUrl}/article/${categoryId}/`, ko: `${SITE_CONFIG.baseUrl}/ko/article/${categoryId}/` }
   });
 }
 
@@ -2421,6 +2471,9 @@ module.exports = {
   setGlobalSidebarArticles,
   SITE_CONFIG,
   formatDateEn,
+  formatDateKo,
+  I18N,
+  langPrefixOf,
   escapeHtml,
   getThumbUrl
 };

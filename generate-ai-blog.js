@@ -20,7 +20,7 @@ const includeDrafts = !process.env.CI || process.argv.includes('--draft') || pro
 const buildCache = require('./ai-build-cache');
 
 // 템플릿
-const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, setGlobalSidebarCounts, setGlobalSidebarArticles } = require('./src/templates/ai-blog/index');
+const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, setGlobalSidebarCounts, setGlobalSidebarArticles, I18N, langPrefixOf } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 const { buildLayoutCoreBundle, LAYOUT_CORE_ASSET } = require('./src/templates/layout');
 
@@ -212,28 +212,6 @@ function minifyCss(css) {
     .trim();
 }
 
-// 추가로 가져올 기사 목록
-const EXTRA_ARTICLES = {
-  // reports/issue/*.json
-  issue: [
-    'gpt-5-3-garlic-update-rumor',
-    'chatgpt-vs-gemini-comparison-2026',
-    'gemini-3-hallucination-memory-overfitting',
-    'seedance-2-hollywood-shock-next-version',
-    'deepseek-v4-launch-march-2026',
-    'apple-march-2026-macbook-neo-ai'
-  ],
-  // data/wiki/{category}/*.json
-  wiki: [
-    { category: 'business', slug: 'google-genie3-unity-stock-crash' },
-    { category: 'knowledge', slug: 'kurzweil-singularity-review-2026' }
-  ],
-  // reports/hotpick/*.json
-  hotpick: [
-    'mac-mini-m4-best-value-2026'
-  ]
-};
-
 // 카테고리 목록 (폴더 분리용)
 const CATEGORIES = ['general', 'openai', 'google', 'anthropic', 'vibecoding'];
 
@@ -282,110 +260,67 @@ function resolveArticleThumbnail(article) {
   return thumb;
 }
 
-// 글 데이터 로드
+// 글 데이터 로드: site === "aiscroll" 기사만 통과
 function loadArticles() {
   const articles = [];
   const loadedSlugs = new Set();
 
-  // 1. data/tech/ai/*.json 로드
-  const techAiDir = path.join(DATA_DIR, 'tech', 'ai');
-  if (fs.existsSync(techAiDir)) {
-    const files = fs.readdirSync(techAiDir).filter(f => f.endsWith('.json'));
-    for (const file of files) {
-      try {
-        const content = fs.readFileSync(path.join(techAiDir, file), 'utf8').replace(/^\uFEFF/, '');
-        const data = JSON.parse(content);
-        ensurePublishDate(data, path.join(techAiDir, file), 'UTC');
-        if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
-          articles.push({ ...data, source: 'tech/ai', sourceFile: file, _jsonFilePath: path.join(techAiDir, file) });
-          loadedSlugs.add(data.slug);
-        }
-      } catch (e) {
-        console.error(`로드 실패: ${file}`, e.message);
-      }
-    }
-  }
+  const sources = [
+    { dir: path.join(DATA_DIR, 'tech', 'ai'), tag: 'tech/ai' },
+    { dir: path.join(DATA_DIR, 'tech', 'vibecoding'), tag: 'tech/vibecoding', categoryOverride: 'vibecoding' },
+    { dir: path.join(REPORTS_DIR, 'issue'), tag: 'issue' },
+    { dir: path.join(REPORTS_DIR, 'hotpick'), tag: 'hotpick' }
+  ];
 
-  // 1-2. data/tech/vibecoding/*.json 로드
-  const techVibeCodingDir = path.join(DATA_DIR, 'tech', 'vibecoding');
-  if (fs.existsSync(techVibeCodingDir)) {
-    const files = fs.readdirSync(techVibeCodingDir).filter(f => f.endsWith('.json'));
+  for (const src of sources) {
+    if (!fs.existsSync(src.dir)) continue;
+    const files = fs.readdirSync(src.dir).filter(f => f.endsWith('.json'));
     for (const file of files) {
       try {
-        const content = fs.readFileSync(path.join(techVibeCodingDir, file), 'utf8').replace(/^\uFEFF/, '');
+        const fullPath = path.join(src.dir, file);
+        const content = fs.readFileSync(fullPath, 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
-        ensurePublishDate(data, path.join(techVibeCodingDir, file), 'UTC');
-        if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
-          // vibecoding 카테고리 강제 지정
-          articles.push({ ...data, category: 'vibecoding', source: 'tech/vibecoding', sourceFile: file, _jsonFilePath: path.join(techVibeCodingDir, file) });
-          loadedSlugs.add(data.slug);
-        }
-      } catch (e) {
-        console.error(`로드 실패: ${file}`, e.message);
-      }
-    }
-  }
-
-  // 2. reports/issue/*.json에서 isGlobal: true 또는 추가 목록에 있는 것 로드
-  const issueDir = path.join(REPORTS_DIR, 'issue');
-  if (fs.existsSync(issueDir)) {
-    const files = fs.readdirSync(issueDir).filter(f => f.endsWith('.json'));
-    for (const file of files) {
-      try {
-        const content = fs.readFileSync(path.join(issueDir, file), 'utf8').replace(/^\uFEFF/, '');
-        const data = JSON.parse(content);
-        const isExtra = EXTRA_ARTICLES.issue.includes(data.slug);
-        const isGlobal = data.isGlobal === true;
+        if (data.site !== 'aiscroll') continue;
+        ensurePublishDate(data, fullPath, 'UTC');
         const isValid = data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft');
-
-        if ((isGlobal || isExtra) && isValid && !loadedSlugs.has(data.slug)) {
-          articles.push({ ...data, source: 'issue', sourceFile: file, _jsonFilePath: path.join(issueDir, file) });
-          loadedSlugs.add(data.slug);
-        }
+        if (!isValid) continue;
+        if (loadedSlugs.has(data.slug)) continue;
+        const articleData = { ...data, source: src.tag, sourceFile: file, _jsonFilePath: fullPath };
+        if (src.categoryOverride) articleData.category = src.categoryOverride;
+        articles.push(articleData);
+        loadedSlugs.add(data.slug);
       } catch (e) {
         console.error(`로드 실패: ${file}`, e.message);
       }
     }
   }
 
-  // 3. data/wiki/{category}/*.json에서 추가 목록에 있는 것 로드
-  for (const wikiItem of EXTRA_ARTICLES.wiki) {
-    const wikiFile = path.join(DATA_DIR, 'wiki', wikiItem.category, `${wikiItem.slug}.json`);
-    if (fs.existsSync(wikiFile) && !loadedSlugs.has(wikiItem.slug)) {
-      try {
-        const content = fs.readFileSync(wikiFile, 'utf8').replace(/^\uFEFF/, '');
-        const data = JSON.parse(content);
-        if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
-          articles.push({ ...data, source: `wiki/${wikiItem.category}`, sourceFile: `${wikiItem.slug}.json`, _jsonFilePath: wikiFile });
-          loadedSlugs.add(data.slug);
-        }
-      } catch (e) {
-        console.error(`로드 실패: ${wikiItem.slug}`, e.message);
-      }
-    }
-  }
-
-  // 4. reports/hotpick/*.json에서 추가 목록에 있는 것 로드
-  const hotpickDir = path.join(REPORTS_DIR, 'hotpick');
-  if (fs.existsSync(hotpickDir) && EXTRA_ARTICLES.hotpick) {
-    for (const slug of EXTRA_ARTICLES.hotpick) {
-      const hotpickFile = path.join(hotpickDir, `${slug}.json`);
-      if (fs.existsSync(hotpickFile) && !loadedSlugs.has(slug)) {
+  // data/wiki/<category>/<slug>.json: site === "aiscroll" only
+  const wikiDir = path.join(DATA_DIR, 'wiki');
+  if (fs.existsSync(wikiDir)) {
+    for (const cat of fs.readdirSync(wikiDir)) {
+      const catDir = path.join(wikiDir, cat);
+      let stat;
+      try { stat = fs.statSync(catDir); } catch { continue; }
+      if (!stat.isDirectory()) continue;
+      for (const file of fs.readdirSync(catDir).filter(f => f.endsWith('.json'))) {
         try {
-          const content = fs.readFileSync(hotpickFile, 'utf8').replace(/^\uFEFF/, '');
+          const fullPath = path.join(catDir, file);
+          const content = fs.readFileSync(fullPath, 'utf8').replace(/^\uFEFF/, '');
           const data = JSON.parse(content);
-          if (data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft')) {
-            articles.push({ ...data, source: 'hotpick', sourceFile: `${slug}.json`, _jsonFilePath: hotpickFile });
-            loadedSlugs.add(data.slug);
-          }
+          if (data.site !== 'aiscroll') continue;
+          const isValid = data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft');
+          if (!isValid) continue;
+          if (loadedSlugs.has(data.slug)) continue;
+          articles.push({ ...data, source: `wiki/${cat}`, sourceFile: file, _jsonFilePath: fullPath });
+          loadedSlugs.add(data.slug);
         } catch (e) {
-          console.error(`로드 실패: ${slug}`, e.message);
+          console.error(`로드 실패: ${file}`, e.message);
         }
       }
     }
   }
 
-  // 날짜순 정렬 (최신순)
   articles.sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
 
   return articles;
@@ -536,16 +471,30 @@ async function copyAssets(faviconChanged = false) {
     console.log('hotpick 이미지 복사 완료');
   }
 
-  // wiki 이미지 복사 (추가 목록용)
-  for (const wikiItem of EXTRA_ARTICLES.wiki) {
-    const wikiImageSrc = path.join(__dirname, 'docs', 'assets', 'images', 'wiki', wikiItem.category, wikiItem.slug);
-    const wikiImageDest = path.join(DOCS_DIR, 'assets', 'images', 'wiki', wikiItem.category, wikiItem.slug);
-    if (fs.existsSync(wikiImageSrc)) {
-      copyDirRecursive(wikiImageSrc, wikiImageDest);
+  // wiki 이미지 복사 (site === "aiscroll" 기사용)
+  const wikiDataDir = path.join(__dirname, 'data', 'wiki');
+  if (fs.existsSync(wikiDataDir)) {
+    let wikiCopied = 0;
+    for (const cat of fs.readdirSync(wikiDataDir)) {
+      const catDir = path.join(wikiDataDir, cat);
+      let stat;
+      try { stat = fs.statSync(catDir); } catch { continue; }
+      if (!stat.isDirectory()) continue;
+      for (const file of fs.readdirSync(catDir).filter(f => f.endsWith('.json'))) {
+        try {
+          const data = JSON.parse(fs.readFileSync(path.join(catDir, file), 'utf8').replace(/^\uFEFF/, ''));
+          if (data.site !== 'aiscroll') continue;
+          const slug = file.replace(/\.json$/, '');
+          const wikiImageSrc = path.join(__dirname, 'docs', 'assets', 'images', 'wiki', cat, slug);
+          const wikiImageDest = path.join(DOCS_DIR, 'assets', 'images', 'wiki', cat, slug);
+          if (fs.existsSync(wikiImageSrc)) {
+            copyDirRecursive(wikiImageSrc, wikiImageDest);
+            wikiCopied++;
+          }
+        } catch (e) {}
+      }
     }
-  }
-  if (EXTRA_ARTICLES.wiki.length > 0) {
-    console.log('wiki 이미지 복사 완료');
+    if (wikiCopied > 0) console.log(`wiki 이미지 복사 완료 (${wikiCopied}개)`);
   }
 
   // tech/ai 기사 폴더 내 이미지 복사 (상대경로 이미지 지원)
@@ -585,127 +534,138 @@ async function copyAssets(faviconChanged = false) {
   console.log('에셋 복사 완료');
 }
 
-// HTML 생성
-function generateHTML(articles, popularArticlesData = { articles: [] }) {
-  // docs 폴더 초기화
-  if (!fs.existsSync(DOCS_DIR)) {
-    fs.mkdirSync(DOCS_DIR, { recursive: true });
-  }
+// === lang-aware helpers (Stage 2d) ===
+const SITE_URL_CONST = 'https://aiscroll.io';
 
-  // article 폴더 생성
-  const articleDir = path.join(DOCS_DIR, 'article');
-  if (!fs.existsSync(articleDir)) {
-    fs.mkdirSync(articleDir, { recursive: true });
-  }
+function langDir(lang) {
+  return lang === 'ko' ? path.join(DOCS_DIR, 'ko') : DOCS_DIR;
+}
 
-  // 영문 데이터로 변환 (category 포함)
-  const enArticles = articles.map(a => ({
+function getAlternates(pagePath) {
+  return {
+    en: `${SITE_URL_CONST}${pagePath}`,
+    ko: `${SITE_URL_CONST}/ko${pagePath}`
+  };
+}
+
+function mapArticles(articles, lang) {
+  const isKo = lang === 'ko';
+  return articles.map(a => ({
     slug: a.slug,
     category: a.category || 'general',
-    title: a.titleEn || a.title,
-    summary: a.summaryEn || a.summary,
-    content: a.contentEn || a.content,
+    title: isKo ? (a.title || a.titleEn) : (a.titleEn || a.title),
+    summary: isKo ? (a.summary || a.summaryEn) : (a.summaryEn || a.summary),
+    content: isKo ? (a.content || a.contentEn) : (a.contentEn || a.content),
+    keywords: isKo ? (a.keywords || a.keywordsEn) : (a.keywordsEn || a.keywords),
     thumbnail: resolveArticleThumbnail(a),
     date: a.date,
-    keywords: a.keywordsEn || a.keywords,
     sources: a.sources,
     relatedArticles: a.relatedArticles,
     relatedDocs: a.relatedDocs,
     toc: a.toc,
     _jsonFilePath: a._jsonFilePath
   }));
+}
 
-  // 인기 글 (GA4 데이터 기반, 없으면 최신순)
-  let popularArticles = [];
-  if (popularArticlesData.articles && popularArticlesData.articles.length > 0) {
-    // GA4 조회수 데이터와 기사 매칭
-    popularArticles = popularArticlesData.articles
-      .map(pa => {
-        const article = enArticles.find(a => a.slug === pa.slug && a.category === pa.category);
-        if (article) {
-          return { ...article, views: pa.views };
-        }
-        return null;
-      })
-      .filter(Boolean)
+// HTML 생성
+function generateHTML(articles, popularArticlesData = { articles: [] }) {
+  if (!fs.existsSync(DOCS_DIR)) {
+    fs.mkdirSync(DOCS_DIR, { recursive: true });
+  }
+
+  for (const lang of ['en', 'ko']) {
+    const baseDir = langDir(lang);
+    fs.mkdirSync(baseDir, { recursive: true });
+    const articleDir = path.join(baseDir, 'article');
+    fs.mkdirSync(articleDir, { recursive: true });
+
+    for (const cat of CATEGORIES) {
+      const catDir = path.join(articleDir, cat);
+      if (!fs.existsSync(catDir)) {
+        fs.mkdirSync(catDir, { recursive: true });
+      }
+    }
+
+    const langArticles = mapArticles(articles, lang);
+
+    let popularArticles = [];
+    if (popularArticlesData.articles && popularArticlesData.articles.length > 0) {
+      popularArticles = popularArticlesData.articles
+        .map(pa => {
+          const article = langArticles.find(a => a.slug === pa.slug && a.category === pa.category);
+          if (article) return { ...article, views: pa.views };
+          return null;
+        })
+        .filter(Boolean)
+        .slice(0, 10);
+    }
+    if (popularArticles.length === 0) {
+      popularArticles = [...langArticles].slice(0, 10);
+    }
+
+    const latestArticles = [...langArticles]
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
       .slice(0, 10);
-  }
-  // GA4 데이터 없으면 최신순으로 대체
-  if (popularArticles.length === 0) {
-    popularArticles = [...enArticles].slice(0, 10);
-  }
 
-  // 최신 글 (날짜순)
-  const latestArticles = [...enArticles]
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 10);
+    setGlobalSidebarArticles(popularArticles, latestArticles);
 
-  // 모바일 사이드바 아티클 데이터 설정
-  setGlobalSidebarArticles(popularArticles, latestArticles);
+    const indexHtml = generateAIBlogIndex({
+      articles: langArticles,
+      popularArticles,
+      latestArticles,
+      lang,
+      alternates: getAlternates('/')
+    });
+    fs.writeFileSync(path.join(baseDir, 'index.html'), indexHtml, 'utf8');
+    console.log(`홈페이지 생성 완료 (${lang})`);
 
-  // 홈페이지 생성
-  const indexHtml = generateAIBlogIndex({
-    articles: enArticles,
-    popularArticles,
-    latestArticles
-  });
-  fs.writeFileSync(path.join(DOCS_DIR, 'index.html'), indexHtml, 'utf8');
-  console.log('홈페이지 생성 완료');
-
-  // 카테고리별 폴더 생성
-  for (const cat of CATEGORIES) {
-    const catDir = path.join(articleDir, cat);
-    if (!fs.existsSync(catDir)) {
-      fs.mkdirSync(catDir, { recursive: true });
+    for (const article of langArticles) {
+      const articleHtml = generateAIBlogArticle(article, {
+        popularArticles,
+        latestArticles,
+        allArticles: langArticles,
+        lang,
+        alternates: getAlternates(`/article/${article.category}/${article.slug}/`)
+      });
+      const articlePath = path.join(articleDir, article.category, article.slug);
+      if (!fs.existsSync(articlePath)) {
+        fs.mkdirSync(articlePath, { recursive: true });
+      }
+      fs.writeFileSync(path.join(articlePath, 'index.html'), articleHtml, 'utf8');
     }
+    console.log(`글 ${langArticles.length}개 생성 완료 (${lang})`);
+
+    const searchData = langArticles.map(a => ({
+      slug: a.slug,
+      title: a.title,
+      thumbnail: a.thumbnail || '',
+      category: a.category,
+      date: a.date || '',
+      summary: a.summary || ''
+    }));
+    fs.writeFileSync(path.join(baseDir, 'articles.json'), JSON.stringify(searchData), 'utf8');
+    const searchIndexData = langArticles.map(a => ({
+      slug: a.slug,
+      title: a.title,
+      titleLower: String(a.title || '').toLowerCase(),
+      category: a.category
+    }));
+    fs.writeFileSync(path.join(baseDir, 'articles-search.json'), JSON.stringify(searchIndexData), 'utf8');
+    console.log(`검색용 JSON 생성 완료 (${lang})`);
+
+    generatePrivacyPage(lang);
+    generateSearchPageFile(lang);
+    generateCategoryPages(langArticles, popularArticles, latestArticles, lang);
   }
-
-  // 개별 글 페이지 생성 (/article/{category}/{slug}/)
-  for (const article of enArticles) {
-    const articleHtml = generateAIBlogArticle(article, { popularArticles, latestArticles, allArticles: enArticles });
-    const articlePath = path.join(articleDir, article.category, article.slug);
-    if (!fs.existsSync(articlePath)) {
-      fs.mkdirSync(articlePath, { recursive: true });
-    }
-    fs.writeFileSync(path.join(articlePath, 'index.html'), articleHtml, 'utf8');
-  }
-  console.log(`글 ${enArticles.length}개 생성 완료 (카테고리별 폴더)`);
-
-  // 기사 검색용 JSON 생성 (카테고리, 썸네일, 날짜, 요약 포함)
-  const searchData = enArticles.map(a => ({
-    slug: a.slug,
-    title: a.title,
-    thumbnail: a.thumbnail || '',
-    category: a.category,
-    date: a.date || '',
-    summary: a.summary || ''
-  }));
-  fs.writeFileSync(path.join(DOCS_DIR, 'articles.json'), JSON.stringify(searchData), 'utf8');
-  // 자동완성용 경량 인덱스 (title/category/slug + titleLower)
-  const searchIndexData = enArticles.map(a => ({
-    slug: a.slug,
-    title: a.title,
-    titleLower: String(a.title || '').toLowerCase(),
-    category: a.category
-  }));
-  fs.writeFileSync(path.join(DOCS_DIR, 'articles-search.json'), JSON.stringify(searchIndexData), 'utf8');
-  console.log('검색용 JSON 생성 완료 (full + search index)');
-
-  // Privacy Policy 페이지 생성
-  generatePrivacyPage();
-
-  // Search 페이지 생성
-  generateSearchPageFile();
-
-  // 카테고리 페이지 생성
-  generateCategoryPages(enArticles, popularArticles, latestArticles);
 }
 
 // Privacy Policy 페이지 생성
-function generatePrivacyPage() {
+function generatePrivacyPage(lang = 'en') {
   const { wrapWithLayout } = require('./src/templates/ai-blog/index');
+  const baseDir = langDir(lang);
+  const isKo = lang === 'ko';
 
-  const privacyContent = `
+  const privacyContentEn = `
     <section class="home-section active" id="privacy">
       <article class="page-container issue-container">
         <div class="blog-card">
@@ -715,30 +675,23 @@ function generatePrivacyPage() {
               <time class="blog-date">Last updated: January 2026</time>
             </div>
           </header>
-
           <div class="blog-content">
             <h2 class="blog-heading">1. Information We Collect</h2>
             <p class="blog-paragraph">AI Scroll collects minimal information to provide and improve our services:</p>
             <p class="blog-paragraph">• <strong>Usage Data:</strong> We collect anonymous usage statistics such as pages visited, time spent on pages, and general traffic patterns.<br>• <strong>Cookies:</strong> We use essential cookies to ensure the website functions properly.</p>
-
             <h2 class="blog-heading">2. How We Use Information</h2>
             <p class="blog-paragraph">The information we collect is used to:</p>
             <p class="blog-paragraph">• Provide and maintain our service<br>• Improve user experience<br>• Analyze usage patterns to enhance content<br>• Ensure security and prevent abuse</p>
-
             <h2 class="blog-heading">3. Third-Party Services</h2>
             <p class="blog-paragraph">We may use third-party services that collect information:</p>
             <p class="blog-paragraph">• <strong>Analytics:</strong> To understand how visitors use our site<br>• <strong>Content Delivery Networks:</strong> To serve content efficiently<br>• <strong>Image Proxies:</strong> To optimize image loading</p>
-
             <h2 class="blog-heading">4. Data Retention</h2>
             <p class="blog-paragraph">We retain collected data only for as long as necessary to provide our services and comply with legal obligations.</p>
-
             <h2 class="blog-heading">5. Your Rights</h2>
             <p class="blog-paragraph">You have the right to:</p>
             <p class="blog-paragraph">• Access your personal data<br>• Request deletion of your data<br>• Opt-out of analytics tracking<br>• Contact us with privacy concerns</p>
-
             <h2 class="blog-heading">6. Contact</h2>
             <p class="blog-paragraph">For any privacy-related questions, please contact us through our website.</p>
-
             <h2 class="blog-heading">7. Changes to This Policy</h2>
             <p class="blog-paragraph">We may update this Privacy Policy from time to time. We will notify users of any material changes by posting the new policy on this page.</p>
           </div>
@@ -747,52 +700,83 @@ function generatePrivacyPage() {
     </section>
   `;
 
-  const privacyHtml = wrapWithLayout(privacyContent, {
-    title: 'Privacy Policy - AI Scroll',
-    description: 'AI Scroll Privacy Policy - Information about data collection, usage, and your rights.',
-    keywords: 'privacy policy, data protection, AI Scroll',
-    canonical: 'https://aiscroll.io/privacy/'
+  const privacyContentKo = `
+    <section class="home-section active" id="privacy">
+      <article class="page-container issue-container">
+        <div class="blog-card">
+          <header class="blog-header">
+            <h1 class="blog-title">개인정보처리방침</h1>
+            <div class="blog-meta">
+              <time class="blog-date">최종 업데이트: 2026년 1월</time>
+            </div>
+          </header>
+          <div class="blog-content">
+            <h2 class="blog-heading">1. 수집하는 정보</h2>
+            <p class="blog-paragraph">AIScroll은 서비스 제공과 개선을 위해 최소한의 정보만 수집합니다:</p>
+            <p class="blog-paragraph">• <strong>이용 데이터:</strong> 방문 페이지, 체류 시간, 트래픽 패턴 같은 익명 통계.<br>• <strong>쿠키:</strong> 웹사이트의 정상 동작을 위한 필수 쿠키.</p>
+            <h2 class="blog-heading">2. 정보 사용 목적</h2>
+            <p class="blog-paragraph">수집한 정보는 다음 용도로 사용됩니다:</p>
+            <p class="blog-paragraph">• 서비스 제공 및 유지<br>• 사용자 경험 개선<br>• 콘텐츠 향상을 위한 이용 패턴 분석<br>• 보안 확보 및 악용 방지</p>
+            <h2 class="blog-heading">3. 제3자 서비스</h2>
+            <p class="blog-paragraph">정보를 수집할 수 있는 제3자 서비스를 사용할 수 있습니다:</p>
+            <p class="blog-paragraph">• <strong>분석:</strong> 사이트 이용 방식 이해<br>• <strong>콘텐츠 전달 네트워크:</strong> 효율적 콘텐츠 전달<br>• <strong>이미지 프록시:</strong> 이미지 로딩 최적화</p>
+            <h2 class="blog-heading">4. 데이터 보관</h2>
+            <p class="blog-paragraph">서비스 제공과 법적 의무 준수에 필요한 기간 동안만 수집된 데이터를 보관합니다.</p>
+            <h2 class="blog-heading">5. 사용자 권리</h2>
+            <p class="blog-paragraph">사용자는 다음 권리를 가집니다:</p>
+            <p class="blog-paragraph">• 개인 데이터 접근<br>• 데이터 삭제 요청<br>• 분석 추적 옵트아웃<br>• 개인정보 관련 문의</p>
+            <h2 class="blog-heading">6. 문의</h2>
+            <p class="blog-paragraph">개인정보 관련 문의는 웹사이트를 통해 연락해 주세요.</p>
+            <h2 class="blog-heading">7. 정책 변경</h2>
+            <p class="blog-paragraph">본 개인정보처리방침은 수시로 업데이트될 수 있습니다. 중대한 변경 사항은 이 페이지에 새 정책을 게시하여 사용자에게 알립니다.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  `;
+
+  const privacyHtml = wrapWithLayout(isKo ? privacyContentKo : privacyContentEn, {
+    title: isKo ? '개인정보처리방침 - AIScroll' : 'Privacy Policy - AI Scroll',
+    description: isKo ? 'AIScroll 개인정보처리방침 - 데이터 수집, 사용, 사용자 권리에 관한 안내.' : 'AI Scroll Privacy Policy - Information about data collection, usage, and your rights.',
+    keywords: isKo ? '개인정보처리방침, 데이터 보호, AIScroll' : 'privacy policy, data protection, AI Scroll',
+    canonical: isKo ? 'https://aiscroll.io/ko/privacy/' : 'https://aiscroll.io/privacy/',
+    lang,
+    alternates: getAlternates('/privacy/')
   });
 
-  const privacyDir = path.join(DOCS_DIR, 'privacy');
+  const privacyDir = path.join(baseDir, 'privacy');
   if (!fs.existsSync(privacyDir)) {
     fs.mkdirSync(privacyDir, { recursive: true });
   }
   fs.writeFileSync(path.join(privacyDir, 'index.html'), privacyHtml, 'utf8');
-  console.log('Privacy Policy 페이지 생성 완료');
+  console.log(`Privacy Policy 페이지 생성 완료 (${lang})`);
 }
 
 // Search 페이지 생성
-function generateSearchPageFile() {
-  const searchHtml = generateSearchPage();
-
-  const searchDir = path.join(DOCS_DIR, 'search');
+function generateSearchPageFile(lang = 'en') {
+  const searchHtml = generateSearchPage(lang);
+  const baseDir = langDir(lang);
+  const searchDir = path.join(baseDir, 'search');
   if (!fs.existsSync(searchDir)) {
     fs.mkdirSync(searchDir, { recursive: true });
   }
   fs.writeFileSync(path.join(searchDir, 'index.html'), searchHtml, 'utf8');
-  console.log('Search 페이지 생성 완료');
+  console.log(`Search 페이지 생성 완료 (${lang})`);
 }
 
 // 카테고리 페이지 생성
-function generateCategoryPages(articles, popularArticles, latestArticles) {
-  const categoryMeta = {
-    'general': 'General',
-    'openai': 'OpenAI',
-    'google': 'Google',
-    'anthropic': 'Anthropic',
-    'vibecoding': 'Coding'
-  };
-
-  for (const [catId, catLabel] of Object.entries(categoryMeta)) {
-    const catHtml = generateCategoryPage(catId, catLabel, articles, popularArticles, latestArticles);
-    const catDir = path.join(DOCS_DIR, 'article', catId);
+function generateCategoryPages(articles, popularArticles, latestArticles, lang = 'en') {
+  const baseDir = langDir(lang);
+  const labels = (I18N[lang] && I18N[lang].categoryLabels) ? I18N[lang].categoryLabels : I18N.en.categoryLabels;
+  for (const [catId, catLabel] of Object.entries(labels)) {
+    const catHtml = generateCategoryPage(catId, catLabel, articles, popularArticles, latestArticles, lang);
+    const catDir = path.join(baseDir, 'article', catId);
     if (!fs.existsSync(catDir)) {
       fs.mkdirSync(catDir, { recursive: true });
     }
     fs.writeFileSync(path.join(catDir, 'index.html'), catHtml, 'utf8');
   }
-  console.log('카테고리 페이지 5개 생성 완료');
+  console.log(`카테고리 페이지 ${Object.keys(labels).length}개 생성 완료 (${lang})`);
 }
 
 // 이미지 검증 (누락 경고)
@@ -1010,51 +994,61 @@ function generateSEOFiles(articles) {
   const SITE_URL = 'https://aiscroll.io';
   const today = new Date().toISOString().split('T')[0];
 
-  // 영문 데이터로 변환
-  const enArticles = articles.map(a => ({
-    slug: a.slug,
-    category: a.category || 'general',
-    title: a.titleEn || a.title,
-    summary: a.summaryEn || a.summary,
-    date: a.date,
-    thumbnail: resolveArticleThumbnail(a)
+  // === Stage 2e: dual-lang sitemap + ko rss ===
+  const enArticles = mapArticles(articles, 'en').map(a => ({
+    slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, thumbnail: a.thumbnail
+  }));
+  const koArticles = mapArticles(articles, 'ko').map(a => ({
+    slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, thumbnail: a.thumbnail
   }));
 
-  // 1. sitemap.xml 생성
-  const sitemapPages = [
-    { loc: `${SITE_URL}/`, lastmod: today, priority: '1.0' },
-    { loc: `${SITE_URL}/privacy/`, lastmod: today, priority: '0.3' },
-    // 카테고리 페이지
-    { loc: `${SITE_URL}/article/general/`, lastmod: today, priority: '0.8' },
-    { loc: `${SITE_URL}/article/openai/`, lastmod: today, priority: '0.8' },
-    { loc: `${SITE_URL}/article/google/`, lastmod: today, priority: '0.8' },
-    { loc: `${SITE_URL}/article/anthropic/`, lastmod: today, priority: '0.8' },
-    { loc: `${SITE_URL}/article/vibecoding/`, lastmod: today, priority: '0.8' }
+  // 1. sitemap.xml — en/ko URL + hreflang alternates
+  const baseSitemapPaths = [
+    { path: '/', priority: '1.0' },
+    { path: '/privacy/', priority: '0.3' },
+    { path: '/article/general/', priority: '0.8' },
+    { path: '/article/openai/', priority: '0.8' },
+    { path: '/article/google/', priority: '0.8' },
+    { path: '/article/anthropic/', priority: '0.8' },
+    { path: '/article/vibecoding/', priority: '0.8' }
   ];
 
-  // 기사 페이지 추가
+  function makeAlternates(p) {
+    return [
+      `<xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}${p}"/>`,
+      `<xhtml:link rel="alternate" hreflang="ko" href="${SITE_URL}/ko${p}"/>`,
+      `<xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${p}"/>`
+    ].join('\n    ');
+  }
+
+  const sitemapEntries = [];
+  for (const b of baseSitemapPaths) {
+    const alts = makeAlternates(b.path);
+    sitemapEntries.push({ loc: `${SITE_URL}${b.path}`, lastmod: today, priority: b.priority, alternates: alts });
+    sitemapEntries.push({ loc: `${SITE_URL}/ko${b.path}`, lastmod: today, priority: b.priority, alternates: alts });
+  }
   for (const article of enArticles) {
     const articleDate = article.date ? article.date.split('T')[0] : today;
-    sitemapPages.push({
-      loc: `${SITE_URL}/article/${article.category}/${article.slug}/`,
-      lastmod: articleDate,
-      priority: '0.7'
-    });
+    const p = `/article/${article.category}/${article.slug}/`;
+    const alts = makeAlternates(p);
+    sitemapEntries.push({ loc: `${SITE_URL}${p}`, lastmod: articleDate, priority: '0.7', alternates: alts });
+    sitemapEntries.push({ loc: `${SITE_URL}/ko${p}`, lastmod: articleDate, priority: '0.7', alternates: alts });
   }
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapPages.map(p => `  <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${sitemapEntries.map(p => `  <url>
     <loc>${p.loc}</loc>
     <lastmod>${p.lastmod}</lastmod>
     <priority>${p.priority}</priority>
+    ${p.alternates}
   </url>`).join('\n')}
 </urlset>`;
 
   fs.writeFileSync(path.join(DOCS_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
-  console.log('sitemap.xml 생성 완료');
+  console.log('sitemap.xml 생성 완료 (en+ko + hreflang)');
 
-  // 2. robots.txt 생성
+  // 2. robots.txt
   const robotsTxt = `# AIScroll robots.txt
 User-agent: *
 Allow: /
@@ -1064,8 +1058,8 @@ Sitemap: ${SITE_URL}/sitemap.xml
   fs.writeFileSync(path.join(DOCS_DIR, 'robots.txt'), robotsTxt, 'utf8');
   console.log('robots.txt 생성 완료');
 
-  // 3. RSS 피드 생성
-  const rssItems = enArticles
+  // 3a. RSS (en)
+  const enRssItems = enArticles
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 50)
     .map(article => {
@@ -1080,8 +1074,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
       <category><![CDATA[${article.category}]]></category>
     </item>`;
     });
-
-  const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
+  const enRssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AIScroll - AI News & Insights</title>
@@ -1090,12 +1083,44 @@ Sitemap: ${SITE_URL}/sitemap.xml
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
-${rssItems.join('\n')}
+${enRssItems.join('\n')}
   </channel>
 </rss>`;
+  fs.writeFileSync(path.join(DOCS_DIR, 'rss.xml'), enRssXml, 'utf8');
+  console.log(`RSS 피드 생성 완료 EN (${enRssItems.length}개)`);
 
-  fs.writeFileSync(path.join(DOCS_DIR, 'rss.xml'), rssXml, 'utf8');
-  console.log(`RSS 피드 생성 완료 (${rssItems.length}개 항목)`);
+  // 3b. RSS (ko)
+  const koRssItems = koArticles
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 50)
+    .map(article => {
+      const pubDate = new Date(article.date).toUTCString();
+      const link = `${SITE_URL}/ko/article/${article.category}/${article.slug}/`;
+      return `    <item>
+      <title><![CDATA[${article.title}]]></title>
+      <link>${link}</link>
+      <guid isPermaLink="true">${link}</guid>
+      <pubDate>${pubDate}</pubDate>
+      <description><![CDATA[${article.summary}]]></description>
+      <category><![CDATA[${article.category}]]></category>
+    </item>`;
+    });
+  const koRssXml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AIScroll - 최신 AI 뉴스와 인사이트</title>
+    <link>${SITE_URL}/ko</link>
+    <description>최신 AI 뉴스와 인사이트. AI 업계 동향을 빠르게 확인하세요.</description>
+    <language>ko-kr</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${SITE_URL}/ko/rss.xml" rel="self" type="application/rss+xml"/>
+${koRssItems.join('\n')}
+  </channel>
+</rss>`;
+  const koDir = path.join(DOCS_DIR, 'ko');
+  if (!fs.existsSync(koDir)) fs.mkdirSync(koDir, { recursive: true });
+  fs.writeFileSync(path.join(koDir, 'rss.xml'), koRssXml, 'utf8');
+  console.log(`RSS 피드 생성 완료 KO (${koRssItems.length}개)`);
 
   // 4. Service Worker 생성 (콘텐츠 해시 기반 버전)
   const swVersionHash = (() => {

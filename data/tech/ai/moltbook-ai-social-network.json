@@ -321,5 +321,6 @@
       "value": "Moltbook is accessible to anyone at moltbook.com. You can't write, but reading alone is fascinating enough."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

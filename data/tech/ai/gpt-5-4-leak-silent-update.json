@@ -260,5 +260,6 @@
       "value": "OpenAI's model release cadence is accelerating. From GPT-5 (August 2025) to 5.1 (November), 5.2 (December), 5.3 Codex (February 2026), and now the 5.4 leak (March), the company has pushed through four major updates in just seven months, with a fifth on the horizon.\n\nThe question is whether this speed race is translating into better user experiences. The models are hitting all-time highs on benchmarks, yet \"perceived performance\" is arguably declining. With Google Gemini and Anthropic Claude closing in, the pace may be unavoidable. But if OpenAI wants to avoid repeating what Sam Altman himself called \"our mistakes,\" it will need to listen beyond the benchmark numbers and pay attention to the user experience."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

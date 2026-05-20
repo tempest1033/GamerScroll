@@ -36,7 +36,9 @@
       "url": "https://gh.sarosgame.com/"
     }
   ],
-  "relatedDocs": ["tech:normal/nakwon-last-paradise-cbt"],
+  "relatedDocs": [
+    "tech:normal/nakwon-last-paradise-cbt"
+  ],
   "relatedGames": [],
   "content": [
     {
@@ -91,15 +93,39 @@
     },
     {
       "type": "table",
-      "headers": ["항목", "내용"],
+      "headers": [
+        "항목",
+        "내용"
+      ],
       "rows": [
-        ["테스트 플랫폼", "PC (윈도우) 전용"],
-        ["테스트 유형", "소규모 비공개 테크니컬 테스트 (NDA 필수)"],
-        ["모집 시작", "2026년 2월 26일"],
-        ["모집 마감", "2026년 3월 27일"],
-        ["참여 방법", "탭탭 공식 페이지 또는 MUR 설문 참여"],
-        ["데이터", "테스트 종료 후 전체 삭제, 과금 없음"],
-        ["보상", "테스트 보증 패스, VIVO 스마트폰, 게이밍 주변기기, 한정 아트 프린트"]
+        [
+          "테스트 플랫폼",
+          "PC (윈도우) 전용"
+        ],
+        [
+          "테스트 유형",
+          "소규모 비공개 테크니컬 테스트 (NDA 필수)"
+        ],
+        [
+          "모집 시작",
+          "2026년 2월 26일"
+        ],
+        [
+          "모집 마감",
+          "2026년 3월 27일"
+        ],
+        [
+          "참여 방법",
+          "탭탭 공식 페이지 또는 MUR 설문 참여"
+        ],
+        [
+          "데이터",
+          "테스트 종료 후 전체 삭제, 과금 없음"
+        ],
+        [
+          "보상",
+          "테스트 보증 패스, VIVO 스마트폰, 게이밍 주변기기, 한정 아트 프린트"
+        ]
       ],
       "caption": "리와인딩 케이던스 PC 테크니컬 테스트 개요"
     },
@@ -199,15 +225,39 @@
     },
     {
       "type": "table",
-      "headers": ["Item", "Details"],
+      "headers": [
+        "Item",
+        "Details"
+      ],
       "rows": [
-        ["Test Platform", "PC (Windows) only"],
-        ["Test Type", "Small-scale confidential technical test (NDA required)"],
-        ["Recruitment Start", "February 26, 2026"],
-        ["Recruitment Deadline", "March 27, 2026"],
-        ["How to Join", "TapTap official page or MUR survey participation"],
-        ["Data", "Full wipe after test, no monetization"],
-        ["Rewards", "Test guarantee pass, VIVO smartphone, gaming peripherals, limited art prints"]
+        [
+          "Test Platform",
+          "PC (Windows) only"
+        ],
+        [
+          "Test Type",
+          "Small-scale confidential technical test (NDA required)"
+        ],
+        [
+          "Recruitment Start",
+          "February 26, 2026"
+        ],
+        [
+          "Recruitment Deadline",
+          "March 27, 2026"
+        ],
+        [
+          "How to Join",
+          "TapTap official page or MUR survey participation"
+        ],
+        [
+          "Data",
+          "Full wipe after test, no monetization"
+        ],
+        [
+          "Rewards",
+          "Test guarantee pass, VIVO smartphone, gaming peripherals, limited art prints"
+        ]
       ],
       "caption": "Rewinding Cadence PC Technical Test Overview"
     },
@@ -254,5 +304,6 @@
       "value": "Currently in development targeting PC, Android, and iOS multi-platform release, Chinese Android pre-registration has already begun. While no official launch date has been announced, feedback from this PC technical test is expected to significantly influence the timeline. Whether Rewinding Cadence can breathe new life into the open-world gacha market remains to be seen — and test results are eagerly awaited."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "gamerscroll"
 }

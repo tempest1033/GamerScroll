@@ -273,5 +273,6 @@
       "type": "text",
       "value": "The second axis of Google's platform strategy is [Android XR](https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/), highlighted by the unveiling of two distinct intelligent eyewear form factors: audio-only glasses that provide localized spoken assistance, and display glasses that overlay digital information directly onto the user's field of view. The audio-focused glasses are scheduled to ship first this fall, developed in partnership with Samsung, Qualcomm, Gentle Monster, and Warby Parker. Users can trigger Gemini via a 'Hey Google' voice command or a physical tap on the frame to receive hands-free assistance with navigation, real-time translation, and environmental object identification.\n\nWhile 'Agentic Gemini' served as the Google I/O 2026 keynote's primary marketing narrative, the true takeaway of the two-hour presentation was the cohesive alignment of Google's entire vertical stack. By introducing synchronized updates across model architectures like Gemini Omni, agentic Gemini autonomous agents, search infrastructure, operating systems, and physical hardware, Google demonstrated its unique ability to execute a unified, full-stack AI strategy in a single day."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

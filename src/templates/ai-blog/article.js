@@ -639,17 +639,21 @@ function generateAIBlogArticle(article, data = {}) {
     ? rawDescription.slice(0, 152).replace(/\s+\S*$/, '') + '...'
     : rawDescription;
 
+  const lang = data.lang === 'ko' ? 'ko' : 'en';
+  const langPrefix = lang === 'ko' ? '/ko' : '';
   return wrapWithLayout(content, {
     title: trimmedTitle,
     description: trimmedDescription,
     keywords: article.keywords || SITE_CONFIG.keywords,
-    canonical: `${SITE_CONFIG.baseUrl}/article/${article.category || 'general'}/${article.slug}/`,
+    canonical: `${SITE_CONFIG.baseUrl}${langPrefix}/article/${article.category || 'general'}/${article.slug}/`,
     pageScripts: pageScripts,
     jsonLd: jsonLd,
     ogImage: absoluteThumbnail,
     ogType: 'article',
     articleMeta: articleMeta,
-    currentPage: article.category || 'general'
+    currentPage: article.category || 'general',
+    lang,
+    alternates: data.alternates || null
   });
 }
 

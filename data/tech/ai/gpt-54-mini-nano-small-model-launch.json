@@ -86,12 +86,42 @@
     },
     {
       "type": "table",
-      "headers": ["모델", "입력/100만 토큰", "캐시 적중", "출력/100만 토큰", "전작 대비"],
+      "headers": [
+        "모델",
+        "입력/100만 토큰",
+        "캐시 적중",
+        "출력/100만 토큰",
+        "전작 대비"
+      ],
       "rows": [
-        ["GPT-5.4 Mini", "$0.75", "$0.075", "$4.50", "입력 3배, 출력 2.25배"],
-        ["GPT-5.4 Nano", "$0.20", "$0.02", "$1.25", "입력 4배, 출력 3.125배"],
-        ["제미나이 3.1 플래시 라이트", "$0.25", "-", "$1.50", "-"],
-        ["Claude 4.5 Haiku", "비공개(상위)", "-", "비공개(상위)", "-"]
+        [
+          "GPT-5.4 Mini",
+          "$0.75",
+          "$0.075",
+          "$4.50",
+          "입력 3배, 출력 2.25배"
+        ],
+        [
+          "GPT-5.4 Nano",
+          "$0.20",
+          "$0.02",
+          "$1.25",
+          "입력 4배, 출력 3.125배"
+        ],
+        [
+          "제미나이 3.1 플래시 라이트",
+          "$0.25",
+          "-",
+          "$1.50",
+          "-"
+        ],
+        [
+          "Claude 4.5 Haiku",
+          "비공개(상위)",
+          "-",
+          "비공개(상위)",
+          "-"
+        ]
       ],
       "caption": "소형 AI 모델 가격 비교 (2026년 3월 기준)"
     },
@@ -167,12 +197,42 @@
     },
     {
       "type": "table",
-      "headers": ["Model", "Input/1M tokens", "Cached", "Output/1M tokens", "vs Previous"],
+      "headers": [
+        "Model",
+        "Input/1M tokens",
+        "Cached",
+        "Output/1M tokens",
+        "vs Previous"
+      ],
       "rows": [
-        ["GPT-5.4 Mini", "$0.75", "$0.075", "$4.50", "3x input, 2.25x output"],
-        ["GPT-5.4 Nano", "$0.20", "$0.02", "$1.25", "4x input, 3.125x output"],
-        ["Gemini 3.1 Flash-Lite", "$0.25", "-", "$1.50", "-"],
-        ["Claude 4.5 Haiku", "Higher", "-", "Higher", "-"]
+        [
+          "GPT-5.4 Mini",
+          "$0.75",
+          "$0.075",
+          "$4.50",
+          "3x input, 2.25x output"
+        ],
+        [
+          "GPT-5.4 Nano",
+          "$0.20",
+          "$0.02",
+          "$1.25",
+          "4x input, 3.125x output"
+        ],
+        [
+          "Gemini 3.1 Flash-Lite",
+          "$0.25",
+          "-",
+          "$1.50",
+          "-"
+        ],
+        [
+          "Claude 4.5 Haiku",
+          "Higher",
+          "-",
+          "Higher",
+          "-"
+        ]
       ],
       "caption": "Small AI model pricing comparison (March 2026)"
     },
@@ -208,5 +268,6 @@
       "value": "Yet the title of 'most powerful small model' does not automatically mean 'most suitable small model.' Long-context performance degradation, up to 4x price increases over predecessors, and Nano's API-only availability are variables developers must weigh before choosing. The same question that dominates the frontier model market repeats itself in the small model space: which model best fits my workload? The lesson that topping benchmarks does not equal being the best choice applies here just as much."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

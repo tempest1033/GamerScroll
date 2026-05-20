@@ -259,5 +259,6 @@
       "type": "text",
       "value": "Gemini 3.1 Flash-Lite is undeniably a functionally advanced model. Its 363 tokens/sec throughput, four-level Thinking Levels, and 1 million token context window check all the boxes for production environments. The 1/8 Pro pricing also makes for attractive positioning.\n\nBut behind the 'cheapest model' label lies a roughly 3x price increase over its predecessor. Even accounting for performance gains, this is a concerning change for enterprises that built their infrastructure around 2.5 Flash-Lite pricing. Its underperformance against GPT-5 mini in coding benchmarks further muddles its positioning. How Google adjusts its pricing strategy when transitioning this model from preview to general availability will be a key point of market interest."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

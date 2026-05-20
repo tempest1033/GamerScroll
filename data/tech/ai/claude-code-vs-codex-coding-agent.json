@@ -307,5 +307,6 @@
       "value": "However, it's important to note that Claude **lacks versatility**. In areas outside of coding—such as multimodal capabilities, image generation, video generation, and everyday use—GPT is overwhelmingly superior. If you're interested in coding agents, trying out Codex first might be a good choice, as it's included with a GPT paid subscription (Plus plan). That said, for programmers, Claude Code may be the more stable choice at this point. Codex has fairly generous usage limits and good versatility, so using Claude Code as your main tool while supplementing with Codex is also highly recommended.\n\nUltimately, what matters is choosing the tool that fits your work style and budget. If everyday coding and stability are important, go with Claude Code; if complex problem-solving and cost efficiency are priorities, choose Codex. Using both tools strategically depending on the situation is also a solid strategy."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

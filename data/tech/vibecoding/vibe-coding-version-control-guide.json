@@ -912,5 +912,6 @@
       "value": "Version control is the safety net of vibe coding. No matter how smart AI gets, you'll feel uneasy if you can't undo changes. With GitHub, you can always roll back to a previous state, experiment freely, and keep your main code safe.\n\nWhether you use Claude Code or Codex, the core workflow is the same: create a branch, work on it, commit, push, and send a PR. AI tools handle this process through natural language, so you don't need to memorize Git commands. What matters is \"commit often, use branches, and don't be afraid to experiment.\""
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

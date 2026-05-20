@@ -37,7 +37,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "가이드로 돌아가기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "가이드로 돌아가기",
+          "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws"
+        }
       ]
     },
     {
@@ -160,7 +165,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 0, "slug": "vibe-coding-guide", "title": "Back to Guide", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        {
+          "part": 0,
+          "slug": "vibe-coding-guide",
+          "title": "Back to Guide",
+          "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws"
+        }
       ]
     },
     {
@@ -276,5 +286,6 @@
       "value": "Once installation is complete, try giving Claude simple tasks. Start with requests like 'Explain this code', 'Find bugs', or 'Add tests'. Claude Code can read files, make modifications, and execute terminal commands."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

@@ -139,5 +139,6 @@
       "type": "text",
       "value": "Gemini 3.1 Pro is undeniably one of the most powerful AI models available today. It claimed first place in 6 out of 10 major benchmark categories spanning reasoning, coding, science, and multimodal tasks, with particularly meaningful progress in abstract reasoning and hallucination reduction. When factoring in price-to-performance, its competitiveness becomes even more compelling.\n\nHowever, challenges remain in real-world areas including long-context retention, search reliability, and session persistence. How quickly Google can narrow the gap between benchmark supremacy and actual user experience will be crucial for the official release. The three-way race between Claude Opus 4.6, GPT-5.2, and now Gemini 3.1 Pro has made the AI model competition more intense than ever."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

@@ -89,13 +89,37 @@
     {
       "type": "table",
       "caption": "LLM과 JEPA/월드 모델 비교",
-      "headers": ["항목", "LLM", "JEPA/월드 모델"],
+      "headers": [
+        "항목",
+        "LLM",
+        "JEPA/월드 모델"
+      ],
       "rows": [
-        ["학습 데이터", "텍스트", "비디오, 오디오, 센서"],
-        ["예측 방식", "다음 토큰 예측", "추상적 표현 공간 예측"],
-        ["물리 세계 이해", "불가", "목표"],
-        ["계획/추론", "제한적", "목표 지향형 설계"],
-        ["응용 분야", "텍스트 생성, 코딩", "드론, 로보택시, 헬스케어"]
+        [
+          "학습 데이터",
+          "텍스트",
+          "비디오, 오디오, 센서"
+        ],
+        [
+          "예측 방식",
+          "다음 토큰 예측",
+          "추상적 표현 공간 예측"
+        ],
+        [
+          "물리 세계 이해",
+          "불가",
+          "목표"
+        ],
+        [
+          "계획/추론",
+          "제한적",
+          "목표 지향형 설계"
+        ],
+        [
+          "응용 분야",
+          "텍스트 생성, 코딩",
+          "드론, 로보택시, 헬스케어"
+        ]
       ]
     },
     {
@@ -211,13 +235,37 @@
     {
       "type": "table",
       "caption": "LLMs vs JEPA/World Models",
-      "headers": ["Aspect", "LLMs", "JEPA/World Models"],
+      "headers": [
+        "Aspect",
+        "LLMs",
+        "JEPA/World Models"
+      ],
       "rows": [
-        ["Training data", "Text", "Video, audio, sensors"],
-        ["Prediction method", "Next-token prediction", "Abstract representation space"],
-        ["Physical world understanding", "Cannot", "Core goal"],
-        ["Planning/reasoning", "Limited", "Objective-driven design"],
-        ["Applications", "Text generation, coding", "Drones, robotaxis, healthcare"]
+        [
+          "Training data",
+          "Text",
+          "Video, audio, sensors"
+        ],
+        [
+          "Prediction method",
+          "Next-token prediction",
+          "Abstract representation space"
+        ],
+        [
+          "Physical world understanding",
+          "Cannot",
+          "Core goal"
+        ],
+        [
+          "Planning/reasoning",
+          "Limited",
+          "Objective-driven design"
+        ],
+        [
+          "Applications",
+          "Text generation, coding",
+          "Drones, robotaxis, healthcare"
+        ]
       ]
     },
     {
@@ -287,5 +335,6 @@
       "type": "text",
       "value": "LeCun has said this transition will take three to five years. As of March 2026, the clock has just started ticking. Whether LLMs are truly a dead end, or whether LeCun is making the world's most expensive mistake — nobody knows yet. But one thing is clear: now that a billion-dollar heresy has entered the arena, this debate is no longer an academic discussion. It's a war over the direction of an entire industry."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

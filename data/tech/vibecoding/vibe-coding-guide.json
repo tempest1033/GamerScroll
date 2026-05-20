@@ -29,7 +29,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "vibe-coding", "title": "바이브 코딩 - AI로 코딩 시작하기", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        {
+          "part": 1,
+          "slug": "vibe-coding",
+          "title": "바이브 코딩 - AI로 코딩 시작하기",
+          "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws"
+        }
       ]
     },
     {
@@ -43,7 +48,13 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "claude-code-vs-codex-coding-agent", "category": "ai", "title": "클로드 코드 vs 코덱스 비교", "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png" }
+        {
+          "part": 1,
+          "slug": "claude-code-vs-codex-coding-agent",
+          "category": "ai",
+          "title": "클로드 코드 vs 코덱스 비교",
+          "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png"
+        }
       ]
     },
     {
@@ -57,8 +68,18 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "claude-code-install-guide-mac", "title": "Mac 설치 가이드", "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg" },
-        { "part": 2, "slug": "claude-code-install-guide-windows", "title": "Windows 설치 가이드", "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg" }
+        {
+          "part": 1,
+          "slug": "claude-code-install-guide-mac",
+          "title": "Mac 설치 가이드",
+          "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg"
+        },
+        {
+          "part": 2,
+          "slug": "claude-code-install-guide-windows",
+          "title": "Windows 설치 가이드",
+          "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg"
+        }
       ]
     },
     {
@@ -72,8 +93,18 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "codex-install-guide-mac", "title": "Mac 설치 가이드", "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg" },
-        { "part": 2, "slug": "codex-install-guide-windows", "title": "Windows 설치 가이드", "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg" }
+        {
+          "part": 1,
+          "slug": "codex-install-guide-mac",
+          "title": "Mac 설치 가이드",
+          "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg"
+        },
+        {
+          "part": 2,
+          "slug": "codex-install-guide-windows",
+          "title": "Windows 설치 가이드",
+          "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg"
+        }
       ]
     },
     {
@@ -87,7 +118,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "vibe-coding-basics", "title": "기본 개념 및 설정", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 1,
+          "slug": "vibe-coding-basics",
+          "title": "기본 개념 및 설정",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -101,7 +137,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "project-md-settings-guide", "title": "CLAUDE.md와 AGENTS.md 설정 가이드", "thumbnail": "https://velog.velcdn.com/images/nsunny0908/post/409f269d-2791-496d-abcc-896935163d3f/362222e42d54.jpg" }
+        {
+          "part": 1,
+          "slug": "project-md-settings-guide",
+          "title": "CLAUDE.md와 AGENTS.md 설정 가이드",
+          "thumbnail": "https://velog.velcdn.com/images/nsunny0908/post/409f269d-2791-496d-abcc-896935163d3f/362222e42d54.jpg"
+        }
       ]
     },
     {
@@ -115,7 +156,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "vibe-coding-workflow-prompt-guide", "title": "작업 플로우 및 프롬프트 작성 요령", "thumbnail": "https://media.licdn.com/dms/image/v2/D4D12AQFZxpGfQB5vaQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1701591592898?e=2147483647&v=beta&t=LV1iFHejPmWT3Q1wVCsYR82PK89-7HXSBa-xpVmsA4U" }
+        {
+          "part": 1,
+          "slug": "vibe-coding-workflow-prompt-guide",
+          "title": "작업 플로우 및 프롬프트 작성 요령",
+          "thumbnail": "https://media.licdn.com/dms/image/v2/D4D12AQFZxpGfQB5vaQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1701591592898?e=2147483647&v=beta&t=LV1iFHejPmWT3Q1wVCsYR82PK89-7HXSBa-xpVmsA4U"
+        }
       ]
     },
     {
@@ -129,7 +175,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "vibe-coding-version-control-guide", "title": "바이브 코딩과 형상관리 - Git 사용하기", "thumbnail": "https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1" }
+        {
+          "part": 1,
+          "slug": "vibe-coding-version-control-guide",
+          "title": "바이브 코딩과 형상관리 - Git 사용하기",
+          "thumbnail": "https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1"
+        }
       ]
     },
     {
@@ -143,7 +194,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "mcp-guide", "title": "MCP 가이드", "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/1aef864f9b246c740fe3cef6e1068f2220995d5e-2400x1260.png" }
+        {
+          "part": 1,
+          "slug": "mcp-guide",
+          "title": "MCP 가이드",
+          "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/1aef864f9b246c740fe3cef6e1068f2220995d5e-2400x1260.png"
+        }
       ]
     },
     {
@@ -156,7 +212,14 @@
     },
     {
       "type": "series",
-      "articles": [{ "part": 1, "slug": "vibe-coding-agent-guide", "title": "에이전트 가이드: 서브에이전트, 팀, 커스텀 에이전트", "thumbnail": "https://media.licdn.com/dms/image/v2/D5612AQFmGwUeW-VGUg/article-cover_image-shrink_720_1280/B56ZhM0ztwHMAM-/0/1753635569429?e=2147483647&v=beta&t=DXGVGNxgGGbDsgyxrg0M0Y6o1KXbXCQrbe2MQhBAheo" }]
+      "articles": [
+        {
+          "part": 1,
+          "slug": "vibe-coding-agent-guide",
+          "title": "에이전트 가이드: 서브에이전트, 팀, 커스텀 에이전트",
+          "thumbnail": "https://media.licdn.com/dms/image/v2/D5612AQFmGwUeW-VGUg/article-cover_image-shrink_720_1280/B56ZhM0ztwHMAM-/0/1753635569429?e=2147483647&v=beta&t=DXGVGNxgGGbDsgyxrg0M0Y6o1KXbXCQrbe2MQhBAheo"
+        }
+      ]
     },
     {
       "type": "heading",
@@ -184,7 +247,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "vibe-coding", "title": "Vibe Coding - Getting Started with AI", "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws" }
+        {
+          "part": 1,
+          "slug": "vibe-coding",
+          "title": "Vibe Coding - Getting Started with AI",
+          "thumbnail": "https://miro.medium.com/0*vOaWDgTmVpMfi9ws"
+        }
       ]
     },
     {
@@ -198,7 +266,13 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "claude-code-vs-codex-coding-agent", "category": "ai", "title": "Claude Code vs Codex Comparison", "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png" }
+        {
+          "part": 1,
+          "slug": "claude-code-vs-codex-coding-agent",
+          "category": "ai",
+          "title": "Claude Code vs Codex Comparison",
+          "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/6961243cc6409e41ba93895faded4f4bc1772366-1600x1231.png"
+        }
       ]
     },
     {
@@ -212,8 +286,18 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "claude-code-install-guide-mac", "title": "Mac Installation Guide", "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg" },
-        { "part": 2, "slug": "claude-code-install-guide-windows", "title": "Windows Installation Guide", "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg" }
+        {
+          "part": 1,
+          "slug": "claude-code-install-guide-mac",
+          "title": "Mac Installation Guide",
+          "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg"
+        },
+        {
+          "part": 2,
+          "slug": "claude-code-install-guide-windows",
+          "title": "Windows Installation Guide",
+          "thumbnail": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68f6b60a34e9b2b37ab110a4_og-download%201.jpg"
+        }
       ]
     },
     {
@@ -227,8 +311,18 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "codex-install-guide-mac", "title": "Mac Installation Guide", "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg" },
-        { "part": 2, "slug": "codex-install-guide-windows", "title": "Windows Installation Guide", "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg" }
+        {
+          "part": 1,
+          "slug": "codex-install-guide-mac",
+          "title": "Mac Installation Guide",
+          "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg"
+        },
+        {
+          "part": 2,
+          "slug": "codex-install-guide-windows",
+          "title": "Windows Installation Guide",
+          "thumbnail": "https://macaron-user.oss-accelerate.aliyuncs.com/admin/images/blog_content_image/26fe8595-2c61-4418-96a6-ad08c0e4de10.jpg"
+        }
       ]
     },
     {
@@ -242,7 +336,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "vibe-coding-basics", "title": "Basic Concepts and Settings", "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg" }
+        {
+          "part": 1,
+          "slug": "vibe-coding-basics",
+          "title": "Basic Concepts and Settings",
+          "thumbnail": "https://calywire.com/wp-content/uploads/2025/10/vibe-coding-workflow-1200x640-1.jpg"
+        }
       ]
     },
     {
@@ -256,7 +355,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "project-md-settings-guide", "title": "CLAUDE.md and AGENTS.md Settings Guide", "thumbnail": "https://velog.velcdn.com/images/nsunny0908/post/409f269d-2791-496d-abcc-896935163d3f/362222e42d54.jpg" }
+        {
+          "part": 1,
+          "slug": "project-md-settings-guide",
+          "title": "CLAUDE.md and AGENTS.md Settings Guide",
+          "thumbnail": "https://velog.velcdn.com/images/nsunny0908/post/409f269d-2791-496d-abcc-896935163d3f/362222e42d54.jpg"
+        }
       ]
     },
     {
@@ -270,7 +374,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "vibe-coding-workflow-prompt-guide", "title": "Workflow and Prompt Writing Tips", "thumbnail": "https://media.licdn.com/dms/image/v2/D4D12AQFZxpGfQB5vaQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1701591592898?e=2147483647&v=beta&t=LV1iFHejPmWT3Q1wVCsYR82PK89-7HXSBa-xpVmsA4U" }
+        {
+          "part": 1,
+          "slug": "vibe-coding-workflow-prompt-guide",
+          "title": "Workflow and Prompt Writing Tips",
+          "thumbnail": "https://media.licdn.com/dms/image/v2/D4D12AQFZxpGfQB5vaQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1701591592898?e=2147483647&v=beta&t=LV1iFHejPmWT3Q1wVCsYR82PK89-7HXSBa-xpVmsA4U"
+        }
       ]
     },
     {
@@ -284,7 +393,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "vibe-coding-version-control-guide", "title": "Vibe Coding and Version Control - Using Git", "thumbnail": "https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1" }
+        {
+          "part": 1,
+          "slug": "vibe-coding-version-control-guide",
+          "title": "Vibe Coding and Version Control - Using Git",
+          "thumbnail": "https://i0.wp.com/build5nines.com/wp-content/uploads/2018/01/simplified-git-flow.png?resize=1024%2C354&ssl=1"
+        }
       ]
     },
     {
@@ -298,7 +412,12 @@
     {
       "type": "series",
       "articles": [
-        { "part": 1, "slug": "mcp-guide", "title": "MCP Guide", "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/1aef864f9b246c740fe3cef6e1068f2220995d5e-2400x1260.png" }
+        {
+          "part": 1,
+          "slug": "mcp-guide",
+          "title": "MCP Guide",
+          "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/1aef864f9b246c740fe3cef6e1068f2220995d5e-2400x1260.png"
+        }
       ]
     },
     {
@@ -311,7 +430,14 @@
     },
     {
       "type": "series",
-      "articles": [{ "part": 1, "slug": "vibe-coding-agent-guide", "title": "Agent Guide: Sub-Agents, Teams, and Custom Agents", "thumbnail": "https://media.licdn.com/dms/image/v2/D5612AQFmGwUeW-VGUg/article-cover_image-shrink_720_1280/B56ZhM0ztwHMAM-/0/1753635569429?e=2147483647&v=beta&t=DXGVGNxgGGbDsgyxrg0M0Y6o1KXbXCQrbe2MQhBAheo" }]
+      "articles": [
+        {
+          "part": 1,
+          "slug": "vibe-coding-agent-guide",
+          "title": "Agent Guide: Sub-Agents, Teams, and Custom Agents",
+          "thumbnail": "https://media.licdn.com/dms/image/v2/D5612AQFmGwUeW-VGUg/article-cover_image-shrink_720_1280/B56ZhM0ztwHMAM-/0/1753635569429?e=2147483647&v=beta&t=DXGVGNxgGGbDsgyxrg0M0Y6o1KXbXCQrbe2MQhBAheo"
+        }
+      ]
     },
     {
       "type": "heading",
@@ -322,5 +448,6 @@
       "value": "Coming soon"
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

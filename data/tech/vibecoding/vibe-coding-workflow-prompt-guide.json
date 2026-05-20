@@ -446,5 +446,6 @@
       "value": "**Workflow:**\n- Plan → Review Plan & Feedback → Execute → Feedback → Revise → Final Review → Save\n- The key is \"plan first, execute later\"\n- Break large tasks into smaller steps\n- Use Plan Mode for complex tasks\n\n**Prompt Writing:**\n- Be specific, provide context, break it down, include examples, and state constraints\n- Record recurring context and constraints in CLAUDE.md / AGENTS.md\n- Make good use of images\n- Refine results through ongoing conversation\n\nWriting prompts may feel awkward at first. But after a few iterations, you'll develop a sense for what and how to communicate with AI to get good results. Rather than agonizing over the perfect prompt, just start the conversation and refine as you go."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

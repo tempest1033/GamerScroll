@@ -100,16 +100,43 @@
     {
       "type": "table",
       "caption": "시댄스 2.0 저작권 분쟁 타임라인",
-      "headers": ["날짜", "사건"],
+      "headers": [
+        "날짜",
+        "사건"
+      ],
       "rows": [
-        ["2월 12일", "시댄스 2.0 중국 내 공식 출시 (젠잉 AI, 더우바오 앱)"],
-        ["2월 중순", "셀러브리티 딥페이크 영상 확산, 할리우드 IP 무단 생성 폭증"],
-        ["2월 15일", "디즈니, 중단 요구 서한 발송"],
-        ["2월 16일", "바이트댄스, 저작권 보호 강화 약속"],
-        ["2월 중순", "MPA, 생성형 AI 기업 최초 중단 요구 서한 발송"],
-        ["2월 19일", "넷플릭스, '즉각 소송' 위협"],
-        ["2월~3월", "파라마운트, 워너 브라더스, 소니, 유니버설 법적 대응 시사"],
-        ["3월 15일", "더 인포메이션 보도: 바이트댄스, 글로벌 출시 잠정 중단 결정"]
+        [
+          "2월 12일",
+          "시댄스 2.0 중국 내 공식 출시 (젠잉 AI, 더우바오 앱)"
+        ],
+        [
+          "2월 중순",
+          "셀러브리티 딥페이크 영상 확산, 할리우드 IP 무단 생성 폭증"
+        ],
+        [
+          "2월 15일",
+          "디즈니, 중단 요구 서한 발송"
+        ],
+        [
+          "2월 16일",
+          "바이트댄스, 저작권 보호 강화 약속"
+        ],
+        [
+          "2월 중순",
+          "MPA, 생성형 AI 기업 최초 중단 요구 서한 발송"
+        ],
+        [
+          "2월 19일",
+          "넷플릭스, '즉각 소송' 위협"
+        ],
+        [
+          "2월~3월",
+          "파라마운트, 워너 브라더스, 소니, 유니버설 법적 대응 시사"
+        ],
+        [
+          "3월 15일",
+          "더 인포메이션 보도: 바이트댄스, 글로벌 출시 잠정 중단 결정"
+        ]
       ]
     },
     {
@@ -201,16 +228,43 @@
     {
       "type": "table",
       "caption": "Seedance 2.0 Copyright Dispute Timeline",
-      "headers": ["Date", "Event"],
+      "headers": [
+        "Date",
+        "Event"
+      ],
       "rows": [
-        ["Feb 12", "Seedance 2.0 officially launches in China (Jimeng AI, Doubao app)"],
-        ["Mid-Feb", "Celebrity deepfake videos go viral; unauthorized Hollywood IP generation surges"],
-        ["Feb 15", "Disney sends cease-and-desist letter"],
-        ["Feb 16", "ByteDance promises enhanced copyright protection"],
-        ["Mid-Feb", "MPA sends first-ever cease-and-desist to a generative AI company"],
-        ["Feb 19", "Netflix threatens 'immediate litigation'"],
-        ["Feb-Mar", "Paramount, Warner Bros., Sony, Universal signal legal action"],
-        ["Mar 15", "The Information reports: ByteDance decides to suspend global launch"]
+        [
+          "Feb 12",
+          "Seedance 2.0 officially launches in China (Jimeng AI, Doubao app)"
+        ],
+        [
+          "Mid-Feb",
+          "Celebrity deepfake videos go viral; unauthorized Hollywood IP generation surges"
+        ],
+        [
+          "Feb 15",
+          "Disney sends cease-and-desist letter"
+        ],
+        [
+          "Feb 16",
+          "ByteDance promises enhanced copyright protection"
+        ],
+        [
+          "Mid-Feb",
+          "MPA sends first-ever cease-and-desist to a generative AI company"
+        ],
+        [
+          "Feb 19",
+          "Netflix threatens 'immediate litigation'"
+        ],
+        [
+          "Feb-Mar",
+          "Paramount, Warner Bros., Sony, Universal signal legal action"
+        ],
+        [
+          "Mar 15",
+          "The Information reports: ByteDance decides to suspend global launch"
+        ]
       ]
     },
     {
@@ -244,5 +298,6 @@
       "type": "text",
       "value": "The Seedance 2.0 saga marks a turning point for AI video generation. The moment the technology became 'good enough,' law and industry stepped in to halt it — the first such case in this field. Whether ByteDance can complete its IP protection systems and return to the global market, or whether copyright barriers will slow the growth of the entire AI video generation industry, remains to be seen.\n\nWhat is clear is this: AI video generation is no longer at the 'tech demo' stage. It has become a real-world technology in direct collision with a multi-billion-dollar content industry. And the outcome of that collision will rewrite the rules of the entire sector."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

@@ -36,7 +36,9 @@
       "url": "https://www.fmkorea.com/best/9589962930"
     }
   ],
-  "relatedDocs": ["tech:normal/rewinding-cadence-technical-test"],
+  "relatedDocs": [
+    "tech:normal/rewinding-cadence-technical-test"
+  ],
   "relatedGames": [],
   "content": [
     {
@@ -106,15 +108,47 @@
     },
     {
       "type": "table",
-      "headers": ["콘텐츠", "프리알파 (2023)", "2차 알파 (2026)"],
+      "headers": [
+        "콘텐츠",
+        "프리알파 (2023)",
+        "2차 알파 (2026)"
+      ],
       "rows": [
-        ["근접무기", "제한적", "60종 이상"],
-        ["원거리무기", "소수", "7종"],
-        ["스킬", "미구현", "35개 (능동/수동)"],
-        ["가구/하우징", "미구현", "70종 이상"],
-        ["퀘스트", "소수", "160개 이상"],
-        ["특수 좀비", "기본 좀비 위주", "6종 특수 타입"],
-        ["동시접속", "5,600명", "16,000명 이상"]
+        [
+          "근접무기",
+          "제한적",
+          "60종 이상"
+        ],
+        [
+          "원거리무기",
+          "소수",
+          "7종"
+        ],
+        [
+          "스킬",
+          "미구현",
+          "35개 (능동/수동)"
+        ],
+        [
+          "가구/하우징",
+          "미구현",
+          "70종 이상"
+        ],
+        [
+          "퀘스트",
+          "소수",
+          "160개 이상"
+        ],
+        [
+          "특수 좀비",
+          "기본 좀비 위주",
+          "6종 특수 타입"
+        ],
+        [
+          "동시접속",
+          "5,600명",
+          "16,000명 이상"
+        ]
       ],
       "caption": "프리알파 대비 2차 알파 테스트 콘텐츠 비교"
     },
@@ -245,15 +279,47 @@
     },
     {
       "type": "table",
-      "headers": ["Content", "Pre-Alpha (2023)", "2nd Alpha (2026)"],
+      "headers": [
+        "Content",
+        "Pre-Alpha (2023)",
+        "2nd Alpha (2026)"
+      ],
       "rows": [
-        ["Melee Weapons", "Limited", "60+"],
-        ["Ranged Weapons", "Few", "7"],
-        ["Skills", "Not implemented", "35 (active/passive)"],
-        ["Furniture/Housing", "Not implemented", "70+"],
-        ["Quests", "Few", "160+"],
-        ["Special Zombies", "Basic types only", "6 special types"],
-        ["Concurrent Players", "5,600", "16,000+"]
+        [
+          "Melee Weapons",
+          "Limited",
+          "60+"
+        ],
+        [
+          "Ranged Weapons",
+          "Few",
+          "7"
+        ],
+        [
+          "Skills",
+          "Not implemented",
+          "35 (active/passive)"
+        ],
+        [
+          "Furniture/Housing",
+          "Not implemented",
+          "70+"
+        ],
+        [
+          "Quests",
+          "Few",
+          "160+"
+        ],
+        [
+          "Special Zombies",
+          "Basic types only",
+          "6 special types"
+        ],
+        [
+          "Concurrent Players",
+          "5,600",
+          "16,000+"
+        ]
       ],
       "caption": "Content comparison: Pre-Alpha vs 2nd Alpha Test"
     },
@@ -316,5 +382,6 @@
       "value": "Whether NAKWON can break through the extraction genre's downturn with its K-zombie card remains to be seen. No official launch date has been announced, but this test clearly served as a crucial turning point for the game's direction."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "gamerscroll"
 }

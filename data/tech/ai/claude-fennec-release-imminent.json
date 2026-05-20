@@ -112,5 +112,6 @@
       "value": "Nothing has been officially confirmed yet, but internal testers and various rumors continue to mention an imminent release. Performance exceeding Opus 4.5 at a lower price, plus potential context window expansion—significant improvements are being mentioned, making this worth watching."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

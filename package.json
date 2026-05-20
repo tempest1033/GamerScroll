@@ -4,7 +4,9 @@
   "description": "Game data and article site",
   "main": "generate-html-report.js",
   "scripts": {
-    "build": "node generate-html-report.js",
+    "build:gamerscroll": "node generate-html-report.js",
+    "build:aiscroll": "node generate-ai-blog.js",
+    "build": "npm run build:gamerscroll && npm run build:aiscroll",
     "start": "node generate-html-report.js",
     "x-article-card": "node generate-x-article-card.js",
     "x-article-post": "node post-article-to-x.js",

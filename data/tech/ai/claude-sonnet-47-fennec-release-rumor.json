@@ -178,5 +178,6 @@
       "value": "Anthropic CEO Dario Amodei recently made headlines at the Davos Forum by stating that \"software engineering will be automated within 6-12 months.\" He also predicted that \"100% of coding will be done by AI by the end of 2026.\"\n\nIn fact, Anthropic is already demonstrating this through action. Boris Cherny, who leads Claude Code development, revealed that \"100% of the code I currently write is written by AI.\" Similar statements have emerged from OpenAI as well. Compared to Google's Sundar Pichai saying \"25% of Google's coding is AI,\" Anthropic's level of AI utilization is already on a different dimension.\n\nThe key point to watch is whether 2026 can truly become the year of coding agents as they claim, and whether Fennec can be that starting point."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

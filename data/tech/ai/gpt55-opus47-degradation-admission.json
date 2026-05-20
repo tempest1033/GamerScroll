@@ -207,5 +207,6 @@
       "type": "text",
       "value": "Launch-day benchmarks are enough for marketing, but user trust is built in operations. Anthropic's April 23 postmortem comes closer to a best-practice template; OpenAI's 24-hour tweet admission models speed at the cost of leaving documentation blank.\n\nWhat users now distrust about GPT-5.5 and Opus 4.7 isn't one model line — it's the whole operation. System prompts shipping under deadline pressure without review, cache optimizations silently changing behavior, status-page incidents coexisting with 'unaffected' claims. Whichever flagship lands next — 4.8 or GPT-5.6 — trust will again be decided not on launch day but a month after."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

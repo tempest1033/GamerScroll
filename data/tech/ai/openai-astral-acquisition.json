@@ -250,5 +250,6 @@
       "value": "OpenAI's acquisition of Astral signals that the coding agent competition has entered a new phase. Beyond model performance, companies are now moving to directly own developer tool infrastructure.\n\nBeyond this acquisition, OpenAI has been on an aggressive expansion spree, recently acquiring cybersecurity startup Promptfoo, healthcare startup Torch, and Jony Ive's AI device startup io. Codex's 2 million weekly active users represent rapid growth, but with Anthropic's Claude Code holding 42% of the coding agent market, this is one more weapon added to close the gap.\n\nPython is the de facto lingua franca of AI and data science. How OpenAI leverages this core infrastructure to evolve Codex, and how faithfully it honors its open-source commitments, will be the key storylines to watch."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

@@ -527,5 +527,6 @@
       "value": "CLAUDE.md and AGENTS.md are 'contracts' with your AI agent. Write them well, and you can expect consistent quality work without repeating the same instructions every time.\n\nStart simple. Every time the AI makes a mistake, think \"I should add this rule,\" and you'll gradually train a smarter agent."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

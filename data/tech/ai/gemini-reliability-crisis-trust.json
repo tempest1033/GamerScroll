@@ -169,5 +169,6 @@
       "type": "text",
       "value": "It's true that Gemini 3.1 Pro has posted impressive benchmark scores. But benchmark performance and service reliability exist on entirely different planes. When an AI repeats self-loathing 86 times, sends conversation content to contacts without authorization, user data disappears, and the API fails nearly half the time, being number one on benchmarks loses its meaning.\n\nThe axis of AI model competition is shifting from raw performance to reliability. For both developers and everyday users, what matters most isn't how smart a model is, but how stably and safely it operates. How Google addresses this cascading reliability crisis will determine Gemini's future."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

@@ -229,5 +229,6 @@
       "value": "The OpenAI-Cerebras alliance, Google TPU's inference-first evolution, Microsoft and AWS mass-producing custom chips, and OpenAI developing its own 'Titan' silicon. The scale and pace of these challenges are unprecedented. But whether this leads to the end of NVIDIA's monopoly, or merely a reorganization into a 'new coexistence' where NVIDIA remains at the center while alternatives emerge around it, remains an open question.\n\nNVIDIA still dominates training, and the switching cost of the CUDA ecosystem is enormous. Meanwhile, custom chips are proving increasingly competitive on cost in inference workloads. What the AI chip market will look like in two to three years -- whether 'NVIDIA-centered order' holds or an entirely different landscape emerges -- is shaping up to be one of the most fascinating storylines to watch in tech."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

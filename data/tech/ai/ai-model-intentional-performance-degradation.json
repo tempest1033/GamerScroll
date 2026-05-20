@@ -189,5 +189,6 @@
       "value": "AI model performance is not a \"fixed product\" but a \"fluid service.\" Unlike traditional software, AI models can be changed server-side at any time, and users have difficulty detecting these changes. Whether the GPT-5.4 and Gemini 3.1 performance degradation allegations are rumors or fact has not yet been determined.\n\nBut there's a more important question: if performance changed, why weren't users informed? Users have the right to know about quality changes in services they pay for. What the entire industry needs is clear: transparency about performance changes, independent monitoring systems, and consumer notification obligations. As AI becomes more deeply integrated into our daily lives and work, this is an issue that can no longer be postponed."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

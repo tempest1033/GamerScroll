@@ -254,5 +254,6 @@
       "type": "text",
       "value": "But the hallucination controversy hasn't subsided despite Deep Think's arrival. LessWrong's benchmark contamination concerns, Zvi's narrative critique, persistent Reddit and Google Help complaints, VICE's 91% hallucination report — three months of accumulated distrust. Early Deep Think adopters are reporting hallucinations in specialized domains and even on the model's own specifications. Users are sending a clear message: simply setting new benchmark highs isn't enough. Solving the hallucination problem requires an approach fundamentally different from the benchmark score race."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

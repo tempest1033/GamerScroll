@@ -36,7 +36,9 @@
       "url": "https://www.tomsguide.com/computing/macbooks/apple-macbook-neo-review"
     }
   ],
-  "relatedDocs": ["tech:normal/intel-core-ultra-200s-plus"],
+  "relatedDocs": [
+    "tech:normal/intel-core-ultra-200s-plus"
+  ],
   "relatedGames": [],
   "content": [
     {
@@ -59,13 +61,37 @@
     },
     {
       "type": "table",
-      "headers": ["항목", "맥북 네오 ($599)", "맥북 에어 M5 ($1,099)"],
+      "headers": [
+        "항목",
+        "맥북 네오 ($599)",
+        "맥북 에어 M5 ($1,099)"
+      ],
       "rows": [
-        ["프로세서", "A18 프로", "M5"],
-        ["메모리", "8GB", "16GB"],
-        ["저장 공간", "256GB SSD", "512GB SSD"],
-        ["싱글코어 비교", "기준", "약 20% 빠름"],
-        ["멀티코어 비교", "기준", "약 80% 빠름"]
+        [
+          "프로세서",
+          "A18 프로",
+          "M5"
+        ],
+        [
+          "메모리",
+          "8GB",
+          "16GB"
+        ],
+        [
+          "저장 공간",
+          "256GB SSD",
+          "512GB SSD"
+        ],
+        [
+          "싱글코어 비교",
+          "기준",
+          "약 20% 빠름"
+        ],
+        [
+          "멀티코어 비교",
+          "기준",
+          "약 80% 빠름"
+        ]
       ],
       "caption": "맥북 네오와 맥북 에어 M5 비교"
     },
@@ -113,13 +139,31 @@
     },
     {
       "type": "table",
-      "headers": ["빠진 기능", "영향"],
+      "headers": [
+        "빠진 기능",
+        "영향"
+      ],
       "rows": [
-        ["키보드 백라이트", "어두운 환경에서 타이핑 불편"],
-        ["트루톤", "주변 조명에 따른 자동 색온도 조절 불가"],
-        ["포스터치 트랙패드", "압력 감지 기능 없음"],
-        ["맥세이프", "자석식 충전 불가, USB-C 충전만 지원"],
-        ["메모리/저장 업그레이드", "8GB/256GB 고정, 추후 확장 불가"]
+        [
+          "키보드 백라이트",
+          "어두운 환경에서 타이핑 불편"
+        ],
+        [
+          "트루톤",
+          "주변 조명에 따른 자동 색온도 조절 불가"
+        ],
+        [
+          "포스터치 트랙패드",
+          "압력 감지 기능 없음"
+        ],
+        [
+          "맥세이프",
+          "자석식 충전 불가, USB-C 충전만 지원"
+        ],
+        [
+          "메모리/저장 업그레이드",
+          "8GB/256GB 고정, 추후 확장 불가"
+        ]
       ],
       "caption": "맥북 네오에서 제외된 기능 목록"
     },
@@ -179,13 +223,37 @@
     },
     {
       "type": "table",
-      "headers": ["Spec", "MacBook Neo ($599)", "MacBook Air M5 ($1,099)"],
+      "headers": [
+        "Spec",
+        "MacBook Neo ($599)",
+        "MacBook Air M5 ($1,099)"
+      ],
       "rows": [
-        ["Processor", "A18 Pro", "M5"],
-        ["Memory", "8GB", "16GB"],
-        ["Storage", "256GB SSD", "512GB SSD"],
-        ["Single-core comparison", "Baseline", "~20% faster"],
-        ["Multi-core comparison", "Baseline", "~80% faster"]
+        [
+          "Processor",
+          "A18 Pro",
+          "M5"
+        ],
+        [
+          "Memory",
+          "8GB",
+          "16GB"
+        ],
+        [
+          "Storage",
+          "256GB SSD",
+          "512GB SSD"
+        ],
+        [
+          "Single-core comparison",
+          "Baseline",
+          "~20% faster"
+        ],
+        [
+          "Multi-core comparison",
+          "Baseline",
+          "~80% faster"
+        ]
       ],
       "caption": "MacBook Neo vs MacBook Air M5 comparison"
     },
@@ -233,13 +301,31 @@
     },
     {
       "type": "table",
-      "headers": ["Missing Feature", "Impact"],
+      "headers": [
+        "Missing Feature",
+        "Impact"
+      ],
       "rows": [
-        ["Keyboard backlight", "Difficult typing in dark environments"],
-        ["True Tone", "No automatic color temperature adjustment"],
-        ["Force Touch trackpad", "No pressure-sensitive input"],
-        ["MagSafe", "No magnetic charging, USB-C only"],
-        ["Memory/storage upgrade", "Fixed at 8GB/256GB, no future expansion"]
+        [
+          "Keyboard backlight",
+          "Difficult typing in dark environments"
+        ],
+        [
+          "True Tone",
+          "No automatic color temperature adjustment"
+        ],
+        [
+          "Force Touch trackpad",
+          "No pressure-sensitive input"
+        ],
+        [
+          "MagSafe",
+          "No magnetic charging, USB-C only"
+        ],
+        [
+          "Memory/storage upgrade",
+          "Fixed at 8GB/256GB, no future expansion"
+        ]
       ],
       "caption": "Features omitted from the MacBook Neo"
     },
@@ -278,5 +364,6 @@
       "value": "The MacBook Neo has a clear target audience: students wanting affordable access to the macOS ecosystem, users whose primary needs are basic productivity and content consumption, and Windows users considering their first Mac.\n\nConversely, those doing video editing or development work that demands more memory should look at the MacBook Air M5 or above. 8GB is a stretch for 2026 standards, especially for multi-app workflows.\n\nStill, at $599 with this level of polish, the MacBook Neo is effectively rewriting the pricing benchmark for laptops. How the Windows camp responds will be one of the defining narratives in the PC market's second half of 2026."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "gamerscroll"
 }

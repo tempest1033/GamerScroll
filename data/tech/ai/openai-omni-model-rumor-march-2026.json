@@ -207,5 +207,6 @@
       "type": "text",
       "value": "Here's what we know so far: a credible API monitoring expert reported the omni model's development, a multimodal specialist at OpenAI engaged with the thread, and a Research Lead responded with \"coming soon.\" Separate reporting about a new audio model architecture points in the same direction.\n\nHowever, all of this remains a combination of rumors and circumstantial evidence rather than an official announcement. The release timeline, model name (whether it will be GPT-5o or a separate brand), and specific feature scope are entirely unconfirmed. Whether the fully multimodal input-output that GPT-4o promised two years ago will finally be realized this time remains to be seen. OpenAI's next move deserves close attention."
     }
-  ]
+  ],
+  "site": "aiscroll"
 }

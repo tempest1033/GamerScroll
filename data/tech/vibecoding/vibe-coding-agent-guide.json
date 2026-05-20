@@ -163,5 +163,6 @@
       "value": "Agents are a core feature that takes vibe coding productivity to the next level. Use sub-agents to handle independent tasks while protecting context, define project-specific custom agents with AGENTS.md, and split complex work through agent team collaboration.\n\nWe recommend starting with sub-agents. Just delegating code exploration to the Explore type lets you immediately experience the benefit of keeping your main context clean. Once comfortable, define project-specific agents with AGENTS.md and scale up to agent teams when needed."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "site": "aiscroll"
 }

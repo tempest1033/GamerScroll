@@ -90,12 +90,27 @@
     {
       "type": "table",
       "caption": "OpenAI 군사 정책 변천 타임라인",
-      "headers": ["시기", "정책"],
+      "headers": [
+        "시기",
+        "정책"
+      ],
       "rows": [
-        ["~2023", "\"military and warfare\" 명시적 사용 금지"],
-        ["2024.01", "군사 금지 조항 조용히 삭제 (The Intercept 보도)"],
-        ["2025.07", "펜타곤 $200M 계약 체결"],
-        ["2026.02", "기밀 시스템 계약 협상 공개"]
+        [
+          "~2023",
+          "\"military and warfare\" 명시적 사용 금지"
+        ],
+        [
+          "2024.01",
+          "군사 금지 조항 조용히 삭제 (The Intercept 보도)"
+        ],
+        [
+          "2025.07",
+          "펜타곤 $200M 계약 체결"
+        ],
+        [
+          "2026.02",
+          "기밀 시스템 계약 협상 공개"
+        ]
       ]
     },
     {
@@ -187,12 +202,27 @@
     {
       "type": "table",
       "caption": "OpenAI Military Policy Timeline",
-      "headers": ["Period", "Policy"],
+      "headers": [
+        "Period",
+        "Policy"
+      ],
       "rows": [
-        ["~2023", "Explicit ban on \"military and warfare\" use"],
-        ["Jan 2024", "Military ban quietly deleted (reported by The Intercept)"],
-        ["Jul 2025", "$200M Pentagon contract signed"],
-        ["Feb 2026", "Classified systems contract negotiations disclosed"]
+        [
+          "~2023",
+          "Explicit ban on \"military and warfare\" use"
+        ],
+        [
+          "Jan 2024",
+          "Military ban quietly deleted (reported by The Intercept)"
+        ],
+        [
+          "Jul 2025",
+          "$200M Pentagon contract signed"
+        ],
+        [
+          "Feb 2026",
+          "Classified systems contract negotiations disclosed"
+        ]
       ]
     },
     {
@@ -237,5 +267,6 @@
       "value": "What this controversy reveals at its core is that the word 'red lines' can carry entirely different meanings depending on how they are defined. Anthropic's red lines are a broad concept that encompasses 'uses that are legal but morally inappropriate.' OpenAI's red lines are a narrow concept that 'excludes only clearly illegal uses.' Same word, different scope.\n\nWhether OpenAI's positioning is pure hypocrisy or pragmatic compromise may depend on one's perspective. What is clear is that OpenAI is leveraging Anthropic's federal ban as its own negotiating advantage. Declaring solidarity while simultaneously filling the vacancy left by the subject of that solidarity is, even in the most generous interpretation, contradictory.\n\nThe collective voice of 700,000 tech workers and the sharp criticism from online communities show that an era has arrived where AI companies can no longer claim principles through words alone. Red lines are not about declaring them — they are about keeping them."
     }
   ],
-  "relatedGames": []
+  "relatedGames": [],
+  "site": "aiscroll"
 }
