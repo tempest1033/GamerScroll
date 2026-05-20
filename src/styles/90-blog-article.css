@@ -690,9 +690,11 @@
 
 .blog-in-article-ad {
   margin: 24px 0;
+  width: 100%;
   max-width: 100%;
   overflow: hidden;
   text-align: center;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -705,8 +707,12 @@
 }
 
 .blog-in-article-ad > ins.adsbygoogle,
-.blog-in-article-ad > ins.adsbygoogle > iframe {
-  max-width: 100%;
+.blog-in-article-ad > ins.adsbygoogle > div,
+.blog-in-article-ad > ins.adsbygoogle > iframe,
+.blog-in-article-ad > ins.adsbygoogle iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
 }
 
 .blog-in-article-ad.gs-ad-compact {
