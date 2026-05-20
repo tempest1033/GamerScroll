@@ -1003,8 +1003,12 @@ function generateSEOFiles(articles) {
   }));
 
   // 1. sitemap.xml — en/ko URL + hreflang alternates
-  // 카테고리 인덱스는 실제 article category set에서 동적으로 생성 (ai-tools 같은 신규 카테고리 누락 방지)
+  // 카테고리 인덱스는 실제 article category set에서 동적으로 생성 (ai-tools 같은 신규 카테고리 누락 방지).
+  // 빈 articles 시에도 최소 인덱스(/, /privacy/)는 보장 — sitemap 미생성 방지.
   const activeCategories = new Set(enArticles.map(a => a.category || 'general'));
+  if (activeCategories.size === 0) {
+    console.warn('  ⚠ no articles found — sitemap will contain only home + privacy entries');
+  }
   const baseSitemapPaths = [
     { path: '/', priority: '1.0' },
     { path: '/privacy/', priority: '0.3' },
