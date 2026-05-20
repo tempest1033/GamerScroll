@@ -563,10 +563,15 @@ function generateAIBlogArticle(article, data = {}) {
     : null;
 
   // JSON-LD 구조화 데이터 (Article + BreadcrumbList)
+  const _jsonLdLang = data.lang === 'ko' ? 'ko' : 'en';
+  const _jsonLdPrefix = _jsonLdLang === 'ko' ? '/ko' : '';
+  const _jsonLdLocale = _jsonLdLang === 'ko' ? 'ko-KR' : 'en-US';
+  const _jsonLdSelfUrl = `${SITE_CONFIG.baseUrl}${_jsonLdPrefix}/article/${article.category || 'general'}/${article.slug}/`;
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "Article",
+      "inLanguage": _jsonLdLocale,
       "headline": article.title,
       "description": article.summary || '',
       "image": absoluteThumbnail || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`,
@@ -587,7 +592,8 @@ function generateAIBlogArticle(article, data = {}) {
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `${SITE_CONFIG.baseUrl}/article/${article.category || 'general'}/${article.slug}/`
+        "@id": _jsonLdSelfUrl,
+        "inLanguage": _jsonLdLocale
       }
     },
     {
@@ -597,14 +603,14 @@ function generateAIBlogArticle(article, data = {}) {
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
-          "item": SITE_CONFIG.baseUrl
+          "name": _jsonLdLang === 'ko' ? '홈' : 'Home',
+          "item": SITE_CONFIG.baseUrl + _jsonLdPrefix
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": categoryLabel,
-          "item": `${SITE_CONFIG.baseUrl}/article/${article.category || 'general'}/`
+          "item": `${SITE_CONFIG.baseUrl}${_jsonLdPrefix}/article/${article.category || 'general'}/`
         },
         {
           "@type": "ListItem",

@@ -913,6 +913,7 @@ function wrapWithLayout(content, options = {}) {
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${escapeHtml(title)}">
   <meta property="og:locale" content="${ogLocale}">
+  <meta property="og:locale:alternate" content="${isKo ? 'en_US' : 'ko_KR'}">
   <meta property="og:site_name" content="${SITE_CONFIG.name}">${articleOgTags}
 
   <!-- Twitter -->
