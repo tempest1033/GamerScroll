@@ -882,14 +882,6 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
           <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (${wikiCounts.business || 0})</span></a>
         </div>
       </div>
-      <div class="sidebar-category-group">
-        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
-        <div class="sidebar-category-list">
-          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (${techCounts.normal || 0})</span></a>
-          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (${techCounts.ai || 0})</span></a>
-          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (${techCounts.vibecoding || 0})</span></a>
-        </div>
-      </div>
     </div>
   `;
   };
@@ -1362,14 +1354,6 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
           <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (${wikiCounts.history || 0})</span></a>
           <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (${wikiCounts.knowledge || 0})</span></a>
           <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (${wikiCounts.business || 0})</span></a>
-        </div>
-      </div>
-      <div class="sidebar-category-group">
-        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
-        <div class="sidebar-category-list">
-          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (${techCounts.normal || 0})</span></a>
-          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (${techCounts.ai || 0})</span></a>
-          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (${techCounts.vibecoding || 0})</span></a>
         </div>
       </div>
     </div>
@@ -1852,14 +1836,6 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
           <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (${wikiCounts.history || 0})</span></a>
           <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (${wikiCounts.knowledge || 0})</span></a>
           <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (${wikiCounts.business || 0})</span></a>
-        </div>
-      </div>
-      <div class="sidebar-category-group">
-        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
-        <div class="sidebar-category-list">
-          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (${techCounts.normal || 0})</span></a>
-          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (${techCounts.ai || 0})</span></a>
-          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (${techCounts.vibecoding || 0})</span></a>
         </div>
       </div>
     </div>
@@ -2672,14 +2648,6 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (${wikiCounts.history || 0})</span></a>
           <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (${wikiCounts.knowledge || 0})</span></a>
           <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (${wikiCounts.business || 0})</span></a>
-        </div>
-      </div>
-      <div class="sidebar-category-group">
-        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
-        <div class="sidebar-category-list">
-          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (${techCounts.normal || 0})</span></a>
-          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (${techCounts.ai || 0})</span></a>
-          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (${techCounts.vibecoding || 0})</span></a>
         </div>
       </div>
     </div>

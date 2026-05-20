@@ -563,13 +563,6 @@ function generateIndexPage(data) {
       { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
     ];
 
-    // 테크 카테고리
-    const techCategories = [
-      { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
-      { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
-      { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
-    ];
-
     const renderItems = (items) => items.map(cat => `
       <a href="${cat.link}" class="sidebar-category-item">
         <span class="sidebar-category-name">${cat.name}${cat.count !== undefined ? ` (${cat.count})` : ''}</span>
@@ -585,10 +578,6 @@ function generateIndexPage(data) {
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
-        </div>
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(techCategories)}</div>
         </div>
       </div>
     `;
