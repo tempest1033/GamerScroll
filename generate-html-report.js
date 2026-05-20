@@ -195,8 +195,15 @@ function rewriteDocsStylesheetLinks(docsDir) {
       const tailHtml = html.slice(headCloseIndex);
       const cleanedHead = headHtml
         .replace(localCssTagRe, '')
+        .replace(/[ \t]*<n\s*oscript>\s*<\/noscript>\r?\n?/gi, '')
         .replace(/[ \t]*<noscript>\s*<\/noscript>\r?\n?/gi, '');
-      replacedHtml = `${cleanedHead.slice(0, firstLocalCssIndex)}${cssLinks}\n${cleanedHead.slice(firstLocalCssIndex)}${tailHtml}`;
+      const mainCssCommentRe = /([ \t]*<!--\s*메인 CSS\s*-->\s*)/i;
+      if (mainCssCommentRe.test(cleanedHead)) {
+        replacedHtml = `${cleanedHead.replace(mainCssCommentRe, `$1${cssLinks}\n`)}${tailHtml}`;
+      } else {
+        const insertIndex = Math.min(firstLocalCssIndex, cleanedHead.length);
+        replacedHtml = `${cleanedHead.slice(0, insertIndex)}${cssLinks}\n${cleanedHead.slice(insertIndex)}${tailHtml}`;
+      }
     } else {
       replacedHtml = html.replace(styleLinksBlockRe, `${cssLinks}\n`);
     }
