@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-05-19T20:57:44.803Z",
+  "updatedAt": "2026-05-20T21:46:21.992Z",
   "period": "30days",
   "games": [
     {
       "slug": "초격력-별의-분노",
-      "views": 22
+      "views": 20
     },
     {
       "slug": "메이플-키우기",
-      "views": 13
+      "views": 16
     },
     {
       "slug": "좀비-웨이브스",
@@ -51,10 +51,6 @@
       "views": 2
     },
     {
-      "slug": "마비노기-모바일",
-      "views": 2
-    },
-    {
       "slug": "명일방주-엔드필드",
       "views": 2
     },
@@ -75,7 +71,11 @@
       "views": 2
     },
     {
-      "slug": "aion2",
+      "slug": "delta-force",
+      "views": 1
+    },
+    {
+      "slug": "idol-company",
       "views": 1
     }
   ]
