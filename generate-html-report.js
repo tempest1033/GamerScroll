@@ -195,6 +195,33 @@ function rewriteDocsStylesheetLinks(docsDir) {
   console.log(`  🎨 CSS 링크 재작성: ${changedCount}개 HTML`);
 }
 
+function stripTechSidebarFromNonTechDocs(docsDir) {
+  const htmlFiles = [];
+  collectHtmlFilesUnderDir(docsDir, htmlFiles);
+  const techSidebarGroupRe = /\r?\n?[ \t]*<div class="sidebar-category-group">\s*<div class="home-card-header"><a href="\/tech\/" class="home-card-title-link"><h2 class="home-card-title">테크<\/h2><\/a><\/div>\s*<div class="sidebar-category-list">[\s\S]*?<a href="\/tech\/vibecoding\/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩(?: \(\d+\))?<\/span><\/a>\s*<\/div>\s*<\/div>/g;
+  let changedCount = 0;
+
+  for (const filePath of htmlFiles) {
+    const relPath = path.relative(docsDir, filePath).replace(/\\/g, '/');
+    if (relPath.startsWith('tech/')) continue;
+
+    let html;
+    try {
+      html = fs.readFileSync(filePath, 'utf8');
+    } catch (e) {
+      continue;
+    }
+
+    const nextHtml = html.replace(techSidebarGroupRe, '');
+    if (nextHtml !== html) {
+      fs.writeFileSync(filePath, nextHtml, 'utf8');
+      changedCount += 1;
+    }
+  }
+
+  console.log(`  🧹 비테크 페이지 테크 사이드바 제거: ${changedCount}개 HTML`);
+}
+
 /**
  * relatedDocs 통합 파싱 함수
  * 형식: ["wiki:slug", "wiki:category/slug", "issue:slug", "tech:category/slug",
@@ -2346,6 +2373,7 @@ async function main() {
 
   // docs 전체 HTML의 스타일 링크를 페이지군 기준으로 일괄 정규화
   rewriteDocsStylesheetLinks(DOCS_DIR);
+  stripTechSidebarFromNonTechDocs(DOCS_DIR);
 
   // PurgeCSS: 사용되지 않는 CSS 제거 (docs/ 내 CSS만 대상)
   await purgeCssInDocs(DOCS_DIR);
