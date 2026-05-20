@@ -1,0 +1,342 @@
+{
+  "slug": "gemini-pricing-overhaul-compute-limits-backlash",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "google",
+  "title": "제미나이 요금제 개편: 겉만 할인, 실제로는 사용 한도 축소",
+  "titleEn": "Gemini's Pricing Overhaul: A Discount on Paper, a Downgrade in Practice",
+  "date": "",
+  "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/I_O_Subs_social_share_image_1.width-1300.png",
+  "keywords": "제미나이 요금제, AI 프로, AI 울트라, 연산량 기반, 주간 한도, 다운그레이드, 가입자",
+  "keywordsEn": "Gemini pricing, AI Pro, AI Ultra, compute-based, weekly limit, downgrade, subscriber",
+  "summary": "구글이 AI 울트라 요금제를 200달러로 내리고 100달러 티어를 신설했다. 하지만 연산량 기반 주간 한도를 도입하면서 유료 구독자들은 실질적인 다운그레이드라며 반발하고 있다.",
+  "summaryEn": "Google cut AI Ultra to $200 and added a $100 tier, but switching to compute-based weekly limits has paid subscribers calling it a real-terms downgrade.",
+  "sources": [
+    {
+      "name": "Google Blog",
+      "title": "Google AI subscriptions: AI Pro and Ultra updates",
+      "url": "https://blog.google/products-and-platforms/products/google-one/google-ai-subscriptions/"
+    },
+    {
+      "name": "Google Support",
+      "title": "Usage limits in Gemini Apps",
+      "url": "https://support.google.com/gemini/answer/16275805?hl=en"
+    },
+    {
+      "name": "PCWorld",
+      "title": "Google just made big changes to Gemini usage limits",
+      "url": "https://www.pcworld.com/article/3142744/google-just-made-big-changes-to-gemini-usage-limits.html"
+    },
+    {
+      "name": "9to5Google",
+      "title": "Gemini 3's Thinking and Pro now have independent usage limits",
+      "url": "https://9to5google.com/2026/01/14/gemini-3-usage-limits-update/"
+    },
+    {
+      "name": "Reddit r/GeminiFeedback",
+      "title": "Gemini is turning into absolute garbage — completely",
+      "url": "https://www.reddit.com/r/GeminiFeedback/comments/1thoh4r/gemini_is_turning_into_absolute_garbagecompletely/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/google-io-2026-agentic-gemini",
+    "tech:ai/gemini-io-2026-rumor-roundup-d2",
+    "tech:ai/google-gemini-3-2-3-5-imminent",
+    "tech:ai/nano-banana-2-gemini-flash-image"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글이 5월 19일 [I/O 2026 키노트 직후](/tech/ai/google-io-2026-agentic-gemini/) 제미나이 요금제를 개편했다. 월 100달러짜리 신규 'AI 울트라' 티어가 추가됐고, 기존 250달러였던 최상위 AI 울트라 요금제는 200달러로 50달러 인하됐다.\n\n표면적으로는 가격 할인이지만, 구글은 사용량 측정 방식도 함께 바꿨다. 기존의 일일 프롬프트 제한은 폐기됐다. [구글 지원 문서](https://support.google.com/gemini/answer/16275805?hl=en)에 따르면, 그 자리에는 '연산량(compute) 기반' 주간 한도가 새 기준으로 자리잡았다.\n\n유료 구독자들의 불만은 요금 인하가 아니라, 이 두 번째 변화로 향하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "표면적 개편: 100달러 신규 티어와 최상위 요금 인하"
+    },
+    {
+      "type": "text",
+      "value": "이번 제미나이 요금제 개편으로 AI 울트라 제품군은 두 단계로 나뉘었다. 월 100달러짜리 신규 티어가 신설됐고, 기존 250달러였던 최상위 플랜은 200달러로 조정됐다.\n\nAI 프로는 월 20달러, AI 플러스는 월 8달러로 가격이 유지됐다. 이와 함께 일부 국가의 AI 프로 가입자에게는 유튜브 프리미엄 라이트 혜택이 무료로 제공된다.\n\n순수하게 가격만 보면 가입자에게 유리한 변화다. 최상위 요금제 장벽이 낮아졌고, 100달러짜리 새로운 중간 선택지가 생겼기 때문이다.\n\n하지만 사용자 커뮤니티의 시선은 곱지 않다. 이번 개편을 가격 인하가 아닌 서비스 하향으로 규정하는 분위기다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "핵심 변화: 연산량 기반 주간 한도로의 전환"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.thenewstack.io/media/2026/05/516ae022-screenshot-2026-05-19-at-13.47.46.png",
+      "caption": "구글 I/O 2026 키노트, '100달러 신규 플랜' 발표 슬라이드",
+      "alt": "구글 I/O 2026 키노트 슬라이드"
+    },
+    {
+      "type": "text",
+      "value": "다운그레이드 지적이 나오는 진짜 이유는 가격이 아니라 사용량 측정 방식의 근본적인 변화다. 요금 정산의 기준선 자체가 바뀌었다.\n\n기존 제미나이 제한은 '오늘 100회 사용'처럼 사용자가 직관적으로 파악할 수 있는 일일 프롬프트 횟수였다. 하지만 5월 17일 개정된 [구글 지원 문서](https://support.google.com/gemini/answer/16275805?hl=en)에 따라 이 카운터는 폐기됐다.\n\n새로운 한도는 프롬프트의 복잡도, 사용 기능(이미지 및 비디오 생성, 딥 리서치, 딥 싱크), 대화 길이 등을 종합한 '연산량'을 기준으로 차감된다.\n\n한도 리셋 주기도 바뀌었다. 매일 자정 리셋되는 대신 5시간마다 일부 회복되는 구조가 됐고, 주간 한도도 추가됐다. PC월드는 [정액제 개인용 AI 요금제의 자연스러운 한계](https://www.pcworld.com/article/3142744/google-just-made-big-changes-to-gemini-usage-limits.html)라고 짚었다.\n\n아래 표를 보면 정책 변화의 폭이 더 구체적으로 드러난다."
+    },
+    {
+      "type": "table",
+      "caption": "구글 AI 구독 요금제 사용량 한도 변화 (2026년 1월 → 5월 17·19일)",
+      "headers": [
+        "항목",
+        "패치 전 (2026년 1월)",
+        "패치 후 (2026-05-17·19)"
+      ],
+      "rows": [
+        [
+          "AI Pro — 띵킹 모델",
+          "300 prompts/day (독립 풀)",
+          "연산량 풀에 통합 (4× standard)"
+        ],
+        [
+          "AI Pro — 제미나이 3 프로",
+          "100 prompts/day (독립 풀)",
+          "연산량 풀에 통합 (4× standard)"
+        ],
+        [
+          "AI Pro — 나노 바나나 프로 이미지",
+          "100개/day",
+          "같은 연산량 풀에서 차감"
+        ],
+        [
+          "AI Pro — Veo 비디오",
+          "3개/day",
+          "같은 연산량 풀에서 차감"
+        ],
+        [
+          "AI Ultra — 띵킹 모델",
+          "1,500 prompts/day (독립 풀)",
+          "연산량 풀에 통합 (20× standard)"
+        ],
+        [
+          "AI Ultra — 제미나이 3 프로",
+          "500 prompts/day (독립 풀)",
+          "연산량 풀에 통합 (20× standard)"
+        ],
+        [
+          "AI Ultra — 나노 바나나 프로 이미지",
+          "1,000개/day",
+          "같은 연산량 풀에서 차감"
+        ],
+        [
+          "AI Ultra — Veo 비디오",
+          "5개/day",
+          "같은 연산량 풀에서 차감"
+        ],
+        [
+          "AI Ultra — 딥 싱크",
+          "10개/day (Ultra 전용)",
+          "10개/day 유지 (Ultra 전용)"
+        ],
+        [
+          "리프레시 주기",
+          "매일 자정 리셋",
+          "5시간 롤링 + 주간 캡"
+        ],
+        [
+          "AI Ultra 최상위 가격",
+          "$250/월",
+          "$200/월"
+        ],
+        [
+          "신규 티어",
+          "—",
+          "AI Ultra $100/월"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "AI 프로 요금제 하향: 불과 4개월 만의 정책 회귀"
+    },
+    {
+      "type": "text",
+      "value": "이번 개편의 타격은 AI 프로 구독자들에게 더욱 무겁게 다가온다. 지난 1월 [9to5구글](https://9to5google.com/2026/01/14/gemini-3-usage-limits-update/)은 관련 정책 전환을 보도했다. 당시 구글은 사용자 피드백을 수용해 '띵킹' 모델과 '프로' 모델의 한도를 별도 배정으로 분리했다.\n\n당시 AI 프로 가입자는 띵킹 300개, 프로 100개의 독립된 한도를 받아 한쪽을 다 쓰더라도 다른 기능은 정상적으로 이용할 수 있었다.\n\n하지만 이번 5월 개편으로 이 모든 기능이 다시 단일 연산량 풀에 통합됐다. 이제 띵킹과 프로 모델 사용량은 물론 이미지와 비디오 생성까지 모두 하나의 한도 안에서 차감된다.\n\n불과 4개월 만에 정책이 완전히 뒤집혔다. 1월 분리 조치의 명분이었던 '예측 가능한 사용성'도 완전히 무색해졌다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "실패한 생성도 차감, 한도는 비공개: 불거지는 사용자 반발"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/YUYJLKQguqR5wfDrUGUtgU-2000-80.jpg",
+      "caption": "제미나이 앱이 띄워진 스마트폰",
+      "alt": "스마트폰 화면의 제미나이 앱"
+    },
+    {
+      "type": "text",
+      "value": "개편의 영향은 가입자들에게 즉각적으로 나타났다. 레딧의 [r/GeminiAI](https://www.reddit.com/r/GeminiAI/comments/1ti0rjc/gemini_new_limit_is_a_joke/) 스레드에는 무거운 프롬프트를 몇 차례 입력하자마자 5시간 이용 제한에 걸렸다는 AI 프로 요금제 가입자들의 불만이 쏟아졌다.\n\n[r/GeminiFeedback](https://www.reddit.com/r/GeminiFeedback/comments/1thoh4r/gemini_is_turning_into_absolute_garbagecompletely/) 스레드에는 더 구체적인 지적이 모였다. 오류로 생성이 실패한 응답마저 한도에서 깎였다는 보고가 이어졌고, 대시보드에서 잔여 수치를 확인할 방법이 없다는 불만도 함께였다.\n\n구글은 이번 지원 문서에 '용량 제한 등에 따라 사전 통보 없이 한도가 변경될 수 있다'고 밝혀두었다. 가입자 입장에서는 비용을 내고도 정해진 한도를 전혀 가늠할 수 없게 된 상황이다."
+    },
+    {
+      "type": "heading",
+      "value": "딥 싱크만 예외 적용: 불투명한 한도 속 유일하게 선명한 기준"
+    },
+    {
+      "type": "text",
+      "value": "구글이 이번 개편에서 남겨둔 명확한 예외는 단 하나다. AI 울트라 구독자만 쓸 수 있는 '딥 싱크' 기능은 기존 규칙대로 하루 10회라는 정수 단위 한도가 적용된다.\n\n결과적으로 가입자가 직접 횟수를 헤아릴 수 있는 기능은 가장 값비싼 서비스에 국한됐다. 일반 대화, 이미지 및 비디오 생성 등 그 외 모든 상호작용은 연산량이라는 불투명한 예산에서 차감된다.\n\n이러한 비대칭성이 사용자 반발의 도화선이 됐다. 가격은 내렸지만 요금 측정기는 블랙박스가 됐다는, 전형적인 다운그레이드 구조라는 비판이 따르고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "개인용 AI 시장의 새 국면: 가격이 아닌 투명성 경쟁"
+    },
+    {
+      "type": "text",
+      "value": "사용 한도를 모호하게 처리하는 흐름은 구글만의 현상이 아니다. 지난달 깃허브 역시 코파일럿의 '프리미엄 요청 단위'를 토큰 소비량에 비례해 차감하는 'AI 크레딧' 체계로 교체한 바 있다.\n\n반대로 한도를 늘려 공격적으로 경쟁하는 곳도 있다. 앤스로픽은 최근 클로드 프로와 맥스의 이용 한도를 두 배로 넓혔다. PC월드는 이를 앤스로픽이 스페이스X와 맺은 컴퓨트 인프라 계약의 영향으로 분석했다.\n\n이 같은 움직임은 개인용 AI 구독 모델이 단순한 정액제 서비스에서 탈피하고 있음을 말해준다. 향후 시장의 승부처는 요금제 단가 조절이 아니라, 제한적인 컴퓨터 자원을 얼마나 투명하게 노출하느냐에 달려 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google overhauled its Gemini consumer subscriptions on May 19, [in the shadow of the I/O 2026 keynote](/article/google/google-io-2026-agentic-gemini/). A new $100/month AI Ultra tier joined the lineup, and the existing top-end AI Ultra dropped from $250 to $200 — a $50 cut.\n\nOn the surface, that reads as a discount. But the same announcement quietly rewrote how Google measures usage. The old daily prompt count is gone, replaced by what [Google's support documentation](https://support.google.com/gemini/answer/16275805?hl=en) now calls 'compute-based' weekly limits.\n\nPaid subscribers' anger landed on the second change, not the first."
+    },
+    {
+      "type": "heading",
+      "value": "The Surface Overhaul: A New $100 Tier and a Top-End Price Cut"
+    },
+    {
+      "type": "text",
+      "value": "Google's May 19 announcement split the AI Ultra line into two steps. A new $100/month tier was added, and the existing $250 top-end plan dropped to $200.\n\nAI Pro stayed at $20/month and AI Plus at $8/month. AI Pro also picked up free YouTube Premium Lite in select countries.\n\nBy price alone, subscribers came out ahead: the top Ultra is cheaper, and a new mid-Ultra entry point opened.\n\nThe community read it differently — not as a discount, but as a downgrade."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The Core Shift: Transitioning to a Compute-Based Weekly Meter"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.thenewstack.io/media/2026/05/516ae022-screenshot-2026-05-19-at-13.47.46.png",
+      "caption": "A Google I/O 2026 keynote slide announcing the new $100 plan",
+      "alt": "Google I/O 2026 keynote slide"
+    },
+    {
+      "type": "text",
+      "value": "The source of the 'downgrade' label was not the pricing, but the underlying shift in how Google measures consumption. The meter itself changed.\n\nGemini's old limit was a daily prompt count you could read at a glance: '100 used today.' A May 17 [Google support article](https://support.google.com/gemini/answer/16275805?hl=en) retired that counter.\n\nThe new limit is calculated from prompt complexity, the features used (image and video generation, Deep Research, Deep Think), and chat length — all rolled into a single compute-based budget.\n\nThe refresh cadence shifted alongside it. Instead of a midnight reset, the budget refreshes partially every five hours, with a separate weekly cap on top. PCWorld framed it as [the natural ceiling of flat-rate consumer AI plans](https://www.pcworld.com/article/3142744/google-just-made-big-changes-to-gemini-usage-limits.html).\n\nThe table below makes the size of the shift more visible."
+    },
+    {
+      "type": "table",
+      "caption": "Google AI subscription usage limits: before vs after (January 2026 → May 17·19, 2026)",
+      "headers": [
+        "Item",
+        "Before (Jan 2026)",
+        "After (May 17·19, 2026)"
+      ],
+      "rows": [
+        [
+          "AI Pro — Thinking model",
+          "300 prompts/day (separate pool)",
+          "Merged into compute pool (4× standard)"
+        ],
+        [
+          "AI Pro — Gemini 3 Pro",
+          "100 prompts/day (separate pool)",
+          "Merged into compute pool (4× standard)"
+        ],
+        [
+          "AI Pro — Nano Banana Pro images",
+          "100/day",
+          "Drawn from the same compute pool"
+        ],
+        [
+          "AI Pro — Veo video",
+          "3/day",
+          "Drawn from the same compute pool"
+        ],
+        [
+          "AI Ultra — Thinking model",
+          "1,500 prompts/day (separate pool)",
+          "Merged into compute pool (20× standard)"
+        ],
+        [
+          "AI Ultra — Gemini 3 Pro",
+          "500 prompts/day (separate pool)",
+          "Merged into compute pool (20× standard)"
+        ],
+        [
+          "AI Ultra — Nano Banana Pro images",
+          "1,000/day",
+          "Drawn from the same compute pool"
+        ],
+        [
+          "AI Ultra — Veo video",
+          "5/day",
+          "Drawn from the same compute pool"
+        ],
+        [
+          "AI Ultra — Deep Think",
+          "10/day (Ultra-only)",
+          "10/day (Ultra-only, unchanged)"
+        ],
+        [
+          "Refresh cadence",
+          "Daily midnight reset",
+          "5-hour rolling + weekly cap"
+        ],
+        [
+          "AI Ultra top-tier price",
+          "$250/month",
+          "$200/month"
+        ],
+        [
+          "New tier",
+          "—",
+          "AI Ultra $100/month"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "The AI Pro Downgrade: Reversing a Four-Month-Old Policy"
+    },
+    {
+      "type": "text",
+      "value": "The impact is particularly acute for AI Pro subscribers. In January, [9to5Google reported](https://9to5google.com/2026/01/14/gemini-3-usage-limits-update/) that Google had, in response to 'user feedback,' split the Thinking and Pro model pools into separate allocations.\n\nAt that point, AI Pro subscribers received 300 Thinking prompts and 100 Pro prompts as independent pools; exhausting one did not affect the other.\n\nThe May overhaul, however, merged these back into a single compute pool. Thinking, Pro, image generation, and video now all draw from the same resource limit.\n\nThis marks a complete reversal in just four months, erasing the 'predictable usage' that January's split was designed to provide."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Failed Generations and Hidden Metrics: Subscriber Backlash Mounts"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/YUYJLKQguqR5wfDrUGUtgU-2000-80.jpg",
+      "caption": "A smartphone displaying the Gemini app",
+      "alt": "Gemini app on a smartphone"
+    },
+    {
+      "type": "text",
+      "value": "The policy reversal affected subscribers almost immediately. On Reddit, [r/GeminiAI](https://www.reddit.com/r/GeminiAI/comments/1ti0rjc/gemini_new_limit_is_a_joke/) was flooded with reports from AI Pro subscribers who hit their five-hour caps after only a few complex prompts.\n\nThreads on [r/GeminiFeedback](https://www.reddit.com/r/GeminiFeedback/comments/1thoh4r/gemini_is_turning_into_absolute_garbagecompletely/) highlighted further issues, including reports that failed generations were still deducted from the quota and that the dashboard no longer displayed a numeric breakdown of remaining usage.\n\nGoogle's updated support documentation states that 'limits may change without notice, including due to capacity constraints.' For subscribers, the monthly quota has transitioned from a predictable cap into an unpredictable variable."
+    },
+    {
+      "type": "heading",
+      "value": "The Deep Think Exception: Opaque Budgets vs. Transparent Caps"
+    },
+    {
+      "type": "text",
+      "value": "Google preserved only one explicit exception to this new model: the Ultra-exclusive Deep Think feature still counts in clean integers, capped at 10 prompts per day.\n\nConsequently, only the most expensive capability remains transparently metered. All other interactions—standard chat, image generation, and video—are drawn from the opaque compute pool.\n\nThis asymmetry has become the focal point of subscriber backlash. As users summarize the shift: prices came down, but the meter went dark."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The New Era of Consumer AI: Competing on Transparency, Not Price"
+    },
+    {
+      "type": "text",
+      "value": "Google is not alone in obscuring its usage meters. Last month, GitHub replaced Copilot's 'premium request units' with an 'AI Credits' system that bills users directly based on token consumption.\n\nConversely, some competitors are expanding access; Anthropic recently doubled limits for Claude Pro and Claude Max. PCWorld attributed this increased capacity to Anthropic's new compute agreement with SpaceX.\n\nThese shifts show that consumer AI subscriptions have outgrown simple 'pay $X for Y prompts' structures. In the coming months, the core competitive front will likely shift from pricing to how transparently providers display remaining compute allocations."
+    }
+  ],
+  "site": "aiscroll"
+}
