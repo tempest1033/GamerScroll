@@ -1,18 +1,36 @@
 {
-  "updatedAt": "2026-05-19T01:57:27.390Z",
+  "updatedAt": "2026-05-20T01:56:37.193Z",
   "period": "7days",
   "articles": [
     {
-      "category": "vibecoding",
-      "slug": "vibe-coding-agent-guide",
-      "views": 8,
-      "path": "/article/vibecoding/vibe-coding-agent-guide/"
+      "category": "openai",
+      "slug": "musk-openai-jury-verdict-dismissed",
+      "views": 37,
+      "path": "/article/openai/musk-openai-jury-verdict-dismissed/"
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
+      "slug": "vibe-coding-agent-guide",
+      "views": 13,
+      "path": "/article/vibecoding/vibe-coding-agent-guide/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-81k-interview",
       "views": 7,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
+      "path": "/article/anthropic/anthropic-81k-interview/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "claude-code-install-guide-mac",
+      "views": 7,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-io-2026-rumor-roundup-d2",
+      "views": 6,
+      "path": "/article/google/gemini-io-2026-rumor-roundup-d2/"
     },
     {
       "category": "anthropic",
@@ -21,16 +39,22 @@
       "path": "/article/anthropic/claude-code-agent-teams-paradigm/"
     },
     {
-      "category": "google",
-      "slug": "gemini-io-2026-rumor-roundup-d2",
-      "views": 5,
-      "path": "/article/google/gemini-io-2026-rumor-roundup-d2/"
-    },
-    {
       "category": "general",
       "slug": "lecun-ami-labs-llm-debate",
-      "views": 4,
+      "views": 5,
       "path": "/article/general/lecun-ami-labs-llm-debate/"
+    },
+    {
+      "category": "google",
+      "slug": "google-gemini-3-2-3-5-imminent",
+      "views": 5,
+      "path": "/article/google/google-gemini-3-2-3-5-imminent/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 5,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
       "category": "vibecoding",
@@ -51,34 +75,10 @@
       "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
-      "category": "google",
-      "slug": "google-gemini-3-2-3-5-imminent",
-      "views": 3,
-      "path": "/article/google/google-gemini-3-2-3-5-imminent/"
-    },
-    {
       "category": "openai",
       "slug": "altman-musk-openai-trial-mudslinging",
       "views": 3,
       "path": "/article/openai/altman-musk-openai-trial-mudslinging/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
-      "views": 3,
-      "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 3,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-81k-interview",
-      "views": 2,
-      "path": "/article/anthropic/anthropic-81k-interview/"
     },
     {
       "category": "anthropic",
@@ -94,9 +94,27 @@
     },
     {
       "category": "openai",
+      "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
+      "views": 2,
+      "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-53-codex-community-reaction",
+      "views": 2,
+      "path": "/article/openai/gpt-53-codex-community-reaction/"
+    },
+    {
+      "category": "openai",
       "slug": "openai-8000-anthropic-rivalry",
       "views": 2,
       "path": "/article/openai/openai-8000-anthropic-rivalry/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-b2b-strategy-success",
+      "views": 1,
+      "path": "/article/anthropic/anthropic-b2b-strategy-success/"
     },
     {
       "category": "anthropic",
@@ -112,15 +130,45 @@
     },
     {
       "category": "anthropic",
+      "slug": "claude-sonnet-46-release",
+      "views": 1,
+      "path": "/article/anthropic/claude-sonnet-46-release/"
+    },
+    {
+      "category": "anthropic",
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "views": 1,
       "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-surpasses-grok-web-traffic",
+      "views": 1,
+      "path": "/article/anthropic/claude-surpasses-grok-web-traffic/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "moltbot-clawdbot-ai-assistant",
+      "views": 1,
+      "path": "/article/anthropic/moltbot-clawdbot-ai-assistant/"
+    },
+    {
+      "category": "general",
+      "slug": "ai-bubble-myth-industry-shock-2026",
+      "views": 1,
+      "path": "/article/general/ai-bubble-myth-industry-shock-2026/"
     },
     {
       "category": "general",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/article/general/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "china-ai-distillation-controversy",
+      "views": 1,
+      "path": "/article/general/china-ai-distillation-controversy/"
     },
     {
       "category": "general",
@@ -133,54 +181,6 @@
       "slug": "coding-agent-market-share-war-anthropic-openai",
       "views": 1,
       "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
-    },
-    {
-      "category": "general",
-      "slug": "crimson-desert-ai-art-controversy",
-      "views": 1,
-      "path": "/article/general/crimson-desert-ai-art-controversy/"
-    },
-    {
-      "category": "general",
-      "slug": "dario-sam-india-summit-handshake",
-      "views": 1,
-      "path": "/article/general/dario-sam-india-summit-handshake/"
-    },
-    {
-      "category": "general",
-      "slug": "karpathy-ai-job-exposure-score",
-      "views": 1,
-      "path": "/article/general/karpathy-ai-job-exposure-score/"
-    },
-    {
-      "category": "general",
-      "slug": "kurzweil-singularity-review-2026",
-      "views": 1,
-      "path": "/article/general/kurzweil-singularity-review-2026/"
-    },
-    {
-      "category": "general",
-      "slug": "microsoft-copilot-windows-ai-fatigue",
-      "views": 1,
-      "path": "/article/general/microsoft-copilot-windows-ai-fatigue/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-ai-chip-monopoly-cracking",
-      "views": 1,
-      "path": "/article/general/nvidia-ai-chip-monopoly-cracking/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-feynman-architecture-2028",
-      "views": 1,
-      "path": "/article/general/nvidia-feynman-architecture-2028/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-gpu-launch-halt-ai-priority",
-      "views": 1,
-      "path": "/article/general/nvidia-gpu-launch-halt-ai-priority/"
     }
   ]
 }
