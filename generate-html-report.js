@@ -114,15 +114,18 @@ function externalizeDeferredJsonPayloads() {
 function getCssBundlesForDocPath(relativePath) {
   const normalized = String(relativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
   const bundles = ['/styles-core.css'];
-
-  if (normalized.startsWith('magazine/')) {
-    bundles.push('/styles-report.css', '/styles-article.css');
-  } else if (
+  const needsGameCss =
+    normalized === 'rankings.html' ||
+    normalized === 'steam.html' ||
+    normalized === 'upcoming.html' ||
     normalized.startsWith('games/') ||
     normalized.startsWith('rankings/') ||
     normalized.startsWith('steam/') ||
-    normalized.startsWith('upcoming/')
-  ) {
+    normalized.startsWith('upcoming/');
+
+  if (normalized.startsWith('magazine/')) {
+    bundles.push('/styles-report.css', '/styles-article.css');
+  } else if (needsGameCss) {
     bundles.push('/styles-game.css');
   } else if (normalized.startsWith('wiki/') || normalized.startsWith('tech/')) {
     bundles.push('/styles-article.css');
@@ -131,10 +134,32 @@ function getCssBundlesForDocPath(relativePath) {
   return bundles;
 }
 
+function renderDocsCssLinks(cssFiles) {
+  const files = [];
+  const seen = new Set();
+  for (const file of cssFiles) {
+    const href = String(file || '').trim();
+    if (!href || seen.has(href)) continue;
+    seen.add(href);
+    files.push(href);
+  }
+
+  const [blockingCss = '/styles-core.css', ...deferredCssFiles] = files.length > 0 ? files : ['/styles-core.css'];
+  const blockingCssHtml = `  <link rel="stylesheet" href="${blockingCss}">`;
+  const deferredCssHtml = deferredCssFiles.map((href) => (
+    `  <link rel="preload" href="${href}" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="${href}"></noscript>`
+  )).join('\n');
+
+  return deferredCssHtml ? `${blockingCssHtml}\n${deferredCssHtml}` : blockingCssHtml;
+}
+
 function rewriteDocsStylesheetLinks(docsDir) {
   const htmlFiles = [];
   collectHtmlFilesUnderDir(docsDir, htmlFiles);
-  const styleLinksBlockRe = /(?:[ \t]*<link rel="stylesheet" href="\/styles(?:[.-][a-z0-9-]+)?\.css">\r?\n?)+/gi;
+  const localCssHref = String.raw`\/styles(?:[.-][a-z0-9-]+)?\.css`;
+  const stylesheetLink = String.raw`[ \t]*<link\s+rel="stylesheet"\s+href="${localCssHref}">\r?\n?`;
+  const preloadLink = String.raw`[ \t]*<link\s+rel="preload"\s+href="${localCssHref}"[^>]*>\s*<noscript>\s*<link\s+rel="stylesheet"\s+href="${localCssHref}">\s*<\/noscript>\r?\n?`;
+  const styleLinksBlockRe = new RegExp(`(?:${stylesheetLink}|${preloadLink})+`, 'i');
   let changedCount = 0;
 
   for (const filePath of htmlFiles) {
@@ -147,15 +172,8 @@ function rewriteDocsStylesheetLinks(docsDir) {
 
     const relPath = path.relative(docsDir, filePath);
     const cssFiles = getCssBundlesForDocPath(relPath);
-    const cssLinks = cssFiles.map((href) => `  <link rel="stylesheet" href="${href}">`).join('\n');
-    // noscript 안의 stylesheet 링크는 교체하지 않음 (이중 로딩 방지)
-    const replacedHtml = html.replace(styleLinksBlockRe, (match, offset) => {
-      const before = html.slice(Math.max(0, offset - 200), offset);
-      const openCount = (before.match(/<noscript>/gi) || []).length;
-      const closeCount = (before.match(/<\/noscript>/gi) || []).length;
-      if (openCount > closeCount) return match; // noscript 안이면 원본 유지
-      return `${cssLinks}\n`;
-    });
+    const cssLinks = renderDocsCssLinks(cssFiles);
+    const replacedHtml = html.replace(styleLinksBlockRe, `${cssLinks}\n`);
 
     if (replacedHtml !== html) {
       fs.writeFileSync(filePath, replacedHtml, 'utf8');
@@ -710,7 +728,12 @@ async function purgeCssInDocs(docsDir) {
     },
     {
       css: `${docsDir}/styles-game.css`,
-      content: [`${docsDir}/games/**/*.html`],
+      content: [
+        `${docsDir}/games/**/*.html`,
+        `${docsDir}/rankings/**/*.html`,
+        `${docsDir}/steam/**/*.html`,
+        `${docsDir}/upcoming/**/*.html`,
+      ],
       label: 'styles-game.css',
     },
     {

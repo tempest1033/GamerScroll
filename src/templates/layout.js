@@ -18,7 +18,7 @@ function getCssFilename() {
 function getPageExtraCssFiles(currentPage = '') {
   const page = String(currentPage || '').toLowerCase();
   if (page === 'magazine') return ['/styles-report.css', '/styles-article.css'];
-  if (page === 'game') return ['/styles-game.css'];
+  if (['game', 'rankings', 'steam', 'upcoming'].includes(page)) return ['/styles-game.css'];
   if (page === 'wiki' || page === 'tech') return ['/styles-article.css'];
   return [];
 }
