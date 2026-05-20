@@ -11,8 +11,18 @@ export async function onRequest(context) {
   // Already on /ko/ tree — let it through.
   if (path === "/ko" || path.startsWith("/ko/")) return next();
 
-  // EN opt-out: ?lang=en query or aiscroll_lang=en cookie skips the KR redirect.
-  if (url.searchParams.get("lang") === "en") return next();
+  // EN opt-out: ?lang=en query sets a 1-year cookie so the preference persists.
+  // aiscroll_lang=en cookie also pass-through on subsequent requests.
+  if (url.searchParams.get("lang") === "en") {
+    const response = await next();
+    try {
+      const cloned = new Response(response.body, response);
+      cloned.headers.append("Set-Cookie", "aiscroll_lang=en; Path=/; Max-Age=31536000; SameSite=Lax; Secure");
+      return cloned;
+    } catch {
+      return response;
+    }
+  }
   const cookie = request.headers.get("Cookie") || "";
   if (/(?:^|;\s*)aiscroll_lang=en(?:;|$)/.test(cookie)) return next();
 
@@ -35,7 +45,7 @@ export async function onRequest(context) {
 
   // Bot UA pass-through — search engines always see the English tree for indexing.
   const ua = (request.headers.get("User-Agent") || "").toLowerCase();
-  if (/bot|crawler|spider|crawling|googlebot|bingbot|baiduspider|duckduckbot|yandexbot|facebookexternalhit|twitterbot|whatsapp|slackbot|naverbot|yeti/.test(ua)) {
+  if (/(?:^|[^a-z])(?:googlebot|bingbot|baiduspider|duckduckbot|yandexbot|naverbot|yeti|facebookexternalhit|twitterbot|whatsapp|slackbot|applebot|petalbot|sogou|seznambot|ahrefsbot|semrushbot|mj12bot|crawler|spider|scrapy|wget|curl)/.test(ua)) {
     return next();
   }
 
