@@ -171,6 +171,7 @@ function rewriteDocsStylesheetLinks(docsDir) {
   const stylesheetLink = String.raw`[ \t]*<link\s+rel="stylesheet"\s+href="${localCssHref}">\r?\n?`;
   const preloadLink = String.raw`[ \t]*<link\s+rel="preload"\s+href="${localCssHref}"[^>]*>\s*<noscript>\s*<link\s+rel="stylesheet"\s+href="${localCssHref}">\s*<\/noscript>\r?\n?`;
   const styleLinksBlockRe = new RegExp(`(?:${stylesheetLink}|${preloadLink})+`, 'i');
+  const localCssTagRe = new RegExp(String.raw`[ \t]*<link\b(?=[^>]*\brel="(?:stylesheet|preload)")(?=[^>]*\bhref="${localCssHref}")[^>]*>\r?\n?`, 'gi');
   let changedCount = 0;
 
   for (const filePath of htmlFiles) {
@@ -184,7 +185,20 @@ function rewriteDocsStylesheetLinks(docsDir) {
     const relPath = path.relative(docsDir, filePath);
     const cssFiles = getCssBundlesForDocPath(relPath);
     const cssLinks = renderDocsCssLinks(cssFiles);
-    const replacedHtml = html.replace(styleLinksBlockRe, `${cssLinks}\n`);
+    let replacedHtml = html;
+    const headCloseIndex = html.search(/<\/head>/i);
+    const firstLocalCssIndex = html.search(localCssTagRe);
+
+    if (headCloseIndex !== -1 && firstLocalCssIndex !== -1 && firstLocalCssIndex < headCloseIndex) {
+      const headHtml = html.slice(0, headCloseIndex);
+      const tailHtml = html.slice(headCloseIndex);
+      const cleanedHead = headHtml
+        .replace(localCssTagRe, '')
+        .replace(/[ \t]*<noscript>\s*<\/noscript>\r?\n?/gi, '');
+      replacedHtml = `${cleanedHead.slice(0, firstLocalCssIndex)}${cssLinks}\n${cleanedHead.slice(firstLocalCssIndex)}${tailHtml}`;
+    } else {
+      replacedHtml = html.replace(styleLinksBlockRe, `${cssLinks}\n`);
+    }
 
     if (replacedHtml !== html) {
       fs.writeFileSync(filePath, replacedHtml, 'utf8');
