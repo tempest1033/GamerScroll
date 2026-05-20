@@ -167,7 +167,7 @@ function renderDocsCssLinks(cssFiles) {
 function rewriteDocsStylesheetLinks(docsDir) {
   const htmlFiles = [];
   collectHtmlFilesUnderDir(docsDir, htmlFiles);
-  const localCssHref = String.raw`\/styles(?:[.-][a-z0-9-]+)?\.css(?:\?[^"\s>]+)?`;
+  const localCssHref = String.raw`\/styles(?:[.-][a-z0-9-]+)*\.css(?:\?[^"\s>]+)?`;
   const stylesheetLink = String.raw`[ \t]*<link\s+rel="stylesheet"\s+href="${localCssHref}">\r?\n?`;
   const preloadLink = String.raw`[ \t]*<link\s+rel="preload"\s+href="${localCssHref}"[^>]*>\s*<noscript>\s*<link\s+rel="stylesheet"\s+href="${localCssHref}">\s*<\/noscript>\r?\n?`;
   const styleLinksBlockRe = new RegExp(`(?:${stylesheetLink}|${preloadLink})+`, 'i');
@@ -2573,6 +2573,9 @@ ${sitemapEntries}
   const robotsTxt = `# GamerScroll robots.txt
 User-agent: *
 Allow: /
+
+# Game DB pages are noindex (thin content) — skip to preserve crawl budget
+Disallow: /games/
 
 # Sitemap
 Sitemap: https://gamerscroll.com/sitemap.xml

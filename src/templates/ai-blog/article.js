@@ -570,7 +570,7 @@ function generateAIBlogArticle(article, data = {}) {
       "description": article.summary || '',
       "image": absoluteThumbnail || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`,
       "datePublished": dateISO,
-      "dateModified": dateModifiedISO,
+      ...(dateModifiedISO ? { "dateModified": dateModifiedISO } : {}),
       "author": {
         "@type": "Person",
         "name": article.editor || 'Editor J'
@@ -598,7 +598,7 @@ function generateAIBlogArticle(article, data = {}) {
           "@type": "ListItem",
           "position": 1,
           "name": _jsonLdLang === 'ko' ? '홈' : 'Home',
-          "item": SITE_CONFIG.baseUrl + _jsonLdPrefix
+          "item": `${SITE_CONFIG.baseUrl}${_jsonLdPrefix}/`
         },
         {
           "@type": "ListItem",
@@ -626,12 +626,9 @@ function generateAIBlogArticle(article, data = {}) {
     tags: keywordTags
   };
 
-  // Title 트리밍: 60자 이내로
+  // Title: 전체 헤드라인 유지 (SEO CTR 우선, 길이 제한 미적용)
   const suffix = ` - ${SITE_CONFIG.name}`;
-  const fullTitle = `${article.title}${suffix}`;
-  const trimmedTitle = fullTitle.length > 60
-    ? `${article.title.slice(0, 60 - suffix.length - 3)}...${suffix}`
-    : fullTitle;
+  const trimmedTitle = `${article.title}${suffix}`;
 
   // Description 트리밍: 155자 이내로
   const rawDescription = article.summary || SITE_CONFIG.description;

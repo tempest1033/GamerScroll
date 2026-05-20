@@ -885,12 +885,13 @@ function wrapWithLayout(content, options = {}) {
   const articleTagsMeta = (articleMeta?.tags || []).map(tag =>
     `<meta property="article:tag" content="${escapeHtml(tag)}">`
   ).join('\n  ');
-  const articleOgTags = articleMeta ? `
-  <meta property="article:published_time" content="${articleMeta.publishedTime}">
-  <meta property="article:modified_time" content="${articleMeta.modifiedTime}">
-  <meta property="article:section" content="${escapeHtml(articleMeta.section)}">
-  <meta property="article:author" content="AIScroll Team">
-  ${articleTagsMeta}` : '';
+  const articleOgTags = articleMeta ? [
+    `<meta property="article:published_time" content="${articleMeta.publishedTime}">`,
+    articleMeta.modifiedTime ? `<meta property="article:modified_time" content="${articleMeta.modifiedTime}">` : '',
+    `<meta property="article:section" content="${escapeHtml(articleMeta.section)}">`,
+    `<meta property="article:author" content="AIScroll Team">`,
+    articleTagsMeta
+  ].filter(Boolean).join('\n  ') : '';
 
   return `<!DOCTYPE html>
 <html lang="${lang}" class="${htmlClassAttr}">
