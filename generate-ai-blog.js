@@ -826,6 +826,14 @@ function validateImages(articles) {
         const src = block.src;
         const isHttpUrl = src.startsWith('http');
 
+        if (!isHttpUrl && src.startsWith('/')) {
+          const filePath = path.join(DOCS_DIR, src.replace(/^\/+/, ''));
+          if (!fs.existsSync(filePath)) {
+            warnings.push(`[${slug}] 이미지 파일 없음: ${src}`);
+          }
+          continue;
+        }
+
         // 상대경로면 docs/tech/ai/{slug}/ 폴더에 파일 있는지 확인
         if (!isHttpUrl && src.startsWith('./')) {
           const filename = src.replace('./', '');

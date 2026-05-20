@@ -16,7 +16,7 @@ const SITE_CONFIG = {
   name: 'AIScroll',
   baseUrl: 'https://aiscroll.io',
   title: 'AIScroll - AI Industry Insights',
-  description: 'Latest AI news, trends, and insights. Stay updated with the AI industry.',
+  description: 'AIScroll tracks AI industry shifts, model launches, coding agents, and research trends with concise news and practical insight.',
   keywords: 'AI news, artificial intelligence, ChatGPT, Claude, machine learning, AI trends',
   favicon: '/favicon.svg',
   ogImage: '/og-image.png'
@@ -626,11 +626,16 @@ function generateAIBlogIndex(data) {
 
   // 상단 광고
   const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+  const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
+  const _homeDescription = _lang === 'ko'
+    ? 'AIScroll은 AI 모델 출시, 코딩 에이전트, 빅테크 전략, 연구 동향을 빠르게 정리해 주는 AI 산업 인사이트 허브입니다.'
+    : SITE_CONFIG.description;
+  const _homeKeywords = _lang === 'ko' ? 'AI 뉴스, 인공지능, ChatGPT, Claude, 머신러닝, AI 트렌드' : SITE_CONFIG.keywords;
 
   // 메인 콘텐츠
   const content = `
     <section class="home-section active" id="home">
-      <h1 class="visually-hidden">${SITE_CONFIG.title}</h1>
+      <h1 class="visually-hidden">${_homeTitle}</h1>
       <div class="page-container">
         <div class="home-container">
           <div class="home-main">
@@ -697,10 +702,6 @@ function generateAIBlogIndex(data) {
     })}
     ${sidebarLatestDeferScript}
   `;
-
-  const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
-  const _homeDescription = _lang === 'ko' ? '최신 AI 뉴스와 인사이트. AI 업계 동향을 빠르게 확인하세요.' : SITE_CONFIG.description;
-  const _homeKeywords = _lang === 'ko' ? 'AI 뉴스, 인공지능, ChatGPT, Claude, 머신러닝, AI 트렌드' : SITE_CONFIG.keywords;
 
   // WebSite JSON-LD for homepage (includes SearchAction)
   const websiteJsonLd = {

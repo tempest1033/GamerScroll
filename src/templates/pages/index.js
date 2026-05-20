@@ -995,7 +995,7 @@ function generateIndexPage(data) {
   return wrapWithLayout(content, {
     currentPage: 'home',  // 홈페이지 → 네비 선택 없음
     title: '게이머스크롤 - 모바일 게임 순위·스팀 게임 순위·게임 뉴스',
-    description: '게이머스크롤 - 게임 순위, 모바일 게임 순위, 스팀 게임 순위, 게임 뉴스를 한눈에.',
+    description: '게이머스크롤은 모바일 게임 매출 순위, 스팀 인기 순위, 출시 예정작, 게임 뉴스와 커뮤니티 반응을 한눈에 정리하는 게임 데이터 허브입니다.',
     keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 메타크리틱, 게임 뉴스',
     canonical: `${siteBaseUrl}/`,
     pageScripts: pageScripts,

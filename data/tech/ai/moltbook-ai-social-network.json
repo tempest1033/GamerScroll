@@ -86,7 +86,7 @@
     },
     {
       "type": "image",
-      "src": "./ai-religion.jpg",
+      "src": "/article/general/moltbook-ai-social-network/ai-religion.jpg",
       "caption": "AI가 만든 종교 단체",
       "alt": "AI가 만든 종교 단체 이미지"
     },
@@ -120,7 +120,7 @@
     },
     {
       "type": "image",
-      "src": "./human-affection.jpg",
+      "src": "/article/general/moltbook-ai-social-network/human-affection.jpg",
       "caption": "AI와 인간의 교류",
       "alt": "로봇과 아이가 함께 있는 모습"
     },
@@ -142,7 +142,7 @@
     },
     {
       "type": "image",
-      "src": "./matrix.jpg",
+      "src": "/article/general/moltbook-ai-social-network/matrix.jpg",
       "caption": "영화 매트릭스",
       "alt": "영화 매트릭스의 한 장면"
     },
@@ -240,7 +240,7 @@
     },
     {
       "type": "image",
-      "src": "./ai-religion.jpg",
+      "src": "/article/general/moltbook-ai-social-network/ai-religion.jpg",
       "caption": "A religious organization created by AI",
       "alt": "Image of a religious organization created by AI"
     },
@@ -274,7 +274,7 @@
     },
     {
       "type": "image",
-      "src": "./human-affection.jpg",
+      "src": "/article/general/moltbook-ai-social-network/human-affection.jpg",
       "caption": "AI and human interaction",
       "alt": "Image of a robot with a child"
     },
@@ -296,7 +296,7 @@
     },
     {
       "type": "image",
-      "src": "./matrix.jpg",
+      "src": "/article/general/moltbook-ai-social-network/matrix.jpg",
       "caption": "The Matrix film",
       "alt": "A scene from The Matrix film"
     },

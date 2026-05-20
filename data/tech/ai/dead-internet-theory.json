@@ -35,7 +35,7 @@
     },
     {
       "type": "image",
-      "src": "./dead-internet-intro.png",
+      "src": "/article/general/dead-internet-theory/dead-internet-intro.png",
       "caption": "죽은 인터넷 이론을 표현한 이미지",
       "alt": "Dead Internet Theory 개념 이미지"
     },
@@ -49,7 +49,7 @@
     },
     {
       "type": "image",
-      "src": "./origin-forum.jpg",
+      "src": "/article/general/dead-internet-theory/origin-forum.jpg",
       "caption": "4chan 등 익명 게시판에서 이론이 시작됐다",
       "alt": "인터넷 포럼 문화 이미지"
     },
@@ -63,7 +63,7 @@
     },
     {
       "type": "image",
-      "src": "./bot-stats.jpeg",
+      "src": "/article/general/dead-internet-theory/bot-stats.jpeg",
       "caption": "인터넷 트래픽 중 봇 비율 통계",
       "alt": "봇 트래픽 통계 차트"
     },
@@ -89,7 +89,7 @@
     },
     {
       "type": "image",
-      "src": "./ai-agent.jpg",
+      "src": "/article/general/dead-internet-theory/ai-agent.jpg",
       "caption": "자율적으로 활동하는 AI 에이전트의 등장",
       "alt": "AI 에이전트 개념 이미지"
     },
@@ -116,7 +116,7 @@
     },
     {
       "type": "image",
-      "src": "./dead-internet-intro.png",
+      "src": "/article/general/dead-internet-theory/dead-internet-intro.png",
       "caption": "Image representing the Dead Internet Theory",
       "alt": "Dead Internet Theory concept image"
     },
@@ -138,7 +138,7 @@
     },
     {
       "type": "image",
-      "src": "./bot-stats.jpeg",
+      "src": "/article/general/dead-internet-theory/bot-stats.jpeg",
       "caption": "Statistics on bot percentage of internet traffic",
       "alt": "Bot traffic statistics chart"
     },
@@ -164,7 +164,7 @@
     },
     {
       "type": "image",
-      "src": "./ai-agent.jpg",
+      "src": "/article/general/dead-internet-theory/ai-agent.jpg",
       "caption": "The emergence of autonomously operating AI agents",
       "alt": "AI agent concept image"
     },
