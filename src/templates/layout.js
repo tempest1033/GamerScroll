@@ -698,7 +698,7 @@ const lazyCardHydrationScript = `
         else mobileDomWindowPages = 6;
       }
       var maxMobileDomItems = mobileDomWindowPages > 0
-        ? Math.max(pageSize * mobileDomWindowPages, pageSize * 2)
+        ? Math.max(pageSize * mobileDomWindowPages, pageSize)
         : 0;
       var enableMobileDomWindowing = maxMobileDomItems > 0;
 
@@ -807,11 +807,12 @@ const lazyCardHydrationScript = `
         var maxDomCards = enableMobileDomWindowing ? maxMobileDomItems : 0;
         var renderedScrollAds = new Map();
         var mobileLoadAheadPx = 3600;
-        var mobileInitialPages = parseInt(options.mobileInitialPages, 10) || 3;
-        var mobileLoadBatchPages = parseInt(options.mobileLoadBatchPages, 10) || 2;
-        var mobileItemObserverMargin = '5200px 0px';
-        var scrollAdObserverMargin = '8000px 0px';
-        var eagerScrollAdPushLimit = 99;
+        var mobileInitialPages = parseInt(options.mobileInitialPages, 10) || 1;
+        var mobileLoadBatchPages = parseInt(options.mobileLoadBatchPages, 10) || 1;
+        var mobileItemObserverMargin = options.mobileItemObserverMargin || '2600px 0px';
+        var scrollAdObserverMargin = options.scrollAdObserverMargin || '1800px 0px';
+        var eagerScrollAdPushLimit = parseInt(options.eagerScrollAdPushLimit, 10);
+        if (isNaN(eagerScrollAdPushLimit)) eagerScrollAdPushLimit = 1;
         var eagerScrollAdPushCount = 0;
         // Phase B: cleanup registry — observers/listeners released on pagehide.
         var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
@@ -2267,9 +2268,23 @@ const adLazyLoadScript = `
   // ATF ad fallback: eager ad slots may already have pushed next to the <ins>.
   pushAd(ads[0]);
 
-  // BTF ads: immediate push so AdSense has full fetch budget before viewport reaches the slot.
+  // BTF ads are observed so the initial viewport does not pay for every slot at once.
   if (ads.length > 1) {
-    for (var j = 1; j < ads.length; j++) { pushAd(ads[j]); }
+    var btfObserver = null;
+    if ('IntersectionObserver' in window) {
+      btfObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          btfObserver.unobserve(entry.target);
+          pushAd(entry.target);
+        });
+      }, { rootMargin: '1200px 0px' });
+      __gsAdCleanup.push(function() { try { btfObserver.disconnect(); } catch (e) {} });
+    }
+    for (var j = 1; j < ads.length; j++) {
+      if (btfObserver) btfObserver.observe(ads[j]);
+      else pushAd(ads[j]);
+    }
   }
 })();
 </script>`;
@@ -2668,6 +2683,11 @@ function buildCardFeedPagerScript(options = {}) {
     initialRenderCount = 15,
     idleFillFirstPage = false,
     idleFillDelay = 120,
+    mobileInitialPages = 1,
+    mobileLoadBatchPages = 1,
+    eagerScrollAdPushLimit = 1,
+    mobileItemObserverMargin = '2600px 0px',
+    scrollAdObserverMargin = '1800px 0px',
     sidebarTabId = ''
   } = options;
 
@@ -2702,6 +2722,11 @@ function buildCardFeedPagerScript(options = {}) {
           mobileAds: ${safeBool(mobileAds)},
           adInterval: ${safeNumber(adInterval, 3)},
           mobileDomWindowPages: ${safeNumber(mobileDomWindowPages, 5)},
+          mobileInitialPages: ${safeNumber(mobileInitialPages, 1)},
+          mobileLoadBatchPages: ${safeNumber(mobileLoadBatchPages, 1)},
+          eagerScrollAdPushLimit: ${safeNumber(eagerScrollAdPushLimit, 1)},
+          mobileItemObserverMargin: ${JSON.stringify(mobileItemObserverMargin)},
+          scrollAdObserverMargin: ${JSON.stringify(scrollAdObserverMargin)},
           prevSelector: ${JSON.stringify(prevSelector)},
           nextSelector: ${JSON.stringify(nextSelector)},
           infoSelector: ${JSON.stringify(infoSelector)},

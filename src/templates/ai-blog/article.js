@@ -5,7 +5,18 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, SITE_CONFIG, formatDateEn, escapeHtml, getThumbUrl, I18N } = require('./index');
+const {
+  wrapWithLayout,
+  SITE_CONFIG,
+  formatDateEn,
+  escapeHtml,
+  getThumbUrl,
+  I18N,
+  AI_CATEGORY_IDS,
+  articleHref,
+  categoryHref,
+  homeHref
+} = require('./index');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderRankingBlock } = require('../helpers/ranking-blocks');
 const { renderTextBlock } = require('../helpers/content-text');
@@ -76,20 +87,27 @@ function generateAIBlogArticle(article, data = {}) {
   const _lang = data.lang === 'ko' ? 'ko' : 'en';
   const _langPrefix = _lang === 'ko' ? '/ko' : '';
   const _t = I18N[_lang] || I18N.en;
+  const socialThumbnail = article.thumbnail
+    ? String(article.thumbnail).replace(/\/thumbnail-sm\.webp($|\?)/, '/thumbnail.webp$1')
+    : '';
 
   // AIScroll에 포함된 기사 slug 목록
   const validSlugs = new Set(allArticles.map(a => a.slug));
 
   function normalizeInternalHref(rawHref = '') {
-    const href = String(rawHref || '').trim();
+    let href = String(rawHref || '').trim();
     if (!href || !href.startsWith('/')) return '';
+    if (href.startsWith('/ko/article/')) href = href.replace(/^\/ko/, '');
     if (!href.startsWith('/article/')) return href;
 
-    const pathOnly = href.split('#')[0].split('?')[0];
+    const suffixIndex = href.search(/[?#]/);
+    const pathOnly = suffixIndex >= 0 ? href.slice(0, suffixIndex) : href;
+    const suffix = suffixIndex >= 0 ? href.slice(suffixIndex) : '';
     const segments = pathOnly.split('/').filter(Boolean);
+    const category = segments.length >= 2 ? segments[1] : 'general';
     const slug = segments.length >= 3 ? segments[2] : '';
     if (!slug) return href;
-    return validSlugs.has(slug) ? href : '';
+    return validSlugs.has(slug) ? `${articleHref(category, slug, _lang)}${suffix}` : '';
   }
 
   // AIScroll 전용 링크 렌더러—레이블 escape + closure로 묶인 slug validator 적용.
@@ -238,12 +256,12 @@ function generateAIBlogArticle(article, data = {}) {
             const actualArticle = allArticles.find(a => a.slug === item.slug);
             if (!actualArticle) return '';
             const itemCategory = actualArticle.category || article.category || 'general';
-            const href = `/article/${itemCategory}/${item.slug}/`;
+            const href = articleHref(itemCategory, item.slug, _lang);
             const seriesThumb = actualArticle.thumbnail || item.thumbnail || '';
             const thumbUrl = seriesThumb ? getThumbUrl(seriesThumb, 200) : '';
             return `
               <a href="${href}" class="blog-related-issue-card blog-series-card">
-                <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="${escapeHtml(item.title)}" loading="lazy">
+                <img class="blog-related-issue-thumb" src="${thumbUrl}" width="200" height="113" alt="${escapeHtml(item.title)}" loading="lazy">
                 <span class="blog-series-tag">${partLabel}</span>
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${escapeHtml(item.title)}</span></span>
               </a>`;
@@ -298,7 +316,7 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 카테고리 메뉴
   function generateCategoryMenu() {
-    const categories = ['general', 'openai', 'google', 'anthropic', 'vibecoding'].map(id => ({
+    const categories = AI_CATEGORY_IDS.map(id => ({
       id,
       label: id === 'vibecoding' ? (_t.vibeCoding || _t.categoryLabels[id]) : _t.categoryLabels[id]
     }));
@@ -316,7 +334,7 @@ function generateAIBlogArticle(article, data = {}) {
           </div>
           <div class="sidebar-category-list">
             ${categories.map(cat => `
-              <a href="${_langPrefix}/article/${cat.id}/" class="sidebar-category-item">
+              <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
                 <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
               </a>
             `).join('')}
@@ -329,7 +347,7 @@ function generateAIBlogArticle(article, data = {}) {
   // 사이드바: 인기/최신 토글
   function generateSidebarArticles() {
     const renderList = (items) => items.slice(0, 10).map((item, i) => `
-      <a href="/article/${item.category || 'general'}/${item.slug}/" class="sidebar-article-item">
+      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="sidebar-article-item">
         <span class="sidebar-article-rank">${i + 1}</span>
         <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
       </a>
@@ -386,11 +404,11 @@ function generateAIBlogArticle(article, data = {}) {
 
     return `
       <div class="blog-related-issues">
-        <div class="blog-related-title">Related Articles</div>
+        <div class="blog-related-title">${_t.related}</div>
         <div class="blog-related-issues-list">
           ${filteredRelated.map(item => `
-            <a href="/article/${item.category || 'general'}/${item.slug}/" class="blog-related-issue-card">
-              ${item.thumbnail ? `<img class="blog-related-issue-thumb" src="${getThumbUrl(item.thumbnail, 480)}" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
+            <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="blog-related-issue-card">
+              ${item.thumbnail ? `<img class="blog-related-issue-thumb" src="${getThumbUrl(item.thumbnail, 480)}" width="480" height="270" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
               <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${escapeHtml(item.title)}</span></span>
             </a>
           `).join('')}
@@ -403,7 +421,7 @@ function generateAIBlogArticle(article, data = {}) {
   const sourcesHTML = article.sources && article.sources.length > 0
     ? `
       <div class="blog-sources">
-        <div class="blog-sources-title">Sources</div>
+        <div class="blog-sources-title">${_t.sources}</div>
         <ul class="blog-sources-list">
           ${article.sources.map(src => {
             const label = src.title ? `${src.name} - ${src.title}` : src.name;
@@ -422,9 +440,9 @@ function generateAIBlogArticle(article, data = {}) {
   const nextArticle = currentIndex > 0 ? sortedArticles[currentIndex - 1] : null;
   const navHTML = `
     <div class="trend-detail-nav">
-      ${prevArticle ? `<a href="/article/${prevArticle.category || 'general'}/${prevArticle.slug}/" class="trend-nav-btn prev">‹ Previous</a>` : '<span class="trend-nav-btn disabled">‹ Previous</span>'}
-      <a href="/" class="trend-nav-btn list">List</a>
-      ${nextArticle ? `<a href="/article/${nextArticle.category || 'general'}/${nextArticle.slug}/" class="trend-nav-btn next">Next ›</a>` : '<span class="trend-nav-btn disabled">Next ›</span>'}
+      ${prevArticle ? `<a href="${articleHref(prevArticle.category || 'general', prevArticle.slug, _lang)}" class="trend-nav-btn prev">‹ ${_t.previous}</a>` : `<span class="trend-nav-btn disabled">‹ ${_t.previous}</span>`}
+      <a href="${homeHref(_lang)}" class="trend-nav-btn list">${_t.list}</a>
+      ${nextArticle ? `<a href="${articleHref(nextArticle.category || 'general', nextArticle.slug, _lang)}" class="trend-nav-btn next">${_t.next} ›</a>` : `<span class="trend-nav-btn disabled">${_t.next} ›</span>`}
     </div>
   `;
 
@@ -459,14 +477,14 @@ function generateAIBlogArticle(article, data = {}) {
 
               ${article.thumbnail ? `
               <figure class="blog-figure">
-                <img src="${getThumbUrl(article.thumbnail, 1200)}" class="blog-image" alt="${escapeHtml(article.title)}" loading="eager" fetchpriority="high">
+                <img src="${getThumbUrl(socialThumbnail || article.thumbnail, 1200)}" class="blog-image" width="1200" height="675" alt="${escapeHtml(article.title)}" loading="eager" fetchpriority="high">
               </figure>
               ` : ''}
 
               ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
 
               <div class="blog-content">
-                ${article.toc ? renderToc(article.content, true) : ''}
+                ${article.toc ? renderToc(article.content, _lang === 'en') : ''}
                 ${renderContent(article.content)}
               </div>
 
@@ -550,10 +568,10 @@ function generateAIBlogArticle(article, data = {}) {
   })();
 
   // 썸네일 절대 URL 변환 (소셜 크롤러용)
-  const absoluteThumbnail = article.thumbnail
-    ? (article.thumbnail.startsWith('http') || article.thumbnail.startsWith('//')
-      ? article.thumbnail
-      : `${SITE_CONFIG.baseUrl}${article.thumbnail}`)
+  const absoluteThumbnail = socialThumbnail
+    ? (socialThumbnail.startsWith('http') || socialThumbnail.startsWith('//')
+      ? socialThumbnail
+      : `${SITE_CONFIG.baseUrl}${socialThumbnail}`)
     : null;
 
   // JSON-LD 구조화 데이터 (Article + BreadcrumbList)
@@ -653,6 +671,8 @@ function generateAIBlogArticle(article, data = {}) {
     pageScripts: pageScripts,
     jsonLd: jsonLd,
     ogImage: absoluteThumbnail,
+    ogImageWidth: 960,
+    ogImageHeight: 540,
     ogType: 'article',
     articleMeta: articleMeta,
     currentPage: article.category || 'general',

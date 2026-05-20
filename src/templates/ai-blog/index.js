@@ -30,6 +30,7 @@ const I18N = {
     privacy: 'Privacy Policy', categories: 'Categories',
     readMore: 'Read more', publishedAt: 'Published',
     noResults: 'No results', sources: 'Sources', related: 'Related Articles',
+    previous: 'Previous', next: 'Next', list: 'List',
     copyright: '© 2026 AIScroll. All rights reserved.',
     categoryLabels: { general: 'General', ai: 'AI', 'ai-tools': 'AI Tools', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: 'Coding' },
     menu: 'Menu', vibeCoding: 'Vibe Coding'
@@ -40,6 +41,7 @@ const I18N = {
     privacy: '개인정보처리방침', categories: '카테고리',
     readMore: '더 보기', publishedAt: '게시일',
     noResults: '검색 결과 없음', sources: '출처', related: '관련 기사',
+    previous: '이전', next: '다음', list: '목록',
     copyright: '© 2026 AIScroll. 모든 권리 보유.',
     categoryLabels: { general: '일반', ai: 'AI', 'ai-tools': 'AI 도구', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: '바이브코딩' },
     menu: '메뉴', vibeCoding: '바이브코딩'
@@ -47,15 +49,33 @@ const I18N = {
 };
 
 function langPrefixOf(lang) { return lang === 'ko' ? '/ko' : ''; }
+function normalizeLang(lang) { return lang === 'ko' ? 'ko' : 'en'; }
+function pathForLang(pathname = '/', lang = 'en') {
+  const prefix = langPrefixOf(normalizeLang(lang));
+  const normalizedPath = `/${String(pathname || '/').replace(/^\/+/, '')}`;
+  if (!prefix) return normalizedPath;
+  return normalizedPath === '/' ? `${prefix}/` : `${prefix}${normalizedPath}`;
+}
+function articleHref(category = 'general', slug = '', lang = 'en') {
+  return pathForLang(`/article/${category || 'general'}/${slug}/`, lang);
+}
+function categoryHref(category = 'general', lang = 'en') {
+  return pathForLang(`/article/${category || 'general'}/`, lang);
+}
+function homeHref(lang = 'en') { return pathForLang('/', lang); }
+function searchHref(lang = 'en') { return pathForLang('/search/', lang); }
+
+const AI_CATEGORY_IDS = ['general', 'ai', 'ai-tools', 'openai', 'google', 'anthropic', 'vibecoding'];
 
 // AIScroll 헤더 (로고 + 검색창 - PC용)
 function generateHeader(lang = 'en') {
   const _t = I18N[lang] || I18N.en;
+  const _homeHref = homeHref(lang);
   return `
   <header id="aiscroll-header" class="header aiscroll-header">
     <div class="header-inner aiscroll-header-inner">
       <div class="header-title aiscroll-logo">
-        <a href="/">
+        <a href="${_homeHref}">
           <span class="visually-hidden">AIScroll</span>
           <svg class="logo-svg" viewBox="0 0 400 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
@@ -94,10 +114,11 @@ function generateHeader(lang = 'en') {
 // AIScroll 검색 컨테이너 (모바일용 - GamerScroll 스타일)
 function generateSearchContainer(lang = 'en') {
   const _t = I18N[lang] || I18N.en;
+  const _homeHref = homeHref(lang);
   return `
   <div class="search-container">
     <div class="search-box">
-      <a href="/" class="search-home-icon" aria-label="Home">
+      <a href="${_homeHref}" class="search-home-icon" aria-label="Home">
         <img src="/favicon.svg" alt="" width="20" height="20">
       </a>
       <input type="text" class="search-input" placeholder="${_t.searchPlaceholder}" autocomplete="off">
@@ -150,13 +171,16 @@ function setGlobalSidebarArticles(popular, latest) {
 // 모바일 사이드 패널 기본 콘텐츠 생성
 function generateDefaultSidebarContent(counts = {}, lang = 'en') {
   const _t = I18N[lang] || I18N.en;
-  const _p = lang === 'ko' ? '/ko' : '';
   const _cat = _t.categoryLabels;
   const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
   const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const categories = AI_CATEGORY_IDS.map(id => ({
+    id,
+    label: id === 'vibecoding' ? (_t.vibeCoding || _cat[id]) : _cat[id]
+  }));
 
   const renderArticleList = (items) => items.slice(0, 10).map((item, i) => `
-    <a href="${_p}/article/${item.category || 'general'}/${item.slug}/" class="sidebar-article-item">
+    <a href="${articleHref(item.category || 'general', item.slug, lang)}" class="sidebar-article-item">
       <span class="sidebar-article-rank">${i + 1}</span>
       <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
     </a>
@@ -167,11 +191,7 @@ function generateDefaultSidebarContent(counts = {}, lang = 'en') {
       <div class="sidebar-category-group">
         <div class="home-card-header"><span class="home-card-title-link"><h2 class="home-card-title">${_t.categories}</h2></span></div>
         <div class="sidebar-category-list">
-          <a href="${_p}/article/general/" class="sidebar-category-item"><span class="sidebar-category-name">${_cat.general}${c('general')}</span></a>
-          <a href="${_p}/article/openai/" class="sidebar-category-item"><span class="sidebar-category-name">${_cat.openai}${c('openai')}</span></a>
-          <a href="${_p}/article/google/" class="sidebar-category-item"><span class="sidebar-category-name">${_cat.google}${c('google')}</span></a>
-          <a href="${_p}/article/anthropic/" class="sidebar-category-item"><span class="sidebar-category-name">${_cat.anthropic}${c('anthropic')}</span></a>
-          <a href="${_p}/article/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">${_t.vibeCoding || _cat.vibecoding}${c('vibecoding')}</span></a>
+          ${categories.map(cat => `<a href="${categoryHref(cat.id, lang)}" class="sidebar-category-item"><span class="sidebar-category-name">${cat.label}${c(cat.id)}</span></a>`).join('')}
         </div>
       </div>
     </div>
@@ -265,11 +285,10 @@ const mobileSidePanelScript = `<script>
 
 function generateNav(currentPage = 'home', lang = 'en') {
   const _t = I18N[lang] || I18N.en;
-  const _p = lang === 'ko' ? '/ko' : '';
   const _navItems = AI_NAV_ITEMS.map(it => ({
     ...it,
     label: _t.categoryLabels[it.id] || (it.id === 'vibecoding' ? (_t.vibeCoding || it.label) : it.label),
-    href: _p + it.href
+    href: categoryHref(it.id, lang)
   }));
   const currentIdx = AI_NAV_ITEMS.findIndex(item => item.id === currentPage);
   return `
@@ -448,7 +467,6 @@ function generateAIBlogIndex(data) {
   const { articles = [], popularArticles = [], latestArticles = [] } = data;
   const _lang = data.lang === 'ko' ? 'ko' : 'en';
   const _langPrefix = _lang === 'ko' ? '/ko' : '';
-  const hasPopularLcpCandidate = popularArticles.length > 0;
   const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
   const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
 
@@ -460,15 +478,15 @@ function generateAIBlogIndex(data) {
     // 1, 2등: 2컬럼 그리드
     const topItems = items.slice(0, 2);
     const topGrid = topItems.map((item, idx) => `
-      <a href="/article/${item.category || 'general'}/${item.slug}/" class="home-trend-card">
+      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="home-trend-card">
         <div class="home-trend-card-image">
           ${item.thumbnail ? (() => {
             const thumbData = getThumbSrcset(item.thumbnail, 320, 640, '(max-width: 768px) 46vw, 360px');
             const imgAttrs = thumbData.srcset
               ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
               : `src="${thumbData.src}"`;
-            const perfAttrs = idx === 0 ? lcpImageAttrs : lazyImageAttrs;
-            return `<img ${imgAttrs} alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">`;
+            const perfAttrs = lazyImageAttrs;
+            return `<img ${imgAttrs} width="640" height="360" alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">`;
           })() : ''}
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
@@ -478,14 +496,14 @@ function generateAIBlogIndex(data) {
     // 3, 4, 5등: 가로형
     const restItems = items.slice(2, 5);
     const restList = restItems.map((item) => `
-      <a href="/article/${item.category || 'general'}/${item.slug}/" class="home-popular-card">
+      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="home-popular-card">
         <div class="home-popular-thumb">
           ${item.thumbnail ? (() => {
             const thumbData = getThumbSrcset(item.thumbnail, 200, 400, '(max-width: 768px) 33vw, 200px');
             const imgAttrs = thumbData.srcset
               ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
               : `src="${thumbData.src}"`;
-            return `<img ${imgAttrs} alt="${escapeHtml(item.title)}" ${lazyImageAttrs} data-img-fallback="hide">`;
+            return `<img ${imgAttrs} width="400" height="225" alt="${escapeHtml(item.title)}" ${lazyImageAttrs} data-img-fallback="hide">`;
           })() : ''}
         </div>
         <div class="home-popular-info">
@@ -516,11 +534,11 @@ function generateAIBlogIndex(data) {
       const imgAttrs = thumbData.srcset
         ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
         : `src="${thumbData.src}"`;
-      const perfAttrs = (!hasPopularLcpCandidate && i === 0) ? lcpImageAttrs : lazyImageAttrs;
+      const perfAttrs = i === 0 ? lcpImageAttrs : lazyImageAttrs;
       return `
-      <a href="/article/${item.category || 'general'}/${item.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
-          ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
+          ${thumbData.src ? `<img ${imgAttrs} width="480" height="270" alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
           <span class="home-trend-card-tag">${formatDateEn(item.date)}</span>
         </div>
         <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
@@ -550,7 +568,7 @@ function generateAIBlogIndex(data) {
   // 카테고리 메뉴
   function generateCategoryMenu() {
     const _menuT = I18N[_lang] || I18N.en;
-    const categories = ['general', 'ai', 'ai-tools', 'openai', 'google', 'anthropic', 'vibecoding'].map(id => ({
+    const categories = AI_CATEGORY_IDS.map(id => ({
       id,
       label: id === 'vibecoding' ? (_menuT.vibeCoding || _menuT.categoryLabels[id]) : _menuT.categoryLabels[id]
     }));
@@ -568,7 +586,7 @@ function generateAIBlogIndex(data) {
           </div>
           <div class="sidebar-category-list">
             ${categories.map(cat => `
-              <a href="${_langPrefix}/article/${cat.id}/" class="sidebar-category-item">
+              <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
                 <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
               </a>
             `).join('')}
@@ -581,7 +599,7 @@ function generateAIBlogIndex(data) {
   // 사이드바: 인기/최신 토글
   function generateSidebarArticles() {
     const renderList = (items) => items.slice(0, 10).map((item, i) => `
-      <a href="/article/${item.category || 'general'}/${item.slug}/" class="sidebar-article-item">
+      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="sidebar-article-item">
         <span class="sidebar-article-rank">${i + 1}</span>
         <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
       </a>
@@ -667,14 +685,22 @@ function generateAIBlogIndex(data) {
       prevSelector: '.home-page-prev',
       nextSelector: '.home-page-next',
       infoSelector: '.home-page-info',
+      adInterval: 6,
       initialRenderCount: INITIAL_FEED_RENDER_COUNT,
-      idleFillFirstPage: true,
+      idleFillFirstPage: false,
       idleFillDelay: 120,
-      mobileDomWindowPages: 5,
+      mobileDomWindowPages: 1,
+      mobileInitialPages: 1,
+      mobileLoadBatchPages: 1,
+      eagerScrollAdPushLimit: 1,
       sidebarTabId: 'sidebarArticleTab'
     })}
     ${sidebarLatestDeferScript}
   `;
+
+  const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
+  const _homeDescription = _lang === 'ko' ? '최신 AI 뉴스와 인사이트. AI 업계 동향을 빠르게 확인하세요.' : SITE_CONFIG.description;
+  const _homeKeywords = _lang === 'ko' ? 'AI 뉴스, 인공지능, ChatGPT, Claude, 머신러닝, AI 트렌드' : SITE_CONFIG.keywords;
 
   // WebSite JSON-LD for homepage (includes SearchAction)
   const websiteJsonLd = {
@@ -682,8 +708,9 @@ function generateAIBlogIndex(data) {
     "@type": "WebSite",
     "name": SITE_CONFIG.name,
     "alternateName": ["AI Scroll", "aiscroll"],
-    "url": SITE_CONFIG.baseUrl,
-    "description": SITE_CONFIG.description,
+    "url": `${SITE_CONFIG.baseUrl}${homeHref(_lang)}`,
+    "description": _homeDescription,
+    "inLanguage": _lang === 'ko' ? 'ko-KR' : 'en-US',
     "publisher": {
       "@type": "Organization",
       "name": SITE_CONFIG.name,
@@ -697,15 +724,12 @@ function generateAIBlogIndex(data) {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": `${SITE_CONFIG.baseUrl}/search/?q={search_term_string}`
+        "urlTemplate": `${SITE_CONFIG.baseUrl}${searchHref(_lang)}?q={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     }
   };
 
-  const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
-  const _homeDescription = _lang === 'ko' ? '최신 AI 뉴스와 인사이트. AI 업계 동향을 빠르게 확인하세요.' : SITE_CONFIG.description;
-  const _homeKeywords = _lang === 'ko' ? 'AI 뉴스, 인공지능, ChatGPT, Claude, 머신러닝, AI 트렌드' : SITE_CONFIG.keywords;
   return wrapWithLayout(content, {
     title: _homeTitle,
     description: _homeDescription,
@@ -886,6 +910,13 @@ function wrapWithLayout(content, options = {}) {
   const _adsActive = ADS_ENABLED && !noindex;
 
   const ogImageUrl = ogImage || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`;
+  const ogImageWidth = options.ogImageWidth || 1200;
+  const ogImageHeight = options.ogImageHeight || 630;
+  const runtimeLangPrefix = langPrefixOf(lang);
+  const runtimeHomePath = homeHref(lang);
+  const runtimeSearchPath = searchHref(lang);
+  const runtimeArticlesJsonPath = pathForLang('/articles.json', lang);
+  const runtimeSearchJsonPath = pathForLang('/articles-search.json', lang);
   const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
 
   // Article OG tags
@@ -935,8 +966,8 @@ function wrapWithLayout(content, options = {}) {
   <meta property="og:url" content="${canonical}">
   <meta property="og:type" content="${ogType}">
   <meta property="og:image" content="${ogImageUrl}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="${ogImageWidth}">
+  <meta property="og:image:height" content="${ogImageHeight}">
   <meta property="og:image:alt" content="${escapeHtml(effectiveOgTitle)}">
   <meta property="og:locale" content="${ogLocale}">
   <meta property="og:locale:alternate" content="${isKo ? 'en_US' : 'ko_KR'}">
@@ -1483,11 +1514,20 @@ function wrapWithLayout(content, options = {}) {
   ${imageFallbackScript}
   ${fontScript}
   <script>
+    const AS_LANG_PREFIX = ${JSON.stringify(runtimeLangPrefix)};
+    const AS_HOME_PATH = ${JSON.stringify(runtimeHomePath)};
+    const AS_SEARCH_PATH = ${JSON.stringify(runtimeSearchPath)};
+    const AS_ARTICLES_JSON_PATH = ${JSON.stringify(runtimeArticlesJsonPath)};
+    const AS_SEARCH_JSON_PATH = ${JSON.stringify(runtimeSearchJsonPath)};
+    function asArticleHref(category, slug) {
+      return AS_LANG_PREFIX + '/article/' + (category || 'general') + '/' + slug + '/';
+    }
+
     const loadArticlesShared = (function() {
       if (typeof window.__asLoadArticles === 'function') return window.__asLoadArticles;
       window.__asLoadArticles = function() {
         if (window.__asArticlesPromise) return window.__asArticlesPromise;
-        window.__asArticlesPromise = fetch('/articles.json', { credentials: 'same-origin' })
+        window.__asArticlesPromise = fetch(AS_ARTICLES_JSON_PATH, { credentials: 'same-origin' })
           .then(function(res) { return res.ok ? res.json() : []; })
           .then(function(data) { return Array.isArray(data) ? data : []; })
           .catch(function() { return []; });
@@ -1500,7 +1540,7 @@ function wrapWithLayout(content, options = {}) {
       if (typeof window.__asLoadSearchArticles === 'function') return window.__asLoadSearchArticles;
       window.__asLoadSearchArticles = function() {
         if (window.__asSearchArticlesPromise) return window.__asSearchArticlesPromise;
-        window.__asSearchArticlesPromise = fetch('/articles-search.json', { credentials: 'same-origin' })
+        window.__asSearchArticlesPromise = fetch(AS_SEARCH_JSON_PATH, { credentials: 'same-origin' })
           .then(function(res) {
             if (!res || !res.ok) throw new Error('search index fetch failed');
             return res.json();
@@ -1589,7 +1629,7 @@ function wrapWithLayout(content, options = {}) {
           return;
         }
         searchDropdown.innerHTML = results.map(function(item) {
-          const href = '/article/' + (item.category || 'general') + '/' + item.slug + '/';
+          const href = asArticleHref(item.category || 'general', item.slug);
           const title = escapeSearchHtml(item.title);
           if (mobileMode) {
             return '<a href="' + href + '" style="display:block;padding:12px 16px;color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border);">' + title + '</a>';
@@ -1657,7 +1697,7 @@ function wrapWithLayout(content, options = {}) {
         if (e.key === 'Enter') {
           const query = searchInput.value.trim();
           if (query.length >= 2) {
-            window.location.href = '/search/?q=' + encodeURIComponent(query);
+            window.location.href = AS_SEARCH_PATH + '?q=' + encodeURIComponent(query);
           }
         }
       });
@@ -1894,7 +1934,7 @@ function wrapWithLayout(content, options = {}) {
         const targetPage = getPageByIndex(targetIdx);
 
         if (targetPage) {
-          const url = targetPage === 'home' ? '/' : '/article/' + targetPage + '/';
+          const url = targetPage === 'home' ? AS_HOME_PATH : AS_LANG_PREFIX + '/article/' + targetPage + '/';
           slideOutAndNavigate(url, swipeMode);
           return;
         }
@@ -2143,8 +2183,21 @@ function wrapWithLayout(content, options = {}) {
     }
     pushAd(ads[0]);
     if (ads.length > 1) {
-      // BTF 광고도 즉시 push — AdSense fetch 시간을 충분히 확보해서 사용자 스크롤 도달 시 채워져 있도록.
-      for (var j = 1; j < ads.length; j++) { pushAd(ads[j]); }
+      var btfObserver = null;
+      if ('IntersectionObserver' in window) {
+        btfObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            btfObserver.unobserve(entry.target);
+            pushAd(entry.target);
+          });
+        }, { rootMargin: '1200px 0px' });
+        __gsAdCleanup.push(function() { try { btfObserver.disconnect(); } catch (e) {} });
+      }
+      for (var j = 1; j < ads.length; j++) {
+        if (btfObserver) btfObserver.observe(ads[j]);
+        else pushAd(ads[j]);
+      }
     }
   })();
   </script>
@@ -2228,9 +2281,9 @@ function generateSearchPage(lang = 'en') {
 
         resultsContainer.innerHTML = '<div class="category-list">' +
           pageResults.map(a =>
-            '<a href="/article/' + (a.category || 'general') + '/' + a.slug + '/" class="category-list-card">' +
+            '<a href="' + asArticleHref(a.category || 'general', a.slug) + '" class="category-list-card">' +
               '<div class="category-list-thumb">' +
-                (a.thumbnail ? '<img src="' + resolveSearchThumbUrl(a.thumbnail) + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide">' : '') +
+                (a.thumbnail ? '<img src="' + resolveSearchThumbUrl(a.thumbnail) + '" alt="" width="480" height="270" loading="lazy" decoding="async" data-img-fallback="hide">' : '') +
                 (a.date ? '<span class="category-list-badge">' + a.date + '</span>' : '') +
               '</div>' +
               '<div class="category-list-info">' +
@@ -2252,7 +2305,7 @@ function generateSearchPage(lang = 'en') {
       const loadArticles = (typeof window.__asLoadArticles === 'function')
         ? window.__asLoadArticles
         : function() {
-          return fetch('/articles.json', { credentials: 'same-origin' })
+          return fetch(AS_ARTICLES_JSON_PATH, { credentials: 'same-origin' })
             .then(function(res) { return res.ok ? res.json() : []; })
             .then(function(data) { return Array.isArray(data) ? data : []; })
             .catch(function() { return []; });
@@ -2285,9 +2338,11 @@ function generateSearchPage(lang = 'en') {
   </script>`;
 
   const _langPrefix = lang === 'ko' ? '/ko' : '';
+  const _searchTitle = lang === 'ko' ? `검색 - ${SITE_CONFIG.name}` : `Search - ${SITE_CONFIG.name}`;
+  const _searchDescription = lang === 'ko' ? 'AIScroll 기사 검색' : 'Search articles on AIScroll';
   return wrapWithLayout(content, {
-    title: `Search - ${SITE_CONFIG.name}`,
-    description: 'Search articles on AIScroll',
+    title: _searchTitle,
+    description: _searchDescription,
     keywords: SITE_CONFIG.keywords,
     canonical: `${SITE_CONFIG.baseUrl}${_langPrefix}/search/`,
     pageScripts: pageScripts,
@@ -2313,9 +2368,9 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
       : `src="${thumbData.src}"`;
     const perfAttrs = i === 0 ? lcpImageAttrs : lazyImageAttrs;
     return `
-    <a href="/article/${a.category}/${a.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
+    <a href="${articleHref(a.category || 'general', a.slug, _lang)}" class="home-trend-card home-latest-item" data-index="${i}">
       <div class="home-trend-card-image">
-        ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtml(a.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
+        ${thumbData.src ? `<img ${imgAttrs} width="480" height="270" alt="${escapeHtml(a.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
         <span class="home-trend-card-tag">${formatDateEn(a.date)}</span>
       </div>
       <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(a.title)}</span></h3>
@@ -2345,14 +2400,14 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   });
 
   const _catT = I18N[_lang] || I18N.en;
-  const categories = ['general', 'openai', 'google', 'anthropic', 'vibecoding'].map(id => ({
+  const categories = AI_CATEGORY_IDS.map(id => ({
     id,
     label: id === 'vibecoding' ? (_catT.vibeCoding || _catT.categoryLabels[id]) : _catT.categoryLabels[id]
   }));
 
   // 사이드바 렌더링
   const renderSidebarList = (items) => items.slice(0, 10).map((item, i) => `
-    <a href="/article/${item.category || 'general'}/${item.slug}/" class="sidebar-article-item">
+    <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="sidebar-article-item">
       <span class="sidebar-article-rank">${i + 1}</span>
       <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
     </a>
@@ -2369,7 +2424,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
             </div>
             <div class="sidebar-category-list">
               ${categories.map(cat => `
-                <a href="${_langPrefix}/article/${cat.id}/" class="sidebar-category-item">
+                <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
                   <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
                 </a>
               `).join('')}
@@ -2452,22 +2507,32 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
       prevSelector: '.home-prev',
       nextSelector: '.home-next',
       infoSelector: '.home-page-index',
+      adInterval: 6,
       initialRenderCount: INITIAL_FEED_RENDER_COUNT,
-      idleFillFirstPage: true,
+      idleFillFirstPage: false,
       idleFillDelay: 120,
-      mobileDomWindowPages: 5,
+      mobileDomWindowPages: 1,
+      mobileInitialPages: 1,
+      mobileLoadBatchPages: 1,
+      eagerScrollAdPushLimit: 1,
       sidebarTabId: 'sidebarArticleTab'
     })}
     ${sidebarLatestDeferScript}
   `;
 
   const _catInLanguage = _lang === 'ko' ? 'ko-KR' : 'en-US';
+  const categoryDescription = _lang === 'ko'
+    ? `${categoryLabel} 관련 AIScroll 기사 모음입니다.`
+    : `${categoryLabel} articles on AIScroll`;
+  const categoryKeywords = _lang === 'ko'
+    ? `${categoryLabel}, AI 뉴스, 인공지능, ${SITE_CONFIG.name}`
+    : `${categoryLabel}, AI news, ${SITE_CONFIG.keywords}`;
   // CollectionPage JSON-LD for category pages
   const categoryJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": categoryLabel,
-    "description": `${categoryLabel} articles on AIScroll`,
+    "description": categoryDescription,
     "inLanguage": _catInLanguage,
     "url": `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,
     "isPartOf": {
@@ -2479,8 +2544,8 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
 
   return wrapWithLayout(content, {
     title: `${categoryLabel} - ${SITE_CONFIG.name}`,
-    description: `${categoryLabel} articles on AIScroll`,
-    keywords: `${categoryLabel}, AI news, ${SITE_CONFIG.keywords}`,
+    description: categoryDescription,
+    keywords: categoryKeywords,
     canonical: `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,
     pageScripts,
     currentPage: categoryId,
@@ -2502,6 +2567,12 @@ module.exports = {
   formatDateKo,
   I18N,
   langPrefixOf,
+  pathForLang,
+  articleHref,
+  categoryHref,
+  homeHref,
+  searchHref,
+  AI_CATEGORY_IDS,
   escapeHtml,
   getThumbUrl
 };

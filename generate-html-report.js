@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 const { PurgeCSS } = require('purgecss');
 const { generateRSS } = require('./src/rss/generate-rss');
 const buildCache = require('./build-cache');
@@ -2588,6 +2589,13 @@ Sitemap: https://gamerscroll.com/sitemap.xml
 `;
   fs.writeFileSync(`${DOCS_DIR}/robots.txt`, robotsTxt, 'utf8');
   console.log('🤖 robots.txt 생성 완료');
+
+  // GamerScroll -> AIScroll legacy redirects are generated from source tech data.
+  try {
+    execFileSync(process.execPath, [path.join(__dirname, 'scripts', 'gen-gs-redirects.js')], { stdio: 'inherit' });
+  } catch (err) {
+    console.warn('⚠️ _redirects 생성 실패:', err.message);
+  }
 
   // RSS 피드 생성
   try {
