@@ -688,10 +688,13 @@ function generateAIBlogIndex(data) {
 
   const _lang = data.lang === 'ko' ? 'ko' : 'en';
   const _langPrefix = _lang === 'ko' ? '/ko' : '';
+  const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
+  const _homeDescription = _lang === 'ko' ? '최신 AI 뉴스와 인사이트. AI 업계 동향을 빠르게 확인하세요.' : SITE_CONFIG.description;
+  const _homeKeywords = _lang === 'ko' ? 'AI 뉴스, 인공지능, ChatGPT, Claude, 머신러닝, AI 트렌드' : SITE_CONFIG.keywords;
   return wrapWithLayout(content, {
-    title: SITE_CONFIG.title,
-    description: SITE_CONFIG.description,
-    keywords: SITE_CONFIG.keywords,
+    title: _homeTitle,
+    description: _homeDescription,
+    keywords: _homeKeywords,
     canonical: SITE_CONFIG.baseUrl + _langPrefix + '/',
     pageScripts: pageScripts,
     jsonLd: websiteJsonLd,
@@ -2435,21 +2438,23 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     ${sidebarLatestDeferScript}
   `;
 
+  const _langPrefix = lang === 'ko' ? '/ko' : '';
+  const _catInLanguage = lang === 'ko' ? 'ko-KR' : 'en-US';
   // CollectionPage JSON-LD for category pages
   const categoryJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": categoryLabel,
     "description": `${categoryLabel} articles on AIScroll`,
-    "url": `${SITE_CONFIG.baseUrl}/article/${categoryId}/`,
+    "inLanguage": _catInLanguage,
+    "url": `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,
     "isPartOf": {
       "@type": "WebSite",
       "name": SITE_CONFIG.name,
-      "url": `${SITE_CONFIG.baseUrl}/`
+      "url": `${SITE_CONFIG.baseUrl}${_langPrefix}/`
     }
   };
 
-  const _langPrefix = lang === 'ko' ? '/ko' : '';
   return wrapWithLayout(content, {
     title: `${categoryLabel} - ${SITE_CONFIG.name}`,
     description: `${categoryLabel} articles on AIScroll`,
