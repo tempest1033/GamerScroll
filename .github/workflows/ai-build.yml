@@ -70,11 +70,20 @@ jobs:
           git pull origin main --rebase
           if git stash list | grep -q "ai-build-artifacts"; then
             if ! git stash pop; then
-              echo "::error::stash pop conflict — manual resolve required, aborting"
-              exit 1
+              # ai-docs/, .ai-build-cache.json, functions/는 우리 새 산출물 우선(--theirs는 stash 결과).
+              # data/, reports/ 같은 user-content path에서 conflict이 남으면 abort.
+              echo "::warning::stash pop conflict — resolving artifact paths with stash version"
+              git checkout --theirs ai-docs/ .ai-build-cache.json functions/ 2>/dev/null || true
+              git add ai-docs/ .ai-build-cache.json functions/ 2>/dev/null || true
+              if git diff --name-only --diff-filter=U | grep -q .; then
+                echo "::error::unresolved conflict outside artifact paths — aborting"
+                git diff --name-only --diff-filter=U
+                exit 1
+              fi
+              git stash drop 2>/dev/null || true
             fi
           fi
-          git add ai-docs/ data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ wrangler.toml -f
+          git add ai-docs/ data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ -f
           git diff --staged --quiet || git commit -m "Build AIScroll $(date +'%Y-%m-%d %H:%M')"
           for attempt in 1 2 3; do
             if git push origin main; then exit 0; fi
