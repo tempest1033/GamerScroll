@@ -2510,14 +2510,6 @@ function generateDefaultSidebarContent(counts = {}, articles = {}) {
           <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스${c('business')}</span></a>
         </div>
       </div>
-      <div class="sidebar-category-group">
-        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
-        <div class="sidebar-category-list">
-          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반${c('normal')}</span></a>
-          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI${c('ai')}</span></a>
-          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩${c('vibecoding')}</span></a>
-        </div>
-      </div>
     </div>
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
