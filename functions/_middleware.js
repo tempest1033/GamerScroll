@@ -33,6 +33,12 @@ export async function onRequest(context) {
     return next();
   }
 
+  // Bot UA pass-through — search engines always see the English tree for indexing.
+  const ua = (request.headers.get("User-Agent") || "").toLowerCase();
+  if (/bot|crawler|spider|crawling|googlebot|bingbot|baiduspider|duckduckbot|yandexbot|facebookexternalhit|twitterbot|whatsapp|slackbot|naverbot|yeti/.test(ua)) {
+    return next();
+  }
+
   if (country === "KR") {
     const target = "/ko" + (path === "/" ? "/" : path);
     return Response.redirect(new URL(target + url.search, url.origin).toString(), 302);

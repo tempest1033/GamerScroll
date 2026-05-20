@@ -28,9 +28,12 @@ const sa = JSON.parse(SA_RAW)
 const SITE_BY_PREFIX = [
   { prefix: 'data/tech/ai/',         build: ({ slug, category }) => [
     `https://aiscroll.io/article/${category}/${slug}/`,
-    `https://gamerscroll.com/tech/ai/${slug}/`,
+    `https://aiscroll.io/ko/article/${category}/${slug}/`,
   ]},
-  { prefix: 'data/tech/vibecoding/', build: ({ slug })          => [`https://aiscroll.io/article/vibecoding/${slug}/`] },
+  { prefix: 'data/tech/vibecoding/', build: ({ slug })          => [
+    `https://aiscroll.io/article/vibecoding/${slug}/`,
+    `https://aiscroll.io/ko/article/vibecoding/${slug}/`,
+  ]},
   { prefix: 'data/tech/normal/',     build: ({ slug })          => [`https://gamerscroll.com/tech/normal/${slug}/`] },
   { prefix: 'data/wiki/business/',   build: ({ slug })          => [`https://gamerscroll.com/wiki/business/${slug}/`] },
   { prefix: 'data/wiki/history/',    build: ({ slug })          => [`https://gamerscroll.com/wiki/history/${slug}/`] },
