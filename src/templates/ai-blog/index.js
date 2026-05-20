@@ -496,7 +496,7 @@ function generateAIBlogIndex(data) {
     return `
       <div class="home-card" id="home-popular">
         <div class="home-card-header">
-          <h2 class="home-card-title">Popular</h2>
+          <h2 class="home-card-title">${(I18N[_lang] || I18N.en).popular}</h2>
         </div>
         <div class="popular-top-grid">${topGrid}</div>
         <div class="home-popular-list">${restList}</div>
@@ -532,7 +532,7 @@ function generateAIBlogIndex(data) {
     return `
       <div class="home-card" id="home-latest">
         <div class="home-card-header">
-          <h2 class="home-card-title">Latest</h2>
+          <h2 class="home-card-title">${(I18N[_lang] || I18N.en).latest}</h2>
         </div>
         <div class="home-latest-grid" id="homeLatestGrid">${cardPayload.initialHtml}</div>
         ${cardPayload.deferredJson ? `<script type="application/json" id="homeLatestDeferredData">${cardPayload.deferredJson}</script>${cardPayload.deferredSeoLinksHtml}` : ''}
@@ -547,13 +547,11 @@ function generateAIBlogIndex(data) {
 
   // 카테고리 메뉴
   function generateCategoryMenu() {
-    const categories = [
-      { id: 'general', label: 'General' },
-      { id: 'openai', label: 'OpenAI' },
-      { id: 'google', label: 'Google' },
-      { id: 'anthropic', label: 'Anthropic' },
-      { id: 'vibecoding', label: 'Vibe Coding' }
-    ];
+    const _menuT = I18N[_lang] || I18N.en;
+    const categories = ['general', 'openai', 'google', 'anthropic', 'vibecoding'].map(id => ({
+      id,
+      label: id === 'vibecoding' ? (_menuT.vibeCoding || _menuT.categoryLabels[id]) : _menuT.categoryLabels[id]
+    }));
     // 카테고리별 기사 개수 계산
     const countByCategory = {};
     articles.forEach(a => {
@@ -564,11 +562,11 @@ function generateAIBlogIndex(data) {
       <div class="home-card" id="sidebar-categories">
         <div class="sidebar-category-group">
           <div class="home-card-header">
-            <h3 class="home-card-title">Categories</h3>
+            <h3 class="home-card-title">${(I18N[_lang] || I18N.en).categories}</h3>
           </div>
           <div class="sidebar-category-list">
             ${categories.map(cat => `
-              <a href="/article/${cat.id}/" class="sidebar-category-item">
+              <a href="${_langPrefix}/article/${cat.id}/" class="sidebar-category-item">
                 <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
               </a>
             `).join('')}
@@ -593,8 +591,8 @@ function generateAIBlogIndex(data) {
       <div class="home-card" id="sidebar-articles">
         <div class="home-card-header">
           <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-            <button class="tab-btn small active" data-sidebar-tab="popular">Popular</button>
-            <button class="tab-btn small" data-sidebar-tab="latest">Latest</button>
+            <button class="tab-btn small active" data-sidebar-tab="popular">${(I18N[_lang] || I18N.en).popular}</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">${(I18N[_lang] || I18N.en).latest}</button>
           </div>
         </div>
         <div class="home-card-body">
@@ -2359,11 +2357,11 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
         <div class="home-card" id="sidebar-categories">
           <div class="sidebar-category-group">
             <div class="home-card-header">
-              <h3 class="home-card-title">Categories</h3>
+              <h3 class="home-card-title">${(I18N[_lang] || I18N.en).categories}</h3>
             </div>
             <div class="sidebar-category-list">
               ${categories.map(cat => `
-                <a href="/article/${cat.id}/" class="sidebar-category-item">
+                <a href="${_langPrefix}/article/${cat.id}/" class="sidebar-category-item">
                   <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
                 </a>
               `).join('')}
@@ -2373,8 +2371,8 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
         <div class="home-card" id="sidebar-articles">
           <div class="home-card-header">
             <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-              <button class="tab-btn small active" data-sidebar-tab="popular">Popular</button>
-              <button class="tab-btn small" data-sidebar-tab="latest">Latest</button>
+              <button class="tab-btn small active" data-sidebar-tab="popular">${(I18N[_lang] || I18N.en).popular}</button>
+              <button class="tab-btn small" data-sidebar-tab="latest">${(I18N[_lang] || I18N.en).latest}</button>
             </div>
           </div>
           <div class="home-card-body">
