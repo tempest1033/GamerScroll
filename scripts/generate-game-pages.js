@@ -25,9 +25,41 @@ const outputDir = path.join(__dirname, '..', docsDir, 'games');
 
 // 템플릿 import
 const { generateGamePage } = require('../src/templates/pages/game');
-const { setCssFilename } = require('../src/templates/layout');
+const { setCssFilename, setCssAssetVersion } = require('../src/templates/layout');
+
+function getCssAssetVersion() {
+  const cssPaths = [
+    path.join(__dirname, '..', docsDir, 'styles-core.css'),
+    path.join(__dirname, '..', docsDir, 'styles-report.css'),
+    path.join(__dirname, '..', docsDir, 'styles-game.css'),
+    path.join(__dirname, '..', docsDir, 'styles-article.css')
+  ];
+  const hash = crypto.createHash('md5');
+  let hasCss = false;
+  for (const cssPath of cssPaths) {
+    if (!fs.existsSync(cssPath)) continue;
+    hash.update(fs.readFileSync(cssPath, 'utf8'));
+    hash.update('\n');
+    hasCss = true;
+  }
+  return hasCss ? hash.digest('hex').slice(0, 8) : '';
+}
+
+function ensureDocsCssAssetCopies(version) {
+  if (!version) return;
+  const cssFiles = ['styles-core.css', 'styles-report.css', 'styles-game.css', 'styles-article.css'];
+  for (const filename of cssFiles) {
+    const stablePath = path.join(__dirname, '..', docsDir, filename);
+    if (!fs.existsSync(stablePath)) continue;
+    const versionedPath = path.join(__dirname, '..', docsDir, filename.replace(/\.css$/, `.${version}.css`));
+    fs.copyFileSync(stablePath, versionedPath);
+  }
+}
 
 // CSS 파일명 설정 (고정)
+const cssAssetVersion = getCssAssetVersion();
+ensureDocsCssAssetCopies(cssAssetVersion);
+setCssAssetVersion(cssAssetVersion);
 setCssFilename('/styles-core.css');
 
 // 게임 데이터 로드

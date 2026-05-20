@@ -8,19 +8,33 @@ const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
 // 전역 CSS 파일명 (기본 코어 번들)
 let globalCssFilename = '/styles-core.css';
+let globalCssAssetVersion = '';
 function setCssFilename(filename) {
   globalCssFilename = filename;
 }
 function getCssFilename() {
-  return globalCssFilename;
+  return withCssAssetVersion(globalCssFilename);
+}
+function setCssAssetVersion(version) {
+  globalCssAssetVersion = String(version || '').replace(/[^a-zA-Z0-9_.-]/g, '').slice(0, 32);
+}
+function withCssAssetVersion(filename) {
+  const href = String(filename || '').trim();
+  if (!href || !globalCssAssetVersion) return href;
+  if (/^\/styles(?:-[a-z]+)?\.[a-f0-9]{8}\.css$/.test(href)) return href;
+  if (!href.startsWith('/styles') || !href.endsWith('.css') || href.includes('?') || href.includes('#')) {
+    return href;
+  }
+  return href.replace(/\.css$/, `.${globalCssAssetVersion}.css`);
 }
 
 function getPageExtraCssFiles(currentPage = '') {
   const page = String(currentPage || '').toLowerCase();
-  if (page === 'magazine') return ['/styles-report.css', '/styles-article.css'];
-  if (['game', 'rankings', 'steam', 'upcoming'].includes(page)) return ['/styles-game.css'];
-  if (page === 'wiki' || page === 'tech') return ['/styles-article.css'];
-  return [];
+  let files = [];
+  if (page === 'magazine') files = ['/styles-report.css', '/styles-article.css'];
+  if (['game', 'rankings', 'steam', 'upcoming'].includes(page)) files = ['/styles-game.css'];
+  if (page === 'wiki' || page === 'tech') files = ['/styles-article.css'];
+  return files.map(withCssAssetVersion);
 }
 
 // 전역 검색 인덱스 버전 (빌드 해시 → 캐시 무효화)
@@ -2754,7 +2768,7 @@ function wrapWithLayout(content, options = {}) {
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     breadcrumbs = null,  // BreadcrumbList JSON-LD
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용)
-    cssFilename = globalCssFilename,  // 기본 CSS 파일명 (전역 설정 사용)
+    cssFilename = getCssFilename(),  // 기본 CSS 파일명 (전역 설정 사용)
     cssFilenames = null,  // 다중 CSS 파일명
     sidebarContent = '',  // 모바일 사이드 패널 콘텐츠
     sidebarCounts = {},  // 모바일 사이드 패널 카테고리 숫자
@@ -2774,7 +2788,7 @@ function wrapWithLayout(content, options = {}) {
     ? cssFilenames
     : [cssFilename];
   const resolvedCssFiles = (() => {
-    const files = [...baseCssFiles, ...getPageExtraCssFiles(currentPage)];
+    const files = [...baseCssFiles, ...getPageExtraCssFiles(currentPage)].map(withCssAssetVersion);
     const seen = new Set();
     const out = [];
     for (const file of files) {
@@ -2931,6 +2945,7 @@ module.exports = {
   generateNativeAdSlot,
   generateMultiplexAdSlot,
   setCssFilename,  // 해시 기반 CSS 파일명 설정
+  setCssAssetVersion,
   getCssFilename,
   setSearchIndexVersion,  // 검색 인덱스 버전 설정 (캐시 무효화)
   setRuntimeAssetVersion,

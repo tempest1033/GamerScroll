@@ -43,6 +43,7 @@ const REPORTS_DIR = './reports';
 const WIKI_DIR = './data/wiki';
 const FEED_ASSETS_DIR = './assets/feed';
 const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
+let currentCssAssetVersion = '';
 
 /**
  * 발행시간 자동 기록: date가 비어있고 status === 'approved'인 기사에 현재 시각 기록
@@ -131,7 +132,17 @@ function getCssBundlesForDocPath(relativePath) {
     bundles.push('/styles-article.css');
   }
 
-  return bundles;
+  return bundles.map(withCssAssetVersion);
+}
+
+function withCssAssetVersion(href) {
+  const cssHref = String(href || '').trim();
+  if (!cssHref || !currentCssAssetVersion) return cssHref;
+  if (/^\/styles(?:-[a-z]+)?\.[a-f0-9]{8}\.css$/.test(cssHref)) return cssHref;
+  if (!cssHref.startsWith('/styles') || !cssHref.endsWith('.css') || cssHref.includes('?') || cssHref.includes('#')) {
+    return cssHref;
+  }
+  return cssHref.replace(/\.css$/, `.${currentCssAssetVersion}.css`);
 }
 
 function renderDocsCssLinks(cssFiles) {
@@ -156,7 +167,7 @@ function renderDocsCssLinks(cssFiles) {
 function rewriteDocsStylesheetLinks(docsDir) {
   const htmlFiles = [];
   collectHtmlFilesUnderDir(docsDir, htmlFiles);
-  const localCssHref = String.raw`\/styles(?:[.-][a-z0-9-]+)?\.css`;
+  const localCssHref = String.raw`\/styles(?:[.-][a-z0-9-]+)?\.css(?:\?[^"\s>]+)?`;
   const stylesheetLink = String.raw`[ \t]*<link\s+rel="stylesheet"\s+href="${localCssHref}">\r?\n?`;
   const preloadLink = String.raw`[ \t]*<link\s+rel="preload"\s+href="${localCssHref}"[^>]*>\s*<noscript>\s*<link\s+rel="stylesheet"\s+href="${localCssHref}">\s*<\/noscript>\r?\n?`;
   const styleLinksBlockRe = new RegExp(`(?:${stylesheetLink}|${preloadLink})+`, 'i');
@@ -611,6 +622,7 @@ const { generateTechArticlePage } = require('./src/templates/pages/tech-article'
 const { generate404Page } = require('./src/templates/pages/404');
 const {
   setCssFilename,
+  setCssAssetVersion,
   setSearchIndexVersion,
   setRuntimeAssetVersion,
   setGlobalSidebarCounts,
@@ -1128,7 +1140,38 @@ async function main() {
     }
   }
 
+  const cssHashTargets = ['./styles-core.css', './styles-report.css', './styles-game.css', './styles-article.css'];
+  const cssContentHash = didBundleCss
+    ? crypto
+        .createHash('md5')
+        .update(cssHashTargets.map((p) => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '')).join('\n'))
+        .digest('hex')
+        .slice(0, 8)
+    : null;
+  currentCssAssetVersion = cssContentHash || '';
+  try {
+    const rootFiles = fs.readdirSync('.');
+    for (const file of rootFiles) {
+      if (
+        /^styles(?:-[a-z]+)?\.[a-f0-9]{8}\.css$/.test(file) &&
+        (!currentCssAssetVersion || !file.endsWith(`.${currentCssAssetVersion}.css`))
+      ) {
+        fs.unlinkSync(`./${file}`);
+      }
+    }
+    if (currentCssAssetVersion) {
+      for (const bundle of cssBundles) {
+        if (!fs.existsSync(bundle.output)) continue;
+        const versionedOutput = bundle.output.replace(/\.css$/, `.${currentCssAssetVersion}.css`);
+        fs.copyFileSync(bundle.output, versionedOutput);
+      }
+    }
+  } catch (e) {
+    console.warn(`  ⚠️ 해시 CSS 파일 생성 실패: ${e.message}`);
+  }
+
   // 전역 CSS 파일명 설정 (템플릿에서 사용)
+  setCssAssetVersion(currentCssAssetVersion);
   setCssFilename(cssFilename);
 
   // 글로벌 사이드바 카운트 초기 설정 (위키/테크만, 매거진 counts는 나중에 업데이트)
@@ -1202,7 +1245,10 @@ async function main() {
   try {
     const rootFiles = fs.readdirSync('.');
     for (const file of rootFiles) {
-      if (file.match(/^styles\.[a-f0-9]{8}\.css$/)) {
+      if (
+        /^styles(?:-[a-z]+)?\.[a-f0-9]{8}\.css$/.test(file) &&
+        (!currentCssAssetVersion || !file.endsWith(`.${currentCssAssetVersion}.css`))
+      ) {
         fs.unlinkSync(`./${file}`);
       }
     }
@@ -1215,14 +1261,6 @@ async function main() {
   let forceFullRebuild = false;
 
   // CSS 또는 템플릿 변경 시 전체 재빌드
-  const cssHashTargets = ['./styles-core.css', './styles-report.css', './styles-game.css', './styles-article.css'];
-  const cssContentHash = didBundleCss
-    ? crypto
-        .createHash('md5')
-        .update(cssHashTargets.map((p) => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '')).join('\n'))
-        .digest('hex')
-        .slice(0, 8)
-    : null;
   if (buildCache.checkCssChanged(incrementalCache, cssContentHash)) {
     forceFullRebuild = true;
     incrementalCache.meta.cssHash = cssContentHash;
@@ -2211,7 +2249,7 @@ async function main() {
     // 이전 해시 CSS 파일 삭제 (docs/ 내 styles.*.css)
     const docsFiles = fs.readdirSync(DOCS_DIR);
     for (const file of docsFiles) {
-      if (file.match(/^styles\.[a-f0-9]{8}\.css$/)) {
+      if (/^styles(?:-[a-z]+)?\.[a-f0-9]{8}\.css$/.test(file)) {
         fs.unlinkSync(`${DOCS_DIR}/${file}`);
       }
     }
@@ -2226,6 +2264,13 @@ async function main() {
       const srcPath = `./${filename}`;
       if (fs.existsSync(srcPath)) {
         fs.copyFileSync(srcPath, `${DOCS_DIR}/${filename}`);
+        if (currentCssAssetVersion) {
+          const versionedFilename = filename.replace(/\.css$/, `.${currentCssAssetVersion}.css`);
+          const versionedSrcPath = `./${versionedFilename}`;
+          if (fs.existsSync(versionedSrcPath)) {
+            fs.copyFileSync(versionedSrcPath, `${DOCS_DIR}/${versionedFilename}`);
+          }
+        }
       } else {
         fs.writeFileSync(`${DOCS_DIR}/${filename}`, '', 'utf8');
       }
@@ -2502,18 +2547,19 @@ Sitemap: https://gamerscroll.com/sitemap.xml
 
   // Service Worker 전체 생성 (template literal)
   const swCacheVersion = `gamerscroll-${runtimeAssetVersion}${searchIndexVersion ? `-${searchIndexVersion}` : ''}`;
+  const swPrecacheUrls = [
+    '/',
+    ...cssBundles.map((bundle) => withCssAssetVersion(bundle.publicPath)),
+    '/manifest.json',
+    '/icon-192.png',
+    '/icon-512.png',
+    `/assets/${LAYOUT_CORE_ASSET}?v=${runtimeAssetVersion}`,
+    `/assets/${LAYOUT_RUNTIME_ASSET}?v=${runtimeAssetVersion}`
+  ];
   const swContent = `const CACHE_NAME = '${swCacheVersion}';
 const STATIC_CACHE = CACHE_NAME + '-static';
 const RUNTIME_CACHE = CACHE_NAME + '-runtime';
-const PRECACHE_URLS = [
-  '/',
-  '${cssFilename}',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png',
-  '/assets/layout-core.js',
-  '/assets/layout-runtime.js'
-];
+const PRECACHE_URLS = ${JSON.stringify(swPrecacheUrls, null, 2)};
 const STATIC_EXT_RE = /\\\\.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf|json)$/i;
 
 async function cachePut(cacheName, request, response) {
@@ -2599,7 +2645,7 @@ self.addEventListener('fetch', (event) => {
 
   if (isStatic) {
     event.respondWith((async () => {
-      const cached = await caches.match(request, { ignoreSearch: true });
+      const cached = await caches.match(request);
       const revalidate = fetch(request)
         .then((response) => cachePut(STATIC_CACHE, request, response))
         .catch(() => null);
