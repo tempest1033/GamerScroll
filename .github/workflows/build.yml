@@ -127,7 +127,7 @@ jobs:
           # Never run `git stash push -u` without `--` — would swallow active user work
           # (2026-05-20 incident reset working tree twice).
           git stash push -u -m "ci-build-artifacts" -- docs/ data-cache.json .build-cache.json reports/ data/ history/ || true
-          git pull origin main --rebase
+          git pull origin main --rebase --autostash
           # Restore stash with `pop` (auto-drop on success). On conflict: abort,
           # do NOT use `checkout --ours` (loses upstream changes silently).
           if git stash list | grep -q "ci-build-artifacts"; then
@@ -142,7 +142,7 @@ jobs:
           for attempt in 1 2 3; do
             if git push origin main; then exit 0; fi
             echo "::warning::push attempt $attempt failed; rebasing"
-            git pull origin main --rebase || exit 1
+            git pull origin main --rebase --autostash || exit 1
           done
           echo "::error::push failed after 3 retries"
           exit 1

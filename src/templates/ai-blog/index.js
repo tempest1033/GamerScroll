@@ -2293,6 +2293,8 @@ function generateSearchPage(lang = 'en') {
  * 카테고리 페이지 생성
  */
 function generateCategoryPage(categoryId, categoryLabel, articles, popularArticles = [], latestArticles = [], lang = 'en') {
+  const _lang = lang === 'ko' ? 'ko' : 'en';
+  const _langPrefix = _lang === 'ko' ? '/ko' : '';
   const categoryArticles = articles.filter(a => a.category === categoryId);
   const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
   const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
@@ -2453,8 +2455,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     ${sidebarLatestDeferScript}
   `;
 
-  const _langPrefix = lang === 'ko' ? '/ko' : '';
-  const _catInLanguage = lang === 'ko' ? 'ko-KR' : 'en-US';
+  const _catInLanguage = _lang === 'ko' ? 'ko-KR' : 'en-US';
   // CollectionPage JSON-LD for category pages
   const categoryJsonLd = {
     "@context": "https://schema.org",
