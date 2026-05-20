@@ -446,6 +446,8 @@ function buildDeferredCardPayload(cardHtmlList, pageSize = FEED_PAGE_SIZE, initi
  */
 function generateAIBlogIndex(data) {
   const { articles = [], popularArticles = [], latestArticles = [] } = data;
+  const _lang = data.lang === 'ko' ? 'ko' : 'en';
+  const _langPrefix = _lang === 'ko' ? '/ko' : '';
   const hasPopularLcpCandidate = popularArticles.length > 0;
   const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
   const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
@@ -701,8 +703,6 @@ function generateAIBlogIndex(data) {
     }
   };
 
-  const _lang = data.lang === 'ko' ? 'ko' : 'en';
-  const _langPrefix = _lang === 'ko' ? '/ko' : '';
   const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
   const _homeDescription = _lang === 'ko' ? '최신 AI 뉴스와 인사이트. AI 업계 동향을 빠르게 확인하세요.' : SITE_CONFIG.description;
   const _homeKeywords = _lang === 'ko' ? 'AI 뉴스, 인공지능, ChatGPT, Claude, 머신러닝, AI 트렌드' : SITE_CONFIG.keywords;

@@ -117,7 +117,12 @@ function getCssBundlesForDocPath(relativePath) {
 
   if (normalized.startsWith('magazine/')) {
     bundles.push('/styles-report.css', '/styles-article.css');
-  } else if (normalized.startsWith('games/') && normalized !== 'games/index.html') {
+  } else if (
+    normalized.startsWith('games/') ||
+    normalized.startsWith('rankings/') ||
+    normalized.startsWith('steam/') ||
+    normalized.startsWith('upcoming/')
+  ) {
     bundles.push('/styles-game.css');
   } else if (normalized.startsWith('wiki/') || normalized.startsWith('tech/')) {
     bundles.push('/styles-article.css');
