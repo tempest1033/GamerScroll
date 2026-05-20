@@ -1,6 +1,34 @@
-// Cloudflare Pages middleware: country-based auto-routing for AIScroll.
-// KR visitors hitting English paths get a 302 to the /ko/ equivalent.
-// Bots, non-KR visitors, and direct /ko/ visitors pass through unchanged.
+// Cloudflare Pages middleware: AIScroll locale routing + GamerScroll legacy redirects.
+
+let aiscrollArticleIndexPromise = null;
+
+async function resolveAiscrollCategory(slug, fallback = "general") {
+  if (!slug) return fallback;
+  if (!aiscrollArticleIndexPromise) {
+    aiscrollArticleIndexPromise = fetch("https://aiscroll.io/ko/articles-search.json", {
+      cf: { cacheTtl: 300, cacheEverything: true }
+    })
+      .then((res) => (res && res.ok ? res.json() : []))
+      .catch(() => []);
+  }
+  const list = await aiscrollArticleIndexPromise.catch(() => []);
+  const found = Array.isArray(list) ? list.find((item) => item && item.slug === slug) : null;
+  return (found && found.category) || fallback;
+}
+
+async function handleGamerScrollLegacyRedirect(url, path) {
+  const match = path.match(/^\/tech\/(ai|vibecoding)\/([^/]+)(\/.*)?$/);
+  if (!match) return null;
+
+  const section = match[1];
+  const slug = decodeURIComponent(match[2] || "");
+  const suffix = match[3] && match[3] !== "/" ? match[3] : "/";
+  const category = section === "vibecoding"
+    ? "vibecoding"
+    : await resolveAiscrollCategory(slug, "general");
+  const target = `https://aiscroll.io/ko/article/${category}/${encodeURIComponent(slug)}${suffix}`;
+  return Response.redirect(target + url.search, 301);
+}
 
 export async function onRequest(context) {
   const { request, next } = context;
@@ -8,6 +36,12 @@ export async function onRequest(context) {
   const country = request.headers.get("CF-IPCountry") || "";
   const path = url.pathname;
   const host = (request.headers.get("host") || url.hostname || "").toLowerCase();
+
+  if (host.includes("gamerscroll.com")) {
+    const legacyRedirect = await handleGamerScrollLegacyRedirect(url, path);
+    if (legacyRedirect) return legacyRedirect;
+    return next();
+  }
 
   // HARD INVARIANT: KR auto-routing applies only to aiscroll.io.
   // functions/ is at repo root so Cloudflare Pages deploys it for BOTH
