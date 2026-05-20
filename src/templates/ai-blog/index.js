@@ -275,7 +275,7 @@ function generateNav(currentPage = 'home', lang = 'en') {
   return `
   <nav class="nav">
     <div class="nav-inner">
-      ${AI_NAV_ITEMS.map(item => `
+      ${_navItems.map(item => `
       <a class="nav-item${item.id === currentPage ? ' active' : ''}" href="${item.href}">${item.label}</a>`).join('')}
     </div>
   </nav>
@@ -2336,13 +2336,11 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     countByCategory[cat] = (countByCategory[cat] || 0) + 1;
   });
 
-  const categories = [
-    { id: 'general', label: 'General' },
-    { id: 'openai', label: 'OpenAI' },
-    { id: 'google', label: 'Google' },
-    { id: 'anthropic', label: 'Anthropic' },
-    { id: 'vibecoding', label: 'Vibe Coding' }
-  ];
+  const _catT = I18N[_lang] || I18N.en;
+  const categories = ['general', 'openai', 'google', 'anthropic', 'vibecoding'].map(id => ({
+    id,
+    label: id === 'vibecoding' ? (_catT.vibeCoding || _catT.categoryLabels[id]) : _catT.categoryLabels[id]
+  }));
 
   // 사이드바 렌더링
   const renderSidebarList = (items) => items.slice(0, 10).map((item, i) => `

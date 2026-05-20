@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, SITE_CONFIG, formatDateEn, escapeHtml, getThumbUrl } = require('./index');
+const { wrapWithLayout, SITE_CONFIG, formatDateEn, escapeHtml, getThumbUrl, I18N } = require('./index');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderRankingBlock } = require('../helpers/ranking-blocks');
 const { renderTextBlock } = require('../helpers/content-text');
@@ -73,6 +73,9 @@ const renderToc = (content = [], isEnglish = false) => {
  */
 function generateAIBlogArticle(article, data = {}) {
   const { popularArticles = [], latestArticles = [], allArticles = [] } = data;
+  const _lang = data.lang === 'ko' ? 'ko' : 'en';
+  const _langPrefix = _lang === 'ko' ? '/ko' : '';
+  const _t = I18N[_lang] || I18N.en;
 
   // AIScroll에 포함된 기사 slug 목록
   const validSlugs = new Set(allArticles.map(a => a.slug));
@@ -295,13 +298,10 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 카테고리 메뉴
   function generateCategoryMenu() {
-    const categories = [
-      { id: 'general', label: 'General' },
-      { id: 'openai', label: 'OpenAI' },
-      { id: 'google', label: 'Google' },
-      { id: 'anthropic', label: 'Anthropic' },
-      { id: 'vibecoding', label: 'Vibe Coding' }
-    ];
+    const categories = ['general', 'openai', 'google', 'anthropic', 'vibecoding'].map(id => ({
+      id,
+      label: id === 'vibecoding' ? (_t.vibeCoding || _t.categoryLabels[id]) : _t.categoryLabels[id]
+    }));
     // 카테고리별 기사 개수 계산
     const countByCategory = {};
     allArticles.forEach(a => {
@@ -312,11 +312,11 @@ function generateAIBlogArticle(article, data = {}) {
       <div class="home-card" id="sidebar-categories">
         <div class="sidebar-category-group">
           <div class="home-card-header">
-            <h3 class="home-card-title">Categories</h3>
+            <h3 class="home-card-title">${_t.categories}</h3>
           </div>
           <div class="sidebar-category-list">
             ${categories.map(cat => `
-              <a href="/article/${cat.id}/" class="sidebar-category-item">
+              <a href="${_langPrefix}/article/${cat.id}/" class="sidebar-category-item">
                 <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
               </a>
             `).join('')}
@@ -341,8 +341,8 @@ function generateAIBlogArticle(article, data = {}) {
       <div class="home-card" id="sidebar-articles">
         <div class="home-card-header">
           <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-            <button class="tab-btn small active" data-sidebar-tab="popular">Popular</button>
-            <button class="tab-btn small" data-sidebar-tab="latest">Latest</button>
+            <button class="tab-btn small active" data-sidebar-tab="popular">${_t.popular}</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">${_t.latest}</button>
           </div>
         </div>
         <div class="home-card-body">
@@ -517,14 +517,8 @@ function generateAIBlogArticle(article, data = {}) {
   </script>`;
 
   // 카테고리 라벨 매핑
-  const categoryLabels = {
-    general: 'General',
-    openai: 'OpenAI',
-    google: 'Google',
-    anthropic: 'Anthropic',
-    vibecoding: 'Coding'
-  };
-  const categoryLabel = categoryLabels[article.category] || 'General';
+  const categoryLabels = _t.categoryLabels;
+  const categoryLabel = categoryLabels[article.category] || categoryLabels.general;
 
   // 날짜 ISO 형식 변환 (KST +09:00)
   const dateISO = (() => {
