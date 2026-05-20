@@ -996,11 +996,28 @@ function generateSEOFiles(articles) {
 
   // === Stage 2e: dual-lang sitemap + ko rss ===
   const enArticles = mapArticles(articles, 'en').map(a => ({
-    slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, thumbnail: a.thumbnail
+    slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, modifiedAt: a.modifiedAt, thumbnail: a.thumbnail
   }));
   const koArticles = mapArticles(articles, 'ko').map(a => ({
-    slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, thumbnail: a.thumbnail
+    slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, modifiedAt: a.modifiedAt, thumbnail: a.thumbnail
   }));
+
+  // 사이트맵 보조 유틸: lastmod은 max(date, modifiedAt) — file mtime 대신 article 메타로 일관.
+  // priority는 최신 lastmod 기준 티어링 (크롤러가 신선 콘텐츠를 더 자주 방문하도록).
+  const _todayMs = Date.now();
+  function pickLastmod(art) {
+    const d = art.date ? String(art.date).split('T')[0] : today;
+    const m = art.modifiedAt ? String(art.modifiedAt).split('T')[0] : '';
+    return m && m > d ? m : d;
+  }
+  function tierPriority(lastmodIso) {
+    const ms = Date.parse(lastmodIso);
+    if (!ms) return '0.7';
+    const ageDays = (_todayMs - ms) / 86400000;
+    if (ageDays <= 7) return '0.9';
+    if (ageDays <= 30) return '0.8';
+    return '0.7';
+  }
 
   // 1. sitemap.xml — en/ko URL + hreflang alternates
   // 카테고리 인덱스는 실제 article category set에서 동적으로 생성 (ai-tools 같은 신규 카테고리 누락 방지).
@@ -1030,11 +1047,12 @@ function generateSEOFiles(articles) {
     sitemapEntries.push({ loc: `${SITE_URL}/ko${b.path}`, lastmod: today, priority: b.priority, alternates: alts });
   }
   for (const article of enArticles) {
-    const articleDate = article.date ? article.date.split('T')[0] : today;
+    const articleDate = pickLastmod(article);
+    const articlePriority = tierPriority(articleDate);
     const p = `/article/${article.category}/${article.slug}/`;
     const alts = makeAlternates(p);
-    sitemapEntries.push({ loc: `${SITE_URL}${p}`, lastmod: articleDate, priority: '0.7', alternates: alts });
-    sitemapEntries.push({ loc: `${SITE_URL}/ko${p}`, lastmod: articleDate, priority: '0.7', alternates: alts });
+    sitemapEntries.push({ loc: `${SITE_URL}${p}`, lastmod: articleDate, priority: articlePriority, alternates: alts });
+    sitemapEntries.push({ loc: `${SITE_URL}/ko${p}`, lastmod: articleDate, priority: articlePriority, alternates: alts });
   }
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
