@@ -655,6 +655,7 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
 
     generatePrivacyPage(lang);
     generateSearchPageFile(lang);
+    generate404Page(lang);
     generateCategoryPages(langArticles, popularArticles, latestArticles, lang);
   }
 }
@@ -750,6 +751,37 @@ function generatePrivacyPage(lang = 'en') {
   }
   fs.writeFileSync(path.join(privacyDir, 'index.html'), privacyHtml, 'utf8');
   console.log(`Privacy Policy 페이지 생성 완료 (${lang})`);
+}
+
+// 404 페이지 생성 — noindex + AdSense 자동 차단 (wrapWithLayout의 _adsActive 게이트)
+function generate404Page(lang = 'en') {
+  const { wrapWithLayout } = require('./src/templates/ai-blog/index');
+  const isKo = lang === 'ko';
+  const t = isKo
+    ? { title: '페이지를 찾을 수 없습니다 - AIScroll', desc: '요청하신 페이지가 존재하지 않거나 이동되었습니다.', heading: '404 — 페이지를 찾을 수 없습니다', body: '요청하신 페이지가 존재하지 않거나 이동되었습니다. 아래 링크로 이동해 주세요.', home: '홈으로', search: '기사 검색' }
+    : { title: 'Page Not Found - AIScroll', desc: 'The page you requested does not exist or has moved.', heading: '404 — Page Not Found', body: 'The page you requested does not exist or has moved. Use the links below to navigate.', home: 'Home', search: 'Search Articles' };
+  const homePath = isKo ? '/ko/' : '/';
+  const searchPath = isKo ? '/ko/search/' : '/search/';
+  const content = `
+    <section class="not-found-container" style="max-width:720px;margin:64px auto;padding:0 16px;text-align:center;">
+      <h1 style="font-size:2.5rem;margin:0 0 16px;">${t.heading}</h1>
+      <p style="font-size:1.05rem;color:var(--text-secondary,#94a3b8);margin:0 0 32px;">${t.body}</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="${homePath}" style="padding:10px 24px;background:#4f46e5;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">${t.home}</a>
+        <a href="${searchPath}" style="padding:10px 24px;border:1px solid var(--border-color,#475569);color:inherit;text-decoration:none;border-radius:8px;font-weight:600;">${t.search}</a>
+      </div>
+    </section>
+  `;
+  const html = wrapWithLayout(content, {
+    title: t.title,
+    description: t.desc,
+    canonical: isKo ? 'https://aiscroll.io/ko/' : 'https://aiscroll.io/',
+    noindex: true,
+    lang
+  });
+  const baseDir = langDir(lang);
+  fs.writeFileSync(path.join(baseDir, '404.html'), html, 'utf8');
+  console.log(`404 페이지 생성 완료 (${lang})`);
 }
 
 // Search 페이지 생성
