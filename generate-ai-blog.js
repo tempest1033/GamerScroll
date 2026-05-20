@@ -1060,10 +1060,10 @@ Sitemap: ${SITE_URL}/sitemap.xml
   fs.writeFileSync(path.join(DOCS_DIR, 'robots.txt'), robotsTxt, 'utf8');
   console.log('robots.txt 생성 완료');
 
-  // 3a. RSS (en)
+  // 3a. RSS (en) — cap 200으로 상향 (현 131개, 성장 여지)
   const enRssItems = enArticles
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 50)
+    .slice(0, 200)
     .map(article => {
       const pubDate = new Date(article.date).toUTCString();
       const link = `${SITE_URL}/article/${article.category}/${article.slug}/`;
@@ -1091,10 +1091,10 @@ ${enRssItems.join('\n')}
   fs.writeFileSync(path.join(DOCS_DIR, 'rss.xml'), enRssXml, 'utf8');
   console.log(`RSS 피드 생성 완료 EN (${enRssItems.length}개)`);
 
-  // 3b. RSS (ko)
+  // 3b. RSS (ko) — cap 200으로 상향 (현 131개, 성장 여지)
   const koRssItems = koArticles
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 50)
+    .slice(0, 200)
     .map(article => {
       const pubDate = new Date(article.date).toUTCString();
       const link = `${SITE_URL}/ko/article/${article.category}/${article.slug}/`;

@@ -882,6 +882,9 @@ function wrapWithLayout(content, options = {}) {
   // og:title/twitter:title은 전체 헤드라인 사용 (SNS 공유 카드 절단 방지)
   const effectiveOgTitle = ogTitle || title;
 
+  // noindex 페이지(404 등)에는 AdSense 로드 금지 — 정책 + impression 가치 보호
+  const _adsActive = ADS_ENABLED && !noindex;
+
   const ogImageUrl = ogImage || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`;
   const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
 
@@ -902,11 +905,11 @@ function wrapWithLayout(content, options = {}) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->${ADS_ENABLED ? `
+  <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->${_adsActive ? `
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}
-  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->${ADS_ENABLED ? `
+  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->${_adsActive ? `
   <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
   <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}
   <title>${escapeHtml(title)}</title>
