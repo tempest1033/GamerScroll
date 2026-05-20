@@ -31,7 +31,8 @@ const I18N = {
     readMore: 'Read more', publishedAt: 'Published',
     noResults: 'No results', sources: 'Sources', related: 'Related Articles',
     copyright: '© 2026 AIScroll. All rights reserved.',
-    categoryLabels: { general: 'General', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: 'Coding' }
+    categoryLabels: { general: 'General', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: 'Coding' },
+    menu: 'Menu', vibeCoding: 'Vibe Coding'
   },
   ko: {
     popular: '인기', latest: '최신', search: '검색',
@@ -40,14 +41,16 @@ const I18N = {
     readMore: '더 보기', publishedAt: '게시일',
     noResults: '검색 결과 없음', sources: '출처', related: '관련 기사',
     copyright: '© 2026 AIScroll. 모든 권리 보유.',
-    categoryLabels: { general: '일반', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: '바이브코딩' }
+    categoryLabels: { general: '일반', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: '바이브코딩' },
+    menu: '메뉴', vibeCoding: '바이브코딩'
   }
 };
 
 function langPrefixOf(lang) { return lang === 'ko' ? '/ko' : ''; }
 
 // AIScroll 헤더 (로고 + 검색창 - PC용)
-function generateHeader() {
+function generateHeader(lang = 'en') {
+  const _t = I18N[lang] || I18N.en;
   return `
   <header id="aiscroll-header" class="header aiscroll-header">
     <div class="header-inner aiscroll-header-inner">
@@ -75,8 +78,8 @@ function generateHeader() {
       </div>
       <div class="aiscroll-search">
         <div class="search-box">
-          <input type="text" class="search-input" placeholder="Search articles..." autocomplete="off">
-          <button class="search-btn" type="button" aria-label="Search">
+          <input type="text" class="search-input" placeholder="${_t.searchPlaceholder}" autocomplete="off">
+          <button class="search-btn" type="button" aria-label="${_t.search}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
@@ -89,15 +92,16 @@ function generateHeader() {
 }
 
 // AIScroll 검색 컨테이너 (모바일용 - GamerScroll 스타일)
-function generateSearchContainer() {
+function generateSearchContainer(lang = 'en') {
+  const _t = I18N[lang] || I18N.en;
   return `
   <div class="search-container">
     <div class="search-box">
       <a href="/" class="search-home-icon" aria-label="Home">
         <img src="/favicon.svg" alt="" width="20" height="20">
       </a>
-      <input type="text" class="search-input" placeholder="Search articles..." autocomplete="off">
-      <button class="search-btn" type="button" aria-label="Search">
+      <input type="text" class="search-input" placeholder="${_t.searchPlaceholder}" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="${_t.search}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
@@ -108,13 +112,15 @@ function generateSearchContainer() {
 }
 
 // AIScroll 푸터 (GamerScroll 스타일, 영문)
-function generateFooter() {
+function generateFooter(lang = 'en') {
+  const _t = I18N[lang] || I18N.en;
+  const _p = lang === 'ko' ? '/ko' : '';
   const year = new Date().getFullYear();
   return `
   <footer class="site-footer">
     <span>© ${year} AIScroll</span>
     <span class="footer-divider">|</span>
-    <a href="/privacy/" class="footer-privacy-link">Privacy Policy</a>
+    <a href="${_p}/privacy/" class="footer-privacy-link">${_t.privacy}</a>
   </footer>`;
 }
 
@@ -142,12 +148,15 @@ function setGlobalSidebarArticles(popular, latest) {
 }
 
 // 모바일 사이드 패널 기본 콘텐츠 생성
-function generateDefaultSidebarContent(counts = {}) {
+function generateDefaultSidebarContent(counts = {}, lang = 'en') {
+  const _t = I18N[lang] || I18N.en;
+  const _p = lang === 'ko' ? '/ko' : '';
+  const _cat = _t.categoryLabels;
   const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
   const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
   const renderArticleList = (items) => items.slice(0, 10).map((item, i) => `
-    <a href="/article/${item.category || 'general'}/${item.slug}/" class="sidebar-article-item">
+    <a href="${_p}/article/${item.category || 'general'}/${item.slug}/" class="sidebar-article-item">
       <span class="sidebar-article-rank">${i + 1}</span>
       <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
     </a>
@@ -156,21 +165,21 @@ function generateDefaultSidebarContent(counts = {}) {
   return `
     <div class="home-card" id="sidebar-categories">
       <div class="sidebar-category-group">
-        <div class="home-card-header"><span class="home-card-title-link"><h2 class="home-card-title">Categories</h2></span></div>
+        <div class="home-card-header"><span class="home-card-title-link"><h2 class="home-card-title">${_t.categories}</h2></span></div>
         <div class="sidebar-category-list">
-          <a href="/article/general/" class="sidebar-category-item"><span class="sidebar-category-name">General${c('general')}</span></a>
-          <a href="/article/openai/" class="sidebar-category-item"><span class="sidebar-category-name">OpenAI${c('openai')}</span></a>
-          <a href="/article/google/" class="sidebar-category-item"><span class="sidebar-category-name">Google${c('google')}</span></a>
-          <a href="/article/anthropic/" class="sidebar-category-item"><span class="sidebar-category-name">Anthropic${c('anthropic')}</span></a>
-          <a href="/article/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">Vibe Coding${c('vibecoding')}</span></a>
+          <a href="${_p}/article/general/" class="sidebar-category-item"><span class="sidebar-category-name">${_cat.general}${c('general')}</span></a>
+          <a href="${_p}/article/openai/" class="sidebar-category-item"><span class="sidebar-category-name">${_cat.openai}${c('openai')}</span></a>
+          <a href="${_p}/article/google/" class="sidebar-category-item"><span class="sidebar-category-name">${_cat.google}${c('google')}</span></a>
+          <a href="${_p}/article/anthropic/" class="sidebar-category-item"><span class="sidebar-category-name">${_cat.anthropic}${c('anthropic')}</span></a>
+          <a href="${_p}/article/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">${_t.vibeCoding || _cat.vibecoding}${c('vibecoding')}</span></a>
         </div>
       </div>
     </div>
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
         <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
-          <button class="tab-btn small active" data-sidebar-tab="popular">Popular</button>
-          <button class="tab-btn small" data-sidebar-tab="latest">Latest</button>
+          <button class="tab-btn small active" data-sidebar-tab="popular">${_t.popular}</button>
+          <button class="tab-btn small" data-sidebar-tab="latest">${_t.latest}</button>
         </div>
       </div>
       <div class="home-card-body">
@@ -182,13 +191,14 @@ function generateDefaultSidebarContent(counts = {}) {
 }
 
 // 모바일 사이드 패널 HTML 생성
-function generateMobileSidePanel(sidebarContent = '') {
-  const content = sidebarContent || generateDefaultSidebarContent();
+function generateMobileSidePanel(sidebarContent = '', lang = 'en') {
+  const _t = I18N[lang] || I18N.en;
+  const content = sidebarContent || generateDefaultSidebarContent({}, lang);
   return `
     <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
     <div class="mobile-side-panel" id="mobileSidePanel">
       <div class="mobile-side-panel-header">
-        <span class="mobile-side-panel-title">Menu</span>
+        <span class="mobile-side-panel-title">${_t.menu}</span>
         <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="Close">
           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 6L6 18M6 6l12 12"/>
@@ -253,7 +263,14 @@ const mobileSidePanelScript = `<script>
 })();
 </script>`;
 
-function generateNav(currentPage = 'home') {
+function generateNav(currentPage = 'home', lang = 'en') {
+  const _t = I18N[lang] || I18N.en;
+  const _p = lang === 'ko' ? '/ko' : '';
+  const _navItems = AI_NAV_ITEMS.map(it => ({
+    ...it,
+    label: _t.categoryLabels[it.id] || (it.id === 'vibecoding' ? (_t.vibeCoding || it.label) : it.label),
+    href: _p + it.href
+  }));
   const currentIdx = AI_NAV_ITEMS.findIndex(item => item.id === currentPage);
   return `
   <nav class="nav">
@@ -1446,16 +1463,16 @@ function wrapWithLayout(content, options = {}) {
 </head>
 <body>
   <script>try{if(sessionStorage.getItem('ai-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('ai-search-hidden');}}catch(e){}</script>
-  ${generateHeader()}
-  ${generateSearchContainer()}
-  ${generateNav(currentPage)}
+  ${generateHeader(lang)}
+  ${generateSearchContainer(lang)}
+  ${generateNav(currentPage, lang)}
   <main class="site-container">
     ${coreReadyBootstrapScript}
     <script defer src="${coreScriptUrl}"></script>
     ${content}
   </main>
-  ${generateMobileSidePanel(generateDefaultSidebarContent(effectiveCounts))}
-  ${generateFooter()}
+  ${generateMobileSidePanel(generateDefaultSidebarContent(effectiveCounts, lang), lang)}
+  ${generateFooter(lang)}
   ${mobileSidePanelScript}
   ${imageFallbackScript}
   ${fontScript}
