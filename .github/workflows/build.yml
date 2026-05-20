@@ -126,7 +126,7 @@ jobs:
           # HARD INVARIANT: pathspec-restricted stash (artifacts only).
           # Never run `git stash push -u` without `--` — would swallow active user work
           # (2026-05-20 incident reset working tree twice).
-          git stash push -u -m "ci-build-artifacts" -- docs/ data-cache.json .build-cache.json reports/ data/ history/ snapshots/ || true
+          git stash push -u -m "ci-build-artifacts" -- docs/ data-cache.json .build-cache.json reports/ data/ history/ || true
           git pull origin main --rebase
           # Restore stash with `pop` (auto-drop on success). On conflict: abort,
           # do NOT use `checkout --ours` (loses upstream changes silently).
@@ -136,7 +136,7 @@ jobs:
               exit 1
             fi
           fi
-          git add docs/ reports/ data-cache.json .build-cache.json history/ data/ -f snapshots/
+          git add docs/ reports/ data-cache.json .build-cache.json history/ data/ -f
           git diff --staged --quiet || git commit -m "Update GamerScroll $(date +'%Y-%m-%d %H:%M')"
           # Race-safe push: retry up to 3 times with rebase on rejection.
           for attempt in 1 2 3; do
