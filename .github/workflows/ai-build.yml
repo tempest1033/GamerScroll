@@ -16,7 +16,6 @@ on:
       - 'src/build/**'
       - 'ai-build-cache.js'
       - 'functions/**'
-      - 'wrangler.toml'
   workflow_dispatch:
 
 permissions:
@@ -79,8 +78,12 @@ jobs:
           git diff --staged --quiet || git commit -m "Build AIScroll $(date +'%Y-%m-%d %H:%M')"
           for attempt in 1 2 3; do
             if git push origin main; then exit 0; fi
-            echo "::warning::push attempt $attempt failed; rebasing"
+            echo "::warning::push attempt $attempt failed; rebasing + rebuilding to keep stale-artifact invariant"
             git pull origin main --rebase || exit 1
+            # 새 main 위에 stale 산출물이 올라가는 것 방지: 빌드 재실행 후 재 스테이지.
+            node generate-ai-blog.js || exit 1
+            git add ai-docs/ data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ -f
+            git diff --staged --quiet || git commit --amend --no-edit
           done
           echo "::error::push failed after 3 retries"
           exit 1

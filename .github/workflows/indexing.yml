@@ -34,7 +34,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          # 0 = full history; multi-commit push에서 github.event.before..sha 정확히 scan
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -42,5 +43,7 @@ jobs:
         env:
           GOOGLE_INDEXING_SA_KEY: ${{ secrets.GOOGLE_INDEXING_SA_KEY }}
           INDEXING_URLS: ${{ inputs.urls }}
-          INDEXING_DIFF_RANGE: ${{ inputs.diff_range }}
+          # push event: github.event.before..sha (전체 새 커밋 누락 없이 scan)
+          # workflow_dispatch: inputs.diff_range 우선, 없으면 HEAD~1..HEAD
+          INDEXING_DIFF_RANGE: ${{ inputs.diff_range || (github.event_name == 'push' && format('{0}..{1}', github.event.before, github.sha)) || 'HEAD~1..HEAD' }}
         run: node scripts/submit-indexing.mjs
