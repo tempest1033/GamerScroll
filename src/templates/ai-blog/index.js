@@ -31,7 +31,7 @@ const I18N = {
     readMore: 'Read more', publishedAt: 'Published',
     noResults: 'No results', sources: 'Sources', related: 'Related Articles',
     copyright: '© 2026 AIScroll. All rights reserved.',
-    categoryLabels: { general: 'General', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: 'Coding' },
+    categoryLabels: { general: 'General', ai: 'AI', 'ai-tools': 'AI Tools', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: 'Coding' },
     menu: 'Menu', vibeCoding: 'Vibe Coding'
   },
   ko: {
@@ -41,7 +41,7 @@ const I18N = {
     readMore: '더 보기', publishedAt: '게시일',
     noResults: '검색 결과 없음', sources: '출처', related: '관련 기사',
     copyright: '© 2026 AIScroll. 모든 권리 보유.',
-    categoryLabels: { general: '일반', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: '바이브코딩' },
+    categoryLabels: { general: '일반', ai: 'AI', 'ai-tools': 'AI 도구', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: '바이브코딩' },
     menu: '메뉴', vibeCoding: '바이브코딩'
   }
 };
@@ -550,7 +550,7 @@ function generateAIBlogIndex(data) {
   // 카테고리 메뉴
   function generateCategoryMenu() {
     const _menuT = I18N[_lang] || I18N.en;
-    const categories = ['general', 'openai', 'google', 'anthropic', 'vibecoding'].map(id => ({
+    const categories = ['general', 'ai', 'ai-tools', 'openai', 'google', 'anthropic', 'vibecoding'].map(id => ({
       id,
       label: id === 'vibecoding' ? (_menuT.vibeCoding || _menuT.categoryLabels[id]) : _menuT.categoryLabels[id]
     }));
@@ -791,6 +791,7 @@ function wrapWithLayout(content, options = {}) {
     ogImage = null,
     // Article-specific OG tags
     articleMeta = null,  // { publishedTime, modifiedTime, section, author, tags }
+    ogTitle = null,       // 전체 헤드라인 (og:title/twitter:title/og:image:alt용); null이면 title 재사용
     ogType = 'website',   // 'website' for homepage, 'article' for articles
     noindex = false,      // true이면 검색엔진 인덱싱 차단
     sidebarCounts = {},  // 모바일 사이드 패널 카테고리 숫자
@@ -878,6 +879,9 @@ function wrapWithLayout(content, options = {}) {
     ? description.slice(0, 152).replace(/\s+\S*$/, '') + '...'
     : description;
 
+  // og:title/twitter:title은 전체 헤드라인 사용 (SNS 공유 카드 절단 방지)
+  const effectiveOgTitle = ogTitle || title;
+
   const ogImageUrl = ogImage || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`;
   const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
 
@@ -923,14 +927,14 @@ function wrapWithLayout(content, options = {}) {
   <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:title" content="${escapeHtml(effectiveOgTitle)}">
   <meta property="og:description" content="${escapeHtml(safeDescription)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:type" content="${ogType}">
   <meta property="og:image" content="${ogImageUrl}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="${escapeHtml(title)}">
+  <meta property="og:image:alt" content="${escapeHtml(effectiveOgTitle)}">
   <meta property="og:locale" content="${ogLocale}">
   <meta property="og:locale:alternate" content="${isKo ? 'en_US' : 'ko_KR'}">
   <meta property="og:site_name" content="${SITE_CONFIG.name}">${articleOgTags}
@@ -939,7 +943,7 @@ function wrapWithLayout(content, options = {}) {
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@aiscroll_io">
   <meta name="twitter:creator" content="@aiscroll_io">
-  <meta name="twitter:title" content="${escapeHtml(title)}">
+  <meta name="twitter:title" content="${escapeHtml(effectiveOgTitle)}">
   <meta name="twitter:description" content="${escapeHtml(safeDescription)}">
   <meta name="twitter:image" content="${ogImageUrl}">
   <meta name="twitter:image:alt" content="${escapeHtml(title)}">

@@ -2577,12 +2577,11 @@ ${sitemapEntries}
   console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 위키 ${wikiPages.length}개 + 테크 ${techPages.length}개 + 매거진 ${magazinePages.length}개 = 총 ${allPages.length}개 URL`);
 
   // robots.txt 생성
+  // 주의: /games/ 페이지는 <meta robots="noindex,follow">이므로 Disallow 금지.
+  // Disallow로 크롤 막으면 noindex를 볼 수 없어 URL-only entry로 남아 색인 동결됨.
   const robotsTxt = `# GamerScroll robots.txt
 User-agent: *
 Allow: /
-
-# Game DB pages are noindex (thin content) — skip to preserve crawl budget
-Disallow: /games/
 
 # Sitemap
 Sitemap: https://gamerscroll.com/sitemap.xml

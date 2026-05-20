@@ -581,7 +581,9 @@ function generateAIBlogArticle(article, data = {}) {
         "url": SITE_CONFIG.baseUrl,
         "logo": {
           "@type": "ImageObject",
-          "url": `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`
+          "url": `${SITE_CONFIG.baseUrl}/icon-192.png`,
+          "width": 192,
+          "height": 192
         }
       },
       "mainEntityOfPage": {
@@ -626,9 +628,13 @@ function generateAIBlogArticle(article, data = {}) {
     tags: keywordTags
   };
 
-  // Title: 전체 헤드라인 유지 (SEO CTR 우선, 길이 제한 미적용)
+  // Title 분리: <title> 태그는 SERP 노출 고려해 절단(60자),
+  // og:title/twitter:title/JSON-LD headline은 전체 헤드라인 유지
   const suffix = ` - ${SITE_CONFIG.name}`;
-  const trimmedTitle = `${article.title}${suffix}`;
+  const fullTitle = `${article.title}${suffix}`;
+  const trimmedTitle = fullTitle.length > 60
+    ? `${article.title.slice(0, 60 - suffix.length - 3)}...${suffix}`
+    : fullTitle;
 
   // Description 트리밍: 155자 이내로
   const rawDescription = article.summary || SITE_CONFIG.description;
@@ -640,6 +646,7 @@ function generateAIBlogArticle(article, data = {}) {
   const langPrefix = lang === 'ko' ? '/ko' : '';
   return wrapWithLayout(content, {
     title: trimmedTitle,
+    ogTitle: fullTitle,
     description: trimmedDescription,
     keywords: article.keywords || SITE_CONFIG.keywords,
     canonical: `${SITE_CONFIG.baseUrl}${langPrefix}/article/${article.category || 'general'}/${article.slug}/`,
