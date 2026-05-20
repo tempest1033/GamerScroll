@@ -7,6 +7,12 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const country = request.headers.get("CF-IPCountry") || "";
   const path = url.pathname;
+  const host = (request.headers.get("host") || url.hostname || "").toLowerCase();
+
+  // HARD INVARIANT: KR auto-routing applies only to aiscroll.io.
+  // functions/ is at repo root so Cloudflare Pages deploys it for BOTH
+  // GamerScroll(docs/) and AIScroll(ai-docs/) projects. Skip on any non-aiscroll host.
+  if (!host.includes("aiscroll.io")) return next();
 
   // Already on /ko/ tree — let it through.
   if (path === "/ko" || path.startsWith("/ko/")) return next();
