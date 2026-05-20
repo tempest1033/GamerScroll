@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: build-deploy
+  group: build-deploy-gamerscroll
   cancel-in-progress: true
 
 jobs:
@@ -93,13 +93,6 @@ jobs:
           ADS_ENABLED: 'true'  # 광고 활성화
         run: node scripts/generate-game-pages.js
 
-      - name: Build AIScroll
-        continue-on-error: true
-        env:
-          AISCROLL_GA4_PROPERTY_ID: ${{ secrets.AISCROLL_GA4_PROPERTY_ID }}
-          AISCROLL_GA4_SERVICE_ACCOUNT: ${{ secrets.AISCROLL_GA4_SERVICE_ACCOUNT }}
-        run: node generate-ai-blog.js
-
       - name: Move report to docs
         run: |
           mkdir -p docs
@@ -138,8 +131,7 @@ jobs:
             git checkout --ours data-cache.json 2>/dev/null || true
             git checkout --ours .build-cache.json 2>/dev/null || true
             git checkout --ours docs/ 2>/dev/null || true
-            git checkout --ours ai-docs/ 2>/dev/null || true
-            git add data-cache.json .build-cache.json docs/ ai-docs/
+            git add data-cache.json .build-cache.json docs/
             git stash drop 2>/dev/null || true
           fi
           # conflict 마커 남아있으면 제거
@@ -147,6 +139,6 @@ jobs:
             echo "⚠️ Removing conflict markers from data-cache.json"
             sed -i '/^<<<<<<</d; /^=======/d; /^>>>>>>>/d' data-cache.json
           fi
-          git add docs/ ai-docs/ reports/ data-cache.json .build-cache.json history/ data/ -f snapshots/
-          git diff --staged --quiet || git commit -m "Update report $(date +'%Y-%m-%d %H:%M')"
+          git add docs/ reports/ data-cache.json .build-cache.json history/ data/ -f snapshots/
+          git diff --staged --quiet || git commit -m "Update GamerScroll $(date +'%Y-%m-%d %H:%M')"
           git push

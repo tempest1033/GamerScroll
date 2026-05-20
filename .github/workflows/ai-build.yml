@@ -1,0 +1,75 @@
+name: Build and Deploy AIScroll
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/tech/**'
+      - 'reports/issue/**'
+      - 'data/wiki/**'
+      - 'reports/hotpick/**'
+      - 'generate-ai-blog.js'
+      - 'src/templates/ai-blog/**'
+      - 'src/styles/**'
+      - 'src/build/**'
+      - 'ai-build-cache.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-deploy-aiscroll
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        id: node-cache
+        with:
+          path: node_modules
+          key: node-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci --prefer-offline
+
+      - name: Build AIScroll
+        env:
+          AISCROLL_GA4_PROPERTY_ID: ${{ secrets.AISCROLL_GA4_PROPERTY_ID }}
+          AISCROLL_GA4_SERVICE_ACCOUNT: ${{ secrets.AISCROLL_GA4_SERVICE_ACCOUNT }}
+          ADS_ENABLED: 'true'
+        run: node generate-ai-blog.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git stash --include-untracked
+          git pull origin main --rebase
+          if ! git stash pop; then
+            echo "⚠️ Conflict detected - using newly generated AIScroll output"
+            git checkout --ours ai-docs/ 2>/dev/null || true
+            git add ai-docs/
+            git stash drop 2>/dev/null || true
+          fi
+          git add ai-docs/ data/tech/ reports/issue/ data/wiki/ reports/hotpick/ -f
+          git diff --staged --quiet || git commit -m "Build AIScroll $(date +'%Y-%m-%d %H:%M')"
+          git push
