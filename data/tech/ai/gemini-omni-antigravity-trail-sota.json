@@ -8,8 +8,8 @@
   "titleEn": "Gemini 3.5, Omni, Antigravity 2.0: Google's New Lineup Trails Opus and GPT-5.5",
   "date": "2026-05-21T11:00Z",
   "thumbnail": "https://techcrunch.com/wp-content/uploads/2026/05/google-developer-antigravity.jpg?resize=1200,900",
-  "keywords": "구글 I/O 2026, 제미나이 3.5 플래시, 제미나이 옴니, 안티그래비티 2.0, SOTA 모델 비교, 클로드 오퍼스 4.7, GPT-5.5, 프론티어 AI 모델 평가",
-  "keywordsEn": "Google I/O 2026, Gemini 3.5 Flash, Gemini Omni, Antigravity 2.0, frontier AI model, Claude Opus 4.7, GPT-5.5, SOTA benchmark comparison",
+  "keywords": "I/O 2026, 제미나이 3.5 플래시, 제미나이 옴니, 안티그래비티 2.0, SOTA 비교, 오퍼스 4.7, GPT-5.5, 프론티어 AI",
+  "keywordsEn": "I/O 2026, Gemini 3.5 Flash, Gemini Omni, Antigravity 2.0, frontier AI, Opus 4.7, GPT-5.5, SOTA benchmark",
   "sources": [
     {
       "name": "Google Blog",
@@ -48,7 +48,7 @@
   "content": [
     {
       "type": "text",
-      "value": "구글이 2026년 5월 19일 미국 마운틴뷰 쇼어라인 앰피시어터에서 개최한 '구글 I/O 2026' 키노트에서 제미나이 3.5 플래시, 제미나이 옴니 플래시, 그리고 [안티그래비티 2.0](/ko/article/google/antigravity-usage-rollback-gemini-partial-revert/)을 공개했다.\n\n구글은 제미나이 3.5 플래시를 코딩과 에이전트 작업에서 제미나이 3.1 프로를 능가하도록 설계된 차세대 프론티어 모델로 소개했으며, 제미나이 옴니 플래시는 비디오 입력부터 대응하는 네이티브 멀티모달 모델로, 안티그래비티 2.0은 개발자 업무의 오케스트레이션 도구로 내세웠다.\n\n그러나 출시 초기 업계의 평가는 크게 갈리고 있다.\n\n이미 시장에 안착한 클로드 4.7 오퍼스나 GPT-5.5 등 경쟁사 프론티어 모델과의 벤치마크 비교에서, 새로 공개된 제미나이 3.5 플래시는 선두권 성능 기준에 미치지 못했다.\n\n아울러 제미나이 옴니 플래시는 안전성을 이유로 [실시간 음성 편집 기능이 제외된 채](https://www.techtimes.com/articles/316859/20260519/google-launches-gemini-omni-video-model-holds-back-its-riskiest-feature.htm) 출시됐으며, 안티그래비티 2.0 역시 [개발자 포럼](https://discuss.ai.google.dev/t/antigravity-review/109884)에서 주로 안정성 문제를 지적받고 있다."
+      "value": "구글이 2026년 5월 19일 미국 마운틴뷰 쇼어라인 앰피시어터에서 개최한 '구글 I/O 2026' 키노트에서 제미나이 3.5 플래시, 제미나이 옴니 플래시, 그리고 [안티그래비티의 이전 사용량 제한 사태](/ko/article/google/antigravity-usage-rollback-gemini-partial-revert/)을 공개했다.\n\n구글은 제미나이 3.5 플래시를 코딩과 에이전트 작업에서 제미나이 3.1 프로를 능가하도록 설계된 차세대 프론티어 모델로 소개했으며, 제미나이 옴니 플래시는 비디오 입력부터 대응하는 네이티브 멀티모달 모델로, 안티그래비티 2.0은 개발자 업무의 오케스트레이션 도구로 내세웠다.\n\n그러나 출시 초기 업계의 평가는 크게 갈리고 있다.\n\n이미 시장에 안착한 클로드 4.7 오퍼스나 GPT-5.5 등 경쟁사 프론티어 모델과의 벤치마크 비교에서, 새로 공개된 제미나이 3.5 플래시는 선두권 성능 기준에 미치지 못했다.\n\n아울러 제미나이 옴니 플래시는 안전성을 이유로 [실시간 음성 편집 기능이 제외된 채](https://www.techtimes.com/articles/316859/20260519/google-launches-gemini-omni-video-model-holds-back-its-riskiest-feature.htm) 출시됐으며, 안티그래비티 2.0 역시 [개발자 포럼](https://discuss.ai.google.dev/t/antigravity-review/109884)에서 주로 안정성 문제를 지적받고 있다."
     },
     {
       "type": "heading",
@@ -58,11 +58,11 @@
       "type": "image",
       "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-5__keywordstatement__metacard__light.width-1300.png",
       "caption": "제미나이 3.5 키 아트",
-      "alt": "Frontier intelligence key art on light gradient background"
+      "alt": "제미나이 3.5 프론티어 인텔리전스 키 아트"
     },
     {
       "type": "text",
-      "value": "새 모델 제품군의 핵심적인 격차는 최상위 모델 구조에서부터 나타난다.\n\n구글은 [공식 발표 자료](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/)를 통해 제미나이 3.5 플래시가 GPQA 다이아몬드에서 90.4%, SWE-벤치 베리파이드에서 78%를 기록했다고 밝히며, 이를 개발자 에이전트를 위한 핵심 엔진으로 제시했다. 하지만 키노트에서의 성능 비교 대상은 자사의 이전 세대 모델인 제미나이 3.1 프로에 그쳤다.\n\n그러나 실제 경쟁 관계에 있는 기준점은 이보다 높은 성능 수준을 요구한다.\n\n앤트로픽의 [클로드 4.7 오퍼스](https://www.anthropic.com/claude/opus)는 동일한 GPQA 평가에서 94.2%, SWE-벤치 베리파이드에서 87.6%의 정확도를 기록했다. 오픈AI의 GPT-5.5 역시 GPQA에서 93.6%를 기록했으며, 상위 프로(Pro) 버전의 경우 94.4%의 성능을 확보한 상태다.\n\n이들 모델과 직접 대조했을 때, 제미나이 3.5 플래시는 두 가지 주요 지표 모두에서 상대적으로 낮은 성능을 보인다.\n\n업계 분석가들은 구글이 발표 무대에서 경쟁사와의 직접적인 비교를 피한 것을 두고 성능 격차를 우회적으로 인정한 것이라는 분석을 내놓는다. 자사의 구형 중위급 모델 대비 성능 향상을 근거로 '프론티어' 등급을 주장하는 것은 기준을 자의적으로 적용했다는 지적이 따른다."
+      "value": "이번 SOTA 모델 비교에서 새 모델 제품군의 핵심적인 격차는 최상위 모델 구조에서부터 나타난다.\n\n구글은 [공식 발표 자료](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/)를 통해 제미나이 3.5 플래시가 GPQA 다이아몬드에서 90.4%, SWE-벤치 베리파이드에서 78%를 기록했다고 밝히며, 이를 개발자 에이전트를 위한 핵심 엔진으로 제시했다. 하지만 키노트에서의 성능 비교 대상은 자사의 이전 세대 모델인 제미나이 3.1 프로에 그쳤다.\n\n그러나 실제 경쟁 관계에 있는 기준점은 이보다 높은 성능 수준을 요구한다.\n\n앤트로픽의 [클로드 4.7 오퍼스](https://www.anthropic.com/claude/opus)는 동일한 GPQA 평가에서 94.2%, SWE-벤치 베리파이드에서 87.6%의 정확도를 기록했다. 오픈AI의 GPT-5.5 역시 GPQA에서 93.6%를 기록했으며, 상위 프로(Pro) 버전의 경우 94.4%의 성능을 확보한 상태다.\n\n이들 모델과 직접 대조했을 때, 제미나이 3.5 플래시는 두 가지 주요 지표 모두에서 상대적으로 낮은 성능을 보인다.\n\n업계 분석가들은 구글이 발표 무대에서 경쟁사와의 직접적인 비교를 피한 것을 두고 성능 격차를 우회적으로 인정한 것이라는 분석을 내놓는다. 자사의 구형 중위급 모델 대비 성능 향상을 근거로 '프론티어' 등급을 주장하는 것은 기준을 자의적으로 적용했다는 지적이 따른다."
     },
     {
       "type": "ad"
@@ -75,7 +75,7 @@
       "type": "image",
       "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GeminiOmni_social.width-1300.png",
       "caption": "제미나이 옴니 소셜 키 아트",
-      "alt": "Sunflower spiral graphic with white wordmark overlay"
+      "alt": "제미나이 옴니 해바라기 키 아트"
     },
     {
       "type": "text",
@@ -104,7 +104,7 @@
     },
     {
       "type": "text",
-      "value": "이번에 공개된 세 가지 제품군의 개발 주기에서는 일관된 흐름이 나타난다.\n\n제미나이 3.5 플래시는 무대 위에서 상위 경쟁 모델과의 직접적인 성능 벤치마크 비교를 거치지 않은 채 '프론티어' 명칭을 적용받았다. 제미나이 옴니 플래시는 가장 기대를 모았던 멀티모달 음성 기능이 비활성화된 상태로 첫선을 보였다. 한편 안티그래비티 2.0은 개발자 도구의 구조적 변화를 제시했으나, 설치 직후 초기 안정성 결함을 해결해야 하는 사용상의 부담을 안겼다.\n\n공식 발표는 신속하게 진행하되 실제 세부 기능의 완성까지는 오랜 시간이 소요되는 특징이 유지된 셈이다.\n\n이러한 흐름은 [에이전트 중심의 제미나이 생태계 구축을 선언한 구글의 전략](/ko/article/google/google-io-2026-agentic-gemini/)이 직면한 구조적 문제를 보여준다. 단일 개발자 키노트에서 모델, 모바일 애플리케이션, 검색 서비스, 모바일 운영체제를 동시다발적으로 개편하려다 보니, 개별 제품이 충분한 안정성 검증을 거치지 못한 채 시장에 출시되는 결과를 낳았다는 평가다."
+      "value": "이번에 공개된 세 가지 제품군의 개발 주기에서는 일관된 흐름이 나타난다.\n\n제미나이 3.5 플래시는 무대 위에서 상위 경쟁 모델과의 직접적인 성능 벤치마크 비교를 거치지 않은 채 '프론티어' 명칭을 적용받았다. 제미나이 옴니 플래시는 가장 기대를 모았던 멀티모달 음성 기능이 비활성화된 상태로 첫선을 보였다. 한편 안티그래비티 2.0은 개발자 도구의 구조적 변화를 제시했으나, 설치 직후 초기 안정성 결함을 해결해야 하는 사용상의 부담을 안겼다.\n\n공식 발표는 신속하게 진행하되 실제 세부 기능의 완성까지는 오랜 시간이 소요되는 특징이 유지된 셈이다.\n\n이러한 흐름은 [구글 I/O 2026 종합 보도](/ko/article/google/google-io-2026-agentic-gemini/)이 직면한 구조적 문제를 보여준다. 단일 개발자 키노트에서 모델, 모바일 애플리케이션, 검색 서비스, 모바일 운영체제를 동시다발적으로 개편하려다 보니, 개별 제품이 충분한 안정성 검증을 거치지 못한 채 시장에 출시되는 결과를 낳았다는 평가다."
     },
     {
       "type": "heading",
@@ -118,7 +118,7 @@
   "contentEn": [
     {
       "type": "text",
-      "value": "On May 19, 2026, at the Shoreline Amphitheatre in Mountain View, Google unveiled Gemini 3.5 Flash, Gemini Omni Flash, and [Antigravity 2.0](/article/google/antigravity-usage-rollback-gemini-partial-revert/) during its I/O 2026 keynote.\n\nGoogle framed Gemini 3.5 Flash as a next-generation frontier model built to surpass Gemini 3.1 Pro in coding and agentic workflows, positioned Gemini Omni Flash as a native multimodal model starting with video inputs, and pitched Antigravity 2.0 as an orchestrator for developer tasks.\n\nHowever, early industry reception has been sharply divided.\n\nIn benchmarks against established frontier systems like Claude 4.7 Opus and GPT-5.5, the newly released Gemini 3.5 Flash fell short of the performance threshold required for top-tier status.\n\nFurthermore, Gemini Omni Flash shipped with [Google withholding its most powerful real-time voice editing features](https://www.techtimes.com/articles/316859/20260519/google-launches-gemini-omni-video-model-holds-back-its-riskiest-feature.htm) for safety reasons, while [developer forum](https://discuss.ai.google.dev/t/antigravity-review/109884) feedback for Antigravity 2.0 has been bogged down by stability complaints."
+      "value": "On May 19, 2026, at the Shoreline Amphitheatre in Mountain View, Google unveiled Gemini 3.5 Flash, Gemini Omni Flash, and [Antigravity's earlier quota rollback](/article/google/antigravity-usage-rollback-gemini-partial-revert/) during its I/O 2026 keynote.\n\nGoogle framed Gemini 3.5 Flash as a next-generation frontier model built to surpass Gemini 3.1 Pro in coding and agentic workflows, positioned Gemini Omni Flash as a native multimodal model starting with video inputs, and pitched Antigravity 2.0 as an orchestrator for developer tasks.\n\nHowever, early industry reception has been sharply divided.\n\nIn benchmarks against established frontier systems like Claude 4.7 Opus and GPT-5.5, the newly released Gemini 3.5 Flash fell short of the performance threshold required for top-tier status.\n\nFurthermore, Gemini Omni Flash shipped with [Google withholding its most powerful real-time voice editing features](https://www.techtimes.com/articles/316859/20260519/google-launches-gemini-omni-video-model-holds-back-its-riskiest-feature.htm) for safety reasons, while [developer forum](https://discuss.ai.google.dev/t/antigravity-review/109884) feedback for Antigravity 2.0 has been bogged down by stability complaints."
     },
     {
       "type": "heading",
@@ -132,7 +132,7 @@
     },
     {
       "type": "text",
-      "value": "The core discrepancy begins at the very top of Google's new model hierarchy.\n\nIn its [official launch post](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/), Google highlighted Gemini 3.5 Flash scoring 90.4% on GPQA Diamond and 78% on SWE-bench Verified, presenting it as a premier engine for developer agents. However, the keynote comparison was strictly limited to Google's own predecessor, Gemini 3.1 Pro.\n\nBut the true competitive benchmark sits a level higher.\n\nAnthropic's [Claude 4.7 Opus](https://www.anthropic.com/claude/opus) commands a 94.2% score on the same GPQA test and an 87.6% success rate on SWE-bench Verified. Similarly, OpenAI's GPT-5.5 scores 93.6% on GPQA, with its premium Pro variant reaching 94.4%.\n\nWhen compared directly, Gemini 3.5 Flash lags behind these rivals on both critical benchmarks.\n\nIndustry analysts note that Google's decision to avoid head-to-head comparisons on stage reflects a tacit acknowledgment of this performance gap. Claiming a 'frontier' classification while only outperforming its own older mid-tier model suggests Google is grading its progress on a curve."
+      "value": "The core discrepancy in this SOTA benchmark comparison begins at the very top of Google's new model hierarchy.\n\nIn its [official launch post](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/), Google highlighted Gemini 3.5 Flash scoring 90.4% on GPQA Diamond and 78% on SWE-bench Verified, presenting it as a premier engine for developer agents. However, the keynote comparison was strictly limited to Google's own predecessor, Gemini 3.1 Pro.\n\nBut the true competitive benchmark sits a level higher.\n\nAnthropic's [Claude 4.7 Opus](https://www.anthropic.com/claude/opus) commands a 94.2% score on the same GPQA test and an 87.6% success rate on SWE-bench Verified. Similarly, OpenAI's GPT-5.5 scores 93.6% on GPQA, with its premium Pro variant reaching 94.4%.\n\nWhen compared directly, Gemini 3.5 Flash lags behind these rivals on both critical benchmarks.\n\nIndustry analysts note that Google's decision to avoid head-to-head comparisons on stage reflects a tacit acknowledgment of this performance gap. Claiming a 'frontier' classification while only outperforming its own older mid-tier model suggests Google is grading its progress on a curve."
     },
     {
       "type": "ad"
@@ -174,7 +174,7 @@
     },
     {
       "type": "text",
-      "value": "A consistent underlying pattern connects the development cycle of all three product lines.\n\nGemini 3.5 Flash claimed the 'frontier' label while avoiding head-to-head performance benchmarks against top-tier competitors on stage. Gemini Omni Flash debuted with its most promising multimodal voice features disabled. Meanwhile, Antigravity 2.0 presented developers with a structural tool shift, only to force them into debugging early stability flaws immediately after installation.\n\nThe strategic cadence remains unchanged: rapid public announcements followed by highly protracted feature completion.\n\nThis trend reflects the systemic challenges of [Google's comprehensive bet on an agentic Gemini ecosystem](/article/google/google-io-2026-agentic-gemini/). When a single developer keynote attempts to overhaul models, mobile applications, search services, and mobile operating systems simultaneously, individual products are pushed to market without receiving the dedicated focus necessary for a polished user experience."
+      "value": "A consistent underlying pattern connects the development cycle of all three product lines.\n\nGemini 3.5 Flash claimed the 'frontier' label while avoiding head-to-head performance benchmarks against top-tier competitors on stage. Gemini Omni Flash debuted with its most promising multimodal voice features disabled. Meanwhile, Antigravity 2.0 presented developers with a structural tool shift, only to force them into debugging early stability flaws immediately after installation.\n\nThe strategic cadence remains unchanged: rapid public announcements followed by highly protracted feature completion.\n\nThis trend reflects the systemic challenges of [Google's broader I/O 2026 keynote overhaul](/article/google/google-io-2026-agentic-gemini/). When a single developer keynote attempts to overhaul models, mobile applications, search services, and mobile operating systems simultaneously, individual products are pushed to market without receiving the dedicated focus necessary for a polished user experience."
     },
     {
       "type": "heading",
