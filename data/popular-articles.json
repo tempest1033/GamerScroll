@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-05-20T01:55:27.563Z",
+  "updatedAt": "2026-05-21T01:30:39.757Z",
   "period": "7days",
   "articles": [
     {
       "type": "issue",
       "slug": "sony-pc-exit-hulst-confirmation",
-      "views": 45,
+      "views": 52,
       "path": "/magazine/issue/sony-pc-exit-hulst-confirmation/"
     },
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 28,
+      "views": 24,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
@@ -21,19 +21,6 @@
       "category": "ai",
       "views": 21,
       "path": "/tech/ai/musk-openai-jury-verdict-dismissed/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 15,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 15,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
@@ -48,22 +35,35 @@
       "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 13,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
+      "views": 12,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "issue",
+      "slug": "crimson-desert-2month-chart-trend",
+      "views": 11,
+      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
+    },
+    {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
-      "views": 11,
+      "views": 9,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 9,
+      "views": 8,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-2month-chart-trend",
-      "views": 9,
-      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
     },
     {
       "type": "tech",
@@ -71,12 +71,6 @@
       "category": "ai",
       "views": 8,
       "path": "/tech/ai/google-gemini-3-2-3-5-imminent/"
-    },
-    {
-      "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
-      "views": 7,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "hotpick",
@@ -92,23 +86,23 @@
     },
     {
       "type": "tech",
-      "slug": "china-ai-video-kling3-seedance2",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
       "category": "ai",
-      "views": 6,
-      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
       "views": 5,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "slug": "china-ai-video-kling3-seedance2",
       "category": "ai",
+      "views": 5,
+      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
+    },
+    {
+      "type": "issue",
+      "slug": "neverness-to-everness-launch-date",
       "views": 4,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "tech",
@@ -116,6 +110,12 @@
       "category": "ai",
       "views": 4,
       "path": "/tech/ai/nvidia-q1-fy27-ai-rally-test/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 3,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -132,6 +132,13 @@
     },
     {
       "type": "tech",
+      "slug": "gemini-free-tier-cutback-backlash",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
+    },
+    {
+      "type": "tech",
       "slug": "gpt55-opus47-degradation-admission",
       "category": "ai",
       "views": 3,
@@ -143,6 +150,13 @@
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/nvidia-ai-chip-monopoly-cracking/"
+    },
+    {
+      "type": "tech",
+      "slug": "codex-install-guide-windows",
+      "category": "vibecoding",
+      "views": 3,
+      "path": "/tech/vibecoding/codex-install-guide-windows/"
     },
     {
       "type": "issue",
@@ -177,18 +191,11 @@
       "path": "/tech/ai/grok-420-multi-agent-release/"
     },
     {
-      "type": "tech",
-      "slug": "2d-animation-tech",
-      "category": "normal",
-      "views": 2,
-      "path": "/tech/normal/2d-animation-tech/"
-    },
-    {
       "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
+      "slug": "kurzweil-singularity-review-2026",
+      "category": "knowledge",
       "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
+      "path": "/wiki/knowledge/kurzweil-singularity-review-2026/"
     },
     {
       "type": "hotpick",
@@ -201,12 +208,6 @@
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-game-license-normalization",
-      "views": 1,
-      "path": "/magazine/issue/china-game-license-normalization/"
     },
     {
       "type": "issue",
@@ -251,6 +252,12 @@
       "path": "/magazine/issue/mongil-star-dive-global-launch/"
     },
     {
+      "type": "issue",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "views": 1,
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+    },
+    {
       "type": "ranking",
       "slug": "mobile-february-2026-kr",
       "views": 1,
@@ -277,6 +284,13 @@
     },
     {
       "type": "tech",
+      "slug": "claude-opus-46-pricing-controversy",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "type": "tech",
       "slug": "claude-sonnet-47-fennec-release-rumor",
       "category": "ai",
       "views": 1,
@@ -298,13 +312,6 @@
     },
     {
       "type": "tech",
-      "slug": "gemini-free-tier-cutback-backlash",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
-    },
-    {
-      "type": "tech",
       "slug": "gpt-53-codex-community-reaction",
       "category": "ai",
       "views": 1,
@@ -312,17 +319,24 @@
     },
     {
       "type": "tech",
-      "slug": "openai-crisis-competition-direction-2026",
-      "category": "ai",
+      "slug": "2d-animation-tech",
+      "category": "normal",
       "views": 1,
-      "path": "/tech/ai/openai-crisis-competition-direction-2026/"
+      "path": "/tech/normal/2d-animation-tech/"
     },
     {
       "type": "tech",
-      "slug": "codex-install-guide-windows",
+      "slug": "rewinding-cadence-technical-test",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/rewinding-cadence-technical-test/"
+    },
+    {
+      "type": "tech",
+      "slug": "codex-install-guide-mac",
       "category": "vibecoding",
       "views": 1,
-      "path": "/tech/vibecoding/codex-install-guide-windows/"
+      "path": "/tech/vibecoding/codex-install-guide-mac/"
     },
     {
       "type": "wiki",
@@ -333,24 +347,17 @@
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
+      "slug": "platform-fees-comparison",
+      "category": "business",
       "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
       "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "kurzweil-singularity-review-2026",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/kurzweil-singularity-review-2026/"
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     }
   ]
 }
