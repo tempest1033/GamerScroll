@@ -3,7 +3,7 @@
       background: var(--glass-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: none;
+      border-bottom: 1px solid var(--border);
       padding: 24px 0 12px;
       transition: opacity 0.2s, max-height 0.2s;
     }

@@ -17,11 +17,11 @@
 
   /* === Dark Mode Variables === */
   :root {
-    /* Primary Colors - 게이밍 느낌 오렌지 계열 */
-    --primary: #ff6b35; /* Orange-Red */
-    --primary-light: #ff8f66;
-    --primary-dark: #e55a2b;
-    --accent: #ffc107; /* Gold */
+    /* Primary Colors - 다크 BG에서 잘 보이는 라이트 블루 */
+    --primary: #58A6FF;
+    --primary-light: #79B8FF;
+    --primary-dark: #388BFD;
+    --accent: #79B8FF;
 
     /* Background & Surface - 검정 계열 (청색 배제) */
     --bg: #121212; /* Material Design 표준 다크 */
@@ -46,7 +46,7 @@
     --bg-tertiary: #1a1a1a; /* 배경보다 약간 밝은 색 */
     --border-color: #333333;
     --bg-hover: #2a2a2a;
-    --accent-color: #ff6b35;
+    --accent-color: #58A6FF;
 
     /* Shadows - 다크모드 최적화 + 미세 글로우 */
     --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.4);
@@ -65,33 +65,33 @@
 
     /* Semantic Colors - 다크모드 */
     --success: #4ade80;
-    --active-bg: rgba(255, 107, 53, 0.15);
+    --active-bg: rgba(88, 166, 255, 0.15);
     --item-bg: #1e1e1e;
 
-    /* Glow Effects - 게이밍 특화 */
-    --glow-primary: 0 0 20px rgba(255, 107, 53, 0.3);
-    --glow-accent: 0 0 20px rgba(255, 193, 7, 0.25);
+    /* Glow Effects - 톤 통일 */
+    --glow-primary: 0 0 20px rgba(88, 166, 255, 0.25);
+    --glow-accent: 0 0 20px rgba(121, 184, 255, 0.20);
 
-    /* === 다크모드 전용 Insight/Accent Colors (오렌지) === */
-    --insight-border: rgba(255, 107, 53, 0.25);
-    --insight-header-border: rgba(255, 107, 53, 0.2);
-    --insight-icon: #ff6b35;
-    --metric-color: #ff6b35;
-    --gradient-progress: linear-gradient(90deg, #ff6b35, #ffc107);
-    --gradient-accent: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
+    /* === 다크모드 전용 Insight/Accent Colors (블루 톤) === */
+    --insight-border: rgba(88, 166, 255, 0.25);
+    --insight-header-border: rgba(88, 166, 255, 0.2);
+    --insight-icon: #58A6FF;
+    --metric-color: #58A6FF;
+    --gradient-progress: linear-gradient(90deg, #79B8FF, #388BFD);
+    --gradient-accent: linear-gradient(135deg, #79B8FF 0%, #388BFD 100%);
 
-    /* === 다크모드 전용 Icon Backgrounds (오렌지 통일) === */
-    --icon-bg-hot: rgba(255, 107, 53, 0.25);
-    --icon-bg-industry: rgba(255, 107, 53, 0.25);
-    --icon-bg-metrics: rgba(255, 107, 53, 0.25);
-    --icon-bg-rankings: rgba(255, 107, 53, 0.25);
-    --icon-bg-community: rgba(255, 107, 53, 0.25);
-    --icon-bg-streaming: rgba(255, 107, 53, 0.25);
-    --icon-bg-stocks: rgba(255, 107, 53, 0.25);
+    /* === 다크모드 전용 Icon Backgrounds (블루 통일) === */
+    --icon-bg-hot: rgba(88, 166, 255, 0.20);
+    --icon-bg-industry: rgba(88, 166, 255, 0.20);
+    --icon-bg-metrics: rgba(88, 166, 255, 0.20);
+    --icon-bg-rankings: rgba(88, 166, 255, 0.20);
+    --icon-bg-community: rgba(88, 166, 255, 0.20);
+    --icon-bg-streaming: rgba(88, 166, 255, 0.20);
+    --icon-bg-stocks: rgba(88, 166, 255, 0.20);
 
-    /* === 다크모드 전용 Tag Base Colors (밝은 오렌지) === */
-    --tag-bg: rgba(255, 112, 67, 0.18);
-    --tag-color: #ff7043;
+    /* === 다크모드 전용 Tag Base Colors (블루) === */
+    --tag-bg: rgba(88, 166, 255, 0.18);
+    --tag-color: #79B8FF;
 
     /* === 다크모드 전용 Section Colors (미니멀 - 투명/단색) === */
     --section-gradient: transparent;

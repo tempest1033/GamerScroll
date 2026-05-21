@@ -75,7 +75,12 @@
       height: auto;
     }
     #sidebar-categories .home-card-title {
-      font-size: 15px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    /* 그룹 사이는 헤더의 border-bottom으로 자연 구분 */
+    #sidebar-categories .sidebar-category-group + .sidebar-category-group {
+      margin-top: 4px;
     }
     #sidebar-categories .sidebar-category-name::before {
       content: '•';
@@ -89,7 +94,7 @@
     .sidebar-category-item {
       display: flex;
       align-items: center;
-      padding: 8px 16px;
+      padding: 8px 20px;
       text-decoration: none;
       color: var(--text);
       background: transparent;
@@ -153,18 +158,13 @@
       text-overflow: ellipsis;
     }
 
-	    /* 홈 카드 공통 */
+	    /* 홈 카드 공통 - 블로그 톤: hover 효과 없이 정적, 미세 그림자로 BG와 분리 */
 	    .home-card {
 	      background: var(--card);
 	      border-radius: var(--radius);
 	      box-shadow: var(--shadow-sm);
 	      border: 1px solid var(--border);
 	      overflow: hidden;
-	      transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
-	    }
-
-	    .home-card:hover {
-	      box-shadow: var(--shadow);
 	    }
 
     /* 풀 너비 카드 (그리드 내 2컬럼 차지) */
@@ -177,8 +177,8 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: nowrap;
-      padding: 12px 20px;
-      height: 52px;
+      padding: 16px 24px;
+      height: 60px;
       box-sizing: border-box;
       border-bottom: 1px solid var(--border);
       background: transparent;
@@ -196,7 +196,7 @@
     #sidebar-categories .home-card-title-link {
       display: block;
       width: 100%;
-      padding: 12px 16px 8px;
+      padding: 14px 20px;
       text-decoration: none;
       color: inherit;
       transition: background var(--transition-fast);

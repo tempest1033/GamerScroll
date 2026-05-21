@@ -49,10 +49,7 @@ function generateNav(currentPage = 'home') {
   <nav class="nav">
     <div class="nav-inner">
       ${navItems.map(item => `
-      <a class="nav-item${item.id === currentPage ? ' active' : ''}" href="${item.href}">
-        ${item.icon}
-        ${item.label}
-      </a>`).join('')}
+      <a class="nav-item${item.id === currentPage ? ' active' : ''}" href="${item.href}">${item.label}</a>`).join('')}
     </div>
   </nav>
   <script>
