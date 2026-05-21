@@ -22,3 +22,11 @@ credentials/
 
 # 참고용 외부 코드 (yoastseo source 등 — local-only reference)
 ref/
+
+# 로컬 dev 도우미 (디자인 비교/임시 처리용)
+/dev-*.js
+/ai-docs/_serve.js
+/nul
+/themed-*.html
+/docs/themed-*.html
+/ai-docs/themed-*.html
