@@ -1,0 +1,184 @@
+{
+  "slug": "chatgpt-heavy-thinking-removed-codex-nerf",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "openai",
+  "site": "aiscroll",
+  "title": "챗GPT 프로 '헤비' 추론 옵션 예고 없이 삭제… 코덱스 성능 저하 항의도 폭발",
+  "titleEn": "ChatGPT Pro Quietly Drops 'Heavy' Thinking as r/codex Erupts With Nerf Complaints",
+  "date": "",
+  "thumbnail": "https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2025/08/Open-AI-decrypt-style-01-gID_7.png",
+  "keywords": "헤비 옵션, 오픈AI 너프, 코덱스 너프, 챗GPT 프로, 추론 강도",
+  "keywordsEn": "Heavy option, OpenAI silent nerf, Codex nerf, ChatGPT Pro, reasoning selector",
+  "summary": "오픈AI가 5월 22일 챗GPT 프로의 최고 단계 추론 옵션인 '헤비'를 예고 없이 삭제했다. 같은 날 개발자 포럼에서도 성능 저하 항의가 쏟아지며, 사전 고지 없는 '조용한 다운그레이드' 의혹이 짙어지고 있다.",
+  "summaryEn": "On May 22, ChatGPT Pro quietly removed its 'Heavy' thinking tier while r/codex erupted with nerf complaints, fueling suspicion of a silent OpenAI rollback.",
+  "sources": [
+    {
+      "name": "Reddit r/ChatGPTPro",
+      "title": "Updated ChatGPT web GUI lacks reasoning selector",
+      "url": "https://www.reddit.com/r/ChatGPTPro/comments/1tk3s38/updated_chatgpt_web_gui_lacks_reasoning_selector/"
+    },
+    {
+      "name": "Reddit r/codex",
+      "title": "Nerfed Nerfed Nerfed",
+      "url": "https://www.reddit.com/r/codex/comments/1tjzved/nerfed_nerfed_nerfed/"
+    },
+    {
+      "name": "OpenAI Status",
+      "title": "Codex 5.5 engines experiencing high error rate (resolved)",
+      "url": "https://status.openai.com/incidents/01KRG6MF021JQ997JCR7R8Y9A0"
+    },
+    {
+      "name": "OpenAI Community",
+      "title": "GPT-5.5 Codex quality degrading over the last month",
+      "url": "https://community.openai.com/t/gpt-5-5-1-and-5-2-codex-quality-degrading-over-last-month-or-so/1366694"
+    },
+    {
+      "name": "Reddit r/GithubCopilot",
+      "title": "GPT-5.4 only has medium thinking level, high is gone",
+      "url": "https://www.reddit.com/r/GithubCopilot/comments/1srk6wo/gpt54_only_have_medium_thinking_level_but_high_is/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gemini-pricing-overhaul-compute-limits-backlash",
+    "tech:ai/openai-side-quests-pivot-coding-enterprise",
+    "tech:ai/openai-crisis-competition-direction-2026",
+    "tech:ai/openai-chatgpt-growth-100b-funding"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 5월 22일, 오픈AI에 두 가지 논란이 한 번에 불거졌다. 웹 브라우저로 접속한 챗GPT 프로 구독자들의 추론 세기 조절 메뉴에서 최상위 단계인 '헤비'(Heavy) 옵션이 예고 없이 사라졌다. 선택창 자체는 여전하지만, 연산 부하가 가장 큰 핵심 추론 설정이 통째로 빠진 것이다.\n\n같은 날, 개발자 중심의 레딧 코덱스 커뮤니티(r/codex)에서도 성능 저하를 성토하는 목소리가 터져 나왔다. 커뮤니티 게시판은 '너프됐다(Nerfed)'거나 더는 작업을 정상적으로 진행할 수 없다는 개발자들의 항의글로 도배되다시피 했다. '헤비' 옵션 삭제가 아무런 사전 공지 없이 단행된 가운데, 코덱스 성능 저하 의혹에 대해서도 오픈AI는 침묵을 지키고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "사라진 '헤비' 추론 옵션, 챗GPT 프로 웹 화면에서 삭제"
+    },
+    {
+      "type": "text",
+      "value": "이상 징후는 5월 22일 레딧의 r/ChatGPTPro 커뮤니티에서 가장 먼저 포착됐다. 이곳의 이용자들은 [\"Updated ChatGPT web GUI lacks reasoning selector\"](https://www.reddit.com/r/ChatGPTPro/comments/1tk3s38/updated_chatgpt_web_gui_lacks_reasoning_selector/) 스레드를 공유하며, 웹 화면의 추론 세기 선택 메뉴에서 최상위 단계인 '헤비' 옵션과 깃허브 코파일럿 연동용 '엑스하이(xhigh)' 옵션이 증발했다고 폭로했다. 현재 사용자 화면에 노출되는 옵션은 '라이트(Light)', '스탠다드(Standard)', '익스텐디드(Extended)' 세 단계뿐이다.\n\n사용자들이 고개를 갸웃거리는 이유는 오픈AI의 공식 고객지원 도움말 문서에 있다. 해당 문서에는 여전히 '헤비' 옵션이 GPT-5.5 모델 전용 웹 환경에서 제공되는 프로 등급 전용 혜택으로 명시되어 있기 때문이다. 본래 모바일 애플리케이션에서는 지원하지 않던 웹 전용 기능이었다. 하지만 이번 기능 삭제 조치는 시스템 상태 페이지, 모델 출시 노트, 개발자 포럼 등 오픈AI의 공식 채널 어디에서도 일절 언급되지 않았다.\n\n월 200달러를 지불하는 프로 등급 구독자들에게 이 최상위 추론 토글은 하위 등급인 플러스로 내려가지 않고 최고가 요금제를 유지하는 핵심 명분이었다. 가장 비싼 요금제에서 연산 비용이 많이 드는 핵심 옵션을 빼고도 공식 설명서조차 고치지 않는 무성의한 태도에, 구독자들은 이번 조치가 단순한 일시적 A/B 테스트인지 아니면 기능 축소 내지 전면 폐기인지 의문을 제기하고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "오픈AI 웹에 순차 적용 중인 헤비 옵션 제거"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2182154299.jpg?w=1024",
+      "caption": "OpenAI 본사 행사 발언 장면",
+      "alt": "OpenAI 행사에서 발언하는 임원"
+    },
+    {
+      "type": "text",
+      "value": "이번 '헤비' 옵션 비활성화 조치는 전 글로벌 계정에 일괄 적용되기보다, 5월 22일 당일 웹 환경을 중심으로 순차 적용 중인 것으로 보인다. 실제로 같은 시간대임에도 일부 사용자는 헤비 옵션을 여전히 선택할 수 있는 반면, 다른 계정에서는 옵션 메뉴 자체가 사라지는 등 혼선이 빚어지고 있다.\n\n비슷한 변화는 같은 날 깃허브 코파일럿 개발자 커뮤니티(r/GithubCopilot)에서도 포착됐다. 터미널 기반 코파일럿 CLI에서 최상위 추론 단계인 '엑스하이(xhigh)' 설정이 빠지고 '미디엄(medium)' 옵션만 선택할 수 있게 되었다는 증언이 같은 시간대에 올라왔다.\n\n오픈AI 공식 개발자 포럼의 업데이트 추적 스레드에서도 계정마다 드롭다운 메뉴 구성이 제각각이라는 증언이 잇따랐다. 어떤 계정에는 옵션이 두 개만 표시되는가 하면, 다른 쪽에는 예전처럼 네 단계가 고스란히 남아 있는 등 일관성이 없는 상태다. 이처럼 고르지 못한 업데이트 방식과 오픈AI의 불통 행보가 맞물리면서 값비싼 구독료를 내는 사용자들의 혼란과 불만은 걷잡을 수 없이 커지고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "같은 날 폭발한 레딧 코덱스 커뮤니티의 성능 저하 항의"
+    },
+    {
+      "type": "text",
+      "value": "구독자들이 자취를 감춘 '헤비' 옵션을 찾아 헤매는 동안, 레딧의 코덱스 커뮤니티(r/codex)에서도 모델 성능 하락 의혹이 급부상했다. 5월 21일과 22일 양일간 이곳 게시판 상단은 [\"Nerfed Nerfed Nerfed\"](https://www.reddit.com/r/codex/comments/1tjzved/nerfed_nerfed_nerfed/) 스레드와 더는 정상적인 개발 작업을 이어갈 수 없다는 현업 개발자들의 불만 섞인 성토글로 가득 찼다.\n\n사용자들의 체감형 지적은 크게 네 가지다. 하루 허용량이 예전보다 빨리 바닥난다는 증언과 함께, 잘못된 코드 수정을 무한히 되풀이하는 루프 현상 등이 꼽혔다. 아울러 존재하지 않는 API를 급조하는 환각 증상과 불과 일주일 전 작동하던 작업이 갑자기 불통이 되는 품질 저하를 호소하는 목소리도 높았다.\n\n오픈AI의 깃허브 코덱스 저장소 이슈 트래커에도 동일한 불만 패턴이 줄을 이었다. 일각에서는 백그라운드 모델 라우팅 변경이나 비공개 A/B 테스트 가능성을 의심하지만, 오픈AI가 너프 사실을 인정한 적은 없다. 현재로선 모두 현장 개발자들의 의혹과 일관된 체감 수준에 머물러 있는 셈이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "일시적 오류에 가려진 장기 성능 저하"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/Memory-update.jpeg?resize=1200,845",
+      "caption": "오픈AI 코덱스 인터페이스 화면",
+      "alt": "코덱스 인터페이스"
+    },
+    {
+      "type": "text",
+      "value": "오픈AI가 실시간으로 공개하는 서비스 상태(Status) 페이지를 보면 의문의 실마리가 일부 드러난다. 회사는 지난 5월 8일 코덱스 클라우드 작동 및 오디오 트랜스크립션 실패를 기록한 데 이어, 5월 13일에는 [\"Codex 5.5 engines are experiencing high error rate\"](https://status.openai.com/incidents/01KRG6MF021JQ997JCR7R8Y9A0)(코덱스 5.5 엔진 오류 급증) 현상과 'GPT-5.5 성능 저하' 리포트를 등록하고 당일 정상화했음을 알렸다. 5월 17일에도 유사한 성능 하락 현상이 한 차례 더 감지됐다.\n\n하지만 오픈AI 공식 사용자 커뮤니티에 등록된 [GPT-5.5 코덱스 품질 저하 누적 보고](https://community.openai.com/t/gpt-5-5-1-and-5-2-codex-quality-degrading-over-last-month-or-so/1366694) 스레드는 이와 전혀 다른 시간표를 가리킨다. '당일 조치'로 끝났다던 공식 장애 리포트만으로는 현업 개발자들이 한 달 내내 체감해 온 지속적이고 일관된 성능 저하 현상을 충분히 해명할 수 없기 때문이다.\n\n포럼의 개발자들은 단순한 일시적 인시던트 기록을 넘어, 생성되는 답변의 정확도와 코드 편집 성능의 일관성이 매주 눈에 띄게 감퇴하고 있다고 주장한다. 시스템 페이지의 '해결 완료' 공지와 개발자들이 현업에서 겪는 '여전히 먹통인 생산성' 사이의 커다란 괴리야말로, 오픈AI가 잠수함식 성능 조정을 단행했다는 '너프' 의혹을 강력히 제기하는 이유다."
+    },
+    {
+      "type": "heading",
+      "value": "공식 발표와 현장 체감 사이의 간극"
+    },
+    {
+      "type": "text",
+      "value": "사태를 종합해 보면, 이번 5월 22일의 동시다발적 변화는 단발적 조정이라기보다 한 달 가까이 누적된 일련의 흐름이 표면화된 결과에 가깝다. 웹 인터페이스에서 최상위 단계인 '헤비' 옵션이 조용히 자취를 감춘 사건과, r/codex가 모델 너프 의혹으로 들끓는 사건은 모두 오픈AI 측의 공식 해명이 전무하다는 공통분모를 지닌다.\n\n비슷한 다운그레이드 의심 패턴은 경쟁 진영에서도 관측됐다. 지난 5월 19일 구글이 [제미나이 요금제를 개편하고 연산량 기반 주간 한도로 전환했을 때](/ko/article/google/gemini-pricing-overhaul-compute-limits-backlash/)도 구독자 커뮤니티에서 격렬한 성토가 이어졌다. 요금제 장벽은 낮췄지만, 실질적인 고성능 추론 환경은 오히려 크게 후퇴했다는 지적이었다.\n\n오픈AI는 매번 새로운 모델 발표는 대대적으로 알리면서도, 사용 조건 축소나 성능 품질 변동 사항에 대해서는 철저히 침묵을 유지하고 있다. 최고 성능의 추론 기능을 활용하기 위해 월 200달러를 기꺼이 결제하는 프로 이용자들은, 공식 고객 가이드라인과 빈약해진 선택 메뉴 창 사이의 모순을 매일매일 확인해야 하는 형국이다. 화려한 공식 보도와 개발자들이 현업에서 체감하는 뼈아픈 고충 사이의 그 간극이야말로, 글로벌 서브레딧의 들끓는 성토와 너프 의혹이 도무지 사그라지지 않는 이유이다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On May 22, 2026, two parallel controversies erupted at OpenAI on the same day. ChatGPT Pro subscribers opened the web interface to discover that the \"Heavy\" thinking option had vanished from the reasoning selector; while the dropdown remains, its deepest configuration is gone.\n\nConcurrently, the r/codex community erupted with a fresh wave of degradation complaints, headlined by posts such as \"Nerfed Nerfed Nerfed\" and \"I can't work with Codex anymore.\" The Heavy removal landed without an official OpenAI announcement, and the company has yet to address the Codex degradation complaints."
+    },
+    {
+      "type": "heading",
+      "value": "ChatGPT Pro Web Interface Quietly Loses 'Heavy' Reasoning Option"
+    },
+    {
+      "type": "text",
+      "value": "The earliest warning surfaced on r/ChatGPTPro on May 22 in a post titled [\"Updated ChatGPT web GUI lacks reasoning selector\"](https://www.reddit.com/r/ChatGPTPro/comments/1tk3s38/updated_chatgpt_web_gui_lacks_reasoning_selector/). Users reported that while the selector itself remains, the premium \"Heavy\" setting—along with its \"xhigh\" counterpart on GitHub Copilot—is gone, leaving only the \"Light,\" \"Standard,\" and \"Extended\" tiers.\n\nOpenAI's help documentation continues to list \"Heavy\" as a Pro-exclusive, web-only option for the GPT-5.5 reasoning selector. The mobile application never featured the setting. Crucially, the removal occurred without any mention in OpenAI's status pages, model release notes, or developer forums.\n\nFor Pro subscribers, this particular option serves as the primary justification for the $200-a-month subscription over the standard Plus tier. Removing the most compute-intensive reasoning tier from the highest-priced plan—while leaving help documents outdated—has led the community to question whether this is a silent A/B test, a billing-driven restriction, or a permanent deprecation."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Heavy Option Rolling Out for Removal Across the Web Today"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2182154299.jpg?w=1024",
+      "caption": "OpenAI executive speaking at a company event",
+      "alt": "OpenAI executive speaking"
+    },
+    {
+      "type": "text",
+      "value": "The Heavy removal did not land across every account at once. It is rolling out on the web today, May 22, in stages. In the same hour, some Pro users still see Heavy in their selector as before, while others find it missing.\n\nThe same pattern surfaced on the r/GithubCopilot developer community on the same day. Developers running the GitHub Copilot CLI reported that the top \"xhigh\" reasoning tier had vanished from their setup, leaving only \"medium.\"\n\nOpenAI's own community forum threads tracking recent rollouts likewise show inconsistent selector configurations across accounts. Some users see only two reasoning options; others still have all four. The combination of uneven user experience and zero formal communication is what is stoking subscriber confusion."
+    },
+    {
+      "type": "heading",
+      "value": "r/codex Erupts Simultaneously With Downgrade Complaints"
+    },
+    {
+      "type": "text",
+      "value": "While Pro subscribers were tracing the missing \"Heavy\" option, the r/codex subreddit filled with parallel nerf suspicions on May 21 and 22. The community feed leaned on threads titled \"Codex update 5/21/2026,\" [\"Nerfed Nerfed Nerfed\"](https://www.reddit.com/r/codex/comments/1tjzved/nerfed_nerfed_nerfed/), and posts from users saying they could no longer work with Codex.\n\nThe shared user-reported symptoms cluster into four categories: usage limits draining faster than before, more frequent loops repeating the same wrong edits, hallucinated APIs and file paths, and a sudden drop in code quality on tasks that worked a week ago.\n\nSimilar reports surfaced on the openai/codex issue tracker, where developers filed posts describing the same pattern. Speculation about silent model routing changes or quiet A/B tests circulates in these threads, but OpenAI has never confirmed a nerf. For now, the Codex degradation remains at the level of user suspicion and felt experience."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "A Long Performance Slide Masked by Short-Lived Incidents"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/Memory-update.jpeg?resize=1200,845",
+      "caption": "OpenAI Codex interface",
+      "alt": "OpenAI Codex interface"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's official status page provides some context. On May 8, the company logged a Codex Cloud task failure alongside Codex transcription errors. A more explicit acknowledgment came on May 13 with reports that [\"Codex 5.5 engines are experiencing high error rate\"](https://status.openai.com/incidents/01KRG6MF021JQ997JCR7R8Y9A0) and \"GPT-5.5 Performance Degradation,\" both of which were marked resolved within the day. Another degradation incident was logged on May 17.\n\nHowever, an OpenAI Community forum thread on [GPT-5.5 Codex quality degrading over the past month](https://community.openai.com/t/gpt-5-5-1-and-5-2-codex-quality-degrading-over-last-month-or-so/1366694) presents a conflicting timeline. Incidents resolved on the same day fail to account for a persistent, month-long slide in model performance.\n\nInstead, the forum detailed a gradual drift in response accuracy and editing consistency that defies single-day incident reports. This disparity between \"resolved\" status notifications and ongoing, real-world issues is precisely what has driven users to label the changes as a deliberate downgrade."
+    },
+    {
+      "type": "heading",
+      "value": "The Widening Gap Between Corporate Announcements and User Experience"
+    },
+    {
+      "type": "text",
+      "value": "Taken together, May 22's changes look less like an isolated incident and more like the extension of a month-long pattern. On one side, the \"Heavy\" option has disappeared from the Pro web interface without a trace; on the other, r/codex is roiling with nerf suspicions. Both share one trait: no official position from OpenAI.\n\nA similar downgrade-suspicion pattern surfaced elsewhere in the industry. When Google [overhauled Gemini pricing and switched to compute-based weekly limits on May 19](/article/google/gemini-pricing-overhaul-compute-limits-backlash/), subscribers reached for the same language — the price came down, but the real-terms experience moved backward.\n\nOpenAI actively announces new model launches but stays silent on shrinking options or performance drift. Pro users paying $200 a month for the deepest reasoning tier face the daily mismatch between help-doc claims and the thinned-out dropdown. That gap, between announcement and felt experience, is where the subreddits' complaints and suspicions keep returning."
+    },
+    {
+      "type": "ad"
+    }
+  ]
+}
