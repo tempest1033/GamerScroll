@@ -1,0 +1,184 @@
+{
+  "slug": "trump-ai-executive-order-postponed-may-2026",
+  "status": "approved",
+  "needTranslate": false,
+  "site": "aiscroll",
+  "category": "general",
+  "title": "트럼프, AI 출시 90일 전 사전 검토 행정명령 막판 서명 보류",
+  "titleEn": "Trump Postpones AI Pre-Release Review Executive Order After Last-Minute Tech Lobbying",
+  "date": "",
+  "thumbnail": "https://cyberscoop.com/wp-content/uploads/sites/3/2026/05/Trump-Bessent.jpeg",
+  "keywords": "트럼프 AI 행정명령, AI 출시 사전 검토, 90일 사전 검토, ONCD AI 보안, 백악관 AI 정책, 빅테크 로비, 미중 AI 경쟁, AI 규제 보류",
+  "keywordsEn": "Trump AI executive order, AI pre-release review, 90-day review, ONCD AI security, White House AI policy, Big Tech lobbying, US-China AI race, AI regulation postponed",
+  "summary": "트럼프 대통령이 2026년 5월 21일 AI 행정명령 서명을 막판 보류했다. 프런티어 모델 출시 90일 전 정부 사전 검토를 요구하던 안으로, 오픈AI·앤트로픽·구글의 빅테크 로비와 미중 AI 경쟁 격화 우려가 결정타였다.",
+  "summaryEn": "President Trump postponed signing an AI executive order on May 21, 2026, that would have required government pre-release review of frontier models 90 days before launch. Last-minute Big Tech lobbying from OpenAI, Anthropic and Google and concerns about losing the AI lead over China drove the reversal.",
+  "sources": [
+    {
+      "name": "AP",
+      "title": "Trump postpones AI executive order signing",
+      "url": "https://apnews.com/article/trump-ai-executive-order-ee318f35acc8a2c43e47f3ebf26cb459"
+    },
+    {
+      "name": "Washington Post",
+      "title": "Last-minute lobbying by tech industry officials led Trump to cancel AI order",
+      "url": "https://www.washingtonpost.com/politics/2026/05/22/last-minute-lobbying-by-tech-industry-officials-led-trump-cancel-ai-order/"
+    },
+    {
+      "name": "Axios",
+      "title": "Why Trump postponed his AI executive order",
+      "url": "https://www.axios.com/2026/05/21/trump-ai-executive-order-postponed-why"
+    },
+    {
+      "name": "CyberScoop",
+      "title": "Trump postpones executive order focused on AI security",
+      "url": "https://cyberscoop.com/trump-postpones-executive-order-focused-on-ai-security/"
+    },
+    {
+      "name": "Reuters (via Investing.com)",
+      "title": "Trump to sign order on AI oversight as security fears mount among supporters",
+      "url": "https://www.investing.com/news/stock-market-news/trump-to-sign-order-on-ai-oversight-as-security-fears-mount-among-supporters-4702720"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-pentagon-ai-safety-standoff",
+    "tech:ai/anthropic-government-conflict-weapons-surveillance",
+    "tech:ai/anthropic-pentagon-ultimatum-rsp-v3",
+    "tech:ai/altman-musk-openai-trial-mudslinging"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "도널드 트럼프 미국 대통령이 2026년 5월 21일로 예정됐던 인공지능(AI) 행정명령 서명을 막판에 보류했다. 해당 명령은 오픈AI와 앤트로픽, 구글이 새로운 프런티어 AI 모델을 공식 출시하기 최대 90일 전에 미국 정부의 사전 검토를 받도록 하는 자발적 보안 프레임워크 구축을 골자로 했다.\n\n트럼프 대통령은 예정된 서명 직전 보도 초안의 특정 조항에 불만을 나타낸 것으로 알려졌다. 그는 보좌진에게 미국 기업의 신규 모델 출시에 정부가 개입해 지연을 초래하면, 미국의 대중국 AI 기술 우위 즉 미중 AI 경쟁의 균형이 흔들릴 수 있다고 경고했다.\n\n이러한 보류 결정은 실리콘밸리 주요 기업 경영진의 빅테크 로비가 집중된 이후 나왔다. 업계 관계자들은 사전 검토 의무화 조치가 AI 개발 속도를 늦추고 미국 국가 경쟁력에 악영향을 미칠 것이라는 우려를 트럼프 대통령에게 직접 전달했다."
+    },
+    {
+      "type": "heading",
+      "value": "보류된 AI 행정명령의 구조 — 90일 사전 검토 프레임워크"
+    },
+    {
+      "type": "text",
+      "value": "이렇듯 업계가 우려한 행정명령은 백악관 국가사이버국장실(ONCD)이 기획을 주도한 안이었다. 핵심은 신규 모델 출시 전 최대 90일 동안 국가 안보 및 사이버 위협을 평가하기 위한 정부 측 접근 권한을 명시하는 부분이었다. 기술 유출 우려를 고려해 가중치를 직접 제출받는 방식 대신 통제된 환경에서의 '평가용 접근(access for evaluation)'을 부여하는 절충안이 담겼다.\n\n이 제도는 강제적 법적 구속력 대신 민관 협력 성격의 자발적 동참 형태로 설계됐다. 실제 오픈AI와 앤트로픽, 구글 등 주요 AI 기업들은 구체적인 평가 기준을 두고 백악관 실무진과 수주 동안 비공개 협의를 이어온 상황이었다.\n\n이번 자발적 프레임워크는 지난 3월 20일 트럼프 정부가 발표한 국가 AI 입법안과는 성격이 달랐다. 입법안이 주(州) 정부 차원의 개별 AI 규제를 조율하는 데 목적을 두었다면, 5월 21일의 행정명령 초안은 행정부 차원의 보안 검토 체계 구축에 집중했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "막판 무산된 행정명령 — 빅테크 로비와 미중 AI 경쟁 변수"
+    },
+    {
+      "type": "image",
+      "src": "https://dims.apnews.com/dims4/default/a1f8afb/2147483647/strip/true/crop/5616x3742+0+1/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fa5%2F5f%2F4cc4f03e2f94740bc974e888549b%2Fdf73c8529a9944ac9ecf5f5f326dc5cb",
+      "caption": "발언 중인 도널드 트럼프 미국 대통령 — AP",
+      "alt": "발언 중인 트럼프 대통령 클로즈업 사진"
+    },
+    {
+      "type": "text",
+      "value": "하지만 이러한 백악관의 안보 의지는 서명을 단 48시간 앞두고 거센 빅테크 로비에 직면했다. [워싱턴포스트](https://www.washingtonpost.com/politics/2026/05/22/last-minute-lobbying-by-tech-industry-officials-led-trump-cancel-ai-order/)에 따르면 오픈AI 샘 올트먼, 앤트로픽 다리오 아모데이, 구글 순다르 피차이 등 주요 기술 기업 최고경영자(CEO)들이 트럼프 대통령과 그의 최측근을 상대로 직접적인 로비에 나섰다.\n\n이들이 내세운 핵심 논리는 미중 AI 경쟁이었다. 90일 동안 검토 절차에 묶여 있으면 미국 기업이 기술 패권 전쟁에서 불리해질 것이라는 주장을 앞세웠다. 규제가 혁신 속도를 늦춘다는 경고는 규제 완화를 지향하는 트럼프 대통령의 신념과 일치했다.\n\n업계가 직접 비교 대상으로 지목한 곳은 중국의 딥시크와 문샷, 바이트댄스였다. 미국 기업의 신규 모델 출시가 제도에 막혀 3달간 묶여 있는 사이, 중국 경쟁사들은 동일한 기간에 서너 개의 차세대 모델을 시장에 먼저 출시해 미중 AI 경쟁 주도권을 선점할 수 있다는 구체적 우려였다."
+    },
+    {
+      "type": "heading",
+      "value": "백악관 내 안보파와 산업파의 갈등, 그리고 트럼프의 최종 선택"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2261514463.jpg?w=1024",
+      "caption": "다리오 아모데이 앤트로픽 최고경영자 — 게티 이미지",
+      "alt": "마이크를 들고 발언 중인 다리오 아모데이"
+    },
+    {
+      "type": "text",
+      "value": "이러한 빅테크 로비의 경고는 백악관 내부 참모진 간의 갈등선에 다시 불을 붙였다. ONCD AI 보안 조직을 비롯한 안보 부서는 [앤트로픽이 펜타곤과의 안전 표준 협상에서 보인 강경 노선](/ko/article/anthropic/anthropic-pentagon-ai-safety-standoff/)과 같은 수준의 프런티어 모델 검토 권한을 요구한 반면, 경제 및 산업 정책 부서는 성급한 규제가 첨단 기술 발전을 가로막는다며 맞섰다.\n\n[Axios](https://www.axios.com/2026/05/21/trump-ai-executive-order-postponed-why) 보도에 따르면 백악관 내부의 의견 대립은 서명 전날인 5월 20일 밤늦게까지 지속됐다. 트럼프 대통령은 마지막 순간까지 양측의 주장을 신중히 저울질했으나, 결국 안보 평가보다는 개발 속도가 우선이라는 산업계의 주장을 수용했다.\n\n이번 결단은 트럼프 2기 행정부가 표방해 온 정보기술(IT) 정책 기조와 궤를 같이한다. 지난 1월 취임 이후 백악관이 내린 주요 정책 결정들은 모두 미국의 AI 주도권 확보를 위해 규제를 최소화해야 한다는 단일한 방향에 초점이 맞춰져 있었다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "완전 폐기 아닌 '보류' — ONCD AI 보안 수정안 시나리오"
+    },
+    {
+      "type": "text",
+      "value": "규제 최소화 기조 속에서도 백악관은 이번 서명 보류를 정책의 '완전 폐기'로 규정하지는 않았다. ONCD AI 보안 라인은 공백을 메우기 위해 사전 검토 제도를 대체할 수 있는 다른 형태의 보안 협약과 기준 마련을 지속하고 있다.\n\n차기 절충안은 규제 수위를 대폭 낮춘 유연한 형태로 재구성될 가능성이 제기된다. 사전 검토 대상 범위를 국가 안보에 직결되는 특정 모델군으로 좁히거나, 의무 검토 기간을 90일에서 30일로 줄여 속도 지연 우려를 덜어내는 대안 등이 거론된다.\n\n대통령 행정명령이라는 직접적 방식 대신 미국 국립표준기술연구소(NIST)의 지침 제정 트랙으로 방향을 트는 방안도 거론된다. 이 방식은 법적 강제력은 느슨해지더라도 업계의 거부감을 희석하면서 합의를 이끌어낼 수 있는 타협점으로 꼽힌다."
+    },
+    {
+      "type": "heading",
+      "value": "글로벌 규제 전선에 미치는 파장 — 한국과 EU의 비대칭 해소 과제"
+    },
+    {
+      "type": "text",
+      "value": "미국의 이러한 규제 보류 조치는 단순한 내수용 결정을 넘어 글로벌 규제 전선에 직접적인 충격을 준다. 그간 한국과 유럽연합(EU), 일본 등 주요국 입법자들이 자국법 제정 과정에서 이정표로 삼아온 '미국식 AI 안보 거버넌스'의 기준점이 불투명해졌기 때문이다.\n\n이미 EU의 인공지능법(AI Act)이 발효된 가운데, 한국 또한 독자적인 'AI 기본법' 시행을 본격적으로 준비하는 단계다. 두 입법 체계 모두 미국 정부가 이에 상응하는 체계적인 사전 검토 메커니즘을 동반 가동할 것이라는 암묵적인 신뢰에 기대 설계된 측면이 있었다.\n\n하지만 미국이 사전 검토 카드를 보류하고 완화 노선을 걷게 됨에 따라, 각국 규제 당국은 홀로 무거운 의무를 져야 하는 비대칭적 규제 부담을 다시 고민할 수밖에 없다. 미국 행정부의 속도 중심적 선택은 미중 AI 경쟁 구도 속에서 글로벌 인공지능 규제 공조 체계의 방향성을 다시 시험하고 있다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "President Donald Trump on May 21, 2026, abruptly postponed signing a highly anticipated executive order on artificial intelligence. The proposed directive would have established a voluntary framework granting federal officials up to 90 days to review frontier AI models from OpenAI, Anthropic, and Google before their public release.\n\nTrump privately expressed dissatisfaction with specific provisions of the draft shortly before the scheduled signing. He warned senior aides that imposing government bottlenecks on domestic model launches risks eroding the commanding lead the United States holds over China in the US-China AI race.\n\nThe sudden reversal followed an intense, last-minute Big Tech lobbying campaign by leading technology executives. Industry officials directly cautioned Trump that the pre-release review mandate would severely delay development and hamper American competitiveness."
+    },
+    {
+      "type": "heading",
+      "value": "The Anatomy of the Postponed AI Order: Inside the 90-Day Pre-Review Framework"
+    },
+    {
+      "type": "text",
+      "value": "Led by the White House Office of the National Cyber Director (ONCD), the postponed order aimed to grant federal authorities structured access to evaluate security and national defense risks of frontier AI models. Rather than requiring developers to hand over proprietary model weights, the draft proposed a compromise of 'access for evaluation' within secure, controlled testing environments.\n\nThe framework was structured as a voluntary partnership rather than a legally binding mandate. Executives from OpenAI, Anthropic, and Google had reportedly engaged in weeks of confidential discussions with White House officials to define the scope of these evaluations.\n\nThis initiative ran parallel to, but separate from, the national AI legislative framework that Trump announced on March 20, 2026, which focused on the federal preemption of state-level regulations. The May 21 draft was instead conceived as a specialized national security oversight mechanism within the executive branch."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "How the AI Order Collapsed: Big Tech Lobbying and the US-China AI Race"
+    },
+    {
+      "type": "image",
+      "src": "https://dims.apnews.com/dims4/default/a1f8afb/2147483647/strip/true/crop/5616x3742+0+1/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fa5%2F5f%2F4cc4f03e2f94740bc974e888549b%2Fdf73c8529a9944ac9ecf5f5f326dc5cb",
+      "caption": "President Donald Trump speaking — AP",
+      "alt": "Close-up of President Trump mid-statement"
+    },
+    {
+      "type": "text",
+      "value": "The pressure on the White House from Big Tech lobbying reached a crescendo in the 48 hours leading up to the scheduled signing ceremony. Reports from the [Washington Post](https://www.washingtonpost.com/politics/2026/05/22/last-minute-lobbying-by-tech-industry-officials-led-trump-cancel-ai-order/) indicate that high-profile executives, including OpenAI's Sam Altman, Anthropic's Dario Amodei, and Google's Sundar Pichai, bypassed traditional channels to appeal directly to Trump and his senior advisors.\n\nTheir arguments leaned heavily on the US-China AI race, warning that a 90-day administrative delay would severely hamper American companies at a pivotal moment. This warning of a regulatory bottleneck impeding technological development resonated strongly with Trump.\n\nIndustry leaders pointed specifically to the rapid development cycles of Chinese AI firms like DeepSeek, Moonshot, and ByteDance. Industry representatives warned that if American models were held in regulatory limbo for three months, Chinese competitors could launch multiple generations of competing models in that same timeframe and seize the US-China AI race initiative."
+    },
+    {
+      "type": "heading",
+      "value": "Hawks Versus Economists: The White House Internal Divide"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2261514463.jpg?w=1024",
+      "caption": "Dario Amodei, CEO of Anthropic — Getty Images",
+      "alt": "Dario Amodei speaking with a microphone in hand"
+    },
+    {
+      "type": "text",
+      "value": "The Big Tech lobbying campaign reopened a deep ideological rift within the administration over US-China AI competition. The cybersecurity faction, including ONCD AI security leads, argued that advanced AI models present immediate national security risks and could be weaponized for offensive cyber operations, citing [Anthropic's hardline stance in its safety-standard standoff with the Pentagon](/article/anthropic/anthropic-pentagon-ai-safety-standoff/) as a precedent. Conversely, economic advisors maintained that premature government regulations would stifle domestic technological leadership.\n\nThis internal policy battle reached a critical point on the eve of the scheduled signing. According to [Axios](https://www.axios.com/2026/05/21/trump-ai-executive-order-postponed-why), intense debates persisted late into the night of May 20, with Trump weighing the competing arguments until the last moment before ultimately prioritizing speed of innovation over safety checks.\n\nThis decision aligns with the foundational principles of Trump's second-term technology agenda. Since taking office in January, the administration has consistently operated on the premise that securing American dominance in artificial intelligence requires dismantling regulatory barriers."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Postponed, Not Canceled: ONCD's Next Move on AI Security"
+    },
+    {
+      "type": "text",
+      "value": "The White House carefully characterized the executive order as postponed rather than canceled. Administration officials noted that the ONCD AI security line remains actively engaged in drafting complementary security guidelines to address frontier AI vulnerabilities.\n\nAny future draft is widely expected to feature diluted pre-release review requirements. Industry insiders suggest that a revised framework might target only a small subset of high-risk models, shorten the designated review window from 90 days to 30 days, or guarantee strict confidentiality for submitted data.\n\nAlternatively, the administration could bypass the formal executive order process entirely by channeling these security benchmarks through the National Institute of Standards and Technology (NIST). While a NIST guidance track would lack binding regulatory authority, it would represent a more politically palatable path that minimizes tech pushback."
+    },
+    {
+      "type": "heading",
+      "value": "Shifting Currents: Global Implications for the EU and South Korea"
+    },
+    {
+      "type": "text",
+      "value": "The repercussions of the White House decision extend far beyond domestic borders. By walking back the pre-release review mandate, Washington has introduced significant uncertainty into the global AI safety governance model that international regulators have long used as a structural benchmark.\n\nThe European Union's comprehensive AI Act is already in force, while South Korea is finalizing legislative preparations for its own AI Basic Act. Both regulatory regimes were drafted with the implicit assumption that the United States would establish an equivalent, rigorous federal pre-release review mechanism.\n\nWith the United States steering toward a deregulation bias, regulators in Brussels and Seoul face a growing asymmetric burden. If international watchdogs maintain strict safety gates while Washington optimizes for launch speed, their domestic AI industries may face severe competitive disadvantages amid the broader US-China AI race."
+    },
+    {
+      "type": "ad"
+    }
+  ]
+}
