@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-05-21T22:48:22.207Z",
+  "updatedAt": "2026-05-22T23:55:53.496Z",
   "period": "30days",
   "games": [
     {
       "slug": "초격력-별의-분노",
-      "views": 20
+      "views": 21
     },
     {
       "slug": "메이플-키우기",
@@ -23,11 +23,19 @@
       "views": 3
     },
     {
+      "slug": "궁영롱몽",
+      "views": 3
+    },
+    {
       "slug": "테이스티-트레블-합성-게임",
       "views": 3
     },
     {
       "slug": "identity-v-제5인격",
+      "views": 2
+    },
+    {
+      "slug": "limbus-company",
       "views": 2
     },
     {
@@ -69,14 +77,6 @@
     {
       "slug": "킹샷kingshot",
       "views": 2
-    },
-    {
-      "slug": "포켓몬-카드-게임-pocket",
-      "views": 2
-    },
-    {
-      "slug": "delta-force",
-      "views": 1
     }
   ]
 }
