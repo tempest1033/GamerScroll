@@ -1,0 +1,180 @@
+{
+  "slug": "cursor-composer-2-5",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "vibecoding",
+  "site": "aiscroll",
+  "title": "커서 컴포저 2.5 공개… 10분의 1 비용으로 몸값 폭등에 불 붙였다",
+  "titleEn": "Cursor Composer 2.5: Frontier-Class Coding at One-Tenth the Cost",
+  "date": "",
+  "thumbnail": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/changelog/cursor-composer2.5-og-2400x1200.png",
+  "keywords": "커서 컴포저 2.5, 컴포저 2.5 가격, 콜로서스 2, 커서 인수, 코딩 모델",
+  "keywordsEn": "Cursor Composer 2.5, Composer 2.5 pricing, Colossus 2, Cursor acquisition, Kimi K2.5 base model",
+  "summary": "커서가 5월 18일 컴포저 2.5를 공개했다. 키미 K2.5를 기반으로 프런티어급 코딩 성능을 10분의 1 비용에 구현했다. 스페이스X 인수설과 매출 급증으로 달아오른 회사 성장세에 자체 모델이 기폭제가 됐다.",
+  "summaryEn": "Cursor released Composer 2.5 on May 18, delivering frontier-class coding at one-tenth the cost. Built on Kimi K2.5, the fast, in-house model adds momentum to a company already surging amid rapid revenue growth and a potential SpaceX buyout.",
+  "sources": [
+    {
+      "name": "Cursor Blog",
+      "title": "Composer 2.5",
+      "url": "https://cursor.com/blog/composer-2-5"
+    },
+    {
+      "name": "Cursor Blog",
+      "title": "Training a frontier model with SpaceX on Colossus 2",
+      "url": "https://cursor.com/blog/spacex-model-training"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Cursor in talks to raise $2B at $50B valuation as enterprise growth surges",
+      "url": "https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/"
+    },
+    {
+      "name": "AP News",
+      "title": "SpaceX, Cursor and xAI: the Grok-era AI coding deal",
+      "url": "https://apnews.com/article/spacex-cursor-xai-grok-ai-coding-582e7606e695320a299e4902dbb2704f"
+    },
+    {
+      "name": "TechTimes",
+      "title": "Cursor Composer 2.5 Matches Claude Opus 4.7 on Coding Benchmarks at One-Tenth the Cost",
+      "url": "https://www.techtimes.com/articles/316917/20260520/cursor-composer-25-matches-claude-opus-47-coding-benchmarks-one-tenth-cost.htm"
+    }
+  ],
+  "relatedDocs": [
+    "tech:vibecoding/vibe-coding-agent-guide",
+    "tech:vibecoding/vibe-coding-workflow-prompt-guide",
+    "tech:ai/chatgpt-heavy-thinking-removed-codex-nerf",
+    "tech:vibecoding/mcp-guide"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "커서가 5월 18일 자체 코딩 모델인 컴포저 2.5(Composer 2.5)를 내놨다. 프런티어 모델급 코딩 성능을 10분의 1 수준의 토큰 비용으로 제공하는 것이 핵심이다. 커서는 응답 속도가 가장 빠른 'Fast' 모드를 아예 기본값으로 설정해 체감 성능을 끌어올렸다.\n\n출시 시점이 묘하다. 커서는 연 환산 매출이 폭발적으로 늘어나며 시장에서 끊임없이 인수설이 도는 상태였다. 가파른 성장세에 빠르고 저렴한 자체 모델이 기폭제 역할을 한 셈이다. 공개 직후 X(옛 트위터)에는 컴포저 2.5가 역대 최고라는 개발자들의 호평이 쏟아졌다."
+    },
+    {
+      "type": "heading",
+      "value": "키미 K2.5 기반으로 끌어올린 속도"
+    },
+    {
+      "type": "text",
+      "value": "커서는 [공식 블로그를 통해](https://cursor.com/blog/composer-2-5) 새 모델이 긴 작업을 유지하고 복잡한 지시를 따르는 능력이 크게 개선됐다고 밝혔다. 코드 에이전트가 수십 단계의 자율 작업을 처리할 때 중간에 방향을 잃는 빈도를 눈에 띄게 줄였다는 설명이다.\n\n주목할 대목은 모델의 뼈대다. 커서는 컴포저 2.5를 새로 개발하지 않고, 문샷AI의 오픈 모델인 키미 K2.5(Kimi K2.5)를 가져와 자체 후처리와 강화학습을 적용했다. 성능이 검증된 오픈 가중치를 자사 환경에 맞게 다듬어 속도와 비용 효율을 동시에 확보하는 전략을 택했다.\n\n여기에 가장 빠르게 응답하는 Fast 모드를 기본 환경으로 올렸다. 답변을 가장 빨리 내놓는 설정을 표준으로 삼아 에디터 내에서 즉각적으로 반응하는 코딩 경험에 승부를 걸었다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "벤치마크가 증명한 가성비"
+    },
+    {
+      "type": "image",
+      "src": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/composer-2.5-benchmark-table-landscape-light04.png",
+      "caption": "컴포저 2.5와 경쟁 모델의 코딩 벤치마크 비교표",
+      "alt": "컴포저 2.5 벤치마크 비교"
+    },
+    {
+      "type": "text",
+      "value": "코딩 품질이 뒷받침되지 않으면 속도와 비용은 의미를 잃는다. 컴포저 2.5는 벤치마크 지표로 이 우려를 씻어냈다. 커서가 자체 측정한 CursorBench 3.1에서 새 모델은 63.2%의 점수를 냈고, 작업당 비용은 약 0.5달러로 집계됐다.\n\n외부 평가에서도 성적은 밀리지 않는다. 주요 매체들은 SWE-bench Multilingual에서 79.8%, Terminal-Bench 2.0에서 69.3%를 기록했다고 보도했다. [테크타임스](https://www.techtimes.com/articles/316917/20260520/cursor-composer-25-matches-claude-opus-47-coding-benchmarks-one-tenth-cost.htm)는 컴포저 2.5가 일부 코딩 벤치마크에서 클로드 오푸스 4.7에 근접한 수치를 10분의 1 비용으로 달성했다고 짚었다.\n\n물론 모든 분야에서 1위를 차지한 것은 아니다. 터미널을 깊게 다루는 자율 작업이나 복잡한 아키텍처 설계 영역에서는 여전히 GPT-5.5가 우위에 있다는 평가가 지배적이다. 같은 주 개발자 커뮤니티를 달궜던 [GPT-5.5 코덱스의 성능 논란](/ko/article/openai/chatgpt-heavy-thinking-removed-codex-nerf/)은 최상위 코딩 모델을 둘러싼 시장의 치열한 경쟁을 방증한다."
+    },
+    {
+      "type": "heading",
+      "value": "무기는 가격과 속도"
+    },
+    {
+      "type": "image",
+      "src": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/chart-composer-2-5-effort-curves-r4.png",
+      "caption": "작업당 평균 비용 대비 CursorBench 점수 곡선",
+      "alt": "비용 대비 성능 곡선"
+    },
+    {
+      "type": "text",
+      "value": "벤치마크 1위를 싹쓸이하지 못했음에도 컴포저 2.5가 시장의 이목을 끄는 핵심은 가격이다. 표준 모드 기준으로 100만 토큰당 입력 0.5달러, 출력 2.5달러가 책정됐다. 기존 프런티어 모델들과 비교하면 한 자릿수 비율에 불과한 수준이다. 응답 속도를 극대화한 Fast 모드 역시 입력 3달러, 출력 15달러로 비용 부담을 크게 낮췄다.\n\n커서는 출시 첫 주에 기본 사용량을 두 배로 늘려주는 프로모션까지 더했다. 비용 탓에 에이전트 사용을 아끼던 개발자들에게 코딩 모델을 마음껏 테스트할 명분을 쥐여준 셈이다. 초기 시장 반응이 폭발적으로 일어난 이유도 바로 이 대목이다."
+    },
+    {
+      "type": "quote",
+      "value": "엄청난 가성비다. 코덱스의 GPT-5.5 하이보다 빠르고 좋은데 훨씬 싸다.",
+      "cite": "X 개발자 반응"
+    },
+    {
+      "type": "text",
+      "value": "실제로 [X에 올라온 한 개발자의 게시글](https://x.com/i/status/2057960440253047224)은 컴포저 2.5가 제공하는 즉각적인 가성비에 주목했다. 두 달 동안 클로드 오푸스를 메인으로 쓰던 한 사용자는 컴포저 2.5를 역대 최고 모델이라고 치켜세웠다. 다만 열광적인 호평 속에서도 가장 어렵고 긴 작업을 처리할 때는 여전히 클로드나 GPT를 찾게 된다는 신중한 목소리가 함께 나온다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "커서 인수설에 콜로서스 2까지, 기업 가치에 불 붙다"
+    },
+    {
+      "type": "text",
+      "value": "시장의 뜨거운 반응은 커서가 보여준 가파른 성장세에 더욱 힘을 싣는다. 블룸버그 집계를 보면 커서의 연 환산 매출은 지난 2월 이미 20억 달러를 넘어섰고, 석 달 만에 다시 두 배로 뛰었다. 지난 4월에는 [커서가 연말까지 60억 달러 매출을 내다보고 있으며](https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/) 엔터프라이즈 부문에서 소폭의 매출총이익 흑자를 냈다는 보도까지 나왔다.\n\n자본 시장의 움직임도 긴박하게 돌아간다. [스페이스X는 올해 안에 커서를 600억 달러에 인수할 수 있는 옵션을 확보했으며](https://apnews.com/article/spacex-cursor-xai-grok-ai-coding-582e7606e695320a299e4902dbb2704f), 인수가 불발될 경우 100억 달러 규모의 협업을 진행하는 대안도 열어뒀다. 이는 확정된 계약은 아니지만 커서를 향한 자본 시장의 베팅 규모를 짐작하게 한다. 커서는 이와 별개로 500억 달러 안팎의 기업 가치를 인정받으며 추가 투자 유치도 논의하고 있다.\n\n커서의 진짜 큰 그림은 다음 세대 모델에 맞춰져 있다. 컴포저 2.5가 오픈 모델을 다듬은 결과물이라면, 다음 행보는 xAI와 손잡고 [10배 큰 연산 자원을 투입해 콜로서스 2(Colossus 2)에서 바닥부터 학습하는 자체 모델](https://cursor.com/blog/spacex-model-training) 개발이다. 컴포저 2.5가 당장의 성장에 불을 붙였다면, 콜로서스 2에서 나올 차기작은 남의 모델을 빌려 쓰지 않고 기반 기술을 온전히 소유하겠다는 기업의 중장기 선언이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Cursor released its in-house coding model, Composer 2.5, on May 18. The update promises frontier-class coding performance at roughly one-tenth the token cost, with the company making the fastest-responding 'Fast' mode the default setting.\n\nThe launch arrives at a critical juncture. Cursor is already seeing explosive annualized revenue growth and frequent acquisition chatter. A fast, cost-effective in-house model acts as an accelerant for the business. Within hours of the release, X filled with developers calling Composer 2.5 the best tool they had used."
+    },
+    {
+      "type": "heading",
+      "value": "Speed Built on Kimi K2.5"
+    },
+    {
+      "type": "text",
+      "value": "Cursor [noted on its blog](https://cursor.com/blog/composer-2-5) that Composer 2.5 is stronger at sustaining long-running work and follows complex instructions more reliably than its predecessor. The update ensures the code agent loses its way less often across the dozens of autonomous steps a real task demands.\n\nThe model's lineage is notable. Composer 2.5 was not built from scratch; it uses Moonshot AI's open Kimi K2.5 model as a foundation, layering Cursor's own post-training and reinforcement learning on top. Taking a powerful open-weight release and refining it for a specific environment allowed Cursor to capture both speed and cost efficiency in a single move.\n\nCursor also promoted 'Fast' mode to the default setting. Standardizing on the configuration that returns answers quickest represents a deliberate bet on an in-editor coding experience that reacts instantly."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Where the Benchmarks Place Composer 2.5"
+    },
+    {
+      "type": "image",
+      "src": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/composer-2.5-benchmark-table-landscape-light04.png",
+      "caption": "Composer 2.5 coding benchmarks versus Opus 4.7, GPT-5.5, and Composer 2",
+      "alt": "Composer 2.5 benchmark comparison"
+    },
+    {
+      "type": "text",
+      "value": "Speed and cost mean little without code quality, a metric where Composer 2.5 holds its ground. On Cursor's proprietary CursorBench 3.1, the new model scored 63.2% at a measured cost of about $0.50 per task.\n\nPublic evaluations show similar resilience. Media reports place the model at 79.8% on SWE-bench Multilingual and 69.3% on Terminal-Bench 2.0. [TechTimes](https://www.techtimes.com/articles/316917/20260520/cursor-composer-25-matches-claude-opus-47-coding-benchmarks-one-tenth-cost.htm) noted that the model lands near Claude Opus 4.7 on several coding benchmarks while operating at one-tenth the cost.\n\nIt does not lead in every category. For terminal-heavy autonomous work and complex architectural design, consensus still puts GPT-5.5 ahead. The competition for the top coding model remains fierce, underscored by the [controversy over GPT-5.5 Codex performance](/article/openai/chatgpt-heavy-thinking-removed-codex-nerf/) that occupied developer communities during the same week."
+    },
+    {
+      "type": "heading",
+      "value": "Pricing and the Speed Advantage"
+    },
+    {
+      "type": "image",
+      "src": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/chart-composer-2-5-effort-curves-r4.png",
+      "caption": "CursorBench score versus average cost per task",
+      "alt": "Cost-versus-score curve"
+    },
+    {
+      "type": "text",
+      "value": "Even without sweeping every benchmark, Composer 2.5 commands attention primarily due to its pricing. In Standard mode, it costs $0.50 per million input tokens and $2.50 per million output—a small fraction of typical frontier-model rates. The fastest 'Fast' mode remains competitive, capped at $3 for input and $15 for output.\n\nCursor also introduced a launch-week promotion that doubled included usage. The move gave developers a reason to freely run a code agent they previously rationed due to high costs, driving much of the initial positive reaction."
+    },
+    {
+      "type": "quote",
+      "value": "Incredible value. Better and faster than GPT-5.5 high in Codex, and a lot cheaper.",
+      "cite": "Developer reaction on X"
+    },
+    {
+      "type": "text",
+      "value": "[One developer's post on X](https://x.com/i/status/2057960440253047224) highlighted the immediate value of Composer 2.5, while another user transitioned from a two-month stint with Claude Opus to declare Composer 2.5 the greatest of all time. Caution circulates alongside the praise, however, with many developers still relying on Claude or GPT for the most complex, long-running tasks."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Fueling an Already Surging Valuation"
+    },
+    {
+      "type": "text",
+      "value": "The enthusiastic reception amplifies Cursor's already steep business trajectory. According to Bloomberg, Cursor's annualized revenue surpassed $2 billion in February, doubling over three months. By April, [reports indicated the company was projecting more than $6 billion by year-end](https://techcrunch.com/2026/04/17/sources-cursor-in-talks-to-raise-2b-at-50b-valuation-as-enterprise-growth-surges/) and achieving slight gross-margin profitability on enterprise sales.\n\nCapital markets are watching closely. [SpaceX holds an option to acquire Cursor for $60 billion within the year](https://apnews.com/article/spacex-cursor-xai-grok-ai-coding-582e7606e695320a299e4902dbb2704f), with a $10 billion collaboration left open as an alternative. While not a finalized acquisition, the option underscores the scale of the bets surrounding Cursor. Concurrently, the startup is negotiating fresh investment at a valuation near $50 billion.\n\nThe broader strategy centers on the next iteration. While Composer 2.5 is derived from Kimi K2.5, Cursor is separately working with xAI to [train a next-generation model from scratch on Colossus 2 using 10x more compute](https://cursor.com/blog/spacex-model-training). If Composer 2.5 acts as fuel for current growth, the forthcoming model from Colossus 2 signals a strategic shift: Cursor intends to own its foundational technology rather than lease it."
+    }
+  ]
+}
