@@ -41,6 +41,9 @@ const DENSITY_MAX = 0.030; // 3.0 %
 // Korean publication-style readability defaults.
 const READ_SENTENCE_CHARS_MAX = 120;
 const READ_PARAGRAPH_SENTENCES_MAX = 7;
+// English sentences run far longer per character than Korean, so the char cap
+// above only applies to Korean bodies; English is capped by word count instead.
+const READ_SENTENCE_WORDS_MAX = 45;
 // Google SERP truncation thresholds for Korean characters.
 const TITLE_CHARS_MIN = 15;
 const TITLE_CHARS_MAX = 60;
@@ -126,13 +129,16 @@ function runLighthouse(url) {
   // concern from publishing-time validation).
   const args = [
     url,
-    '--only-categories=seo,accessibility',
+    // Only the audits we actually score, so Lighthouse skips the rest of the
+    // SEO/a11y categories and the extra gatherers they would pull in.
+    `--only-audits=${LIGHTHOUSE_AUDITS.join(',')}`,
     '--output=json',
     `--output-path=${tmp}`,
     '--quiet',
     '--throttling-method=provided',
-    '--max-wait-for-load=15000',
-    '--chrome-flags=--headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --renderer-process-limit=1 --js-flags=--single-threaded',
+    '--max-wait-for-load=12000',
+    '--disable-full-page-screenshot',
+    '--chrome-flags=--headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --renderer-process-limit=1 --js-flags=--single-threaded --disable-extensions --disable-background-networking --disable-sync --metrics-recording-only --no-first-run --mute-audio',
   ];
   const result = spawnSync('lighthouse', args, {
     stdio: ['ignore', 'pipe', 'pipe'],
@@ -375,11 +381,11 @@ function structuralChecks(html, url) {
 }
 
 async function internalLinkCheck($, baseUrl) {
-  const internalPrefixes = ['/games/', '/article/', '/wiki/', '/tech/', '/magazine/'];
+  const internalPathRe = /^(?:\/ko)?\/(?:games|article|wiki|tech|magazine)\//;
   const hrefs = new Set();
   $('article a[href], .blog-content a[href], main a[href]').each((_i, el) => {
     const href = $(el).attr('href') || '';
-    if (internalPrefixes.some((p) => href.startsWith(p))) hrefs.add(href);
+    if (internalPathRe.test(href)) hrefs.add(href);
   });
   const base = new URL(baseUrl);
   const broken = [];
@@ -446,14 +452,14 @@ function outboundLinkCheck($, baseUrl) {
 // Source: yoast InternalLinksAssessment.js
 function internalLinkScoring($, baseUrl) {
   const baseHost = (() => { try { return new URL(baseUrl).hostname; } catch { return ''; } })();
-  const internalPrefixes = ['/games/', '/article/', '/wiki/', '/tech/', '/magazine/'];
+  const internalPathRe = /^(?:\/ko)?\/(?:games|article|wiki|tech|magazine)\//;
   const body = $('.blog-content').first().length ? $('.blog-content').first() : ($('article').first().length ? $('article').first() : $('main').first());
   let total = 0;
   let nofollow = 0;
   body.find('a[href]').each((_i, el) => {
     const href = $(el).attr('href') || '';
     let isInternal = false;
-    if (internalPrefixes.some((p) => href.startsWith(p))) {
+    if (internalPathRe.test(href)) {
       isInternal = true;
     } else if (/^https?:\/\//i.test(href)) {
       try { isInternal = new URL(href).hostname === baseHost; } catch {}
@@ -539,7 +545,7 @@ function competingLinkCheck($, keyphrases, kpNounLists, baseUrl) {
     return { name: 'body/competing-links', pass: true, detail: 'no keyphrase declared (skipped)' };
   }
   const baseHost = (() => { try { return new URL(baseUrl).hostname; } catch { return ''; } })();
-  const internalPrefixes = ['/games/', '/article/', '/wiki/', '/tech/', '/magazine/'];
+  const internalPathRe = /^(?:\/ko)?\/(?:games|article|wiki|tech|magazine)\//;
   // Restrict to the actual article body (.blog-content). The <article> element
   // also wraps the sidebar (categories, related cards), and those navigation
   // anchors are not in-body keyphrase competition.
@@ -556,7 +562,7 @@ function competingLinkCheck($, keyphrases, kpNounLists, baseUrl) {
     // Internal-only: same-host absolute URL, or relative URL hitting one of
     // our article path prefixes. External citations are skipped.
     let isInternal = false;
-    if (internalPrefixes.some((p) => href.startsWith(p))) {
+    if (internalPathRe.test(href)) {
       isInternal = true;
     } else if (/^https?:\/\//i.test(href)) {
       try { isInternal = new URL(href).hostname === baseHost; } catch {}
@@ -598,7 +604,13 @@ function morphAnalyze(texts) {
 }
 
 function extractContentBlocks($) {
-  const root = $('article').first().length ? $('article').first() : $('main').first();
+  // Scope to the article body (.blog-content). The <article> element also wraps
+  // the sidebar (related cards) and the sources list, whose <p>/<li> would
+  // otherwise inflate word/sentence/paragraph counts and register spurious long
+  // "sentences" (e.g. a period-less source title).
+  const root = $('.blog-content').first().length
+    ? $('.blog-content').first()
+    : ($('article').first().length ? $('article').first() : $('main').first());
   const intro = root.find('p').first().text().trim();
   const h2Texts = root.find('h2.blog-heading').map((_i, el) => $(el).text().trim()).get();
   const altTexts = root.find('img.blog-image').map((_i, el) => ($(el).attr('alt') || '').trim()).get().filter(Boolean);
@@ -808,10 +820,20 @@ function contentSurfaceChecks($, keyphrases, profile) {
   }
 
   const sentences = bodyMorph.sentences || [];
-  const longSentences = sentences.filter((s) => s.length > READ_SENTENCE_CHARS_MAX).length;
-  const avgSentenceChars = sentences.length ? Math.round(sentences.reduce((a, s) => a + s.length, 0) / sentences.length) : 0;
+  // Language-aware sentence length. Korean caps characters; English caps words.
+  // (Applying the Korean char cap to English mis-flags normal newspaper prose.)
+  const hangulCount = (bodyJoined.match(/[가-힣]/g) || []).length;
+  const letterCount = (bodyJoined.match(/[A-Za-z가-힣]/g) || []).length;
+  const isKoreanBody = letterCount === 0 || hangulCount / letterCount >= 0.3;
+  const wordCount = (s) => (s.trim().match(/\S+/g) || []).length;
+  const longSentences = isKoreanBody
+    ? sentences.filter((s) => s.length > READ_SENTENCE_CHARS_MAX).length
+    : sentences.filter((s) => wordCount(s) > READ_SENTENCE_WORDS_MAX).length;
+  const sentenceMetric = isKoreanBody
+    ? `avg ${sentences.length ? Math.round(sentences.reduce((a, s) => a + s.length, 0) / sentences.length) : 0} chars (> ${READ_SENTENCE_CHARS_MAX})`
+    : `avg ${sentences.length ? Math.round(sentences.reduce((a, s) => a + wordCount(s), 0) / sentences.length) : 0} words (> ${READ_SENTENCE_WORDS_MAX})`;
 
-  const paraSentenceCounts = blocks.bodyParas.map((p) => (p.match(/[.!?。？！]+/g) || []).length || 1);
+  const paraSentenceCounts = blocks.bodyParas.map((p) => (p.match(/(?<!\d)[.!?。？！]+(?!\d)/g) || []).length || 1);
   const longParas = paraSentenceCounts.filter((c) => c > READ_PARAGRAPH_SENTENCES_MAX).length;
 
   // Subheading distribution: chars between consecutive h2.blog-heading anchors in source order.
@@ -847,7 +869,7 @@ function contentSurfaceChecks($, keyphrases, profile) {
     {
       name: 'content/sentence-length',
       pass: longSentences === 0,
-      detail: `avg ${avgSentenceChars} chars, ${longSentences}/${sentences.length} > ${READ_SENTENCE_CHARS_MAX}`,
+      detail: `${sentenceMetric}, ${longSentences}/${sentences.length} too long`,
     },
     {
       name: 'content/paragraph-length',
