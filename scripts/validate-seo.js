@@ -654,35 +654,48 @@ function keyphraseMatches(kpNouns, slotNounSet) {
 // stuffing. Instead we verify that every declared keyphrase is covered
 // somewhere in the body (title-level coverage is the writer's craft, not a
 // validator's call).
-function contentMorphChecks($, keyphrases, profile) {
-  if (keyphrases.length === 0) {
-    return [{ name: 'content/keyphrases-present', pass: false, detail: 'meta keywords empty' }];
-  }
+// Single Kiwi spawn for the whole run: every text the content checks need is
+// analyzed in one batch. Kiwi init costs ~2s per spawn, so this collapses what
+// used to be 3 separate morphAnalyze() calls (keyphrase nouns, morph checks,
+// surface checks) into one. Returns the per-slot noun sets / morph each consumes.
+function buildMorphData($, keyphrases) {
   const blocks = extractContentBlocks($);
   const titleText = $('head > title').text().trim();
   const root = $('article').first().length ? $('article').first() : $('main').first();
   const h1Text = root.find('h1.blog-title, h1').first().text().trim();
+  const bodyJoined = blocks.bodyParas.join('\n');
 
-  const allTexts = [
-    titleText,
-    h1Text,
-    ...blocks.h2Texts,
-    ...blocks.altTexts,
-    ...blocks.bodyParas,
-    ...keyphrases,
-  ];
-  const morph = morphAnalyze(allTexts);
-  let cursor = 0;
-  const titleNouns = nounSet(morph[cursor++]);
-  const h1Nouns = nounSet(morph[cursor++]);
-  const h2NounSets = []; for (let i = 0; i < blocks.h2Texts.length; i++) h2NounSets.push(nounSet(morph[cursor++]));
-  const altNounSets = []; for (let i = 0; i < blocks.altTexts.length; i++) altNounSets.push(nounSet(morph[cursor++]));
-  const bodyNounSets = []; for (let i = 0; i < blocks.bodyParas.length; i++) bodyNounSets.push(nounSet(morph[cursor++]));
-  const kpNounLists = [];
-  for (let i = 0; i < keyphrases.length; i++) {
-    const arr = ((morph[cursor++]?.nouns) || []).map((n) => n.toLowerCase());
-    kpNounLists.push(arr);
+  const texts = [];
+  const at = (s) => texts.push(s) - 1;
+  const iTitle = at(titleText);
+  const iH1 = at(h1Text);
+  const iH2 = blocks.h2Texts.map(at);
+  const iAlt = blocks.altTexts.map(at);
+  const iBody = blocks.bodyParas.map(at);
+  const iJoined = at(bodyJoined);
+  const iKp = keyphrases.map(at);
+
+  const morph = morphAnalyze(texts);
+  const empty = { nouns: [], sentences: [], token_count: 0 };
+  return {
+    blocks,
+    bodyJoined,
+    titleNouns: nounSet(morph[iTitle]),
+    h1Nouns: nounSet(morph[iH1]),
+    h2NounSets: iH2.map((i) => nounSet(morph[i])),
+    altNounSets: iAlt.map((i) => nounSet(morph[i])),
+    bodyNounSets: iBody.map((i) => nounSet(morph[i])),
+    bodyJoinedMorph: morph[iJoined] || empty,
+    kpMorphs: iKp.map((i) => morph[i] || empty),
+    kpNounLists: iKp.map((i) => ((morph[i]?.nouns) || []).map((n) => n.toLowerCase())),
+  };
+}
+
+function contentMorphChecks(keyphrases, profile, md) {
+  if (keyphrases.length === 0) {
+    return [{ name: 'content/keyphrases-present', pass: false, detail: 'meta keywords empty' }];
   }
+  const { blocks, titleNouns, h1Nouns, h2NounSets, altNounSets, bodyNounSets, kpNounLists } = md;
 
   const flagsH2 = kpNounLists.map((kn) => h2NounSets.some((ns) => keyphraseMatches(kn, ns)));
   const flagsAlt = kpNounLists.map((kn) => altNounSets.length > 0 && altNounSets.some((ns) => keyphraseMatches(kn, ns)));
@@ -796,13 +809,8 @@ function contentMorphChecks($, keyphrases, profile) {
   ];
 }
 
-function contentSurfaceChecks($, keyphrases, profile) {
-  const blocks = extractContentBlocks($);
-  const bodyJoined = blocks.bodyParas.join('\n');
-  const morphInputs = [bodyJoined, ...keyphrases];
-  const morph = morphAnalyze(morphInputs);
-  const bodyMorph = morph[0] || { nouns: [], sentences: [], token_count: 0 };
-  const kpMorphs = morph.slice(1);
+function contentSurfaceChecks($, keyphrases, profile, md) {
+  const { blocks, bodyJoined, bodyJoinedMorph: bodyMorph, kpMorphs } = md;
 
   const bodyNounCounts = new Map();
   for (const n of bodyMorph.nouns) bodyNounCounts.set(n, (bodyNounCounts.get(n) || 0) + 1);
@@ -909,14 +917,11 @@ async function validate(url) {
   const internalQualityCheck = internalLinkScoring($, url);
   const outboundCheck = outboundLinkCheck($, url);
   const keyphrases = extractKeyphrases($);
-  // Pre-tokenize keyphrase nouns once so competing-link check can reuse them
-  // without spawning Python again.
-  const kpNounLists = keyphrases.length > 0
-    ? morphAnalyze(keyphrases).map((m) => ((m?.nouns) || []).map((n) => n.toLowerCase()))
-    : [];
-  const competingCheck = competingLinkCheck($, keyphrases, kpNounLists, url);
-  const morphChecks = contentMorphChecks($, keyphrases, profile);
-  const surfaceChecks = contentSurfaceChecks($, keyphrases, profile);
+  // One Kiwi spawn for the whole run (see buildMorphData) — was 3 spawns.
+  const md = buildMorphData($, keyphrases);
+  const competingCheck = competingLinkCheck($, keyphrases, md.kpNounLists, url);
+  const morphChecks = contentMorphChecks(keyphrases, profile, md);
+  const surfaceChecks = contentSurfaceChecks($, keyphrases, profile, md);
   return [...lhChecks, ...structChecks, linkCheck, hotlinkCheck, internalQualityCheck, outboundCheck, competingCheck, ...morphChecks, ...surfaceChecks];
 }
 
