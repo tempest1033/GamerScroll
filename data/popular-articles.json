@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-22T01:56:46.063Z",
+  "updatedAt": "2026-05-23T01:47:11.487Z",
   "period": "7days",
   "articles": [
     {
@@ -10,23 +10,10 @@
     },
     {
       "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "category": "ai",
-      "views": 22,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
-    },
-    {
-      "type": "tech",
       "slug": "musk-openai-jury-verdict-dismissed",
       "category": "ai",
       "views": 21,
       "path": "/tech/ai/musk-openai-jury-verdict-dismissed/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 19,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "hotpick",
@@ -35,47 +22,54 @@
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 14,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 18,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-code-vs-codex-coding-agent",
+      "category": "ai",
+      "views": 17,
+      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
       "type": "issue",
       "slug": "crimson-desert-2month-chart-trend",
-      "views": 11,
+      "views": 12,
       "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 12,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 11,
+      "views": 10,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 9,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 8,
+      "views": 7,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "tech",
       "slug": "google-gemini-3-2-3-5-imminent",
       "category": "ai",
-      "views": 8,
+      "views": 7,
       "path": "/tech/ai/google-gemini-3-2-3-5-imminent/"
     },
     {
       "type": "hotpick",
       "slug": "switch-2-buying-guide-2026",
-      "views": 7,
+      "views": 6,
       "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
     },
     {
@@ -92,13 +86,6 @@
       "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
-      "type": "tech",
-      "slug": "china-ai-video-kling3-seedance2",
-      "category": "ai",
-      "views": 5,
-      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
-    },
-    {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 4,
@@ -111,17 +98,24 @@
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "china-ai-video-kling3-seedance2",
+      "category": "ai",
+      "views": 4,
+      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
+    },
+    {
       "type": "tech",
       "slug": "nvidia-q1-fy27-ai-rally-test",
       "category": "ai",
       "views": 4,
       "path": "/tech/ai/nvidia-q1-fy27-ai-rally-test/"
-    },
-    {
-      "type": "issue",
-      "slug": "2026-subculture-openworld-games",
-      "views": 3,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "tech",
@@ -145,12 +139,6 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-refund-exploit-ban",
-      "views": 2,
-      "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 2,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
@@ -168,6 +156,13 @@
       "category": "vibecoding",
       "views": 2,
       "path": "/tech/vibecoding/codex-install-guide-windows/"
+    },
+    {
+      "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "wiki",
@@ -190,9 +185,9 @@
     },
     {
       "type": "issue",
-      "slug": "chzzk-lck-naver-viewer-complaints",
+      "slug": "2026-subculture-openworld-games",
       "views": 1,
-      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -226,9 +221,9 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-pc-launch-feb7",
+      "slug": "lineage-classic-refund-exploit-ban",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-pc-launch-feb7/"
+      "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
     },
     {
       "type": "issue",
@@ -249,6 +244,12 @@
       "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
+      "type": "issue",
+      "slug": "seedance-2-hollywood-shock-next-version",
+      "views": 1,
+      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
+    },
+    {
       "type": "ranking",
       "slug": "mobile-february-2026-kr",
       "views": 1,
@@ -267,13 +268,6 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-sonnet-47-fennec-release-rumor/"
     },
     {
       "type": "tech",
@@ -312,13 +306,6 @@
     },
     {
       "type": "tech",
-      "slug": "nvidia-ai-chip-monopoly-cracking",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/nvidia-ai-chip-monopoly-cracking/"
-    },
-    {
-      "type": "tech",
       "slug": "2d-animation-tech",
       "category": "normal",
       "views": 1,
@@ -347,6 +334,13 @@
     },
     {
       "type": "wiki",
+      "slug": "google-genie3-unity-stock-crash",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/google-genie3-unity-stock-crash/"
+    },
+    {
+      "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
       "views": 1,
@@ -358,6 +352,13 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-esports-history",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "wiki",
