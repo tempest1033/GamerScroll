@@ -1,0 +1,177 @@
+{
+  "slug": "claude-mythos-launch-imminent-signals",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "anthropic",
+  "title": "클로드 미토스 일반 공개 임박설 확산… 시장 시선은 '성능'으로",
+  "titleEn": "Claude Mythos Nears Release, Eyes on Performance",
+  "date": "2026-05-24T23:30",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/65641e7846f10255c4a3415a10bbf5793ae87b13-1200x630.jpg",
+  "keywords": "클로드 미토스, claude-mythos-1-preview, 미토스 일반 공개, 미토스 출시 임박, Claude Code, Claude Security, 카피바라 티어, Glasswing 프리뷰, opus 4.8, 앤트로픽 사이버보안",
+  "keywordsEn": "Claude Mythos, claude-mythos-1-preview, Mythos general release, Mythos launch imminent, Claude Code, Claude Security, Capybara tier, Glasswing preview, opus 4.8, Anthropic cybersecurity",
+  "summary": "앤트로픽의 최상위 모델 '클로드 미토스'의 일반 공개가 임박했다는 관측이 24일 확산했다. 클로드 앱 내부에 'claude-mythos-1-preview' 식별자가 등장하고 관련 서비스 연동 정황이 포착된 결과다.",
+  "summaryEn": "Rumors that Anthropic's top model Claude Mythos is nearing general release surged May 24, after 'claude-mythos-1-preview' briefly appeared inside Claude.",
+  "sources": [
+    {
+      "name": "Fortune",
+      "title": "Exclusive: Anthropic is testing 'Mythos,' its 'most powerful AI model ever developed'",
+      "url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
+    },
+    {
+      "name": "TestingCatalog",
+      "title": "Anthropic prepares Mythos 1 for Claude Code and Claude Security",
+      "url": "https://www.testingcatalog.com/anthropic-prepares-mythos-1-for-claude-code-and-claude-security/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Project Glasswing",
+      "url": "https://www.anthropic.com/glasswing"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Glasswing: Initial Update",
+      "url": "https://www.anthropic.com/research/glasswing-initial-update"
+    },
+    {
+      "name": "Anthropic Red",
+      "title": "Claude Mythos Preview",
+      "url": "https://red.anthropic.com/2026/mythos-preview/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gpt-54-leak-model-war",
+    "tech:ai/google-gemini-3-2-3-5-imminent",
+    "tech:ai/openai-omni-model-rumor-march-2026",
+    "tech:ai/gpt55-opus47-degradation-admission"
+  ],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "24일(현지시간) 개발자 커뮤니티와 X를 중심으로 'claude-mythos-1-preview'라는 식별자가 반복적으로 보고됐다. 지난 3월 앤트로픽이 개발 사실을 공식화했던 최상위 모델 '클로드 미토스(Claude Mythos)'의 일반 공개가 다가왔음을 보여 주는 가장 뚜렷한 정황이다.\n\nAI 관련 사전 정보를 추적하는 [테스팅카탈로그(TestingCatalog)](https://www.testingcatalog.com/anthropic-prepares-mythos-1-for-claude-code-and-claude-security/)가 이날 관련 정황을 먼저 전했다. 해당 식별자가 클로드 코드(Claude Code) 및 클로드 시큐리티(Claude Security) 연동을 위해 준비 중이라는 내용이다. 비슷한 시각 여러 이용자가 클로드 앱 내부에서 이 모델명을 목격했으며, 몇 시간 뒤 자취를 감췄다고 전했다.\n\n이제 시장의 관심은 모델의 존재 여부를 넘어 출시 시점으로 옮겨갔다. 두 달 가까이 소수 파트너에게만 제한적으로 제공됐던 모델이 언제 일반 사용자에게 풀릴지, 그리고 실제 성능이 어느 정도일지에 이목이 쏠린다."
+    },
+    {
+      "type": "heading",
+      "value": "'claude-mythos-1-preview'의 짧은 노출"
+    },
+    {
+      "type": "text",
+      "value": "이날 제기된 정황은 크게 세 가지 흐름으로 나뉜다. 첫째는 모델 식별자의 구체적인 등장이다. 테스팅카탈로그는 클로드 코드와 보안 대시보드 업데이트 과정에서 'claude-mythos-1-preview'라는 이름과 관련 UI 문자열이 포착됐다고 밝혔다. 이 소식은 하루 만에 150회 이상 리트윗되며 빠르게 퍼졌다.\n\n둘째는 백엔드 노출 후 삭제된 패턴이다. 이용자들은 클로드 내부 시스템에 모델명이 잠깐 보였다가 사라졌다고 보고했다. 이는 공식 출시를 앞두고 운영 환경에 모델을 잠시 연결했다가 회수하는 IT 업계의 전형적인 사전 테스트 과정과 일치한다.\n\n셋째는 동시 출시 정황이다. 노출 과정을 추적한 계정들은 미토스 프리뷰 식별자 옆에 'claude-opus-4.8'로 추정되는 또 다른 이름이 함께 자리했다고 덧붙였다. 앤트로픽이 최상위 모델인 미토스와 기존 오퍼스(Opus) 라인업의 새 버전을 비슷한 시기에 준비하고 있다는 의미다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "4개월의 개발 과정과 글래스윙을 통한 우회"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/8831fc381f1087ce855b4fbb4f080b2685ea38ec-1200x630.jpg",
+      "caption": "앤트로픽 Project Glasswing 키 아트",
+      "alt": "앤트로픽 Project Glasswing 추상 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "이번 공개 정황은 수개월에 걸친 개발 과정의 연장선에 있다. 미토스라는 이름이 외부에 처음 알려진 시점은 지난 3월 말이다. 앤트로픽의 콘텐츠 관리 시스템 설정 오류로 약 3,000건의 내부 문서가 노출됐고, 그중 초안 블로그 글에서 '가장 강력한 모델'의 존재가 확인되며 [포춘(Fortune)](https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/)이 단독 보도했다. 직후 앤트로픽은 \"추론, 코딩, 사이버보안에서 의미 있는 진전을 이룬 범용 모델을 개발하고 있다\"고 인정했다.\n\n당시 앤트로픽은 곧바로 일반에 출시하는 대신 제한적인 접근 방식을 택했다. 4월 7일 방어형 사이버보안 프로젝트 [글래스윙(Glasswing)](https://www.anthropic.com/glasswing)을 통해 소수 파트너에게만 '클로드 미토스 프리뷰'를 제공했다. 당장 대중에게 풀기에는 모델 성능이 지나치게 높다고 판단해 보안 방어 조직에 먼저 권한을 넘긴 조치였다.\n\n5월 22일 발표된 중간 업데이트는 이 제한적 운영의 규모를 보여 줬다. 약 50곳의 파트너가 프리뷰를 활용해 1만 건 이상의 고위험 및 치명적 취약점을 찾아냈고, 281개 오픈소스 프로젝트에서 1,596건을 공식 보고했다. 특히 앤트로픽은 이 문서를 통해 \"필요한 안전장치를 마련하는 대로 미토스급 모델을 일반에 공개하겠다\"고 밝혔다. 모델 접근을 계속 통제하겠다던 기존 입장에서 물러나 일반 공개 일정이 빨라지고 있음을 시사한 대목이다."
+    },
+    {
+      "type": "heading",
+      "value": "사이버보안, 여전히 가장 큰 출시 문턱"
+    },
+    {
+      "type": "text",
+      "value": "출시 시계가 빨라지고 있음에도 사이버보안은 여전히 일정을 좌우하는 핵심 변수다. 3월 노출된 내부 문서에서 앤트로픽은 미토스가 \"현존하는 어떤 AI 모델보다 사이버 역량에서 크게 앞서 있다\"고 평가했다.\n\n해당 문서에는 이 모델이 \"방어자의 대응 노력을 훨씬 뛰어넘는 방식으로 취약점을 악용할 수 있는 모델들의 선발대 역할을 한다\"는 경고도 담겼다. 악의적인 목적으로 쓰일 경우 대규모 사이버 공격을 촉발할 수 있다는 우려가 보안 조직 우선 제공이라는 출시 전략을 만들었다.\n\n이러한 신중한 접근은 앤트로픽 모델들이 보여 온 역량과 맞닿아 있다. 지난해 오퍼스 4.6은 상용 코드베이스에서 미확인 취약점을 짚어 내는 능력을 입증했으며, 회사 측은 이를 공격과 방어 모두에 쓰일 수 있는 양날의 검이라고 인정했다. 시장은 미토스가 이보다 훨씬 고도화된 역량을 갖췄을 것으로 보고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "지연 배경을 둘러싼 경량화 추측과 비용 부담"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2153561878.jpg?w=1024",
+      "caption": "다리오 아모데이 앤트로픽 CEO",
+      "alt": "무대에서 발언하는 다리오 아모데이 앤트로픽 CEO"
+    },
+    {
+      "type": "text",
+      "value": "안전성 문제와 함께 운영 비용도 일반 공개를 늦추는 요인으로 거론된다. 24일 개발자 커뮤니티에서는 앤트로픽의 지연 이유가 안전장치 마련에만 있지 않다는 관측이 큰 호응을 얻었다. 대규모 서비스에 맞게 운영 단가를 낮추려고 모델을 경량화(Distillation)하는 작업을 병행하고 있을 거라는 추측이다.\n\n공식 확인된 내용은 아니지만 내부 문서의 맥락과 부합한다. 3월 초안 문서에도 미토스는 운영 비용이 높아 아직 일반 공개 단계가 아니라는 점이 명시돼 있었다. 핵심 성능을 유지하면서 서빙 비용을 낮춘 버전을 다듬는 과정이 필요하다는 해석에 힘이 실리는 이유다.\n\n비용 부담은 구체적인 추산치로도 나타난다. 업계 일각에서는 앤트로픽이 GPU 가동 전력(약 300MW)에만 매달 12억 5천만 달러를 쓰고 있다고 본다. 일본에서는 앤트로픽이 모델의 강력한 성능을 이유로 단 6개 기업에만 미토스 접근 권한을 줬다는 보도가 나오기도 했다. 일반 공개를 위해 넘어야 할 장벽이 단순한 안전 검토 수준을 넘어선다는 점을 보여 준다."
+    },
+    {
+      "type": "heading",
+      "value": "오퍼스 등급을 넘어설 실제 성능에 쏠린 눈"
+    },
+    {
+      "type": "text",
+      "value": "이러한 장벽을 넘어선 뒤 시장의 시선은 결국 모델의 실제 역량에 집중될 전망이다. 3월 문서에서 앤트로픽은 '카피바라(Capybara)'라는 내부 등급명으로 미토스를 지칭하며, \"오퍼스보다 더 크고 지능적인 새로운 등급\"이라고 설명했다. 또한 기존 최고 모델이었던 오퍼스 4.6과 비교해 소프트웨어 코딩, 학술 추론, 사이버보안 벤치마크에서 점수가 크게 올랐다고 밝혔다.\n\n내부에서 '카피바라'와 '미토스'라는 두 이름이 함께 쓰였다는 점도 중요한 대목이다. 기존 오퍼스, 소네트(Sonnet), 하이쿠(Haiku)로 이어지는 3단계 구성 위에 오퍼스보다 높은 등급을 새로 추가하는 것은 단순한 버전 업데이트를 넘어 라인업 전체를 재편한다는 의미를 갖는다. 프리뷰 노출 과정에서 'claude-opus-4.8'이 함께 등장한 것도 이러한 재편 움직임을 뒷받침한다. 오퍼스 4.8 역시 지난 4월 오퍼스 4.7 출시에 이어 수 주 내 발표될 것이라는 관측이 나온다.\n\n출시 임박설이 도는 프런티어 모델은 미토스뿐만이 아니다. 구글의 차기 제미나이(Gemini) 모델 역시 비슷한 공개 임박 관측에 휩싸이는 등 경쟁 구도가 빠르게 변하고 있다([관련 기사](/ko/article/google/google-gemini-3-2-3-5-imminent/)). 아직 앤트로픽이 미토스의 구체적인 일반 공개일을 확정하지 않은 가운데, 시장은 신규 모델이 기존 오퍼스 등급을 얼마나 뛰어넘을지에 주목하고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On May 24, the identifier 'claude-mythos-1-preview' began surfacing across developer communities and X. The appearances offer the strongest signal yet that the general release of Claude Mythos — Anthropic's most powerful model, whose existence was confirmed in March — is approaching.\n\n[TestingCatalog](https://www.testingcatalog.com/anthropic-prepares-mythos-1-for-claude-code-and-claude-security/), an outlet that tracks AI development, reported that the 'claude-mythos-1-preview' identifier is being prepared for integration with Claude Code and Claude Security. Concurrently, several users reported that the model name briefly appeared within the Claude application before disappearing hours later.\n\nThe focus has now shifted from whether the model exists to its impending availability. After spending nearly two months restricted to a small group of partners, the market is watching to see when general users will gain access and how the model's performance will measure up."
+    },
+    {
+      "type": "heading",
+      "value": "Brief Appearance of 'claude-mythos-1-preview'"
+    },
+    {
+      "type": "text",
+      "value": "The signals from May 24 center on three key developments. First, the model identifier itself. TestingCatalog noted that 'claude-mythos-1-preview' and associated UI strings appeared during an update to Claude Code and the security dashboard. That report was quickly widely shared, being retweeted more than 150 times within 24 hours.\n\nSecond, the brief exposure. Users reported that the model name was temporarily visible in the Claude backend before being removed. This mirrors a common pre-launch pattern in the industry, where models are briefly connected to production systems before an official release.\n\nThird, a concurrent release signal. Accounts tracking the exposure noted that a second identifier, 'claude-opus-4.8', was spotted alongside the Mythos preview. This suggests that Anthropic is preparing to release both Mythos as a distinct top-tier model and a new iteration of its existing Opus line on a similar timeline."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "A Four-Month Buildout and the Glasswing Detour"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/8831fc381f1087ce855b4fbb4f080b2685ea38ec-1200x630.jpg",
+      "caption": "Anthropic's Project Glasswing key art",
+      "alt": "Abstract key art for Anthropic's Project Glasswing"
+    },
+    {
+      "type": "text",
+      "value": "The preparations follow months of development. The name Mythos first became public in late March when a configuration error in Anthropic's content management system exposed approximately 3,000 internal documents. A draft blog post within that leak revealed the existence of the company's \"most powerful model,\" leading to an exclusive report by [Fortune](https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/). Anthropic subsequently confirmed it was developing a general-purpose model with \"meaningful advances in reasoning, coding and cybersecurity.\"\n\nRather than moving directly to a general launch, Anthropic initially took a restricted approach. On April 7, the company provided 'Claude Mythos Preview' exclusively to a select group of partners through [Glasswing](https://www.anthropic.com/glasswing), a defensive cybersecurity initiative. The strategy prioritized giving cyber defenders first access to a model deemed too powerful for immediate public release.\n\nAn update published on May 22 demonstrated the scale of that restricted phase. Roughly 50 partners tested the preview, uncovering more than 10,000 high and critical vulnerabilities and leading to 1,596 formal disclosures across 281 open-source projects. Crucially, Anthropic stated in the update that it \"looks forward to making Mythos-class models available through a general release\" once adequate safeguards are established. The statement marked a departure from the company's earlier stance that Mythos would remain restricted, signaling an accelerating release schedule."
+    },
+    {
+      "type": "heading",
+      "value": "Cybersecurity Remains the Primary Constraint"
+    },
+    {
+      "type": "text",
+      "value": "Despite signs of an approaching launch, cybersecurity concerns continue to dictate the release timeline. In the draft document leaked in March, Anthropic described Mythos as being \"currently far ahead of any other AI model in cyber capabilities.\"\n\nThe same document cautioned that the model \"presages an upcoming wave of models that can exploit vulnerabilities in ways that far outpace the efforts of defenders.\" Concerns that the model could facilitate large-scale cyberattacks if misused have driven Anthropic's strategy of deploying it to defensive organizations first.\n\nSuch caution aligns with previous capabilities demonstrated by Anthropic's models. Last year, Opus 4.6 proved capable of identifying unknown vulnerabilities in production codebases, a feature the company acknowledged as having dual-use potential for both offense and defense. Mythos is expected to possess significantly more advanced capabilities in this area."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Delay Speculation Points to Cost and Distillation"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2153561878.jpg?w=1024",
+      "caption": "Anthropic CEO Dario Amodei",
+      "alt": "Anthropic CEO Dario Amodei speaking on stage"
+    },
+    {
+      "type": "text",
+      "value": "Beyond safety concerns, industry speculation on May 24 centered on operational costs as a factor in the delayed general release. One widely circulated developer theory suggested that Anthropic is attempting to distill Mythos into a smaller, more efficient model that can run at a massive scale with lower operating costs.\n\nWhile unverified, the theory aligns with internal documents. The March draft noted that Mythos was expensive to operate and not yet ready for general availability. Refining a lighter version that maintains core performance while reducing serving costs would address those financial constraints.\n\nThe operational burden is substantial. Industry estimates suggest Anthropic spends approximately $1.25 billion monthly on 300MW of power strictly for GPU operations. Additional reports from Japan indicated that the company had previously restricted Mythos to just six firms due to its power, further reinforcing the perception that general release involves hurdles beyond standard safety reviews."
+    },
+    {
+      "type": "heading",
+      "value": "Anticipating Performance Beyond the Opus Tier"
+    },
+    {
+      "type": "text",
+      "value": "Once those hurdles are cleared, the market's primary focus will be on the model's actual capabilities. In the March draft, Anthropic referred to the model under the tier name \"Capybara,\" describing it as \"a new tier larger and more intelligent than Opus.\" The document claimed the model achieved dramatically higher scores than Opus 4.6 on software coding, academic reasoning, and cybersecurity benchmarks.\n\nThe dual internal names, 'Capybara' and 'Mythos,' suggest a significant shift in the company's product structure. Positioning a new grade above the existing Opus-Sonnet-Haiku lineup indicates a broader reshaping of Anthropic's offerings rather than a standard version update. The simultaneous appearance of the 'claude-opus-4.8' identifier supports this view, with rumors suggesting the new Opus iteration could launch in the coming weeks, maintaining the cadence set by Opus 4.7 in April.\n\nMythos is not the only frontier model generating release rumors. Speculation surrounding Google's next Gemini iteration has also intensified, highlighting a rapidly moving competitive landscape ([related article](/article/google/google-gemini-3-2-3-5-imminent/)). While Anthropic has not yet confirmed a general release date for Mythos, market attention is already pivoting toward how far the new model will exceed the capabilities of the current Opus tier."
+    }
+  ],
+  "site": "aiscroll"
+}
