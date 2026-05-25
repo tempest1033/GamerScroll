@@ -44,6 +44,7 @@ const REPORTS_DIR = './reports';
 const WIKI_DIR = './data/wiki';
 const FEED_ASSETS_DIR = './assets/feed';
 const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
+const { computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
 let currentCssAssetVersion = '';
 
 /**
@@ -2400,6 +2401,18 @@ async function main() {
 
   // PurgeCSS: 사용되지 않는 CSS 제거 (docs/ 내 CSS만 대상)
   await purgeCssInDocs(DOCS_DIR);
+
+  // CSS 해시: purge 완료본 기준으로 재산출 (게임 생성기와 동일 알고리즘 공유).
+  // purge 전에 발급하면 미purge 번들이 해시·배포되어 페이지마다 다른 파일을
+  // 받게 되므로, 반드시 purge 이후 docs/ 산출본으로 재해시·재버전·링크 재작성한다.
+  const purgedCssVersion = computeCssAssetVersion(DOCS_DIR);
+  if (purgedCssVersion && purgedCssVersion !== currentCssAssetVersion) {
+    console.log(`  🔁 CSS 해시 재산출(purge 후): ${currentCssAssetVersion || '(none)'} → ${purgedCssVersion}`);
+  }
+  currentCssAssetVersion = purgedCssVersion;
+  setCssAssetVersion(currentCssAssetVersion);
+  ensureDocsCssAssetCopies(DOCS_DIR, currentCssAssetVersion);
+  rewriteDocsStylesheetLinks(DOCS_DIR);
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];

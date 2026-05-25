@@ -26,39 +26,14 @@ const outputDir = path.join(__dirname, '..', docsDir, 'games');
 // 템플릿 import
 const { generateGamePage } = require('../src/templates/pages/game');
 const { setCssFilename, setCssAssetVersion } = require('../src/templates/layout');
+const { CSS_ASSET_FILES, computeCssAssetVersion, ensureDocsCssAssetCopies } = require('../src/build/css-version');
 
-function getCssAssetVersion() {
-  const cssPaths = [
-    path.join(__dirname, '..', docsDir, 'styles-core.css'),
-    path.join(__dirname, '..', docsDir, 'styles-report.css'),
-    path.join(__dirname, '..', docsDir, 'styles-game.css'),
-    path.join(__dirname, '..', docsDir, 'styles-article.css')
-  ];
-  const hash = crypto.createHash('md5');
-  let hasCss = false;
-  for (const cssPath of cssPaths) {
-    if (!fs.existsSync(cssPath)) continue;
-    hash.update(fs.readFileSync(cssPath, 'utf8'));
-    hash.update('\n');
-    hasCss = true;
-  }
-  return hasCss ? hash.digest('hex').slice(0, 8) : '';
-}
+const docsAbsDir = path.join(__dirname, '..', docsDir);
 
-function ensureDocsCssAssetCopies(version) {
-  if (!version) return;
-  const cssFiles = ['styles-core.css', 'styles-report.css', 'styles-game.css', 'styles-article.css'];
-  for (const filename of cssFiles) {
-    const stablePath = path.join(__dirname, '..', docsDir, filename);
-    if (!fs.existsSync(stablePath)) continue;
-    const versionedPath = path.join(__dirname, '..', docsDir, filename.replace(/\.css$/, `.${version}.css`));
-    fs.copyFileSync(stablePath, versionedPath);
-  }
-}
-
-// CSS 파일명 설정 (고정)
-const cssAssetVersion = getCssAssetVersion();
-ensureDocsCssAssetCopies(cssAssetVersion);
+// CSS 파일명 설정 (고정) — 메인 생성기와 동일한 해시 알고리즘/대상(purge본) 공유.
+// 메인 생성기가 purge 후 동일 헬퍼로 발급한 해시와 일치하므로 전 페이지가 같은 파일을 참조한다.
+const cssAssetVersion = computeCssAssetVersion(docsAbsDir);
+ensureDocsCssAssetCopies(docsAbsDir, cssAssetVersion);
 setCssAssetVersion(cssAssetVersion);
 setCssFilename('/styles-core.css');
 
@@ -1301,8 +1276,9 @@ if (!fs.existsSync(outputDir)) {
 
 // ★ 스킵 체크를 파일 로드 전에 수행 (성능 최적화)
 const incrementalCache = buildCache.loadCache();
-// CSS 파일 경로 (변경 시 재빌드 트리거)
-const cssFilePath = path.join(__dirname, '..', docsDir, 'styles-core.css');
+// CSS 번들 경로 (변경 시 재빌드 트리거) — 4종 모두 포함해야 해시 버전 변경 시 게임 HTML이 재작성된다.
+// styles-core만 보면 styles-game/report/article 변경 시 해시는 바뀌는데 skip되어 옛 해시(삭제됨)를 가리킬 수 있음.
+const cssFilePaths = CSS_ASSET_FILES.map((f) => path.join(__dirname, '..', docsDir, f));
 const inputSignature = buildCache.getInputFilesSignature([
   gamesPath,
   historyDir,
@@ -1312,7 +1288,7 @@ const inputSignature = buildCache.getInputFilesSignature([
   issueDir,
   hotpickDir,
   insightDir,
-  cssFilePath
+  ...cssFilePaths
 ].filter(Boolean));
 
 const searchIndexPath = path.join(outputDir, 'search-index.json');
@@ -1389,12 +1365,13 @@ if (buildCache.checkTemplateChanged(incrementalCache)) {
   console.log('  📝 템플릿 버전 변경 → 전체 재빌드');
 }
 
-// CSS 변경 시 전체 재빌드 (파일 수정 시간 기반)
-const cssModTime = fs.existsSync(cssFilePath) ? fs.statSync(cssFilePath).mtimeMs : 0;
-if (cssModTime && incrementalCache.meta.gamePagesCssMtime !== cssModTime) {
+// CSS 변경 시 전체 재빌드 (해시 버전 기반 — 4종 번들 전체 반영, mtime 대신 내용 해시 비교).
+// cssAssetVersion 은 메인 생성기와 동일 헬퍼로 산출한 4-번들 해시이므로, 어느 번들이 바뀌어
+// 해시 파일명이 변하면 전체 재빌드로 모든 게임 HTML이 새 해시를 가리키게 한다.
+if (cssAssetVersion && incrementalCache.meta.gamePagesCssVersion !== cssAssetVersion) {
   forceFullRebuild = true;
-  console.log('  🎨 CSS 변경 감지 → 전체 재빌드');
-  incrementalCache.meta.gamePagesCssMtime = cssModTime;
+  console.log(`  🎨 CSS 해시 변경 감지(${incrementalCache.meta.gamePagesCssVersion || '(none)'} → ${cssAssetVersion}) → 전체 재빌드`);
+  incrementalCache.meta.gamePagesCssVersion = cssAssetVersion;
 }
 
 // 순위에 있거나 데이터가 있는 게임만 페이지 생성
