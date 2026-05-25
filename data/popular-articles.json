@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-24T01:53:42.028Z",
+  "updatedAt": "2026-05-25T02:00:07.091Z",
   "period": "7days",
   "articles": [
     {
@@ -11,7 +11,7 @@
     {
       "type": "ranking",
       "slug": "subculture-april-2026-kr",
-      "views": 22,
+      "views": 23,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
@@ -24,14 +24,21 @@
     {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
-      "views": 18,
+      "views": 19,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 16,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "tech",
       "slug": "claude-code-vs-codex-coding-agent",
       "category": "ai",
-      "views": 16,
+      "views": 15,
       "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
     },
     {
@@ -43,20 +50,13 @@
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 11,
+      "views": 10,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 11,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 7,
+      "views": 6,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
@@ -73,35 +73,10 @@
       "path": "/tech/ai/google-gemini-3-2-3-5-imminent/"
     },
     {
-      "type": "hotpick",
-      "slug": "switch-2-buying-guide-2026",
-      "views": 4,
-      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 4,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
       "type": "issue",
       "slug": "neverness-to-everness-launch-date",
       "views": 4,
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 4,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "category": "ai",
-      "views": 4,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
     },
     {
       "type": "tech",
@@ -118,24 +93,36 @@
       "path": "/tech/ai/nvidia-q1-fy27-ai-rally-test/"
     },
     {
+      "type": "hotpick",
+      "slug": "switch-2-buying-guide-2026",
+      "views": 3,
+      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 3,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 3,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+    },
+    {
+      "type": "tech",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "category": "ai",
+      "views": 3,
+      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
       "type": "tech",
       "slug": "gemini-free-tier-cutback-backlash",
       "category": "ai",
       "views": 3,
       "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
-    },
-    {
-      "type": "tech",
-      "slug": "gpt55-opus47-degradation-admission",
-      "category": "ai",
-      "views": 3,
-      "path": "/tech/ai/gpt55-opus47-degradation-admission/"
-    },
-    {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 2,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -150,11 +137,17 @@
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
       "type": "tech",
-      "slug": "claude-sonnet-46-release",
+      "slug": "gpt55-opus47-degradation-admission",
       "category": "ai",
       "views": 2,
-      "path": "/tech/ai/claude-sonnet-46-release/"
+      "path": "/tech/ai/gpt55-opus47-degradation-admission/"
     },
     {
       "type": "tech",
@@ -185,15 +178,15 @@
     },
     {
       "type": "issue",
-      "slug": "crimson-desert-metacritic-stock-crash",
+      "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 1,
-      "path": "/magazine/issue/crimson-desert-metacritic-stock-crash/"
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
     },
     {
       "type": "issue",
-      "slug": "devsisters-q1-loss-voluntary-retirement",
+      "slug": "crimson-desert-metacritic-stock-crash",
       "views": 1,
-      "path": "/magazine/issue/devsisters-q1-loss-voluntary-retirement/"
+      "path": "/magazine/issue/crimson-desert-metacritic-stock-crash/"
     },
     {
       "type": "issue",
@@ -215,12 +208,6 @@
     },
     {
       "type": "issue",
-      "slug": "mongil-star-dive-global-launch",
-      "views": 1,
-      "path": "/magazine/issue/mongil-star-dive-global-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "rotk8-remake-pk-mixed-launch",
       "views": 1,
       "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
@@ -230,12 +217,6 @@
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 1,
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -250,6 +231,13 @@
       "category": "ai",
       "views": 1,
       "path": "/tech/ai/claude-opus-46-pricing-controversy/"
+    },
+    {
+      "type": "tech",
+      "slug": "claude-sonnet-46-release",
+      "category": "ai",
+      "views": 1,
+      "path": "/tech/ai/claude-sonnet-46-release/"
     },
     {
       "type": "tech",

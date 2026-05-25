@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-24T01:53:41.763Z",
+  "updatedAt": "2026-05-25T02:00:06.851Z",
   "period": "30days",
   "games": [
     {
@@ -15,16 +15,12 @@
       "views": 5
     },
     {
-      "slug": "라스트-어사일럼-페스트",
+      "slug": "궁영롱몽",
       "views": 4
     },
     {
-      "slug": "wos-화이트아웃-서바이벌",
-      "views": 3
-    },
-    {
-      "slug": "궁영롱몽",
-      "views": 3
+      "slug": "라스트-어사일럼-페스트",
+      "views": 4
     },
     {
       "slug": "테이스티-트레블-합성-게임",
@@ -36,6 +32,10 @@
     },
     {
       "slug": "limbus-company",
+      "views": 2
+    },
+    {
+      "slug": "wos-화이트아웃-서바이벌",
       "views": 2
     },
     {
@@ -63,6 +63,10 @@
       "views": 2
     },
     {
+      "slug": "배틀그라운드",
+      "views": 2
+    },
+    {
       "slug": "브롤스타즈",
       "views": 2
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "스트리트볼-올스타-streetball-allstar",
-      "views": 2
-    },
-    {
-      "slug": "킹샷kingshot",
       "views": 2
     }
   ]
