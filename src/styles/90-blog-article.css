@@ -593,7 +593,7 @@
 /* 표 래퍼 - 반응형 자동 조정 (마크다운 표 파싱용) */
 .blog-table-wrapper {
   margin: 24px 0;
-  width: fit-content;
+  width: 100%;
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -629,6 +629,39 @@
     width: 100%;
     font-size: var(--font-body-size);
   }
+}
+
+/* 표 좌우 가득 채우기 (blog 기사 표만) */
+.blog-table-wrapper table {
+  width: 100%;
+  min-width: 100%;
+}
+
+/* 표 캡션을 아래로 */
+.blog-table-wrapper caption {
+  caption-side: bottom;
+  margin-top: 10px;
+  font-size: var(--font-desc-size);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* 순위 등락 배지 (상승 초록 / 하락 빨강) */
+.blog-table-wrapper .rank-up,
+.blog-table-wrapper .rank-down {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  font-weight: 700;
+}
+.blog-table-wrapper .rank-up {
+  background: #d3f9d8;
+  color: #166534;
+}
+.blog-table-wrapper .rank-down {
+  background: #ffe3e3;
+  color: #991b1b;
 }
 
 /* 표 제목 */
@@ -1605,7 +1638,7 @@
   color: #0050B3;
 }
 .ranking-card-stat.stat-aos .stat-label {
-  color: #1F8F4D;
+  color: #166534;
 }
 
 /* 요약 통계 */

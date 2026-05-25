@@ -2125,7 +2125,13 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
             tableHtml += '</tr></thead><tbody>';
             block.rows.forEach(row => {
               tableHtml += '<tr>';
-              row.forEach(cell => { tableHtml += `<td>${parseTableCell(cell).replace(/\n/g, '<br>')}</td>`; });
+              row.forEach(cell => {
+                let cellHtml = parseTableCell(cell).replace(/\n/g, '<br>');
+                cellHtml = cellHtml
+                  .replace(/▲\s*(\d+)/g, '<span class="rank-up">▲$1</span>')
+                  .replace(/▼\s*(\d+)/g, '<span class="rank-down">▼$1</span>');
+                tableHtml += `<td>${cellHtml}</td>`;
+              });
               tableHtml += '</tr>';
             });
             tableHtml += '</tbody></table></div>';

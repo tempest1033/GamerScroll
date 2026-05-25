@@ -1,0 +1,356 @@
+{
+  "slug": "steam-april-2026",
+  "status": "approved",
+  "title": "2026년 4월 스팀 매출 순위 (한국 스토어)",
+  "date": "2026-05-01T13:00",
+  "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/capsule_616x353.jpg",
+  "keywords": "스팀 매출 순위, 2026년 4월 스팀, 한국 스토어, 배틀그라운드, 붉은사막, 펄어비스, 프라그마타",
+  "summary": "2026년 4월 스팀 한국 스토어 매출 순위에서 크래프톤의 배틀그라운드가 30일 중 22일간 1위를 지켰다. 펄어비스 붉은사막이 2위, 캡콤 신작 프라그마타가 3월 154위에서 7위로 급등하며 상위권에 진입했다.",
+  "relatedGames": [],
+  "relatedDocs": [
+    "ranking:steam-february-2026",
+    "ranking:steam-january-2026",
+    "ranking:subculture-april-2026-kr"
+  ],
+  "sources": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 4월 스팀 한국 스토어 매출 순위는 **배틀그라운드**의 독주였다. 크래프톤의 배틀그라운드는 4월 30일 가운데 **22일간 1위**를 지키며 월평균 1.33위를 기록했다. 무료 게임이지만 게임 내 아이템 판매가 꾸준히 전체 매출을 견인했다.\n\n2위는 펄어비스의 **붉은사막**이 차지했다. ₩79,800짜리 유료 신작이 월평균 3.03위에 올랐고 6일간 1위를 기록했다. 무료 게임이 상위권을 장악한 한국 스토어에서 유료 타이틀이 한 달 내내 최상위권을 유지한 것은 이례적이다. 캡콤의 **프라그마타**는 3월 154위에서 4월 7위로 급등하며, 4월 한 달간 가장 가파른 상승세를 보였다([Steam 최고 판매 차트](https://store.steampowered.com/charts/topselling) 집계 기준)."
+    },
+    {
+      "type": "note",
+      "value": "집계: 4월 전체 30일 | 기준: 일일 매출(최고 판매) 순위의 월평균\n플랫폼: Steam (한국 스토어) | 출처: Steam 스토어 최고 판매 차트"
+    },
+    {
+      "type": "heading",
+      "value": "한국 스토어 매출 1위를 찍은 게임은 단 넷"
+    },
+    {
+      "type": "ranking-bar",
+      "unit": "일",
+      "items": [
+        { "rank": 1, "name": "배틀그라운드", "score": 22, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/14f42ab797699a9c9f137fda66582d8776da4330/capsule_231x87.jpg?t=1775635041" },
+        { "rank": 2, "name": "붉은사막", "score": 6, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3321460/f4b3cbf1c0759e0f18cbc0bf13cdefa02451c95b/capsule_231x87.jpg?t=1777016399" },
+        { "rank": 3, "name": "이터널 리턴", "score": 1, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049590/b3a4e2dedf5ca6630e7483f414e63c3f4ea5267f/capsule_231x87.jpg?t=1777528214" },
+        { "rank": 4, "name": "프라그마타", "score": 1, "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3357650/3e7cf55cf72a980ac94cf45d4212e8f0cb566f7f/capsule_231x87.jpg?t=1777351016" }
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "2026년 4월 스팀 매출 순위 TOP 10 (한국 스토어)",
+      "headers": [
+        "순위",
+        "게임",
+        "월평균 순위",
+        "최고",
+        "1위 일수",
+        "전월 대비"
+      ],
+      "rows": [
+        [
+          "1",
+          "배틀그라운드",
+          "1.33위",
+          "1위",
+          "22일",
+          "-"
+        ],
+        [
+          "2",
+          "붉은사막",
+          "3.03위",
+          "1위",
+          "6일",
+          "▲3"
+        ],
+        [
+          "3",
+          "이터널 리턴",
+          "4.37위",
+          "1위",
+          "1일",
+          "▼1"
+        ],
+        [
+          "4",
+          "슬레이 더 스파이어 2",
+          "6.53위",
+          "3위",
+          "0일",
+          "▲7"
+        ],
+        [
+          "5",
+          "카운터-스트라이크 2",
+          "7.67위",
+          "5위",
+          "0일",
+          "▼2"
+        ],
+        [
+          "6",
+          "원스 휴먼",
+          "10.57위",
+          "2위",
+          "0일",
+          "▲2"
+        ],
+        [
+          "7",
+          "프라그마타",
+          "10.73위",
+          "1위",
+          "1일",
+          "▲147"
+        ],
+        [
+          "8",
+          "림버스 컴퍼니",
+          "11.57위",
+          "3위",
+          "0일",
+          "▼2"
+        ],
+        [
+          "9",
+          "Where Winds Meet",
+          "13.77위",
+          "3위",
+          "0일",
+          "-"
+        ],
+        [
+          "10",
+          "에이펙스 레전드",
+          "17.9위",
+          "5위",
+          "0일",
+          "▼6"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "10위: 에이펙스 레전드 (▼6)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "에이펙스 레전드",
+        "score": 17.9,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/b2163cc2e8d366e26d8d463d178d86690d9a402e/capsule_231x87.jpg?t=1770753360",
+        "iosLabel": "최고",
+        "ios": "최고 5위",
+        "androidLabel": "전월",
+        "android": "4위"
+      }
+    },
+    {
+      "type": "text",
+      "value": "리스폰의 무료 배틀로얄 에이펙스 레전드가 3월 4위에서 4월 10위로 여섯 계단 하락했다. 월평균 17.9위, 최고 5위를 기록했다. 상위 10위권은 지켜냈으나 신규 결제 수요가 다소 줄어들며 신작들에 자리를 내줬다."
+    },
+    {
+      "type": "heading",
+      "value": "9위: Where Winds Meet (-)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "Where Winds Meet",
+        "score": 13.77,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3564740/cc9cc1180c402791e02b6f0ab5f90f83417583be/capsule_231x87_alt_assets_4.jpg?t=1777516538",
+        "iosLabel": "최고",
+        "ios": "최고 3위",
+        "androidLabel": "전월",
+        "android": "9위"
+      }
+    },
+    {
+      "type": "text",
+      "value": "에버스톤 스튜디오(Everstone Studio)의 무협 오픈월드 Where Winds Meet(연운십육성)이 3월에 이어 9위를 유지했다. 월평균 13.77위, 최고 3위를 기록했다. 무료 출시 이후 꾸준한 결제 수요가 뒷받침되면서 4월에도 순위를 방어했다."
+    },
+    {
+      "type": "heading",
+      "value": "8위: 림버스 컴퍼니 (▼2)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "림버스 컴퍼니",
+        "score": 11.57,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1973530/capsule_231x87.jpg?t=1777255766",
+        "iosLabel": "최고",
+        "ios": "최고 3위",
+        "androidLabel": "전월",
+        "android": "6위"
+      }
+    },
+    {
+      "type": "text",
+      "value": "프로젝트문의 림버스 컴퍼니는 6위에서 8위로 두 계단 하락했다. 월평균 11.57위, 최고 3위를 기록했다. 한국 인디 스튜디오가 개발한 스토리형 RPG로, 시즌과 이벤트 주기에 따라 매출이 오르내리는 흐름을 4월에도 이어갔다."
+    },
+    {
+      "type": "heading",
+      "value": "7위: 프라그마타 (▲147)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "프라그마타",
+        "score": 10.73,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3357650/3e7cf55cf72a980ac94cf45d4212e8f0cb566f7f/capsule_231x87.jpg?t=1777351016",
+        "iosLabel": "최고",
+        "ios": "최고 1위",
+        "androidLabel": "1위 차지",
+        "android": "1일"
+      }
+    },
+    {
+      "type": "image",
+      "src": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3357650/library_hero.jpg",
+      "caption": "프라그마타 키 아트",
+      "alt": "우주복 소녀와 메카가 등장하는 SF 액션 게임 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "4월 매출 순위에서 가장 두드러진 게임은 캡콤의 **프라그마타**다. 3월 154위에 머물던 이 SF 액션 신작은 4월 17일 정식 출시와 함께 7위로 급등했다. 한 달 만에 147계단을 뛰어올랐고, 4월 중 하루는 전체 매출 1위를 기록하기도 했다. ₩69,800짜리 유료 타이틀이 무료 게임들 사이에서 최상위권에 안착한 이례적인 성과다."
+    },
+    {
+      "type": "heading",
+      "value": "6위: 원스 휴먼 (▲2)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "원스 휴먼",
+        "score": 10.57,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2139460/e0279524592d9107eba375aa5f4977bf708ea95a/capsule_231x87.jpg?t=1776953816",
+        "iosLabel": "최고",
+        "ios": "최고 2위",
+        "androidLabel": "전월",
+        "android": "8위"
+      }
+    },
+    {
+      "type": "text",
+      "value": "스타리 스튜디오(Starry Studio)의 원스 휴먼이 8위에서 6위로 올라섰다. 월평균 10.57위, 최고 2위를 기록했다. 무료 생존 게임으로, 신규 시즌과 콘텐츠 업데이트가 결제 수요를 이끌어내며 순위를 두 계단 끌어올렸다."
+    },
+    {
+      "type": "heading",
+      "value": "5위: 카운터-스트라이크 2 (▼2)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "카운터-스트라이크 2",
+        "score": 7.67,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/capsule_231x87.jpg?t=1749053861",
+        "iosLabel": "최고",
+        "ios": "최고 5위",
+        "androidLabel": "전월",
+        "android": "3위"
+      }
+    },
+    {
+      "type": "text",
+      "value": "밸브의 카운터-스트라이크 2는 3월 3위에서 4월 5위로 하락했다. 월평균 7.67위, 최고 5위를 기록했다. 무료 전환 이후에도 케이스와 스킨 거래가 탄탄한 매출원으로 작용하고 있으나, 4월에는 신작 공세에 밀려 순위가 두 계단 내려갔다."
+    },
+    {
+      "type": "heading",
+      "value": "4위: 슬레이 더 스파이어 2 (▲7)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "슬레이 더 스파이어 2",
+        "score": 6.53,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/fb0ad136e9eaa4297a1ab3440d88ecb7209f44a2/capsule_231x87.jpg?t=1776735385",
+        "iosLabel": "최고",
+        "ios": "최고 3위",
+        "androidLabel": "전월",
+        "android": "11위"
+      }
+    },
+    {
+      "type": "text",
+      "value": "메가 크릿(Mega Crit)의 슬레이 더 스파이어 2가 3월 11위에서 4위로 일곱 계단 상승했다. 월평균 6.53위, 최고 3위를 기록했다. ₩27,000짜리 유료 로그라이크 후속작으로, 전작의 두터운 팬층이 신규 구매로 이어지며 4월 매출 상위권에 성공적으로 안착했다."
+    },
+    {
+      "type": "heading",
+      "value": "3위: 이터널 리턴 (▼1)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "이터널 리턴",
+        "score": 4.37,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049590/b3a4e2dedf5ca6630e7483f414e63c3f4ea5267f/capsule_231x87.jpg?t=1777528214",
+        "iosLabel": "최고",
+        "ios": "최고 1위",
+        "androidLabel": "1위 차지",
+        "android": "1일"
+      }
+    },
+    {
+      "type": "text",
+      "value": "님블뉴런의 이터널 리턴은 2위에서 3위로 한 계단 하락했다. 월평균 4.37위, 최고 1위(하루)를 기록했다. 국산 무료 배틀로얄 게임으로, 시즌 패스와 스킨 판매가 상위권 유지를 위한 안정적인 매출원 역할을 했다."
+    },
+    {
+      "type": "heading",
+      "value": "2위: 붉은사막 (▲3)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "붉은사막",
+        "score": 3.03,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3321460/f4b3cbf1c0759e0f18cbc0bf13cdefa02451c95b/capsule_231x87.jpg?t=1777016399",
+        "iosLabel": "최고",
+        "ios": "최고 1위",
+        "androidLabel": "1위 차지",
+        "android": "6일"
+      }
+    },
+    {
+      "type": "image",
+      "src": "https://images.pushsquare.com/331a06caf3b56/crimson-desert-ps5.large.jpg",
+      "caption": "붉은사막 키 아트",
+      "alt": "펄어비스 붉은사막 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "펄어비스의 붉은사막이 3월 5위에서 4월 2위로 세 계단 뛰어올랐다. 월평균 3.03위를 기록했고, 4월 중 6일 동안 1위 자리를 지켰다. ₩79,800짜리 유료 신작이 한 달 내내 매출 최상위권을 유지한 것은 국산 게임으로서 이례적인 성과다. 무료 게임 위주로 돌아가는 한국 스토어에서 유료 패키지가 매출 정상급에 도달한 주요 사례로 남았다."
+    },
+    {
+      "type": "heading",
+      "value": "1위: 배틀그라운드 (-)"
+    },
+    {
+      "type": "ranking-card",
+      "unit": " 위",
+      "item": {
+        "name": "배틀그라운드",
+        "score": 1.33,
+        "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578080/14f42ab797699a9c9f137fda66582d8776da4330/capsule_231x87.jpg?t=1775635041",
+        "iosLabel": "최고",
+        "ios": "최고 1위",
+        "androidLabel": "1위 차지",
+        "android": "22일"
+      }
+    },
+    {
+      "type": "text",
+      "value": "4월 매출 1위는 크래프톤의 배틀그라운드가 차지했다. 30일 중 22일간 1위를 유지했고, 월평균 1.33위를 기록하며 2위와의 격차를 확고히 했다. 2017년 출시된 이 배틀로얄 게임은 2022년 무료 전환 이후에도 한국 스팀 매출 정상권을 놓치지 않고 있다. 게임 패스와 스킨 등 꾸준한 아이템 판매가 탄탄한 매출 기반이다.\n\n유료 신작인 붉은사막과 프라그마타가 상위권으로 치고 올라왔지만, 월간 매출 1위 자리는 결국 무료 게임이 방어해 냈다. 같은 기간 동시접속자 흐름은 [스팀 동시접속자 추이](/magazine/ranking/steam-february-2026/)에서 따로 볼 수 있다."
+    }
+  ]
+}
