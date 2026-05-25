@@ -918,7 +918,7 @@ function wrapWithLayout(content, options = {}) {
   const runtimeSearchPath = searchHref(lang);
   const runtimeArticlesJsonPath = pathForLang('/articles.json', lang);
   const runtimeSearchJsonPath = pathForLang('/articles-search.json', lang);
-  const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : '';
+  const jsonLdScript = jsonLd ? `\n  <!-- JSON-LD Structured Data -->\n  <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')}</script>` : '';
 
   // Article OG tags
   const articleTagsMeta = (articleMeta?.tags || []).map(tag =>
@@ -2528,20 +2528,40 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   const categoryKeywords = _lang === 'ko'
     ? `${categoryLabel}, AI 뉴스, 인공지능, ${SITE_CONFIG.name}`
     : `${categoryLabel}, AI news, ${SITE_CONFIG.keywords}`;
-  // CollectionPage JSON-LD for category pages
-  const categoryJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": categoryLabel,
-    "description": categoryDescription,
-    "inLanguage": _catInLanguage,
-    "url": `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": SITE_CONFIG.name,
-      "url": `${SITE_CONFIG.baseUrl}${_langPrefix}/`
+  // CollectionPage + BreadcrumbList JSON-LD for category pages
+  const categoryJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": categoryLabel,
+      "description": categoryDescription,
+      "inLanguage": _catInLanguage,
+      "url": `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": SITE_CONFIG.name,
+        "url": `${SITE_CONFIG.baseUrl}${_langPrefix}/`
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": _lang === 'ko' ? '홈' : 'Home',
+          "item": `${SITE_CONFIG.baseUrl}${_langPrefix}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": categoryLabel,
+          "item": `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`
+        }
+      ]
     }
-  };
+  ];
 
   return wrapWithLayout(content, {
     title: `${categoryLabel} - ${SITE_CONFIG.name}`,

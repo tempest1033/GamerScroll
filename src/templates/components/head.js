@@ -161,7 +161,7 @@ function generateHead(options = {}) {
     "@type": "Article",
     "headline": ${jsonString(articleSchema.headline || title)},
     "description": ${jsonString(articleSchema.description || description)},
-    "datePublished": ${jsonString(ensureTimezone(articleSchema.datePublished))},
+    ${articleSchema.datePublished ? `"datePublished": ${jsonString(ensureTimezone(articleSchema.datePublished))},` : ''}
     ${articleSchema.dateModified ? `"dateModified": ${jsonString(ensureTimezone(articleSchema.dateModified))},` : ''}
     "author": {
       "@type": "Person",

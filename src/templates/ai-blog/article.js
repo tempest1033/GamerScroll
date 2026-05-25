@@ -629,7 +629,8 @@ function generateAIBlogArticle(article, data = {}) {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": article.title
+          "name": article.title,
+          "item": _jsonLdSelfUrl
         }
       ]
     }
