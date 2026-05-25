@@ -1,0 +1,172 @@
+{
+  "slug": "pope-leo-ai-encyclical-anthropic",
+  "status": "approved",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "needTranslate": false,
+  "title": "앤트로픽 단상 세운 교황청, 첫 AI 회칙서 \"속도 늦춰라\" 직격",
+  "titleEn": "Pope Leo's First Encyclical Urges AI Slowdown",
+  "date": "",
+  "thumbnail": "https://dims.apnews.com/dims4/default/4d6af53/2147483647/strip/true/crop/5122x3413+0+1/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F3e%2F52%2Fad1af18b8b21d1138040aa14bdeb%2Fa43bea0171734f66b7210fc17939b894",
+  "summary": "레오 14세가 첫 회칙 『장엄한 인류』를 통해 인공지능의 무장 해제와 개발 속도 조절을 촉구했다. 단상에는 앤트로픽 공동창업자가 섰지만, 교황의 메시지는 소수 기업에 집중된 기술 권력을 정면으로 겨냥했다.",
+  "summaryEn": "Pope Leo XIV's first encyclical urges disarming AI and slowing down, a sharp critique of concentrated tech power as Anthropic shared the Vatican stage.",
+  "keywords": "AI 회칙, 레오 14세, 장엄한 인류, AI 무장 해제, 앤트로픽 교황청, 크리스토퍼 올라, AI 규제, AI 개발 속도, AI 윤리, 정당한 전쟁",
+  "keywordsEn": "Pope Leo XIV AI encyclical, Magnifica Humanitas, AI disarmament, Anthropic Vatican, Christopher Olah, AI regulation, slow down AI, Rerum Novarum, AI ethics, just war doctrine",
+  "sources": [
+    {
+      "name": "AP",
+      "title": "Pope Leo XIV urges AI regulation for the common good",
+      "url": "https://apnews.com/article/pope-ai-tech-trump-vatican-anthropic-d92d0108730d146baa46da041b8523da"
+    },
+    {
+      "name": "Vatican News",
+      "title": "Pope Leo's 'Magnifica humanitas': AI must serve humanity not concentrate power",
+      "url": "https://www.vaticannews.va/en/pope/news/2026-05/pope-leo-xiv-encyclical-magnifica-humanitas-ai.html"
+    },
+    {
+      "name": "Vatican.va",
+      "title": "Encyclical Letter Magnifica Humanitas (full text)",
+      "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html"
+    },
+    {
+      "name": "Holy See Press Office",
+      "title": "Presentation of the Encyclical Magnifica Humanitas",
+      "url": "https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2026/05/16/260516b.html"
+    },
+    {
+      "name": "UNESCO",
+      "title": "UNESCO welcomes the encyclical Magnifica Humanitas",
+      "url": "https://x.com/i/status/2058878921886544106"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-government-conflict-weapons-surveillance",
+    "tech:ai/silicon-valley-ai-ethics-government-clash",
+    "tech:ai/trump-ai-executive-order-postponed-may-2026",
+    "tech:ai/claude-military-venezuela-iran"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "레오 14세 교황이 5월 25일 바티칸에서 첫 AI 회칙 『장엄한 인류(Magnifica Humanitas)』를 발표했다. 부제는 '인공지능 시대, 인간을 어떻게 지킬 것인가'로 달렸다. 총 5장, 4만 단어 분량으로 교황이 낼 수 있는 최고 권위의 가르침이다.\n\n메시지는 단호했다. 교황은 AI 개발자와 정책 입안자를 향해 \"속도를 늦추고 궤적을 돌아보라\"고 거듭 당부했다. 미국 출신인 그는 즉위 직후부터 AI를 인류 최대의 도전 과제로 꼽아왔다.\n\n가장 눈길을 끈 대목은 발표장 풍경이었다. 교황의 단상 옆에는 크리스토퍼 올라 앤트로픽 공동창업자가 나란히 섰다. 정작 AI 회칙 본문은 그가 몸담은 실리콘밸리의 권력 집중을 강도 높게 비판하고 있어, 이를 단순한 '공동 선언'으로 보기는 어렵다는 평가가 나온다."
+    },
+    {
+      "type": "heading",
+      "value": "AI를 무장 해제하라"
+    },
+    {
+      "type": "image",
+      "src": "https://dims.apnews.com/dims4/default/048e406/2147483647/strip/true/crop/8640x5760+0+0/resize/2880x1920!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fec%2F94%2F95fb19860e0aaf019fda8c4a2843%2F666d00ee51d04a03b8bea18947ab9f44",
+      "caption": "회칙 『장엄한 인류』를 발표하는 레오 14세 교황 — AP",
+      "alt": "흰색 제의 차림으로 발표장 단상에 앉은 교황"
+    },
+    {
+      "type": "text",
+      "value": "회칙에서 가장 강경한 어조가 쓰인 곳은 'AI 무장 해제'를 내건 현대전 관련 장이다. 교황은 \"인공지능은 이제 무장 해제돼야 한다\"며, 기술을 지배와 배제, 죽음의 도구로 만드는 논리에서 벗어나야 한다고 짚었다.\n\n결정적 통제권을 시스템에 넘겨서는 안 된다는 명확한 선도 그었다. \"전쟁을 도덕적으로 용인되게 만드는 알고리즘은 없다\"는 게 교황청의 입장이다. 사람의 얼굴을 보지 않고 이뤄지는 자동화된 공격은 분쟁의 도덕적 문턱을 낮출 뿐이라는 설명이다.\n\n나아가 가톨릭 교회가 수백 년간 유지해 온 '정당한 전쟁' 교리마저 무인 무기 앞에서는 낡은 개념이라고 규정했다. 과거 무력 사용을 정당화하던 논리를 내려놓고, 대화와 외교라는 근본적 해법으로 돌아가자는 호소다."
+    },
+    {
+      "type": "heading",
+      "value": "소수에 집중된 권력과 윤리의 한계"
+    },
+    {
+      "type": "text",
+      "value": "무기화만큼이나 강하게 경계한 대목은 AI 권력의 집중이다. 교황은 기술과 데이터가 소수의 민간 기업에 쏠리는 현상의 위험성을 거듭 지적하며, 그 피해가 어린이 등 취약계층에게 더 무겁게 돌아간다고 짚었다.\n\n해법으로는 추상적인 AI 윤리 구호 대신 탄탄한 제도를 요구했다. 그는 \"독립적 감독 기구와 책임을 지는 정치 체제가 필요하다\"며 \"소수가 정한 도덕이라면, 아무리 도덕적인 AI라도 충분하지 않다\"고 적었다.\n\n여기에는 기술이 결코 중립적일 수 없다는 전제가 깔려 있다. 시스템은 결국 설계하고 자본을 대는 이들의 성향을 닮게 마련인 만큼, 기업 내부의 자율 윤리가 아닌 외부 규제가 작동해야 한다는 의미다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "바티칸이 실리콘밸리를 부른 이유"
+    },
+    {
+      "type": "image",
+      "src": "https://dims.apnews.com/dims4/default/09c8f6c/2147483647/strip/true/crop/5279x3520+0+0/resize/1440x960!/format/webp/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F0a%2Fb1%2F6f53b681d18762a7aec92d92d214%2F6db90ca72ab84711947026629364fca1",
+      "caption": "바티칸 발표장에서 발언하는 크리스토퍼 올라 앤트로픽 공동창업자 — AP",
+      "alt": "명패 앞에서 발언하는 크리스토퍼 올라"
+    },
+    {
+      "type": "text",
+      "value": "규제의 표적이 된 AI 기업 임원이 교황청 단상에 오른 이유도 여기에 있다. 바티칸이 지난 10년간 실리콘밸리와 이어온 대화의 연장선으로 풀이된다. 발표자로 나선 크리스토퍼 올라는 교황의 비판을 수용하는 입장을 취했다.\n\n그는 \"AI가 대규모로 인간의 노동을 대체할 가능성이 높다\"며 연구자에 대한 외부 견제가 필수적이라고 말했다. 이어 \"종교계와 시민사회, 정부가 쓴소리를 해줘야 한다\"며 \"기업의 인센티브 구조에 휩쓸리지 않는 도덕적 목소리가 필요하다\"고 덧붙였다.\n\n일각에서는 교황청이 특정 기업에 힘을 실어줬다는 비판도 나왔다. 반면 미래생명연구소(FLI)의 브라이언 보이드는 이를 일종의 외교적 접견에 빗대며 \"인간 노동을 대체하는 경쟁에서 가장 앞서가는 기업에 대한 현실적 인정\"으로 해석했다. 실제로 [AP 보도](https://apnews.com/article/pope-ai-tech-trump-vatican-anthropic-d92d0108730d146baa46da041b8523da)를 보면, 앤트로픽은 군의 무제한 모델 사용 요구를 거부했다가 미 연방기관 전면 사용 금지 조치를 맞고 [트럼프 행정부와 소송을 진행 중](/ko/article/anthropic/anthropic-government-conflict-weapons-surveillance/)이다."
+    },
+    {
+      "type": "heading",
+      "value": "레오 13세부터 이어진 135년의 질문"
+    },
+    {
+      "type": "text",
+      "value": "이 소송은 규제 완화에 속도를 내는 백악관과 궤를 같이한다. 트럼프 행정부는 최근 [프런티어 모델 출시 전 정부 검토를 의무화하는 행정명령마저 보류](/ko/article/general/trump-ai-executive-order-postponed-may-2026/)했다. 기술 규제를 푸는 미국 정부와 AI 개발 속도 조절을 주문하는 미국 출신 교황이 정면으로 엇갈린 모양새다.\n\n교황의 AI 회칙 발표일인 5월 15일도 철저히 계산된 일정이다. 선임 교황인 레오 13세가 노동자의 권리를 다룬 회칙 『새로운 사태(Rerum Novarum)』를 반포한 지 정확히 135년이 되는 날이다. 현재의 AI 혁명이 과거 산업혁명과 같은 실존적 질문을 던지고 있다는 게 교황청의 판단이다.\n\n그만큼 일자리 문제도 무겁게 다뤄졌다. 교황은 \"더 큰 이윤을 위해 일자리를 구조적으로 희생시키는 선택은 정당화될 수 없다\"고 선을 그었다. 여기에 과거 교회가 노예제를 용인했던 역사에 대한 사상 첫 공식 사과도 함께 담았다.\n\n회칙 『장엄한 인류』를 두고 유네스코가 즉각 환영 논평을 낸 가운데, 시장의 시선은 다시 실리콘밸리로 쏠린다. 진짜 갈림길은 열광과 공포가 아니라, 기술이 사람을 섬길 것인지 권력에 종속시킬 것인지에 달려 있다는 게 교황의 메시지다. AI 개발 속도를 늦추라는 이 호소가 빅테크의 분기 실적 압박을 얼마나 버텨낼지가 다음 관전 포인트다."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/i/status/2058878921886544106",
+      "caption": "회칙 『장엄한 인류』를 환영한 유네스코의 공식 성명"
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Pope Leo XIV released his first encyclical, \"Magnifica Humanitas,\" at the Vatican on May 25, 2026. Subtitled \"On Safeguarding the Human Person in the Time of Artificial Intelligence,\" the five-chapter, 40,000-word text ranks among the most authoritative teaching documents a pontiff can issue.\n\nThe core message is blunt: Leo repeatedly urged AI developers and policymakers to \"just slow down\" and reflect on their trajectory. The first U.S.-born pope has labeled AI the single biggest challenge facing humanity since his election.\n\nThe presentation's telling detail was who stood beside him. Anthropic co-founder Christopher Olah shared the Vatican stage, though the encyclical's sharpest critique targets the exact power dynamic his industry represents—making the optics of a joint declaration deeply complex."
+    },
+    {
+      "type": "heading",
+      "value": "Calls to Disarm Artificial Intelligence"
+    },
+    {
+      "type": "image",
+      "src": "https://dims.apnews.com/dims4/default/048e406/2147483647/strip/true/crop/8640x5760+0+0/resize/2880x1920!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fec%2F94%2F95fb19860e0aaf019fda8c4a2843%2F666d00ee51d04a03b8bea18947ab9f44",
+      "caption": "Pope Leo XIV at the presentation of his first encyclical — AP",
+      "alt": "A pontiff in white vestments seated at the presentation dais"
+    },
+    {
+      "type": "text",
+      "value": "The encyclical’s firmest language appears in its chapter on modern warfare. \"Artificial intelligence now demands to be disarmed,\" Leo wrote, urging it be \"freed from logics that turn it into an instrument of domination, exclusion and death.\"\n\nHe established a concrete boundary against entrusting lethal, irreversible decisions to automated systems. \"There is no algorithm that can make war morally acceptable,\" the text states, arguing that technology allowing strikes without seeing a human face inherently lowers the moral threshold of conflict.\n\nHe went further, declaring the Catholic Church's centuries-old \"just war\" theory \"outdated\" in the face of autonomous weapons. Setting aside a doctrine that historically justified the use of force, Leo pressed instead for dialogue, diplomacy, and forgiveness."
+    },
+    {
+      "type": "heading",
+      "value": "AI Ethics and the Concentration of Power"
+    },
+    {
+      "type": "text",
+      "value": "Beyond warfare, Leo warned against the rapid concentration of AI capabilities. He repeatedly highlighted the dangers of technology and data consolidating within a few private firms, noting that the resulting risks fall disproportionately on children and vulnerable populations.\n\nHis proposed remedy favors robust institutions over abstract slogans. \"It is not enough to invoke ethics in the abstract,\" he wrote, calling for \"robust legal frameworks, independent oversight, informed users and a political system that does not abdicate its responsibility.\" The core thesis is encapsulated in a single line: \"A more moral AI is not enough if that morality is determined by a few.\"\n\nThis rests on the premise that \"technology is never neutral,\" but rather adopts the characteristics of those who design, finance, and deploy it. Consequently, Leo demanded external government regulation rather than relying on the tech industry's internal ethics boards."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The Vatican's Silicon Valley Outreach"
+    },
+    {
+      "type": "image",
+      "src": "https://dims.apnews.com/dims4/default/09c8f6c/2147483647/strip/true/crop/5279x3520+0+0/resize/1440x960!/format/webp/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F0a%2Fb1%2F6f53b681d18762a7aec92d92d214%2F6db90ca72ab84711947026629364fca1",
+      "caption": "Anthropic co-founder Christopher Olah speaks at the Vatican presentation — AP",
+      "alt": "Christopher Olah speaking behind a Vatican nameplate"
+    },
+    {
+      "type": "text",
+      "value": "This institutional focus explains why a target of such regulation stood beside the pope. Anthropic co-founder Christopher Olah spoke at the launch, marking the latest step in a decade of Vatican outreach to Silicon Valley leaders.\n\nOlah welcomed the criticism, arguing that external checks on researchers are fundamental to ensuring the technology benefits humanity. Citing \"a real possibility that AI will displace human labor at a very large scale,\" he stated, \"We need informed critics who will tell the labs when we are failing. We need moral voices that the incentives cannot bend.\"\n\nThe invitation drew some criticism for acting as a papal stamp of approval for a single AI firm. Brian Boyd of the Future of Life Institute pushed back. He read the moment as \"a recognition of... an extremely powerful company that's currently winning this race\" — closer to a diplomatic meeting than an endorsement. The stakes here are not abstract, as the [AP reported](https://apnews.com/article/pope-ai-tech-trump-vatican-anthropic-d92d0108730d146baa46da041b8523da). Anthropic is [currently suing the Trump administration](/article/anthropic/anthropic-government-conflict-weapons-surveillance/) over a federal ban. The trigger was its refusal to grant the military unrestricted access to its models."
+    },
+    {
+      "type": "heading",
+      "value": "A 135-Year Echo on Labor and Progress"
+    },
+    {
+      "type": "text",
+      "value": "The Anthropic lawsuit highlights a broader ideological clash. The Trump administration has moved aggressively to deregulate the sector, recently [shelving an executive order](/article/general/trump-ai-executive-order-postponed-may-2026/) that would have mandated government pre-release reviews for frontier models. This leaves a White House racing to loosen rules and a U.S.-born pontiff urging caution firmly on opposite sides.\n\nThe date Leo XIV signed the text was highly deliberate. May 15 marked exactly 135 years since Pope Leo XIII promulgated \"Rerum Novarum,\" a landmark encyclical on workers' rights. Operating on the belief that the AI revolution poses the same existential questions as the Industrial Revolution, the current pope explicitly timed the release to honor his namesake.\n\nConsequently, labor rights received significant focus. \"The pursuit of greater profits cannot justify choices that systematically sacrifice jobs, because the human person is an end, not a means,\" he wrote. He notably paired the statement with the first-ever papal apology for the Church's historical role in legitimizing slavery.\n\nUNESCO welcomed the document almost immediately, but its ultimate impact remains an open question. In Leo's framing, the core choice is not between enthusiasm and fear, but between progress that serves humanity and progress that subjects it to centralized power. Whether an appeal to slow down can withstand the pressure of Silicon Valley's quarterly earnings expectations will be tested by the very companies standing on the Vatican stage."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/i/status/2058878921886544106",
+      "caption": "UNESCO's official statement welcoming the encyclical"
+    },
+    {
+      "type": "ad"
+    }
+  ]
+}
