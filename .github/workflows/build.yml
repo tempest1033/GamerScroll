@@ -96,13 +96,10 @@ jobs:
       - name: Move report to docs
         run: |
           mkdir -p docs
-          # MPA 모드: 폴더 구조로 복사 (clean URLs)
-          cp index.html docs/index.html
-          # 각 페이지를 폴더/index.html로
-          for page in rankings steam upcoming; do
-            mkdir -p docs/$page
-          cp $page.html docs/$page/index.html
-          done
+          # 메인 페이지(index/rankings/steam/upcoming)는 generate-html-report.js가
+          # 이미 docs/로 정규화 복사(rewriteDocsStylesheetLinks로 purge-후 CSS 해시 적용)한다.
+          # 여기서 루트 원본(purge-전 해시)을 다시 덮어쓰면 메인 페이지만 깨진
+          # CSS 해시로 되돌아가 404가 난다. (2026-05-26 fix: CSS 해시 404 회귀 차단)
           # 분리된 CSS 모듈(추가 요청) 복사
           if [ -d "src/styles" ]; then
             mkdir -p docs/styles
