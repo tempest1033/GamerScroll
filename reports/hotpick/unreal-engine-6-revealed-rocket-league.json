@@ -1,0 +1,101 @@
+{
+  "slug": "unreal-engine-6-revealed-rocket-league",
+  "status": "approved",
+  "title": "로켓리그로 첫선 보인 '언리얼 엔진 6'…2028년 정식 출시",
+  "date": "",
+  "keywords": "언리얼 엔진 6, 에픽게임즈, 로켓 리그, 팀 스위니, UEFN, 언리얼 엔진 5, 포트나이트, 게임 엔진, 메타버스",
+  "summary": "에픽게임즈가 차세대 게임 엔진 '언리얼 엔진 6'를 공개했다. 첫 시연작은 로켓리그로, 정식 출시 목표는 2028년이다. 화려한 그래픽보다 UEFN(포트나이트용 언리얼 에디터) 통합과 메타버스 플랫폼 구축이 핵심 승부처가 될 전망이다.",
+  "thumbnail": "https://www.gematsu.com/wp-content/uploads/2026/05/Unreal-Engine-6-Announced_05-24-26.jpg",
+  "relatedDocs": [
+    "tech:normal/game-engine",
+    "issue:google-play-fee-cut-epic-settlement",
+    "hotpick:nioh3-hotpick-soulslike-masterpiece",
+    "tech:normal/nvidia-dlss5-controversy"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Gematsu",
+      "title": "Unreal Engine 6 announced with Rocket League reveal",
+      "url": "https://www.gematsu.com/2026/05/unreal-engine-6-announced-with-rocket-league-reveal"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "Epic reveals first Unreal Engine 6 game, and it's not Fortnite",
+      "url": "https://www.pcgamer.com/gaming-industry/epic-reveals-first-unreal-engine-6-game-and-its-not-fortnite/"
+    },
+    {
+      "name": "TechSpot",
+      "title": "Unreal Engine 6 is coming in 2028, aims to streamline live-service game development",
+      "url": "https://www.techspot.com/news/112513-unreal-engine-6-coming-2028-aims-streamline-live.html"
+    },
+    {
+      "name": "PC Gamer",
+      "title": "Tim Sweeney says Unreal Engine 6 will be a metaverse joining Fortnite and other Unreal games",
+      "url": "https://www.pcgamer.com/gaming-industry/epic-boss-tim-sweeney-says-unreal-engine-6-will-be-a-metaverse-joining-fortnite-and-other-unreal-games-including-an-upcoming-persistent-universe-in-development-with-disney/"
+    },
+    {
+      "name": "GamesHub",
+      "title": "Epic Games announces Unreal Engine 6 with Rocket League as its first confirmed title",
+      "url": "https://www.gameshub.com/news/news/epic-games-announces-unreal-engine-6-with-rocket-league-as-its-first-confirmed-title-2875325/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "에픽게임즈가 차세대 게임 엔진 '언리얼 엔진 6'를 공개했다. 지난 5월 24일 열린 RLCS(로켓리그 챔피언십 시리즈) 2026 파리 메이저 현장에서 산하 스튜디오인 사이오닉스가 언리얼 엔진 6로 구동한 로켓리그 티저 영상을 선보였다. 영상 말미에는 보라색으로 단장한 새 로고가 모습을 드러냈다.\n\n언리얼 엔진 5가 출시된 지 4년 만이며, 12년간 현역으로 쓰인 전작의 뒤를 잇는 세대교체다. 글로벌 게임 업계를 선도하는 게임 엔진의 차기작인 만큼 시장에 미칠 파급력은 상당할 전망이다. 다만 에픽게임즈는 구체적인 출시일과 기술 사양, 로켓리그의 실제 적용 시점 등은 구체적으로 밝히지 않았다."
+    },
+    {
+      "type": "heading",
+      "value": "왜 첫 시연작은 포트나이트가 아니었나"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn2.unrealengine.com/egs-rocketleague-psyonixllc-g1a-03-1920x1080-9408832b58c9.jpg",
+      "caption": "로켓리그 인게임 화면",
+      "alt": "초록색 배틀카가 잔디 경기장을 질주하는 장면"
+    },
+    {
+      "type": "text",
+      "value": "새 엔진의 데뷔 무대를 에픽게임즈의 간판 지식재산권(IP)인 포트나이트가 아닌 차량 축구 게임 로켓리그가 장식한 것은 이례적이다. 하지만 배경을 들여다보면 고개가 끄덕여진다. 로켓리그는 2015년 출시 이후 여전히 언리얼 엔진 3 기반으로 구동된다. 구형 하드웨어 세대의 기술을 고수해 온 만큼 엔진 교체가 가장 시급했던 셈이다.\n\n반면 포트나이트는 이미 큰 마찰 없이 언리얼 엔진 4에서 5로 성공적인 마이그레이션을 마쳤다. 굳이 리스크를 감수하며 새 엔진의 첫 시험대로 삼을 이유가 없었다는 분석이다.\n\n공개 방식도 차분했다. 지난 2021년 게임 어워드에서 영화 '매트릭스'를 재현한 오픈월드 데모를 콘솔에 무료 배포하며 화려하게 등장한 것과 대조적이다. 이번 로켓리그 티저는 그래픽이 소폭 향상된 차량과 몇 컷의 인게임 화면을 보여주는 데 그쳐, 기술적 선언보다는 예고편에 가까웠다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "2028년 정식 출시, 프리뷰는 2년 반 뒤"
+    },
+    {
+      "type": "text",
+      "value": "새 엔진의 실제 도입 시기는 팀 스위니 에픽게임즈 최고경영자(CEO)가 '언리얼 페스트 재팬'에서 밝힌 일정으로 가늠해 볼 수 있다. 프리뷰 버전은 약 2년 반 뒤에 공개되며, 정식 출시 목표는 2028년이다. 이에 따라 향후 몇 년 동안은 언리얼 엔진 5 중심의 업데이트와 개발 생태계가 유지될 것으로 보인다.\n\n팀 스위니 CEO는 이번 세대교체를 기존 환경과의 '단절'이 아닌 '점진적 진화'로 규정했다. 게임 엔진과 플랫폼, 라이브 서비스 인프라로 파편화되어 있던 개발 작업을 하나로 결합하는 통합 과정이라는 설명이다. 화려한 쇼케이스보다 긴 호흡을 통한 점진적 전환을 예고한 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "핵심 과제는 UEFN 통합과 메타버스 생태계"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/YKoDEoTKqeyFf8axfeWSTJ-1920-80.jpg",
+      "caption": "포트나이트 인게임 캐릭터 '필리(Peely)'",
+      "alt": "포트나이트의 바나나 캐릭터 필리 - 메타버스 플랫폼 전략의 중심"
+    },
+    {
+      "type": "text",
+      "value": "에픽게임즈가 장기적인 로드맵을 잡은 이유는 지향점이 단순한 그래픽 고도화에 머무르지 않기 때문이다. 고사양 AAA 게임 제작 환경과 포트나이트 내부의 가벼운 제작 방식을 단일 파이프라인으로 묶는 것이 핵심이다. 양측 환경을 오가는 복잡한 에셋 변환 과정을 없애 도구와 리소스가 완전히 호환되는 환경을 구축하겠다는 구상이다.\n\n그 실험대가 바로 UEFN(포트나이트용 언리얼 에디터)이다. 창작자가 UEFN으로 제작한 콘텐츠를 독립 게임이나 포트나이트 내부 맵, 혹은 두 영역 모두로 자유롭게 배포하는 생태계가 열린다. 티저 영상에 로켓리그와 레고, 포트나이트가 나란히 등장한 것도 이러한 메타버스 통합 플랫폼 전략을 시사한다.\n\n포트나이트를 배틀로얄 게임을 넘어 여러 콘텐츠가 상호작용하는 메타버스 플랫폼으로 진화시키겠다는 포석이다. 팀 스위니 CEO는 지난 2024년, 포트나이트 창작자 생태계를 대규모로 확장하고 대중화한 모델이 곧 언리얼 엔진 6가 될 것이라고 밝힌 바 있다. 디즈니와 협업 중인 가상 세계 프로젝트나 네트워킹 개선, UEFN 도구의 고도화도 모두 이 연장선에 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "정작 개발자들이 바라는 건 안정적인 최적화다"
+    },
+    {
+      "type": "text",
+      "value": "다만 에픽게임즈의 원대한 비전 이전에 현재 당면한 과제부터 해결해야 한다는 지적도 나온다. 공개 직후 소셜미디어 X(옛 트위터)에서는 '언리얼 엔진 5부터 최적화하라'는 개발자들의 목소리가 쏟아졌다. 이 엔진은 높은 보급률을 기록했으나, PC 플랫폼에서의 성능 저하와 최적화 부족 문제로 지속적인 비판을 받아왔다.\n\n실제로 에픽게임즈의 자체 개발작인 포트나이트와 달리, 외부 스튜디오가 개발한 신작 게임들은 잦은 끊김 현상을 겪고 있다. 원인이 엔진 자체의 한계인지 개발사의 미숙함인지를 두고 논쟁이 분분하지만, 플레이어가 겪는 불편은 동일하다. 이 같은 최적화 문제는 [인왕3](/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/)를 비롯한 여러 기대작에서도 잇따라 도마 위에 오른 바 있다.\n\n개발 업계가 요구하는 핵심은 거창한 메타버스보다 편집기와 실제 빌드 환경이 어긋나지 않는 안정성이다. IT 전문 매체 [PC게이머](https://www.pcgamer.com/gaming-industry/epic-reveals-first-unreal-engine-6-game-and-its-not-fortnite/)는 이번 발표를 과거 매트릭스 테크 데모의 파격 대신 신중한 태도를 취한 보수적인 티저라고 평가했다. 2028년까지 남은 시간 동안 에픽게임즈가 증명해야 할 과제는 새로운 로고가 아닌 개발 현장의 신뢰 회복이다."
+    }
+  ],
+  "site": "gamerscroll"
+}
