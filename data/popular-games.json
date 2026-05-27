@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-26T05:47:00.558Z",
+  "updatedAt": "2026-05-27T06:15:53.680Z",
   "period": "30days",
   "games": [
     {
@@ -23,12 +23,12 @@
       "views": 4
     },
     {
-      "slug": "테이스티-트레블-합성-게임",
+      "slug": "identity-v-제5인격",
       "views": 3
     },
     {
-      "slug": "identity-v-제5인격",
-      "views": 2
+      "slug": "테이스티-트레블-합성-게임",
+      "views": 3
     },
     {
       "slug": "limbus-company",
@@ -59,10 +59,6 @@
       "views": 2
     },
     {
-      "slug": "명일방주-엔드필드",
-      "views": 2
-    },
-    {
       "slug": "배틀그라운드",
       "views": 2
     },
@@ -76,6 +72,10 @@
     },
     {
       "slug": "스트리트볼-올스타-streetball-allstar",
+      "views": 2
+    },
+    {
+      "slug": "컴투스프로야구v26",
       "views": 2
     }
   ]
