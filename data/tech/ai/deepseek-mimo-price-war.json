@@ -1,0 +1,140 @@
+{
+  "slug": "deepseek-mimo-price-war",
+  "status": "approved",
+  "site": "aiscroll",
+  "needTranslate": false,
+  "category": "general",
+  "title": "중국 AI 가격 전쟁…샤오미, 딥시크 인하 단가 소수점까지 복제",
+  "titleEn": "China's AI Price War: Xiaomi Matches DeepSeek",
+  "date": "",
+  "thumbnail": "https://www.computerworld.com/wp-content/uploads/2026/05/4176713-0-42198100-1779710628-Deepseek-AI.jpg?quality=50&strip=all&w=1024",
+  "keywords": "가격 전쟁, 딥시크 V4 프로, 샤오미, 미모 V2.5, 딥시크 단가, 딥시크, 미모, 토큰",
+  "keywordsEn": "DeepSeek, V4-Pro, Xiaomi, MiMo, MiMo-V2.5, inference, pricing",
+  "summary": "딥시크가 플래그십 V4 프로 단가를 75% 영구 인하하자 사흘 뒤 샤오미도 미모 V2.5 가격을 최대 99% 낮춰 소수점까지 똑같이 맞췄다. 중국 두 빅테크가 AI 추론 원가를 서방 진영의 4분의 1 수준으로 끌어내렸다는 분석이다.",
+  "summaryEn": "DeepSeek made its 75% V4-Pro cut permanent; days later Xiaomi cut MiMo-V2.5 up to 99% to match it exactly—pushing AI inference to a quarter of Western prices.",
+  "sources": [
+    {
+      "name": "Xiaomi MiMo Open Platform",
+      "title": "MiMo-V2.5 Series Price Adjustment Announcement",
+      "url": "https://platform.xiaomimimo.com/docs/en-US/news/v2.5-price-update"
+    },
+    {
+      "name": "DeepSeek API Docs",
+      "title": "Models & Pricing",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing"
+    },
+    {
+      "name": "Computerworld",
+      "title": "DeepSeek's steep V4-Pro price cut escalates AI pricing war",
+      "url": "https://www.computerworld.com/article/4176713/deepseeks-steep-v4-pro-price-cut-escalates-ai-pricing-war-2.html"
+    },
+    {
+      "name": "Investing.com",
+      "title": "China's DeepSeek to make permanent 75% price cut on flagship V4-Pro AI model",
+      "url": "https://www.investing.com/news/stock-market-news/chinas-deepseek-to-make-permanent-75-price-cut-on-flagship-v4pro-ai-model-4708051"
+    },
+    {
+      "name": "Artificial Analysis (X)",
+      "title": "DeepSeek V4 Pro on the Pareto frontier after the permanent 75% cut",
+      "url": "https://x.com/i/status/2058674301805465873"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/china-ai-distillation-controversy",
+    "tech:ai/gemini-pricing-overhaul-compute-limits-backlash",
+    "tech:ai/claude-opus-46-pricing-controversy",
+    "tech:ai/nvidia-groq3-lpu-inference-revolution"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "중국 AI 가격 전쟁이 새로운 국면에 접어들었다. 신흥 강자 딥시크가 플래그십 모델인 'V4 프로' 가격을 75% 영구 인하하자, 사흘 뒤인 5월 27일 샤오미가 '미모 V2.5' 시리즈 단가를 최대 99% 낮췄다. 양사가 제시한 새로운 가격표는 우연으로 보기 어려울 만큼 일치한다.\n\n100만 토큰을 기준으로 딥시크 V4 프로의 이용료는 입력 0.435달러, 출력 0.87달러다. 샤오미의 미모 V2.5 프로 역시 입력 0.435달러, 출력 0.87달러로 한 치의 오차도 없다. 기본형 모델에서도 샤오미는 입력 0.14달러, 출력 0.28달러를 책정해 딥시크 V4 플래시의 단가와 완벽히 겹친다.\n\n오픈AI와 앤스로픽 등 미국 주요 기업의 플래그십 모델 단가가 이보다 4배가량 높다는 점을 고려하면 시장에 미칠 파장은 적지 않다. 중국 두 테크 기업이 같은 주에 동일한 수준으로 단가를 맞추면서, 전 세계 AI 추론 비용은 서방 업계의 4분의 1 수준으로 급락하게 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "딥시크 V4 프로가 세운 가격 기준선"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2272184430.jpg?w=1024",
+      "caption": "항저우의 한 쇼핑몰에서 딥시크 로고가 걸린 전시 벽을 휴대폰으로 촬영하는 시민",
+      "alt": "푸른 고래 로고가 걸린 전시 벽을 휴대폰으로 담는 관람객"
+    },
+    {
+      "type": "text",
+      "value": "새로운 가격 기준을 먼저 선보인 것은 딥시크다. 차세대 모델인 V4를 공개한 지 한 달 만에, 딥시크는 V4 프로의 토큰당 이용료를 75% 인하하고 이를 영구 가격으로 확정했다. 이에 따라 100만 토큰당 입력 0.435달러, 출력 0.87달러가 적용돼 기존 대비 4분의 1 수준으로 줄어들었다. 이 가격은 프로모션 기간이 끝나는 5월 31일부터 정식 가격으로 굳어진다.\n\n딥시크는 이번 조치가 일시적인 판촉 행사가 아니라고 강조한다. 글로벌 조사기관 그레이하운드 리서치의 산치트 비르 고기아 최고경영자(CEO)는 V4 프로가 방대한 컨텍스트를 저비용으로 추론하도록 설계됐다고 분석했다. 연산 비용은 이전 세대의 4분의 1, 메모리 사용량은 10분의 1 수준에 불과해, 원가 혁신을 통한 영구적 가격 인하가 가능했다는 설명이다.\n\n객관적인 성능 평가도 이러한 가격 경쟁력을 지지한다. 인공지능 평가 기관인 [아티피셜 애널리시스](https://x.com/i/status/2058674301805465873)는 V4 프로가 75% 단가 인하 이후 '달러당 성능' 기준 세계 최고 수준에 도달하며 효율성 프런티어에 진입했다고 분석했다. 오픈소스로 제공되는 V4는 개발자가 로컬 환경에서 직접 구동할 수 있으며, 앤스로픽의 클로드 코드나 오픈클로 같은 에이전트 도구에도 최적화되어 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "샤오미 미모, 딥시크 단가 그대로 재현"
+    },
+    {
+      "type": "image",
+      "src": "https://images.fonearena.com/blog/wp-content/uploads/2026/04/Xiaomi-MiMo-V2.5-Series-1024x447.jpg",
+      "caption": "샤오미가 공개한 미모 V2.5·V2.5 프로 오픈소스 안내 이미지",
+      "alt": "샤오미 미모 V2.5 시리즈 오픈소스 발표 그래픽"
+    },
+    {
+      "type": "text",
+      "value": "샤오미도 딥시크의 가격표를 복제했다. 5월 27일 0시부터 적용된 미모 V2.5 시리즈의 단가는 기존 대비 최대 99% 급감했고, 입력 길이에 따른 요금 차등제도 폐지했다. 미모 V2.5 프로는 입력 0.435달러·출력 0.87달러, 기본형 미모 V2.5는 입력 0.14달러·출력 0.28달러로 딥시크 단가와 소수점까지 겹친다.\n\n원인으로는 아키텍처 최적화에 따른 원가 절감을 지목했다. SGLang HiCache 환경에 슬라이딩 윈도 어텐션(SWA) 기술을 도입해 GPU·CPU 메모리와 SSD 간의 KV 캐시 전송량을 7분의 1 수준으로 낮췄다. 아울러 캐싱 가능 토큰 수를 5배 늘려 캐시 적중률과 추론 효율을 극대화했다.\n\n마케팅 방식도 전환했다. 토큰 제공 한도를 5~8배 늘리고 구독자 잔여 크레딧을 일괄 초기화했다. 4월 말 시작한 100조 토큰 규모의 크리에이터 혜택도 5월 26일 조기 소진으로 마감했다. 무료 토큰으로 초기 고객을 모으는 단계를 지나, 딥시크 수준의 초저가로 고객을 붙잡는 락인 전략을 세웠다는 평가다."
+    },
+    {
+      "type": "heading",
+      "value": "다음 승부처는 신뢰와 데이터다"
+    },
+    {
+      "type": "text",
+      "value": "양사 단가가 수렴하며 가격 전쟁은 효력을 잃었다. 관건은 서방 랩들의 대응이다. 오픈AI와 앤스로픽의 플래그십 가격이 4배 높은 상황에서, 대량 토큰을 쓰는 기업에 이 격차를 정당화하기란 어렵다.\n\n닐 샤 카운터포인트 부사장은 고성능 오픈웨이트 대안이 기업의 협상력을 높인다고 짚었다. 수천억 달러 가치를 평가받는 서방 랩들이 추론 시장에선 가격 수용자로 밀려난 형국이다. 고난도 협업은 프리미엄 모델에, 반복 연산은 저가형 모델에 맡기는 멀티모델 전략이 대세가 될 전망이다.\n\n다만 초저가에는 주권 리스크가 따른다. 아미트 자주 앙쿠라 컨설팅 임원은 중국 API 사용 시 프롬프트와 로그가 국경을 넘는 데이터 주권 위반 위험을 경고했다. 소스 코드나 설계 자료가 노출될 지식재산권 위험도 크다. [중국 모델의 증류 논란](/ko/article/general/china-ai-distillation-controversy/)을 겪은 업계에서 안전한 길은 자체 인프라나 소버린 클라우드 호스팅이다.\n\n중국 AI 가격 전쟁에서 단가 경쟁은 사실상 끝나가는 단계다. 추론이 전기처럼 규격화될수록 승부는 신뢰, 생태계, 데이터 현지화에서 갈린다. 중국이 최저 비용을 확립한 지금, 핵심 전선은 '얼마인가'가 아니라 '어디서 어떻게 구동되느냐'다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The price war in China's artificial intelligence sector has entered a significant new phase. DeepSeek has solidified a 75% rate cut on its flagship V4-Pro model into a permanent pricing tier. Just three days later, at midnight Beijing time on May 27, Xiaomi slashed prices for its MiMo-V2.5 series by up to 99%, releasing a price sheet that mirrors DeepSeek's down to the decimal.\n\nPer million tokens, DeepSeek V4-Pro charges $0.435 for input and $0.87 for output. Xiaomi's MiMo-V2.5-Pro matches those figures exactly. The alignment extends to their standard tiers: Xiaomi's base model costs $0.14 for input and $0.28 for output, identical to DeepSeek's V4-Flash.\n\nWith flagship rates from OpenAI and Anthropic sitting at roughly four times these prices, the implications of this shift are profound. By aligning their pricing structures within the same week, the two Chinese tech firms have effectively anchored the cost of AI inference at a fraction of Western alternatives."
+    },
+    {
+      "type": "heading",
+      "value": "DeepSeek V4-Pro Sets the Baseline"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2272184430.jpg?w=1024",
+      "caption": "A man photographs a DeepSeek display wall at a shopping mall in Hangzhou, China",
+      "alt": "Person photographing a logo display wall in a dark exhibition space"
+    },
+    {
+      "type": "text",
+      "value": "DeepSeek was the first to establish this new baseline. Just a month after launching its V4 generation, the startup reduced the per-token rate of V4-Pro by 75%, transitioning the temporary promotional rate into a permanent pricing model. Under this new structure, one million tokens cost $0.435 for input and $0.87 for output—a sharp drop from the previous rates of $1.74 and $3.48. These figures will become the official list prices when the promotional period concludes on May 31.\n\nThe company maintains that the reduction is not a mere marketing discount. Sanchit Vir Gogia, CEO of Greyhound Research, points out that V4-Pro was specifically architected to minimize long-context inference costs. The model operates at approximately one-quarter of the compute cost and one-tenth of the memory footprint of its predecessor. This fundamental structural efficiency allows DeepSeek to sustain the rate cut permanently.\n\nIndependent benchmarks support the model's value proposition. Evaluator [Artificial Analysis](https://x.com/i/status/2058674301805465873) reported that following the 75% reduction, V4-Pro achieved top-tier status globally in terms of 'intelligence per dollar,' placing it squarely on the efficiency frontier. Because V4 is open source, developers can deploy and customize it locally, and it is pre-optimized for agent workflows like Anthropic's Claude Code and OpenClaw."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Xiaomi's MiMo Replicates the Exact Price Structure"
+    },
+    {
+      "type": "image",
+      "src": "https://images.fonearena.com/blog/wp-content/uploads/2026/04/Xiaomi-MiMo-V2.5-Series-1024x447.jpg",
+      "caption": "Xiaomi's promotional graphic for the open-source MiMo-V2.5 and V2.5-Pro release",
+      "alt": "Xiaomi MiMo V2.5 series open-source announcement graphic"
+    },
+    {
+      "type": "text",
+      "value": "Xiaomi immediately replicated the exact figures established by DeepSeek. Effective globally at midnight Beijing time on May 27, the newly introduced rates for the MiMo-V2.5 series reflect reductions of up to 99%, while eliminating the legacy pricing structure that varied by input length. The premium MiMo-V2.5-Pro is priced at $0.435 for input and $0.87 for output, while the standard MiMo-V2.5 tier stands at $0.14 and $0.28—matching DeepSeek's V4-Pro and V4-Flash pricing down to the decimal.\n\nXiaomi openly acknowledged the strategy, attributing the price cuts to systematic optimization of its inference architecture. The company integrated Sliding Window Attention (SWA) with SGLang HiCache, reducing KV-cache data transfer between GPU memory, CPU memory, and SSD storage to approximately one-seventh of previous levels. Simultaneously, the framework expanded the number of cacheable tokens fivefold, driving down per-token unit costs through higher cache-hit rates and overall processing efficiency.\n\nThe pricing adjustment was accompanied by broader operational changes. Xiaomi increased the capacity of its Token Plans by five to eight times and reset all active subscriber credits. Furthermore, a 100-trillion-token incentive program for creators, which launched in late April, was fully exhausted ahead of schedule on May 26. This tactical transition signals a shift from subsidizing early adoption with free tokens to cementing long-term user retention through highly aggressive baseline pricing."
+    },
+    {
+      "type": "heading",
+      "value": "The Next Battleground Is Trust and Data"
+    },
+    {
+      "type": "text",
+      "value": "When market leaders converge on identical price points, unit cost ceases to be a competitive differentiator. The critical question now is how Western frontier laboratories will respond. With flagship pricing from OpenAI and Anthropic remaining roughly four times higher than the new Chinese baseline, justifying this premium is becoming increasingly difficult for enterprises running token-heavy workloads.\n\nNeil Shah, vice president of Counterpoint Research, noted in Computerworld that the availability of high-performance open-weights alternatives shifts leverage directly to corporate buyers. Western AI startups, despite boasting $700-billion-class collective valuations and demanding massive capital expenditures, are finding themselves price-takers on the core product of inference. As raw inference commoditizes, a multi-model strategy—deploying premium models for high-reasoning tasks and cost-efficient alternatives for repetitive operations—is rapidly becoming the standard enterprise architecture.\n\nHowever, these low rates carry structural trade-offs. Amit Jaju, senior managing director at Ankura Consulting, identifies data sovereignty as a primary risk. Routing external APIs through Chinese infrastructure means prompts, proprietary documents, and logs may cross jurisdictions, raising severe regulatory concerns. Furthermore, pasting source code or design files into these models exposes intellectual property to potential training leaks. Following an [earlier knowledge-distillation dispute](/article/general/china-ai-distillation-controversy/), industry analysts increasingly recommend self-hosting on private infrastructure or sovereign cloud services.\n\nThe price-tag skirmish has essentially run its course. As inference transitions into a utility akin to electricity or bandwidth, competition will center on trust, ecosystem integration, and data residency rather than the invoice total. Having established the cost floor, the strategic frontier has moved from what AI costs to where and how it is deployed."
+    }
+  ]
+}

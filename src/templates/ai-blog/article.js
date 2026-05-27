@@ -374,7 +374,9 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 관련 문서 (AIScroll에 포함된 기사만 표시)
   function generateRelatedArticles() {
-    const related = article.relatedArticles || article.relatedDocs || [];
+    const related = (Array.isArray(article.relatedArticles) && article.relatedArticles.length > 0)
+      ? article.relatedArticles
+      : (article.relatedDocs || []);
     if (!related || related.length === 0) return '';
 
     // slug 추출 함수 (tech:ai/slug, issue:slug, wiki:category/slug 등 처리)
