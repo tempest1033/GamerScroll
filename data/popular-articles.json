@@ -1,23 +1,11 @@
 {
-  "updatedAt": "2026-05-27T02:00:10.676Z",
+  "updatedAt": "2026-05-28T01:21:31.293Z",
   "period": "7days",
   "articles": [
     {
-      "type": "issue",
-      "slug": "sony-pc-exit-hulst-confirmation",
-      "views": 30,
-      "path": "/magazine/issue/sony-pc-exit-hulst-confirmation/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 19,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-april-2026-kr",
-      "views": 18,
+      "views": 21,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
@@ -28,36 +16,16 @@
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
-      "type": "tech",
-      "slug": "musk-openai-jury-verdict-dismissed",
-      "category": "ai",
-      "views": 15,
-      "path": "/tech/ai/musk-openai-jury-verdict-dismissed/"
+      "type": "issue",
+      "slug": "sony-pc-exit-hulst-confirmation",
+      "views": 6,
+      "path": "/magazine/issue/sony-pc-exit-hulst-confirmation/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 6,
+      "views": 5,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-2month-chart-trend",
-      "views": 5,
-      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "category": "ai",
-      "views": 5,
-      "path": "/tech/ai/claude-code-vs-codex-coding-agent/"
-    },
-    {
-      "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
-      "views": 4,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "wiki",
@@ -74,16 +42,15 @@
     },
     {
       "type": "issue",
+      "slug": "crimson-desert-2month-chart-trend",
+      "views": 3,
+      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
+    },
+    {
+      "type": "issue",
       "slug": "diablo2-resurrected-steam-launch",
       "views": 3,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "wiki",
@@ -91,6 +58,12 @@
       "category": "history",
       "views": 3,
       "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 2,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
@@ -118,12 +91,6 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-day-one-reaction",
-      "views": 2,
-      "path": "/magazine/issue/lineage-classic-day-one-reaction/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 2,
       "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
@@ -135,25 +102,30 @@
       "path": "/magazine/issue/lucky-defense-long-run-success/"
     },
     {
-      "type": "tech",
-      "slug": "gemini-free-tier-cutback-backlash",
-      "category": "ai",
+      "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
       "views": 2,
-      "path": "/tech/ai/gemini-free-tier-cutback-backlash/"
-    },
-    {
-      "type": "tech",
-      "slug": "codex-install-guide-windows",
-      "category": "vibecoding",
-      "views": 2,
-      "path": "/tech/vibecoding/codex-install-guide-windows/"
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "wiki",
-      "slug": "kurzweil-singularity-review-2026",
+      "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/kurzweil-singularity-review-2026/"
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 1,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "unreal-engine-6-revealed-rocket-league",
+      "views": 1,
+      "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
     },
     {
       "type": "issue",
@@ -166,6 +138,12 @@
       "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 1,
       "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
+      "slug": "ddr5-price-surge-gaming-nightmare",
+      "views": 1,
+      "path": "/magazine/issue/ddr5-price-surge-gaming-nightmare/"
     },
     {
       "type": "issue",
@@ -199,21 +177,15 @@
     },
     {
       "type": "issue",
-      "slug": "metacritic-top-10-games-2025",
+      "slug": "neverness-to-everness-launch-date",
       "views": 1,
-      "path": "/magazine/issue/metacritic-top-10-games-2025/"
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "issue",
       "slug": "pubg-battlegrounds-birth-history",
       "views": 1,
       "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
-    },
-    {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 1,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "issue",
@@ -235,52 +207,10 @@
     },
     {
       "type": "tech",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "type": "tech",
-      "slug": "china-ai-video-kling3-seedance2",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/china-ai-video-kling3-seedance2/"
-    },
-    {
-      "type": "tech",
-      "slug": "claude-opus-46-pricing-controversy",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/claude-opus-46-pricing-controversy/"
-    },
-    {
-      "type": "tech",
-      "slug": "google-gemini-3-2-3-5-imminent",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/google-gemini-3-2-3-5-imminent/"
-    },
-    {
-      "type": "tech",
-      "slug": "microsoft-copilot-windows-ai-fatigue",
-      "category": "ai",
-      "views": 1,
-      "path": "/tech/ai/microsoft-copilot-windows-ai-fatigue/"
-    },
-    {
-      "type": "tech",
       "slug": "rewinding-cadence-technical-test",
       "category": "normal",
       "views": 1,
       "path": "/tech/normal/rewinding-cadence-technical-test/"
-    },
-    {
-      "type": "tech",
-      "slug": "codex-install-guide-mac",
-      "category": "vibecoding",
-      "views": 1,
-      "path": "/tech/vibecoding/codex-install-guide-mac/"
     },
     {
       "type": "wiki",
@@ -309,13 +239,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
     }
   ]
 }
