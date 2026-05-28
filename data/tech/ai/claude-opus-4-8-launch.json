@@ -1,0 +1,140 @@
+{
+  "slug": "claude-opus-4-8-launch",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "클로드 오푸스 4.8 출시, 가격 동결에 초기 실사용 호평 이어져",
+  "titleEn": "Claude Opus 4.8 Launches to Favorable Reviews",
+  "summary": "앤트로픽이 가격을 동결하고 지능과 정직성을 강화한 클로드 오푸스 4.8을 5월 28일 선보였다. 신규 기능인 이펙트 컨트롤과 다이내믹 워크플로우를 대거 탑재해 개발자들의 초기 평가도 긍정적이다.",
+  "summaryEn": "Claude Opus 4.8 shipped May 28 at the same price, with sharper judgment and honesty. Effort control and dynamic workflows landed to a positive early reception.",
+  "keywords": "클로드 오푸스 4.8, 오푸스 4.8 출시, 이펙트 컨트롤, 다이내믹 워크플로우, 앤트로픽",
+  "keywordsEn": "Claude Opus 4.8, Claude Code, effort control, dynamic workflows, Anthropic",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/0eaa0ed2dce9810169112e1c77de2585fcf1f5c2-2880x1620.jpg",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Introducing Claude Opus 4.8",
+      "url": "https://www.anthropic.com/news/claude-opus-4-8"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Opus 4.8 System Card",
+      "url": "https://www.anthropic.com/claude-opus-4-8-system-card"
+    },
+    {
+      "name": "Harvey",
+      "title": "Claude Opus 4.8 on the Legal Agent Benchmark",
+      "url": "https://x.com/i/status/2060050912023081349"
+    },
+    {
+      "name": "GitHub Copilot",
+      "title": "Claude Opus 4.8 now in GitHub Copilot",
+      "url": "https://x.com/i/status/2060050235754242178"
+    },
+    {
+      "name": "Axios",
+      "title": "Anthropic's Opus release and Project Glasswing",
+      "url": "https://www.axios.com/2026/05/28/anthropic-opus-release-mythos"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-mythos-launch-imminent-signals",
+    "tech:ai/claude-opus-46-pricing-controversy",
+    "tech:ai/claude-code-agent-teams-paradigm",
+    "tech:ai/gpt-5-6-iris-june-launch-leak"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 5월 28일 성능 강화에 초점을 맞춘 신작 인공지능 모델 클로드 오푸스 4.8을 공개했다. 기존 4.7 버전과 가격을 똑같이 책정해 입력 100만 토큰당 5달러, 출력 25달러를 유지했다. 개발자들은 오늘부터 API 식별자 `claude-opus-4-8`을 통해 바로 쓸 수 있다.\n\n앤트로픽 스스로는 이번 업데이트를 [‘미세하지만 체감되는 개선’](https://www.anthropic.com/news/claude-opus-4-8)이라고 몸을 낮췄으나 시장 반응은 훨씬 뜨겁다. 출시 첫날 깃허브 코파일럿과 윈드서프, 데빈 등 주요 코딩 도구가 즉각 탑재를 마쳤다. 개발자 커뮤니티인 X에서도 추가 비용 없는 성능 개선에 찬사가 이어졌다."
+    },
+    {
+      "type": "heading",
+      "value": "동결된 가격과 극대화된 신뢰성"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/a9007019094f217e98cb8261a2765d7646c01708-2600x1392.png",
+      "caption": "앤트로픽이 공개한 클로드 오푸스 4.8 벤치마크 비교표",
+      "alt": "코딩·추론·컴퓨터 사용 항목별 AI 모델 점수 비교표"
+    },
+    {
+      "type": "text",
+      "value": "초기 호평의 배경에는 모델의 정직성이 자리한다. 오푸스 4.8은 자신이 생성한 코드의 결함을 인지하지 못하고 넘어가는 비율을 이전 버전보다 4분의 1로 낮췄다. 근거 없이 작업을 끝마쳤다고 단정 짓는 버릇도 개선되어 의심스러운 부분은 선제적으로 짚어낸다.\n\n종합적인 상황 판단 능력도 올라갔다. 초기 시험 버전을 접한 이들은 클로드 코드 터미널에서 오푸스 4.8이 필요한 질문을 먼저 던지고 실수를 고친다고 전했다. 또한 웹 브라우징 수행력을 평가하는 온라인 마인드2웹 벤치마크에서 84%를 받아 이전 모델과 GPT-5.5를 모두 제쳤다.\n\n외부 파트너사들이 공개한 성적도 성능 향상을 뒷받침한다. 법률 인공지능 플랫폼 하비의 에이전트 벤치마크에서는 10.4%를 기록하며 업계 최초로 10% 장벽을 넘었다. 코딩 에이전트 데빈 개발사인 코그니션 역시 버전 4.7에서 지적되던 불필요한 주석 생성과 도구 호출 오류가 고쳐졌다고 설명했다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "이펙트 컨트롤과 다이내믹 워크플로우"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/01/anthropic-image-jagmeet-singh-techcrunch.jpg?resize=1200,800",
+      "caption": "노트북 화면에 띄워진 앤트로픽 공식 웹사이트",
+      "alt": "브라우저에 열린 앤트로픽 웹사이트 화면"
+    },
+    {
+      "type": "text",
+      "value": "새롭게 도입된 부가 기능들은 단순한 성능 향상 이상의 변화를 보여준다. 먼저 클로드 서비스와 협업 플랫폼 코웍에 답변 강도를 조절하는 '이펙트 컨트롤' 기능이 들어왔다. 기본값인 'high' 외에도 작업 난도에 따라 강도를 조절할 수 있으며, 모든 요금제에서 지원된다. 이펙트 컨트롤을 낮추면 응답이 빨라지고 사용량 소모도 느려지는 식이라, 속도와 한도 사이의 균형을 사용자가 직접 잡게 된다. 앤트로픽은 어렵거나 오래 걸리는 작업에는 'extra' 단계를 권한다.\n\n아울러 연구 단계의 '다이내믹 워크플로우' 기능이 공개됐다. 클로드 코드가 직접 작업을 계획하고 수백 개의 보조 에이전트를 동시에 돌려 검증하는 방식이다. 앤트로픽은 이를 통해 수십만 줄 규모의 코드베이스 이전 작업을 통합 테스트 통과 기준으로 완수할 수 있다고 강조했다. 다이내믹 워크플로우는 엔터프라이즈·팀·맥스 요금제에 우선 제공되며, 클로드 코드의 [에이전트 팀 패러다임](/ko/article/anthropic/claude-code-agent-teams-paradigm/) 연장선이다. 오푸스 4.8과 함께 쓰면 에이전트가 더 오래 돌아간다.\n\n개발 환경도 개선됐다. 메시지 API가 배열 안에 시스템 항목을 직접 지원하여 프롬프트 캐시를 깨지 않고 작동 지침을 실시간 수정할 수 있다. 작업 속도를 2.5배 높여주는 '패스트 모드' 역시 연산 단가를 이전 모델의 3분의 1 수준으로 대폭 낮춰 제공하기 시작했다."
+    },
+    {
+      "type": "heading",
+      "value": "첫날부터 이어진 개발 현장의 실사용 호평"
+    },
+    {
+      "type": "text",
+      "value": "공식 발표문에는 점진적 개선이라 기록됐으나 개발 현장의 움직임은 매우 빠르다. 깃허브 코파일럿은 첫날 바로 오푸스 4.8을 연동하며 코드 이해 능력이 확연히 나아졌다고 평했다. 경쟁 서비스인 윈드서프와 데빈, 젠스파크 등도 즉각 연동을 알렸고, 일론 머스크도 축하 의견을 보탰다.\n\n반면 앤트로픽이 벤치마크 표에서 자사 지표에만 분홍색을 칠해 시각적 착시를 줬다는 눈총도 있었다. 인사말 한 번에도 과도한 토큰 제한이 걸린다는 API 사용 한도 불만이나, 사용 시간 경과에 따른 [기존 논란](https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance/)인 모델의 성능 저하 우려도 다시 고개를 들었다. 다만 출시 첫날의 호의적인 여론을 돌릴 수준은 아니었다.\n\n앤트로픽은 이미 차세대 행보를 준비하고 있다. 가격을 낮춘 고효율 모델과 오푸스의 상위 등급 신모델 개발을 공식화했다. 현재 일부 보안 기업을 중심으로 클로드의 [미토스 프리뷰](/ko/article/anthropic/claude-mythos-launch-imminent-signals/) 테스트가 한창이며, 안전장치가 보강되는 대로 출시될 예정이다. 오푸스 4.8이 전초전이라면 진짜 승부는 미토스급 모델에서 갈릴 것으로 보인다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic released Claude Opus 4.8 on May 28, holding its predecessor's pricing flat while pushing only on performance — $5 per million input tokens and $25 per million output, with the model callable as `claude-opus-4-8` through the Claude API.\n\nAnthropic called the update a [modest but tangible improvement](https://www.anthropic.com/news/claude-opus-4-8), but early developer reactions ran hotter. GitHub Copilot, Windsurf, and Devin integrated it on launch day, and two new features — effort control and dynamic workflows — shipped alongside as praise spread for the free performance boost."
+    },
+    {
+      "type": "heading",
+      "value": "Price Freeze and Enhanced Reliability"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/a9007019094f217e98cb8261a2765d7646c01708-2600x1392.png",
+      "caption": "Anthropic's benchmark comparison for Claude Opus 4.8",
+      "alt": "Per-task model score comparison across coding and reasoning tasks"
+    },
+    {
+      "type": "text",
+      "value": "The lead improvement is what Anthropic calls honesty. Opus 4.8 is about four times less likely than its predecessor to let a flaw in its own code slip by, and it flags uncertain parts upfront instead of declaring a task done on thin evidence.\n\nIts judgment improved too. Early testers report that in Claude Code, Opus 4.8 asks clarifying questions, fixes its own errors, and pushes back on shaky plans. On computer use it scored 84% on the Online-Mind2Web benchmark, ahead of both 4.7 and GPT-5.5.\n\nPartner scorecards agree. On Harvey's Legal Agent Benchmark, Opus 4.8 set a record 10.4% and became the first model past the 10% all-pass mark. Cognition, which builds the coding agent Devin, said the verbose-comment and tool-calling issues from 4.7 are fixed."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Effort Controls and Dynamic Workflows"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/01/anthropic-image-jagmeet-singh-techcrunch.jpg?resize=1200,800",
+      "caption": "The Anthropic website open on a laptop screen",
+      "alt": "Anthropic's website shown in a browser on a laptop"
+    },
+    {
+      "type": "text",
+      "value": "The features shipped alongside Opus 4.8 matter as much as the model itself. The first, effort control, arrived in Claude.ai and Cowork: next to the model picker, users set how hard Claude works on a response. Opus 4.8 defaults to 'high,' scaling up to 'extra' ('xhigh' in Claude Code) or 'max' for tougher tasks, on every plan. Lower effort control settings answer faster and spend rate limits more slowly, and Anthropic recommends the 'extra' effort control level for hard, long-running jobs.\n\nThe second, dynamic workflows, launched in research preview. Claude Code plans the work, spawns hundreds of parallel subagents in one session, verifies the output, and reports back — enough, Anthropic says, to run a codebase-scale migration across hundreds of thousands of lines from kickoff to merge against the existing test suite. These dynamic workflows roll out first on Enterprise, Team, and Max plans, extending the Claude Code [agent-teams paradigm](/article/anthropic/claude-code-agent-teams-paradigm/); paired with Opus 4.8, the dynamic workflows run longer before reporting back.\n\nA developer-side change rounds it out: the Messages API now takes system entries inside the messages array, so instructions update mid-task without breaking the prompt cache. Fast mode runs the same model 2.5x faster at a third of the earlier cost."
+    },
+    {
+      "type": "heading",
+      "value": "Immediate Real-World Adoption and Praise"
+    },
+    {
+      "type": "text",
+      "value": "On the feature sheet it reads incremental, but the people using it moved first. GitHub Copilot made Opus 4.8 generally available on launch day, praising a clear step forward in code comprehension; Windsurf, the Devin CLI, and Genspark added same-day support. Japanese developers called it the most capable model available now, and Chinese-language posts framed it as more capability at the same price. Elon Musk added a 'nice work.'\n\nNot all of it was praise. Some flagged Anthropic for highlighting only its own scores in pink on the benchmark charts, and the rate-limit gripe — a single hello burning the monthly cap — returned, along with the long-running [debate over degradation](https://venturebeat.com/technology/is-anthropic-nerfing-claude-users-increasingly-report-performance/) in Claude's output. None of it overturned the day-one mood.\n\nAnthropic is already lining up what's next: a cheaper model with Opus-class capability, and a tier above Opus in raw intelligence. Under Project Glasswing, a few organizations are testing the [Mythos Preview](/article/anthropic/claude-mythos-launch-imminent-signals/) model for cybersecurity, and Anthropic says Mythos-class models reach everyone within weeks once stronger safeguards are ready. If 4.8 is the modest step, the real leap is staged over there."
+    }
+  ]
+}
