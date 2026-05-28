@@ -1,0 +1,146 @@
+{
+  "slug": "meta-ai-subscription-meta-one-launch",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "general",
+  "site": "aiscroll",
+  "title": "메타, AI 유료 구독 '메타 원' 공개…월 7.99달러부터",
+  "titleEn": "Meta Unveils 'Meta One' Paid AI Subscriptions Starting at $7.99 a Month",
+  "date": "2026-05-28T08:00Z",
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2026/05/meta-apps-GettyImages-2164040793.jpg?w=1024",
+  "keywords": "메타 AI 구독, 메타 원, 메타 원 플러스, 광고 매출, 설비투자, AI 구독 시장",
+  "keywordsEn": "Meta AI subscription, Meta One, Meta One Plus, advertising revenue, capital expenditure, paid AI tier",
+  "summary": "메타가 새로운 AI 유료 구독 브랜드 '메타 원'을 선보였다. 월 7.99달러인 플러스와 19.99달러인 프리미엄 요금제를 구성해 오는 6월부터 싱가포르, 과테말라, 볼리비아에서 시범 운영에 나선다.",
+  "summaryEn": "Meta has unveiled its first paid AI subscriptions under the Meta One brand, introducing a $7.99 Plus tier and a $19.99 Premium tier for testing in Singapore, Guatemala, and Bolivia starting in June.",
+  "sources": [
+    {
+      "name": "TechCrunch",
+      "title": "Meta launches Instagram, Facebook, and WhatsApp subscriptions, with more to come, including AI plans",
+      "url": "https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/"
+    },
+    {
+      "name": "Forbes",
+      "title": "Meta Stock Jumps Nearly 4% As It Launches Premium Facebook, Instagram Subscriptions",
+      "url": "https://www.forbes.com/sites/antoniopequenoiv/2026/05/27/meta-shares-jump-after-company-announces-premium-subscriptions-for-facebook-and-instagram/"
+    },
+    {
+      "name": "PYMNTS",
+      "title": "Meta Begins Rollout of Subscription Plans for Apps and AI",
+      "url": "https://www.pymnts.com/meta/2026/meta-begins-rollout-of-subscription-plans-for-apps-and-ai/"
+    },
+    {
+      "name": "Bloomberg Law",
+      "title": "Meta to Sell AI Chatbot Subscriptions in Bid to Offset Spending",
+      "url": "https://news.bloomberglaw.com/crypto/meta-to-sell-ai-chatbot-subscriptions-in-bid-to-offset-spending"
+    },
+    {
+      "name": "Kobeissi Letter (X)",
+      "title": "META is getting into the AI subscription game",
+      "url": "https://x.com/i/status/2059703587438256439"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gemini-pricing-overhaul-compute-limits-backlash",
+    "tech:ai/chatgpt-heavy-thinking-removed-codex-nerf",
+    "tech:ai/softbank-40b-openai-loan",
+    "tech:ai/stargate-ai-crisis-2026"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "메타가 5월 27일 새로운 구독 브랜드 '메타 원(Meta One)'을 앞세워 AI 서비스 유료화에 나섰다. 요금제는 월 7.99달러인 '메타 원 플러스'와 19.99달러인 '프리미엄' 두 가지다. 오는 6월 싱가포르, 과테말라, 볼리비아에서 첫 시범 운영을 시작하며, 일반 이용자를 위한 기존 무료 서비스는 그대로 유지된다.\n\n소셜 플랫폼을 위한 별도 플러스 요금제도 함께 공개됐다. 인스타그램과 페이스북 플러스는 월 3.99달러, 왓츠앱 플러스는 월 2.99달러로 책정됐다. 메타 측은 [테크크런치에 제공한 자료](https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/)에서 향후 모든 유료 서비스를 메타 원 브랜드 아래 통합할 계획이라고 밝혔다.\n\n발표 당일 메타 주가는 3.7% 상승한 635.36달러로 장을 마쳤다. 광고 수익에 의존해 온 메타가 유료 모델을 도입한 것은 최근 1,250억~1,450억 달러까지 불어난 올해 설비투자 부담을 덜기 위한 첫 실질적 대응책으로 풀이된다."
+    },
+    {
+      "type": "heading",
+      "value": "메타 원 플러스와 프리미엄, 기능은 동일…사용 한도로 급 차이"
+    },
+    {
+      "type": "image",
+      "src": "https://www.pymnts.com/wp-content/uploads/2024/11/Meta.jpg",
+      "caption": "캘리포니아 멘로파크의 메타 본사",
+      "alt": "메타 본사 '1 Hacker Way' 표지판"
+    },
+    {
+      "type": "text",
+      "value": "메타 원 플러스(7.99달러)와 프리미엄(19.99달러)은 제공하는 핵심 기능이 완전히 같다. 요금에 따른 유일한 차이는 사용량 제한뿐이다.\n\n상위 등급인 프리미엄 가입자는 동일한 기능을 더 자주 사용하고 고부하 작업을 처리할 수 있다. 메타 AI 앱의 '생각 모드'와 같은 복잡한 추론 질문에 더 많은 연산 자원이 할당되며, 이미지와 영상 생성 한도도 늘어난다. 다만 구체적인 사용량 쿼터는 공개되지 않았다.\n\n이러한 요금제 설계는 [지난주 구글이 제미나이에 도입한 연산량 기반의 주간 한도 설정](/ko/article/google/gemini-pricing-overhaul-compute-limits-backlash/)과 유사한 접근 방식이다. 기능의 차별화 대신 처리 용량으로 등급을 나눈 셈이다. 메타는 6월 시범 운영 이후 스마트 안경 사용자들을 위한 추가 혜택도 단계적으로 도입할 계획이라고 전했다.\n\n이와 함께 크리에이터와 기업 고객을 겨냥한 요금제도 첫선을 보였다. 월 14.99달러의 '메타 원 에센셜'과 49.99달러의 '메타 원 어드밴스드'로 구성됐으며, 이번 주 사우디아라비아, 모로코, 태국, 방글라데시에서 시범 서비스를 시작한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "월 7.99달러 카드로 빅테크 가격선 아래 진입"
+    },
+    {
+      "type": "image",
+      "src": "https://images.gmanews.tv/webpics/2025/12/2025-12-04T142430Z_1709368493_RC2P9IAFMKIB_RTRMADP_3_META-PLATFORMS-AI_2025_12_21_20_32_39.JPG",
+      "caption": "메타 플랫폼스 로고",
+      "alt": "노트북 키보드 위에 놓인 로고 모형"
+    },
+    {
+      "type": "text",
+      "value": "월 7.99달러로 책정된 플러스 요금제는 기존 빅테크 기업들의 AI 구독 서비스 가격을 크게 밑돈다. OpenAI의 '챗GPT 플러스'와 앤스로픽의 '클로드 프로'가 월 20달러, 구글의 '제미나이 어드밴스드'가 19.99달러 선에 묶여 있는 상황에서 메타가 그 아래에 새로운 가격대를 연 형태다.\n\n월 19.99달러의 프리미엄 요금제는 경쟁사들과 가격대가 같지만, 메타가 처한 재무적 배경은 전혀 다르다. OpenAI와 앤스로픽은 구독료가 매출의 대부분을 차지하는 반면, 메타는 [지난 분기에만 전년 동기 대비 33% 증가한 563억 달러의 광고 매출](https://www.forbes.com/sites/antoniopequenoiv/2026/05/27/meta-shares-jump-after-company-announces-premium-subscriptions-for-facebook-and-instagram/)을 기록했다. 새로운 AI 구독 서비스는 이 거대한 광고 사업 위에 얹어지는 두 번째 수익원이다.\n\n블룸버그가 먼저 보도했던 이번 요금 체계는 메타가 업계 표준인 정액제 모델을 수용하면서도, 광고 기반의 무료 사용자를 핵심 성장 동력으로 계속 유지하겠다는 신호다. 즉, 일반적인 메타 AI 사용은 계속 무료로 열어두되 헤비유저만 유료 서비스로 분리하겠다는 구상이다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 유료화로 주가 반등…1,250억 달러 설비투자 부담 해소할까"
+    },
+    {
+      "type": "text",
+      "value": "시장 반응은 우호적이었다. 발표 당일 메타 주가는 3.7% 오른 635.36달러로 마감하며 지난 한 달간 이어진 6.6% 하락세의 일부를 만회했다. 금융 시장 분석 매체 [코베이시 레터(Kobeissi Letter)](https://x.com/i/status/2059703587438256439)는 12만 6,000회 이상 조회된 게시글에서 평가를 내놨다. 마크 저커버그 메타 최고경영자(CEO)가 광고를 넘어설 새 구독 수익층을 깔고 있다는 풀이다.\n\n투자자들이 주목한 부분은 개별 요금제의 가격 자체보다 메타가 비광고 AI 매출원을 갖추기 시작했다는 신호다. 메타는 최근 올해 설비투자 가이던스를 전년 대비 약 두 배 수준인 1,250억~1,450억 달러로 대폭 높여 잡았다. 이와 동시에 8,000명의 인력을 감축하고 7,000명을 AI 부서로 재배치한 상태다.\n\n광고 매출이 분기마다 33%씩 성장하더라도 이 엄청난 규모의 설비투자 비용을 광고 한 축만으로 감당하기는 버겁다. 메타 원은 이러한 비용 상승 리스크를 분산하려는 메타의 첫 번째 카드다. 다만 7.99달러의 저가 상품이 기존 무료 광고 사용자를 침범하지 않으면서 새로운 순증 매출을 만들어낼 수 있을지는 오는 6월 치러질 3개국 시범 운영의 결과에 따라 갈릴 전망이다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Meta Platforms on May 27 introduced its first paid artificial intelligence service under a new subscription brand, Meta One. The service launches with two tiers: Meta One Plus at $7.99 per month and Premium at $19.99. Both options will enter testing in Singapore, Guatemala, and Bolivia in June, while the standard Meta AI service remains free for general users.\n\nAlongside the core offerings, Meta rolled out 'Plus' tiers for its social platforms. Instagram Plus and Facebook Plus will cost $3.99 per month, while WhatsApp Plus is priced at $2.99. Meta [told TechCrunch](https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/) that all of its paid offerings will eventually be unified under the Meta One brand.\n\nShares of Meta closed up 3.7% at $635.36 following the announcement. For a company traditionally reliant on advertising revenue, the paid pivot represents its first concrete strategy to help offset a massive 2026 capital expenditure bill, which recently rose to a projected $125 billion to $145 billion."
+    },
+    {
+      "type": "heading",
+      "value": "Meta One Plus and Premium Share Core Features, Differentiated Only by Usage Limits"
+    },
+    {
+      "type": "image",
+      "src": "https://www.pymnts.com/wp-content/uploads/2024/11/Meta.jpg",
+      "caption": "Meta's Menlo Park headquarters in California",
+      "alt": "The '1 Hacker Way' sign outside Meta's headquarters"
+    },
+    {
+      "type": "text",
+      "value": "The Meta One Plus ($7.99) and Premium ($19.99) tiers offer identical features, with the pricing tier determined solely by usage allowances.\n\nPremium subscribers will be permitted to access features more frequently and run heavier workloads. This includes a higher compute allocation for the Meta AI application's 'thinking mode' reasoning queries, alongside increased limits for image and video generation. Meta has not disclosed the precise usage quotas.\n\nThis tiered architecture mirrors [the compute-based weekly limits Google introduced for Gemini last week](/article/google/gemini-pricing-overhaul-compute-limits-backlash/), choosing to segment users by capacity caps rather than feature gates. Following the initial June trial, Meta plans to roll out additional benefits in phases for users of its smart glasses.\n\nMeta also unveiled business-oriented plans: Meta One Essential at $14.99 and Meta One Advanced at $49.99. Testing for these tiers begins this week in Saudi Arabia, Morocco, Thailand, and Bangladesh."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Sliding In Below the $20 Big Tech Line With a $7.99 Entry"
+    },
+    {
+      "type": "image",
+      "src": "https://images.gmanews.tv/webpics/2025/12/2025-12-04T142430Z_1709368493_RC2P9IAFMKIB_RTRMADP_3_META-PLATFORMS-AI_2025_12_21_20_32_39.JPG",
+      "caption": "Meta Platforms logo",
+      "alt": "A logo figurine resting on a laptop keyboard"
+    },
+    {
+      "type": "text",
+      "value": "At $7.99, the Plus tier undercuts the existing consumer AI subscription market. While OpenAI's ChatGPT Plus and Anthropic's Claude Pro remain anchored at $20, and Google's Gemini Advanced is priced at $19.99, Meta has established a new entry-level price point well below the industry standard.\n\nAlthough the $19.99 Premium tier aligns with competitors, Meta operates from a vastly different financial position. While OpenAI and Anthropic rely on subscriptions as their primary source of direct revenue, Meta generated [$56.3 billion in advertising revenue last quarter alone](https://www.forbes.com/sites/antoniopequenoiv/2026/05/27/meta-shares-jump-after-company-announces-premium-subscriptions-for-facebook-and-instagram/), representing a 33% year-over-year increase. The new AI subscriptions represent a secondary revenue layer built upon its core advertising business.\n\nThe subscription pricing, which was first reported by Bloomberg, indicates that Meta is adopting the industry-standard flat-fee model while preserving its massive ad-supported user base as its core engine. The standard Meta AI service remains free, with only high-volume users routed to the paid options."
+    },
+    {
+      "type": "heading",
+      "value": "Meta's Paid AI Tiers Spark Stock Rally as a Massive Capex Burden Looms"
+    },
+    {
+      "type": "text",
+      "value": "The market responded favorably to the announcement. Meta shares closed 3.7% higher at $635.36, recovering a portion of the stock's 6.6% decline over the past month. The capital markets commentary [Kobeissi Letter](https://x.com/i/status/2059703587438256439), in a social media post viewed more than 126,000 times, characterized the strategy as Chief Executive Mark Zuckerberg building a subscription model to serve as a primary revenue layer beyond advertising.\n\nInvestors reacted positively to the strategic pivot rather than the specific pricing tiers behind the new capital expenditure cover. Meta recently raised its 2026 capital expenditure guidance to a range of $125 billion to $145 billion—nearly double its 2025 capital expenditure—while reducing its headcount by 8,000 and reassigning another 7,000 employees to artificial intelligence roles.\n\nEven with advertising revenue growing at 33%, the core business cannot easily sustain capital expenditure on this scale. Meta One represents the company's first major effort to hedge against that capital expenditure surge. The upcoming three-country pilot in June will test whether the low-cost tier can generate incremental revenue without cannibalizing the free, ad-supported user experience."
+    },
+    {
+      "type": "ad"
+    }
+  ]
+}
