@@ -1,0 +1,140 @@
+{
+  "slug": "anthropic-900b-surpasses-openai",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "2026-05-28T19:00Z",
+  "needTranslate": false,
+  "title": "앤트로픽, 9,000억 달러로 오픈AI 제치고 AI 스타트업 1위",
+  "titleEn": "Anthropic Tops OpenAI at $900B Valuation",
+  "summary": "앤트로픽이 9,000억 달러의 기업가치로 오픈AI를 제치고 세계 최고 가치 AI 스타트업에 등극할 전망이다. 현재 300억 달러 규모의 신규 투자 유치를 마무리 중이며, 이르면 오는 10월 기업공개(IPO)에 나설 계획이다.",
+  "summaryEn": "Anthropic is reportedly closing a $30 billion round at a $900 billion valuation, passing OpenAI as the most valuable AI startup, with an October IPO eyed.",
+  "keywords": "앤트로픽 기업가치, 오픈AI 추월, AI 스타트업, 투자 유치",
+  "keywordsEn": "Anthropic valuation, OpenAI, AI startup, funding round",
+  "thumbnail": "https://winbuzzer.com/wp-content/uploads/2025/01/Anthropic-money-cash-funding.jpg",
+  "sources": [
+    {
+      "name": "The New York Times",
+      "title": "Anthropic Tops OpenAI to Become the Most Valuable AI Startup",
+      "url": "https://www.nytimes.com/2026/05/28/technology/anthropic-tops-openai-valuation.html"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "Anthropic in Talks to Raise $30 Billion at $900 Billion Value",
+      "url": "https://news.bloomberglaw.com/artificial-intelligence/anthropic-in-talks-to-raise-30-billion-at-900-billion-value"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic could raise a new $50B round at a valuation of $900B",
+      "url": "https://techcrunch.com/2026/04/30/sources-anthropic-could-raise-a-new-50b-round-at-a-valuation-of-900b/"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "OpenAI Valued at $852 Billion After Completing $122 Billion Round",
+      "url": "https://www.bloomberg.com/news/articles/2026-03-31/openai-valued-at-852-billion-after-completing-122-billion-round"
+    },
+    {
+      "name": "Reuters",
+      "title": "Anthropic weighs new funding round at valuation exceeding $900 billion",
+      "url": "https://www.investing.com/news/stock-market-news/anthropic-weighs-new-funding-round-at-valuation-exceeding-900-billion-bloomberg-news-reports-4647415"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/anthropic-revenue-19b-openai-gap",
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/openai-110b-record-funding-turning-point"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 오픈AI를 추월해 세계에서 가장 몸값 높은 인공지능(AI) 스타트업에 등극한다. [뉴욕타임스](https://www.nytimes.com/2026/05/28/technology/anthropic-tops-openai-valuation.html)는 5월 28일 앤트로픽의 기업가치가 약 9,000억 달러로 평가받았다고 보도했다. 블룸버그에 따르면 앤트로픽은 300억 달러가 넘는 신규 투자 유치를 9,000억 달러 이상의 가치로 마감하고 있다. 이는 지난 3월 오픈AI가 1,220억 달러를 조달해 평가받은 8,520억 달러를 넘어서는 액수다.\n\n앤트로픽의 공식 발표는 아직 나오지 않았으나, 주요 외신들이 투자 유치 완료가 임박했다고 일제히 전하면서 글로벌 AI 업계의 선두 주자가 바뀌었다는 평가가 나온다."
+    },
+    {
+      "type": "heading",
+      "value": "4개월 만에 3,800억 달러에서 9,000억 달러로"
+    },
+    {
+      "type": "image",
+      "src": "https://images.euronews.com/articles/stories/09/62/91/71/1536x864_cmsv2_3c05bad8-a107-577b-b031-74862c4ee3c0-9629171.jpg",
+      "caption": "세계경제포럼에서 발언하는 다리오 아모데이 앤트로픽 CEO",
+      "alt": "세계경제포럼에서 발언하는 다리오 아모데이"
+    },
+    {
+      "type": "text",
+      "value": "기업가치 상승 속도가 눈부시다. 앤트로픽은 지난 2월 3,800억 달러의 가치로 300억 달러를 유치했는데, 불과 4개월 만에 몸값이 두 배 이상 뛰었다. 이처럼 가파른 [매출 성장세](/ko/article/anthropic/anthropic-revenue-19b-openai-gap/)가 분기마다 기업가치를 새로 쓰는 원동력이 되고 있다.\n\n테크크런치는 지난 4월 말 앤트로픽이 9,000억 달러 안팎의 가치로 500억 달러 규모의 선제적 투자 제안을 여러 건 받았다고 보도했다. 이사회는 5월 회의에서 라운드 최종 규모를 결정할 예정이었다. 이번 투자에는 세쿼이아 캐피탈(Sequoia Capital)을 비롯한 주요 성장 투자사들이 참여한 것으로 알려졌다.\n\n자금이 몰리는 배경에는 가파른 매출 성장세가 있다. 엔터프라이즈와 코딩 시장에서 클로드 수요가 급증함에 따라, 앤트로픽의 연간 반복 매출(ARR)은 6개월 전 기록한 90억 달러 수준에서 크게 뛰어오른 것으로 나타났다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "오픈AI 추월이 갖는 상징성"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/a9007019094f217e98cb8261a2765d7646c01708-2600x1392.png",
+      "caption": "클로드 오푸스 4.8 벤치마크 비교표",
+      "alt": "AI 스타트업 모델 성능 비교표"
+    },
+    {
+      "type": "text",
+      "value": "이번 순위 변동은 단순한 숫자 비교 이상의 의미를 지닌다. 지난 3월 1,220억 달러를 유치하며 8,520억 달러로 평가받은 오픈AI를 앤트로픽이 석 달도 채 되지 않아 추월한 것이다. 생성형 AI 붐이 시작된 이래 업계의 절대 강자로 군림해 온 오픈AI의 위상이 처음으로 흔들리기 시작했다.\n\n제품 경쟁력이 이러한 판도 변화를 이끌었다. 앤트로픽은 최근 [클로드 오푸스 4.8](/ko/article/anthropic/claude-opus-4-8-launch/)을 출시하며 코딩과 에이전트 시장에서 주도권을 잡았고, 기업 고객의 클로드 도입도 가속화하고 있다. 투자자들이 매긴 9,000억 달러의 가치는 이 같은 기술적 우위와 시장 지배력에 대한 신뢰를 반영한다."
+    },
+    {
+      "type": "heading",
+      "value": "이르면 10월 기업공개 추진"
+    },
+    {
+      "type": "text",
+      "value": "투자 유치에 이어 상장 절차도 본격화될 전망이다. 블룸버그는 앤트로픽이 이르면 오는 10월 기업공개(IPO)에 나설 수 있다고 전했다. 앤트로픽이 9,000억 달러의 비상장 가치를 유지하며 증시에 데뷔할 경우, 기술 기업 역사상 가장 큰 규모의 기업공개 사례 중 하나로 기록된다.\n\n다만 변수는 여전히 존재한다. 현재 라운드는 마감 단계의 보도 단계로, 앤트로픽의 공식 발표를 통해 숫자가 최종 확정되어야 한다. 아울러 1년 만에 몸값이 5배 가까이 폭등한 만큼 고평가 논란도 지속적으로 제기된다. 그럼에도 5월 말 현재 앤트로픽은 글로벌 AI 스타트업 시장의 선두 자리에 위치하고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic has overtaken OpenAI to become the world’s most valuable artificial intelligence startup. The New York Times [reported on May 28](https://www.nytimes.com/2026/05/28/technology/anthropic-tops-openai-valuation.html) that the Claude creator is being valued at approximately $900 billion. According to Bloomberg, Anthropic is finalizing a new funding round exceeding $30 billion at a valuation above $900 billion, surpassing the $852 billion valuation OpenAI achieved in March following a $122 billion raise.\n\nWhile Anthropic has not released a formal announcement, major news outlets reporting the round as nearly finalized signal that the mantle of the most valuable AI startup has officially changed hands."
+    },
+    {
+      "type": "heading",
+      "value": "From $380 Billion to $900 Billion in Four Months"
+    },
+    {
+      "type": "image",
+      "src": "https://images.euronews.com/articles/stories/09/62/91/71/1536x864_cmsv2_3c05bad8-a107-577b-b031-74862c4ee3c0-9629171.jpg",
+      "caption": "Anthropic CEO Dario Amodei speaking at the World Economic Forum",
+      "alt": "Dario Amodei speaking at the World Economic Forum"
+    },
+    {
+      "type": "text",
+      "value": "The velocity of the valuation growth is unprecedented. Anthropic raised $30 billion at a $380 billion valuation in February; just four months later, its valuation has more than doubled. The startup’s rapid [revenue expansion](/article/anthropic/anthropic-revenue-19b-openai-gap/) has led to consecutive quarterly repricings.\n\nTechCrunch reported in late April that Anthropic had received several unsolicited offers near a $900 billion valuation, including a potential $50 billion funding round, with a board decision scheduled for May. Prominent growth investors, including Sequoia Capital, are reportedly participating.\n\nThis capital influx is underpinned by surging revenue. Reports indicate that Anthropic’s annual recurring revenue has jumped significantly from the $9 billion recorded six months ago, propelled by accelerating demand for Claude across enterprise and software engineering sectors."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The Implications of Overtaking OpenAI"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/a9007019094f217e98cb8261a2765d7646c01708-2600x1392.png",
+      "caption": "Claude Opus 4.8 benchmark comparison",
+      "alt": "AI startup model performance comparison"
+    },
+    {
+      "type": "text",
+      "value": "This valuation shift represents more than just a numerical milestone. OpenAI was valued at $852 billion in March after raising $122 billion; less than three months later, Anthropic has surpassed it. For the first time since the generative AI boom began, the consensus narrative of OpenAI as the undisputed industry leader has been challenged.\n\nThis shift is primarily driven by product momentum. Days earlier, Anthropic released [Claude Opus 4.8](/article/anthropic/claude-opus-4-8-launch/), solidifying its position in the coding and autonomous agent markets as enterprise adoption continues to accelerate. The $900 billion valuation reflects investor confidence in this sustained product leadership."
+    },
+    {
+      "type": "heading",
+      "value": "Potential October IPO on the Horizon"
+    },
+    {
+      "type": "text",
+      "value": "Following this funding round, Anthropic is reportedly eyeing the public markets. Bloomberg reported that the startup could launch an initial public offering as early as October. Listing at a $900 billion valuation would represent one of the largest public debuts in technology history.\n\nHowever, key uncertainties remain. The current funding round is reported as near closure, and a formal confirmation from Anthropic is required to finalize the valuation. Furthermore, with its valuation increasing nearly fivefold in a single year, concerns regarding overvaluation persist. Nevertheless, as of late May, Anthropic has positioned itself at the apex of the global AI startup landscape."
+    }
+  ]
+}
