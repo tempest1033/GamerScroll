@@ -74,15 +74,13 @@ function renderDesktopOnlyHomeAd(slotId) {
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
-      .${cardClass} { display:flex !important; width:100%; max-width:100%; min-height:90px; overflow:hidden; align-items:center; justify-content:center; }
-      .${styleId} { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+      .${cardClass} { display:flex !important; width:728px; max-width:728px; height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .${styleId} { display:block !important; width:728px; height:90px; margin:0 auto; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-format="horizontal"
-       data-full-width-responsive="true"></ins>
+       data-ad-slot="${slotId}"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
 }
