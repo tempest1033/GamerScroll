@@ -148,7 +148,7 @@
 
 .ad-card-responsive-home.gs-ad-compact,
 .ad-card-responsive-top.gs-ad-compact {
-  align-items: flex-start;
+  align-items: center;
 }
 
 @media (min-width: 1200px) {
@@ -169,6 +169,10 @@
     max-width: 728px;
     margin-left: auto;
     margin-right: auto;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
