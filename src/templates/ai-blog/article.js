@@ -622,7 +622,7 @@ function generateAIBlogArticle(article, data = {}) {
   const sidebarHTML = generateSidebarArticles();
 
   // 상단 광고
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
 
   // 메인 콘텐츠 (GamerScroll 스타일 + 사이드바 레이아웃)
   const content = `

@@ -18,7 +18,7 @@ const docsDir = path.join(__dirname, '../../../docs');
 const { getLocalReportThumbnail, getLocalReportThumbnailSrcset } = require('../helpers/thumbnail');
 
 // 광고 슬롯
-const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
 
 // URL 수정 헬퍼 (이미지 프록시, width: 용도별 크기)
 const fixUrl = (url, width = 480) => {

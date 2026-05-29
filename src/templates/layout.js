@@ -2923,7 +2923,7 @@ function generateHomeAdPairSlot(pcSlotId, mobileSlotId, options = {}) {
   if (options.mobileOnly) {
     return renderMobileOnlyHomeAd(mobileSlotId || pcSlotId);
   }
-  return renderHomeAdPair(pcSlotId, mobileSlotId);
+  return renderHomeAdPair(pcSlotId, mobileSlotId, options);
 }
 
 // 모바일 전용 중간 광고 (PC에서는 CSS로 숨김)

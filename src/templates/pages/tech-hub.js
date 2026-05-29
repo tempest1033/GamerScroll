@@ -14,7 +14,7 @@ const docsDir = path.join(__dirname, '../../../docs');
 const siteBaseUrl = 'https://gamerscroll.com';
 
 // 광고 슬롯
-const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
 
 // 날짜 포맷 헬퍼
 const formatDateKr = (dateStr) => {

@@ -619,7 +619,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
       <article class="page-container issue-container">
         <div class="article-layout">
           <div class="article-main">
-            ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
+            ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true })}
             <div class="blog-card">
               <header class="blog-header">
                 <h1 class="blog-title">${article.title}</h1>

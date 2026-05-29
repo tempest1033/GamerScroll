@@ -66,11 +66,14 @@ function renderResponsiveHomeAd(slotId) {
  * PC 전용 홈/상단 광고
  * Desktop: full-width responsive slot, Mobile: 숨김
  */
-function renderDesktopOnlyHomeAd(slotId) {
+function renderDesktopOnlyHomeAd(slotId, opts) {
   if (!ADS_ENABLED || !slotId) return '';
+  const narrow = opts && opts.narrow;
   const styleId = `ad-home-pc-${++adStyleCounter}`;
   const cardClass = `${styleId}-card`;
-  return `<div class="ad-card ad-card-responsive-home ${cardClass}">
+  if (narrow) {
+    // 좁은 컬럼(사이드바 레이아웃): 728x90 고정 — CLS/우측잘림/세로정렬 안정
+    return `<div class="ad-card ad-card-responsive-home ${cardClass}">
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
@@ -81,6 +84,23 @@ function renderDesktopOnlyHomeAd(slotId) {
   <ins class="adsbygoogle ${styleId}"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
+  ${renderEagerAdPushScript()}
+</div>`;
+  }
+  // 풀폭 페이지(사이드바 없음): 최대 970 반응형
+  return `<div class="ad-card ad-card-responsive-home ${cardClass}">
+  <style>
+    .${cardClass}, .${styleId} { display:none !important; }
+    @media (min-width: 769px) {
+      .${cardClass} { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .${styleId} { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ${styleId}"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
 }
@@ -114,10 +134,10 @@ function renderMobileOnlyHomeAd(slotId) {
  * 홈/상단 광고 페어
  * PC는 auto-responsive, 모바일은 320x100 고정 슬롯으로 분리
  */
-function renderHomeAdPair(pcSlotId, mobileSlotId) {
+function renderHomeAdPair(pcSlotId, mobileSlotId, opts) {
   if (!ADS_ENABLED) return '';
   return [
-    renderDesktopOnlyHomeAd(pcSlotId),
+    renderDesktopOnlyHomeAd(pcSlotId, opts),
     renderMobileOnlyHomeAd(mobileSlotId || pcSlotId)
   ].filter(Boolean).join('\n');
 }

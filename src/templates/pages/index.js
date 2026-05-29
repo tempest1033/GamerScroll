@@ -891,7 +891,7 @@ function generateIndexPage(data) {
     '<div class="page-container">' +
     '<div class="home-container">' +
     '<div class="home-main">' +
-    generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001) +
+    generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true }) +
     insightCardHtml +
     generateHomePopular() +
     generateHomeLatest() +
