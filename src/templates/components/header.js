@@ -5,7 +5,7 @@
 function generateHeader() {
   return `
   <style>
-    .gs-header { padding: 16px 0 !important; position: relative; z-index: 100000; }
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
     .gs-header-inner {
       display: flex !important;
       align-items: center;
