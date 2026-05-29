@@ -1,5 +1,5 @@
 /* purgecss start ignore */
-/* ========== 리포트 공통 스타일 (daily detail용) ========== */
+/* ========== 리포트 공통 스타일 ========== */
 
 /* 인사이트 전용 CSS 변수 (PurgeCSS 변수 제거 대응) */
 :root {
@@ -223,7 +223,7 @@
 /* 섹션별 태그 색상 */
 .weekly-section-hot .weekly-hot-tag {
   background: rgba(248, 113, 113, 0.18);
-  color: #f87171;
+  color: var(--badge-danger);
 }
 
 .weekly-section-industry .weekly-hot-tag {
@@ -233,17 +233,17 @@
 
 .weekly-section-metrics .weekly-hot-tag {
   background: rgba(74, 222, 128, 0.18);
-  color: #4ade80;
+  color: var(--badge-success);
 }
 
 .weekly-section-rankings .weekly-hot-tag {
   background: rgba(251, 191, 36, 0.18);
-  color: #fbbf24;
+  color: var(--badge-warning);
 }
 
 .weekly-section-community .weekly-hot-tag {
   background: rgba(56, 189, 248, 0.18);
-  color: #38bdf8;
+  color: var(--badge-info);
 }
 
 .weekly-section-streaming .weekly-hot-tag {
@@ -254,12 +254,12 @@
 /* 고정형 태그 색상 */
 .weekly-hot-tag.tag-up {
   background: rgba(74, 222, 128, 0.18) !important;
-  color: #4ade80 !important;
+  color: var(--badge-success) !important;
 }
 
 .weekly-hot-tag.tag-down {
   background: rgba(248, 113, 113, 0.18) !important;
-  color: #f87171 !important;
+  color: var(--badge-danger) !important;
 }
 
 .weekly-hot-tag.tag-new {
@@ -269,12 +269,12 @@
 
 .weekly-hot-tag.tag-revenue {
   background: rgba(251, 191, 36, 0.18) !important;
-  color: #fbbf24 !important;
+  color: var(--badge-warning) !important;
 }
 
 .weekly-hot-tag.tag-players {
   background: rgba(56, 189, 248, 0.18) !important;
-  color: #38bdf8 !important;
+  color: var(--badge-info) !important;
 }
 
 .weekly-hot-tag svg {
@@ -316,7 +316,7 @@
   grid-template-rows: auto;
 }
 
-/* 일간 리포트 지표 그리드 (가로로 길게 1열) */
+/* 리포트 지표 그리드 (가로로 길게 1열) */
 .weekly-metrics-grid {
   display: flex;
   flex-direction: column;
@@ -608,12 +608,12 @@
 
 .weekly-rank-badge.up {
   background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  color: var(--rank-green);
 }
 
 .weekly-rank-badge.down {
   background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
+  color: var(--rank-red);
 }
 
 .weekly-rank-badge.new {
@@ -645,8 +645,8 @@
   font-weight: var(--font-badge-weight);
 }
 
-.weekly-rank-arrow.up { color: #22c55e; }
-.weekly-rank-arrow.down { color: #ef4444; }
+.weekly-rank-arrow.up { color: var(--rank-green); }
+.weekly-rank-arrow.down { color: var(--rank-red); }
 .weekly-rank-arrow.new { color: #f59e0b; }
 
 .weekly-rank-positions {
@@ -663,12 +663,12 @@
 
 .weekly-rank-delta.up {
   background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  color: var(--rank-green);
 }
 
 .weekly-rank-delta.down {
   background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
+  color: var(--rank-red);
 }
 
 .weekly-rank-delta.new {
@@ -693,12 +693,12 @@
 
 .weekly-ranking-badge.up {
   background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  color: var(--rank-green);
 }
 
 .weekly-ranking-badge.down {
   background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
+  color: var(--rank-red);
 }
 
 .weekly-ranking-badge.new {
@@ -884,10 +884,7 @@
   .weekly-community-title,
   .weekly-streaming-title,
   .industry-title,
-  .weekly-stock-name,
-  .daily-community-title,
-  .daily-streaming-title,
-  .daily-industry-title
+  .weekly-stock-name
 ) {
   font-size: var(--insight-item-size);
 }
@@ -901,10 +898,7 @@
   .industry-desc,
   .weekly-ranking-desc,
   .weekly-rank-reason,
-  .weekly-stock-comment,
-  .daily-community-desc,
-  .daily-streaming-desc,
-  .daily-industry-desc
+  .weekly-stock-comment
 ) {
   font-size: var(--insight-body-size);
 }

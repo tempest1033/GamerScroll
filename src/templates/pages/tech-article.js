@@ -531,26 +531,26 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
           <div class="sidebar-category-list">
-            <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (${reportCounts.issue || 0})</span></a>
-            <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (${reportCounts.insight || 0})</span></a>
-            <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (${reportCounts.hotpick || 0})</span></a>
-            <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (${reportCounts.ranking || 0})</span></a>
+            <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">${reportCounts.issue || 0}</span></a>
+            <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">${reportCounts.insight || 0}</span></a>
+            <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">${reportCounts.hotpick || 0}</span></a>
+            <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">${reportCounts.ranking || 0}</span></a>
           </div>
         </div>
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
           <div class="sidebar-category-list">
-            <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (${wikiCounts.history})</span></a>
-            <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (${wikiCounts.knowledge})</span></a>
-            <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (${wikiCounts.business})</span></a>
+            <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">${wikiCounts.history}</span></a>
+            <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식</span><span class="sidebar-category-count">${wikiCounts.knowledge}</span></a>
+            <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">${wikiCounts.business}</span></a>
           </div>
         </div>
         <div class="sidebar-category-group">
           <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
           <div class="sidebar-category-list">
-            <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (${techCounts.normal})</span></a>
-            <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (${techCounts.ai})</span></a>
-            <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (${techCounts.vibecoding})</span></a>
+            <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반</span><span class="sidebar-category-count">${techCounts.normal}</span></a>
+            <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI</span><span class="sidebar-category-count">${techCounts.ai}</span></a>
+            <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩</span><span class="sidebar-category-count">${techCounts.vibecoding}</span></a>
           </div>
         </div>
       </div>

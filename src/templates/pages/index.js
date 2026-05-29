@@ -565,7 +565,7 @@ function generateIndexPage(data) {
 
     const renderItems = (items) => items.map(cat => `
       <a href="${cat.link}" class="sidebar-category-item">
-        <span class="sidebar-category-name">${cat.name}${cat.count !== undefined ? ` (${cat.count})` : ''}</span>
+        <span class="sidebar-category-name">${cat.name}</span>${cat.count !== undefined ? `<span class="sidebar-category-count">${cat.count}</span>` : ''}
       </a>
     `).join('');
 

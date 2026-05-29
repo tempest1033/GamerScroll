@@ -66,6 +66,8 @@ function homeHref(lang = 'en') { return pathForLang('/', lang); }
 function searchHref(lang = 'en') { return pathForLang('/search/', lang); }
 
 const AI_CATEGORY_IDS = ['general', 'ai', 'ai-tools', 'openai', 'google', 'anthropic', 'vibecoding'];
+// Sidebar shows only the nav-aligned categories (excludes low-volume ai / ai-tools)
+const SIDEBAR_CATEGORY_IDS = ['general', 'openai', 'google', 'anthropic', 'vibecoding'];
 
 // AIScroll 헤더 (로고 + 검색창 - PC용)
 function generateHeader(lang = 'en') {
@@ -80,8 +82,8 @@ function generateHeader(lang = 'en') {
           <svg class="logo-svg" viewBox="0 0 400 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#4f46e5" />
-                <stop offset="100%" stop-color="#06b6d4" />
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
               </linearGradient>
             </defs>
             <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="52" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">AI SCROLL</text>
@@ -173,8 +175,9 @@ function generateDefaultSidebarContent(counts = {}, lang = 'en') {
   const _t = I18N[lang] || I18N.en;
   const _cat = _t.categoryLabels;
   const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
+  const cNum = (key) => counts[key] !== undefined ? `<span class="sidebar-category-count">${counts[key]}</span>` : '';
   const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  const categories = AI_CATEGORY_IDS.map(id => ({
+  const categories = SIDEBAR_CATEGORY_IDS.map(id => ({
     id,
     label: id === 'vibecoding' ? (_t.vibeCoding || _cat[id]) : _cat[id]
   }));
@@ -191,7 +194,7 @@ function generateDefaultSidebarContent(counts = {}, lang = 'en') {
       <div class="sidebar-category-group">
         <div class="home-card-header"><span class="home-card-title-link"><h2 class="home-card-title">${_t.categories}</h2></span></div>
         <div class="sidebar-category-list">
-          ${categories.map(cat => `<a href="${categoryHref(cat.id, lang)}" class="sidebar-category-item"><span class="sidebar-category-name">${cat.label}${c(cat.id)}</span></a>`).join('')}
+          ${categories.map(cat => `<a href="${categoryHref(cat.id, lang)}" class="sidebar-category-item"><span class="sidebar-category-name">${cat.label}</span>${cNum(cat.id)}</a>`).join('')}
         </div>
       </div>
     </div>
@@ -568,7 +571,7 @@ function generateAIBlogIndex(data) {
   // 카테고리 메뉴
   function generateCategoryMenu() {
     const _menuT = I18N[_lang] || I18N.en;
-    const categories = AI_CATEGORY_IDS.map(id => ({
+    const categories = SIDEBAR_CATEGORY_IDS.map(id => ({
       id,
       label: id === 'vibecoding' ? (_menuT.vibeCoding || _menuT.categoryLabels[id]) : _menuT.categoryLabels[id]
     }));
@@ -587,7 +590,7 @@ function generateAIBlogIndex(data) {
           <div class="sidebar-category-list">
             ${categories.map(cat => `
               <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
-                <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
+                <span class="sidebar-category-name">${cat.label}</span><span class="sidebar-category-count">${countByCategory[cat.id] || 0}</span>
               </a>
             `).join('')}
           </div>
@@ -1282,7 +1285,7 @@ function wrapWithLayout(content, options = {}) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-      padding: 16px 20px 0;
+      padding: 16px 0 0;
     }
     @media (max-width: 600px) {
       .popular-top-grid {
@@ -2401,7 +2404,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   });
 
   const _catT = I18N[_lang] || I18N.en;
-  const categories = AI_CATEGORY_IDS.map(id => ({
+  const categories = SIDEBAR_CATEGORY_IDS.map(id => ({
     id,
     label: id === 'vibecoding' ? (_catT.vibeCoding || _catT.categoryLabels[id]) : _catT.categoryLabels[id]
   }));
@@ -2426,7 +2429,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
             <div class="sidebar-category-list">
               ${categories.map(cat => `
                 <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
-                  <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
+                  <span class="sidebar-category-name">${cat.label}</span><span class="sidebar-category-count">${countByCategory[cat.id] || 0}</span>
                 </a>
               `).join('')}
             </div>

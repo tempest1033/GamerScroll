@@ -160,6 +160,18 @@
   }
 }
 
+/* 좁은 컬럼(사이드바 레이아웃: 홈/아티클)은 728 리더보드로 제한 — 970이 들어와 우측이 잘리는 것 방지. 풀폭 페이지는 제한 없이 970 허용 */
+@media (min-width: 769px) {
+  .home-main > .ad-card-responsive-home,
+  .article-main > .ad-card-responsive-home,
+  .home-main > .ad-card-responsive-top,
+  .article-main > .ad-card-responsive-top {
+    max-width: 728px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .article-main .ad-card-responsive-home,
 .article-main .ad-card-responsive-top {
   max-width: 100%;

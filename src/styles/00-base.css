@@ -6,6 +6,29 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* 접근성: 키보드 포커스 링 */
+    a:focus-visible,
+    button:focus-visible,
+    [tabindex]:focus-visible,
+    input:focus-visible,
+    .nav-item:focus-visible,
+    .tab-btn:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* 접근성: 모션 최소화 선호 사용자 대응 */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
     /* 글로벌 폰트 스택 - 블로그용 가독성 우선 */
     html, body {
       font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", "Malgun Gothic", sans-serif;
@@ -77,29 +100,29 @@
       }
     }
     :root {
-      /* === Primary Colors - 구글 테크트렌드 블루 === */
-      --primary: #0969DA;
-      --primary-light: #218BFF;
-      --primary-dark: #0550AE;
-      --accent: #218BFF;
+      /* === Primary Colors - 심플 모던 블로그 블루 === */
+      --primary: #2563EB;
+      --primary-light: #3B82F6;
+      --primary-dark: #1D4ED8;
+      --accent: #2563EB;
 
-      /* === Background & Surface - 구글 테크트렌드 (차가운 그레이) === */
-      --bg: #F6F8FA;
+      /* === Background & Surface - 심플 모던 블로그 (순백) === */
+      --bg: #FFFFFF;
       --bg-elevated: #FFFFFF;
       --card: #FFFFFF;
-      --card-hover: #F0F3F6;
+      --card-hover: #FAFAFA;
 
-      /* === Border - 구글 테크트렌드 톤 === */
-      --border: #D0D7DE;
-      --border-subtle: #E1E4E8;
+      /* === Border - 얇고 은은한 톤 === */
+      --border: #EAEAEA;
+      --border-subtle: #F1F1F2;
       --border-hover: var(--primary); /* 호버 시 보더 색상 */
 
-      /* === Text - 구글 테크트렌드 뉴트럴 톤 (대비 강화) === */
-      --text: #1F2328;
-      --text-primary: #1F2328;
-      --text-secondary: #2E343A;
-      --text-muted: #57606A;
-      --text-tertiary: #7C848C;
+      /* === Text - 뉴트럴 그레이 톤 === */
+      --text: #18181B;
+      --text-primary: #18181B;
+      --text-secondary: #3F3F46;
+      --text-muted: #71717A;
+      --text-tertiary: #A1A1AA;
 
 	      /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
 	      --font-title-size: 18px;
@@ -107,11 +130,11 @@
 	      --font-card-title-weight: 700;
 	      --font-item-weight: 500;
 	      --font-logo-weight: 800;
-	      --font-body-size: 17px;
+	      --font-body-size: 18px;
 	      --font-desc-size: 16px;
 	      --font-body-weight: 400;
 	      --font-desc-weight: 400;
-	      --font-body-line-height: 1.75;
+	      --font-body-line-height: 1.8;
 
       /* === Typography - UI 요소 (탭, 배지, 네비 등) === */
 	      --font-tab-size: 14px;
@@ -166,21 +189,21 @@
       --gradient-accent: linear-gradient(135deg, #218BFF 0%, #0550AE 100%);
 
       /* === 호환성 변수 (별칭) === */
-      --bg-secondary: #F0F3F6;
-      --bg-tertiary: #E1E4E8;
-      --border-color: #D0D7DE;
-      --bg-hover: #F0F3F6;
-      --accent-color: #4f46e5; /* 강조 색상 */
+      --bg-secondary: #F4F4F5;
+      --bg-tertiary: #E4E4E7;
+      --border-color: #EAEAEA;
+      --bg-hover: #F4F4F5;
+      --accent-color: var(--primary); /* 강조 색상 */
       --card-bg: var(--card); /* 카드 배경 */
       --font-meta-weight: 500; /* 메타 텍스트 굵기 */
       --font-desc-line-height: 1.6; /* 설명 텍스트 행간 */
 
 	      /* === Shadows - 블로그 톤: 그림자 조금 차분하게 복원 === */
 	      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.03);
-	      --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.05), 0 1px 2px rgb(0 0 0 / 0.04);
-	      --shadow: 0 2px 6px rgb(0 0 0 / 0.05), 0 4px 12px rgb(0 0 0 / 0.04);
-	      --shadow-lg: 0 4px 10px rgb(0 0 0 / 0.06), 0 12px 24px rgb(0 0 0 / 0.05);
-	      --shadow-xl: 0 8px 16px rgb(0 0 0 / 0.06), 0 20px 40px rgb(0 0 0 / 0.08);
+	      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04);
+	      --shadow: 0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04);
+	      --shadow-lg: 0 4px 12px rgb(0 0 0 / 0.06), 0 2px 4px rgb(0 0 0 / 0.04);
+	      --shadow-xl: 0 8px 28px rgb(0 0 0 / 0.08);
 
       /* === Glass Effect === */
       --glass-bg: rgba(255, 255, 255, 0.7);
@@ -224,10 +247,10 @@
       --link-hover-accent: #34d399;
 
       /* === Layout === */
-      --radius: 10px;       /* 16 → 10 — 블로그스럽게 차분하게 */
-      --radius-sm: 6px;     /* 10 → 6 */
-      --radius-lg: 14px;    /* 20 → 14 */
-      --radius-xl: 18px;    /* 24 → 18 */
+      --radius: 12px;
+      --radius-sm: 8px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
 
       /* === Spacing (Blocks/Layout) === */
       --space-xxs: 6px;
@@ -298,7 +321,7 @@
     @media (max-width: 768px) {
       :root {
         --font-title-size: 18px;
-        --font-body-size: 16px;
+        --font-body-size: 17px;
         --font-desc-size: 15px;
         --font-tab-size: 14px;
         --font-nav-size: 14px;

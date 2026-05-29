@@ -2,10 +2,10 @@
 
 .site-footer {
   text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+  padding: var(--space-xl) var(--space-md);
+  margin-top: var(--space-xl);
   border-top: 1px solid var(--border);
-  color: var(--text-secondary);
+  color: var(--text-muted);
   font-size: var(--font-meta-size);
 }
 
@@ -32,7 +32,7 @@
   background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 10002;
 }
 
 .modal-overlay.is-open {
@@ -40,27 +40,27 @@
 }
 
 .modal-content {
-  background: #1a1a1a;
+  background: var(--modal-bg);
   padding: 30px;
   border-radius: 12px;
   max-width: 500px;
   max-height: 80vh;
   overflow-y: auto;
   position: relative;
-  color: #ddd;
+  color: var(--modal-text);
 }
 
 /* SEO: H 태그 대신 클래스 사용 (검색엔진이 privacy 내용을 헤딩으로 인식하지 않도록) */
 .privacy-title {
   margin-top: 0;
-  color: #fff;
+  color: var(--modal-title);
   font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 16px;
 }
 
 .privacy-section-title {
-  color: #aaa;
+  color: var(--modal-section-title);
   margin-top: 20px;
   font-size: var(--font-desc-size);
   font-weight: bold;
@@ -78,13 +78,13 @@
   right: 15px;
   background: none;
   border: none;
-  color: #888;
+  color: var(--modal-close);
   font-size: var(--font-xl-size);
   cursor: pointer;
 }
 
 .modal-close:hover {
-  color: #fff;
+  color: var(--modal-close-hover);
 }
 
 .privacy-modal-list {
@@ -95,7 +95,7 @@
 
 .privacy-modal-effective-date {
   margin-top: 20px;
-  color: #666;
+  color: var(--modal-effective-date);
   font-size: var(--font-meta-size);
 }
 

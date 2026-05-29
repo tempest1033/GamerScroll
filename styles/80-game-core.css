@@ -165,15 +165,15 @@
 
 /* Steam 스탯 색상 */
 .stat-ccu .game-hero-stat-value {
-  color: #4fc3f7;
+  color: var(--stat-ios-color);
 }
 
 .stat-sales .game-hero-stat-value {
-  color: #ffb74d;
+  color: var(--stat-aos-color);
 }
 
 .stat-players .game-hero-stat-value {
-  color: #81c784;
+  color: var(--stat-success);
 }
 
 /* 게임 페이지 그리드 (PC 2컬럼, 모바일 1컬럼) */
@@ -287,11 +287,11 @@
 }
 
 .game-rank-change.up {
-  color: #22c55e;
+  color: var(--rank-green);
 }
 
 .game-rank-change.down {
-  color: #ef4444;
+  color: var(--rank-red);
 }
 
 /* 실시간 순위 - 비활성 버튼 스타일 */

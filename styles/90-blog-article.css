@@ -3,41 +3,64 @@
    ======================================== */
 
 /* 컨테이너 */
-#issue .page-container {
+:is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container {
   max-width: 1076px;
   margin: 0 auto;
   padding: 0 0 var(--space-block-y) 0;
   display: block;
 }
-#issue .page-container > * {
+:is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container > * {
   margin-bottom: var(--space-block-y);
 }
-#issue .page-container > *:last-child {
+:is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container > *:last-child {
   margin-bottom: 0;
 }
 
-#issue .page-container .ad-card {
+:is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container .ad-card {
   margin-bottom: var(--space-block-gap, 16px);
 }
 
-/* 통합 카드 - 배너+헤더+본문 */
+/* 통합 카드 - 박스 해체: 글이 페이지 위에 바로 놓임 */
 .blog-card {
-  background: var(--card);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  overflow: hidden;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* 블로그 카드 내 본문만 매거진 폭으로 제한 (이미지/표/관련글 등은 카드 폭) */
+.blog-content > .blog-paragraph,
+.blog-content > .blog-heading,
+.blog-content > ul,
+.blog-content > ol,
+.blog-content > blockquote,
+.blog-content > .blog-summary {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-content > .blog-heading {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .blog-header {
-  padding: 8px 24px 8px;
+  padding: 4px 0 20px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-/* 히어로 이미지 - 카드 상단에 붙음 */
+/* 히어로 이미지 - 콘텐츠 폭 전체, 에디토리얼 */
 .blog-hero {
   width: 100%;
-  max-height: 280px;
+  max-width: 720px;
+  margin: 0 auto;
+  max-height: 440px;
   overflow: hidden;
   background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
 }
 
 .blog-hero-image {
@@ -51,23 +74,28 @@
   display: none;
 }
 
-/* 제목 */
+/* 제목 - 큰 에디토리얼 타이틀 */
 .blog-title {
-  font-size: 26px;
-  font-weight: var(--font-card-title-weight);
-  line-height: 1.4;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-top: 0;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+  text-align: left;
 }
 
-/* 메타 정보 */
+/* 메타 정보 - 깔끔한 한 줄 (작성자 · 날짜) */
 .blog-meta {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
+  text-align: left;
 }
 
 .blog-editor {
@@ -81,15 +109,32 @@
   color: var(--text-muted);
 }
 
-/* 요약 박스 */
+.blog-date::before {
+  content: '·';
+  margin: 0 8px;
+  color: var(--text-tertiary);
+}
+
+/* 요약 박스 (가장 강조) */
 .blog-summary {
   font-size: var(--font-desc-size);
   line-height: 1.7;
-  color: var(--text-secondary);
-  padding: 16px;
-  background: var(--hover-bg);
-  border-radius: 8px;
-  margin: 16px 24px;
+  color: var(--text);
+  font-weight: 500;
+  padding: 16px 20px;
+  background: color-mix(in srgb, var(--primary) 6%, var(--card));
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+  margin: 20px auto;
+  max-width: 720px;
+  text-align: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-summary {
+    background: color-mix(in srgb, var(--primary) 12%, var(--card));
+    color: var(--text);
+  }
 }
 
 /* 이미지 다음 요약 (제목 → 이미지 → 요약 순서) */
@@ -109,49 +154,63 @@
   font-size: var(--font-badge-size);
   font-weight: var(--font-title-weight);
   color: var(--primary);
-  background: rgba(37, 99, 235, 0.1);
+  background: rgba(9, 105, 218, 0.10);
   border-radius: 6px;
 }
 
 @media (prefers-color-scheme: dark) {
   .blog-tag {
-    background: rgba(249, 115, 22, 0.15);
-    color: #fb923c;
+    background: rgba(33, 139, 255, 0.18);
+    color: #93C5FD;
   }
 }
 
 /* 본문 섹션 - 카드 내부 */
 .blog-content {
-  padding: 24px;
+  padding: 24px 0 40px;
 }
 
-/* 본문 내 링크 — WCAG AA (light #2563eb / dark #ff6b35) */
+/* 본문 내 링크 - 블로그 스타일: 업더라인 제공 */
 .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
   color: var(--primary);
   text-decoration: underline;
-  text-underline-offset: 2px;
-  font-weight: var(--font-tab-weight);
-  transition: color 0.2s;
+  text-decoration-color: rgba(9, 105, 218, 0.4);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+  transition: color 0.15s, text-decoration-color 0.15s;
 }
 
-/* a11y: trend-nav contrast (WCAG AA, site-wide) */
-.trend-nav-btn {
-  color: var(--text-primary);
-}
-.trend-nav-btn.disabled {
-  opacity: 0.55;
+/* 표 내부 링크는 밑줄 제외 (일반 본문 링크 밑줄 규칙 오버라이드) */
+.blog-content .wiki-table a,
+.blog-content .blog-table-wrapper a {
+  text-decoration: none;
 }
 
 .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):hover {
-  color: #34d399;
+  color: var(--primary-dark);
+  text-decoration-color: var(--primary-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
+    color: #60a5fa;
+  }
+  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):hover {
+    color: var(--link-hover-accent);
+  }
 }
 
 /* 본문 단락 */
 .blog-paragraph {
-  font-size: var(--font-desc-size);
+  font-size: 17px;
   line-height: 1.85;
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  letter-spacing: -0.003em;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  text-align: left;
 }
 
 .blog-paragraph:last-child {
@@ -160,16 +219,17 @@
 
 /* 섹션 제목 */
 .blog-heading {
-  font-size: var(--font-title-size);
-  font-weight: var(--font-card-title-weight);
+  font-size: 24px;
+  font-weight: 700;
   color: var(--text);
-  margin: 32px 0 16px;
+  margin: 44px 0 18px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 8px;
   scroll-margin-top: 80px;
+  letter-spacing: -0.02em;
 }
 
 .blog-heading:first-child {
@@ -188,17 +248,17 @@
 
 .heading-rank-new {
   background: rgba(139, 92, 246, 0.15);
-  color: #8b5cf6;
+  color: var(--rank-purple);
 }
 
 .heading-rank-up {
   background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  color: var(--rank-green);
 }
 
 .heading-rank-down {
   background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
+  color: var(--rank-red);
 }
 
 .heading-rank-same {
@@ -209,15 +269,23 @@
 /* 이미지 피규어 */
 .blog-figure {
   margin: 24px 0;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
 }
 
-/* 상단 대표 이미지 (blog-header 바로 다음) - blog-content 내 이미지와 동일 */
+/* 상단 대표 이미지 (blog-header 바로 다음) - 콘텐츠 폭 전체 히어로 */
 .blog-header + .blog-figure {
-  margin: 0 24px;
+  margin: 0 auto;
+  max-width: 720px;
+  max-height: 440px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.blog-header + .blog-figure .blog-image {
+  max-height: 440px;
 }
 
 /* 표 figure */
@@ -301,23 +369,38 @@
   text-align: center;
 }
 
-/* 인용문 */
+/* 인용문 (중립 톤 + 장식용 따옴표) */
 .blog-quote {
+  position: relative;
   margin: 24px 0;
-  padding: 12px 16px;
-  background: var(--hover-bg);
-  border-left: 3px solid #94a3b8;
+  padding: 12px 16px 12px 44px;
+  background: transparent;
+  border-left: 3px solid var(--border-subtle, var(--border));
   border-radius: 0 8px 8px 0;
   font-size: var(--font-desc-size);
   line-height: 1.6;
   color: var(--text-secondary);
+  font-style: italic;
+}
+
+.blog-quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 12px;
+  top: 0;
+  font-size: 40px;
+  line-height: 1;
   font-style: normal;
+  color: var(--border);
+  pointer-events: none;
 }
 
 @media (prefers-color-scheme: dark) {
   .blog-quote {
-    background: rgba(148, 163, 184, 0.1);
-    border-left-color: #64748b;
+    border-left-color: var(--border-subtle, var(--border));
+  }
+  .blog-quote::before {
+    color: var(--border);
   }
 }
 
@@ -329,8 +412,8 @@
 .blog-code pre {
   margin: 0;
   padding: 20px 24px;
-  background: #1e1e1e;
-  border: 1px solid #333;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
   border-radius: 8px;
   overflow-x: auto;
 }
@@ -339,7 +422,7 @@
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
   font-size: 14px;
   line-height: 1.8;
-  color: #d4d4d4;
+  color: var(--text);
   background: transparent;
   padding: 0;
 }
@@ -351,33 +434,53 @@
   font-size: 13px;
 }
 
-.blog-code .code-comment {
-  color: #87ceeb;
+/* 구문 강조 토큰 - GitHub Light 팔레트 */
+.blog-code .tok-kw { color: #cf222e; }
+.blog-code .tok-str { color: #0a3069; }
+.blog-code .tok-num { color: #0550ae; }
+.blog-code .tok-com { color: #6e7781; }
+.blog-code .tok-fn { color: #8250df; }
+.blog-code .tok-bi { color: #0550ae; }
+.blog-code .tok-op { color: var(--text); }
+.blog-code .tok-punct { color: var(--text-secondary); }
+.blog-code .code-comment { color: #6e7781; }
+
+@media (prefers-color-scheme: dark) {
+  .blog-code pre {
+    background: #161616;
+    border-color: #272727;
+  }
+  .blog-code code {
+    color: var(--text);
+  }
+
+  /* 구문 강조 토큰 - GitHub Dark 팔레트 */
+  .blog-code .tok-kw { color: #ff7b72; }
+  .blog-code .tok-str { color: #a5d6ff; }
+  .blog-code .tok-num { color: #79c0ff; }
+  .blog-code .tok-com { color: #8b949e; }
+  .blog-code .tok-fn { color: #d2a8ff; }
+  .blog-code .tok-bi { color: #79c0ff; }
+  .blog-code .code-comment { color: #8b949e; }
 }
 
 /* 주석/메타 정보 (순위 분석 서문 등) */
 .blog-note {
   margin: 16px 0 24px;
   padding: 10px 14px;
-  background: var(--hover-bg);
+  background: transparent;
   border-radius: 6px;
   font-size: 13px;
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   text-align: center;
-}
-
-@media (prefers-color-scheme: dark) {
-  .blog-note {
-    background: rgba(148, 163, 184, 0.08);
-  }
 }
 
 /* 부가 설명 박스 (VS Code란? 등) */
 .blog-aside {
   margin: 16px 0 24px;
   padding: 14px 16px;
-  background: var(--hover-bg);
+  background: color-mix(in srgb, var(--accent) 5%, var(--card));
   border-left: 3px solid var(--accent);
   border-radius: 0 6px 6px 0;
   font-size: 14px;
@@ -390,6 +493,12 @@
   margin-bottom: 8px;
   color: var(--text);
   font-size: 15px;
+  font-weight: 700;
+}
+
+.blog-aside .aside-title::before {
+  content: "\1F4A1";
+  margin-right: 6px;
 }
 
 .blog-aside p {
@@ -410,7 +519,7 @@
 
 @media (prefers-color-scheme: dark) {
   .blog-aside {
-    background: rgba(148, 163, 184, 0.08);
+    background: color-mix(in srgb, var(--accent) 10%, var(--card));
   }
   .blog-aside code {
     background: rgba(255, 255, 255, 0.1);
@@ -516,12 +625,13 @@
   border-radius: 8px;
   text-decoration: none;
   box-sizing: border-box;
-  transition: all 0.2s;
+  transition: var(--transition-elevate);
 }
 
 .blog-link-button:hover {
-  background: var(--card-hover);
-  border-color: var(--border);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+  border-color: var(--border-hover);
 }
 
 .blog-link-icon {
@@ -563,8 +673,10 @@
 /* 표 래퍼 - 반응형 자동 조정 (마크다운 표 파싱용) */
 .blog-table-wrapper {
   margin: 24px 0;
-  width: fit-content;
+  width: 100%;
   max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 768px) {
@@ -597,6 +709,39 @@
     width: 100%;
     font-size: var(--font-body-size);
   }
+}
+
+/* 표 좌우 가득 채우기 (blog 기사 표만) */
+.blog-table-wrapper table {
+  width: 100%;
+  min-width: 100%;
+}
+
+/* 표 캡션을 아래로 */
+.blog-table-wrapper caption {
+  caption-side: bottom;
+  margin-top: 10px;
+  font-size: var(--font-desc-size);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* 순위 등락 배지 (상승 초록 / 하락 빨강) */
+.blog-table-wrapper .rank-up,
+.blog-table-wrapper .rank-down {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  font-weight: 700;
+}
+.blog-table-wrapper .rank-up {
+  background: #d3f9d8;
+  color: #166534;
+}
+.blog-table-wrapper .rank-down {
+  background: #ffe3e3;
+  color: #991b1b;
 }
 
 /* 표 제목 */
@@ -678,7 +823,7 @@
 
 .wiki-table a:hover {
   color: var(--primary-dark);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* 광고 영역 */
@@ -688,6 +833,42 @@
 
 .blog-in-article-ad {
   margin: 24px 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .blog-in-article-ad-mobile-late {
+    display: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+.blog-in-article-ad > ins.adsbygoogle,
+.blog-in-article-ad > ins.adsbygoogle > div,
+.blog-in-article-ad > ins.adsbygoogle > iframe,
+.blog-in-article-ad > ins.adsbygoogle iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.blog-in-article-ad.gs-ad-compact {
+  margin-bottom: 16px;
+}
+
+.blog-in-article-ad:has(ins[data-ad-status="unfilled"]),
+.blog-in-article-ad:has(ins[data-gs-ad-empty="1"]),
+.blog-in-article-ad.gs-ad-empty {
+  display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
 }
 
 /* 관련 게임 섹션 - 카드 내부 */
@@ -762,17 +943,20 @@
   background: var(--card);
   border-radius: var(--radius);
   text-decoration: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: var(--transition-elevate);
   border: 1px solid var(--border);
   overflow: hidden;
 }
 
 .blog-related-issue-card:hover {
-  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+  border-color: var(--border-hover);
 }
 
 .blog-related-issue-thumb {
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
@@ -891,16 +1075,19 @@
   }
 
   .blog-header {
-    padding-bottom: 8px;
+    padding: 24px 0 8px;
   }
 
   .blog-title {
-    font-size: var(--font-xl-size);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.2;
   }
 
   .blog-hero {
-    margin: -16px -16px 16px -16px;
-    border-radius: 8px 8px 0 0;
+    margin: 0 0 16px;
+    max-height: 280px;
+    border-radius: var(--radius-lg);
   }
 
   .blog-paragraph {
@@ -919,7 +1106,13 @@
   }
 
   .blog-header + .blog-figure {
-    margin: 0 16px;
+    margin: 0 0 16px;
+    max-height: 280px;
+    border-radius: var(--radius-lg);
+  }
+
+  .blog-header + .blog-figure .blog-image {
+    max-height: 280px;
   }
 
   .blog-summary {
@@ -957,8 +1150,6 @@
   background: var(--hover-bg);
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  min-width: 120px;
-  text-align: center;
   min-width: 80px;
   text-align: center;
 }
@@ -970,7 +1161,7 @@
 
 
 .trend-nav-btn.disabled {
-  opacity: 0.4;
+  opacity: 0.7;
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -1227,6 +1418,13 @@
 
 .blog-series-card {
   position: relative;
+  transition: var(--transition-elevate);
+}
+
+.blog-series-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+  border-color: var(--border-hover);
 }
 
 .blog-series-tag {
@@ -1539,7 +1737,7 @@
   color: #0050B3;
 }
 .ranking-card-stat.stat-aos .stat-label {
-  color: #1F8F4D;
+  color: #166534;
 }
 
 /* 요약 통계 */
@@ -1650,6 +1848,7 @@
   .ranking-card-stats {
     width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-top: 12px;
   }
 

@@ -18,35 +18,35 @@
   /* === Dark Mode Variables === */
   :root {
     /* Primary Colors - 다크 BG에서 잘 보이는 라이트 블루 */
-    --primary: #58A6FF;
-    --primary-light: #79B8FF;
-    --primary-dark: #388BFD;
-    --accent: #79B8FF;
+    --primary: #60A5FA;
+    --primary-light: #93C5FD;
+    --primary-dark: #3B82F6;
+    --accent: #60A5FA;
 
     /* Background & Surface - 검정 계열 (청색 배제) */
-    --bg: #121212; /* Material Design 표준 다크 */
-    --bg-elevated: #1e1e1e; /* Neutral 900 */
-    --card: #1e1e1e; /* Neutral 900 */
-    --card-hover: #2a2a2a; /* Neutral 800 */
+    --bg: #0A0A0A;
+    --bg-elevated: #161616;
+    --card: #161616;
+    --card-hover: #1F1F1F;
 
     /* Border - 검정 계열 */
-    --border: #333333; /* Neutral 700 */
-    --border-subtle: #262626; /* Neutral 800 */
+    --border: #272727;
+    --border-subtle: #1F1F1F;
     --border-hover: var(--primary); /* 호버 시 보더 색상 */
 
     /* Text - WCAG AA 준수 */
-    --text: rgba(255, 255, 255, 0.87); /* High-emphasis (MD3) */
-    --text-primary: rgba(255, 255, 255, 0.87); /* High-emphasis */
-    --text-secondary: rgba(255, 255, 255, 0.6); /* Medium-emphasis (MD3) */
-    --text-muted: #888888; /* 대비 높임 */
-    --text-tertiary: #9ca3af; /* 보조 텍스트 - WCAG AA 준수 (대비 7.4:1) */
+    --text: rgba(255, 255, 255, 0.92);
+    --text-primary: rgba(255, 255, 255, 0.92);
+    --text-secondary: rgba(255, 255, 255, 0.65);
+    --text-muted: #8A8A8A;
+    --text-tertiary: #A1A1AA;
 
     /* 호환성 변수 (별칭) - 다크모드 */
-    --bg-secondary: #262626;
-    --bg-tertiary: #1a1a1a; /* 배경보다 약간 밝은 색 */
-    --border-color: #333333;
-    --bg-hover: #2a2a2a;
-    --accent-color: #58A6FF;
+    --bg-secondary: #1C1C1C;
+    --bg-tertiary: #161616;
+    --border-color: #272727;
+    --bg-hover: #1F1F1F;
+    --accent-color: var(--primary);
 
     /* Shadows - 다크모드 최적화 + 미세 글로우 */
     --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.4);
@@ -61,12 +61,12 @@
     --glass-border: rgba(255, 255, 255, 0.08);
 
     /* Interactive States - 검정 계열 */
-    --hover-bg: #2a2a2a;
+    --hover-bg: #1F1F1F;
 
     /* Semantic Colors - 다크모드 */
     --success: #4ade80;
     --active-bg: rgba(88, 166, 255, 0.15);
-    --item-bg: #1e1e1e;
+    --item-bg: #161616;
 
     /* Glow Effects - 톤 통일 */
     --glow-primary: 0 0 20px rgba(88, 166, 255, 0.25);

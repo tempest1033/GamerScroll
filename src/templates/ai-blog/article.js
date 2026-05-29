@@ -80,6 +80,180 @@ const renderToc = (content = [], isEnglish = false) => {
 };
 
 /**
+ * 경량 언어별 신택스 하이라이터 (의존성 없음)
+ * 토큰 클래스: tok-kw, tok-str, tok-num, tok-com, tok-fn, tok-bi, tok-op, tok-punct
+ * - 토큰 텍스트는 감싸는 시점에 HTML 이스케이프하므로 <, >, & 가 마크업을 깨지 않음
+ * - 알 수 없거나 빈 lang → 이스케이프 + (#, //) 라인 주석만 감지하는 안전 폴백
+ */
+function highlightCode(code, lang) {
+  const src = String(code == null ? '' : code);
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const wrap = (cls, s) => `<span class="${cls}">${esc(s)}</span>`;
+  const L = String(lang || '').toLowerCase();
+
+  const KW = {
+    js: new Set(['const', 'let', 'var', 'function', 'return', 'if', 'else', 'for', 'while', 'do', 'switch', 'case', 'break', 'continue', 'new', 'class', 'extends', 'super', 'this', 'typeof', 'instanceof', 'in', 'of', 'try', 'catch', 'finally', 'throw', 'async', 'await', 'yield', 'import', 'export', 'from', 'default', 'delete', 'void', 'null', 'undefined', 'true', 'false', 'static', 'get', 'set', 'interface', 'type', 'enum', 'implements', 'public', 'private', 'protected', 'readonly', 'namespace', 'declare', 'as', 'keyof', 'abstract']),
+    py: new Set(['def', 'return', 'if', 'elif', 'else', 'for', 'while', 'break', 'continue', 'pass', 'import', 'from', 'as', 'class', 'try', 'except', 'finally', 'raise', 'with', 'lambda', 'yield', 'global', 'nonlocal', 'assert', 'del', 'in', 'is', 'not', 'and', 'or', 'None', 'True', 'False', 'async', 'await']),
+    sh: new Set(['if', 'then', 'else', 'elif', 'fi', 'for', 'while', 'until', 'do', 'done', 'case', 'esac', 'function', 'in', 'select', 'return', 'exit', 'local', 'time']),
+    json: new Set(['true', 'false', 'null']),
+  };
+  const BI = {
+    js: new Set(['console', 'Math', 'JSON', 'Object', 'Array', 'String', 'Number', 'Boolean', 'Promise', 'document', 'window', 'Date', 'Map', 'Set', 'Symbol', 'RegExp', 'Error', 'parseInt', 'parseFloat', 'require', 'module', 'process']),
+    py: new Set(['print', 'len', 'range', 'int', 'str', 'float', 'list', 'dict', 'set', 'tuple', 'bool', 'type', 'open', 'input', 'enumerate', 'zip', 'map', 'filter', 'sum', 'min', 'max', 'abs', 'sorted', 'super', 'isinstance', 'self']),
+    sh: new Set(['echo', 'printf', 'cd', 'ls', 'mkdir', 'rm', 'cp', 'mv', 'cat', 'grep', 'sed', 'awk', 'export', 'source', 'set', 'read', 'test', 'sudo', 'chmod', 'chown', 'curl', 'wget', 'git', 'npm', 'node']),
+    sh_v: true,
+  };
+
+  const isJS = ['js', 'ts', 'javascript', 'typescript'].includes(L);
+  const isPy = ['python', 'py'].includes(L);
+  const isSh = ['bash', 'sh', 'shell'].includes(L);
+  const isJSON = L === 'json';
+  const isHTML = L === 'html';
+
+  // 안전 폴백: 이스케이프 + (#, //) 라인 주석만 감지
+  if (!isJS && !isPy && !isSh && !isJSON && !isHTML) {
+    return src.split('\n').map((line) => {
+      const h = line.indexOf('#');
+      const s = line.indexOf('//');
+      let idx = -1;
+      if (h !== -1 && (s === -1 || h < s)) idx = h;
+      else if (s !== -1) idx = s;
+      if (idx === -1) return esc(line);
+      return esc(line.slice(0, idx)) + wrap('tok-com', line.slice(idx));
+    }).join('\n');
+  }
+
+  // 범용 토크나이저 (JS/TS, Python, Bash, JSON)
+  const scan = (text, opts) => {
+    let out = '';
+    let i = 0;
+    const n = text.length;
+    while (i < n) {
+      const c = text[i];
+      const rest = text.slice(i);
+
+      if (opts.blockComment && c === '/' && text[i + 1] === '*') {
+        const end = text.indexOf('*/', i + 2);
+        const stop = end === -1 ? n : end + 2;
+        out += wrap('tok-com', text.slice(i, stop));
+        i = stop; continue;
+      }
+      if (opts.slashComment && c === '/' && text[i + 1] === '/') {
+        const nl = text.indexOf('\n', i);
+        const stop = nl === -1 ? n : nl;
+        out += wrap('tok-com', text.slice(i, stop));
+        i = stop; continue;
+      }
+      if (opts.hashComment && c === '#') {
+        const nl = text.indexOf('\n', i);
+        const stop = nl === -1 ? n : nl;
+        out += wrap('tok-com', text.slice(i, stop));
+        i = stop; continue;
+      }
+      if (opts.tripleQuotes && (rest.startsWith('"""') || rest.startsWith("'''"))) {
+        const q = rest.slice(0, 3);
+        const end = text.indexOf(q, i + 3);
+        const stop = end === -1 ? n : end + 3;
+        out += wrap('tok-str', text.slice(i, stop));
+        i = stop; continue;
+      }
+      if (opts.quotes && opts.quotes.includes(c)) {
+        let j = i + 1;
+        while (j < n) {
+          if (text[j] === '\\') { j += 2; continue; }
+          if (text[j] === c) { j++; break; }
+          if (text[j] === '\n' && c !== '`') break;
+          j++;
+        }
+        const stop = Math.min(j, n);
+        out += wrap('tok-str', text.slice(i, stop));
+        i = stop; continue;
+      }
+      if (/[0-9]/.test(c) || (c === '.' && /[0-9]/.test(text[i + 1] || ''))) {
+        const m = /^(0[xXbBoO][0-9a-fA-F]+|[0-9]*\.?[0-9]+([eE][+-]?[0-9]+)?)/.exec(rest);
+        if (m) { out += wrap('tok-num', m[0]); i += m[0].length; continue; }
+      }
+      if (opts.varSigil && c === '$') {
+        const m = /^\$\{?[A-Za-z_][\w]*\}?|^\$[0-9@*#?!$-]/.exec(rest);
+        if (m) { out += wrap('tok-bi', m[0]); i += m[0].length; continue; }
+      }
+      const idm = /^[A-Za-z_$][\w$]*/.exec(rest);
+      if (idm) {
+        const word = idm[0];
+        let cls = null;
+        if (opts.keywords.has(word)) cls = 'tok-kw';
+        else if (opts.builtins.has(word)) cls = 'tok-bi';
+        else if (opts.fnCall && /^\s*\(/.test(text.slice(i + word.length))) cls = 'tok-fn';
+        out += cls ? wrap(cls, word) : esc(word);
+        i += word.length; continue;
+      }
+      const opm = /^[+\-*/%=<>!&|^~?:]+/.exec(rest);
+      if (opm) { out += wrap('tok-op', opm[0]); i += opm[0].length; continue; }
+      if ('()[]{},;.'.includes(c)) { out += wrap('tok-punct', c); i += 1; continue; }
+      out += esc(c); i += 1;
+    }
+    return out;
+  };
+
+  // 경량 HTML 하이라이터
+  const scanHTML = (text) => {
+    let out = '';
+    let i = 0;
+    const n = text.length;
+    while (i < n) {
+      const rest = text.slice(i);
+      if (rest.startsWith('<!--')) {
+        const end = text.indexOf('-->', i + 4);
+        const stop = end === -1 ? n : end + 3;
+        out += wrap('tok-com', text.slice(i, stop));
+        i = stop; continue;
+      }
+      if (text[i] === '<') {
+        const end = text.indexOf('>', i);
+        const stop = end === -1 ? n : end + 1;
+        const tag = text.slice(i, stop);
+        let ti = 0;
+        const tn = tag.length;
+        let seenName = false;
+        while (ti < tn) {
+          const tc = tag[ti];
+          const tr = tag.slice(ti);
+          if (tc === '<' || tc === '>') { out += wrap('tok-punct', tc); ti += 1; continue; }
+          if (tc === '/') { out += wrap('tok-punct', tc); ti += 1; continue; }
+          if (tc === '=') { out += wrap('tok-op', '='); ti += 1; continue; }
+          if (tc === '"' || tc === "'") {
+            const e = tag.indexOf(tc, ti + 1);
+            const st = e === -1 ? tn : e + 1;
+            out += wrap('tok-str', tag.slice(ti, st));
+            ti = st; continue;
+          }
+          const m = /^[A-Za-z][\w:-]*/.exec(tr);
+          if (m) {
+            out += wrap(seenName ? 'tok-fn' : 'tok-kw', m[0]);
+            seenName = true;
+            ti += m[0].length; continue;
+          }
+          if (/\s/.test(tc)) { out += tc; ti += 1; continue; }
+          out += esc(tc); ti += 1;
+        }
+        i = stop; continue;
+      }
+      const next = text.indexOf('<', i);
+      const stop = next === -1 ? n : next;
+      out += esc(text.slice(i, stop));
+      i = stop;
+    }
+    return out;
+  };
+
+  if (isHTML) return scanHTML(src);
+  if (isJS) return scan(src, { keywords: KW.js, builtins: BI.js, quotes: '\'"`', slashComment: true, blockComment: true, fnCall: true });
+  if (isPy) return scan(src, { keywords: KW.py, builtins: BI.py, quotes: '\'"', tripleQuotes: true, hashComment: true, fnCall: true });
+  if (isSh) return scan(src, { keywords: KW.sh, builtins: BI.sh, quotes: '\'"', hashComment: true, varSigil: true });
+  return scan(src, { keywords: KW.json, builtins: new Set(), quotes: '"' });
+}
+
+/**
  * 글 상세 페이지 생성
  */
 function generateAIBlogArticle(article, data = {}) {
@@ -220,11 +394,7 @@ function generateAIBlogArticle(article, data = {}) {
           if (!block.value) break;
           const lang = block.lang || '';
           const codeCaption = block.caption ? `<figcaption class="blog-caption">${escapeHtml(block.caption)}</figcaption>` : '';
-          const escapedCode = String(block.value)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/^(#.*)$/gm, '<span class="code-comment">$1</span>');
+          const escapedCode = highlightCode(block.value, lang);
           result.push(`
             <figure class="blog-figure blog-code">
               <pre><code${lang ? ` class="language-${lang}"` : ''}>${escapedCode}</code></pre>
@@ -316,7 +486,7 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 카테고리 메뉴
   function generateCategoryMenu() {
-    const categories = AI_CATEGORY_IDS.map(id => ({
+    const categories = AI_CATEGORY_IDS.filter(id => !['ai', 'ai-tools'].includes(id)).map(id => ({
       id,
       label: id === 'vibecoding' ? (_t.vibeCoding || _t.categoryLabels[id]) : _t.categoryLabels[id]
     }));
@@ -335,7 +505,7 @@ function generateAIBlogArticle(article, data = {}) {
           <div class="sidebar-category-list">
             ${categories.map(cat => `
               <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
-                <span class="sidebar-category-name">${cat.label} (${countByCategory[cat.id] || 0})</span>
+                <span class="sidebar-category-name">${cat.label}</span><span class="sidebar-category-count">${countByCategory[cat.id] || 0}</span>
               </a>
             `).join('')}
           </div>

@@ -6,14 +6,42 @@
 
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
-  width: 100%;
-  height: 200px;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  height: 100px;
+  min-height: 100px;
+  max-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.ad-card-mobile-top > ins.adsbygoogle,
+.ad-card-mobile-top > ins.adsbygoogle > div,
+.ad-card-mobile-top > ins.adsbygoogle > iframe,
+.ad-card-mobile-top > ins.adsbygoogle iframe,
+.ad-card-mobile-top iframe {
+  width: 320px !important;
+  min-width: 320px !important;
+  max-width: 320px !important;
+  height: 100px !important;
+  min-height: 100px !important;
+  max-height: 100px !important;
+}
+
+.ad-card-mobile-top > ins.adsbygoogle > div {
+  display: block !important;
+  overflow: hidden !important;
 }
 
 /* 모바일 중간 광고 (300x250) */
 .ad-card-mobile-mid {
   width: 100%;
-  min-height: 200px;
+  min-height: 250px;
 }
 
 /* PC 홈 상단 광고 (728x90) */
@@ -48,6 +76,16 @@
   min-height: 100px;
 }
 
+/* 모바일 스크롤 In-feed 광고: iframe 도착 전에도 실제 채움 높이를 reserve */
+.ad-card-scroll {
+  width: 100%;
+  min-height: 308px !important;
+}
+
+.ad-card-scroll > ins.adsbygoogle {
+  min-height: 284px !important;
+}
+
 /* Multiplex 광고 (자동 반응형) */
 .ad-card-multiplex {
   width: 100%;
@@ -63,9 +101,88 @@
 .ad-card {
   background: var(--card);
   border-radius: var(--radius);
-  box-shadow: inset 0 0 0 1px var(--border);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
   touch-action: pan-x pan-y;
   position: relative;
+  overflow: hidden;
+}
+
+.ad-card > ins.adsbygoogle,
+.ad-card > ins.adsbygoogle > iframe {
+  border-radius: inherit;
+  max-width: 100%;
+}
+
+/* Responsive top/home ad cards: center smaller creatives both axes */
+.ad-card-responsive-home,
+.ad-card-responsive-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+@media (min-width: 769px) {
+  .ad-card-responsive-home,
+  .ad-card-responsive-top {
+    min-height: 90px;
+  }
+}
+
+/* 모바일 상단 광고는 320x100 슬롯 사이즈 그대로 reserve (base 100px 상속).
+   in-article BTF 광고는 아래 .blog-in-article-ad 규칙이 더 높은 reserve를 제공함. */
+
+/* AIScroll BTF in-article 광고 reserve (300x250) */
+.blog-in-article-ad {
+  min-height: 250px;
+}
+
+/* AdSense iframe child: vertical-align middle for shorter creatives */
+.ad-card-responsive-home > ins.adsbygoogle > iframe,
+.ad-card-responsive-top > ins.adsbygoogle > iframe {
+  vertical-align: middle;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.ad-card-responsive-home.gs-ad-compact,
+.ad-card-responsive-top.gs-ad-compact {
+  align-items: flex-start;
+}
+
+@media (min-width: 1200px) {
+  .article-main > .ad-card-responsive-home:first-child,
+  .article-main > .ad-card-responsive-top:first-child,
+  .home-main > .ad-card-responsive-home:first-child,
+  .home-main > .ad-card-responsive-top:first-child {
+    min-width: 728px;
+  }
+}
+
+/* 좁은 컬럼(사이드바 레이아웃: 홈/아티클)은 728 리더보드로 제한 — 970이 들어와 우측이 잘리는 것 방지. 풀폭 페이지는 제한 없이 970 허용 */
+@media (min-width: 769px) {
+  .home-main > .ad-card-responsive-home,
+  .article-main > .ad-card-responsive-home,
+  .home-main > .ad-card-responsive-top,
+  .article-main > .ad-card-responsive-top {
+    max-width: 728px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.article-main .ad-card-responsive-home,
+.article-main .ad-card-responsive-top {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.article-main .ad-card-responsive-home > ins.adsbygoogle,
+.article-main .ad-card-responsive-top > ins.adsbygoogle,
+.article-main .ad-card-responsive-home > ins.adsbygoogle > iframe,
+.article-main .ad-card-responsive-top > ins.adsbygoogle > iframe {
+  max-width: 100%;
 }
 
 
@@ -130,9 +247,38 @@ body.ads-disabled .article-layout {
 
 /* home-main / article-main 최상단 ResponsiveHome 광고: 하단 마진만 (카드 간격과 동일) */
 .home-main > .ad-card-responsive-home:first-child,
-.article-main > .ad-card-responsive-home:first-child {
+.home-main > .ad-card-mobile-top:first-child,
+.article-main > .ad-card-responsive-home:first-child,
+.article-main > .ad-card-mobile-top:first-child {
   margin-top: 0;
   margin-bottom: var(--space-block-gap, 16px);
+}
+
+@media (max-width: 768px) {
+  .home-main > .ad-card-mobile-top,
+  .article-main > .ad-card-mobile-top {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    margin-top: 0 !important;
+    margin-bottom: var(--space-block-gap, 16px) !important;
+  }
+
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle,
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle > div,
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle > iframe,
+  .article-main > .ad-card-mobile-top > ins.adsbygoogle iframe,
+  .article-main > .ad-card-mobile-top iframe {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+  }
 }
 
 /* 모바일 홈: 사이드바 숨김 (PC 전용) */
@@ -144,7 +290,13 @@ body.ads-disabled .article-layout {
 
 /* ===== Unfilled 광고 처리 ===== */
 
-/* 상단 광고 (top): unfilled 시 기존 카드 스타일 유지 + 무채색 파비콘 */
+/* 상단 광고: unfilled 시 빈 배너를 남기지 않음 */
+.ad-card-responsive-home:has(ins[data-ad-status="unfilled"]),
+.ad-card-responsive-top:has(ins[data-ad-status="unfilled"]) {
+  display: none !important;
+}
+
+/* Legacy top ad classes */
 .ad-card-pc:has(ins[data-ad-status="unfilled"]),
 .ad-card-pc-home:has(ins[data-ad-status="unfilled"]),
 .ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) {
@@ -170,10 +322,16 @@ body.ads-disabled .article-layout {
 
 /* 중간/사이드바/네이티브 광고: unfilled 시 카드까지 숨김 */
 .ad-card-mobile-mid:has(ins[data-ad-status="unfilled"]),
+.ad-card-scroll:has(ins[data-ad-status="unfilled"]),
+.ad-card-scroll:has(ins[data-gs-ad-empty="1"]),
+.ad-card-scroll.gs-ad-empty,
 .ad-card-vertical:has(ins[data-ad-status="unfilled"]),
 .ad-card-rectangle:has(ins[data-ad-status="unfilled"]),
 .ad-card-native:has(ins[data-ad-status="unfilled"]) {
-  display: none;
+  display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
 }
 
 /* 빈 광고 컨테이너 숨김 (Grid 레이아웃에서 gap 영향 방지) */

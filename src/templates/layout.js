@@ -2507,6 +2507,7 @@ const imageFallbackScript = `
 // 기본 사이드바 콘텐츠 (카테고리 링크)
 function generateDefaultSidebarContent(counts = {}, articles = {}) {
   const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
+  const cNum = (key) => counts[key] !== undefined ? `<span class="sidebar-category-count">${counts[key]}</span>` : '';
   const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
   // 페이지별 articles > 전역 변수 순으로 폴백
@@ -2525,18 +2526,18 @@ function generateDefaultSidebarContent(counts = {}, articles = {}) {
       <div class="sidebar-category-group">
         <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
         <div class="sidebar-category-list">
-          <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈${c('issue')}</span></a>
-          <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트${c('insight')}</span></a>
-          <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽${c('hotpick')}</span></a>
-          <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석${c('ranking')}</span></a>
+          <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈</span>${cNum('issue')}</a>
+          <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트</span>${cNum('insight')}</a>
+          <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽</span>${cNum('hotpick')}</a>
+          <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석</span>${cNum('ranking')}</a>
         </div>
       </div>
       <div class="sidebar-category-group">
         <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
         <div class="sidebar-category-list">
-          <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리${c('history')}</span></a>
-          <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식${c('knowledge')}</span></a>
-          <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스${c('business')}</span></a>
+          <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리</span>${cNum('history')}</a>
+          <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식</span>${cNum('knowledge')}</a>
+          <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스</span>${cNum('business')}</a>
         </div>
       </div>
     </div>
