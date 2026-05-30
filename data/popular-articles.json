@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-05-29T01:31:25.467Z",
+  "updatedAt": "2026-05-30T00:01:22.223Z",
   "period": "7days",
   "articles": [
-    {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 22,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 20,
+      "views": 25,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 19,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "ranking",
@@ -26,6 +26,12 @@
       "slug": "gpt-pro-kakao-hot-deal",
       "views": 5,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "heavenhells-sales-decline-launch",
+      "views": 4,
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
       "type": "issue",
@@ -48,13 +54,6 @@
     },
     {
       "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
-      "type": "wiki",
       "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 3,
@@ -65,12 +64,6 @@
       "slug": "ff7-remake-switch2-release",
       "views": 2,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "switch-2-buying-guide-2026",
-      "views": 2,
-      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
     },
     {
       "type": "insight",
@@ -98,15 +91,15 @@
     },
     {
       "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
-      "views": 2,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "limbus-company-ios-top5-record",
       "views": 2,
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 2,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
@@ -115,11 +108,43 @@
       "path": "/magazine/issue/lucky-defense-long-run-success/"
     },
     {
+      "type": "issue",
+      "slug": "starcraft-shooter-blizzard",
+      "views": 2,
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+    },
+    {
+      "type": "issue",
+      "slug": "witcher3-songs-of-the-past-announced",
+      "views": 2,
+      "path": "/magazine/issue/witcher3-songs-of-the-past-announced/"
+    },
+    {
       "type": "wiki",
       "slug": "top-gaming-companies-by-market-cap",
       "category": "business",
       "views": 2,
       "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "switch-2-buying-guide-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
     },
     {
       "type": "hotpick",
@@ -153,12 +178,6 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
       "slug": "heartopia-mobile-animal-crossing-success",
       "views": 1,
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
@@ -171,21 +190,15 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-user-exodus-macro-cash",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 1,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "issue",
       "slug": "neverness-to-everness-launch-date",
       "views": 1,
       "path": "/magazine/issue/neverness-to-everness-launch-date/"
+    },
+    {
+      "type": "issue",
+      "slug": "ps-plus-march-2026-best-lineup",
+      "views": 1,
+      "path": "/magazine/issue/ps-plus-march-2026-best-lineup/"
     },
     {
       "type": "issue",
@@ -231,13 +244,6 @@
     },
     {
       "type": "wiki",
-      "slug": "google-genie3-unity-stock-crash",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/google-genie3-unity-stock-crash/"
-    },
-    {
-      "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 1,
@@ -259,10 +265,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-history",
+      "slug": "kurzweil-singularity-review-2026",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
+      "path": "/wiki/knowledge/kurzweil-singularity-review-2026/"
     }
   ]
 }
