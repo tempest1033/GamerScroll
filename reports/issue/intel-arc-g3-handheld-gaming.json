@@ -1,0 +1,107 @@
+{
+  "slug": "intel-arc-g3-handheld-gaming",
+  "status": "approved",
+  "site": "gamerscroll",
+  "date": "",
+  "title": "인텔 '아크 G3'로 휴대용 PC 시장 참전…AMD 독주체제 겨냥",
+  "summary": "인텔이 차세대 프로세서 '아크 G3' 시리즈를 공개하며 AMD가 장악한 윈도 휴대용 게이밍 PC 시장에 도전한다. 18A 공정의 팬서 레이크 아키텍처와 XeSS 3 기술을 앞세웠으며, 탑재 기기는 오는 6월부터 순차 출시될 예정이다.",
+  "keywords": [
+    "인텔 아크 G3",
+    "휴대용 게이밍 PC",
+    "팬서 레이크",
+    "XeSS 3",
+    "라이젠 Z2 익스트림"
+  ],
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/JcJZGCigYUsWES9KdDz7t9-1200-80.webp",
+  "relatedDocs": [
+    "issue:steam-deck-oled-price-hike-may-2026",
+    "issue:ps5-price-hike-april-sales-drop",
+    "hotpick:switch-2-buying-guide-2026",
+    "hotpick:mac-mini-m4-best-value-2026"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Intel Newsroom",
+      "url": "https://newsroom.intel.com/client-computing/intel-arc-g-series-processors-set-a-new-standard-for-handheld-pc-gaming"
+    },
+    {
+      "name": "Tom's Hardware",
+      "url": "https://www.tomshardware.com/video-games/handheld-gaming/intel-challenges-amds-handheld-dominance-with-new-arc-g3-chips-panther-lake-silicon-brings-up-to-14-cores-arc-b390-graphics-to-handhelds"
+    },
+    {
+      "name": "VideoCardz",
+      "url": "https://videocardz.com/newz/intel-confirms-arc-g3-series-for-gaming-handhelds"
+    },
+    {
+      "name": "Acer Newsroom",
+      "url": "https://news.acer.com/acer-expands-gaming-portfolio-with-predator-atlas-8-handheld-powered-by-intel"
+    },
+    {
+      "name": "테크M",
+      "url": "https://www.techm.kr/news/articleView.html?idxno=152223"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "인텔이 AMD 독점 구도였던 윈도 기반 휴대용 게이밍 PC 시장에 도전장을 던졌다. 인텔은 5월 28일(현지시간) 휴대용 기기에 특화된 차세대 모바일 프로세서 '인텔 아크 G-시리즈'를 전격 공개했다. 라인업은 일반형인 '아크 G3'와 고성능 '아크 G3 익스트림' 2종으로, 차세대 아키텍처인 '팬서 레이크(코어 울트라 시리즈 3)'를 적용했다."
+    },
+    {
+      "type": "text",
+      "value": "첫 탑재 기기는 오는 6월부터 에이서, MSI, 원엑스플레이어 등 주요 제조사를 통해 시장에 나온다. 그간 AMD 라이젠 Z 시리즈가 장악해 온 프리미엄 휴대용 PC 시장에 인텔이 가세하면서 본격적인 양자 대결 구도가 성립됐다."
+    },
+    {
+      "type": "heading",
+      "value": "아크 G3의 핵심 기술력과 사양"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.uc.assets.prezly.com/cf6f14df-7f73-4738-ab72-51f2af7cc5f1/-/preview/1200x630/",
+      "caption": "인텔 아크 G3를 탑재한 에이서 프레데터 아틀라스 8",
+      "alt": "인텔 아크 G3 기반 에이서 프레데터 아틀라스 8 휴대용 게이밍 PC"
+    },
+    {
+      "type": "text",
+      "value": "아크 G3 시리즈는 높은 전력 효율과 뛰어난 그래픽 성능의 조화에 주력했다. 인텔의 최첨단 18A 공정을 도입한 팬서 레이크 아키텍처 기반으로, 최상위 익스트림 모델은 최대 14개 코어와 Xe3 기반 '아크 B390' 내장 그래픽을 탑재했다. B390은 12개 Xe 코어로 113 INT8 TOPS의 AI 성능을 지원하며 실시간 레이 트레이싱이 가능하다. 여기에 썬더볼트 4와 와이파이 7, 윈도 11 기반 엑스박스 모드 등 휴대용 환경에 특화된 편의 규격도 모두 담겼다."
+    },
+    {
+      "type": "text",
+      "value": "자체 프레임 보정 기술인 'XeSS 3'도 핵심 무기다. XeSS 3는 AI 초해상도 기술인 '슈퍼 레졸루션'과 화면을 부어럽게 보간하는 '멀티 프레임 생성', 입력 지연을 억제하는 'Xe 저지연'으로 나뉜다. 전력과 발열 통제가 중요한 휴대용 기기 특성상 이 같은 업스케일링 완성도가 실제 체감 프레임을 크게 좌우한다. 이로써 엔비디아 DLSS, AMD FSR과 시장 지배력을 놓고 다투는 기술 경쟁 전선이 한층 넓어졌다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "라이젠 Z2 장악 시장, 인텔의 차별화 전략은"
+    },
+    {
+      "type": "image",
+      "src": "https://dlcdnwebimgs.asus.com/gain/BEEE4F75-C6D0-4696-B487-81ACCDAE571B",
+      "caption": "AMD 라이젠 Z2 익스트림 기반 에이수스 ROG 엑스박스 얼라이 X",
+      "alt": "검은색 ROG 엑스박스 얼라이 X 본체 전면과 후면"
+    },
+    {
+      "type": "text",
+      "value": "인텔이 시장에 안착하기 위해 넘어야 할 장벽은 높다. 현재 윈도 기반 휴대용 게이밍 PC 시장은 AMD 라이젠 Z 시리즈가 지배하고 있다. 특히 차기 고성능 칩셋인 라이젠 Z2 익스트림은 8코어 16스레드와 RDNA 3.5 기반 16개 GPU 코어를 갖췄다. 이미 에이수스 'ROG 엘라이 X', 레노버 '리전 고 2', MSI '클로 A8' 등 핵심 제조사 제품군이 이를 채택해 시장을 선점한 상태다."
+    },
+    {
+      "type": "text",
+      "value": "현재 휴대용 게이밍 PC 누적 판매량은 600만 대를 돌파했다. 밸브 스팀덱이 약 절반을 점유하고, 나머지를 윈도 기기들이 분점하는 구조다. 최근 [스팀덱 OLED 가격이 최대 46% 인상](/magazine/issue/steam-deck-oled-price-hike-may-2026/)되며 시장 가격대가 흔들리는 가운데, 인텔의 참전은 가성비 경쟁의 새로운 변수로 부상했다. 데스크톱에서 부진했던 인텔에게 휴대용 시장은 그래픽 역량을 입증할 핵심 시험대다."
+    },
+    {
+      "type": "heading",
+      "value": "6월 출시와 컴퓨텍스 무대가 가를 성패"
+    },
+    {
+      "type": "text",
+      "value": "결국 성패는 기기 완성도에 달렸다. 아크 G3를 최초 탑재한 에이서 '프레데터 아틀라스 8', MSI '클로 8 EX AI+', 원엑스플레이어 등이 6월부터 순차 출시된다. 인텔은 다가오는 컴퓨텍스 2026 무대에서 세부 사양과 추가 라인업을 공개하며 공세를 본격화할 방침이다."
+    },
+    {
+      "type": "text",
+      "value": "다만 휴대 기기 특성상 발열 제어와 배터리 수명, 게임 호환성 등의 실사용 안정성이 흥행의 관건이다. 외신 [톰스하드웨어](https://www.tomshardware.com/video-games/handheld-gaming/intel-challenges-amds-handheld-dominance-with-new-arc-g3-chips-panther-lake-silicon-brings-up-to-14-cores-arc-b390-graphics-to-handhelds)는 인텔이 AMD의 핸드헬드 독점 구도에 균열을 내기 시작했다고 평했다. 최종 성적표는 제조사들의 기기 설계 완성도와 인텔 드라이버 최적화 능력이 검증되는 6월 이후에 판가름 난다. 인텔이 공언한 '타협 없는 휴대용 성능'의 실체 증명이 다음 시험대다."
+    }
+  ]
+}
