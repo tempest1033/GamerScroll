@@ -1,0 +1,155 @@
+{
+  "slug": "upstage-solar-aaii-40-top3",
+  "status": "approved",
+  "site": "aiscroll",
+  "needTranslate": false,
+  "category": "general",
+  "title": "업스테이지 '솔라', 미·중 독점 AI 최상위권 장벽 깼다",
+  "titleEn": "South Korea Breaks Into US-China AI Top Tier",
+  "date": "",
+  "thumbnail": "https://cdn.prod.website-files.com/6743d5190bb2b52f38e99ecd/69c147a4bc887de74408a4f4_solarpro3_en.png",
+  "keywords": "업스테이지 솔라, AAII, 소버린 AI, 독자 파운데이션 모델, 솔라 프로 3",
+  "keywordsEn": "Upstage Solar, Artificial Analysis Intelligence Index, sovereign AI, Solar LLM, Solar Pro 3",
+  "summary": "한국 AI 스타트업 업스테이지가 개발 중인 '솔라' 모델로 독립 지능 지수 40점을 돌파했다. 그간 미국과 중국 연구소만 진입했던 최고 권역에 도달하며 한국이 세계 세 번째 자리를 확보했다. 완성된 모델은 6월 말 정식 공개된다.",
+  "summaryEn": "A Seoul-based startup claims its unfinished Solar model surpassed 40 points on an independent AI index, a threshold previously cleared only by U.S. and Chinese labs, positioning South Korea third globally.",
+  "sources": [
+    {
+      "name": "Sung Kim (Upstage CEO)",
+      "title": "Facebook announcement: Solar model crosses Artificial Analysis Intelligence Index 40",
+      "url": "https://www.facebook.com/hunkims"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "Artificial Analysis Intelligence Index",
+      "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index"
+    },
+    {
+      "name": "Yonhap News Agency",
+      "title": "S. Korea selects 5 teams for sovereign AI foundation model project",
+      "url": "https://en.yna.co.kr/view/AEN20250804005900320"
+    },
+    {
+      "name": "Yonhap News Agency",
+      "title": "Sovereign AI foundation model project narrowed to 3 teams",
+      "url": "https://en.yna.co.kr/view/AEN20260115006700320"
+    },
+    {
+      "name": "Upstage",
+      "title": "Solar Pro 3: 2x Agentic Performance - What Changed",
+      "url": "https://www.upstage.ai/blog/en/solar-pro-3-0323"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/mistral-small4-unified-moe",
+    "tech:ai/deepseek-mimo-price-war",
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/gemini-31-pro-release"
+  ],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "지난 2년간 글로벌 인공지능(AI) 성능 순위표 최상단은 미국과 중국의 독점 무대였다. 최근 한국의 스타트업 업스테이지가 이 공고한 양강 구도에 도전장을 내밀었다.\n\n김성훈 업스테이지 대표는 5월 30일 차세대 '솔라' 모델이 독립 벤치마크 '아티피셜 애널리시스 지능 지수(AAII)'에서 40점을 넘겼다고 밝혔다. 모델의 종합 능력을 점수화하는 이 지표에서 그간 40점을 넘긴 국가는 미국과 중국뿐이었다. 한국이 세계 세 번째로 초거대 AI 최고 권역에 진입하는 대목이다. 완성본은 6월 말 정식 공개된다."
+    },
+    {
+      "type": "heading",
+      "value": "미·중 독점 최상위권, 한국이 채운 세 번째 자리"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/6743d5190bb2b52f38e99ecd/682b5566fd89a422fa8298f9_Solar-pro-2-preview-llm-comparison-full.avif",
+      "caption": "업스테이지가 앞서 공개한 솔라 프로 2 프리뷰 벤치마크 비교 (자료: 업스테이지)",
+      "alt": "솔라 프로 2 프리뷰 벤치마크 비교 차트"
+    },
+    {
+      "type": "text",
+      "value": "김 대표가 언급한 순위는 독립 평가 기관인 [아티피셜 애널리시스](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index)가 집계한 결과다. 이 기관은 추론, 수학, 코딩, 에이전트 등 10여 개 영역을 가중 평균해 빅모델의 순위를 매긴다. 영어와 텍스트를 기준으로 삼으며, 평가 대상 기업들과 어떤 이해관계도 없이 객관적으로 운영된다는 점에서 공신력을 인정받고 있다.\n\n차트 최상위권은 클로드 오푸스 4.8(61.4점), GPT-5.5(60.2점), 제미나이 3.1 프로 프리뷰(57.2점)가 차지했다. 50점대의 중국 큇원과 키미 아래로, 'Solar-Preview'로 등록된 업스테이지 모델이 40점대에 올랐다. 특히 [유럽 최강 오픈 모델](/ko/article/general/mistral-small4-unified-moe/)인 미스트랄 미디엄 3.5(39.2점)와 캐나다 코히어의 커맨드 A+(37.2점)를 모두 추월했다. 유럽과 캐나다의 대표 주자들이 한국의 미완성 모델 아래 놓인 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "스타트업 업스테이지와 솔라 LLM의 계보"
+    },
+    {
+      "type": "text",
+      "value": "업스테이지는 2020년 네이버와 카카오의 핵심 연구원들이 설립한 6년 차 스타트업이다. 초기에 문서 AI 분야에서 두각을 나타낸 뒤 거대언어모델(LLM)인 '솔라' 시리즈로 본격적인 입지를 다졌다. 특히 2024년에는 독자 개발한 성능 최적화 기법 'Depth-Up Scaling'을 적용해 GPU 단 1장으로 구동되는 효율적인 '솔라 프로'를 선보이며 시장의 주목을 받았다.\n\n이후 솔라 라인업은 꾸준히 진화했다. 2025년 '솔라 프로 2'가 글로벌 최고 수준에 근접한 성능을 기록한 데 이어, 지난 3월 출시된 '솔라 프로 3'은 파라미터 규모 대비 이례적으로 높은 한국어 품질을 유지하면서 에이전트 수행 능력을 두 배가량 끌어올렸다. 이번에 40점을 돌파한 신규 모델은 단순한 부분 업데이트가 아니라 처음부터 새롭게 설계된 파운데이션 모델이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "국가 대표 AI 생존전이 낳은 결실"
+    },
+    {
+      "type": "image",
+      "src": "https://koreajoongangdaily.joins.com/data/photo/2025/08/04/6393c0b8-8794-4003-b616-25b80b8a9695.jpg",
+      "caption": "인공지능(AI) 개념 이미지",
+      "alt": "인공지능을 형상화한 개념 이미지"
+    },
+    {
+      "type": "text",
+      "value": "이 모델의 독특한 탄생 배경을 보면 왜 김 대표가 이를 기업이 아닌 국가적 성과로 묘사했는지 명확해진다. 과학기술정보통신부는 2025년 8월 해외 AI 의존도를 낮추고 독자 기술력을 확보하기 위해 '소버린 AI' 국책 사업을 발족했다. 정부가 GPU 자원과 고품질 데이터, 연구 인력을 전폭 지원하는 이 사업에는 네이버클라우드, LG AI연구원, SK텔레콤, NC AI, 업스테이지 등 5개 팀이 최종 선정됐다.\n\n이 사업은 철저한 서바이벌 방식으로 기획되어 이미 냉혹한 탈락 과정을 거쳤다. 2026년 1월 네이버클라우드와 NC AI가 중도 탈락했고, 현재는 SK텔레콤, LG AI연구원, 업스테이지 등 3개 팀만 남았다. 이번에 40점을 돌파한 모델이 바로 이 치열한 국가대표 선발전 과정에서 탄생했기에, 업계에서는 이번 성과를 단순한 스타트업의 승리가 아닌 국가 AI 경쟁력의 도약으로 해석하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "올여름 50점 돌파, 연내 60점 조준"
+    },
+    {
+      "type": "text",
+      "value": "업스테이지의 목표는 40점에 그치지 않는다. 김 대표는 올여름 50점 이상, 연내 60점 돌파라는 구체적인 이정표를 제시했다. 현재 60점대는 미국의 독보적인 최상위 모델들만 포진해 있는 영역이다. 그가 공개한 차트에서 50점대 초반이 글로벌 빅테크 메타(Meta)의 주요 모델들이 위치한 구간임을 감안하면, 업스테이지가 그리는 청사진의 무게가 결코 가볍지 않음을 알 수 있다.\n\n치열한 기술 경쟁의 한복판에 선 창업자답게, 김 대표는 LLM 개발 경험이 있는 인재들을 대상으로 적극적인 채용 메시지를 던지며 글을 맺었다. 이제 시장과 학계의 관심은 6월 말 정식 출시될 완제품으로 쏠린다. 이번 프리뷰에서 증명한 40점대의 뛰어난 성능을 정식 모델에서도 고스란히 유지하거나 뛰어넘을 수 있을지가 다음 검증대다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "For the past two years, the absolute peak of the global artificial intelligence leaderboard has effectively been a duopoly. A Seoul-based startup now claims to have forced its way into that elite tier.\n\nOn May 30, Sung Kim, CEO of the South Korean firm Upstage, announced on Facebook that an unfinished version of his team's next-generation Solar model had crossed the 40-point threshold on the Artificial Analysis Intelligence Index, an independent benchmark that compresses a model's overall capabilities into a single score. According to Kim, only the United States and China had previously fielded models above that line. The claim, if verified, makes South Korea the third nation on a highly exclusive list—a feat achieved even before the model is fully completed, with the finished version slated for release at the end of June."
+    },
+    {
+      "type": "heading",
+      "value": "A Third Seat in the US-China AI Club"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.prod.website-files.com/6743d5190bb2b52f38e99ecd/682b5566fd89a422fa8298f9_Solar-pro-2-preview-llm-comparison-full.avif",
+      "caption": "Upstage's earlier Solar Pro 2 Preview benchmark comparison (source: Upstage)",
+      "alt": "Solar Pro 2 Preview benchmark comparison chart"
+    },
+    {
+      "type": "text",
+      "value": "The rankings cited by Kim are compiled by [Artificial Analysis](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index), an independent firm that evaluates frontier models using a weighted average of approximately ten benchmarks spanning reasoning, mathematics, coding, and agentic capabilities. The benchmark is English- and text-based, and—crucially for such comparative claims—operates entirely independently of the AI laboratories it assesses.\n\nThe upper echelon of the index features familiar leaders: Anthropic's Claude Opus 4.8 at 61.4, OpenAI's GPT-5.5 at 60.2, and Google's Gemini 3.1 Pro Preview at 57.2, with Chinese models like Qwen and Kimi occupying the 50-point range. Upstage's model, listed as 'Solar-Preview,' has secured a spot in the 40s. The comparisons highlighted by Kim are particularly telling: the preview version outpaces Mistral Medium 3.5 at 39.2 points—[Europe's strongest open model](/article/general/mistral-small4-unified-moe/)—and Canada-based Cohere's Command A+ at 37.2. In effect, the flagship models from Europe and Canada currently rank below this unfinished South Korean system."
+    },
+    {
+      "type": "heading",
+      "value": "The Pedigree of Upstage and the Solar LLM Line"
+    },
+    {
+      "type": "text",
+      "value": "For readers unfamiliar with the firm, Upstage is a six-year-old startup founded in 2020 by prominent researchers from Naver and Kakao, South Korea's leading internet conglomerates. The company initially built its reputation in document AI before expanding into its proprietary 'Solar' large language model (Solar LLM) family. Its breakthrough in 2024 centered on computing efficiency, debuting the Solar Pro model, which was optimized to run on a single GPU using its proprietary 'Depth-Up Scaling' methodology.\n\nSince then, the product line has advanced steadily. Solar Pro 2 achieved near-frontier performance in 2025, while Solar Pro 3, launched this past March, approximately doubled the model's agentic capabilities while maintaining exceptionally high Korean-language output quality for its parameter size. The latest iteration reported to have cleared the 40-point threshold represents the company's next leap—a true foundation model developed entirely from the ground up rather than an incremental update."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Forged in the Sovereign-AI Survival Contest"
+    },
+    {
+      "type": "image",
+      "src": "https://koreajoongangdaily.joins.com/data/photo/2025/08/04/6393c0b8-8794-4003-b616-25b80b8a9695.jpg",
+      "caption": "An illustration of artificial intelligence",
+      "alt": "A robotic hand and a human hand reaching toward each other"
+    },
+    {
+      "type": "text",
+      "value": "To understand why Kim framed this achievement as a national milestone rather than a purely corporate one, it is necessary to examine the model's provenance. In August 2025, South Korea's Ministry of Science and ICT selected five consortia for its 'sovereign AI' initiative. Designed to build domestic frontier models and reduce reliance on U.S. and Chinese systems, the state-backed program provides designated developers with substantial GPU compute, specialized data, and top-tier talent. The initial cohort comprised Naver Cloud, LG AI Research, SK Telecom, NC AI, and Upstage.\n\nCrucially, the initiative was structured as an elimination tournament, and the subsequent consolidation has been severe. By January 2026, two of the five participants—Naver Cloud and NC AI—were eliminated, leaving only SK Telecom, LG AI Research, and Upstage in the running. The Solar model that recently crossed the 40-point threshold was forged within this high-stakes competition, explaining why its performance is viewed in Seoul as a triumph for national technology strategy rather than a single enterprise."
+    },
+    {
+      "type": "heading",
+      "value": "Targeting 50 This Summer, 60 by Year-End"
+    },
+    {
+      "type": "text",
+      "value": "Kim does not view the 40-point milestone as a final destination. He disclosed that the team is targeting a score of 50-plus this summer, with the goal of reaching 60 by the end of the year—a threshold currently occupied exclusively by top-tier U.S. models. On the index chart he shared, the low 50s represents the territory of Meta-class systems, making the scale of Upstage's ambitions clear.\n\nAs is customary for founders in the midst of a competitive race, Kim concluded his announcement with a direct recruitment appeal, inviting engineers with LLM-building experience to join Upstage. For international observers, however, the immediate test is more straightforward: whether the finalized model slated for late June can sustain—or even exceed—the 40-point performance claim."
+    }
+  ]
+}
