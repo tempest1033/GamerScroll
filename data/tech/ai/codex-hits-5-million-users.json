@@ -1,0 +1,150 @@
+{
+  "slug": "codex-hits-5-million-users",
+  "status": "approved",
+  "site": "aiscroll",
+  "category": "openai",
+  "needTranslate": false,
+  "title": "코덱스, 사용자 500만 돌파…클로드 코드 맹추격",
+  "titleEn": "Codex Hits 5 Million Users, Chasing Claude Code",
+  "date": "",
+  "thumbnail": "https://images.ctfassets.net/kftzwdyauwt9/7E1L5KrvfinYdmBBNDPhf5/710a8a46258bafe8fe2d26f31ff242c0/Codex_Landing_Page_SEO.png",
+  "keywords": "코덱스, OpenAI 코덱스, 클로드 코드, 코딩 에이전트, GPT-5.5",
+  "keywordsEn": "OpenAI Codex, Codex 5 million users, Claude Code, coding agent, GPT-5.5 Codex",
+  "summary": "OpenAI의 코딩 에이전트 '코덱스'가 사용자 500만 명을 돌파하며 앤트로픽 '클로드 코드'와의 경쟁을 본격화했다. 주간 사용자가 두 달 만에 두 배 가까이 급증한 가운데, 티보 소티오 개발 책임자는 500만 돌파를 기념해 고속 모드 한도를 완전히 해제하는 등 인프라 공세에 나선다.",
+  "summaryEn": "OpenAI's Codex tops 5 million users, nearly doubling in two months. Lead engineer Tibo Sottiaux reset fast-mode limits to celebrate as it closes on Claude Code.",
+  "sources": [
+    {
+      "name": "Tibo Sottiaux (X)",
+      "title": "Five million users would agree. Resetting the limits tomorrow morning to celebrate.",
+      "url": "https://x.com/thsottiaux/status/2060964284117782996"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Work with Codex from anywhere",
+      "url": "https://openai.com/index/work-with-codex-from-anywhere/"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Scaling Codex to enterprises worldwide",
+      "url": "https://openai.com/index/scaling-codex-to-enterprises-worldwide/"
+    },
+    {
+      "name": "NVIDIA Blog",
+      "title": "OpenAI's New GPT-5.5 Powers Codex on NVIDIA Infrastructure",
+      "url": "https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Anthropic raises $30 billion in Series G funding",
+      "url": "https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation"
+    }
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "relatedDocs": [
+    "tech:ai/claude-code-vs-codex-coding-agent",
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/gpt-53-codex-community-reaction",
+    "tech:ai/chatgpt-heavy-thinking-removed-codex-nerf"
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "OpenAI의 코딩 에이전트 '코덱스(Codex)'가 사용자 500만 명을 돌파했다. 이번 이정표는 공식 보도자료가 아닌, 코덱스 개발 책임자인 티보 소티오 엔지니어가 5월 31일 늦은 밤 [X에 올린 글](https://x.com/thsottiaux/status/2060964284117782996)을 통해 공개됐다. 그는 \"500만 명의 사용자가 동의할 것\"이라며 자축의 의미로 다음 날 아침 사용 한도를 초기화해 제한 없이 제공하겠다고 선언했다. 해당 게시글은 등록된 지 불과 몇 시간 만에 조회수 87만 회를 넘어섰다.\n\n사용 제한을 해제하는 '한도 초기화'는 코덱스만의 독특한 자축 문화로 자리 잡았다. 올해 초 OpenAI의 최고경영자(CEO) 샘 알트만이 이 같은 규칙을 처음 도입한 이후, 코덱스가 사용자 100만 명을 추가할 때마다 고속 모드 제한을 완전히 풀어주는 조치가 이어졌다. 이번 500만 명 달성으로 다섯 번째 초기화가 이뤄졌으며, 알트만은 사용자 수가 1,000만 명에 도달할 때까지 이 의식을 계속 이어가겠다고 공언했다."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/i/status/2060964284117782996",
+      "caption": "티보 소티오 코덱스 개발 책임자가 X에 올린 500만 돌파 게시글"
+    },
+    {
+      "type": "heading",
+      "value": "두 달 만에 사용자 두 배로 늘린 코덱스"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/App-view.png",
+      "caption": "코덱스 모바일 앱의 프로젝트 화면",
+      "alt": "스마트폰 화면에 표시된 프로젝트 목록"
+    },
+    {
+      "type": "text",
+      "value": "불과 한 분기 전만 해도 먼 이야기로 보였던 1,000만 명 고지가 이제는 가시권에 들어온 모습이다. 코덱스의 주간 사용자는 올해 초만 하더라도 200만 명 선에 머물러 있었다. 이후 OpenAI는 지난 4월 21일 사용자 수가 300만 명을 돌파했다고 발표했고, 5월 중순에는 400만 명을 넘어섰다고 밝혔다. 여기서 불과 2주 만에 500만 명을 달성하며 약 두 달 만에 사용자 규모를 두 배 가까이 키워냈다.\n\n이러한 성장세는 단순한 사용자 머릿수 증가에만 그치지 않는다. OpenAI는 지난 2월 코덱스의 전체 사용량이 지난해 12월 중순 대비 두 배로 증가했다고 발표했으며, 작년 10월에는 일일 사용량이 8월 초와 비교해 10배 이상 급증했다고 밝힌 바 있다. 소티오 엔지니어가 언급한 고속 모드 실행 명령어인 '/fast' 역시 이 같은 성장 궤적을 보여준다. 한도 해제 조치는 대규모 동시 접속 트래픽을 감당하는 인프라 스트레스 테스트의 역할도 겸하기 때문이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "엔비디아 직원 1만 명이 던진 신호"
+    },
+    {
+      "type": "image",
+      "src": "https://blogs.nvidia.com/wp-content/uploads/2026/04/GPT55-Codex-Launch_v1-1-1680x945.jpg",
+      "caption": "엔비디아와 OpenAI가 공개한 GPT-5.5·코덱스 협업 자료",
+      "alt": "GPT-5.5 코덱스와 엔비디아 협업 인포그래픽"
+    },
+    {
+      "type": "text",
+      "value": "이러한 인프라 부하의 상당 부분은 AI 칩을 직접 제조하는 하드웨어 기업 내부에서 발생하고 있다. 엔비디아는 최근 블로그 포스트를 통해 엔지니어링, 법무, 재무, 영업, 인사 등 전 부서 직원 1만 명 이상이 OpenAI의 최신 모델 GPT-5.5를 적용한 코덱스를 활발히 사용 중이라고 [밝혔다](https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/). 젠슨 황 최고경영자(CEO)는 전사 이메일에서 전면 도입을 촉구하며 \"광속으로 도약하자\"는 말로 글을 맺었다. 직원들은 성능을 두고 \"경이로운 수준\"이라 평가하며, 며칠씩 걸리던 디버깅 작업이 몇 시간 만에 마무리된다고 전했다.\n\n이 같은 평가는 엔비디아 사내에만 국한되지 않는다. AI 스타트업 런웨이(Runway)의 창업자 시치 첸은 코덱스의 최고 설정인 'xhigh' 환경에서 GPT-5.5를 테스트한 후, 코딩 에이전트 영역에서 클로드를 확실히 능가한다고 언급했다. 그동안 앤트로픽이 개발자 시장에서 [구축해 온 독보적인 입지](/ko/article/general/claude-code-vs-codex-coding-agent/)를 떠올리면 가볍게 넘길 수 없는 직설적인 발언이다. 업계 안팎에서는 코덱스가 단순한 성능 개선을 넘어, 시장 선두를 달리는 경쟁사의 지위를 직접적으로 위협하기 시작했다고 평가하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "클로드 코드라는 견고한 장벽"
+    },
+    {
+      "type": "text",
+      "value": "하지만 업계 선두인 앤트로픽 역시 쉽게 자리를 내주지 않을 기세이며, 양사 간의 격차는 여전히 뚜렷하다. 앤트로픽은 지난 5월 28일 클로드 코드의 연간 환산 런레이트 매출이 25억 달러를 넘어섰다고 발표했다. 이는 올해 초 대비 두 배 이상 성장한 규모다. 주간 활성 사용자 수도 1월 1일 이후 두 배로 늘었으며, 기업용 유료 구독 수는 네 배로 뛰었다. 한 외부 분석에 따르면 현재 전 세계 깃허브 공개 커밋의 4%를 클로드 코드가 자동 작성 중이며, 이는 불과 한 달 사이에 두 배로 불어난 수치다.\n\n기술적 성능 평가에서도 이 같은 구도가 고스란히 확인된다. 가장 난도가 높은 과제를 해결하는 벤치마크인 'SWE-Bench Pro'에서 GPT-5.5는 58.6%에 머무른 반면, 클로드 오퍼스 4.7은 64.3%를 기록해 기술적 격차를 유지했다. 현재 코덱스의 진정한 무기는 차트 성적표보다 매서운 성장 기세와 도달 범위에 있다. 엔비디아 대규모 도입 사례와 500만 명의 사용자, 그리고 자축을 위해 한도를 무상 공급하는 개발 리더의 행보가 그 예다. 이러한 기세가 코딩 에이전트 시장에서 앤트로픽이 다져놓은 재무적 선두 지위까지 뒤흔들 수 있을지는 다음 한도 초기화 주기가 답을 줄 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI's Codex coding agent has surpassed 5 million users, a milestone revealed not through an official press release, but in an informal post by lead engineer Tibo Sottiaux [on X](https://x.com/thsottiaux/status/2060964284117782996) late on May 31. \"Five million users would agree,\" Sottiaux wrote. \"Resetting the limits tomorrow morning to celebrate. Time to go /fast.\" The post generated over 870,000 views within hours.\n\nResetting usage limits has become Codex’s signature celebration. OpenAI CEO Sam Altman established the pattern earlier this year: each time the AI agent surpasses another million-user threshold, fast-mode caps are temporarily lifted to allow unrestricted access. The 5-million-user mark triggers the fifth such reset, a ritual Altman has promised to continue until the platform reaches 10 million users."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/i/status/2060964284117782996",
+      "caption": "Codex lead Tibo Sottiaux's X post on the 5-million milestone"
+    },
+    {
+      "type": "heading",
+      "value": "Codex User Base Doubles in Two Months"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/App-view.png",
+      "caption": "The Codex mobile app project view",
+      "alt": "Project list displayed on a smartphone screen"
+    },
+    {
+      "type": "text",
+      "value": "The 10-million-user target now appears far more attainable than it did just a quarter ago. Codex began the year with approximately 2 million weekly active users. OpenAI reported that figure rose to 3 million by April 21, and surpassed 4 million by mid-May. Reaching 5 million just two weeks later represents a near-doubling of its user base in approximately two months.\n\nThis growth extends beyond user count. In February, OpenAI noted that overall Codex usage had doubled since mid-December, following an October report that daily usage had surged tenfold compared to early August. The reference to '/fast' in Sottiaux's announcement underscores this trajectory, as each limit reset serves as a critical stress test of the infrastructure's ability to handle massive concurrent traffic."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The Signal from 10,000 NVIDIA Employees"
+    },
+    {
+      "type": "image",
+      "src": "https://blogs.nvidia.com/wp-content/uploads/2026/04/GPT55-Codex-Launch_v1-1-1680x945.jpg",
+      "caption": "NVIDIA and OpenAI's GPT-5.5 and Codex partnership slide",
+      "alt": "GPT-5.5 Codex and NVIDIA partnership infographic"
+    },
+    {
+      "type": "text",
+      "value": "A substantial portion of this operational load originates from within the very chipmaker that powers the hardware. NVIDIA recently [confirmed](https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/) that over 10,000 of its employees across engineering, legal, finance, sales, and human resources are actively using Codex powered by GPT-5.5, OpenAI’s latest frontier model. CEO Jensen Huang sent a company-wide email urging comprehensive adoption, concluding with: \"Let's jump to lightspeed.\" Employees have described the tool as \"mind-blowing\" and \"life-changing,\" noting that complex debugging tasks that previously required days are now resolved in hours.\n\nThis acclaim extends beyond NVIDIA's internal teams. Siqi Chen, founder of Runway, evaluated GPT-5.5 on Codex's 'xhigh' configuration and asserted that it significantly outperforms Anthropic's models for coding agents, a point underscored by [this head-to-head matchup](/article/general/claude-code-vs-codex-coding-agent/). Given Anthropic’s historical dominance in the developer space, this is a significant assertion. The industry reception suggests that Codex is no longer merely competitive for OpenAI, but is actively challenging Claude Code, the established market leader."
+    },
+    {
+      "type": "heading",
+      "value": "Claude Code's Formidable Market Lead"
+    },
+    {
+      "type": "text",
+      "value": "However, the incumbent remains a formidable competitor, and the competitive gap remains substantial. On May 28, Anthropic announced that Claude Code's annualized run-rate revenue has surpassed $2.5 billion—more than doubling since the beginning of 2026. Additionally, weekly active users have doubled since January 1, while enterprise subscriptions have quadrupled. A recent analysis estimates that Claude Code now generates 4% of all public commits on GitHub, doubling its market share in just one month.\n\nTechnical benchmarks reinforce this competitive dynamic. On the SWE-Bench Pro evaluation, GPT-5.5 achieved a score of 58.6%, compared to 64.3% for Claude Opus 4.7, demonstrating that Claude Code maintains its lead in resolving the most complex engineering tasks. Consequently, Codex’s competitive advantage currently lies in its rapid adoption and expansive reach: 5 million users, broad enterprise deployment at NVIDIA, and an engineering lead who routinely expands compute access to celebrate milestones. Whether this momentum will ultimately disrupt Anthropic's financial dominance in the coding agent market remains a question for future resets to answer."
+    }
+  ]
+}
