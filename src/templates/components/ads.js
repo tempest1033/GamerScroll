@@ -72,18 +72,21 @@ function renderDesktopOnlyHomeAd(slotId, opts) {
   const styleId = `ad-home-pc-${++adStyleCounter}`;
   const cardClass = `${styleId}-card`;
   if (narrow) {
-    // 좁은 컬럼(사이드바 레이아웃): 728x90 고정 — CLS/우측잘림/세로정렬 안정
+    // 좁은 컬럼(사이드바 레이아웃): 부모 폭 안에서 최대 728 리더보드까지만 사용
     return `<div class="ad-card ad-card-responsive-home ${cardClass}">
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
-      .${cardClass} { display:flex !important; width:728px; max-width:728px; height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
-      .${styleId} { display:block !important; width:728px; height:90px; margin:0 auto; }
+      .${cardClass} { display:flex !important; width:100%; max-width:728px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .${styleId} { display:block !important; width:100%; max-width:100%; min-height:90px; margin:0 auto; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
+       style="display:block;width:100%;min-height:90px"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"></ins>
+       data-ad-slot="${slotId}"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
   ${renderEagerAdPushScript()}
 </div>`;
   }
@@ -115,15 +118,15 @@ function renderMobileOnlyHomeAd(slotId) {
   const cardClass = `${styleId}-card`;
   return `<div class="ad-card ad-card-mobile-top ${cardClass}">
   <style>
-    .${cardClass} { display:flex !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
-    .${styleId}, .${cardClass} > .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:block !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .${cardClass} { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .${styleId}, .${cardClass} > .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
     .${cardClass} > .${styleId} > div { overflow:hidden !important; }
     @media (min-width: 769px) {
-      .${cardClass}, .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:none !important; width:0 !important; min-width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+      .${cardClass}, .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
-       style="display:inline-block;width:320px;height:100px"
+       style="display:block;width:100%;max-width:320px;height:100px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
   ${renderEagerAdPushScript()}

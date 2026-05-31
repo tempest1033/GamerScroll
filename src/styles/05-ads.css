@@ -6,8 +6,7 @@
 
 /* 모바일 상단 광고 (320x100) */
 .ad-card-mobile-top {
-  width: 320px;
-  min-width: 320px;
+  width: 100%;
   max-width: 320px;
   height: 100px;
   min-height: 100px;
@@ -25,12 +24,13 @@
 .ad-card-mobile-top > ins.adsbygoogle > iframe,
 .ad-card-mobile-top > ins.adsbygoogle iframe,
 .ad-card-mobile-top iframe {
-  width: 320px !important;
-  min-width: 320px !important;
+  width: 100% !important;
   max-width: 320px !important;
   height: 100px !important;
   min-height: 100px !important;
   max-height: 100px !important;
+  left: 0 !important;
+  right: 0 !important;
 }
 
 .ad-card-mobile-top > ins.adsbygoogle > div {
@@ -114,6 +114,14 @@
   max-width: 100%;
 }
 
+.ad-card-responsive-home > ins.adsbygoogle,
+.ad-card-responsive-top > ins.adsbygoogle,
+.ad-card-mobile-top > ins.adsbygoogle {
+  display: block !important;
+  position: relative;
+  line-height: 0;
+}
+
 /* Responsive top/home ad cards: center smaller creatives both axes */
 .ad-card-responsive-home,
 .ad-card-responsive-top {
@@ -144,6 +152,8 @@
   vertical-align: middle;
   width: 100% !important;
   max-width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
 }
 
 .ad-card-responsive-home.gs-ad-compact,
@@ -151,28 +161,32 @@
   align-items: center;
 }
 
-@media (min-width: 1200px) {
-  .article-main > .ad-card-responsive-home:first-child,
-  .article-main > .ad-card-responsive-top:first-child,
-  .home-main > .ad-card-responsive-home:first-child,
-  .home-main > .ad-card-responsive-top:first-child {
-    min-width: 728px;
-  }
-}
-
-/* 좁은 컬럼(사이드바 레이아웃: 홈/아티클)은 728 리더보드로 제한 — 970이 들어와 우측이 잘리는 것 방지. 풀폭 페이지는 제한 없이 970 허용 */
+/* 좁은 컬럼(사이드바 레이아웃: 홈/아티클)은 부모 폭 안에서 최대 728 리더보드까지만 허용 */
 @media (min-width: 769px) {
   .home-main > .ad-card-responsive-home,
   .article-main > .ad-card-responsive-home,
   .home-main > .ad-card-responsive-top,
   .article-main > .ad-card-responsive-top {
-    max-width: 728px;
+    width: 100% !important;
+    max-width: 728px !important;
     margin-left: auto;
     margin-right: auto;
     min-height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .home-main > .ad-card-responsive-home > ins.adsbygoogle,
+  .article-main > .ad-card-responsive-home > ins.adsbygoogle,
+  .home-main > .ad-card-responsive-top > ins.adsbygoogle,
+  .article-main > .ad-card-responsive-top > ins.adsbygoogle,
+  .home-main > .ad-card-responsive-home > ins.adsbygoogle > iframe,
+  .article-main > .ad-card-responsive-home > ins.adsbygoogle > iframe,
+  .home-main > .ad-card-responsive-top > ins.adsbygoogle > iframe,
+  .article-main > .ad-card-responsive-top > ins.adsbygoogle > iframe {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
@@ -261,8 +275,7 @@ body.ads-disabled .article-layout {
 @media (max-width: 768px) {
   .home-main > .ad-card-mobile-top,
   .article-main > .ad-card-mobile-top {
-    width: 320px !important;
-    min-width: 320px !important;
+    width: 100% !important;
     max-width: 320px !important;
     height: 100px !important;
     min-height: 100px !important;
@@ -271,13 +284,17 @@ body.ads-disabled .article-layout {
     margin-bottom: var(--space-block-gap, 16px) !important;
   }
 
+  .home-main > .ad-card-mobile-top > ins.adsbygoogle,
+  .home-main > .ad-card-mobile-top > ins.adsbygoogle > div,
+  .home-main > .ad-card-mobile-top > ins.adsbygoogle > iframe,
+  .home-main > .ad-card-mobile-top > ins.adsbygoogle iframe,
+  .home-main > .ad-card-mobile-top iframe,
   .article-main > .ad-card-mobile-top > ins.adsbygoogle,
   .article-main > .ad-card-mobile-top > ins.adsbygoogle > div,
   .article-main > .ad-card-mobile-top > ins.adsbygoogle > iframe,
   .article-main > .ad-card-mobile-top > ins.adsbygoogle iframe,
   .article-main > .ad-card-mobile-top iframe {
-    width: 320px !important;
-    min-width: 320px !important;
+    width: 100% !important;
     max-width: 320px !important;
     height: 100px !important;
     min-height: 100px !important;

@@ -2182,20 +2182,26 @@ const adLazyLoadScript = `
       iframe.style.minHeight = minHeight + 'px';
     }
     if (isMobileTopAd) {
-      wrap.style.setProperty('width', '320px', 'important');
-      wrap.style.setProperty('min-width', '320px', 'important');
+      var mobileAdMaxWidth = 320;
+      var parentRect = wrap.parentElement && wrap.parentElement.getBoundingClientRect
+        ? wrap.parentElement.getBoundingClientRect()
+        : null;
+      var viewportWidth = document.documentElement.clientWidth || window.innerWidth || mobileAdMaxWidth;
+      var parentWidth = Math.floor((parentRect && parentRect.width) || mobileAdMaxWidth);
+      var mobileAdWidth = Math.min(mobileAdMaxWidth, parentWidth || mobileAdMaxWidth, viewportWidth || mobileAdMaxWidth);
+      if (!mobileAdWidth || mobileAdWidth < 1) mobileAdWidth = mobileAdMaxWidth;
+      var mobileAdWidthPx = Math.round(mobileAdWidth) + 'px';
+      wrap.style.setProperty('width', mobileAdWidthPx, 'important');
       wrap.style.setProperty('max-width', '320px', 'important');
       wrap.style.setProperty('height', '100px', 'important');
       wrap.style.setProperty('min-height', '100px', 'important');
       wrap.style.setProperty('max-height', '100px', 'important');
-      ad.style.setProperty('width', '320px', 'important');
-      ad.style.setProperty('min-width', '320px', 'important');
+      ad.style.setProperty('width', mobileAdWidthPx, 'important');
       ad.style.setProperty('max-width', '320px', 'important');
       ad.style.setProperty('height', '100px', 'important');
       ad.style.setProperty('min-height', '100px', 'important');
       ad.style.setProperty('max-height', '100px', 'important');
-      iframe.style.setProperty('width', '320px', 'important');
-      iframe.style.setProperty('min-width', '320px', 'important');
+      iframe.style.setProperty('width', mobileAdWidthPx, 'important');
       iframe.style.setProperty('max-width', '320px', 'important');
       iframe.style.setProperty('height', '100px', 'important');
       iframe.style.setProperty('min-height', '100px', 'important');
