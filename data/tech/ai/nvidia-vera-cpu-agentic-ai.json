@@ -1,0 +1,140 @@
+{
+  "slug": "nvidia-vera-cpu-agentic-ai",
+  "status": "approved",
+  "site": "aiscroll",
+  "category": "general",
+  "needTranslate": false,
+  "date": "",
+  "title": "엔비디아, 에이전트 AI 전용 CPU '베라' 공개",
+  "titleEn": "NVIDIA Unveils Vera: A CPU for Agentic AI",
+  "summary": "엔비디아가 GTC 2026에서 세계 최초의 에이전트 AI 전용 CPU '베라'를 공개했다. 자체 설계한 88개 올림푸스 코어를 기반으로 기존 CPU 대비 2배의 전력 효율과 50% 높은 성능을 제공한다. 알리바바와 메타, 커서 등이 도입을 확정하며 데이터센터 시장 판도 변화를 예고했다.",
+  "summaryEn": "NVIDIA unveiled Vera at GTC 2026 — the first CPU built for agentic AI, with 88 Olympus cores delivering 2x efficiency over traditional data center chips.",
+  "keywords": "엔비디아 베라 CPU, 에이전트 AI, 올림푸스 코어, 베라 루빈, GTC 2026",
+  "keywordsEn": "NVIDIA Vera CPU, agentic AI, Olympus cores, Vera Rubin platform, data center CPU",
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/AGrwAce7jHJZGnTQNgF9xM-1600-80.jpg",
+  "content": [
+    {
+      "type": "text",
+      "value": "엔비디아가 GTC 2026 키노트에서 세계 최초의 에이전트 인공지능(AI) 전용 프로세서 '베라(Vera)' CPU를 공개했다. 엔비디아는 베라가 랙 규모의 데이터센터 환경에서 기존 CPU 대비 전력 효율은 2배, 성능은 50% 향상되었다고 밝혔다.\n\n자체 설계한 88개의 '올림푸스' 코어를 탑재한 베라 CPU는 이미 본격 양산에 돌입했으며, 올해 하반기 정식 출시될 예정이다. 알리바바클라우드와 메타, 오라클 클라우드, AI 코딩 플랫폼 커서(Cursor) 등 주요 기업들이 잇따라 도입을 확정하면서 데이터센터 CPU 시장의 판도 변화가 시작되는 모양새다."
+    },
+    {
+      "type": "heading",
+      "value": "단순한 모델 지원을 넘어 AI를 견인하는 CPU"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202603/69b832203d63321ac974de07_nvidia-vera-rubin-family/nvidia-vera-rubin-family_cf4c7c80-39ba-4150-8523-e33b7b9d4031-prv.jpg",
+      "caption": "엔비디아 베라 루빈 칩 제품군",
+      "alt": "한 줄로 늘어선 칩 제품군"
+    },
+    {
+      "type": "text",
+      "value": "엔비디아가 현 시점에서 CPU에 집중하는 이유는 에이전트 AI의 급격한 부상과 맞닿아 있다.\n\n스스로 추론하고 행동하는 자율형 AI 에이전트가 늘어나면서 작업 계획 수립, 외부 도구 호출, 코드 실행 및 검증 등의 연산 수요가 급증했다. 주목할 점은 이러한 작업의 상당 부분이 GPU가 아닌 CPU에서 처리된다는 사실이다. 강화학습 루프에서 에이전트가 코드를 실행하고 결과를 평가하는 수만 개의 격리된 환경, 이를 구동하는 역할은 온전히 CPU의 몫이다.\n\n젠슨 황 엔비디아 최고경영자(CEO)는 '이제 CPU는 단순히 AI 모델을 지원하는 데 그치지 않고 전체 시스템을 주도하고 있다'고 강조했다. 베라가 강화학습과 에이전트 추론 환경에 최적화되도록 설계된 이유다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "88개 올림푸스 코어와 베라 통합 랙 아키텍처"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202603/69b83bf73d6332289074debc_vera-cpu-rack/vera-cpu-rack_dd1864d1-171f-410c-956d-0a24da3c4906-prv.png",
+      "caption": "엔비디아 베라 CPU 랙",
+      "alt": "올림푸스 코어를 품은 베라 시스템 랙"
+    },
+    {
+      "type": "text",
+      "value": "베라의 독창적인 설계는 실리콘 레벨의 코어 아키텍처에서 시작된다.\n\n베라에는 엔비디아가 독자 개발한 88개의 올림푸스 코어가 탑재됐다. 코어당 두 개의 작업을 동시에 처리하는 '스페이셜 멀티스레딩' 기술 덕분에, 여러 작업이 맞물려 돌아가는 멀티테넌트 AI 팩토리에서도 일관된 성능을 보장한다. LPDDR5X 메모리는 최대 1.2TB/s 대역폭을 일반 CPU의 절반 전력으로 구현했다. 이 수치는 [엔비디아](https://nvidianews.nvidia.com/news/nvidia-launches-vera-cpu-purpose-built-for-agentic-ai)가 공개했다.\n\n초고속 인터커넥트 역시 강점이다. NVLink-C2C 기술로 PCIe 6세대보다 7배 빠른 1.8TB/s의 일관성 대역폭을 확보했다. 엔비디아는 256개의 베라 CPU를 액체냉각으로 묶은 통합 랙도 선보였다. 단일 랙에서 성능 저하 없이 2만 2,500개 이상의 독립적인 CPU 환경을 동시에 구동한다. '그레이스(Grace)'의 후속작으로서 자체 CPU 라인업의 세대교체를 완성한 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "알리바바·메타·커서가 베라 도입에 적극 나선 이유"
+    },
+    {
+      "type": "text",
+      "value": "기술적 계보만으로는 시장이 움직이지 않는다. 톰스하드웨어는 베라를 AMD·인텔과 맞붙을 데이터센터 CPU로 평가했지만, 진짜 지표는 초기 파트너사의 도입 규모다.\n\n이미 알리바바클라우드, 바이트댄스, 메타, 오라클 클라우드가 베라 도입을 확정했다. 델과 HPE, 레노버, 슈퍼마이크로 등도 베라 서버를 공급한다. 코딩 도구 커서는 응답 속도를 높이려 도입했고, 실시간 데이터 플랫폼 레드판다(Redpanda)는 지연 시간을 5.5배 단축했다고 밝혔다.\n\n베라는 혼자 작동하는 칩이 아니다. 72개 루빈(Rubin) GPU와 36개 베라 CPU를 묶은 '베라 루빈 NVL72' 플랫폼의 핵심으로 하반기 공급된다. 엔비디아는 GTC 2026 무대에서 추론 전용 칩 [Groq 3 LPU](/ko/article/general/nvidia-groq3-lpu-inference-revolution/)도 함께 공개했다. 이로써 베라 루빈 플랫폼은 학습(GPU), 추론(LPU), 에이전트(베라 CPU)로 역할을 나눴다.\n\n이번 칩은 PC용이 아닌 데이터센터 전용이다. 소비자용 Arm CPU인 'N1X'는 컴퓨텍스 2026 공개설이 도는 별개 제품이다. 당장 개인 PC를 바꾸지는 못하지만, AI 팩토리의 중심을 장악하려는 엔비디아의 노림수는 베라에서 선명하게 드러난다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "NVIDIA has unveiled its new Vera CPU at the GTC 2026 keynote, introducing the chip as the world's first processor purpose-built for agentic AI. According to the company, Vera delivers twice the energy efficiency and a 50% performance increase compared to traditional rack-scale CPUs.\n\nEquipped with 88 custom-designed Olympus cores, the Vera CPU is already in full production, with general availability scheduled for the second half of this year. Major industry players—including Alibaba Cloud, Meta, Oracle Cloud, and AI coding platform Cursor—have already committed to deploying the processor, signaling a significant shift in the data center CPU market."
+    },
+    {
+      "type": "heading",
+      "value": "The CPU Shift: From Supporting AI Models to Driving Them"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202603/69b832203d63321ac974de07_nvidia-vera-rubin-family/nvidia-vera-rubin-family_cf4c7c80-39ba-4150-8523-e33b7b9d4031-prv.jpg",
+      "caption": "The NVIDIA Vera Rubin chip family",
+      "alt": "A row of NVIDIA chips"
+    },
+    {
+      "type": "text",
+      "value": "NVIDIA's renewed focus on the CPU is driven directly by the rapid rise of agentic AI.\n\nAs autonomous AI agents capable of independent reasoning and decision-making proliferate, workloads for task planning, tool integration, code execution, and verification have surged. Crucially, a substantial portion of these tasks runs on CPUs rather than GPUs. In reinforcement learning loops, AI agents must execute code and evaluate outcomes within thousands of isolated environments—a heavy infrastructure workload that relies entirely on the CPU.\n\nCEO Jensen Huang noted that the CPU is no longer simply supporting the model, but is instead driving the entire system. This shift explains why NVIDIA engineered Vera specifically to optimize reinforcement learning and agentic inference workloads."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "88 Olympus Cores and the Integrated Vera Rack Architecture"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202603/69b83bf73d6332289074debc_vera-cpu-rack/vera-cpu-rack_dd1864d1-171f-410c-956d-0a24da3c4906-prv.png",
+      "caption": "The NVIDIA Vera CPU rack",
+      "alt": "Olympus cores inside the Vera system rack"
+    },
+    {
+      "type": "text",
+      "value": "This specialized design begins at the silicon level with the processor's core architecture.\n\nVera features 88 custom Olympus cores designed entirely in-house by NVIDIA. Thanks to Spatial Multithreading, where a single Olympus core processes two tasks concurrently, performance stays consistent in multi-tenant AI factories that run diverse concurrent workloads. The chip's LPDDR5X memory subsystem delivers up to 1.2 TB/s of bandwidth, matching the throughput of traditional CPUs at half the power consumption, [according to NVIDIA](https://nvidianews.nvidia.com/news/nvidia-launches-vera-cpu-purpose-built-for-agentic-ai).\n\nHigh-speed interconnects represent another key strength of the architecture. The NVLink-C2C interface provides 1.8 TB/s of coherent bidirectional bandwidth, which is seven times faster than PCIe Gen 6. NVIDIA also showcased an integrated rack combining 256 liquid-cooled Vera CPUs. A single rack can support more than 22,500 concurrent, fully isolated CPU environments without performance degradation. As the successor to the Grace CPU, Vera marks the next milestone in NVIDIA's proprietary CPU roadmap."
+    },
+    {
+      "type": "heading",
+      "value": "Why Alibaba, Meta, and Cursor Are Aligning Behind Vera"
+    },
+    {
+      "type": "text",
+      "value": "Technological evolution alone does not guarantee market success. Tom's Hardware positioned Vera as a data-center CPU set to take on AMD and Intel head-on, but the strongest signal is early industry commitment.\n\nAlibaba Cloud, ByteDance, Meta, and Oracle Cloud have already committed to deploying Vera in their systems. Leading hardware makers Dell, HPE, Lenovo, and Supermicro will also supply Vera-based servers. On the software side, Cursor adopted the chip to reduce AI coding agent response times, while real-time data platform Redpanda reported a 5.5x latency reduction in its own benchmarks.\n\nVera is designed to operate as a core component of the Vera Rubin NVL72 platform, which binds 72 Rubin GPUs with 36 Vera CPUs and ships in the second half of this year. At GTC 2026, NVIDIA [also unveiled the Groq 3 LPU](/article/general/nvidia-groq3-lpu-inference-revolution/) as an inference alternative, building a Vera Rubin division of labor: GPUs for training, LPUs for raw inference, and Vera CPUs for agent environments.\n\nTo clarify, Vera is for the enterprise data center rather than the PC. The consumer Arm CPU N1X is a separate product rumored for a Computex 2026 debut. While Vera will not power desktops, NVIDIA's strategy to capture the core infrastructure of the AI factory is clearly visible."
+    }
+  ],
+  "sources": [
+    {
+      "name": "NVIDIA Newsroom",
+      "title": "NVIDIA Launches Vera CPU, Purpose-Built for Agentic AI",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-launches-vera-cpu-purpose-built-for-agentic-ai"
+    },
+    {
+      "name": "NVIDIA Newsroom",
+      "title": "NVIDIA Vera Rubin Opens Agentic AI Frontier",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform"
+    },
+    {
+      "name": "NVIDIA Investor Relations",
+      "title": "NVIDIA Launches Vera CPU",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Vera-CPU-Purpose-Built-for-Agentic-AI/default.aspx"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "NVIDIA unveils details of new 88-core Vera CPUs",
+      "url": "https://www.tomshardware.com/pc-components/gpus/nvidia-unveils-details-of-new-88-core-vera-cpus-positioned-to-compete-with-amd-and-intel-new-vera-cpu-rack-features-256-liquid-cooled-chips-that-deliver-up-to-a-6x-gain-in-cpu-throughput"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "NVIDIA introduces Vera Rubin, a seven-chip AI platform",
+      "url": "https://venturebeat.com/infrastructure/nvidia-introduces-vera-rubin-a-seven-chip-ai-platform-with-openai-anthropic"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/nvidia-groq3-lpu-inference-revolution",
+    "tech:ai/nvidia-feynman-architecture-2028",
+    "tech:ai/nvidia-q1-fy27-ai-rally-test",
+    "tech:ai/nvidia-nemoclaw-agentic-ai-platform"
+  ],
+  "relatedArticles": [],
+  "relatedGames": []
+}
