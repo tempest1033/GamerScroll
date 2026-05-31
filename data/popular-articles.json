@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-30T00:01:22.223Z",
+  "updatedAt": "2026-05-31T02:00:54.363Z",
   "period": "7days",
   "articles": [
     {
@@ -12,13 +12,13 @@
     {
       "type": "ranking",
       "slug": "subculture-april-2026-kr",
-      "views": 19,
+      "views": 16,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 7,
+      "views": 6,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
@@ -41,23 +41,17 @@
     },
     {
       "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
       "slug": "raph-koster-theory-of-fun",
       "category": "knowledge",
       "views": 4,
       "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
-    },
-    {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 3,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "hotpick",
@@ -73,15 +67,9 @@
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "slug": "diablo2-resurrected-steam-launch",
       "views": 2,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-2month-chart-trend",
-      "views": 2,
-      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -128,13 +116,6 @@
     },
     {
       "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 2,
@@ -160,6 +141,18 @@
     },
     {
       "type": "issue",
+      "slug": "2026-subculture-openworld-games",
+      "views": 1,
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "type": "issue",
       "slug": "china-game-license-normalization",
       "views": 1,
       "path": "/magazine/issue/china-game-license-normalization/"
@@ -169,6 +162,12 @@
       "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 1,
       "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
+      "slug": "crimson-desert-2month-chart-trend",
+      "views": 1,
+      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
     },
     {
       "type": "issue",
@@ -184,9 +183,9 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
+      "slug": "lineage-classic-user-exodus-macro-cash",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
       "type": "issue",
@@ -244,17 +243,10 @@
     },
     {
       "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
+      "slug": "black-and-white-demis-hassabis",
       "category": "history",
       "views": 1,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
-    },
-    {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/korean-esports-history/"
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "wiki",
