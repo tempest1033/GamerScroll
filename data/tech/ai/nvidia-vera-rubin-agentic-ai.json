@@ -1,0 +1,177 @@
+{
+  "slug": "nvidia-vera-rubin-agentic-ai",
+  "status": "approved",
+  "category": "general",
+  "title": "엔비디아, 차세대 AI 플랫폼 '베라 루빈' 양산 개시",
+  "titleEn": "NVIDIA Vera Rubin Enters Full Production",
+  "summary": "엔비디아가 GTC 2026에서 차세대 AI 플랫폼 '베라 루빈' 양산을 발표했다. GPU당 288GB HBM4 메모리와 50페타플롭스의 FP4 추론 성능을 갖춘 이 플랫폼은 다단계 추론을 수행하는 에이전틱 AI 워크로드를 정조준한다.",
+  "summaryEn": "NVIDIA has announced full production of its next-generation Vera Rubin AI platform at GTC 2026. Equipped with 288GB of HBM4 and delivering 50 petaflops of FP4 inference per GPU, the platform directly targets agentic AI workloads.",
+  "keywords": "베라 루빈, 엔비디아, 에이전틱 AI, 루빈 GPU, AI 팩토리",
+  "keywordsEn": "Vera Rubin, NVIDIA, agentic AI, Rubin GPU",
+  "content": [
+    {
+      "type": "text",
+      "value": "\"프롬프트 한 번으로 수천 단계의 여정이 시작된다.\" 젠슨 황 엔비디아 최고경영자(CEO)가 GTC 2026 기조연설에서 던진 화두다. 엔비디아는 차세대 AI 플랫폼 '베라 루빈(Vera Rubin)'의 양산 돌입을 알리며, 단순한 하드웨어 경쟁을 넘어 '에이전틱 AI' 워크로드를 정조준하겠다는 뜻을 명확히 했다. 엔지니어 4만 명이 투입된 베라 루빈은 올가을부터 출하를 시작한다."
+    },
+    {
+      "type": "heading",
+      "value": "한 세대를 통째로 건너뛴 하드웨어 도약"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/cFtj6vRFPKtx2h32VJxi95.jpg",
+      "caption": "GTC 2026에서 공개된 '베라 루빈 NVL144' 사양 슬라이드",
+      "alt": "베라 루빈 NVL144 성능 사양을 정리한 엔비디아 발표 슬라이드"
+    },
+    {
+      "type": "text",
+      "value": "베라 루빈의 핵심은 개별 GPU의 체급 자체를 비약적으로 키운 점이다. 루빈 GPU는 288GB HBM4 메모리와 초당 22테라바이트(TB/s)의 대역폭을 갖췄으며, FP4 정밀도 기준 추론 50페타플롭스, 학습 35페타플롭스를 구현한다. TSMC 3나노 공정의 듀얼다이 구조를 채택해 트랜지스터 수만 3,360억 개에 달하며, 이는 블랙웰(2,080억 개) 대비 1.6배다.\n\n이러한 세대 간 격차는 이전 모델과의 비교에서 확연히 드러난다. 호퍼(H100·H200)에서 블랙웰(B200)을 거쳐 루빈으로 진화하는 과정에서 메모리 용량과 대역폭, 연산 성능 등 모든 핵심 지표가 매 세대 배수로 불어났다."
+    },
+    {
+      "type": "image",
+      "src": "/article/general/nvidia-vera-rubin-agentic-ai/gpu-roadmap-chart.jpg",
+      "caption": "호퍼 → 블랙웰 → 루빈 세대별 GPU 사양 비교",
+      "alt": "H100·H200·B200·루빈 GPU의 HBM 용량·대역폭·연산·NVLink 대역폭을 비교한 인포그래픽"
+    },
+    {
+      "type": "text",
+      "value": "실제로 메모리 대역폭은 H100(3.35TB/s) 대비 6.6배 늘어난 22TB/s에 달하며, FP8 연산 성능은 8.8배 뛰었다. 추론 토큰 수가 폭증하는 환경에서는 메모리 대역폭과 용량이 곧 전체 처리량을 좌우하는 병목이 된다. 엔비디아가 단순 연산 코어 증설만큼이나 메모리 아키텍처 개선에 공을 들여온 이유가 바로 여기에 있다. 루빈 GPU가 '메모리 괴물'로 불리는 까닭이다."
+    },
+    {
+      "type": "heading",
+      "value": "왜 에이전틱 AI 전용 칩인가"
+    },
+    {
+      "type": "text",
+      "value": "이처럼 강력한 연산 체급이 필요한 이유는 AI 워크로드의 근본적인 변화에서 기인한다. 기존 AI가 단일 프롬프트에 하나의 답변을 내놓는 단발성 구조였다면, 에이전틱 AI의 작동 방식은 완전히 다르다."
+    },
+    {
+      "type": "quote",
+      "value": "\"에이전틱 AI는 새로운 종류의 워크로드다. 한 번의 프롬프트가 추론, 검색, 도구 사용, 응답 생성으로 이어지는 수천 단계의 여정을 촉발한다.\" — 젠슨 황, GTC 2026"
+    },
+    {
+      "type": "text",
+      "value": "스스로 추론하고 외부 도구를 호출하며, 하위 에이전트를 연쇄 실행하는 구조는 단일 질의에도 수천 배의 연산을 요구한다. 베라 루빈은 이 지점을 정확히 공략했다. GPU와 베라 CPU를 NVLink 6로 결합한 랙 시스템 '베라 루빈 NVL144'는 직전 세대인 그레이스 블랙웰 플랫폼 대비 에이전트 처리량을 10배로 끌어올렸다. 와트당 추론 성능은 10배 높였고, 토큰당 비용은 10분의 1로 낮췄다.\n\n88개의 커스텀 Arm 코어로 구성된 베라 CPU가 데이터 검색 및 도구 호출 같은 주변 연산을 전담하고, GPU는 추론에만 전념하는 고도의 분업 체계를 이뤘다. 이는 엔비디아가 최근 공개한 [NemoClaw 플랫폼](/ko/article/general/nvidia-nemoclaw-agentic-ai-platform/) 같은 소프트웨어 전략과도 정교하게 궤를 같이한다."
+    },
+    {
+      "type": "heading",
+      "value": "블랙웰 대비 두 배 공급망으로 'AI 팩토리' 구축"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/vni6VRLR7dhjuDRR4u3ocf.jpg",
+      "caption": "엔비디아가 공개한 '베라 루빈 CPX 듀얼 랙 솔루션' 슬라이드",
+      "alt": "CPX와 NVL144 랙 구성을 보여주는 GTC 발표 슬라이드"
+    },
+    {
+      "type": "text",
+      "value": "엔비디아가 연산 성능 못지않게 공을 들인 지표는 제조 규모다. [엔비디아 뉴스룸](https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory)에 따르면 베라 루빈의 공급망 규모는 블랙웰의 두 배에 달한다. 대만에서만 150개 협력사가 합류했고, 전 세계 30개국 350여 개 공장이 가동을 시작했다. 단순 GPU 단품이 아니라 CPU와 NVLink 스위치, 네트워크 칩을 아우르는 7종의 핵심 실리콘 부품이 동시에 생산 라인에 올라탔다.\n\n이 거대한 공급망을 통해 생산되는 물량은 글로벌 'AI 팩토리' 인프라로 즉시 인도된다. 코어위브 등 주요 클라우드 사업자들이 초기 도입 파트너로 동참했으며, 대규모 추론 연산에 최적화된 설계의 '베라 루빈 CPX' 랙 시스템 또한 연내 출시를 마칠 계획이다."
+    },
+    {
+      "type": "text",
+      "value": "결과적으로 베라 루빈이 시장에 보내는 메시지는 단순한 하드웨어 속도가 아니다. 질의 하나가 수천 단계의 작업으로 증폭되는 에이전틱 AI 시대를 맞아, 폭증하는 인프라 수요를 누가 먼저 선점하느냐의 싸움이다. 엔비디아는 이제 개별 GPU 공급사를 넘어 거대한 'AI 팩토리' 인프라 전체를 시장에 제시했다. 상세 사양 이면에는 에이전트와 에이전트가 교류하며 작동하는 다음 세대 표준을 독점하겠다는 포석이 깔려 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "\"One prompt can launch a thousand-step journey,\" declared NVIDIA CEO Jensen Huang at the GTC 2026 keynote. Announcing that the company's next-generation AI platform, Vera Rubin, has entered full production, Huang made clear that the architecture targets a new class of workload: agentic AI. Described by Huang as the most ambitious project in NVIDIA's history, the platform was developed by 40,000 engineers and is scheduled to begin shipping this fall."
+    },
+    {
+      "type": "heading",
+      "value": "Skipping an Entire Hardware Generation"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/cFtj6vRFPKtx2h32VJxi95.jpg",
+      "caption": "The Vera Rubin NVL144 spec slide shown at GTC 2026",
+      "alt": "NVIDIA presentation slide summarizing Vera Rubin NVL144 performance specs"
+    },
+    {
+      "type": "text",
+      "value": "The core innovation of the Vera Rubin architecture lies in the unprecedented scale of a single GPU. Each Rubin GPU is equipped with 288GB of HBM4 memory, delivering 22 TB/s of bandwidth alongside 50 petaflops of FP4 inference and 35 petaflops of FP4 training performance. Manufactured using TSMC's 3nm process in a dual-die configuration, the processor integrates 336 billion transistors—a 1.6-fold increase over the 208 billion transistors of the Blackwell generation.\n\nThis generational leap is clearly visible when comparing the platform to its predecessors. From the Hopper architecture (H100 and H200) through Blackwell (B200) to Rubin, key performance metrics—including memory capacity, bandwidth, and computational throughput—have increased by multiples at every transition."
+    },
+    {
+      "type": "image",
+      "src": "/article/general/nvidia-vera-rubin-agentic-ai/gpu-roadmap-chart.jpg",
+      "caption": "Hopper → Blackwell → Rubin per-GPU spec comparison",
+      "alt": "Infographic comparing HBM capacity, bandwidth, compute and NVLink bandwidth across H100, H200, B200 and Rubin GPU"
+    },
+    {
+      "type": "text",
+      "value": "Specifically, memory bandwidth increased 6.6-fold from 3.35 TB/s on the H100 to 22 TB/s on the Rubin GPU, while FP8 compute capabilities grew by a factor of 8.8. In an era marked by the exponential growth of inference tokens, memory capacity and bandwidth serve as the ultimate bottlenecks for throughput. This explains why NVIDIA prioritized memory subsystem enhancements just as heavily as raw computational power — and why the Rubin GPU is being called a memory monster."
+    },
+    {
+      "type": "heading",
+      "value": "Why the Architecture Targets Agentic AI"
+    },
+    {
+      "type": "text",
+      "value": "The necessity of this massive computational capacity becomes clear when analyzing the changing nature of AI workloads. While traditional models generate a single, direct response to a prompt, agentic AI operates on an entirely different scale."
+    },
+    {
+      "type": "quote",
+      "value": "\"Agentic AI is a new kind of workload. One prompt can launch a thousand-step journey of reasoning, retrieval, tool use and response generation.\" — Jensen Huang, GTC 2026"
+    },
+    {
+      "type": "text",
+      "value": "Chained processes—wherein an autonomous agent reasons independently, calls external APIs, and spawns secondary sub-agents—require thousands of times more compute cycles per query than standard search. This is the precise workload Vera Rubin was engineered to address. By linking GPUs and Vera CPUs via NVLink 6, the rack-scale Vera Rubin NVL144 system delivers a 10-fold increase in agent throughput compared to the previous Grace Blackwell architecture, alongside a 10-fold improvement in inference performance per watt and one-tenth the cost per token.\n\nUnder this architecture, the Vera CPU—featuring 88 custom Arm cores—efficiently offloads secondary operations like information retrieval and tool execution, allowing the GPU to remain fully dedicated to core inference. This hardware optimization aligns seamlessly with NVIDIA's broader software push for agentic AI, including the recently introduced [NemoClaw platform](/article/general/nvidia-nemoclaw-agentic-ai-platform/)."
+    },
+    {
+      "type": "heading",
+      "value": "Scaling Vera Rubin Across a Supply Chain Twice Blackwell's Size"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/vni6VRLR7dhjuDRR4u3ocf.jpg",
+      "caption": "NVIDIA's \"Vera Rubin CPX Dual Rack Solution\" announcement slide",
+      "alt": "Slide showing the CPX and NVL144 rack configurations"
+    },
+    {
+      "type": "text",
+      "value": "Beyond raw performance metrics, NVIDIA emphasized the sheer industrial scale of the AI factory rollout. According to the [NVIDIA newsroom](https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory), the supply chain supporting Vera Rubin has doubled in size compared to the Blackwell generation. This massive effort coordinates 150 partner companies in Taiwan alone, alongside more than 350 manufacturing facilities across 30 countries. Rather than a single processor, NVIDIA has simultaneously initiated production for seven distinct silicon components, including GPUs, CPUs, NVLink switches, and specialized networking chips. Together, these components form the building blocks of a single AI factory.\n\nThis unprecedented production volume is designed to stand up a new AI factory in data centers worldwide. Cloud service providers such as CoreWeave have signed on as early adoption partners, while the inference-optimized Vera Rubin CPX rack system is scheduled to debut before the end of the year."
+    },
+    {
+      "type": "text",
+      "value": "Ultimately, the true significance of the Vera Rubin platform lies beyond raw compute speeds. As the tech industry transitions to an agentic AI model where a single query triggers thousands of sequential steps, the competitive landscape will be decided by who installs the infrastructure capable of absorbing this massive computational surge. By shifting its focus from discrete hardware components to turnkey AI factory infrastructure, NVIDIA is moving to establish the definitive infrastructure standard for an era where autonomous agents orchestrate other agents."
+    }
+  ],
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/iW8XU6BHtKpxAmtGpNNbf.jpg",
+  "date": "",
+  "sources": [
+    {
+      "name": "NVIDIA Newsroom",
+      "title": "NVIDIA Vera Rubin Ramps Into Full Production to Power Agentic AI Factories Worldwide",
+      "url": "https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory"
+    },
+    {
+      "name": "NVIDIA Newsroom",
+      "title": "NVIDIA Vera Rubin Opens Agentic AI Frontier",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "Nvidia's Vera Rubin platform in depth — Inside Nvidia's most complex AI and HPC platform to date",
+      "url": "https://www.tomshardware.com/pc-components/gpus/nvidias-vera-rubin-platform-in-depth-inside-nvidias-most-complex-ai-and-hpc-platform-to-date"
+    },
+    {
+      "name": "SiliconANGLE",
+      "title": "Nvidia ramps up production of Vera Rubin, the foundation of the next generation of AI factories",
+      "url": "https://siliconangle.com/2026/06/01/nvidia-ramps-production-vera-rubin-foundation-next-generation-ai-factories/"
+    },
+    {
+      "name": "CryptoBriefing",
+      "title": "Nvidia CEO Jensen Huang unveils Vera Rubin production timeline at GTC Taipei 2026",
+      "url": "https://cryptobriefing.com/nvidia-vera-rubin-gtc-taipei-2026/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/nvidia-nemoclaw-agentic-ai-platform",
+    "tech:ai/nvidia-feynman-architecture-2028",
+    "tech:ai/nvidia-groq3-lpu-inference-revolution",
+    "tech:ai/nvidia-q1-fy27-ai-rally-test"
+  ],
+  "relatedGames": [],
+  "needTranslate": false,
+  "site": "aiscroll"
+}
