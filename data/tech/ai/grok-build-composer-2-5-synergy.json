@@ -1,0 +1,190 @@
+{
+  "slug": "grok-build-composer-2-5-synergy",
+  "status": "approved",
+  "category": "ai-tools",
+  "title": "그록 빌드에 컴포저 2.5 탑재…xAI·커서 연합 전선 구축",
+  "titleEn": "Composer 2.5 Lands on Grok Build: xAI-Cursor Tie",
+  "summary": "xAI가 6월 1일 자사 코딩 CLI ‘그록 빌드’에 커서의 코딩 모델 ‘컴포저 2.5’를 탑재했다. 자체 모델의 벤치마크 성능을 상회하는 외부 모델을 도입한 결과로, 스페이스X·xAI·커서로 이어지는 수직 계열화의 첫 제품 단위를 완성했다는 평가다.",
+  "summaryEn": "xAI added Cursor's Composer 2.5 to Grok Build on June 1 — an external model that out-codes its own. The first product signal of the SpaceX-xAI-Cursor stack.",
+  "keywords": "컴포저 2.5, 그록 빌드, 커서 인수, 코딩 모델",
+  "keywordsEn": "Composer 2.5, Grok Build, Cursor acquisition, coding model",
+  "content": [
+    {
+      "type": "text",
+      "value": "인공지능(AI) 스타트업 xAI가 6월 1일 자사 코딩 CLI ‘그록 빌드(Grok Build)’에 커서(Cursor)의 코딩 전문 AI 모델 ‘컴포저 2.5(Composer 2.5)’를 탑재했다고 [공식 발표했다](https://x.ai/news/composer-2-5). 이번 조치로 슈퍼그록 및 X 프리미엄 플러스(X Premium+) 구독자는 프로그램 내부의 `/model` 메뉴에서 해당 모델을 즉시 선택해 사용할 수 있게 됐다.\n\n경쟁 진영으로 분류되던 외부 모델을 자사 제품 핵심부에 직접 도입한 대목은 주목할 만하다. 컴포저 2.5는 xAI의 독자 기술이 아닌 커서의 개발 전용 모델이다. xAI는 주요 코딩 벤치마크에서 자체 모델의 성능을 상회하는 외부 도구를 자사 서비스 생태계 내에 전면 배치한 형태가 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "자체 기술 앞선 컴포저 2.5…성능 격차 뚜렷"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/05/chart-composer-2-5-effort-curves-dark-r4.webp",
+      "alt": "컴포저 2.5와 경쟁 모델의 성능 대비 비용 산점도",
+      "caption": "모델별 CursorBench 3.1 점수와 작업당 평균 비용 비교"
+    },
+    {
+      "type": "text",
+      "value": "지난 5월 18일 공개된 컴포저 2.5는 오픈소스 ‘키미 K2.5(Kimi K2.5)’를 기반으로 대규모 강화학습을 적용해 정교화한 코딩 전문 모델이다. 이 모델은 ‘SWE-벤치 멀티링구얼(SWE-Bench Multilingual)’에서 79.8%, 커서의 자체 기준인 ‘커서벤치(CursorBench) v3.1’에서 63.2%의 높은 정답률을 기록했다. 오푸스 4.7, GPT-5.5 등 업계 최고 수준의 프론티어 모델들과 어깨를 나란히 하는 수준이다.\n\n반면 그록 빌드의 기존 구동 엔진인 ‘grok-build-0.1’은 ‘SWE-벤치 검증(SWE-Bench Verified)’에서 70.8%를 득점하는 데 머물렀다. 각 벤치마크의 측정 기준이 서로 달라 단순 비교에는 신중함이 요구되지만, 약 87~88%의 최고점대 영역에 인접한 모델은 자체 엔진이 아닌 외부의 컴포저 2.5다."
+    },
+    {
+      "type": "table",
+      "caption": "컴포저 2.5와 그록 빌드 자체 모델 비교",
+      "headers": [
+        "모델",
+        "코딩 벤치마크",
+        "가격(100만 토큰, 입력/출력)"
+      ],
+      "rows": [
+        [
+          "컴포저 2.5",
+          "SWE-Bench Multilingual 79.8% · CursorBench 63.2%",
+          "0.5달러 / 2.5달러"
+        ],
+        [
+          "grok-build-0.1",
+          "SWE-Bench Verified 70.8%",
+          "1달러 / 2달러"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "비용 부문의 차이는 훨씬 더 극적이다. 컴포저 2.5는 100만 토큰당 입력 0.5달러, 출력 2.5달러로 동급의 프론티어 모델 요금 대비 10분의 1 수준에 그친다. 앞서 출시된 컴포저 2 역시 [오푸스 4.6을 앞선 전작의 성과](/ko/article/ai-tools/cursor-composer-2-coding-model/)을 같은 비율의 파격적인 단가에 선보인 바 있다.\n\n이로써 xAI는 자사 CLI를 사용하는 개발자들에게 성능이 한 단계 높으면서도 가격은 훨씬 저렴한 코딩 선택지를 직접 제공하게 됐다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "동맹의 연결고리…스페이스X의 인수 조항에 눈길"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/10/OLM_Full_Pressure_Water_Deluge_Test_202307280728232180_1_8ac578ec57.jpeg",
+      "alt": "스페이스X 발사 시설",
+      "caption": "스페이스X 발사대 분사 시험 장면"
+    },
+    {
+      "type": "text",
+      "value": "경쟁사의 저렴한 모델을 자사 독점 인터페이스에 이식하는 행보는 두 기업이 이미 동일한 생태계 안에 묶여 있기에 가능했다는 분석이 지배적이다. xAI는 지난 2026년 2월 스페이스X(SpaceX)와 합병을 완료했으며, 이번 컴포저 2.5 모델 또한 xAI의 대형 컴퓨팅 서버인 ‘콜로서스 2(Colossus 2)’ 클러스터에서 학습을 진행했다. 외부 공급 기술이라기보다는 동일한 인프라를 토대로 개발된 내부 자원에 가깝다.\n\n자본 제휴의 깊이도 한층 더해지고 있다. 지난 4월 스페이스X는 커서의 운영사인 ‘애니스피어(Anysphere)’를 600억 달러에 사들일 수 있는 기업 인수 옵션을 미리 확보했다. 이 권리는 스페이스X가 상장(IPO)을 예정한 6월 12일로부터 약 30일이 지난 후부터 행사 가능하며, 거래가 최종 무산될 시 지불해야 하는 해지 수수료만 100억 달러 규모로 산정됐다.\n\n결국 스페이스X와의 합병을 거친 xAI, 고성능 연산 설비 학습으로 얽힌 컴포저, 인수 계약을 매개로 결합하는 커서의 방향성이 완벽히 일치하고 있는 흐름이다. 그록 빌드에 적용된 컴포저 2.5 이식 사례는 이들 세 세력의 연대가 구체적인 완성형 서비스 형태로 구현된 첫 번째 신호탄이다."
+    },
+    {
+      "type": "heading",
+      "value": "경계를 허문 상호 기술 교환"
+    },
+    {
+      "type": "text",
+      "value": "모델 공급의 방향은 일방통행에 그치지 않는다. 비슷한 시기 그록 빌드의 자체 엔진인 grok-build-0.1 역시 커서 플랫폼 내 모델 선택 목록에 교차 등재됐다. 양사가 핵심 기술을 각자의 주력 서비스에 상호 배포하면서 양방향 인프라 교류가 정식으로 막을 올렸다.\n\n개발자 진영의 초기 반응도 고무적이다. 빠른 처리 속도와 저렴한 비용을 갖춘 컴포저 2.5는 이미 커서 생태계에서 핵심 기본 모델로 자리 잡았고, 그록 빌드 이용자들도 개발 효율을 높여줄 선택지가 추가된 점을 적극 지지하는 모양새다. 시장에선 양사 간 기술 협력의 보폭이 향후 더욱 확대될 것이라는 낙관적 전망도 흘러나온다.\n\n다만 상용화 전 해결해야 할 과제들도 남아 있다. 그록 빌드는 아직 초기 베타 단계이며, 컴포저 2.5를 구동하려면 월 99달러(6개월 후 300달러로 인상)의 슈퍼그록 헤비(SuperGrok Heavy) 등 최고가 요금제가 필수적이다. 600억 달러 규모의 인수 권리 역시 6월 12일로 예정된 스페이스X 상장이 순조롭게 완료돼야 작동한다. 그럼에도 경쟁 모델을 자사 제품에 공식 탑재한 이번 결정은 세 기업의 동맹이 실질적인 성과물로 입증되고 있음을 알리는 가장 명확한 신호다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On June 1, xAI [announced](https://x.ai/news/composer-2-5) the integration of Cursor's Composer 2.5 coding model into its proprietary coding CLI, Grok Build. SuperGrok and X Premium+ subscribers can now select the model directly from the `/model` menu.\n\nThe deployment of an external model is notable: Composer 2.5 is a specialized coding model developed by Cursor, a firm previously viewed as a competitor. By embedding Cursor's model, xAI has introduced a third-party tool into its own ecosystem that outperforms its proprietary models on standard coding benchmarks."
+    },
+    {
+      "type": "heading",
+      "value": "Performance Gap: Composer 2.5 Outpaces xAI's Engine"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/05/chart-composer-2-5-effort-curves-dark-r4.webp",
+      "alt": "Scatter plot comparing Composer 2.5 against rival models on score and cost",
+      "caption": "CursorBench 3.1 score versus average cost per task across models"
+    },
+    {
+      "type": "text",
+      "value": "Released by Cursor on May 18, Composer 2.5 is a specialized coding model built on the open-source Kimi K2.5 checkpoint and refined using large-scale reinforcement learning. The model achieved a score of 79.8% on the SWE-Bench Multilingual benchmark and 63.2% on Cursor's proprietary CursorBench v3.1. That places it alongside industry-leading frontier models such as Opus 4.7 and GPT-5.5.\n\nIn contrast, Grok Build's default model, grok-build-0.1, registers a score of 70.8% on SWE-Bench Verified. While differences in benchmarking methodologies warrant caution in direct comparisons, Composer 2.5 remains significantly closer to the top tier of frontier models, which typically score in the 87% to 88% range."
+    },
+    {
+      "type": "table",
+      "caption": "Composer 2.5 vs. Grok Build's native model",
+      "headers": [
+        "Model",
+        "Coding benchmark",
+        "Price (per 1M, in/out)"
+      ],
+      "rows": [
+        [
+          "Composer 2.5",
+          "SWE-Bench Multilingual 79.8% · CursorBench 63.2%",
+          "$0.50 / $2.50"
+        ],
+        [
+          "grok-build-0.1",
+          "SWE-Bench Verified 70.8%",
+          "$1.00 / $2.00"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "The cost disparity is even more pronounced. Composer 2.5 is priced at $0.50 per million input tokens and $2.50 per million output tokens, representing approximately one-tenth the cost of comparable frontier models. Its predecessor, Composer 2, similarly [outpaced Opus 4.6](/article/ai-tools/cursor-composer-2-coding-model/) while maintaining the same cost-efficiency.\n\nConsequently, xAI has directly provided developers using its CLI with a more cost-effective and capable programming tool."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Spur to Integration: The SpaceX-Anysphere Acquisition Option"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/10/OLM_Full_Pressure_Water_Deluge_Test_202307280728232180_1_8ac578ec57.jpeg",
+      "alt": "SpaceX launch facility",
+      "caption": "A water deluge test at a SpaceX launch pad"
+    },
+    {
+      "type": "text",
+      "value": "Integrating a more cost-effective rival model within a proprietary CLI is atypical, but it reflects the shared corporate umbrella connecting the entities. xAI completed its merger with SpaceX in February 2026, and Composer 2.5 was trained using xAI's Colossus 2 supercomputing cluster. The model is less an external acquisition and more a product of shared infrastructure.\n\nFinancial relationships are also tightening. In April, SpaceX secured an option to acquire Anysphere, the developer of Cursor, for $60 billion. This option becomes exercisable approximately 30 days after SpaceX's planned initial public offering (IPO) on June 12, and it carries a $10 billion termination fee if the transaction is not completed.\n\nThe combination of xAI's corporate integration with SpaceX, Composer's development on shared computing infrastructure, and the potential acquisition of Cursor aligns these entities toward a singular goal. The integration of Composer 2.5 into Grok Build is the initial product-level manifestation of this corporate alignment."
+    },
+    {
+      "type": "heading",
+      "value": "Bi-directional Technology Exchange"
+    },
+    {
+      "type": "text",
+      "value": "This integration is not one-sided. Simultaneously, Grok Build's proprietary grok-build-0.1 model was added to Cursor's model selection menu. By incorporating each other's technologies, both ecosystems have initiated a bi-directional exchange of artificial intelligence assets.\n\nEarly feedback from developers has been positive. Given its high speed and low cost, Composer 2.5 has already emerged as the preferred default option among Cursor users, while Grok Build subscribers welcome the addition of a more powerful programming tool. This mutual integration has heightened expectations for broader collaborative efforts in the future.\n\nSeveral uncertainties remain. Grok Build is currently in beta, and accessing Composer 2.5 requires a premium tier such as SuperGrok Heavy, which costs $99 per month and will rise to $300 after six months. Additionally, the $60 billion acquisition option depends on the completion of SpaceX's IPO scheduled for June 12. Nevertheless, the formal inclusion of a competing model in a proprietary CLI provides the strongest evidence yet that the theoretical synergies among the three companies are translating into tangible product features."
+    }
+  ],
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2256968212.jpg",
+  "date": "",
+  "sources": [
+    {
+      "name": "xAI",
+      "title": "Composer 2.5",
+      "url": "https://x.ai/news/composer-2-5"
+    },
+    {
+      "name": "Cursor",
+      "title": "Introducing Composer 2.5",
+      "url": "https://cursor.com/blog/composer-2-5"
+    },
+    {
+      "name": "Cursor",
+      "title": "Training models with SpaceX",
+      "url": "https://cursor.com/blog/spacex-model-training"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "SpaceX is working with Cursor and has an option to buy the startup for $60 billion",
+      "url": "https://techcrunch.com/2026/04/21/spacex-is-working-with-cursor-and-has-an-option-to-buy-the-startup-for-60-billion/"
+    },
+    {
+      "name": "The Decoder",
+      "title": "Cursor's Composer 2.5 matches Opus 4.7 and GPT-5.5 benchmarks at a fraction of the cost",
+      "url": "https://the-decoder.com/cursors-composer-2-5-matches-opus-4-7-and-gpt-5-5-benchmarks-at-a-fraction-of-the-cost/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/cursor-composer-2-coding-model",
+    "tech:ai/grok-420-multi-agent-release",
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/claude-code-vs-codex-coding-agent"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "needTranslate": false,
+  "site": "aiscroll"
+}
