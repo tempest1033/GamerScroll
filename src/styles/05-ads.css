@@ -86,6 +86,14 @@
   min-height: 284px !important;
 }
 
+/* 작은 크리에이티브로 채워지면 예약 높이를 실제 높이로 축소 (배너 아래 빈 공간 제거).
+   gs-ad-compact는 광고가 채워져 실제 높이 < 예약치일 때만 붙으므로 로드 전 CLS 방지 reserve는 유지됨.
+   layout.js normalizeAdVisualSize()가 인라인 height를 넣어주므로 min-height reserve만 풀면 정확히 축소됨. */
+.ad-card-scroll.gs-ad-compact,
+.ad-card-scroll.gs-ad-compact > ins.adsbygoogle {
+  min-height: 0 !important;
+}
+
 /* Multiplex 광고 (자동 반응형) */
 .ad-card-multiplex {
   width: 100%;
