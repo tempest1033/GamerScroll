@@ -1,0 +1,124 @@
+{
+  "slug": "gpt-5-5-codex-spark-5-6-leak",
+  "status": "approved",
+  "needTranslate": false,
+  "site": "aiscroll",
+  "category": "openai",
+  "title": "요금표에 뜬 GPT-5.5-Codex-Spark... 6월 5.6 출시설도",
+  "titleEn": "GPT-5.5-Codex-Spark Appears on Pricing Page",
+  "date": "",
+  "thumbnail": "https://img.helpnetsecurity.com/wp-content/uploads/2026/02/05154533/openai-1500.webp",
+  "keywords": "GPT-5.5-Codex-Spark, GPT-5.6 아이리스, 코덱스, 폴리마켓, 리서치 프리뷰",
+  "keywordsEn": "GPT-5.5-Codex-Spark, GPT-5.6 iris, Codex pricing, Cerebras, research preview",
+  "summary": "오픈AI가 코덱스 요금 페이지에 'GPT-5.5-Codex-Spark(리서치 프리뷰)'를 공식 발표 없이 등록했다. 사용 한도 표보다 플랜 소개 문구가 먼저 변경되어 정식 출시가 임박했다는 분석이 나온다.",
+  "summaryEn": "OpenAI listed GPT-5.5-Codex-Spark (research preview) on its Codex pricing page with no official post—a sign the rollout is near.",
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "Codex Pricing",
+      "url": "https://chatgpt.com/codex/pricing/"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Introducing GPT-5.3-Codex-Spark",
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex-spark/"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Introducing GPT-5.5",
+      "url": "https://openai.com/index/introducing-gpt-5-5/"
+    },
+    {
+      "name": "WaveSpeed AI",
+      "title": "GPT-5.6 Canary Leak: What We Know",
+      "url": "https://wavespeed.ai/blog/posts/gpt-5-6-canary-leak-what-we-know/"
+    },
+    {
+      "name": "CometAPI",
+      "title": "GPT-5.6 Release Date, Features & Development",
+      "url": "https://www.cometapi.com/gpt-5-6-release-date-features-development/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:openai/gpt-5-6-iris-june-launch-leak",
+    "tech:openai/codex-hits-5-million-users",
+    "tech:openai/gpt55-opus47-degradation-admission",
+    "tech:openai/chatgpt-heavy-thinking-removed-codex-nerf"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈AI(OpenAI)의 차세대 코딩 모델이 공식 발표 없이 요금표를 통해 노출됐다. 코덱스(Codex) 요금 안내 페이지의 프로(Pro) 플랜 설명란에 'GPT-5.5-Codex-Spark(리서치 프리뷰)'가 추가된 것이다. 별도의 블로그나 모델 카드가 발표되지 않은 상태에서 가격표 업데이트가 출시 준비를 먼저 알렸다.\n\n노출 방식도 구체적이다. 요금 페이지 내 사용 한도 표에는 여전히 GPT-5.4와 GPT-5.3-Codex가 기재되어 있으나, 플랜 소개란에는 GPT-5.5와 GPT-5.5 Pro, GPT-5.5-Codex-Spark가 모두 명시됐다. 이처럼 한도 표 적용 전에 소개 문구부터 수정하는 조치는 대개 정식 서비스 출시가 임박했음을 가리킨다."
+    },
+    {
+      "type": "heading",
+      "value": "초고속 실시간 코딩, 스파크 라인의 계보"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/e4qjo92p/production/44c185a70dd0973a051b918f67737a123ed8fe2b-1920x1080.png?rect=0,36,1920,1008&w=1200&h=630&fit=max&auto=format",
+      "caption": "OpenAI와 세레브라스가 공개한 GPT-5.3-Codex-Spark 발표 이미지",
+      "alt": "GPT-5.3-Codex-Spark 발표 그래픽"
+    },
+    {
+      "type": "text",
+      "value": "새로운 모델명에 포함된 '스파크(Spark)'는 오픈AI의 초저지연 실시간 코딩 특화 라인업이다. 전작인 GPT-5.3-Codex-Spark는 지난 2월 세레브라스(Cerebras)의 웨이퍼 스케일 하드웨어를 활용한 리서치 프리뷰로 처음 공개됐다. 당시 이 모델은 초당 1,000토큰 이상의 생성 속도와 128k 컨텍스트를 제공했다. 실시간으로 코드를 수정하고 대화하듯 프로그래밍하는 작업에서 응답 지연을 최소화하는 구조다.\n\n이번 5.5 버전도 이러한 설계를 계승한다. 기반 모델인 GPT-5.5는 지난 4월 23일 출시된 플래그십 모델로, API 기준 100만 토큰당 입력 5달러, 출력 30달러의 요금 체계와 1M 컨텍스트를 갖췄다. 코덱스 서비스 내 일반 유료 플랜이 400k 컨텍스트를 지원하고, 패스트 모드가 추가 비용으로 속도를 높이는 구조임을 고려하면, GPT-5.5-Codex-Spark는 플래그십의 속도 최적화 버전으로 분석된다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "백엔드 로그와 예측 시장이 가리키는 GPT-5.6"
+    },
+    {
+      "type": "image",
+      "src": "https://d8r3hf.wavespeed.ai/media/images/1773962750383987480_n3hqzHRZ.webp",
+      "caption": "속도를 형상화한 추상 그래픽",
+      "alt": "빛과 속도를 표현한 추상 이미지"
+    },
+    {
+      "type": "text",
+      "value": "개발 속도 경쟁은 다음 단계로 이어진다. 지난 5월 중순 코덱스 백엔드 로그에 차세대 모델이 잠시 그 모습을 드러냈다. 코드네임 '아이리스 알파(iris-alpha)'로 파악된 아이리스 모델은 최대 150만 토큰의 컨텍스트를 지원하는 것으로 알려졌으나, 오픈AI의 공식 언급은 없는 상태다. 세부 내용은 앞서 보도한 [관련 보도](/ko/article/openai/gpt-5-6-iris-june-launch-leak/)에서 확인할 수 있다.\n\n시장은 이미 6월 출시 가능성에 주목하고 있다. 6월 2일 기준 예측 플랫폼 [폴리마켓](https://polymarket.com/event/when-will-gpt-5pt6-be-released)에서 GPT-5.6이 6월 8~14일 사이에 출시될 확률은 68.5%를 기록했다. 6월 15일까지 출시될 누적 확률은 약 77%, 6월 말까지는 93%에 달한다. 예측 시장 참가자들은 지난 5월 28일 진행된 GPT-5.5의 소규모 업데이트 역시 성능 개선 작업이 지속되고 있다는 신호로 판단하고 있다.\n\n요금표와 백엔드 로그가 가리키는 방향은 일치한다. 한편에서는 가격 안내 페이지를 통해 GPT-5.5-Codex-Spark의 존재가 먼저 노출됐고, 다른 한편에서는 폴리마켓 등 예측 시장과 백엔드 로그가 6월 출시 기대감을 키우고 있다. 두 모델이 한 무대에서 동시에 공개될지는 불확실하나, 오픈AI의 차기 행보가 6월 중 실행될 것이라는 점에는 이견이 없다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI’s latest coding model has surfaced on a pricing sheet rather than through an official announcement. The Pro plan description on the Codex pricing page now quietly lists 'GPT-5.5-Codex-Spark (research preview).' With no official blog post or model card published, the updated catalog copy offers the first confirmation of the new model's existence.\n\nThe manner of the disclosure is particularly telling. While the page's usage-limit table still references older versions, namely GPT-5.4 and GPT-5.3-Codex, the plan description has already been updated to include GPT-5.5, GPT-5.5 Pro, and GPT-5.5-Codex-Spark. Such premature updates to promotional copy ahead of system tables typically signal that a public rollout is imminent."
+    },
+    {
+      "type": "heading",
+      "value": "Spark: A Coding Product Line Engineered for Speed"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/e4qjo92p/production/44c185a70dd0973a051b918f67737a123ed8fe2b-1920x1080.png?rect=0,36,1920,1008&w=1200&h=630&fit=max&auto=format",
+      "caption": "OpenAI's GPT-5.3-Codex-Spark announcement, powered by Cerebras",
+      "alt": "GPT-5.3-Codex-Spark announcement graphic"
+    },
+    {
+      "type": "text",
+      "value": "To understand the significance of the addition, one must trace the origins of the 'Spark' designation. Spark is OpenAI’s ultra-low-latency product line, powered by Cerebras silicon and designed specifically for real-time coding applications. Its predecessor, GPT-5.3-Codex-Spark, debuted in February as a research preview in partnership with Cerebras Systems, leveraging Cerebras' wafer-scale hardware to deliver generation speeds exceeding 1,000 tokens per second alongside a 128k context window. The architecture is optimized for workflows where latency directly impacts developer productivity, such as real-time code modifications and interactive, multi-turn programming sessions.\n\nThe new iteration continues this lineage. The underlying base model, GPT-5.5, was released on April 23 as OpenAI's flagship offering, priced at $5 per million input tokens and $30 per million output tokens, with a 1-million-token context window via its API. Within the Codex ecosystem, most standard paid tiers currently operate with a 400k context window, while 'Fast Mode' generates tokens 1.5 times faster at 2.5 times the base cost. GPT-5.5-Codex-Spark appears to be a high-speed variant of this flagship model, optimized specifically for the Spark framework. Like its predecessor, it is expected to arrive as a research preview on Cerebras-backed infrastructure."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Backend Logs and Prediction Markets Point to GPT-5.6"
+    },
+    {
+      "type": "image",
+      "src": "https://d8r3hf.wavespeed.ai/media/images/1773962750383987480_n3hqzHRZ.webp",
+      "caption": "An abstract graphic evoking speed",
+      "alt": "Abstract image of light and speed"
+    },
+    {
+      "type": "text",
+      "value": "The industry's competitive focus on speed shows no signs of abating. In mid-May, OpenAI's next-generation model briefly appeared in Codex backend logs. Operating under the codename 'iris-alpha,' this iris build reportedly features a 1.5-million-token context window, though OpenAI has yet to issue an official statement about the iris model. Further technical details were discussed in our [earlier report](/article/openai/gpt-5-6-iris-june-launch-leak/).\n\nMarket participants have already turned their attention to June. On the prediction platform [Polymarket](https://polymarket.com/event/when-will-gpt-5pt6-be-released), as of June 2, the implied probability of a June 8–14 launch stands at 68.5%, with bets heavily concentrated in that specific week. The cumulative probability rises to 77% by June 15 and reaches 93% by the end of the month. Traders are even interpreting a minor update to GPT-5.5 on May 28 as an indication of continuous, active development.\n\nThese two developments point to a busy June for OpenAI. While the pricing page prematurely exposed GPT-5.5-Codex-Spark, Polymarket and backend logs simultaneously point to a June release. Whether OpenAI intends to announce both models concurrently remains to be seen, but the pricing page updates and market sentiment strongly suggest that the company’s next significant move will occur this month."
+    }
+  ]
+}
