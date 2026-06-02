@@ -1,0 +1,162 @@
+{
+  "slug": "anthropic-mythos-eu-access-expansion",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "anthropic",
+  "title": "앤트로픽, 클로드 미토스 EU에 개방… 일반 출시 임박",
+  "titleEn": "Anthropic Opens Claude Mythos to the EU",
+  "date": "",
+  "thumbnail": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/06/01/Anthropic-scaled.jpg",
+  "keywords": "클로드 미토스, ENISA, 미토스 일반 공개, EU AI법",
+  "keywordsEn": "Claude Mythos, ENISA, cybersecurity, Mythos access",
+  "summary": "앤트로픽이 6월 1일 EU 사이버보안청(ENISA)에 최상위 모델 '클로드 미토스'의 접근권을 제안했다. 이는 일반 공개가 임박한 상황에서 EU 기관을 대상으로 한 첫 협력 사례다.",
+  "summaryEn": "Anthropic offered the EU's cybersecurity agency ENISA access to its top model Claude Mythos on June 1, the first EU body to get it, as a wider rollout nears.",
+  "sources": [
+    {
+      "name": "CNBC",
+      "title": "Anthropic to offer EU access to its advanced Mythos model",
+      "url": "https://www.cnbc.com/2026/06/01/anthropic-eu-ai-mythos-access-advanced-model.html"
+    },
+    {
+      "name": "Politico",
+      "title": "Anthropic invites EU to access Mythos hacking tech",
+      "url": "https://www.politico.eu/article/anthropic-invites-eu-to-access-mythos-hacking-tech/"
+    },
+    {
+      "name": "Reuters",
+      "title": "Anthropic to roll out Claude Mythos in coming weeks, launches Opus 4.8",
+      "url": "https://www.reuters.com/business/anthropic-roll-out-claude-mythos-coming-weeks-launches-opus-48-2026-05-28/"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "Anthropic to Give EU's Cybersecurity Agency Access to Mythos",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-01/anthropic-to-give-eu-s-cybersecurity-agency-access-to-mythos"
+    },
+    {
+      "name": "The New York Times",
+      "title": "Anthropic Claims Its New AI Model Mythos Is a Cybersecurity Reckoning",
+      "url": "https://www.nytimes.com/2026/04/07/technology/anthropic-claims-its-new-ai-model-mythos-is-a-cybersecurity-reckoning.html"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-mythos-launch-imminent-signals",
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/anthropic-confidential-s1-ipo",
+    "tech:ai/anthropic-900b-surpasses-openai"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 그동안 글래스윙을 통해 극소수 파트너에게만 제한적으로 제공하던 최상위 AI 모델 '클로드 미토스(Claude Mythos)'를 유럽연합(EU)에 처음으로 개방한다. [블룸버그](https://www.bloomberg.com/news/articles/2026-06-01/anthropic-to-give-eu-s-cybersecurity-agency-access-to-mythos)는 앤트로픽이 6월 1일(현지시간) EU 사이버보안청(ENISA)에 미토스의 접근 권한을 제안했다고 보도했다. 성사된다면 EU 기관 중 최초의 도입 사례가 된다.\n\n이번 공급 확대는 유럽 규제기관에만 국한되지 않는다. 앤트로픽은 지난 5월 28일 오퍼스 4.8을 정식 출시하며, 미토스급 모델을 수 주 안에 일반 고객 전체로 확대하겠다고 발표했다. 약 두 달간 굳게 닫혀 있던 미토스의 빗장이 보안 당국과 일반 시장 양쪽에서 풀리는 모양새다.\n\n다만 두 흐름은 성격이 완전히 다르다. ENISA와의 협력은 규제와 방어를 목적으로 설계된 통제된 접근권 제공인 반면, 일반 공개는 상업적 출시라는 별도의 트랙을 따른다. 이번 소식의 핵심은 두 트랙 사이의 경계를 명확히 구분하는 데 있다."
+    },
+    {
+      "type": "heading",
+      "value": "EU 최초의 관문이 된 ENISA"
+    },
+    {
+      "type": "text",
+      "value": "유럽 규제기관과의 협력은 앤트로픽의 사이버 보안 방어 프로젝트인 '글래스윙(Glasswing)'을 통해 추진된다. ENISA는 유럽위원회와 수 주 동안 논의를 거친 끝에 이 글래스윙 프로젝트에 참여하는 첫 번째 EU 기관으로 이름을 올리게 됐다.\n\n계약이 완전히 마무리된 단계는 아니다. [폴리티코](https://www.politico.eu/article/anthropic-invites-eu-to-access-mythos-hacking-tech/)는 접근 권한 제안서가 전달되었으나 세부 조건은 여전히 조율 중이라고 전했다. 미토스의 구체적인 사용 범위와 안전장치, 실제 적용 시점 등은 여전히 협상 테이블 위에 남아 있다.\n\n분명한 점은 이번 접근권 부여가 일반 공개와 무관하다는 사실이다. 대상은 유럽의 보안 당국이며, 용도는 주요 소프트웨어와 기간 인프라의 취약점을 분석하고 차단하는 방어 목적으로 제한된다. 유럽의 일반 기업이나 소비자가 미토스를 즉시 활용할 수 있게 된 것은 아니다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "앤트로픽이 미토스를 봉인한 이유"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/8831fc381f1087ce855b4fbb4f080b2685ea38ec-1200x630.jpg",
+      "caption": "앤트로픽 프로젝트 글래스윙 키 아트",
+      "alt": "검은 배경에 흰색 그물망이 펼쳐진 추상 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 미토스의 용도를 방어용으로 묶어둔 까닭은 이 모델이 지닌 강력한 공격력 때문이다. 지난 4월 7일 클로드 미토스의 프리뷰 버전이 공개됐을 당시, 앤트로픽은 시스템이 스스로 소프트웨어 취약점을 찾아내고 제로데이 취약점을 악용할 수 있다는 점을 우려해 일반 출시를 유보했다.\n\n당시 [뉴욕타임스](https://www.nytimes.com/2026/04/07/technology/anthropic-claims-its-new-ai-model-mythos-is-a-cybersecurity-reckoning.html)는 미토스의 등장을 사이버 보안 분야의 중대한 분기점으로 평가했다. 만약 이 모델이 악의적인 목적으로 악용될 경우 대규모 사이버 공격으로 이어질 수 있다는 우려가 그만큼 깊었기 때문이다.\n\n이에 따라 앤트로픽은 글래스윙 프로젝트를 도입해 유통 경로를 통제했다. 프리뷰 권한은 애플, 마이크로소프트, 구글, AWS, 엔비디아, 크라우드스트라이크, JP모건 등 약 50개 파트너에만 제공되었으며 이들의 대부분은 미국 기업이었다. 시장 전체에 기술을 풀기 전에 방어 진영에 먼저 무기를 제공하겠다는 글래스윙 전략이었다."
+    },
+    {
+      "type": "heading",
+      "value": "유럽 배제와 오픈AI의 틈새 공략"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/04/Mythos-Europe-AISI.png",
+      "caption": "유럽 지도 위 자물쇠와 눈을 가린 인물을 그린 일러스트",
+      "alt": "클로드 미토스 접근에서 소외된 유럽을 묘사한 편집 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "하지만 초기 글래스윙 참가 기업 명단에서 유럽은 사실상 배제되어 있었다. 지난 4월과 5월 내내 ENISA와 유럽위원회 모두 미토스에 접근조차 하지 못했다. 영국 AI 안전연구소와 독일 일부 기관이 제한적으로 접근했을 뿐, EU의 핵심 의사결정 기구들은 철저히 배제된 상태였다.\n\n이 공백을 경쟁사인 오픈AI가 파고들었다. [CNBC](https://www.cnbc.com/2026/06/01/anthropic-eu-ai-mythos-access-advanced-model.html) 보도에 따르면 EU는 이미 5월에 오픈AI의 보안 전문 모델인 'GPT-5.5-Cyber'의 접근 권한을 획득했다. 앤트로픽이 철문으로 걸어 잠근 사이 경쟁사가 규제 당국의 손을 먼저 잡은 것이다.\n\n미국 정부의 지정학적 고려도 앤트로픽의 발목을 잡았다. 앤트로픽은 기술 공유를 위해 미국 정부의 승인이 필요하다고 유럽위원회에 설명했으며, 미국 행정부는 기술 패권 유지를 위해 외국 정부와의 모델 공유에 소극적였다. 이번 ENISA 권한 제안은 EU가 미국 행정부와의 고위급 접촉을 강화한 끝에 얻어낸 돌파구다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "다가오는 공개 트랙과 EU AI법"
+    },
+    {
+      "type": "text",
+      "value": "수 주 안에 예정된 일반 출시 트랙은 보안 당국 전용 트랙과 완전히 결을 달리한다. 지난 5월 28일 발표된 일반 공개 계획은 일반 개발자용 API와 클로드 가입자를 대상으로 한다. 다만 앤트로픽은 미토스급 모델을 대중에 배포하기 위해서는 훨씬 더 강력한 안전장치가 필요하다며, 최종 출시 시점은 이 안전기준의 충족 여부에 달려 있다고 덧붙였다.\n\n유럽의 규제 환경도 변수다. EU AI법은 시스템적 위험을 유발할 수 있는 범용 AI 모델에 매우 엄격한 의무를 부과한다. 자율적인 공격 기능을 갖춘 클로드 미토스는 이 규제 대상에 포함될 가능성이 높으며, EU AI법의 핵심 조항은 오는 8월부터 효력을 발휘한다. 미토스의 시장 안착 여부가 EU AI법의 첫 검증대가 되는 구도다.\n\n결과적으로 이번 ENISA 접근권 제공은 전면적인 공개가 아닌, 단계적인 개방의 서막이다. [앞선 기사](/ko/article/anthropic/claude-mythos-launch-imminent-signals/)에서 보도한 것처럼 일반 사용자 대상 출시설이 무르익고 있지만, 유럽에서는 글래스윙을 통해 규제기관을 먼저 진입시키는 신중한 경로를 택했다. 빗장은 열리기 시작했으나, 개방의 속도와 폭은 결국 기술 안전기준과 규제 장벽이 결정할 전망이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic has offered the European Union access to Claude Mythos, its premier model previously restricted to a select group of partners. On June 1, [Bloomberg](https://www.bloomberg.com/news/articles/2026-06-01/anthropic-to-give-eu-s-cybersecurity-agency-access-to-mythos) reported that Anthropic proposed granting Mythos access to the EU Agency for Cybersecurity (ENISA), making it the first EU body poised to receive the model.\n\nThis expansion extends beyond European regulators. On May 28, Anthropic announced plans to deploy Mythos-class models to all customers \"in the coming weeks\" alongside the launch of Opus 4.8. The moves mark the easing of access restrictions that had remained in place for nearly two months.\n\nHowever, the two initiatives represent distinct tracks. The ENISA agreement provides controlled access tailored for regulatory and defensive operations, whereas the upcoming release is a separate commercial rollout. Understanding the boundaries between these tracks is crucial to analyzing the development."
+    },
+    {
+      "type": "heading",
+      "value": "ENISA as the First EU Gateway"
+    },
+    {
+      "type": "text",
+      "value": "The European regulatory track operates under Glasswing, Anthropic's defensive cybersecurity initiative. ENISA is set to become the first EU institution to participate in the program following weeks of negotiations with the European Commission.\n\nThe arrangement has not yet been finalized. [Politico](https://www.politico.eu/article/anthropic-invites-eu-to-access-mythos-hacking-tech/) reported that while the offer has been made, the formal terms remain under negotiation. The precise scope of use, safety protocols, and the deployment schedule are still being resolved.\n\nCrucially, this partnership does not constitute a public launch. Access is restricted to an EU cybersecurity authority solely for defensive purposes, specifically to identify and remediate vulnerabilities in critical software and infrastructure. The agreement does not permit immediate commercial use by European enterprises or consumers."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Why Anthropic Restricted Mythos"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/8831fc381f1087ce855b4fbb4f080b2685ea38ec-1200x630.jpg",
+      "caption": "Anthropic's Project Glasswing key art",
+      "alt": "Abstract monochrome web-pattern key art on a black background"
+    },
+    {
+      "type": "text",
+      "value": "The decision to restrict access to defensive applications stems from the model's offensive capabilities. When Anthropic introduced the preview of Claude Mythos on April 7, it deferred a general release, citing concerns over the system's ability to autonomously identify software vulnerabilities and exploit zero-day flaws.\n\n[The New York Times](https://www.nytimes.com/2026/04/07/technology/anthropic-claims-its-new-ai-model-mythos-is-a-cybersecurity-reckoning.html) characterized the preview as a pivotal moment for cybersecurity, reflecting deep concerns that misuse of the model could facilitate systemic cyberattacks.\n\nConsequently, Anthropic established the Glasswing initiative to control distribution. It provided the preview to only about 50 select entities—including Apple, Microsoft, Google, AWS, Nvidia, CrowdStrike, and JPMorgan—the vast majority of which are U.S. corporations. Rather than pursuing a broad release, the strategy aimed to equip defensive teams first."
+    },
+    {
+      "type": "heading",
+      "value": "Europe Excluded as OpenAI Advances"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/04/Mythos-Europe-AISI.png",
+      "caption": "Illustration of a padlock over a map of Europe",
+      "alt": "Illustration of Europe locked out of Claude Mythos access"
+    },
+    {
+      "type": "text",
+      "value": "However, European entities were noticeably absent from the initial Glasswing roster. Throughout April and May, neither ENISA nor the European Commission was granted access to Mythos. While the UK AI Safety Institute and select German agencies secured early access, the core EU institutions remained excluded.\n\nThis exclusion created an opportunity for OpenAI. According to [CNBC](https://www.cnbc.com/2026/06/01/anthropic-eu-ai-mythos-access-advanced-model.html), the EU secured access to OpenAI's 'GPT-5.5-Cyber' cybersecurity model in May, allowing a key competitor to establish a foothold while Anthropic kept its gates closed.\n\nGeopolitical friction also slowed Anthropic's deployment. The company informed the Commission that sharing the technology required U.S. government authorization, but Washington, aiming to preserve domestic AI advantages, resisted sharing the model with foreign administrations. The June 1 offer to ENISA represents a breakthrough that followed direct diplomatic engagement between EU officials and the U.S. administration."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "The Dual Tracks and the EU AI Act"
+    },
+    {
+      "type": "text",
+      "value": "Consequently, the upcoming broader release serves a different market. Independent of the ENISA track, the commercial expansion announced on May 28 will target general API and Claude subscribers. However, Anthropic noted that deploying a model of this caliber demands advanced safety protocols, making the final release timeline dependent on the completion of these safeguards.\n\nRegulatory compliance presents another hurdle. The EU AI Act mandates strict requirements for general-purpose AI models that pose systemic risks. Claude Mythos, given its autonomous offensive capabilities, will likely fall under these rules. The core provisions of the EU AI Act take effect in August. As a result, the model's deployment serves as a major test case for the EU AI Act.\n\nUltimately, the agreement with ENISA is an incremental step rather than a full market launch. While rumors of a public release have intensified, as detailed in our [prior report](/article/anthropic/claude-mythos-launch-imminent-signals/), Anthropic has prioritized regulatory alignment in Europe. The restrictions are beginning to ease, but the ultimate pace and scope of the rollout will hinge on both safety benchmarks and EU AI Act compliance."
+    }
+  ],
+  "site": "aiscroll"
+}
