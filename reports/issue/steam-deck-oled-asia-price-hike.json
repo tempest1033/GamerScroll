@@ -1,0 +1,129 @@
+{
+  "slug": "steam-deck-oled-asia-price-hike",
+  "status": "approved",
+  "site": "gamerscroll",
+  "date": "",
+  "title": "스팀덱 OLED 아시아 가격 또 인상…국내 1TB 158만 원",
+  "summary": "유통사 코모도가 6월 1일부로 아시아 4개 지역의 스팀덱 OLED 가격을 인상했다. 올해 들어 두 번째 인상으로, 한국 1TB 모델 가격은 출시가 대비 51% 폭등한 157만 8,000원에 달한다.",
+  "keywords": [
+    "스팀덱 OLED",
+    "스팀덱 가격 인상",
+    "코모도",
+    "스팀덱 한국 가격",
+    "휴대용 게이밍 PC"
+  ],
+  "thumbnail": "https://static.tweaktown.com/news/1/1/111958_1_steam-deck-oled-gets-price-hike-in-asia-with-the-1tb-variant-now-being-51-more-expensive_full.jpg",
+  "relatedDocs": [
+    "issue:steam-deck-oled-price-hike-may-2026",
+    "issue:gaming-device-price-surge-ai-tariff",
+    "issue:ddr5-price-surge-gaming-nightmare",
+    "issue:ps5-price-hike-april-sales-drop"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "KOMODO Station 공식 공지",
+      "url": "https://komodostation.com/2026/06/01/steam-deck-oled-pricing-update-in-japan-south-korea-taiwan-and-hong-kong/?lang=ko"
+    },
+    {
+      "name": "KOMODO Station (3월 인상 공지)",
+      "url": "https://komodostation.com/2026/02/27/steam-deck-oled-pricechange/?lang=ko"
+    },
+    {
+      "name": "VideoCardz",
+      "url": "https://videocardz.com/newz/steam-deck-oled-gets-another-price-increase-in-asia-1tb-model-up-by-51-in-korea"
+    },
+    {
+      "name": "TweakTown",
+      "url": "https://www.tweaktown.com/news/111958/steam-deck-oled-gets-a-price-hike-in-asia-with-the-1tb-variant-now-being-51-percent-more-expensive/index.html"
+    },
+    {
+      "name": "SteamDeckHQ",
+      "url": "https://steamdeckhq.com/news/steam-deck-oled-pricing-increases-in-asia-again/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "밸브(Valve)의 아시아 공식 하드웨어 유통사인 코모도(KOMODO)가 6월 1일부로 스팀덱 OLED 가격을 일제히 인상했다. 한국·일본·대만·홍콩 등 아시아 4개 지역이 대상이며, 한국의 경우 1TB 모델 가격이 157만 8,000원까지 치솟았다.\n\n가장 큰 문제는 인상 주기다. 코모도는 지난 3월 6일 가격을 올린 지 불과 3개월 만에 또다시 스팀덱 가격 인상에 나섰다. 올해 들어서만 벌써 두 번째 조정인 셈이다. 게다가 지난 3월 인상 대상에서 제외됐던 홍콩마저 이번 인상 명단에 포함됐다."
+    },
+    {
+      "type": "heading",
+      "value": "스팀덱 한국 가격, 1TB 158만 원선 육박"
+    },
+    {
+      "type": "image",
+      "src": "https://steamdeckhq.com/wp-content/uploads/2023/03/SDAsia-1024x575.jpg",
+      "caption": "코모도가 담당하는 일본·한국·대만·홍콩의 스팀덱 OLED",
+      "alt": "스팀덱 OLED를 들고 있는 손과 일본·대만·홍콩 도시 전경"
+    },
+    {
+      "type": "text",
+      "value": "코모도가 발표한 스팀덱 OLED 지역별 신규 가격은 다음과 같다. 아시아 4개 지역에서 512GB와 1TB 모델 가격이 모두 조정됐다."
+    },
+    {
+      "type": "table",
+      "caption": "스팀덱 OLED 지역별 신규 가격 (2026년 6월 1일 적용)",
+      "headers": [
+        "지역",
+        "512GB",
+        "1TB"
+      ],
+      "rows": [
+        [
+          "일본",
+          "JPY 137,980",
+          "JPY 167,980"
+        ],
+        [
+          "한국",
+          "KRW 1,298,000",
+          "KRW 1,578,000"
+        ],
+        [
+          "대만",
+          "TWD 26,280",
+          "TWD 31,800"
+        ],
+        [
+          "홍콩",
+          "HKD 6,488",
+          "HKD 7,788"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "지난 3월 인상가와 비교하면 512GB 모델은 일본·대만에서 38%, 한국에서 45% 올랐다. 특히 1TB 모델은 일본 46%, 대만 41%, 한국 51%의 인상률을 기록하며 단일 모델 중 가장 큰 폭으로 치솟았다.\n\n국내 소비자가 체감하는 부담은 더욱 무겁다. 512GB 모델은 기존 89만 8,000원에서 129만 8,000원으로, 1TB 모델은 104만 8,000원에서 157만 8,000원으로 변경됐다. 두 모델 모두 단번에 40만~53만 원씩 올랐다. 스팀덱 한국 가격이 단숨에 출시가의 1.5배 안팎까지 치솟은 셈이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "코모도, 3개월 만의 추가 인상…홍콩도 합류"
+    },
+    {
+      "type": "image",
+      "src": "https://komodostation.com/wp-content/uploads/2023/11/social_media_image.png",
+      "caption": "스팀덱 OLED 본체",
+      "alt": "검은색 게임기 정면 모습"
+    },
+    {
+      "type": "text",
+      "value": "이처럼 단기간에 가격이 폭등한 배경에는 잇따른 인상이 자리 잡고 있다. 지난 3월 한국·일본·대만 가격을 올린 코모도는 이번에 홍콩까지 포함해 4개 지역의 가격 수준을 맞췄다. 지난 인상을 비껴갔던 홍콩은 이번 조치로 출시 가격 대비 512GB는 41%, 1TB는 42%나 가격이 올랐다.\n\n인상 배경에 대해 코모도 측은 이전과 마찬가지로 물류비 상승과 환율 변동을 꼽았다. 다만 이번에는 메모리와 저장장치 등 부품 가격 급등이 주요 변수로 추가됐다. 밸브가 [지난 5월 27일 미국 가격을 최대 46% 올린](/magazine/issue/steam-deck-oled-price-hike-may-2026/) 이유와도 맞닿아 있다. 인공지능(AI) 수요 폭증으로 낸드플래시 가격이 치솟으면서 휴대용 게이밍 PC 한 대를 만드는 제조 원가 자체가 뛴 결과다([비디오카드즈](https://videocardz.com/newz/steam-deck-oled-gets-another-price-increase-in-asia-1tb-model-up-by-51-in-korea))."
+    },
+    {
+      "type": "heading",
+      "value": "흔들리는 가성비, 로그 엘라이 X가 웃는다"
+    },
+    {
+      "type": "text",
+      "value": "이번 스팀덱 가격 인상으로 그동안 스팀덱 OLED를 시장 선두로 이끌었던 '가성비'의 강점도 크게 퇴색했다. 인상된 가격대에서는 에이수스(ASUS)의 최신 휴대용 게이밍 PC '로그 엘라이 X(ROG Ally X)' 등 경쟁 기기와의 가격 차이가 대폭 좁혀지기 때문이다.\n\n설상가상으로 두 모델 모두 현재 코모도 공식 홈페이지에서 품절 상태다. 코모도는 알림 설정(위시리스트 등록)을 하고 공식 채널의 재입고 안내를 기다려 달라고 공지했다. 가격은 올랐는데 제품을 구매할 수도 없는 품귀 현상이 이어지면서, 경쟁 제품들이 시장을 파고들 여지는 더욱 넓어질 전망이다."
+    },
+    {
+      "type": "ad"
+    }
+  ]
+}
