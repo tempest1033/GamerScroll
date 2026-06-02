@@ -391,6 +391,20 @@
       "type": "thumbnail.webp",
       "failedAt": "2026-05-30T12:28:13.289Z",
       "error": "HTTP 404: https://newsroom.intel.com/wp-content/uploads/sites/11/2026/05/Intel-Arc-G-Series-1.jpg"
+    },
+    {
+      "url": "https://static.tweaktown.com/news/1/1/111958_1_steam-deck-oled-gets-price-hike-in-asia-with-the-1tb-variant-now-being-51-more-expensive_full.jpg",
+      "slug": "steam-deck-oled-asia-price-hike",
+      "type": "thumbnail.webp",
+      "failedAt": "2026-06-02T19:25:57.662Z",
+      "error": "HTTP 403: https://static.tweaktown.com/news/1/1/111958_1_steam-deck-oled-gets-price-hike-in-asia-with-the-1tb-variant-now-being-51-more-expensive_full.jpg"
+    },
+    {
+      "url": "https://komodostation.com/wp-content/uploads/2023/11/social_media_image.png",
+      "slug": "steam-deck-oled-asia-price-hike",
+      "type": "02.webp",
+      "failedAt": "2026-06-02T19:25:58.170Z",
+      "error": "HTTP 403: https://komodostation.com/wp-content/uploads/2023/11/social_media_image.png"
     }
   ]
 }
