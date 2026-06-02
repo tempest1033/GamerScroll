@@ -3,7 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
-  "date": "",
+  "date": "2026-06-02T20:30Z",
   "needTranslate": false,
   "title": "MS, 첫 자체 추론 AI 모델 'MAI-Thinking-1' 공개",
   "titleEn": "Microsoft Unveils Reasoning Model MAI-Thinking-1",
@@ -69,12 +69,32 @@
     {
       "type": "table",
       "caption": "MAI-Thinking-1 성능 비교 (마이크로소프트 공식 발표 기준)",
-      "headers": ["평가 항목", "MAI-Thinking-1", "비교 대상"],
+      "headers": [
+        "평가 항목",
+        "MAI-Thinking-1",
+        "비교 대상"
+      ],
       "rows": [
-        ["구조", "MoE · 활성 350억 / 총 약 1조", "—"],
-        ["SWE-Bench Pro (코딩)", "오푸스 4.6과 대등", "오푸스 4.6: 51.9*"],
-        ["블라인드 선호도", "소네트 4.6과 동률", "소네트 4.6"],
-        ["고급 수학", "동급 선두권과 대등", "—"]
+        [
+          "구조",
+          "MoE · 활성 350억 / 총 약 1조",
+          "—"
+        ],
+        [
+          "SWE-Bench Pro (코딩)",
+          "오푸스 4.6과 대등",
+          "오푸스 4.6: 51.9*"
+        ],
+        [
+          "블라인드 선호도",
+          "소네트 4.6과 동률",
+          "소네트 4.6"
+        ],
+        [
+          "고급 수학",
+          "동급 선두권과 대등",
+          "—"
+        ]
       ]
     },
     {
@@ -146,12 +166,32 @@
     {
       "type": "table",
       "caption": "MAI-Thinking-1 performance, per Microsoft's stated claims",
-      "headers": ["Benchmark", "MAI-Thinking-1", "Reference"],
+      "headers": [
+        "Benchmark",
+        "MAI-Thinking-1",
+        "Reference"
+      ],
       "rows": [
-        ["Architecture", "MoE · 35B active / ~1T total", "—"],
-        ["SWE-Bench Pro (coding)", "On par with Claude Opus 4.6", "Opus 4.6: 51.9*"],
-        ["Blind preference", "Even with Claude Sonnet 4.6", "Sonnet 4.6"],
-        ["Advanced math", "Among class leaders", "—"]
+        [
+          "Architecture",
+          "MoE · 35B active / ~1T total",
+          "—"
+        ],
+        [
+          "SWE-Bench Pro (coding)",
+          "On par with Claude Opus 4.6",
+          "Opus 4.6: 51.9*"
+        ],
+        [
+          "Blind preference",
+          "Even with Claude Sonnet 4.6",
+          "Sonnet 4.6"
+        ],
+        [
+          "Advanced math",
+          "Among class leaders",
+          "—"
+        ]
       ]
     },
     {
