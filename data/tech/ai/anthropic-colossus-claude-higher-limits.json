@@ -1,0 +1,140 @@
+{
+  "slug": "anthropic-colossus-claude-higher-limits",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "앤트로픽, 콜로서스로 클로드 한도 2배…비용 논란 대응",
+  "titleEn": "Anthropic Doubles Claude Limits With Colossus",
+  "summary": "앤트로픽이 스페이스X의 '콜로서스 1' 데이터센터 컴퓨팅 용량 전체를 확보하고 클로드 사용 한도를 2배로 늘렸다. 지난 몇 달간 이어진 비용 및 사용량 제한 논란에 대응한 조치다.",
+  "summaryEn": "Anthropic secured all of SpaceX's Colossus 1 capacity and doubled Claude's usage limits, answering months of cost and rate-limit complaints.",
+  "keywords": "앤트로픽 콜로서스, 클로드 사용 한도, 클로드 한도 2배, 콜로서스 1, 클로드 코드",
+  "keywordsEn": "Anthropic Colossus, Claude usage limits, Claude rate limits, SpaceX compute capacity, Colossus 1",
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/NaeKbhgsdAyAekHkZv8mPW-1600-80.jpg",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Higher usage limits for Claude and a compute deal with SpaceX",
+      "url": "https://www.anthropic.com/news/higher-limits-spacex"
+    },
+    {
+      "name": "CNBC",
+      "title": "Anthropic to use SpaceX data center capacity",
+      "url": "https://www.cnbc.com/2026/05/06/anthropic-spacex-data-center-capacity.html"
+    },
+    {
+      "name": "The Wall Street Journal",
+      "title": "Anthropic Inks Deal to Use All of SpaceX's Colossus 1 Capacity",
+      "url": "https://www.wsj.com/tech/ai/anthropic-inks-deal-to-use-all-of-spacexs-colossus-1-compute-capacity-56a7e2a1"
+    },
+    {
+      "name": "Forbes",
+      "title": "Anthropic's Pricing Issues With Glitching Claude Code Limits",
+      "url": "https://www.forbes.com/sites/johnkoetsier/2026/03/26/anthropic-huge-pricing-issues-with-glitching-claude-code-limits/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "April 23 Postmortem",
+      "url": "https://www.anthropic.com/engineering/april-23-postmortem"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-outage-demand-surge-pentagon",
+    "tech:ai/claude-opus-46-pricing-controversy",
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/anthropic-mythos-eu-access-expansion"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "인공지능(AI) 스타트업 앤트로픽이 지난 5월 6일 스페이스X로부터 '콜로서스 1(Colossus 1)' 데이터센터의 컴퓨팅 용량 전체를 확보했다고 발표했다. 미국 멤피스에 위치한 이 시설은 엔비디아 GPU 22만 장과 300메가와트(MW) 이상의 전력 인프라를 갖춘 세계 최대 규모의 AI 슈퍼컴퓨터다.\n\n계약 체결과 동시에 앤트로픽은 클로드 프로·맥스·팀·엔터프라이즈 요금제의 5시간 사용 한도를 기존 대비 2배로 늘렸다. 아울러 프로와 맥스 요금제에 적용되던 평일 피크시간대 속도 제한(스로틀링)도 전면 폐지했다. 그동안 사용량 제한이 지나치게 빡빡하고 비용 부담이 크다는 사용자 불만이 지속되자 정면 대응에 나선 모양새다."
+    },
+    {
+      "type": "heading",
+      "value": "콜로서스 클러스터로 인프라 병목 해소"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.thenewstack.io/media/2026/05/d37751fc-anthropic-colossus.webp",
+      "caption": "대규모 AI 데이터센터에 늘어선 GPU 서버 랙",
+      "alt": "콜로서스 1 규모의 데이터센터 GPU 서버 랙 행렬"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 대규모 컴퓨팅 용량을 확보하게 된 배경에는 스페이스X의 xAI 인수가 자리하고 있다. xAI가 자체 모델 훈련 작업을 신규 시설인 콜로서스 2로 이전하면서 멤피스의 콜로서스 1 클러스터가 완전히 비게 되었고, 이를 앤트로픽이 단독 임차하며 빈자리를 채웠다.\n\n다만 이 클러스터는 H100, H200, 블랙웰(Blackwell) 등 서로 다른 칩이 혼재된 구조라 대규모 모델 훈련에는 효율성이 떨어진다. 이에 따라 앤트로픽은 콜로서스 1을 모델 훈련이 아닌 추론, 즉 사용자 질문에 실시간으로 답변하는 서비스 지원용으로 활용하기로 했다. 기존 한도 부족의 핵심 요인이던 서버 처리 능력 자체를 키운 대책이다.\n\n서비스 한도 규정도 즉각 변경됐다. 5시간 사용량 2배 확대와 피크시간대 제한 해제 외에도 API의 오푸스(Opus) 한도가 동반 상승했다. 특히 5월 13일부터 7월 13일까지는 코딩 도구인 클로드 코드(Claude Code)의 주간 한도가 50% 추가 제공된다. 이 혜택은 [공식 발표](https://www.anthropic.com/news/higher-limits-spacex) 시점부터 모든 요금제 사용자의 계정에 자동 적용됐다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "3월의 사용량 제한 사태와 4월의 공식 사과"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
+      "caption": "앤트로픽 클로드의 브랜드 로고",
+      "alt": "크림색 배경 위의 별 모양 심볼과 글자 로고"
+    },
+    {
+      "type": "text",
+      "value": "이번 한도 조치는 앞서 제기된 사용자들의 거센 불만을 의식한 결과다. 지난 3월 클로드 코드를 이용하던 개발자들 사이에서는 5시간 한도가 코딩 작업 몇 번 만에 소진된다는 비판이 빗발쳤다. 프롬프트 하나를 입력했을 때 세션 허용량의 절반 이상이 차감되거나, 사용량이 적음에도 제한이 걸리는 버그가 끊이지 않았다.\n\n특히 평일 오전 피크시간대에 속도 저하가 집중되면서 불만이 증폭됐다. [포브스](https://www.forbes.com/sites/johnkoetsier/2026/03/26/anthropic-huge-pricing-issues-with-glitching-claude-code-limits/)는 20달러 수준의 프로 요금제부터 200달러에 달하는 맥스 요금제 사용자까지, 고가 비용을 지불하고도 오히려 품질이 저하되었다며 항의했다고 보도했다. 앤트로픽은 3월 26일이 되어서야 피크시간대 강제 조정 조치를 공식 인정했다.\n\n사후 수습은 4월부터 진행됐다. 앤트로픽은 [4월 23일 포스트모템](https://www.anthropic.com/engineering/april-23-postmortem)을 통해 서비스 품질 저하와 사용 제한 차감 버그의 원인으로 내부 실험과 시스템 오류를 지목하고, 보상 조치로 구독자의 한도를 일괄 초기화했다. 이 같은 한도 부족 대란의 기저에는 폭발적인 수요 증가를 인프라가 감당하지 못한 사정이 깔려 있었음이 이전의 [대규모 서비스 장애](/ko/article/anthropic/claude-outage-demand-surge-pentagon/) 과정에서 증명된 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "신뢰 회복 위해 월 12억 5천만 달러 지출"
+    },
+    {
+      "type": "text",
+      "value": "결국 이번 조치는 단순한 고객 우대 혜택이 아닌, 천문학적인 재정 투입을 단행한 결과다. 외신 보도에 따르면 앤트로픽은 콜로서스 1 임대 비용으로 스페이스X에 매월 약 12억 5,000만 달러를 지급하는 것으로 알려졌다. 계약이 2029년 5월까지 유지될 경우 총 임차료는 400억 달러를 상회한다. 다만 일론 머스크는 초기 계약이 연장 옵션이 부여된 6개월 임대 구조라고 부연했다.\n\n계약의 세부 조항과 무관하게 서비스 품질 개선 체감 효과는 뚜렷하다. 한도 확대 이후 커뮤니티에서는 실제 업무에 활용하기 원활해졌다는 긍정적인 반응이 이어지고 있다. 특히 그달 말 출시된 [오푸스 4.8](/ko/article/anthropic/claude-opus-4-8-launch/)이 요금을 올리지 않고 기존 가격을 유지하자 이용자 신뢰는 더욱 굳건해졌다.\n\n그러나 극복해야 할 과제는 남아 있다. 6월 1일에도 소넷 4.6과 오푸스 4.7 서버에서 일시적인 접속 오류가 관측되었으며, 천문학적인 임차료를 장기적으로 감당할 수 있을지에 대한 의구심도 여전하다. 6월 2일 현재 상태 페이지는 정상 작동을 알리고 있으나, 거액을 들여 확보한 시간 동안 앤트로픽이 자생적인 인프라를 구축할 수 있을지가 다음 관심사다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic announced on May 6 that it has secured the entire compute capacity of SpaceX's Colossus 1 data center. Located in Memphis, the facility is one of the world's largest artificial intelligence supercomputers, equipped with over 220,000 Nvidia GPUs and more than 300 megawatts of power.\n\nFollowing the agreement, Anthropic doubled the five-hour usage limits for Claude Pro, Max, Team, and Enterprise, and eliminated the peak-hour throttling previously applied to Pro and Max tiers. The move directly addresses long-standing user complaints that Claude's rate limits and usage caps were excessively restrictive and expensive."
+    },
+    {
+      "type": "heading",
+      "value": "Colossus Cluster Resolves Compute Bottleneck"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.thenewstack.io/media/2026/05/d37751fc-anthropic-colossus.webp",
+      "caption": "GPU server racks in a large AI data center",
+      "alt": "Rows of GPU server racks at a Colossus 1-scale data center"
+    },
+    {
+      "type": "text",
+      "value": "To trace the source of this compute capacity, one must look to SpaceX's acquisition of xAI. As xAI migrated its training workloads to the newer Colossus 2 facility, the Memphis-based Colossus 1 cluster was freed entirely, allowing Anthropic to step in as the sole tenant.\n\nHowever, because the cluster features a heterogeneous mix of H100, H200, and Blackwell chips, it is highly inefficient for training large-scale models. Consequently, Anthropic is deploying Colossus 1 specifically for inference—serving real-time responses to Claude users—rather than training. This directly expands the core processing throughput that had driven the previous rate limits and capacity constraints.\n\nThe expansion immediately updated the service's limit schedules. In addition to doubling the five-hour caps and removing peak-hour throttling, Anthropic raised API limits for Opus. From May 13 through July 13, Claude Code weekly limits will also receive a 50% increase. The adjustments took effect automatically across all subscription plans upon the [official announcement](https://www.anthropic.com/news/higher-limits-spacex)."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "March Limit Shortages Lead to April Apology"
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/miP5cemYnLJaXuUhVtW0LMDZCJQ=/1782x/article-new/2025/09/anthopic-claude.jpg",
+      "caption": "The Claude brand logo from Anthropic",
+      "alt": "A starburst symbol and wordmark on a cream background"
+    },
+    {
+      "type": "text",
+      "value": "The aggressive limit expansion reflects the intensity of prior user dissatisfaction. In March, Claude Code users reported that the five-hour usage cap could be exhausted within just a few coding iterations. A single prompt could consume more than half of a session's allotment, and rate limits frequently triggered even when user dashboards indicated low activity.\n\nThrottling was particularly severe during weekday morning peak hours. [Forbes](https://www.forbes.com/sites/johnkoetsier/2026/03/26/anthropic-huge-pricing-issues-with-glitching-claude-code-limits/) reported that across all subscription tiers—from the $20 Pro plan to the $200 Max tier—users complained of paying premium rates for deteriorating service quality. Anthropic formally acknowledged the peak-hour adjustments on March 26.\n\nRemediation efforts began in April. In its [April 23 postmortem](https://www.anthropic.com/engineering/april-23-postmortem), Anthropic attributed the quality degradation and rapid limit exhaustion to system experiments and software bugs, subsequently resetting subscription limits as a goodwill gesture. That these challenges stemmed from an inability to meet surging demand was already evident during the widespread [service outage](/article/anthropic/claude-outage-demand-surge-pentagon/) earlier this year."
+    },
+    {
+      "type": "heading",
+      "value": "A $1.25 Billion Monthly Lease to Rebuild Trust"
+    },
+    {
+      "type": "text",
+      "value": "Accordingly, this dramatic compute capacity expansion is not a simple gesture of goodwill, but a highly capital-intensive intervention. Industry reports indicate that Anthropic pays SpaceX approximately $1.25 billion per month to lease Colossus 1, a commitment that would exceed $40 billion if maintained through May 2029. However, Elon Musk has described the initial contract as a six-month lease equipped with an option to extend.\n\nRegardless of the lease structure, user sentiment has rebounded sharply. Since the limits doubled, user feedback has shifted positively, with many noting that the tool is finally viable for heavy workflows. Sentiment was further bolstered when [Opus 4.8](/article/anthropic/claude-opus-4-8-launch/), released later that month, maintained its flat pricing model.\n\nNevertheless, operational risks persist. On June 1, both Sonnet 4.6 and Opus 4.7 suffered brief, intermittent errors, and the long-term sustainability of such high rental costs remains an open question. While the status page reports all systems operational as of June 2, the industry's focus now turns to how Anthropic will capitalize on the operational runway bought by this rented supercomputer."
+    }
+  ]
+}

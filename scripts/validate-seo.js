@@ -31,6 +31,39 @@ const fs = require('node:fs');
 const axios = require('axios');
 const cheerio = require('cheerio');
 
+// --- Orphaned headless-Chrome reaper -------------------------------------
+// Lighthouse launches headless Chrome via chrome-launcher. When this process
+// is killed mid-run (e.g. an external tool-call timeout firing during the
+// blocking spawnSync below), that Chrome is orphaned and piles up across runs
+// until it saturates the machine. We reap only automation Chrome — processes
+// carrying BOTH --headless and a remote-debugging-port — so any interactive
+// Chrome the user has open is never touched.
+function reapLighthouseChrome() {
+  try {
+    if (process.platform === 'win32') {
+      spawnSync('powershell', ['-NoProfile', '-Command',
+        "Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | " +
+        "Where-Object { $_.CommandLine -match '--headless' -and $_.CommandLine -match 'remote-debugging-port' } | " +
+        "ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"],
+        { timeout: 15000, windowsHide: true, stdio: 'ignore' });
+    } else {
+      spawnSync('pkill', ['-f', 'headless.*remote-debugging-port'], { timeout: 15000, stdio: 'ignore' });
+    }
+  } catch (_) { /* best-effort cleanup, never fatal */ }
+}
+
+// Sweep orphans left by earlier runs before we start, and guarantee our own
+// Chrome is reaped however this process ends.
+reapLighthouseChrome();
+let _reaped = false;
+function _finalReap() { if (_reaped) return; _reaped = true; reapLighthouseChrome(); }
+process.on('exit', _finalReap);
+for (const sig of ['SIGINT', 'SIGTERM', 'SIGHUP']) {
+  process.on(sig, () => { _finalReap(); process.exit(130); });
+}
+process.on('uncaughtException', (err) => { _finalReap(); console.error(err); process.exit(1); });
+// ------------------------------------------------------------------------
+
 const PYTHON_BIN = process.env.PYTHON_BIN || 'python';
 const MORPH_SCRIPT = path.join(__dirname, 'morph_analyze.py');
 
