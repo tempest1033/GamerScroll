@@ -1,0 +1,90 @@
+{
+  "slug": "gabe-newell-steam-adult-content-debate",
+  "site": "gamerscroll",
+  "status": "approved",
+  "date": "2026-06-02T18:30",
+  "title": "스팀 성인 게임, 게이브 뉴웰이 끝까지 지킨 이유",
+  "summary": "블룸버그가 밸브의 반독점 소송 과정에서 드러난 내부 토론을 조명했다. 법무팀장의 성인 콘텐츠 규제 요구에 창업자 게이브 뉴웰은 정면 반박했다. 다만 스팀의 오랜 방임 노선은 최근 글로벌 결제사들의 압박으로 시험대에 오른 모양새다.",
+  "keywords": [
+    "스팀 성인 게임",
+    "게이브 뉴웰",
+    "밸브 반독점 소송",
+    "스팀 검열",
+    "결제사 압박"
+  ],
+  "thumbnail": "https://media.wired.com/photos/688919d0693709e6d5807523/191:100/w_1280,c_limit/Steam-Censorship-Culture-1786810726.jpg",
+  "content": [
+    {
+      "type": "text",
+      "value": "블룸버그가 6월 1일(현지시간) 밸브의 반독점 소송을 심층 보도하며 그간 베일에 싸였던 내부 회의의 한 장면을 공개했다. 세계 최대 PC 게임 플랫폼 '스팀'에 성인용 게임을 계속 허용할지를 두고 벌어진 격론이었다.\n\n전직 직원들의 증언에 따르면, 칼 콰켄부시 당시 법무 책임자가 콘텐츠 단속 강화를 주장하자 창업자 게이브 뉴웰이 곧장 쏘아붙였다. \"그게 자네 의견이라면, 내가 도대체 왜 자네에게 돈을 주겠는가?\" 결과적으로 뉴웰의 판정승이었다. 현재 스팀에서 세이프서치 필터를 해제하면 쏟아지는 성인물이 그 증거다."
+    },
+    {
+      "type": "heading",
+      "value": "법무 책임자의 단속 요구를 꺾은 뉴웰의 한마디"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/DPQUJbzoSCaScVHZHKMJq4-1200-80.jpg",
+      "caption": "밸브 창업자 게이브 뉴웰",
+      "alt": "흰 셔츠 차림으로 서 있는 게이브 뉴웰"
+    },
+    {
+      "type": "text",
+      "value": "이 일화가 흥미로운 이유는 블룸버그가 조명한 게이브 뉴웰의 일상적인 경영 스타일과 대비되기 때문이다. 평소 그는 좀처럼 실무에 개입하지 않는 철저한 방임형 경영자로 유명하다. 조직이 스스로 작동하도록 뒤에서 지켜보는 리더십에 가깝다.\n\n그런 그가 이례적으로 직접 칼을 빼 든 주제가 바로 성인용 게임 규제였다. 콰켄부시는 플랫폼이 직면할 법적·평판 리스크를 줄이기 위해 단속을 강화해야 한다고 주장했으나, 뉴웰은 이 제안을 일축했다. '불법이거나 악의적인 트롤링이 아니라면 모두 허용한다'는 스팀의 대원칙을 고수한 결과다.\n\n논쟁은 뉴웰의 판정승으로 끝났으나 그가 바랐던 명쾌한 결론은 도출되지 않았다. 어떤 콘텐츠가 불법이고 어디까지를 단순 트롤링으로 볼 것인지 판단하는 주관적 기준의 한계에 부딪혔기 때문이다. 결국 스팀은 끊임없는 가치 판단의 늪으로 빠져들게 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "방임 노선이 규제 장벽에 부딪힌 이유"
+    },
+    {
+      "type": "image",
+      "src": "https://automaton-media.com/en/wp-content/uploads/2025/06/20250619-49243-001.jpg",
+      "caption": "스팀 키 아트",
+      "alt": "여러 게임 타일이 모자이크처럼 깔린 화면"
+    },
+    {
+      "type": "text",
+      "value": "자율적인 가치 판단이 불러온 혼선은 실사례에서 고스란히 나타났다. 밸브는 2018년 \"우리는 유저의 취향을 검문하는 경찰이 아니다\"라며 대부분의 장벽을 허물었으나, 현실은 끊임없이 명확한 기준선을 요구했다.\n\n실제로 2019년 강간을 소재로 다룬 비주얼 노벨 '레이프 데이'는 출시 직전 스팀에서 전격 퇴출당했다. 미성년자나 학교를 배경으로 한 일부 애니메이션 스타일 성인물도 표적이 됐다. 해당 개발사들은 뚜렷한 소명도 듣지 못한 채 승인이 무기한 지연되는 간접 규제를 겪었다. 자율을 표방했던 플랫폼이 오히려 가장 자의적이고 엄격한 심사관이 된 셈이다.\n\n2025년에는 외부 압박이 한층 거세졌다. 호주 단체 '컬렉티브 샤웃'이 비자와 마스터카드 등 결제사를 압박했다. 그러자 스팀은 카드사·은행의 기준을 위반할 가능성이 있는 성인물 판매를 금지하는 새 규정을 내놨다([PC Gamer](https://www.pcgamer.com/software/platforms/valve-confirms-credit-card-companies-pressured-it-to-delist-certain-adult-games-from-steam/)). 이에 따라 수백 개 게임이 판매 중단됐고, 예술성을 인정받은 호러 신작 '호시스(Horses)'마저 제재 대상에 올랐다. 외부 압력에 창작의 자유가 위축되는 현상은 [국내 게임 업계 역시 직면한 해묵은 과제다](/magazine/issue/ai-basic-act-game-industry-confusion/)."
+    },
+    {
+      "type": "heading",
+      "value": "\"검열 없는 상점을 달라\"…이용자들의 거센 반발"
+    },
+    {
+      "type": "text",
+      "value": "하지만 글로벌 결제사가 그어버린 가이드라인은 정작 스팀 유저들이 지향하는 방향과는 정반대였다. 플랫폼의 자체 단속이 본격화되자마자 스팀 커뮤니티에서는 일제히 검열 반대의 목소리가 터져 나왔다.\n\n온라인에서는 \"우리가 향유할 콘텐츠를 카드사나 외부 단체가 규정하게 두지 말라\"는 서명 운동이 일었다. 시작 수 주 만에 20만 명이 동참한 규모다. 규제 단체가 기존에 모은 서명보다 약 3배 빠른 속도다. 비자와 마스터카드 본사에는 항의 전화가 폭주했다. 경쟁 플랫폼 GOG는 성인용 게임 무료 배포 행사를 열며 우회적으로 불만을 드러냈다([WIRED](https://www.wired.com/story/gamers-are-furious-about-the-censorship-of-nsfw-games-and-theyre-fighting-back/)). '니어' 시리즈의 요코 타로 디렉터는 \"결제 권력을 쥐면 타국의 표현의 자유마저 간섭할 수 있다\"며 우려를 표했다.\n\n돌이켜보면 과거 뉴웰이 회의실에서 지키고자 했던 가치는 지금 유저들이 외치는 요구와 맥을 같이한다. 검열 없는 자율 상점이다. 다만 지금은 반독점 소송과 글로벌 결제사의 전방위적 압박이 한꺼번에 불어닥친 상황이다. 스팀이 고집해 온 자율성을 언제까지 지켜낼 수 있을지는 미지수다. 그 마지막 향방은 법정과 카드사 이사회의 결정에 따라 좌우될 가능성이 높다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Valve's Antitrust Reckoning Over Steam Has Echoes of Apple, Google App Store Suits",
+      "url": "https://www.bloomberg.com/news/features/2026-06-01/valve-s-antitrust-reckoning-over-steam-has-echoes-of-apple-google-app-store-sui"
+    },
+    {
+      "title": "Gabe Newell asked Valve's top lawyer \"What the f*** do I pay you for if that's your opinion?\"",
+      "url": "https://www.gamesradar.com/games/gabe-newell-asked-valves-top-lawyer-what-the-f-do-i-pay-you-for-if-thats-your-opinion-in-heated-debate-over-porn-games-on-steam-report-says/"
+    },
+    {
+      "title": "Valve confirms credit card companies pressured it to delist certain adult games from Steam",
+      "url": "https://www.pcgamer.com/software/platforms/valve-confirms-credit-card-companies-pressured-it-to-delist-certain-adult-games-from-steam/"
+    },
+    {
+      "title": "Why did thousands of adult titles just disappear from the biggest PC gaming marketplaces?",
+      "url": "https://www.theguardian.com/games/2025/jul/29/why-did-adult-titles-disappear-from-steam-itch-pc-gaming-payment-processors"
+    },
+    {
+      "title": "Gamers Are Furious About the Censorship of NSFW Games — and They're Fighting Back",
+      "url": "https://www.wired.com/story/gamers-are-furious-about-the-censorship-of-nsfw-games-and-theyre-fighting-back/"
+    }
+  ],
+  "relatedDocs": [
+    "issue:ai-basic-act-game-industry-confusion",
+    "issue:game-ai-controversy-award-revoked",
+    "issue:china-game-license-normalization"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
