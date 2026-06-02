@@ -1,0 +1,146 @@
+{
+  "slug": "minimax-m3-open-weight-launch",
+  "status": "approved",
+  "category": "general",
+  "title": "미니맥스 M3 출시…100만 토큰 오픈웨이트로 코딩 시장 조준",
+  "titleEn": "MiniMax M3: Open-Weight 1M-Context Coding Rival",
+  "summary": "중국 미니맥스가 독자적인 희소 어텐션 기술을 적용해 100만 토큰 맥락을 초저가로 처리하는 코딩 특화 모델 M3를 6월 1일 선보였다. 가중치는 공개했으나 학습 코드는 제외했다.",
+  "summaryEn": "MiniMax launched M3, a coding model with a 1M-token context via MSA, priced at a fraction of frontier rivals. Open-weight, but the training code stays closed.",
+  "keywords": "미니맥스 M3, MiniMax M3, 오픈웨이트 모델, 100만 토큰 컨텍스트, 코딩 AI 모델",
+  "keywordsEn": "MiniMax M3, open-weight model, 1M token context, MSA architecture, coding AI model",
+  "date": "2026-06-02T10:30Z",
+  "thumbnail": "https://file.cdn.minimax.io/public/11649e5b-3f76-477e-a73d-2abc4882211c.png",
+  "needTranslate": false,
+  "relatedDocs": [
+    "tech:ai/deepseek-mimo-price-war",
+    "tech:ai/mistral-small4-unified-moe",
+    "tech:ai/china-ai-distillation-controversy",
+    "tech:ai/gemini-31-pro-release"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "MiniMax Blog",
+      "title": "MiniMax-M3",
+      "url": "https://www.minimax.io/blog/minimax-m3"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "MiniMax M3 debuts, eclipsing GPT-5.5 and Gemini 3.1 Pro on a key benchmark for 5-10% of the cost",
+      "url": "https://venturebeat.com/technology/minimax-m3-debuts-eclipsing-gpt-5-5-and-gemini-3-1-pro-on-key-benchmark-performance-for-just-5-10-of-the-cost"
+    },
+    {
+      "name": "The Decoder",
+      "title": "MiniMax M3: open-weight model with a million-token context challenges proprietary leaders",
+      "url": "https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/"
+    },
+    {
+      "name": "OpenRouter",
+      "title": "MiniMax: MiniMax M3",
+      "url": "https://openrouter.ai/minimax/minimax-m3"
+    },
+    {
+      "name": "Open Source For You",
+      "title": "MiniMax challenges AI rivals with M3, but stops short of full open-source commitment",
+      "url": "https://www.opensourceforu.com/2026/06/minimax-challenges-ai-rivals-with-m3-but-stops-short-of-full-open-source-commitment/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "중국 상하이의 인공지능(AI) 스타트업 미니맥스(MiniMax)가 6월 1일 최신 멀티모달 모델 'M3'를 공개했다. 코딩과 에이전트 작업에 최적화된 M3는 독자 개발한 희소 어텐션 기술인 'MSA(MiniMax Sparse Attention)'를 바탕으로 최대 100만 토큰 컨텍스트를 처리한다. 텍스트와 이미지, 영상을 모두 기본 입력으로 지원하는 방식이다.\n\n파격적인 가격 책정도 업계의 이목을 끈다. API 이용료는 입력 100만 토큰당 0.30달러, 출력 1.20달러로 선두권 폐쇄형 모델 가격의 5%에서 10% 수준에 불과하다. 미니맥스는 가중치 공개와 동시에 M3가 핵심 소프트웨어 엔지니어링 평가인 'SWE-벤치 프로(SWE-bench Pro)'를 비롯한 벤치마크에서 GPT-5.5와 제미나이 3.1 프로를 앞섰다고 밝혔다."
+    },
+    {
+      "type": "heading",
+      "value": "MSA가 만든 100만 토큰의 경제학"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/06/minimax-m3-02-msa-architecture.jpg",
+      "caption": "미니맥스 스파스 어텐션(MSA) 구조도",
+      "alt": "MSA 희소 어텐션 인덱스 분기 희소 분기 구조도"
+    },
+    {
+      "type": "text",
+      "value": "이러한 비용 절감을 가능케 한 핵심 동력은 새로운 MSA 기술이다. 입력된 토큰을 모두 계산하는 대신 유의미한 영역만 골라 처리하는 희소 어텐션(Sparse Attention) 방식으로, 100만 토큰 구간의 연산 비용을 이전 세대 대비 약 20분의 1 수준으로 줄였다. 디코딩 속도 역시 최대 15.6배 향상됐다.\n\nM3는 100만 토큰 컨텍스트를 지원하지만, 배포 환경에 따라 최소 51만 2,000토큰을 보장한다. 이 정도 용량이면 전체 코드베이스를 한 번에 입력하거나 수십 단계에 달하는 복잡한 에이전트 작업을 매끄럽게 수행할 수 있다. 처음부터 텍스트와 이미지, 영상을 결합해 학습한 네이티브 멀티모달 모델이라는 점도 이 가격대 오픈형 모델 중에서는 흔치 않다.\n\n초저가와 장문맥의 결합은 최근 AI 시장을 관통하는 화두다. 앞서 [딥시크가 불붙인 가격 인하 경쟁](/ko/article/general/deepseek-mimo-price-war/)이 폐쇄형 모델들의 토큰 단가 인하를 압박했다면, M3는 여기에 가중치를 공개한 오픈웨이트 모델이라는 카드를 더해 기술 경쟁의 판도를 한층 복잡하게 만들고 있다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "벤치마크 지표로 드러난 성능의 실체"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/06/minimax-m3-01-benchmark-overview.jpg",
+      "caption": "M3와 경쟁 모델의 주요 벤치마크 점수 비교",
+      "alt": "미니맥스 M3 벤치마크 비교 SWE-벤치 프로 브라우즈컴프 터미널벤치"
+    },
+    {
+      "type": "text",
+      "value": "공개된 성능 지표는 주로 코딩과 에이전트 분야에 집중돼 있다. 실제 개발 능력을 측정하는 SWE-벤치 프로(SWE-bench Pro) 평가에서 M3는 59.0%를 획득해 GPT-5.5와 제미나이 3.1 프로를 넘었으며, 클로드 4.7 오퍼스(Opus)의 수준에 바짝 다가섰다. 시스템 조작을 테스트하는 터미널벤치 2.1에서는 66.0%, 웹 브라우징 자율 수행을 보는 브라우즈컴프에서는 83.5점을 기록해 오퍼스 4.7의 기록(79.3점)을 앞질렀다.\n\n다만 이 모든 수치는 미니맥스가 직접 검증해 내놓은 자체 발표 자료 기준이다. 테크 전문 매체 [벤처비트](https://venturebeat.com/technology/minimax-m3-debuts-eclipsing-gpt-5-5-and-gemini-3-1-pro-on-key-benchmark-performance-for-just-5-10-of-the-cost)는 M3가 특정 코딩 평가에서 선두를 기록했을 뿐, 전체 영역에서 오퍼스 4.8 같은 최상위 폐쇄형 모델을 압도하지는 못했다고 분석했다. 이에 따라 객관적인 외부 검증이 쌓이기 전까지는 코딩과 에이전트 기능에 특화된 모델로 조심스럽게 접근할 필요가 있다."
+    },
+    {
+      "type": "heading",
+      "value": "가중치 공개에 그친 절반의 개방"
+    },
+    {
+      "type": "text",
+      "value": "M3는 출시와 동시에 자체 API로 배포되었으며 오픈라우터(OpenRouter)와 올라마(Ollama) 등 주요 플랫폼에서도 즉시 연동을 마쳤다. 여기에 오픈AI 및 앤트로픽의 개발 방식과 호환되는 엔드포인트를 제공해 기존 앱의 이전을 돕는다. 모델의 핵심 가중치(Weights) 역시 오픈소스 공유 커뮤니티인 허깅페이스를 통해 원활하게 다운로드받을 수 있다.\n\n다만 이번 배포의 완전성에 대해서는 이견이 분분하다. 미니맥스가 모델 학습 코드와 일부 추론 연산자를 공개 대상에서 제외하면서, 진정한 오픈소스라기보다 가중치만 개방한 오픈웨이트 모델 수준에 그친다는 비판이 일고 있어서다. 개발자가 로컬 서버에서 직접 가져다 쓸 수는 있어도, 처음부터 동일한 인공지능을 재현하는 것은 불가능한 구조다.\n\n그럼에도 최상위 성능의 코딩 지원 능력과 100만 토큰 맥락, 여기에 멀티모달 요소까지 결합한 고성능 모델을 파격적인 가격에 푼 시도 자체의 파괴력은 상당하다. 독점형 인공지능 진영의 단가 인하 경쟁을 자극하는 계기가 될 것으로 보이며, 관건은 앞으로 축적될 제3자 검증에서 초기 발표 수치가 입증될 수 있느냐에 달렸다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Shanghai-based artificial intelligence startup MiniMax unveiled M3, its latest multimodal model, on June 1. Tailored for coding and agentic workflows, M3 leverages a proprietary MSA architecture (MiniMax Sparse Attention) to process context windows of up to one million tokens. The model accepts text, image, and video inputs natively.\n\nIts aggressive pricing structure has drawn immediate industry attention. The API is priced at $0.30 per million input tokens and $1.20 per million output tokens—approximately 5% to 10% of the rates charged by leading proprietary models. Alongside the release of the model's weights, MiniMax claimed that M3 outperforms GPT-5.5 and Gemini 3.1 Pro on critical software engineering benchmarks, including SWE-bench Pro."
+    },
+    {
+      "type": "heading",
+      "value": "The Economics of One-Million-Token Contexts Powered by MSA"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/06/minimax-m3-02-msa-architecture.jpg",
+      "caption": "MiniMax Sparse Attention (MSA) architecture diagram",
+      "alt": "Sparse attention index branch and sparse branch block diagram"
+    },
+    {
+      "type": "text",
+      "value": "Underpinning this cost efficiency is the new MSA architecture. By processing only high-salience segments of an input rather than executing quadratic computations across all tokens, this MSA architecture reduces compute costs within the one-million-token range to approximately one-twentieth of the previous generation's requirements. The architecture reads each key-value block only once, keeping memory access contiguous. Furthermore, under the MSA architecture, decoding speeds have reportedly increased by up to 15.6 times.\n\nWhile the model supports a full one-million-token context window, it guarantees a minimum threshold of 512,000 tokens depending on deployment configurations. This capacity is particularly significant for ingestion of entire codebases or executing multi-step agentic workflows. Native multimodality—trained on interleaved text, image, and video data—remains a rare offering among open-weight models within this price tier.\n\nThe convergence of low inference costs and expanded context windows continues to dominate the AI landscape. While the [price reductions initiated by DeepSeek](/article/general/deepseek-mimo-price-war/) disrupted standard token pricing for proprietary models, M3 intensifies the competition by introducing an open-weight alternative."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Evaluating Performance Across Coding and Agentic Benchmarks"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/06/minimax-m3-01-benchmark-overview.jpg",
+      "caption": "M3 versus rival models across key benchmarks",
+      "alt": "MiniMax M3 benchmark comparison SWE-bench Pro BrowseComp Terminal-Bench"
+    },
+    {
+      "type": "text",
+      "value": "MiniMax's performance claims focus heavily on coding and autonomous agent applications. On SWE-bench Pro, an evaluation measuring real-world software engineering capabilities, M3 recorded a score of 59.0%, exceeding reported metrics for GPT-5.5 and Gemini 3.1 Pro while approaching those of Claude 4.7 Opus. The model also posted a 66.0% success rate on TerminalBench 2.1 and scored 83.5 on BrowseComp for autonomous browsing, marginally outperforming Opus 4.7, which scored 79.3.\n\nHowever, these benchmarks remain self-reported by the developer. As noted by [VentureBeat](https://venturebeat.com/technology/minimax-m3-debuts-eclipsing-gpt-5-5-and-gemini-3-1-pro-on-key-benchmark-performance-for-just-5-10-of-the-cost), while M3 achieves leading results in targeted evaluations, it does not consistently outperform premium proprietary systems, such as Opus 4.8, across a broader spectrum of capabilities. Until independent, third-party evaluations are conducted, industry analysts suggest viewing M3 primarily as a coding AI model specialized for agentic workflows."
+    },
+    {
+      "type": "heading",
+      "value": "The Limits of the Open-Weight Release Model"
+    },
+    {
+      "type": "text",
+      "value": "Upon launch, M3 was made immediately available via API, with support integrated across platforms including OpenRouter and Ollama. The provider also introduced OpenAI- and Anthropic-compatible endpoints to facilitate seamless integration into existing software pipelines. MiniMax is distributing the model's weights through Hugging Face.\n\nHowever, the openness of the release is constrained. By withholding the training dataset, training code, and proprietary inference operators, the release has drawn criticism for being an open-weight distribution rather than a fully open-source project. While developers can deploy and run M3 locally, replicating the model's training from scratch is impossible.\n\nNonetheless, the combination of frontier-class coding performance, a one-million-token context window, and native multimodal support at this price point represents a significant market entry. This release increases pressure on proprietary developers to lower their pricing, though the long-term adoption of this coding AI model will depend on how its performance claims hold up under independent, third-party evaluation."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "site": "aiscroll"
+}
