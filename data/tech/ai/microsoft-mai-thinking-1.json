@@ -1,0 +1,204 @@
+{
+  "slug": "microsoft-mai-thinking-1",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "MS, 첫 자체 추론 AI 모델 'MAI-Thinking-1' 공개",
+  "titleEn": "Microsoft Unveils Reasoning Model MAI-Thinking-1",
+  "summary": "마이크로소프트가 연례 개발자 행사 빌드 2026에서 첫 자체 추론 AI 모델 'MAI-Thinking-1'을 발표했다. 타사 모델의 지식을 빌리지 않고 독자 학습 방식으로 개발됐으며, 코딩 벤치마크 평가에서 클로드 오푸스 4.6에 준하는 성능을 입증했다.",
+  "summaryEn": "Microsoft unveiled MAI-Thinking-1, its first in-house reasoning model, at Build 2026 — trained from scratch, no distillation, rivaling Claude Opus 4.6 on code.",
+  "keywords": "MAI-Thinking-1, 마이크로소프트 AI, 추론 모델, 마이크로소프트 자체 모델, 휴머니스트 초지능",
+  "keywordsEn": "MAI-Thinking-1, Microsoft AI, reasoning model, in-house model, Humanist Superintelligence",
+  "thumbnail": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25832912/STK095_MICROSOFT_2_CVirginia_A.jpg?quality=90&strip=all&crop=0,10.732984293194,100,78.534031413613&w=1200",
+  "relatedDocs": [
+    "tech:ai/microsoft-copilot-windows-ai-fatigue",
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/anthropic-900b-surpasses-openai",
+    "tech:ai/openai-crisis-competition-direction-2026"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Microsoft AI",
+      "title": "MAI-Thinking-1",
+      "url": "https://microsoft.ai/models/mai-thinking-1/"
+    },
+    {
+      "name": "Microsoft AI",
+      "title": "Building a hill-climbing machine: Launching seven new MAI models",
+      "url": "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/"
+    },
+    {
+      "name": "The Verge",
+      "title": "Microsoft's first advanced reasoning AI is here",
+      "url": "https://www.theverge.com/tech/941664/microsoft-ai-model-reasoning-mai-thinking-1-build-2026"
+    },
+    {
+      "name": "The Verge",
+      "title": "What to expect from Microsoft Build 2026",
+      "url": "https://www.theverge.com/report/940861/microsoft-build-ai-models-windows-dev-mode-what-to-expect"
+    },
+    {
+      "name": "Microsoft AI",
+      "title": "Two new in-house models",
+      "url": "https://microsoft.ai/news/two-new-in-house-models/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "마이크로소프트(MS)가 6월 2일 연례 개발자 콘퍼런스 '빌드 2026'에서 첫 자체 추론 인공지능(AI) 모델인 'MAI-Thinking-1'을 공개했다. 무스타파 수레이만이 이끄는 마이크로소프트 AI(MAI) 사업부가 개발한 이 모델은 이날 발표된 7종의 마이크로소프트 자체 모델 중 단연 핵심으로 꼽힌다.\n\nMAI-Thinking-1은 활성 매개변수(파라미터) 350억 개, 전체 매개변수 약 1조 개 규모의 전문가 혼합(MoE) 구조로 설계됐다. 회사 측은 중간급 크기임에도 거대 모델보다 추론 비용이 저렴하다고 강조했다. 그동안 오픈AI 모델에 전적으로 의존해 온 MS가 독자 노선 구축에 시동을 걸었다는 분석이다."
+    },
+    {
+      "type": "heading",
+      "value": "추론 모델 성능, 코딩 벤치마크서 클로드 오푸스 4.6과 경쟁"
+    },
+    {
+      "type": "image",
+      "src": "https://microsoft.ai/wp-content/uploads/2026/05/thinking-social.jpg",
+      "caption": "마이크로소프트 AI가 공개한 MAI-Thinking-1 키 아트",
+      "alt": "파스텔 색 생각풍선 모양의 추론 모델 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "MS가 이번 신작에서 내세운 주력 분야는 코딩과 수학이다. MS는 MAI-Thinking-1이 까다로운 소프트웨어 엔지니어링 성능 지표인 'SWE-Bench Pro'에서 앤트로픽의 클로드 오푸스 4.6과 [대등한 성적](https://microsoft.ai/models/mai-thinking-1/)을 거뒀다고 전했다. 매일 일상적으로 구동할 수 있는 중간급 모델 크기에서 최고 수준의 코딩 성능을 구현했다는 설명이다.\n\n사용자가 실제 체감하는 품질 검증에서도 합격점을 받았다. 데이터 평가 기업 서지(Surge)의 평가단이 진행한 블라인드 선호도 조사 결과, 이 모델은 단일 및 다중 질문 작업 전반에서 클로드 소네트 4.6과 동등한 만족도를 기록했다. 고급 수학 추론 영역에서도 동급의 선두권 모델들과 어깨를 나란히 했다."
+    },
+    {
+      "type": "table",
+      "caption": "MAI-Thinking-1 성능 비교 (마이크로소프트 공식 발표 기준)",
+      "headers": ["평가 항목", "MAI-Thinking-1", "비교 대상"],
+      "rows": [
+        ["구조", "MoE · 활성 350억 / 총 약 1조", "—"],
+        ["SWE-Bench Pro (코딩)", "오푸스 4.6과 대등", "오푸스 4.6: 51.9*"],
+        ["블라인드 선호도", "소네트 4.6과 동률", "소네트 4.6"],
+        ["고급 수학", "동급 선두권과 대등", "—"]
+      ]
+    },
+    {
+      "type": "note",
+      "value": "* Scale Labs SWE-Bench Pro 공개 리더보드 점수(오푸스 4.6 thinking 기준). 마이크로소프트는 MAI-Thinking-1의 개별 점수는 공개하지 않았다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "독자 데이터 학습부터 전용 반도체 협업까지"
+    },
+    {
+      "type": "image",
+      "src": "https://blogs.microsoft.com/wp-content/uploads/2026/01/Maia200_header-1024x576.jpg",
+      "caption": "마이크로소프트 애저의 자체 AI 가속기 '마이아 200'",
+      "alt": "테스트 장비 위에 놓인 마이크로소프트 마이아 200 칩"
+    },
+    {
+      "type": "text",
+      "value": "단순 성능 점수보다 MS가 앞세우는 강점은 독창적인 개발 방법론이다. 이 모델은 타사 인공지능 출력을 모방해 학습하는 '증류(distillation)' 기법을 쓰지 않고 처음부터 자체적으로 훈련됐다. 훈련에 사용한 데이터셋 역시 무분별한 웹 크롤링이 아니라 정제되고 합법적인 라이선스 데이터만 활용했다고 회사 측은 강조했다.\n\n아키텍처부터 학습 파이프라인까지 전 과정을 자체 개발했으며, 전용 가속기 '마이아 200' 칩과의 결합으로 연산 효율을 1.4배 높였다. 이날 공개된 신규 마이크로소프트 자체 모델 7종이 모두 이 기반을 공유한다. 오픈AI와의 협력 구도를 조정하며 기술 독립을 선언한 MS의 행보는, 최근 윈도우에서 [코파일럿 노출을 조율하던](/ko/article/general/microsoft-copilot-windows-ai-fatigue/) 조심스러운 움직임과 확연한 대비를 이룬다."
+    },
+    {
+      "type": "heading",
+      "value": "기업 맞춤형 모델 학습 '프런티어 튜닝' 지원"
+    },
+    {
+      "type": "image",
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/MS_BUILD.jpg?quality=90&strip=all&crop=0,10.732984293194,100,78.534031413613&w=1200",
+      "caption": "마이크로소프트 개발자 콘퍼런스 '빌드 2026'",
+      "alt": "검은 배경의 알록달록한 픽셀 빌드 로고"
+    },
+    {
+      "type": "text",
+      "value": "범용 모델 제시를 넘어 개별 기업 환경에 맞춤 설계하는 전략도 동반됐다. MS는 고객사가 고유 데이터를 활용해 모델을 직접 미세 조정하는 '프런티어 튜닝(Frontier Tuning)' 기술을 공개했다. 업무 과정에서 발생하는 결정과 행동 단위를 강화학습 환경(RLE)에 입력해, 각 조직 특유의 업무 방식을 모델이 그대로 학습하도록 돕는다.\n\n맞춤 튜닝의 실질적인 효율은 수치로 입증됐다. 엑셀용 최적화 모델은 GPT-5.4급 능력을 유지하면서도 효율성을 최대 10배 끌어올렸다. 컨설팅 그룹 맥킨지의 실무 기준에 맞춘 모델은 평가 대상 중 최고 성적을 내면서 비용은 약 10분의 1로 낮췄다. MS는 메이오 클리닉과 협력해 의료 특화 모델을 공동 개발 중이며, 이 모델의 지식재산권은 병원 측이 소유한다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "인간 통제 아래 돕는 '휴머니스트 초지능' 지향"
+    },
+    {
+      "type": "text",
+      "value": "이번에 발표된 MAI-Thinking-1은 MS의 기업용 연산 플랫폼인 '마이크로소프트 파운드리'에서 비공개 테스트 버전으로 먼저 제공된다. 개발자들은 파운드리 외에도 오픈라우터, 파이어웍스, 베이스텐 등 다양한 플랫폼을 통해 가중치를 조정할 수 있다. MS는 합리적 비용과 강력한 안전 장치, 저작권 보호를 강점으로 내세워 시장 전환을 노린다.\n\n수레이만 마이크로소프트 AI 대표는 이번 여정의 종착지를 인간을 보조하고 통제권 아래 두는 '휴머니스트 초지능'으로 정의했다. 이를 위해 위험한 동조나 불필요한 거부를 강화학습 단계에서 동일한 시스템 결함으로 간주해 정교하게 필터링한다. MS는 향후 1년간 인프라 투자와 연구 개발을 지속해 연산 능력과 추론 지능을 키울 방침이다. 사람을 대체하지 않는 휴머니스트 초지능, 그 첫 실물이 MAI-Thinking-1인 셈이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Microsoft unveiled its first in-house reasoning model, MAI-Thinking-1, at its Build 2026 developer conference on June 2. Developed by the Microsoft AI (MAI) division led by Mustafa Suleyman, this reasoning model is the flagship of seven new Microsoft in-house models announced at the event.\n\nMAI-Thinking-1 is a mixture-of-experts (MoE) model featuring 35 billion active parameters and approximately 1 trillion total parameters. Microsoft states that the medium-sized model maintains a lighter inference footprint than larger alternatives. The launch signals a strategic shift toward self-reliance for Microsoft, which has previously relied on OpenAI models, and a first move toward what it calls Humanist Superintelligence."
+    },
+    {
+      "type": "heading",
+      "value": "A Reasoning Model Rivaling Claude Opus 4.6 on Coding"
+    },
+    {
+      "type": "image",
+      "src": "https://microsoft.ai/wp-content/uploads/2026/05/thinking-social.jpg",
+      "caption": "MAI-Thinking-1 key art from Microsoft AI",
+      "alt": "Pastel thought-bubble key art for the reasoning model"
+    },
+    {
+      "type": "text",
+      "value": "Microsoft is positioning the reasoning model for coding and mathematics tasks. The company reported that MAI-Thinking-1 delivered [competitive results](https://microsoft.ai/models/mai-thinking-1/) against Anthropic's Claude Opus 4.6 on the SWE-Bench Pro software engineering benchmark. Microsoft emphasized that the model delivers this level of coding capability within a medium-sized footprint suitable for daily operational use.\n\nIn blind, side-by-side evaluations conducted by independent raters at Surge, MAI-Thinking-1 matched Claude Sonnet 4.6 in user preference for overall quality across single- and multi-turn tasks. Microsoft also noted that the model performs on par with class-leading models in advanced mathematics."
+    },
+    {
+      "type": "table",
+      "caption": "MAI-Thinking-1 performance, per Microsoft's stated claims",
+      "headers": ["Benchmark", "MAI-Thinking-1", "Reference"],
+      "rows": [
+        ["Architecture", "MoE · 35B active / ~1T total", "—"],
+        ["SWE-Bench Pro (coding)", "On par with Claude Opus 4.6", "Opus 4.6: 51.9*"],
+        ["Blind preference", "Even with Claude Sonnet 4.6", "Sonnet 4.6"],
+        ["Advanced math", "Among class leaders", "—"]
+      ]
+    },
+    {
+      "type": "note",
+      "value": "* Public Scale Labs SWE-Bench Pro score (Opus 4.6 thinking). Microsoft has not published a standalone score for MAI-Thinking-1."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "In-House Development from Training to Silicon"
+    },
+    {
+      "type": "image",
+      "src": "https://blogs.microsoft.com/wp-content/uploads/2026/01/Maia200_header-1024x576.jpg",
+      "caption": "Microsoft Azure's in-house AI accelerator, Maia 200",
+      "alt": "Microsoft Maia 200 chip on a test rig"
+    },
+    {
+      "type": "text",
+      "value": "Beyond benchmark scores, Microsoft emphasized the model's development methodology. MAI-Thinking-1 was trained from scratch without model distillation from third-party AI systems. The company stated that the training dataset was not compiled through opaque web scraping, but consists entirely of curated, licensed data.\n\nEvery element of the model—including its architecture, training pipeline, and post-training optimization—was developed in-house and co-designed with Microsoft's Maia 200 silicon, yielding a 1.4-fold increase in efficiency. All seven Microsoft in-house models share this foundation and were built without distillation. Following a recent renegotiation of its partnership with OpenAI to loosen ties, Microsoft AI is positioning itself for long-term technological self-sufficiency, the groundwork for its Humanist Superintelligence ambition. This represents a distinct strategic shift from the company's recent efforts to [reduce Copilot's integration](/article/general/microsoft-copilot-windows-ai-fatigue/) across Windows."
+    },
+    {
+      "type": "heading",
+      "value": "Customizing Models with Frontier Tuning"
+    },
+    {
+      "type": "image",
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/MS_BUILD.jpg?quality=90&strip=all&crop=0,10.732984293194,100,78.534031413613&w=1200",
+      "caption": "Microsoft's Build 2026 developer conference",
+      "alt": "Colorful pixel-art Build logo on a black background"
+    },
+    {
+      "type": "text",
+      "value": "To facilitate practical application, Microsoft introduced 'Frontier Tuning,' a service allowing enterprise customers to customize the model using proprietary data. By feeding records of workplace decisions, tasks, and workflows into reinforcement learning environments (RLEs), organizations can train the model to replicate their specific operational processes.\n\nMicrosoft provided early performance metrics to demonstrate the efficacy of this approach. A version optimized for Microsoft Excel matched the performance of GPT-5.4 at up to ten times the efficiency. Another variant, tuned to McKinsey's proprietary standards, achieved the highest success rate among tested models at approximately one-tenth the cost. Additionally, Microsoft is co-developing a specialized healthcare model with the Mayo Clinic, which will retain full ownership of the resulting model."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Suleyman's Vision of Humanist Superintelligence"
+    },
+    {
+      "type": "text",
+      "value": "MAI-Thinking-1 is initially available in private preview on Microsoft Foundry. Developers can access the model through Foundry, OpenRouter, Fireworks, and Baseten, with the ability to directly tune the model weights. Microsoft has positioned the model as a cost-effective option featuring built-in safety guardrails, copyright protections, and simplified migration pathways for existing workloads.\n\nMustafa Suleyman framed the long-term goal of these developments as 'Humanist Superintelligence'—AI designed to augment human and organizational capabilities rather than replace them, remaining a tool under human control — the defining line of Humanist Superintelligence. Microsoft says its Humanist Superintelligence approach treats unsafe compliance and unnecessary refusals as defects within the same reinforcement learning loop. The company also committed to rapidly expanding its compute capacity and model capabilities over the coming year. For Microsoft AI, that vision of Humanist Superintelligence begins with a single reasoning model: MAI-Thinking-1."
+    }
+  ]
+}
