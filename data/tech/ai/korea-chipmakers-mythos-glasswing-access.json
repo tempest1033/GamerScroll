@@ -1,0 +1,124 @@
+{
+  "slug": "korea-chipmakers-mythos-glasswing-access",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "anthropic",
+  "site": "aiscroll",
+  "title": "삼성·SK하이닉스·SKT, 앤트로픽 '미토스' 접근권 최초 확보",
+  "titleEn": "Korean Giants Secure Anthropic's Mythos Access",
+  "date": "",
+  "keywords": "미토스 접근권, 글래스윙, 삼성전자 SK하이닉스, SK텔레콤 앤트로픽",
+  "keywordsEn": "Mythos access, Glasswing, Samsung SK Hynix, SK Telecom Anthropic",
+  "summary": "삼성전자와 SK하이닉스, SK텔레콤이 국내 기업 최초로 앤트로픽의 폐쇄형 보안 프로그램인 '프로젝트 글래스윙'에 참여한다. 이를 통해 소프트웨어 취약점을 찾아내는 최상위 AI 모델 '미토스'의 접근 권한을 확보하며 보안 역량 강화에 나섰다.",
+  "summaryEn": "Samsung, SK Hynix, and SK Telecom are the first Korean firms to join Anthropic's 'Project Glasswing,' gaining access to its 'AI hacker' model Mythos.",
+  "thumbnail": "https://www.kedglobal.com/data/ked/image/2026/05/29/ked202605290017.jpg",
+  "sources": [
+    {
+      "name": "보안뉴스",
+      "title": "[단독] 삼성전자·SK하이닉스·SKT, 미토스 접근권한 확보… \"반도체 보안 국가적 문제\"",
+      "url": "https://m.boannews.com/html//detail.html?idx=143930"
+    },
+    {
+      "name": "비즈니스포스트",
+      "title": "정부 미국 견제에도 앤트로픽 '미토스' 접근권 확보할까",
+      "url": "https://www.businesspost.co.kr/BP?command=article_view&num=437481"
+    },
+    {
+      "name": "KED Global",
+      "title": "Samsung, SK Hynix join Anthropic's funding round as strategic partners",
+      "url": "https://www.kedglobal.com/artificial-intelligence/newsView/ked202605290004"
+    },
+    {
+      "name": "Reuters",
+      "title": "Anthropic to roll out Claude Mythos in coming weeks, launches Opus 4.8",
+      "url": "https://www.reuters.com/business/anthropic-roll-out-claude-mythos-coming-weeks-launches-opus-48-2026-05-28/"
+    },
+    {
+      "name": "CSO Online",
+      "title": "Anthropic Mythos spurs White House to weigh pre-release reviews for high-risk AI models",
+      "url": "https://www.csoonline.com/article/4166824/anthropic-mythos-spurs-white-house-to-weigh-pre-release-reviews-for-high-risk-ai-models.html"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-mythos-eu-access-expansion",
+    "tech:ai/claude-mythos-launch-imminent-signals",
+    "tech:ai/anthropic-900b-surpasses-openai",
+    "tech:ai/anthropic-confidential-s1-ipo"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "삼성전자와 SK하이닉스, SK텔레콤이 국내 기업 최초로 앤트로픽의 폐쇄형 보안 프로그램 '프로젝트 글래스윙(Project Glasswing)'에 합류한다. [보안뉴스](https://m.boannews.com/html//detail.html?idx=143930)는 지난 2일 이들 3사가 앤트로픽의 최상위 AI 모델 '미토스(Mythos)' 접근권을 확보했다고 단독 보도했다.\n\n'AI 해커'로 불리는 미토스는 소프트웨어 취약점을 전문가보다 빨리 찾아낸다. 위험성 탓에 앤트로픽은 전 세계 주요 테크·금융사 50여 곳에만 문을 열어 왔고, 한국 기업이 명단에 든 건 이번이 처음이다. 과학기술정보통신부도 그간 AI 전략위원회를 통해 한국의 참여를 타진해 왔다."
+    },
+    {
+      "type": "heading",
+      "value": "삼성·SK하이닉스는 반도체, SKT는 지분"
+    },
+    {
+      "type": "image",
+      "src": "https://www.kedglobal.com/data/ked/image/2026/01/13/ked202601130033.png",
+      "caption": "SK하이닉스 청주 신규 첨단 패키징 공장 조감도",
+      "alt": "넓은 부지에 들어선 SK하이닉스 반도체 패키징 공장 조감도"
+    },
+    {
+      "type": "text",
+      "value": "세 회사의 합류 이유는 둘로 갈린다. 먼저 삼성전자와 SK하이닉스는 반도체 보안 때문이다. AI 수요가 폭발하면서 반도체 설계·생산 소프트웨어의 취약점이 국가 산업을 좌우하는 문제로 떠올랐다. 두 회사 시총이 코스피 절반을 넘는 만큼, 공정 장애는 곧 산업 전체의 마비로 번질 수 있다. 27년 묵은 보안 결함까지 잡아낸 미토스로 자사 소프트웨어를 공격보다 먼저 점검하겠다는 계산이다.\n\nSK텔레콤은 사정이 다르다. 앤트로픽 초기 투자자로 약 0.3%의 지분을 쥐고 있는 점이 프로젝트 글래스윙 합류로 이어졌다. 증권가는 이 지분 가치를 최대 4조 원으로 본다. 다만 구체적인 보안 협력 사업은 아직 없어, 입장권을 사업 성과로 잇는 일은 숙제로 남는다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "미국이 쥔 빗장과 한국의 'AI 보안 주권'"
+    },
+    {
+      "type": "image",
+      "src": "https://www.csoonline.com/wp-content/uploads/2026/05/4166824-0-90421200-1777940711-The_White_House_shutterstock_119973388.jpg?quality=50&strip=all&w=1024",
+      "caption": "미국 워싱턴 백악관 전경",
+      "alt": "잔디밭 너머로 보이는 미국 백악관 건물"
+    },
+    {
+      "type": "text",
+      "value": "합류가 마냥 순탄한 건 아니다. 미토스 성능이 국가 안보와 직결된다고 본 미국 백악관이 접근권 확대를 통제하고 있어서다. 앤트로픽이 사용처를 50곳에서 70여 곳으로 늘리려 했지만 백악관이 막았고, 미국 밖에서 공식 접근권을 가진 곳은 영국 AI안전연구소가 사실상 유일하다. [앞선 보도](/ko/article/anthropic/anthropic-mythos-eu-access-expansion/)처럼 유럽연합(EU)조차 문턱을 넘지 못했다.\n\n그래서 과학기술정보통신부는 [앤트로픽과의 협상](https://www.businesspost.co.kr/BP?command=article_view&num=437481)을 이어가면서 독자적인 국내 AI 보안 생태계도 함께 준비하고 있다. 핵심 모델 접근권이 한 나라에 쏠리면 기술 종속이 깊어진다는 판단이다. 이번 3사의 프로젝트 글래스윙 합류가 한국 'AI 보안 주권' 논의의 출발점이 될지 주목된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Samsung Electronics, SK Hynix, and SK Telecom are set to become the first Korean companies to join Anthropic's closed cybersecurity program, 'Project Glasswing.' On June 2, [Boannews](https://m.boannews.com/html//detail.html?idx=143930) reported exclusively that the three firms secured access to 'Mythos,' Anthropic's top-tier AI model, through the program.\n\nOften dubbed an 'AI hacker,' Mythos finds software vulnerabilities faster than human experts. Because of that risk, Anthropic had opened access to only about 50 major tech and financial firms worldwide, and this is the first time Korean companies have made the list. Korea's Ministry of Science and ICT had also been pushing for entry through its AI Strategy Committee."
+    },
+    {
+      "type": "heading",
+      "value": "Samsung and SK Hynix Bet on Chips, SKT on Equity"
+    },
+    {
+      "type": "image",
+      "src": "https://www.kedglobal.com/data/ked/image/2026/01/13/ked202601130033.png",
+      "caption": "Rendering of SK Hynix's new advanced packaging plant in Cheongju",
+      "alt": "Aerial rendering of SK Hynix's new semiconductor packaging facility"
+    },
+    {
+      "type": "text",
+      "value": "The three firms join for two different reasons. For Samsung and SK Hynix, it comes down to semiconductor security. As AI demand explodes, vulnerabilities in chip design and production software have become a matter that can make or break a national industry. With the two firms' combined market value exceeding half of the KOSPI, a production halt could ripple into industry-wide paralysis. By using Mythos, which flagged a flaw undetected for 27 years, they aim to audit their own software before attackers do.\n\nSK Telecom's case is different. Its roughly 0.3% stake as an early Anthropic backer paved the way into Project Glasswing. Analysts value that stake at up to 4 trillion won. Yet with no concrete security project underway, turning that ticket into real business remains unfinished work."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Washington's Gatekeeping and Korea's 'AI Security Sovereignty'"
+    },
+    {
+      "type": "image",
+      "src": "https://www.csoonline.com/wp-content/uploads/2026/05/4166824-0-90421200-1777940711-The_White_House_shutterstock_119973388.jpg?quality=50&strip=all&w=1024",
+      "caption": "The White House in Washington, D.C.",
+      "alt": "The White House behind a green lawn under a blue sky"
+    },
+    {
+      "type": "text",
+      "value": "The entry is not all smooth sailing. The White House, viewing Mythos's power as tied to national security, has been restraining any expansion of access. Anthropic reportedly proposed widening access from about 50 institutions to roughly 70, but the White House blocked it, and outside the U.S. the UK's AI Safety Institute is effectively the only body with formal access. As covered in our [earlier report](/article/anthropic/anthropic-mythos-eu-access-expansion/), even the EU failed to clear the threshold.\n\nThat is why Korea's Ministry of Science and ICT is pursuing [talks with Anthropic](https://www.businesspost.co.kr/BP?command=article_view&num=437481) while also preparing a homegrown AI security ecosystem. The worry is that if access to core models concentrates in one nation, technological dependence deepens. The question now is whether this trio's Project Glasswing entry will mark a starting point for Korea's 'AI security sovereignty' debate."
+    }
+  ]
+}
