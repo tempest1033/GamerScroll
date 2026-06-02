@@ -1,0 +1,122 @@
+{
+  "slug": "bungie-destiny-sunset-marathon-flop",
+  "status": "approved",
+  "site": "gamerscroll",
+  "title": "갈림길 선 번지, 데스티니는 버텼고 마라톤은 흔들렸다",
+  "date": "",
+  "keywords": "번지, 마라톤, 데스티니 2, 번지 정리해고, 마라톤 흥행 부진",
+  "summary": "데스티니 2가 6월 9일 마지막 업데이트를 끝으로 9년 만에 개발을 마친다. 반면 번지가 사운을 건 신작 마라톤은 출시 석 달 만에 동시접속자가 8분의 1 수준으로 급감하며 정리해고 한파까지 예고됐다.",
+  "thumbnail": "https://imageio.forbes.com/specials-images/imageserve/69aadafd3b4f5c802b9e210b/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+  "relatedDocs": [
+    "issue:arc-raiders-ddos-attack-jan-2026",
+    "issue:ea-battlefield6-layoffs-despite-record-sales",
+    "issue:dragon-sword-full-refund-server-shutdown",
+    "insight:subculture-market-crisis-winner-takes-all"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "번지",
+      "title": "Destiny 2: Every End is a New Beginning",
+      "url": "https://www.bungie.net/7/en/News/Article/d2_may_21_2026"
+    },
+    {
+      "name": "블룸버그",
+      "title": "Bungie Plans Layoffs After Ending Destiny 2 Development",
+      "url": "https://www.bloomberg.com/news/articles/2026-05-21/bungie-plans-layoffs-after-ending-destiny-2-development"
+    },
+    {
+      "name": "포브스",
+      "title": "The 'Marathon' Day One Steam Player Count Is A Bit Concerning",
+      "url": "https://www.forbes.com/sites/paultassi/2026/03/06/the-marathon-day-one-steam-player-count-is-a-bit-concerning/"
+    },
+    {
+      "name": "폴리곤",
+      "title": "Destiny 3 isn't in development and Bungie will make big layoffs",
+      "url": "https://www.polygon.com/bungie-layoffs-destiny-2-ending-development/"
+    },
+    {
+      "name": "스팀차트",
+      "title": "Marathon - Steam Charts",
+      "url": "https://steamcharts.com/app/3065800"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "개발사 번지(Bungie)에 올해 6월은 두 대표 게임의 운명이 엇갈리는 분수령이다. 오는 6월 9일, 데스티니 2가 9년 가까이 이어온 라이브 서비스의 마지막 콘텐츠 업데이트를 실시한다. 반면 번지가 사운을 걸었던 신작 마라톤은 출시 석 달 만에 스팀 동시접속자가 첫날 대비 8분의 1 수준으로 급감했다."
+    },
+    {
+      "type": "text",
+      "value": "기존 캐시카우인 데스티니를 정리하고 신작 마라톤에 역량을 집중하겠다는 것이 번지의 당초 계획이었다. 하지만 정리하려던 전작은 마지막까지 흥행을 버텨낸 반면, 미래를 맡긴 신작은 위태로운 상황이다. 설상가상으로 스튜디오 내부에서는 대규모 정리해고 소식까지 흘러나온다."
+    },
+    {
+      "type": "heading",
+      "value": "데스티니 2, 9년 만에 라이브 서비스 막 내린다"
+    },
+    {
+      "type": "image",
+      "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/05/bungie-layoffs-destiny-2-header.jpg?w=1600&h=900&fit=crop",
+      "caption": "데스티니 2 인게임 화면",
+      "alt": "붉은 갑옷의 가디언이 중화기를 발사하는 인게임 장면"
+    },
+    {
+      "type": "text",
+      "value": "먼저 개발 종료를 선언한 데스티니 2의 상황이다. 번지는 지난 5월 21일 공식 블로그를 통해 데스티니 2의 라이브 서비스 콘텐츠 개발을 종료한다고 발표했다. 6월 9일 배포하는 '모뉴먼트 오브 트라이엄프(Monument of Triumph)'가 마지막 대형 업데이트다. 이로써 2017년 출시 이후 숨 가쁘게 이어지던 시즌과 확장팩 주기가 9년 만에 멈추게 됐다."
+    },
+    {
+      "type": "text",
+      "value": "다만 서비스 자체가 완전히 종료되는 것은 아니다. 게임 서버는 앞으로도 무기한 유지되며, 전작처럼 유지보수 단계에서 계속 즐길 수 있다. 마지막 업데이트 역시 신규 및 복귀 이용자를 배려하는 방향으로 채워졌다. 상시 콘텐츠로 전환되는 판테온 2.0과 스패로우 레이싱 리그의 복귀, 이용자 요구를 반영한 디렉터 화면 개편 등이 대표적이다."
+    },
+    {
+      "type": "text",
+      "value": "번지가 밝힌 이유는 명확하다. 지난 2024년 '디 파이널 셰이프'로 주요 서사를 마무리한 만큼, 이제 데스티니 IP가 기존의 그릇을 넘어 확장해야 할 시점이라는 설명이다. 이에 따라 스튜디오의 역량도 차기작 개발로 본격 이전된다. 다만 후속작인 데스티니 3 개발에 바로 착수하는 단계는 아니다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "사운 건 신작 마라톤, 출시 석 달 만에 동접 8분의 1 급감"
+    },
+    {
+      "type": "image",
+      "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/12/2025_dec_marathon_press_kit_large_011.jpg?w=1600&h=900&fit=crop",
+      "caption": "마라톤 인게임 화면",
+      "alt": "마라톤 러너들이 습지에서 교전하는 인게임 장면"
+    },
+    {
+      "type": "text",
+      "value": "번지의 미래를 짊어진 선봉은 마라톤이었다. 올해 3월 PS5·엑스박스·PC로 출시된 익스트랙션 슈터 신작이다. 당초 2025년 9월 출시 예정이었으나, 테스트 혹평과 도용 에셋 논란으로 일정이 연기되며 난항 끝에 지각 출시됐다."
+    },
+    {
+      "type": "text",
+      "value": "출발은 순조로웠다. 출시 첫날 스팀 최고 동시접속자 8만 8,000명을 기록했다. 하지만 흥행은 빠르게 식었다. 4월 들어 최고 동시접속자가 1만 5,000~3만 명대로 급감했고, 5월에는 8,000~1만 7,000명대까지 떨어졌다. 5월 말 기준 최고치는 출시 초기 대비 8분의 1 수준인 7,000~1만 1,000명 선에 불과하다."
+    },
+    {
+      "type": "text",
+      "value": "작품성 평가가 아주 나빴던 것은 아니다. 메타크리틱 평점은 82점으로 양호한 편이었다. 그러나 이용자 반응은 조작감과 적 처치 시간(TTK), 탈출 구조 등을 둘러싸고 호불호가 갈렸다. 이는 예상 밖의 흥행을 기록한 경쟁작 [아크 레이더스](/magazine/issue/arc-raiders-ddos-attack-jan-2026/)와 대비되는 대목이다."
+    },
+    {
+      "type": "text",
+      "value": "마라톤의 흥행 부진은 실적 지표로도 드러났다. 판매량은 약 120만 장으로 추산되나 이용자 잔존율을 확보하지 못했다. 소니 역시 마라톤의 판매가 기대치를 밑돌았음을 시인했다. 다만 번지는 장기 서비스 방침을 고수하고 있다. 지난 6월 2일 시즌 2 '나이트폴(NIGHTFALL)'을 열고 신규 지역과 무기, 빠른 성장을 돕는 시스템을 추가했다."
+    },
+    {
+      "type": "heading",
+      "value": "더는 기댈 안전판이 없다"
+    },
+    {
+      "type": "text",
+      "value": "문제는 서비스를 장기 지탱할 개발 인력이 줄어들고 있다는 사실이다. 데스티니 2 개발 종료 발표와 같은 날, 블룸버그의 제이슨 슈라이어 기자는 [번지가 또다시 대규모 정리해고를 단행할 방침](https://www.bloomberg.com/news/articles/2026-05-21/bungie-plans-layoffs-after-ending-destiny-2-development)이라고 보도했다. 기존 데스티니 개발진 일부는 마라톤 팀으로 흡수됐으나, 남은 인력이 투입될 차기 프로젝트는 여전히 안개속이다."
+    },
+    {
+      "type": "text",
+      "value": "번지 정리해고는 이번이 처음이 아니다. 지난 2024년에도 전체 인력의 17%에 달하는 약 220명을 정리해고하며 소니 체제로 재편된 바 있다. 안정적인 수입원이었던 데스티니의 비중을 대폭 줄인 상황에서, 흥행이 부진한 마라톤과 구체적인 윤곽도 없는 차기작에 스튜디오의 운명을 걸어야 하는 위태로운 구조가 됐다."
+    },
+    {
+      "type": "text",
+      "value": "현재 두 게임이 마주한 상황은 아이러니하다. 데스티니 2와 마라톤 모두 스팀 최고 동시접속자가 1만~1만 2,000명 선에 머무는 저조한 흐름이다. 한때 헤일로와 데스티니로 라이브 서비스 시대를 선도했던 번지가, 스스로 정립한 공식 앞에서 가장 혹독한 시험을 치르는 모양새다. 전작은 유종의 미를 거두었으나 마라톤은 아직 답을 찾지 못했다. 번지가 취할 다음 행보가 무엇이든, 이들을 지탱할 안전판은 더는 존재하지 않는다."
+    }
+  ]
+}
