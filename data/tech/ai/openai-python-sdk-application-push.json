@@ -4,7 +4,7 @@
   "status": "approved",
   "needTranslate": false,
   "category": "openai",
-  "date": "",
+  "date": "2026-06-03T12:30Z",
   "title": "OpenAI, 파이썬 SDK로 앱 레이어 공략…플랫폼 전환 속도",
   "titleEn": "OpenAI Goes All-In on the App Layer With Python",
   "summary": "OpenAI가 2026년 상반기 에이전트용 샌드박스, 코덱스 연동 라이브러리, 아마존 베드록 지원 등 파이썬 SDK를 대거 출시했다. 이는 단순 모델 공급자에서 벗어나 AI 애플리케이션 레이어를 직접 장악하겠다는 전략적 포석이다.",
