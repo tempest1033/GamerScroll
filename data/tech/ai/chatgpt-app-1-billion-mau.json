@@ -1,0 +1,171 @@
+{
+  "slug": "chatgpt-app-1-billion-mau",
+  "status": "approved",
+  "category": "openai",
+  "title": "챗GPT 모바일 앱, 월간 활성 사용자 10억 명 돌파",
+  "titleEn": "ChatGPT App Tops 1 Billion Monthly Users",
+  "date": "",
+  "keywords": "챗GPT 앱 사용자, 월간 사용자, 오픈AI 사용자, 챗GPT 10억, AI 앱 성장",
+  "keywordsEn": "ChatGPT app users, monthly active users, OpenAI users, ChatGPT 1 billion, app growth",
+  "summary": "챗GPT 모바일 앱이 지난 5월 월간 활성 사용자 10억 명을 넘었다고 센서타워가 집계했다. 출시 후 약 3년 만으로, 역대 모바일 앱 중 가장 빠른 속도로 이 고지에 도달한 기록이다.",
+  "summaryEn": "ChatGPT's mobile app crossed 1 billion monthly active users in May, per Sensor Tower — the fastest app ever to hit the mark, in about three years.",
+  "thumbnail": "https://www.pymnts.com/wp-content/uploads/2026/06/ChatGPT-app.jpeg",
+  "needTranslate": false,
+  "relatedDocs": [
+    "tech:ai/openai-chatgpt-growth-100b-funding",
+    "tech:ai/openai-crisis-competition-direction-2026",
+    "tech:ai/chatgpt-desktop-app"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Reuters",
+      "title": "ChatGPT app hits 1 billion monthly active users in record time, data shows",
+      "url": "https://www.reuters.com/technology/chatgpt-app-hits-1-billion-monthly-active-users-record-time-data-shows-2026-06-02/"
+    },
+    {
+      "name": "PYMNTS",
+      "title": "ChatGPT Hits 1 Billion Users Faster Than Any App in History",
+      "url": "https://www.pymnts.com/artificial-intelligence-2/2026/chatgpt-hits-1-billion-users-faster-than-any-app-in-history/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "ChatGPT reaches 900M weekly active users",
+      "url": "https://techcrunch.com/2026/02/27/chatgpt-reaches-900m-weekly-active-users/"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Scaling AI for everyone",
+      "url": "https://openai.com/index/scaling-ai-for-everyone/"
+    },
+    {
+      "name": "Business of Apps",
+      "title": "ChatGPT Revenue and Usage Statistics",
+      "url": "https://www.businessofapps.com/data/chatgpt-statistics/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "챗GPT 모바일 앱의 월간 활성 사용자(MAU)가 10억 명을 넘어섰다. 시장조사업체 센서타워의 데이터를 인용한 [로이터](https://www.reuters.com/technology/chatgpt-app-hits-1-billion-monthly-active-users-record-time-data-shows-2026-06-02/)의 6월 2일 보도에 따르면, 이 앱은 지난 5월 정식 출시 약 3년 만에 이 기록을 달성했다.\n\n이러한 성장세는 전례가 없는 수준이다. 구글 맵과 크롬, 유튜브, 메타 메신저, 틱톡 등 주요 서비스들이 사용자 10억 명을 모으는 데는 보통 5년에서 8년이 걸렸다. 반면 챗GPT 앱은 그 절반도 안 되는 기간에 같은 고지를 밟았다. 모바일 앱의 월간 활성 사용자 기준으로는 역대 어떤 앱보다 빠른 성장 속도다."
+    },
+    {
+      "type": "heading",
+      "value": "5~8년 걸리던 고지를 3년 만에 달성"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/jdtwqhzvc2n1/6uX1k9HX89NeZSNDq57flu/ceef541d4e8f86c564b04c2e46b6295a/nuneybits_Vector_art_of_rocket-powered_chatbot_in_pastel_colors_e8db99b7-6d3c-46a0-b5a9-ff993bb585aa.webp",
+      "caption": "AI 챗봇의 폭발적 성장세를 표현한 일러스트",
+      "alt": "급성장하는 AI 챗봇 시장을 상징하는 로켓 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "이러한 성장 배경에는 초기 출시 및 유통 전략이 자리 잡고 있다. 오픈AI는 2023년 5월 미국에서 iOS용 앱을 처음 선보인 이후 안드로이드 버전 출시와 글로벌 서비스 지역 확장을 순차적으로 진행했다. 출시 당시 회사 측은 이용자들이 이동 중에도 AI 서비스를 모바일로 편리하게 이용하려는 수요가 컸음을 강조했다."
+    },
+    {
+      "type": "text",
+      "value": "출시 3년이 지난 현재 챗GPT 앱의 월간 활성 사용자는 전년 대비 62%의 높은 성장률을 보이고 있다. 이미 10억 명에 가까운 거대 사용자 기반을 갖추고도 한 해 동안 60% 이상 규모를 불렸다. 모바일 시장 전반에서 성장 속도가 점차 둔화할 것이라는 전망이 나오던 시기에 거둔 이례적 성과다.\n\n역사적 지표들을 살펴보면 이번 기록이 지닌 무게가 더욱 선명해진다. 지난 10년 동안 모바일 시장을 지배했던 구글 맵, 크롬, 유튜브, 메타 메신저, 틱톡 등은 모두 10억 명의 사용자를 확보하는 데 최소 5년에서 8년이 걸렸다. 챗GPT 앱이 절반도 되지 않는 기간에 이들과 어깨를 나란히 한 만큼 역대 최단 기록이라는 평가는 무색하지 않다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "주간과 월간 활성 사용자 지표의 차이"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i3rKFDVxvTMc/v0/1200x-1.jpg",
+      "caption": "샘 알트만 오픈AI CEO",
+      "alt": "오픈AI 최고경영자 샘 알트만"
+    },
+    {
+      "type": "text",
+      "value": "다만 이번 10억 명 돌파 기록은 오픈AI의 공식 수치와 구분해야 한다. 센서타워의 통계는 모바일 앱의 월간 활성 사용자(MAU)만을 집계하지만, 오픈AI의 발표 기준은 웹과 앱을 합산한 주간 활성 사용자(WAU)다. 일례로 오픈AI는 2026년 2월 챗GPT의 WAU가 9억 명을 넘어섰으며, 이는 2025년 10월 8억 명에서 넉 달 만에 1억 명이 늘어난 규모라고 밝혔다."
+    },
+    {
+      "type": "text",
+      "value": "두 지표는 집계 범위와 기준 기간에서 큰 차이가 난다. 앱 MAU는 30일 동안 한 번이라도 앱을 실행한 고유 사용자를 측정하는 반면, WAU는 웹 접속자까지 포함하되 일주일 단위로 제한해 산출한다. 집계 방식의 차이로 인해 두 수치를 직접 비교하기는 무리이며, 오픈AI는 공식적으로 월간 활성 사용자 수치를 따로 발표하지 않는다.\n\n매출과 수익성 측면에서도 괄목할 만한 지표가 이어지고 있다. 오픈AI는 주간 활성 사용자(WAU) 9억 명을 발표할 당시 유료 구독자 수가 5,000만 명에 이른다고 함께 밝혔다. 아울러 시장분석업체 앱피겨스에 따르면 챗GPT 모바일 앱의 누적 소비자 지출액은 이미 30억 달러를 넘어섰으며, 이 가운데 25억 달러가 2025년 한 해 동안 발생한 것으로 집계됐다."
+    },
+    {
+      "type": "heading",
+      "value": "클로드의 가파른 추격과 시장의 경쟁 구도"
+    },
+    {
+      "type": "text",
+      "value": "시장의 사용자 주도권과 재무적 이익을 노리는 후발 주자들의 공세도 매섭다. 센서타워 집계에 따르면 앤트로픽이 내놓은 클로드 앱의 월간 활성 사용자는 5,600만 명으로, 전체 규모 면에서는 챗GPT의 18분의 1 수준에 머물러 있다. 하지만 전년 대비 성장률은 640%에 달해 챗GPT의 연간 성장률인 62%와 비교하면 추격 속도 자체는 훨씬 가파른 상태다."
+    },
+    {
+      "type": "text",
+      "value": "시장 점유율 관점에서는 미세한 균열도 감지된다. 실제로 미국 내 주요 AI 모바일 앱 시장에서 챗GPT의 점유율은 구글 제미나이 등과의 [경쟁 심화](/ko/article/openai/openai-crisis-competition-direction-2026/)로 인해 최근 분기 기준 40% 아래로 내려앉기도 했다. 부동의 선두 자리는 유지하고 있으나 추가 점유율을 확보하기 위한 경쟁은 갈수록 격화하는 흐름이다."
+    },
+    {
+      "type": "text",
+      "value": "이에 대응해 오픈AI는 소비자 접점을 넓히기 위한 통합 플랫폼 구축을 서두르고 있다. 모바일 앱과 코딩 지원 도구인 코덱스, 자체 브라우저 기능을 데스크톱 전용 '슈퍼앱' 하나로 통합하는 방안을 개발 중이다. 사용자 경험을 단일 채널로 간소화하는 동시에 개발자와 기업용 고객의 충성도를 높이려는 포석이다. 월간 활성 사용자 10억 명을 모은 지금, 오픈AI의 다음 과제는 신규 유입이 아니라 이들을 얼마나 오래 붙드느냐로 옮겨가고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The ChatGPT mobile app has surpassed 1 billion monthly active users, according to a June 2 [Reuters](https://www.reuters.com/technology/chatgpt-app-hits-1-billion-monthly-active-users-record-time-data-shows-2026-06-02/) report citing market intelligence firm Sensor Tower. The app crossed the milestone in May, roughly three years after its initial launch.\n\nThe trajectory is unprecedented. For comparison, major platforms such as Google Maps, Chrome, YouTube, Meta's Messenger, and TikTok took between five and eight years to reach the 1 billion user threshold. The ChatGPT app achieved the feat in less than half that time, the fastest user growth any app has ever recorded, according to Sensor Tower."
+    },
+    {
+      "type": "heading",
+      "value": "From Five-to-Eight Years Down to Three"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/jdtwqhzvc2n1/6uX1k9HX89NeZSNDq57flu/ceef541d4e8f86c564b04c2e46b6295a/nuneybits_Vector_art_of_rocket-powered_chatbot_in_pastel_colors_e8db99b7-6d3c-46a0-b5a9-ff993bb585aa.webp",
+      "caption": "An illustration depicting the explosive growth of AI chatbots",
+      "alt": "Rocket illustration symbolizing rapid ChatGPT app growth"
+    },
+    {
+      "type": "text",
+      "value": "The rapid growth traces back to its rollout strategy. OpenAI launched the ChatGPT mobile app in May 2023, debuting on iOS in the United States before expanding to Android and international markets. At launch, the company noted that users had consistently expressed a desire to access the AI service on the go."
+    },
+    {
+      "type": "text",
+      "value": "Three years post-launch, the app's monthly user base is growing at 62% year-over-year. Even with a user base nearing one billion, it managed to expand by over 60% in a single year. This growth stands out, particularly during a phase when expansion was expected to decelerate.\n\nHistorical benchmarks underscore the scale of this achievement. Mobile fixtures of the past decade, including Maps, Chrome, YouTube, Messenger, and TikTok, all required five to eight years to build a billion-user audience. The ChatGPT app met the same milestone in less than half the time, validating its status as the fastest-growing app in history."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Distinguishing Between Weekly and Monthly Active Users"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i3rKFDVxvTMc/v0/1200x-1.jpg",
+      "caption": "Sam Altman, CEO of OpenAI",
+      "alt": "Portrait of Sam Altman"
+    },
+    {
+      "type": "text",
+      "value": "However, the 1 billion milestone requires distinction from OpenAI's official figures. Sensor Tower's data tracks monthly active users (MAU) for the mobile app, whereas OpenAI focuses on weekly active users (WAU) across both web and mobile. In February 2026, OpenAI announced that ChatGPT surpassed 900 million WAU. This represented a 100 million user increase in just four months, up from 800 million in October 2025."
+    },
+    {
+      "type": "text",
+      "value": "The mathematical difference between these metrics is substantial. App MAU counts unique users who launch the mobile application at least once in a 30-day period, whereas WAU includes web traffic and is restricted to a seven-day window. Because these methodologies differ, the figures are not directly comparable, and OpenAI itself does not publish monthly active user counts.\n\nRevenue metrics offer another perspective on user engagement. Alongside its announcement of 900 million weekly active users, OpenAI disclosed that it has 50 million paying subscribers. Furthermore, third-party estimates from Appfigures indicate that cumulative consumer spending on the mobile app has surpassed $3 billion, with $2.5 billion of that total generated in 2025 alone."
+    },
+    {
+      "type": "heading",
+      "value": "Claude's Rapid Expansion and the Competitive Landscape"
+    },
+    {
+      "type": "text",
+      "value": "Competitors aiming for a share of this user base and revenue are also experiencing rapid growth. Sensor Tower data shows that Anthropic's Claude app reaches 56 million monthly active users, which is approximately one-eighteenth the scale of ChatGPT. However, Claude's mobile audience is expanding at a rate of 640% year-over-year, indicating a much steeper growth trajectory compared to ChatGPT's 62% rate."
+    },
+    {
+      "type": "text",
+      "value": "Market share dynamics also reveal emerging vulnerabilities. In the United States, ChatGPT's share among major AI mobile apps slipped below 40% in recent quarterly snapshots, driven by [intensifying competition](/article/openai/openai-crisis-competition-direction-2026/) from rivals like Google's Gemini and others. While OpenAI maintains its dominant lead, the battle for incremental market share is becoming increasingly competitive."
+    },
+    {
+      "type": "text",
+      "value": "In response, OpenAI is reportedly moving to expand its consumer interface footprint. The company plans to integrate the ChatGPT app, its Codex programming tool, and a proprietary web browser into a desktop 'super app.' This consolidation aims to streamline the user experience while deepening engagement with developers and enterprise clients. With 1 billion monthly active users now on board, OpenAI's primary focus shifts from acquisition to retention — from adding monthly active users to holding them longer."
+    }
+  ],
+  "site": "aiscroll"
+}
