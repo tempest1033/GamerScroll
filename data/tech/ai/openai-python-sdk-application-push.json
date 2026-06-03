@@ -1,0 +1,186 @@
+{
+  "slug": "openai-python-sdk-application-push",
+  "site": "aiscroll",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "openai",
+  "date": "",
+  "title": "OpenAI, 파이썬 SDK로 앱 레이어 공략…플랫폼 전환 속도",
+  "titleEn": "OpenAI Goes All-In on the App Layer With Python",
+  "summary": "OpenAI가 2026년 상반기 에이전트용 샌드박스, 코덱스 연동 라이브러리, 아마존 베드록 지원 등 파이썬 SDK를 대거 출시했다. 이는 단순 모델 공급자에서 벗어나 AI 애플리케이션 레이어를 직접 장악하겠다는 전략적 포석이다.",
+  "summaryEn": "OpenAI shipped a wave of Python SDK releases in early 2026—Agent sandboxes, a Codex SDK, Bedrock GA—an all-in bet on the AI application layer.",
+  "keywords": "OpenAI 파이썬 SDK, 에이전트 SDK, 샌드박스 에이전트, 코덱스 SDK, AI 앱 개발",
+  "keywordsEn": "OpenAI Python SDK, Agents SDK, sandbox agents, Codex SDK, AI application layer",
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2170386424.jpg?w=1024",
+  "sources": [
+    {
+      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk/",
+      "title": "The next evolution of the Agents SDK",
+      "publisher": "OpenAI"
+    },
+    {
+      "url": "https://techcrunch.com/2026/04/15/openai-updates-its-agents-sdk-to-help-enterprises-build-safer-more-capable-agents/",
+      "title": "OpenAI updates its Agents SDK to help enterprises build safer, more capable agents",
+      "publisher": "TechCrunch"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "title": "OpenAI API Changelog",
+      "publisher": "OpenAI"
+    },
+    {
+      "url": "https://github.com/openai/openai-python/releases",
+      "title": "openai-python Releases (v2.40.0)",
+      "publisher": "GitHub"
+    },
+    {
+      "url": "https://developers.openai.com/codex/sdk",
+      "title": "Codex SDK",
+      "publisher": "OpenAI"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/openai-side-quests-pivot-coding-enterprise",
+    "tech:ai/codex-hits-5-million-users",
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/cursor-composer-2-coding-model"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "OpenAI가 2026년 상반기 내내 파이썬 소프트웨어 개발 키트(SDK)를 연이어 출시하며 개발자 공략에 속도를 내고 있다. 이러한 행보는 명확한 지향점을 보여준다. 단순 모델 접근 권한만 판매하던 과거에서 벗어나, 개발자가 실제 서비스를 구축하는 애플리케이션 레이어 자체를 장악하겠다는 구상이다."
+    },
+    {
+      "type": "text",
+      "value": "지난 6월 1일 핵심 라이브러리인 `openai`가 v2.40.0에 도달했고, 같은 날 OpenAI의 프런티어 모델과 코덱스(Codex)가 아마존 베드록(Bedrock)에 정식 출시됐다. 이튿날에는 컨테이너 세션 과금 방식도 분당 요금제로 개편됐다. 단발성 업데이트처럼 보이지만, 파이썬을 핵심 관문으로 삼아 애플리케이션 계층을 장악하겠다는 전략이 엿보인다."
+    },
+    {
+      "type": "heading",
+      "value": "에이전트 SDK 개편, 파이썬 최우선 지원"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/App-view.png",
+      "caption": "코덱스 앱의 프로젝트 화면",
+      "alt": "스마트폰 화면에 표시된 코덱스 앱의 프로젝트 목록"
+    },
+    {
+      "type": "text",
+      "value": "이러한 움직임의 중심에는 지난 4월 15일 공개된 에이전트 SDK 대규모 개편이 있다. 핵심 기능은 격리된 작업 환경을 제공하는 샌드박스와 성능 검증용 평가 하니스다. OpenAI는 이 기능을 파이썬 라이브러리(openai-agents 0.14.0 이상)에 우선 적용하고 타입스크립트 지원은 뒤로 미뤘다. 데이터와 AI 개발자가 가장 많이 쓰는 언어부터 배려한 조치다."
+    },
+    {
+      "type": "text",
+      "value": "샌드박스 에이전트는 통제된 격리 공간 내 파일과 코드만 다뤄 전체 시스템 무결성을 손상하지 않는다. 에이전트 무단 실행에 따른 보안 위험을 방어하는 설계다. 여기에 프런티어 모델용 평가 하니스를 더하면, 승인된 도구만 활용해 다단계 장기 작업(long-horizon)을 수행하는 에이전트를 안전하게 배포하고 테스트할 수 있다."
+    },
+    {
+      "type": "text",
+      "value": "OpenAI 제품 팀의 카란 샤르마는 테크크런치 인터뷰에서 \"기존 에이전트 SDK를 여러 샌드박스 환경과 호환되게 만드는 것이 개편의 핵심\"이라고 밝혔다. 상세 아키텍처는 [OpenAI 공식 발표](https://openai.com/index/the-next-evolution-of-the-agents-sdk/)에 나와 있다. 실제 오스카 헬스는 이 SDK를 도입해 임상 기록 워크플로를 자동화하며 프로덕션 환경에 적용 중이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "코덱스 SDK와 v2.40, 앱 내부로 파고드는 AI"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7E1L5KrvfinYdmBBNDPhf5/710a8a46258bafe8fe2d26f31ff242c0/Codex_Landing_Page_SEO.png",
+      "caption": "OpenAI 코덱스 앱 아이콘",
+      "alt": "보라색 그라데이션 배경의 터미널 모양 아이콘 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "독립적인 에이전트가 한 축이라면, 다른 한 축은 AI를 앱 내부에 직접 심는 일이다. 새로 출시된 코덱스 파이썬 SDK(openai-codex)는 코덱스 환경을 애플리케이션 내에 이식한다. 스레드 실행, 스트리밍, 세션 관리, 샌드박스 제어, 기존 인증 재사용 등을 모두 코드로 처리한다. AI를 단순 외부 API 호출이 아닌 앱 내부 구성요소로 내장하려는 방향이다."
+    },
+    {
+      "type": "text",
+      "value": "지난 6월 1일 출시된 `openai` v2.40.0 라이브러리는 베드록 응답 지원을 추가했고, 같은 날 프런티어 모델과 코덱스의 아마존 베드록 정식 서비스(GA)가 시작됐다. 기업이 자사 데이터가 위치한 클라우드에서 AI를 직접 구동하도록 지원하기 위함이다. 이튿날 도입된 컨테이너 세션의 분당 과금제(최소 5분)도 같은 맥락으로, 단기 앱 세션의 비용 장벽을 낮춰 개발자 유입을 유도하는 조치다."
+    },
+    {
+      "type": "heading",
+      "value": "모델 경쟁을 넘어선 인터페이스 주도권 싸움"
+    },
+    {
+      "type": "text",
+      "value": "일련의 변화는 기술 스택의 상단부로 올라가겠다는 의지를 나타낸다. OpenAI는 단순한 원천 모델 판매자를 넘어, 앱과 에이전트가 구동되는 기반 플랫폼으로 진화하려 한다. 이는 비핵심 프로젝트를 정리하고 개발자 도구와 기업 솔루션에 집중하겠다는 OpenAI의 [이전 기조](/ko/article/openai/openai-side-quests-pivot-coding-enterprise/)와 맥을 같이한다."
+    },
+    {
+      "type": "text",
+      "value": "경쟁 기업들도 같은 영토를 주시하고 있다. 앤트로픽은 클로드 에이전트 SDK를 밀고 있으며, 코딩 에이전트 스타트업 진영도 독자적인 도구로 개발자 확보에 나섰다. 모델 자체의 성능 격차가 좁혀질수록 어떤 SDK가 개발자의 선택을 받느냐가 경쟁의 승부처가 된다. OpenAI가 파이썬을 첫 관문으로 설정한 이유도 시장 판도가 굳어지기 전에 가장 넓은 입구를 확보하기 위해서다."
+    },
+    {
+      "type": "ad"
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Throughout the first half of 2026, OpenAI has rolled out Python SDK releases at a relentless pace. This coordinated expansion points to a singular strategy: the company that once merely sold model access is now positioning itself to own the AI application layer where developers build their applications."
+    },
+    {
+      "type": "text",
+      "value": "On June 1, the core `openai` library reached version 2.40.0, coinciding with the general availability of OpenAI's frontier models and Codex on Amazon Bedrock. A day later, the company transitioned its container sessions to per-minute billing. While none of these updates constitute a major product launch individually, collectively they signal an aggressive push to dominate the AI application layer, using Python as the primary gateway."
+    },
+    {
+      "type": "heading",
+      "value": "Prioritizing Python for the Agents SDK Overhaul"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/App-view.png",
+      "caption": "The Codex app project view",
+      "alt": "Codex app project list shown on a smartphone"
+    },
+    {
+      "type": "text",
+      "value": "At the center of this initiative is a major overhaul of the Agents SDK, unveiled on April 15, defined by two core capabilities: sandbox agents and an evaluation harness. OpenAI released these capabilities first for Python (via `openai-agents` version 0.14.0 and higher) while postponing the TypeScript release, prioritizing the language favored by the vast majority of data and AI developers."
+    },
+    {
+      "type": "text",
+      "value": "Within the Agents SDK, sandbox agents operate strictly inside isolated workspaces, touching only the files and code a specific task requires while preserving overall system integrity. These sandbox agents are a direct answer to the security risks of unsupervised execution. When paired with the evaluation harness for frontier models, developers can safely deploy and test long-horizon agents that run multi-step tasks using only pre-approved tools."
+    },
+    {
+      "type": "text",
+      "value": "\"This launch, at its core, is about taking our existing Agents SDK and making it compatible with all of these sandbox providers,\" Karan Sharma, a product manager at OpenAI, told TechCrunch. The architecture is detailed in [OpenAI's announcement](https://openai.com/index/the-next-evolution-of-the-agents-sdk/). Commercial adoption is already underway, with Oscar Health using the Agents SDK to automate clinical-record workflows, signaling that the technology is transitioning from prototype to production."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Deep Integration: The Codex SDK and Version 2.40"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7E1L5KrvfinYdmBBNDPhf5/710a8a46258bafe8fe2d26f31ff242c0/Codex_Landing_Page_SEO.png",
+      "caption": "The OpenAI Codex app icon",
+      "alt": "Purple gradient illustration of a terminal-style icon"
+    },
+    {
+      "type": "text",
+      "value": "While the Agents SDK represents one strategic pillar, the other is occupying the AI application layer by embedding generative capabilities directly into software. The newly introduced Codex Python SDK (`openai-codex`) integrates Codex—OpenAI’s coding and application-building environment—directly into Python applications. Developers can programmatically manage threads, run turns, handle streaming, control sandboxes, and reuse existing authentication. This shift moves AI from an external API call to an internal application component."
+    },
+    {
+      "type": "text",
+      "value": "Similarly, the June 1 release of `openai` version 2.40.0 added support for Bedrock Responses, coinciding with the general availability of OpenAI's frontier models and Codex on Amazon Bedrock. This expansion allows enterprises to run AI models directly where their corporate data resides. The subsequent transition to per-minute billing for container sessions (with a five-minute minimum) follows the same business logic, lowering the financial barrier for short-lived application sessions to encourage wider developer adoption."
+    },
+    {
+      "type": "heading",
+      "value": "The Battle for the Developer Interface"
+    },
+    {
+      "type": "text",
+      "value": "Each of these steps represents an upward climb toward the AI application layer. OpenAI aims to evolve from a vendor of raw models into the foundational platform where applications and autonomous agents are built. This trajectory aligns with the company's [earlier pledge](/article/openai/openai-side-quests-pivot-coding-enterprise/) to streamline its product offerings by cutting side projects to focus on software development and enterprise solutions."
+    },
+    {
+      "type": "text",
+      "value": "Competitors are pursuing the same strategic territory. Anthropic is promoting its Claude Agent SDK, while a growing ecosystem of coding-agent startups vies for developer mindshare with proprietary builder tools. As performance differences among underlying frontier models narrow, competitive advantage will be determined by which SDK developers adopt first. By positioning Python as its primary gateway, OpenAI is attempting to secure the broadest entry point into the AI application layer before the industry landscape solidifies."
+    },
+    {
+      "type": "ad"
+    }
+  ]
+}
