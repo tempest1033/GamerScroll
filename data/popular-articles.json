@@ -1,31 +1,49 @@
 {
-  "updatedAt": "2026-06-02T02:10:43.968Z",
+  "updatedAt": "2026-06-03T00:09:30.376Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 24,
+      "views": 30,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 21,
+      "views": 24,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-april-2026-kr",
-      "views": 15,
+      "views": 17,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 6,
+      "views": 8,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "modern-warfare-4-korea-campaign",
+      "views": 8,
+      "path": "/magazine/issue/modern-warfare-4-korea-campaign/"
+    },
+    {
+      "type": "issue",
+      "slug": "heavenhells-sales-decline-launch",
+      "views": 6,
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "intel-arc-g3-handheld-gaming",
+      "views": 6,
+      "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
     },
     {
       "type": "ranking",
@@ -35,34 +53,22 @@
     },
     {
       "type": "issue",
-      "slug": "intel-arc-g3-handheld-gaming",
-      "views": 5,
-      "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
-    },
-    {
-      "type": "issue",
       "slug": "witcher3-songs-of-the-past-announced",
       "views": 5,
       "path": "/magazine/issue/witcher3-songs-of-the-past-announced/"
     },
     {
-      "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
-      "views": 4,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-refund-exploit-ban",
-      "views": 4,
-      "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
-    },
-    {
       "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 5,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "issue",
+      "slug": "granblue-relink-endless-ragnarok",
       "views": 4,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
       "type": "wiki",
@@ -72,24 +78,28 @@
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
       "type": "insight",
       "slug": "subculture-market-crisis-winner-takes-all",
       "views": 3,
       "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
+      "type": "issue",
+      "slug": "gemini-3-hallucination-memory-overfitting",
       "views": 3,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-refund-exploit-ban",
+      "views": 3,
+      "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 2,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -99,9 +109,9 @@
     },
     {
       "type": "issue",
-      "slug": "crimson-desert-2month-chart-trend",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 2,
-      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -111,21 +121,9 @@
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 2,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 2,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "issue",
-      "slug": "modern-warfare-4-korea-campaign",
-      "views": 2,
-      "path": "/magazine/issue/modern-warfare-4-korea-campaign/"
     },
     {
       "type": "issue",
@@ -135,16 +133,37 @@
     },
     {
       "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
-      "category": "knowledge",
+      "slug": "game-shareholder-returns-low-growth",
+      "category": "business",
       "views": 2,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
+      "path": "/wiki/business/game-shareholder-returns-low-growth/"
     },
     {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
+      "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "wiki",
+      "slug": "nier-series",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/nier-series/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "insight",
+      "slug": "bungie-destiny-sunset-marathon-flop",
       "views": 1,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+      "path": "/magazine/insight/bungie-destiny-sunset-marathon-flop/"
     },
     {
       "type": "issue",
@@ -154,15 +173,9 @@
     },
     {
       "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "slug": "crimson-desert-2month-chart-trend",
       "views": 1,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-game-license-normalization",
-      "views": 1,
-      "path": "/magazine/issue/china-game-license-normalization/"
+      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
     },
     {
       "type": "issue",
@@ -178,15 +191,9 @@
     },
     {
       "type": "issue",
-      "slug": "gemini-3-hallucination-memory-overfitting",
+      "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
-      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
-    },
-    {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 1,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "issue",
@@ -214,21 +221,9 @@
     },
     {
       "type": "issue",
-      "slug": "pubg-battlegrounds-birth-history",
-      "views": 1,
-      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
-    },
-    {
-      "type": "issue",
       "slug": "shiftup-self-publishing-stellar-blade",
       "views": 1,
       "path": "/magazine/issue/shiftup-self-publishing-stellar-blade/"
-    },
-    {
-      "type": "issue",
-      "slug": "sony-pc-exit-hulst-confirmation",
-      "views": 1,
-      "path": "/magazine/issue/sony-pc-exit-hulst-confirmation/"
     },
     {
       "type": "issue",
@@ -249,6 +244,12 @@
       "path": "/magazine/issue/t1-lck-cup-shocking-elimination/"
     },
     {
+      "type": "issue",
+      "slug": "ubisoft-record-loss-fy26",
+      "views": 1,
+      "path": "/magazine/issue/ubisoft-record-loss-fy26/"
+    },
+    {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
       "views": 1,
@@ -256,17 +257,17 @@
     },
     {
       "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "black-and-white-demis-hassabis",
       "category": "history",
       "views": 1,
       "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
-      "type": "wiki",
-      "slug": "nier-series",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/nier-series/"
     },
     {
       "type": "wiki",
@@ -288,6 +289,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/kurzweil-singularity-review-2026/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
