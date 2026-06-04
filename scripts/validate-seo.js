@@ -410,6 +410,41 @@ function structuralChecks(html, url) {
     detail: totalImages === 0 ? '0 images in body -- add at least 1 image' : `${totalImages} images (hero + ${inlineImages.length} inline)`,
   });
 
+  // In-article ad parity: in-article ads are AUTO-INJECTED by every renderer
+  // (ai-blog/article.js, pages/tech-article.js, pages/trend.js,
+  // pages/wiki-article.js) at the start of each EVEN section via
+  // `sectionCount % 2 === 0`, where section 1 = intro and each h2.blog-heading
+  // opens the next section. The JSON {type:"ad"} block is ignored everywhere
+  // (`case 'ad': break;`), so placement is fully builder-driven. This guards
+  // against a builder regression, a parity flip, or an ADS_ENABLED misconfig
+  // that silently drops the in-article ads.
+  const sectionCount = headings.length + 1; // + intro (section 1)
+  const expectedAds = Math.floor(sectionCount / 2); // one per even section (2,4,6,...)
+  const inArticleAds = $('.blog-in-article-ad').toArray();
+  if (inArticleAds.length === 0) {
+    // No in-article ads at all -- a stale build from before the auto-injection
+    // landed in this renderer, or an ADS_ENABLED=false build. Neither is an
+    // authoring error (a fresh build of a new article always carries the
+    // auto-injected ads), so don't fail on a re-validation of an old URL.
+    checks.push({
+      name: 'body/in-article-ad-parity',
+      pass: true,
+      detail: `0 in-article ads -- stale build / ADS disabled, parity check skipped (${sectionCount} sections)`,
+    });
+  } else {
+    // Each auto-ad is emitted immediately before the heading that opens its
+    // even section, so an h2 must follow it.
+    const notBeforeH2 = inArticleAds.filter((el) => !$(el).nextAll('h2.blog-heading').first().get(0)).length;
+    checks.push({
+      name: 'body/in-article-ad-parity',
+      pass: inArticleAds.length === expectedAds && notBeforeH2 === 0,
+      detail: inArticleAds.length === expectedAds && notBeforeH2 === 0
+        ? `${inArticleAds.length} in-article ads = floor(${sectionCount} sections / 2), all before an h2`
+        : `${inArticleAds.length} in-article ads, expected ${expectedAds} (= floor(${sectionCount} sections / 2))` +
+          (notBeforeH2 ? `; ${notBeforeH2} not followed by an h2` : ''),
+    });
+  }
+
   return { checks, $ };
 }
 
