@@ -1,0 +1,139 @@
+{
+  "slug": "gemma-4-12b-encoder-free-launch",
+  "status": "approved",
+  "category": "google",
+  "title": "구글, 인코더 없앤 통합 멀티모달 모델 '젬마 4 12B' 공개",
+  "titleEn": "Gemma 4 12B: An Encoder-Free Multimodal Model",
+  "summary": "구글이 오픈 웨이트 모델인 '젬마 4 12B'를 공개했다. 16GB 노트북 환경에서 로컬로 작동하며 26B MoE에 준하는 성능을 내는 이 모델은 멀티모달 인코더를 완전히 제거하고 다중 토큰 예측(MTP) 기술을 기본으로 탑재했다.",
+  "summaryEn": "Google's Gemma 4 12B runs locally on a 16GB laptop yet nears its 26B MoE, dropping multimodal encoders and shipping with Multi-Token Prediction by default.",
+  "keywords": "젬마4 12B, 구글 젬마4, 온디바이스 멀티모달 AI, 인코더 프리 아키텍처, 오픈 웨이트 모델",
+  "keywordsEn": "Gemma 4 12B, Google open weight model, on-device multimodal AI, encoder-free architecture, Multi-Token Prediction",
+  "date": "",
+  "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Social_Image_G4_12B.width-1300.png",
+  "needTranslate": false,
+  "relatedDocs": [
+    "tech:ai/gemini-31-pro-release",
+    "tech:ai/google-io-2026-agentic-gemini",
+    "tech:ai/gemini-omni-antigravity-trail-sota",
+    "tech:ai/nano-banana-2-gemini-flash-image"
+  ],
+  "relatedGames": [],
+  "sources": [
+    {
+      "name": "Google Blog",
+      "title": "Introducing Gemma 4 12B: a unified, encoder-free multimodal model",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/"
+    },
+    {
+      "name": "Ars Technica",
+      "title": "Google's new Gemma 4 12B model is designed to run on any laptop with 16GB of RAM",
+      "url": "https://arstechnica.com/google/2026/06/googles-new-gemma-4-open-ai-model-is-sized-for-your-laptop/"
+    },
+    {
+      "name": "Google Developers Blog",
+      "title": "Gemma 4 12B: The Developer Guide",
+      "url": "https://developers.googleblog.com/gemma-4-12b-the-developer-guide/"
+    },
+    {
+      "name": "Google DeepMind",
+      "title": "Gemma 4",
+      "url": "https://deepmind.google/models/gemma/gemma-4/"
+    },
+    {
+      "name": "Hugging Face",
+      "title": "google/gemma-4-12B",
+      "url": "https://huggingface.co/google/gemma-4-12B"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글 딥마인드가 6월 3일 오픈 웨이트 인공지능(AI) 모델인 '젬마 4 12B'를 공개했다. 이 모델은 16GB 메모리를 탑재한 일반 노트북에서 로컬로 작동하면서도, 상위 등급인 26B MoE 모델에 버금가는 성능을 발휘한다.\n\n젬마 4 12B는 경량 기기용인 'E4B'와 고성능 '26B MoE' 사이의 미드레인지 라인업을 채우는 모델이다. 구글은 이 모델이 효율성과 성능의 균형을 맞췄다고 설명하며, 중간 크기 젬마 모델 최초로 오디오 입력을 네이티브로 지원한다고 밝혔다."
+    },
+    {
+      "type": "heading",
+      "value": "인코더를 제거한 통합 멀티모달 아키텍처"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Gemini_Generated_Image_t9k8dvt9k8.2e16d0ba.fill-1200x600.jpg",
+      "caption": "젬마 4 12B 멀티모달 콘셉트 일러스트",
+      "alt": "신경망 다이어그램과 이미지·오디오 아이콘이 그려진 파란색 콘셉트 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "이러한 네이티브 오디오 지원은 젬마 4 12B의 아키텍처 설계 덕분이다. 기존 멀티모달 모델은 이미지나 오디오를 언어 모델에 넘기기 전 전용 인코더를 거쳐야 했다. 이 과정에서 지연 시간과 메모리 소모가 늘었는데, 구글은 그 인코더를 통째로 걷어냈다.\n\n시각 정보 처리에는 무거운 비전 인코더 대신 가벼운 임베딩 모듈을 뒀다. 단일 행렬 곱셈과 위치 임베딩, 정규화 레이어로만 구성해 대형언어모델(LLM) 백본이 시각 데이터를 직접 처리하도록 한 것이다. 오디오는 더 직관적이다. 가공하지 않은 원본 신호를 텍스트 토큰과 동일한 차원 공간에 바로 투영한다.\n\n구글은 이를 '인코더 프리 아키텍처'라 부른다. [구글 공식 블로그](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/)에 따르면, 인코더 프리 아키텍처는 중간 변환 단계를 생략해 데이터 지연과 메모리 부담을 동시에 줄였다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "16GB 노트북 로컬 추론과 MTP 기본 탑재"
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/XtdGQ6B0XzfV1gByFCtGbxLthooBSyg6QZWJn4VuM4SpDduwdYqOPFWpxyMIv875LTG1zUt0Xm34B29PfjACwd6m8fLiQpFLkZnjR5bVmJnCDANx6g=w1200-h630-n-nu-rw",
+      "caption": "구글 젬마 4 시리즈 공식 키 아트",
+      "alt": "구글 젬마 4 오픈 모델 시리즈 공식 키 아트 다크 비주얼"
+    },
+    {
+      "type": "text",
+      "value": "인코더 프리 아키텍처로 가벼워진 메모리 요구 사양은 곧 구동 환경으로 이어진다. 젬마 4 12B는 벤치마크 테스트에서 26B MoE 모델에 버금가는 성능을 내면서도 메모리는 절반 이하만 쓴다. 덕분에 16GB RAM이나 통합 메모리를 갖춘 일반 노트북에서도 온디바이스 멀티모달 AI 추론을 로컬로 돌릴 수 있다. 다운로드할 모델 가중치 용량은 약 18GB다.\n\n처리 속도를 높이기 위한 설계도 더해졌다. 미사용 연산 자원을 활용해 다음에 올 토큰을 미리 계산하는 다중 토큰 예측(MTP) 드래프터가 기본 탑재됐다. 구글은 이전에도 다른 젬마 4 모델에 MTP를 선택 사양으로 제공했지만, 처음부터 이를 품고 나온 건 12B가 처음이다.\n\n이 조합 덕에 그동안 더 큰 모델이 필요했던 다단계 추론이나 에이전트 워크플로우를 노트북 수준에서도 원활히 돌릴 수 있게 됐다. 폐쇄형 플래그십인 [제미나이 3.1 프로](/ko/article/google/gemini-31-pro-release/)가 성능 한계를 끌어올린다면, 12B는 그 능력을 개개인의 기기로 내려주는 쪽이다."
+    },
+    {
+      "type": "heading",
+      "value": "누적 1억 5천만 다운로드 생태계 확장"
+    },
+    {
+      "type": "text",
+      "value": "노트북 등 개인 기기에서 바로 쓰라는 게 설계 의도인 만큼 접근성도 대폭 늘렸다. 가중치는 상업적 활용이 자유로운 아파치(Apache) 2.0 라이선스로 풀렸다. 허깅페이스와 캐글에서 즉시 내려받을 수 있고, 다운로드 없이 LM Studio, 올라마(Ollama), 구글 AI 엣지 갤러리에서 바로 실행해 볼 수도 있다.\n\n추론 엔진으로는 허깅페이스 트랜스포머스, llama.cpp, MLX, vLLM, SGLang 등 널리 쓰이는 프레임워크를 모두 쓸 수 있다. 미세조정(파인튜닝)은 언슬로스(Unsloth)로 효율을 챙긴다. 클라우드 배포가 필요하면 구글 클라우드의 모델 가든과 클라우드 런, 구글 쿠버네티스 엔진(GKE)으로 엔드포인트를 띄우면 된다.\n\n젬마 4 시리즈의 누적 다운로드는 이미 1억 5천만 회를 넘어섰다. 독점형 모델들이 최고 성능 경쟁을 이끄는 동안, 구글은 누구나 노트북에서 돌릴 수 있는 오픈 웨이트 모델로 온디바이스 AI 보급을 넓히고 있다. 젬마 4 12B는 그 저변에 더해진 가장 실용적인 오픈 웨이트 모델이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On June 3, Google DeepMind released Gemma 4 12B, an open-weight AI model designed to run locally on consumer laptops with 16GB of memory while delivering performance comparable to the larger 26B MoE model.\n\nThe new 12B model fills the gap between Google's lightweight edge model E4B and the high-performance 26B MoE. Google positions the model as a balance of capability and efficiency, noting it is the first mid-sized Gemma model to natively support audio input."
+    },
+    {
+      "type": "heading",
+      "value": "An Encoder-Free, Unified Multimodal Architecture"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Gemini_Generated_Image_t9k8dvt9k8.2e16d0ba.fill-1200x600.jpg",
+      "caption": "Gemma 4 12B multimodal concept illustration",
+      "alt": "Blue concept illustration with a neural network diagram and image and audio icons"
+    },
+    {
+      "type": "text",
+      "value": "These native audio capabilities stem from Gemma 4 12B's architectural design. Conventional multimodal models route images and audio through dedicated encoders before feeding them to the language model. That step adds latency and memory overhead, so Google eliminated these encoders entirely.\n\nFor visual processing, the heavy vision encoder gives way to a lightweight embedding module. It consists of a single matrix multiplication, positional embedding, and normalization layers, letting the LLM backbone process visual data directly. Audio is handled even more simply. The raw audio signal is projected straight into the same dimensional space as text tokens.\n\nGoogle calls this an encoder-free architecture. By skipping the intermediate conversion step, the encoder-free architecture trims both latency and memory consumption, laying the groundwork for on-device multimodal AI, according to [Google's official blog](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/)."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Local Inference on Consumer Laptops with Built-In MTP"
+    },
+    {
+      "type": "image",
+      "src": "https://lh3.googleusercontent.com/XtdGQ6B0XzfV1gByFCtGbxLthooBSyg6QZWJn4VuM4SpDduwdYqOPFWpxyMIv875LTG1zUt0Xm34B29PfjACwd6m8fLiQpFLkZnjR5bVmJnCDANx6g=w1200-h630-n-nu-rw",
+      "caption": "Google Gemma 4 series official key art",
+      "alt": "Google Gemma 4 open model series official key art dark visual"
+    },
+    {
+      "type": "text",
+      "value": "This reduced memory footprint, the payoff of the encoder-free architecture, translates directly into lower hardware requirements. Gemma 4 12B approaches the benchmark performance of the 26B MoE model while using less than half the memory. That lets on-device multimodal AI inference run locally on laptops with 16GB of RAM or unified memory. The downloadable model weights total roughly 18GB.\n\nTo improve generation speed, the model integrates a Multi-Token Prediction (MTP) drafter by default. It leverages idle compute cycles to pre-calculate likely future tokens. Google has offered Multi-Token Prediction as an option for other Gemma 4 models, but the 12B variant is the first to ship it out of the box.\n\nPairing Multi-Token Prediction with the encoder-free architecture lets demanding work run locally. Multi-step reasoning and agentic workflows that once required larger Gemma models now fit on a laptop. While the closed-source flagship [Gemini 3.1 Pro](/article/google/gemini-31-pro-release/) keeps pushing the performance ceiling, the open-weight Gemma 4 12B pulls those capabilities down onto consumer hardware."
+    },
+    {
+      "type": "heading",
+      "value": "Expanding an Ecosystem of 150 Million Downloads"
+    },
+    {
+      "type": "text",
+      "value": "Designed for local accessibility, Gemma 4 12B is an open-weight model distributed under the commercially permissive Apache 2.0 license, with weights immediately available on Hugging Face and Kaggle. Users can also run the model without local downloads via platforms like LM Studio, Ollama, and the Google AI Edge Gallery.\n\nThe model supports standard inference pipelines including Hugging Face Transformers, llama.cpp, MLX, vLLM, and SGLang, and can be fine-tuned efficiently using Unsloth. For cloud deployment, it integrates with Google Cloud's Model Garden, Cloud Run, and Google Kubernetes Engine (GKE).\n\nWith cumulative downloads for the Gemma 4 family exceeding 150 million, Google continues to expand its open-weight ecosystem. While proprietary models compete at the high end, Gemma 4 12B is a practical step toward democratizing advanced on-device AI on standard consumer laptops."
+    }
+  ],
+  "site": "aiscroll"
+}
