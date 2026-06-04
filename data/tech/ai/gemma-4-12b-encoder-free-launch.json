@@ -8,7 +8,7 @@
   "summaryEn": "Google's Gemma 4 12B runs locally on a 16GB laptop yet nears its 26B MoE, dropping multimodal encoders and shipping with Multi-Token Prediction by default.",
   "keywords": "젬마4 12B, 구글 젬마4, 온디바이스 멀티모달 AI, 인코더 프리 아키텍처, 오픈 웨이트 모델",
   "keywordsEn": "Gemma 4 12B, Google open weight model, on-device multimodal AI, encoder-free architecture, Multi-Token Prediction",
-  "date": "",
+  "date": "2026-06-04T07:30Z",
   "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Social_Image_G4_12B.width-1300.png",
   "needTranslate": false,
   "relatedDocs": [
