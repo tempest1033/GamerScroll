@@ -1,0 +1,242 @@
+{
+  "slug": "ai-subscription-login-gemini-holdout",
+  "status": "approved",
+  "category": "general",
+  "site": "aiscroll",
+  "needTranslate": false,
+  "title": "오픈AI·xAI·앤트로픽 계정 개방, 홀로 문 닫은 구글 제미나이",
+  "titleEn": "GPT, Grok, Claude Open Up; Gemini Holds Out",
+  "date": "",
+  "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/I_O_Subs_social_share_image_1.width-1300.png",
+  "summary": "오픈AI, xAI, 앤트로픽이 구독 계정의 외부 개발 도구 연동을 허용했다. 반면 구글 제미나이는 이를 약관으로 금지하고 위반한 유료 사용자의 계정을 정지하고 있다.",
+  "summaryEn": "OpenAI, xAI, and Anthropic now let subscribers sign into third-party tools with their own accounts. Only Gemini bans it, suspending paying users who try.",
+  "keywords": "구독 계정 로그인, 서드파티 앱, 제미나이 폐쇄성, Agent SDK 크레딧, OAuth 로그인",
+  "keywordsEn": "subscription account login, third-party apps, Gemini lockout, Agent SDK credits, OAuth login",
+  "sources": [
+    {
+      "name": "VentureBeat",
+      "title": "Anthropic reinstates OpenClaw and third-party agent usage on Claude subscriptions, with a catch",
+      "url": "https://venturebeat.com/technology/anthropic-reinstates-openclaw-and-third-party-agent-usage-on-claude-subscriptions-with-a-catch"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Codex authentication — Sign in with ChatGPT",
+      "url": "https://developers.openai.com/codex/auth"
+    },
+    {
+      "name": "xAI",
+      "title": "Grok API and subscription access",
+      "url": "https://x.ai/api"
+    },
+    {
+      "name": "Google",
+      "title": "Gemini Code Assist FAQs — third-party access",
+      "url": "https://developers.google.com/gemini-code-assist/resources/faqs"
+    },
+    {
+      "name": "EngineersCodex",
+      "title": "Google restricts Ultra accounts over OpenClaw",
+      "url": "https://engineerscodex.com/google-restricts-ultra-accounts-openclaw/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/google-ai-pro-antigravity-rate-limit-crisis",
+    "tech:ai/anthropic-mythos-eu-access-expansion",
+    "tech:ai/codex-hits-5-million-users"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "인공지능(AI) 주요 개발사인 오픈AI와 xAI, 앤트로픽이 외부 코딩 도구와 자사 구독 계정의 직접 연동을 지원한다. 이용자가 월 구독료만 내면 별도 API 키를 발급받지 않고도 OpenClaw나 OpenCode 같은 서드파티 앱에 본인 계정으로 직접 로그인해 쓰는 방식이다. 구독 계정 로그인 한 번이면 외부 서드파티 앱이 곧바로 열린다."
+    },
+    {
+      "type": "text",
+      "value": "반면 구글은 독자적인 노선을 걷고 있다. 제미나이 서비스 약관을 통해 이러한 서드파티 앱의 접속을 엄격히 금지했으며, 우회를 시도하는 유료 구독자의 계정을 정지하기 시작했다. 주요 경쟁사들이 개방성을 넓혀가는 흐름 속에서, 제미나이 폐쇄성을 고수하는 구글만 외톨이가 된 모양새다."
+    },
+    {
+      "type": "table",
+      "caption": "4사 구독 계정의 서드파티 앱 로그인 허용 여부 (2026년 6월 기준)",
+      "headers": [
+        "업체",
+        "구독 계정으로 서드파티 앱 로그인",
+        "방식·비고"
+      ],
+      "rows": [
+        [
+          "오픈AI (GPT·코덱스)",
+          "허용",
+          "'챗GPT로 로그인' OAuth"
+        ],
+        [
+          "xAI (그록)",
+          "허용",
+          "슈퍼그록·X 프리미엄+ OAuth"
+        ],
+        [
+          "앤트로픽 (클로드)",
+          "6월 15일 재허용",
+          "Agent SDK 크레딧 별도 지급"
+        ],
+        [
+          "구글 (제미나이)",
+          "금지",
+          "약관 위반·계정 차단, API 키 별도 권고"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "구독 계정 개방에 앞장서는 오픈AI와 xAI"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7E1L5KrvfinYdmBBNDPhf5/710a8a46258bafe8fe2d26f31ff242c0/Codex_Landing_Page_SEO.png",
+      "caption": "오픈AI 코덱스(Codex) 앱 아이콘",
+      "alt": "오픈AI 코덱스 브랜드 아이콘"
+    },
+    {
+      "type": "text",
+      "value": "개방을 주도하는 곳은 오픈AI다. '챗GPT로 로그인' 기능을 통해 유료 구독자는 Codex CLI나 외부 앱에서 기존 구독 요금제 권한 그대로 모델을 호출할 수 있다. 사용량은 API 요금으로 별도 청구되지 않고 구독 한도에서 차감된다. 이 기능은 [오픈AI 개발자 문서](https://developers.openai.com/codex/auth)에도 공식 연동 방법으로 명시됐다."
+    },
+    {
+      "type": "text",
+      "value": "xAI 역시 유사한 행보를 보인다. SuperGrok이나 X Premium+ 구독자는 브라우저 OAuth 로그인을 한 번 거치는 것만으로 Grok을 외부 도구에 연결할 수 있다. OpenClaw와 OpenCode, Hermes Agent 같은 로컬 중심 도구들이 이미 이 OAuth 로그인 방식을 지원한다. 덕분에 사용자는 토큰 단위로 과금되는 개발자용 API를 거치지 않고 구독 요금만으로 도구를 쓴다."
+    },
+    {
+      "type": "heading",
+      "value": "방침 바꾼 앤트로픽, 6월 15일 전용 크레딧제 도입"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽은 한 차례 진통을 겪은 뒤 정책을 수정했다. 앞서 앤트로픽은 지난 4월 4일 구독 계정의 외부 클라이언트 접속을 전면 차단한 바 있다. OpenClaw 같은 도구가 최적화되지 않은 트래픽을 대량으로 유입시켜 자사 인프라에 부담을 준다는 이유였다."
+    },
+    {
+      "type": "text",
+      "value": "거센 반발에 직면한 앤트로픽은 5월 13일 정책 회군을 결정했다. 6월 15일부터는 외부 호출 전용인 'Agent SDK 크레딧'을 매월 제공한다. [Zed](https://zed.dev/blog/anthropic-subscription-changes)에 따르면 Pro는 20달러, Max 5x는 100달러, Max 20x는 200달러 상당이다. 대화용 요금제와 Agent SDK 크레딧을 분리해 OpenClaw 등 서드파티 앱을 다시 수용한 것이다. 이는 치열해진 [코딩 에이전트 시장 점유율 경쟁](/ko/article/general/coding-agent-market-share-war-anthropic-openai/) 속에서 도출한 타협안이다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "제미나이 접속 차단하는 구글, 약관 위반 시 계정 정지"
+    },
+    {
+      "type": "image",
+      "src": "https://www.trendingtopics.eu/wp-content/uploads/2026/02/OpenCLaw_Mockup-780x520.png",
+      "caption": "노트북에서 오픈클로(OpenClaw)를 실행한 모습",
+      "alt": "노트북에서 실행 중인 서드파티 AI 에이전트 오픈클로"
+    },
+    {
+      "type": "text",
+      "value": "경쟁사들이 빗장을 푸는 사이 구글은 반대 방향으로 움직였다. 제미나이 코드 어시스트 FAQ에 따르면, 제3자 소프트웨어로 제미나이 CLI 서비스에 접근하는 것은 서비스 약관 위반이며 계정 정지나 해지 사유에 해당한다. 외부 코딩 에이전트를 연동하려는 개발자는 [버텍스 AI API 키를 개별 발급받으라](https://developers.google.com/gemini-code-assist/resources/faqs)는 것이 구글 측의 공식 권고다."
+    },
+    {
+      "type": "text",
+      "value": "실제 제재 사례도 확인됐다. [EngineersCodex](https://engineerscodex.com/google-restricts-ultra-accounts-openclaw/)에 따르면 월 250달러의 울트라 구독 요금을 지불하던 사용자가 OpenClaw로 제미나이에 접속했다가 약관 위반(403 오류)으로 모델 접근 권한을 잃었다. 이는 최근 있었던 [이용 한도 조정에 따른 구독자들의 불만](/ko/article/google/google-ai-pro-antigravity-rate-limit-crisis/)에 불을 지폈으며, 유료 구독을 원하는 도구에 연동할 수 없다는 비판으로 번지고 있다."
+    },
+    {
+      "type": "text",
+      "value": "시장 흐름은 선명하다. 경쟁사들이 구독 계정의 이식성을 내세워 영토를 확장하는 반면, 구글은 사용자를 자사 플랫폼 안에 묶어두는 정책을 고수한다. 개방성이 점유율 확대로 이어지는 상황에서 구글의 제미나이 폐쇄성이 언제까지 이어질 수 있을지 시장의 관심이 쏠린다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The major artificial intelligence developers—OpenAI, xAI, and Anthropic—are opening their subscription accounts to allow direct integration with external coding tools. Under this model, subscribers can connect third-party apps like OpenClaw and OpenCode directly to their accounts without requiring a separate API key. A single subscription account login opens the door to these third-party apps."
+    },
+    {
+      "type": "text",
+      "value": "Google is the sole exception. Its Gemini terms of service strictly prohibit third-party app access, and the company has begun suspending paying subscribers who attempt to bypass the restriction. While the broader industry moves toward interoperability, Google is tightening its ecosystem. For now, the Gemini lockout stands alone."
+    },
+    {
+      "type": "table",
+      "caption": "Can a subscription account log into third-party apps? (as of June 2026)",
+      "headers": [
+        "Provider",
+        "Subscription login in third-party apps",
+        "Method / notes"
+      ],
+      "rows": [
+        [
+          "OpenAI (GPT / Codex)",
+          "Allowed",
+          "'Sign in with ChatGPT' OAuth"
+        ],
+        [
+          "xAI (Grok)",
+          "Allowed",
+          "SuperGrok / X Premium+ OAuth"
+        ],
+        [
+          "Anthropic (Claude)",
+          "Re-allowed June 15",
+          "Separate Agent SDK credits"
+        ],
+        [
+          "Google (Gemini)",
+          "Banned",
+          "ToS violation, account suspension"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "OpenAI and xAI Lead the Open-Access Shift"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/7E1L5KrvfinYdmBBNDPhf5/710a8a46258bafe8fe2d26f31ff242c0/Codex_Landing_Page_SEO.png",
+      "caption": "The OpenAI Codex app icon",
+      "alt": "OpenAI Codex brand icon"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI has led the shift toward openness. Through its 'Sign in with ChatGPT' feature, paying subscribers can run models within the Codex CLI or external applications under their existing plan's permissions. Usage is deducted directly from the subscription limits rather than generating separate API charges, a workflow officially documented in [OpenAI's developer documentation](https://developers.openai.com/codex/auth). For subscribers, this subscription account login effectively replaces the API key."
+    },
+    {
+      "type": "text",
+      "value": "xAI has adopted a similar approach. Subscribers to SuperGrok or X Premium+ can link Grok to third-party apps via a single browser-based OAuth login. Local-first tools such as OpenClaw, OpenCode, and Hermes Agent have already implemented this OAuth login flow, allowing users to bypass standard developer API channels where usage is metered per token."
+    },
+    {
+      "type": "heading",
+      "value": "Anthropic's Reversal: Introducing the June 15 Agent SDK Credits"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic's strategy shifted after initially restricting access. On April 4, the company blocked subscription accounts from connecting to third-party apps, citing concerns that unoptimized traffic from tools like OpenClaw was straining its infrastructure ahead of the Agent SDK credits rollout."
+    },
+    {
+      "type": "text",
+      "value": "Following significant developer backlash, Anthropic announced a reversal on May 13. Starting June 15, the company will introduce a dedicated allowance called 'Agent SDK credits.' According to an analysis by [Zed](https://zed.dev/blog/anthropic-subscription-changes), Pro subscribers receive $20 per month, Max 5x $100, and Max 20x $200. These Agent SDK credits are reserved strictly for programmatic work and third-party apps. By carving them out from the interactive subscription pool, Anthropic has reintegrated OpenClaw and other third-party apps. The Agent SDK credits arrive amidst an intense [coding-agent market-share battle](/article/general/coding-agent-market-share-war-anthropic-openai/)."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "Google Restricts Gemini Access, Threatening Account Suspensions"
+    },
+    {
+      "type": "image",
+      "src": "https://www.trendingtopics.eu/wp-content/uploads/2026/02/OpenCLaw_Mockup-780x520.png",
+      "caption": "OpenClaw running on a laptop",
+      "alt": "OpenClaw third-party AI agent running on a laptop"
+    },
+    {
+      "type": "text",
+      "value": "While competitors open their ecosystems, Google has taken the opposite path, and the Gemini lockout is the result. No subscription account login reaches outside its walls. The Gemini Code Assist FAQ explicitly states that accessing the services powering Gemini CLI using third-party software violates its terms of service and may result in account suspension or termination. Google officially advises users seeking external integration to [purchase a separate Vertex AI API key](https://developers.google.com/gemini-code-assist/resources/faqs)."
+    },
+    {
+      "type": "text",
+      "value": "Policy enforcement has already begun. An Ultra subscriber paying $250 per month reportedly lost model access and received a 403 forbidden error after connecting to Gemini through OpenClaw's OAuth login, as reported by [EngineersCodex](https://engineerscodex.com/google-restricts-ultra-accounts-openclaw/). This restriction has compounded existing [user dissatisfaction over rate-limit adjustments](/article/google/google-ai-pro-antigravity-rate-limit-crisis/), fueling frustration that subscribers cannot utilize their paid access in third-party apps."
+    },
+    {
+      "type": "text",
+      "value": "The industry trend is clear. While rivals embrace the 'subscription portability' model to capture market share, Google continues to restrict users to its proprietary interface. As the market shifts toward openness, industry observers are watching to see how long the Gemini lockout can hold."
+    }
+  ]
+}
