@@ -875,8 +875,8 @@ const lazyCardHydrationScript = `
         function startScrollAdEmptyTimers(ins) {
           if (!ins || !(ins.dataset) || ins.dataset.gsAdEmptyTimer === '1') return;
           ins.dataset.gsAdEmptyTimer = '1';
-          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-near-30s'); }, 30000);
-          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-near-60s'); }, 60000);
+          setTimeout(function() { maybeCollapseScrollAd(ins, 'missing-frame', 'empty-timeout-near-8s'); }, 8000);
+          setTimeout(function() { maybeCollapseScrollAd(ins, true, 'empty-timeout-near-15s'); }, 15000);
         }
         function watchScrollAdEmpty(ins) {
           if (!ins || (ins.dataset && ins.dataset.gsAdEmptyWatch === '1')) return;
@@ -2130,8 +2130,8 @@ const adLazyLoadScript = `
     function startTimers() {
       if (ad.getAttribute('data-gs-ad-empty-timer') === '1') return;
       ad.setAttribute('data-gs-ad-empty-timer', '1');
-      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-near-30s'); }, 30000);
-      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-near-60s'); }, 60000);
+      setTimeout(function() { maybeMarkAdEmpty(ad, 'missing-frame', 'empty-timeout-near-8s'); }, 8000);
+      setTimeout(function() { maybeMarkAdEmpty(ad, true, 'empty-timeout-near-15s'); }, 15000);
     }
     if (isNearViewport()) {
       startTimers();
