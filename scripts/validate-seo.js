@@ -780,6 +780,18 @@ function contentMorphChecks(keyphrases, profile, md) {
         detail: `0/${totalSlots} but body short (${bodyTotalChars} chars, exempt)`,
       };
     }
+    // A single slot can only score 0% or 100% -- the 30-75% band is
+    // mathematically unreachable, so a lone image/subheading is exempt from
+    // the band check (matches the SKILL.md parity rule, where a 3-section
+    // article carries exactly one even-section body image). Having or omitting
+    // the keyphrase in a single alt is neither "too few" nor "stuffing".
+    if (totalSlots === 1) {
+      return {
+        name: `content/keyphrase-${label}`,
+        pass: true,
+        detail: `${matchedSlots}/1 slot -- single slot, band check exempt`,
+      };
+    }
     const ratio = matchedSlots / totalSlots;
     const pass = ratio >= SUBHEADING_LOWER_BOUNDARY && ratio <= SUBHEADING_UPPER_BOUNDARY;
     const reason = ratio < SUBHEADING_LOWER_BOUNDARY ? 'too few' : ratio > SUBHEADING_UPPER_BOUNDARY ? 'too many (stuffing)' : 'in band';
