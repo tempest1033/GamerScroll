@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-06-03T00:09:30.376Z",
+  "updatedAt": "2026-06-04T00:10:42.306Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 30,
+      "views": 33,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 24,
+      "views": 25,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-april-2026-kr",
-      "views": 17,
+      "views": 15,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 8,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
       "slug": "modern-warfare-4-korea-campaign",
-      "views": 8,
+      "views": 11,
       "path": "/magazine/issue/modern-warfare-4-korea-campaign/"
     },
     {
       "type": "issue",
       "slug": "heavenhells-sales-decline-launch",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 6,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -46,23 +46,10 @@
       "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 6,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
       "type": "issue",
       "slug": "witcher3-songs-of-the-past-announced",
       "views": 5,
       "path": "/magazine/issue/witcher3-songs-of-the-past-announced/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "issue",
@@ -78,10 +65,17 @@
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
       "views": 3,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -96,22 +90,22 @@
       "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
+      "views": 3,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 2,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
-      "type": "hotpick",
-      "slug": "unreal-engine-6-revealed-rocket-league",
+      "type": "insight",
+      "slug": "subculture-market-crisis-winner-takes-all",
       "views": 2,
-      "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
-    },
-    {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 2,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -160,6 +154,12 @@
       "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
+      "type": "hotpick",
+      "slug": "unreal-engine-6-revealed-rocket-league",
+      "views": 1,
+      "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
+    },
+    {
       "type": "insight",
       "slug": "bungie-destiny-sunset-marathon-flop",
       "views": 1,
@@ -167,9 +167,15 @@
     },
     {
       "type": "issue",
-      "slug": "2026-subculture-openworld-games",
+      "slug": "aion2-midterm-report-card",
       "views": 1,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
+      "path": "/magazine/issue/aion2-midterm-report-card/"
+    },
+    {
+      "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -209,9 +215,9 @@
     },
     {
       "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
+      "slug": "mangwol-offline-playtest-recruitment",
       "views": 1,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
+      "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
     },
     {
       "type": "issue",
@@ -221,9 +227,9 @@
     },
     {
       "type": "issue",
-      "slug": "shiftup-self-publishing-stellar-blade",
+      "slug": "steam-deck-oled-asia-price-hike",
       "views": 1,
-      "path": "/magazine/issue/shiftup-self-publishing-stellar-blade/"
+      "path": "/magazine/issue/steam-deck-oled-asia-price-hike/"
     },
     {
       "type": "issue",
@@ -289,13 +295,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/kurzweil-singularity-review-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
