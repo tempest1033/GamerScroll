@@ -1,0 +1,250 @@
+{
+  "slug": "mythos-2-checkpoint-rumor-buzz",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "anthropic",
+  "site": "aiscroll",
+  "title": "미토스2 루머 공방... X 달군 '새 체크포인트' 소동",
+  "titleEn": "Claude Mythos 2 Rumor: A Day on X",
+  "date": "",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/65641e7846f10255c4a3415a10bbf5793ae87b13-1200x630.jpg",
+  "keywords": "클로드 미토스, 미토스2 루머, 미토스 새 체크포인트, AISI 사이버 평가, 미토스 프리뷰",
+  "keywordsEn": "Claude Mythos, Mythos 2 rumor, Mythos new checkpoint, AISI cyber evaluation, Mythos Preview",
+  "summary": "영국 AISI의 평가 결과 공개로 지난 6월 3~4일 X(옛 트위터)가 클로드 미토스의 차세대 모델 테스트설로 들끓었다. 신규 모델 여부를 두고 맞붙은 공방의 쟁점을 정리했다.",
+  "summaryEn": "Claude Mythos 2 rumors swept X on June 3-4 after the AI Security Institute reported gains for a newer checkpoint — is a new model under test?",
+  "sources": [
+    {
+      "name": "AI Security Institute",
+      "title": "How fast is autonomous AI cyber capability advancing?",
+      "url": "https://www.aisi.gov.uk/blog/how-fast-is-autonomous-ai-cyber-capability-advancing"
+    },
+    {
+      "name": "AI Security Institute (@AISecurityInst)",
+      "title": "On a newer Mythos Preview checkpoint",
+      "url": "https://x.com/AISecurityInst/status/2054589763173126339"
+    },
+    {
+      "name": "@deredleritt3r",
+      "title": "UPDATE: these results are from the April 7 model",
+      "url": "https://x.com/deredleritt3r/status/2054641409345401086"
+    },
+    {
+      "name": "CyberScoop",
+      "title": "AI autonomous cyber capability benchmarks broken by GPT-5.5, Claude Mythos",
+      "url": "https://cyberscoop.com/ai-autonomous-cyber-capability-benchmarks-broken-gpt5-claude-mythos/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic scales Claude Mythos to critical infrastructure in 15 countries",
+      "url": "https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:anthropic/claude-mythos-launch-imminent-signals",
+    "tech:anthropic/anthropic-mythos-eu-access-expansion",
+    "tech:anthropic/korea-chipmakers-mythos-glasswing-access",
+    "tech:anthropic/claude-opus-4-8-launch"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "6월 3일 밤부터 4일 새벽 사이 X(옛 트위터)가 '클로드 미토스(Claude Mythos)'의 새로운 체크포인트 이야기로 들끓었다. 발단은 영국 AI보안연구소(AISI)가 발표한 짤막한 평가 결과였다. 지난 4월 테스트한 모델의 최신 스냅샷을 다시 평가한 결과, 성능 점수가 큰 폭으로 상승했다는 내용이 골자다.\n\n해당 수치가 공개되자 소셜미디어상에서는 앤트로픽이 차세대 모델인 '미토스 2'를 테스트 중인 것 아니냐는 추측이 쏟아졌다. 반면 일각에서는 지난 4월 모델과 동일하며 추가 학습본에 불과하다는 반론이 팽팽히 맞섰다. 이틀간 X를 달군 미토스2 루머의 주요 쟁점을 정리했다."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/AISecurityInst/status/2054589763173126339",
+      "caption": "이번 논란의 발단이 된 AISI 공식 게시물"
+    },
+    {
+      "type": "heading",
+      "value": "발단: AISI가 평가한 '새 체크포인트'"
+    },
+    {
+      "type": "image",
+      "src": "https://cyberscoop.com/wp-content/uploads/sites/3/2026/05/GettyImages-2229149370-1-1.jpg",
+      "caption": "앤트로픽 로고",
+      "alt": "클로드 미토스를 개발한 앤트로픽의 로고"
+    },
+    {
+      "type": "text",
+      "value": "AISI는 그동안 모의 침투 환경을 구축해 클로드 미토스를 비롯한 최신 인공지능(AI) 모델의 자율적 사이버 공격 능력을 평가해 왔다. 이번 사이버 평가 발표의 핵심 역시 프로젝트 글래스윙에 공급된 미토스 계열 모델의 성능을 짚은 대목에 집중됐다."
+    },
+    {
+      "type": "quote",
+      "value": "첫 미토스 평가 이후, 우리는 더 새로운 미토스 프리뷰 체크포인트에 접근할 수 있었다. 인간 전문가가 약 20시간 걸리는 32단계 기업망 공격을, 이 체크포인트는 열 번 중 여섯 번 끝까지 완수했다.",
+      "cite": "AI Security Institute (@AISecurityInst)"
+    },
+    {
+      "type": "text",
+      "value": "기존 체크포인트가 동일 과제인 '더 라스트 원스(The Last Ones)'를 열 번 중 세 번 해결한 것과 비교하면 두 배에 달하는 성과다. 이에 더해 이전까지 어떤 모델도 돌파하지 못했던 '냉각탑(Cooling Tower)' 사이버 레인지마저 30%의 확률로 통과했다. [AISI가 공개한 평가 결과](https://www.aisi.gov.uk/blog/how-fast-is-autonomous-ai-cyber-capability-advancing)에 따르면, 두 과제를 모두 통과한 모델은 이번이 처음이다. 한편 같은 평가에서 GPT-5.5는 '더 라스트 원스'를 열 번 중 세 번 해결하는 데 그쳤다."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "'미토스 2 테스트 중' 소문 확산"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2269811684.jpg",
+      "caption": "클로드 로고",
+      "alt": "스마트폰 화면에 표시된 인공지능 브랜드 로고"
+    },
+    {
+      "type": "text",
+      "value": "성공률 60%라는 구체적인 수치가 공개되자 X의 반응은 빠르게 달아올랐다. 소셜미디어에는 관련 내용을 빠르게 실어 나르는 게시글이 잇따랐다."
+    },
+    {
+      "type": "quote",
+      "value": "속보. AISI가 더 새로운 미토스 체크포인트를 시험했다. 이 숫자들은 말이 안 된다 — 20시간짜리 과제를 열 번에 여섯 번이나 풀었다.",
+      "cite": "@daniel_mac8"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽 동향을 추적해 온 인사이더 계정도 가세했다. @synthwavedd는 막연한 추측을 넘어 '단독(SCOOP)'을 달고 한층 구체적인 주장을 내놨다."
+    },
+    {
+      "type": "quote",
+      "value": "단독. 앤트로픽이 미토스 프리뷰보다 더 나은 새 버전 미토스의 일반 공개를 준비하고 있다.",
+      "cite": "@synthwavedd"
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/synthwavedd/status/2062519972379652339",
+      "caption": "새 버전 미토스 공개 준비를 주장한 단독 게시물"
+    },
+    {
+      "type": "text",
+      "value": "프로젝트 글래스윙 프리뷰에 묶여 있던 모델이라는 점이 오히려 기대를 키웠고, 시장의 전망은 빠르게 앞서 나갔다. 한 유력 인플루언서는 구체적인 근거를 제시하지 않은 채 미토스 2가 이미 내부 테스트 단계에 들어섰다고 단언했다. 비록 명확한 증거가 없는 주장이었으나, [앞서 보도된 일반 공개 임박 관측](/ko/article/anthropic/claude-mythos-launch-imminent-signals/)과 맞물리며 소문은 삽시간에 퍼졌다."
+    },
+    {
+      "type": "quote",
+      "value": "엔트로픽은 이미 미토스2를 돌리고 있다. 첫 출시를 기다리는 동안 말이다. 다음은 미토스3 차례다.",
+      "cite": "@DavidOndrej1"
+    },
+    {
+      "type": "text",
+      "value": "여기에 프로젝트 글래스윙(Project Glasswing)을 이끄는 로건 그레이엄(Logan Graham)이 '미토스 프리뷰는 비약적인 발전(step change)'이라고 언급하면서 루머에 불을 지폈다. 공식 출시를 앞두고 더 강력한 모델이 은밀히 테스트되고 있다는 시나리오는 당시 분위기 속에서 꽤 설득력 있게 받아들여졌다."
+    },
+    {
+      "type": "heading",
+      "value": "신중론 대두: '기존 4월 모델일 뿐'"
+    },
+    {
+      "type": "text",
+      "value": "하지만 이내 차분한 해석을 제기하는 정정 게시글들이 올라오며 과열된 분위기가 가라앉았다."
+    },
+    {
+      "type": "quote",
+      "value": "정정한다. 이 결과는 4월 7일 공개된 바로 그 미토스 프리뷰에서 나온 것이다. 적어도 공개된 범위에서 '새' 미토스 체크포인트는 없다.",
+      "cite": "@deredleritt3r"
+    },
+    {
+      "type": "text",
+      "value": "일각에서는 최초의 미토스 모델이 공개된 지 불과 5주밖에 지나지 않았다는 점을 지적했다. AISI가 언급한 '새로운 체크포인트'는 별개의 신규 모델이 아니라, 프로젝트 글래스윙에 투입된 기존 모델의 후속 학습 스냅샷일 가능성이 크다는 분석이다. 실제로 AISI 역시 보고서에서 새 모델을 출시하지 않더라도 동일한 모델의 미세 조정과 반복 학습만으로 성능 추정치가 크게 달라질 수 있다고 명시한 바 있다.\n\n결과적으로 앤트로픽은 '미토스 2'에 대해 공식적으로 언급한 적이 없다. 마침 지난 6월 2일 프로젝트 글래스윙의 파트너십 대상이 15개국 150여 개 기관으로 확대되며 클로드 미토스에 대한 대중의 기대감이 한층 고조된 시점이었을 뿐이다. 결국 이번 미토스2 루머는 신규 모델의 등장이라기보다, 기존 클로드 미토스의 성능 개선 속도가 시장의 예상보다 훨씬 빠르다는 점에 놀란 해프닝에 가깝다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "From the night of June 3 to the early hours of June 4, the X timeline buzzed with rumors of a newer checkpoint for Claude Mythos. The speculation began when the UK AI Security Institute (AISI) published a brief evaluation note revealing that a more recent iteration of the model it had tested in April yielded significantly higher scores.\n\nWhile some users immediately speculated that Anthropic was testing 'Mythos 2,' others countered that the evaluation merely involved a newer training run of the existing April model. The following is a summary of the Mythos 2 rumor debate that unfolded on X."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/AISecurityInst/status/2054589763173126339",
+      "caption": "The AISI post that sparked the debate"
+    },
+    {
+      "type": "heading",
+      "value": "The Spark: AISI Evaluates a 'Newer' Checkpoint"
+    },
+    {
+      "type": "image",
+      "src": "https://cyberscoop.com/wp-content/uploads/sites/3/2026/05/GettyImages-2229149370-1-1.jpg",
+      "caption": "The Anthropic logo",
+      "alt": "The Anthropic logo, maker of Claude Mythos"
+    },
+    {
+      "type": "text",
+      "value": "As part of its ongoing cyber evaluation work, AISI has been testing the autonomous cyber capabilities of frontier models, Claude Mythos among them, in simulated penetration environments. The core of its latest update concerned the Mythos-class model running in Project Glasswing, and rested on a single finding."
+    },
+    {
+      "type": "quote",
+      "value": "Since our first Mythos evaluation, we were given access to a newer Mythos Preview checkpoint. On a 32-step corporate-network attack we estimate takes a human expert about 20 hours, this checkpoint completed the full chain in 6 of 10 attempts.",
+      "cite": "AI Security Institute (@AISecurityInst)"
+    },
+    {
+      "type": "text",
+      "value": "This success rate doubles that of the previous checkpoint, which solved the same task ('The Last Ones') in only three out of ten attempts. Additionally, the model cleared the 'Cooling Tower' cyber range—a challenge previously unbeaten by any model—in three out of ten trials. According to [AISI's published evaluation](https://www.aisi.gov.uk/blog/how-fast-is-autonomous-ai-cyber-capability-advancing), it is the first model to successfully navigate both tasks. By comparison, GPT-5.5 solved 'The Last Ones' in only three out of ten attempts during the same testing round."
+    },
+    {
+      "type": "ad"
+    },
+    {
+      "type": "heading",
+      "value": "'Mythos 2 Under Test' Speculation Sweeps X"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2269811684.jpg",
+      "caption": "The Claude logo",
+      "alt": "An AI brand logo on a smartphone screen"
+    },
+    {
+      "type": "text",
+      "value": "The six-out-of-ten success rate quickly captured the attention of the X community, prompting a wave of speculative posts."
+    },
+    {
+      "type": "quote",
+      "value": "BREAKING. AISI tested a newer Mythos checkpoint. These numbers are insane — it solved a 20-hour task in 6 out of 10 attempts.",
+      "cite": "@daniel_mac8"
+    },
+    {
+      "type": "text",
+      "value": "An insider account that closely tracks Anthropic also weighed in. @synthwavedd went beyond speculation, tagging a 'SCOOP' with a far more concrete claim."
+    },
+    {
+      "type": "quote",
+      "value": "SCOOP: Anthropic is gearing up for the public launch of a new version of Mythos, better than Mythos Preview.",
+      "cite": "@synthwavedd"
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/synthwavedd/status/2062519972379652339",
+      "caption": "A scoop claiming a new Mythos version is in the works"
+    },
+    {
+      "type": "text",
+      "value": "That the model had been locked inside the Project Glasswing preview only sharpened expectations. Speculation intensified rapidly. One prominent influencer account asserted without evidence that Mythos 2 was already undergoing internal testing. While unsubstantiated, the claim gained traction as it coincided with [earlier reports of an imminent model release](/article/anthropic/claude-mythos-launch-imminent-signals/) and spread quickly."
+    },
+    {
+      "type": "quote",
+      "value": "Anthropic is already running Mythos 2 — while everyone waits on the first release. Mythos 3 is next.",
+      "cite": "@DavidOndrej1"
+    },
+    {
+      "type": "text",
+      "value": "The rumor was further fueled when Logan Graham, lead of Project Glasswing, described Claude Mythos Preview as a 'step change.' For many users on X, the prospect of a new Mythos checkpoint undergoing quiet testing ahead of an official launch seemed highly plausible."
+    },
+    {
+      "type": "heading",
+      "value": "Pumping the Brakes: 'Just the April Model'"
+    },
+    {
+      "type": "text",
+      "value": "However, a series of brief corrections soon tempered the excitement."
+    },
+    {
+      "type": "quote",
+      "value": "UPDATE: these results are from the exact same Mythos Preview disclosed on April 7. There is no 'new' Mythos checkpoint, at least not publicly.",
+      "cite": "@deredleritt3r"
+    },
+    {
+      "type": "text",
+      "value": "Several observers pointed out that the original Mythos model had been released only five weeks prior. They argued that the 'new checkpoint' was likely a later training snapshot of the same Mythos Preview deployed in Project Glasswing, rather than a successor. Indeed, AISI noted in its report that significant capability gains do not necessarily require the release of a new model, as subsequent iterations of an existing model can substantially alter performance estimates.\n\nUltimately, Anthropic has not officially announced a 'Mythos 2,' and Claude Mythos remains the only model in play. The online buzz was likely amplified by the June 2 expansion of Project Glasswing to approximately 150 organizations across more than 15 countries, which primed the community for news of a new model. The Mythos 2 rumor that swept X over the past day reflects surprise at how quickly an existing Mythos Preview checkpoint can improve — even without a new checkpoint release — rather than the arrival of a next-generation model."
+    }
+  ]
+}
