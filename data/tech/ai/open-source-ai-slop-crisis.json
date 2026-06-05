@@ -1,0 +1,203 @@
+{
+  "slug": "open-source-ai-slop-crisis",
+  "status": "approved",
+  "category": "general",
+  "title": "오픈소스는 왜 AI 슬롭을 거부하기 시작했나 — Godot·curl·GitHub가 그은 선",
+  "date": "",
+  "keywords": "AI 슬롭, 오픈소스 AI 정책, Godot AI 기여 금지, 바이브 코딩, 오픈소스 유지보수자",
+  "keywordsEn": "AI slop, open source AI, Godot AI contribution ban, vibe coding pull requests, open source maintainers",
+  "summary": "오픈소스 게임 엔진 Godot가 AI가 작성한 기여를 전면 금지했다. curl은 버그 바운티 프로그램을 중단했고 Jazzband는 아예 프로젝트를 폐쇄했다. AI가 생성한 저품질 코드가 유입되자 오픈소스 진영이 방어선 구축에 나선 모양새다.",
+  "summaryEn": "Godot now bans fully AI-generated contributions, curl killed its bug bounty, and Jazzband shut down. How open source is drawing a line against AI slop.",
+  "thumbnail": "https://eu-images.contentstack.com/v3/assets/blt740a130ae3c5d529/blt7761a3097f18f42f/6994633139b9d700087cf929/Godot_Header.png?disable=upscale&width=1200&height=630&fit=crop",
+  "sources": [
+    {
+      "name": "Godot Engine",
+      "title": "Pull request rules and guidelines — AI-assisted contributions",
+      "url": "https://contributing.godotengine.org/en/latest/pull_requests/pull_request_guidelines.html"
+    },
+    {
+      "name": "Game Developer",
+      "title": "Godot veteran says 'AI slop' pull requests have become overwhelming",
+      "url": "https://www.gamedeveloper.com/programming/godot-co-founder-says-ai-slop-pull-requests-have-become-overwhelming"
+    },
+    {
+      "name": "The New Stack",
+      "title": "96% of codebases rely on open source, and AI slop is putting them at risk",
+      "url": "https://thenewstack.io/ai-slop-open-source/"
+    },
+    {
+      "name": "The Register",
+      "title": "GitHub ponders kill switch for pull requests to stop AI slop",
+      "url": "https://www.theregister.com/software/2026/02/03/github-ponders-kill-switch-for-pull-requests-to-stop-ai-slop/4334869"
+    },
+    {
+      "name": "GamingOnLinux",
+      "title": "PlayStation 3 emulator RPCS3 devs battling AI slop code pull requests",
+      "url": "https://www.gamingonlinux.com/2026/05/playstation-3-emulator-rpcs3-devs-battling-ai-slop-code-pull-requests/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/openclaw-steinberger-openai",
+    "tech:ai/moltbook-ai-social-network",
+    "tech:ai/dead-internet-theory"
+  ],
+  "needTranslate": false,
+  "titleEn": "Why Open Source Is Drawing the Line on AI Slop",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The open-source game engine Godot recently added one rule to its contribution guidelines: \"contributions made entirely by AI are prohibited.\" It is not an isolated case. Roughly 96% of the world's software relies on open source, yet about 60% of the maintainers holding it together are unpaid volunteers. In 2026, these open source maintainers started drawing defensive lines against a flood of low-effort, machine-generated pull requests — the vibe coding output they label AI slop."
+    },
+    {
+      "type": "heading",
+      "value": "Godot's AI Contribution Ban"
+    },
+    {
+      "type": "text",
+      "value": "Godot's guidelines now discourage AI use and ban pull requests written entirely by AI. Anyone who used AI for any part of a change must disclose where, and be ready to explain the code to maintainers. The only exceptions are single-line autocompletion and translation tools. The full terms sit in the project's [contribution guidelines](https://contributing.godotengine.org/en/latest/pull_requests/pull_request_guidelines.html)."
+    },
+    {
+      "type": "text",
+      "value": "Rémi Verschelde, a core maintainer of nearly a decade, explained why on Bluesky: vetting AI slop is \"draining and demoralizing.\" Maintainers must now second-guess every contribution from a new developer — was it written by a human, and does the author even understand it?"
+    },
+    {
+      "type": "text",
+      "value": "His only practical fix was more funding to hire maintainers who can filter the influx. Running AI to detect AI-generated code, he added, would be \"horribly ironic.\" At the time, Godot had 4,681 open pull requests awaiting review."
+    },
+    {
+      "type": "heading",
+      "value": "curl Suspends Bug Bounties, Jazzband Shuts Down"
+    },
+    {
+      "type": "image",
+      "src": "https://image.theregister.com/231279.jpg?imageId=231279&panox=0&panoy=0&panow=0&panoh=0&width=1200&height=683",
+      "caption": "A ship's 'slop tank' hatch — 'slop' originally refers to waste residue",
+      "alt": "Close-up of a ship's slop tank hatch"
+    },
+    {
+      "type": "text",
+      "value": "Projects without funds for more staff took sharper measures. Daniel Stenberg, curl's lead developer, said the AI slop flooding his inbox — low-quality, AI-generated bug reports — was effectively a \"denial-of-service\" attack. He shut down curl's bug bounty in January 2026, reasoning that the reward only drew automated spam. Valid vulnerability reports had already fallen from 15% to 5%."
+    },
+    {
+      "type": "text",
+      "value": "Jazzband, a collaborative collective within the Python ecosystem, chose to disband entirely. Lead maintainer Jannis Leidel, who also serves as the chair of the Python Software Foundation, wrote that the relentless \"flood of AI-generated spam PRs and issues\" had made the project unsustainable."
+    },
+    {
+      "type": "text",
+      "value": "The economics of AI slop are stark. One developer estimated that reviewing and fixing a pull request takes 12 times longer than generating it. The vibe coding that takes thirty seconds to produce can need days to verify — an unsustainable load for the unpaid maintainers who keep these projects alive."
+    },
+    {
+      "type": "heading",
+      "value": "GitHub Battles AI Slop as Trust Breaks Down"
+    },
+    {
+      "type": "text",
+      "value": "The strain forced the platform itself to act. In late January, GitHub product manager Camilla Moraes opened a community discussion on how the surge in AI slop had become an operational crisis for maintainers. Proposed fixes include disabling pull requests entirely, restricting them to established collaborators, and adding metadata to flag AI use."
+    },
+    {
+      "type": "text",
+      "value": "On the front lines it is worse. One core developer said only about 10% of pull requests churned out by vibe coding clear basic quality bars. The PlayStation 3 emulator RPCS3 has threatened bans for undisclosed AI code. A GoCD maintainer warned that autonomous coding agents like OpenClaw — the subject of [our OpenClaw profile](/article/openai/openclaw-steinberger-openai/) — will make it worse, after one documentation pull request proved \"plausible nonsense\" only after long review."
+    },
+    {
+      "type": "text",
+      "value": "The deepest damage is to trust. As a Microsoft engineer put it, reviewers can no longer assume a contributor wrote or even understands their submission. AI-generated pull requests can look structurally sound yet hide logical errors or security holes, and line-by-line review cannot scale to the volume of machine-written code."
+    },
+    {
+      "type": "heading",
+      "value": "The Real Target: Accountability, Not the Tool"
+    },
+    {
+      "type": "image",
+      "src": "https://www.gamingonlinux.com/uploads/articles/tagline_images/910549315id28999gol.jpg",
+      "caption": "Sony PlayStation 3 — the console emulated by RPCS3",
+      "alt": "Sony PlayStation 3 console"
+    },
+    {
+      "type": "text",
+      "value": "The community is not unified in banning AI. Of 63 open-source AI policies catalogued by RedMonk analyst Kate Holterhoff, only 14 ban AI-generated contributions outright; 12 remain undecided, while most permit AI if its use is disclosed. Even the strictest ban turns on one question — does the contribution come with real understanding?"
+    },
+    {
+      "type": "text",
+      "value": "One pattern holds, though: the closer a project sits to critical infrastructure, the stricter its open source AI policy. The line is drawn not against AI the tool, but against vibe coding thrown over the wall without accountability. It echoes the principle Godot set long before any AI ban — submit only code you understand and can explain."
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈소스 게임 엔진 Godot가 최근 기여 가이드라인에 \"AI가 완전히 작성한 기여는 금지한다\"는 규칙을 추가했다. 전 세계 소프트웨어의 96%가 오픈소스에 의존하지만, 프로젝트 유지보수자의 60%는 무급 자원봉사자다. 2026년 들어 이들은 이른바 '바이브 코딩'으로 쏟아지는 저품질 자동 생성 코드에 맞서 방어선을 구축하기 시작했다. 업계에서 'AI 슬롭'이라 부르는 흐름이다."
+    },
+    {
+      "type": "heading",
+      "value": "Godot가 그은 선: AI 단독 기여 금지"
+    },
+    {
+      "type": "text",
+      "value": "Godot의 새 기여 규칙은 AI 사용을 권장하지 않으며, AI로만 제작된 풀 리퀘스트(PR)를 거부한다. 코드의 일부에라도 AI를 활용했다면 적용 범위를 정확히 명시해야 하고, 제출한 코드의 작동 방식을 설명할 준비가 되어 있어야 한다. 예외는 단순 한 줄 자동완성 도구와 번역 서비스뿐이다. 상세 규정은 프로젝트의 [가이드라인 원문](https://contributing.godotengine.org/en/latest/pull_requests/pull_request_guidelines.html)에서 확인할 수 있다."
+    },
+    {
+      "type": "text",
+      "value": "약 10년간 엔진 개발을 이끌어온 핵심 유지보수자 레미 베르셸드는 블루스카이를 통해 AI 생성 코드를 검증하는 작업이 매우 지치고 의욕을 꺾는 일이라고 털어놓았다. 이제 유지보수자들은 신규 개발자가 제출한 모든 기여분을 세심히 살피며, 해당 코드가 사람이 직접 작성한 것인지 그리고 제출자가 코드의 기능을 제대로 이해하고 있는지 끊임없이 의심해야 하는 처지다."
+    },
+    {
+      "type": "text",
+      "value": "베르셸드는 쏟아지는 저품질 기여를 걸러낼 전담 유지보수자를 고용할 재정적 지원만이 실질적인 해법이라고 지적했다. AI 코드를 탐지하려고 또 다른 AI 도구를 도입하는 상황은 모순이라는 비판도 덧붙였다. 그가 우려를 표할 당시 Godot 프로젝트에는 4,681건의 풀 리퀘스트가 검토를 기다리며 쌓여 있었다."
+    },
+    {
+      "type": "heading",
+      "value": "curl은 버그 바운티를 중단하고, Jazzband는 해체했다"
+    },
+    {
+      "type": "image",
+      "src": "https://image.theregister.com/231279.jpg?imageId=231279&panox=0&panoy=0&panow=0&panoh=0&width=1200&height=683",
+      "caption": "선박 갑판의 '슬롭 탱크(slop tank)' 해치 — '슬롭'은 본래 폐유 찌꺼기를 뜻한다",
+      "alt": "선박 슬롭 탱크 해치 클로즈업"
+    },
+    {
+      "type": "text",
+      "value": "유지보수 인력을 충원할 재정적 여유가 없는 프로젝트들은 더 극단적인 결정을 내렸다. curl의 수석 개발자인 다니엘 스텐버그는 AI 슬롭으로 지목되는 저품질 버그 신고가 프로젝트에 분산서비스거부(DDoS) 공격을 가하는 수준이라고 토로했다. 결국 그는 2026년 1월 버그 바운티 프로그램을 완전히 중단했다. 금전적 보상이 자동화된 스팸을 끌어들인다는 판단에서다. 당시 유효한 취약점 제보 비율은 이미 15%에서 5% 수준으로 급감한 상태였다."
+    },
+    {
+      "type": "text",
+      "value": "파이썬 생태계의 협업 공동체인 Jazzband는 조직을 아예 해체하기로 결심했다. 파이썬 소프트웨어 재단의 의장이자 Jazzband의 수석 유지보수자인 야니스 라이델은 AI가 무차별적으로 생성한 스팸 성격의 풀 리퀘스트와 이슈 제보가 쏟아져 더는 프로젝트를 지속할 수 없다고 공지했다."
+    },
+    {
+      "type": "text",
+      "value": "이러한 움직임의 배경에는 극심한 비대칭성이 자리 잡고 있다. 한 개발자의 추산에 따르면, AI가 작성한 풀 리퀘스트를 검토하고 수정하는 데 걸리는 시간은 AI가 코드를 생성하는 시간의 12배에 달한다. 생성에는 단 30초가 소요되지만 검증에는 며칠이 걸릴 수 있어, 무급 자원봉사자들이 이를 감당하기란 불가능에 가깝다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 슬롭에 맞선 깃허브, 무너진 신뢰 모델"
+    },
+    {
+      "type": "text",
+      "value": "이 같은 운영상 고충이 심화되자 주요 플랫폼도 개입을 시작했다. 깃허브의 제품 관리자(PM) 카밀라 모라이스는 지난 1월 말 커뮤니티 토론을 발의하고, AI 슬롭의 폭증이 유지보수자들에게 유발하는 운영적 위기를 공식 논의 테이블에 올렸다. 현재 검토 중인 방안에는 유지보수자가 풀 리퀘스트 기능을 완전히 비활성화하거나 기여 권한을 기존 협업자로 제한하는 조치, 그리고 AI 사용 여부를 표시하는 메타데이터 신호 추가 등이 포함됐다."
+    },
+    {
+      "type": "text",
+      "value": "실제 현장에서 느끼는 상황은 훨씬 더 심각하다. 한 핵심 개발자는 바이브 코딩으로 찍어낸 풀 리퀘스트 중 기준을 통과하는 비율이 약 10%에 불과하다고 지적했다. 플레이스테이션 3 에뮬레이터 RPCS3 개발팀은 AI 코드를 사전 공시 없이 제출할 경우 프로젝트 참여를 차단하겠다고 경고했다. GoCD의 한 유지보수자 역시 [오픈클로(OpenClaw)](/ko/article/openai/openclaw-steinberger-openai/) 같은 자율형 코딩 에이전트의 보급이 상황을 악화시킬 것이라 우려하며, 장시간 검토한 문서 기여분이 결국 그럴듯하게 포장된 거짓 정보로 밝혀진 일화를 공유했다."
+    },
+    {
+      "type": "text",
+      "value": "가장 심각한 문제는 개발 생태계 내 신뢰의 붕괴다. 마이크로소프트의 한 엔지니어는 리뷰어가 더 이상 제출자 본인이 코드를 직접 작성했거나 이해하고 있다고 전제할 수 없게 된 점을 꼬집었다. AI 생성 코드는 외견상 완벽해 보여도 치명적인 논리 오류나 보안 취약점을 숨기고 있는 경우가 많다. 이 때문에 코드를 한 줄씩 뜯어보는 기존 검증 방식으로는 대량으로 쏟아지는 기계 작성 코드를 도저히 감당할 수 없다."
+    },
+    {
+      "type": "heading",
+      "value": "막아야 할 건 AI가 아니라 책임 없는 기여다"
+    },
+    {
+      "type": "image",
+      "src": "https://www.gamingonlinux.com/uploads/articles/tagline_images/910549315id28999gol.jpg",
+      "caption": "소니 플레이스테이션 3 — 에뮬레이터 RPCS3가 재현하는 콘솔",
+      "alt": "소니 플레이스테이션 3 콘솔"
+    },
+    {
+      "type": "text",
+      "value": "그렇다고 오픈소스 진영 전체가 AI 전면 금지에 합의한 것은 아니다. 레드몽크의 애널리스트 케이트 홀터호프가 분석한 63건의 오픈소스 AI 정책에 따르면, AI 기여를 전면 금지한 프로젝트는 14곳에 그쳤다. 12곳은 아직 방침을 결정하지 못했으며, 다수의 프로젝트는 사용 사실을 공개하는 조건 하에 AI 도구의 활용을 허용하는 방향으로 가닥을 잡았다. 오픈소스 AI 정책의 무게추가 전면 금지보다 '공시 후 허용'에 실려 있는 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "다만 한 가지 뚜렷한 흐름이 관찰된다. 핵심 인프라에 가까운 주요 프로젝트일수록 AI 사용에 한층 엄격한 잣대를 들이대고 있다. 결국 오픈소스 AI 정책이 긋는 선은 도구로서의 AI를 향한 것이 아니라, 이해하지도 못한 채 무책임하게 쏟아내는 '바이브 코딩'에 그어져 있다. Godot 프로젝트가 AI 관련 조항보다 앞서 명시했던 원칙도 일맥상통한다. 개발자 본인이 완벽히 이해하고 설명할 수 있는 코드만 기여해야 한다는 규칙이다."
+    }
+  ],
+  "site": "aiscroll"
+}
