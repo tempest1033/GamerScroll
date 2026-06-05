@@ -60,7 +60,7 @@ def main() -> None:
     texts = payload.get("texts") or []
     if not isinstance(texts, list):
         raise SystemExit("`texts` must be a list of strings")
-    kiwi = Kiwi()
+    kiwi = Kiwi(num_workers=1)
     results = [analyze(kiwi, t) for t in texts]
     sys.stdout.buffer.write(json.dumps({"results": results}, ensure_ascii=False).encode("utf-8"))
 

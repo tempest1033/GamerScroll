@@ -24,7 +24,7 @@ for (const k of ['OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', '
 }
 if (!process.env.UV_THREADPOOL_SIZE) process.env.UV_THREADPOOL_SIZE = '2';
 
-const { spawnSync } = require('node:child_process');
+const { spawn, spawnSync } = require('node:child_process');
 const path = require('node:path');
 const os = require('node:os');
 const fs = require('node:fs');
@@ -34,7 +34,7 @@ const cheerio = require('cheerio');
 // --- Orphaned headless-Chrome reaper -------------------------------------
 // Lighthouse launches headless Chrome via chrome-launcher. When this process
 // is killed mid-run (e.g. an external tool-call timeout firing during the
-// blocking spawnSync below), that Chrome is orphaned and piles up across runs
+// async lighthouse child below), that Chrome is orphaned and piles up across runs
 // until it saturates the machine. We reap only automation Chrome — processes
 // carrying BOTH --headless and a remote-debugging-port — so any interactive
 // Chrome the user has open is never touched.
@@ -67,16 +67,19 @@ process.on('uncaughtException', (err) => { _finalReap(); console.error(err); pro
 const PYTHON_BIN = process.env.PYTHON_BIN || 'python';
 const MORPH_SCRIPT = path.join(__dirname, 'morph_analyze.py');
 
+const {
+  DENSITY_MIN,
+  DENSITY_MAX_VALIDATE: DENSITY_MAX,
+  READ_SENTENCE_CHARS_MAX,
+  READ_PARAGRAPH_SENTENCES_MAX,
+  READ_SENTENCE_WORDS_MAX,
+} = require('./seo-thresholds');
+
 // Yoast keyphrase density (noWordForms preset, applies to Korean).
 // Source: yoast/wordpress-seo packages/yoastseo/src/scoring/assessments/seo/KeywordDensityAssessment.js
-const DENSITY_MIN = 0.005; // 0.5 %
-const DENSITY_MAX = 0.030; // 3.0 %
 // Korean publication-style readability defaults.
-const READ_SENTENCE_CHARS_MAX = 120;
-const READ_PARAGRAPH_SENTENCES_MAX = 7;
 // English sentences run far longer per character than Korean, so the char cap
 // above only applies to Korean bodies; English is capped by word count instead.
-const READ_SENTENCE_WORDS_MAX = 45;
 // Google SERP truncation thresholds for Korean characters.
 const TITLE_CHARS_MIN = 15;
 const TITLE_CHARS_MAX = 60;
@@ -173,18 +176,30 @@ function runLighthouse(url) {
     '--disable-full-page-screenshot',
     '--chrome-flags=--headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --renderer-process-limit=1 --js-flags=--single-threaded --disable-extensions --disable-background-networking --disable-sync --metrics-recording-only --no-first-run --mute-audio',
   ];
-  const result = spawnSync('lighthouse', args, {
-    stdio: ['ignore', 'pipe', 'pipe'],
-    shell: true,
-    env: { ...process.env, OMP_NUM_THREADS: '1', OPENBLAS_NUM_THREADS: '1' },
+  return new Promise((resolve, reject) => {
+    let stderr = '';
+    const child = spawn('lighthouse', args, {
+      stdio: ['ignore', 'pipe', 'pipe'],
+      shell: true,
+      env: { ...process.env, OMP_NUM_THREADS: '1', OPENBLAS_NUM_THREADS: '1' },
+    });
+    if (child.stderr) child.stderr.on('data', (d) => { stderr += d.toString(); });
+    child.on('error', reject);
+    child.on('close', (code) => {
+      try {
+        if (code !== 0) {
+          reject(new Error(`lighthouse exit ${code}: ${stderr.slice(-400)}`));
+          return;
+        }
+        const json = JSON.parse(fs.readFileSync(tmp, 'utf8'));
+        resolve(json);
+      } catch (e) {
+        reject(e);
+      } finally {
+        try { if (fs.existsSync(tmp)) fs.unlinkSync(tmp); } catch (_) { /* best-effort */ }
+      }
+    });
   });
-  if (result.status !== 0) {
-    const stderr = (result.stderr || '').toString().slice(-400);
-    throw new Error(`lighthouse exit ${result.status}: ${stderr}`);
-  }
-  const json = JSON.parse(fs.readFileSync(tmp, 'utf8'));
-  fs.unlinkSync(tmp);
-  return json;
 }
 
 function lighthouseChecks(lhr) {
@@ -456,16 +471,25 @@ async function internalLinkCheck($, baseUrl) {
     if (internalPathRe.test(href)) hrefs.add(href);
   });
   const base = new URL(baseUrl);
-  const broken = [];
-  for (const href of hrefs) {
-    const target = new URL(href, base).toString();
-    try {
-      const r = await axios.get(target, { timeout: 8000, validateStatus: () => true, maxRedirects: 5 });
-      if (r.status !== 200) broken.push(`${href} -> ${r.status}`);
-    } catch (e) {
-      broken.push(`${href} -> ERR`);
+  const arr = Array.from(hrefs);
+  const out = new Array(arr.length);
+  const concurrency = 5;
+  let idx = 0;
+  async function worker() {
+    while (idx < arr.length) {
+      const my = idx++;
+      const href = arr[my];
+      const target = new URL(href, base).toString();
+      try {
+        const r = await axios.get(target, { timeout: 8000, validateStatus: () => true, maxRedirects: 5 });
+        if (r.status !== 200) out[my] = `${href} -> ${r.status}`;
+      } catch (e) {
+        out[my] = `${href} -> ERR`;
+      }
     }
   }
+  await Promise.all(Array.from({ length: Math.min(concurrency, arr.length) }, () => worker()));
+  const broken = out.filter(Boolean);
   return {
     name: 'body/internal-links',
     pass: broken.length === 0,
@@ -988,21 +1012,27 @@ function printReport(url, checks) {
 
 async function validate(url) {
   const profile = profileFor(url);
-  const lhr = runLighthouse(url);
+  const lhPromise = runLighthouse(url);
+  const restPromise = (async () => {
+    const html = await fetchHtml(url);
+    const { checks: structChecks, $ } = structuralChecks(html, url);
+    const [linkCheck, hotlinkCheck] = await Promise.all([
+      internalLinkCheck($, url),
+      imageHotlinkCheck($),
+    ]);
+    const internalQualityCheck = internalLinkScoring($, url);
+    const outboundCheck = outboundLinkCheck($, url);
+    const keyphrases = extractKeyphrases($);
+    // One Kiwi spawn for the whole run (see buildMorphData) — was 3 spawns.
+    const md = buildMorphData($, keyphrases);
+    const competingCheck = competingLinkCheck($, keyphrases, md.kpNounLists, url);
+    const morphChecks = contentMorphChecks(keyphrases, profile, md);
+    const surfaceChecks = contentSurfaceChecks($, keyphrases, profile, md);
+    return [...structChecks, linkCheck, hotlinkCheck, internalQualityCheck, outboundCheck, competingCheck, ...morphChecks, ...surfaceChecks];
+  })();
+  const [lhr, rest] = await Promise.all([lhPromise, restPromise]);
   const lhChecks = lighthouseChecks(lhr);
-  const html = await fetchHtml(url);
-  const { checks: structChecks, $ } = structuralChecks(html, url);
-  const linkCheck = await internalLinkCheck($, url);
-  const hotlinkCheck = await imageHotlinkCheck($);
-  const internalQualityCheck = internalLinkScoring($, url);
-  const outboundCheck = outboundLinkCheck($, url);
-  const keyphrases = extractKeyphrases($);
-  // One Kiwi spawn for the whole run (see buildMorphData) — was 3 spawns.
-  const md = buildMorphData($, keyphrases);
-  const competingCheck = competingLinkCheck($, keyphrases, md.kpNounLists, url);
-  const morphChecks = contentMorphChecks(keyphrases, profile, md);
-  const surfaceChecks = contentSurfaceChecks($, keyphrases, profile, md);
-  return [...lhChecks, ...structChecks, linkCheck, hotlinkCheck, internalQualityCheck, outboundCheck, competingCheck, ...morphChecks, ...surfaceChecks];
+  return [...lhChecks, ...rest];
 }
 
 (async () => {

@@ -43,15 +43,17 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 const MORPH_SCRIPT = path.join(__dirname, 'morph_analyze.py');
 const PYTHON_BIN = process.env.PYTHON_BIN || 'python';
 
-// Thresholds mirror validate-seo.js so the two tools agree.
-const DENSITY_MIN = 0.005;
-const DENSITY_MAX = 0.035;
-const SENTENCE_CHARS_MAX = 120;   // Korean
-const SENTENCE_WORDS_MAX = 45;    // English
-const PARAGRAPH_SENTENCES_MAX = 7;
+const {
+  DENSITY_MIN,
+  DENSITY_MAX_AUDIT: DENSITY_MAX,
+  READ_SENTENCE_CHARS_MAX: SENTENCE_CHARS_MAX,
+  READ_SENTENCE_WORDS_MAX: SENTENCE_WORDS_MAX,
+  READ_PARAGRAPH_SENTENCES_MAX: PARAGRAPH_SENTENCES_MAX,
+  SUMMARY_CHARS_MAX,
+  SOURCES_REQUIRED,
+} = require('./seo-thresholds');
+
 const SECTION_CHARS_MAX = 800;
-const SUMMARY_CHARS_MAX = 160;
-const SOURCES_REQUIRED = 5;
 
 const args = process.argv.slice(2);
 const showPass = args.includes('--show-pass');
