@@ -16,27 +16,27 @@
     {
       "url": "https://www.notus.org/technology/trump-ai-stake-openai",
       "title": "Senior U.S. Officials Eye Government Shares in AI Giants",
-      "publisher": "NOTUS"
+      "name": "NOTUS"
     },
     {
       "url": "https://www.reuters.com/legal/transactional/us-officials-eye-government-stakes-ai-companies-notus-reports-2026-06-05/",
       "title": "US officials eye government stakes in AI companies, NOTUS reports",
-      "publisher": "Reuters"
+      "name": "Reuters"
     },
     {
       "url": "https://www.reuters.com/business/ai-giant-anthropic-confidentially-files-us-ipo-2026-06-01/",
       "title": "AI giant Anthropic confidentially files for US IPO",
-      "publisher": "Reuters"
+      "name": "Reuters"
     },
     {
       "url": "https://www.nytimes.com/2026/05/20/technology/openai-ipo.html",
       "title": "OpenAI Lays Groundwork for an Eventual I.P.O.",
-      "publisher": "The New York Times"
+      "name": "The New York Times"
     },
     {
       "url": "https://www.intc.com/news-events/press-releases/detail/1748/intel-and-trump-administration-reach-historic-agreement-to",
       "title": "Intel and Trump Administration Reach Historic Agreement",
-      "publisher": "Intel"
+      "name": "Intel"
     }
   ],
   "relatedDocs": [
