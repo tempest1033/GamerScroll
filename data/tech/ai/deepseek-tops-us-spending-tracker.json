@@ -1,0 +1,122 @@
+{
+  "slug": "deepseek-tops-us-spending-tracker",
+  "status": "approved",
+  "site": "aiscroll",
+  "needTranslate": false,
+  "category": "general",
+  "title": "딥시크, 미국 기업 신규 소프트웨어 결제 1위 기록",
+  "titleEn": "DeepSeek Tops US Business Spending Tracker",
+  "date": "2026-06-05T06:30Z",
+  "thumbnail": "https://cdn.i-scmp.com/sites/default/files/styles/og_image_scmp_generic/public/d8/images/canvas/2026/06/04/d97311fe-bbea-400b-8a63-23fa2c95055b_4d172ce3.jpg?itok=aWnyg0WI&v=1780555111",
+  "keywords": "딥시크, 미국 기업, 램프, 데이터 주권, 신규 결제",
+  "keywordsEn": "DeepSeek, Ramp, US business adoption, data residency, China-hosted servers",
+  "summary": "중국 AI 스타트업 딥시크가 기업 지출 관리 플랫폼 램프의 6월 신규 결제 순위에서 1위에 올랐다. 미국 기업의 실제 채택률은 0.1% 수준으로 미미하지만, 직접 API 결제 방식을 채택해 기업 데이터가 중국 서버로 전송되고 있다는 분석이 나온다.",
+  "summaryEn": "DeepSeek topped Ramp's June first-purchase index for US firms. Adoption is just 0.1%, but direct payments route corporate data to China-hosted servers.",
+  "sources": [
+    {
+      "name": "SCMP",
+      "title": "More US firms turn to China's DeepSeek over pricey Silicon Valley AI",
+      "url": "https://www.scmp.com/tech/tech-trends/article/3355927/more-us-firms-turn-chinas-deepseek-over-pricey-silicon-valley-ai"
+    },
+    {
+      "name": "Ramp",
+      "title": "Are companies actually using DeepSeek?",
+      "url": "https://ramp.com/leading-indicators/are-businesses-actually-using-deepseek"
+    },
+    {
+      "name": "NIST CAISI",
+      "title": "Evaluation of DeepSeek AI Models",
+      "url": "https://www.nist.gov/system/files/documents/2025/09/30/CAISI_Evaluation_of_DeepSeek_AI_Models.pdf"
+    },
+    {
+      "name": "Scientific American",
+      "title": "Why DeepSeek's AI Model Just Became the Top-Rated App in the U.S.",
+      "url": "https://www.scientificamerican.com/article/why-deepseeks-ai-model-just-became-the-top-rated-app-in-the-u-s/"
+    },
+    {
+      "name": "Business of Apps",
+      "title": "DeepSeek Statistics (2026)",
+      "url": "https://www.businessofapps.com/data/deepseek-statistics/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/deepseek-mimo-price-war",
+    "tech:ai/ai-token-cost-exceeds-salary",
+    "tech:ai/anthropic-900b-surpasses-openai",
+    "tech:ai/minimax-m3-open-weight-launch"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "중국 인공지능(AI) 스타트업 딥시크가 지난 6월 미국 기업의 신규 소프트웨어 결제 지표에서 1위를 차지했다. 지출 관리 플랫폼 램프(Ramp)가 집계한 인기 공급사 목록에서 딥시크는 피드루프(PheedLoop)와 파이어웍스 AI(Fireworks AI)를 제쳤다. 사우스차이나모닝포스트(SCMP)는 6월 4일 이를 보도했다.\n\n이 목록은 미국 기업이 특정 소프트웨어 공급사에 최초로 대금을 결제한 시점을 추적한다. 전체 사용량이 아니라 새로 도입한 도구의 증가세를 보여주는 지표다. 오픈AI나 앤트로픽 같은 미국 선두 기업들을 제치고 중국 기업의 모델이 1위에 오른 것은 이례적인 신호라는 평이다."
+    },
+    {
+      "type": "heading",
+      "value": "신규 결제 속도와 시장 점유율의 차이"
+    },
+    {
+      "type": "text",
+      "value": "전체 시장 지표를 보면 이 같은 순위의 착시가 걷힌다. 신규 결제 속도가 빠르다고 해서 시장 점유율까지 높은 것은 아니다. 램프 AI 인덱스에 따르면 지난 4월 기준 딥시크의 미국 기업 실제 채택률은 0.1%에 불과하다. 같은 기간 앤트로픽과 오픈AI의 채택률은 각각 34.4%와 32.3%로, 두 회사가 미국 시장의 3분의 2를 장악하고 있다.\n\n결국 딥시크가 현재 가장 많이 쓰이는 모델은 아니며, 이번 달에 신규 구매 기업이 가장 빠르게 늘어난 공급사일 뿐이다. 절대적인 규모는 작지만 첫 결제 증가 속도만큼은 가파르다. 설문조사가 아닌 실제 신용카드 거래 내역을 추적했기 때문에, 단순한 구매 의사가 아닌 실제 지출을 반영한 지표다."
+    },
+    {
+      "type": "heading",
+      "value": "진짜 신호는 결제 경로에 있다"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2272184430.jpg?w=1024",
+      "caption": "중국의 한 전시장에서 딥시크 소개 벽을 휴대폰으로 촬영하는 관람객",
+      "alt": "딥시크 로고가 걸린 전시 벽을 휴대폰으로 담는 사람"
+    },
+    {
+      "type": "text",
+      "value": "실제 결제가 발생했다는 사실보다 더 중요한 정보는 대금의 행선지다. 아라 카라지안 램프 에코노믹스랩 수석 이코노미스트는 미국 기업들이 딥시크 본사에 대금을 직접 지불하고 있다고 분석했다. 딥시크 모델은 오픈소스라 기업 자체 서버에 구축할 수 있는데도 직접 API를 호출해 결제하는 방식을 택했다는 뜻이다.\n\n본사 직접 결제는 곧 기업 데이터가 중국 호스팅 서버를 오간다는 뜻이다. 카라지안 수석 이코노미스트는 이를 \"미국 기업들이 오픈AI와 앤트로픽보다 저렴한 대안을 찾고 있다는 확실한 신호\"라고 표현했다. 그는 \"일부 기업은 저렴한 중국 모델을 쓰기 위해 데이터를 중국 서버로 전송하는 것까지 감수하고 있다\"고 덧붙였다. 자체 구축이라는 안전한 경로 대신 저렴한 단가를 선택해 데이터 주권을 양보했다는 지적이다.\n\n이번 지표가 단순한 가격 비교 이상의 의미를 지니는 이유가 여기에 있다. 의료(HIPAA)나 연방 조달(FedRAMP), 금융 규제 대상 업무에서 중국 호스팅 API를 사용할 경우 즉각적인 컴플라이언스 위반으로 이어질 수 있다. 지금은 누적 결제 규모가 작더라도 직접 결제 건수가 늘어날수록 법적 위험도 커진다. 당장의 비용 절감을 위해 데이터 주권을 넘긴 대가는 추후 거대한 청구서로 돌아올 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "0.1% 점유율이 흔드는 건 결국 가격이다"
+    },
+    {
+      "type": "text",
+      "value": "기업들이 위험을 감수하도록 만드는 핵심 동력은 비용이다. 딥시크가 미국 기업들의 주목을 받은 것은 이번이 처음이 아니다. [램프의 분석](https://ramp.com/leading-indicators/are-businesses-actually-using-deepseek)에 따르면, 딥시크는 2025년 1월에도 미국 기업 채택률이 0.3%까지 오르며 한 차례 유행을 탔으나 곧 0.1% 수준으로 내려앉았다.\n\n당시 미국 기업들이 전면적인 도입을 주저한 이유는 명확했다. 출시 직후 딥시크 API는 잦은 장애를 겪었고, 블룸버그는 수백 곳의 기업이 데이터 유출 우려로 딥시크를 차단했다고 보도했다. 여기에 출시 11일 만에 오픈AI가 저렴한 추론 모델 o3-mini를 내놓으면서 가격 격차가 좁혀지자, 굳이 안보 위험을 감수할 이유가 사라졌다.\n\n하지만 최근 이 셈법이 다시 흔들리고 있다. [중국 AI 가격 전쟁](/ko/article/general/deepseek-mimo-price-war/)의 여파로 추론 비용이 서구 모델의 4분의 1 수준까지 하락하면서, 위험을 무릅쓰고라도 비용을 아끼려는 기업들이 나타나기 시작했다. 6월의 정확한 채택률 지표는 공개되지 않았고 0.1%라는 규모 자체는 미미하지만, 신규 결제 흐름의 변화와 데이터 전송 경로는 시장에 무거운 질문을 던지고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Chinese artificial intelligence startup DeepSeek led a closely watched US corporate spending index in June. According to the \"trending software vendors\" list compiled by corporate expense management platform Ramp, DeepSeek ranked ahead of event management firm PheedLoop and open-source model serving company Fireworks AI, as reported by the South China Morning Post on June 4.\n\nThe Ramp index tracks the month a US company first makes a payment to a software vendor, measuring new customer acquisition rather than overall usage volume. That a Chinese AI model topped the list—outpacing Western leaders OpenAI and Anthropic—has emerged as an unexpected market signal."
+    },
+    {
+      "type": "heading",
+      "value": "First-Purchase Growth vs. Market Share"
+    },
+    {
+      "type": "text",
+      "value": "This surprise is tempered by broader market data. Leading the trending vendor list differs significantly from dominant market share. According to the Ramp AI Index, DeepSeek’s actual adoption rate among US businesses stood at just 0.1% as of April, whereas Anthropic and OpenAI held 34.4% and 32.3% respectively, commanding a combined two-thirds of the market.\n\nConsequently, DeepSeek is not the most widely used model, but rather the one experiencing the fastest growth in new corporate buyers. While the absolute volume remains small, the velocity of these first-time purchases is notable. Because Ramp monitors actual transactional records rather than survey responses, the index reflects realized corporate spending rather than purchase intent."
+    },
+    {
+      "type": "heading",
+      "value": "Data Residency Is the Real Signal"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2272184430.jpg?w=1024",
+      "caption": "A visitor photographs a DeepSeek display wall at an exhibition in China",
+      "alt": "A person photographing a wall featuring the DeepSeek logo"
+    },
+    {
+      "type": "text",
+      "value": "The fact that these transactions occurred directly introduces a critical detail: the destination of the payments. Ara Kharazian, lead economist at Ramp Economics Lab, noted that US companies are paying DeepSeek directly, bypassing the option to self-host the startup's open-source models on their own secure infrastructure.\n\nThese direct payments route corporate data to and from China-hosted servers. \"In what is likely the clearest sign that companies are seeking cheaper alternatives to OpenAI and Anthropic,\" Kharazian observed, \"some are willing to use lower-cost Chinese models, permitting US data to be transmitted to and from China-hosted servers.\" By choosing direct API access over secure self-hosting, these firms have prioritized lower pricing over data residency.\n\nThis choice elevates the development beyond a simple pricing war. For corporate workloads governed by HIPAA, FedRAMP, or financial regulatory frameworks, routing data to China-hosted servers via a direct API can trigger immediate compliance violations. While current transaction volumes are minor, legal and regulatory liabilities expand as direct payments grow. Trading data residency for short-term cost savings may ultimately incur significant long-term costs."
+    },
+    {
+      "type": "heading",
+      "value": "What 0.1% Is Really Shaking Is Price"
+    },
+    {
+      "type": "text",
+      "value": "The catalyst driving companies to cross this regulatory boundary is cost. This is not DeepSeek's first surge of interest in the US market. According to [Ramp's analysis](https://ramp.com/leading-indicators/are-businesses-actually-using-deepseek), the developer experienced a brief adoption cycle in January 2025, when its share of US business spending reached 0.3% before reverting to 0.1%.\n\nAt that time, the barriers to adoption were substantial. DeepSeek's API suffered frequent outages immediately after launch, and Bloomberg reported that hundreds of corporations blocked access to the service due to data security concerns. Furthermore, only 11 days after DeepSeek's debut, OpenAI released o3-mini, its lowest-cost reasoning model, effectively neutralizing the price differential and eliminating the incentive to accept security risks.\n\nHowever, that economic equation is shifting once again. As the ongoing [China AI price war](/article/general/deepseek-mimo-price-war/) drives inference costs down to nearly a quarter of Western alternatives, the financial incentive to accept these risks has returned for some enterprises. Although Ramp did not disclose precise market share figures for June, and the 0.1% adoption rate remains marginal, the shifting direction of first-time corporate purchases and the resulting flow of data present a significant question for the industry."
+    }
+  ]
+}
