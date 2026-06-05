@@ -29,7 +29,9 @@ NOUN_TAGS = {"NNG", "NNP", "NNB", "SL", "SH"}
 _HANGUL_RE = re.compile(r"[가-힣]")
 # Sentence terminator followed by whitespace. Decimal points ("2.5", "63.2") are
 # safe: the dot is followed by a digit, never whitespace, so it never splits.
-_EN_SENT_RE = re.compile(r"(?<=[.!?])\s+(?=\S)")
+# A closing quote right after the terminator (e.g. ." or .') belongs to the
+# sentence, so quoted-sentence endings split instead of merging into the next one.
+_EN_SENT_RE = re.compile(r'(?<=[.!?])["”’\']?\s+(?=\S)')
 
 
 def split_sentences(kiwi: Kiwi, text: str) -> list:
