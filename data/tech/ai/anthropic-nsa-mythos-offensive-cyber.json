@@ -1,0 +1,122 @@
+{
+  "slug": "anthropic-nsa-mythos-offensive-cyber",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "anthropic",
+  "title": "앤트로픽, 미토스로 NSA 공격 지원…펜타곤과 소송",
+  "titleEn": "Anthropic Helps NSA Use Mythos for Cyberattacks",
+  "date": "2026-06-05T13:00",
+  "thumbnail": "https://d1e00ek4ebabms.cloudfront.net/production/5301a9c9-36ba-41d3-b7be-5ef5c3bd3692.jpg",
+  "keywords": "클로드 미토스, NSA 사이버 작전, 공급망 위험, 앤트로픽 펜타곤 소송",
+  "keywordsEn": "Claude Mythos, NSA cyber operations, Anthropic supply chain risk, offensive cyber AI",
+  "summary": "미국 국가안보국(NSA)이 앤트로픽의 AI 모델 미토스를 공격용 사이버 작전에 투입하고 있다는 보도가 나왔다. 앤트로픽은 상급 기관인 국방부(펜타곤)와 소송을 벌이면서도 정보기관의 작전은 지원하는 모순된 행보를 보이고 있다.",
+  "summaryEn": "The NSA is deploying Anthropic's Mythos AI in offensive cyber operations, the FT reports — even as Anthropic sues the Pentagon, the NSA's parent agency.",
+  "sources": [
+    {
+      "name": "Financial Times",
+      "title": "US National Security Agency using Anthropic's Mythos for cyber attacks",
+      "url": "https://www.ft.com/content/d02d91b3-2636-454e-9442-dc7e69f51815"
+    },
+    {
+      "name": "Bloomberg Law",
+      "title": "Anthropic Helping US Prepare Mythos for Offensive Operations, FT Says",
+      "url": "https://news.bloomberglaw.com/artificial-intelligence/anthropic-helping-us-prepare-mythos-for-offensive-operations-ft"
+    },
+    {
+      "name": "CNBC",
+      "title": "Anthropic-Pentagon court ruling lets 'supply chain risk' label stand",
+      "url": "https://www.cnbc.com/2026/04/08/anthropic-pentagon-court-ruling-supply-chain-risk.html"
+    },
+    {
+      "name": "Axios",
+      "title": "Anthropic sues Pentagon over 'supply chain risk' label",
+      "url": "https://www.axios.com/2026/03/09/anthropic-sues-pentagon-supply-chain-risk-label"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic scales Claude Mythos to critical infrastructure in 15 countries",
+      "url": "https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-mythos-eu-access-expansion",
+    "tech:ai/anthropic-pentagon-ai-safety-standoff",
+    "tech:ai/anthropic-government-conflict-weapons-surveillance",
+    "tech:ai/trump-frontier-ai-review-order"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "미국 국가안보국(NSA)이 앤트로픽의 최상위 AI 모델인 '미토스'를 공격용 사이버 작전에 투입하고 있다. [파이낸셜타임스](https://www.ft.com/content/d02d91b3-2636-454e-9442-dc7e69f51815)는 6월 5일 관련 사정에 밝은 소식통을 인용해 이같이 보도했다. 이는 단순한 보안 점검을 넘어 상대 네트워크에 침투하고 시스템 취약점을 직접 악용하는 작전이다.\n\n앤트로픽은 NSA 내부에 자사 엔지니어 약 6명을 파견해 기술 활용을 안내하고 특정 임무에 맞춰 모델을 최적화하고 있다. 다만 파이낸셜타임스는 이들 엔지니어가 실제 진행 중인 작전에 직접 관여하는지 여부는 확인되지 않았다고 덧붙였다.\n\n이번 협력은 앤트로픽이 처한 사법 리스크와 대비된다. 이 회사는 현재 NSA의 상급 기관인 미국 국방부(펜타곤)와 법정 소송을 벌이고 있다. 군사적 활용을 막겠다며 소송을 제기하면서도, 다른 한편으로는 정보기관의 공격 작전을 도우며 서로 상반된 행보를 보이는 상태다."
+    },
+    {
+      "type": "heading",
+      "value": "펜타곤과의 소송, NSA와의 협력"
+    },
+    {
+      "type": "text",
+      "value": "양측의 갈등은 지난 2월 말 앤트로픽과 국방부 간의 협상이 최종 결렬되면서 불거졌다. 당시 앤트로픽은 클로드 모델이 대규모 시민 감시나 인간 통제를 벗어난 자율 무기에 쓰이는 것을 제한하려 했으나, 국방부는 '모든 합법적 사용'을 허용하라고 맞섰다.\n\n협상이 어그러지자 국방부는 앤트로픽을 '공급망 위험' 기업으로 지정하는 조치를 단행했다. [CNBC](https://www.cnbc.com/2026/04/08/anthropic-pentagon-court-ruling-supply-chain-risk.html) 보도에 따르면 미국 기업이 이 지정을 받은 사례는 이번이 처음이다. 이 조치는 단순한 경고 수준을 넘어, 국방 계약을 맺은 기업들이 클로드 사용을 중단하도록 법적으로 강제할 수 있다.\n\n이에 반발한 앤트로픽은 지난 3월 9일 해당 지정이 권한 남용이자 보복성 조치라며 [소송 두 건을 제기했다](https://www.axios.com/2026/03/09/anthropic-sues-pentagon-supply-chain-risk-label). 비록 4월 워싱턴D.C. 연방항소법원이 집행정지 신청을 기각하면서 효력은 유지됐으나, 법정 공방은 5월까지 이어졌다. NSA와의 협력 사실은 이 소송전의 열기가 가라앉기 전에 터져 나왔다."
+    },
+    {
+      "type": "heading",
+      "value": "양날의 검이 된 '미토스'"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/04/Mythos-Europe-AISI.png",
+      "caption": "유럽 전역의 사이버 취약점을 붉은 점으로 표현한 편집 일러스트",
+      "alt": "유럽 지도 위 붉은 점과 자물쇠로 사이버 취약점을 묘사한 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "NSA가 미토스 도입에 나선 배경은 모델의 강력한 성능과 관련이 깊다. 클로드 미토스는 소프트웨어의 결함을 스스로 찾아내 공격 경로를 설계할 수 있는 능력을 갖췄다. 실제로 영국 AI안전연구소(AISI)가 실시한 평가에서 미토스 프리뷰 버전은 주요 운영체제와 브라우저에 숨겨진 신규 취약점을 다수 찾아냈다.\n\n다만 이러한 역량은 양날의 검과 같다. 찾아낸 결함을 먼저 복구하면 방패가 되지만, 이를 그대로 파고들면 무기가 되기 때문이다. 한 소식통은 미토스가 중국이나 이란 같은 국가의 전산망을 공략하는 데 유용하게 활용될 수 있다고 귀띔했다.\n\n앤트로픽은 이러한 모델의 이중성을 투 트랙으로 대응하고 있다. 우방국을 대상으로는 방어용 프로그램인 '글래스윙' 프로젝트를 통해 호주, 캐나다, 프랑스, 일본 등 [15개국의 150개 조직](https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/)에 접근 권한을 넓혔다. 앞서 [EU 구제기관에 접근권을 연 사례](/ko/article/anthropic/anthropic-mythos-eu-access-expansion/)도 같은 맥락이다. 반면 NSA와의 협력은 공격 작전 지원이라는 정반대 방향을 가리킨다."
+    },
+    {
+      "type": "heading",
+      "value": "1조 달러 IPO를 앞두고 남은 과제들"
+    },
+    {
+      "type": "text",
+      "value": "이번 사태는 앤트로픽의 증시 데뷔 준비와 맞물려 불거졌다. 지난 6월 1일 미국 기업공개(IPO)를 비공개로 신청한 앤트로픽은 5월 투자 라운드에서 약 9,650억 달러의 기업 가치를 인정받았으며, 장외 시장 몸값은 1조 달러를 웃돈다. 결과적으로 안보 핵심 자산이 역사상 최대 규모의 상장 매물로 오르는 구도가 형성됐다.\n\n미 정부의 안보 정책도 같은 궤도를 돌고 있다. 도널드 트럼프 대통령은 6월 2일 AI 기업의 자발적 출시 전 보안 심사 체계와 재무부 산하 'AI 사이버 보안 정보공유소' 설립 등을 담은 행정명령에 서명했다. 공격과 방어를 막론하고 인공지능을 국가 안보의 중심에 두겠다는 의지다.\n\n다만 현재까지 확인된 사실은 NSA 내 엔지니어 파견과 미토스 공격 작전 투입, 그리고 '공급망 위험' 지정을 둘러싼 펜타곤과의 소송으로 좁혀진다. 엔지니어들이 관여한 정확한 범위나 미토스의 실제 침투 표적 등은 드러나지 않았다. 이번 보도는 협력의 대략적인 틀을 제시했을 뿐 구체적인 작전 일지까지 보여주지는 못한다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The US National Security Agency (NSA) is deploying Mythos, Anthropic's most advanced AI model, in offensive cyber operations, the [Financial Times](https://www.ft.com/content/d02d91b3-2636-454e-9442-dc7e69f51815) reported on June 5, citing sources familiar with the matter. Unlike standard defensive assessments, offensive operations involve infiltrating adversary networks and exploiting software vulnerabilities.\n\nAnthropic has embedded approximately six 'forward-deployed engineers' within the NSA to assist with the technology and customize Claude Mythos for specific missions. The report noted, however, that it remains unclear whether these engineers are directly participating in active cyber operations.\n\nThe collaboration stands in contrast to Anthropic's legal disputes. The startup is currently locked in litigation with the Department of Defense, the NSA's parent department. The legal battle highlights a dual posture: Anthropic is suing to block military use on one front while supporting an intelligence agency's offensive cyber operations on another."
+    },
+    {
+      "type": "heading",
+      "value": "Pentagon Litigation, NSA Collaboration"
+    },
+    {
+      "type": "text",
+      "value": "The roots of this conflict trace back to late February, when negotiations between Anthropic and the Department of Defense collapsed. Anthropic had sought to prohibit its Claude model from being used for mass surveillance of US citizens or in autonomous weapons systems lacking human-in-the-loop control, while the Pentagon insisted on authorization for all lawful uses.\n\nFollowing the impasse, the Pentagon designated Anthropic a 'supply chain risk' company. According to [CNBC](https://www.cnbc.com/2026/04/08/anthropic-pentagon-court-ruling-supply-chain-risk.html), this was the first time a US firm received the supply chain risk label. The designation carries severe consequences, as it can legally compel defense contractors and affiliated organizations to terminate their use of Claude.\n\nIn response, Anthropic [filed two lawsuits](https://www.axios.com/2026/03/09/anthropic-sues-pentagon-supply-chain-risk-label) on March 9, alleging the designation was retaliatory and exceeded statutory authority. Although a federal appeals court denied Anthropic's emergency stay in April, leaving the restriction in place, arguments continued into May. Anthropic's cooperation with the NSA surfaced while this supply chain risk dispute was still active."
+    },
+    {
+      "type": "heading",
+      "value": "Mythos as a Double-Edged Sword"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/04/Mythos-Europe-AISI.png",
+      "caption": "Editorial illustration depicting cyber vulnerabilities across Europe",
+      "alt": "Illustration of red vulnerability markers and a padlock over a map of Europe"
+    },
+    {
+      "type": "text",
+      "value": "The NSA's interest in Mythos is driven by its advanced capabilities. Claude Mythos is capable of autonomously identifying and exploiting software vulnerabilities. In evaluations conducted by the UK AI Safety Institute (AISI), a preview version of Mythos successfully identified multiple previously undisclosed vulnerabilities across major operating systems and web browsers.\n\nHowever, these cyber capabilities are inherently dual-use: the same model can patch a vulnerability or exploit it. A source close to the matter noted that Mythos is considered highly effective for penetrating networks in countries such as China or Iran.\n\nAnthropic has managed this duality through two distinct channels. For allied nations, the company expanded access to [150 organizations across 15 countries](https://techcrunch.com/2026/06/02/anthropic-scales-claude-mythos-to-critical-infrastructure-in-15-countries/) under its defensive initiative, Project Glasswing, which secures critical infrastructure in nations like Australia, Canada, France, and Japan. This aligns with its prior [decision to open access for the EU's regulators](/article/anthropic/anthropic-mythos-eu-access-expansion/). The NSA engagement, by contrast, focuses on offensive support."
+    },
+    {
+      "type": "heading",
+      "value": "Unresolved Questions Before a Trillion-Dollar IPO"
+    },
+    {
+      "type": "text",
+      "value": "These revelations coincide with Anthropic's march to the public markets. The company confidentially filed for an American IPO on June 1. A May funding round valued it at about $965 billion, and secondary-market trades have since pushed it past $1 trillion. A core national-security tool is set to become one of the largest market debuts ever.\n\nFederal policy has shifted in tandem. On June 2, President Trump signed an executive order establishing a voluntary pre-release security review process for AI models and instructing the Treasury Department to establish an AI cybersecurity clearinghouse. Offense or defense, the directive makes the drive to put AI at the core of national security unmistakable.\n\nNevertheless, confirmed details remain limited to the placement of six engineers at the NSA, the deployment of Claude Mythos in offensive cyber operations, and the ongoing 'supply chain risk' lawsuit with the Pentagon. The precise scope of the engineers' involvement and the specific targets of Mythos's activities remain undisclosed. The report outlines the structure of a partnership rather than an active operational log."
+    }
+  ],
+  "site": "aiscroll"
+}
