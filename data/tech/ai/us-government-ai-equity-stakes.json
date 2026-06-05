@@ -1,0 +1,162 @@
+{
+  "slug": "us-government-ai-equity-stakes",
+  "site": "aiscroll",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "general",
+  "date": "2026-06-05T04:00Z",
+  "title": "美 정부, AI 기업 지분 인수 검토… 알트먼의 '국민 배당' 구상",
+  "titleEn": "US Eyes AI Equity Stakes for Public Dividends",
+  "summary": "트럼프 행정부가 오픈AI 등 주요 AI 기업의 지분을 정부가 인수하는 방안을 논의 중이다. 지분 인수에서 발생하는 수익을 전 미국 가정에 국민 배당으로 지급하겠다는 구상이다.",
+  "summaryEn": "Trump officials held early talks about taking equity stakes in major AI firms, with returns distributed as dividends to American households.",
+  "keywords": "AI 지분 인수, 정부 주주, 알트먼, AI 배당, 오픈AI IPO",
+  "keywordsEn": "AI equity stakes, government equity, Altman, AI dividend, OpenAI IPO",
+  "thumbnail": "https://static.notus.org/dims4/default/2c57a9a/2147483647/strip/true/crop/5000x2813+0+260/resize/1440x810!/quality/90/?url=https%3A%2F%2Fk2-prod-aji.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fcc%2Fc0%2Fa47d76d744b6beb3074e491462e9%2Fap26154753451949.jpg",
+  "sources": [
+    {
+      "url": "https://www.notus.org/technology/trump-ai-stake-openai",
+      "title": "Senior U.S. Officials Eye Government Shares in AI Giants",
+      "publisher": "NOTUS"
+    },
+    {
+      "url": "https://www.reuters.com/legal/transactional/us-officials-eye-government-stakes-ai-companies-notus-reports-2026-06-05/",
+      "title": "US officials eye government stakes in AI companies, NOTUS reports",
+      "publisher": "Reuters"
+    },
+    {
+      "url": "https://www.reuters.com/business/ai-giant-anthropic-confidentially-files-us-ipo-2026-06-01/",
+      "title": "AI giant Anthropic confidentially files for US IPO",
+      "publisher": "Reuters"
+    },
+    {
+      "url": "https://www.nytimes.com/2026/05/20/technology/openai-ipo.html",
+      "title": "OpenAI Lays Groundwork for an Eventual I.P.O.",
+      "publisher": "The New York Times"
+    },
+    {
+      "url": "https://www.intc.com/news-events/press-releases/detail/1748/intel-and-trump-administration-reach-historic-agreement-to",
+      "title": "Intel and Trump Administration Reach Historic Agreement",
+      "publisher": "Intel"
+    }
+  ],
+  "relatedDocs": [
+    "tech:general/silicon-valley-ai-ethics-government-clash",
+    "tech:general/trump-frontier-ai-review-order",
+    "tech:anthropic/anthropic-confidential-s1-ipo",
+    "tech:openai/openai-crisis-competition-direction-2026"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "미국 연방정부가 오픈AI를 비롯한 선두 인공지능(AI) 기업의 지분을 사들이는 방안을 트럼프 행정부 내부에서 검토했다. 탐사보도 매체 [NOTUS](https://www.notus.org/technology/trump-ai-stake-openai)가 6월 4일 소식통을 인용해 처음 보도했으며, 이튿날 로이터도 이를 확인해 보도했다."
+    },
+    {
+      "type": "text",
+      "value": "이번 방안은 강제 국유화가 아닌 기업의 자발적 지분 양도를 전제로 한다. 기업이 지분 일부를 넘기면 정부가 투자 수익을 공공의 몫으로 돌린다는 구상이다. 소식통은 이 재원이 모든 미국 가정에 배당으로 지급될 수 있다고 전했다. 비공개로 진행되던 이번 논의는 오픈AI와 앤트로픽의 대형 기업공개(IPO)를 앞두고 흘러나왔다."
+    },
+    {
+      "type": "heading",
+      "value": "알트먼이 트럼프에 건넨 제안"
+    },
+    {
+      "type": "text",
+      "value": "이 구상을 가장 적극적으로 추진한 인물은 샘 알트먼 오픈AI 최고경영자(CEO)다. 소식통에 따르면 알트먼은 트럼프 2기 행정부 출범 이후 고위 관료들과 이 아이디어를 꾸준히 논의해 왔으며, 2025년 초 트럼프 대통령을 만나 직접 제안했다. 최근에도 그는 AI의 경제적 혜택을 대중에게 환원할 방안이라며 이 제안을 다시 꺼낸 것으로 알려졌다."
+    },
+    {
+      "type": "text",
+      "value": "알트먼의 구상은 오픈AI가 지난 4월 발표한 보고서에 이미 담겨 있었다. 회사는 초지능의 혜택을 모두에게 돌리겠다는 취지 아래, 정부가 AI 수익을 분배하는 '공공 부 펀드'를 조성하자고 제안했다. 주식 시장에 참여하지 않는 시민도 AI 성장의 과실을 나누게 하겠다는 취지다. 이번 지분 인수 검토로 해당 제안은 행정부의 실제 검토 테이블에 오르게 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "인텔에서 시작된 트럼프의 실험"
+    },
+    {
+      "type": "image",
+      "src": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2025-08/250807-Lip-Bu-Tan-rs-f6dad6.jpg",
+      "caption": "립부 탄 인텔 CEO",
+      "alt": "무대에서 발언하는 립부 탄 인텔 최고경영자"
+    },
+    {
+      "type": "text",
+      "value": "행정부가 알트먼의 이 제안을 경청하는 이유는 트럼프 대통령이 전임 행정부보다 미국 기업의 정부 지분 인수에 적극적이기 때문이다. 연방정부는 이미 최소 10개 기업의 지분을 확보했다. 특히 백악관이 '납세자의 직접적 횡재'라 부르는 인텔 지분은 인수 후 주가가 4배로 뛰었다. 트럼프 대통령은 이와 유사한 사례가 더 많아지기를 기대한다고 공개적으로 밝혔으며, 사석에서도 납세자가 AI의 결실을 나누어야 한다고 주장한 것으로 전해졌다."
+    },
+    {
+      "type": "text",
+      "value": "시기적으로도 공교롭다. 두 대표 AI 기업 모두 초대형 상장을 추진 중이다. [앤트로픽은 6월 1일경 미 증권당국에 비공개 상장 신청서를 제출](/ko/article/anthropic/anthropic-confidential-s1-ipo/)했고, 오픈AI는 기업가치 1조 달러 수준의 IPO를 저울질하고 있다. 다만 소식통은 앤트로픽이 정부 지분 인수 논의에는 참여하지 않고 있다고 전했다."
+    },
+    {
+      "type": "heading",
+      "value": "정부가 주주이자 규제자가 되는 순간"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 거리를 두는 데는 이유가 있다. 정부가 AI 기업의 주주가 되는 순간 심각한 이해충돌이 발생하기 때문이다. 규제 기관이 피규제 기업의 지분을 소유하는 구조 자체가 모순을 낳는다. 시민단체 퍼블릭노리지의 냇 퍼서는 “정부가 주주와 규제자 역할을 동시에 맡으면, 지분 가치가 떨어질까 우려해 안전 규제 집행을 망설일 수 있다”고 지적했다. 부실기업 구제금융 우려와 민간 지분을 정부로 이전할 법적 근거가 없다는 지적도 뒤따른다."
+    },
+    {
+      "type": "text",
+      "value": "여론도 정부 개입을 압박한다. 퀴니피악 조사에서 미국인 55%가 AI의 해악을 우려했고, 데이터센터 건설 반대 여론도 거세다. 이례적으로 정치권 양극단이 동조하고 있다. 버니 샌더스 상원의원은 정부가 AI 기업 지분 50%를 확보해 통제해야 한다고 주장했고, 보수 논객 스티브 배넌도 지분 50%를 시민 배당으로 나누자며 가세했다. 반면 케이토연구소의 제니퍼 허들스턴은 정부가 특정 기업을 선정해 투자하는 왜곡이라고 지적했다."
+    },
+    {
+      "type": "text",
+      "value": "AI 배당을 둘러싼 현재 논의는 초기 단계의 비공개 탐색에 불과하다. 하지만 백악관 내부에서 선두 AI 기업의 지분을 국민과 나눈다는 구상이 다뤄졌다는 사실 자체가 상징적이다. AI가 창출하는 부의 분배와 통제권에 대한 논의가 이미 워싱턴의 가장 높은 곳에 도달했음을 보여준다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The Trump administration has discussed purchasing equity stakes in OpenAI and other leading artificial intelligence firms ahead of their landmark IPO. Investigative outlet [NOTUS](https://www.notus.org/technology/trump-ai-stake-openai) first reported the plans on June 4, citing sources familiar with the matter, with Reuters confirming the details the following day."
+    },
+    {
+      "type": "text",
+      "value": "The proposed framework is voluntary rather than a forced nationalization. Under the plan, AI developers would cede equity stakes to the government, which would channel the investment returns into a public trust. One source noted that those returns could fund a direct dividend to every American household. Such an AI dividend would spread the gains widely. These discussions come as OpenAI and Anthropic prepare for a historic IPO."
+    },
+    {
+      "type": "heading",
+      "value": "Altman's Direct Proposal to Trump"
+    },
+    {
+      "type": "text",
+      "value": "Sam Altman, CEO of OpenAI, has been the primary advocate for the plan. According to sources, Altman has discussed the concept with senior officials since Trump's second term began, pitching it directly to the president in early 2025. He revived the proposal in recent weeks, presenting it as a mechanism to distribute AI's economic gains to the public."
+    },
+    {
+      "type": "text",
+      "value": "The outlines of Altman's vision appeared in an OpenAI policy paper published in April. Under the goal of ensuring superintelligence benefits all of humanity, the company proposed a 'Public Wealth Fund' to distribute AI profits to citizens as a dividend. The initiative aims to grant citizens who do not invest in financial markets a stake in AI-driven economic growth. The ongoing talks effectively elevate that proposal into active policy discussion just as OpenAI advances toward its own IPO."
+    },
+    {
+      "type": "heading",
+      "value": "The Precedent Set by Trump's Intel Investment"
+    },
+    {
+      "type": "image",
+      "src": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2025-08/250807-Lip-Bu-Tan-rs-f6dad6.jpg",
+      "caption": "Lip-Bu Tan, CEO of Intel",
+      "alt": "Intel CEO Lip-Bu Tan speaking on stage"
+    },
+    {
+      "type": "text",
+      "value": "The administration has shown interest in Altman's proposal because Trump has pursued partial state ownership of domestic companies more aggressively than his predecessors. The federal government has acquired stakes in at least ten firms. Its investment in Intel—hailed by the White House as a direct windfall for taxpayers—has seen its share price quadruple since the acquisition. Trump has publicly voiced hope for similar deals and privately argued that taxpayers deserve a share of AI's returns, a stance that gains urgency as the AI IPO wave nears."
+    },
+    {
+      "type": "text",
+      "value": "The timing coincides with major market developments. Both OpenAI and Anthropic are preparing for a massive IPO. [Anthropic confidentially filed for a US listing around June 1](/article/anthropic/anthropic-confidential-s1-ipo/), while OpenAI is exploring an IPO that could value the company at nearly 1 trillion dollars. However, a source clarified that Anthropic is not participating in discussions about the government taking equity in the firm."
+    },
+    {
+      "type": "heading",
+      "value": "When the Government Becomes Both Shareholder and Regulator"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic's distance is logical, particularly with its own IPO approaching. When the government becomes a shareholder in an AI developer, significant conflicts of interest arise. A regulatory body that is simultaneously a shareholder in the firm it oversees creates mixed incentives. Nat Purser of Public Knowledge warned that a government shareholder might hesitate to enforce safety rules if doing so threatens the value of its portfolio. Critics also worry about the risk of taxpayer-funded bailouts and the lack of a clear legal mechanism for transferring private equity to the state."
+    },
+    {
+      "type": "text",
+      "value": "Public opinion also pressures the industry. A recent Quinnipiac poll showed 55% of Americans believe AI will cause more harm than good, while local opposition to data centers slows infrastructure expansion. Surprisingly, politicians from both ends of the spectrum agree on state intervention. Senator Bernie Sanders proposed that the government acquire 50% equity stakes in AI companies to establish federal control. Steve Bannon echoed this figure, calling for a 50% share to be distributed directly to citizens as a dividend. That dividend, he argued, would reach every household. Conversely, Jennifer Huddleston of the Cato Institute criticized the policy, warning against the government picking winners and losers in the market."
+    },
+    {
+      "type": "text",
+      "value": "While these discussions remain in their infancy, the fact that the White House is debating public equity in leading AI developers as they race toward a record IPO is historic. It signals that the debate over who controls and benefits from AI-generated wealth — over how much equity the public should hold, and whether those gains arrive as a public dividend — has reached the highest levels of government."
+    }
+  ]
+}
