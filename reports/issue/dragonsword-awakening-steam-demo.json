@@ -1,0 +1,80 @@
+{
+  "slug": "dragonsword-awakening-steam-demo",
+  "status": "approved",
+  "site": "gamerscroll",
+  "title": "가챠 뗀 '드래곤소드: 어웨이크닝', 스팀 데모 한정 공개",
+  "date": "2026-06-05T12:00",
+  "thumbnail": "https://img.youtube.com/vi/bvqGAuu-ZIM/maxresdefault.jpg",
+  "keywords": "드래곤소드 어웨이크닝, 드래곤소드 스팀 데모, 하운드13, 스팀 넥스트 페스트, 드래곤소드 패키지",
+  "summary": "하운드13이 확률형 아이템을 배제한 '드래곤소드: 어웨이크닝'의 데모 버전을 스팀에 공개했다. 스팀 넥스트 페스트 일정에 맞춰 6월 24일까지 한정 운영하며, 정식 버전은 오는 7월 출시될 예정이다.",
+  "relatedDocs": [
+    "issue:dragon-sword-webzen-contract-termination",
+    "issue:dragon-sword-full-refund-server-shutdown",
+    "issue:dragon-sword-launch-report"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Steam",
+      "title": "DragonSword : Awakening 공식 스토어 페이지",
+      "url": "https://store.steampowered.com/app/4570720/DragonSword__Awakening/"
+    },
+    {
+      "name": "하운드13",
+      "title": "DragonSword : Awakening 데모 공개 공지",
+      "url": "https://steamcommunity.com/app/4570720"
+    },
+    {
+      "name": "RPGSite",
+      "title": "DragonSword: Awakening demo will be available for PC via Steam on June 4-23",
+      "url": "https://www.rpgsite.net/news/20507-dragonsword-awakening-demo-will-be-available-for-pc-via-steam-on-june-4-23"
+    },
+    {
+      "name": "Inven Global",
+      "title": "Hound13 relaunching Dragon Sword on Steam is a choice to preserve the game",
+      "url": "https://www.invenglobal.com/articles/20921/hound-13-relaunching-dragon-sword-on-steam-is-a-choice-to-preserve-the-game"
+    },
+    {
+      "name": "Automaton Media",
+      "title": "Korean publisher Webzen sues open-world RPG developer after independent Steam re-release announcement",
+      "url": "https://automaton-media.com/en/news/korean-publisher-webzen-sues-open-world-rpg-developer-after-it-one-sidedly-terminates-publishing-deal-and-announces-independent-steam-re-release-over-unpaid-guarantee/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "하운드13의 서브컬처 액션 RPG '드래곤소드'가 가챠 요소를 배제하고 스팀 패키지 게임 '드래곤소드: 어웨이크닝(DragonSword: Awakening)'으로 돌아왔다. 첫 플레이 빌드인 데모는 스팀 넥스트 페스트 기간에 맞춰 6월 5일 새벽 2시(한국 시간)부터 6월 24일 새벽 2시까지 한정 공개된다. 약 19일 동안 다운로드 및 플레이가 가능하며, 필요한 설치 용량은 약 15.5GB다."
+    },
+    {
+      "type": "heading",
+      "value": "데모 공개 분량: 1개 챕터, 캐릭터 9종, 2시간 플레이"
+    },
+    {
+      "type": "text",
+      "value": "스팀 넥스트 페스트와 함께 풀린 이번 데모는 정식 버전의 핵심 콘텐츠를 미리 체험할 수 있도록 구성됐다. 전체 8개 챕터 중 첫 번째 챕터가 제공되며, 전체 캐릭터 19종 가운데 9종을 직접 플레이해볼 수 있다. 탐험 가능한 지역은 오르비스 대륙의 일부 구역으로, 플레이 시간은 약 1~2시간이 소요된다.\n\n언리얼 엔진 5를 기반으로 개발된 이 게임은 최초의 왕국 '오르비스'로 향하던 소년 루트가 용병 조니, 엘프 카스텔라와 만나 60년 만에 깨어난 용의 위협에 휘말리는 이야기를 다룬다. 전투는 상태이상을 축적해 시그널 스킬을 터뜨리는 태그 액션이 핵심으로, 영웅들이 실시간으로 전장을 교체하며 콤보를 이어간다. 과거 '드래곤네스트'를 제작한 박정식 대표와 개발진의 액션 노하우가 고스란히 묻어나는 대목이다.\n\n자막은 한국어, 영어, 일본어, 중국어(간·번체)를 지원하며, 음성은 한국어만 제공한다. 휴대용 기기 스팀 덱(Steam Deck)에서도 구동할 수 있으나, 아직 밸브의 공식 'Verified' 인증을 획득하기 전이다. 이번 데모의 플레이 데이터는 향후 출시될 정식 버전으로 연동되지 않는다."
+    },
+    {
+      "type": "heading",
+      "value": "수익 모델 전면 수정... 패키지 게임으로 선회한 이유"
+    },
+    {
+      "type": "image",
+      "src": "https://static.invenglobal.com/upload/image/2026/04/15/r1776237916885878.jpeg",
+      "caption": "드래곤소드: 어웨이크닝 키 아트 — 루트와 동료들",
+      "alt": "드래곤소드 어웨이크닝 주요 캐릭터 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "이번 데모가 단순한 신작 홍보를 넘어 업계의 주목을 받는 이유는 한 차례 서비스 중단 사태를 겪은 프로젝트이기 때문이다. 퍼블리셔와의 갈등 끝에 법정 공방으로 치달았던 아픔을 딛고 새로운 모습으로 복귀했다.\n\n원래 이 게임은 웹젠이 퍼블리싱을 맡아 확률형 아이템 기반의 모바일·PC 게임으로 올해 1월 21일 정식 출시됐다. 하지만 한 달도 안 돼 최소보증금(MG) 잔금 지급 문제로 하운드13과 퍼블리셔 웹젠 간의 갈등이 촉발됐고, 2월 계약 해지로 이어졌다. 웹젠은 [전액 환불과 결제 중단](/magazine/issue/dragon-sword-full-refund-server-shutdown/)으로 맞섰고, 독자 스팀 재출시를 선언한 하운드13에 [소송](https://automaton-media.com/en/news/korean-publisher-webzen-sues-open-world-rpg-developer-after-it-one-sidedly-terminates-publishing-deal-and-announces-independent-steam-re-release-over-unpaid-guarantee/)을 제기하며 양측의 갈등은 법정 싸움으로 번졌다.\n\n이에 하운드13은 프로젝트를 폐기하는 대신 비즈니스 모델(BM)을 완전히 바꾸는 모험을 감행했다. 확률형 아이템과 결제 패스 등 과금 요소를 전면 배제하고, 서버에 있던 데이터를 클라이언트로 옮겨 오프라인 싱글플레이 패키지 게임으로 재구축했다. 모든 캐릭터는 스토리 진행에 따라 무료로 획득할 수 있으며, 이 과정에서 개발사 내부적으로 약 25% 규모의 구조조정이 진행된 것으로 알려졌다."
+    },
+    {
+      "type": "heading",
+      "value": "7월 정식 출시 목표... 데모 버전이 첫 시험대"
+    },
+    {
+      "type": "text",
+      "value": "체질을 바꾼 '드래곤소드: 어웨이크닝'의 최종 관문은 정식 출시다. 정식 버전은 오는 7월 스팀 출시를 목표로 개발 중이며(일부 스토어 기준 7월 28일), 가격 정보는 아직 미정이다. 정식판에서는 프랑스어와 독일어 등 다국어 자막이 추가되며, 스팀 페이지를 통해 리소스 제작 과정에 생성형 AI를 배제하고 번역 등에만 제한적으로 활용했다고 명시했다.\n\n기존의 부분유료화 라이브 서비스 모델에서 탈피해 일회성 구매 패키지로 서구권 코어 게이머 공략에 나선 셈이다. 스팀 넥스트 페스트와 함께 약 19일간 풀린 이번 데모는 '드래곤소드: 어웨이크닝'의 가능성을 검증할 첫 번째 시험대다. 초반 플레이를 접한 유저들 사이에서는 수준 높은 전투 액션에 대해 긍정적인 초반 반응이 감지되고 있다."
+    }
+  ]
+}
