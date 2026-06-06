@@ -1,0 +1,206 @@
+{
+  "slug": "ai-saturates-coding-math-contests",
+  "site": "aiscroll",
+  "category": "openai",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "“AI가 수학·코딩대회 석권…더는 흥미 없다” 노암 브라운",
+  "titleEn": "AI Has Solved Coding and Math Contests",
+  "summary": "OpenAI 연구원 노암 브라운은 AI가 2025년 IMO, IOI, ICPC를 잇따라 석권함에 따라 수학·코딩 경진대회가 곧 흥미를 잃을 것이라고 전망했다. 다음 과제는 미해결 문제다.",
+  "summaryEn": "OpenAI's Noam Brown says math and coding contests will soon lose their appeal after AI swept the 2025 IMO, IOI, and ICPC. Next: unsolved problems.",
+  "keywords": "AI 경진대회, 노암 브라운, ICPC 월드파이널, 수학 코딩 올림피아드",
+  "keywordsEn": "AI coding competitions, Noam Brown, ICPC World Finals, math olympiad AI",
+  "thumbnail": "https://the-decoder.com/wp-content/uploads/2025/08/Neural-Network-Medal.png",
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "OpenAI at the 2025 ICPC World Finals",
+      "url": "https://x.com/OpenAI/status/1968368133024231902"
+    },
+    {
+      "name": "ICPC",
+      "title": "ICPC World Finals 2025 — OpenAI",
+      "url": "https://worldfinals.icpc.global/2025/openai.html"
+    },
+    {
+      "name": "The Decoder",
+      "title": "OpenAI's AI system wins a gold-medal-level score at the IOI 2025",
+      "url": "https://the-decoder.com/openais-ai-system-wins-a-gold-medal-level-score-at-the-international-olympiad-in-informatics-2025/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Google and OpenAI's coding wins at university competition show enterprise AI",
+      "url": "https://venturebeat.com/ai/google-and-openais-coding-wins-at-university-competition-show-enterprise-ai"
+    },
+    {
+      "name": "Noam Brown (X)",
+      "title": "Noam Brown on the future of math and coding competitions",
+      "url": "https://x.com/haider1/status/2062906204947710203"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/openai-side-quests-pivot-coding-enterprise",
+    "tech:ai/openai-crisis-competition-direction-2026",
+    "tech:ai/karpathy-ai-job-exposure-score",
+    "tech:ai/gpt-5-6-iris-june-launch-leak"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "OpenAI 연구원 노암 브라운의 발언이 개발자와 수학자 커뮤니티에서 화제다. 브라운은 현재 혹은 가까운 미래에 수학과 코딩 경진대회가 더는 흥미를 끌지 못할 것이라고 전망했다."
+    },
+    {
+      "type": "text",
+      "value": "엑스(X)의 한 사용자(@haider1)가 올린 노암 브라운의 발언은 빠르게 확산됐다. 그의 핵심 주장은 단순한 자랑이 아니다. AI가 인간 최고 수준에 도달한 순간 경진대회라는 무대의 역할 자체가 바뀐다는 진단이다."
+    },
+    {
+      "type": "text",
+      "value": "이러한 전망을 뒷받침하는 근거는 이미 2025년 한 해 동안 충분히 쌓였다. 국제수학올림피아드(IMO)와 국제정보올림피아드(IOI), 그리고 '코딩 올림픽'으로 불리는 국제대학생프로그래밍대회(ICPC) 월드파이널까지, 수학·코딩 올림피아드를 가리지 않고 AI가 주요 대회를 잇달아 휩쓸었다."
+    },
+    {
+      "type": "heading",
+      "value": "2025년 주요 경진대회를 휩쓴 AI의 기록"
+    },
+    {
+      "type": "text",
+      "value": "세 대회에서 나온 구체적인 기록을 보면 흐름은 더욱 명확하다. 2025년 7월 IMO에서 OpenAI의 실험용 추론 모델은 6문제 중 5문제를 해결해 42점 만점에 35점을 획득하며 금메달 수준의 성적을 냈다. 수학 특화 모델이 아닌 범용 추론 모델이 거둔 성과라는 점에서 충격이 더 컸다."
+    },
+    {
+      "type": "text",
+      "value": "이어 8월 열린 IOI에서는 533.29점을 기록하며 인간 참가자 약 330명 중 6위에 올랐다. 이는 상위 2%에 해당하는 금메달권 성적으로, 참가한 AI 중에서는 1위였다. 대회는 5시간의 제한 시간과 50회의 제출 기회 등 인간 참가자와 동일한 조건 아래 치러졌다."
+    },
+    {
+      "type": "text",
+      "value": "가장 상징적인 장면은 9월 ICPC 월드파이널에서 연출됐다. OpenAI 시스템은 12문제를 모두 풀어 만점을 기록했다. 인간 최고 팀이 11문제를 푼 점을 고려하면 사실상 1위에 올랐다. 구글 딥마인드의 제미나이 2.5 딥씽크 역시 10문제를 해결해 금메달권 성적을 거뒀다([OpenAI 발표](https://x.com/OpenAI/status/1968368133024231902))."
+    },
+    {
+      "type": "table",
+      "caption": "2025년 AI의 주요 경진대회 성적",
+      "headers": [
+        "대회",
+        "AI 성적",
+        "의미"
+      ],
+      "rows": [
+        [
+          "IMO 2025 (수학)",
+          "35/42점, 5/6 풀이",
+          "금메달급, 범용 추론 모델"
+        ],
+        [
+          "IOI 2025 (정보)",
+          "533.29점, 전체 6위",
+          "상위 2% 금메달급, AI 1위"
+        ],
+        [
+          "ICPC 월드파이널 (코딩)",
+          "12/12 만점",
+          "인간 최고 팀 11문제, 사실상 1위"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "새로운 과제, 아직 풀리지 않은 문제"
+    },
+    {
+      "type": "image",
+      "src": "https://substackcdn.com/image/youtube/w_728,c_limit/ddd4xjuJTyg",
+      "caption": "노암 브라운 OpenAI 연구원",
+      "alt": "AI 경진대회의 미래를 말하는 노암 브라운 OpenAI 연구원"
+    },
+    {
+      "type": "text",
+      "value": "이러한 수치는 노암 브라운의 진단을 명확히 뒷받침한다. 이미 답이 존재하는 문제를 빠르게 해결하는 영역에서 AI가 인간 수준에 도달한 만큼, 다음 관심사는 앞으로 해결해야 할 과제가 무엇인가로 쏠린다."
+    },
+    {
+      "type": "text",
+      "value": "노암 브라운은 앞으로의 과제가 단순히 문제를 푸는 데 그치지 않는다고 주장한다. 아무도 풀지 못한 미해결 문제를 해결하거나 새로운 문제를 창조하는 영역으로 초점이 이동하고 있다. 이에 따라 경진대회 성적은 더 이상 기술 수준을 가늠하는 최우선 지표가 되지 못할 전망이다. 실제로 OpenAI도 [코딩과 기업 시장](/ko/article/openai/openai-side-quests-pivot-coding-enterprise/)으로 사업 무게중심을 옮기고 있다."
+    },
+    {
+      "type": "text",
+      "value": "물론 반론도 존재한다. ICPC와 IOI에서 AI는 인간과 같은 제한 시간을 적용받았지만, 인간과 직접 맞붙은 것이 아니라 별도의 'AI 트랙'에서 경쟁했다. 하지만 알파고 등장 이후 바둑계가 변했듯, 경진대회 역시 인간이 AI를 도구 삼아 더 고도화된 성과를 내는 방향으로 재편될 것이라는 관측이 지배적이다. 노암 브라운이 그린 전환의 밑그림도 결국 그 지점을 향한다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "A single remark from OpenAI researcher Noam Brown has stirred the developer and mathematics communities. Brown stated that math and coding competitions will no longer be interesting, either now or in the near future."
+    },
+    {
+      "type": "text",
+      "value": "The X post by user @haider1 sharing these remarks quickly went viral. Brown's point was not a simple boast, but rather an observation that the contest stage itself loses its purpose once AI matches top-tier human performance."
+    },
+    {
+      "type": "text",
+      "value": "The evidence supporting this claim accumulated throughout 2025. AI swept major global competitions, including the International Mathematical Olympiad (IMO), the International Olympiad in Informatics (IOI), and the ICPC World Finals—often dubbed the 'coding olympics.' The march of math olympiad AI had become impossible to ignore."
+    },
+    {
+      "type": "heading",
+      "value": "How AI Swept Coding Competitions in 2025"
+    },
+    {
+      "type": "text",
+      "value": "The numbers from these three competitions highlight an unmistakable trend. At the July 2025 IMO, OpenAI's experimental reasoning model solved five out of six problems, scoring 35 out of 42 points to reach a gold-medal standard. Crucially, this was a general-purpose reasoning model, not a math olympiad AI built specifically for the task."
+    },
+    {
+      "type": "text",
+      "value": "At the IOI in August, the model scored 533.29 points, ranking sixth among approximately 330 human participants. This performance placed it in the top 2%, earning a gold medal and securing first place among all competing AI systems. The model operated under the same constraints as humans, including a five-hour time limit and a 50-submission cap."
+    },
+    {
+      "type": "text",
+      "value": "The most symbolic milestone occurred at the ICPC World Finals in September. OpenAI's system solved all 12 problems to achieve a perfect score. Since the top human team solved 11 problems, the AI effectively took first place. Google DeepMind's Gemini 2.5 Deep Think also reached gold-medal status by solving 10 problems ([OpenAI's announcement](https://x.com/OpenAI/status/1968368133024231902))."
+    },
+    {
+      "type": "table",
+      "caption": "AI's headline contest results in 2025",
+      "headers": [
+        "Contest",
+        "AI result",
+        "Significance"
+      ],
+      "rows": [
+        [
+          "IMO 2025 (math)",
+          "35/42, 5 of 6 solved",
+          "Gold-medal level, general model"
+        ],
+        [
+          "IOI 2025 (informatics)",
+          "533.29 pts, 6th overall",
+          "Top 2%, 1st among AI"
+        ],
+        [
+          "ICPC World Finals (coding)",
+          "12/12 perfect",
+          "Best human team 11, effectively 1st"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "The New Frontier: Unsolved Problems"
+    },
+    {
+      "type": "image",
+      "src": "https://substackcdn.com/image/youtube/w_728,c_limit/ddd4xjuJTyg",
+      "caption": "OpenAI researcher Noam Brown",
+      "alt": "OpenAI researcher Noam Brown on the future of AI coding competitions"
+    },
+    {
+      "type": "text",
+      "value": "These math olympiad AI milestones underpin Noam Brown's thesis. Since AI can now match or exceed top human capabilities in rapidly solving existing, solvable problems, the industry must ask what challenges remain."
+    },
+    {
+      "type": "text",
+      "value": "Noam Brown argues that the primary challenge is no longer merely solving problems. Instead, the frontier is shifting toward tackling unsolved, novel problems, as well as formulating new challenges. Consequently, contest scores are losing their status as the ultimate benchmark. Reflecting this shift, OpenAI is directing its focus toward [coding and the enterprise](/article/openai/openai-side-quests-pivot-coding-enterprise/)."
+    },
+    {
+      "type": "text",
+      "value": "Skeptics point out that while AI adhered to the same time constraints at the ICPC World Finals and IOI, it competed in a separate, dedicated track rather than in direct, head-to-head matchups with humans. Nevertheless, much like the game of Go after AlphaGo, competition culture is expected to adapt, with human participants leveraging AI tools to elevate their performance."
+    }
+  ]
+}
