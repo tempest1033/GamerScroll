@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-06-05T21:52:57.042Z",
+  "updatedAt": "2026-06-06T22:52:49.558Z",
   "period": "30days",
   "games": [
     {
-      "slug": "메이플-키우기",
-      "views": 12
+      "slug": "초격력-별의-분노",
+      "views": 11
     },
     {
-      "slug": "초격력-별의-분노",
-      "views": 12
+      "slug": "메이플-키우기",
+      "views": 10
     },
     {
       "slug": "올스타-아레나",
@@ -27,19 +27,7 @@
       "views": 3
     },
     {
-      "slug": "테이스티-트레블-합성-게임",
-      "views": 3
-    },
-    {
       "slug": "limbus-company",
-      "views": 2
-    },
-    {
-      "slug": "wos-화이트아웃-서바이벌",
-      "views": 2
-    },
-    {
-      "slug": "가십하버-합성-스토리-게임",
       "views": 2
     },
     {
@@ -47,19 +35,7 @@
       "views": 2
     },
     {
-      "slug": "꿈의-마을-township",
-      "views": 2
-    },
-    {
-      "slug": "두근두근타운",
-      "views": 2
-    },
-    {
       "slug": "라스트-워-서바이벌",
-      "views": 2
-    },
-    {
-      "slug": "로얄-킹덤-royal-kingdom",
       "views": 2
     },
     {
@@ -71,12 +47,36 @@
       "views": 2
     },
     {
-      "slug": "브롤스타즈",
+      "slug": "붕괴-스타레일",
       "views": 2
     },
     {
       "slug": "블리치-소울-레조넌스",
       "views": 2
+    },
+    {
+      "slug": "스트리트볼-올스타-streetball-allstar",
+      "views": 2
+    },
+    {
+      "slug": "승리의-여신-니케",
+      "views": 2
+    },
+    {
+      "slug": "컴투스프로야구v26",
+      "views": 2
+    },
+    {
+      "slug": "aion2",
+      "views": 1
+    },
+    {
+      "slug": "bongo-cat",
+      "views": 1
+    },
+    {
+      "slug": "delta-force",
+      "views": 1
     }
   ]
 }
