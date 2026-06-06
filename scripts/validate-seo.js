@@ -31,32 +31,53 @@ const fs = require('node:fs');
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-// --- Orphaned headless-Chrome reaper -------------------------------------
-// Lighthouse launches headless Chrome via chrome-launcher. When this process
-// is killed mid-run (e.g. an external tool-call timeout firing during the
-// async lighthouse child below), that Chrome is orphaned and piles up across runs
-// until it saturates the machine. We reap only automation Chrome — processes
-// carrying BOTH --headless and a remote-debugging-port — so any interactive
-// Chrome the user has open is never touched.
-function reapLighthouseChrome() {
+// --- Headless-Chrome lifecycle (parallel-safe) ---------------------------
+// Lighthouse launches headless Chrome via chrome-launcher. If this process is
+// killed mid-run, that Chrome is orphaned and piles up. We must reap it — but
+// ONLY our own run's Chrome, never a concurrent sibling validate-seo process and
+// never the user's interactive Chrome. The previous reaper matched any
+// '--headless + remote-debugging-port' Chrome, so two parallel runs killed each
+// other on startup/exit. Each run now tags its Chrome with a unique RUN_TAG
+// carried in --user-data-dir, and the reaper matches that tag exactly.
+const RUN_TAG = `lhval-${process.pid}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+
+function reapOwnChrome() {
   try {
     if (process.platform === 'win32') {
       spawnSync('powershell', ['-NoProfile', '-Command',
         "Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | " +
-        "Where-Object { $_.CommandLine -match '--headless' -and $_.CommandLine -match 'remote-debugging-port' } | " +
+        `Where-Object { $_.CommandLine -match '${RUN_TAG}' } | ` +
         "ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"],
         { timeout: 15000, windowsHide: true, stdio: 'ignore' });
     } else {
-      spawnSync('pkill', ['-f', 'headless.*remote-debugging-port'], { timeout: 15000, stdio: 'ignore' });
+      spawnSync('pkill', ['-f', RUN_TAG], { timeout: 15000, stdio: 'ignore' });
     }
   } catch (_) { /* best-effort cleanup, never fatal */ }
 }
 
-// Sweep orphans left by earlier runs before we start, and guarantee our own
-// Chrome is reaped however this process ends.
-reapLighthouseChrome();
+// Startup sweep of TRUE orphans: Chrome whose user-data-dir carries an
+// 'lhval-<pid>-' tag whose owner PID is no longer alive (its run was hard-killed
+// before reapOwnChrome could fire). A live sibling run's owner PID is still
+// alive, so its Chrome is always spared — no matter how long that run takes. This
+// owner-liveness test replaces the earlier 3-min age gate, which could have
+// killed a sibling whose run outlived the threshold.
+function reapOrphans() {
+  try {
+    if (process.platform === 'win32') {
+      spawnSync('powershell', ['-NoProfile', '-Command',
+        "Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | ForEach-Object { " +
+        "if ($_.CommandLine -match 'lhval-(\\d+)-') { $owner=[int]$Matches[1]; " +
+        "if (-not (Get-Process -Id $owner -ErrorAction SilentlyContinue)) { " +
+        "Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue } } }"],
+        { timeout: 15000, windowsHide: true, stdio: 'ignore' });
+    }
+    // POSIX: chrome-launcher temp profiles self-clean; skip the sweep.
+  } catch (_) { /* best-effort */ }
+}
+
+reapOrphans();
 let _reaped = false;
-function _finalReap() { if (_reaped) return; _reaped = true; reapLighthouseChrome(); }
+function _finalReap() { if (_reaped) return; _reaped = true; reapOwnChrome(); }
 process.on('exit', _finalReap);
 for (const sig of ['SIGINT', 'SIGTERM', 'SIGHUP']) {
   process.on(sig, () => { _finalReap(); process.exit(130); });
@@ -159,10 +180,23 @@ const LIGHTHOUSE_AUDITS = [
 
 function runLighthouse(url) {
   const tmp = path.join(os.tmpdir(), `lh-${Date.now()}-${Math.random().toString(36).slice(2)}.json`);
+  // Per-spawn isolated Chrome profile, tagged with RUN_TAG. Isolation avoids a
+  // shared-profile lock between concurrent Chromes; the tag lets reapOwnChrome()
+  // match only our processes. The dir is quoted inside --chrome-flags so a
+  // tmpdir containing spaces still parses as a single token.
+  const userDataDir = path.join(os.tmpdir(), `${RUN_TAG}-${Math.random().toString(36).slice(2)}`);
   // SEO + Accessibility together. Accessibility catches alt-text, contrast,
   // ARIA label, and link-name issues that Google increasingly factors into
   // SERP ranking. Performance/best-practices stay out (heavier audit, separate
   // concern from publishing-time validation).
+  // Dropped --single-threaded + --renderer-process-limit=1 (they serialised
+  // rendering and slowed every run); headless stays light via the disable-* set.
+  const chromeFlags = [
+    '--headless=new', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage',
+    '--disable-extensions', '--disable-background-networking', '--disable-sync',
+    '--metrics-recording-only', '--no-first-run', '--mute-audio',
+    `--user-data-dir="${userDataDir}"`,
+  ].join(' ');
   const args = [
     url,
     // Only the audits we actually score, so Lighthouse skips the rest of the
@@ -174,14 +208,14 @@ function runLighthouse(url) {
     '--throttling-method=provided',
     '--max-wait-for-load=12000',
     '--disable-full-page-screenshot',
-    '--chrome-flags=--headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --renderer-process-limit=1 --js-flags=--single-threaded --disable-extensions --disable-background-networking --disable-sync --metrics-recording-only --no-first-run --mute-audio',
+    `--chrome-flags=${chromeFlags}`,
   ];
   return new Promise((resolve, reject) => {
     let stderr = '';
     const child = spawn('lighthouse', args, {
       stdio: ['ignore', 'pipe', 'pipe'],
       shell: true,
-      env: { ...process.env, OMP_NUM_THREADS: '1', OPENBLAS_NUM_THREADS: '1' },
+      env: { ...process.env },
     });
     if (child.stderr) child.stderr.on('data', (d) => { stderr += d.toString(); });
     child.on('error', reject);
@@ -197,6 +231,7 @@ function runLighthouse(url) {
         reject(e);
       } finally {
         try { if (fs.existsSync(tmp)) fs.unlinkSync(tmp); } catch (_) { /* best-effort */ }
+        try { fs.rmSync(userDataDir, { recursive: true, force: true }); } catch (_) { /* best-effort */ }
       }
     });
   });
@@ -1030,9 +1065,15 @@ async function validate(url) {
     const surfaceChecks = contentSurfaceChecks($, keyphrases, profile, md);
     return [...structChecks, linkCheck, hotlinkCheck, internalQualityCheck, outboundCheck, competingCheck, ...morphChecks, ...surfaceChecks];
   })();
-  const [lhr, rest] = await Promise.all([lhPromise, restPromise]);
-  const lhChecks = lighthouseChecks(lhr);
-  return [...lhChecks, ...rest];
+  // Wait for BOTH branches to settle before surfacing any error: if the non-LH
+  // branch rejects, we still let runLighthouse finish so its close-handler can
+  // delete the tmp report + profile dir. An early throw would otherwise orphan a
+  // still-launching Chrome and could push the worker pool past SEO_CONCURRENCY.
+  const [lhSettled, restSettled] = await Promise.allSettled([lhPromise, restPromise]);
+  if (lhSettled.status === 'rejected') throw lhSettled.reason;
+  if (restSettled.status === 'rejected') throw restSettled.reason;
+  const lhChecks = lighthouseChecks(lhSettled.value);
+  return [...lhChecks, ...restSettled.value];
 }
 
 (async () => {
@@ -1041,14 +1082,34 @@ async function validate(url) {
     console.error('Usage: node scripts/validate-seo.js <url> [<url> ...]');
     process.exit(2);
   }
+  // Each URL validates against its own isolated, RUN_TAG-tagged Chrome, so URLs
+  // in one invocation run concurrently without colliding — KR + EN finish in
+  // roughly the time of the slower one instead of their sum. Bound concurrency
+  // (default 2, override via SEO_CONCURRENCY); a single-URL call collapses to
+  // concurrency 1 and behaves exactly as before. Output is buffered and printed
+  // in input order so the report stays deterministic.
+  const CONCURRENCY = Math.max(1, Math.min(Number(process.env.SEO_CONCURRENCY) || 2, urls.length));
+  const results = new Array(urls.length);
+  let next = 0;
+  async function worker() {
+    for (;;) {
+      const i = next++;
+      if (i >= urls.length) return;
+      try {
+        results[i] = { url: urls[i], checks: await validate(urls[i]) };
+      } catch (e) {
+        results[i] = { url: urls[i], error: e.message };
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
   let totalFail = 0;
-  for (const url of urls) {
-    try {
-      const checks = await validate(url);
-      totalFail += printReport(url, checks);
-    } catch (e) {
-      console.error(`\n=== ${url}\n  [ERROR] ${e.message}`);
+  for (const r of results) {
+    if (r.error) {
+      console.error(`\n=== ${r.url}\n  [ERROR] ${r.error}`);
       totalFail += 1;
+    } else {
+      totalFail += printReport(r.url, r.checks);
     }
   }
   process.exit(totalFail === 0 ? 0 : 1);
