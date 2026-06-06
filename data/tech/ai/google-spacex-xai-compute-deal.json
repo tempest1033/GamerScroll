@@ -1,0 +1,122 @@
+{
+  "slug": "google-spacex-xai-compute-deal",
+  "site": "aiscroll",
+  "category": "google",
+  "status": "approved",
+  "date": "2026-06-06T10:30Z",
+  "needTranslate": false,
+  "title": "구글, 스페이스X서 xAI 서버 빌린다…월 9.2억 달러",
+  "titleEn": "Google to Rent xAI Compute for $920M a Month",
+  "summary": "구글이 스페이스X와 매월 9억 2,000만 달러 규모의 AI 인프라 임차 계약을 체결했다. IPO를 앞둔 스페이스X가 xAI 콜로서스 데이터센터의 엔비디아 GPU 약 11만 장을 구글에 공급하는 셈이다.",
+  "summaryEn": "Google will pay SpaceX $920 million a month for about 110,000 Nvidia GPUs at xAI's Colossus data center, just ahead of SpaceX's record IPO.",
+  "keywords": "구글 스페이스X 컴퓨팅, 콜로서스 데이터센터, 스페이스X IPO, 제미나이 엔터프라이즈, 스페이스X xAI 합병",
+  "keywordsEn": "Google SpaceX compute deal, Colossus data center, SpaceX IPO, Gemini Enterprise, SpaceX xAI merger",
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2026/05/GettyImages-2259661359.jpg?w=1024",
+  "sources": [
+    {
+      "name": "CNBC",
+      "title": "Google to pay SpaceX $920 million a month for compute capacity at xAI data centers",
+      "url": "https://www.cnbc.com/2026/06/05/google-to-pay-spacex-920-million-a-month-for-xai-compute-capacity.html"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Google will pay SpaceX $920M per month for compute",
+      "url": "https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/"
+    },
+    {
+      "name": "The Wall Street Journal",
+      "title": "Google to Pay SpaceX Nearly $1 Billion a Month in Cloud-Computing Deal",
+      "url": "https://www.wsj.com/tech/google-to-pay-spacex-nearly-1-billion-a-month-in-cloud-computing-deal-788d8aaa"
+    },
+    {
+      "name": "The New York Times",
+      "title": "SpaceX Strikes Deal to Provide Google With AI Computing Power",
+      "url": "https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html"
+    },
+    {
+      "name": "512 Pixels",
+      "title": "Google Leasing SpaceX/xAI Compute",
+      "url": "https://512pixels.net/2026/06/google-leasing-spacex-xai/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-colossus-claude-higher-limits",
+    "tech:ai/anthropic-confidential-s1-ipo",
+    "tech:ai/grok-build-composer-2-5-synergy",
+    "tech:ai/nvidia-vera-rubin-agentic-ai"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글이 일론 머스크의 스페이스X로부터 인공지능(AI) 컴퓨팅 자원을 빌리기 위해 매달 9억 2,000만 달러를 지급한다. 스페이스X가 6월 5일 미국 증권거래위원회(SEC)에 제출한 서류에 따르면, 양사의 계약 기간은 2026년 10월부터 2029년 6월까지 총 32개월이다.\n\n구글은 이번 계약으로 엔비디아 GPU 약 11만 장과 CPU, 메모리 등 부대 장비를 확보하게 되며, 총 계약 규모는 300억 달러에 육박한다. 그동안 세계 최대의 자체 AI 연산 자원을 보유한 것으로 평가받던 구글이, 챗봇 그록을 개발한 경쟁사 xAI의 인프라를 임차했다는 사실 자체가 이례적이다. 이번 임차는 스페이스X가 멤피스 콜로서스 데이터센터를 외부에 개방하는 두 번째 사례이자, 다음 주로 예정된 스페이스X IPO를 코앞에 두고 공개됐다."
+    },
+    {
+      "type": "heading",
+      "value": "스페이스X IPO 일주일 전 성사된 9.2억 달러 계약"
+    },
+    {
+      "type": "text",
+      "value": "이번 계약에는 세부 조건이 다수 포함됐다. 구글이 사용할 컴퓨팅 용량은 2026년 9월까지 할인된 요율을 적용해 단계적으로 늘어나며, 약정된 월 9억 2,000만 달러의 정액 요금은 10월부터 적용된다. 만약 스페이스X가 9월 30일까지 약속한 GPU 물량을 공급하지 못할 경우, 구글은 한 달의 유예기간을 거쳐 계약을 즉시 해지하거나 실제 인도받은 장비에 대해서만 비용을 지불할 수 있다.\n\n계약 해지 권한은 양사 모두에게 주어졌다. 2026년 12월 31일 이후에는 어느 쪽이든 90일 전에 서면으로 통보하면 합의 하에 계약을 종료할 수 있다. 계약의 전체적인 구조와 조건은 스페이스X가 앞서 인공지능 스타트업 앤트로픽과 체결한 계약과 매우 유사하다.\n\n계약 사실이 알려진 시점도 세간의 주목을 받는다. 스페이스X IPO는 다음 주 나스닥 상장으로 예정돼 있으며, 약 1조 7,500억 달러의 기업가치를 기준으로 750억 달러를 조달할 계획이다. 이는 성사 시 사상 최대 규모의 IPO가 된다. 이에 업계에서는 일론 머스크가 스페이스X IPO 직전 회사의 AI 성장 가능성을 입증하기 위해 이번 계약을 전략적으로 활용했다는 분석이 나온다."
+    },
+    {
+      "type": "heading",
+      "value": "콜로서스 데이터센터 상업화 나선 스페이스X"
+    },
+    {
+      "type": "image",
+      "src": "https://www.servethehome.com/wp-content/uploads/2024/10/xAI-Colossus-Data-Center-Compute-Hall.jpg",
+      "caption": "xAI 콜로서스 데이터센터의 액체냉각 GPU 서버 랙",
+      "alt": "멤피스 콜로서스 데이터센터 컴퓨트홀에 늘어선 GPU 서버 랙"
+    },
+    {
+      "type": "text",
+      "value": "이러한 전략의 중심에는 미국 테네시주 멤피스에 위치한 '콜로서스' 데이터센터가 있다. 스페이스X는 2026년 2월 xAI와의 합병을 완료했으며, 당시 합병 법인의 기업가치는 1조 2,500억 달러로 평가됐다. 당초 챗봇 그록의 학습용으로 구축된 이 콜로서스 데이터센터는 이제 외부 기업에 연산 자원을 임대하는 핵심 수익 자산으로 탈바꿈했다.\n\n이번 계약은 두 법인이 합병한 이후 두 번째로 성사된 대규모 인프라 공급 계약이다. 지난달 앤트로픽은 콜로서스 1호기의 가용 용량 전체를 월 12억 5,000만 달러에 임차하기로 합의하고, 이를 통해 [클로드의 사용 한도를 2배로 늘리며](/ko/article/anthropic/anthropic-colossus-claude-higher-limits/) 인프라 확보의 효과를 시장에 입증했다. 구글이 확보한 콜로서스 데이터센터 용량은 앤트로픽의 절반 수준으로 추정된다. 머스크는 향후 구축될 콜로서스 2호기는 xAI 전용으로 유지하겠다는 방침을 밝혔다.\n\n다만 인프라 임대 사업 자체는 여전히 대규모 적자 상황이다. [CNBC](https://www.cnbc.com/2026/06/05/google-to-pay-spacex-920-million-a-month-for-xai-compute-capacity.html) 보도에 따르면, 스페이스X의 1분기 설비투자액 101억 달러 중 77억 달러가 AI 인프라에 집중됐다. 반면 AI 부문 매출은 8억 1,800만 달러에 그친 반면 영업손실은 25억 달러에 달해, 코어위브나 네비우스 등 기존 '네오클라우드' 기업들과의 경쟁에서 겪는 신규 진입 장벽을 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "세계 최대 AI 서버 보유한 구글이 외부 GPU를 빌리는 이유"
+    },
+    {
+      "type": "text",
+      "value": "자체 인프라를 충분히 갖춘 구글이 경쟁사의 서버를 임차하는 배경에 관심이 쏠린다. 구글 측은 이번 계약을 일시적인 수요 대응 조치라고 선을 그었다. 클라우드 대변인은 지난해 10월 내놓은 기업용 AI 에이전트 플랫폼 '제미나이 엔터프라이즈(Gemini Enterprise)'의 수요가 예상을 크게 웃돌았다고 밝혔다. 제미나이 엔터프라이즈의 수요 공백을 메울 단기 '브리지 용량'이 필요했다는 것이다. 제미나이 엔터프라이즈는 대기업용 구독 상품으로, 출시 이후 수요가 회사 예측을 넘어설 만큼 가팔랐다.\n\n구글은 본래 자원이 부족한 기업이 아니며, 단일 기업 기준으로 세계 최대의 AI 컴퓨팅 자원을 보유한 것으로 평가받는다. 그런 구글조차 외부 인프라를 임차해야 할 만큼 현재 AI 시장의 수요는 폭발적으로 성장하고 있다. 모회사 알파벳이 올해 설비투자를 1,800억~1,900억 달러로 높여 잡고, 버크셔 해서웨이의 100억 달러 투자를 포함해 850억 달러 규모의 신주를 발행하기로 결정한 것도 같은 맥락이다.\n\n양사의 역학 관계는 5년 전과 정반대로 바뀌었다. 당시에는 구글이 스페이스X의 스타링크 위성 인터넷 구축을 위해 클라우드 컴퓨팅과 네트워크를 공급했다. 이제 두 기업의 입장은 완전히 달라졌다. 일론 머스크의 그록이 시장에서 이렇다 할 성과를 내지 못하는 사이, 역설적이게도 그록을 위해 지은 데이터센터가 외부 임대 사업을 통해 회사 매출의 새로운 물줄기가 됐다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google will pay Elon Musk's SpaceX $920 million per month to lease artificial intelligence compute capacity, according to a June 5 regulatory filing. The deal spans 32 months, running from October 2026 through June 2029.\n\nUnder the deal, Google leases roughly 110,000 Nvidia GPUs alongside CPUs, memory, and networking hardware, for a total approaching $30 billion. The direction is the striking part: Google, widely considered the world's largest single owner of AI compute, is renting a data center built by xAI, the Grok developer that SpaceX folded in through a February merger."
+    },
+    {
+      "type": "heading",
+      "value": "A $920 Million Deal a Week Before SpaceX's IPO"
+    },
+    {
+      "type": "text",
+      "value": "The deal carries several contingency clauses. Google's compute capacity ramps up at a discounted rate through September 2026, with the full $920 million monthly fee starting in October. If SpaceX misses the September 30 GPU deadline, Google may—after a one-month grace period—end the deal immediately or pay only for the hardware delivered.\n\nTermination rights are mutual. After December 31, 2026, either party can exit the deal with 90 days' notice. In length and terms, the deal closely mirrors the earlier SpaceX agreement with Anthropic.\n\nThe timing is pointed. The SpaceX IPO is set for the Nasdaq next week, aiming to raise $75 billion at a valuation near $1.75 trillion—which, if it lands, would be the largest IPO in history. Analysts read the SpaceX IPO timing as Musk burnishing the AI story ahead of the IPO."
+    },
+    {
+      "type": "heading",
+      "value": "SpaceX Monetizes the Colossus Data Center"
+    },
+    {
+      "type": "image",
+      "src": "https://www.servethehome.com/wp-content/uploads/2024/10/xAI-Colossus-Data-Center-Compute-Hall.jpg",
+      "caption": "Liquid-cooled GPU server racks inside xAI's Colossus data center",
+      "alt": "Rows of GPU server racks in the Colossus compute hall in Memphis"
+    },
+    {
+      "type": "text",
+      "value": "The Colossus data center sits at the heart of that strategy. SpaceX completed its merger with xAI in February 2026, valuing the combined company at $1.25 trillion. That merger handed SpaceX a ready-built supercomputer. First built around Memphis to train Grok for xAI, the Colossus data center now earns its keep by renting compute to outsiders.\n\nThis deal is the second major infrastructure lease since the merger. Last month Anthropic agreed to rent all of Colossus 1's capacity for $1.25 billion a month, then [doubled Claude's usage limits](/article/anthropic/anthropic-colossus-claude-higher-limits/) to show the payoff at once. Google's slice of the Colossus data center is estimated at about half that volume, and the merger keeps Colossus 2 reserved for xAI, Musk has said.\n\nThe data center business still loses money. According to [CNBC](https://www.cnbc.com/2026/06/05/google-to-pay-spacex-920-million-a-month-for-xai-compute-capacity.html), SpaceX's first-quarter capital spending hit $10.1 billion, $7.7 billion of it on AI. Its AI unit posted a $2.5 billion operating loss on $818 million in revenue, making SpaceX a newcomer against 'neocloud' rivals like CoreWeave and Nebius."
+    },
+    {
+      "type": "heading",
+      "value": "Why the World's Largest Compute Owner Is Renting GPUs"
+    },
+    {
+      "type": "text",
+      "value": "So why does Google rent another company's GPUs at all? Google calls the deal a short-term move. A Google Cloud spokesperson said demand for Gemini Enterprise—the corporate agent platform launched last October—ran far past forecasts, leaving a gap that needed 'bridge capacity.' Gemini Enterprise is Google's large-business subscription, and the Gemini Enterprise backlog is exactly what this deal is meant to absorb.\n\nGoogle is hardly short on compute; by some estimates it is the single largest owner of AI compute on earth. That even Google must lease outside capacity shows how fast Gemini Enterprise demand has climbed. Keeping Gemini Enterprise responsive, in other words, is why Google reached beyond its own data centers. Alphabet has set this year's capital spending at $180 billion to $190 billion and plans an $85 billion stock issue to meet 'unprecedented' demand, including a $10 billion stake from Berkshire Hathaway.\n\nFive years ago the two ran the same deal in reverse, when Google supplied compute and networking for SpaceX's Starlink. The merger has since flipped their roles, and that same merger is why SpaceX can sell compute at all. As Musk's Grok struggles for market share, the data center xAI built to power it has become a revenue line—monetized just as the SpaceX IPO needs an AI story."
+    }
+  ]
+}
