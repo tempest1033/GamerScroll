@@ -1,0 +1,129 @@
+{
+  "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
+  "status": "approved",
+  "site": "gamerscroll",
+  "date": "",
+  "title": "갤럭시 Z 플립8, 스냅드래곤 복귀 검토…엑시노스 2600 단가 변수",
+  "summary": "삼성전자가 차세대 폴더블폰 갤럭시 Z 플립8의 일부 지역 모델에 퀄컴 스냅드래곤 8 엘리트 5세대 탑재를 검토한다. 엑시노스 2600의 공급 단가가 6개월 만에 270달러로 급등하면서 칩셋 이원화 전략을 다시 꺼내 들었다.",
+  "keywords": [
+    "엑시노스 2600",
+    "갤럭시 Z 플립8",
+    "스냅드래곤 8 엘리트",
+    "칩셋 이원화",
+    "엑시노스 단가"
+  ],
+  "thumbnail": "https://www.sammobile.com/wp-content/uploads/2025/07/Galaxy-Z-Flip-7-review-20-1200x675.jpg",
+  "relatedDocs": [
+    "issue:gaming-device-price-surge-ai-tariff",
+    "issue:ddr5-price-surge-gaming-nightmare",
+    "issue:nvidia-rtx-3060-samsung-8nm-revival",
+    "issue:steam-deck-oled-price-hike-may-2026"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "9to5Google",
+      "title": "Galaxy Z Flip 8 reportedly will bring back Snapdragon chips alongside Exynos",
+      "url": "https://9to5google.com/2026/06/04/galaxy-z-flip-8-reportedly-will-bring-back-snapdragon-chips-alongside-exynos/"
+    },
+    {
+      "name": "WCCFTech",
+      "title": "Samsung LSI's price gouging pushes Exynos 2600 to $270 per unit, forcing Samsung Mobile to bank on Qualcomm for the Galaxy Z Flip 8",
+      "url": "https://wccftech.com/samsung-lsis-price-gouging-pushes-exynos-2600-to-270-unit-forcing-samsung-mobile-to-bank-on-qualcomm-for-the-galaxy-z-flip-8/"
+    },
+    {
+      "name": "SamMobile",
+      "title": "Galaxy Z Flip 8 to come in both Exynos and Snapdragon variants",
+      "url": "https://www.sammobile.com/news/galaxy-z-flip-8-exynos-snapdragon-variants/"
+    },
+    {
+      "name": "TrendForce",
+      "title": "Samsung reportedly cuts Exynos 2600 price 20-30% below Qualcomm to spur adoption",
+      "url": "https://www.trendforce.com/news/2025/11/18/news-samsung-reportedly-cuts-exynos-2600-price-by-20-30-below-qualcomm-to-spur-adoption/"
+    },
+    {
+      "name": "글로벌이코노믹",
+      "title": "삼성 엑시노스 2600, 퀄컴 대비 단가 경쟁력 부각",
+      "url": "https://www.g-enews.com/article/Global-Biz/2026/04/202604150646275163fbbec65dfb_1"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "삼성전자가 올여름 공개할 차세대 폴더블폰 '갤럭시 Z 플립8'의 일부 지역 모델에 퀄컴 스냅드래곤 8 엘리트 5세대를 탑재하는 방안을 검토 중이다. IT 전문 매체 9to5구글이 6월 4일 보도한 내용에 따르면, 그동안 자체 AP(애플리케이션 프로세서)인 엑시노스 단독 탑재로 굳어지던 플립 라인업의 전략에 변화가 감지된다."
+    },
+    {
+      "type": "text",
+      "value": "전략 선회의 결정적인 원인은 가격이다. 삼성전자 시스템LSI 사업부가 설계하는 자체 AP 엑시노스 2600의 공급 단가가 반년 만에 50달러 가까이 급등하면서, 이를 공급받는 MX사업부의 원가 압박이 가중됐다는 분석이다. 여기에 퀄컴이 상대적으로 낮은 가격을 제시하며 단가 인하 경쟁을 부추긴 점도 영향을 미쳤다."
+    },
+    {
+      "type": "heading",
+      "value": "6개월 만에 50달러 급등한 엑시노스 2600 단가"
+    },
+    {
+      "type": "text",
+      "value": "실제 엑시노스 2600의 단가 변동 추이를 살펴보면 MX사업부가 체감하는 원가 압박의 수준이 드러난다. IT 매체 Wccftech에 따르면, 엑시노스 2600의 개당 공급가는 2025년 12월 약 220달러에서 2026년 5월 약 270달러로 상승했다. 동일한 칩셋의 단가가 불과 반년 만에 23%가량 치솟은 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "단가 인상의 배경에는 삼성전자 내부 부서 간의 협상 난항이 자리 잡고 있다. 칩 제조사인 시스템LSI 사업부와 완제품 생산을 담당하는 MX사업부 간의 조율 과정에서 결국 공급가 인상으로 결론이 났다. 당초 삼성전자는 엑시노스 2600을 퀄컴 칩셋보다 20~30달러 싸게 책정해 채택률을 높이려 했다([트렌드포스](https://www.trendforce.com/news/2025/11/18/news-samsung-reportedly-cuts-exynos-2600-price-by-20-30-below-qualcomm-to-spur-adoption/) 보도). 그러나 단가 급등으로 가격 경쟁력이라는 핵심 카드가 무색해졌다."
+    },
+    {
+      "type": "table",
+      "caption": "엑시노스 2600 개당 공급 단가 추이",
+      "headers": [
+        "시점",
+        "단가(USD)",
+        "비고"
+      ],
+      "rows": [
+        [
+          "2025년 11월",
+          "퀄컴 대비 -20~30달러",
+          "채택 유도 저가 책정"
+        ],
+        [
+          "2025년 12월",
+          "약 $220",
+          "양산 초기"
+        ],
+        [
+          "2026년 5월",
+          "약 $270",
+          "내부 단가 인상"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "갤럭시 Z 플립8, 퀄컴·삼성 칩셋 이원화 전략 선회"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.wccftech.com/wp-content/uploads/2026/01/Exynos-2600-6.jpg",
+      "alt": "실리콘 웨이퍼 배경 위에 놓인 삼성 엑시노스 2600 칩 패키지 렌더 이미지",
+      "caption": "삼성 엑시노스 2600 칩셋 렌더 이미지"
+    },
+    {
+      "type": "text",
+      "value": "공급가 상승 여파는 즉각 제품 전략 변화로 이어졌다. IT 전문 매체 샘모바일은 갤럭시 Z 플립8이 엑시노스 2600과 스냅드래곤 8 엘리트 5세대를 지역별로 나눠 싣는 칩셋 이원화 방식을 택할 것으로 전망했다. 다수 출시 지역에는 엑시노스 2600이, 미국과 캐나다, 일본, 중국 등 일부 시장에는 스냅드래곤이 들어가는 식이다. 거주 지역에 따라 기기에 내장되는 칩셋 종류가 달라지는 구조다."
+    },
+    {
+      "type": "text",
+      "value": "이는 단일 칩셋 탑재 전략을 고수했던 전작과는 확연히 대비된다. 갤럭시 Z 플립7은 엑시노스 2500을 전 지역에 독점 탑재한 바 있다. 메모리를 비롯한 주요 부품 단가가 전방위로 치솟는 국면이다([관련 기사](/magazine/issue/gaming-device-price-surge-ai-tariff/)). 단일 AP 공급처에만 매몰되지 않고 공급선을 다변화해 리스크를 줄이려는 전략적 포석으로 풀이된다."
+    },
+    {
+      "type": "heading",
+      "value": "삼성 자체 AP 전략이 마주한 역설"
+    },
+    {
+      "type": "text",
+      "value": "자체 AP는 본래 외부 의존도를 줄이고 완제품 제조 원가를 낮추기 위한 카드였다. 그러나 내부 단가 인상이라는 악재를 만나 정작 자사 프리미엄 폴더블폰에서 밀려나는 형국이 됐다. 미흡한 생산 수율도 부담이다. 업계가 추정하는 엑시노스 2600의 2nm 공정 수율은 50~60% 수준으로, TSMC가 양산하는 퀄컴 칩(60~70%대)의 생산성에는 미치지 못하는 상황이다."
+    },
+    {
+      "type": "text",
+      "value": "결국 소비자가 체감할 출고가가 향후 흥행의 변수가 될 전망이다. 갤럭시 Z 플립8은 오는 7월 언팩을 통해 공개된 뒤 256GB 기본 모델 기준 전작과 유사한 1,099달러 안팎에서 시작할 것으로 관측된다. 퀄컴 칩을 섞는 칩셋 이원화로 단가 인상 압박을 분산하고 출고가를 동결하려는 포석으로 분석된다. 다만 구입 경로와 국가에 따라 탑재 칩셋이 갈리는 만큼 소비자가 마주할 성능 편차는 불가피할 전망이다."
+    }
+  ]
+}
