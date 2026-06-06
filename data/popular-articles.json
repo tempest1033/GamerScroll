@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-06-05T01:36:01.075Z",
+  "updatedAt": "2026-06-06T01:56:23.139Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 34,
+      "views": 47,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 25,
+      "views": 26,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -24,14 +24,8 @@
     {
       "type": "ranking",
       "slug": "subculture-april-2026-kr",
-      "views": 11,
+      "views": 8,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
-      "views": 6,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
       "type": "issue",
@@ -40,29 +34,16 @@
       "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 5,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
       "type": "issue",
       "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
-      "type": "issue",
-      "slug": "witcher3-songs-of-the-past-announced",
-      "views": 5,
-      "path": "/magazine/issue/witcher3-songs-of-the-past-announced/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/gacha-system-history/"
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 4,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -84,9 +65,28 @@
     },
     {
       "type": "issue",
+      "slug": "heavenhells-sales-decline-launch",
+      "views": 4,
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "issue",
       "slug": "gemini-3-hallucination-memory-overfitting",
       "views": 3,
       "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
+    },
+    {
+      "type": "issue",
+      "slug": "witcher3-songs-of-the-past-announced",
+      "views": 3,
+      "path": "/magazine/issue/witcher3-songs-of-the-past-announced/"
     },
     {
       "type": "wiki",
@@ -94,6 +94,18 @@
       "category": "business",
       "views": 3,
       "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 2,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "insight",
+      "slug": "subculture-market-crisis-winner-takes-all",
+      "views": 2,
+      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -112,12 +124,6 @@
       "slug": "lol-league-next-2027-overhaul",
       "views": 2,
       "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
-      "views": 2,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
       "type": "ranking",
@@ -146,6 +152,13 @@
     },
     {
       "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "nier-series",
       "category": "history",
       "views": 2,
@@ -160,12 +173,6 @@
     },
     {
       "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 1,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "hotpick",
       "slug": "unreal-engine-6-revealed-rocket-league",
       "views": 1,
       "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
@@ -175,12 +182,6 @@
       "slug": "bungie-destiny-sunset-marathon-flop",
       "views": 1,
       "path": "/magazine/insight/bungie-destiny-sunset-marathon-flop/"
-    },
-    {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
-      "views": 1,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -214,6 +215,12 @@
     },
     {
       "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 1,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-refund-exploit-ban",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
@@ -226,15 +233,21 @@
     },
     {
       "type": "issue",
+      "slug": "lucky-defense-probability-manipulation-scandal",
+      "views": 1,
+      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+    },
+    {
+      "type": "issue",
       "slug": "mangwol-offline-playtest-recruitment",
       "views": 1,
       "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
     },
     {
       "type": "issue",
-      "slug": "ps-plus-march-2026-best-lineup",
+      "slug": "specialforce-remaster-ue5-launch-delay",
       "views": 1,
-      "path": "/magazine/issue/ps-plus-march-2026-best-lineup/"
+      "path": "/magazine/issue/specialforce-remaster-ue5-launch-delay/"
     },
     {
       "type": "issue",
@@ -273,18 +286,17 @@
       "path": "/magazine/issue/ubisoft-record-loss-fy26/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
       "type": "wiki",
       "slug": "korean-game-stocks-2025",
       "category": "business",
       "views": 1,
       "path": "/wiki/business/korean-game-stocks-2025/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -313,13 +325,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "wiki",
-      "slug": "kurzweil-singularity-review-2026",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/kurzweil-singularity-review-2026/"
     }
   ]
 }
