@@ -1,0 +1,178 @@
+{
+  "slug": "chatbot-to-agent-paradigm-shift",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "‘채팅은 죽었다’…자율 에이전트로 전환하는 AI 업계",
+  "titleEn": "‘Chat Is Dead’: AI Labs Pivot to Agents",
+  "summary": "오픈AI가 챗GPT를 자율 에이전트 슈퍼앱으로 개편하기로 했다. 구글과 앤트로픽, 마이크로소프트 등 주요 기업도 챗봇에서 벗어나 에이전트 개발로 전환하는 분위기다.",
+  "summaryEn": "OpenAI is rebuilding ChatGPT into an autonomous agent super app, and rivals Google, Anthropic, and Microsoft are shifting from chatbots to agents too.",
+  "keywords": "AI 에이전트, AI 챗봇, 에이전트 전환, 자율 에이전트",
+  "keywordsEn": "AI agent, ChatGPT agent, AI chatbot, OpenAI agent",
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2195918462.jpg?w=1024",
+  "sources": [
+    {
+      "name": "Financial Times",
+      "title": "OpenAI plans biggest ChatGPT overhaul into an agent-focused super app",
+      "url": "https://www.ft.com/content/ca0f5f5e-fb9a-41a0-a2a9-0127e15b7db9"
+    },
+    {
+      "name": "The Decoder",
+      "title": "OpenAI says chat is dead and plans to rebuild ChatGPT as a full-blown agent app",
+      "url": "https://the-decoder.com/openai-says-chat-is-dead-and-plans-to-rebuild-chatgpt-as-a-full-blown-agent-app/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Google introduces Gemini Spark, a 24/7 agentic assistant with Gmail integration",
+      "url": "https://techcrunch.com/2026/05/19/google-introduces-gemini-spark-a-24-7-agentic-assistant-with-gmail-integration/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Equipping agents for the real world with Agent Skills",
+      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"
+    },
+    {
+      "name": "Microsoft",
+      "title": "Work Trend Index: Agents, human agency, and the opportunity for every organization",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/codex-hits-5-million-users",
+    "tech:ai/chatgpt-app-1-billion-mau",
+    "tech:ai/microsoft-project-solara-agent-devices",
+    "tech:ai/nvidia-vera-rubin-agentic-ai"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈AI의 고위 임원이 업계의 방향을 단적으로 선언했다. 파이낸셜타임스는 6월 7일 오픈AI가 챗GPT 출시 이후 가장 큰 규모의 개편을 준비하고 있다고 보도했다. 사용자의 질문에 답을 주던 기존 챗봇 방식을 벗어나, 지시를 받아 작업을 직접 완료하는 자율 에이전트 기반 '슈퍼앱'으로 전환한다는 구상이다."
+    },
+    {
+      "type": "text",
+      "value": "이러한 움직임은 오픈AI에만 국한되지 않는다. 구글과 앤트로픽, 마이크로소프트 등 주요 인공지능 개발사들도 일제히 같은 경로를 밟기 시작했다. 이제 시장의 경쟁 구도는 더 똑똑한 대답을 내놓는 챗봇 개발에서 가장 실용적인 자율 에이전트를 구축하는 싸움으로 옮겨갔다."
+    },
+    {
+      "type": "heading",
+      "value": "오픈AI가 주도하는 에이전트 슈퍼앱 전환"
+    },
+    {
+      "type": "text",
+      "value": "개편의 핵심은 화면을 벗어나지 않는 일관된 경험을 제공하는 데 있다. 기존에는 사용자가 외부 서비스를 이용하려면 앱을 따로 찾아 실행해야 했다. 앞으로는 말 한마디로 챗GPT가 사용자 의도를 파악해 캔바나 부킹닷컴 등 협력사 앱을 직접 구동하고 필요한 작업을 마친다. 이것이 오픈AI가 그리는 챗GPT 슈퍼앱의 뼈대다."
+    },
+    {
+      "type": "text",
+      "value": "이와 같은 속도전은 재무적 요인에서 비롯됐다. 기업공개를 준비하는 오픈AI는 월간 활성 사용자 10억 명 중 약 95%가 무료 이용자라는 수익성 한계를 해결해야 한다. 반면 개발자를 겨냥한 코딩 에이전트 [코덱스](/ko/article/openai/codex-hits-5-million-users/)는 주간 활성 사용자 500만 명을 돌파했으며 대부분 유료 구독자다."
+    },
+    {
+      "type": "text",
+      "value": "오픈AI는 동영상 생성 서비스인 소라 등 수익성이 낮은 사업을 축소하고 코덱스와 에이전트 개발에 자원을 집중하기 시작했다. 이들이 던진 '채팅은 죽었다'라는 화두는 단순한 마케팅용 수사가 아니다. 텍스트 질의응답만으로는 막대한 운영 비용을 감당할 수 없다는 현실적 계산이 깔려 있다."
+    },
+    {
+      "type": "heading",
+      "value": "자율 에이전트로 노선 트는 경쟁사들"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/spark.jpg?resize=1200,673",
+      "caption": "구글이 I/O 2026에서 공개한 개인용 에이전트 '제미나이 스파크' 소개 화면",
+      "alt": "구글 제미나이 스파크 개인용 에이전트 소개 화면"
+    },
+    {
+      "type": "text",
+      "value": "수익성 확보에 고심하는 것은 오픈AI만이 아니다. 구글은 지난 5월 연례 개발자 회의에서 백그라운드에서 상시 작동하는 개인용 에이전트 '제미나이 스파크'를 [공개했다](https://techcrunch.com/2026/05/19/google-introduces-gemini-spark-a-24-7-agentic-assistant-with-gmail-integration/). 이 서비스는 지메일과 구글 드라이브, 워크스페이스를 유기적으로 오가며 일상 업무를 대행한다."
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽 역시 인공지능 비서 클로드를 컴퓨터와 직접 상호작용하는 에이전트로 개발했다. 이들은 '컴퓨터 유즈(Computer Use)' 기능을 통해 인공지능이 화면을 읽고 마우스와 키보드를 직접 제어하도록 했다. 여기에 특정 업무에 특화된 '에이전트 스킬'과 다자간 협업을 돕는 '코워크'를 더해 라인업을 구성했다."
+    },
+    {
+      "type": "text",
+      "value": "마이크로소프트의 변화는 더욱 직접적이다. 개발자 회의인 빌드 2026에서 코파일럿을 단순 조력자에서 스스로 실행하는 자율 에이전트로 재정의했다. 아울러 마이크로소프트 365 생태계 내 에이전트 도입 수가 1년 새 15배 늘었다며, 이를 업무를 처리하는 차세대 운영 계층으로 규정했다."
+    },
+    {
+      "type": "heading",
+      "value": "명령형에서 의도형 컴퓨팅으로의 이동"
+    },
+    {
+      "type": "text",
+      "value": "차세대 운영 계층이라는 표현은 단순한 홍보용 문구가 아니다. 업계 전반의 흐름은 컴퓨팅 패러다임이 근본적으로 변하고 있음을 보여준다. 사용자가 모든 단계를 일일이 입력하던 '명령형 컴퓨팅'에서, 원하는 결과만 제시하면 인공지능이 해결 경로를 스스로 찾는 '의도 기반 컴퓨팅'으로의 전환이다."
+    },
+    {
+      "type": "text",
+      "value": "에이전트를 구현할 기술적 기반도 마련됐다. 향상된 추론 모델과 표준화된 도구 호출 규격, 그리고 [엔비디아의 베라 루빈 칩](/ko/article/general/nvidia-vera-rubin-agentic-ai/)을 비롯한 인프라의 발전이 자율 에이전트 구동을 뒷받침한다. 시장조사업체 가트너는 2025년 5% 미만이던 기업용 에이전트 도입률이 2026년 말 40%까지 급증할 것으로 예측했다."
+    },
+    {
+      "type": "text",
+      "value": "결과적으로 기존의 챗봇 대화창은 사라지지 않고 에이전트로 진입하는 관문 역할을 맡게 된다. 사용자는 여전히 익숙한 대화창을 마주하겠지만, 그 이면에서는 텍스트를 작성하는 챗봇 대신 작업을 실제로 해결하는 에이전트가 움직인다. 따라서 '채팅은 죽었다'라는 말은 단일 기업의 구호를 넘어 인공지능 산업의 다음 이정표로 해석된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "A senior OpenAI executive recently summarized the industry's direction in three words: “Chat is dead.” On June 7, the Financial Times reported that OpenAI is preparing its most significant redesign since the debut of ChatGPT, moving away from the traditional prompt-and-response format in favor of a task-executing “super app” powered by autonomous agents."
+    },
+    {
+      "type": "text",
+      "value": "This shift is not unique to OpenAI. Tech giants like Google, Anthropic, and Microsoft are moving in the same direction almost in lockstep. The defining narrative of the AI sector in 2026 has shifted from which company can build the most articulate chatbot to which can field the most capable agent."
+    },
+    {
+      "type": "heading",
+      "value": "OpenAI Leads the Shift to an Agent-Based Super App"
+    },
+    {
+      "type": "text",
+      "value": "The upcoming ChatGPT super app overhaul centers on a seamless, single-interface experience. Currently, integrating third-party applications requires users to manually search for and install external tools. Under the new system, a single natural-language command will suffice; ChatGPT will interpret the user's intent, activate partner applications like Canva or Booking.com, and complete the requested task."
+    },
+    {
+      "type": "text",
+      "value": "This sudden urgency is driven by financial pressure. As OpenAI prepares for a potential initial public offering, it must address the reality that approximately 95% of its estimated one billion monthly active users remain on its free tier, limiting revenue growth. In contrast, its developer-focused coding agent, [Codex](/article/openai/codex-hits-5-million-users/), has surpassed five million weekly active users, the vast majority of whom are paying subscribers — proof that a coding agent earns money where a free chatbot cannot."
+    },
+    {
+      "type": "text",
+      "value": "Consequently, OpenAI has reportedly scaled back lower-margin services, including its video generator Sora, to concentrate resources on Codex and agentic AI. The declaration that ChatGPT's “chat is dead” is less a marketing slogan than a reflection of a cold commercial reality: the old chatbot model, built only for text query-and-response, can no longer sustain rising operational costs."
+    },
+    {
+      "type": "heading",
+      "value": "Competitors Align Under the Agent Model"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/spark.jpg?resize=1200,673",
+      "caption": "Google's Gemini Spark personal agent, unveiled at I/O 2026",
+      "alt": "Google Gemini Spark personal agent interface"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI is not alone in calculating these margins. During its I/O conference in May, Google [unveiled](https://techcrunch.com/2026/05/19/google-introduces-gemini-spark-a-24-7-agentic-assistant-with-gmail-integration/) Gemini Spark, a personal agent designed to run continuously in the background. The system operates across Gmail, Google Drive, and Google Workspace to automate routine workflows based on user instructions."
+    },
+    {
+      "type": "text",
+      "value": "Anthropic has similarly repositioned its assistant, Claude, as an agent capable of direct computer interaction. Through a feature called Computer Use, the AI can read screen contents and directly control the mouse and keyboard. This capability is paired with task-specific tools through Agent Skills and broader workflow automation via Cowork."
+    },
+    {
+      "type": "text",
+      "value": "Microsoft has taken the most direct approach. At its Build 2026 conference, the company redefined Copilot from a supportive assistant into an autonomous executing agent. Microsoft reported that the deployment of agents across its Microsoft 365 ecosystem grew fifteenfold over the past year, describing the technology as the next operating layer for workplace productivity."
+    },
+    {
+      "type": "heading",
+      "value": "The Paradigm Shift to Intent-Based Computing"
+    },
+    {
+      "type": "text",
+      "value": "This description is not mere marketing hype. The industry-wide pivot reflects a fundamental shift in the paradigm of computing: transitioning from imperative computing, which requires users to detail every step of a process, to intent-based computing, where users specify a desired outcome and the system autonomously determines the path to achieve it."
+    },
+    {
+      "type": "text",
+      "value": "The technological infrastructure required to support this shift has also matured. The convergence of advanced reasoning models, standardized tool-calling protocols, and specialized hardware like [Nvidia's Vera Rubin chips](/article/general/nvidia-vera-rubin-agentic-ai/) has made agentic AI viable at scale. Gartner projects that 40% of enterprise applications will feature task-specific AI agents by the end of 2026, a significant increase from less than 5% in 2025."
+    },
+    {
+      "type": "text",
+      "value": "Ultimately, the traditional chatbot interface is not disappearing, but rather evolving into the user-facing portal for these AI agents. The familiar chatbot gives way to a ChatGPT agent, and nearly every major lab now ships an OpenAI-style agent that acts on its own. While users will still interact with a familiar chat interface, the underlying engine will transition from generating text to executing tasks. The declaration that “chat is dead” is not just the marketing slogan of a single developer; it is the blueprint for the next phase of the entire AI industry."
+    }
+  ]
+}
