@@ -405,6 +405,13 @@
       "type": "02.webp",
       "failedAt": "2026-06-02T19:25:58.170Z",
       "error": "HTTP 403: https://komodostation.com/wp-content/uploads/2023/11/social_media_image.png"
+    },
+    {
+      "url": "https://photos5.appleinsider.com/gallery/67668-142628-67394-141863-wwdc2026logo-xl-xl.jpg",
+      "slug": "apple-siri-google-gemini-wwdc",
+      "type": "thumbnail.webp",
+      "failedAt": "2026-06-07T23:56:03.637Z",
+      "error": "HTTP 403: https://photos5.appleinsider.com/gallery/67668-142628-67394-141863-wwdc2026logo-xl-xl.jpg"
     }
   ]
 }
