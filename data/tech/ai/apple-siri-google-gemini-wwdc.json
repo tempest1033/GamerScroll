@@ -1,0 +1,121 @@
+{
+  "slug": "apple-siri-google-gemini-wwdc",
+  "site": "aiscroll",
+  "category": "google",
+  "status": "approved",
+  "date": "2026-06-07T23:00Z",
+  "needTranslate": false,
+  "title": "애플 새 Siri, 구글 제미나이 탑재…WWDC서 공개",
+  "titleEn": "Apple's Siri Rebuilt on Google Gemini at WWDC",
+  "summary": "애플이 WWDC 2026에서 구글의 1조 2천억 매개변수 맞춤형 제미나이 모델을 탑재한 차세대 Siri를 공개한다. 애플은 이번 기술 도입을 위해 구글에 연간 약 10억 달러를 지급하는 것으로 알려졌다.",
+  "summaryEn": "Apple unveils a rebuilt Siri at WWDC 2026, powered by a custom 1.2-trillion-parameter Google Gemini model that costs Apple about $1 billion a year.",
+  "keywords": "새로운 Siri, 구글 제미나이, 애플 WWDC, Siri 개편",
+  "keywordsEn": "new Siri, Google Gemini, Apple WWDC, Siri overhaul",
+  "thumbnail": "https://photos5.appleinsider.com/gallery/67668-142628-67394-141863-wwdc2026logo-xl-xl.jpg",
+  "content": [
+    {
+      "type": "text",
+      "value": "애플이 현지 시간 6월 8일 오전 10시(한국 시간 9일 새벽 2시) 열리는 WWDC 2026 키노트에서 전면 개편한 차세대 Siri를 공개한다. 이번 키노트는 공식 홈페이지(apple.com)와 Apple TV 앱, 유튜브 채널을 통해 생중계되며, 직후 열리는 '플랫폼 스테이트 오브 더 유니언' 세션에서 새로운 API와 연동 규격이 함께 소개된다. 지난 2024년 애플 인텔리전스 공개 이후 약 2년 만에 이뤄지는 이번 Siri 개편은 이번 WWDC 행사 최대의 관심사로 꼽힌다."
+    },
+    {
+      "type": "heading",
+      "value": "구글 제미나이 기반 1.2조 매개변수 모델 탑재"
+    },
+    {
+      "type": "text",
+      "value": "가장 큰 관심사는 새로운 Siri가 구현할 지능의 원천이다. 블룸버그의 마크 거먼 기자는 [2025년 11월 5일 보도](https://www.bloomberg.com/news/articles/2025-11-05/apple-plans-to-use-1-2-trillion-parameter-google-gemini-model-to-power-new-siri)에서 애플이 구글이 설계한 1조 2천억 매개변수 규모의 맞춤형 제미나이 모델을 차세대 음성 비서에 적용한다고 전했다. 이는 애플이 기존에 사용하던 약 1,500억 매개변수 규모의 자체 클라우드 모델보다 약 8배 거대한 규모다."
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/9QYrKGN7DCjAIIQvkbgkjuswS_0=/2500x/article-new/2024/09/Apple-Intelligence-General-Feature-2.jpg",
+      "caption": "애플 인텔리전스 로고",
+      "alt": "무지개 그라데이션 배경 위에 놓인 애플 인텔리전스 아이콘"
+    },
+    {
+      "type": "text",
+      "value": "단순히 시중에 공개된 제미나이 모델을 그대로 연결하는 방식은 아니다. 제미나이를 기반으로 삼되 애플의 소프트웨어 생태계에 맞춰 미세조정과 재학습을 거친 맞춤형 버전을 탑재한다. 앞서 거먼 기자는 8월 22일 애플이 해당 방안을 검토 중이라고 처음 보도한 데 이어, 11월에는 모델 크기와 구체적인 계약 조건까지 상세히 전했다. 다만 그는 새 비서의 안착 여부는 불투명하며 수년간 누적된 Siri 브랜드의 신뢰 하락을 단번에 회복하기는 쉽지 않을 것이라고 덧붙였다."
+    },
+    {
+      "type": "heading",
+      "value": "연 10억 달러 협력과 프라이빗 클라우드 구동"
+    },
+    {
+      "type": "text",
+      "value": "양사 계약의 재무적 조건도 주목할 만한 대목이다. 애플은 구글에 해당 기술 사용료로 매년 약 10억 달러(한화 약 1조 3,000억 원)를 지불한다. 두 회사는 2026년 1월 12일 공동 성명을 내고 다년 협력 계약을 공식화했으며, 이는 [로이터](https://www.reuters.com/business/google-apple-enter-into-multi-year-ai-deal-gemini-models-2026-01-12/) 보도로 처음 알려졌다."
+    },
+    {
+      "type": "text",
+      "value": "핵심은 이 맞춤형 모델이 애플의 자체 인프라인 '프라이빗 클라우드 컴퓨트'에서 작동해 사용자 데이터가 구글로 가지 않고 Siri 브랜드도 그대로 유지된다는 것이다. 이는 AI 인프라 확보에 [공격적으로 나서는](/ko/article/google/google-spacex-xai-compute-deal/) 구글의 최근 흐름과도 일맥상통한다. 애플은 최종 결정을 내리기 전 오픈AI와 앤트로픽을 두고 고심했던 것으로 전해졌다. 챗봇형 대화와 개인 맥락 및 화면 이해 등의 기능은 출시 첫날이 아닌 iOS 27과 이후 업데이트를 거쳐 단계적으로 지원될 예정이다. 결국 이번 Siri 개편의 성패는 WWDC 무대 이후 실제 사용자 경험에서 갈릴 전망이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Apple will unveil a comprehensively rebuilt Siri at its WWDC 2026 keynote, scheduled for Monday, June 8, at 10 AM PT (2 AM KST on June 9). The keynote will stream on apple.com, the Apple TV app, and Apple's official YouTube channel, followed by the Platforms State of the Union session detailing the new APIs and technical integration for developers. This Siri overhaul, delayed for nearly two years since the 2024 Apple Intelligence announcement, headlines the WWDC event."
+    },
+    {
+      "type": "heading",
+      "value": "Powered by a 1.2-Trillion-Parameter Gemini Model"
+    },
+    {
+      "type": "text",
+      "value": "A key point of interest is the source of the upgraded assistant's intelligence. According to a [Bloomberg report on November 5, 2025](https://www.bloomberg.com/news/articles/2025-11-05/apple-plans-to-use-1-2-trillion-parameter-google-gemini-model-to-power-new-siri), Apple is rebuilding Siri on a custom 1.2-trillion-parameter Gemini model designed by Google. This model is roughly eight times the size of the approximately 150-billion-parameter cloud models Apple previously deployed."
+    },
+    {
+      "type": "image",
+      "src": "https://images.macrumors.com/t/9QYrKGN7DCjAIIQvkbgkjuswS_0=/2500x/article-new/2024/09/Apple-Intelligence-General-Feature-2.jpg",
+      "caption": "The Apple Intelligence logo",
+      "alt": "The Apple Intelligence icon on a rainbow gradient background"
+    },
+    {
+      "type": "text",
+      "value": "This integration does not simply bolt the public version of Gemini onto the assistant. While built on a Gemini foundation, the model has been realigned and retrained specifically for Apple's software stack. Gurman first reported Apple's interest in this approach on August 22, later detailing the model size and licensing costs in his November report. He cautioned, however, that success is not guaranteed, noting that users may not embrace the changes and that the upgrade might not easily undo years of damage to the Siri brand."
+    },
+    {
+      "type": "heading",
+      "value": "A $1 Billion Annual Fee and Private Cloud Infrastructure"
+    },
+    {
+      "type": "text",
+      "value": "The financial terms represent another major facet of the agreement. Apple will pay Google approximately $1 billion annually for the technology. The two companies officially confirmed their multi-year partnership in a joint statement on January 12, 2026, as reported by [Reuters](https://www.reuters.com/business/google-apple-enter-into-multi-year-ai-deal-gemini-models-2026-01-12/)."
+    },
+    {
+      "type": "text",
+      "value": "Crucially, the custom model will run on Apple's own Private Cloud Compute infrastructure, ensuring user data is not sent directly to Google and the branding remains strictly Apple's Siri. This arrangement aligns with Google's [aggressive efforts to secure AI computing resources](/article/google/google-spacex-xai-compute-deal/). Apple reportedly evaluated OpenAI and Anthropic before selecting Google. The new chatbot-like conversational interface, personal context awareness, and on-screen understanding will roll out incrementally through iOS 27 and subsequent updates rather than debuting all at once. Ultimately, the success of this Siri overhaul will hinge on the user experience that follows the WWDC stage."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Bloomberg",
+      "title": "Apple Plans to Use 1.2-Trillion-Parameter Google Gemini Model to Power New Siri",
+      "url": "https://www.bloomberg.com/news/articles/2025-11-05/apple-plans-to-use-1-2-trillion-parameter-google-gemini-model-to-power-new-siri"
+    },
+    {
+      "name": "Reuters",
+      "title": "Google, Apple enter into multi-year AI deal on Gemini models",
+      "url": "https://www.reuters.com/business/google-apple-enter-into-multi-year-ai-deal-gemini-models-2026-01-12/"
+    },
+    {
+      "name": "Google",
+      "title": "A joint statement from Google and Apple",
+      "url": "https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "Apple Explores Using Google Gemini AI to Power Revamped Siri",
+      "url": "https://www.bloomberg.com/news/articles/2025-08-22/apple-explores-using-google-gemini-ai-to-power-revamped-siri"
+    },
+    {
+      "name": "MacRumors",
+      "title": "New Version of Siri to 'Lean' on Google Gemini",
+      "url": "https://www.macrumors.com/2025/11/02/new-version-of-siri-to-lean-on-google-gemini/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/google-spacex-xai-compute-deal",
+    "tech:ai/gemma-4-12b-encoder-free-launch",
+    "tech:ai/ai-subscription-login-gemini-holdout"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
