@@ -1,0 +1,122 @@
+{
+  "slug": "coding-agents-june-2026-ranking",
+  "status": "approved",
+  "category": "general",
+  "title": "6월 코딩 에이전트 톱4…오퍼스 4.8 선두 속 GPT-5.5 추격",
+  "titleEn": "June 2026 Coding Agents: Opus 4.8 vs GPT-5.5",
+  "summary": "2026년 6월 코딩 에이전트 시장은 클로드 오퍼스 4.8과 GPT-5.5의 양강 구도가 굳어졌다. 그 뒤를 가성비의 컴포저 2.5와 프론트엔드 특화 제미나이 3.5 플래시가 추격하는 가운데, 중국계 오픈웨이트 모델들이 다크호스로 부상하고 있다.",
+  "summaryEn": "Claude Opus 4.8 leads June 2026's coding agents, with GPT-5.5 closing the gap on backend. Composer 2.5 and Gemini 3.5 Flash follow on value and frontend.",
+  "keywords": "코딩 에이전트, 앤트로픽, GPT-5.5, 컴포저 2.5",
+  "keywordsEn": "coding agents, Opus 4.8, GPT-5.5, Composer 2.5",
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 6월 글로벌 코딩 에이전트 시장이 단일 모델의 독주 체제에서 다자간 경쟁 구도로 재편되고 있다. 성능 격차가 좁혀지고 모델별 특화 영역이 뚜렷해짐에 따라, 개발자들의 선택 기준도 단순 성능 비교에서 작업 성격에 맞춘 적합성 평가로 이동하는 추세다.\n\n종합 평가에서는 앤트로픽(Anthropic)의 클로드 오퍼스 4.8이 여전히 선두를 지키고 있다. 그러나 오픈AI(OpenAI)의 GPT-5.5가 백엔드와 복잡한 엔지니어링 영역에서 격차를 좁히며 강력한 양강 구도를 형성했다. 그 뒤를 비용 효율성이 뛰어난 커서의 컴포저 2.5와 프론트엔드 강점을 지닌 제미나이 3.5 플래시가 바짝 추격하고 있다. 이번 순위는 단순 벤치마크 점수를 넘어 개발 환경의 완성도와 실무 적용성을 종합 반영한 코딩 에이전트 평가다."
+    },
+    {
+      "type": "heading",
+      "value": "선두 지키는 오퍼스 4.8과 추격하는 GPT-5.5"
+    },
+    {
+      "type": "text",
+      "value": "양강 구도의 선두에 선 앤트로픽의 클로드 오퍼스 4.8은 지난 5월 28일 공개된 이후 시장에서 균형 잡힌 성능으로 호평받고 있다. 특히 개발 도구인 Claude Code의 뛰어난 완성도가 핵심 경쟁력으로 꼽힌다. 가장 난도가 높은 코딩 평가지표인 SWE-벤치 프로에서 이 모델은 69.2%의 해결률을 기록하며, GPT-5.5(58.6%)와 제미나이 3.1 프로(54.2%)를 10%포인트 이상 따돌렸다.\n\nGPT-5.5는 복잡한 다단계 엔지니어링과 터미널 작업에서 강력한 성능을 발휘한다. 실제로 명령줄 실행 능력을 측정하는 터미널-벤치 2.1에서 자체 CLI 도구인 Codex CLI를 적용한 결과 83.4%를 기록했다. 74.6%에 그친 오퍼스 4.8을 앞선 결과다. 다만 프론트엔드 영역의 구현력은 다소 아쉽다는 평가다.\n\n두 모델의 성패는 결합하는 개발 도구에 따라 갈릴 만큼 격차가 좁혀졌다. 오픈소스 환경인 Terminus-2를 사용할 경우 앤트로픽 모델이 우세하지만, Codex CLI를 연동하면 GPT-5.5가 앞선다. 현업 개발팀에서는 일반 업무에는 오퍼스 4.8을, 복잡한 백엔드 난제 해결에는 GPT-5.5를 맞춤형 [선택지](/ko/article/anthropic/claude-opus-4-8-launch/)로 채택하는 추세다. 성능 세부 분석은 [벨럼의 분석](https://www.vellum.ai/blog/claude-opus-4-8-benchmarks-explained)에서 확인할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "가성비 앞세운 컴포저 2.5와 프론트엔드 특화 제미나이"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/05/chart-composer-2-5-effort-curves-dark-r4.webp",
+      "alt": "컴포저 2.5와 경쟁 모델의 성능 대비 비용 산점도",
+      "caption": "모델별 CursorBench 3.1 점수와 작업당 평균 비용 비교"
+    },
+    {
+      "type": "text",
+      "value": "3위 컴포저 2.5는 뛰어난 가격 경쟁력으로 주목받고 있다. 커서가 오픈소스 모델 키미 K2.5를 기반으로 미세조정 및 강화학습을 거쳐 지난 5월 18일 선보였다. SWE-벤치 멀티링구얼에서 79.8%를 기록해 선두권 모델 수준의 성능을 보여주면서도, 비용은 100만 토큰당 입력 0.5달러, 출력 2.5달러로 타 모델의 10분의 1 수준에 불과하다. 현재 커서와 Grok Build에 탑재돼 있다.\n\n4위 제미나이 3.5 플래시는 신속한 화면 구현에 최적화된 모델이다. 구글의 개발 플랫폼인 Antigravity 환경에서 반응형 UI를 몇 분 만에 제작해내는 속도가 강점이다. 다만 긴 대화 흐름에서 맥락을 놓치거나 백엔드 작업에서 지연이 발생하며, 전용 개발 도구의 최적화 수준이 미흡하다는 지적도 있다. 그럼에도 Finance Agent v2 벤치마크에서 57.9%의 성능을 기록하며, 53.9%에 그친 오퍼스 4.8을 앞질러 특정 영역에서의 전문성을 인정받았다."
+    },
+    {
+      "type": "heading",
+      "value": "이제 한 모델로는 끝나지 않는다"
+    },
+    {
+      "type": "text",
+      "value": "특정 영역에 특화된 다크호스 모델들의 추격도 매섭다. 키미 2.6, 딥시크 4 프로, Qwen 3.7 맥스 등 중국계 모델들이 대표적이다. 이들 모델은 글로벌 경쟁작 대비 뛰어난 비용 효율성을 무기로 입지를 넓히고 있다. 특히 컴포저 2.5의 기반이 된 키미 K2.5 사례에서 확인되듯, 오픈웨이트 생태계의 기술 발전 속도는 시장의 예측을 뛰어넘고 있다.\n\n결과적으로 6월의 코딩 에이전트 시장은 범용성을 앞세운 앤트로픽 오퍼스 4.8, 백엔드의 GPT-5.5, 가성비의 컴포저 2.5, 프론트엔드의 제미나이 3.5 플래시가 각자 영역을 구축한 사분면 구도를 나타낸다. 단일 모델이 모든 작업을 수행하던 방식은 더는 효율적이지 않다. 작업의 성격과 요구되는 역량에 따라 최적의 모델을 조합하는 멀티 에이전트 전략이 실무 개발의 합리적인 해결책으로 확립되고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "By June 2026, the coding agent market has evolved beyond a single dominant leader. With capabilities increasingly specialized, developers are shifting their focus from finding a single best model to selecting the right tool for specific tasks.\n\nAnthropic's Claude Opus 4.8 maintains its lead in overall evaluations. However, OpenAI's GPT-5.5 has closed the gap in backend and complex engineering tasks, establishing a clear dual-power structure. Meanwhile, Composer 2.5 and Gemini 3.5 Flash follow closely, carving out niches in value and frontend development. Rather than relying solely on benchmark scores, these rankings weigh harness maturity and how coding agents perform in real-world use."
+    },
+    {
+      "type": "heading",
+      "value": "Claude Opus 4.8 Leads Overall as OpenAI's GPT-5.5 Closes In"
+    },
+    {
+      "type": "text",
+      "value": "At the forefront is Claude Opus 4.8, released on May 28. In addition to its balanced performance across frontend and backend environments, the model's primary differentiator is Claude Code, an exceptionally polished developer harness. On SWE-Bench Pro, the most demanding coding benchmark, Opus 4.8 scored 69.2%, outperforming GPT-5.5 (58.6%) and Gemini 3.1 Pro (54.2%) by over ten percentage points.\n\nGPT-5.5 follows closely, demonstrating particular strength in complex backend tasks where terminal operations and multi-step engineering intersect. On Terminal-Bench 2.1, using its proprietary Codex CLI harness, GPT-5.5 scored 83.4%, surpassing Opus 4.8's 74.6%. However, reviewers note that GPT-5.5 remains relatively weak in frontend applications.\n\nThe performance gap has narrowed to the point where rankings can shift based entirely on the choice of harness. On the public Terminus-2 harness, Opus 4.8 performs nearly on par with GPT-5.5, whereas GPT-5.5 leads when utilizing Codex CLI. Consequently, developers running coding agents are adopting a pragmatic rule of thumb: Opus for general development, and GPT-5.5 for complex backend challenges, [as the launch coverage noted](/article/anthropic/claude-opus-4-8-launch/). For a detailed analysis, Vellum's [benchmark breakdown](https://www.vellum.ai/blog/claude-opus-4-8-benchmarks-explained) offers valuable insights."
+    },
+    {
+      "type": "heading",
+      "value": "Composer 2.5's Cost Efficiency vs Gemini's Frontend Edge"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/05/chart-composer-2-5-effort-curves-dark-r4.webp",
+      "alt": "Composer 2.5 plotted against rival models on score versus cost",
+      "caption": "CursorBench 3.1 score versus average cost per task across models"
+    },
+    {
+      "type": "text",
+      "value": "Positioned just below the top two is Composer 2.5, which has gained traction primarily through aggressive pricing. Released on May 18, this coding-specific model from Cursor was distilled and reinforced through reinforcement learning (RL) from the open-source Kimi K2.5 checkpoint. While scoring 79.8% on SWE-Bench Multilingual—approaching frontier-class performance—it costs just $0.50 per million input tokens and $2.50 per million output tokens, roughly one-tenth the rate of its competitors. The model is integrated directly into Cursor and Grok Build.\n\nRanked fourth, Gemini 3.5 Flash excels in frontend development. Operating on Google's Antigravity platform, it rapidly generates responsive user interfaces within minutes. However, the model struggles with context retention during extended tasks, underperforms on the backend, and is held back by the limitations of the Antigravity harness itself. Despite these drawbacks, the lightweight model demonstrated specialized capability by scoring 57.9% on the Finance Agent v2 benchmark, surpassing even Opus 4.8 (53.9%)."
+    },
+    {
+      "type": "heading",
+      "value": "No Single Model Dominates the Entire Workflow"
+    },
+    {
+      "type": "text",
+      "value": "Other models also punch above their weight in specialized areas, most notably Chinese offerings such as Kimi 2.6, DeepSeek 4 Pro, and Qwen 3.7 Max. Their cost-efficiency relative to established global models makes them fast-rising dark horses among coding agents on both performance and value. Furthermore, the momentum of the open-weight ecosystem is growing, as demonstrated by Composer 2.5's reliance on the Kimi K2.5 checkpoint.\n\nUltimately, the coding agent landscape in June has organized into four distinct quadrants: Opus as the versatile generalist, GPT-5.5 as the specialist for complex backend tasks, Composer 2.5 as the cost-effective alternative, and Gemini 3.5 Flash as the frontend specialist. The era of a single model dominating the entire development pipeline has ended. For engineering teams deploying coding agents, a multi-agent strategy—matching the specific task to the optimal model—has emerged as the most practical path forward."
+    }
+  ],
+  "thumbnail": "https://cdn.sanity.io/images/ghjnhoi4/production/bd7f41ac8efc97f35f9deca1948fd41f5217d915-1376x768.jpg",
+  "date": "2026-06-08T00:00Z",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Introducing Claude Opus 4.8",
+      "url": "https://www.anthropic.com/news/claude-opus-4-8"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Introducing GPT-5.5",
+      "url": "https://openai.com/index/introducing-gpt-5-5/"
+    },
+    {
+      "name": "Cursor",
+      "title": "Introducing Composer 2.5",
+      "url": "https://cursor.com/blog/composer-2-5"
+    },
+    {
+      "name": "Google Antigravity",
+      "title": "Gemini 3.5 Flash in Google Antigravity",
+      "url": "https://antigravity.google/blog/gemini-3-5-flash-in-google-antigravity"
+    },
+    {
+      "name": "Vellum",
+      "title": "Claude Opus 4.8 Benchmarks Explained",
+      "url": "https://www.vellum.ai/blog/claude-opus-4-8-benchmarks-explained"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/grok-build-composer-2-5-synergy",
+    "tech:ai/gpt-5-5-codex-spark-5-6-leak",
+    "tech:ai/gemini-omni-antigravity-trail-sota"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "needTranslate": false,
+  "site": "aiscroll"
+}
