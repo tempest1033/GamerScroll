@@ -1,0 +1,122 @@
+{
+  "slug": "surface-laptop-ultra-macbook-rival",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "엔비디아 칩 탑재한 '서피스 노트북 울트라', 맥북 프로 조준",
+  "titleEn": "Surface Laptop Ultra Takes On MacBook Pro",
+  "summary": "마이크로소프트가 역대 가장 강력한 성능을 갖춘 '서피스 노트북 울트라'를 발표했다. 엔비디아의 RTX 스파크 플랫폼과 최대 128GB 통합 메모리를 적용해 애플 맥북 프로에 도전장을 던졌다.",
+  "summaryEn": "Microsoft unveiled the Surface Laptop Ultra, its most powerful yet, pairing NVIDIA's RTX Spark with 128GB of unified memory to challenge the MacBook Pro.",
+  "keywords": "서피스 노트북 울트라, RTX 스파크, 맥북 프로, 128GB 통합 메모리, 블랙웰 RTX",
+  "keywordsEn": "Surface Laptop Ultra, RTX Spark, MacBook Pro, Blackwell, unified memory",
+  "thumbnail": "https://winblogs.thesourcemediaassets.com/sites/43/2026/05/SLU-Hero-Image-11920.png",
+  "relatedDocs": [
+    "tech:ai/microsoft-project-solara-agent-devices",
+    "tech:ai/nvidia-vera-rubin-agentic-ai",
+    "tech:ai/microsoft-copilot-windows-ai-fatigue",
+    "tech:ai/nvidia-feynman-architecture-2028"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Windows Blog",
+      "title": "Introducing Surface Laptop Ultra: Made for world makers",
+      "url": "https://blogs.windows.com/devices/2026/05/31/introducing-surface-laptop-ultra-made-for-world-makers/"
+    },
+    {
+      "name": "Windows Central",
+      "title": "Microsoft Surface Laptop Ultra announced at Computex 2026",
+      "url": "https://www.windowscentral.com/hardware/surface/microsoft-surface-laptop-ultra-announced-computex-2026"
+    },
+    {
+      "name": "Ars Technica",
+      "title": "Microsoft Surface Laptop Ultra will be among the first NVIDIA RTX Spark Arm PCs",
+      "url": "https://arstechnica.com/gadgets/2026/06/microsoft-surface-laptop-ultra-will-be-among-the-first-nvidia-rtx-spark-arm-pcs/"
+    },
+    {
+      "name": "ZDNet",
+      "title": "Hands-on with the Microsoft Surface Ultra",
+      "url": "https://www.zdnet.com/article/hands-on-with-the-microsoft-surface-ultra/"
+    },
+    {
+      "name": "Axios",
+      "title": "Microsoft and NVIDIA team up on the Surface Ultra with RTX Spark",
+      "url": "https://www.axios.com/2026/06/01/microsoft-nvidia-surface-ultra-rtx-spark"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "마이크로소프트가 5월 31일(현지시간) 자사 제품군 중 성능이 가장 뛰어난 '서피스 노트북 울트라'를 공개했다. 이 제품은 설계 단계부터 엔비디아와 협력해 개발한 고성능 윈도우 노트북으로, 애플 맥북 프로와의 직접 경쟁을 목표로 한다.\n\n핵심 사양은 엔비디아 블랙웰 RTX GPU와 최대 128GB의 통합 메모리, 그리고 쿠다(CUDA) 기술 지원이다. 최대 1페타플롭의 인공지능(AI) 연산 성능을 발휘해 1,200억 개 매개변수 규모의 AI 모델을 기기 자체에서 구동할 수 있다. 출시 시기는 올해 가을로 예정됐다."
+    },
+    {
+      "type": "heading",
+      "value": "RTX 스파크로 무장한 역대 최강 서피스"
+    },
+    {
+      "type": "text",
+      "value": "마이크로소프트가 강조한 성능의 핵심은 프로세서다. 서피스 노트북 울트라는 엔비디아의 신형 'RTX 스파크' 플랫폼(코드명 N1X)을 기반으로 작동한다. 20코어 ARM CPU와 6,144개 안팎의 쿠다 코어를 갖춘 블랙웰 RTX GPU를 결합했으며, 초기 기기 체험기에서는 외장 그래픽 카드인 지포스 RTX 5070급의 그래픽 성능을 낸다는 평가를 받았다.\n\n최대 128GB의 통합 메모리 설계도 돋보인다. 작업량에 따라 CPU와 GPU가 메모리 자원을 동적으로 나누어 쓰는 방식이다. 이를 통해 AI 생성이나 3D 렌더링, 여러 AI 모델을 동시에 실행하는 무거운 작업도 원활하게 처리할 수 있다. 서피스 제품군에 블랙웰 GPU와 통합 메모리, 쿠다 지원이 동시에 적용된 것은 이번이 처음이다.\n\n화면과 외관 마감도 전문가 기준에 맞췄다. 15인치 미니 LED '픽셀센스 울트라' 터치스크린은 262ppi 화소 밀도와 최대 2,000니트의 HDR 밝기를 지원해 역대 마이크로소프트 디스플레이 중 가장 밝다. 본체 두께는 18mm 미만, 무게는 2kg 이하로 줄였으며 플래티넘과 나이트폴 등 두 가지 색상으로 제공된다."
+    },
+    {
+      "type": "heading",
+      "value": "애플 실리콘 대신 엔비디아와 손잡은 배경"
+    },
+    {
+      "type": "image",
+      "src": "https://www.zdnet.com/a/img/resize/4a99a3b17abbd4fd2b7c361dbe3580bbc479f194/2026/06/04/0aea650b-49da-4cd4-9460-a176149ce065/dsc05305.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "caption": "컴퓨텍스 2026에서 공개된 서피스 노트북 울트라 실물",
+      "alt": "나무 책상 위에 놓인 플래티넘 색상 서피스 노트북 울트라의 키보드와 화면"
+    },
+    {
+      "type": "text",
+      "value": "맥북 프로와의 유사성은 단순한 외관 마감에 그치지 않는다. 마이크로소프트는 서피스 노트북 울트라를 애플의 최고급 노트북과 직접 경쟁하는 모델로 포지셔닝했다. 최대 128GB에 달하는 통합 메모리는 맥북 프로의 최상위 사양과 동일하며, 얇은 몸체와 2,000니트 밝기의 미니 LED 화면도 전문가용 맥북을 겨냥한 구성이다.\n\n결정적인 차이는 탑재한 실리콘 칩에서 갈린다. 애플이 자체 설계한 애플 실리콘으로 기기를 단일화한 반면, 마이크로소프트는 자사 칩 대신 엔비디아의 RTX 스파크 플랫폼을 선택했다([아스테크니카](https://arstechnica.com/gadgets/2026/06/microsoft-surface-laptop-ultra-will-be-among-the-first-nvidia-rtx-spark-arm-pcs/)). 쿠다 기술을 완벽히 지원함으로써 창작 및 AI 프로그램과의 호환성을 극대화하고, 맥북이 취약했던 게임 성능을 앞세우겠다는 계산이다.\n\n기존 윈도우 노트북의 실용성도 고스란히 유지했다. HDMI, USB-C, USB-A, SD카드 슬롯, 헤드폰 잭 등 필수 단자들을 젠더 없이 연결할 수 있고 저장장치(SSD)는 사용자가 직접 바꿀 수 있다. 운영체제는 ARM용 윈도우다. 데이터센터에서 [베라 루빈](/ko/article/general/nvidia-vera-rubin-agentic-ai/) 아키텍처로 활약하는 엔비디아의 실리콘 기술이 이제 프리미엄 노트북 시장까지 내려온 모습이다."
+    },
+    {
+      "type": "heading",
+      "value": "맥북 프로와 맞붙을 가을, 가격이 변수"
+    },
+    {
+      "type": "text",
+      "value": "이 새로운 기기가 시장에서 통할지는 가격과 생태계 확장성에 달려 있다. 서피스 노트북 울트라는 RTX 스파크 진영의 간판 격인 플래그십 제품으로, 에이수스(ASUS)와 델 등 다른 제조사들도 같은 플랫폼을 적용한 노트북 출시를 준비 중이다. 자체 칩 설계 대신 엔비디아와 손잡은 마이크로소프트가 이 생태계의 대표 주자로 나선 형태다.\n\n구체적인 출고가는 아직 공개되지 않았다. 다만 외신들은 구성에 따라 시작 가격이 3,000달러 선에 이를 것으로 관측한다. 128GB 통합 메모리와 미니 LED 디스플레이, 블랙웰 기반 GPU 등의 고사양을 감안하면 초고가 책정은 불가피해 보이나, 일반 소비자가 접근하기에는 진입 장벽이 높은 것이 사실이다.\n\n이번 출시는 최근 공개한 [에이전트 중심의 새 기기 플랫폼](/ko/article/general/microsoft-project-solara-agent-devices/)에 이어 마이크로소프트가 AI 하드웨어 분야의 투자를 넓히고 있음을 보여준다. 서피스 노트북 울트라는 그 투자 중에서도 가장 강력한 승부수다. 애플 실리콘과 엔비디아 RTX 스파크가 펼칠 프리미엄 노트북 시장의 다음 대결은 올해 가을 본격적으로 시작된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Microsoft unveiled the Surface Laptop Ultra on May 31, marketing the device as the most powerful Surface Laptop in its lineup. Developed in collaboration with NVIDIA from the silicon level, the high-performance Windows notebook is designed to compete directly with Apple's MacBook Pro.\n\nThe system features an NVIDIA Blackwell RTX GPU, up to 128GB of unified memory, and full CUDA support. Delivering up to 1 petaflop of AI performance, the laptop can run 120-billion-parameter models locally. The device is scheduled to ship this fall."
+    },
+    {
+      "type": "heading",
+      "value": "The RTX Spark Inside the Most Powerful Surface"
+    },
+    {
+      "type": "text",
+      "value": "Microsoft’s performance claims are centered on the device's processor. The Surface Laptop Ultra is built on NVIDIA's new RTX Spark platform, codenamed N1X. The chip pairs a 20-core Arm-based CPU with a Blackwell RTX GPU featuring approximately 6,144 CUDA cores, offering graphics performance that early hands-on reviews compare to a discrete GeForce RTX 5070.\n\nThe architecture utilizes a unified-memory design where up to 128GB of memory is allocated dynamically between the CPU and GPU. This allows memory-intensive tasks—such as AI generation, 3D rendering, and running multiple models simultaneously—to operate in parallel. This marks the first time a Surface device has integrated a Blackwell-generation GPU, unified memory, and full CUDA support.\n\nThe display and build quality are tailored for professional users. The 15-inch mini-LED PixelSense Ultra touchscreen features a density of 262 ppi and a peak HDR brightness of 2,000 nits, making it the brightest display Microsoft has ever shipped. The chassis measures under 18 mm in thickness, weighs less than 2 kg, and is available in Platinum and a new Nightfall finish."
+    },
+    {
+      "type": "heading",
+      "value": "Why Microsoft Partnered with NVIDIA Over Apple Silicon"
+    },
+    {
+      "type": "image",
+      "src": "https://www.zdnet.com/a/img/resize/4a99a3b17abbd4fd2b7c361dbe3580bbc479f194/2026/06/04/0aea650b-49da-4cd4-9460-a176149ce065/dsc05305.jpg?auto=webp&fit=crop&height=675&width=1200",
+      "caption": "The Surface Laptop Ultra on display at Computex 2026",
+      "alt": "Platinum Surface Laptop Ultra on a wooden desk, showing its keyboard and display"
+    },
+    {
+      "type": "text",
+      "value": "The similarities to the MacBook Pro extend beyond the physical finish. Microsoft is positioning the Surface Laptop Ultra as a direct competitor to Apple's flagship MacBook Pro. The maximum configuration of 128GB of unified memory matches Apple’s top-tier MacBook Pro configurations, while the slim profile and 2,000-nit mini-LED display target the same professional users the MacBook Pro courts.\n\nThe key differentiator lies in the silicon strategy. While Apple relies on its proprietary Apple Silicon, Microsoft selected NVIDIA's RTX Spark platform for the new Surface ([Ars Technica](https://arstechnica.com/gadgets/2026/06/microsoft-surface-laptop-ultra-will-be-among-the-first-nvidia-rtx-spark-arm-pcs/)). By providing full CUDA support, Microsoft aims to offer superior compatibility for creative and AI applications, as well as gaming performance where macOS has traditionally lagged.\n\nFurthermore, the device retains the hardware versatility typical of Windows laptops. It features built-in ports including HDMI, USB-C, USB-A, an SD card slot, and a headphone jack, and includes a user-replaceable SSD. Running Windows on Arm, the laptop brings NVIDIA’s hardware architecture—which powers the [Vera Rubin](/article/general/nvidia-vera-rubin-agentic-ai/) architecture in data centers—into the consumer notebook space."
+    },
+    {
+      "type": "heading",
+      "value": "Facing the MacBook Pro: A Fall Launch and the Price Question"
+    },
+    {
+      "type": "text",
+      "value": "The market success of this architecture will depend on pricing and ecosystem adoption. The Surface Laptop Ultra serves as the flagship for the RTX Spark ecosystem, with manufacturers like ASUS and Dell also preparing devices based on the platform. By collaborating with NVIDIA rather than developing custom silicon, Microsoft has positioned itself as the standard-bearer for this new hardware initiative.\n\nWhile official pricing has not been announced, industry reports suggest the laptop will start at around $3,000 depending on the hardware configuration. Given the inclusion of 128GB of unified memory, a mini-LED display, and a Blackwell-generation GPU, a premium price point was expected, though it may limit the device's appeal among mainstream consumers.\n\nThe launch represents a broadening of Microsoft’s investments in AI hardware, following the announcement of a [new agent-first device platform](/article/general/microsoft-project-solara-agent-devices/). The Surface Laptop Ultra represents the company's most significant hardware bet to date. The competition between Apple Silicon and NVIDIA's RTX Spark in the high-end notebook segment, long ruled by the MacBook Pro, will begin this fall."
+    }
+  ]
+}
