@@ -1,0 +1,178 @@
+{
+  "slug": "huawei-ascend-deepseek-v4-posttraining",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "화웨이 어센드 910C, 딥시크 V4-프로 사후학습 성공",
+  "titleEn": "Huawei Ascend 910C Post-Trains DeepSeek V4-Pro",
+  "summary": "화웨이가 주도하는 연구진이 1,000개 이상의 어센드 910C 칩으로 딥시크의 1조 6,000억 매개변수 모델인 V4-프로의 사후학습을 완료했다. 중국산 반도체가 학습 영역으로 진입했다는 평가가 나오나 구체적인 성능 지표는 공개되지 않았다.",
+  "summaryEn": "A Huawei-led team post-trained DeepSeek's 1.6T V4-Pro on 1,000+ Ascend 910C chips—Chinese silicon reaching training, though no benchmarks were shared.",
+  "keywords": "화웨이 어센드 910C, 딥시크 V4-프로, 사후학습, 중국 AI 자립, 어센드 칩",
+  "keywordsEn": "Huawei Ascend 910C, DeepSeek V4-Pro, post-training, China AI self-reliance, domestic AI chips",
+  "thumbnail": "https://cdn.i-scmp.com/sites/default/files/styles/og_image_scmp_generic/public/d8/images/canvas/2026/06/05/9ffa7eed-918e-46a5-ab8f-d5a5eebf9b56_ab8ccaf2.jpg?itok=kGPovwax&v=1780652963",
+  "content": [
+    {
+      "type": "text",
+      "value": "화웨이가 주도하는 중국 연구진이 자국산 반도체만으로 초거대 인공지능(AI) 모델의 사후학습(post-training)에 성공했다. 이들은 약 1,000개의 화웨이 어센드 910C 칩으로 구성된 클러스터를 활용해 딥시크의 1조 6,000억 매개변수 모델인 'V4-프로'의 사후학습을 완료했다.\n\n이번 연구는 지난 6월 5일 선전시 정부가 소셜미디어를 통해 처음 공개했다. [사우스차이나모닝포스트(SCMP)](https://www.scmp.com/tech/article/3356117/huawei-chips-refine-deepseek-model-major-leap-chinas-ai-self-reliance) 보도에 따르면 이번 작업에는 화웨이와 선전 루프에어리어 연구소, 하얼빈공대 선전캠퍼스, 선전 빅데이터연구소가 공동 참여했다. 그동안 중국산 반도체의 가장 취약한 고리로 꼽혔던 '학습' 단계에서 도출된 성과인 만큼 업계의 이목이 쏠린다."
+    },
+    {
+      "type": "heading",
+      "value": "엔비디아 GPU에서 벗어나려는 도전"
+    },
+    {
+      "type": "text",
+      "value": "그동안 중국산 AI 가속기는 이미 완성된 모델에 질문을 입력해 답을 얻는 비교적 가벼운 작업인 '추론' 영역에서 주로 활약했다. 반면 모델의 가중치를 전체적으로 다시 계산하는 '학습' 단계는 엔비디아의 그래픽처리장치(GPU)에 절대적으로 의존해 왔다."
+    },
+    {
+      "type": "text",
+      "value": "이번에 연구진은 얇은 어댑터 계층을 추가하는 대신 모델의 모든 가중치를 갱신하는 '전체 매개변수 사후학습'을 진행했다. 선전시 정부는 이를 도로망에 비유해 설명했다. 추론이 '질문과 답변이 오가는 일방통행로'라면, 사후학습은 '고가도로와 순환로를 더해 연산과 통신 부담을 수 배로 늘린 복잡한 입체 도로망'과 같다는 설명이다."
+    },
+    {
+      "type": "text",
+      "value": "선전시 정부는 1,000개 이상의 어센드 칩 클러스터가 중단 없이 1,500회 이상의 학습 반복을 완료했다고 밝혔다. 사후학습은 사전학습을 거친 모델이 사용자의 지시를 따르고 안전 규정을 준수하며 특정 작업을 수행하도록 가르치는 미세조정 단계다."
+    },
+    {
+      "type": "heading",
+      "value": "딥시크 V4-프로와 화웨이 어센드 910C의 성능"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/zfDV4Yc5qbdYxR9jC8U8NA-1920-80.jpg",
+      "caption": "딥시크 로고",
+      "alt": "딥시크 로고"
+    },
+    {
+      "type": "text",
+      "value": "딥시크가 지난 4월 공개한 V4-프로는 이 연구소의 역대 최대 규모 AI 모델이다. 1조 6,000억 개의 매개변수를 갖춘 전문가 혼합(MoE) 구조로, 토큰당 약 490억 개의 매개변수만 활성화하며 100만 토큰의 맥락을 처리할 수 있다. [톰스 하드웨어(Tom's Hardware)](https://www.tomshardware.com/tech-industry/artificial-intelligence/huawei-led-team-claims-it-post-trained-deepseeks-1-6-trillion-parameter-models-on-ascend-910c-chips)에 따르면 사전학습에 사용된 데이터는 32조 토큰을 넘어선다."
+    },
+    {
+      "type": "text",
+      "value": "가속기로 쓰인 화웨이 어센드 910C는 화웨이의 최상위 AI 칩이다. 이 어센드 910C는 듀얼 다이 구조로 설계돼 과거 딥시크 테스트에서 엔비디아 H100 추론 성능의 약 60% 수준을 보였다. 이번 어센드 910C 클러스터 구동에서는 30% 이상의 모델 부동소수점 활용률(MFU)과 약 14%의 핵심 연산 효율 개선을 기록한 것으로 전해졌다."
+    },
+    {
+      "type": "text",
+      "value": "V4-프로는 설계 단계부터 화웨이 어센드 칩을 염두에 두고 개발된 최초의 딥시크 모델이다. 추론에만 쓰이던 중국산 칩이 모델의 학습까지 감당하게 된 배경이다. 최근 딥시크는 [미국 앱 지출 추적기에서 1위에 오른](/ko/article/general/deepseek-tops-us-spending-tracker/) 등 글로벌 시장에서 존재감을 넓히고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "반도체 수출 규제와 중국 AI 자립의 과제"
+    },
+    {
+      "type": "text",
+      "value": "미국의 반도체 수출 규제로 엔비디아 GPU 수급이 막히자, 중국 기업들은 AI 자립을 목표로 학습 작업까지 자국산 칩으로 옮기는 데 집중하고 있다. 선전시 정부가 이번 성과를 두고 '중국 AI 산업 공급망의 자립도를 높일 계기'라고 자평한 것도 이런 중국 AI 자립 드라이브의 연장선이다."
+    },
+    {
+      "type": "text",
+      "value": "다만 구체적인 성능 지표가 공개되지 않아 신중론도 제기된다. 톰스 하드웨어는 전체 학습 소요 시간과 엔비디아 칩과의 직접적인 비교 데이터, 1,000대 클러스터의 실질 연산 효율 등 핵심 정보가 누락된 점을 지적했다."
+    },
+    {
+      "type": "text",
+      "value": "자국산 AI 칩을 활용한 학습 이력이 항상 성공적이었던 것은 아니다. 지난해 8월 딥시크는 화웨이 기술 지원 속에서도 차세대 R2 모델의 어센드 학습을 완료하지 못했다. 하드웨어 불안정성과 느린 연결 속도, 엔비디아 CUDA 대용인 화웨이 CANN 소프트웨어의 최적화 미비가 원인으로 지적됐다. 결국 딥시크는 학습 용도로 엔비디아를 다시 택했고 어센드는 추론에만 활용했다."
+    },
+    {
+      "type": "text",
+      "value": "이번 V4-프로 사후학습이 당시의 기술적 병목을 얼마나 극복했는지는 아직 검증되지 않았다. 딥시크 본사 역시 선전시 정부 발표에 침묵을 지키고 있다. 중국산 반도체가 AI 학습 단계에 진입한 점은 명확하지만, 완전한 중국 AI 자립으로 이어질지는 추가 공개 자료를 기다려야 한다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "A Huawei-led Chinese research team has successfully post-trained a massive AI model using only domestic hardware. The group utilized a cluster of approximately 1,000 Huawei Ascend 910C chips to complete the post-training of DeepSeek's 1.6-trillion-parameter V4-Pro model.\n\nThe project was first disclosed in a June 5 social media post by the Shenzhen municipal government. According to the [South China Morning Post (SCMP)](https://www.scmp.com/tech/article/3356117/huawei-chips-refine-deepseek-model-major-leap-chinas-ai-self-reliance), the initiative was a joint effort between Huawei, the Shenzhen Loop Area Institute, the Harbin Institute of Technology (Shenzhen), and the Shenzhen Research Institute of Big Data. The achievement marks a notable step for China's AI self-reliance, as training has long been the weakest link for Chinese silicon."
+    },
+    {
+      "type": "heading",
+      "value": "Breaking Away From Nvidia GPUs"
+    },
+    {
+      "type": "text",
+      "value": "In China, domestic AI accelerators have primarily excelled at inference—the relatively lightweight task of processing prompts and generating outputs from completed models. Training, by contrast, recalculates a model's weights wholesale, and that work has remained heavily dependent on Nvidia GPUs."
+    },
+    {
+      "type": "text",
+      "value": "For this project, the team conducted full-parameter post-training, meaning every weight within the model was updated rather than relying on a thin, external adapter layer. A Shenzhen government description cited by the SCMP compared the process to road infrastructure. If inference is a 'one-way road where a query goes in and an answer comes out,' this run added 'complex flyovers and loops that multiplied the compute and communication load several times over.'"
+    },
+    {
+      "type": "text",
+      "value": "The cluster of more than 1,000 Ascend chips completed over 1,500 training iterations without interruption, according to the Shenzhen government. Post-training is the alignment stage that follows initial pre-training, teaching a model to follow instructions, adhere to safety guardrails, and execute specific tasks."
+    },
+    {
+      "type": "heading",
+      "value": "DeepSeek V4-Pro and the Huawei Ascend 910C"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/zfDV4Yc5qbdYxR9jC8U8NA-1920-80.jpg",
+      "caption": "The DeepSeek logo",
+      "alt": "DeepSeek logo"
+    },
+    {
+      "type": "text",
+      "value": "DeepSeek's V4-Pro model, unveiled in April, is the lab's largest model to date. It features a Mixture-of-Experts (MoE) architecture with 1.6 trillion parameters, activating approximately 49 billion parameters per token and supporting a context window of 1 million tokens. According to [Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/huawei-led-team-claims-it-post-trained-deepseeks-1-6-trillion-parameter-models-on-ascend-910c-chips), its pre-training corpus exceeds 32 trillion tokens."
+    },
+    {
+      "type": "text",
+      "value": "The Huawei Ascend 910C is the company's flagship AI accelerator. This dual-die processor previously delivered approximately 60% of the inference performance of Nvidia's H100 in early DeepSeek evaluations. Reports indicate the Ascend 910C cluster achieved a model FLOPs utilization (MFU) of over 30% and a 14% improvement in key operator efficiency."
+    },
+    {
+      "type": "text",
+      "value": "V4-Pro is the first DeepSeek model optimized for the Ascend architecture from its inception. Consequently, the Huawei Ascend 910C, once confined to inference workloads, has now been used to train the model itself. This comes as DeepSeek continues to gain global traction, recently [topping a U.S. app-spending tracker](/article/general/deepseek-tops-us-spending-tracker/)."
+    },
+    {
+      "type": "heading",
+      "value": "Export Controls and the Push for Domestic AI Self-Reliance"
+    },
+    {
+      "type": "text",
+      "value": "The initiative is driven by tightening U.S. semiconductor export controls. With access to high-end Nvidia GPUs restricted, Chinese technology companies are racing to migrate training workloads onto domestic AI chips. This push to build out domestic AI chips reflects a wider drive for self-reliance, the goal the Shenzhen government invoked when it claimed the project would 'help enhance the self-reliance of China's AI industry chain.'"
+    },
+    {
+      "type": "text",
+      "value": "However, industry analysts advise caution about reading this as full self-reliance, as the announcement lacked concrete benchmark data. Tom's Hardware noted that critical details—such as the total duration of the training run, direct performance comparisons with Nvidia hardware, and the hardware efficiency of the 1,000-chip cluster—were not disclosed."
+    },
+    {
+      "type": "text",
+      "value": "Furthermore, the track record of domestic hardware in training remains mixed. Last August, reports surfaced that DeepSeek failed to complete a single training run for its next-generation R2 model on Ascend hardware, despite on-site support from Huawei engineers. The effort was reportedly hindered by hardware instability, slow interconnect speeds, and optimization gaps in Huawei's CANN software stack compared to Nvidia's CUDA. DeepSeek subsequently reverted to Nvidia hardware for training while limiting Ascend to inference tasks."
+    },
+    {
+      "type": "text",
+      "value": "The extent to which this V4-Pro post-training run resolved these technical bottlenecks remains unverified by public data. DeepSeek has not commented on the Shenzhen government's announcement. While Chinese silicon has demonstrably reached the threshold of model training, whether domestic AI chips can deliver genuine self-reliance for China remains to be seen."
+    }
+  ],
+  "sources": [
+    {
+      "name": "South China Morning Post",
+      "title": "Huawei chips refine DeepSeek model in leap for China's AI self-reliance",
+      "url": "https://www.scmp.com/tech/article/3356117/huawei-chips-refine-deepseek-model-major-leap-chinas-ai-self-reliance"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "Huawei-led team claims it post-trained DeepSeek's 1.6-trillion-parameter model on 1,000 Ascend 910C chips",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/huawei-led-team-claims-it-post-trained-deepseeks-1-6-trillion-parameter-models-on-ascend-910c-chips"
+    },
+    {
+      "name": "TechRepublic",
+      "title": "DeepSeek V4 AI model gains Huawei Ascend chip support",
+      "url": "https://www.techrepublic.com/article/news-apac-deepseek-v4-ai-model-huawei-ascend-chips-support/"
+    },
+    {
+      "name": "NVIDIA Build",
+      "title": "DeepSeek-V4-Pro model card",
+      "url": "https://build.nvidia.com/deepseek-ai/deepseek-v4-pro/modelcard"
+    },
+    {
+      "name": "DeepInfra",
+      "title": "DeepSeek V4-Pro model overview",
+      "url": "https://deepinfra.com/blog/deepseek-v4-pro-model-overview"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/deepseek-tops-us-spending-tracker",
+    "tech:ai/deepseek-mimo-price-war",
+    "tech:ai/nvidia-vera-rubin-agentic-ai",
+    "tech:ai/japan-ai-colony-warning"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
