@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-06-07T22:53:50.395Z",
+  "updatedAt": "2026-06-08T22:55:05.244Z",
   "period": "30days",
   "games": [
-    {
-      "slug": "초격력-별의-분노",
-      "views": 11
-    },
     {
       "slug": "메이플-키우기",
       "views": 10
     },
     {
       "slug": "올스타-아레나",
+      "views": 8
+    },
+    {
+      "slug": "초격력-별의-분노",
       "views": 8
     },
     {
@@ -24,10 +24,6 @@
     },
     {
       "slug": "agreeee",
-      "views": 2
-    },
-    {
-      "slug": "limbus-company",
       "views": 2
     },
     {
@@ -76,6 +72,10 @@
     },
     {
       "slug": "delta-force",
+      "views": 1
+    },
+    {
+      "slug": "ea-sports-fc-online-m",
       "views": 1
     }
   ]
