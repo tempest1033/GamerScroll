@@ -1,0 +1,121 @@
+{
+  "slug": "openai-confidential-s1-ipo",
+  "site": "aiscroll",
+  "category": "openai",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "오픈AI, IPO 비공개 신청…'1조 달러 상장 레이스' 합류",
+  "titleEn": "OpenAI Confidentially Files for IPO",
+  "summary": "오픈AI가 6월 8일 미국 증권거래위원회(SEC)에 기업공개(IPO)를 위한 S-1 신고서 초안을 비공개로 제출했다. 오픈AI는 8,520억 달러의 기업가치를 인정받으며 앤트로픽, 스페이스X와 함께 1조 달러 규모의 상장 레이스에 본격 합류했다.",
+  "summaryEn": "OpenAI confidentially filed a draft S-1 with the SEC on June 8, joining Anthropic and SpaceX in a $1 trillion IPO race at an $852 billion valuation.",
+  "keywords": "오픈AI IPO, S-1, 기업공개, 앤트로픽",
+  "keywordsEn": "OpenAI, IPO, valuation",
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈AI가 6월 8일 미국 증권거래위원회(SEC)에 기업공개(IPO)를 위한 S-1 등록신고서 초안을 비공개로 제출했다고 공식 발표했다. 회사는 자사 블로그를 통해 \"최근 비공개 S-1 신고서를 제출했으며, 해당 사실이 외부로 유출될 가능성을 고려해 이를 미리 공개한다\"고 전했다.\n\n구체적인 상장 시기는 아직 정해지지 않았다. 오픈AI는 비공개 기업 상태에서 해결해야 할 과제들이 있어 시간이 다소 걸릴 수 있다고 설명하면서도, 이번 제출로 필요할 때 빠르게 상장할 수 있는 선택지를 마련했다고 덧붙였다. 이번 IPO 준비로 기업가치 8,520억 달러의 오픈AI는 앤트로픽, 스페이스X와 함께 1조 달러 규모의 상장 경쟁에 동참하게 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "유출 가능성 차단 위해 비공개 제출 자진 공개"
+    },
+    {
+      "type": "text",
+      "value": "기업이 비공개 상장 신청 사실을 스스로 공개하는 사례는 드물다. 일반적으로 비공개 제출은 기업의 민감한 재무 정보와 사업 세부 사항을 공개하기 전에 SEC와 서류를 보완하고 조율하는 절차로 조용히 진행되기 때문이다. 오픈AI는 시장의 높은 관심을 고려할 때 정보 유출이 불가피하다고 판단해 선제적 공개를 택했다.\n\n이번 통지는 1933년 증권법 룰 135에 따라 주식 매각 제안이나 매수 권유가 아님을 분명히 했다. 보통 공개 등록신고서가 제출된 후 한 달 내에 상장 절차가 마무리되지만, 오픈AI는 시점보다 전략적 유연성을 전면에 내세웠다. 상장을 서두르기보다 언제든 자본시장에 진입할 수 있는 통로를 미리 확보해 둔 구조다."
+    },
+    {
+      "type": "heading",
+      "value": "8,520억 달러 기업가치와 손익분기점 과제"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/1kKjVqt4LdJo6DAWO4rklb/93d7ae2d6a5cb70b17fd5ff440552291/confidential-submission-of-draft-s-1-to-the-sec-16x9.png?w=1600&h=900&fit=fill",
+      "caption": "오픈AI가 공식 발표에 사용한 'SEC 비공개 S-1 제출' 안내 이미지",
+      "alt": "오픈AI IPO 신청을 알리는 비공개 S-1 제출 공식 안내 그래픽"
+    },
+    {
+      "type": "text",
+      "value": "오픈AI의 높은 기업가치는 가파른 성장세에 기반한다. 회사는 지난 3월 말 소프트뱅크, 아마존, 엔비디아, 마이크로소프트 등이 참여한 투자 라운드에서 1,220억 달러를 조달하며 8,520억 달러의 기업가치를 평가받았다. 이는 불과 6개월 전인 지난해 10월 평가액인 5,000억 달러에서 크게 상승한 규모다.\n\n매출 성장도 속도를 내고 있다. 지난해 말 약 200억 달러였던 연환산 매출(ARR)은 올해 2~3월 기준 250억 달러를 돌파했다. 월 매출은 20억 달러 선에 도달했으며, 이 중 기업용 매출이 차지하는 비중은 전체의 40%를 넘어섰다.\n\n하지만 첫 영업흑자를 눈앞에 둔 경쟁사 앤트로픽과 달리, 오픈AI는 여전히 대규모 적자에 시달리고 있다. 올해만 약 140억 달러의 손실이 예상되며, 손익분기점은 2029년에서 2030년 사이에나 도달할 전망이다. 인프라 구축을 위한 막대한 투자로 인해 적자가 누적되는 상황에서 본격적인 IPO 채비에 나선 모양새다."
+    },
+    {
+      "type": "heading",
+      "value": "머스크 소송 각하로 걸림돌 제거…1조 달러 레이스 본격화"
+    },
+    {
+      "type": "text",
+      "value": "상장 과정의 주요 걸림돌이었던 사법 리스크가 해결되며 오픈AI의 행보가 한결 가벼워졌다. 지난 5월 18일 미국 캘리포니아주 오클랜드 연방법원 배심원단은 일론 머스크가 오픈AI와 샘 알트만 CEO 등을 상대로 제기한 소송에서 오픈AI의 손을 들어줬다. 배심원단은 2시간 미만의 평의 끝에 제소 시한 경과를 이유로 각하를 결정했다. 머스크 측은 항소 의사를 밝혔으나 상장을 가로막던 지배구조 리스크는 일단 해소된 분위기다.\n\n법적 변수가 걷히자 경쟁사들과의 속도전이 본격화됐다. 경쟁사 앤트로픽이 6월 1일 [한 주 앞서 같은 절차를 밟은](/ko/article/anthropic/anthropic-confidential-s1-ipo/) 가운데, 스페이스X도 이달 중 증시 상장에 나설 것으로 관측된다. 기업가치 1조 달러 안팎으로 평가받는 거대 기술 기업 세 곳이 동시에 상장을 추진하는 것은 자본시장 역사상 전례가 없는 일이다.\n\n오픈AI는 골드만삭스와 모건스탠리를 주관사로 선정하고 이르면 9월 상장을 목표로 설정했다고 [로이터가 전했다](https://www.reuters.com/technology/openai-files-us-ipo-after-anthropic-ai-giants-head-public-markets-2026-06-08/). 다만 구체적인 일정은 시장 상황과 내부 의사결정에 따라 유동적이다. 챗GPT로 인공지능(AI) 대중화를 이끈 오픈AI가 자본시장에서도 왕좌를 지킬 수 있을지가 다음 핵심 관전 포인트다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI announced on June 8 that it has confidentially submitted a draft S-1 registration statement to the U.S. Securities and Exchange Commission (SEC) for an initial public offering (IPO). \"We recently submitted a confidential S-1. We expect it to leak, so we are announcing it now,\" the company wrote in a highly unusual blog post.\n\nThe timing of the offering remains undecided. \"We have not decided on timing yet; it may be a while because there are things we want to do that are likely easier as a private company,\" OpenAI stated, noting that the filing preserves its option to pursue an IPO sooner if conditions warrant. At an $852 billion valuation, the artificial intelligence startup has formally joined rivals Anthropic and SpaceX in a race toward a $1 trillion public listing."
+    },
+    {
+      "type": "heading",
+      "value": "OpenAI's IPO Filing, Disclosed to Preempt Leaks"
+    },
+    {
+      "type": "text",
+      "value": "Voluntarily disclosing a confidential registration filing is highly unusual. The confidential process typically allows companies to resolve regulatory feedback with the SEC privately, keeping sensitive financial and operational details under wraps until shortly before the public roadshow. OpenAI chose to preempt the typical secrecy, anticipating that intense public interest would inevitably lead to leaks.\n\nIn its announcement, the company disclosed only the bare fact of the filing under Rule 135 of the Securities Act of 1933, emphasizing that the notice does not constitute an offer to sell or a solicitation to buy securities. Although companies often list within a month of going public with their registration statements, OpenAI stressed strategic flexibility over a strict timeline, establishing a path to the public markets without committing to an immediate debut."
+    },
+    {
+      "type": "heading",
+      "value": "An $852 Billion Valuation with Breakeven Years Away"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/kftzwdyauwt9/1kKjVqt4LdJo6DAWO4rklb/93d7ae2d6a5cb70b17fd5ff440552291/confidential-submission-of-draft-s-1-to-the-sec-16x9.png?w=1600&h=900&fit=fill",
+      "caption": "OpenAI's official graphic announcing its confidential S-1 submission to the SEC",
+      "alt": "OpenAI IPO filing graphic announcing the confidential draft S-1 submission to the SEC"
+    },
+    {
+      "type": "text",
+      "value": "The company's astronomical valuation reflects its breakneck expansion. In late March, OpenAI raised $122 billion in a funding round backed by SoftBank, Amazon, Nvidia, and Microsoft, securing an $852 billion post-money valuation. This marks a steep increase from its estimated $500 billion valuation just six months prior in October.\n\nRevenue growth has kept pace. Annualized run-rate revenue neared $20 billion at the end of last year and climbed past $25 billion in the February–March period. Monthly revenue has reached $2 billion, with enterprise sales accounting for more than 40% of the total.\n\nHowever, unlike rival Anthropic, which is nearing its first operating profit, OpenAI continues to post heavy losses. The company is projected to lose approximately $14 billion this year, and breakeven is not anticipated until 2029 or 2030. Consequently, the startup is preparing for an IPO at an $852 billion valuation while remaining deeply in the red, fueled by massive capital expenditures on infrastructure."
+    },
+    {
+      "type": "heading",
+      "value": "Musk Lawsuit Dismissal Clears Way for Trillion-Dollar Race"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's path to a public listing cleared significantly following the resolution of a major legal challenge. On May 18, a federal jury in Oakland, California, ruled in favor of OpenAI and Chief Executive Sam Altman in a lawsuit brought by Elon Musk. After less than two hours of deliberation, the jury determined that Musk had filed the lawsuit past the statute of limitations, leading the judge to dismiss the case. While Musk dismissed the ruling as a technicality and signaled plans to appeal, the litigation had threatened the company's governance structure and its IPO prospects.\n\nWith legal hurdles temporarily cleared, OpenAI faces a high-stakes race against its peers. Rival Anthropic [completed its own confidential submission a week earlier, on June 1](/article/anthropic/anthropic-confidential-s1-ipo/), while SpaceX is expected to debut as early as this month. The simultaneous arrival of three tech giants — OpenAI, Anthropic, and SpaceX — each eyeing valuations near $1 trillion would mark an unprecedented cluster of mega-IPOs.\n\nOpenAI has tapped Goldman Sachs and Morgan Stanley as lead underwriters, aiming for a listing as early as September, [Reuters reported](https://www.reuters.com/technology/openai-files-us-ipo-after-anthropic-ai-giants-head-public-markets-2026-06-08/). However, given the company's open-ended timeline, the final debut will depend on broader market conditions and internal decisions. Ultimately, the IPO will test whether the company that catalyzed the consumer AI boom with ChatGPT can translate that dominance into capital market success."
+    }
+  ],
+  "thumbnail": "https://media.wired.com/photos/6a0f431f2e3deb13670a3fb1/191:100/w_1280,c_limit/OpenAI-IPO-Business-2265445220.jpg",
+  "sources": [
+    {
+      "name": "OpenAI Newsroom",
+      "title": "OpenAI submits a confidential S-1",
+      "url": "https://openai.com/index/openai-submits-confidential-s-1/"
+    },
+    {
+      "name": "CNBC",
+      "title": "OpenAI confidentially files for IPO, prepping Wall Street for AI debut",
+      "url": "https://www.cnbc.com/2026/06/08/openai-confidentially-files-for-ipo-prepping-wall-street-for-ai-debut.html"
+    },
+    {
+      "name": "Reuters",
+      "title": "OpenAI files for US IPO after Anthropic as AI giants head to public markets",
+      "url": "https://www.reuters.com/technology/openai-files-us-ipo-after-anthropic-ai-giants-head-public-markets-2026-06-08/"
+    },
+    {
+      "name": "The Wall Street Journal",
+      "title": "OpenAI's IPO Filing Date",
+      "url": "https://www.wsj.com/tech/ai/openai-ipo-filing-date-0ec95af5"
+    },
+    {
+      "name": "The New York Times",
+      "title": "OpenAI Files for IPO",
+      "url": "https://www.nytimes.com/2026/06/08/technology/openai-ipo.html"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-confidential-s1-ipo",
+    "tech:ai/chatgpt-app-1-billion-mau",
+    "tech:ai/anthropic-900b-surpasses-openai",
+    "tech:ai/openai-python-sdk-application-push"
+  ],
+  "relatedGames": []
+}
