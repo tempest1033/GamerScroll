@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-06-08T01:03:25.287Z",
+  "updatedAt": "2026-06-09T01:48:42.015Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 59,
+      "views": 41,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
@@ -23,27 +23,21 @@
     },
     {
       "type": "issue",
-      "slug": "intel-arc-g3-handheld-gaming",
-      "views": 7,
-      "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 6,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 6,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
+      "type": "issue",
+      "slug": "granblue-relink-endless-ragnarok",
+      "views": 5,
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 4,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 5,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
@@ -53,21 +47,21 @@
     },
     {
       "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 4,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
-      "type": "issue",
       "slug": "heavenhells-sales-decline-launch",
       "views": 4,
       "path": "/magazine/issue/heavenhells-sales-decline-launch/"
     },
     {
-      "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
       "views": 4,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 3,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -88,17 +82,11 @@
       "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
     },
     {
-      "type": "issue",
-      "slug": "witcher3-songs-of-the-past-announced",
-      "views": 3,
-      "path": "/magazine/issue/witcher3-songs-of-the-past-announced/"
-    },
-    {
       "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
+      "slug": "platform-fees-comparison",
       "category": "business",
       "views": 3,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -114,12 +102,6 @@
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
-      "views": 2,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
-    },
-    {
       "type": "issue",
       "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
       "views": 2,
@@ -133,15 +115,21 @@
     },
     {
       "type": "issue",
-      "slug": "gta-6-launch-confirmed-take-two-fy26-earnings",
+      "slug": "limbus-company-ios-top5-record",
       "views": 2,
-      "path": "/magazine/issue/gta-6-launch-confirmed-take-two-fy26-earnings/"
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
       "slug": "mangwol-offline-playtest-recruitment",
       "views": 2,
       "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
+    },
+    {
+      "type": "issue",
+      "slug": "persona-6-announced-xbox-showcase",
+      "views": 2,
+      "path": "/magazine/issue/persona-6-announced-xbox-showcase/"
     },
     {
       "type": "issue",
@@ -170,36 +158,16 @@
     },
     {
       "type": "wiki",
-      "slug": "platform-fees-comparison",
+      "slug": "top-gaming-companies-by-market-cap",
       "category": "business",
       "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "nier-series",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/nier-series/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "unreal-engine-6-revealed-rocket-league",
-      "views": 1,
-      "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
     },
     {
       "type": "insight",
@@ -212,6 +180,12 @@
       "slug": "bungie-destiny-sunset-marathon-flop",
       "views": 1,
       "path": "/magazine/insight/bungie-destiny-sunset-marathon-flop/"
+    },
+    {
+      "type": "insight",
+      "slug": "subculture-market-crisis-winner-takes-all",
+      "views": 1,
+      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -227,15 +201,9 @@
     },
     {
       "type": "issue",
-      "slug": "crimson-desert-2month-chart-trend",
+      "slug": "dave-the-diver-in-the-jungle-release",
       "views": 1,
-      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-sds-origin-march-showdown",
-      "views": 1,
-      "path": "/magazine/issue/crimson-desert-sds-origin-march-showdown/"
+      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
     },
     {
       "type": "issue",
@@ -245,9 +213,9 @@
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
+      "slug": "intel-arc-g3-handheld-gaming",
       "views": 1,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+      "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
     },
     {
       "type": "issue",
@@ -278,12 +246,6 @@
       "slug": "steam-deck-oled-price-hike-asia",
       "views": 1,
       "path": "/magazine/issue/steam-deck-oled-price-hike-asia/"
-    },
-    {
-      "type": "issue",
-      "slug": "steam-deck-oled-price-hike-may-2026",
-      "views": 1,
-      "path": "/magazine/issue/steam-deck-oled-price-hike-may-2026/"
     },
     {
       "type": "issue",
@@ -328,6 +290,13 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     }
   ]
 }
