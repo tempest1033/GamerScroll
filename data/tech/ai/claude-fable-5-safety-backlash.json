@@ -1,0 +1,122 @@
+{
+  "slug": "claude-fable-5-safety-backlash",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "앤트로픽 '클로드 페이블 5' 출시…검열 라우팅·줬다 뺏는 구독에 유저 맹비난",
+  "titleEn": "Claude Fable 5: Nerfed Mythos Sparks Backlash",
+  "summary": "앤트로픽이 미토스급 인공지능 모델인 클로드 페이블 5를 출시했다. 그러나 민감한 질문을 구형 모델인 오퍼스 4.8로 자동 우회하는 검열 시스템과 6월 22일로 제한된 구독 혜택을 두고 이용자들의 거센 반발이 이어지고 있다.",
+  "summaryEn": "Anthropic released Claude Fable 5, a Mythos-class model. Users are furious over sensitive queries routed to Opus 4.8 and plan access ending June 22.",
+  "keywords": "클로드 페이블 5, 앤트로픽, 미토스 5, AI 검열",
+  "keywordsEn": "Claude Fable 5, Anthropic, Mythos 5, AI censorship",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/b7055119423427c40a0e4d84054aed17682b50a2-2880x1620.png",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Claude Fable 5 and Claude Mythos 5",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    },
+    {
+      "name": "Gizmodo",
+      "title": "Anthropic Releases a Safer Version of Its 'Too Dangerous' Mythos AI",
+      "url": "https://gizmodo.com/anthropic-releases-a-safer-version-of-its-too-dangerous-mythos-ai-2000769492"
+    },
+    {
+      "name": "Hacker News",
+      "title": "Claude Fable 5",
+      "url": "https://news.ycombinator.com/item?id=48463808"
+    },
+    {
+      "name": "Reddit",
+      "title": "Welcome to the world claude fable 5 (r/ClaudeCode)",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1u11aid/welcome_to_the_world_claude_fable_5/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Anthropic says its most powerful AI cyber model is too dangerous to release",
+      "url": "https://venturebeat.com/technology/anthropic-says-its-most-powerful-ai-cyber-model-is-too-dangerous-to-release"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-mythos-fable-5-rumor",
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/claude-mythos-tester-reviews-split",
+    "tech:ai/claude-opus-46-pricing-controversy"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 그간 일반 공개하기에 너무 위험하다고 평가해 온 미토스급 인공지능(AI) 모델 '클로드 페이블 5'를 지난 6월 9일 출시했다. 가격은 입력 100만 토큰당 10달러, 출력 100만 토큰당 50달러로 책정됐다. 이는 기존 오퍼스 4.8의 두 배에 달하는 수준이다.\n\n페이블 5는 개발자 평가 도구인 'SWE벤치 프로'에서 80.3%의 해결률을 기록하며 오퍼스 4.8(69.2%)을 11.1%포인트 차이로 제쳤다. 앤트로픽은 역대 가장 강력한 모델을 공개했다고 밝혔으나, 출시 첫날 이용자들의 반응은 냉담하다. 레딧, 해커뉴스 등 AI 커뮤니티에서는 과도한 안전성 분류 체계와 2주 뒤 만료되는 구독 혜택을 두고 '이게 무슨 일반 공개냐'는 성토가 쏟아지는 중이다."
+    },
+    {
+      "type": "heading",
+      "value": "돈은 페이블 5 값, 대답은 구형 모델…'AI 검열' 라우팅 논란"
+    },
+    {
+      "type": "text",
+      "value": "이용자들의 가장 큰 불만은 자동 라우팅 시스템이다. 사용자가 입력한 질문이 사이버 보안, 생화학, 모델 증류 등 민감한 분야로 분류되면 시스템은 페이블 5 대신 이전 세대 모델인 [오퍼스 4.8](/ko/article/anthropic/claude-opus-4-8-launch/)로 연결한다. 앤트로픽은 [공식 발표문](https://www.anthropic.com/news/claude-fable-5-mythos-5)을 통해 해당 안전 필터가 '의도적으로 보수적으로 조정되었으며' '이상적인 수준보다 여전히 엄격하다'고 인정했다.\n\n앤트로픽은 이 같은 우회 조치가 전체 세션의 5% 미만에만 영향을 미친다고 밝혔으나, 초기 이용자들의 경험담은 달랐다. 출시 수 시간 만에 커뮤니티에는 뇌-컴퓨터 인터페이스(BCI) 관련 질문이나 일반적인 보안 연구, 심지어 평범한 과학 질문조차 오퍼스 4.8로 자동 전환된다는 사례가 잇따라 공유됐다.\n\n신제품에 두 배 더 높은 가격을 지불하고도 구형 모델의 답변을 받게 된다는 점이 핵심 논란이다. 해커뉴스 등지에서는 앤트로픽이 그간 제기해 온 '출시 위험성' 주장이 사실상 관심을 끌고 투자금을 유치하기 위한 마케팅 기법에 불과했다는 냉소적인 지적도 나온다."
+    },
+    {
+      "type": "heading",
+      "value": "구독 혜택은 2주 한정…이후 사용량 기반 종량제 전환"
+    },
+    {
+      "type": "image",
+      "src": "https://gizmodo.com/app/uploads/2026/06/AnthropicClaudeImage-1200x675.jpeg",
+      "caption": "스마트폰 화면에 표시된 클로드·앤트로픽 로고",
+      "alt": "클로드 앤트로픽 로고가 표시된 스마트폰 화면"
+    },
+    {
+      "type": "text",
+      "value": "기술적 제약 외에 과금 정책 역시 거센 비판을 받고 있다. 페이블 5는 오는 6월 22일까지만 프로, 맥스, 팀, 엔터프라이즈 등 기존 구독제 요금제에 포함돼 제공된다. 6월 23일부터는 해당 요금제에서 제외되며, 이용자가 신모델을 계속 사용하려면 별도의 사용량 기반 크레딧을 구매해야 한다.\n\n앤트로픽은 서버 용량이 확보되는 대로 구독 요금제에 신모델을 다시 포함하겠다고 밝혔으나 구체적인 시기는 명시하지 않았다. 많은 주목을 받은 [해커뉴스 토론](https://news.ycombinator.com/item?id=48463808)에서는 '줬다가 뺏는 방식부터가 수상하다'며 구독자를 종량제 요금체계로 갈아태우려는 포석이라는 비판이 나왔다.\n\n이에 따라 월 200달러를 지불하는 맥스 구독자조차 2주 뒤부터는 추가 비용을 지불해야 신모델을 쓸 수 있게 됐다. 레딧에는 '입력 100만 토큰에 차 한 대, 출력 100만 토큰에 신장 하나'라는 자조 섞인 게시글이 수백 개의 추천을 받았으며, 경쟁사 모델인 코덱스로 갈아타겠다는 이탈 선언도 줄을 잇는다."
+    },
+    {
+      "type": "heading",
+      "value": "정부용 미토스 5, 일반인용 '우화'…이중 구조 논란"
+    },
+    {
+      "type": "text",
+      "value": "이용자들은 신모델의 제품명에 대해서도 비판적인 태도를 보이고 있다. 개발자 커뮤니티인 'r/클로드코드'에서 226개의 추천을 받은 게시글은 '우화(Fable)'가 교훈을 주기 위한 꾸며낸 짧은 이야기에 불과하다는 점을 지적했다. 안전장치로 필터링된 이번 공개 버전에 다소 거만하면서도 어울리는 이름이라는 촌평이다.\n\n이러한 반응은 안전 필터가 해제된 버전이 별도로 존재한다는 점과 관련이 깊다. [사전 정보](/ko/article/anthropic/claude-mythos-fable-5-rumor/)에 따르면, 사이버 보안 제약이 배제된 '클로드 미토스 5'는 미국 정부와 협업하는 '프로젝트 글래스윙' 파트너에게만 제공된다. 일반 고객이 검열된 버전을 두 배 높은 가격에 이용해야 하는 것과 달리, 정부 기관과 선정된 기업만 무수정 모델에 접근하는 이중 구조다.\n\n여기에 미토스급 모델의 사용 데이터를 30일간 의무적으로 보존하는 새 데이터 정책까지 더해져 우려가 커지고 있다. 페이블 5의 기술력 자체는 뛰어나지만, 과도한 검열 라우팅과 한시적인 구독권 제공, 그리고 감시에 준하는 데이터 보존 정책을 두고 이것이 진정한 일반 공개가 맞느냐는 의문이 온라인 포럼 곳곳에서 제기된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic has launched Claude Fable 5, a Mythos-class model previously described by the company as too dangerous for public release. Released on June 9, the new model is priced at $10 per million input tokens and $50 per million output tokens, exactly double the rate of the preceding Opus 4.8.\n\nWhile Fable 5 delivers strong performance—scoring 80.3% on SWE-Bench Pro to surpass Opus 4.8's 69.2% by 11.1 percentage points—its launch has been met with immediate user backlash. On AI communities such as Reddit and Hacker News, users are denouncing the model's restrictive safety routing as outright AI censorship, alongside a subscription perk set to expire in two weeks."
+    },
+    {
+      "type": "heading",
+      "value": "Pay for Fable 5, Get Opus: the AI Censorship Routing Backlash"
+    },
+    {
+      "type": "text",
+      "value": "The primary source of user dissatisfaction is the automated query routing. When Claude Fable 5's classifiers detect prompts related to cybersecurity, biochemistry, or model distillation, the system bypasses Fable 5 and routes the query to the previous-generation [Opus 4.8](/article/anthropic/claude-opus-4-8-launch/). In its [official announcement](https://www.anthropic.com/news/claude-fable-5-mythos-5), Anthropic acknowledged that these safety filters are 'deliberately tuned to be cautious' and remain 'stricter than would be ideal.'\n\nAlthough Anthropic states that this fallback affects fewer than 5% of user sessions, early adopters report a higher frequency. Within hours of launch, online communities were flooded with reports of routine inquiries on brain-computer interfaces (BCI), general security research, and basic science queries being silently redirected to Opus 4.8 — AI censorship in all but name, paying users argue.\n\nThis AI censorship by proxy has led to widespread frustration, as users paying premium rates for the new model are routed to a less expensive, older version. Commenters on Hacker News have criticized the policy, with some characterizing the initial safety concerns as marketing strategies designed to generate interest and secure funding."
+    },
+    {
+      "type": "heading",
+      "value": "Subscription Access Limited to Two Weeks Prior to Pay-Per-Token Transition"
+    },
+    {
+      "type": "image",
+      "src": "https://gizmodo.com/app/uploads/2026/06/AnthropicClaudeImage-1200x675.jpeg",
+      "caption": "Claude and Anthropic logos displayed on a smartphone screen",
+      "alt": "Smartphone screen showing the Claude Anthropic logo"
+    },
+    {
+      "type": "text",
+      "value": "Beyond the technical constraints of routing, the pricing policy has also generated substantial criticism. Claude Fable 5 is included in Pro, Max, Team, and Enterprise subscription tiers only until June 22. Starting June 23, the model will be removed from these tiers, requiring users to purchase separate usage credits to access it.\n\nAnthropic stated that it intends to reintegrate the model into subscriptions once server capacity permits, though no timeline was provided. A widely shared [Hacker News discussion](https://news.ycombinator.com/item?id=48463808) called the offer-then-remove structure 'eyebrow-raising,' suggesting it serves as a mechanism to push subscribers toward a pay-per-token pricing structure.\n\nAs a result, even customers on the $200-a-month Max tier will lose standard access in two weeks. On Reddit, a satirical post pricing the model at 'your car per 1M input tokens, your kidney per 1M output tokens' received hundreds of upvotes, with numerous users commenting that they have already migrated to Codex."
+    },
+    {
+      "type": "heading",
+      "value": "Mythos 5 for Government Partners, a Censored 'Fable' for Individual Users"
+    },
+    {
+      "type": "text",
+      "value": "Dissatisfied users have also criticized the choice of the model's name. A popular comment on the r/ClaudeCode community, which received 226 upvotes, pointed out that a 'fable' is defined as a short, fictitious story conveying a moral lesson. The comment argued that this is a highly appropriate, if pretentious, name for a safety-filtered public release of Mythos 5.\n\nThis reaction is fueled by the existence of a less restricted version of the model. As [pre-launch reports](/article/anthropic/claude-mythos-fable-5-rumor/) suggested, Claude Mythos 5—which operates without these cybersecurity safeguards—is reserved exclusively for Project Glasswing partners collaborating with the U.S. government. Under this dual structure, individual users receive a censored version at twice the price of previous models, while government agencies and selected enterprises access the unrestricted model.\n\nFurthermore, a new policy requiring the retention of all Mythos-class traffic for 30 days has raised privacy concerns. While the model's advanced technical capabilities are widely recognized, users on various forums argue that the combination of AI censorship routing, temporary subscription access, and data retention policies contradicts the concept of a genuine general release."
+    }
+  ]
+}
