@@ -1,0 +1,170 @@
+{
+  "slug": "siri-apple-20b-on-device-model",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "2026-06-09T06:00Z",
+  "needTranslate": false,
+  "title": "시리는 제미나이가 아니다…애플 20B 온디바이스 자체 모델의 실체",
+  "titleEn": "Siri Is Not Gemini: Apple’s 20B On-Device Model",
+  "summary": "구글 제미나이가 새 시리를 구동한다는 보도와 달리, 애플 자체 기술 문서에 따르면 온디바이스 엔진은 애플이 독자 개발한 200억 매개변수 규모의 'AFM 3 코어 어드밴스드(AFM 3 Core Advanced)'인 것으로 나타났다.",
+  "summaryEn": "Contrary to headlines that Gemini powers the new Siri, Apple's own docs reveal its on-device brain is a homegrown 20B model: AFM 3 Core Advanced.",
+  "keywords": "시리, 온디바이스 모델, 제미나이, 애플 자체 모델, 애플 파운데이션 모델",
+  "keywordsEn": "Apple Siri, Google Gemini, on-device model, Apple model, Gemini model",
+  "thumbnail": "https://www.apple.com/newsroom/images/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/tile/Apple-Siri-AI-hero-260608-lp.jpg.og.jpg",
+  "content": [
+    {
+      "type": "text",
+      "value": "애플이 2026년 6월 8일 개발자 회의(WWDC 2026) 무대에 올라 전면 개편한 시리를 공개하기 전까지, 업계의 관측은 하나로 수렴했다. 새 시리의 두뇌가 구글 제미나이일 것이라는 전망이었다. 연간 약 10억 달러의 비용과 1조 2,000억 매개변수라는 구체적인 수치까지 뒤따랐다.\n\n하지만 같은 주 애플이 직접 공개한 모델 설명서는 다른 사실을 가리켰다. 기기 내부에서 시리를 구동하는 온디바이스 지능은 제미나이가 아니었다. 애플이 독자 설계한 200억 매개변수 규모의 자체 모델이었다."
+    },
+    {
+      "type": "heading",
+      "value": "‘제미나이가 시리를 구동한다’던 초기 보도"
+    },
+    {
+      "type": "text",
+      "value": "이러한 관측은 블룸버그 보도에서 시작됐다. 마크 거먼 기자는 [지난해 11월 보도](https://www.bloomberg.com/news/articles/2025-11-05/apple-plans-to-use-1-2-trillion-parameter-google-gemini-model-to-power-new-siri)에서 애플이 구글의 1조 2,000억 매개변수 맞춤형 제미나이 모델을 새 시리에 도입할 계획이라고 전했다. 이는 애플이 기존에 운영하던 1,500억 매개변수급 자체 클라우드 모델의 8배에 달하는 규모였다."
+    },
+    {
+      "type": "text",
+      "value": "양사는 2026년 1월 12일 공동 성명을 통해 다년 협력을 공식화했다. 구글은 차세대 애플 파운데이션 모델이 구글 제미나이와 클라우드 기술을 기반으로 개발될 것이라 발표했고, 외신들은 애플이 그 대가로 연간 약 10억 달러를 지급한다고 보도했다. 발표 시점과 거래 규모, 공식 문구가 모두 맞아떨어지자 시장은 제미나이가 곧 시리의 두뇌가 될 것으로 받아들였다. 개발자 회의 직전에 나온 [사전 보도](/ko/article/google/apple-siri-google-gemini-wwdc/)들 역시 같은 그림을 그렸다."
+    },
+    {
+      "type": "heading",
+      "value": "시리의 진짜 두뇌는 애플 자체 20B 온디바이스 모델"
+    },
+    {
+      "type": "text",
+      "value": "하지만 6월에 공개된 애플의 [3세대 파운데이션 모델 기술 문서](https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models)는 이러한 시장의 추정을 비껴갔다. 애플은 자사 모델 5종으로 구성된 제품군을 '구글과의 협력 하에 맞춤형으로 제작했다'고 설명했으나, 시리를 제미나이라고 명명한 대목은 단 한 군데도 없었다."
+    },
+    {
+      "type": "image",
+      "src": "https://mlr.cdn-apple.com/media/hero_AFM_7f9df52a3e.png",
+      "caption": "애플 파운데이션 모델(AFM) 로고",
+      "alt": "노드와 연결선으로 표현된 애플 파운데이션 모델 아이콘"
+    },
+    {
+      "type": "text",
+      "value": "온디바이스 인공지능의 핵심은 'AFM 3 코어 어드밴스드(AFM 3 Core Advanced)'다. 200억 매개변수 규모이지만 요청당 10억~40억 개만 활성화하는 희소 구조로, 애플의 독자적인 '지시어 준수 가지치기(IFP)' 기술이 적용됐다. 전체 가중치는 플래시 메모리에 두고 필요한 전문가 모듈만 DRAM으로 실시간 로드해 기기 메모리 한계를 극복하는 방식이다."
+    },
+    {
+      "type": "text",
+      "value": "이 모델은 주로 자연스러운 음성 출력과 비약적으로 향상된 받아쓰기 기능을 담당한다. 애플 자체 평가에 따르면 새 음성 합성 기술은 5점 만점에 4.15점을 기록해 기존 시스템(3.87점)을 앞섰으며, 대화체 텍스트에서는 그 격차가 더 벌어졌다. 다만 이 기능들은 최소 12GB 이상의 메모리를 탑재한 아이폰 17 프로, 아이폰 에어, M4 탑재 아이패드 등 최신 하드웨어에서만 지원된다."
+    },
+    {
+      "type": "heading",
+      "value": "구글의 실제 역할은 어디에 있나"
+    },
+    {
+      "type": "text",
+      "value": "그렇다면 애플이 구글에 지급하는 연간 약 10억 달러는 어디에 쓰였을까. 애플의 설명을 따라가 보면 그 답은 모델 자체의 설계가 아닌, 모델의 제작 인프라에 있다."
+    },
+    {
+      "type": "text",
+      "value": "애플은 자사 모델 전체를 구글 클라우드의 최신 TPU를 활용해 사전학습했다고 설명했다. 특히 가장 크기가 큰 서버용 모델인 'AFM 3 클라우드 프로(AFM 3 Cloud Pro)'는 구글 및 엔비디아와 협력해 구글 클라우드 내 엔비디아 GPU로 확장한 프라이빗 클라우드 컴퓨트 인프라에서 구동된다."
+    },
+    {
+      "type": "text",
+      "value": "결국 '제미나이가 시리를 구동한다'는 세간의 헤드라인과 '구글과의 협력으로 맞춤 제작했다'는 애플의 공식 설명 사이에는 분명한 간극이 존재한다. 실제로 애플의 공식 기술 문서 어디에도 제미나이라는 명칭은 등장하지 않는다. 온디바이스 엔진은 애플이 직접 설계한 독자 모델이며, 구글의 역할은 모델 학습과 서버 인프라 제공 및 공동 개발에 국한되어 있다."
+    },
+    {
+      "type": "text",
+      "value": "결과적으로 새 시리는 구글의 기술을 빌려 쓴 서비스와 애플이 자체 구축한 독자 서비스의 중간 지점에 위치한다. 사용자가 매일 마주하는 온디바이스 시리는 애플의 자체 모델이 처리하고, 고도로 복잡한 요청만 구글 인프라 기반의 서버 모델로 넘기는 구조다. 이를 단순히 제미나이라는 한 단어로 규정하는 것은 다층적으로 설계된 시리의 진짜 기술적 실체를 놓치는 일이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Prior to Apple taking the stage at WWDC 2026 on June 8 to unveil a redesigned Siri, the industry had coalesced around a single narrative: the virtual assistant's new engine would be Google Gemini. Accompanying reports even specified details—an annual licensing fee of approximately $1 billion and a model size of 1.2 trillion parameters.\n\nHowever, Apple's release of its own model documentation that same week painted a different picture. The intelligence driving Siri on-device is not Gemini. Instead, it is a proprietary 20-billion-parameter model designed entirely by Apple."
+    },
+    {
+      "type": "heading",
+      "value": "The Initial Headlines: Gemini Running Siri"
+    },
+    {
+      "type": "text",
+      "value": "This narrative originated with Bloomberg. Reporter Mark Gurman [reported last November](https://www.bloomberg.com/news/articles/2025-11-05/apple-plans-to-use-1-2-trillion-parameter-google-gemini-model-to-power-new-siri) that Apple planned to integrate a custom 1.2-trillion-parameter Google Gemini model into the redesigned Siri. This represented an eightfold increase over the 150-billion-parameter proprietary cloud model Apple had previously operated."
+    },
+    {
+      "type": "text",
+      "value": "The two companies formalized a multi-year partnership in a joint statement on January 12, 2026. Google announced that the next generation of Apple Foundation Models would leverage Google Gemini and cloud infrastructure, while reports indicated Apple would pay approximately $1 billion annually for the access. With the timing, financials, and official messaging aligned, the market concluded that Gemini would indeed serve as Siri's backbone. [Pre-WWDC reporting](/article/google/apple-siri-google-gemini-wwdc/) reinforced this expectation."
+    },
+    {
+      "type": "heading",
+      "value": "The Real Brain: Apple's 20B On-Device Model"
+    },
+    {
+      "type": "text",
+      "value": "However, Apple's [third-generation foundation model documentation](https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models) published in June sidestepped this assumption. Apple described a family of five models 'custom-built in collaboration with Google,' but notably stopped short of referencing Gemini in relation to Siri."
+    },
+    {
+      "type": "image",
+      "src": "https://mlr.cdn-apple.com/media/hero_AFM_7f9df52a3e.png",
+      "caption": "The Apple Foundation Models (AFM) logo",
+      "alt": "The Apple Foundation Models icon depicted as connected nodes"
+    },
+    {
+      "type": "text",
+      "value": "At the core of this on-device intelligence is the AFM 3 Core Advanced model. Although it contains 20 billion parameters, it employs a sparse architecture that activates only 1 to 4 billion parameters per request, leveraging Apple's proprietary Instruction-Following Pruning (IFP) technique. By keeping the full model weights in flash memory and loading only the specific expert modules required for a given prompt into DRAM, Apple enables a model that exceeds typical device memory constraints to run directly on the phone."
+    },
+    {
+      "type": "text",
+      "value": "This model primarily powers features such as expressive voice generation and significantly more accurate dictation. According to Apple's internal evaluations, the new speech synthesis engine scored 4.15 out of 5, outperforming the previous system's score of 3.87, with an even wider performance gap observed on conversational text. However, these features are restricted to newer hardware equipped with at least 12GB of memory, including the iPhone 17 Pro, iPhone Air, and M4-equipped iPads."
+    },
+    {
+      "type": "heading",
+      "value": "What the Billion-Dollar Deal Actually Buys"
+    },
+    {
+      "type": "text",
+      "value": "Where, then, does Apple's annual $1 billion payment to Google go? Based on Apple's disclosures, the value lies not in the final model architecture itself, but in the infrastructure used to train it."
+    },
+    {
+      "type": "text",
+      "value": "Apple disclosed that all its models were pre-trained using Google Cloud's latest TPU clusters. Furthermore, its largest server-based model, AFM 3 Cloud Pro, is deployed via Private Cloud Compute, which has been extended—in partnership with Google and NVIDIA—to run on NVIDIA GPUs hosted within Google Cloud."
+    },
+    {
+      "type": "text",
+      "value": "Clearly, a significant gap exists between the popular headline that 'Gemini runs Siri' and Apple's more nuanced description of a suite 'custom-built in collaboration with Google.' In fact, the name Gemini does not appear once in Apple's official technical writeup. While the on-device intelligence is powered by a proprietary model designed by Apple, Google's involvement is concentrated in model training, server infrastructure, and collaborative development."
+    },
+    {
+      "type": "text",
+      "value": "Ultimately, the redesigned Siri occupies a middle ground between an assistant powered by licensed technology and one built entirely in-house. While the on-device Siri that users interact with daily is powered by Apple's proprietary model, only the most complex queries are routed to server-based models running on Google's infrastructure. Summarizing this architecture under the umbrella of 'Gemini' oversimplifies what is a far more layered engineering blueprint."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Apple Machine Learning Research",
+      "title": "Introducing the Third Generation of Apple's Foundation Models",
+      "url": "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models"
+    },
+    {
+      "name": "Apple Newsroom",
+      "title": "Apple introduces Siri AI, a profoundly more capable and personal assistant",
+      "url": "https://www.apple.com/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "Apple Plans to Use 1.2-Trillion-Parameter Google Gemini Model to Power New Siri",
+      "url": "https://www.bloomberg.com/news/articles/2025-11-05/apple-plans-to-use-1-2-trillion-parameter-google-gemini-model-to-power-new-siri"
+    },
+    {
+      "name": "CNBC",
+      "title": "Apple and Google announce AI partnership to power Siri with Gemini",
+      "url": "https://www.cnbc.com/2026/01/12/apple-google-ai-siri-gemini.html"
+    },
+    {
+      "name": "Google",
+      "title": "A joint statement from Google and Apple",
+      "url": "https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/apple-siri-google-gemini-wwdc",
+    "tech:ai/surface-laptop-ultra-macbook-rival",
+    "tech:ai/gemini-omni-antigravity-trail-sota",
+    "tech:ai/gemma-4-12b-encoder-free-launch"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
