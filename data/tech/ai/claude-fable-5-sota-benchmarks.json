@@ -1,0 +1,150 @@
+{
+  "slug": "claude-fable-5-sota-benchmarks",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "클로드 페이블 5, 거의 모든 벤치마크 1위… SWE-bench 95% 신기록",
+  "titleEn": "Claude Fable 5: SOTA on Nearly Every Benchmark",
+  "summary": "앤트로픽이 미토스급 모델의 첫 일반 공개판 '클로드 페이블 5'를 출시했다. SWE-bench Verified 95.0%로 1위에 오르며 거의 전 영역에서 최고 기록을 세웠다. 다만 라우팅·구독 논란으로 첫날 여론은 싸늘하다.",
+  "summaryEn": "Anthropic launched Claude Fable 5, its first public Mythos-class model. It tops SWE-bench Verified at 95% and sets SOTA on nearly every benchmark.",
+  "keywords": "클로드 페이블 5, 앤트로픽, SWE-bench, AI 벤치마크",
+  "keywordsEn": "Claude Fable 5, Anthropic, SWE-bench Verified, Mythos 5",
+  "thumbnail": "https://cyberscoop.com/wp-content/uploads/sites/3/2026/06/GettyImages-2276989474-1.jpg",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Claude Fable 5 and Claude Mythos 5",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    },
+    {
+      "name": "vals.ai",
+      "title": "SWE-bench Verified Leaderboard",
+      "url": "https://vals.ai/benchmarks/swebench"
+    },
+    {
+      "name": "NBC News",
+      "title": "Anthropic releases Fable 5, the first public Mythos-class model",
+      "url": "https://www.nbcnews.com/tech/security/fable-5-anthropic-release-public-mythos-claude-model-rcna349104"
+    },
+    {
+      "name": "CyberScoop",
+      "title": "Anthropic's new model is Mythos on a leash",
+      "url": "https://cyberscoop.com/anthropic-claude-fable-5-release-mythos-guardrails/"
+    },
+    {
+      "name": "Hacker News",
+      "title": "Claude Fable 5",
+      "url": "https://news.ycombinator.com/item?id=48456104"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-safety-backlash",
+    "tech:ai/claude-mythos-fable-5-rumor",
+    "tech:ai/claude-mythos-tester-reviews-split",
+    "tech:ai/claude-opus-4-8-launch"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 6월 9일 차세대 플래그십 인공지능(AI) 모델인 '클로드 페이블 5'를 출시했다. 보안 우려로 그동안 일반 공개를 미뤄왔던 미토스급 모델군에서 처음으로 선보인 대외 공개 버전이다. 가격은 입력 100만 토큰당 10달러, 출력 50달러로 기존 미토스 프리뷰 버전의 절반 이하 수준이다.\n\n앤트로픽은 [공식 발표문](https://www.anthropic.com/news/claude-fable-5-mythos-5)을 통해 클로드 페이블 5가 자사의 이전 모델을 모두 넘어서는 성능을 발휘하며, 테스트를 진행한 거의 모든 AI 벤치마크에서 최고 기록(SOTA)을 세웠다고 밝혔다. 다만 사이버 보안 안전장치를 제거한 동일 기반 모델인 '클로드 미토스 5'는 미국 정부와 협력하는 글래스윙 파트너사에게만 별도로 공급된다."
+    },
+    {
+      "type": "heading",
+      "value": "페이블 5, SWE-bench Verified 95% 기록... 2위와 6.4%p 격차"
+    },
+    {
+      "type": "text",
+      "value": "출시 당일부터 외부 리더보드에 구체적인 성적이 기록됐다. 평가 기관 vals.ai가 운영하는 [코딩 평가 리더보드](https://vals.ai/benchmarks/swebench)에서 페이블 5는 95.0%의 점수로 SWE-bench Verified 부문 1위에 올랐다. 이는 2위인 클로드 오퍼스 4.8(88.6%)보다 6.4%포인트 앞선 수치이며, GPT-5.5(82.6%)와 비교하면 12.4%포인트 높은 기록이다. 난도가 더 높은 변형인 SWE-bench Pro에서도 80.3%로 선두를 지켰다."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/1e65982497d7d4891219ed0e83141625a291b860-2600x2870.png",
+      "caption": "앤트로픽이 공개한 공식 벤치마크 비교표. 페이블 5·미토스 5와 오퍼스 4.8, GPT-5.5, 제미나이 3.1 프로의 점수를 나란히 실었다",
+      "alt": "주요 AI 모델 벤치마크 점수 비교표"
+    },
+    {
+      "type": "text",
+      "value": "실제 기업 환경의 도입 사례도 이러한 벤치마크 결과를 뒷받침한다. 사전 테스트를 진행한 스트라이프는 개발자 팀 전체가 두 달 넘게 수작업으로 진행해야 하는 5,000만 줄 규모의 루비 코드베이스 이전 작업을 페이블 5가 단 하루 만에 마쳤다고 전했다. 스트라이프 측은 몇 달 수준의 엔지니어링 노력을 단 며칠로 압축한 결과라고 덧붙였다.\n\n아울러 페이블 5는 코그니션의 FrontierCode 평가에서 최고 점수를 획득했다. 코딩 어시스턴트 플랫폼 커서 또한 자체 벤치마크를 통해 성능 향상을 확인했으며, 이전 모델로는 해결하기 어려웠던 복잡한 장기 실행 과제들이 해결되기 시작했다고 언급했다."
+    },
+    {
+      "type": "heading",
+      "value": "코딩 영역 넘어선 비전 및 금융 성능 향상"
+    },
+    {
+      "type": "text",
+      "value": "성능 개선은 소프트웨어 개발 영역에만 머무르지 않는다. 헤비아의 금융 추론 벤치마크에서 페이블 5는 문서 기반 분석과 차트 및 표 해석 부문에서 큰 폭의 향상을 기록하며 역대 최고 점수를 받았다. 이와 함께 이미지와 텍스트를 모두 처리하는 멀티모달 비전 영역에서도 새로운 성능 기준을 세웠다.\n\n비전 성능의 대표적인 예로는 게임 '포켓몬스터 파이어레드' 플레이 실험이 꼽힌다. 기존 클로드 모델은 보조 소프트웨어를 결합하고도 게임을 끝까지 완수하지 못했으나, 페이블 5는 외부 보조 장치 없이 게임 화면 캡처만으로 시작부터 엔딩까지 완료하는 데 성공했다.\n\n장기 제어 과제에서의 수행 지속력도 지표로 증명됐다. 카드 게임 '슬레이 더 스파이어' 실험에서 파일 기반 메모리를 연결했을 때 페이블 5의 성능 향상 폭은 오퍼스 4.8 대비 3배에 달했다. 아울러 한 물리 연구 파트너사는 GPT-5.5가 나흘 동안 처리한 분량을 페이블 5가 추론 토큰은 3분의 1만 사용하면서 36시간 만에 완료했다고 밝혔다."
+    },
+    {
+      "type": "heading",
+      "value": "압도적 성적표, 싸늘한 첫날 여론"
+    },
+    {
+      "type": "text",
+      "value": "기록적인 벤치마크 점수에도 불구하고 개발자 커뮤니티의 초기 반응은 우호적이지 않다. 사이버 보안이나 생물학 관련 질문을 입력할 경우 사용자에게 알리지 않고 구형 모델인 오퍼스 4.8로 우회 처리하는 안전 라우팅 시스템이 문제가 됐다. 여기에 오는 6월 23일부터 기존 요금제 가입자 대상에서 페이블 5를 제외하는 과금 정책 변경까지 더해지면서 레딧과 해커뉴스 등에서는 반발이 이어지고 있다."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/9abc7c59ec5b53c4ab927ba5880cca28ef484a3a-3840x2160.png",
+      "caption": "앤트로픽이 공개한 공격형 사이버 평가 그래프. 안전장치가 적용된 페이블 5(주황)는 전 항목에서 성공률 0%대에 머물렀다",
+      "alt": "공격형 사이버 보안 평가 막대그래프"
+    },
+    {
+      "type": "text",
+      "value": "이와 관련한 정책적 논란은 [출시 첫날의 비판 여론을 다룬 기사](/ko/article/anthropic/claude-fable-5-safety-backlash/)에서 상술했다. 모델의 기술적 완성도 자체에 의문을 제기하는 목소리는 크지 않다. 다만 앤트로픽이 우수한 기술력을 갖추고도 라우팅 정책과 가입자 관리 방식에서 신뢰를 잃었다는 지적이 나오는 만큼, 향후 여론의 추이가 이들의 시장 안착을 가를 변수가 될 것으로 보인다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic launched Claude Fable 5 on June 9, marking the first general release of its Mythos-class AI models—a tier previously withheld from the public due to safety concerns. The model is priced at $10 per million input tokens and $50 per million output tokens, representing less than half the cost of Mythos Preview.\n\nIn its [official announcement](https://www.anthropic.com/news/claude-fable-5-mythos-5), the company claimed that Fable 5 outperforms all of its previously released public models and achieves state-of-the-art results on nearly all evaluated AI benchmarks. Meanwhile, Claude Mythos 5—the same underlying model but with cybersecurity safeguards removed—is being distributed separately to Project Glasswing partners in collaboration with the US government."
+    },
+    {
+      "type": "heading",
+      "value": "Fable 5 Tops SWE-bench Verified at 95%, Outpacing Runner-Up by 6.4 Percentage Points"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic's claims were confirmed on external AI benchmark leaderboards on launch day. On the independent [coding evaluation leaderboard](https://vals.ai/benchmarks/swebench) maintained by vals.ai, Fable 5 topped the SWE-bench Verified category with a score of 95.0%, outperforming Claude Opus 4.8 (88.6%) by 6.4 percentage points and GPT-5.5 (82.6%) by 12.4 percentage points. It also leads the harder SWE-bench Pro variant at 80.3%."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/1e65982497d7d4891219ed0e83141625a291b860-2600x2870.png",
+      "caption": "Anthropic's official comparison table, lining up Fable 5/Mythos 5 against Opus 4.8, GPT-5.5, and Gemini 3.1 Pro",
+      "alt": "Claude Fable 5 benchmark score comparison table"
+    },
+    {
+      "type": "text",
+      "value": "Early enterprise deployments have supported these benchmarks. Stripe, which participated in pre-release testing, reported that Fable 5 completed a codebase-wide migration of a 50-million-line Ruby codebase in a single day—a project that would typically require a full engineering team more than two months of manual effort. Stripe noted that the model compressed months of engineering work into a matter of days.\n\nBeyond SWE-bench Verified, Fable 5 achieved the highest score among frontier models on Cognition's FrontierCode evaluation. Coding assistant startup Cursor also reported state-of-the-art results on its internal benchmark, stating that a class of complex, long-horizon problems previously considered intractable has begun to be resolved."
+    },
+    {
+      "type": "heading",
+      "value": "Record Performance Extends to Non-Coding Benchmarks"
+    },
+    {
+      "type": "text",
+      "value": "Performance improvements were not limited to software engineering. On Hebbia's financial benchmark, which evaluates senior-level reasoning, Fable 5 recorded the highest score of any model to date, demonstrating significant progress in document-based analysis and the interpretation of charts and tables. The model also established new performance standards for computer vision.\n\nTo demonstrate its vision capabilities, researchers tested the model on the game 'Pokémon FireRed'. While previous iterations of Claude were unable to complete the game even when assisted by custom software harnesses, Fable 5 completed the entire game using only raw screen captures as input.\n\nAnthropic's evaluation data also indicated improved endurance during long-horizon tasks. In tests using the game 'Slay the Spire', the addition of file-based memory improved Fable 5's performance by three times the margin observed with Opus 4.8. Furthermore, a physics research partner reported that Fable 5 reached a milestone in 36 hours that required GPT-5.5 four days to achieve, while consuming only a third of the reasoning tokens."
+    },
+    {
+      "type": "heading",
+      "value": "Elite Benchmark Scores Tempered by User Backlash"
+    },
+    {
+      "type": "text",
+      "value": "Despite the record SWE-bench Verified score and the broader benchmark sweep, initial user sentiment across AI developer communities has been largely critical. Users have expressed frustration over a safety routing system that redirects cybersecurity and biology queries to the older Opus 4.8 model without explicit notification, as well as a pricing policy that will exclude Fable 5 from standard subscription tiers starting June 23. Discussions on platforms such as Reddit and Hacker News have described the subscription terms as misleading."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/9abc7c59ec5b53c4ab927ba5880cca28ef484a3a-3840x2160.png",
+      "caption": "Anthropic's offensive cyber evaluation chart — with safeguards on, Fable 5 (orange) stays near a 0% success rate across the board",
+      "alt": "Offensive cyber security evaluation bar chart"
+    },
+    {
+      "type": "text",
+      "value": "These policy decisions were analyzed in detail in [a separate report on the launch-day backlash](/article/anthropic/claude-fable-5-safety-backlash/). While the model's technical capabilities are widely acknowledged, Anthropic's routing and subscription changes have created friction with its user base, raising questions about how consumer sentiment will evolve in the coming weeks."
+    }
+  ]
+}
