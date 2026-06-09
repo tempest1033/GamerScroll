@@ -73,7 +73,7 @@ function ensurePublishDate(article, jsonFilePath, timezone) {
   const dd = String(now.getUTCDate()).padStart(2, '0');
   const hh = String(now.getUTCHours()).padStart(2, '0');
   const min = String(now.getUTCMinutes()).padStart(2, '0');
-  article.date = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
+  article.date = `${yyyy}-${mm}-${dd}T${hh}:${min}${timezone === 'KST' ? '+09:00' : 'Z'}`;
   // JSON 파일에 write back
   try {
     const raw = fs.readFileSync(jsonFilePath, 'utf8').replace(/^\uFEFF/, '');
@@ -2719,7 +2719,7 @@ self.addEventListener('fetch', (event) => {
   if (isStatic) {
     // ?v= 쿼리 또는 hash-named 경로(/x.abcd1234.css)는 immutable → SWR 안전.
     // 그 외 unversioned 경로는 network-first로 신선도 우선 (build 직후 stale CSS/JS 방지).
-    const isImmutable = url.searchParams.has('v') || /\\\\.[a-f0-9]{8,}\\\\./i.test(url.pathname);
+    const isImmutable = url.searchParams.has('v') || /\\.[a-f0-9]{8,}\\./i.test(url.pathname);
     if (!isImmutable) {
       event.respondWith(networkFirst(request, STATIC_CACHE));
       return;
