@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-08T22:55:05.244Z",
+  "updatedAt": "2026-06-09T22:57:00.075Z",
   "period": "30days",
   "games": [
     {
@@ -12,14 +12,14 @@
     },
     {
       "slug": "초격력-별의-분노",
-      "views": 8
-    },
-    {
-      "slug": "좀비-웨이브스",
       "views": 5
     },
     {
       "slug": "궁영롱몽",
+      "views": 4
+    },
+    {
+      "slug": "좀비-웨이브스",
       "views": 4
     },
     {
@@ -31,23 +31,11 @@
       "views": 2
     },
     {
-      "slug": "라스트-어사일럼-페스트",
-      "views": 2
-    },
-    {
       "slug": "라스트-워-서바이벌",
       "views": 2
     },
     {
-      "slug": "명일방주-엔드필드",
-      "views": 2
-    },
-    {
       "slug": "배틀그라운드",
-      "views": 2
-    },
-    {
-      "slug": "붕괴-스타레일",
       "views": 2
     },
     {
@@ -76,6 +64,18 @@
     },
     {
       "slug": "ea-sports-fc-online-m",
+      "views": 1
+    },
+    {
+      "slug": "identity-v-제5인격",
+      "views": 1
+    },
+    {
+      "slug": "idol-company",
+      "views": 1
+    },
+    {
+      "slug": "limbus-company",
       "views": 1
     }
   ]
