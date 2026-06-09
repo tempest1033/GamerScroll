@@ -1,0 +1,106 @@
+{
+  "slug": "claude-mythos-fable-5-rumor",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "anthropic",
+  "site": "aiscroll",
+  "title": "클로드 미토스 출시 임박… 공개판 후보 '페이블 5' 검열판 포착",
+  "titleEn": "Claude Mythos Nears Launch: Fable 5 Surfaces",
+  "date": "2026-06-09T12:00",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/96ea2509a90e527642c822303e56296a07bcfce4-1920x1080.png",
+  "keywords": "클로드 미토스, claude-fable-5, 미토스 검열판, 출시 임박",
+  "keywordsEn": "Claude Mythos, claude-fable-5, Mythos safeguarded build, launch imminent",
+  "summary": "마이크로소프트 애저 백엔드에서 신규 식별자 'claude-fable-5'가 포착됐다. 앤트로픽이 자사 최상위 AI 모델인 클로드 미토스의 안전장치를 강화해 일반 공개 버전을 출시할 것이라는 분석이 나온다.",
+  "summaryEn": "The 'claude-fable-5' identifier spotted on Microsoft Azure suggests Anthropic is preparing a public, safeguarded build of its flagship Claude Mythos.",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Introducing Claude Opus 4.7",
+      "url": "https://www.anthropic.com/news/claude-opus-4-7"
+    },
+    {
+      "name": "CNBC",
+      "title": "Anthropic rolls out Claude Opus 4.7, an AI model that is less risky than Mythos",
+      "url": "https://www.cnbc.com/2026/04/16/anthropic-claude-opus-4-7-model-mythos.html"
+    },
+    {
+      "name": "The New Stack",
+      "title": "Anthropic's madcap March: 14+ launches, 5 outages, and an accidental Claude Mythos leak",
+      "url": "https://thenewstack.io/anthropic-march-2026-roundup/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Project Glasswing",
+      "url": "https://www.anthropic.com/glasswing"
+    },
+    {
+      "name": "Fortune",
+      "title": "Exclusive: Anthropic is testing 'Mythos,' its 'most powerful AI model ever developed'",
+      "url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-mythos-launch-imminent-signals",
+    "tech:ai/mythos-2-checkpoint-rumor-buzz",
+    "tech:ai/claude-mythos-tester-reviews-split",
+    "tech:ai/claude-opus-4-8-launch"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽의 최상위 AI 모델인 '클로드 미토스'의 일반 공개가 임박한 것으로 보인다. 6월 초 마이크로소프트 애저 백엔드에서 새로운 식별자인 'claude-fable-5'가 포착되면서, 개발자 커뮤니티에서는 미토스의 일반 공개 버전이 막바지 준비에 들어갔고 출시 임박 관측이 빠르게 나오고 있다.\n\n그동안 클로드 미토스의 상세 스펙과 제한적 공개 과정은 여러 차례 조명된 바 있다([관련 기사](/ko/article/anthropic/claude-mythos-launch-imminent-signals/)). 이번에 발견된 흔적은 앤트로픽이 미토스의 강력한 성능에 안전장치를 더해 일반 공개용으로 다듬은 모델, 이른바 '미토스 검열판'으로 풀이된다."
+    },
+    {
+      "type": "heading",
+      "value": "새 식별자 'claude-fable-5'의 실체"
+    },
+    {
+      "type": "text",
+      "value": "새로 포착된 식별자인 'claude-fable-5'는 기존 미토스 프리뷰 버전에 쓰인 'mythos-1-preview'라는 명칭 대신 '페이블(Fable)'이라는 새로운 접두사를 도입했다. 업계 관계자들은 이를 미토스의 핵심 성능을 유지하면서 가드레일을 한층 강화한 일반 공개용 모델, 곧 '미토스 검열판'으로 해석하고 있다.\n\n이러한 분석은 앤트로픽의 최근 행보와도 부합한다. 회사는 지난 4월 오퍼스 4.7을 출시하며 규제 대상이거나 위험도가 높은 사이버 보안 요청을 자동으로 차단하는 안전장치를 도입했다([CNBC](https://www.cnbc.com/2026/04/16/anthropic-claude-opus-4-7-model-mythos.html)). 고성능 모델을 대중에게 제공하기 위해서는 이와 같은 가드레일 검증이 필수적이라는 것이 회사 측의 일관된 설명이다.\n\n결국 페이블 5는 오퍼스 4.7 수준의 통제 장치를 덧씌운 미토스 검열판일 가능성이 크다. 다만 해당 식별자가 백엔드 시스템에 잠시 나타났다 사라진 단계인 만큼, 아직 앤트로픽이 이를 공식적으로 확인한 것은 아니다."
+    },
+    {
+      "type": "heading",
+      "value": "라인업 재편은 이미 굴러가고 있다"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/65641e7846f10255c4a3415a10bbf5793ae87b13-1200x630.jpg",
+      "caption": "앤트로픽 프로젝트 글래스윈 키 아트",
+      "alt": "앤트로픽 프로젝트 글래스윈 추상 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽은 이미 미토스급 모델의 대중 공개를 약속한 상태다. 회사는 최근 공개한 글래스윙 업데이트에서 필요한 안전기준이 마련되는 대로 해당 모델을 일반에 제공하겠다는 뜻을 밝혔다. 이는 비공개 기조를 고수하던 기존 방침에서 변화를 준 결정이다.\n\n최근 다른 라인업의 출시 과정도 출시 임박 관측에 힘을 싣는다. 이전에도 미토스 프리뷰 식별자가 'opus-4.8'과 함께 포착된 뒤, 오퍼스 4.8이 지난 5월 말 실제로 출시된 바 있다. 현재 모델 라인업의 단계적 개편 작업이 일정에 따라 진행 중인 것으로 보인다.\n\n앤트로픽이 페이블 5의 실체를 인정하거나 미토스의 공식 일정을 확정한 상황은 아니다. 하지만 검열판으로 추정되는 식별자가 실제 운영 환경에 잠깐이나마 노출된 것 자체가 시장에서는 출시 임박을 알리는 신호로 해석되고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic's flagship artificial intelligence model, Claude Mythos, appears poised for a wider public release. In early June, the appearance of a new identifier, 'claude-fable-5,' in the Microsoft Azure backend led developer communities to conclude that the public version of Claude Mythos has entered final testing ahead of an imminent launch.\n\nAlthough the details of Mythos and its restricted preview phase have been documented previously ([related article](/article/anthropic/claude-mythos-launch-imminent-signals/)), this latest discovery points to a safeguarded build of Mythos, redesigned for general availability with enhanced safety protocols."
+    },
+    {
+      "type": "heading",
+      "value": "Deciphering the 'claude-fable-5' Identifier"
+    },
+    {
+      "type": "text",
+      "value": "The newly spotted identifier, 'claude-fable-5,' departs from the 'mythos-1-preview' naming convention by introducing the 'Fable' prefix. Industry observers interpret this as a public-facing version that maintains the core capabilities of Claude Mythos while incorporating stricter safety protocols.\n\nThis interpretation aligns with Anthropic's recent product strategy. When releasing Opus 4.7 in April, the company introduced automated safety systems designed to detect and block high-risk cybersecurity requests ([CNBC](https://www.cnbc.com/2026/04/16/anthropic-claude-opus-4-7-model-mythos.html)). Anthropic has consistently maintained that deploying its most powerful models to the public requires prior validation of these safety guardrails.\n\nConsequently, 'Fable 5' is widely viewed as a safeguarded build of Mythos, equipped with the safety frameworks established in Opus 4.7. However, because the identifier was only briefly visible in the Azure backend, Anthropic has not officially confirmed the model's release."
+    },
+    {
+      "type": "heading",
+      "value": "Signs of an Accelerating Release Timeline"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/65641e7846f10255c4a3415a10bbf5793ae87b13-1200x630.jpg",
+      "caption": "Anthropic's Project Glasswing key art",
+      "alt": "Abstract key art for Anthropic's Project Glasswing"
+    },
+    {
+      "type": "text",
+      "value": "Crucially, Anthropic has already committed to a broader release. In its recent Glasswing update, the company stated it intends to make Mythos-class models available to the general public once appropriate safety guardrails are established. That marks a shift from its previous policy of restricted access, and makes an imminent launch all the more plausible.\n\nOther indicators also point to an imminent launch. The Mythos preview identifier was previously detected alongside 'opus-4.8,' which Anthropic subsequently released in late May. This suggests the company is executing a staged rollout of its updated model lineup.\n\nAlthough Anthropic has not officially acknowledged 'Fable 5' or announced a release date for Mythos, the appearance of the new identifier in a production environment signals that an imminent launch of Claude Mythos is now in sight."
+    }
+  ]
+}
