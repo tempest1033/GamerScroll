@@ -412,6 +412,13 @@
       "type": "thumbnail.webp",
       "failedAt": "2026-06-07T23:56:03.637Z",
       "error": "HTTP 403: https://photos5.appleinsider.com/gallery/67668-142628-67394-141863-wwdc2026logo-xl-xl.jpg"
+    },
+    {
+      "url": "https://static.tweaktown.com/news/1/1/110738_60_new-rtx-60-series-specs-leak-suggests-huge-rt-performance-and-memory-bandwidth-improvement_full.jpg",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "type": "thumbnail.webp",
+      "failedAt": "2026-06-09T02:43:47.518Z",
+      "error": "HTTP 403: https://static.tweaktown.com/news/1/1/110738_60_new-rtx-60-series-specs-leak-suggests-huge-rt-performance-and-memory-bandwidth-improvement_full.jpg"
     }
   ]
 }
