@@ -1,0 +1,141 @@
+{
+  "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+  "status": "approved",
+  "site": "gamerscroll",
+  "date": "",
+  "title": "엔비디아 RTX 60 '루빈' 루머…2027~2028년 출시설",
+  "summary": "엔비디아 차세대 RTX 60 시리즈가 루빈 아키텍처 기반으로 2027~2028년 출시될 전망이다. 플래그십 RTX 6090은 512비트 GDDR7에 32GB VRAM, 레이 트레이싱 2배 향상이 거론된다. 다만 메모리 공급난으로 2026년 신형 게이밍 GPU는 없을 것으로 보인다.",
+  "keywords": [
+    "RTX 60 시리즈",
+    "루빈 아키텍처",
+    "RTX 6090 플래그십",
+    "GDDR7",
+    "RTX 60 출시"
+  ],
+  "thumbnail": "https://static.tweaktown.com/news/1/1/110738_60_new-rtx-60-series-specs-leak-suggests-huge-rt-performance-and-memory-bandwidth-improvement_full.jpg",
+  "relatedDocs": [
+    "issue:ddr5-price-surge-gaming-nightmare",
+    "issue:intel-arc-g3-handheld-gaming",
+    "issue:steam-deck-oled-price-hike-may-2026",
+    "issue:galaxy-z-flip8-snapdragon-exynos-surge"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Tom's Hardware",
+      "title": "NVIDIA's next-gen RTX 60 series might not debut until the second half of 2027",
+      "url": "https://www.tomshardware.com/pc-components/gpus/nvidias-next-gen-rtx-60-series-might-not-debut-until-the-second-half-of-2027-says-leaker-rumor-claims-rubin-architecture-will-power-future-consumer-gpus"
+    },
+    {
+      "name": "TweakTown",
+      "title": "New RTX 60 series specs leak suggests huge RT performance and memory bandwidth improvement",
+      "url": "https://www.tweaktown.com/news/110738/new-rtx-60-series-specs-leak-suggests-huge-rt-performance-and-memory-bandwidth-improvement/index.html"
+    },
+    {
+      "name": "TechPowerUp",
+      "title": "NVIDIA Readies Rubin-based GeForce RTX 60 Series With Massive RT Performance Gains",
+      "url": "https://www.techpowerup.com/347848/nvidia-readies-rubin-based-geforce-rtx-60-series-with-massive-rt-performance-gains"
+    },
+    {
+      "name": "VideoCardz",
+      "title": "No, GeForce RTX 60 specs did not leak yet",
+      "url": "https://videocardz.com/newz/no-geforce-rtx-60-specs-did-not-leak-yet"
+    },
+    {
+      "name": "The FPS Review",
+      "title": "No New RTX Gaming GPUs in 2026, RTX 60 Series Pushed to 2028",
+      "url": "https://www.thefpsreview.com/2026/03/23/no-new-rtx-gaming-gpus-in-2026-rtx-60-series-pushed-to-2028/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "엔비디아의 차세대 게이밍 그래픽카드 'RTX 60' 시리즈에 데이터센터용 차세대 아키텍처 '루빈(Rubin)'이 도입될 것이라는 관측에 무게가 실린다. 유명 IT 팁스터 코피테7키미와 하드웨어 채널 레드게이밍테크 등이 전한 정보를 종합하면, RTX 60 시리즈는 이르면 2027년 하반기 또는 2028년에 출시될 전망이다."
+    },
+    {
+      "type": "text",
+      "value": "하지만 신형 그래픽카드 출시 전까지의 공백기가 문제다. 업계에서는 엔비디아가 2026년 한 해 동안 신형 게이밍 GPU를 선보이지 않을 것으로 내다본다. RTX 50 시리즈의 슈퍼 리프레시 모델마저 메모리 공급난으로 인해 무산될 가능성이 크다. 다만 해당 내용은 팁스터들의 정보 유출과 소문에 기반한 추정치로, 엔비디아의 공식 발표는 아니다."
+    },
+    {
+      "type": "heading",
+      "value": "데이터센터 넘어 게이밍으로 내려온 신형 설계"
+    },
+    {
+      "type": "text",
+      "value": "가장 큰 변화는 아키텍처 통합이다. 엔비디아는 그동안 데이터센터용과 게이밍용 GPU에 각기 다른 설계를 적용해 왔다. 하지만 RTX 60 시리즈부터는 AI 및 데이터센터 서버에 먼저 쓰인 루빈 아키텍처가 게이밍 그래픽카드에도 동일하게 도입될 예정이다."
+    },
+    {
+      "type": "text",
+      "value": "생산 공정은 TSMC의 3나노미터(nm) 핀펫(FinFET) 계열로 압축됐다. 한때 제기됐던 2나노미터 이하 미세공정 도입설은 사실상 힘을 잃은 모양새다. 게이밍 칩의 코드네임은 'GR20X'로 명명됐으며, 최상위 모델인 'GR202'를 시작으로 'GR203', 'GR205' 라인업이 구성된다는 전망이 지배적이다."
+    },
+    {
+      "type": "text",
+      "value": "여기에 6세대 텐서 코어와 5세대 RT 코어가 탑재된다. 엔비디아가 개발 중인 차세대 업스케일링 기술 'DLSS 5'를 원활히 구동하려면 연산 성능의 비약적인 향상이 필요한 만큼, RTX 60 시리즈가 핵심적인 분수령이 될 것으로 예상된다."
+    },
+    {
+      "type": "heading",
+      "value": "RTX 6090·6080·6070 예상 사양은"
+    },
+    {
+      "type": "image",
+      "src": "https://media.overclock3d.net/2026/03/Nvidia-RTX-60-Leak.jpg",
+      "caption": "차세대 플래그십 그래픽카드를 형상화한 콘셉트 이미지 (실제 제품 아님)",
+      "alt": "엔비디아 차세대 그래픽카드 콘셉트 렌더 이미지"
+    },
+    {
+      "type": "text",
+      "value": "새로운 코어가 탑재될 구체적인 제품군에도 시장의 이목이 쏠린다. 팁스터들이 예상하는 라인업은 RTX 6090·6080·6070 세 종류다. 이 가운데 플래그십 RTX 6090(코드명 'GR202')은 512비트 GDDR7 메모리 버스에 32GB VRAM, 192개 SM 탑재가 거론되며, 이는 RTX 5090보다 늘어난 사양이다. 동작 속도(부스트 클럭)는 2.6~2.8GHz, 소비전력(TDP)은 600W 수준으로 예상된다."
+    },
+    {
+      "type": "table",
+      "caption": "RTX 60 시리즈 루머 스펙 (비공식)",
+      "headers": [
+        "모델",
+        "GPU 다이",
+        "메모리 버스",
+        "VRAM"
+      ],
+      "rows": [
+        [
+          "RTX 6090",
+          "GR202",
+          "512-bit",
+          "32GB GDDR7"
+        ],
+        [
+          "RTX 6080",
+          "GR203",
+          "320-bit",
+          "20GB GDDR7"
+        ],
+        [
+          "RTX 6070",
+          "GR205",
+          "256-bit",
+          "16GB GDDR7"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "가장 눈에 띄는 부분은 메모리 사양의 상향이다. 다만 플래그십 모델은 RTX 5090과 동일한 512비트 버스를 유지하고, 메모리 폭이 넓어지는 쪽은 그 아래 모델들이다. RTX 6080은 320비트(20GB), RTX 6070은 256비트(16GB)로 각각 이전 세대보다 버스 폭이 64비트씩 늘어, 대역폭과 용량 모두 한층 넉넉해졌다. 외신 [트윅타운](https://www.tweaktown.com/news/110738/new-rtx-60-series-specs-leak-suggests-huge-rt-performance-and-memory-bandwidth-improvement/index.html) 보도에 따르면, 신제품의 성능 목표는 4K 해상도 기준 RTX 50 시리즈 대비 30~35% 향상이며, 레이 트레이싱 성능은 2배 이상 향상될 것으로 알려졌다. 다만 구체적인 수치는 출시 후 검증이 필요하다."
+    },
+    {
+      "type": "heading",
+      "value": "출시 시점이 2028년으로 밀리는 이유: GDDR7 공급난"
+    },
+    {
+      "type": "text",
+      "value": "핵심 변수는 성능이 아닌 메모리 공급이다. RTX 60 시리즈의 출시 일정이 지연되는 주요 원인으로는 GDDR7 메모리의 극심한 공급 부족이 꼽힌다. AI 및 데이터센터 수요가 폭증하면서 메모리 제조업체들의 생산량이 서버용 제품에 집중되었고, 이로 인해 엔비디아 역시 게이밍 GPU 공급 순위를 뒤로 미뤘다는 분석이 나온다."
+    },
+    {
+      "type": "text",
+      "value": "당초 2027년 하반기 출시가 점쳐졌으나, 최근에는 양산 시점이 2028년으로 연기될 수 있다는 관측이 우세하다. 계획대로 진행되더라도 세대교체 주기가 약 3년으로 늘어나는 셈이다. 이로 인한 공백은 이미 감지되고 있다. 당장 2026년에는 게이밍 신제품 출시가 불투명해졌고, 기대를 모았던 RTX 50 시리즈의 슈퍼 리프레시 모델 출시도 사실상 백지화되는 분위기다."
+    },
+    {
+      "type": "text",
+      "value": "한편 일각에서는 사양이 최종 확정된 것은 아니라며 신중한 입장을 취하고 있다. 하드웨어 매체 비디오카즈는 업계에 도는 정보의 상당수가 미확정 추정치에 불과하다고 선을 그었다. 최근 [DDR5 가격 급등](/magazine/issue/ddr5-price-surge-gaming-nightmare/) 등 메모리 시장의 악재도 겹친 만큼, 차세대 제품을 기다리는 소비자들에게는 당분간 인내의 시간이 지속될 것으로 보인다."
+    }
+  ]
+}
