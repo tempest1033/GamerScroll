@@ -1,0 +1,134 @@
+{
+  "slug": "openai-ohio-10gw-lease-talks",
+  "site": "aiscroll",
+  "category": "openai",
+  "status": "approved",
+  "date": "",
+  "title": "오픈AI, 오하이오 10GW AI 캠퍼스 임차…엔비디아 보증 검토",
+  "titleEn": "OpenAI in Talks to Lease 10GW Ohio AI Campus",
+  "summary": "오픈AI가 미국 오하이오주 파이크 카운티에 조성될 10GW 규모의 AI 데이터센터 캠퍼스를 20년간 임차하는 협상을 진행하고 있다. 엔비디아는 이 사업에 신용 보증을 제공하는 방안을 검토 중이며, 전체 구축 비용은 최소 5,000억 달러로 추산된다.",
+  "summaryEn": "OpenAI is in advanced talks to lease a 10GW AI campus in Ohio for 20 years, with Nvidia weighing a credit guarantee on a buildout estimated at $500 billion.",
+  "keywords": "오픈AI 데이터센터, 10GW 캠퍼스, 엔비디아 신용 보증, 스타게이트",
+  "keywordsEn": "OpenAI data center, Ohio campus lease, Nvidia credit guarantee, Stargate",
+  "thumbnail": "https://media.datacenterdynamics.com/media/images/portsmouth_pike_county_ohio_dept_.2e16d0ba.fill-1200x630.png",
+  "needTranslate": false,
+  "sources": [
+    {
+      "name": "The Information",
+      "title": "OpenAI in Talks to Lease 10-Gigawatt Ohio Data Center With Backing From Nvidia",
+      "url": "https://www.theinformation.com/articles/openai-talks-lease-10-gigawatt-ohio-data-center-backing-nvidia"
+    },
+    {
+      "name": "Reuters",
+      "title": "OpenAI weighs leasing Ohio data center with Nvidia backing, The Information reports",
+      "url": "https://www.reuters.com/technology/openai-weighs-leasing-ohio-data-center-with-nvidia-backing-information-reports-2026-06-10/"
+    },
+    {
+      "name": "Yahoo Finance",
+      "title": "OpenAI Weighs Leasing Ohio Data Center With Nvidia Backing",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/openai-weighs-leasing-ohio-data-021828649.html"
+    },
+    {
+      "name": "U.S. Department of Energy",
+      "title": "Fact Sheet: Department of Energy Ensuring Affordable Energy Access in Ohio While Powering the Future",
+      "url": "https://www.energy.gov/articles/fact-sheet-department-energy-ensuring-affordable-energy-access-ohio-while-powering-future"
+    },
+    {
+      "name": "Data Center Dynamics",
+      "title": "SoftBank eyes 10GW data center at former DOE nuclear enrichment site in Ohio",
+      "url": "https://www.datacenterdynamics.com/en/news/softbank-eyes-10gw-data-center-at-former-doe-nuclear-enrichment-site-in-ohio/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/softbank-40b-openai-loan",
+    "tech:ai/openai-confidential-s1-ipo",
+    "tech:ai/nvidia-vera-rubin-agentic-ai",
+    "tech:ai/us-government-ai-equity-stakes"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈AI가 미국 오하이오주 파이크 카운티에 조성될 최대 10GW 규모의 AI 데이터센터 캠퍼스를 전체 임차하는 협상을 진행 중이다. [디인포메이션](https://www.theinformation.com/articles/openai-talks-lease-10-gigawatt-ohio-data-center-backing-nvidia)이 지난 6월 9일 이를 처음 보도한 이후 주요 외신들의 확인 취재가 이어졌다.\n\n이번 계약은 20년 장기 임차 방식이다. 소프트뱅크 계열사인 SB에너지가 개발을 맡고 오픈AI는 가동 시점부터 임대료를 지불한다. 전체 캠퍼스를 완공하는 데 드는 비용은 최소 5,000억 달러로 추산되며, 이는 오픈AI가 소프트뱅크, 오라클 등과 추진해 온 '스타게이트' 구상의 연장선에 있다.\n\n가장 큰 관심을 모으는 대목은 엔비디아의 참여다. 엔비디아는 단순한 칩 공급을 넘어 오픈AI의 임대료 지급 채무에 자체 신용 보증을 서는 방안을 검토 중이다. 협상이 타결되면 오픈AI 창사 이래 최대 규모의 인프라 계약이 된다."
+    },
+    {
+      "type": "heading",
+      "value": "우라늄 농축 공장 부지, 세계 최대 AI 캠퍼스로 재탄생"
+    },
+    {
+      "type": "image",
+      "src": "https://www.energy.gov/sites/default/files/2026-04/Portsmouth_AI_Data_Center_Video_Special_Report_2026_4_7.jpg",
+      "caption": "포츠머스 부지에서 열린 PORTS 테크놀로지 캠퍼스 착공식 (사진: 미 에너지부)",
+      "alt": "오하이오 파이크턴 포츠머스 부지 착공식에서 관계자들이 첫 삽을 뜨는 모습"
+    },
+    {
+      "type": "text",
+      "value": "이번 협상의 대상지는 일반적인 부지가 아니다. 오하이오주 파이크 카운티 파이크턴에 위치한 약 3,700에이커 규모의 연방 국유지로, 냉전 시기 우라늄을 농축하던 포츠머스 가스확산공장이 있던 곳이다. 미국 에너지부(DOE)가 오염 정화 작업을 진행하는 동시에 데이터센터 개발용으로 부지를 임대하고 있다.\n\n이 사업은 지난 3월 'PORTS 테크놀로지 캠퍼스'라는 명칭으로 처음 공개됐다. DOE와 상무부, SB에너지, AEP 오하이오가 참여하는 민관 협력 사업으로, 9.2GW 규모의 천연가스 발전 설비와 42억 달러 규모의 송전망 구축 투자가 연계돼 있다.\n\n1단계 사업은 800MW 규모로 약 100억 달러가 투입된다. 올여름 착공해 2028년 가동을 시작할 예정이며, 완공 시 세계 최대 규모의 AI 데이터센터 캠퍼스가 된다. 오픈AI는 이 공간 전체를 홀로 사용하는 독점 임차인으로 협상 테이블에 나섰다."
+    },
+    {
+      "type": "heading",
+      "value": "칩 공급사가 임차인의 뒷배로 나선 이유"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202509/68d164573d63320d88f176b7_openai-and-nvidia/openai-and-nvidia_cbdd3def-150e-4b20-bf18-b15de5fb1eb0-prv.png",
+      "caption": "오픈AI·엔비디아 파트너십 공식 그래픽 (사진: 엔비디아)",
+      "alt": "오픈AI와 엔비디아 로고가 나란히 놓인 파트너십 발표 이미지"
+    },
+    {
+      "type": "text",
+      "value": "임차인 오픈AI의 신용은 엔비디아가 지원할 계획이다. 엔비디아는 오픈AI의 임대료 지급 채무뿐만 아니라 SB에너지의 프로젝트 파이낸싱(PF)까지 보증하는 방안을 논의 중이다. 엔비디아가 이 정도 규모의 인프라 사업에 금융 보증인으로 나서는 사례는 이번이 처음이다.\n\n이러한 금융 구조가 추진되는 이유는 명확하다. 적자 상태인 오픈AI의 자체 신용만으로는 20년 장기 임대 계약을 맺기 어렵지만, 엔비디아의 보증이 더해지면 SB에너지와 대주단의 자금 조달 비용이 낮아진다. 캠퍼스에 대규모 칩을 공급하는 엔비디아 입장에서도 사업 규모가 커질수록 이득이다.\n\n이번 계약은 지난해 9월 양사가 발표한 협력 방안의 연장선상에 있다. 당시 엔비디아는 오픈AI에 최대 1,000억 달러 규모의 단계적 투자와 10GW급 시스템 공급을 약속했다. 다만 칩 공급사가 주요 고객사의 채무를 보증하는 형태인 만큼, AI 업계의 순환 거래 논란이 재점화될 가능성이 있다."
+    },
+    {
+      "type": "heading",
+      "value": "소유 대신 임대 선택한 '스타게이트'의 종착지"
+    },
+    {
+      "type": "text",
+      "value": "이처럼 복잡한 금융 구조가 나타난 배경에는 오픈AI의 인프라 전략 변화가 깔려 있다. 오픈AI는 데이터센터를 직접 구축해 소유하기보다 파트너가 세운 시설을 임차하는 방향으로 노선을 틀었다. 텍사스주 애빌린 내 데이터센터 용량을 1.2GW로 제한하고 오라클, 아마존웹서비스(AWS), 코어위브 등에서 서버를 빌려 쓰기 시작한 것도 같은 맥락이다.\n\n임차 방식은 대규모 초기 설비투자(CAPEX) 부담을 운영비용(OPEX)으로 전환해 준다. 오픈AI가 자금 조달을 위해 [소프트뱅크의 400억 달러 차입](/ko/article/openai/softbank-40b-openai-loan/)까지 활용하는 상황에서, 센터 가동 이후부터 임대료를 지불하는 방식은 단기 현금 흐름에 숨통을 틔워 주는 열쇠가 된다.\n\n현재 진행 중인 협상이 완전히 타결되기 전까지 구체적인 조건은 달라질 수 있다. 하지만 사업 방향성만큼은 명확하다. 수천억 달러가 투입되는 스타게이트 구상의 종착지는 데이터센터를 직접 거느리는 거대한 지주가 아니라, 세계 최대의 임차인이 되는 경로다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI is in advanced negotiations to lease a planned AI data center campus of up to 10GW in Pike County, Ohio. [The Information](https://www.theinformation.com/articles/openai-talks-lease-10-gigawatt-ohio-data-center-backing-nvidia) first reported the talks on June 9, with Reuters and other outlets subsequently confirming the news.\n\nThe proposed lease would span 20 years. SB Energy, a subsidiary of SoftBank, is developing the southern Ohio site, and OpenAI would begin rent payments only after the facility becomes operational. If fully built out, construction costs for the campus are estimated at a minimum of $500 billion. The project represents an extension of the Stargate initiative that OpenAI has pursued alongside SoftBank and Oracle.\n\nNvidia's potential involvement adds a critical dimension to the deal. Beyond supplying chips, Nvidia is reportedly discussing backing OpenAI's lease obligations with a credit guarantee from its own balance sheet. If finalized, the agreement would mark the largest infrastructure commitment in OpenAI's history."
+    },
+    {
+      "type": "heading",
+      "value": "World's Largest AI Campus Planned for Former Uranium Enrichment Site"
+    },
+    {
+      "type": "image",
+      "src": "https://www.energy.gov/sites/default/files/2026-04/Portsmouth_AI_Data_Center_Video_Special_Report_2026_4_7.jpg",
+      "caption": "Groundbreaking ceremony for the PORTS Technology Campus at the Portsmouth site (Photo: U.S. Department of Energy)",
+      "alt": "Officials break ground at the Ohio campus site OpenAI plans to lease in Piketon"
+    },
+    {
+      "type": "text",
+      "value": "The negotiations concern a highly unusual site: a 3,700-acre federal property in Piketon, Ohio, which previously housed the Cold War-era Portsmouth Gaseous Diffusion Plant used for uranium enrichment. The U.S. Department of Energy (DOE) is currently cleaning up the site while leasing the land for the data center development.\n\nThe project was publicly unveiled in March as the PORTS Technology Campus, a public-private partnership involving the DOE, the U.S. Department of Commerce, SB Energy, and AEP Ohio. The development plans incorporate 9.2 gigawatts of new natural gas power generation alongside a $4.2 billion power transmission expansion.\n\nThe initial phase will support 800 megawatts of capacity and is estimated to cost approximately $10 billion, with construction scheduled to begin this summer and operations expected to start around 2028. Upon completion, the location is projected to be the world's largest AI data center campus, and OpenAI is negotiating to occupy the entire site."
+    },
+    {
+      "type": "heading",
+      "value": "Nvidia Shifts From Chip Supplier to Financial Guarantor"
+    },
+    {
+      "type": "image",
+      "src": "https://iprsoftwaremedia.com/219/files/202509/68d164573d63320d88f176b7_openai-and-nvidia/openai-and-nvidia_cbdd3def-150e-4b20-bf18-b15de5fb1eb0-prv.png",
+      "caption": "Official OpenAI–Nvidia partnership graphic (Image: Nvidia)",
+      "alt": "OpenAI and Nvidia logos side by side in the partnership announcement image"
+    },
+    {
+      "type": "text",
+      "value": "Nvidia is poised to back the developer's credit requirements. According to reports, Nvidia is discussing providing a credit guarantee that would cover both OpenAI's lease payments and SB Energy's project financing. This would mark the first time Nvidia has acted as a financial guarantor for an infrastructure project of this scale.\n\nThe financial rationale is clear. Because OpenAI remains unprofitable, its standalone credit is insufficient to support a 20-year lease commitment. A guarantee from Nvidia reduces borrowing costs for SB Energy and its lenders. Furthermore, because Nvidia will supply the chips for the Ohio campus, the expansion of the facility directly increases Nvidia's potential revenue.\n\nThe deal builds on a partnership announced in September, under which Nvidia committed to up to $100 billion in staged investments and the delivery of 10GW of systems to OpenAI. However, the prospect of a credit guarantee from a hardware vendor covering the debt of its primary customer is likely to renew scrutiny over circular transactions within the AI industry."
+    },
+    {
+      "type": "heading",
+      "value": "Strategic Shift to Leased Infrastructure Reframes Stargate"
+    },
+    {
+      "type": "text",
+      "value": "The complex structure reflects a fundamental shift in OpenAI's infrastructure strategy. Over the past year, the company has rewritten its Stargate playbook, pivoting away from owning and operating its own data centers and instead leasing capacity built by partners. Capping its Stargate site in Abilene, Texas at 1.2 gigawatts and leasing resources from Oracle, Amazon Web Services (AWS), and CoreWeave are key components of this strategy.\n\nTransitioning to a leasing model converts massive upfront capital expenditures into ongoing operating expenses. With the financing around OpenAI stretching as far as [SoftBank's record $40 billion loan](/article/openai/softbank-40b-openai-loan/), a lease that defers rent payments until the 10GW Ohio campus is operational offers significant relief to its cash flow.\n\nWhile negotiations remain ongoing and final terms may change, the strategic path is set. Rather than acting as a developer or landlord, OpenAI's multi-hundred-billion-dollar Stargate initiative is positioning the company to become the world's largest data center tenant."
+    }
+  ]
+}
