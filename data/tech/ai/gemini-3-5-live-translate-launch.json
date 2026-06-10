@@ -1,0 +1,122 @@
+{
+  "slug": "gemini-3-5-live-translate-launch",
+  "status": "approved",
+  "needTranslate": false,
+  "site": "aiscroll",
+  "category": "google",
+  "title": "구글, 동시통역 AI '제미나이 3.5 라이브 트랜슬레이트' 공개",
+  "titleEn": "Google Unveils Gemini 3.5 Live Translate",
+  "date": "2026-06-10T06:30Z",
+  "thumbnail": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/3-5_Live_Translate_hero.width-1300.png",
+  "keywords": "제미나이 3.5 라이브 트랜슬레이트, 동시통역 AI, 실시간 음성 번역, 구글 번역 앱",
+  "keywordsEn": "Gemini 3.5 Live Translate, simultaneous interpretation, real-time speech translation, Google Translate app",
+  "summary": "구글이 실시간 동시통역을 지원하는 오디오 모델 '제미나이 3.5 라이브 트랜슬레이트'를 공개했다. 70개 이상의 언어를 실시간으로 번역하며 구글 번역 앱에 우선 적용된다.",
+  "summaryEn": "Google has launched Gemini 3.5 Live Translate, a dedicated audio model designed for real-time simultaneous interpretation across more than 70 languages.",
+  "sources": [
+    {
+      "name": "Google Blog",
+      "title": "Fluid, natural voice translation with Gemini 3.5 Live Translate",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/"
+    },
+    {
+      "name": "Ars Technica",
+      "title": "Google announces Gemini 3.5 Live Translate for instant voice-to-voice translation",
+      "url": "https://arstechnica.com/ai/2026/06/google-announces-gemini-3-5-live-translate-for-instant-voice-to-voice-translation/"
+    },
+    {
+      "name": "9to5Google",
+      "title": "Gemini 3.5 Live Translate rolls out to Google Translate, coming to Meet",
+      "url": "https://9to5google.com/2026/06/09/gemini-3-5-live-translate-meet/"
+    },
+    {
+      "name": "SiliconANGLE",
+      "title": "Google's Gemini 3.5 Live Translate enables realistic real-time translation",
+      "url": "https://siliconangle.com/2026/06/09/googles-gemini-3-5-live-translate-enables-realistic-real-time-translation-speed-natural-conversations/"
+    },
+    {
+      "name": "Google AI for Developers",
+      "title": "Live Translate — Gemini Live API documentation",
+      "url": "https://ai.google.dev/gemini-api/docs/live-api/live-translate"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/google-io-2026-agentic-gemini",
+    "tech:ai/gemini-31-pro-release",
+    "tech:ai/google-gemini-3-2-3-5-imminent",
+    "tech:ai/gemini-omni-antigravity-trail-sota"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글이 6월 9일 공식 블로그를 통해 실시간 동시통역 전용 오디오 모델인 '제미나이 3.5 라이브 트랜슬레이트'를 발표했다. 화자가 말을 마칠 때까지 기다리는 기존 방식과 달리, 대화 도중 몇 초의 시차만 두고 실시간으로 번역 음성을 출력하는 점이 특징이다.\n\n이 모델은 70개 이상의 언어와 2,000개 이상의 언어 쌍을 지원한다. 사용자가 말하는 언어를 미리 설정하지 않아도 인공지능(AI)이 화자의 언어를 스스로 감지해 상대방 언어로 자동 통역해 준다.\n\n이번 서비스는 발표 당일 구글 번역 앱에 즉시 도입됐다. 화상회의 서비스인 Google Meet은 이달 중 기업 고객 대상 비공개 프리뷰를 시작하고, 개발자용 API로는 공개 프리뷰가 함께 풀렸다. 이는 지난달 [I/O 2026 키노트](/ko/article/google/google-io-2026-agentic-gemini/)에서 공개된 제미나이 3.5 제품군이 음성 분야로 확장된 첫 사례다."
+    },
+    {
+      "type": "heading",
+      "value": "턴제 번역에서 동시통역 AI로 전환"
+    },
+    {
+      "type": "text",
+      "value": "가장 큰 변화는 번역 기술이 대화에 개입하는 방식에 있다. 기존의 음성 번역은 한쪽이 말을 끝내야 작동하는 순차적인 '턴제' 방식이었다. 반면 제미나이 3.5 라이브 트랜슬레이트는 실시간 음성 스트리밍을 분석해 화자가 말을 이어가는 도중에도 몇 초 만에 통역을 제공한다.\n\nIT 매체 아스 테크니카는 이 기술이 실제 동시통역사의 작업 방식과 매우 유사하다고 [평가했다](https://arstechnica.com/ai/2026/06/google-announces-gemini-3-5-live-translate-for-instant-voice-to-voice-translation/). 문장이 완전히 끝날 때까지 대화가 중단되지 않으므로 자연스러운 대화 흐름을 유지할 수 있다는 분석이다.\n\n음성 합성 기술도 한 단계 진화했다. 기계적인 합성음 대신 원화자의 독특한 억양과 발화 속도, 음높이를 그대로 보존해 들려준다. 구글은 소음이 심한 환경이나 목소리가 겹치는 상황, 일상적인 구어체 표현까지 매끄럽게 처리할 수 있다고 설명했다."
+    },
+    {
+      "type": "heading",
+      "value": "구글 번역 앱·Meet·API, 세 갈래 배포"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FINAL_Speech_translation_demo_vi.width-1000.format-webp.webp",
+      "caption": "Google Meet 음성 통역 데모 영상 스틸",
+      "alt": "Google Meet 화상회의에서 시연된 동시통역 AI 데모 화면"
+    },
+    {
+      "type": "text",
+      "value": "새로운 동시통역 기능은 세 가지 경로로 제공된다. 먼저 구글 번역 앱(안드로이드 및 iOS)에 '라이브 번역' 모드가 추가됐다. 사용자가 이어폰을 착용하면 상대방의 말이 실시간으로 통역되며, 안드로이드 기기에서는 휴대전화를 귀에 대는 동작만으로 작동하는 청취 모드도 지원한다.\n\n이어 화상회의 플랫폼인 Google Meet에는 일부 워크스페이스 기업 고객을 위한 비공개 프리뷰 형식으로 제공된다. 기존에는 영어를 사이에 둔 5개 언어에 그쳤던 회의 통역 범위가 단숨에 70개 이상의 언어로 늘어나며, 연내 전체 사용자로 확대될 예정이다.\n\n개발자들은 'gemini-3.5-live-translate-preview' 모델명을 통해 실시간 음성 번역 기능을 자체 애플리케이션에 탑재할 수 있다. 현재 제미나이 라이브 API와 AI Studio에서 공개 프리뷰로 제공 중이며, 그랩과 CJ ENM 등의 파트너사들이 사전 테스트를 진행하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "남은 변수는 억양, 안전장치는 워터마크"
+    },
+    {
+      "type": "text",
+      "value": "다만 초기 테스트에서는 개선해야 할 과제들도 함께 지적됐다. 구글 딥마인드가 공개한 기술 문서(모델 카드)에 따르면 강한 억양의 발화를 정확하게 인식하지 못하거나, 통역 도중 생성된 목소리 톤이 갑자기 바뀌는 현상이 한계점으로 언급됐다.\n\n음성 오남용을 방지하기 위한 보안 조치도 마련됐다. 시스템이 생성하는 모든 오디오 파일에는 AI 합성 여부를 식별할 수 있는 'SynthID' 워터마크가 기본 탑재된다. 타인의 목소리를 정교하게 재현하는 기술의 특성을 고려한 조치다.\n\n초기 시장 반응은 목소리의 독특한 특징을 그대로 유지하는 음성 보존 성능에 주목하고 있다. 지인의 평소 목소리로 외국어가 흘러나오는 경험이 신기하면서도 생경하다는 평가다. 향후 비즈니스 환경 등 전문 영역에서 동시통역 기능이 대중화되기 위해서는 국가별 다양한 억양 문제를 극복하는 것이 관건이 될 전망이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google announced Gemini 3.5 Live Translate on June 9, a dedicated audio model designed for real-time simultaneous interpretation. Unlike conventional systems that require a speaker to pause, the model translates speech on the fly, trailing just a few seconds behind the active speaker.\n\nThe model supports over 70 languages and more than 2,000 language pairs. It automatically detects the active speaker's language and translates it into the listener's language without requiring manual settings.\n\nThe rollout began immediately, with the technology integrated into the Google Translate app. Google Meet begins a private preview for enterprise customers this month, and a developer API is already open in public preview. This marks the first audio-focused expansion of the Gemini 3.5 model family, which debuted at last month's [I/O 2026 keynote](/article/google/google-io-2026-agentic-gemini/)."
+    },
+    {
+      "type": "heading",
+      "value": "From Turn-Based Translation to Simultaneous Interpretation"
+    },
+    {
+      "type": "text",
+      "value": "The model shifts conversational translation toward true simultaneous interpretation. Traditional systems rely on a turn-based approach, starting translation only after a speaker finishes. In contrast, Gemini 3.5 Live Translate processes a continuous audio stream to deliver real-time speech translation while the speaker is talking.\n\nAs Ars Technica [noted](https://arstechnica.com/ai/2026/06/google-announces-gemini-3-5-live-translate-for-instant-voice-to-voice-translation/), this approach closely mirrors human simultaneous interpretation. By translating continuously rather than waiting for sentence completion, the system maintains natural conversational flow.\n\nVoice synthesis has also advanced. Rather than producing robotic output, the model preserves the original speaker's intonation, pacing, and pitch. Google notes that the system successfully handles noisy environments, overlapping speech, and informal phrasing."
+    },
+    {
+      "type": "heading",
+      "value": "Google Translate App, Meet, and API: A Three-Track Rollout"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FINAL_Speech_translation_demo_vi.width-1000.format-webp.webp",
+      "caption": "A still from Google's speech translation demo in Google Meet",
+      "alt": "Simultaneous interpretation AI demo in a Google Meet video call"
+    },
+    {
+      "type": "text",
+      "value": "The technology is being deployed across three channels. First, the Google Translate app for Android and iOS has added a 'Live Translate' mode. With any pair of headphones, the app delivers translations in real time; the Android version of the Google Translate app also adds a hands-free listening mode activated by holding the device to the ear.\n\nSecond, the feature is entering private preview for select Google Workspace enterprise customers on Google Meet. This expands simultaneous interpretation in Meet from five languages translated only to and from English to more than 70 languages, with a full release planned for later this year.\n\nFinally, developers can integrate real-time speech translation into their own apps. Available in public preview via the Gemini Live API and AI Studio under the model ID 'gemini-3.5-live-translate-preview', the system is currently being tested by early partners, including Grab and CJ ENM."
+    },
+    {
+      "type": "heading",
+      "value": "Technical Limitations and Synthetic Voice Safeguards"
+    },
+    {
+      "type": "text",
+      "value": "Despite these capabilities, early evaluations of the simultaneous interpretation model highlight ongoing challenges. Google DeepMind's model card acknowledges limitations, noting that strong accents can cause transcription errors and that the generated voice can occasionally shift mid-sentence.\n\nTo address potential misuse, Google is embedding SynthID watermarks in all generated audio to identify it as synthetic. Given the model's ability to replicate a speaker's actual voice, this safeguard is crucial for security.\n\nEarly feedback focuses on the model's ability to preserve the speaker's unique vocal characteristics. Many early users describe the experience of hearing a foreign language spoken in a friend's familiar voice as surreal. Whether simultaneous interpretation becomes routine in professional environments will ultimately depend on how quickly Google resolves performance issues with diverse accents."
+    }
+  ]
+}
