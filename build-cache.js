@@ -85,7 +85,8 @@ function computeSourceCssHash() {
   const files = fs.readdirSync(stylesDir).filter(f => f.endsWith('.css')).sort();
   const hashes = [];
   for (const file of files) {
-    const content = fs.readFileSync(path.join(stylesDir, file), 'utf8');
+    // CRLF 정규화: OS 체크아웃 차이로 CI(LF)와 로컬(CRLF) 해시가 어긋나지 않도록
+    const content = fs.readFileSync(path.join(stylesDir, file), 'utf8').replace(/\r\n/g, '\n');
     hashes.push(`${file}:${computeHash(content)}`);
   }
   return computeHash(hashes.join('|'));
@@ -108,8 +109,11 @@ function computeTemplateJsHash() {
       if (stat.isDirectory()) {
         scanDir(fullPath);
       } else if (item.endsWith('.js')) {
-        const content = fs.readFileSync(fullPath, 'utf8');
-        hashes.push(`${fullPath}:${computeHash(content)}`);
+        // 경로 구분자·CRLF 정규화: CI(리눅스 LF, '/')와 윈도우 로컬(CRLF, '\')이
+        // 같은 소스에 대해 동일한 해시를 내도록 한다. 리눅스에서는 항등 변환.
+        const content = fs.readFileSync(fullPath, 'utf8').replace(/\r\n/g, '\n');
+        const normalizedPath = fullPath.split(path.sep).join('/');
+        hashes.push(`${normalizedPath}:${computeHash(content)}`);
       }
     }
   }
@@ -300,6 +304,7 @@ module.exports = {
   TEMPLATE_VERSION,
   computeHash,
   computeFileHash,
+  computeSourceCssHash,
   loadCache,
   saveCache,
   createEmptyCache,

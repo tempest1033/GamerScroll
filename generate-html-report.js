@@ -44,7 +44,7 @@ const REPORTS_DIR = './reports';
 const WIKI_DIR = './data/wiki';
 const FEED_ASSETS_DIR = './assets/feed';
 const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
-const { computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
+const { CSS_ASSET_FILES, computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
 let currentCssAssetVersion = '';
 
 /**
@@ -166,7 +166,7 @@ function renderDocsCssLinks(cssFiles) {
   return deferredCssHtml ? `${blockingCssHtml}\n${deferredCssHtml}` : blockingCssHtml;
 }
 
-function rewriteDocsStylesheetLinks(docsDir) {
+function rewriteDocsStylesheetLinks(docsDir, includePrefixes = null) {
   const htmlFiles = [];
   collectHtmlFilesUnderDir(docsDir, htmlFiles);
   const localCssHref = String.raw`\/styles(?:[.-][a-z0-9-]+)*\.css(?:\?[^"\s>]+)?`;
@@ -186,6 +186,10 @@ function rewriteDocsStylesheetLinks(docsDir) {
     }
 
     const relPath = path.relative(docsDir, filePath);
+    if (includePrefixes) {
+      const relPathNorm = relPath.replace(/\\/g, '/');
+      if (!includePrefixes.some((p) => relPathNorm.startsWith(p))) continue;
+    }
     const cssFiles = getCssBundlesForDocPath(relPath);
     const cssLinks = renderDocsCssLinks(cssFiles);
     let replacedHtml = html;
@@ -219,7 +223,7 @@ function rewriteDocsStylesheetLinks(docsDir) {
   console.log(`  🎨 CSS 링크 재작성: ${changedCount}개 HTML`);
 }
 
-function stripTechSidebarFromNonTechDocs(docsDir) {
+function stripTechSidebarFromNonTechDocs(docsDir, includePrefixes = null) {
   const htmlFiles = [];
   collectHtmlFilesUnderDir(docsDir, htmlFiles);
   const techSidebarGroupRe = /\r?\n?[ \t]*<div class="sidebar-category-group">\s*<div class="home-card-header"><a href="\/tech\/" class="home-card-title-link"><h2 class="home-card-title">테크<\/h2><\/a><\/div>\s*<div class="sidebar-category-list">[\s\S]*?<a href="\/tech\/vibecoding\/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩(?: \(\d+\))?<\/span><\/a>\s*<\/div>\s*<\/div>/g;
@@ -228,6 +232,7 @@ function stripTechSidebarFromNonTechDocs(docsDir) {
   for (const filePath of htmlFiles) {
     const relPath = path.relative(docsDir, filePath).replace(/\\/g, '/');
     if (relPath.startsWith('tech/')) continue;
+    if (includePrefixes && !includePrefixes.some((p) => relPath.startsWith(p))) continue;
 
     let html;
     try {
@@ -1174,7 +1179,39 @@ async function main() {
     generatedCssFiles.push(bundle.publicPath);
   };
 
-  for (const bundle of cssBundles) {
+  // 퀵 모드 CSS 동결: src/styles가 빌드 캐시와 동일하고 docs/에 배포본(purge 완료)
+  // 해시 CSS가 이미 있으면 번들링·PurgeCSS·재해시 연쇄를 건너뛰고 기존 해시를
+  // 그대로 재사용한다. src/styles에 커밋되지 않은 수정이 있으면 동결하지 않는다
+  // (CSS 편집을 미리보려면 전체 빌드). git 기준 판정이라 CI/로컬 OS 차이에 무관하다.
+  let cssFreezeVersion = '';
+  // CI는 동결 금지: CI가 data-cache 신선도로 isQuickMode를 켜는 경로가 있어
+  // process.env.CI에서는 항상 전체 CSS 파이프라인을 탄다.
+  if (isQuickMode && !process.env.CI) {
+    let srcStylesClean = false;
+    try {
+      const { execSync } = require('child_process');
+      srcStylesClean = execSync('git status --porcelain -- src/styles', { encoding: 'utf8' }).trim() === '';
+    } catch (e) {
+      srcStylesClean = false;
+    }
+    const docsCssVersion = computeCssAssetVersion('./docs');
+    // docs/에 존재하는 모든 안정 번들마다 동결 해시 사본이 있어야 동결 가능
+    const allHashedCopiesPresent = !!docsCssVersion && CSS_ASSET_FILES.every((name) => {
+      if (!fs.existsSync(`./docs/${name}`)) return true;
+      return fs.existsSync(`./docs/${name.replace(/\.css$/, `.${docsCssVersion}.css`)}`);
+    });
+    if (
+      docsCssVersion &&
+      srcStylesClean &&
+      allHashedCopiesPresent
+    ) {
+      cssFreezeVersion = docsCssVersion;
+      console.log(`  🧊 퀵 모드 CSS 동결: 배포 해시 ${docsCssVersion} 재사용 (번들링·PurgeCSS 생략)`);
+    }
+  }
+  const isCssFrozen = !!cssFreezeVersion;
+
+  if (!isCssFrozen) for (const bundle of cssBundles) {
     try {
       buildCssBundle(bundle);
       if (bundle.publicPath === '/styles-core.css') {
@@ -1199,8 +1236,8 @@ async function main() {
         .digest('hex')
         .slice(0, 8)
     : null;
-  currentCssAssetVersion = cssContentHash || '';
-  try {
+  currentCssAssetVersion = isCssFrozen ? cssFreezeVersion : (cssContentHash || '');
+  if (!isCssFrozen) try {
     const rootFiles = fs.readdirSync('.');
     for (const file of rootFiles) {
       if (
@@ -1293,7 +1330,7 @@ async function main() {
   }
 
   // 루트 디렉토리의 이전 해시 CSS 파일 정리
-  try {
+  if (!isCssFrozen) try {
     const rootFiles = fs.readdirSync('.');
     for (const file of rootFiles) {
       if (
@@ -1312,16 +1349,21 @@ async function main() {
   let forceFullRebuild = false;
 
   // CSS 또는 템플릿 변경 시 전체 재빌드
-  if (buildCache.checkCssChanged(incrementalCache, cssContentHash)) {
-    forceFullRebuild = true;
-    incrementalCache.meta.cssHash = cssContentHash;
-  }
-  if (buildCache.checkTemplateChanged(incrementalCache)) {
-    forceFullRebuild = true;
-    incrementalCache.meta.templateVersion = buildCache.TEMPLATE_VERSION;
-  }
-  if (buildCache.checkTemplateJsChanged(incrementalCache)) {
-    forceFullRebuild = true;
+  // CSS 동결 모드(프리뷰)에서는 전체 재빌드 강제를 걸지 않는다. 변경된 데이터의
+  // 페이지는 어차피 최신 템플릿으로 재생성되고, 나머지 페이지는 배포본 그대로 둔다.
+  // CI/풀 빌드 경로는 기존과 동일하게 세 가지 변경 감지를 모두 수행한다.
+  if (!isCssFrozen) {
+    if (buildCache.checkCssChanged(incrementalCache, cssContentHash)) {
+      forceFullRebuild = true;
+      incrementalCache.meta.cssHash = cssContentHash;
+    }
+    if (buildCache.checkTemplateChanged(incrementalCache)) {
+      forceFullRebuild = true;
+      incrementalCache.meta.templateVersion = buildCache.TEMPLATE_VERSION;
+    }
+    if (buildCache.checkTemplateJsChanged(incrementalCache)) {
+      forceFullRebuild = true;
+    }
   }
 
   if (forceFullRebuild) {
@@ -2296,7 +2338,7 @@ async function main() {
     console.log('  ✅ magazine/ → docs/magazine/');
   }
 
-  try {
+  if (!isCssFrozen) try {
     // 이전 해시 CSS 파일 삭제 (docs/ 내 styles.*.css)
     const docsFiles = fs.readdirSync(DOCS_DIR);
     for (const file of docsFiles) {
@@ -2395,24 +2437,36 @@ async function main() {
     }
   });
 
-  // docs 전체 HTML의 스타일 링크를 페이지군 기준으로 일괄 정규화
-  rewriteDocsStylesheetLinks(DOCS_DIR);
-  stripTechSidebarFromNonTechDocs(DOCS_DIR);
+  // docs 전체 HTML의 스타일 링크를 페이지군 기준으로 일괄 정규화.
+  if (!isCssFrozen) {
+    rewriteDocsStylesheetLinks(DOCS_DIR);
+    stripTechSidebarFromNonTechDocs(DOCS_DIR);
+  } else {
+    // 동결 모드: 스테이징 트리(magazine/·wiki/·tech/)에서 복사돼 들어온 페이지만
+    // 정규화한다. 증분 스킵으로 스테이징에 남은 구버전 해시 링크를 동결 해시로
+    // 교정하기 위함이며, games/ 등 배포본 페이지는 건드리지 않아 churn이 없다.
+    const copiedTrees = ['magazine/', 'wiki/', 'tech/'];
+    rewriteDocsStylesheetLinks(DOCS_DIR, copiedTrees);
+    stripTechSidebarFromNonTechDocs(DOCS_DIR, copiedTrees);
+  }
 
   // PurgeCSS: 사용되지 않는 CSS 제거 (docs/ 내 CSS만 대상)
-  await purgeCssInDocs(DOCS_DIR);
+  // CSS 동결 모드에서는 docs/의 배포본 CSS를 그대로 두므로 purge·재해시 불필요.
+  if (!isCssFrozen) {
+    await purgeCssInDocs(DOCS_DIR);
 
-  // CSS 해시: purge 완료본 기준으로 재산출 (게임 생성기와 동일 알고리즘 공유).
-  // purge 전에 발급하면 미purge 번들이 해시·배포되어 페이지마다 다른 파일을
-  // 받게 되므로, 반드시 purge 이후 docs/ 산출본으로 재해시·재버전·링크 재작성한다.
-  const purgedCssVersion = computeCssAssetVersion(DOCS_DIR);
-  if (purgedCssVersion && purgedCssVersion !== currentCssAssetVersion) {
-    console.log(`  🔁 CSS 해시 재산출(purge 후): ${currentCssAssetVersion || '(none)'} → ${purgedCssVersion}`);
+    // CSS 해시: purge 완료본 기준으로 재산출 (게임 생성기와 동일 알고리즘 공유).
+    // purge 전에 발급하면 미purge 번들이 해시·배포되어 페이지마다 다른 파일을
+    // 받게 되므로, 반드시 purge 이후 docs/ 산출본으로 재해시·재버전·링크 재작성한다.
+    const purgedCssVersion = computeCssAssetVersion(DOCS_DIR);
+    if (purgedCssVersion && purgedCssVersion !== currentCssAssetVersion) {
+      console.log(`  🔁 CSS 해시 재산출(purge 후): ${currentCssAssetVersion || '(none)'} → ${purgedCssVersion}`);
+    }
+    currentCssAssetVersion = purgedCssVersion;
+    setCssAssetVersion(currentCssAssetVersion);
+    ensureDocsCssAssetCopies(DOCS_DIR, currentCssAssetVersion);
+    rewriteDocsStylesheetLinks(DOCS_DIR);
   }
-  currentCssAssetVersion = purgedCssVersion;
-  setCssAssetVersion(currentCssAssetVersion);
-  ensureDocsCssAssetCopies(DOCS_DIR, currentCssAssetVersion);
-  rewriteDocsStylesheetLinks(DOCS_DIR);
 
   // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
   const sitemapDate = new Date().toISOString().split('T')[0];
