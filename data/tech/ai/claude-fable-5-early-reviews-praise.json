@@ -1,0 +1,122 @@
+{
+  "slug": "claude-fable-5-early-reviews-praise",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "2026-06-10T06:30Z",
+  "needTranslate": false,
+  "title": "클로드 페이블 5, '설계 파트너'로 진화하며 초기 호평",
+  "titleEn": "Claude Fable 5 Early Reviews: 'A Step Change'",
+  "summary": "앤트로픽의 신형 AI 모델 클로드 페이블 5가 출시 직후 호평을 받고 있다. 스트라이프의 대규모 코드 이전 작업을 하루 만에 처리하는 등 뛰어난 성능을 입증한 가운데, 주요 개발자들도 세대교체 수준의 도약이라 평가했다.",
+  "summaryEn": "A day after launch, Claude Fable 5 is drawing rave reviews. Stripe finished a 50M-line migration in one day; Karpathy calls it a generational step change.",
+  "keywords": "클로드 페이블 5, 앤트로픽, AI 코딩, 미토스 5",
+  "keywordsEn": "Claude Fable 5, Anthropic, Mythos 5, developer reviews",
+  "thumbnail": "https://cdn.mos.cms.futurecdn.net/wjYii4ZLQmoYATphqrEovk-1920-80.jpg",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Claude Fable 5 and Claude Mythos 5",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Anthropic brings Mythos to the masses with Claude Fable 5",
+      "url": "https://venturebeat.com/technology/anthropic-brings-mythos-to-the-masses-with-claude-fable-5-its-most-powerful-generally-available-model-ever"
+    },
+    {
+      "name": "Simon Willison",
+      "title": "First impressions of Claude Fable 5",
+      "url": "https://simonwillison.net/2026/Jun/9/claude-fable-5/"
+    },
+    {
+      "name": "Every",
+      "title": "Anthropic Mythos: Our Fable Vibe Check",
+      "url": "https://every.to/vibe-check/anthropic-mythos-our-fable-vibe-check"
+    },
+    {
+      "name": "CodeRabbit",
+      "title": "Fable 5 Model Review",
+      "url": "https://www.coderabbit.ai/blog/fable-5-model-review"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-safety-backlash",
+    "tech:ai/claude-fable-5-sota-benchmarks",
+    "tech:ai/claude-mythos-fable-5-rumor",
+    "tech:ai/claude-opus-4-8-launch"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 6월 9일 미토스 5와 같은 성능을 갖춘 신형 AI 모델 '클로드 페이블 5'를 출시한 이후, 실사용자들의 긍정적인 평가가 이어지고 있다. 출시 첫날 안전 조치로 인한 우회 라우팅과 구독 정책 변경으로 제기됐던 불만 여론도 하루 만에 수그러드는 모양새다. 실제 개발 현장에서 코드를 처리해 본 엔지니어들 사이에서는 호평이 지배적이다.\n\n안드레이 카파시 전 테슬라 AI 디렉터는 이번 업데이트를 정식 버전 번호를 올릴 만한 혁신적인 도약이라고 평가했다. 클로드 코드 개발을 이끄는 보리스 처니 역시 클로드가 단순한 코딩 에이전트를 넘어 사고와 설계를 함께하는 파트너로 진화했다고 설명했다. 벤치마크 점수가 아닌 실제 업무에서 증명한 성능이라는 분석이다."
+    },
+    {
+      "type": "heading",
+      "value": "두 달 걸릴 마이그레이션 하루 만에…스트라이프의 첫 성적표"
+    },
+    {
+      "type": "text",
+      "value": "가장 주목받는 사례는 결제 플랫폼 스트라이프의 성과다. [벤처비트](https://venturebeat.com/technology/anthropic-brings-mythos-to-the-masses-with-claude-fable-5-its-most-powerful-generally-available-model-ever)에 따르면 페이블 5는 스트라이프의 5,000만 라인 규모 루비 코드베이스 전체를 단 하루 만에 이전하는 데 성공했다. 당초 개발팀 전체가 매달려도 두 달 이상 걸릴 것으로 예상됐던 대규모 작업이다.\n\n다른 기업들의 평가도 긍정적이다. 데이터 분석 플랫폼 헥스는 장기 분석 벤치마크에서 페이블 5가 최초로 90% 이상의 점수를 기록했다고 밝혔다. 검색 엔진 스타트업 젠스파크는 자체 테스트에서 이 모델을 1위로 꼽았으며, 에디터 커서의 마이클 트루엘 최고경영자(CEO)도 장기 개발 과제를 해결할 수 있는 최첨단 모델이라고 평가했다.\n\n앤트로픽은 [공식 발표](https://www.anthropic.com/news/claude-fable-5-mythos-5)를 통해 페이블 5가 더 적은 지시만으로도 오랫동안 자율적으로 실행된다는 점을 강조했다. 라쿠텐과 베이스44 등 얼리어답터 기업들 역시 코드를 스스로 검증하고 한 번에 작동하는 애플리케이션을 완성해 내는 성능을 강점으로 언급했다."
+    },
+    {
+      "type": "heading",
+      "value": "\"느리고 비싸지만 괴물 같은 모델\"…개인 개발자들의 생생한 사용기"
+    },
+    {
+      "type": "image",
+      "src": "https://static.simonwillison.net/static/2026/fable-max.jpg",
+      "caption": "사이먼 윌리슨의 페이블 5 리뷰에 실린 '자전거 타는 펠리컨' SVG 일러스트",
+      "alt": "자전거를 타는 펠리컨 SVG 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "개인 개발자 커뮤니티에서도 호평이 이어진다. 프로그래머 사이먼 윌리슨은 [첫 리뷰](https://simonwillison.net/2026/Jun/9/claude-fable-5/)에서 페이블 5를 속도가 느리고 비용이 많이 들지만 괴물 같은 모델이라고 불렀다. 복잡한 라이브러리 개선이나 여러 단계의 에이전트 작업을 묵묵히 수행한다는 설명이다.\n\nIT 미디어 스타트업 에브리가 자체 진행한 시니어 엔지니어 평가 시험에서도 성능 차이가 확인됐다. 페이블 5는 100점 만점에 91점을 획득한 반면, 이전 세대인 오퍼스 4.8은 63점에 그쳤다. 현장 테스터들은 이 정도의 성능 격차는 세대교체 수준에 가깝다고 분석했다.\n\n보리스 처니 역시 지금까지 경험한 코딩 모델 중 가장 뛰어난 제품이라며, 모델의 뛰어난 상황 판단력과 설계 감각을 높이 평가했다. 소셜미디어 엑스(X)에서도 구체적인 지시 대신 대략적인 방향만 잡아주면 원하는 결과물을 얻을 수 있다는 사용기가 잇따르고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "강력한 성능이 미토스 5를 둘러싼 논란을 덮을 수 있을까"
+    },
+    {
+      "type": "text",
+      "value": "하지만 출시 첫날부터 제기된 논란은 여전히 불씨로 남아있다. 민감한 질문이 입력될 때 사용자 모르게 이전 세대인 오퍼스 4.8로 우회 처리되는 [검열 라우팅 논란](/ko/article/anthropic/claude-fable-5-safety-backlash/)과 함께, 6월 22일 이후에는 일반 구독 요금제에서 페이블 5가 제외될 것이라는 점도 우려를 낳고 있다. 정부 파트너용 미토스 5와 일반용 페이블 5로 차별화된 이중 구조에 대한 지적도 계속되는 상황이다.\n\n입력 100만 토큰당 10달러, 출력 50달러에 달하는 높은 비용과 다소 느린 응답 속도 역시 실사용자에게는 부담 요인이다. 그럼에도 출시 이튿날의 시장 여론은 모델의 성능에 집중되는 분위기다. [주요 벤치마크 테스트를 거의 석권한](/ko/article/anthropic/claude-fable-5-sota-benchmarks/) 객관적 지표에 실제 개발자들의 긍정적인 평가가 더해지면서다.\n\n앤트로픽에게 가장 중요한 시험대는 구독 혜택 개편이 시행되는 6월 23일이다. 혜택이 중단되는 시점에도 페이블 5의 높은 성능이 사용자들의 긍정적인 여론을 지켜낼 수 있을지, 아니면 출시 첫날의 반발이 다시 거세질지가 향후 관건이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "A day after Anthropic released its Mythos-class Claude Fable 5 model on June 9, hands-on developer reviews are shifting public sentiment away from launch-day backlash over safety routing and subscription policies. Early feedback from engineers testing the model on live codebases — from a 50-million-line Stripe migration to senior-engineer evals — has been overwhelmingly positive.\n\nAndrej Karpathy described the update as a generational leap deserving of a major version bump. Boris Cherny, lead developer for Claude Code, noted that the model has transitioned from a simple coding agent into a thought and design partner. These reviews are grounded in real-world development tasks rather than synthetic benchmark tables."
+    },
+    {
+      "type": "heading",
+      "value": "Stripe Completes Two-Month Migration in a Single Day"
+    },
+    {
+      "type": "text",
+      "value": "The most prominent case study comes from Stripe. According to [VentureBeat](https://venturebeat.com/technology/anthropic-brings-mythos-to-the-masses-with-claude-fable-5-its-most-powerful-generally-available-model-ever), Fable 5 completed a comprehensive migration of a 50-million-line Ruby codebase in a single day, a task previously estimated to require an entire engineering team over two months of manual labor.\n\nOther enterprise assessments echo these findings. Analytics platform Hex reported that Fable 5 is the first model to exceed 90% on its long-running analytics benchmark, while search engine Genspark ranked it first in head-to-head evaluations. Michael Truell, CEO of Cursor, described it as a state-of-the-art model capable of solving long-horizon development tasks.\n\nIn its [official announcement](https://www.anthropic.com/news/claude-fable-5-mythos-5), Anthropic emphasized that the Mythos-class Fable 5 operates with greater autonomy and requires fewer prompts. Early corporate testers, including Rakuten and Base44, highlighted the model's self-verification capabilities and its ability to generate functional applications in a single run."
+    },
+    {
+      "type": "heading",
+      "value": "Independent Developers Call Fable 5 'Slow, Expensive, but a Beast'"
+    },
+    {
+      "type": "image",
+      "src": "https://static.simonwillison.net/static/2026/fable-max.jpg",
+      "caption": "The 'pelican riding a bicycle' SVG illustration featured in Simon Willison's Fable 5 review",
+      "alt": "SVG illustration of a pelican riding a bicycle"
+    },
+    {
+      "type": "text",
+      "value": "Independent developers have also welcomed the model. Programmer Simon Willison characterized Fable 5 in his [first review](https://simonwillison.net/2026/Jun/9/claude-fable-5/) as slow and expensive but ultimately a beast, noting its capacity to resolve complex library improvements and execute multi-step agent tasks.\n\nIn a senior engineer evaluation conducted by media startup Every, Fable 5 scored 91 out of 100, whereas the previous-generation Opus 4.8 recorded 63. Early reviews note that, for an AI coding model, a performance gap of this scale reads as a generational leap.\n\nCherny called Fable 5 the best coding model he has used to date by a wide margin, praising its contextual judgment and design sensibilities. Developers sharing their experiences on X report that the model requires fewer prompts and achieves better results when guided by high-level intent."
+    },
+    {
+      "type": "heading",
+      "value": "Can Product Performance Outweigh the Mythos 5 Controversy?"
+    },
+    {
+      "type": "text",
+      "value": "Despite the positive reception, launch-day controversies persist. Backlash over Anthropic's [safety routing](/article/anthropic/claude-fable-5-safety-backlash/)—where sensitive queries are redirected to the older Opus 4.8—remains active, as do concerns regarding the model's removal from consumer subscription plans after June 22. Critics also target the dual-release strategy, which reserves the unrestricted Mythos 5 model for government partners while providing the filtered Fable 5 to the general public.\n\nHigh operational costs, priced at $10 per million input tokens and $50 per million output tokens, alongside slower response times, present practical challenges. Nonetheless, industry sentiment has shifted toward the Mythos-class model's capabilities, driven by a [near-sweep of industry benchmarks](/article/anthropic/claude-fable-5-sota-benchmarks/) and matching real-world developer reviews.\n\nThe critical test for Anthropic will arrive on June 23. Once the subscription transition takes effect, the market will determine whether Claude Fable 5's high performance can sustain user enthusiasm or if early consumer dissatisfaction will resurface."
+    }
+  ]
+}
