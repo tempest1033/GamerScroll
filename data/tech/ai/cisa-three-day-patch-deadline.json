@@ -1,0 +1,121 @@
+{
+  "slug": "cisa-three-day-patch-deadline",
+  "site": "aiscroll",
+  "status": "approved",
+  "needTranslate": false,
+  "category": "general",
+  "date": "",
+  "title": "미 CISA, 최고위험 취약점 패치 기한 3일로 단축",
+  "titleEn": "CISA Orders 3-Day Patching for Riskiest Flaws",
+  "summary": "미국 CISA가 새 운영 지침 'BOD 26-04'를 발령해 최고위험 취약점 패치 기한을 14일에서 3일로 줄였다. AI로 빨라진 공격 속도에 맞춘 조치로, 저위험 취약점은 연기를 허용하는 위험 기반 체계다.",
+  "summaryEn": "CISA's BOD 26-04 cuts the patch window for the riskiest flaws to 3 days as AI accelerates exploitation, while letting agencies defer low-risk bugs.",
+  "keywords": "CISA 지침, BOD 26-04, 취약점 패치, AI 사이버 위협",
+  "keywordsEn": "CISA directive, KEV catalog, vulnerability patching, federal agencies",
+  "thumbnail": "https://www.csoonline.com/wp-content/uploads/2026/05/4167422-0-23851200-1778009629-MagicMore_shutterstock_1786594046_16z9.jpg?quality=50&strip=all&w=1024",
+  "sources": [
+    {
+      "name": "CISA",
+      "title": "CISA Issues New Directive Improving How Federal Agencies Prioritize the Mitigation of Cyber Vulnerabilities",
+      "url": "https://www.cisa.gov/news-events/news/cisa-issues-new-directive-improving-how-federal-agencies-prioritize-mitigation-cyber-vulnerabilities"
+    },
+    {
+      "name": "CISA",
+      "title": "Patch Smarter, Not Harder",
+      "url": "https://www.cisa.gov/news-events/news/patch-smarter-not-harder"
+    },
+    {
+      "name": "Reuters",
+      "title": "US shortens cyber fix window to three days as AI threats rise",
+      "url": "https://www.reuters.com/legal/litigation/us-shortens-cyber-fix-window-three-days-ai-threats-rise-2026-06-10/"
+    },
+    {
+      "name": "CyberScoop",
+      "title": "CISA directive orders agencies to prioritize vulnerability patching in a new way",
+      "url": "https://cyberscoop.com/cisa-vulnerability-remediation-directive-bod-26-04/"
+    },
+    {
+      "name": "Cybersecurity Dive",
+      "title": "CISA directive gives agencies 3 days to fix highest-risk vulnerabilities",
+      "url": "https://www.cybersecuritydive.com/news/cisa-vulnerability-remediation-prioritization-directive/822504/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/trump-frontier-ai-review-order",
+    "tech:ai/anthropic-nsa-mythos-offensive-cyber",
+    "tech:ai/us-government-ai-equity-stakes"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "미국 사이버보안·인프라보안국(CISA)이 6월 10일 구속력 있는 운영 지침인 'BOD 26-04'를 발령했다. 이에 따라 미국 연방 민간 기관들은 발견된 최고위험 취약점에 대해 사흘(3일) 안에 패치를 적용하거나 시스템을 차단해야 한다. 기존에 적용되던 조치 기한은 14일이었다.\n\n단순히 조치 시한만 단축된 것은 아니다. CISA는 AI 사이버 위협이 고도화되면서 취약점 발견부터 실제 공격 무기화까지 걸리는 시간이 급격히 줄어들고 있다고 분석했다. 패치 배포와 실제 공격 개시 사이에 존재하던 방어 기간이 사라짐에 따라, 연방정부의 취약점 대응 체계를 새로운 시간표에 맞춰 전면 재구축하겠다는 취지다."
+    },
+    {
+      "type": "heading",
+      "value": "위험 등급을 가르는 4대 기준"
+    },
+    {
+      "type": "text",
+      "value": "새로운 프레임워크의 핵심은 위험도 기반의 차등 관리다. CISA는 취약점을 다음 4가지 기준으로 분류한다. 자산의 인터넷 노출 여부, 실제 악용 정황이 확인돼 '알려진 악용 취약점(KEV)' 목록에 등재되었는지 여부, 공격 자동화 가능 여부, 공격 성공 시 시스템 통제권 장악 여부다.\n\n네 가지 기준을 모두 충족하는 최고위험 취약점은 사흘 안에 패치를 마쳐야 한다. 아울러 패치 적용 전 시스템 침해 여부를 점검하는 포렌식 분석도 함께 이뤄진다. 이미 내부망을 선점한 공격자는 패치 설치만으로 밀어낼 수 없기 때문이다. 반면 위험도가 낮은 취약점은 정기 패치 주기나 다음 시스템 업그레이드까지 조치를 유예하는 것도 가능하다.\n\n이번 지침은 인터넷 노출 시스템을 다루던 기존 'BOD 19-02'와 KEV 대응을 규정한 'BOD 22-01'을 하나로 통합한 결과다. 이에 따라 각 연방 기관은 취약점 관리 정책의 즉각적인 갱신을 요구받는다. 아울러 60일 이내에 관련 절차를 정비하고, 180일이 경과하는 2026년 12월 7일까지 새로운 마감 시한을 업무 전반에 걸쳐 준수해야 한다."
+    },
+    {
+      "type": "heading",
+      "value": "'방어자에게 몇 주의 시간은 없다'…AI 사이버 위협이 당긴 공격 시계"
+    },
+    {
+      "type": "image",
+      "src": "https://cyberscoop.com/wp-content/uploads/sites/3/2026/06/GettyImages-2238549241.jpg",
+      "caption": "노트북으로 쏟아지는 커서 포인터를 형상화한 일러스트",
+      "alt": "노트북 화면 위로 픽셀 커서 화살표 수십 개가 쏟아지는 3D 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "이와 같이 단축된 마감 시한의 근거로 CISA는 통계 자료를 제시하며 조치의 시급성을 강조했다. CISA가 지침과 함께 게재한 블로그 글 ['Patch Smarter, Not Harder'](https://www.cisa.gov/news-events/news/patch-smarter-not-harder)에 따르면, 지난 2025년 한 해 동안 KEV 카탈로그에 등재된 취약점을 완전히 패치한 기관은 26%에 머물렀다. 이는 전년도(38%)보다 오히려 하락한 수치며, 완전 조치까지 걸린 기간의 중앙값은 43일로 늘어났다.\n\n반면 공격자들의 대응 속도는 한층 빨라졌다. 보안 위협 인텔리전스 기업 벌른체크(VulnCheck)의 집계 결과, 2025년 기준 KEV급 취약점의 29%가 보안 취약점 번호(CVE)가 공식 공개된 당일 혹은 그 이전에 실제 공격에 노출된 것으로 드러났다. 크리스 부테라 CISA 사이버보안 수석 부국장 대행은 자동화된 대량 공격 위험이 있는 시스템을 두고 방어자가 몇 주씩 대기할 여유는 없다고 경고했다.\n\n이번 제도 개편은 이미 예견된 수순이다. 로이터 통신은 지난 5월 CISA가 패치 기한을 72시간으로 단축하는 방안을 조율 중이라고 전한 바 있다. 당시에 이미 앤트로픽의 '클로드 미토스'처럼 고도로 발전한 AI 모델의 등장이 그 배경으로 거론됐다. 지난주 도널드 트럼프 미국 대통령이 서명한 [AI 행정명령](/ko/article/general/trump-frontier-ai-review-order/) 역시 연방 시스템 보안 강화를 촉구하며 이번 지침을 예고한 상태다."
+    },
+    {
+      "type": "heading",
+      "value": "3일 패치 대상은 1% 미만…효율적 자원 집중에 초점"
+    },
+    {
+      "type": "text",
+      "value": "새로운 행정명령을 등에 업었지만, 모든 연방 기관의 전체 패치 속도가 일괄적으로 빨라지는 것은 아니다. CISA가 한 대형 민간 기관을 표본 삼아 분석한 결과, 3일 이내에 해결해야 하는 취약점은 전체의 약 1%에 불과했다. 반면 60%가 넘는 취약점은 다음 시스템 업그레이드 시점까지 조치를 미룰 수 있었다. 가장 시급한 1%에 자원을 집중하고 상대적으로 덜 위험한 요소는 유예하도록 돕는 구조다.\n\n일부 전문가들 사이에서는 회의적인 시각도 존재한다. 100여 개가 넘는 정부 기관들이 일률적으로 사흘의 시한을 완수하기는 쉽지 않으며, 패치 적용 전의 안정성을 검증하기에 72시간은 지나치게 짧다는 지적이다. 이에 대해 CISA는 이미 관계 기관들과 조율을 마쳤기에 실현 가능한 수준이라며, 24시간 패치 의무화와 같은 극단적인 대안에 비해 훨씬 현실적이고 균형 잡힌 정책이라는 입장을 고수했다.\n\n이번 지침의 구속력은 연방 민간 기관에만 적용된다. 하지만 CISA가 민간 기업에도 동일한 위험 기반 원칙을 도입할 것을 적극 권고하고 있어 파급 효과가 클 전망이다. AI 사이버 위협이 일상이 된 시대에, 민간을 포함한 시장 전체의 취약점 패치 표준 역시 이번 지침을 따라 재편될 가능성이 크다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The US Cybersecurity and Infrastructure Security Agency (CISA) issued Binding Operational Directive 26-04 on June 10, requiring federal civilian agencies to patch, disable, or disconnect systems affected by the highest-risk vulnerabilities within three days of identification. The previous baseline for the most critical category was 14 days.\n\nHowever, the compressed deadline is only part of the shift. CISA warns that AI cyber threats are maturing fast, rapidly narrowing the window between vulnerability discovery and weaponization, erasing the buffer defenders historically relied on between a patch release and the first wave of active attacks. The CISA directive rebuilds federal vulnerability management around this accelerated timeline."
+    },
+    {
+      "type": "heading",
+      "value": "Four Criteria to Determine Patching Deadlines"
+    },
+    {
+      "type": "text",
+      "value": "The core of the new CISA directive is a risk-based tiering system. CISA classifies each vulnerability against four criteria: internet exposure of the asset, evidence of active exploitation placing it on the Known Exploited Vulnerabilities (KEV) catalog, whether exploitation can be fully automated, and whether a successful attack allows full system control.\n\nVulnerabilities meeting all four criteria must be remediated within three days, a requirement paired with a forensic triage to verify whether the system was compromised before the patch was applied. Applying a patch does not evict an intruder who has already gained access. Lower-risk vulnerabilities, by contrast, may be deferred to the next regular patch cycle or system upgrade.\n\nBOD 26-04 consolidates two previous directives: BOD 19-02, which addressed internet-accessible systems, and BOD 22-01, which regulated KEV catalog remediation. Agencies must update their vulnerability management policies immediately, overhaul their processes within 60 days, and implement the new deadlines in full within 180 days, setting a target date of December 7, 2026."
+    },
+    {
+      "type": "heading",
+      "value": "'Defenders Cannot Afford Weeks': AI Cyber Threats Compress Exploit Timelines"
+    },
+    {
+      "type": "image",
+      "src": "https://cyberscoop.com/wp-content/uploads/sites/3/2026/06/GettyImages-2238549241.jpg",
+      "caption": "Illustration of pixelated cursors swarming a laptop",
+      "alt": "3D illustration of dozens of pixelated cursor arrows pouring onto a laptop"
+    },
+    {
+      "type": "text",
+      "value": "CISA supported the accelerated timeline with historical data. According to the agency's companion blog post, ['Patch Smarter, Not Harder'](https://www.cisa.gov/news-events/news/patch-smarter-not-harder), only 26% of KEV catalog vulnerabilities were fully remediated by organizations in 2025, down from 38% the previous year. The median time to full resolution rose to 43 days.\n\nConversely, threat actors are moving faster. Security intelligence firm VulnCheck reported that 29% of KEV catalog vulnerabilities in 2025 showed signs of active exploitation on or before the day their CVE was published. Chris Butera, CISA's acting executive assistant director for cybersecurity, noted that defenders no longer have the luxury of taking weeks to patch systems vulnerable to automated, mass exploitation.\n\nThe policy shift follows months of deliberation. Reuters reported in May that CISA was considering reducing the patching window from 14 days to 72 hours, citing AI cyber threats from highly capable models like Anthropic's Claude Mythos. Additionally, the [AI executive order](/article/general/trump-frontier-ai-review-order/) signed by President Trump last week ordered the hardening of federal information systems, foreshadowing the new CISA directive."
+    },
+    {
+      "type": "heading",
+      "value": "Only 1% of Flaws Fall Under Three-Day Deadline"
+    },
+    {
+      "type": "text",
+      "value": "Despite backing from the executive order, the CISA directive does not accelerate all patching operations across federal networks. CISA's analysis of a representative large civilian agency found that only about 1% of identified vulnerability instances fell into the three-day tier, while more than 60% could be deferred until the next scheduled system upgrade. The framework is designed to focus resources on the critical 1% while easing the burden of lower-risk flaws.\n\nHowever, industry skeptics remain. Critics question whether more than 100 federal agencies can consistently meet a three-day deadline and warn that a 72-hour window leaves little time to test patches for stability before deployment. CISA maintains that the timeline was vetted with agencies beforehand and offers a more balanced approach than extreme options like a 24-hour patching mandate, calling the three-day window a proportionate answer to AI cyber threats.\n\nWhile the directive is binding only on federal civilian agencies, CISA is urging private-sector organizations to adopt the same risk-based principles against cyber threats. As AI cyber threats continue to evolve, the global standard for vulnerability patching is expected to align with the framework established by this directive."
+    }
+  ]
+}
