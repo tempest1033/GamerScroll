@@ -1,0 +1,122 @@
+{
+  "slug": "anthropic-fable-5-false-positive-easing",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "앤트로픽, '클로드 페이블 5' 과잉 검열 완화 조치 착수",
+  "titleEn": "Anthropic Moves to Ease Fable 5 Over-Refusals",
+  "summary": "앤트로픽이 클로드 페이블 5의 안전장치 오탐을 줄이겠다고 발표했다. 과학 연구 등 무해한 질문이 구형 모델인 오퍼스 4.8로 우회 처리된다는 이용자 비판을 수용한 결과다.",
+  "summaryEn": "Anthropic has pledged to cut Claude Fable 5's false positives after users reported harmless scientific prompts being routed to the older Opus 4.8.",
+  "keywords": "클로드 페이블 5, 앤트로픽, 과잉 검열, 미토스 5",
+  "keywordsEn": "Claude Fable 5, Anthropic, over-refusal, safety classifier",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/b7055119423427c40a0e4d84054aed17682b50a2-2880x1620.png",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Claude Fable 5 and Claude Mythos 5",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    },
+    {
+      "name": "The Wall Street Journal",
+      "title": "Anthropic's New AI Restrictions Frustrate Developers",
+      "url": "https://www.wsj.com/tech/ai/anthropic-fable-restrictions-ai-developers-cd9bf57c"
+    },
+    {
+      "name": "Ars Technica",
+      "title": "Anthropic says these topics are too dangerous to let its Fable 5 model talk about",
+      "url": "https://arstechnica.com/ai/2026/06/anthropic-says-these-topics-are-too-dangerous-to-let-its-fable-5-model-talk-about/"
+    },
+    {
+      "name": "Claude Support",
+      "title": "Why Claude switched models in your conversation with Fable 5",
+      "url": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5"
+    },
+    {
+      "name": "The Decoder",
+      "title": "Anthropic releases Claude Fable 5 and Mythos 5 with major gains in coding and science",
+      "url": "https://the-decoder.com/anthropic-releases-claude-fable-5-and-mythos-5-with-major-gains-in-coding-and-science/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-safety-backlash",
+    "tech:ai/claude-fable-5-early-reviews-praise",
+    "tech:ai/claude-mythos-fable-5-rumor",
+    "tech:ai/claude-fable-5-sota-benchmarks"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "인공지능 스타트업 앤트로픽이 지난 6월 9일 출시한 '클로드 페이블 5'가 이틀 만에 과잉 검열 논란에 휩싸였다. 민감한 질문을 구형 모델인 '오퍼스 4.8'로 전환해 처리하는 안전장치가 무해한 입력값까지 과도하게 차단한다는 지적이 잇따른다.\n\n앤트로픽은 사용자의 질문을 즉시 거절하는 대신, 별도의 안전 분류기로 보안 위협이나 생화학 위험 등을 감지해 오퍼스 4.8이 대신 답변하도록 설계했다. 회사 측은 이러한 우회 비율이 전체 세션의 5% 미만이라고 설명하지만, 현업 개발자와 연구자들은 체감 전환율이 이보다 훨씬 높다고 주장한다.\n\n이용자 불만이 커지자 앤트로픽은 초기 안전장치 설정이 다소 보수적이었음을 인정하고, 클로드 페이블 5의 오탐을 줄이기 위한 안전 분류기 정교화 작업에 들어갔다."
+    },
+    {
+      "type": "heading",
+      "value": "기초 생물학 질문마저 차단한 안전 분류기"
+    },
+    {
+      "type": "text",
+      "value": "[월스트리트저널 보도](https://www.wsj.com/tech/ai/anthropic-fable-restrictions-ai-developers-cd9bf57c)에 따르면 오탐이 발생한 사례는 일상적이고 학술적인 영역을 가리지 않는다. '미토콘드리아에 대해 설명해달라'는 기초 생물학 질문이 대표적이다. 중합효소연쇄반응(PCR) 프라이머 설계와 순환군 등 수학 이론은 물론, 심지어 돼지고기 요리용 장보기 목록까지 오퍼스 4.8로 우회 처리된 것으로 확인됐다.\n\n안전장치의 작동 방식 자체는 단순하다. 안전 분류기가 위험 신호를 감지하면 화면에 안내 문구를 띄운다. 그러면 답변 생성 주체가 클로드 페이블 5에서 오퍼스 4.8로 넘어간다. 하지만 이용자들은 이 거름망이 지나치게 촘촘해 정상적인 연구 활동과 일상적 대화까지 방해하고 있다고 반발한다.\n\n실제로 온라인 커뮤니티 레딧에는 생물학 및 임상 의학 연구자들을 중심으로 체감 우회율이 공식 통계보다 훨씬 높다는 불만이 쏟아지고 있다. 신형 모델의 사용료가 기존 오퍼스의 두 배에 달하는 상황에서, 정작 결과물은 구형 모델이 작성해 제공하자 비용 대비 효용을 두고 의문이 제기되는 실정이다."
+    },
+    {
+      "type": "heading",
+      "value": "앤트로픽, 오탐 개선 공언…일부 연구자 예외 적용"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/GettyImages-1599973349-1152x648.jpg",
+      "caption": "회로 기판 위에 놓인 디지털 자물쇠",
+      "alt": "사이버보안을 형상화한 회로 기판 위 디지털 자물쇠 이미지"
+    },
+    {
+      "type": "text",
+      "value": "이러한 이용자 우려에 대해 앤트로픽도 공식 해명을 내놨다. 회사 측은 [공식 발표문](https://www.anthropic.com/news/claude-fable-5-mythos-5)을 통해 빠른 출시와 안전성 확보를 위해 필터를 보수적으로 설정하는 과정에서 오탐이 발생했다고 해명했다. 또한 이용자들이 겪는 불편을 인지하고 있으며 오탐 현상을 신속히 개선하겠다는 입장이다.\n\n앤트로픽은 자사 안전 분류기의 성능을 뒷받침하는 두 가지 통계도 제시했다. 우회는 평균적으로 전체 세션의 5% 미만에서만 작동한다. 따라서 95% 이상의 세션에서는 제한이 없는 '미토스 5' 수준의 성능을 그대로 경험할 수 있다는 취지다. 아울러 질문을 완전히 거부하기보다는 오퍼스 4.8로 연결하는 편이 사용자 경험 측면에서 이롭다고 덧붙였다.\n\n실질적인 구제책 마련도 함께 공식화됐다. 수 주 이내에 검증된 생의학 연구자와 기업을 대상으로 제한이 해제된 미토스 5를 개방하는 '신뢰 접근 프로그램'을 가동할 방침이다. 이와 함께 30일 동안 누적된 미토스급 트래픽 데이터를 분석해 오탐 유형을 분류하고, 과학 연구에 지장을 초래하는 생물·화학 분야 안전 분류기부터 우선 조정하겠다고 밝혔다."
+    },
+    {
+      "type": "heading",
+      "value": "패치는 아직 미진행…신뢰 회복 걸린 다음 몇 주"
+    },
+    {
+      "type": "text",
+      "value": "선언적인 계획 발표에도 불구하고 아직 기술적 업데이트가 직접 적용되지는 않았다. 오탐 완화 약속은 초기 출시 안내문에만 명시됐을 뿐, 안전 분류기 조정을 위한 공식 일정은 공유되지 않은 상태다. 결국 앤트로픽이 신속한 피드백을 통해 공약을 이행하는지가 향후 신뢰의 분수령이 될 것으로 보인다.\n\n단순한 우회 조치 외에 차별적 접근 구조에 대한 비판도 제기된다. 본지의 [출시 직후 이용자 반발 관련 보도](/ko/article/anthropic/claude-fable-5-safety-backlash/)에서 짚었듯, 정부나 승인된 일부 기관만 제한이 없는 미토스 5를 쓴다. 반면 일반 개인 이용자는 비용을 두 배로 내면서도 검열이 가해진 버전을 써야 한다. 이런 이중 구조는 여전히 논란의 대상이다.\n\n고사양 AI 모델의 출시 주기가 단축되는 상황에서 이번 논란은 안전 엔지니어링 분야의 반복되는 구조적 한계를 보여준다. 악용 방지와 과잉 검열 사이에서 적절한 균형점을 찾는 일은 향후 미토스급 모델 시장을 공략해야 하는 앤트로픽의 당면 과제다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Just two days after its June 9 launch, Anthropic's Claude Fable 5 has drawn criticism in an over-refusal controversy. Users report that the model's safety guardrails, which redirect sensitive queries to the lower-tier Opus 4.8, are frequently flagging entirely harmless prompts.\n\nRather than issuing outright refusals, Anthropic routes flagged queries to Opus 4.8 after a safety classifier screens for risks related to cybersecurity, biochemistry, and model distillation. Although the company states this switch affects less than 5% of user sessions, developers and researchers report a significantly higher fallback rate.\n\nIn response to mounting user feedback, Anthropic acknowledged that the conservative safety tuning was intentional and announced it has begun refining the classifiers to minimize false positives."
+    },
+    {
+      "type": "heading",
+      "value": "Mitochondria Queries Trip Safety Classifier"
+    },
+    {
+      "type": "text",
+      "value": "A compilation of false positives published by [The Wall Street Journal](https://www.wsj.com/tech/ai/anthropic-fable-restrictions-ai-developers-cd9bf57c) illustrates the scope of the over-refusal problem. Harmless prompts rerouted to Opus 4.8 included basic biology queries about mitochondria, PCR primer design, abstract algebra topics such as cyclic groups, and even a grocery list for pulled pork.\n\nThe underlying mechanism is straightforward. When the classifier detects potential risks in cybersecurity, biochemistry, or distillation, the query is automatically redirected to Opus 4.8, accompanied by an on-screen notification. Users argue that this safety net is cast far too wide, catching benign academic and everyday requests.\n\nOn Reddit, researchers in biology, neuroscience, and clinical sciences report that the actual fallback rate feels much higher than official estimates. Because Claude Fable 5 is priced at twice the rate of Opus, the frequent downgrades to the older model have fueled skepticism over the new release's value proposition."
+    },
+    {
+      "type": "heading",
+      "value": "Anthropic Pledges Rapid Classifier Adjustments"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/06/GettyImages-1599973349-1152x648.jpg",
+      "caption": "A digital padlock resting on a circuit board",
+      "alt": "A glowing digital padlock on a circuit board symbolizing cybersecurity"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic addressed these concerns directly. In an [official announcement](https://www.anthropic.com/news/claude-fable-5-mythos-5), the company admitted that safeguards were tuned conservatively to ensure a safe and timely launch, resulting in benign requests being flagged. Acknowledging user frustration, the developer promised to reduce false positives as quickly as possible.\n\nAnthropic supported its position with two key statistics. The fallback mechanism is triggered in fewer than 5% of all sessions on average, meaning Claude Fable 5 performs identically to the unrestricted Mythos 5 in over 95% of cases. The company also argued that routing queries to Opus 4.8 provides a better user experience than a blunt refusal.\n\nTo address the issue, Anthropic plans to launch a 'trusted access' program within weeks, granting vetted biomedical researchers and enterprise clients access to the unrestricted Mythos 5. The company will also analyze 30 days of Mythos-class traffic logs to identify and resolve false-positive patterns. Safeguards on biological and chemical queries will be narrowed first to minimize disruption to scientific research."
+    },
+    {
+      "type": "heading",
+      "value": "No Fix Has Shipped Yet: The Next Few Weeks Will Decide"
+    },
+    {
+      "type": "text",
+      "value": "Despite these commitments, no technical updates have been deployed. The promised mitigations remain confined to the initial announcement, with no official timeline for classifier updates. The coming weeks will determine whether Anthropic delivers on its promises.\n\nThe fallback routing is not the only source of friction. As detailed in our [launch-day backlash report](/article/anthropic/claude-fable-5-safety-backlash/), users continue to criticize the two-tier access structure, under which governments and vetted partners receive the unrestricted Mythos 5 while general users pay premium rates for a heavily filtered version.\n\nAs frontier AI models launch at an accelerating pace, this controversy highlights a recurring structural tension in safety engineering. Finding the balance between preventing misuse and avoiding over-refusal will be the defining challenge for Anthropic in the Mythos-class era."
+    }
+  ]
+}
