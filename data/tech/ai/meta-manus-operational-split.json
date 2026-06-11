@@ -1,0 +1,122 @@
+{
+  "slug": "meta-manus-operational-split",
+  "status": "approved",
+  "site": "aiscroll",
+  "needTranslate": false,
+  "category": "general",
+  "title": "메타, 마누스와 결별 — 중국이 되돌린 20억 달러 인수",
+  "titleEn": "Meta Severs Manus Ties After China Unwind Order",
+  "date": "2026-06-11T15:00Z",
+  "thumbnail": "https://techfundingnews.com/wp-content/uploads/2026/05/Manus-AI.jpg",
+  "keywords": "마누스, 메타 마누스 인수, AI 에이전트, 중국 AI 규제",
+  "keywordsEn": "Manus AI, Meta Manus deal, agentic AI, China AI regulation",
+  "summary": "메타가 중국 정부의 인수 취소 명령에 따라 인공지능(AI) 에이전트 스타트업 마누스와의 데이터 공유를 중단하고 본격적인 운영 분리에 나섰다. 출국 금지 조치를 겪은 마누스 창업자들은 10억 달러 규모의 자금을 조달해 회사를 다시 사들이는 방안을 추진하고 있다.",
+  "summaryEn": "Meta cut off data sharing with Manus, completing an operational split after China ordered the $2B deal unwound. Founders seek $1B to buy the company back.",
+  "sources": [
+    {
+      "name": "Bloomberg",
+      "title": "Meta Severs Manus Data Access After China Orders Buyout Unwound",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-11/meta-severs-manus-data-access-after-china-orders-buyout-unwound"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "China blocks Meta's $2B Manus deal after months-long probe",
+      "url": "https://techcrunch.com/2026/04/27/china-vetoes-metas-2b-manus-deal-after-months-long-probe/"
+    },
+    {
+      "name": "CNBC",
+      "title": "Meta acquires intelligent agent firm Manus, capping year of aggressive AI moves",
+      "url": "https://www.cnbc.com/2025/12/30/meta-acquires-singapore-ai-agent-firm-manus-china-butterfly-effect-monicai.html"
+    },
+    {
+      "name": "NPR",
+      "title": "China blocks Meta from acquiring AI startup Manus",
+      "url": "https://www.npr.org/2026/04/27/g-s1-118892/china-blocks-meta-from-acquiring-ai-startup-manus"
+    },
+    {
+      "name": "Tech Funding News",
+      "title": "China said no to Meta's $2B deal, now Manus AI needs $1B to reclaim what it built",
+      "url": "https://techfundingnews.com/china-said-no-to-metas-2b-deal-now-manus-ai-needs-1b-to-reclaim-what-it-built/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/chatbot-to-agent-paradigm-shift",
+    "tech:ai/meta-hatch-vibe-coding-agent",
+    "tech:ai/deepseek-tops-us-spending-tracker",
+    "tech:ai/us-government-ai-equity-stakes"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "메타가 인공지능(AI) 에이전트 스타트업 마누스와의 운영 협력을 전면 중단했다. 블룸버그는 6월 11일(현지시간) 메타가 마누스와의 데이터 공유를 차단하고 운영 분리 절차를 마쳤다고 보도했다. 중국 정부가 20억 달러 규모의 인수를 철회하라고 명령한 지 약 6주 만이다.\n\n이로써 지난해 12월 체결된 인수 계약은 반년도 되지 않아 해체 수순을 밟게 됐다. 중국 국가발전개혁위원회(NDRC)가 지난 4월 말 거래 취소를 요구한 이후, 이번에 구축된 데이터 방화벽은 인수 철회 명령에 따른 가장 구체적인 후속 조치다."
+    },
+    {
+      "type": "heading",
+      "value": "방화벽 구축... 데이터와 시스템 접근 차단"
+    },
+    {
+      "type": "text",
+      "value": "인수 해체의 첫 단계는 시스템 접근 권한 조정이다. [블룸버그](https://www.bloomberg.com/news/articles/2026-06-11/meta-severs-manus-data-access-after-china-orders-buyout-unwound)에 따르면 마누스 직원들은 이달 초부터 메타의 내부망에 접속할 수 없게 됐다. 메타 직원 역시 마누스의 개발 도구 사용이 제한됐으며, 진행 중이던 협업 프로젝트를 다른 플랫폼으로 이전하라는 지시가 내려졌다.\n\n현재 진행 중이던 신규 통합 프로젝트는 모두 전면 중단됐다. 업계에서는 이미 마누스의 기술이 메타의 핵심 시스템 곳곳에 이식되어 있어, 이를 다시 분리해 내는 작업이 기술적으로 매우 복잡하고 큰 비용이 들 것으로 내다보고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "중국 정부가 되돌린 마누스 인수"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2209215388.jpg?w=1024",
+      "caption": "화면에 표시된 메타 로고와 마크 저커버그 CEO",
+      "alt": "메타 로고 뒤로 보이는 마크 저커버그의 얼굴"
+    },
+    {
+      "type": "text",
+      "value": "이번 자산 분리 작업이 유독 복잡한 이유는 계약이 완전히 종결된 이후 규제 당국의 제동이 걸렸기 때문이다. 메타는 지난 2025년 12월 마누스를 20억 달러가 넘는 금액에 인수했다. 마누스는 시장 조사부터 코딩까지 다단계 작업을 자율적으로 수행하는 AI 에이전트를 개발하는 스타트업이다. 출시 8개월 만에 연환산 매출 1억 달러를 돌파하며 [챗봇을 넘어 스스로 동작하는 소프트웨어로의 전환](/ko/article/general/chatbot-to-agent-paradigm-shift/)을 이끌어왔다.\n\n중국의 제재가 있기 전까지 양사의 통합 작업은 신속하게 진행됐다. [테크크런치](https://techcrunch.com/2026/04/27/china-vetoes-metas-2b-manus-deal-after-months-long-probe/)에 따르면 지난 3월까지 약 100명의 마누스 직원이 메타의 싱가포르 사무소로 자리를 옮겼고, 샤오훙 최고경영자(CEO)는 하비에르 올리반 메타 최고운영책임자(COO)에게 직접 보고하는 체계를 갖췄다.\n\n하지만 지난 4월 27일 중국 국가발전개혁위원회(NDRC)가 구체적인 사유 설명 없이 외자 투자 금지와 인수 계약 철회를 명령하는 한 줄짜리 성명을 발표했다. 규제 심사가 진행되는 동안 샤오훙 CEO와 지이차오 수석 과학자는 중국 당국에 의해 출국이 금지되었던 것으로 알려졌다."
+    },
+    {
+      "type": "heading",
+      "value": "10억 달러 규모 되사기 추진... 홍콩 상장 저울질"
+    },
+    {
+      "type": "text",
+      "value": "출국 금지까지 겪은 창업자들이 꺼낸 카드는 지분 되사기다. 샤오훙, 지이차오, 장타오 등 세 공동 창업자는 최대 10억 달러 규모의 자금 조달을 추진 중이며, 매입 가격은 메타가 지급한 인수 대금 이상으로 책정될 전망이다.\n\n되사기 거래가 완료되면 마누스는 중국 내 합작법인 형태로 구조를 개편하고, 미국 대신 홍콩 증시 상장을 추진할 것으로 보인다. 마누스의 2026년 매출 전망치는 약 10억 달러 수준이다.\n\n이번 사례는 중국의 AI 규제가 자국 기술의 미국 이전을 차단한 가장 대표적인 선례가 됐다. 당국이 이미 완료된 인수 계약까지 뒤집을 수 있음을 보여주면서, 서방 자본을 유치하기 위해 본사를 중국에서 싱가포르로 옮기려는 스타트업들과 이들을 지원하는 벤처캐피털의 전략 수정이 불가피해졌다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Meta has severed its operational ties with agentic AI startup Manus. Bloomberg reported on June 11 that the social media giant halted all data sharing with the company, completing their separation roughly six weeks after Beijing ordered the $2 billion acquisition unwound.\n\nThe acquisition, which closed in December 2025, is now being dismantled less than six months later. China's National Development and Reform Commission (NDRC) ordered the transaction reversed in late April under the country's AI regulation framework, making the firewall implemented this month the most concrete step toward unwinding the deal to date."
+    },
+    {
+      "type": "heading",
+      "value": "Inside the Firewall: Restricting Data, Tools, and Access"
+    },
+    {
+      "type": "text",
+      "value": "The initial phase of the separation focuses on access control. According to [Bloomberg](https://www.bloomberg.com/news/articles/2026-06-11/meta-severs-manus-data-access-after-china-orders-buyout-unwound), Manus employees have been locked out of Meta's internal networks since early June. Meta personnel have similarly been restricted from using Manus tools, and engineering teams have been instructed to migrate ongoing projects to alternative platforms.\n\nAll planned integrations have been frozen. A more formidable challenge lies in the fact that much of Manus's agentic AI technology has already been integrated into Meta's core systems, making the process of disentangling the software both technically complex and costly."
+    },
+    {
+      "type": "heading",
+      "value": "The $2 Billion AI Acquisition Reversed by Beijing"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2209215388.jpg?w=1024",
+      "caption": "The Meta logo displayed over an image of CEO Mark Zuckerberg",
+      "alt": "Mark Zuckerberg's face behind a Meta logo on a screen"
+    },
+    {
+      "type": "text",
+      "value": "The separation has proven highly complex because regulators stepped in after the deal had already closed. Meta acquired Manus in December 2025 for a valuation exceeding $2 billion. The startup, which develops agentic AI systems capable of autonomously executing multi-step workflows like market research and software development, surpassed a $100 million annualized revenue run rate within eight months of its launch. This rapid growth positioned Manus at the forefront of [the industry-wide transition from conversational chatbots to autonomous software](/article/general/chatbot-to-agent-paradigm-shift/).\n\nCorporate integration had progressed rapidly prior to the intervention. [TechCrunch](https://techcrunch.com/2026/04/27/china-vetoes-metas-2b-manus-deal-after-months-long-probe/) reported that approximately 100 Manus employees had relocated to Meta's Singapore offices by March, and Manus Chief Executive Xiao Hong began reporting directly to Meta Chief Operating Officer Javier Olivan.\n\nHowever, on April 27, the NDRC issued a single-sentence statement prohibiting the foreign investment and ordering the parties to withdraw from the deal without providing a detailed explanation — a stark display of how far China's AI regulation now reaches. During the regulatory review process, Xiao and Chief Scientist Ji Yichao were reportedly barred from leaving mainland China."
+    },
+    {
+      "type": "heading",
+      "value": "A $1 Billion Buyback and Potential Hong Kong Listing"
+    },
+    {
+      "type": "text",
+      "value": "Having weathered exit bans, the startup's founders are now pursuing a buyback. Xiao Hong, Ji Yichao, and Zhang Tao are exploring a funding round of up to $1 billion to regain control of the company, with the repurchase expected to value Manus at least at the price Meta paid in the original deal.\n\nIf the transaction is finalized, Manus is expected to restructure as an independent agentic AI company under a Chinese joint venture, targeting an initial public offering in Hong Kong rather than the United States. The company is projected to generate approximately $1 billion in revenue in 2026.\n\nThis case represents the most definitive instance to date of Chinese AI regulation preventing a technology transfer to a United States buyer. Because regulators demonstrated their willingness to undo a completed transaction, the strategy for future startups seeking to relocate from China to Singapore to attract Western capital—and for the venture capitalists backing them—has been fundamentally altered."
+    }
+  ]
+}
