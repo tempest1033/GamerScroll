@@ -1,0 +1,129 @@
+{
+  "slug": "overwatch-shion-hero-52-skillset",
+  "site": "gamerscroll",
+  "status": "approved",
+  "title": "오버워치 신규 영웅 '시온' 기술 공개…오토바이 모는 옴닉 공격수",
+  "date": "",
+  "thumbnail": "https://static.inven.co.kr/column/2026/06/11/news/i1570946606.jpg",
+  "keywords": "오버워치 시온, 오버워치 신규 영웅, 시온 스킬셋, 호랑이 굴 속으로",
+  "summary": "오버워치 52번째 신규 영웅 시온의 공식 스킬셋이 공개됐다. 쌍권총 '키라 피스톨'과 오토바이 돌진 기술을 쓰는 하시모토 가문의 옴닉 공격수다. 한국 시간 6월 17일 시즌 3 '호랑이 굴 속으로'와 함께 합류한다.",
+  "relatedDocs": [
+    "issue:overwatch-rush-mobile-blizzard-diablo-immortal",
+    "issue:starcraft-shooter-blizzard",
+    "issue:zelda-ocarina-of-time-remake-switch2"
+  ],
+  "relatedGames": [
+    "overwatch-2"
+  ],
+  "relatedArticles": [],
+  "sources": [
+    {
+      "name": "Blizzard Entertainment",
+      "title": "Shion | New Hero Gameplay Trailer | Overwatch",
+      "url": "https://www.youtube.com/watch?v=fEkFkFZyx5w"
+    },
+    {
+      "name": "Blizzard Entertainment",
+      "title": "End of the Line | Shion Hero Trailer | Overwatch",
+      "url": "https://www.youtube.com/watch?v=UKJL7JfIvNg"
+    },
+    {
+      "name": "Polygon",
+      "title": "Overwatch's next hero is Shion, a gunslinging Hashimoto mob boss",
+      "url": "https://www.polygon.com/overwatch-hero-52-trailer-shion/"
+    },
+    {
+      "name": "esports.gg",
+      "title": "Overwatch Shion release date, abilities, and everything to know",
+      "url": "https://esports.gg/guides/overwatch/overwatch-shion-release-date-abilities-and-everything-to-know/"
+    },
+    {
+      "name": "인벤",
+      "title": "'오버워치' 52번째 신규 영웅 '시온' 트레일러 공개",
+      "url": "https://www.inven.co.kr/webzine/news/?news=317361"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "블리자드가 '오버워치'의 신규 영웅 '시온(Shion)'의 게임플레이 트레일러와 공식 기술 구성을 공개했다. 시온은 쌍권총과 오토바이를 주무기로 삼는 공격형 영웅으로, 한국 시간 기준 오는 6월 17일 시작되는 시즌 3 '호랑이 굴 속으로'를 통해 정식 합류할 예정이다.\n\n시온은 일본 하시모토 가문의 수장인 옴닉 장로다. 지난 10일 영웅 소개 트레일러로 첫선을 보인 데 이어, 이번 플레이 영상에서는 시온 스킬셋 전체가 베일을 벗었다. 오버워치의 통산 52번째 영웅이자, 올해 들어 일곱 번째로 추가되는 신규 캐릭터다."
+    },
+    {
+      "type": "heading",
+      "value": "쌍권총과 오토바이…시온 스킬셋 전부 공개"
+    },
+    {
+      "type": "image",
+      "src": "https://img.youtube.com/vi/fEkFkFZyx5w/maxresdefault.jpg",
+      "caption": "쌍권총 '키라 피스톨'을 든 시온 인게임 모델 (게임플레이 트레일러)",
+      "alt": "오버워치 시온 게임플레이 트레일러 썸네일, 쌍권총 키라 피스톨을 든 시온"
+    },
+    {
+      "type": "text",
+      "value": "시온 스킬셋의 주무기는 연사형 쌍권총 '키라 피스톨'이다. 전용 기술인 '익스큐션(Execution)'은 X자 형태로 탄막을 펼치며, 버튼을 누르고 있으면 탄착군을 좁혀 정밀한 사격이 가능하다. 회피 기술인 '이베이드(Evade)'는 짧은 거리를 돌진하며 사용 즉시 추가 체력을 획득하는 효과를 지녔다.\n\n시온 스킬셋에서 가장 독특한 대목은 오토바이 기술인 '조이라이드(Joyride)'다. 엔진을 가동해 빠른 속도로 질주하다가 기술을 재사용하면 오토바이에서 내리며 차체를 전방으로 날려 보낸다. 궁극기 '사츠리쿠 스프리'는 사방에 총격을 퍼붓는 동시에 세 차례 연속으로 돌진하는 강력한 연계기다.\n\n공통 패시브 효과로는 측면 공격수 역할군의 특성이 적용돼 생명력 팩(힐팩)의 회복량이 증가한다. 레벨업에 따라 선택하는 네 가지 특성(퍽)을 포함한 스킬셋 세부 수치는 [해외 매체 정리](https://esports.gg/guides/overwatch/overwatch-shion-release-date-abilities-and-everything-to-know/)에서 확인할 수 있다."
+    },
+    {
+      "type": "table",
+      "caption": "시온 퍽 구성",
+      "headers": [
+        "퍽",
+        "등급",
+        "효과"
+      ],
+      "rows": [
+        [
+          "Rapid Reload",
+          "레벨 2 · 소형",
+          "Evade 사용 시 탄약 9발 재장전"
+        ],
+        [
+          "X Machina",
+          "레벨 2 · 소형",
+          "체력 절반 이하 적에게 Execution 피해 20% 증가"
+        ],
+        [
+          "Refuel",
+          "레벨 3 · 대형",
+          "Joyride 사용 시 체력 50 즉시 회복, 지속 중 초당 20 회복"
+        ],
+        [
+          "Faces of Death",
+          "레벨 3 · 대형",
+          "정찰·스페셜리스트·저격수 등 다른 공격군 서브 롤 패시브 전부 획득"
+        ]
+      ]
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=fEkFkFZyx5w",
+      "caption": "시온 게임플레이 트레일러 (블리자드 공식)"
+    },
+    {
+      "type": "heading",
+      "value": "하시모토 가문의 옴닉 장로…트레일러 '종착역' 공개"
+    },
+    {
+      "type": "image",
+      "src": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/06/overwatch-hero-52.jpg?w=1600&h=900&fit=crop",
+      "caption": "영웅 트레일러 '종착역' 속 시온",
+      "alt": "영웅 트레일러 종착역 속 오니 장식을 한 옴닉 장로의 클로즈업 장면"
+    },
+    {
+      "type": "text",
+      "value": "동시에 공개된 신규 영웅 트레일러 '종착역(End of the Line)'은 일본 도쿄를 배경으로 삼았다. 영상 속 시온은 오토바이로 도심을 가르며 달리는 열차 위에서 소전과 치열한 총격전을 벌인다. 오니 가면을 연상시키는 생김새와 인간에 가까운 이목구비는 기존 젠야타나 라마트라 등 다른 옴닉 영웅들과 확연히 구분되는 특징이다.\n\n시온의 작중 행적 또한 예사롭지 않다. 트레일러에서 시온은 탈론 소속의 마우가와 함께 정체불명의 무기를 확보하는 작전을 수행하며, 결말부에는 의문의 가방을 챙겨 유유히 사라진다. 벤데타가 이끄는 탈론 세력과 긴밀히 협력하는 인물로 묘사되는 모양새다.\n\n같은 하시모토 가문 출신인 지원가(서포터) 미즈키와의 악연도 이미 예고됐다. 사전 공개된 모션 코믹 '악마와 마주하다'에서 시온은 미즈키를 냉혹한 병기로 길러낸 장본인으로 등장한다. 작중 시온은 매몰차게 쏘아붙였다. \"이 세상은 내게 증오만 보여줬다.\""
+    },
+    {
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=UKJL7JfIvNg",
+      "caption": "영웅 트레일러 '종착역' (블리자드 공식)"
+    },
+    {
+      "type": "heading",
+      "value": "시즌 3 '호랑이 굴 속으로'의 신규 콘텐츠"
+    },
+    {
+      "type": "text",
+      "value": "이들의 악연이 본편 스토리에서 어떻게 전개될지는 시즌 3 '호랑이 굴 속으로'에서 확인할 수 있다. 업데이트는 한국 시간 기준 6월 17일에 적용된다. 시온의 배경 스토리와 긴밀히 연결된 일본 테마의 신규 전장(맵)도 함께 등장하며, 지난 2월 게임 리브랜딩 이후 스타디움을 제외한 일반 모드에 새 전장이 추가되는 것은 이번이 처음이다.\n\n올해 블리자드의 신규 영웅 출시 속도는 전례 없이 빠르다. 지난 2월 '오버워치 2'에서 숫자를 뗀 리브랜딩을 단행하며 시즌 1에서 5명의 영웅을 한 번에 공개한 데 이어, 시즌 2 시에라와 시즌 3 시온까지 벌써 일곱 번째 신규 캐릭터다. 이로써 연내 신규 영웅 10명을 채우겠다는 공약은 순조롭게 지켜지는 모양새다. IP 확장도 탄력을 받으면서 모바일용 [탑다운 슈터 '러시'](/magazine/issue/overwatch-rush-mobile-blizzard-diablo-immortal/) 개발이 함께 진행 중이다.\n\n오버워치는 PC와 콘솔 플랫폼에서 무료로 플레이할 수 있으며, 이번 시즌부터는 닌텐도 스위치 2 지원이 새롭게 추가된다."
+    }
+  ]
+}
