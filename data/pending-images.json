@@ -426,6 +426,13 @@
       "type": "01.webp",
       "failedAt": "2026-06-09T19:32:54.131Z",
       "error": "HTTP 403: https://gizmodo.com/app/uploads/2026/06/AnthropicClaudeImage-1200x675.jpeg"
+    },
+    {
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code/resolve/main/figures/kimi-logo.png",
+      "slug": "kimi-k2-7-code-release",
+      "type": "01.webp",
+      "failedAt": "2026-06-12T12:46:46.714Z",
+      "error": "Invalid URL"
     }
   ]
 }
