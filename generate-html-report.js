@@ -226,7 +226,8 @@ function rewriteDocsStylesheetLinks(docsDir, includePrefixes = null) {
 function stripTechSidebarFromNonTechDocs(docsDir, includePrefixes = null) {
   const htmlFiles = [];
   collectHtmlFilesUnderDir(docsDir, htmlFiles);
-  const techSidebarGroupRe = /\r?\n?[ \t]*<div class="sidebar-category-group">\s*<div class="home-card-header"><a href="\/tech\/" class="home-card-title-link"><h2 class="home-card-title">테크<\/h2><\/a><\/div>\s*<div class="sidebar-category-list">[\s\S]*?<a href="\/tech\/vibecoding\/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩(?: \(\d+\))?<\/span><\/a>\s*<\/div>\s*<\/div>/g;
+  // 구형(인라인 카운트)과 신형(카운트 배지 스팬) 사이드바 마크업 모두 매칭
+  const techSidebarGroupRe = /\r?\n?[ \t]*<div class="sidebar-category-group">\s*<div class="home-card-header"><a href="\/tech\/" class="home-card-title-link"><h2 class="home-card-title">테크<\/h2><\/a><\/div>\s*<div class="sidebar-category-list">[\s\S]*?<a href="\/tech\/vibecoding\/" class="sidebar-category-item">\s*<span class="sidebar-category-name">바이브코딩(?: \(\d+\))?<\/span>(?:<span class="sidebar-category-count">\d+<\/span>)?\s*<\/a>\s*<\/div>\s*<\/div>/g;
   let changedCount = 0;
 
   for (const filePath of htmlFiles) {
@@ -609,7 +610,9 @@ function loadWikiData() {
         const status = article.status || '';
         const isApproved = status === 'approved' || status === 'published';
         const isDraft = status === 'draft';
-        if (isApproved || (includeDrafts && isDraft)) {
+        // AIScroll 전용 글은 GamerScroll 빌드/사이트맵에서 제외 (도메인 간 중복 콘텐츠 방지)
+        const isAiscrollOnly = article.site === 'aiscroll';
+        if (!isAiscrollOnly && (isApproved || (includeDrafts && isDraft))) {
           const slug = article.slug || file.replace('.json', '');
           wikiData[category].push({
             ...article,

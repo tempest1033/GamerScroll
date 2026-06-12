@@ -106,15 +106,15 @@
       --primary-dark: #1D4ED8;
       --accent: #2563EB;
 
-      /* === Background & Surface - 심플 모던 블로그 (순백) === */
-      --bg: #FFFFFF;
+      /* === Background & Surface - 쿨 그레이 페이지 + 순백 카드 (표면 위계) === */
+      --bg: #F5F6F8;
       --bg-elevated: #FFFFFF;
       --card: #FFFFFF;
-      --card-hover: #FAFAFA;
+      --card-hover: #FFFFFF;
 
       /* === Border - 얇고 은은한 톤 === */
-      --border: #EAEAEA;
-      --border-subtle: #F1F1F2;
+      --border: #E4E4E7;
+      --border-subtle: #ECECEF;
       --border-hover: var(--primary); /* 호버 시 보더 색상 */
 
       /* === Text - 뉴트럴 그레이 톤 === */
@@ -170,11 +170,11 @@
       --font-source-color: var(--primary);
 
       /* 중형 - 섹션 제목 */
-      --font-section-size: 17px;
-      --font-section-weight: 600;
+      --font-section-size: 20px;
+      --font-section-weight: 700;
 
       /* 대형 - 큰 제목 */
-      --font-heading-size: 20px;
+      --font-heading-size: 22px;
       --font-lg-size: 22px;
 
       /* 초대형 (22-28px) - 통계 숫자, 큰 값 */
@@ -191,19 +191,19 @@
       /* === 호환성 변수 (별칭) === */
       --bg-secondary: #F4F4F5;
       --bg-tertiary: #E4E4E7;
-      --border-color: #EAEAEA;
+      --border-color: #E4E4E7;
       --bg-hover: #F4F4F5;
       --accent-color: var(--primary); /* 강조 색상 */
       --card-bg: var(--card); /* 카드 배경 */
       --font-meta-weight: 500; /* 메타 텍스트 굵기 */
       --font-desc-line-height: 1.6; /* 설명 텍스트 행간 */
 
-	      /* === Shadows - 블로그 톤: 그림자 조금 차분하게 복원 === */
-	      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.03);
-	      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04);
-	      --shadow: 0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04);
-	      --shadow-lg: 0 4px 12px rgb(0 0 0 / 0.06), 0 2px 4px rgb(0 0 0 / 0.04);
-	      --shadow-xl: 0 8px 28px rgb(0 0 0 / 0.08);
+	      /* === Shadows - 레이어드 소프트 섀도 (카드가 떠 보이는 모던 블로그 톤) === */
+	      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.04);
+	      --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.05), 0 1px 2px rgb(0 0 0 / 0.04);
+	      --shadow: 0 2px 8px rgb(0 0 0 / 0.06), 0 1px 3px rgb(0 0 0 / 0.05);
+	      --shadow-lg: 0 8px 24px rgb(0 0 0 / 0.09), 0 2px 6px rgb(0 0 0 / 0.05);
+	      --shadow-xl: 0 16px 48px rgb(0 0 0 / 0.12);
 
       /* === Glass Effect === */
       --glass-bg: rgba(255, 255, 255, 0.7);
@@ -325,8 +325,8 @@
         --font-desc-size: 15px;
         --font-tab-size: 14px;
         --font-nav-size: 14px;
-        --font-section-size: 17px;
-        --font-heading-size: 19px;
+        --font-section-size: 18px;
+        --font-heading-size: 20px;
         --font-lg-size: 20px;
         --font-stat-size: 26px;
         --font-xl-size: 22px;
@@ -351,13 +351,13 @@
       }
     }
 
-    /* === Light Mode - 메인메뉴 스타일 === */
+    /* === Light Mode - 메인메뉴 스타일 (토큰화) === */
     .nav-item {
-      color: #1f2937;
+      color: var(--text-secondary);
     }
     .nav-item:hover {
-      color: #111827;
-      background: #f1f5f9;
+      color: var(--text);
+      background: var(--hover-bg);
     }
     /* 스와이프 중 하이라이트 비활성화 */
     .nav-item.swiping,
@@ -385,22 +385,22 @@
       border-radius: 1px;
     }
     .nav-item svg {
-      stroke: #374151;
+      stroke: var(--text-secondary);
     }
     .nav-item:hover svg {
-      stroke: #1f2937;
+      stroke: var(--text);
     }
     .nav-item.active svg {
       stroke: var(--primary);
     }
     /* 서브탭 버튼 */
     .tab-btn {
-      color: #1e293b;
-      background: var(--bg);
+      color: var(--text-secondary);
+      background: var(--item-bg);
       border: 1px solid var(--border);
     }
     .tab-btn:hover {
-      color: #0f172a;
+      color: var(--text);
       background: var(--hover-bg);
     }
     /* 스와이프 중 탭버튼 하이라이트 비활성화 */
@@ -408,8 +408,8 @@
     .tab-btn.swiping:hover,
     .tab-btn.swiping:active,
     .tab-btn.swiping:focus {
-      background: var(--bg) !important;
-      color: #1e293b !important;
+      background: var(--item-bg) !important;
+      color: var(--text-secondary) !important;
       outline: none !important;
       box-shadow: none !important;
     }

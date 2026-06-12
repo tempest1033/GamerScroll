@@ -8,6 +8,7 @@
 const path = require('path');
 const fs = require('fs');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot, buildCardFeedPagerScript } = require('../layout');
+const { generateSidebar: generateSharedSidebar } = require('../components/sidebar');
 
 // 통합 반응형 빌드 - 단일 도메인/경로
 const docsDir = path.join(__dirname, '../../../docs');
@@ -319,71 +320,14 @@ function generateTechHubPage({
     `;
   }
 
-  // 사이드바 (공유 리스트 사용)
+  // 사이드바 (공용 컴포넌트)
   function generateSidebar() {
-    const counts = sidebarCounts;
-
-    const issueCategories = [
-      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
-      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
-      { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
-    ];
-
-    const wikiCategories = [
-      { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
-      { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-      { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
-    ];
-
-    const techCategories = [
-      { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
-      { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
-      { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
-    ];
-
-    const renderItems = (items) => items.map(cat => `
-      <a href="${cat.link}" class="sidebar-category-item">
-        <span class="sidebar-category-name">${cat.name}${cat.count !== undefined ? ` (${cat.count})` : ''}</span>
-      </a>
-    `).join('');
-
-    const renderArticleList = (items) => items.map((item, i) => `
-      <a href="${item.link || item.path || '#'}" class="sidebar-article-item">
-        <span class="sidebar-article-rank">${i + 1}</span>
-        <span class="sidebar-article-title">${item.title}</span>
-      </a>
-    `).join('');
-
-    return `
-      <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
-        </div>
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
-        </div>
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(techCategories)}</div>
-        </div>
-      </div>
-
-      <div class="home-card" id="sidebar-articles">
-        <div class="home-card-header">
-          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
-            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
-          </div>
-        </div>
-        <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderArticleList(sidebarPopularArticles.slice(0, 10))}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderArticleList(sidebarLatestArticles.slice(0, 10))}</div>
-        </div>
-      </div>
-    `;
+    return generateSharedSidebar({
+      counts: sidebarCounts,
+      includeTech: true,
+      popular: sidebarPopularArticles,
+      latest: sidebarLatestArticles
+    });
   }
 
   const content = `
@@ -504,71 +448,14 @@ function generateTechCategoryPage({
     `;
   }
 
-  // 사이드바 (공유 리스트 사용)
+  // 사이드바 (공용 컴포넌트)
   function generateSidebar() {
-    const counts = sidebarCounts;
-
-    const issueCategories = [
-      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
-      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
-      { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
-    ];
-
-    const wikiCategories = [
-      { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
-      { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-      { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
-    ];
-
-    const techCategories = [
-      { id: 'normal', name: '일반', link: '/tech/normal/', count: counts.normal },
-      { id: 'ai', name: 'AI', link: '/tech/ai/', count: counts.ai },
-      { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/', count: counts.vibecoding }
-    ];
-
-    const renderItems = (items) => items.map(cat => `
-      <a href="${cat.link}" class="sidebar-category-item">
-        <span class="sidebar-category-name">${cat.name}${cat.count !== undefined ? ` (${cat.count})` : ''}</span>
-      </a>
-    `).join('');
-
-    const renderArticleList = (items) => items.map((item, i) => `
-      <a href="${item.link || item.path || '#'}" class="sidebar-article-item">
-        <span class="sidebar-article-rank">${i + 1}</span>
-        <span class="sidebar-article-title">${item.title}</span>
-      </a>
-    `).join('');
-
-    return `
-      <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
-        </div>
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
-        </div>
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(techCategories)}</div>
-        </div>
-      </div>
-
-      <div class="home-card" id="sidebar-articles">
-        <div class="home-card-header">
-          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
-            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
-          </div>
-        </div>
-        <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderArticleList(sidebarPopularArticles.slice(0, 10))}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderArticleList(sidebarLatestArticles.slice(0, 10))}</div>
-        </div>
-      </div>
-    `;
+    return generateSharedSidebar({
+      counts: sidebarCounts,
+      includeTech: true,
+      popular: sidebarPopularArticles,
+      latest: sidebarLatestArticles
+    });
   }
 
   const content = `

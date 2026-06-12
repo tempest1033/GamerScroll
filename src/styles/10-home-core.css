@@ -182,7 +182,7 @@
     /* 홈 피드 섹션 사이 여백 확대 (그리드/구조는 유지, 간격만 증가) */
     #home-popular,
     #home-latest {
-      margin-bottom: var(--space-xl);
+      margin-bottom: 36px;
     }
 
     .home-card-header {
@@ -190,17 +190,17 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: nowrap;
-      padding: 4px 0 14px;
+      padding: 4px 0 16px;
       min-height: 44px;
       box-sizing: border-box;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: none;
       background: transparent;
     }
 
     .home-card-title {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       color: var(--text);
       display: flex;
       align-items: center;
@@ -553,18 +553,19 @@
       }
     }
 
-    /* Popular/Latest: featured 폐지 — 균일 카드 그리드 + 가벼운 카드감 (override) */
+    /* Popular/Latest: featured 폐지 — 균일 카드 그리드 + 떠 있는 카드감 (override) */
     .home-trend-card {
       background: var(--card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      transition: border-color 0.15s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.15s ease, box-shadow 0.25s ease, transform 0.25s ease;
     }
     .home-trend-card:hover {
       border-color: var(--border-hover);
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-3px);
     }
     .home-trend-card-image {
       border-radius: 0;

@@ -88,6 +88,10 @@ const {
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
+const {
+  generateSidebarCategories: sharedSidebarCategories,
+  generateSidebarArticles: sharedSidebarArticles
+} = require('./components/sidebar');
 
 // 광고 슬롯 (PC + 모바일)
 const AD_SLOTS = {
@@ -2510,56 +2514,18 @@ const imageFallbackScript = `
 })();
 </script>`;
 
-// 기본 사이드바 콘텐츠 (카테고리 링크)
+// 기본 사이드바 콘텐츠 (공용 컴포넌트 - 모바일 패널용 id 사용)
 function generateDefaultSidebarContent(counts = {}, articles = {}) {
-  const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
-  const cNum = (key) => counts[key] !== undefined ? `<span class="sidebar-category-count">${counts[key]}</span>` : '';
-  const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-
   // 페이지별 articles > 전역 변수 순으로 폴백
   const popularItems = (articles.popular && articles.popular.length > 0) ? articles.popular : globalPopularArticles;
   const latestItems = (articles.latest && articles.latest.length > 0) ? articles.latest : globalLatestArticles;
 
-  const renderArticleList = (items) => items.slice(0, 10).map((item, i) => `
-    <a href="${item.url || item.path || item.link || '#'}" class="sidebar-article-item">
-      <span class="sidebar-article-rank">${i + 1}</span>
-      <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
-    </a>
-  `).join('');
-
-  return `
-    <div class="home-card" id="sidebar-categories">
-      <div class="sidebar-category-group">
-        <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
-        <div class="sidebar-category-list">
-          <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈</span>${cNum('issue')}</a>
-          <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트</span>${cNum('insight')}</a>
-          <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽</span>${cNum('hotpick')}</a>
-          <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석</span>${cNum('ranking')}</a>
-        </div>
-      </div>
-      <div class="sidebar-category-group">
-        <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
-        <div class="sidebar-category-list">
-          <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리</span>${cNum('history')}</a>
-          <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식</span>${cNum('knowledge')}</a>
-          <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스</span>${cNum('business')}</a>
-        </div>
-      </div>
-    </div>
-    <div class="home-card" id="sidebar-articles">
-      <div class="home-card-header">
-        <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
-          <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
-          <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
-        </div>
-      </div>
-      <div class="home-card-body">
-        <div class="sidebar-article-list active" id="panel-sidebar-popular">${renderArticleList(popularItems)}</div>
-        <div class="sidebar-article-list" id="panel-sidebar-latest">${renderArticleList(latestItems)}</div>
-      </div>
-    </div>
-  `;
+  return sharedSidebarCategories(counts)
+    + sharedSidebarArticles(popularItems, latestItems, {
+      tabId: 'panelSidebarTab',
+      popularId: 'panel-sidebar-popular',
+      latestId: 'panel-sidebar-latest'
+    });
 }
 
 // 모바일 사이드 패널 HTML 생성

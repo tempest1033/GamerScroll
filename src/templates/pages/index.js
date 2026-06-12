@@ -11,6 +11,10 @@ const {
   generateHomeAdPairSlot,
   buildCardFeedPagerScript
 } = require('../layout');
+const {
+  generateSidebarCategories: sharedSidebarCategories,
+  generateSidebarArticles: sharedSidebarArticles
+} = require('../components/sidebar');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -532,9 +536,8 @@ function generateIndexPage(data) {
     `;
   }
 
-  // 사이드바: 카테고리 메뉴 (리포트 + 위키 + 테크 그룹) - 링크 연결
+  // 사이드바: 카테고리 메뉴 (공용 컴포넌트 - 리포트 + 위키 + 테크 그룹)
   function generateSidebarCategories() {
-    // 카테고리별 글 개수 계산
     const counts = {
       issue: issueReports.length,
       insight: insightReports.length,
@@ -547,65 +550,12 @@ function generateIndexPage(data) {
       ai: (techData.ai || []).length,
       vibecoding: (techData.vibecoding || []).length
     };
-
-    // 리포트 카테고리
-    const issueCategories = [
-      { id: 'issue', name: '이슈', link: '/magazine/issue/', count: counts.issue },
-      { id: 'insight', name: '인사이트', link: '/magazine/insight/', count: counts.insight },
-      { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/', count: counts.hotpick },
-      { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/', count: counts.ranking }
-    ];
-
-    // 위키 카테고리 (에버그린)
-    const wikiCategories = [
-      { id: 'history', name: '히스토리', link: '/wiki/history/', count: counts.history },
-      { id: 'knowledge', name: '지식', link: '/wiki/knowledge/', count: counts.knowledge },
-      { id: 'business', name: '비즈니스', link: '/wiki/business/', count: counts.business }
-    ];
-
-    const renderItems = (items) => items.map(cat => `
-      <a href="${cat.link}" class="sidebar-category-item">
-        <span class="sidebar-category-name">${cat.name}</span>${cat.count !== undefined ? `<span class="sidebar-category-count">${cat.count}</span>` : ''}
-      </a>
-    `).join('');
-
-    return `
-      <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(issueCategories)}</div>
-        </div>
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
-          <div class="sidebar-category-list">${renderItems(wikiCategories)}</div>
-        </div>
-      </div>
-    `;
+    return sharedSidebarCategories(counts);
   }
 
-  // 사이드바: 인기글/최신글 TOP 10 토글 (공통 리스트 사용)
+  // 사이드바: 인기글/최신글 TOP 10 토글 (공용 컴포넌트)
   function generateSidebarArticles() {
-    const renderList = (items) => items.map((item, i) => `
-      <a href="${item.link}" class="sidebar-article-item">
-        <span class="sidebar-article-rank">${i + 1}</span>
-        <span class="sidebar-article-title">${item.title}</span>
-      </a>
-    `).join('');
-
-    return `
-      <div class="home-card" id="sidebar-articles">
-        <div class="home-card-header">
-          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
-            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
-          </div>
-        </div>
-        <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles.slice(0, 10))}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles.slice(0, 10))}</div>
-        </div>
-      </div>
-    `;
+    return sharedSidebarArticles(sidebarPopularArticles, sidebarLatestArticles);
   }
 
   // 홈 위키 카드 (카테고리별 4개씩)

@@ -54,13 +54,13 @@
   width: 100%;
 }
 
-/* 탭 그룹 */
+/* 탭 그룹 - 알약형 세그먼트 컨트롤 */
 :is(.tab-group, .insight-tabs) {
   display: flex;
   justify-content: var(--tab-group-justify);
-  background: var(--hover-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: none;
+  border-radius: 999px;
   padding: 4px;
   gap: var(--tab-group-gap);
   overflow-x: auto;
@@ -72,14 +72,14 @@
   display: none;
 }
 
-/* 탭 버튼 기본 스타일 */
+/* 탭 버튼 기본 스타일 - 알약형 */
 :is(.tab-btn, .insight-tab) {
   font-size: var(--font-tab-size);
   font-weight: var(--font-tab-weight);
-  color: var(--text);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
   cursor: pointer;
   transition: all var(--transition-normal);
   white-space: nowrap;

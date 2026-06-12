@@ -7,6 +7,10 @@
 const path = require('path');
 const fs = require('fs');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
+const {
+  generateSidebarCategories: sharedSidebarCategories,
+  generateSidebarArticles: sharedSidebarArticles
+} = require('../components/sidebar');
 const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
 
 // games.json 로드 (게임 아이콘용)
@@ -480,69 +484,26 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
     </div>
   `;
 
-  // 사이드바: 카테고리 메뉴 (숫자 포함)
+  // 사이드바: 카테고리 메뉴 (공용 컴포넌트)
   const generateSidebarCategories = () => {
-    // 위키 카운트 계산
-    const wikiCounts = {
+    const counts = {
+      issue: reportCounts.issue || 0,
+      insight: reportCounts.insight || 0,
+      hotpick: reportCounts.hotpick || 0,
+      ranking: reportCounts.ranking || 0,
       history: (allWikiData.history || []).length,
       knowledge: (allWikiData.knowledge || []).length,
       business: (allWikiData.business || []).length
     };
-
-    return `
-      <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
-          <div class="sidebar-category-list">
-            <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (${reportCounts.issue || 0})</span></a>
-            <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (${reportCounts.insight || 0})</span></a>
-            <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (${reportCounts.hotpick || 0})</span></a>
-            <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (${reportCounts.ranking || 0})</span></a>
-          </div>
-        </div>
-        <div class="sidebar-category-group">
-          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
-          <div class="sidebar-category-list">
-            <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (${wikiCounts.history})</span></a>
-            <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (${wikiCounts.knowledge})</span></a>
-            <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (${wikiCounts.business})</span></a>
-          </div>
-        </div>
-      </div>
-    `;
+    return sharedSidebarCategories(counts);
   };
 
-  // 사이드바: 인기/최신 글 (위키만 - GA4 기반 데이터 사용)
+  // 사이드바: 인기/최신 글 (공용 컴포넌트 - 현재 글 하이라이트 유지)
   const generateSidebarArticles = () => {
-    const currentLink = `/wiki/${category}/${article.slug}/`;
-
     if (sidebarPopularArticles.length === 0 && sidebarLatestArticles.length === 0) return '';
-
-    const renderList = (items) => items.map((item, i) => {
-      const isCurrent = item.link === currentLink;
-      const activeClass = isCurrent ? ' active' : '';
-      return `
-      <a href="${item.link}" class="sidebar-article-item${activeClass}">
-        <span class="sidebar-article-rank">${i + 1}</span>
-        <span class="sidebar-article-title">${item.title}</span>
-      </a>
-    `;
-    }).join('');
-
-    return `
-      <div class="home-card" id="sidebar-articles">
-        <div class="home-card-header">
-          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
-            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
-          </div>
-        </div>
-        <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(sidebarPopularArticles)}</div>
-          <div class="sidebar-article-list" id="sidebar-latest">${renderList(sidebarLatestArticles)}</div>
-        </div>
-      </div>
-    `;
+    return sharedSidebarArticles(sidebarPopularArticles, sidebarLatestArticles, {
+      activeLink: `/wiki/${category}/${article.slug}/`
+    });
   };
 
   const sidebarCategoriesHTML = generateSidebarCategories();

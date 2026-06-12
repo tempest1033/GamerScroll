@@ -1,8 +1,8 @@
-﻿    /* Header */
+    /* Header - 순백 표면 + 여유 있는 상하 패딩 */
     .header {
-      background: var(--bg);
+      background: var(--bg-elevated);
       border-bottom: none;
-      padding: var(--space-md) 0;
+      padding: 20px 0;
       box-shadow: none;
     }
 
@@ -73,7 +73,6 @@
       width: auto;
       max-width: 100%;
       color: var(--text);
-      filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.2));
       transition: transform var(--transition-normal), color var(--transition-normal);
     }
 
@@ -122,14 +121,16 @@
       display: none;
     }
 
-    /* Navigation */
+    /* Navigation - 스티키 글래스 블러 (스크롤 시 콘텐츠가 비쳐 보이는 모던 톤) */
     .nav {
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: blur(14px) saturate(1.5);
+      backdrop-filter: blur(14px) saturate(1.5);
+      border-bottom: 1px solid var(--border-subtle);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: none;
+      box-shadow: var(--shadow-xs);
       transition: background var(--transition-normal);
     }
 
