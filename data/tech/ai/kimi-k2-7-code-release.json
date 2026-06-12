@@ -1,0 +1,226 @@
+{
+  "slug": "kimi-k2-7-code-release",
+  "status": "approved",
+  "category": "general",
+  "date": "",
+  "title": "문샷 AI, '키미 K2.7 코드' 공개…추론 토큰 30% 감축",
+  "titleEn": "Kimi K2.7 Code: Moonshot Cuts Reasoning 30%",
+  "summary": "문샷 AI가 코딩 특화 모델 키미 K2.7 코드를 오픈소스로 공개했다. 이전 K2.6 모델 대비 추론 토큰 소모량을 30% 절감하면서 코딩 성능은 개선했다. 가중치와 API 서비스가 동시에 출시됐다.",
+  "summaryEn": "Moonshot AI open-sourced Kimi K2.7 Code, cutting reasoning tokens 30% vs K2.6 while raising coding scores. Weights and API shipped the same day.",
+  "keywords": "키미 K2.7 코드, 문샷 AI, 오픈소스 코딩 모델, 추론 토큰",
+  "keywordsEn": "Kimi K2.7 Code, Moonshot AI, open-source coding model, reasoning tokens",
+  "thumbnail": "https://pbs.twimg.com/media/HKmxoVmagAAJKj8.jpg:large",
+  "content": [
+    {
+      "type": "text",
+      "value": "문샷 AI가 6월 12일 코딩 특화 모델 '키미 K2.7 코드'를 출시했다. 별도의 사전 예고나 대기 명단 없이 허깅페이스 가중치와 API가 같은 날 함께 풀린 오픈소스 코딩 모델이다. 문샷 AI는 이번 신작이 자사 역대 모델 중 가장 강력한 코딩 성능을 갖췄다고 설명했다.\n\n이번 발표에서 가장 주목받은 수치는 벤치마크 점수가 아닌 효율성이다. 키미 K2.7 코드는 이전 버전인 K2.6 대비 추론 토큰 소모량을 약 30% 줄였다. 그러면서도 자체 평가인 '키미 코드 벤치 v2' 점수는 50.9점에서 62.0점으로 높여 21.8%의 상대적 성능 향상을 기록했다. 연산량을 줄이면서도 더 뛰어난 성능을 내는 구조다."
+    },
+    {
+      "type": "heading",
+      "value": "추론 토큰 소모량 30% 감축"
+    },
+    {
+      "type": "image",
+      "src": "https://huggingface.co/moonshotai/Kimi-K2.7-Code/resolve/main/figures/kimi-logo.png",
+      "alt": "키미 워드마크 로고",
+      "caption": "문샷 AI의 키미(Kimi) 로고"
+    },
+    {
+      "type": "text",
+      "value": "추론형 모델로 장시간 코딩 작업을 진행해 본 개발자라면 기존 모델의 비효율성을 경험했을 가능성이 크다. 1,500토큰이면 해결할 수 있는 문제에 모델이 3,000토큰 이상을 소비하며 고민하는 식이다. 특히 수백 번의 도구 호출이 수반되는 AI 에이전트 환경에서 이러한 오버헤드는 비용 부담으로 직결된다.\n\nK2.7 코드는 K2.6과 비교해 추론 토큰을 약 30% 절감하면서도 작업 성공률은 끌어올렸다. 프로그램 벤치에서 11.0%, MLS 벤치 라이트에서 31.5%의 점수 상승을 달성했다. 외부 도구 활용 능력을 측정하는 MCP 아틀라스와 MCP 마크 베리파이드에서도 각각 9.5%와 11.4% 향상된 결과를 보였다."
+    },
+    {
+      "type": "table",
+      "caption": "K2.6 대비 K2.7 코드 주요 벤치마크 변화 (문샷 AI 발표 기준)",
+      "headers": [
+        "벤치마크",
+        "K2.6",
+        "K2.7 코드",
+        "변화"
+      ],
+      "rows": [
+        [
+          "키미 코드 벤치 v2*",
+          "50.9",
+          "62.0",
+          "+21.8%"
+        ],
+        [
+          "프로그램 벤치",
+          "48.3",
+          "53.6",
+          "+11.0%"
+        ],
+        [
+          "MLS 벤치 라이트",
+          "26.7",
+          "35.1",
+          "+31.5%"
+        ],
+        [
+          "MCP 아틀라스",
+          "69.4",
+          "76.0",
+          "+9.5%"
+        ],
+        [
+          "MCP 마크 베리파이드",
+          "72.8",
+          "81.1",
+          "+11.4%"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "다만 키미 코드 벤치 v2를 비롯한 주요 지표는 문샷 AI의 내부 평가 결과로, 아직 제3자 검증을 거치지 않았다. 그러나 모델 가중치가 모두 공개되어 있어 개발자가 직접 다운로드해 성능을 검증할 수 있는 길이 열려 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1조 매개변수 MoE 아키텍처 기반 코딩 최적화"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/moonshotai/Kimi-K2.7-Code.png",
+      "alt": "허깅페이스에 공개된 키미 K2.7 코드 모델 카드",
+      "caption": "허깅페이스 moonshotai/Kimi-K2.7-Code 모델 저장소 카드"
+    },
+    {
+      "type": "text",
+      "value": "로컬 환경에서 모델을 구동하려는 개발자에게는 장비 사양이 중요 지표다. 키미 K2.7 코드는 1조 개의 매개변수를 갖춘 혼합전문가(MoE) 구조로, 토큰당 활성 매개변수 32B와 256K 컨텍스트 창 등 K2.6의 설계를 계승한다. 양자화 인지 학습(QAT)을 적용해 INT4 기준 파일 크기를 약 594GB로 줄였다.\n\n이 모델은 즉각적인 답변을 제공하는 모드 없이 오직 추론 모드로만 작동한다. 간단한 질의응답보다 긴 호흡의 에이전트 작업에 맞춰 모델을 설계했다는 것이 문샷 AI의 설명이다. 라이선스는 수정된 MIT 라이선스가 적용되어, 월간 활성 사용자 1억 명 또는 월 매출 2,000만 달러를 초과하는 상용 서비스에만 'Kimi K2' 표기 의무가 부과된다.\n\n문샷 AI가 공개한 자료를 보면 성능의 한계도 관찰된다. 프로그램 벤치와 MCP 마크 베리파이드 영역에서는 여전히 GPT-5.5와 클로드 오퍼스 4.8 같은 독점 모델이 우위를 점하고 있다. 이번 출시는 전 분야 석권보다는 오픈소스 진영이 효율성을 무기로 [6월 코딩 에이전트 판도](/ko/article/general/coding-agents-june-2026-ranking/)에 진입하려는 시도로 파악된다."
+    },
+    {
+      "type": "heading",
+      "value": "단가 경쟁력 내세운 오픈소스 코딩 모델"
+    },
+    {
+      "type": "text",
+      "value": "향상된 효율성은 가격 책정에서 더욱 명확하게 드러난다. 공식 API 가격은 100만 토큰 기준으로 캐시 히트 시 0.19달러, 입력 0.95달러, 출력 4.00달러다. 거대한 시스템 프롬프트를 반복적으로 처리하는 장시간 에이전트 작업일수록 캐시 요율이 전체 비용을 낮춰 준다. 문샷 AI는 6배 빠른 고속 모드도 근시일 내에 도입할 예정이다.\n\n커뮤니티의 반응도 뜨겁다. 개발자 포럼인 [r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/comments/1u3rdk9/moonshotaikimik27code_hugging_face/)에서는 불필요한 추론 과정이 줄고 장기 작업의 신뢰성이 향상되어 마침내 실사용이 가능한 코딩 에이전트가 등장했다는 평가가 지배적이다. 코딩 도구인 커서의 '컴포저 2.5'가 키미 K2.5를 기반으로 튜닝된 만큼, 조만간 두 모델 간의 직접 비교 분석이 이어질 전망이다.\n\n빠른 릴리스 속도 역시 시장에 강한 인상을 주고 있다. 2025년 7월 첫선을 보인 K2부터 K2 씁킹, K2.5, K2.6을 거쳐 이번 키미 K2.7 코드에 이르기까지 1년이 안 되는 기간에 다섯 차례의 대형 모델을 출시했다. 오픈소스 코딩 모델이 상용 API와 가격 경쟁을 벌이는 국면을 문샷 AI가 가장 앞에서 끌고 가는 모습이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Moonshot AI released its Kimi K2.7 Code model on June 12 without a preview period or waitlist. The model weights were published on Hugging Face and the API went live on the same day, establishing it as a fully open-source coding model from launch. The company has described it as its most capable coding model to date.\n\nRather than a benchmark score, the headline figure of the announcement is an efficiency metric. Moonshot AI stated that Kimi K2.7 Code uses approximately 30% fewer reasoning tokens than its predecessor, K2.6, while improving its score on the internal Kimi Code Bench v2 from 50.9 to 62.0, representing a 21.8% relative improvement. The core value proposition of this release is simple: reduced computation delivering superior performance."
+    },
+    {
+      "type": "heading",
+      "value": "Reducing Reasoning Tokens by 30%"
+    },
+    {
+      "type": "image",
+      "src": "https://huggingface.co/moonshotai/Kimi-K2.7-Code/resolve/main/figures/kimi-logo.png",
+      "alt": "Kimi wordmark logo",
+      "caption": "The Kimi logo of Moonshot AI"
+    },
+    {
+      "type": "text",
+      "value": "Developers who use reasoning-based models for extended coding sessions are familiar with a common inefficiency: a model may consume 3,000 tokens deliberating over a problem that could be addressed with 1,500 tokens. In agent-based workflows involving hundreds of tool calls, this operational overhead translates directly into higher costs.\n\nKimi K2.7 Code reduces these reasoning tokens by approximately 30% compared to K2.6 while simultaneously increasing task success rates. The model achieved an 11.0% improvement on Program Bench and a 31.5% increase on MLS Bench Lite, while scoring 9.5% and 11.4% higher on the tool-use benchmarks MCP Atlas and MCP Mark Verified, respectively."
+    },
+    {
+      "type": "table",
+      "caption": "Key benchmark changes from K2.6 to K2.7 Code (as reported by Moonshot AI)",
+      "headers": [
+        "Benchmark",
+        "K2.6",
+        "K2.7 Code",
+        "Change"
+      ],
+      "rows": [
+        [
+          "Kimi Code Bench v2*",
+          "50.9",
+          "62.0",
+          "+21.8%"
+        ],
+        [
+          "Program Bench",
+          "48.3",
+          "53.6",
+          "+11.0%"
+        ],
+        [
+          "MLS Bench Lite",
+          "26.7",
+          "35.1",
+          "+31.5%"
+        ],
+        [
+          "MCP Atlas",
+          "69.4",
+          "76.0",
+          "+9.5%"
+        ],
+        [
+          "MCP Mark Verified",
+          "72.8",
+          "81.1",
+          "+11.4%"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "A key caveat remains: Kimi Code Bench v2 and several other prominent figures are based on Moonshot AI's internal evaluations and lack independent external verification. However, because the model weights are publicly available, developers can download and verify these claims directly."
+    },
+    {
+      "type": "heading",
+      "value": "Same 1T MoE Architecture, Optimized for Coding"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/moonshotai/Kimi-K2.7-Code.png",
+      "alt": "Kimi K2.7 Code model card on Hugging Face",
+      "caption": "The moonshotai/Kimi-K2.7-Code repository card on Hugging Face"
+    },
+    {
+      "type": "text",
+      "value": "For developers planning local deployment, the technical specifications are substantial. Kimi K2.7 Code retains the architecture of K2.6: a 1-trillion-parameter Mixture-of-Experts (MoE) design with 32 billion active parameters per token and a 256K context window. Optimized through quantization-aware training (QAT), the native INT4 version requires a download of approximately 594 GB.\n\nThe model lacks a standard, immediate-response mode, operating exclusively in reasoning modes. Moonshot AI designed this constraint intentionally, tailoring the model for long-horizon agent tasks rather than brief queries. The software is released under a modified MIT license, which mandates displaying 'Kimi K2' in the user interface only for commercial products exceeding 100 million monthly active users or $20 million in monthly revenue.\n\nMoonshot AI's data also highlights the model's limitations. Proprietary models like GPT-5.5 and Claude Opus 4.8 continue to lead on Program Bench and MCP Mark Verified. Rather than representing an outright victory, the release demonstrates how open-source alternatives are challenging established proprietary APIs in the [June coding-agent standings](/article/general/coding-agents-june-2026-ranking/) through efficiency."
+    },
+    {
+      "type": "heading",
+      "value": "An Open-Source Coding Model Priced for Competition"
+    },
+    {
+      "type": "text",
+      "value": "The model's efficiency advantages are reflected directly in its pricing. The official API rates are set at $0.19 per million tokens for cache hits, $0.95 for inputs, and $4.00 for outputs. For extended agent workflows that repeatedly process large system prompts, the low cache-hit price significantly reduces overall operational expenses. Moonshot AI has also announced that a six-times faster high-speed mode will be available soon.\n\nIndustry reception has been swift. On the [r/LocalLLaMA](https://www.reddit.com/r/LocalLLaMA/comments/1u3rdk9/moonshotaikimik27code_hugging_face/) forum, early feedback suggests that the reduction in redundant reasoning, combined with reliability in long-duration tasks, makes this a highly practical open-source coding agent. Given that Cursor's Composer 2.5 was built on a fine-tuned version of Kimi K2.5, comparisons between the new release and the upstream base model are expected to emerge shortly.\n\nThe frequency of Moonshot AI's releases conveys a clear strategic intent. Since introducing the original K2 in July 2025, followed by K2 Thinking, K2.5, and K2.6, the launch of Kimi K2.7 Code marks the company's fifth major model release in less than a year. The open-source community is increasingly challenging closed APIs on unit economics, with this open-source coding model establishing competitive standards for pricing as well as performance."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Moonshot AI",
+      "title": "Kimi-K2.7-Code release announcement",
+      "url": "https://x.com/Kimi_Moonshot/status/2065377579130142937"
+    },
+    {
+      "name": "Hugging Face",
+      "title": "moonshotai/Kimi-K2.7-Code",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+    },
+    {
+      "name": "Kimi",
+      "title": "Kimi K2.6: Advancing Open-Source Coding",
+      "url": "https://www.kimi.com/blog/kimi-k2-6"
+    },
+    {
+      "name": "Moonshot AI Platform",
+      "title": "Kimi K2.7 Code API pricing",
+      "url": "https://platform.kimi.ai/docs/pricing/chat-k27-code"
+    },
+    {
+      "name": "Reddit r/LocalLLaMA",
+      "title": "moonshotai/Kimi-K2.7-Code · Hugging Face",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1u3rdk9/moonshotaikimik27code_hugging_face/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/coding-agents-june-2026-ranking",
+    "tech:ai/deepseek-tops-us-spending-tracker",
+    "tech:ai/huawei-ascend-deepseek-v4-posttraining",
+    "tech:ai/china-ai-distillation-controversy"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "needTranslate": false,
+  "site": "aiscroll"
+}
