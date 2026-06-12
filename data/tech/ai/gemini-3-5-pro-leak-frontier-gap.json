@@ -1,0 +1,122 @@
+{
+  "slug": "gemini-3-5-pro-leak-frontier-gap",
+  "site": "aiscroll",
+  "status": "approved",
+  "category": "google",
+  "date": "2026-06-12T17:00Z",
+  "title": "제미나이 3.5 프로 성능 유출…구글, AI 경쟁서 밀리나",
+  "titleEn": "Gemini 3.5 Pro Leak: Is Google Falling Behind?",
+  "summary": "제미나이 3.5 프로의 유출 체크포인트 분석 결과, 추론과 코딩 능력이 경쟁 모델에 뒤처진다는 평가가 나왔다. 아직 출시되지 않은 모델의 성능인 만큼 실제 결과는 미검증 루머에 가깝다.",
+  "summaryEn": "A leaked checkpoint analysis suggests Gemini 3.5 Pro trails competitors in reasoning and coding, though the unreleased model's performance remains unverified.",
+  "keywords": "제미나이 3.5, 성능 유출, 디퓨전 젬마, 프론티어 모델",
+  "keywordsEn": "Gemini 3.5 Pro, leaked checkpoint, Diffusion Gemma, frontier models",
+  "needTranslate": false,
+  "thumbnail": "https://www.geeky-gadgets.com/wp-content/uploads/2026/06/gemini-pro-leak.jpg",
+  "sources": [
+    {
+      "name": "Geeky Gadgets",
+      "title": "Leaked Gemini 3.5 Pro Details Reveal Why Google is Falling Behind AI Rivals",
+      "url": "https://www.geeky-gadgets.com/gemini-3-5-pro-leak/"
+    },
+    {
+      "name": "Google",
+      "title": "Gemini 3.5 is built to help you execute complex, agentic workflows",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"
+    },
+    {
+      "name": "Google DeepMind",
+      "title": "Gemini 3.5 Flash Model Card",
+      "url": "https://deepmind.google/models/model-cards/gemini-3-5-flash/"
+    },
+    {
+      "name": "X (Twitter)",
+      "title": "Gemini 3.5 Pro checkpoint leak — community reaction",
+      "url": "https://x.com/pankajkumar_dev/status/2063984714810270046"
+    },
+    {
+      "name": "Google AI for Developers",
+      "title": "What's new in Gemini 3.5",
+      "url": "https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gemini-omni-antigravity-trail-sota",
+    "tech:ai/gemini-io-2026-rumor-roundup-d2",
+    "tech:ai/gemini-deep-think-hallucination-backlash",
+    "tech:ai/gpt-5-6-checkpoint-svg-leak"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글의 차세대 플래그십 AI 모델인 제미나이 3.5 프로가 공식 출시 전부터 회의론에 직면했다. IT 매체 [긱키 가젯츠](https://www.geeky-gadgets.com/gemini-3-5-pro-leak/)가 유튜브 분석 채널 '유니버스 오브 AI'를 인용해 성능 유출 내용을 보도했다. 유출된 체크포인트의 초기 테스트에서 해당 모델은 고난도 추론과 코딩, 장기 과제 수행 능력 모두 앤스로픽 페이블 5와 오픈AI GPT-5.6보다 뒤처진 것으로 나타났다.\n\n다만 제미나이 3.5 프로가 아직 정식 출시되지 않았고 구글 역시 유출된 성능 수치를 확인해주지 않은 만큼, 이번 소식은 검증되지 않은 루머로 봐야 한다. 그럼에도 [지난달 개발자 컨퍼런스(I/O) 이후 불거진 혹평](/ko/article/google/gemini-omni-antigravity-trail-sota/)부터 이번 성능 유출에 이르기까지 연이은 부정적 신호에 시장의 우려가 깊어지고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "추론·코딩·가격, 세 갈래 약점"
+    },
+    {
+      "type": "text",
+      "value": "유출된 분석 보고서가 지적한 제미나이 3.5 프로의 문제점은 크게 세 가지다. 우선 복잡하고 단계적인 작업을 처리하는 고난도 추론 영역에서 페이블 5와 GPT-5.6이 확연한 우위를 점한 것으로 나타났다. 코딩 부문 역시 양방향 처리와 코드 인필링(infilling)의 한계로 인해 개발자용 도구로서의 실용성에 의문이 제기됐다.\n\n높은 책정 가격도 걸림돌이다. 제미나이 3.5 프로는 경쟁 모델보다 비싼 가격표를 달고 출시될 예정인데, 핵심 성능이 밀리면서 가격까지 높다면 시장 경쟁력은 떨어질 수밖에 없다. 그사이 자연어 처리와 멀티모달 이해도를 앞세운 중국계 오픈소스 모델들이 빠른 속도로 추격하며 저가형 대안으로 부상하고 있다.\n\n업계와 개발자 커뮤니티의 반응도 차갑다. 유출 소식이 전해진 이후 X에는 [구글이 뒤처졌다](https://x.com/pankajkumar_dev/status/2063984714810270046)는 지적이 줄을 이었으며, 신제품 소식이 나올 때마다 매번 같은 우려가 반복되는 상황에 피로감을 호소하는 여론도 적지 않다."
+    },
+    {
+      "type": "heading",
+      "value": "시각 분야의 강점과 디퓨전 젬마 실험"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-5__keywordstatement__metacard__light.width-1300.png",
+      "caption": "제미나이 3.5 키 아트",
+      "alt": "구글 제미나이 3.5 공식 키 아트"
+    },
+    {
+      "type": "text",
+      "value": "물론 유출된 내용이 전부 부정적인 것만은 아니다. 이미지 생성과 SVG 렌더링 성능은 확연히 개선되었으며, 텍스트와 이미지를 유기적으로 이해하는 멀티모달 처리도 한층 정밀해진 것으로 분석됐다. 디자인이나 교육처럼 시각 자료가 중요한 분야에서는 충분히 매력적인 요소다. 아울러 강화된 콘텐츠 필터는 기업 고객에게는 안전성을 제공하지만, 사용자의 활용 유연성을 떨어뜨리는 양날의 검이 될 수 있다.\n\n함께 언급된 실험 모델 디퓨전 젬마(Diffusion Gemma)도 주목할 만하다. 이 모델은 로컬 기기 구동을 겨냥하여, 256토큰 단위를 일괄 처리하는 방식으로 기존 모델보다 텍스트 생성 속도를 최대 4배까지 끌어올렸다. 다만 속도를 얻은 대신 답변의 품질은 다소 희생했다. 일반 소비자가 사용하는 고사양 GPU에서도 원활히 구동되는 오픈소스 모델인 만큼, 로컬 AI 환경을 실험하려는 개발자들에게 디퓨전 젬마는 흥미로운 도구가 될 것으로 보인다."
+    },
+    {
+      "type": "heading",
+      "value": "6월 출시로 확인될 프론티어 AI의 향방"
+    },
+    {
+      "type": "text",
+      "value": "실험적 모델을 제외하면, 시장의 진짜 관심사는 구글의 본진인 플래그십 라인업에 쏠려 있다. 현재 구글이 공식적으로 출시한 차세대 라인업은 지난 5월 I/O에서 선보인 제미나이 3.5 플래시가 유일하다. [공식 모델 카드](https://deepmind.google/models/model-cards/gemini-3-5-flash/)에 따르면 플래시는 Terminal-Bench 2.1에서 76.2%, MCP Atlas에서 83.6%를 기록해 코딩과 에이전트 작업 부문에서 이전 세대 프로급 모델의 성적을 앞섰다. 그러나 고난도 추론 벤치마크에서는 여전히 선두권 프론티어 모델들과의 격차를 좁히지 못했다.\n\n이러한 추론 성능의 공백을 메워야 할 막중한 역할이 바로 제미나이 3.5 프로에게 주어졌다. 이번 성능 유출 정보가 더욱 뼈아프게 다가오는 이유다. 만약 루머가 사실로 드러난다면, 구글은 추론 부문의 한계를 극복하지 못한 채 비싸기만 한 모델을 시장에 내놓아야 한다. 반대로 정식 버전이 유출된 체크포인트보다 훨씬 개선된 성능으로 출시된다면, 이번 논란은 단순 해프닝으로 끝날 것이다.\n\n진짜 실력을 확인할 판정의 날은 임박했다. 제미나이 3.5 프로는 이달 중 출시가 유력하며, 오픈AI와 앤스로픽 역시 비슷한 시기에 차세대 모델 출시 일정을 확정해 두고 있다. 6월 한 달 동안 펼쳐질 프론티어 모델 경쟁에서 구글이 받아 들 성적표가 이번 유출 사태를 미래의 예고편으로 기록할지, 아니면 일시적인 소음으로 남길지 결정할 것이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Google's upcoming flagship, Gemini 3.5 Pro, is facing early skepticism ahead of its official release. According to [Geeky Gadgets](https://www.geeky-gadgets.com/gemini-3-5-pro-leak/), which cited the YouTube analysis channel Universe of AI, preliminary tests of a leaked checkpoint indicate that the model lags behind Anthropic's Fable 5 and OpenAI's GPT-5.6 in advanced reasoning, coding, and long-horizon task execution.\n\nHowever, it remains critical to note that Gemini 3.5 Pro is still unreleased, and the leaked performance metrics constitute unverified rumors that Google has not confirmed. Nonetheless, from [the critical reception following last month's I/O](/article/google/gemini-omni-antigravity-trail-sota/) to this recent leak, a series of negative signals has deepened doubts about Google's standing among frontier models."
+    },
+    {
+      "type": "heading",
+      "value": "Key Weaknesses Identified: Reasoning, Coding, and Pricing"
+    },
+    {
+      "type": "text",
+      "value": "The leaked checkpoint analysis highlights three primary areas of concern. First, in advanced reasoning, Fable 5 and GPT-5.6 reportedly maintain a distinct advantage in managing complex, multi-step workflows. Second, in coding, limitations in bidirectional processing and code infilling cast doubt on the model's utility for developers.\n\nThird, pricing represents a significant hurdle, as Gemini 3.5 Pro is rumored to cost more than its direct competitors. A higher price point for a model that underperforms in core areas could hinder adoption, particularly as Chinese open-source models rapidly improve in natural language processing and multimodal understanding to capture the budget segment.\n\nIndustry and developer sentiment has reacted coolly to these reports. Following the leak, social media posts arguing that [Google has fallen behind](https://x.com/pankajkumar_dev/status/2063984714810270046) multiplied on X, reflecting growing fatigue over recurring negative reports surrounding the Gemini lineup."
+    },
+    {
+      "type": "heading",
+      "value": "Strengths in Vision and the Diffusion Gemma Experiment"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-5__keywordstatement__metacard__light.width-1300.png",
+      "caption": "Gemini 3.5 key art",
+      "alt": "Official Gemini 3.5 key art on a light blue gradient"
+    },
+    {
+      "type": "text",
+      "value": "Despite the critical findings, the leak also highlights notable areas of improvement. Visual generation and SVG rendering have reportedly made significant strides, while multimodal understanding—integrating text and image processing—has become more precise. These capabilities could prove valuable in design and education. Additionally, safety filters have been strengthened, offering enterprise appeal at the expense of operational flexibility.\n\nThe leak also references Diffusion Gemma, an experimental local model designed for on-device execution. By processing tokens in 256-token blocks, Diffusion Gemma reportedly generates text up to four times faster than standard autoregressive models, albeit at the cost of output quality. Designed to run on consumer GPUs, Diffusion Gemma could serve as a useful tool for developers exploring local deployment."
+    },
+    {
+      "type": "heading",
+      "value": "Official Launches to Test Frontier Capabilities"
+    },
+    {
+      "type": "text",
+      "value": "Beyond experimental models, the primary focus remains on Google's flagship tiers. To date, the company has only officially released Gemini 3.5 Flash, which debuted at Google I/O in May. According to its [official model card](https://deepmind.google/models/model-cards/gemini-3-5-flash/), Flash scores 76.2% on Terminal-Bench 2.1 and 83.6% on MCP Atlas, outperforming the previous-generation Pro tier in agentic and coding tasks. However, it still lags behind frontier models on complex reasoning benchmarks.\n\nGemini 3.5 Pro was designed to close this reasoning gap, which explains why the leak has caused concern. If the rumors are accurate, Google risks launching a more expensive model that still underperforms in reasoning. Conversely, if the official release is substantially improved over the leaked checkpoint, the controversy will likely be dismissed as market overreaction to unverified data.\n\nA definitive assessment is imminent. Gemini 3.5 Pro is expected to launch this month, concurrent with anticipated releases from OpenAI and Anthropic. Google's performance in the upcoming frontier model race will determine whether this leak was an accurate preview or merely premature noise."
+    }
+  ]
+}
