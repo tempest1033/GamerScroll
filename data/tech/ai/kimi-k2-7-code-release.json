@@ -2,7 +2,7 @@
   "slug": "kimi-k2-7-code-release",
   "status": "approved",
   "category": "general",
-  "date": "",
+  "date": "2026-06-12T12:30Z",
   "title": "문샷 AI, '키미 K2.7 코드' 공개…추론 토큰 30% 감축",
   "titleEn": "Kimi K2.7 Code: Moonshot Cuts Reasoning 30%",
   "summary": "문샷 AI가 코딩 특화 모델 키미 K2.7 코드를 오픈소스로 공개했다. 이전 K2.6 모델 대비 추론 토큰 소모량을 30% 절감하면서 코딩 성능은 개선했다. 가중치와 API 서비스가 동시에 출시됐다.",
