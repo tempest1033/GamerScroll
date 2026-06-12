@@ -1,48 +1,168 @@
 {
-  "updatedAt": "2026-05-29T07:59:05.226Z",
+  "updatedAt": "2026-06-12T02:12:06.394Z",
   "period": "7days",
   "articles": [
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-mac",
-      "views": 8,
+      "views": 12,
       "path": "/article/vibecoding/codex-install-guide-mac/"
     },
     {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-windows",
-      "views": 5,
-      "path": "/article/vibecoding/codex-install-guide-windows/"
+      "category": "openai",
+      "slug": "gpt-5-6-checkpoint-svg-leak",
+      "views": 9,
+      "path": "/article/openai/gpt-5-6-checkpoint-svg-leak/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-5-6-iris-june-launch-leak",
+      "views": 7,
+      "path": "/article/openai/gpt-5-6-iris-june-launch-leak/"
     },
     {
       "category": "general",
-      "slug": "karpathy-ai-job-exposure-score",
-      "views": 4,
-      "path": "/article/general/karpathy-ai-job-exposure-score/"
+      "slug": "kurzweil-singularity-review-2026",
+      "views": 5,
+      "path": "/article/general/kurzweil-singularity-review-2026/"
     },
     {
       "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 3,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+      "slug": "claude-code-install-guide-mac",
+      "views": 5,
+      "path": "/article/vibecoding/claude-code-install-guide-mac/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-workflow-prompt-guide",
+      "views": 5,
+      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
     },
     {
       "category": "anthropic",
-      "slug": "claude-sonnet-47-fennec-release-rumor",
-      "views": 2,
-      "path": "/article/anthropic/claude-sonnet-47-fennec-release-rumor/"
+      "slug": "anthropic-recursive-self-improvement-pause",
+      "views": 3,
+      "path": "/article/anthropic/anthropic-recursive-self-improvement-pause/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-mythos-tester-reviews-split",
+      "views": 3,
+      "path": "/article/anthropic/claude-mythos-tester-reviews-split/"
     },
     {
       "category": "general",
-      "slug": "china-ai-video-kling3-seedance2",
-      "views": 2,
-      "path": "/article/general/china-ai-video-kling3-seedance2/"
+      "slug": "deepseek-tops-us-spending-tracker",
+      "views": 3,
+      "path": "/article/general/deepseek-tops-us-spending-tracker/"
     },
     {
       "category": "general",
-      "slug": "nvidia-feynman-architecture-2028",
+      "slug": "lecun-ami-labs-llm-debate",
+      "views": 3,
+      "path": "/article/general/lecun-ami-labs-llm-debate/"
+    },
+    {
+      "category": "general",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 3,
+      "path": "/article/general/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "minimax-m3-open-weight-launch",
+      "views": 3,
+      "path": "/article/general/minimax-m3-open-weight-launch/"
+    },
+    {
+      "category": "general",
+      "slug": "nvidia-vera-rubin-agentic-ai",
+      "views": 3,
+      "path": "/article/general/nvidia-vera-rubin-agentic-ai/"
+    },
+    {
+      "category": "general",
+      "slug": "upstage-solar-aaii-40-top3",
+      "views": 3,
+      "path": "/article/general/upstage-solar-aaii-40-top3/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-5-5-codex-spark-5-6-leak",
+      "views": 3,
+      "path": "/article/openai/gpt-5-5-codex-spark-5-6-leak/"
+    },
+    {
+      "category": "openai",
+      "slug": "openai-python-sdk-application-push",
+      "views": 3,
+      "path": "/article/openai/openai-python-sdk-application-push/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "cursor-composer-2-5",
+      "views": 3,
+      "path": "/article/vibecoding/cursor-composer-2-5/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "vibe-coding-agent-guide",
+      "views": 3,
+      "path": "/article/vibecoding/vibe-coding-agent-guide/"
+    },
+    {
+      "category": "ai-tools",
+      "slug": "grok-build-composer-2-5-synergy",
       "views": 2,
-      "path": "/article/general/nvidia-feynman-architecture-2028/"
+      "path": "/article/ai-tools/grok-build-composer-2-5-synergy/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-confidential-s1-ipo",
+      "views": 2,
+      "path": "/article/anthropic/anthropic-confidential-s1-ipo/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "korea-chipmakers-mythos-glasswing-access",
+      "views": 2,
+      "path": "/article/anthropic/korea-chipmakers-mythos-glasswing-access/"
+    },
+    {
+      "category": "general",
+      "slug": "ai-bubble-myth-industry-shock-2026",
+      "views": 2,
+      "path": "/article/general/ai-bubble-myth-industry-shock-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "ai-token-cost-exceeds-salary",
+      "views": 2,
+      "path": "/article/general/ai-token-cost-exceeds-salary/"
+    },
+    {
+      "category": "general",
+      "slug": "gpt55-opus47-degradation-admission",
+      "views": 2,
+      "path": "/article/general/gpt55-opus47-degradation-admission/"
+    },
+    {
+      "category": "general",
+      "slug": "microsoft-project-solara-agent-devices",
+      "views": 2,
+      "path": "/article/general/microsoft-project-solara-agent-devices/"
+    },
+    {
+      "category": "general",
+      "slug": "nvidia-gpu-launch-halt-ai-priority",
+      "views": 2,
+      "path": "/article/general/nvidia-gpu-launch-halt-ai-priority/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-death-lawsuit-gavalas",
+      "views": 2,
+      "path": "/article/google/gemini-death-lawsuit-gavalas/"
     },
     {
       "category": "google",
@@ -51,124 +171,16 @@
       "path": "/article/google/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
-      "category": "openai",
-      "slug": "gpt-5-6-iris-june-launch-leak",
+      "category": "google",
+      "slug": "google-spacex-xai-compute-deal",
       "views": 2,
-      "path": "/article/openai/gpt-5-6-iris-june-launch-leak/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 2,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "ai",
-      "slug": "ai-model-intentional-performance-degradation",
-      "views": 1,
-      "path": "/article/ai/ai-model-intentional-performance-degradation/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-military-venezuela-iran",
-      "views": 1,
-      "path": "/article/anthropic/claude-military-venezuela-iran/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-mythos-launch-imminent-signals",
-      "views": 1,
-      "path": "/article/anthropic/claude-mythos-launch-imminent-signals/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-outage-demand-surge-pentagon",
-      "views": 1,
-      "path": "/article/anthropic/claude-outage-demand-surge-pentagon/"
-    },
-    {
-      "category": "general",
-      "slug": "big3-ipo-2026-openai-anthropic-spacex",
-      "views": 1,
-      "path": "/article/general/big3-ipo-2026-openai-anthropic-spacex/"
-    },
-    {
-      "category": "general",
-      "slug": "coding-agent-market-share-war-anthropic-openai",
-      "views": 1,
-      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
-    },
-    {
-      "category": "general",
-      "slug": "deepseek-mimo-price-war",
-      "views": 1,
-      "path": "/article/general/deepseek-mimo-price-war/"
-    },
-    {
-      "category": "general",
-      "slug": "gpt55-opus47-degradation-admission",
-      "views": 1,
-      "path": "/article/general/gpt55-opus47-degradation-admission/"
-    },
-    {
-      "category": "general",
-      "slug": "kurzweil-singularity-review-2026",
-      "views": 1,
-      "path": "/article/general/kurzweil-singularity-review-2026/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-openai-investment-retreat",
-      "views": 1,
-      "path": "/article/general/nvidia-openai-investment-retreat/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-q1-fy27-ai-rally-test",
-      "views": 1,
-      "path": "/article/general/nvidia-q1-fy27-ai-rally-test/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-io-2026-rumor-roundup-d2",
-      "views": 1,
-      "path": "/article/google/gemini-io-2026-rumor-roundup-d2/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-omni-antigravity-trail-sota",
-      "views": 1,
-      "path": "/article/google/gemini-omni-antigravity-trail-sota/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-pricing-overhaul-compute-limits-backlash",
-      "views": 1,
-      "path": "/article/google/gemini-pricing-overhaul-compute-limits-backlash/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-reliability-crisis-trust",
-      "views": 1,
-      "path": "/article/google/gemini-reliability-crisis-trust/"
-    },
-    {
-      "category": "google",
-      "slug": "google-io-2026-agentic-gemini",
-      "views": 1,
-      "path": "/article/google/google-io-2026-agentic-gemini/"
+      "path": "/article/google/google-spacex-xai-compute-deal/"
     },
     {
       "category": "openai",
-      "slug": "altman-musk-openai-trial-mudslinging",
-      "views": 1,
-      "path": "/article/openai/altman-musk-openai-trial-mudslinging/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-workflow-prompt-guide",
-      "views": 1,
-      "path": "/article/vibecoding/vibe-coding-workflow-prompt-guide/"
+      "slug": "chatgpt-desktop-app",
+      "views": 2,
+      "path": "/article/openai/chatgpt-desktop-app/"
     }
   ]
 }
