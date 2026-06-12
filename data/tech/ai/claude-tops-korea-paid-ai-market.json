@@ -1,0 +1,134 @@
+{
+  "slug": "claude-tops-korea-paid-ai-market",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "클로드, 챗GPT 제치고 한국 유료 생성형 AI 시장 1위 등극",
+  "titleEn": "Claude Tops Korea's Paid Generative AI Market",
+  "summary": "앤트로픽 클로드가 지난 3월 국내 신용카드 결제액 495억 원을 기록하며 챗GPT를 처음으로 추월했다. 센서타워 집계에서도 제미나이를 제치고 앱 매출 성장률 1위에 올랐다.",
+  "summaryEn": "Claude passed ChatGPT in Korea's paid AI market with 49.5 billion won in March card payments. Sensor Tower shows it passing Gemini with top revenue growth.",
+  "keywords": "클로드, 한국 생성형 AI, 챗GPT, 센서타워",
+  "keywordsEn": "Claude, Korea generative AI market, ChatGPT, Sensor Tower, Anthropic",
+  "thumbnail": "https://imageio.forbes.com/specials-images/imageserve/6a18818547894622099d0216/0x0.jpg?format=jpg&crop=3637,2046,x86,y33,safe&height=900&width=1600&fit=bounds",
+  "sources": [
+    {
+      "name": "KED Global",
+      "title": "Anthropic's Claude overtakes ChatGPT in South Korea's paid generative AI market",
+      "url": "https://www.kedglobal.com/artificial-intelligence/newsView/ked202604270002"
+    },
+    {
+      "name": "Sensor Tower",
+      "title": "클로드, 한국 생성형 AI 시장 강자로 부상… 제미나이 제치고 매출 2위",
+      "url": "https://sensortower.com/ko/blog/claude-surpasses-gemini-korea-generative-ai-revenue"
+    },
+    {
+      "name": "Forbes",
+      "title": "ChatGPT Loses Ground As Claude Surges In App Downloads",
+      "url": "https://www.forbes.com/sites/conormurray/2026/05/28/chatgpt-the-fastest-growing-app-ever-is-losing-downloads-as-claude-surges/"
+    },
+    {
+      "name": "Appfigures",
+      "title": "Claude's App Revenue Is Up 2,500%",
+      "url": "https://appfigures.com/resources/insights/claude-app-revenue-up-2500"
+    },
+    {
+      "name": "Tech Times",
+      "title": "Naver and Kakao Deploy ChatGPT and Claude Code Together: Inside South Korea's Dual-Stack Enterprise AI Shift",
+      "url": "https://www.techtimes.com/articles/317069/20260524/naver-kakao-deploy-chatgpt-claude-code-together-inside-south-koreas-dual-stack-enterprise-ai.htm"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-900b-surpasses-openai",
+    "tech:ai/chatgpt-app-1-billion-mau",
+    "tech:ai/anthropic-confidential-s1-ipo",
+    "tech:ai/claude-opus-4-8-launch"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "국내 유료 생성형 인공지능(AI) 시장의 선두가 바뀌었다. 앤트로픽의 클로드가 지난 3월 국내 신용카드 결제액 495억 원을 기록하며, 챗GPT(472억 원)를 처음으로 제치고 1위에 올랐다. 한국경제신문 산하 데이터 분석 서비스인 한경에이셀이 집계한 결과다.\n\n이번 순위는 다운로드 수가 아니라 실제 카드 결제 금액 기준 집계다. 시장 변화의 무게감이 다르다는 평가가 나오는 이유다. [KED 글로벌](https://www.kedglobal.com/artificial-intelligence/newsView/ked202604270002)은 이번 역전이 단순한 개인 이용자 인기가 아닌, 기업 간 계약이 이끌어낸 결과라고 분석했다."
+    },
+    {
+      "type": "heading",
+      "value": "법인카드가 이끈 시장 역전"
+    },
+    {
+      "type": "image",
+      "src": "https://www.kedglobal.com/data/ked/image/2026/04/27/ked202604270008.png",
+      "caption": "스마트폰 화면에 표시된 클로드 앱",
+      "alt": "클로드 앱을 실행한 스마트폰 화면"
+    },
+    {
+      "type": "text",
+      "value": "기업 수요가 이러한 시장 변화를 이끌었다. 앤트로픽은 한국 내 사용량이 직전 4개월 동안 6배 급증하자, 올해 초 아시아·태평양 지역의 세 번째 거점으로 서울 사무소를 개소했다.\n\n국내 주요 플랫폼 기업들의 도입 움직임도 빨라지고 있다. 카카오는 5월 말까지 전 직원에게 코딩 지원 도구인 '클로드 코드'를 배포할 계획이며, 네이버는 일반 업무용 챗GPT와 개발용 클로드를 혼용하는 이중 체제를 공식화했다. 야놀자와 우아한형제들, 카카오모빌리티도 올해 도입 대열에 합류했다.\n\n벤처캐피털 멘로벤처스에 따르면, 기업 내 코딩 용도에서 클로드의 점유율은 약 42%로 챗GPT(21%)의 두 배에 달한다. 일반 사무와 개발 업무를 나눠 쓰는 역할 분담이 법인카드 결제 현황에 그대로 나타난 결과다."
+    },
+    {
+      "type": "heading",
+      "value": "센서타워 지표에 포착된 추격세"
+    },
+    {
+      "type": "image",
+      "src": "https://resources-cdn.appfigures.com/twia/2026/23/claude-monthly-gross-revenue-downloads-20260604t224647z.png",
+      "caption": "앱피겨스가 집계한 월간 글로벌 앱 매출·다운로드 추이",
+      "alt": "월간 글로벌 앱 매출과 다운로드 추이를 보여주는 앱피겨스 차트"
+    },
+    {
+      "type": "text",
+      "value": "시장 동력은 기업 결제를 넘어 모바일 앱 시장으로도 번지고 있다. 모바일 시장분석업체 센서타워에 따르면, 클로드는 지난 3월 23일 한국 iOS 생성형 AI 앱 매출 순위에서 구글 제미나이를 처음으로 앞선 이후 격차를 벌려가고 있다.\n\n특히 지난 5월 5일에는 하루 매출 약 10만 4,000달러를 기록하며 전날의 두 배가 넘는 역대 최고치를 경신했다. 올해 누적 매출로는 챗GPT에 이어 2위지만, 매출 성장률 부문에서는 1위를 기록하고 있다.\n\n같은 기간 앱 다운로드 수는 정체 상태를 보였다. 신규 가입자 유입보다는 기존 사용자가 유료 구독으로 전환하거나 더 높은 요금제로 업그레이드하면서 매출이 늘어난 구조다. 앱 분석 서비스 앱피겨스에 따르면 5월 글로벌 앱 매출은 전년 동기 대비 26배 급증한 9,200만 달러에 달했다.\n\n글로벌 매출에서 한국 시장이 차지하는 비중도 뚜렷하다. 올해 1월 1일부터 6월 5일까지 집계된 전 세계 앱 매출 중 한국의 비중은 4.7%로, 미국(41.1%)에 이어 두 번째로 컸다."
+    },
+    {
+      "type": "heading",
+      "value": "한국 생성형 AI 시장의 다음 분기점"
+    },
+    {
+      "type": "text",
+      "value": "한국 시장의 독특한 지위는 이용 패턴에서 더욱 뚜렷하게 드러난다. 센서타워 웹 인사이트에 따르면 클로드 이용자의 58.8%가 모바일 앱이 아닌 웹사이트를 통해 서비스에 접속하고 있다. 이는 챗GPT(22.0%)나 제미나이(34.9%)보다 훨씬 높은 비중으로, 모바일보다는 PC 브라우저 기반의 업무용 생산성 도구로 주로 쓰인다는 뜻이다.\n\n이러한 흐름은 글로벌 시장에서도 확인된다. 외신 포브스가 인용한 센서타워 자료에 따르면, 클로드는 2026년 2분기 전 세계 AI 앱 다운로드 점유율 14%를 기록하며 지난해 1% 수준에서 크게 성장했다. 월간 활성 사용자 수(MAU) 또한 전년 동기 대비 627% 급증했다.\n\n소비자 대상 매출에서는 여전히 챗GPT가 선두를 지키고 있다. 다만 한국 생성형 AI 시장의 자금 흐름은 단순 대화형 서비스를 넘어 이미 코딩과 실무 지원 분야로 이동한 모습이다. 최근 앤트로픽의 기업가치가 [9,000억 달러를 넘어선](/ko/article/anthropic/anthropic-900b-surpasses-openai/) 가운데, 향후 시장의 핵심 쟁점은 이와 같은 기업용 수요가 개인 소비자 시장으로 얼마나 빠르게 확장될지 여부다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "South Korea's paid generative AI market has a new leader. Anthropic's Claude logged 49.5 billion won in domestic credit card payments in March, surpassing ChatGPT's 47.2 billion won for the first time, according to data from Hankyung Aicel, a data analytics service under The Korea Economic Daily.\n\nThe ranking is based on actual card spending rather than download charts, highlighting the significance of the shift. [KED Global](https://www.kedglobal.com/artificial-intelligence/newsView/ked202604270002) attributed the reversal to enterprise contracts rather than individual consumer popularity."
+    },
+    {
+      "type": "heading",
+      "value": "An Upset Driven by Corporate Cards"
+    },
+    {
+      "type": "image",
+      "src": "https://www.kedglobal.com/data/ked/image/2026/04/27/ked202604270008.png",
+      "caption": "The Claude app displayed on a smartphone screen",
+      "alt": "Smartphone screen running the Claude app"
+    },
+    {
+      "type": "text",
+      "value": "Corporate demand fueled the market shift. Anthropic opened its Seoul office in early 2026 — its third Asia-Pacific location — following a sixfold increase in South Korean usage over the preceding four months.\n\nMajor South Korean platforms are actively adopting the technology. Kakao plans to deploy the coding tool Claude Code to all employees by the end of May, while Naver has formalized a dual-stack approach, pairing ChatGPT for general tasks with Claude for software development. Yanolja, Woowa Brothers, and Kakao Mobility have also introduced Claude this year.\n\nAccording to data from Menlo Ventures, Claude holds approximately 42% of the enterprise coding market share, double ChatGPT's 21%. This division of labor — where ChatGPT handles everyday administrative tasks and Claude is utilized for coding — is directly reflected in corporate credit card expenditures."
+    },
+    {
+      "type": "heading",
+      "value": "Sensor Tower Charts Reveal Claude's Ascent"
+    },
+    {
+      "type": "image",
+      "src": "https://resources-cdn.appfigures.com/twia/2026/23/claude-monthly-gross-revenue-downloads-20260604t224647z.png",
+      "caption": "Appfigures chart of monthly worldwide app revenue and downloads",
+      "alt": "Chart showing monthly worldwide app gross revenue and downloads by Appfigures"
+    },
+    {
+      "type": "text",
+      "value": "This momentum extends beyond enterprise contracts to consumer mobile application metrics. According to Sensor Tower, Claude overtook Google's Gemini in South Korean iOS generative AI app revenue for the first time on March 23, and the gap has continued to widen.\n\nOn May 5, Claude reached an all-time high in South Korean daily app revenue at approximately $104,000, more than doubling its performance from the previous day. While it ranks second in year-to-date revenue behind ChatGPT, Claude leads the market in revenue growth rate.\n\nInterestingly, app downloads remained flat over the same period. The revenue surge was driven by existing users converting to paid subscriptions or upgrading to premium tiers rather than new installations. Appfigures data supports this global trend, estimating Claude's monthly app revenue reached $92 million in May, a 26-fold increase year-over-year.\n\nSouth Korea's contribution to this growth is substantial. From January 1 through June 5, South Korea accounted for 4.7% of Claude's global app revenue, ranking as its second-largest market behind the United States at 41.1%."
+    },
+    {
+      "type": "heading",
+      "value": "The Next Phase for South Korea's Generative AI Market"
+    },
+    {
+      "type": "text",
+      "value": "South Korea's standing in the generative AI market becomes clearer when examining how Claude is utilized. Sensor Tower Web Insights reveal that 58.8% of Claude users access the service solely via its website, significantly higher than ChatGPT's 22.0% and Gemini's 34.9%. This usage pattern indicates that Claude is predominantly used as a productivity tool within desktop browsers rather than as a mobile application.\n\nThe global trend reflects this shift. Forbes, citing Sensor Tower data, reported that Claude accounted for 14% of all AI app downloads in the second quarter of 2026, up from just 1% throughout 2025, while its monthly active users surged 627% year-over-year.\n\nAlthough ChatGPT retains its leadership in consumer revenue both globally and in South Korea, the commercial momentum in Korea's generative AI market has shifted toward coding and enterprise applications. With Anthropic's valuation recently estimated at [over $900 billion](/article/anthropic/anthropic-900b-surpasses-openai/), the key focus moving forward is how quickly this enterprise demand will expand into the broader consumer market."
+    }
+  ]
+}
