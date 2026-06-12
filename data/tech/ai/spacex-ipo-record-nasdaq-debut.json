@@ -1,0 +1,122 @@
+{
+  "slug": "spacex-ipo-record-nasdaq-debut",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "2026-06-12T19:00Z",
+  "needTranslate": false,
+  "title": "스페이스X, 750억달러 규모 IPO 완료…첫날 주가 급등",
+  "titleEn": "SpaceX IPO: $75B Raise, SPCX Soars in Debut",
+  "summary": "스페이스X가 주당 135달러에 750억 달러를 조달하며 역사상 최대 규모의 기업공개(IPO)를 완료했다. 나스닥 상장 첫날 시초가 150달러로 거래를 시작한 SPCX 주가는 장중 최고 176.52달러까지 상승했다.",
+  "summaryEn": "SpaceX completed the largest IPO in history, raising $75 billion at $135 a share. SPCX opened at $150 on Nasdaq and hit an intraday high of $176.52.",
+  "keywords": "스페이스X 상장, SPCX 주가, 사상 최대 IPO, 나스닥 데뷔",
+  "keywordsEn": "SpaceX IPO, SPCX stock price, largest IPO in history, Nasdaq debut",
+  "thumbnail": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5288x2975+0+275/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F8c%2F88%2Fe8d326d947a995740ad3ecc8c792%2Fap26145586504348.jpg",
+  "sources": [
+    {
+      "name": "Reuters",
+      "title": "SpaceX plans to raise $75 billion in IPO at $135 per share, source says",
+      "url": "https://www.reuters.com/business/media-telecom/spacex-plans-raise-75-billion-ipo-135-per-share-source-says-2026-06-03/"
+    },
+    {
+      "name": "CNBC",
+      "title": "SpaceX IPO live updates: SPCX pops more than 25% on historic volume in Nasdaq debut",
+      "url": "https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html"
+    },
+    {
+      "name": "CNN",
+      "title": "SpaceX launches $2 trillion market debut, making Elon Musk the world's first trillionaire",
+      "url": "https://edition.cnn.com/2026/06/12/business/live-news/spacex-goes-public-ipo"
+    },
+    {
+      "name": "NPR",
+      "title": "SpaceX prices its IPO at $135 per share ahead of Nasdaq debut",
+      "url": "https://www.npr.org/2026/06/11/nx-s1-5853199/spacex-ipo-price-elon-musk"
+    },
+    {
+      "name": "Yahoo Finance",
+      "title": "SpaceX IPO set to price Thursday night ahead of Friday Nasdaq debut",
+      "url": "https://finance.yahoo.com/markets/stocks/article/spacex-ipo-set-to-price-thursday-night-ahead-of-friday-nasdaq-debut--heres-whats-next-101955450.html"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/google-spacex-xai-compute-deal",
+    "tech:ai/openai-confidential-s1-ipo",
+    "tech:ai/us-government-ai-equity-stakes",
+    "tech:ai/openai-ohio-10gw-lease-talks"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "일론 머스크가 설립한 우주 기업 스페이스X가 6월 12일 나스닥 시장에 상장했다. 티커명은 SPCX이며 공모가는 주당 135달러다. 이번 상장으로 스페이스X가 조달한 자금은 750억 달러에 달하며, 지난 2019년 사우디 아람코가 세운 기존 최고 기록(294억 달러)을 경신한 사상 최대 IPO다.\n\n나스닥 데뷔 첫날 시초가는 공모가 대비 11% 상승한 150달러에 형성됐다. SPCX 주가는 장중 한때 176.52달러까지 급등한 뒤 오후 거래에서 170달러선 안팎을 기록했다. 이로써 스페이스X의 기업가치는 2조 달러를 넘어섰으며, 창업자 머스크는 장부상 세계 최초의 조만장자 반열에 올랐다."
+    },
+    {
+      "type": "heading",
+      "value": "사우디 아람코 기록 3배에 달하는 사상 최대 공모"
+    },
+    {
+      "type": "text",
+      "value": "구체적인 수치를 보면, 스페이스X는 상장 전날 밤 5억 5,600만 주를 주당 135달러에 매각해 총 750억 달러를 조달했다. 이는 종전 세계 최대 기록이었던 2019년 사우디 아람코의 공모액 294억 달러의 3배에 가까운 수준이다.\n\n발행주식수 130억 7,600만 주를 기준으로 하면 공모가 기준 기업가치는 1조 7,700억 달러, 시초가 150달러 기준 시가총액은 1조 9,600억 달러다. 장중 주가가 166달러를 넘어서며 시가총액은 2조 1,700억 달러까지 늘어났다. 이는 미국 상장 기업 중 시가총액 6위에 해당하는 규모다.\n\n상장 절차는 신속하게 진행됐다. 지난 4월 비공개 예비심사를 청구한 이후 5월에 증권신고서(S-1)를 공개했고, 6월 초 로드쇼를 거쳐 두 달 만에 거래를 시작했다. 상장 일주일 전에는 [구글과 월 9억 2,000만 달러 규모의 컴퓨팅 임차 계약](/ko/article/google/google-spacex-xai-compute-deal/)을 체결했다고 밝히며 인공지능(AI) 매출 동력을 증명하기도 했다."
+    },
+    {
+      "type": "heading",
+      "value": "SPCX 장중 176.52달러 기록…개인 주문량도 사상 최대"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1723102931.jpg?c=16x9&q=w_800,c_fill",
+      "caption": "발사대를 떠나는 스페이스X 팰컨 헤비 로켓",
+      "alt": "케이프커내버럴 발사대에서 이륙하는 스페이스X 팰컨 헤비 로켓"
+    },
+    {
+      "type": "text",
+      "value": "개장 직후부터 강한 매수세가 유입됐다. 150달러로 출발한 SPCX 주가는 오후 한때 공모가보다 31% 급등한 176.52달러까지 치솟았으며, 이후 165달러에서 172달러 사이에서 안정세를 보였다. [CNBC](https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html)에 따르면 오후 2시 기준 거래량은 3억 6,000만 주를 넘어섰다. 이는 올해 두 번째로 컸던 기업공개 사례인 세레브라스 데뷔 첫날 거래량의 10배를 웃도는 수치다.\n\n개인 투자자들의 주문 건수도 기록적인 수준을 기록했다. 시타델 증권은 사상 최대 규모의 IPO 개인 주문량을 처리했다고 발표했다. 피델리티에서는 거래 개시 1시간 만에 50만 건이 넘는 매수 주문이 접수됐고, 로빈후드는 접속자 폭주로 일시적인 서비스 장애를 겪기도 했다.\n\n머스크는 텍사스 본사에서 원격으로 나스닥 개장 벨을 울렸다. 그는 소셜미디어 X에 '스페이스X의 놀라운 직원들을 말로 다 표현할 수 없을 만큼 사랑한다'는 글을 남기며 2만 2,000명의 임직원에게 인사를 건넸다."
+    },
+    {
+      "type": "heading",
+      "value": "시장 관심은 오픈AI와 앤트로픽의 상장으로"
+    },
+    {
+      "type": "text",
+      "value": "이번 상장의 온기가 우주 업계 전반으로 퍼지지는 않았다. 당일 버진 갤럭틱 주가는 27% 급락했고 로켓랩도 7% 하락했다. 우주 산업 관련 주식에 분산되어 있던 자금이 스페이스X로 집중되면서 매도세가 나타난 것으로 분석된다.\n\n투자가들의 관심은 차기 초대형 상장 기업들로 향하고 있다. 오픈AI와 앤트로픽은 모두 [기업공개를 위한 비공개 신청](/ko/article/openai/openai-confidential-s1-ipo/)을 완료했으며, 연내 나스닥 데뷔가 예상되는 상황이다. 이들 세 기업의 연이은 상장으로 시장은 생성형 AI 산업의 실제 수익성을 본격적으로 평가할 수 있게 됐다.\n\n다만 투자 위험 요인도 여전히 존재한다. 증권신고서(S-1)에는 사업 계획서상 '화성'이라는 단어가 63회나 언급됐으며, 100만 명 규모의 화성 식민지 건설을 조건으로 설정된 머스크의 최대 7조 5,000억 달러 규모 보상안도 담겼다. 그록 AI 모델의 규제 위험성 역시 지적됐다. 시가총액 2조 달러에 이른 스페이스X는 매 분기 실적 발표를 통해 엄격한 시장 검증을 받게 됐다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "SpaceX, the aerospace venture founded by Elon Musk, debuted on the Nasdaq on June 12 under the ticker SPCX after pricing its initial public offering at $135 per share. Raising $75 billion, the listing established a new record as the largest IPO in history, surpassing Saudi Aramco’s $29.4 billion offering in 2019.\n\nThe stock began trading at $150, representing an 11% premium over the IPO price. Shares of SPCX subsequently climbed to an intraday high of $176.52 before stabilizing near $170 in afternoon trading, pushing the company's market valuation beyond $2 trillion. The surge briefly made Musk the world's first paper trillionaire."
+    },
+    {
+      "type": "heading",
+      "value": "The Largest IPO in History, Triple Aramco's Mark"
+    },
+    {
+      "type": "text",
+      "value": "In details, SpaceX sold 556 million shares at $135 per share on Thursday night to raise $75 billion. This amount is nearly triple the $29.4 billion raised by Saudi Aramco in 2019, which previously held the record for the largest IPO.\n\nBased on approximately 13.076 billion outstanding shares, the $135 IPO price valued SpaceX at $1.77 trillion, while the $150 opening price pushed its valuation to $1.96 trillion. As the stock price surpassed $166 during the day, the company's market capitalization reached $2.17 trillion, making SpaceX the sixth most valuable publicly traded company in the United States.\n\nThe path to the listing was exceptionally rapid: a confidential filing in April was followed by a public Form S-1 in May, a roadshow in early June, and a debut within two months. A week prior to the listing, SpaceX highlighted its artificial intelligence revenue potential by disclosing a [$920-million-per-month computing lease with Google](/article/google/google-spacex-xai-compute-deal/)."
+    },
+    {
+      "type": "heading",
+      "value": "SPCX Stock Price Hits $176.52 Intraday on Retail Surge"
+    },
+    {
+      "type": "image",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1723102931.jpg?c=16x9&q=w_800,c_fill",
+      "caption": "A SpaceX Falcon Heavy rocket lifts off from the launch pad",
+      "alt": "SpaceX Falcon Heavy rocket launching from the pad at Cape Canaveral"
+    },
+    {
+      "type": "text",
+      "value": "Intense buying interest emerged from the first minutes of the Nasdaq debut. After starting at $150, the SPCX stock price peaked at $176.52 in afternoon trading—representing a 31% gain from the offering price—before settling into a range between $165 and $172. According to [CNBC](https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html), more than 360 million shares had changed hands by 2:00 p.m. Eastern Time, ten times the first-day volume of Cerebras, the year's second-largest listing.\n\nIndividual investors drove unprecedented volume. Citadel Securities reported processing its highest volume of retail orders for any IPO auction in its history, while Fidelity recorded 500,000 buy orders within the first hour of trading. The surge in retail traffic also caused brief service disruptions at Robinhood.\n\nMusk marked the Nasdaq debut by ringing the opening bell remotely from the SpaceX headquarters in Texas. He later posted a message to the company's 22,000 employees on X, stating, 'I love the incredible people of SpaceX beyond words.'"
+    },
+    {
+      "type": "heading",
+      "value": "Market Focus Shifts to OpenAI and Anthropic"
+    },
+    {
+      "type": "text",
+      "value": "The market enthusiasm did not extend to competitors. Virgin Galactic shares fell 27% and Rocket Lab dropped 7% on the day of the Nasdaq debut, as investors redirected capital from other space-related equities to concentrate on SpaceX.\n\nMarket attention is already moving to the next mega listings. OpenAI and Anthropic have both [filed confidentially for initial public offerings](/article/openai/openai-confidential-s1-ipo/), with Nasdaq debuts projected later this year. Collectively, these listings will provide the public markets with a definitive performance metric for the generative AI sector.\n\nHowever, the SpaceX prospectus outlines substantial risks. The Form S-1 highlights a business strategy that references Mars 63 times, a performance-based compensation package for Musk valued at up to $7.5 trillion contingent on establishing a one-million-person Mars colony, and regulatory risks associated with the 'unhinged' modes of the Grok AI model. Fresh off the largest IPO in history, the $2 trillion company will now see its SPCX stock price graded through quarterly earnings reports."
+    }
+  ]
+}
