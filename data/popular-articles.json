@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-06-12T00:13:40.163Z",
+  "updatedAt": "2026-06-13T02:29:44.761Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 41,
+      "views": 31,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 25,
+      "views": 20,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -29,12 +29,6 @@
     },
     {
       "type": "issue",
-      "slug": "god-of-war-laufey-reveal",
-      "views": 3,
-      "path": "/magazine/issue/god-of-war-laufey-reveal/"
-    },
-    {
-      "type": "issue",
       "slug": "gow-laufey-jaffe-criticism",
       "views": 3,
       "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
@@ -44,6 +38,12 @@
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 3,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 3,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "issue",
@@ -71,27 +71,9 @@
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 2,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
       "slug": "persona-6-announced-xbox-showcase",
       "views": 2,
       "path": "/magazine/issue/persona-6-announced-xbox-showcase/"
-    },
-    {
-      "type": "ranking",
-      "slug": "lunar-new-year-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/lunar-new-year-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "wiki",
@@ -132,10 +114,10 @@
       "path": "/magazine/insight/2026-game-trends/"
     },
     {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
+      "type": "issue",
+      "slug": "china-game-license-normalization",
       "views": 1,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
+      "path": "/magazine/issue/china-game-license-normalization/"
     },
     {
       "type": "issue",
@@ -145,9 +127,15 @@
     },
     {
       "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
+      "slug": "god-of-war-laufey-reveal",
       "views": 1,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+      "path": "/magazine/issue/god-of-war-laufey-reveal/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -157,9 +145,21 @@
     },
     {
       "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 1,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-refund-exploit-ban",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-user-exodus-macro-cash",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-user-exodus-macro-cash/"
     },
     {
       "type": "issue",
@@ -178,12 +178,6 @@
       "slug": "maple-grow-probability-scandal-2026",
       "views": 1,
       "path": "/magazine/issue/maple-grow-probability-scandal-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "specialforce-remaster-ue5-launch-delay",
-      "views": 1,
-      "path": "/magazine/issue/specialforce-remaster-ue5-launch-delay/"
     },
     {
       "type": "issue",
@@ -210,10 +204,11 @@
       "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
+      "type": "wiki",
+      "slug": "game-ip-licensing",
+      "category": "business",
       "views": 1,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
+      "path": "/wiki/business/game-ip-licensing/"
     },
     {
       "type": "wiki",
@@ -256,6 +251,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",

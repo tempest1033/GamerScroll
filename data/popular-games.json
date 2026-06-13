@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-12T00:13:39.627Z",
+  "updatedAt": "2026-06-13T02:29:44.210Z",
   "period": "30days",
   "games": [
     {
@@ -11,15 +11,11 @@
       "views": 8
     },
     {
-      "slug": "초격력-별의-분노",
-      "views": 5
-    },
-    {
       "slug": "궁영롱몽",
       "views": 4
     },
     {
-      "slug": "좀비-웨이브스",
+      "slug": "초격력-별의-분노",
       "views": 4
     },
     {
@@ -40,10 +36,6 @@
     },
     {
       "slug": "배틀그라운드",
-      "views": 2
-    },
-    {
-      "slug": "스트리트볼-올스타-streetball-allstar",
       "views": 2
     },
     {
@@ -76,6 +68,14 @@
     },
     {
       "slug": "limbus-company",
+      "views": 1
+    },
+    {
+      "slug": "stardew-valley",
+      "views": 1
+    },
+    {
+      "slug": "wizardry-variants-daphne",
       "views": 1
     }
   ]
