@@ -1,0 +1,130 @@
+{
+  "slug": "claude-fable-5-mythos-5-government-suspension",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "클로드 페이블 5, 美 정부 수출통제로 출시 사흘 만에 전면 중단",
+  "titleEn": "Claude Fable 5 Suspended on US Export Order",
+  "summary": "미국 정부가 안보 문제를 이유로 최신 모델인 페이블 5와 미토스 5의 외국인 접근 제한을 지시했다. 선별 차단이 불가능하자 개발사인 앤트로픽은 즉시 두 모델의 가동을 전면 중단했다.",
+  "summaryEn": "The US government ordered Anthropic to bar foreign access to Fable 5 and Mythos 5. Unable to block selectively, it disabled both models for all users.",
+  "keywords": "클로드 페이블 5, 미토스 5, 앤트로픽, 데이터 보존, 수출통제",
+  "keywordsEn": "Claude Fable 5, Mythos 5, Anthropic, data retention, export control",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/50159fff55088f12070cc8a56eb51ff61006b631-2400x1260.png",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Statement on the US government directive to suspend access to Fable 5 and Mythos 5",
+      "url": "https://www.anthropic.com/news/fable-mythos-access"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Fable 5 and Claude Mythos 5",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic's Claude Fable 5 is a version of Mythos the public can access today",
+      "url": "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/"
+    },
+    {
+      "name": "WindowsForum",
+      "title": "Microsoft Blocks Claude Fable 5 Internally — Available vs Approved AI",
+      "url": "https://windowsforum.com/threads/microsoft-blocks-claude-fable-5-internally-available-vs-approved-ai.425232/"
+    },
+    {
+      "name": "The New York Times",
+      "title": "Anthropic Ordered to Block Mythos and Fable 5 Over Security Concerns",
+      "url": "https://www.nytimes.com/2026/06/12/technology/anthropic-mythos-fable5-blocked.html"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-fable-5-false-positive-easing",
+    "tech:ai/claude-fable-5-safety-backlash",
+    "tech:ai/anthropic-nsa-mythos-offensive-cyber",
+    "tech:ai/anthropic-mythos-eu-access-expansion"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 신규 AI 모델을 출시한 지 사흘 만에 서비스 공급을 중단했다. 미국 정부가 국가 안보를 이유로 수출통제 명령을 내리며 클로드 페이블 5와 미토스 5에 대한 접근 제한을 요구했기 때문이다. 이에 앤트로픽은 지난 6월 12일 모든 사용자를 대상으로 두 모델의 가동을 중단했다. 기존의 다른 클로드 모델들은 정상적으로 작동한다.\n\n이번 행정 명령은 외국 국적자의 두 모델 사용을 금지하는 데 초점을 맞췄다. 미국 영토 안팎의 모든 외국인은 물론, 앤트로픽의 외국인 직원까지 규제 대상에 포함됐다. 국적별로 시스템 접근을 선별 차단하는 기술적 구현이 불가능해지자, 앤트로픽은 결국 전면적인 서비스 중단을 선택했다.\n\n이번 가동 중단은 묘한 역설을 낳았다. 불과 며칠 전까지 사용자들이 페이블 5의 [안전장치가 너무 과하다](/ko/article/anthropic/anthropic-fable-5-false-positive-easing/)며, 무해한 질문까지 구형 모델로 우회시킨다고 불만을 제기했기 때문이다. 하지만 이번에는 오히려 해당 안전장치가 무력화될 수 있다는 우려가 전면 중단의 도화선이 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "방아쇠가 된 '탈옥' 우려"
+    },
+    {
+      "type": "text",
+      "value": "정부가 움직인 직접적인 요인은 이른바 '탈옥(jailbreak)' 우려다. 수출통제 명령은 현지시각 6월 12일 오후 5시 21분에 도달했으나, 구체적인 국가 안보상의 근거는 명시되지 않았다. 앤트로픽은 공식 [성명](https://www.anthropic.com/news/fable-mythos-access)을 통해 정부가 클로드 페이블 5의 안전장치를 우회하는 특정 기법을 파악한 것으로 보인다고 설명했다.\n\n하지만 자체 검토 결과는 달랐다. 발견된 취약점은 오픈AI의 GPT-5.5 등 기존 모델도 쉽게 식별하는 사소한 수준이었다. 정부 근거 역시 특정 코드의 보안 패치를 유도하는 협소한 구두 설명에 그쳤다. 앤트로픽은 사전 진행한 1,000시간 이상의 레드팀 검증에서도 범용 탈옥은 전혀 감지되지 않았다고 밝혔다.\n\n앤트로픽은 즉각 반발했다. 미미한 취약점을 구실로 수억 명이 쓰는 상용 모델을 회수하는 조치는 지나치며, 업계 전반에 이 기준을 들이대면 어떤 신작 AI 모델도 배포하지 못한다는 지적이다. 정부의 안전 통제 권한은 인정하나, 이는 투명하고 공정한 기술적 근거와 정당한 법적 절차에 따라 행사돼야 한다고 강조했다.\n\n가장 큰 모순은 함께 차단된 미토스 5의 출생 배경이다. 이 모델은 애초에 미국 정부와 공동으로 추진한 사이버 국방 프로그램인 '프로젝트 글래스윙'을 위해 개발된 전력이 있다. 정부가 함께 육성한 공공 성격의 모델을, 정작 당사자인 정부가 안보를 이유로 퇴출시킨 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "마이크로소프트의 사내 차단과 30일 데이터 보존 정책"
+    },
+    {
+      "type": "text",
+      "value": "정부 조치 이전에도 클로드 페이블 5의 도입 과정은 매끄럽지 않았다. 마이크로소프트는 이미 사내 임직원의 페이블 5 사용을 금지하고, 개발 툴인 깃허브 코파일럿의 모델 선택 창에서 이를 제외했다. 데이터 보존 방식에 대한 법무 및 보안 팀의 규정 검토가 끝날 때까지 모델 도입 승인을 보류한 조치였다."
+    },
+    {
+      "type": "image",
+      "src": "https://data.windowsforum.com/attachments/119/119119-1a990288b201e44edc12ce14e3944215.jpg?hash=BlZhrGZkEG",
+      "caption": "'쓸 수 있는 AI'와 '승인된 AI'를 대비한 기업 거버넌스 개념 일러스트",
+      "alt": "AI 모델 진열대와 접근이 차단된 '승인된 AI' 출입문을 나란히 배치한 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "흥미로운 점은 마이크로소프트가 기업 고객들에게는 코파일럿과 파운드리 플랫폼을 통해 해당 모델을 그대로 판매하고 있었다는 사실이다. 외부 고객은 쓸 수 있지만 직원은 데이터 반출 경로가 명확해지기 전까지 사용을 막아둔 셈이다. 상용화된 AI 제품과 기업 내부 보안 규정 사이의 괴리를 여실히 드러낸 사례다.\n\n논란의 핵심은 앤트로픽의 '30일 데이터 보존 정책'이다. 페이블 5와 미토스 5는 서비스 이용 시 발생하는 모든 트래픽을 한 달간 저장하며, 기존에 무보존(ZDR) 계약을 맺은 기업 고객에게조차 예외를 허용하지 않는다. 회사 측은 이 데이터가 모델 학습이 아닌 탈옥 감지용이라고 해명했으나, 심각한 침해가 의심되는 경우나 고객 서면 요청 시 사람이 직접 대화록을 검토할 수 있다는 단서 조항이 기업 보안 부서의 발목을 잡았다."
+    },
+    {
+      "type": "heading",
+      "value": "클로드 페이블 5의 불확실한 복귀 전망"
+    },
+    {
+      "type": "text",
+      "value": "기업 고객들의 망설임과 별개로, 클로드 페이블 5의 구독 서비스 제공은 당초 한시적인 조치였다. 앤트로픽은 원래 6월 22일까지만 프로, 맥스, 팀 및 엔터프라이즈 요금제 가입자에게 이 모델을 무료로 제공할 계획이었다. 이후 23일부터는 종량제 요금으로 전환하고, 연산 용량이 확보되는 대로 다시 일반 구독형 기능에 통합할 예정이었다.\n\n공개된 종량제 단가는 입력 100만 토큰당 10달러, 출력 100만 토큰당 50달러였다. 이는 구형 모델인 오퍼스 4.8에 비하면 두 배 비싸지만, 미토스 프리뷰 가격과 비교하면 절반 이하 수준이다. 하지만 이번 정부의 갑작스러운 수출통제 조치로 이 같은 수익화 로드맵 자체가 가로막히게 됐다.\n\n앤트로픽은 이번 사태를 정부의 '오해'에서 비롯된 것으로 규정하고 24시간 내에 상세 해명과 함께 조속한 서비스 복구를 약속했다. 그러나 최첨단 AI 모델이 공개된 지 사흘 만에 정부 규제로 강제 중단된 유례없는 선례는 이미 남았다. 향후 유사 모델들의 운명 역시 개발사의 로드맵이 아닌 워싱턴의 정치적 판단에 따라 결정될 전망이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic has disabled its most advanced AI model just three days after its release. Citing national security concerns, the US government issued an export control directive ordering the company to restrict access to Claude Fable 5 and Mythos 5. In response, Anthropic disabled both models for all customers on June 12, while leaving other Claude models unaffected.\n\nThe directive specifically targeted foreign nationals, barring them from using Claude Fable 5 and Mythos 5 regardless of whether they were inside or outside the US—a restriction that also applied to Anthropic’s own foreign employees. Because blocking access selectively by nationality proved technically unfeasible, the company chose to withdraw the models entirely.\n\nThe sudden suspension comes amid notable irony. Only days earlier, users had complained that the model's [safeguards were too aggressive](/article/anthropic/anthropic-fable-5-false-positive-easing/), frequently routing harmless prompts to older models. Now, security vulnerabilities within those same safeguards have served as the catalyst for the shutdown."
+    },
+    {
+      "type": "heading",
+      "value": "Jailbreak Concerns Trigger Shutdown"
+    },
+    {
+      "type": "text",
+      "value": "The immediate catalyst for the order was concerns over potential \"jailbreaking\" techniques. The export control directive arrived at 5:21 p.m. ET on June 12 without specifying the underlying security rationale. In an official [statement](https://www.anthropic.com/news/fable-mythos-access), Anthropic noted it understands the government became aware of a specific method to bypass Claude Fable 5’s safeguards.\n\nHowever, the company’s internal review of the vulnerability painted a different picture. The issues identified consisted of a few minor, pre-existing vulnerabilities that other public models, including OpenAI’s GPT-5.5, would flag just as easily without requiring a jailbreak. According to Anthropic, the government’s evidence consisted only of a verbal description of a narrow attack vector: prompting the model to analyze a specific codebase and resolve its defects. The company emphasized that over 1,000 hours of pre-launch bug bounty programs and external red-teaming failed to surface any universal jailbreak.\n\nAnthropic has strongly contested the decision, arguing that suspending a commercial model used by hundreds of millions over a narrow, hypothetical vulnerability is unwarranted. The company warned that enforcing such a standard would effectively halt the deployment of any new frontier AI models. While Anthropic acknowledges the government's export control authority to block unsafe releases, it maintains that such actions must be executed through transparent, fair, and technically sound legal channels.\n\nFurther complicating the situation is the origin of Mythos 5. The model was initially deployed for cybersecurity defense under Project Glasswing, a collaborative initiative with the US government. Having co-developed the model, the government has now ordered its withdrawal."
+    },
+    {
+      "type": "heading",
+      "value": "Microsoft's Ban and the 30-Day Data Retention Policy"
+    },
+    {
+      "type": "text",
+      "value": "Even before the federal directive, Claude Fable 5 faced adoption hurdles. Microsoft had already barred its own employees from using the model, removing it from the internal GitHub Copilot selection menu. The restriction was to remain in place pending a legal and security review of the model's data retention policies."
+    },
+    {
+      "type": "image",
+      "src": "https://data.windowsforum.com/attachments/119/119119-1a990288b201e44edc12ce14e3944215.jpg?hash=BlZhrGZkEG",
+      "caption": "A concept illustration contrasting 'available AI' with locked-down 'approved AI'",
+      "alt": "Illustration placing a shelf of AI models beside a sealed 'Approved AI' door"
+    },
+    {
+      "type": "text",
+      "value": "Paradoxically, Microsoft continued to offer the same model to its corporate clients through Copilot and its Foundry platform. While external customers were permitted to use the model, internal employees remained restricted until the company could verify the destination of the data—highlighting the divide between commercially available AI and internally approved software.\n\nThe primary point of contention is Anthropic's 30-day data retention policy. Both Fable 5 and Mythos 5 require all user traffic to be stored for 30 days, offering no exemptions even for enterprise clients with pre-existing zero data retention (ZDR) agreements. Anthropic maintains that this data is used solely for jailbreak detection and reducing false positives, rather than model training. However, the data retention policy lets reviewers read conversations when severe harm is suspected, or upon written client request, raising concern among corporate security teams."
+    },
+    {
+      "type": "heading",
+      "value": "The Uncertain Future of Claude Fable 5"
+    },
+    {
+      "type": "text",
+      "value": "Regardless of corporate caution over data retention, Fable 5's initial release was designed to be temporary. Anthropic had announced that the model would be provided at no additional cost to Pro, Max, Team, and seat-based Enterprise subscribers only until June 22. On June 23, the model was scheduled to be transitioned to usage-based pricing, with plans to reintegrate it into standard subscriptions once computing capacity allowed.\n\nThe usage-based rates were set at $10 per million input tokens and $50 per million output tokens—representing twice the cost of the older Opus 4.8 model, but less than half the rate of Mythos Preview. However, the export control order has blocked this planned commercial pathway entirely.\n\nWhile Anthropic has characterized the shutdown as a misunderstanding and promised a detailed explanation within 24 hours—along with a pledge to restore access as quickly as possible—the precedent has been set. This marks the first time a government has forced the withdrawal of Claude Fable 5, a frontier AI model, just three days post-launch. The long-term implications for the industry now depend on export control decisions in Washington, rather than the developer's roadmaps."
+    }
+  ]
+}
