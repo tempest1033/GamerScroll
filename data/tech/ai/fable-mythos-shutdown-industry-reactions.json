@@ -1,0 +1,318 @@
+{
+  "slug": "fable-mythos-shutdown-industry-reactions",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "2026-06-13T17:30Z",
+  "needTranslate": false,
+  "title": "'그냥 만화 같다'… 페이블·미토스 중단에 쏟아진 AI 업계 말말말",
+  "titleEn": "Cartoonish: AI World Reacts to Fable Shutdown",
+  "summary": "미 상무부가 외국인 접근 차단을 지시하면서 앤트로픽이 페이블 5와 미토스 5 출시 사흘 만에 서비스를 전면 중단했다. 테크 업계에서는 이번 사태를 두고 '만화 같은 조치'라는 비판부터 '자초한 결과'라는 냉소까지 다양한 반응이 X에 올라왔다.",
+  "summaryEn": "A US order barring foreign access pulled Fable 5 and Mythos 5 three days after launch. Reactions on X ran from 'cartoonish' to 'reaps what one sows.'",
+  "keywords": "페이블 5, 미토스 5, 수출통제, 앤트로픽, 업계 반응",
+  "keywordsEn": "Fable 5, Mythos 5, export controls, Anthropic",
+  "thumbnail": "https://i.insider.com/6a2ccae2a462940611898cb4?width=1200&format=jpeg",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Statement on the US government directive to suspend access to Fable 5 and Mythos 5",
+      "url": "https://www.anthropic.com/news/fable-mythos-access"
+    },
+    {
+      "name": "Business Insider",
+      "title": "Tech world reacts to Trump controls on Anthropic's Fable and Mythos",
+      "url": "https://www.businessinsider.com/reaction-to-trump-controls-on-anthropic-fable-and-mythos-2026-6"
+    },
+    {
+      "name": "Reuters",
+      "title": "US blocks foreign access to Anthropic's most advanced AI models",
+      "url": "https://www.reuters.com/technology/us-blocks-foreign-access-anthropics-most-advanced-ai-models-axios-reports-2026-06-13/"
+    },
+    {
+      "name": "WIRED",
+      "title": "Anthropic Says It's Taking Claude Fable 5 Offline to Comply With US Government Order",
+      "url": "https://www.wired.com/story/anthropic-says-us-government-ordered-it-to-shut-down-mythos-models/"
+    },
+    {
+      "name": "Clement Delangue (X)",
+      "title": "Concentration of power, capabilities and economic wealth is the biggest risk in AI",
+      "url": "https://x.com/ClementDelangue/status/2064513229099876663"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-mythos-5-government-suspension",
+    "tech:ai/glm-5-2-open-vs-fable-block",
+    "tech:ai/claude-fable-5-safety-backlash",
+    "tech:ai/anthropic-recursive-self-improvement-pause"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 미 동부시간 기준 6월 12일 오후 5시 21분 외국인의 페이블 5와 미토스 5 접근을 차단하라는 미 상무부의 수출통제 명령을 받았다. 클라우드 환경에서 특정 국적의 이용자만 선별해 제한하기가 어렵자, 앤트로픽은 출시 사흘 만에 전 세계 시장에서 두 모델의 서비스를 전면 중단했다.\n\n앤트로픽은 [공식 성명](https://www.anthropic.com/news/fable-mythos-access)을 통해 미미한 탈옥 우려를 이유로 수억 명이 사용하는 상용 모델을 회수하라는 명령은 부당하다고 반발했다. 하지만 업계 외부의 반응이 한층 더 거셌다. [사건의 구체적인 경위](/ko/article/anthropic/claude-fable-5-mythos-5-government-suspension/)가 밝혀지자 테크 업계 인사들의 목소리가 X를 가득 채웠다."
+    },
+    {
+      "type": "heading",
+      "value": "'그냥 만화 같다'… 앤트로픽 규제에 쏟아진 성토"
+    },
+    {
+      "type": "text",
+      "value": "가장 먼저 제기된 것은 규제가 지나치게 과도하다는 비판이었다. 트럼프 행정부 시절 AI 정책을 담당했던 전문가 딘 볼은 이번 정부의 조치를 두고 '만화 같은 일'이라며 짧게 평했다."
+    },
+    {
+      "type": "quote",
+      "value": "이게 앤트로픽을 겨냥한 법적 괴롭힘인지, 극단적인 안보 매파주의인지 분간이 안 된다. 어느 쪽이든 그냥 만화 같다.<br>— 딘 볼, 미국혁신재단(FAI) 선임연구원",
+      "cite": "딘 볼 · 미국혁신재단(FAI) 선임연구원"
+    },
+    {
+      "type": "quote",
+      "value": "중국엔 첨단 AI 칩을 수출하자는 행정부가, 정작 영국을 비롯한 지구상 모든 비(非)미국인에겐 자국 최고 모델을 못 쓰게 막겠다니. 할 말을 잃었다.<br>— 딘 볼, 미국혁신재단(FAI) 선임연구원",
+      "cite": "딘 볼 · 미국혁신재단(FAI) 선임연구원"
+    },
+    {
+      "type": "text",
+      "value": "대표적인 AI 회의론자 게리 마커스도 비판 대열에 합류했다. 그는 이번 정부의 조치가 결과적으로 미국 스스로에게 해를 끼치는 자해 행위가 될 것이라고 경고했다."
+    },
+    {
+      "type": "quote",
+      "value": "충격적일 만큼 과장됐고, 미국 AI 산업엔 역효과만 낳는다. 혁신을 옥죄는 AI 규제의 사례를 찾는다면, 바로 이게 그것이다.<br>— 게리 마커스, AI 연구자",
+      "cite": "게리 마커스 · AI 연구자"
+    },
+    {
+      "type": "text",
+      "value": "법학자들은 행정 절차가 결여되었다는 점에 주목했다. 조지타운 대학교의 피터 해럴 교수는 적법한 절차 없이 이뤄진 이번 조치를 강하게 비판했다."
+    },
+    {
+      "type": "quote",
+      "value": "근거가 모호하고 비공개인 안보 위협을 이유로, 미국 시민인 내게 첨단 AI 모델을 쓰지 말라고 정부가 명령하는 건 우스꽝스럽고 비(非)미국적이다. AI는 규제하되 투명하고 공정한 규칙으로 해야지, 금요일 오후 5시의 칙령으로 할 일이 아니다.<br>— 피터 해럴, 조지타운대 법학연구소",
+      "cite": "피터 해럴 · 조지타운대 법학연구소"
+    },
+    {
+      "type": "heading",
+      "value": "'뿌린 대로 거둔 것'… 미토스 5 자업자득론"
+    },
+    {
+      "type": "text",
+      "value": "절차적 정당성을 탓하는 비판 옆에는 앤트로픽이 사태를 자초했다는 싸늘한 시선이 자리했다. 메타의 AI 연구를 이끌었던 얀 르쿤은 이 같은 냉소를 가장 날카롭게 드러냈다."
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2261869274.jpg?resize=1200,800",
+      "caption": "얀 르쿤 AMI 랩스 회장",
+      "alt": "미토스 5 사태를 두고 발언하는 얀 르쿤"
+    },
+    {
+      "type": "quote",
+      "value": "다리오 아모데이가 미토스 5와 페이블을, 나아가 AI 전반을 두고 벌여 온 우스꽝스러운 공포 조장이 드디어 결실을 봤다. 정부가 비미국인의 사용을 금지한 것이다. 뿌린 대로 거두는 법이다.<br>— 얀 르쿤, AMI 랩스 회장",
+      "cite": "얀 르쿤 · AMI 랩스 회장"
+    },
+    {
+      "type": "text",
+      "value": "보안 연구원인 피터 거너스는 앤트로픽이 그동안 내세웠던 '안전' 중심의 마케팅이 결국 부메랑이 되어 돌아왔다고 지적했다."
+    },
+    {
+      "type": "quote",
+      "value": "제품을 보도자료마다 '무기'라고 부르면, 결국엔 정부가 그 말을 곧이곧대로 받아들인다. 그들은 스스로 법적 빌미를 써 놓고는 그걸 브랜드라 불렀다.<br>— 피터 거너스, 제로데이 이니셔티브",
+      "cite": "피터 거너스 · 제로데이 이니셔티브"
+    },
+    {
+      "type": "quote",
+      "value": "이번 결정에 반대하고, 마음에 들지도 않는다. 그런데 동시에 — 앤트로픽은 대체 이걸 어떻게 예상 못 했나?! '우리 말고는 누구에게도 너무 위험하다'는 전제를 깔면 나올 수밖에 없는 뻔한 반응이었다.<br>— 제러미 하워드, fast.ai 공동창업자",
+      "cite": "제러미 하워드 · fast.ai 공동창업자"
+    },
+    {
+      "type": "heading",
+      "value": "'자기가 만든 모델에서 쫓겨나다'… 인재 유출 경고"
+    },
+    {
+      "type": "text",
+      "value": "단순한 냉소를 넘어 실질적인 인력 운용에도 심각한 문제가 불거졌다. 미국의 AI 수출 통제에 적용된 '의제 수출(deemed export)' 규정은 미국 영토 내에서 외국인 직원에게 기술을 공유하는 것조차 수출 행위로 간주한다. 이로 인해 페이블 모델을 개발한 외국 국적 직원들이 정작 자신들이 만든 모델에 접근할 수 없는 황당한 상황이 발생했다."
+    },
+    {
+      "type": "quote",
+      "value": "무기는 건물 안에 있는데, 정작 그걸 만든 사람들은 들여다보는 것조차 허락되지 않는다.<br>— 피터 거너스, 제로데이 이니셔티브",
+      "cite": "피터 거너스 · 제로데이 이니셔티브"
+    },
+    {
+      "type": "text",
+      "value": "이 같은 여파는 미국의 AI 인재 생태계 전반으로 번질 조짐을 보인다. 게리 마커스는 이번 규제가 장기적으로 우수한 인재들을 소외시켜 오히려 중국에 호재로 작용할 것이라고 전망했다."
+    },
+    {
+      "type": "quote",
+      "value": "미국 AI 기업에서 일하는 중국 출신 인력은 — 그리고 그 수는 결코 적지 않다 — 너 나 할 것 없이 지금 당장 중국으로 돌아가 경쟁에 합류할지 고민하게 될 것이다.<br>— 게리 마커스, AI 연구자",
+      "cite": "게리 마커스 · AI 연구자"
+    },
+    {
+      "type": "quote",
+      "value": "미국 정부가 페이블 5와 미토스 5의 외국인 접근을 미국 안팎 가리지 않고 전면 차단시켰다. 다시 말하지만, 앤트로픽을 포함한 모든 프런티어 AI 랩의 기술 인력 상당수가 외국 국적자다.<br>— 유수프 마무드, 아메리카 퍼스트 정책연구소",
+      "cite": "유수프 마무드 · 아메리카 퍼스트 정책연구소"
+    },
+    {
+      "type": "heading",
+      "value": "빗장 거는 美, 문 여는 中… 오픈소스의 반격"
+    },
+    {
+      "type": "text",
+      "value": "미국 정부가 외국인 인재 유입의 빗장을 거는 사이, 오픈소스 진영은 이를 기회로 삼았다. 허깅페이스의 최고경영자 클레망 델랑그는 이번 사건을 계기로 오픈소스 인공지능 개발의 필요성이 한층 더 뚜렷해졌다고 역설했다."
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/11/clem-delangue.png?resize=1200,789",
+      "caption": "클레망 델랑그 허깅페이스 CEO",
+      "alt": "악시오스 행사에서 발언하는 클레망 델랑그"
+    },
+    {
+      "type": "quote",
+      "value": "권력과 역량, 그리고 부의 집중이야말로 AI의 가장 큰 위험이다. 지금처럼 오픈 사이언스와 오픈소스가 절실했던 적이 없다.<br>— 클레망 델랑그, 허깅페이스 CEO",
+      "cite": "클레망 델랑그 · 허깅페이스 CEO"
+    },
+    {
+      "type": "text",
+      "value": "단순한 구호에 그치지 않았다. 미국이 외국인 접근을 차단한 당일, 중국의 AI 기업 Z.ai는 신작 GLM-5.2를 공개하고 다음 주에 가중치를 MIT 라이선스로 제공하겠다고 약속하며 [워싱턴의 규제에 오픈소스로 응수](/ko/article/anthropic/glm-5-2-open-vs-fable-block/)했다. [비즈니스 인사이더](https://www.businessinsider.com/reaction-to-trump-controls-on-anthropic-fable-and-mythos-2026-6)가 모은 반응 중 박스 CEO 에런 레비는 이번 사태를 더 큰 변화의 서막으로 진단했다."
+    },
+    {
+      "type": "quote",
+      "value": "이건 AI 규제의 큰 전환점이다. 정부가 특정 모델을 특정 용도에 쓰기엔 너무 강력하다고 규정하기 시작했고, 이는 앞으로 온갖 통제의 선례가 된다.<br>— 에런 레비, 박스 CEO",
+      "cite": "에런 레비 · 박스 CEO"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽은 이번 사태를 오해로 규정하며 접근 권한 복원을 위해 당국과 협의 중이라고 밝혔다. 안전하지 않은 배포를 차단할 권한 자체는 인정하지만, 그 조치는 투명하고 공정하며 기술적 사실에 기반한 법적 절차를 거쳐야 한다는 입장이다. 회사 측은 이번 지령이 이러한 원칙에 맞지 않는다고 비판했다. 이번 일이 며칠 뒤 풀릴 해프닝에 그칠지, 페이블 5와 미토스 5를 겨눈 수출통제가 첨단 모델 규제의 첫 선례가 될지는 워싱턴의 향후 조치에 달렸다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic received a one-line export-control directive from the U.S. Department of Commerce at 5:21 p.m. ET on June 12, ordering the company to block all foreign nationals from accessing Fable 5 and Mythos 5. Because the company could not selectively filter users by nationality within its cloud environment, it withdrew both AI models from all global customers just three days after launch.\n\nIn its [official statement](https://www.anthropic.com/news/fable-mythos-access), Anthropic protested the decision: \"We disagree that the finding of a narrow potential jailbreak should be cause for recalling a commercial model deployed to hundreds of millions of people.\" However, the industry reaction from the broader AI community was even more vocal. As details of [the full sequence of events](/article/anthropic/claude-fable-5-mythos-5-government-suspension/) emerged, industry reactions quickly flooded X."
+    },
+    {
+      "type": "heading",
+      "value": "Cartoonish: Critics Slam the Anthropic Order"
+    },
+    {
+      "type": "text",
+      "value": "The initial reactions focused on decrying the directive as excessive overreach. Dean Ball, an AI policy expert who served briefly in the Trump administration, summarized the action in a single word."
+    },
+    {
+      "type": "quote",
+      "value": "I can't tell if this is lawfare against Anthropic in particular or extreme national-security hawkery. Regardless, it is simply cartoonish.<br>— Dean Ball, Foundation for American Innovation",
+      "cite": "Dean Ball, Foundation for American Innovation"
+    },
+    {
+      "type": "quote",
+      "value": "An administration whose posture is that we should export advanced AI chips to China, which also wants to ban Britain and every other non-American on Earth from using our best models? I have no words.<br>— Dean Ball, Foundation for American Innovation",
+      "cite": "Dean Ball, Foundation for American Innovation"
+    },
+    {
+      "type": "text",
+      "value": "Gary Marcus, a prominent AI industry skeptic, quickly joined the criticism, arguing that the decision would ultimately prove self-defeating for the U.S."
+    },
+    {
+      "type": "quote",
+      "value": "Wildly overdramatic and also counterproductive for the US AI industry. If you want an example of an AI regulation that can stifle innovation, this is it.<br>— Gary Marcus, AI researcher",
+      "cite": "Gary Marcus, AI researcher"
+    },
+    {
+      "type": "text",
+      "value": "Legal scholars pointed to the lack of due process. Peter Harrell of Georgetown University criticized the move sharply."
+    },
+    {
+      "type": "quote",
+      "value": "I find it ridiculous and un-American for the government to tell me, as an American, I cannot use an advanced AI model because of a vague and non-public alleged security threat. We should regulate AI, but based on transparent and impartial rules, and not 5pm on a Friday diktats.<br>— Peter Harrell, Georgetown Law",
+      "cite": "Peter Harrell, Georgetown Law"
+    },
+    {
+      "type": "heading",
+      "value": "Reaping What They Sowed: Mythos 5 Backlash"
+    },
+    {
+      "type": "text",
+      "value": "Alongside procedural complaints was a colder assessment: Anthropic brought the situation on itself. Yann LeCun, the former head of Meta AI, offered the sharpest criticism of the Mythos 5 fallout."
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2261869274.jpg?resize=1200,800",
+      "caption": "Yann LeCun, chairman of AMI Labs",
+      "alt": "Yann LeCun speaking about the Mythos 5 case"
+    },
+    {
+      "type": "quote",
+      "value": "Dario Amodei's ridiculous fear mongering about Mythos 5 and Fable, and AI in general, finally pays off: the US government bans its use by non-Americans. One reaps what one sows.<br>— Yann LeCun, AMI Labs",
+      "cite": "Yann LeCun, AMI Labs"
+    },
+    {
+      "type": "text",
+      "value": "Security researcher Peter Girnus observed that Anthropic's own safety-centric marketing had boomeranged."
+    },
+    {
+      "type": "quote",
+      "value": "If you describe your product as a munition in every press release, eventually a government takes you at your word. They wrote the legal predicate themselves and called it a brand.<br>— Peter Girnus, Zero Day Initiative",
+      "cite": "Peter Girnus, Zero Day Initiative"
+    },
+    {
+      "type": "quote",
+      "value": "I disagree with this decision and I don't like it. But also, HOW DID ANTHROPIC NOT SEE THIS COMING?! It is the obvious response to 'this is too dangerous for anyone except us to use.'<br>— Jeremy Howard, fast.ai",
+      "cite": "Jeremy Howard, fast.ai"
+    },
+    {
+      "type": "heading",
+      "value": "Locked Out of the Models They Built"
+    },
+    {
+      "type": "text",
+      "value": "Beyond the cynicism lies a more tangible issue affecting employees. Under the 'deemed export' rules governing U.S. AI export controls, sharing technical details with a foreign national inside the U.S. is treated as an export. Consequently, the foreign-national employees who developed Fable are now locked out of the very model they helped build."
+    },
+    {
+      "type": "quote",
+      "value": "The munition is in the building and the people who made it are not allowed to look at it.<br>— Peter Girnus, Zero Day Initiative",
+      "cite": "Peter Girnus, Zero Day Initiative"
+    },
+    {
+      "type": "text",
+      "value": "The Mythos 5 export controls threaten to reshape the U.S. AI talent landscape. Gary Marcus argued that the restriction would ultimately benefit China."
+    },
+    {
+      "type": "quote",
+      "value": "Every Chinese person working in a US AI company, and there are many, will consider returning to the competition in China ASAP.<br>— Gary Marcus, AI researcher",
+      "cite": "Gary Marcus, AI researcher"
+    },
+    {
+      "type": "quote",
+      "value": "The US government just ordered Anthropic to suspend all foreign-national access to Fable 5 and Mythos 5, inside or outside the US. As a reminder, huge percentages of technical employees at all the frontier AI labs, including Anthropic, are likely foreign nationals.<br>— Yusuf Mahmood, America First Policy Institute",
+      "cite": "Yusuf Mahmood, America First Policy Institute"
+    },
+    {
+      "type": "heading",
+      "value": "US Bolts the Door, China Opens It"
+    },
+    {
+      "type": "text",
+      "value": "As the U.S. tightened export controls, the open-source camp turned the industry reaction into an opening. Hugging Face CEO Clement Delangue cited the incident as a clear case for the necessity of open-source development."
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2025/11/clem-delangue.png?resize=1200,789",
+      "caption": "Clement Delangue, CEO of Hugging Face",
+      "alt": "Clement Delangue speaking at an Axios event"
+    },
+    {
+      "type": "quote",
+      "value": "Concentration of power, capabilities and economic wealth is the biggest risk in AI. We need open science and open-source more than ever!<br>— Clement Delangue, Hugging Face CEO",
+      "cite": "Clement Delangue, Hugging Face CEO"
+    },
+    {
+      "type": "text",
+      "value": "This was not merely rhetorical. The same day the U.S. blocked foreign access, Chinese AI developer Z.ai unveiled GLM-5.2 and promised to release its model weights under an open MIT license the following week, [answering Washington's restrictions with open source](/article/anthropic/glm-5-2-open-vs-fable-block/). In a roundup of industry reactions compiled by [Business Insider](https://www.businessinsider.com/reaction-to-trump-controls-on-anthropic-fable-and-mythos-2026-6), Box CEO Aaron Levie described the incident as a harbinger of a larger shift."
+    },
+    {
+      "type": "quote",
+      "value": "This is a big turning point for AI regulation. The government is starting to deem some models too powerful for certain uses, which creates a precedent for a range of possible controls in the future.<br>— Aaron Levie, Box CEO",
+      "cite": "Aaron Levie, Box CEO"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic characterized the incident as a misunderstanding and stated it is working to restore access. While the company acknowledges the government's authority to block unsafe deployments, it maintains that such actions must proceed through a statutory process that is transparent, fair, clear, and grounded in technical facts. Anthropic asserted that this directive failed to meet those standards. Whether the Fable 5 and Mythos 5 shutdown proves a temporary disruption or sets a lasting precedent for export controls on frontier models, the answer rests with Washington."
+    }
+  ]
+}
