@@ -1,0 +1,148 @@
+{
+  "slug": "glm-5-2-open-vs-fable-block",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "GLM-5.2 오픈소스 공개…美 페이블 5 봉쇄 틈새 노린다",
+  "titleEn": "GLM-5.2 Open Source as US Blocks Fable 5",
+  "summary": "미국이 외국인의 앤트로픽 페이블 5 및 미토스 5 접근을 차단한 날, 중국 Z.ai는 다음 주 MIT 라이선스로 가중치를 공개하는 GLM-5.2를 출시하며 맞불을 놨다.",
+  "summaryEn": "The day Washington barred foreign nationals from Anthropic's Fable 5 and Mythos 5, China's Z.ai launched GLM-5.2, with open MIT weights due next week.",
+  "keywords": "GLM-5.2 오픈소스, 페이블 5 차단, AI 수출통제, 앤트로픽",
+  "keywordsEn": "GLM-5.2 open source, Fable 5 block, AI export controls, Anthropic",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/3a6d1dcf0efc89e613672a4eeffec994a47a29a7-2400x1260.jpg",
+  "sources": [
+    {
+      "name": "WIRED",
+      "title": "Anthropic Says It's Taking Claude Fable 5 Offline to Comply With US Government Order",
+      "url": "https://www.wired.com/story/anthropic-says-us-government-ordered-it-to-shut-down-mythos-models/"
+    },
+    {
+      "name": "South China Morning Post",
+      "title": "Anthropic's Claude Fable 5 poses a challenge for China's AI developers",
+      "url": "https://www.scmp.com/tech/big-tech/article/3356900/anthropics-claude-fable-5-curbs-create-new-hurdles-chinas-ai-labs"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Anthropic's Claude Fable 5 is a version of Mythos the public can access today",
+      "url": "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/"
+    },
+    {
+      "name": "Z.ai",
+      "title": "How to Switch Models (GLM-5.2)",
+      "url": "https://docs.z.ai/devpack/latest-model"
+    },
+    {
+      "name": "Reuters",
+      "title": "China's AI startup Zhipu releases new flagship model GLM-5",
+      "url": "https://www.reuters.com/technology/chinas-ai-startup-zhipu-releases-new-flagship-model-glm-5-2026-02-11/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-safety-backlash",
+    "tech:ai/anthropic-fable-5-false-positive-easing",
+    "tech:ai/claude-fable-5-sota-benchmarks",
+    "tech:ai/kimi-k2-7-code-release"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 6월 13일, 인공지능(AI) 경쟁의 전선은 '누가 가장 뛰어난 모델을 가졌는가'에서 '누가 그 모델을 사용할 수 있는가'로 하룻밤 사이에 이동했다.\n\n미국 정부가 안보를 이유로 앤트로픽의 최신 모델인 '클로드 페이블 5'와 '미토스 5'의 외국인 접근을 차단하자, 중국의 Z.ai(옛 즈푸)는 하루 만에 신작 'GLM-5.2'를 발표했다. Z.ai는 다음 주 중 오픈소스 라이선스인 MIT 라이선스로 가중치를 공개할 예정이다. 'AI의 미래는 열려 있으며 인류의 자산'이라는 슬로건을 내걸고 워싱턴의 기술 빗장을 정조준한 모양새다."
+    },
+    {
+      "type": "heading",
+      "value": "이틀 만에 페이블 5에 채워진 두 개의 자물쇠"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 신기술의 문을 연 것은 불과 나흘 전이었다. 이들은 지난 6월 9일, 안전장치를 강화한 대중 공개용 모델인 페이블 5를 출시했다. 이 모델은 보안 취약점을 악용할 수 있다는 우려로 지난 4월 프리뷰 이후 공개가 미뤄져 왔다. 제약이 없는 쌍둥이 모델인 미토스 5는 여전히 일부 파트너에게만 제한적으로 제공된다.\n\n첫 번째 자물쇠는 앤트로픽이 직접 걸었다. 페이블 5는 사이버 보안, 생화학, 그리고 핵심 기술인 프런티어 모델 개발 관련 질의를 자동으로 감지해 걸러낸다. 필터링된 질문은 거부되는 대신 구형 모델인 오퍼스 4.8로 우회 처리된다. 브루킹스연구소의 카일 챈 연구원은 사우스차이나모닝포스트에서 이러한 [안전장치 논란](/ko/article/anthropic/claude-fable-5-safety-backlash/)이 불러올 파장에 대해 지적했다."
+    },
+    {
+      "type": "quote",
+      "value": "이제 중국 AI 개발자들이 앤트로픽의 최신 모델로 자기 모델 개발을 가속하기는 거의 불가능해졌다.",
+      "cite": "카일 챈, 브루킹스연구소 (SCMP)"
+    },
+    {
+      "type": "text",
+      "value": "두 번째는 정부가 채운 자물쇠다. 앤트로픽은 12일 오후 5시 21분(미 동부시간) 국가안보를 이유로 한 수출통제 명령을 받았다. 규제 대상에 외국인 직원까지 포함되면서 서비스 차단 범위가 넓어졌다. 회사 측은 우려되는 취약점이 다른 공개 모델도 쉽게 찾는 경미한 결함이라며 반발했다. [와이어드](https://www.wired.com/story/anthropic-says-us-government-ordered-it-to-shut-down-mythos-models/)는 이번 명령이 구두 증거만으로 발령됐다고 전했다."
+    },
+    {
+      "type": "heading",
+      "value": "규제 틈새를 파고든 GLM-5.2"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 서비스를 중단하는 사이 Z.ai는 신제품을 밀어 올렸다. 신작 GLM-5.2는 같은 날 코딩 요금제 전 등급(Lite·Pro·Max·Team)에 출시되었으며, 100만 토큰 콘텍스트 창과 자율 대행(에이전틱) 코딩 기능을 탑재했다."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn-uploads.huggingface.co/production/uploads/61b8e2ba285851687028d395/HToLVPO_L_AVGiheQ2HNB.png",
+      "caption": "산 위에 잠든 말을 그린 일러스트. GLM-5의 코드네임 'Pony Alpha'에서 따왔다.",
+      "alt": "노을 진 산 위에 잠든 말을 그린 GLM-5 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "Z.ai는 다음 주 독자 API와 챗봇, 오픈 가중치를 순차적으로 배포하고, 가중치는 관대한 MIT 라이선스로 개방할 계획이다. 이미 즈푸는 전작인 GLM-5(화웨이 어센드 칩으로만 학습된 7,440억 파라미터 모델)와 GLM-5.1을 모두 오픈소스로 제공한 선례가 있다. 당시 GLM-5는 SWE벤치 베리파이드에서 77.8%를 기록해 오픈웨이트 부문 최고점을 받았다.\n\n아직 GLM-5.2의 공식 벤치마크 결과가 공개되지 않았다는 한계는 있다. 하지만 미국의 인공지능 장벽이 높아질수록, 글로벌 개발자들에게 무료로 로컬 실행이 가능한 중국산 대안 모델을 제공하겠다는 Z.ai의 전략은 뚜렷해 보인다. 이들의 슬로건인 'AI는 인류의 것'이 이러한 구도를 뒷받침한다."
+    },
+    {
+      "type": "heading",
+      "value": "미국의 AI 봉쇄 정책이 자충수가 될 수 있는 이유"
+    },
+    {
+      "type": "text",
+      "value": "이번 사태는 미국 AI 업계의 신뢰도에 타격을 줬다. 국방부가 지난 2월 자국 연구소를 '공급망 위험'으로 지정한 데 이어 외국인 직원 접근마저 차단하자 미국 AI가 정치에 휘둘린다는 인식이 퍼졌다. 다리오 아모데이 앤트로픽 CEO조차 이번 조치가 공정하고 투명한 원칙에 어긋난다고 지적했다.\n\n그사이 중국 오픈웨이트 진영은 단단해졌다. 즈푸(Z.ai), 딥시크, 문샷, 알리바바 등은 미국의 제재 속에서 기술을 키웠다. Z.ai는 2025년 1월 수출통제 명단에 올라 H100 공급이 끊겼으나 화웨이 칩으로 프런티어 모델을 개발했고, 파운데이션 모델 기업 최초로 상장에 성공했다.\n\n빗장을 걸어 잠글 때마다 개발자들은 자체 구동이 가능한 중국산 오픈소스 모델로 이동한다. 정부가 연산 자원은 막아도 시장의 선호도(마인드셰어)까지 통제할 수는 없다. 계속 닫아걸기만 하다가는 글로벌 표준의 자리를 내주는 자충수가 될 수 있다.\n\n물론 하루아침에 판세가 뒤집히지는 않는다. GLM-5.2는 아직 검증을 거쳐야 하고 가중치 배포도 약속 단계에 불과하지만, 이번 사건이 던진 화두는 명확하다. 이제 질문은 '누구 모델이 가장 좋은가'가 아닌 '우리가 실제로 실행할 수 있는 모델은 누구 것인가'다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On June 13, 2026, the fault line in the AI race moved overnight — from who owns the smartest model to who is allowed to run it.\n\nLess than a day earlier, the US government forced Anthropic to block access to Claude Fable 5 and Mythos 5 for all foreign nationals. Hours later, China's Z.ai (formerly Zhipu) unveiled GLM-5.2 and promised a GLM-5.2 open source release next week under the MIT license. Its tagline — 'the future of AI is open, and it belongs to the people' — read as a shot at the exact moment Washington walled off its own frontier."
+    },
+    {
+      "type": "heading",
+      "value": "Two Days, Two Locks on Fable 5"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic had opened that frontier just four days earlier. On June 9 it released Fable 5, the safety-hardened public version of Mythos, held back since an April preview over fears it could find and weaponize cybersecurity flaws at scale. The unrestricted twin, Mythos 5, stays limited to vetted partners through Project Glasswing.\n\nThe first lock was Anthropic's own. Fable 5 runs classifiers that flag cybersecurity, biology, chemistry — and, crucially, frontier model development, including 'distillation.' Flagged queries aren't refused; they are quietly downgraded to the older Opus 4.8. On the [safeguard backlash](/article/anthropic/claude-fable-5-safety-backlash/), Brookings fellow Kyle Chan put it bluntly to the South China Morning Post."
+    },
+    {
+      "type": "quote",
+      "value": "Chinese AI developers might find it nearly impossible now to use Anthropic's latest model to accelerate their own model development.",
+      "cite": "Kyle Chan, Brookings Institution (SCMP)"
+    },
+    {
+      "type": "text",
+      "value": "The second lock was the government's. At 5:21 pm ET on Friday, June 12, Anthropic received an export controls directive citing national security. The export controls covered 'any foreign national, inside or outside the United States, including foreign national Anthropic employees' — so broad that Anthropic had to block Fable 5 and Mythos 5 for everyone. It called the sole concern a 'narrow, non-universal jailbreak' — read a codebase, fix its flaws — that surfaced minor, known bugs other public models find anyway. [WIRED](https://www.wired.com/story/anthropic-says-us-government-ordered-it-to-shut-down-mythos-models/) reported the order came with only verbal evidence."
+    },
+    {
+      "type": "heading",
+      "value": "GLM-5.2 Steps into the Regulatory Gap"
+    },
+    {
+      "type": "text",
+      "value": "While Anthropic withdrew its flagship, Z.ai shipped one. The Fable 5 block opened a gap, and GLM-5.2 walked through it — out the same day across every GLM Coding Plan tier, with a 1M-token context window and long-horizon agentic coding."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn-uploads.huggingface.co/production/uploads/61b8e2ba285851687028d395/HToLVPO_L_AVGiheQ2HNB.png",
+      "caption": "An illustration of a pony asleep on a mountaintop — a nod to GLM-5's 'Pony Alpha' codename.",
+      "alt": "Illustration of a pony sleeping on a mountain at sunset, referencing GLM-5"
+    },
+    {
+      "type": "text",
+      "value": "The counterpunch is the next line: the API, chatbot, and open weights all land next week, with GLM-5.2 going open source under the permissive MIT license. Z.ai has done this before — GLM-5 (744B parameters, trained on Huawei Ascend chips, zero NVIDIA silicon) and GLM-5.1 both went open source under MIT, and GLM-5 hit 77.8% on SWE-bench Verified, the top open-weight score then.\n\nThere are no GLM-5.2 benchmarks yet, a real caveat. But the shape is clear: as export controls block foreign access to Fable 5, the Chinese open source camp hands a frontier-grade coding model to anyone, free to self-host. The 'AI belongs to the people' slogan does the rest."
+    },
+    {
+      "type": "heading",
+      "value": "Why Washington's AI Blockade Could Backfire"
+    },
+    {
+      "type": "text",
+      "value": "Step back, and the optics for American AI aren't flattering. Washington branded its top lab a 'supply-chain risk' in February — now in litigation — then ordered that lab's best model switched off for every non-citizen, its own foreign staff included. Even CEO Dario Amodei, who backs a 'fair, transparent' process for blocking unsafe models, said this order 'does not adhere to those principles.' The signal to global developers is plain: American frontier AI is hostage to politics.\n\nMeanwhile the open-weight challengers keep shipping — GLM, DeepSeek, Moonshot's Kimi, Alibaba's Qwen — and US export controls have arguably hardened them, not slowed them. Zhipu has sat on the US Entity List since January 2025, cut off from NVIDIA H100s, yet trained a frontier model on Huawei chips and became the first publicly traded foundation-model company.\n\nThat is the risk baked into export controls: every model the US blocks pushes developers toward a free, self-hostable Chinese alternative, and toward the 'AI belongs to the people' framing with it. Export controls can deny compute, not mindshare. Keep closing, and the closed frontier cedes the one thing it can't sanction back — the default.\n\nGLM-5.2 still shipped without a benchmark, and 'open next week' is a promise, not a download. But the question the day leaves is no longer whose model is best — it's whose model you're allowed to run."
+    }
+  ]
+}
