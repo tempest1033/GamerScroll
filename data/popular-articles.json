@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-06-13T02:29:44.761Z",
+  "updatedAt": "2026-06-14T02:09:24.910Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 31,
+      "views": 28,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 20,
+      "views": 17,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -23,15 +23,15 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 4,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+      "slug": "dave-the-diver-in-the-jungle-release",
+      "views": 3,
+      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
     },
     {
       "type": "issue",
-      "slug": "gow-laufey-jaffe-criticism",
+      "slug": "lol-league-next-2027-overhaul",
       "views": 3,
-      "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
@@ -46,10 +46,11 @@
       "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
-      "type": "issue",
-      "slug": "dave-the-diver-in-the-jungle-release",
-      "views": 2,
-      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "issue",
@@ -81,19 +82,6 @@
       "category": "business",
       "views": 2,
       "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 1,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -163,21 +151,15 @@
     },
     {
       "type": "issue",
-      "slug": "lucky-defense-probability-manipulation-scandal",
-      "views": 1,
-      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
-    },
-    {
-      "type": "issue",
-      "slug": "mangwol-offline-playtest-recruitment",
-      "views": 1,
-      "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
-    },
-    {
-      "type": "issue",
       "slug": "maple-grow-probability-scandal-2026",
       "views": 1,
       "path": "/magazine/issue/maple-grow-probability-scandal-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "views": 1,
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "issue",
