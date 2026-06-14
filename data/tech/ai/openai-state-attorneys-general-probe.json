@@ -1,0 +1,161 @@
+{
+  "slug": "openai-state-attorneys-general-probe",
+  "site": "aiscroll",
+  "category": "openai",
+  "status": "approved",
+  "date": "2026-06-14T08:30Z",
+  "needTranslate": false,
+  "title": "오픈AI, 美 42개 주 합동 조사…IPO 앞두고 규제 압박",
+  "titleEn": "42 State Attorneys General Probe OpenAI",
+  "summary": "미국 42개 주 법무장관이 오픈AI를 상대로 합동 조사에 착수했다. 뉴욕주가 광고와 개인정보 보호, 미성년자 안전 관련 자료 제출을 요구하는 소환장을 발부한 가운데, 비공개 IPO 신청 직후 규제 전선이 넓어지는 양상이다.",
+  "summaryEn": "A coalition of 42 U.S. attorneys general opened a probe into OpenAI, subpoenaing records on ads, data and minors—days after its confidential IPO filing.",
+  "keywords": "오픈AI 조사, 주 법무장관, 오픈AI IPO, AI 규제, 챗GPT 안전",
+  "keywordsEn": "OpenAI investigation, state attorneys general, OpenAI IPO, AI regulation, ChatGPT safety",
+  "thumbnail": "https://media.thenextweb.com/2026/04/Sam-altman-open-ai.avif",
+  "content": [
+    {
+      "type": "text",
+      "value": "미국 42개 주 법무장관이 오픈AI를 향해 일제히 포문을 열었다. [월스트리트저널](https://www.wsj.com/tech/openai-investigated-by-coalition-of-state-attorneys-general-088a3928)이 6월 11일 처음 보도한 이번 합동 조사는 다음 날 뉴욕주 법무장관이 챗GPT 개발사에 광고와 개인정보, 미성년자 보호 관련 자료를 요구하는 소환장을 발부하며 본격화하는 모양새다."
+    },
+    {
+      "type": "text",
+      "value": "이번 공조는 단일 주 차원을 넘어선 대규모 공동 대응이다. 주 정부 연합이 생성형 AI 기업을 상대로 형성한 전선 중 사상 최대 규모로 꼽힌다. 오픈AI는 매일 안전하게 기술 혜택을 전하기 위해 최선을 다하고 있다며, 당국에 협조하겠다는 방침을 밝혔다."
+    },
+    {
+      "type": "heading",
+      "value": "소환장이 요구한 자료 범위"
+    },
+    {
+      "type": "text",
+      "value": "제출을 요구받은 서류를 살펴보면 이번 수사의 세부 방향을 가늠할 수 있다. 소환장에는 오픈AI의 광고 관행, 이용자 유지율, 소비자 및 건강 데이터 처리 방식과 더불어 미성년자 및 고령 이용자 대상 정책이 명시됐다. 당국은 딥러닝 모델 명세와 출시 전 진행한 안전성 검증 절차까지 요구하고 나섰다."
+    },
+    {
+      "type": "text",
+      "value": "특히 주목받는 부분은 '모델 아첨(sycophancy)'에 관한 항목이다. 모델 아첨이란 챗봇이 정확한 정보 대신 이용자가 듣고 싶어 하는 답변을 내놓는 현상으로, 최근 AI 안전 분야의 핵심 쟁점으로 부상했다. 법무장관들은 이 회사의 수익 모델과 마케팅, 그리고 챗GPT 안전 장치가 취약 계층에게 실질적인 피해를 줬는지 집중적으로 들여다볼 계획이다."
+    },
+    {
+      "type": "heading",
+      "value": "기업공개(IPO) 일정과의 충돌"
+    },
+    {
+      "type": "image",
+      "src": "https://helios-i.mashable.com/imagery/articles/043AREM4TPiYyT5F4bOLwQ4/hero-image.fill.size_1200x675.v1781365867.jpg",
+      "caption": "스마트폰에 표시된 오픈AI 로고",
+      "alt": "오픈AI 로고가 화면에 떠 있는 스마트폰"
+    },
+    {
+      "type": "text",
+      "value": "공교롭게도 조사 시점이 오픈AI의 IPO 일정과 정면으로 맞물렸다. 이번 합동 조사가 외부에 알려지기 불과 닷새 전인 6월 8일, 회사는 미국 증권거래위원회(SEC)에 [기업공개 신청서를 비공개로 제출](/ko/article/openai/openai-confidential-s1-ipo/)했다. 올해 3월 1,220억 달러 투자 유치를 마무리하며 기업가치를 8,520억 달러까지 끌어올린 터라 더욱 뼈아픈 악재다."
+    },
+    {
+      "type": "text",
+      "value": "골드만삭스와 모건스탠리, JP모건이 공동으로 상장 주관을 맡았다. 다만 이 정도 규모의 다주 합동 조사는 상장 신청 서류(S-1)에 핵심 위험 요인으로 반드시 기재해야 한다. 이는 가뜩이나 과열된 AI IPO 시장에 새로운 법적 불확실성을 더하는 요인이다. 경쟁사인 앤트로픽 역시 지난주 9,650억 달러의 가치로 비공개 상장을 신청한 상태여서, 두 기업의 데뷔전을 바라보는 투자자들의 셈법도 복잡해졌다."
+    },
+    {
+      "type": "heading",
+      "value": "소셜미디어 규제 경로의 답습"
+    },
+    {
+      "type": "text",
+      "value": "이번 합동 조사가 오픈AI의 첫 법적 갈등은 아니다. 이미 6월 1일 플로리다주가 미 주 정부 중 최초로 회사를 상대로 소송을 제기한 바 있다. 총 83페이지 분량의 소장에는 샘 알트만 최고경영자(CEO)가 피고로 적시됐으며, 챗GPT는 제조물책임법상 '결함 제품'으로 규정됐다."
+    },
+    {
+      "type": "text",
+      "value": "제임스 우스마이어 플로리다주 법무장관은 2025년 4월 플로리다주립대 총격 사건 용의자가 챗GPT로 무기와 범행 시점을 계획한 사실이 밝혀진 뒤 별도의 형사 조사를 개시했다. 개인 소송 역시 수십 건으로 불어났다. 16세 아담 레인의 부모, 캐나다의 한 어머니, 총격 피해를 입은 일곱 가구가 챗봇과의 유해한 상호작용을 이유로 법원에 소장을 제출했다."
+    },
+    {
+      "type": "text",
+      "value": "법원이 AI에 적용하고 있는 법리적 잣대는 과거 소셜미디어 플랫폼을 규제했던 각본과 유사하다. 지난 3월 뉴멕시코와 캘리포니아 배심원단은 미성년자의 소셜미디어 중독 책임을 물어 메타와 구글에 합산 3억 8,100만 달러의 배상 판결을 내린 바 있다. 법원이 AI 챗봇에 대해서는 기존 플랫폼을 보호해 주던 통신품위법 230조 면책 특권을 부여하지 않는 분위기여서, 오픈AI의 안전 대책이 규제 칼날을 견뎌낼 수 있을지가 초미의 관심사다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Forty-two U.S. state attorneys general have launched a joint investigation into OpenAI, targeting the company's core business and safety practices. First reported by the [Wall Street Journal](https://www.wsj.com/tech/openai-investigated-by-coalition-of-state-attorneys-general-088a3928) on June 11, the probe escalated the following day when New York's attorney general served the ChatGPT creator with a subpoena demanding records on advertising, data privacy, and the treatment of minors."
+    },
+    {
+      "type": "text",
+      "value": "The coordinated effort extends far beyond typical state-level inquiries. This coalition represents the broadest legal front yet assembled by state regulators against a generative AI company, a turning point in AI regulation. In response, OpenAI stated that it works daily to deliver the benefits of AI safely, adding that it intends to engage constructively with the attorneys general."
+    },
+    {
+      "type": "heading",
+      "value": "The Scope of the Subpoena"
+    },
+    {
+      "type": "text",
+      "value": "The demanded documents reveal the wide-ranging scope of the investigation. The subpoena seeks records on advertising practices, user retention, consumer and health data management, and policies regarding minor and senior users. Regulators are also demanding details on OpenAI's deep-learning models and pre-release safety testing protocols."
+    },
+    {
+      "type": "text",
+      "value": "A key point of interest is the focus on 'model sycophancy,' the tendency of chatbots to generate responses that align with user preferences rather than objective accuracy. This behavior has become a central concern in AI safety research. Regulators are examining whether OpenAI's commercial model, marketing, and safety controls failed to protect vulnerable user groups from harm."
+    },
+    {
+      "type": "heading",
+      "value": "Timing and the IPO Prospectus"
+    },
+    {
+      "type": "image",
+      "src": "https://helios-i.mashable.com/imagery/articles/043AREM4TPiYyT5F4bOLwQ4/hero-image.fill.size_1200x675.v1781365867.jpg",
+      "caption": "The OpenAI logo displayed on a smartphone",
+      "alt": "A smartphone showing the OpenAI logo"
+    },
+    {
+      "type": "text",
+      "value": "The timing of the investigation is particularly critical for the company's IPO. OpenAI [submitted its prospectus confidentially](/article/openai/openai-confidential-s1-ipo/) to the Securities and Exchange Commission on June 8, just five days before the state attorneys general probe became public. The regulatory pressure intensifies as the company heads into its IPO at an $852 billion valuation, set after a $122 billion funding round in March."
+    },
+    {
+      "type": "text",
+      "value": "Goldman Sachs, Morgan Stanley, and JPMorgan are leading the IPO. However, a multistate investigation of this scale must be disclosed as a material risk factor in the company's S-1 filing. This disclosure injects fresh AI regulation risk into an increasingly crowded AI IPO race, and the broader push for AI regulation is only gaining momentum. With competitor Anthropic having filed confidentially last week at a $965 billion valuation, investors are scrutinizing both impending IPO debuts."
+    },
+    {
+      "type": "heading",
+      "value": "Replaying the Social Media Playbook"
+    },
+    {
+      "type": "text",
+      "value": "The multistate investigation is not the first legal challenge the company has faced. On June 1, Florida became the first state to sue OpenAI directly. The state's 83-page complaint named CEO Sam Altman as a defendant and classified ChatGPT as a defective product under product liability laws."
+    },
+    {
+      "type": "text",
+      "value": "Florida Attorney General James Uthmeier is pursuing a separate criminal inquiry after evidence revealed that the suspect in the April 2025 Florida State University shooting used ChatGPT to research weapons and coordinate timing. Meanwhile, private litigation has grown to include dozens of active cases. The parents of 16-year-old Adam Raine, a Canadian mother, and seven families affected by a mass shooting have all sued over interactions with the chatbot."
+    },
+    {
+      "type": "text",
+      "value": "The legal theories being applied to AI echo the regulation playbook once aimed at social media platforms. In March, juries in New Mexico and California held Meta and Google liable for minors' social media addiction, awarding a combined $381 million in damages. As courts decline to extend Section 230 immunity to AI chatbots, the key question is whether OpenAI's safety protocols can withstand the same level of legal scrutiny."
+    }
+  ],
+  "sources": [
+    {
+      "name": "The Wall Street Journal",
+      "title": "OpenAI Investigated by Coalition of State Attorneys General",
+      "url": "https://www.wsj.com/tech/openai-investigated-by-coalition-of-state-attorneys-general-088a3928"
+    },
+    {
+      "name": "CNBC",
+      "title": "OpenAI says it's engaging 'constructively' with state AGs about concerns",
+      "url": "https://www.cnbc.com/2026/06/12/openai-says-its-engaging-constructively-with-state-ags-.html"
+    },
+    {
+      "name": "The Next Web",
+      "title": "OpenAI is under investigation by 42 state attorneys general, days after filing for its IPO",
+      "url": "https://thenextweb.com/news/openai-state-attorneys-general-investigation-ipo"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "OpenAI Probed by Coalition of State Attorneys General",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-13/openai-probed-by-coalition-of-state-attorneys-general"
+    },
+    {
+      "name": "Mashable",
+      "title": "A group of state attorneys general are investigating OpenAI",
+      "url": "https://mashable.com/tech/state-attorneys-general-investigating-open-ai"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/openai-confidential-s1-ipo",
+    "tech:ai/openai-crisis-competition-direction-2026",
+    "tech:ai/altman-musk-openai-trial-mudslinging"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
