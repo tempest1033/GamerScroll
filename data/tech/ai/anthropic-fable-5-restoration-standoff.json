@@ -1,0 +1,106 @@
+{
+  "slug": "anthropic-fable-5-restoration-standoff",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "2026-06-15T06:00Z",
+  "needTranslate": false,
+  "title": "앤트로픽, 백악관과 페이블 5 중단 협상 돌입…재개는 아직",
+  "titleEn": "Anthropic, White House Negotiate Fable 5 Return",
+  "summary": "앤트로픽이 미 정부의 페이블 5·미토스 5 중단 사태를 풀기 위해 백악관과 협상에 들어갔다. '오해에서 비롯된 과도한 조치'라며 빠른 복구를 자신하지만, 6월 15일 현재까지 재개되지 않아 협상 결과가 변수다.",
+  "summaryEn": "Anthropic has entered talks with the White House to undo the suspension of Fable 5 and Mythos 5. It expects a fast return, but both stayed offline on June 15.",
+  "keywords": "앤트로픽, 페이블 5, 미토스 5, 수출통제, 백악관",
+  "keywordsEn": "Anthropic, Fable 5, Mythos 5, export control, White House",
+  "thumbnail": "https://images.axios.com/rs8H-kKzX9YcEqfTzxBM_kbs1Ck=/0x210:4000x2460/1366x768/2026/06/13/1781379299901.jpeg",
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Statement on the US government directive to suspend access to Fable 5 and Mythos 5",
+      "url": "https://www.anthropic.com/news/fable-mythos-access"
+    },
+    {
+      "name": "The New Stack",
+      "title": "Fable 5 and Mythos 5 remain suspended: \"The ball is in Anthropic's court\"",
+      "url": "https://thenewstack.io/fable-5-and-mythos-5-remain-suspended-the-ball-is-in-anthropics-court/"
+    },
+    {
+      "name": "Axios",
+      "title": "How Amazon and the White House ended Anthropic's Fable 5",
+      "url": "https://www.axios.com/2026/06/13/anthropic-amazon-white-house"
+    },
+    {
+      "name": "CNBC",
+      "title": "Anthropic disables access to Fable 5 and Mythos 5 to comply with government directive",
+      "url": "https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html"
+    },
+    {
+      "name": "The New York Times",
+      "title": "Anthropic Ordered to Block Mythos and Fable 5 Over Security Concerns",
+      "url": "https://www.nytimes.com/2026/06/12/technology/anthropic-mythos-fable5-blocked.html"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-mythos-5-government-suspension",
+    "tech:ai/fable-mythos-shutdown-industry-reactions",
+    "tech:ai/amazon-andy-jassy-anthropic-shutdown-trigger",
+    "tech:ai/anthropic-fable-5-false-positive-easing"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 미국 정부의 수출통제로 중단된 클로드 페이블 5와 미토스 5를 되살리기 위해 백악관과 직접 협상에 들어갔다. 회사 측은 이번 중단을 정부의 오해에서 비롯된 과도한 조치로 규정하며, 24시간 이내에 세부 해명 자료를 제출하고 신속하게 서비스를 복구하겠다고 밝혔다.\n\n핵심은 협상 테이블이 백악관에 차려졌다는 점이다. 이번 수출통제는 상무부가 내린 행정명령이지만, 그 방아쇠를 당긴 것도 이를 되돌릴 열쇠를 쥔 것도 결국 백악관이기 때문이다. 앤트로픽으로서는 정부를 설득해 합의를 끌어내는 것 외에 달리 길이 없다.\n\n다만 출시 사흘 만에 [전면 중단된](/ko/article/anthropic/claude-fable-5-mythos-5-government-suspension/) 두 모델은 6월 15일 현재까지 돌아오지 않았다. 협상의 모양새는 갖췄지만, 합의가 나오기 전까지 재개 시점은 워싱턴의 손에 달려 있다."
+    },
+    {
+      "type": "heading",
+      "value": "협상장에 앉았지만 '과도한 조치'엔 선 긋기"
+    },
+    {
+      "type": "text",
+      "value": "협상장에서 앤트로픽이 내세우는 논리는 단호하다. 정부가 지적한 탈옥 취약점은 오픈AI의 GPT-5.5 등 기존 모델도 쉽게 방어할 수 있는 가벼운 결함에 불과하다는 설명이다. 수억 명의 이용자가 사용하는 상용 모델을 이처럼 불분명한 근거로 제재하는 조치는 지나치다는 것이 사측의 주장이다.\n\n공식 [성명](https://www.anthropic.com/news/fable-mythos-access)을 통해 사측은 위험 요소를 차단하려는 정부의 규제 권한 자체는 존중한다고 밝혔다. 다만 이러한 조치는 투명하고 공정한 기술적 근거와 적법한 절차에 기반해 이뤄져야 한다고 덧붙였다.\n\n하지만 실제 서비스 재개 시점은 여전히 불투명하다. 앤트로픽은 조속한 정상화를 목표로 세웠으나, 수출통제 해제 여부는 개발사의 의지가 아닌 행정부의 심사 일정에 따라 결정되기 때문이다. 단기간 내에 규제가 풀릴 것이라는 낙관론도 제기됐으나 아직 구체적인 재개 시점은 확정되지 않았으며, 유료 가입자에게 6월 22일까지 페이블 5를 무상 제공하려던 계획도 차질을 빚게 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "IPO 앞둔 앤트로픽과 백악관의 줄다리기"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2279025960.jpg?w=1024",
+      "caption": "스마트폰 화면에 표시된 클로드 미토스 앱",
+      "alt": "키보드 위 스마트폰에 클로드 미토스 로고와 앱 아이콘이 표시된 모습"
+    },
+    {
+      "type": "text",
+      "value": "이번 사태는 단순한 기술적 갈등을 넘어선 복잡한 역학 관계를 보여준다. 앤트로픽과 트럼프 행정부는 올해 초 국방부 계약 문제를 두고 정면 대립했으나, 기업공개(IPO)를 준비하던 5월과 6월 사이에는 관계 개선의 조짐을 보이기도 했다.\n\n그러나 갑작스러운 규제 조치로 인해 양측의 해빙 분위기는 다시 급격히 얼어붙었다. 게다가 함께 제한을 받은 미토스 5는 당초 정부와 공동으로 추진한 사이버 보안 프로그램의 일환으로 개발된 모델이라는 점에서, 정부가 육성에 기여한 기술을 스스로 규제하는 모순을 낳았다.\n\n앞으로의 관건은 백악관이 이번 갈등을 조기에 봉합할지, 혹은 고성능 AI 모델에 대한 강력한 통제 선례로 남길지 여부다. 앤트로픽은 조속한 정상화를 자신하고 있으나, 최첨단 AI 모델의 존폐가 개발사의 로드맵이 아닌 행정부의 정치적 판단에 달려 있다는 사실은 한층 뚜렷해졌다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic has entered direct talks with the White House to revive Claude Fable 5 and Mythos 5, the two models halted by a U.S. export control order. The company has framed the shutdown as an overreach born of a government misunderstanding, promising to submit a detailed explanation within 24 hours and restore service quickly.\n\nThe key point is that the negotiating table sits inside the White House. The export control came as an executive order from the Commerce Department, but it was the White House that pulled the trigger and the White House that holds the key to reversing it. For Anthropic, there is no path but to persuade the government and reach a deal.\n\nStill, the two models—[pulled entirely](/article/anthropic/claude-fable-5-mythos-5-government-suspension/) just three days after launch—remained offline as of June 15. The optics of a negotiation are there, but until a deal lands, the timing of any return rests with Washington."
+    },
+    {
+      "type": "heading",
+      "value": "At the Table but Drawing a Line on the Overreach"
+    },
+    {
+      "type": "text",
+      "value": "At the negotiating table, Anthropic's argument is firm. The developer argues that the jailbreak vulnerability flagged by the government is a minor flaw that competing models, such as OpenAI's GPT-5.5, would detect and mitigate just as easily. Withdrawing a commercial model utilized by hundreds of millions of users on such a thin pretext, the company contends, is an excessive response.\n\nIn its official [statement](https://www.anthropic.com/news/fable-mythos-access), Anthropic acknowledged the government's authority to regulate unsafe software releases. However, it insisted that such power must be exercised through transparent, fair, and technically sound legal channels.\n\nThe primary obstacle remains the timeline. Although Anthropic has committed to restoring access as quickly as possible, lifting the export control depends entirely on the federal review schedule rather than the company's preferences. While rumors of a rapid weekend resolution circulated, no reinstatement date has been set, leaving the developer's plan to offer Fable 5 free to paid subscribers through June 22 in limbo."
+    },
+    {
+      "type": "heading",
+      "value": "Political Tug-of-War Ahead of Anthropic's IPO"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2279025960.jpg?w=1024",
+      "caption": "The Claude Mythos app displayed on a smartphone screen",
+      "alt": "Claude Mythos logo and app icon shown on a smartphone resting on a keyboard"
+    },
+    {
+      "type": "text",
+      "value": "The confrontation extends beyond a simple technical dispute, reflecting a broader geopolitical conflict. Anthropic and the Trump administration clashed earlier this year over a Department of Defense contract, though relations had shown signs of stabilizing in May and June as the company moved toward an initial public offering.\n\nThe sudden suspension has chilled that fragile thaw. The situation is further complicated by a glaring contradiction: the Mythos 5 model, which was blocked alongside Fable 5, was originally developed for a joint cyber-defense program with the government, meaning federal authorities have effectively banned a system they helped fund and cultivate.\n\nThe critical question going forward is whether the White House will seek a temporary compromise or use this case to establish a precedent for stricter oversight of advanced AI models. While Anthropic remains confident of a swift resolution, the episode demonstrates that the fate of frontier models like Fable 5 and Mythos 5 increasingly turns on political decisions in Washington rather than developer roadmaps."
+    }
+  ]
+}
