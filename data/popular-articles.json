@@ -1,49 +1,62 @@
 {
-  "updatedAt": "2026-06-14T02:09:24.910Z",
+  "updatedAt": "2026-06-15T01:23:59.327Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 28,
+      "views": 24,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 17,
+      "views": 14,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 4,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "issue",
       "slug": "dave-the-diver-in-the-jungle-release",
-      "views": 3,
+      "views": 4,
       "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 3,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 4,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-january-2026",
+      "views": 4,
+      "path": "/magazine/ranking/steam-january-2026/"
     },
     {
       "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-february-2026",
+      "views": 3,
+      "path": "/magazine/ranking/steam-february-2026/"
     },
     {
       "type": "ranking",
       "slug": "subculture-april-2026-kr",
       "views": 3,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 3,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -54,9 +67,15 @@
     },
     {
       "type": "issue",
-      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
+      "slug": "crimson-desert-2month-chart-trend",
       "views": 2,
-      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
+      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
+    },
+    {
+      "type": "issue",
+      "slug": "game-ai-controversy-award-revoked",
+      "views": 2,
+      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
     },
     {
       "type": "issue",
@@ -72,22 +91,35 @@
     },
     {
       "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 2,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+    },
+    {
+      "type": "issue",
       "slug": "persona-6-announced-xbox-showcase",
       "views": 2,
       "path": "/magazine/issue/persona-6-announced-xbox-showcase/"
     },
     {
       "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
       "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
+      "slug": "ff7-remake-switch2-release",
       "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -96,22 +128,10 @@
       "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
       "type": "issue",
       "slug": "china-game-license-normalization",
       "views": 1,
       "path": "/magazine/issue/china-game-license-normalization/"
-    },
-    {
-      "type": "issue",
-      "slug": "game-ai-controversy-award-revoked",
-      "views": 1,
-      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
     },
     {
       "type": "issue",
@@ -124,12 +144,6 @@
       "slug": "heartopia-mobile-animal-crossing-success",
       "views": 1,
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "intel-arc-g3-handheld-gaming",
-      "views": 1,
-      "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
     },
     {
       "type": "issue",
@@ -151,9 +165,9 @@
     },
     {
       "type": "issue",
-      "slug": "maple-grow-probability-scandal-2026",
+      "slug": "mangwol-offline-playtest-recruitment",
       "views": 1,
-      "path": "/magazine/issue/maple-grow-probability-scandal-2026/"
+      "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
     },
     {
       "type": "issue",
@@ -169,12 +183,6 @@
     },
     {
       "type": "issue",
-      "slug": "stellar-blade-blood-rain-sgf-2026",
-      "views": 1,
-      "path": "/magazine/issue/stellar-blade-blood-rain-sgf-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "t1-lck-cup-shocking-elimination-2026",
       "views": 1,
       "path": "/magazine/issue/t1-lck-cup-shocking-elimination-2026/"
@@ -184,6 +192,18 @@
       "slug": "mobile-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-april-2026",
+      "views": 1,
+      "path": "/magazine/ranking/steam-april-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
@@ -198,20 +218,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/korean-game-stocks-2025/"
-    },
-    {
-      "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "wiki",
@@ -240,20 +246,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/pd-vs-director/"
     }
   ]
 }
