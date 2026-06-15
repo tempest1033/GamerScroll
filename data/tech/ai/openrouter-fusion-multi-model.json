@@ -1,0 +1,178 @@
+{
+  "slug": "openrouter-fusion-multi-model",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "2026-06-15T01:00Z",
+  "needTranslate": false,
+  "title": "오픈라우터 '퓨전' 출시…최상위 AI 성능을 절반 비용으로",
+  "titleEn": "OpenRouter Unveils Fusion, a Compound AI Model",
+  "summary": "오픈라우터가 여러 인공지능 모델을 병렬로 가동해 하나의 최적화된 결과물로 합성하는 '퓨전' 모드를 출시했다. 저가 모델들을 조합해 최상위 AI 수준의 성능을 약 절반의 비용으로 구현할 수 있다는 설명이다.",
+  "summaryEn": "OpenRouter launched Fusion, a multi-model mode that runs several AI models in parallel and fuses them into one answer at roughly half the frontier cost.",
+  "keywords": "오픈라우터 퓨전, 모델 합성, AI 모델, 판정 모델",
+  "keywordsEn": "OpenRouter Fusion, model synthesis, multi-model, model panel",
+  "thumbnail": "https://openrouter.ai/dynamic-og?title=Model+Fusion&description=Run+multiple+models+side-by-side+and+fuse+the+best+answer",
+  "sources": [
+    {
+      "name": "OpenRouter",
+      "title": "Model Fusion",
+      "url": "https://openrouter.ai/fusion"
+    },
+    {
+      "name": "OpenRouter",
+      "title": "Fusion (openrouter/fusion) model page",
+      "url": "https://openrouter.ai/openrouter/fusion"
+    },
+    {
+      "name": "TestingCatalog",
+      "title": "OpenRouter announced Fusion, a new mode to fuse multiple AI models",
+      "url": "https://x.com/testingcatalog/status/2065943370682323043"
+    },
+    {
+      "name": "Digital Applied",
+      "title": "OpenRouter Fusion: Multi-Model AI Response Synthesis",
+      "url": "https://www.digitalapplied.com/blog/openrouter-fusion-multi-model-ai-responses-guide"
+    },
+    {
+      "name": "KuCoin",
+      "title": "OpenRouter Launches Fusion API for Enhanced AI Model Synthesis",
+      "url": "https://www.kucoin.com/news/flash/openrouter-launches-fusion-api-for-enhanced-ai-model-synthesis"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/chatbot-to-agent-paradigm-shift",
+    "tech:ai/coding-agents-june-2026-ranking",
+    "tech:ai/openai-token-price-cut-anthropic",
+    "tech:ai/glm-5-2-open-vs-fable-block"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈라우터가 복수의 인공지능(AI) 모델을 병렬로 실행하고 그 결과를 하나로 합성하는 멀티모델 라우팅 시스템 '퓨전(Fusion)'을 [출시했다](https://openrouter.ai/fusion). 하나의 모델에 의존하는 기존 방식 대신, 다양한 모델로 구성된 전문가 위원회가 협업하는 구조를 도입한 것이다.\n\n성능 대비 가격 경쟁력은 뚜렷하다. 저가 모델 여러 개를 조합하는 것만으로도 복잡한 작업에서 GPT-5.5, 클로드 오퍼스 4.8, 페이블 5 같은 최상위 AI 모델들과 대등한 성능을 내며, 비용은 절반 수준으로 줄어든다. 응답 속도나 비용보다 답변의 정확도가 더 중요한 업무에 최적화된 설계다."
+    },
+    {
+      "type": "heading",
+      "value": "단 한 번의 호출로 구현하는 다중 모델 위원회"
+    },
+    {
+      "type": "text",
+      "value": "작동 방식은 크게 세 단계로 나뉜다. 사용자가 프롬프트를 입력하면 퓨전은 질문을 미리 설정된 전문가 모델 패널에 병렬로 전달한다. 각 모델은 독립적으로 답변을 생성하며, 특정 모델의 구동이 멈추거나 지연되더라도 시스템은 대기 없이 나머지 모델의 답변들로 다음 단계를 진행한다."
+    },
+    {
+      "type": "text",
+      "value": "이어지는 분석 단계에서는 별도의 판정 모델이 수집된 답변들을 평가한다. 판정 모델은 사실 관계의 정확성, 추론의 깊이, 구조의 명료성, 누락된 내용 등을 종합적으로 분석한다. 이 과정에서 여러 모델의 의견이 일치하는 교집합 영역은 신뢰도가 높은 정보로 분류된다."
+    },
+    {
+      "type": "text",
+      "value": "마지막 단계인 합성 과정에서 판정 모델은 각 답변 중 가장 정교한 추론과 정확한 사실, 명쾌한 설명을 취합해 하나의 완성된 결과물로 빚어낸다. 텍스트를 단순히 나열하거나 다수결로 판정하는 수준을 넘어선다. 개별 모델이 스스로 도출할 수 없었던 고도화된 답변을 새로 구성해 내는 방식이다."
+    },
+    {
+      "type": "text",
+      "value": "다양한 모델 조합을 분석한 결과, 성능 향상 요인의 약 75%는 최종 합성 단계에서 발생하는 것으로 나타났다. 나머지 25%만이 사용된 모델의 다양성에서 기인했다. 여러 모델을 투입하는 것 자체보다, 도출된 결과를 정밀하게 평가하고 엮어내는 편집 품질이 핵심이다."
+    },
+    {
+      "type": "heading",
+      "value": "세 가지 설정 프리셋과 워크플로 통합"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HKu0iSPXkAA95fs.jpg:large",
+      "caption": "오픈라우터 퓨전의 웹 화면. Quality·Budget·Custom 프리셋과 패널 모델이 보인다.",
+      "alt": "오픈라우터 퓨전 웹 인터페이스 화면"
+    },
+    {
+      "type": "text",
+      "value": "합성 과정의 성능이 보장되더라도 패널을 구성할 모델을 선택하는 주체는 사용자다. 퓨전은 세 가지 기본 환경을 제공한다. 기본값인 'Quality'는 클로드 오퍼스, GPT, 제미나이 프로 등 최신 플래그십 모델로 패널을 채운다. 'Budget'은 저가 모델을 활용해 지출을 억제하며, 'Custom'은 패널 모델과 판정 모델 모두를 개발자가 직접 지정할 수 있는 옵션이다."
+    },
+    {
+      "type": "text",
+      "value": "접근 방식 역시 다양하다. 웹 콘솔(openrouter.ai/fusion)에서는 최종 합성을 진행하기 전 각 모델의 결과물을 직접 비교해볼 수 있다. 개발자 환경에서는 API를 통해 `openrouter/fusion`이라는 식별자 하나로 간편하게 호출이 가능하다. 아울러 외부 모델 워크플로 내에 도구 형태로 삽입하는 방식도 지원한다."
+    },
+    {
+      "type": "text",
+      "value": "요금 체계는 투명하게 운영된다. 추가 마진 없이 개별 모델을 호출한 실제 비용만을 합산해 청구하는 방식이다. 따라서 고급 모델을 대거 기용하는 Quality 설정은 이용료가 상대적으로 높고, Budget 설정은 한결 경제적이다."
+    },
+    {
+      "type": "heading",
+      "value": "추가 비용 대비 성능 향상의 가치 평가"
+    },
+    {
+      "type": "text",
+      "value": "응답 지연과 운영 비용 증가라는 단점은 완성도 높은 결과가 요구되는 상황에서 상쇄된다. 오픈라우터는 자체 벤치마크 결과, 심층 리서치 에이전트들이 개별 답변보다 퓨전을 거친 합성 답변을 일관되게 선호했다고 밝혔다. 답변 생성에 참여한 모델 스스로가 결과물에 더 높은 점수를 준 것이다."
+    },
+    {
+      "type": "text",
+      "value": "다만 퓨전이 모든 작업의 만병통치약은 아니다. 다중 모델의 실시간 가동은 연산 지연을 낳고 지출을 배가시키므로, 단순 정보 조회나 즉각적인 대화, 대규모 데이터 처리 등에는 비효율적이다. 반면 단 한 번의 오류가 치명적인 심층 리서치나 전문가 평가, 고위험 의사결정 분야에서는 투입 비용만큼의 가치를 확실히 증명한다."
+    },
+    {
+      "type": "text",
+      "value": "궁극적으로 퓨전은 단 하나의 절대적인 범용 모델에 의존하던 시기가 막을 내리고 있음을 보여준다. 이는 대화형 챗봇에서 자율형 에이전트로 축이 바뀌는 [업계의 거대한 변화](/ko/article/general/chatbot-to-agent-paradigm-shift/)와도 맥락을 같이 한다. 개별 모델의 한계를 다각화된 협업 구조로 보완하는 시도가 AI 생태계의 차세대 표준으로 자리 잡을 수 있을지 주목된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenRouter has [introduced Fusion](https://openrouter.ai/fusion), a multi-model AI routing system that runs several models in parallel and merges their outputs into a single, optimized response. Instead of relying on one model, OpenRouter Fusion routes each query to a curated panel that collaborates like an expert committee.\n\nThe value proposition is straightforward: a combination of lower-cost models can match frontier systems such as GPT-5.5, Claude Opus 4.8, or Fable 5 on complex tasks, at roughly half the cost. This model synthesis approach targets workflows where accuracy matters more than latency or operational cost."
+    },
+    {
+      "type": "heading",
+      "value": "Transforming a Single Query Into a Multi-Model Committee"
+    },
+    {
+      "type": "text",
+      "value": "The system operates in three distinct phases. Upon receiving a prompt, Fusion dispatches the query to a selected panel of specialist models. Each model generates a response independently; if any model fails or experiences latency, the process continues with the remaining active systems."
+    },
+    {
+      "type": "text",
+      "value": "During the subsequent analysis phase, a designated 'judge' model evaluates the gathered responses. It assesses factual accuracy, depth of reasoning, structural clarity, and potential gaps in coverage. Consensus among multiple models is treated as high-confidence information."
+    },
+    {
+      "type": "text",
+      "value": "Finally, the judge model synthesizes the inputs, merging the most rigorous reasoning, verified facts, and clearest explanations into a single, unified output. Rather than simply concatenating text or using majority voting, Fusion generates a unique response that surpasses what any individual model in the pool could produce on its own."
+    },
+    {
+      "type": "text",
+      "value": "Analysis of various model combinations reveals that approximately 75% of the performance gains stem from this synthesis step, while the remaining 25% is driven by the diversity of the models. These findings indicate that a multi-model AI system depends less on the variety of models used and more on the quality of the model synthesis that follows."
+    },
+    {
+      "type": "heading",
+      "value": "Workflow Integration and Configuration Presets"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HKu0iSPXkAA95fs.jpg:large",
+      "caption": "OpenRouter Fusion's web interface, showing the Quality, Budget, and Custom presets.",
+      "alt": "OpenRouter Fusion web interface screen"
+    },
+    {
+      "type": "text",
+      "value": "While synthesis drives the output quality, OpenRouter Fusion still leaves the panel composition to the user. The feature offers three primary configurations. The default 'Quality' preset populates the panel with leading frontier models, including the latest iterations of Claude Opus, GPT, and Gemini Pro. The 'Budget' option utilizes lower-cost models to minimize expense, while the 'Custom' setting allows developers to select both the panel models and the judge."
+    },
+    {
+      "type": "text",
+      "value": "The feature is accessible through multiple interfaces. The web console at openrouter.ai/fusion allows users to compare individual model outputs side-by-side prior to synthesis. For developer workflows, the API supports direct implementation via a single model identifier, `openrouter/fusion`, and the system can also be integrated as a tool within external model workflows."
+    },
+    {
+      "type": "text",
+      "value": "The pricing structure is transparent, applying no additional markup beyond the aggregate cost of the underlying model queries. Accordingly, the Quality preset incurs higher costs due to its reliance on premium models, while the Budget option remains significantly more economical."
+    },
+    {
+      "type": "heading",
+      "value": "Evaluating Costs Against Performance Gains"
+    },
+    {
+      "type": "text",
+      "value": "The trade-off between increased latency and operational cost is justified in high-value scenarios. In internal benchmarks, OpenRouter reported that deep research agents consistently preferred the multi-model Fusion output over their individual responses. This indicates that the models themselves evaluate the merged output as superior to their standalone generations."
+    },
+    {
+      "type": "text",
+      "value": "However, Fusion is not a universal solution. Querying multiple models simultaneously increases latency and multiplies operational expenses, making it inefficient for routine queries, real-time chat, or high-volume processing. Conversely, the approach is highly effective for deep research, expert critique, and critical decision-making, where the cost of inaccuracy is substantial."
+    },
+    {
+      "type": "text",
+      "value": "Ultimately, Fusion signals a shift away from the reliance on a single, dominant foundation model. This development aligns with the industry's broader [transition from conversational chatbots to agents](/article/general/chatbot-to-agent-paradigm-shift/), where developers address the limitations of individual models through configurable multi-model architectures. OpenRouter has positioned Fusion as a leading compound model, and whether the compound model becomes the next axis of AI competition is worth watching."
+    }
+  ]
+}
