@@ -197,6 +197,14 @@
       background: transparent;
     }
 
+    /* 순위/스팀/출시 카드: 헤더 좌우 여백을 본문 행과 맞춤 (3개 공통) */
+    .rankings-card > .home-card-header,
+    .steam-card > .home-card-header,
+    .upcoming-card > .home-card-header {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
     .home-card-title {
       font-size: 24px;
       font-weight: 800;
