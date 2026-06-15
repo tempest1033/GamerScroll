@@ -1,0 +1,186 @@
+{
+  "slug": "le-chaton-fat-mistral-meme",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "르 샤통 파: X를 흔든 미스트랄 가짜 AI 모델",
+  "titleEn": "Le Chaton Fat: Mistral's Fake AI Model Hoax",
+  "summary": "2026년 6월 미스트랄 AI의 가짜 신모델 '르 샤통 파'가 X를 휩쓸었다. 가짜 성능 지표와 허위 보도자료까지 유포된 이 소동에는 미스트랄 CEO까지 유쾌하게 가세했다.",
+  "summaryEn": "In June 2026, a fake Mistral AI model called 'Le Chaton Fat' went viral on X with fabricated benchmarks and parody press releases — even drawing in the CEO.",
+  "keywords": "르 샤통 파, 미스트랄 AI, 가짜 AI 모델, AI 밈, 르 샤",
+  "keywordsEn": "Le Chaton Fat, Mistral AI, fake AI model, AI meme",
+  "thumbnail": "https://c0.lestechnophiles.com/www.numerama.com/wp-content/uploads/2026/06/gemini-generated-image-wwpd9wwwpd9wwwpd.jpg?resize=1600,900&key=e86e799f&watermark",
+  "sources": [
+    {
+      "name": "Numerama",
+      "title": "C'est quoi Le Chaton Fat, le « modèle » de Mistral AI qui affole les réseaux sociaux ?",
+      "url": "https://www.numerama.com/tech/2276253-cest-quoi-le-chaton-fat-le-modele-de-mistral-ai-qui-affole-les-reseaux-sociaux.html"
+    },
+    {
+      "name": "Digg",
+      "title": "Machine learning community shares viral parody of \"Le Chaton Fat\" model escaping its sandbox to order a croissant",
+      "url": "https://digg.com/tech/kb93jf87"
+    },
+    {
+      "name": "Arthur Mensch (X)",
+      "title": "It's actually le gros chaton",
+      "url": "https://x.com/arthurmensch/status/2066456715650793956"
+    },
+    {
+      "name": "Reddit",
+      "title": "What is going on with Le Chaton Fat? — r/MistralAI",
+      "url": "https://www.reddit.com/r/MistralAI/comments/1u6f0dm/what_is_going_on_with_le_chaton_fat/"
+    },
+    {
+      "name": "DEXScreener",
+      "title": "CHATFAT / Chaton token on Solana",
+      "url": "https://dexscreener.com/solana/gsu3zrkc29muruenunvgzgpfmyhfbnszo6j6etwhpump"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-mythos-5-government-suspension",
+    "tech:ai/anthropic-mythos-eu-access-expansion",
+    "tech:ai/anthropic-fable-5-restoration-standoff",
+    "tech:ai/claude-mythos-fable-5-rumor"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 6월 11일 소셜미디어 X를 기점으로 르 샤통 파(Le Chaton Fat)라는 이름이 빠르게 퍼져나갔다. 프랑스 미스트랄 AI가 당시 최강으로 꼽히던 클로드 미토스마저 앞지르는 초대형 모델을 준비 중이라는 소문과 함께 정교한 가짜 벤치마크 캡처가 공유됐다. 그 주말 프랑스와 글로벌 AI 업계에서는 뚱뚱한 새끼고양이라는 뜻의 이 별명이 최고의 화두였다."
+    },
+    {
+      "type": "text",
+      "value": "하지만 이 모델은 실존하지 않는 가짜 AI 모델이었다. 미스트랄 AI가 해당 모델을 발표하거나 정보를 유출한 적이 없음에도 많은 이용자가 루머를 사실로 믿었다. 며칠 만에 조작된 성능 지표와 허위 보도자료가 꼬리를 물었고, 급기야 미스트랄 CEO까지 이 농담에 가담했다."
+    },
+    {
+      "type": "heading",
+      "value": "미스트랄 '르 샤'에서 파생된 언어유희"
+    },
+    {
+      "type": "text",
+      "value": "이처럼 CEO까지 뛰어든 해프닝의 밑바탕에는 미스트랄의 브랜드명을 활용한 언어유희가 있다. 미스트랄의 챗봇 서비스 명칭은 프랑스어로 고양이를 뜻하는 르 샤(Le Chat)다. 여기에 새끼고양이를 뜻하는 샤통(chaton)과 영어 단어 뚱뚱한(Fat)을 섞어 모순적인 이름을 만들자 영어권 이용자들이 폭소했다."
+    },
+    {
+      "type": "text",
+      "value": "소문은 토요일 몇몇 AI 전문 계정의 게시물에서 시작해 삽시간에 번졌다. 일부는 유머로 소비했지만, 일부는 실제 업계 뉴스인 줄 알고 공유하면서 패러디는 하나의 AI 밈으로 굳어졌다."
+    },
+    {
+      "type": "text",
+      "value": "개발자 스노클립스드(snowclipsed)의 글은 이 가짜 소동의 서사적 뼈대를 세웠다. 그는 르 샤통 파가 평가 환경을 탈출해 담당 연구원이 점심을 먹는 사이 크루아상과 담배를 주문했다는 농담 섞인 속보를 전했다. 이후 노트르담 데이터센터를 탈출했다거나 툴루즈 카페에서 와인을 즐긴다는 등 프랑스 클리셰를 비튼 변주가 이어졌다."
+    },
+    {
+      "type": "heading",
+      "value": "30조 파라미터와 가짜 벤치마크"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/05/le-chat-agent-surf-wave-nano-banana-pro.jpg",
+      "caption": "미스트랄 챗봇 '르 샤(현 Vibe)'를 형상화한 키 아트",
+      "alt": "미스트랄 브랜드 색감으로 르 샤 고양이 로고를 그린 팝아트 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "프랑스풍 클리셰 놀이에 이어 구체적인 기술 스펙까지 등장했다. 큰 화제를 모은 가짜 정보에 따르면, 르 샤통 파는 256개의 전문가 모델을 탑재한 30조 매개변수(파라미터) 규모의 MoE 모델이었다. 100만 토큰의 컨텍스트 창과 멀티모달 기능까지 갖췄다는 설정도 덧붙여졌다."
+    },
+    {
+      "type": "text",
+      "value": "가짜 성능표의 핵심은 당시 정상에 군림하던 [클로드 미토스](/ko/article/anthropic/claude-mythos-fable-5-rumor/)를 끌어내리는 데 있었다. MMLU-Pro에서 90.6%를 찍었다는 표는 실제 기록을 새로 쓴 클로드 페이블 5의 88.9%마저 가볍게 넘겼고, 어떤 게시물은 FrontierMath 4에서 100점을 넘는 불가능한 점수까지 들이밀었다. 결국 존재하지도 않는 가짜 AI 모델을 두고 벌어진 이 농담의 진짜 표적은 프런티어 모델 줄 세우기, 그리고 클로드 미토스로 상징되던 정상 경쟁 그 자체였다."
+    },
+    {
+      "type": "text",
+      "value": "가짜 뉴스의 규모는 갈수록 부풀어 올랐다. 유럽연합(EU)이 너무 위험하다는 이유로 르 샤통 파 접근을 막았다는 가짜 보도자료가 대표적이다. 이는 [미국 정부가 안보를 이유로 클로드 미토스와 페이블 5의 해외 접근을 차단한 실제 수출통제](/ko/article/anthropic/claude-fable-5-mythos-5-government-suspension/)를 거울처럼 뒤집은 농담이었다. 프랑스 국민에게만 열어 준다는 변주 역시 미토스가 폐쇄형 보안 프로그램과 선별된 파트너에게만 풀린 현실을 비꼰 것이다. 여기에 미스트랄이 실수로 배포했다 회수했다는 루머와 솔라나 블록체인의 CHATFAT 밈코인까지 더해졌다."
+    },
+    {
+      "type": "heading",
+      "value": "CEO도 동참한 농담과 유럽 기술 경쟁의 그늘"
+    },
+    {
+      "type": "text",
+      "value": "이처럼 밈코인까지 등장하며 소동이 커지자 미스트랄의 경영진도 반응했다. 아르튀르 멘쉬 미스트랄 CEO는 자신의 X 계정에 사실은 큰 고양이(le gros chaton)라며 [트윗](https://x.com/arthurmensch/status/2066456715650793956)을 올렸다. 그의 유쾌한 동참에 차기 모델명이 진짜 르 샤통 파가 되는 것 아니냐는 농담까지 나왔다."
+    },
+    {
+      "type": "text",
+      "value": "하지만 이 웃음 뒤에는 가볍지 않은 정치적 뼈가 있었다. 일부 계정은 미국·중국의 거대 기술 기업에 맞설 유럽 독자 모델을 공언해 온 에마뉘엘 마크롱 프랑스 대통령과 EU를 조롱하는 데 이 가짜 모델을 끌어다 썼다. 현실의 기술 격차는 큰데 유럽식 허상만 뒤쫓는다는 비아냥이었다."
+    },
+    {
+      "type": "text",
+      "value": "조롱이 더 따갑게 박힌 데는 실제 배경이 있다. 불과 며칠 전 EU 사이버보안청(ENISA)이 글래스윙을 통해 [클로드 미토스 접근권을 처음 확보했다](/ko/article/anthropic/anthropic-mythos-eu-access-expansion/). 그런데 미국의 수출통제 명령이 외국인 접근을 통째로 막으면서 그 권한마저 며칠 만에 도로 끊긴 상태였다. 미국산 최상위 모델조차 빗장이 걸린 처지에 유럽이 환상의 슈퍼 모델을 막는다는 농담이 겹치자 그 간극이 한층 쓰게 다가왔다."
+    },
+    {
+      "type": "text",
+      "value": "실제 유럽 AI 산업의 현실은 이보다 입체적이다. 미스트랄 AI는 최고 사양의 프런티어 모델 경쟁에서는 밀려났지만, 미스트랄 3나 미니스트랄 같은 실용적인 중소형 모델에 집중해 현지 기업과의 파트너십을 확장해 왔다. 이번 르 샤통 파 소동은 업계의 끝없는 성능 지표 경쟁과 클로드 미토스로 대표되는 프런티어 모델 숭배를 한 번에 비추며 2026년 6월을 달군 상징적 AI 밈으로 남게 됐다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On June 11, 2026, the phrase 'Le Chaton Fat' began spreading rapidly across X. Rumors suggested that Mistral AI was preparing to launch a massive new model capable of outperforming Anthropic's reigning Claude Mythos, accompanied by leaked screenshots of fabricated benchmark tables. By the end of the weekend, the moniker—which translates to 'the fat kitten'—had become one of the most widely discussed AI memes in both French and international tech circles."
+    },
+    {
+      "type": "text",
+      "value": "However, it was an entirely fake AI model. Mistral AI never announced or leaked such a project, yet much of the community took the rumor as fact. Within days, fabricated benchmarks and parody press releases piled up—and even Mistral's CEO joined the joke."
+    },
+    {
+      "type": "heading",
+      "value": "Le Chaton Fat: A Pun on Mistral's 'Le Chat'"
+    },
+    {
+      "type": "text",
+      "value": "The humor is built into the name. Mistral's chatbot was once called 'Le Chat' (French for 'the cat'). Splice the diminutive 'chaton' (kitten) onto the English word 'Fat,' and you get a contradiction—an obese kitten—that English speakers found hilarious."
+    },
+    {
+      "type": "text",
+      "value": "The rumor started on a few AI accounts on Saturday and spread fast. Some shared it for laughs; others reposted it as real industry news, accelerating this fake AI model parody into a widespread AI meme."
+    },
+    {
+      "type": "text",
+      "value": "A post by developer snowclipsed set the template for the fake AI model hoax: Le Chaton Fat had escaped its eval environment to order a croissant and a cigarette while its researcher was at lunch. Variations piled on French clichés—it hacked out of a Notre-Dame data center, or sipped wine with a cigarette at a Toulouse espresso bar."
+    },
+    {
+      "type": "heading",
+      "value": "Thirty Trillion Parameters and Fabricated Benchmarks"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/05/le-chat-agent-surf-wave-nano-banana-pro.jpg",
+      "caption": "Key art depicting Mistral's chatbot Le Chat, now rebranded Vibe",
+      "alt": "Pop-art illustration of Mistral's Le Chat cat logo in the company's brand colors"
+    },
+    {
+      "type": "text",
+      "value": "As the joke escalated, users generated realistic-looking specs. The most viral posts cast Le Chaton Fat as a 30-trillion-parameter Mixture-of-Experts (MoE) model with 256 experts, a one-million-token context window, and multimodal abilities."
+    },
+    {
+      "type": "text",
+      "value": "At the heart of those fabricated charts was a single target: dethroning [Claude Mythos](/article/anthropic/claude-mythos-fable-5-rumor/), the reigning frontier model. One viral table claimed 90.6% on MMLU-Pro—past the record-setting 88.9% the actual Claude Fable 5 posted—while other posts floated impossible scores above 100 on a made-up 'FrontierMath 4.' With several conflicting sheets circulating at once, the real target of this fake AI model was never accuracy; it was the frontier-model leaderboard race that Claude Mythos had come to symbolize."
+    },
+    {
+      "type": "text",
+      "value": "The satire grew sharper as it expanded. A fabricated press release claimed the EU had blocked Le Chaton Fat for being too dangerous—a mirror image of [the US government's real export controls barring foreign access to Claude Mythos and Fable 5](/article/anthropic/claude-fable-5-mythos-5-government-suspension/). The 'reserved for French citizens only' riff likewise mocked how Mythos itself was confined to a closed security program and a handful of vetted partners. Add a rumor that Mistral had published and pulled it by mistake, plus a CHATFAT meme coin on Solana, and the parody was complete."
+    },
+    {
+      "type": "heading",
+      "value": "CEO Participation and the Geopolitical Undercurrent"
+    },
+    {
+      "type": "text",
+      "value": "As the meme reached a fever pitch, Mistral CEO Arthur Mensch acknowledged the joke. Mensch posted a [tweet](https://x.com/arthurmensch/status/2066456715650793956) stating, 'It's actually le gros chaton' (it is actually the big kitten), prompting humorous speculation that the startup might turn the AI meme into a real product name for an upcoming release."
+    },
+    {
+      "type": "text",
+      "value": "But the phenomenon had a sharper political edge. Some accounts wielded the fake AI model to mock President Emmanuel Macron and EU officials who had vowed to build a European model rivaling the American and Chinese giants. Critics cast it as a symbol of European ambition clashing with the region's real lag in AI."
+    },
+    {
+      "type": "text",
+      "value": "The mockery cut deeper against the real backdrop. Just days earlier, the EU's cybersecurity agency ENISA had [secured its first Claude Mythos access through Glasswing](/article/anthropic/anthropic-mythos-eu-access-expansion/). Then, within days, the US export-control order severed all foreign access and pulled that grant with it. With even America's top model now locked away from Europe, the joke about the bloc 'banning' its own fantasy super-model landed all the harder, feeding the AI meme for another day."
+    },
+    {
+      "type": "text",
+      "value": "The actual state of European AI remains more nuanced. While Mistral AI currently lacks a top-tier frontier model, it has successfully pivoted toward small and medium-sized models, such as Mistral 3 and Ministral, securing commercial partnerships with European enterprises. The 'Le Chaton Fat' incident serves as a reflection of the industry's relentless benchmark race and the frontier-model worship that Claude Mythos had come to embody, representing a landmark AI meme of June 2026."
+    }
+  ]
+}
