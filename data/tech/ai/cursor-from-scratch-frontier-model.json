@@ -1,0 +1,186 @@
+{
+  "slug": "cursor-from-scratch-frontier-model",
+  "site": "aiscroll",
+  "category": "ai-tools",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "커서, '처음부터 훈련'한 독자 프런티어 모델 예고",
+  "titleEn": "Cursor Teases From-Scratch Frontier Model",
+  "summary": "커서가 개발자 행사 컴파일에서 신규 프런티어 모델을 예고했다. 외부 모델인 키미 베이스를 떼고 처음부터 훈련했으며, 컴포저 대비 10~20배의 컴퓨팅 자원을 투입했다. 출시 시점은 몇 주 이내다.",
+  "summaryEn": "Cursor teased a new frontier model at Compile — trained from scratch, no Kimi base, with 10–20x Composer's compute. It ships within weeks.",
+  "keywords": "신모델 예고, 컴포저, 키미 베이스, 스페이스X AI, 프런티어 모델",
+  "keywordsEn": "Cursor, Composer, Kimi base, SpaceXAI, frontier model",
+  "thumbnail": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/changelog/cursor-composer2.5-og-2400x1200.png",
+  "sources": [
+    {
+      "name": "Nick Dobos",
+      "title": "New Cursor model being teased at Compile",
+      "url": "https://x.com/NickADobos/status/2066929277757800833"
+    },
+    {
+      "name": "Cursor",
+      "title": "Introducing Composer 2.5",
+      "url": "https://cursor.com/blog/composer-2-5"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Cursor admits its new coding model was built on top of Moonshot AI's Kimi",
+      "url": "https://techcrunch.com/2026/03/22/cursor-admits-its-new-coding-model-was-built-on-top-of-moonshot-ais-kimi/"
+    },
+    {
+      "name": "Cursor",
+      "title": "Compile",
+      "url": "https://cursor.com/compile"
+    },
+    {
+      "name": "Cursor",
+      "title": "Introducing Composer 2",
+      "url": "https://cursor.com/blog/composer-2"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/cursor-composer-2-coding-model",
+    "tech:ai/spacex-acquire-cursor-60b",
+    "tech:ai/grok-build-composer-2-5-synergy",
+    "tech:ai/best-coding-agents-2026-ranked"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "AI 코딩 도구 개발사 커서가 독자적인 프런티어 AI 모델을 예고했다. 커서는 6월 16일 미국 샌프란시스코 포트메이슨(Fort Mason)에서 열린 비공개 개발자 컨퍼런스 '컴파일(Compile)'에서 신모델을 공개했다. 커서 사용자인 개발자 닉 도보스가 행사 내용을 X에 요약해 올리면서 구체적인 정보가 처음 알려졌다."
+    },
+    {
+      "type": "text",
+      "value": "도보스가 공유한 요약에 따르면 신모델은 오픈AI의 GPT-5.5 및 앤스로픽의 클로드 오푸스와 맞먹는 규모다. 기존 중국 문샷AI의 키미 베이스 대신 처음부터 자체 훈련을 거치며, 컴포저보다 10~20배 많은 컴퓨팅 자원을 투입한 범용 지능 모델이다. 개발사는 향후 몇 주 안에 모델을 출시할 계획이다."
+    },
+    {
+      "type": "text",
+      "value": "VS코드 포크로 시작한 기업이 프런티어 모델을 기초부터 직접 구축하겠다는 선언을 내놓았다. 이번 커서 신모델 발표가 지니는 실질적인 의미가 여기에 있다."
+    },
+    {
+      "type": "heading",
+      "value": "키미 베이스와의 결별"
+    },
+    {
+      "type": "text",
+      "value": "자체적으로 모델을 처음부터 훈련하겠다는 약속은 커서의 과거 이력으로 인해 한층 주목받고 있다. 커서가 지난 [3월에 출시한 버전](/ko/article/ai-tools/cursor-composer-2-coding-model/)은 '프런티어급 코딩 지능'을 지향했으나, 중국 문샷AI의 오픈소스 모델인 키미 K2.5를 기반으로 삼았다는 사실은 공식 발표에서 공개하지 않았다."
+    },
+    {
+      "type": "text",
+      "value": "이러한 사실은 금세 밝혀졌다. 한 X 이용자가 API에 남아 있던 모델 ID를 발견하고 '최소한 모델 ID라도 바꿨어야 했다'며 키미 베이스 사용 정황을 짚어냈다. [테크크런치](https://techcrunch.com/2026/03/22/cursor-admits-its-new-coding-model-was-built-on-top-of-moonshot-ais-kimi/) 보도에 따르면, 커서의 리 로빈슨은 오픈소스 기반으로 시작했음을 인정하면서도 전체 컴퓨팅 자원의 4분의 1만 기반 모델에서 왔으며 나머지는 자체 훈련 결과라고 해명했다."
+    },
+    {
+      "type": "text",
+      "value": "핵심은 공동 창업자인 아만 생어의 인정에서 드러난다. 생어는 블로그에 키미 베이스를 처음부터 표기하지 않은 것은 명백한 실수였다고 밝혔으며 차기 모델에서는 이를 바로잡겠다고 공언한 바 있다. 이번에 공개한 신모델 예고는 키미와의 협력을 완전히 정리하며 당시 약속을 이행하려는 조치로 풀이된다."
+    },
+    {
+      "type": "heading",
+      "value": "스페이스X AI와 콜로서스 2"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HK81OStasAApecb.jpg?format=jpg&name=large",
+      "caption": "커서 컴파일 무대에서 공개된 신모델 예고 슬라이드",
+      "alt": "컴파일 무대에 띄워진 커서 프런티어 모델 예고 슬라이드"
+    },
+    {
+      "type": "text",
+      "value": "커서가 해당 약속을 지키기 위한 컴퓨팅 인프라를 어디서 확보할 것인가는 이미 예고됐다. 커서는 지난 5월 컴포저 2.5를 공개하면서, 스페이스X AI와 함께 10배에 달하는 컴퓨팅 자원을 동원해 훨씬 큰 독자 모델을 개발 중이라고 블로그를 통해 밝힌 바 있다."
+    },
+    {
+      "type": "text",
+      "value": "개발 규모는 매우 거대하다. 커서의 독자적인 데이터와 학습 방식은 H100 GPU 약 100만 대 규모의 클러스터인 콜로서스 2에 접목된다. 도보스가 공유한 컴포저 대비 10~20배의 컴퓨팅 규모 역시 스페이스X AI 협력 관계에서 비롯된 것으로 분석된다."
+    },
+    {
+      "type": "text",
+      "value": "이는 단순한 모델 성능 개선 수준의 업데이트가 아니다. 오픈AI와 앤스로픽의 API를 재포장해 공급하던 IDE 개발사가 외부 모델 의존을 버리고, 스페이스X AI와 손잡고 대형 클러스터 기반에서 자체 모델을 개발하는 연구소로 전환하는 양상이다. [동일한 주에 흘러나온 인수설](/ko/article/general/spacex-acquire-cursor-60b/)까지 맞물리며, 시리즈 D 라운드에서 293억 달러의 기업 가치를 인정받고 연 매출 20억 달러를 돌파한 이들의 다음 행보에 시장의 관심이 집중된다."
+    },
+    {
+      "type": "heading",
+      "value": "코딩 능력만으로는 부족하다"
+    },
+    {
+      "type": "text",
+      "value": "다음 행보에서 가장 주목되는 요소는 범용성이다. 도보스가 정리한 요약의 마지막 줄은 해당 모델이 코딩 기능에 국한되지 않고 일반적인 지능을 갖췄음을 가리킨다. 저렴하고 빠른 코딩 특화 모델을 제공하던 커서가 이제 범용 프런티어 모델 개발에 직접 나서겠다는 의지를 공식화했다."
+    },
+    {
+      "type": "text",
+      "value": "다만 현재까지 공개된 정보는 예고 수준이다. 구체적인 벤치마크 점수나 가격 책정, 명확한 출시 일정 등은 아직 확인되지 않았다. 과거 컴포저 2 발표 당시 논란이 있었던 만큼, 시장은 발표 내용과 실제 성능 사이의 간극을 한층 더 엄격하게 검증할 것으로 예상된다."
+    },
+    {
+      "type": "text",
+      "value": "그럼에도 커서의 개발 방향은 명확하다. 키미 베이스를 떼고 컴퓨팅 자원을 10~20배 늘려 코딩 그 이상을 겨냥하고 있다. 약속된 '몇 주 안'의 일정에 맞춰 모델을 출시해 낼 수 있는지가 첫 번째 시험대다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Cursor has teased a new proprietary AI model. The announcement was made at Compile, the company's invite-only conference held on June 16 at Fort Mason in San Francisco. The details first emerged when Nick Dobos, a longtime Cursor power user, summarized the on-stage presentation in a post on X."
+    },
+    {
+      "type": "text",
+      "value": "According to Dobos's readout, the new model matches the scale of Claude Opus and GPT-5.5. It is trained from scratch without the Kimi base, utilizes 10 to 20 times the compute of Composer, and features general intelligence rather than code-only specialization. The launch is expected within the next few weeks."
+    },
+    {
+      "type": "text",
+      "value": "The teaser marks a bold declaration: a company that began as a VS Code fork now intends to build a frontier model from scratch. Therein lies the significance of the announcement."
+    },
+    {
+      "type": "heading",
+      "value": "Moving Beyond the Kimi Base"
+    },
+    {
+      "type": "text",
+      "value": "The promise of a model trained 'from scratch' carries weight precisely because of Cursor's recent history. While [the March release](/article/ai-tools/cursor-composer-2-coding-model/) was marketed as offering 'frontier-level coding intelligence,' the company omitted the fact that it was based on Kimi K2.5, an open-source model developed by China's Moonshot AI."
+    },
+    {
+      "type": "text",
+      "value": "The omission was quickly uncovered. An X user named Fynn identified the Kimi foundation by spotting an unedited model ID in the API, dryly posting, 'at least rename the model ID.' As reported by [TechCrunch](https://techcrunch.com/2026/03/22/cursor-admits-its-new-coding-model-was-built-on-top-of-moonshot-ais-kimi/), Cursor's Lee Robinson acknowledged that the model 'started from an open-source base,' but clarified that 'only about a quarter of the final compute came from the base,' with the remainder coming from their own post-training."
+    },
+    {
+      "type": "text",
+      "value": "The crux of the matter lies in co-founder Aman Sanger's response. He admitted it was 'a miss to not mention the Kimi base in our blog from the start' and promised, 'we'll fix that for the next model.' The latest announcement appears to fulfill that pledge by moving away from Kimi entirely."
+    },
+    {
+      "type": "heading",
+      "value": "SpaceXAI and Colossus 2"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/media/HK81OStasAApecb.jpg?format=jpg&name=large",
+      "caption": "The new-model teaser slide shown on stage at Cursor's Compile",
+      "alt": "Cursor's from-scratch frontier model teaser slide at the Compile conference"
+    },
+    {
+      "type": "text",
+      "value": "How will Cursor secure the computational power required to deliver on this promise? The company had already hinted at the answer in May when it released Composer 2.5, noting in a blog post that it was 'training a significantly larger model from scratch, together with SpaceXAI, using 10x more total compute.'"
+    },
+    {
+      "type": "text",
+      "value": "The scale of this SpaceXAI infrastructure is massive. The project combines Cursor's proprietary data and training methods with Colossus 2, a cluster comprising approximately one million H100-equivalent GPUs. The '10-20x' compute increase cited by Dobos appears to stem from the SpaceXAI partnership."
+    },
+    {
+      "type": "text",
+      "value": "This is no routine model bump. An IDE that once wrapped and resold APIs from OpenAI and Anthropic is transitioning into an AI lab, abandoning third-party foundations to train its own frontier model on SpaceXAI's cluster-scale compute. Coupled with [acquisition rumors that surfaced the same week](/article/general/spacex-acquire-cursor-60b/), all eyes are on the next move from a startup valued at $29.3 billion in its Series D round with an annual run rate exceeding $2 billion."
+    },
+    {
+      "type": "heading",
+      "value": "Coding Skill Alone Won't Cut It"
+    },
+    {
+      "type": "text",
+      "value": "The most notable detail in this roadmap is the shift toward 'general' intelligence. The final point in Dobos's summary indicated that the new model will be 'generally intelligent, not just coding.' Cursor, which previously focused on running specialized Composer coding models quickly and cost-effectively, is now signaling its ambition to develop a full-fledged general frontier model."
+    },
+    {
+      "type": "text",
+      "value": "For now, these plans remain tentative. Cursor has not yet shared benchmarks, pricing, or a firm release date. Having faced skepticism during the release of Composer 2, the company will likely face intense scrutiny from a market watchful of the gap between marketing claims and real-world performance."
+    },
+    {
+      "type": "text",
+      "value": "Still, the direction is clear: move away from the Kimi base, scale compute by 10 to 20 times, and expand beyond code generation. Fulfilling the promised release within the next few weeks will be the company's first major test."
+    }
+  ]
+}
