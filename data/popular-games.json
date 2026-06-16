@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T07:44:11.613Z",
+  "updatedAt": "2026-06-16T08:25:14.083Z",
   "period": "30days",
   "games": [
     {
@@ -28,10 +28,6 @@
     },
     {
       "slug": "그놈은-드래곤",
-      "views": 2
-    },
-    {
-      "slug": "라스트-워-서바이벌",
       "views": 2
     },
     {
@@ -76,6 +72,10 @@
     },
     {
       "slug": "wizardry-variants-daphne",
+      "views": 1
+    },
+    {
+      "slug": "world-of-tanks",
       "views": 1
     }
   ]
