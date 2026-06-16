@@ -1,0 +1,170 @@
+{
+  "slug": "samsung-foundry-neuralink-chip",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "needTranslate": false,
+  "date": "",
+  "title": "삼성 파운드리, 뉴럴링크 4세대 칩 수주…TSMC서 첫 이탈",
+  "titleEn": "Samsung Foundry Wins Neuralink 4nm Chip Order",
+  "summary": "삼성 파운드리가 뉴럴링크의 4세대 뇌 임플란트 칩 제조 공정을 수주했다. 4nm 공정 기반의 코드네임 'O1' 칩으로, 2027년 상반기 첫 시제품 출하가 목표다. 기존 TSMC에서 삼성으로 제조사를 변경한 첫 수주 사례다.",
+  "summaryEn": "Samsung Foundry has won its first Neuralink order to make the fourth-gen brain-implant chip on a 4nm process. First test silicon ships in H1 2027.",
+  "keywords": "삼성 파운드리, 뉴럴링크 4세대 칩, 4nm 공정, 머스크 공급망",
+  "keywordsEn": "Samsung Foundry, Neuralink chip, 4nm process, Musk supply chain",
+  "thumbnail": "https://cdn.wccftech.com/wp-content/uploads/2026/06/Neuralink.jpg",
+  "content": [
+    {
+      "type": "text",
+      "value": "삼성 파운드리가 일론 머스크의 뇌-컴퓨터 인터페이스(BCI) 전문 기업 뉴럴링크의 칩 수주를 확보했다. 지난 6월 15일 KED글로벌 보도에 따르면, 삼성전자는 뉴럴링크의 4세대 뇌 임플란트 칩을 4nm 공정으로 위탁 생산할 예정이다. 프로젝트의 내부 코드네임은 'O1'이며, 2027년 상반기에 첫 테스트용 시제품을 출하하는 것이 목표다.\n\n이번 수주는 3세대 칩까지 TSMC에 생산을 위탁해 온 뉴럴링크가 제조사를 바꾼 첫 사례라는 점에서 주목받는다. 테슬라의 자율주행 칩 생산을 맡긴 데 이어, 머스크 계열사가 삼성전자에 첨단 하드웨어 제조를 맡긴 두 번째 협력 사례다."
+    },
+    {
+      "type": "heading",
+      "value": "코드네임 'O1', 4nm 공정 기반의 4세대 칩"
+    },
+    {
+      "type": "text",
+      "value": "이 두 번째 협력 사업은 지난해 말 본격적인 연구개발(R&D)에 착수했으며, 약 한 달 전부터 첫 시제품 생산에 돌입한 상태다. 현재 일정대로라면 2027년 상반기 중 테스트용 시제품이 출시되고, 검증을 통과할 경우 하반기 본격적인 양산 단계로 넘어가게 된다."
+    },
+    {
+      "type": "text",
+      "value": "제조 공정 선택도 눈길을 끈다. 뉴럴링크는 최첨단 뇌 임플란트 칩임에도 최신 미세 공정 대신 4nm 공정을 채택했다. IT 전문 매체 [Wccftech](https://wccftech.com/samsung-to-mass-produce-elon-musk-new-neuralink-chip-on-4nm-process/)는 삼성 파운드리가 최신 공정보다 4nm 공정 라인에서 더 안정적인 수율을 확보한 점을 요인으로 꼽았다. 철저한 안전성과 납기 준수가 필수적인 의료용 칩의 특성상, 미세화 수준보다 이미 검증된 제조 신뢰성을 우선시한 결과다."
+    },
+    {
+      "type": "text",
+      "value": "4세대 칩의 가장 큰 기술적 변화는 양방향 통신 기능이다. 이전 세대 칩은 뇌의 신경 신호를 읽어 외부 기기를 제어하는 일방향 전송만 지원했으나, 새 칩은 외부 데이터를 뇌로 다시 전달할 수 있다. 뉴럴링크는 향후 시각 피질 세포를 자극해 시각 장애인의 시력을 일부 복원하는 등 치료 목적의 활용 방안까지 구상 중이다."
+    },
+    {
+      "type": "heading",
+      "value": "머스크 하드웨어 생태계로 영역 넓히는 삼성 파운드리"
+    },
+    {
+      "type": "text",
+      "value": "머스크 계열사 중 삼성전자와 손잡은 곳은 뉴럴링크뿐만이 아니다. 테슬라는 지난해 삼성전자 텍사스 공장에서 차세대 자율주행 칩 AI6를 생산하기로 하고 165억 달러 규모의 장기 계약을 체결했다. 이번 뉴럴링크의 수주는 머스크 공급망에 속한 기업이 삼성 파운드리에 최첨단 하드웨어 생산을 맡긴 두 번째 대형 계약이다."
+    },
+    {
+      "type": "image",
+      "src": "https://www.kedglobal.com/data/ked/image/2026/06/15/ked202606150030.jpg",
+      "caption": "반도체 웨이퍼 가공 공정. 삼성 파운드리는 뉴럴링크 4세대 칩을 4nm 라인에서 생산한다.",
+      "alt": "반도체 웨이퍼를 가공하는 삼성 파운드리 장비"
+    },
+    {
+      "type": "text",
+      "value": "이러한 제조사 다변화는 TSMC의 공급 병목 현상과도 맞물려 있다. 인공지능(AI) 열풍으로 엔비디아를 비롯한 대형 고객사들이 TSMC에 주문을 집중하면서 생산 여력이 극도로 부족해졌기 때문이다. [엔비디아의 대량 주문이 반도체 위탁생산 판도를 뒤흔드는 상황](/ko/article/general/nvidia-ai-chip-monopoly-cracking/)에서, 머스크는 특정 공급사에 대한 의존도를 낮추기 위해 공급망 다변화에 나섰다."
+    },
+    {
+      "type": "text",
+      "value": "삼성 파운드리에는 이번 수주가 실적 개선의 돌파구가 될 수 있다. 적자를 기록 중인 파운드리 사업부는 2028년 흑자 전환을 목표로 설정했는데, 머스크 계열사 고객들을 확보하면서 이 시나리오에 한층 힘이 실리는 분위기다. 최근 [스페이스X의 상장 준비 소식](/ko/article/general/spacex-ipo-record-nasdaq-debut/)까지 더해져 머스크 공급망 전반과의 파트너십 구축 기회 역시 확대되는 양상이다."
+    },
+    {
+      "type": "heading",
+      "value": "2027년 상반기 첫 시제품 출하가 분수령"
+    },
+    {
+      "type": "text",
+      "value": "이러한 파트너십의 성패를 가를 분수령은 2027년 상반기에 출하될 첫 테스트용 시제품이다. 이 시제 칩이 인체에 이식되는 의료 기기 수준의 까다로운 신뢰성 기준을 충족해야만 하반기 양산 단계로 진입할 수 있으며, 그렇지 못하면 전체 일정이 지연된다. 다만 현재까지 보도된 세부 사항은 업계 소식통을 인용한 내용으로, 양사 모두 이에 대한 공식 언급을 피하고 있다."
+    },
+    {
+      "type": "text",
+      "value": "현재 뉴럴링크의 기기 양산 수요는 분명해 보인다. 머스크는 지난해 말 X(옛 트위터)를 통해 2026년부터 BCI 기기를 대량 생산하고 수술 과정을 완전 자동화하겠다고 밝힌 바 있다. 뉴럴링크가 선보인 N1 임플란트는 64개 실에 1,024개의 전극을 배열한 구조로 지금까지 12명의 환자에게 이식됐다. 첫 이식 대상자였던 전신마비 환자 놀런드 아바우는 생각만으로 온라인 체스와 비디오 게임을 즐기는 모습을 보여주기도 했다."
+    },
+    {
+      "type": "text",
+      "value": "삼성 파운드리에 이번 수주는 매출 이상의 상징성을 지닌다. 메모리 반도체에 편중된 사업 구조를 첨단 시스템 반도체 위탁 생산으로 고도화하려는 현시점에서, 머스크 공급망의 의료 칩 제조 이력은 독보적인 고객 레퍼런스가 되기 때문이다. 2027년 상반기 시제품의 완성도에 따라 향후 파운드리 시장에서의 반등 속도가 결정될 전망이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Samsung Electronics' foundry division has secured its first contract from Neuralink, the brain-computer interface (BCI) company founded by Elon Musk. According to a June 15 report by KED Global, Samsung will manufacture Neuralink's fourth-generation brain-implant chip using a 4nm process. Codenamed 'O1,' the initial test silicon is scheduled for shipment in the first half of 2027.\n\nThe manufacturing transition marks a significant shift for Neuralink, which had previously outsourced its chip production to TSMC through the third generation. This contract represents the second major piece of cutting-edge hardware a Musk-led enterprise has awarded to Samsung Foundry, following earlier orders for Tesla's self-driving chips, as Musk broadens his supply chain."
+    },
+    {
+      "type": "heading",
+      "value": "Codenamed 'O1': Inside the 4nm Fourth-Generation Chip"
+    },
+    {
+      "type": "text",
+      "value": "The partnership began taking shape late last year when Samsung initiated research and development on the new chip, with production of the first test units on the 4nm process starting approximately one month ago. According to the current timeline, the first test-grade silicon is expected to launch in the first half of 2027, with mass production slated for the second half of the year, pending successful validation."
+    },
+    {
+      "type": "text",
+      "value": "The choice of manufacturing node is particularly noteworthy. Despite the cutting-edge nature of the BCI chip, Neuralink selected Samsung's 4nm process over more advanced, newer nodes. [Wccftech](https://wccftech.com/samsung-to-mass-produce-elon-musk-new-neuralink-chip-on-4nm-process/) reports that the decision stems from Samsung's highly stable yields on its 4nm lines compared to its latest sub-3nm nodes. For medical implants where delivery schedules and safety are paramount, proven manufacturing reliability takes precedence over cutting-edge transistor density, making the mature 4nm process the safer bet for this order."
+    },
+    {
+      "type": "text",
+      "value": "The defining advancement of the fourth-generation chip lies in its bidirectional capability. While previous iterations only read neural signals to control external devices, the new chip supports two-way communication, enabling external data to be transmitted back into the brain. Neuralink aims to leverage this capability for therapeutic applications, such as restoring partial vision by directly stimulating cortical neurons."
+    },
+    {
+      "type": "heading",
+      "value": "Samsung Foundry Expands Presence in Musk's Hardware Ecosystem"
+    },
+    {
+      "type": "text",
+      "value": "Neuralink is the latest among Musk's ventures to partner with Samsung. Last year, Tesla signed a long-term contract valued at $16.5 billion to manufacture its next-generation AI6 self-driving chips at Samsung's Texas facility. The Neuralink contract extends this partnership, marking the second high-profile order within Musk's supply chain that Samsung Foundry has landed."
+    },
+    {
+      "type": "image",
+      "src": "https://www.kedglobal.com/data/ked/image/2026/06/15/ked202606150030.jpg",
+      "caption": "Semiconductor wafer processing. Samsung Foundry will build Neuralink's fourth-gen chip on its 4nm process line.",
+      "alt": "Semiconductor wafer being processed on a foundry machine"
+    },
+    {
+      "type": "text",
+      "value": "This shift is driven in part by capacity constraints at TSMC. The artificial intelligence boom has led industry leaders like Nvidia to monopolize TSMC's production capacity, severely tightening the Taiwan-based foundry's lines. Amid a broader trend where [Nvidia's massive orders are redrawing the semiconductor landscape](/article/general/nvidia-ai-chip-monopoly-cracking/), Musk is actively reshaping his supply chain to cut reliance on any single supplier."
+    },
+    {
+      "type": "text",
+      "value": "For Samsung, the Neuralink order provides a timely boost. Its foundry division, which has struggled with losses, has set a target to return to profitability by 2028, a goal that gains credibility as it secures high-profile customers within Musk's corporate network. Furthermore, with [SpaceX preparing for its stock-market debut](/article/general/spacex-ipo-record-nasdaq-debut/), Samsung's relationship with Musk's broader supply chain appears to be expanding."
+    },
+    {
+      "type": "heading",
+      "value": "First Half of 2027 Stands as a Critical Milestone"
+    },
+    {
+      "type": "text",
+      "value": "The ultimate success of this expanding partnership hinges on the initial test silicon slated for the first half of 2027. The 4nm process prototype must meet the stringent reliability standards required for medical implants before mass production can proceed in the second half of the year; failure to do so will delay the entire project. Currently, both Samsung and Neuralink have declined to officially confirm these details, which are based on industry sources."
+    },
+    {
+      "type": "text",
+      "value": "Neuralink's long-term commercial goals remain highly ambitious. Late last year, Musk announced on X that the company plans to begin mass production of BCI devices by 2026, alongside transitioning to nearly fully automated surgical implantation procedures. The company's N1 implant features 1,024 electrodes distributed across 64 flexible threads and has been implanted in 12 patients to date, including Noland Arbaugh, a paralyzed patient who successfully played online chess and video games using only his thoughts."
+    },
+    {
+      "type": "text",
+      "value": "For Samsung Foundry, this contract holds significance far beyond immediate revenue. As the company broadens its memory-centric portfolio toward advanced contract manufacturing, landing the 4nm process order from a figure as symbolic as Musk, deep inside Musk's supply chain, serves as a major industry reference. Whether the first test chips meet expectations in the first half of 2027 will determine the trajectory of Samsung Foundry's broader turnaround strategy."
+    }
+  ],
+  "sources": [
+    {
+      "name": "KED Global",
+      "title": "Samsung wins 1st Neuralink chip order as Musk broadens supply chain",
+      "url": "https://www.kedglobal.com/korean-chipmakers/newsView/ked202606150010"
+    },
+    {
+      "name": "SamMobile",
+      "title": "Samsung said to be making next-generation Neuralink brain chip",
+      "url": "https://www.sammobile.com/news/samsung-making-neuralink-brain-chip-fourth-generation/"
+    },
+    {
+      "name": "Wccftech",
+      "title": "Samsung And Elon Musk Partner Up Again For The 4th-Generation Neuralink Chip On 4nm",
+      "url": "https://wccftech.com/samsung-to-mass-produce-elon-musk-new-neuralink-chip-on-4nm-process/"
+    },
+    {
+      "name": "FierceBiotech",
+      "title": "Neuralink to kick-start 'high-volume production' of brain-computer interface devices",
+      "url": "https://www.fiercebiotech.com/medtech/elon-musks-neuralink-kickstart-high-volume-production-brain-computer-interface-devices"
+    },
+    {
+      "name": "Business Insider",
+      "title": "Neuralink is expanding production of its brain chips with an automated procedure",
+      "url": "https://www.businessinsider.com/neuralink-elon-musk-expanding-production-brain-chips-automated-procedure-2026-1"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/nvidia-ai-chip-monopoly-cracking",
+    "tech:ai/spacex-ipo-record-nasdaq-debut",
+    "tech:ai/google-spacex-xai-compute-deal",
+    "tech:ai/huawei-ascend-deepseek-v4-posttraining"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
