@@ -4,13 +4,13 @@
   "category": "general",
   "status": "approved",
   "needTranslate": false,
-  "date": "2026-06-16T08:00Z",
-  "title": "2026년 상반기 코딩 에이전트 TOP5…클로드 코드가 선두인 이유",
+  "date": "2026-06-16T09:00Z",
+  "title": "2026년 상반기 코딩 에이전트 톱5...클로드 '페이블' 선두 속 변수 상존",
   "titleEn": "Top 5 Coding Agents of H1 2026, Ranked",
-  "summary": "2026년 상반기 주요 코딩 에이전트 5종의 종합 순위를 분석했다. 개발 품질에서 앞선 클로드 코드가 1위를 차지했으며, 범용성을 극대화한 오픈AI의 코덱스가 그 뒤를 이었다. 커서와 오픈코드, 파이 역시 각자의 뚜렷한 강점을 바탕으로 시장을 형성하고 있다.",
-  "summaryEn": "A ranking of the top five coding agents of H1 2026: Claude Code leads on quality, Codex on reach, with Cursor, OpenCode, and Pi close behind.",
-  "keywords": "코딩 에이전트, 클로드 코드, 코덱스, 커서",
-  "keywordsEn": "coding agents, Claude Code, Codex, Cursor",
+  "summary": "2026년 상반기 주요 코딩 에이전트 5종의 종합 순위를 분석했다. 품질에서 앞선 클로드 코드가 1위를 차지했으며, 확장성을 극대화한 오픈AI의 코덱스가 그 뒤를 이었다. 커서, 오픈코드, 파이 역시 독자적인 강점을 내세워 시장을 구성하고 있다.",
+  "summaryEn": "A ranking of the top five coding agents of H1 2026: Claude Code leads on quality despite a cost backlash, with Codex closing in fast.",
+  "keywords": "코딩 에이전트, 클로드 코드, 코덱스",
+  "keywordsEn": "Claude Code, Codex, Cursor",
   "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/b7055119423427c40a0e4d84054aed17682b50a2-2880x1620.png",
   "sources": [
     {
@@ -34,9 +34,9 @@
       "url": "https://opencode.ai/"
     },
     {
-      "name": "Vals AI",
-      "title": "SWE-bench Verified Leaderboard",
-      "url": "https://vals.ai/benchmarks/swebench"
+      "name": "The Verge",
+      "title": "Microsoft discontinues internal Claude Code over costs",
+      "url": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad"
     }
   ],
   "relatedDocs": [
@@ -50,11 +50,11 @@
   "content": [
     {
       "type": "text",
-      "value": "2026년 상반기 코딩 에이전트 시장이 큰 변화를 겪었다. 연초의 안정적인 구도와 달리 6월 들어 시장의 변동성이 한층 커진 모양새다. 앤트로픽의 클로드 파블 5가 출시 직후 배포 중단되는 사건이 발생했고, 개발사들의 요금제 개편과 오픈소스 진영의 유료 구독제 도입이 잇따랐다."
+      "value": "2026년 상반기 코딩 에이전트 시장이 변동성이 큰 새로운 국면에 접어들었다. 연초의 안정적인 구도와 달리, 6월 들어 시장의 불확실성이 급격히 커졌다. 앤트로픽이 선보인 '클로드 페이블 5'가 출시 직후 배포 중단되는 사태가 벌어졌고, 개발사들의 요금제 개편과 오픈소스 진영의 유료 구독제 도입이 잇따랐다."
     },
     {
       "type": "text",
-      "value": "이에 본지는 상반기 흐름을 주도한 주요 코딩 에이전트 5종을 선정해 순위를 매겼다. 평가는 단순한 벤치마크 점수 비교에 그치지 않았다. 코드 생성 품질과 동작 자율성, 일상 작업에서의 사용 편의성, 도입 비용 등을 종합적으로 분석한 결과다."
+      "value": "이에 본지는 상반기 흐름을 주도한 주요 코딩 에이전트 5종을 선정해 순위를 매겼다. 평가는 단순한 벤치마크 점수 비교에 그치지 않고, 코드 생성 품질과 동작 자율성, 일상 작업에서의 사용 편의성, 도입 비용 등을 종합적으로 분석하는 방식으로 진행됐다."
     },
     {
       "type": "table",
@@ -70,7 +70,7 @@
           "1",
           "클로드 코드",
           "코드 품질·자율성 최상",
-          "파블 5 출시·중단, 과금 개편"
+          "페이블 5 출시·중단, 과금 개편"
         ],
         [
           "2",
@@ -100,23 +100,27 @@
     },
     {
       "type": "heading",
-      "value": "1위 클로드 코드 — 품질로 세운 왕좌"
+      "value": "1위 클로드 코드: 품질로 다진 왕좌"
     },
     {
       "type": "text",
-      "value": "클로드 코드는 개발자가 복잡한 작업을 완전히 위임할 수 있는 자율성 부문에서 가장 앞선 성능을 보여주며 선두에 올랐다. 핵심 엔진인 오푸스 4.8은 실제 깃허브 이슈를 해결하는 SWE-bench Verified 검증에서 88.6%의 성공률을 기록했다([vals.ai 집계](https://vals.ai/benchmarks/swebench)). 대규모 리팩토링이나 여러 파일에 걸쳐 수정해야 하는 작업에서도 경쟁 도구들보다 높은 완성도를 보였다."
+      "value": "클로드 코드는 올해 상반기 테크 기업들이 가장 많이 선택한 코딩 에이전트다. 지난 6월 9일 [앤트로픽이 공개한 페이블 5](https://www.anthropic.com/news/claude-fable-5-mythos-5)는 거의 모든 코딩 벤치마크에서 경쟁사들을 큰 격차로 앞서며 선두 자리를 굳혔다. 스트라이프는 이 모델을 도입해 5,000만 줄 규모의 루비 코드베이스 이전을 두 달에서 단 하루로 줄였다고 전했다."
     },
     {
       "type": "text",
-      "value": "다만 6월 한 달 동안 호재와 악재가 겹쳤다. 지난 9일 공개된 클로드 파블 5는 동일 벤치마크에서 95% 수준의 점수를 기록하며 정상에 올랐으나, 12일 미국 정부의 수출 통제 조치로 인해 서비스가 차단됐다. 해당 모델은 오는 23일 구독 플랜에서 제외될 예정이며, 터미널 자동화 등 헤드리스 작업을 별도 크레딧으로 분리하는 요금 개편까지 더해져 정액제 사용자들의 반발을 샀다."
+      "value": "그러나 리스크도 존재한다. 마이크로소프트는 비용 문제로 [내부 클로드 코드 사용을 중단하고](https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad) 자사 코파일럿으로 복귀했고, 우버는 토큰 요금 급증에 따라 직원당 월 사용 한도를 지정했다. 출시 사흘 만인 6월 12일 미 수출 규제로 페이블 5의 서비스가 차단되며 복귀 시점도 불투명해졌다."
     },
     {
       "type": "text",
-      "value": "이러한 난관 속에서도 클로드 코드는 1위 자리를 지켜냈다. 터미널에서 직접 실행하는 대화형 기능은 요금 개편의 영향을 받지 않았다. 최신 모델의 접근이 잠시 차단됐을 뿐, 에이전트의 기본적인 코드 생성 성능 우위는 여전히 유지되고 있기 때문이다."
+      "value": "추격도 매섭다. 오픈AI 코덱스는 타사 전환 기업에 2개월 무료 혜택을 주는 등 공세를 펴며 6월 들어 클로드와의 격차를 빠르게 좁혔다."
+    },
+    {
+      "type": "text",
+      "value": "그럼에도 선두 위상은 굳건하다. 복잡한 작업을 통째로 위임할 때의 완성도에서 기술적 격차가 여전하고, 현업의 최선호 도구 자리를 지키고 있다. 최근의 악재들은 선두 지위의 상실이라기보다 그 가치만큼 비용이 상승했다는 신호에 가깝다."
     },
     {
       "type": "heading",
-      "value": "2위 코덱스 — 모든 직무로 넓히는 확장성"
+      "value": "2위 코덱스: 전 직무로 확장하는 범용성"
     },
     {
       "type": "image",
@@ -126,31 +130,31 @@
     },
     {
       "type": "text",
-      "value": "코드 생성 품질에서 클로드 코드에 조금 뒤처진 코덱스는 뛰어난 범용성으로 승부수를 던졌다. 오픈AI의 GPT-5.5 모델을 탑재해 Terminal-Bench 평가에서 83.4%의 고득점을 유지했다. 다만 코덱스의 진짜 무기는 점수보다 확장성이다. 지난 2일 발표한 '모든 직무를 위한 코덱스' 업데이트를 기점으로 개발자 이외의 영역까지 보폭을 넓혔다."
+      "value": "코드 생성 품질은 다소 뒤처지지만, 코덱스는 뚜렷한 전략을 바탕으로 선두를 맹추격하고 있다. 오픈AI는 범용 챗봇 경쟁 대신 코딩 에이전트인 코덱스에 역량을 집중하기로 했다. 이에 따라 지난 4월 말 비용 부담이 크던 영상 생성 서비스 '소라(Sora)' 개발을 중단하고, 관련 개발 자원을 코덱스의 성능 향상에 쏟아부었다."
     },
     {
       "type": "text",
-      "value": "이번 업데이트에서는 분석가, 마케터, 영업직, 디자이너를 위한 6가지 역할별 플러그인이 제공된다. 여기에는 62개 앱과 110가지 스킬이 포함됐다. 여기에 아이디어를 웹페이지나 대시보드로 즉시 변환하는 Sites 기능과 특정 결과물만 골라 편집하는 Annotations 기능도 추가됐다. 현재 주간 활성 사용자 수는 500만 명을 넘어섰으며, 이 중 비개발자 비중이 약 20%에 달한다."
+      "value": "이러한 전략 수정은 가시적인 성과로 이어졌다. GPT-5.5 기반의 코덱스는 터미널 자동화 벤치마크 등 일부 영역에서 클로드를 넘어섰고, 토큰 효율성도 크게 개선했다. 복잡한 시스템 설계는 여전히 클로드가 앞서지만, 장시간 소요되는 자동화 작업에서는 코덱스가 확실한 우위를 점하고 있다."
     },
     {
       "type": "text",
-      "value": "특히 다중 작업을 비동기 방식으로 동시 처리하거나, 클라우드 환경에서 장시간 작업을 수행할 때는 코덱스가 클로드 코드보다 안정적인 효율을 낸다. 이러한 기업용 확장성을 높이 평가받아 올해 가트너가 선정한 엔터프라이즈 코딩 에이전트 부문 리더로 이름을 올렸다."
+      "value": "이용자 확보 속도도 빠르다. 경쟁력 있는 가격과 ChatGPT 계정을 연동해 외부 도구에 직접 연결하는 OAuth 개방 정책, 고객 유치 프로모션에 힘입어 주간 활성 사용자 수 500만 명을 돌파했다. 지난 6월 2일에는 분석가와 마케터를 위한 직무별 플러그인과 'Sites' 기능을 추가하며 비개발 직군으로까지 시장을 넓혔다."
     },
     {
       "type": "heading",
-      "value": "3위 커서 — 개발 환경의 일상적 표준"
+      "value": "3위 커서: 일상 개발 환경의 표준"
     },
     {
       "type": "text",
-      "value": "개인 개발자의 일상 영역에서는 커서가 가장 널리 쓰이는 도구로 안착했다. 커서는 VS Code를 포크해 만든 AI 기반 에디터로, 코드 자동 완성이나 인라인 편집, 다중 파일 수정 작업을 개발 환경 내에서 유기적으로 처리한다. 지난 5월 공개한 커서의 자체 모델 컴포저 2.5는 문샷의 키미 K2.5를 기반으로 해, 100만 토큰당 0.5달러라는 저렴한 비용으로 최상위권 성능을 제공한다."
+      "value": "개인 개발자 사이에서는 커서(Cursor)가 기본 AI 에디터로 완전히 자리 잡았다. VS Code를 포크해 개발된 커서는 일상적인 코딩 흐름을 매끄럽게 지원한다. 올해 커서는 xAI와의 협업을 통해 기술 규모를 빠르게 키웠으며, xAI의 대규모 컴퓨팅 인프라를 활용해 자체 모델인 '컴포저 2.5(Composer 2.5)'와 대형 모델의 공동 학습을 추진하고 있다."
     },
     {
       "type": "text",
-      "value": "커서는 6월에도 기능 개선을 이어갔다. 코드 리뷰 에이전트인 버그봇은 리뷰 속도가 약 90초로 3배 빨라졌고 운영 비용은 22% 절감됐으며, UI 편집을 돕는 디자인 모드도 대폭 강화됐다. 화면을 보며 고치는 이 방식은 커서가 특히 앞서는 영역이다. 아울러 커서는 사용자의 선호에 따라 클로드나 GPT 등 다양한 엔진을 선택해 적용할 수 있는 유연성도 지원한다."
+      "value": "컴포저 2.5는 시장의 호평 속에 가성비 높은 대안으로 안착했다. 문샷의 '키미 K2.5'를 기반으로 100만 입력 토큰당 0.5달러 수준의 저렴한 비용에 최고 수준의 코딩 성능을 구현했다. 이에 비용을 고려하는 개발 조직들이 클로드 코드나 코덱스 대신 커서를 도입하는 흐름이 뚜렷하다. 6월에는 디버깅 도구인 '버그봇' 속도 개선과 '디자인 모드' 업그레이드가 진행됐으며, 시장은 커서와 xAI의 합병 가능성에 주목하고 있다."
     },
     {
       "type": "heading",
-      "value": "4위 오픈코드 — 오픈소스 진영의 자구책"
+      "value": "4위 오픈코드: 오픈소스 진영의 독자 행보"
     },
     {
       "type": "image",
@@ -160,49 +164,49 @@
     },
     {
       "type": "text",
-      "value": "오픈코드는 모델 선택의 자유도를 더욱 극대화한 터미널 중심의 오픈소스 에이전트다. 깃허브 스타 16만 개, 기여자 900명, 월간 활성 개발자 750만 명을 기록하며 클로드 코드와 양강 구도를 형성하기도 했다. BYOK 방식으로 75개 이상의 모델 공급사를 연동할 수 있고, 사용자 코드를 외부 서버에 저장하지 않아 보안 요건이 엄격한 환경에서도 도입하기 적합하다."
+      "value": "오픈코드는 모델 선택의 자율성을 극대화한 터미널 기반 오픈소스 에이전트다. 깃허브 스타 16만 개, 기여자 900명, 월간 활성 개발자 750만 명을 유치하며 도입률 면에서 클로드 코드와 견주어왔다. 사용자 키를 직접 등록하는 BYOK 방식으로 75개 이상의 모델 공급사를 연동할 수 있고, 사용자 코드를 로컬 환경에만 유지해 보안 요건이 엄격한 공공·금융권 도입에 용이하다."
     },
     {
       "type": "text",
-      "value": "특히 앤트로픽이 서드파티 도구의 클로드 구독 계정 연동을 차단하자, 오픈코드는 지난 6월 월 10달러의 'OpenCode Go' 요금제를 출시했다. 이를 통해 개발자는 GLM-5.1, 키미 K2.7 코드, 딥시크 V4, 큐원 3.6, 미니맥스 M3 등 검증된 오픈소스 모델들을 자유롭게 교체해 쓸 수 있다. 도구 자체는 무료로 제공하되, 외부 모델 접근권만 정액 요금으로 묶어 공급하는 구조다."
+      "value": "앤트로픽이 서드파티 도구의 클로드 구독 계정 연동을 차단하자, 오픈코드는 6월 들어 월 10달러의 '오픈코드 고(OpenCode Go)' 구독 서비스를 내놓았다. 개발자들은 이를 통해 GLM-5.1, 키미 K2.7 코드, 딥시크 V4, 큐원 3.6, 미니맥스 M3 등 다양한 검증 모델을 자유롭게 연동해 쓸 수 있다. 클라이언트 도구 자체는 무료로 제공하되, API 접근권에 대해서만 이용료를 부과하는 구조다."
     },
     {
       "type": "heading",
-      "value": "5위 파이 — 극도의 단순함을 향한 지향"
+      "value": "5위 파이: 극도의 미니멀리즘 지향"
     },
     {
       "type": "text",
-      "value": "오픈소스 진영의 또 다른 축에서는 미니멀리즘 철학을 극대화한 도구가 등장했다. libGDX 개발자인 마리오 제크너가 설계한 파이(Pi)는 읽기, 쓰기, 편집, 터미널 실행 등 단 4가지 도구만을 사용해 작동한다. 주요 에이전트 중 가장 짧은 시스템 프롬프트를 갖췄으며, 별도의 클라우드 계정 없이 로컬 환경에서 단독 실행된다."
+      "value": "오픈소스 진영의 또 다른 극단에는 단순함을 극대화한 에이전트인 파이(Pi)가 있다. 오픈소스 그래픽 라이브러리 libGDX의 개발자 마리오 제크너(Mario Zechner)가 설계한 파이는 읽기, 쓰기, 편집, 배시(bash) 터미널 실행 등 단 4가지 핵심 도구로 작동한다. 주요 코딩 에이전트 중 시스템 프롬프트가 가장 짧다. 별도 클라우드 계정 등록 없이 로컬 환경에서 단독으로 작동하는 것이 특징이다."
     },
     {
       "type": "text",
-      "value": "확장성 역시 전적으로 사용자의 몫으로 남겨뒀다. 개발자가 직접 익스텐션과 스킬을 설계해 붙여야 하며, 로컬 모델을 포함한 모든 LLM과의 연결도 직접 설정해야 한다. 완성형 기능을 선호하는 이들에겐 번거롭지만, 자신만의 도구를 세밀하게 조정하고 싶어 하는 숙련 개발자나 외부 데이터 유출을 엄격히 규제하는 기업 환경에서는 이 단순함이 최고의 강점이 된다."
+      "value": "이러한 구조적 특성상 확장 기능 설계와 로컬·클라우드 LLM 연동 등 커스터마이징의 몫은 온전히 사용자에게 남겨진다. 즉각 사용 가능한 패키지를 원하는 이들에게는 번거로울 수 있다. 그러나 환경 전체를 세밀하게 제어하려는 숙련 개발자나 엄격한 보안 요건 하에 외부 데이터 노출을 전면 통제해야 하는 기업에는 파이의 극단적 단순함이 최적의 대안이 될 수 있다."
     },
     {
       "type": "heading",
-      "value": "평가 기준에 따라 갈리는 최적의 도구"
+      "value": "선두 유지 속 짙어지는 하반기 안개"
     },
     {
       "type": "text",
-      "value": "결과적으로 절대적인 1위 에이전트는 존재하지 않으며, 평가지표에 따라 결과가 달라진다. 순수 코딩 벤치마크 점수만 놓고 보면 일시 중단된 클로드 파블 5와 오푸스 엔진이 선두지만, 터미널 기반 자동화 기능에 초점을 맞추면 코덱스가 가장 앞선다."
+      "value": "요약하자면 2026년 상반기는 클로드 코드의 선두 수성과 코덱스의 매서운 추격으로 압축된다. 클로드는 페이블 5를 앞세워 기술적 격차를 벌리며 기업 표준의 지위를 지켰고, 코덱스는 신속한 전략 선회와 공격적인 프로모션으로 격차를 좁히는 데 성공했다."
     },
     {
       "type": "text",
-      "value": "개발 현장의 요구에 따라 선택지는 갈린다. 자율적 일임에는 클로드 코드, 비동기 다중 작업에는 코덱스, 개발 툴 내 빠른 편집은 커서가 최적이다. 비용과 개방성은 오픈코드, 로컬 전용 설정은 파이가 답이다. 즉 상반기는 단일 강자가 아닌, 5개 도구의 영역 분할 구도다."
+      "value": "그 외 세 도구의 독자 영역도 뚜렷하다. 커서는 가성비와 xAI 시너지를, 오픈코드는 개방성을, 파이는 극도의 단순함을 전면에 내세웠다."
     },
     {
       "type": "text",
-      "value": "지난달 [분석](/ko/article/general/coding-agents-june-2026-ranking/) 기사와 함께 보면 변동 속도가 한층 또렷해진다. 사실 이 다섯이 전부는 아니다. 매일 코드를 짜는 입장에서는 커서처럼 손에 붙는 도구 하나를 먼저 정해두고, 나머지는 자기 작업 방식에 맞춰 좁혀가는 과정만 남는다."
+      "value": "그러나 하반기 시장 전망은 여전히 유동적이다. 페이블 5의 복귀 시점, 기업들의 비용 관리 기조 변화, 그리고 커서와 xAI의 합병 논의 향방에 따라 순위 판도는 언제든 뒤바뀔 수 있다. 지난달 [순위 분석](/ko/article/general/coding-agents-june-2026-ranking/)과 나란히 놓고 보면, 이 판이 얼마나 빠르게 움직이는지 더 또렷해진다."
     }
   ],
   "contentEn": [
     {
       "type": "text",
-      "value": "As the first half of 2026 draws to a close, the coding agent market has entered a new phase of volatility. While the landscape appeared stable at the beginning of the year, June witnessed the brief launch and subsequent withdrawal of Claude Fable 5, instability in developer pricing models, and the introduction of dedicated model subscriptions from the open-source community."
+      "value": "As the first half of 2026 draws to a close, the coding agent market has entered a volatile new phase. Although the landscape appeared stable early in the year, June brought major disruptions, including the brief launch and subsequent withdrawal of Anthropic's Claude Fable 5, shifts in developer pricing structures, and the introduction of paid model subscriptions by the open-source community."
     },
     {
       "type": "text",
-      "value": "To evaluate the market at midyear, we have ranked the five most prominent coding agents. Rather than relying solely on isolated benchmark scores, this ranking uses a comprehensive evaluation framework that assesses code quality, developer autonomy, user experience in daily tasks, and total cost."
+      "value": "To assess the market at midyear, we have ranked the five most prominent coding agents of the half. Rather than relying solely on isolated benchmark scores, this ranking uses a comprehensive framework evaluating code generation quality, operational autonomy, user experience in daily tasks, and total cost."
     },
     {
       "type": "table",
@@ -252,19 +256,23 @@
     },
     {
       "type": "text",
-      "value": "At the top of the ranking, Claude Code has maintained a clear lead in autonomous execution, allowing developers to delegate complex tasks from start to finish. Powered by the Opus 4.8 engine, the agent achieved an 88.6% success rate on the SWE-bench Verified dataset of real-world GitHub issues (according to [vals.ai](https://vals.ai/benchmarks/swebench)), consistently outpacing competitors in large-scale refactoring and multi-file code modifications."
+      "value": "Claude Code remains the coding agent of choice for tech companies in the first half of 2026. On June 9, [Anthropic's Fable 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) outperformed rivals by a wide margin across nearly every coding benchmark, securing the top spot. Stripe reported that the model compressed a 50-million-line Ruby codebase migration from a two-month project into a single day."
     },
     {
       "type": "text",
-      "value": "However, June brought both milestones and operational disruptions. Released on June 9, Claude Fable 5 briefly claimed the top spot with a benchmark score of approximately 95% before a U.S. export-control directive cut off access on June 12, forcing its removal from subscription plans by June 23. Concurrently, a pricing restructure that segregates automated and headless executions into a separate credit system has drawn criticism from developers accustomed to flat-rate pricing."
+      "value": "Yet, challenges to that lead are mounting. Citing high costs, Microsoft [discontinued its internal use of Claude Code](https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad) in favor of its own Copilot, while Uber imposed monthly spending caps per employee as token expenses surged. Furthermore, a U.S. export control directive restricted access to Fable 5 on June 12—just three days after its launch—making the timing of its return highly uncertain."
     },
     {
       "type": "text",
-      "value": "Despite these challenges, Claude Code retains its first-place position. Interactive terminal use remains unaffected by the new billing structure, and the agent's fundamental superiority in code generation has kept it ahead of rivals despite the temporary restriction of its newest model."
+      "value": "The competition is intensifying as well. OpenAI's Codex is closing the gap, offering aggressive incentives such as two months of free service for enterprises that switch, which visibly narrowed the divide between the two products in June."
+    },
+    {
+      "type": "text",
+      "value": "Nonetheless, the core reality remains unchanged. When delegating complex tasks in their entirety, the technical gap between Claude Code and its rivals persists, and it remains the industry's preferred coding agent. June's setbacks indicate not that Claude Code has lost its crown, but that maintaining the lead has become significantly more costly."
     },
     {
       "type": "heading",
-      "value": "2. Codex: Reach Into Every Role"
+      "value": "2. Codex: Expanding Reach Across Roles"
     },
     {
       "type": "image",
@@ -274,31 +282,31 @@
     },
     {
       "type": "text",
-      "value": "While Codex trails slightly in raw generation quality, it excels in versatility. Powered by GPT-5.5, OpenAI's agent maintains a leading 83.4% score on the Terminal-Bench agentic evaluation. Its primary competitive advantage, however, lies in its horizontal expansion; a June 2 update titled 'Codex for every role' successfully extended the platform's utility beyond traditional software engineering."
+      "value": "Although Codex trails slightly in code quality, OpenAI has closed the distance by sharpening its strategic focus. The company prioritized its coding agent over the general chatbot race, halting its expensive Sora video generator in late April to redirect engineering resources toward Codex's performance and application development."
     },
     {
       "type": "text",
-      "value": "The release packaged six role-specific plugins tailored for analysts, marketers, sales teams, and designers—encompassing 62 applications and 110 distinct skills. It also introduced 'Sites' for converting concepts directly into web pages and dashboards, alongside 'Annotations' for granular, point-and-click edits. Weekly active users have surpassed five million, with non-developers now accounting for approximately 20% of the user base."
+      "value": "This shift yielded measurable results. Driven by GPT-5.5, Codex surpassed Claude in specific areas like the terminal-automation benchmark and improved its token efficiency. While Claude remains ahead in complex architectural design, Codex holds an advantage in long-running automated tasks."
     },
     {
       "type": "text",
-      "value": "For developer workflows requiring asynchronous multi-tasking or cloud-delegated long-running tasks, Codex offers a more seamless experience than Claude Code. This enterprise-grade extensibility led Gartner to name Codex a Leader in its enterprise coding agents category this year."
+      "value": "Adoption is also growing rapidly. Supported by competitive pricing, an open OAuth flow that connects directly to external tools via ChatGPT accounts, and promotional offers, Codex's weekly active users have surpassed five million. A June 2 update introduced role-specific plugins for analysts and marketers alongside a 'Sites' feature, expanding its utility beyond traditional developers."
     },
     {
       "type": "heading",
-      "value": "3. Cursor: The Default for the Everyday IDE"
+      "value": "3. Cursor: The Default for Everyday Development"
     },
     {
       "type": "text",
-      "value": "At the individual developer level, Cursor has established itself as the default daily environment. As an AI-first editor forked from VS Code, Cursor excels at integrating autocomplete, inline editing, and multi-file changes directly within the workspace. Its proprietary Composer 2.5 model, launched in May and powered by Moonshot's Kimi K2.5, delivers frontier-tier coding capabilities at a highly competitive rate of $0.50 per million input tokens."
+      "value": "For individual developers, Cursor has established itself as the default AI editor. Forked from VS Code, it is designed to streamline day-to-day coding workflows. This year, Cursor expanded its capabilities through a partnership with xAI, leveraging the latter's substantial computing infrastructure to co-train its in-house Composer 2.5 model alongside larger systems."
     },
     {
       "type": "text",
-      "value": "Further refinements arrived in June. Bugbot, Cursor's automated code-review tool, saw a threefold increase in speed to approximately 90 seconds per review alongside a 22% cost reduction, while its visual Design Mode was significantly upgraded. Additionally, the editor continues to offer the flexibility to swap underlying models, allowing users to run Claude or GPT engines interchangeably. For teams that prefer to stay inside one editor, Cursor remains the lowest-friction option, and that consistency is much of why Cursor sits third on this ranking."
+      "value": "Composer 2.5 has gained traction as a cost-effective alternative. Built on Moonshot's Kimi K2.5, it provides frontier-class capabilities at $0.50 per million input tokens, prompting cost-conscious teams to choose Cursor over Claude Code or Codex. Recent June updates improved the execution speed of Bugbot and upgraded Design Mode, while the market remains focused on a potential Cursor-xAI merger."
     },
     {
       "type": "heading",
-      "value": "4. OpenCode: The Open-Source Self-Reliance Card"
+      "value": "4. OpenCode: The Open-Source Alternative"
     },
     {
       "type": "image",
@@ -308,35 +316,35 @@
     },
     {
       "type": "text",
-      "value": "OpenCode goes even further in model flexibility. As a terminal-first, open-source agent with 160,000 GitHub stars, 900 contributors, and 7.5 million active monthly developers, it has frequently matched Claude Code in adoption. It supports more than 75 model providers under a bring-your-own-key (BYOK) model and guarantees local data privacy by storing no user code, making it highly suitable for regulated environments."
+      "value": "OpenCode offers even greater model flexibility. As a terminal-first, open-source agent with 160,000 GitHub stars, 900 contributors, and 7.5 million monthly active developers, its adoption has frequently matched that of Claude Code. It supports over 75 model providers under a bring-your-own-key (BYOK) framework and ensures data privacy by keeping all code local, making it a preferred choice for highly regulated industries."
     },
     {
       "type": "text",
-      "value": "In response to Anthropic blocking third-party tools from utilizing Claude subscription credentials, OpenCode introduced the 'OpenCode Go' subscription in June. For $10 per month, developers can access a vetted pool of open-source models—including GLM-5.1, Kimi K2.7 Code, DeepSeek V4, Qwen3.6, and MiniMax M3. The client software remains entirely free, with the subscription model strictly covering API access to these frontier models."
+      "value": "After Anthropic blocked third-party tools from using Claude subscription credentials, OpenCode launched its '$10 per month OpenCode Go' subscription in June. The service provides access to a curated pool of open-source models, including GLM-5.1, Kimi K2.7 Code, DeepSeek V4, Qwen3.6, and MiniMax M3. The client application remains free, with the subscription fee covering only the API access costs for these models."
     },
     {
       "type": "heading",
-      "value": "5. Pi: Minimalism as a Choice"
+      "value": "5. Pi: Minimalism as a Design Philosophy"
     },
     {
       "type": "text",
-      "value": "Representing the opposite end of the open-source design spectrum, Pi embraces a philosophy of extreme simplicity. Developed by Mario Zechner, the creator of libGDX, this minimalist agent operates with only four core tools—read, write, edit, and bash—and utilizes the shortest system prompt among major coding assistants. It requires no cloud account and runs entirely on the user's local machine."
+      "value": "Positioned at the opposite end of the open-source spectrum, Pi focuses on extreme simplicity. Developed by Mario Zechner, the creator of libGDX, this minimalist agent operates using just four core tools—read, write, edit, and bash—and features the shortest system prompt among major coding assistants. It requires no cloud account and runs entirely on the user's local machine."
     },
     {
       "type": "text",
-      "value": "This design places the responsibility of customization on the user, who must build out functionality using custom extensions and skills while connecting to local or cloud-based LLMs. While ill-suited for developers seeking a fully configured, out-of-the-box solution, Pi's simplicity is a major asset for power users wanting complete control over their environment and for enterprises operating under strict data-egress restrictions."
+      "value": "This minimalist architecture leaves customization entirely to the user, who must build out extensions, skills, and model integrations manually. While unsuitable for developers seeking a fully configured, out-of-the-box solution, Pi's simplicity appeals to power users who demand total control over their environment, as well as enterprises operating under strict data-privacy requirements."
     },
     {
       "type": "heading",
-      "value": "Number One Shifts With the Yardstick"
+      "value": "A Precarious Lead Leading into H2"
     },
     {
       "type": "text",
-      "value": "Ultimately, designating a single top coding agent depends entirely on the chosen metrics. Among 2026's coding agents, the suspended Claude Fable 5 and the standard Opus engine lead on raw coding benchmarks; if the evaluation is restricted to terminal-based automation, Codex emerges on top. But raw benchmarks rank the models, not the coding agents built around them."
+      "value": "In short, the first half of 2026 was defined by Claude Code maintaining its lead while Codex closed in. Claude temporarily widened its technical advantage with Fable 5, securing its position as the enterprise standard, while Codex leveraged a strategic pivot and aggressive promotions to catch up."
     },
     {
       "type": "text",
-      "value": "In daily production environments, the ideal choice diverges by use case. Claude Code excels at delegating end-to-end tasks, while Codex is optimized for asynchronous, multi-threaded operations. Developers who prefer to remain within their editor will find Cursor most effective, those seeking cost efficiency and freedom can turn to OpenCode, and enthusiasts wanting a customized local environment will favor Pi. The conclusion of the first half of 2026 is that the market contains five distinct winners tailored to specific needs. When read alongside our separate [breakdown](/article/general/coding-agents-june-2026-ranking/) of last month's rankings, it becomes clear how rapidly this competitive landscape continues to evolve. These five are hardly the only AI coding tools in circulation, but as coding agents go, they are the working shortlist for 2026. Whichever AI coding tools you weigh, starting from these coding agents and tuning to your own workflow is the safest first move."
+      "value": "Meanwhile, the other three agents have carved out distinct niches: Cursor relies on value and its synergy with xAI, OpenCode champions open flexibility, and Pi focuses on extreme simplicity. However, the outlook for the second half of the year remains highly volatile. The eventual return of Fable 5, shifting corporate spending habits, and the outcome of the Cursor-xAI merger discussions could easily reshuffle the rankings. Set against our [breakdown](/article/general/coding-agents-june-2026-ranking/) of last month's ranking, it only gets clearer how fast this board moves."
     }
   ]
 }
