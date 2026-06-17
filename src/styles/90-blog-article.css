@@ -329,19 +329,8 @@
   .blog-figure.blog-table .wiki-table td {
     white-space: nowrap;
   }
-  /* 첫 열(행 레이블)은 가로 스크롤 중에도 보이도록 고정 */
-  .blog-figure.blog-table .wiki-table th:first-child,
-  .blog-figure.blog-table .wiki-table td:first-child {
-    position: sticky;
-    left: 0;
-    z-index: 1;
-  }
-  .blog-figure.blog-table .wiki-table th:first-child {
-    background: var(--hover-bg);
-  }
-  .blog-figure.blog-table .wiki-table td:first-child {
-    background: var(--card-bg);
-  }
+  /* (첫 열 sticky 제거 — 표의 overflow:hidden(모서리용)과 충돌해 제대로 고정되지 않았고,
+     긴 제목 열을 고정하면 화면을 과하게 가려, 단순 가로 스크롤로 처리한다.) */
 }
 
 .blog-image {

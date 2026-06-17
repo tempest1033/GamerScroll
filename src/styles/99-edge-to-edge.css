@@ -337,21 +337,8 @@
     white-space: nowrap !important;
   }
 
-  /* 표 3번째 컬럼 - 줄바꿈 허용 */
-  #issue .wiki-table th:nth-child(3),
-  #issue .wiki-table td:nth-child(3),
-  #insight .wiki-table th:nth-child(3),
-  #insight .wiki-table td:nth-child(3),
-  #hotpick .wiki-table th:nth-child(3),
-  #hotpick .wiki-table td:nth-child(3),
-  #wiki-article .wiki-table th:nth-child(3),
-  #wiki-article .wiki-table td:nth-child(3),
-  #ranking .wiki-table th:nth-child(3),
-  #ranking .wiki-table td:nth-child(3),
-  #tech-article .wiki-table th:nth-child(3),
-  #tech-article .wiki-table td:nth-child(3) {
-    white-space: normal !important;
-  }
+  /* (3번째 컬럼 줄바꿈 허용 규칙 제거 — 가로 스크롤 도입 후에는 모든 열을 nowrap 으로
+     유지하는 편이 셀이 세로로 쪼개지지 않아 정렬상 더 깔끔하다.) */
 
   /* 관련 게임/글 - 둥근 모서리 유지 */
   #issue .blog-related-card,
