@@ -1,0 +1,178 @@
+{
+  "slug": "microsoft-copilot-deepseek-china-models",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "코파일럿 비용 부담 느낀 MS, 중국 딥시크 도입 저울질",
+  "titleEn": "Microsoft Eyes DeepSeek to Cut Copilot Costs",
+  "summary": "마이크로소프트가 비용 부담을 줄이기 위해 코파일럿 일부 기능에 자체 호스팅 방식의 딥시크 도입을 검토하고 있다. GLM-5.2, 키미 K2.7, 딥시크 V4 등 중국 AI 모델들이 프론티어 수준의 성능을 갖추면서 한층 저렴한 대안으로 떠오른 영향이다.",
+  "summaryEn": "Microsoft is weighing self-hosted DeepSeek for Copilot to cut costs, as GLM-5.2, Kimi K2.7 and DeepSeek V4 near frontier quality far more cheaply.",
+  "keywords": "마이크로소프트 딥시크, 코파일럿 비용, 중국 AI 모델, 딥시크 V4 프로, 프론티어 대안",
+  "keywordsEn": "Microsoft DeepSeek, Copilot cost, Chinese AI models, DeepSeek V4-Pro, frontier models",
+  "thumbnail": "https://gizmodo.com/app/uploads/2023/12/a87bcbe64b7260c287db801c45e6d7ac.jpg",
+  "sources": [
+    {
+      "name": "Axios",
+      "title": "Microsoft weighs a lower-cost DeepSeek model for Copilot Cowork",
+      "url": "https://www.axios.com/2026/06/16/microsoft-copilot-cowork-tokenmaxxing-cowork"
+    },
+    {
+      "name": "Gizmodo",
+      "title": "Microsoft Mulls China's DeepSeek for Copilot, Probably to Trump's Chagrin",
+      "url": "https://gizmodo.com/microsoft-mulls-chinas-deepseek-for-copilot-probably-to-trumps-chagrin-2000772649"
+    },
+    {
+      "name": "MarkTechPost",
+      "title": "Z.ai Launches GLM-5.2 With a Usable 1M Token Context",
+      "url": "https://www.marktechpost.com/2026/06/14/z-ai-launches-glm-5-2-with-a-usable-1m-token-context-two-thinking-effort-levels-and-no-benchmarks-at-launch/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Kimi K2.7-Code cuts thinking tokens 30%, practitioners say benchmarks don't check out",
+      "url": "https://venturebeat.com/technology/kimi-k2-7-code-cuts-thinking-tokens-30-practitioners-say-benchmarks-dont-check-out"
+    },
+    {
+      "name": "Simon Willison",
+      "title": "DeepSeek V4",
+      "url": "https://simonwillison.net/2026/apr/24/deepseek-v4/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/glm-5-2-user-reviews",
+    "tech:ai/kimi-k2-7-code-release",
+    "tech:ai/huawei-ascend-deepseek-v4-posttraining",
+    "tech:ai/github-copilot-usage-billing-backlash"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "마이크로소프트가 AI 비서 코파일럿의 일부 기능에 중국 딥시크 모델을 도입하는 방안을 검토 중이다. 미국 매체 [Axios](https://www.axios.com/2026/06/16/microsoft-copilot-cowork-tokenmaxxing-cowork)는 6월 16일 마이크로소프트가 '코파일럿 코워크' 기능에 자체 호스팅 방식의 딥시크 V4 모델을 적용하는 방안을 조율하고 있다고 보도했다. 이르면 수주 내에 저비용 모델 옵션이 공개될 전망이다."
+    },
+    {
+      "type": "text",
+      "value": "이번 도입 검토의 핵심 배경은 코파일럿 비용 부담이다. 여러 단계를 스스로 처리하는 자율 에이전트 서비스인 코파일럿 코워크는 작업 시간이 길어질수록 토큰 소모량이 급증한다. 오픈AI나 앤트로픽의 고가 프론티어 모델만으로 이 부하를 감당하기에는 코파일럿 비용 구조상 한계가 있다는 분석이다."
+    },
+    {
+      "type": "heading",
+      "value": "코파일럿이 딥시크로 눈을 돌린 이유"
+    },
+    {
+      "type": "text",
+      "value": "코파일럿 비용이 불어나는 원인은 코파일럿 코워크의 작동 방식에 있다. 사용자가 한 번 지시하면 에이전트가 자료 검색, 문서 수정, 교차 검증을 위해 API를 연쇄적으로 호출한다. 생산성 향상에 비례해 운영 비용도 함께 뛰기 때문에, 마이크로소프트는 무제한 요금제에서 사용량 기반 요금제로 개편을 추진하고 있다."
+    },
+    {
+      "type": "text",
+      "value": "이에 따라 마이크로소프트는 멀티모델 전략을 준비하고 있다. 안전장치를 보완한 딥시크 모델을 애저 클라우드 환경에서 직접 운영하는 방식이다. 마이크로소프트는 고객이 원할 때만 활성화하는 선택 항목으로 제공하며, 사용자 데이터는 애저 인프라 밖으로 절대 나가지 않는다고 강조했다."
+    },
+    {
+      "type": "text",
+      "value": "일상적인 작업은 저가 모델에 맡기고 핵심 연산에만 프론티어 모델을 투입해 오픈AI 의존도를 낮추겠다는 구상이다. 다만 미국 빅테크 기업이 자사 주력 제품에 중국산 모델을 탑재하는 흐름이 워싱턴 정가의 견제를 부를 수 있다는 우려도 나온다. 미국 매체 [Gizmodo](https://gizmodo.com/microsoft-mulls-chinas-deepseek-for-copilot-probably-to-trumps-chagrin-2000772649)는 정치적 마찰 가능성을 제기했다."
+    },
+    {
+      "type": "heading",
+      "value": "프론티어 턱밑까지 쫓아온 중국 모델"
+    },
+    {
+      "type": "image",
+      "src": "https://www.marktechpost.com/wp-content/uploads/2026/06/blog19-1.png",
+      "caption": "지푸 AI(Z.ai)가 공개한 GLM-5.2 소개 이미지",
+      "alt": "GLM-5.2의 100만 토큰 컨텍스트 공개를 알리는 그래픽"
+    },
+    {
+      "type": "text",
+      "value": "마이크로소프트가 이 옵션을 진지하게 검토하는 배경에는 최근 몇 달 사이 급속도로 성장한 중국 AI 모델 성능이 있다. 지푸 AI(Z.ai)가 6월 13일 공개한 GLM-5.2는 100만 토큰 컨텍스트를 안정적으로 처리하며 터미널벤치 2.1에서 81.0점을 기록했다. 85.0점을 획득한 클로드 오푸스 4.8과의 성능 격차는 이제 한 자릿수에 불과하다."
+    },
+    {
+      "type": "text",
+      "value": "다른 중국 개발사들도 성과를 내고 있다. 문샷이 6월 12일 선보인 [키미 K2.7 코드](/ko/article/general/kimi-k2-7-code-release/)는 이전 세대보다 추론 토큰 소모를 30% 감축했다. 4월 출시된 딥시크 V4 프로는 개발자 벤치마크인 SWE벤치 검증에서 80%대 정확도를 기록했다. 세 모델 모두 100만 토큰의 컨텍스트 환경과 오픈 가중치를 지원한다."
+    },
+    {
+      "type": "text",
+      "value": "자체 벤치마크 결과인 만큼 교차 검증이 필요하지만, 초기 실사용 평가도 대체로 긍정적이다. 실제 [GLM-5.2 실사용기](/ko/article/general/glm-5-2-user-reviews/)를 보면 코딩 작업 성능은 좋은 평가를 받았으나, 요금제 설계나 시스템 안정성 면에서는 아쉬움이 제기됐다. 그럼에도 이들 모델이 비싼 모델을 대신할 프론티어 대안으로 손색없다는 분석이 힘을 얻고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "정가 10배, 실사용은 50배"
+    },
+    {
+      "type": "text",
+      "value": "비슷한 성능 조건에서 가격 차이는 한층 극적으로 벌어진다. 딥시크 V4 프로의 100만 토큰당 출력 비용은 0.87달러다. 각각 25달러와 30달러인 클로드 오푸스 4.8 및 GPT-5.5와 단순 비교해도 최대 34배가량 저렴하다. 경량 모델인 V4 플래시는 출력 단가가 0.28달러로, 클로드 오푸스 대비 약 90배 싸다."
+    },
+    {
+      "type": "text",
+      "value": "실사용 비용 차이는 공식 가격표를 웃돈다. 딥시크는 상시 75% 할인을 제공하며, 중복 프롬프트의 캐시 입력 단가는 100만 토큰당 0.003625달러까지 내려간다. 코드 최적화 토크나이저 효율까지 감안하면 캐시 기반 워크로드 비용은 프론티어 모델 대비 최대 50배 저렴하다. 클로드 신형 토크나이저가 동일 텍스트에서 토큰을 최대 35% 더 생성하는 점도 격차를 벌린다."
+    },
+    {
+      "type": "text",
+      "value": "이 단계에 이르면 중국 모델은 비싼 값 탓에 마지못해 고르던 프론티어 대안을 넘어 일상 업무의 기본값으로 올라선다. 마이크로소프트조차 자사 간판 제품에 중국산 모델 도입을 저울질하는 현실은 현재 AI 시장의 흐름이 어디로 기우는지를 분명하게 보여준다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Microsoft is considering integrating China's DeepSeek into parts of its Copilot assistant as a low-cost option. On June 16, [Axios](https://www.axios.com/2026/06/16/microsoft-copilot-cowork-tokenmaxxing-cowork) reported that the tech giant is weighing a self-hosted variant of DeepSeek V4 for its 'Copilot Cowork' feature, with a potential announcement of a lower-cost model tier expected within weeks."
+    },
+    {
+      "type": "text",
+      "value": "The primary driver behind Microsoft's potential shift is cost. Copilot Cowork, which relies on autonomous agents to execute multi-step workflows, consumes tokens rapidly during extended tasks. Operating these workloads exclusively on premium frontier models from OpenAI and Anthropic is financially unsustainable under Copilot's current cost structure, which is precisely what is pushing the company toward a cheaper frontier alternative."
+    },
+    {
+      "type": "heading",
+      "value": "Why Copilot is Turning to DeepSeek"
+    },
+    {
+      "type": "text",
+      "value": "The compounding expenses stem from Copilot Cowork's operational design. A single user prompt initiates a chain of model calls as the agent performs searches, edits documents, and verifies results. Because operational costs scale directly with productivity, Microsoft is shifting its pricing strategy from flat-rate subscriptions toward usage-based models."
+    },
+    {
+      "type": "text",
+      "value": "To address this, Microsoft is pursuing a multi-model strategy. The company is evaluating a version of DeepSeek, refined with additional safety filters to reduce bias, hosted directly within its Azure cloud infrastructure. The deployment would serve as an opt-in option for enterprise customers, with Microsoft assuring that user data remains within the Azure boundary."
+    },
+    {
+      "type": "text",
+      "value": "The strategy is clear: delegate routine agent tasks to lower-cost models, reserve expensive frontier models for complex reasoning, and reduce Microsoft's near-exclusive reliance on OpenAI. However, as [Gizmodo](https://gizmodo.com/microsoft-mulls-chinas-deepseek-for-copilot-probably-to-trumps-chagrin-2000772649) noted, a major U.S. technology company integrating a Chinese-developed model into a flagship product could face political headwinds in Washington."
+    },
+    {
+      "type": "heading",
+      "value": "Chinese Models Closing the Gap with Frontier Models"
+    },
+    {
+      "type": "image",
+      "src": "https://www.marktechpost.com/wp-content/uploads/2026/06/blog19-1.png",
+      "caption": "Z.ai's launch graphic for GLM-5.2",
+      "alt": "Announcement banner for GLM-5.2's 1-million-token context window"
+    },
+    {
+      "type": "text",
+      "value": "Microsoft's consideration is supported by the rapid advancement of Chinese AI models over recent months. GLM-5.2, released by Z.ai on June 13, stably processes a 1-million-token context window and achieved a score of 81.0 on the Terminal-Bench 2.1 benchmark. With Claude Opus 4.8 scoring 85.0 on the same evaluation, the performance gap has narrowed to single digits."
+    },
+    {
+      "type": "text",
+      "value": "Other Chinese AI models are advancing at a similar pace. Moonshot released its [Kimi K2.7 Code](/article/general/kimi-k2-7-code-release/) model on June 12, reducing reasoning token consumption by 30% compared to its predecessor. Additionally, DeepSeek V4-Pro achieved an accuracy rate in the low 80% range on the SWE-bench Verified benchmark during its April launch. Notably, all three models combine open-weights accessibility with 1-million-token context capacities."
+    },
+    {
+      "type": "text",
+      "value": "While these benchmarks are vendor-reported and still undergoing independent verification, initial hands-on reviews suggest the claims are credible. In [hands-on evaluations of GLM-5.2](/article/general/glm-5-2-user-reviews/), the model's coding capabilities received praise, though feedback on pricing structures and stability remained mixed. Nevertheless, positioning these systems as a credible frontier alternative is no longer an exaggeration."
+    },
+    {
+      "type": "heading",
+      "value": "Tenfold Savings on Paper, Fiftyfold in Practice"
+    },
+    {
+      "type": "text",
+      "value": "While performance is competitive, the pricing differential remains the most significant factor. DeepSeek V4-Pro is priced at $0.87 per million output tokens, compared to $25 for Claude Opus 4.8 and $30 for GPT-5.5. At standard list prices, DeepSeek V4-Pro is roughly 29 to 34 times cheaper. Its lighter counterpart, V4-Flash, costs just $0.28 per million output tokens, nearly 90 times less than Claude Opus 4.8."
+    },
+    {
+      "type": "text",
+      "value": "DeepSeek V4-Pro's operational cost gap is even wider in practice than list prices suggest. DeepSeek maintains a continuous 75% discount, reducing its cached-input rate to $0.003625 per million tokens for repeated prompts. When combined with a tokenizer optimized to consume fewer tokens for code and structured data, analyses indicate that cache-friendly workloads can be up to 50 times cheaper than those on frontier models. Conversely, reports indicate that Claude's newer tokenizer can generate up to 35% more tokens for identical text, further widening the cost disparity."
+    },
+    {
+      "type": "text",
+      "value": "Consequently, these Chinese AI models are shifting from a cheap frontier alternative to a default candidate for daily operational workflows. The fact that even Microsoft is weighing a frontier alternative from China for its flagship productivity suite is the clearest signal of where the AI market is tilting."
+    }
+  ]
+}
