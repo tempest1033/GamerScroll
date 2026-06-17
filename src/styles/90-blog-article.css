@@ -308,10 +308,29 @@
   .blog-figure.blog-table {
     width: 100%;
   }
-  /* 좁은 화면에서 열이 많은 표는 뭉개지 않고 가로 스크롤되도록 자연 너비 허용 */
+  /* 좁은 화면: 표를 자연 너비로 키우고 figure가 가로 스크롤을 담당.
+     CJK 텍스트가 글자 단위로 줄바꿈되며 열이 짜부라지는 문제를 막기 위해
+     셀 줄바꿈을 금지한다(반응형 표 표준 패턴). */
   .blog-figure.blog-table .wiki-table {
     width: auto;
     min-width: 100%;
+  }
+  .blog-figure.blog-table .wiki-table th,
+  .blog-figure.blog-table .wiki-table td {
+    white-space: nowrap;
+  }
+  /* 첫 열(행 레이블)은 가로 스크롤 중에도 보이도록 고정 */
+  .blog-figure.blog-table .wiki-table th:first-child,
+  .blog-figure.blog-table .wiki-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+  .blog-figure.blog-table .wiki-table th:first-child {
+    background: var(--hover-bg);
+  }
+  .blog-figure.blog-table .wiki-table td:first-child {
+    background: var(--card-bg);
   }
 }
 
