@@ -355,6 +355,8 @@
     white-space: normal !important;
     word-break: keep-all;
     min-width: 6em;
+    /* 라벨 열이 화면 절반을 넘지 않게 상한 — 숫자 열 공간을 항상 확보(레퍼런스 정석) */
+    max-width: 50vw;
   }
 
   /* (3번째 컬럼 줄바꿈 허용 규칙 제거 — 가로 스크롤 도입 후에는 모든 열을 nowrap 으로
