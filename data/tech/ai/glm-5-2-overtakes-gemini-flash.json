@@ -1,0 +1,134 @@
+{
+  "slug": "glm-5-2-overtakes-gemini-flash",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "2026-06-17T20:00Z",
+  "needTranslate": false,
+  "title": "GLM-5.2, 제미나이 3.5 플래시 추월…오픈웨이트가 구글 넘다",
+  "titleEn": "GLM-5.2 Overtakes Gemini 3.5 Flash",
+  "summary": "출시 나흘 만에 GLM-5.2가 아티피셜 애널리시스 지능 지수에서 51점을 기록하며 구글 제미나이 3.5 플래시를 제쳤다. 오픈웨이트 모델이 폐쇄형 효율 모델의 성능을 넘어선 첫 사례다.",
+  "summaryEn": "Four days after launch, GLM-5.2 hit 51 on the Artificial Analysis Intelligence Index, edging out Gemini 3.5 Flash — the top open-weight score yet.",
+  "keywords": "GLM-5.2, 제미나이 3.5 플래시, 오픈웨이트 모델, 아티피셜 애널리시스 지능 지수",
+  "keywordsEn": "GLM-5.2, Gemini 3.5 Flash, open-weight model, Artificial Analysis Intelligence Index",
+  "thumbnail": "https://cdn.sanity.io/images/6vfeftx9/articles/204f6bd201e215286fd69d162a84dfdf4a24d197-768x768.webp",
+  "sources": [
+    {
+      "name": "Artificial Analysis",
+      "title": "GLM-5.2 is the new leading open-weights model on the Artificial Analysis Intelligence Index",
+      "url": "https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "Z.ai's open-weights GLM-5.2 beats GPT-5.5 on multiple long-horizon coding benchmarks for 1/6th the cost",
+      "url": "https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost"
+    },
+    {
+      "name": "MarkTechPost",
+      "title": "Z.ai Launches GLM-5.2 With a Usable 1M-Token Context, Two Thinking-Effort Levels, and No Benchmarks at Launch",
+      "url": "https://www.marktechpost.com/2026/06/14/z-ai-launches-glm-5-2-with-a-usable-1m-token-context-two-thinking-effort-levels-and-no-benchmarks-at-launch/"
+    },
+    {
+      "name": "DeepLearning.AI",
+      "title": "Z.ai's GLM-5 model boasts top open-weights Intelligence Index score",
+      "url": "https://www.deeplearning.ai/the-batch/z-ais-glm-5-model-boasts-top-open-weights-intelligence-index-score"
+    },
+    {
+      "name": "Stanford HAI",
+      "title": "2026 AI Index Report: Technical Performance",
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/glm-5-2-user-reviews",
+    "tech:ai/glm-5-2-open-vs-fable-block",
+    "tech:ai/kimi-k2-7-code-release",
+    "tech:ai/upstage-solar-aaii-40-top3"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "지난 6월 13일 공개된 오픈웨이트 모델 GLM-5.2를 두고, 출시 나흘 만에 외부 벤치마크 결과가 속속 등장하고 있다. 그리고 그 숫자들이 출시 소식보다 더 큰 파장을 일으키는 모양새다.\n\n아티피셜 애널리시스 지능 지수(v4.1)에서 GLM-5.2 맥스(Max)가 51점을 받아, 구글이 효율 부문 SOTA로 내세우는 제미나이 3.5 플래시(High)를 1점 차로 제쳤다. 화웨이 칩으로만 학습하고 MIT 라이선스로 무료 배포되는 오픈웨이트 모델이, 구글이 효율 부문 정점으로 미는 모델을 지능 지수에서 넘어선 첫 사례다."
+    },
+    {
+      "type": "heading",
+      "value": "51점을 뒷받침하는 벤치마크 성적표"
+    },
+    {
+      "type": "text",
+      "value": "종합 점수인 51점은 코딩과 추론, 지식, 에이전트 성능을 합산한 아티피셜 애널리시스 지능 지수 결과다. GLM-5.2는 이 지표에서 오픈웨이트 단독 1위에 올랐다. 경쟁 모델인 미니맥스 M3(44점)와 딥시크 V4-프로(44점)를 7점 차로 따돌렸고, 전작인 GLM-5.1보다는 11점 높은 점수를 기록했다.\n\n코딩과 에이전트 평가에서는 상위 폐쇄형 모델들과의 격차가 더욱 좁혀진다. 벤처비트 자료에 따르면, [GLM-5.2는 장기 코딩 벤치에서 GPT-5.5를 6분의 1 비용으로 앞섰다](https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost). SWE벤치 프로에서 62.1점으로 GPT-5.5(58.6점)를 앞섰고, 프런티어SWE에서는 74.4점을 기록해 오퍼스 4.8(75.1점)에 0.7점 차로 근접했다. 실무 에이전트 지표인 GDPval-AA v2에서도 1524점을 얻어 GPT-5.5(xhigh)와 동률을 이뤘다.\n\n다른 외부 순위표도 이 같은 성능을 증명한다. GLM-5.2는 에이전트 아레나 전체 10위에 오르며 오픈 모델 중 단독 1위를 차지했다. 벤치LM 잠정 순위에서도 124개 모델 중 3위(94점)에 이름을 올렸다."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/02808927b38ad45932bb0409bc1e723380fe3ce1-4640x4304.png",
+      "caption": "아티피셜 애널리시스 지능 지수 v4.1 순위(위)와 지능 대비 과제당 비용 분포(아래). GLM-5.2가 51점에 자리한다.",
+      "alt": "GLM-5.2를 포함한 모델별 아티피셜 애널리시스 지능 지수 막대그래프"
+    },
+    {
+      "type": "heading",
+      "value": "제미나이 3.5 플래시 추월이 지닌 의미"
+    },
+    {
+      "type": "text",
+      "value": "이번 성과가 화제인 진짜 이유는 단순히 모델 하나를 제쳤기 때문이 아니다. 앤트로픽·OpenAI·구글로 대변되는 프런티어 탑3의 최신 모델을, 누구나 내려받는 오픈웨이트가 벤치마크에서 따라잡은 것이다. 그 상대가 된 제미나이 3.5 플래시는 구글이 초당 280토큰 이상의 속도로 지능을 극대화해, 비싼 플래그십 대신 실제 서비스 환경에 깔리도록 만든 효율 간판 모델이다.\n\n오픈웨이트 진영이 바로 이 영역을 파고들었다. 폐쇄형 기업들이 효율성을 무기로 지켜온 시장에 누구나 내려받아 실행할 수 있는 오픈웨이트 모델이 진입한 것이다. 여기에 GLM-5.2의 API 요금은 100만 토큰당 입력 1.4달러, 출력 4.4달러 선으로 동급 지능 모델 중 가장 저렴하다. 아티피셜 애널리시스는 이 모델을 지능 대비 비용 면에서 최적의 파레토 경계선 상에 올렸다.\n\n다만 지표의 성격을 고려해야 한다. 지능 지수는 추론 설정과 갱신 주기에 따라 점수가 변동하며, 일부 시점에서는 제미나이 3.5 플래시가 더 높게 잡히기도 한다. 또한 51점은 최상위 지능을 의미하지 않는다. 페이블 5(약 60점), 제미나이 3.1 프로(약 57점), 오퍼스 4.8(약 56점) 등 프런티어 모델들은 여전히 위에 있다. GLM-5.2의 성과는 최고 지능에 도달한 것이 아니라 효율성 영역의 수준을 한 단계 높인 결과다."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/56965667c984b44ae4188c53f6eac28d2f52ed9b-4512x1968.png",
+      "caption": "GDPval-AA v2 리더보드(Elo). GLM-5.2가 1524점으로 GPT-5.5(1514) 바로 위에 있다.",
+      "alt": "GDPval-AA v2 Elo 리더보드 막대그래프"
+    },
+    {
+      "type": "heading",
+      "value": "동시다발적인 오픈웨이트 모델들의 등장"
+    },
+    {
+      "type": "text",
+      "value": "오픈웨이트 모델의 기준을 재정의한 GLM-5.2의 출시는 단독 사건이 아니다. 하루 앞선 6월 12일에는 문샷이 키미 K2.7-코드를 공개하며 자체 코딩 벤치마크 기준 K2.6 대비 21.8% 성능 향상과 추론 토큰 30% 절감 효과를 동시에 제시했다. 딥시크 역시 6월 19일 용선절 전후로 V4.1을 출시할 것이라는 전망이 나온다. 아직 공식 발표 전이나 가성비를 한층 높인 모델로 예상된다.\n\n공교롭게도 출시 시점이 미국의 수출 통제 조치와 겹친다. 같은 주 미국 정부의 규제로 앤트로픽은 [페이블 5와 미토스 5의 전 세계 서비스를 중단했다](/ko/article/anthropic/glm-5-2-open-vs-fable-block/). 최고 사양의 상용 모델들이 시장에서 제외되자마자, 중국의 오픈웨이트 모델 3종이 며칠 간격으로 성능표를 가득 채운 구도다. 스탠퍼드 AI 인덱스가 분석한 미·중 인공지능 모델 간 격차는 이미 2.7% 수준까지 좁혀졌다.\n\n출시 시점에 비어 있던 성능 점수표는 불과 나흘 만에 업계의 핵심 화두로 부상했다. 오픈웨이트 진영이 효율성 영역에 본격 진입하면서 이제 시장의 관심은 가장 똑똑한 모델이 무엇인가에 머무르지 않는다. 폐쇄형 인공지능 개발사들이 기존에 굳건히 지켜왔던 경쟁력의 장벽을 앞으로 얼마나 더 방어할 수 있을지에 초점이 맞춰지고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Four days after Z.ai released the open-weight GLM-5.2 on June 13, the independent benchmarks are rolling in — and the numbers are landing harder than the launch itself.\n\nOn the Artificial Analysis Intelligence Index (v4.1), GLM-5.2 (Max) scored 51, edging out Gemini 3.5 Flash (High) — Google's state-of-the-art efficiency model — by a single point. It is the first time an open-weight model has passed the model Google pushes as its efficiency-tier best, and it did so as a free, MIT-licensed download trained exclusively on Huawei hardware."
+    },
+    {
+      "type": "heading",
+      "value": "Detailed Benchmarks Behind the Score"
+    },
+    {
+      "type": "text",
+      "value": "The model's score of 51 on the Artificial Analysis Intelligence Index is a composite of coding, reasoning, knowledge, and agentic capabilities. With this score, GLM-5.2 leads the open-weight field, standing seven points ahead of its closest competitors, MiniMax-M3 (44) and DeepSeek V4-Pro (44), and eleven points above its predecessor, GLM-5.1.\n\nIn coding and agentic evaluations, the gap between this open model and the leading closed-source frontier models continues to narrow. According to third-party data compiled by VentureBeat, [GLM-5.2 outperforms GPT-5.5 on multiple long-horizon coding tasks at one-sixth the operating cost](https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost). The model achieved a score of 62.1 on SWE-bench Pro compared to GPT-5.5's 58.6, and reached 74.4 on the long-horizon FrontierSWE benchmark, trailing Anthropic's Opus 4.8 by just 0.7 points. On the GDPval-AA v2 real-world agent evaluation, its score of 1524 matched that of GPT-5.5 (xhigh reasoning).\n\nOther public leaderboards mirror its Artificial Analysis Intelligence Index standing. GLM-5.2 ranked tenth overall on the Agent Arena—securing the top spot among open-weight models—while provisional rankings from BenchLM placed it third out of 124 models with a score of 94."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/02808927b38ad45932bb0409bc1e723380fe3ce1-4640x4304.png",
+      "caption": "Artificial Analysis Intelligence Index v4.1 ranking (top) and cost-per-task distribution (bottom). GLM-5.2 sits at 51.",
+      "alt": "Bar chart of the Artificial Analysis Intelligence Index across models including GLM-5.2"
+    },
+    {
+      "type": "heading",
+      "value": "The Strategic Importance of Surpassing Gemini 3.5 Flash"
+    },
+    {
+      "type": "text",
+      "value": "What makes this resonate isn't one matchup. It's that an open-weight model anyone can download is now trading blows on benchmarks with the latest releases from the frontier's top three — Anthropic, OpenAI, and Google. The model it edged, Gemini 3.5 Flash, is Google's efficiency flagship: built to push past 280 tokens per second and sit in production where premium models are cost-prohibitive.\n\nAn open-weight model has now claimed a leading position in this category. The efficiency segment that Gemini 3.5 Flash anchors — long defended by proprietary developers as their competitive moat — has now been matched by an open-weight model that users can download and host locally. Furthermore, GLM-5.2's API pricing—set at $1.40 per million input tokens and $4.40 per million output tokens—offers the lowest cost per task among models of comparable intelligence, positioning it on the Artificial Analysis cost-performance Pareto frontier.\n\nHowever, some caveats remain. The intelligence index fluctuates based on reasoning-effort configurations and evaluation updates, and some snapshot tests still place Gemini 3.5 Flash ahead. Additionally, a score of 51 remains below the industry's absolute tier: Fable 5 leads with approximately 60, followed by Gemini 3.1 Pro at 57 and Opus 4.8 at 56. GLM-5.2 has not overtaken the highest-performing models, but it has redefined the threshold of efficiency-tier intelligence."
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/56965667c984b44ae4188c53f6eac28d2f52ed9b-4512x1968.png",
+      "caption": "GDPval-AA v2 leaderboard (Elo). GLM-5.2 at 1524, just above GPT-5.5's 1514.",
+      "alt": "GDPval-AA v2 Elo leaderboard bar chart"
+    },
+    {
+      "type": "heading",
+      "value": "A Coordinated Rise in Open-Weight Performance"
+    },
+    {
+      "type": "text",
+      "value": "GLM-5.2's ascent is part of a broader trend, as several open-weight models debuted in quick succession. On June 12, Moonshot released Kimi K2.7-Code, which delivered a 21.8% performance increase over K2.6 on its internal coding benchmarks while reducing the reasoning tokens required by 30%. DeepSeek is also expected to release its V4.1 model around the Dragon Boat Festival on June 19. While unofficial, the upcoming release is anticipated to further improve the cost-to-performance ratio of open-source models.\n\nThe timing of these releases coincided with geopolitical developments. During the same week, US export controls forced Anthropic to [remove Fable 5 and Mythos 5 from the global market](/article/anthropic/glm-5-2-open-vs-fable-block/). As these frontier models became unavailable internationally, three Chinese open-weight models arrived to fill the benchmark tables within days of one another. This convergence aligns with findings from the Stanford AI Index, which reports that the performance gap between US and Chinese models has closed to 2.7%.\n\nThe benchmark results absent at launch have redefined the conversation: a free download now tops the open-weight field on the Artificial Analysis Intelligence Index and has edged Gemini 3.5 Flash. Rather than asking which model is smartest, the entry of open weights into the efficiency frontier raises a sharper question — how long proprietary developers can defend the competitive moat they have relied on."
+    }
+  ]
+}
