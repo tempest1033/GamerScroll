@@ -170,6 +170,8 @@
   /* ===== 이슈/위키/랭킹/테크 상세 페이지 ===== */
   /* 카드 전체 너비 유지, 직각 */
   #issue .blog-card,
+  #insight .blog-card,
+  #hotpick .blog-card,
   #wiki-article .blog-card,
   #ranking .blog-card,
   #tech-article .blog-card {
@@ -178,6 +180,8 @@
 
   /* 히어로 이미지 - 상하좌우 마진 + 둥근 모서리 */
   #issue .blog-hero,
+  #insight .blog-hero,
+  #hotpick .blog-hero,
   #wiki-article .blog-hero,
   #ranking .blog-hero,
   #tech-article .blog-hero {
@@ -189,6 +193,8 @@
   }
 
   #issue .blog-hero-image,
+  #insight .blog-hero-image,
+  #hotpick .blog-hero-image,
   #wiki-article .blog-hero-image,
   #ranking .blog-hero-image,
   #tech-article .blog-hero-image {
@@ -200,6 +206,8 @@
 
   /* 본문 컨텐츠 - 좌우 패딩 통일 */
   #issue .blog-content,
+  #insight .blog-content,
+  #hotpick .blog-content,
   #wiki-article .blog-content,
   #ranking .blog-content,
   #tech-article .blog-content {
@@ -208,6 +216,8 @@
 
   /* 본문 이미지 - 좌우 마진 제거 (컨텐츠 패딩으로 대체) */
   #issue .blog-figure,
+  #insight .blog-figure,
+  #hotpick .blog-figure,
   #wiki-article .blog-figure,
   #ranking .blog-figure,
   #tech-article .blog-figure {
@@ -226,6 +236,8 @@
   }
 
   #issue .blog-image,
+  #insight .blog-image,
+  #hotpick .blog-image,
   #wiki-article .blog-image,
   #ranking .blog-image,
   #tech-article .blog-image {
@@ -237,6 +249,8 @@
 
   /* 단락 제목 - 폰트 크기 (변수로 통일) */
   #issue .blog-heading,
+  #insight .blog-heading,
+  #hotpick .blog-heading,
   #wiki-article .blog-heading,
   #ranking .blog-heading,
   #tech-article .blog-heading {
@@ -248,6 +262,10 @@
   /* 관련 게임/문서/정보출처 제목 - 폰트 크기 (변수로 통일) */
   #issue .blog-related-title,
   #issue .blog-sources-title,
+  #insight .blog-related-title,
+  #insight .blog-sources-title,
+  #hotpick .blog-related-title,
+  #hotpick .blog-sources-title,
   #wiki-article .blog-related-title,
   #wiki-article .blog-sources-title,
   #ranking .blog-related-title,
@@ -259,16 +277,22 @@
 
   /* 표 - 좌우 마진 제거 (컨텐츠 패딩으로 대체) */
   #issue .blog-figure.blog-table,
+  #insight .blog-figure.blog-table,
+  #hotpick .blog-figure.blog-table,
   #wiki-article .blog-figure.blog-table,
   #ranking .blog-figure.blog-table,
   #tech-article .blog-figure.blog-table {
     margin: 16px 0 !important;
     border-radius: 8px !important;
-    overflow: hidden !important;
+    /* 넓은 표(열이 많은 경우)는 잘리지 않고 가로 스크롤되도록 */
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   /* 표 제목 - 폰트 크기 */
   #issue .table-title,
+  #insight .table-title,
+  #hotpick .table-title,
   #wiki-article .table-title,
   #ranking .table-title,
   #tech-article .table-title {
@@ -278,6 +302,8 @@
 
   /* 표 - 컬럼 정렬 개선 */
   #issue .wiki-table,
+  #insight .wiki-table,
+  #hotpick .wiki-table,
   #wiki-article .wiki-table,
   #ranking .wiki-table,
   #tech-article .wiki-table {
@@ -289,6 +315,10 @@
   /* 표 컬럼 너비 자동 */
   #issue .wiki-table th,
   #issue .wiki-table td,
+  #insight .wiki-table th,
+  #insight .wiki-table td,
+  #hotpick .wiki-table th,
+  #hotpick .wiki-table td,
   #wiki-article .wiki-table th,
   #wiki-article .wiki-table td,
   #ranking .wiki-table th,
@@ -304,6 +334,10 @@
   /* 표 3번째 컬럼 - 줄바꿈 허용 */
   #issue .wiki-table th:nth-child(3),
   #issue .wiki-table td:nth-child(3),
+  #insight .wiki-table th:nth-child(3),
+  #insight .wiki-table td:nth-child(3),
+  #hotpick .wiki-table th:nth-child(3),
+  #hotpick .wiki-table td:nth-child(3),
   #wiki-article .wiki-table th:nth-child(3),
   #wiki-article .wiki-table td:nth-child(3),
   #ranking .wiki-table th:nth-child(3),
@@ -315,6 +349,8 @@
 
   /* 관련 게임/글 - 둥근 모서리 유지 */
   #issue .blog-related-card,
+  #insight .blog-related-card,
+  #hotpick .blog-related-card,
   #wiki-article .blog-related-card,
   #ranking .blog-related-card,
   #tech-article .blog-related-card {
@@ -322,6 +358,8 @@
   }
 
   #issue .blog-related-issue-card,
+  #insight .blog-related-issue-card,
+  #hotpick .blog-related-issue-card,
   #wiki-article .blog-related-issue-card,
   #ranking .blog-related-issue-card,
   #tech-article .blog-related-issue-card {
@@ -329,6 +367,8 @@
   }
 
   #issue .blog-related-issue-thumb,
+  #insight .blog-related-issue-thumb,
+  #hotpick .blog-related-issue-thumb,
   #wiki-article .blog-related-issue-thumb,
   #ranking .blog-related-issue-thumb,
   #tech-article .blog-related-issue-thumb {
@@ -337,6 +377,8 @@
 
   /* 관련 문서 제목 - 3줄 제한 */
   #issue .blog-related-issue-title,
+  #insight .blog-related-issue-title,
+  #hotpick .blog-related-issue-title,
   #wiki-article .blog-related-issue-title,
   #ranking .blog-related-issue-title,
   #tech-article .blog-related-issue-title,
@@ -349,6 +391,8 @@
   }
 
   #issue .blog-related-issue-title-text,
+  #insight .blog-related-issue-title-text,
+  #hotpick .blog-related-issue-title-text,
   #wiki-article .blog-related-issue-title-text,
   #ranking .blog-related-issue-title-text,
   #tech-article .blog-related-issue-title-text,
