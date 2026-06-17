@@ -322,10 +322,12 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
         result.push(`
           <figure class="blog-figure blog-table">
             ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
-            <table class="wiki-table">
-              <thead><tr>${tableHeaders}</tr></thead>
-              <tbody>${tableRows}</tbody>
-            </table>
+            <div class="table-scroll">
+              <table class="wiki-table">
+                <thead><tr>${tableHeaders}</tr></thead>
+                <tbody>${tableRows}</tbody>
+              </table>
+            </div>
           </figure>
         `);
         break;

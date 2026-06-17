@@ -686,10 +686,12 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
           result.push(`
             <figure class="blog-figure blog-table">
               ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
-              <table class="wiki-table">
-                <thead><tr>${tblHeaders}</tr></thead>
-                <tbody>${tblRows}</tbody>
-              </table>
+              <div class="table-scroll">
+                <table class="wiki-table">
+                  <thead><tr>${tblHeaders}</tr></thead>
+                  <tbody>${tblRows}</tbody>
+                </table>
+              </div>
             </figure>
           `);
           break;
@@ -1121,10 +1123,12 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
           result.push(`
             <figure class="blog-figure blog-table">
               ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
-              <table class="wiki-table">
-                <thead><tr>${tblHeaders}</tr></thead>
-                <tbody>${tblRows}</tbody>
-              </table>
+              <div class="table-scroll">
+                <table class="wiki-table">
+                  <thead><tr>${tblHeaders}</tr></thead>
+                  <tbody>${tblRows}</tbody>
+                </table>
+              </div>
             </figure>
           `);
           break;
@@ -1549,10 +1553,12 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
           result.push(`
             <figure class="blog-figure blog-table">
               ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
-              <table class="wiki-table">
-                <thead><tr>${tblHeaders}</tr></thead>
-                <tbody>${tblRows}</tbody>
-              </table>
+              <div class="table-scroll">
+                <table class="wiki-table">
+                  <thead><tr>${tblHeaders}</tr></thead>
+                  <tbody>${tblRows}</tbody>
+                </table>
+              </div>
             </figure>
           `);
           break;

@@ -295,8 +295,18 @@
   max-width: 600px;
   background: transparent;
   border: none;
+  overflow: visible;
+}
+
+/* 표 가로 스크롤 박스 — 제목과 분리해 표만 좌우 스크롤한다.
+   touch-action:pan-x 로 페이지 스와이프(가로 제스처)보다 표 스크롤을
+   브라우저가 우선 처리하게 해, 표 위에서 미는 동작이 화면 전환으로 새지 않는다. */
+.table-scroll {
+  width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
 }
 
 .blog-figure.blog-table .table-title,
@@ -702,6 +712,8 @@
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
 }
 
 @media (max-width: 768px) {

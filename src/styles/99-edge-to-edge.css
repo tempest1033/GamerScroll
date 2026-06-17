@@ -287,9 +287,9 @@
     /* 데스크톱 base 의 max-width:600px 제약을 모바일에서 풀어 패딩 폭을 다 쓰게 */
     width: 100% !important;
     max-width: 100% !important;
-    /* 넓은 표(열이 많은 경우)는 잘리지 않고 가로 스크롤되도록 */
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
+    /* 스크롤은 내부 .table-scroll 이 담당 — figure 는 스크롤 컨테이너가 아니어야
+       첫 열 sticky 가 .table-scroll 기준으로 동작한다. */
+    overflow: visible !important;
   }
 
   /* 표 제목 - 폰트 크기 */

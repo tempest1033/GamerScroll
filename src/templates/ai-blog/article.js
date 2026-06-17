@@ -383,10 +383,12 @@ function generateAIBlogArticle(article, data = {}) {
           result.push(`
             <figure class="blog-figure blog-table">
               ${block.caption ? `<div class="table-title">${escapeHtml(block.caption)}</div>` : ''}
-              <table class="wiki-table">
-                <thead><tr>${block.headers.map(h => `<th>${fmtCell(h)}</th>`).join('')}</tr></thead>
-                <tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${fmtCell(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
-              </table>
+              <div class="table-scroll">
+                <table class="wiki-table">
+                  <thead><tr>${block.headers.map(h => `<th>${fmtCell(h)}</th>`).join('')}</tr></thead>
+                  <tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${fmtCell(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
+                </table>
+              </div>
             </figure>`);
           break;
         }
