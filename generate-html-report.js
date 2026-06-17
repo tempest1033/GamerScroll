@@ -779,6 +779,10 @@ const PURGECSS_SAFELIST = {
     'fonts-loaded', 'nav-ready', 'thumb-fallback',
     'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
     'ads-disabled', 'deferred-css-pending', 'realtime',
+    // 기사 상세 페이지 섹션 id (모바일 레이아웃/표 규칙이 #id로 스코프됨).
+    // magazine 페이지는 루트 ./magazine 에 생성돼 purge content 스캔에서 누락될 수 있어
+    // (예: #insight·#hotpick 토큰 미검출 → 규칙 통째 제거) safelist 로 항상 보존한다.
+    'issue', 'insight', 'hotpick', 'ranking', 'wiki-article', 'tech-article', 'ai-article',
   ],
   deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/],
   greedy: [],

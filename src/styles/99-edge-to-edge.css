@@ -284,6 +284,9 @@
   #tech-article .blog-figure.blog-table {
     margin: 16px 0 !important;
     border-radius: 8px !important;
+    /* 데스크톱 base 의 max-width:600px 제약을 모바일에서 풀어 패딩 폭을 다 쓰게 */
+    width: 100% !important;
+    max-width: 100% !important;
     /* 넓은 표(열이 많은 경우)는 잘리지 않고 가로 스크롤되도록 */
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
@@ -308,8 +311,11 @@
   #ranking .wiki-table,
   #tech-article .wiki-table {
     table-layout: auto !important;
-    min-width: auto !important;
-    width: 100% !important;
+    /* 표가 컨테이너 폭에 고정되면 nowrap 셀이 표 안에서 넘쳐 잘린다.
+       콘텐츠 너비로 커지게 해 figure(overflow-x:auto)가 가로 스크롤하도록. */
+    width: auto !important;
+    min-width: 100% !important;
+    max-width: none !important;
   }
 
   /* 표 컬럼 너비 자동 */
