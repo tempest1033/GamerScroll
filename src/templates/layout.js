@@ -1703,7 +1703,8 @@ const swipeScript = `
     if (!e.touches || e.touches.length > 1) return;
 
     const t = e.target;
-    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle, .mobile-fab, .mobile-side-panel, .mobile-side-overlay')) return;
+    // 가로 스크롤 컨테이너(표 등) 위에서 시작한 터치는 페이지 스와이프가 가로채지 않도록 제외 — 표가 네이티브로 가로 스크롤되게 한다
+    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle, .mobile-fab, .mobile-side-panel, .mobile-side-overlay, .blog-table, .blog-table-wrapper')) return;
 
     // 검색 드롭다운 닫기 (스와이프 시작 시)
     const searchDropdown = document.querySelector('.search-dropdown');
