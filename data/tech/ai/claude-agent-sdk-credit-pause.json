@@ -1,0 +1,122 @@
+{
+  "slug": "claude-agent-sdk-credit-pause",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "2026-06-16T10:30Z",
+  "needTranslate": false,
+  "title": "앤트로픽, 클로드 에이전트 SDK 크레딧 과금제 시행 당일 보류",
+  "titleEn": "Anthropic Pauses Claude Agent SDK Credit Plan",
+  "summary": "앤트로픽이 6월 15일 도입 예정이던 에이전트 SDK 크레딧 과금 계획을 시행 당일 유예했다. 이번 조치는 정부 규제로 신규 모델인 '페이블 5' 서비스가 중단되며 구독 고객의 신뢰가 급격히 악화된 직후 나온 결정이다.",
+  "summaryEn": "Anthropic abruptly shelved its June 15 Agent SDK credit system on launch day, days after the forced Fable 5 shutdown rattled subscriber trust.",
+  "keywords": "에이전트 크레딧, 앤트로픽 구독, 크레딧 과금, 페이블 5 중단",
+  "keywordsEn": "Anthropic credit, subscription billing, Anthropic subscription, credit billing",
+  "thumbnail": "https://ichef.bbci.co.uk/news/1024/branded_news/54a1/live/35ba2f90-66c9-11f1-b891-a117aef409ef.jpg",
+  "sources": [
+    {
+      "name": "Hacker News",
+      "title": "Anthropic pauses credit change for Claude Code (email text)",
+      "url": "https://news.ycombinator.com/item?id=48546618"
+    },
+    {
+      "name": "The New Stack",
+      "title": "Anthropic splits billing again: Agent SDK gets separate credit pools",
+      "url": "https://thenewstack.io/anthropic-agent-sdk-credits/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Statement on the US government directive to suspend access to Fable 5 and Mythos 5",
+      "url": "https://www.anthropic.com/news/fable-mythos-access"
+    },
+    {
+      "name": "BBC",
+      "title": "Anthropic's Claude Fable 5 and Mythos 5 AI suspended over security fears",
+      "url": "https://www.bbc.com/news/articles/c932g3v3e13o"
+    },
+    {
+      "name": "Wired",
+      "title": "Anthropic Says It's Taking Claude Fable 5 Offline to Comply With US Government Order",
+      "url": "https://www.wired.com/story/anthropic-says-us-government-ordered-it-to-shut-down-mythos-models/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-mythos-5-government-suspension",
+    "tech:ai/anthropic-fable-5-restoration-standoff",
+    "tech:ai/fable-mythos-shutdown-industry-reactions",
+    "tech:ai/github-copilot-usage-billing-backlash"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 시행 당일 새로운 과금 정책을 공식 유예했다. 당초 6월 15일부터 클로드 에이전트 SDK와 `claude -p` 헤드리스 모드, 이를 기반으로 작동하는 외부 애플리케이션의 사용량을 기존 구독 한도에서 분리해 별도의 크레딧으로 운영할 예정이었다. 하지만 회사 측은 변경안 적용 직전 [이메일](https://news.ycombinator.com/item?id=48546618)을 발송해 유예 사실을 알렸다.\n\n안내 내용은 간결했다. 현재 시점에서는 구독 조건의 변화가 없으며, 에이전트 SDK와 외부 앱 사용도 이전과 동일하게 요금제 범위 내에서 차감된다는 설명이다. 앤트로픽은 사용자들이 기존 구독 모델을 통해 개발하는 과정을 최우선으로 지원할 수 있도록 요금 정책안을 개선하겠다고 설명했다.\n\n앤트로픽은 일주일 전까지만 해도 사용자들에게 크레딧 신청을 독촉하는 등 전환을 서둘렀다. 회사 측은 정책 보완을 유예 사유로 들었지만, 시장에서는 다른 시선이 우세하다. 발표 사흘 전 앤트로픽은 규제 이슈로 신규 모델 페이블 5를 중단하며 유료 구독 고객들의 신뢰를 크게 저버렸기 때문이다."
+    },
+    {
+      "type": "heading",
+      "value": "보류된 크레딧제, 무엇이 바뀔 뻔했나"
+    },
+    {
+      "type": "text",
+      "value": "개편안의 핵심은 일반 사용과 프로그래밍 방식의 자동화 사용을 엄격히 구분해 과금하는 것이었다. 웹이나 데스크톱, 모바일 앱을 통한 대화나 터미널에서의 클로드 코드 실행은 기존 구독 한도를 유지한다. 반면 코드 호출을 통한 에이전트 SDK 실행, 헤드리스 모드, 깃허브 액션 및 외부 앱을 활용한 연동은 모두 새 크레딧을 차감하는 방식으로 설계됐다.\n\n월별 크레딧은 요금제 등급에 따라 다르게 차등 배정됐다. 프로는 20달러, 맥스 5x는 100달러, 맥스 20x는 200달러 상당이며 표준 API 단가를 기준으로 차감된다. 남은 금액의 이월이나 팀 단위 공유는 불가능하며 결제 주기마다 소멸된다. 크레딧 소진 시 종량제 과금을 활성화하지 않았다면 다음 결제일 전까지 에이전트 기능이 정지된다.\n\n가장 타격을 입는 대상은 기존 요금제 혜택에 의존하던 외부 도구들이다. 앤트로픽은 컨덕터나 오픈클로 같은 타사 서비스도 개별 사용자의 자체 스크립트와 동일하게 크레딧을 소진할 예정이라고 명시했다. 자동화 도구를 적극적으로 활용하는 상위 사용자일수록 결제 주기 초반에 모든 크레딧을 소비할 위험이 컸다."
+    },
+    {
+      "type": "heading",
+      "value": "사흘 전 페이블 쇼크가 드리운 그림자"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/50159fff55088f12070cc8a56eb51ff61006b631-2400x1260.png",
+      "caption": "페이블 5·미토스 5 접근 중단을 알린 앤트로픽의 공식 성명 화면",
+      "alt": "앤트로픽이 페이블 5와 미토스 5 접근 중단을 발표한 성명 헤드라인"
+    },
+    {
+      "type": "text",
+      "value": "이러한 보류 결정은 며칠 전 발생한 악재와 관련이 깊다. 앤트로픽은 지난 6월 9일 차세대 인공지능 모델인 페이블 5와 미토스 5를 공개했다. 그러나 출시 사흘 만인 12일, 미국 정부의 수출 규제 명령으로 인해 [두 모델 모두 전 세계에서 강제로 차단](/ko/article/anthropic/claude-fable-5-mythos-5-government-suspension/)하는 조치가 취해졌다.\n\n가장 큰 타격은 고스란히 유료 구독자들에게 전가됐다. 신형 모델인 페이블 5를 이용하려 맥스 20x 등 고가 요금제로 업그레이드한 사용자들이 대거 유입됐으나, 며칠도 지나지 않아 모델이 사라지자 온라인 커뮤니티에서는 불만의 목소리가 터져 나왔다. 일부는 적극적으로 환불을 요구했고, 일부는 가상 장례식을 치르며 불만을 표했다.\n\n이 같은 신뢰 위기는 에이전트 과금제 도입 시점과 겹쳐 악재를 키웠다. 정부 규제로 페이블 5를 잃어 분통을 터뜨리는 사용자들에게 추가 결제 카드를 들이미는 모양새가 됐기 때문이다. 이미 성난 여론에 기름을 붓는 격인 만큼, 앤트로픽으로서는 과금 정책의 강행이 불가능했던 것으로 분석된다."
+    },
+    {
+      "type": "heading",
+      "value": "'사전 고지'를 약속한 후퇴의 속내"
+    },
+    {
+      "type": "text",
+      "value": "결과적으로 이번 보류 조치는 단순한 일정 연기 이상의 의미를 지닌다. 앤트로픽은 공지 말미에 향후 과금 정책을 적용할 시 사전에 충분한 유예 기간을 두겠다고 공언했다. 예고 없이 서비스를 중단해 비판받던 기존의 행보에서 한걸음 물러나 예고와 소통을 강조하고 나선 것이다.\n\n에이전트 요금제를 둘러싼 오락가락 행보는 올해 들어서만 네 번째다. 2월 오픈클로 연동 차단, 4월 구독제의 서드파티 사용 불가 선언, 5월 크레딧 과금 도입 발표에 이어 6월 보류까지 이어졌다. 이는 인공지능 에이전트가 인간보다 훨씬 빠르게 연산을 소비하는 환경에서, 기존의 '무제한 구독형' 모델을 어떻게 전환할지 해법을 찾지 못했다는 방증이다.\n\n경쟁 업체의 견제도 앤트로픽의 발목을 잡는다. 지난 5월 크레딧 정책 발표 당일, 오픈AI는 기업 고객을 대상으로 코덱스 2개월 무료 체험 카드를 제시하며 공세를 폈다. 페이블 5 중단으로 타격을 입은 앤트로픽이 신규 과금까지 강행해 고객 이탈을 자초하긴 어려웠을 것이다. 이번 과금제 유예가 순수한 혜택이 아닌 위기관리의 결과로 풀이되는 이유다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic walked back a major billing overhaul on the day it was scheduled to take effect. The June 15 plan would have separated the Claude Agent SDK, the `claude -p` headless mode, and third-party applications built on the SDK from standard subscription rate limits, placing them under a separate monthly credit allocation instead. Instead of implementing the policy, the company [emailed subscribers](https://news.ycombinator.com/item?id=48546618) to announce that it was suspending the transition.\n\nThe notification was brief. The company clarified that subscription terms remain unchanged for now, meaning the Agent SDK and third-party application usage will continue to draw from standard subscription limits. Anthropic noted that it is 'working to update the plan to better support how users build with Claude subscriptions.'\n\nOnly a week prior, Anthropic had instructed users to claim their promotional credits ahead of the scheduled transition. While the company publicly attributes the sudden pause to plan refinements, the timing suggests other factors. Just three days earlier, Anthropic had severely damaged subscriber trust through an unrelated crisis: the abrupt shutdown of its new Fable 5 model."
+    },
+    {
+      "type": "heading",
+      "value": "Mechanics of the Paused Credit System"
+    },
+    {
+      "type": "text",
+      "value": "The core of the proposed changes was a strict separation between interactive and programmatic usage. Routine operations—such as chatting with Claude via web, desktop, or mobile interfaces, or running Claude Code in a terminal—would continue to utilize subscription limits. However, programmatic calls via the Agent SDK, headless executions, GitHub Actions, and third-party application requests would have consumed a separate monthly credit.\n\nThese monthly allotments were scaled by tier: $20 for Pro, $100 for Max 5x, and $200 for Max 20x, with usage calculated at standard API rates. This billing structure marked a sharp break from the flat-rate subscription model. The credits would reset each billing cycle without rolling over, and could not be pooled among team members. If a user depleted their credit, programmatic access would halt unless pay-as-you-go billing was enabled.\n\nThis transition posed a significant challenge for third-party tools reliant on subscription limits. Anthropic specified that third-party apps, such as Conductor and OpenClaw, would draw from a user's credit allocation in the same manner as custom scripts. Consequently, power users risked rapidly exhausting their monthly allowance, cutting off external app access until the next billing cycle."
+    },
+    {
+      "type": "heading",
+      "value": "The Shadow of the Fable 5 Shutdown"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/50159fff55088f12070cc8a56eb51ff61006b631-2400x1260.png",
+      "caption": "Anthropic's statement announcing the suspension of Fable 5 and Mythos 5 access",
+      "alt": "The headline of Anthropic's statement on suspending access to Fable 5 and Mythos 5"
+    },
+    {
+      "type": "text",
+      "value": "The sudden reversal is closely tied to events from the preceding days. On June 9, Anthropic launched its latest models, Fable 5 and Mythos 5. However, on June 12, a US government export-control directive forced the company to [shut both down worldwide](/article/anthropic/claude-fable-5-mythos-5-government-suspension/) just three days after their debut.\n\nThe disruption fell heavily on paying customers, many of whom had upgraded to premium tiers like Max 20x specifically to access the Fable 5 model. The sudden removal of the model prompted widespread accusations of a 'bait-and-switch' tactic across online platforms like Reddit and X. While some users secured refunds, others expressed their frustration by hosting mock online funerals for the defunct model.\n\nThis reputational crisis occurred directly on the eve of the scheduled billing change. Rolling out a new billing policy that charged separately for programmatic tasks, immediately after subscribers lost access to the Fable 5 model, would have severely compounded customer dissatisfaction."
+    },
+    {
+      "type": "heading",
+      "value": "The Strategy Behind a Promised Advance Notice"
+    },
+    {
+      "type": "text",
+      "value": "Consequently, the suspension appears to be more than a minor administrative delay. Anthropic concluded its email by promising to provide 'advance notice' before any future billing changes take effect—a notable shift in communication style for a company that had just terminated two major models without prior warning.\n\nThe credit pause marks the fourth shift in Anthropic's developer billing policy this year. The company blocked external harnesses like OpenClaw in February, declared subscriptions incompatible with third-party tools in April, introduced the credit plan in May, and suspended it in June. This volatility underscores the industry-wide challenge of pricing 'all-you-can-eat' subscriptions when autonomous agents consume compute at rates vastly exceeding human usage.\n\nCompetitive dynamics further restrict Anthropic's options. On the day the credit plan was announced in May, rival OpenAI offered two free months of its Codex service to new enterprise clients. Stung by the Fable 5 backlash, Anthropic could not risk introducing additional fees that might drive customers to competitors. The suspension of the credit system is therefore less of a user-centric gesture than a necessary exercise in damage control."
+    }
+  ]
+}
