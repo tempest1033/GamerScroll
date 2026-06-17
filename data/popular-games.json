@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-16T08:25:14.083Z",
+  "updatedAt": "2026-06-17T10:12:51.164Z",
   "period": "30days",
   "games": [
     {
@@ -19,11 +19,31 @@
       "views": 4
     },
     {
+      "slug": "에브리타운",
+      "views": 3
+    },
+    {
       "slug": "afk-새로운-여정-힐링-농장",
       "views": 2
     },
     {
       "slug": "agreeee",
+      "views": 2
+    },
+    {
+      "slug": "coin-master-board-adventure",
+      "views": 2
+    },
+    {
+      "slug": "swipe-it-board-wooden-puzzle",
+      "views": 2
+    },
+    {
+      "slug": "tbh-task-bar-hero-supporter-pack",
+      "views": 2
+    },
+    {
+      "slug": "trending-ar-soundboard",
       "views": 2
     },
     {
@@ -56,26 +76,6 @@
     },
     {
       "slug": "identity-v-제5인격",
-      "views": 1
-    },
-    {
-      "slug": "idol-company",
-      "views": 1
-    },
-    {
-      "slug": "limbus-company",
-      "views": 1
-    },
-    {
-      "slug": "stardew-valley",
-      "views": 1
-    },
-    {
-      "slug": "wizardry-variants-daphne",
-      "views": 1
-    },
-    {
-      "slug": "world-of-tanks",
       "views": 1
     }
   ]
