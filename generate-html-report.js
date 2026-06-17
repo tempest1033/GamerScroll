@@ -779,10 +779,6 @@ const PURGECSS_SAFELIST = {
     'fonts-loaded', 'nav-ready', 'thumb-fallback',
     'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
     'ads-disabled', 'deferred-css-pending', 'realtime',
-    // 기사 상세 페이지 섹션 id (모바일 레이아웃/표 규칙이 #id로 스코프됨).
-    // magazine 페이지는 루트 ./magazine 에 생성돼 purge content 스캔에서 누락될 수 있어
-    // (예: #insight·#hotpick 토큰 미검출 → 규칙 통째 제거) safelist 로 항상 보존한다.
-    'issue', 'insight', 'hotpick', 'ranking', 'wiki-article', 'tech-article', 'ai-article',
   ],
   deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/],
   greedy: [],
@@ -798,7 +794,10 @@ async function purgeCssInDocs(docsDir) {
     },
     {
       css: `${docsDir}/styles-report.css`,
-      content: [`${docsDir}/magazine/**/*.html`],
+      // magazine 페이지는 루트 ./magazine 에 생성된 뒤 빌드 후반에 docs 로 복사되므로,
+      // purge 시점에는 docs/magazine 이 비어/오래될 수 있다. 루트 생성본도 함께 스캔해
+      // #insight·#hotpick 등 섹션 id 셀렉터가 살아남도록 한다.
+      content: [`${docsDir}/magazine/**/*.html`, './magazine/**/*.html'],
       label: 'styles-report.css',
     },
     {
@@ -817,6 +816,8 @@ async function purgeCssInDocs(docsDir) {
         `${docsDir}/magazine/**/*.html`,
         `${docsDir}/wiki/**/*.html`,
         `${docsDir}/tech/**/*.html`,
+        // 루트 생성본(아직 docs 로 복사 전)도 스캔 — magazine 섹션 id 보존
+        './magazine/**/*.html',
       ],
       label: 'styles-article.css',
     },
