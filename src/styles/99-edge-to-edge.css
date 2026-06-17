@@ -337,6 +337,26 @@
     white-space: nowrap !important;
   }
 
+  /* 첫 열(라벨/제목)만 줄바꿈 허용 — 긴 텍스트가 표를 과도하게 넓혀 숫자 열을
+     밀어내지 않도록. word-break:keep-all 로 한글은 단어 단위로만 줄바꿈해
+     글자 단위 쪼개짐을 막는다. 숫자 열은 위 규칙대로 nowrap 유지. */
+  #issue .wiki-table td:first-child,
+  #issue .wiki-table th:first-child,
+  #insight .wiki-table td:first-child,
+  #insight .wiki-table th:first-child,
+  #hotpick .wiki-table td:first-child,
+  #hotpick .wiki-table th:first-child,
+  #wiki-article .wiki-table td:first-child,
+  #wiki-article .wiki-table th:first-child,
+  #ranking .wiki-table td:first-child,
+  #ranking .wiki-table th:first-child,
+  #tech-article .wiki-table td:first-child,
+  #tech-article .wiki-table th:first-child {
+    white-space: normal !important;
+    word-break: keep-all;
+    min-width: 6em;
+  }
+
   /* (3번째 컬럼 줄바꿈 허용 규칙 제거 — 가로 스크롤 도입 후에는 모든 열을 nowrap 으로
      유지하는 편이 셀이 세로로 쪼개지지 않아 정렬상 더 깔끔하다.) */
 
