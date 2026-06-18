@@ -1,11 +1,17 @@
 {
-  "updatedAt": "2026-06-17T00:15:38.375Z",
+  "updatedAt": "2026-06-18T02:00:43.705Z",
   "period": "7days",
   "articles": [
     {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 15,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 19,
+      "views": 15,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
@@ -17,15 +23,15 @@
     },
     {
       "type": "issue",
-      "slug": "crimson-desert-2month-chart-trend",
-      "views": 5,
-      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
+      "slug": "dave-the-diver-in-the-jungle-release",
+      "views": 10,
+      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
     },
     {
       "type": "issue",
-      "slug": "dave-the-diver-in-the-jungle-release",
+      "slug": "crimson-desert-2month-chart-trend",
       "views": 5,
-      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
+      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
     },
     {
       "type": "wiki",
@@ -56,6 +62,12 @@
       "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 4,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
       "type": "issue",
       "slug": "game-ai-controversy-award-revoked",
       "views": 4,
@@ -66,12 +78,6 @@
       "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 4,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 4,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "ranking",
@@ -92,6 +98,30 @@
       "path": "/magazine/issue/crimson-desert-6-million-dlc/"
     },
     {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 3,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "gabe-newell-steam-adult-content-debate",
+      "views": 3,
+      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 3,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 3,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
       "type": "ranking",
       "slug": "steam-february-2026",
       "views": 3,
@@ -103,20 +133,6 @@
       "category": "business",
       "views": 3,
       "path": "/wiki/business/korean-game-stocks-2025/"
-    },
-    {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/korean-esports-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "rts-genre-rise-and-fall",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/rts-genre-rise-and-fall/"
     },
     {
       "type": "issue",
@@ -228,12 +244,6 @@
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 2,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "dragon-quest-7-reimagined-metacritic",
       "views": 2,
       "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
@@ -255,12 +265,6 @@
       "slug": "dragonsword-awakening-steam-demo",
       "views": 2,
       "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
-    },
-    {
-      "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 2,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "issue",
@@ -297,12 +301,6 @@
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -345,6 +343,13 @@
     },
     {
       "type": "wiki",
+      "slug": "game-shareholder-returns-low-growth",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/game-shareholder-returns-low-growth/"
+    },
+    {
+      "type": "wiki",
       "slug": "publisher-developer-relationship",
       "category": "business",
       "views": 2,
@@ -356,6 +361,13 @@
       "category": "history",
       "views": 2,
       "path": "/wiki/history/astonishia-story-sonnori/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-esports-history",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "wiki",
@@ -391,6 +403,13 @@
       "category": "history",
       "views": 2,
       "path": "/wiki/history/rollercoaster-tycoon/"
+    },
+    {
+      "type": "wiki",
+      "slug": "rts-genre-rise-and-fall",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/rts-genre-rise-and-fall/"
     },
     {
       "type": "wiki",
@@ -476,16 +495,10 @@
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 1,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
       "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
+      "slug": "2026-game-trends",
       "views": 1,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -543,9 +556,21 @@
     },
     {
       "type": "issue",
+      "slug": "lucky-defense-probability-manipulation-scandal",
+      "views": 1,
+      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+    },
+    {
+      "type": "issue",
       "slug": "mangwol-offline-playtest-recruitment",
       "views": 1,
       "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
+    },
+    {
+      "type": "issue",
+      "slug": "roguelike-casual-korea-trend",
+      "views": 1,
+      "path": "/magazine/issue/roguelike-casual-korea-trend/"
     },
     {
       "type": "issue",
@@ -567,12 +592,6 @@
     },
     {
       "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
       "slug": "steam-april-2026",
       "views": 1,
       "path": "/magazine/ranking/steam-april-2026/"
@@ -589,13 +608,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/app-revenue-ranking-algorithm/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-shareholder-returns-low-growth",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/game-shareholder-returns-low-growth/"
     },
     {
       "type": "wiki",
