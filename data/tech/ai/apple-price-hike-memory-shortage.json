@@ -1,0 +1,154 @@
+{
+  "slug": "apple-price-hike-memory-shortage",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "애플도 메모리 가격 급등에 백기…팀 쿡 \"제품가 인상 불가피\"",
+  "titleEn": "Apple Signals Price Hikes as Memory Costs Soar",
+  "summary": "애플이 메모리와 스토리지 칩 가격 급등으로 제품 가격을 인상한다. 인공지능(AI) 데이터센터 수요로 DRAM과 NAND 플래시 공급 부족이 심화하면서, 업계 최대 구매력의 애플마저 비용 압박을 버티지 못했다는 분석이다.",
+  "summaryEn": "Apple CEO Tim Cook has warned that price hikes are unavoidable across its product lineup as AI data center demand drains memory supplies.",
+  "keywords": "애플 가격 인상, 메모리 가격 급등, DRAM 공급 부족, 팀 쿡 CEO, 아이폰 18 가격",
+  "keywordsEn": "Apple memory price, memory price surge, DRAM shortage, iPhone 18 price, AI memory shortage",
+  "thumbnail": "https://images.macrumors.com/t/ozVuZ6X4xVlXDOrgF2jsOp3pjlc=/2676x/article-new/2022/01/Apple-Logo-Cash-Feature-Blue.jpg",
+  "content": [
+    {
+      "type": "text",
+      "value": "애플이 기기 가격 인상에 나선다. 팀 쿡 최고경영자(CEO)는 2026년 6월 17일 [월스트리트저널](https://www.wsj.com/tech/apple-price-increases-memory-supply-199845b1)과의 인터뷰에서 메모리와 스토리지 칩 단가 급등을 지목하며, 전 제품군의 가격 인상이 피할 수 없는 선택이라고 밝혔다.\n\n쿡 CEO는 \"소비자에게 전가되는 비용 부담을 최소화하려 노력했으나 더는 감당하기 어려운 수준에 이르렀다\"고 토로했다. 구체적인 인상 대상이나 가격은 공개되지 않았으나, 업계는 오는 9월 출시될 아이폰 18 프로와 프로 맥스를 시작으로 아이패드와 맥 등이 순차적으로 인상될 것으로 보고 있다.\n\n애플은 이미 가격 체계 조정에 착수했다. 최근 보급형 맥 미니 모델을 조용히 단종하며 시작가를 599달러에서 799달러로 올렸고, 고사양 맥 미니와 맥 스튜디오 라인업도 일부 정리했다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 데이터센터 수요가 촉발한 메모리 가격 폭등"
+    },
+    {
+      "type": "text",
+      "value": "이번 가격 인상 압박은 애플이 아닌 AI 데이터센터에서 촉발됐다. 글로벌 빅테크 기업들이 엔비디아 가속기를 중심으로 AI 클러스터 증설 경쟁을 벌이면서 GPU용 고대역폭 메모리(HBM)는 물론 서버용 일반 DRAM과 NAND 플래시까지 전반적인 메모리 공급 부족을 심화시켰다."
+    },
+    {
+      "type": "text",
+      "value": "삼성전자와 SK하이닉스, 마이크론 등 주요 반도체 제조사들은 한정된 생산 능력을 마진이 높은 서버용 제품에 우선 배정하고 있다. 이에 따라 시장조사업체 트렌드포스는 2026년 2분기 일반 DRAM 계약 가격이 전 분기 대비 58~63%, NAND 플래시는 70~75% 급등해 소비자 기기 제조사들의 조달 경쟁이 치열해질 것으로 전망했다."
+    },
+    {
+      "type": "text",
+      "value": "가트너는 2026년 말까지 DRAM과 SSD 가격이 합산 130% 폭등해 PC와 스마트폰 소매가가 각각 17%, 13% 상승할 것으로 예측했다. 쿡 CEO는 이번 사태를 \"100년 만의 홍수\"에 비유하며, 40년 넘는 커리어 동안 이 정도의 공급 대란은 본 적이 없다고 전했다. 과거 아이폰 부품 원가의 10% 수준이던 메모리 비중은 2027년 45%까지 치솟을 것이라는 분석이다."
+    },
+    {
+      "type": "heading",
+      "value": "최강 구매자 애플마저 흡수 여력이 바닥났다"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/vnqdtRupVqWHAik43ZWctH-1920-80.jpg",
+      "caption": "메모리 칩이 새겨진 실리콘 웨이퍼",
+      "alt": "주황빛으로 빛나는 메모리 반도체 웨이퍼"
+    },
+    {
+      "type": "text",
+      "value": "업계 최대의 하드웨어 바이어인 애플마저 협상으로 활로를 찾지 못한 원인은 무엇일까. 애플은 막대한 구매력을 무기 삼아 왔지만, 쿡 CEO는 선급금을 대거 지급하며 다년 공급 계약을 맺는 AI 기업들의 방식을 따르지 않을 뜻을 내비쳤다. 현재 글로벌 반도체 웨이퍼 공급은 이들 AI 기업의 선발주 물량에 묶여 있다."
+    },
+    {
+      "type": "text",
+      "value": "쿡 CEO는 메모리 확보에 재원을 투입하되 자체 공장을 지을 계획은 없다고 밝혔다. 그는 \"우리가 모든 일을 다 할 수는 없다\"며 \"우리가 잘하는 영역에만 집중하겠다\"고 덧붙였다. 하지만 이러한 구매력에도 완충 여력은 한계에 달한 모습이다. 테크인사이츠는 애플이 영업이익률을 유지하려면 아이폰 18 프로 단가를 약 270달러 올려야 할 것으로 추산했다."
+    },
+    {
+      "type": "heading",
+      "value": "메모리값은 더 오를 일만 남았다"
+    },
+    {
+      "type": "text",
+      "value": "부품가 인상 압박은 다른 IT 제조사들도 마찬가지다. 삼성전자와 마이크로소프트, 소니, 델 등도 제품 가격 인상에 합류했다. 카운터포인트는 2026년 전 세계 스마트폰 평균 판매가가 6.9% 상승하고, 가트너는 교체 주기 장기화로 올해 PC와 스마트폰 출하량이 각각 10.4%, 8.4% 감소할 것으로 전망했다."
+    },
+    {
+      "type": "text",
+      "value": "가장 강력한 바이어인 애플마저 비용 감당이 어렵다고 밝힌 것은 시장 전체에 보내는 경고다. 제조사들의 증설 물량은 대부분 서버용으로 묶여 있어, 소비자용 메모리의 공급 부족은 더 길어질 전망이다. 반면 애플은 [온디바이스 AI 모델](/ko/article/general/siri-apple-20b-on-device-model/) 구동을 위해 기기당 DRAM 탑재량을 늘려야 하는 상황이다. 팀 쿡이 말한 공급 대란은 일시적 현상이 아닌 고착화된 새로운 기준선이 될 수 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Apple is preparing to raise product prices. On June 17, 2026, CEO Tim Cook told [The Wall Street Journal](https://www.wsj.com/tech/apple-price-increases-memory-supply-199845b1) that price increases across the company's lineup are \"unavoidable,\" attributing the price increase to a worsening memory shortage that has sent the cost of memory and storage chips soaring.\n\n\"We're doing our best to mitigate the huge increases that are being passed to us, and we've been trying to shield our customers,\" Cook said, \"but the situation has become unsustainable.\" While Cook did not specify which products would see price increases or by how much, the timing suggests the upcoming iPhone 18 Pro and Pro Max, expected in September, will be the first affected, with iPads and Macs likely to follow.\n\nApple has already begun adjusting its pricing structure. The company quietly discontinued its entry-level Mac mini, raising the starting price from $599 to $799, and consolidated its higher-tier Mac mini and Mac Studio configurations."
+    },
+    {
+      "type": "heading",
+      "value": "AI Data Center Demand Drives Memory Price Surge"
+    },
+    {
+      "type": "text",
+      "value": "The cost pressure did not originate with Apple; it stems from AI data centers. As hyperscalers race to build clusters around Nvidia accelerators, demand for memory—both the high-bandwidth memory (HBM) paired with GPUs and the conventional DRAM and NAND flash used in servers—has far outstripped supply, turning a niche worry into a broad memory shortage."
+    },
+    {
+      "type": "text",
+      "value": "Major chipmakers, including Samsung Electronics, SK Hynix, and Micron Technology, have prioritized their limited production capacity on higher-margin server products, leaving consumer device manufacturers to compete for the remaining supply. The financial impact is stark: TrendForce projects that contract prices for conventional DRAM will climb 58% to 63% quarter-over-quarter in the second quarter of 2026, while NAND flash prices are expected to rise 70% to 75%."
+    },
+    {
+      "type": "text",
+      "value": "Gartner projects a broader impact, forecasting a combined 130% surge in DRAM and SSD prices by the end of 2026. This is expected to drive up average retail prices by 17% for PCs and 13% for smartphones. Cook compared the shortage to a \"hundred-year flood,\" noting that he had not seen a similar disruption in any sector in his 40-year career. This price surge shows little sign of cooling, and a shortage this severe rarely unwinds in a single quarter. Memory chips, which historically accounted for roughly 10% of an iPhone's bill of materials, are projected by some analysts to reach up to 45% of component costs by 2027."
+    },
+    {
+      "type": "heading",
+      "value": "Even Apple's Leverage Has Run Out"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.mos.cms.futurecdn.net/vnqdtRupVqWHAik43ZWctH-1920-80.jpg",
+      "caption": "A silicon wafer patterned with memory chips",
+      "alt": "An orange-lit memory semiconductor wafer"
+    },
+    {
+      "type": "text",
+      "value": "Why has the world's most powerful hardware buyer been unable to negotiate its way out of this pricing pressure? As one of the largest purchasers of memory chips, Apple typically commands significant leverage to dictate contract terms. However, Cook indicated that Apple is reluctant to adopt the strategy of AI firms, which are securing multi-year supply agreements through massive upfront cash prepayments—the very deals currently consuming global wafer supply."
+    },
+    {
+      "type": "text",
+      "value": "Cook stated that while Apple is willing to deploy cash to secure memory supplies, it has no plans to build its own semiconductor fabrication plants. \"We can't do everything. We know what we're good at,\" Cook said. Yet even with Apple's immense purchasing power, its margin buffer has eroded. TechInsights estimates that Apple would need to increase the price of the iPhone 18 Pro by approximately $270 to maintain its current gross margins."
+    },
+    {
+      "type": "heading",
+      "value": "Memory Prices Have Only One Way to Go"
+    },
+    {
+      "type": "text",
+      "value": "Apple is not alone in facing these pressures; Samsung Electronics, Microsoft, Sony, and Dell have already begun raising hardware prices. Counterpoint Research projects that the average selling price of smartphones will rise 6.9% in 2026. Meanwhile, Gartner expects global PC and smartphone shipments to contract by 10.4% and 8.4%, respectively, as consumers delay upgrades. These shifts signal that the memory price surge is no longer a short-term, single-quarter disruption."
+    },
+    {
+      "type": "text",
+      "value": "This is the true industry signal. When the buyer with the greatest purchasing leverage in the technology sector describes cost absorption as unsustainable, the price spike is no longer a temporary fluctuation. While chipmakers are expanding production capacity, most of the new output is designated for AI servers. At the same time, Apple must integrate more DRAM into its hardware to run [on-device AI models](/article/general/siri-apple-20b-on-device-model/) locally. Consequently, the consumer memory shortage deepens even as demand rises, and iPhone buyers are likely to feel this surge first. Cook's \"hundred-year flood\" may represent not a temporary anomaly, but the industry's new baseline."
+    }
+  ],
+  "sources": [
+    {
+      "name": "The Wall Street Journal",
+      "title": "Apple to Raise Prices as Memory Supply Tightens",
+      "url": "https://www.wsj.com/tech/apple-price-increases-memory-supply-199845b1"
+    },
+    {
+      "name": "MacRumors",
+      "title": "Tim Cook Says Apple Price Increases Are 'Unavoidable' Due to Memory Costs",
+      "url": "https://www.macrumors.com/2026/06/17/apple-increasing-prices/"
+    },
+    {
+      "name": "Gartner",
+      "title": "Gartner Says Surging Memory Costs Will Reduce Global PC and Smartphone Shipments in 2026",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-02-26-gartner-says-surging-memory-costs-will-reduce-global-pc-and-smartphone-shipments-in-2026"
+    },
+    {
+      "name": "TrendForce",
+      "title": "DRAM and NAND Flash Contract Prices to Keep Climbing in 2Q26",
+      "url": "https://www.trendforce.com/presscenter/news/20260331-12995.html"
+    },
+    {
+      "name": "CNBC",
+      "title": "The AI-fueled chip shortage could raise smartphone prices — new research spells out by how much",
+      "url": "https://www.cnbc.com/2025/12/16/smartphone-prices-to-rise-in-2026-due-to-ai-fueled-chip-shortage.html"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/siri-apple-20b-on-device-model",
+    "tech:ai/nvidia-vera-rubin-agentic-ai",
+    "tech:ai/surface-laptop-ultra-macbook-rival",
+    "tech:ai/samsung-foundry-neuralink-chip"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
