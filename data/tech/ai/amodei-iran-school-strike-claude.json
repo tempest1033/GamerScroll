@@ -1,0 +1,178 @@
+{
+  "slug": "amodei-iran-school-strike-claude",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2026/06/Dario-2280291125.jpg?w=1024",
+  "title": "앤트로픽 CEO, 이란 학교 공습 발언 파문… 해명 논란",
+  "titleEn": "Amodei's Iran School Strike Remark Backlash",
+  "summary": "다리오 아모데이 앤트로픽 CEO가 아동 120여 명이 숨진 이란 학교 공습을 '레드라인 미위반 사례'로 언급해 파문이 일고 있다. 클로드가 미군 표적 시스템 '메이븐'에 탑재된 가운데, 구체적인 모델 사용처는 모른다는 해명이 논란을 키우는 모양새다.",
+  "summaryEn": "Amodei called the Iran school strike that killed 120 children a case that 'doesn't violate our red lines' — even as Claude powers the Maven targeting system.",
+  "keywords": "다리오 아모데이, 초등학교 공습, 클로드 군사 사용, 메이븐 스마트 시스템, 앤트로픽 레드라인",
+  "keywordsEn": "Dario Amodei, Iran school strike, Claude military use, Maven Smart System, Anthropic red lines",
+  "sources": [
+    {
+      "name": "The Next Web",
+      "title": "Anthropic's CEO says he doesn't know if Claude was used in the Iran school strike that killed 120 children",
+      "url": "https://thenextweb.com/news/anthropic-amodei-claude-iran-school-strike-military-ai"
+    },
+    {
+      "name": "Bloomberg",
+      "title": "The Circuit with Emily Chang: Inside the Mind of Anthropic CEO Dario Amodei",
+      "url": "https://www.youtube.com/watch?v=x2VHFgyawPE"
+    },
+    {
+      "name": "Amnesty International",
+      "title": "USA/Iran: Those responsible for deadly and unlawful US strike on school that killed over 100 children must be held accountable",
+      "url": "https://www.amnesty.org/en/latest/news/2026/03/usa-iran-those-responsible-for-deadly-and-unlawful-us-strike-on-school-that-killed-over-100-children-must-be-held-accountable/"
+    },
+    {
+      "name": "Breaking Defense",
+      "title": "'Insatiable appetite' for AI: Maven usage surged for strikes on Iran, Pentagon AI chief says",
+      "url": "https://breakingdefense.com/2026/05/insatiable-appetite-for-ai-maven-usage-surged-for-strikes-on-iran-pentagon-ai-chief-says/"
+    },
+    {
+      "name": "CSIS",
+      "title": "What Is Maven Smart System, and What Does It Do?",
+      "url": "https://www.csis.org/analysis/what-maven-smart-system-and-what-does-it-do"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-nsa-mythos-offensive-cyber",
+    "tech:ai/openai-pentagon-hypocrisy-red-lines",
+    "tech:ai/silicon-valley-ai-ethics-government-clash",
+    "tech:ai/anthropic-900b-surpasses-openai"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "다리오 아모데이 앤트로픽 최고경영자(CEO)의 발언이 거센 역풍을 맞고 있다. 그는 블룸버그와의 인터뷰에서 아동 120여 명을 포함해 150명 넘게 숨진 이란 미나브 초등학교 공습 사건에 대한 질문을 받았다. 아모데이 CEO는 이를 “정말 비극적인 일”이라면서도 “앤트로픽의 레드라인을 위반하지 않은 사례”라고 답변했다."
+    },
+    {
+      "type": "text",
+      "value": "문제는 그다음이었다. 클로드 군사 사용 의혹에 대한 해명이 논란을 더 키웠다. 다리오 아모데이 CEO는 “앤트로픽은 접근 권한이 없어 이 모델이 어떻게 쓰였는지 정확히 모른다”고 실토했다. 그러면서도 “인간이 최종 결정을 내린다는 원칙은 지켜졌다”고 강변했다. 사용처를 모르면서 원칙이 지켜졌다고 장담하는 모순된 해명에 비판이 쏟아졌다."
+    },
+    {
+      "type": "heading",
+      "value": "미나브 초등학교 공습의 진상"
+    },
+    {
+      "type": "text",
+      "value": "원칙을 지켰다는 미군의 공습 실태를 들여다보면 실상은 다르다. 국제앰네스티에 따르면 미국의 이란 군사 작전 첫날인 2월 28일 오전, 미나브의 샤자레 타예베 초등학교가 직격탄을 맞았다. 수업 중이던 교실 위로 폭격이 내리꽂히면서 학교 지붕이 그대로 주저앉았음이 위성 사진 분석을 통해 드러났다."
+    },
+    {
+      "type": "text",
+      "value": "이란 당국은 어린이 110~120명을 포함해 150명 이상이 숨졌다고 발표했다. [국제앰네스티](https://www.amnesty.org/en/latest/news/2026/03/usa-iran-those-responsible-for-deadly-and-unlawful-us-strike-on-school-that-killed-over-100-children-must-be-held-accountable/)는 현지 인터넷 차단으로 정확한 피해 규모를 독립적으로 검증하기는 어려웠으나, 당시 미군이 이 전쟁에서 독점 운용한 토마호크 순항미사일이 폭격에 쓰인 것으로 결론 내렸다."
+    },
+    {
+      "type": "text",
+      "value": "해당 초등학교는 이란 혁명수비대(IRGC) 시설과 담장을 맞대고 있었으나, 위성 기록 분석 결과 이미 수년 전 분리되어 운동장 선까지 또렷이 구분된 민간 교육시설이었다. 미국 국방부는 공식적인 책임을 인정하지 않고 있다. 다만 피트 헤그세스 국방장관이 지난 3월 철저한 조사를 약속했고, 워싱턴포스트는 이를 사실상 책임을 시인한 행보로 풀이했다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 표적 시스템으로 들어간 클로드"
+    },
+    {
+      "type": "text",
+      "value": "책임 논란의 한복판에 선 클로드는, 정작 이 군사 표적 시스템 어디에 자리하고 있었을까. 미 중부사령부는 팰런티어가 국방부와 13억 달러 규모로 계약해 구축한 AI 표적 플랫폼 ‘메이븐 스마트 시스템’을 운용한다. 메이븐은 위성과 드론, 신호 정보를 통합해 표적을 만들고 중요도에 따라 무기를 매칭하는 도구다. 클로드는 이 플랫폼의 자연어 처리와 분석 계층에 탑재되어 군사 작전을 도왔다."
+    },
+    {
+      "type": "image",
+      "src": "https://breakingdefense.com/wp-content/uploads/sites/13/2026/05/260512_troop_computer_closeup_9239867-e1778593015781-1024x577.jpg",
+      "caption": "군 작전 환경에서 컴퓨터로 표적 시스템을 다루는 모습",
+      "alt": "군 작전용 노트북을 조작하는 손"
+    },
+    {
+      "type": "text",
+      "value": "표적 식별 규모도 상당하다. 미 중부사령부는 이란 작전 첫 24시간 동안에만 1,000개의 표적을 타격했고, 38일간 이어진 ‘에픽 퓨리’ 작전에서는 총 1만 3,000곳을 공격했다. 미국 국방부 집계에 따르면, 작전 기간 중 AI 토큰 사용량의 하루 정점은 평시 대비 최대 44배까지 급증했다."
+    },
+    {
+      "type": "text",
+      "value": "메이븐 스마트 시스템은 표적 식별부터 타격까지 걸리는 시간을 대폭 압축하도록 고안됐다. 미래생명연구소의 함자 차우드리는 군사 표적 절차가 지나치게 빨라지면 인간의 최종 승인은 형식적인 ‘고무도장’에 그칠 수 있다고 지적했다. 메이븐 구축을 주도했던 잭 섀너핸 전 공군 중장마저 “표적이 1,000개라고 한들, 그것이 진짜 올바른 표적인가”라며 우려를 표했다."
+    },
+    {
+      "type": "heading",
+      "value": "앤트로픽 ‘레드라인’의 한계와 모순"
+    },
+    {
+      "type": "text",
+      "value": "올바른 표적을 골라내는 문제는 다리오 아모데이 CEO가 강조한 ‘인간의 최종 결정’ 원칙의 실효성을 흔든다. 올해 초 앤트로픽은 클로드 군사 사용을 완전자율무기와 대규모 민간 감시 영역에서 금지하며 도널드 트럼프 행정부와 충돌한 바 있다. 미국 국방부는 앤트로픽을 ‘공급망 위험’ 기업으로 지정했고, 회사는 이에 반발해 소송을 제기했다."
+    },
+    {
+      "type": "text",
+      "value": "이러한 법적 갈등은 처음이 아니다. 앤트로픽이 [국가안보국(NSA)의 공격용 사이버 작전 지원을 두고 국방부와 벌인 법정 공방](/ko/article/anthropic/anthropic-nsa-mythos-offensive-cyber/)에서도 같은 앤트로픽 레드라인이 쟁점이 됐다. 자율무기를 막겠다며 연방정부를 상대로 소송까지 제기했던 다리오 아모데이의 회사가 정작 아동들이 목숨을 잃은 학교 공습 시스템의 일부로 돌아가고 있었다는 점은 뼈아픈 모순이다."
+    },
+    {
+      "type": "text",
+      "value": "클로드가 해당 학교를 타격한 미사일 발사에 직접 관여했는지는 확실치 않다. 그러나 참사를 초래한 군사 시스템의 일부로 작동했음은 부인할 수 없는 사실이다. 군이 자사 모델을 어떻게 쓰는지조차 모른다고 인정하는 순간, 앤트로픽 레드라인과 인간 중심의 통제 원칙을 지켰다는 주장 또한 설득력을 잃는다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Comments by Anthropic CEO Dario Amodei have sparked intense backlash. During a Bloomberg interview with Emily Chang regarding a U.S. airstrike on a primary school in Minab, Iran—which killed over 150 people, including around 120 children—Amodei called the incident 'a really terrible thing to happen,' but added that it was 'a use case that doesn't even violate our red lines.'"
+    },
+    {
+      "type": "text",
+      "value": "The controversy deepened as Dario Amodei addressed reports of Claude's military use in the targeting chain behind the Iran school strike. Admitting that Anthropic lacks visibility into the model's exact role—'We don't have access to, we don't know exactly how these models were used'—he still asserted that 'the principle that a human makes the final decision was obeyed.' Critics asked how he could guarantee the principle held without knowing how the model was used."
+    },
+    {
+      "type": "heading",
+      "value": "The Reality of the Iran School Strike"
+    },
+    {
+      "type": "text",
+      "value": "A look at the Iran school strike itself challenges the claim of a principled operation. Per Amnesty International, the Shajareh Tayyebeh Elementary School in Minab was directly hit on the morning of February 28, the first day of U.S. operations against Iran. Classes were in session, and satellite analysis showed the school's roof pancaked by a top-down blast."
+    },
+    {
+      "type": "text",
+      "value": "The Iran school strike left over 150 dead, including 110 to 120 children, by Iranian authorities' count. [Amnesty International](https://www.amnesty.org/en/latest/news/2026/03/usa-iran-those-responsible-for-deadly-and-unlawful-us-strike-on-school-that-killed-over-100-children-must-be-held-accountable/) said an internet blackout hindered independent verification, but concluded that a U.S. Tomahawk cruise missile—used exclusively by the U.S. in this war—was the likely weapon."
+    },
+    {
+      "type": "text",
+      "value": "The school shared a wall with an Islamic Revolutionary Guard Corps (IRGC) compound, yet satellite records show it had been split off years earlier into a clearly marked civilian school, playground lines and all. The Pentagon has not claimed responsibility for the Iran school strike, though Defense Secretary Pete Hegseth promised a 'thorough probe' in March—read by The Washington Post as a tacit admission."
+    },
+    {
+      "type": "heading",
+      "value": "Claude's Integration into the Targeting Chain"
+    },
+    {
+      "type": "text",
+      "value": "Claude's role sits inside the Maven Smart System, an AI targeting platform Palantir built under a $1.3 billion Pentagon contract for U.S. Central Command. The Maven Smart System fuses satellite, drone, and signals intelligence onto one screen, generating, ranking, and pairing targets to weapons. Claude's military use is wired into its natural-language and analysis layer."
+    },
+    {
+      "type": "image",
+      "src": "https://breakingdefense.com/wp-content/uploads/sites/13/2026/05/260512_troop_computer_closeup_9239867-e1778593015781-1024x577.jpg",
+      "caption": "Operating a targeting system on a computer in a military setting",
+      "alt": "A hand operating a laptop in a military operations setting"
+    },
+    {
+      "type": "text",
+      "value": "Scale is the point. Through the Maven Smart System, CENTCOM struck 1,000 targets in the first 24 hours against Iran and 13,000 over the 38-day Operation Epic Fury. By the Pentagon's own data on Claude's military use, peak daily AI token usage spiked as much as 44-fold."
+    },
+    {
+      "type": "text",
+      "value": "The Maven Smart System is built to compress the time from detection to strike. Hamza Chaudhry of the Future of Life Institute warned that targeting this fast can reduce human sign-off to a mere rubber stamp. Even Jack Shanahan, the retired general who built Maven, asked: 'You may have a thousand targets, but are they the right targets?'"
+    },
+    {
+      "type": "heading",
+      "value": "The Limits of Anthropic's Red Lines"
+    },
+    {
+      "type": "text",
+      "value": "Picking the right targets runs straight into Dario Amodei's claim that human oversight held. Earlier this year, Anthropic clashed with the Trump administration by barring Claude's military use in fully autonomous weapons and mass domestic surveillance. In response, the Pentagon branded Anthropic a supply-chain risk, and the company sued. These are the Anthropic red lines now under scrutiny."
+    },
+    {
+      "type": "text",
+      "value": "This fight is not new. The same Anthropic red lines over Claude's military use surfaced in the company's [court battle with the Pentagon over NSA cyber operations](/article/anthropic/anthropic-nsa-mythos-offensive-cyber/). The contradiction is stark: a company that drew a firm line against autonomous weapons and sued the federal government still has its AI running inside a targeting platform that hit a school full of children."
+    },
+    {
+      "type": "text",
+      "value": "Whether Claude touched that specific Iran school strike remains unknown. What is certain is that it was part of the system that produced it. The moment Dario Amodei's Anthropic says it cannot see how the model was used, its claim that the Anthropic red lines held wobbles right along with it."
+    }
+  ]
+}

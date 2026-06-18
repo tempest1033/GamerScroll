@@ -46,6 +46,11 @@ Output language: Korean. Cap: <900 words total.
 
 - `title` 길이: 한국 SERP 노출 한계 ~32자 안팎 초과 여부
 - `summary`: 메타 디스크립션 ~150자 권장, 핵심 키워드 포함 여부
+- `summary` 길이 상한: 160자 (메타 디스크립션 하드 캡)
+- `titleEn` (이중 언어): ` - AIScroll` 접미사 포함 렌더링 → **48자 이하**.
+  초과 시 `<title>` 잘림 → `title-h1-match` SEO 실패. 절대 늘리지 말 것.
+- `summaryEn` (이중 언어): **160자 이하** (메타 디스크립션). 짧은 요약을
+  긴 서술형으로 늘리지 말 것.
 - `keywords` 필드의 토큰이 본문에 자연스럽게 노출되는지
 - 첫 단락(`content[0]`) 100자 안에 핵심 키워드 1~2개 노출 여부
 - 헤딩(type=heading) 블록에 키워드가 분산 배치되는지
