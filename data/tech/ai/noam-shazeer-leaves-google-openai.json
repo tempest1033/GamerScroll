@@ -1,0 +1,187 @@
+{
+  "slug": "noam-shazeer-leaves-google-openai",
+  "site": "aiscroll",
+  "status": "approved",
+  "category": "openai",
+  "date": "",
+  "needTranslate": false,
+  "title": "트랜스포머 설계자 노암 셰지어, 구글 떠나 OpenAI 이적",
+  "titleEn": "Noam Shazeer Leaves Google for OpenAI",
+  "summary": "구글 제미나이 공동총괄이자 트랜스포머 공동 저자인 노암 셰지어가 OpenAI로 자리를 옮긴다. 구글이 복귀를 위해 27억 달러를 들였던 스타 엔지니어가 2년도 채 안 돼 다시 떠나면서, 구글 내부의 안정성을 우려하는 목소리가 커지고 있다.",
+  "summaryEn": "Noam Shazeer, Transformer co-author and Gemini co-lead, is leaving Google for OpenAI — a star it paid $2.7B to bring back, stirring fears of internal turmoil.",
+  "keywords": "노암 셰지어, OpenAI 이적, 구글 제미나이, 트랜스포머",
+  "keywordsEn": "Noam Shazeer, OpenAI, Google Gemini, Transformer co-author",
+  "thumbnail": "https://techcrunch.com/wp-content/uploads/2024/08/Noam-Shazeer.jpg?resize=1200,799",
+  "sources": [
+    {
+      "name": "Noam Shazeer (X)",
+      "title": "I'll be joining OpenAI — departure announcement",
+      "url": "https://x.com/NoamShazeer/status/2067400851438932297"
+    },
+    {
+      "name": "Reuters",
+      "title": "Google's Gemini co-lead Noam Shazeer to join OpenAI",
+      "url": "https://www.reuters.com/technology/googles-gemini-co-lead-noam-shazeer-join-openai-2026-06-18/"
+    },
+    {
+      "name": "The Information",
+      "title": "Star Google AI Researcher Shazeer Joins OpenAI",
+      "url": "https://www.theinformation.com/articles/star-google-ai-researcher-shazeer-joins-openai"
+    },
+    {
+      "name": "The Wall Street Journal",
+      "title": "Google's $2.7 Billion Deal to Bring Back AI Pioneer Noam Shazeer",
+      "url": "https://www.wsj.com/tech/ai/noam-shazeer-google-ai-deal-d3605697"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "Character.AI CEO Noam Shazeer returns to Google",
+      "url": "https://techcrunch.com/2024/08/02/character-ai-ceo-noam-shazeer-returns-to-google/"
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글 인공지능(AI) 부문의 핵심 인재가 경쟁사인 OpenAI로 자리를 옮긴다. 구글의 노암 셰지어 엔지니어링 부사장은 18일 X를 통해 합류 소식을 발표했다. 로이터는 전날 그의 이직 예정 소식을 먼저 [보도한 바 있다](https://www.reuters.com/technology/googles-gemini-co-lead-noam-shazeer-join-openai-2026-06-18/). 이번 이직은 구글이 첨단 AI 경쟁에서 밀리고 있다는 우려 속에 전해져 주목받고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "제미나이 공동총괄, OpenAI 합류"
+    },
+    {
+      "type": "text",
+      "value": "노암 셰지어는 현대 AI 발전을 이끈 상징적인 인물이다. 2000년 구글 초창기 멤버로 입사해 검색 맞춤법 교정기를 만들고 광고 서비스 애드센스의 알고리즘을 설계했다. 이후 트랜스포머 아키텍처와 희소 전문가 혼합(MoE) 레이어, 에이다팩터 옵티마이저 등 현대 LLM의 핵심 기술을 잇따라 개발했다. 업계에서는 그를 현재의 생성형 AI 열풍을 만든 주역으로 평가한다."
+    },
+    {
+      "type": "text",
+      "value": "그의 대표작은 트랜스포머 구조를 처음 선보인 2017년 논문 'Attention Is All You Need'다. 그는 T5와 스위치 트랜스포머 논문에도 공동 저자로 참여했다. 구글 복귀 이후에는 제프 딘, 오리올 비냘스와 함께 제미나이 개발을 이끄는 공동 총괄을 맡았다."
+    },
+    {
+      "type": "text",
+      "value": "로이터는 그가 초기 평가가 나빴던 구글의 AI 모델을 제미나이 수준으로 끌어올린 인물이라고 전했다. OpenAI 챗GPT와의 격차를 좁히는 데 중추적인 역할을 했다는 분석이다. 결국 트랜스포머 설계자 본인이 자신이 만든 기술로 성공한 경쟁사의 품으로 직접 들어가는 그림이 됐다."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/NoamShazeer/status/2067400851438932297",
+      "caption": "노암 셰지어가 X에 직접 올린 OpenAI 이적 발표"
+    },
+    {
+      "type": "text",
+      "value": "노암 셰지어는 작별 인사를 통해 구글을 떠나는 결정이 매우 어려웠다고 털어놓았다. 그는 \"구글의 훌륭한 팀과 함께 이뤄낸 성과가 무척 자랑스럽다\"고 전했다. 이어 \"모두와 일할 수 있어 영광이었다\"고 덧붙였다. 겉으로는 아름다운 이별을 고했으나, 구글이 입은 타격은 상당하다는 평가다."
+    },
+    {
+      "type": "heading",
+      "value": "27억 달러 들인 핵심 인재의 재이탈"
+    },
+    {
+      "type": "image",
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25557743/Noam_Shazeer_CL_wide.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+      "caption": "노암 셰지어 구글 엔지니어링 부사장",
+      "alt": "구글 제미나이 개발을 이끈 노암 셰지어"
+    },
+    {
+      "type": "text",
+      "value": "구글 입장에서는 뼈아픈 이탈이다. 구글은 지난 2024년 8월 셰지어가 창업한 스타트업 캐릭터AI와 기술 라이선스 계약을 맺는 방식으로 그의 복귀를 추진했다. 당시 투입된 자금만 약 27억 달러에 달한다. 하지만 막대한 비용을 치르고 영입한 핵심 개발자가 2년도 안 돼 다시 OpenAI로 이적했다."
+    },
+    {
+      "type": "text",
+      "value": "이번 인사를 두고 업계의 분석도 분분하다. AI 전문 분석 계정인 @scaling01은 이번 이적을 '올해 최고의 인재 유출'로 꼽으며 구글의 내부 상황에 의문을 제기했다. 전문가들 역시 핵심 연구원의 이탈이 구글 내부의 구조적 문제를 보여주는 단면이라고 진단한다."
+    },
+    {
+      "type": "text",
+      "value": "두 경쟁사의 대비되는 행보도 눈길을 끈다. OpenAI는 기업가치 약 8,500억 달러로 평가받은 뒤, 지난 6월 8일 미 증권거래위원회(SEC)에 비공개 상장 신청서(S-1)를 제출하며 기업공개(IPO) 절차에 들어갔다. 제미나이 개발을 이끌며 챗GPT를 추격하던 인재가 상장을 준비 중인 경쟁사로 향하는 구도다."
+    },
+    {
+      "type": "heading",
+      "value": "구글 내부 동요와 추가 이탈 우려 고조"
+    },
+    {
+      "type": "text",
+      "value": "셰지어의 구체적인 역할이나 이적 시점, 구글 제미나이 개발팀의 후속 대책 등은 아직 알려지지 않았다. 그럼에도 그의 이탈은 구글 내부 안정성에 즉각적인 경종을 울렸다. 최근 구글에서 주요 [인재 이탈](/ko/article/google/google-ai-voluntary-exit/)이 이어지는 가운데, 핵심 리더의 추가 사임은 조직의 위기감을 키우고 있다."
+    },
+    {
+      "type": "text",
+      "value": "업계에서는 그의 아키텍처 설계 역량이 OpenAI의 차세대 추론 모델 연구에 투입될 것으로 예상한다. 구글은 로이터를 통해 그간의 공로에 감사를 표했으나, 핵심 개발자의 사임이 남긴 공백을 지우기는 어려워 보인다."
+    },
+    {
+      "type": "text",
+      "value": "결국 이번 사례는 심화되는 빅테크 인재 경쟁에서 구글이 수세에 몰렸음을 단적으로 보여준다. 현대 AI의 모태인 트랜스포머 구조를 개발하고도 상용화 주도권을 OpenAI에 선점당한 구글은, 이제 그 설계자마저 경쟁사에 넘겨주게 되었다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "A key architect of Google's artificial intelligence technology is leaving for its primary competitor. Noam Shazeer, a vice president of engineering at Google, announced on June 18 via X that he has joined OpenAI. Reuters [reported](https://www.reuters.com/technology/googles-gemini-co-lead-noam-shazeer-join-openai-2026-06-18/) the impending move a day earlier. The departure is far from a routine personnel change, occurring as concerns mount that Google is losing ground in the frontier AI race."
+    },
+    {
+      "type": "heading",
+      "value": "Gemini Co-Lead Joins OpenAI"
+    },
+    {
+      "type": "text",
+      "value": "Shazeer is a foundational figure in modern AI. Joining Google in 2000 as an early employee, he built the search spelling corrector and wrote the core algorithm for the AdSense advertising system. He later pioneered key technologies underpinning modern large language models (LLMs), including the Transformer architecture, sparse mixture-of-experts (MoE) layers, the Adafactor optimizer, and Mesh-TensorFlow. One interviewer went so far as to describe him as the person most responsible for the current AI revolution."
+    },
+    {
+      "type": "text",
+      "value": "His most famous work is the landmark 2017 paper \"Attention Is All You Need,\" which introduced the Transformer architecture, and he co-authored the papers for T5 and the Switch Transformer. Upon returning to Google, he was appointed as one of the three leaders overseeing Google Gemini development alongside Jeff Dean and Oriol Vinyals."
+    },
+    {
+      "type": "text",
+      "value": "Reuters reported that Noam Shazeer, a Transformer co-author, was instrumental in improving Google Gemini models, helping close the gap with OpenAI's ChatGPT after Google's early AI efforts faced criticism. His departure means the very architect of the Transformer is joining the rival company that commercialized his invention."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/NoamShazeer/status/2067400851438932297",
+      "caption": "Noam Shazeer's own X post announcing his move to OpenAI"
+    },
+    {
+      "type": "text",
+      "value": "In his farewell post, Noam Shazeer described leaving Google as a difficult decision. \"I am incredibly proud of the amazing team at Google and everything we've built together,\" he wrote, adding that it was \"an honor and a pleasure\" to work with them. While the public farewell was amicable, the departure leaves a significant vacuum at Google."
+    },
+    {
+      "type": "heading",
+      "value": "A $2.7 Billion Recruitment Effort Lost in Under Two Years"
+    },
+    {
+      "type": "image",
+      "src": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25557743/Noam_Shazeer_CL_wide.png?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+      "caption": "Noam Shazeer, VP of engineering at Google",
+      "alt": "Noam Shazeer, the Transformer co-author who co-led Google Gemini"
+    },
+    {
+      "type": "text",
+      "value": "For Google, the loss is exceptionally painful. In August 2024, the company spent approximately $2.7 billion to license technology from Character.AI—a startup Shazeer co-founded—in a deal primarily designed to secure his return. Yet less than two years after this expensive recruitment effort, the star engineer has departed once again."
+    },
+    {
+      "type": "text",
+      "value": "The departure has prompted widespread speculation among industry analysts. A prominent AI commentary account, @scaling01, called the move 'the most significant talent defection of the year,' questioning the current environment inside Google. Observers increasingly view the loss of such a high-profile researcher as a sign of deeper organizational challenges."
+    },
+    {
+      "type": "text",
+      "value": "This departure highlights the contrasting trajectories of the two rivals. OpenAI recently took its first steps toward a public listing, confidentially filing an S-1 registration with the U.S. Securities and Exchange Commission on June 8, following a valuation of approximately $850 billion. The engineer who helped Google close the gap with ChatGPT is now joining OpenAI at a critical financial milestone."
+    },
+    {
+      "type": "heading",
+      "value": "Internal Turmoil and Talent Drain Concerns"
+    },
+    {
+      "type": "text",
+      "value": "While details of Shazeer's role at OpenAI, his start date, and Google's succession plan for Gemini remain undisclosed, the departure raises immediate concerns about stability at Google. The company has faced a [series of high-profile departures](/article/google/google-ai-voluntary-exit/) recently, and losing another key technical leader fuels speculation about deepening organizational strain."
+    },
+    {
+      "type": "text",
+      "value": "Although his exact title is unconfirmed, industry analysts expect his expertise in architecture design to bolster OpenAI's next-generation reasoning research. Google told Reuters it is grateful for Shazeer's contributions over the years, but a statement of gratitude cannot easily fill the void left by a researcher of his caliber."
+    },
+    {
+      "type": "text",
+      "value": "Ultimately, the departure underscores Google's defensive posture in the escalating talent war. Having pioneered the Transformer architecture only to cede the commercial initiative to OpenAI, Google has now lost the co-creator of that very foundation to its chief rival."
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/google-ai-voluntary-exit",
+    "tech:ai/altman-musk-openai-trial-mudslinging",
+    "tech:ai/gemini-3-5-pro-leak-frontier-gap"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
