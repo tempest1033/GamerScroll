@@ -2277,7 +2277,11 @@ const adLazyLoadScript = `
   }
 
   // ATF ad fallback: eager ad slots may already have pushed next to the <ins>.
-  pushAd(ads[0]);
+  var firstVisibleIndex = -1;
+  for (var fi = 0; fi < ads.length; fi++) {
+    if (!isHiddenAd(ads[fi])) { firstVisibleIndex = fi; break; }
+  }
+  if (firstVisibleIndex >= 0) pushAd(ads[firstVisibleIndex]);
 
   // BTF ads are observed so the initial viewport does not pay for every slot at once.
   if (ads.length > 1) {
@@ -2292,7 +2296,7 @@ const adLazyLoadScript = `
       }, { rootMargin: '1200px 0px' });
       __gsAdCleanup.push(function() { try { btfObserver.disconnect(); } catch (e) {} });
     }
-    for (var j = 1; j < ads.length; j++) {
+    for (var j = (firstVisibleIndex >= 0 ? firstVisibleIndex + 1 : 1); j < ads.length; j++) {
       if (btfObserver) btfObserver.observe(ads[j]);
       else pushAd(ads[j]);
     }
