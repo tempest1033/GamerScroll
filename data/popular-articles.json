@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-06-18T02:00:43.705Z",
+  "updatedAt": "2026-06-19T00:09:47.963Z",
   "period": "7days",
   "articles": [
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 15,
+      "views": 17,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 15,
+      "views": 13,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
@@ -42,13 +42,6 @@
     },
     {
       "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 5,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 5,
@@ -74,16 +67,24 @@
       "path": "/magazine/issue/game-ai-controversy-award-revoked/"
     },
     {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 4,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
       "type": "ranking",
       "slug": "steam-january-2026",
       "views": 4,
       "path": "/magazine/ranking/steam-january-2026/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-shareholder-returns-low-growth",
+      "category": "business",
+      "views": 4,
+      "path": "/wiki/business/game-shareholder-returns-low-growth/"
+    },
+    {
+      "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 4,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "issue",
@@ -117,6 +118,12 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 3,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+    },
+    {
+      "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 3,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
@@ -129,10 +136,31 @@
     },
     {
       "type": "wiki",
-      "slug": "korean-game-stocks-2025",
+      "slug": "game-ip-licensing",
       "category": "business",
       "views": 3,
-      "path": "/wiki/business/korean-game-stocks-2025/"
+      "path": "/wiki/business/game-ip-licensing/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pillar-of-fire-cresents",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/pillar-of-fire-cresents/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     },
     {
       "type": "issue",
@@ -262,6 +290,12 @@
     },
     {
       "type": "issue",
+      "slug": "dragon-sword-webzen-contract-termination",
+      "views": 2,
+      "path": "/magazine/issue/dragon-sword-webzen-contract-termination/"
+    },
+    {
+      "type": "issue",
       "slug": "dragonsword-awakening-steam-demo",
       "views": 2,
       "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
@@ -298,9 +332,9 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
+      "slug": "geng-lck-cup-championship",
       "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/issue/geng-lck-cup-championship/"
     },
     {
       "type": "issue",
@@ -329,13 +363,6 @@
     },
     {
       "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
-      "type": "wiki",
       "slug": "game-revenue-structure",
       "category": "business",
       "views": 2,
@@ -343,10 +370,10 @@
     },
     {
       "type": "wiki",
-      "slug": "game-shareholder-returns-low-growth",
+      "slug": "korean-game-stocks-2025",
       "category": "business",
       "views": 2,
-      "path": "/wiki/business/game-shareholder-returns-low-growth/"
+      "path": "/wiki/business/korean-game-stocks-2025/"
     },
     {
       "type": "wiki",
@@ -385,13 +412,6 @@
     },
     {
       "type": "wiki",
-      "slug": "pillar-of-fire-cresents",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/pillar-of-fire-cresents/"
-    },
-    {
-      "type": "wiki",
       "slug": "ragnarok-online-history",
       "category": "history",
       "views": 2,
@@ -424,20 +444,6 @@
       "category": "history",
       "views": 2,
       "path": "/wiki/history/type-moon-fate-origin/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
@@ -482,13 +488,6 @@
       "path": "/wiki/knowledge/pc-components-gaming-performance/"
     },
     {
-      "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
-    },
-    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 1,
@@ -508,12 +507,6 @@
     },
     {
       "type": "issue",
-      "slug": "dragon-sword-webzen-contract-termination",
-      "views": 1,
-      "path": "/magazine/issue/dragon-sword-webzen-contract-termination/"
-    },
-    {
-      "type": "issue",
       "slug": "ea-battlefield6-layoffs-despite-record-sales",
       "views": 1,
       "path": "/magazine/issue/ea-battlefield6-layoffs-despite-record-sales/"
@@ -523,12 +516,6 @@
       "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
       "views": 1,
       "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
-    },
-    {
-      "type": "issue",
-      "slug": "geng-lck-cup-championship",
-      "views": 1,
-      "path": "/magazine/issue/geng-lck-cup-championship/"
     },
     {
       "type": "issue",
@@ -547,6 +534,18 @@
       "slug": "granblue-relink-endless-ragnarok",
       "views": 1,
       "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+    },
+    {
+      "type": "issue",
+      "slug": "gta6-preorder-june-25",
+      "views": 1,
+      "path": "/magazine/issue/gta6-preorder-june-25/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-refund-exploit-ban",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
     },
     {
       "type": "issue",
@@ -585,12 +584,6 @@
       "path": "/magazine/issue/stellar-blade-blood-rain-sgf-2026/"
     },
     {
-      "type": "issue",
-      "slug": "t1-lck-cup-shocking-elimination-2026",
-      "views": 1,
-      "path": "/magazine/issue/t1-lck-cup-shocking-elimination-2026/"
-    },
-    {
       "type": "ranking",
       "slug": "steam-april-2026",
       "views": 1,
@@ -615,6 +608,13 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/heroes-of-might-and-magic/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     }
   ]
 }
