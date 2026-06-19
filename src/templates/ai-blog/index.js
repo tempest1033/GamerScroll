@@ -2173,6 +2173,9 @@ function wrapWithLayout(content, options = {}) {
       if (document.body.classList.contains('ads-disabled')) return;
       if (ad.getAttribute('data-gs-ad-pushed') === '1') return;
       if (isHiddenAd(ad)) return;
+      // Zero-width slot -> skip; pushing into width:0 throws AdSense "availableWidth=0".
+      var pushRect = ad.getBoundingClientRect ? ad.getBoundingClientRect() : null;
+      if (pushRect && pushRect.width <= 0) return;
       observeAdVisualSize(ad);
       ad.setAttribute('data-gs-ad-pushed', '1');
       try {

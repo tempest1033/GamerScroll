@@ -917,6 +917,11 @@ const lazyCardHydrationScript = `
             if (cs && cs.display === 'none') return;
             node = node.parentElement;
           }
+          // Zero-width slot -> skip; pushing into width:0 throws the AdSense
+          // "availableWidth=0" TagError. Leave gsAdPushed unset so the
+          // IntersectionObserver retries once the slot has a real width.
+          var rect = ins.getBoundingClientRect ? ins.getBoundingClientRect() : null;
+          if (rect && rect.width <= 0) return;
           try {
             (window.adsbygoogle = window.adsbygoogle || []).push({});
             if (ins.dataset) ins.dataset.gsAdPushed = '1';
@@ -2252,6 +2257,9 @@ const adLazyLoadScript = `
     if (document.body.classList.contains('ads-disabled')) return;
     if (ad.getAttribute('data-gs-ad-pushed') === '1') return;
     if (isHiddenAd(ad)) return;
+    // Zero-width slot -> skip; pushing into width:0 throws AdSense "availableWidth=0".
+    var pushRect = ad.getBoundingClientRect ? ad.getBoundingClientRect() : null;
+    if (pushRect && pushRect.width <= 0) return;
     observeAdVisualSize(ad);
     ad.setAttribute('data-gs-ad-pushed', '1');
     try {
