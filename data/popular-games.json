@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-06-18T11:04:29.812Z",
+  "updatedAt": "2026-06-19T13:33:02.915Z",
   "period": "30days",
   "games": [
     {
-      "slug": "메이플-키우기",
-      "views": 14
-    },
-    {
       "slug": "올스타-아레나",
       "views": 8
+    },
+    {
+      "slug": "메이플-키우기",
+      "views": 7
     },
     {
       "slug": "궁영롱몽",
@@ -47,15 +47,19 @@
       "views": 2
     },
     {
-      "slug": "그놈은-드래곤",
-      "views": 2
-    },
-    {
       "slug": "배틀그라운드",
       "views": 2
     },
     {
+      "slug": "세븐나이츠-리버스",
+      "views": 2
+    },
+    {
       "slug": "승리의-여신-니케",
+      "views": 2
+    },
+    {
+      "slug": "컴투스프로야구v26",
       "views": 2
     },
     {
@@ -64,10 +68,6 @@
     },
     {
       "slug": "bongo-cat",
-      "views": 1
-    },
-    {
-      "slug": "delta-force",
       "views": 1
     },
     {
