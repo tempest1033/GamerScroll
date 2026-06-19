@@ -2043,17 +2043,12 @@ function wrapWithLayout(content, options = {}) {
         markAdEmpty(ad, reason || 'unfilled');
         return true;
       }
-      var frameHeight = getAdFrameHeight(ad);
-      if (isAdSenseServingReady()) {
-        if (!collapseMode || frameHeight > 1) return false;
-        if (retryPendingAd(ad, reason || 'pending-no-frame')) return false;
-        markAdEmpty(ad, reason || 'empty-no-frame');
-        return true;
-      }
-      if (!collapseMode) return false;
-      if (frameHeight <= 1 || collapseMode === true) {
-        markAdEmpty(ad, reason || 'empty-timeout');
-        return true;
+      // Status not yet resolved ('(none)'/missing): treat as PENDING and never
+      // collapse. Only an explicit AdSense 'unfilled' may hide a slot now, so a
+      // slow network or a late-painting iframe can no longer drop a fillable
+      // impression. Still nudge a retry while serving is ready and no frame exists.
+      if (collapseMode && isAdSenseServingReady() && getAdFrameHeight(ad) <= 1) {
+        retryPendingAd(ad, reason || 'pending-no-frame');
       }
       return false;
     }
@@ -2195,6 +2190,7 @@ function wrapWithLayout(content, options = {}) {
       }
       return;
     }
+    var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
     var firstVisibleIndex = -1;
     for (var fi = 0; fi < ads.length; fi++) {
       if (!isHiddenAd(ads[fi])) { firstVisibleIndex = fi; break; }
@@ -2209,10 +2205,18 @@ function wrapWithLayout(content, options = {}) {
             btfObserver.unobserve(entry.target);
             pushAd(entry.target);
           });
-        }, { rootMargin: '1200px 0px' });
+        }, { rootMargin: '2000px 0px' }); // widened from 1200px: request slightly sooner on intent-to-scroll
         __gsAdCleanup.push(function() { try { btfObserver.disconnect(); } catch (e) {} });
       }
       for (var j = (firstVisibleIndex >= 0 ? firstVisibleIndex + 1 : 1); j < ads.length; j++) {
+        // Eager-push slots already within the first screen (+25% slack): visible
+        // without scrolling, so requesting them costs no viewability but recovers
+        // impressions from no-scroll/bounce sessions.
+        var rect = ads[j].getBoundingClientRect ? ads[j].getBoundingClientRect() : null;
+        if (rect && rect.top < viewportH * 1.25) {
+          pushAd(ads[j]);
+          continue;
+        }
         if (btfObserver) btfObserver.observe(ads[j]);
         else pushAd(ads[j]);
       }
