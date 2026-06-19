@@ -181,6 +181,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-block-gap);
+  align-content: start;
 }
 
 /* 그리드 간격과 카드 마진 중복 방지 */
