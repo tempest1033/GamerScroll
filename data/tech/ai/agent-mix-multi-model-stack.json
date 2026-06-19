@@ -1,0 +1,274 @@
+{
+  "slug": "agent-mix-multi-model-stack",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "에이전트 믹스 부상: 고성능 모델이 지휘하고 가성비 모델이 실행",
+  "titleEn": "The Agent Mix: One Orchestrator, Many Models",
+  "summary": "한 모델로 모든 작업을 처리하던 시대가 저물고 있다. 비용이 많이 드는 프론티어 모델에는 지휘를 맡기고, 작업은 저렴한 모델로 라우팅하여 그록·제미나이·GPT·딥시크를 하나의 팀으로 구성하는 에이전트 믹스가 부상하고 있다.",
+  "summaryEn": "The era of the single AI model is fading. Costly frontier models now orchestrate cheaper task-specific ones, uniting Grok, Gemini, GPT, and DeepSeek.",
+  "keywords": "에이전트 믹스, 멀티 모델, 오케스트레이터, 딥시크 가성비",
+  "keywordsEn": "agent mix, multi-model, token cost, DeepSeek cost",
+  "thumbnail": "https://imageio.forbes.com/specials-images/imageserve/6a1dba67cffc937e1f88031b/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+  "sources": [
+    {
+      "name": "The Verge",
+      "title": "Microsoft starts canceling Claude Code licenses",
+      "url": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad"
+    },
+    {
+      "name": "Uber Engineering",
+      "title": "Uber's Innovation with GenAI Gateway",
+      "url": "https://www.uber.com/us/en/blog/genai-gateway/"
+    },
+    {
+      "name": "evolink",
+      "title": "Best LLM for Coding Agents: API Cost, Tool Use, and Reliability Compared",
+      "url": "https://evolink.ai/blog/best-llm-for-coding-agents-api-cost-reliability"
+    },
+    {
+      "name": "MindStudio",
+      "title": "How to Use a Smart Orchestrator Model to Direct Cheaper Sub-Agents",
+      "url": "https://www.mindstudio.ai/blog/smart-orchestrator-cheaper-sub-agent-models-claude-code"
+    },
+    {
+      "name": "BuildFastWithAI",
+      "title": "Every AI Model Compared: Best One Per Task (2026)",
+      "url": "https://www.buildfastwithai.com/blogs/best-ai-model-per-task-2026"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/microsoft-copilot-deepseek-china-models",
+    "tech:ai/openrouter-fusion-multi-model",
+    "tech:ai/best-coding-agents-2026-ranked",
+    "tech:ai/openai-token-price-cut-anthropic"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 들어 단일 AI 모델로 모든 작업을 해결하던 흐름에 변화가 감지되고 있다. 앤트로픽과 오픈AI 등 주요 인공지능 기업의 토큰 사용료가 상승하자, 업계에서는 메인 모델이 하위 작업 모델을 지휘하는 '에이전트 믹스' 기법을 표준으로 채택하는 추세다.\n\n이러한 전환은 두 가지 기술적 진보에 기인한다. 전체 공정을 설계하는 오케스트레이터 모델이 안정적인 위임 작업을 수행할 만큼 고도화되었고, 단순 작업에 저렴한 모델을 배치해도 품질 저하가 거의 없음이 입증됐다. 계획과 검수에만 고가 모델을 쓰고 실제 작업은 가성비 모델로 돌릴 경우, 전체 토큰 비용을 [5~10배까지 절감했다는 보고](https://www.mindstudio.ai/blog/smart-orchestrator-cheaper-sub-agent-models-claude-code)도 잇따른다."
+    },
+    {
+      "type": "heading",
+      "value": "지금 섞는 이유: 토큰값과 멀티 모델 라우팅"
+    },
+    {
+      "type": "text",
+      "value": "결국 핵심 요인은 비용이다. 에이전트는 파일 읽기, 코드 수정, 명령 실행 등을 거치며 수분에서 수시간 동안 작동하기 때문에 단순 챗봇보다 토큰을 10배에서 100배까지 더 소비한다. 특히 클로드 오퍼스(Claude Opus) 같은 최고 사양 모델은 출력 토큰 단가가 입력보다 몇 배나 비싸, 작업량에 비례해 비용 부담이 급격히 불어난다."
+    },
+    {
+      "type": "text",
+      "value": "눈에 띄지 않는 기술적 변경 사항도 비용 부담을 더한다. 서비스 공급업체가 토크나이저를 변경하면 동일한 텍스트도 더 많은 토큰으로 계산되어 공식 단가표가 그대로임에도 실질 비용이 올라간다. 최근 오픈AI가 토큰 사용료 인하 카드를 검토하는 것도 이러한 시장 압박에 대응하기 위한 조치로 풀이된다."
+    },
+    {
+      "type": "text",
+      "value": "모델 혼용의 필요성이 커지면서 이를 뒷받침할 인프라도 함께 성숙했다. 오픈라우터(OpenRouter)와 라이트LLM(LiteLLM) 같은 통합 플랫폼은 다양한 개발사의 모델을 오픈AI와 호환되는 단일 인터페이스로 묶어 비용, 지연 시간, 가용성에 맞춰 자동으로 쿼리를 라우팅한다. 클로드 코드(Claude Code) 등 개발 에이전트 도구도 서브에이전트 위임 기능을 기본 탑재하기 시작했다. 이런 인프라 덕에 여러 회사의 모델을 섞는 멀티 모델 구성을 짜는 진입 장벽도 부쩍 낮아졌다."
+    },
+    {
+      "type": "heading",
+      "value": "작업별 강점 지도: 그록, 제미나이, GPT, 딥시크"
+    },
+    {
+      "type": "image",
+      "src": "https://tb-static.uber.com/prod/udam-assets/c413cd38-b822-5bf6-8164-196c7027aaf2.jpg",
+      "caption": "인공지능을 형상화한 개념 이미지.",
+      "alt": "AI 칩과 회로를 형상화한 인공지능 이미지"
+    },
+    {
+      "type": "text",
+      "value": "도구가 마련되자 핵심 과제는 각 세부 작업에 어떤 모델을 배치할지로 좁혀졌다. 최신 주요 모델 간의 벤치마크 점수 차이는 이제 한 자릿수 이내로 좁혀진 상태다. 단 하나의 '최우수 모델'을 선정하는 일은 의미가 퇴색했으며, 개별 작업의 특성에 맞춰 최적의 모델을 골라내는 선별 능력이 개발팀의 경쟁력으로 떠올랐다."
+    },
+    {
+      "type": "text",
+      "value": "실제 추천하는 조합 구조는 다음과 같다. 실시간 정보 검색은 그록(Grok)이 수행하고, 프론트엔드 개발과 이미지 생성은 멀티모달 기능이 뛰어난 제미나이(Gemini)가 담당한다. 백엔드 설계는 API 생태계가 넓은 GPT를 활용한다. 대량의 코드 생성과 실행을 도맡는 실무직에는 실행 비용이 저렴한 딥시크(DeepSeek)를 배치하고, 전반적인 조율과 문서 관리는 클로드 오퍼스(Claude Opus)가 오케스트레이터로 진두지휘하는 형태다."
+    },
+    {
+      "type": "table",
+      "caption": "작업별 추천 모델 배치 예시",
+      "headers": [
+        "모델",
+        "맡는 자리",
+        "강점"
+      ],
+      "rows": [
+        [
+          "그록",
+          "검색",
+          "실시간 웹·소셜 탐색"
+        ],
+        [
+          "제미나이",
+          "프론트엔드·이미지 생성",
+          "멀티모달·비전"
+        ],
+        [
+          "GPT",
+          "백엔드",
+          "성숙한 API 생태계·툴 콜"
+        ],
+        [
+          "딥시크",
+          "작업자",
+          "대량 생성·실행, 압도적 가성비"
+        ],
+        [
+          "오퍼스",
+          "오케스트레이터·오피스",
+          "계획·검수·문서 작업"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "이러한 배치의 중심에는 딥시크의 뛰어난 가성비가 있다. 토큰을 가장 많이 쓰는 실무 자리에 단가가 낮은 모델을 배치해야 전체 운영비를 유의미하게 낮출 수 있기 때문이다. 한 [비용 비교 조사](https://evolink.ai/blog/best-llm-for-coding-agents-api-cost-reliability)에 따르면, 딥시크는 선두권 프론티어 모델 가격의 일부만으로 유사한 품질의 코드를 작성한다. 전체 작업량의 80~90%를 이처럼 저렴한 모델로 넘기는 설계가 에이전트 믹스의 핵심 실속이다. 여러 모델을 섞는 멀티 모델 설계에서 가성비는 선택이 아니라 전제인 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "현장의 신호: 마이크로소프트 라이선스 축소와 우버의 통합"
+    },
+    {
+      "type": "text",
+      "value": "마이크로소프트는 이러한 비용 절감 흐름을 가장 명확하게 보여준 사례다. 마이크로소프트는 6월 말 자사 소프트웨어 엔지니어 약 10만 명에게 지급했던 [클로드 코드 라이선스를 대부분 회수](https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad)하고, 자체 서비스인 코파일럿(Copilot)으로 전환했다. 사용료 증가에 따른 비용 통제가 직접적인 원인이었다."
+    },
+    {
+      "type": "text",
+      "value": "단순히 라이선스를 줄이는 데서 끝나지 않는다. 마이크로소프트는 코파일럿의 운영비를 낮추기 위해 백엔드에 딥시크와 같은 가성비 모델을 [연동하는 방안도 함께 추진](/ko/article/general/microsoft-copilot-deepseek-china-models/)하고 있다. 모든 명령에 비싼 프론티어 모델을 호출하는 대신, 고성능 모델로 뼈대를 짜고 저비용 모델로 실행을 분담하는 방식은 에이전트 믹스의 핵심 원리와 맞닿아 있다."
+    },
+    {
+      "type": "text",
+      "value": "우버(Uber)는 여기서 한 걸음 더 나아갔다. 우버는 다양한 개발사의 모델을 오픈AI 표준 API 형식으로 통합해 연결하는 사내 플랫폼 '[젠AI 게이트웨이(GenAI Gateway)](https://www.uber.com/us/en/blog/genai-gateway/)'를 구축했다. 개발팀은 어떤 모델이든 동일한 방식으로 호출하며, 비용과 효율성에 맞춰 실시간으로 교체할 수 있다. 수만 명 규모의 기업이 이미 멀티 모델 체제를 핵심 기본 인프라로 가동하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "오케스트레이터가 가른다: 에이전트 믹스의 배선"
+    },
+    {
+      "type": "text",
+      "value": "이론적인 조합표를 짜는 것과 실제 구동하는 것은 별개다. 실질적인 성패는 오케스트레이터를 어떻게 운용하느냐에 달렸다. 가장 많이 발생하는 실수는 지휘를 맡은 모델이 스스로 코드를 작성해 버리는 현상이다. 따라서 설정 파일에 직접 코드 생성을 차단하고 하위 모델에 위임하도록 명시하는 것이 최적화의 첫걸음이다."
+    },
+    {
+      "type": "text",
+      "value": "저렴한 모델의 높은 오류율도 반드시 감안해야 한다. 오케스트레이터가 하위 모델의 모든 출력물을 확인하고, 오류가 반복되면 더 고성능 모델로 작업을 전환하는 예외 처리를 마련해야 한다. 서브에이전트에 전체 코드베이스를 전송하면 저가 모델이라도 토큰 낭비가 발생하므로, 필요한 맥락 정보만 선별해 넘기는 관리 기술이 요구된다."
+    },
+    {
+      "type": "text",
+      "value": "단일 AI 공급업체에 의존하는 시대는 저물어가고 있다. 오픈라우터의 [퓨전(Fusion)](/ko/article/general/openrouter-fusion-multi-model/)처럼 여러 모델을 하나로 묶는 기능은 이미 시장에 나와 있다. 주목할 점은 이런 합성이 비용 절감에 그치지 않는다는 것이다. 퓨전의 자체 벤치마크에서는 여러 모델의 답을 판정해 합성한 결과가 개별 모델 단독 답보다 일관되게 높은 평가를 받았다. 잘 섞으면 비용은 내려가고 품질은 오히려 올라간다는 뜻이다.\n\n에이전트 믹스가 보편화될수록 경쟁력의 핵심은 개별 모델의 사양보다 여러 모델을 유기적으로 배선하는 아키텍처 설계 역량으로 이동할 전망이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In 2026, the assumption that a single AI model can do everything is breaking down. As token fees from frontier labs like Anthropic and OpenAI rise, a new design pattern is becoming the industry standard: a main model orchestrates task-specific models in what is known as an 'agent mix.'\n\nThis shift is driven by two developments. Orchestrators have become sophisticated enough to delegate tasks reliably, and developers have confirmed that executing tasks with cheaper models does not compromise output quality. Restricting the frontier model to planning and verification while routing the bulk of the workload to budget models can reduce token costs [by 5 to 10 times](https://www.mindstudio.ai/blog/smart-orchestrator-cheaper-sub-agent-models-claude-code)."
+    },
+    {
+      "type": "heading",
+      "value": "Why Mix Now: Token Costs and Multi-Model Routing"
+    },
+    {
+      "type": "text",
+      "value": "The primary driver behind this mix is cost. Unlike simple chatbots, autonomous agents consume 10 to 100 times more tokens per task because they must read files, edit code, execute commands, and run for minutes or even hours. Output tokens for top-tier models like Claude Opus cost several times more than input tokens, causing operational bills to scale directly with workload. For an autonomous AI agent, that token cost compounds with every single step."
+    },
+    {
+      "type": "text",
+      "value": "Financial pressure also mounts from less visible changes. When providers update their tokenizers, the same text can consume more tokens, quietly increasing bills even when official pricing remains unchanged. OpenAI's recent moves toward token price reductions are directly linked to this industry pressure."
+    },
+    {
+      "type": "text",
+      "value": "As the need to mix models grew, the supporting infrastructure matured in tandem. Integration platforms like OpenRouter and LiteLLM wrap models from competing providers into unified, OpenAI-compatible interfaces, automatically routing queries based on cost, latency, and availability. Developer tools like Claude Code also increasingly support subagent delegation as a native feature. This infrastructure has sharply lowered the barrier to assembling a multi-model setup from rival vendors."
+    },
+    {
+      "type": "heading",
+      "value": "Task-Specific Strengths: Grok, Gemini, GPT, and DeepSeek"
+    },
+    {
+      "type": "image",
+      "src": "https://tb-static.uber.com/prod/udam-assets/c413cd38-b822-5bf6-8164-196c7027aaf2.jpg",
+      "caption": "An illustration representing artificial intelligence.",
+      "alt": "Artificial intelligence chip and circuit illustration"
+    },
+    {
+      "type": "text",
+      "value": "With these tools available, the primary challenge is determining which model to assign to each specific task. Performance scores among leading models have converged within single-digit margins on most benchmarks. Selecting a single 'best' overall model has become less relevant; instead, developer expertise lies in matching models to their optimal workloads."
+    },
+    {
+      "type": "text",
+      "value": "A typical optimization lineup distributes tasks strategically. Search is routed to Grok for its real-time capabilities. Frontend development and image generation leverage Gemini due to its multimodal strengths. Backend tasks go to GPT to benefit from its mature API ecosystem. Heavy code generation and execution are assigned to DeepSeek for its minimal cost, while Claude Opus serves as the central orchestrator, directing the workflow and managing document-heavy tasks."
+    },
+    {
+      "type": "table",
+      "caption": "An example task-to-model lineup",
+      "headers": [
+        "Model",
+        "Seat",
+        "Strength"
+      ],
+      "rows": [
+        [
+          "Grok",
+          "Search",
+          "Real-time web and social"
+        ],
+        [
+          "Gemini",
+          "Frontend, image generation",
+          "Multimodal and vision"
+        ],
+        [
+          "GPT",
+          "Backend",
+          "Mature API ecosystem, tool calls"
+        ],
+        [
+          "DeepSeek",
+          "Worker",
+          "Bulk generation and execution, unbeatable cost"
+        ],
+        [
+          "Opus",
+          "Orchestrator, office",
+          "Planning, review, document work"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "The cornerstone of this distribution is the cost efficiency of DeepSeek. Because the worker tier consumes the highest volume of tokens, deploying DeepSeek, the least expensive capable model, there significantly reduces the overall operating expense. According to a [cost comparison](https://evolink.ai/blog/best-llm-for-coding-agents-api-cost-reliability), DeepSeek delivers comparable code quality at a fraction of the cost of frontier models. Assigning 80 to 90 percent of the workload to budget-tier models is what makes the agent mix financially viable. In a multi-model setup, that DeepSeek cost gap is the entire point."
+    },
+    {
+      "type": "heading",
+      "value": "Industry Signals: Microsoft Cuts Licenses, Uber Bundles Models"
+    },
+    {
+      "type": "text",
+      "value": "Microsoft provided a clear example of this financial math. By late June, the company [withdrew the majority of Claude Code licenses](https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad) from its roughly 100,000 engineers, transitioning them to its in-house Copilot tool. The decision was driven entirely by the need to manage escalating token costs."
+    },
+    {
+      "type": "text",
+      "value": "The strategy extends beyond license reductions. To lower Copilot's operational expenses, Microsoft is also weighing cheaper models like DeepSeek for the backend, [a path it is now actively exploring](/article/general/microsoft-copilot-deepseek-china-models/). Rather than routing every query to expensive frontier models, splitting the multi-model load between a high-end orchestrator and low-cost execution mirrors the core logic of the agent mix."
+    },
+    {
+      "type": "text",
+      "value": "Uber has taken integration a step further. The company implemented a [GenAI Gateway](https://www.uber.com/us/en/blog/genai-gateway/) that encapsulates models from various providers behind a unified, OpenAI-style API. This centralized access point allows developers to call any model identically and hot-swap them based on cost and performance. Consequently, an enterprise with tens of thousands of employees now operates on a multi-model infrastructure as a default."
+    },
+    {
+      "type": "heading",
+      "value": "The Orchestrator Decides: Wiring the Agent Mix"
+    },
+    {
+      "type": "text",
+      "value": "While theoretical combinations look promising, actual performance depends entirely on how the orchestrator manages the workflow. The most frequent error is allowing the orchestrator model to write code directly. The initial optimization step is to specify in the configuration file that the model must delegate code creation rather than generate it."
+    },
+    {
+      "type": "text",
+      "value": "It is also critical to account for the higher error rates of low-cost models. The orchestrator must review every output and route complex tasks to more capable models when errors persist. Furthermore, uploading an entire codebase to a subagent wastes tokens even at budget rates, making the precise curation of context a necessary practice."
+    },
+    {
+      "type": "text",
+      "value": "The era of relying on a single AI provider is ending. Platforms that bundle multiple models into one team — such as OpenRouter's [Fusion](/article/general/openrouter-fusion-multi-model/) — are already in production. And the payoff is not only cost. In OpenRouter's own benchmarks, an answer judged and synthesized from several models consistently scored higher than any single model's response — mix well, and the bill falls while quality actually rises.\n\nAs the agent mix becomes standard, the competitive advantage is moving from which specific model is used to how effectively developers wire a multi-model stack together."
+    }
+  ]
+}
