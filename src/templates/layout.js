@@ -2297,7 +2297,7 @@ const adLazyLoadScript = `
       // without scrolling, so requesting them costs no viewability but recovers
       // impressions from no-scroll/bounce sessions.
       var rect = ads[j].getBoundingClientRect ? ads[j].getBoundingClientRect() : null;
-      if (rect && rect.top < viewportH * 1.25) {
+      if (rect && rect.top < viewportH * 1.25 && rect.width > 0) {
         pushAd(ads[j]);
         continue;
       }
