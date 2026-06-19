@@ -1,0 +1,314 @@
+{
+  "slug": "sovereign-ai-global-scramble",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "needTranslate": false,
+  "date": "",
+  "title": "미소스 셧다운이 촉발한 '소버린 AI' 논쟁",
+  "titleEn": "Sovereign AI and the Mythos Kill Switch",
+  "summary": "미국 정부가 앤스로픽의 최신 AI모델 수출을 통제하자 유럽 등 동맹국들은 '킬 스위치'의 실재에 직면했다. 같은 날 중국이 오픈소스 모델 GLM-5.2를 무상 공개하면서, 미국의 인공지능(AI) 패권이 흔들릴 수 있다는 경고가 나온다.",
+  "summaryEn": "Washington's block on Anthropic's Fable 5 triggered a European 'kill switch' panic. The same day, China's open GLM-5.2 challenged US AI dominance.",
+  "keywords": "페이블 5, GLM-5.2, 소버린 AI, 수출 통제, 킬 스위치",
+  "keywordsEn": "Fable 5, Anthropic, GLM-5.2, export controls, sovereign AI",
+  "thumbnail": "https://fortune.com/img-assets/wp-content/uploads/2026/06/GettyImages-2239462715-e1778298633976.jpg?resize=1200,600",
+  "sources": [
+    {
+      "name": "Fortune",
+      "title": "Anthropic shutdown ignites calls for sovereign AI across Europe",
+      "url": "https://fortune.com/2026/06/16/anthropic-shutdown-sparks-global-scramble-for-sovereign-ai/"
+    },
+    {
+      "name": "TIME",
+      "title": "Anthropic Pulls Its Most Powerful AI Models After US Bars Foreign Access",
+      "url": "https://time.com/article/2026/06/13/anthropic-fable-mythos-ban-US-security/"
+    },
+    {
+      "name": "Business Insider",
+      "title": "The biggest winners and losers from US restrictions on Anthropic's AI",
+      "url": "https://www.businessinsider.com/anthropic-restrictions-mythos-fable-winners-losers-mistral-deepseek-openai-china-2026-6"
+    },
+    {
+      "name": "Trending Topics",
+      "title": "GLM-5.2: China's Zhipu AI Beats Even Google's Top Models With Its New Open LLM",
+      "url": "https://www.trendingtopics.eu/glm-5-2-chinas-zhipu-ai-beats-even-googles-top-models-with-its-new-open-llm/"
+    },
+    {
+      "name": "Computing",
+      "title": "At G7, euro AI sovereignty push intensifies after US blocks Anthropic models",
+      "url": "https://www.computing.co.uk/news/2026/at-g7-euro-ai-sovereignty-push-intensifies"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/fable-mythos-shutdown-industry-reactions",
+    "tech:ai/glm-5-2-open-vs-fable-block",
+    "tech:ai/japan-ai-colony-warning",
+    "tech:ai/claude-fable-5-mythos-5-government-suspension"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤스로픽이 2026년 6월 9일 최첨단 '미소스'급 AI 모델인 범용 '클로드 페이블 5'와 보안 특화형 '미소스 5'를 공개했다. 회사 측은 이들 모델이 지금까지 대중에 공개한 인공지능 중 성능이 가장 뛰어나다고 설명했다. 특히 클로드 페이블 5는 소프트웨어의 취약점을 탐지하는 성능이 탁월한 것으로 나타났다."
+    },
+    {
+      "type": "text",
+      "value": "사흘 뒤인 6월 12일 미국 트럼프 행정부는 국가안보를 이유로 수출 통제 행정명령을 내렸다. 모든 외국 국적자의 모델 접근을 차단하라는 강력한 조치였다. 이 지침에 따라 해외 이용자는 물론 미국 내 거주하는 외국인과 앤스로픽의 외국인 직원까지 서비스 이용 및 개발 접근이 막혔다."
+    },
+    {
+      "type": "text",
+      "value": "실시간 국적 분류가 불가능했던 앤스로픽은 전 세계 서비스를 일시 중단하는 결정을 내렸다. 미국 정부가 AI 반도체가 아닌 모델 자체에 수출 통제를 적용한 것은 이번이 처음이다. 가설로만 존재하던 '킬 스위치'가 현실화되면서 글로벌 '소버린 AI' 논쟁이 재점화됐다."
+    },
+    {
+      "type": "heading",
+      "value": "아마존의 제보와 동맹 길들이기"
+    },
+    {
+      "type": "text",
+      "value": "규제의 도화선은 경쟁사 제보였다. 아마존 연구진은 프롬프트를 우회해 클로드 페이블 5의 안전망을 뚫고, 소프트웨어 4종의 취약점 정보를 확보했다. 앤디 재시 아마존 최고경영자(CEO)가 이를 스콧 베선트 재무장관 등에게 전달하자, 백악관은 즉각 국가안보 리스크로 규정했다."
+    },
+    {
+      "type": "text",
+      "value": "앤스로픽은 즉각 반발했다. 정부가 제시한 근거는 '지엽적이고 비보편적인 탈옥 가능성에 대한 구두 증거'에 불과하다는 것이다. 이는 GPT-5.5 등 경쟁 도구도 수행하는 일반적 코드 분석 수준이며, 이 기준을 업계 전체에 적용하면 신규 모델 출시가 모두 마비될 것이라고 강조했다."
+    },
+    {
+      "type": "text",
+      "value": "이면에는 정부와 기업 간의 깊은 갈등이 있었다. 앤스로픽은 올해 초 미국 군 당국이 자사 모델을 완전자율무기나 대중 감시에 사용하는 것을 거부했고, 그 대가로 국방부 블랙리스트와 '공급망 리스크' 기업에 지정됐다. 기업공개(IPO)를 앞둔 민감한 시점에 단행된 이번 서비스 중단을 두고, 정부가 독자 행동을 하는 파트너를 길들이려는 조치라는 분석이 나오는 배경이다."
+    },
+    {
+      "type": "heading",
+      "value": "소버린 AI와 남의 스위치"
+    },
+    {
+      "type": "image",
+      "src": "https://i.insider.com/6a326be44074dae0e204484d?width=1200&format=jpeg",
+      "caption": "(왼쪽부터) 아르튀르 멘쉬 미스트랄 CEO, 다리오 아모데이 앤스로픽 CEO, 샘 올트먼 오픈AI CEO",
+      "alt": "왼쪽부터 멘쉬, 아모데이, 올트먼 최고경영자"
+    },
+    {
+      "type": "text",
+      "value": "유럽은 이번 종속의 여파를 가장 뼈아프게 절감했다. 유럽연합(EU)은 기술의 80% 이상, 클라우드의 70%를 역외 공급업체에 의존하는 반면, 미국과 중국은 글로벌 AI 컴퓨팅 인프라의 약 90%를 차지하고 있다. 기술적 의존이 하루아침에 심각한 취약점으로 바뀌자, 소버린 AI를 향한 각국의 발걸음도 빨라졌다."
+    },
+    {
+      "type": "text",
+      "value": "영국 병원과 기업, 연구진의 페이블 5 접근이 즉각 차단됐다. 톰 터겐다트 전 안보장관은 국가안보가 '대포가 아닌 코드의 문제'라고 지적했다. 세바스티앵 르코르뉘 프랑스 총리는 국산 미스트랄 기반 모델 도입을 선언하며 특정 파트너의 선의에 기댈 수 없다고 천명했고, 정보기관도 팔란티어 도구를 자국산으로 교체하기 시작했다. 일본 역시 자국이 'AI 식민지'로 전락할 수 있다고 [경고하고 나섰다](/ko/article/general/japan-ai-colony-warning/)."
+    },
+    {
+      "type": "text",
+      "value": "산드라 바흐터 옥스퍼드대 교수는 [포춘](https://fortune.com/2026/06/16/anthropic-shutdown-sparks-global-scramble-for-sovereign-ai/)에 당시 분위기를 이같이 전했다. '늘 알고 있었지만 실감하지는 못했던 일이다. 우리가 힘이 없는 쪽, 즉 킬 스위치를 바라봐야 하는 처지에 놓인다는 게 무엇인지 이제야 깨달았다.'"
+    },
+    {
+      "type": "heading",
+      "value": "4,900억 달러 패키지와 G7 신경전"
+    },
+    {
+      "type": "text",
+      "value": "미국의 수출 통제가 촉발한 위기는 소버린 AI 흐름에 또 한 번 불을 지폈다. 마침 EU는 사태 직전인 6월 3일 '유럽 기술주권 패키지'를 발표한 상태였다. 반도체법 2.0과 클라우드·AI 개발법을 두 축으로 10년간 약 4,220억 유로(4,900억 달러)를 투자해 5년 내 데이터센터 용량을 3배로 늘린다는 구상이다. 우르줄라 폰데어라이엔 집행위원장은 '병원 가동을 지속하게 하는 기술을 남에게 의존할 수 없다'고 밝혔다."
+    },
+    {
+      "type": "text",
+      "value": "수출 통제를 둘러싼 프랑스 G7 정상회의에서도 미묘한 신경전이 벌어졌다. 하워드 러트닉 미 상무장관은 동맹국에 최첨단 미국 AI 우선 접근권을 주는 '신뢰할 수 있는 파트너' 구상을 제안했다. 그러나 국적별로 접근권을 차등 배분하겠다는 발상은 즉각 반발을 불렀다. 독일 출신 알렉산드라 기스 유럽의회 의원은 '미국이 유럽을 동맹이 아닌 적으로 본다는 뜻'이라고 비판했다."
+    },
+    {
+      "type": "heading",
+      "value": "같은 날 공개된 GLM-5.2"
+    },
+    {
+      "type": "image",
+      "src": "https://www.trendingtopics.eu/wp-content/uploads/2026/06/Zhipu-AI-2000x1333-1.jpg",
+      "caption": "즈푸 AI(현 Z.ai)의 미디어 행사 현장",
+      "alt": "중국 Z.ai의 GLM 모델 발표 행사"
+    },
+    {
+      "type": "text",
+      "value": "가장 대조적인 장면은 태평양 건너편에서 나왔다. 미국 정부가 페이블 5의 문을 닫아건 바로 그날, 중국 베이징의 Z.ai(옛 즈푸 AI)는 신형 GLM-5.2를 출시했다. 사용량 제한이나 국가별 차단이 없는 MIT 라이선스 기반 오픈웨이트 모델로, 누구나 비용 없이 내려받아 자체 서버에서 돌릴 수 있는 형태다."
+    },
+    {
+      "type": "text",
+      "value": "성능은 마케팅 구호에 그치지 않았다. 독립 평가기관 아티피셜 애널리시스는 GLM-5.2를 구글 제미나이 일부 모델마저 추월한 오픈소스 1위 모델로 평가했다. 인간 평가 중심의 LMArena 코딩 부문에서는 페이블 5 서비스 중단 이후 실질적 최강 모델에 올랐고, 최상위 코딩 벤치마크에서만 클로드 오퍼스 4.8에 근소하게 밀렸다."
+    },
+    {
+      "type": "text",
+      "value": "핵심 경쟁력은 저렴한 비용이다. GLM-5.2의 토큰 단가는 GPT-5.5나 클로드 오퍼스의 수분의 일 수준이다. 여기에 최근 74억 달러를 확보한 딥시크까지 가세했다. 포춘의 분석처럼 미국이 거대 자본으로 기술 한계를 쫓는다면, 칩과 자본 제약에 직면한 중국은 오픈소스와 비용 효율, 빠른 보급이라는 다른 전략을 취하고 있다."
+    },
+    {
+      "type": "table",
+      "caption": "앤스로픽 차단이 가른 승자와 패자",
+      "headers": [
+        "구분",
+        "기업",
+        "이유"
+      ],
+      "rows": [
+        [
+          "승자",
+          "미스트랄 · 딥시크 · Z.ai",
+          "오픈웨이트 — 직접 내려받아 자체 인프라에 배포·감사 가능"
+        ],
+        [
+          "패자",
+          "앤스로픽",
+          "정부가 접근을 통제할 수 있는 폐쇄형 모델의 약점 노출"
+        ],
+        [
+          "단기 승자 · 장기 패자",
+          "오픈AI · 구글 · xAI",
+          "지금은 반사이익, 그러나 같은 통제 리스크를 안음"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "흔들리는 패권, 기술 자립은 가능한가"
+    },
+    {
+      "type": "text",
+      "value": "역설적인 상황이 벌어졌다. 미국이 자국의 가장 강력한 모델을 잠그자마자, 미국 영토 밖에서 사용할 수 있는 가장 성능 좋은 오픈소스 모델이 중국산이 된 것이다. 미국의 통제가 엄격해질수록 시장의 주도권은 오픈소스로 이동하고 있으며, 그 무게중심도 점차 베이징으로 쏠리고 있다. 소버린 AI라는 구호가 비로소 현실의 무게를 갖기 시작한 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "물론 냉정한 반론도 있다. 카네기 국제평화재단의 안톤 라이히트 연구원은 단기간의 자립은 불가능하다고 지적한다. 미국이 프론티어 모델 개발과 학습용 칩 공급망을 장악하고 있어, 최선의 메가 프로젝트를 가동해도 격차를 좁히는 데 2년 이상 걸린다는 분석이다. AI 주권을 외치기는 쉬워도 종속에서 벗어나는 것은 여전히 어렵다."
+    },
+    {
+      "type": "text",
+      "value": "그럼에도 미소스 셧다운이 던진 질문은 무겁다. 미국의 기술 우위가 붕괴한 것은 아니나, 이를 무기화해 동맹국까지 차별하는 행태는 경쟁자에게 시장과 명분을 넘겨주는 자충수가 될 수 있다. 6월 14일 앤스로픽과 백악관이 대면 협상에 나서며 수습에 들어갔지만, 한번 드러난 실체는 사라지지 않는다. 결국 세계 대부분의 AI가 다른 나라의 킬 스위치에 연결되어 있다는 엄연한 현실이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On June 9, 2026, Anthropic unveiled its premier 'Mythos-class' models: the general-purpose Claude Fable 5 and the security-focused Mythos 5. The company described them as its most capable public releases to date, with Fable 5 demonstrating exceptional proficiency in identifying software vulnerabilities."
+    },
+    {
+      "type": "text",
+      "value": "Three days later, on June 12, the Trump administration issued an export controls directive on national security grounds. The order was absolute: block all foreign nationals from accessing the models. This restriction applied to overseas users, foreign citizens within the United States, and Anthropic's own foreign employees."
+    },
+    {
+      "type": "text",
+      "value": "Unable to filter users by nationality in real time, Anthropic suspended the models worldwide. This marked the first time Washington imposed export controls directly on an AI model rather than its underlying hardware. The long-debated 'kill switch' had become a reality, reigniting global discussions over sovereign AI."
+    },
+    {
+      "type": "heading",
+      "value": "The Amazon Tip and a Test of Loyalty"
+    },
+    {
+      "type": "text",
+      "value": "The sudden restriction was triggered by a tip from a competitor. Amazon researchers bypassed Fable 5's safety guardrails by altering prompt phrasing, extracting vulnerability details for at least four software products. Amazon CEO Andy Jassy reported these findings to Treasury Secretary Scott Bessent and other administration officials, prompting the White House to classify the model as a direct national security threat."
+    },
+    {
+      "type": "text",
+      "value": "Anthropic contested the decision. The company argued the government's case rested on 'verbal evidence of a potential narrow, non-universal jailbreak' — a level of standard code analysis that competing models like GPT-5.5 perform regularly. If this threshold were applied industry-wide, Anthropic warned, the development and release of new AI models would effectively freeze."
+    },
+    {
+      "type": "text",
+      "value": "A deeper dispute lay beneath the surface. Earlier this year, Anthropic declined to permit the US military to use its models for fully autonomous weapons or mass surveillance, leading to its inclusion on a Pentagon blacklist and a 'supply chain risk' designation. Occurring on the eve of its initial public offering, the forced shutdown is widely interpreted as an attempt to bring a defiant partner to heel."
+    },
+    {
+      "type": "heading",
+      "value": "Sovereign AI and a Borrowed Switch"
+    },
+    {
+      "type": "image",
+      "src": "https://i.insider.com/6a326be44074dae0e204484d?width=1200&format=jpeg",
+      "caption": "From left: Mistral CEO Arthur Mensch, Anthropic CEO Dario Amodei, and OpenAI CEO Sam Altman",
+      "alt": "From left, Arthur Mensch, Dario Amodei and Sam Altman"
+    },
+    {
+      "type": "text",
+      "value": "Europe felt the impact of this dependency most acutely. The European Union relies on non-EU providers for over 80% of its technology and 70% of its cloud services, while the United States and China control roughly 90% of global AI computing infrastructure. Overnight, this reliance transformed into an existential vulnerability."
+    },
+    {
+      "type": "text",
+      "value": "In the United Kingdom, hospitals, enterprises, and researchers immediately lost access to Fable 5. Former Security Minister Tom Tugendhat remarked that national security has become 'about code, not cannons.'"
+    },
+    {
+      "type": "text",
+      "value": "French Prime Minister Sébastien Lecornu announced a transition to a domestic Mistral-based model, declaring that France 'cannot depend on the goodwill of particular partners.' Its intelligence services moved to replace Palantir's tools with a French alternative, and in Asia, Japan [warned it risks becoming a colony](/article/general/japan-ai-colony-warning/) of foreign AI."
+    },
+    {
+      "type": "text",
+      "value": "Oxford professor Sandra Wachter described the prevailing sentiment to [Fortune](https://fortune.com/2026/06/16/anthropic-shutdown-sparks-global-scramble-for-sovereign-ai/): 'This is something we have always known, but never really felt. We have never quite felt what it means to be on the short end of the stick — on the side that has to face the kill switch.'"
+    },
+    {
+      "type": "heading",
+      "value": "A $490 Billion Package and a G7 Standoff"
+    },
+    {
+      "type": "text",
+      "value": "Coincidentally, the EU had unveiled its 'European Technological Sovereignty Package' on June 3, just before the shutdown. Built around a Chips Act 2.0 and a Cloud and AI Development Act, the initiative targets roughly €422 billion ($490 billion) over a decade and aims to triple EU data-center capacity within five years. 'We cannot afford to depend on others for the technologies that keep our hospitals running,' stated Commission President Ursula von der Leyen."
+    },
+    {
+      "type": "text",
+      "value": "At the G7 summit in France, a quieter standoff emerged. US Commerce Secretary Howard Lutnick proposed a 'trusted partners' framework to grant allied nations priority access to frontier US AI models. However, rationing access by nationality provoked a sharp backlash. German MEP Alexandra Geese remarked that the proposal indicated 'the US sees Europe as an enemy, not a friend and ally.'"
+    },
+    {
+      "type": "heading",
+      "value": "GLM-5.2 Released the Very Same Day"
+    },
+    {
+      "type": "image",
+      "src": "https://www.trendingtopics.eu/wp-content/uploads/2026/06/Zhipu-AI-2000x1333-1.jpg",
+      "caption": "A media event held by Zhipu AI, now Z.ai",
+      "alt": "Z.ai's GLM model launch event in China"
+    },
+    {
+      "type": "text",
+      "value": "The most telling development occurred across the Pacific. On the exact day Washington restricted access to Fable 5, Beijing-based Z.ai, formerly known as Zhipu AI, released GLM-5.2. It debuted as an MIT-licensed, open-weight model with no usage restrictions or geographic blocks, allowing anyone to download and run it on their own servers free of charge. It was, in effect, a ready-made sovereign AI alternative."
+    },
+    {
+      "type": "text",
+      "value": "Its performance was no mere marketing claim. Independent research firm Artificial Analysis ranked GLM-5.2 as the leading open-source model, surpassing even several of Google's Gemini models. On the human-evaluated LMArena coding leaderboard, GLM-5.2 became the most powerful accessible model available after Fable 5's removal under US export controls, trailing only Claude Opus 4.8 by a slim margin on the most demanding coding benchmarks."
+    },
+    {
+      "type": "text",
+      "value": "GLM-5.2's primary advantage is cost, undercutting GPT-5.5 and Claude Opus by several fold. Coupled with DeepSeek, which recently raised $7.4 billion, the competitive landscape is shifting."
+    },
+    {
+      "type": "text",
+      "value": "As Fortune observed, China is not running the same race. While American developers chase the frontier with massive capital, China—constrained by chip and capital limits—plays a different game built on open source, cost efficiency, and rapid distribution."
+    },
+    {
+      "type": "table",
+      "caption": "Winners and losers after the Fable 5 block and the GLM-5.2 surge",
+      "headers": [
+        "Verdict",
+        "Player",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Winner",
+          "Mistral · DeepSeek · Z.ai",
+          "Open-weight — customers can download, self-host and audit"
+        ],
+        [
+          "Loser",
+          "Anthropic",
+          "Exposed the weakness of a closed model a government can gate"
+        ],
+        [
+          "Short-term winner, long-term loser",
+          "OpenAI · Google · xAI",
+          "Reap the spillover now, but carry the same control risk"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Shaken Dominance, but Is a Wake-up Possible?"
+    },
+    {
+      "type": "text",
+      "value": "The irony is striking. The moment the US restricted access to its most powerful model, the most capable open-source model available outside the country was GLM-5.2, a Chinese one. As Washington tightens its export controls, bargaining power shifts toward open source, tilting the industry's center of gravity toward Beijing and accelerating the global push for sovereign AI."
+    },
+    {
+      "type": "text",
+      "value": "Yet a sober counterargument exists. Anton Leicht of the Carnegie Endowment for International Peace flatly asserts there is 'no short-term waking up' for dependent nations. Since only US firms construct frontier models and Washington controls the underlying silicon required to train them, even a best-case sovereign megaproject would require at least two years to catch up. Proclaiming AI sovereignty is simple; escaping dependence remains as difficult as ever."
+    },
+    {
+      "type": "text",
+      "value": "Nevertheless, the Mythos shutdown raises a profound question. The issue is not that US technical supremacy has cracked, but that weaponizing this dominance against allies risks ceding both market share and moral ground to rivals. Although Anthropic engineers and White House officials initiated face-to-face negotiations on June 14 to negotiate a truce, the underlying truth remains exposed: most of the world's AI infrastructure relies on a kill switch controlled by another nation, and that switch is real."
+    }
+  ]
+}
