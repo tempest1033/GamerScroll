@@ -3,7 +3,7 @@
   "site": "gamerscroll",
   "status": "approved",
   "type": "issue",
-  "date": "",
+  "date": "2026-06-19T10:30+09:00",
   "title": "팰월드 개발사 포켓페어 \"게이머는 생성형 AI 원치 않는다\"",
   "summary": "팰월드 개발사 포켓페어가 생성형 AI를 도입하지 않는 이유로 '게이머의 반대'를 꼽았다. 아티스트의 자율성 존중과 함께, 향후 인간이 제작한 게임이 경쟁력을 갖는 '진정성 시장'이 열릴 것이라는 분석이다.",
   "keywords": [
@@ -83,6 +83,9 @@
     "issue:game-ai-paradigm-shift-2026",
     "issue:ai-basic-act-game-industry-confusion"
   ],
-  "relatedGames": ["palworld", "stellar-blade"],
+  "relatedGames": [
+    "palworld",
+    "stellar-blade"
+  ],
   "relatedArticles": []
 }
