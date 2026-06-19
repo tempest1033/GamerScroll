@@ -38,8 +38,25 @@ export async function onRequest(context) {
   const host = (request.headers.get("host") || url.hostname || "").toLowerCase();
 
   if (host.includes("gamerscroll.com")) {
+    // www -> non-www 301: consolidate to the canonical bare host so Google does
+    // not crawl both hosts and split indexing signals.
+    if (host.startsWith("www.")) {
+      return Response.redirect("https://gamerscroll.com" + path + url.search, 301);
+    }
     const legacyRedirect = await handleGamerScrollLegacyRedirect(url, path);
     if (legacyRedirect) return legacyRedirect;
+    // Privacy data fragment (fetched by layout.js) must not be indexed as a
+    // standalone page — it duplicates the real /privacy/ page.
+    if (path === "/assets/privacy-content" || path === "/assets/privacy-content.html") {
+      const response = await next();
+      try {
+        const cloned = new Response(response.body, response);
+        cloned.headers.set("X-Robots-Tag", "noindex");
+        return cloned;
+      } catch {
+        return response;
+      }
+    }
     return next();
   }
 
