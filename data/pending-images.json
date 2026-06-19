@@ -440,6 +440,13 @@
       "type": "thumbnail.webp",
       "failedAt": "2026-06-17T05:21:36.134Z",
       "error": "HTTP 403: https://gizmodo.com/app/uploads/2023/12/a87bcbe64b7260c287db801c45e6d7ac.jpg"
+    },
+    {
+      "url": "https://www.trendingtopics.eu/wp-content/uploads/2026/06/Zhipu-AI-2000x1333-1.jpg",
+      "slug": "sovereign-ai-global-scramble",
+      "type": "02.webp",
+      "failedAt": "2026-06-19T07:42:05.927Z",
+      "error": "Timeout: https://www.trendingtopics.eu/wp-content/uploads/2026/06/Zhipu-AI-2000x1333-1.jpg"
     }
   ]
 }
