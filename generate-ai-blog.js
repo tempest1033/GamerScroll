@@ -260,6 +260,8 @@ function resolveArticleThumbnail(article) {
   return thumb;
 }
 
+let jsonLoadFailures = [];
+
 // 글 데이터 로드: site === "aiscroll" 기사만 통과
 function loadArticles() {
   const articles = [];
@@ -290,7 +292,8 @@ function loadArticles() {
         articles.push(articleData);
         loadedSlugs.add(data.slug);
       } catch (e) {
-        console.error(`로드 실패: ${file}`, e.message);
+        console.error(`❌ JSON 파싱 실패 — 빌드에서 제외됨: ${file} — ${e.message}`);
+        jsonLoadFailures.push({ file, error: e.message });
       }
     }
   }
@@ -315,7 +318,8 @@ function loadArticles() {
           articles.push({ ...data, source: `wiki/${cat}`, sourceFile: file, _jsonFilePath: fullPath });
           loadedSlugs.add(data.slug);
         } catch (e) {
-          console.error(`로드 실패: ${file}`, e.message);
+          console.error(`❌ JSON 파싱 실패 — 빌드에서 제외됨: ${file} — ${e.message}`);
+          jsonLoadFailures.push({ file, error: e.message });
         }
       }
     }
@@ -1027,6 +1031,12 @@ async function main() {
   showBuildSummary();
 
   console.log('\n=== AIScroll 빌드 완료 ===');
+
+  if (jsonLoadFailures.length > 0) {
+    console.error(`\n⚠️  ${jsonLoadFailures.length}개 기사가 JSON 파싱 실패로 빌드에서 제외됐습니다 (해당 기사는 이전 빌드 결과가 그대로 남습니다):`);
+    jsonLoadFailures.forEach(f => console.error(`   ❌ ${f.file}: ${f.error}`));
+    process.exitCode = 1;
+  }
 }
 
 // SEO 파일 생성 (sitemap, robots.txt, RSS)
